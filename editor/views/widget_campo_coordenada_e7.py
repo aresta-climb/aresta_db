@@ -10,9 +10,9 @@ e com suporte a estado nulo/vazio (onde 0 é uma coordenada válida).
 
 from enum import Enum
 from typing import Optional, Callable
-from PyQt6.QtCore import Qt, pyqtSignal, QUrl
-from PyQt6.QtGui import QDesktopServices
-from PyQt6.QtWidgets import (
+from PySide6.QtCore import Qt, Signal, QUrl
+from PySide6.QtGui import QDesktopServices
+from PySide6.QtWidgets import (
     QWidget,
     QHBoxLayout,
     QVBoxLayout,
@@ -117,7 +117,7 @@ class WidgetCampoCoordenadaE7(QWidget):
     Usa QLineEdit direto (sem setas de spinbox) e trata campo vazio como None,
     sendo 0 um valor numérico válido (Equador / Meridiano de Greenwich).
     """
-    valor_alterado_e7 = pyqtSignal(object)  # Optional[int]
+    valor_alterado_e7 = Signal(object)  # Optional[int]
 
     def __init__(
         self,

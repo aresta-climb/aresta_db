@@ -2,7 +2,7 @@
 # Copyright (C) 2026 Aresta Climb Contributors
 
 import sys
-from PyQt6.QtWidgets import QApplication, QPushButton
+from PySide6.QtWidgets import QApplication, QPushButton
 from aresta_api.proto.generated.croqui_pb2 import Pico, ArquivoMapas, ColecaoDeMapas, Mapa
 from editor.views.widget_editor_dados import WidgetFormularioPadrao
 from unittest.mock import MagicMock
@@ -27,7 +27,7 @@ def test_pico_renders_mapas_gerais_inline(qtbot):
     widget.load_node(mock_node)
     
     # We must find the collapsible widget or the label for Mapas gerais
-    from PyQt6.QtWidgets import QLabel
+    from PySide6.QtWidgets import QLabel
     found_mapas_gerais = False
     for label in widget.findChildren(QLabel):
         if "Mapas gerais" in label.text() or "Mapas Gerais" in label.text():

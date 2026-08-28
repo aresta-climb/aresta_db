@@ -6,13 +6,13 @@ from pathlib import Path
 from typing import Optional, Union
 from PIL import Image
 
-from PyQt6.QtWidgets import (
+from PySide6.QtWidgets import (
     QDialog, QVBoxLayout, QHBoxLayout, QLabel, QLineEdit, QListWidget,
     QListWidgetItem, QPushButton, QTabWidget, QWidget, QFileDialog,
     QMessageBox, QFrame
 )
-from PyQt6.QtCore import Qt, QSize, pyqtSignal
-from PyQt6.QtGui import QPixmap, QIcon, QImage, QDragEnterEvent, QDropEvent
+from PySide6.QtCore import Qt, QSize, Signal
+from PySide6.QtGui import QPixmap, QIcon, QImage, QDragEnterEvent, QDropEvent
 
 from editor.core.imagens_markdown import (
     sanitizar_nome_imagem,
@@ -27,7 +27,7 @@ class AreaDropImagemMarkdown(QWidget):
     """
     Área interativa para arrastar e soltar ou clicar para selecionar uma nova imagem.
     """
-    imagem_carregada = pyqtSignal(object)  # Emite caminho str ou QImage
+    imagem_carregada = Signal(object)  # Emite caminho str ou QImage
 
     def __init__(self, parent=None):
         super().__init__(parent)
@@ -355,7 +355,7 @@ class DialogoInserirImagemMarkdown(QDialog):
     def accept(self):
         legenda = self.input_legenda.text().strip()
         if not legenda:
-            from PyQt6.QtWidgets import QMessageBox
+            from PySide6.QtWidgets import QMessageBox
             QMessageBox.warning(self, "Legenda Obrigatória", "Por favor, informe a legenda da imagem antes de inserir.")
             self.input_legenda.setFocus()
             return
@@ -376,7 +376,7 @@ class DialogoInserirImagemMarkdown(QDialog):
             # Converte QImage para bytes PNG temporários se necessário
             fonte = self.fonte_imagem_importacao
             if isinstance(fonte, QImage):
-                from PyQt6.QtCore import QBuffer, QIODevice
+                from PySide6.QtCore import QBuffer, QIODevice
                 buffer = QBuffer()
                 buffer.open(QIODevice.OpenModeFlag.ReadWrite)
                 fonte.save(buffer, "PNG")

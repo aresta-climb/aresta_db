@@ -2,8 +2,8 @@
 # Copyright (C) 2026 Aresta Climb Contributors
 
 import pytest
-from PyQt6.QtWidgets import QMainWindow
-from PyQt6.QtCore import Qt
+from PySide6.QtWidgets import QMainWindow
+from PySide6.QtCore import Qt
 from editor.views.widget_saida_compilacao import WidgetSaidaCompilacao
 
 def test_widget_saida_compilacao_instanciacao(qtbot):

@@ -8,9 +8,9 @@ armazenadas em memória RAM ou em disco no editor.
 
 from pathlib import Path
 from typing import Optional, Dict
-from PyQt6.QtCore import Qt, pyqtSignal, QByteArray
-from PyQt6.QtGui import QPixmap, QImage
-from PyQt6.QtWidgets import (
+from PySide6.QtCore import Qt, Signal, QByteArray
+from PySide6.QtGui import QPixmap, QImage
+from PySide6.QtWidgets import (
     QWidget,
     QHBoxLayout,
     QVBoxLayout,
@@ -94,9 +94,9 @@ class WidgetCampoImagem(QWidget):
     """
     Widget de exibição de miniatura, metadados e controle de troca de imagem.
     """
-    imagem_alterada = pyqtSignal(str, bytes)  # caminho_relativo, bytes_conteudo
-    imagem_removida = pyqtSignal()
-    abrir_no_editor = pyqtSignal(str)  # caminho_relativo
+    imagem_alterada = Signal(str, bytes)  # caminho_relativo, bytes_conteudo
+    imagem_removida = Signal()
+    abrir_no_editor = Signal(str)  # caminho_relativo
 
     def __init__(
         self,

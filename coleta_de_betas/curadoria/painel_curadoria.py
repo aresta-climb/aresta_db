@@ -3,12 +3,12 @@
 
 from pathlib import Path
 from typing import Dict, List, Optional
-from PyQt6.QtWidgets import (
+from PySide6.QtWidgets import (
     QWidget, QVBoxLayout, QHBoxLayout, QLabel, QCheckBox, 
     QScrollArea, QPushButton, QFrame, QGroupBox
 )
-from PyQt6.QtCore import Qt, pyqtSignal
-from PyQt6.QtGui import QFont, QColor
+from PySide6.QtCore import Qt, Signal
+from PySide6.QtGui import QFont, QColor
 from aresta_api.proto.generated import beta_pb2
 from coleta_de_betas.curadoria.carregador_imagens import (
     obter_pixmap_fallback,
@@ -121,7 +121,7 @@ class PainelCuradoria(QWidget):
     """
     Aba principal de moderação e curadoria humana de vídeos e postagens de betas.
     """
-    solicitar_salvamento = pyqtSignal(dict) # Emite dict[nome_escalada, list[MidiaBeta]]
+    solicitar_salvamento = Signal(dict) # Emite dict[nome_escalada, list[MidiaBeta]]
 
     def __init__(self, parent=None):
         super().__init__(parent)

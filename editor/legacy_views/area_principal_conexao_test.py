@@ -2,15 +2,15 @@
 # Copyright (C) 2026 Aresta Climb Contributors
 
 import pytest
-from PyQt6.QtWidgets import QApplication
+from PySide6.QtWidgets import QApplication
 from editor.legacy_views.area_principal import JanelaPrincipal
-from PyQt6.QtCore import QObject, pyqtSignal
+from PySide6.QtCore import QObject, Signal
 from unittest.mock import MagicMock, patch
 from pathlib import Path
 
 # Classes fake que herdam de QObject para o Qt aceitar
 class ServidorFake(QObject):
-    dispositivo_conectado = pyqtSignal()
+    dispositivo_conectado = Signal()
     def __init__(self, *args, **kwargs):
         super().__init__()
         self.iniciar = MagicMock()
@@ -21,14 +21,14 @@ class ServidorFake(QObject):
         self.conectado = False
 
 class MonitorFake(QObject):
-    inatividade_detectada = pyqtSignal()
+    inatividade_detectada = Signal()
     def __init__(self, *args, **kwargs):
         super().__init__()
         self.iniciar = MagicMock()
         self.parar = MagicMock()
 
 class DialogoFake(QObject):
-    solicitar_encerrar = pyqtSignal()
+    solicitar_encerrar = Signal()
     def __init__(self, *args, **kwargs):
         super().__init__()
         self.exec = MagicMock(return_value=0)

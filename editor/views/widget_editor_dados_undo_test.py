@@ -6,7 +6,7 @@ def test_container_repeated_widget_undo_redo_sync(qapp):
     from editor.views.widget_editor_dados import WidgetEditorDados, ContainerRepeatedWidget
     from editor.models.croqui_model import CroquiModel
     from editor.controllers.croqui_controller import CroquiController
-    from PyQt6.QtGui import QUndoStack
+    from PySide6.QtGui import QUndoStack
     
     croqui = Croqui()
     pico0 = croqui.picos.add()

@@ -2,9 +2,9 @@
 # Copyright (C) 2026 Aresta Climb Contributors
 
 import pytest
-from PyQt6.QtWidgets import QPushButton, QListWidget, QLabel, QDialog
-from PyQt6.QtWidgets import QMessageBox
-from PyQt6.QtCore import Qt
+from PySide6.QtWidgets import QPushButton, QListWidget, QLabel, QDialog
+from PySide6.QtWidgets import QMessageBox
+from PySide6.QtCore import Qt
 from editor.legacy_views.tela_de_carregamento import TelaDeCarregamento, WidgetItemHistorico, DialogoNovoCroqui
 from unittest.mock import MagicMock, patch
 from datetime import datetime
@@ -74,7 +74,7 @@ def test_tela_de_carregamento_importar_croqui(qtbot):
 
     mock_storage = MagicMock()
     
-    with patch("PyQt6.QtWidgets.QFileDialog.getOpenFileName", return_value=("test.croqui", "Arquivos de Croqui (*.croqui)")):
+    with patch("PySide6.QtWidgets.QFileDialog.getOpenFileName", return_value=("test.croqui", "Arquivos de Croqui (*.croqui)")):
         with patch("editor.legacy_views.tela_de_carregamento.GerenciadorCroquiExperimental") as mock_gen_class:
             mock_gen = mock_gen_class.return_value
             tela = TelaDeCarregamento(storage=mock_storage)
@@ -97,7 +97,7 @@ def test_tela_de_carregamento_editar_oficial(qtbot):
             qtbot.addWidget(tela)
             
             # Simula seleção no diálogo de busca e entrada de resumo
-            with patch("PyQt6.QtWidgets.QInputDialog.getText", return_value=("Edição de teste", True)):
+            with patch("PySide6.QtWidgets.QInputDialog.getText", return_value=("Edição de teste", True)):
                 qtbot.mouseClick(tela.btn_oficial, Qt.MouseButton.LeftButton)
             
             mock_gen.criar_croqui_a_partir_de_oficial.assert_called_once_with("br_mg_oficial", "TesteUser", "Edição de teste")
@@ -184,7 +184,7 @@ def test_tela_de_carregamento_excluir_croqui(qtbot, tmp_path):
         btn_excluir = widget.btn_excluir
         
         # Simula clique no botão de excluir e aceitação na confirmação
-        with patch("PyQt6.QtWidgets.QMessageBox.question", return_value=QMessageBox.StandardButton.Yes):
+        with patch("PySide6.QtWidgets.QMessageBox.question", return_value=QMessageBox.StandardButton.Yes):
             qtbot.mouseClick(btn_excluir, Qt.MouseButton.LeftButton)
             mock_gen.excluir_croqui.assert_called_once()
 
@@ -302,7 +302,7 @@ def test_tela_de_carregamento_oficial_usa_log_dialog(qtbot):
             mock_log = mock_log_class.return_value
             # Simulamos sucesso rápido
             with patch("editor.legacy_views.tela_de_carregamento.GerenciadorCroquiExperimental") as mock_gen_class:
-                with patch("PyQt6.QtWidgets.QInputDialog.getText", return_value=("Edição", True)):
+                with patch("PySide6.QtWidgets.QInputDialog.getText", return_value=("Edição", True)):
                     tela = TelaDeCarregamento(storage=mock_storage)
                     qtbot.addWidget(tela)
                     qtbot.mouseClick(tela.btn_oficial, Qt.MouseButton.LeftButton)
@@ -393,7 +393,7 @@ def test_tela_de_carregamento_botao_desconectar_limpa_sessao_e_emite_sinal(qtbot
     assert hasattr(tela, "btn_desconectar")
     assert "Renato Autor" in tela.label_usuario_logado.text()
 
-    with patch("PyQt6.QtWidgets.QMessageBox.question", return_value=QMessageBox.StandardButton.Yes):
+    with patch("PySide6.QtWidgets.QMessageBox.question", return_value=QMessageBox.StandardButton.Yes):
         with patch("editor.core.gerenciador_sessao.GerenciadorSessao.limpar_sessao") as mock_limpar_sessao:
             with qtbot.waitSignal(tela.solicitar_logout, timeout=1000):
                 qtbot.mouseClick(tela.btn_desconectar, Qt.MouseButton.LeftButton)
@@ -405,7 +405,7 @@ def test_tela_de_carregamento_desconectar_cancelado(qtbot):
     tela = TelaDeCarregamento(usuario="Renato Autor")
     qtbot.addWidget(tela)
 
-    with patch("PyQt6.QtWidgets.QMessageBox.question", return_value=QMessageBox.StandardButton.No):
+    with patch("PySide6.QtWidgets.QMessageBox.question", return_value=QMessageBox.StandardButton.No):
         with patch("editor.core.gerenciador_sessao.GerenciadorSessao.limpar_sessao") as mock_limpar_sessao:
             qtbot.mouseClick(tela.btn_desconectar, Qt.MouseButton.LeftButton)
             mock_limpar_sessao.assert_not_called()

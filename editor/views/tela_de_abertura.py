@@ -4,7 +4,7 @@
 from pathlib import Path
 from typing import Optional
 
-from PyQt6.QtWidgets import (
+from PySide6.QtWidgets import (
     QWidget,
     QVBoxLayout,
     QLabel,
@@ -17,16 +17,16 @@ from PyQt6.QtWidgets import (
     QFrame,
     QDialog,
 )
-from PyQt6.QtCore import (
+from PySide6.QtCore import (
     Qt,
     QUrl,
     QSize,
     QTimer,
-    pyqtSignal,
+    Signal,
     QThread,
     QRegularExpression,
 )
-from PyQt6.QtGui import (
+from PySide6.QtGui import (
     QDesktopServices,
     QPixmap,
     QIcon,
@@ -47,8 +47,8 @@ from editor.views.estilo import Icones
 class TarefaAssincrona(QThread):
     """Thread auxiliar para executar chamadas de rede sem travar a interface gráfica."""
 
-    sucesso = pyqtSignal(object)
-    erro = pyqtSignal(Exception)
+    sucesso = Signal(object)
+    erro = Signal(Exception)
 
     def __init__(self, funcao, *args, **kwargs):
         super().__init__()
@@ -69,8 +69,8 @@ class TelaDeAbertura(QWidget):
     Janela de abertura com barra de progresso, status e autenticação unificada.
     """
 
-    login_concluido = pyqtSignal(object)
-    login_cancelado = pyqtSignal()
+    login_concluido = Signal(object)
+    login_cancelado = Signal()
 
     def __init__(self, cliente_auth: Optional[ClienteAuthSupabase] = None):
         super().__init__()

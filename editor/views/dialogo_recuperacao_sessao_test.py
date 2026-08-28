@@ -2,7 +2,7 @@
 # Copyright (C) 2026 Aresta Climb Contributors
 
 import pytest
-from PyQt6.QtWidgets import QDialog
+from PySide6.QtWidgets import QDialog
 from editor.views.dialogo_recuperacao_sessao import DialogoRecuperacaoSessao
 
 

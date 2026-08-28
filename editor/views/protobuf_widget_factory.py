@@ -3,9 +3,9 @@
 
 import os
 import re
-from PyQt6.QtWidgets import QWidget, QVBoxLayout, QHBoxLayout, QPushButton, QLineEdit, QSpinBox, QCheckBox, QComboBox, QDoubleSpinBox, QLabel, QScrollArea
-from PyQt6.QtGui import QDoubleValidator, QRegularExpressionValidator, QValidator
-from PyQt6.QtCore import QRegularExpression
+from PySide6.QtWidgets import QWidget, QVBoxLayout, QHBoxLayout, QPushButton, QLineEdit, QSpinBox, QCheckBox, QComboBox, QDoubleSpinBox, QLabel, QScrollArea
+from PySide6.QtGui import QDoubleValidator, QRegularExpressionValidator, QValidator
+from PySide6.QtCore import QRegularExpression
 from google.protobuf.descriptor import FieldDescriptor
 from aresta_api.proto.generated import croqui_pb2
 from editor.core.proto_comments import get_proto_comments
@@ -109,7 +109,7 @@ class ProtobufWidgetFactory:
     @staticmethod
     def create_widget(field_descriptor):
         """
-        Creates a primitive PyQt6 widget for the given FieldDescriptor.
+        Cria um widget primitivo do PySide6 para o FieldDescriptor fornecido.
         """
         options = field_descriptor.GetOptions()
         formato = None

@@ -1,7 +1,7 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
-from PyQt6.QtWidgets import QApplication, QLineEdit, QTextEdit
+from PySide6.QtWidgets import QApplication, QLineEdit, QTextEdit
 
 class AtualizadorUI:
     """

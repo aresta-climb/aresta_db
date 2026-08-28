@@ -1,7 +1,7 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
-from PyQt6.QtWidgets import (
+from PySide6.QtWidgets import (
     QDialog,
     QVBoxLayout,
     QLabel,
@@ -10,7 +10,7 @@ from PyQt6.QtWidgets import (
     QHBoxLayout,
     QMessageBox,
 )
-from PyQt6.QtCore import Qt
+from PySide6.QtCore import Qt
 
 
 class DialogoPerfilAutor(QDialog):
@@ -22,7 +22,7 @@ class DialogoPerfilAutor(QDialog):
     def __init__(self, nome_sugerido: str = "", parent=None):
         super().__init__(parent)
         from editor.core.storage import GerenciadorCaminhos
-        from PyQt6.QtGui import QIcon
+        from PySide6.QtGui import QIcon
 
         caminho_logo_janela = GerenciadorCaminhos().obter_caminho_recurso_interno("recursos/logo_app.png")
         self.setWindowIcon(QIcon(str(caminho_logo_janela)))
@@ -33,7 +33,7 @@ class DialogoPerfilAutor(QDialog):
 
     def init_ui(self, nome_sugerido: str):
         from editor.core.storage import GerenciadorCaminhos
-        from PyQt6.QtGui import QPixmap
+        from PySide6.QtGui import QPixmap
 
         layout = QVBoxLayout(self)
         layout.setSpacing(12)

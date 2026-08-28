@@ -7,7 +7,7 @@ import os
 # Adiciona o diretório raiz ao sys.path para permitir importações do pacote 'editor'
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-from PyQt6.QtWidgets import QApplication, QMainWindow, QMessageBox
+from PySide6.QtWidgets import QApplication, QMainWindow, QMessageBox
 from editor.legacy_views.widget_editor_imagens import WidgetEditorImagens
 
 class MainWindow(QMainWindow):

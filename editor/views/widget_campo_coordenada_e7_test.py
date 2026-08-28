@@ -2,9 +2,9 @@
 # Copyright (C) 2026 Aresta Climb Contributors
 
 import pytest
-from PyQt6.QtCore import Qt, QPoint, QPointF
-from PyQt6.QtGui import QWheelEvent
-from PyQt6.QtWidgets import QApplication, QLineEdit, QDoubleSpinBox, QDialog
+from PySide6.QtCore import Qt, QPoint, QPointF
+from PySide6.QtGui import QWheelEvent
+from PySide6.QtWidgets import QApplication, QLineEdit, QDoubleSpinBox, QDialog
 
 from editor.views.widget_campo_coordenada_e7 import (
     WidgetCampoCoordenadaE7,
@@ -226,7 +226,7 @@ class TestWidgetCampoCoordenadaE7:
         qtbot.addWidget(widget)
 
         urls_abertas = []
-        from PyQt6.QtGui import QDesktopServices
+        from PySide6.QtGui import QDesktopServices
         monkeypatch.setattr(QDesktopServices, "openUrl", lambda url: urls_abertas.append(url.toString()))
 
         widget.abrir_no_google_maps()
@@ -239,7 +239,7 @@ class TestWidgetCampoCoordenadaE7:
         qtbot.addWidget(widget)
 
         urls_abertas = []
-        from PyQt6.QtGui import QDesktopServices
+        from PySide6.QtGui import QDesktopServices
         monkeypatch.setattr(QDesktopServices, "openUrl", lambda url: urls_abertas.append(url.toString()))
 
         widget.abrir_no_google_maps()
@@ -251,7 +251,7 @@ class TestWidgetCampoCoordenadaE7:
         qtbot.addWidget(widget)
 
         urls_abertas = []
-        from PyQt6.QtGui import QDesktopServices
+        from PySide6.QtGui import QDesktopServices
         monkeypatch.setattr(QDesktopServices, "openUrl", lambda url: urls_abertas.append(url.toString()))
 
         widget.abrir_no_google_maps()

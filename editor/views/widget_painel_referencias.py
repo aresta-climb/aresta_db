@@ -1,11 +1,11 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
-from PyQt6.QtWidgets import (
+from PySide6.QtWidgets import (
     QWidget, QVBoxLayout, QHBoxLayout, QLabel, QPushButton, QScrollArea,
     QFrame
 )
-from PyQt6.QtCore import Qt, pyqtSignal
+from PySide6.QtCore import Qt, Signal
 from aresta_api.proto.generated import croqui_pb2
 from editor.views.dialogos.dialogo_busca_referencia import DialogoBuscaReferencia
 from editor.views.estilo import Icones
@@ -13,8 +13,8 @@ from editor.views.estilo import Icones
 class CardReferencia(QFrame):
     """Card visual que representa uma Referência individual."""
     
-    hover_in = pyqtSignal(object)
-    hover_out = pyqtSignal()
+    hover_in = Signal(object)
+    hover_out = Signal()
     
     def __init__(self, referencia: croqui_pb2.Mapa.Referencia, index: int, parent=None):
         super().__init__(parent)
@@ -62,7 +62,7 @@ class CardReferencia(QFrame):
         self.btn_editar_alvo = QPushButton()
         self.btn_editar_alvo.setIcon(Icones.obter("lapis"))
         self.btn_editar_alvo.setStyleSheet("background-color: transparent; border: none; color: #007bff;")
-        from PyQt6.QtCore import Qt
+        from PySide6.QtCore import Qt
         self.btn_editar_alvo.setCursor(Qt.CursorShape.PointingHandCursor)
         self.btn_editar_alvo.setToolTip("Editar Referência")
         self.btn_editar_alvo.setFixedSize(24, 24)
@@ -87,7 +87,7 @@ class CardReferencia(QFrame):
         self.btn_remover.setIcon(Icones.obter("lixeira"))
         self.btn_remover.setStyleSheet("background-color: transparent; border: none; color: #dc3545;")
         self.btn_remover.setToolTip("Excluir Referência")
-        from PyQt6.QtCore import Qt
+        from PySide6.QtCore import Qt
         self.btn_remover.setCursor(Qt.CursorShape.PointingHandCursor)
         self.btn_remover.setFixedSize(24, 24)
         
@@ -145,17 +145,17 @@ class PainelReferencias(QWidget):
     """Painel lateral direito contendo a lista de referências do mapa."""
     
     # Sinais para interagir com o WidgetEditorMapas
-    referencia_removida = pyqtSignal(int)
-    iniciar_modo_linkagem = pyqtSignal(int, object)
-    parar_modo_linkagem = pyqtSignal()
+    referencia_removida = Signal(int)
+    iniciar_modo_linkagem = Signal(int, object)
+    parar_modo_linkagem = Signal()
     
-    iniciar_modo_camera = pyqtSignal(int, object)
-    parar_modo_camera = pyqtSignal()
-    salvar_modo_camera = pyqtSignal()
-    remover_ajuste_camera = pyqtSignal(int)
+    iniciar_modo_camera = Signal(int, object)
+    parar_modo_camera = Signal()
+    salvar_modo_camera = Signal()
+    remover_ajuste_camera = Signal(int)
     
-    destacar_pois = pyqtSignal(object)
-    remover_destaque_pois = pyqtSignal()
+    destacar_pois = Signal(object)
+    remover_destaque_pois = Signal()
 
     def __init__(self, mapas_controller, parent=None):
         super().__init__(parent)
@@ -291,7 +291,7 @@ class PainelReferencias(QWidget):
             ref = dialogo.obter_referencia()
             if ref:
                 if self._referencia_ja_existe(ref):
-                    from PyQt6.QtWidgets import QMessageBox
+                    from PySide6.QtWidgets import QMessageBox
                     QMessageBox.warning(self, "Aviso", "Esta referência já existe neste mapa!")
                     return
                 self.mapas_controller.adicionar_referencia(self.msg_mapa_proxy, ref)
@@ -302,7 +302,7 @@ class PainelReferencias(QWidget):
             ref_nova = dialogo.obter_referencia()
             if ref_nova:
                 if not self._referencias_iguais(ref_nova, ref_antiga) and self._referencia_ja_existe(ref_nova):
-                    from PyQt6.QtWidgets import QMessageBox
+                    from PySide6.QtWidgets import QMessageBox
                     QMessageBox.warning(self, "Aviso", "Esta referência já existe neste mapa!")
                     return
                 

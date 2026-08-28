@@ -1,7 +1,7 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
-from PyQt6.QtCore import QStandardPaths
+from PySide6.QtCore import QStandardPaths
 from pathlib import Path
 import os
 

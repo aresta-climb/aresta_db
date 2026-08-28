@@ -2,8 +2,8 @@
 # Copyright (C) 2026 Aresta Climb Contributors
 
 import re
-from PyQt6.QtCore import QAbstractItemModel, QModelIndex, Qt
-from PyQt6.QtGui import QFont
+from PySide6.QtCore import QAbstractItemModel, QModelIndex, Qt
+from PySide6.QtGui import QFont
 from google.protobuf.message import Message
 from google.protobuf.descriptor import FieldDescriptor
 from aresta_api.proto.generated import croqui_pb2

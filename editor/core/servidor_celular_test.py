@@ -84,8 +84,8 @@ def test_deve_gerar_qr_code_em_memoria(qapp):
     assert isinstance(buffer, bytes)
     assert len(buffer) > 100 # Deve ter algum conteúdo de imagem
     
-    # Verifica se o PyQt6 consegue carregar
-    from PyQt6.QtGui import QPixmap
+    # Verifica se o PySide6 consegue carregar
+    from PySide6.QtGui import QPixmap
     pixmap = QPixmap()
     sucesso = pixmap.loadFromData(buffer)
     assert sucesso is True

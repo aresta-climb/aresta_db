@@ -9,7 +9,7 @@ pré-processamento automático para WebP em memória RAM e validação contínua
 
 from pathlib import Path
 from typing import Optional, Tuple
-from PyQt6.QtWidgets import (
+from PySide6.QtWidgets import (
     QDialog,
     QVBoxLayout,
     QHBoxLayout,
@@ -22,8 +22,8 @@ from PyQt6.QtWidgets import (
     QWidget,
     QFrame,
 )
-from PyQt6.QtCore import Qt, pyqtSignal
-from PyQt6.QtGui import QPixmap, QDragEnterEvent, QDropEvent, QImage
+from PySide6.QtCore import Qt, Signal
+from PySide6.QtGui import QPixmap, QDragEnterEvent, QDropEvent, QImage
 
 from editor.core.processamento_imagem_campo import (
     sanitizar_nome_imagem,
@@ -37,7 +37,7 @@ class AreaDropImagem(QWidget):
     """
     Área visual para arrastar e soltar (Drag & Drop) ou clicar para selecionar uma imagem.
     """
-    imagem_selecionada = pyqtSignal(str)
+    imagem_selecionada = Signal(str)
 
     def __init__(self, parent=None):
         super().__init__(parent)

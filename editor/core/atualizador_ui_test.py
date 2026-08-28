@@ -1,7 +1,7 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
-from PyQt6.QtWidgets import QWidget, QVBoxLayout, QLineEdit, QApplication
+from PySide6.QtWidgets import QWidget, QVBoxLayout, QLineEdit, QApplication
 from editor.core.atualizador_ui import AtualizadorUI
 
 def test_salvar_e_restaurar_foco(qtbot):

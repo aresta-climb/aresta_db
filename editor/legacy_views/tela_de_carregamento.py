@@ -1,7 +1,7 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
-from PyQt6.QtWidgets import (
+from PySide6.QtWidgets import (
     QDialog, QVBoxLayout, QHBoxLayout, QPushButton, QListWidget, 
     QLabel, QGroupBox, QInputDialog, QFileDialog, QProgressDialog, QMessageBox,
     QListWidgetItem, QWidget, QStyle, QPlainTextEdit, QApplication,
@@ -10,7 +10,7 @@ from PyQt6.QtWidgets import (
 
 import sys
 import io
-from PyQt6.QtCore import Qt, pyqtSignal, QSize
+from PySide6.QtCore import Qt, Signal, QSize
 from pathlib import Path
 from datetime import datetime, timezone
 import yaml
@@ -210,7 +210,7 @@ class WidgetItemHistorico(QWidget):
     """
     Widget customizado para os itens da lista de histórico, exibindo metadados em múltiplas linhas.
     """
-    excluir_clicado = pyqtSignal(str)
+    excluir_clicado = Signal(str)
 
     def __init__(self, dados, caminho_pasta, parent=None):
         super().__init__(parent)
@@ -283,7 +283,7 @@ class TelaDeCarregamento(QDialog):
     Exibe ações principais e lista de croquis experimentais.
     """
 
-    solicitar_logout = pyqtSignal()
+    solicitar_logout = Signal()
 
     def __init__(self, storage=None, usuario="Autor Desconhecido", parent=None):
         super().__init__(parent)
@@ -294,7 +294,7 @@ class TelaDeCarregamento(QDialog):
         self.setWindowTitle("Iniciar Editor Aresta")
         self.setMinimumSize(650, 600)
         self.resize(750, 700)
-        from PyQt6.QtGui import QIcon
+        from PySide6.QtGui import QIcon
         from editor.core.storage import GerenciadorCaminhos
         storage_atual = storage or GerenciadorCaminhos()
         caminho_logo_app = storage_atual.obter_caminho_recurso_interno("recursos/logo_app.png")

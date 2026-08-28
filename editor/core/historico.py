@@ -4,19 +4,19 @@
 import shutil
 import uuid
 from pathlib import Path
-from PyQt6.QtCore import QObject, pyqtSignal
-from PyQt6.QtGui import QUndoStack, QUndoCommand
+from PySide6.QtCore import QObject, Signal
+from PySide6.QtGui import QUndoStack, QUndoCommand
 
 class GerenciadorHistorico(QObject):
     """
     Gerenciador global da pilha de desfazer/refazer (Undo/Redo) do Editor Aresta.
-    Utiliza o QUndoStack do PyQt6 sob o capô para manter o histórico unificado
+    Utiliza o QUndoStack do PySide6 sob o capô para manter o histórico unificado
     e emite sinais reativos para sincronização eficiente da UI.
     """
-    sinal_campo_alterado = pyqtSignal(object, str, object)  # id_msg, campo, novo_valor
-    sinal_item_adicionado = pyqtSignal(object, str, int)    # id_msg, campo, indice
-    sinal_item_removido = pyqtSignal(object, str, int)      # id_msg, campo, indice
-    sinal_foco_requisitado = pyqtSignal(str)                # contexto_ui
+    sinal_campo_alterado = Signal(object, str, object)  # id_msg, campo, novo_valor
+    sinal_item_adicionado = Signal(object, str, int)    # id_msg, campo, indice
+    sinal_item_removido = Signal(object, str, int)      # id_msg, campo, indice
+    sinal_foco_requisitado = Signal(str)                # contexto_ui
 
     def __init__(self, parent=None, diario=None):
         super().__init__(parent)

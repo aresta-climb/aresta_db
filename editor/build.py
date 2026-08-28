@@ -48,8 +48,8 @@ def executar_build(force_icon_generation=False):
             except ImportError:
                 from views.estilo import Icones
                 
-            from PyQt6.QtWidgets import QApplication
-            from PyQt6.QtCore import QBuffer
+            from PySide6.QtWidgets import QApplication
+            from PySide6.QtCore import QBuffer
             from PIL import Image
             import io
             

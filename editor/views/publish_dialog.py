@@ -2,8 +2,8 @@
 # Copyright (C) 2026 Aresta Climb Contributors
 
 from typing import Optional, Sequence
-from PyQt6.QtCore import Qt
-from PyQt6.QtWidgets import (
+from PySide6.QtCore import Qt
+from PySide6.QtWidgets import (
     QDialog, QVBoxLayout, QFormLayout, QLineEdit, QTextEdit,
     QHBoxLayout, QPushButton, QLabel, QTextBrowser
 )

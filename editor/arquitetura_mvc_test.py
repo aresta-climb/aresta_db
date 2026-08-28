@@ -108,7 +108,7 @@ def test_todos_comandos_implementam_serializacao_e_deserializacao():
     """
     import inspect
     import importlib
-    from PyQt6.QtGui import QUndoCommand
+    from PySide6.QtGui import QUndoCommand
     from editor.commands.comandos_protobuf import deserializar_comando
 
     commands_dir = Path(__file__).parent / "commands"

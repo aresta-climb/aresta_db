@@ -3,7 +3,7 @@
 
 import pytest
 import yaml
-from PyQt6.QtCore import Qt
+from PySide6.QtCore import Qt
 from editor.legacy_views.dialogo_busca_croqui import DialogoBuscaCroqui
 
 @pytest.fixture

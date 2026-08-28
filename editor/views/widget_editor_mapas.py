@@ -9,15 +9,15 @@
 import math
 import os
 import glob
-from PyQt6.QtWidgets import (
+from PySide6.QtWidgets import (
     QWidget, QVBoxLayout, QHBoxLayout, QPushButton, QLabel, QSplitter,
     QListWidget, QListWidgetItem, QGraphicsView, QGraphicsScene,
     QGraphicsRectItem, QGraphicsEllipseItem, QGraphicsPolygonItem,
     QGraphicsPathItem, QGraphicsTextItem, QGraphicsPixmapItem, QDialog, QFormLayout,
     QLineEdit, QDialogButtonBox, QMenu, QSlider, QMessageBox, QFileDialog
 )
-from PyQt6.QtCore import Qt, QRectF, QPointF, pyqtSignal
-from PyQt6.QtGui import (
+from PySide6.QtCore import Qt, QRectF, QPointF, Signal
+from PySide6.QtGui import (
     QPixmap, QPen, QColor, QFont, QBrush, QPolygonF, QTransform, QPainterPath,
     QUndoCommand
 )
@@ -125,7 +125,11 @@ class BaseItemPOI:
                 acao = menu.addAction(texto)
                 acoes_map[acao] = cb
                 
-        acao = menu.exec(evento.screenPos())
+        pos = evento.screenPos() if hasattr(evento, 'screenPos') else None
+        if pos is not None:
+            acao = menu.exec(pos)
+        else:
+            acao = menu.exec()
         
         if acao == acao_renomear:
             id_atual = str(self.pt_dict.get('id', ''))
@@ -678,7 +682,7 @@ class VisualizadorMapa(QGraphicsView):
         
         if (not item or isinstance(item, QGraphicsPixmapItem)) and evento.button() == Qt.MouseButton.LeftButton and cursor_atual != Qt.CursorShape.CrossCursor:
             self._arrastando_mapa = True
-            from PyQt6.QtCore import QPoint
+            from PySide6.QtCore import QPoint
             self._posicao_inicial_mouse = evento.pos()
             self._posicao_inicial_scroll = QPoint(
                 self.horizontalScrollBar().value(),
@@ -779,7 +783,7 @@ class CenaDesenho(QGraphicsScene):
 
 
 class WidgetEditorMapas(QWidget):
-    alterado = pyqtSignal(bool)
+    alterado = Signal(bool)
     
     def __init__(self, mapas_controller=None, parent=None, standalone=False, croqui_model=None, croqui_controller=None):
         super().__init__(parent)
@@ -882,7 +886,7 @@ class WidgetEditorMapas(QWidget):
         layout_esquerdo.addWidget(self.label_titulo_arquivos)
 
         self.list_widget = QListWidget()
-        from PyQt6.QtWidgets import QSizePolicy
+        from PySide6.QtWidgets import QSizePolicy
         self.list_widget.setSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Expanding)
         layout_esquerdo.addWidget(self.list_widget, stretch=1)
         
@@ -1055,8 +1059,8 @@ class WidgetEditorMapas(QWidget):
         if len(args) >= 2 and args[1] in ('referencias', 'pontos_de_interesse'):
             return
             
-        from PyQt6.QtWidgets import QListWidgetItem
-        from PyQt6.QtCore import Qt
+        from PySide6.QtWidgets import QListWidgetItem
+        from PySide6.QtCore import Qt
         from pathlib import Path
         
         # Salva seleção atual
@@ -1765,7 +1769,7 @@ class WidgetEditorMapas(QWidget):
         for idx_poi, gui_item in self.itens_poi.items():
             poi_dict = gui_item.pt_dict
             if poi_dict.get('id') in ids_list:
-                from PyQt6.QtGui import QBrush, QColor, QPen
+                from PySide6.QtGui import QBrush, QColor, QPen
                 gui_item.brush = QBrush(QColor(0, 255, 255, 150))
                 gui_item.setBrush(gui_item.brush)
                 gui_item.setPen(QPen(QColor(0, 255, 255), 2))
@@ -1777,8 +1781,8 @@ class WidgetEditorMapas(QWidget):
                 if self.visualizador.scene():
                     self.visualizador.scene().addItem(self.item_hover_camera_overlay)
             self.item_hover_camera_overlay.setVisible(True)
-            from PyQt6.QtGui import QPen, QColor
-            from PyQt6.QtCore import Qt
+            from PySide6.QtGui import QPen, QColor
+            from PySide6.QtCore import Qt
             self.item_hover_camera_overlay.setPen(QPen(QColor("#6f42c1"), 3, Qt.PenStyle.DashLine))
             
             scene_rect = self.visualizador.sceneRect()
@@ -1809,7 +1813,7 @@ class WidgetEditorMapas(QWidget):
 
     def remover_destaque_pois(self, force=False):
         for idx_poi, gui_item in self.itens_poi.items():
-            from PyQt6.QtGui import QBrush, QColor, QPen
+            from PySide6.QtGui import QBrush, QColor, QPen
             if getattr(gui_item, 'is_hovered', False):
                 gui_item.brush = QBrush(QColor(255, 165, 0, 100)) # Laranja hover
                 gui_item.setBrush(gui_item.brush)
@@ -1969,7 +1973,7 @@ class WidgetEditorMapas(QWidget):
 
 
     def iniciar_modo_linkagem(self, idx_ref, ref):
-        from PyQt6.QtCore import Qt
+        from PySide6.QtCore import Qt
         self.modo_linkagem = True
         self.linkagem_ref_idx = idx_ref
         self.linkagem_ref = ref
@@ -1981,12 +1985,12 @@ class WidgetEditorMapas(QWidget):
         self._aplicar_highlight_linkagem()
         
         # TDD: Impedir POIs de se moverem durante a linkagem
-        from PyQt6.QtWidgets import QGraphicsItem
+        from PySide6.QtWidgets import QGraphicsItem
         for poi in self.itens_poi.values():
             poi.setFlag(QGraphicsItem.GraphicsItemFlag.ItemIsMovable, False)
 
     def parar_modo_linkagem(self):
-        from PyQt6.QtCore import Qt
+        from PySide6.QtCore import Qt
         self.modo_linkagem = False
         self.linkagem_ref_idx = -1
         self.linkagem_ref = None
@@ -1996,7 +2000,7 @@ class WidgetEditorMapas(QWidget):
         self.label_modo.setVisible(False)
         
         # TDD: Restaurar movimento dos POIs
-        from PyQt6.QtWidgets import QGraphicsItem
+        from PySide6.QtWidgets import QGraphicsItem
         for poi in self.itens_poi.values():
             poi.setFlag(QGraphicsItem.GraphicsItemFlag.ItemIsMovable, True)
 
@@ -2022,8 +2026,8 @@ class WidgetEditorMapas(QWidget):
         return True
 class ItemCameraOverlay(QGraphicsRectItem):
     def __init__(self, rect=None):
-        from PyQt6.QtGui import QPen, QColor, QBrush
-        from PyQt6.QtCore import Qt
+        from PySide6.QtGui import QPen, QColor, QBrush
+        from PySide6.QtCore import Qt
         super().__init__(rect)
         self.setPen(QPen(QColor(111, 66, 193), 4, Qt.PenStyle.DashLine))
         self.setBrush(QBrush(Qt.GlobalColor.transparent))
@@ -2037,7 +2041,7 @@ class ItemCameraOverlay(QGraphicsRectItem):
         self.setZValue(100)
     
     def hoverMoveEvent(self, event):
-        from PyQt6.QtCore import Qt
+        from PySide6.QtCore import Qt
         rect = self.rect()
         if (event.pos() - rect.bottomRight()).manhattanLength() < 40:
             self.setCursor(Qt.CursorShape.SizeFDiagCursor)
@@ -2046,7 +2050,7 @@ class ItemCameraOverlay(QGraphicsRectItem):
         super().hoverMoveEvent(event)
         
     def mousePressEvent(self, event):
-        from PyQt6.QtCore import Qt
+        from PySide6.QtCore import Qt
         rect = self.rect()
         dist = (event.pos() - rect.bottomRight()).manhattanLength()
         if dist < 40:
@@ -2067,7 +2071,7 @@ class ItemCameraOverlay(QGraphicsRectItem):
             super().mousePressEvent(event)
 
     def mouseMoveEvent(self, event):
-        from PyQt6.QtCore import Qt
+        from PySide6.QtCore import Qt
         if getattr(self, 'resizing_center', False):
             delta = event.scenePos() - self.centro_cena
             diff_x = abs(delta.x()) - self.dist_inicio_abs
@@ -2089,7 +2093,7 @@ class ItemCameraOverlay(QGraphicsRectItem):
             super().mouseMoveEvent(event)
 
     def mouseReleaseEvent(self, event):
-        from PyQt6.QtCore import Qt
+        from PySide6.QtCore import Qt
         if getattr(self, 'resizing_corner', False) or getattr(self, 'resizing_center', False):
             self.resizing_corner = False
             self.resizing_center = False
@@ -2099,8 +2103,8 @@ class ItemCameraOverlay(QGraphicsRectItem):
             super().mouseReleaseEvent(event)
     
     def paint(self, painter, option, widget=None):
-        from PyQt6.QtGui import QPainter, QBrush, QColor
-        from PyQt6.QtCore import Qt, QRectF
+        from PySide6.QtGui import QPainter, QBrush, QColor
+        from PySide6.QtCore import Qt, QRectF
         painter.setRenderHint(QPainter.RenderHint.Antialiasing)
         
         rect = self.rect()

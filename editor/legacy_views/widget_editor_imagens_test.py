@@ -3,7 +3,7 @@
 
 import pytest
 import os
-from PyQt6.QtWidgets import QApplication
+from PySide6.QtWidgets import QApplication
 from editor.legacy_views.widget_editor_imagens import WidgetEditorImagens
 from unittest.mock import MagicMock, patch
 

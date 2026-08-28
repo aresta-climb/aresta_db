@@ -1,19 +1,19 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
-from PyQt6.QtWidgets import (
+from PySide6.QtWidgets import (
     QDialog, QVBoxLayout, QHBoxLayout, QLabel, QPushButton, QFrame, QWidget
 )
-from PyQt6.QtCore import Qt, pyqtSignal, QSize, QTimer, QBuffer, QIODevice
+from PySide6.QtCore import Qt, Signal, QSize, QTimer, QBuffer, QIODevice
 import base64
-from PyQt6.QtGui import QPixmap, QFont, QGuiApplication
+from PySide6.QtGui import QPixmap, QFont, QGuiApplication
 import qtawesome as qta
 from editor.views.estilo import Icones
 from ..core.worker import TarefaDadosConexao
 
 class DialogoConexaoCelular(QDialog):
     """Diálogo com instruções e QR Code para conectar o celular ao editor."""
-    solicitar_encerrar = pyqtSignal()
+    solicitar_encerrar = Signal()
     
     def __init__(self, servidor_celular, parent=None):
         super().__init__(parent)

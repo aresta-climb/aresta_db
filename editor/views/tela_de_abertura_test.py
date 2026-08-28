@@ -2,8 +2,8 @@
 # Copyright (C) 2026 Aresta Climb Contributors
 
 import pytest
-from PyQt6.QtWidgets import QApplication
-from PyQt6.QtCore import Qt
+from PySide6.QtWidgets import QApplication
+from PySide6.QtCore import Qt
 from unittest.mock import MagicMock, patch
 
 from editor.views.tela_de_abertura import TelaDeAbertura
@@ -109,7 +109,7 @@ def test_tela_abertura_validador_apenas_digitos(qtbot):
 
     validator = abertura.edit_codigo.validator()
     assert validator is not None
-    from PyQt6.QtGui import QValidator
+    from PySide6.QtGui import QValidator
 
     assert validator.validate("12345678", 0)[0] == QValidator.State.Acceptable
     assert validator.validate("123abc", 0)[0] == QValidator.State.Invalid
@@ -193,7 +193,7 @@ def test_tela_abertura_erro_solicitar_otp(qtbot, mock_cliente_auth):
     abertura.mostrar_formulario_email()
     abertura.edit_email.setText("invalido@arestaclimb.com")
 
-    with patch("PyQt6.QtWidgets.QMessageBox.critical") as mock_erro:
+    with patch("PySide6.QtWidgets.QMessageBox.critical") as mock_erro:
         abertura.solicitar_otp()
         qtbot.waitUntil(lambda: mock_erro.called, timeout=2000)
         assert abertura.container_auth_email.isVisible()
@@ -257,7 +257,7 @@ def test_tela_abertura_iniciar_login_github_configuracao_url(qtbot):
 
     abertura.iniciar_fluxo_login()
 
-    with patch("PyQt6.QtGui.QDesktopServices.openUrl") as mock_open:
+    with patch("PySide6.QtGui.QDesktopServices.openUrl") as mock_open:
         abertura.iniciar_login_github()
         assert abertura.container_auth_github.isVisible()
         assert not abertura.container_auth_selecao.isVisible()
@@ -280,7 +280,7 @@ def test_tela_abertura_login_github_retorna_erro_trata_e_volta_para_selecao(qtbo
     mock_servidor = MagicMock()
     abertura.servidor_oauth = mock_servidor
 
-    with patch("PyQt6.QtWidgets.QMessageBox.warning") as mock_aviso:
+    with patch("PySide6.QtWidgets.QMessageBox.warning") as mock_aviso:
         abertura._ao_receber_tokens_github({"erro": "access_denied"})
         mock_aviso.assert_called_once()
         assert abertura.container_auth_selecao.isVisible()
@@ -294,8 +294,8 @@ def test_tela_abertura_drag_and_drop(qtbot):
 
     pos_inicial = abertura.pos()
 
-    from PyQt6.QtGui import QMouseEvent
-    from PyQt6.QtCore import QPointF, QEvent
+    from PySide6.QtGui import QMouseEvent
+    from PySide6.QtCore import QPointF, QEvent
 
     pos_local = QPointF(10.0, 10.0)
     pos_global = abertura.mapToGlobal(pos_local.toPoint())

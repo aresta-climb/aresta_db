@@ -1,8 +1,8 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
-from PyQt6.QtWidgets import QDockWidget, QTextEdit, QWidget, QVBoxLayout
-from PyQt6.QtCore import Qt
+from PySide6.QtWidgets import QDockWidget, QTextEdit, QWidget, QVBoxLayout
+from PySide6.QtCore import Qt
 
 class WidgetSaidaCompilacao(QDockWidget):
     """Componente de UI passivo (View) para mostrar a saída da compilação."""

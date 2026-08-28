@@ -2,7 +2,7 @@
 # Copyright (C) 2026 Aresta Climb Contributors
 
 import unittest
-from PyQt6.QtGui import QUndoCommand
+from PySide6.QtGui import QUndoCommand
 from editor.core.historico import GerenciadorHistorico
 
 class ComandoTeste(QUndoCommand):

@@ -2,8 +2,8 @@
 # Copyright (C) 2026 Aresta Climb Contributors
 
 import pytest
-from PyQt6.QtWidgets import QApplication, QRadioButton, QLineEdit, QPushButton
-from PyQt6.QtCore import Qt
+from PySide6.QtWidgets import QApplication, QRadioButton, QLineEdit, QPushButton
+from PySide6.QtCore import Qt
 from editor.views.dialogos.dialogo_criar_setor_ou_grupo import DialogoCriarSetorOuGrupo
 
 @pytest.fixture(scope="session")
@@ -116,7 +116,7 @@ def test_dialogo_criar_setor_ou_grupo_nome_vazio_e_caracteres_especiais(qapp):
 
 def test_dialogo_criar_setor_ou_grupo_metodo_obter_dados_estatico(qapp, monkeypatch):
     """Verifica a execução do método estático obter_dados."""
-    from PyQt6.QtWidgets import QDialog
+    from PySide6.QtWidgets import QDialog
     monkeypatch.setattr(QDialog, "exec", lambda self: self.setResult(QDialog.DialogCode.Accepted))
 
     tipo, nome, arquivo, ok = DialogoCriarSetorOuGrupo.obter_dados(modo="ambos", nome_sugerido="Falésia")

@@ -5,7 +5,7 @@ import unittest
 import tempfile
 from pathlib import Path
 from unittest.mock import MagicMock, patch
-from PyQt6.QtWidgets import QApplication, QLabel
+from PySide6.QtWidgets import QApplication, QLabel
 
 from editor.controllers.publish_controller import PublishController, DialogoSucessoPR
 from editor.views.publish_dialog import PublishDialog

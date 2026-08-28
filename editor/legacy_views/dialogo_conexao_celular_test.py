@@ -2,14 +2,14 @@
 # Copyright (C) 2026 Aresta Climb Contributors
 
 import pytest
-from PyQt6.QtWidgets import QApplication
+from PySide6.QtWidgets import QApplication
 from editor.legacy_views.dialogo_conexao_celular import DialogoConexaoCelular
-from PyQt6.QtCore import QObject, pyqtSignal, QTimer, Qt
-from PyQt6.QtGui import QGuiApplication
+from PySide6.QtCore import QObject, Signal, QTimer, Qt
+from PySide6.QtGui import QGuiApplication
 from unittest.mock import MagicMock
 
 class ServidorMock(QObject):
-    dispositivo_conectado = pyqtSignal()
+    dispositivo_conectado = Signal()
     def __init__(self):
         super().__init__()
         self.porta = 8080

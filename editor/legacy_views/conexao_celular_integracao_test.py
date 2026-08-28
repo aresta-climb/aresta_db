@@ -4,7 +4,7 @@
 import pytest
 import requests
 import time
-from PyQt6.QtWidgets import QApplication
+from PySide6.QtWidgets import QApplication
 from editor.legacy_views.dialogo_conexao_celular import DialogoConexaoCelular
 from editor.core.servidor_celular import ServidorCelular
 from pathlib import Path

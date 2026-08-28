@@ -2,8 +2,8 @@
 # Copyright (C) 2026 Aresta Climb Contributors
 
 import requests
-from PyQt6.QtCore import QThread, pyqtSignal
-from PyQt6.QtGui import QPixmap, QImage, QPainter, QColor, QFont
+from PySide6.QtCore import QThread, Signal
+from PySide6.QtGui import QPixmap, QImage, QPainter, QColor, QFont
 from aresta_api.proto.generated import beta_pb2
 
 def obter_pixmap_fallback(fonte: beta_pb2.FonteMidia.Enum, largura: int = 120, altura: int = 90) -> QPixmap:
@@ -54,7 +54,7 @@ class WorkerCarregadorImagem(QThread):
     """
     Worker assíncrono para download de thumbnail sem travar a thread principal da interface.
     """
-    imagem_carregada = pyqtSignal(QPixmap)
+    imagem_carregada = Signal(QPixmap)
 
     def __init__(self, url: str, fonte: beta_pb2.FonteMidia.Enum, parent=None):
         super().__init__(parent)

@@ -2,12 +2,12 @@
 # Copyright (C) 2026 Aresta Climb Contributors
 
 import os
-from PyQt6.QtWidgets import (
+from PySide6.QtWidgets import (
     QDialog, QVBoxLayout, QHBoxLayout, QLabel, QLineEdit, QListWidget,
     QListWidgetItem, QPushButton, QDialogButtonBox, QMessageBox
 )
-from PyQt6.QtCore import Qt, QSortFilterProxyModel
-from PyQt6.QtGui import QStandardItemModel, QStandardItem
+from PySide6.QtCore import Qt, QSortFilterProxyModel
+from PySide6.QtGui import QStandardItemModel, QStandardItem
 from aresta_api.proto.generated import croqui_pb2
 from editor.models.croqui_model import CroquiModel
 

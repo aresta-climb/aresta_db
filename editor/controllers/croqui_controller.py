@@ -1,7 +1,7 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
-from PyQt6.QtGui import QUndoStack
+from PySide6.QtGui import QUndoStack
 from editor.models.croqui_model import CroquiModel
 from editor.commands.comandos_protobuf import (
     CmdAlterarPrimitivo,

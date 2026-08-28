@@ -2,11 +2,11 @@
 # Copyright (C) 2026 Aresta Climb Contributors
 
 import pytest
-from PyQt6.QtWidgets import QLineEdit
+from PySide6.QtWidgets import QLineEdit
 from aresta_api.proto.generated.croqui_pb2 import Croqui
 from editor.models.croqui_model import CroquiModel
 from editor.controllers.croqui_controller import CroquiController
-from PyQt6.QtGui import QUndoStack
+from PySide6.QtGui import QUndoStack
 from editor.views.widget_editor_dados import WidgetEditorDados
 from editor.legacy_views.area_principal import JanelaPrincipal
 
@@ -31,7 +31,7 @@ def test_widget_editor_dados_integracao_historico(qtbot):
         janela.pagina_dados.carregar_dados(model, controller)
         
         # Processa eventos para que o singleShot(0, self._conectar_historico) execute
-        from PyQt6.QtWidgets import QApplication
+        from PySide6.QtWidgets import QApplication
         QApplication.processEvents()
         
         editor_dados = janela.pagina_dados.editor_dados
@@ -91,9 +91,9 @@ def test_widget_editor_dados_integracao_historico(qtbot):
 
 
 def test_atalho_qlineedit_engole_desfazer_global_e_como_evitar(qtbot):
-    from PyQt6.QtGui import QKeySequence
-    from PyQt6.QtCore import Qt
-    from PyQt6.QtTest import QTest
+    from PySide6.QtGui import QKeySequence
+    from PySide6.QtCore import Qt
+    from PySide6.QtTest import QTest
     janela = JanelaPrincipal()
     qtbot.addWidget(janela)
     janela.show()
@@ -107,7 +107,7 @@ def test_atalho_qlineedit_engole_desfazer_global_e_como_evitar(qtbot):
         controller = CroquiController(model, janela.historico.obter_pilha())
         janela.pagina_dados.carregar_dados(model, controller)
         
-        from PyQt6.QtWidgets import QApplication
+        from PySide6.QtWidgets import QApplication
         QApplication.processEvents()
         
         editor_dados = janela.pagina_dados.editor_dados
@@ -148,7 +148,7 @@ def test_widget_editor_dados_integracao_esvaziamento_presenca_e_undo_redo(qtbot)
     que esvaziar campo limpa a presença no proto, e que a reversão via Undo/Redo
     restaura perfeitamente presença e valores."""
     from aresta_api.proto.generated.croqui_pb2 import Setor
-    from PyQt6.QtWidgets import QPushButton, QComboBox, QApplication
+    from PySide6.QtWidgets import QPushButton, QComboBox, QApplication
     
     janela = JanelaPrincipal()
     qtbot.addWidget(janela)

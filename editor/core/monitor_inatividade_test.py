@@ -2,9 +2,9 @@
 # Copyright (C) 2026 Aresta Climb Contributors
 
 import pytest
-from PyQt6.QtWidgets import QApplication, QWidget
-from PyQt6.QtCore import Qt, QEvent, QPointF, QPoint
-from PyQt6.QtGui import QKeyEvent, QMouseEvent
+from PySide6.QtWidgets import QApplication, QWidget
+from PySide6.QtCore import Qt, QEvent, QPointF, QPoint
+from PySide6.QtGui import QKeyEvent, QMouseEvent
 from editor.core.monitor_inatividade import MonitorInatividade
 import time
 

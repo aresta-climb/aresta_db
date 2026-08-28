@@ -8,9 +8,9 @@ e na segunda linha os campos de Latitude e Longitude na mesma linha horizontal.
 """
 
 from typing import Optional
-from PyQt6.QtCore import pyqtSignal, QUrl
-from PyQt6.QtGui import QDesktopServices
-from PyQt6.QtWidgets import (
+from PySide6.QtCore import Signal, QUrl
+from PySide6.QtGui import QDesktopServices
+from PySide6.QtWidgets import (
     QWidget,
     QVBoxLayout,
     QHBoxLayout,
@@ -41,7 +41,7 @@ class WidgetMensagemCoordenada(QWidget):
     Linha 1: Botões 'Colar' e 'Abrir no Maps'.
     Linha 2: 'Latitude:' [Input] [Card] | 'Longitude:' [Input] [Card].
     """
-    sinal_coordenadas_alteradas = pyqtSignal(object, object)  # (lat_e7, lon_e7)
+    sinal_coordenadas_alteradas = Signal(object, object)  # (lat_e7, lon_e7)
 
     def __init__(self, msg, controller=None, model=None, parent: Optional[QWidget] = None):
         super().__init__(parent)

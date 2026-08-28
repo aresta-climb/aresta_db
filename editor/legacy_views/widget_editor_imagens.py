@@ -21,15 +21,15 @@ import os
 import glob
 from pathlib import Path
 from PIL import Image, ImageDraw
-from PyQt6.QtWidgets import (
+from PySide6.QtWidgets import (
     QApplication, QMainWindow, QGraphicsView, QGraphicsScene,
     QGraphicsRectItem, QVBoxLayout, QWidget,
     QPushButton, QMessageBox, QLabel,
     QSplitter, QListWidget, QListWidgetItem, QHBoxLayout,
     QGraphicsPixmapItem, QFileDialog
 )
-from PyQt6.QtCore import Qt, QRectF, QPointF
-from PyQt6.QtGui import QPixmap, QPen, QColor, QFont, QBrush, QCursor, QImage, QUndoCommand
+from PySide6.QtCore import Qt, QRectF, QPointF
+from PySide6.QtGui import QPixmap, QPen, QColor, QFont, QBrush, QCursor, QImage, QUndoCommand
 
 class CmdMoverImagem(QUndoCommand):
     """

@@ -5,9 +5,9 @@ import sys
 from enum import Enum
 from dataclasses import dataclass, field
 from typing import Optional, List, Any
-from PyQt6.QtCore import QUrl
-from PyQt6.QtGui import QDesktopServices
-from PyQt6.QtWidgets import QApplication
+from PySide6.QtCore import QUrl
+from PySide6.QtGui import QDesktopServices
+from PySide6.QtWidgets import QApplication
 
 def obter_pacote_atual():
     """

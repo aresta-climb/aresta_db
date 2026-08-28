@@ -1,7 +1,7 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
-from PyQt6.QtWidgets import (
+from PySide6.QtWidgets import (
     QDialog,
     QVBoxLayout,
     QHBoxLayout,
@@ -9,7 +9,7 @@ from PyQt6.QtWidgets import (
     QLineEdit,
     QPushButton
 )
-from PyQt6.QtCore import Qt
+from PySide6.QtCore import Qt
 
 
 class DialogoCriarPico(QDialog):

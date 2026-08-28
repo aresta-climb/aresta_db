@@ -2,13 +2,13 @@
 # Copyright (C) 2026 Aresta Climb Contributors
 
 from pathlib import Path
-from PyQt6.QtWidgets import (
+from PySide6.QtWidgets import (
     QWidget, QHBoxLayout, QTreeView, QStackedWidget, QScrollArea, QVBoxLayout,
     QLabel, QFrame, QPushButton, QComboBox, QLineEdit, QSpinBox, QDoubleSpinBox,
     QCheckBox, QTextEdit, QTextBrowser, QMenu, QCompleter, QDialog, QInputDialog
 )
-from PyQt6.QtCore import Qt, QModelIndex, QUrl, QItemSelectionModel, QObject, QEvent, QTimer, QMimeData
-from PyQt6.QtGui import QImage, QPixmap, QTextDocument, QTextCursor, QKeySequence, QDragEnterEvent, QDropEvent
+from PySide6.QtCore import Qt, QModelIndex, QUrl, QItemSelectionModel, QObject, QEvent, QTimer, QMimeData
+from PySide6.QtGui import QImage, QPixmap, QTextDocument, QTextCursor, QKeySequence, QDragEnterEvent, QDropEvent
 from google.protobuf.descriptor import FieldDescriptor
 from aresta_api.proto.generated import croqui_pb2
 from editor.views.tree_view_adapter import ProtobufTreeViewAdapter
@@ -546,7 +546,7 @@ class WidgetColapsavel(QWidget):
         self.header_layout.setContentsMargins(0, 0, 0, 0)
         self.header_layout.setSpacing(6)
         
-        from PyQt6.QtWidgets import QToolButton
+        from PySide6.QtWidgets import QToolButton
         self.toggle_button = QToolButton(self)
         self.toggle_button.setStyleSheet("QToolButton { border: none; font-weight: bold; text-align: left; background-color: #e6e6e6; padding: 6px; }")
         self.toggle_button.setCheckable(True)
@@ -2392,7 +2392,7 @@ class WidgetEditorDados(QWidget):
         # Limpa a selecao e foco antes de remover para que o QTreeView nao 
         # tente mover o foco automaticamente para o proximo no (que seria '+ Adicionar')
         self.tree_view.selectionModel().clearSelection()
-        from PyQt6.QtCore import QModelIndex
+        from PySide6.QtCore import QModelIndex
         self.tree_view.setCurrentIndex(QModelIndex())
         
         msg_pai = expando_node.parent_node.message
@@ -2511,15 +2511,15 @@ class WidgetEditorDados(QWidget):
                 self.stacked_widget.setCurrentIndex(0)
                 self.form_padrao.load_node(novo_node)
 
-    def _exibir_menu_contexto(self, posicao):
-        """Exibe o menu de contexto ao clicar com botão direito na árvore."""
+    def _construir_menu_contexto(self, posicao):
+        """Constrói e retorna a instância de QMenu para a posição da árvore especificada."""
         index = self.tree_view.indexAt(posicao)
         if not index.isValid():
-            return
+            return None
 
         node = index.internalPointer()
         if node is None:
-            return
+            return None
 
         menu = QMenu(self)
 
@@ -2567,7 +2567,12 @@ class WidgetEditorDados(QWidget):
                     acao_baixo = menu.addAction("Mover para Baixo")
                     acao_baixo.triggered.connect(lambda checked=False, idx=index: self._executar_mover_para_baixo(idx))
 
-        if not menu.isEmpty():
+        return menu
+
+    def _exibir_menu_contexto(self, posicao):
+        """Exibe o menu de contexto ao clicar com botão direito na árvore."""
+        menu = self._construir_menu_contexto(posicao)
+        if menu and not menu.isEmpty():
             menu.exec(self.tree_view.viewport().mapToGlobal(posicao))
 
     def expandir_arvore_ate_alvos(self):

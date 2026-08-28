@@ -5,7 +5,7 @@ import pytest
 import os
 import sys
 from unittest.mock import MagicMock, patch
-from PyQt6.QtWidgets import QApplication
+from PySide6.QtWidgets import QApplication
 
 # Adiciona o diretório de scripts e a raiz ao path
 sys.path.insert(0, os.path.dirname(__file__))

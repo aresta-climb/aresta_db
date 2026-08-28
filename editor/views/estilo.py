@@ -2,7 +2,7 @@
 # Copyright (C) 2026 Aresta Climb Contributors
 
 import qtawesome as qta
-from PyQt6.QtGui import QIcon
+from PySide6.QtGui import QIcon
 
 class Icones:
     """Centraliza o mapeamento e estilo de ícones do editor usando QtAwesome."""

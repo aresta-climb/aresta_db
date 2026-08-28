@@ -1,8 +1,8 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
-from PyQt6.QtWidgets import QDialog, QVBoxLayout, QLineEdit, QListWidget, QPushButton, QHBoxLayout
-from PyQt6.QtCore import Qt
+from PySide6.QtWidgets import QDialog, QVBoxLayout, QLineEdit, QListWidget, QPushButton, QHBoxLayout
+from PySide6.QtCore import Qt
 from aresta_api.proto.generated.indice_pb2 import Indice
 
 class DialogoBuscaCroqui(QDialog):

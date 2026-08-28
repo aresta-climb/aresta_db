@@ -1,11 +1,11 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
-from PyQt6.QtCore import QObject, QTimer, pyqtSignal, QEvent
+from PySide6.QtCore import QObject, QTimer, Signal, QEvent
 
 class MonitorInatividade(QObject):
     """Monitora a inatividade do usuário através de eventos de input do Qt."""
-    inatividade_detectada = pyqtSignal()
+    inatividade_detectada = Signal()
     
     def __init__(self, timeout_ms=10000, parent=None):
         super().__init__(parent)

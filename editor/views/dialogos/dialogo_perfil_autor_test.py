@@ -2,7 +2,7 @@
 # Copyright (C) 2026 Aresta Climb Contributors
 
 import pytest
-from PyQt6.QtWidgets import QDialog
+from PySide6.QtWidgets import QDialog
 from unittest.mock import patch
 
 from editor.views.dialogos.dialogo_perfil_autor import DialogoPerfilAutor
@@ -30,7 +30,7 @@ class TesteDialogoPerfilAutor:
         qtbot.addWidget(dialogo)
 
         dialogo.edit_nome.setText("Renato")
-        with patch("PyQt6.QtWidgets.QMessageBox.warning") as mock_aviso:
+        with patch("PySide6.QtWidgets.QMessageBox.warning") as mock_aviso:
             dialogo.confirmar_e_fechar()
             mock_aviso.assert_called_once()
             assert dialogo.result() != QDialog.DialogCode.Accepted

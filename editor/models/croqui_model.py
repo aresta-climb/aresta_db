@@ -2,7 +2,7 @@
 # Copyright (C) 2026 Aresta Climb Contributors
 
 from editor.models.readonly_proxy import _copia_segura
-from PyQt6.QtCore import QObject, pyqtSignal
+from PySide6.QtCore import QObject, Signal
 from google.protobuf.message import Message
 
 class CroquiModel(QObject):
@@ -13,14 +13,14 @@ class CroquiModel(QObject):
     """
     
     # Sinais genéricos para a View assinar
-    dado_alterado = pyqtSignal(object, str) # msg_pai, campo_nome
-    repeated_adicionado = pyqtSignal(object, str, int) # msg_pai, campo_nome, indice
-    repeated_removido = pyqtSignal(object, str, int) # msg_pai, campo_nome, indice
-    repeated_item_alterado = pyqtSignal(object, str, int) # msg_pai, campo_nome, indice
-    repeated_movido = pyqtSignal(object, str, int, int) # msg_pai, campo_nome, index_from, index_to
-    oneof_alterado = pyqtSignal(object, str) # msg_pai, oneof_nome
-    foco_requisitado = pyqtSignal(object) # msg_id
-    imagem_alterada = pyqtSignal(str) # caminho_relativo_imagem
+    dado_alterado = Signal(object, str) # msg_pai, campo_nome
+    repeated_adicionado = Signal(object, str, int) # msg_pai, campo_nome, indice
+    repeated_removido = Signal(object, str, int) # msg_pai, campo_nome, indice
+    repeated_item_alterado = Signal(object, str, int) # msg_pai, campo_nome, indice
+    repeated_movido = Signal(object, str, int, int) # msg_pai, campo_nome, index_from, index_to
+    oneof_alterado = Signal(object, str) # msg_pai, oneof_nome
+    foco_requisitado = Signal(object) # msg_id
+    imagem_alterada = Signal(str) # caminho_relativo_imagem
 
 
     @staticmethod

@@ -4,7 +4,7 @@
 from pathlib import Path
 import unittest
 from unittest.mock import Mock, MagicMock
-from PyQt6.QtGui import QUndoStack
+from PySide6.QtGui import QUndoStack
 from aresta_api.proto.generated import croqui_pb2
 from editor.models.croqui_model import CroquiModel
 from editor.controllers.mapas_controller import MapasController

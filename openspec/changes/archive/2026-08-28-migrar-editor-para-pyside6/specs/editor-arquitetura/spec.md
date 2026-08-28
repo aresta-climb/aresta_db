@@ -2,7 +2,7 @@
 
 ### Requirement: Inicialização da Aplicação Desktop
 A aplicação MUST inicializar e garantir a infraestrutura de pastas locais através de uma Tela de Abertura (Splash Screen) informativa.
-O executável principal MUST utilizar o PySide6 (Qt para Python sob LGPLv3) para sua interface gráfica, definir explicitamente o nome da aplicação (`QCoreApplication.setApplicationName("EditorAresta")`) e o script de inicialização (`main.py`) MUST iniciar o loop de aplicação do Qt (`QApplication`), instanciando primeiro a `TelaDeAbertura` e, após a inicialização bem-sucedida, a Janela Principal.
+O executável principal MUST utilizar o PySide6 (Qt para Python sob licença LGPLv3) para sua interface gráfica, definir explicitamente o nome da aplicação (`QCoreApplication.setApplicationName("EditorAresta")`) e o script de inicialização (`main.py`) MUST iniciar o loop de aplicação do Qt (`QApplication`), instanciando primeiro a `TelaDeAbertura` e, após a inicialização bem-sucedida, a Janela Principal.
 
 #### Scenario: Primeiro uso - Inicialização do repositório
 - **WHEN** a aplicação for aberta e a pasta local `%appdata%/EditorAresta` não existir

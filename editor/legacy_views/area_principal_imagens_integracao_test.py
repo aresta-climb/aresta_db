@@ -5,8 +5,8 @@ import io
 from pathlib import Path
 from PIL import Image
 import pytest
-from PyQt6.QtWidgets import QApplication
-from PyQt6.QtGui import QUndoStack
+from PySide6.QtWidgets import QApplication
+from PySide6.QtGui import QUndoStack
 
 from aresta_api.proto.generated.croqui_pb2 import Croqui
 from editor.models.croqui_model import CroquiModel
@@ -101,7 +101,7 @@ class TestAreaPrincipalImagensIntegracao:
         assert recarregou_mapas is True
 
     def test_substituir_imagem_no_editor_imagens_mantem_pagina_imagens(self, qtbot, tmp_path, monkeypatch):
-        from PyQt6.QtWidgets import QFileDialog
+        from PySide6.QtWidgets import QFileDialog
 
         pasta_raiz = tmp_path / "croqui_teste_subst"
         pasta_db = pasta_raiz / "database"
@@ -132,7 +132,7 @@ class TestAreaPrincipalImagensIntegracao:
         # Usuário seleciona imagem e clica em Substituir Imagem
         area_principal.pagina_imagens.editor.select_image_by_name("thumbnail.webp")
 
-        from PyQt6.QtWidgets import QMessageBox
+        from PySide6.QtWidgets import QMessageBox
         monkeypatch.setattr("editor.legacy_views.area_principal.QMessageBox.question", lambda *a, **k: QMessageBox.StandardButton.Discard)
 
         nova_img = tmp_path / "nova_foto.png"

@@ -1,7 +1,7 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
-from PyQt6.QtCore import QThread, pyqtSignal
+from PySide6.QtCore import QThread, Signal
 from pathlib import Path
 import traceback
 import sys
@@ -27,15 +27,15 @@ class TarefaInicializacao(QThread):
     4. Git Sync (Clone ou Pull/Reset)
     """
     
-    progresso = pyqtSignal(int)
-    mostrar_progresso = pyqtSignal(bool)
-    status = pyqtSignal(str)
-    atualizacao_disponivel = pyqtSignal(object) # ResultadoAtualizacao
-    auth_requerida = pyqtSignal(str) # mantido para compatibilidade
-    solicitar_login_ui = pyqtSignal()
-    auth_concluida = pyqtSignal()
-    sucesso = pyqtSignal()
-    erro = pyqtSignal(str)
+    progresso = Signal(int)
+    mostrar_progresso = Signal(bool)
+    status = Signal(str)
+    atualizacao_disponivel = Signal(object) # ResultadoAtualizacao
+    auth_requerida = Signal(str) # mantido para compatibilidade
+    solicitar_login_ui = Signal()
+    auth_concluida = Signal()
+    sucesso = Signal()
+    erro = Signal(str)
 
     def __init__(self, id_cliente: str = ""):
         super().__init__()
@@ -156,11 +156,11 @@ class TarefaPublicacao(QThread):
     Thread responsável por coordenar a publicação de sugestões de croquis
     via ServicoSubmissao em segundo plano, emitindo sinais de progresso para a UI.
     """
-    sucesso = pyqtSignal(str, str, str)
-    aviso = pyqtSignal(str)
-    erro = pyqtSignal(str)
-    progresso = pyqtSignal(int)
-    status = pyqtSignal(str)
+    sucesso = Signal(str, str, str)
+    aviso = Signal(str)
+    erro = Signal(str)
+    progresso = Signal(int)
+    status = Signal(str)
 
     def __init__(
         self,
@@ -242,8 +242,8 @@ class TarefaExportacao(QThread):
     """
     Thread responsável por exportar um croqui para um arquivo .croqui ofuscado.
     """
-    sucesso = pyqtSignal()
-    erro = pyqtSignal(str)
+    sucesso = Signal()
+    erro = Signal(str)
     
     def __init__(self, caminho_raiz, caminho_destino):
         super().__init__()
@@ -264,7 +264,7 @@ class TarefaDadosConexao(QThread):
     Thread responsável por obter o IP local e gerar o QR Code de conexão.
     Evita travamentos da UI durante a abertura do diálogo.
     """
-    concluido = pyqtSignal(str, bytes) # ip, qr_bytes
+    concluido = Signal(str, bytes) # ip, qr_bytes
     
     def __init__(self, servidor):
         super().__init__()
@@ -294,8 +294,8 @@ class TarefaSalvamento(QThread):
     """
     Thread responsável por salvar em background (I/O intensivo e compilação).
     """
-    sucesso = pyqtSignal(object, object, bool, int) # caminho_retornado, erros, houve_renomeacao, undo_index
-    erro = pyqtSignal(str)
+    sucesso = Signal(object, object, bool, int) # caminho_retornado, erros, houve_renomeacao, undo_index
+    erro = Signal(str)
 
     def __init__(self, workspace, storage, caminho_db, croqui_data, novo_id, id_atual, undo_index):
         super().__init__()

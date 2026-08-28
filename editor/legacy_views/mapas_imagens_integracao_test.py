@@ -5,8 +5,8 @@ import io
 from pathlib import Path
 from PIL import Image
 import pytest
-from PyQt6.QtWidgets import QFileDialog
-from PyQt6.QtGui import QUndoStack
+from PySide6.QtWidgets import QFileDialog
+from PySide6.QtGui import QUndoStack
 
 from aresta_api.proto.generated import croqui_pb2
 from editor.models.croqui_model import CroquiModel
@@ -175,7 +175,7 @@ picos:
     def test_substituir_imagem_mapa_no_editor_mapas_integrado_com_foco_sem_crash(self, qtbot, tmp_path, monkeypatch):
         from editor.legacy_views.area_principal import JanelaPrincipal
         from editor.core.workspace import ExperimentalWorkspace
-        from PyQt6.QtWidgets import QMessageBox
+        from PySide6.QtWidgets import QMessageBox
 
         monkeypatch.setattr("editor.legacy_views.area_principal.QMessageBox.question", lambda *a, **k: QMessageBox.StandardButton.Discard)
 

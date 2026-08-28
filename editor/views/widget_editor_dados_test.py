@@ -1,13 +1,13 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
-from PyQt6.QtCore import QItemSelectionModel
+from PySide6.QtCore import QItemSelectionModel
 import pytest
-from PyQt6.QtWidgets import QApplication, QTreeView, QStackedWidget, QLineEdit, QFrame, QComboBox
+from PySide6.QtWidgets import QApplication, QTreeView, QStackedWidget, QLineEdit, QFrame, QComboBox
 from aresta_api.proto.generated.croqui_pb2 import Croqui
 from editor.models.croqui_model import CroquiModel
 from editor.controllers.croqui_controller import CroquiController
-from PyQt6.QtGui import QUndoStack
+from PySide6.QtGui import QUndoStack
 from editor.views.widget_editor_dados import WidgetEditorDados
 from editor.legacy_views.widget_editor_imagens import WidgetEditorImagens
 from editor.views.widget_editor_mapas import WidgetEditorMapas
@@ -155,7 +155,7 @@ def test_form_renderiza_botao_para_mapa(qapp):
     from editor.views.tree_view_adapter import ProtobufNode
     from editor.views.widget_editor_dados import WidgetFormularioPadrao
     from aresta_api.proto.generated.croqui_pb2 import Setor
-    from PyQt6.QtWidgets import QPushButton
+    from PySide6.QtWidgets import QPushButton
     
     setor = Setor()
     mapa = setor.mapas.add()
@@ -165,7 +165,7 @@ def test_form_renderiza_botao_para_mapa(qapp):
     
     from editor.models.croqui_model import CroquiModel
     from editor.controllers.croqui_controller import CroquiController
-    from PyQt6.QtGui import QUndoStack
+    from PySide6.QtGui import QUndoStack
     from aresta_api.proto.generated.croqui_pb2 import Croqui
     
     croqui_dummy = Croqui()
@@ -180,7 +180,7 @@ def test_form_renderiza_botao_para_mapa(qapp):
     assert "Abrir no Editor de Mapas" in textos
     
     # Garante que não renderizou outros campos (como caminho_imagem_mapa) como QLineEdit
-    from PyQt6.QtWidgets import QLineEdit
+    from PySide6.QtWidgets import QLineEdit
     line_edits = form.findChildren(QLineEdit)
     assert len(line_edits) == 0
 
@@ -190,10 +190,10 @@ def test_form_botao_mapa_emite_foco_requisitado(qapp):
     from editor.views.tree_view_adapter import ProtobufNode
     from editor.views.widget_editor_dados import WidgetFormularioPadrao
     from aresta_api.proto.generated.croqui_pb2 import Setor
-    from PyQt6.QtWidgets import QPushButton
+    from PySide6.QtWidgets import QPushButton
     from editor.models.croqui_model import CroquiModel
     from editor.controllers.croqui_controller import CroquiController
-    from PyQt6.QtGui import QUndoStack
+    from PySide6.QtGui import QUndoStack
     from aresta_api.proto.generated.croqui_pb2 import Croqui
 
     croqui = Croqui()
@@ -257,7 +257,7 @@ def test_widget_formulario_padrao_no_overlap(qapp):
 
 
 def test_widget_editor_dados_header_hidden_and_auto_expansion(qapp):
-    from PyQt6.QtCore import Qt, QItemSelectionModel, QItemSelectionModel
+    from PySide6.QtCore import Qt, QItemSelectionModel, QItemSelectionModel
     croqui = Croqui()
     croqui.nome = "Complexo Pedra Grande"
     
@@ -342,7 +342,7 @@ def test_formulario_exibe_e_edita_nome_de_arquivo(qapp):
     from editor.views.widget_editor_dados import WidgetEditorDados
     from aresta_api.proto.generated import croqui_pb2
     from aresta_api.proto.generated.croqui_pb2 import Croqui
-    from PyQt6.QtWidgets import QLineEdit
+    from PySide6.QtWidgets import QLineEdit
     
     croqui = Croqui()
     pico = croqui.picos.add()
@@ -352,7 +352,7 @@ def test_formulario_exibe_e_edita_nome_de_arquivo(qapp):
     
     from editor.models.croqui_model import CroquiModel
     from editor.controllers.croqui_controller import CroquiController
-    from PyQt6.QtGui import QUndoStack
+    from PySide6.QtGui import QUndoStack
     model = CroquiModel(croqui)
     controller = CroquiController(model, QUndoStack())
     
@@ -405,7 +405,7 @@ def test_formulario_usa_croqui_controller_para_caminho_novo(qapp):
     from editor.views.widget_editor_dados import WidgetEditorDados
     from aresta_api.proto.generated import croqui_pb2
     from aresta_api.proto.generated.croqui_pb2 import Croqui
-    from PyQt6.QtWidgets import QLineEdit
+    from PySide6.QtWidgets import QLineEdit
     from unittest.mock import MagicMock
     
     croqui = Croqui()
@@ -471,7 +471,7 @@ def test_formulario_oneof_transparencia_primitivos(qapp):
     from editor.views.tree_view_adapter import ProtobufNode
     from editor.views.widget_editor_dados import WidgetFormularioPadrao
     from aresta_api.proto.generated.croqui_pb2 import ArquivoMarkdown
-    from PyQt6.QtWidgets import QComboBox, QTextEdit
+    from PySide6.QtWidgets import QComboBox, QTextEdit
     
     md_msg = ArquivoMarkdown()
     md_msg.conteudo = "# Ola"
@@ -480,7 +480,7 @@ def test_formulario_oneof_transparencia_primitivos(qapp):
     
     from editor.models.croqui_model import CroquiModel
     from editor.controllers.croqui_controller import CroquiController
-    from PyQt6.QtGui import QUndoStack
+    from PySide6.QtGui import QUndoStack
     from aresta_api.proto.generated.croqui_pb2 import Croqui
     croqui_dummy = Croqui()
     model = CroquiModel(croqui_dummy)
@@ -501,7 +501,7 @@ def test_formulario_markdown_editor_split(qapp):
     from editor.views.tree_view_adapter import ProtobufNode
     from editor.views.widget_editor_dados import WidgetFormularioPadrao, WidgetEditorMarkdown
     from aresta_api.proto.generated.croqui_pb2 import Setor
-    from PyQt6.QtWidgets import QTextEdit, QTextBrowser
+    from PySide6.QtWidgets import QTextEdit, QTextBrowser
     
     setor = Setor()
     setor.descricao = "Descricao inicial"
@@ -512,7 +512,7 @@ def test_formulario_markdown_editor_split(qapp):
     node = ProtobufNode(name="Setor", message=setor, descriptor=setor.DESCRIPTOR)
     from editor.models.croqui_model import CroquiModel
     from editor.controllers.croqui_controller import CroquiController
-    from PyQt6.QtGui import QUndoStack
+    from PySide6.QtGui import QUndoStack
     from aresta_api.proto.generated.croqui_pb2 import Croqui
     croqui_dummy = Croqui()
     model = CroquiModel(croqui_dummy)
@@ -540,7 +540,7 @@ def test_markdown_editor_frontmatter_and_base_url(qapp):
     from editor.views.tree_view_adapter import ProtobufNode
     from editor.views.widget_editor_dados import WidgetFormularioPadrao, WidgetEditorMarkdown
     from aresta_api.proto.generated.croqui_pb2 import Setor
-    from PyQt6.QtWidgets import QWidget
+    from PySide6.QtWidgets import QWidget
     
     # 1. Cria uma janela mock com caminho_croqui
     class MockWindow(QWidget):
@@ -552,7 +552,7 @@ def test_markdown_editor_frontmatter_and_base_url(qapp):
     win = MockWindow()
     from editor.models.croqui_model import CroquiModel
     from editor.controllers.croqui_controller import CroquiController
-    from PyQt6.QtGui import QUndoStack
+    from PySide6.QtGui import QUndoStack
     from aresta_api.proto.generated.croqui_pb2 import Croqui
     croqui_dummy = Croqui()
     model = CroquiModel(croqui_dummy)
@@ -590,8 +590,8 @@ def test_markdown_editor_base_url_from_model_and_local_image(qapp, tmp_path):
     from aresta_api.proto.generated.croqui_pb2 import Setor, Croqui
     from editor.models.croqui_model import CroquiModel
     from editor.controllers.croqui_controller import CroquiController
-    from PyQt6.QtGui import QUndoStack, QImage
-    from PyQt6.QtWidgets import QWidget
+    from PySide6.QtGui import QUndoStack, QImage
+    from PySide6.QtWidgets import QWidget
 
     # Cria pasta de imagens com uma imagem WebP real
     pasta_imagens = tmp_path / "imagens"
@@ -632,8 +632,8 @@ def test_markdown_editor_base_url_from_model_and_local_image(qapp, tmp_path):
 
 def test_markdown_editor_image_auto_scaling(qapp):
     from editor.views.widget_editor_dados import AutoScalingTextBrowser
-    from PyQt6.QtCore import QUrl, QSize
-    from PyQt6.QtGui import QImage
+    from PySide6.QtCore import QUrl, QSize
+    from PySide6.QtGui import QImage
     
     tb = AutoScalingTextBrowser()
     tb.setFixedSize(200, 150) # Very narrow viewport
@@ -675,7 +675,7 @@ def test_arvore_indentacao_12px(qapp):
     from editor.models.croqui_model import CroquiModel
     from editor.controllers.croqui_controller import CroquiController
     from editor.views.widget_editor_dados import WidgetEditorDados
-    from PyQt6.QtGui import QUndoStack
+    from PySide6.QtGui import QUndoStack
 
     croqui = Croqui()
     model = CroquiModel(croqui)
@@ -689,7 +689,7 @@ def test_formulario_campo_invisivel_nao_renderizado(qapp):
     from editor.views.tree_view_adapter import ProtobufNode
     from editor.views.widget_editor_dados import WidgetFormularioPadrao
     from aresta_api.proto.generated.croqui_pb2 import Croqui
-    from PyQt6.QtWidgets import QLineEdit
+    from PySide6.QtWidgets import QLineEdit
 
     # Croqui tem o campo 'arquivos_externos' com formato_na_ui = INVISIVEL.
     # Ao renderizar o formulário do Croqui, nenhum widget deve ser criado para esse campo.
@@ -702,7 +702,7 @@ def test_formulario_campo_invisivel_nao_renderizado(qapp):
     node = ProtobufNode(name="Croqui", message=croqui, descriptor=croqui.DESCRIPTOR)
     from editor.models.croqui_model import CroquiModel
     from editor.controllers.croqui_controller import CroquiController
-    from PyQt6.QtGui import QUndoStack
+    from PySide6.QtGui import QUndoStack
     from aresta_api.proto.generated.croqui_pb2 import Croqui
     croqui_dummy = Croqui()
     model = CroquiModel(croqui_dummy)
@@ -728,7 +728,7 @@ def test_formulario_campos_em_cards_qframe(qapp):
     node = ProtobufNode(name="Pico", message=pico, descriptor=pico.DESCRIPTOR)
     from editor.models.croqui_model import CroquiModel
     from editor.controllers.croqui_controller import CroquiController
-    from PyQt6.QtGui import QUndoStack
+    from PySide6.QtGui import QUndoStack
     from aresta_api.proto.generated.croqui_pb2 import Croqui
     croqui_dummy = Croqui()
     model = CroquiModel(croqui_dummy)
@@ -747,13 +747,13 @@ def test_formulario_primitivo_largura_maxima(qapp):
     from editor.views.tree_view_adapter import ProtobufNode
     from editor.views.widget_editor_dados import WidgetFormularioPadrao
     from aresta_api.proto.generated.croqui_pb2 import Pico
-    from PyQt6.QtWidgets import QSpinBox
+    from PySide6.QtWidgets import QSpinBox
 
     pico = Pico()
     node = ProtobufNode(name="Pico", message=pico, descriptor=pico.DESCRIPTOR)
     from editor.models.croqui_model import CroquiModel
     from editor.controllers.croqui_controller import CroquiController
-    from PyQt6.QtGui import QUndoStack
+    from PySide6.QtGui import QUndoStack
     from aresta_api.proto.generated.croqui_pb2 import Croqui
     croqui_dummy = Croqui()
     model = CroquiModel(croqui_dummy)
@@ -786,7 +786,7 @@ def test_menu_contexto_adicionar_item_repeated(qapp, monkeypatch):
     from aresta_api.proto.generated.croqui_pb2 import Croqui
     from editor.models.croqui_model import CroquiModel
     from editor.controllers.croqui_controller import CroquiController
-    from PyQt6.QtGui import QUndoStack
+    from PySide6.QtGui import QUndoStack
 
     monkeypatch.setattr(
         DialogoCriarPico,
@@ -836,7 +836,7 @@ def test_menu_contexto_remover_item_repeated(qapp):
     from editor.models.croqui_model import CroquiModel
     from editor.controllers.croqui_controller import CroquiController
     from editor.views.widget_editor_dados import WidgetEditorDados
-    from PyQt6.QtGui import QUndoStack
+    from PySide6.QtGui import QUndoStack
 
     croqui = Croqui()
     pico_a = croqui.picos.add()
@@ -1125,7 +1125,7 @@ def test_inicializar_oneofs_oneof_conteudo_auto_inicializa_conteudo_sem_dialog(q
     from editor.views.widget_editor_dados import WidgetFormularioPadrao
     from editor.models.croqui_model import CroquiModel
     from editor.controllers.croqui_controller import CroquiController
-    from PyQt6.QtGui import QUndoStack
+    from PySide6.QtGui import QUndoStack
 
     croqui = Croqui()
     model = CroquiModel(croqui)
@@ -1287,7 +1287,7 @@ def test_menu_contexto_mover_item_para_baixo(qapp):
     from aresta_api.proto.generated.croqui_pb2 import Croqui
     from editor.models.croqui_model import CroquiModel
     from editor.controllers.croqui_controller import CroquiController
-    from PyQt6.QtGui import QUndoStack
+    from PySide6.QtGui import QUndoStack
     from editor.views.widget_editor_dados import WidgetEditorDados
 
     croqui = Croqui()
@@ -1326,10 +1326,10 @@ def test_widget_formulario_padrao_estrutura_campo_alterada(qapp):
     from editor.views.widget_editor_dados import get_node_path, WidgetEditorDados, _get_id
     from editor.views.tree_view_adapter import ProtobufNode
     from aresta_api.proto.generated.croqui_pb2 import Setor
-    from PyQt6.QtWidgets import QPushButton, QComboBox, QLineEdit
+    from PySide6.QtWidgets import QPushButton, QComboBox, QLineEdit
     from editor.models.croqui_model import CroquiModel
     from editor.controllers.croqui_controller import CroquiController
-    from PyQt6.QtGui import QUndoStack
+    from PySide6.QtGui import QUndoStack
 
     setor = Setor()
     model = CroquiModel(setor)
@@ -1374,10 +1374,10 @@ def test_widget_formulario_submensagem_coordenada_sem_botoes(qapp):
     from editor.views.widget_editor_dados import WidgetEditorDados, _get_id
     from editor.views.tree_view_adapter import ProtobufNode
     from aresta_api.proto.generated.croqui_pb2 import Setor
-    from PyQt6.QtWidgets import QPushButton, QLineEdit
+    from PySide6.QtWidgets import QPushButton, QLineEdit
     from editor.models.croqui_model import CroquiModel
     from editor.controllers.croqui_controller import CroquiController
-    from PyQt6.QtGui import QUndoStack
+    from PySide6.QtGui import QUndoStack
 
     setor = Setor()
     model = CroquiModel(setor)
@@ -1405,10 +1405,10 @@ def test_widget_formulario_padrao_oneof_conteudo_renderizacao(qapp):
     """Garante que a renderizacao de uma mensagem ONEOF_CONTEUDO via _render_message_fields
     nao crie um QComboBox do oneof, mas sim renderize seu conteudo diretamente."""
     from aresta_api.proto.generated.croqui_pb2 import Croqui, ArquivoSetor
-    from PyQt6.QtWidgets import QComboBox, QVBoxLayout, QWidget
+    from PySide6.QtWidgets import QComboBox, QVBoxLayout, QWidget
     from editor.models.croqui_model import CroquiModel
     from editor.controllers.croqui_controller import CroquiController
-    from PyQt6.QtGui import QUndoStack
+    from PySide6.QtGui import QUndoStack
     from editor.views.widget_editor_dados import WidgetEditorDados
     
     croqui = Croqui()
@@ -1435,9 +1435,9 @@ def test_on_campo_alterado_spinbox_typeerror_regression(qapp):
     from editor.views.widget_editor_dados import WidgetFormularioPadrao
     from editor.models.croqui_model import CroquiModel
     from editor.controllers.croqui_controller import CroquiController
-    from PyQt6.QtGui import QUndoStack
+    from PySide6.QtGui import QUndoStack
     from aresta_api.proto.generated.croqui_pb2 import Croqui
-    from PyQt6.QtWidgets import QSpinBox, QDoubleSpinBox, QVBoxLayout
+    from PySide6.QtWidgets import QSpinBox, QDoubleSpinBox, QVBoxLayout
     
     croqui = Croqui()
     model = CroquiModel(croqui)
@@ -1485,7 +1485,7 @@ def test_container_repeated_widget_mover_item(qapp):
     from editor.views.widget_editor_dados import WidgetEditorDados, ContainerRepeatedWidget
     from editor.models.croqui_model import CroquiModel
     from editor.controllers.croqui_controller import CroquiController
-    from PyQt6.QtGui import QUndoStack
+    from PySide6.QtGui import QUndoStack
 
     croqui = Croqui()
     croqui.picos.extend([Pico(nome='P1'), Pico(nome='P2'), Pico(nome='P3')])
@@ -1528,7 +1528,7 @@ def test_container_repeated_widget_mover_item(qapp):
 def test_container_repeated_evita_flash_janela_remocao(qapp):
     from editor.views.widget_editor_dados import ContainerRepeatedWidget
     from aresta_api.proto.generated.croqui_pb2 import Croqui
-    from PyQt6.QtWidgets import QWidget
+    from PySide6.QtWidgets import QWidget
     from unittest.mock import patch
 
     croqui = Croqui()
@@ -1551,7 +1551,7 @@ def test_container_repeated_evita_flash_janela_remocao(qapp):
 
 def test_widget_formulario_padrao_evita_flash_janela_limpeza_layout(qapp):
     from editor.views.widget_editor_dados import WidgetFormularioPadrao
-    from PyQt6.QtWidgets import QVBoxLayout, QWidget, QHBoxLayout
+    from PySide6.QtWidgets import QVBoxLayout, QWidget, QHBoxLayout
     from aresta_api.proto.generated.croqui_pb2 import Croqui
     from unittest.mock import patch
 
@@ -1655,8 +1655,8 @@ def test_exclusao_nao_dispara_adicao_automatica(qapp, monkeypatch):
     from editor.controllers.croqui_controller import CroquiController
     from editor.views.widget_editor_dados import WidgetEditorDados
     from editor.views.widget_editor_dados import _get_id
-    from PyQt6.QtGui import QUndoStack
-    from PyQt6.QtCore import QModelIndex
+    from PySide6.QtGui import QUndoStack
+    from PySide6.QtCore import QModelIndex
 
     croqui = Croqui()
     pico1 = croqui.picos.add()
@@ -1719,7 +1719,7 @@ def test_repeated_fields_usa_widget_colapsavel(qapp):
 def test_widget_colapsavel_lazy_load(qapp):
     from editor.views.widget_editor_dados import WidgetColapsavel
     from aresta_api.proto.generated.croqui_pb2 import Pico
-    from PyQt6.QtWidgets import QWidget
+    from PySide6.QtWidgets import QWidget
     
     pico = Pico(nome="Pico TDD Lazy")
     
@@ -1780,7 +1780,7 @@ def test_formulario_exibe_e_edita_nome_de_arquivo_mapas_gerais(qapp):
     from editor.views.widget_editor_dados import WidgetEditorDados
     from aresta_api.proto.generated import croqui_pb2
     from aresta_api.proto.generated.croqui_pb2 import Croqui
-    from PyQt6.QtWidgets import QLineEdit
+    from PySide6.QtWidgets import QLineEdit
     
     croqui = Croqui()
     pico = croqui.picos.add()
@@ -1790,7 +1790,7 @@ def test_formulario_exibe_e_edita_nome_de_arquivo_mapas_gerais(qapp):
     
     from editor.models.croqui_model import CroquiModel
     from editor.controllers.croqui_controller import CroquiController
-    from PyQt6.QtGui import QUndoStack
+    from PySide6.QtGui import QUndoStack
     model = CroquiModel(croqui)
     controller = CroquiController(model, QUndoStack())
     
@@ -1834,7 +1834,7 @@ def test_fluxo_integracao_carregamento_e_salvamento_yaml_campos_vazios(tmp_path,
     sem presença de botões Adicionar/Remover nos cards de campos."""
     from aresta_api.proto.generated.croqui_pb2 import Croqui, Setor, Coordenada
     from editor.views.tree_view_adapter import ProtobufNode
-    from PyQt6.QtWidgets import QPushButton, QLineEdit, QComboBox
+    from PySide6.QtWidgets import QPushButton, QLineEdit, QComboBox
     import yaml
     
     croqui = Croqui()
@@ -1926,7 +1926,7 @@ def test_booleano_selecionar_nao_informado_permanece_nao_informado(qapp):
     mantém o valor como 'Não informado' (ausente/None) e não muda para 'Não' (False)."""
     from aresta_api.proto.generated.croqui_pb2 import Setor
     from editor.views.tree_view_adapter import ProtobufNode
-    from PyQt6.QtWidgets import QComboBox
+    from PySide6.QtWidgets import QComboBox
     
     setor = Setor()
     setor.sinal_de_celular = False  # Usuário tinha 'Não'
@@ -1977,9 +1977,9 @@ def test_formulario_inteiro_apagar_com_backspace_limpa_campo_no_modelo(qapp):
     from aresta_api.proto.generated.croqui_pb2 import Setor
     from editor.views.tree_view_adapter import ProtobufNode
     from editor.views.protobuf_widget_factory import SpinBoxVazio
-    from PyQt6.QtGui import QFocusEvent
-    from PyQt6.QtCore import QEvent
-    from PyQt6.QtWidgets import QApplication
+    from PySide6.QtGui import QFocusEvent
+    from PySide6.QtCore import QEvent
+    from PySide6.QtWidgets import QApplication
     
     setor = Setor()
     setor.indice_mapa_padrao = 5
@@ -2017,7 +2017,7 @@ def test_integracao_adicao_subelementos_novo_croqui(qapp, monkeypatch):
     from editor.models.croqui_model import CroquiModel
     from editor.controllers.croqui_controller import CroquiController
     from editor.views.widget_editor_dados import WidgetEditorDados
-    from PyQt6.QtWidgets import QInputDialog, QPushButton
+    from PySide6.QtWidgets import QInputDialog, QPushButton
 
     croqui = Croqui()
     pico = croqui.picos.add()
@@ -2153,14 +2153,13 @@ def test_integracao_desfazer_refazer_adicao_subelementos(qapp, monkeypatch):
     assert pico.setores_ou_grupos[0].HasField("grupo")
 
 
-def test_menu_contexto_no_estrutural_adicao_filhos(qapp, monkeypatch):
+def test_menu_contexto_no_estrutural_adicao_filhos(qapp):
     """Garante que o menu de contexto em nós estruturais pais (Pico, Setor, Croqui)
     exibe ações para adicionar seus subelementos filhos diretamente."""
     from aresta_api.proto.generated.croqui_pb2 import Croqui
     from editor.models.croqui_model import CroquiModel
     from editor.controllers.croqui_controller import CroquiController
     from editor.views.widget_editor_dados import WidgetEditorDados
-    from PyQt6.QtWidgets import QMenu
 
     croqui = Croqui()
     pico = croqui.picos.add()
@@ -2177,25 +2176,22 @@ def test_menu_contexto_no_estrutural_adicao_filhos(qapp, monkeypatch):
     widget.expandir_arvore_ate_alvos()
     qapp.processEvents()
 
-    menus_criados = []
-    original_exec = QMenu.exec
-    monkeypatch.setattr(QMenu, "exec", lambda self, *args, **kwargs: menus_criados.append([a.text() for a in self.actions()]))
-
     # 1. Clica com botão direito no nó do Pico
     croqui_node_idx = widget.tree_model.index(0, 0)
     # Localiza o expando de Picos
     expando_picos_idx = next(widget.tree_model.index(r, 0, croqui_node_idx) for r in range(widget.tree_model.rowCount(croqui_node_idx)) if widget.tree_model.data(widget.tree_model.index(r, 0, croqui_node_idx)) == "Picos")
     pico_node_idx = widget.tree_model.index(0, 0, expando_picos_idx)
 
-    widget._exibir_menu_contexto(widget.tree_view.visualRect(pico_node_idx).center())
-    assert len(menus_criados) >= 1
-    acoes_pico = menus_criados[-1]
+    menu_pico = widget._construir_menu_contexto(widget.tree_view.visualRect(pico_node_idx).center())
+    assert menu_pico is not None
+    acoes_pico = [a.text() for a in menu_pico.actions()]
     assert any("Adicionar" in a and ("Setor" in a or "Grupo" in a) for a in acoes_pico)
     assert "Excluir item" in acoes_pico
 
     # 2. Clica com botão direito no nó do Croqui
-    widget._exibir_menu_contexto(widget.tree_view.visualRect(croqui_node_idx).center())
-    acoes_croqui = menus_criados[-1]
+    menu_croqui = widget._construir_menu_contexto(widget.tree_view.visualRect(croqui_node_idx).center())
+    assert menu_croqui is not None
+    acoes_croqui = [a.text() for a in menu_croqui.actions()]
     assert any("Pico" in a for a in acoes_croqui)
     assert any("Botão" in a or "Botao" in a for a in acoes_croqui)
 
@@ -2208,7 +2204,7 @@ def test_cartoes_subelementos_no_formulario(qapp):
     from editor.controllers.croqui_controller import CroquiController
     from editor.views.widget_editor_dados import WidgetEditorDados
     from editor.views.tree_view_adapter import ProtobufNode
-    from PyQt6.QtWidgets import QLabel, QPushButton
+    from PySide6.QtWidgets import QLabel, QPushButton
 
     croqui = Croqui()
     pico = croqui.picos.add()
@@ -2253,7 +2249,7 @@ def test_clique_botao_cartao_adiciona_subelemento_com_undo(qapp, monkeypatch):
     from editor.controllers.croqui_controller import CroquiController
     from editor.views.widget_editor_dados import WidgetEditorDados
     from editor.views.tree_view_adapter import ProtobufNode
-    from PyQt6.QtWidgets import QPushButton, QInputDialog
+    from PySide6.QtWidgets import QPushButton, QInputDialog
 
     croqui = Croqui()
     pico = croqui.picos.add()
@@ -2303,7 +2299,7 @@ def test_cartao_adicao_grupo_e_cancelamento(qapp, monkeypatch):
     from editor.views.widget_editor_dados import WidgetEditorDados
     from editor.views.tree_view_adapter import ProtobufNode
     from editor.views.dialogos.dialogo_criar_setor_ou_grupo import DialogoCriarSetorOuGrupo
-    from PyQt6.QtWidgets import QPushButton
+    from PySide6.QtWidgets import QPushButton
 
     croqui = Croqui()
     grupo = Grupo(nome="Grupo dos Cartões")
@@ -2360,7 +2356,7 @@ def test_cartao_adicao_croqui(qapp, monkeypatch):
     from editor.views.widget_editor_dados import WidgetEditorDados
     from editor.views.tree_view_adapter import ProtobufNode
     from editor.views.dialogos.dialogo_criar_botao import DialogoCriarBotao
-    from PyQt6.QtWidgets import QPushButton
+    from PySide6.QtWidgets import QPushButton
 
     croqui = Croqui(nome="Croqui Teste Cartões")
     pilha = QUndoStack()
@@ -2839,8 +2835,8 @@ def test_markdown_editor_botao_inserir_imagem_com_undo_redo(qapp, tmp_path, monk
     from aresta_api.proto.generated.croqui_pb2 import Setor, Croqui
     from editor.models.croqui_model import CroquiModel
     from editor.controllers.croqui_controller import CroquiController
-    from PyQt6.QtGui import QUndoStack
-    from PyQt6.QtWidgets import QDialog
+    from PySide6.QtGui import QUndoStack
+    from PySide6.QtWidgets import QDialog
     from editor.views.dialogos.dialogo_inserir_imagem_markdown import DialogoInserirImagemMarkdown
 
     croqui = Croqui()
@@ -2904,8 +2900,8 @@ def test_markdown_editor_imagem_preview_em_memoria_sem_disco(qapp, tmp_path):
     from aresta_api.proto.generated.croqui_pb2 import Setor, Croqui
     from editor.models.croqui_model import CroquiModel
     from editor.controllers.croqui_controller import CroquiController
-    from PyQt6.QtGui import QUndoStack, QImage, QTextDocument
-    from PyQt6.QtCore import QBuffer, QIODevice, QUrl
+    from PySide6.QtGui import QUndoStack, QImage, QTextDocument
+    from PySide6.QtCore import QBuffer, QIODevice, QUrl
 
     croqui = Croqui()
     pilha = QUndoStack()
@@ -2946,9 +2942,9 @@ def test_markdown_editor_drag_and_drop_imagem_interna(qapp, tmp_path, monkeypatc
     from aresta_api.proto.generated.croqui_pb2 import Setor, Croqui
     from editor.models.croqui_model import CroquiModel
     from editor.controllers.croqui_controller import CroquiController
-    from PyQt6.QtGui import QUndoStack, QDropEvent, QDragEnterEvent
-    from PyQt6.QtCore import Qt, QMimeData, QUrl, QPoint, QPointF
-    from PyQt6.QtWidgets import QDialog
+    from PySide6.QtGui import QUndoStack, QDropEvent, QDragEnterEvent
+    from PySide6.QtCore import Qt, QMimeData, QUrl, QPoint, QPointF
+    from PySide6.QtWidgets import QDialog
 
     pasta_imagens = tmp_path / "imagens"
     pasta_imagens.mkdir(parents=True, exist_ok=True)
@@ -3011,9 +3007,9 @@ def test_markdown_editor_drag_and_drop_imagem_externa(qapp, tmp_path, monkeypatc
     from aresta_api.proto.generated.croqui_pb2 import Setor, Croqui
     from editor.models.croqui_model import CroquiModel
     from editor.controllers.croqui_controller import CroquiController
-    from PyQt6.QtGui import QUndoStack, QDropEvent, QDragEnterEvent
-    from PyQt6.QtCore import Qt, QMimeData, QUrl, QPoint, QPointF
-    from PyQt6.QtWidgets import QDialog
+    from PySide6.QtGui import QUndoStack, QDropEvent, QDragEnterEvent
+    from PySide6.QtCore import Qt, QMimeData, QUrl, QPoint, QPointF
+    from PySide6.QtWidgets import QDialog
 
     pasta_ext = tmp_path / "externo"
     pasta_ext.mkdir()
@@ -3064,9 +3060,9 @@ def test_markdown_editor_colar_imagem_clipboard(qapp, tmp_path, monkeypatch):
     from aresta_api.proto.generated.croqui_pb2 import Setor, Croqui
     from editor.models.croqui_model import CroquiModel
     from editor.controllers.croqui_controller import CroquiController
-    from PyQt6.QtGui import QUndoStack, QImage
-    from PyQt6.QtCore import QMimeData
-    from PyQt6.QtWidgets import QDialog
+    from PySide6.QtGui import QUndoStack, QImage
+    from PySide6.QtCore import QMimeData
+    from PySide6.QtWidgets import QDialog
 
     croqui = Croqui()
     pilha = QUndoStack()
@@ -3107,8 +3103,8 @@ def test_markdown_editor_autocompletar(qapp, tmp_path):
     from aresta_api.proto.generated.croqui_pb2 import Setor, Croqui
     from editor.models.croqui_model import CroquiModel
     from editor.controllers.croqui_controller import CroquiController
-    from PyQt6.QtGui import QUndoStack, QKeyEvent
-    from PyQt6.QtCore import Qt
+    from PySide6.QtGui import QUndoStack, QKeyEvent
+    from PySide6.QtCore import Qt
 
     pasta_imagens = tmp_path / "imagens"
     pasta_imagens.mkdir(parents=True, exist_ok=True)

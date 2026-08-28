@@ -2,9 +2,9 @@
 # Copyright (C) 2026 Aresta Climb Contributors
 
 import pytest
-from PyQt6.QtCore import Qt, QPoint, QPointF
-from PyQt6.QtGui import QWheelEvent, QUndoStack
-from PyQt6.QtWidgets import QApplication, QLineEdit, QDoubleSpinBox, QDialog
+from PySide6.QtCore import Qt, QPoint, QPointF
+from PySide6.QtGui import QWheelEvent, QUndoStack
+from PySide6.QtWidgets import QApplication, QLineEdit, QDoubleSpinBox, QDialog
 
 from aresta_api.proto.generated.croqui_pb2 import Coordenada
 from editor.models.croqui_model import CroquiModel
@@ -287,7 +287,7 @@ class TestWidgetMensagemCoordenada:
         qtbot.addWidget(widget)
 
         urls = []
-        from PyQt6.QtGui import QDesktopServices
+        from PySide6.QtGui import QDesktopServices
         monkeypatch.setattr(QDesktopServices, "openUrl", lambda url: urls.append(url.toString()))
 
         widget.abrir_no_google_maps()
@@ -300,7 +300,7 @@ class TestWidgetMensagemCoordenada:
         qtbot.addWidget(widget)
 
         urls = []
-        from PyQt6.QtGui import QDesktopServices
+        from PySide6.QtGui import QDesktopServices
         monkeypatch.setattr(QDesktopServices, "openUrl", lambda url: urls.append(url.toString()))
 
         widget.abrir_no_google_maps()

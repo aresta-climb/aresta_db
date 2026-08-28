@@ -2,7 +2,7 @@
 # Copyright (C) 2026 Aresta Climb Contributors
 
 from unittest.mock import MagicMock
-from PyQt6.QtGui import QUndoStack
+from PySide6.QtGui import QUndoStack
 from aresta_api.proto.generated.croqui_pb2 import Croqui, Pico
 from editor.models.croqui_model import CroquiModel
 from editor.controllers.croqui_controller import CroquiController

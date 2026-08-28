@@ -2,7 +2,7 @@
 # Copyright (C) 2026 Aresta Climb Contributors
 
 import pytest
-from PyQt6.QtWidgets import QApplication
+from PySide6.QtWidgets import QApplication
 from editor.views.dialogos.dialogo_criar_botao import DialogoCriarBotao
 
 @pytest.fixture(scope="session")
@@ -71,7 +71,7 @@ def test_dialogo_criar_botao_validacao_duplicidade(qapp):
 
 def test_dialogo_criar_botao_metodo_estatico_obter_dados(qapp, monkeypatch):
     """Verifica a chamada do método estático obter_dados com confirmação e rejeição."""
-    from PyQt6.QtWidgets import QDialog
+    from PySide6.QtWidgets import QDialog
     monkeypatch.setattr(QDialog, "exec", lambda self: self.setResult(QDialog.DialogCode.Accepted))
 
     texto, arquivo, ok = DialogoCriarBotao.obter_dados(texto_sugerido="Apoio")

@@ -1,7 +1,7 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
-from PyQt6.QtGui import QUndoCommand
+from PySide6.QtGui import QUndoCommand
 from pathlib import Path
 from editor.models.readonly_proxy import _copia_segura
 from editor.commands.comandos_protobuf import (

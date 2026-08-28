@@ -2,7 +2,7 @@
 # Copyright (C) 2026 Aresta Climb Contributors
 
 import pytest
-from PyQt6.QtWidgets import QApplication, QLineEdit, QSpinBox, QCheckBox
+from PySide6.QtWidgets import QApplication, QLineEdit, QSpinBox, QCheckBox
 from google.protobuf.message import Message
 from aresta_api.proto.generated.croqui_pb2 import Croqui, ViaMovel
 from editor.views.protobuf_widget_factory import ProtobufWidgetFactory
@@ -39,7 +39,7 @@ def test_comment_extraction(qapp):
 
 def test_booleano_widget_e_labels_customizados(qapp):
     from aresta_api.proto.generated.croqui_pb2 import Setor
-    from PyQt6.QtWidgets import QComboBox
+    from PySide6.QtWidgets import QComboBox
     
     campo_sinal = Setor.DESCRIPTOR.fields_by_name['sinal_de_celular']
     widget = ProtobufWidgetFactory.create_widget(campo_sinal)
@@ -55,7 +55,7 @@ def test_booleano_widget_e_labels_customizados(qapp):
 
 def test_booleano_widget_labels_padrao(qapp):
     from aresta_api.proto.generated.croqui_pb2 import Croqui
-    from PyQt6.QtWidgets import QComboBox
+    from PySide6.QtWidgets import QComboBox
     
     # Campo booleano sem anotações específicas
     campo_rev = Croqui.DESCRIPTOR.fields_by_name['revisado_manualmente']
@@ -64,7 +64,7 @@ def test_booleano_widget_labels_padrao(qapp):
 
 def test_float_widget_como_qlineedit(qapp):
     from aresta_api.proto.generated.croqui_pb2 import Mapa
-    from PyQt6.QtWidgets import QLineEdit
+    from PySide6.QtWidgets import QLineEdit
     from google.protobuf.descriptor import FieldDescriptor
     
     campo_zoom = Mapa.AjusteDeCamera.DESCRIPTOR.fields_by_name['zoom']
@@ -114,9 +114,9 @@ def test_spinbox_vazio_ignora_scroll_do_mouse(qapp):
     """Garante que eventos de scroll do mouse (wheelEvent) são ignorados pelo SpinBoxVazio,
     propagando para o pai e não alterando o valor do número."""
     from editor.views.protobuf_widget_factory import SpinBoxVazio
-    from PyQt6.QtGui import QWheelEvent
-    from PyQt6.QtCore import QPoint, QPointF, Qt
-    from PyQt6.QtWidgets import QApplication
+    from PySide6.QtGui import QWheelEvent
+    from PySide6.QtCore import QPoint, QPointF, Qt
+    from PySide6.QtWidgets import QApplication
     
     spin = SpinBoxVazio()
     spin.setValue(10)
@@ -144,9 +144,9 @@ def test_combobox_sem_scroll_ignora_wheel_event(qapp):
     """Garante que eventos de scroll do mouse (wheelEvent) são ignorados pelo ComboBoxSemScroll,
     não alterando o índice selecionado."""
     from editor.views.protobuf_widget_factory import ComboBoxSemScroll
-    from PyQt6.QtGui import QWheelEvent
-    from PyQt6.QtCore import QPoint, QPointF, Qt
-    from PyQt6.QtWidgets import QApplication
+    from PySide6.QtGui import QWheelEvent
+    from PySide6.QtCore import QPoint, QPointF, Qt
+    from PySide6.QtWidgets import QApplication
     
     combo = ComboBoxSemScroll()
     combo.addItem("Opção 1", 1)
@@ -191,9 +191,9 @@ def test_spinbox_vazio_apagar_com_backspace_mantem_vazio_ao_perder_foco(qapp):
     """Garante que apagar o texto de um spinbox (deixando vazio) mantém o estado nulo/vazio
     ao perder o foco, em vez de reverter para o valor anterior ou 0."""
     from editor.views.protobuf_widget_factory import SpinBoxVazio
-    from PyQt6.QtGui import QFocusEvent
-    from PyQt6.QtCore import QEvent
-    from PyQt6.QtWidgets import QApplication
+    from PySide6.QtGui import QFocusEvent
+    from PySide6.QtCore import QEvent
+    from PySide6.QtWidgets import QApplication
     
     spin = SpinBoxVazio()
     spin.setValue(5)

@@ -3,7 +3,7 @@
 
 import pytest
 from pathlib import Path
-from PyQt6.QtWidgets import QApplication
+from PySide6.QtWidgets import QApplication
 from editor.legacy_views.area_principal import JanelaPrincipal
 import yaml
 
@@ -58,7 +58,7 @@ def test_salvar_croqui_extrai_arquivos_wrapper(tmp_path, qapp):
     janela.croqui_controller = CroquiController(janela.croqui_model, janela.historico.obter_pilha())
     janela.pagina_dados.carregar_dados(janela.croqui_model, janela.croqui_controller)
     
-    from PyQt6.QtCore import QEventLoop, QTimer
+    from PySide6.QtCore import QEventLoop, QTimer
     loop = QEventLoop()
     janela.salvamento_finalizado.connect(loop.quit)
     janela.salvar_croqui()
@@ -215,7 +215,7 @@ Corpo original.
     janela.croqui_controller.undo_stack.push(cmd)
     
     # Salva
-    from PyQt6.QtCore import QEventLoop, QTimer
+    from PySide6.QtCore import QEventLoop, QTimer
     loop = QEventLoop()
     janela.salvamento_finalizado.connect(loop.quit)
     janela.salvar_croqui()
@@ -295,7 +295,7 @@ Texto da capa do croqui.
 
 
 def test_e2e_selecao_mapa_por_node_path(tmp_path, qapp):
-    from PyQt6.QtCore import Qt
+    from PySide6.QtCore import Qt
     import yaml
     db_path = tmp_path / 'database'
     db_path.mkdir(parents=True)

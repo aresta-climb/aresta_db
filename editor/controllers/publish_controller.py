@@ -1,9 +1,9 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
-from PyQt6.QtWidgets import QMessageBox, QProgressDialog, QDialog, QVBoxLayout, QLabel, QPushButton
-from PyQt6.QtCore import Qt, QUrl, QSize
-from PyQt6.QtGui import QDesktopServices
+from PySide6.QtWidgets import QMessageBox, QProgressDialog, QDialog, QVBoxLayout, QLabel, QPushButton
+from PySide6.QtCore import Qt, QUrl, QSize
+from PySide6.QtGui import QDesktopServices
 from editor.views.publish_dialog import PublishDialog
 from editor.core.worker import TarefaPublicacao
 from editor.core.servico_loja import ServicoLoja

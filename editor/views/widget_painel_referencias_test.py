@@ -175,7 +175,7 @@ def test_adicionar_referencia_recusa_duplicada(qapp):
     ref_nova.grupo = "meu_alvo"
     
     with patch('editor.views.widget_painel_referencias.DialogoBuscaReferencia') as MockDialogo, \
-         patch('PyQt6.QtWidgets.QMessageBox.warning') as MockWarning:
+         patch('PySide6.QtWidgets.QMessageBox.warning') as MockWarning:
         mock_dlg_instance = MockDialogo.return_value
         mock_dlg_instance.exec.return_value = True
         mock_dlg_instance.obter_referencia.return_value = ref_nova
@@ -208,7 +208,7 @@ def test_editar_referencia_altera_alvo_e_recusa_duplicada(qapp):
     ref_tentativa.grupo = "alvo2"
     
     with patch('editor.views.widget_painel_referencias.DialogoBuscaReferencia') as MockDialogo, \
-         patch('PyQt6.QtWidgets.QMessageBox.warning') as MockWarning:
+         patch('PySide6.QtWidgets.QMessageBox.warning') as MockWarning:
         mock_dlg_instance = MockDialogo.return_value
         mock_dlg_instance.exec.return_value = True
         mock_dlg_instance.obter_referencia.return_value = ref_tentativa
@@ -221,7 +221,7 @@ def test_editar_referencia_altera_alvo_e_recusa_duplicada(qapp):
     # 2. Tentar editar alvo1 para alvo3 (sucesso)
     ref_tentativa.grupo = "alvo3"
     with patch('editor.views.widget_painel_referencias.DialogoBuscaReferencia') as MockDialogo, \
-         patch('PyQt6.QtWidgets.QMessageBox.warning') as MockWarning:
+         patch('PySide6.QtWidgets.QMessageBox.warning') as MockWarning:
         mock_dlg_instance = MockDialogo.return_value
         mock_dlg_instance.exec.return_value = True
         mock_dlg_instance.obter_referencia.return_value = ref_tentativa

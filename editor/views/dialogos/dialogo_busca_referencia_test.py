@@ -3,8 +3,8 @@
 
 import sys
 import unittest
-from PyQt6.QtWidgets import QApplication
-from PyQt6.QtCore import Qt
+from PySide6.QtWidgets import QApplication
+from PySide6.QtCore import Qt
 from aresta_api.proto.generated import croqui_pb2
 from editor.models.croqui_model import CroquiModel
 from editor.views.dialogos.dialogo_busca_referencia import DialogoBuscaReferencia

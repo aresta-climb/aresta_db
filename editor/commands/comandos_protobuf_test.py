@@ -3,7 +3,7 @@
 
 import unittest
 from aresta_api.proto.generated.croqui_pb2 import Croqui, Pico, SetorOuGrupo, ArquivoSetor, ArquivoGrupo
-from PyQt6.QtGui import QUndoStack
+from PySide6.QtGui import QUndoStack
 from editor.commands.comandos_protobuf import (
     CmdAlterarPrimitivo,
     CmdAdicionarRepeated,

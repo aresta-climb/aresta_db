@@ -2,7 +2,7 @@
 # Copyright (C) 2026 Aresta Climb Contributors
 
 import pytest
-from PyQt6.QtGui import QUndoCommand
+from PySide6.QtGui import QUndoCommand
 from editor.legacy_views.area_principal import JanelaPrincipal
 
 class ComandoMock(QUndoCommand):

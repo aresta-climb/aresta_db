@@ -2,7 +2,7 @@
 # Copyright (C) 2026 Aresta Climb Contributors
 
 import pytest
-from PyQt6.QtWidgets import QMainWindow, QStackedWidget, QDialog
+from PySide6.QtWidgets import QMainWindow, QStackedWidget, QDialog
 from unittest.mock import MagicMock, patch
 from editor.main import JanelaPrincipal, ControladorAplicativo
 from editor.core.worker import TarefaInicializacao

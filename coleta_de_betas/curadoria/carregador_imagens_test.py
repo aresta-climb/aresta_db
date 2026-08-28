@@ -3,7 +3,7 @@
 
 import pytest
 from unittest.mock import patch, MagicMock
-from PyQt6.QtGui import QPixmap
+from PySide6.QtGui import QPixmap
 from aresta_api.proto.generated import beta_pb2
 from coleta_de_betas.curadoria.carregador_imagens import (
     obter_pixmap_fallback,
@@ -26,8 +26,8 @@ def test_obter_pixmap_fallback_youtube(qtbot):
 
 @patch("requests.get")
 def test_baixar_imagem_sincrona_sucesso(mock_get, qtbot):
-    from PyQt6.QtGui import QImage
-    from PyQt6.QtCore import QBuffer, QIODevice, QByteArray
+    from PySide6.QtGui import QImage
+    from PySide6.QtCore import QBuffer, QIODevice, QByteArray
 
     img = QImage(2, 2, QImage.Format.Format_RGB32)
     ba = QByteArray()

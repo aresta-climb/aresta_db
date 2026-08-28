@@ -144,7 +144,7 @@ class ManipuladorRequisicaoOAuth(BaseHTTPRequestHandler):
                 self.end_headers()
 
 
-from PyQt6.QtCore import QObject, pyqtSignal
+from PySide6.QtCore import QObject, Signal
 
 
 class ServidorCallbackOAuth(QObject):
@@ -152,7 +152,7 @@ class ServidorCallbackOAuth(QObject):
     Servidor HTTP efêmero local para receber os tokens do Supabase OAuth.
     """
 
-    tokens_recebidos = pyqtSignal(dict)
+    tokens_recebidos = Signal(dict)
 
     def __init__(self, parent: Optional[QObject] = None):
         super().__init__(parent)

@@ -4,8 +4,8 @@
 # Copyright (C) 2026 ARESTA
 import unittest
 from unittest.mock import MagicMock
-from PyQt6.QtWidgets import QApplication
-from PyQt6.QtCore import Qt, QPointF
+from PySide6.QtWidgets import QApplication
+from PySide6.QtCore import Qt, QPointF
 from editor.views.widget_editor_mapas import CenaDesenho, WidgetEditorMapas, VisualizadorMapa
 
 class TestCenaDesenho(unittest.TestCase):
@@ -90,7 +90,7 @@ def test_slider_bulk_vazio_reseta_para_zero(qtbot):
 
 def test_configurar_lista_mapas_todos_niveis(qtbot):
     from editor.views.widget_editor_mapas import WidgetEditorMapas
-    from PyQt6.QtCore import Qt
+    from PySide6.QtCore import Qt
     from aresta_api.proto.generated import croqui_pb2
     from editor.models.readonly_proxy import ReadOnlyProxy
     from unittest.mock import MagicMock
@@ -153,8 +153,8 @@ def test_configurar_lista_mapas_todos_niveis(qtbot):
 
 def test_selecao_mantida_apos_atualizacao(qtbot):
     from editor.views.widget_editor_mapas import WidgetEditorMapas
-    from PyQt6.QtCore import Qt
-    from PyQt6.QtWidgets import QListWidgetItem
+    from PySide6.QtCore import Qt
+    from PySide6.QtWidgets import QListWidgetItem
     from aresta_api.proto.generated import croqui_pb2
     from editor.models.readonly_proxy import ReadOnlyProxy
     from unittest.mock import MagicMock
@@ -193,8 +193,8 @@ def test_selecao_mantida_apos_atualizacao(qtbot):
 
 def test_zoom_nao_reseta_ao_alterar_pontos(qtbot):
     from editor.views.widget_editor_mapas import WidgetEditorMapas, CenaDesenho
-    from PyQt6.QtCore import Qt
-    from PyQt6.QtGui import QTransform
+    from PySide6.QtCore import Qt
+    from PySide6.QtGui import QTransform
     from aresta_api.proto.generated import croqui_pb2
     from unittest.mock import MagicMock
     
@@ -222,72 +222,13 @@ def test_zoom_nao_reseta_ao_alterar_pontos(qtbot):
     assert widget.visualizador.transform().m11() == 2.0
     assert widget.visualizador.transform().m22() == 2.0
 
-def test_renomear_poi_no_mapa(qtbot, mocker):
-    from editor.views.widget_editor_mapas import WidgetEditorMapas, BaseItemPOI
-    from PyQt6.QtWidgets import QDialog, QMenu
-    from PyQt6.QtGui import QAction
-    from aresta_api.proto.generated import croqui_pb2
-    from unittest.mock import MagicMock
-    from editor.models.readonly_proxy import ReadOnlyProxy
-    
-    widget = WidgetEditorMapas()
-    qtbot.addWidget(widget)
-    
-    mock_controller = MagicMock()
-    widget.mapas_controller = mock_controller
-    
-    mapa_proto = croqui_pb2.Mapa()
-    poi = mapa_proto.pontos_de_interesse.add()
-    poi.id = "poi_antigo"
-    poi.label = "Label Antigo"
-    
-    widget.msg_mapa_proxy = ReadOnlyProxy(mapa_proto)
-    
-    class FakeScene:
-        def __init__(self, editor):
-            self.widget_editor = editor
 
-    class FakeItem(BaseItemPOI):
-        def __init__(self, pt_dict):
-            super().__init__()
-            self.pt_dict = pt_dict
-            self.item_texto = MagicMock()
-            self._scene = FakeScene(widget)
-        def scene(self):
-            return self._scene
-        def setToolTip(self, text):
-            pass
-
-    item = FakeItem({'id': 'poi_antigo', 'label': 'Label Antigo'})
-    widget.itens_poi = {0: item}
-    widget.dados_arquivos = {"chave1": {"itens_bb": [item]}}
-    
-    # Mock do dialogo
-    mocker.patch('editor.views.widget_editor_mapas.DialogoEdicaoPOI.exec', return_value=QDialog.DialogCode.Accepted)
-    widget = WidgetEditorMapas()
-    qtbot.addWidget(widget)
-    
-    # Testa para circular
-    widget.slider_circ.setValue(50)
-    widget.ao_pressionar_slider_bulk('circulo')
-    widget.ao_soltar_slider_bulk('circulo')
-    
-    assert widget.slider_circ.value() == 0
-    assert widget.label_circ.text() == "0%"
-    
-    # Testa para box/retângulo
-    widget.slider_box.setValue(50)
-    widget.ao_pressionar_slider_bulk('retangulo')
-    widget.ao_soltar_slider_bulk('retangulo')
-    
-    assert widget.slider_box.value() == 0
-    assert widget.label_box.text() == "0%"
 
 def test_deletar_poi_com_tecla_delete(qtbot, mocker):
     from editor.views.widget_editor_mapas import WidgetEditorMapas, ItemBoundingRetangulo
     from aresta_api.proto.generated import croqui_pb2
     from editor.models.readonly_proxy import ReadOnlyProxy
-    from PyQt6.QtCore import Qt
+    from PySide6.QtCore import Qt
 
     # Configuração
     widget = WidgetEditorMapas()
@@ -322,7 +263,7 @@ def test_deletar_poi_com_tecla_delete(qtbot, mocker):
 
 def test_configurar_lista_mapas_todos_niveis(qtbot):
     from editor.views.widget_editor_mapas import WidgetEditorMapas
-    from PyQt6.QtCore import Qt
+    from PySide6.QtCore import Qt
     from aresta_api.proto.generated import croqui_pb2
     from editor.models.readonly_proxy import ReadOnlyProxy
     from unittest.mock import MagicMock
@@ -385,8 +326,8 @@ def test_configurar_lista_mapas_todos_niveis(qtbot):
 
 def test_selecao_mantida_apos_atualizacao(qtbot):
     from editor.views.widget_editor_mapas import WidgetEditorMapas
-    from PyQt6.QtCore import Qt
-    from PyQt6.QtWidgets import QListWidgetItem
+    from PySide6.QtCore import Qt
+    from PySide6.QtWidgets import QListWidgetItem
     from aresta_api.proto.generated import croqui_pb2
     from editor.models.readonly_proxy import ReadOnlyProxy
     from unittest.mock import MagicMock
@@ -425,8 +366,8 @@ def test_selecao_mantida_apos_atualizacao(qtbot):
 
 def test_zoom_nao_reseta_ao_alterar_pontos(qtbot):
     from editor.views.widget_editor_mapas import WidgetEditorMapas, CenaDesenho
-    from PyQt6.QtCore import Qt
-    from PyQt6.QtGui import QTransform
+    from PySide6.QtCore import Qt
+    from PySide6.QtGui import QTransform
     from aresta_api.proto.generated import croqui_pb2
     from unittest.mock import MagicMock
     
@@ -456,8 +397,8 @@ def test_zoom_nao_reseta_ao_alterar_pontos(qtbot):
 
 def test_renomear_poi_no_mapa(qtbot, mocker):
     from editor.views.widget_editor_mapas import WidgetEditorMapas, BaseItemPOI
-    from PyQt6.QtWidgets import QDialog, QMenu
-    from PyQt6.QtGui import QAction
+    from PySide6.QtWidgets import QDialog, QMenu
+    from PySide6.QtGui import QAction
     from aresta_api.proto.generated import croqui_pb2
     from unittest.mock import MagicMock
     from editor.models.readonly_proxy import ReadOnlyProxy
@@ -500,14 +441,18 @@ def test_renomear_poi_no_mapa(qtbot, mocker):
     mocker.patch('editor.views.widget_editor_mapas.DialogoEdicaoPOI.exec', return_value=QDialog.DialogCode.Accepted)
     mocker.patch('editor.views.widget_editor_mapas.DialogoEdicaoPOI.obter_valores', return_value=("poi_novo", "Label Novo"))
     
-    # Simulamos o QMenu para retornar a acao de renomear
-    def fake_exec(self, pos):
-        for act in self.actions():
-            if act.text() == "Renomear Ponto de Interesse":
-                return act
-        return None
+    # Mock do QMenu para simular clique em Renomear sem abrir modal nativo
+    mock_menu_class = mocker.patch('editor.views.widget_editor_mapas.QMenu')
+    mock_menu_inst = mock_menu_class.return_value
+    mock_acao_renomear = MagicMock()
+    
+    def fake_add_action(text):
+        if text == "Renomear Ponto de Interesse":
+            return mock_acao_renomear
+        return MagicMock()
         
-    mocker.patch('PyQt6.QtWidgets.QMenu.exec', new=fake_exec)
+    mock_menu_inst.addAction.side_effect = fake_add_action
+    mock_menu_inst.exec.return_value = mock_acao_renomear
     
     evento = MagicMock()
     evento.screenPos.return_value = None
@@ -522,9 +467,11 @@ def test_renomear_poi_no_mapa(qtbot, mocker):
 
 
 def test_poi_snapping_to_integers():
+    from PySide6.QtWidgets import QApplication
+    app = QApplication.instance() or QApplication([])
     from editor.views.widget_editor_mapas import ItemBoundingRetangulo, ItemBoundingCirculo, ItemBoundingQuadrado, AlcaVertice, ItemBoundingPoligono
-    from PyQt6.QtCore import QPointF
-    from PyQt6.QtWidgets import QGraphicsScene, QGraphicsRectItem, QGraphicsEllipseItem, QGraphicsPolygonItem
+    from PySide6.QtCore import QPointF
+    from PySide6.QtWidgets import QGraphicsScene, QGraphicsRectItem, QGraphicsEllipseItem, QGraphicsPolygonItem
     
     cena = QGraphicsScene()
     
@@ -583,7 +530,7 @@ class TestWidgetEditorMapasLayout(unittest.TestCase):
             cls.app = QApplication([])
 
     def test_lista_mapas_expansivel_na_sidebar(self):
-        from PyQt6.QtWidgets import QSizePolicy
+        from PySide6.QtWidgets import QSizePolicy
         from editor.views.widget_editor_mapas import WidgetEditorMapas
         
         widget = WidgetEditorMapas()
@@ -632,7 +579,7 @@ def test_mapas_gerais_sao_listados_e_carregados(qtbot):
 def test_hover_out_em_modo_linkagem_restaura_highlight(qtbot):
     """[TDD] Garante que ao sair do hover de um card durante modo linkagem, o destaque ciano retorne."""
     from editor.views.widget_editor_mapas import WidgetEditorMapas
-    from PyQt6.QtGui import QColor
+    from PySide6.QtGui import QColor
     from aresta_api.proto.generated import croqui_pb2
     from editor.models.readonly_proxy import ReadOnlyProxy
     
@@ -674,7 +621,7 @@ def test_hover_out_em_modo_linkagem_restaura_highlight(qtbot):
 def test_clique_poi_atualiza_cor_imediato(qtbot):
     """[TDD] Verifica se clicar num POI no modo linkagem atualiza o highlight imediatamente."""
     from editor.views.widget_editor_mapas import WidgetEditorMapas
-    from PyQt6.QtGui import QColor
+    from PySide6.QtGui import QColor
     from aresta_api.proto.generated import croqui_pb2
     from editor.models.readonly_proxy import ReadOnlyProxy
     from unittest.mock import MagicMock
@@ -715,7 +662,7 @@ def test_clique_poi_atualiza_cor_imediato(qtbot):
 def test_clique_poi_chama_handler_com_id_correto(qtbot):
     """[TDD] Verifica se o clique no POI chama o _clique_handler com o ID extraido do pt_dict."""
     from editor.views.widget_editor_mapas import ItemBoundingRetangulo
-    from PyQt6.QtCore import Qt, QPointF
+    from PySide6.QtCore import Qt, QPointF
     from unittest.mock import MagicMock
     
     pt_dict = {'id': 'poi_123', 'retangulo': {'x': 10, 'y': 10, 'comprimento': 20, 'largura': 20}}
@@ -763,7 +710,7 @@ def test_iniciar_modo_camera_nao_crash_e_cria_overlay(qtbot):
 def test_iniciar_modo_camera_destaca_pois_ciano(qtbot):
     """[TDD] Verifica se ao iniciar o modo câmera os POIs da referência ficam destacados em ciano."""
     from editor.views.widget_editor_mapas import WidgetEditorMapas
-    from PyQt6.QtGui import QColor
+    from PySide6.QtGui import QColor
     from aresta_api.proto.generated import croqui_pb2
     from editor.models.readonly_proxy import ReadOnlyProxy
     
@@ -826,7 +773,7 @@ def test_salvar_ajuste_camera_converte_para_int(qtbot):
 def test_remover_destaque_restaura_highlight_camera(qtbot):
     """[TDD] Garante que ao sair do hover no modo câmera, o destaque ciano retorne aos POIs."""
     from editor.views.widget_editor_mapas import WidgetEditorMapas
-    from PyQt6.QtGui import QColor
+    from PySide6.QtGui import QColor
     from aresta_api.proto.generated import croqui_pb2
     from editor.models.readonly_proxy import ReadOnlyProxy
     
@@ -925,8 +872,8 @@ def test_set_mapa_atual_carrega_referencias(qtbot):
 def test_item_camera_overlay_paint_nao_crasha(qtbot):
     """[TDD] Verifica se o paint do ItemCameraOverlay executa com sucesso sem quebrar por NameError (QPainter)."""
     from editor.views.widget_editor_mapas import ItemCameraOverlay
-    from PyQt6.QtGui import QPainter, QImage
-    from PyQt6.QtCore import QRectF
+    from PySide6.QtGui import QPainter, QImage
+    from PySide6.QtCore import QRectF
     
     item = ItemCameraOverlay(QRectF(0, 0, 100, 100))
     image = QImage(200, 200, QImage.Format.Format_ARGB32)
@@ -944,7 +891,7 @@ def test_item_camera_overlay_paint_nao_crasha(qtbot):
 def test_camera_overlay_cor(qtbot):
     """[TDD] Verifica se a cor da linha da câmera é #6f42c1."""
     from editor.views.widget_editor_mapas import ItemCameraOverlay
-    from PyQt6.QtCore import QRectF
+    from PySide6.QtCore import QRectF
     item = ItemCameraOverlay(QRectF(0, 0, 100, 100))
     assert item.pen().color().name() == '#6f42c1', "A cor do overlay não bate com a cor do botão (#6f42c1)"
 
@@ -964,7 +911,7 @@ def test_salvar_ajuste_camera_parametros(qtbot):
     widget.msg_mapa_proxy = proxy
     
     widget.visualizador = Mock()
-    from PyQt6.QtCore import QRectF
+    from PySide6.QtCore import QRectF
     widget.visualizador.sceneRect.return_value = QRectF(0, 0, 1000, 1000)
     widget.visualizador.scene = Mock(return_value=Mock())
     
@@ -1004,7 +951,7 @@ def test_label_modo_exibida(qtbot):
     
     # Mock inicialização
     widget.visualizador = Mock()
-    from PyQt6.QtCore import QRectF
+    from PySide6.QtCore import QRectF
     widget.visualizador.sceneRect.return_value = QRectF(0, 0, 1000, 1000)
     widget.visualizador.scene = Mock(return_value=Mock())
     
@@ -1131,13 +1078,13 @@ def test_salvar_ajuste_camera_compensa_posicao_cena(qtbot):
     from editor.views.widget_editor_mapas import WidgetEditorMapas
     from aresta_api.proto.generated import croqui_pb2
     from unittest.mock import Mock, patch
-    from PyQt6.QtCore import QRectF
+    from PySide6.QtCore import QRectF
     
     widget = WidgetEditorMapas()
     qtbot.addWidget(widget)
     
     widget.visualizador = Mock()
-    from PyQt6.QtCore import QRectF
+    from PySide6.QtCore import QRectF
     widget.visualizador.sceneRect.return_value = QRectF(-50.0, -100.0, 1000.0, 1000.0)
     widget.visualizador.scene = Mock(return_value=Mock())
     
@@ -1163,7 +1110,7 @@ def test_salvar_ajuste_camera_compensa_posicao_cena(qtbot):
 def test_item_camera_overlay_resize_pela_borda(qtbot):
     """[TDD] Verifica se arrastar o canto inferior direito redimensiona a câmera."""
     from editor.views.widget_editor_mapas import ItemCameraOverlay
-    from PyQt6.QtCore import Qt, QPointF
+    from PySide6.QtCore import Qt, QPointF
     import math
     
     item = ItemCameraOverlay(None)
@@ -1234,7 +1181,7 @@ def test_hover_camera_compensa_posicao_cena(qtbot):
     from editor.views.widget_editor_mapas import WidgetEditorMapas
     from aresta_api.proto.generated import croqui_pb2
     from editor.models.readonly_proxy import ReadOnlyProxy
-    from PyQt6.QtCore import QRectF
+    from PySide6.QtCore import QRectF
     from unittest.mock import Mock
     
     widget = WidgetEditorMapas()
@@ -1261,7 +1208,7 @@ def test_hover_camera_compensa_posicao_cena(qtbot):
 def test_item_camera_overlay_resize_com_ctrl_from_center(qtbot):
     """[TDD] Verifica se o Ctrl+Drag no ItemCameraOverlay redimensiona a partir do centro sem pular."""
     from editor.views.widget_editor_mapas import ItemCameraOverlay
-    from PyQt6.QtCore import Qt, QPointF
+    from PySide6.QtCore import Qt, QPointF
     import math
     
     item = ItemCameraOverlay(None)
@@ -1306,7 +1253,7 @@ class TestVisualizadorMapa(unittest.TestCase):
 
     def setUp(self):
         self.view = VisualizadorMapa()
-        from PyQt6.QtWidgets import QGraphicsScene, QGraphicsRectItem
+        from PySide6.QtWidgets import QGraphicsScene, QGraphicsRectItem
         self.scene = QGraphicsScene(0, 0, 1000, 1000)
         self.view.setScene(self.scene)
         self.view.resize(400, 400)
@@ -1321,8 +1268,8 @@ class TestVisualizadorMapa(unittest.TestCase):
         self.scene.addItem(self.item)
 
     def test_arrasto_fundo_mapa(self):
-        from PyQt6.QtGui import QMouseEvent
-        from PyQt6.QtCore import QPointF
+        from PySide6.QtGui import QMouseEvent
+        from PySide6.QtCore import QPointF
         
         # Clicar no fundo (50, 50)
         press_event = QMouseEvent(
@@ -1365,8 +1312,8 @@ class TestVisualizadorMapa(unittest.TestCase):
         self.assertEqual(self.view.cursor().shape(), Qt.CursorShape.OpenHandCursor)
 
     def test_arrasto_sobre_poi_nao_ativa_pan(self):
-        from PyQt6.QtGui import QMouseEvent
-        from PyQt6.QtCore import QPointF
+        from PySide6.QtGui import QMouseEvent
+        from PySide6.QtCore import QPointF
         
         # Clicar no item em coordenadas da view.
         # Item em 100, 100, mas a view está em scroll 300.
@@ -1387,9 +1334,9 @@ class TestVisualizadorMapa(unittest.TestCase):
         self.assertFalse(self.view._arrastando_mapa)
 
     def test_arrasto_fundo_mapa_com_imagem(self):
-        from PyQt6.QtGui import QMouseEvent, QPixmap, QImage, QColor
-        from PyQt6.QtWidgets import QGraphicsPixmapItem
-        from PyQt6.QtCore import QPointF
+        from PySide6.QtGui import QMouseEvent, QPixmap, QImage, QColor
+        from PySide6.QtWidgets import QGraphicsPixmapItem
+        from PySide6.QtCore import QPointF
         
         # Adicionar imagem ao fundo
         img = QImage(200, 200, QImage.Format.Format_RGB32)
@@ -1414,9 +1361,9 @@ class TestVisualizadorMapa(unittest.TestCase):
         self.assertEqual(self.view.cursor().shape(), Qt.CursorShape.ClosedHandCursor)
 
     def test_arrasto_fundo_mapa_pequeno(self):
-        from PyQt6.QtGui import QMouseEvent, QPixmap, QImage, QColor
-        from PyQt6.QtWidgets import QGraphicsPixmapItem
-        from PyQt6.QtCore import QPointF
+        from PySide6.QtGui import QMouseEvent, QPixmap, QImage, QColor
+        from PySide6.QtWidgets import QGraphicsPixmapItem
+        from PySide6.QtCore import QPointF
         
         # Simula o comportamento do _renderizar_mapa definindo um sceneRect enorme
         self.view.scene().clear()
@@ -1466,7 +1413,7 @@ class TestVisualizadorMapa(unittest.TestCase):
         self.assertGreater(h_scroll_depois, h_scroll_antes)
 
     def test_resize_anchor(self):
-        from PyQt6.QtWidgets import QGraphicsView
+        from PySide6.QtWidgets import QGraphicsView
         self.assertEqual(self.view.resizeAnchor(), QGraphicsView.ViewportAnchor.AnchorViewCenter)
 
 def test_deletar_ou_adicionar_poi_nao_reseta_zoom(qtbot):
@@ -1556,7 +1503,7 @@ def test_converter_item_para_retangulo(qtbot):
 def test_item_camera_overlay_is_visible_and_in_scene(qtbot):
     """[TDD] Verifica se o overlay da camera é instanciado corretamente, fica visível, é adicionado à cena e possui rect maior que zero."""
     from editor.views.widget_editor_mapas import WidgetEditorMapas
-    from PyQt6.QtWidgets import QGraphicsScene
+    from PySide6.QtWidgets import QGraphicsScene
     from unittest.mock import MagicMock
     
     widget = WidgetEditorMapas()
@@ -1567,7 +1514,7 @@ def test_item_camera_overlay_is_visible_and_in_scene(qtbot):
     widget.visualizador.setScene(cena)
     
     # Mocks para forçar o boundingRect() a ser vazio (0,0,0,0)
-    from PyQt6.QtCore import QRectF
+    from PySide6.QtCore import QRectF
     mock_rect = QRectF(0, 0, 0, 0)
     widget.visualizador.sceneRect = MagicMock(return_value=mock_rect)
     widget.visualizador.mapToScene = MagicMock()
@@ -1594,7 +1541,7 @@ def test_item_camera_overlay_is_visible_and_in_scene(qtbot):
 def test_poi_bloqueado_no_modo_linkagem(qtbot):
     """[TDD] Verifica se a flag ItemIsMovable dos POIs é desativada durante a iniciação do modo de linkagem."""
     from editor.views.widget_editor_mapas import WidgetEditorMapas, ItemBoundingRetangulo
-    from PyQt6.QtWidgets import QGraphicsItem, QGraphicsScene
+    from PySide6.QtWidgets import QGraphicsItem, QGraphicsScene
     from unittest.mock import MagicMock
     
     widget = WidgetEditorMapas()

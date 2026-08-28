@@ -303,7 +303,7 @@ class TestWorker(unittest.TestCase):
         tarefa.status = MagicMock()
         tarefa.progresso = MagicMock()
 
-        # Conecta ao sinal real do PyQt6 para simular cancelamento da UI
+        # Conecta ao sinal real do PySide6 para simular cancelamento da UI
         tarefa.solicitar_login_ui.connect(lambda: tarefa.definir_sessao_concluida(None))
 
         tarefa.run()

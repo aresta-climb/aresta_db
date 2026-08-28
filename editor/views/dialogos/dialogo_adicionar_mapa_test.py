@@ -5,9 +5,9 @@ import io
 from pathlib import Path
 from PIL import Image
 import pytest
-from PyQt6.QtCore import Qt, QUrl, QMimeData, QPointF, QPoint
-from PyQt6.QtGui import QDragEnterEvent, QDropEvent, QMouseEvent
-from PyQt6.QtWidgets import QDialog, QDialogButtonBox, QPushButton, QLineEdit, QFileDialog, QMessageBox
+from PySide6.QtCore import Qt, QUrl, QMimeData, QPointF, QPoint
+from PySide6.QtGui import QDragEnterEvent, QDropEvent, QMouseEvent
+from PySide6.QtWidgets import QDialog, QDialogButtonBox, QPushButton, QLineEdit, QFileDialog, QMessageBox
 
 from aresta_api.proto.generated.croqui_pb2 import Croqui
 from editor.models.croqui_model import CroquiModel

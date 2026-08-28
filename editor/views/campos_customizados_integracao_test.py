@@ -5,9 +5,9 @@ import io
 from pathlib import Path
 from PIL import Image
 import pytest
-from PyQt6.QtWidgets import QApplication
-from PyQt6.QtGui import QUndoStack
-from PyQt6.QtCore import QItemSelectionModel
+from PySide6.QtWidgets import QApplication
+from PySide6.QtGui import QUndoStack
+from PySide6.QtCore import QItemSelectionModel
 
 from aresta_api.proto.generated.croqui_pb2 import Croqui, Coordenada
 from editor.models.croqui_model import CroquiModel

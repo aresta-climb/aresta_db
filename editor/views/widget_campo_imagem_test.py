@@ -5,7 +5,7 @@ import io
 from pathlib import Path
 from PIL import Image
 import pytest
-from PyQt6.QtWidgets import QApplication, QFileDialog, QDialog
+from PySide6.QtWidgets import QApplication, QFileDialog, QDialog
 
 from aresta_api.proto.generated.croqui_pb2 import Croqui
 from editor.models.croqui_model import CroquiModel

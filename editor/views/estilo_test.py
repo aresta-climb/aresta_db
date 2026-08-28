@@ -2,7 +2,7 @@
 # Copyright (C) 2026 Aresta Climb Contributors
 
 import pytest
-from PyQt6.QtGui import QIcon
+from PySide6.QtGui import QIcon
 from editor.views.estilo import Icones
 from unittest.mock import patch, MagicMock
 

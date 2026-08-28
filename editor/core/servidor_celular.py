@@ -6,7 +6,7 @@ import threading
 import random
 import mimetypes
 from pathlib import Path
-from PyQt6.QtCore import QObject, pyqtSignal
+from PySide6.QtCore import QObject, Signal
 
 import uvicorn
 from fastapi import FastAPI, Request
@@ -21,7 +21,7 @@ mimetypes.add_type('application/octet-stream', '.binarypb')
 
 class ServidorCelular(QObject):
     """Gerencia um servidor HTTP local para conexão com o aplicativo móvel usando FastAPI/Uvicorn."""
-    dispositivo_conectado = pyqtSignal()
+    dispositivo_conectado = Signal()
     
     def __init__(self, pasta_compilado, parent=None):
         super().__init__(parent)

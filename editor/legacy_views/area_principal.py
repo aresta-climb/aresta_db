@@ -1,13 +1,13 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
-from PyQt6.QtWidgets import (
+from PySide6.QtWidgets import (
     QMainWindow, QToolBar, QStackedWidget, QWidget, QVBoxLayout, QHBoxLayout, 
     QLabel, QStyle, QMessageBox, QDialog, QLineEdit, QTextEdit, QPushButton, QFormLayout,
     QApplication
 )
-from PyQt6.QtCore import Qt, QSize, pyqtSignal, QTimer, QCoreApplication
-from PyQt6.QtGui import QAction, QIcon, QFont, QKeySequence
+from PySide6.QtCore import Qt, QSize, Signal, QTimer, QCoreApplication
+from PySide6.QtGui import QAction, QIcon, QFont, QKeySequence
 from pathlib import Path
 import yaml
 import os
@@ -181,8 +181,8 @@ class PaginaHistorico(PaginaBase):
 
 class JanelaPrincipal(QMainWindow):
     # Sinal emitido quando o usuário deseja voltar para a tela de carregamento
-    solicitar_abrir_novo = pyqtSignal()
-    salvamento_finalizado = pyqtSignal()
+    solicitar_abrir_novo = Signal()
+    salvamento_finalizado = Signal()
     
     def __init__(self, storage=None, auth=None, workspace=None, parent=None):
         super().__init__(parent)
@@ -324,7 +324,7 @@ class JanelaPrincipal(QMainWindow):
         self.espacador_superior = QLabel()
         self.espacador_superior.setFixedWidth(63)
         self.espacador_superior.setAlignment(Qt.AlignmentFlag.AlignCenter)
-        from PyQt6.QtGui import QPixmap, QIcon, QPainter, QPainterPath, QColor
+        from PySide6.QtGui import QPixmap, QIcon, QPainter, QPainterPath, QColor
         from editor.core.storage import GerenciadorCaminhos
         storage_atual = self.storage or GerenciadorCaminhos()
         caminho_logo_app = storage_atual.obter_caminho_recurso_interno("recursos/logo_app.png")
@@ -605,7 +605,7 @@ class JanelaPrincipal(QMainWindow):
         
     def _perguntar_recuperacao_sessao(self, total_acoes: int) -> bool:
         from editor.views.dialogo_recuperacao_sessao import DialogoRecuperacaoSessao
-        from PyQt6.QtWidgets import QDialog
+        from PySide6.QtWidgets import QDialog
         dialogo = DialogoRecuperacaoSessao(total_acoes=total_acoes, parent=self)
         return dialogo.exec() == QDialog.DialogCode.Accepted
 
@@ -717,8 +717,8 @@ class JanelaPrincipal(QMainWindow):
             self._callback_sucesso_salvar = callback_sucesso
             
             if not hasattr(self, 'label_status_salvamento'):
-                from PyQt6.QtWidgets import QLabel
-                from PyQt6.QtCore import Qt
+                from PySide6.QtWidgets import QLabel
+                from PySide6.QtCore import Qt
                 self.label_status_salvamento = QLabel("Salvando...", self)
                 self.label_status_salvamento.setStyleSheet("background-color: #28a745; color: white; padding: 5px; border-radius: 4px; font-weight: bold;")
                 self.label_status_salvamento.setAlignment(Qt.AlignmentFlag.AlignCenter)
@@ -784,7 +784,7 @@ class JanelaPrincipal(QMainWindow):
         if not self.workspace:
             return
             
-        from PyQt6.QtWidgets import QFileDialog
+        from PySide6.QtWidgets import QFileDialog
         
         id_croqui = self.croqui_data.get("id", "croqui") if self.croqui_data else "croqui"
         sugestao_nome = f"{id_croqui}.croqui"
@@ -796,7 +796,7 @@ class JanelaPrincipal(QMainWindow):
         if destino:
             try:
                 from editor.core.worker import TarefaExportacao
-                from PyQt6.QtWidgets import QProgressDialog
+                from PySide6.QtWidgets import QProgressDialog
                 
                 self.progresso_export = QProgressDialog("Compactando e ofuscando...", None, 0, 0, self)
                 self.progresso_export.setWindowTitle("Exportando Croqui")
@@ -893,8 +893,8 @@ class JanelaPrincipal(QMainWindow):
             event.accept()
             
     def _mostrar_modal_espera(self, mensagem="Aguarde..."):
-        from PyQt6.QtWidgets import QProgressDialog
-        from PyQt6.QtCore import Qt
+        from PySide6.QtWidgets import QProgressDialog
+        from PySide6.QtCore import Qt
         if not hasattr(self, 'dlg_espera') or not self.dlg_espera:
             self.dlg_espera = QProgressDialog(mensagem, None, 0, 0, self)
             self.dlg_espera.setWindowTitle("Aguarde")

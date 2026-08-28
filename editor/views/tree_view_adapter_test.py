@@ -2,7 +2,7 @@
 # Copyright (C) 2026 Aresta Climb Contributors
 
 import pytest
-from PyQt6.QtCore import QModelIndex, Qt
+from PySide6.QtCore import QModelIndex, Qt
 from aresta_api.proto.generated.croqui_pb2 import Croqui
 from editor.views.tree_view_adapter import ProtobufTreeViewAdapter
 
@@ -319,7 +319,7 @@ def test_no_virtual_nome_usa_espacos_em_vez_de_camel_case():
 
 def test_no_virtual_fonte_em_italico():
     """O no virtual de adicao deve retornar fonte em italico via FontRole."""
-    from PyQt6.QtGui import QFont
+    from PySide6.QtGui import QFont
 
     croqui = Croqui()
     pico = croqui.picos.add()

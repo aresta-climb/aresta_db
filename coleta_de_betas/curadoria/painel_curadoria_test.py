@@ -2,7 +2,7 @@
 # Copyright (C) 2026 Aresta Climb Contributors
 
 import pytest
-from PyQt6.QtWidgets import QWidget
+from PySide6.QtWidgets import QWidget
 from aresta_api.proto.generated import beta_pb2
 from coleta_de_betas.curadoria.painel_curadoria import PainelCuradoria, ItemBetaWidget
 

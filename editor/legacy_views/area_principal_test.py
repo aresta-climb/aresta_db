@@ -2,10 +2,10 @@
 # Copyright (C) 2026 Aresta Climb Contributors
 
 import pytest
-from PyQt6.QtWidgets import QMainWindow, QToolBar, QStackedWidget, QWidget, QDialog
-from PyQt6.QtCore import Qt
+from PySide6.QtWidgets import QMainWindow, QToolBar, QStackedWidget, QWidget, QDialog
+from PySide6.QtCore import Qt
 from editor.legacy_views.area_principal import JanelaPrincipal, PaginaDados, PaginaImagens, PaginaMapas, PaginaHistorico
-from PyQt6.QtGui import QIcon
+from PySide6.QtGui import QIcon
 from unittest.mock import MagicMock, patch
 
 def test_janela_principal_usa_icones_qtawesome(qtbot):
@@ -120,7 +120,7 @@ def test_janela_principal_nao_gera_avisos_de_fonte_qt(qtbot):
         if ("QFont" in message or "PointSize" in message) and "Cannot find font directory" not in message:
             avisos.append(message)
             
-    from PyQt6.QtCore import qInstallMessageHandler
+    from PySide6.QtCore import qInstallMessageHandler
     
     # Instala o interceptor
     original_handler = qInstallMessageHandler(message_handler)
@@ -167,7 +167,7 @@ def test_salvar_croqui_exibe_notificacao(qtbot):
              patch("editor.legacy_views.area_principal.QMessageBox.critical") as mock_crit, \
              patch.object(janela, "exibir_notificacao") as mock_notif:
             
-            from PyQt6.QtCore import QEventLoop, QTimer
+            from PySide6.QtCore import QEventLoop, QTimer
             loop = QEventLoop()
             janela.salvamento_finalizado.connect(loop.quit)
             janela.salvar_croqui()
@@ -209,7 +209,7 @@ def test_salvar_croqui_assincrono_nao_trava_ui(qtbot, tmp_path):
                 nonlocal event_loop_ran
                 event_loop_ran = True
             
-            from PyQt6.QtCore import QTimer
+            from PySide6.QtCore import QTimer
             timer = QTimer()
             timer.timeout.connect(process_events_check)
             timer.start(10)
@@ -243,8 +243,8 @@ def test_janela_principal_tem_icone_configurado(qtbot):
     assert not janela.windowIcon().isNull()
 
 def test_atalhos_teclado_desfazer_refazer(qtbot):
-    from PyQt6.QtGui import QKeySequence
-    from PyQt6.QtCore import Qt
+    from PySide6.QtGui import QKeySequence
+    from PySide6.QtCore import Qt
     janela = JanelaPrincipal()
     qtbot.addWidget(janela)
     
@@ -259,8 +259,8 @@ def test_atalhos_teclado_desfazer_refazer(qtbot):
     assert janela.acao_refazer.shortcutContext() == Qt.ShortcutContext.ApplicationShortcut, "Contexto do atalho deve ser global (ApplicationShortcut)"
 
 def test_salvar_croqui_remove_foco_do_widget_ativo(qtbot):
-    from PyQt6.QtWidgets import QLineEdit
-    from PyQt6.QtWidgets import QApplication
+    from PySide6.QtWidgets import QLineEdit
+    from PySide6.QtWidgets import QApplication
     
     with patch.object(GerenciadorCroquiExperimental, "compilar_croqui"):
         mock_workspace = MagicMock()
@@ -279,7 +279,7 @@ def test_salvar_croqui_remove_foco_do_widget_ativo(qtbot):
              patch("editor.legacy_views.area_principal.QMessageBox.critical") as mock_crit, \
              patch.object(janela.pagina_imagens.editor, "salvar_alteracoes"):
              
-            from PyQt6.QtCore import QEventLoop, QTimer
+            from PySide6.QtCore import QEventLoop, QTimer
             loop = QEventLoop()
             janela.salvamento_finalizado.connect(loop.quit)
             janela.salvar_croqui()
@@ -331,7 +331,7 @@ def test_salvar_croqui_renomeia_pasta_se_id_alterado(qtbot, tmp_path):
              patch("editor.legacy_views.area_principal.QMessageBox.critical") as mock_crit:
             
             # Executar a ação alvo
-            from PyQt6.QtCore import QEventLoop, QTimer
+            from PySide6.QtCore import QEventLoop, QTimer
             loop = QEventLoop()
             janela.salvamento_finalizado.connect(loop.quit)
             janela.salvar_croqui()
@@ -405,7 +405,7 @@ def test_salvar_croqui_repassa_erros_ao_controller(qtbot):
          patch.object(janela, "exibir_notificacao") as mock_notif, \
          patch.object(janela.compilacao_controller, "processar_resultado") as mock_processar:
          
-        from PyQt6.QtCore import QEventLoop, QTimer
+        from PySide6.QtCore import QEventLoop, QTimer
         loop = QEventLoop()
         janela.salvamento_finalizado.connect(loop.quit)
         janela.salvar_croqui()
@@ -437,7 +437,7 @@ def test_salvar_croqui_exibe_notificacao(qtbot):
              patch("editor.legacy_views.area_principal.QMessageBox.critical") as mock_crit, \
              patch.object(janela, "exibir_notificacao") as mock_notif:
             
-            from PyQt6.QtCore import QEventLoop, QTimer
+            from PySide6.QtCore import QEventLoop, QTimer
             loop = QEventLoop()
             janela.salvamento_finalizado.connect(loop.quit)
             janela.salvar_croqui()
@@ -459,8 +459,8 @@ def test_janela_principal_tem_icone_configurado(qtbot):
     assert not janela.windowIcon().isNull()
 
 def test_atalhos_teclado_desfazer_refazer(qtbot):
-    from PyQt6.QtGui import QKeySequence
-    from PyQt6.QtCore import Qt
+    from PySide6.QtGui import QKeySequence
+    from PySide6.QtCore import Qt
     janela = JanelaPrincipal()
     qtbot.addWidget(janela)
     
@@ -475,8 +475,8 @@ def test_atalhos_teclado_desfazer_refazer(qtbot):
     assert janela.acao_refazer.shortcutContext() == Qt.ShortcutContext.ApplicationShortcut, "Contexto do atalho deve ser global (ApplicationShortcut)"
 
 def test_salvar_croqui_remove_foco_do_widget_ativo(qtbot):
-    from PyQt6.QtWidgets import QLineEdit
-    from PyQt6.QtWidgets import QApplication
+    from PySide6.QtWidgets import QLineEdit
+    from PySide6.QtWidgets import QApplication
     
     with patch.object(GerenciadorCroquiExperimental, "compilar_croqui"):
         mock_workspace = MagicMock()
@@ -494,7 +494,7 @@ def test_salvar_croqui_remove_foco_do_widget_ativo(qtbot):
              patch("editor.legacy_views.area_principal.QMessageBox.critical") as mock_crit, \
              patch.object(janela.pagina_imagens.editor, "salvar_alteracoes"):
              
-            from PyQt6.QtCore import QEventLoop, QTimer
+            from PySide6.QtCore import QEventLoop, QTimer
             loop = QEventLoop()
             janela.salvamento_finalizado.connect(loop.quit)
             janela.salvar_croqui()
@@ -546,7 +546,7 @@ def test_salvar_croqui_renomeia_pasta_se_id_alterado(qtbot, tmp_path):
              patch("editor.legacy_views.area_principal.QMessageBox.critical") as mock_crit:
             
             # Executar a ação alvo
-            from PyQt6.QtCore import QEventLoop, QTimer
+            from PySide6.QtCore import QEventLoop, QTimer
             loop = QEventLoop()
             janela.salvamento_finalizado.connect(loop.quit)
             janela.salvar_croqui()
@@ -620,7 +620,7 @@ def test_salvar_croqui_repassa_erros_ao_controller(qtbot):
          patch.object(janela, "exibir_notificacao") as mock_notif, \
          patch.object(janela.compilacao_controller, "processar_resultado") as mock_processar:
          
-        from PyQt6.QtCore import QEventLoop, QTimer
+        from PySide6.QtCore import QEventLoop, QTimer
         loop = QEventLoop()
         janela.salvamento_finalizado.connect(loop.quit)
         janela.salvar_croqui()
@@ -692,8 +692,8 @@ def test_atualizar_titulo_dirty_state(mock_carregar, qtbot):
 
 @patch("editor.legacy_views.area_principal.JanelaPrincipal.carregar_croqui")
 def test_cancelar_fechamento_nao_deleta_undo_stack(mock_carregar, qtbot):
-    from PyQt6.QtGui import QUndoCommand, QCloseEvent
-    from PyQt6.QtWidgets import QMessageBox
+    from PySide6.QtGui import QUndoCommand, QCloseEvent
+    from PySide6.QtWidgets import QMessageBox
     from unittest.mock import MagicMock
     
     workspace_mock = MagicMock()
@@ -750,7 +750,7 @@ def test_close_event_enquanto_salva_marca_para_fechar(qtbot):
     """[TDD] Verifica se tentar fechar a janela durante o salvamento marca _fechar_apos_salvar."""
     from editor.legacy_views.area_principal import JanelaPrincipal
     from unittest.mock import patch
-    from PyQt6.QtGui import QCloseEvent
+    from PySide6.QtGui import QCloseEvent
 
     janela = JanelaPrincipal()
     qtbot.addWidget(janela)
@@ -847,14 +847,14 @@ def test_ao_clicar_abrir_novo_sem_modificacoes_fecha_janela_e_emite_sinal(qtbot)
 
 
 def test_ao_clicar_abrir_novo_com_modificacoes_salva_fecha_janela_e_emite_sinal(qtbot):
-    from PyQt6.QtWidgets import QMessageBox
+    from PySide6.QtWidgets import QMessageBox
     janela = JanelaPrincipal()
     qtbot.addWidget(janela)
     
     janela.historico.obter_pilha().isClean = MagicMock(return_value=False)
     janela.solicitar_abrir_novo = MagicMock()
     
-    with patch("PyQt6.QtWidgets.QMessageBox.question", return_value=QMessageBox.StandardButton.Save):
+    with patch("PySide6.QtWidgets.QMessageBox.question", return_value=QMessageBox.StandardButton.Save):
         with patch.object(janela, "salvar_croqui") as mock_salvar:
             with patch.object(janela, "close", wraps=janela.close) as mock_close:
                 janela._on_abrir_novo_clicado()
@@ -867,14 +867,14 @@ def test_ao_clicar_abrir_novo_com_modificacoes_salva_fecha_janela_e_emite_sinal(
 
 
 def test_ao_clicar_abrir_novo_com_modificacoes_descarta_fecha_janela_e_emite_sinal(qtbot):
-    from PyQt6.QtWidgets import QMessageBox
+    from PySide6.QtWidgets import QMessageBox
     janela = JanelaPrincipal()
     qtbot.addWidget(janela)
     
     janela.historico.obter_pilha().isClean = MagicMock(return_value=False)
     janela.solicitar_abrir_novo = MagicMock()
     
-    with patch("PyQt6.QtWidgets.QMessageBox.question", return_value=QMessageBox.StandardButton.Discard):
+    with patch("PySide6.QtWidgets.QMessageBox.question", return_value=QMessageBox.StandardButton.Discard):
         with patch.object(janela, "close", wraps=janela.close) as mock_close:
             janela._on_abrir_novo_clicado()
             janela.solicitar_abrir_novo.emit.assert_called_once()
@@ -882,14 +882,14 @@ def test_ao_clicar_abrir_novo_com_modificacoes_descarta_fecha_janela_e_emite_sin
 
 
 def test_ao_clicar_abrir_novo_com_modificacoes_cancela_nao_fecha_janela(qtbot):
-    from PyQt6.QtWidgets import QMessageBox
+    from PySide6.QtWidgets import QMessageBox
     janela = JanelaPrincipal()
     qtbot.addWidget(janela)
     
     janela.historico.obter_pilha().isClean = MagicMock(return_value=False)
     janela.solicitar_abrir_novo = MagicMock()
     
-    with patch("PyQt6.QtWidgets.QMessageBox.question", return_value=QMessageBox.StandardButton.Cancel):
+    with patch("PySide6.QtWidgets.QMessageBox.question", return_value=QMessageBox.StandardButton.Cancel):
         with patch.object(janela, "close", wraps=janela.close) as mock_close:
             janela._on_abrir_novo_clicado()
             janela.solicitar_abrir_novo.emit.assert_not_called()
@@ -931,7 +931,7 @@ def test_edicao_na_janela_principal_grava_diario_e_salva_consolida(qtbot, tmp_pa
         mock_gerenciador = mock_cls.return_value
         mock_gerenciador.compilar_croqui.return_value = None
 
-        from PyQt6.QtCore import QEventLoop, QTimer
+        from PySide6.QtCore import QEventLoop, QTimer
         loop = QEventLoop()
         janela.salvamento_finalizado.connect(loop.quit)
         janela.salvar_croqui()
@@ -1113,8 +1113,8 @@ def test_recuperacao_de_crash_com_diario_salvo_e_pendente_permite_undo_imediato_
 def test_fechar_croqui_sem_salvar_descarta_diario_pendente(qtbot, tmp_path):
     from editor.core.workspace import ExperimentalWorkspace
     from editor.core.diario import GerenciadorDiario
-    from PyQt6.QtWidgets import QMessageBox
-    from PyQt6.QtGui import QCloseEvent
+    from PySide6.QtWidgets import QMessageBox
+    from PySide6.QtGui import QCloseEvent
 
     pasta_croqui = tmp_path / "croqui_fechar_descarte"
     pasta_db = pasta_croqui / "database"
@@ -1147,7 +1147,7 @@ def test_fechar_croqui_sem_salvar_descarta_diario_pendente(qtbot, tmp_path):
 def test_abrir_novo_sem_salvar_descarta_diario_pendente(qtbot, tmp_path):
     from editor.core.workspace import ExperimentalWorkspace
     from editor.core.diario import GerenciadorDiario
-    from PyQt6.QtWidgets import QMessageBox
+    from PySide6.QtWidgets import QMessageBox
 
     pasta_croqui = tmp_path / "croqui_voltar_descarte"
     pasta_db = pasta_croqui / "database"
@@ -1260,8 +1260,8 @@ def test_recuperacao_crash_exatas_3_acoes_com_undos_perfeitos(qtbot, tmp_path):
 
 
 def test_recuperacao_crash_edicao_repeated_creditos_com_undo_visual_imediato(qtbot, tmp_path):
-    from PyQt6.QtWidgets import QLineEdit
-    from PyQt6.QtTest import QTest
+    from PySide6.QtWidgets import QLineEdit
+    from PySide6.QtTest import QTest
     from editor.core.workspace import ExperimentalWorkspace
 
     pasta_croqui = tmp_path / "croqui_creditos"

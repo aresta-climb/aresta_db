@@ -4,9 +4,9 @@
 import os
 from pathlib import Path
 import pytest
-from PyQt6.QtCore import Qt, QSize, QMimeData, QUrl
-from PyQt6.QtGui import QImage, QDropEvent, QDragEnterEvent
-from PyQt6.QtWidgets import QDialogButtonBox
+from PySide6.QtCore import Qt, QSize, QMimeData, QUrl
+from PySide6.QtGui import QImage, QDropEvent, QDragEnterEvent
+from PySide6.QtWidgets import QDialogButtonBox
 
 from editor.views.dialogos.dialogo_inserir_imagem_markdown import DialogoInserirImagemMarkdown
 
@@ -50,7 +50,7 @@ def test_dialogo_galeria_listagem_e_busca(qapp, tmp_path):
 
 
 def test_dialogo_galeria_legenda_obrigatoria(qapp, tmp_path, monkeypatch):
-    from PyQt6.QtWidgets import QMessageBox
+    from PySide6.QtWidgets import QMessageBox
     monkeypatch.setattr(QMessageBox, "warning", lambda *args, **kwargs: None)
 
     pasta_imagens = tmp_path / "imagens"
@@ -192,7 +192,7 @@ def test_dialogo_area_drop_drag_and_drop_events(qapp, tmp_path):
     dialogo = DialogoInserirImagemMarkdown(caminho_db=tmp_path)
     area = dialogo.area_drop
 
-    from PyQt6.QtCore import QPoint, QPointF
+    from PySide6.QtCore import QPoint, QPointF
     # Simula DragEnter com arquivo válido
     mime = QMimeData()
     mime.setUrls([QUrl.fromLocalFile(str(caminho_img))])
@@ -240,7 +240,7 @@ def test_dialogo_area_drop_mouse_press_qfiledialog(qapp, tmp_path, monkeypatch):
     dialogo = DialogoInserirImagemMarkdown(caminho_db=tmp_path)
     area = dialogo.area_drop
 
-    from PyQt6.QtWidgets import QFileDialog
+    from PySide6.QtWidgets import QFileDialog
     monkeypatch.setattr(QFileDialog, "getOpenFileName", lambda *args, **kwargs: (str(caminho_img), "PNG"))
 
     class FakeMouseEvent:
@@ -275,7 +275,7 @@ def test_dialogo_area_drop_imagem_invalida(qapp, tmp_path, monkeypatch):
     area = dialogo.area_drop
 
     avisos = []
-    from PyQt6.QtWidgets import QMessageBox
+    from PySide6.QtWidgets import QMessageBox
     monkeypatch.setattr(QMessageBox, "warning", lambda *args, **kwargs: avisos.append(True))
     area.processar_caminho(str(caminho_txt))
     assert len(avisos) == 1
@@ -365,7 +365,7 @@ def test_dialogo_galeria_lista_imagens_em_memoria(qapp, tmp_path):
     model._caminho_db_atual = tmp_path
 
     img = QImage(20, 20, QImage.Format.Format_RGB32)
-    from PyQt6.QtCore import QBuffer, QIODevice
+    from PySide6.QtCore import QBuffer, QIODevice
     buf = QBuffer()
     buf.open(QIODevice.OpenModeFlag.ReadWrite)
     img.save(buf, "WEBP")
@@ -380,12 +380,12 @@ def test_dialogo_galeria_lista_imagens_em_memoria(qapp, tmp_path):
 
 
 def test_dialogo_area_drop_clique_cancelado(qapp, tmp_path, monkeypatch):
-    from PyQt6.QtWidgets import QFileDialog
+    from PySide6.QtWidgets import QFileDialog
     monkeypatch.setattr(QFileDialog, "getOpenFileName", lambda *args, **kwargs: ("", ""))
 
     dialogo = DialogoInserirImagemMarkdown(caminho_db=tmp_path)
-    from PyQt6.QtGui import QMouseEvent
-    from PyQt6.QtCore import QPointF, Qt
+    from PySide6.QtGui import QMouseEvent
+    from PySide6.QtCore import QPointF, Qt
     event = QMouseEvent(
         QMouseEvent.Type.MouseButtonPress,
         QPointF(10, 10),
@@ -398,7 +398,7 @@ def test_dialogo_area_drop_clique_cancelado(qapp, tmp_path, monkeypatch):
 
 
 def test_dialogo_area_drop_clique_selecionado(qapp, tmp_path, monkeypatch):
-    from PyQt6.QtWidgets import QFileDialog
+    from PySide6.QtWidgets import QFileDialog
     arquivo_png = tmp_path / "selecionado.png"
     img = QImage(20, 20, QImage.Format.Format_RGB32)
     img.save(str(arquivo_png), "PNG")
@@ -406,8 +406,8 @@ def test_dialogo_area_drop_clique_selecionado(qapp, tmp_path, monkeypatch):
     monkeypatch.setattr(QFileDialog, "getOpenFileName", lambda *args, **kwargs: (str(arquivo_png), "PNG"))
 
     dialogo = DialogoInserirImagemMarkdown(caminho_db=tmp_path)
-    from PyQt6.QtGui import QMouseEvent
-    from PyQt6.QtCore import QPointF, Qt
+    from PySide6.QtGui import QMouseEvent
+    from PySide6.QtCore import QPointF, Qt
     event = QMouseEvent(
         QMouseEvent.Type.MouseButtonPress,
         QPointF(10, 10),
