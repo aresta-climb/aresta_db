@@ -4,6 +4,7 @@
 import re
 import argparse
 import sys
+from pathlib import Path
 
 class SemVerError(Exception):
     pass
@@ -44,36 +45,79 @@ def compare_semver(v1, v2):
 
 def bump_version_file(caminho_arquivo, nova_versao):
     validar_semver(nova_versao)
+    caminho = Path(caminho_arquivo)
     
-    with open(caminho_arquivo, 'r', encoding='utf-8') as f:
+    with open(caminho, 'r', encoding='utf-8') as f:
         conteudo = f.read()
         
-    padrao = re.compile(r'^VERSION\s*=\s*"(.*)"', re.MULTILINE)
-    
-    match = padrao.search(conteudo)
-    if not match:
-        raise ValueError(f"Padrão VERSION = \".*\" não encontrado no arquivo {caminho_arquivo}")
+    if caminho.suffix.lower() == ".toml" or caminho.name.lower() == "pyproject.toml":
+        padrao = re.compile(r'^version\s*=\s*"(.*)"', re.MULTILINE)
+        if not padrao.search(conteudo):
+            raise ValueError(f"Padrão version = \".*\" não encontrado no arquivo {caminho_arquivo}")
+        substituto = f'version = "{nova_versao}"'
+    else:
+        padrao = re.compile(r'^VERSION\s*=\s*"(.*)"', re.MULTILINE)
+        if not padrao.search(conteudo):
+            raise ValueError(f"Padrão VERSION = \".*\" não encontrado no arquivo {caminho_arquivo}")
+        substituto = f'VERSION = "{nova_versao}"'
         
-    versao_atual = match.group(1)
+    versao_atual = padrao.search(conteudo).group(1)
     if compare_semver(nova_versao, versao_atual) <= 0:
         raise SemVerError(f"A nova versão ({nova_versao}) deve ser estritamente maior que a atual ({versao_atual}).")
         
-    novo_conteudo = padrao.sub(f'VERSION = "{nova_versao}"', conteudo)
+    novo_conteudo = padrao.sub(substituto, conteudo)
     
-    with open(caminho_arquivo, 'w', encoding='utf-8') as f:
+    with open(caminho, 'w', encoding='utf-8') as f:
         f.write(novo_conteudo)
         
     print(f"Versão atualizada de {versao_atual} para {nova_versao} no arquivo {caminho_arquivo}")
 
+def sincronizar_versoes(nova_versao, raiz=None):
+    """Atualiza e sincroniza a versão tanto em editor/core/version.py quanto em pyproject.toml."""
+    validar_semver(nova_versao)
+    dir_raiz = Path(raiz) if raiz else Path(__file__).resolve().parent.parent.parent
+    caminho_version_py = dir_raiz / "editor" / "core" / "version.py"
+    caminho_pyproject = dir_raiz / "pyproject.toml"
+    
+    atualizados = []
+    if caminho_version_py.exists():
+        bump_version_file(caminho_version_py, nova_versao)
+        atualizados.append(caminho_version_py)
+        
+    if caminho_pyproject.exists():
+        bump_version_file(caminho_pyproject, nova_versao)
+        atualizados.append(caminho_pyproject)
+        
+    return atualizados
+
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Atualiza a string VERSION de um arquivo Python.")
-    parser.add_argument("arquivo", help="Caminho para o arquivo version.py")
-    parser.add_argument("versao", help="Nova versão em formato SemVer")
+    parser = argparse.ArgumentParser(description="Atualiza e sincroniza a versão do Editor Aresta (version.py e pyproject.toml).")
+    parser.add_argument("argumentos", nargs="+", help="[caminho_arquivo] <nova_versao>")
     
     args = parser.parse_args()
     
     try:
-        bump_version_file(args.arquivo, args.versao)
+        if len(args.argumentos) == 1:
+            nova_versao = args.argumentos[0]
+            sincronizar_versoes(nova_versao)
+        elif len(args.argumentos) == 2:
+            arquivo_alvo = Path(args.argumentos[0])
+            nova_versao = args.argumentos[1]
+            bump_version_file(arquivo_alvo, nova_versao)
+            
+            # Auto-sincronização de arquivos conhecidos do repositório
+            dir_raiz = Path(__file__).resolve().parent.parent.parent
+            if arquivo_alvo.resolve() == (dir_raiz / "editor" / "core" / "version.py").resolve():
+                caminho_toml = dir_raiz / "pyproject.toml"
+                if caminho_toml.exists():
+                    bump_version_file(caminho_toml, nova_versao)
+            elif arquivo_alvo.resolve() == (dir_raiz / "pyproject.toml").resolve():
+                caminho_py = dir_raiz / "editor" / "core" / "version.py"
+                if caminho_py.exists():
+                    bump_version_file(caminho_py, nova_versao)
+        else:
+            parser.print_help()
+            sys.exit(1)
     except Exception as e:
         print(f"Erro: {e}", file=sys.stderr)
         sys.exit(1)
