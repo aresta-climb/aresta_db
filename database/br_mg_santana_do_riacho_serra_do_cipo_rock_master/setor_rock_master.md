@@ -1,6 +1,6 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
-# Copyright (C) 2026 Aresta Contributors
+# Copyright (C) 2026 Aresta Climb Contributors
 nome: Rock Master
 mapas:
 - caminho_imagem_mapa: imagens/setor_rock_master_p0_i0.webp
@@ -435,8 +435,19 @@ escaladas:
 - via_esportiva:
     nome: Teresa Cristina
     dificuldade: BR_7B_BARRA_7C
+localizacao_estacionamento:
+  latitude: -193155830
+  longitude: -436135000
+localizacao_escalada:
+  latitude: -193087500
+  longitude: -436147780
+sinal_de_celular: true
+amigavel_a_criancas: true
+amigavel_a_bebes: true
 ---
 
 # Setor Rock Master
 
-Setor clássico de escalada esportiva na Serra do Cipó.
+Setor clássico de escalada esportiva do Grupo 2 na Serra do Cipó.
+
+Vias positivas, verticais e negativas com exposição solar vespertina e extensões entre 10m e 20m, que não permitem escalada durante chuva.
