@@ -1,6 +1,6 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
-# Copyright (C) 2026 Aresta Contributors
+# Copyright (C) 2026 Aresta Climb Contributors
 nome: Croqui 02 da Pedra Branca
 mapas:
 - caminho_imagem_mapa: imagens/pagina_2_imagem_0.webp

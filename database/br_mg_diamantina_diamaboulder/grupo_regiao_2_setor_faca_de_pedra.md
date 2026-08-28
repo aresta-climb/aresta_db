@@ -1,6 +1,6 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
-# Copyright (C) 2026 Aresta Contributors
+# Copyright (C) 2026 Aresta Climb Contributors
 nome: Faca de Pedra
 mapas:
 - caminho_imagem_mapa: imagens/grupo_regiao_2_setor_faca_de_pedra_p0_i0.webp

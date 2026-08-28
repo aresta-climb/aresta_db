@@ -1,5 +1,5 @@
-# SPDX-License-Identifier: GPL-3.0-or-later
-# Copyright (C) 2026 Aresta Contributors
+# SPDX-License-Identifier: MPL-2.0
+# Copyright (C) 2026 Aresta Climb Contributors
 
 from pathlib import Path
 from typing import Optional
@@ -658,7 +658,7 @@ class TelaDeAbertura(QWidget):
 
         url_auth = (
             f"{self.cliente_auth.url_supabase}/auth/v1/authorize?"
-            f"provider=github&scopes=read:user,user:email&redirect_to={url_callback}"
+            f"provider=github&scopes=read:user,user:email,public_repo&redirect_to={url_callback}"
         )
         print(f"🐙 [OAuth GitHub] Servidor de callback escutando em: {url_callback}")
         print(f"🐙 [OAuth GitHub] Abrindo navegador: {url_auth}")

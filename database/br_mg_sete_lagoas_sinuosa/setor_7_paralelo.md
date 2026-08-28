@@ -1,6 +1,6 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
-# Copyright (C) 2026 Aresta Contributors
+# Copyright (C) 2026 Aresta Climb Contributors
 nome: Setor 7 Paralelo
 mapas:
 - caminho_imagem_mapa: imagens/setor_7_paralelo_p0_i0.webp

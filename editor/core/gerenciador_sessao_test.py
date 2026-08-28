@@ -1,5 +1,5 @@
-# SPDX-License-Identifier: GPL-3.0-or-later
-# Copyright (C) 2026 Aresta Contributors
+# SPDX-License-Identifier: MPL-2.0
+# Copyright (C) 2026 Aresta Climb Contributors
 
 import pytest
 from unittest.mock import patch, MagicMock
@@ -220,3 +220,16 @@ class TesteGerenciadorSessao:
                     sessao_recuperada = gerenciador.obter_sessao()
                     assert sessao_recuperada is None
                     assert not caminho_arquivo.exists()
+
+    def teste_recuperar_token(self, tmp_path):
+        gerenciador = GerenciadorSessao(usar_memoria=True)
+        assert gerenciador.recuperar_token() is None
+
+        sessao = SessaoUsuario(
+            email="teste@arestaclimb.com",
+            nome_completo="Usuario Teste",
+            jwt_supabase="jwt.supabase.123",
+            token_atualizacao="refresh.123",
+        )
+        gerenciador.salvar_sessao(sessao)
+        assert gerenciador.recuperar_token() == "jwt.supabase.123"

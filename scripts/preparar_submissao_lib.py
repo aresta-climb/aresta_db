@@ -1,20 +1,5 @@
-# SPDX-License-Identifier: GPL-3.0-or-later
-# Copyright (C) 2026 Aresta Contributors
-
-# Copyright (C) 2026 ARESTA
-#
-# This program is free software: you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation, either version 3 of the License, or
-# (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program.  If not, see <https://www.gnu.org/licenses/>.
+# SPDX-License-Identifier: MPL-2.0
+# Copyright (C) 2026 Aresta Climb Contributors
 
 import os
 import re
@@ -1126,7 +1111,7 @@ def garantir_comentarios_licenca(file_path: Path):
         return
         
     comentario_spdx = "# SPDX-License-Identifier: ODbL-1.0"
-    comentario_copy = "# Copyright (C) 2026 Aresta Contributors"
+    comentario_copy = "# Copyright (C) 2026 Aresta Climb Contributors"
     
     # 1. Checa se o arquivo já está perfeitamente correto para evitar writes desnecessários
     if file_path.suffix == ".yaml" and len(linhas) >= 2:
@@ -1169,7 +1154,7 @@ def garantir_comentarios_licenca(file_path: Path):
             
     comentarios = (
         "# SPDX-License-Identifier: ODbL-1.0\n"
-        "# Copyright (C) 2026 Aresta Contributors\n"
+        "# Copyright (C) 2026 Aresta Climb Contributors\n"
     )
     
     if file_path.suffix == ".yaml":

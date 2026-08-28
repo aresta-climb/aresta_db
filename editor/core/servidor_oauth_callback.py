@@ -1,5 +1,5 @@
-# SPDX-License-Identifier: GPL-3.0-or-later
-# Copyright (C) 2026 Aresta Contributors
+# SPDX-License-Identifier: MPL-2.0
+# Copyright (C) 2026 Aresta Climb Contributors
 
 import json
 import threading
@@ -91,7 +91,8 @@ class ManipuladorRequisicaoOAuth(BaseHTTPRequestHandler):
             erro = params.get(
                 "error_description", params.get("error", ["Erro na autorização"])
             )[0]
-            print(f"⚠️ [OAuth Callback] Erro retornado pelo provedor: {erro}")
+            from editor.core.registro_log import logger
+            logger.warning(f"[OAuth Callback] Erro retornado pelo provedor: {erro}")
             self.server.servidor_oauth.definir_tokens({"erro": erro})
             self.send_response(200)
             self.send_header("Content-Type", "text/html; charset=utf-8")
@@ -102,7 +103,8 @@ class ManipuladorRequisicaoOAuth(BaseHTTPRequestHandler):
 
         # Se os tokens vierem diretamente por query params (ex: code exchange ou redirect customizado)
         if "access_token" in params:
-            print("✅ [OAuth Callback] Tokens de autenticação recebidos via query params.")
+            from editor.core.registro_log import logger
+            logger.info("[OAuth Callback] Tokens de autenticação recebidos via query params.")
             tokens = {
                 "access_token": params["access_token"][0],
                 "refresh_token": params.get("refresh_token", [""])[0],
@@ -128,14 +130,16 @@ class ManipuladorRequisicaoOAuth(BaseHTTPRequestHandler):
             corpo = self.rfile.read(tamanho)
             try:
                 dados = json.loads(corpo.decode("utf-8"))
-                print("✅ [OAuth Callback] Tokens de autenticação recebidos via POST /tokens.")
+                from editor.core.registro_log import logger
+                logger.info("[OAuth Callback] Tokens de autenticação recebidos via POST /tokens.")
                 self.server.servidor_oauth.definir_tokens(dados)
                 self.send_response(200)
                 self.send_header("Content-Type", "text/html; charset=utf-8")
                 self.end_headers()
                 self.wfile.write(HTML_RESPOSTA_SUCESSO.encode("utf-8"))
             except Exception as e:
-                print(f"❌ [OAuth Callback] Erro ao processar tokens recebidos via POST: {e}")
+                from editor.core.registro_log import logger
+                logger.error(f"[OAuth Callback] Erro ao processar tokens recebidos via POST: {e}", exc_info=True)
                 self.send_response(400)
                 self.end_headers()
 

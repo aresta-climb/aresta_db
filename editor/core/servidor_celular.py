@@ -1,5 +1,5 @@
-# SPDX-License-Identifier: GPL-3.0-or-later
-# Copyright (C) 2026 Aresta Contributors
+# SPDX-License-Identifier: MPL-2.0
+# Copyright (C) 2026 Aresta Climb Contributors
 
 import socket
 import threading
@@ -114,18 +114,19 @@ class ServidorCelular(QObject):
                 )
                 self.server = uvicorn.Server(config)
                 
-                print(f"[INFO] Servidor Celular rodando em http://0.0.0.0:{self.porta}")
+                from editor.core.registro_log import logger
+                logger.info(f"Servidor Celular rodando em http://0.0.0.0:{self.porta}")
                 # run() é bloqueante e vai rodar o asyncio event loop desta thread
                 self.server.run()
-                print("[INFO] Loop ASGI do servidor celular encerrado com sucesso.")
+                logger.info("Loop ASGI do servidor celular encerrado com sucesso.")
             except Exception as e:
-                import traceback
-                print(f"[ERROR] Falha no servidor celular ASGI: {e}")
-                traceback.print_exc()
+                from editor.core.registro_log import logger
+                logger.error(f"Falha no servidor celular ASGI: {e}", exc_info=True)
             finally:
                 self._servindo = False
                 self.server = None
-                print("[DEBUG] Thread do servidor celular finalizada.")
+                from editor.core.registro_log import logger
+                logger.debug("Thread do servidor celular finalizada.")
 
         self.thread = threading.Thread(target=run_server, daemon=True)
         self.thread.start()
@@ -135,11 +136,12 @@ class ServidorCelular(QObject):
         if not self._servindo:
             return
             
-        print("[DEBUG] Solicitando encerramento do servidor celular...")
+        from editor.core.registro_log import logger
+        logger.debug("Solicitando encerramento do servidor celular...")
         self._servindo = False
         self.conectado = False
         
         if self.server:
-            print("[DEBUG] Setando should_exit = True no Uvicorn...")
+            logger.debug("Setando should_exit = True no Uvicorn...")
             self.server.should_exit = True
-            print("[INFO] Sinal de encerramento nativo enviado para o servidor celular.")
+            logger.info("Sinal de encerramento nativo enviado para o servidor celular.")

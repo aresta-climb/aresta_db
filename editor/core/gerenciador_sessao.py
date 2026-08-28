@@ -1,5 +1,5 @@
-# SPDX-License-Identifier: GPL-3.0-or-later
-# Copyright (C) 2026 Aresta Contributors
+# SPDX-License-Identifier: MPL-2.0
+# Copyright (C) 2026 Aresta Climb Contributors
 
 import os
 import base64
@@ -151,6 +151,11 @@ class GerenciadorSessao:
             # Qualquer falha de integridade, chave inválida ou arquivo corrompido limpa a sessão
             self.limpar_sessao()
             return None
+
+    def recuperar_token(self) -> Optional[str]:
+        """Recupera o token JWT do Supabase da sessão ativa para compatibilidade."""
+        sessao = self.obter_sessao()
+        return sessao.jwt_supabase if sessao else None
 
     def limpar_sessao(self) -> None:
         """Remove a chave mestra do Keyring e o arquivo criptografado do disco."""

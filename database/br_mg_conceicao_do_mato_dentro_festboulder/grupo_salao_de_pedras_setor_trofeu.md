@@ -1,6 +1,6 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
-# Copyright (C) 2026 Aresta Contributors
+# Copyright (C) 2026 Aresta Climb Contributors
 nome: Troféu
 mapas:
 - caminho_imagem_mapa: imagens/grupo_salao_de_pedras_setor_trofeu_p0.webp

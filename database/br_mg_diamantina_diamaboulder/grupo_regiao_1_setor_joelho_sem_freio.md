@@ -1,6 +1,6 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
-# Copyright (C) 2026 Aresta Contributors
+# Copyright (C) 2026 Aresta Climb Contributors
 nome: Joelho Sem Freio
 mapas:
 - caminho_imagem_mapa: imagens/grupo_regiao_1_setor_joelho_sem_freio_p0_i0.webp

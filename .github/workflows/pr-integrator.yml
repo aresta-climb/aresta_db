@@ -46,15 +46,16 @@ jobs:
           ref: ${{ steps.pr-info.outputs.branch }}
           
       - name: Setup uv e Python
-        uses: astral-sh/setup-uv@v10
+        uses: astral-sh/setup-uv@v10.0.1
         with:
           version: "latest"
           python-version: "3.13"
           enable-cache: true
-          cache-dependency-glob: requirements-deploy.txt
+          cache-dependency-glob: uv.lock
 
       - name: Install dependencies
-        run: uv pip install --system -r requirements-deploy.txt
+        run: |
+          uv sync --frozen --only-group deploy
           
       - name: Get changed files
         id: changed-files
@@ -69,7 +70,7 @@ jobs:
       - name: Run Deploy Generated
         if: steps.changed-files.outputs.any_changed == 'true'
         run: |
-          PYTHONPATH=. python scripts/deploy_generated.py --target ${{ steps.changed-files.outputs.all_changed_files }}
+          PYTHONPATH=. uv run scripts/deploy_generated.py --target ${{ steps.changed-files.outputs.all_changed_files }}
           
       - name: Commit and Push
         run: |

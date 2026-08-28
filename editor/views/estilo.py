@@ -1,5 +1,5 @@
-# SPDX-License-Identifier: GPL-3.0-or-later
-# Copyright (C) 2026 Aresta Contributors
+# SPDX-License-Identifier: MPL-2.0
+# Copyright (C) 2026 Aresta Climb Contributors
 
 import qtawesome as qta
 from PyQt6.QtGui import QIcon
@@ -21,7 +21,10 @@ class Icones:
         "refazer": "fa5s.redo",
         "exportar": "fa5s.file-export",
         "celular": "fa5s.mobile-alt",
-        "publicar": "fa5b.github",
+        "publicar": "fa5s.paper-plane",
+        "enviar": "fa5s.paper-plane",
+        "nuvem": "fa5s.cloud-upload-alt",
+        "externo": "fa5s.external-link-alt",
         "github": "fa5b.github",
         "dados": "fa5s.database",
         "imagens": "fa5s.images",

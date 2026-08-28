@@ -1,5 +1,5 @@
-# SPDX-License-Identifier: GPL-3.0-or-later
-# Copyright (C) 2026 Aresta Contributors
+# SPDX-License-Identifier: MPL-2.0
+# Copyright (C) 2026 Aresta Climb Contributors
 
 import pytest
 from pathlib import Path
@@ -180,3 +180,23 @@ def test_captura_mensagens(tmp_paths):
         assert "  Warning: isso falhou feio" in msgs
         assert "Isso é um print normal." not in msgs
         assert "tudo certo!" not in msgs
+
+def test_experimental_workspace_diario_consolidacao(tmp_paths):
+    ws = ExperimentalWorkspace(tmp_paths)
+    diario = ws.obter_diario()
+    assert diario is not None
+    
+    # Grava alteração pendente
+    diario.gravar_comando_pendente({"classe": "CmdTeste"})
+    assert diario.tem_alteracoes_pendentes()
+    
+    mock_storage = MagicMock()
+    with patch("editor.core.workspace.GerenciadorCroquiExperimental") as mock_cls:
+        mock_gerenciador = mock_cls.return_value
+        mock_gerenciador.compilar_croqui.return_value = None
+        
+        ws.processar_renomeacao_e_compilacao("id", "id", mock_storage)
+        
+    # Deve ter consolidado o diário
+    assert not diario.tem_alteracoes_pendentes()
+    assert len(diario.ler_diario_salvo()) == 1

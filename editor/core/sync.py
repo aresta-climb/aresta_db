@@ -1,8 +1,7 @@
-# SPDX-License-Identifier: GPL-3.0-or-later
-# Copyright (C) 2026 Aresta Contributors
+# SPDX-License-Identifier: MPL-2.0
+# Copyright (C) 2026 Aresta Climb Contributors
 
 import pygit2
-import github
 from pathlib import Path
 from typing import Optional, Callable
 
@@ -67,46 +66,16 @@ class GerenciadorSincronizacao:
         else:
             raise RuntimeError(f"Não foi possível encontrar a branch main ou master no repositório {url_repositorio}")
 
-    def obter_url_clone(self, g: Optional[github.Github] = None, repositorio_base: str = "aresta-climb/aresta_db") -> str:
+    def obter_url_clone(self, repositorio_base: str = "aresta-climb/aresta_db") -> str:
         """
-        Retorna a URL de clone. Se g estiver presente, tenta usar o fork do usuário.
-        Caso contrário, usa a URL oficial do repositório base público.
+        Retorna a URL oficial do repositório base público.
         """
-        if not g:
-            return f"https://github.com/{repositorio_base}.git"
+        return f"https://github.com/{repositorio_base}.git"
 
-        repo = g.get_repo(repositorio_base)
-        usuario = g.get_user()
-        
-        # Tenta pegar diretamente pelo nome
-        try:
-            nome_repo_base = repositorio_base.split("/")[-1]
-            fork = usuario.get_repo(nome_repo_base)
-            if fork.fork and fork.parent.full_name == repositorio_base:
-                return fork.clone_url
-        except Exception:
-            pass
-            
-        # Procura por um fork existente
-        for fork in repo.get_forks():
-            if fork.owner.login == usuario.login:
-                return fork.clone_url
-                
-        # Se não existir, cria um novo fork
-        print(f"Criando fork de {repositorio_base} para {usuario.login}...")
-        try:
-            fork = usuario.create_fork(repo)
-            return fork.clone_url
-        except github.GithubException as e:
-            if e.status == 403:
-                print(f"[AVISO] O token não tem permissão para criar forks (erro 403). Usando o repositório base como fallback.")
-                return repo.clone_url
-            raise
-
-    def configurar_remotes(self, g: Optional[github.Github] = None, url_upstream: str = "https://github.com/aresta-climb/aresta_db.git"):
+    def configurar_remotes(self, url_upstream: str = "https://github.com/aresta-climb/aresta_db.git"):
         """
         Garante que o repositório local tem os remotes necessários:
-        'origin' -> O fork do usuário ou o base público.
+        'origin' -> O repositório base oficial.
         'upstream' -> O repositório oficial (aresta_db).
         """
         repo = pygit2.Repository(str(self.caminho_repo))
@@ -117,23 +86,26 @@ class GerenciadorSincronizacao:
         else:
             repo.remotes.set_url("upstream", url_upstream)
             
-        if g:
-            url_fork = self.obter_url_clone(g)
-            if "origin" not in remotes_names:
-                repo.remotes.create("origin", url_fork)
-            else:
-                repo.remotes.set_url("origin", url_fork)
-        elif "origin" not in remotes_names:
+        if "origin" not in remotes_names:
             repo.remotes.create("origin", url_upstream)
+        else:
+            repo.remotes.set_url("origin", url_upstream)
+
+        if "proxy" in remotes_names:
+            try:
+                repo.remotes.delete("proxy")
+            except Exception:
+                pass
 
     def fazer_fetch(self, progresso_callback: Optional[Callable[[float], None]] = None):
         """
-        Faz fetch de todos os remotes (origin e upstream).
+        Faz fetch apenas dos remotes oficiais (origin e upstream).
         """
         repo = pygit2.Repository(str(self.caminho_repo))
         callbacks = self._obter_callbacks(progresso_callback)
         
-        for remote in repo.remotes:
+        remotes_para_fetch = [r for r in repo.remotes if getattr(r, "name", None) in ("origin", "upstream")]
+        for remote in remotes_para_fetch:
             remote.fetch(callbacks=callbacks)
 
     def fazer_checkout_main_upstream(self):
@@ -161,22 +133,3 @@ class GerenciadorSincronizacao:
         """
         repo = pygit2.Repository(str(self.caminho_repo))
         repo.reset(repo.head.target, pygit2.GIT_RESET_HARD)
-
-    def criar_pull_request(self, g: github.Github, branch_origem: str, titulo: str, corpo: str, repositorio_base: str = "aresta-climb/aresta_db") -> github.PullRequest.PullRequest:
-        repo_base = g.get_repo(repositorio_base)
-        user = g.get_user()
-        
-        # Verifica se o push foi feito para o fork ou direto para o base
-        repo_local = pygit2.Repository(str(self.caminho_repo))
-        url_origin = repo_local.remotes["origin"].url
-        
-        if repositorio_base in url_origin:
-            # Fallback ativado: push foi direto no repositório principal
-            head = branch_origem
-        else:
-            # Push foi no fork do usuário
-            head = f"{user.login}:{branch_origem}"
-            
-        base = "main"
-        
-        return repo_base.create_pull(title=titulo, body=corpo, head=head, base=base)

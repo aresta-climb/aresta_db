@@ -1,5 +1,5 @@
-# SPDX-License-Identifier: GPL-3.0-or-later
-# Copyright (C) 2026 Aresta Contributors
+# SPDX-License-Identifier: MPL-2.0
+# Copyright (C) 2026 Aresta Climb Contributors
 
 """
 Script para exportar croquis compilados (.binarypb) do Aresta para o formato CSV exigido pelo aplicativo Anchor Ledge.

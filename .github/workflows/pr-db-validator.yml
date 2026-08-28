@@ -26,20 +26,21 @@ jobs:
             editor
             serving
             scripts
-            requirements-deploy.txt
+            pyproject.toml
+            uv.lock
+            .python-version
       
       - name: Setup uv e Python
-        uses: astral-sh/setup-uv@v10
+        uses: astral-sh/setup-uv@v10.0.1
         with:
           version: "latest"
           python-version: "3.13"
           enable-cache: true
-          cache-dependency-glob: |
-            serving/requirements-pr_db_validator.txt
-            requirements-deploy.txt
+          cache-dependency-glob: uv.lock
 
       - name: Install dependencies
-        run: uv pip install --system -r serving/requirements-pr_db_validator.txt
+        run: |
+          uv sync --frozen --only-group validador
           
       - name: Get changed files
         id: changed-files
@@ -51,8 +52,10 @@ jobs:
           
       - name: Run Validator
         if: steps.changed-files.outputs.any_changed == 'true'
+        env:
+          PYTHONPATH: .
         run: |
-          PYTHONPATH=. python serving/pr_db_validator.py --pastas ${{ steps.changed-files.outputs.all_changed_files }} --saida saida_croquis
+          uv run serving/pr_db_validator.py --pastas ${{ steps.changed-files.outputs.all_changed_files }} --saida saida_croquis
           
       - name: Upload para Cloudflare R2
         if: success() && steps.changed-files.outputs.any_changed == 'true'

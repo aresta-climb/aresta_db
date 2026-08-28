@@ -37,17 +37,24 @@ jobs:
             serving
             migracoes
             aresta_api
+            coleta_de_betas
             pytest.ini
+            conftest.py
+            pyproject.toml
+            uv.lock
+            .python-version
 
       - name: Setup uv e Python
-        uses: astral-sh/setup-uv@v10
+        uses: astral-sh/setup-uv@v10.0.1
         with:
           version: "latest"
           python-version: "3.13"
           enable-cache: true
-          cache-dependency-glob: |
-            requirements.txt
-            editor/requirements.txt
+          cache-dependency-glob: uv.lock
+
+      - name: Install Dependencies
+        run: |
+          uv sync --frozen
 
       - name: Configurar Git
         run: |
@@ -56,30 +63,20 @@ jobs:
 
       - name: Injetar Versão Oficial
         run: |
-          python editor/release_tools/bump_version.py editor/core/version.py ${{ github.event.inputs.new_version }}
+          uv run editor/release_tools/bump_version.py editor/core/version.py ${{ github.event.inputs.new_version }}
           git commit -am "chore: Lançar versão ${{ github.event.inputs.new_version }} do Editor Aresta"
           git tag editor-v${{ github.event.inputs.new_version }}
-        env:
-          PYTHONPATH: .
-
-      - name: Install Graphviz
-        run: choco install graphviz --no-progress
-
-      - name: Install Dependencies
-        run: |
-          uv pip install --system -r requirements.txt
-          uv pip install --system -r editor/requirements.txt
 
       - name: Executar Testes (TDD & Coverage)
         timeout-minutes: 10
         run: |
-          pytest
-        env:
-          PYTHONPATH: .
+          uv run pytest -n auto
 
       - name: Build PyInstaller
         run: |
-          python editor/build.py dist
+          uv run editor/build.py dist
+        env:
+          PYTHONPATH: .
 
       - name: Build MSIX Package
         shell: pwsh

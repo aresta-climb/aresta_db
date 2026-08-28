@@ -1,5 +1,5 @@
-# SPDX-License-Identifier: GPL-3.0-or-later
-# Copyright (C) 2026 Aresta Contributors
+# SPDX-License-Identifier: MPL-2.0
+# Copyright (C) 2026 Aresta Climb Contributors
 
 from PyQt6.QtWidgets import (
     QMainWindow, QToolBar, QStackedWidget, QWidget, QVBoxLayout, QHBoxLayout, 
@@ -188,6 +188,9 @@ class JanelaPrincipal(QMainWindow):
         super().__init__(parent)
         self.setFont(QFont("Segoe UI", 9))
         self.storage = storage
+        if auth is None:
+            from editor.core.gerenciador_sessao import GerenciadorSessao
+            auth = GerenciadorSessao()
         self.auth = auth
         self.workspace = workspace
         self.croqui_data = None
@@ -419,13 +422,13 @@ class JanelaPrincipal(QMainWindow):
         self.acao_celular.setToolTip("Conectar com celular...")
         self.acao_celular.triggered.connect(self._exibir_conexao_celular)
         
-        self.acao_publicar = QAction(Icones.obter("publicar"), "Publicar", self)
-        self.acao_publicar.setToolTip("Publicar para produção")
+        self.acao_publicar = QAction(Icones.obter("publicar"), "Propor Mudança", self)
+        self.acao_publicar.setToolTip("Enviar proposta de mudança no croqui")
         self.acao_publicar.triggered.connect(self.publicar_croqui)
         
         if self.workspace and not self.workspace.can_publish_pr():
             self.acao_publicar.setEnabled(False)
-            self.acao_publicar.setToolTip("Publicar pelo Editor não suportado no Local Mode.")
+            self.acao_publicar.setToolTip("Envio de proposta de mudança não suportado no Local Mode.")
             self.acao_abrir.setEnabled(False)
             self.acao_abrir.setToolTip("Abrir outro croqui não suportado no Local Mode.")
         
@@ -600,6 +603,12 @@ class JanelaPrincipal(QMainWindow):
             if self.stack.currentIndex() != 3:
                 self._trocar_pagina(3)
         
+    def _perguntar_recuperacao_sessao(self, total_acoes: int) -> bool:
+        from editor.views.dialogo_recuperacao_sessao import DialogoRecuperacaoSessao
+        from PyQt6.QtWidgets import QDialog
+        dialogo = DialogoRecuperacaoSessao(total_acoes=total_acoes, parent=self)
+        return dialogo.exec() == QDialog.DialogCode.Accepted
+
     def carregar_croqui(self):
         """Carrega os dados do croqui a partir do sistema de arquivos."""
         if not self.workspace:
@@ -631,12 +640,34 @@ class JanelaPrincipal(QMainWindow):
                 
                 # Inicializa/limpa rastreadores
                 self.croqui_model.carregar_arquivos_externos(caminho_db)
+
+                # Verifica recuperação de sessão no diário
+                diario = self.workspace.obter_diario() if hasattr(self.workspace, "obter_diario") else None
+                from editor.core.diario import GerenciadorDiario
+                if isinstance(diario, GerenciadorDiario) and diario.tem_alteracoes_pendentes():
+                    comandos_pendentes = diario.ler_diario_pendente()
+                    if comandos_pendentes:
+                        if self._perguntar_recuperacao_sessao(len(comandos_pendentes)):
+                            self.historico.restaurar_do_diario(self.croqui_model, diario)
+                        else:
+                            diario.descartar_pendente()
+                            self.historico.definir_gerenciador_diario(diario)
+                elif isinstance(diario, GerenciadorDiario):
+                    self.historico.definir_gerenciador_diario(diario)
                 
                 # Atualiza os componentes com os dados carregados
                 self.pagina_dados.carregar_dados(self.croqui_model, self.croqui_controller)
                 self.pagina_imagens.carregar_imagens(caminho_db, model=self.croqui_model, controller=self.croqui_controller)
                 self.pagina_mapas.carregar_mapas(self.croqui_model, self.historico.obter_pilha(), caminho_db, controller=self.croqui_controller)
                 self.pagina_betas.carregar_betas(caminho_db)
+
+                # Registra contexto no escopo de telemetria
+                from editor.core.telemetria import registrar_contexto_croqui, anexar_diario_escopo
+                id_croqui = self.croqui_data.get("id", "") if self.croqui_data else ""
+                commit_base_sha = getattr(self.croqui_model.obter_croqui_readonly(), "commit_base_sha", "")
+                registrar_contexto_croqui(id_croqui=id_croqui, commit_base_sha=commit_base_sha)
+                if isinstance(diario, GerenciadorDiario):
+                    anexar_diario_escopo(diario)
                 
                 self.atualizar_titulo()
                 
@@ -780,7 +811,7 @@ class JanelaPrincipal(QMainWindow):
 
     def publicar_croqui(self):
         """Inicia o fluxo de publicação do croqui."""
-        if not self.workspace or not self.auth:
+        if not self.workspace:
             return
             
         from editor.controllers.publish_controller import PublishController
@@ -803,15 +834,24 @@ class JanelaPrincipal(QMainWindow):
             )
             
             if resposta == QMessageBox.StandardButton.Save:
+                self._callback_sucesso_salvar = self._concluir_abrir_novo
                 self.salvar_croqui()
-                self.solicitar_abrir_novo.emit()
             elif resposta == QMessageBox.StandardButton.Discard:
-                self.solicitar_abrir_novo.emit()
+                self._concluir_abrir_novo()
         else:
-            self.solicitar_abrir_novo.emit()
+            self._concluir_abrir_novo()
+
+    def _concluir_abrir_novo(self):
+        self._forcar_fechamento = True
+        self.solicitar_abrir_novo.emit()
+        self.close()
 
     def closeEvent(self, event):
         """Intercepta o fechamento da janela para verificar modificações."""
+        if getattr(self, '_forcar_fechamento', False):
+            event.accept()
+            return
+
         if getattr(self, '_salvando', False):
             self._fechar_apos_salvar = True
             self._mostrar_modal_espera("Finalizando salvamento...")

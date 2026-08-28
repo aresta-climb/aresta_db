@@ -40,7 +40,7 @@ Se a área mapeada exceder o limite de 100MB mesmo em WebP, o recorte baseado na
 ## 4. Script Alternativo: Migração de MBTiles Legados (Python)
 Caso existam arquivos `.mbtiles` gerados previamente em JPG ou PNG, o script Python abaixo deve ser executado para reescrever a coluna `tile_data` para WebP e limpar o banco de dados.
 
-**Dependências:** `pip install Pillow`
+**Dependências:** `uv sync` (inclui Pillow)
 
 ```python
 import sqlite3

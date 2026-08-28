@@ -1,5 +1,5 @@
-# SPDX-License-Identifier: GPL-3.0-or-later
-# Copyright (C) 2026 Aresta Contributors
+# SPDX-License-Identifier: MPL-2.0
+# Copyright (C) 2026 Aresta Climb Contributors
 
 from PyQt6.QtCore import QItemSelectionModel
 import pytest
@@ -581,7 +581,53 @@ Este é o corpo do markdown.
     
     # O base URL do preview deve ter sido definido apontando para o caminho do banco de dados
     base_url = md_editor.preview.document().baseUrl().toLocalFile()
-    assert base_url == "C:/test_croqui_folder/database/"
+    assert base_url.rstrip("/") == "C:/test_croqui_folder/database"
+
+
+def test_markdown_editor_base_url_from_model_and_local_image(qapp, tmp_path):
+    from editor.views.tree_view_adapter import ProtobufNode
+    from editor.views.widget_editor_dados import WidgetFormularioPadrao, WidgetEditorMarkdown
+    from aresta_api.proto.generated.croqui_pb2 import Setor, Croqui
+    from editor.models.croqui_model import CroquiModel
+    from editor.controllers.croqui_controller import CroquiController
+    from PyQt6.QtGui import QUndoStack, QImage
+    from PyQt6.QtWidgets import QWidget
+
+    # Cria pasta de imagens com uma imagem WebP real
+    pasta_imagens = tmp_path / "imagens"
+    pasta_imagens.mkdir(parents=True, exist_ok=True)
+    caminho_foto = pasta_imagens / "foto_teste.webp"
+    
+    img = QImage(200, 100, QImage.Format.Format_RGB32)
+    img.fill(0xFF00FF)
+    img.save(str(caminho_foto), "WEBP")
+
+    croqui_dummy = Croqui()
+    model = CroquiModel(croqui_dummy)
+    model._caminho_db_atual = tmp_path
+    controller = CroquiController(model, QUndoStack())
+    
+    # Parent sem qualquer caminho_croqui
+    parent_simples = QWidget()
+    form = WidgetFormularioPadrao(model, controller, parent=parent_simples)
+    
+    setor = Setor()
+    setor.descricao = "Texto com imagem: ![Minha Foto](imagens/foto_teste.webp)"
+    
+    node = ProtobufNode(name="Setor", message=setor, descriptor=setor.DESCRIPTOR)
+    form.load_node(node)
+    
+    md_editor = form.findChild(WidgetEditorMarkdown)
+    assert md_editor is not None
+    
+    # Verifica que o baseUrl aponta para tmp_path
+    base_url = md_editor.preview.document().baseUrl().toLocalFile()
+    assert base_url.replace("\\", "/").rstrip("/") == str(tmp_path).replace("\\", "/").rstrip("/")
+    
+    # Dispara redimensionamento para testar scale_images
+    md_editor.preview.resize(400, 300)
+    md_editor.preview.scale_images()
+
 
 
 def test_markdown_editor_image_auto_scaling(qapp):
@@ -2785,6 +2831,335 @@ def test_integracao_botao_renderiza_texto_e_markdown_inline_mesma_pagina(qapp):
     md_editors = form.findChildren(WidgetEditorMarkdown)
     assert len(md_editors) == 1
     assert md_editors[0].editor.toPlainText() == "# Ajude nosso projeto"
+
+
+def test_markdown_editor_botao_inserir_imagem_com_undo_redo(qapp, tmp_path, monkeypatch):
+    from editor.views.tree_view_adapter import ProtobufNode
+    from editor.views.widget_editor_dados import WidgetEditorDados, WidgetEditorMarkdown
+    from aresta_api.proto.generated.croqui_pb2 import Setor, Croqui
+    from editor.models.croqui_model import CroquiModel
+    from editor.controllers.croqui_controller import CroquiController
+    from PyQt6.QtGui import QUndoStack
+    from PyQt6.QtWidgets import QDialog
+    from editor.views.dialogos.dialogo_inserir_imagem_markdown import DialogoInserirImagemMarkdown
+
+    croqui = Croqui()
+    pilha = QUndoStack()
+    model = CroquiModel(croqui)
+    model._caminho_db_atual = tmp_path
+    controller = CroquiController(model, pilha)
+
+    widget = WidgetEditorDados(model, controller)
+    setor = Setor()
+    setor.descricao = "Introdução do setor."
+    node = ProtobufNode(name="Setor", message=setor, descriptor=setor.DESCRIPTOR)
+    widget.form_padrao.load_node(node)
+
+    md_editor = widget.form_padrao.findChild(WidgetEditorMarkdown)
+    assert md_editor is not None
+    assert hasattr(md_editor, "btn_inserir_imagem")
+
+    # Mock do dialogo
+    class MockDialogo:
+        def __init__(self, *args, **kwargs):
+            pass
+        def exec(self):
+            return QDialog.DialogCode.Accepted
+        def obter_tag_markdown(self):
+            return "![Foto 1](imagens/foto_1.webp)"
+
+    monkeypatch.setattr("editor.views.widget_editor_dados.DialogoInserirImagemMarkdown", MockDialogo)
+
+    # Posiciona o cursor no final
+    cursor = md_editor.editor.textCursor()
+    cursor.movePosition(cursor.MoveOperation.End)
+    md_editor.editor.setTextCursor(cursor)
+
+    # Clica no botão inserir imagem
+    md_editor.btn_inserir_imagem.click()
+
+    # O texto deve ter sido inserido
+    assert md_editor.editor.toPlainText() == "Introdução do setor.![Foto 1](imagens/foto_1.webp)"
+    assert setor.descricao == "Introdução do setor.![Foto 1](imagens/foto_1.webp)"
+    assert "foto_1.webp" in md_editor.preview.toHtml()
+
+    # Desfaz (Undo)
+    pilha.undo()
+    qapp.processEvents()
+    assert md_editor.editor.toPlainText() == "Introdução do setor."
+    assert setor.descricao == "Introdução do setor."
+    assert "foto_1.webp" not in md_editor.preview.toHtml()
+
+    # Refaz (Redo)
+    pilha.redo()
+    qapp.processEvents()
+    assert md_editor.editor.toPlainText() == "Introdução do setor.![Foto 1](imagens/foto_1.webp)"
+    assert setor.descricao == "Introdução do setor.![Foto 1](imagens/foto_1.webp)"
+    assert "foto_1.webp" in md_editor.preview.toHtml()
+
+
+def test_markdown_editor_imagem_preview_em_memoria_sem_disco(qapp, tmp_path):
+    from editor.views.tree_view_adapter import ProtobufNode
+    from editor.views.widget_editor_dados import WidgetEditorDados, WidgetEditorMarkdown
+    from aresta_api.proto.generated.croqui_pb2 import Setor, Croqui
+    from editor.models.croqui_model import CroquiModel
+    from editor.controllers.croqui_controller import CroquiController
+    from PyQt6.QtGui import QUndoStack, QImage, QTextDocument
+    from PyQt6.QtCore import QBuffer, QIODevice, QUrl
+
+    croqui = Croqui()
+    pilha = QUndoStack()
+    model = CroquiModel(croqui)
+    model._caminho_db_atual = tmp_path
+    controller = CroquiController(model, pilha)
+
+    img = QImage(100, 80, QImage.Format.Format_RGB32)
+    buf = QBuffer()
+    buf.open(QIODevice.OpenModeFlag.ReadWrite)
+    img.save(buf, "WEBP")
+    bytes_webp = bytes(buf.data())
+
+    # Adiciona a imagem APENAS no buffer de memória RAM do model (não no disco)
+    model.definir_imagem_memoria("imagens/mapa_ram.webp", bytes_webp)
+
+    # Garante que não existe no disco
+    assert not (tmp_path / "imagens" / "mapa_ram.webp").exists()
+
+    widget = WidgetEditorDados(model, controller)
+    setor = Setor()
+    setor.descricao = "![Legenda](imagens/mapa_ram.webp)"
+    node = ProtobufNode(name="Setor", message=setor, descriptor=setor.DESCRIPTOR)
+    widget.form_padrao.load_node(node)
+
+    md_editor = widget.form_padrao.findChild(WidgetEditorMarkdown)
+    # Força escalonamento
+    md_editor.preview.scale_images()
+
+    # O preview deve ter carregado o recurso de imagem a partir da RAM
+    res = md_editor.preview.document().resource(QTextDocument.ResourceType.ImageResource, QUrl("imagens/mapa_ram.webp"))
+    assert res is not None
+
+
+def test_markdown_editor_drag_and_drop_imagem_interna(qapp, tmp_path, monkeypatch):
+    from editor.views.tree_view_adapter import ProtobufNode
+    from editor.views.widget_editor_dados import WidgetEditorDados, WidgetEditorMarkdown
+    from aresta_api.proto.generated.croqui_pb2 import Setor, Croqui
+    from editor.models.croqui_model import CroquiModel
+    from editor.controllers.croqui_controller import CroquiController
+    from PyQt6.QtGui import QUndoStack, QDropEvent, QDragEnterEvent
+    from PyQt6.QtCore import Qt, QMimeData, QUrl, QPoint, QPointF
+    from PyQt6.QtWidgets import QDialog
+
+    pasta_imagens = tmp_path / "imagens"
+    pasta_imagens.mkdir(parents=True, exist_ok=True)
+    caminho_img = pasta_imagens / "setor_bloco.webp"
+    caminho_img.write_bytes(b"dummy")
+
+    croqui = Croqui()
+    pilha = QUndoStack()
+    model = CroquiModel(croqui)
+    model._caminho_db_atual = tmp_path
+    controller = CroquiController(model, pilha)
+
+    widget = WidgetEditorDados(model, controller)
+    setor = Setor()
+    setor.descricao = "Texto inicial. "
+    node = ProtobufNode(name="Setor", message=setor, descriptor=setor.DESCRIPTOR)
+    widget.form_padrao.load_node(node)
+
+    md_editor = widget.form_padrao.findChild(WidgetEditorMarkdown)
+
+    class MockDialogo:
+        def __init__(self, *args, **kwargs):
+            pass
+        def exec(self):
+            return QDialog.DialogCode.Accepted
+        def obter_tag_markdown(self):
+            return "![Bloco Principal](imagens/setor_bloco.webp)"
+
+    monkeypatch.setattr("editor.views.widget_editor_dados.DialogoInserirImagemMarkdown", MockDialogo)
+
+    # Simula DragEnter
+    mime = QMimeData()
+    mime.setUrls([QUrl.fromLocalFile(str(caminho_img))])
+    event_enter = QDragEnterEvent(
+        QPoint(10, 10),
+        Qt.DropAction.CopyAction,
+        mime,
+        Qt.MouseButton.LeftButton,
+        Qt.KeyboardModifier.NoModifier,
+    )
+    md_editor.editor.dragEnterEvent(event_enter)
+    assert event_enter.isAccepted()
+
+    # Simula Drop de imagem interna (abre assistente exigindo legenda)
+    event_drop = QDropEvent(
+        QPointF(10.0, 10.0),
+        Qt.DropAction.CopyAction,
+        mime,
+        Qt.MouseButton.LeftButton,
+        Qt.KeyboardModifier.NoModifier,
+    )
+    md_editor.editor.dropEvent(event_drop)
+    assert event_drop.isAccepted()
+    assert "![Bloco Principal](imagens/setor_bloco.webp)" in md_editor.editor.toPlainText()
+
+
+def test_markdown_editor_drag_and_drop_imagem_externa(qapp, tmp_path, monkeypatch):
+    from editor.views.tree_view_adapter import ProtobufNode
+    from editor.views.widget_editor_dados import WidgetEditorDados, WidgetEditorMarkdown
+    from aresta_api.proto.generated.croqui_pb2 import Setor, Croqui
+    from editor.models.croqui_model import CroquiModel
+    from editor.controllers.croqui_controller import CroquiController
+    from PyQt6.QtGui import QUndoStack, QDropEvent, QDragEnterEvent
+    from PyQt6.QtCore import Qt, QMimeData, QUrl, QPoint, QPointF
+    from PyQt6.QtWidgets import QDialog
+
+    pasta_ext = tmp_path / "externo"
+    pasta_ext.mkdir()
+    caminho_img_ext = pasta_ext / "minha_foto.png"
+    caminho_img_ext.write_bytes(b"dummy")
+
+    croqui = Croqui()
+    pilha = QUndoStack()
+    model = CroquiModel(croqui)
+    model._caminho_db_atual = tmp_path
+    controller = CroquiController(model, pilha)
+
+    widget = WidgetEditorDados(model, controller)
+    setor = Setor()
+    setor.descricao = ""
+    node = ProtobufNode(name="Setor", message=setor, descriptor=setor.DESCRIPTOR)
+    widget.form_padrao.load_node(node)
+
+    md_editor = widget.form_padrao.findChild(WidgetEditorMarkdown)
+
+    class MockDialogo:
+        def __init__(self, *args, **kwargs):
+            pass
+        def exec(self):
+            return QDialog.DialogCode.Accepted
+        def obter_tag_markdown(self):
+            return "![Minha Foto](imagens/minha_foto.webp)"
+
+    monkeypatch.setattr("editor.views.widget_editor_dados.DialogoInserirImagemMarkdown", MockDialogo)
+
+    mime = QMimeData()
+    mime.setUrls([QUrl.fromLocalFile(str(caminho_img_ext))])
+    event_drop = QDropEvent(
+        QPointF(10.0, 10.0),
+        Qt.DropAction.CopyAction,
+        mime,
+        Qt.MouseButton.LeftButton,
+        Qt.KeyboardModifier.NoModifier,
+    )
+    md_editor.editor.dropEvent(event_drop)
+    assert event_drop.isAccepted()
+    assert md_editor.editor.toPlainText() == "![Minha Foto](imagens/minha_foto.webp)"
+
+
+def test_markdown_editor_colar_imagem_clipboard(qapp, tmp_path, monkeypatch):
+    from editor.views.tree_view_adapter import ProtobufNode
+    from editor.views.widget_editor_dados import WidgetEditorDados, WidgetEditorMarkdown
+    from aresta_api.proto.generated.croqui_pb2 import Setor, Croqui
+    from editor.models.croqui_model import CroquiModel
+    from editor.controllers.croqui_controller import CroquiController
+    from PyQt6.QtGui import QUndoStack, QImage
+    from PyQt6.QtCore import QMimeData
+    from PyQt6.QtWidgets import QDialog
+
+    croqui = Croqui()
+    pilha = QUndoStack()
+    model = CroquiModel(croqui)
+    model._caminho_db_atual = tmp_path
+    controller = CroquiController(model, pilha)
+
+    widget = WidgetEditorDados(model, controller)
+    setor = Setor()
+    setor.descricao = ""
+    node = ProtobufNode(name="Setor", message=setor, descriptor=setor.DESCRIPTOR)
+    widget.form_padrao.load_node(node)
+
+    md_editor = widget.form_padrao.findChild(WidgetEditorMarkdown)
+
+    class MockDialogo:
+        def __init__(self, *args, **kwargs):
+            pass
+        def exec(self):
+            return QDialog.DialogCode.Accepted
+        def obter_tag_markdown(self):
+            return "![Captura de Tela](imagens/imagem_clipboard.webp)"
+
+    monkeypatch.setattr("editor.views.widget_editor_dados.DialogoInserirImagemMarkdown", MockDialogo)
+
+    # Simula insertFromMimeData com QImage
+    mime = QMimeData()
+    img = QImage(10, 10, QImage.Format.Format_RGB32)
+    mime.setImageData(img)
+
+    md_editor.editor.insertFromMimeData(mime)
+    assert md_editor.editor.toPlainText() == "![Captura de Tela](imagens/imagem_clipboard.webp)"
+
+
+def test_markdown_editor_autocompletar(qapp, tmp_path):
+    from editor.views.tree_view_adapter import ProtobufNode
+    from editor.views.widget_editor_dados import WidgetEditorDados, WidgetEditorMarkdown
+    from aresta_api.proto.generated.croqui_pb2 import Setor, Croqui
+    from editor.models.croqui_model import CroquiModel
+    from editor.controllers.croqui_controller import CroquiController
+    from PyQt6.QtGui import QUndoStack, QKeyEvent
+    from PyQt6.QtCore import Qt
+
+    pasta_imagens = tmp_path / "imagens"
+    pasta_imagens.mkdir(parents=True, exist_ok=True)
+    (pasta_imagens / "via_lactea.webp").write_bytes(b"dummy")
+    (pasta_imagens / "bloco_central.webp").write_bytes(b"dummy")
+
+    croqui = Croqui()
+    pilha = QUndoStack()
+    model = CroquiModel(croqui)
+    model._caminho_db_atual = tmp_path
+    controller = CroquiController(model, pilha)
+
+    widget = WidgetEditorDados(model, controller)
+    setor = Setor()
+    setor.descricao = ""
+    node = ProtobufNode(name="Setor", message=setor, descriptor=setor.DESCRIPTOR)
+    widget.form_padrao.load_node(node)
+
+    md_editor = widget.form_padrao.findChild(WidgetEditorMarkdown)
+    assert md_editor.editor.completer() is not None
+
+    # 1. Verifica itens do completer
+    model_completer = md_editor.editor.completer().model()
+    itens = [model_completer.index(r, 0).data() for r in range(model_completer.rowCount())]
+    assert "via_lactea.webp" in itens
+    assert "bloco_central.webp" in itens
+
+    # 2. Testa extração de token sob o cursor
+    md_editor.editor.setPlainText("Veja a foto: ![Setor](imagens/via")
+    cursor = md_editor.editor.textCursor()
+    cursor.movePosition(cursor.MoveOperation.End)
+    md_editor.editor.setTextCursor(cursor)
+
+    token, busca = md_editor.editor._obter_token_sob_cursor()
+    assert token == "imagens/via"
+    assert busca == "via"
+
+    # 3. Testa inserção da completion substituindo o token
+    md_editor.editor._insert_completion("via_lactea.webp")
+    assert md_editor.editor.toPlainText() == "Veja a foto: ![Setor](imagens/via_lactea.webp"
+
+    # 4. Testa acionamento do atalho Ctrl+Space
+    event_ctrl_space = QKeyEvent(
+        QKeyEvent.Type.KeyPress,
+        Qt.Key.Key_Space,
+        Qt.KeyboardModifier.ControlModifier,
+    )
+    md_editor.editor.keyPressEvent(event_ctrl_space)
+    assert md_editor.editor.completer().popup().isVisible() is True
+    md_editor.editor.completer().popup().hide()
+
 
 
 

@@ -14,8 +14,9 @@ Isso garante a coesão, simplicidade e testabilidade de todo o código gerado.
 Usamos o Google Antigravity para workflows agênticos.
 👉 [Download do Antigravity](https://antigravity.google/download)
 
-### Runtime Python
-Use Python 3.13, pois o framework PaddlePaddle ainda não suporta Python 3.14.
+### Runtime Python e uv
+Usamos o gerenciador de pacotes **uv** e o Python 3.13 (pois o framework PaddlePaddle ainda não suporta Python 3.14).
+👉 [Instruções Oficiais de Instalação do uv](https://docs.astral.sh/uv/getting-started/installation/)
 
 ### 1. Instale o PaddlePaddle
 Caso você vá extrair informações de mapas e imagens com OCR, é necessário instalar o PaddlePaddle:
@@ -25,12 +26,18 @@ Caso você vá extrair informações de mapas e imagens com OCR, é necessário 
 Caso você vá gerar visualizações em grafo (ex: uso do protobuf para modelar os relacionamentos da base), o sistema requer o binário do Graphviz instalado nativamente no seu sistema operacional:
 👉 [Download do Graphviz](https://graphviz.org/download/)
 
-### 3. Instale as Dependências Python
-Após instalar os requisitos de sistema, instale as dependências do projeto na raiz:
+### 3. Sincronize o Ambiente e Dependências com o uv
+Após clonar o repositório, basta sincronizar o ambiente virtual executando na raiz:
 
 ```bash
-python -m pip install -r requirements.txt
-python -m pip install -r requirements-deploy.txt
+uv sync --all-groups
+```
+
+O `uv` provisionará automaticamente o interpretador Python 3.13 fixado e instalará todas as dependências do projeto e dos grupos de desenvolvimento (`dev`, `editor`, `deploy`, `validator`) de acordo com o `uv.lock`.
+
+Para executar a suíte de testes:
+```bash
+uv run pytest
 ```
 
 ---
@@ -50,29 +57,47 @@ O motor do Aresta possui um pipeline para converter antigos guias de escalada (P
 
 O editor de croquis é uma interface gráfica local para auxiliar a validação humana dos dados extraídos pela IA antes de irem para o banco. 
 
-Para abrir uma versão experimental, antes de abri-lo pela primeira vez, certifique-se de instalar suas dependências específicas:
+Para abrir o editor com o ambiente gerenciado pelo `uv`, execute simplesmente:
 ```bash
-python -m pip install -r editor/requirements.txt
-```
-
-Para rodar o editor, rode simplesmente:
-```bash
-python editor/main.py
+uv run editor/main.py
 ```
 
 
 #### Modo local
 O editor também suporta um modo que faz atualizações dos croquis diretamente no repositório ao invés de criar pull requests com as mudanças.
 
-Para abrir o editor nesse modo, execute o main.py passando o path para o croqui que você quer editar:
+Para abrir o editor nesse modo, execute o `editor/main.py` passando o caminho para o croqui que você quer editar:
 ```bash
-python editor/main.py database/<pais>_<estado>_<cidade>_<pico_de_escalada>
+uv run editor/main.py database/<pais>_<estado>_<cidade>_<pico_de_escalada>
 ```
 
 **Exemplo:**
 ```bash
-python editor/main.py database/br_mg_ouro_preto_ouroboulder
+uv run editor/main.py database/br_mg_ouro_preto_ouroboulder
 ```
+
+---
+
+## 🛠️ Telemetria, Diário Transacional e Recuperação de Sessão
+
+O Editor Aresta possui uma arquitetura de resiliência e diagnóstico em produção composta por três pilares:
+
+### 1. Diário Transacional de Comandos (Undo/Redo Journaling)
+- **Persistência Append-Only:** Toda ação executada via `QUndoCommand` é imediatamente serializada e persistida no disco em `diario_pendente.bin`.
+- **Separação Transacional:** Ao compilar e salvar com sucesso, os comandos pendentes são consolidados em `diario_salvo.bin`, e o pendente é truncado a zero bytes.
+- **Recuperação de Desastres:** Se o editor for encerrado de forma inesperada ou sofrer um crash, a próxima inicialização detecta o `diario_pendente.bin` e apresenta o diálogo de recuperação, permitindo reconstruir fielmente o modelo e a pilha de desfazer/refazer.
+
+### 2. Telemetria Silenciosa e Crash Reporting (Sentry)
+- **Envio Automático:** Exceções não tratadas e falhas críticas são capturadas silenciosamente via `sentry_sdk` sem bloquear ou interromper a experiência do usuário.
+- **Sanitização Universal:** O hook `before_send` higieniza todos os relatórios, mascarando caminhos de arquivos locais com variáveis genéricas (`%appdata%`, `%userprofile%`, etc.).
+- **Anexo do Diário Anonimizado:** O histórico recente de comandos é enviado ao Sentry para replay determinístico. Todas as imagens e binários anexados são previamente substituídos por versões WebP sólidas de dimensões idênticas (WebP dummy), garantindo a proteção total das fotos em rascunho.
+
+### 3. Sistema de Logs Estruturado
+- Registros rotativos em `%appdata%/ArestaEditor/logs/editor.log` (3 backups de até 5MB).
+- Todos os logs passam por `SanitizingFormatter` para evitar vazamento de diretórios locais de usuários.
+
+---
+
 ## 📜 Certificado de Origem do Contribuidor (DCO)
 
 Para garantir que todo código enviado tem procedência limpa, usamos o **Developer Certificate of Origin (DCO)**. Cada commit deve ser assinado com a flag `-s` ou `--signoff`, que adiciona a linha:
