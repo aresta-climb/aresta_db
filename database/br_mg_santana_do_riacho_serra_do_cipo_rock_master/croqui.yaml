@@ -1,0 +1,21 @@
+# SPDX-License-Identifier: ODbL-1.0
+# Copyright (C) 2026 Aresta Contributors
+id: br_mg_santana_do_riacho_serra_do_cipo_rock_master
+nome: Serra do Cipó - Setor Rock Master
+creditos:
+- Associação de Escaladores da Serra do Cipó (AESC)
+descricao: O Setor Rock Master, localizado na Serra do Cipó (Santana do Riacho - MG),
+  é um clássico setor de escalada esportiva com vias de 5b a 10b.
+caminho_thumbnail: imagens/setor_rock_master_p0_i0.webp
+picos:
+- nome: Serra do Cipó
+  setores_ou_grupos:
+  - setor:
+      caminho: setor_rock_master.md
+ultima_migracao: 4
+botoes:
+- texto: Acesso
+  destino:
+    secao_textual:
+      caminho: acesso.md
+publicar_croqui: true
