@@ -2,13 +2,14 @@
 # Copyright (C) 2026 Aresta Climb Contributors
 
 import pytest
-from unittest.mock import patch, MagicMock
+from unittest.mock import patch
 from pathlib import Path
 import sys
 
 sys.path.append(str(Path(__file__).resolve().parent.parent))
 
 from serving.pr_db_validator import validar_pull_request, validar_cabecalhos_e_licencas
+
 
 @patch("serving.pr_db_validator.validar_cabecalhos_e_licencas")
 @patch("serving.pr_db_validator.empacotar_databases_para_croqui")
@@ -34,6 +35,7 @@ def test_validar_pull_request_sucesso(mock_empacotar, mock_cabecalhos, tmp_path:
     assert args[0][0].name == "pico_1"
     assert args[0][1].name == "pico_2"
 
+
 @patch("serving.pr_db_validator.validar_cabecalhos_e_licencas")
 @patch("serving.pr_db_validator.empacotar_databases_para_croqui")
 def test_validar_pull_request_com_falha_compilacao(mock_empacotar, mock_cabecalhos, tmp_path: Path):
@@ -53,6 +55,7 @@ def test_validar_pull_request_com_falha_compilacao(mock_empacotar, mock_cabecalh
     assert "Erro simulado no pico_ruim" in erros[0]
     assert mock_empacotar.call_count == 1
 
+
 @patch("serving.pr_db_validator.validar_cabecalhos_e_licencas")
 @patch("serving.pr_db_validator.empacotar_databases_para_croqui")
 def test_validar_pull_request_com_falha_cabecalhos(mock_empacotar, mock_cabecalhos, tmp_path: Path):
@@ -70,23 +73,24 @@ def test_validar_pull_request_com_falha_cabecalhos(mock_empacotar, mock_cabecalh
     assert len(erros) == 1
     assert "Erro no cabeçalho SPDX de arquivo X" in erros[0]
 
-@patch("subprocess.run")
-def test_validar_cabecalhos_e_licencas_sucesso(mock_run):
+
+@patch("serving.pr_db_validator.validar_todos_cabecalhos_e_licencas")
+def test_validar_cabecalhos_e_licencas_sucesso(mock_validador):
     """
     Testa execução com sucesso de validar_cabecalhos_e_licencas.
     """
-    mock_run.return_value = MagicMock(returncode=0, stdout="4 passed", stderr="")
+    mock_validador.return_value = []
     erros = validar_cabecalhos_e_licencas()
     assert len(erros) == 0
-    assert mock_run.call_count == 1
+    assert mock_validador.call_count == 1
 
-@patch("subprocess.run")
-def test_validar_cabecalhos_e_licencas_falha(mock_run):
+
+@patch("serving.pr_db_validator.validar_todos_cabecalhos_e_licencas")
+def test_validar_cabecalhos_e_licencas_falha(mock_validador):
     """
     Testa execução com falha de validar_cabecalhos_e_licencas.
     """
-    mock_run.return_value = MagicMock(returncode=1, stdout="1 failed", stderr="error detail")
+    mock_validador.return_value = ["Arquivo X sem cabeçalho SPDX"]
     erros = validar_cabecalhos_e_licencas()
     assert len(erros) == 1
-    assert "Falha na validação de cabeçalhos" in erros[0]
-
+    assert "Arquivo X sem cabeçalho SPDX" in erros[0]
