@@ -1,18 +1,21 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
-import PyInstaller.__main__
+from typing import Optional, List
+import PyInstaller.__main__  # type: ignore[import-untyped]
 import os
 import sys
 import argparse
 import pytest
 from pathlib import Path
 
+
 # Caminhos
 DIRETORIO_EDITOR = Path(__file__).parent.resolve()
 ARQUIVO_MAIN = DIRETORIO_EDITOR / "main.py"
 
-def executar_build(force_icon_generation=False):
+
+def executar_build(force_icon_generation: bool = False) -> None:
     """
     Executa o empacotamento do editor utilizando PyInstaller.
     Gera um executável standalone na pasta dist/.
@@ -21,7 +24,7 @@ def executar_build(force_icon_generation=False):
         raise FileNotFoundError(f"Arquivo principal não encontrado: {ARQUIVO_MAIN}")
 
     # Argumentos do PyInstaller
-    argumentos = [
+    argumentos: List[str] = [
         str(ARQUIVO_MAIN),
         "--onefile",
         "--windowed",
@@ -46,7 +49,7 @@ def executar_build(force_icon_generation=False):
             try:
                 from editor.views.estilo import Icones
             except ImportError:
-                from views.estilo import Icones
+                from views.estilo import Icones  # type: ignore[no-redef,import-not-found]
                 
             from PySide6.QtWidgets import QApplication
             from PySide6.QtCore import QBuffer
@@ -61,14 +64,14 @@ def executar_build(force_icon_generation=False):
             # Gera múltiplas resoluções para um .ico profissional (Windows)
             tamanhos = [16, 32, 48, 64, 128, 256]
             imagens_pil = []
-            img_original = Image.open(str(caminho_png))
-            if img_original.mode != 'RGBA':
-                img_original = img_original.convert('RGBA')
+            img_aberta = Image.open(str(caminho_png))
+            img_rgba = img_aberta.convert('RGBA') if img_aberta.mode != 'RGBA' else img_aberta
                 
             resample_filter = getattr(Image, 'Resampling', Image).LANCZOS
             for tam in tamanhos:
-                img_resized = img_original.resize((tam, tam), resample_filter)
+                img_resized = img_rgba.resize((tam, tam), resample_filter)
                 imagens_pil.append(img_resized)
+
                 
             # Salva o arquivo .ico com todas as resoluções embutidas
             imagens_pil[-1].save(
@@ -90,7 +93,8 @@ def executar_build(force_icon_generation=False):
     PyInstaller.__main__.run(argumentos)
     print("Build concluído com sucesso!")
 
-def executar_testes():
+
+def executar_testes() -> None:
     """
     Executa todos os testes do editor utilizando pytest.
     """
@@ -106,7 +110,8 @@ def executar_testes():
     
     sys.exit(resultado)
 
-def main(argv=None):
+
+def main(argv: Optional[List[str]] = None) -> None:
     parser = argparse.ArgumentParser(description="Script de build e testes do Editor Aresta")
     parser.add_argument(
         "modo", 
@@ -127,5 +132,7 @@ def main(argv=None):
     elif args.modo == "dist":
         executar_build(force_icon_generation=args.force_icon_generation)
 
+
 if __name__ == "__main__":
     main()
+

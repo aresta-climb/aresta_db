@@ -1,9 +1,12 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
+from typing import Any, Optional
 from editor.models.readonly_proxy import _copia_segura
+
 from PySide6.QtCore import QObject, Signal
 from google.protobuf.message import Message
+
 
 class CroquiModel(QObject):
     """
@@ -24,7 +27,7 @@ class CroquiModel(QObject):
 
 
     @staticmethod
-    def __desembrulhar_proxy(obj):
+    def __desembrulhar_proxy(obj: Any) -> Any:
         from editor.models.readonly_proxy import ReadOnlyProxy, ReadOnlyListProxy, ReadOnlyExtensionProxy
         if isinstance(obj, ReadOnlyProxy):
             return object.__getattribute__(obj, "_obj")
@@ -34,20 +37,20 @@ class CroquiModel(QObject):
             return object.__getattribute__(obj, "_lst")
         return obj
 
-    def __init__(self, croqui, parent=None):
+    def __init__(self, croqui: Any, parent: Any = None) -> None:
         super().__init__(parent)
-        self.__croqui = croqui
+        self.__croqui: Any = croqui
         from editor.models.readonly_proxy import ReadOnlyProxy
-        self.__croqui_proxy = ReadOnlyProxy(self.__croqui)
+        self.__croqui_proxy: Any = ReadOnlyProxy(self.__croqui)
         self._imagens_em_memoria: dict[str, bytes] = {}
-        self._caminho_db_atual = None
+        self._caminho_db_atual: Any = None
 
-    def definir_caminho_db(self, caminho_db):
+    def definir_caminho_db(self, caminho_db: Any) -> None:
         """Define o caminho base do banco de dados/croqui no disco para busca de arquivos."""
         from pathlib import Path
         self._caminho_db_atual = Path(caminho_db) if caminho_db else None
 
-    def obter_bytes_imagem(self, caminho_relativo: str):
+    def obter_bytes_imagem(self, caminho_relativo: str) -> Any:
         """
         Obtém os bytes da imagem.
         Verifica primeiro o buffer em memória; se não encontrar, tenta ler do disco no caminho_db_atual.
@@ -87,12 +90,12 @@ class CroquiModel(QObject):
         """Limpa o buffer de imagens em memória."""
         self._imagens_em_memoria.clear()
 
-    def obter_croqui_readonly(self):
+    def obter_croqui_readonly(self) -> Any:
         """Retorna uma view somente leitura do Croqui encapsulado."""
         return self.__croqui_proxy
 
 
-    def _set_primitivo(self, msg, campo_nome, valor_novo):
+    def _set_primitivo(self, msg: Any, campo_nome: str, valor_novo: Any) -> None:
         msg = self.__desembrulhar_proxy(msg)
         if valor_novo is None or valor_novo == "":
             try:
@@ -104,26 +107,26 @@ class CroquiModel(QObject):
             setattr(msg, campo_nome, _copia_segura(valor_novo))
         self.dado_alterado.emit(msg, campo_nome)
 
-    def _adicionar_repeated(self, msg, campo_nome, index, valor):
+    def _adicionar_repeated(self, msg: Any, campo_nome: str, index: int, valor: Any) -> None:
         msg = self.__desembrulhar_proxy(msg)
         repeated_container = getattr(msg, campo_nome)
         repeated_container.insert(index, _copia_segura(valor))
         self.repeated_adicionado.emit(msg, campo_nome, index)
 
-    def _remover_repeated(self, msg, campo_nome, index):
+    def _remover_repeated(self, msg: Any, campo_nome: str, index: int) -> None:
         msg = self.__desembrulhar_proxy(msg)
         repeated_container = getattr(msg, campo_nome)
         repeated_container.pop(index)
         self.repeated_removido.emit(msg, campo_nome, index)
 
-    def _mover_repeated(self, msg, campo_nome, index_from, index_to):
+    def _mover_repeated(self, msg: Any, campo_nome: str, index_from: int, index_to: int) -> None:
         msg = self.__desembrulhar_proxy(msg)
         repeated_container = getattr(msg, campo_nome)
         item = repeated_container.pop(index_from)
         repeated_container.insert(index_to, item)
         self.repeated_movido.emit(msg, campo_nome, index_from, index_to)
 
-    def _alterar_repeated_item(self, msg, campo_nome, index, valor_novo):
+    def _alterar_repeated_item(self, msg: Any, campo_nome: str, index: int, valor_novo: Any) -> None:
         msg = self.__desembrulhar_proxy(msg)
         repeated_container = getattr(msg, campo_nome)
         
@@ -135,7 +138,7 @@ class CroquiModel(QObject):
         
         self.repeated_item_alterado.emit(msg, campo_nome, index)
 
-    def _alterar_oneof(self, msg, oneof_nome, nome_antigo, campo_novo, valor_novo):
+    def _alterar_oneof(self, msg: Any, oneof_nome: str, nome_antigo: Any, campo_novo: Any, valor_novo: Any) -> None:
         msg = self.__desembrulhar_proxy(msg)
         # Limpa o antigo se existir
         if nome_antigo is not None:
@@ -154,10 +157,11 @@ class CroquiModel(QObject):
 
 
 
-    def _alterar_metadados_caminho_novo(self, msg, ext_descriptor, valor_novo):
+    def _alterar_metadados_caminho_novo(self, msg: Any, ext_descriptor: Any, valor_novo: Any) -> None:
         msg = self.__desembrulhar_proxy(msg)
         msg.Extensions[ext_descriptor].caminho_novo = valor_novo
         self.dado_alterado.emit(msg, ext_descriptor.name)
+
 
     def carregar_arquivos_externos(self, caminho_db):
         """Carrega e mescla no protobuf os arquivos externos de Setor/Grupo e Markdowns."""
@@ -509,6 +513,6 @@ class CroquiModel(QObject):
             
         return resultado
 
-    def notificar_foco_requisitado(self, path):
+    def notificar_foco_requisitado(self, path: Any) -> None:
         if path:
-            self.foco_requisitado.emit(path)
+            self.foco_requisitado.emit(path)

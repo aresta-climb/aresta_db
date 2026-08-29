@@ -1,14 +1,17 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
+from typing import Any
+
+
 class CompilacaoController:
     """Controlador que faz a mediação entre a saída da compilação, o modelo de log e a view."""
     
-    def __init__(self, model, view):
-        self.model = model
-        self.view = view
+    def __init__(self, model: Any, view: Any) -> None:
+        self.model: Any = model
+        self.view: Any = view
 
-    def processar_resultado(self, mensagens: list[str]):
+    def processar_resultado(self, mensagens: list[str]) -> None:
         """Recebe as mensagens, atualiza o modelo e decide se mostra ou oculta o painel."""
         self.model.atualizar(mensagens)
         
@@ -18,6 +21,7 @@ class CompilacaoController:
             self.view.exibir_painel()
         else:
             self.view.ocultar_painel()
+
 
     def _formatar_para_html(self, mensagens: list[str]) -> str:
         """Formata as strings em HTML aplicando cores de acordo com erros e avisos."""

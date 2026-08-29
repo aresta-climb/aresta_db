@@ -1,13 +1,15 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
+from typing import Optional, Any, List
 from pathlib import Path
 from editor.models.croqui_model import CroquiModel
 from editor.commands.comandos_protobuf import (
     CmdAdicionarRepeated,
     CmdRemoverRepeated,
-    CmdAlterarRepeatedItem
+    CmdAlterarRepeatedItem,
 )
+
 
 class MapasController:
     """
@@ -15,25 +17,25 @@ class MapasController:
     Despacha comandos para o Model através de QUndoCommand / GerenciadorHistorico.
     """
     
-    def __init__(self, model: CroquiModel, undo_stack):
-        self.model = model
-        self.undo_stack = undo_stack
-        self.caminho_db = None
-        self.contexto_atual_path = None
+    def __init__(self, model: CroquiModel, undo_stack: Any) -> None:
+        self.model: CroquiModel = model
+        self.undo_stack: Any = undo_stack
+        self.caminho_db: Optional[Path] = None
+        self.contexto_atual_path: Optional[str] = None
         
-    def set_contexto(self, path):
+    def set_contexto(self, path: Optional[str]) -> None:
         self.contexto_atual_path = path
         
-    def set_caminho_db(self, caminho):
-        self.caminho_db = Path(caminho)
+    def set_caminho_db(self, caminho: Any) -> None:
+        self.caminho_db = Path(caminho) if caminho else None
 
-    def obter_pilha(self):
+    def obter_pilha(self) -> Any:
         """Retorna a QUndoStack subjacente se estiver usando GerenciadorHistorico ou QUndoStack."""
         if hasattr(self.undo_stack, "obter_pilha"):
             return self.undo_stack.obter_pilha()
         return self.undo_stack
 
-    def _executar_comando(self, cmd):
+    def _executar_comando(self, cmd: Any) -> None:
         """Despacha comando pelo GerenciadorHistorico (persistindo no diário) ou diretamente na pilha."""
         if hasattr(self.undo_stack, "executar"):
             self.undo_stack.executar(cmd)
@@ -42,23 +44,31 @@ class MapasController:
         else:
             cmd.redo()
 
-    def iniciar_grupo_undo(self, texto: str):
+    def iniciar_grupo_undo(self, texto: str) -> None:
         """Inicia um macro de undo/redo para agrupar múltiplos comandos em um só."""
         pilha = self.obter_pilha()
         if pilha is not None:
             pilha.beginMacro(texto)
 
-    def finalizar_grupo_undo(self):
+    def finalizar_grupo_undo(self) -> None:
         """Finaliza o macro atual de undo/redo."""
         pilha = self.obter_pilha()
         if pilha is not None:
             pilha.endMacro()
 
-    def mover_ponto_de_interesse(self, historico, chave_mapa, idx_poi, estado_inicial, estado_final, widget_editor):
-        from editor.commands.comandos_mapas import CmdMoverPonto
+    def mover_ponto_de_interesse(
+        self,
+        historico: Any,
+        chave_mapa: Any,
+        idx_poi: int,
+        estado_inicial: Any,
+        estado_final: Any,
+        widget_editor: Any,
+    ) -> None:
+        from editor.commands.comandos_mapas import CmdMoverPonto  # type: ignore[attr-defined]
         historico.executar(CmdMoverPonto(chave_mapa, idx_poi, estado_inicial, estado_final, widget_editor))
 
-    def converter_boxes_para_circulos(self, msg_mapa_proxy, indices):
+    def converter_boxes_para_circulos(self, msg_mapa_proxy: Any, indices: List[int]) -> None:
         """Converte múltiplos POIs do tipo box para circular de uma só vez."""
         from aresta_api.proto.generated import croqui_pb2
         from editor.models.readonly_proxy import ReadOnlyProxy
@@ -96,7 +106,7 @@ class MapasController:
             )
             self._executar_comando(cmd)
 
-    def converter_circulos_para_boxes(self, msg_mapa_proxy, indices):
+    def converter_circulos_para_boxes(self, msg_mapa_proxy: Any, indices: List[int]) -> None:
         """Converte múltiplos POIs do tipo circular para box de uma só vez."""
         from aresta_api.proto.generated import croqui_pb2
         from editor.models.readonly_proxy import ReadOnlyProxy
@@ -135,9 +145,8 @@ class MapasController:
             )
             self._executar_comando(cmd)
 
-    def adicionar_poi(self, msg_mapa_proxy, poi_novo):
+    def adicionar_poi(self, msg_mapa_proxy: Any, poi_novo: Any) -> None:
         """Adiciona um POI ao mapa."""
-        from aresta_api.proto.generated.croqui_pb2 import Mapa
         index = len(msg_mapa_proxy.pontos_de_interesse)
         cmd = CmdAdicionarRepeated(
             model=self.model,
@@ -149,7 +158,7 @@ class MapasController:
         )
         self._executar_comando(cmd)
 
-    def deletar_poi(self, msg_mapa_proxy, index):
+    def deletar_poi(self, msg_mapa_proxy: Any, index: int) -> None:
         """Remove um POI do mapa."""
         poi_removido = msg_mapa_proxy.pontos_de_interesse[index]
         cmd = CmdRemoverRepeated(
@@ -162,7 +171,7 @@ class MapasController:
         )
         self._executar_comando(cmd)
 
-    def mover_poi(self, msg_mapa_proxy, index, poi_antigo, poi_novo):
+    def mover_poi(self, msg_mapa_proxy: Any, index: int, poi_antigo: Any, poi_novo: Any) -> None:
         """Altera um POI (posição, nome, etc)."""
         cmd = CmdAlterarRepeatedItem(
             model=self.model,
@@ -175,7 +184,7 @@ class MapasController:
         )
         self._executar_comando(cmd)
 
-    def adicionar_referencia(self, msg_mapa_proxy, ref_nova):
+    def adicionar_referencia(self, msg_mapa_proxy: Any, ref_nova: Any) -> None:
         """Adiciona uma referência ao mapa."""
         index = len(msg_mapa_proxy.referencias)
         cmd = CmdAdicionarRepeated(
@@ -188,7 +197,7 @@ class MapasController:
         )
         self._executar_comando(cmd)
 
-    def deletar_referencia(self, msg_mapa_proxy, index):
+    def deletar_referencia(self, msg_mapa_proxy: Any, index: int) -> None:
         """Remove uma referência do mapa."""
         ref_removida = msg_mapa_proxy.referencias[index]
         cmd = CmdRemoverRepeated(
@@ -201,7 +210,7 @@ class MapasController:
         )
         self._executar_comando(cmd)
 
-    def alterar_referencia(self, msg_mapa_proxy, index, ref_antiga, ref_nova):
+    def alterar_referencia(self, msg_mapa_proxy: Any, index: int, ref_antiga: Any, ref_nova: Any) -> None:
         """Altera uma referência."""
         cmd = CmdAlterarRepeatedItem(
             model=self.model,
@@ -214,13 +223,20 @@ class MapasController:
         )
         self._executar_comando(cmd)
 
-    def obter_caminho_imagem_mapa(self, msg_mapa_proxy):
+    def obter_caminho_imagem_mapa(self, msg_mapa_proxy: Any) -> Optional[Path]:
         """Retorna o caminho absoluto para a imagem do mapa."""
         if not self.caminho_db or not msg_mapa_proxy.caminho_imagem_mapa:
             return None
-        return self.caminho_db / msg_mapa_proxy.caminho_imagem_mapa
+        return Path(self.caminho_db) / str(msg_mapa_proxy.caminho_imagem_mapa)
 
-    def substituir_imagem(self, caminho_relativo: str, bytes_novo: bytes, bytes_antigo: bytes | None = None, context_path: str | None = None):
+
+    def substituir_imagem(
+        self,
+        caminho_relativo: str,
+        bytes_novo: bytes,
+        bytes_antigo: Optional[bytes] = None,
+        context_path: Optional[str] = None,
+    ) -> None:
         """Despacha comando de substituição de imagem em memória RAM via GerenciadorHistorico / QUndoStack."""
         from editor.commands.comandos_protobuf import CmdSubstituirImagemMemoria
         if bytes_antigo is None:
@@ -228,3 +244,4 @@ class MapasController:
         ctx = context_path if context_path is not None else self.contexto_atual_path
         cmd = CmdSubstituirImagemMemoria(self.model, caminho_relativo, bytes_antigo, bytes_novo, ctx)
         self._executar_comando(cmd)
+

@@ -104,6 +104,48 @@ class TestTipagemEstaticaArestaDb(unittest.TestCase):
             + "\n".join(erros_totais),
         )
 
+    ARQUIVOS_ONDA_3 = [
+        "editor/commands/comandos_protobuf.py",
+        "editor/commands/comandos_mapas.py",
+        "editor/controllers/croqui_controller.py",
+        "editor/controllers/compilacao_controller.py",
+        "editor/controllers/mapas_controller.py",
+        "editor/controllers/publish_controller.py",
+        "editor/build.py",
+    ]
+
+    def test_conformidade_mypy_onda_3(self) -> None:
+        """Valida que todos os módulos de comandos e controladores da Onda 3 passam no MyPy estrito."""
+        arquivos_verificar = [
+            str(self.raiz_projeto / caminho)
+            for caminho in self.ARQUIVOS_ONDA_3
+        ]
+
+        codigo, stdout, stderr = executar_verificacao_mypy(
+            arquivos_verificar,
+            config_path=self.pyproject_path,
+        )
+        self.assertEqual(
+            codigo,
+            0,
+            f"Erros detectados pelo MyPy estrito nos módulos da Onda 3:\n{stdout}\n{stderr}",
+        )
+
+    def test_anotacoes_ast_onda_3(self) -> None:
+        """Garante que todas as funções, métodos e retornos nos módulos da Onda 3 possuem anotações de tipo completas."""
+        erros_totais: list[str] = []
+        for caminho_relativo in self.ARQUIVOS_ONDA_3:
+            caminho_completo = str(self.raiz_projeto / caminho_relativo)
+            erros_arquivo = verificar_arquivo_ast(caminho_completo)
+            erros_totais.extend(erros_arquivo)
+
+        self.assertEqual(
+            erros_totais,
+            [],
+            f"Funções/métodos sem anotação completa encontrados na Onda 3:\n"
+            + "\n".join(erros_totais),
+        )
+
     def test_stubs_protobuf_gerados_existem(self) -> None:
         """Garante que os stubs .pyi foram gerados para todos os esquemas Protobuf da aresta_api."""
         generated_dir = self.raiz_projeto / "aresta_api" / "proto" / "generated"
@@ -126,4 +168,5 @@ class TestTipagemEstaticaArestaDb(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
 
