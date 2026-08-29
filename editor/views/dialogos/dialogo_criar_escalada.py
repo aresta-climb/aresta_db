@@ -1,6 +1,7 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
+from typing import Optional, List, Tuple
 from PySide6.QtWidgets import (
     QDialog,
     QVBoxLayout,
@@ -8,7 +9,8 @@ from PySide6.QtWidgets import (
     QLabel,
     QLineEdit,
     QComboBox,
-    QPushButton
+    QPushButton,
+    QWidget,
 )
 from PySide6.QtCore import Qt
 
@@ -16,7 +18,7 @@ from PySide6.QtCore import Qt
 class DialogoCriarEscalada(QDialog):
     """Diálogo modal para criação de uma nova escalada com escolha de tipo e nome."""
 
-    OPCOES_TIPO = [
+    OPCOES_TIPO: List[Tuple[str, str]] = [
         ("Via Esportiva", "via_esportiva"),
         ("Via Móvel", "via_movel"),
         ("Boulder", "boulder"),
@@ -24,12 +26,12 @@ class DialogoCriarEscalada(QDialog):
         ("Highline", "highline"),
     ]
 
-    def __init__(self, parent=None, nomes_existentes=None):
+    def __init__(self, parent: Optional[QWidget] = None, nomes_existentes: Optional[List[str]] = None) -> None:
         super().__init__(parent)
         self.setWindowTitle("Nova Escalada")
         self.setMinimumWidth(380)
 
-        self.nomes_existentes = [n.strip().lower() for n in (nomes_existentes or []) if n]
+        self.nomes_existentes: List[str] = [n.strip().lower() for n in (nomes_existentes or []) if n]
 
         layout_principal = QVBoxLayout(self)
         layout_principal.setSpacing(12)
@@ -92,9 +94,9 @@ class DialogoCriarEscalada(QDialog):
 
     def obter_tipo_selecionado(self) -> str:
         """Retorna a chave do tipo selecionado (ex: 'via_esportiva', 'boulder')."""
-        return self.combo_tipo.currentData() or "via_esportiva"
+        return str(self.combo_tipo.currentData() or "via_esportiva")
 
-    def _validar(self, texto: str):
+    def _validar(self, texto: str) -> None:
         """Valida se o nome foi preenchido e não é duplicado."""
         nome = texto.strip()
         if not nome:
@@ -110,14 +112,15 @@ class DialogoCriarEscalada(QDialog):
         self.lbl_aviso.setText("")
         self.btn_criar.setEnabled(True)
 
-    def obter_dados_confirmados(self) -> tuple[str, str, bool]:
+    def obter_dados_confirmados(self) -> Tuple[str, str, bool]:
         """Retorna (tipo_chave, nome, confirmado)."""
         ok = (self.result() == QDialog.DialogCode.Accepted)
         return self.obter_tipo_selecionado(), self.edit_nome.text().strip(), ok
 
     @classmethod
-    def obter_dados(cls, parent=None, nomes_existentes=None) -> tuple[str, str, bool]:
+    def obter_dados(cls, parent: Optional[QWidget] = None, nomes_existentes: Optional[List[str]] = None) -> Tuple[str, str, bool]:
         """Método estático de conveniência."""
         dialogo = cls(parent=parent, nomes_existentes=nomes_existentes)
         dialogo.exec()
         return dialogo.obter_dados_confirmados()
+

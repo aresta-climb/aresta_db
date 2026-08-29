@@ -1,13 +1,15 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
+from typing import Optional, List, Tuple
 from PySide6.QtWidgets import (
     QDialog,
     QVBoxLayout,
     QHBoxLayout,
     QLabel,
     QLineEdit,
-    QPushButton
+    QPushButton,
+    QWidget
 )
 from PySide6.QtCore import Qt
 from editor.core.formatacao import para_snake_case
@@ -16,15 +18,15 @@ from editor.core.formatacao import para_snake_case
 class DialogoCriarBotao(QDialog):
     """Diálogo modal para criação de um novo Botão com página de Seção Textual (.md)."""
 
-    def __init__(self, parent=None, texto_sugerido="", textos_existentes=None, arquivos_existentes=None):
+    def __init__(self, parent: Optional[QWidget] = None, texto_sugerido: str = "", textos_existentes: Optional[List[str]] = None, arquivos_existentes: Optional[List[str]] = None) -> None:
         super().__init__(parent)
         self.setWindowTitle("Novo Botão / Seção Textual")
         self.setMinimumWidth(400)
 
-        self.textos_existentes = [t.strip().lower() for t in (textos_existentes or []) if t]
-        self.arquivos_existentes = [a.strip().lower() for a in (arquivos_existentes or []) if a]
-        self._arquivo_editado_manualmente = False
-        self._atualizando_internamente = False
+        self.textos_existentes: List[str] = [t.strip().lower() for t in (textos_existentes or []) if t]
+        self.arquivos_existentes: List[str] = [a.strip().lower() for a in (arquivos_existentes or []) if a]
+        self._arquivo_editado_manualmente: bool = False
+        self._atualizando_internamente: bool = False
 
         layout_principal = QVBoxLayout(self)
         layout_principal.setSpacing(12)
@@ -89,17 +91,17 @@ class DialogoCriarBotao(QDialog):
         if texto_sugerido:
             self.edit_texto.setText(texto_sugerido)
 
-    def _on_texto_alterado(self, texto: str):
+    def _on_texto_alterado(self, texto: str) -> None:
         if not self._arquivo_editado_manualmente:
             self._atualizar_proposicao_arquivo()
         self._validar()
 
-    def _on_arquivo_alterado(self, texto: str):
+    def _on_arquivo_alterado(self, texto: str) -> None:
         if not self._atualizando_internamente:
             self._arquivo_editado_manualmente = bool(texto.strip())
         self._validar()
 
-    def _atualizar_proposicao_arquivo(self):
+    def _atualizar_proposicao_arquivo(self) -> None:
         texto = self.edit_texto.text().strip()
         self._atualizando_internamente = True
         try:
@@ -114,7 +116,7 @@ class DialogoCriarBotao(QDialog):
         finally:
             self._atualizando_internamente = False
 
-    def _validar(self):
+    def _validar(self) -> None:
         texto = self.edit_texto.text().strip()
         arquivo = self.edit_arquivo.text().strip()
 
@@ -137,7 +139,7 @@ class DialogoCriarBotao(QDialog):
         self.lbl_aviso.setText("")
         self.btn_criar.setEnabled(True)
 
-    def obter_dados_confirmados(self) -> tuple[str, str, bool]:
+    def obter_dados_confirmados(self) -> Tuple[str, str, bool]:
         """Retorna (texto_botao, nome_arquivo_md, confirmado)."""
         ok = (self.result() == QDialog.DialogCode.Accepted)
         texto = self.edit_texto.text().strip()
@@ -147,7 +149,7 @@ class DialogoCriarBotao(QDialog):
         return texto, arquivo, ok
 
     @classmethod
-    def obter_dados(cls, parent=None, texto_sugerido="", textos_existentes=None, arquivos_existentes=None) -> tuple[str, str, bool]:
+    def obter_dados(cls, parent: Optional[QWidget] = None, texto_sugerido: str = "", textos_existentes: Optional[List[str]] = None, arquivos_existentes: Optional[List[str]] = None) -> Tuple[str, str, bool]:
         """Método estático de conveniência."""
         dialogo = cls(
             parent=parent,

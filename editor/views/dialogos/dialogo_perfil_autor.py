@@ -1,7 +1,9 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
+from typing import Optional
 from PySide6.QtWidgets import (
+
     QDialog,
     QVBoxLayout,
     QLabel,
@@ -9,6 +11,7 @@ from PySide6.QtWidgets import (
     QPushButton,
     QHBoxLayout,
     QMessageBox,
+    QWidget,
 )
 from PySide6.QtCore import Qt
 
@@ -19,7 +22,7 @@ class DialogoPerfilAutor(QDialog):
     Permite pré-preenchimento inteligente a partir de dados do GitHub.
     """
 
-    def __init__(self, nome_sugerido: str = "", parent=None):
+    def __init__(self, nome_sugerido: str = "", parent: Optional[QWidget] = None) -> None:
         super().__init__(parent)
         from editor.core.storage import GerenciadorCaminhos
         from PySide6.QtGui import QIcon
@@ -31,7 +34,7 @@ class DialogoPerfilAutor(QDialog):
         self.setMinimumWidth(420)
         self.init_ui(nome_sugerido)
 
-    def init_ui(self, nome_sugerido: str):
+    def init_ui(self, nome_sugerido: str) -> None:
         from editor.core.storage import GerenciadorCaminhos
         from PySide6.QtGui import QPixmap
 
@@ -90,10 +93,10 @@ class DialogoPerfilAutor(QDialog):
             QPushButton {
                 background: #28a745;
                 color: white;
+                font-weight: bold;
+                padding: 10px 18px;
                 border: none;
                 border-radius: 6px;
-                padding: 10px 18px;
-                font-weight: bold;
                 font-size: 14px;
             }
             QPushButton:hover { background: #218838; }
@@ -103,7 +106,7 @@ class DialogoPerfilAutor(QDialog):
 
         layout.addLayout(botoes_layout)
 
-    def confirmar_e_fechar(self):
+    def confirmar_e_fechar(self) -> None:
         nome = self.obter_nome_completo()
         palavras = nome.split()
         if len(palavras) < 2:
@@ -118,3 +121,4 @@ class DialogoPerfilAutor(QDialog):
 
     def obter_nome_completo(self) -> str:
         return self.edit_nome.text().strip()
+

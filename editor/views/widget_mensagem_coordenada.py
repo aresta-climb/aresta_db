@@ -7,7 +7,7 @@ Exibe na primeira linha os botões de ação ('Colar' e 'Abrir no Maps') unifica
 e na segunda linha os campos de Latitude e Longitude na mesma linha horizontal.
 """
 
-from typing import Optional
+from typing import Optional, Any
 from PySide6.QtCore import Signal, QUrl
 from PySide6.QtGui import QDesktopServices
 from PySide6.QtWidgets import (
@@ -43,11 +43,11 @@ class WidgetMensagemCoordenada(QWidget):
     """
     sinal_coordenadas_alteradas = Signal(object, object)  # (lat_e7, lon_e7)
 
-    def __init__(self, msg, controller=None, model=None, parent: Optional[QWidget] = None):
+    def __init__(self, msg: Any, controller: Optional[Any] = None, model: Optional[Any] = None, parent: Optional[QWidget] = None) -> None:
         super().__init__(parent)
-        self.msg = msg
-        self.controller = controller
-        self.model = model
+        self.msg: Any = msg
+        self.controller: Optional[Any] = controller
+        self.model: Optional[Any] = model
 
         layout = QVBoxLayout(self)
         layout.setContentsMargins(0, 0, 0, 0)
@@ -112,7 +112,7 @@ class WidgetMensagemCoordenada(QWidget):
 
         self._carregar_da_mensagem()
 
-    def _on_model_dado_alterado(self, msg, campo_nome):
+    def _on_model_dado_alterado(self, msg: Any, campo_nome: str) -> None:
         from editor.models.readonly_proxy import ReadOnlyProxy
         unwrapped_msg = object.__getattribute__(self.msg, "_obj") if isinstance(self.msg, ReadOnlyProxy) else self.msg
         unwrapped_target = object.__getattribute__(msg, "_obj") if isinstance(msg, ReadOnlyProxy) else msg
@@ -120,17 +120,18 @@ class WidgetMensagemCoordenada(QWidget):
             if campo_nome in ("latitude", "longitude"):
                 self._carregar_da_mensagem()
 
-    def _obter_has_field(self, msg, field_name: str) -> bool:
+    def _obter_has_field(self, msg: Any, field_name: str) -> bool:
         if hasattr(msg, "HasField"):
-            return msg.HasField(field_name)
+            return bool(msg.HasField(field_name))
         return getattr(msg, field_name, None) is not None
 
-    def _carregar_da_mensagem(self):
+    def _carregar_da_mensagem(self) -> None:
         lat = getattr(self.msg, "latitude", None) if self._obter_has_field(self.msg, "latitude") else None
         lon = getattr(self.msg, "longitude", None) if self._obter_has_field(self.msg, "longitude") else None
         self.definir_valores(lat, lon)
 
-    def definir_valores(self, lat_e7: Optional[int], lon_e7: Optional[int]):
+    def definir_valores(self, lat_e7: Optional[int], lon_e7: Optional[int]) -> None:
+
         self.edit_lat.blockSignals(True)
         self.edit_lon.blockSignals(True)
 
@@ -183,7 +184,7 @@ class WidgetMensagemCoordenada(QWidget):
         e7 = self.obter_longitude_e7()
         return e7_para_graus(e7) if e7 is not None else None
 
-    def _ao_alterar_texto_lat(self, texto: str):
+    def _ao_alterar_texto_lat(self, texto: str) -> None:
         txt = texto.strip().replace(",", ".")
         if not txt:
             self.rotulo_cardinal_lat.setText("")
@@ -201,7 +202,7 @@ class WidgetMensagemCoordenada(QWidget):
             self.rotulo_cardinal_lat.setText("Inválido")
             self._atualizar_estado_maps()
 
-    def _ao_alterar_texto_lon(self, texto: str):
+    def _ao_alterar_texto_lon(self, texto: str) -> None:
         txt = texto.strip().replace(",", ".")
         if not txt:
             self.rotulo_cardinal_lon.setText("")
@@ -219,20 +220,20 @@ class WidgetMensagemCoordenada(QWidget):
             self.rotulo_cardinal_lon.setText("Inválido")
             self._atualizar_estado_maps()
 
-    def _atualizar_rotulo_lat(self, val: float):
+    def _atualizar_rotulo_lat(self, val: float) -> None:
         sigla, nome = obter_indicador_cardinal_latitude(val)
         self.rotulo_cardinal_lat.setText(nome if not sigla else f"{sigla} ({nome})")
 
-    def _atualizar_rotulo_lon(self, val: float):
+    def _atualizar_rotulo_lon(self, val: float) -> None:
         sigla, nome = obter_indicador_cardinal_longitude(val)
         self.rotulo_cardinal_lon.setText(nome if not sigla else f"{sigla} ({nome})")
 
-    def _atualizar_estado_maps(self):
+    def _atualizar_estado_maps(self) -> None:
         lat = self.obter_latitude_e7()
         lon = self.obter_longitude_e7()
         self.btn_maps.setEnabled(lat is not None or lon is not None)
 
-    def _confirmar_edicao_lat(self):
+    def _confirmar_edicao_lat(self) -> None:
         lat_novo = self.obter_latitude_e7()
         lat_antigo = getattr(self.msg, "latitude", None) if self._obter_has_field(self.msg, "latitude") else None
         if lat_novo != lat_antigo:
@@ -246,7 +247,7 @@ class WidgetMensagemCoordenada(QWidget):
                     self.msg.latitude = lat_novo
             self.sinal_coordenadas_alteradas.emit(lat_novo, self.obter_longitude_e7())
 
-    def _confirmar_edicao_lon(self):
+    def _confirmar_edicao_lon(self) -> None:
         lon_novo = self.obter_longitude_e7()
         lon_antigo = getattr(self.msg, "longitude", None) if self._obter_has_field(self.msg, "longitude") else None
         if lon_novo != lon_antigo:
@@ -260,7 +261,7 @@ class WidgetMensagemCoordenada(QWidget):
                     self.msg.longitude = lon_novo
             self.sinal_coordenadas_alteradas.emit(self.obter_latitude_e7(), lon_novo)
 
-    def _ao_clicar_colar(self):
+    def _ao_clicar_colar(self) -> None:
         clipboard = QApplication.clipboard()
         texto = clipboard.text() if clipboard else ""
         if texto:
@@ -325,10 +326,11 @@ class WidgetMensagemCoordenada(QWidget):
 
         return False
 
-    def abrir_no_google_maps(self):
+    def abrir_no_google_maps(self) -> None:
         lat = self.obter_latitude_graus()
         lon = self.obter_longitude_graus()
         if lat is None and lon is None:
             return
         url = gerar_url_google_maps(lat or 0.0, lon or 0.0)
         QDesktopServices.openUrl(QUrl(url))
+

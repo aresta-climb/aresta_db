@@ -1,8 +1,10 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
+from typing import Optional
+
 from PySide6.QtWidgets import (
-    QDialog, QVBoxLayout, QHBoxLayout, QLabel, QPushButton, QFrame
+    QDialog, QVBoxLayout, QHBoxLayout, QLabel, QPushButton, QFrame, QWidget
 )
 from PySide6.QtCore import Qt
 from PySide6.QtGui import QFont
@@ -13,12 +15,13 @@ class DialogoRecuperacaoSessao(QDialog):
     Diálogo modal exibido na abertura de um croqui caso existam alterações pendentes
     no diário de comandos após uma interrupção inesperada ou crash.
     """
-    def __init__(self, total_acoes: int = 0, parent=None):
+    def __init__(self, total_acoes: int = 0, parent: Optional[QWidget] = None) -> None:
         super().__init__(parent)
         self.setWindowTitle("Sessão Anterior Interrompida")
         self.setModal(True)
         self.setFixedWidth(440)
         self.setFont(QFont("Segoe UI", 9))
+
         
         layout = QVBoxLayout(self)
         layout.setContentsMargins(20, 20, 20, 20)

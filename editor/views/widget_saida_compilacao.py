@@ -1,21 +1,22 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
+from typing import Optional
 from PySide6.QtWidgets import QDockWidget, QTextEdit, QWidget, QVBoxLayout
 from PySide6.QtCore import Qt
 
 class WidgetSaidaCompilacao(QDockWidget):
     """Componente de UI passivo (View) para mostrar a saída da compilação."""
     
-    def __init__(self, parent=None):
+    def __init__(self, parent: Optional[QWidget] = None) -> None:
         super().__init__("Saída de Compilação", parent)
         self.setAllowedAreas(Qt.DockWidgetArea.BottomDockWidgetArea)
         
-        self.conteudo = QWidget()
+        self.conteudo: QWidget = QWidget()
         layout = QVBoxLayout(self.conteudo)
         layout.setContentsMargins(0, 0, 0, 0)
         
-        self.texto_saida = QTextEdit()
+        self.texto_saida: QTextEdit = QTextEdit()
         self.texto_saida.setReadOnly(True)
         # Fundo escuro, fonte monoespaçada
         self.texto_saida.setStyleSheet(
@@ -28,15 +29,16 @@ class WidgetSaidaCompilacao(QDockWidget):
         layout.addWidget(self.texto_saida)
         self.setWidget(self.conteudo)
 
-    def atualizar_texto(self, html: str):
+    def atualizar_texto(self, html: str) -> None:
         """Atualiza o conteúdo do texto com a formatação já pronta vinda do controller."""
         self.texto_saida.setHtml(html)
 
-    def exibir_painel(self):
+    def exibir_painel(self) -> None:
         """Exibe e foca o painel para chamar a atenção do usuário."""
         self.show()
         self.raise_()
 
-    def ocultar_painel(self):
+    def ocultar_painel(self) -> None:
         """Oculta o painel."""
         self.hide()
+

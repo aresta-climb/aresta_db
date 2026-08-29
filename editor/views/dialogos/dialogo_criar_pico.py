@@ -1,13 +1,15 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
+from typing import Optional, List, Tuple
 from PySide6.QtWidgets import (
     QDialog,
     QVBoxLayout,
     QHBoxLayout,
     QLabel,
     QLineEdit,
-    QPushButton
+    QPushButton,
+    QWidget,
 )
 from PySide6.QtCore import Qt
 
@@ -15,12 +17,12 @@ from PySide6.QtCore import Qt
 class DialogoCriarPico(QDialog):
     """Diálogo modal para criação de um novo Pico com validação de duplicidade."""
 
-    def __init__(self, parent=None, nome_sugerido="", nomes_existentes=None):
+    def __init__(self, parent: Optional[QWidget] = None, nome_sugerido: str = "", nomes_existentes: Optional[List[str]] = None) -> None:
         super().__init__(parent)
         self.setWindowTitle("Novo Pico")
         self.setMinimumWidth(380)
 
-        self.nomes_existentes = [n.strip().lower() for n in (nomes_existentes or []) if n]
+        self.nomes_existentes: List[str] = [n.strip().lower() for n in (nomes_existentes or []) if n]
 
         layout_principal = QVBoxLayout(self)
         layout_principal.setSpacing(12)
@@ -75,7 +77,7 @@ class DialogoCriarPico(QDialog):
         if nome_sugerido:
             self.edit_nome.setText(nome_sugerido)
 
-    def _validar(self, texto: str):
+    def _validar(self, texto: str) -> None:
         """Valida se o nome foi preenchido e não é duplicado."""
         nome = texto.strip()
         if not nome:
@@ -91,14 +93,15 @@ class DialogoCriarPico(QDialog):
         self.lbl_aviso.setText("")
         self.btn_criar.setEnabled(True)
 
-    def obter_dados_confirmados(self) -> tuple[str, bool]:
+    def obter_dados_confirmados(self) -> Tuple[str, bool]:
         """Retorna (nome, confirmado)."""
         ok = (self.result() == QDialog.DialogCode.Accepted)
         return self.edit_nome.text().strip(), ok
 
     @classmethod
-    def obter_dados(cls, parent=None, nome_sugerido="", nomes_existentes=None) -> tuple[str, bool]:
+    def obter_dados(cls, parent: Optional[QWidget] = None, nome_sugerido: str = "", nomes_existentes: Optional[List[str]] = None) -> Tuple[str, bool]:
         """Método estático de conveniência."""
         dialogo = cls(parent=parent, nome_sugerido=nome_sugerido, nomes_existentes=nomes_existentes)
         dialogo.exec()
         return dialogo.obter_dados_confirmados()
+

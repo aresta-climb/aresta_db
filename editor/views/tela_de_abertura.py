@@ -2,7 +2,7 @@
 # Copyright (C) 2026 Aresta Climb Contributors
 
 from pathlib import Path
-from typing import Optional
+from typing import Optional, Any, Callable, Dict
 
 from PySide6.QtWidgets import (
     QWidget,
@@ -31,6 +31,7 @@ from PySide6.QtGui import (
     QPixmap,
     QIcon,
     QRegularExpressionValidator,
+    QMouseEvent,
 )
 
 from editor.core.storage import GerenciadorCaminhos
@@ -44,19 +45,20 @@ from editor.views.dialogos.dialogo_perfil_autor import DialogoPerfilAutor
 from editor.views.estilo import Icones
 
 
+
 class TarefaAssincrona(QThread):
     """Thread auxiliar para executar chamadas de rede sem travar a interface gráfica."""
 
     sucesso = Signal(object)
     erro = Signal(Exception)
 
-    def __init__(self, funcao, *args, **kwargs):
+    def __init__(self, funcao: Callable[..., Any], *args: Any, **kwargs: Any) -> None:
         super().__init__()
-        self.funcao = funcao
+        self.funcao: Callable[..., Any] = funcao
         self.args = args
         self.kwargs = kwargs
 
-    def run(self):
+    def run(self) -> None:
         try:
             resultado = self.funcao(*self.args, **self.kwargs)
             self.sucesso.emit(resultado)
@@ -72,17 +74,19 @@ class TelaDeAbertura(QWidget):
     login_concluido = Signal(object)
     login_cancelado = Signal()
 
-    def __init__(self, cliente_auth: Optional[ClienteAuthSupabase] = None):
+    def __init__(self, cliente_auth: Optional[ClienteAuthSupabase] = None) -> None:
         super().__init__()
         self.setWindowFlags(Qt.WindowType.FramelessWindowHint)
         self.setAttribute(Qt.WidgetAttribute.WA_TranslucentBackground)
 
-        self.cliente_auth = cliente_auth or ClienteAuthSupabase()
+        self.cliente_auth: ClienteAuthSupabase = cliente_auth or ClienteAuthSupabase()
         self.servidor_oauth: Optional[ServidorCallbackOAuth] = None
         self._email_atual: str = ""
         self._segundos_reenvio: int = 60
         self._timer_reenvio = QTimer(self)
         self._timer_reenvio.timeout.connect(self._atualizar_contador_reenvio)
+        self._drag_pos: Optional[Any] = None
+        self._callback_atualizar: Optional[Callable[[], None]] = None
 
         caminho_logo_janela = GerenciadorCaminhos().obter_caminho_recurso_interno(
             "recursos/logo_app.png"
@@ -91,7 +95,7 @@ class TelaDeAbertura(QWidget):
         self.setFixedSize(450, 650)
         self.init_ui()
 
-    def init_ui(self):
+    def init_ui(self) -> None:
         layout = QVBoxLayout()
         layout.setContentsMargins(20, 20, 20, 20)
         self.setLayout(layout)
@@ -483,18 +487,17 @@ class TelaDeAbertura(QWidget):
 
         self.update_container.hide()
         container_layout.addWidget(self.update_container)
-        self._callback_atualizar = None
         self.btn_atualizar_store.clicked.connect(self._ao_clicar_atualizar)
 
-    def _ao_clicar_fechar(self):
+    def _ao_clicar_fechar(self) -> None:
         self.login_cancelado.emit()
         QApplication.quit()
 
-    def _ao_clicar_atualizar(self):
+    def _ao_clicar_atualizar(self) -> None:
         if callable(self._callback_atualizar):
             self._callback_atualizar()
 
-    def exibir_aviso_atualizacao(self, resultado, callback_atualizar=None):
+    def exibir_aviso_atualizacao(self, resultado: Any, callback_atualizar: Any = None) -> None:
         self._callback_atualizar = callback_atualizar
         versao = resultado.versao_disponivel if resultado and resultado.versao_disponivel else ""
         texto_versao = f" (versão {versao})" if versao else ""
@@ -507,22 +510,22 @@ class TelaDeAbertura(QWidget):
         self.auth_container.hide()
         self.update_container.show()
 
-    def esconder_aviso_atualizacao(self):
+    def esconder_aviso_atualizacao(self) -> None:
         self.update_container.hide()
         self.label_status.show()
 
-    def atualizar_status(self, texto: str):
+    def atualizar_status(self, texto: str) -> None:
         self.label_status.setText(texto)
 
-    def atualizar_progresso(self, valor: int):
+    def atualizar_progresso(self, valor: int) -> None:
         self.progress_bar.setValue(valor)
 
-    def exibir_barra_progresso(self, visivel: bool):
+    def exibir_barra_progresso(self, visivel: bool) -> None:
         self.progress_bar.setVisible(visivel)
 
     # --- Métodos da Máquina de Estados de Autenticação Embebida ---
 
-    def iniciar_fluxo_login(self):
+    def iniciar_fluxo_login(self) -> None:
         """Inicia o fluxo exibindo a seleção de métodos dentro do card."""
         self.label_status.hide()
         self.progress_bar.hide()
@@ -530,7 +533,7 @@ class TelaDeAbertura(QWidget):
         self.voltar_para_selecao()
         self.auth_container.show()
 
-    def voltar_para_selecao(self):
+    def voltar_para_selecao(self) -> None:
         self._timer_reenvio.stop()
         if self.servidor_oauth:
             self.servidor_oauth.encerrar()
@@ -541,7 +544,7 @@ class TelaDeAbertura(QWidget):
         self.container_auth_github.hide()
         self.container_auth_selecao.show()
 
-    def mostrar_formulario_email(self):
+    def mostrar_formulario_email(self) -> None:
         self._timer_reenvio.stop()
         self.container_auth_selecao.hide()
         self.container_auth_codigo.hide()
@@ -549,7 +552,7 @@ class TelaDeAbertura(QWidget):
         self.container_auth_email.show()
         self.edit_email.setFocus()
 
-    def solicitar_otp(self):
+    def solicitar_otp(self) -> None:
         email = self.edit_email.text().strip()
         if not email or "@" not in email:
             QMessageBox.warning(self, "E-mail Inválido", "Por favor, digite um e-mail válido.")
@@ -566,7 +569,7 @@ class TelaDeAbertura(QWidget):
         self._tarefa_otp.erro.connect(self._ao_erro_solicitar_otp)
         self._tarefa_otp.start()
 
-    def _ao_sucesso_solicitar_otp(self, _resultado):
+    def _ao_sucesso_solicitar_otp(self, _resultado: Any) -> None:
         self.btn_enviar_otp.setEnabled(True)
         self.btn_enviar_otp.setText("Enviar Código de Acesso")
         self.label_info_codigo.setText(f"Enviamos um código de acesso para:<br><b>{self._email_atual}</b>")
@@ -576,20 +579,20 @@ class TelaDeAbertura(QWidget):
         self.edit_codigo.setFocus()
         self._iniciar_temporizador_reenvio()
 
-    def _ao_erro_solicitar_otp(self, excecao: Exception):
+    def _ao_erro_solicitar_otp(self, excecao: Exception) -> None:
         self.btn_enviar_otp.setEnabled(True)
         self.btn_enviar_otp.setText("Enviar Código de Acesso")
         self.btn_reenviar_codigo.setEnabled(True)
         self.btn_reenviar_codigo.setText("Reenviar código")
         QMessageBox.critical(self, "Falha no Envio", f"Não foi possível enviar o código:\n{str(excecao)}")
 
-    def _iniciar_temporizador_reenvio(self):
+    def _iniciar_temporizador_reenvio(self) -> None:
         self._segundos_reenvio = 60
         self.btn_reenviar_codigo.setEnabled(False)
         self.btn_reenviar_codigo.setText(f"Reenviar em ({self._segundos_reenvio}s)")
         self._timer_reenvio.start(1000)
 
-    def _atualizar_contador_reenvio(self):
+    def _atualizar_contador_reenvio(self) -> None:
         self._segundos_reenvio -= 1
         if self._segundos_reenvio <= 0:
             self._timer_reenvio.stop()
@@ -599,7 +602,7 @@ class TelaDeAbertura(QWidget):
         else:
             self.btn_reenviar_codigo.setText(f"Reenviar em ({self._segundos_reenvio}s)")
 
-    def validar_otp(self):
+    def validar_otp(self) -> None:
         codigo = self.edit_codigo.text().strip()
         if len(codigo) < 6 or len(codigo) > 8:
             QMessageBox.warning(self, "Código Inválido", "O código deve conter entre 6 e 8 dígitos.")
@@ -615,15 +618,15 @@ class TelaDeAbertura(QWidget):
         self._tarefa_validar.erro.connect(self._ao_erro_validar_otp)
         self._tarefa_validar.start()
 
-    def _ao_sucesso_validar_otp(self, dados: dict):
+    def _ao_sucesso_validar_otp(self, dados: Any) -> None:
         self.btn_validar_codigo.setEnabled(True)
         self.btn_validar_codigo.setText("Validar e Entrar")
 
-        jwt = dados.get("access_token", "")
-        refresh_token = dados.get("refresh_token", "")
-        usuario = dados.get("user", {})
-        metadados = usuario.get("user_metadata", {})
-        nome_completo = metadados.get("nome_completo", "")
+        jwt = dados.get("access_token", "") if isinstance(dados, dict) else ""
+        refresh_token = dados.get("refresh_token", "") if isinstance(dados, dict) else ""
+        usuario = dados.get("user", {}) if isinstance(dados, dict) else {}
+        metadados = usuario.get("user_metadata", {}) if isinstance(usuario, dict) else {}
+        nome_completo = metadados.get("nome_completo", "") if isinstance(metadados, dict) else ""
 
         if not nome_completo or len(nome_completo.split()) < 2:
             dialogo_perfil = DialogoPerfilAutor(nome_sugerido=nome_completo, parent=self)
@@ -636,8 +639,9 @@ class TelaDeAbertura(QWidget):
             else:
                 return
 
+        email_user = usuario.get("email", self._email_atual) if isinstance(usuario, dict) else self._email_atual
         sessao = SessaoUsuario(
-            email=usuario.get("email", self._email_atual),
+            email=email_user,
             nome_completo=nome_completo,
             jwt_supabase=jwt,
             token_atualizacao=refresh_token,
@@ -645,12 +649,12 @@ class TelaDeAbertura(QWidget):
         )
         self._finalizar_login(sessao)
 
-    def _ao_erro_validar_otp(self, excecao: Exception):
+    def _ao_erro_validar_otp(self, excecao: Exception) -> None:
         self.btn_validar_codigo.setEnabled(True)
         self.btn_validar_codigo.setText("Validar e Entrar")
         QMessageBox.critical(self, "Falha na Validação", f"Código incorreto ou expirado:\n{str(excecao)}")
 
-    def iniciar_login_github(self):
+    def iniciar_login_github(self) -> None:
         self.servidor_oauth = ServidorCallbackOAuth(parent=self)
         self.servidor_oauth.tokens_recebidos.connect(self._ao_receber_tokens_github)
         porta = self.servidor_oauth.iniciar_escuta()
@@ -667,8 +671,8 @@ class TelaDeAbertura(QWidget):
         print(f"🐙 [OAuth GitHub] Abrindo navegador: {url_auth}")
         QDesktopServices.openUrl(QUrl(url_auth))
 
-    def _ao_receber_tokens_github(self, tokens: dict):
-        if not tokens:
+    def _ao_receber_tokens_github(self, tokens: Any) -> None:
+        if not tokens or not isinstance(tokens, dict):
             return
 
         if self.servidor_oauth:
@@ -685,22 +689,22 @@ class TelaDeAbertura(QWidget):
             self.voltar_para_selecao()
             return
 
-        jwt = tokens.get("access_token", "")
-        refresh_token = tokens.get("refresh_token", "")
+        jwt = str(tokens.get("access_token", ""))
+        refresh_token = str(tokens.get("refresh_token", ""))
         token_github = tokens.get("provider_token")
 
         print("👤 [OAuth GitHub] Processando tokens recebidos...")
+        metadados: dict[str, Any] = {}
+        email = ""
         try:
             usuario = self.cliente_auth.obter_usuario_atual(jwt)
-            metadados = usuario.get("user_metadata", {})
-            email = usuario.get("email", "")
+            metadados = usuario.get("user_metadata", {}) if isinstance(usuario, dict) else {}
+            email = usuario.get("email", "") if isinstance(usuario, dict) else ""
             print(f"👤 [OAuth GitHub] Usuário obtido: {email}")
         except Exception as e:
             print(f"⚠️ [OAuth GitHub] Falha ao obter usuário atual: {e}")
-            metadados = {}
-            email = ""
 
-        nome_sugerido = (
+        nome_sugerido = str(
             metadados.get("nome_completo")
             or metadados.get("full_name")
             or metadados.get("name")
@@ -733,29 +737,28 @@ class TelaDeAbertura(QWidget):
         print(f"💾 [OAuth GitHub] Finalizando login para {nome_sugerido} ({email})...")
         self._finalizar_login(sessao)
 
-    def cancelar_login_github(self):
+    def cancelar_login_github(self) -> None:
         if self.servidor_oauth:
             self.servidor_oauth.encerrar()
             self.servidor_oauth = None
         self.voltar_para_selecao()
 
-    def _finalizar_login(self, sessao: SessaoUsuario):
+    def _finalizar_login(self, sessao: SessaoUsuario) -> None:
         self._timer_reenvio.stop()
         self.auth_container.hide()
         self.label_status.show()
         self.label_status.setText(f"Logado como: {sessao.nome_completo}")
         self.login_concluido.emit(sessao)
 
-    def mousePressEvent(self, event):
+    def mousePressEvent(self, event: Any) -> None:
         if event.button() == Qt.MouseButton.LeftButton:
             self._drag_pos = (
                 event.globalPosition().toPoint() - self.frameGeometry().topLeft()
             )
             event.accept()
 
-    def mouseMoveEvent(self, event):
-        if event.buttons() & Qt.MouseButton.LeftButton and hasattr(
-            self, "_drag_pos"
-        ):
+    def mouseMoveEvent(self, event: Any) -> None:
+        if event.buttons() & Qt.MouseButton.LeftButton and self._drag_pos is not None:
             self.move(event.globalPosition().toPoint() - self._drag_pos)
             event.accept()
+

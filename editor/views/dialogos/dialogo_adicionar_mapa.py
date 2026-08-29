@@ -8,7 +8,7 @@ pré-processamento automático para WebP em memória RAM e validação contínua
 """
 
 from pathlib import Path
-from typing import Optional, Tuple
+from typing import Optional, Tuple, Any
 from PySide6.QtWidgets import (
     QDialog,
     QVBoxLayout,
@@ -39,7 +39,7 @@ class AreaDropImagem(QWidget):
     """
     imagem_selecionada = Signal(str)
 
-    def __init__(self, parent=None):
+    def __init__(self, parent: Optional[QWidget] = None) -> None:
         super().__init__(parent)
         self.setAcceptDrops(True)
         self.setMinimumSize(420, 220)
@@ -55,9 +55,9 @@ class AreaDropImagem(QWidget):
             }
         """)
 
-        self.layout = QVBoxLayout(self)
-        self.layout.setAlignment(Qt.AlignmentFlag.AlignCenter)
-        self.layout.setContentsMargins(12, 12, 12, 12)
+        self.layout_conteudo = QVBoxLayout(self)
+        self.layout_conteudo.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        self.layout_conteudo.setContentsMargins(12, 12, 12, 12)
 
         self.label_info = QLabel("Arraste e solte uma imagem aqui\nou clique para selecionar")
         self.label_info.setAlignment(Qt.AlignmentFlag.AlignCenter)
@@ -68,10 +68,10 @@ class AreaDropImagem(QWidget):
         self.label_preview.setStyleSheet("border: none; background: transparent;")
         self.label_preview.hide()
 
-        self.layout.addWidget(self.label_info)
-        self.layout.addWidget(self.label_preview)
+        self.layout_conteudo.addWidget(self.label_info)
+        self.layout_conteudo.addWidget(self.label_preview)
 
-    def mousePressEvent(self, event):
+    def mousePressEvent(self, event: Any) -> None:
         if event.button() == Qt.MouseButton.LeftButton:
             arquivo, _ = QFileDialog.getOpenFileName(
                 self,
@@ -82,7 +82,7 @@ class AreaDropImagem(QWidget):
             if arquivo:
                 self.imagem_selecionada.emit(arquivo)
 
-    def dragEnterEvent(self, event: QDragEnterEvent):
+    def dragEnterEvent(self, event: QDragEnterEvent) -> None:
         if event.mimeData().hasUrls():
             urls = event.mimeData().urls()
             if urls and urls[0].isLocalFile():
@@ -92,14 +92,14 @@ class AreaDropImagem(QWidget):
                     return
         event.ignore()
 
-    def dropEvent(self, event: QDropEvent):
+    def dropEvent(self, event: QDropEvent) -> None:
         urls = event.mimeData().urls()
         if urls and urls[0].isLocalFile():
             arquivo = urls[0].toLocalFile()
             self.imagem_selecionada.emit(arquivo)
             event.acceptProposedAction()
 
-    def definir_preview_bytes(self, bytes_img: bytes):
+    def definir_preview_bytes(self, bytes_img: bytes) -> None:
         pixmap = QPixmap()
         if pixmap.loadFromData(bytes_img):
             pixmap_scaled = pixmap.scaled(
@@ -121,15 +121,16 @@ class DialogoAdicionarMapa(QDialog):
         self,
         nome_sugerido: str,
         db_dir: Optional[Path] = None,
-        model=None,
+        model: Optional[Any] = None,
         parent: Optional[QWidget] = None,
-    ):
+    ) -> None:
         super().__init__(parent)
         self.setWindowTitle("Adicionar Novo Mapa")
-        self.db_dir = Path(db_dir) if db_dir else None
-        self.model = model
+        self.db_dir: Optional[Path] = Path(db_dir) if db_dir else None
+        self.model: Optional[Any] = model
         self.bytes_processados_webp: Optional[bytes] = None
         self.dimensoes: Optional[Tuple[int, int]] = None
+
 
         layout = QVBoxLayout(self)
         layout.setSpacing(12)
@@ -198,7 +199,7 @@ class DialogoAdicionarMapa(QDialog):
         self.resize(540, 480)
         self._validar_estado()
 
-    def _abrir_seletor_arquivos(self):
+    def _abrir_seletor_arquivos(self) -> None:
         arquivo, _ = QFileDialog.getOpenFileName(
             self,
             "Selecionar Imagem do Mapa",
@@ -208,7 +209,7 @@ class DialogoAdicionarMapa(QDialog):
         if arquivo:
             self.carregar_imagem_arquivo(arquivo)
 
-    def carregar_imagem_arquivo(self, caminho_arquivo: str):
+    def carregar_imagem_arquivo(self, caminho_arquivo: str) -> None:
         caminho = Path(caminho_arquivo)
         if not caminho.exists() or not caminho.is_file():
             QMessageBox.warning(self, "Erro", "Arquivo não encontrado.")
@@ -220,7 +221,7 @@ class DialogoAdicionarMapa(QDialog):
         except Exception as e:
             QMessageBox.warning(self, "Erro", f"Falha ao ler arquivo: {e}")
 
-    def carregar_imagem_bytes(self, bytes_originais: bytes, nome_sugerido_origem: Optional[str] = None):
+    def carregar_imagem_bytes(self, bytes_originais: bytes, nome_sugerido_origem: Optional[str] = None) -> None:
         w_orig, h_orig, tam_orig, txt_tam_orig = obter_metadados_imagem(bytes_originais)
         if w_orig <= 0 or h_orig <= 0:
             QMessageBox.warning(self, "Erro", "Formato de imagem inválido ou não suportado.")
@@ -249,7 +250,7 @@ class DialogoAdicionarMapa(QDialog):
 
         self._validar_estado()
 
-    def _ao_alterar_nome(self, _texto: str):
+    def _ao_alterar_nome(self, _texto: str) -> None:
         self._validar_estado()
 
     def obter_caminho_final_relativo(self) -> str:
@@ -268,7 +269,7 @@ class DialogoAdicionarMapa(QDialog):
     def obter_dimensoes_imagem(self) -> Optional[Tuple[int, int]]:
         return self.dimensoes
 
-    def _validar_estado(self):
+    def _validar_estado(self) -> None:
         caminho_rel = self.obter_caminho_final_relativo()
         self.rotulo_caminho_destino.setText(f"Destino no croqui: {caminho_rel}")
 
@@ -301,7 +302,7 @@ class DialogoAdicionarMapa(QDialog):
         self.rotulo_aviso.setText("")
         self.btn_ok.setEnabled(True)
 
-    def accept(self):
+    def accept(self) -> None:
         if not self.bytes_processados_webp:
             QMessageBox.warning(self, "Aviso", "Por favor, selecione uma imagem.")
             return
@@ -311,3 +312,4 @@ class DialogoAdicionarMapa(QDialog):
             return
 
         super().accept()
+

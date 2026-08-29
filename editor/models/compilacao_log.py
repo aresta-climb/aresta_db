@@ -4,14 +4,15 @@
 class CompilacaoLog:
     """Modelo simples para armazenar o estado das saídas de compilação."""
     
-    def __init__(self):
-        self._logs = []
-        self._tem_avisos_ou_erros = False
+    def __init__(self) -> None:
+        self._logs: list[str] = []
+        self._tem_avisos_ou_erros: bool = False
 
-    def atualizar(self, mensagens: list[str]):
+    def atualizar(self, mensagens: list[str]) -> None:
         """Atualiza o estado dos logs e recalcula se existem erros ou avisos."""
         self._logs = mensagens
         self._tem_avisos_ou_erros = self._verificar_erros_ou_avisos(mensagens)
+
 
     def obter_logs(self) -> list[str]:
         """Retorna a lista de mensagens armazenadas."""

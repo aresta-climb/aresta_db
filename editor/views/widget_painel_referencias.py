@@ -1,6 +1,7 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
+from typing import Optional, Any
 from PySide6.QtWidgets import (
     QWidget, QVBoxLayout, QHBoxLayout, QLabel, QPushButton, QScrollArea,
     QFrame
@@ -16,10 +17,10 @@ class CardReferencia(QFrame):
     hover_in = Signal(object)
     hover_out = Signal()
     
-    def __init__(self, referencia: croqui_pb2.Mapa.Referencia, index: int, parent=None):
+    def __init__(self, referencia: croqui_pb2.Mapa.Referencia, index: int, parent: Optional[QWidget] = None) -> None:
         super().__init__(parent)
-        self.referencia = referencia
-        self.index = index
+        self.referencia: croqui_pb2.Mapa.Referencia = referencia
+        self.index: int = index
         self.setFrameShape(QFrame.Shape.StyledPanel)
         self.setStyleSheet("""
             CardReferencia {
@@ -133,11 +134,11 @@ class CardReferencia(QFrame):
         self.btn_salvar_camera.setVisible(False)
         layout.addWidget(self.btn_salvar_camera)
 
-    def enterEvent(self, event):
+    def enterEvent(self, event: Any) -> None:
         self.hover_in.emit(self.referencia)
         super().enterEvent(event)
         
-    def leaveEvent(self, event):
+    def leaveEvent(self, event: Any) -> None:
         self.hover_out.emit()
         super().leaveEvent(event)
 
@@ -157,10 +158,10 @@ class PainelReferencias(QWidget):
     destacar_pois = Signal(object)
     remover_destaque_pois = Signal()
 
-    def __init__(self, mapas_controller, parent=None):
+    def __init__(self, mapas_controller: Optional[Any] = None, parent: Optional[QWidget] = None) -> None:
         super().__init__(parent)
-        self.mapas_controller = mapas_controller
-        self.msg_mapa_proxy = None
+        self.mapas_controller: Optional[Any] = mapas_controller
+        self.msg_mapa_proxy: Optional[Any] = None
         
         self.setMinimumWidth(280)
         self.setStyleSheet("background-color: #f8f9fa; border-left: 1px solid #dee2e6;")
@@ -195,14 +196,15 @@ class PainelReferencias(QWidget):
         layout.addWidget(self.btn_add)
         
         # Estado atual
-        self.btn_ativo_link = None
-        self.btn_ativo_camera = None
+        self.btn_ativo_link: Optional[QPushButton] = None
+        self.btn_ativo_camera: Optional[QPushButton] = None
+        self.card_camera_ativo: Optional[CardReferencia] = None
 
-    def carregar_mapa(self, msg_mapa_proxy):
+    def carregar_mapa(self, msg_mapa_proxy: Any) -> None:
         self.msg_mapa_proxy = msg_mapa_proxy
         self.atualizar_cards()
 
-    def atualizar_cards(self):
+    def atualizar_cards(self) -> None:
         modo_link_index = None
         modo_camera_index = None
         
@@ -210,18 +212,19 @@ class PainelReferencias(QWidget):
             item = self.layout_cards.itemAt(i)
             if item:
                 card = item.widget()
-                if card:
-                    if hasattr(card, 'btn_linkar') and card.btn_linkar.isChecked():
+                if card and isinstance(card, CardReferencia):
+                    if card.btn_linkar.isChecked():
                         modo_link_index = i
-                    if hasattr(card, 'btn_camera') and card.btn_camera.isChecked():
+                    if card.btn_camera.isChecked():
                         modo_camera_index = i
 
         # Limpa layout
         while self.layout_cards.count():
             item = self.layout_cards.takeAt(0)
-            widget = item.widget()
-            if widget:
-                widget.deleteLater()
+            if item:
+                widget = item.widget()
+                if widget:
+                    widget.deleteLater()
                 
         self.btn_ativo_link = None
         self.btn_ativo_camera = None
@@ -264,7 +267,7 @@ class PainelReferencias(QWidget):
                 self.card_camera_ativo = card
                 card.btn_camera.blockSignals(False)
 
-    def _referencias_iguais(self, ref1, ref2):
+    def _referencias_iguais(self, ref1: Any, ref2: Any) -> bool:
         if ref1.HasField('grupo') != ref2.HasField('grupo') or (ref1.HasField('grupo') and ref1.grupo != ref2.grupo):
             return False
         if ref1.HasField('setor') != ref2.HasField('setor') or (ref1.HasField('setor') and ref1.setor != ref2.setor):
@@ -275,14 +278,14 @@ class PainelReferencias(QWidget):
             return False
         return True
 
-    def _referencia_ja_existe(self, ref_nova):
+    def _referencia_ja_existe(self, ref_nova: Any) -> bool:
         if not self.msg_mapa_proxy: return False
         for ref in self.msg_mapa_proxy.referencias:
             if self._referencias_iguais(ref, ref_nova):
                 return True
         return False
 
-    def _ao_clicar_adicionar(self):
+    def _ao_clicar_adicionar(self) -> None:
         if not self.msg_mapa_proxy or not self.mapas_controller or not self.mapas_controller.model:
             return
             
@@ -296,7 +299,9 @@ class PainelReferencias(QWidget):
                     return
                 self.mapas_controller.adicionar_referencia(self.msg_mapa_proxy, ref)
 
-    def _ao_clicar_editar_alvo(self, index, ref_antiga):
+    def _ao_clicar_editar_alvo(self, index: int, ref_antiga: Any) -> None:
+        if not self.mapas_controller or not self.mapas_controller.model:
+            return
         dialogo = DialogoBuscaReferencia(self.mapas_controller.model, self)
         if dialogo.exec():
             ref_nova = dialogo.obter_referencia()
@@ -336,12 +341,12 @@ class PainelReferencias(QWidget):
                     self.msg_mapa_proxy, index, ref_antiga, ref_editada
                 )
 
-    def _confirmar_remover(self, index):
+    def _confirmar_remover(self, index: int) -> None:
         self._limpar_modos_ativos()
         if self.mapas_controller:
             self.mapas_controller.deletar_referencia(self.msg_mapa_proxy, index)
 
-    def _on_linkar_toggled(self, checked, card):
+    def _on_linkar_toggled(self, checked: bool, card: CardReferencia) -> None:
         if checked:
             # Desmarca qualquer outro botão de ação
             self._limpar_modos_ativos()
@@ -354,7 +359,7 @@ class PainelReferencias(QWidget):
                 self.parar_modo_linkagem.emit()
             card.btn_linkar.setStyleSheet("")
 
-    def _on_camera_toggled(self, checked, card):
+    def _on_camera_toggled(self, checked: bool, card: CardReferencia) -> None:
         if checked:
             self._limpar_modos_ativos()
             self.btn_ativo_camera = card.btn_camera
@@ -370,7 +375,7 @@ class PainelReferencias(QWidget):
             card.btn_camera.setStyleSheet("")
             card.btn_salvar_camera.setVisible(False)
 
-    def forcar_parada_camera(self):
+    def forcar_parada_camera(self) -> None:
         """Método para forçar o desmarque do botão de câmera ativo."""
         if self.btn_ativo_camera:
             self.btn_ativo_camera.blockSignals(True)
@@ -384,8 +389,9 @@ class PainelReferencias(QWidget):
             
         self.btn_ativo_camera = None
 
-    def _limpar_modos_ativos(self):
+    def _limpar_modos_ativos(self) -> None:
         if self.btn_ativo_link:
             self.btn_ativo_link.setChecked(False)
         if self.btn_ativo_camera:
             self.btn_ativo_camera.setChecked(False)
+

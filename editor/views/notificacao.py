@@ -1,30 +1,38 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
+from typing import Optional
 from PySide6.QtWidgets import QWidget, QLabel, QHBoxLayout, QGraphicsOpacityEffect
 from PySide6.QtCore import Qt, QTimer, QPropertyAnimation, QEasingCurve, QPoint, QSize
 from .estilo import Icones
+
 
 class NotificacaoToast(QWidget):
     """
     Um widget de notificação flutuante (Toast) que aparece e desaparece suavemente.
     """
-    def __init__(self, mensagem, timeout_ms=3000, parent=None):
+    def __init__(self, mensagem: str, timeout_ms: int = 3000, parent: Optional[QWidget] = None) -> None:
         super().__init__(parent)
         self.setWindowFlags(Qt.WindowType.FramelessWindowHint | Qt.WindowType.ToolTip)
         self.setAttribute(Qt.WidgetAttribute.WA_TranslucentBackground)
         self.setAttribute(Qt.WidgetAttribute.WA_DeleteOnClose)
         self.setAttribute(Qt.WidgetAttribute.WA_ShowWithoutActivating)
         
+        self.label_icone: QLabel
+        self.label_texto: QLabel
+        self.container: QWidget
+        self.efeito_opacidade: QGraphicsOpacityEffect
+        self.animacao: Optional[QPropertyAnimation] = None
+        
         self._setup_ui(mensagem)
         
         # Timer para iniciar o fechamento
-        self.timer = QTimer(self)
+        self.timer: QTimer = QTimer(self)
         self.timer.timeout.connect(self.fechar_com_animacao)
         self.timer.setSingleShot(True)
         self.timer.start(timeout_ms)
         
-    def _setup_ui(self, mensagem):
+    def _setup_ui(self, mensagem: str) -> None:
         layout = QHBoxLayout(self)
         layout.setContentsMargins(0, 0, 0, 0)
         
@@ -58,7 +66,7 @@ class NotificacaoToast(QWidget):
         self.setGraphicsEffect(self.efeito_opacidade)
         self.efeito_opacidade.setOpacity(1.0)
         
-    def fechar_com_animacao(self):
+    def fechar_com_animacao(self) -> None:
         """Inicia a animação de fade-out e fecha o widget."""
         self.animacao = QPropertyAnimation(self.efeito_opacidade, b"opacity")
         self.animacao.setDuration(400)
@@ -68,7 +76,7 @@ class NotificacaoToast(QWidget):
         self.animacao.finished.connect(self.close)
         self.animacao.start()
 
-    def posicionar_no_canto(self, widget_pai):
+    def posicionar_no_canto(self, widget_pai: Optional[QWidget]) -> None:
         """Posiciona o toast no canto inferior direito do widget pai (coordenadas globais)."""
         if not widget_pai:
             return
@@ -85,3 +93,4 @@ class NotificacaoToast(QWidget):
         
         self.move(x, y)
         self.raise_()
+

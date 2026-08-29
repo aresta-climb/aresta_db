@@ -1,6 +1,7 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
+from typing import Optional, Any
 from PySide6.QtWidgets import (
     QDialog, QVBoxLayout, QHBoxLayout, QLabel, QPushButton, QFrame, QWidget
 )
@@ -15,9 +16,9 @@ class DialogoConexaoCelular(QDialog):
     """Diálogo com instruções e QR Code para conectar o celular ao editor."""
     solicitar_encerrar = Signal()
     
-    def __init__(self, servidor_celular, parent=None):
+    def __init__(self, servidor_celular: Any, parent: Optional[QWidget] = None) -> None:
         super().__init__(parent)
-        self.servidor = servidor_celular
+        self.servidor: Any = servidor_celular
         self.setWindowTitle("Conectar ao Celular")
         self.setFixedSize(550, 750)
         self.setStyleSheet("background-color: #ffffff;")
@@ -26,11 +27,11 @@ class DialogoConexaoCelular(QDialog):
         self._conectar_sinais()
         
         # Inicia carregamento em background
-        self.tarefa_dados = TarefaDadosConexao(self.servidor)
+        self.tarefa_dados: TarefaDadosConexao = TarefaDadosConexao(self.servidor)
         self.tarefa_dados.concluido.connect(self._ao_dados_carregados)
         self.tarefa_dados.start()
 
-    def _setup_ui(self):
+    def _setup_ui(self) -> None:
         layout = QVBoxLayout(self)
         layout.setSpacing(20)
         layout.setContentsMargins(30, 30, 30, 30)
@@ -192,10 +193,10 @@ class DialogoConexaoCelular(QDialog):
         botoes.addWidget(self.btn_fechar)
         layout.addLayout(botoes)
 
-    def _conectar_sinais(self):
+    def _conectar_sinais(self) -> None:
         self.servidor.dispositivo_conectado.connect(self._ao_dispositivo_conectado)
 
-    def _ao_dados_carregados(self, url, qr_bytes):
+    def _ao_dados_carregados(self, url: str, qr_bytes: bytes) -> None:
         """Preenche os dados do servidor e o QR Code recebidos do background."""
         self.widget_carregando.hide()
         self.label_endereco.setText(url)
@@ -205,29 +206,30 @@ class DialogoConexaoCelular(QDialog):
         self.label_qr.setPixmap(pixmap)
         self.label_qr.show()
 
-    def _gerar_conteudo(self):
+    def _gerar_conteudo(self) -> None:
         # Removido em favor do _ao_dados_carregados
         pass
 
-    def _ao_dispositivo_conectado(self):
+    def _ao_dispositivo_conectado(self) -> None:
         """Atualiza a UI para o estado conectado."""
         # Troca o ícone para um tick verde e para a animação
         self.icon_status.setIcon(qta.icon('fa5s.check-circle', color=Icones.COR_SUCESSO))
         self.label_status.setText("Conectado!")
         self.label_status.setStyleSheet(f"font-weight: bold; color: {Icones.COR_SUCESSO}; font-size: 16px;")
 
-    def _ao_clicar_copiar(self):
+    def _ao_clicar_copiar(self) -> None:
         """Copia a URL para a área de transferência."""
         url = self.label_endereco.text()
         if url and url != "Aguardando IP...":
             cb = QGuiApplication.clipboard()
-            cb.setText(url)
+            if cb:
+                cb.setText(url)
 
-    def _ao_clicar_encerrar(self):
+    def _ao_clicar_encerrar(self) -> None:
         self.solicitar_encerrar.emit()
         self.accept()
 
-    def _icon_para_base64(self, icon_base, icon_check, cor="#666", tamanho=24):
+    def _icon_para_base64(self, icon_base: str, icon_check: str, cor: str = "#666", tamanho: int = 24) -> str:
         """Converte um ícone composto para string Base64 para uso em HTML."""
         icon = qta.icon(icon_base, icon_check, options=[
             {'color': cor},
@@ -237,4 +239,5 @@ class DialogoConexaoCelular(QDialog):
         buffer = QBuffer()
         buffer.open(QIODevice.OpenModeFlag.WriteOnly)
         pixmap.save(buffer, "PNG")
-        return base64.b64encode(buffer.data().data()).decode()
+        return str(base64.b64encode(buffer.data().data()).decode())
+

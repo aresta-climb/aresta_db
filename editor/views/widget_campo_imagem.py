@@ -43,7 +43,8 @@ class DialogoNomeImagem(QDialog):
         pasta_imagens: Optional[Path] = None,
         imagens_em_memoria: Optional[Dict[str, bytes]] = None,
         parent: Optional[QWidget] = None,
-    ):
+    ) -> None:
+
         super().__init__(parent)
         self.setWindowTitle("Nome do Arquivo da Imagem")
         self.setModal(True)
@@ -70,7 +71,7 @@ class DialogoNomeImagem(QDialog):
 
         self._ao_alterar_nome(nome_sugerido)
 
-    def _ao_alterar_nome(self, texto: str):
+    def _ao_alterar_nome(self, texto: str) -> None:
         nome_sanitizado = sanitizar_nome_arquivo_imagem(texto)
         tem_conflito = verificar_conflito_nome_imagem(
             nome_sanitizado, self.pasta_imagens, self.imagens_em_memoria
@@ -83,7 +84,7 @@ class DialogoNomeImagem(QDialog):
     def obter_nome_escolhido(self) -> str:
         return sanitizar_nome_arquivo_imagem(self.input_nome.text())
 
-    def definir_nome(self, nome: str):
+    def definir_nome(self, nome: str) -> None:
         self.input_nome.setText(nome)
 
     def possui_conflito(self) -> bool:
@@ -104,11 +105,11 @@ class WidgetCampoImagem(QWidget):
         caminho_imagem: str = "",
         nome_arquivo_fixo: Optional[str] = None,
         parent: Optional[QWidget] = None,
-    ):
+    ) -> None:
         super().__init__(parent)
-        self.model = model
-        self._caminho_atual = caminho_imagem
-        self.nome_arquivo_fixo = nome_arquivo_fixo
+        self.model: Optional[CroquiModel] = model
+        self._caminho_atual: str = caminho_imagem
+        self.nome_arquivo_fixo: Optional[str] = nome_arquivo_fixo
 
         layout_principal = QVBoxLayout(self)
         layout_principal.setContentsMargins(0, 0, 0, 0)
@@ -166,11 +167,11 @@ class WidgetCampoImagem(QWidget):
     def obter_caminho_atual(self) -> str:
         return self._caminho_atual
 
-    def definir_caminho_atual(self, caminho: str):
+    def definir_caminho_atual(self, caminho: str) -> None:
         self._caminho_atual = caminho
         self.atualizar_visualizacao()
 
-    def atualizar_visualizacao(self):
+    def atualizar_visualizacao(self) -> None:
         if not self._caminho_atual:
             self.rotulo_preview.clear()
             self.rotulo_preview.setText("Sem Imagem")
@@ -209,7 +210,7 @@ class WidgetCampoImagem(QWidget):
             self.btn_remover.setEnabled(True)
             self.btn_abrir_editor.setEnabled(False)
 
-    def aplicar_nova_imagem(self, caminho_relativo: str, bytes_conteudo: bytes):
+    def aplicar_nova_imagem(self, caminho_relativo: str, bytes_conteudo: bytes) -> None:
         """Aplica os novos bytes da imagem na memória e atualiza o widget."""
         self._caminho_atual = caminho_relativo
         if self.model:
@@ -217,13 +218,13 @@ class WidgetCampoImagem(QWidget):
         self.atualizar_visualizacao()
         self.imagem_alterada.emit(caminho_relativo, bytes_conteudo)
 
-    def remover_imagem(self):
+    def remover_imagem(self) -> None:
         """Limpa o campo de imagem atual."""
         self._caminho_atual = ""
         self.atualizar_visualizacao()
         self.imagem_removida.emit()
 
-    def selecionar_e_trocar_imagem(self):
+    def selecionar_e_trocar_imagem(self) -> None:
         """Abre diálogo para seleção de imagem e processamento WebP em memória."""
         caminho_arquivo, _ = QFileDialog.getOpenFileName(
             self,
@@ -260,6 +261,7 @@ class WidgetCampoImagem(QWidget):
 
         self.aplicar_nova_imagem(caminho_relativo, bytes_webp)
 
-    def _ao_clicar_abrir_editor(self):
+    def _ao_clicar_abrir_editor(self) -> None:
         if self._caminho_atual:
             self.abrir_no_editor.emit(self._caminho_atual)
+

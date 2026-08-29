@@ -8,6 +8,7 @@ from PySide6.QtWidgets import (
     QFormLayout, QLineEdit
 )
 
+from typing import Optional, Dict, Any, Callable, List, Tuple
 import sys
 import io
 from PySide6.QtCore import Qt, Signal, QSize
@@ -22,22 +23,23 @@ from editor.views.estilo import Icones
 
 class StreamToCallback(io.TextIOBase):
     """Encaminha stdout para um callback em tempo real."""
-    def __init__(self, callback):
-        self.callback = callback
-    def write(self, s):
+    def __init__(self, callback: Callable[[str], None]) -> None:
+        self.callback: Callable[[str], None] = callback
+
+    def write(self, s: str) -> int:
         if s.strip():
             self.callback(s.strip())
         return len(s)
 
 class DialogoProgressoLog(QDialog):
     """Exibe o log de operações longas em tempo real."""
-    def __init__(self, titulo, parent=None):
+    def __init__(self, titulo: str, parent: Optional[QWidget] = None) -> None:
         super().__init__(parent)
         self.setWindowTitle(titulo)
         self.resize(800, 600)
         
         layout = QVBoxLayout(self)
-        self.log_view = QPlainTextEdit()
+        self.log_view: QPlainTextEdit = QPlainTextEdit()
         self.log_view.setReadOnly(True)
         self.log_view.setStyleSheet("""
             background-color: #1e1e1e; 
@@ -48,12 +50,13 @@ class DialogoProgressoLog(QDialog):
         """)
         layout.addWidget(self.log_view)
         
-        self.btn_fechar = QPushButton("Fechar")
+        self.btn_fechar: QPushButton = QPushButton("Fechar")
         self.btn_fechar.setEnabled(False)
         self.btn_fechar.clicked.connect(self.accept)
         layout.addWidget(self.btn_fechar)
+        self._in_log: bool = False
         
-    def adicionar_log(self, texto):
+    def adicionar_log(self, texto: str) -> None:
         if getattr(self, '_in_log', False):
             return
         self._in_log = True
@@ -68,9 +71,9 @@ class DialogoNovoCroqui(QDialog):
     """
     Diálogo para coletar metadados e gerar o ID do novo croqui com validação visual.
     """
-    def __init__(self, storage=None, parent=None):
+    def __init__(self, storage: Optional[Any] = None, parent: Optional[QWidget] = None) -> None:
         super().__init__(parent)
-        self.storage = storage
+        self.storage: Optional[Any] = storage
         self.setWindowTitle("Criar Novo Croqui")
         self.setMinimumWidth(500)
         
@@ -82,19 +85,19 @@ class DialogoNovoCroqui(QDialog):
         layout.addWidget(info_label)
         
         form_container = QGroupBox("Metadados do Pico")
-        self.form_layout = QFormLayout(form_container)
+        self.form_layout: QFormLayout = QFormLayout(form_container)
         self.form_layout.setSpacing(10)
         
-        self.edit_pico = QLineEdit()
+        self.edit_pico: QLineEdit = QLineEdit()
         self.edit_pico.setPlaceholderText("Ex: Pedra do Baú")
         self.edit_pico.setMaxLength(60)
-        self.edit_cidade = QLineEdit()
+        self.edit_cidade: QLineEdit = QLineEdit()
         self.edit_cidade.setPlaceholderText("Ex: São Bento do Sapucaí")
         self.edit_cidade.setMaxLength(60)
-        self.edit_estado = QLineEdit()
+        self.edit_estado: QLineEdit = QLineEdit()
         self.edit_estado.setPlaceholderText("Ex: SP")
         self.edit_estado.setMaxLength(2)
-        self.edit_pais = QLineEdit()
+        self.edit_pais: QLineEdit = QLineEdit()
         self.edit_pais.setPlaceholderText("Ex: BR")
         self.edit_pais.setText("BR")
         self.edit_pais.setMaxLength(2)
@@ -111,12 +114,12 @@ class DialogoNovoCroqui(QDialog):
         id_layout = QVBoxLayout(id_group)
         
         row_id = QHBoxLayout()
-        self.edit_id = QLineEdit()
+        self.edit_id: QLineEdit = QLineEdit()
         self.edit_id.setReadOnly(True)
         self.edit_id.setStyleSheet("background-color: #f1f3f5; color: #495057; font-family: monospace; font-weight: bold;")
         
-        self.icon_validacao = QLabel()
-        self.lbl_validacao = QLabel("Aguardando dados...")
+        self.icon_validacao: QLabel = QLabel()
+        self.lbl_validacao: QLabel = QLabel("Aguardando dados...")
         self.lbl_validacao.setStyleSheet("font-size: 11px;")
         
         row_id.addWidget(self.edit_id)
@@ -128,9 +131,9 @@ class DialogoNovoCroqui(QDialog):
         
         # Botões
         btn_layout = QHBoxLayout()
-        self.btn_cancelar = QPushButton("Cancelar")
+        self.btn_cancelar: QPushButton = QPushButton("Cancelar")
         self.btn_cancelar.clicked.connect(self.reject)
-        self.btn_criar = QPushButton("Criar Croqui")
+        self.btn_criar: QPushButton = QPushButton("Criar Croqui")
         self.btn_criar.setDefault(True)
         self.btn_criar.setEnabled(False)
         self.btn_criar.setStyleSheet("""
@@ -151,7 +154,7 @@ class DialogoNovoCroqui(QDialog):
         self.edit_estado.textChanged.connect(self.atualizar_id)
         self.edit_pais.textChanged.connect(self.atualizar_id)
         
-    def atualizar_id(self):
+    def atualizar_id(self) -> None:
         pico = self.edit_pico.text().strip()
         cidade = self.edit_cidade.text().strip()
         estado = self.edit_estado.text().strip()
@@ -196,7 +199,7 @@ class DialogoNovoCroqui(QDialog):
             self.icon_validacao.setPixmap(QApplication.style().standardIcon(QStyle.StandardPixmap.SP_DialogCancelButton).pixmap(16, 16))
             self.btn_criar.setEnabled(False)
 
-    def obter_dados(self):
+    def obter_dados(self) -> Dict[str, str]:
         return {
             "pico": self.edit_pico.text().strip(),
             "cidade": self.edit_cidade.text().strip(),
@@ -206,15 +209,14 @@ class DialogoNovoCroqui(QDialog):
         }
 
 class WidgetItemHistorico(QWidget):
-
     """
     Widget customizado para os itens da lista de histórico, exibindo metadados em múltiplas linhas.
     """
     excluir_clicado = Signal(str)
 
-    def __init__(self, dados, caminho_pasta, parent=None):
+    def __init__(self, dados: Dict[str, Any], caminho_pasta: str, parent: Optional[QWidget] = None) -> None:
         super().__init__(parent)
-        self.caminho_pasta = caminho_pasta
+        self.caminho_pasta: str = caminho_pasta
         
         main_layout = QHBoxLayout(self)
         main_layout.setContentsMargins(15, 4, 15, 4)
@@ -285,12 +287,12 @@ class TelaDeCarregamento(QDialog):
 
     solicitar_logout = Signal()
 
-    def __init__(self, storage=None, usuario="Autor Desconhecido", parent=None):
+    def __init__(self, storage: Optional[Any] = None, usuario: str = "Autor Desconhecido", parent: Optional[QWidget] = None) -> None:
         super().__init__(parent)
-        self.storage = storage
-        self.usuario = usuario
-        self.gerenciador = GerenciadorCroquiExperimental(storage) if storage else None
-        self.caminho_croqui_selecionado = None
+        self.storage: Optional[Any] = storage
+        self.usuario: str = usuario
+        self.gerenciador: Optional[GerenciadorCroquiExperimental] = GerenciadorCroquiExperimental(storage) if storage else None
+        self.caminho_croqui_selecionado: Optional[Path] = None
         self.setWindowTitle("Iniciar Editor Aresta")
         self.setMinimumSize(650, 600)
         self.resize(750, 700)
@@ -338,18 +340,18 @@ class TelaDeCarregamento(QDialog):
             }
         """)
 
-        self.layout_principal = QVBoxLayout(self)
+        self.layout_principal: QVBoxLayout = QVBoxLayout(self)
         self.layout_principal.setContentsMargins(20, 20, 20, 20)
         self.layout_principal.setSpacing(15)
         
         # 1. Topo: Grupo de Ações Principais
-        self.grupo_acoes = QGroupBox("Começar Novo Trabalho")
-        self.layout_acoes = QHBoxLayout(self.grupo_acoes)
+        self.grupo_acoes: QGroupBox = QGroupBox("Começar Novo Trabalho")
+        self.layout_acoes: QHBoxLayout = QHBoxLayout(self.grupo_acoes)
         self.layout_acoes.setSpacing(10)
         
-        self.btn_novo = QPushButton("Novo croqui")
-        self.btn_importar = QPushButton("Importar croqui experimental")
-        self.btn_oficial = QPushButton("Editar croqui oficial")
+        self.btn_novo: QPushButton = QPushButton("Novo croqui")
+        self.btn_importar: QPushButton = QPushButton("Importar croqui experimental")
+        self.btn_oficial: QPushButton = QPushButton("Editar croqui oficial")
         
         self.layout_acoes.addWidget(self.btn_novo)
         self.layout_acoes.addWidget(self.btn_importar)
@@ -358,11 +360,11 @@ class TelaDeCarregamento(QDialog):
         self.layout_principal.addWidget(self.grupo_acoes)
         
         # 2. Base: Histórico de Croquis Experimentais
-        self.grupo_historico = QGroupBox("Continuar Trabalho em Andamento")
-        self.layout_historico = QVBoxLayout(self.grupo_historico)
+        self.grupo_historico: QGroupBox = QGroupBox("Continuar Trabalho em Andamento")
+        self.layout_historico: QVBoxLayout = QVBoxLayout(self.grupo_historico)
         self.layout_historico.setContentsMargins(5, 20, 5, 5)
         
-        self.lista_croquis = QListWidget()
+        self.lista_croquis: QListWidget = QListWidget()
         self.lista_croquis.setSpacing(4)
         self.lista_croquis.setStyleSheet("""
             QListWidget {
@@ -389,7 +391,7 @@ class TelaDeCarregamento(QDialog):
         """)
         self.layout_historico.addWidget(self.lista_croquis)
         
-        self.label_historico_vazio = QLabel("Nenhum croqui no histórico")
+        self.label_historico_vazio: QLabel = QLabel("Nenhum croqui no histórico")
         self.label_historico_vazio.setObjectName("label_historico_vazio")
         self.label_historico_vazio.setAlignment(Qt.AlignmentFlag.AlignCenter)
         self.label_historico_vazio.setStyleSheet("color: #6c757d; font-style: italic; padding: 15px;")
@@ -400,14 +402,14 @@ class TelaDeCarregamento(QDialog):
         self.layout_principal.setStretch(1, 1) # Faz o histórico expandir
 
         # 3. Rodapé com Informações do Usuário e Botão Desconectar/Sair
-        self.layout_rodape = QHBoxLayout()
+        self.layout_rodape: QHBoxLayout = QHBoxLayout()
         self.layout_rodape.setContentsMargins(5, 5, 5, 0)
 
-        self.label_usuario_logado = QLabel(f"👤 Conectado como: <b>{self.usuario}</b>")
+        self.label_usuario_logado: QLabel = QLabel(f"👤 Conectado como: <b>{self.usuario}</b>")
         self.label_usuario_logado.setTextFormat(Qt.TextFormat.RichText)
         self.label_usuario_logado.setStyleSheet("color: #495057; font-size: 12px;")
 
-        self.btn_alterar_nome = QPushButton("Alterar Nome")
+        self.btn_alterar_nome: QPushButton = QPushButton("Alterar Nome")
         self.btn_alterar_nome.setCursor(Qt.CursorShape.PointingHandCursor)
         self.btn_alterar_nome.setFixedHeight(28)
         self.btn_alterar_nome.setStyleSheet("""
@@ -428,7 +430,7 @@ class TelaDeCarregamento(QDialog):
         """)
         self.btn_alterar_nome.clicked.connect(self.ao_clicar_alterar_nome)
 
-        self.btn_desconectar = QPushButton("Desconectar / Sair")
+        self.btn_desconectar: QPushButton = QPushButton("Desconectar / Sair")
         self.btn_desconectar.setCursor(Qt.CursorShape.PointingHandCursor)
         self.btn_desconectar.setFixedHeight(28)
         self.btn_desconectar.setStyleSheet("""
@@ -468,7 +470,7 @@ class TelaDeCarregamento(QDialog):
         else:
             self.atualizar_estado_vazio()
 
-    def ao_clicar_alterar_nome(self):
+    def ao_clicar_alterar_nome(self) -> None:
         """Abre o diálogo de identificação do autor para renomear e persiste a alteração."""
         from editor.views.dialogos.dialogo_perfil_autor import DialogoPerfilAutor
         from editor.core.gerenciador_sessao import GerenciadorSessao
@@ -491,7 +493,7 @@ class TelaDeCarregamento(QDialog):
                     except Exception:
                         pass
 
-    def ao_clicar_desconectar(self):
+    def ao_clicar_desconectar(self) -> None:
         """Confirma a saída e limpa os tokens/sessão salvos localmente."""
         resposta = QMessageBox.question(
             self,
@@ -507,7 +509,7 @@ class TelaDeCarregamento(QDialog):
             self.solicitar_logout.emit()
             self.reject()
 
-    def carregar_croquis(self):
+    def carregar_croquis(self) -> None:
         self.lista_croquis.clear()
         if not self.storage:
             self.atualizar_estado_vazio()
@@ -518,7 +520,7 @@ class TelaDeCarregamento(QDialog):
             self.atualizar_estado_vazio()
             return
             
-        lista_dados = []
+        lista_dados: List[Tuple[Path, Dict[str, Any]]] = []
         
         for pasta in caminho_croquis.iterdir():
             if pasta.is_dir():
@@ -526,7 +528,7 @@ class TelaDeCarregamento(QDialog):
                 nome_legivel = nome_pasta.replace("_", " ").title()
                 
                 # Tenta ler as datas e resumo do YAML de metadados experimentais
-                dados_historico = {
+                dados_historico: Dict[str, Any] = {
                     "nome": nome_legivel,
                     "id": nome_pasta,
                     "resumo": "",
@@ -594,7 +596,9 @@ class TelaDeCarregamento(QDialog):
         
         self.atualizar_estado_vazio()
 
-    def ao_clicar_excluir(self, caminho_str):
+    def ao_clicar_excluir(self, caminho_str: str) -> None:
+        if not self.gerenciador:
+            return
         caminho = Path(caminho_str)
         # Tenta pegar um nome legível para a confirmação
         partes = caminho.name.split("_", 1)
@@ -615,7 +619,9 @@ class TelaDeCarregamento(QDialog):
             except Exception as e:
                 QMessageBox.critical(self, "Erro", f"Falha ao excluir croqui: {e}")
 
-    def ao_clicar_novo(self):
+    def ao_clicar_novo(self) -> None:
+        if not self.gerenciador:
+            return
         dialogo = DialogoNovoCroqui(self.storage, self)
         if dialogo.exec() == QDialog.DialogCode.Accepted:
             metadados = dialogo.obter_dados()
@@ -644,8 +650,9 @@ class TelaDeCarregamento(QDialog):
                 sys.stdout = old_stdout
                 log_dialog.btn_fechar.setEnabled(True)
 
-
-    def ao_clicar_importar(self):
+    def ao_clicar_importar(self) -> None:
+        if not self.gerenciador:
+            return
         arquivo, _ = QFileDialog.getOpenFileName(
             self, "Importar Croqui", "", "Arquivos Aresta (*.croqui *.zip)"
         )
@@ -668,7 +675,9 @@ class TelaDeCarregamento(QDialog):
                 sys.stdout = old_stdout
                 log_dialog.btn_fechar.setEnabled(True)
 
-    def ao_clicar_oficial(self):
+    def ao_clicar_oficial(self) -> None:
+        if not self.gerenciador:
+            return
         dialogo = DialogoBuscaCroqui(self.storage, self)
         if dialogo.exec():
             id_oficial = dialogo.obter_id_selecionado()
@@ -698,7 +707,9 @@ class TelaDeCarregamento(QDialog):
                     sys.stdout = old_stdout
                     log_dialog.btn_fechar.setEnabled(True)
 
-    def ao_clicar_item(self, item):
+    def ao_clicar_item(self, item: QListWidgetItem) -> None:
+        if not self.gerenciador:
+            return
         caminho_str = item.data(Qt.ItemDataRole.UserRole)
         if caminho_str:
             caminho = Path(caminho_str)
@@ -709,7 +720,8 @@ class TelaDeCarregamento(QDialog):
             except Exception as e:
                 QMessageBox.critical(self, "Erro", f"Falha ao abrir croqui: {e}")
 
-    def atualizar_estado_vazio(self):
+    def atualizar_estado_vazio(self) -> None:
         tem_itens = self.lista_croquis.count() > 0
         self.lista_croquis.setVisible(tem_itens)
         self.label_historico_vazio.setVisible(not tem_itens)
+

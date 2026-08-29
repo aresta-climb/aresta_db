@@ -13,7 +13,8 @@ parent_dir = os.path.dirname(current_dir)
 if parent_dir not in sys.path:
     sys.path.insert(0, parent_dir)
 
-from PySide6.QtWidgets import QApplication, QMessageBox, QDialog
+from typing import Optional, Any, NoReturn
+from PySide6.QtWidgets import QApplication, QMessageBox, QDialog, QWidget
 from PySide6.QtCore import Qt, QSharedMemory
 from PySide6.QtGui import QIcon
 from pathlib import Path
@@ -32,16 +33,18 @@ except Exception:
     pass
 
 # Placeholder para o Client ID do GitHub (deve ser substituído por um real em produção)
-ID_CLIENTE_GITHUB = "Iv23li5kcnSYgMgEfvAC"
+ID_CLIENTE_GITHUB: str = "Iv23li5kcnSYgMgEfvAC"
 
 class ControladorAplicativo:
     """
     Controla o ciclo de vida da aplicação (Abertura -> Diálogo de Seleção -> Janela Principal).
     Permite a navegação de retorno da Janela Principal para a Seleção.
     """
-    def __init__(self):
-        self.app = QApplication.instance()
-        if not self.app:
+    def __init__(self) -> None:
+        inst = QApplication.instance()
+        if isinstance(inst, QApplication):
+            self.app: QApplication = inst
+        else:
             self.app = QApplication(sys.argv)
         self.app.setApplicationName("EditorAresta")
             
@@ -54,15 +57,17 @@ class ControladorAplicativo:
             self.app.setApplicationVersion(VERSION)
         except ImportError:
             pass
+
             
-        self.abertura = TelaDeAbertura()
-        self.janela_principal = None
-        self.tela_carregamento = None
-        self._logout_em_andamento = False
+        self.abertura: TelaDeAbertura = TelaDeAbertura()
+        self.janela_principal: Optional[Any] = None
+        self.tela_carregamento: Optional[TelaDeCarregamento] = None
+        self.tarefa: Optional[TarefaInicializacao] = None
+        self._logout_em_andamento: bool = False
 
         self.iniciar_inicializacao()
 
-    def iniciar_inicializacao(self):
+    def iniciar_inicializacao(self) -> None:
         """Inicia ou reinicia a tarefa de inicialização e sincronização."""
         self.tarefa = TarefaInicializacao(ID_CLIENTE_GITHUB)
         self.tarefa.status.connect(self.abertura.atualizar_status)
@@ -79,29 +84,31 @@ class ControladorAplicativo:
         self.abertura.show()
         self.tarefa.start()
 
-    def ao_login_concluido(self, sessao):
+    def ao_login_concluido(self, sessao: Optional[Any]) -> None:
         """Persiste a sessão e desbloqueia a tarefa de inicialização."""
-        if sessao:
+        if sessao and self.tarefa:
             print(f"💾 [Main] Salvando sessão de {sessao.nome_completo}...")
             self.tarefa.gerenciador_sessao.salvar_sessao(sessao)
             print("🚀 [Main] Desbloqueando thread de inicialização...")
             self.tarefa.definir_sessao_concluida(sessao)
 
-    def ao_login_cancelado(self):
+    def ao_login_cancelado(self) -> None:
         """Cancela a inicialização se o usuário desistir do login."""
         print("⚠️ [Main] Login cancelado pelo usuário.")
-        self.tarefa.definir_sessao_concluida(None)
+        if self.tarefa:
+            self.tarefa.definir_sessao_concluida(None)
 
-    def ao_detectar_atualizacao(self, resultado):
+    def ao_detectar_atualizacao(self, resultado: Any) -> None:
         """
         Exibe a notificação de atualização na Tela de Abertura e configura a ação de atualização.
         """
-        self.abertura.exibir_aviso_atualizacao(
-            resultado,
-            callback_atualizar=lambda: self.tarefa.servico_loja.solicitar_instalacao_atualizacao(resultado)
-        )
+        if self.tarefa:
+            self.abertura.exibir_aviso_atualizacao(
+                resultado,
+                callback_atualizar=lambda: self.tarefa.servico_loja.solicitar_instalacao_atualizacao(resultado) if self.tarefa else None
+            )
 
-    def executar_selecao(self):
+    def executar_selecao(self) -> None:
         """
         Exibe a Tela de Carregamento como um diálogo modal.
         """
@@ -113,6 +120,9 @@ class ControladorAplicativo:
         if self.janela_principal:
             self.janela_principal.close()
             self.janela_principal = None
+
+        if not self.tarefa:
+            return
 
         usuario = (
             self.tarefa.sessao_usuario.nome_completo
@@ -136,12 +146,12 @@ class ControladorAplicativo:
             print("👋 [Main] Aplicação encerrada pelo usuário a partir da TelaDeCarregamento.")
             QApplication.quit()
 
-    def ao_solicitar_logout(self):
+    def ao_solicitar_logout(self) -> None:
         """Reinicia a inicialização e exibe a Tela de Abertura para novo login."""
         self._logout_em_andamento = True
         self.iniciar_inicializacao()
 
-    def mostrar_janela_principal(self):
+    def mostrar_janela_principal(self) -> None:
         """
         Cria e exibe a Janela Principal do Editor.
         """
@@ -150,6 +160,8 @@ class ControladorAplicativo:
             
         from editor.core.workspace import ExperimentalWorkspace
         from editor.legacy_views.area_principal import JanelaPrincipal
+        if not self.tela_carregamento or not self.tela_carregamento.caminho_croqui_selecionado or not self.tarefa:
+            return
         workspace = ExperimentalWorkspace(self.tela_carregamento.caminho_croqui_selecionado)
         
         self.janela_principal = JanelaPrincipal(
@@ -161,7 +173,7 @@ class ControladorAplicativo:
         self.janela_principal.solicitar_abrir_novo.connect(self.executar_selecao)
         self.janela_principal.show()
 
-    def mostrar_erro(self, mensagem):
+    def mostrar_erro(self, mensagem: str) -> None:
         if self.abertura:
             self.abertura.hide()
         QMessageBox.critical(None, "Erro de Inicialização", mensagem)
@@ -169,17 +181,21 @@ class ControladorAplicativo:
             self.abertura.close()
         QApplication.quit()
 
-    def executar(self):
-        return self.app.exec()
+    def executar(self) -> int:
+        if self.app:
+            return int(self.app.exec())
+        return 0
 
-def main():
+def main() -> None:
     # Inicializa telemetria Sentry com sanitização universal de dados
     from editor.core.telemetria import inicializar_telemetria
     inicializar_telemetria()
 
     # Garante a instância global do QApplication
-    app = QApplication.instance()
-    if not app:
+    inst = QApplication.instance()
+    if isinstance(inst, QApplication):
+        app = inst
+    else:
         app = QApplication(sys.argv)
     app.setApplicationName("EditorAresta")
 
@@ -191,7 +207,7 @@ def main():
         QMessageBox.warning(None, "Aresta Editor", "O Aresta Editor já está em execução.")
         sys.exit(0)
     
-    app.shared_mem_lock = shared_mem
+    setattr(app, "shared_mem_lock", shared_mem)
 
     # Verificação de modo LocalRepo: sys.argv[1] começa apontando para algo com 'database'
     # E é de fato um diretório que contém croqui.yaml
@@ -229,6 +245,8 @@ def main():
     # Inicialização Padrão (Experimental Workspace com Autenticação e Sync)
     controlador = ControladorAplicativo()
     sys.exit(controlador.executar())
+
+
 
 if __name__ == "__main__":
     main()

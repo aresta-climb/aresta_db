@@ -1,3 +1,4 @@
+from typing import cast, Optional, Any, Callable, List, Dict, Set, Tuple, Union
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
@@ -25,7 +26,7 @@ import copy
 from google.protobuf.json_format import ParseDict
 from aresta_api.proto.generated import croqui_pb2
 
-def registrar_movimento_final(item, estado_inicial):
+def registrar_movimento_final(item: Any, estado_inicial: Optional[Dict[str, Any]]) -> None:
     estado_final = copy.deepcopy(item.obter_dict_atualizado())
     if estado_inicial and estado_inicial != estado_final:
         widget_editor = item.scene().widget_editor
@@ -51,7 +52,7 @@ def registrar_movimento_final(item, estado_inicial):
 
 
 class DialogoEdicaoPOI(QDialog):
-    def __init__(self, id_atual="", label_atual="", parent=None):
+    def __init__(self, id_atual: str = "", label_atual: str = "", parent: Optional[QWidget] = None) -> None:
         super().__init__(parent)
         self.setWindowTitle("Editar Ponto de Interesse")
         layout = QFormLayout(self)
@@ -69,51 +70,65 @@ class DialogoEdicaoPOI(QDialog):
         botoes.rejected.connect(self.reject)
         layout.addWidget(botoes)
         
-    def obter_valores(self):
+    def obter_valores(self) -> Tuple[str, str]:
         return self.input_id.text().strip(), self.input_label.text().strip()
 
 
 class BaseItemPOI:
     """Mixin base para itens de POI para compartilhar lógica comum."""
-    def configurar_comum(self, pt_dict, callback_mudanca):
+    inicializando: bool
+    pt_dict: Dict[str, Any]
+    callback_mudanca: Any
+    item_texto: QGraphicsTextItem
+    pen_poi: QPen
+    brush_poi: QBrush
+    clique_handler: Optional[Callable[[str], bool]]
+    
+    def obter_dict_atualizado(self) -> Dict[str, Any]:
+        raise NotImplementedError
+        
+    def setToolTip(self, text: str) -> None:
+        pass
+    def configurar_comum(self, pt_dict: Dict[str, Any], callback_mudanca: Any) -> None:
         self.inicializando = True
         self.pt_dict = pt_dict
         self.callback_mudanca = callback_mudanca
         
-        self.setFlag(QGraphicsRectItem.GraphicsItemFlag.ItemIsMovable, True)
-        self.setFlag(QGraphicsRectItem.GraphicsItemFlag.ItemIsSelectable, True)
-        self.setFlag(QGraphicsRectItem.GraphicsItemFlag.ItemSendsGeometryChanges, True)
+        cast_self = cast(Any, self)
+        cast_self.setFlag(QGraphicsRectItem.GraphicsItemFlag.ItemIsMovable, True)
+        cast_self.setFlag(QGraphicsRectItem.GraphicsItemFlag.ItemIsSelectable, True)
+        cast_self.setFlag(QGraphicsRectItem.GraphicsItemFlag.ItemSendsGeometryChanges, True)
         
         id_atual = pt_dict.get('id', '')
         label_atual = pt_dict.get('label', '')
         texto_exibicao = str(id_atual if id_atual else label_atual)
-        self.setToolTip(f"ID: {id_atual} | Label: {label_atual}")
+        cast(Any, self).setToolTip(f"ID: {id_atual} | Label: {label_atual}")
         
         # Estilo visual
-        self.pen = QPen(QColor(100, 255, 100))
-        self.pen.setWidth(2)
-        self.brush = QBrush(QColor(100, 255, 100, 60))
+        self.pen_poi = QPen(QColor(100, 255, 100))
+        self.pen_poi.setWidth(2)
+        self.brush_poi = QBrush(QColor(100, 255, 100, 60))
         
         # Texto
-        self.item_texto = QGraphicsTextItem(texto_exibicao, self)
+        self.item_texto = QGraphicsTextItem(texto_exibicao, cast(Any, self))
         self.item_texto.setDefaultTextColor(QColor(0, 0, 0))
         fonte = QFont("Arial", 14, QFont.Weight.Bold)
         self.item_texto.setFont(fonte)
         self.item_texto.setZValue(100)
 
-    def atualizar_pos_texto(self, x, y):
+    def atualizar_pos_texto(self, x: float, y: float) -> None:
         self.item_texto.setPos(x, y - 25)
 
-    def marcar_alterado(self):
+    def marcar_alterado(self) -> None:
         if getattr(self, 'inicializando', False):
             return
         if self.callback_mudanca:
             self.callback_mudanca()
 
-    def set_clique_handler(self, handler):
+    def set_clique_handler(self, handler: Any) -> None:
         self.clique_handler = handler
 
-    def tratar_menu_contexto(self, evento, callback_deletar, acoes_extras=None):
+    def tratar_menu_contexto(self, evento: Any, callback_deletar: Any, acoes_extras: Optional[List[Tuple[str, Callable[[], None]]]] = None) -> None:
         menu = QMenu()
         acao_renomear = menu.addAction("Renomear Ponto de Interesse")
         acao_deletar = menu.addAction("Deletar Ponto de Interesse")
@@ -158,7 +173,7 @@ class BaseItemPOI:
 
 class ItemBoundingRetangulo(QGraphicsRectItem, BaseItemPOI):
     """Representa visualmente uma área de interesse retangular no editor de mapas. Permite redimensionamento pelos cantos e rotação."""
-    def __init__(self, pt_dict, callback_deletar, callback_mudanca=None, callback_converter=None):
+    def __init__(self, pt_dict: Dict[str, Any], callback_deletar: Any, callback_mudanca: Optional[Any] = None, callback_converter: Optional[Any] = None) -> None:
         super().__init__()
         self.callback_deletar = callback_deletar
         self.callback_converter = callback_converter
@@ -170,13 +185,13 @@ class ItemBoundingRetangulo(QGraphicsRectItem, BaseItemPOI):
         self.setPos(box['x'] - w / 2, box['y'] - h / 2)
         self.setRotation(box.get('angulo_graus_x100', 0) / 100.0)
         
-        self.setPen(self.pen)
-        self.setBrush(self.brush)
+        self.setPen(self.pen_poi)
+        self.setBrush(self.brush_poi)
         self.setTransformOriginPoint(self.rect().center())
         self.atualizar_pos_texto(0, 0)
         self.inicializando = False
 
-    def carregar_de_dict(self, pt_dict):
+    def carregar_de_dict(self, pt_dict: Dict[str, Any]) -> None:
         self.inicializando = True
         self.pt_dict.update(pt_dict)
         box = self.pt_dict['retangulo']
@@ -189,18 +204,18 @@ class ItemBoundingRetangulo(QGraphicsRectItem, BaseItemPOI):
         id_atual = self.pt_dict.get('id', '')
         label_atual = self.pt_dict.get('label', '')
         self.item_texto.setPlainText(str(id_atual if id_atual else label_atual))
-        self.setToolTip(f"ID: {id_atual} | Label: {label_atual}")
+        cast(Any, self).setToolTip(f"ID: {id_atual} | Label: {label_atual}")
         self.inicializando = False
 
-    def contextMenuEvent(self, evento):
+    def contextMenuEvent(self, evento: Any) -> None:
         acoes_extras = []
         if getattr(self, 'callback_converter', None):
-            acoes_extras.append(("Converter para Círculo", lambda: self.callback_converter(self)))
+            acoes_extras.append(("Converter para Círculo", lambda: self.callback_converter(self) if self.callback_converter else None if self.callback_converter else None))
         self.tratar_menu_contexto(evento, self.callback_deletar, acoes_extras)
 
-    def mousePressEvent(self, evento):
-        if hasattr(self, 'clique_handler') and self.clique_handler:
-            if self.clique_handler(self.pt_dict.get('id')):
+    def mousePressEvent(self, evento: Any) -> None:
+        if hasattr(self, 'clique_handler') and getattr(self, 'clique_handler') and hasattr(self, 'pt_dict'):
+            if getattr(self, 'clique_handler')(getattr(self, 'pt_dict', {}).get('id')):
                 evento.accept()
                 return
         self._estado_inicial = copy.deepcopy(self.obter_dict_atualizado())
@@ -226,7 +241,7 @@ class ItemBoundingRetangulo(QGraphicsRectItem, BaseItemPOI):
         else:
             super().mousePressEvent(evento)
 
-    def mouseMoveEvent(self, evento):
+    def mouseMoveEvent(self, evento: Any) -> None:
         if hasattr(self, 'redimensionando') and self.redimensionando:
             mouse_cena = evento.scenePos()
             delta_cena = mouse_cena - self.centro_cena_inicio_redim
@@ -253,13 +268,13 @@ class ItemBoundingRetangulo(QGraphicsRectItem, BaseItemPOI):
         else:
             super().mouseMoveEvent(evento)
 
-    def mouseReleaseEvent(self, evento):
+    def mouseReleaseEvent(self, evento: Any) -> None:
         self.redimensionando = False
         self.rotacionando = False
         super().mouseReleaseEvent(evento)
         registrar_movimento_final(self, getattr(self, '_estado_inicial', None))
 
-    def itemChange(self, mudanca, valor):
+    def itemChange(self, mudanca: Any, valor: Any) -> Any:
         if mudanca == QGraphicsRectItem.GraphicsItemChange.ItemPositionChange:
             if self.scene():
                 return QPointF(round(valor.x()), round(valor.y()))
@@ -267,7 +282,7 @@ class ItemBoundingRetangulo(QGraphicsRectItem, BaseItemPOI):
             self.marcar_alterado()
         return super().itemChange(mudanca, valor)
 
-    def obter_dict_atualizado(self):
+    def obter_dict_atualizado(self) -> Dict[str, Any]:
         rect = self.rect()
         dados_box = {
             'x': int(round(self.x() + rect.width() / 2)),
@@ -290,7 +305,7 @@ class ItemBoundingRetangulo(QGraphicsRectItem, BaseItemPOI):
 
 class ItemBoundingQuadrado(QGraphicsRectItem, BaseItemPOI):
     """Representa visualmente uma área de interesse quadrada no editor de mapas. Mantém proporção 1:1 e permite redimensionamento preservando os eixos centrais."""
-    def __init__(self, pt_dict, callback_deletar, callback_mudanca=None, callback_converter=None):
+    def __init__(self, pt_dict: Dict[str, Any], callback_deletar: Any, callback_mudanca: Optional[Any] = None, callback_converter: Optional[Any] = None) -> None:
         super().__init__()
         self.callback_deletar = callback_deletar
         self.callback_converter = callback_converter
@@ -301,13 +316,13 @@ class ItemBoundingQuadrado(QGraphicsRectItem, BaseItemPOI):
         self.setRect(0, 0, lado, lado)
         self.setPos(box['x'] - lado / 2, box['y'] - lado / 2)
         
-        self.setPen(self.pen)
-        self.setBrush(self.brush)
+        self.setPen(self.pen_poi)
+        self.setBrush(self.brush_poi)
         self.setTransformOriginPoint(self.rect().center())
         self.atualizar_pos_texto(0, 0)
         self.inicializando = False
 
-    def carregar_de_dict(self, pt_dict):
+    def carregar_de_dict(self, pt_dict: Dict[str, Any]) -> None:
         self.inicializando = True
         self.pt_dict.update(pt_dict)
         box = self.pt_dict['quadrado']
@@ -319,18 +334,18 @@ class ItemBoundingQuadrado(QGraphicsRectItem, BaseItemPOI):
         id_atual = self.pt_dict.get('id', '')
         label_atual = self.pt_dict.get('label', '')
         self.item_texto.setPlainText(str(id_atual if id_atual else label_atual))
-        self.setToolTip(f"ID: {id_atual} | Label: {label_atual}")
+        cast(Any, self).setToolTip(f"ID: {id_atual} | Label: {label_atual}")
         self.inicializando = False
 
-    def contextMenuEvent(self, evento):
+    def contextMenuEvent(self, evento: Any) -> None:
         acoes_extras = []
         if getattr(self, 'callback_converter', None):
-            acoes_extras.append(("Converter para Círculo", lambda: self.callback_converter(self)))
+            acoes_extras.append(("Converter para Círculo", lambda: self.callback_converter(self) if self.callback_converter else None if self.callback_converter else None))
         self.tratar_menu_contexto(evento, self.callback_deletar, acoes_extras)
 
-    def mousePressEvent(self, evento):
-        if hasattr(self, 'clique_handler') and self.clique_handler:
-            if self.clique_handler(self.pt_dict.get('id')):
+    def mousePressEvent(self, evento: Any) -> None:
+        if hasattr(self, 'clique_handler') and getattr(self, 'clique_handler') and hasattr(self, 'pt_dict'):
+            if getattr(self, 'clique_handler')(getattr(self, 'pt_dict', {}).get('id')):
                 evento.accept()
                 return
         self._estado_inicial = copy.deepcopy(self.obter_dict_atualizado())
@@ -347,7 +362,7 @@ class ItemBoundingQuadrado(QGraphicsRectItem, BaseItemPOI):
         else:
             super().mousePressEvent(evento)
 
-    def mouseMoveEvent(self, evento):
+    def mouseMoveEvent(self, evento: Any) -> None:
         if hasattr(self, 'redimensionando') and self.redimensionando:
             mouse_cena = evento.scenePos()
             delta_cena = mouse_cena - self.centro_cena_inicio_redim
@@ -366,12 +381,12 @@ class ItemBoundingQuadrado(QGraphicsRectItem, BaseItemPOI):
         else:
             super().mouseMoveEvent(evento)
 
-    def mouseReleaseEvent(self, evento):
+    def mouseReleaseEvent(self, evento: Any) -> None:
         self.redimensionando = False
         super().mouseReleaseEvent(evento)
         registrar_movimento_final(self, getattr(self, '_estado_inicial', None))
 
-    def itemChange(self, mudanca, valor):
+    def itemChange(self, mudanca: Any, valor: Any) -> Any:
         if mudanca == QGraphicsRectItem.GraphicsItemChange.ItemPositionChange:
             if self.scene():
                 return QPointF(round(valor.x()), round(valor.y()))
@@ -379,7 +394,7 @@ class ItemBoundingQuadrado(QGraphicsRectItem, BaseItemPOI):
             self.marcar_alterado()
         return super().itemChange(mudanca, valor)
 
-    def obter_dict_atualizado(self):
+    def obter_dict_atualizado(self) -> Dict[str, Any]:
         rect = self.rect()
         dados_box = {
             'x': int(round(self.x() + rect.width() / 2)),
@@ -392,7 +407,7 @@ class ItemBoundingQuadrado(QGraphicsRectItem, BaseItemPOI):
 
 class ItemBoundingCirculo(QGraphicsEllipseItem, BaseItemPOI):
     """Representa visualmente uma área de interesse circular no editor de mapas. Trata redimensionamento radial a partir do centro."""
-    def __init__(self, pt_dict, callback_deletar, callback_mudanca=None, callback_converter=None):
+    def __init__(self, pt_dict: Dict[str, Any], callback_deletar: Any, callback_mudanca: Optional[Any] = None, callback_converter: Optional[Any] = None) -> None:
         super().__init__()
         self.callback_deletar = callback_deletar
         self.callback_converter = callback_converter
@@ -403,12 +418,12 @@ class ItemBoundingCirculo(QGraphicsEllipseItem, BaseItemPOI):
         self.setRect(-r, -r, 2 * r, 2 * r)
         self.setPos(circ['x'], circ['y'])
         
-        self.setPen(self.pen)
-        self.setBrush(self.brush)
+        self.setPen(self.pen_poi)
+        self.setBrush(self.brush_poi)
         self.atualizar_pos_texto(-r, -r)
         self.inicializando = False
 
-    def carregar_de_dict(self, pt_dict):
+    def carregar_de_dict(self, pt_dict: Dict[str, Any]) -> None:
         self.inicializando = True
         self.pt_dict.update(pt_dict)
         circ = self.pt_dict['circulo']
@@ -419,18 +434,18 @@ class ItemBoundingCirculo(QGraphicsEllipseItem, BaseItemPOI):
         id_atual = self.pt_dict.get('id', '')
         label_atual = self.pt_dict.get('label', '')
         self.item_texto.setPlainText(str(id_atual if id_atual else label_atual))
-        self.setToolTip(f"ID: {id_atual} | Label: {label_atual}")
+        cast(Any, self).setToolTip(f"ID: {id_atual} | Label: {label_atual}")
         self.inicializando = False
 
-    def contextMenuEvent(self, evento):
+    def contextMenuEvent(self, evento: Any) -> None:
         acoes_extras = []
         if getattr(self, 'callback_converter', None):
-            acoes_extras.append(("Converter para Retângulo", lambda: self.callback_converter(self)))
+            acoes_extras.append(("Converter para Retângulo", lambda: self.callback_converter(self) if self.callback_converter else None if self.callback_converter else None))
         self.tratar_menu_contexto(evento, self.callback_deletar, acoes_extras)
 
-    def mousePressEvent(self, evento):
-        if hasattr(self, 'clique_handler') and self.clique_handler:
-            if self.clique_handler(self.pt_dict.get('id')):
+    def mousePressEvent(self, evento: Any) -> None:
+        if hasattr(self, 'clique_handler') and getattr(self, 'clique_handler') and hasattr(self, 'pt_dict'):
+            if getattr(self, 'clique_handler')(getattr(self, 'pt_dict', {}).get('id')):
                 evento.accept()
                 return
         self._estado_inicial = copy.deepcopy(self.obter_dict_atualizado())
@@ -442,7 +457,7 @@ class ItemBoundingCirculo(QGraphicsEllipseItem, BaseItemPOI):
         else:
             super().mousePressEvent(evento)
 
-    def mouseMoveEvent(self, evento):
+    def mouseMoveEvent(self, evento: Any) -> None:
         if hasattr(self, 'redimensionando') and self.redimensionando:
             delta = evento.pos() - self.pos_inicio_redim
             r = max(5, round(self.rect_inicio_redim.width() / 2 + delta.x()))
@@ -452,12 +467,12 @@ class ItemBoundingCirculo(QGraphicsEllipseItem, BaseItemPOI):
         else:
             super().mouseMoveEvent(evento)
 
-    def mouseReleaseEvent(self, evento):
+    def mouseReleaseEvent(self, evento: Any) -> None:
         self.redimensionando = False
         super().mouseReleaseEvent(evento)
         registrar_movimento_final(self, getattr(self, '_estado_inicial', None))
 
-    def itemChange(self, mudanca, valor):
+    def itemChange(self, mudanca: Any, valor: Any) -> Any:
         if mudanca == QGraphicsEllipseItem.GraphicsItemChange.ItemPositionChange:
             if self.scene():
                 return QPointF(round(valor.x()), round(valor.y()))
@@ -465,7 +480,7 @@ class ItemBoundingCirculo(QGraphicsEllipseItem, BaseItemPOI):
             self.marcar_alterado()
         return super().itemChange(mudanca, valor)
 
-    def obter_dict_atualizado(self):
+    def obter_dict_atualizado(self) -> Dict[str, Any]:
         r = int(round(self.rect().width() / 2))
         self.pt_dict['circulo'] = {
             'x': int(round(self.x())),
@@ -476,7 +491,7 @@ class ItemBoundingCirculo(QGraphicsEllipseItem, BaseItemPOI):
 
 
 class AlcaVertice(QGraphicsEllipseItem):
-    def __init__(self, indice, pai):
+    def __init__(self, indice: int, pai: Any) -> None:
         super().__init__(-7, -7, 14, 14, pai)
         self.indice = indice
         self.item_pai = pai
@@ -488,7 +503,7 @@ class AlcaVertice(QGraphicsEllipseItem):
         self.setFlag(QGraphicsEllipseItem.GraphicsItemFlag.ItemSendsGeometryChanges)
         self.setCursor(Qt.CursorShape.PointingHandCursor)
 
-    def itemChange(self, mudanca, valor):
+    def itemChange(self, mudanca: Any, valor: Any) -> Any:
         if mudanca == QGraphicsEllipseItem.GraphicsItemChange.ItemPositionChange:
             if self.scene():
                 novo_valor = QPointF(round(valor.x()), round(valor.y()))
@@ -498,22 +513,22 @@ class AlcaVertice(QGraphicsEllipseItem):
                 self.item_pai.atualizar_ponto(self.indice, valor)
         return super().itemChange(mudanca, valor)
 
-    def mousePressEvent(self, evento):
-        if hasattr(self, 'clique_handler') and self.clique_handler:
-            if self.clique_handler(self.pt_dict.get('id')):
+    def mousePressEvent(self, evento: Any) -> None:
+        if hasattr(self, 'clique_handler') and getattr(self, 'clique_handler') and hasattr(self, 'pt_dict'):
+            if getattr(self, 'clique_handler')(getattr(self, 'pt_dict', {}).get('id')):
                 evento.accept()
                 return
         self.item_pai._estado_inicial = copy.deepcopy(self.item_pai.obter_dict_atualizado())
         super().mousePressEvent(evento)
 
-    def mouseReleaseEvent(self, evento):
+    def mouseReleaseEvent(self, evento: Any) -> None:
         super().mouseReleaseEvent(evento)
         registrar_movimento_final(self.item_pai, getattr(self.item_pai, '_estado_inicial', None))
 
 
 class ItemBoundingPoligono(QGraphicsPolygonItem, BaseItemPOI):
     """Representa visualmente uma área de interesse de polígono livre no editor de mapas. Permite adicionar e mover vértices (alças) individualmente."""
-    def __init__(self, pt_dict, callback_deletar, callback_mudanca=None):
+    def __init__(self, pt_dict: Dict[str, Any], callback_deletar: Any, callback_mudanca: Optional[Any] = None) -> None:
         super().__init__()
         self.callback_deletar = callback_deletar
         self.configurar_comum(pt_dict, callback_mudanca)
@@ -523,12 +538,12 @@ class ItemBoundingPoligono(QGraphicsPolygonItem, BaseItemPOI):
         
         self.setPolygon(QPolygonF(self.pontos))
         # Estilo azul para Área Livre
-        self.pen = QPen(QColor(100, 100, 255))
-        self.pen.setWidth(2)
-        self.brush = QBrush(QColor(100, 100, 255, 60))
+        self.pen_poi = QPen(QColor(100, 100, 255))
+        self.pen_poi.setWidth(2)
+        self.brush_poi = QBrush(QColor(100, 100, 255, 60))
         
-        self.setPen(self.pen)
-        self.setBrush(self.brush)
+        self.setPen(self.pen_poi)
+        self.setBrush(self.brush_poi)
         
         self.redimensionando = False
         self.rotacionando = False
@@ -542,7 +557,7 @@ class ItemBoundingPoligono(QGraphicsPolygonItem, BaseItemPOI):
         self.atualizar_posicao_texto()
         self.inicializando = False
 
-    def carregar_de_dict(self, pt_dict):
+    def carregar_de_dict(self, pt_dict: Dict[str, Any]) -> None:
         self.inicializando = True
         self.pt_dict.update(pt_dict)
         coords = self.pt_dict['poligono']['coordenadas']
@@ -563,34 +578,34 @@ class ItemBoundingPoligono(QGraphicsPolygonItem, BaseItemPOI):
         id_atual = self.pt_dict.get('id', '')
         label_atual = self.pt_dict.get('label', '')
         self.item_texto.setPlainText(str(id_atual if id_atual else label_atual))
-        self.setToolTip(f"ID: {id_atual} | Label: {label_atual}")
+        cast(Any, self).setToolTip(f"ID: {id_atual} | Label: {label_atual}")
         self.inicializando = False
 
-    def atualizar_ponto(self, indice, pos):
+    def atualizar_ponto(self, indice: int, pos: QPointF) -> None:
         self.pontos[indice] = pos
         self.setPolygon(QPolygonF(self.pontos))
         self.atualizar_posicao_texto()
         self.marcar_alterado()
 
-    def mousePressEvent(self, evento):
-        if hasattr(self, 'clique_handler') and self.clique_handler:
-            if self.clique_handler(self.pt_dict.get('id')):
+    def mousePressEvent(self, evento: Any) -> None:
+        if hasattr(self, 'clique_handler') and getattr(self, 'clique_handler') and hasattr(self, 'pt_dict'):
+            if getattr(self, 'clique_handler')(getattr(self, 'pt_dict', {}).get('id')):
                 evento.accept()
                 return
         self._estado_inicial = copy.deepcopy(self.obter_dict_atualizado())
         super().mousePressEvent(evento)
 
-    def mouseReleaseEvent(self, evento):
+    def mouseReleaseEvent(self, evento: Any) -> None:
         super().mouseReleaseEvent(evento)
         registrar_movimento_final(self, getattr(self, '_estado_inicial', None))
 
-    def atualizar_posicao_texto(self):
+    def atualizar_posicao_texto(self) -> None:
         if not self.pontos: return
         min_x = min(p.x() for p in self.pontos)
         min_y = min(p.y() for p in self.pontos)
         self.atualizar_pos_texto(min_x, min_y)
 
-    def itemChange(self, mudanca, valor):
+    def itemChange(self, mudanca: Any, valor: Any) -> Any:
         if mudanca == QGraphicsPolygonItem.GraphicsItemChange.ItemPositionChange:
             if self.scene():
                 return QPointF(round(valor.x()), round(valor.y()))
@@ -598,7 +613,7 @@ class ItemBoundingPoligono(QGraphicsPolygonItem, BaseItemPOI):
             self.marcar_alterado()
         return super().itemChange(mudanca, valor)
 
-    def contextMenuEvent(self, evento):
+    def contextMenuEvent(self, evento: Any) -> None:
         menu = QMenu()
         acao_renomear = menu.addAction("Renomear Ponto de Interesse")
         acao_deletar = menu.addAction("Deletar Ponto de Interesse")
@@ -628,7 +643,7 @@ class ItemBoundingPoligono(QGraphicsPolygonItem, BaseItemPOI):
             self.atualizar_posicao_texto()
             self.marcar_alterado()
 
-    def obter_dict_atualizado(self):
+    def obter_dict_atualizado(self) -> Dict[str, Any]:
         pos = self.pos()
         coords = []
         for p in self.pontos:
@@ -639,28 +654,28 @@ class ItemBoundingPoligono(QGraphicsPolygonItem, BaseItemPOI):
 
 
 class VisualizadorMapa(QGraphicsView):
-    def __init__(self):
+    def __init__(self) -> None:
         super().__init__()
         # Desabilita o drag nativo para implementarmos o customizado que não conflita com os POIs
         self.setDragMode(QGraphicsView.DragMode.NoDrag)
         self.setTransformationAnchor(QGraphicsView.ViewportAnchor.AnchorUnderMouse)
         self.setResizeAnchor(QGraphicsView.ViewportAnchor.AnchorViewCenter)
         
-        self._arrastando_mapa = False
-        self._posicao_inicial_mouse = None
-        self._posicao_inicial_scroll = None
+        self._arrastando_mapa: bool = False
+        self._posicao_inicial_mouse: Optional[Any] = None
+        self._posicao_inicial_scroll: Optional[Any] = None
         
         # Ativa o tracking de mouse para o cursor de mão aberta (hover)
         self.setMouseTracking(True)
         self.viewport().setMouseTracking(True)
 
-    def wheelEvent(self, evento):
+    def wheelEvent(self, evento: Any) -> None:
         if evento.angleDelta().y() > 0:
             self.scale(1.15, 1.15)
         else:
             self.scale(1/1.15, 1/1.15)
 
-    def keyPressEvent(self, evento):
+    def keyPressEvent(self, evento: Any) -> None:
         if evento.key() in (Qt.Key.Key_Delete, Qt.Key.Key_Backspace):
             cena = self.scene()
             if cena:
@@ -674,7 +689,7 @@ class VisualizadorMapa(QGraphicsView):
                     return
         super().keyPressEvent(evento)
 
-    def mousePressEvent(self, evento):
+    def mousePressEvent(self, evento: Any) -> None:
         # Apenas arrasta se não houver item e for botão esquerdo, 
         # E se não estivermos no modo de desenho/conversão (que usam cross cursor)
         cursor_atual = self.cursor().shape()
@@ -694,13 +709,14 @@ class VisualizadorMapa(QGraphicsView):
             
         super().mousePressEvent(evento)
 
-    def mouseMoveEvent(self, evento):
+    def mouseMoveEvent(self, evento: Any) -> None:
         cursor_atual = self.cursor().shape()
         
         if self._arrastando_mapa:
-            delta = evento.pos() - self._posicao_inicial_mouse
-            self.horizontalScrollBar().setValue(self._posicao_inicial_scroll.x() - delta.x())
-            self.verticalScrollBar().setValue(self._posicao_inicial_scroll.y() - delta.y())
+            if self._posicao_inicial_mouse is not None and self._posicao_inicial_scroll is not None:
+                delta = evento.pos() - self._posicao_inicial_mouse
+                self.horizontalScrollBar().setValue(self._posicao_inicial_scroll.x() - delta.x())
+                self.verticalScrollBar().setValue(self._posicao_inicial_scroll.y() - delta.y())
             evento.accept()
             return
             
@@ -714,7 +730,7 @@ class VisualizadorMapa(QGraphicsView):
             else:
                 self.unsetCursor()
 
-    def mouseReleaseEvent(self, evento):
+    def mouseReleaseEvent(self, evento: Any) -> None:
         if self._arrastando_mapa and evento.button() == Qt.MouseButton.LeftButton:
             self._arrastando_mapa = False
             self.setCursor(Qt.CursorShape.OpenHandCursor)
@@ -723,23 +739,23 @@ class VisualizadorMapa(QGraphicsView):
             
         super().mouseReleaseEvent(evento)
 
-    def leaveEvent(self, evento):
+    def leaveEvent(self, evento: Any) -> None:
         cursor_atual = self.cursor().shape()
         if cursor_atual != Qt.CursorShape.CrossCursor:
             self.unsetCursor()
         super().leaveEvent(evento)
 
 class CenaDesenho(QGraphicsScene):
-    def __init__(self, widget_editor):
+    def __init__(self, widget_editor: Any) -> None:
         super().__init__()
         self.widget_editor = widget_editor
-        self.item_selecao = None
+        self.item_selecao: Optional[QGraphicsRectItem] = None
         # Alias para compatibilidade com testes antigos
-        self.selection_item = None
+        self.selection_item: Optional[QGraphicsRectItem] = None
 
-    def mousePressEvent(self, evento):
-        if hasattr(self, 'clique_handler') and self.clique_handler:
-            if self.clique_handler(self.pt_dict.get('id')):
+    def mousePressEvent(self, evento: Any) -> None:
+        if hasattr(self, 'clique_handler') and getattr(self, 'clique_handler') and hasattr(self, 'pt_dict'):
+            if getattr(self, 'clique_handler')(getattr(self, 'pt_dict', {}).get('id')):
                 evento.accept()
                 return
         if self.widget_editor.drawing_mode:
@@ -752,16 +768,17 @@ class CenaDesenho(QGraphicsScene):
         elif self.widget_editor.convert_mode:
             if evento.button() == Qt.MouseButton.LeftButton:
                 self.widget_editor.selection_origin = evento.scenePos()
-                self.item_selecao = QGraphicsRectItem()
-                self.selection_item = self.item_selecao # Alias
-                self.item_selecao.setPen(QPen(QColor(255, 165, 0), 2, Qt.PenStyle.DashLine))
-                self.item_selecao.setBrush(QBrush(QColor(255, 165, 0, 40)))
-                self.addItem(self.item_selecao)
+                item_sel = QGraphicsRectItem()
+                self.item_selecao = item_sel
+                self.selection_item = item_sel # Alias
+                item_sel.setPen(QPen(QColor(255, 165, 0), 2, Qt.PenStyle.DashLine))
+                item_sel.setBrush(QBrush(QColor(255, 165, 0, 40)))
+                self.addItem(item_sel)
                 evento.accept()
         else:
             super().mousePressEvent(evento)
 
-    def mouseMoveEvent(self, evento):
+    def mouseMoveEvent(self, evento: Any) -> None:
         if self.widget_editor.convert_mode and self.item_selecao:
             rect = QRectF(self.widget_editor.selection_origin, evento.scenePos()).normalized()
             self.item_selecao.setRect(rect)
@@ -769,7 +786,7 @@ class CenaDesenho(QGraphicsScene):
         else:
             super().mouseMoveEvent(evento)
 
-    def mouseReleaseEvent(self, evento):
+    def mouseReleaseEvent(self, evento: Any) -> None:
         if self.widget_editor.convert_mode and self.item_selecao:
             rect = self.item_selecao.rect()
             self.removeItem(self.item_selecao)
@@ -785,27 +802,35 @@ class CenaDesenho(QGraphicsScene):
 class WidgetEditorMapas(QWidget):
     alterado = Signal(bool)
     
-    def __init__(self, mapas_controller=None, parent=None, standalone=False, croqui_model=None, croqui_controller=None):
+    def __init__(self, mapas_controller: Optional[Any] = None, parent: Optional[QWidget] = None, standalone: bool = False, croqui_model: Optional[Any] = None, croqui_controller: Optional[Any] = None) -> None:
         super().__init__(parent)
         self.standalone = standalone
         self.mapas_controller = mapas_controller
         self.croqui_model = croqui_model or (getattr(mapas_controller, "model", None))
         self.croqui_controller = croqui_controller or (getattr(mapas_controller, "croqui_controller", None))
-        self.msg_mapa_proxy = None
-        self.itens_poi = {} # idx_poi -> QGraphicsItem
-        
-        self.dados_arquivos = {}
-        self.esta_modificado = False
-        self.bulk_base_dims = {}
-        
-        self.modo_desenho = False
-        self.pontos_desenho = []
-        self.item_desenho_temp = None
-        self.alcas_desenho_temp = []
-        
-        self.modo_conversao = False
-        self.origem_selecao = None
-        self.dados_atuais = None
+        self.msg_mapa_proxy: Optional[Any] = None
+        self.itens_poi: Dict[Any, Any] = {}
+        self.dados_arquivos: Dict[Any, Any] = {}
+        self.esta_modificado: bool = False
+        self.bulk_base_dims: Dict[Any, Any] = {}
+        self.bulk_tipo_ativo: Optional[str] = None
+        self.modo_desenho: bool = False
+        self.pontos_desenho: List[QPointF] = []
+        self.item_desenho_temp: Optional[Any] = None
+        self.alcas_desenho_temp: List[Any] = []
+        self.path_desenho_temp: Optional[QGraphicsPathItem] = None
+        self.modo_conversao: bool = False
+        self.origem_selecao: Optional[QPointF] = None
+        self.item_selecao_conversao: Optional[QGraphicsRectItem] = None
+        self.dados_atuais: Optional[Dict[str, Any]] = None
+        self.pico_idx: Optional[int] = -1
+        self.sg_idx: Optional[int] = -1
+        self.mapa_idx: Optional[int] = -1
+        self.s_idx: Optional[int] = -1
+        self.item_hover_camera_overlay: Optional[Any] = None
+        self.item_camera_overlay: Optional[Any] = None
+        self.referencia_linkagem_ativa: Optional[Any] = None
+        self.idx_referencia_linkagem: int = -1
 
         self._setup_ui()
         
@@ -844,28 +869,28 @@ class WidgetEditorMapas(QWidget):
         # Removido o carregamento automatico de pasta legada
 
     @property
-    def convert_mode(self): return self.modo_conversao
+    def convert_mode(self) -> bool: return self.modo_conversao
     @convert_mode.setter
-    def convert_mode(self, v): self.modo_conversao = v
+    def convert_mode(self, v: bool) -> None: self.modo_conversao = v
     
     @property
-    def drawing_mode(self): return self.modo_desenho
+    def drawing_mode(self) -> bool: return self.modo_desenho
     @drawing_mode.setter
-    def drawing_mode(self, v): self.modo_desenho = v
+    def drawing_mode(self, v: bool) -> None: self.modo_desenho = v
     
     @property
-    def selection_origin(self): return self.origem_selecao
+    def selection_origin(self) -> Optional[QPointF]: return self.origem_selecao
     @selection_origin.setter
-    def selection_origin(self, v): self.origem_selecao = v
+    def selection_origin(self, v: Optional[QPointF]) -> None: self.origem_selecao = v
 
     # Aliases de compatibilidade para suporte a scripts/editar_mapas_test.py
-    def add_drawing_point(self, pos): 
+    def add_drawing_point(self, pos: QPointF) -> None: 
         return self.adicionar_ponto_desenho(pos)
     
-    def finish_conversion_area(self, rect):
+    def finish_conversion_area(self, rect: QRectF) -> None:
         return self.finalizar_area_conversao(rect)
 
-    def _setup_ui(self):
+    def _setup_ui(self) -> None:
         layout_principal = QHBoxLayout(self)
         layout_principal.setContentsMargins(0, 0, 0, 0)
         layout_principal.setSpacing(0)
@@ -1046,7 +1071,7 @@ class WidgetEditorMapas(QWidget):
         self.painel_referencias.salvar_modo_camera.connect(self.salvar_ajuste_camera)
         self.painel_referencias.remover_ajuste_camera.connect(self.remover_ajuste_camera)
 
-    def configurar_lista_mapas(self):
+    def configurar_lista_mapas(self) -> None:
         """Conecta o modelo reativo e preenche a lista."""
         if not self.mapas_controller or not self.mapas_controller.model:
             return
@@ -1058,7 +1083,7 @@ class WidgetEditorMapas(QWidget):
         
         self._atualizar_lista_mapas()
         
-    def _atualizar_lista_mapas(self, *args):
+    def _atualizar_lista_mapas(self, *args: Any) -> None:
         """Reconstrói a lista lendo do CroquiModel."""
         if len(args) >= 2 and args[1] in ('referencias', 'pontos_de_interesse'):
             return
@@ -1122,13 +1147,13 @@ class WidgetEditorMapas(QWidget):
                     self.list_widget.setCurrentItem(item)
                     self.list_widget.blockSignals(False)
                     break
-        elif hasattr(self, 'pico_idx') and self.pico_idx >= 0 and self.sg_idx >= 0 and self.mapa_idx >= 0:
+        elif hasattr(self, 'pico_idx') and self.pico_idx is not None and self.pico_idx >= 0 and self.sg_idx is not None and self.sg_idx >= 0 and self.mapa_idx is not None and self.mapa_idx >= 0 and getattr(self, 's_idx', -1) is not None:
             self.list_widget.blockSignals(True)
             s_idx = getattr(self, 's_idx', -1)
-            self.selecionar_mapa_por_indices(self.pico_idx, self.sg_idx, self.mapa_idx, s_idx)
+            self.selecionar_mapa_por_indices(self.pico_idx, self.sg_idx, self.mapa_idx, s_idx if s_idx is not None else -1)
             self.list_widget.blockSignals(False)
                     
-    def _on_mapa_selecionado(self):
+    def _on_mapa_selecionado(self) -> None:
         item = self.list_widget.currentItem()
         if not item: return
         
@@ -1165,7 +1190,7 @@ class WidgetEditorMapas(QWidget):
         except IndexError:
             pass # Prevenção de falhas de sincronia na deleção
 
-    def selecionar_mapa_por_indices(self, pico_idx, grupo_idx, mapa_idx, s_idx=-1):
+    def selecionar_mapa_por_indices(self, pico_idx: Optional[int] = None, grupo_idx: Optional[int] = None, mapa_idx: Optional[int] = None, s_idx: Optional[int] = -1) -> bool:
         """Seleciona visualmente o mapa na lista dado os seus índices, disparando a atualização da tela."""
         for i in range(self.list_widget.count()):
             item = self.list_widget.item(i)
@@ -1182,7 +1207,7 @@ class WidgetEditorMapas(QWidget):
                     return True
         return False
 
-    def set_mapa_atual(self, msg_mapa_proxy, pico_idx=-1, grupo_idx=-1, mapa_idx=-1, s_idx=-1, tipo='setor'):
+    def set_mapa_atual(self, msg_mapa_proxy: Any, pico_idx: Optional[int] = -1, grupo_idx: Optional[int] = -1, mapa_idx: Optional[int] = -1, s_idx: Optional[int] = -1, tipo: str = 'setor') -> None:
         """Define o mapa atual para exibição na view, limpando a cena."""
         self.msg_mapa_proxy = msg_mapa_proxy
         self.pico_idx = pico_idx
@@ -1202,7 +1227,7 @@ class WidgetEditorMapas(QWidget):
         
         # Conectar sinais do Model caso haja um MapasController com o Model (necessário para reatividade)
         if self.mapas_controller and self.mapas_controller.model:
-            if hasattr(self.mapas_controller, 'set_contexto') and pico_idx >= 0 and mapa_idx >= 0:
+            if hasattr(self.mapas_controller, 'set_contexto') and pico_idx is not None and pico_idx >= 0 and mapa_idx is not None and mapa_idx >= 0:
                 if tipo == 'grupo':
                     path = f"page:mapas/node:Croqui/expando:picos/item:{pico_idx}/expando:setores_ou_grupos/item:{grupo_idx}/expando:grupo/expando:mapas/item:{mapa_idx}"
                 elif tipo == 'subsetor':
@@ -1212,26 +1237,26 @@ class WidgetEditorMapas(QWidget):
                 self.mapas_controller.set_contexto(path)
                 
             model = self.mapas_controller.model
-            if getattr(self, "_model_repeated_conectado", None) is not model:
+            if model and getattr(self, "_model_repeated_conectado", None) is not model:
                 if getattr(self, "_model_repeated_conectado", None) is not None:
                     try:
-                        self._model_repeated_conectado.repeated_item_alterado.disconnect(self._on_repeated_item_alterado)
-                        self._model_repeated_conectado.repeated_adicionado.disconnect(self._on_repeated_adicionado)
-                        self._model_repeated_conectado.repeated_removido.disconnect(self._on_repeated_removido)
+                        cast(Any, self._model_repeated_conectado).repeated_item_alterado.disconnect(self._on_repeated_item_alterado)
+                        cast(Any, self._model_repeated_conectado).repeated_adicionado.disconnect(self._on_repeated_adicionado)
+                        cast(Any, self._model_repeated_conectado).repeated_removido.disconnect(self._on_repeated_removido)
                     except Exception:
                         pass
                 if hasattr(model, "repeated_item_alterado"):
-                    model.repeated_item_alterado.connect(self._on_repeated_item_alterado)
+                    cast(Any, model).repeated_item_alterado.connect(self._on_repeated_item_alterado)
                 if hasattr(model, "repeated_adicionado"):
-                    model.repeated_adicionado.connect(self._on_repeated_adicionado)
+                    cast(Any, model).repeated_adicionado.connect(self._on_repeated_adicionado)
                 if hasattr(model, "repeated_removido"):
-                    model.repeated_removido.connect(self._on_repeated_removido)
+                    cast(Any, model).repeated_removido.connect(self._on_repeated_removido)
                 self._model_repeated_conectado = model
             
         self.painel_referencias.carregar_mapa(msg_mapa_proxy)
         self._renderizar_mapa(reset_zoom=True)
 
-    def carregar_mapa(self, msg_mapa_proxy, reset_zoom=True):
+    def carregar_mapa(self, msg_mapa_proxy: Any, reset_zoom: bool = True) -> None:
         """Carrega e renderiza o mapa a partir do objeto ou proxy de mapa."""
         self.msg_mapa_proxy = msg_mapa_proxy
         if not self.dados_atuais:
@@ -1242,7 +1267,7 @@ class WidgetEditorMapas(QWidget):
         self.painel_referencias.carregar_mapa(msg_mapa_proxy)
         self._renderizar_mapa(reset_zoom=reset_zoom)
         
-    def _renderizar_mapa(self, reset_zoom=True):
+    def _renderizar_mapa(self, reset_zoom: bool = True) -> None:
         """Lê a mensagem Protobuf e renderiza a cena inteira."""
         if not self.msg_mapa_proxy:
             self.visualizador.setScene(None)
@@ -1254,6 +1279,8 @@ class WidgetEditorMapas(QWidget):
         old_v_scroll = self.visualizador.verticalScrollBar().value()
         
         self.label_placeholder.hide()
+        if not self.dados_atuais:
+            return
         dados = self.dados_atuais
         cena = dados['cena']
         cena.clear()
@@ -1312,23 +1339,23 @@ class WidgetEditorMapas(QWidget):
         if getattr(self, 'pico_idx', -1) >= 0 and getattr(self, 'sg_idx', -1) >= 0 and getattr(self, 'mapa_idx', -1) >= 0:
             self.list_widget.blockSignals(True)
             s_idx = getattr(self, 's_idx', -1)
-            self.selecionar_mapa_por_indices(self.pico_idx, self.sg_idx, self.mapa_idx, s_idx)
+            self.selecionar_mapa_por_indices(self.pico_idx, self.sg_idx, self.mapa_idx, s_idx if s_idx is not None else -1)
             self.list_widget.blockSignals(False)
-    def _adicionar_item_cena(self, poi, index, cena):
+    def _adicionar_item_cena(self, poi: Any, index: int, cena: Any) -> None:
         # Transforma mensagem protobuf em dicionário genérico para os itens gráficos legacy
         from google.protobuf.json_format import MessageToDict
         pt_dict = MessageToDict(poi, preserving_proto_field_name=True)
         
-        def cb_deletar(item):
+        def cb_deletar(item: Any) -> None:
             self.deletar_item_poi(item)
             
-        def cb_converter(item):
+        def cb_converter(item: Any) -> None:
             self.converter_item_para_circulo(item)
             
-        def cb_converter_retangulo(item):
+        def cb_converter_retangulo(item: Any) -> None:
             self.converter_item_para_retangulo(item)
             
-        item_visual = None
+        item_visual: Optional[Any] = None
         if poi.HasField('retangulo'):
             item_visual = ItemBoundingRetangulo(pt_dict, cb_deletar, callback_converter=cb_converter)
         elif poi.HasField('circulo'):
@@ -1340,9 +1367,10 @@ class WidgetEditorMapas(QWidget):
             item_visual.set_clique_handler(self.tratar_clique_poi_linkagem)
             cena.addItem(item_visual)
             self.itens_poi[index] = item_visual
-            self.dados_atuais['itens_bb'].append(item_visual)
+            if self.dados_atuais:
+                self.dados_atuais['itens_bb'].append(item_visual)
 
-    def substituir_imagem_mapa(self):
+    def substituir_imagem_mapa(self) -> None:
         """Abre diálogo para substituir a imagem de fundo do mapa atual com pré-processamento WebP."""
         if not self.msg_mapa_proxy:
             return
@@ -1381,7 +1409,7 @@ class WidgetEditorMapas(QWidget):
 
         self.carregar_mapa(self.msg_mapa_proxy, reset_zoom=False)
 
-    def abrir_no_editor_imagens(self):
+    def abrir_no_editor_imagens(self) -> None:
         """Abre e foca a imagem do mapa atual no Editor de Imagens."""
         if not self.msg_mapa_proxy:
             return
@@ -1400,7 +1428,7 @@ class WidgetEditorMapas(QWidget):
         elif self.croqui_model and hasattr(self.croqui_model, "foco_requisitado"):
             self.croqui_model.foco_requisitado.emit(contexto_uri)
 
-    def _on_imagem_alterada(self, caminho_relativo: str):
+    def _on_imagem_alterada(self, caminho_relativo: str) -> None:
         """Recarrega a cena do mapa quando a imagem correspondente for alterada em outra área."""
         if self.msg_mapa_proxy and hasattr(self.msg_mapa_proxy, "caminho_imagem_mapa"):
             from pathlib import Path
@@ -1409,7 +1437,7 @@ class WidgetEditorMapas(QWidget):
             if caminho_atual == caminho_alt or Path(caminho_atual).name == Path(caminho_alt).name:
                 self.carregar_mapa(self.msg_mapa_proxy, reset_zoom=False)
 
-    def adicionar_poi(self, tipo):
+    def adicionar_poi(self, tipo: str) -> None:
         if not self.dados_atuais or not self.mapas_controller: return
         
         if tipo == 'poligono':
@@ -1439,7 +1467,7 @@ class WidgetEditorMapas(QWidget):
             
             self.mapas_controller.adicionar_poi(self.msg_mapa_proxy, novo_poi)
 
-    def deletar_item_poi(self, item):
+    def deletar_item_poi(self, item: Any) -> None:
         if not self.mapas_controller: return
         
         idx_poi = -1
@@ -1451,7 +1479,7 @@ class WidgetEditorMapas(QWidget):
         if idx_poi != -1:
             self.mapas_controller.deletar_poi(self.msg_mapa_proxy, idx_poi)
 
-    def converter_item_para_circulo(self, item):
+    def converter_item_para_circulo(self, item: Any) -> None:
         if not self.mapas_controller: return
         idx_poi = -1
         for idx, gui_item in self.itens_poi.items():
@@ -1461,7 +1489,7 @@ class WidgetEditorMapas(QWidget):
         if idx_poi != -1:
             self.mapas_controller.converter_boxes_para_circulos(self.msg_mapa_proxy, [idx_poi])
 
-    def converter_item_para_retangulo(self, item):
+    def converter_item_para_retangulo(self, item: Any) -> None:
         if not self.mapas_controller: return
         idx_poi = -1
         for idx, gui_item in self.itens_poi.items():
@@ -1471,13 +1499,13 @@ class WidgetEditorMapas(QWidget):
         if idx_poi != -1:
             self.mapas_controller.converter_circulos_para_boxes(self.msg_mapa_proxy, [idx_poi])
 
-    def marcar_modificado(self):
+    def marcar_modificado(self) -> None:
         if not self.esta_modificado:
             self.esta_modificado = True
             self.alterado.emit(True)
 
     # Lógica de Desenho e Conversão
-    def iniciar_modo_desenho(self, dados):
+    def iniciar_modo_desenho(self, dados: Any) -> None:
         self.modo_desenho = True
         self.pontos_desenho = []
         self.dados_atuais = dados
@@ -1492,7 +1520,7 @@ class WidgetEditorMapas(QWidget):
         dados['cena'].addItem(self.item_desenho_temp)
         self.alcas_desenho_temp = []
 
-    def adicionar_ponto_desenho(self, pos):
+    def adicionar_ponto_desenho(self, pos: QPointF) -> None:
         if self.pontos_desenho:
             p_inicio = self.pontos_desenho[0]
             dist = math.sqrt((pos.x() - p_inicio.x())**2 + (pos.y() - p_inicio.y())**2)
@@ -1505,21 +1533,21 @@ class WidgetEditorMapas(QWidget):
         path.moveTo(self.pontos_desenho[0])
         for p in self.pontos_desenho[1:]:
             path.lineTo(p)
-        self.item_desenho_temp.setPath(path)
+        if self.item_desenho_temp is not None: self.item_desenho_temp.setPath(path)
         
         alca = QGraphicsEllipseItem(-4, -4, 8, 8)
         alca.setPos(pos)
         alca.setPen(QPen(QColor(255, 100, 100)))
         alca.setBrush(QBrush(QColor(255, 255, 255)))
         alca.setZValue(1000)
-        self.dados_atuais['cena'].addItem(alca)
+        if self.dados_atuais: self.dados_atuais['cena'].addItem(alca)
         self.alcas_desenho_temp.append(alca)
 
-    def desfazer_ponto_desenho(self):
+    def desfazer_ponto_desenho(self) -> None:
         if self.pontos_desenho:
             self.pontos_desenho.pop()
             alca = self.alcas_desenho_temp.pop()
-            self.dados_atuais['cena'].removeItem(alca)
+            if self.dados_atuais: self.dados_atuais['cena'].removeItem(alca)
             if not self.pontos_desenho:
                 self.cancelar_modo_desenho()
             else:
@@ -1527,9 +1555,9 @@ class WidgetEditorMapas(QWidget):
                 path.moveTo(self.pontos_desenho[0])
                 for p in self.pontos_desenho[1:]:
                     path.lineTo(p)
-                self.item_desenho_temp.setPath(path)
+                if self.item_desenho_temp is not None: self.item_desenho_temp.setPath(path)
 
-    def finalizar_modo_desenho(self):
+    def finalizar_modo_desenho(self) -> None:
         if len(self.pontos_desenho) < 3:
             self.cancelar_modo_desenho()
             return
@@ -1549,20 +1577,21 @@ class WidgetEditorMapas(QWidget):
 
         self.cancelar_modo_desenho()
 
-    def cancelar_modo_desenho(self):
+    def cancelar_modo_desenho(self) -> None:
         self.modo_desenho = False
         self.label_modo.setVisible(False)
         # self.visualizador.setDragMode(QGraphicsView.DragMode.ScrollHandDrag) # Substituído por controle customizado
         self.visualizador.unsetCursor()
-        if self.item_desenho_temp:
+        if self.item_desenho_temp and self.dados_atuais:
             self.dados_atuais['cena'].removeItem(self.item_desenho_temp)
             self.item_desenho_temp = None
         for alca in self.alcas_desenho_temp:
-            self.dados_atuais['cena'].removeItem(alca)
+            if self.dados_atuais: self.dados_atuais['cena'].removeItem(alca)
         self.alcas_desenho_temp = []
         self.pontos_desenho = []
 
-    def alternar_modo_conversao(self):
+
+    def alternar_modo_conversao(self) -> None:
         if self.modo_desenho: return
         if self.modo_conversao:
             if self.dados_atuais and self.mapas_controller:
@@ -1576,14 +1605,14 @@ class WidgetEditorMapas(QWidget):
         else:
             self.iniciar_modo_conversao()
 
-    def iniciar_modo_conversao(self):
+    def iniciar_modo_conversao(self) -> None:
         self.modo_conversao = True
         self.label_conversao.setVisible(True)
         self.btn_converter.setStyleSheet("background-color: orange; font-weight: bold;")
         # self.visualizador.setDragMode(QGraphicsView.DragMode.NoDrag) # Substituído por controle customizado
         self.visualizador.setCursor(Qt.CursorShape.CrossCursor)
 
-    def parar_modo_conversao(self):
+    def parar_modo_conversao(self) -> None:
         self.modo_conversao = False
         self.label_conversao.setVisible(False)
         self.btn_converter.setStyleSheet("")
@@ -1591,7 +1620,7 @@ class WidgetEditorMapas(QWidget):
         self.visualizador.unsetCursor()
         self.origem_selecao = None
 
-    def finalizar_area_conversao(self, rect):
+    def finalizar_area_conversao(self, rect: QRectF) -> None:
         if not self.dados_atuais or not self.mapas_controller: return
         a_converter = []
         for idx_poi, gui_item in list(self.itens_poi.items()):
@@ -1603,7 +1632,7 @@ class WidgetEditorMapas(QWidget):
         self.parar_modo_conversao()
 
     # Bulk Sliders logic
-    def ao_pressionar_slider_bulk(self, tipo):
+    def ao_pressionar_slider_bulk(self, tipo: str) -> None:
         if not self.dados_atuais: return
         self.bulk_base_dims = {}
         from copy import deepcopy
@@ -1628,7 +1657,7 @@ class WidgetEditorMapas(QWidget):
                     'idx': idx
                 }
 
-    def ao_mover_slider_bulk(self, valor, tipo):
+    def ao_mover_slider_bulk(self, valor: int, tipo: str) -> None:
         if not self.bulk_base_dims: return
         fator = 1.0 + valor / 100.0
         mudou = False
@@ -1666,7 +1695,7 @@ class WidgetEditorMapas(QWidget):
                     gui_item.setPos(centro_cena_antigo - gui_item.rect().center())
                     mudou = True
 
-    def ao_soltar_slider_bulk(self, tipo):
+    def ao_soltar_slider_bulk(self, tipo: str) -> None:
         if self.bulk_base_dims and self.mapas_controller:
             # Dispatch changes to controller
             from aresta_api.proto.generated import croqui_pb2
@@ -1702,7 +1731,7 @@ class WidgetEditorMapas(QWidget):
             self.slider_quad.blockSignals(True); self.slider_quad.setValue(0); self.slider_quad.blockSignals(False)
             self.label_box.setText("0%")
 
-    def _on_repeated_item_alterado(self, msg, campo_nome, index):
+    def _on_repeated_item_alterado(self, msg: Any, campo_nome: str, index: int) -> None:
         if self.msg_mapa_proxy == msg and campo_nome == 'referencias':
             self.painel_referencias.carregar_mapa(msg)
         if self.msg_mapa_proxy == msg and campo_nome == 'pontos_de_interesse':
@@ -1733,7 +1762,7 @@ class WidgetEditorMapas(QWidget):
                                 self.dados_atuais['itens_bb'].remove(item_existente)
                         self._adicionar_item_cena(poi, index, cena)
 
-    def _on_repeated_adicionado(self, msg, campo_nome, index):
+    def _on_repeated_adicionado(self, msg: Any, campo_nome: str, index: int) -> None:
         if self.msg_mapa_proxy == msg and campo_nome == 'referencias':
             self.painel_referencias.carregar_mapa(msg)
         if self.msg_mapa_proxy == msg and campo_nome == 'pontos_de_interesse':
@@ -1750,7 +1779,7 @@ class WidgetEditorMapas(QWidget):
                 
                 self._adicionar_item_cena(poi, index, cena)
 
-    def _on_repeated_removido(self, msg, campo_nome, index):
+    def _on_repeated_removido(self, msg: Any, campo_nome: str, index: int) -> None:
         if self.msg_mapa_proxy == msg and campo_nome == 'referencias':
             self.painel_referencias.carregar_mapa(msg)
         if self.msg_mapa_proxy == msg and campo_nome == 'pontos_de_interesse':
@@ -1773,7 +1802,7 @@ class WidgetEditorMapas(QWidget):
             self.itens_poi = nova_dict
 
 
-    def destacar_pois_temporariamente(self, referencia):
+    def destacar_pois_temporariamente(self, referencia: Any) -> None:
         ids_list = list(referencia.ids) if hasattr(referencia, 'ids') else []
         is_camera = getattr(self, 'modo_camera', False)
         
@@ -1822,7 +1851,7 @@ class WidgetEditorMapas(QWidget):
             if hasattr(self, 'item_hover_camera_overlay') and self.item_hover_camera_overlay:
                 self.item_hover_camera_overlay.setVisible(False)
 
-    def remover_destaque_pois(self, force=False):
+    def remover_destaque_pois(self, force: bool = False) -> None:
         for idx_poi, gui_item in self.itens_poi.items():
             from PySide6.QtGui import QBrush, QColor, QPen
             if getattr(gui_item, 'is_hovered', False):
@@ -1845,11 +1874,11 @@ class WidgetEditorMapas(QWidget):
             elif getattr(self, 'referencia_linkagem_ativa', None):
                 self.destacar_pois_temporariamente(self.referencia_linkagem_ativa)
 
-    def _aplicar_highlight_linkagem(self):
+    def _aplicar_highlight_linkagem(self) -> None:
         self.remover_destaque_pois(force=True)
         self.destacar_pois_temporariamente(self.referencia_linkagem_ativa)
 
-    def iniciar_modo_camera(self, index, referencia):
+    def iniciar_modo_camera(self, index: int, referencia: Any) -> None:
         self.referencia_camera_ativa = referencia
         self.camera_ref_idx = index
         self.modo_camera = True
@@ -1904,7 +1933,7 @@ class WidgetEditorMapas(QWidget):
         self.item_camera_overlay.setRect(0, 0, w, h)
         self.item_camera_overlay.setPos(x, y)
         
-    def parar_modo_camera(self):
+    def parar_modo_camera(self) -> None:
         self.referencia_camera_ativa = None
         self.modo_camera = False
         if hasattr(self, 'item_camera_overlay') and self.item_camera_overlay:
@@ -1914,13 +1943,13 @@ class WidgetEditorMapas(QWidget):
         self.remover_destaque_pois()
         self.label_modo.setVisible(False)
 
-    def salvar_ajuste_camera(self):
+    def salvar_ajuste_camera(self) -> None:
         if not hasattr(self, 'referencia_camera_ativa') or not self.referencia_camera_ativa:
             return
             
         ref = self.referencia_camera_ativa
         idx = -1
-        for i, r in enumerate(self.msg_mapa_proxy.referencias):
+        for i, r in enumerate(cast(Any, self.msg_mapa_proxy).referencias):
             if r == ref:
                 idx = i
                 break
@@ -1955,35 +1984,37 @@ class WidgetEditorMapas(QWidget):
         ref_nova.ajuste_de_camera.posicao_vertical = int(pos_v)
         ref_nova.ajuste_de_camera.zoom = zoom
         
-        self.mapas_controller.alterar_referencia(
-            self.msg_mapa_proxy,
-            self.camera_ref_idx,
-            ref_antiga,
-            ref_nova
-        )
+        if self.mapas_controller and self.msg_mapa_proxy:
+            self.mapas_controller.alterar_referencia(
+                self.msg_mapa_proxy,
+                self.camera_ref_idx,
+                ref_antiga,
+                ref_nova
+            )
         if hasattr(self, 'painel_referencias'):
             self.painel_referencias.forcar_parada_camera()
         self.parar_modo_camera()
 
-    def remover_ajuste_camera(self, idx):
-        if idx < 0 or idx >= len(self.msg_mapa_proxy.referencias): return
+    def remover_ajuste_camera(self, idx: int) -> None:
+        if idx < 0 or idx >= len(cast(Any, self.msg_mapa_proxy).referencias): return
         
-        ref = self.msg_mapa_proxy.referencias[idx]
+        ref = cast(Any, self.msg_mapa_proxy).referencias[idx]
         import copy
         ref_antiga = copy.deepcopy(ref)
         ref_nova = copy.deepcopy(ref)
         ref_nova.ClearField('ajuste_de_camera')
         
-        self.mapas_controller.alterar_referencia(
-            self.msg_mapa_proxy,
-            idx,
-            ref_antiga,
-            ref_nova
-        )
+        if self.mapas_controller and self.msg_mapa_proxy:
+            self.mapas_controller.alterar_referencia(
+                self.msg_mapa_proxy,
+                idx,
+                ref_antiga,
+                ref_nova
+            )
         self.parar_modo_camera()
 
 
-    def iniciar_modo_linkagem(self, idx_ref, ref):
+    def iniciar_modo_linkagem(self, idx_ref: int, ref: Any) -> None:
         from PySide6.QtCore import Qt
         self.modo_linkagem = True
         self.linkagem_ref_idx = idx_ref
@@ -2000,7 +2031,7 @@ class WidgetEditorMapas(QWidget):
         for poi in self.itens_poi.values():
             poi.setFlag(QGraphicsItem.GraphicsItemFlag.ItemIsMovable, False)
 
-    def parar_modo_linkagem(self):
+    def parar_modo_linkagem(self) -> None:
         from PySide6.QtCore import Qt
         self.modo_linkagem = False
         self.linkagem_ref_idx = -1
@@ -2015,7 +2046,7 @@ class WidgetEditorMapas(QWidget):
         for poi in self.itens_poi.values():
             poi.setFlag(QGraphicsItem.GraphicsItemFlag.ItemIsMovable, True)
 
-    def tratar_clique_poi_linkagem(self, poi_id):
+    def tratar_clique_poi_linkagem(self, poi_id: str) -> bool:
         if not hasattr(self, 'modo_linkagem') or not self.modo_linkagem:
             return False
             
@@ -2028,15 +2059,16 @@ class WidgetEditorMapas(QWidget):
         else:
             ref_nova.ids.append(poi_id)
             
-        self.mapas_controller.alterar_referencia(
-            self.msg_mapa_proxy, self.linkagem_ref_idx, ref_antiga, ref_nova
-        )
+        if self.mapas_controller and self.msg_mapa_proxy:
+            self.mapas_controller.alterar_referencia(
+                self.msg_mapa_proxy, self.linkagem_ref_idx, ref_antiga, ref_nova
+            )
         self.linkagem_ref = ref_nova
         self.referencia_linkagem_ativa = ref_nova
         self._aplicar_highlight_linkagem()
         return True
 class ItemCameraOverlay(QGraphicsRectItem):
-    def __init__(self, rect=None):
+    def __init__(self, rect: Optional[QRectF] = None) -> None:
         from PySide6.QtGui import QPen, QColor, QBrush
         from PySide6.QtCore import Qt
         super().__init__(rect)
@@ -2044,14 +2076,15 @@ class ItemCameraOverlay(QGraphicsRectItem):
         self.setBrush(QBrush(Qt.GlobalColor.transparent))
         
         # Permitir arrastar
-        self.setFlag(QGraphicsRectItem.GraphicsItemFlag.ItemIsMovable, True)
-        self.setFlag(QGraphicsRectItem.GraphicsItemFlag.ItemIsSelectable, True)
-        self.setFlag(QGraphicsRectItem.GraphicsItemFlag.ItemSendsGeometryChanges, True)
+        cast_self = cast(Any, self)
+        cast_self.setFlag(QGraphicsRectItem.GraphicsItemFlag.ItemIsMovable, True)
+        cast_self.setFlag(QGraphicsRectItem.GraphicsItemFlag.ItemIsSelectable, True)
+        cast_self.setFlag(QGraphicsRectItem.GraphicsItemFlag.ItemSendsGeometryChanges, True)
         
         self.setAcceptHoverEvents(True)
         self.setZValue(100)
     
-    def hoverMoveEvent(self, event):
+    def hoverMoveEvent(self, event: Any) -> None:
         from PySide6.QtCore import Qt
         rect = self.rect()
         if (event.pos() - rect.bottomRight()).manhattanLength() < 40:
@@ -2060,7 +2093,7 @@ class ItemCameraOverlay(QGraphicsRectItem):
             self.setCursor(Qt.CursorShape.ArrowCursor)
         super().hoverMoveEvent(event)
         
-    def mousePressEvent(self, event):
+    def mousePressEvent(self, event: Any) -> None:
         from PySide6.QtCore import Qt
         rect = self.rect()
         dist = (event.pos() - rect.bottomRight()).manhattanLength()
@@ -2081,7 +2114,7 @@ class ItemCameraOverlay(QGraphicsRectItem):
             self.resizing_center = False
             super().mousePressEvent(event)
 
-    def mouseMoveEvent(self, event):
+    def mouseMoveEvent(self, event: Any) -> None:
         from PySide6.QtCore import Qt
         if getattr(self, 'resizing_center', False):
             delta = event.scenePos() - self.centro_cena
@@ -2103,7 +2136,7 @@ class ItemCameraOverlay(QGraphicsRectItem):
         else:
             super().mouseMoveEvent(event)
 
-    def mouseReleaseEvent(self, event):
+    def mouseReleaseEvent(self, event: Any) -> None:
         from PySide6.QtCore import Qt
         if getattr(self, 'resizing_corner', False) or getattr(self, 'resizing_center', False):
             self.resizing_corner = False
@@ -2113,7 +2146,7 @@ class ItemCameraOverlay(QGraphicsRectItem):
         else:
             super().mouseReleaseEvent(event)
     
-    def paint(self, painter, option, widget=None):
+    def paint(self, painter: Any, option: Any, widget: Optional[QWidget] = None) -> None:
         from PySide6.QtGui import QPainter, QBrush, QColor
         from PySide6.QtCore import Qt, QRectF
         painter.setRenderHint(QPainter.RenderHint.Antialiasing)

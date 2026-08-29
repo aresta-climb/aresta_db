@@ -2,9 +2,10 @@
 # Copyright (C) 2026 Aresta Climb Contributors
 
 import os
+from typing import Optional, List, Dict, Any
 from PySide6.QtWidgets import (
     QDialog, QVBoxLayout, QHBoxLayout, QLabel, QLineEdit, QListWidget,
-    QListWidgetItem, QPushButton, QDialogButtonBox, QMessageBox
+    QListWidgetItem, QPushButton, QDialogButtonBox, QMessageBox, QWidget
 )
 from PySide6.QtCore import Qt, QSortFilterProxyModel
 from PySide6.QtGui import QStandardItemModel, QStandardItem
@@ -16,43 +17,44 @@ class DialogoBuscaReferencia(QDialog):
     Modal de busca para selecionar uma entidade alvo (Grupo, Setor ou Escalada)
     e gerar uma nova mensagem croqui_pb2.Mapa.Referencia a partir dela.
     """
-    def __init__(self, model: CroquiModel, parent=None):
+    def __init__(self, model: CroquiModel, parent: Optional[QWidget] = None) -> None:
         super().__init__(parent)
         self.setWindowTitle("Buscar Referência")
         self.resize(600, 400)
         
-        self.croqui_model = model
-        self.referencia_selecionada = None
+        self.croqui_model: CroquiModel = model
+        self.referencia_selecionada: Optional[croqui_pb2.Mapa.Referencia] = None
         
-        self.layout = QVBoxLayout(self)
+        self.layout_principal: QVBoxLayout = QVBoxLayout(self)
         
         # Campo de busca
-        self.layout_busca = QHBoxLayout()
+        self.layout_busca: QHBoxLayout = QHBoxLayout()
         self.layout_busca.addWidget(QLabel("Buscar:"))
-        self.input_busca = QLineEdit()
+        self.input_busca: QLineEdit = QLineEdit()
         self.input_busca.setPlaceholderText("Ex: Bloco Romano, Via Láctea, etc...")
         self.layout_busca.addWidget(self.input_busca)
-        self.layout.addLayout(self.layout_busca)
+        self.layout_principal.addLayout(self.layout_busca)
         
         # Lista de resultados
-        self.lista_resultados = QListWidget()
-        self.layout.addWidget(self.lista_resultados)
+        self.lista_resultados: QListWidget = QListWidget()
+        self.layout_principal.addWidget(self.lista_resultados)
         
         # Botões
-        self.bbox = QDialogButtonBox(QDialogButtonBox.StandardButton.Ok | QDialogButtonBox.StandardButton.Cancel)
-        self.btn_ok = self.bbox.button(QDialogButtonBox.StandardButton.Ok)
-        self.btn_ok.setEnabled(False)
+        self.bbox: QDialogButtonBox = QDialogButtonBox(QDialogButtonBox.StandardButton.Ok | QDialogButtonBox.StandardButton.Cancel)
+        self.btn_ok: Optional[QPushButton] = self.bbox.button(QDialogButtonBox.StandardButton.Ok)
+        if self.btn_ok:
+            self.btn_ok.setEnabled(False)
         
         self.bbox.accepted.connect(self.accept)
         self.bbox.rejected.connect(self.reject)
-        self.layout.addWidget(self.bbox)
+        self.layout_principal.addWidget(self.bbox)
         
         # Conexões
         self.input_busca.textChanged.connect(self._filtrar_resultados)
         self.lista_resultados.itemSelectionChanged.connect(self._on_item_selecionado)
         self.lista_resultados.itemDoubleClicked.connect(self.accept)
         
-        self.todas_entidades = []
+        self.todas_entidades: List[Dict[str, str]] = []
         self._carregar_entidades()
         self._popular_lista()
 
@@ -60,9 +62,9 @@ class DialogoBuscaReferencia(QDialog):
         tipo = escalada.WhichOneof('tipo')
         if not tipo:
             return "Desconhecida"
-        return getattr(escalada, tipo).nome
+        return str(getattr(escalada, tipo).nome)
 
-    def _carregar_entidades(self):
+    def _carregar_entidades(self) -> None:
         croqui = self.croqui_model.obter_croqui_readonly()
         
         for pico in croqui.picos:
@@ -113,11 +115,11 @@ class DialogoBuscaReferencia(QDialog):
                             "escalada": nome_esc
                         })
 
-    def _remover_acentos(self, texto):
+    def _remover_acentos(self, texto: str) -> str:
         import unicodedata
         return ''.join(c for c in unicodedata.normalize('NFD', texto) if unicodedata.category(c) != 'Mn')
 
-    def _popular_lista(self, filtro=""):
+    def _popular_lista(self, filtro: str = "") -> None:
         self.lista_resultados.clear()
         filtro_lower = self._remover_acentos(filtro.lower())
         
@@ -131,14 +133,15 @@ class DialogoBuscaReferencia(QDialog):
         if self.lista_resultados.count() > 0:
             self.lista_resultados.setCurrentRow(0)
                 
-    def _filtrar_resultados(self, texto):
+    def _filtrar_resultados(self, texto: str) -> None:
         self._popular_lista(texto)
         
-    def _on_item_selecionado(self):
+    def _on_item_selecionado(self) -> None:
         items = self.lista_resultados.selectedItems()
-        self.btn_ok.setEnabled(len(items) > 0)
+        if self.btn_ok:
+            self.btn_ok.setEnabled(len(items) > 0)
         
-    def accept(self):
+    def accept(self) -> None:
         items = self.lista_resultados.selectedItems()
         if not items:
             return
@@ -155,5 +158,6 @@ class DialogoBuscaReferencia(QDialog):
             
         super().accept()
 
-    def obter_referencia(self) -> croqui_pb2.Mapa.Referencia:
+    def obter_referencia(self) -> Optional[croqui_pb2.Mapa.Referencia]:
         return self.referencia_selecionada
+

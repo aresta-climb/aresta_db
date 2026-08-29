@@ -3,7 +3,20 @@
 
 import os
 import re
-from PySide6.QtWidgets import QWidget, QVBoxLayout, QHBoxLayout, QPushButton, QLineEdit, QSpinBox, QCheckBox, QComboBox, QDoubleSpinBox, QLabel, QScrollArea
+from typing import Optional, Any, Tuple, Dict
+from PySide6.QtWidgets import (
+    QWidget,
+    QVBoxLayout,
+    QHBoxLayout,
+    QPushButton,
+    QLineEdit,
+    QSpinBox,
+    QCheckBox,
+    QComboBox,
+    QDoubleSpinBox,
+    QLabel,
+    QScrollArea,
+)
 from PySide6.QtGui import QDoubleValidator, QRegularExpressionValidator, QValidator
 from PySide6.QtCore import QRegularExpression
 from google.protobuf.descriptor import FieldDescriptor
@@ -17,20 +30,22 @@ class SpinBoxVazio(QSpinBox):
     Quando vazio, não exibe nenhum texto.
     Ao pressionar as setas para cima ou para baixo estando vazio, inicializa com 0.
     """
-    VALOR_NULO = -2147483648
+    VALOR_NULO: int = -2147483648
 
-    def __init__(self, parent=None):
+    def __init__(self, parent: Optional[QWidget] = None) -> None:
         super().__init__(parent)
         self.setRange(self.VALOR_NULO, 2147483647)
         self.setMaximumWidth(150)
-        self.lineEdit().setPlaceholderText("Opcional")
+        line_edit = self.lineEdit()
+        if line_edit:
+            line_edit.setPlaceholderText("Opcional")
 
-    def textFromValue(self, val):
+    def textFromValue(self, val: int) -> str:
         if val == self.VALOR_NULO:
             return ""
         return str(val)
 
-    def valueFromText(self, text):
+    def valueFromText(self, text: str) -> int:
         text_str = text.strip()
         if not text_str:
             return self.VALOR_NULO
@@ -39,7 +54,7 @@ class SpinBoxVazio(QSpinBox):
         except ValueError:
             return self.VALOR_NULO
 
-    def validate(self, text, pos):
+    def validate(self, text: str, pos: int) -> Tuple[QValidator.State, str, int]:
         text_str = text.strip()
         if not text_str:
             return (QValidator.State.Acceptable, text, pos)
@@ -53,13 +68,14 @@ class SpinBoxVazio(QSpinBox):
         except ValueError:
             return (QValidator.State.Invalid, text, pos)
 
-    def stepBy(self, steps):
+
+    def stepBy(self, steps: int) -> None:
         if self.value() == self.VALOR_NULO:
             self.setValue(0)
         else:
             super().stepBy(steps)
 
-    def wheelEvent(self, event):
+    def wheelEvent(self, event: Any) -> None:
         event.ignore()
 
 
@@ -68,20 +84,20 @@ class ComboBoxSemScroll(QComboBox):
     QComboBox que ignora eventos de rolagem do mouse (wheelEvent) para
     evitar alterar a seleção acidentalmente ao rolar o formulário.
     """
-    def wheelEvent(self, event):
+    def wheelEvent(self, event: Any) -> None:
         event.ignore()
 
 
 class ProtobufWidgetFactory:
-    VALOR_INTEIRO_NULO = SpinBoxVazio.VALOR_NULO
+    VALOR_INTEIRO_NULO: int = SpinBoxVazio.VALOR_NULO
 
     @classmethod
-    def _load_comments(cls):
+    def _load_comments(cls) -> Dict[Tuple[str, str], str]:
         # Apenas para retrocompatibilidade
         return get_proto_comments()
     
     @staticmethod
-    def get_booleano_labels(field_descriptor):
+    def get_booleano_labels(field_descriptor: Any) -> Tuple[str, str, str]:
         """
         Retorna uma tupla (texto_indefinido, texto_sim, texto_nao) para um campo booleano,
         lendo anotações no FieldOptions ou usando valores padrão.
@@ -107,7 +123,7 @@ class ProtobufWidgetFactory:
         return texto_indefinido, texto_sim, texto_nao
 
     @staticmethod
-    def create_widget(field_descriptor):
+    def create_widget(field_descriptor: Any) -> QWidget:
         """
         Cria um widget primitivo do PySide6 para o FieldDescriptor fornecido.
         """
@@ -158,19 +174,19 @@ class ProtobufWidgetFactory:
             combo = ComboBoxSemScroll()
             for enum_val in field_descriptor.enum_type.values:
                 label = enum_val.name
-                options = enum_val.GetOptions()
-                if options.HasExtension(croqui_pb2.enum_texto_na_ui):
-                    label = options.Extensions[croqui_pb2.enum_texto_na_ui]
+                enum_opts = enum_val.GetOptions()
+                if enum_opts.HasExtension(croqui_pb2.enum_texto_na_ui):
+                    label = enum_opts.Extensions[croqui_pb2.enum_texto_na_ui]
                 combo.addItem(label, enum_val.number)
             combo.setMaximumWidth(200)
             return combo
             
-        line_edit = QLineEdit()
-        line_edit.setMaximumWidth(450)
-        return line_edit
+        line_edit_str = QLineEdit()
+        line_edit_str.setMaximumWidth(450)
+        return line_edit_str
 
     @staticmethod
-    def get_label(descriptor):
+    def get_label(descriptor: Any) -> str:
         """
         Extrai o rótulo a partir das opções customizadas (texto_na_ui) ou usa por padrão o nome capitalizado.
         Funciona tanto para FieldDescriptor quanto para Descriptor (Message).
@@ -180,16 +196,16 @@ class ProtobufWidgetFactory:
         # Verifica se é um campo
         if hasattr(descriptor, 'type'):
             if options.HasExtension(croqui_pb2.texto_na_ui):
-                return options.Extensions[croqui_pb2.texto_na_ui]
+                return str(options.Extensions[croqui_pb2.texto_na_ui])
         else:
             # É uma mensagem
             if options.HasExtension(croqui_pb2.mensagem_texto_na_ui):
-                return options.Extensions[croqui_pb2.mensagem_texto_na_ui]
+                return str(options.Extensions[croqui_pb2.mensagem_texto_na_ui])
             
-        return descriptor.name.replace("_", " ").capitalize()
+        return str(descriptor.name).replace("_", " ").capitalize()
 
     @classmethod
-    def get_tooltip(cls, field_descriptor):
+    def get_tooltip(cls, field_descriptor: Any) -> str:
         """
         Extracts documentation from protobuf source comments.
         """
@@ -206,21 +222,21 @@ class RepeatedFieldWidget(QWidget):
     Widget especializado para renderizar listas dinâmicas de primitivos.
     Mantido para retrocompatibilidade caso seja importado por outros arquivos.
     """
-    def __init__(self, field_descriptor, parent=None):
+    def __init__(self, field_descriptor: Any, parent: Optional[QWidget] = None) -> None:
         super().__init__(parent)
-        self.field_descriptor = field_descriptor
+        self.field_descriptor: Any = field_descriptor
         
-        self.layout = QVBoxLayout(self)
-        self.layout.setContentsMargins(0, 0, 0, 0)
+        self._layout_principal: QVBoxLayout = QVBoxLayout(self)
+        self._layout_principal.setContentsMargins(0, 0, 0, 0)
         
-        self.items_layout = QVBoxLayout()
-        self.layout.addLayout(self.items_layout)
+        self.items_layout: QVBoxLayout = QVBoxLayout()
+        self._layout_principal.addLayout(self.items_layout)
         
-        self.btn_add = QPushButton("+ Adicionar")
+        self.btn_add: QPushButton = QPushButton("+ Adicionar")
         self.btn_add.clicked.connect(self.add_item)
-        self.layout.addWidget(self.btn_add)
+        self._layout_principal.addWidget(self.btn_add)
         
-    def add_item(self):
+    def add_item(self) -> None:
         item_widget = QWidget()
         item_layout = QHBoxLayout(item_widget)
         item_layout.setContentsMargins(0, 0, 0, 0)
@@ -235,6 +251,8 @@ class RepeatedFieldWidget(QWidget):
         
         self.items_layout.addWidget(item_widget)
         
-    def remove_item(self, widget):
+    def remove_item(self, widget: QWidget) -> None:
         self.items_layout.removeWidget(widget)
         widget.deleteLater()
+
+

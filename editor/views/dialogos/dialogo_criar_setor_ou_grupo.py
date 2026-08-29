@@ -1,6 +1,7 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
+from typing import Optional, List, Tuple
 from PySide6.QtWidgets import (
     QDialog,
     QVBoxLayout,
@@ -20,16 +21,16 @@ class DialogoCriarSetorOuGrupo(QDialog):
     """Diálogo modal (wizard) para criação de um novo Setor ou Grupo, com preenchimento
     do nome e auto-proposição reativa do nome de arquivo em snake_case com validação de duplicidade."""
 
-    def __init__(self, parent=None, modo="ambos", nome_sugerido="", nomes_existentes=None, arquivos_existentes=None):
+    def __init__(self, parent: Optional[QWidget] = None, modo: str = "ambos", nome_sugerido: str = "", nomes_existentes: Optional[List[str]] = None, arquivos_existentes: Optional[List[str]] = None) -> None:
         super().__init__(parent)
         self.setWindowTitle("Novo Setor ou Grupo" if modo == "ambos" else "Novo Setor")
         self.setMinimumWidth(420)
 
-        self.modo = modo
-        self.nomes_existentes = [n.strip().lower() for n in (nomes_existentes or []) if n]
-        self.arquivos_existentes = [a.strip().lower() for a in (arquivos_existentes or []) if a]
-        self._arquivo_editado_manualmente = False
-        self._atualizando_internamente = False
+        self.modo: str = modo
+        self.nomes_existentes: List[str] = [n.strip().lower() for n in (nomes_existentes or []) if n]
+        self.arquivos_existentes: List[str] = [a.strip().lower() for a in (arquivos_existentes or []) if a]
+        self._arquivo_editado_manualmente: bool = False
+        self._atualizando_internamente: bool = False
 
         layout_principal = QVBoxLayout(self)
         layout_principal.setSpacing(12)
@@ -132,25 +133,25 @@ class DialogoCriarSetorOuGrupo(QDialog):
             return "grupo"
         return "setor"
 
-    def _on_tipo_alterado(self):
+    def _on_tipo_alterado(self) -> None:
         """Atualiza a proposição do arquivo se o tipo for alternado."""
         if not self._arquivo_editado_manualmente:
             self._atualizar_proposicao_arquivo()
         self._validar()
 
-    def _on_nome_alterado(self, texto: str):
+    def _on_nome_alterado(self, texto: str) -> None:
         """Reage à digitação do nome para propor o nome do arquivo e validar."""
         if not self._arquivo_editado_manualmente:
             self._atualizar_proposicao_arquivo()
         self._validar()
 
-    def _on_arquivo_alterado(self, texto: str):
+    def _on_arquivo_alterado(self, texto: str) -> None:
         """Registra se o arquivo foi alterado externamente/manualmente e valida."""
         if not self._atualizando_internamente:
             self._arquivo_editado_manualmente = bool(texto.strip())
         self._validar()
 
-    def _atualizar_proposicao_arquivo(self):
+    def _atualizar_proposicao_arquivo(self) -> None:
         """Gera o nome de arquivo em snake_case com o prefixo correspondente ao tipo."""
         nome = self.edit_nome.text().strip()
         self._atualizando_internamente = True
@@ -168,7 +169,7 @@ class DialogoCriarSetorOuGrupo(QDialog):
         finally:
             self._atualizando_internamente = False
 
-    def _validar(self):
+    def _validar(self) -> None:
         """Valida campos e checa duplicidade."""
         nome = self.edit_nome.text().strip()
         arquivo = self.edit_arquivo.text().strip()
@@ -193,7 +194,7 @@ class DialogoCriarSetorOuGrupo(QDialog):
         self.lbl_aviso.setText("")
         self.btn_criar.setEnabled(True)
 
-    def obter_dados_confirmados(self) -> tuple[str, str, str, bool]:
+    def obter_dados_confirmados(self) -> Tuple[str, str, str, bool]:
         """Retorna (tipo, nome, nome_arquivo, confirmado)."""
         ok = (self.result() == QDialog.DialogCode.Accepted)
         tipo = self.obter_tipo_selecionado()
@@ -206,7 +207,7 @@ class DialogoCriarSetorOuGrupo(QDialog):
         return tipo, nome, arquivo, ok
 
     @classmethod
-    def obter_dados(cls, parent=None, modo="ambos", nome_sugerido="", nomes_existentes=None, arquivos_existentes=None) -> tuple[str, str, str, bool]:
+    def obter_dados(cls, parent: Optional[QWidget] = None, modo: str = "ambos", nome_sugerido: str = "", nomes_existentes: Optional[List[str]] = None, arquivos_existentes: Optional[List[str]] = None) -> Tuple[str, str, str, bool]:
         """Método estático de conveniência para instanciar e abrir o diálogo modal."""
         dialogo = cls(
             parent=parent,
@@ -217,3 +218,4 @@ class DialogoCriarSetorOuGrupo(QDialog):
         )
         dialogo.exec()
         return dialogo.obter_dados_confirmados()
+

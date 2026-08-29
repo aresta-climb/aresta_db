@@ -1,19 +1,22 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
+from typing import Optional, Dict
+
 import qtawesome as qta
 from PySide6.QtGui import QIcon
+
 
 class Icones:
     """Centraliza o mapeamento e estilo de ícones do editor usando QtAwesome."""
     
-    COR_NORMAL = "#454545"
-    COR_DESTAQUE = "#2b579a"
-    COR_SUCESSO = "#28a745"
-    COR_ERRO = "#dc3545"
+    COR_NORMAL: str = "#454545"
+    COR_DESTAQUE: str = "#2b579a"
+    COR_SUCESSO: str = "#28a745"
+    COR_ERRO: str = "#dc3545"
     
     # Mapeamento de ações para identificadores do QtAwesome (FontAwesome 5 Solid/Brands)
-    MAPA = {
+    MAPA: Dict[str, str] = {
         "logo": "fa5s.mountain",
         "novo": "fa5s.folder-open",
         "salvar": "fa5s.save",
@@ -38,7 +41,7 @@ class Icones:
     }
 
     # Estilo CSS para a barra lateral
-    QSS_BARRA_LATERAL = """
+    QSS_BARRA_LATERAL: str = """
         QToolBar {
             background-color: #f8f9fa;
             border-right: 1px solid #dee2e6;
@@ -67,7 +70,7 @@ class Icones:
     """
 
     @classmethod
-    def obter(cls, nome: str, cor: str = None, cor_ativa: str = None) -> QIcon:
+    def obter(cls, nome: str, cor: Optional[str] = None, cor_ativa: Optional[str] = None) -> QIcon:
         """
         Retorna um QIcon estilizado para a ação solicitada.
         
@@ -82,12 +85,13 @@ class Icones:
         
         cor_final = cor or cls.COR_NORMAL
         cor_ativa_final = cor_ativa or cls.COR_DESTAQUE
-        return qta.icon(
+        res = qta.icon(
             identificador, 
             color=cor_final, 
             color_active=cor_ativa_final,
             color_selected=cor_ativa_final
         )
+        return res if isinstance(res, QIcon) else QIcon(res)
 
     @classmethod
     def obter_destaque(cls, nome: str) -> QIcon:
@@ -102,7 +106,7 @@ class Icones:
         cor_status = cls.COR_SUCESSO if conectado else cls.COR_ERRO
         
         # Usando formato de argumentos posicionais para os ícones e a lista 'options' para o estilo de cada camada
-        return qta.icon(
+        res = qta.icon(
             'fa5s.mobile-alt', 
             'fa5s.circle',
             options=[
@@ -118,3 +122,5 @@ class Icones:
                 }
             ]
         )
+        return res if isinstance(res, QIcon) else QIcon(res)
+

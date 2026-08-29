@@ -1,13 +1,14 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
+from typing import Optional, List, Dict, Any, Callable, Union
 from PySide6.QtWidgets import (
     QMainWindow, QToolBar, QStackedWidget, QWidget, QVBoxLayout, QHBoxLayout, 
     QLabel, QStyle, QMessageBox, QDialog, QLineEdit, QTextEdit, QPushButton, QFormLayout,
-    QApplication
+    QApplication, QDockWidget, QProgressDialog
 )
 from PySide6.QtCore import Qt, QSize, Signal, QTimer, QCoreApplication
-from PySide6.QtGui import QAction, QIcon, QFont, QKeySequence
+from PySide6.QtGui import QAction, QIcon, QFont, QKeySequence, QCloseEvent
 from pathlib import Path
 import yaml
 import os
@@ -27,7 +28,7 @@ from editor.controllers.croqui_controller import CroquiController
 
 class DialogoPublicar(QDialog):
     """Diálogo para coletar informações para o Pull Request."""
-    def __init__(self, titulo_padrao="", parent=None):
+    def __init__(self, titulo_padrao: str = "", parent: Optional[QWidget] = None) -> None:
         super().__init__(parent)
         self.setWindowTitle("Publicar no GitHub")
         self.setMinimumWidth(400)
@@ -35,8 +36,8 @@ class DialogoPublicar(QDialog):
         layout = QVBoxLayout(self)
         
         form = QFormLayout()
-        self.edit_titulo = QLineEdit(f"Croqui: {titulo_padrao}")
-        self.edit_descricao = QTextEdit()
+        self.edit_titulo: QLineEdit = QLineEdit(f"Croqui: {titulo_padrao}")
+        self.edit_descricao: QTextEdit = QTextEdit()
         self.edit_descricao.setPlaceholderText("Descreva as alterações feitas...")
         
         form.addRow("Título da PR:", self.edit_titulo)
@@ -44,9 +45,9 @@ class DialogoPublicar(QDialog):
         layout.addLayout(form)
         
         botoes = QHBoxLayout()
-        self.btn_cancelar = QPushButton("Cancelar")
+        self.btn_cancelar: QPushButton = QPushButton("Cancelar")
         self.btn_cancelar.clicked.connect(self.reject)
-        self.btn_publicar = QPushButton("Publicar Agora")
+        self.btn_publicar: QPushButton = QPushButton("Publicar Agora")
         self.btn_publicar.setDefault(True)
         self.btn_publicar.clicked.connect(self.accept)
         
@@ -55,7 +56,7 @@ class DialogoPublicar(QDialog):
         botoes.addWidget(self.btn_publicar)
         layout.addLayout(botoes)
 
-    def obter_dados(self):
+    def obter_dados(self) -> Dict[str, str]:
         return {
             "titulo": self.edit_titulo.text(),
             "descricao": self.edit_descricao.toPlainText()
@@ -63,58 +64,64 @@ class DialogoPublicar(QDialog):
 
 class PaginaBase(QWidget):
     """Classe base para as páginas do editor."""
-    def __init__(self, titulo, parent=None):
+    def __init__(self, titulo: str, parent: Optional[QWidget] = None) -> None:
         super().__init__(parent)
         self.setFont(QFont("Segoe UI", 9))
-        self.titulo = titulo
+        self.titulo: str = titulo
         layout = QVBoxLayout(self)
-        self.label = QLabel(f"Página: {titulo}\n(A Implementar)", self)
+        self.label: QLabel = QLabel(f"Página: {titulo}\n(A Implementar)", self)
         self.label.setAlignment(Qt.AlignmentFlag.AlignCenter)
         self.label.setStyleSheet("font-size: 24px; color: #666; font-weight: bold;")
         layout.addWidget(self.label)
         self.setStyleSheet(".PaginaBase { background-color: #ffffff; border-radius: 10px; }")
 
-    def obter_acoes_contextuais(self):
+    def obter_acoes_contextuais(self) -> List[QAction]:
         """Retorna uma lista de QActions específicas desta página."""
         return []
 
 class PaginaDados(PaginaBase):
-    def __init__(self, parent=None):
+    def __init__(self, parent: Optional[QWidget] = None) -> None:
         super().__init__("Dados", parent)
-        self.layout().removeWidget(self.label)
+        layout = self.layout()
+        if layout:
+            layout.removeWidget(self.label)
+            layout.setContentsMargins(0, 0, 0, 0)
         self.label.deleteLater()
-        self.layout().setContentsMargins(0, 0, 0, 0)
-        self.editor_dados = None
+        self.editor_dados: Optional[Any] = None
         
-    def carregar_dados(self, model, controller):
-        if self.editor_dados:
-            self.layout().removeWidget(self.editor_dados)
+    def carregar_dados(self, model: CroquiModel, controller: CroquiController) -> None:
+        layout = self.layout()
+        if self.editor_dados and layout:
+            layout.removeWidget(self.editor_dados)
             self.editor_dados.deleteLater()
             
         from editor.views.widget_editor_dados import WidgetEditorDados
         self.editor_dados = WidgetEditorDados(model, controller, parent=self)
-        self.layout().addWidget(self.editor_dados)
+        if layout:
+            layout.addWidget(self.editor_dados)
 
 class PaginaImagens(PaginaBase):
-    def __init__(self, parent=None):
+    def __init__(self, parent: Optional[QWidget] = None) -> None:
         super().__init__("Imagens", parent)
         # Remove o label de placeholder
-        self.layout().removeWidget(self.label)
+        layout = self.layout()
+        if layout:
+            layout.removeWidget(self.label)
+            layout.setContentsMargins(0, 0, 0, 0)
         self.label.deleteLater()
         
-        # Remove as margens da página base
-        self.layout().setContentsMargins(0, 0, 0, 0)
-        
         # O folder_path inicial é vazio, será carregado em carregar_imagens
-        self.editor = WidgetEditorImagens("", modo_integrado=True, parent=self)
-        self.layout().addWidget(self.editor)
+        self.editor: WidgetEditorImagens = WidgetEditorImagens("", modo_integrado=True, parent=self)
+        if layout:
+            layout.addWidget(self.editor)
         
-    def carregar_imagens(self, caminho_db, model=None, controller=None):
+    def carregar_imagens(self, caminho_db: Optional[Union[str, Path]], model: Optional[Any] = None, controller: Optional[Any] = None) -> None:
         if model:
             if getattr(self.editor, "_model_conectado", None) is not model:
-                if getattr(self.editor, "_model_conectado", None) is not None:
+                conectado = getattr(self.editor, "_model_conectado", None)
+                if conectado is not None and hasattr(conectado, "imagem_alterada"):
                     try:
-                        self.editor._model_conectado.imagem_alterada.disconnect(self.editor._on_imagem_alterada)
+                        conectado.imagem_alterada.disconnect(self.editor._on_imagem_alterada)
                     except Exception:
                         pass
                 self.editor.croqui_model = model
@@ -130,94 +137,109 @@ class PaginaImagens(PaginaBase):
         self.editor.load_images_list()
 
 class PaginaMapas(PaginaBase):
-    def __init__(self, parent=None):
+    def __init__(self, parent: Optional[QWidget] = None) -> None:
         super().__init__("Mapas", parent)
         # Remove o label de placeholder
-        self.layout().removeWidget(self.label)
+        layout = self.layout()
+        if layout:
+            layout.removeWidget(self.label)
+            layout.setContentsMargins(0, 0, 0, 0)
         self.label.deleteLater()
         
-        # Remove as margens da página base para o editor de mapas ocupar tudo
-        self.layout().setContentsMargins(0, 0, 0, 0)
+        self.editor: WidgetEditorMapas = WidgetEditorMapas(parent=self)
+        if layout:
+            layout.addWidget(self.editor)
         
-        self.editor = WidgetEditorMapas(parent=self)
-        self.layout().addWidget(self.editor)
-        
-    def carregar_mapas(self, model, undo_stack, caminho_db=None, controller=None):
+    def carregar_mapas(self, model: Optional[Any], undo_stack: Optional[Any], caminho_db: Optional[Union[str, Path]] = None, controller: Optional[Any] = None) -> None:
         if model:
             from editor.controllers.mapas_controller import MapasController
             mapas_controller = MapasController(model, undo_stack)
             if caminho_db:
-                mapas_controller.set_caminho_db(caminho_db)
+                mapas_controller.set_caminho_db(Path(caminho_db))
             self.editor.mapas_controller = mapas_controller
             self.editor.croqui_model = model
             self.editor.croqui_controller = controller or getattr(mapas_controller, "croqui_controller", None)
             if getattr(self.editor, "_model_imagem_conectado", None) is not model:
-                if getattr(self.editor, "_model_imagem_conectado", None) is not None:
+                conectado_img = getattr(self.editor, "_model_imagem_conectado", None)
+                if conectado_img is not None and hasattr(conectado_img, "imagem_alterada"):
                     try:
-                        self.editor._model_imagem_conectado.imagem_alterada.disconnect(self.editor._on_imagem_alterada)
+                        conectado_img.imagem_alterada.disconnect(self.editor._on_imagem_alterada)
                     except Exception:
                         pass
                 if hasattr(model, "imagem_alterada"):
                     model.imagem_alterada.connect(self.editor._on_imagem_alterada)
                     self.editor._model_imagem_conectado = model
-            if hasattr(self.editor, 'painel_referencias'):
+            if hasattr(self.editor, 'painel_referencias') and self.editor.painel_referencias:
                 self.editor.painel_referencias.mapas_controller = mapas_controller
             self.editor.configurar_lista_mapas()
 
 
 class PaginaBetas(PaginaBase):
-    def __init__(self, parent=None):
+    def __init__(self, parent: Optional[QWidget] = None) -> None:
         super().__init__("Betas", parent)
-        self.layout().removeWidget(self.label)
+        layout = self.layout()
+        if layout:
+            layout.removeWidget(self.label)
+            layout.setContentsMargins(0, 0, 0, 0)
         self.label.deleteLater()
-        self.layout().setContentsMargins(0, 0, 0, 0)
         from coleta_de_betas.curadoria.painel_curadoria import PainelCuradoria
-        self.painel = PainelCuradoria(parent=self)
-        self.layout().addWidget(self.painel)
+        self.painel: Any = PainelCuradoria(parent=self)  # type: ignore[no-untyped-call]
+        if layout:
+            layout.addWidget(self.painel)
 
-    def carregar_betas(self, caminho_db):
+
+    def carregar_betas(self, caminho_db: Optional[Union[str, Path]]) -> None:
         if caminho_db:
             caminho_staging = Path(caminho_db) / "betas_pendentes.binarypb"
             if caminho_staging.exists():
                 self.painel.carregar_staging(caminho_staging)
 
 class PaginaHistorico(PaginaBase):
-    def __init__(self, parent=None):
+    def __init__(self, parent: Optional[QWidget] = None) -> None:
         super().__init__("Histórico", parent)
+
 
 class JanelaPrincipal(QMainWindow):
     # Sinal emitido quando o usuário deseja voltar para a tela de carregamento
     solicitar_abrir_novo = Signal()
     salvamento_finalizado = Signal()
     
-    def __init__(self, storage=None, auth=None, workspace=None, parent=None):
+    def __init__(self, storage: Optional[Any] = None, auth: Optional[Any] = None, workspace: Optional[Any] = None, parent: Optional[QWidget] = None) -> None:
         super().__init__(parent)
         self.setFont(QFont("Segoe UI", 9))
-        self.storage = storage
+        self.storage: Optional[Any] = storage
         if auth is None:
             from editor.core.gerenciador_sessao import GerenciadorSessao
             auth = GerenciadorSessao()
-        self.auth = auth
-        self.workspace = workspace
-        self.croqui_data = None
-        self.croqui_model = None
-        self.croqui_controller = None
-        self._acoes_contextuais = []
-        self._worker_pr = None
+        self.auth: Optional[Any] = auth
+        self.workspace: Optional[Any] = workspace
+        self.croqui_data: Optional[Dict[str, Any]] = None
+        self.croqui_model: Optional[CroquiModel] = None
+        self.croqui_controller: Optional[CroquiController] = None
+        self._acoes_contextuais: List[QAction] = []
+        self._worker_pr: Optional[Any] = None
         
-        self.servidor_celular = None
-        self.monitor_inatividade = None
-        self.dialogo_celular = None
-        self.historico = GerenciadorHistorico(self)
+        self.servidor_celular: Optional[ServidorCelular] = None
+        self.monitor_inatividade: Optional[MonitorInatividade] = None
+        self.dialogo_celular: Optional[DialogoConexaoCelular] = None
+        self.historico: GerenciadorHistorico = GerenciadorHistorico(self)
         self.historico.obter_pilha().cleanChanged.connect(self._on_clean_changed)
+        
+        self._salvando: bool = False
+        self._fechar_apos_salvar: bool = False
+        self._forcar_fechamento: bool = False
+        self._callback_sucesso_salvar: Optional[Callable[[], None]] = None
+        self.label_status_salvamento: Optional[QLabel] = None
+        self.dlg_espera: Optional[QProgressDialog] = None
         
         self.atualizar_titulo()
         self.resize(1200, 800)
+
         
         # Componentes do Painel de Saída de Compilação
-        self.compilacao_log = CompilacaoLog()
-        self.widget_saida_compilacao = WidgetSaidaCompilacao(self)
-        self.compilacao_controller = CompilacaoController(self.compilacao_log, self.widget_saida_compilacao)
+        self.compilacao_log: CompilacaoLog = CompilacaoLog()
+        self.widget_saida_compilacao: WidgetSaidaCompilacao = WidgetSaidaCompilacao(self)
+        self.compilacao_controller: CompilacaoController = CompilacaoController(self.compilacao_log, self.widget_saida_compilacao)
         self.addDockWidget(Qt.DockWidgetArea.BottomDockWidgetArea, self.widget_saida_compilacao)
         self.widget_saida_compilacao.hide()
         
@@ -298,7 +320,7 @@ class JanelaPrincipal(QMainWindow):
         if self.workspace:
             self.carregar_croqui()
         
-    def _setup_ui(self):
+    def _setup_ui(self) -> None:
         # 1. Configura as Toolbars (Superior e Lateral)
         self._setup_toolbars()
         
@@ -320,7 +342,7 @@ class JanelaPrincipal(QMainWindow):
         self.historico.sinal_foco_requisitado.connect(self._on_foco_requisitado)
         
         
-    def _setup_toolbars(self):
+    def _setup_toolbars(self) -> None:
         self.toolbar_superior = QToolBar("Barra Superior")
         self.toolbar_superior.setObjectName("toolbar_superior")
         self.toolbar_superior.setMovable(False)
@@ -370,7 +392,7 @@ class JanelaPrincipal(QMainWindow):
         self.toolbar_lateral.setStyleSheet(Icones.QSS_BARRA_LATERAL)
         self.addToolBar(Qt.ToolBarArea.LeftToolBarArea, self.toolbar_lateral)
 
-    def atualizar_titulo(self):
+    def atualizar_titulo(self) -> None:
         """Atualiza o título da janela baseado no workspace, nome do croqui e estado de modificação."""
         versao = QCoreApplication.applicationVersion()
         titulo_base = f"Editor Aresta v{versao}" if versao else "Editor Aresta"
@@ -389,11 +411,11 @@ class JanelaPrincipal(QMainWindow):
             
         self.setWindowTitle(titulo_base)
 
-    def _on_clean_changed(self, is_clean: bool):
+    def _on_clean_changed(self, is_clean: bool) -> None:
         """Atualiza o título da janela baseado no estado limpo da pilha de histórico."""
         self.atualizar_titulo()
         
-    def _setup_acoes_globais(self):
+    def _setup_acoes_globais(self) -> None:
         self.acao_abrir = QAction(Icones.obter("novo"), "Abrir Novo", self)
         self.acao_abrir.setToolTip("Abrir Novo")
         self.acao_abrir.triggered.connect(self._on_abrir_novo_clicado)
@@ -455,7 +477,7 @@ class JanelaPrincipal(QMainWindow):
         self.toolbar_superior.addSeparator()
         self.toolbar_superior.addAction(self.acao_publicar)
         
-    def _setup_navegacao_lateral(self):
+    def _setup_navegacao_lateral(self) -> None:
         self.acao_nav_dados = QAction(Icones.obter("dados"), "Dados", self)
         self.acao_nav_dados.setToolTip("Dados")
         self.acao_nav_dados.setCheckable(True)
@@ -484,7 +506,7 @@ class JanelaPrincipal(QMainWindow):
         self.acao_nav_historico.setVisible(False) # TODO: Habilitar quando for implementado
         self.acao_nav_historico.triggered.connect(lambda: self._trocar_pagina(4))
         
-        self.grupo_nav = [self.acao_nav_dados, self.acao_nav_imagens, self.acao_nav_mapas, self.acao_nav_betas, self.acao_nav_historico]
+        self.grupo_nav: List[QAction] = [self.acao_nav_dados, self.acao_nav_imagens, self.acao_nav_mapas, self.acao_nav_betas, self.acao_nav_historico]
         
         # Adiciona ações na toolbar lateral (setSpacing(4) cuidará do gap)
         self.toolbar_lateral.addActions(self.grupo_nav)
@@ -497,13 +519,14 @@ class JanelaPrincipal(QMainWindow):
         
         # Garante o estilo de texto sob o ícone após adicionar as ações
         self.toolbar_lateral.setToolButtonStyle(Qt.ToolButtonStyle.ToolButtonTextUnderIcon)
+
         
-    def _setup_paginas(self):
-        self.pagina_dados = PaginaDados(self)
-        self.pagina_imagens = PaginaImagens(self)
-        self.pagina_mapas = PaginaMapas(self)
-        self.pagina_betas = PaginaBetas(self)
-        self.pagina_historico = PaginaHistorico(self)
+    def _setup_paginas(self) -> None:
+        self.pagina_dados: PaginaDados = PaginaDados(self)
+        self.pagina_imagens: PaginaImagens = PaginaImagens(self)
+        self.pagina_mapas: PaginaMapas = PaginaMapas(self)
+        self.pagina_betas: PaginaBetas = PaginaBetas(self)
+        self.pagina_historico: PaginaHistorico = PaginaHistorico(self)
         
         self.stack.addWidget(self.pagina_dados)
         self.stack.addWidget(self.pagina_imagens)
@@ -513,18 +536,18 @@ class JanelaPrincipal(QMainWindow):
         
         self.stack.setCurrentWidget(self.pagina_dados)
         
-    def _trocar_pagina(self, indice):
+    def _trocar_pagina(self, indice: int) -> None:
         for i, acao in enumerate(self.grupo_nav):
             acao.setChecked(i == indice)
         
         self.stack.setCurrentIndex(indice)
         self._atualizar_acoes_contextuais()
         
-        if getattr(self, "croqui_controller", None):
+        if getattr(self, "croqui_controller", None) and self.croqui_controller:
             mapa_paginas = {0: "page:dados", 1: "page:imagens", 2: "page:mapas", 3: "page:betas", 4: "page:historico"}
             self.croqui_controller.set_contexto(mapa_paginas.get(indice, "page:dados"))
         
-    def _atualizar_acoes_contextuais(self):
+    def _atualizar_acoes_contextuais(self) -> None:
         """Limpa as ações contextuais anteriores e adiciona as da nova página."""
         # Limpa anteriores
         for acao in self._acoes_contextuais:
@@ -533,13 +556,13 @@ class JanelaPrincipal(QMainWindow):
         
         # Adiciona novas
         pagina_ativa = self.stack.currentWidget()
-        if hasattr(pagina_ativa, 'obter_acoes_contextuais'):
+        if pagina_ativa and hasattr(pagina_ativa, 'obter_acoes_contextuais'):
             acoes = pagina_ativa.obter_acoes_contextuais()
             self._acoes_contextuais = acoes
             for acao in acoes:
                 self.toolbar_superior.addAction(acao)
 
-    def _on_foco_requisitado(self, uri: str):
+    def _on_foco_requisitado(self, uri: str) -> None:
         if not uri: return
         from editor.core.contexto import ContextoUIPath
         ctx = ContextoUIPath(uri)
@@ -613,9 +636,9 @@ class JanelaPrincipal(QMainWindow):
         from editor.views.dialogo_recuperacao_sessao import DialogoRecuperacaoSessao
         from PySide6.QtWidgets import QDialog
         dialogo = DialogoRecuperacaoSessao(total_acoes=total_acoes, parent=self)
-        return dialogo.exec() == QDialog.DialogCode.Accepted
+        return bool(dialogo.exec() == QDialog.DialogCode.Accepted)
 
-    def carregar_croqui(self):
+    def carregar_croqui(self) -> None:
         """Carrega os dados do croqui a partir do sistema de arquivos."""
         if not self.workspace:
             return
@@ -681,12 +704,12 @@ class JanelaPrincipal(QMainWindow):
                 
                 self.atualizar_titulo()
                 
-    def salvar_croqui(self, callback_sucesso=None):
+    def salvar_croqui(self, callback_sucesso: Optional[Callable[[], None]] = None) -> None:
         """Salva as alterações, compila e faz commit no git local se aplicável."""
         if not self.workspace or not self.croqui_data:
             return
             
-        if getattr(self, '_salvando', False):
+        if self._salvando:
             return
             
         foco_atual = QApplication.focusWidget()
@@ -696,15 +719,16 @@ class JanelaPrincipal(QMainWindow):
         caminho_db = self.workspace.obter_caminho_database()
             
         try:
-            if hasattr(self.pagina_dados, 'editor_dados') and self.pagina_dados.editor_dados:
+            if hasattr(self.pagina_dados, 'editor_dados') and self.pagina_dados.editor_dados and self.croqui_model:
                 self.croqui_data = self.croqui_model.extrair_arquivos_e_serializar(caminho_db)
+
                 
             if hasattr(self.pagina_mapas.editor, 'salvar_todas_mudancas'):
                 self.pagina_mapas.editor.salvar_todas_mudancas(mostrar_mensagem=False)
             
             self.pagina_imagens.editor.salvar_alteracoes(mostrar_mensagem=False)
             
-            novo_id = self.croqui_data.get("id") if self.croqui_data else None
+            novo_id = str(self.croqui_data.get("id", "")) if self.croqui_data else ""
             nome_raiz = self.workspace.caminho_raiz.name
             partes = nome_raiz.split("_", 1)
             id_atual = partes[1] if len(partes) > 1 and partes[0].isdigit() else nome_raiz
@@ -722,7 +746,7 @@ class JanelaPrincipal(QMainWindow):
             self._salvando = True
             self._callback_sucesso_salvar = callback_sucesso
             
-            if not hasattr(self, 'label_status_salvamento'):
+            if not self.label_status_salvamento:
                 from PySide6.QtWidgets import QLabel
                 from PySide6.QtCore import Qt
                 self.label_status_salvamento = QLabel("Salvando...", self)
@@ -739,9 +763,9 @@ class JanelaPrincipal(QMainWindow):
         except Exception as e:
             QMessageBox.critical(self, "Erro ao Salvar", f"Não foi possível iniciar o salvamento:\n{str(e)}")
 
-    def _on_salvar_sucesso(self, caminho_retornado, erros, houve_renomeacao, undo_index):
+    def _on_salvar_sucesso(self, caminho_retornado: Any, erros: List[str], houve_renomeacao: bool, undo_index: int) -> None:
         self._salvando = False
-        if hasattr(self, 'label_status_salvamento'):
+        if self.label_status_salvamento:
             self.label_status_salvamento.hide()
             
         if self.historico.obter_pilha().index() == undo_index:
@@ -753,39 +777,40 @@ class JanelaPrincipal(QMainWindow):
             self.compilacao_controller.processar_resultado([])
             self.exibir_notificacao("Croqui salvo e compilado com sucesso!")
         
-        caminho_db = self.workspace.obter_caminho_database()
-        if getattr(self, 'croqui_model', None):
-            self.pagina_mapas.carregar_mapas(self.croqui_model, self.historico, caminho_db)
-        self.pagina_imagens.carregar_imagens(caminho_db)
+        if self.workspace:
+            caminho_db = self.workspace.obter_caminho_database()
+            if getattr(self, 'croqui_model', None):
+                self.pagina_mapas.carregar_mapas(self.croqui_model, self.historico, caminho_db)
+            self.pagina_imagens.carregar_imagens(caminho_db)
             
         if hasattr(self, 'salvamento_finalizado'):
             self.salvamento_finalizado.emit()
             
-        if hasattr(self, '_callback_sucesso_salvar') and self._callback_sucesso_salvar:
+        if self._callback_sucesso_salvar:
             cb = self._callback_sucesso_salvar
             self._callback_sucesso_salvar = None
             cb()
             
-        if getattr(self, '_fechar_apos_salvar', False):
-            if hasattr(self, 'dlg_espera') and self.dlg_espera:
+        if self._fechar_apos_salvar:
+            if self.dlg_espera:
                 self.dlg_espera.accept()
             self.close()
 
-    def _on_salvar_erro(self, e):
+    def _on_salvar_erro(self, e: Exception) -> None:
         self._salvando = False
-        if hasattr(self, 'label_status_salvamento'):
+        if self.label_status_salvamento:
             self.label_status_salvamento.hide()
         QMessageBox.critical(self, "Erro ao Salvar", f"Não foi possível salvar o croqui:\n{str(e)}")
         
         if hasattr(self, 'salvamento_finalizado'):
             self.salvamento_finalizado.emit()
             
-        if getattr(self, '_fechar_apos_salvar', False):
+        if self._fechar_apos_salvar:
             self._fechar_apos_salvar = False
             if hasattr(self, 'dlg_fechamento') and self.dlg_fechamento:
                 self.dlg_fechamento.reject()
 
-    def exportar_croqui(self):
+    def exportar_croqui(self) -> None:
         """Gera o arquivo .croqui (ZIP)."""
         if not self.workspace:
             return
@@ -804,12 +829,12 @@ class JanelaPrincipal(QMainWindow):
                 from editor.core.worker import TarefaExportacao
                 from PySide6.QtWidgets import QProgressDialog
                 
-                self.progresso_export = QProgressDialog("Compactando e ofuscando...", None, 0, 0, self)
+                self.progresso_export: QProgressDialog = QProgressDialog("Compactando e ofuscando...", "", 0, 0, self)
                 self.progresso_export.setWindowTitle("Exportando Croqui")
                 self.progresso_export.setWindowModality(Qt.WindowModality.WindowModal)
                 self.progresso_export.show()
                 
-                self._worker_export = TarefaExportacao(self.workspace.caminho_raiz, Path(destino))
+                self._worker_export: TarefaExportacao = TarefaExportacao(self.workspace.caminho_raiz, Path(destino))
                 self._worker_export.sucesso.connect(lambda: self.exibir_notificacao("Croqui exportado com sucesso!"))
                 self._worker_export.sucesso.connect(self.progresso_export.close)
                 self._worker_export.erro.connect(lambda e: QMessageBox.critical(self, "Erro ao Exportar", f"Falha na exportação:\n{e}"))
@@ -819,13 +844,13 @@ class JanelaPrincipal(QMainWindow):
             except Exception as e:
                 QMessageBox.critical(self, "Erro ao Exportar", f"Não foi possível iniciar a exportação:\n{str(e)}")
 
-    def publicar_croqui(self):
+    def publicar_croqui(self) -> None:
         """Inicia o fluxo de publicação do croqui."""
         if not self.workspace:
             return
             
         from editor.controllers.publish_controller import PublishController
-        self._publish_controller = PublishController(
+        self._publish_controller: PublishController = PublishController(
             workspace=self.workspace,
             auth=self.auth,
             historico=self.historico,
@@ -834,14 +859,14 @@ class JanelaPrincipal(QMainWindow):
         )
         self._publish_controller.iniciar_publicacao()
 
-    def _descartar_diario_pendente(self):
+    def _descartar_diario_pendente(self) -> None:
         """Limpa o diário pendente caso o usuário feche sem salvar ou descarte as alterações."""
         if self.workspace and hasattr(self.workspace, "obter_diario"):
             diario = self.workspace.obter_diario()
             if diario and hasattr(diario, "descartar_pendente"):
                 diario.descartar_pendente()
 
-    def _on_abrir_novo_clicado(self):
+    def _on_abrir_novo_clicado(self) -> None:
         """Trata o clique no botão de voltar para a tela de carregamento."""
         if not self.historico.obter_pilha().isClean():
             resposta = QMessageBox.question(
@@ -860,18 +885,18 @@ class JanelaPrincipal(QMainWindow):
             self._descartar_diario_pendente()
             self._concluir_abrir_novo()
 
-    def _concluir_abrir_novo(self):
+    def _concluir_abrir_novo(self) -> None:
         self._forcar_fechamento = True
         self.solicitar_abrir_novo.emit()
         self.close()
 
-    def closeEvent(self, event):
+    def closeEvent(self, event: QCloseEvent) -> None:
         """Intercepta o fechamento da janela para verificar modificações."""
-        if getattr(self, '_forcar_fechamento', False):
+        if self._forcar_fechamento:
             event.accept()
             return
 
-        if getattr(self, '_salvando', False):
+        if self._salvando:
             self._fechar_apos_salvar = True
             self._mostrar_modal_espera("Finalizando salvamento...")
             event.ignore()
@@ -898,18 +923,20 @@ class JanelaPrincipal(QMainWindow):
             self._descartar_diario_pendente()
             event.accept()
             
-    def _mostrar_modal_espera(self, mensagem="Aguarde..."):
+    def _mostrar_modal_espera(self, mensagem: str = "Aguarde...") -> None:
         from PySide6.QtWidgets import QProgressDialog
         from PySide6.QtCore import Qt
-        if not hasattr(self, 'dlg_espera') or not self.dlg_espera:
-            self.dlg_espera = QProgressDialog(mensagem, None, 0, 0, self)
+        if not self.dlg_espera:
+            self.dlg_espera = QProgressDialog(mensagem, "", 0, 0, self)
             self.dlg_espera.setWindowTitle("Aguarde")
             self.dlg_espera.setWindowModality(Qt.WindowModality.WindowModal)
             self.dlg_espera.setCancelButton(None)
         else:
             self.dlg_espera.setLabelText(mensagem)
         self.dlg_espera.show()
-    def _exibir_conexao_celular(self):
+
+
+    def _exibir_conexao_celular(self) -> None:
         """Inicia o servidor e exibe o diálogo de conexão com o celular."""
         if not self.workspace:
             QMessageBox.warning(self, "Aviso", "Abra um croqui antes de conectar ao celular.")
@@ -929,7 +956,9 @@ class JanelaPrincipal(QMainWindow):
         if not self.monitor_inatividade:
             self.monitor_inatividade = MonitorInatividade(timeout_ms=10000, parent=self)
             self.monitor_inatividade.inatividade_detectada.connect(self.salvar_croqui)
-            QApplication.instance().installEventFilter(self.monitor_inatividade)
+            inst = QApplication.instance()
+            if inst:
+                inst.installEventFilter(self.monitor_inatividade)
             self.monitor_inatividade.iniciar()
 
         # Reusamos a instância para manter o estado visual (ex: "Conectado!")
@@ -943,11 +972,11 @@ class JanelaPrincipal(QMainWindow):
 
         self.dialogo_celular.exec()
 
-    def _ao_celular_conectado(self):
+    def _ao_celular_conectado(self) -> None:
         """Atualiza o ícone da toolbar quando o celular conecta."""
         self.acao_celular.setIcon(Icones.obter_celular(conectado=True))
 
-    def _encerrar_servidor_celular(self):
+    def _encerrar_servidor_celular(self) -> None:
         """Para o servidor e limpa os recursos de conexão."""
         if self.servidor_celular:
             self.servidor_celular.parar()
@@ -955,14 +984,17 @@ class JanelaPrincipal(QMainWindow):
             
         if self.monitor_inatividade:
             self.monitor_inatividade.parar()
-            QApplication.instance().removeEventFilter(self.monitor_inatividade)
+            inst = QApplication.instance()
+            if inst:
+                inst.removeEventFilter(self.monitor_inatividade)
             self.monitor_inatividade = None
             
         self.dialogo_celular = None
         self.acao_celular.setIcon(Icones.obter_celular(conectado=False))
 
-    def exibir_notificacao(self, mensagem):
+    def exibir_notificacao(self, mensagem: str) -> None:
         """Exibe uma notificação temporária no canto inferior direito."""
         toast = NotificacaoToast(mensagem, parent=self)
         toast.show()
         toast.posicionar_no_canto(self)
+

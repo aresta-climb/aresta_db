@@ -3,8 +3,9 @@
 
 import os
 from pathlib import Path
-from typing import Optional, Union
+from typing import Optional, Union, Any
 from PIL import Image
+
 
 from PySide6.QtWidgets import (
     QDialog, QVBoxLayout, QHBoxLayout, QLabel, QLineEdit, QListWidget,
@@ -29,7 +30,7 @@ class AreaDropImagemMarkdown(QWidget):
     """
     imagem_carregada = Signal(object)  # Emite caminho str ou QImage
 
-    def __init__(self, parent=None):
+    def __init__(self, parent: Optional[QWidget] = None) -> None:
         super().__init__(parent)
         self.setAcceptDrops(True)
         self.setMinimumHeight(180)
@@ -60,7 +61,7 @@ class AreaDropImagemMarkdown(QWidget):
         layout.addWidget(self.label_info)
         layout.addWidget(self.label_preview)
 
-    def mousePressEvent(self, event):
+    def mousePressEvent(self, event: Any) -> None:
         if event.button() == Qt.MouseButton.LeftButton:
             arquivo, _ = QFileDialog.getOpenFileName(
                 self, "Selecionar Imagem", "",
@@ -69,7 +70,7 @@ class AreaDropImagemMarkdown(QWidget):
             if arquivo:
                 self.processar_caminho(arquivo)
 
-    def dragEnterEvent(self, event: QDragEnterEvent):
+    def dragEnterEvent(self, event: QDragEnterEvent) -> None:
         if event.mimeData().hasUrls():
             urls = event.mimeData().urls()
             if urls and urls[0].isLocalFile():
@@ -79,14 +80,14 @@ class AreaDropImagemMarkdown(QWidget):
                     return
         event.ignore()
 
-    def dropEvent(self, event: QDropEvent):
+    def dropEvent(self, event: QDropEvent) -> None:
         urls = event.mimeData().urls()
         if urls and urls[0].isLocalFile():
             arquivo = urls[0].toLocalFile()
             self.processar_caminho(arquivo)
             event.acceptProposedAction()
 
-    def processar_caminho(self, caminho_arquivo: str):
+    def processar_caminho(self, caminho_arquivo: Union[str, Path]) -> None:
         pixmap = QPixmap(str(caminho_arquivo))
         if pixmap.isNull():
             QMessageBox.warning(self, "Erro", "Não foi possível carregar o arquivo de imagem selecionado.")
@@ -94,14 +95,14 @@ class AreaDropImagemMarkdown(QWidget):
         self.exibir_pixmap(pixmap)
         self.imagem_carregada.emit(str(caminho_arquivo))
 
-    def processar_qimage(self, qimage: QImage):
+    def processar_qimage(self, qimage: QImage) -> None:
         pixmap = QPixmap.fromImage(qimage)
         if pixmap.isNull():
             return
         self.exibir_pixmap(pixmap)
         self.imagem_carregada.emit(qimage)
 
-    def exibir_pixmap(self, pixmap: QPixmap):
+    def exibir_pixmap(self, pixmap: QPixmap) -> None:
         pixmap_escalado = pixmap.scaled(
             QSize(240, 160),
             Qt.AspectRatioMode.KeepAspectRatio,
@@ -120,17 +121,17 @@ class DialogoInserirImagemMarkdown(QDialog):
     def __init__(
         self,
         caminho_db: Path,
-        model=None,
+        model: Optional[Any] = None,
         imagem_inicial: Optional[Union[Path, str, QImage, bytes]] = None,
-        parent=None,
-    ):
+        parent: Optional[QWidget] = None,
+    ) -> None:
         super().__init__(parent)
         self.setWindowTitle("Inserir Imagem no Markdown")
         self.resize(580, 520)
 
-        self.caminho_db = Path(caminho_db)
-        self.model = model
-        self.pasta_imagens = self.caminho_db / "imagens"
+        self.caminho_db: Path = Path(caminho_db)
+        self.model: Optional[Any] = model
+        self.pasta_imagens: Path = self.caminho_db / "imagens"
         self.pasta_imagens.mkdir(parents=True, exist_ok=True)
 
         self.fonte_imagem_importacao: Optional[Union[str, Path, QImage, bytes]] = None
@@ -164,7 +165,8 @@ class DialogoInserirImagemMarkdown(QDialog):
         else:
             self._atualizar_estado_botao()
 
-    def _criar_layout(self):
+
+    def _criar_layout(self) -> None:
         layout_principal = QVBoxLayout(self)
 
         self.tab_widget = QTabWidget(self)
@@ -234,7 +236,7 @@ class DialogoInserirImagemMarkdown(QDialog):
         layout_botoes.addWidget(self.btn_inserir)
         layout_principal.addLayout(layout_botoes)
 
-    def _carregar_imagens_existentes(self):
+    def _carregar_imagens_existentes(self) -> None:
         self.lista_imagens.clear()
         nomes_adicionados = set()
         extensoes = {".webp", ".png", ".jpg", ".jpeg", ".bmp"}
@@ -275,14 +277,14 @@ class DialogoInserirImagemMarkdown(QDialog):
                             self.lista_imagens.addItem(item)
                             nomes_adicionados.add(nome)
 
-    def _filtrar_imagens(self, texto: str):
+    def _filtrar_imagens(self, texto: str) -> None:
         termo = texto.strip().lower()
         for i in range(self.lista_imagens.count()):
             item = self.lista_imagens.item(i)
             nome = item.text().lower()
             item.setHidden(termo not in nome if termo else False)
 
-    def _ao_selecionar_item_galeria(self):
+    def _ao_selecionar_item_galeria(self) -> None:
         itens = self.lista_imagens.selectedItems()
         if itens:
             self.nome_imagem_selecionada = itens[0].text()
@@ -290,7 +292,7 @@ class DialogoInserirImagemMarkdown(QDialog):
             self.nome_imagem_selecionada = ""
         self._atualizar_estado_botao()
 
-    def _ao_duplo_clique_galeria(self, item):
+    def _ao_duplo_clique_galeria(self, item: QListWidgetItem) -> None:
         self.nome_imagem_selecionada = item.text()
         self._atualizar_estado_botao()
         if not self.input_legenda.text().strip():
@@ -298,7 +300,7 @@ class DialogoInserirImagemMarkdown(QDialog):
             return
         self.accept()
 
-    def _ao_carregar_imagem_drop(self, objeto_imagem):
+    def _ao_carregar_imagem_drop(self, objeto_imagem: Any) -> None:
         self.carregar_imagem_externa(objeto_imagem)
 
     def _gerar_nome_unico(self, nome_orig: str) -> str:
@@ -307,7 +309,7 @@ class DialogoInserirImagemMarkdown(QDialog):
         
         imagens_memoria = set(self.model.obter_imagens_em_memoria().keys()) if (self.model and hasattr(self.model, "obter_imagens_em_memoria")) else set()
         
-        def existe(nome):
+        def existe(nome: str) -> bool:
             return (self.pasta_imagens / nome).exists() or f"imagens/{nome}" in imagens_memoria
 
         if not existe(nome_sanitizado):
@@ -318,7 +320,7 @@ class DialogoInserirImagemMarkdown(QDialog):
             contador += 1
         return f"{stem}_{contador}.webp"
 
-    def carregar_imagem_externa(self, objeto_imagem: Union[str, Path, QImage, bytes]):
+    def carregar_imagem_externa(self, objeto_imagem: Union[str, Path, QImage, bytes]) -> None:
         self.fonte_imagem_importacao = objeto_imagem
         if isinstance(objeto_imagem, (str, Path)):
             caminho = Path(objeto_imagem)
@@ -341,7 +343,7 @@ class DialogoInserirImagemMarkdown(QDialog):
         self.input_nome_arquivo.setText(nome_sugerido)
         self._atualizar_estado_botao()
 
-    def _atualizar_estado_botao(self):
+    def _atualizar_estado_botao(self) -> None:
         tem_legenda = bool(self.input_legenda.text().strip())
         aba_atual = self.tab_widget.currentIndex()
         if aba_atual == 0:
@@ -352,7 +354,7 @@ class DialogoInserirImagemMarkdown(QDialog):
             habilitado = tem_fonte and tem_nome and tem_legenda
         self.btn_inserir.setEnabled(habilitado)
 
-    def accept(self):
+    def accept(self) -> None:
         legenda = self.input_legenda.text().strip()
         if not legenda:
             from PySide6.QtWidgets import QMessageBox
@@ -379,8 +381,10 @@ class DialogoInserirImagemMarkdown(QDialog):
                 from PySide6.QtCore import QBuffer, QIODevice
                 buffer = QBuffer()
                 buffer.open(QIODevice.OpenModeFlag.ReadWrite)
-                fonte.save(buffer, "PNG")
-                fonte = bytes(buffer.data())
+                fonte.save(buffer, "PNG")  # type: ignore[call-overload]
+                fonte = bytes(buffer.data().data())
+
+
 
             if self.model and hasattr(self.model, "definir_imagem_memoria"):
                 from editor.core.processamento_imagem_campo import comprimir_imagem_para_bytes_webp
@@ -390,6 +394,7 @@ class DialogoInserirImagemMarkdown(QDialog):
                 salvar_imagem_otimizada(fonte, caminho_final)
             self.nome_imagem_selecionada = nome_final
 
+
         super().accept()
 
     def obter_nome_imagem(self) -> str:
@@ -398,3 +403,4 @@ class DialogoInserirImagemMarkdown(QDialog):
     def obter_tag_markdown(self) -> str:
         legenda = self.input_legenda.text().strip()
         return formatar_tag_markdown(self.nome_imagem_selecionada, legenda)
+

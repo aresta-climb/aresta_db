@@ -2,38 +2,50 @@
 # Copyright (C) 2026 Aresta Climb Contributors
 
 import re
-from PySide6.QtCore import QAbstractItemModel, QModelIndex, Qt
+from typing import Optional, Any, List, Dict, Union
+
+from PySide6.QtCore import QAbstractItemModel, QModelIndex, Qt, QObject
 from PySide6.QtGui import QFont
 from google.protobuf.message import Message
 from google.protobuf.descriptor import FieldDescriptor
 from aresta_api.proto.generated import croqui_pb2
 
+
 class ProtobufNode:
-    def __init__(self, name, parent=None, descriptor=None, message=None, index_in_repeated=None, is_expando=False, eh_no_adicao=False):
-        self.name = name
-        self.parent_node = parent
-        self.children = []
-        self.descriptor = descriptor
-        self.message = message
-        self.index_in_repeated = index_in_repeated
-        self.is_expando = is_expando
-        self.eh_no_adicao = eh_no_adicao
-        self._is_populated = False
+    def __init__(
+        self,
+        name: str,
+        parent: Optional["ProtobufNode"] = None,
+        descriptor: Optional[Any] = None,
+        message: Optional[Any] = None,
+        index_in_repeated: Optional[int] = None,
+        is_expando: bool = False,
+        eh_no_adicao: bool = False,
+    ) -> None:
+        self.name: str = name
+        self.parent_node: Optional["ProtobufNode"] = parent
+        self.children: List["ProtobufNode"] = []
+        self.descriptor: Optional[Any] = descriptor
+        self.message: Optional[Any] = message
+        self.index_in_repeated: Optional[int] = index_in_repeated
+        self.is_expando: bool = is_expando
+        self.eh_no_adicao: bool = eh_no_adicao
+        self._is_populated: bool = False
         
         if parent:
             parent.children.append(self)
             
-    def child(self, row):
+    def child(self, row: int) -> Optional["ProtobufNode"]:
         self._populate_children()
         if 0 <= row < len(self.children):
             return self.children[row]
         return None
         
-    def child_count(self):
+    def child_count(self) -> int:
         self._populate_children()
         return len(self.children)
         
-    def row(self):
+    def row(self) -> int:
         if self.parent_node:
             try:
                 return self.parent_node.children.index(self)
@@ -41,7 +53,8 @@ class ProtobufNode:
                 return 0
         return 0
 
-    def _resolve_transparency(self, msg):
+
+    def _resolve_transparency(self, msg: Any) -> Any:
         """
         Retorna a mensagem interna/campo se msg for uma mensagem formatada como ONEOF ou ONEOF_CONTEUDO.
         """
@@ -69,7 +82,7 @@ class ProtobufNode:
                 # conteudo e string ou nao esta set: retorna o wrapper (ex: ArquivoMarkdown)
         return msg
 
-    def _is_descriptor_eligible(self, descriptor):
+    def _is_descriptor_eligible(self, descriptor: Optional[Any]) -> bool:
         if descriptor is None:
             return False
         options = descriptor.GetOptions()
@@ -82,7 +95,7 @@ class ProtobufNode:
             )
         return False
 
-    def _is_descriptor_inline_or_leaf(self, descriptor):
+    def _is_descriptor_inline_or_leaf(self, descriptor: Optional[Any]) -> bool:
         if descriptor is None:
             return True
         options = descriptor.GetOptions()
@@ -97,8 +110,8 @@ class ProtobufNode:
                 return True
         return False
 
-    def _collect_eligible_under_message(self, msg):
-        results = []
+    def _collect_eligible_under_message(self, msg: Any) -> List[Dict[str, Any]]:
+        results: List[Dict[str, Any]] = []
         if msg is None or not hasattr(msg, "DESCRIPTOR"):
             return results
             
@@ -150,7 +163,7 @@ class ProtobufNode:
                                 results.append(rec_item)
         return results
 
-    def _populate_children(self):
+    def _populate_children(self) -> None:
         if self._is_populated:
             return
         
@@ -230,31 +243,31 @@ class ProtobufNode:
 
 
 class ProtobufTreeViewAdapter(QAbstractItemModel):
-    def __init__(self, root_message, parent=None):
+    def __init__(self, root_message: Any, parent: Optional[QObject] = None) -> None:
         super().__init__(parent)
-        self.root_message = root_message
-        self.root_node = ProtobufNode(name="root", message=None)
-        self.croqui_node = ProtobufNode(
+        self.root_message: Any = root_message
+        self.root_node: ProtobufNode = ProtobufNode(name="root", message=None)
+        self.croqui_node: ProtobufNode = ProtobufNode(
             name="Croqui",
             parent=self.root_node,
-            descriptor=self.root_message.DESCRIPTOR,
+            descriptor=self.root_message.DESCRIPTOR if hasattr(self.root_message, "DESCRIPTOR") else None,
             message=self.root_message,
             is_expando=False
         )
         
-    def rebuild_tree(self):
+    def rebuild_tree(self) -> None:
         self.beginResetModel()
         self.root_node = ProtobufNode(name="root", message=None)
         self.croqui_node = ProtobufNode(
             name="Croqui",
             parent=self.root_node,
-            descriptor=self.root_message.DESCRIPTOR,
+            descriptor=self.root_message.DESCRIPTOR if hasattr(self.root_message, "DESCRIPTOR") else None,
             message=self.root_message,
             is_expando=False
         )
         self.endResetModel()
         
-    def rowCount(self, parent=QModelIndex()):
+    def rowCount(self, parent: Union[QModelIndex, Any] = QModelIndex()) -> int:
         if not parent.isValid():
             parent_node = self.root_node
         else:
@@ -262,10 +275,10 @@ class ProtobufTreeViewAdapter(QAbstractItemModel):
             
         return parent_node.child_count()
         
-    def columnCount(self, parent=QModelIndex()):
+    def columnCount(self, parent: Union[QModelIndex, Any] = QModelIndex()) -> int:
         return 1
         
-    def data(self, index, role=Qt.ItemDataRole.DisplayRole):
+    def data(self, index: Union[QModelIndex, Any], role: int = Qt.ItemDataRole.DisplayRole) -> Any:
         if not index.isValid():
             return None
             
@@ -373,7 +386,7 @@ class ProtobufTreeViewAdapter(QAbstractItemModel):
             
         return node.name
         
-    def index(self, row, column, parent=QModelIndex()):
+    def index(self, row: int, column: int, parent: Union[QModelIndex, Any] = QModelIndex()) -> QModelIndex:
         if not self.hasIndex(row, column, parent):
             return QModelIndex()
             
@@ -387,7 +400,7 @@ class ProtobufTreeViewAdapter(QAbstractItemModel):
             return self.createIndex(row, column, child_node)
         return QModelIndex()
         
-    def parent(self, index):
+    def parent(self, index: Any = QModelIndex()) -> QModelIndex:  # type: ignore[override]
         if not index.isValid():
             return QModelIndex()
             
@@ -399,7 +412,7 @@ class ProtobufTreeViewAdapter(QAbstractItemModel):
             
         return self.createIndex(parent_node.row(), 0, parent_node)
 
-    def find_index_for_message_id(self, msg_id, parent_idx=QModelIndex()):
+    def find_index_for_message_id(self, msg_id: Any, parent_idx: Union[QModelIndex, Any] = QModelIndex()) -> QModelIndex:
         from editor.views.widget_editor_dados import _get_id
         if self.root_message and _get_id(self.root_message) == msg_id:
             return self.index(0, 0)
@@ -420,7 +433,7 @@ class ProtobufTreeViewAdapter(QAbstractItemModel):
                     return child_match
         return QModelIndex()
 
-    def find_index_for_path(self, path, parent_idx=QModelIndex()):
+    def find_index_for_path(self, path: str, parent_idx: Union[QModelIndex, Any] = QModelIndex()) -> QModelIndex:
         from editor.views.widget_editor_dados import get_node_path
         
         if self.root_message and path == "node:Croqui":
@@ -438,7 +451,7 @@ class ProtobufTreeViewAdapter(QAbstractItemModel):
                     return child_match
         return QModelIndex()
 
-    def find_expando_index(self, msg_id, campo):
+    def find_expando_index(self, msg_id: Any, campo: str) -> QModelIndex:
         parent_idx = self.find_index_for_message_id(msg_id)
         if not parent_idx.isValid():
             return QModelIndex()
@@ -453,20 +466,20 @@ class ProtobufTreeViewAdapter(QAbstractItemModel):
                 
         return QModelIndex()
 
-    def _on_campo_alterado(self, msg_id, campo, novo_valor):
+    def _on_campo_alterado(self, msg_id: Any, campo: str, novo_valor: Any) -> None:
         # Atualiza o nó se o campo modificado for relevante para o rótulo
         idx = self.find_index_for_message_id(msg_id)
         if idx.isValid():
             self.dataChanged.emit(idx, idx)
 
-    def _on_repeated_item_alterado(self, msg_id, campo, index, novo_valor):
+    def _on_repeated_item_alterado(self, msg_id: Any, campo: str, index: int, novo_valor: Any) -> None:
         exp_idx = self.find_expando_index(msg_id, campo)
         if exp_idx.isValid():
             item_idx = self.index(index, 0, exp_idx)
             if item_idx.isValid():
                 self.dataChanged.emit(item_idx, item_idx)
 
-    def _on_item_adicionado(self, msg_id, campo, idx):
+    def _on_item_adicionado(self, msg_id: Any, campo: str, idx: int) -> None:
         exp_idx = self.find_expando_index(msg_id, campo)
         if not exp_idx.isValid():
             return
@@ -515,7 +528,7 @@ class ProtobufTreeViewAdapter(QAbstractItemModel):
                 last_changed = self.index(row_count - 2, 0, exp_idx)
                 self.dataChanged.emit(first_changed, last_changed)
 
-    def _on_item_removido(self, msg_id, campo, idx):
+    def _on_item_removido(self, msg_id: Any, campo: str, idx: int) -> None:
         exp_idx = self.find_expando_index(msg_id, campo)
         if not exp_idx.isValid():
             return
@@ -550,7 +563,7 @@ class ProtobufTreeViewAdapter(QAbstractItemModel):
                 last_changed = self.index(row_count - 1, 0, exp_idx)
                 self.dataChanged.emit(first_changed, last_changed)
 
-    def _on_item_movido(self, msg_id, campo, index_from, index_to):
+    def _on_item_movido(self, msg_id: Any, campo: str, index_from: int, index_to: int) -> None:
         exp_idx = self.find_expando_index(msg_id, campo)
         if not exp_idx.isValid():
             return
@@ -584,3 +597,4 @@ class ProtobufTreeViewAdapter(QAbstractItemModel):
         first_changed = self.index(min_idx, 0, exp_idx)
         last_changed = self.index(max_idx, 0, exp_idx)
         self.dataChanged.emit(first_changed, last_changed)
+

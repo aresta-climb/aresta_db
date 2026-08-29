@@ -1,19 +1,25 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
-from typing import Optional, Sequence
+from typing import Optional, Sequence, Dict
 from PySide6.QtCore import Qt
 from PySide6.QtWidgets import (
     QDialog, QVBoxLayout, QFormLayout, QLineEdit, QTextEdit,
-    QHBoxLayout, QPushButton, QLabel, QTextBrowser
+    QHBoxLayout, QPushButton, QLabel, QTextBrowser, QWidget
 )
+
 
 class PublishDialog(QDialog):
     """
     Diálogo para coletar informações para a submissão da sugestão de Pull Request.
     Permite ao usuário definir o título, descrição e visualizar resumo das alterações.
     """
-    def __init__(self, titulo_padrao: str = "", resumo_arquivos: Optional[Sequence[str]] = None, parent=None):
+    def __init__(
+        self,
+        titulo_padrao: str = "",
+        resumo_arquivos: Optional[Sequence[str]] = None,
+        parent: Optional[QWidget] = None,
+    ) -> None:
         super().__init__(parent)
         self.setWindowTitle("Enviar Proposta de Mudança")
         self.setMinimumWidth(450)
@@ -72,7 +78,7 @@ class PublishDialog(QDialog):
         botoes.addWidget(self.btn_publicar)
         layout.addLayout(botoes)
 
-    def obter_dados(self) -> dict:
+    def obter_dados(self) -> Dict[str, str]:
         """
         Retorna os dados inseridos pelo usuário.
         
@@ -83,3 +89,4 @@ class PublishDialog(QDialog):
             "titulo": self.edit_titulo.text(),
             "descricao": self.edit_descricao.toPlainText()
         }
+
