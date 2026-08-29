@@ -111,13 +111,16 @@ class PaginaImagens(PaginaBase):
         
     def carregar_imagens(self, caminho_db, model=None, controller=None):
         if model:
-            self.editor.croqui_model = model
-            if hasattr(model, "imagem_alterada"):
-                try:
-                    model.imagem_alterada.disconnect(self.editor._on_imagem_alterada)
-                except Exception:
-                    pass
-                model.imagem_alterada.connect(self.editor._on_imagem_alterada)
+            if getattr(self.editor, "_model_conectado", None) is not model:
+                if getattr(self.editor, "_model_conectado", None) is not None:
+                    try:
+                        self.editor._model_conectado.imagem_alterada.disconnect(self.editor._on_imagem_alterada)
+                    except Exception:
+                        pass
+                self.editor.croqui_model = model
+                if hasattr(model, "imagem_alterada"):
+                    model.imagem_alterada.connect(self.editor._on_imagem_alterada)
+                    self.editor._model_conectado = model
         if controller:
             self.editor.croqui_controller = controller
 
@@ -148,12 +151,15 @@ class PaginaMapas(PaginaBase):
             self.editor.mapas_controller = mapas_controller
             self.editor.croqui_model = model
             self.editor.croqui_controller = controller or getattr(mapas_controller, "croqui_controller", None)
-            if hasattr(model, "imagem_alterada"):
-                try:
-                    model.imagem_alterada.disconnect(self.editor._on_imagem_alterada)
-                except Exception:
-                    pass
-                model.imagem_alterada.connect(self.editor._on_imagem_alterada)
+            if getattr(self.editor, "_model_imagem_conectado", None) is not model:
+                if getattr(self.editor, "_model_imagem_conectado", None) is not None:
+                    try:
+                        self.editor._model_imagem_conectado.imagem_alterada.disconnect(self.editor._on_imagem_alterada)
+                    except Exception:
+                        pass
+                if hasattr(model, "imagem_alterada"):
+                    model.imagem_alterada.connect(self.editor._on_imagem_alterada)
+                    self.editor._model_imagem_conectado = model
             if hasattr(self.editor, 'painel_referencias'):
                 self.editor.painel_referencias.mapas_controller = mapas_controller
             self.editor.configurar_lista_mapas()

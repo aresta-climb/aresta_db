@@ -181,6 +181,7 @@ class TestDialogoAdicionarMapa:
         mouse_event = QMouseEvent(
             QMouseEvent.Type.MouseButtonPress,
             QPointF(10, 10),
+            QPointF(10, 10),
             Qt.MouseButton.LeftButton,
             Qt.MouseButton.LeftButton,
             Qt.KeyboardModifier.NoModifier,

@@ -811,6 +811,10 @@ class WidgetEditorMapas(QWidget):
         
         if self.croqui_model and hasattr(self.croqui_model, "imagem_alterada"):
             self.croqui_model.imagem_alterada.connect(self._on_imagem_alterada)
+            self._model_imagem_conectado = self.croqui_model
+        else:
+            self._model_imagem_conectado = None
+        self._model_repeated_conectado = None
         
         # Estilo geral para combinar com o editor
         self.setStyleSheet("""
@@ -1208,14 +1212,21 @@ class WidgetEditorMapas(QWidget):
                 self.mapas_controller.set_contexto(path)
                 
             model = self.mapas_controller.model
-            try:
-                model.repeated_item_alterado.disconnect(self._on_repeated_item_alterado)
-                model.repeated_adicionado.disconnect(self._on_repeated_adicionado)
-                model.repeated_removido.disconnect(self._on_repeated_removido)
-            except Exception: pass
-            model.repeated_item_alterado.connect(self._on_repeated_item_alterado)
-            model.repeated_adicionado.connect(self._on_repeated_adicionado)
-            model.repeated_removido.connect(self._on_repeated_removido)
+            if getattr(self, "_model_repeated_conectado", None) is not model:
+                if getattr(self, "_model_repeated_conectado", None) is not None:
+                    try:
+                        self._model_repeated_conectado.repeated_item_alterado.disconnect(self._on_repeated_item_alterado)
+                        self._model_repeated_conectado.repeated_adicionado.disconnect(self._on_repeated_adicionado)
+                        self._model_repeated_conectado.repeated_removido.disconnect(self._on_repeated_removido)
+                    except Exception:
+                        pass
+                if hasattr(model, "repeated_item_alterado"):
+                    model.repeated_item_alterado.connect(self._on_repeated_item_alterado)
+                if hasattr(model, "repeated_adicionado"):
+                    model.repeated_adicionado.connect(self._on_repeated_adicionado)
+                if hasattr(model, "repeated_removido"):
+                    model.repeated_removido.connect(self._on_repeated_removido)
+                self._model_repeated_conectado = model
             
         self.painel_referencias.carregar_mapa(msg_mapa_proxy)
         self._renderizar_mapa(reset_zoom=True)

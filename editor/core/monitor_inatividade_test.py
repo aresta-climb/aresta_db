@@ -60,7 +60,7 @@ def test_deve_resetar_timer_ao_clicar_mouse(qtbot):
     qtbot.wait(200)
     
     # Simula evento de clique
-    evento = QMouseEvent(QEvent.Type.MouseButtonPress, QPointF(0,0), Qt.MouseButton.LeftButton, Qt.MouseButton.LeftButton, Qt.KeyboardModifier.NoModifier)
+    evento = QMouseEvent(QEvent.Type.MouseButtonPress, QPointF(0,0), QPointF(0,0), Qt.MouseButton.LeftButton, Qt.MouseButton.LeftButton, Qt.KeyboardModifier.NoModifier)
     QApplication.instance().installEventFilter(monitor)
     QApplication.instance().postEvent(QApplication.instance(), evento)
     
@@ -86,7 +86,7 @@ def test_nao_deve_resetar_timer_ao_apenas_mover_mouse(qtbot):
     qtbot.wait(200)
     
     # Simula movimento de mouse (no deve resetar)
-    evento = QMouseEvent(QEvent.Type.MouseMove, QPointF(10,10), Qt.MouseButton.NoButton, Qt.MouseButton.NoButton, Qt.KeyboardModifier.NoModifier)
+    evento = QMouseEvent(QEvent.Type.MouseMove, QPointF(10,10), QPointF(10,10), Qt.MouseButton.NoButton, Qt.MouseButton.NoButton, Qt.KeyboardModifier.NoModifier)
     QApplication.instance().installEventFilter(monitor)
     QApplication.instance().postEvent(QApplication.instance(), evento)
     

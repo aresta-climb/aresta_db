@@ -342,6 +342,9 @@ class WidgetEditorImagens(QWidget):
         self.setup_ui()
         if self.croqui_model and hasattr(self.croqui_model, "imagem_alterada"):
             self.croqui_model.imagem_alterada.connect(self._on_imagem_alterada)
+            self._model_conectado = self.croqui_model
+        else:
+            self._model_conectado = None
         self.load_images_list()
 
     def setup_ui(self):

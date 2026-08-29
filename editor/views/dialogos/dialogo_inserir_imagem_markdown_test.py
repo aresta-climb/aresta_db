@@ -389,6 +389,7 @@ def test_dialogo_area_drop_clique_cancelado(qapp, tmp_path, monkeypatch):
     event = QMouseEvent(
         QMouseEvent.Type.MouseButtonPress,
         QPointF(10, 10),
+        QPointF(10, 10),
         Qt.MouseButton.LeftButton,
         Qt.MouseButton.LeftButton,
         Qt.KeyboardModifier.NoModifier
@@ -410,6 +411,7 @@ def test_dialogo_area_drop_clique_selecionado(qapp, tmp_path, monkeypatch):
     from PySide6.QtCore import QPointF, Qt
     event = QMouseEvent(
         QMouseEvent.Type.MouseButtonPress,
+        QPointF(10, 10),
         QPointF(10, 10),
         Qt.MouseButton.LeftButton,
         Qt.MouseButton.LeftButton,

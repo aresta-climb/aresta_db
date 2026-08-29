@@ -1275,6 +1275,7 @@ class TestVisualizadorMapa(unittest.TestCase):
         press_event = QMouseEvent(
             QMouseEvent.Type.MouseButtonPress,
             QPointF(50.0, 50.0),
+            QPointF(50.0, 50.0),
             Qt.MouseButton.LeftButton,
             Qt.MouseButton.LeftButton,
             Qt.KeyboardModifier.NoModifier
@@ -1288,6 +1289,7 @@ class TestVisualizadorMapa(unittest.TestCase):
         move_event = QMouseEvent(
             QMouseEvent.Type.MouseMove,
             QPointF(20.0, 30.0), # delta de -30 e -20
+            QPointF(20.0, 30.0),
             Qt.MouseButton.LeftButton,
             Qt.MouseButton.LeftButton,
             Qt.KeyboardModifier.NoModifier
@@ -1302,6 +1304,7 @@ class TestVisualizadorMapa(unittest.TestCase):
         # Soltar mouse
         release_event = QMouseEvent(
             QMouseEvent.Type.MouseButtonRelease,
+            QPointF(20.0, 30.0),
             QPointF(20.0, 30.0),
             Qt.MouseButton.LeftButton,
             Qt.MouseButton.LeftButton,
@@ -1324,6 +1327,7 @@ class TestVisualizadorMapa(unittest.TestCase):
         
         press_event = QMouseEvent(
             QMouseEvent.Type.MouseButtonPress,
+            QPointF(float(pos_view.x()), float(pos_view.y())),
             QPointF(float(pos_view.x()), float(pos_view.y())),
             Qt.MouseButton.LeftButton,
             Qt.MouseButton.LeftButton,
@@ -1350,6 +1354,7 @@ class TestVisualizadorMapa(unittest.TestCase):
         pos_view = self.view.mapFromScene(10, 10)
         press_event = QMouseEvent(
             QMouseEvent.Type.MouseButtonPress,
+            QPointF(float(pos_view.x()), float(pos_view.y())),
             QPointF(float(pos_view.x()), float(pos_view.y())),
             Qt.MouseButton.LeftButton,
             Qt.MouseButton.LeftButton,
@@ -1388,6 +1393,7 @@ class TestVisualizadorMapa(unittest.TestCase):
         press_event = QMouseEvent(
             QMouseEvent.Type.MouseButtonPress,
             QPointF(float(pos_view.x()), float(pos_view.y())),
+            QPointF(float(pos_view.x()), float(pos_view.y())),
             Qt.MouseButton.LeftButton,
             Qt.MouseButton.LeftButton,
             Qt.KeyboardModifier.NoModifier
@@ -1400,6 +1406,7 @@ class TestVisualizadorMapa(unittest.TestCase):
         # Mover
         move_event = QMouseEvent(
             QMouseEvent.Type.MouseMove,
+            QPointF(float(pos_view.x() - 20), float(pos_view.y() - 20)),
             QPointF(float(pos_view.x() - 20), float(pos_view.y() - 20)),
             Qt.MouseButton.LeftButton,
             Qt.MouseButton.LeftButton,
