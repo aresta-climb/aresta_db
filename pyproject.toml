@@ -14,6 +14,7 @@ deploy = [
     "pyyaml",
     "protobuf",
     "grpcio-tools",
+    "mypy-protobuf",
 ]
 
 # Validador de pull requests da database
@@ -63,8 +64,44 @@ dev = [
     "pytest-mock",
     "moto[s3]",
     "moto",
+    "mypy>=1.15.0",
+    "mypy-protobuf>=3.6.0",
+    "types-requests",
+    "types-PyYAML",
+    "types-protobuf",
 ]
 
 [tool.uv]
 package = false
 default-groups = ["deploy", "validador", "editor", "pdf", "dev"]
+
+[tool.mypy]
+python_version = "3.13"
+strict = true
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+check_untyped_defs = true
+no_implicit_optional = true
+warn_return_any = true
+warn_unused_ignores = true
+show_error_codes = true
+
+[[tool.mypy.overrides]]
+module = [
+    "grpc_tools",
+    "grpc_tools.*",
+    "qtawesome",
+    "qtawesome.*",
+    "winrt.*",
+    "paddleocr",
+    "paddleocr.*",
+    "fitz",
+    "fitz.*",
+    "pymupdf",
+    "pymupdf.*",
+    "duckduckgo_search",
+    "duckduckgo_search.*",
+]
+ignore_missing_imports = true
+
+
