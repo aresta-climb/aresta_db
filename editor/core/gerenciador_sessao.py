@@ -60,17 +60,18 @@ class GerenciadorSessao:
         nome_servico: str = "editor_aresta",
         identificador_usuario: str = "sessao_atual",
         caminho_arquivo_sessao: Optional[Path] = None,
-    ):
-        self.usar_memoria = usar_memoria
-        self.nome_servico = nome_servico
-        self.identificador_usuario = identificador_usuario
+    ) -> None:
+        self.usar_memoria: bool = usar_memoria
+        self.nome_servico: str = nome_servico
+        self.identificador_usuario: str = identificador_usuario
         self._sessao_memoria: Optional[str] = None
         if caminho_arquivo_sessao:
-            self._caminho_arquivo = caminho_arquivo_sessao
+            self._caminho_arquivo: Path = caminho_arquivo_sessao
         else:
             self._caminho_arquivo = (
                 GerenciadorCaminhos().obter_diretorio_base() / ".sessao_auth.enc"
             )
+
 
     def _obter_ou_criar_chave_criptografia(self) -> bytes:
         """Obtém a chave AES de 256 bits do Keyring ou gera uma nova de forma segura."""

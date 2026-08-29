@@ -9,6 +9,9 @@ da representação JSON/Dict das geometrias (`circulo`, `retangulo`, `quadrado`,
 seja isolado e testado independentemente do sistema de UI (PyQt).
 """
 
+from typing import Any
+
+
 class GeometriaPOI:
     """
     Representa a geometria de um Ponto de Interesse (POI).
@@ -16,7 +19,7 @@ class GeometriaPOI:
     suportando retrocompatibilidade com chaves antigas (`circular`, `box`, `area_livre`).
     """
     
-    def __init__(self, tipo: str, propriedades: dict, id_poi: str = "", label: str = ""):
+    def __init__(self, tipo: str, propriedades: dict[str, Any], id_poi: str = "", label: str = "") -> None:
         """
         Inicializa a geometria.
         
@@ -26,13 +29,13 @@ class GeometriaPOI:
             id_poi: Identificador referencial do POI.
             label: O rótulo exibido no mapa.
         """
-        self.tipo = tipo
-        self.propriedades = propriedades
-        self.id_poi = id_poi
-        self.label = label
+        self.tipo: str = tipo
+        self.propriedades: dict[str, Any] = propriedades
+        self.id_poi: str = id_poi
+        self.label: str = label
 
     @classmethod
-    def from_dict(cls, dados: dict) -> 'GeometriaPOI':
+    def from_dict(cls, dados: dict[str, Any]) -> "GeometriaPOI":
         """
         Lê um dicionário (tipicamente vindo de JSON ou YAML) e retorna
         a instância normalizada de GeometriaPOI. Aplica fallback automático
@@ -47,8 +50,8 @@ class GeometriaPOI:
         Raises:
             ValueError: Se o dicionário não contiver nenhum tipo de geometria suportado.
         """
-        id_poi = dados.get("id", "")
-        label = dados.get("label", "")
+        id_poi = str(dados.get("id", ""))
+        label = str(dados.get("label", ""))
         
         if "circulo" in dados:
             return cls("circulo", dados["circulo"], id_poi, label)
@@ -69,7 +72,7 @@ class GeometriaPOI:
             
         raise ValueError("O dicionário não contém um tipo de geometria de POI válido ou reconhecido.")
 
-    def to_dict(self) -> dict:
+    def to_dict(self) -> dict[str, Any]:
         """
         Serializa a geometria de volta para um dicionário, usando apenas
         os nomes padronizados modernos.
@@ -77,7 +80,7 @@ class GeometriaPOI:
         Returns:
             Dicionário serializável do POI.
         """
-        d = {}
+        d: dict[str, Any] = {}
         if self.id_poi:
             d["id"] = self.id_poi
         if self.label:
@@ -88,29 +91,37 @@ class GeometriaPOI:
 
     # Atalhos seguros para leitura de propriedades
     @property
-    def x(self):
-        return self.propriedades.get("x")
+    def x(self) -> float | None:
+        val = self.propriedades.get("x")
+        return float(val) if val is not None else None
         
     @property
-    def y(self):
-        return self.propriedades.get("y")
+    def y(self) -> float | None:
+        val = self.propriedades.get("y")
+        return float(val) if val is not None else None
         
     @property
-    def raio(self):
-        return self.propriedades.get("raio")
+    def raio(self) -> float | None:
+        val = self.propriedades.get("raio")
+        return float(val) if val is not None else None
         
     @property
-    def comprimento(self):
-        return self.propriedades.get("comprimento")
+    def comprimento(self) -> float | None:
+        val = self.propriedades.get("comprimento")
+        return float(val) if val is not None else None
         
     @property
-    def largura(self):
-        return self.propriedades.get("largura")
+    def largura(self) -> float | None:
+        val = self.propriedades.get("largura")
+        return float(val) if val is not None else None
         
     @property
-    def lado(self):
-        return self.propriedades.get("lado")
+    def lado(self) -> float | None:
+        val = self.propriedades.get("lado")
+        return float(val) if val is not None else None
         
     @property
-    def coordenadas(self):
-        return self.propriedades.get("coordenadas")
+    def coordenadas(self) -> list[Any] | None:
+        val = self.propriedades.get("coordenadas")
+        return list(val) if val is not None else None
+

@@ -19,20 +19,24 @@ mimetypes.add_type('text/plain', '.yml')
 mimetypes.add_type('text/plain', '.md')
 mimetypes.add_type('application/octet-stream', '.binarypb')
 
+from typing import Optional, Any
+from PySide6.QtCore import QObject, Signal
+
 class ServidorCelular(QObject):
     """Gerencia um servidor HTTP local para conexão com o aplicativo móvel usando FastAPI/Uvicorn."""
-    dispositivo_conectado = Signal()
+    dispositivo_conectado: Signal = Signal()
     
-    def __init__(self, pasta_compilado, parent=None):
+    def __init__(self, pasta_compilado: Path | str, parent: Optional[QObject] = None) -> None:
         super().__init__(parent)
-        self.pasta_compilado = Path(pasta_compilado)
-        self.porta = None
-        self.server = None
-        self.thread = None
-        self._servindo = False
-        self.conectado = False
+        self.pasta_compilado: Path = Path(pasta_compilado)
+        self.porta: Optional[int] = None
+        self.server: Any = None
+        self._thread_servidor: Optional[threading.Thread] = None
+        self._servindo: bool = False
+        self.conectado: bool = False
 
-    def obter_porta_disponivel(self, inicio=8000, fim=9000, max_tentativas=10):
+
+    def obter_porta_disponivel(self, inicio: int = 8000, fim: int = 9000, max_tentativas: int = 10) -> int:
         """Busca uma porta disponível no intervalo especificado."""
         for _ in range(max_tentativas):
             porta = random.randint(inicio, fim)
@@ -41,21 +45,21 @@ class ServidorCelular(QObject):
                     return porta
         return 0
 
-    def obter_ip_local(self):
+    def obter_ip_local(self) -> str:
         """Retorna o endereço IP da máquina na rede local."""
         s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         s.settimeout(3.0) # Timeout mais confortável, rodando em background
         try:
             # Não precisa conectar de verdade, apenas para o SO escolher a interface
             s.connect(('8.8.8.8', 80))
-            ip = s.getsockname()[0]
+            ip = str(s.getsockname()[0])
         except Exception:
             ip = '127.0.0.1'
         finally:
             s.close()
         return ip
 
-    def gerar_qr_code(self, conteudo):
+    def gerar_qr_code(self, conteudo: str) -> bytes:
         """Gera um QR Code em memória e retorna o buffer de bytes da imagem PNG."""
         import qrcode
         from io import BytesIO
@@ -71,17 +75,18 @@ class ServidorCelular(QObject):
 
         img = qr.make_image(fill_color="black", back_color="white")
         buffer = BytesIO()
-        img.save(buffer, format="PNG")
-        return buffer.getvalue()
+        img.save(buffer, "PNG")
+        return bytes(buffer.getvalue())
 
-    def iniciar(self):
+
+    def iniciar(self) -> None:
         """Inicia o servidor HTTP ASGI em uma thread separada."""
         if self._servindo:
             return
 
         self._servindo = True
         
-        def run_server():
+        def run_server() -> None:
             try:
                 # Obtém a porta dentro da thread
                 self.porta = self.obter_porta_disponivel()
@@ -89,13 +94,13 @@ class ServidorCelular(QObject):
                 app = FastAPI(title="Servidor Celular Aresta", docs_url=None, redoc_url=None)
                 
                 @app.get("/handshake")
-                def handshake():
+                def handshake() -> JSONResponse:
                     self.conectado = True
                     self.dispositivo_conectado.emit()
                     return JSONResponse(content={"status": "conectado"})
 
                 @app.middleware("http")
-                async def notify_connection(request: Request, call_next):
+                async def notify_connection(request: Request, call_next: Any) -> Any:
                     response = await call_next(request)
                     # Notificar via sinal qt sempre que um recurso for acessado com sucesso
                     if response.status_code in (200, 206, 304) and request.url.path != "/favicon.ico":
@@ -128,10 +133,11 @@ class ServidorCelular(QObject):
                 from editor.core.registro_log import logger
                 logger.debug("Thread do servidor celular finalizada.")
 
-        self.thread = threading.Thread(target=run_server, daemon=True)
-        self.thread.start()
+        self._thread_servidor = threading.Thread(target=run_server, daemon=True)
+        self._thread_servidor.start()
 
-    def parar(self):
+
+    def parar(self) -> None:
         """Encerra o servidor HTTP sem bloquear a UI e sem usar threads extras."""
         if not self._servindo:
             return
@@ -145,3 +151,4 @@ class ServidorCelular(QObject):
             logger.debug("Setando should_exit = True no Uvicorn...")
             self.server.should_exit = True
             logger.info("Sinal de encerramento nativo enviado para o servidor celular.")
+

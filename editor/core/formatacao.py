@@ -4,12 +4,12 @@
 import unicodedata
 import re
 
-def remover_acentos(texto):
+def remover_acentos(texto: str) -> str:
     """Remove acentos de uma string."""
     nfkd_form = unicodedata.normalize('NFKD', texto)
     return "".join([c for c in nfkd_form if not unicodedata.combining(c)])
 
-def para_snake_case(texto):
+def para_snake_case(texto: str) -> str:
     """Converte texto para snake_case (minúsculas, espaços e sublinhados por sublinhados)."""
     texto = remover_acentos(texto).lower()
     # Remove caracteres especiais exceto espaços, sublinhados e alfanuméricos
@@ -21,7 +21,7 @@ def para_snake_case(texto):
     return texto
 
 
-def para_camel_case(texto):
+def para_camel_case(texto: str) -> str:
     """Converte texto para CamelCase (iniciais maiúsculas, sem espaços)."""
     texto = remover_acentos(texto)
     # Remove caracteres especiais exceto espaços e alfanuméricos
@@ -29,6 +29,7 @@ def para_camel_case(texto):
     palavras = texto.strip().split()
     return "".join(p.capitalize() for p in palavras)
 
-def para_id_croqui(texto):
+def para_id_croqui(texto: str) -> str:
     """Normalização genérica para partes do ID (snake_case)."""
     return para_snake_case(texto)
+

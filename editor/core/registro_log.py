@@ -1,8 +1,10 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
+from typing import Any
 import logging
 import sys
+
 from editor.core.telemetria import sanitizar_texto_caminhos
 
 
@@ -11,6 +13,20 @@ class SanitizingFormatter(logging.Formatter):
     def format(self, record: logging.LogRecord) -> str:
         mensagem_original = super().format(record)
         return sanitizar_texto_caminhos(mensagem_original)
+
+
+class SafeStreamHandler(logging.StreamHandler[Any]):
+
+    """StreamHandler seguro que evita falhas se o stream for fechado durante shutdown ou testes."""
+    def emit(self, record: logging.LogRecord) -> None:
+        try:
+            super().emit(record)
+        except (ValueError, OSError):
+            pass
+
+    def handleError(self, record: logging.LogRecord) -> None:
+        # Silencia erros de stream fechado
+        pass
 
 
 def configurar_logging(nivel: int = logging.INFO) -> logging.Logger:
@@ -29,11 +45,12 @@ def configurar_logging(nivel: int = logging.INFO) -> logging.Logger:
     formatter = SanitizingFormatter(formato, datefmt="%Y-%m-%d %H:%M:%S")
     
     # Handler de console (stdout) com sanitização de privacidade
-    stream_handler = logging.StreamHandler(sys.stdout)
+    stream_handler = SafeStreamHandler(sys.stdout)
     stream_handler.setFormatter(formatter)
     logger_raiz.addHandler(stream_handler)
     
     return logger_raiz
+
 
 
 # Inicialização padrão do logger global

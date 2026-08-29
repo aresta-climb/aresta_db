@@ -8,15 +8,15 @@ class ContextoUIPath:
     Ex: 'page:dados/node:root/node:Croqui/expando:Picos'
     Ex: 'page:mapas/file:setor_principal.md'
     """
-    def __init__(self, raw_path: str):
-        self.raw_path = raw_path if raw_path else ""
-        self._pagina = None
-        self._caminho_local_arvore = ""
-        self._arquivo_mapa = None
+    def __init__(self, raw_path: str | None = None) -> None:
+        self.raw_path: str = raw_path if raw_path else ""
+        self._pagina: str | None = None
+        self._caminho_local_arvore: str = ""
+        self._arquivo_mapa: str | None = None
 
         self._parse()
 
-    def _parse(self):
+    def _parse(self) -> None:
         if not self.raw_path:
             return
 
@@ -39,7 +39,7 @@ class ContextoUIPath:
             self._caminho_local_arvore = self.raw_path
 
     @property
-    def pagina(self) -> str:
+    def pagina(self) -> str | None:
         return self._pagina
 
     @property
@@ -47,5 +47,6 @@ class ContextoUIPath:
         return self._caminho_local_arvore
 
     @property
-    def arquivo_mapa(self) -> str:
+    def arquivo_mapa(self) -> str | None:
         return self._arquivo_mapa
+

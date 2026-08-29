@@ -64,7 +64,7 @@ def traduzir_mensagem_erro_supabase(mensagem: str) -> str:
 class ErroAutenticacaoSupabase(Exception):
     """Exceção lançada quando ocorre um erro na autenticação com o Supabase."""
 
-    def __init__(self, mensagem: str, codigo_status: Optional[int] = None):
+    def __init__(self, mensagem: str, codigo_status: Optional[int] = None) -> None:
         super().__init__(traduzir_mensagem_erro_supabase(mensagem))
         self.codigo_status = codigo_status
 
@@ -79,10 +79,11 @@ class ClienteAuthSupabase:
         url_supabase: Optional[str] = None,
         chave_publica: Optional[str] = None,
         tempo_limite: int = 15,
-    ):
-        self.url_supabase = (url_supabase or _URL_SUPABASE_PADRAO).rstrip("/")
-        self.chave_publica = chave_publica or _CHAVE_PUBLICA_PADRAO
-        self.tempo_limite = tempo_limite
+    ) -> None:
+        self.url_supabase: str = (url_supabase or _URL_SUPABASE_PADRAO).rstrip("/")
+        self.chave_publica: str = chave_publica or _CHAVE_PUBLICA_PADRAO
+        self.tempo_limite: int = tempo_limite
+
 
     def _obter_cabecalhos(self, jwt: Optional[str] = None) -> Dict[str, str]:
         token_auth = jwt or self.chave_publica
@@ -94,8 +95,10 @@ class ClienteAuthSupabase:
         return cabecalhos
 
     def _tratar_resposta(self, resposta: requests.Response) -> Dict[str, Any]:
+        dados: dict[str, Any]
         try:
-            dados = resposta.json()
+            res_json = resposta.json()
+            dados = res_json if isinstance(res_json, dict) else {"resultado": res_json}
         except Exception:
             dados = {"msg": resposta.text}
 

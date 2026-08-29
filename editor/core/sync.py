@@ -3,42 +3,42 @@
 
 import pygit2
 from pathlib import Path
-from typing import Optional, Callable
+from typing import Optional, Callable, Any, cast
 
 class GerenciadorSincronizacao:
     """
     Gerencia operações Git (clone, fetch, reset) usando pygit2.
     """
     
-    def __init__(self, caminho_repo: Path, token: Optional[str] = None):
-        self.caminho_repo = caminho_repo
-        self.token = token
+    def __init__(self, caminho_repo: Path, token: Optional[str] = None) -> None:
+        self.caminho_repo: Path = caminho_repo
+        self.token: Optional[str] = token
 
-    def _obter_callbacks(self, progresso_callback: Optional[Callable[[float], None]] = None):
+    def _obter_callbacks(self, progresso_callback: Optional[Callable[[float], None]] = None) -> pygit2.RemoteCallbacks:
         """
         Cria os callbacks do pygit2 com suporte a autenticação e progresso.
         """
         class ChamadasGit(pygit2.RemoteCallbacks):
-            def __init__(self, token, p_callback):
+            def __init__(self, token: Optional[str], p_callback: Optional[Callable[[float], None]]) -> None:
                 super().__init__()
-                self.token = token
-                self.p_callback = p_callback
+                self.token: Optional[str] = token
+                self.p_callback: Optional[Callable[[float], None]] = p_callback
 
-            def credentials(self, url, username_from_url, allowed_types):
+            def credentials(self, url: str, username_from_url: str | None, allowed_types: int) -> Any:
                 # Para GitHub, usamos o token como usuário (ou x-access-token)
                 if self.token:
                     return pygit2.UserPass(self.token, "x-oauth-basic")
                 return None
 
-            def transfer_progress(self, stats):
+            def transfer_progress(self, stats: Any) -> None:
                 if self.p_callback:
-                    if stats.total_objects > 0:
+                    if getattr(stats, "total_objects", 0) > 0:
                         percentual = (stats.received_objects / stats.total_objects) * 100
                         self.p_callback(percentual)
 
         return ChamadasGit(self.token, progresso_callback)
 
-    def clonar(self, url_repositorio: str, progresso_callback: Optional[Callable[[float], None]] = None):
+    def clonar(self, url_repositorio: str, progresso_callback: Optional[Callable[[float], None]] = None) -> None:
         """
         Clona um repositório para o caminho especificado garantindo suporte a caminhos longos (core.longpaths).
         """
@@ -61,7 +61,7 @@ class GerenciadorSincronizacao:
             
         if branch_remota:
             nome_local = branch_remota.branch_name.replace("origin/", "")
-            branch_local = repo.branches.local.create(nome_local, repo[branch_remota.target])
+            branch_local = repo.branches.local.create(nome_local, cast(pygit2.Commit, repo[branch_remota.target]))
             repo.checkout(branch_local)
         else:
             raise RuntimeError(f"Não foi possível encontrar a branch main ou master no repositório {url_repositorio}")
@@ -72,7 +72,7 @@ class GerenciadorSincronizacao:
         """
         return f"https://github.com/{repositorio_base}.git"
 
-    def configurar_remotes(self, url_upstream: str = "https://github.com/aresta-climb/aresta_db.git"):
+    def configurar_remotes(self, url_upstream: str = "https://github.com/aresta-climb/aresta_db.git") -> None:
         """
         Garante que o repositório local tem os remotes necessários:
         'origin' -> O repositório base oficial.
@@ -97,7 +97,7 @@ class GerenciadorSincronizacao:
             except Exception:
                 pass
 
-    def fazer_fetch(self, progresso_callback: Optional[Callable[[float], None]] = None):
+    def fazer_fetch(self, progresso_callback: Optional[Callable[[float], None]] = None) -> None:
         """
         Faz fetch apenas dos remotes oficiais (origin e upstream).
         """
@@ -108,7 +108,7 @@ class GerenciadorSincronizacao:
         for remote in remotes_para_fetch:
             remote.fetch(callbacks=callbacks)
 
-    def fazer_checkout_main_upstream(self):
+    def fazer_checkout_main_upstream(self) -> None:
         """
         Faz checkout da branch main do upstream ou origin de forma limpa.
         """
@@ -119,7 +119,7 @@ class GerenciadorSincronizacao:
         
         # Atualiza ou cria a branch local 'main' apontando para a branch remota
         if "main" not in repo.branches.local:
-            branch_local = repo.branches.local.create("main", repo[branch_upstream.target])
+            branch_local = repo.branches.local.create("main", cast(pygit2.Commit, repo[branch_upstream.target]))
         else:
             branch_local = repo.branches.local["main"]
             branch_local.set_target(branch_upstream.target)
@@ -127,9 +127,11 @@ class GerenciadorSincronizacao:
         # Faz o checkout forçado
         repo.checkout(branch_local, strategy=pygit2.GIT_CHECKOUT_FORCE)
         
-    def reset_hard(self):
+    def reset_hard(self) -> None:
         """
         Reseta o workspace local para o commit atual da branch HEAD.
         """
         repo = pygit2.Repository(str(self.caminho_repo))
-        repo.reset(repo.head.target, pygit2.GIT_RESET_HARD)
+        repo.reset(repo.head.target, cast(Any, pygit2.GIT_RESET_HARD))
+
+

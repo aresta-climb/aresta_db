@@ -26,8 +26,8 @@ class GerenciadorCaminhos:
     Biblioteca para gerenciar caminhos de armazenamento local do Editor Aresta.
     """
     
-    def __init__(self):
-        self.nome_app = "editor_aresta"
+    def __init__(self) -> None:
+        self.nome_app: str = "editor_aresta"
         
     def obter_diretorio_base(self) -> Path:
         """
@@ -73,7 +73,7 @@ class GerenciadorCaminhos:
         """
         return self.obter_diretorio_base() / ".trash_interna"
 
-    def inicializar_diretorios(self):
+    def inicializar_diretorios(self) -> None:
         """
         Cria a estrutura de pastas necessária se não existir.
         """
@@ -82,3 +82,4 @@ class GerenciadorCaminhos:
         self.obter_caminho_croquis_experimentais().mkdir(parents=True, exist_ok=True)
         self.obter_caminho_diarios_locais().mkdir(parents=True, exist_ok=True)
         self.obter_caminho_lixeira().mkdir(parents=True, exist_ok=True)
+

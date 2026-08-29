@@ -9,7 +9,7 @@ from PySide6.QtCore import QUrl
 from PySide6.QtGui import QDesktopServices
 from PySide6.QtWidgets import QApplication
 
-def obter_pacote_atual():
+def obter_pacote_atual() -> Any:
     """
     Tenta obter o objeto Package.current via WinRT no Windows.
     Retorna o pacote ou levanta OSError/ImportError em ambiente não-Windows ou sem identidade de pacote.
@@ -22,7 +22,7 @@ def obter_pacote_atual():
     except Exception as e:
         raise OSError(15700, f"Processo sem identidade de pacote: {e}")
 
-def obter_contexto_loja():
+def obter_contexto_loja() -> Any:
     """
     Obtém a instância padrão de StoreContext via WinRT no Windows.
     """
@@ -63,8 +63,9 @@ class ServicoLoja:
     """
     ID_PRODUTO_PADRAO = "9NBLGGH4NNS1" # ID do produto na Microsoft Store
 
-    def __init__(self, id_produto: Optional[str] = None):
-        self.id_produto = id_produto or self.ID_PRODUTO_PADRAO
+    def __init__(self, id_produto: Optional[str] = None) -> None:
+        self.id_produto: str = id_produto or self.ID_PRODUTO_PADRAO
+
 
     def possui_identidade_pacote(self) -> bool:
         """

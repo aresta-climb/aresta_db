@@ -1,19 +1,21 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
-from PySide6.QtWidgets import QApplication, QLineEdit, QTextEdit
+from typing import Any, Optional
+from PySide6.QtWidgets import QApplication, QLineEdit, QTextEdit, QWidget
+
 
 class AtualizadorUI:
     """
     Controlador para salvar e restaurar o estado de foco e cursor dos inputs
     da interface de formulário de dados.
     """
-    def __init__(self):
-        self.campo_focado = None
-        self.msg_id_focada = None
-        self.posicao_cursor = None
+    def __init__(self) -> None:
+        self.campo_focado: Any = None
+        self.msg_id_focada: Any = None
+        self.posicao_cursor: Optional[int] = None
 
-    def salvar_estado_foco(self, formulario):
+    def salvar_estado_foco(self, formulario: QWidget) -> None:
         """Salva qual widget de input estava com o foco atualmente no formulário."""
         widget_focado = QApplication.focusWidget()
         if not widget_focado:
@@ -37,13 +39,13 @@ class AtualizadorUI:
             self.msg_id_focada = None
             self.posicao_cursor = None
 
-    def restaurar_estado_foco(self, formulario):
+    def restaurar_estado_foco(self, formulario: QWidget) -> None:
         """Procura o novo widget correspondente e restaura o foco e o cursor."""
         if not self.campo_focado or self.msg_id_focada is None:
             return
 
         # Encontra recursivamente todos os filhos do formulário
-        for widget in formulario.findChildren(object):
+        for widget in formulario.findChildren(QWidget):
             # Verifica se o widget possui as propriedades correspondentes
             field = widget.property("protobuf_field")
             msg_id = widget.property("protobuf_msg_id")
@@ -62,3 +64,4 @@ class AtualizadorUI:
                         cursor.setPosition(min(self.posicao_cursor, len(widget.toPlainText())))
                         widget.setTextCursor(cursor)
                 break
+

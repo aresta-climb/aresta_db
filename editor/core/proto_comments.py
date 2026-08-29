@@ -4,9 +4,9 @@
 import os
 import re
 
-_comments_cache = None
+_comments_cache: dict[tuple[str, str], str] | None = None
 
-def get_proto_comments(proto_paths_override=None):
+def get_proto_comments(proto_paths_override: list[str] | None = None) -> dict[tuple[str, str], str]:
     """
     Carrega estaticamente os comentários dos arquivos .proto e retorna um cache de dicionário
     mapeando (msg_name, field_name) -> "Comentário". 
@@ -17,6 +17,7 @@ def get_proto_comments(proto_paths_override=None):
         return _comments_cache
         
     _comments_cache = {}
+
     
     if proto_paths_override is not None:
         proto_paths = proto_paths_override
@@ -38,8 +39,8 @@ def get_proto_comments(proto_paths_override=None):
         with open(proto_path, "r", encoding="utf-8") as f:
             lines = f.readlines()
             
-        scope_stack = []
-        pending_comments = []
+        scope_stack: list[str] = []
+        pending_comments: list[str] = []
         
         for line in lines:
             line_stripped = line.strip()
@@ -66,7 +67,8 @@ def get_proto_comments(proto_paths_override=None):
             if "{" in line_stripped:
                 match = re.search(r'(?:message|enum|oneof)\s+(\w+)', line_stripped)
                 if match:
-                    block_type = re.search(r'(message|enum|oneof)', line_stripped).group(1)
+                    block_match = re.search(r'(message|enum|oneof)', line_stripped)
+                    block_type = block_match.group(1) if block_match else ""
                     name = match.group(1)
                     
                     if block_type == "oneof":

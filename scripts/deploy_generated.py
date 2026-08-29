@@ -687,7 +687,7 @@ def passo_c_gerar_indice(
     return indice
 
 
-def deploy(output_dir: Path, target_paths: list[str] = None, force_thumbnails: bool = False, gerar_arquivos_de_debug: bool = True, is_producao: bool = True, verbose: bool = False) -> None:
+def deploy(output_dir: Path, target_paths: list[str | Path] | None = None, force_thumbnails: bool = False, gerar_arquivos_de_debug: bool = True, is_producao: bool = True, verbose: bool = False) -> None:
     global GENERATED_DIR
     GENERATED_DIR = output_dir.resolve()
 

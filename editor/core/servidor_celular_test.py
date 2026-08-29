@@ -50,8 +50,9 @@ def test_deve_iniciar_servidor_http_e_servir_arquivos(tmp_path):
     assert resposta.json() == {"status": "ok"}
     
     servidor.parar()
-    if servidor.thread and servidor.thread.is_alive():
-        servidor.thread.join(timeout=3.0)
+    if servidor._thread_servidor and servidor._thread_servidor.is_alive():
+        servidor._thread_servidor.join(timeout=3.0)
+
 
 def test_deve_emitir_sinal_quando_receber_conexao(tmp_path, qtbot):
     pasta_compilado = tmp_path / "compilado"
@@ -71,8 +72,9 @@ def test_deve_emitir_sinal_quando_receber_conexao(tmp_path, qtbot):
         requests.get(url)
     
     servidor.parar()
-    if servidor.thread and servidor.thread.is_alive():
-        servidor.thread.join(timeout=3.0)
+    if servidor._thread_servidor and servidor._thread_servidor.is_alive():
+        servidor._thread_servidor.join(timeout=3.0)
+
 
 
 
@@ -125,8 +127,9 @@ def test_deve_suportar_http1_1_e_keep_alive(tmp_path):
         assert resposta_2.status_code == 200
     
     servidor.parar()
-    if servidor.thread and servidor.thread.is_alive():
-        servidor.thread.join(timeout=3.0)
+    if servidor._thread_servidor and servidor._thread_servidor.is_alive():
+        servidor._thread_servidor.join(timeout=3.0)
+
 
 def test_deve_retornar_304_se_etag_sha256_bater(tmp_path):
     import hashlib
@@ -164,5 +167,6 @@ def test_deve_retornar_304_se_etag_sha256_bater(tmp_path):
         assert resp3.status_code == 200, "Deveria baixar novamente pois o ETag não bate"
         
     servidor.parar()
-    if servidor.thread and servidor.thread.is_alive():
-        servidor.thread.join(timeout=3.0)
+    if servidor._thread_servidor and servidor._thread_servidor.is_alive():
+        servidor._thread_servidor.join(timeout=3.0)
+

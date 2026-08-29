@@ -35,24 +35,15 @@ def _filtrar_mensagens(saida_str: str) -> list[str]:
         
     return mensagens
 
+from collections.abc import Iterator
 from editor.core.croqui_experimental import GerenciadorCroquiExperimental
+from editor.core.storage import GerenciadorCaminhos
+from editor.core.diario import GerenciadorDiario
 from scripts.deploy_generated import deploy
 
-class EditorWorkspace(ABC):
-    """
-    Abstrai as diferenças de estrutura de diretórios e salvamento entre
-    um Croqui Experimental e um Croqui operando diretamente no repositório Local.
-    """
-    def __init__(self, caminho_raiz: Path):
-        self.caminho_raiz = Path(caminho_raiz)
-
-    @abstractmethod
-    def obter_caminho_database(self) -> Path:
-        """Retorna a pasta que contém o croqui.yaml e demais md/json."""
-        ...
 
 @contextlib.contextmanager
-def capturar_saida():
+def capturar_saida() -> Iterator[io.StringIO]:
     captura = io.StringIO()
     stdout_orig = sys.stdout
     stderr_orig = sys.stderr
@@ -64,31 +55,33 @@ def capturar_saida():
         sys.stdout = stdout_orig
         sys.stderr = stderr_orig
 
+
 class EditorWorkspace(Protocol):
     caminho_raiz: Path
+    diario: GerenciadorDiario | None
     
     def obter_caminho_database(self) -> Path: ...
     def obter_caminho_compilado(self) -> Path: ...
     def obter_pasta_servidor_celular(self) -> Path: ...
     def can_publish_pr(self) -> bool: ...
     def obter_tag_titulo(self) -> str: ...
-    def obter_diario(self): return None
+    def obter_diario(self) -> GerenciadorDiario | None: ...
+    def obter_commit_base_sha(self) -> str: ...
     
-    def processar_renomeacao_e_compilacao(self, novo_id: str, id_atual: str, storage) -> tuple[Path, list[str]]:
+    def processar_renomeacao_e_compilacao(self, novo_id: str, id_atual: str, storage: GerenciadorCaminhos | None) -> tuple[Path, list[str]]:
         """Realiza rename se necessário, compila e retorna o caminho raiz e uma lista de msgs de warning/erro."""
         ...
 
 
-class ExperimentalWorkspace(EditorWorkspace):
+class ExperimentalWorkspace:
     """
     Modo padrão operando na pasta `croquis_experimentais/<id>`.
     A estrutura possui `database/` e `compilado/` dentro da raiz.
     O gerenciamento é feito com commits locais pelo GerenciadorCroquiExperimental.
     """
-    def __init__(self, caminho_raiz: Path):
-        self.caminho_raiz = Path(caminho_raiz)
-        from editor.core.diario import GerenciadorDiario
-        self.diario = GerenciadorDiario(self.caminho_raiz)
+    def __init__(self, caminho_raiz: Path | str) -> None:
+        self.caminho_raiz: Path = Path(caminho_raiz)
+        self.diario: GerenciadorDiario | None = GerenciadorDiario(self.caminho_raiz)
 
     def obter_caminho_database(self) -> Path:
         return self.caminho_raiz / "database"
@@ -105,8 +98,9 @@ class ExperimentalWorkspace(EditorWorkspace):
     def obter_tag_titulo(self) -> str:
         return ""
 
-    def obter_diario(self):
+    def obter_diario(self) -> GerenciadorDiario | None:
         return self.diario
+
 
     def obter_commit_base_sha(self) -> str:
         meta_path = self.caminho_raiz / "metadados.json"
@@ -115,13 +109,14 @@ class ExperimentalWorkspace(EditorWorkspace):
                 import json
                 with open(meta_path, "r", encoding="utf-8") as f:
                     dados = json.load(f)
-                    return dados.get("commit_base_sha", "")
+                    return str(dados.get("commit_base_sha", ""))
             except Exception:
                 pass
         return ""
 
-    def processar_renomeacao_e_compilacao(self, novo_id: str, id_atual: str, storage) -> tuple[Path, list[str]]:
-        gerenciador = GerenciadorCroquiExperimental(storage)
+
+    def processar_renomeacao_e_compilacao(self, novo_id: str, id_atual: str, storage: GerenciadorCaminhos | None) -> tuple[Path, list[str]]:
+        gerenciador = GerenciadorCroquiExperimental(storage or GerenciadorCaminhos())
         caminho = self.caminho_raiz
         
         if novo_id and id_atual and novo_id != id_atual:
@@ -139,16 +134,17 @@ class ExperimentalWorkspace(EditorWorkspace):
         return caminho, mensagens
 
 
-class LocalRepoWorkspace(EditorWorkspace):
+
+class LocalRepoWorkspace:
     """
     Modo operando diretamente no clone do repositório `aresta_db`.
     O `caminho_raiz` é `aresta_db/database/<id>`.
     A saída compilada é `aresta_db/generated/<id>`.
     O rename usa `git mv` nativo.
     """
-    def __init__(self, caminho_raiz: Path, storage=None):
-        self.caminho_raiz = Path(caminho_raiz)
-        self.storage = storage
+    def __init__(self, caminho_raiz: Path | str, storage: GerenciadorCaminhos | None = None) -> None:
+        self.caminho_raiz: Path = Path(caminho_raiz)
+        self.storage: GerenciadorCaminhos | None = storage
         
         # Registra caminho raiz do repo para sanitização de privacidade (<aresta_db>)
         from editor.core.telemetria import registrar_caminho_repo_local
@@ -161,7 +157,7 @@ class LocalRepoWorkspace(EditorWorkspace):
         from editor.core.diario import GerenciadorDiario
         gerenciador_caminhos = storage or GerenciadorCaminhos()
         pasta_diario = gerenciador_caminhos.obter_caminho_diarios_locais() / self.caminho_raiz.name
-        self.diario = GerenciadorDiario(pasta_diario, apenas_pendente=True)
+        self.diario: GerenciadorDiario | None = GerenciadorDiario(pasta_diario, apenas_pendente=True)
 
     def obter_commit_base_sha(self) -> str:
         try:
@@ -199,10 +195,10 @@ class LocalRepoWorkspace(EditorWorkspace):
     def obter_tag_titulo(self) -> str:
         return "[Local Mode]"
 
-    def obter_diario(self):
+    def obter_diario(self) -> GerenciadorDiario | None:
         return self.diario
 
-    def processar_renomeacao_e_compilacao(self, novo_id: str, id_atual: str, storage) -> tuple[Path, list[str]]:
+    def processar_renomeacao_e_compilacao(self, novo_id: str, id_atual: str, storage: GerenciadorCaminhos | None) -> tuple[Path, list[str]]:
         caminho = self.caminho_raiz
         
         if novo_id and id_atual and novo_id != id_atual:
@@ -259,3 +255,4 @@ class LocalRepoWorkspace(EditorWorkspace):
         if self.diario:
             self.diario.consolidar_salvamento()
         return caminho, mensagens
+

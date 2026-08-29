@@ -16,7 +16,8 @@ from editor.core.servico_submissao import ServicoSubmissao
 from editor.core.sync import GerenciadorSincronizacao
 from editor.core.storage import GerenciadorCaminhos
 from editor.core.servico_loja import ServicoLoja
-from typing import Optional
+from typing import Optional, Any, Dict
+from collections.abc import Callable
 
 class TarefaInicializacao(QThread):
     """
@@ -27,28 +28,28 @@ class TarefaInicializacao(QThread):
     4. Git Sync (Clone ou Pull/Reset)
     """
     
-    progresso = Signal(int)
-    mostrar_progresso = Signal(bool)
-    status = Signal(str)
-    atualizacao_disponivel = Signal(object) # ResultadoAtualizacao
-    auth_requerida = Signal(str) # mantido para compatibilidade
-    solicitar_login_ui = Signal()
-    auth_concluida = Signal()
-    sucesso = Signal()
-    erro = Signal(str)
+    progresso: Signal = Signal(int)
+    mostrar_progresso: Signal = Signal(bool)
+    status: Signal = Signal(str)
+    atualizacao_disponivel: Signal = Signal(object) # ResultadoAtualizacao
+    auth_requerida: Signal = Signal(str) # mantido para compatibilidade
+    solicitar_login_ui: Signal = Signal()
+    auth_concluida: Signal = Signal()
+    sucesso: Signal = Signal()
+    erro: Signal = Signal(str)
 
-    def __init__(self, id_cliente: str = ""):
+    def __init__(self, id_cliente: str = "") -> None:
         super().__init__()
-        self.id_cliente = id_cliente
-        self.storage = GerenciadorCaminhos()
-        self.gerenciador_sessao = GerenciadorSessao()
-        self.cliente_auth = ClienteAuthSupabase()
-        self.servico_loja = ServicoLoja()
+        self.id_cliente: str = id_cliente
+        self.storage: GerenciadorCaminhos = GerenciadorCaminhos()
+        self.gerenciador_sessao: GerenciadorSessao = GerenciadorSessao()
+        self.cliente_auth: ClienteAuthSupabase = ClienteAuthSupabase()
+        self.servico_loja: ServicoLoja = ServicoLoja()
         self.sessao_usuario: Optional[SessaoUsuario] = None
-        self._evento_autenticacao = threading.Event()
-        self._login_cancelado = False
+        self._evento_autenticacao: threading.Event = threading.Event()
+        self._login_cancelado: bool = False
 
-    def definir_sessao_concluida(self, sessao: Optional[SessaoUsuario]):
+    def definir_sessao_concluida(self, sessao: Optional[SessaoUsuario]) -> None:
         """Desbloqueia a thread de inicialização com o resultado do diálogo de login."""
         if sessao:
             self.sessao_usuario = sessao
@@ -57,7 +58,7 @@ class TarefaInicializacao(QThread):
             self._login_cancelado = True
         self._evento_autenticacao.set()
 
-    def run(self):
+    def run(self) -> None:
         try:
             from editor.core.registro_log import logger
             logger.info("Iniciando tarefa de inicialização...")
@@ -156,11 +157,11 @@ class TarefaPublicacao(QThread):
     Thread responsável por coordenar a publicação de sugestões de croquis
     via ServicoSubmissao em segundo plano, emitindo sinais de progresso para a UI.
     """
-    sucesso = Signal(str, str, str)
-    aviso = Signal(str)
-    erro = Signal(str)
-    progresso = Signal(int)
-    status = Signal(str)
+    sucesso: Signal = Signal(str, str, str)
+    aviso: Signal = Signal(str)
+    erro: Signal = Signal(str)
+    progresso: Signal = Signal(int)
+    status: Signal = Signal(str)
 
     def __init__(
         self,
@@ -168,19 +169,19 @@ class TarefaPublicacao(QThread):
         storage: Optional[GerenciadorCaminhos] = None,
         caminho_database_croqui: Optional[Path] = None,
         id_croqui: str = "",
-        dados_pr: Optional[dict] = None,
+        dados_pr: Optional[Dict[str, Any]] = None,
         modo_atualizacao: bool = False,
         pr_branch: Optional[str] = None,
         sessao: Optional[SessaoUsuario] = None,
         servico_submissao: Optional[ServicoSubmissao] = None,
-    ):
+    ) -> None:
         super().__init__()
-        self.storage = storage or GerenciadorCaminhos()
-        self.caminho_database_croqui = caminho_database_croqui
-        self.id_croqui = id_croqui
-        self.dados_pr = dados_pr or {}
-        self.modo_atualizacao = modo_atualizacao
-        self.pr_branch = pr_branch
+        self.storage: GerenciadorCaminhos = storage or GerenciadorCaminhos()
+        self.caminho_database_croqui: Optional[Path] = caminho_database_croqui
+        self.id_croqui: str = id_croqui
+        self.dados_pr: Dict[str, Any] = dados_pr or {}
+        self.modo_atualizacao: bool = modo_atualizacao
+        self.pr_branch: Optional[str] = pr_branch
         
         if sessao is None:
             gerenciador = GerenciadorSessao()
@@ -193,17 +194,17 @@ class TarefaPublicacao(QThread):
                     token_atualizacao="",
                     token_github=token,
                 )
-        self.sessao = sessao
-        self.servico_submissao = servico_submissao or ServicoSubmissao(
+        self.sessao: SessaoUsuario = sessao
+        self.servico_submissao: ServicoSubmissao = servico_submissao or ServicoSubmissao(
             caminho_repo_base=self.storage.obter_caminho_base_repo()
         )
 
-    def run(self):
+    def run(self) -> None:
         try:
             self.status.emit("Iniciando publicação...")
             self.progresso.emit(5)
 
-            def callback_progresso(pct: int, msg: str):
+            def callback_progresso(pct: int, msg: str) -> None:
                 self.progresso.emit(pct)
                 self.status.emit(msg)
 
@@ -212,6 +213,10 @@ class TarefaPublicacao(QThread):
             descricao = dados.get("descricao", "Alterações enviadas via Aresta Editor")
 
             branch_alvo = self.pr_branch if self.modo_atualizacao else None
+
+            if not self.caminho_database_croqui:
+                self.erro.emit("Caminho do banco de dados do croqui não informado para submissão.")
+                return
 
             resultado = self.servico_submissao.submeter_sugestao(
                 caminho_database_croqui=self.caminho_database_croqui,
@@ -242,15 +247,15 @@ class TarefaExportacao(QThread):
     """
     Thread responsável por exportar um croqui para um arquivo .croqui ofuscado.
     """
-    sucesso = Signal()
-    erro = Signal(str)
+    sucesso: Signal = Signal()
+    erro: Signal = Signal(str)
     
-    def __init__(self, caminho_raiz, caminho_destino):
+    def __init__(self, caminho_raiz: Path, caminho_destino: Path) -> None:
         super().__init__()
-        self.caminho_raiz = caminho_raiz
-        self.caminho_destino = caminho_destino
+        self.caminho_raiz: Path = Path(caminho_raiz)
+        self.caminho_destino: Path = Path(caminho_destino)
         
-    def run(self):
+    def run(self) -> None:
         try:
             from editor.core.croqui_format import empacotar_croqui
             empacotar_croqui(self.caminho_raiz, self.caminho_destino)
@@ -264,13 +269,13 @@ class TarefaDadosConexao(QThread):
     Thread responsável por obter o IP local e gerar o QR Code de conexão.
     Evita travamentos da UI durante a abertura do diálogo.
     """
-    concluido = Signal(str, bytes) # ip, qr_bytes
+    concluido: Signal = Signal(str, bytes) # ip, qr_bytes
     
-    def __init__(self, servidor):
+    def __init__(self, servidor: Any) -> None:
         super().__init__()
-        self.servidor = servidor
+        self.servidor: Any = servidor
         
-    def run(self):
+    def run(self) -> None:
         try:
             # Aguarda o servidor fazer o bind da porta em background
             import time
@@ -294,20 +299,29 @@ class TarefaSalvamento(QThread):
     """
     Thread responsável por salvar em background (I/O intensivo e compilação).
     """
-    sucesso = Signal(object, object, bool, int) # caminho_retornado, erros, houve_renomeacao, undo_index
-    erro = Signal(str)
+    sucesso: Signal = Signal(object, object, bool, int) # caminho_retornado, erros, houve_renomeacao, undo_index
+    erro: Signal = Signal(str)
 
-    def __init__(self, workspace, storage, caminho_db, croqui_data, novo_id, id_atual, undo_index):
+    def __init__(
+        self,
+        workspace: Any,
+        storage: Optional[GerenciadorCaminhos],
+        caminho_db: Path,
+        croqui_data: Dict[str, Any],
+        novo_id: str,
+        id_atual: str,
+        undo_index: int,
+    ) -> None:
         super().__init__()
-        self.workspace = workspace
-        self.storage = storage
-        self.caminho_db = caminho_db
-        self.croqui_data = croqui_data
-        self.novo_id = novo_id
-        self.id_atual = id_atual
-        self.undo_index = undo_index
+        self.workspace: Any = workspace
+        self.storage: Optional[GerenciadorCaminhos] = storage
+        self.caminho_db: Path = Path(caminho_db)
+        self.croqui_data: Dict[str, Any] = croqui_data
+        self.novo_id: str = novo_id
+        self.id_atual: str = id_atual
+        self.undo_index: int = undo_index
 
-    def run(self):
+    def run(self) -> None:
         try:
             import yaml
             
@@ -325,3 +339,4 @@ class TarefaSalvamento(QThread):
         except Exception as e:
             traceback.print_exc()
             self.erro.emit(str(e))
+

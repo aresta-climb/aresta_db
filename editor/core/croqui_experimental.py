@@ -24,15 +24,18 @@ if str(ROOT_DIR) not in sys.path:
 from scripts.deploy_generated import deploy
 from scripts.migrador import obter_ultima_versao_migracao
 
+from typing import Any
+
+
 class GerenciadorCroquiExperimental:
     """
     Gerencia o ciclo de vida dos croquis experimentais no storage local.
     """
     
-    def __init__(self, gerenciador_caminhos: GerenciadorCaminhos):
-        self.caminhos = gerenciador_caminhos
+    def __init__(self, gerenciador_caminhos: GerenciadorCaminhos) -> None:
+        self.caminhos: GerenciadorCaminhos = gerenciador_caminhos
         
-    def _criar_estrutura_croqui(self, id_croqui: str, nome_usuario: str, resumo_edicao: str = "", id_original: str = None, commit_base_sha: str = "") -> Path:
+    def _criar_estrutura_croqui(self, id_croqui: str, nome_usuario: str, resumo_edicao: str = "", id_original: str | None = None, commit_base_sha: str = "") -> Path:
         """
         Cria uma nova estrutura de pastas para um croqui experimental (privado).
         """
@@ -103,7 +106,7 @@ class GerenciadorCroquiExperimental:
             pass
         return ""
 
-    def criar_novo_croqui(self, id_croqui: str, pico: str, estado: str, nome_usuario: str, log_dialog=None) -> Path:
+    def criar_novo_croqui(self, id_croqui: str, pico: str, estado: str, nome_usuario: str, log_dialog: Any = None) -> Path:
         """
         Cria um novo croqui a partir de metadados, inicializa o croqui.yaml e realiza o primeiro build.
         """
@@ -223,7 +226,7 @@ class GerenciadorCroquiExperimental:
             self.excluir_croqui(caminho_experimental)
             raise e
 
-    def abrir_croqui(self, caminho_raiz: Path, nome_usuario: str):
+    def abrir_croqui(self, caminho_raiz: Path, nome_usuario: str) -> None:
         """
         Abre um croqui experimental, atualizando a lista de autores se necessário
         e a data da última edição.
@@ -251,7 +254,7 @@ class GerenciadorCroquiExperimental:
             yaml_str = yaml.dump(dict_meta, allow_unicode=True, sort_keys=False)
             f.write(yaml_str.replace("\r\n", "\n"))
 
-    def compilar_croqui(self, caminho_raiz: Path):
+    def compilar_croqui(self, caminho_raiz: Path) -> None:
         """
         Compila o croqui experimental usando o script de deploy oficial.
         """
@@ -279,7 +282,7 @@ class GerenciadorCroquiExperimental:
             
             deploy(
                 output_dir=caminho_compilado,
-                target_paths=[caminho_database],
+                target_paths=[str(caminho_database)],
                 force_thumbnails=True,
                 gerar_arquivos_de_debug=True,
                 is_producao=False
@@ -311,13 +314,13 @@ class GerenciadorCroquiExperimental:
             # Re-lança como RuntimeError para ser capturado pela UI
             raise RuntimeError(f"Erro durante a compilação do croqui: {str(e)}")
 
-    def excluir_croqui(self, caminho_raiz: Path):
+    def excluir_croqui(self, caminho_raiz: Path) -> None:
         """
         Exclui permanentemente um croqui experimental do disco.
         """
         if caminho_raiz.is_dir():
             import time
-            def remover_somente_leitura(func, path, _):
+            def remover_somente_leitura(func: Any, path: str, _: Any) -> None:
                 # Limpa o atributo somente-leitura e tenta novamente
                 # Comum no Windows dentro de pastas .git/objects
                 os.chmod(path, 0o777)
@@ -335,7 +338,7 @@ class GerenciadorCroquiExperimental:
                     time.sleep(0.2)
 
 
-    def exportar_croqui(self, caminho_raiz: Path, caminho_destino: Path):
+    def exportar_croqui(self, caminho_raiz: Path, caminho_destino: Path) -> None:
         """
         Exporta o croqui experimental compactando toda a pasta num arquivo zip ofuscado (extensão .croqui).
         """

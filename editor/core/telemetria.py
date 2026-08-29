@@ -8,6 +8,7 @@ import threading
 from pathlib import Path
 from typing import Any
 
+sentry_sdk: Any
 try:
     import sentry_sdk
 except ImportError:
@@ -92,12 +93,16 @@ def sanitizar_texto_caminhos(texto: str) -> str:
         caminho_barras_invertidas = caminho_original.replace("/", "\\")
         caminho_barras_normais = caminho_original.replace("\\", "/")
         
+        # Helper com tipagem explícita para evitar erro de inferência em lambda
+        def _fazer_subst(val_subst: str) -> Any:
+            return lambda m: val_subst
+
         # Regex case-insensitive escapando caracteres especiais
         padrao_inv = re.compile(re.escape(caminho_barras_invertidas), re.IGNORECASE)
-        resultado = padrao_inv.sub(lambda m, s=substituto: s, resultado)
+        resultado = padrao_inv.sub(_fazer_subst(substituto), resultado)
         
         padrao_norm = re.compile(re.escape(caminho_barras_normais), re.IGNORECASE)
-        resultado = padrao_norm.sub(lambda m, s=substituto: s, resultado)
+        resultado = padrao_norm.sub(_fazer_subst(substituto), resultado)
 
     return resultado
 
@@ -115,9 +120,10 @@ def _sanitizar_objeto_recursivo(obj: Any) -> Any:
     return obj
 
 
-def sanitizar_evento_sentry(event: dict, hint: dict) -> dict:
+def sanitizar_evento_sentry(event: Any, hint: Any) -> Any:
     """Hook before_send do Sentry para sanitizar qualquer caminho local em eventos, stacktraces e breadcrumbs."""
     return _sanitizar_objeto_recursivo(event)
+
 
 
 def inicializar_telemetria(dsn: str | None = None) -> bool:
@@ -165,10 +171,10 @@ def registrar_contexto_croqui(id_croqui: str = "", commit_base_sha: str = "") ->
         pass
 
 
-_diario_ativo = None
+_diario_ativo: Any = None
 
 
-def anexar_diario_escopo(diario) -> None:
+def anexar_diario_escopo(diario: Any) -> None:
     """Anexa os comandos recentes do diário (anonimizados) ao contexto do escopo Sentry."""
     global _diario_ativo
     _diario_ativo = diario
@@ -215,7 +221,7 @@ def _anexar_arquivos_diario_no_escopo() -> None:
         pass
 
 
-def registrar_breadcrumb_comando(cmd) -> None:
+def registrar_breadcrumb_comando(cmd: Any) -> None:
     """Registra uma ação / comando do usuário como breadcrumb cronológico no Sentry."""
     if not sentry_sdk or not hasattr(sentry_sdk, "add_breadcrumb"):
         return
@@ -241,7 +247,7 @@ def configurar_tratamento_excecoes_globais() -> None:
 
     hook_original_sys = sys.excepthook
 
-    def _tratar_excecao_sys(exc_type, exc_value, exc_traceback):
+    def _tratar_excecao_sys(exc_type: type[BaseException], exc_value: BaseException, exc_traceback: Any) -> None:
         try:
             _anexar_arquivos_diario_no_escopo()
             sentry_sdk.capture_exception((exc_type, exc_value, exc_traceback))
@@ -249,7 +255,7 @@ def configurar_tratamento_excecoes_globais() -> None:
                 sentry_sdk.flush(timeout=5.0)
         except Exception:
             pass
-        if hook_original_sys:
+        if hook_original_sys is not None:
             hook_original_sys(exc_type, exc_value, exc_traceback)
 
     sys.excepthook = _tratar_excecao_sys
@@ -257,7 +263,7 @@ def configurar_tratamento_excecoes_globais() -> None:
     if hasattr(threading, "excepthook"):
         hook_original_thread = threading.excepthook
 
-        def _tratar_excecao_thread(args):
+        def _tratar_excecao_thread(args: Any) -> None:
             try:
                 _anexar_arquivos_diario_no_escopo()
                 sentry_sdk.capture_exception((args.exc_type, args.exc_value, args.exc_traceback))
@@ -265,7 +271,9 @@ def configurar_tratamento_excecoes_globais() -> None:
                     sentry_sdk.flush(timeout=5.0)
             except Exception:
                 pass
-            if hook_original_thread:
+            if hook_original_thread is not None:
                 hook_original_thread(args)
 
         threading.excepthook = _tratar_excecao_thread
+
+

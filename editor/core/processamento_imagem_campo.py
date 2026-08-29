@@ -12,8 +12,9 @@ import os
 import re
 import unicodedata
 from pathlib import Path
-from typing import Optional, Tuple, Dict
+from typing import Optional, Tuple, Dict, Any
 from PIL import Image
+
 
 
 def sanitizar_nome_arquivo_imagem(nome_ou_caminho: str) -> str:
@@ -98,7 +99,7 @@ def obter_metadados_imagem(imagem_path_ou_bytes: str | Path | bytes | None) -> T
         return 0, 0, 0, "0 KB"
 
     tamanho_bytes = 0
-    img_stream = None
+    img_stream: Any = None
 
     try:
         if isinstance(imagem_path_ou_bytes, (str, Path)):
@@ -133,7 +134,7 @@ def obter_metadados_imagem(imagem_path_ou_bytes: str | Path | bytes | None) -> T
 
 
 def comprimir_imagem_para_bytes_webp(
-    imagem_path_ou_bytes: str | Path | bytes,
+    fonte_imagem: str | Path | bytes | Image.Image,
     quality: int = 85,
     max_area: int = 4194304,
 ) -> Tuple[bytes, int, int]:
@@ -141,45 +142,50 @@ def comprimir_imagem_para_bytes_webp(
     Redimensiona (se exceder max_area) e comprime uma imagem para bytes em formato WebP.
     Retorna uma tupla (bytes_webp, largura, altura).
     """
-    if isinstance(imagem_path_ou_bytes, Image.Image):
-        img = imagem_path_ou_bytes
-        if img.mode not in ("RGB", "RGBA"):
-            img = img.convert("RGBA" if "transparency" in img.info or img.mode == "P" else "RGB")
+    if isinstance(fonte_imagem, Image.Image):
+        img_temp = fonte_imagem
+        if img_temp.mode not in ("RGB", "RGBA"):
+            img_temp = img_temp.convert("RGBA" if "transparency" in img_temp.info or img_temp.mode == "P" else "RGB")
 
-        area = img.width * img.height
+        area = img_temp.width * img_temp.height
         if area > max_area:
             escala = math.sqrt(max_area / area)
-            nova_largura = max(1, int(img.width * escala))
-            nova_altura = max(1, int(img.height * escala))
-            img = img.resize((nova_largura, nova_altura), Image.Resampling.LANCZOS)
+            nova_largura = max(1, int(img_temp.width * escala))
+            nova_altura = max(1, int(img_temp.height * escala))
+            img_temp = img_temp.resize((nova_largura, nova_altura), Image.Resampling.LANCZOS)
 
         out_buf = io.BytesIO()
-        img.save(out_buf, format="WEBP", quality=quality)
-        return out_buf.getvalue(), img.width, img.height
+        img_temp.save(out_buf, format="WEBP", quality=quality)
+        return out_buf.getvalue(), img_temp.width, img_temp.height
 
-    if isinstance(imagem_path_ou_bytes, (str, Path)):
-        img_source = Path(imagem_path_ou_bytes).open("rb")
-    elif isinstance(imagem_path_ou_bytes, bytes):
-        img_source = io.BytesIO(imagem_path_ou_bytes)
+    img_source: Any = None
+    if isinstance(fonte_imagem, (str, Path)):
+        img_source = Path(fonte_imagem).open("rb")
+    elif isinstance(fonte_imagem, bytes):
+        img_source = io.BytesIO(fonte_imagem)
     else:
-        img_source = imagem_path_ou_bytes
+        img_source = fonte_imagem
+
 
     try:
         with Image.open(img_source) as img:
+            img_proc: Image.Image = img
             # Garante RGB ou RGBA dependendo de transparência
-            if img.mode not in ("RGB", "RGBA"):
-                img = img.convert("RGBA" if "transparency" in img.info or img.mode == "P" else "RGB")
+            if img_proc.mode not in ("RGB", "RGBA"):
+                img_proc = img_proc.convert("RGBA" if "transparency" in img_proc.info or img_proc.mode == "P" else "RGB")
 
-            area = img.width * img.height
+            area = img_proc.width * img_proc.height
             if area > max_area:
                 escala = math.sqrt(max_area / area)
-                nova_largura = max(1, int(img.width * escala))
-                nova_altura = max(1, int(img.height * escala))
-                img = img.resize((nova_largura, nova_altura), Image.Resampling.LANCZOS)
+                nova_largura = max(1, int(img_proc.width * escala))
+                nova_altura = max(1, int(img_proc.height * escala))
+                img_proc = img_proc.resize((nova_largura, nova_altura), Image.Resampling.LANCZOS)
 
             out_buf = io.BytesIO()
-            img.save(out_buf, format="WEBP", quality=quality)
-            return out_buf.getvalue(), img.width, img.height
+            img_proc.save(out_buf, format="WEBP", quality=quality)
+            return out_buf.getvalue(), img_proc.width, img_proc.height
     finally:
-        if hasattr(img_source, "close"):
+        if img_source is not None and hasattr(img_source, "close"):
             img_source.close()
+
+

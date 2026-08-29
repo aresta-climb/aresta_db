@@ -78,11 +78,11 @@ HTML_CAPTURAR_FRAGMENTO = """<!DOCTYPE html>
 class ManipuladorRequisicaoOAuth(BaseHTTPRequestHandler):
     """Manipulador HTTP para as requisições de callback do OAuth."""
 
-    def log_message(self, format, *args):
+    def log_message(self, format: str, *args: Any) -> None:
         # Log opcional no terminal para depuração
         pass
 
-    def do_GET(self):
+    def do_GET(self) -> None:
         parsed = urlparse(self.path)
         params = parse_qs(parsed.query)
 
@@ -93,7 +93,7 @@ class ManipuladorRequisicaoOAuth(BaseHTTPRequestHandler):
             )[0]
             from editor.core.registro_log import logger
             logger.warning(f"[OAuth Callback] Erro retornado pelo provedor: {erro}")
-            self.server.servidor_oauth.definir_tokens({"erro": erro})
+            getattr(self.server, "servidor_oauth").definir_tokens({"erro": erro})
             self.send_response(200)
             self.send_header("Content-Type", "text/html; charset=utf-8")
             self.end_headers()
@@ -110,7 +110,7 @@ class ManipuladorRequisicaoOAuth(BaseHTTPRequestHandler):
                 "refresh_token": params.get("refresh_token", [""])[0],
                 "provider_token": params.get("provider_token", [None])[0],
             }
-            self.server.servidor_oauth.definir_tokens(tokens)
+            getattr(self.server, "servidor_oauth").definir_tokens(tokens)
 
             self.send_response(200)
             self.send_header("Content-Type", "text/html; charset=utf-8")
@@ -124,7 +124,7 @@ class ManipuladorRequisicaoOAuth(BaseHTTPRequestHandler):
         self.end_headers()
         self.wfile.write(HTML_CAPTURAR_FRAGMENTO.encode("utf-8"))
 
-    def do_POST(self):
+    def do_POST(self) -> None:
         if self.path == "/tokens":
             tamanho = int(self.headers.get("Content-Length", 0))
             corpo = self.rfile.read(tamanho)
@@ -132,7 +132,7 @@ class ManipuladorRequisicaoOAuth(BaseHTTPRequestHandler):
                 dados = json.loads(corpo.decode("utf-8"))
                 from editor.core.registro_log import logger
                 logger.info("[OAuth Callback] Tokens de autenticação recebidos via POST /tokens.")
-                self.server.servidor_oauth.definir_tokens(dados)
+                getattr(self.server, "servidor_oauth").definir_tokens(dados)
                 self.send_response(200)
                 self.send_header("Content-Type", "text/html; charset=utf-8")
                 self.end_headers()
@@ -152,23 +152,25 @@ class ServidorCallbackOAuth(QObject):
     Servidor HTTP efêmero local para receber os tokens do Supabase OAuth.
     """
 
-    tokens_recebidos = Signal(dict)
+    tokens_recebidos: Signal = Signal(dict)
 
-    def __init__(self, parent: Optional[QObject] = None):
+    def __init__(self, parent: Optional[QObject] = None) -> None:
         super().__init__(parent)
         self._servidor_http: Optional[HTTPServer] = None
         self._thread: Optional[threading.Thread] = None
         self._porta: int = 0
-        self._evento_conclusao = threading.Event()
+        self._evento_conclusao: threading.Event = threading.Event()
         self._tokens_recebidos: Optional[Dict[str, Any]] = None
+
 
     def iniciar_escuta(self) -> int:
         """Inicia o servidor em uma porta dinâmica livre alocada pelo SO."""
         self._servidor_http = HTTPServer(
             ("127.0.0.1", 0), ManipuladorRequisicaoOAuth
         )
-        self._servidor_http.servidor_oauth = self
+        setattr(self._servidor_http, "servidor_oauth", self)
         self._porta = self._servidor_http.server_port
+
 
         self._thread = threading.Thread(
             target=self._servidor_http.serve_forever, daemon=True

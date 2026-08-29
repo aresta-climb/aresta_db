@@ -7,7 +7,7 @@ import logging
 
 logger = logging.getLogger(__name__)
 
-def ofuscar_primeiro_byte(caminho_arquivo):
+def ofuscar_primeiro_byte(caminho_arquivo: str | os.PathLike[str]) -> None:
     """
     Inverte o primeiro byte do arquivo usando XOR 0xFF.
     Se o arquivo for um ZIP, isso quebra o magic number 'PK'.
@@ -25,7 +25,7 @@ def ofuscar_primeiro_byte(caminho_arquivo):
             f.write(byte_ofuscado)
             f.flush()
 
-def empacotar_croqui(pasta_origem, caminho_destino):
+def empacotar_croqui(pasta_origem: str | os.PathLike[str], caminho_destino: str | os.PathLike[str]) -> None:
     """
     Compacta uma pasta inteira em um arquivo ZIP e ofusca o magic number.
     """
@@ -43,7 +43,7 @@ def empacotar_croqui(pasta_origem, caminho_destino):
     ofuscar_primeiro_byte(caminho_destino)
     logger.info("Empacotamento concluído com ofuscação.")
 
-def ler_croqui(caminho_arquivo, pasta_destino):
+def ler_croqui(caminho_arquivo: str | os.PathLike[str], pasta_destino: str | os.PathLike[str]) -> None:
     """
     Desofusca o arquivo temporariamente, extrai o conteúdo e re-ofusca.
     Também suporta arquivos ZIP normais (sem ofuscação) como fallback.
@@ -83,3 +83,4 @@ def ler_croqui(caminho_arquivo, pasta_destino):
                 f.seek(0)
                 f.write(primeiro_byte)
                 f.flush()
+

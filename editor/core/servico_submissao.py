@@ -7,10 +7,11 @@ import shutil
 import filecmp
 from pathlib import Path
 from dataclasses import dataclass
-from typing import Optional, Callable, Dict, Any
+from typing import Optional, Callable, Dict, Any, cast
 
 import requests
 import pygit2
+
 
 from editor.core.gerenciador_sessao import SessaoUsuario
 from editor.core.cliente_auth_supabase import ClienteAuthSupabase
@@ -60,13 +61,14 @@ class ServicoSubmissao:
         url_supabase: Optional[str] = None,
         chave_publica: Optional[str] = None,
         cliente_auth: Optional[ClienteAuthSupabase] = None,
-    ):
-        self.caminho_repo_base = caminho_repo_base or GerenciadorCaminhos().obter_caminho_base_repo()
-        self.url_supabase = (url_supabase or _URL_SUPABASE_PADRAO).rstrip("/")
-        self.chave_publica = chave_publica or _CHAVE_PUBLICA_PADRAO
-        self.cliente_auth = cliente_auth or ClienteAuthSupabase(
+    ) -> None:
+        self.caminho_repo_base: Path = caminho_repo_base or GerenciadorCaminhos().obter_caminho_base_repo()
+        self.url_supabase: str = (url_supabase or _URL_SUPABASE_PADRAO).rstrip("/")
+        self.chave_publica: str = chave_publica or _CHAVE_PUBLICA_PADRAO
+        self.cliente_auth: ClienteAuthSupabase = cliente_auth or ClienteAuthSupabase(
             url_supabase=self.url_supabase, chave_publica=self.chave_publica
         )
+
 
     def sincronizar_arquivos_croqui(
         self, origem: Path, destino_repo: Path, id_croqui: str
@@ -167,7 +169,7 @@ class ServicoSubmissao:
         index.write()
 
         tree_id = index.write_tree()
-        head_commit = repo.head.peel()
+        head_commit = cast(pygit2.Commit, repo.head.peel())
 
         if tree_id == head_commit.tree_id:
             return None
@@ -187,31 +189,33 @@ class ServicoSubmissao:
             tree_id,
             [head_commit.id],
         )
-        return repo[commit_oid]
+        return cast(pygit2.Commit, repo[commit_oid])
 
     def _obter_callbacks_push(
         self, jwt: str, callback_progresso: Optional[Callable[[float], None]] = None
     ) -> pygit2.RemoteCallbacks:
         """Configura credenciais HTTP e callback de progresso para o push."""
         class CallbacksProxy(pygit2.RemoteCallbacks):
-            def __init__(self, token_jwt, prog_cb):
+            def __init__(self, token_jwt: str, prog_cb: Optional[Callable[[float], None]]) -> None:
                 super().__init__()
-                self.token_jwt = token_jwt
-                self.prog_cb = prog_cb
-                self._tentativas = 0
+                self.token_jwt: str = token_jwt
+                self.prog_cb: Optional[Callable[[float], None]] = prog_cb
+                self._tentativas: int = 0
 
-            def credentials(self, url, username_from_url, allowed_types):
+            def credentials(self, url: str, username_from_url: str | None, allowed_types: int) -> Any:
                 if self._tentativas >= 3:
                     return None
                 self._tentativas += 1
                 return pygit2.UserPass("bearer", self.token_jwt)
 
-            def transfer_progress(self, stats):
-                if self.prog_cb and stats.total_objects > 0:
+            def transfer_progress(self, stats: Any) -> None:
+                if self.prog_cb and getattr(stats, "total_objects", 0) > 0:
                     percentual = (stats.received_objects / stats.total_objects) * 100
                     self.prog_cb(percentual)
 
         return CallbacksProxy(jwt, callback_progresso)
+
+
 
     def fazer_push_proxy(
         self,
@@ -323,15 +327,16 @@ class ServicoSubmissao:
             try:
                 ref = repo.lookup_reference(ref_nome)
                 if ref:
-                    return ref.peel()
+                    return cast(pygit2.Commit, ref.peel())
             except (KeyError, ValueError):
                 continue
 
         if not repo.is_empty and not repo.head_is_unborn:
             try:
-                return repo.head.peel()
+                return cast(pygit2.Commit, repo.head.peel())
             except Exception:
                 pass
+
 
         raise ErroSubmissao("Não foi possível determinar o commit base do repositório.")
 
@@ -354,9 +359,10 @@ class ServicoSubmissao:
         5. Push para o Git Proxy
         6. Abertura ou confirmação de PR
         """
-        def reportar(porcentagem: int, mensagem: str):
+        def reportar(porcentagem: int, mensagem: str) -> None:
             if callback_progresso:
                 callback_progresso(porcentagem, mensagem)
+
 
         reportar(10, "Verificando autenticação...")
         jwt_ativo = sessao.jwt_supabase
