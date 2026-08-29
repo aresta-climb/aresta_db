@@ -1,6 +1,7 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
+from typing import Dict, List, Any, Optional
 import os
 import urllib.request
 import urllib.error
@@ -24,13 +25,13 @@ def get_db_version() -> str:
                 if num > max_num: max_num = num
     return f"v{max_num}"
 
-def load_arquivos_serving(content: str) -> dict:
+def load_arquivos_serving(content: str) -> Dict[str, List[Dict[str, str]]]:
     """
     Faz o parse simplificado do arquivos_serving.yaml usando apenas Python nativo.
     Desse jeito não precisamos de instalar dependências pra rodar o script de deploy.
     """
-    res = {}
-    current_path = None
+    res: Dict[str, str] = {}
+    current_path: Optional[str] = None
     for line in content.splitlines():
         line = line.strip()
         if line.startswith("- caminho_relativo:"):
@@ -41,7 +42,7 @@ def load_arquivos_serving(content: str) -> dict:
     return {"arquivos": [{"caminho_relativo": k, "checksum_sha256": v} for k, v in res.items()]}
 
 class CloudflarePurger:
-    def purge_manifests(self, db_version: str):
+    def purge_manifests(self, db_version: str) -> None:
         zone_id = os.environ.get("CLOUDFLARE_ZONE_ID")
         api_token = os.environ.get("CLOUDFLARE_CACHE_PURGE_API_TOKEN")
 
@@ -71,7 +72,7 @@ class CloudflarePurger:
             raise
 
 class Deployer:
-    def __init__(self, generated_dir: Path = None):
+    def __init__(self, generated_dir: Optional[Path] = None) -> None:
         self.generated_dir = generated_dir or (Path(__file__).resolve().parent.parent / "generated")
         self.db_version = get_db_version()
         self.bucket = os.environ.get("R2_BUCKET", "aresta")
@@ -84,7 +85,7 @@ class Deployer:
         else:
             self.s3 = boto3.client("s3", config=boto_config)
 
-    def _get_remote_manifest(self) -> dict:
+    def _get_remote_manifest(self) -> Optional[Dict[str, List[Dict[str, str]]]]:
         key = f"{self.db_version}/arquivos_serving.yaml"
         try:
             resp = self.s3.get_object(Bucket=self.bucket, Key=key)
@@ -95,13 +96,13 @@ class Deployer:
                 return None
             raise e
 
-    def _get_local_manifest(self) -> dict:
+    def _get_local_manifest(self) -> Dict[str, List[Dict[str, str]]]:
         path = self.generated_dir / "arquivos_serving.yaml"
         if not path.exists():
             raise FileNotFoundError(f"Manifesto local não encontrado: {path}")
         return load_arquivos_serving(path.read_text(encoding="utf-8"))
 
-    def _upload_file(self, rel_path: str):
+    def _upload_file(self, rel_path: str) -> None:
         local_path = self.generated_dir / rel_path
         remote_key = f"{self.db_version}/{rel_path}"
         print(f"Uploading: {rel_path} -> s3://{self.bucket}/{remote_key}")
@@ -120,12 +121,12 @@ class Deployer:
             ExtraArgs={'ContentType': content_type}
         )
 
-    def _upload_files_parallel(self, files: list[str]):
+    def _upload_files_parallel(self, files: List[str]) -> None:
         if not files: return
         with ThreadPoolExecutor(max_workers=50) as executor:
             list(executor.map(self._upload_file, files))
 
-    def _delete_files_bulk(self, rel_paths: list[str]):
+    def _delete_files_bulk(self, rel_paths: List[str]) -> None:
         if not rel_paths: return
         print(f"Deleting {len(rel_paths)} objects via bulk API...")
         objects = [{'Key': f"{self.db_version}/{p}"} for p in rel_paths]
@@ -133,7 +134,8 @@ class Deployer:
             chunk = objects[i:i+1000]
             self.s3.delete_objects(Bucket=self.bucket, Delete={'Objects': chunk})
 
-    def execute(self):
+    def execute(self) -> None:
+
         print(f"Iniciando deploy para banco de dados {self.db_version}")
         
         remote_manifest = self._get_remote_manifest()

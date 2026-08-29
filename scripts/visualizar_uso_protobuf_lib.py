@@ -1,16 +1,16 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
-from typing import Dict, List, Set, Any
+from typing import Dict, List, Set, Any, Optional, Tuple
 from dataclasses import dataclass, field
 
 @dataclass
 class FieldInfo:
     name: str
     is_message: bool
-    message_full_name: str | None = None
+    message_full_name: Optional[str] = None
     is_enum: bool = False
-    enum_full_name: str | None = None
+    enum_full_name: Optional[str] = None
 
 @dataclass
 class MessageInfo:
@@ -21,7 +21,7 @@ class MessageInfo:
 class DescriptorParser:
     """Faz o parse de um google.protobuf.descriptor.Descriptor para extrair os metadados do schema."""
     
-    def __init__(self):
+    def __init__(self) -> None:
         self.visited_messages: Set[str] = set()
         self.messages: Dict[str, MessageInfo] = {}
 
@@ -62,7 +62,7 @@ class DescriptorParser:
 class BinaryPbCounter:
     """Contador de preenchimento de campos de mensagens Protobuf lidas em runtime."""
     
-    def __init__(self):
+    def __init__(self) -> None:
         # self.counts[message_full_name][field_name] = {"all": int, "published": int}
         self.counts: Dict[str, Dict[str, Dict[str, int]]] = {}
         self.message_totals: Dict[str, Dict[str, int]] = {}
@@ -71,7 +71,7 @@ class BinaryPbCounter:
 
     def process_file_message(self, message: Any, is_published: bool) -> None:
         """Processa um arquivo (ex: croqui ou indice) como uma unidade atômica."""
-        present_fields: Set[tuple[str, str]] = set()
+        present_fields: Set[Tuple[str, str]] = set()
         self._traverse(message, present_fields)
         
         self.total_all += 1
@@ -98,7 +98,7 @@ class BinaryPbCounter:
             if is_published:
                 self.counts[full_name][field_name]["published"] += 1
 
-    def _traverse(self, message: Any, present_fields: Set[tuple[str, str]]) -> None:
+    def _traverse(self, message: Any, present_fields: Set[Tuple[str, str]]) -> None:
         full_name = message.DESCRIPTOR.full_name
         for field_desc, value in message.ListFields():
             present_fields.add((full_name, field_desc.name))
@@ -112,7 +112,7 @@ class BinaryPbCounter:
 
 class HeatmapCalculator:
     @staticmethod
-    def get_color(count: int, total: int) -> tuple[str, str]:
+    def get_color(count: int, total: int) -> Tuple[str, str]:
         """Retorna uma tupla (bgcolor, fontcolor) baseada no uso."""
         if total == 0 or count == 0:
             return ("#cccccc", "black")
@@ -126,13 +126,14 @@ class HeatmapCalculator:
         return (bgcolor, fontcolor)
 
 class GraphvizRenderer:
-    def __init__(self, messages: Dict[str, MessageInfo], counter: BinaryPbCounter, single_column: bool = False, custom_totals: Dict[str, int] = None, filter_unused: bool = False, comments: Dict[Any, str] = None):
+    def __init__(self, messages: Dict[str, MessageInfo], counter: BinaryPbCounter, single_column: bool = False, custom_totals: Optional[Dict[str, int]] = None, filter_unused: bool = False, comments: Optional[Dict[Any, str]] = None) -> None:
         self.messages = messages
         self.counter = counter
         self.single_column = single_column
         self.custom_totals = custom_totals or {}
         self.filter_unused = filter_unused
         self.comments = comments or {}
+
 
     def render(self) -> str:
         used_message_names = set()

@@ -1,15 +1,18 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
+from typing import Any, Dict, List, Tuple, Union, Optional, Iterator
 import io
 import argparse
-import pymupdf
+import pymupdf as _pymupdf
+pymupdf: Any = _pymupdf
+
 import shutil
 from PIL import Image
 from pathlib import Path
 import json
 
-def converter_para_webp(pasta_destino_path, imagem_origem_path):
+def converter_para_webp(pasta_destino_path: Path, imagem_origem_path: Path) -> None:
     """Converte uma imagem para WebP com redimensionamento inteligente."""
     imagem_destino_path = pasta_destino_path / f"{imagem_origem_path.stem}.webp"
     with Image.open(imagem_origem_path) as pil_img:
@@ -24,7 +27,7 @@ def converter_para_webp(pasta_destino_path, imagem_origem_path):
         
         pil_img.save(imagem_destino_path, "WEBP", quality=85)
 
-def _corrigir_pdf_malformado(doc):
+def _corrigir_pdf_malformado(doc: Any) -> None:
     """
     Remove a árvore de estrutura corrompida do PDF para evitar erros de 
     'No common ancestor in structure tree'. Este erro ocorre em PDFs etiquetados
@@ -37,7 +40,7 @@ def _corrigir_pdf_malformado(doc):
         # Silenciosamente ignoramos falhas na tentativa de correção
         pass
 
-def _serializar_objeto_pymupdf(obj):
+def _serializar_objeto_pymupdf(obj: Any) -> Any:
     """Converte objetos do PyMuPDF (Rect, Point, Matrix) em tipos básicos do Python."""
     if isinstance(obj, pymupdf.Rect):
         return [obj.x0, obj.y0, obj.x1, obj.y1]
@@ -58,15 +61,16 @@ def _serializar_objeto_pymupdf(obj):
         return [_serializar_objeto_pymupdf(i) for i in obj]
     return obj
 
-def translate_coordinates(drawings, text_dict, img_bbox, zoom, img_size_px):
+def translate_coordinates(drawings: Any, text_dict: Any, img_bbox: Any, zoom: float, img_size_px: Tuple[int, int]) -> Tuple[List[Any], List[Any]]:
     """Traduz coordenadas globais do PDF para coordenadas locais da imagem extraída."""
     scale_x = img_size_px[0] / img_bbox.width if img_bbox.width else 1.0
     scale_y = img_size_px[1] / img_bbox.height if img_bbox.height else 1.0
 
-    def tx(x): return (x - img_bbox.x0) * scale_x
-    def ty(y): return (y - img_bbox.y0) * scale_y
+    def tx(x: float) -> float: return float((x - img_bbox.x0) * scale_x)
+    def ty(y: float) -> float: return float((y - img_bbox.y0) * scale_y)
     
-    def transform_obj(obj):
+    def transform_obj(obj: Any) -> Any:
+
         if isinstance(obj, pymupdf.Rect):
             return pymupdf.Rect(tx(obj.x0), ty(obj.y0), tx(obj.x1), ty(obj.y1))
         if isinstance(obj, pymupdf.Point):
@@ -129,11 +133,11 @@ def translate_coordinates(drawings, text_dict, img_bbox, zoom, img_size_px):
 
     return translated_draws, translated_text
 
-def are_tiles(r1, r2, tolerance=1.5):
+def are_tiles(r1: Any, r2: Any, tolerance: float = 1.5) -> bool:
     """Verifica se dois retângulos são compatíveis como tiles (próximos e alinhados)."""
     # 1. Verifica se estão próximos ou se sobrepõem
-    dx = max(0, r1.x0 - r2.x1, r2.x0 - r1.x1)
-    dy = max(0, r1.y0 - r2.y1, r2.y0 - r1.y1)
+    dx = max(0.0, float(r1.x0 - r2.x1), float(r2.x0 - r1.x1))
+    dy = max(0.0, float(r1.y0 - r2.y1), float(r2.y0 - r1.y1))
     if (dx**2 + dy**2)**0.5 > tolerance:
         return False
         
@@ -142,13 +146,14 @@ def are_tiles(r1, r2, tolerance=1.5):
     same_width = abs(r1.x0 - r2.x0) < tolerance and abs(r1.x1 - r2.x1) < tolerance
     same_height = abs(r1.y0 - r2.y0) < tolerance and abs(r1.y1 - r2.y1) < tolerance
     
-    return same_width or same_height
+    return bool(same_width or same_height)
 
-def group_rects(rect_info_list, tolerance=2):
+
+def group_rects(rect_info_list: List[Any], tolerance: float = 2.0) -> List[Dict[str, Any]]:
     """Agrupa retângulos que são compatíveis como tiles."""
-    groups = []
+    groups: List[Dict[str, Any]] = []
     for rect, info in rect_info_list:
-        merged_indices = []
+        merged_indices: List[int] = []
         for i, group in enumerate(groups):
             # Tenta encontrar qualquer imagem no grupo que seja um "tile" compatível
             if any(are_tiles(rect, r, tolerance) for r in group['rects']):
@@ -175,7 +180,14 @@ def group_rects(rect_info_list, tolerance=2):
                 groups[first_idx]['union'] = groups[first_idx]['union'] | other_group['union']
     return groups
 
-def extrair_imagens_da_parte(doc, paginas, part_name, output_path, extract_full_pages=False, apenas_extrair=False):
+def extrair_imagens_da_parte(
+    doc: Any,
+    paginas: Any,
+    part_name: str,
+    output_path: Path,
+    extract_full_pages: bool = False,
+    apenas_extrair: bool = False
+) -> Any:
     """Extrai imagens das páginas especificadas, agrupando tiles adjacentes por padrão."""
     raw_image_dir = output_path / "raw_imagens" / part_name
     raw_image_dir.mkdir(parents=True, exist_ok=True)
@@ -258,7 +270,8 @@ def extrair_imagens_da_parte(doc, paginas, part_name, output_path, extract_full_
                 mat = pymupdf.Matrix(1.5, 1.5)
                 pix = page.get_pixmap(matrix=mat, clip=img_bbox, colorspace=pymupdf.csRGB)
             
-            img_pil = Image.frombytes("RGB", [pix.width, pix.height], pix.samples)
+            img_pil = Image.frombytes("RGB", (int(pix.width), int(pix.height)), pix.samples)
+
             
             # Aplicar o limite de área para o aplicativo
             max_area = 2048 * 2048
@@ -321,7 +334,13 @@ def extrair_imagens_da_parte(doc, paginas, part_name, output_path, extract_full_
 
     return doc
 
-def repartir_pdf(pdf_path, partes_json, output_path, include_pages=False, apenas_extrair=False):
+def repartir_pdf(
+    pdf_path: Path,
+    partes_json: Dict[str, List[int]],
+    output_path: Path,
+    include_pages: bool = False,
+    apenas_extrair: bool = False
+) -> Iterator[Path]:
     """
     Divide o PDF original em sub-pdfs e extrai imagens.
     """
@@ -357,7 +376,8 @@ def repartir_pdf(pdf_path, partes_json, output_path, include_pages=False, apenas
     if temp_pdf.exists():
         temp_pdf.unlink()
 
-def main():
+def main() -> None:
+
     parser = argparse.ArgumentParser(
         description="Quebra um PDF de escalada em vários arquivos pdfs "
         "baseado no arquivo partes.json de input e gera os metadados necessários para conversão."

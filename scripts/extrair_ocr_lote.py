@@ -1,6 +1,7 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
+from typing import Any
 import os
 import re
 from pathlib import Path
@@ -9,7 +10,7 @@ import numpy as np
 from paddleocr import PaddleOCR
 import json
 
-def extrair():
+def extrair() -> None:
     img_dir = Path('database/br_mg_ouro_preto_ouroboulder/raw_original_pdf/original_com_legenda/0.5x')
     if not img_dir.exists():
         print(f'Diretorio nao encontrado: {img_dir}')
@@ -21,8 +22,13 @@ def extrair():
                     use_textline_orientation=False, 
                     lang='pt')
     
+    def get_num(p: Path) -> int:
+        m = re.search(r'\d+', p.name)
+        return int(m.group()) if m else 0
+
     arquivos = list(img_dir.glob('*.jpg'))
-    arquivos.sort(key=lambda p: int(re.search(r'\d+', p.name).group()) if re.search(r'\d+', p.name) else 0)
+    arquivos.sort(key=get_num)
+
     
     print(f'Total de arquivos para OCR: {len(arquivos)}')
     
@@ -37,12 +43,13 @@ def extrair():
         img_np = np.array(img)[:, :, ::-1] # BGR
             
         class NumpyEncoder(json.JSONEncoder):
-            def default(self, obj):
+            def default(self, obj: Any) -> Any:
                 if isinstance(obj, np.ndarray):
                     return obj.tolist()
                 if isinstance(obj, np.generic):
                     return obj.item()
                 return super().default(obj)
+
                 
         try:
             resultados = ocr.predict(input=[img_np])[0]

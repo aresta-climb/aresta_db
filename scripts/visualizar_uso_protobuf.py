@@ -14,7 +14,8 @@ from aresta_api.proto.generated import croqui_pb2, indice_pb2
 from scripts.visualizar_uso_protobuf_lib import DescriptorParser, BinaryPbCounter, GraphvizRenderer
 from editor.core.proto_comments import get_proto_comments
 
-def inject_instant_tooltips(svg_path: Path):
+from typing import Dict, Any
+def inject_instant_tooltips(svg_path: Path) -> None:
     content = svg_path.read_text(encoding='utf-8')
     
     # Remove as tags de tooltip do SO já no arquivo estático para evitar "piscada" do tooltip nativo
@@ -104,7 +105,7 @@ window.addEventListener('load', function() {
         content = content.replace('</svg>', script)
         svg_path.write_text(content, encoding='utf-8')
 
-def render_graphviz(dot_content: str, name: str, reports_dir: Path):
+def render_graphviz(dot_content: str, name: str, reports_dir: Path) -> None:
     dot_path = reports_dir / f"{name}.dot"
     with open(dot_path, "w", encoding="utf-8") as f:
         f.write(dot_content)
@@ -123,7 +124,8 @@ def render_graphviz(dot_content: str, name: str, reports_dir: Path):
         print(f"O arquivo {dot_path} foi salvo na pasta, mas o SVG não pôde ser gerado.")
         print(f"Instale o Graphviz no seu sistema (ex: https://graphviz.org/download/) para ver as imagens.")
 
-def main():
+def main() -> None:
+
     parser = argparse.ArgumentParser(description="Gera visualização em grafo do uso dos campos do Protobuf no banco atual.")
     args = parser.parse_args()
     

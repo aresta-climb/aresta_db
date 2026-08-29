@@ -5,7 +5,8 @@ from pathlib import Path
 from scripts.finalizar_mapas import parse_md_com_frontmatter, salvar_md_com_frontmatter
 from editor.core.geometrias_poi import GeometriaPOI
 
-def migrar(pico_path: Path):
+def migrar(pico_path: Path) -> None:
+
     """
     Migração 0004: Padroniza as geometrias de POIs.
     Converte `box` para `retangulo`, `circular` para `circulo` e `area_livre` para `poligono`.

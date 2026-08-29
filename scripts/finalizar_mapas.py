@@ -1,6 +1,7 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
+from typing import Optional, Dict, Any, Tuple, Union, List
 import os
 import sys
 import json
@@ -10,7 +11,7 @@ import argparse
 from pathlib import Path
 from PIL import Image
 
-def parse_md_com_frontmatter(caminho_arquivo):
+def parse_md_com_frontmatter(caminho_arquivo: Union[str, Path]) -> Tuple[Optional[Dict[str, Any]], str]:
     """Lê um arquivo Markdown e separa o YAML Frontmatter do conteúdo."""
     with open(caminho_arquivo, "r", encoding="utf-8") as f:
         conteudo = f.read()
@@ -18,21 +19,22 @@ def parse_md_com_frontmatter(caminho_arquivo):
     match = re.match(r"^---\s*\n(.*?)\n---\s*\n(.*)$", conteudo, re.DOTALL)
     if match:
         try:
-            frontmatter = yaml.safe_load(match.group(1)) or {}
+            frontmatter: Optional[Dict[str, Any]] = yaml.safe_load(match.group(1)) or {}
         except yaml.YAMLError:
             frontmatter = {}
         corpo = match.group(2).strip()
         return frontmatter, corpo
     return None, conteudo.strip()
 
-def salvar_md_com_frontmatter(md_path, frontmatter, corpo):
+def salvar_md_com_frontmatter(md_path: Path, frontmatter: Optional[Dict[str, Any]], corpo: str) -> None:
     """Salva o YAML Frontmatter e o corpo de volta no arquivo markdown."""
     with open(md_path, "w", encoding="utf-8") as f:
         if frontmatter:
             f.write("---\n" + yaml.dump(frontmatter, allow_unicode=True, sort_keys=False).strip() + "\n---\n\n")
         f.write(corpo)
 
-def finalizar_mapas(pico_path):
+def finalizar_mapas(pico_path: Union[str, Path]) -> None:
+
     pico_path = Path(pico_path)
     if not pico_path.exists() or not pico_path.is_dir():
         print(f"Erro: O diretório '{pico_path}' não foi encontrado.")

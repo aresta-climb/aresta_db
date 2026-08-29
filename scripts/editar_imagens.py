@@ -3,15 +3,17 @@
 
 import sys
 import os
+from typing import Optional
 
 # Adiciona o diretório raiz ao sys.path para permitir importações do pacote 'editor'
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 from PySide6.QtWidgets import QApplication, QMainWindow, QMessageBox
+from PySide6.QtGui import QCloseEvent
 from editor.legacy_views.widget_editor_imagens import WidgetEditorImagens
 
 class MainWindow(QMainWindow):
-    def __init__(self, folder_path):
+    def __init__(self, folder_path: str) -> None:
         super().__init__()
         self.setWindowTitle(f"ARESTA Batch Image Editor - {folder_path}")
         self.resize(1280, 800)
@@ -20,7 +22,7 @@ class MainWindow(QMainWindow):
         self.widget = WidgetEditorImagens(folder_path, modo_integrado=False, parent=self)
         self.setCentralWidget(self.widget)
 
-    def closeEvent(self, event):
+    def closeEvent(self, event: QCloseEvent) -> None:
         # Verifica se há modificações não salvas no widget
         modified_count = len([s for s in self.widget.states.values() if s.is_modified])
         
@@ -35,6 +37,7 @@ class MainWindow(QMainWindow):
                 event.ignore()
         else:
             event.accept()
+
 
 if __name__ == '__main__':
     if len(sys.argv) < 2:

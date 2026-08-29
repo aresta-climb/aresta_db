@@ -6,7 +6,7 @@ import os
 import argparse
 from PIL import Image, ImageDraw
 
-def processar_mapa(caminho_imagem, caminho_json):
+def processar_mapa(caminho_imagem: str, caminho_json: str) -> None:
     # Determinar caminho de saída: mesma pasta do json, com sufixo _processado.webp
     diretorio_json = os.path.dirname(caminho_json)
     base_nome_json = os.path.splitext(os.path.basename(caminho_json))[0]
@@ -26,8 +26,8 @@ def processar_mapa(caminho_imagem, caminho_json):
         dados = json.load(f)
 
     # Abrir Imagem
-    with Image.open(caminho_imagem) as img:
-        img = img.convert('RGB')
+    with Image.open(caminho_imagem) as raw_img:
+        img = raw_img.convert('RGB')
         
         # Obter dimensões do mapa para o crop
         dim_mapa = dados.get('dimensoes_mapa', {})
@@ -51,40 +51,41 @@ def processar_mapa(caminho_imagem, caminho_json):
             except ValueError:
                 continue
             
-            if geom.tipo == 'circulo':
-                x, y, r = geom.x, geom.y, geom.raio
-                draw.ellipse([x - r, y - r, x + r, y + r], outline="red", width=3)
-            elif geom.tipo == 'quadrado':
-                x, y, lado = geom.x, geom.y, geom.lado
-                meio = lado / 2.0
-                draw.rectangle([x - meio, y - meio, x + meio, y + meio], outline="red", width=3)
-            elif geom.tipo == 'retangulo':
+            if geom.x is not None and geom.y is not None:
                 x, y = geom.x, geom.y
-                w, h = geom.comprimento, geom.largura
-                angulo = geom.propriedades.get('angulo_graus_x100', 0) / 100.0
-                
-                # Centro é x, y
-                p1 = (x - w/2, y - h/2)
-                p2 = (x + w/2, y - h/2)
-                p3 = (x + w/2, y + h/2)
-                p4 = (x - w/2, y + h/2)
-                
-                if angulo != 0:
-                    import math
-                    rad = math.radians(angulo)
-                    def rotate_point(px, py, cx, cy, angle_rad):
-                        dx = px - cx
-                        dy = py - cy
-                        nx = cx + dx * math.cos(angle_rad) - dy * math.sin(angle_rad)
-                        ny = cy + dx * math.sin(angle_rad) + dy * math.cos(angle_rad)
-                        return (nx, ny)
+                if geom.tipo == 'circulo' and geom.raio is not None:
+                    r = geom.raio
+                    draw.ellipse([x - r, y - r, x + r, y + r], outline="red", width=3)
+                elif geom.tipo == 'quadrado' and geom.lado is not None:
+                    lado = geom.lado
+                    meio = lado / 2.0
+                    draw.rectangle([x - meio, y - meio, x + meio, y + meio], outline="red", width=3)
+                elif geom.tipo == 'retangulo' and geom.comprimento is not None and geom.largura is not None:
+                    w, h = geom.comprimento, geom.largura
+                    angulo = geom.propriedades.get('angulo_graus_x100', 0) / 100.0
                     
-                    p1 = rotate_point(p1[0], p1[1], x, y, rad)
-                    p2 = rotate_point(p2[0], p2[1], x, y, rad)
-                    p3 = rotate_point(p3[0], p3[1], x, y, rad)
-                    p4 = rotate_point(p4[0], p4[1], x, y, rad)
-                
-                draw.polygon([p1, p2, p3, p4], outline="red", width=3)
+                    # Centro é x, y
+                    p1 = (x - w/2, y - h/2)
+                    p2 = (x + w/2, y - h/2)
+                    p3 = (x + w/2, y + h/2)
+                    p4 = (x - w/2, y + h/2)
+                    
+                    if angulo != 0:
+                        import math
+                        rad = math.radians(angulo)
+                        def rotate_point(px: float, py: float, cx: float, cy: float, angle_rad: float) -> tuple[float, float]:
+                            dx = px - cx
+                            dy = py - cy
+                            nx = cx + dx * math.cos(angle_rad) - dy * math.sin(angle_rad)
+                            ny = cy + dx * math.sin(angle_rad) + dy * math.cos(angle_rad)
+                            return (nx, ny)
+                        
+                        p1 = rotate_point(p1[0], p1[1], x, y, rad)
+                        p2 = rotate_point(p2[0], p2[1], x, y, rad)
+                        p3 = rotate_point(p3[0], p3[1], x, y, rad)
+                        p4 = rotate_point(p4[0], p4[1], x, y, rad)
+                    
+                    draw.polygon([p1, p2, p3, p4], outline="red", width=3)
             elif geom.tipo == 'poligono':
                 coords = geom.coordenadas
                 if coords and len(coords) >= 4:
@@ -93,9 +94,11 @@ def processar_mapa(caminho_imagem, caminho_json):
 
         # Salvar resultado
         img_recortada.save(caminho_saida, "WEBP")
+
         print(f"Imagem marcada salva com sucesso em: {caminho_saida}")
 
-def main():
+def main() -> None:
+
     parser = argparse.ArgumentParser(description="Visualizar pontos de interesse em um mapa recortado.")
     parser.add_argument("--imagem", required=True, help="Caminho para o arquivo de imagem do mapa.")
     parser.add_argument("--pontos_json", required=True, help="Caminho para o arquivo JSON com os pontos de interesse.")

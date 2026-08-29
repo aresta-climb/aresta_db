@@ -1,36 +1,40 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
+from typing import List, Tuple, Any, Optional
 import os
 import sys
 import importlib.util
 from pathlib import Path
 import yaml
 
-def obter_lista_migracoes(migracoes_dir: Path):
+def obter_lista_migracoes(migracoes_dir: Path) -> List[Tuple[int, Path]]:
     """
     Retorna uma lista ordenada de tuplas (MIGRATION_ID, filepath) de scripts de migração válidos.
     """
-    migracoes = []
+    migracoes: List[Tuple[int, Path]] = []
     for filename in os.listdir(migracoes_dir):
         if filename.endswith(".py") and filename[0].isdigit():
             filepath = migracoes_dir / filename
             
             # Lê o arquivo para encontrar o MIGRATION_ID sem executar (ou executando num spec)
             spec = importlib.util.spec_from_file_location("migracao", filepath)
+            if not spec or not spec.loader:
+                continue
             module = importlib.util.module_from_spec(spec)
             try:
                 spec.loader.exec_module(module)
                 if hasattr(module, "MIGRATION_ID"):
-                    migracoes.append((module.MIGRATION_ID, filepath))
-            except Exception as e:
+                    migracoes.append((int(module.MIGRATION_ID), filepath))
+            except Exception:
                 # Se falhar ao carregar, apenas ignora
                 continue
                 
     migracoes.sort(key=lambda x: x[0])
     return migracoes
 
-def migrar_todos_os_croquis(db_dir: Path, migracoes_dir: Path):
+def migrar_todos_os_croquis(db_dir: Path, migracoes_dir: Path) -> None:
+
     """
     Varre a pasta de banco de dados e aplica as migrações sequencialmente a cada croqui.
     """
@@ -63,10 +67,13 @@ def migrar_todos_os_croquis(db_dir: Path, migracoes_dir: Path):
                 if mig_id > ultima_migracao:
                     # Carrega o módulo da migração
                     spec = importlib.util.spec_from_file_location("mig_script", filepath)
+                    if not spec or not spec.loader:
+                        continue
                     module = importlib.util.module_from_spec(spec)
                     spec.loader.exec_module(module)
                     
                     if not hasattr(module, "migrar"):
+
                         print(f"[ERRO CRÍTICO] A migração {filepath.name} não possui uma função 'migrar(croqui_dir)' ou 'MIGRATION_ID'.")
                         sys.exit(1)
                         
@@ -84,7 +91,7 @@ def migrar_todos_os_croquis(db_dir: Path, migracoes_dir: Path):
                 
     print(f"\\nProcesso concluído! {croquis_atualizados} croquis atualizados dentre {croquis_encontrados} encontrados.")
 
-def main():
+def main() -> None:
     if len(sys.argv) < 3:
         print("Uso: python migrar_banco.py <caminho_database> <caminho_migracoes>")
         sys.exit(1)
@@ -104,3 +111,4 @@ def main():
 
 if __name__ == "__main__":
     main() # pragma: no cover
+

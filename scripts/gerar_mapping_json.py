@@ -1,24 +1,26 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
+from typing import Dict, List, Optional
 import json
 import re
 from pathlib import Path
 import yaml
 
-def gerar_mapping_completo():
+def gerar_mapping_completo() -> None:
     img_dir = Path('database/br_mg_ouro_preto_ouroboulder/raw_original_pdf/original_com_legenda/0.5x')
     json_files = list(img_dir.glob('*.ocr_result.json'))
     
     # Sort files by natural number based on original PNG name
-    def extract_num(filename):
+    def extract_num(filename: Path) -> int:
         m = re.search(r'\d+', filename.name)
         return int(m.group()) if m else 0
 
     sorted_files = sorted(json_files, key=extract_num)
 
     # 1. Agrupar pranchetas pelo OCR
-    grupos = {}
+    grupos: Dict[str, List[str]] = {}
+
     
     # Generate list of prancheta png names based on sorted jsons
     pranchetas_names = []

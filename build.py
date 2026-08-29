@@ -13,7 +13,7 @@ ROOT_DIR = Path(__file__).resolve().parent
 # Adiciona o diretório raiz do projeto ao sys.path.
 sys.path.append(str(ROOT_DIR))
 
-def generate_protos(force=False):
+def generate_protos(force: bool = False) -> None:
     # Verifica que todos os arquivos proto existem
     if not (ROOT_DIR / "aresta_api" / "proto").exists():
         print(f"Error: aresta_api/proto not found. Did you clone the aresta_api submodule?")
@@ -39,7 +39,7 @@ def generate_protos(force=False):
 # | 8       | 17.84s            | Sweet spot de velocidade máxima (mas demora mais no testmon)
 # | 16      | 17.46s            | Ganho marginal com alta sobrecarga de RAM
 # | 24      | 23.33s            | Lento devido ao overhead de spawn de processos no Windows.
-def run_tests(testmon=False, parallel=False):
+def run_tests(testmon: bool = False, parallel: bool = False) -> None:
     print("Running all unit and integration tests (core, scripts, editor, migrations)...")
     # Adiciona as pastas de scripts, o submódulo aresta_api, o editor, as migrações, a coleta_de_betas e o teste do próprio build.py
     test_paths = ["scripts", "aresta_api", "editor", "migracoes", "coleta_de_betas", "build_test.py"]
@@ -63,7 +63,7 @@ def run_tests(testmon=False, parallel=False):
     if result.returncode != 0 and result.returncode != 5:
         sys.exit(result.returncode)
 
-def run_coverage():
+def run_coverage() -> None:
     print("Running tests with coverage...")
     test_paths = ["scripts", "aresta_api", "editor", "migracoes", "build_test.py"]
     if (ROOT_DIR / "tests").exists():
@@ -80,17 +80,18 @@ def run_coverage():
     if result.returncode != 0 and result.returncode != 5:
         sys.exit(result.returncode)
 
-def run_deploy():
+def run_deploy() -> None:
     print("\nRunning deploy_generated...")
     script_path = ROOT_DIR / "scripts" / "deploy_generated.py"
     subprocess.run([sys.executable, str(script_path)], check=True)
 
-def run_health_check():
+def run_health_check() -> None:
     print("\nMeasuring health of croquis...")
     script_path = ROOT_DIR / "scripts" / "medir_saude_croquis.py"
     subprocess.run([sys.executable, str(script_path)], check=True)
 
-def main():
+def main() -> None:
+
     parser = argparse.ArgumentParser(description="Sistema de Build do Aresta DB.")
     parser.add_argument(
         "cmd", 

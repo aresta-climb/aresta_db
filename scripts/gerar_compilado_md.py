@@ -1,6 +1,7 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
+from typing import Any, List, Dict, Set, Optional
 import yaml
 import json
 from pathlib import Path
@@ -17,8 +18,8 @@ if sys.stderr is not None and getattr(sys.stderr, 'encoding', None) != 'utf-8':
     if hasattr(sys.stderr, 'buffer'):
         sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding='utf-8')
 
-def render_dict(d, indent=""):
-    lines = []
+def render_dict(d: Any, indent: str = "") -> List[str]:
+    lines: List[str] = []
     if not isinstance(d, dict):
         return lines
         
@@ -60,15 +61,15 @@ def render_dict(d, indent=""):
                 lines.append(f"{indent}- **{k}**: {v}")
     return lines
 
-def gerar_compilado_md(croqui_dir: Path, compilado_yaml_path: Path, output_md_path: Path):
+def gerar_compilado_md(croqui_dir: Path, compilado_yaml_path: Path, output_md_path: Path) -> None:
     with open(compilado_yaml_path, "r", encoding="utf-8") as f:
-        compilado = yaml.safe_load(f)
+        compilado: Dict[str, Any] = yaml.safe_load(f) or {}
         
     croqui_yaml_path = croqui_dir / "croqui.yaml"
     with open(croqui_yaml_path, "r", encoding="utf-8") as f:
-        croqui = yaml.safe_load(f)
+        croqui: Dict[str, Any] = yaml.safe_load(f) or {}
 
-    md_lines = []
+    md_lines: List[str] = []
     md_lines.append(f"# Croqui: {compilado.get('nome', 'Sem nome')}\n")
     
     # Global fields (exclude secoes_textuais, picos, arquivos_externos)
@@ -79,24 +80,25 @@ def gerar_compilado_md(croqui_dir: Path, compilado_yaml_path: Path, output_md_pa
         md_lines.append("\n")
 
     partes_json_path = croqui_dir / "partes.json"
-    ordem_partes = []
+    ordem_partes: List[str] = []
     if partes_json_path.exists():
         with open(partes_json_path, "r", encoding="utf-8") as f:
              partes = json.load(f)
-             ordem_partes = list(partes.keys())
+             if isinstance(partes, dict):
+                 ordem_partes = list(partes.keys())
              
-    blocks = {}
+    blocks: Dict[str, Any] = {}
     
     secoes_textuais = croqui.get("secoes_textuais", [])
     compilado_am = compilado.get("secoes_textuais", [])
     for i, am in enumerate(secoes_textuais):
-        if "caminho" in am and i < len(compilado_am):
+        if isinstance(am, dict) and "caminho" in am and i < len(compilado_am):
             blocks[Path(am["caminho"]).stem] = {
                 "tipo": "arquivo_markdown",
                 "dados": compilado_am[i]
             }
 
-    def coletar_blocos_recursivo(setores_ou_grupos_list, compilado_setores_ou_grupos_list, pico_nome):
+    def coletar_blocos_recursivo(setores_ou_grupos_list: List[Any], compilado_setores_ou_grupos_list: List[Any], pico_nome: str) -> None:
         for j, elemento in enumerate(setores_ou_grupos_list):
             if j >= len(compilado_setores_ou_grupos_list): continue
             
@@ -104,7 +106,7 @@ def gerar_compilado_md(croqui_dir: Path, compilado_yaml_path: Path, output_md_pa
             dados_compilados = compilado_setores_ou_grupos_list[j].get(tipo)
             dados_originais = elemento.get(tipo)
             
-            if "caminho" in dados_originais:
+            if dados_originais and "caminho" in dados_originais:
                 stem = Path(dados_originais["caminho"]).stem
                 blocks[stem] = {
                     "tipo": tipo,
@@ -113,13 +115,14 @@ def gerar_compilado_md(croqui_dir: Path, compilado_yaml_path: Path, output_md_pa
                 }
             
             # Se for um grupo, processa seus setores internos
-            if tipo == "grupo":
+            if tipo == "grupo" and dados_compilados and dados_originais:
                 conteudo_compilado = dados_compilados.get("conteudo", dados_compilados)
                 conteudo_original = dados_originais.get("conteudo", dados_originais)
                 
                 filhos_compilados = conteudo_compilado.get("setores", [])
                 filhos_originais = conteudo_original.get("setores", [])
                 coletar_blocos_recursivo(filhos_originais, filhos_compilados, pico_nome)
+
 
     picos = croqui.get("picos", [])
     compilado_picos = compilado.get("picos", [])

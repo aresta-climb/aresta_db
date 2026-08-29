@@ -40,6 +40,7 @@ if sys.stderr is not None and getattr(sys.stderr, 'encoding', None) != 'utf-8':
     if hasattr(sys.stderr, 'buffer'):
         sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding='utf-8')
 
+from typing import List, Dict, Any, Tuple, Optional, Union, Set
 import hashlib
 import datetime
 import shutil
@@ -78,7 +79,7 @@ def force_rmtree(path: Path) -> None:
     import time
     import os
     
-    def remover_somente_leitura(func, p, _):
+    def remover_somente_leitura(func: Any, p: str, _: Any) -> None:
         os.chmod(p, 0o777)
         func(p)
         
@@ -101,7 +102,7 @@ def calcular_sha256(caminho: Path) -> str:
     return h.hexdigest()
 
 
-def processar_thumbnail(croqui_dir: Path, generated_dir: Path, croqui_data: dict, force_thumbnails: bool = False) -> bool:
+def processar_thumbnail(croqui_dir: Path, generated_dir: Path, croqui_data: Dict[str, Any], force_thumbnails: bool = False) -> bool:
     """
     Converte a imagem apontada em caminho_thumbnail para generated/thumbnails/<id>.webp.
     """
@@ -128,7 +129,8 @@ def processar_thumbnail(croqui_dir: Path, generated_dir: Path, croqui_data: dict
     print(f"  Gerando thumbnail: {caminho_thumb_original} -> {dest_path.relative_to(GENERATED_DIR)} (600x600, WebP)")
     
     try:
-        with Image.open(src_path) as img:
+        with Image.open(src_path) as raw_img:
+            img: Image.Image = raw_img
             # Converter para RGB se necessário (ex: de PNG com alpha)
             if img.mode in ("RGBA", "P"):
                 img = img.convert("RGB")
@@ -187,7 +189,7 @@ def processar_thumbnail(croqui_dir: Path, generated_dir: Path, croqui_data: dict
         return False
 
 
-def carregar_dados_anteriores(caminho_pb: Path) -> dict[str, indice_pb2.ResumoCroqui]:
+def carregar_dados_anteriores(caminho_pb: Path) -> Dict[str, indice_pb2.ResumoCroqui]:
     """
     Lê o indice.binarypb anterior e retorna {id: ResumoCroqui}.
     Retorna dicionário vazio se o arquivo não existir ou se houver erro na leitura.
@@ -206,18 +208,20 @@ def carregar_dados_anteriores(caminho_pb: Path) -> dict[str, indice_pb2.ResumoCr
         return {}
 
 
-def encontrar_croquis() -> list[tuple[Path, dict]]:
+def encontrar_croquis() -> List[Tuple[Path, Dict[str, Any]]]:
     """Retorna [(croqui_dir, croqui_data)] para todos os croquis válidos em database/."""
     if not DATABASE_DIR.exists():
         return []
 
-    resultado = []
+    resultado: List[Tuple[Path, Dict[str, Any]]] = []
     for d in sorted(DATABASE_DIR.iterdir()):
         yaml_path = d / "croqui.yaml"
         if not d.is_dir() or not yaml_path.exists():
             continue
         with open(yaml_path, "r", encoding="utf-8") as f:
             croqui_data = yaml.safe_load(f)
+        if not isinstance(croqui_data, dict):
+            continue
         croqui_id = croqui_data.get("id")
         if not croqui_id:
             print(f"Aviso: {d.name}/croqui.yaml sem campo 'id', ignorando.")
@@ -227,7 +231,7 @@ def encontrar_croquis() -> list[tuple[Path, dict]]:
     return resultado
 
 
-def carregar_um_croqui(caminho: Path) -> dict | None:
+def carregar_um_croqui(caminho: Path) -> Optional[Dict[str, Any]]:
     """Carrega dados de um croqui a partir de um diretório qualquer."""
     yaml_path = caminho / "croqui.yaml"
     if not caminho.is_dir() or not yaml_path.exists():
@@ -235,13 +239,14 @@ def carregar_um_croqui(caminho: Path) -> dict | None:
     try:
         with open(yaml_path, "r", encoding="utf-8") as f:
             croqui_data = yaml.safe_load(f)
-        if not croqui_data or not croqui_data.get("id"):
+        if not isinstance(croqui_data, dict) or not croqui_data.get("id"):
             return None
         return croqui_data
     except Exception:
         return None
 
-def validar_sem_extensoes_vazadas(pico_dir: Path):
+def validar_sem_extensoes_vazadas(pico_dir: Path) -> None:
+
     """
     Verifica se o YAML ou qualquer Markdown referenciado contem vestígios do
     Shadow State (extensoes de caminho original/novo) que deveriam existir
@@ -261,22 +266,22 @@ def validar_sem_extensoes_vazadas(pico_dir: Path):
                 pass
 
 
-def extrair_descricao(croqui_data: dict) -> str:
+def extrair_descricao(croqui_data: Dict[str, Any]) -> str:
     """Descrição de alto nível do croqui; fallback em picos[0].descricao."""
     if croqui_data.get("descricao"):
-        return croqui_data["descricao"]
+        return str(croqui_data["descricao"])
     picos = croqui_data.get("picos", [])
-    if picos and picos[0].get("descricao"):
-        return picos[0]["descricao"].strip()
+    if picos and isinstance(picos, list) and picos[0].get("descricao"):
+        return str(picos[0]["descricao"]).strip()
     return ""
 
 
-def verificar_nomes_duplicados_de_escalada(croqui_id: str, compiled_data: dict) -> None:
+def verificar_nomes_duplicados_de_escalada(croqui_id: str, compiled_data: Dict[str, Any]) -> None:
     """Procura escaladas com o mesmo nome no mesmo croqui e emite um aviso."""
-    nomes_vistos = set()
-    duplicados = set()
+    nomes_vistos: Set[str] = set()
+    duplicados: Set[str] = set()
 
-    def _buscar_escaladas(obj):
+    def _buscar_escaladas(obj: Any) -> None:
         if isinstance(obj, dict):
             if "escaladas" in obj and isinstance(obj["escaladas"], list):
                 for escalada in obj["escaladas"]:
@@ -300,13 +305,13 @@ def verificar_nomes_duplicados_de_escalada(croqui_id: str, compiled_data: dict) 
         print(f"\nAviso: A escalada '{nome}' aparece mais de uma vez no croqui '{croqui_id}'. Nomes duplicados podem causar confusão.")
 
 
-def verificar_escaladas_sem_mapa(croqui_id: str, compiled_data: dict) -> None:
+def verificar_escaladas_sem_mapa(croqui_id: str, compiled_data: Dict[str, Any]) -> None:
     """Avisa se há escaladas que não estão mapeadas, caso o croqui já possua mapas desenhados."""
-    todas_escaladas = set()
-    escaladas_referenciadas = set()
+    todas_escaladas: Set[str] = set()
+    escaladas_referenciadas: Set[str] = set()
     tem_mapas_com_pontos = False
 
-    def _buscar(obj):
+    def _buscar(obj: Any) -> None:
         nonlocal tem_mapas_com_pontos
         if isinstance(obj, dict):
             if "escaladas" in obj and isinstance(obj["escaladas"], list):
@@ -347,7 +352,7 @@ def verificar_escaladas_sem_mapa(croqui_id: str, compiled_data: dict) -> None:
 
 def copiar_imagens(src_imagens: Path, dest_imagens: Path) -> None:
     """Copia a pasta de imagens para o destino, excluindo subdiretórios de processamento."""
-    def ignorar(dir_, nomes):
+    def ignorar(dir_: str, nomes: List[str]) -> List[str]:
         return [n for n in nomes
                 if (Path(dir_) / n).is_dir() and n in IMAGENS_SUBDIRS_EXCLUIDOS]
     shutil.copytree(src_imagens, dest_imagens, ignore=ignorar, dirs_exist_ok=True)
@@ -355,7 +360,7 @@ def copiar_imagens(src_imagens: Path, dest_imagens: Path) -> None:
 
 
 
-def listar_imagens_exportaveis(imagens_path: Path) -> list[Path]:
+def listar_imagens_exportaveis(imagens_path: Path) -> List[Path]:
     """
     Lista todos os arquivos .webp na raiz de imagens/ (sem descer em raw_mapas/).
     Retorna lista de Path absolutos.
@@ -368,12 +373,12 @@ def listar_imagens_exportaveis(imagens_path: Path) -> list[Path]:
     ])
 
 
-def calcular_arquivos_externos(imagens_src: Path) -> list[dict]:
+def calcular_arquivos_externos(imagens_src: Path) -> List[Dict[str, str]]:
     """
     Retorna lista de dicts {caminho, checksum_sha256} para cada imagem exportável,
     com caminho relativo à raiz do croqui (ex: imagens/pagina_7_imagem_0.webp).
     """
-    arquivos = []
+    arquivos: List[Dict[str, str]] = []
     for img in listar_imagens_exportaveis(imagens_src):
         arquivos.append({
             "caminho": f"imagens/{img.name}",
@@ -393,13 +398,18 @@ def preparar_generated(limpar: bool = True) -> None:
     GENERATED_DIR.mkdir(parents=True, exist_ok=True)
 
 
-def passo_a_compilar_croquis(a_compilar: list[tuple[Path, dict]], force_thumbnails: bool = False, gerar_arquivos_de_debug: bool = True, verbose: bool = False) -> tuple[list[tuple[str, dict, Path]], list[str]]:
+def passo_a_compilar_croquis(
+    a_compilar: List[Tuple[Path, Dict[str, Any]]],
+    force_thumbnails: bool = False,
+    gerar_arquivos_de_debug: bool = True,
+    verbose: bool = False
+) -> Tuple[List[Tuple[str, Dict[str, Any], Path]], List[str]]:
     """
     Passo A: Corrige cada croqui e compila para .binarypb (e .yaml/.md se gerar_arquivos_de_debug=True).
     """
     print("\n=== Passo A: Compilando croquis ===")
-    compilados = []
-    erros = []
+    compilados: List[Tuple[str, Dict[str, Any], Path]] = []
+    erros: List[str] = []
     total = len(a_compilar)
 
     for i, (croqui_dir, croqui_data) in enumerate(a_compilar, 1):
@@ -455,7 +465,7 @@ def passo_a_compilar_croquis(a_compilar: list[tuple[Path, dict]], force_thumbnai
                 import yaml
                 with open(dest_yaml, "r", encoding="utf-8") as f:
                     compiled_data = yaml.safe_load(f)
-                def _check_integer_ids(obj):
+                def _check_integer_ids(obj: Any) -> None:
                     if isinstance(obj, dict):
                         if "pontos_de_interesse" in obj:
                             for ponto in obj.get("pontos_de_interesse", []):
@@ -472,7 +482,7 @@ def passo_a_compilar_croquis(a_compilar: list[tuple[Path, dict]], force_thumbnai
                 verificar_escaladas_sem_mapa(croqui_id, compiled_data)
                 
             # Gerar também o compilado.md (opcional)
-            if gerar_arquivos_de_debug:
+            if gerar_arquivos_de_debug and dest_yaml:
                 dest_md = dest_dir / "compilado.md"
                 gerar_compilado_md(croqui_dir, dest_yaml, dest_md)
                 if verbose:
@@ -492,14 +502,15 @@ def passo_a_compilar_croquis(a_compilar: list[tuple[Path, dict]], force_thumbnai
     return compilados, erros
 
 
+
 def passo_b_calcular_checksums(
-    compilados: list[tuple[str, dict, Path]],
+    compilados: List[Tuple[str, Dict[str, Any], Path]],
     verbose: bool = False
-) -> dict[str, str]:
+) -> Dict[str, str]:
     """Passo B: SHA-256 de cada compilado.binarypb em generated/<id>/."""
     if verbose:
         print("\n=== Passo B: Calculando checksums SHA-256 ===")
-    checksums = {}
+    checksums: Dict[str, str] = {}
     for croqui_id, _, pb_path in compilados:
         checksum = calcular_sha256(pb_path)
         checksums[croqui_id] = checksum
@@ -509,10 +520,10 @@ def passo_b_calcular_checksums(
 
 
 def passo_c_gerar_indice(
-    compilados: list[tuple[str, dict, Path]],
-    checksums: dict[str, str],
-    dados_anteriores: dict[str, indice_pb2.ResumoCroqui] = None,
-    preservados: list[indice_pb2.ResumoCroqui] = None,
+    compilados: List[Tuple[str, Dict[str, Any], Path]],
+    checksums: Dict[str, str],
+    dados_anteriores: Optional[Dict[str, indice_pb2.ResumoCroqui]] = None,
+    preservados: Optional[List[indice_pb2.ResumoCroqui]] = None,
     is_producao: bool = True,
     verbose: bool = False,
 ) -> indice_pb2.Indice:
@@ -528,7 +539,7 @@ def passo_c_gerar_indice(
 
     indice     = indice_pb2.Indice()
     
-    indice_list = []  # para o YAML
+    indice_list: List[Dict[str, Any]] = []  # para o YAML
 
     # Primeiro adicionamos os novos/atualizados
     compilados_filtrados = compilados
@@ -577,16 +588,19 @@ def passo_c_gerar_indice(
         total_multiplas_enfiadas = 0
         total_highlines = 0
 
-        for pico in picos:
-            pre = pico.get("precomputados", {})
-            total_escaladas += pre.get("total_escaladas", 0)
-            total_setores += pre.get("total_setores", 0)
-            total_grupos += pre.get("total_grupos", 0)
-            total_esportivas += pre.get("total_esportivas", 0)
-            total_moveis += pre.get("total_moveis", 0)
-            total_boulders += pre.get("total_boulders", 0)
-            total_multiplas_enfiadas += pre.get("total_multiplas_enfiadas", 0)
-            total_highlines += pre.get("total_highlines", 0)
+        if isinstance(picos, list):
+            for pico in picos:
+                if isinstance(pico, dict):
+                    pre = pico.get("precomputados", {})
+                    if isinstance(pre, dict):
+                        total_escaladas += pre.get("total_escaladas", 0)
+                        total_setores += pre.get("total_setores", 0)
+                        total_grupos += pre.get("total_grupos", 0)
+                        total_esportivas += pre.get("total_esportivas", 0)
+                        total_moveis += pre.get("total_moveis", 0)
+                        total_boulders += pre.get("total_boulders", 0)
+                        total_multiplas_enfiadas += pre.get("total_multiplas_enfiadas", 0)
+                        total_highlines += pre.get("total_highlines", 0)
             
         resumo.precomputados.total_escaladas = total_escaladas
         resumo.precomputados.total_setores = total_setores
@@ -597,10 +611,11 @@ def passo_c_gerar_indice(
         resumo.precomputados.total_multiplas_enfiadas = total_multiplas_enfiadas
         resumo.precomputados.total_highlines = total_highlines
 
-        if picos and "localizacao" in picos[0]:
+        if isinstance(picos, list) and len(picos) > 0 and isinstance(picos[0], dict) and "localizacao" in picos[0]:
             loc = picos[0]["localizacao"]
-            resumo.localizacao.latitude = loc.get("latitude", 0)
-            resumo.localizacao.longitude = loc.get("longitude", 0)
+            if isinstance(loc, dict):
+                resumo.localizacao.latitude = loc.get("latitude", 0)
+                resumo.localizacao.longitude = loc.get("longitude", 0)
 
         # Thumbnail Checksum
         thumb_path = GENERATED_DIR / "thumbnails" / f"{croqui_id}.webp"
@@ -628,7 +643,7 @@ def passo_c_gerar_indice(
 
     # Gerar lista para o YAML a partir do índice final (ordenado)
     for resumo in indice.croquis:
-        item_yaml = {
+        item_yaml: Dict[str, Any] = {
             "id":             resumo.id,
             "nome":           resumo.nome,
             "descricao":      resumo.descricao,
@@ -638,7 +653,7 @@ def passo_c_gerar_indice(
             "timestamp_update": resumo.timestamp_update.ToDatetime().strftime('%Y-%m-%dT%H:%M:%SZ'),
         }
         if resumo.HasField("precomputados"):
-            pre_yaml = {
+            pre_yaml: Dict[str, Any] = {
                 "total_escaladas": resumo.precomputados.total_escaladas,
                 "total_setores": resumo.precomputados.total_setores,
                 "total_grupos": resumo.precomputados.total_grupos,
@@ -687,14 +702,22 @@ def passo_c_gerar_indice(
     return indice
 
 
-def deploy(output_dir: Path, target_paths: list[str | Path] | None = None, force_thumbnails: bool = False, gerar_arquivos_de_debug: bool = True, is_producao: bool = True, verbose: bool = False) -> None:
+from typing import List, Dict, Any, Tuple, Optional, Union, Set, Sequence
+
+def deploy(
+    output_dir: Path,
+    target_paths: Optional[Sequence[Union[str, Path]]] = None,
+    force_thumbnails: bool = False,
+    gerar_arquivos_de_debug: bool = True,
+    is_producao: bool = True,
+    verbose: bool = False
+) -> None:
+
     global GENERATED_DIR
     GENERATED_DIR = output_dir.resolve()
 
     print(f"Diretorio de saida : {GENERATED_DIR}")
     if target_paths:
-        if isinstance(target_paths, str):
-            target_paths = [target_paths]
         print(f"Alvos específicos  : {target_paths}")
     
     print(f"Arquivos de debug (.md/.yaml) : {'Sim' if gerar_arquivos_de_debug else 'Não'}")
@@ -704,14 +727,15 @@ def deploy(output_dir: Path, target_paths: list[str | Path] | None = None, force
     todos_croquis = encontrar_croquis()
 
     # 2. Filtrar o que será compilado e o que será preservado
-    a_compilar = []
-    a_preservar = []
+    a_compilar: List[Tuple[Path, Dict[str, Any]]] = []
+    a_preservar: List[Tuple[Path, Dict[str, Any]]] = []
 
     if target_paths:
-        target_abs_list = []
+        target_abs_list: List[Path] = []
         for t in target_paths:
-            t_abs = Path(t).resolve()
-            if not t_abs.exists() and not Path(t).is_absolute():
+            t_path = Path(t)
+            t_abs = t_path.resolve()
+            if not t_abs.exists() and not t_path.is_absolute():
                 t_abs = (ROOT_DIR / "database" / t).resolve()
             target_abs_list.append(t_abs)
 
@@ -725,12 +749,14 @@ def deploy(output_dir: Path, target_paths: list[str | Path] | None = None, force
         
         # Sobraram alvos que não estão no database oficial, tentar carregar como externos
         for t_abs in target_abs_list:
-            data = carregar_um_croqui(t_abs)
-            if data:
-                print(f"  Alvo externo identificado: {data['id']}")
-                a_compilar.append((t_abs, data))
+            croqui_externo_data = carregar_um_croqui(t_abs)
+            if croqui_externo_data is not None:
+                print(f"  Alvo externo identificado: {croqui_externo_data['id']}")
+                a_compilar.append((t_abs, croqui_externo_data))
             else:
                 raise RuntimeError(f"Alvo '{t_abs}' não encontrado ou não é um croqui válido (falta croqui.yaml com 'id').")
+
+
     else:
         if not todos_croquis:
             print("Nenhum croqui encontrado em database/. Nada a fazer.")
@@ -755,8 +781,8 @@ def deploy(output_dir: Path, target_paths: list[str | Path] | None = None, force
         # Não damos exit aqui para permitir que o índice seja gerado com os croquis que deram certo
 
     # 6. Identificar o que preservar do índice anterior (caso seja deploy seletivo)
-    compilados_preservados = []
-    preservados_metadados = []
+    compilados_preservados: List[Tuple[str, Dict[str, Any], Path]] = []
+    preservados_metadados: List[indice_pb2.ResumoCroqui] = []
 
     if target_paths:
         # Em deploy seletivo, preservamos tudo que já estava no índice e não é o alvo novo
@@ -773,7 +799,7 @@ def deploy(output_dir: Path, target_paths: list[str | Path] | None = None, force
         # No deploy total, o comportamento anterior era preservar o que já estava em generated
         # se viesse do database. Como limpar=True por padrão, isso geralmente é vazio.
         for d, data in a_preservar:
-            croqui_id = data["id"]
+            croqui_id = str(data["id"])
             dest_pb = GENERATED_DIR / croqui_id / "compilado.binarypb"
             if dest_pb.exists():
                 compilados_preservados.append((croqui_id, data, dest_pb))
@@ -823,9 +849,9 @@ def passo_d_gerar_manifesto_serving(indice: indice_pb2.Indice, verbose: bool = F
         print("\n=== Passo D: Gerando arquivos_serving.yaml ===")
     
     manifesto = serving_pb2.ArquivosServing()
-    adicionados = set()
+    adicionados: Set[str] = set()
     
-    def add_file(rel_path: str, checksum: str):
+    def add_file(rel_path: str, checksum: str) -> None:
         if rel_path in adicionados:
             return
         arquivo = manifesto.arquivos.add()
@@ -869,7 +895,7 @@ def passo_d_gerar_manifesto_serving(indice: indice_pb2.Indice, verbose: bool = F
         print(f"Manifesto salvo com {len(manifesto.arquivos)} arquivos.")
 
 
-def atualizar_saude_croquis():
+def atualizar_saude_croquis() -> None:
     """Chama o script de saúde dos croquis para atualizar o STATUS_CROQUIS.md."""
     print("\n=== Atualizando saúde dos croquis (STATUS_CROQUIS.md) ===")
     import subprocess
@@ -879,7 +905,7 @@ def atualizar_saude_croquis():
     except Exception as e:
         print(f"Erro ao atualizar saúde dos croquis: {e}")
 
-def create_parser():
+def create_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         description="Compila todos os croquis (ou um específico) e gera o indice."
     )
@@ -947,3 +973,4 @@ if __name__ == "__main__":
     
     if args.status:
         atualizar_saude_croquis()
+

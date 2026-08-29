@@ -141,7 +141,9 @@ def check_pico_coordinates(croqui_path: Path) -> str:
     except Exception:
         return "❌ (Erro)"
 
-def find_all_sectors(croqui_path: Path) -> list[Path]:
+from typing import List, Dict, Any, Optional
+
+def find_all_sectors(croqui_path: Path) -> List[Path]:
     """Encontra recursivamente todos os caminhos de setores definidos no croqui.yaml."""
     yaml_path = croqui_path / "croqui.yaml"
     if not yaml_path.exists():
@@ -153,9 +155,9 @@ def find_all_sectors(croqui_path: Path) -> list[Path]:
     except Exception:
         return list(croqui_path.glob("setor_*.md"))
 
-    sector_paths = []
+    sector_paths: List[Path] = []
     
-    def collect_recursively(elements):
+    def collect_recursively(elements: List[Any]) -> None:
         for e in elements:
             if not e or not isinstance(e, dict): continue
             tipo = "setor" if "setor" in e else "grupo"
@@ -196,11 +198,12 @@ def find_all_sectors(croqui_path: Path) -> list[Path]:
                 if sub:
                     collect_recursively([{"setor": s} if isinstance(s, (str, dict)) else s for s in sub if s])
     
-    picos = data.get("picos", [])
-    if isinstance(picos, list):
-        for pico in picos:
-            if isinstance(pico, dict) and "setores_ou_grupos" in pico:
-                collect_recursively(pico["setores_ou_grupos"])
+    if isinstance(data, dict):
+        picos = data.get("picos", [])
+        if isinstance(picos, list):
+            for pico in picos:
+                if isinstance(pico, dict) and "setores_ou_grupos" in pico:
+                    collect_recursively(pico["setores_ou_grupos"])
             
     # Se não encontrou nada via YAML, fallback para glob
     if not sector_paths:
@@ -259,7 +262,7 @@ def check_betas_pendentes(croqui_path: Path) -> str:
         pass
     return "⚠️"
 
-def generate_report_table(report_data: list[dict]) -> str:
+def generate_report_table(report_data: List[Dict[str, Any]]) -> str:
     """Gera a tabela Markdown a partir dos dados do relatório."""
     total_croquis = len(report_data)
     if total_croquis == 0:
@@ -326,7 +329,8 @@ def generate_report_table(report_data: list[dict]) -> str:
         
     return "\n".join(lines)
 
-def main():
+def main() -> None:
+
     parser = argparse.ArgumentParser(description="Mede a saúde dos croquis na base de dados.")
     parser.add_argument("--output", "-o", default="STATUS_CROQUIS.md", help="Arquivo de saída do relatório Markdown.")
     args = parser.parse_args()

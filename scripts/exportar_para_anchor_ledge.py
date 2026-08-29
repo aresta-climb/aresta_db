@@ -1,9 +1,7 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
-"""
-Script para exportar croquis compilados (.binarypb) do Aresta para o formato CSV exigido pelo aplicativo Anchor Ledge.
-"""
+from typing import Any, Tuple, Optional, Dict, List
 import argparse
 import csv
 import os
@@ -17,12 +15,12 @@ if GENERATED_PROTO_DIR not in sys.path:
     sys.path.insert(0, GENERATED_PROTO_DIR)
 
 try:
-    import croqui_pb2
+    from aresta_api.proto.generated import croqui_pb2
 except ImportError as e:
     print(f"Erro ao importar croqui_pb2. Certifique-se de que o protobuf foi compilado. Erro: {e}")
     sys.exit(1)
 
-def converter_graduacao(valor_inteiro, enum_descriptor):
+def converter_graduacao(valor_inteiro: int, enum_descriptor: Any) -> str:
     """
     Converte o valor inteiro do enum GrauVia para a representação em string brasileira formatada.
     
@@ -37,7 +35,7 @@ def converter_graduacao(valor_inteiro, enum_descriptor):
         return ''
         
     valor = enum_descriptor.values_by_number[valor_inteiro]
-    nome = valor.name
+    nome: str = valor.name
     
     if not nome.startswith('BR_'):
         return ''
@@ -51,7 +49,7 @@ def converter_graduacao(valor_inteiro, enum_descriptor):
     
     return nome
 
-def extrair_ano_abertura(data_abertura):
+def extrair_ano_abertura(data_abertura: Optional[str]) -> str:
     """
     Extrai o ano da data de abertura. A data de abertura deve vir no formato YYYY ou YYYY-MM ou YYYY-MM-DD.
     Essa função tenta identificar o ano (4 dígitos) utilizando regex, flexibilizando
@@ -78,7 +76,7 @@ def extrair_ano_abertura(data_abertura):
         
     return ''
 
-def extrair_ano_manutencao(data_manutencao):
+def extrair_ano_manutencao(data_manutencao: Optional[str]) -> str:
     """
     Extrai o ano da data de manutenção. A data de manutenção deve vir no formato DD/MM/YYYY.
     Essa função tenta identificar o ano (4 dígitos) utilizando regex, flexibilizando
@@ -105,7 +103,7 @@ def extrair_ano_manutencao(data_manutencao):
         
     return ''
 
-def mapear_estrelas(destaque):
+def mapear_estrelas(destaque: bool) -> str:
     """
     Mapeia a flag de destaque para a quantidade de estrelas (3 se True, 0 se False).
     
@@ -117,7 +115,7 @@ def mapear_estrelas(destaque):
     """
     return '3' if destaque else '0'
 
-def determinar_status_e_material(tipo_via):
+def determinar_status_e_material(tipo_via: str) -> Tuple[str, str]:
     """
     Determina o status e material baseado na string do oneof `tipo`.
     
@@ -140,7 +138,8 @@ def determinar_status_e_material(tipo_via):
     return status, bolt_material
 
 
-def processar_croqui(croqui_id, database_dir='generated'):
+def processar_croqui(croqui_id: str, database_dir: str = 'generated') -> None:
+
     """
     Lê um compilado.binarypb, extrai todas as vias e exporta para CSV no formato Anchor Ledge.
     

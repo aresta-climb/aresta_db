@@ -1,8 +1,14 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
+import importlib
+from pathlib import Path
 
-def test_migrar_inline_escaladas_in_croqui_yaml(tmp_path):
+migr_0002 = importlib.import_module("migracoes.0002_centralizar_map_references")
+migrar = migr_0002.migrar
+
+def test_migrar_inline_escaladas_in_croqui_yaml(tmp_path: Path) -> None:
+
     db_path = tmp_path / "database" / "croqui_teste"
     db_path.mkdir(parents=True)
     
@@ -35,7 +41,8 @@ picos:
     escaladas = croqui_yaml["picos"][0]["setores_ou_grupos"][0]["setor"]["conteudo"]["escaladas"]
     assert "id_no_mapa" not in escaladas[0]["via_esportiva"]
 
-def test_migrar_inline_setores_in_grupo_md(tmp_path):
+def test_migrar_inline_setores_in_grupo_md(tmp_path: Path) -> None:
+
     db_path = tmp_path / "database" / "croqui_teste"
     db_path.mkdir(parents=True)
     

@@ -8,7 +8,8 @@ import yaml
 ROOT_DIR = Path(__file__).resolve().parent.parent
 DATABASE_DIR = ROOT_DIR / "database"
 
-def migrar_publicar_croqui():
+def migrar_publicar_croqui() -> None:
+
     print(f"Buscando croquis em {DATABASE_DIR}...")
     
     if not DATABASE_DIR.exists():

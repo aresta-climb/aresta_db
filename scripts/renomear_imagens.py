@@ -5,7 +5,8 @@ import json
 import shutil
 from pathlib import Path
 
-def renomear_imagens():
+def renomear_imagens() -> None:
+
     map_file = Path('mapping.json')
     if not map_file.exists():
         print('mapping.json nao encontrado!')

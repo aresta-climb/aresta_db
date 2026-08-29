@@ -1,6 +1,7 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
+from typing import Any, Dict, List, Tuple
 import yaml
 import ruamel.yaml
 from pathlib import Path
@@ -12,7 +13,8 @@ def extrair_imagens_do_markdown(corpo: str) -> list[str]:
     padrao = r"!\[.*?\]\((.*?)\)"
     return re.findall(padrao, corpo)
 
-def converter_md_texto_para_mapas(frontmatter: dict, corpo: str) -> tuple[dict, str]:
+def converter_md_texto_para_mapas(frontmatter: Dict[str, Any], corpo: str) -> Tuple[Dict[str, Any], str]:
+
     """
     Converte um markdown que contém imagens no corpo para um markdown com as imagens
     listadas no array 'mapas' do frontmatter.
@@ -42,7 +44,8 @@ def converter_md_texto_para_mapas(frontmatter: dict, corpo: str) -> tuple[dict, 
         
     return novo_frontmatter, corpo
 
-def migrar(pico_path: Path):
+def migrar(pico_path: Path) -> None:
+
     """
     Migração 0003: Migrar mapas_gerais de secoes_textuais para Pico.mapas_gerais
     """
@@ -85,12 +88,13 @@ def migrar(pico_path: Path):
         md_path = pico_path / mapas_gerais_entry["caminho"]
         if md_path.exists():
             frontmatter, corpo = parse_md_com_frontmatter(md_path)
-            novo_frontmatter, novo_corpo = converter_md_texto_para_mapas(frontmatter, corpo)
+            novo_frontmatter, novo_corpo = converter_md_texto_para_mapas(frontmatter or {}, corpo)
             
             # Limpa o texto original, pois ColecaoDeMapas não tem texto
             novo_corpo = ""
             
             salvar_md_com_frontmatter(md_path, novo_frontmatter, novo_corpo)
+
             
     with open(croqui_yaml_path, "w", encoding="utf-8") as f:
         ryaml.dump(croqui_data, f)

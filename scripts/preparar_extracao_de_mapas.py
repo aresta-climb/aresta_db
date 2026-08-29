@@ -1,6 +1,7 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
+from typing import List, Dict, Any, Optional, Union, Tuple
 import os
 import sys
 import json
@@ -15,7 +16,7 @@ from PIL import Image
 from paddleocr import PaddleOCR
 
 class PreparadorDeMapas:
-    def __init__(self, idioma):
+    def __init__(self, idioma: str) -> None:
         """
         Inicializa o preparador de mapas e carrega o motor PaddleOCR apenas uma vez.
         """
@@ -28,7 +29,7 @@ class PreparadorDeMapas:
         end_init = time.time()
         print(f"Motor carregado em {end_init - start_init:.2f} segundos.\n")
 
-    def executar(self, pico_path):
+    def executar(self, pico_path: Union[str, Path]) -> None:
         """
         Executa a extração e preparação de mapas para um diretório de pico.
         """
@@ -47,13 +48,14 @@ class PreparadorDeMapas:
         output_dir = pico_path / "imagens" / "raw_mapas"
         output_dir.mkdir(parents=True, exist_ok=True)
 
-        imagens_de_mapa = []
+        imagens_de_mapa: List[Path] = []
         for md_file in md_files:
             imagens_de_mapa += self._processar_arquivo_md(md_file, pico_path, output_dir)
 
         self._extrair_ocr_das_imagens(imagens_de_mapa, output_dir)
 
-    def _processar_arquivo_md(self, md_file, pico_path, output_dir):
+    def _processar_arquivo_md(self, md_file: Path, pico_path: Path, output_dir: Path) -> List[Path]:
+
         """
         Processa um arquivo MD (setor ou grupo) e extrai mapas.
         Retorna os caminhos para as imagens de mapa encontradas.
@@ -65,8 +67,9 @@ class PreparadorDeMapas:
             return []
 
         # Extrair frontmatter para buscar o campo 'mapas'
-        frontmatter = {}
+        frontmatter: Dict[str, Any] = {}
         if content.startswith("---"):
+
             parts = re.split(r"^---$", content, maxsplit=2, flags=re.MULTILINE)
             if len(parts) >= 3:
                 try:
@@ -128,10 +131,11 @@ class PreparadorDeMapas:
 
         return imagens_de_mapa
 
-    def _extrair_ocr_das_imagens(self, imagens_de_mapa, output_dir):
+    def _extrair_ocr_das_imagens(self, imagens_de_mapa: List[Path], output_dir: Path) -> None:
         """
         Extrai o OCR de imagens usando o motor já inicializado.
         """
+
         print(f"Processando OCR para {len(imagens_de_mapa)} imagens...")
 
         image_inputs = []
@@ -157,7 +161,8 @@ class PreparadorDeMapas:
         for img_path, res in zip(imagens_de_mapa, resultados):
             res.save_to_img(output_dir / f"{img_path.stem}.ocr_result.png")
 
-            custom_data = {'ocr_result': []}
+            custom_data: Dict[str, Any] = {'ocr_result': []}
+
             texts = res.get('rec_texts', [])
             boxes = res.get('rec_boxes', [])
 

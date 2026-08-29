@@ -1,12 +1,13 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
+from typing import Optional, Dict, Any, Tuple
 import yaml
 import textwrap
 from pathlib import Path
 from scripts.preparar_submissao_lib import parse_md_com_frontmatter
 
-def configurar_croqui_teste(caminho_temp: Path, yaml_content: str, arquivos: dict[str, str] = None) -> Path:
+def configurar_croqui_teste(caminho_temp: Path, yaml_content: str, arquivos: Optional[Dict[str, str]] = None) -> Path:
     """
     Configura uma estrutura fictícia de croqui em um diretório temporário para testes.
     """
@@ -28,7 +29,7 @@ def configurar_croqui_teste(caminho_temp: Path, yaml_content: str, arquivos: dic
                 
     return croqui_dir
 
-def carregar_yaml_migrado(croqui_dir: Path) -> dict:
+def carregar_yaml_migrado(croqui_dir: Path) -> Dict[str, Any]:
     """
     Retorna o croqui.yaml migrado em formato de dicionário.
     """
@@ -36,9 +37,11 @@ def carregar_yaml_migrado(croqui_dir: Path) -> dict:
     with open(caminho_yaml, "r", encoding="utf-8") as f:
         return yaml.safe_load(f) or {}
 
-def carregar_markdown_migrado(croqui_dir: Path, caminho_relativo: str) -> tuple[dict, str]:
+def carregar_markdown_migrado(croqui_dir: Path, caminho_relativo: str) -> Tuple[Optional[Dict[str, Any]], str]:
     """
     Lê e retorna o frontmatter e o corpo de um arquivo markdown migrado.
     """
     caminho_md = croqui_dir / caminho_relativo
     return parse_md_com_frontmatter(caminho_md)
+
+

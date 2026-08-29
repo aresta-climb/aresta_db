@@ -59,11 +59,15 @@ def aplicar_migracoes(caminho_croqui: Path) -> None:
         try:
             # Carrega dinamicamente o módulo Python da migração
             spec = importlib.util.spec_from_file_location("migracao_modulo", str(caminho_script))
+            if not spec or not spec.loader:
+                continue
             modulo = importlib.util.module_from_spec(spec)
             spec.loader.exec_module(modulo)
             
             # Executa o ponto de entrada da migração
-            modulo.migrar(caminho_croqui)
+            if hasattr(modulo, "migrar"):
+                modulo.migrar(caminho_croqui)
+
             
             # Atualiza o arquivo local no disco com a nova versão
             import ruamel.yaml

@@ -211,6 +211,77 @@ class TestTipagemEstaticaArestaDb(unittest.TestCase):
             + "\n".join(erros_totais),
         )
 
+    ARQUIVOS_ONDA_5 = [
+        "editor/models/readonly_proxy.py",
+        "editor/release_tools/bump_version.py",
+        "editor/release_tools/calculate_next_dev.py",
+        "migracoes/0001_migrar_secoes_para_botoes.py",
+        "migracoes/0002_centralizar_map_references.py",
+        "migracoes/0003_migrar_mapas_gerais.py",
+        "migracoes/0004_padronizar_geometrias_poi.py",
+        "migracoes/append.py",
+        "scripts/helpers_migracao.py",
+        "scripts/migrador.py",
+        "scripts/migrar_banco.py",
+        "scripts/migrar_publicar_croqui.py",
+        "scripts/comprimir_imagens.py",
+        "scripts/editar_imagens.py",
+        "scripts/extrair_ocr_lote.py",
+        "scripts/renomear_imagens.py",
+        "scripts/repartir_pdf.py",
+        "scripts/visualizar_mapa_processado.py",
+        "scripts/deploy_generated.py",
+        "scripts/exportar_para_anchor_ledge.py",
+        "scripts/finalizar_mapas.py",
+        "scripts/gerar_compilado_md.py",
+        "scripts/gerar_croqui_experimental.py",
+        "scripts/gerar_mapping_json.py",
+        "scripts/medir_saude_croquis.py",
+        "scripts/preparar_extracao_de_mapas.py",
+        "scripts/preparar_submissao_lib.py",
+        "scripts/recalcular_coordenadas.py",
+        "scripts/validador_cabecalhos.py",
+        "scripts/verificar_binarypb.py",
+        "scripts/visualizar_uso_protobuf.py",
+        "scripts/visualizar_uso_protobuf_lib.py",
+        "scripts/add_options.py",
+        "build.py",
+        "serving/pr_db_validator.py",
+        "serving/update_serving.py",
+    ]
+
+    def test_conformidade_mypy_onda_5(self) -> None:
+        """Valida que todos os módulos de scripts, migrações, release tools e serving da Onda 5 passam no MyPy estrito."""
+        arquivos_verificar = [
+            str(self.raiz_projeto / caminho)
+            for caminho in self.ARQUIVOS_ONDA_5
+        ]
+
+        codigo, stdout, stderr = executar_verificacao_mypy(
+            arquivos_verificar,
+            config_path=self.pyproject_path,
+        )
+        self.assertEqual(
+            codigo,
+            0,
+            f"Erros detectados pelo MyPy estrito nos módulos da Onda 5:\n{stdout}\n{stderr}",
+        )
+
+    def test_anotacoes_ast_onda_5(self) -> None:
+        """Garante que todas as funções, métodos e retornos nos módulos da Onda 5 possuem anotações de tipo completas."""
+        erros_totais: list[str] = []
+        for caminho_relativo in self.ARQUIVOS_ONDA_5:
+            caminho_completo = str(self.raiz_projeto / caminho_relativo)
+            erros_arquivo = verificar_arquivo_ast(caminho_completo)
+            erros_totais.extend(erros_arquivo)
+
+        self.assertEqual(
+            erros_totais,
+            [],
+            f"Funções/métodos sem anotação completa encontrados na Onda 5:\n"
+            + "\n".join(erros_totais),
+        )
+
     def test_stubs_protobuf_gerados_existem(self) -> None:
         """Garante que os stubs .pyi foram gerados para todos os esquemas Protobuf da aresta_api."""
         generated_dir = self.raiz_projeto / "aresta_api" / "proto" / "generated"
@@ -233,6 +304,7 @@ class TestTipagemEstaticaArestaDb(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
 
 
 

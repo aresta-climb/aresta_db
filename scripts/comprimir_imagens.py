@@ -1,6 +1,7 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
+from typing import Union, Tuple, List, Optional
 import os
 import argparse
 import io
@@ -8,17 +9,19 @@ import math
 from pathlib import Path
 from PIL import Image
 
-def comprimir_imagem_para_bytes(imagem_path_ou_bytes, quality=85, max_area=4194304):
+def comprimir_imagem_para_bytes(imagem_path_ou_bytes: Union[str, Path, bytes], quality: int = 85, max_area: int = 4194304) -> Tuple[bytes, int, int]:
     """
     Redimensiona e comprime uma imagem (WebP) se necessário (apenas se exceder max_area).
     Retorna uma tupla (bytes, largura, altura).
     """
+    img_file: Union[io.BytesIO, Union[str, Path]]
     if isinstance(imagem_path_ou_bytes, bytes):
         img_file = io.BytesIO(imagem_path_ou_bytes)
     else:
         img_file = imagem_path_ou_bytes
         
-    with Image.open(img_file) as img:
+    with Image.open(img_file) as raw_img:
+        img: Image.Image = raw_img
         # Se img tiver palette e formos converter para WebP, precisamos garantir RGB
         if img.mode not in ('RGB', 'RGBA'):
             img = img.convert('RGBA' if 'transparency' in img.info else 'RGB')
@@ -35,7 +38,8 @@ def comprimir_imagem_para_bytes(imagem_path_ou_bytes, quality=85, max_area=41943
         return out_buf.getvalue(), img.width, img.height
 
 
-def comprimir_imagem(caminho_imagem, quality=85, max_area=4194304):
+
+def comprimir_imagem(caminho_imagem: Path, quality: int = 85, max_area: int = 4194304) -> bool:
     """Redimensiona e comprime uma imagem WebP se necessário no disco."""
     try:
         # Verifica se já está dentro dos limites
@@ -71,9 +75,9 @@ def comprimir_imagem(caminho_imagem, quality=85, max_area=4194304):
         print(f"  Erro ao processar {caminho_imagem}: {e}")
         return False
 
-def processar_diretorio(diretorio, quality, max_area, recursivo):
+def processar_diretorio(diretorio: Path, quality: int, max_area: int, recursivo: bool) -> None:
     """Percorre o diretório buscando por arquivos de imagem para otimizar."""
-    arquivos = []
+    arquivos: List[Path] = []
     if recursivo:
         # Busca recursiva ignorando 'raw_pdf_contents'
         for root, dirs, files in os.walk(diretorio):
@@ -99,7 +103,8 @@ def processar_diretorio(diretorio, quality, max_area, recursivo):
             
     print(f"\nConcluído! {otimizados} arquivos foram redimensionados/otimizados.")
 
-def main():
+def main() -> None:
+
     parser = argparse.ArgumentParser(description="Utilitário para otimização em lote de imagens WebP no banco de dados.")
     parser.add_argument("path", help="Caminho para o arquivo ou diretório a ser processado.")
     parser.add_argument("--quality", type=int, default=85, help="Qualidade WebP (padrão: 85).")

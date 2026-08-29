@@ -122,8 +122,18 @@ module = [
     "pymupdf.*",
     "duckduckgo_search",
     "duckduckgo_search.*",
+    "graphviz",
+    "graphviz.*",
+    "boto3",
+    "boto3.*",
+    "botocore",
+    "botocore.*",
 ]
 ignore_missing_imports = true
+disallow_untyped_calls = false
+
+
+
 
 
 

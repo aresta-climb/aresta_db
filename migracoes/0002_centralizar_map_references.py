@@ -1,13 +1,14 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
+from typing import Optional, List, Dict, Any, Tuple, Set, Union
 import os
 import re
 from pathlib import Path
 from ruamel.yaml import YAML
 import io
 
-MIGRATION_ID = 2
+MIGRATION_ID: int = 2
 
 yaml_parser = YAML()
 yaml_parser.default_flow_style = False
@@ -17,17 +18,17 @@ yaml_parser.width = 90
 # Desativar aliases explicitamente para evitar caracteres lixo como *id001
 yaml_parser.representer.ignore_aliases = lambda *data: True
 
-FALHAS_MIGRACAO = []
+FALHAS_MIGRACAO: List[Dict[str, Any]] = []
 
-def parse_reference_groups(id_values):
+def parse_reference_groups(id_values: List[str]) -> List[Dict[str, Any]]:
     split_values = [v.split('/') for v in id_values]
     max_len = max(len(v) for v in split_values) if split_values else 0
     if max_len == 0: return [] # pragma: no cover
     
-    groups = []
+    groups: List[Dict[str, Any]] = []
     for i in range(max_len):
-        group_raws = []
-        group_parts = []
+        group_raws: List[str] = []
+        group_parts: List[str] = []
         for v in split_values:
             part = v[i] if i < len(v) else v[-1]
             group_raws.append(part.strip())
@@ -35,8 +36,8 @@ def parse_reference_groups(id_values):
             for t in tokens:
                 group_parts.append(t)
         
-        seen = set()
-        deduped = []
+        seen: Set[str] = set()
+        deduped: List[str] = []
         for t in group_parts:
             if t not in seen:
                 seen.add(t)
@@ -45,8 +46,15 @@ def parse_reference_groups(id_values):
         groups.append({'raws': group_raws, 'tokens': deduped})
     return groups
 
-def registrar_falha(tipo, nome, grupo, ctx_setor, ctx_grupo, filename=None):
-    item = {
+def registrar_falha(
+    tipo: str,
+    nome: str,
+    grupo: Union[List[str], str],
+    ctx_setor: Optional[str],
+    ctx_grupo: Optional[str],
+    filename: Optional[str] = None
+) -> Optional[Dict[str, Any]]:
+    item: Dict[str, Any] = {
         'escalada': nome,
         'ids_procurados': '/'.join(grupo) if isinstance(grupo, list) else str(grupo),
         'setor_contexto': ctx_setor,
@@ -56,8 +64,14 @@ def registrar_falha(tipo, nome, grupo, ctx_setor, ctx_grupo, filename=None):
     if filename:
         return item
     FALHAS_MIGRACAO.append(item) # pragma: no cover
+    return None
 
-def extrair_referencias_recursivo(obj, ctx_setor=None, ctx_grupo=None):
+def extrair_referencias_recursivo(
+    obj: Any,
+    ctx_setor: Optional[str] = None,
+    ctx_grupo: Optional[str] = None
+) -> Tuple[List[Dict[str, Any]], bool]:
+
     modificado = False
     refs_para_subir = []
     
@@ -190,7 +204,7 @@ def extrair_referencias_recursivo(obj, ctx_setor=None, ctx_grupo=None):
                 
     return refs_para_subir, modificado
 
-def migrar(croqui_dir: Path):
+def migrar(croqui_dir: Path) -> None:
     global FALHAS_MIGRACAO
     FALHAS_MIGRACAO = []
 
@@ -204,8 +218,8 @@ def migrar(croqui_dir: Path):
     if croqui_data and croqui_data.get("ultima_migracao", 0) >= MIGRATION_ID:
         return # pragma: no cover
         
-    files_data = {}
-    arquivos_modificados = set()
+    files_data: Dict[str, Any] = {}
+    arquivos_modificados: Set[str] = set()
     
     for filename in os.listdir(croqui_dir):
         if filename.endswith(".md") or filename == "croqui.yaml":
@@ -221,7 +235,11 @@ def migrar(croqui_dir: Path):
                 ydata = yaml_parser.load(content)
                 files_data[filename] = {"yaml": ydata, "filepath": filepath}
                 
-    def process_file(filename, injected_setor=None, injected_grupo=None):
+    def process_file(
+        filename: str,
+        injected_setor: Optional[str] = None,
+        injected_grupo: Optional[str] = None
+    ) -> Tuple[List[Dict[str, Any]], Optional[str], Optional[str]]:
         if filename not in files_data: return [], None, None # pragma: no cover
         if filename in files_data:
             if files_data[filename].get("status") == "processed":
@@ -235,16 +253,22 @@ def migrar(croqui_dir: Path):
             files_data[filename]["nome"] = "Sem Nome" # pragma: no cover
             return [], None, "Sem Nome" # pragma: no cover
         
-        id_raiz = None
+        id_raiz: Optional[str] = None
         if "id_no_mapa" in yaml_data:
             id_raiz = str(yaml_data.pop("id_no_mapa"))
             arquivos_modificados.add(filename)
             
-        nome = yaml_data.get("nome", "Sem Nome")
+        nome = str(yaml_data.get("nome", "Sem Nome"))
         
-        refs_total = []
+        refs_total: List[Dict[str, Any]] = []
         
-        def visitar_includes(obj, context_type=None, parent_setor=None, parent_grupo=None):
+        def visitar_includes(
+            obj: Any,
+            context_type: Optional[str] = None,
+            parent_setor: Optional[str] = None,
+            parent_grupo: Optional[str] = None
+        ) -> None:
+
             if isinstance(obj, list):
                 for item in obj:
                     visitar_includes(item, context_type, parent_setor, parent_grupo)
@@ -389,32 +413,33 @@ def migrar(croqui_dir: Path):
             filepath.write_text(novo_conteudo, encoding="utf-8")
             
     if FALHAS_MIGRACAO:
-        unique_falhas = []
-        seen = set()
-        for f in FALHAS_MIGRACAO:
+        unique_falhas: List[Dict[str, Any]] = []
+        seen: Set[Tuple[Any, ...]] = set()
+        for falha in FALHAS_MIGRACAO:
             # Create a hashable tuple representation
-            t = tuple(sorted((k, str(v)) for k, v in f.items() if isinstance(v, (str, int, float, bool, list))))
+            t = tuple(sorted((k, str(v)) for k, v in falha.items() if isinstance(v, (str, int, float, bool, list))))
             if t not in seen:
                 seen.add(t)
-                unique_falhas.append(f)
+                unique_falhas.append(falha)
         
         falhas_path = croqui_dir / "ids_no_mapa_nao_encontrados.yaml"
-        falhas_existentes = []
+        falhas_existentes: List[Dict[str, Any]] = []
         if falhas_path.exists():
-            with open(falhas_path, "r", encoding="utf-8") as f:
-                falhas_existentes = yaml_parser.load(f) or []
+            with open(falhas_path, "r", encoding="utf-8") as file_falhas:
+                falhas_existentes = yaml_parser.load(file_falhas) or []
         
         # Merge unique_falhas into existing (also ensuring no duplicates in final result)
-        seen_all = set()
-        final_list = []
-        for f in (falhas_existentes + unique_falhas):
-            t = tuple(sorted((k, str(v)) for k, v in f.items() if isinstance(v, (str, int, float, bool, list))))
+        seen_all: Set[Tuple[Any, ...]] = set()
+        final_list: List[Dict[str, Any]] = []
+        for falha in (falhas_existentes + unique_falhas):
+            t = tuple(sorted((k, str(v)) for k, v in falha.items() if isinstance(v, (str, int, float, bool, list))))
             if t not in seen_all:
                 seen_all.add(t)
-                final_list.append(f)
+                final_list.append(falha)
         
-        with open(falhas_path, "w", encoding="utf-8") as f:
-            yaml_parser.dump(final_list, f)
+        with open(falhas_path, "w", encoding="utf-8") as file_out:
+            yaml_parser.dump(final_list, file_out)
+
 
 if __name__ == "__main__": # pragma: no cover
     import sys

@@ -1,6 +1,7 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
+from typing import Optional, Dict, Any, List, Tuple, Set, Union
 import os
 import re
 import shutil
@@ -14,7 +15,7 @@ import sys
 # Porém, ao fazer o dump, ele decide remover as aspas por achar que são strings seguras.
 # Para manter a formatação visual (e compatibilidade com YAML 1.2), forçamos as aspas
 # em qualquer string que seja composta puramente de dígitos.
-def _str_representer(dumper, data):
+def _str_representer(dumper: Any, data: str) -> Any:
     if '\n' in data:
         return dumper.represent_scalar('tag:yaml.org,2002:str', data, style='|')
     if data.isdigit():
@@ -41,7 +42,7 @@ from aresta_api.proto.generated import croqui_pb2
 # UTILITÁRIOS DE PROCESSAMENTO DE TEXTO E IMAGEM
 # ===========================================================================
 
-def parse_md_com_frontmatter(caminho_arquivo):
+def parse_md_com_frontmatter(caminho_arquivo: Union[str, Path]) -> Tuple[Optional[Dict[str, Any]], str]:
     """Lê um arquivo Markdown e separa o YAML Frontmatter do conteúdo."""
     try:
         with open(caminho_arquivo, "r", encoding="utf-8") as f:
@@ -52,14 +53,15 @@ def parse_md_com_frontmatter(caminho_arquivo):
     match = re.match(r"^---\s*\n(.*?)\n---\s*\n(.*)$", conteudo, re.DOTALL)
     if match:
         try:
-            frontmatter = yaml.safe_load(match.group(1))
+            frontmatter: Optional[Dict[str, Any]] = yaml.safe_load(match.group(1))
         except yaml.YAMLError as e:
             raise ValueError(f"Erro de YAML no frontmatter de {caminho_arquivo}:\n{e}")
         corpo = match.group(2).strip()
         return frontmatter, corpo
     return None, conteudo.strip()
 
-def processar_caminho_imagem(caminho_img_original, pico_path):
+
+def processar_caminho_imagem(caminho_img_original: str, pico_path: Path) -> str:
     """
     Processa um caminho de imagem original, copia para a pasta de destino com nome único
     e retorna o novo caminho relativo.
@@ -88,7 +90,7 @@ def processar_caminho_imagem(caminho_img_original, pico_path):
     shutil.copy2(src, dest)
     return f"imagens/{novo_nome_arquivo}"
 
-def integrar_metadados_mapa(mapa, pico_path):
+def integrar_metadados_mapa(mapa: Dict[str, Any], pico_path: Path) -> bool:
     """
     Se a imagem do mapa estiver em raw_pdf_contents, procura um arquivo .json
     correspondente e preenche largura_mapa, altura_mapa e pontos_de_interesse.
@@ -123,7 +125,7 @@ def integrar_metadados_mapa(mapa, pico_path):
             print(f"    Aviso: Erro ao carregar metadados JSON de {json_path}: {e}")
     return False
 
-def coletar_e_atualizar_imagens(texto, pico_path):
+def coletar_e_atualizar_imagens(texto: str, pico_path: Path) -> str:
     """Encontra imagens no estilo markdown e as processa usando a função utility."""
     md_imgs = re.findall(r"!\[.*?\]\((.*?)\)", texto)
     
@@ -135,7 +137,7 @@ def coletar_e_atualizar_imagens(texto, pico_path):
     
     return novo_texto
 
-def salvar_md_com_frontmatter(md_path, frontmatter, corpo):
+def salvar_md_com_frontmatter(md_path: Path, frontmatter: Optional[Dict[str, Any]], corpo: str) -> None:
     """Salva o YAML Frontmatter e o corpo de volta no arquivo markdown."""
     with open(md_path, "w", encoding="utf-8") as f:
         if frontmatter:
@@ -155,7 +157,7 @@ def aplicar_tabela_nas_imagens(texto_md: str) -> str:
             texto_md = texto_md[:start] + nova_tag + texto_md[end:]
     return texto_md
 
-def converter_coordenadas_e7_recursivo(obj) -> bool:
+def converter_coordenadas_e7_recursivo(obj: Any) -> bool:
     """
     Recursivamente converte campos 'latitude' e 'longitude' para o formato E7 (int).
     Se os valores forem floats, multiplica por 10^7 e arredonda.
@@ -173,7 +175,7 @@ def converter_coordenadas_e7_recursivo(obj) -> bool:
             
             # Só converte se for float. Se já for int, assume que já está em E7.
             # Também aceita strings que podem ser convertidas para float.
-            def to_e7(val):
+            def to_e7(val: Any) -> Tuple[Any, bool]:
                 if isinstance(val, (float, int)) and not isinstance(val, bool):
                     if isinstance(val, float):
                         return int(round(val * 10**7)), True
@@ -196,7 +198,7 @@ def converter_coordenadas_e7_recursivo(obj) -> bool:
                     modificado = True
     return modificado
 
-def mover_descricao_para_corpo(frontmatter: dict, corpo: str):
+def mover_descricao_para_corpo(frontmatter: Optional[Dict[str, Any]], corpo: str) -> Tuple[Optional[Dict[str, Any]], str, bool]:
     """
     Se o frontmatter contiver um campo 'descricao' (seja no topo ou dentro de pico/setor/grupo),
     move seu conteúdo para o corpo do Markdown e o remove do frontmatter.
@@ -231,7 +233,8 @@ def mover_descricao_para_corpo(frontmatter: dict, corpo: str):
             
     return frontmatter, corpo, modificado
 
-def desduplicar_referencias_no_md(md_path, pico_path):
+def desduplicar_referencias_no_md(md_path: Path, pico_path: Path) -> None:
+
     """
     Checa se o mesmo arquivo .md possui a mesma imagem referenciada em mais de um local.
     Caso isso aconteça, duplica a imagem física e atualiza o Markdown para que possam ser editadas individualmente.
@@ -241,9 +244,9 @@ def desduplicar_referencias_no_md(md_path, pico_path):
         return
 
     modificado = False
-    contagem = Counter()
+    contagem: Counter[str] = Counter()
 
-    def processar_caminho(caminho_rel):
+    def processar_caminho(caminho_rel: Any) -> Any:
         nonlocal modificado
         if not isinstance(caminho_rel, str) or not caminho_rel.startswith("imagens/"):
             return caminho_rel
@@ -275,7 +278,7 @@ def desduplicar_referencias_no_md(md_path, pico_path):
         return caminho_rel
 
     # 1. Processar Frontmatter (Recursivamente)
-    def percorrer_frontmatter(obj):
+    def percorrer_frontmatter(obj: Any) -> None:
         nonlocal modificado
         if isinstance(obj, list):
             for i in range(len(obj)):
@@ -304,11 +307,12 @@ def desduplicar_referencias_no_md(md_path, pico_path):
         percorrer_frontmatter(frontmatter)
 
     # 2. Processar Corpo (Regex para substituir um por um)
-    def substituidor_corpo(match):
+    def substituidor_corpo(match: re.Match[str]) -> str:
         alt = match.group(1)
         path = match.group(2)
         novo_path = processar_caminho(path)
         return f"![{alt}]({novo_path})"
+
 
     # Usamos re.sub com uma função para processar cada match individualmente
     novo_corpo = re.sub(r"!\[(.*?)\]\((imagens/.*?\.webp)\)", substituidor_corpo, corpo)
@@ -324,7 +328,7 @@ def desduplicar_referencias_no_md(md_path, pico_path):
 # FASE 1: CORREÇÃO E MIGRAÇÃO (DATABASE)
 # ===========================================================================
 
-def processar_croqui_yaml(croqui_data, pico_path, croqui_yaml_path):
+def processar_croqui_yaml(croqui_data: Dict[str, Any], pico_path: Path, croqui_yaml_path: Path) -> None:
     """Processa campos do croqui.yaml e salva no arquivo original se houver mudanças."""
     modificado_yaml = False
     if "caminho_thumbnail" in croqui_data:
@@ -341,7 +345,7 @@ def processar_croqui_yaml(croqui_data, pico_path, croqui_yaml_path):
         with open(croqui_yaml_path, "w", encoding="utf-8") as f:
             yaml.dump(croqui_data, f, allow_unicode=True, sort_keys=False)
 
-def corrigir_setores_ou_grupos_recursivo(setores_ou_grupos_raw, pico_path):
+def corrigir_setores_ou_grupos_recursivo(setores_ou_grupos_raw: List[Any], pico_path: Path) -> None:
     """Percorre setores ou grupos corrigindo imagens nos arquivos MD e frontmatter."""
     for e_ref in setores_ou_grupos_raw:
         if not e_ref: continue
@@ -355,19 +359,21 @@ def corrigir_setores_ou_grupos_recursivo(setores_ou_grupos_raw, pico_path):
             md_path = pico_path / obj_ref["caminho"]
             frontmatter, corpo = parse_md_com_frontmatter(md_path)
             
-            if not frontmatter: frontmatter = {}
+            if frontmatter is None:
+                frontmatter = {}
 
             # 1. Move descricao para o corpo (se existir)
-            frontmatter, corpo, modificado_desc = mover_descricao_para_corpo(frontmatter, corpo)
+            frontmatter_atualizado, corpo, modificado_desc = mover_descricao_para_corpo(frontmatter, corpo)
+            frontmatter = frontmatter_atualizado or {}
 
             # 2. Corrige imagens no corpo do MD
             novo_corpo = coletar_e_atualizar_imagens(corpo, pico_path)
             modificado = (corpo != novo_corpo) or modificado_desc
             
             # 2. Corrige imagens dos mapas no frontmatter
-            if "mapas" in frontmatter:
+            if "mapas" in frontmatter and isinstance(frontmatter["mapas"], list):
                 for mapa in frontmatter["mapas"]:
-                    if "caminho_imagem_mapa" in mapa:
+                    if isinstance(mapa, dict) and "caminho_imagem_mapa" in mapa:
                         img_original = mapa["caminho_imagem_mapa"]
                         
                         # Tenta integrar metadados antes de mudar o caminho
@@ -381,7 +387,7 @@ def corrigir_setores_ou_grupos_recursivo(setores_ou_grupos_raw, pico_path):
 
             # 2.1 Corrige imagens em via_multiplas_enfiadas dentro de escaladas/vias no frontmatter
             for key in ["escaladas", "vias"]:
-                if key in frontmatter:
+                if key in frontmatter and isinstance(frontmatter[key], list):
                     for via in frontmatter[key]:
                         if via and isinstance(via, dict) and "via_multiplas_enfiadas" in via:
                             vmf = via["via_multiplas_enfiadas"]
@@ -412,6 +418,7 @@ def corrigir_setores_ou_grupos_recursivo(setores_ou_grupos_raw, pico_path):
             # 3. Recursão para sub-setores (agora 'setores' sob um Grupo ou o legado 'sub_setores')
             # Grupos no MD podem ter o campo 'setores' ou o antigo 'sub_setores'
             filhos = frontmatter.get("setores") or frontmatter.get("sub_setores")
+
             if filhos:
                 # Recursivamente corrige, mas note que filhos são sempre ArquivoSetor (não SetorOuGrupo)
                 # Então precisamos de uma função auxiliar ou adaptar esta.
@@ -424,15 +431,15 @@ def corrigir_setores_ou_grupos_recursivo(setores_ou_grupos_raw, pico_path):
             if filhos:
                 corrigir_arquivo_setor_recursivo(filhos, pico_path)
 
-def corrigir_arquivo_setor_recursivo(setores_raw, pico_path):
+def corrigir_arquivo_setor_recursivo(setores_raw: List[Any], pico_path: Path) -> None:
     """Auxiliar para corrigir uma lista de ArquivoSetor (usado dentro de Grupos)."""
     # Embrulha cada ArquivoSetor como um SetorOuGrupo fake para reusar a lógica
     fake_setores_ou_grupos = [{"setor": s} for s in setores_raw]
     corrigir_setores_ou_grupos_recursivo(fake_setores_ou_grupos, pico_path)
 
-def coletar_referencias_arquivos(pico_path: Path, croqui_data: dict) -> set:
+def coletar_referencias_arquivos(pico_path: Path, croqui_data: Dict[str, Any]) -> Set[str]:
     """Coleta referências a arquivos (imagens e md) existentes no croqui."""
-    referencias = set()
+    referencias: Set[str] = set()
     
     # 1. Thumbnail
     if "caminho_thumbnail" in croqui_data:
@@ -451,7 +458,7 @@ def coletar_referencias_arquivos(pico_path: Path, croqui_data: dict) -> set:
                     referencias.update(re.findall(r"!\[.*?\]\((.*?)\)", corpo))
             
     # 3. Picos e Elementos
-    def coletar_setores_ou_grupos_recursivo(setores_ou_grupos_raw):
+    def coletar_setores_ou_grupos_recursivo(setores_ou_grupos_raw: List[Any]) -> None:
         for e_ref in setores_ou_grupos_raw:
             tipo = "setor" if "setor" in e_ref else "grupo"
             obj_ref = e_ref.get(tipo)
@@ -478,9 +485,11 @@ def coletar_referencias_arquivos(pico_path: Path, croqui_data: dict) -> set:
                                         for mapa in vmf["mapas"]:
                                             if "caminho_imagem_mapa" in mapa:
                                                 referencias.add(mapa["caminho_imagem_mapa"])
-                    filhos = frontmatter.get("setores") or frontmatter.get("sub_setores")
-                    if filhos:
-                        coletar_setores_ou_grupos_recursivo([{"setor": s} for s in filhos])
+                    if frontmatter:
+                        filhos = frontmatter.get("setores") or frontmatter.get("sub_setores")
+                        if filhos:
+                            coletar_setores_ou_grupos_recursivo([{"setor": s} for s in filhos])
+
             else:
                 # Caso estruturado diretamente no YAML
                 conteudo = obj_ref.get("conteudo") or {}
@@ -524,14 +533,14 @@ def coletar_referencias_arquivos(pico_path: Path, croqui_data: dict) -> set:
     # Filtra e normaliza: apenas referências que apontam para imagens/ ou .md
     return {ref.replace("\\", "/") for ref in referencias if isinstance(ref, str) and (ref.startswith("imagens/") or ref.endswith(".md"))}
 
-def limpar_arquivos_nao_utilizados(pico_path: Path, croqui_data: dict):
+def limpar_arquivos_nao_utilizados(pico_path: Path, croqui_data: Dict[str, Any]) -> None:
     """Deleta arquivos (imagens e markdowns) que não possuem referências nos metadados."""
     pasta_imagens = pico_path / "imagens"
     
     referencias = coletar_referencias_arquivos(pico_path, croqui_data)
     
     # Arquivos físicos na pasta imagens/ (ignora subdiretórios)
-    arquivos_fisicos = set()
+    arquivos_fisicos: Set[str] = set()
     if pasta_imagens.exists():
         arquivos_fisicos.update(f"imagens/{f.name}" for f in pasta_imagens.iterdir() if f.is_file())
         
@@ -549,7 +558,8 @@ def limpar_arquivos_nao_utilizados(pico_path: Path, croqui_data: dict):
                 print(f"    - Deletando: {f_rel}")
                 f_abs.unlink()
 
-def corrigir_database(pico_path: Path):
+def corrigir_database(pico_path: Path) -> None:
+
     """
     Função principal que coordena o processamento do database para garantir
     que imagens em raw_pdf_contents sejam migradas e os caminhos corrigidos.
@@ -612,7 +622,7 @@ def corrigir_database(pico_path: Path):
 # FASE 2: COMPILAÇÃO DE ARTEFATOS (GENERATED)
 # ===========================================================================
 
-def expandir_arquivo_generico(obj_ref, pico_path):
+def expandir_arquivo_generico(obj_ref: Dict[str, Any], pico_path: Path) -> Tuple[str, Dict[str, Any]]:
     """
     Expande um objeto que pode ser Setor ou Grupo.
     Retorna (tipo, dados_expandidos) onde tipo é 'setor' ou 'grupo'.
@@ -670,9 +680,9 @@ def expandir_arquivo_generico(obj_ref, pico_path):
             # É um Setor
             return "setor", obj_ref
 
-def expandir_setores_ou_grupos_recursivo(setores_ou_grupos_raw, pico_path):
+def expandir_setores_ou_grupos_recursivo(setores_ou_grupos_raw: List[Any], pico_path: Path) -> List[Dict[str, Any]]:
     """Expande o conteúdo de arquivos MD em objetos estruturados (Setor ou Grupo)."""
-    processados = []
+    processados: List[Dict[str, Any]] = []
     for e_ref in setores_ou_grupos_raw:
         # Tenta identificar se é setor ou grupo no input do YAML
         tipo_in = "setor" if "setor" in e_ref else "grupo"
@@ -684,7 +694,7 @@ def expandir_setores_ou_grupos_recursivo(setores_ou_grupos_raw, pico_path):
 
     return processados
 
-def atualizar_dimensoes_mapas(obj, pico_path: Path):
+def atualizar_dimensoes_mapas(obj: Any, pico_path: Path) -> None:
     """
     Recursivamente percorre o objeto (dict ou list) em busca de 'caminho_imagem_mapa'.
     Se encontrar, tenta abrir a imagem para preencher 'largura_mapa' e 'altura_mapa'.
@@ -710,7 +720,7 @@ def atualizar_dimensoes_mapas(obj, pico_path: Path):
         for value in obj.values():
             atualizar_dimensoes_mapas(value, pico_path)
 
-def validar_pontos_de_interesse_recursivo(obj, path=""):
+def validar_pontos_de_interesse_recursivo(obj: Any, path: str = "") -> None:
     """
     Valida recursivamente todos os pontos de interesse no objeto.
     Regras:
@@ -766,27 +776,27 @@ def validar_pontos_de_interesse_recursivo(obj, path=""):
             if isinstance(v, (dict, list)):
                 validar_pontos_de_interesse_recursivo(v, f"{path}.{k}")
 
-def validar_referencias_mapa(croqui_data: dict) -> list[str]:
+def validar_referencias_mapa(croqui_data: Dict[str, Any]) -> List[str]:
     """
     Valida se as entidades apontadas nas referências dos mapas (escalada, setor, grupo)
     realmente existem dentro do mesmo Pico.
     Retorna uma lista de strings com descrições dos erros.
     """
-    erros = []
+    erros: List[str] = []
     
     for pico in croqui_data.get("picos", []):
         pico_nome = pico.get("nome", "Pico Sem Nome")
         
-        nomes_escaladas = set()
-        nomes_setores = set()
-        nomes_grupos = set()
+        nomes_escaladas: Set[str] = set()
+        nomes_setores: Set[str] = set()
+        nomes_grupos: Set[str] = set()
         
-        mapas_para_validar = []
+        mapas_para_validar: List[Tuple[str, List[Any]]] = []
         
         if "mapas" in pico:
             mapas_para_validar.append((f"Pico '{pico_nome}'", pico["mapas"]))
             
-        def registrar_escaladas(escaladas_lista):
+        def registrar_escaladas(escaladas_lista: List[Any]) -> None:
             for esc in escaladas_lista:
                 tipo_via = list(esc.keys())[0] if esc else None
                 if tipo_via:
@@ -833,7 +843,7 @@ def validar_referencias_mapa(croqui_data: dict) -> list[str]:
         for contexto_nome, mapas in mapas_para_validar:
             for idx_mapa, mapa in enumerate(mapas):
                 for ref in mapa.get("referencias", []):
-                    ids_vistos = set()
+                    ids_vistos: Set[str] = set()
                     # Validação de duplicação de ID na mesma referência
                     for ref_id in ref.get("ids", []):
                         if ref_id in ids_vistos:
@@ -857,7 +867,7 @@ def validar_referencias_mapa(croqui_data: dict) -> list[str]:
                             
     return erros
 
-def computar_precomputados_setor(setor_conteudo: dict):
+def computar_precomputados_setor(setor_conteudo: Dict[str, Any]) -> None:
     """Calcula precomputados para um único setor."""
     escaladas = setor_conteudo.get("escaladas", [])
     total = len(escaladas)
@@ -890,7 +900,7 @@ def computar_precomputados_setor(setor_conteudo: dict):
     }
     setor_conteudo["precomputados"] = {k: v for k, v in precomputados.items() if v > 0}
 
-def computar_precomputados_grupo(grupo_conteudo: dict):
+def computar_precomputados_grupo(grupo_conteudo: Dict[str, Any]) -> None:
     """Calcula precomputados para um grupo, somando dos setores já processados."""
     total_escaladas = 0
     total_esportivas = 0
@@ -919,7 +929,7 @@ def computar_precomputados_grupo(grupo_conteudo: dict):
     }
     grupo_conteudo["precomputados"] = {k: v for k, v in precomputados.items() if v > 0}
 
-def computar_precomputados_pico(pico: dict):
+def computar_precomputados_pico(pico: Dict[str, Any]) -> None:
     """Calcula precomputados do pico, lendo diretamente dos setores e grupos filhos."""
     total_escaladas = 0
     total_setores = 0
@@ -962,7 +972,7 @@ def computar_precomputados_pico(pico: dict):
     }
     pico["precomputados"] = {k: v for k, v in precomputados.items() if v > 0}
 
-def injetar_precomputados(croqui_data: dict):
+def injetar_precomputados(croqui_data: Dict[str, Any]) -> None:
     picos = croqui_data.get("picos", [])
     
     # 1º Passo: Todos os setores (avulsos ou dentro de grupos)
@@ -985,14 +995,19 @@ def injetar_precomputados(croqui_data: dict):
     for pico in picos:
         computar_precomputados_pico(pico)
 
-def compilar_croqui(pico_path: Path, destino_yaml: Path, destino_binarypb: Path, dados_extras: dict = None):
+def compilar_croqui(
+    pico_path: Path,
+    destino_yaml: Optional[Path],
+    destino_binarypb: Path,
+    dados_extras: Optional[Dict[str, Any]] = None
+) -> Dict[str, Any]:
     """Carrega os dados corrigidos, expande conteúdos e gera os arquivos .yaml e .binarypb de deploy."""
     croqui_yaml_path = pico_path / "croqui.yaml"
     with open(croqui_yaml_path, "r", encoding="utf-8") as f:
-        croqui_data = yaml.safe_load(f)
+        croqui_data: Dict[str, Any] = yaml.safe_load(f)
 
     # 1. Expande arquivos markdown globais contidos em botoes
-    botoes_processados = []
+    botoes_processados: List[Dict[str, Any]] = []
     for botao in croqui_data.get("botoes", []):
         if isinstance(botao, dict):
             destino = botao.get("destino", {})
@@ -1090,12 +1105,8 @@ def compilar_croqui(pico_path: Path, destino_yaml: Path, destino_binarypb: Path,
 
     return croqui_data
 
-if __name__ == "__main__":
-    print("Este arquivo é uma biblioteca e não deve ser executado diretamente.")
-    print("Use o script scripts/deploy_generated.py para processar os croquis.")
-    sys.exit(1)
+def garantir_comentarios_licenca(file_path: Path) -> None:
 
-def garantir_comentarios_licenca(file_path: Path):
     """
     Garante que as duas linhas de comentário de licença ODbL e Copyright
     estejam presentes e corretas no topo do arquivo (YAML) ou no frontmatter (MD).

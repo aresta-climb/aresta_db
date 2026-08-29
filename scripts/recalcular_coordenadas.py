@@ -1,6 +1,7 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
+from typing import Optional, Union, Dict, Any, Tuple
 import glob
 import json
 import io
@@ -12,11 +13,11 @@ from ruamel.yaml import YAML
 yaml = YAML()
 yaml.preserve_quotes = True
 
-def scale_value(val, scale):
+def scale_value(val: Optional[Union[int, float]], scale: float) -> Optional[int]:
     if val is None: return None
     return int(round(val * scale))
 
-def process_poi(poi, scale_x, scale_y):
+def process_poi(poi: Dict[str, Any], scale_x: float, scale_y: float) -> None:
     # Scale points depending on the structure
     if "circular" in poi:
         poi["circular"]["x"] = scale_value(poi["circular"]["x"], scale_x)
@@ -50,7 +51,8 @@ def process_poi(poi, scale_x, scale_y):
                 pt["x"] = scale_value(pt["x"], scale_x)
                 pt["y"] = scale_value(pt["y"], scale_y)
 
-def main():
+def main() -> None:
+
     db_path = Path("database/br_mg_ouro_preto_ouroboulder")
     imagens_dir = db_path / "imagens"
     raw_mapas_dir = imagens_dir / "raw_mapas"
