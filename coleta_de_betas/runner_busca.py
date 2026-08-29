@@ -5,7 +5,7 @@ import sys
 import os
 import argparse
 from pathlib import Path
-from typing import List, Union, Optional
+from typing import List, Union, Optional, Any, Sequence
 from aresta_api.proto.generated import beta_pb2
 from coleta_de_betas.io_yaml import carregar_vias_extraidas_yaml, salvar_candidatos_brutos_yaml
 from coleta_de_betas.extratores.deduplicador import deduplicar_midias
@@ -14,9 +14,9 @@ from coleta_de_betas.extratores.vertex import ExtratorVertexSearch
 from coleta_de_betas.extratores.duckduckgo import ExtratorDuckDuckGo
 
 
-def instanciar_extratores_padrao() -> List[object]:
+def instanciar_extratores_padrao() -> List[Any]:
     """Instancia os extratores padrão disponíveis com base nas credenciais e ambiente."""
-    extratores = []
+    extratores: List[Any] = []
 
     # DuckDuckGo funciona sem autenticação
     extratores.append(ExtratorDuckDuckGo())
@@ -42,7 +42,7 @@ def instanciar_extratores_padrao() -> List[object]:
 
 def buscar_candidatos_para_croqui(
     vias: beta_pb2.ViasExtraidasCroqui,
-    extratores: Optional[List[object]] = None
+    extratores: Optional[Sequence[Any]] = None
 ) -> beta_pb2.BetasPendentes:
     """
     Executa a busca de mídias para cada escalada informada usando os extratores fornecidos,
@@ -55,9 +55,10 @@ def buscar_candidatos_para_croqui(
     pendentes.id_croqui = vias.id_croqui
 
     for via in vias.escaladas:
-        listas_de_resultados = []
+        listas_de_resultados: List[List[beta_pb2.MidiaBeta]] = []
 
         for ext in extratores:
+
             try:
                 # Tenta chamar buscar com argumentos enriquecidos se suportado
                 res = ext.buscar(
@@ -85,7 +86,7 @@ def buscar_candidatos_para_croqui(
     return pendentes
 
 
-def executar_cli_buscar(argv: List[str] = None, extratores: Optional[List[object]] = None) -> int:
+def executar_cli_buscar(argv: Optional[Sequence[str]] = None, extratores: Optional[Sequence[Any]] = None) -> int:
     """Ponto de entrada CLI para busca de candidatos."""
     parser = argparse.ArgumentParser(
         description="Executa a busca tripla de betas para as vias de um croqui a partir de vias_extraidas.yaml."
@@ -127,3 +128,4 @@ def executar_cli_buscar(argv: List[str] = None, extratores: Optional[List[object
     total_cand = sum(len(c.candidatos) for c in pendentes.candidatos_por_escalada)
     print(f"Sucesso: {total_cand} candidatos coletados salvos em {caminho_saida}")
     return 0
+

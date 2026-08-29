@@ -3,15 +3,16 @@
 
 import os
 import requests
-from typing import List, Optional
+from typing import List, Optional, Union, Dict
 from aresta_api.proto.generated import beta_pb2
+
 
 class ExtratorYouTube:
     """
     Extrator de mídias e vídeos de betas de escalada via YouTube Data API v3.
     """
 
-    def __init__(self, chave_api: Optional[str] = None):
+    def __init__(self, chave_api: Optional[str] = None) -> None:
         self.chave_api = chave_api or os.environ.get("YOUTUBE_API_KEY", "")
 
     def montar_query(self, nome_escalada: str, nome_setor: str = "", nome_pico: str = "") -> str:
@@ -38,13 +39,14 @@ class ExtratorYouTube:
         """
         query = self.montar_query(nome_escalada, nome_setor, nome_pico)
         url_api = "https://www.googleapis.com/youtube/v3/search"
-        parametros = {
+        parametros: Dict[str, Union[str, int]] = {
             "part": "snippet",
             "type": "video",
             "q": query,
             "maxResults": max_resultados,
             "key": self.chave_api
         }
+
 
         try:
             resposta = requests.get(url_api, params=parametros, timeout=10)

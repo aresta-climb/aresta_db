@@ -9,276 +9,80 @@ from tests.validador_tipagem import (
     verificar_arquivo_ast,
 )
 
+DIRETORIOS_IGNORADOS = {
+    ".git",
+    "generated",
+    "database",
+    ".pytest_cache",
+    "__pycache__",
+    "venv",
+    ".venv",
+    ".agent",
+    ".agents",
+    ".gemini",
+    "scratch",
+}
+
+
+def obter_todos_arquivos_producao_py(raiz: Path) -> list[str]:
+    """
+    Descobre dinamicamente todos os arquivos .py de código de produção
+    no repositório aresta_db e no submódulo aresta_api (ignorando diretórios gerados,
+    temporários, caches e arquivos de teste).
+    """
+    arquivos: list[str] = []
+    for p in raiz.rglob("*.py"):
+        if any(part in DIRETORIOS_IGNORADOS for part in p.parts):
+            continue
+        if p.name.endswith("_test.py") or p.name.startswith("test_") or "tests" in p.parts:
+            continue
+        arquivos.append(str(p.resolve()))
+    return sorted(arquivos)
+
 
 class TestTipagemEstaticaArestaDb(unittest.TestCase):
     def setUp(self) -> None:
         self.raiz_projeto = Path(__file__).resolve().parent.parent
         self.pyproject_path = str(self.raiz_projeto / "pyproject.toml")
+        self.arquivos_producao = obter_todos_arquivos_producao_py(self.raiz_projeto)
 
-    def test_conformidade_mypy_infraestrutura_onda_1(self) -> None:
-        """Valida que os módulos de infraestrutura da Onda 1 passam no MyPy estrito."""
-        arquivos_verificar = [
-            str(self.raiz_projeto / "tests" / "validador_tipagem.py"),
-            str(self.raiz_projeto / "aresta_api" / "build.py"),
-        ]
+    def test_descoberta_arquivos_producao_nao_vazia(self) -> None:
+        """Garante que a descoberta dinâmica encontra todos os módulos de produção."""
+        self.assertGreaterEqual(
+            len(self.arquivos_producao),
+            120,
+            f"Quantidade de arquivos de produção menor que o esperado: {len(self.arquivos_producao)}",
+        )
 
+    def test_conformidade_mypy_todos_arquivos_producao(self) -> None:
+        """
+        Valida que 100% dos arquivos Python de produção do repositório
+        passam com zero erros na verificação estrita do MyPy (--strict).
+        """
         codigo, stdout, stderr = executar_verificacao_mypy(
-            arquivos_verificar,
+            self.arquivos_producao,
             config_path=self.pyproject_path,
         )
         self.assertEqual(
             codigo,
             0,
-            f"Erros detectados pelo MyPy estrito na raiz do aresta_db:\n{stdout}\n{stderr}",
+            f"Erros detectados pelo MyPy estrito em arquivos de produção:\n{stdout}\n{stderr}",
         )
 
-    def test_anotacoes_ast_validador_tipagem(self) -> None:
-        """Garante que todas as funções e métodos de validador_tipagem.py possuem anotações completas."""
-        caminho_validador = str(self.raiz_projeto / "tests" / "validador_tipagem.py")
-        erros = verificar_arquivo_ast(caminho_validador)
-        self.assertEqual(
-            erros,
-            [],
-            f"Funções sem anotação em validador_tipagem.py: {erros}",
-        )
-
-    ARQUIVOS_CORE_ONDA_2 = [
-        "editor/core/version.py",
-        "editor/core/formatacao.py",
-        "editor/core/storage.py",
-        "editor/core/contexto.py",
-        "editor/core/coordenadas.py",
-        "editor/core/geometrias_poi.py",
-        "editor/core/croqui_format.py",
-        "editor/core/croqui_experimental.py",
-        "editor/core/proto_comments.py",
-        "editor/core/workspace.py",
-        "editor/core/processamento_imagem_campo.py",
-        "editor/core/imagens_markdown.py",
-        "editor/core/imagem_anonimizada.py",
-        "editor/core/gerenciador_sessao.py",
-        "editor/core/cliente_auth_supabase.py",
-        "editor/core/servico_submissao.py",
-        "editor/core/servico_loja.py",
-        "editor/core/sync.py",
-        "editor/core/worker.py",
-        "editor/core/atualizador_ui.py",
-        "editor/core/monitor_inatividade.py",
-        "editor/core/servidor_celular.py",
-        "editor/core/servidor_oauth_callback.py",
-        "editor/core/historico.py",
-        "editor/core/diario.py",
-        "editor/core/registro_log.py",
-        "editor/core/telemetria.py",
-    ]
-
-    def test_conformidade_mypy_editor_core_onda_2(self) -> None:
-        """Valida que todos os módulos do núcleo de dados (editor/core) passam no MyPy estrito."""
-        arquivos_verificar = [
-            str(self.raiz_projeto / caminho)
-            for caminho in self.ARQUIVOS_CORE_ONDA_2
-        ]
-
-        codigo, stdout, stderr = executar_verificacao_mypy(
-            arquivos_verificar,
-            config_path=self.pyproject_path,
-        )
-        self.assertEqual(
-            codigo,
-            0,
-            f"Erros detectados pelo MyPy estrito nos módulos de editor/core:\n{stdout}\n{stderr}",
-        )
-
-    def test_anotacoes_ast_editor_core_onda_2(self) -> None:
-        """Garante que todas as funções, métodos e retornos em editor/core possuem anotações de tipo completas."""
+    def test_anotacoes_ast_todos_arquivos_producao(self) -> None:
+        """
+        Garante que 100% das funções, métodos e retornos em todos os arquivos
+        de produção do repositório possuem anotações de tipo completas.
+        """
         erros_totais: list[str] = []
-        for caminho_relativo in self.ARQUIVOS_CORE_ONDA_2:
-            caminho_completo = str(self.raiz_projeto / caminho_relativo)
-            erros_arquivo = verificar_arquivo_ast(caminho_completo)
+        for caminho_arquivo in self.arquivos_producao:
+            erros_arquivo = verificar_arquivo_ast(caminho_arquivo)
             erros_totais.extend(erros_arquivo)
 
         self.assertEqual(
             erros_totais,
             [],
-            f"Funções/métodos sem anotação completa encontrados em editor/core:\n"
-            + "\n".join(erros_totais),
-        )
-
-    ARQUIVOS_ONDA_3 = [
-        "editor/commands/comandos_protobuf.py",
-        "editor/commands/comandos_mapas.py",
-        "editor/controllers/croqui_controller.py",
-        "editor/controllers/compilacao_controller.py",
-        "editor/controllers/mapas_controller.py",
-        "editor/controllers/publish_controller.py",
-        "editor/build.py",
-    ]
-
-    def test_conformidade_mypy_onda_3(self) -> None:
-        """Valida que todos os módulos de comandos e controladores da Onda 3 passam no MyPy estrito."""
-        arquivos_verificar = [
-            str(self.raiz_projeto / caminho)
-            for caminho in self.ARQUIVOS_ONDA_3
-        ]
-
-        codigo, stdout, stderr = executar_verificacao_mypy(
-            arquivos_verificar,
-            config_path=self.pyproject_path,
-        )
-        self.assertEqual(
-            codigo,
-            0,
-            f"Erros detectados pelo MyPy estrito nos módulos da Onda 3:\n{stdout}\n{stderr}",
-        )
-
-    def test_anotacoes_ast_onda_3(self) -> None:
-        """Garante que todas as funções, métodos e retornos nos módulos da Onda 3 possuem anotações de tipo completas."""
-        erros_totais: list[str] = []
-        for caminho_relativo in self.ARQUIVOS_ONDA_3:
-            caminho_completo = str(self.raiz_projeto / caminho_relativo)
-            erros_arquivo = verificar_arquivo_ast(caminho_completo)
-            erros_totais.extend(erros_arquivo)
-
-        self.assertEqual(
-            erros_totais,
-            [],
-            f"Funções/métodos sem anotação completa encontrados na Onda 3:\n"
-            + "\n".join(erros_totais),
-        )
-
-    ARQUIVOS_ONDA_4 = [
-        "editor/models/croqui_model.py",
-        "editor/models/compilacao_log.py",
-        "editor/views/estilo.py",
-        "editor/views/notificacao.py",
-        "editor/views/publish_dialog.py",
-        "editor/views/tela_de_abertura.py",
-        "editor/views/dialogo_recuperacao_sessao.py",
-        "editor/views/tree_view_adapter.py",
-        "editor/views/protobuf_widget_factory.py",
-        "editor/views/widget_campo_coordenada_e7.py",
-        "editor/views/widget_campo_imagem.py",
-        "editor/views/widget_editor_dados.py",
-        "editor/views/widget_editor_mapas.py",
-        "editor/views/widget_mensagem_coordenada.py",
-        "editor/views/widget_painel_referencias.py",
-        "editor/views/widget_saida_compilacao.py",
-        "editor/views/dialogos/dialogo_criar_pico.py",
-        "editor/views/dialogos/dialogo_criar_setor_ou_grupo.py",
-        "editor/views/dialogos/dialogo_criar_escalada.py",
-        "editor/views/dialogos/dialogo_criar_botao.py",
-        "editor/views/dialogos/dialogo_adicionar_mapa.py",
-        "editor/views/dialogos/dialogo_busca_referencia.py",
-        "editor/views/dialogos/dialogo_inserir_imagem_markdown.py",
-        "editor/views/dialogos/dialogo_perfil_autor.py",
-        "editor/legacy_views/dialogo_busca_croqui.py",
-        "editor/legacy_views/dialogo_conexao_celular.py",
-        "editor/legacy_views/tela_de_carregamento.py",
-        "editor/legacy_views/widget_editor_imagens.py",
-        "editor/legacy_views/area_principal.py",
-        "editor/main.py",
-    ]
-
-    def test_conformidade_mypy_onda_4(self) -> None:
-        """Valida que todos os módulos de Views, Modelos e Diálogos da Onda 4 passam no MyPy estrito."""
-        arquivos_verificar = [
-            str(self.raiz_projeto / caminho)
-            for caminho in self.ARQUIVOS_ONDA_4
-        ]
-
-        codigo, stdout, stderr = executar_verificacao_mypy(
-            arquivos_verificar,
-            config_path=self.pyproject_path,
-        )
-        self.assertEqual(
-            codigo,
-            0,
-            f"Erros detectados pelo MyPy estrito nos módulos da Onda 4:\n{stdout}\n{stderr}",
-        )
-
-    def test_anotacoes_ast_onda_4(self) -> None:
-        """Garante que todas as funções, métodos e retornos nos módulos da Onda 4 possuem anotações de tipo completas."""
-        erros_totais: list[str] = []
-        for caminho_relativo in self.ARQUIVOS_ONDA_4:
-            caminho_completo = str(self.raiz_projeto / caminho_relativo)
-            erros_arquivo = verificar_arquivo_ast(caminho_completo)
-            erros_totais.extend(erros_arquivo)
-
-        self.assertEqual(
-            erros_totais,
-            [],
-            f"Funções/métodos sem anotação completa encontrados na Onda 4:\n"
-            + "\n".join(erros_totais),
-        )
-
-    ARQUIVOS_ONDA_5 = [
-        "editor/models/readonly_proxy.py",
-        "editor/release_tools/bump_version.py",
-        "editor/release_tools/calculate_next_dev.py",
-        "migracoes/0001_migrar_secoes_para_botoes.py",
-        "migracoes/0002_centralizar_map_references.py",
-        "migracoes/0003_migrar_mapas_gerais.py",
-        "migracoes/0004_padronizar_geometrias_poi.py",
-        "migracoes/append.py",
-        "scripts/helpers_migracao.py",
-        "scripts/migrador.py",
-        "scripts/migrar_banco.py",
-        "scripts/migrar_publicar_croqui.py",
-        "scripts/comprimir_imagens.py",
-        "scripts/editar_imagens.py",
-        "scripts/extrair_ocr_lote.py",
-        "scripts/renomear_imagens.py",
-        "scripts/repartir_pdf.py",
-        "scripts/visualizar_mapa_processado.py",
-        "scripts/deploy_generated.py",
-        "scripts/exportar_para_anchor_ledge.py",
-        "scripts/finalizar_mapas.py",
-        "scripts/gerar_compilado_md.py",
-        "scripts/gerar_croqui_experimental.py",
-        "scripts/gerar_mapping_json.py",
-        "scripts/medir_saude_croquis.py",
-        "scripts/preparar_extracao_de_mapas.py",
-        "scripts/preparar_submissao_lib.py",
-        "scripts/recalcular_coordenadas.py",
-        "scripts/validador_cabecalhos.py",
-        "scripts/verificar_binarypb.py",
-        "scripts/visualizar_uso_protobuf.py",
-        "scripts/visualizar_uso_protobuf_lib.py",
-        "scripts/add_options.py",
-        "build.py",
-        "serving/pr_db_validator.py",
-        "serving/update_serving.py",
-    ]
-
-    def test_conformidade_mypy_onda_5(self) -> None:
-        """Valida que todos os módulos de scripts, migrações, release tools e serving da Onda 5 passam no MyPy estrito."""
-        arquivos_verificar = [
-            str(self.raiz_projeto / caminho)
-            for caminho in self.ARQUIVOS_ONDA_5
-        ]
-
-        codigo, stdout, stderr = executar_verificacao_mypy(
-            arquivos_verificar,
-            config_path=self.pyproject_path,
-        )
-        self.assertEqual(
-            codigo,
-            0,
-            f"Erros detectados pelo MyPy estrito nos módulos da Onda 5:\n{stdout}\n{stderr}",
-        )
-
-    def test_anotacoes_ast_onda_5(self) -> None:
-        """Garante que todas as funções, métodos e retornos nos módulos da Onda 5 possuem anotações de tipo completas."""
-        erros_totais: list[str] = []
-        for caminho_relativo in self.ARQUIVOS_ONDA_5:
-            caminho_completo = str(self.raiz_projeto / caminho_relativo)
-            erros_arquivo = verificar_arquivo_ast(caminho_completo)
-            erros_totais.extend(erros_arquivo)
-
-        self.assertEqual(
-            erros_totais,
-            [],
-            f"Funções/métodos sem anotação completa encontrados na Onda 5:\n"
+            f"Funções/métodos sem anotação completa encontrados na base de produção:\n"
             + "\n".join(erros_totais),
         )
 
@@ -304,6 +108,7 @@ class TestTipagemEstaticaArestaDb(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
 
 
 

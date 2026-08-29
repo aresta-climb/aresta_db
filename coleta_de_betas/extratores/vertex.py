@@ -17,7 +17,7 @@ class ExtratorVertexSearch:
         data_store_id: Optional[str] = None,
         location: str = "global",
         api_key: Optional[str] = None
-    ):
+    ) -> None:
         self.project_id = project_id or os.environ.get("VERTEX_PROJECT_ID", "")
         self.data_store_id = data_store_id or os.environ.get("VERTEX_DATA_STORE_ID", "")
         self.location = location or os.environ.get("VERTEX_LOCATION", "global")
@@ -50,9 +50,10 @@ class ExtratorVertexSearch:
             f"locations/{self.location}/collections/default_collection/dataStores/{self.data_store_id}/"
             f"servingConfigs/default_search:search"
         )
-        params = {}
+        params: dict[str, str] = {}
         if self.api_key:
             params["key"] = self.api_key
+
 
         payload = {
             "query": query,

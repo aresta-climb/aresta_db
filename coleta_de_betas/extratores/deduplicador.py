@@ -40,10 +40,11 @@ def deduplicar_midias(listas_de_midias: Iterable[List[beta_pb2.MidiaBeta]]) -> L
     Agrupa e deduplica mídias a partir de suas URLs normalizadas,
     mesclando thumbnails, títulos e ativando a flag match_multiplas_fontes.
     """
-    mapa_midias = {}
-    contagem_fontes = {}
+    mapa_midias: dict[str, beta_pb2.MidiaBeta] = {}
+    contagem_fontes: dict[str, int] = {}
 
     for lista in listas_de_midias:
+
         for midia in lista:
             url_norm = normalizar_url(midia.url)
             if not url_norm:

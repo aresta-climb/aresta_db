@@ -183,8 +183,9 @@ class PaginaBetas(PaginaBase):
             layout.setContentsMargins(0, 0, 0, 0)
         self.label.deleteLater()
         from coleta_de_betas.curadoria.painel_curadoria import PainelCuradoria
-        self.painel: Any = PainelCuradoria(parent=self)  # type: ignore[no-untyped-call]
+        self.painel: Any = PainelCuradoria(parent=self)
         if layout:
+
             layout.addWidget(self.painel)
 
 

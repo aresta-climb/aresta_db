@@ -4,13 +4,13 @@
 import os
 import yaml
 from pathlib import Path
-from typing import Dict, List
+from typing import Dict, List, Any, Union
 from aresta_api.proto.generated import beta_pb2
 
-def _midia_beta_para_dict(midia: beta_pb2.MidiaBeta) -> dict:
+def _midia_beta_para_dict(midia: beta_pb2.MidiaBeta) -> Dict[str, Any]:
     """Converte um objeto protobuf MidiaBeta para um dicionário serializável em YAML."""
     fonte_str = "YOUTUBE" if midia.fonte == beta_pb2.FonteMidia.YOUTUBE else "INSTAGRAM"
-    d = {
+    d: Dict[str, Any] = {
         "url": midia.url,
         "titulo": midia.titulo,
         "fonte": fonte_str,
@@ -33,7 +33,7 @@ def _midia_beta_para_dict(midia: beta_pb2.MidiaBeta) -> dict:
 
 
 def injetar_betas_no_markdown(
-    caminho_md: Path | str,
+    caminho_md: Union[Path, str],
     betas_por_escalada: Dict[str, List[beta_pb2.MidiaBeta]]
 ) -> bool:
     """
@@ -57,8 +57,8 @@ def injetar_betas_no_markdown(
 
     # Extrai comentários de cabeçalho (como licença SPDX)
     linhas = header_raw.splitlines()
-    comentarios = []
-    linhas_yaml = []
+    comentarios: List[str] = []
+    linhas_yaml: List[str] = []
     for l in linhas:
         if l.strip().startswith("#"):
             comentarios.append(l)
@@ -66,7 +66,7 @@ def injetar_betas_no_markdown(
             linhas_yaml.append(l)
 
     try:
-        frontmatter = yaml.safe_load("\n".join(linhas_yaml)) or {}
+        frontmatter: Dict[str, Any] = yaml.safe_load("\n".join(linhas_yaml)) or {}
     except Exception:
         return False
 
@@ -110,7 +110,7 @@ def injetar_betas_no_markdown(
 
 
 def persistir_aprovacoes(
-    caminho_croqui_db: Path | str,
+    caminho_croqui_db: Union[Path, str],
     aprovados_por_escalada: Dict[str, List[beta_pb2.MidiaBeta]],
     limpar_staging: bool = True
 ) -> int:
@@ -136,3 +136,4 @@ def persistir_aprovacoes(
                 pass
 
     return total_injetado
+

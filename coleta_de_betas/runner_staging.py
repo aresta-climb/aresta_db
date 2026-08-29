@@ -4,7 +4,7 @@
 import sys
 import argparse
 from pathlib import Path
-from typing import List, Union, Optional
+from typing import List, Union, Optional, Sequence
 from aresta_api.proto.generated import beta_pb2
 from coleta_de_betas.io_yaml import carregar_candidatos_brutos_yaml
 
@@ -34,7 +34,7 @@ def converter_yaml_para_staging(
     return caminho_destino
 
 
-def executar_cli_salvar_staging(argv: List[str] = None) -> int:
+def executar_cli_salvar_staging(argv: Optional[Sequence[str]] = None) -> int:
     """Ponto de entrada CLI para conversão de YAML para staging binário."""
     parser = argparse.ArgumentParser(
         description="Converte candidatos_brutos.yaml (ou arquivo avaliado) no arquivo binário betas_pendentes.binarypb."
@@ -73,3 +73,4 @@ def executar_cli_salvar_staging(argv: List[str] = None) -> int:
     except Exception as e:
         print(f"Erro ao salvar staging: {e}", file=sys.stderr)
         return 1
+

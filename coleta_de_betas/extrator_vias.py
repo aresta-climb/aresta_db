@@ -4,13 +4,13 @@
 import sys
 import argparse
 from pathlib import Path
-from typing import List, Union
+from typing import List, Union, Dict, Any, Optional, Sequence
 import yaml
 from aresta_api.proto.generated import beta_pb2
 from coleta_de_betas.io_yaml import salvar_vias_extraidas_yaml
 
 
-def _ler_frontmatter_md(caminho_md: Path) -> dict:
+def _ler_frontmatter_md(caminho_md: Path) -> Dict[str, Any]:
     """Lê o frontmatter YAML de um arquivo markdown."""
     try:
         texto = caminho_md.read_text(encoding="utf-8")
@@ -34,7 +34,7 @@ def extrair_vias_de_croqui(caminho_croqui_dir: Union[Path, str]) -> beta_pb2.Via
     diretorio = Path(caminho_croqui_dir)
     arquivo_croqui_yaml = diretorio / "croqui.yaml"
 
-    dados_croqui = {}
+    dados_croqui: Dict[str, Any] = {}
     if arquivo_croqui_yaml.exists():
         with open(arquivo_croqui_yaml, "r", encoding="utf-8") as f:
             dados_croqui = yaml.safe_load(f) or {}
@@ -146,7 +146,7 @@ def _processar_arquivo_setor(
             contador_id += 1
 
 
-def executar_cli_extrair_vias(argv: List[str] = None) -> int:
+def executar_cli_extrair_vias(argv: Optional[Sequence[str]] = None) -> int:
     """Ponto de entrada CLI para extração de vias."""
     parser = argparse.ArgumentParser(
         description="Extrai todas as vias e boulders de um croqui para um arquivo vias_extraidas.yaml tipado."
@@ -175,3 +175,4 @@ def executar_cli_extrair_vias(argv: List[str] = None) -> int:
     salvar_vias_extraidas_yaml(vias, caminho_saida)
     print(f"Sucesso: {len(vias.escaladas)} vias extraídas salvas em {caminho_saida}")
     return 0
+

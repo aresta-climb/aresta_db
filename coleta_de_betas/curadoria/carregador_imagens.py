@@ -1,12 +1,15 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
+from typing import Optional
 import requests
-from PySide6.QtCore import QThread, Signal
+
+from PySide6.QtCore import QThread, Signal, QObject
 from PySide6.QtGui import QPixmap, QImage, QPainter, QColor, QFont
+from PySide6.QtWidgets import QWidget
 from aresta_api.proto.generated import beta_pb2
 
-def obter_pixmap_fallback(fonte: beta_pb2.FonteMidia.Enum, largura: int = 120, altura: int = 90) -> QPixmap:
+def obter_pixmap_fallback(fonte: int, largura: int = 120, altura: int = 90) -> QPixmap:
     """
     Gera um QPixmap com visual estilizado para servir de fallback quando a thumbnail não estiver disponível.
     """
@@ -29,7 +32,7 @@ def obter_pixmap_fallback(fonte: beta_pb2.FonteMidia.Enum, largura: int = 120, a
 
 def baixar_imagem_sincrona(
     url: str,
-    fonte: beta_pb2.FonteMidia.Enum,
+    fonte: int,
     timeout: int = 5
 ) -> QPixmap:
     """
@@ -56,11 +59,12 @@ class WorkerCarregadorImagem(QThread):
     """
     imagem_carregada = Signal(QPixmap)
 
-    def __init__(self, url: str, fonte: beta_pb2.FonteMidia.Enum, parent=None):
+    def __init__(self, url: str, fonte: int, parent: Optional[QObject] = None) -> None:
         super().__init__(parent)
         self.url = url
         self.fonte = fonte
 
-    def run(self):
+    def run(self) -> None:
         pixmap = baixar_imagem_sincrona(self.url, self.fonte)
         self.imagem_carregada.emit(pixmap)
+

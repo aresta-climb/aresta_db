@@ -1,10 +1,12 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
+from typing import Any
 import os
 import pytest
 
-def pytest_configure(config):
+def pytest_configure(config: Any) -> None:
+
     """
     Configura o ambiente de testes.
     Define o Qt para rodar em modo 'offscreen' (headless) por padrão,
