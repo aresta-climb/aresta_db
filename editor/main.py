@@ -4,6 +4,9 @@
 import sys
 import os
 
+# Define explicitamente a API PySide6 para bibliotecas auxiliares como QtAwesome e QtPy
+os.environ.setdefault("QT_API", "pyside6")
+
 # Adiciona o diretório raiz do projeto ao sys.path para permitir imports do pacote 'editor'
 current_dir = os.path.dirname(os.path.abspath(__file__))
 parent_dir = os.path.dirname(current_dir)
@@ -19,7 +22,6 @@ from editor.core.storage import GerenciadorCaminhos
 from editor.core.worker import TarefaInicializacao
 from editor.legacy_views.tela_de_carregamento import TelaDeCarregamento
 from editor.views.tela_de_abertura import TelaDeAbertura
-from editor.legacy_views.area_principal import JanelaPrincipal
 from editor.views.estilo import Icones
 
 # Fix para o ícone na barra de tarefas do Windows
@@ -147,6 +149,7 @@ class ControladorAplicativo:
             self.janela_principal.close()
             
         from editor.core.workspace import ExperimentalWorkspace
+        from editor.legacy_views.area_principal import JanelaPrincipal
         workspace = ExperimentalWorkspace(self.tela_carregamento.caminho_croqui_selecionado)
         
         self.janela_principal = JanelaPrincipal(
@@ -216,6 +219,7 @@ def main():
                 pass
             
             from editor.core.workspace import LocalRepoWorkspace
+            from editor.legacy_views.area_principal import JanelaPrincipal
             workspace = LocalRepoWorkspace(caminho_path)
             
             janela = JanelaPrincipal(storage=storage, auth=None, workspace=workspace)

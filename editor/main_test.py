@@ -4,7 +4,8 @@
 import pytest
 from PySide6.QtWidgets import QMainWindow, QStackedWidget, QDialog
 from unittest.mock import MagicMock, patch
-from editor.main import JanelaPrincipal, ControladorAplicativo
+from editor.legacy_views.area_principal import JanelaPrincipal
+from editor.main import ControladorAplicativo
 from editor.core.worker import TarefaInicializacao
 
 def test_janela_principal_tem_stack_central(qtbot):
