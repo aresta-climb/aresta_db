@@ -949,7 +949,17 @@ class JanelaPrincipal(QMainWindow):
             if not pasta_compilado.exists():
                 pasta_compilado.mkdir(parents=True, exist_ok=True)
             
-            self.servidor_celular = ServidorCelular(pasta_compilado, self)
+            jwt_supabase = None
+            if self.auth and hasattr(self.auth, "carregar_sessao"):
+                sessao_usr = self.auth.carregar_sessao()
+                if sessao_usr and hasattr(sessao_usr, "jwt_supabase"):
+                    jwt_supabase = sessao_usr.jwt_supabase
+
+            self.servidor_celular = ServidorCelular(
+                pasta_compilado,
+                jwt_token=jwt_supabase,
+                parent=self,
+            )
             self.servidor_celular.dispositivo_conectado.connect(self._ao_celular_conectado)
             self.servidor_celular.iniciar()
 

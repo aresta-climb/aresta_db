@@ -266,10 +266,10 @@ class TarefaExportacao(QThread):
 
 class TarefaDadosConexao(QThread):
     """
-    Thread responsável por obter o IP local e gerar o QR Code de conexão.
+    Thread responsável por obter a URL canônica de prévia, IP local e gerar o QR Code de conexão.
     Evita travamentos da UI durante a abertura do diálogo.
     """
-    concluido: Signal = Signal(str, bytes) # ip, qr_bytes
+    concluido: Signal = Signal(str, bytes, str) # url, qr_bytes, codigo_formatado
     
     def __init__(self, servidor: Any) -> None:
         super().__init__()
@@ -287,11 +287,29 @@ class TarefaDadosConexao(QThread):
             if self.servidor.porta is None:
                 return # Falha ao iniciar servidor
 
-            ip = self.servidor.obter_ip_local()
-            porta = self.servidor.porta
-            url = f"http://{ip}:{porta}"
+            if hasattr(self.servidor, "jwt_token") and self.servidor.jwt_token:
+                if hasattr(self.servidor, "solicitar_sessao_servidor") and not getattr(self.servidor, "url_previa_canonica", None):
+                    self.servidor.solicitar_sessao_servidor()
+
+            from editor.core.codigo_sessao import formatar_codigo
+            if hasattr(self.servidor, "obter_url_previa_canonica"):
+                url = self.servidor.obter_url_previa_canonica()
+            else:
+                ip = self.servidor.obter_ip_local()
+                porta = self.servidor.porta
+                url = f"http://{ip}:{porta}"
+
+            codigo_raw = getattr(self.servidor, "codigo_sessao", None)
+            if codigo_raw:
+                try:
+                    codigo_formatado = formatar_codigo(codigo_raw)
+                except Exception:
+                    codigo_formatado = str(codigo_raw)
+            else:
+                codigo_formatado = ""
+
             qr_bytes = self.servidor.gerar_qr_code(url)
-            self.concluido.emit(url, qr_bytes)
+            self.concluido.emit(url, qr_bytes, codigo_formatado)
         except Exception:
             traceback.print_exc()
 

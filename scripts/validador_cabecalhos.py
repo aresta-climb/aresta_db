@@ -92,7 +92,7 @@ def verificar_gpl_residual_py(
         except Exception:
             continue
 
-        if "GPL-3.0" in content or "GPLv3" in content:
+        if "GPL" in content or "GPLv3" in content:
             arquivos_com_gpl.append(str(filepath.relative_to(root)))
 
     if arquivos_com_gpl:

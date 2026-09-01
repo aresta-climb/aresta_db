@@ -1,5 +1,12 @@
 ## ADDED Requirements
 
+### Requirement: Estrutura do projeto e instruções de configuração
+O projeto do retransmissor na nuvem MUST ser implementado na pasta `aresta_backend/cloudflare/previa`, contendo a configuração do Cloudflare Worker (`wrangler.jsonc`), dependências (`package.json`), tipagem (`tsconfig.json`) e documentação completa (`README.md`) instruindo o vínculo do domínio customizado `previa.arestaclimb.com` e comandos de deploy.
+
+#### Scenario: Presença do arquivo de configuração e documentação
+- **WHEN** o projeto em `aresta_backend/cloudflare/previa` for inspecionado
+- **THEN** ele deve conter `wrangler.jsonc` configurado para `previa.arestaclimb.com`, `package.json` com scripts de teste e deploy, e `README.md` com instruções passo a passo para configuração no painel da Cloudflare.
+
 ### Requirement: Registro e gerenciamento de sessões efêmeras
 O Cloudflare Worker em `previa.arestaclimb.com` MUST permitir que instâncias do Aresta Editor registrem sessões efêmeras identificadas por códigos alfanuméricos de 8 caracteres em Base36 (`[0-9a-z]`), mantendo o estado de conexão e metadados exclusivamente em memória RAM.
 

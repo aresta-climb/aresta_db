@@ -11,6 +11,10 @@ from pathlib import Path
 import socket
 import requests
 import time
+import asyncio
+import websockets
+import json
+from unittest.mock import patch, MagicMock
 
 def test_deve_encontrar_porta_livre_automaticamente(tmp_path):
     servidor = ServidorCelular(tmp_path)
@@ -63,8 +67,6 @@ def test_deve_emitir_sinal_quando_receber_conexao(tmp_path, qtbot):
     esperar_porta(servidor)
     
     with qtbot.waitSignal(servidor.dispositivo_conectado, timeout=2000):
-        # Agora qualquer GET deve emitir sinal, não só /handshake
-        # Mas o arquivo DEVE existir para ser considerado uma conexão válida
         arquivo_teste = pasta_compilado / "index.json"
         arquivo_teste.write_text('{"status": "ok"}', encoding="utf-8")
         
@@ -76,18 +78,16 @@ def test_deve_emitir_sinal_quando_receber_conexao(tmp_path, qtbot):
         servidor._thread_servidor.join(timeout=3.0)
 
 
-
-
 def test_deve_gerar_qr_code_em_memoria(qapp):
     servidor = ServidorCelular(Path("."))
     conteudo = "http://192.168.1.10:8080"
     buffer = servidor.gerar_qr_code(conteudo)
     
     assert isinstance(buffer, bytes)
-    assert len(buffer) > 100 # Deve ter algum conteúdo de imagem
-    
-    # Verifica se o PySide6 consegue carregar
-    from PySide6.QtGui import QPixmap
+    try:
+        from PySide6.QtGui import QPixmap
+    except ImportError:
+        from PyQt6.QtGui import QPixmap
     pixmap = QPixmap()
     sucesso = pixmap.loadFromData(buffer)
     assert sucesso is True
@@ -99,7 +99,6 @@ def test_deve_obter_ip_local():
     
     assert ip is not None
     assert "." in ip
-    # Verifica se não é o localhost 127.0.0.1 (queremos o IP da rede Wi-Fi/LAN)
     assert ip != "127.0.0.1"
 
 def test_deve_suportar_http1_1_e_keep_alive(tmp_path):
@@ -112,17 +111,14 @@ def test_deve_suportar_http1_1_e_keep_alive(tmp_path):
     
     url = f"http://127.0.0.1:{servidor.porta}/handshake"
     
-    # Usa um Session para testar o Keep-Alive
     with requests.Session() as s:
         resposta = s.get(url)
         assert resposta.status_code == 200
         assert resposta.json() == {"status": "conectado"}
         
-        # Verifica se o Content-Length está presente para suportar HTTP/1.1
-        assert "Content-Length" in resposta.headers, "Deve enviar Content-Length no handshake para não travar conexões HTTP/1.1"
+        assert "Content-Length" in resposta.headers
         assert int(resposta.headers["Content-Length"]) > 0
         
-        # Faz uma segunda requisição na mesma sessão TCP para provar que a conexão não caiu
         resposta_2 = s.get(url)
         assert resposta_2.status_code == 200
     
@@ -132,15 +128,11 @@ def test_deve_suportar_http1_1_e_keep_alive(tmp_path):
 
 
 def test_deve_retornar_304_se_etag_sha256_bater(tmp_path):
-    import hashlib
     pasta_compilado = tmp_path / "compilado"
     pasta_compilado.mkdir()
     arquivo_teste = pasta_compilado / "dados.bin"
     conteudo = b"dados super pesados do croqui"
     arquivo_teste.write_bytes(conteudo)
-    
-    # Calcula o sha256 esperado
-    sha256_esperado = hashlib.sha256(conteudo).hexdigest()
     
     servidor = ServidorCelular(pasta_compilado)
     servidor.iniciar()
@@ -149,24 +141,93 @@ def test_deve_retornar_304_se_etag_sha256_bater(tmp_path):
     url = f"http://127.0.0.1:{servidor.porta}/dados.bin"
     
     with requests.Session() as s:
-        # Primeira chamada - Deve retornar 200 e trazer o ETag
         resp1 = s.get(url)
         assert resp1.status_code == 200
         assert "ETag" in resp1.headers
         
         etag = resp1.headers["ETag"]
         
-        # Segunda chamada enviando If-None-Match
         resp2 = s.get(url, headers={"If-None-Match": etag})
-        assert resp2.status_code == 304, "Deveria retornar Not Modified"
-        assert not resp2.content, "Body deveria estar vazio no 304"
-        assert resp2.headers.get("ETag") == etag, "Deve reenviar o ETag no 304"
+        assert resp2.status_code == 304
+        assert not resp2.content
+        assert resp2.headers.get("ETag") == etag
         
-        # Terceira chamada enviando um If-None-Match furado
         resp3 = s.get(url, headers={"If-None-Match": '"fake-hash"'})
-        assert resp3.status_code == 200, "Deveria baixar novamente pois o ETag não bate"
+        assert resp3.status_code == 200
         
     servidor.parar()
     if servidor._thread_servidor and servidor._thread_servidor.is_alive():
         servidor._thread_servidor.join(timeout=3.0)
 
+
+def test_deve_construir_url_previa_canonica_e_conectar_tunel(tmp_path):
+    pasta_compilado = tmp_path / "compilado"
+    pasta_compilado.mkdir()
+
+    mensagens_recebidas = []
+
+    async def mock_ws_server(websocket):
+        try:
+            async for msg in websocket:
+                mensagens_recebidas.append(json.loads(msg))
+        except websockets.exceptions.ConnectionClosed:
+            pass
+
+    async def run_test():
+        async with websockets.serve(mock_ws_server, "127.0.0.1", 0) as server:
+            porta_ws = server.sockets[0].getsockname()[1]
+            url_ws = f"ws://127.0.0.1:{porta_ws}/ws?sessao=k9x2p83a"
+
+            servidor = ServidorCelular(
+                pasta_compilado=pasta_compilado,
+                codigo_sessao="k9x2p83a",
+                url_retransmissor_ws=url_ws,
+            )
+
+            assert servidor.obter_url_previa_canonica() == "https://previa.arestaclimb.com/k9x2-p83a"
+
+            servidor.iniciar(conectar_tunel=True)
+            esperar_porta(servidor)
+
+            for _ in range(40):
+                if any(m.get("tipo") == "registro" for m in mensagens_recebidas):
+                    break
+                await asyncio.sleep(0.05)
+
+            servidor.emitir_recarregamento("br_mg_ferros_setor1")
+
+            for _ in range(40):
+                if any(m.get("tipo") == "evento" for m in mensagens_recebidas):
+                    break
+                await asyncio.sleep(0.05)
+
+            servidor.parar()
+
+            assert any(m.get("tipo") == "registro" for m in mensagens_recebidas)
+            msg_evento = next(m for m in mensagens_recebidas if m.get("tipo") == "evento")
+            assert msg_evento["dados"]["setor"] == "br_mg_ferros_setor1"
+
+    asyncio.run(run_test())
+
+
+def test_deve_solicitar_sessao_ao_servidor_remoto(tmp_path):
+    """ServidorCelular deve atualizar codigo_sessao e url_previa com o retorno da API."""
+    pasta_compilado = tmp_path / "compilado"
+    pasta_compilado.mkdir()
+
+    servidor = ServidorCelular(
+        pasta_compilado=pasta_compilado,
+        jwt_token="jwt_valido_mock",
+    )
+
+    with patch("editor.core.tunel_retransmissor.solicitar_sessao_servidor", return_value={
+        "codigo": "x7m4n2q1",
+        "codigo_formatado": "x7m4-n2q1",
+        "url_previa": "https://previa.arestaclimb.com/x7m4-n2q1",
+        "ws_url": "wss://previa.arestaclimb.com/ws?sessao=x7m4n2q1&token=jwt_valido_mock",
+    }):
+        sucesso = servidor.solicitar_sessao_servidor()
+        assert sucesso is True
+        assert servidor.codigo_sessao == "x7m4n2q1"
+        assert servidor.obter_url_previa_canonica() == "https://previa.arestaclimb.com/x7m4-n2q1"
+        assert servidor.url_retransmissor_ws == "wss://previa.arestaclimb.com/ws?sessao=x7m4n2q1&token=jwt_valido_mock"

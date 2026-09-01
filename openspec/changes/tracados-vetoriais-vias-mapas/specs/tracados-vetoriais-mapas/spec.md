@@ -1,23 +1,23 @@
 # tracados-vetoriais-mapas Specification
 
 ## Purpose
-Fornecer um modelo de dados, semântica de nós de escalada, biblioteca matemática de interpolação Spline Catmull-Rom para Curvas de Bézier e pipeline de compilação em SVG Path otimizado para renderização acelerada por GPU.
+Fornecer um modelo de dados, semântica de nós de escalada em português, biblioteca matemática de interpolação Spline Catmull-Rom para Curvas de Bézier e pipeline de compilação em SVG Path (`caminho_svg`) otimizado para renderização acelerada por GPU.
 
 ## ADDED Requirements
 
 ### Requirement: Modelo de Dados de Linha de Trajeto no Protobuf
-O sistema SHALL suportar a representação estruturada de traçados de vias de escalada em mapas através da mensagem `LinhaTrajeto`, com suporte a estilos de traço (`TRACEJADO`, `SOLIDO`, `PONTILHADO`) e uma união (`oneof representacao`) entre o modo de edição semântica (`conteudo`) e o modo otimizado para renderização (`compilado`).
+O sistema SHALL suportar a representação estruturada de traçados de vias de escalada em mapas através da mensagem `LinhaTrajeto`, com suporte a estilos de traço (`TRACEJADO`, `SOLIDO`, `PONTILHADO`) e uma união (`oneof representacao`) entre o modo de edição semântica (`conteudo`) e o modo otimizado para renderização (`compilado`), com todos os identificadores em português brasileiro.
 
 #### Scenario: Definição de Linha de Trajeto em Modo Conteúdo (Edição)
 - **WHEN** um mapa contém um elemento visual do tipo `linha` com dados de edição
-- **THEN** o sistema SHALL armazenar uma lista ordenada de `NoTrajeto` em `conteudo.nos`, onde cada nó possui coordenadas inteiras $(x, y)$, um tipo semântico (`PASSAGEM`, `INICIO_BASE`, `INICIO_SIT_START`, `PROTECAO_FIXA`, `PARADA_INTERMEDIARIA`, `TOP_PARADA`, `CRUX`) e um rótulo textual opcional.
+- **THEN** o sistema SHALL armazenar uma lista ordenada de `NoTrajeto` em `conteudo.nos`, onde cada nó possui coordenadas inteiras $(x, y)$, um tipo semântico (`PASSAGEM`, `INICIO_BASE`, `INICIO_AGACHADO`, `PROTECAO_FIXA`, `PARADA_INTERMEDIARIA`, `TOP_PARADA`, `CRUX`) e um rótulo textual opcional (`rotulo`).
 
 #### Scenario: Definição de Linha de Trajeto em Modo Compilado
 - **WHEN** um mapa é processado pelo pipeline de compilação
-- **THEN** o sistema SHALL preencher o campo `compilado` com o `svg_path` contendo a sequência de comandos Bézier (`M ... C ...`), a caixa delimitadora `envelope` e a lista de marcadores pré-posicionados.
+- **THEN** o sistema SHALL preencher o campo `compilado` com o `caminho_svg` contendo a sequência de comandos Bézier (`M ... C ...`), a `caixa_delimitadora` e a lista de `marcadores` pré-posicionados.
 
 ### Requirement: Interpolação Matemática Spline Centripetal Catmull-Rom
-O sistema SHALL fornecer uma biblioteca autônoma (Library-First) em Python para calcular a Spline Centripetal Catmull-Rom ($\alpha = 0.5$) a partir de uma lista de pontos 2D, convertendo os segmentos em Curvas de Bézier Cúbicas exatas e formatando a saída como uma string de Path SVG padrão.
+O sistema SHALL fornecer uma biblioteca autônoma (Library-First) em Python para calcular a Spline Centripetal Catmull-Rom ($\alpha = 0.5$) a partir de uma lista de pontos 2D, convertendo os segmentos em Curvas de Bézier Cúbicas exatas e formatando a saída como uma string de Path SVG padrão (`caminho_svg`).
 
 #### Scenario: Interpolação de Linha com Múltiplos Nós
 - **WHEN** a biblioteca recebe uma sequência de pelo menos 2 pontos $(x_i, y_i)$
@@ -32,7 +32,7 @@ O sistema SHALL integrar a conversão Catmull-Rom no pipeline de compilação do
 
 #### Scenario: Geração de Croqui Compilado com Traçados
 - **WHEN** o comando de build ou deploy é executado sobre croquis contendo elementos do tipo `linha`
-- **THEN** o compilador SHALL calcular o SVG Path de cada linha, definir o `envelope` e salvar os binários sem exigir recálculo de spline no cliente móvel.
+- **THEN** o compilador SHALL calcular o `caminho_svg` de cada linha, definir a `caixa_delimitadora` e salvar os binários sem exigir recálculo de spline no cliente móvel.
 
 ### Requirement: Composição de Trechos em Referências
 O sistema SHALL permitir que uma `Referencia` de escalada componha múltiplos elementos de linha e pontos de interesse através do campo `ids`, permitindo que vias e variantes compartilhem segmentos de traçado comuns.

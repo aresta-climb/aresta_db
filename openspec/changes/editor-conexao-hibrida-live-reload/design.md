@@ -4,16 +4,17 @@ Atualmente, o Aresta Editor permite que autores compilem e visualizem croquis em
 
 Além disso, não existe um mecanismo de notificação push em tempo real que faça o aplicativo móvel recarregar automaticamente a tela quando um croqui for editado ou salvo no computador, nem forma de compartilhar a prévia instantaneamente com parceiros de escalada remotos.
 
-Para resolver esse problema de forma sustentável, simples e modular (em estrita observância a `PRINCIPIOS.md`), adotamos uma arquitetura orientada a bibliotecas independentes (Library-First) e testes rigorosos (TDD com 100% de cobertura): o editor tenta a conexão direta via rede local e, concorrentemente, mantém um túnel de saída WebSocket para um Cloudflare Worker leve em `previa.arestaclimb.com`, que atua como intermediário de descoberta e streaming reverso em memória RAM.
+Para resolver esse problema de forma sustentável, simples e modular (em estrita observância a `PRINCIPIOS.md`), adotamos uma arquitetura orientada a bibliotecas independentes (Library-First) e testes rigorosos (TDD com 100% de cobertura): o editor tenta a conexão direta via rede local e, concorrentemente, mantém um túnel de saída WebSocket para um Cloudflare Worker leve em `previa.arestaclimb.com`, localizado na pasta `aresta_backend/cloudflare/previa`, que atua como intermediário de descoberta e streaming reverso em memória RAM.
 
 ## Goals / Non-Goals
 
 **Goals:**
 - **Biblioteca em Primeiro Lugar (Library-First)**: Estruturar toda a lógica em bibliotecas independentes, testáveis e desacopladas de componentes de interface (`codigo_sessao.py`, `tunel_retransmissor.py`).
+- **Projeto Centralizado do Retransmissor (`aresta_backend/cloudflare/previa`)**: Criar o projeto do Worker na estrutura do backend com documentação detalhada de configuração de DNS e deploy na Cloudflare.
 - **100% de Cobertura e TDD**: Escrever testes de integração e unitários prévios no ciclo Vermelho-Verde-Refatorar para 100% dos novos arquivos e alterações.
 - **Tudo em Português**: Toda a nomenclatura de classes, funções, variáveis, comentários e testes em português brasileiro estrito.
 - **Pareamento Humano**: Prover pareamento universal via código curto de 8 caracteres alfanuméricos em Base36 (`[0-9a-z]`, ex: `k9x2-p83a`) e URL correspondente (`https://previa.arestaclimb.com/<codigo>`).
-- **Retransmissão em Memória**: Implementar um Cloudflare Worker como retransmissor efêmero que faz o proxy de requisições HTTP do celular para o WebSocket do computador 100% em memória RAM, sem qualquer persistência no Supabase.
+- **Retransmissão em Memória**: Implementar o Cloudflare Worker como retransmissor efêmero que faz o proxy de requisições HTTP do celular para o WebSocket do computador 100% em memória RAM, sem qualquer persistência no Supabase.
 - **Conexão Híbrida Inteligente**: Disputa paralela de conexão: tenta a rede local primeiro (máxima velocidade e economia de dados) e faz fallback transparente para a nuvem caso a rede local falhe.
 - **Sincronização em Tempo Real**: Canal de eventos WebSocket para notificar o aplicativo móvel sobre alterações em croquis compilados, disparando a atualização automática de tela.
 - **Compartilhamento Remoto**: Permitir o envio de links de prévia ao vivo para colaboradores remotos via links diretos (`https://previa.arestaclimb.com/<codigo>`).
@@ -26,34 +27,56 @@ Para resolver esse problema de forma sustentável, simples e modular (em estrita
 
 ## Decisions
 
-### 1. Separação em Bibliotecas Modulares (Library-First)
+### 1. Estrutura do Retransmissor em `aresta_backend/cloudflare/previa`
+- **Decisão**: Posicionar o código do Worker em `aresta_backend/cloudflare/previa`, contendo `wrangler.jsonc`, `package.json`, `tsconfig.json`, `src/` e `README.md` com instruções detalhadas de configuração.
+- **Racional**: Mantém toda a infraestrutura de backend (Supabase e Cloudflare) organizada no mesmo repositório pai `aresta_backend`, facilitando deploys contínuos e documentação centralizada.
+
+### 2. Guia de Configuração do Domínio `previa.arestaclimb.com` na Cloudflare
+- **Decisão**: A configuração do domínio customizado e deploy será documentada no `README.md` do projeto do Worker:
+  1. **Configuração do `wrangler.jsonc`**:
+     ```jsonc
+     {
+       "name": "aresta-previa-relay",
+       "main": "src/index.ts",
+       "compatibility_date": "2026-08-01",
+       "routes": [
+         {
+           "pattern": "previa.arestaclimb.com/*",
+           "custom_domain": true
+         }
+       ]
+     }
+     ```
+  2. **Configuração no Painel da Cloudflare (DNS / Custom Domains)**:
+     - No Cloudflare Dashboard → **Workers & Pages** → selecionar o worker `aresta-previa-relay` → **Settings** → **Domains & Routes** → **Add Custom Domain** → `previa.arestaclimb.com`.
+     - A Cloudflare provisiona automaticamente o certificado SSL/TLS e o registro DNS `CNAME` correspondente.
+  3. **Comando de Deploy**:
+     ```bash
+     cd aresta_backend/cloudflare/previa
+     npm install
+     npm run deploy # Executa npx wrangler deploy
+     ```
+
+### 3. Separação em Bibliotecas Modulares no Desktop (Library-First)
 - **Decisão**: Dividir as responsabilidades do lado do Editor em duas bibliotecas puras e autossuficientes:
-  1. `editor/core/codigo_sessao.py`: Responsável exclusivamente por gerar códigos aleatórios criptograficamente seguros em Base36, formatar com hifens, validar formato e normalizar entradas vindas do usuário.
-  2. `editor/core/tunel_retransmissor.py`: Responsável exclusivamente pela gestão do socket cliente com o retransmissor na nuvem, anúncio de metadados, processamento de requisições de arquivos repassadas e emissão de eventos push.
+  1. `editor/core/codigo_sessao.py`: Geração e validação de códigos aleatórios seguros em Base36 e formatação com hífen.
+  2. `editor/core/tunel_retransmissor.py`: Gestão do socket cliente com o retransmissor na nuvem, anúncio de metadados e streaming de respostas.
 - **Racional**: Garante testabilidade unitária isolada de 100%, sem dependência de widgets do PyQt6 ou do loop gráfico principal da interface.
-- **Alternativas descartadas**: Implementar toda a lógica de túnel e código diretamente dentro da classe `ServidorCelular` ou em callbacks da janela gráfica (descartado por violar o princípio de modularidade e desacoplamento).
 
-### 2. Cloudflare Worker com Retransmissão WebSocket em Memória
-- **Decisão**: Utilizar um Cloudflare Worker hospedado em `previa.arestaclimb.com` para gerenciar sessões temporárias identificadas por códigos de 8 caracteres e atuar como proxy reverso de streaming via WebSocket.
-- **Racional**: Os Workers da Cloudflare oferecem suporte nativo a WebSockets de longa duração, consumo nulo de CPU durante espera de I/O de rede (WebSocket Hibernation API), 100.000 requisições diárias gratuitas e latência global ultrabaixa. Além disso, elimina completamente a necessidade de instalar binários externos no PC do usuário.
-- **Alternativas descartadas**:
-  - *Supabase Edge Functions / Storage*: Descartado por ser stateless por requisição (dificultando o roteamento direto em memória sem salvar em disco/storage) e por introduzir custos desnecessários de persistência e limpeza periódica.
-  - *Binário do cloudflared embarcado*: Descartado pela complexidade de empacotamento multi-plataforma e riscos de falso positivo em antivírus no Windows.
+### 4. Cloudflare Worker com Retransmissão WebSocket em Memória
+- **Decisão**: Utilizar o Cloudflare Worker para gerenciar sessões temporárias identificadas por códigos de 8 caracteres e atuar como proxy reverso de streaming via WebSocket.
+- **Racional**: Os Workers da Cloudflare oferecem suporte nativo a WebSockets de longa duração, consumo nulo de CPU durante espera de I/O de rede (WebSocket Hibernation API), 100.000 requisições diárias gratuitas e latência global ultrabaixa.
 
-### 3. Formato de Código Alfanumérico de 8 Caracteres (Base36)
+### 5. Formato de Código Alfanumérico de 8 Caracteres (Base36)
 - **Decisão**: Gerar códigos de sessão com 8 caracteres em Base36 (`[0-9a-z]`, ex: `k9x2-p83a`).
-- **Racional**: Oferece $36^8 \approx 2,82 \text{ trilhões}$ de combinações possíveis, garantindo imunidade a ataques de força bruta com limitação de taxa (rate limiting) na Cloudflare. Permite formatação amigável com hífen e normalização automática no app (aceitando maiúsculas/minúsculas e com/sem hífen).
-- **Alternativas descartadas**:
-  - *UUID v4 completo com token secreto separado*: Mais longo e inviabilizaria a digitação manual de fallback no celular.
-  - *Código puramente numérico de 4 ou 6 dígitos*: Espaço amostral reduzido frente ao Base36.
+- **Racional**: Oferece $36^8 \approx 2,82 \text{ trilhões}$ de combinações possíveis, garantindo imunidade a ataques de força bruta com limitação de taxa (rate limiting) na Cloudflare. Permite formatação amigável com hífen e normalização automática no app.
 
-### 4. Conexão Híbrida Inteligente com Resolução de Descoberta
+### 6. Conexão Híbrida Inteligente com Resolução de Descoberta
 - **Decisão**: Quando o editor conecta ao retransmissor, ele informa seu IP e porta locais no payload inicial. Ao conectar pelo código no celular, o app recebe o endereço local e dispara um teste em paralelo com tempo limite curto (~800ms). Se a rede local responder, o app consome diretamente do IP local; se falhar, utiliza o túnel da Cloudflare.
-- **Racional**: Garante a melhor experiência possível: velocidade de transferência nativa de gigabit quando na mesma rede e 100% de disponibilidade mesmo em 4G ou redes restritivas, sem que o usuário precise configurar IPs ou portas manualmente.
+- **Racional**: Velocidade máxima gigabit em rede local e 100% de disponibilidade fora de casa ou em 4G, sem configurações manuais de rede pelo usuário.
 
-### 5. Sincronização em Tempo Real via Notificações Push WebSocket
+### 7. Sincronização em Tempo Real via Notificações Push WebSocket
 - **Decisão**: Manter um canal de eventos WebSocket ativo entre Editor e App (seja direto na rede local ou através do retransmissor). Quando o editor compila uma alteração, emite `{"tipo": "recarregar", "setor": "<id>"}`. O app recebe o sinal, invalida os caches de memória e solicita os arquivos atualizados via HTTP GET.
-- **Racional**: Elimina consultas periódicas (polling agressivo que drena bateria e CPU do celular) e provê feedback visual quase instantâneo (< 50ms).
 
 ## Risks / Trade-offs
 
