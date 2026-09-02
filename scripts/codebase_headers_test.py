@@ -37,5 +37,10 @@ def test_todos_database_arquivos_tem_odbl_e_copyright():
     e o Copyright do Aresta [Climb] Contributors.
     """
     root = Path(__file__).resolve().parent.parent
+    database_dir = root / "database"
+    if not database_dir.exists() or not database_dir.is_dir():
+        pytest.skip("Diretório database/ não encontrado na raiz (sparse checkout detectado).")
+
     erros = verificar_odbl_e_copyright_database(root)
     assert not erros, "\n".join(erros)
+

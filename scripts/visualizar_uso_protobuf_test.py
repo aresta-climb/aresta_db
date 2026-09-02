@@ -39,9 +39,17 @@ def test_inject_instant_tooltips(tmp_path):
     assert 'svgRect.width' in content
     assert 'svgRect.height' in content
 
-def test_render_graphviz(tmp_path):
+def test_render_graphviz(tmp_path, monkeypatch):
     dot_content = "digraph G { A -> B; }"
-    # mockando a execução para checar a saída
+    
+    def fake_render(self, filename, directory, format, cleanup):
+        svg_dest = Path(directory) / f"{filename}.{format}"
+        svg_dest.write_text("<svg><title>Test</title></svg>", encoding="utf-8")
+        return str(svg_dest)
+        
+    monkeypatch.setattr("graphviz.Source.render", fake_render)
+    
+    # Executa a função com o render mockado
     render_graphviz(dot_content, "teste_render", tmp_path)
     
     svg_file = tmp_path / "teste_render.svg"
@@ -53,6 +61,7 @@ def test_render_graphviz(tmp_path):
     # O arquivo dot deve ter o conteúdo original
     assert dot_file.read_text(encoding='utf-8') == dot_content
     
-    # O arquivo svg gerado pelo graphviz deve conter a injeção do script ao final
+    # O arquivo svg gerado deve conter a injeção do script ao final
     svg_content = svg_file.read_text(encoding='utf-8')
     assert '<script type="text/javascript">' in svg_content
+
