@@ -3501,6 +3501,133 @@ picos:
           Catálogo provisório das vias tradicionais e/ou em proteção móvel do Complexo Pedra Grande.
         precomputados:
           total_escaladas: 42
+  - grupo:
+      conteudo:
+        nome: Sherpa
+        setores:
+        - conteudo:
+            nome: Tarja Preta
+            localizacao_escalada:
+              latitude: -201224250
+              longitude: -443608700
+            sinal_de_celular: true
+            escaladas:
+            - boulder:
+                nome: Película
+                descricao: '![Tarja Preta](imagens/20260901_161100.webp)'
+                destaque: true
+            - boulder:
+                nome: Tarja Preta
+                descricao: '![Tarja Preta](imagens/20260901_161341.webp)![Tarja Preta](imagens/20260901_161435.webp)![Tarja
+                  Preta Face 3](imagens/20260901_161529.webp)![Face 2 Tarja Preta](imagens/20260901_161435_1.webp)'
+            descricao: |-
+              | ![Boulders - Vias Trad](imagens/20260901_161018.webp) |
+              | :--: |
+              | *Boulders - Vias Trad* |
+            precomputados:
+              total_escaladas: 2
+              total_boulders: 2
+        - conteudo:
+            nome: Jeitinho Brasileiro
+            localizacao_escalada:
+              latitude: -201225340
+              longitude: -443609520
+            sinal_de_celular: true
+            escaladas:
+            - boulder:
+                nome: Jeitinho Brasileiro
+                dificuldade: V4
+                tipo_parede: NEGATIVO
+                conquistadores:
+                - 'Julio G. '
+                data_abertura: Maio 2026
+                descricao: '![Jeitinho Brasileiro.](imagens/2026_09_01_16_17_04_1.webp)![Jeitinho
+                  Brasileiro face a](imagens/20260901_161942.webp)![Jeitinho Brasileiro.](imagens/20260901_162114.webp)'
+                destaque: true
+            - boulder:
+                nome: Força G
+                dificuldade: V1
+                data_abertura: Maio 2026
+                descricao: '![Força G - Sai de um abaulado sobe pra fenda e sai no
+                  V0 no final do bloco. - Stand de um V4/5 que sai logo em baixo e
+                  sobe reto no bico.](imagens/20260901_162114_1.webp)'
+            - boulder:
+                nome: Itália
+                dificuldade: V4
+                data_abertura: Maio 2026
+                descricao: '![Sai de duas agarras invertidas em baixo do bloco e toca
+                  pro lado direito do bloco virando no V2 (Glorioso)](imagens/20260901_162342.webp)'
+                destaque: true
+            - boulder:
+                nome: Glorioso
+                dificuldade: V2
+                tipo_parede: NEGATIVO
+                data_abertura: Maio 2026
+                descricao: '![Italia, sai em um agarrão em invertida, do lado esquerdo
+                  do bloco, toca reto pra cima.](imagens/20260901_162417.webp)'
+                destaque: true
+            descricao: |-
+              | ![Jeitinho Brasileiro](imagens/2026_09_01_16_17_04.webp) |
+              | :--: |
+              | *Jeitinho Brasileiro* |
+            precomputados:
+              total_escaladas: 4
+              total_boulders: 4
+        - conteudo:
+            nome: Nectar
+            localizacao_escalada:
+              latitude: -201225690
+              longitude: -443610090
+            escaladas:
+            - boulder:
+                nome: Nectar
+                dificuldade: V9
+                conquistadores:
+                - Frederico Gonçalves (Bull)
+                data_abertura: 30/06/2026
+                descricao: |+
+                  ![Face Nectar e Guela](imagens/20260901_163316.webp)
+
+                url_video_beta: https://www.instagram.com/p/DaMdaQKTtFk/
+                destaque: true
+            mapas:
+            - caminho_imagem_mapa: imagens/setor_nectar_p0.webp
+              largura_mapa: 406
+              altura_mapa: 882
+              pontos_de_interesse:
+              - id: setor_sherpa_map
+                label: ''
+                poligono:
+                  coordenadas:
+                  - 224
+                  - 811
+                  - 255
+                  - 797
+                  - 282
+                  - 703
+                  - 106
+                  - 684
+                  - 117
+                  - 801
+              referencias:
+              - ids:
+                - setor_sherpa_map
+                grupo: Sherpa
+            indice_mapa_padrao: -1
+            descricao: |-
+              | ![Bloco Nectar](imagens/20260901_163206.webp) |
+              | :--: |
+              | *Bloco Nectar* |
+            precomputados:
+              total_escaladas: 1
+              total_boulders: 1
+        localizacao_escalada:
+          latitude: -201224250
+          longitude: -443608700
+        descricao: Tarja Preta - Jeitinho Brasileiro - Nectar
+        precomputados:
+          total_escaladas: 7
+          total_boulders: 7
   mapas_gerais:
     conteudo:
       mapas:
@@ -3706,9 +3833,11 @@ picos:
           setor: Setor Trad
           escalada: Me Leve ao Cume
   precomputados:
-    total_escaladas: 140
-    total_setores: 9
+    total_escaladas: 147
+    total_setores: 12
+    total_grupos: 1
     total_esportivas: 95
+    total_boulders: 7
     total_multiplas_enfiadas: 3
 botoes:
 - texto: Capa
@@ -3861,6 +3990,12 @@ ultima_migracao: 4
 publicar_croqui: true
 revisado_bounding_circle: true
 arquivos_externos:
+- caminho: imagens/20260901_161018.webp
+  checksum_sha256: 5c133cbadc46815758e0d0cd8665e521fa1fb28471ba7fa3bfe947e9dd9c16da
+- caminho: imagens/20260901_163206.webp
+  checksum_sha256: a0ebb1e6ca92ce14b6e43943eb2ff266c097e320ce7670c46a606a887184580f
+- caminho: imagens/2026_09_01_16_17_04.webp
+  checksum_sha256: 098115d550c578e90d3edd9325a6894c9eb47cee7961df9ab143bf2e78b52d4f
 - caminho: imagens/capa_p0.webp
   checksum_sha256: b4887c391eaf1911eaf809e7132944c4f46760657ebe56af30f2890698fbe289
 - caminho: imagens/historia_p0.webp
@@ -3897,6 +4032,8 @@ arquivos_externos:
   checksum_sha256: e59d63c298cd1049ee8636ce3e3b78b993f5b2358f4e3fc57a10508e739e8536
 - caminho: imagens/setor_micos_p2.webp
   checksum_sha256: 27321d933aca314b50a98e486f662138fd61b049dcb90248b6bb2d162c7b944c
+- caminho: imagens/setor_nectar_p0.webp
+  checksum_sha256: 7d03d9d98304c9cbdb5552f04633f0bfc830e0847069c46cae353ace2affe9f0
 - caminho: imagens/setor_pracinha_p0.webp
   checksum_sha256: ec34526d21a825cbefa2049a1fe82cc4a1d77a4dd1072d39804852cf5c38daf3
 - caminho: imagens/setor_pracinha_p1.webp

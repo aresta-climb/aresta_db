@@ -4319,88 +4319,239 @@
   - **total_escaladas**: 42
 
 
+## Parte: grupo_boulders (não listada em partes.json)
+
+### Grupo (Pico: Complexo Pedra Grande)
+
+- **descricao**: Tarja Preta - Jeitinho Brasileiro - Nectar
+- **nome**: Sherpa
+- **setores**:
+  - **[0]**:
+    - **conteudo**:
+      - **descricao**:
+          | ![Boulders - Vias Trad](imagens/20260901_161018.webp) |
+          | :--: |
+          | *Boulders - Vias Trad* |
+      - **nome**: Tarja Preta
+      - **localizacao_escalada**:
+        - **latitude**: -201224250
+        - **longitude**: -443608700
+      - **sinal_de_celular**: True
+      - **escaladas**:
+        - **[0]**:
+          - **boulder**:
+            - **descricao**: ![Tarja Preta](imagens/20260901_161100.webp)
+            - **nome**: Película
+            - **destaque**: True
+        - **[1]**:
+          - **boulder**:
+            - **descricao**: ![Tarja Preta](imagens/20260901_161341.webp)![Tarja Preta](imagens/20260901_161435.webp)![Tarja Preta Face 3](imagens/20260901_161529.webp)![Face 2 Tarja Preta](imagens/20260901_161435_1.webp)
+            - **nome**: Tarja Preta
+      - **precomputados**:
+        - **total_escaladas**: 2
+        - **total_boulders**: 2
+  - **[1]**:
+    - **conteudo**:
+      - **descricao**:
+          | ![Jeitinho Brasileiro](imagens/2026_09_01_16_17_04.webp) |
+          | :--: |
+          | *Jeitinho Brasileiro* |
+      - **nome**: Jeitinho Brasileiro
+      - **localizacao_escalada**:
+        - **latitude**: -201225340
+        - **longitude**: -443609520
+      - **sinal_de_celular**: True
+      - **escaladas**:
+        - **[0]**:
+          - **boulder**:
+            - **descricao**: ![Jeitinho Brasileiro.](imagens/2026_09_01_16_17_04_1.webp)![Jeitinho Brasileiro face a](imagens/20260901_161942.webp)![Jeitinho Brasileiro.](imagens/20260901_162114.webp)
+            - **nome**: Jeitinho Brasileiro
+            - **dificuldade**: V4
+            - **tipo_parede**: NEGATIVO
+            - **conquistadores**:
+              - Julio G. 
+            - **data_abertura**: Maio 2026
+            - **destaque**: True
+        - **[1]**:
+          - **boulder**:
+            - **descricao**: ![Força G - Sai de um abaulado sobe pra fenda e sai no V0 no final do bloco. - Stand de um V4/5 que sai logo em baixo e sobe reto no bico.](imagens/20260901_162114_1.webp)
+            - **nome**: Força G
+            - **dificuldade**: V1
+            - **data_abertura**: Maio 2026
+        - **[2]**:
+          - **boulder**:
+            - **descricao**: ![Sai de duas agarras invertidas em baixo do bloco e toca pro lado direito do bloco virando no V2 (Glorioso)](imagens/20260901_162342.webp)
+            - **nome**: Itália
+            - **dificuldade**: V4
+            - **data_abertura**: Maio 2026
+            - **destaque**: True
+        - **[3]**:
+          - **boulder**:
+            - **descricao**: ![Italia, sai em um agarrão em invertida, do lado esquerdo do bloco, toca reto pra cima.](imagens/20260901_162417.webp)
+            - **nome**: Glorioso
+            - **dificuldade**: V2
+            - **tipo_parede**: NEGATIVO
+            - **data_abertura**: Maio 2026
+            - **destaque**: True
+      - **precomputados**:
+        - **total_escaladas**: 4
+        - **total_boulders**: 4
+  - **[2]**:
+    - **conteudo**:
+      - **descricao**:
+          | ![Bloco Nectar](imagens/20260901_163206.webp) |
+          | :--: |
+          | *Bloco Nectar* |
+      - **nome**: Nectar
+      - **localizacao_escalada**:
+        - **latitude**: -201225690
+        - **longitude**: -443610090
+      - **escaladas**:
+        - **[0]**:
+          - **boulder**:
+            - **descricao**:
+                ![Face Nectar e Guela](imagens/20260901_163316.webp)
+                
+                
+            - **nome**: Nectar
+            - **dificuldade**: V9
+            - **conquistadores**:
+              - Frederico Gonçalves (Bull)
+            - **data_abertura**: 30/06/2026
+            - **url_video_beta**: https://www.instagram.com/p/DaMdaQKTtFk/
+            - **destaque**: True
+      - **mapas**:
+        - **[0]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_nectar_p0.webp)
+          - **largura_mapa**: 406
+          - **altura_mapa**: 882
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: setor_sherpa_map
+              - **label**: 
+              - **poligono**:
+                - **coordenadas**:
+                  - 224
+                  - 811
+                  - 255
+                  - 797
+                  - 282
+                  - 703
+                  - 106
+                  - 684
+                  - 117
+                  - 801
+          - **referencias**:
+            - **[0]**:
+              - **ids**:
+                - setor_sherpa_map
+              - **grupo**: Sherpa
+      - **indice_mapa_padrao**: -1
+      - **precomputados**:
+        - **total_escaladas**: 1
+        - **total_boulders**: 1
+- **localizacao_escalada**:
+  - **latitude**: -201224250
+  - **longitude**: -443608700
+- **precomputados**:
+  - **total_escaladas**: 7
+  - **total_boulders**: 7
+
+
 ## Arquivos Externos
 
 - **arquivos_externos**:
   - **[0]**:
+    - **caminho**: ![caminho](imagens/20260901_161018.webp)
+    - **checksum_sha256**: 5c133cbadc46815758e0d0cd8665e521fa1fb28471ba7fa3bfe947e9dd9c16da
+  - **[1]**:
+    - **caminho**: ![caminho](imagens/20260901_163206.webp)
+    - **checksum_sha256**: a0ebb1e6ca92ce14b6e43943eb2ff266c097e320ce7670c46a606a887184580f
+  - **[2]**:
+    - **caminho**: ![caminho](imagens/2026_09_01_16_17_04.webp)
+    - **checksum_sha256**: 098115d550c578e90d3edd9325a6894c9eb47cee7961df9ab143bf2e78b52d4f
+  - **[3]**:
     - **caminho**: ![caminho](imagens/capa_p0.webp)
     - **checksum_sha256**: b4887c391eaf1911eaf809e7132944c4f46760657ebe56af30f2890698fbe289
-  - **[1]**:
+  - **[4]**:
     - **caminho**: ![caminho](imagens/historia_p0.webp)
     - **checksum_sha256**: 35328b7fcdf2d9a789fcd300af00cb67997589078e4dc645f00d1180b3ea707d
-  - **[2]**:
+  - **[5]**:
     - **caminho**: ![caminho](imagens/igarameca_info_p0.webp)
     - **checksum_sha256**: a25c26a236f78956f6a9eef3b49be1a49e00ac995003bbc7b521a82708113c10
-  - **[3]**:
+  - **[6]**:
     - **caminho**: ![caminho](imagens/mapas_gerais_p0.webp)
     - **checksum_sha256**: 46f1c43fe65af207fde61b213d7876a9eee14afe36a686633b6309a4b9e0bb2c
-  - **[4]**:
+  - **[7]**:
     - **caminho**: ![caminho](imagens/mapas_gerais_p1.webp)
     - **checksum_sha256**: 852e3b9ba55da91bda3283501c992927fd6cae1166c0c21717190aa15f51066c
-  - **[5]**:
+  - **[8]**:
     - **caminho**: ![caminho](imagens/patrocinadores_p0.webp)
     - **checksum_sha256**: 4182ec353e7d169bf4ea4bf1f245e97df7f3b359560ddf5d6d77ebd462259d88
-  - **[6]**:
+  - **[9]**:
     - **caminho**: ![caminho](imagens/setor_estacionamento_p0.webp)
     - **checksum_sha256**: c0b10e222fdaed24818c31db7a4f62e69cef20e19182efd1f390a605d7023292
-  - **[7]**:
+  - **[10]**:
     - **caminho**: ![caminho](imagens/setor_estacionamento_p1.webp)
     - **checksum_sha256**: 70ff91fdbc683bf71dcd9a33dbc042e170ef4f49c88b9bc9ce9956edb3fef48c
-  - **[8]**:
+  - **[11]**:
     - **caminho**: ![caminho](imagens/setor_familia_i_p0.webp)
     - **checksum_sha256**: 445e010c4cbaca2db0d2bfc12bb93dc9da30e427bac970d7e06ebe08cee2b0cf
-  - **[9]**:
+  - **[12]**:
     - **caminho**: ![caminho](imagens/setor_familia_i_p1.webp)
     - **checksum_sha256**: feae5245d8419ab4dd0698de889b4879cbe9b7a1324205ceae8dc47d77eb1038
-  - **[10]**:
+  - **[13]**:
     - **caminho**: ![caminho](imagens/setor_familia_ii_p0.webp)
     - **checksum_sha256**: 8435be258ad2d6ed69cd0d4c540050a44bab6186bb884efae83a4998ef1101d3
-  - **[11]**:
+  - **[14]**:
     - **caminho**: ![caminho](imagens/setor_familia_ii_p1.webp)
     - **checksum_sha256**: 4f3e4bedfed21fafc2284c19063d969b3aae82cd32409bd7bf62d4c941c32765
-  - **[12]**:
+  - **[15]**:
     - **caminho**: ![caminho](imagens/setor_igarameca_p0.webp)
     - **checksum_sha256**: e79e4daa827532abd0ff0a16e096f1df0eea148c8589dc7686fa268ba1c84102
-  - **[13]**:
+  - **[16]**:
     - **caminho**: ![caminho](imagens/setor_igarameca_p1.webp)
     - **checksum_sha256**: b2ab0e0a16eb19fe5d54f6a899456ac5ff07671862249a012699dc3631c64662
-  - **[14]**:
+  - **[17]**:
     - **caminho**: ![caminho](imagens/setor_igarameca_p2.webp)
     - **checksum_sha256**: 3a6b8f636bd121e5fa888a5dc855ddb627cea151389890532ba4f50053c78f30
-  - **[15]**:
+  - **[18]**:
     - **caminho**: ![caminho](imagens/setor_micos_p0.webp)
     - **checksum_sha256**: acb374ec8c0ecf85d537c86dd1328bbb91e4fd41576659d596457a818254cd2d
-  - **[16]**:
+  - **[19]**:
     - **caminho**: ![caminho](imagens/setor_micos_p1.webp)
     - **checksum_sha256**: e59d63c298cd1049ee8636ce3e3b78b993f5b2358f4e3fc57a10508e739e8536
-  - **[17]**:
+  - **[20]**:
     - **caminho**: ![caminho](imagens/setor_micos_p2.webp)
     - **checksum_sha256**: 27321d933aca314b50a98e486f662138fd61b049dcb90248b6bb2d162c7b944c
-  - **[18]**:
+  - **[21]**:
+    - **caminho**: ![caminho](imagens/setor_nectar_p0.webp)
+    - **checksum_sha256**: 7d03d9d98304c9cbdb5552f04633f0bfc830e0847069c46cae353ace2affe9f0
+  - **[22]**:
     - **caminho**: ![caminho](imagens/setor_pracinha_p0.webp)
     - **checksum_sha256**: ec34526d21a825cbefa2049a1fe82cc4a1d77a4dd1072d39804852cf5c38daf3
-  - **[19]**:
+  - **[23]**:
     - **caminho**: ![caminho](imagens/setor_pracinha_p1.webp)
     - **checksum_sha256**: 42e142af39766186c13a61691e384bddc064bcad6e4a07ce0e802cb429fe73ba
-  - **[20]**:
+  - **[24]**:
     - **caminho**: ![caminho](imagens/setor_pracinha_p2.webp)
     - **checksum_sha256**: 9afa2f619eda4053a096d19b64aa9262e8b85f9f9b05815ad2379e66ccc227e1
-  - **[21]**:
+  - **[25]**:
     - **caminho**: ![caminho](imagens/setor_pracinha_p3.webp)
     - **checksum_sha256**: d60317f3226a9af417557bf7f1d73d46aa152cfbded8a2d8e2a876834398ed64
-  - **[22]**:
+  - **[26]**:
     - **caminho**: ![caminho](imagens/setor_tetos_p0.webp)
     - **checksum_sha256**: 88013468ab3f1c12bc710281758d6e1e205443645aba8dff2828a8b52ee7f2e6
-  - **[23]**:
+  - **[27]**:
     - **caminho**: ![caminho](imagens/setor_tetos_p1.webp)
     - **checksum_sha256**: 4d12e846ce75ebfd1587a51a5661715826e1c800dcfdc1cf99124fa710576d2d
-  - **[24]**:
+  - **[28]**:
     - **caminho**: ![caminho](imagens/setor_totem_p0.webp)
     - **checksum_sha256**: eb605d166d35d36c3b23981ec6144eba7f3375955bed6b1954eff3d1ea441044
-  - **[25]**:
+  - **[29]**:
     - **caminho**: ![caminho](imagens/setor_totem_p1.webp)
     - **checksum_sha256**: 028f8cb259043ddcfd39cf2fb64041b88c41cd3538b6604d384ab2f08514edbf
-  - **[26]**:
+  - **[30]**:
     - **caminho**: ![caminho](imagens/setor_trad_p0.webp)
     - **checksum_sha256**: fa73e3e2fa27a74255e21b0c499f6e72bc47a99626b5bd780473d967c257eaad
 
