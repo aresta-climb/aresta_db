@@ -15,7 +15,8 @@ if parent_dir not in sys.path:
 
 from typing import Optional, Any, NoReturn
 from PySide6.QtWidgets import QApplication, QMessageBox, QDialog, QWidget
-from PySide6.QtCore import Qt, QSharedMemory
+from PySide6.QtCore import Qt
+from PySide6.QtNetwork import QLocalServer, QLocalSocket
 from PySide6.QtGui import QIcon
 from pathlib import Path
 
@@ -199,15 +200,18 @@ def main() -> None:
         app = QApplication(sys.argv)
     app.setApplicationName("EditorAresta")
 
-    # Previne múltiplas instâncias do editor
-    shared_mem = QSharedMemory("ArestaEditorSingleInstanceLock")
-    if shared_mem.attach():
-        pass
-    if not shared_mem.create(1):
+    # Previne múltiplas instâncias do editor usando QLocalServer / QLocalSocket
+    NOME_SERVIDOR_LOCAL = "ArestaEditorSingleInstanceServer"
+    socket_local = QLocalSocket()
+    socket_local.connectToServer(NOME_SERVIDOR_LOCAL)
+    if socket_local.waitForConnected(200):
         QMessageBox.warning(None, "Aresta Editor", "O Aresta Editor já está em execução.")
         sys.exit(0)
-    
-    setattr(app, "shared_mem_lock", shared_mem)
+
+    QLocalServer.removeServer(NOME_SERVIDOR_LOCAL)
+    servidor_local = QLocalServer()
+    servidor_local.listen(NOME_SERVIDOR_LOCAL)
+    setattr(app, "servidor_local", servidor_local)
 
     # Verificação de modo LocalRepo: sys.argv[1] começa apontando para algo com 'database'
     # E é de fato um diretório que contém croqui.yaml
