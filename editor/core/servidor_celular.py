@@ -233,6 +233,8 @@ class ServidorCelular(QObject):
                 ip_local=ip_local,
                 porta_local=self.porta,
                 ao_conectar_dispositivo=self._ao_notificar_conexao_remota,
+                jwt_token=self.jwt_token,
+                obter_jwt_atualizado=self._recuperar_jwt,
             )
 
             try:

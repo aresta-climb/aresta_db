@@ -241,3 +241,42 @@ def test_deve_recuperar_jwt_automaticamente_do_gerenciador_sessao(tmp_path):
     with patch("editor.core.gerenciador_sessao.GerenciadorSessao.recuperar_token", return_value="jwt_auto_recuperado"):
         servidor = ServidorCelular(pasta_compilado=pasta_compilado)
         assert servidor.jwt_token == "jwt_auto_recuperado"
+
+
+def test_servidor_celular_inicia_tunel_com_jwt_e_callback(tmp_path):
+    """Verifica se o túnel retransmissor recebe jwt_token e obter_jwt_atualizado ao iniciar."""
+    pasta_compilado = tmp_path / "compilado"
+    pasta_compilado.mkdir()
+
+    instancias_criadas = []
+
+    class MockClienteTunel:
+        def __init__(self, **kwargs):
+            instancias_criadas.append(kwargs)
+        async def executar(self):
+            pass
+        async def parar(self):
+            pass
+
+    with patch("editor.core.servidor_celular.ClienteTunelRetransmissor", side_effect=MockClienteTunel):
+        servidor = ServidorCelular(
+            pasta_compilado=pasta_compilado,
+            codigo_sessao="tstjwt12",
+            url_retransmissor_ws="ws://127.0.0.1:8080/ws?sessao=tstjwt12",
+            jwt_token="jwt_passado_teste",
+        )
+        servidor.iniciar()
+        esperar_porta(servidor)
+
+        # Aguarda thread do túnel iniciar
+        for _ in range(30):
+            if len(instancias_criadas) > 0:
+                break
+            time.sleep(0.05)
+
+        servidor.parar()
+
+        assert len(instancias_criadas) == 1
+        assert instancias_criadas[0]["jwt_token"] == "jwt_passado_teste"
+        assert callable(instancias_criadas[0]["obter_jwt_atualizado"])
+

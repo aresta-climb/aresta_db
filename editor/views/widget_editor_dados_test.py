@@ -3234,15 +3234,29 @@ def test_markdown_editor_autocompletar(qapp, tmp_path):
     assert busca_escapado == ""
 
 
+def test_container_repeated_widget_adicionar_item_trilha(qapp):
+    """Verifica se clicar no botão de adicionar item em um campo repeated de mensagem (como trilhas) funciona sem UnboundLocalError."""
+    from editor.views.widget_editor_dados import ContainerRepeatedWidget
+    from aresta_api.proto.generated.croqui_pb2 import Croqui
 
+    croqui = Croqui()
+    pico = croqui.picos.add()
+    sg = pico.setores_ou_grupos.add()
+    setor = sg.setor.conteudo
+    setor.nome = "Setor Micos"
 
+    model = CroquiModel(croqui)
+    controller = CroquiController(model, QUndoStack())
+    widget = WidgetEditorDados(model, controller)
+    form = widget.form_padrao
 
+    field_descriptor = setor.DESCRIPTOR.fields_by_name["trilhas"]
+    container = ContainerRepeatedWidget(setor, field_descriptor, form)
 
+    assert len(setor.trilhas) == 0
 
+    # Clica no botão Adicionar Item
+    container.btn_add.click()
 
-
-
-
-
-
-
+    # Deve ter adicionado uma trilha
+    assert len(setor.trilhas) == 1

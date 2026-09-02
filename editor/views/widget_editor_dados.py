@@ -700,7 +700,6 @@ class ContainerRepeatedWidget(QWidget):
             nome_sugerido = f"setor_{nome_setor_fmt}_p{idx}.webp"
             
             from editor.views.dialogos.dialogo_adicionar_mapa import DialogoAdicionarMapa
-            from google.protobuf.message_factory import GetMessageClass
             
             dialog = DialogoAdicionarMapa(nome_sugerido, db_dir, model=self.model, parent=self)
             if dialog.exec() == DialogoAdicionarMapa.DialogCode.Accepted:
