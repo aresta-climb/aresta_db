@@ -180,21 +180,39 @@ class EditorTextoMarkdown(QTextEdit):
     def completer(self) -> Any:
         return self._completer
 
-    def _obter_token_sob_cursor(self) -> Tuple[str, str]:
+    def _esta_dentro_de_imagem_markdown(self) -> bool:
         """
-        Retorna (token_completo, prefixo_busca).
-        Ex: 'imagens/set' -> ('imagens/set', 'set')
-            'set' -> ('set', 'set')
+        Verifica se o cursor está posicionado dentro dos parênteses de uma tag de imagem Markdown ![]().
         """
         cursor = self.textCursor()
-        cursor.movePosition(QTextCursor.MoveOperation.StartOfLine, QTextCursor.MoveMode.KeepAnchor)
-        linha = cursor.selectedText()
+        cursor.movePosition(QTextCursor.MoveOperation.StartOfBlock, QTextCursor.MoveMode.KeepAnchor)
+        bloco = cursor.selectedText()
+        import re
+        return bool(re.search(r'(?<!\\)!\[[^\]]*\]\([^)]*$', bloco))
+
+    def _obter_token_sob_cursor(self) -> Tuple[str, str]:
+        """
+        Retorna (token_completo, prefixo_busca) apenas se o cursor estiver dentro
+        dos parênteses de uma tag de imagem Markdown ![](). Caso contrário, retorna ("", "").
+        Ex: '![alt](imagens/set' -> ('imagens/set', 'set')
+            '![alt](set' -> ('set', 'set')
+            'Texto normal set' -> ('', '')
+        """
+        cursor = self.textCursor()
+        cursor.movePosition(QTextCursor.MoveOperation.StartOfBlock, QTextCursor.MoveMode.KeepAnchor)
+        bloco = cursor.selectedText()
         
         import re
-        match = re.search(r'([a-zA-Z0-9_\-\./]+)$', linha)
-        if not match:
+        match_imagem = re.search(r'(?<!\\)!\[[^\]]*\]\(([^)]*)$', bloco)
+        if not match_imagem:
             return "", ""
-        token = match.group(1)
+
+        conteudo_parenteses = match_imagem.group(1)
+        match_token = re.search(r'([a-zA-Z0-9_\-\./]+)$', conteudo_parenteses)
+        if not match_token:
+            return "", ""
+
+        token = match_token.group(1)
         if token.startswith("imagens/"):
             busca = token[len("imagens/"):]
         else:
@@ -280,7 +298,10 @@ class EditorTextoMarkdown(QTextEdit):
             return
 
         if is_shortcut:
-            self._completer.setCompletionPrefix("")
+            if not self._esta_dentro_de_imagem_markdown():
+                return
+            token, busca = self._obter_token_sob_cursor()
+            self._completer.setCompletionPrefix(busca)
             popup = self._completer.popup()
             cr = self.cursorRect()
             cr.setWidth(max(220, popup.sizeHintForColumn(0) + popup.verticalScrollBar().sizeHint().width() + 30))

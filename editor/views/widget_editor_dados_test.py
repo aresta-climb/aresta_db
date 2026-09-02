@@ -3146,7 +3146,7 @@ def test_markdown_editor_autocompletar(qapp, tmp_path):
     md_editor.editor._insert_completion("via_lactea.webp")
     assert md_editor.editor.toPlainText() == "Veja a foto: ![Setor](imagens/via_lactea.webp"
 
-    # 4. Testa acionamento do atalho Ctrl+Space
+    # 4. Testa acionamento do atalho Ctrl+Space dentro de tag de imagem
     event_ctrl_space = QKeyEvent(
         QKeyEvent.Type.KeyPress,
         Qt.Key.Key_Space,
@@ -3155,6 +3155,83 @@ def test_markdown_editor_autocompletar(qapp, tmp_path):
     md_editor.editor.keyPressEvent(event_ctrl_space)
     assert md_editor.editor.completer().popup().isVisible() is True
     md_editor.editor.completer().popup().hide()
+
+    # 5. Testa que texto comum e links comuns não disparam autocompletar
+    md_editor.editor.setPlainText("Esta via é muito bonita e técnica")
+    cursor = md_editor.editor.textCursor()
+    cursor.movePosition(cursor.MoveOperation.End)
+    md_editor.editor.setTextCursor(cursor)
+    token_normal, busca_normal = md_editor.editor._obter_token_sob_cursor()
+    assert token_normal == ""
+    assert busca_normal == ""
+
+    # Digitação em texto comum não abre popup
+    event_char = QKeyEvent(QKeyEvent.Type.KeyPress, Qt.Key.Key_A, Qt.KeyboardModifier.NoModifier, "a")
+    md_editor.editor.keyPressEvent(event_char)
+    assert md_editor.editor.completer().popup().isVisible() is False
+
+    # Ctrl+Space em texto comum não abre popup
+    md_editor.editor.keyPressEvent(event_ctrl_space)
+    assert md_editor.editor.completer().popup().isVisible() is False
+
+    # Link normal [Texto](via...) não abre popup e não extrai token
+    md_editor.editor.setPlainText("Veja o [documento](via")
+    cursor = md_editor.editor.textCursor()
+    cursor.movePosition(cursor.MoveOperation.End)
+    md_editor.editor.setTextCursor(cursor)
+    token_link, busca_link = md_editor.editor._obter_token_sob_cursor()
+    assert token_link == ""
+    assert busca_link == ""
+    md_editor.editor.keyPressEvent(event_ctrl_space)
+    assert md_editor.editor.completer().popup().isVisible() is False
+
+    # Imagem já fechada seguida de texto normal não extrai token
+    md_editor.editor.setPlainText("![Foto](imagens/via_lactea.webp) mais texto sobre a via")
+    cursor = md_editor.editor.textCursor()
+    cursor.movePosition(cursor.MoveOperation.End)
+    md_editor.editor.setTextCursor(cursor)
+    token_fechado, busca_fechado = md_editor.editor._obter_token_sob_cursor()
+    assert token_fechado == ""
+    assert busca_fechado == ""
+    md_editor.editor.keyPressEvent(event_ctrl_space)
+    assert md_editor.editor.completer().popup().isVisible() is False
+
+    # Múltiplas tags na mesma linha: segunda imagem em edição deve disparar autocompletar
+    md_editor.editor.setPlainText("![Foto 1](imagens/bloco_central.webp) e ![Foto 2](imagens/via")
+    cursor = md_editor.editor.textCursor()
+    cursor.movePosition(cursor.MoveOperation.End)
+    md_editor.editor.setTextCursor(cursor)
+    token_multi, busca_multi = md_editor.editor._obter_token_sob_cursor()
+    assert token_multi == "imagens/via"
+    assert busca_multi == "via"
+
+    # Multilinha: linha anterior com texto normal e linha atual com imagem
+    md_editor.editor.setPlainText("Primeira linha de texto\nSegunda linha com ![Foto](imagens/via")
+    cursor = md_editor.editor.textCursor()
+    cursor.movePosition(cursor.MoveOperation.End)
+    md_editor.editor.setTextCursor(cursor)
+    token_multi_linha, busca_multi_linha = md_editor.editor._obter_token_sob_cursor()
+    assert token_multi_linha == "imagens/via"
+    assert busca_multi_linha == "via"
+
+    # Cursor posicionado no meio de uma tag existente
+    md_editor.editor.setPlainText("Veja: ![Foto](imagens/via_lactea.webp) fim")
+    cursor = md_editor.editor.textCursor()
+    # Posiciona logo após 'imagens/via' (índice 25)
+    cursor.setPosition(25)
+    md_editor.editor.setTextCursor(cursor)
+    token_meio, busca_meio = md_editor.editor._obter_token_sob_cursor()
+    assert token_meio == "imagens/via"
+    assert busca_meio == "via"
+
+    # Escape de markdown (\![...](...)) não deve ser considerado tag de imagem
+    md_editor.editor.setPlainText(r"Texto com \![Falso](imagens/via")
+    cursor = md_editor.editor.textCursor()
+    cursor.movePosition(cursor.MoveOperation.End)
+    md_editor.editor.setTextCursor(cursor)
+    token_escapado, busca_escapado = md_editor.editor._obter_token_sob_cursor()
+    assert token_escapado == ""
+    assert busca_escapado == ""
 
 
 

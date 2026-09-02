@@ -80,3 +80,37 @@ def test_deve_ativar_autosave_quando_celular_conectado(qtbot, janela):
             
             janela.monitor_inatividade.inatividade_detectada.emit()
             mock_salvar.assert_called_once()
+
+def test_deve_emitir_recarregamento_ao_salvar_sucesso_com_servidor_celular_ativo(qtbot, janela):
+    janela.servidor_celular = MagicMock()
+    janela.croqui_data = {"id": "br_mg_igarape_pedra_grande"}
+    
+    with patch.object(janela, "exibir_notificacao") as mock_notif:
+        janela._on_salvar_sucesso(Path("fake_caminho"), [], False, 0)
+        mock_notif.assert_called_once_with("Croqui salvo e compilado com sucesso!")
+        
+    janela.servidor_celular.emitir_recarregamento.assert_called_once_with("br_mg_igarape_pedra_grande")
+
+def test_deve_exibir_notificacao_e_emitir_recarregamento_mesmo_com_avisos_de_compilacao(qtbot, janela):
+    janela.servidor_celular = MagicMock()
+    janela.croqui_data = {"id": "br_mg_igarape_pedra_grande"}
+    
+    with patch.object(janela, "exibir_notificacao") as mock_notif:
+        janela._on_salvar_sucesso(Path("fake_caminho"), ["Aviso: campo opcional vazio"], False, 0)
+        mock_notif.assert_called_once()
+        assert "avisos" in mock_notif.call_args[0][0].lower() or "sucesso" in mock_notif.call_args[0][0].lower()
+        
+    janela.servidor_celular.emitir_recarregamento.assert_called_once_with("br_mg_igarape_pedra_grande")
+
+def test_acao_salvar_deve_possuir_atalho_ctrl_s_registrado_na_janela(qtbot, janela):
+    from PySide6.QtGui import QKeySequence
+    from PySide6.QtCore import Qt
+    
+    # A ação deve ter o atalho padrão de Save (Ctrl+S / Cmd+S)
+    atalhos = [s.toString() for s in janela.acao_salvar.shortcuts()]
+    atalho_padrao = QKeySequence(QKeySequence.StandardKey.Save).toString()
+    assert atalho_padrao in atalhos or "Ctrl+S" in atalhos
+    
+    # A ação deve estar registrada na janela principal para funcionar globalmente
+    assert janela.acao_salvar in janela.actions()
+

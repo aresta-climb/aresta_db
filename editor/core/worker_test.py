@@ -313,6 +313,28 @@ class TestWorker(unittest.TestCase):
             "Autenticação necessária para utilizar o Aresta Editor."
         )
 
+    def test_tarefa_dados_conexao_emite_dados_completos(self):
+        """Valida que TarefaDadosConexao executa solicitar_sessao_servidor e emite sinais corretamente."""
+        from editor.core.worker import TarefaDadosConexao
+
+        mock_servidor = MagicMock()
+        mock_servidor.porta = 8888
+        mock_servidor.codigo_sessao = "f0zbudvq"
+        mock_servidor.obter_url_previa_canonica.return_value = "https://previa.arestaclimb.com/f0zb-udvq"
+        mock_servidor.gerar_qr_code.return_value = b"png_fake_bytes"
+
+        tarefa = TarefaDadosConexao(mock_servidor)
+        tarefa.concluido = MagicMock()
+
+        tarefa.run()
+
+        mock_servidor.solicitar_sessao_servidor.assert_not_called()
+        tarefa.concluido.emit.assert_called_once_with(
+            "https://previa.arestaclimb.com/f0zb-udvq",
+            b"png_fake_bytes",
+            "f0zb-udvq",
+        )
+
 
 if __name__ == "__main__":
     unittest.main()

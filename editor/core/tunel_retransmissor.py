@@ -8,7 +8,7 @@ import json
 import base64
 import mimetypes
 from pathlib import Path
-from typing import Optional, Dict, Any
+from typing import Optional, Dict, Any, Callable, cast
 import websockets
 from websockets.exceptions import ConnectionClosed
 
@@ -54,7 +54,7 @@ def solicitar_sessao_servidor(
 
     with urllib.request.urlopen(req, timeout=timeout_segundos) as resposta:
         corpo = resposta.read().decode("utf-8")
-        return json.loads(corpo)
+        return cast(Dict[str, Any], json.loads(corpo))
 
 
 class ClienteTunelRetransmissor:
@@ -67,7 +67,8 @@ class ClienteTunelRetransmissor:
         url_retransmissor_ws: Optional[str] = None,
         ip_local: Optional[str] = None,
         porta_local: Optional[int] = None,
-    ):
+        ao_conectar_dispositivo: Optional[Callable[[], None]] = None,
+    ) -> None:
         self.codigo_sessao = codigo_sessao
         self.pasta_compilado = Path(pasta_compilado).resolve()
         self.url_retransmissor_ws = (
@@ -76,66 +77,91 @@ class ClienteTunelRetransmissor:
         )
         self.ip_local = ip_local
         self.porta_local = porta_local
+        self.ao_conectar_dispositivo = ao_conectar_dispositivo
         self._rodando = False
-        self._websocket = None
+        self._websocket: Optional[Any] = None
         self._evento_parada = asyncio.Event()
 
-    async def executar(self) -> None:
-        """Inicia e mantém o loop de conexão WebSocket com o retransmissor."""
+    async def executar(self, intervalo_heartbeat: float = 15.0) -> None:
+        """Inicia e mantém o loop de conexão WebSocket com o retransmissor e reconexão automática."""
         self._rodando = True
         self._evento_parada.clear()
+        tentativas_falhas = 0
 
-        try:
-            async with websockets.connect(self.url_retransmissor_ws) as ws:
-                self._websocket = ws
+        while not self._evento_parada.is_set():
+            try:
+                async with websockets.connect(
+                    self.url_retransmissor_ws,
+                    ping_interval=intervalo_heartbeat,
+                    ping_timeout=intervalo_heartbeat,
+                    close_timeout=5,
+                ) as ws:
+                    self._websocket = ws
+                    tentativas_falhas = 0
 
-                # 1. Envia mensagem inicial de registro com metadados de rede
-                payload_registro: Dict[str, Any] = {
-                    "tipo": "registro",
-                    "dados": {
-                        "codigo": self.codigo_sessao,
-                        "ipLocal": self.ip_local,
-                        "portaLocal": self.porta_local,
-                        "urlLocal": (
-                            f"http://{self.ip_local}:{self.porta_local}"
-                            if self.ip_local and self.porta_local
-                            else None
-                        ),
-                    },
-                }
-                await ws.send(json.dumps(payload_registro))
+                    # 1. Envia mensagem inicial de registro com metadados de rede
+                    payload_registro: Dict[str, Any] = {
+                        "tipo": "registro",
+                        "dados": {
+                            "codigo": self.codigo_sessao,
+                            "ipLocal": self.ip_local,
+                            "portaLocal": self.porta_local,
+                            "urlLocal": (
+                                f"http://{self.ip_local}:{self.porta_local}"
+                                if self.ip_local and self.porta_local
+                                else None
+                            ),
+                        },
+                    }
+                    await ws.send(json.dumps(payload_registro))
 
-                # 2. Loop de escuta de mensagens
-                while self._rodando:
-                    tarefa_receber = asyncio.create_task(ws.recv())
-                    tarefa_parada = asyncio.create_task(self._evento_parada.wait())
+                    # 2. Loop de escuta de mensagens com heartbeat periódico da aplicação
+                    while not self._evento_parada.is_set():
+                        tarefa_receber = asyncio.create_task(ws.recv())
+                        tarefa_parada = asyncio.create_task(self._evento_parada.wait())
 
-                    concluidas, pendentes = await asyncio.wait(
-                        [tarefa_receber, tarefa_parada],
-                        return_when=asyncio.FIRST_COMPLETED,
-                    )
+                        concluidas, pendentes = await asyncio.wait(
+                            [tarefa_receber, tarefa_parada],
+                            timeout=intervalo_heartbeat,
+                            return_when=asyncio.FIRST_COMPLETED,
+                        )
 
-                    for p in pendentes:
-                        p.cancel()
+                        for p in pendentes:
+                            p.cancel()
 
-                    if self._evento_parada.is_set():
-                        break
+                        if self._evento_parada.is_set():
+                            break
 
-                    if tarefa_receber in concluidas:
-                        try:
+                        if tarefa_receber in concluidas:
+                            erro = tarefa_receber.exception()
+                            if erro is not None:
+                                break
                             mensagem = tarefa_receber.result()
-                            dados = json.loads(mensagem)
-                            await self._tratar_mensagem(dados, ws)
-                        except Exception:
-                            pass
-        except (ConnectionClosed, asyncio.CancelledError, Exception):
-            pass
-        finally:
-            self._rodando = False
-            self._websocket = None
+                            try:
+                                dados = json.loads(mensagem)
+                                await self._tratar_mensagem(dados, ws)
+                            except Exception:
+                                pass
+                        else:
+                            # Canal ocioso pelo intervalo: envia ping de keepalive da aplicação
+                            try:
+                                await ws.send(json.dumps({"tipo": "ping"}))
+                            except Exception:
+                                break
+            except (ConnectionClosed, asyncio.CancelledError, Exception):
+                if self._evento_parada.is_set():
+                    break
+                tentativas_falhas += 1
+                tempo_espera = min(5.0, 0.2 * (2 ** min(tentativas_falhas, 4)))
+                await asyncio.sleep(tempo_espera)
+            finally:
+                self._websocket = None
+
+        self._rodando = False
 
     async def emitir_recarregamento(self, setor_id: str) -> None:
         """Envia uma notificação push de recarregamento em tempo real para os clientes conectados."""
+        print(f"⚡ [TunelRetransmissor] emitir_recarregamento('{setor_id}') | ws={self._websocket is not None}, rodando={self._rodando}")
         if self._websocket and self._rodando:
             try:
                 payload = {
@@ -146,14 +172,23 @@ class ClienteTunelRetransmissor:
                     },
                 }
                 await self._websocket.send(json.dumps(payload))
-            except Exception:
-                pass
+                print(f"⚡ [TunelRetransmissor] ✅ Push de recarga enviado para o Cloudflare com sucesso: {payload}")
+            except Exception as e:
+                print(f"🛑 [TunelRetransmissor] Falha ao enviar payload de recarga: {e}")
+        else:
+            print(f"⚠️ [TunelRetransmissor] WebSocket não conectado ou túnel inativo (ws={self._websocket}, rodando={self._rodando})")
 
     async def _tratar_mensagem(self, dados: Dict[str, Any], ws: Any) -> None:
         """Processa mensagens recebidas do retransmissor."""
         tipo = dados.get("tipo")
 
         if tipo == "requisicao_proxy":
+            if self.ao_conectar_dispositivo:
+                try:
+                    self.ao_conectar_dispositivo()
+                except Exception:
+                    pass
+
             req = dados.get("dados", {})
             req_id = req.get("id")
             caminho = req.get("caminho", "").lstrip("/")

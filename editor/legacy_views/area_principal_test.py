@@ -630,8 +630,8 @@ def test_salvar_croqui_repassa_erros_ao_controller(qtbot):
         # Verifica se os erros foram passados pro controlador
         mock_processar.assert_called_once_with(["Erro no mapa"])
         
-        # Verifica que a notificação toast NÃO foi chamada
-        mock_notif.assert_not_called()
+        # Verifica que a notificação toast foi chamada informando avisos
+        mock_notif.assert_called_once_with("Croqui salvo com avisos de compilação.")
 
 @patch("editor.legacy_views.area_principal.JanelaPrincipal.carregar_croqui")
 def test_botao_abrir_habilitado_em_modo_normal(mock_carregar, qtbot):

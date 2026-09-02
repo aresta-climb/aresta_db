@@ -44,13 +44,7 @@ class ServidorCelular(QObject):
         self.url_previa_canonica: Optional[str] = None
         self.jwt_token: Optional[str] = jwt_token
         if not self.jwt_token:
-            try:
-                from editor.core.gerenciador_sessao import GerenciadorSessao
-                sessao_usr = GerenciadorSessao().carregar_sessao()
-                if sessao_usr and sessao_usr.jwt_supabase:
-                    self.jwt_token = sessao_usr.jwt_supabase
-            except Exception:
-                pass
+            self.jwt_token = self._recuperar_jwt()
         self.porta: Optional[int] = None
         self.server: Any = None
         self._thread_servidor: Optional[threading.Thread] = None
@@ -59,25 +53,43 @@ class ServidorCelular(QObject):
         self.cliente_tunel: Optional[ClienteTunelRetransmissor] = None
         self._servindo: bool = False
         self.conectado: bool = False
+        self._trava_sessao = threading.Lock()
+
+    def _recuperar_jwt(self) -> Optional[str]:
+        """Tenta obter ou renovar o token JWT do usuário a partir do GerenciadorSessao."""
+        try:
+            from editor.core.gerenciador_sessao import GerenciadorSessao
+
+            return GerenciadorSessao().recuperar_token(auto_renovar=True)
+        except Exception:
+            return None
 
     def solicitar_sessao_servidor(self, url_base: str = DOMINIO_PREVIA_CANONICO) -> bool:
         """Solicita ao Cloudflare Worker (POST /sessoes) a criação da sessão e armazena os dados oficiais."""
-        if not self.jwt_token:
-            return False
-
-        from editor.core.tunel_retransmissor import solicitar_sessao_servidor as api_solicitar
-        try:
-            ip = self.obter_ip_local()
-            porta = self.porta or 0
-            dados = api_solicitar(url_base, self.jwt_token, ip_local=ip, porta_local=porta)
-            if "codigo" in dados:
-                self.codigo_sessao = dados["codigo"]
-                self.url_previa_canonica = dados.get("url_previa")
-                self.url_retransmissor_ws = dados.get("ws_url")
+        with self._trava_sessao:
+            if self.codigo_sessao and self.url_previa_canonica and self.url_retransmissor_ws:
                 return True
-        except Exception:
-            pass
-        return False
+
+            if not self.jwt_token:
+                self.jwt_token = self._recuperar_jwt()
+
+            if not self.jwt_token:
+                print("[WARN] ServidorCelular: Nenhum token JWT de autenticação disponível para o Cloudflare Relay.")
+                return False
+
+            from editor.core.tunel_retransmissor import solicitar_sessao_servidor as api_solicitar
+            try:
+                ip = self.obter_ip_local()
+                porta = self.porta or 0
+                dados = api_solicitar(url_base, self.jwt_token, ip_local=ip, porta_local=porta)
+                if "codigo" in dados:
+                    self.codigo_sessao = dados["codigo"]
+                    self.url_previa_canonica = dados.get("url_previa")
+                    self.url_retransmissor_ws = dados.get("ws_url")
+                    return True
+            except Exception as e:
+                print(f"[WARN] Falha ao solicitar sessão ao Cloudflare Worker: {e}")
+            return False
 
     def obter_url_previa_canonica(self) -> str:
         """Retorna a URL pública canônica em previa.arestaclimb.com para o código desta sessão."""
@@ -85,7 +97,7 @@ class ServidorCelular(QObject):
             return self.url_previa_canonica
         if self.codigo_sessao:
             return obter_url_previa(self.codigo_sessao)
-        if self.jwt_token and self.solicitar_sessao_servidor():
+        if self.solicitar_sessao_servidor():
             if self.url_previa_canonica:
                 return self.url_previa_canonica
         ip = self.obter_ip_local()
@@ -133,8 +145,8 @@ class ServidorCelular(QObject):
         img.save(buffer, "PNG")
         return bytes(buffer.getvalue())
 
-    def iniciar(self, conectar_tunel: bool = False) -> None:
-        """Inicia o servidor HTTP ASGI e opcionalmente o túnel de retransmissão em threads separadas."""
+    def iniciar(self) -> None:
+        """Inicia o servidor HTTP ASGI local e o túnel de retransmissão remoto em threads separadas."""
         if self._servindo:
             return
 
@@ -185,36 +197,48 @@ class ServidorCelular(QObject):
         self._thread_servidor = threading.Thread(target=run_server, daemon=True)
         self._thread_servidor.start()
 
-        if conectar_tunel:
-            self._iniciar_tunel()
+        self._iniciar_tunel()
 
     def _iniciar_tunel(self) -> None:
         """Inicia o cliente do túnel de retransmissão em background."""
         def run_tunel() -> None:
+            import time
+
+            tentativas = 0
+            while self.porta is None and tentativas < 60:
+                time.sleep(0.05)
+                tentativas += 1
+
             self._loop_tunel = asyncio.new_event_loop()
             asyncio.set_event_loop(self._loop_tunel)
 
             ip_local = self.obter_ip_local()
 
-            # Se possuir credenciais JWT e ainda não tiver URL oficial, requisita sessão ao servidor
-            if self.jwt_token and not self.url_previa_canonica:
+            # Se ainda não tiver código de sessão, requisita ao Cloudflare
+            if not self.codigo_sessao:
                 self.solicitar_sessao_servidor()
 
+            if self.codigo_sessao and not self.url_previa_canonica:
+                self.url_previa_canonica = obter_url_previa(self.codigo_sessao)
+
             if not self.codigo_sessao:
+                print("[WARN] Túnel retransmissor não iniciado: código de sessão ausente.")
                 return
 
+            print(f"[DEBUG TUNEL] Conectando túnel WebSocket para sessão {self.codigo_sessao} em {self.url_retransmissor_ws}")
             self.cliente_tunel = ClienteTunelRetransmissor(
                 codigo_sessao=self.codigo_sessao,
                 pasta_compilado=self.pasta_compilado,
                 url_retransmissor_ws=self.url_retransmissor_ws,
                 ip_local=ip_local,
                 porta_local=self.porta,
+                ao_conectar_dispositivo=self._ao_notificar_conexao_remota,
             )
 
             try:
                 self._loop_tunel.run_until_complete(self.cliente_tunel.executar())
-            except Exception:
-                pass
+            except Exception as e:
+                print(f"[WARN] Erro no loop do túnel retransmissor: {e}")
             finally:
                 if self._loop_tunel and not self._loop_tunel.is_closed():
                     self._loop_tunel.close()
@@ -224,13 +248,22 @@ class ServidorCelular(QObject):
         self._thread_tunel = threading.Thread(target=run_tunel, daemon=True)
         self._thread_tunel.start()
 
+    def _ao_notificar_conexao_remota(self) -> None:
+        """Chamado quando um dispositivo remoto efetua requisição através do túnel Cloudflare."""
+        if not self.conectado:
+            self.conectado = True
+            self.dispositivo_conectado.emit()
+
     def emitir_recarregamento(self, setor_id: str) -> None:
         """Dispara evento de recarregamento em tempo real para os clientes conectados."""
+        print(f"⚡ [ServidorCelular] emitir_recarregamento({setor_id=}) | cliente_tunel={self.cliente_tunel is not None} | loop_running={self._loop_tunel.is_running() if self._loop_tunel else False}")
         if self.cliente_tunel and self._loop_tunel and self._loop_tunel.is_running():
             asyncio.run_coroutine_threadsafe(
                 self.cliente_tunel.emitir_recarregamento(setor_id),
                 self._loop_tunel,
             )
+        else:
+            print(f"⚠️ [ServidorCelular] Não foi possível despachar live reload: cliente_tunel={self.cliente_tunel}, loop={self._loop_tunel}")
 
     def parar(self) -> None:
         """Encerra o servidor HTTP e o túnel sem bloquear a UI."""

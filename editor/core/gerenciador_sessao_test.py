@@ -232,4 +232,56 @@ class TesteGerenciadorSessao:
             token_atualizacao="refresh.123",
         )
         gerenciador.salvar_sessao(sessao)
-        assert gerenciador.recuperar_token() == "jwt.supabase.123"
+        assert gerenciador.recuperar_token(auto_renovar=False) == "jwt.supabase.123"
+        assert gerenciador.carregar_sessao().email == "teste@arestaclimb.com"
+
+    def teste_token_jwt_expirado(self):
+        import time
+        import base64
+        import json
+        from editor.core.gerenciador_sessao import token_jwt_expirado
+
+        agora = int(time.time())
+
+        def criar_jwt(exp):
+            header = base64.urlsafe_b64encode(b'{"alg":"HS256"}').decode().rstrip("=")
+            payload = base64.urlsafe_b64encode(json.dumps({"exp": exp}).encode()).decode().rstrip("=")
+            return f"{header}.{payload}.signature"
+
+        jwt_expirado = criar_jwt(agora - 100)
+        jwt_valido = criar_jwt(agora + 3600)
+
+        assert token_jwt_expirado(jwt_expirado) is True
+        assert token_jwt_expirado(jwt_valido) is False
+        assert token_jwt_expirado("invalido") is True
+
+    def teste_recuperar_token_com_auto_renovacao(self):
+        import time
+        import base64
+        import json
+        from unittest.mock import patch, MagicMock
+
+        agora = int(time.time())
+        header = base64.urlsafe_b64encode(b'{"alg":"HS256"}').decode().rstrip("=")
+        payload_expirado = base64.urlsafe_b64encode(json.dumps({"exp": agora - 500}).encode()).decode().rstrip("=")
+        jwt_expirado = f"{header}.{payload_expirado}.sig"
+
+        gerenciador = GerenciadorSessao(usar_memoria=True)
+        sessao = SessaoUsuario(
+            email="expirado@arestaclimb.com",
+            nome_completo="Usuario Expirado",
+            jwt_supabase=jwt_expirado,
+            token_atualizacao="refresh.token.valido",
+        )
+        gerenciador.salvar_sessao(sessao)
+
+        with patch("editor.core.cliente_auth_supabase.ClienteAuthSupabase.renovar_sessao", return_value={
+            "access_token": "jwt_novo_renovado_456",
+            "refresh_token": "refresh_novo_789",
+        }):
+            token_obtido = gerenciador.recuperar_token(auto_renovar=True)
+            assert token_obtido == "jwt_novo_renovado_456"
+
+            sessao_atualizada = gerenciador.obter_sessao()
+            assert sessao_atualizada.jwt_supabase == "jwt_novo_renovado_456"
+            assert sessao_atualizada.token_atualizacao == "refresh_novo_789"

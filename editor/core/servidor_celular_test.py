@@ -186,7 +186,7 @@ def test_deve_construir_url_previa_canonica_e_conectar_tunel(tmp_path):
 
             assert servidor.obter_url_previa_canonica() == "https://previa.arestaclimb.com/k9x2-p83a"
 
-            servidor.iniciar(conectar_tunel=True)
+            servidor.iniciar()
             esperar_porta(servidor)
 
             for _ in range(40):
@@ -231,3 +231,13 @@ def test_deve_solicitar_sessao_ao_servidor_remoto(tmp_path):
         assert servidor.codigo_sessao == "x7m4n2q1"
         assert servidor.obter_url_previa_canonica() == "https://previa.arestaclimb.com/x7m4-n2q1"
         assert servidor.url_retransmissor_ws == "wss://previa.arestaclimb.com/ws?sessao=x7m4n2q1&token=jwt_valido_mock"
+
+
+def test_deve_recuperar_jwt_automaticamente_do_gerenciador_sessao(tmp_path):
+    """Quando jwt_token for None, deve buscar automaticamente no GerenciadorSessao."""
+    pasta_compilado = tmp_path / "compilado"
+    pasta_compilado.mkdir()
+
+    with patch("editor.core.gerenciador_sessao.GerenciadorSessao.recuperar_token", return_value="jwt_auto_recuperado"):
+        servidor = ServidorCelular(pasta_compilado=pasta_compilado)
+        assert servidor.jwt_token == "jwt_auto_recuperado"

@@ -287,8 +287,8 @@ class TarefaDadosConexao(QThread):
             if self.servidor.porta is None:
                 return # Falha ao iniciar servidor
 
-            if hasattr(self.servidor, "jwt_token") and self.servidor.jwt_token:
-                if hasattr(self.servidor, "solicitar_sessao_servidor") and not getattr(self.servidor, "url_previa_canonica", None):
+            if hasattr(self.servidor, "solicitar_sessao_servidor"):
+                if not getattr(self.servidor, "codigo_sessao", None):
                     self.servidor.solicitar_sessao_servidor()
 
             from editor.core.codigo_sessao import formatar_codigo

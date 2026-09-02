@@ -12,6 +12,29 @@ from cryptography.hazmat.primitives.ciphers.aead import AESGCM
 from editor.core.storage import GerenciadorCaminhos
 
 
+def token_jwt_expirado(token: str, margem_segundos: int = 60) -> bool:
+    """Verifica se um token JWT está expirado com base no campo exp do payload."""
+    try:
+        partes = token.split(".")
+        if len(partes) != 3:
+            return True
+        payload_b64 = partes[1]
+        rem = len(payload_b64) % 4
+        if rem > 0:
+            payload_b64 += "=" * (4 - rem)
+        payload_json = base64.urlsafe_b64decode(payload_b64.encode("ascii")).decode("utf-8")
+        payload = json.loads(payload_json)
+        exp = payload.get("exp")
+        if exp and isinstance(exp, (int, float)):
+            import time
+
+            agora = time.time()
+            return agora >= (exp - margem_segundos)
+    except Exception:
+        return True
+    return False
+
+
 @dataclass
 class SessaoUsuario:
     """
@@ -153,10 +176,35 @@ class GerenciadorSessao:
             self.limpar_sessao()
             return None
 
-    def recuperar_token(self) -> Optional[str]:
-        """Recupera o token JWT do Supabase da sessão ativa para compatibilidade."""
+    def carregar_sessao(self) -> Optional[SessaoUsuario]:
+        """Alias de compatibilidade para obter_sessao."""
+        return self.obter_sessao()
+
+    def recuperar_token(self, auto_renovar: bool = True) -> Optional[str]:
+        """Recupera o token JWT do Supabase da sessão ativa, renovando-o se expirado."""
         sessao = self.obter_sessao()
-        return sessao.jwt_supabase if sessao else None
+        if not sessao or not sessao.jwt_supabase:
+            return None
+
+        if auto_renovar and token_jwt_expirado(sessao.jwt_supabase):
+            if sessao.token_atualizacao:
+                try:
+                    from editor.core.cliente_auth_supabase import ClienteAuthSupabase
+
+                    novos_dados = ClienteAuthSupabase().renovar_sessao(
+                        sessao.token_atualizacao
+                    )
+                    if "access_token" in novos_dados:
+                        sessao.jwt_supabase = novos_dados["access_token"]
+                        sessao.token_atualizacao = novos_dados.get(
+                            "refresh_token", sessao.token_atualizacao
+                        )
+                        self.salvar_sessao(sessao)
+                        return sessao.jwt_supabase
+                except Exception:
+                    pass
+
+        return sessao.jwt_supabase
 
     def limpar_sessao(self) -> None:
         """Remove a chave mestra do Keyring e o arquivo criptografado do disco."""

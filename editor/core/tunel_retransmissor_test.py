@@ -350,3 +350,84 @@ def test_deve_rejeitar_tentativas_de_directory_traversal(pasta_temporaria):
     res_legitimo = cliente._ler_arquivo_proxy("req-4", "setores/br_mg_ferros.binarypb")
     assert res_legitimo["status"] == 200
     assert base64.b64decode(res_legitimo["corpoBase64"]) == b"conteudo_do_setor"
+
+
+def test_cliente_tunel_reconecta_automaticamente_apos_queda(pasta_temporaria):
+    """Cliente do túnel deve restabelecer conexão automaticamente quando o servidor fecha a conexão."""
+    async def run():
+        conexoes = 0
+
+        async def servidor_mock_handler(websocket):
+            nonlocal conexoes
+            conexoes += 1
+            if conexoes == 1:
+                # Na primeira conexão, fecha abruptamente logo após o registro
+                await websocket.recv()
+                await websocket.close(1001, "Reinicio de servidor")
+            else:
+                # Na segunda conexão, processa normalmente
+                async for mensagem in websocket:
+                    dados = json.loads(mensagem)
+                    if dados.get("tipo") == "registro":
+                        await websocket.send(json.dumps({"tipo": "pong"}))
+
+        async with websockets.serve(servidor_mock_handler, "127.0.0.1", 0) as server:
+            porta = server.sockets[0].getsockname()[1]
+            url_ws = f"ws://127.0.0.1:{porta}/ws?sessao=recon123"
+
+            cliente = ClienteTunelRetransmissor(
+                codigo_sessao="recon123",
+                pasta_compilado=pasta_temporaria,
+                url_retransmissor_ws=url_ws,
+            )
+
+            tarefa = asyncio.create_task(cliente.executar(intervalo_heartbeat=0.1))
+
+            for _ in range(50):
+                if conexoes >= 2:
+                    break
+                await asyncio.sleep(0.05)
+
+            await cliente.parar()
+            await tarefa
+            assert conexoes >= 2
+
+    asyncio.run(run())
+
+
+def test_cliente_tunel_envia_ping_keepalive_quando_ocioso(pasta_temporaria):
+    """Cliente do túnel deve enviar ping de heartbeat quando o canal permanece ocioso."""
+    async def run():
+        pings_recebidos = 0
+
+        async def servidor_mock_handler(websocket):
+            nonlocal pings_recebidos
+            async for mensagem in websocket:
+                dados = json.loads(mensagem)
+                if dados.get("tipo") == "ping":
+                    pings_recebidos += 1
+                    await websocket.send(json.dumps({"tipo": "pong"}))
+
+        async with websockets.serve(servidor_mock_handler, "127.0.0.1", 0) as server:
+            porta = server.sockets[0].getsockname()[1]
+            url_ws = f"ws://127.0.0.1:{porta}/ws?sessao=ping123"
+
+            cliente = ClienteTunelRetransmissor(
+                codigo_sessao="ping123",
+                pasta_compilado=pasta_temporaria,
+                url_retransmissor_ws=url_ws,
+            )
+
+            tarefa = asyncio.create_task(cliente.executar(intervalo_heartbeat=0.08))
+
+            for _ in range(40):
+                if pings_recebidos >= 2:
+                    break
+                await asyncio.sleep(0.05)
+
+            await cliente.parar()
+            await tarefa
+            assert pings_recebidos >= 1
+
+    asyncio.run(run())
+

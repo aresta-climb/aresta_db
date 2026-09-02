@@ -423,6 +423,8 @@ class JanelaPrincipal(QMainWindow):
         
         self.acao_salvar = QAction(Icones.obter("salvar"), "Salvar", self)
         self.acao_salvar.setToolTip("Salvar")
+        self.acao_salvar.setShortcuts(QKeySequence.StandardKey.Save)
+        self.acao_salvar.setShortcutContext(Qt.ShortcutContext.ApplicationShortcut)
         self.acao_salvar.triggered.connect(self.salvar_croqui)
         
         self.acao_desfazer = QAction(Icones.obter("desfazer"), "Desfazer", self)
@@ -467,6 +469,7 @@ class JanelaPrincipal(QMainWindow):
         
         self.toolbar_superior.addAction(self.acao_abrir)
         self.toolbar_superior.addAction(self.acao_salvar)
+        self.addAction(self.acao_salvar)
         self.toolbar_superior.addSeparator()
         self.toolbar_superior.addAction(self.acao_desfazer)
         self.addAction(self.acao_desfazer)
@@ -774,9 +777,17 @@ class JanelaPrincipal(QMainWindow):
             
         if erros:
             self.compilacao_controller.processar_resultado(erros)
+            self.exibir_notificacao("Croqui salvo com avisos de compilação.")
         else:
             self.compilacao_controller.processar_resultado([])
             self.exibir_notificacao("Croqui salvo e compilado com sucesso!")
+
+        if self.servidor_celular:
+            id_croqui = str(self.croqui_data.get("id", "")) if self.croqui_data else ""
+            print(f"⚡ [HotReload] Salvamento finalizado. Disparando recarregamento para o croqui: '{id_croqui}'...")
+            self.servidor_celular.emitir_recarregamento(id_croqui)
+        else:
+            print("⚡ [HotReload] Servidor celular não está ativo neste momento.")
         
         if self.workspace:
             caminho_db = self.workspace.obter_caminho_database()
@@ -950,10 +961,13 @@ class JanelaPrincipal(QMainWindow):
                 pasta_compilado.mkdir(parents=True, exist_ok=True)
             
             jwt_supabase = None
-            if self.auth and hasattr(self.auth, "carregar_sessao"):
-                sessao_usr = self.auth.carregar_sessao()
-                if sessao_usr and hasattr(sessao_usr, "jwt_supabase"):
-                    jwt_supabase = sessao_usr.jwt_supabase
+            if self.auth:
+                if hasattr(self.auth, "recuperar_token"):
+                    jwt_supabase = self.auth.recuperar_token()
+                elif hasattr(self.auth, "obter_sessao"):
+                    sessao_usr = self.auth.obter_sessao()
+                    if sessao_usr and hasattr(sessao_usr, "jwt_supabase"):
+                        jwt_supabase = sessao_usr.jwt_supabase
 
             self.servidor_celular = ServidorCelular(
                 pasta_compilado,
