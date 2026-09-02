@@ -26,7 +26,7 @@ validador = [
 # Interface gráfica do Editor Aresta 
 editor = [
     {include-group = "deploy"},
-    "pyside6",
+    "pyside6-essentials",
     "pyinstaller",
     "pytest-qt",
     "pygit2",
