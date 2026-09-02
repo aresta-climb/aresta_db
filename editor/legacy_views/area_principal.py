@@ -117,17 +117,7 @@ class PaginaImagens(PaginaBase):
         
     def carregar_imagens(self, caminho_db: Optional[Union[str, Path]], model: Optional[Any] = None, controller: Optional[Any] = None) -> None:
         if model:
-            if getattr(self.editor, "_model_conectado", None) is not model:
-                conectado = getattr(self.editor, "_model_conectado", None)
-                if conectado is not None and hasattr(conectado, "imagem_alterada"):
-                    try:
-                        conectado.imagem_alterada.disconnect(self.editor._on_imagem_alterada)
-                    except Exception:
-                        pass
-                self.editor.croqui_model = model
-                if hasattr(model, "imagem_alterada"):
-                    model.imagem_alterada.connect(self.editor._on_imagem_alterada)
-                    self.editor._model_conectado = model
+            self.editor.croqui_model = model
         if controller:
             self.editor.croqui_controller = controller
 

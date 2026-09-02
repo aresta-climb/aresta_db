@@ -154,3 +154,159 @@ class TestAreaPrincipalImagensIntegracao:
 
         area_principal.historico.obter_pilha().setClean()
 
+    def test_rotacao_imagem_integrada_com_undo_redo(self, qtbot, tmp_path):
+        pasta_raiz = tmp_path / "croqui_teste_rotacao"
+        pasta_db = pasta_raiz / "database"
+        pasta_db.mkdir(parents=True)
+        pasta_imagens = pasta_db / "imagens"
+        pasta_imagens.mkdir()
+
+        # Cria imagem 200 de largura por 100 de altura
+        img = Image.new("RGB", (200, 100), color=(10, 20, 30))
+        img.save(pasta_imagens / "foto_setor.webp", format="WEBP")
+        (pasta_db / "croqui.yaml").write_text("id: teste\nnome: Teste\n", encoding="utf-8")
+
+        workspace = ExperimentalWorkspace(pasta_raiz)
+        area_principal = JanelaPrincipal(workspace=workspace)
+        qtbot.addWidget(area_principal)
+        area_principal.carregar_croqui()
+
+        area_principal._trocar_pagina(1)
+        editor = area_principal.pagina_imagens.editor
+        editor.select_image_by_name("foto_setor.webp")
+
+        pilha = area_principal.historico.obter_pilha()
+        count_inicial = pilha.count()
+
+        # Executa rotação horária de 90°
+        editor.rotate_cw_btn.click()
+
+        bytes_rot = area_principal.croqui_model.obter_bytes_imagem("imagens/foto_setor.webp")
+        assert bytes_rot is not None
+        with Image.open(io.BytesIO(bytes_rot)) as img_rot:
+            assert (img_rot.width, img_rot.height) == (100, 200)
+
+        assert pilha.count() == count_inicial + 1
+
+        # Desfazer (Undo)
+        pilha.undo()
+        bytes_undo = area_principal.croqui_model.obter_bytes_imagem("imagens/foto_setor.webp")
+        with Image.open(io.BytesIO(bytes_undo)) as img_undo:
+            assert (img_undo.width, img_undo.height) == (200, 100)
+
+        # Refazer (Redo)
+        pilha.redo()
+        bytes_redo = area_principal.croqui_model.obter_bytes_imagem("imagens/foto_setor.webp")
+        with Image.open(io.BytesIO(bytes_redo)) as img_redo:
+            assert (img_redo.width, img_redo.height) == (100, 200)
+        pilha.setClean()
+
+    def test_corte_imagem_integrado_com_undo_redo(self, qtbot, tmp_path):
+        pasta_raiz = tmp_path / "croqui_teste_corte"
+        pasta_db = pasta_raiz / "database"
+        pasta_db.mkdir(parents=True)
+        pasta_imagens = pasta_db / "imagens"
+        pasta_imagens.mkdir()
+
+        # Cria imagem 200x200
+        img = Image.new("RGB", (200, 200), color=(50, 60, 70))
+        img.save(pasta_imagens / "foto_corte.webp", format="WEBP")
+        (pasta_db / "croqui.yaml").write_text("id: teste\nnome: Teste\n", encoding="utf-8")
+
+        workspace = ExperimentalWorkspace(pasta_raiz)
+        area_principal = JanelaPrincipal(workspace=workspace)
+        qtbot.addWidget(area_principal)
+        area_principal.carregar_croqui()
+
+        area_principal._trocar_pagina(1)
+        editor = area_principal.pagina_imagens.editor
+        editor.select_image_by_name("foto_corte.webp")
+
+        pilha = area_principal.historico.obter_pilha()
+        count_inicial = pilha.count()
+
+        # Ativa o modo de corte e executa seleção (10, 20) até (60, 80) -> width=50, height=60
+        editor.crop_btn.click()
+        assert editor.modo_corte is True
+
+        # Executa o corte através da seleção de retângulo
+        editor.executar_corte_selecao(10, 20, 60, 80)
+
+        # Modo de corte deve ser desativado após o corte
+        assert editor.modo_corte is False
+        assert pilha.count() == count_inicial + 1
+
+        bytes_cortados = area_principal.croqui_model.obter_bytes_imagem("imagens/foto_corte.webp")
+        assert bytes_cortados is not None
+        with Image.open(io.BytesIO(bytes_cortados)) as img_c:
+            assert (img_c.width, img_c.height) == (50, 60)
+
+        # Desfazer restaura 200x200
+        pilha.undo()
+        bytes_undo = area_principal.croqui_model.obter_bytes_imagem("imagens/foto_corte.webp")
+        with Image.open(io.BytesIO(bytes_undo)) as img_u:
+            assert (img_u.width, img_u.height) == (200, 200)
+
+        # Refazer reaplica 50x60
+        pilha.redo()
+        bytes_redo = area_principal.croqui_model.obter_bytes_imagem("imagens/foto_corte.webp")
+        with Image.open(io.BytesIO(bytes_redo)) as img_r:
+            assert (img_r.width, img_r.height) == (50, 60)
+        pilha.setClean()
+
+    def test_mascara_imagem_integrada_com_undo_redo(self, qtbot, tmp_path):
+        pasta_raiz = tmp_path / "croqui_teste_mascara"
+        pasta_db = pasta_raiz / "database"
+        pasta_db.mkdir(parents=True)
+        pasta_imagens = pasta_db / "imagens"
+        pasta_imagens.mkdir()
+
+        # Imagem 100x100 preta, com uma região vermelha em [0, 0, 10, 10]
+        img = Image.new("RGB", (100, 100), color=(0, 0, 0))
+        from PIL import ImageDraw
+        ImageDraw.Draw(img).rectangle([0, 0, 10, 10], fill=(255, 0, 0))
+        img.save(pasta_imagens / "foto_mascara.webp", format="WEBP")
+        (pasta_db / "croqui.yaml").write_text("id: teste\nnome: Teste\n", encoding="utf-8")
+
+        workspace = ExperimentalWorkspace(pasta_raiz)
+        area_principal = JanelaPrincipal(workspace=workspace)
+        qtbot.addWidget(area_principal)
+        area_principal.carregar_croqui()
+
+        area_principal._trocar_pagina(1)
+        editor = area_principal.pagina_imagens.editor
+        editor.select_image_by_name("foto_mascara.webp")
+
+        pilha = area_principal.historico.obter_pilha()
+        count_inicial = pilha.count()
+
+        # Ativa máscara e captura a cor do pixel (5, 5) que é vermelho (255, 0, 0)
+        editor.add_mask_btn.click()
+        assert editor.modo_mascara is True
+        editor.capturar_cor_ponto(5, 5)
+        assert all(abs(a - b) <= 3 for a, b in zip(editor.cor_mascara_atual, (255, 0, 0)))
+
+        # Aplica máscara retangular cobrindo (20, 20) até (40, 40)
+        editor.aplicar_mascara_selecao(20, 20, 40, 40)
+        assert pilha.count() == count_inicial + 1
+
+        bytes_mascarados = area_principal.croqui_model.obter_bytes_imagem("imagens/foto_mascara.webp")
+        with Image.open(io.BytesIO(bytes_mascarados)) as img_m:
+            # O ponto (25, 25) deve ter sido pintado de vermelho
+            assert all(abs(a - b) <= 3 for a, b in zip(img_m.getpixel((25, 25))[:3], (255, 0, 0)))
+
+        # Desfazer: volta a ser preto (0, 0, 0)
+        pilha.undo()
+        bytes_undo = area_principal.croqui_model.obter_bytes_imagem("imagens/foto_mascara.webp")
+        with Image.open(io.BytesIO(bytes_undo)) as img_u:
+            assert all(abs(a - b) <= 3 for a, b in zip(img_u.getpixel((25, 25))[:3], (0, 0, 0)))
+
+        # Refazer: volta a ser vermelho (255, 0, 0)
+        pilha.redo()
+        bytes_redo = area_principal.croqui_model.obter_bytes_imagem("imagens/foto_mascara.webp")
+        with Image.open(io.BytesIO(bytes_redo)) as img_r:
+            assert all(abs(a - b) <= 3 for a, b in zip(img_r.getpixel((25, 25))[:3], (255, 0, 0)))
+        pilha.setClean()
+
+
+

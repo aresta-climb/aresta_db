@@ -1,7 +1,7 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
-from typing import Any, Dict, List
+from typing import Any, Dict, List, Optional
 import pickle
 from pathlib import Path
 from editor.core.imagem_anonimizada import gerar_webp_anonimizado
@@ -18,6 +18,15 @@ class GerenciadorDiario:
         self.apenas_pendente: bool = apenas_pendente
         self.caminho_pendente: Path = self.pasta_croqui / "diario_pendente.bin"
         self.caminho_salvo: Path = self.pasta_croqui / "diario_salvo.bin"
+        self._comandos_anonimizados_cache: Optional[List[Dict[str, Any]]] = None
+
+    @staticmethod
+    def _anonimizar_comando(cmd: Dict[str, Any]) -> Dict[str, Any]:
+        cmd_copia = dict(cmd)
+        for chave in ("bytes_antigo", "bytes_novo", "img_bytes"):
+            if chave in cmd_copia and isinstance(cmd_copia[chave], (bytes, bytearray)):
+                cmd_copia[chave] = gerar_webp_anonimizado(cmd_copia[chave])
+        return cmd_copia
 
     def gravar_comando_pendente(self, comando_ou_dict: Any) -> None:
         """Grava um comando serializado de forma append-only no diário pendente."""
@@ -31,6 +40,9 @@ class GerenciadorDiario:
 
         with open(self.caminho_pendente, "ab") as f:
             pickle.dump(dados, f, protocol=5)
+
+        if self._comandos_anonimizados_cache is not None:
+            self._comandos_anonimizados_cache.append(self._anonimizar_comando(dados))
 
     def tem_alteracoes_pendentes(self) -> bool:
         """Verifica se existem comandos não consolidados no diário pendente."""
@@ -49,6 +61,7 @@ class GerenciadorDiario:
         Transfere todos os comandos do diário pendente para o diário salvo (se não for apenas_pendente)
         e trunca o pendente. Chamado após salvamento e compilação com sucesso do croqui.
         """
+        self._comandos_anonimizados_cache = None
         if not self.caminho_pendente.exists() or self.caminho_pendente.stat().st_size == 0:
             return
 
@@ -65,6 +78,7 @@ class GerenciadorDiario:
 
     def descartar_pendente(self) -> None:
         """Descarta e limpa todas as alterações pendentes não salvas."""
+        self._comandos_anonimizados_cache = None
         if self.caminho_pendente.exists():
             with open(self.caminho_pendente, "wb") as f:
                 f.truncate(0)
@@ -74,18 +88,11 @@ class GerenciadorDiario:
         Exporta uma lista dos comandos mais recentes com dados de imagem anonimizados (WebP dummy),
         ideal para anexo em relatórios de diagnóstico e telemetria.
         """
-        todos_comandos = self.ler_diario_salvo() + self.ler_diario_pendente()
-        recentes = todos_comandos[-limite_comandos:] if len(todos_comandos) > limite_comandos else todos_comandos
+        if self._comandos_anonimizados_cache is None:
+            todos_comandos = self.ler_diario_salvo() + self.ler_diario_pendente()
+            self._comandos_anonimizados_cache = [self._anonimizar_comando(c) for c in todos_comandos]
         
-        resultado = []
-        for cmd in recentes:
-            cmd_copia = dict(cmd)
-            # Anonimiza campos de bytes de imagens
-            for chave in ("bytes_antigo", "bytes_novo", "img_bytes"):
-                if chave in cmd_copia and isinstance(cmd_copia[chave], (bytes, bytearray)):
-                    cmd_copia[chave] = gerar_webp_anonimizado(cmd_copia[chave])
-            resultado.append(cmd_copia)
-        return resultado
+        return list(self._comandos_anonimizados_cache[-limite_comandos:])
 
     def _ler_arquivo_pickle(self, caminho: Path) -> List[Dict[str, Any]]:
         """Lê um arquivo de streaming de pickle até o fim, ignorando bytes parciais corrompidos."""
