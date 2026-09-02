@@ -55,29 +55,30 @@ def bump_version_file(caminho_arquivo: Union[str, Path], nova_versao: str) -> No
         conteudo = f.read()
         
     if caminho.suffix.lower() == ".toml" or caminho.name.lower() == "pyproject.toml":
-        padrao = re.compile(r'^version\s*=\s*"(.*)"', re.MULTILINE)
+        padrao = re.compile(r'^(version\s*=\s*)"(.*)"', re.MULTILINE)
         if not padrao.search(conteudo):
             raise ValueError(f"Padrão version = \".*\" não encontrado no arquivo {caminho_arquivo}")
-        substituto = f'version = "{nova_versao}"'
     else:
-        padrao = re.compile(r'^VERSION\s*=\s*"(.*)"', re.MULTILINE)
+        padrao = re.compile(r'^(VERSION(?:\s*:\s*[^=\r\n]+)?\s*=\s*)"(.*)"', re.MULTILINE)
         if not padrao.search(conteudo):
             raise ValueError(f"Padrão VERSION = \".*\" não encontrado no arquivo {caminho_arquivo}")
-        substituto = f'VERSION = "{nova_versao}"'
         
     match_atual = padrao.search(conteudo)
     if not match_atual:
         raise ValueError(f"Versão não encontrada no arquivo {caminho_arquivo}")
-    versao_atual = match_atual.group(1)
+    prefixo = match_atual.group(1)
+    versao_atual = match_atual.group(2)
     if compare_semver(nova_versao, versao_atual) <= 0:
         raise SemVerError(f"A nova versão ({nova_versao}) deve ser estritamente maior que a atual ({versao_atual}).")
         
+    substituto = f'{prefixo}"{nova_versao}"'
     novo_conteudo = padrao.sub(substituto, conteudo)
     
     with open(caminho, 'w', encoding='utf-8') as f:
         f.write(novo_conteudo)
         
     print(f"Versão atualizada de {versao_atual} para {nova_versao} no arquivo {caminho_arquivo}")
+
 
 def sincronizar_versoes(nova_versao: str, raiz: Optional[Union[str, Path]] = None) -> List[Path]:
     """Atualiza e sincroniza a versão tanto em editor/core/version.py quanto em pyproject.toml."""

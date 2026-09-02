@@ -96,3 +96,34 @@ def test_sincronizar_versoes(tmp_path):
 
     assert 'VERSION = "1.1.0"' in arquivo_version_py.read_text(encoding='utf-8')
     assert 'version = "1.1.0"' in arquivo_pyproject.read_text(encoding='utf-8')
+
+
+def test_bump_version_com_type_annotation_str():
+    # Simula version.py com anotação de tipo VERSION: str = "0.0.7-dev"
+    with tempfile.NamedTemporaryFile(mode='w+', delete=False, suffix='.py', encoding='utf-8') as f:
+        f.write('# Comentário\nVERSION: str = "0.0.7-dev"\n')
+        temp_path = f.name
+        
+    try:
+        bump_version_file(temp_path, "0.2.1-dev")
+        with open(temp_path, 'r', encoding='utf-8') as f:
+            content = f.read()
+        assert 'VERSION: str = "0.2.1-dev"' in content
+        assert '# Comentário' in content
+    finally:
+        os.remove(temp_path)
+
+
+def test_bump_version_com_type_annotation_complexa():
+    with tempfile.NamedTemporaryFile(mode='w+', delete=False, suffix='.py', encoding='utf-8') as f:
+        f.write('VERSION: Final[str] = "1.0.0"\n')
+        temp_path = f.name
+        
+    try:
+        bump_version_file(temp_path, "1.1.0")
+        with open(temp_path, 'r', encoding='utf-8') as f:
+            content = f.read()
+        assert 'VERSION: Final[str] = "1.1.0"' in content
+    finally:
+        os.remove(temp_path)
+
