@@ -149,14 +149,15 @@ croquis:
   descricao: Este croqui documenta e divulga a prática da escalada no Complexo da
     Pedra Grande em Igarapé/MG, reunindo informações sobre diversos setores e vias.
   caminho_relativo: br_mg_igarape_pedra_grande/compilado.binarypb
-  checksum_sha256_croqui: 8f1d42c9b7efb1ffe4f03aac1c1b86442c3b2ce7ac9e672ab484ed4fe68d8efc
+  checksum_sha256_croqui: 618321d22fb3322592b8abdb31b94c122ef4c5045f3ddf71b090f987143d0dc3
   checksum_sha256_thumbnail: d490580138c1b7f24c772f2d6672e895406739da51bd1880ecabb49cd28b7409
-  timestamp_update: '2026-08-05T14:15:01Z'
+  timestamp_update: '2026-09-02T21:20:46Z'
   precomputados:
-    total_escaladas: 140
-    total_setores: 9
-    total_grupos: 0
+    total_escaladas: 147
+    total_setores: 12
+    total_grupos: 1
     total_esportivas: 95
+    total_boulders: 7
     total_multiplas_enfiadas: 3
 - id: br_mg_ipatinga_ipaba_vale_verde
   nome: Vale Verde
