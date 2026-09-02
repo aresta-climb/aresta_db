@@ -1,6 +1,6 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
-# Copyright (C) 2026 Aresta Climb Contributors
+# Copyright (C) 2026 Aresta Contributors
 ---
 
 # COMPLEXO PEDRA GRANDE
