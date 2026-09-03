@@ -174,22 +174,28 @@ def test_main_configura_icone_global_antecipadamente(qtbot):
 
 
 
-def test_main_abre_modo_local_repo_com_sucesso(qtbot):
+def test_main_abre_modo_local_repo_com_sucesso(qtbot, tmp_path):
+    pasta_croqui = tmp_path / "br_mg_ouro_preto_ouroboulder"
+    pasta_croqui.mkdir()
+    (pasta_croqui / "croqui.yaml").write_text("id: ouroboulder\n", encoding="utf-8")
+
     with patch("editor.core.instancia_unica.verificar_se_ja_em_execucao", return_value=False):
         with patch("editor.core.instancia_unica.iniciar_servidor_instancia_unica"):
             with patch("editor.legacy_views.area_principal.JanelaPrincipal") as MockJanela:
                 with patch("PySide6.QtWidgets.QApplication.exec", return_value=0):
                     with patch("editor.main.sys.exit", side_effect=SystemExit) as mock_exit:
-                        mock_janela_inst = MockJanela.return_value
-                        
-                        from editor.main import main
-                        with patch("sys.argv", ["editor/main.py", "database/br_mg_ouro_preto_ouroboulder"]):
-                            with pytest.raises(SystemExit):
-                                main()
+                        with patch("editor.main.QMessageBox.critical") as mock_crit:
+                            mock_janela_inst = MockJanela.return_value
                             
-                        MockJanela.assert_called_once()
-                        mock_janela_inst.show.assert_called_once()
-                        mock_exit.assert_called_once_with(0)
+                            from editor.main import main
+                            with patch("sys.argv", ["editor/main.py", str(pasta_croqui)]):
+                                with pytest.raises(SystemExit):
+                                    main()
+                                
+                            MockJanela.assert_called_once()
+                            mock_janela_inst.show.assert_called_once()
+                            mock_exit.assert_called_once_with(0)
+                            mock_crit.assert_not_called()
 
 
 def test_main_erro_quando_caminho_database_invalido(qtbot, capsys):
