@@ -9,7 +9,7 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-    timeout-minutes: 3
+    timeout-minutes: 10
     steps:
       - name: Generate Github App Token
         id: app-token
@@ -53,5 +53,5 @@ jobs:
           
       - name: Run Pytest
         timeout-minutes: 10
-        run: uv run pytest -n auto
+        run: uv run pytest -n 0 -v --durations=10
 

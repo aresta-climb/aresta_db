@@ -81,7 +81,7 @@ jobs:
           PYTHONFAULTHANDLER: "1"
           PYTHONUNBUFFERED: "1"
         run: |
-          uv run pytest -n auto
+          uv run pytest -n 0 -v --durations=10
 
       - name: Build PyInstaller
         run: |
