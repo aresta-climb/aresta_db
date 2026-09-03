@@ -215,3 +215,120 @@ def test_excecao_global_anexa_diario_e_envia_ao_sentry(mock_sentry, tmp_path):
         assert mock_scope.add_attachment.called
     finally:
         sys.excepthook = original_excepthook
+
+
+@patch("editor.core.telemetria.sentry_sdk")
+def test_capturar_falha_submissao_git_proxy_fatal(mock_sentry, tmp_path):
+    from editor.core.telemetria import capturar_falha_submissao, anexar_diario_escopo
+
+    mock_diario = MagicMock()
+    mock_diario.caminho_pendente = tmp_path / "pend.bin"
+    mock_diario.caminho_pendente.write_bytes(b"123")
+    mock_diario.caminho_salvo = tmp_path / "salv.bin"
+    mock_diario.caminho_salvo.write_bytes(b"456")
+    anexar_diario_escopo(mock_diario)
+
+    mock_scope = MagicMock()
+    mock_sentry.get_current_scope.return_value = mock_scope
+    mock_sentry.capture_exception.return_value = "evento_123"
+
+    erro = RuntimeError("Erro 500 no git proxy")
+    user_home = str(Path.home())
+    contexto = {
+        "url": f"https://proxy.local/{user_home}/repo",
+        "codigo_status_http": 500,
+    }
+
+    event_id = capturar_falha_submissao(
+        erro=erro,
+        id_croqui="setor_norte",
+        etapa="push_proxy",
+        categoria="git_proxy",
+        contexto_extra=contexto,
+    )
+
+    assert event_id == "evento_123"
+    mock_sentry.set_tag.assert_any_call("id_croqui", "setor_norte")
+    mock_sentry.set_tag.assert_any_call("etapa_falha", "push_proxy")
+    mock_sentry.set_tag.assert_any_call("categoria_erro", "git_proxy")
+    mock_sentry.set_tag.assert_any_call("tipo_evento", "falha_publicacao_pr")
+    mock_sentry.set_tag.assert_any_call("nivel_severidade", "fatal")
+
+    mock_sentry.capture_exception.assert_called_once_with(erro)
+    mock_sentry.set_context.assert_called()
+    nome_ctx, dados_ctx = mock_sentry.set_context.call_args[0]
+    assert nome_ctx == "detalhes_submissao"
+    assert user_home not in str(dados_ctx["url"])
+
+
+@patch("editor.core.telemetria.sentry_sdk")
+def test_capturar_falha_submissao_autenticacao_e_rede(mock_sentry):
+    from editor.core.telemetria import capturar_falha_submissao
+
+    mock_sentry.capture_exception.return_value = "ev_auth"
+
+    capturar_falha_submissao(
+        erro=Exception("Sessão revogada"),
+        id_croqui="bau",
+        etapa="verificacao_auth",
+        categoria="autenticacao",
+    )
+    mock_sentry.set_tag.assert_any_call("nivel_severidade", "error")
+
+    capturar_falha_submissao(
+        erro=Exception("DNS Timeout"),
+        id_croqui="bau",
+        etapa="conexao",
+        categoria="rede",
+    )
+    mock_sentry.set_tag.assert_any_call("nivel_severidade", "warning")
+
+
+def test_capturar_falha_submissao_sem_sentry():
+    import editor.core.telemetria as telemetria_mod
+    original_sentry = telemetria_mod.sentry_sdk
+    try:
+        telemetria_mod.sentry_sdk = None
+        resultado = telemetria_mod.capturar_falha_submissao(
+            erro=Exception("Erro"),
+            id_croqui="bau",
+            etapa="push",
+            categoria="inesperado",
+        )
+        assert resultado is None
+    finally:
+        telemetria_mod.sentry_sdk = original_sentry
+
+
+@patch("editor.core.telemetria.sentry_sdk")
+def test_capturar_falha_submissao_resiliente_a_erros_internos(mock_sentry):
+    from editor.core.telemetria import capturar_falha_submissao
+    mock_sentry.set_tag.side_effect = RuntimeError("Falha no Sentry SDK")
+
+    resultado = capturar_falha_submissao(
+        erro=Exception("Erro original"),
+        id_croqui="bau",
+        etapa="push",
+        categoria="git_proxy",
+    )
+    assert resultado is None
+
+
+@patch("editor.core.telemetria.sentry_sdk")
+def test_registrar_breadcrumb_submissao(mock_sentry):
+    from editor.core.telemetria import registrar_breadcrumb_submissao
+    user_home = str(Path.home())
+    dados = {"caminho": f"{user_home}/db/croqui.yaml", "porcentagem": 40}
+
+    registrar_breadcrumb_submissao(
+        mensagem="Sincronizando arquivos",
+        categoria="submissao_pr",
+        dados=dados,
+    )
+
+    mock_sentry.add_breadcrumb.assert_called_once()
+    kwargs = mock_sentry.add_breadcrumb.call_args[1]
+    assert kwargs["category"] == "submissao_pr"
+    assert kwargs["message"] == "Sincronizando arquivos"
+    assert user_home not in str(kwargs["data"]["caminho"])
+

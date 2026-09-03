@@ -16,6 +16,10 @@ import pygit2
 from editor.core.gerenciador_sessao import SessaoUsuario
 from editor.core.cliente_auth_supabase import ClienteAuthSupabase
 from editor.core.storage import GerenciadorCaminhos
+from editor.core.telemetria import (
+    capturar_falha_submissao,
+    registrar_breadcrumb_submissao,
+)
 
 
 _URL_SUPABASE_PADRAO = os.getenv(
@@ -47,6 +51,16 @@ def gerar_nome_branch(id_croqui: str) -> str:
     """Gera nome único de branch no formato edicao-<id_croqui>-<uuid8>."""
     sufixo_unico = uuid.uuid4().hex[:8]
     return f"edicao-{id_croqui}-{sufixo_unico}"
+
+
+def _extrair_id_croqui_da_branch(branch: str) -> str:
+    """Extrai o id_croqui de uma branch com prefixo edicao-, sugestao- ou proposta-."""
+    for prefixo in ("edicao-", "sugestao-", "proposta-"):
+        if branch.startswith(prefixo):
+            resto = branch[len(prefixo):]
+            partes = resto.rsplit("-", 1)
+            return partes[0] if len(partes) == 2 else resto
+    return ""
 
 
 class ServicoSubmissao:
@@ -234,19 +248,35 @@ class ServicoSubmissao:
             remote = repo.remotes.create("proxy", url_proxy)
 
         callbacks = self._obter_callbacks_push(jwt, callback_progresso)
+        id_croqui_extraido = _extrair_id_croqui_da_branch(nome_branch)
         try:
             remote.push([f"refs/heads/{nome_branch}"], callbacks=callbacks)
         except Exception as e:
             msg = str(e)
+            contexto = {"url_proxy": url_proxy, "branch": nome_branch}
             if (
                 "too many redirects" in msg.lower()
                 or "authentication" in msg.lower()
                 or "auth schemes" in msg.lower()
                 or "credential does not implement" in msg.lower()
             ):
+                capturar_falha_submissao(
+                    erro=e,
+                    id_croqui=id_croqui_extraido,
+                    etapa="push_proxy",
+                    categoria="autenticacao",
+                    contexto_extra=contexto,
+                )
                 raise ErroSubmissao(
                     f"Falha na autenticação com o Git Proxy (sessão inválida ou expirada):\n{e}"
                 )
+            capturar_falha_submissao(
+                erro=e,
+                id_croqui=id_croqui_extraido,
+                etapa="push_proxy",
+                categoria="git_proxy",
+                contexto_extra=contexto,
+            )
             raise ErroSubmissao(f"Falha ao enviar proposta de mudança para o Git Proxy:\n{e}")
 
     def _executar_push_git(
@@ -282,9 +312,20 @@ class ServicoSubmissao:
         if token_usuario_github:
             payload["token_usuario_github"] = token_usuario_github
 
+        id_croqui_extraido = _extrair_id_croqui_da_branch(branch)
+
         try:
             resposta = requests.post(url_endpoint, json=payload, headers=cabecalhos, timeout=15)
         except Exception as e:
+            contexto = {"url_endpoint": url_endpoint, "branch": branch, "titulo": titulo}
+            categoria = "rede" if isinstance(e, (requests.ConnectionError, requests.Timeout)) else "github_api"
+            capturar_falha_submissao(
+                erro=e,
+                id_croqui=id_croqui_extraido,
+                etapa="abertura_pr",
+                categoria=categoria,
+                contexto_extra=contexto,
+            )
             raise ErroSubmissao(f"Falha na comunicação com o servidor ao abrir Pull Request:\n{e}")
 
         if resposta.status_code != 200:
@@ -293,12 +334,41 @@ class ServicoSubmissao:
                 msg = resposta.json().get("erro", msg)
             except Exception:
                 pass
-            raise ErroSubmissao(f"Erro ao formalizar proposta de mudança no GitHub ({resposta.status_code}):\n{msg}")
+            erro_http = ErroSubmissao(f"Erro ao formalizar proposta de mudança no GitHub ({resposta.status_code}):\n{msg}")
+            contexto_erro: Dict[str, Any] = {
+                "url_endpoint": url_endpoint,
+                "branch": branch,
+                "codigo_status_http": resposta.status_code,
+                "resposta_servidor": msg,
+            }
+            capturar_falha_submissao(
+                erro=erro_http,
+                id_croqui=id_croqui_extraido,
+                etapa="abertura_pr",
+                categoria="github_api",
+                contexto_extra=contexto_erro,
+            )
+            raise erro_http
 
         try:
             dados = resposta.json()
         except Exception as e:
-            raise ErroSubmissao(f"Resposta inválida do servidor ao abrir Pull Request:\n{e}")
+            erro_json = ErroSubmissao(f"Resposta inválida do servidor ao abrir Pull Request:\n{e}")
+            contexto_json: Dict[str, Any] = {
+                "url_endpoint": url_endpoint,
+                "branch": branch,
+                "resposta_texto": resposta.text,
+            }
+            capturar_falha_submissao(
+                erro=erro_json,
+                id_croqui=id_croqui_extraido,
+                etapa="abertura_pr",
+                categoria="github_api",
+                contexto_extra=contexto_json,
+            )
+            raise erro_json
+
+
 
         pr_number = dados.get("pr_number") or dados.get("numero_pr")
         pr_url = dados.get("pr_url") or dados.get("url_pr")
@@ -360,9 +430,17 @@ class ServicoSubmissao:
         6. Abertura ou confirmação de PR
         """
         def reportar(porcentagem: int, mensagem: str) -> None:
+            registrar_breadcrumb_submissao(
+                mensagem=mensagem,
+                categoria="submissao_pr",
+                dados={
+                    "id_croqui": id_croqui,
+                    "porcentagem": porcentagem,
+                    "branch": branch_existente or "",
+                },
+            )
             if callback_progresso:
                 callback_progresso(porcentagem, mensagem)
-
 
         reportar(10, "Verificando autenticação...")
         jwt_ativo = sessao.jwt_supabase
@@ -375,39 +453,70 @@ class ServicoSubmissao:
                 sessao.jwt_supabase = jwt_ativo
                 sessao.token_atualizacao = novos_tokens.get("refresh_token", sessao.token_atualizacao)
             except Exception as e:
+                capturar_falha_submissao(
+                    erro=e,
+                    id_croqui=id_croqui,
+                    etapa="verificacao_auth",
+                    categoria="autenticacao",
+                    contexto_extra={"id_croqui": id_croqui},
+                )
                 raise ErroSubmissao(
                     f"Sessão expirada. Por favor, salve seu croqui e entre novamente no aplicativo:\n{e}"
                 )
 
         reportar(20, "Preparando repositório e branch...")
-        repo = pygit2.Repository(str(self.caminho_repo_base))
+        try:
+            repo = pygit2.Repository(str(self.caminho_repo_base))
 
-        if branch_existente and (branch_existente.startswith("edicao-") or branch_existente.startswith("sugestao-") or branch_existente.startswith("proposta-")):
-            nome_branch = branch_existente
-            if nome_branch in repo.branches.local:
-                branch = repo.branches.local[nome_branch]
+            if branch_existente and (branch_existente.startswith("edicao-") or branch_existente.startswith("sugestao-") or branch_existente.startswith("proposta-")):
+                nome_branch = branch_existente
+                if nome_branch in repo.branches.local:
+                    branch = repo.branches.local[nome_branch]
+                else:
+                    commit_base = self._obter_commit_base(repo)
+                    branch = repo.create_branch(nome_branch, commit_base)
+                repo.checkout(branch)
             else:
+                nome_branch = gerar_nome_branch(id_croqui)
                 commit_base = self._obter_commit_base(repo)
                 branch = repo.create_branch(nome_branch, commit_base)
-            repo.checkout(branch)
-        else:
-            nome_branch = gerar_nome_branch(id_croqui)
-            commit_base = self._obter_commit_base(repo)
-            branch = repo.create_branch(nome_branch, commit_base)
-            repo.checkout(branch)
+                repo.checkout(branch)
+        except ErroSubmissao:
+            raise
+        except Exception as e:
+            capturar_falha_submissao(
+                erro=e,
+                id_croqui=id_croqui,
+                etapa="preparacao_branch",
+                categoria="git_local",
+                contexto_extra={"id_croqui": id_croqui, "caminho_repo": str(self.caminho_repo_base)},
+            )
+            raise ErroSubmissao(f"Falha ao preparar repositório e branch local:\n{e}")
 
         reportar(40, "Sincronizando arquivos modificados...")
         self.sincronizar_arquivos_croqui(caminho_database_croqui, self.caminho_repo_base, id_croqui)
 
         reportar(60, "Gerando commit assinado...")
-        commit = self.criar_commit_sugestao(
-            repo=repo,
-            nome_branch=nome_branch,
-            id_croqui=id_croqui,
-            titulo=titulo,
-            descricao=descricao,
-            sessao=sessao,
-        )
+        try:
+            commit = self.criar_commit_sugestao(
+                repo=repo,
+                nome_branch=nome_branch,
+                id_croqui=id_croqui,
+                titulo=titulo,
+                descricao=descricao,
+                sessao=sessao,
+            )
+        except ErroSubmissao:
+            raise
+        except Exception as e:
+            capturar_falha_submissao(
+                erro=e,
+                id_croqui=id_croqui,
+                etapa="commit_local",
+                categoria="git_local",
+                contexto_extra={"id_croqui": id_croqui, "nome_branch": nome_branch},
+            )
+            raise ErroSubmissao(f"Falha ao gerar commit assinado no repositório local:\n{e}")
 
         if not commit:
             return ResultadoSubmissao(
@@ -437,3 +546,4 @@ class ServicoSubmissao:
             nome_branch=nome_branch,
             mensagem="Proposta de mudança publicada com sucesso!",
         )
+
