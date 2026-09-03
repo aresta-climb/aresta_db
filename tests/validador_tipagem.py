@@ -79,6 +79,6 @@ def verificar_anotacoes_ast(codigo_fonte: str) -> list[str]:
 
 def verificar_arquivo_ast(caminho_arquivo: str) -> list[str]:
     """Lê um arquivo Python do disco e valida suas anotações via AST."""
-    with open(caminho_arquivo, "r", encoding="utf-8") as f:
+    with open(caminho_arquivo, "r", encoding="utf-8-sig") as f:
         conteudo = f.read()
     return verificar_anotacoes_ast(conteudo)

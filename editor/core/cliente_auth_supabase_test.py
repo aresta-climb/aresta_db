@@ -195,3 +195,41 @@ class TesteClienteAuthSupabase:
         from editor.core.cliente_auth_supabase import traduzir_mensagem_erro_supabase
 
         assert traduzir_mensagem_erro_supabase(msg_original) == msg_esperada
+
+    def teste_cliente_com_url_vazia_usa_fallback_padrao(self):
+        cliente = ClienteAuthSupabase(url_supabase="")
+        assert cliente.url_supabase == "https://yzkhiaoqtxvvcyyuwmqg.supabase.co"
+
+    def teste_cliente_com_url_sem_esquema_ou_espacos_usa_fallback_padrao(self):
+        cliente1 = ClienteAuthSupabase(url_supabase="   ")
+        assert cliente1.url_supabase == "https://yzkhiaoqtxvvcyyuwmqg.supabase.co"
+        cliente2 = ClienteAuthSupabase(url_supabase="invalido_sem_http")
+        assert cliente2.url_supabase == "https://yzkhiaoqtxvvcyyuwmqg.supabase.co"
+
+    def teste_cliente_com_env_vazias_usa_fallback_padrao(self, monkeypatch):
+        monkeypatch.setenv("ARESTA_SUPABASE_URL", "")
+        monkeypatch.setenv("ARESTA_SUPABASE_PUBLISHABLE_KEY", "")
+        cliente = ClienteAuthSupabase()
+        assert cliente.url_supabase == "https://yzkhiaoqtxvvcyyuwmqg.supabase.co"
+        assert "sb_publishable_" in cliente.chave_publica
+
+    @responses.activate
+    def teste_solicitar_codigo_otp_com_url_vazia_usa_url_absoluta_valida(self):
+        responses.add(
+            responses.POST,
+            "https://yzkhiaoqtxvvcyyuwmqg.supabase.co/auth/v1/otp",
+            json={"message": "ok"},
+            status=200,
+        )
+        cliente = ClienteAuthSupabase(url_supabase="")
+        resultado = cliente.solicitar_codigo_otp("renatoutsch@gmail.com")
+        assert resultado is True
+        assert len(responses.calls) == 1
+        assert responses.calls[0].request.url == "https://yzkhiaoqtxvvcyyuwmqg.supabase.co/auth/v1/otp"
+
+    def teste_obter_url_autorizacao_github(self, cliente):
+        url = cliente.obter_url_autorizacao_github("http://localhost:55887/callback")
+        assert url == (
+            "https://teste.supabase.co/auth/v1/authorize?"
+            "provider=github&scopes=read:user,user:email,public_repo&redirect_to=http://localhost:55887/callback"
+        )

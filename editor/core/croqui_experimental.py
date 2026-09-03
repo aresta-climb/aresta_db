@@ -285,7 +285,8 @@ class GerenciadorCroquiExperimental:
                 target_paths=[str(caminho_database)],
                 force_thumbnails=True,
                 gerar_arquivos_de_debug=True,
-                is_producao=False
+                is_producao=False,
+                sair_ao_falhar=False
             )
             
             # Commit no Git local

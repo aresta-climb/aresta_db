@@ -439,7 +439,7 @@ def test_renomear_poi_no_mapa(qtbot, mocker):
     
     # Mock do dialogo
     mocker.patch('editor.views.widget_editor_mapas.DialogoEdicaoPOI.exec', return_value=QDialog.DialogCode.Accepted)
-    mocker.patch('editor.views.widget_editor_mapas.DialogoEdicaoPOI.obter_valores', return_value=("poi_novo", "Label Novo"))
+    mocker.patch('editor.views.widget_editor_mapas.DialogoEdicaoPOI.obter_valores', return_value=("poi_novo", "Label Novo", ""))
     
     # Mock do QMenu para simular clique em Renomear sem abrir modal nativo
     mock_menu_class = mocker.patch('editor.views.widget_editor_mapas.QMenu')
@@ -1582,3 +1582,1144 @@ def test_poi_bloqueado_no_modo_linkagem(qtbot):
     
     # 1.4: O POI deve voltar a ser móvel
     assert item.flags() & QGraphicsItem.GraphicsItemFlag.ItemIsMovable, "O POI não teve seu movimento restaurado após a linkagem!"
+
+
+def test_dialogo_edicao_poi_com_cor(qtbot):
+    """Testa se o diálogo de edição de POI permite selecionar e obter ID, Label e Cor."""
+    from editor.views.widget_editor_mapas import DialogoEdicaoPOI
+    
+    dialogo = DialogoEdicaoPOI(id_atual="1", label_atual="Via Principal", cor_atual="#00E676")
+    qtbot.addWidget(dialogo)
+    
+    # Testa valores iniciais
+    id_val, label_val, cor_val, _ = dialogo.obter_valores()
+    assert id_val == "1"
+    assert label_val == "Via Principal"
+    assert cor_val == "#00E676"
+    
+    # Altera valores
+    dialogo.input_id.setText("2")
+    dialogo.input_label.setText("Variante")
+    dialogo._definir_cor("#FF1744")
+    
+    id_val, label_val, cor_val, _ = dialogo.obter_valores()
+    assert id_val == "2"
+    assert label_val == "Variante"
+    assert cor_val == "#FF1744"
+
+
+def test_item_trajeto_linha_criacao_e_spline(qtbot):
+    """Testa a renderização do ItemTrajetoLinha e criação das alças de nó."""
+    from editor.views.widget_editor_mapas import ItemTrajetoLinha, AlcaNoTrajeto
+    from PySide6.QtWidgets import QGraphicsScene
+    from PySide6.QtCore import QPointF
+    
+    cena = QGraphicsScene()
+    pt_dict = {
+        "id": "via_1",
+        "label": "Via Teste",
+        "cor": "#FF6D00",
+        "linha": {
+            "estilo": "TRACEJADO",
+            "espessura": 4,
+            "conteudo": {
+                "nos": [
+                    {"x": 10, "y": 10, "tipo": 1, "rotulo": "1"},
+                    {"x": 50, "y": 100, "tipo": 0, "rotulo": ""},
+                    {"x": 80, "y": 200, "tipo": 5, "rotulo": ""}
+                ]
+            }
+        }
+    }
+    
+    item_linha = ItemTrajetoLinha(pt_dict, lambda item: None)
+    cena.addItem(item_linha)
+    
+    assert len(item_linha.alcas) == 3
+    assert not item_linha.path().isEmpty()
+    assert item_linha.cor_hex == "#FF6D00"
+    
+    # Move uma alça e verifica se a spline é recalculada
+    alca = item_linha.alcas[1]
+    alca.setPos(QPointF(60, 120))
+    assert pt_dict["linha"]["conteudo"]["nos"][1]["x"] == 60
+    assert pt_dict["linha"]["conteudo"]["nos"][1]["y"] == 120
+
+
+def test_item_trajeto_linha_alterar_tipo_no_e_estilo(qtbot):
+    """Testa a alteração de tipo de nó e estilos visuais do trajeto."""
+    from editor.views.widget_editor_mapas import ItemTrajetoLinha
+    from PySide6.QtCore import Qt
+    
+    pt_dict = {
+        "id": "v1",
+        "cor": "#FF1744",
+        "linha": {
+            "estilo": "SOLIDO",
+            "conteudo": {
+                "nos": [
+                    {"x": 0, "y": 0, "tipo": 1},
+                    {"x": 50, "y": 50, "tipo": 0},
+                    {"x": 100, "y": 100, "tipo": 5}
+                ]
+            }
+        }
+    }
+    item_linha = ItemTrajetoLinha(pt_dict, lambda item: None)
+    
+    # Altera tipo do nó do meio para Chapeleta (tipo 3)
+    item_linha.alterar_tipo_no(1, 3)
+    assert item_linha.pt_dict["linha"]["conteudo"]["nos"][1]["tipo"] == 3
+    
+    # Altera estilo do traço para PONTILHADO
+    item_linha._definir_estilo("PONTILHADO")
+    assert item_linha.pen().style() == Qt.PenStyle.DotLine
+    
+    # Altera cor
+    item_linha._definir_cor("#00E5FF")
+    assert item_linha.cor_hex == "#00E5FF"
+
+
+def test_item_trajeto_linha_inserir_e_remover_no(qtbot):
+    """Testa inserção e remoção de nós intermediários na linha."""
+    from editor.views.widget_editor_mapas import ItemTrajetoLinha
+    from PySide6.QtCore import QPointF
+    
+    pt_dict = {
+        "id": "v1",
+        "linha": {
+            "conteudo": {
+                "nos": [
+                    {"x": 0, "y": 0, "tipo": 1},
+                    {"x": 100, "y": 100, "tipo": 5}
+                ]
+            }
+        }
+    }
+    item_linha = ItemTrajetoLinha(pt_dict, lambda item: None)
+    assert len(item_linha.alcas) == 2
+    
+    # Insere nó em (50, 50)
+    item_linha.inserir_no_em_posicao(QPointF(50, 50))
+    assert len(item_linha.pt_dict["linha"]["conteudo"]["nos"]) == 3
+    assert item_linha.pt_dict["linha"]["conteudo"]["nos"][1]["x"] == 50
+    assert len(item_linha.alcas) == 3
+    
+    # Remove nó do meio
+    item_linha.remover_no(1)
+    assert len(item_linha.pt_dict["linha"]["conteudo"]["nos"]) == 2
+    assert len(item_linha.alcas) == 2
+    
+    # Tentativa de remover abaixo de 2 nós não deve diminuir mais
+    item_linha.remover_no(0)
+    assert len(item_linha.pt_dict["linha"]["conteudo"]["nos"]) == 2
+
+
+def test_modo_desenho_linha_fluxo_completo(qtbot, monkeypatch):
+    """Testa o fluxo de criação de linha com início, nós intermediários, desfecho e mock de diálogo."""
+    from editor.views.widget_editor_mapas import WidgetEditorMapas, CenaDesenho, DialogoEdicaoPOI
+    from aresta_api.proto.generated import croqui_pb2
+    from unittest.mock import MagicMock
+    from PySide6.QtCore import QPointF, Qt
+    from PySide6.QtWidgets import QDialog
+    
+    widget = WidgetEditorMapas()
+    qtbot.addWidget(widget)
+    
+    mock_controller = MagicMock()
+    widget.mapas_controller = mock_controller
+    
+    mapa_proto = croqui_pb2.Mapa()
+    widget.msg_mapa_proxy = mapa_proto
+    
+    cena = CenaDesenho(widget)
+    widget.visualizador.setScene(cena)
+    dados = {'cena': cena, 'itens_bb': []}
+    widget.dados_atuais = dados
+    
+    # Inicia modo de desenho de linha
+    widget.iniciar_modo_desenho_linha(dados)
+    assert widget.modo_desenho_linha is True
+    assert not widget.label_modo.isHidden()
+    
+    # Adiciona pontos
+    widget.adicionar_ponto_desenho_linha(QPointF(10, 10))
+    widget.adicionar_ponto_desenho_linha(QPointF(30, 80))
+    widget.adicionar_ponto_desenho_linha(QPointF(50, 150))
+    assert len(widget.pontos_desenho_linha) == 3
+    
+    # Desfaz um ponto
+    widget.desfazer_ponto_desenho_linha()
+    assert len(widget.pontos_desenho_linha) == 2
+    
+    # Adiciona novamente
+    widget.adicionar_ponto_desenho_linha(QPointF(60, 200))
+    assert len(widget.pontos_desenho_linha) == 3
+    
+    # Mock do DialogoEdicaoPOI para aceitar automaticamente
+    monkeypatch.setattr(DialogoEdicaoPOI, "exec", lambda self: QDialog.DialogCode.Accepted)
+    monkeypatch.setattr(DialogoEdicaoPOI, "obter_valores", lambda self: ("1", "Fenda do Baú", "#00E676"))
+    
+    # Finaliza modo
+    widget.finalizar_modo_desenho_linha()
+    assert widget.modo_desenho_linha is False
+    assert widget.label_modo.isHidden()
+    
+    # Verifica chamada no controller
+    mock_controller.adicionar_linha.assert_called_once()
+    args, kwargs = mock_controller.adicionar_linha.call_args
+    assert kwargs["id_linha"] == "1"
+    assert kwargs["label"] == "Fenda do Baú"
+    assert kwargs["cor"] == "#00E676"
+    assert len(kwargs["nos"]) == 3
+    assert all(n["tipo"] == croqui_pb2.NoTrajeto.TipoNo.PASSAGEM for n in kwargs["nos"])
+
+
+def test_modo_desenho_linha_cancelamento_e_teclado(qtbot):
+    """Testa cancelamento de linha e atalhos de teclado."""
+    from editor.views.widget_editor_mapas import WidgetEditorMapas, CenaDesenho
+    from PySide6.QtCore import QPointF, Qt
+    from PySide6.QtGui import QKeyEvent
+    
+    widget = WidgetEditorMapas()
+    qtbot.addWidget(widget)
+    
+    cena = CenaDesenho(widget)
+    widget.visualizador.setScene(cena)
+    dados = {'cena': cena, 'itens_bb': []}
+    widget.dados_atuais = dados
+    
+    widget.iniciar_modo_desenho_linha(dados)
+    widget.adicionar_ponto_desenho_linha(QPointF(20, 20))
+    
+    # Pressiona ESC no visualizador
+    evento_esc = QKeyEvent(QKeyEvent.Type.KeyPress, Qt.Key.Key_Escape, Qt.KeyboardModifier.NoModifier)
+    widget.visualizador.keyPressEvent(evento_esc)
+    
+    assert widget.modo_desenho_linha is False
+    assert len(widget.pontos_desenho_linha) == 0
+
+
+def test_item_trajeto_linha_mover_linha_completa_move_nos_e_alcas(qtbot):
+    """TDD Item 1: Ao mover o traçado todo, os nós e alças devem mover junto e atualizar as coordenadas."""
+    from editor.views.widget_editor_mapas import ItemTrajetoLinha
+    from PySide6.QtWidgets import QGraphicsScene, QGraphicsSceneMouseEvent
+    from PySide6.QtCore import QPointF, QEvent, Qt
+    
+    pt_dict = {
+        "id": "v1",
+        "linha": {
+            "conteudo": {
+                "nos": [
+                    {"x": 10, "y": 20, "tipo": 1},
+                    {"x": 50, "y": 60, "tipo": 0},
+                    {"x": 100, "y": 120, "tipo": 5}
+                ]
+            }
+        }
+    }
+    item_linha = ItemTrajetoLinha(pt_dict, lambda item: None)
+    cena = QGraphicsScene()
+    cena.addItem(item_linha)
+    
+    # As alças devem ser itens filhos de item_linha
+    for alca in item_linha.alcas:
+        assert alca.parentItem() == item_linha
+    
+    # Simula clique e arrasto da linha completa em (dx=30, dy=40)
+    evento_press = QGraphicsSceneMouseEvent(QEvent.Type.GraphicsSceneMousePress)
+    evento_press.setScenePos(QPointF(50, 60))
+    evento_press.setButton(Qt.MouseButton.LeftButton)
+    item_linha.mousePressEvent(evento_press)
+    
+    item_linha.setPos(30, 40)
+    
+    evento_release = QGraphicsSceneMouseEvent(QEvent.Type.GraphicsSceneMouseRelease)
+    evento_release.setScenePos(QPointF(80, 100))
+    evento_release.setButton(Qt.MouseButton.LeftButton)
+    item_linha.mouseReleaseEvent(evento_release)
+    
+    # Após soltar, as coordenadas dos nós devem ter sido deslocadas por (30, 40)
+    nos = item_linha.pt_dict["linha"]["conteudo"]["nos"]
+    assert nos[0]["x"] == 40 and nos[0]["y"] == 60
+    assert nos[1]["x"] == 80 and nos[1]["y"] == 100
+    assert nos[2]["x"] == 130 and nos[2]["y"] == 160
+    
+    # item_linha.pos() deve ser mantido normalizado em (0, 0)
+    assert item_linha.pos().x() == 0 and item_linha.pos().y() == 0
+    
+    # E as alças na cena devem estar exatamente em (40, 60), (80, 100), (130, 160)
+    assert item_linha.alcas[0].scenePos().x() == 40 and item_linha.alcas[0].scenePos().y() == 60
+    assert item_linha.alcas[1].scenePos().x() == 80 and item_linha.alcas[1].scenePos().y() == 100
+    assert item_linha.alcas[2].scenePos().x() == 130 and item_linha.alcas[2].scenePos().y() == 160
+
+
+def test_item_trajeto_linha_mover_no_individual_mantem_outros_nos_e_spline_consistente(qtbot):
+    """TDD Item 2: Ao mover um nó individual, o traçado ajusta suavemente mantendo os outros nós travados."""
+    from editor.views.widget_editor_mapas import ItemTrajetoLinha
+    from PySide6.QtWidgets import QGraphicsScene
+    from PySide6.QtCore import QPointF
+    
+    pt_dict = {
+        "id": "v1",
+        "linha": {
+            "conteudo": {
+                "nos": [
+                    {"x": 10, "y": 20, "tipo": 1},
+                    {"x": 50, "y": 60, "tipo": 0},
+                    {"x": 100, "y": 120, "tipo": 5}
+                ]
+            }
+        }
+    }
+    item_linha = ItemTrajetoLinha(pt_dict, lambda item: None)
+    cena = QGraphicsScene()
+    cena.addItem(item_linha)
+    
+    # Move apenas o nó do meio para (70, 80)
+    alca_meio = item_linha.alcas[1]
+    alca_meio.setPos(QPointF(70, 80))
+    
+    nos = item_linha.pt_dict["linha"]["conteudo"]["nos"]
+    assert nos[0]["x"] == 10 and nos[0]["y"] == 20  # Inalterado
+    assert nos[1]["x"] == 70 and nos[1]["y"] == 80  # Movido
+    assert nos[2]["x"] == 100 and nos[2]["y"] == 120  # Inalterado
+    
+    # O início do path deve ser exatamente o nó 0 e o fim o nó 2
+    path = item_linha.path()
+    assert not path.isEmpty()
+    ponto_inicial = path.pointAtPercent(0.0)
+    ponto_final = path.pointAtPercent(1.0)
+    assert round(ponto_inicial.x()) == 10 and round(ponto_inicial.y()) == 20
+    assert round(ponto_final.x()) == 100 and round(ponto_final.y()) == 120
+
+
+def test_alca_no_trajeto_formatos_semanticos_e_badge_inicio(qtbot):
+    """TDD Item 3: Nós semânticos (Início/Base, Chapeleta, Top, Crux) têm formatos visuais e badge com número."""
+    from editor.views.widget_editor_mapas import ItemTrajetoLinha
+    
+    pt_dict = {
+        "id": "5",
+        "cor": "#FF6D00",
+        "linha": {
+            "conteudo": {
+                "nos": [
+                    {"x": 10, "y": 20, "tipo": 1, "rotulo": ""},
+                    {"x": 50, "y": 60, "tipo": 3, "rotulo": ""},
+                    {"x": 100, "y": 120, "tipo": 5, "rotulo": ""}
+                ]
+            }
+        }
+    }
+    item_linha = ItemTrajetoLinha(pt_dict, lambda item: None)
+    alca_inicio = item_linha.alcas[0]
+    
+    # Início da via deve exibir o número da via ("5") como padrão quando rótulo está vazio
+    assert alca_inicio.obter_rotulo_exibicao() == "5"
+    assert alca_inicio.rect().width() >= 20
+    
+    # Se definir um rótulo explícito, deve usá-lo
+    item_linha.pt_dict["linha"]["conteudo"]["nos"][0]["rotulo"] = "5A"
+    alca_inicio.atualizar_estilo()
+    assert alca_inicio.obter_rotulo_exibicao() == "5A"
+    
+    # Testa outros tipos semânticos
+    alca_chapeleta = item_linha.alcas[1]
+    assert alca_chapeleta.no_dict["tipo"] == 3
+    
+    alca_top = item_linha.alcas[2]
+    assert alca_top.no_dict["tipo"] == 5
+
+
+def test_item_bounding_circulo_e_box_texto_centralizado_dentro(qtbot):
+    """TDD Item 4: Círculos e retângulos exibem texto posicionado dentro da forma quando texto_visivel está presente."""
+    from editor.views.widget_editor_mapas import ItemBoundingCirculo, ItemBoundingRetangulo
+    
+    # Círculo com texto_visivel "A"
+    circ_dict = {
+        "id": "A",
+        "label": "Setor A",
+        "texto_visivel": "A",
+        "circulo": {"x": 100, "y": 100, "raio": 40}
+    }
+    item_circ = ItemBoundingCirculo(circ_dict, lambda item: None)
+    assert item_circ.item_texto.isVisible() is True
+    assert item_circ.item_texto.toPlainText() == "A"
+    
+    # O centro do círculo local é (0, 0). O texto deve estar centralizado ao redor de (0, 0)
+    pos_texto = item_circ.item_texto.pos()
+    rect_texto = item_circ.item_texto.boundingRect()
+    centro_texto_x = pos_texto.x() + rect_texto.width() / 2
+    centro_texto_y = pos_texto.y() + rect_texto.height() / 2
+    assert abs(centro_texto_x) < 5
+    assert abs(centro_texto_y) < 5
+    
+    # Retângulo com texto_visivel "B1"
+    box_dict = {
+        "id": "B1",
+        "label": "Bloco 1",
+        "texto_visivel": "B1",
+        "retangulo": {"x": 200, "y": 200, "comprimento": 80, "largura": 50}
+    }
+    item_box = ItemBoundingRetangulo(box_dict, lambda item: None)
+    assert item_box.item_texto.isVisible() is True
+    assert item_box.item_texto.toPlainText() == "B1"
+    
+    # O centro do retângulo local é (40, 25)
+    pos_box_t = item_box.item_texto.pos()
+    rect_box_t = item_box.item_texto.boundingRect()
+    centro_box_tx = pos_box_t.x() + rect_box_t.width() / 2
+    centro_box_ty = pos_box_t.y() + rect_box_t.height() / 2
+    assert abs(centro_box_tx - 40) < 5
+    assert abs(centro_box_ty - 25) < 5
+
+
+def test_poi_texto_visivel_apenas_quando_definido(qtbot):
+    """Testa que o texto no mapa só é renderizado quando 'texto_visivel' for explicitamente definido."""
+    from editor.views.widget_editor_mapas import ItemBoundingCirculo
+    
+    # 1. POI sem texto_visivel: não exibe texto no mapa
+    circ_sem_texto = {
+        "id": "1",
+        "label": "Via da Fenda",
+        "circulo": {"x": 50, "y": 50, "raio": 20}
+    }
+    item1 = ItemBoundingCirculo(circ_sem_texto, lambda item: None)
+    assert item1.item_texto.toPlainText() == ""
+    assert item1.item_texto.isVisible() is False
+    # Tooltip mantém as informações para o autor
+    assert "ID: 1" in item1.toolTip()
+    assert "Label: Via da Fenda" in item1.toolTip()
+    
+    # 2. POI com texto_visivel: exibe o texto no mapa
+    circ_com_texto = {
+        "id": "1",
+        "label": "Via da Fenda",
+        "texto_visivel": "Fenda",
+        "circulo": {"x": 50, "y": 50, "raio": 20}
+    }
+    item2 = ItemBoundingCirculo(circ_com_texto, lambda item: None)
+    assert item2.item_texto.toPlainText() == "Fenda"
+    assert item2.item_texto.isVisible() is True
+    
+    # 3. Atualização via carregar_de_dict
+    item1.carregar_de_dict({
+        "id": "1",
+        "texto_visivel": "Novo Texto",
+        "circulo": {"x": 50, "y": 50, "raio": 20}
+    })
+    assert item1.item_texto.toPlainText() == "Novo Texto"
+    assert item1.item_texto.isVisible() is True
+
+
+def test_alca_no_trajeto_menu_contexto_e_nomes_tipo(qtbot):
+    """Testa nomes e descrições dos tipos de nós seguindo o padrão FEMEMG."""
+    from editor.views.widget_editor_mapas import ItemTrajetoLinha
+    
+    pt_dict = {
+        "id": "1",
+        "linha": {
+            "conteudo": {
+                "nos": [
+                    {"x": 10, "y": 20, "tipo": 0},
+                    {"x": 30, "y": 40, "tipo": 1},
+                    {"x": 50, "y": 60, "tipo": 3},
+                    {"x": 70, "y": 80, "tipo": 7},
+                    {"x": 90, "y": 100, "tipo": 4},
+                    {"x": 110, "y": 120, "tipo": 8},
+                    {"x": 130, "y": 140, "tipo": 9},
+                    {"x": 150, "y": 160, "tipo": 10},
+                ]
+            }
+        }
+    }
+    item_linha = ItemTrajetoLinha(pt_dict, lambda item: None)
+    alca = item_linha.alcas[0]
+    
+    assert alca.obter_nome_tipo(0) == "Invisível (Curva)"
+    assert alca.obter_nome_tipo(1) == "Círculo Identificador"
+    assert alca.obter_nome_tipo(2) == "Círculo Identificador (Sit Start)"
+    assert alca.obter_nome_tipo(3) == "Proteção Fixa [X]"
+    assert alca.obter_nome_tipo(4) == "Parada Intermediária [XX]"
+    assert alca.obter_nome_tipo(5) == "Top / Parada Final [XX]"
+    assert alca.obter_nome_tipo(6) == "Crux (Chave)"
+    assert alca.obter_nome_tipo(7) == "Proteção Móvel [△]"
+    assert alca.obter_nome_tipo(8) == "Píton"
+    assert alca.obter_nome_tipo(9) == "Fita"
+    assert alca.obter_nome_tipo(10) == "Buraco de Cliff"
+    assert alca.normalizar_tipo_int("CIRCULO_IDENTIFICADOR") == 1
+    assert alca.normalizar_tipo_int("INICIO_BASE") == 1
+
+
+def test_alca_no_trajeto_simbolos_fememg_renderizacao(qtbot):
+    """Testa renderização vetorial de todos os símbolos FEMEMG B3 sem exceções."""
+    from editor.views.widget_editor_mapas import ItemTrajetoLinha
+    from PySide6.QtGui import QPixmap, QPainter
+    
+    tipos_fememg = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    nos = [{"x": i * 20, "y": i * 20, "tipo": t, "rotulo": str(i) if t in (1, 2) else ""} for i, t in enumerate(tipos_fememg)]
+    pt_dict = {
+        "id": "7",
+        "cor": "#FF6D00",
+        "linha": {"conteudo": {"nos": nos}}
+    }
+    item_linha = ItemTrajetoLinha(pt_dict, lambda item: None)
+    
+    pixmap = QPixmap(200, 200)
+    pixmap.fill()
+    painter = QPainter(pixmap)
+    try:
+        for alca in item_linha.alcas:
+            alca.paint(painter, None, None)
+    finally:
+        painter.end()
+
+
+def test_item_trajeto_linha_estilos_fememg_incluindo_caminhada(qtbot):
+    """Testa estilos de traço da norma FEMEMG B3: Tracejado, Pontilhado, Sólido e Caminhada."""
+    from editor.views.widget_editor_mapas import ItemTrajetoLinha
+    from PySide6.QtCore import Qt
+    
+    pt_dict = {
+        "id": "1",
+        "linha": {
+            "estilo": "TRACEJADO",
+            "conteudo": {"nos": [{"x": 0, "y": 0, "tipo": 0}, {"x": 50, "y": 50, "tipo": 0}]}
+        }
+    }
+    item_linha = ItemTrajetoLinha(pt_dict, lambda item: None)
+    assert item_linha.pen().style() == Qt.PenStyle.CustomDashLine
+    
+    item_linha._definir_estilo("PONTILHADO")
+    assert item_linha.pen().style() == Qt.PenStyle.DotLine
+    
+    item_linha._definir_estilo("SOLIDO")
+    assert item_linha.pen().style() == Qt.PenStyle.SolidLine
+    
+    item_linha._definir_estilo("CAMINHADA")
+    assert item_linha.pt_dict["linha"]["estilo"] == "CAMINHADA"
+
+
+def test_dialogo_edicao_poi_com_texto_visivel(qtbot):
+    """Testa inicialização e captura de valores incluindo texto_visivel em DialogoEdicaoPOI."""
+    from editor.views.widget_editor_mapas import DialogoEdicaoPOI
+    
+    dialogo = DialogoEdicaoPOI("V1", "Via 01", "#FF6D00", "Via da Fenda")
+    assert dialogo.input_id.text() == "V1"
+    assert dialogo.input_label.text() == "Via 01"
+    assert dialogo.cor_selecionada == "#FF6D00"
+    assert dialogo.input_texto_visivel.text() == "Via da Fenda"
+    
+    dialogo.input_texto_visivel.setText("Novo Texto Visível")
+    valores = dialogo.obter_valores()
+    assert valores == ("V1", "Via 01", "#FF6D00", "Novo Texto Visível")
+
+
+def test_itens_bounding_box_retangulo_quadrado_sem_texto_visivel_fica_invisivel(qtbot):
+    """Testa que retângulo e quadrado sem texto_visivel ficam com texto invisível, e com texto_visivel ficam visíveis."""
+    from editor.views.widget_editor_mapas import ItemBoundingRetangulo, ItemBoundingQuadrado
+    
+    # Retângulo sem texto_visivel
+    item_ret = ItemBoundingRetangulo({"id": "R1", "label": "Bloco", "retangulo": {"x": 50, "y": 50, "comprimento": 30, "largura": 20}}, lambda item: None)
+    assert item_ret.item_texto.isVisible() is False
+    assert item_ret.item_texto.toPlainText() == ""
+    
+    # Retângulo com texto_visivel
+    item_ret.carregar_de_dict({"id": "R1", "label": "Bloco", "texto_visivel": "B1", "retangulo": {"x": 50, "y": 50, "comprimento": 30, "largura": 20}})
+    assert item_ret.item_texto.isVisible() is True
+    assert item_ret.item_texto.toPlainText() == "B1"
+    
+    # Quadrado sem texto_visivel
+    item_quad = ItemBoundingQuadrado({"id": "Q1", "label": "Pedra", "quadrado": {"x": 80, "y": 80, "lado": 25}}, lambda item: None)
+    assert item_quad.item_texto.isVisible() is False
+    assert item_quad.item_texto.toPlainText() == ""
+    
+    # Quadrado com texto_visivel
+    item_quad.carregar_de_dict({"id": "Q1", "label": "Pedra", "texto_visivel": "Q1", "quadrado": {"x": 80, "y": 80, "lado": 25}})
+    assert item_quad.item_texto.isVisible() is True
+    assert item_quad.item_texto.toPlainText() == "Q1"
+
+
+def test_item_trajeto_linha_definir_espessura(qtbot):
+    """Testa alteração dinâmica da espessura do traço no ItemTrajetoLinha."""
+    from editor.views.widget_editor_mapas import ItemTrajetoLinha
+    from PySide6.QtWidgets import QGraphicsScene
+
+    cena = QGraphicsScene()
+    pt_dict = {
+        "id": "via_1",
+        "cor": "#00E676",
+        "linha": {
+            "estilo": "TRACEJADO",
+            "espessura": 3,
+            "conteudo": {
+                "nos": [
+                    {"x": 10, "y": 20, "tipo": 1},
+                    {"x": 50, "y": 80, "tipo": 0},
+                ]
+            }
+        }
+    }
+    item = ItemTrajetoLinha(pt_dict, lambda i: None)
+    cena.addItem(item)
+
+    assert item.pen().width() == 3
+    assert item.pt_dict["linha"]["espessura"] == 3
+
+    # Altera espessura para 5
+    item._definir_espessura(5)
+    assert item.pt_dict["linha"]["espessura"] == 5
+    assert item.pen().width() == 5
+
+
+def test_dialogo_edicao_poi_com_espessura(qtbot):
+    """Testa DialogoEdicaoPOI suportando espessura opcional para linhas."""
+    from editor.views.widget_editor_mapas import DialogoEdicaoPOI
+
+    # Diálogo com espessura
+    dialogo_linha = DialogoEdicaoPOI("L1", "Linha 1", "#FF6D00", "Via 1", espessura_atual=4)
+    assert dialogo_linha.obter_espessura() == 4
+    dialogo_linha.input_espessura.setValue(7)
+    assert dialogo_linha.obter_espessura() == 7
+
+    # Diálogo sem espessura (POIs convencionais)
+    dialogo_poi = DialogoEdicaoPOI("P1", "Ponto", "#00E676")
+    assert dialogo_poi.obter_espessura() is None
+
+
+def test_item_trajeto_linha_solicitar_espessura_personalizada(qtbot, monkeypatch):
+    """Testa diálogo de espessura personalizada com QInputDialog."""
+    from editor.views.widget_editor_mapas import ItemTrajetoLinha
+    from PySide6.QtWidgets import QInputDialog, QGraphicsScene
+
+    cena = QGraphicsScene()
+    pt_dict = {
+        "id": "via_1",
+        "linha": {
+            "estilo": "TRACEJADO",
+            "espessura": 3,
+            "conteudo": {"nos": [{"x": 10, "y": 20}, {"x": 50, "y": 80}]}
+        }
+    }
+    item = ItemTrajetoLinha(pt_dict, lambda i: None)
+    cena.addItem(item)
+
+    monkeypatch.setattr(QInputDialog, "getInt", lambda *args, **kwargs: (8, True))
+    item._solicitar_espessura_personalizada()
+    assert item.pt_dict["linha"]["espessura"] == 8
+    assert item.pen().width() == 8
+
+    # Se cancelar, mantém
+    monkeypatch.setattr(QInputDialog, "getInt", lambda *args, **kwargs: (12, False))
+    item._solicitar_espessura_personalizada()
+    assert item.pt_dict["linha"]["espessura"] == 8
+
+
+def test_dialogo_edicao_poi_id_obrigatorio(qtbot):
+    from editor.views.widget_editor_mapas import DialogoEdicaoPOI
+    from PySide6.QtWidgets import QDialogButtonBox
+
+    dialogo = DialogoEdicaoPOI(id_atual="p1", label_atual="P1", texto_visivel_atual="", cor_atual="#FF6D00")
+    qtbot.addWidget(dialogo)
+
+    btn_ok = dialogo.findChild(QDialogButtonBox).button(QDialogButtonBox.StandardButton.Ok)
+    assert btn_ok.isEnabled() is True
+
+    # Se apagar o ID, deve desabilitar o botão OK
+    dialogo.input_id.setText("")
+    assert btn_ok.isEnabled() is False
+
+    # Se colocar apenas espaços em branco, continua desabilitado
+    dialogo.input_id.setText("   ")
+    assert btn_ok.isEnabled() is False
+
+    # Se preencher, volta a habilitar
+    dialogo.input_id.setText("p2")
+    assert btn_ok.isEnabled() is True
+
+
+def test_dialogo_edicao_poi_accept_bloqueado_sem_id(qtbot):
+    from editor.views.widget_editor_mapas import DialogoEdicaoPOI
+    from PySide6.QtWidgets import QDialog
+
+    dialogo = DialogoEdicaoPOI(id_atual="", label_atual="", texto_visivel_atual="", cor_atual="#FF6D00")
+    qtbot.addWidget(dialogo)
+    
+    dialogo.accept()
+    assert dialogo.result() != QDialog.DialogCode.Accepted
+
+
+def test_item_trajeto_linha_bordas_arredondadas(qtbot):
+    from editor.views.widget_editor_mapas import ItemTrajetoLinha
+    from PySide6.QtCore import Qt
+
+    for estilo in ["TRACEJADO", "PONTILHADO", "SOLIDO", "CAMINHADA"]:
+        pt_dict = {
+            "id": "via_teste",
+            "linha": {
+                "estilo": estilo,
+                "espessura": 4,
+                "conteudo": {"nos": [{"x": 0, "y": 0}, {"x": 100, "y": 100}]}
+            }
+        }
+        item = ItemTrajetoLinha(pt_dict, lambda i: None)
+        pen = item.pen()
+        assert pen.capStyle() == Qt.PenCapStyle.RoundCap, f"Falha no estilo {estilo}: capStyle não é RoundCap"
+        assert pen.joinStyle() == Qt.PenJoinStyle.RoundJoin, f"Falha no estilo {estilo}: joinStyle não é RoundJoin"
+
+
+def test_alca_no_trajeto_tipo_string_e_int(qtbot):
+    from editor.views.widget_editor_mapas import ItemTrajetoLinha, AlcaNoTrajeto
+
+    pt_dict = {
+        "id": "via_1",
+        "linha": {
+            "estilo": "TRACEJADO",
+            "espessura": 3,
+            "conteudo": {
+                "nos": [
+                    {"x": 10, "y": 20, "tipo": "PROTECAO_FIXA"},
+                    {"x": 30, "y": 40, "tipo": 3},
+                    {"x": 50, "y": 60, "tipo": "PROTECAO_MOVEL"},
+                    {"x": 70, "y": 80, "tipo": 7},
+                ]
+            }
+        }
+    }
+    item = ItemTrajetoLinha(pt_dict, lambda i: None)
+    
+    alca0 = item.alcas[0]
+    alca1 = item.alcas[1]
+    alca2 = item.alcas[2]
+    alca3 = item.alcas[3]
+
+    # Tanto string quanto int devem retornar o mesmo valor numérico
+    assert alca0.obter_tipo_int() == 3
+    assert alca1.obter_tipo_int() == 3
+    assert alca2.obter_tipo_int() == 7
+    assert alca3.obter_tipo_int() == 7
+
+    # Nome do tipo amigável
+    assert alca0.obter_nome_tipo(alca0.obter_tipo_int()) == "Proteção Fixa [X]"
+    assert alca0.obter_nome_tipo("PROTECAO_FIXA") == "Proteção Fixa [X]"
+    assert alca2.obter_nome_tipo(alca2.obter_tipo_int()) == "Proteção Móvel [△]"
+    assert alca2.obter_nome_tipo("PROTECAO_MOVEL") == "Proteção Móvel [△]"
+
+    # Dimensões geométricas correspondentes
+    assert alca0.rect().width() == 16
+    assert alca1.rect().width() == 16
+    assert alca2.rect().width() == 18
+    assert alca3.rect().width() == 18
+
+
+def test_alca_no_trajeto_menu_contexto_marca_tipo_ativo_string_ou_int(qtbot, monkeypatch):
+    from editor.views.widget_editor_mapas import ItemTrajetoLinha
+    from PySide6.QtWidgets import QMenu
+    from PySide6.QtCore import QPoint
+    from unittest.mock import MagicMock
+
+    pt_dict = {
+        "id": "via_1",
+        "linha": {
+            "estilo": "TRACEJADO",
+            "conteudo": {
+                "nos": [
+                    {"x": 10, "y": 20, "tipo": "PROTECAO_FIXA"}
+                ]
+            }
+        }
+    }
+    item = ItemTrajetoLinha(pt_dict, lambda i: None)
+    alca = item.alcas[0]
+
+    menu_exec_chamado = []
+    acoes_criadas = []
+
+    def mock_exec(self_menu, pos):
+        menu_exec_chamado.append(self_menu)
+        acoes_criadas.extend(self_menu.actions())
+
+    monkeypatch.setattr(alca, "_executar_menu", mock_exec)
+
+    evento_mock = MagicMock()
+    evento_mock.screenPos.return_value = QPoint(100, 100)
+    alca.contextMenuEvent(evento_mock)
+
+    assert len(menu_exec_chamado) == 1
+    # Título do menu
+    assert "Tipo Atual: Proteção Fixa [X]" in acoes_criadas[0].text()
+
+    # Verifica qual ação está marcada (checked)
+    acoes_checadas = [a for a in acoes_criadas if a.isCheckable() and a.isChecked()]
+    assert len(acoes_checadas) == 1
+    assert "Proteção Fixa [X]" in acoes_checadas[0].text()
+    assert "●" in acoes_checadas[0].text()
+
+
+def test_alterar_tipo_no_atualiza_alca_e_simbolo(qtbot):
+    from editor.views.widget_editor_mapas import ItemTrajetoLinha
+
+    pt_dict = {
+        "id": "via_1",
+        "linha": {
+            "estilo": "TRACEJADO",
+            "conteudo": {
+                "nos": [
+                    {"x": 10, "y": 20, "tipo": 0},
+                    {"x": 30, "y": 40, "tipo": 0}
+                ]
+            }
+        }
+    }
+    item = ItemTrajetoLinha(pt_dict, lambda i: None)
+    alca = item.alcas[0]
+    assert alca.obter_tipo_int() == 0
+    assert alca.rect().width() == 8
+
+    # Altera para PROTECAO_FIXA (3)
+    item.alterar_tipo_no(0, 3)
+    assert alca.obter_tipo_int() == 3
+    assert alca.rect().width() == 16
+
+    # Altera para PROTECAO_MOVEL (7)
+    item.alterar_tipo_no(0, 7)
+    assert alca.obter_tipo_int() == 7
+    assert alca.rect().width() == 18
+
+
+def test_botao_nova_linha_escalada_texto(qtbot):
+    from editor.views.widget_editor_mapas import WidgetEditorMapas
+    widget = WidgetEditorMapas()
+    qtbot.addWidget(widget)
+    assert "Nova Linha / Escalada" in widget.btn_add_linha.text()
+
+
+def test_alca_no_trajeto_raio_e_tamanho_fonte_customizados(qtbot):
+    from editor.views.widget_editor_mapas import ItemTrajetoLinha
+
+    pt_dict = {
+        "id": "via_1",
+        "linha": {
+            "estilo": "TRACEJADO",
+            "conteudo": {
+                "nos": [
+                    {"x": 10, "y": 20, "tipo": 1, "rotulo": "1"},  # Padrão
+                    {"x": 50, "y": 60, "tipo": 1, "rotulo": "2", "raio": 25, "tamanho_fonte": 14},  # Customizado
+                ]
+            }
+        }
+    }
+    item = ItemTrajetoLinha(pt_dict, lambda i: None)
+    alca_padrao = item.alcas[0]
+    alca_custom = item.alcas[1]
+
+    # Padrão: raio 12 (largura 24), fonte 8
+    assert alca_padrao.obter_raio() == 12
+    assert alca_padrao.obter_tamanho_fonte() == 8
+    assert alca_padrao.rect().width() == 24
+    assert alca_padrao.rect().height() == 24
+
+    # Customizado: raio 25 (largura 50), fonte 14
+    assert alca_custom.obter_raio() == 25
+    assert alca_custom.obter_tamanho_fonte() == 14
+    assert alca_custom.rect().width() == 50
+    assert alca_custom.rect().height() == 50
+
+
+def test_definir_raio_no_atualiza_alca(qtbot):
+    from editor.views.widget_editor_mapas import ItemTrajetoLinha
+
+    pt_dict = {
+        "id": "via_1",
+        "linha": {
+            "estilo": "TRACEJADO",
+            "conteudo": {
+                "nos": [
+                    {"x": 10, "y": 20, "tipo": 1, "rotulo": "1"},
+                ]
+            }
+        }
+    }
+    item = ItemTrajetoLinha(pt_dict, lambda i: None)
+    alca = item.alcas[0]
+    assert alca.obter_raio() == 12
+
+    item.definir_raio_no(0, 18)
+    assert alca.obter_raio() == 18
+    assert alca.rect().width() == 36
+    assert alca.rect().height() == 36
+    assert item.pt_dict["linha"]["conteudo"]["nos"][0]["raio"] == 18
+
+
+def test_definir_tamanho_fonte_no_atualiza_alca(qtbot):
+    from editor.views.widget_editor_mapas import ItemTrajetoLinha
+
+    pt_dict = {
+        "id": "via_1",
+        "linha": {
+            "estilo": "TRACEJADO",
+            "conteudo": {
+                "nos": [
+                    {"x": 10, "y": 20, "tipo": 1, "rotulo": "1"},
+                ]
+            }
+        }
+    }
+    item = ItemTrajetoLinha(pt_dict, lambda i: None)
+    alca = item.alcas[0]
+    assert alca.obter_tamanho_fonte() == 8
+
+    item.definir_tamanho_fonte_no(0, 15)
+    assert alca.obter_tamanho_fonte() == 15
+    assert item.pt_dict["linha"]["conteudo"]["nos"][0]["tamanho_fonte"] == 15
+
+
+def test_alca_no_trajeto_menu_contexto_opcoes_raio_e_fonte_para_circulo_identificador(qtbot, monkeypatch):
+    from editor.views.widget_editor_mapas import ItemTrajetoLinha
+    from PySide6.QtCore import QPoint
+    from unittest.mock import MagicMock
+
+    pt_dict = {
+        "id": "via_1",
+        "linha": {
+            "estilo": "TRACEJADO",
+            "conteudo": {
+                "nos": [
+                    {"x": 10, "y": 20, "tipo": 1, "rotulo": "1", "raio": 16, "tamanho_fonte": 10}
+                ]
+            }
+        }
+    }
+    item = ItemTrajetoLinha(pt_dict, lambda i: None)
+    alca = item.alcas[0]
+
+    acoes_criadas = []
+    monkeypatch.setattr(alca, "_executar_menu", lambda m, pos: acoes_criadas.extend([a.text() for a in m.actions()]))
+
+    evento_mock = MagicMock()
+    evento_mock.screenPos.return_value = QPoint(100, 100)
+    alca.contextMenuEvent(evento_mock)
+
+    assert any("Tamanho do Círculo" in t and "16" in t for t in acoes_criadas)
+    assert any("Tamanho da Fonte" in t and "10" in t for t in acoes_criadas)
+
+
+def test_alca_no_trajeto_fim_top_circulo_identificador(qtbot):
+    from editor.views.widget_editor_mapas import ItemTrajetoLinha, AlcaNoTrajeto
+    from PySide6.QtGui import QPixmap, QPainter
+
+    pt_dict = {
+        "id": "via_1",
+        "linha": {
+            "estilo": "TRACEJADO",
+            "conteudo": {
+                "nos": [
+                    {"x": 10, "y": 20, "tipo": 1, "rotulo": "1", "raio": 18, "tamanho_fonte": 12},  # Começo
+                    {"x": 30, "y": 40, "tipo": 1, "rotulo": "P1"},  # Meio (ex: Parada 1)
+                    {"x": 50, "y": 60, "tipo": 1, "rotulo": "T"},   # Fim (ex: Top)
+                ]
+            }
+        }
+    }
+    item = ItemTrajetoLinha(pt_dict, lambda i: None)
+    alca_inicio = item.alcas[0]
+    alca_meio = item.alcas[1]
+    alca_fim = item.alcas[2]
+
+    # Começo
+    assert alca_inicio.obter_tipo_int() == 1
+    assert alca_inicio.obter_nome_tipo(1) == "Círculo Identificador"
+    assert alca_inicio.obter_rotulo_exibicao() == "1"
+    assert alca_inicio.obter_raio() == 18
+    assert alca_inicio.obter_tamanho_fonte() == 12
+    assert alca_inicio.rect().width() == 36
+
+    # Meio
+    assert alca_meio.obter_tipo_int() == 1
+    assert alca_meio.obter_rotulo_exibicao() == "P1"
+    assert alca_meio.obter_raio() == 12
+    assert alca_meio.obter_tamanho_fonte() == 8
+
+    # Fim
+    assert alca_fim.obter_tipo_int() == 1
+    assert alca_fim.obter_rotulo_exibicao() == "T"
+
+    # Renderiza todos sem erro
+    pixmap = QPixmap(100, 100)
+    painter = QPainter(pixmap)
+    alca_inicio.paint(painter, None)
+    alca_meio.paint(painter, None)
+    alca_fim.paint(painter, None)
+    painter.end()
+
+
+def test_alterar_tipo_para_circulo_identificador_em_qualquer_posicao(qtbot):
+    from editor.views.widget_editor_mapas import ItemTrajetoLinha
+
+    pt_dict = {
+        "id": "via_1",
+        "linha": {
+            "estilo": "TRACEJADO",
+            "conteudo": {
+                "nos": [
+                    {"x": 10, "y": 20, "tipo": 0},
+                    {"x": 30, "y": 40, "tipo": 0},
+                    {"x": 50, "y": 60, "tipo": 0},
+                ]
+            }
+        }
+    }
+    item = ItemTrajetoLinha(pt_dict, lambda i: None)
+    alca_meio = item.alcas[1]
+    alca_fim = item.alcas[2]
+    
+    # Altera nó do meio para Círculo Identificador
+    item.alterar_tipo_no(1, 1)
+    assert alca_meio.obter_tipo_int() == 1
+    item.definir_rotulo_no(1, "Variante")
+    assert alca_meio.obter_rotulo_exibicao() == "Variante"
+
+    # Altera nó do fim para Círculo Identificador com rótulo "TOP"
+    item.alterar_tipo_no(2, 1)
+    assert alca_fim.obter_tipo_int() == 1
+    item.definir_rotulo_no(2, "TOP")
+    assert alca_fim.obter_rotulo_exibicao() == "TOP"
+
+
+def test_menu_contexto_inclui_opcao_circulo_identificador_generico(qtbot, monkeypatch):
+    from editor.views.widget_editor_mapas import ItemTrajetoLinha
+    from PySide6.QtCore import QPoint
+    from unittest.mock import MagicMock
+
+    pt_dict = {
+        "id": "via_1",
+        "linha": {
+            "estilo": "TRACEJADO",
+            "conteudo": {
+                "nos": [
+                    {"x": 10, "y": 20, "tipo": 1}
+                ]
+            }
+        }
+    }
+    item = ItemTrajetoLinha(pt_dict, lambda i: None)
+    alca = item.alcas[0]
+
+    acoes_criadas = []
+    monkeypatch.setattr(alca, "_executar_menu", lambda m, pos: acoes_criadas.extend([a.text() for a in m.actions()]))
+
+    evento_mock = MagicMock()
+    evento_mock.screenPos.return_value = QPoint(100, 100)
+    alca.contextMenuEvent(evento_mock)
+
+    assert any("● Círculo Identificador" in t for t in acoes_criadas)
+    assert not any("Início/Base" in t for t in acoes_criadas)
+    assert not any("Fim/Top" in t for t in acoes_criadas)
+    assert any("Tamanho do Círculo" in t for t in acoes_criadas)
+    assert any("Tamanho da Fonte" in t for t in acoes_criadas)
+    assert any("Definir Rótulo / Número do Nó" in t for t in acoes_criadas)
+
+
+def test_item_trajeto_linha_menu_contexto_opcao_cor_personalizada(qtbot, monkeypatch):
+    from editor.views.widget_editor_mapas import ItemTrajetoLinha
+    from PySide6.QtCore import QPointF, QPoint
+    from PySide6.QtWidgets import QMenu
+    from unittest.mock import MagicMock
+
+    pt_dict = {
+        "id": "v1",
+        "cor": "#FF6D00",
+        "linha": {
+            "conteudo": {
+                "nos": [
+                    {"x": 0, "y": 0, "tipo": 1},
+                    {"x": 100, "y": 100, "tipo": 5}
+                ]
+            }
+        }
+    }
+    item_linha = ItemTrajetoLinha(pt_dict, lambda item: None)
+
+    acoes_por_submenu = {}
+    def mock_executar_menu(menu, pos):
+        for action in menu.actions():
+            sub = action.menu()
+            if sub:
+                acoes_por_submenu[action.text()] = [a.text() for a in sub.actions()]
+        return None
+
+    monkeypatch.setattr(item_linha, "_executar_menu", mock_executar_menu)
+
+    evento_mock = MagicMock()
+    evento_mock.pos.return_value = QPointF(50, 50)
+    evento_mock.screenPos.return_value = QPoint(100, 100)
+    item_linha.contextMenuEvent(evento_mock)
+
+    nome_menu_cores = next((k for k in acoes_por_submenu if "Mudar Cor" in k), None)
+    assert nome_menu_cores is not None, "Submenu Mudar Cor não foi encontrado"
+    textos_acoes = acoes_por_submenu[nome_menu_cores]
+    
+    # Verifica que as cores da paleta existem e a cor atual (#FF6D00) está marcada
+    assert any("Laranja" in t and "●" in t for t in textos_acoes)
+    # Verifica que existe a ação de Cor Personalizada com diálogo
+    assert any("Personalizada" in t for t in textos_acoes)
+
+
+def test_item_trajeto_linha_solicitar_cor_personalizada_aplica_cor(qtbot, monkeypatch):
+    from editor.views.widget_editor_mapas import ItemTrajetoLinha
+    from PySide6.QtGui import QColor
+
+    pt_dict = {
+        "id": "v1",
+        "cor": "#FF6D00",
+        "linha": {
+            "conteudo": {
+                "nos": [
+                    {"x": 0, "y": 0, "tipo": 1},
+                    {"x": 100, "y": 100, "tipo": 5}
+                ]
+            }
+        }
+    }
+    item_linha = ItemTrajetoLinha(pt_dict, lambda item: None)
+    assert item_linha.cor_hex == "#FF6D00"
+
+    # Simula o usuário escolhendo a cor #00E5FF no diálogo
+    monkeypatch.setattr(item_linha, "_obter_cor_dialogo", lambda cor_inicial: QColor("#00E5FF"))
+    item_linha._solicitar_cor_personalizada()
+
+    assert item_linha.cor_hex == "#00E5FF"
+    assert item_linha.pt_dict["cor"] == "#00E5FF"
+
+
+def test_item_trajeto_linha_solicitar_cor_personalizada_cancelado_mantem_cor(qtbot, monkeypatch):
+    from editor.views.widget_editor_mapas import ItemTrajetoLinha
+    from PySide6.QtGui import QColor
+
+    pt_dict = {
+        "id": "v1",
+        "cor": "#FF6D00",
+        "linha": {
+            "conteudo": {
+                "nos": [
+                    {"x": 0, "y": 0, "tipo": 1},
+                    {"x": 100, "y": 100, "tipo": 5}
+                ]
+            }
+        }
+    }
+    item_linha = ItemTrajetoLinha(pt_dict, lambda item: None)
+
+    # Simula o cancelamento do diálogo (retorna QColor inválida)
+    monkeypatch.setattr(item_linha, "_obter_cor_dialogo", lambda cor_inicial: QColor())
+    item_linha._solicitar_cor_personalizada()
+
+    assert item_linha.cor_hex == "#FF6D00"
+    assert item_linha.pt_dict["cor"] == "#FF6D00"
+
+
+
+
+
+
+

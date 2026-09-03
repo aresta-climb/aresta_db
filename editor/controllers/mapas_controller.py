@@ -1,7 +1,7 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
-from typing import Optional, Any, List
+from typing import Optional, Any, List, Dict
 from pathlib import Path
 from editor.models.croqui_model import CroquiModel
 from editor.commands.comandos_protobuf import (
@@ -56,22 +56,11 @@ class MapasController:
         if pilha is not None:
             pilha.endMacro()
 
-    def mover_ponto_de_interesse(
-        self,
-        historico: Any,
-        chave_mapa: Any,
-        idx_poi: int,
-        estado_inicial: Any,
-        estado_final: Any,
-        widget_editor: Any,
-    ) -> None:
-        from editor.commands.comandos_mapas import CmdMoverPonto  # type: ignore[attr-defined]
-        historico.executar(CmdMoverPonto(chave_mapa, idx_poi, estado_inicial, estado_final, widget_editor))
 
     def converter_boxes_para_circulos(self, msg_mapa_proxy: Any, indices: List[int]) -> None:
         """Converte múltiplos POIs do tipo box para circular de uma só vez."""
         from aresta_api.proto.generated import croqui_pb2
-        from editor.models.readonly_proxy import ReadOnlyProxy
+        from editor.models.readonly_proxy import _copia_segura
         from editor.commands.comandos_protobuf import CmdAlterarMultiplosRepeatedItems
         
         alteracoes = []
@@ -80,12 +69,7 @@ class MapasController:
             if not poi_antigo.HasField('retangulo'):
                 continue
                 
-            poi_novo = croqui_pb2.Mapa.PontoDeInteresse()
-            if isinstance(poi_antigo, ReadOnlyProxy):
-                poi_novo.CopyFrom(poi_antigo._obj)
-            else:
-                poi_novo.CopyFrom(poi_antigo)
-            
+            poi_novo = _copia_segura(poi_antigo)
             box = poi_antigo.retangulo
             r = (box.comprimento + box.largura) / 4.0
             
@@ -109,7 +93,7 @@ class MapasController:
     def converter_circulos_para_boxes(self, msg_mapa_proxy: Any, indices: List[int]) -> None:
         """Converte múltiplos POIs do tipo circular para box de uma só vez."""
         from aresta_api.proto.generated import croqui_pb2
-        from editor.models.readonly_proxy import ReadOnlyProxy
+        from editor.models.readonly_proxy import _copia_segura
         from editor.commands.comandos_protobuf import CmdAlterarMultiplosRepeatedItems
         
         alteracoes = []
@@ -118,12 +102,7 @@ class MapasController:
             if not poi_antigo.HasField('circulo'):
                 continue
                 
-            poi_novo = croqui_pb2.Mapa.PontoDeInteresse()
-            if isinstance(poi_antigo, ReadOnlyProxy):
-                poi_novo.CopyFrom(poi_antigo._obj)
-            else:
-                poi_novo.CopyFrom(poi_antigo)
-            
+            poi_novo = _copia_segura(poi_antigo)
             circ = poi_antigo.circulo
             r = circ.raio
             
@@ -183,6 +162,109 @@ class MapasController:
             context_path=self.contexto_atual_path
         )
         self._executar_comando(cmd)
+
+    def alterar_cor_poi(self, msg_mapa_proxy: Any, index: int, nova_cor: str) -> None:
+        """Altera a cor de um POI ou elemento visual com suporte a Undo/Redo."""
+        from editor.models.readonly_proxy import _copia_segura
+
+        poi_antigo = msg_mapa_proxy.pontos_de_interesse[index]
+        poi_novo = _copia_segura(poi_antigo)
+        poi_novo.cor = nova_cor
+        self.mover_poi(msg_mapa_proxy, index, poi_antigo, poi_novo)
+
+    def adicionar_linha(
+        self,
+        msg_mapa_proxy: Any,
+        id_linha: str,
+        label: str = "",
+        nos: Optional[List[Dict[str, Any]]] = None,
+        estilo: Any = None,
+        cor: str = "",
+        texto_visivel: str = "",
+        espessura: int = 3
+    ) -> None:
+        """Cria e adiciona uma LinhaTrajeto ao mapa com suporte a Undo/Redo."""
+        from aresta_api.proto.generated import croqui_pb2
+
+        poi_novo = croqui_pb2.Mapa.PontoDeInteresse(id=id_linha, label=label, cor=cor)
+        if texto_visivel:
+            poi_novo.texto_visivel = texto_visivel
+        if estilo is not None:
+            poi_novo.linha.estilo = estilo
+        else:
+            poi_novo.linha.estilo = croqui_pb2.LinhaTrajeto.EstiloTraco.TRACEJADO
+        poi_novo.linha.espessura = int(espessura)
+
+        if nos:
+            for n in nos:
+                no_msg = poi_novo.linha.conteudo.nos.add()
+                no_msg.x = int(n.get("x", 0))
+                no_msg.y = int(n.get("y", 0))
+                if "tipo" in n and n["tipo"] is not None:
+                    no_msg.tipo = n["tipo"]
+                if "rotulo" in n and n["rotulo"]:
+                    no_msg.rotulo = str(n["rotulo"])
+
+        self.adicionar_poi(msg_mapa_proxy, poi_novo)
+
+    def alterar_espessura_linha(self, msg_mapa_proxy: Any, index_poi: int, nova_espessura: int) -> None:
+        """Altera a espessura em pixels do traçado da linha com suporte a Undo/Redo."""
+        from editor.models.readonly_proxy import _copia_segura
+
+        poi_antigo = msg_mapa_proxy.pontos_de_interesse[index_poi]
+        poi_novo = _copia_segura(poi_antigo)
+
+        if poi_novo.HasField("linha"):
+            poi_novo.linha.espessura = int(nova_espessura)
+            self.mover_poi(msg_mapa_proxy, index_poi, poi_antigo, poi_novo)
+
+    def alterar_tipo_no(self, msg_mapa_proxy: Any, index_poi: int, index_no: int, novo_tipo: Any) -> None:
+        """Altera o tipo semântico de um nó em uma linha de traçado."""
+        from editor.models.readonly_proxy import _copia_segura
+
+        poi_antigo = msg_mapa_proxy.pontos_de_interesse[index_poi]
+        poi_novo = _copia_segura(poi_antigo)
+
+        if poi_novo.HasField("linha") and len(poi_novo.linha.conteudo.nos) > index_no:
+            poi_novo.linha.conteudo.nos[index_no].tipo = novo_tipo
+            self.mover_poi(msg_mapa_proxy, index_poi, poi_antigo, poi_novo)
+
+    def adicionar_no_linha(self, msg_mapa_proxy: Any, index_poi: int, index_pos: int, novo_no_dict: Dict[str, Any]) -> None:
+        """Insere um novo nó na linha em uma posição específica."""
+        from aresta_api.proto.generated import croqui_pb2
+        from editor.models.readonly_proxy import _copia_segura
+
+        poi_antigo = msg_mapa_proxy.pontos_de_interesse[index_poi]
+        poi_novo = _copia_segura(poi_antigo)
+
+        if poi_novo.HasField("linha"):
+            nos_existentes = list(poi_novo.linha.conteudo.nos)
+            no_msg = croqui_pb2.NoTrajeto(
+                x=int(novo_no_dict.get("x", 0)),
+                y=int(novo_no_dict.get("y", 0)),
+                tipo=novo_no_dict.get("tipo", croqui_pb2.NoTrajeto.TipoNo.PASSAGEM),
+                rotulo=str(novo_no_dict.get("rotulo", ""))
+            )
+            nos_existentes.insert(index_pos, no_msg)
+            poi_novo.linha.conteudo.ClearField("nos")
+            for n in nos_existentes:
+                poi_novo.linha.conteudo.nos.append(n)
+            self.mover_poi(msg_mapa_proxy, index_poi, poi_antigo, poi_novo)
+
+    def remover_no_linha(self, msg_mapa_proxy: Any, index_poi: int, index_no: int) -> None:
+        """Remove um nó da linha."""
+        from editor.models.readonly_proxy import _copia_segura
+
+        poi_antigo = msg_mapa_proxy.pontos_de_interesse[index_poi]
+        poi_novo = _copia_segura(poi_antigo)
+
+        if poi_novo.HasField("linha") and len(poi_novo.linha.conteudo.nos) > index_no:
+            nos_existentes = list(poi_novo.linha.conteudo.nos)
+            del nos_existentes[index_no]
+            poi_novo.linha.conteudo.ClearField("nos")
+            for n in nos_existentes:
+                poi_novo.linha.conteudo.nos.append(n)
+            self.mover_poi(msg_mapa_proxy, index_poi, poi_antigo, poi_novo)
 
     def adicionar_referencia(self, msg_mapa_proxy: Any, ref_nova: Any) -> None:
         """Adiciona uma referência ao mapa."""

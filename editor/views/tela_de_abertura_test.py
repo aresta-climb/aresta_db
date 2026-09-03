@@ -326,3 +326,30 @@ def test_tela_abertura_drag_and_drop(qtbot):
     nova_pos = abertura.pos()
     assert nova_pos.x() == pos_inicial.x() + 50
     assert nova_pos.y() == pos_inicial.y() + 50
+
+
+def test_tela_abertura_solicitar_otp_com_cliente_padrao_chama_url_absoluta(
+    qtbot,
+):
+    import responses
+    with responses.RequestsMock() as rsps:
+        rsps.add(
+            responses.POST,
+            "https://yzkhiaoqtxvvcyyuwmqg.supabase.co/auth/v1/otp",
+            json={"message": "ok"},
+            status=200,
+        )
+        abertura = TelaDeAbertura()
+        abertura.show()
+        qtbot.addWidget(abertura)
+
+        abertura.iniciar_fluxo_login()
+        abertura.mostrar_formulario_email()
+        abertura.edit_email.setText("renatoutsch@gmail.com")
+        abertura.solicitar_otp()
+
+        qtbot.waitUntil(lambda: abertura.container_auth_codigo.isVisible(), timeout=3000)
+
+        assert abertura.container_auth_codigo.isVisible()
+        assert len(rsps.calls) == 1
+        assert rsps.calls[0].request.url == "https://yzkhiaoqtxvvcyyuwmqg.supabase.co/auth/v1/otp"

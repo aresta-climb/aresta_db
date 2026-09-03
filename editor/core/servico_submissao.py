@@ -22,12 +22,15 @@ from editor.core.telemetria import (
 )
 
 
-_URL_SUPABASE_PADRAO = os.getenv(
-    "ARESTA_SUPABASE_URL", "https://yzkhiaoqtxvvcyyuwmqg.supabase.co"
+_URL_SUPABASE_FALLBACK = "https://yzkhiaoqtxvvcyyuwmqg.supabase.co"
+_CHAVE_PUBLICA_FALLBACK = "sb_publishable_ZOrO8ix2EsWlSHEWrZr42A_JycWrAV3"
+
+_URL_SUPABASE_PADRAO = (
+    (os.getenv("ARESTA_SUPABASE_URL") or "").strip() or _URL_SUPABASE_FALLBACK
 )
-_CHAVE_PUBLICA_PADRAO = os.getenv(
-    "ARESTA_SUPABASE_PUBLISHABLE_KEY",
-    "sb_publishable_ZOrO8ix2EsWlSHEWrZr42A_JycWrAV3",
+_CHAVE_PUBLICA_PADRAO = (
+    (os.getenv("ARESTA_SUPABASE_PUBLISHABLE_KEY") or "").strip()
+    or _CHAVE_PUBLICA_FALLBACK
 )
 
 
@@ -77,8 +80,12 @@ class ServicoSubmissao:
         cliente_auth: Optional[ClienteAuthSupabase] = None,
     ) -> None:
         self.caminho_repo_base: Path = caminho_repo_base or GerenciadorCaminhos().obter_caminho_base_repo()
-        self.url_supabase: str = (url_supabase or _URL_SUPABASE_PADRAO).rstrip("/")
-        self.chave_publica: str = chave_publica or _CHAVE_PUBLICA_PADRAO
+        url = (url_supabase or "").strip()
+        if not url.startswith("http://") and not url.startswith("https://"):
+            url = _URL_SUPABASE_PADRAO
+        self.url_supabase: str = url.rstrip("/")
+        chave = (chave_publica or "").strip() or _CHAVE_PUBLICA_PADRAO
+        self.chave_publica: str = chave
         self.cliente_auth: ClienteAuthSupabase = cliente_auth or ClienteAuthSupabase(
             url_supabase=self.url_supabase, chave_publica=self.chave_publica
         )

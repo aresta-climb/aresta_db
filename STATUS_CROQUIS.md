@@ -1,8 +1,8 @@
 # Estado de Saúde dos Croquis
 
-Relatório gerado em: 20/08/2026 21:52:56
+Relatório gerado em: 03/09/2026 00:01:04
 
-| Croqui | Publicado (25/48) | Revisado Manual (25/48) | Revisado Circ (25/48) | Desenho Extraível (30/2/16) | Pontos de Interesse (23/48) | Thumbnail (35/48) | Coordenadas Picos (6/48) | Mapas Gerais (31/48) | Betas Pendentes (48/48) | croqui.yaml (36/48) | Conteúdo PDF (0/48) | partes.json (48/48) | PDF Original (0/48) |
+| Croqui | Publicado (26/49) | Revisado Manual (25/49) | Revisado Circ (25/49) | Desenho Extraível (30/2/17) | Pontos de Interesse (23/49) | Thumbnail (36/49) | Coordenadas Picos (7/49) | Mapas Gerais (31/49) | Betas Pendentes (49/49) | croqui.yaml (37/49) | Conteúdo PDF (0/49) | partes.json (49/49) | PDF Original (0/49) |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | br_mg_araxa_bocaina_boulders | ✅ | ✅ | ✅ | ✅ | ✅ (12/12) | ✅ | ❌ (0/1) | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ |
 | br_mg_araxa_bocaina_esportivas | ✅ | ✅ | ✅ | ✅ | ✅ (15/15) | ✅ | ❌ (0/1) | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ |
@@ -18,7 +18,7 @@ Relatório gerado em: 20/08/2026 21:52:56
 | br_mg_diamantina_diamaboulder | ✅ | ✅ | ✅ | ✅ | ⚠️ (22/26) | ✅ | ❌ (0/1) | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ |
 | br_mg_extrema_falesia_da_esfinge | ❌ | ❌ | ❌ | ⚠️ | ❌ (0/3) | ✅ | ❌ (0/1) | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ |
 | br_mg_ferros_ferros | ❌ | ❌ | ❌ | ✅ (não) | ⚠️ (12/21) | ❌ | ❌ (0/1) | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ |
-| br_mg_igarape_pedra_grande | ✅ | ✅ | ✅ | ✅ (não) | ✅ (9/9) | ✅ | ❌ (0/1) | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ |
+| br_mg_igarape_pedra_grande | ✅ | ✅ | ✅ | ✅ (não) | ⚠️ (10/13) | ✅ | ❌ (0/1) | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ |
 | br_mg_ipatinga_ipaba_vale_verde | ✅ | ✅ | ✅ | ✅ (não) | ✅ (2/2) | ✅ | ❌ (0/1) | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ |
 | br_mg_januaria_salao_encantado | ✅ | ✅ | ✅ | ✅ (não) | ✅ (7/7) | ✅ | ❌ (0/1) | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ |
 | br_mg_lagoa_santa_gruta_da_lapinha | ✅ | ✅ | ✅ | ✅ (não) | ✅ (10/10) | ✅ | ❌ (0/1) | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ |
@@ -46,6 +46,7 @@ Relatório gerado em: 20/08/2026 21:52:56
 | br_mg_santana_do_paraiso | ❌ | ❌ | ❌ | ❌ | N/A | ❌ | N/A | ❌ | ✅ | ❌ | ❌ | ✅ | ❌ |
 | br_mg_santana_do_paraiso_boulders | ❌ | ❌ | ❌ | ❌ | N/A | ❌ | N/A | ❌ | ✅ | ❌ | ❌ | ✅ | ❌ |
 | br_mg_santana_do_riacho_rio_de_pedras | ❌ | ❌ | ❌ | ❌ | N/A | ❌ | N/A | ❌ | ✅ | ❌ | ❌ | ✅ | ❌ |
+| br_mg_santana_do_riacho_serra_do_cipo_rock_master | ✅ | ❌ | ❌ | ❌ | ✅ (1/1) | ✅ | ✅ (1/1) | ❌ | ✅ | ✅ | ❌ | ✅ | ❌ |
 | br_mg_sao_joao_del_rei_serra_do_lenheiro | ❌ | ❌ | ❌ | ❌ | N/A | ❌ | N/A | ❌ | ✅ | ❌ | ❌ | ✅ | ❌ |
 | br_mg_sao_joao_del_rei_serra_do_lenheiro_boulders_ave_maria_2017 | ❌ | ❌ | ❌ | ❌ | N/A | ❌ | N/A | ❌ | ✅ | ❌ | ❌ | ✅ | ❌ |
 | br_mg_sao_thome_das_letras | ❌ | ❌ | ❌ | ❌ | N/A | ❌ | N/A | ❌ | ✅ | ❌ | ❌ | ✅ | ❌ |

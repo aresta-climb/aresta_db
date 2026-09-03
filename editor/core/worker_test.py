@@ -344,6 +344,88 @@ class TestWorker(unittest.TestCase):
             "f0zb-udvq",
         )
 
+    def test_tarefa_salvamento_sucesso(self):
+        """Valida que TarefaSalvamento salva croqui.yaml, processa compilação e emite sucesso."""
+        from editor.core.worker import TarefaSalvamento
+        mock_ws = MagicMock()
+        mock_ws.processar_renomeacao_e_compilacao.return_value = (Path("/fake/compilado"), [])
+        
+        tarefa = TarefaSalvamento(
+            workspace=mock_ws,
+            storage=None,
+            caminho_db=Path("/fake/db"),
+            croqui_data={"id": "teste", "nome": "Teste"},
+            novo_id="teste",
+            id_atual="teste",
+            undo_index=3,
+        )
+        tarefa.sucesso = MagicMock()
+        tarefa.erro = MagicMock()
+        
+        with patch("builtins.open", MagicMock()):
+            with patch("yaml.dump"):
+                tarefa.run()
+                
+        mock_ws.processar_renomeacao_e_compilacao.assert_called_once_with("teste", "teste", None)
+        tarefa.sucesso.emit.assert_called_once_with(Path("/fake/compilado"), [], False, 3)
+        tarefa.erro.emit.assert_not_called()
+
+    @patch("editor.core.telemetria.capturar_excecao")
+    def test_tarefa_salvamento_erro_envia_sentry_e_emite_sinal(self, mock_capturar_excecao):
+        """Valida que falhas em TarefaSalvamento são enviadas ao Sentry e emitem erro sem derrubar o processo."""
+        from editor.core.worker import TarefaSalvamento
+        mock_ws = MagicMock()
+        mock_ws.processar_renomeacao_e_compilacao.side_effect = ValueError("Falha na compilação protobuf")
+        
+        tarefa = TarefaSalvamento(
+            workspace=mock_ws,
+            storage=None,
+            caminho_db=Path("/fake/db"),
+            croqui_data={"id": "teste"},
+            novo_id="teste",
+            id_atual="teste",
+            undo_index=1,
+        )
+        tarefa.sucesso = MagicMock()
+        tarefa.erro = MagicMock()
+        
+        with patch("builtins.open", MagicMock()):
+            with patch("yaml.dump"):
+                tarefa.run()
+                
+        tarefa.sucesso.emit.assert_not_called()
+        tarefa.erro.emit.assert_called_once_with("Falha na compilação protobuf")
+        mock_capturar_excecao.assert_called_once()
+        args, kwargs = mock_capturar_excecao.call_args
+        assert isinstance(kwargs.get("erro") or args[0], ValueError)
+
+    @patch("editor.core.telemetria.capturar_excecao")
+    def test_tarefa_salvamento_protege_contra_base_exception(self, mock_capturar_excecao):
+        """Valida que mesmo BaseException (como SystemExit) é capturada e reportada sem matar o Qt runtime."""
+        from editor.core.worker import TarefaSalvamento
+        mock_ws = MagicMock()
+        mock_ws.processar_renomeacao_e_compilacao.side_effect = SystemExit(1)
+        
+        tarefa = TarefaSalvamento(
+            workspace=mock_ws,
+            storage=None,
+            caminho_db=Path("/fake/db"),
+            croqui_data={"id": "teste"},
+            novo_id="teste",
+            id_atual="teste",
+            undo_index=1,
+        )
+        tarefa.sucesso = MagicMock()
+        tarefa.erro = MagicMock()
+        
+        with patch("builtins.open", MagicMock()):
+            with patch("yaml.dump"):
+                tarefa.run()
+                
+        tarefa.sucesso.emit.assert_not_called()
+        tarefa.erro.emit.assert_called_once()
+        mock_capturar_excecao.assert_called_once()
+
 
 if __name__ == "__main__":
     unittest.main()

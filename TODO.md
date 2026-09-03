@@ -27,6 +27,7 @@ Tarefas ainda a fazer na database.
 
 ## Geral
 
+- Renomear 'pontos_de_interesse' (e 'POI') para algo como 'desenho' ou 'elementos_graficos' nos esquemas e no modelo do aresta_db, refletindo melhor que representam formas gráficas (círculos, retângulos, linhas vetoriais, etc.).
 - Criar um novo 'partes.proto' e converter todos os partes.json para partes.yaml
   seguindo esse formato, e atualizar as skills para seguir esse novo proto.
 - Coloque um script que duplica imagens caso estiverem sendo usadas em mais de

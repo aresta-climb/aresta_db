@@ -123,46 +123,71 @@ def test_application_version_is_set(qtbot):
         assert controlador.app.applicationVersion() == VERSION
         controlador.abertura.close()
 
-def test_main_impede_multiplas_instancias(qtbot):
-    with patch("editor.main.QLocalSocket") as MockLocalSocket:
-        with patch("editor.main.QMessageBox.warning") as mock_warning:
+def test_main_impede_multiplas_instancias(qtbot, capsys):
+    with patch("editor.core.instancia_unica.verificar_se_ja_em_execucao", return_value=True) as mock_verif:
+        with patch("editor.main.QMessageBox.information") as mock_info:
             with patch("editor.main.sys.exit", side_effect=SystemExit) as mock_exit:
-                mock_socket_inst = MockLocalSocket.return_value
-                # Simula que conectou a um servidor já existente (outra instância ativa)
-                mock_socket_inst.waitForConnected.return_value = True
-                
                 from editor.main import main
                 with pytest.raises(SystemExit):
                     main()
-                
-                mock_socket_inst.connectToServer.assert_called_once_with("ArestaEditorSingleInstanceServer")
-                mock_warning.assert_called_once()
+
+                mock_verif.assert_called_once()
+                mock_info.assert_called_once()
+                mock_exit.assert_called_once_with(0)
+                captured = capsys.readouterr()
+                assert "O Aresta Editor já está em execução" in captured.err
 
 
 def test_main_inicia_servidor_quando_primeira_instancia(qtbot):
-    with patch("editor.main.QLocalSocket") as MockLocalSocket:
-        with patch("editor.main.QLocalServer") as MockLocalServer:
-            with patch("editor.main.QMessageBox.warning") as mock_warning:
-                with patch("editor.main.ControladorAplicativo") as MockControlador:
-                    with patch("editor.main.sys.exit") as mock_exit:
-                        mock_socket_inst = MockLocalSocket.return_value
-                        # Simula que não há servidor rodando
-                        mock_socket_inst.waitForConnected.return_value = False
-                        
-                        mock_server_inst = MockLocalServer.return_value
-                        mock_server_inst.listen.return_value = True
-                        
-                        mock_controlador_inst = MockControlador.return_value
-                        mock_controlador_inst.executar.return_value = 0
+    with patch("editor.core.instancia_unica.verificar_se_ja_em_execucao", return_value=False):
+        with patch("editor.core.instancia_unica.iniciar_servidor_instancia_unica") as mock_iniciar_srv:
+            with patch("editor.main.ControladorAplicativo") as MockControlador:
+                with patch("editor.main.sys.exit", side_effect=SystemExit) as mock_exit:
+                    mock_controlador_inst = MockControlador.return_value
+                    mock_controlador_inst.executar.return_value = 0
+                    
+                    from editor.main import main
+                    with patch("sys.argv", ["editor/main.py"]):
+                        with pytest.raises(SystemExit):
+                            main()
+                    
+                    mock_iniciar_srv.assert_called_once()
+                    MockControlador.assert_called_once()
+                    mock_exit.assert_called_once_with(0)
+
+
+def test_main_abre_modo_local_repo_com_sucesso(qtbot):
+    with patch("editor.core.instancia_unica.verificar_se_ja_em_execucao", return_value=False):
+        with patch("editor.core.instancia_unica.iniciar_servidor_instancia_unica"):
+            with patch("editor.legacy_views.area_principal.JanelaPrincipal") as MockJanela:
+                with patch("PySide6.QtWidgets.QApplication.exec", return_value=0):
+                    with patch("editor.main.sys.exit", side_effect=SystemExit) as mock_exit:
+                        mock_janela_inst = MockJanela.return_value
                         
                         from editor.main import main
-                        main()
-                        
-                        MockLocalServer.removeServer.assert_called_once_with("ArestaEditorSingleInstanceServer")
-                        mock_server_inst.listen.assert_called_once_with("ArestaEditorSingleInstanceServer")
-                        mock_warning.assert_not_called()
-                        MockControlador.assert_called_once()
+                        with patch("sys.argv", ["editor/main.py", "database/br_mg_ouro_preto_ouroboulder"]):
+                            with pytest.raises(SystemExit):
+                                main()
+                            
+                        MockJanela.assert_called_once()
+                        mock_janela_inst.show.assert_called_once()
                         mock_exit.assert_called_once_with(0)
+
+
+def test_main_erro_quando_caminho_database_invalido(qtbot, capsys):
+    with patch("editor.core.instancia_unica.verificar_se_ja_em_execucao", return_value=False):
+        with patch("editor.core.instancia_unica.iniciar_servidor_instancia_unica"):
+            with patch("editor.main.QMessageBox.critical") as mock_crit:
+                with patch("editor.main.sys.exit", side_effect=SystemExit) as mock_exit:
+                    from editor.main import main
+                    with patch("sys.argv", ["editor/main.py", "database/caminho_inexistente_123"]):
+                        with pytest.raises(SystemExit):
+                            main()
+                            
+                    mock_crit.assert_called_once()
+                    mock_exit.assert_called_once_with(1)
+                    captured = capsys.readouterr()
+                    assert "Erro: O caminho especificado" in captured.err
 
 
 def test_qlocalserver_ciclo_vida_e_bloqueio_real(qtbot):

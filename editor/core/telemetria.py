@@ -355,4 +355,44 @@ def capturar_falha_submissao(
         return None
 
 
+def capturar_excecao(
+    erro: BaseException,
+    id_croqui: str = "",
+    etapa: str = "",
+    contexto_extra: Any = None,
+) -> Any:
+    """
+    Captura qualquer exceção (incluindo falhas de salvamento e compilação),
+    registra tags, anexa o diário local sanitizado e envia silenciosamente ao Sentry com flush imediato.
+    Retorna o event_id se enviado com sucesso, ou None.
+    """
+    if not sentry_sdk:
+        return None
+
+    try:
+        if hasattr(sentry_sdk, "set_tag"):
+            sentry_sdk.set_tag("tipo_evento", "excecao_editor")
+            if id_croqui:
+                sentry_sdk.set_tag("id_croqui", id_croqui)
+            if etapa:
+                sentry_sdk.set_tag("etapa_falha", etapa)
+
+        if contexto_extra and hasattr(sentry_sdk, "set_context"):
+            contexto_sanitizado = _sanitizar_objeto_recursivo(contexto_extra)
+            sentry_sdk.set_context("detalhes_erro", contexto_sanitizado)
+
+        _anexar_arquivos_diario_no_escopo()
+
+        event_id = None
+        if hasattr(sentry_sdk, "capture_exception"):
+            event_id = sentry_sdk.capture_exception(erro)
+            if hasattr(sentry_sdk, "flush"):
+                sentry_sdk.flush(timeout=5.0)
+
+        return event_id
+    except Exception:
+        return None
+
+
+
 

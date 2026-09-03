@@ -5,12 +5,15 @@ import os
 from typing import Optional, Dict, Any
 import requests
 
-_URL_SUPABASE_PADRAO = os.getenv(
-    "ARESTA_SUPABASE_URL", "https://yzkhiaoqtxvvcyyuwmqg.supabase.co"
+_URL_SUPABASE_FALLBACK = "https://yzkhiaoqtxvvcyyuwmqg.supabase.co"
+_CHAVE_PUBLICA_FALLBACK = "sb_publishable_ZOrO8ix2EsWlSHEWrZr42A_JycWrAV3"
+
+_URL_SUPABASE_PADRAO = (
+    (os.getenv("ARESTA_SUPABASE_URL") or "").strip() or _URL_SUPABASE_FALLBACK
 )
-_CHAVE_PUBLICA_PADRAO = os.getenv(
-    "ARESTA_SUPABASE_PUBLISHABLE_KEY",
-    "sb_publishable_ZOrO8ix2EsWlSHEWrZr42A_JycWrAV3",
+_CHAVE_PUBLICA_PADRAO = (
+    (os.getenv("ARESTA_SUPABASE_PUBLISHABLE_KEY") or "").strip()
+    or _CHAVE_PUBLICA_FALLBACK
 )
 
 
@@ -80,10 +83,23 @@ class ClienteAuthSupabase:
         chave_publica: Optional[str] = None,
         tempo_limite: int = 15,
     ) -> None:
-        self.url_supabase: str = (url_supabase or _URL_SUPABASE_PADRAO).rstrip("/")
-        self.chave_publica: str = chave_publica or _CHAVE_PUBLICA_PADRAO
+        url = (url_supabase or "").strip()
+        if not url.startswith("http://") and not url.startswith("https://"):
+            url = _URL_SUPABASE_PADRAO
+        self.url_supabase: str = url.rstrip("/")
+        chave = (chave_publica or "").strip() or _CHAVE_PUBLICA_PADRAO
+        self.chave_publica: str = chave
         self.tempo_limite: int = tempo_limite
 
+
+    def obter_url_autorizacao_github(self, url_redirecionamento: str) -> str:
+        """
+        Retorna a URL completa para início do fluxo OAuth com o GitHub via Supabase.
+        """
+        return (
+            f"{self.url_supabase}/auth/v1/authorize?"
+            f"provider=github&scopes=read:user,user:email,public_repo&redirect_to={url_redirecionamento}"
+        )
 
     def _obter_cabecalhos(self, jwt: Optional[str] = None) -> Dict[str, str]:
         token_auth = jwt or self.chave_publica

@@ -1,16 +1,27 @@
 # tracados-vetoriais-mapas Specification
 
 ## Purpose
-Fornecer um modelo de dados, semântica de nós de escalada em português, biblioteca matemática de interpolação Spline Catmull-Rom para Curvas de Bézier e pipeline de compilação em SVG Path (`caminho_svg`) otimizado para renderização acelerada por GPU.
+Fornecer um modelo de dados, suporte a cores customizadas, semântica de nós de escalada em português, biblioteca matemática de interpolação Spline Catmull-Rom para Curvas de Bézier e pipeline de compilação em SVG Path (`caminho_svg`) otimizado para renderização acelerada por GPU.
 
 ## ADDED Requirements
+
+### Requirement: Suporte a Cores em Pontos de Interesse e Traçados
+O sistema SHALL suportar a definição de uma cor customizada no formato hexadecimal (`#RRGGBB`) no campo `cor` de cada `PontoDeInteresse` / `ElementoVisual`, permitindo que traçados de linhas, polígonos, círculos e retângulos sejam visualizados e renderizados com cores distintas.
+
+#### Scenario: Definição de Cor Hexadecimal em Linha de Trajeto
+- **WHEN** um elemento de traçado é criado ou editado com o campo `cor: "#FF6D00"`
+- **THEN** o sistema SHALL armazenar a string hexadecimal no modelo e renderizar o traçado na cena gráfica com a cor laranja correspondente.
+
+#### Scenario: Fallback para Cor Padrão
+- **WHEN** um elemento de traçado ou POI não possui o campo `cor` preenchido
+- **THEN** o sistema SHALL utilizar a cor padrão do sistema (verde para POIs genéricos, laranja/ciano para linhas).
 
 ### Requirement: Modelo de Dados de Linha de Trajeto no Protobuf
 O sistema SHALL suportar a representação estruturada de traçados de vias de escalada em mapas através da mensagem `LinhaTrajeto`, com suporte a estilos de traço (`TRACEJADO`, `SOLIDO`, `PONTILHADO`) e uma união (`oneof representacao`) entre o modo de edição semântica (`conteudo`) e o modo otimizado para renderização (`compilado`), com todos os identificadores em português brasileiro.
 
 #### Scenario: Definição de Linha de Trajeto em Modo Conteúdo (Edição)
 - **WHEN** um mapa contém um elemento visual do tipo `linha` com dados de edição
-- **THEN** o sistema SHALL armazenar uma lista ordenada de `NoTrajeto` em `conteudo.nos`, onde cada nó possui coordenadas inteiras $(x, y)$, um tipo semântico (`PASSAGEM`, `INICIO_BASE`, `INICIO_AGACHADO`, `PROTECAO_FIXA`, `PARADA_INTERMEDIARIA`, `TOP_PARADA`, `CRUX`) e um rótulo textual opcional (`rotulo`).
+- **THEN** o sistema SHALL armazenar uma lista ordenada de `NoTrajeto` em `conteudo.nos`, onde cada nó possui coordenadas inteiras $(x, y)$, um tipo semântico (`PASSAGEM`, `CIRCULO_IDENTIFICADOR`, `INICIO_AGACHADO`, `PROTECAO_FIXA`, `PARADA_INTERMEDIARIA`, `TOP_PARADA`, `CRUX`) e um rótulo textual opcional (`rotulo`).
 
 #### Scenario: Definição de Linha de Trajeto em Modo Compilado
 - **WHEN** um mapa é processado pelo pipeline de compilação

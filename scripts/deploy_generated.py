@@ -57,6 +57,7 @@ from scripts.preparar_submissao_lib import (
     compilar_croqui
 )
 from scripts.gerar_compilado_md import gerar_compilado_md
+from scripts.calcular_tamanho_croqui_lib import calcular_tamanho_croqui_bytes
 
 ROOT_DIR     = Path(__file__).resolve().parent.parent
 DATABASE_DIR = ROOT_DIR / "database"
@@ -548,7 +549,7 @@ def passo_c_gerar_indice(
             c for c in compilados if c[1].get("publicar_croqui", False)
         ]
 
-    for croqui_id, croqui_data, _ in compilados_filtrados:
+    for croqui_id, croqui_data, caminho_compilado_pb in compilados_filtrados:
 
         new_checksum = checksums.get(croqui_id, "")
         old_resumo = dados_anteriores.get(croqui_id)
@@ -611,6 +612,14 @@ def passo_c_gerar_indice(
         resumo.precomputados.total_multiplas_enfiadas = total_multiplas_enfiadas
         resumo.precomputados.total_highlines = total_highlines
 
+        # Injeta tamanho estimado de download para modo offline
+        pasta_imagens = caminho_compilado_pb.parent / "imagens"
+        resumo.precomputados.tamanho_download_bytes = calcular_tamanho_croqui_bytes(
+            caminho_compilado=caminho_compilado_pb,
+            pasta_imagens=pasta_imagens,
+            pastas_excluidas=IMAGENS_SUBDIRS_EXCLUIDOS,
+        )
+
         if isinstance(picos, list) and len(picos) > 0 and isinstance(picos[0], dict) and "localizacao" in picos[0]:
             loc = picos[0]["localizacao"]
             if isinstance(loc, dict):
@@ -635,6 +644,17 @@ def passo_c_gerar_indice(
             
         resumo = indice.croquis.add()
         resumo.CopyFrom(resumo_preservado)
+
+        # Se veio de um deploy anterior sem tamanho_download_bytes computado, calcula retroativamente
+        if resumo.precomputados.tamanho_download_bytes == 0 and resumo.caminho_relativo:
+            caminho_pb = GENERATED_DIR / resumo.caminho_relativo
+            pasta_img = caminho_pb.parent / "imagens"
+            resumo.precomputados.tamanho_download_bytes = calcular_tamanho_croqui_bytes(
+                caminho_compilado=caminho_pb,
+                pasta_imagens=pasta_img,
+                pastas_excluidas=IMAGENS_SUBDIRS_EXCLUIDOS,
+            )
+
         if verbose:
             print(f"  Preservado: {resumo.id} (de deploy anterior)")
 
@@ -668,6 +688,8 @@ def passo_c_gerar_indice(
                 pre_yaml["total_multiplas_enfiadas"] = resumo.precomputados.total_multiplas_enfiadas
             if resumo.precomputados.total_highlines > 0:
                 pre_yaml["total_highlines"] = resumo.precomputados.total_highlines
+            if resumo.precomputados.tamanho_download_bytes > 0:
+                pre_yaml["tamanho_download_bytes"] = resumo.precomputados.tamanho_download_bytes
                 
             item_yaml["precomputados"] = pre_yaml
         if resumo.HasField("localizacao"):
@@ -710,7 +732,8 @@ def deploy(
     force_thumbnails: bool = False,
     gerar_arquivos_de_debug: bool = True,
     is_producao: bool = True,
-    verbose: bool = False
+    verbose: bool = False,
+    sair_ao_falhar: bool = False,
 ) -> None:
 
     global GENERATED_DIR
@@ -810,6 +833,12 @@ def deploy(
     
     if not compilados_finais_para_checksum and not preservados_metadados:
         print("Aviso: Nenhum croqui encontrado para compilar ou preservar.")
+        if erros:
+            if sair_ao_falhar:
+                import sys
+                sys.exit(1)
+            else:
+                raise RuntimeError(f"Ocorreram {len(erros)} erros durante o deploy:\n" + "\n".join(erros))
         # Se for deploy total, talvez seja erro. Se for específico, avisamos.
         if not target_paths:
             return
@@ -831,9 +860,12 @@ def deploy(
     print(f"\nTotal compilados: {len(compilados_novos)} de {len(a_compilar)}")
     if erros:
         print(f"Total erros: {len(erros)}")
-        import sys
         print(f"Ocorreram {len(erros)} erros durante o deploy. Veja os logs acima.")
-        sys.exit(1)
+        if sair_ao_falhar:
+            import sys
+            sys.exit(1)
+        else:
+            raise RuntimeError(f"Ocorreram {len(erros)} erros durante o deploy:\n" + "\n".join(erros))
 
 def passo_d_gerar_manifesto_serving(indice: indice_pb2.Indice, verbose: bool = False) -> None:
     """
@@ -965,7 +997,8 @@ if __name__ == "__main__":
             force_thumbnails=args.force_thumbnails,
             gerar_arquivos_de_debug=args.arquivos_de_debug,
             is_producao=args.producao,
-            verbose=args.verbose
+            verbose=args.verbose,
+            sair_ao_falhar=True
         )
     except RuntimeError as e:
         print(f"\\nDeploy interrompido: {e}")

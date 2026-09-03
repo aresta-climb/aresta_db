@@ -332,3 +332,41 @@ def test_registrar_breadcrumb_submissao(mock_sentry):
     assert kwargs["message"] == "Sincronizando arquivos"
     assert user_home not in str(kwargs["data"]["caminho"])
 
+
+@patch("editor.core.telemetria.sentry_sdk")
+def test_capturar_excecao_envia_tags_e_flush(mock_sentry):
+    from editor.core.telemetria import capturar_excecao
+    
+    mock_sentry.capture_exception.return_value = "evento_crash_123"
+    erro = ValueError("Erro de validação Protobuf")
+    
+    ev_id = capturar_excecao(
+        erro=erro,
+        id_croqui="ouroboulder",
+        etapa="tarefa_salvamento",
+        contexto_extra={"caminho": str(Path.home())}
+    )
+    
+    assert ev_id == "evento_crash_123"
+    mock_sentry.set_tag.assert_any_call("id_croqui", "ouroboulder")
+    mock_sentry.set_tag.assert_any_call("etapa_falha", "tarefa_salvamento")
+    mock_sentry.capture_exception.assert_called_once_with(erro)
+    mock_sentry.flush.assert_called_once()
+    
+    # Verifica sanitização do contexto extra
+    mock_sentry.set_context.assert_called()
+    nome_ctx, dados_ctx = mock_sentry.set_context.call_args[0]
+    assert nome_ctx == "detalhes_erro"
+    assert str(Path.home()) not in str(dados_ctx["caminho"])
+
+
+def test_capturar_excecao_sem_sentry():
+    import editor.core.telemetria as telemetria_mod
+    original_sentry = telemetria_mod.sentry_sdk
+    try:
+        telemetria_mod.sentry_sdk = None
+        assert telemetria_mod.capturar_excecao(ValueError("teste")) is None
+    finally:
+        telemetria_mod.sentry_sdk = original_sentry
+
+

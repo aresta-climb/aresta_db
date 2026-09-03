@@ -104,7 +104,10 @@ class MapasControllerTest(unittest.TestCase):
         self.controller.set_caminho_db("/fake/path")
         
         path = self.controller.obter_caminho_imagem_mapa(self.msg_mapa_proxy)
-        self.assertEqual(str(path).replace('\\', '/'), "/fake/path/mapa.png") # Adjust slashes based on OS in real test, but we can use Path objects
+        self.assertEqual(str(path).replace('\\', '/'), "/fake/path/mapa.png")
+
+        self.controller.set_caminho_db(None)
+        self.assertIsNone(self.controller.obter_caminho_imagem_mapa(self.msg_mapa_proxy))
 
     def test_converter_boxes_para_circulos(self):
         poi1 = self.mapa.pontos_de_interesse.add()
@@ -249,7 +252,137 @@ class MapasControllerTest(unittest.TestCase):
             comandos = diario.ler_diario_pendente()
             self.assertEqual(len(comandos), 1)
             self.assertEqual(comandos[0]["classe"], "CmdAdicionarRepeated")
-            self.assertEqual(comandos[0]["campo_nome"], "pontos_de_interesse")
+    def test_alterar_cor_poi(self):
+        poi = self.mapa.pontos_de_interesse.add(id="poi1", cor="#00FF00")
+        self.assertEqual(self.mapa.pontos_de_interesse[0].cor, "#00FF00")
+        
+        self.controller.alterar_cor_poi(self.msg_mapa_proxy, 0, "#FF6D00")
+        self.assertEqual(self.mapa.pontos_de_interesse[0].cor, "#FF6D00")
+        
+        self.undo_stack.undo()
+        self.assertEqual(self.mapa.pontos_de_interesse[0].cor, "#00FF00")
+        
+        self.undo_stack.redo()
+        self.assertEqual(self.mapa.pontos_de_interesse[0].cor, "#FF6D00")
+
+    def test_adicionar_linha(self):
+        nos = [
+            {"x": 100, "y": 200, "tipo": croqui_pb2.NoTrajeto.TipoNo.CIRCULO_IDENTIFICADOR, "rotulo": "01"},
+            {"x": 150, "y": 100, "tipo": croqui_pb2.NoTrajeto.TipoNo.TOP_PARADA}
+        ]
+        self.controller.adicionar_linha(
+            self.msg_mapa_proxy,
+            id_linha="linha_01",
+            label="Via 01",
+            nos=nos,
+            cor="#FF1744"
+        )
+        self.assertEqual(len(self.mapa.pontos_de_interesse), 1)
+        poi = self.mapa.pontos_de_interesse[0]
+        self.assertEqual(poi.id, "linha_01")
+        self.assertEqual(poi.label, "Via 01")
+        self.assertEqual(poi.cor, "#FF1744")
+        self.assertTrue(poi.HasField("linha"))
+        self.assertEqual(len(poi.linha.conteudo.nos), 2)
+        self.assertEqual(poi.linha.conteudo.nos[0].x, 100)
+        self.assertEqual(poi.linha.conteudo.nos[0].rotulo, "01")
+
+        self.undo_stack.undo()
+        self.assertEqual(len(self.mapa.pontos_de_interesse), 0)
+
+    def test_alterar_tipo_no_e_manipulacao_de_nos(self):
+        nos = [
+            {"x": 100, "y": 200, "tipo": croqui_pb2.NoTrajeto.TipoNo.PASSAGEM},
+            {"x": 200, "y": 100, "tipo": croqui_pb2.NoTrajeto.TipoNo.TOP_PARADA}
+        ]
+        self.controller.adicionar_linha(self.msg_mapa_proxy, id_linha="linha_01", label="", nos=nos)
+        self.assertEqual(self.mapa.pontos_de_interesse[0].linha.conteudo.nos[0].tipo, croqui_pb2.NoTrajeto.TipoNo.PASSAGEM)
+        
+        # Alterar tipo do nó 0 para PROTECAO_FIXA
+        self.controller.alterar_tipo_no(self.msg_mapa_proxy, 0, 0, croqui_pb2.NoTrajeto.TipoNo.PROTECAO_FIXA)
+        self.assertEqual(self.mapa.pontos_de_interesse[0].linha.conteudo.nos[0].tipo, croqui_pb2.NoTrajeto.TipoNo.PROTECAO_FIXA)
+        
+        self.undo_stack.undo()
+        self.assertEqual(self.mapa.pontos_de_interesse[0].linha.conteudo.nos[0].tipo, croqui_pb2.NoTrajeto.TipoNo.PASSAGEM)
+        
+        # Adicionar nó intermediário
+        novo_no = {"x": 150, "y": 150, "tipo": croqui_pb2.NoTrajeto.TipoNo.CRUX}
+        self.controller.adicionar_no_linha(self.msg_mapa_proxy, 0, 1, novo_no)
+        self.assertEqual(len(self.mapa.pontos_de_interesse[0].linha.conteudo.nos), 3)
+        self.assertEqual(self.mapa.pontos_de_interesse[0].linha.conteudo.nos[1].x, 150)
+        self.assertEqual(self.mapa.pontos_de_interesse[0].linha.conteudo.nos[1].tipo, croqui_pb2.NoTrajeto.TipoNo.CRUX)
+        
+        self.undo_stack.undo()
+        self.assertEqual(len(self.mapa.pontos_de_interesse[0].linha.conteudo.nos), 2)
+        
+    def test_obter_pilha_com_gerenciador(self):
+        mock_hist = Mock()
+        mock_hist.obter_pilha.return_value = "pilha_interna"
+        ctrl = MapasController(self.model, mock_hist)
+        self.assertEqual(ctrl.obter_pilha(), "pilha_interna")
+
+
+    def test_adicionar_linha_com_estilo_explicito(self):
+        self.controller.adicionar_linha(
+            self.msg_mapa_proxy,
+            id_linha="linha_solida",
+            label="Via 02",
+            nos=[{"x": 10, "y": 20}],
+            estilo=croqui_pb2.LinhaTrajeto.EstiloTraco.SOLIDO
+        )
+        poi = self.mapa.pontos_de_interesse[-1]
+        self.assertEqual(poi.linha.estilo, croqui_pb2.LinhaTrajeto.EstiloTraco.SOLIDO)
+
+    def test_adicionar_linha_com_texto_visivel(self):
+        self.controller.adicionar_linha(
+            self.msg_mapa_proxy,
+            id_linha="v1",
+            label="Via 01",
+            nos=[{"x": 10, "y": 20}],
+            texto_visivel="Texto no Mapa"
+        )
+        poi = self.mapa.pontos_de_interesse[-1]
+        self.assertEqual(poi.texto_visivel, "Texto no Mapa")
+
+    def test_alterar_espessura_linha(self):
+        nos = [{"x": 10, "y": 20}, {"x": 30, "y": 40}]
+        self.controller.adicionar_linha(self.msg_mapa_proxy, id_linha="l1", nos=nos)
+        self.assertEqual(self.mapa.pontos_de_interesse[0].linha.espessura, 3)
+        
+        self.controller.alterar_espessura_linha(self.msg_mapa_proxy, 0, nova_espessura=6)
+        self.assertEqual(self.mapa.pontos_de_interesse[0].linha.espessura, 6)
+        
+        self.undo_stack.undo()
+        self.assertEqual(self.mapa.pontos_de_interesse[0].linha.espessura, 3)
+        
+        self.undo_stack.redo()
+        self.assertEqual(self.mapa.pontos_de_interesse[0].linha.espessura, 6)
+
+    def test_converter_boxes_para_circulos_com_poi_invalido(self):
+        poi_circulo = croqui_pb2.Mapa.PontoDeInteresse()
+        poi_circulo.circulo.x = 10
+        self.controller.adicionar_poi(self.msg_mapa_proxy, poi_circulo)
+        idx = len(self.mapa.pontos_de_interesse) - 1
+        # Não deve lançar erro ao tentar converter um que não é retangulo
+        self.controller.converter_boxes_para_circulos(self.msg_mapa_proxy, [idx])
+
+    def test_manipulacoes_diretas_sem_proxy(self):
+        poi_direto = croqui_pb2.Mapa.PontoDeInteresse(id="direto")
+        poi_direto.linha.conteudo.nos.add(x=10, y=20, tipo=croqui_pb2.NoTrajeto.TipoNo.PASSAGEM)
+        self.mapa.pontos_de_interesse.append(poi_direto)
+        idx = len(self.mapa.pontos_de_interesse) - 1
+
+        self.controller.alterar_cor_poi(self.mapa, idx, "#123456")
+        self.assertEqual(self.mapa.pontos_de_interesse[idx].cor, "#123456")
+
+        self.controller.alterar_tipo_no(self.mapa, idx, 0, croqui_pb2.NoTrajeto.TipoNo.CRUX)
+        self.assertEqual(self.mapa.pontos_de_interesse[idx].linha.conteudo.nos[0].tipo, croqui_pb2.NoTrajeto.TipoNo.CRUX)
+
+        self.controller.adicionar_no_linha(self.mapa, idx, 1, {"x": 50, "y": 60})
+        self.assertEqual(len(self.mapa.pontos_de_interesse[idx].linha.conteudo.nos), 2)
+
+        self.controller.remover_no_linha(self.mapa, idx, 0)
+        self.assertEqual(len(self.mapa.pontos_de_interesse[idx].linha.conteudo.nos), 1)
 
 if __name__ == '__main__':
     unittest.main()

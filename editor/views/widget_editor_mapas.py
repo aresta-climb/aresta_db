@@ -15,12 +15,13 @@ from PySide6.QtWidgets import (
     QListWidget, QListWidgetItem, QGraphicsView, QGraphicsScene,
     QGraphicsRectItem, QGraphicsEllipseItem, QGraphicsPolygonItem,
     QGraphicsPathItem, QGraphicsTextItem, QGraphicsPixmapItem, QDialog, QFormLayout,
-    QLineEdit, QDialogButtonBox, QMenu, QSlider, QMessageBox, QFileDialog
+    QLineEdit, QDialogButtonBox, QMenu, QSlider, QMessageBox, QFileDialog, QSpinBox,
+    QColorDialog
 )
 from PySide6.QtCore import Qt, QRectF, QPointF, Signal
 from PySide6.QtGui import (
     QPixmap, QPen, QColor, QFont, QBrush, QPolygonF, QTransform, QPainterPath,
-    QUndoCommand
+    QPainter, QUndoCommand
 )
 import copy
 from google.protobuf.json_format import ParseDict
@@ -29,30 +30,52 @@ from aresta_api.proto.generated import croqui_pb2
 def registrar_movimento_final(item: Any, estado_inicial: Optional[Dict[str, Any]]) -> None:
     estado_final = copy.deepcopy(item.obter_dict_atualizado())
     if estado_inicial and estado_inicial != estado_final:
-        widget_editor = item.scene().widget_editor
-        if hasattr(widget_editor, 'mapas_controller') and widget_editor.mapas_controller:
-            idx_poi = -1
-            for idx, gui_item in widget_editor.itens_poi.items():
-                if gui_item == item:
-                    idx_poi = idx
-                    break
-            
-            if idx_poi != -1 and widget_editor.msg_mapa_proxy:
-                try:
-                    poi_antigo = croqui_pb2.Mapa.PontoDeInteresse()
-                    ParseDict(estado_inicial, poi_antigo)
-                    poi_novo = croqui_pb2.Mapa.PontoDeInteresse()
-                    ParseDict(estado_final, poi_novo)
-                    
-                    widget_editor.mapas_controller.mover_poi(widget_editor.msg_mapa_proxy, idx_poi, poi_antigo, poi_novo)
-                    return
-                except Exception as e:
-                    print(f"Erro ao registrar movimento do POI: {e}")
+        scene = item.scene()
+        if scene and hasattr(scene, 'widget_editor'):
+            widget_editor = scene.widget_editor
+            if hasattr(widget_editor, 'mapas_controller') and widget_editor.mapas_controller:
+                idx_poi = -1
+                for idx, gui_item in getattr(widget_editor, 'itens_poi', {}).items():
+                    if gui_item == item:
+                        idx_poi = idx
+                        break
+                
+                if idx_poi != -1 and getattr(widget_editor, 'msg_mapa_proxy', None):
+                    try:
+                        poi_antigo = croqui_pb2.Mapa.PontoDeInteresse()
+                        ParseDict(estado_inicial, poi_antigo)
+                        poi_novo = croqui_pb2.Mapa.PontoDeInteresse()
+                        ParseDict(estado_final, poi_novo)
+                        
+                        widget_editor.mapas_controller.mover_poi(widget_editor.msg_mapa_proxy, idx_poi, poi_antigo, poi_novo)
+                        return
+                    except Exception as e:
+                        print(f"Erro ao registrar movimento do POI: {e}")
     item.marcar_alterado()
 
 
+PALETA_CORES_ROCHA: List[Tuple[str, str]] = [
+    ("Vermelho", "#FF1744"),
+    ("Laranja", "#FF6D00"),
+    ("Amarelo", "#FFD600"),
+    ("Verde Lima", "#00E676"),
+    ("Ciano", "#00E5FF"),
+    ("Roxo", "#D500F9"),
+    ("Branco", "#FFFFFF"),
+    ("Cinza", "#757575"),
+]
+
+
 class DialogoEdicaoPOI(QDialog):
-    def __init__(self, id_atual: str = "", label_atual: str = "", parent: Optional[QWidget] = None) -> None:
+    def __init__(
+        self,
+        id_atual: str = "",
+        label_atual: str = "",
+        cor_atual: str = "",
+        texto_visivel_atual: str = "",
+        parent: Optional[QWidget] = None,
+        espessura_atual: Optional[int] = None
+    ) -> None:
         super().__init__(parent)
         self.setWindowTitle("Editar Ponto de Interesse")
         layout = QFormLayout(self)
@@ -63,15 +86,85 @@ class DialogoEdicaoPOI(QDialog):
         
         self.input_label = QLineEdit(self)
         self.input_label.setText(str(label_atual))
-        layout.addRow("Label (Texto no Mapa):", self.input_label)
+        layout.addRow("Label (Informacional):", self.input_label)
         
-        botoes = QDialogButtonBox(QDialogButtonBox.StandardButton.Ok | QDialogButtonBox.StandardButton.Cancel, self)
-        botoes.accepted.connect(self.accept)
-        botoes.rejected.connect(self.reject)
-        layout.addWidget(botoes)
+        self.input_texto_visivel = QLineEdit(self)
+        self.input_texto_visivel.setText(str(texto_visivel_atual))
+        self.input_texto_visivel.setPlaceholderText("Opcional: texto a ser exibido sobre a rocha no mapa")
+        layout.addRow("Texto Visível no Mapa:", self.input_texto_visivel)
         
-    def obter_valores(self) -> Tuple[str, str]:
-        return self.input_id.text().strip(), self.input_label.text().strip()
+        self.input_espessura: Optional[QSpinBox] = None
+        if espessura_atual is not None:
+            self.input_espessura = QSpinBox(self)
+            self.input_espessura.setRange(1, 20)
+            self.input_espessura.setValue(int(espessura_atual))
+            layout.addRow("Espessura do Traço (px):", self.input_espessura)
+        
+        # Seletor de cor
+        self.cor_selecionada: str = str(cor_atual)
+        layout_cores = QHBoxLayout()
+        self.label_preview_cor = QLabel(self)
+        self.label_preview_cor.setFixedSize(20, 20)
+        self._atualizar_preview_cor()
+        layout_cores.addWidget(self.label_preview_cor)
+
+        for nome, hex_cor in PALETA_CORES_ROCHA:
+            btn_cor = QPushButton()
+            btn_cor.setFixedSize(20, 20)
+            btn_cor.setStyleSheet(f"background-color: {hex_cor}; border-radius: 10px; border: 1px solid #666;")
+            btn_cor.setToolTip(f"{nome} ({hex_cor})")
+            btn_cor.clicked.connect(lambda checked=False, c=hex_cor: self._definir_cor(c))
+            layout_cores.addWidget(btn_cor)
+
+        btn_outra = QPushButton("Outra...")
+        btn_outra.clicked.connect(self._abrir_dialogo_cor)
+        layout_cores.addWidget(btn_outra)
+        layout.addRow("Cor do Elemento:", layout_cores)
+        
+        self.botoes = QDialogButtonBox(QDialogButtonBox.StandardButton.Ok | QDialogButtonBox.StandardButton.Cancel, self)
+        self.botoes.accepted.connect(self.accept)
+        self.botoes.rejected.connect(self.reject)
+        layout.addWidget(self.botoes)
+
+        self.btn_ok = self.botoes.button(QDialogButtonBox.StandardButton.Ok)
+        self.input_id.textChanged.connect(self._validar_campos)
+        self._validar_campos()
+        
+    def _validar_campos(self) -> None:
+        valido = bool(self.input_id.text().strip())
+        if self.btn_ok:
+            self.btn_ok.setEnabled(valido)
+
+    def accept(self) -> None:
+        if not self.input_id.text().strip():
+            return
+        super().accept()
+
+    def _definir_cor(self, hex_cor: str) -> None:
+        self.cor_selecionada = hex_cor
+        self._atualizar_preview_cor()
+
+    def _abrir_dialogo_cor(self) -> None:
+        from PySide6.QtWidgets import QColorDialog
+        cor_inicial = QColor(self.cor_selecionada) if self.cor_selecionada else QColor("#FF6D00")
+        cor = QColorDialog.getColor(cor_inicial, self, "Selecionar Cor do Ponto de Interesse")
+        if cor.isValid():
+            self._definir_cor(cor.name().upper())
+
+    def _atualizar_preview_cor(self) -> None:
+        cor_hex = self.cor_selecionada if self.cor_selecionada else "#64FF64"
+        self.label_preview_cor.setStyleSheet(
+            f"background-color: {cor_hex}; border-radius: 10px; border: 1px solid #333;"
+        )
+
+    def obter_valores(self) -> Tuple[str, str, str, str]:
+        txt = self.input_texto_visivel.text().strip() if hasattr(self, 'input_texto_visivel') else ""
+        return self.input_id.text().strip(), self.input_label.text().strip(), self.cor_selecionada, txt
+
+    def obter_espessura(self) -> Optional[int]:
+        if self.input_espessura is not None:
+            return int(self.input_espessura.value())
+        return None
 
 
 class BaseItemPOI:
@@ -101,7 +194,7 @@ class BaseItemPOI:
         
         id_atual = pt_dict.get('id', '')
         label_atual = pt_dict.get('label', '')
-        texto_exibicao = str(id_atual if id_atual else label_atual)
+        texto_visivel = str(pt_dict.get('texto_visivel', '') or '')
         cast(Any, self).setToolTip(f"ID: {id_atual} | Label: {label_atual}")
         
         # Estilo visual
@@ -109,15 +202,24 @@ class BaseItemPOI:
         self.pen_poi.setWidth(2)
         self.brush_poi = QBrush(QColor(100, 255, 100, 60))
         
-        # Texto
-        self.item_texto = QGraphicsTextItem(texto_exibicao, cast(Any, self))
+        # Texto: exibido apenas se texto_visivel estiver preenchido
+        self.item_texto = QGraphicsTextItem(texto_visivel, cast(Any, self))
         self.item_texto.setDefaultTextColor(QColor(0, 0, 0))
-        fonte = QFont("Arial", 14, QFont.Weight.Bold)
+        fonte = QFont("Arial", 12, QFont.Weight.Bold)
         self.item_texto.setFont(fonte)
         self.item_texto.setZValue(100)
+        self.item_texto.setVisible(bool(texto_visivel))
 
     def atualizar_pos_texto(self, x: float, y: float) -> None:
         self.item_texto.setPos(x, y - 25)
+
+    def atualizar_texto_exibicao(self) -> None:
+        texto_visivel = str(self.pt_dict.get('texto_visivel', '') or '')
+        self.item_texto.setPlainText(texto_visivel)
+        self.item_texto.setVisible(bool(texto_visivel))
+        id_atual = self.pt_dict.get('id', '')
+        label_atual = self.pt_dict.get('label', '')
+        cast(Any, self).setToolTip(f"ID: {id_atual} | Label: {label_atual}")
 
     def marcar_alterado(self) -> None:
         if getattr(self, 'inicializando', False):
@@ -149,19 +251,30 @@ class BaseItemPOI:
         if acao == acao_renomear:
             id_atual = str(self.pt_dict.get('id', ''))
             label_atual = str(self.pt_dict.get('label', ''))
-            dialogo = DialogoEdicaoPOI(id_atual, label_atual)
+            cor_atual = str(self.pt_dict.get('cor', ''))
+            texto_visivel_atual = str(self.pt_dict.get('texto_visivel', ''))
+            dialogo = DialogoEdicaoPOI(id_atual, label_atual, cor_atual, texto_visivel_atual)
             if dialogo.exec() == QDialog.DialogCode.Accepted:
-                novo_id, novo_label = dialogo.obter_valores()
-                if novo_id != id_atual or novo_label != label_atual:
-                    estado_inicial = copy.deepcopy(self.obter_dict_atualizado())
-                    
-                    self.pt_dict['id'] = novo_id
-                    self.pt_dict['label'] = novo_label
-                    texto_exibicao = novo_id if novo_id else novo_label
-                    self.item_texto.setPlainText(texto_exibicao)
-                    self.setToolTip(f"ID: {novo_id} | Label: {novo_label}")
-                    
-                    registrar_movimento_final(self, estado_inicial)
+                vals = dialogo.obter_valores()
+                novo_id = vals[0]
+                novo_label = vals[1]
+                nova_cor = vals[2] if len(vals) > 2 else ""
+                novo_texto_visivel = vals[3] if len(vals) > 3 else ""
+                
+                estado_inicial = copy.deepcopy(self.obter_dict_atualizado())
+                self.pt_dict['id'] = novo_id
+                self.pt_dict['label'] = novo_label
+                if nova_cor:
+                    self.pt_dict['cor'] = nova_cor
+                if novo_texto_visivel:
+                    self.pt_dict['texto_visivel'] = novo_texto_visivel
+                elif 'texto_visivel' in self.pt_dict:
+                    del self.pt_dict['texto_visivel']
+                
+                self.atualizar_texto_exibicao()
+                if hasattr(self, 'atualizar_posicao_texto'):
+                    getattr(self, 'atualizar_posicao_texto')()
+                registrar_movimento_final(self, estado_inicial)
 
         elif acao == acao_deletar:
             if callback_deletar:
@@ -188,8 +301,13 @@ class ItemBoundingRetangulo(QGraphicsRectItem, BaseItemPOI):
         self.setPen(self.pen_poi)
         self.setBrush(self.brush_poi)
         self.setTransformOriginPoint(self.rect().center())
-        self.atualizar_pos_texto(0, 0)
+        self.atualizar_posicao_texto()
         self.inicializando = False
+
+    def atualizar_posicao_texto(self) -> None:
+        rect = self.rect()
+        rect_t = self.item_texto.boundingRect()
+        self.item_texto.setPos(rect.center().x() - rect_t.width() / 2, rect.center().y() - rect_t.height() / 2)
 
     def carregar_de_dict(self, pt_dict: Dict[str, Any]) -> None:
         self.inicializando = True
@@ -200,11 +318,8 @@ class ItemBoundingRetangulo(QGraphicsRectItem, BaseItemPOI):
         self.setPos(box['x'] - w / 2, box['y'] - h / 2)
         self.setRotation(box.get('angulo_graus_x100', 0) / 100.0)
         self.setTransformOriginPoint(self.rect().center())
-        self.atualizar_pos_texto(0, 0)
-        id_atual = self.pt_dict.get('id', '')
-        label_atual = self.pt_dict.get('label', '')
-        self.item_texto.setPlainText(str(id_atual if id_atual else label_atual))
-        cast(Any, self).setToolTip(f"ID: {id_atual} | Label: {label_atual}")
+        self.atualizar_texto_exibicao()
+        self.atualizar_posicao_texto()
         self.inicializando = False
 
     def contextMenuEvent(self, evento: Any) -> None:
@@ -258,6 +373,7 @@ class ItemBoundingRetangulo(QGraphicsRectItem, BaseItemPOI):
             novo_centro = self.rect().center()
             self.setTransformOriginPoint(novo_centro)
             self.setPos(self.centro_cena_inicio_redim - novo_centro)
+            self.atualizar_posicao_texto()
             evento.accept()
         elif hasattr(self, 'rotacionando') and self.rotacionando:
             centro = self.mapToScene(self.rect().center())
@@ -319,8 +435,13 @@ class ItemBoundingQuadrado(QGraphicsRectItem, BaseItemPOI):
         self.setPen(self.pen_poi)
         self.setBrush(self.brush_poi)
         self.setTransformOriginPoint(self.rect().center())
-        self.atualizar_pos_texto(0, 0)
+        self.atualizar_posicao_texto()
         self.inicializando = False
+
+    def atualizar_posicao_texto(self) -> None:
+        rect = self.rect()
+        rect_t = self.item_texto.boundingRect()
+        self.item_texto.setPos(rect.center().x() - rect_t.width() / 2, rect.center().y() - rect_t.height() / 2)
 
     def carregar_de_dict(self, pt_dict: Dict[str, Any]) -> None:
         self.inicializando = True
@@ -330,11 +451,8 @@ class ItemBoundingQuadrado(QGraphicsRectItem, BaseItemPOI):
         self.setRect(0, 0, lado, lado)
         self.setPos(box['x'] - lado / 2, box['y'] - lado / 2)
         self.setTransformOriginPoint(self.rect().center())
-        self.atualizar_pos_texto(0, 0)
-        id_atual = self.pt_dict.get('id', '')
-        label_atual = self.pt_dict.get('label', '')
-        self.item_texto.setPlainText(str(id_atual if id_atual else label_atual))
-        cast(Any, self).setToolTip(f"ID: {id_atual} | Label: {label_atual}")
+        self.atualizar_texto_exibicao()
+        self.atualizar_posicao_texto()
         self.inicializando = False
 
     def contextMenuEvent(self, evento: Any) -> None:
@@ -420,8 +538,12 @@ class ItemBoundingCirculo(QGraphicsEllipseItem, BaseItemPOI):
         
         self.setPen(self.pen_poi)
         self.setBrush(self.brush_poi)
-        self.atualizar_pos_texto(-r, -r)
+        self.atualizar_posicao_texto()
         self.inicializando = False
+
+    def atualizar_posicao_texto(self) -> None:
+        rect_t = self.item_texto.boundingRect()
+        self.item_texto.setPos(-rect_t.width() / 2, -rect_t.height() / 2)
 
     def carregar_de_dict(self, pt_dict: Dict[str, Any]) -> None:
         self.inicializando = True
@@ -430,11 +552,8 @@ class ItemBoundingCirculo(QGraphicsEllipseItem, BaseItemPOI):
         r = circ['raio']
         self.setRect(-r, -r, 2 * r, 2 * r)
         self.setPos(circ['x'], circ['y'])
-        self.atualizar_pos_texto(-r, -r)
-        id_atual = self.pt_dict.get('id', '')
-        label_atual = self.pt_dict.get('label', '')
-        self.item_texto.setPlainText(str(id_atual if id_atual else label_atual))
-        cast(Any, self).setToolTip(f"ID: {id_atual} | Label: {label_atual}")
+        self.atualizar_texto_exibicao()
+        self.atualizar_posicao_texto()
         self.inicializando = False
 
     def contextMenuEvent(self, evento: Any) -> None:
@@ -462,7 +581,7 @@ class ItemBoundingCirculo(QGraphicsEllipseItem, BaseItemPOI):
             delta = evento.pos() - self.pos_inicio_redim
             r = max(5, round(self.rect_inicio_redim.width() / 2 + delta.x()))
             self.setRect(-r, -r, 2 * r, 2 * r)
-            self.atualizar_pos_texto(-r, -r)
+            self.atualizar_posicao_texto()
             evento.accept()
         else:
             super().mouseMoveEvent(evento)
@@ -623,14 +742,27 @@ class ItemBoundingPoligono(QGraphicsPolygonItem, BaseItemPOI):
         if acao == acao_renomear:
             id_atual = str(self.pt_dict.get('id', ''))
             label_atual = str(self.pt_dict.get('label', ''))
-            dialogo = DialogoEdicaoPOI(id_atual, label_atual)
+            cor_atual = str(self.pt_dict.get('cor', ''))
+            texto_visivel_atual = str(self.pt_dict.get('texto_visivel', ''))
+            dialogo = DialogoEdicaoPOI(id_atual, label_atual, cor_atual, texto_visivel_atual)
             if dialogo.exec() == QDialog.DialogCode.Accepted:
-                novo_id, novo_label = dialogo.obter_valores()
-                if novo_id or novo_label:
-                    self.pt_dict['id'] = novo_id
-                    self.pt_dict['label'] = novo_label
-                    self.item_texto.setPlainText(novo_id if novo_id else novo_label)
-                    self.marcar_alterado()
+                vals = dialogo.obter_valores()
+                novo_id = vals[0]
+                novo_label = vals[1]
+                nova_cor = vals[2] if len(vals) > 2 else ""
+                novo_texto_visivel = vals[3] if len(vals) > 3 else ""
+                
+                self.pt_dict['id'] = novo_id
+                self.pt_dict['label'] = novo_label
+                if nova_cor:
+                    self.pt_dict['cor'] = nova_cor
+                if novo_texto_visivel:
+                    self.pt_dict['texto_visivel'] = novo_texto_visivel
+                elif 'texto_visivel' in self.pt_dict:
+                    del self.pt_dict['texto_visivel']
+                    
+                self.atualizar_texto_exibicao()
+                self.marcar_alterado()
         elif acao == acao_deletar:
             self.callback_deletar(self)
         elif acao == acao_add_ponto:
@@ -651,6 +783,744 @@ class ItemBoundingPoligono(QGraphicsPolygonItem, BaseItemPOI):
             coords.append(int(round(p.y() + pos.y())))
         self.pt_dict['poligono'] = {'coordenadas': coords}
         return self.pt_dict
+
+
+class AlcaNoTrajeto(QGraphicsEllipseItem):
+    """Representa a alça interativa de um nó em uma linha de traçado seguindo o padrão FEMEMG."""
+    MAPA_STR_PARA_INT: Dict[str, int] = {
+        "PASSAGEM": 0,
+        "CIRCULO_IDENTIFICADOR": 1,
+        "INICIO_BASE": 1,
+        "INICIO_AGACHADO": 2,
+        "PROTECAO_FIXA": 3,
+        "PARADA_INTERMEDIARIA": 4,
+        "TOP_PARADA": 5,
+        "CRUX": 6,
+        "PROTECAO_MOVEL": 7,
+        "PROTECAO_PITON": 8,
+        "PROTECAO_FITA": 9,
+        "BURACO_CLIFF": 10,
+        "FIM_TOP": 11,
+        "TOP_CIRCULO": 11,
+        "FIM_CIRCULO": 11,
+    }
+
+    MAPA_NOMES_TIPOS: Dict[int, str] = {
+        0: "Invisível (Curva)",
+        1: "Círculo Identificador",
+        2: "Círculo Identificador (Sit Start)",
+        3: "Proteção Fixa [X]",
+        4: "Parada Intermediária [XX]",
+        5: "Top / Parada Final [XX]",
+        6: "Crux (Chave)",
+        7: "Proteção Móvel [△]",
+        8: "Píton",
+        9: "Fita",
+        10: "Buraco de Cliff",
+        11: "Círculo Identificador",
+    }
+
+    @classmethod
+    def normalizar_tipo_int(cls, tipo_val: Any) -> int:
+        if isinstance(tipo_val, int):
+            return tipo_val
+        if isinstance(tipo_val, str):
+            val_upper = tipo_val.strip().upper()
+            if val_upper in cls.MAPA_STR_PARA_INT:
+                return cls.MAPA_STR_PARA_INT[val_upper]
+            try:
+                return int(val_upper)
+            except ValueError:
+                return 0
+        return 0
+
+    def obter_tipo_int(self) -> int:
+        return self.normalizar_tipo_int(self.no_dict.get("tipo", 0))
+
+    @classmethod
+    def obter_nome_tipo(cls, tipo: Any) -> str:
+        t_int = cls.normalizar_tipo_int(tipo)
+        return cls.MAPA_NOMES_TIPOS.get(t_int, f"Tipo {tipo}")
+
+    def __init__(self, indice: int, no_dict: Dict[str, Any], item_pai: "ItemTrajetoLinha") -> None:
+        super().__init__(-11, -11, 22, 22, item_pai)
+        self.indice = indice
+        self.no_dict = no_dict
+        self.item_pai = item_pai
+        
+        self.setFlag(QGraphicsEllipseItem.GraphicsItemFlag.ItemIsMovable, True)
+        self.setFlag(QGraphicsEllipseItem.GraphicsItemFlag.ItemSendsGeometryChanges, True)
+        self.setFlag(QGraphicsEllipseItem.GraphicsItemFlag.ItemIsSelectable, True)
+        self.setAcceptHoverEvents(True)
+        self.setCursor(Qt.CursorShape.PointingHandCursor)
+        self.setZValue(120)
+        self.atualizar_estilo()
+
+    def obter_raio(self) -> int:
+        r = int(self.no_dict.get("raio", 0) or 0)
+        return r if r > 0 else 12
+
+    def obter_tamanho_fonte(self) -> int:
+        tf = int(self.no_dict.get("tamanho_fonte", 0) or 0)
+        return tf if tf > 0 else 8
+
+    def obter_rotulo_exibicao(self) -> str:
+        rotulo = str(self.no_dict.get("rotulo", "") or "")
+        if rotulo:
+            return rotulo
+        tipo = self.obter_tipo_int()
+        if tipo in (1, 2, 11):  # Círculo Identificador (começo, meio, fim)
+            id_via = str(self.item_pai.pt_dict.get("id", "") or "")
+            if id_via and self.indice == 0:
+                return id_via
+            elif id_via:
+                return id_via
+            return str(self.indice + 1)
+        if tipo == 6:  # CRUX
+            return "X"
+        return ""
+
+    def atualizar_estilo(self) -> None:
+        tipo = self.obter_tipo_int()
+        nome_tipo = self.obter_nome_tipo(tipo)
+        rotulo = self.obter_rotulo_exibicao()
+        
+        if tipo in (1, 2, 11):  # Círculos Identificadores (começo, meio, fim livre)
+            r = self.obter_raio()
+            self.setRect(-r, -r, 2 * r, 2 * r)
+            desc = "Círculo Identificador (Sit Start)" if tipo == 2 else "Círculo Identificador"
+            self.setToolTip(f"{desc} - {rotulo}" if rotulo else desc)
+        elif tipo == 3:  # Proteção Fixa (X) - FEMEMG B3-g
+            self.setRect(-8, -8, 16, 16)
+            self.setToolTip("Proteção Fixa [X] (Grampo/Chapeleta)")
+        elif tipo in (4, 5):  # Parada Intermediária / Top (XX)
+            self.setRect(-12, -7, 24, 14)
+            self.setToolTip(f"{nome_tipo}")
+        elif tipo == 7:  # Proteção Móvel (△) - FEMEMG B3-h
+            self.setRect(-9, -9, 18, 18)
+            self.setToolTip("Proteção Móvel [△] (Friends/Camalots/Nuts)")
+        elif tipo == 8:  # Píton - FEMEMG B3-i
+            self.setRect(-9, -9, 18, 18)
+            self.setToolTip("Proteção Tipo Píton")
+        elif tipo == 9:  # Fita - FEMEMG B3-j
+            self.setRect(-9, -9, 18, 18)
+            self.setToolTip("Proteção em Fita (Bico/Bloco/Árvore)")
+        elif tipo == 10:  # Buraco de Cliff - FEMEMG B3-f
+            self.setRect(-5, -5, 10, 10)
+            self.setToolTip("Buraco de Cliff")
+        elif tipo == 6:  # Crux
+            self.setRect(-10, -10, 20, 20)
+            self.setToolTip("Crux (Lance Chave)")
+        else:  # Passagem / Invisível (0)
+            self.setRect(-4, -4, 8, 8)
+            self.setToolTip("Invisível (Ponto de Curva)")
+        self.update()
+
+    def paint(self, painter: QPainter, option: Any, widget: Optional[QWidget] = None) -> None:
+        painter.setRenderHint(QPainter.RenderHint.Antialiasing, True)
+        tipo = self.obter_tipo_int()
+        cor_base = QColor(self.item_pai.cor_hex if self.item_pai.cor_hex else "#FF6D00")
+        rect = self.rect()
+        
+        if tipo in (1, 2, 11):
+            # Círculo Identificador: Círculo com cor da via, borda de alto contraste e texto centralizado
+            painter.setPen(QPen(QColor(0, 0, 0, 180), 3))
+            painter.setBrush(Qt.BrushStyle.NoBrush)
+            painter.drawEllipse(rect.adjusted(1, 1, -1, -1))
+            
+            estilo_borda = Qt.PenStyle.DashLine if tipo == 2 else Qt.PenStyle.SolidLine
+            painter.setPen(QPen(QColor(255, 255, 255), 2, estilo_borda))
+            painter.setBrush(QBrush(cor_base))
+            painter.drawEllipse(rect.adjusted(1, 1, -1, -1))
+            
+            rotulo = self.obter_rotulo_exibicao()
+            if rotulo:
+                painter.setPen(QPen(QColor(255, 255, 255)))
+                tam_fonte = self.obter_tamanho_fonte()
+                fonte = QFont("Arial", tam_fonte, QFont.Weight.Bold)
+                painter.setFont(fonte)
+                painter.drawText(rect, Qt.AlignmentFlag.AlignCenter, rotulo)
+                
+        elif tipo == 3:
+            # Proteção Fixa (X) - FEMEMG B3-g: "X" em alta visibilidade
+            # Sombra preta externa
+            painter.setPen(QPen(QColor(0, 0, 0, 200), 4, Qt.PenStyle.SolidLine, Qt.PenCapStyle.RoundCap))
+            painter.drawLine(-5, -5, 5, 5)
+            painter.drawLine(-5, 5, 5, -5)
+            # Traço colorido com branco
+            painter.setPen(QPen(QColor(255, 255, 255), 2.5, Qt.PenStyle.SolidLine, Qt.PenCapStyle.RoundCap))
+            painter.drawLine(-5, -5, 5, 5)
+            painter.drawLine(-5, 5, 5, -5)
+            painter.setPen(QPen(cor_base, 1.2, Qt.PenStyle.SolidLine, Qt.PenCapStyle.RoundCap))
+            painter.drawLine(-5, -5, 5, 5)
+            painter.drawLine(-5, 5, 5, -5)
+
+        elif tipo in (4, 5):
+            # Parada Intermediária / Top (XX): Dois "X"s lado a lado
+            cor_destaque = QColor(255, 215, 0) if tipo == 5 else QColor(255, 255, 255)
+            # Sombra
+            painter.setPen(QPen(QColor(0, 0, 0, 200), 4, Qt.PenStyle.SolidLine, Qt.PenCapStyle.RoundCap))
+            painter.drawLine(-9, -4, -2, 4)
+            painter.drawLine(-9, 4, -2, -4)
+            painter.drawLine(2, -4, 9, 4)
+            painter.drawLine(2, 4, 9, -4)
+            # Traço principal
+            painter.setPen(QPen(cor_destaque, 2.2, Qt.PenStyle.SolidLine, Qt.PenCapStyle.RoundCap))
+            painter.drawLine(-9, -4, -2, 4)
+            painter.drawLine(-9, 4, -2, -4)
+            painter.drawLine(2, -4, 9, 4)
+            painter.drawLine(2, 4, 9, -4)
+
+        elif tipo == 7:
+            # Proteção Móvel (△) - FEMEMG B3-h: Triângulo equilátero
+            triangulo = QPolygonF([QPointF(0, -7), QPointF(-7, 6), QPointF(7, 6)])
+            painter.setPen(QPen(QColor(0, 0, 0, 200), 3))
+            painter.setBrush(QBrush(QColor(255, 255, 255)))
+            painter.drawPolygon(triangulo)
+            painter.setPen(QPen(cor_base, 2))
+            painter.setBrush(QBrush(QColor(cor_base.red(), cor_base.green(), cor_base.blue(), 100)))
+            painter.drawPolygon(triangulo)
+
+        elif tipo == 8:
+            # Píton - FEMEMG B3-i: Lâmina com olhal/anel
+            painter.setPen(QPen(QColor(0, 0, 0, 200), 4, Qt.PenStyle.SolidLine, Qt.PenCapStyle.RoundCap))
+            painter.drawLine(-5, 5, 2, -2)
+            painter.setPen(QPen(QColor(255, 255, 255), 2.5, Qt.PenStyle.SolidLine, Qt.PenCapStyle.RoundCap))
+            painter.drawLine(-5, 5, 2, -2)
+            painter.setPen(QPen(cor_base, 1.5, Qt.PenStyle.SolidLine, Qt.PenCapStyle.RoundCap))
+            painter.drawLine(-5, 5, 2, -2)
+            # Olhal
+            painter.setPen(QPen(QColor(0, 0, 0, 200), 2))
+            painter.setBrush(QBrush(cor_base))
+            painter.drawEllipse(2, -5, 5, 5)
+
+        elif tipo == 9:
+            # Proteção em Fita - FEMEMG B3-j: Laço / fita cruzada
+            painter.setPen(QPen(QColor(0, 0, 0, 200), 3))
+            painter.setBrush(Qt.BrushStyle.NoBrush)
+            painter.drawEllipse(-4, -6, 8, 7)
+            painter.drawLine(-3, 0, -5, 6)
+            painter.drawLine(3, 0, 5, 6)
+            
+            painter.setPen(QPen(cor_base, 2))
+            painter.drawEllipse(-4, -6, 8, 7)
+            painter.drawLine(-3, 0, -5, 6)
+            painter.drawLine(3, 0, 5, 6)
+
+        elif tipo == 10:
+            # Buraco de Cliff - FEMEMG B3-f: Ponto sólido
+            painter.setPen(QPen(QColor(255, 255, 255), 1))
+            painter.setBrush(QBrush(QColor(20, 20, 20)))
+            painter.drawEllipse(-3, -3, 6, 6)
+
+        elif tipo == 6:
+            # Crux: Losango / círculo vermelho vibrante com X branco
+            painter.setPen(QPen(QColor(0, 0, 0, 200), 2))
+            painter.setBrush(QBrush(QColor(255, 23, 68)))
+            painter.drawEllipse(rect.adjusted(1, 1, -1, -1))
+            
+            painter.setPen(QPen(QColor(255, 255, 255), 2))
+            fonte = QFont("Arial", 8, QFont.Weight.Bold)
+            painter.setFont(fonte)
+            painter.drawText(rect, Qt.AlignmentFlag.AlignCenter, "X")
+
+        else:
+            # Invisível (0) - Ponto discreto apenas no editor
+            painter.setPen(QPen(QColor(255, 255, 255), 1.2))
+            painter.setBrush(QBrush(QColor(cor_base.red(), cor_base.green(), cor_base.blue(), 120)))
+            painter.drawEllipse(rect.adjusted(1, 1, -1, -1))
+
+    def contextMenuEvent(self, evento: Any) -> None:
+        menu = QMenu()
+        tipo_atual = self.obter_tipo_int()
+        nome_tipo_atual = self.obter_nome_tipo(tipo_atual)
+        
+        acao_titulo = menu.addAction(f"Tipo Atual: {nome_tipo_atual}")
+        acao_titulo.setEnabled(False)
+        fonte_titulo = acao_titulo.font()
+        fonte_titulo.setBold(True)
+        acao_titulo.setFont(fonte_titulo)
+        menu.addSeparator()
+        
+        tipos = [
+            ("Invisível (Curva)", 0),
+            ("Círculo Identificador", 1),
+            ("Círculo Identificador (Sit Start)", 2),
+            ("Proteção Fixa [X]", 3),
+            ("Proteção Móvel [△]", 7),
+            ("Píton", 8),
+            ("Fita", 9),
+            ("Parada Intermediária [XX]", 4),
+            ("Top / Parada Final [XX]", 5),
+            ("Buraco de Cliff", 10),
+            ("Crux (Chave)", 6),
+        ]
+        
+        for nome, valor in tipos:
+            prefixo = "● " if tipo_atual == valor else "   "
+            acao = menu.addAction(f"{prefixo}{nome}")
+            acao.setCheckable(True)
+            if tipo_atual == valor:
+                acao.setChecked(True)
+            acao.triggered.connect(lambda checked=False, v=valor: self._definir_tipo(v))
+            
+        menu.addSeparator()
+        acao_rotulo = menu.addAction("Definir Rótulo / Número do Nó...")
+        acao_rotulo.triggered.connect(self._editar_rotulo)
+
+        if tipo_atual in (1, 2, 11):
+            menu.addSeparator()
+            acao_raio = menu.addAction(f"Tamanho do Círculo (Raio: {self.obter_raio()}px)...")
+            acao_raio.triggered.connect(self._editar_raio)
+            
+            acao_fonte = menu.addAction(f"Tamanho da Fonte ({self.obter_tamanho_fonte()}pt)...")
+            acao_fonte.triggered.connect(self._editar_tamanho_fonte)
+        
+        menu.addSeparator()
+        acao_remover = menu.addAction("Remover este Nó")
+        acao_remover.triggered.connect(self._remover_no)
+        
+        pos = evento.screenPos().toPoint() if hasattr(evento.screenPos(), "toPoint") else evento.screenPos()
+        self._executar_menu(menu, pos)
+
+    def _executar_menu(self, menu: QMenu, pos: Any) -> Any:
+        return menu.exec(pos)
+
+    def _definir_tipo(self, novo_tipo: int) -> None:
+        self.item_pai.alterar_tipo_no(self.indice, novo_tipo)
+
+    def _editar_rotulo(self) -> None:
+        from PySide6.QtWidgets import QInputDialog
+        rotulo_atual = str(self.no_dict.get("rotulo", "") or "")
+        novo_rotulo, ok = QInputDialog.getText(
+            None,
+            "Rótulo do Nó",
+            "Número ou identificador do nó (ex: 1, 2, 3A, P1):",
+            text=rotulo_atual,
+        )
+        if ok:
+            self.item_pai.definir_rotulo_no(self.indice, novo_rotulo.strip())
+
+    def _editar_raio(self) -> None:
+        from PySide6.QtWidgets import QInputDialog
+        raio_atual = self.obter_raio()
+        novo_raio, ok = QInputDialog.getInt(
+            None,
+            "Tamanho do Círculo Identificador",
+            "Raio do círculo em pixels (4 a 100):",
+            value=raio_atual,
+            minValue=4,
+            maxValue=100,
+        )
+        if ok:
+            self.item_pai.definir_raio_no(self.indice, novo_raio)
+
+    def _editar_tamanho_fonte(self) -> None:
+        from PySide6.QtWidgets import QInputDialog
+        fonte_atual = self.obter_tamanho_fonte()
+        nova_fonte, ok = QInputDialog.getInt(
+            None,
+            "Tamanho da Fonte do Rótulo",
+            "Tamanho da fonte em pontos (4 a 50):",
+            value=fonte_atual,
+            minValue=4,
+            maxValue=50,
+        )
+        if ok:
+            self.item_pai.definir_tamanho_fonte_no(self.indice, nova_fonte)
+
+    def _remover_no(self) -> None:
+        self.item_pai.remover_no(self.indice)
+
+    def itemChange(self, mudanca: Any, valor: Any) -> Any:
+        if mudanca == QGraphicsEllipseItem.GraphicsItemChange.ItemPositionChange:
+            novo_valor = QPointF(round(valor.x()), round(valor.y()))
+            self.no_dict["x"] = int(round(novo_valor.x()))
+            self.no_dict["y"] = int(round(novo_valor.y()))
+            if hasattr(self, "item_pai") and self.item_pai:
+                self.item_pai.recalcular_spline()
+            return novo_valor
+        return super().itemChange(mudanca, valor)
+
+    def mousePressEvent(self, evento: Any) -> None:
+        self._estado_inicial = copy.deepcopy(self.item_pai.obter_dict_atualizado())
+        super().mousePressEvent(evento)
+
+    def mouseReleaseEvent(self, evento: Any) -> None:
+        super().mouseReleaseEvent(evento)
+        registrar_movimento_final(self.item_pai, getattr(self, '_estado_inicial', None))
+
+
+class ItemTrajetoLinha(QGraphicsPathItem, BaseItemPOI):
+    """Representa visualmente uma linha vetorial de traçado (via ou boulder) no editor de mapas."""
+    def __init__(self, pt_dict: Dict[str, Any], callback_deletar: Any, callback_mudanca: Optional[Any] = None) -> None:
+        super().__init__()
+        self.callback_deletar = callback_deletar
+        self.configurar_comum(pt_dict, callback_mudanca)
+        
+        self.cor_hex = pt_dict.get('cor', '#FF6D00') or '#FF6D00'
+        self.alcas: List[AlcaNoTrajeto] = []
+        
+        self.carregar_de_dict(pt_dict)
+        self.inicializando = False
+
+    def carregar_de_dict(self, pt_dict: Dict[str, Any]) -> None:
+        self.inicializando = True
+        self.pt_dict.update(pt_dict)
+        self.cor_hex = self.pt_dict.get('cor', '#FF6D00') or '#FF6D00'
+        self.setPos(0, 0)
+        
+        estilo_str = str(self.pt_dict.get('linha', {}).get('estilo', 'TRACEJADO'))
+        espessura = int(self.pt_dict.get('linha', {}).get('espessura', 3))
+        
+        pen = QPen(QColor(self.cor_hex), espessura)
+        pen.setCapStyle(Qt.PenCapStyle.RoundCap)
+        pen.setJoinStyle(Qt.PenJoinStyle.RoundJoin)
+        if "SOLIDO" in estilo_str or estilo_str == "1":
+            pen.setStyle(Qt.PenStyle.SolidLine)
+        elif "PONTILHADO" in estilo_str or estilo_str == "2":
+            pen.setStyle(Qt.PenStyle.DotLine)
+        elif "CAMINHADA" in estilo_str or estilo_str == "3":
+            pen.setStyle(Qt.PenStyle.DashLine)
+        else:
+            pen.setStyle(Qt.PenStyle.CustomDashLine)
+            pen.setDashPattern([6, 3])
+            
+        self.setPen(pen)
+        self.setBrush(QBrush(Qt.GlobalColor.transparent))
+        
+        # Limpa alças anteriores
+        for alca in self.alcas:
+            cast(Any, alca).setParentItem(None)
+            if alca.scene():
+                alca.scene().removeItem(alca)
+        self.alcas.clear()
+        
+        conteudo = self.pt_dict.get('linha', {}).get('conteudo', {})
+        nos = conteudo.get('nos', [])
+        
+        for i, n in enumerate(nos):
+            alca = AlcaNoTrajeto(i, n, self)
+            alca.setPos(n.get('x', 0), n.get('y', 0))
+            self.alcas.append(alca)
+                
+        self.recalcular_spline()
+        
+        texto_visivel = str(self.pt_dict.get('texto_visivel', '') or '')
+        self.item_texto.setPlainText(texto_visivel)
+        self.item_texto.setVisible(bool(texto_visivel))
+        id_atual = self.pt_dict.get('id', '')
+        label_atual = self.pt_dict.get('label', '')
+        self.setToolTip(f"ID: {id_atual} | Label: {label_atual} | Cor: {self.cor_hex}")
+        self.inicializando = False
+
+    def recalcular_spline(self) -> None:
+        nos = self.pt_dict.get('linha', {}).get('conteudo', {}).get('nos', [])
+        if not nos:
+            self.setPath(QPainterPath())
+            return
+            
+        from editor.core.spline_catmull_rom import converter_pontos_para_bezier
+        segmentos = converter_pontos_para_bezier(nos)
+        
+        path = QPainterPath()
+        if segmentos:
+            path.moveTo(segmentos[0].p0.x, segmentos[0].p0.y)
+            for seg in segmentos:
+                path.cubicTo(
+                    seg.c1.x, seg.c1.y,
+                    seg.c2.x, seg.c2.y,
+                    seg.p3.x, seg.p3.y
+                )
+        elif len(nos) == 1:
+            path.moveTo(nos[0].get('x', 0), nos[0].get('y', 0))
+            
+        self.setPath(path)
+        if nos:
+            self.atualizar_pos_texto(nos[0].get('x', 0), nos[0].get('y', 0))
+        self.marcar_alterado()
+
+    def paint(self, painter: QPainter, option: Any, widget: Optional[QWidget] = None) -> None:
+        super().paint(painter, option, widget)
+        estilo_str = str(self.pt_dict.get('linha', {}).get('estilo', 'TRACEJADO'))
+        if ("CAMINHADA" in estilo_str or estilo_str == "3") and not self.path().isEmpty():
+            painter.save()
+            painter.setRenderHint(QPainter.RenderHint.Antialiasing, True)
+            cor_linha = QColor(self.cor_hex or "#FF6D00")
+            painter.setPen(QPen(QColor(0, 0, 0, 180), 2))
+            painter.setBrush(QBrush(cor_linha))
+            path = self.path()
+            for t in [0.25, 0.50, 0.75]:
+                pt = path.pointAtPercent(t)
+                ang = path.angleAtPercent(t)
+                painter.save()
+                painter.translate(pt)
+                painter.rotate(-ang)
+                seta = QPolygonF([QPointF(6, 0), QPointF(-4, -4), QPointF(-2, 0), QPointF(-4, 4)])
+                painter.drawPolygon(seta)
+                painter.restore()
+            painter.restore()
+
+    def mousePressEvent(self, evento: Any) -> None:
+        if hasattr(self, 'clique_handler') and getattr(self, 'clique_handler') and hasattr(self, 'pt_dict'):
+            if getattr(self, 'clique_handler')(getattr(self, 'pt_dict', {}).get('id')):
+                evento.accept()
+                return
+        self._estado_inicial = copy.deepcopy(self.obter_dict_atualizado())
+        super().mousePressEvent(evento)
+
+    def mouseReleaseEvent(self, evento: Any) -> None:
+        super().mouseReleaseEvent(evento)
+        delta = self.pos()
+        if round(delta.x()) != 0 or round(delta.y()) != 0:
+            dx = int(round(delta.x()))
+            dy = int(round(delta.y()))
+            nos = self.pt_dict.get('linha', {}).get('conteudo', {}).get('nos', [])
+            for n in nos:
+                n['x'] += dx
+                n['y'] += dy
+            self.setPos(0, 0)
+            for i, alca in enumerate(self.alcas):
+                alca.setPos(nos[i]['x'], nos[i]['y'])
+            self.recalcular_spline()
+        registrar_movimento_final(self, getattr(self, '_estado_inicial', None))
+
+    def alterar_tipo_no(self, indice: int, novo_tipo: int) -> None:
+        nos = self.pt_dict.get('linha', {}).get('conteudo', {}).get('nos', [])
+        if 0 <= indice < len(nos):
+            estado_inicial = copy.deepcopy(self.obter_dict_atualizado())
+            nos[indice]['tipo'] = novo_tipo
+            self.alcas[indice].no_dict['tipo'] = novo_tipo
+            if novo_tipo in (1, 2, 11) and not nos[indice].get('rotulo'):
+                id_via = str(self.pt_dict.get('id', '') or '')
+                if id_via:
+                    nos[indice]['rotulo'] = id_via
+                    self.alcas[indice].no_dict['rotulo'] = id_via
+            self.alcas[indice].atualizar_estilo()
+            self.alcas[indice].update()
+            registrar_movimento_final(self, estado_inicial)
+
+    def definir_rotulo_no(self, indice: int, novo_rotulo: str) -> None:
+        nos = self.pt_dict.get('linha', {}).get('conteudo', {}).get('nos', [])
+        if 0 <= indice < len(nos):
+            estado_inicial = copy.deepcopy(self.obter_dict_atualizado())
+            nos[indice]['rotulo'] = novo_rotulo
+            self.alcas[indice].no_dict['rotulo'] = novo_rotulo
+            self.alcas[indice].atualizar_estilo()
+            self.alcas[indice].update()
+            registrar_movimento_final(self, estado_inicial)
+
+    def definir_raio_no(self, indice: int, novo_raio: int) -> None:
+        nos = self.pt_dict.get('linha', {}).get('conteudo', {}).get('nos', [])
+        if 0 <= indice < len(nos):
+            estado_inicial = copy.deepcopy(self.obter_dict_atualizado())
+            nos[indice]['raio'] = int(novo_raio)
+            self.alcas[indice].no_dict['raio'] = int(novo_raio)
+            self.alcas[indice].atualizar_estilo()
+            self.alcas[indice].update()
+            registrar_movimento_final(self, estado_inicial)
+
+    def definir_tamanho_fonte_no(self, indice: int, novo_tamanho: int) -> None:
+        nos = self.pt_dict.get('linha', {}).get('conteudo', {}).get('nos', [])
+        if 0 <= indice < len(nos):
+            estado_inicial = copy.deepcopy(self.obter_dict_atualizado())
+            nos[indice]['tamanho_fonte'] = int(novo_tamanho)
+            self.alcas[indice].no_dict['tamanho_fonte'] = int(novo_tamanho)
+            self.alcas[indice].atualizar_estilo()
+            self.alcas[indice].update()
+            registrar_movimento_final(self, estado_inicial)
+
+    def remover_no(self, indice: int) -> None:
+        nos = self.pt_dict.get('linha', {}).get('conteudo', {}).get('nos', [])
+        if len(nos) <= 2:
+            return
+        estado_inicial = copy.deepcopy(self.obter_dict_atualizado())
+        del nos[indice]
+        self.carregar_de_dict(self.pt_dict)
+        registrar_movimento_final(self, estado_inicial)
+
+    def inserir_no_em_posicao(self, pos: QPointF) -> None:
+        nos = self.pt_dict.get('linha', {}).get('conteudo', {}).get('nos', [])
+        estado_inicial = copy.deepcopy(self.obter_dict_atualizado())
+        menor_dist = float('inf')
+        melhor_idx = len(nos)
+        for i in range(len(nos) - 1):
+            p1 = QPointF(nos[i]['x'], nos[i]['y'])
+            p2 = QPointF(nos[i+1]['x'], nos[i+1]['y'])
+            dist = self._distancia_ponto_segmento(pos, p1, p2)
+            if dist < menor_dist:
+                menor_dist = dist
+                melhor_idx = i + 1
+        
+        novo_no = {"x": int(round(pos.x())), "y": int(round(pos.y())), "tipo": 0}
+        nos.insert(melhor_idx, novo_no)
+        self.carregar_de_dict(self.pt_dict)
+        registrar_movimento_final(self, estado_inicial)
+
+    def _distancia_ponto_segmento(self, p: QPointF, a: QPointF, b: QPointF) -> float:
+        l2 = (b.x() - a.x())**2 + (b.y() - a.y())**2
+        if l2 == 0:
+            return math.hypot(p.x() - a.x(), p.y() - a.y())
+        t = max(0.0, min(1.0, ((p.x() - a.x()) * (b.x() - a.x()) + (p.y() - a.y()) * (b.y() - a.y())) / l2))
+        proj = QPointF(a.x() + t * (b.x() - a.x()), a.y() + t * (b.y() - a.y()))
+        return math.hypot(p.x() - proj.x(), p.y() - proj.y())
+
+    def contextMenuEvent(self, evento: Any) -> None:
+        menu = QMenu()
+        pos_cena = evento.pos()
+        acao_inserir_no = menu.addAction("Inserir Nó Aqui")
+        acao_inserir_no.triggered.connect(lambda: self.inserir_no_em_posicao(pos_cena))
+        
+        menu.addSeparator()
+        menu_cores = menu.addMenu("Mudar Cor")
+        cor_atual = (self.cor_hex or "#FF6D00").upper()
+        for nome_cor, hex_cor in PALETA_CORES_ROCHA:
+            is_ativa = (cor_atual == hex_cor.upper())
+            prefixo = "● " if is_ativa else "   "
+            acao_cor = menu_cores.addAction(f"{prefixo}{nome_cor}")
+            acao_cor.setCheckable(True)
+            if is_ativa:
+                acao_cor.setChecked(True)
+            acao_cor.triggered.connect(lambda checked=False, c=hex_cor: self._definir_cor(c))
+
+        menu_cores.addSeparator()
+        eh_custom = not any(cor_atual == h.upper() for _, h in PALETA_CORES_ROCHA)
+        prefixo_custom = "● " if eh_custom else "   "
+        texto_custom = f"{prefixo_custom}Personalizada ({cor_atual})..." if eh_custom else "   Personalizada..."
+        acao_custom_cor = menu_cores.addAction(texto_custom)
+        acao_custom_cor.setCheckable(True)
+        if eh_custom:
+            acao_custom_cor.setChecked(True)
+        acao_custom_cor.triggered.connect(self._solicitar_cor_personalizada)
+            
+        menu_estilo = menu.addMenu("Estilo do Traço (FEMEMG)")
+        estilo_atual = str(self.pt_dict.get('linha', {}).get('estilo', 'TRACEJADO'))
+        estilos = [
+            ("Tracejado (Rota Livre - B3-a)", "TRACEJADO"),
+            ("Pontilhado (Artificial - B3-b)", "PONTILHADO"),
+            ("Sólido (Corda Fixa / Cabo - B3-d)", "SOLIDO"),
+            ("Caminhada com Setas (Trilha - B3-c)", "CAMINHADA"),
+        ]
+        for nome_est, val_est in estilos:
+            prefixo = "● " if estilo_atual == val_est else "   "
+            acao_est = menu_estilo.addAction(f"{prefixo}{nome_est}")
+            acao_est.setCheckable(True)
+            if estilo_atual == val_est:
+                acao_est.setChecked(True)
+            acao_est.triggered.connect(lambda checked=False, e=val_est: self._definir_estilo(e))
+
+        menu_espessura = menu.addMenu("Espessura do Traço")
+        espessura_atual = int(self.pt_dict.get('linha', {}).get('espessura', 3))
+        opcoes_espessura = [
+            ("1 px (Muito Fino)", 1),
+            ("2 px (Fino)", 2),
+            ("3 px (Padrão)", 3),
+            ("4 px (Médio)", 4),
+            ("5 px (Espesso)", 5),
+            ("6 px (Muito Espesso)", 6),
+            ("8 px (Extra Espesso)", 8),
+        ]
+        for rotulo_esp, val_esp in opcoes_espessura:
+            prefixo = "● " if espessura_atual == val_esp else "   "
+            acao_esp = menu_espessura.addAction(f"{prefixo}{rotulo_esp}")
+            acao_esp.setCheckable(True)
+            if espessura_atual == val_esp:
+                acao_esp.setChecked(True)
+            acao_esp.triggered.connect(lambda checked=False, val=val_esp: self._definir_espessura(val))
+
+        menu_espessura.addSeparator()
+        acao_custom = menu_espessura.addAction("Personalizada...")
+        acao_custom.triggered.connect(self._solicitar_espessura_personalizada)
+
+        menu.addSeparator()
+        acao_renomear = menu.addAction("Renomear / Editar")
+        acao_deletar = menu.addAction("Deletar Linha")
+        
+        pos = evento.screenPos().toPoint() if hasattr(evento.screenPos(), "toPoint") else evento.screenPos()
+        acao = self._executar_menu(menu, pos)
+        if acao == acao_renomear:
+            id_atual = str(self.pt_dict.get('id', ''))
+            label_atual = str(self.pt_dict.get('label', ''))
+            cor_atual = str(self.pt_dict.get('cor', self.cor_hex))
+            texto_visivel_atual = str(self.pt_dict.get('texto_visivel', ''))
+            espessura_atual = int(self.pt_dict.get('linha', {}).get('espessura', 3))
+            dialogo = DialogoEdicaoPOI(id_atual, label_atual, cor_atual, texto_visivel_atual, espessura_atual=espessura_atual)
+            if dialogo.exec() == QDialog.DialogCode.Accepted:
+                vals = dialogo.obter_valores()
+                novo_id = vals[0]
+                novo_label = vals[1]
+                nova_cor = vals[2] if len(vals) > 2 else ""
+                novo_texto_visivel = vals[3] if len(vals) > 3 else ""
+                nova_espessura = dialogo.obter_espessura()
+                
+                estado_inicial = copy.deepcopy(self.obter_dict_atualizado())
+                self.pt_dict['id'] = novo_id
+                self.pt_dict['label'] = novo_label
+                if nova_cor:
+                    self.pt_dict['cor'] = nova_cor
+                if novo_texto_visivel:
+                    self.pt_dict['texto_visivel'] = novo_texto_visivel
+                elif 'texto_visivel' in self.pt_dict:
+                    del self.pt_dict['texto_visivel']
+                if nova_espessura is not None:
+                    if 'linha' not in self.pt_dict:
+                        self.pt_dict['linha'] = {}
+                    self.pt_dict['linha']['espessura'] = nova_espessura
+                self.carregar_de_dict(self.pt_dict)
+                registrar_movimento_final(self, estado_inicial)
+        elif acao == acao_deletar:
+            self.callback_deletar(self)
+
+    def _definir_cor(self, nova_cor: str) -> None:
+        estado_inicial = copy.deepcopy(self.obter_dict_atualizado())
+        self.pt_dict['cor'] = nova_cor
+        self.carregar_de_dict(self.pt_dict)
+        registrar_movimento_final(self, estado_inicial)
+
+    def _definir_estilo(self, novo_estilo: str) -> None:
+        estado_inicial = copy.deepcopy(self.obter_dict_atualizado())
+        if 'linha' not in self.pt_dict:
+            self.pt_dict['linha'] = {}
+        self.pt_dict['linha']['estilo'] = novo_estilo
+        self.carregar_de_dict(self.pt_dict)
+        registrar_movimento_final(self, estado_inicial)
+
+    def _definir_espessura(self, nova_espessura: int) -> None:
+        estado_inicial = copy.deepcopy(self.obter_dict_atualizado())
+        if 'linha' not in self.pt_dict:
+            self.pt_dict['linha'] = {}
+        self.pt_dict['linha']['espessura'] = int(nova_espessura)
+        self.carregar_de_dict(self.pt_dict)
+        registrar_movimento_final(self, estado_inicial)
+
+    def _solicitar_espessura_personalizada(self) -> None:
+        from PySide6.QtWidgets import QInputDialog
+        espessura_atual = int(self.pt_dict.get('linha', {}).get('espessura', 3))
+        val, ok = QInputDialog.getInt(None, "Espessura do Traço", "Informe a espessura em pixels (1 a 20):", espessura_atual, 1, 20)
+        if ok:
+            self._definir_espessura(val)
+
+    def _solicitar_cor_personalizada(self) -> None:
+        cor_inicial = QColor(self.cor_hex if self.cor_hex else "#FF6D00")
+        nova_cor = self._obter_cor_dialogo(cor_inicial)
+        if nova_cor.isValid():
+            self._definir_cor(nova_cor.name().upper())
+
+    def _obter_cor_dialogo(self, cor_inicial: QColor) -> QColor:
+        return QColorDialog.getColor(cor_inicial, None, "Escolher Cor Customizada")
+
+    def _executar_menu(self, menu: QMenu, pos: Any) -> Any:
+        return menu.exec(pos)
+
+    def obter_dict_atualizado(self) -> Dict[str, Any]:
+        copia = copy.deepcopy(self.pt_dict)
+        dx = int(round(self.x()))
+        dy = int(round(self.y()))
+        if dx != 0 or dy != 0:
+            for n in copia.get('linha', {}).get('conteudo', {}).get('nos', []):
+                n['x'] += dx
+                n['y'] += dy
+        return copia
 
 
 class VisualizadorMapa(QGraphicsView):
@@ -676,6 +1546,24 @@ class VisualizadorMapa(QGraphicsView):
             self.scale(1/1.15, 1/1.15)
 
     def keyPressEvent(self, evento: Any) -> None:
+        if evento.key() == Qt.Key.Key_Escape:
+            cena = self.scene()
+            if cena and hasattr(cena, 'widget_editor'):
+                if getattr(cena.widget_editor, 'modo_desenho_linha', False):
+                    cena.widget_editor.cancelar_modo_desenho_linha()
+                    evento.accept()
+                    return
+                elif getattr(cena.widget_editor, 'modo_desenho', False):
+                    cena.widget_editor.cancelar_modo_desenho()
+                    evento.accept()
+                    return
+        elif evento.key() in (Qt.Key.Key_Return, Qt.Key.Key_Enter):
+            cena = self.scene()
+            if cena and hasattr(cena, 'widget_editor'):
+                if getattr(cena.widget_editor, 'modo_desenho_linha', False):
+                    cena.widget_editor.finalizar_modo_desenho_linha()
+                    evento.accept()
+                    return
         if evento.key() in (Qt.Key.Key_Delete, Qt.Key.Key_Backspace):
             cena = self.scene()
             if cena:
@@ -758,7 +1646,14 @@ class CenaDesenho(QGraphicsScene):
             if getattr(self, 'clique_handler')(getattr(self, 'pt_dict', {}).get('id')):
                 evento.accept()
                 return
-        if self.widget_editor.drawing_mode:
+        if getattr(self.widget_editor, 'modo_desenho_linha', False):
+            pos = evento.scenePos()
+            if evento.button() == Qt.MouseButton.LeftButton:
+                self.widget_editor.adicionar_ponto_desenho_linha(pos)
+            elif evento.button() == Qt.MouseButton.RightButton:
+                self.widget_editor.desfazer_ponto_desenho_linha()
+            evento.accept()
+        elif self.widget_editor.drawing_mode:
             pos = evento.scenePos()
             if evento.button() == Qt.MouseButton.LeftButton:
                 self.widget_editor.add_drawing_point(pos)
@@ -777,6 +1672,13 @@ class CenaDesenho(QGraphicsScene):
                 evento.accept()
         else:
             super().mousePressEvent(evento)
+
+    def mouseDoubleClickEvent(self, evento: Any) -> None:
+        if getattr(self.widget_editor, 'modo_desenho_linha', False):
+            self.widget_editor.finalizar_modo_desenho_linha()
+            evento.accept()
+            return
+        super().mouseDoubleClickEvent(evento)
 
     def mouseMoveEvent(self, evento: Any) -> None:
         if self.widget_editor.convert_mode and self.item_selecao:
@@ -819,6 +1721,10 @@ class WidgetEditorMapas(QWidget):
         self.item_desenho_temp: Optional[Any] = None
         self.alcas_desenho_temp: List[Any] = []
         self.path_desenho_temp: Optional[QGraphicsPathItem] = None
+        self.modo_desenho_linha: bool = False
+        self.pontos_desenho_linha: List[QPointF] = []
+        self.item_desenho_linha_temp: Optional[QGraphicsPathItem] = None
+        self.alcas_desenho_linha_temp: List[Any] = []
         self.modo_conversao: bool = False
         self.origem_selecao: Optional[QPointF] = None
         self.item_selecao_conversao: Optional[QGraphicsRectItem] = None
@@ -941,6 +1847,12 @@ class WidgetEditorMapas(QWidget):
         self.btn_add_poligono.setIcon(Icones.obter("mapas"))
         self.btn_add_poligono.clicked.connect(lambda: self.adicionar_poi('poligono'))
         layout_esquerdo.addWidget(self.btn_add_poligono)
+
+        # Nova Linha / Escalada
+        self.btn_add_linha = QPushButton(" Nova Linha / Escalada")
+        self.btn_add_linha.setIcon(Icones.obter("mapas"))
+        self.btn_add_linha.clicked.connect(lambda: self.adicionar_poi('linha'))
+        layout_esquerdo.addWidget(self.btn_add_linha)
 
         self.btn_converter = QPushButton(" Retângulo -> Círculo")
         self.btn_converter.setToolTip("Converte Retângulos em Círculos. Se já estiver no modo, clique novamente para converter TODOS os retângulos.")
@@ -1362,6 +2274,8 @@ class WidgetEditorMapas(QWidget):
             item_visual = ItemBoundingCirculo(pt_dict, cb_deletar, callback_converter=cb_converter_retangulo)
         elif poi.HasField('poligono'):
             item_visual = ItemBoundingPoligono(pt_dict, cb_deletar)
+        elif poi.HasField('linha'):
+            item_visual = ItemTrajetoLinha(pt_dict, cb_deletar)
             
         if item_visual:
             item_visual.set_clique_handler(self.tratar_clique_poi_linkagem)
@@ -1443,17 +2357,26 @@ class WidgetEditorMapas(QWidget):
         if tipo == 'poligono':
             self.iniciar_modo_desenho(self.dados_atuais)
             return
+        elif tipo == 'linha':
+            self.iniciar_modo_desenho_linha(self.dados_atuais)
+            return
 
         dialogo = DialogoEdicaoPOI("", "")
         if dialogo.exec() == QDialog.DialogCode.Accepted:
-            novo_id, novo_label = dialogo.obter_valores()
+            vals = dialogo.obter_valores()
+            novo_id = vals[0]
+            novo_label = vals[1]
+            nova_cor = vals[2] if len(vals) > 2 else ""
+            novo_texto_visivel = vals[3] if len(vals) > 3 else ""
             if not novo_id and not novo_label: return
             
             rect_visao = self.visualizador.mapToScene(self.visualizador.viewport().rect()).boundingRect()
             cx, cy = rect_visao.center().x(), rect_visao.center().y()
             
             from aresta_api.proto.generated import croqui_pb2
-            novo_poi = croqui_pb2.Mapa.PontoDeInteresse(id=novo_id, label=novo_label)
+            novo_poi = croqui_pb2.Mapa.PontoDeInteresse(id=novo_id, label=novo_label, cor=nova_cor)
+            if novo_texto_visivel:
+                novo_poi.texto_visivel = novo_texto_visivel
             
             if tipo == 'circulo':
                 novo_poi.circulo.x = int(cx)
@@ -1564,10 +2487,18 @@ class WidgetEditorMapas(QWidget):
             
         dialogo = DialogoEdicaoPOI("", "")
         if dialogo.exec() == QDialog.DialogCode.Accepted:
-            novo_id, novo_label = dialogo.obter_valores()
+            vals = dialogo.obter_valores()
+            novo_id = vals[0]
+            novo_label = vals[1]
+            nova_cor = vals[2] if len(vals) > 2 else ""
+            novo_texto_visivel = vals[3] if len(vals) > 3 else ""
             if novo_id or novo_label:
                 from aresta_api.proto.generated import croqui_pb2
                 novo_poi = croqui_pb2.Mapa.PontoDeInteresse(id=novo_id, label=novo_label)
+                if nova_cor:
+                    novo_poi.cor = nova_cor
+                if novo_texto_visivel:
+                    novo_poi.texto_visivel = novo_texto_visivel
                 for p in self.pontos_desenho:
                     novo_poi.poligono.coordenadas.append(int(p.x()))
                     novo_poi.poligono.coordenadas.append(int(p.y()))
@@ -1589,6 +2520,127 @@ class WidgetEditorMapas(QWidget):
             if self.dados_atuais: self.dados_atuais['cena'].removeItem(alca)
         self.alcas_desenho_temp = []
         self.pontos_desenho = []
+
+    def iniciar_modo_desenho_linha(self, dados: Any) -> None:
+        self.modo_desenho_linha = True
+        self.pontos_desenho_linha = []
+        self.dados_atuais = dados
+        self.label_modo.setText("NOVA LINHA - Clique para nós da via. Duplo-clique/Enter: Concluir. Esc/Dir: Desfazer.")
+        self.label_modo.setStyleSheet("color: white; background-color: #e65100; font-weight: bold; padding: 8px; border-radius: 4px;")
+        self.label_modo.setVisible(True)
+        self.visualizador.setCursor(Qt.CursorShape.CrossCursor)
+        self.item_desenho_linha_temp = QGraphicsPathItem()
+        pen = QPen(QColor(255, 109, 0), 3, Qt.PenStyle.CustomDashLine)
+        pen.setDashPattern([6, 3])
+        self.item_desenho_linha_temp.setPen(pen)
+        self.item_desenho_linha_temp.setBrush(QBrush(Qt.GlobalColor.transparent))
+        dados['cena'].addItem(self.item_desenho_linha_temp)
+        self.alcas_desenho_linha_temp = []
+
+    def adicionar_ponto_desenho_linha(self, pos: QPointF) -> None:
+        pos_ajustada = pos
+        if self.dados_atuais and 'itens_bb' in self.dados_atuais:
+            for item in self.dados_atuais['itens_bb']:
+                if isinstance(item, ItemTrajetoLinha):
+                    for alca_no in item.alcas:
+                        if (alca_no.scenePos() - pos).manhattanLength() < 15:
+                            pos_ajustada = alca_no.scenePos()
+                            break
+
+        self.pontos_desenho_linha.append(pos_ajustada)
+        
+        pts_dicts = [{"x": p.x(), "y": p.y()} for p in self.pontos_desenho_linha]
+        from editor.core.spline_catmull_rom import converter_pontos_para_bezier
+        segmentos = converter_pontos_para_bezier(pts_dicts)
+        path = QPainterPath()
+        if segmentos:
+            path.moveTo(segmentos[0].p0.x, segmentos[0].p0.y)
+            for seg in segmentos:
+                path.cubicTo(seg.c1.x, seg.c1.y, seg.c2.x, seg.c2.y, seg.p3.x, seg.p3.y)
+        elif len(self.pontos_desenho_linha) == 1:
+            path.moveTo(self.pontos_desenho_linha[0])
+            
+        if self.item_desenho_linha_temp is not None:
+            self.item_desenho_linha_temp.setPath(path)
+
+        alca_temp = QGraphicsEllipseItem(-5, -5, 10, 10)
+        alca_temp.setPos(pos_ajustada)
+        alca_temp.setPen(QPen(QColor(255, 255, 255), 2))
+        alca_temp.setBrush(QBrush(QColor(255, 109, 0)))
+        alca_temp.setZValue(1000)
+        if self.dados_atuais:
+            self.dados_atuais['cena'].addItem(alca_temp)
+        self.alcas_desenho_linha_temp.append(alca_temp)
+
+    def desfazer_ponto_desenho_linha(self) -> None:
+        if self.pontos_desenho_linha:
+            self.pontos_desenho_linha.pop()
+            alca_temp = self.alcas_desenho_linha_temp.pop()
+            if self.dados_atuais:
+                self.dados_atuais['cena'].removeItem(alca_temp)
+            if not self.pontos_desenho_linha:
+                self.cancelar_modo_desenho_linha()
+            else:
+                pts_dicts = [{"x": p.x(), "y": p.y()} for p in self.pontos_desenho_linha]
+                from editor.core.spline_catmull_rom import converter_pontos_para_bezier
+                segmentos = converter_pontos_para_bezier(pts_dicts)
+                path = QPainterPath()
+                if segmentos:
+                    path.moveTo(segmentos[0].p0.x, segmentos[0].p0.y)
+                    for seg in segmentos:
+                        path.cubicTo(seg.c1.x, seg.c1.y, seg.c2.x, seg.c2.y, seg.p3.x, seg.p3.y)
+                elif len(self.pontos_desenho_linha) == 1:
+                    path.moveTo(self.pontos_desenho_linha[0])
+                if self.item_desenho_linha_temp is not None:
+                    self.item_desenho_linha_temp.setPath(path)
+
+    def finalizar_modo_desenho_linha(self) -> None:
+        if len(self.pontos_desenho_linha) < 2:
+            self.cancelar_modo_desenho_linha()
+            return
+
+        dialogo = DialogoEdicaoPOI("", "", cor_atual="#FF6D00")
+        if dialogo.exec() == QDialog.DialogCode.Accepted:
+            vals = dialogo.obter_valores()
+            novo_id = vals[0]
+            novo_label = vals[1]
+            nova_cor = vals[2] if len(vals) > 2 else ""
+            novo_texto_visivel = vals[3] if len(vals) > 3 else ""
+            if novo_id or novo_label:
+                from aresta_api.proto.generated import croqui_pb2
+                nos = []
+                for p in self.pontos_desenho_linha:
+                    nos.append({
+                        "x": int(round(p.x())),
+                        "y": int(round(p.y())),
+                        "tipo": croqui_pb2.NoTrajeto.TipoNo.PASSAGEM,
+                        "rotulo": ""
+                    })
+                
+                if self.mapas_controller:
+                    self.mapas_controller.adicionar_linha(
+                        self.msg_mapa_proxy,
+                        id_linha=novo_id,
+                        label=novo_label,
+                        nos=nos,
+                        cor=nova_cor if nova_cor else "#FF6D00",
+                        texto_visivel=novo_texto_visivel
+                    )
+
+        self.cancelar_modo_desenho_linha()
+
+    def cancelar_modo_desenho_linha(self) -> None:
+        self.modo_desenho_linha = False
+        self.label_modo.setVisible(False)
+        self.visualizador.unsetCursor()
+        if self.item_desenho_linha_temp and self.dados_atuais:
+            self.dados_atuais['cena'].removeItem(self.item_desenho_linha_temp)
+            self.item_desenho_linha_temp = None
+        for alca in self.alcas_desenho_linha_temp:
+            if self.dados_atuais:
+                self.dados_atuais['cena'].removeItem(alca)
+        self.alcas_desenho_linha_temp = []
+        self.pontos_desenho_linha = []
 
 
     def alternar_modo_conversao(self) -> None:
@@ -1749,6 +2801,8 @@ class WidgetEditorMapas(QWidget):
                 elif poi.HasField('circulo') and isinstance(item_existente, ItemBoundingCirculo):
                     mesmo_tipo = True
                 elif poi.HasField('poligono') and isinstance(item_existente, ItemBoundingPoligono):
+                    mesmo_tipo = True
+                elif poi.HasField('linha') and isinstance(item_existente, ItemTrajetoLinha):
                     mesmo_tipo = True
                     
                 if mesmo_tipo:

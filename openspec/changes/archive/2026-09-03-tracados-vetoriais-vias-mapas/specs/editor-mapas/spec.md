@@ -7,11 +7,18 @@ O sistema SHALL fornecer uma ferramenta visual ("Nova Linha" / Caneta) no painel
 
 #### Scenario: Início e Conclusão de Desenho de Linha
 - **WHEN** o usuário clica no botão "Nova Linha", clica em múltiplos pontos da rocha na cena e confirma o término com duplo clique ou tecla Enter
-- **THEN** o sistema SHALL criar um novo elemento visual do tipo `linha` com nós tipados (`INICIO_BASE`, `PASSAGEM`, `TOP_PARADA`), calcular a curva suave na cena e registrar a adição no `CroquiModel` via `QUndoCommand`.
+- **THEN** o sistema SHALL criar um novo elemento visual do tipo `linha` com nós tipados (`CIRCULO_IDENTIFICADOR`, `PASSAGEM`, `TOP_PARADA`), calcular a curva suave na cena e registrar a adição no `CroquiModel` via `QUndoCommand`.
 
 #### Scenario: Cancelamento do Desenho de Linha
 - **WHEN** o usuário está no modo de desenho de linha e pressiona a tecla Esc ou botão direito sem nós suficientes
 - **THEN** o sistema SHALL cancelar a operação, remover a linha temporária da cena e restaurar o cursor padrão de navegação.
+
+### Requirement: Seletor de Cores de Alto Contraste para Elementos do Mapa
+O sistema SHALL fornecer um seletor visual de cores no diálogo de edição e no menu de contexto dos elementos do mapa, disponibilizando uma paleta recomendada de alto contraste para rocha (Vermelho, Laranja, Amarelo, Verde Lima, Ciano, Roxo, Branco, Cinza) e opção de cor personalizada com suporte a `QUndoCommand`.
+
+#### Scenario: Alteração de Cor de Traçado
+- **WHEN** o usuário seleciona uma nova cor na paleta para uma linha ou POI existente
+- **THEN** o sistema SHALL atualizar a cor da linha e de seus marcadores na cena imediatamente e registrar o comando de alteração de cor na pilha de histórico.
 
 ### Requirement: Manipulação e Alteração de Tipos de Nós com Undo/Redo
 O sistema SHALL permitir a seleção, movimentação interativa e alteração do tipo semântico de nós individuais em uma linha existente no Editor de Mapas, com atualização instantânea da curva na cena e registro estrito na pilha de histórico `QUndoStack`.

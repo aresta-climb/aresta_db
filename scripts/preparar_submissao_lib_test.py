@@ -13,8 +13,29 @@ if str(ROOT_PATH) not in sys.path:
 from scripts.preparar_submissao_lib import (
     validar_pontos_de_interesse_recursivo,
     validar_referencias_mapa,
-    compilar_croqui
+    compilar_croqui,
+    precompilar_linhas_mapas_recursivo
 )
+
+def test_validar_poi_sem_id_lanca_erro():
+    obj = {
+        "pontos_de_interesse": [
+            {"circulo": {"x": 10, "y": 20, "raio": 5}}
+        ]
+    }
+    with pytest.raises(ValueError, match="campo obrigatório 'id'"):
+        validar_pontos_de_interesse_recursivo(obj)
+
+
+def test_validar_poi_com_id_em_branco_lanca_erro():
+    obj = {
+        "pontos_de_interesse": [
+            {"id": "   ", "circulo": {"x": 10, "y": 20, "raio": 5}}
+        ]
+    }
+    with pytest.raises(ValueError, match="campo obrigatório 'id'"):
+        validar_pontos_de_interesse_recursivo(obj)
+
 
 def test_validar_circulo_valido():
     obj = {
@@ -851,4 +872,157 @@ Descrição do setor de teste.
     assert beta.match_nome_no_snippet is True
     assert len(beta.snippets) == 1
     assert beta.snippets[0] == "Descrição completa do beta"
+
+
+def test_precompilar_linhas_mapas_recursivo_valida_protobuf():
+    """Testa que precompilar_linhas_mapas_recursivo gera campos compatíveis com o schema Protobuf."""
+    from scripts.preparar_submissao_lib import precompilar_linhas_mapas_recursivo
+    from aresta_api.proto.generated import croqui_pb2
+    from google.protobuf import json_format
+    
+    croqui_data = {
+        "id": "teste_croqui",
+        "nome": "Croqui Teste",
+        "picos": [{
+            "nome": "Pico 1",
+            "setores_ou_grupos": [{
+                "setor": {
+                    "conteudo": {
+                        "nome": "Setor 1",
+                        "mapas": [{
+                            "pontos_de_interesse": [{
+                                "id": "linha_1",
+                                "linha": {
+                                    "conteudo": {
+                                        "nos": [
+                                            {"x": 10, "y": 20, "tipo": 1, "rotulo": "1"},
+                                            {"x": 50, "y": 80, "tipo": 3},
+                                            {"x": 90, "y": 120, "tipo": 5}
+                                        ]
+                                    }
+                                }
+                            }]
+                        }]
+                    }
+                }
+            }]
+        }]
+    }
+    
+    precompilar_linhas_mapas_recursivo(croqui_data)
+    
+    pt = croqui_data["picos"][0]["setores_ou_grupos"][0]["setor"]["conteudo"]["mapas"][0]["pontos_de_interesse"][0]
+    assert "compilado" in pt["linha"]
+    assert "conteudo" not in pt["linha"]
+    
+    # Verifica marcadores
+    marcadores = pt["linha"]["compilado"]["marcadores"]
+    assert len(marcadores) == 3
+    # O campo no schema é angulo_graus_x100
+    assert "angulo_graus_x100" in marcadores[0]
+    assert "angulo_tangente_graus_x100" not in marcadores[0]
+    
+    # Valida no Protobuf
+    msg = croqui_pb2.Croqui()
+    json_format.ParseDict(croqui_data, msg, ignore_unknown_fields=False)
+
+
+def test_precompilar_linhas_mapas_ignora_nos_passagem_em_marcadores():
+    """Testa que nós de PASSAGEM (tipo 0, 'PASSAGEM' ou omitido) não geram marcadores compilados."""
+    from scripts.preparar_submissao_lib import precompilar_linhas_mapas_recursivo
+    from aresta_api.proto.generated import croqui_pb2
+    from google.protobuf import json_format
+
+    croqui_data = {
+        "id": "teste_passagem",
+        "nome": "Croqui Teste",
+        "picos": [{
+            "nome": "Pico 1",
+            "setores_ou_grupos": [{
+                "setor": {
+                    "conteudo": {
+                        "nome": "Setor 1",
+                        "mapas": [{
+                            "pontos_de_interesse": [{
+                                "id": "linha_com_passagens",
+                                "linha": {
+                                    "conteudo": {
+                                        "nos": [
+                                            {"x": 10, "y": 20, "tipo": 1, "rotulo": "1"},
+                                            {"x": 30, "y": 40, "tipo": 0},
+                                            {"x": 50, "y": 60, "tipo": "PASSAGEM"},
+                                            {"x": 70, "y": 80},
+                                            {"x": 90, "y": 100, "tipo": 3},
+                                            {"x": 110, "y": 120, "tipo": 5},
+                                        ]
+                                    }
+                                }
+                            }]
+                        }]
+                    }
+                }
+            }]
+        }]
+    }
+
+    precompilar_linhas_mapas_recursivo(croqui_data)
+
+    pt = croqui_data["picos"][0]["setores_ou_grupos"][0]["setor"]["conteudo"]["mapas"][0]["pontos_de_interesse"][0]
+    compilado = pt["linha"]["compilado"]
+
+    # O caminho SVG ainda contém todos os 6 pontos
+    assert "caminho_svg" in compilado
+    assert len(compilado["caminho_svg"]) > 0
+
+    # Apenas os 3 nós semânticos (1, 3, 5) geram marcadores
+    marcadores = compilado["marcadores"]
+    assert len(marcadores) == 3
+    tipos = [m["tipo"] for m in marcadores]
+    assert tipos == [1, 3, 5]
+
+    # Validação rigorosa no Protobuf
+    msg = croqui_pb2.Croqui()
+    json_format.ParseDict(croqui_data, msg, ignore_unknown_fields=False)
+
+
+def test_precompilar_linhas_mapas_propaga_raio_e_tamanho_fonte_nos_marcadores():
+    from aresta_api.proto.generated import croqui_pb2
+    from google.protobuf import json_format
+
+    croqui_data = {
+        "picos": [{
+            "setores_ou_grupos": [{
+                "setor": {
+                    "conteudo": {
+                        "mapas": [{
+                            "pontos_de_interesse": [{
+                                "id": "via_1",
+                                "linha": {
+                                    "conteudo": {
+                                        "nos": [
+                                            {"x": 10, "y": 20, "tipo": 1, "rotulo": "1", "raio": 20, "tamanho_fonte": 12},
+                                            {"x": 90, "y": 100, "tipo": 5},
+                                        ]
+                                    }
+                                }
+                            }]
+                        }]
+                    }
+                }
+            }]
+        }]
+    }
+
+    precompilar_linhas_mapas_recursivo(croqui_data)
+    pt = croqui_data["picos"][0]["setores_ou_grupos"][0]["setor"]["conteudo"]["mapas"][0]["pontos_de_interesse"][0]
+    marcadores = pt["linha"]["compilado"]["marcadores"]
+    assert len(marcadores) == 2
+    assert marcadores[0]["raio"] == 20
+    assert marcadores[0]["tamanho_fonte"] == 12
+
+    # Validação rigorosa no Protobuf
+    msg = croqui_pb2.Croqui()
+    json_format.ParseDict(croqui_data, msg, ignore_unknown_fields=False)
+
+
 

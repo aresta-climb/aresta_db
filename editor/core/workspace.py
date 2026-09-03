@@ -238,7 +238,8 @@ class LocalRepoWorkspace:
                     target_paths=[caminho_base],
                     force_thumbnails=True,
                     gerar_arquivos_de_debug=True,
-                    is_producao=False
+                    is_producao=False,
+                    sair_ao_falhar=False
                 )
             except Exception as e:
                 print(f"Erro ao compilar croqui: {e}")

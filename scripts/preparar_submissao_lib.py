@@ -735,7 +735,11 @@ def validar_pontos_de_interesse_recursivo(obj: Any, path: str = "") -> None:
         if "pontos_de_interesse" in obj and isinstance(obj["pontos_de_interesse"], list):
             for i, pt in enumerate(obj["pontos_de_interesse"]):
                 poi_path = f"{path}.pontos_de_interesse[{i}]"
-                label = pt.get('label', pt.get('id', '?'))
+                poi_id = str(pt.get("id", "") or "").strip()
+                if not poi_id:
+                    raise ValueError(f"Ponto de interesse em {poi_path}: campo obrigatório 'id' não informado ou vazio")
+
+                label = pt.get('label', poi_id)
                 
                 if 'circulo' in pt:
                     circ = pt['circulo']
@@ -767,9 +771,22 @@ def validar_pontos_de_interesse_recursivo(obj: Any, path: str = "") -> None:
                     coords = pol['coordenadas']
                     if not isinstance(coords, list) or len(coords) % 2 != 0:
                         raise ValueError(f"POI '{label}' em {poi_path}: Polígono deve ter um número par de coordenadas (x,y pairs). Encontrado {len(coords)} elementos.")
+                elif 'linha' in pt:
+                    linha = pt['linha']
+                    if 'conteudo' in linha:
+                        conteudo = linha['conteudo']
+                        nos = conteudo.get('nos', [])
+                        if not isinstance(nos, list) or len(nos) < 2:
+                            raise ValueError(f"POI '{label}' em {poi_path}: Linha deve conter pelo menos 2 nós em 'conteudo.nos'")
+                    elif 'compilado' in linha:
+                        compilado = linha['compilado']
+                        if 'caminho_svg' not in compilado:
+                            raise ValueError(f"POI '{label}' em {poi_path}: Linha compilada faltando 'caminho_svg'")
+                    else:
+                        raise ValueError(f"POI '{label}' em {poi_path}: Linha faltando 'conteudo' ou 'compilado'")
                 else:
-                    # Se não tem nenhum dos 4 tipos, é inválido no novo esquema
-                    raise ValueError(f"POI '{label}' em {poi_path}: Tipo de área não especificado ou inválido (esperado circulo, quadrado, retangulo ou poligono)")
+                    # Se não tem nenhum dos 5 tipos, é inválido no novo esquema
+                    raise ValueError(f"POI '{label}' em {poi_path}: Tipo de área não especificado ou inválido (esperado circulo, quadrado, retangulo, poligono ou linha)")
 
         # Continua a recursão em todos os campos
         for k, v in obj.items():
@@ -995,6 +1012,55 @@ def injetar_precomputados(croqui_data: Dict[str, Any]) -> None:
     for pico in picos:
         computar_precomputados_pico(pico)
 
+def precompilar_linhas_mapas_recursivo(obj: Any) -> None:
+    """
+    Percorre recursivamente croqui_data e para cada PontoDeInteresse com 'linha.conteudo',
+    calcula os dados pré-compilados (caminho_svg, caixa_delimitadora, marcadores)
+    e substitui 'conteudo' por 'compilado' para máxima performance no app mobile.
+    """
+    if isinstance(obj, list):
+        for item in obj:
+            precompilar_linhas_mapas_recursivo(item)
+    elif isinstance(obj, dict):
+        if "pontos_de_interesse" in obj and isinstance(obj["pontos_de_interesse"], list):
+            for pt in obj["pontos_de_interesse"]:
+                if isinstance(pt, dict) and "linha" in pt:
+                    linha = pt["linha"]
+                    if isinstance(linha, dict) and "conteudo" in linha:
+                        conteudo = linha["conteudo"]
+                        nos = conteudo.get("nos", [])
+                        if nos:
+                            from editor.core.spline_catmull_rom import calcular_spline_catmull_rom
+                            res = calcular_spline_catmull_rom(nos)
+                            angulos = res.get("angulos_tangentes", [])
+                            marcadores = []
+                            for i, no in enumerate(nos):
+                                tipo_no = no.get("tipo", 0)
+                                if not tipo_no or str(tipo_no).upper() in ("0", "PASSAGEM", "TIPO_NO_PASSAGEM"):
+                                    continue
+                                ang_deg = angulos[i] if i < len(angulos) else 0.0
+                                marcador_dict: Dict[str, Any] = {
+                                    "tipo": tipo_no,
+                                    "x": int(round(no.get("x", 0))),
+                                    "y": int(round(no.get("y", 0))),
+                                    "angulo_graus_x100": int(round(ang_deg * 100)),
+                                    "rotulo": str(no.get("rotulo", ""))
+                                }
+                                if no.get("raio"):
+                                    marcador_dict["raio"] = int(no["raio"])
+                                if no.get("tamanho_fonte"):
+                                    marcador_dict["tamanho_fonte"] = int(no["tamanho_fonte"])
+                                marcadores.append(marcador_dict)
+                            linha["compilado"] = {
+                                "caminho_svg": res["caminho_svg"],
+                                "caixa_delimitadora": res["caixa_delimitadora"],
+                                "marcadores": marcadores,
+                            }
+                            del linha["conteudo"]
+        for v in obj.values():
+            if isinstance(v, (dict, list)):
+                precompilar_linhas_mapas_recursivo(v)
+
 def compilar_croqui(
     pico_path: Path,
     destino_yaml: Optional[Path],
@@ -1069,6 +1135,9 @@ def compilar_croqui(
 
     # 3.3. Injeta precomputados
     injetar_precomputados(croqui_data)
+
+    # 3.4. Pré-compila caminhos SVG e caixas delimitadoras de traçados vetoriais
+    precompilar_linhas_mapas_recursivo(croqui_data)
 
     # 4. Injeta metadados extras (ex: checksums de imagens)
     if dados_extras:

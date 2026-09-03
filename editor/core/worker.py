@@ -363,7 +363,16 @@ class TarefaSalvamento(QThread):
             caminho_retornado, erros = self.workspace.processar_renomeacao_e_compilacao(self.novo_id, self.id_atual, self.storage)
             
             self.sucesso.emit(caminho_retornado, erros, houve_renomeacao, self.undo_index)
-        except Exception as e:
+        except BaseException as e:
             traceback.print_exc()
+            from editor.core.registro_log import logger
+            from editor.core.telemetria import capturar_excecao
+            logger.critical(f"Erro durante o salvamento do croqui {self.novo_id or self.id_atual}: {e}", exc_info=True)
+            capturar_excecao(
+                erro=e,
+                id_croqui=self.novo_id or self.id_atual,
+                etapa="tarefa_salvamento",
+                contexto_extra={"novo_id": self.novo_id, "id_atual": self.id_atual, "caminho_db": str(self.caminho_db)},
+            )
             self.erro.emit(str(e))
 

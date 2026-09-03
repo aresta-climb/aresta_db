@@ -201,23 +201,30 @@ def main() -> None:
     app.setApplicationName("EditorAresta")
 
     # Previne múltiplas instâncias do editor usando QLocalServer / QLocalSocket
-    NOME_SERVIDOR_LOCAL = "ArestaEditorSingleInstanceServer"
-    socket_local = QLocalSocket()
-    socket_local.connectToServer(NOME_SERVIDOR_LOCAL)
-    if socket_local.waitForConnected(200):
-        QMessageBox.warning(None, "Aresta Editor", "O Aresta Editor já está em execução.")
+    # com health-check ativo e recuperação de processos zumbis
+    from editor.core.instancia_unica import (
+        verificar_se_ja_em_execucao,
+        iniciar_servidor_instancia_unica,
+        NOME_SERVIDOR_PADRAO
+    )
+    if verificar_se_ja_em_execucao(NOME_SERVIDOR_PADRAO):
+        msg = "O Aresta Editor já está em execução. A janela ativa foi trazida para o primeiro plano."
+        print(msg, file=sys.stderr)
+        QMessageBox.information(None, "Aresta Editor", msg)
         sys.exit(0)
 
-    QLocalServer.removeServer(NOME_SERVIDOR_LOCAL)
-    servidor_local = QLocalServer()
-    servidor_local.listen(NOME_SERVIDOR_LOCAL)
-    setattr(app, "servidor_local", servidor_local)
+    servidor_local = iniciar_servidor_instancia_unica(NOME_SERVIDOR_PADRAO)
+    if servidor_local:
+        setattr(app, "servidor_local", servidor_local)
 
-    # Verificação de modo LocalRepo: sys.argv[1] começa apontando para algo com 'database'
-    # E é de fato um diretório que contém croqui.yaml
-    if len(sys.argv) > 1 and "database" in sys.argv[1]:
+    # Verificação de modo LocalRepo: argumento fornecido na linha de comando
+    if len(sys.argv) > 1:
         caminho_str = sys.argv[1]
         caminho_path = Path(caminho_str).resolve()
+        
+        # Se apontar diretamente para o arquivo croqui.yaml, obtém a pasta pai
+        if caminho_path.is_file() and caminho_path.name == "croqui.yaml":
+            caminho_path = caminho_path.parent
         
         if caminho_path.is_dir() and (caminho_path / "croqui.yaml").exists():
             storage = GerenciadorCaminhos()
@@ -245,6 +252,11 @@ def main() -> None:
             janela = JanelaPrincipal(storage=storage, auth=None, workspace=workspace)
             janela.show()
             sys.exit(app.exec())
+        elif "database" in caminho_str or caminho_str.endswith("croqui.yaml"):
+            msg_erro = f"Erro: O caminho especificado '{caminho_str}' não contém um croqui.yaml válido."
+            print(msg_erro, file=sys.stderr)
+            QMessageBox.critical(None, "Erro ao Abrir Croqui", msg_erro)
+            sys.exit(1)
             
     # Inicialização Padrão (Experimental Workspace com Autenticação e Sync)
     controlador = ControladorAplicativo()
