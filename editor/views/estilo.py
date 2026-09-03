@@ -134,7 +134,7 @@ def configurar_tema_claro_aplicacao(app: Optional[Any] = None) -> None:
     from PySide6.QtCore import Qt
 
     instancia = app or QApplication.instance()
-    if not instancia:
+    if not isinstance(instancia, QApplication):
         return
 
     if hasattr(instancia, "styleHints") and hasattr(instancia.styleHints(), "setColorScheme"):
