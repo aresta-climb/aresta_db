@@ -74,6 +74,7 @@ def test_sanitizar_evento_sentry():
     assert user_dir not in evento_limpo["breadcrumbs"]["values"][0]["message"]
 
 
+@patch.dict(os.environ, {"ARESTA_DESATIVAR_TELEMETRIA": "0"})
 @patch("editor.core.telemetria.sentry_sdk")
 def test_inicializar_telemetria(mock_sentry):
     sucesso = inicializar_telemetria()
@@ -83,6 +84,26 @@ def test_inicializar_telemetria(mock_sentry):
     # Verifica que chamou com before_send=sanitizar_evento_sentry
     kwargs = mock_sentry.init.call_args[1]
     assert kwargs["before_send"] == sanitizar_evento_sentry
+
+
+@patch.dict(os.environ, {"ARESTA_DESATIVAR_TELEMETRIA": "1"})
+@patch("editor.core.telemetria.sentry_sdk")
+def test_inicializar_telemetria_desativada_por_variavel_ambiente(mock_sentry):
+    sucesso = inicializar_telemetria()
+    assert sucesso is False
+    mock_sentry.init.assert_not_called()
+
+
+@patch("editor.core.telemetria.sentry_sdk")
+def test_encerrar_telemetria(mock_sentry):
+    mock_cliente = MagicMock()
+    mock_sentry.get_client.return_value = mock_cliente
+
+    from editor.core.telemetria import encerrar_telemetria
+    encerrar_telemetria(timeout=1.5)
+
+    mock_sentry.get_client.assert_called_once()
+    mock_cliente.close.assert_called_once_with(timeout=1.5)
 
 
 @patch("editor.core.telemetria.sentry_sdk")

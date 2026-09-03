@@ -445,3 +445,20 @@ def test_tela_de_carregamento_alterar_nome_usuario(qtbot):
                     mock_api.assert_called_once_with("jwt_fake", "Renato Novo")
 
 
+def test_tela_de_carregamento_estilo_define_contraste_legivel(qtbot):
+    """Garante que a folha de estilo da TelaDeCarregamento define explicitamente cores de texto para botões e grupos."""
+    tela = TelaDeCarregamento()
+    qtbot.addWidget(tela)
+    estilo = tela.styleSheet()
+
+    # O estilo deve ter regras de cor de texto explícita para evitar texto branco herdado no Dark Mode
+    assert "color:" in estilo
+    assert "#grupo_acoes QPushButton" in estilo or "QGroupBox QPushButton" in estilo
+    # Não deve ter QPushButton genérico global sem escopo no diálogo
+    import re
+    assert not re.search(r'(?m)^\s*QPushButton\s*\{', estilo), "O seletor genérico QPushButton vaza para diálogos filhos como QInputDialog"
+
+
+
+
+

@@ -767,3 +767,9 @@ class TelaDeAbertura(QWidget):
             self.move(event.globalPosition().toPoint() - self._drag_pos)
             event.accept()
 
+    def closeEvent(self, event: Any) -> None:
+        if self.servidor_oauth:
+            self.servidor_oauth.encerrar()
+            self.servidor_oauth = None
+        super().closeEvent(event)
+

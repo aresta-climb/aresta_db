@@ -95,11 +95,22 @@ def test_deve_gerar_qr_code_em_memoria(qapp):
 
 def test_deve_obter_ip_local():
     servidor = ServidorCelular(Path("."))
-    ip = servidor.obter_ip_local()
-    
-    assert ip is not None
-    assert "." in ip
-    assert ip != "127.0.0.1"
+    with patch("socket.socket") as mock_socket_cls:
+        mock_sock = MagicMock()
+        mock_sock.getsockname.return_value = ("192.168.1.105", 12345)
+        mock_socket_cls.return_value = mock_sock
+        ip = servidor.obter_ip_local()
+        assert ip == "192.168.1.105"
+
+
+def test_deve_obter_ip_local_fallback_offline():
+    servidor = ServidorCelular(Path("."))
+    with patch("socket.socket") as mock_socket_cls:
+        mock_sock = MagicMock()
+        mock_sock.connect.side_effect = OSError("Rede inalcançável")
+        mock_socket_cls.return_value = mock_sock
+        ip = servidor.obter_ip_local()
+        assert ip == "127.0.0.1"
 
 def test_deve_suportar_http1_1_e_keep_alive(tmp_path):
     pasta_compilado = tmp_path / "compilado"

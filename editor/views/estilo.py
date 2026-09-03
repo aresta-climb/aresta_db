@@ -1,7 +1,7 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
-from typing import Optional, Dict
+from typing import Optional, Dict, Any
 
 import qtawesome as qta
 from PySide6.QtGui import QIcon
@@ -123,4 +123,31 @@ class Icones:
             ]
         )
         return res if isinstance(res, QIcon) else QIcon(res)
+
+
+def configurar_tema_claro_aplicacao(app: Optional[Any] = None) -> None:
+    """
+    Configura a aplicação Qt para operar estritamente sob o esquema de cores claro (Light Mode).
+    Previne que o modo escuro do sistema operacional corrompa o contraste da interface gráfica.
+    """
+    from PySide6.QtWidgets import QApplication
+    from PySide6.QtCore import Qt
+
+    instancia = app or QApplication.instance()
+    if not instancia:
+        return
+
+    if hasattr(instancia, "styleHints") and hasattr(instancia.styleHints(), "setColorScheme"):
+        try:
+            instancia.styleHints().setColorScheme(Qt.ColorScheme.Light)
+        except Exception:
+            pass
+
+    if hasattr(instancia, "style") and hasattr(instancia.style(), "standardPalette"):
+        try:
+            instancia.setPalette(instancia.style().standardPalette())
+        except Exception:
+            pass
+
+
 

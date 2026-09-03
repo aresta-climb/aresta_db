@@ -86,3 +86,31 @@ def test_todos_os_mapeamentos_existem_no_qtawesome(qtbot):
         assert isinstance(icon, QIcon)
         # Note: não verificamos icon.isNull() aqui pois depende do ambiente 
         # de execução (fontes instaladas), mas a chamada não deve dar erro.
+
+
+def test_configurar_tema_claro_aplicacao_define_color_scheme_light(qtbot):
+    """Garante que configurar_tema_claro_aplicacao força o esquema de cores e a paleta padrão clara."""
+    from PySide6.QtWidgets import QApplication
+    from PySide6.QtGui import QPalette, QColor
+    from PySide6.QtCore import Qt
+    from editor.views.estilo import configurar_tema_claro_aplicacao
+
+    app = QApplication.instance()
+    assert app is not None
+
+    # Simula paleta com texto branco herdada de um Dark Mode externo
+    pal = app.palette()
+    pal.setColor(QPalette.ColorRole.WindowText, QColor("#ffffff"))
+    pal.setColor(QPalette.ColorRole.ButtonText, QColor("#ffffff"))
+    app.setPalette(pal)
+    assert app.palette().color(QPalette.ColorRole.WindowText).name() == "#ffffff"
+
+    with patch.object(app.styleHints(), "setColorScheme") as mock_set_scheme:
+        configurar_tema_claro_aplicacao(app)
+        mock_set_scheme.assert_called_once_with(Qt.ColorScheme.Light)
+
+    # A paleta padrão deve ter sido restaurada para texto escuro
+    assert app.palette().color(QPalette.ColorRole.WindowText).name() == "#000000"
+    assert app.palette().color(QPalette.ColorRole.ButtonText).name() == "#000000"
+
+

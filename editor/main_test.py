@@ -261,4 +261,26 @@ def test_executar_selecao_fecha_janela_principal_anterior_se_existir(qtbot):
                 controlador.abertura.close()
 
 
+def test_controlador_app_configura_tema_claro_na_inicializacao(qtbot):
+    """Garante que a inicialização do app força o tema claro chamando configurar_tema_claro_aplicacao."""
+    with patch("editor.main.configurar_tema_claro_aplicacao") as mock_config:
+        with patch("editor.main.TarefaInicializacao"):
+            controlador = ControladorAplicativo()
+            mock_config.assert_called_once_with(controlador.app)
+            controlador.abertura.close()
+
+
+
+def test_configurar_ambiente_plataforma_define_darkmode_zero(monkeypatch):
+    """Garante que a plataforma padrão no Windows desativa o dark mode."""
+    from editor.main import configurar_ambiente_plataforma
+    monkeypatch.delenv("QT_QPA_PLATFORM", raising=False)
+    with patch("sys.platform", "win32"):
+        configurar_ambiente_plataforma()
+        import os
+        assert os.environ.get("QT_QPA_PLATFORM") == "windows:darkmode=0"
+
+
+
+
 

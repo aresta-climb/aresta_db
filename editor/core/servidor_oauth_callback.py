@@ -206,3 +206,7 @@ class ServidorCallbackOAuth(QObject):
             except Exception:
                 pass
             self._servidor_http = None
+
+        if self._thread and self._thread.is_alive():
+            self._thread.join(timeout=2.0)
+        self._thread = None

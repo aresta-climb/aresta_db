@@ -309,6 +309,7 @@ class TelaDeCarregamento(QDialog):
         self.setStyleSheet("""
             QDialog {
                 background-color: #f8f9fa;
+                color: #212529;
             }
             QGroupBox {
                 font-weight: bold;
@@ -316,20 +317,23 @@ class TelaDeCarregamento(QDialog):
                 border-radius: 6px;
                 margin-top: 1.5ex;
                 padding: 10px;
+                color: #212529;
             }
             QGroupBox::title {
                 subcontrol-origin: margin;
                 left: 10px;
                 padding: 0 3px 0 3px;
+                color: #212529;
             }
-            QPushButton {
+            #grupo_acoes QPushButton {
                 padding: 10px;
+                color: #212529;
                 background-color: #ffffff;
                 border: 1px solid #ced4da;
                 border-radius: 4px;
                 min-width: 150px;
             }
-            QPushButton:hover {
+            #grupo_acoes QPushButton:hover {
                 background-color: #e9ecef;
                 border-color: #adb5bd;
             }
@@ -337,6 +341,7 @@ class TelaDeCarregamento(QDialog):
                 border: 1px solid #dee2e6;
                 border-radius: 4px;
                 background-color: #ffffff;
+                color: #212529;
             }
         """)
 
@@ -346,6 +351,7 @@ class TelaDeCarregamento(QDialog):
         
         # 1. Topo: Grupo de Ações Principais
         self.grupo_acoes: QGroupBox = QGroupBox("Começar Novo Trabalho")
+        self.grupo_acoes.setObjectName("grupo_acoes")
         self.layout_acoes: QHBoxLayout = QHBoxLayout(self.grupo_acoes)
         self.layout_acoes.setSpacing(10)
         
@@ -361,7 +367,9 @@ class TelaDeCarregamento(QDialog):
         
         # 2. Base: Histórico de Croquis Experimentais
         self.grupo_historico: QGroupBox = QGroupBox("Continuar Trabalho em Andamento")
+        self.grupo_historico.setObjectName("grupo_historico")
         self.layout_historico: QVBoxLayout = QVBoxLayout(self.grupo_historico)
+
         self.layout_historico.setContentsMargins(5, 20, 5, 5)
         
         self.lista_croquis: QListWidget = QListWidget()

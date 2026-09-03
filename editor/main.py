@@ -7,6 +7,16 @@ import os
 # Define explicitamente a API PySide6 para bibliotecas auxiliares como QtAwesome e QtPy
 os.environ.setdefault("QT_API", "pyside6")
 
+def configurar_ambiente_plataforma() -> None:
+    """
+    Configura variáveis de ambiente do subsistema gráfico antes da inicialização do Qt.
+    No Windows, desativa a injeção nativa de tema escuro para garantir contraste consistente.
+    """
+    if sys.platform == "win32":
+        os.environ.setdefault("QT_QPA_PLATFORM", "windows:darkmode=0")
+
+configurar_ambiente_plataforma()
+
 # Adiciona o diretório raiz do projeto ao sys.path para permitir imports do pacote 'editor'
 current_dir = os.path.dirname(os.path.abspath(__file__))
 parent_dir = os.path.dirname(current_dir)
@@ -24,7 +34,7 @@ from editor.core.storage import GerenciadorCaminhos
 from editor.core.worker import TarefaInicializacao
 from editor.legacy_views.tela_de_carregamento import TelaDeCarregamento
 from editor.views.tela_de_abertura import TelaDeAbertura
-from editor.views.estilo import Icones
+from editor.views.estilo import Icones, configurar_tema_claro_aplicacao
 
 # Fix para o ícone na barra de tarefas do Windows
 try:
@@ -48,6 +58,7 @@ class ControladorAplicativo:
         else:
             self.app = QApplication(sys.argv)
         self.app.setApplicationName("EditorAresta")
+        configurar_tema_claro_aplicacao(self.app)
             
         storage = GerenciadorCaminhos()
         caminho_logo_app = storage.obter_caminho_recurso_interno("recursos/logo_app.png")
@@ -199,6 +210,7 @@ def main() -> None:
     else:
         app = QApplication(sys.argv)
     app.setApplicationName("EditorAresta")
+    configurar_tema_claro_aplicacao(app)
 
     storage = GerenciadorCaminhos()
     caminho_logo_app = storage.obter_caminho_recurso_interno("recursos/logo_app.png")

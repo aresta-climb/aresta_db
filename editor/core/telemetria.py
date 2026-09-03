@@ -134,6 +134,9 @@ def inicializar_telemetria(dsn: str | None = None) -> bool:
     if not sentry_sdk:
         return False
 
+    if os.environ.get("ARESTA_DESATIVAR_TELEMETRIA") == "1":
+        return False
+
     dsn_usado = dsn or DSN_PADRAO
     if not dsn_usado:
         return False
@@ -156,6 +159,22 @@ def inicializar_telemetria(dsn: str | None = None) -> bool:
         return True
     except Exception:
         return False
+
+
+def encerrar_telemetria(timeout: float = 2.0) -> None:
+    """
+    Encerra o cliente do Sentry e aguarda o término das threads de envio e monitoramento.
+    """
+    if not sentry_sdk:
+        return
+    try:
+        obter_cliente = getattr(sentry_sdk, "get_client", None)
+        if obter_cliente:
+            cliente = obter_cliente()
+            if cliente and hasattr(cliente, "close"):
+                cliente.close(timeout=timeout)
+    except Exception:
+        pass
 
 
 def registrar_contexto_croqui(id_croqui: str = "", commit_base_sha: str = "") -> None:

@@ -269,6 +269,22 @@ def test_tela_abertura_iniciar_login_github_configuracao_url(qtbot):
         assert "user%3Aemail" in url or "user:email" in url
         assert "redirect_to=http" in url
         assert "/callback" in url
+        abertura.close()
+
+
+def test_tela_abertura_fechamento_encerra_servidor_oauth(qtbot):
+    abertura = TelaDeAbertura()
+    abertura.show()
+    qtbot.addWidget(abertura)
+
+    with patch("PySide6.QtGui.QDesktopServices.openUrl"):
+        abertura.iniciar_login_github()
+        assert abertura.servidor_oauth is not None
+        servidor = abertura.servidor_oauth
+
+        abertura.close()
+        assert abertura.servidor_oauth is None
+        assert servidor._thread is None
 
 
 def test_tela_abertura_login_github_retorna_erro_trata_e_volta_para_selecao(qtbot):

@@ -98,3 +98,17 @@ class TesteServidorCallbackOAuth:
             assert "The user has denied your application" in resultado["erro"]
         finally:
             servidor.encerrar()
+
+    def teste_encerrar_aguarda_termino_da_thread_e_limpa_referencia(self):
+        servidor = ServidorCallbackOAuth()
+        porta = servidor.iniciar_escuta()
+        assert porta > 0
+        thread = servidor._thread
+        assert thread is not None
+        assert thread.is_alive()
+
+        servidor.encerrar()
+
+        assert not thread.is_alive()
+        assert servidor._thread is None
+        assert servidor._servidor_http is None
