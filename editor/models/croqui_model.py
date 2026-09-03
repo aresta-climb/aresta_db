@@ -300,6 +300,14 @@ class CroquiModel(QObject):
             for caminho_rel, bytes_img in self._imagens_em_memoria.items():
                 destino = caminho_db_path / caminho_rel
                 destino.parent.mkdir(parents=True, exist_ok=True)
+                if (
+                    bytes_img.startswith(b"RIFF")
+                    and len(bytes_img) > 16
+                    and bytes_img[8:12] == b"WEBP"
+                    and bytes_img[12:16] == b"VP8L"
+                ):
+                    from editor.core.transformacoes_imagem import converter_para_webp_disco
+                    bytes_img = converter_para_webp_disco(bytes_img, qualidade=90)
                 destino.write_bytes(bytes_img)
 
         croqui_msg_copy = Croqui()

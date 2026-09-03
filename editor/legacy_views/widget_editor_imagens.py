@@ -308,27 +308,130 @@ class PageState:
         self.mask_data = []
 
 class ImageViewer(QGraphicsView):
-    def __init__(self) -> None:
-        super().__init__()
+    def __init__(self, parent: Optional[QWidget] = None) -> None:
+        super().__init__(parent)
         self.setObjectName("ImageViewer")
         self.setDragMode(QGraphicsView.DragMode.ScrollHandDrag)
         self.setTransformationAnchor(QGraphicsView.ViewportAnchor.AnchorUnderMouse)
         self.setViewportUpdateMode(QGraphicsView.ViewportUpdateMode.FullViewportUpdate)
         self.setBackgroundBrush(QBrush(QColor(45, 45, 45)))
         self.picking_callback: Optional[Callable[[QPointF], None]] = None
+        self.selecao_callback: Optional[Callable[[QRectF], None]] = None
+        self._em_selecao: bool = False
+        self._ponto_inicio_selecao: Optional[QPointF] = None
+        self._item_retangulo_selecao: Optional[QGraphicsRectItem] = None
+        self._cor_selecao: QColor = QColor(25, 118, 210)
+        self._precisa_ajustar_zoom: bool = True
+
+    def iniciar_modo_selecao(self, callback: Callable[[QRectF], None], cor_borda: QColor = QColor(25, 118, 210)) -> None:
+        self.selecao_callback = callback
+        self.setDragMode(QGraphicsView.DragMode.NoDrag)
+        self.setCursor(Qt.CursorShape.CrossCursor)
+        self._em_selecao = False
+        self._ponto_inicio_selecao = None
+        self._cor_selecao = cor_borda
+
+    def cancelar_modo_selecao(self) -> None:
+        self.selecao_callback = None
+        self.picking_callback = None
+        self._em_selecao = False
+        self._ponto_inicio_selecao = None
+        if self._item_retangulo_selecao and self.scene():
+            self.scene().removeItem(self._item_retangulo_selecao)
+        self._item_retangulo_selecao = None
+        self.setDragMode(QGraphicsView.DragMode.ScrollHandDrag)
+        self.unsetCursor()
 
     def mousePressEvent(self, event: Any) -> None:
-        if self.picking_callback and event.button() == Qt.MouseButton.LeftButton:
-            scene_pos = self.mapToScene(event.pos())
-            self.picking_callback(scene_pos)
-            return
+        if event.button() == Qt.MouseButton.LeftButton:
+            if self.picking_callback:
+                scene_pos = self.mapToScene(event.pos())
+                self.picking_callback(scene_pos)
+                return
+            if self.selecao_callback:
+                self._em_selecao = True
+                self._ponto_inicio_selecao = self.mapToScene(event.pos())
+                if self._item_retangulo_selecao and self.scene():
+                    self.scene().removeItem(self._item_retangulo_selecao)
+                self._item_retangulo_selecao = QGraphicsRectItem()
+                pen = QPen(self._cor_selecao, 2, Qt.PenStyle.DashLine)
+                brush = QBrush(QColor(self._cor_selecao.red(), self._cor_selecao.green(), self._cor_selecao.blue(), 40))
+                self._item_retangulo_selecao.setPen(pen)
+                self._item_retangulo_selecao.setBrush(brush)
+                if self.scene():
+                    self.scene().addItem(self._item_retangulo_selecao)
+                self._item_retangulo_selecao.setRect(QRectF(self._ponto_inicio_selecao, self._ponto_inicio_selecao))
+                event.accept()
+                return
         super().mousePressEvent(event)
+
+    def mouseMoveEvent(self, event: Any) -> None:
+        if self._em_selecao and self._ponto_inicio_selecao and self._item_retangulo_selecao:
+            pos_atual = self.mapToScene(event.pos())
+            rect = QRectF(self._ponto_inicio_selecao, pos_atual).normalized()
+            if self.scene():
+                rect = rect.intersected(self.scene().sceneRect())
+            self._item_retangulo_selecao.setRect(rect)
+            event.accept()
+            return
+        super().mouseMoveEvent(event)
+
+    def mouseReleaseEvent(self, event: Any) -> None:
+        if self._em_selecao and self._ponto_inicio_selecao and self.selecao_callback:
+            self._em_selecao = False
+            pos_final = self.mapToScene(event.pos())
+            rect = QRectF(self._ponto_inicio_selecao, pos_final).normalized()
+            if self.scene():
+                rect = rect.intersected(self.scene().sceneRect())
+            if self._item_retangulo_selecao and self.scene():
+                self.scene().removeItem(self._item_retangulo_selecao)
+            self._item_retangulo_selecao = None
+            cb = self.selecao_callback
+            cb(rect)
+            event.accept()
+            return
+        super().mouseReleaseEvent(event)
+
+    def keyPressEvent(self, event: Any) -> None:
+        if event.key() == Qt.Key.Key_Escape:
+            p: Optional[Any] = self.parent()
+            while p:
+                if hasattr(p, "cancelar_selecao"):
+                    p.cancelar_selecao()
+                    event.accept()
+                    return
+                p = p.parent() if hasattr(p, "parent") and callable(p.parent) else None
+        super().keyPressEvent(event)
 
     def wheelEvent(self, event: Any) -> None:
         if event.angleDelta().y() > 0:
             self.scale(1.15, 1.15)
         else:
             self.scale(1/1.15, 1/1.15)
+
+    def ajustar_ao_visualizador(self) -> None:
+        """Ajusta a cena inteira para preencher a área visível do viewport mantendo a proporção."""
+        if not self.scene() or self.scene().sceneRect().isEmpty():
+            return
+        vp_w = self.viewport().width()
+        vp_h = self.viewport().height()
+        if vp_w > 50 and vp_h > 50:
+            self.fitInView(self.scene().sceneRect(), Qt.AspectRatioMode.KeepAspectRatio)
+            self._precisa_ajustar_zoom = False
+        else:
+            self._precisa_ajustar_zoom = True
+
+    def resizeEvent(self, event: Any) -> None:
+        super().resizeEvent(event)
+        if getattr(self, "_precisa_ajustar_zoom", True):
+            self.ajustar_ao_visualizador()
+
+    def showEvent(self, event: Any) -> None:
+        super().showEvent(event)
+        if getattr(self, "_precisa_ajustar_zoom", True):
+            self.ajustar_ao_visualizador()
+
+
 
 
 class WidgetEditorImagens(QWidget):
@@ -352,23 +455,40 @@ class WidgetEditorImagens(QWidget):
         else:
             self.imagens_path = "imagens"
         self.modo_integrado: bool = modo_integrado
-        self.croqui_model: Optional[Any] = croqui_model or model
+        self._croqui_model: Optional[Any] = None
+        self.croqui_model = croqui_model or model
         self.croqui_controller: Optional[Any] = croqui_controller or controller
         
         self.current_file: Optional[str] = None
         self.scene: Optional[QGraphicsScene] = None
         self.crop_item: Optional[CropBoxItem] = None
         self.mask_items: List[MaskBoxItem] = []
+        self.modo_corte: bool = False
+        self.modo_mascara: bool = False
+        self.cor_mascara_atual: Optional[Tuple[int, int, int]] = None
+        self._despachando_transformacao: bool = False
         
         self.states: Dict[str, PageState] = {} # Dict: file_path -> PageState
         
         self.setup_ui()
-        if self.croqui_model and hasattr(self.croqui_model, "imagem_alterada"):
-            self.croqui_model.imagem_alterada.connect(self._on_imagem_alterada)
-            self._model_conectado: Optional[Any] = self.croqui_model
-        else:
-            self._model_conectado = None
         self.load_images_list()
+
+    @property
+    def croqui_model(self) -> Optional[Any]:
+        return getattr(self, "_croqui_model", None)
+
+    @croqui_model.setter
+    def croqui_model(self, model: Optional[Any]) -> None:
+        antigo = getattr(self, "_croqui_model", None)
+        if antigo is not model:
+            if antigo is not None and hasattr(antigo, "imagem_alterada"):
+                try:
+                    antigo.imagem_alterada.disconnect(self._on_imagem_alterada)
+                except Exception:
+                    pass
+            self._croqui_model = model
+            if self._croqui_model and hasattr(self._croqui_model, "imagem_alterada"):
+                self._croqui_model.imagem_alterada.connect(self._on_imagem_alterada)
 
     def setup_ui(self) -> None:
         self.setObjectName("WidgetEditorImagens")
@@ -475,61 +595,47 @@ class WidgetEditorImagens(QWidget):
         right_layout = QVBoxLayout(right_widget)
         right_layout.setContentsMargins(15, 10, 15, 15)
         
-        self.info_label = QLabel("Dica: Use as bordas ou quinas da caixa vermelha para redimensionar. Arraste o centro para mover.")
+        self.info_label = QLabel("Dica: Selecione Cortar ou Máscara abaixo para editar a imagem. Use a roda do mouse para zoom e arraste para navegar.")
         self.info_label.setObjectName("info_label")
         self.info_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
         right_layout.addWidget(self.info_label)
         
-        self.viewer = ImageViewer()
+        self.viewer = ImageViewer(self)
         self.viewer.setStyleSheet("border: 1px solid #ddd; border-radius: 4px;")
         right_layout.addWidget(self.viewer, 1) # Stretch 1
         
         # Controles
-        controles_layout = QVBoxLayout()
+        # Controles
+        controles_layout = QHBoxLayout()
         controles_layout.setSpacing(10)
         controles_layout.setContentsMargins(0, 10, 0, 0)
 
-        # Linha 1: Máscaras
-        masks_layout = QHBoxLayout()
-        self.add_mask_btn = QPushButton("+ Adicionar Máscara (Conta-gotas)")
-        self.add_mask_btn.clicked.connect(self.start_picking_color)
-        
-        self.clear_masks_btn = QPushButton("X Limpar Máscaras")
-        self.clear_masks_btn.clicked.connect(self.clear_masks)
-        
-        masks_layout.addWidget(self.add_mask_btn)
-        masks_layout.addWidget(self.clear_masks_btn)
-        controles_layout.addLayout(masks_layout)
+        self.crop_btn = QPushButton("✂ Cortar")
+        self.crop_btn.setObjectName("btn_crop")
+        self.crop_btn.clicked.connect(self.alternar_modo_corte)
+        controles_layout.addWidget(self.crop_btn)
 
-        # Linha 2: Ações
-        btns_layout = QHBoxLayout()
-        
-        self.reset_btn = QPushButton("Resetar")
-        self.reset_btn.clicked.connect(self.reset_crop)
-        btns_layout.addWidget(self.reset_btn)
+        self.add_mask_btn = QPushButton("🎨 Máscara")
+        self.add_mask_btn.setObjectName("btn_mask")
+        self.add_mask_btn.clicked.connect(self.alternar_modo_mascara)
+        controles_layout.addWidget(self.add_mask_btn)
 
         self.rotate_ccw_btn = QPushButton("⟲ 90°")
         self.rotate_ccw_btn.clicked.connect(lambda: self.rotate_image(-90))
-        btns_layout.addWidget(self.rotate_ccw_btn)
+        controles_layout.addWidget(self.rotate_ccw_btn)
 
         self.rotate_cw_btn = QPushButton("⟳ 90°")
         self.rotate_cw_btn.clicked.connect(lambda: self.rotate_image(90))
-        btns_layout.addWidget(self.rotate_cw_btn)
-        
-        self.crop_btn = QPushButton("✂ Cortar (Preview)")
-        self.crop_btn.setObjectName("btn_crop")
-        self.crop_btn.clicked.connect(self.apply_crop)
-        btns_layout.addWidget(self.crop_btn)
+        controles_layout.addWidget(self.rotate_cw_btn)
 
         self.save_btn = QPushButton("💾 Salvar TUDO")
         self.save_btn.setObjectName("btn_save")
         self.save_btn.clicked.connect(self.salvar_alteracoes)
-        btns_layout.addWidget(self.save_btn)
+        controles_layout.addWidget(self.save_btn)
         
         if self.modo_integrado:
             self.save_btn.hide()
 
-        controles_layout.addLayout(btns_layout)
         right_layout.addLayout(controles_layout)
         
         self.splitter.addWidget(left_widget)
@@ -593,7 +699,7 @@ class WidgetEditorImagens(QWidget):
             if item and (item.text() == target_name or item.text() == "* " + target_name):
                 if self.list_widget.currentRow() != row:
                     self.list_widget.setCurrentRow(row)
-                else:
+                elif not self.current_file:
                     self.on_image_selected(row)
                 return
 
@@ -644,8 +750,16 @@ class WidgetEditorImagens(QWidget):
                 return
 
         self.current_file = file_path
+        if hasattr(self, "viewer"):
+            self.viewer._precisa_ajustar_zoom = True
         self.refresh_ui()
         self._atualizar_estado_botao_mapa()
+
+    def showEvent(self, event: Any) -> None:
+        super().showEvent(event)
+        if hasattr(self, "viewer") and getattr(self.viewer, "_precisa_ajustar_zoom", True):
+            self.viewer.ajustar_ao_visualizador()
+
 
     def imagem_pertence_a_mapa(self, nome_arquivo_ou_caminho: str) -> bool:
         """Verifica se a imagem especificada pertence a algum mapa no croqui_model."""
@@ -739,11 +853,24 @@ class WidgetEditorImagens(QWidget):
         self.load_image(self.current_file)
 
     def _on_imagem_alterada(self, caminho_relativo: str) -> None:
-        """Atualiza a lista e visualizador quando uma imagem for alterada externamente."""
-        self.load_images_list()
+        """Atualiza a lista e visualizador quando uma imagem for alterada externamente ou por histórico."""
+        if getattr(self, "_despachando_transformacao", False):
+            return
+
+        nome_alt = Path(caminho_relativo).name
+        
+        # Só executa varredura de disco se for um arquivo novo não presente na lista
+        esta_na_lista = False
+        for i in range(self.list_widget.count()):
+            item = self.list_widget.item(i)
+            if item and Path(item.data(Qt.ItemDataRole.UserRole) or "").name == nome_alt:
+                esta_na_lista = True
+                break
+        if not esta_na_lista:
+            self.load_images_list()
+
         if self.current_file:
             nome_atual = Path(self.current_file).name
-            nome_alt = Path(caminho_relativo).name
             if nome_atual == nome_alt or self.current_file == caminho_relativo:
                 self.states.pop(self.current_file, None)
                 self.load_image(self.current_file)
@@ -777,152 +904,238 @@ class WidgetEditorImagens(QWidget):
         self.scene.addPixmap(pixmap)
         self.scene.setSceneRect(0, 0, pixmap.width(), pixmap.height())
         
-        if state.crop_data:
-            rect, pos = state.crop_data
-            self.crop_item = CropBoxItem(rect)
-            self.crop_item.setPos(pos)
-        else:
-            w, h = pixmap.width(), pixmap.height()
-            margin_w, margin_h = w * 0.05, h * 0.05
-            crop_rect = QRectF(margin_w, margin_h, w - 2*margin_w, h - 2*margin_h)
-            self.crop_item = CropBoxItem(crop_rect)
-            
-        self.scene.addItem(self.crop_item)
-        
-        self.mask_items = []
-        for pos, rect, color in state.mask_data:
-            mask = MaskBoxItem(rect, color)
-            mask.setPos(pos)
-            self.scene.addItem(mask)
-            self.mask_items.append(mask)
-            
         self.viewer.setScene(self.scene)
-        self.viewer.fitInView(self.scene.sceneRect(), Qt.AspectRatioMode.KeepAspectRatio)
+        self.viewer.ajustar_ao_visualizador()
 
-    def reset_crop(self) -> None:
-        if not self.current_file or self.current_file not in self.states:
-            return
-            
-        reply = QMessageBox.question(self, "Confirmar Reset", 
-                                   "Deseja descartar TODAS as alterações desta imagem e voltar ao original?",
-                                   QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.No)
-        
-        if reply == QMessageBox.StandardButton.Yes:
-            try:
-                with Image.open(self.current_file) as img:
-                    working_image = img.convert("RGB") if img.mode not in ("RGB", "RGBA") else img.copy()
-                
-                state = self.states[self.current_file]
-                state.working_image = working_image
-                state.mask_data = []
-                state.crop_data = None
-                state.is_modified = False
-                
-                for i in range(self.list_widget.count()):
-                    item = self.list_widget.item(i)
-                    if item and item.data(Qt.ItemDataRole.UserRole) == self.current_file:
-                        if item.text().startswith("* "):
-                            item.setText(item.text()[2:])
-                        break
-                
-                self.refresh_ui()
-            except Exception as e:
-                QMessageBox.critical(self, "Erro", f"Falha ao resetar imagem: {e}")
+    def alternar_modo_corte(self) -> None:
+        """Alterna entre ativar e desativar o modo de corte interativo."""
+        if self.modo_corte:
+            self.desativar_modo_corte()
+        else:
+            self.ativar_modo_corte()
 
-    def start_picking_color(self) -> None:
+    def ativar_modo_corte(self) -> None:
+        """Ativa o modo de corte com cursor de mira e seleção por arrasto."""
         if not self.current_file:
             return
-        self.viewer.picking_callback = self.on_color_picked
-        self.viewer.setCursor(Qt.CursorShape.CrossCursor)
-        self.info_label.setText("MODO CONTA-GOTAS: Clique na imagem para escolher a cor da máscara.")
-        self.info_label.setStyleSheet("background-color: #0078d7; color: white; padding: 5px; font-weight: bold;")
+        self.cancelar_selecao()
+        self.modo_corte = True
+        self.crop_btn.setStyleSheet("background-color: #0d47a1; color: white; font-weight: bold;")
+        self.info_label.setText("MODO CORTAR: Arraste para selecionar a área de corte. Esc para cancelar.")
+        self.info_label.setStyleSheet("background-color: #1976d2; color: white; padding: 5px; font-weight: bold;")
+        self.viewer.iniciar_modo_selecao(self._ao_finalizar_selecao_corte, cor_borda=QColor(25, 118, 210))
 
-    def on_color_picked(self, scene_pos: QPointF) -> None:
-        self.viewer.picking_callback = None
-        self.viewer.unsetCursor()
-        self.info_label.setText("Dica: Passe o mouse nas bordas ou quinas da caixa vermelha para redimensionar. Arraste o centro para mover.")
-        self.info_label.setStyleSheet("background-color: #444; color: white; padding: 5px; font-weight: bold;")
-        
-        if self.current_file and self.current_file in self.states:
-            state = self.states[self.current_file]
-            img = state.working_image
-            x, y = int(scene_pos.x()), int(scene_pos.y())
-            if 0 <= x < img.width and 0 <= y < img.height:
-                color_tuple = img.getpixel((x, y))
-                if isinstance(color_tuple, int):
-                    color = QColor(color_tuple, color_tuple, color_tuple)
-                elif isinstance(color_tuple, tuple) and len(color_tuple) >= 3:
-                    color = QColor(color_tuple[0], color_tuple[1], color_tuple[2])
-                else:
-                    return
-                self.add_mask_at(scene_pos, color)
+    def desativar_modo_corte(self) -> None:
+        """Desativa o modo de corte e restaura o visualizador."""
+        self.modo_corte = False
+        self.crop_btn.setStyleSheet("")
+        self.viewer.cancelar_modo_selecao()
+        self.info_label.setText("Dica: Use as ferramentas acima para cortar, rotacionar ou mascarar a imagem.")
+        self.info_label.setStyleSheet("background-color: #333; color: #eee; padding: 8px; border-radius: 4px; font-size: 11px;")
 
-    def add_mask_at(self, pos: QPointF, color: QColor) -> None:
-        if not self.scene:
+    def cancelar_selecao(self) -> None:
+        """Cancela qualquer modo interativo ativo (corte ou máscara)."""
+        if self.modo_corte:
+            self.desativar_modo_corte()
+        if getattr(self, "modo_mascara", False):
+            self.desativar_modo_mascara()
+
+    def _ao_finalizar_selecao_corte(self, rect: QRectF) -> None:
+        """Callback executado ao soltar o mouse no visualizador durante o modo de corte."""
+        x1, y1 = int(rect.left()), int(rect.top())
+        x2, y2 = int(rect.right()), int(rect.bottom())
+        self.executar_corte_selecao(x1, y1, x2, y2)
+
+    def executar_corte_selecao(self, x1: int, y1: int, x2: int, y2: int) -> None:
+        """Executa o corte da área delimitada e despacha a transformação via histórico."""
+        largura = abs(x2 - x1)
+        altura = abs(y2 - y1)
+        if largura < 10 or altura < 10:
+            # Ignora seleções acidentais ou muito pequenas
+            self.desativar_modo_corte()
             return
-        size = 100
-        rect = QRectF(-size/2, -size/2, size, size)
-        mask = MaskBoxItem(rect, color)
-        mask.setPos(pos)
-        self.scene.addItem(mask)
-        self.mask_items.append(mask)
-        self.mark_modified()
+
+        bytes_atuais = self._obter_bytes_imagem_atual()
+        if not bytes_atuais:
+            self.desativar_modo_corte()
+            return
+
+        try:
+            from editor.core.transformacoes_imagem import cortar_imagem_bytes
+            bytes_cortados = cortar_imagem_bytes(bytes_atuais, (x1, y1, x2, y2))
+            self._despachar_transformacao_imagem(bytes_cortados)
+        except Exception as e:
+            QMessageBox.critical(self, "Erro", f"Erro ao cortar imagem: {e}")
+        finally:
+            self.desativar_modo_corte()
+
+    def alternar_modo_mascara(self) -> None:
+        """Alterna entre ativar e desativar o modo de máscara interativo."""
+        if self.modo_mascara:
+            self.desativar_modo_mascara()
+        else:
+            self.ativar_modo_mascara()
+
+    def ativar_modo_mascara(self) -> None:
+        """Ativa o modo de máscara iniciando pelo conta-gotas para captura da cor de fundo."""
+        if not self.current_file:
+            return
+        self.cancelar_selecao()
+        self.modo_mascara = True
+        self.cor_mascara_atual = None
+        self.add_mask_btn.setStyleSheet("background-color: #0d47a1; color: white; font-weight: bold;")
+        self.info_label.setText("MODO MÁSCARA: Passo 1 - Clique na imagem para capturar a cor (conta-gotas). Esc para cancelar.")
+        self.info_label.setStyleSheet("background-color: #0078d7; color: white; padding: 5px; font-weight: bold;")
+        self.viewer.picking_callback = self._ao_clicar_conta_gotas
+        self.viewer.setCursor(Qt.CursorShape.CrossCursor)
+
+    def desativar_modo_mascara(self) -> None:
+        """Desativa o modo de máscara e restaura o visualizador."""
+        self.modo_mascara = False
+        self.cor_mascara_atual = None
+        self.add_mask_btn.setStyleSheet("")
+        self.viewer.picking_callback = None
+        self.viewer.cancelar_modo_selecao()
+        self.info_label.setText("Dica: Use as ferramentas acima para cortar, rotacionar ou mascarar a imagem.")
+        self.info_label.setStyleSheet("background-color: #333; color: #eee; padding: 8px; border-radius: 4px; font-size: 11px;")
+
+    def start_picking_color(self) -> None:
+        """Método de conveniência/legado para iniciar o fluxo de máscara."""
+        self.ativar_modo_mascara()
+
+    def _ao_clicar_conta_gotas(self, scene_pos: QPointF) -> None:
+        """Chamado quando o usuário clica na imagem para capturar a cor."""
+        self.capturar_cor_ponto(int(scene_pos.x()), int(scene_pos.y()))
+
+    def capturar_cor_ponto(self, x: int, y: int) -> None:
+        """Captura a cor do pixel na coordenada (x, y) e avança para a seleção do retângulo."""
+        bytes_atuais = self._obter_bytes_imagem_atual()
+        if not bytes_atuais:
+            self.desativar_modo_mascara()
+            return
+
+        try:
+            from editor.core.transformacoes_imagem import obter_cor_pixel
+            self.cor_mascara_atual = obter_cor_pixel(bytes_atuais, x, y)
+            r, g, b = self.cor_mascara_atual
+            self.viewer.picking_callback = None
+            self.info_label.setText(f"MODO MÁSCARA: Passo 2 - Cor RGB({r}, {g}, {b}) capturada. Arraste um retângulo sobre a área a cobrir. Esc para cancelar.")
+            self.info_label.setStyleSheet("background-color: #2e7d32; color: white; padding: 5px; font-weight: bold;")
+            self.viewer.iniciar_modo_selecao(self._ao_finalizar_selecao_mascara, cor_borda=QColor(r, g, b))
+        except Exception as e:
+            QMessageBox.critical(self, "Erro", f"Erro ao capturar cor: {e}")
+            self.desativar_modo_mascara()
+
+    def _ao_finalizar_selecao_mascara(self, rect: QRectF) -> None:
+        """Callback executado ao soltar o mouse após desenhar a área da máscara."""
+        x1, y1 = int(rect.left()), int(rect.top())
+        x2, y2 = int(rect.right()), int(rect.bottom())
+        self.aplicar_mascara_selecao(x1, y1, x2, y2)
+
+    def aplicar_mascara_selecao(self, x1: int, y1: int, x2: int, y2: int) -> None:
+        """Aplica a máscara sólida retangular com a cor atual e despacha a transformação via histórico."""
+        if not self.cor_mascara_atual:
+            return
+
+        largura = abs(x2 - x1)
+        altura = abs(y2 - y1)
+        if largura < 2 or altura < 2:
+            return
+
+        bytes_atuais = self._obter_bytes_imagem_atual()
+        if not bytes_atuais:
+            return
+
+        try:
+            from editor.core.transformacoes_imagem import aplicar_mascara_bytes
+            bytes_mascarados = aplicar_mascara_bytes(bytes_atuais, (x1, y1, x2, y2), self.cor_mascara_atual)
+            self._despachar_transformacao_imagem(bytes_mascarados)
+            # Reativa o modo de seleção com a mesma cor para permitir múltiplas aplicações sequenciais
+            if self.modo_mascara and self.cor_mascara_atual:
+                r, g, b = self.cor_mascara_atual
+                self.viewer.iniciar_modo_selecao(self._ao_finalizar_selecao_mascara, cor_borda=QColor(r, g, b))
+        except Exception as e:
+            QMessageBox.critical(self, "Erro", f"Erro ao aplicar máscara: {e}")
+            self.desativar_modo_mascara()
 
     def clear_masks(self) -> None:
-        if not self.scene:
+        """Método de compatibilidade legado."""
+        self.cancelar_selecao()
+
+    def _obter_bytes_imagem_atual(self) -> Optional[bytes]:
+        """Obtém os bytes mais recentes da imagem atual em memória RAM ou do disco."""
+        if not self.current_file:
+            return None
+        nome_arquivo = Path(self.current_file).name
+        caminho_rel = f"imagens/{nome_arquivo}"
+        bytes_img = None
+        if self.croqui_model and hasattr(self.croqui_model, "obter_bytes_imagem"):
+            bytes_img = self.croqui_model.obter_bytes_imagem(caminho_rel) or self.croqui_model.obter_bytes_imagem(self.current_file)
+        if bytes_img is None and os.path.exists(self.current_file):
+            try:
+                bytes_img = Path(self.current_file).read_bytes()
+            except Exception:
+                bytes_img = None
+        if bytes_img is None and self.current_file in self.states:
+            import io
+            buf = io.BytesIO()
+            self.states[self.current_file].working_image.save(buf, format="WEBP", quality=90)
+            bytes_img = buf.getvalue()
+        return bytes_img
+
+    def _despachar_transformacao_imagem(self, bytes_novos: bytes) -> None:
+        """Despacha uma transformação de imagem para o controlador/modelo com registro de histórico."""
+        if not self.current_file:
             return
-        for item in self.mask_items:
-            self.scene.removeItem(item)
-        self.mask_items = []
-        self.mark_modified()
+        nome_arquivo = Path(self.current_file).name
+        caminho_rel = f"imagens/{nome_arquivo}"
+        contexto_img = f"page:imagens/file:{nome_arquivo}"
+
+        self._despachando_transformacao = True
+        try:
+            if self.croqui_controller and hasattr(self.croqui_controller, "substituir_imagem"):
+                self.croqui_controller.set_contexto(contexto_img)
+                self.croqui_controller.substituir_imagem(caminho_rel, bytes_novos, context_path=contexto_img)
+            elif self.croqui_model and hasattr(self.croqui_model, "definir_imagem_memoria"):
+                self.croqui_model.definir_imagem_memoria(caminho_rel, bytes_novos)
+            else:
+                # Modo autônomo sem modelo compartilhado
+                import io
+                with Image.open(io.BytesIO(bytes_novos)) as im:
+                    working = im.convert("RGB") if im.mode not in ("RGB", "RGBA") else im.copy()
+                if self.current_file in self.states:
+                    self.states[self.current_file].working_image = working
+                else:
+                    self.states[self.current_file] = PageState(working, self.current_file)
+                self.mark_modified()
+                self.refresh_ui()
+                return
+        finally:
+            self._despachando_transformacao = False
+
+        self.states.pop(self.current_file, None)
+        self.load_image(self.current_file)
 
     def rotate_image(self, angle: int) -> None:
-        if not self.current_file or self.current_file not in self.states:
+        """Rotaciona a imagem atual pelo ângulo especificado (+90° horária, -90° anti-horária)."""
+        if not self.current_file:
             return
-        
-        state = self.states[self.current_file]
+
+        bytes_atuais = self._obter_bytes_imagem_atual()
+        if not bytes_atuais:
+            return
+
         try:
-            if angle == 90:
-                state.working_image = state.working_image.transpose(Image.Transpose.ROTATE_270)
-            else:
-                state.working_image = state.working_image.transpose(Image.Transpose.ROTATE_90)
-            
-            state.crop_data = None
-            self.mark_modified()
-            self.refresh_ui()
+            from editor.core.transformacoes_imagem import rotacionar_imagem_bytes
+            bytes_rotacionados = rotacionar_imagem_bytes(bytes_atuais, angle)
+            self._despachar_transformacao_imagem(bytes_rotacionados)
         except Exception as e:
             QMessageBox.critical(self, "Erro", f"Erro ao rotacionar: {e}")
 
-    def apply_crop(self) -> None:
-        if not self.current_file or self.current_file not in self.states:
-            return
-        
-        state = self.states[self.current_file]
-        if not self.crop_item:
-            return
-            
-        final_rect = self.crop_item.get_absolute_rect()
-        
-        if final_rect.width() < 1 or final_rect.height() < 1:
-            QMessageBox.warning(self, "Aviso", "Área de corte inválida.")
-            return
 
-        self.save_current_state()
-        state.burn_masks()
-        
-        left = int(max(0, final_rect.left()))
-        top = int(max(0, final_rect.top()))
-        right = int(min(state.working_image.width, final_rect.right()))
-        bottom = int(min(state.working_image.height, final_rect.bottom()))
-        
-        if right <= left or bottom <= top:
-            QMessageBox.warning(self, "Erro", "Corte resultaria em imagem vazia.")
-            return
-            
-        state.working_image = state.working_image.crop((left, top, right, bottom))
-        state.crop_data = None
-        self.mark_modified()
-        self.refresh_ui()
+    def apply_crop(self) -> None:
+        """Legado: ativa o modo de corte interativo."""
+        self.ativar_modo_corte()
 
     def salvar_alteracoes(self, mostrar_mensagem: bool = True) -> bool:
         self.save_current_state()

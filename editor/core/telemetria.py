@@ -277,3 +277,82 @@ def configurar_tratamento_excecoes_globais() -> None:
         threading.excepthook = _tratar_excecao_thread
 
 
+def registrar_breadcrumb_submissao(
+    mensagem: str,
+    categoria: str = "submissao_pr",
+    dados: Any = None,
+    nivel: str = "info",
+) -> None:
+    """Registra uma etapa de submissão como breadcrumb cronológico no Sentry."""
+    if not sentry_sdk or not hasattr(sentry_sdk, "add_breadcrumb"):
+        return
+    try:
+        dados_sanitizados = _sanitizar_objeto_recursivo(dados) if dados else {}
+        sentry_sdk.add_breadcrumb(
+            category=categoria,
+            message=sanitizar_texto_caminhos(mensagem),
+            level=nivel,
+            data=dados_sanitizados,
+        )
+    except Exception:
+        pass
+
+
+def capturar_falha_submissao(
+    erro: Exception,
+    id_croqui: str = "",
+    etapa: str = "",
+    categoria: str = "inesperado",
+    contexto_extra: Any = None,
+) -> Any:
+    """
+    Captura e despacha uma falha de submissão de Pull Request para o Sentry com severidade,
+    tags taxonômicas, diário de comandos anexado e contexto operacional sanitizado.
+    Retorna o event_id do Sentry se enviado com sucesso, ou None.
+    """
+    if not sentry_sdk:
+        return None
+
+    try:
+        # Mapeamento taxonômico de severidade
+        mapa_severidade = {
+            "git_proxy": "fatal",
+            "github_api": "fatal",
+            "git_local": "fatal",
+            "inesperado": "fatal",
+            "autenticacao": "error",
+            "rede": "warning",
+        }
+        severidade = mapa_severidade.get(categoria, "fatal")
+
+        # Configura tags no escopo
+        if hasattr(sentry_sdk, "set_tag"):
+            sentry_sdk.set_tag("tipo_evento", "falha_publicacao_pr")
+            sentry_sdk.set_tag("categoria_erro", categoria)
+            sentry_sdk.set_tag("nivel_severidade", severidade)
+            if id_croqui:
+                sentry_sdk.set_tag("id_croqui", id_croqui)
+            if etapa:
+                sentry_sdk.set_tag("etapa_falha", etapa)
+
+        # Contexto operacional detalhado sanitizado
+        if contexto_extra and hasattr(sentry_sdk, "set_context"):
+            contexto_sanitizado = _sanitizar_objeto_recursivo(contexto_extra)
+            sentry_sdk.set_context("detalhes_submissao", contexto_sanitizado)
+
+        # Anexa os binários de diário recente se disponíveis
+        _anexar_arquivos_diario_no_escopo()
+
+        # Dispara captura de exceção
+        event_id = None
+        if hasattr(sentry_sdk, "capture_exception"):
+            event_id = sentry_sdk.capture_exception(erro)
+            if hasattr(sentry_sdk, "flush"):
+                sentry_sdk.flush(timeout=5.0)
+
+        return event_id
+    except Exception:
+        return None
+
+
+

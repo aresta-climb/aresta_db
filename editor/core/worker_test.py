@@ -143,8 +143,10 @@ class TestWorker(unittest.TestCase):
         self.assertIn("Nenhuma alteração", tarefa.aviso.emit.call_args[0][0])
         tarefa.sucesso.emit.assert_not_called()
 
-    def test_tarefa_publicacao_erro_emite_sinal(self):
-        """Testa emissão de sinal de erro em caso de exceção."""
+    @patch("editor.core.telemetria.capturar_falha_submissao")
+    @patch("editor.core.registro_log.logger.critical")
+    def test_tarefa_publicacao_erro_emite_sinal_e_registra_telemetria(self, mock_logger, mock_capturar):
+        """Testa emissão de sinal de erro, logging crítico e telemetria em caso de exceção."""
         mock_servico = MagicMock()
         mock_servico.submeter_sugestao.side_effect = ErroSubmissao("Falha de rede")
 
@@ -158,6 +160,13 @@ class TestWorker(unittest.TestCase):
         tarefa.run()
 
         tarefa.erro.emit.assert_called_once_with("Falha de rede")
+        mock_logger.assert_called_once()
+        self.assertIn("teste", mock_logger.call_args[0][0])
+        mock_capturar.assert_called_once()
+        kwargs = mock_capturar.call_args[1]
+        self.assertEqual(kwargs["id_croqui"], "teste")
+        self.assertEqual(kwargs["categoria"], "inesperado")
+        self.assertEqual(kwargs["etapa"], "execucao_tarefa_publicacao")
 
     @patch("editor.core.worker.GerenciadorCaminhos")
     @patch("editor.core.worker.ServicoLoja")

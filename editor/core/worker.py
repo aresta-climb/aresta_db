@@ -240,7 +240,16 @@ class TarefaPublicacao(QThread):
                     "aresta-climb",
                 )
         except Exception as e:
-            traceback.print_exc()
+            from editor.core.registro_log import logger
+            from editor.core.telemetria import capturar_falha_submissao
+            logger.critical(f"Erro durante a publicação do croqui {self.id_croqui}: {e}", exc_info=True)
+            capturar_falha_submissao(
+                erro=e,
+                id_croqui=self.id_croqui,
+                etapa="execucao_tarefa_publicacao",
+                categoria="inesperado",
+                contexto_extra={"id_croqui": self.id_croqui, "modo_atualizacao": self.modo_atualizacao},
+            )
             self.erro.emit(str(e))
 
 class TarefaExportacao(QThread):

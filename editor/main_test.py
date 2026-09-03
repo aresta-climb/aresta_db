@@ -124,23 +124,69 @@ def test_application_version_is_set(qtbot):
         controlador.abertura.close()
 
 def test_main_impede_multiplas_instancias(qtbot):
-    with patch("editor.main.QSharedMemory") as MockSharedMemory:
+    with patch("editor.main.QLocalSocket") as MockLocalSocket:
         with patch("editor.main.QMessageBox.warning") as mock_warning:
             with patch("editor.main.sys.exit", side_effect=SystemExit) as mock_exit:
-                mock_mem_inst = MockSharedMemory.return_value
-                # Simula que a criação falhou (outra instância já tem o lock)
-                mock_mem_inst.create.return_value = False
+                mock_socket_inst = MockLocalSocket.return_value
+                # Simula que conectou a um servidor já existente (outra instância ativa)
+                mock_socket_inst.waitForConnected.return_value = True
                 
                 from editor.main import main
                 with pytest.raises(SystemExit):
                     main()
                 
-                # Verifica a chave usada
-                MockSharedMemory.assert_called_once_with("ArestaEditorSingleInstanceLock")
-                # Verifica se o aviso foi mostrado
+                mock_socket_inst.connectToServer.assert_called_once_with("ArestaEditorSingleInstanceServer")
                 mock_warning.assert_called_once()
-                # Verifica se a verificação de criação foi feita corretamente
-                mock_mem_inst.create.assert_called_once_with(1)
+
+
+def test_main_inicia_servidor_quando_primeira_instancia(qtbot):
+    with patch("editor.main.QLocalSocket") as MockLocalSocket:
+        with patch("editor.main.QLocalServer") as MockLocalServer:
+            with patch("editor.main.QMessageBox.warning") as mock_warning:
+                with patch("editor.main.ControladorAplicativo") as MockControlador:
+                    with patch("editor.main.sys.exit") as mock_exit:
+                        mock_socket_inst = MockLocalSocket.return_value
+                        # Simula que não há servidor rodando
+                        mock_socket_inst.waitForConnected.return_value = False
+                        
+                        mock_server_inst = MockLocalServer.return_value
+                        mock_server_inst.listen.return_value = True
+                        
+                        mock_controlador_inst = MockControlador.return_value
+                        mock_controlador_inst.executar.return_value = 0
+                        
+                        from editor.main import main
+                        main()
+                        
+                        MockLocalServer.removeServer.assert_called_once_with("ArestaEditorSingleInstanceServer")
+                        mock_server_inst.listen.assert_called_once_with("ArestaEditorSingleInstanceServer")
+                        mock_warning.assert_not_called()
+                        MockControlador.assert_called_once()
+                        mock_exit.assert_called_once_with(0)
+
+
+def test_qlocalserver_ciclo_vida_e_bloqueio_real(qtbot):
+    """Garante a comunicação e bloqueio real de instâncias concorrentes com QLocalServer/QLocalSocket."""
+    from PySide6.QtNetwork import QLocalServer, QLocalSocket
+    import uuid
+    nome_servidor = f"aresta_teste_{uuid.uuid4().hex[:8]}"
+    
+    QLocalServer.removeServer(nome_servidor)
+    servidor = QLocalServer()
+    assert servidor.listen(nome_servidor) is True
+    
+    # Segunda conexão deve conectar com sucesso (detectando que o servidor está vivo)
+    socket = QLocalSocket()
+    socket.connectToServer(nome_servidor)
+    assert socket.waitForConnected(500) is True
+    socket.close()
+    
+    # Ao fechar o servidor, nova conexão não conecta
+    servidor.close()
+    socket2 = QLocalSocket()
+    socket2.connectToServer(nome_servidor)
+    assert socket2.waitForConnected(100) is False
+    QLocalServer.removeServer(nome_servidor)
 
 
 def test_executar_selecao_fecha_janela_principal_anterior_se_existir(qtbot):

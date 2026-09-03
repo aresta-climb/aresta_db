@@ -88,3 +88,28 @@ def test_parar_servidor_deve_ser_rapido_e_limpo(integracao, qtbot):
         
     qtbot.wait_until(servidor_parou, timeout=3000)
     assert servidor._servindo is False
+
+
+def test_tunel_e_servidor_devem_permanecer_ativos_e_atender_multiplas_conexoes_efemeras(integracao, qtbot):
+    """
+    Valida que o servidor celular e o túnel continuam funcionando mesmo após
+    um cliente se desconectar, atendendo a novas conexões subsequentes normalmente.
+    """
+    dialogo, servidor = integracao
+    url_base = f"http://127.0.0.1:{servidor.porta}"
+
+    # 1. Primeira conexão efêmera do celular (ex: baixa arquivo inicial)
+    resp1 = requests.get(f"{url_base}/indice.binarypb", timeout=2)
+    assert resp1.status_code == 200
+    assert resp1.text == "fake_pb_data"
+    qtbot.wait_until(lambda: dialogo.label_status.text() == "Celular Conectado!", timeout=2000)
+
+    # 2. Celular inativo / desconecta por um período. O servidor DEVE continuar servindo
+    assert servidor._servindo is True
+
+    # 3. Segunda conexão efêmera (celular reconecta ou novo dispositivo conecta)
+    resp2 = requests.get(f"{url_base}/handshake", timeout=2)
+    assert resp2.status_code == 200
+    assert resp2.json().get("status") == "conectado"
+    assert servidor._servindo is True
+

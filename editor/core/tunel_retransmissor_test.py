@@ -431,3 +431,207 @@ def test_cliente_tunel_envia_ping_keepalive_quando_ocioso(pasta_temporaria):
 
     asyncio.run(run())
 
+
+def test_heartbeat_dedicado_nao_interrompe_recepcao_de_mensagens(pasta_temporaria):
+    """Garante que o heartbeat assíncrono rode em background sem cancelar a escuta de mensagens ws.recv()."""
+    async def run():
+        mensagens_servidor = []
+        pings_recebidos = 0
+
+        async def servidor_mock_handler(websocket):
+            nonlocal pings_recebidos
+            async for mensagem in websocket:
+                dados = json.loads(mensagem)
+                mensagens_servidor.append(dados)
+                if dados.get("tipo") == "registro":
+                    # Simula um intervalo de silêncio e depois envia a resposta
+                    await asyncio.sleep(0.15)
+                    await websocket.send(json.dumps({
+                        "tipo": "requisicao_proxy",
+                        "dados": {
+                            "id": "req-lenta",
+                            "metodo": "GET",
+                            "caminho": "/indice.binarypb",
+                            "cabecalhos": {}
+                        }
+                    }))
+                elif dados.get("tipo") == "ping":
+                    pings_recebidos += 1
+                    await websocket.send(json.dumps({"tipo": "pong"}))
+
+        async with websockets.serve(servidor_mock_handler, "127.0.0.1", 0) as server:
+            porta = server.sockets[0].getsockname()[1]
+            url_ws = f"ws://127.0.0.1:{porta}/ws?sessao=hb123"
+
+            cliente = ClienteTunelRetransmissor(
+                codigo_sessao="hb123",
+                pasta_compilado=pasta_temporaria,
+                url_retransmissor_ws=url_ws,
+            )
+
+            tarefa = asyncio.create_task(cliente.executar(intervalo_heartbeat=0.05))
+
+            for _ in range(50):
+                if any(m.get("tipo") == "resposta_proxy" and m["dados"]["id"] == "req-lenta" for m in mensagens_servidor):
+                    break
+                await asyncio.sleep(0.05)
+
+            await cliente.parar()
+            await tarefa
+
+            assert pings_recebidos >= 1
+            assert any(m.get("tipo") == "resposta_proxy" and m["dados"]["id"] == "req-lenta" for m in mensagens_servidor)
+
+    asyncio.run(run())
+
+
+def test_cliente_tunel_utiliza_callback_jwt_atualizado(pasta_temporaria):
+    """Garante que o cliente túnel obtenha o JWT dinamicamente ao gerar a URL de conexão."""
+    tokens_solicitados = []
+
+    def obter_jwt():
+        novo_token = f"jwt_dinamico_{len(tokens_solicitados) + 1}"
+        tokens_solicitados.append(novo_token)
+        return novo_token
+
+    cliente = ClienteTunelRetransmissor(
+        codigo_sessao="dinamico1",
+        pasta_compilado=pasta_temporaria,
+        obter_jwt_atualizado=obter_jwt,
+    )
+
+    url_gerada = cliente._obter_url_conexao()
+    assert "token=jwt_dinamico_1" in url_gerada
+    assert len(tokens_solicitados) == 1
+
+
+def test_cliente_tunel_casos_de_borda_e_cobertura(pasta_temporaria):
+    """Testa branches de exceção e propriedades para garantir 100% de cobertura."""
+    # 1. Setter e getter de url_retransmissor_ws
+    cliente = ClienteTunelRetransmissor(
+        codigo_sessao="teste_prop",
+        pasta_compilado=pasta_temporaria,
+        jwt_token="token_fixo",
+    )
+    assert "token=token_fixo" in cliente.url_retransmissor_ws
+    cliente.url_retransmissor_ws = "wss://custom.url/ws"
+    assert "token=token_fixo" in cliente.url_retransmissor_ws
+
+    # 2. Callback com erro ao obter JWT
+    def callback_com_erro():
+        raise RuntimeError("Erro ao renovar token")
+
+    cliente_err = ClienteTunelRetransmissor(
+        codigo_sessao="teste_err_jwt",
+        pasta_compilado=pasta_temporaria,
+        obter_jwt_atualizado=callback_com_erro,
+    )
+    assert cliente_err.url_retransmissor_ws.startswith("wss://")
+
+    # 3. Callback de dispositivo conectado disparando e tratando exceção
+    chamou_dispositivo = False
+
+    def cb_disp_com_erro():
+        nonlocal chamou_dispositivo
+        chamou_dispositivo = True
+        raise ValueError("Erro no callback")
+
+    cliente_disp = ClienteTunelRetransmissor(
+        codigo_sessao="teste_cb",
+        pasta_compilado=pasta_temporaria,
+        ao_conectar_dispositivo=cb_disp_com_erro,
+    )
+
+    async def run_cb():
+        async def mock_handler(ws):
+            async for msg in ws:
+                dados = json.loads(msg)
+                if dados.get("tipo") == "registro":
+                    await ws.send(json.dumps({
+                        "tipo": "requisicao_proxy",
+                        "dados": {"id": "req-cb", "caminho": "/indice.binarypb"}
+                    }))
+                    # Envia json inválido para exercitar branch de erro de parse
+                    await ws.send("JSON_INVALIDO_NAO_PARSEAVEL")
+
+        async with websockets.serve(mock_handler, "127.0.0.1", 0) as srv:
+            porta = srv.sockets[0].getsockname()[1]
+            cliente_disp.url_retransmissor_ws = f"ws://127.0.0.1:{porta}/ws?sessao=teste_cb"
+            tarefa = asyncio.create_task(cliente_disp.executar())
+            for _ in range(30):
+                if chamou_dispositivo:
+                    break
+                await asyncio.sleep(0.05)
+            await cliente_disp.parar()
+            await tarefa
+            assert chamou_dispositivo is True
+
+    asyncio.run(run_cb())
+
+    # 4. Falha ao enviar emitir_recarregamento com websocket com send quebrado
+    async def run_emit_fail():
+        mock_ws = MagicMock()
+        mock_ws.send.side_effect = Exception("Erro socket send")
+        cliente.executar
+        cliente._websocket = mock_ws
+        cliente._rodando = True
+        await cliente.emitir_recarregamento("setor1")
+        mock_ws.close.side_effect = Exception("Erro close")
+        await cliente.parar()
+
+    asyncio.run(run_emit_fail())
+
+    # 5. Heartbeat send com exceção
+    async def run_hb_fail():
+        mock_ws_hb = MagicMock()
+        mock_ws_hb.send.side_effect = RuntimeError("Falha no ping")
+        cliente_hb = ClienteTunelRetransmissor(
+            codigo_sessao="hb_fail",
+            pasta_compilado=pasta_temporaria,
+        )
+        cliente_hb._evento_parada.clear()
+        await cliente_hb._loop_heartbeat(mock_ws_hb, 0.001)
+
+    asyncio.run(run_hb_fail())
+
+    # 6. Falha na conexão inicial disparando retry com sleep e parada
+    async def run_retry():
+        chamadas = 0
+
+        class MockWs:
+            async def send(self, data):
+                pass
+            async def recv(self):
+                await asyncio.sleep(0.05)
+                return json.dumps({"tipo": "pong"})
+            async def close(self, code=1000, reason=""):
+                pass
+            async def __aenter__(self):
+                nonlocal chamadas
+                chamadas += 1
+                if chamadas == 1:
+                    raise websockets.exceptions.ConnectionClosed(None, None)
+                return self
+            async def __aexit__(self, exc_type, exc_val, exc_tb):
+                pass
+
+        cliente_fail = ClienteTunelRetransmissor(
+            codigo_sessao="retry_teste",
+            pasta_compilado=pasta_temporaria,
+            url_retransmissor_ws="ws://127.0.0.1:8888/ws",
+        )
+
+        with patch("websockets.connect", return_value=MockWs()):
+            tarefa_retry = asyncio.create_task(cliente_fail.executar())
+            for _ in range(20):
+                if chamadas >= 2:
+                    break
+                await asyncio.sleep(0.05)
+            await cliente_fail.parar()
+            await tarefa_retry
+
+    asyncio.run(run_retry())
+
+
+
+

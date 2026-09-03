@@ -1,16 +1,12 @@
-## ADDED Requirements
+# servidor-celular
 
-### Requirement: Servidor assíncrono não-bloqueante
-O sistema MUST servir os recursos estáticos e o endpoint `/handshake` através de uma engine ASGI não-bloqueante (FastAPI e Uvicorn), garantindo que um cliente com conexão lenta não trave a fila de requisições do servidor local.
+### Requirement: Integração com Túnel de Saída para o Retransmissor
+O servidor local do Editor Desktop MUST estabelecer e manter a conexão de saída WebSocket com o Retransmissor na nuvem (`wss://previa.arestaclimb.com/ws?sessao=<codigo>`) de forma contínua durante todo o ciclo de vida da sessão do Editor Desktop, mantendo o túnel aberto mesmo na ausência de dispositivos móveis pareados, até o encerramento explícito pelo usuário ou fechamento do workspace.
 
-#### Scenario: Handshake bem sucedido
-- **WHEN** o dispositivo móvel realizar um GET em `/handshake`
-- **THEN** o sistema deve emitir o sinal Qt `dispositivo_conectado` de maneira thread-safe e retornar uma resposta JSON HTTP 200 com `{"status": "conectado"}`.
+#### Scenario: Manutenção contínua do túnel sem dispositivos conectados
+- **WHEN** o servidor celular for iniciado no Editor Desktop e nenhum dispositivo móvel estiver conectado
+- **THEN** o túnel com o Cloudflare Worker deve permanecer ativo, conectado e pronto para responder a conexões e requisições remotas a qualquer momento.
 
-#### Scenario: ETag e validação de Cache Nativo
-- **WHEN** o dispositivo móvel solicitar um arquivo fornecendo o cabeçalho `If-None-Match`
-- **THEN** o sistema deve validar se a modificação bate através dos metadados rápidos (como `os.stat` usado por `StaticFiles`), retornando HTTP 304 Not Modified instantaneamente caso o arquivo não tenha sido alterado desde a última requisição.
-
-#### Scenario: Desligamento Seguro
-- **WHEN** o usuário ou a aplicação solicitar a parada do servidor local
-- **THEN** o sistema deve notificar o servidor ASGI de forma limpa (ex: setando a flag `should_exit = True` do uvicorn) e o socket deverá ser fechado graciosamente, sem a necessidade de contornos ou abertura de novas threads para forçar shutdown.
+#### Scenario: Encerramento explícito do túnel
+- **WHEN** o usuário clicar no botão de encerrar conexão ou fechar o croqui atual
+- **THEN** o `ServidorCelular` deve finalizar graciosamente a conexão WebSocket com o retransmissor e liberar os recursos de rede.

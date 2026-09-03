@@ -68,21 +68,65 @@ class ClienteTunelRetransmissor:
         ip_local: Optional[str] = None,
         porta_local: Optional[int] = None,
         ao_conectar_dispositivo: Optional[Callable[[], None]] = None,
+        jwt_token: Optional[str] = None,
+        obter_jwt_atualizado: Optional[Callable[[], Optional[str]]] = None,
     ) -> None:
         self.codigo_sessao = codigo_sessao
         self.pasta_compilado = Path(pasta_compilado).resolve()
-        self.url_retransmissor_ws = (
-            url_retransmissor_ws
-            or f"{URL_RETRANSMISSOR_PADRAO}?sessao={codigo_sessao}"
-        )
+        self._url_retransmissor_ws_configurada = url_retransmissor_ws
         self.ip_local = ip_local
         self.porta_local = porta_local
         self.ao_conectar_dispositivo = ao_conectar_dispositivo
+        self.jwt_token = jwt_token
+        self.obter_jwt_atualizado = obter_jwt_atualizado
         self._rodando = False
         self._websocket: Optional[Any] = None
         self._evento_parada = asyncio.Event()
 
-    async def executar(self, intervalo_heartbeat: float = 15.0) -> None:
+    def _obter_url_conexao(self) -> str:
+        """Gera a URL de conexão WebSocket incluindo o código e o token JWT atualizado quando disponível."""
+        if self._url_retransmissor_ws_configurada:
+            url = self._url_retransmissor_ws_configurada
+        else:
+            url = f"{URL_RETRANSMISSOR_PADRAO}?sessao={self.codigo_sessao}"
+
+        token_atual: Optional[str] = None
+        if self.obter_jwt_atualizado:
+            try:
+                token_atual = self.obter_jwt_atualizado()
+            except Exception:
+                pass
+        if not token_atual and self.jwt_token:
+            token_atual = self.jwt_token
+
+        if token_atual and "token=" not in url:
+            separador = "&" if "?" in url else "?"
+            url = f"{url}{separador}token={token_atual.strip()}"
+
+        return url
+
+    @property
+    def url_retransmissor_ws(self) -> str:
+        return self._obter_url_conexao()
+
+    @url_retransmissor_ws.setter
+    def url_retransmissor_ws(self, valor: Optional[str]) -> None:
+        self._url_retransmissor_ws_configurada = valor
+
+    async def _loop_heartbeat(self, ws: Any, intervalo: float) -> None:
+        """Envia pings periódicos de heartbeat em segundo plano sem interromper a escuta de mensagens."""
+        while not self._evento_parada.is_set():
+            try:
+                await asyncio.sleep(intervalo)
+                if self._evento_parada.is_set():
+                    break
+                await ws.send(json.dumps({"tipo": "ping"}))
+            except asyncio.CancelledError:
+                break
+            except Exception:
+                break
+
+    async def executar(self, intervalo_heartbeat: float = 30.0) -> None:
         """Inicia e mantém o loop de conexão WebSocket com o retransmissor e reconexão automática."""
         self._rodando = True
         self._evento_parada.clear()
@@ -90,8 +134,9 @@ class ClienteTunelRetransmissor:
 
         while not self._evento_parada.is_set():
             try:
+                url_ws = self._obter_url_conexao()
                 async with websockets.connect(
-                    self.url_retransmissor_ws,
+                    url_ws,
                     ping_interval=intervalo_heartbeat,
                     ping_timeout=intervalo_heartbeat,
                     close_timeout=5,
@@ -115,39 +160,44 @@ class ClienteTunelRetransmissor:
                     }
                     await ws.send(json.dumps(payload_registro))
 
-                    # 2. Loop de escuta de mensagens com heartbeat periódico da aplicação
-                    while not self._evento_parada.is_set():
-                        tarefa_receber = asyncio.create_task(ws.recv())
-                        tarefa_parada = asyncio.create_task(self._evento_parada.wait())
+                    # 2. Inicia corrotina dedicada de heartbeat em segundo plano
+                    tarefa_heartbeat = asyncio.create_task(
+                        self._loop_heartbeat(ws, intervalo_heartbeat)
+                    )
 
-                        concluidas, pendentes = await asyncio.wait(
-                            [tarefa_receber, tarefa_parada],
-                            timeout=intervalo_heartbeat,
-                            return_when=asyncio.FIRST_COMPLETED,
-                        )
+                    try:
+                        # 3. Loop de escuta de mensagens contínuo
+                        while not self._evento_parada.is_set():
+                            tarefa_receber = asyncio.create_task(ws.recv())
+                            tarefa_parada = asyncio.create_task(self._evento_parada.wait())
 
-                        for p in pendentes:
-                            p.cancel()
+                            concluidas, pendentes = await asyncio.wait(
+                                [tarefa_receber, tarefa_parada],
+                                return_when=asyncio.FIRST_COMPLETED,
+                            )
 
-                        if self._evento_parada.is_set():
-                            break
+                            for p in pendentes:
+                                p.cancel()
 
-                        if tarefa_receber in concluidas:
-                            erro = tarefa_receber.exception()
-                            if erro is not None:
+                            if self._evento_parada.is_set():
                                 break
-                            mensagem = tarefa_receber.result()
-                            try:
-                                dados = json.loads(mensagem)
-                                await self._tratar_mensagem(dados, ws)
-                            except Exception:
-                                pass
-                        else:
-                            # Canal ocioso pelo intervalo: envia ping de keepalive da aplicação
-                            try:
-                                await ws.send(json.dumps({"tipo": "ping"}))
-                            except Exception:
-                                break
+
+                            if tarefa_receber in concluidas:
+                                erro = tarefa_receber.exception()
+                                if erro is not None:
+                                    break
+                                mensagem = tarefa_receber.result()
+                                try:
+                                    dados = json.loads(mensagem)
+                                    await self._tratar_mensagem(dados, ws)
+                                except Exception:
+                                    pass
+                    finally:
+                        tarefa_heartbeat.cancel()
+                        try:
+                            await tarefa_heartbeat
+                        except (asyncio.CancelledError, Exception):
+                            pass
             except (ConnectionClosed, asyncio.CancelledError, Exception):
                 if self._evento_parada.is_set():
                     break

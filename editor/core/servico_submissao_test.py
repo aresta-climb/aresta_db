@@ -694,3 +694,209 @@ class TesteServicoSubmissaoUnitario:
         assert servico.obter_arquivos_modificados(Path("/diretorio/inexistente"), "id") == []
 
 
+class TesteTelemetriaSubmissaoIntegracao:
+    """Testes de integração para captura e reporte de falhas no ServicoSubmissao (Princípios IV e V)."""
+
+    @patch("editor.core.servico_submissao.capturar_falha_submissao")
+    @patch("editor.core.servico_submissao.registrar_breadcrumb_submissao")
+    def teste_falha_push_proxy_dispara_telemetria_git_proxy(
+        self, mock_breadcrumb, mock_capturar, tmp_path
+    ):
+        repo_dir = tmp_path / "repo"
+        repo = inicializar_repo_local(repo_dir)
+        servico = ServicoSubmissao(caminho_repo_base=repo_dir)
+
+        caminho_db = tmp_path / "database" / "croqui_teste"
+        caminho_db.mkdir(parents=True)
+        (caminho_db / "croqui.yaml").write_text("nome: Croqui Teste\n", encoding="utf-8")
+
+        sessao = SessaoUsuario(
+            email="autor@aresta.local",
+            nome_completo="Autor Teste",
+            jwt_supabase="jwt_valido",
+            token_atualizacao="refresh_valido",
+        )
+
+        with patch.object(servico.cliente_auth, "obter_usuario_atual", return_value={"id": "u1"}), \
+             patch("pygit2.Remote.push", side_effect=Exception("HTTP 500 Internal Server Error no Proxy")):
+            with pytest.raises(ErroSubmissao) as excinfo:
+                servico.submeter_sugestao(
+                    caminho_database_croqui=caminho_db,
+                    id_croqui="croqui_teste",
+                    titulo="Adicionando nova via",
+                    descricao="Detalhes",
+                    sessao=sessao,
+                )
+            assert "Proxy" in str(excinfo.value)
+            mock_capturar.assert_called_once()
+            args, kwargs = mock_capturar.call_args
+            assert kwargs.get("id_croqui") == "croqui_teste" or args[1] == "croqui_teste"
+            assert kwargs.get("categoria") == "git_proxy" or (len(args) > 3 and args[3] == "git_proxy")
+            assert mock_breadcrumb.called
+
+    @patch("editor.core.servico_submissao.capturar_falha_submissao")
+    @patch("editor.core.servico_submissao.registrar_breadcrumb_submissao")
+    def teste_falha_edge_function_create_pr_dispara_telemetria_github_api(
+        self, mock_breadcrumb, mock_capturar, tmp_path
+    ):
+        repo_dir = tmp_path / "repo"
+        repo = inicializar_repo_local(repo_dir)
+        servico = ServicoSubmissao(caminho_repo_base=repo_dir)
+
+        caminho_db = tmp_path / "database" / "croqui_teste"
+        caminho_db.mkdir(parents=True)
+        (caminho_db / "croqui.yaml").write_text("nome: Croqui Teste\n", encoding="utf-8")
+
+        sessao = SessaoUsuario(
+            email="autor@aresta.local",
+            nome_completo="Autor Teste",
+            jwt_supabase="jwt_valido",
+            token_atualizacao="refresh_valido",
+        )
+
+        with patch.object(servico.cliente_auth, "obter_usuario_atual", return_value={"id": "u1"}), \
+             patch.object(servico, "_executar_push_git"), \
+             patch("requests.post", side_effect=Exception("Edge Function create-pr falhou")):
+            with pytest.raises(ErroSubmissao):
+                servico.submeter_sugestao(
+                    caminho_database_croqui=caminho_db,
+                    id_croqui="croqui_teste",
+                    titulo="Adicionando via",
+                    descricao="Desc",
+                    sessao=sessao,
+                )
+            mock_capturar.assert_called_once()
+            args, kwargs = mock_capturar.call_args
+            categoria = kwargs.get("categoria") or (args[3] if len(args) > 3 else None)
+            assert categoria == "github_api"
+            assert kwargs.get("id_croqui") == "croqui_teste" or args[1] == "croqui_teste"
+
+    @patch("editor.core.servico_submissao.capturar_falha_submissao")
+    def teste_falha_commit_sugestao_dispara_telemetria_git_local(
+        self, mock_capturar, tmp_path
+    ):
+        repo_dir = tmp_path / "repo"
+        repo = inicializar_repo_local(repo_dir)
+        servico = ServicoSubmissao(caminho_repo_base=repo_dir)
+
+        caminho_db = tmp_path / "database" / "croqui_teste"
+        caminho_db.mkdir(parents=True)
+        (caminho_db / "croqui.yaml").write_text("nome: Croqui Teste\n", encoding="utf-8")
+
+        sessao = SessaoUsuario(
+            email="autor@aresta.local",
+            nome_completo="Autor Teste",
+            jwt_supabase="jwt_valido",
+            token_atualizacao="refresh_valido",
+        )
+
+        with patch.object(servico.cliente_auth, "obter_usuario_atual", return_value={"id": "u1"}), \
+             patch.object(servico, "criar_commit_sugestao", side_effect=RuntimeError("Index lock error")):
+            with pytest.raises(ErroSubmissao) as excinfo:
+                servico.submeter_sugestao(
+                    caminho_database_croqui=caminho_db,
+                    id_croqui="croqui_teste",
+                    titulo="Titulo",
+                    descricao="Desc",
+                    sessao=sessao,
+                )
+            assert "commit assinado" in str(excinfo.value)
+            mock_capturar.assert_called_once()
+            kwargs = mock_capturar.call_args[1]
+            assert kwargs["categoria"] == "git_local"
+            assert kwargs["etapa"] == "commit_local"
+            assert kwargs["id_croqui"] == "croqui_teste"
+
+    @patch("editor.core.servico_submissao.capturar_falha_submissao")
+    def teste_fazer_push_proxy_falha_autenticacao(self, mock_capturar, tmp_path):
+        servico = ServicoSubmissao(caminho_repo_base=tmp_path)
+        repo_mock = MagicMock()
+        remote_mock = MagicMock()
+        repo_mock.remotes.__getitem__.return_value = remote_mock
+        remote_mock.push.side_effect = Exception("credential does not implement authentication")
+
+        with pytest.raises(ErroSubmissao) as excinfo:
+            servico.fazer_push_proxy(
+                repo=repo_mock,
+                nome_branch="edicao-croqui_xyz-abcdef12",
+                jwt="jwt_invalido",
+            )
+        assert "Falha na autenticação" in str(excinfo.value)
+        mock_capturar.assert_called_once()
+        kwargs = mock_capturar.call_args[1]
+        assert kwargs["categoria"] == "autenticacao"
+        assert kwargs["id_croqui"] == "croqui_xyz"
+
+
+
+
+    @patch("editor.core.servico_submissao.capturar_falha_submissao")
+    def teste_falha_renovacao_sessao_dispara_telemetria_autenticacao(
+        self, mock_capturar, tmp_path
+    ):
+        repo_dir = tmp_path / "repo"
+        repo = inicializar_repo_local(repo_dir)
+        servico = ServicoSubmissao(caminho_repo_base=repo_dir)
+
+        caminho_db = tmp_path / "database" / "croqui_teste"
+        caminho_db.mkdir(parents=True)
+        (caminho_db / "croqui.yaml").write_text("nome: Croqui Teste\n", encoding="utf-8")
+
+        sessao = SessaoUsuario(
+            email="autor@aresta.local",
+            nome_completo="Autor Teste",
+            jwt_supabase="jwt_expirado",
+            token_atualizacao="refresh_invalido",
+        )
+
+        with patch.object(servico.cliente_auth, "obter_usuario_atual", side_effect=Exception("Token inválido")), \
+             patch.object(servico.cliente_auth, "renovar_sessao", side_effect=Exception("Refresh token revogado")):
+            with pytest.raises(ErroSubmissao) as excinfo:
+                servico.submeter_sugestao(
+                    caminho_database_croqui=caminho_db,
+                    id_croqui="croqui_teste",
+                    titulo="Titulo",
+                    descricao="Desc",
+                    sessao=sessao,
+                )
+            assert "Sessão expirada" in str(excinfo.value)
+            mock_capturar.assert_called_once()
+            args, kwargs = mock_capturar.call_args
+            categoria = kwargs.get("categoria") or (args[3] if len(args) > 3 else None)
+            assert categoria == "autenticacao"
+
+    @patch("editor.core.servico_submissao.capturar_falha_submissao")
+    def teste_falha_git_local_dispara_telemetria_git_local(
+        self, mock_capturar, tmp_path
+    ):
+        repo_dir = tmp_path / "repo"
+        servico = ServicoSubmissao(caminho_repo_base=repo_dir)
+
+        caminho_db = tmp_path / "database" / "croqui_teste"
+        caminho_db.mkdir(parents=True)
+        (caminho_db / "croqui.yaml").write_text("nome: Croqui Teste\n", encoding="utf-8")
+
+        sessao = SessaoUsuario(
+            email="autor@aresta.local",
+            nome_completo="Autor Teste",
+            jwt_supabase="jwt_valido",
+            token_atualizacao="refresh_valido",
+        )
+
+        with patch.object(servico.cliente_auth, "obter_usuario_atual", return_value={"id": "u1"}), \
+             patch("pygit2.Repository", side_effect=pygit2.GitError("Falha ao abrir repositório local")):
+            with pytest.raises((ErroSubmissao, pygit2.GitError)):
+                servico.submeter_sugestao(
+                    caminho_database_croqui=caminho_db,
+                    id_croqui="croqui_teste",
+                    titulo="Titulo",
+                    descricao="Desc",
+                    sessao=sessao,
+                )
+            mock_capturar.assert_called_once()
+            args, kwargs = mock_capturar.call_args
+            categoria = kwargs.get("categoria") or (args[3] if len(args) > 3 else None)
+            assert categoria == "git_local"
+
+
+
