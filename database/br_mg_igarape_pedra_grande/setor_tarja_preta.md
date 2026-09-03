@@ -1,7 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Contributors
-nome: Tarja Preta
+nome: Boulders
 localizacao_escalada:
   latitude: -201224250
   longitude: -443608700
@@ -9,7 +9,7 @@ sinal_de_celular: true
 escaladas:
 - boulder:
     nome: Película
-    descricao: '![Tarja Preta](imagens/20260901_161100.webp)'
+    descricao: Bloco Película
     destaque: true
 - boulder:
     nome: Tarja Preta
