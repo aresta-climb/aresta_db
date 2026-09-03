@@ -41,7 +41,9 @@ from editor.core.cliente_auth_supabase import (
 )
 from editor.core.gerenciador_sessao import SessaoUsuario
 from editor.core.servidor_oauth_callback import ServidorCallbackOAuth
+from editor.core.integracao_windows import configurar_presenca_barra_de_tarefas
 from editor.views.dialogos.dialogo_perfil_autor import DialogoPerfilAutor
+
 from editor.views.estilo import Icones
 
 
@@ -76,6 +78,7 @@ class TelaDeAbertura(QWidget):
 
     def __init__(self, cliente_auth: Optional[ClienteAuthSupabase] = None) -> None:
         super().__init__()
+        self.setWindowTitle("Editor Aresta")
         self.setWindowFlags(Qt.WindowType.FramelessWindowHint)
         self.setAttribute(Qt.WidgetAttribute.WA_TranslucentBackground)
 
@@ -93,7 +96,9 @@ class TelaDeAbertura(QWidget):
         )
         self.setWindowIcon(QIcon(str(caminho_logo_janela)))
         self.setFixedSize(450, 650)
+        configurar_presenca_barra_de_tarefas(int(self.winId()))
         self.init_ui()
+
 
     def init_ui(self) -> None:
         layout = QVBoxLayout()

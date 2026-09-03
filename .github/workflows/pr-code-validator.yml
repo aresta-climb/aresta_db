@@ -26,6 +26,7 @@ jobs:
           submodules: recursive
           sparse-checkout: |
             .
+            tests
             editor
             scripts
             serving

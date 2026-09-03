@@ -5,6 +5,7 @@ Fornecer um editor visual para gerenciar Pontos de Interesse (POI) em mapas de s
 ## Requirements
 ### Requirement: Editor de Pontos de Interesse (POI) em Mapas
 O sistema SHALL fornecer um editor visual para gerenciar Pontos de Interesse (POI) e Referências em mapas de setores e grupos de um croqui, acessível primariamente integrado no painel principal em sua própria aba, respondendo a comandos da QUndoStack global e lendo diretamente do `CroquiModel`. A interface SHALL ser estruturada em três painéis horizontais (Mapas à esquerda, Visualizador ao centro, Referências à direita). O Visualizador ao centro SHALL suportar navegação através do arrasto da visualização (panning) quando o usuário clicar e arrastar no fundo da imagem (fora dos POIs). O editor visual SHALL suportar a renderização, criação e manipulação das geometrias `circulo`, `quadrado`, `retangulo` e `poligono`.
+- **Filtragem Reativa da Lista de Mapas**: O sistema SHALL reconstruir a lista de mapas na barra lateral apenas em resposta a alterações estruturais ou mutações que afetem mensagens de mapas, ignorando eventos de alteração de campos puramente textuais (como descrições e conteúdos markdown).
 
 #### Scenario: Acesso Embutido na Árvore de Dados
 - **WHEN** o usuário seleciona um nó correspondente a um mapa na árvore do Editor de Dados e clica para abri-lo
@@ -21,6 +22,11 @@ O sistema SHALL fornecer um editor visual para gerenciar Pontos de Interesse (PO
 #### Scenario: Manipulação de Quadrados e Polígonos
 - **WHEN** o usuário visualiza ou interage com um mapa que possua os novos formatos de POI
 - **THEN** o sistema SHALL renderizar adequadamente `quadrado` e `poligono` no visualizador
+
+#### Scenario: Rejeição de Atualização da Lista por Alteração Textual
+- **WHEN** um campo textual (`conteudo`, `descricao`, etc.) for alterado no modelo
+- **THEN** o Editor de Mapas não deve reconstruir a lista lateral de mapas.
+
 
 ### Requirement: Substituição de Imagem no Editor de Mapas em Memória RAM
 O sistema SHALL permitir a substituição da imagem de fundo de um mapa existente por uma nova imagem estritamente em memória RAM com suporte a `QUndoCommand`, aplicando pré-processamento e compressão automática para WebP e recarregando a cena visual enquanto preserva a lista e geometrias de Pontos de Interesse (POIs).

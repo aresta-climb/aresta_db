@@ -64,15 +64,19 @@ class DialogoPublicar(QDialog):
 
 class PaginaBase(QWidget):
     """Classe base para as páginas do editor."""
-    def __init__(self, titulo: str, parent: Optional[QWidget] = None) -> None:
+    def __init__(self, titulo: str, parent: Optional[QWidget] = None, criar_placeholder: bool = False) -> None:
         super().__init__(parent)
         self.setFont(QFont("Segoe UI", 9))
         self.titulo: str = titulo
         layout = QVBoxLayout(self)
-        self.label: QLabel = QLabel(f"Página: {titulo}\n(A Implementar)", self)
-        self.label.setAlignment(Qt.AlignmentFlag.AlignCenter)
-        self.label.setStyleSheet("font-size: 24px; color: #666; font-weight: bold;")
-        layout.addWidget(self.label)
+        layout.setContentsMargins(0, 0, 0, 0)
+        self.label: Optional[QLabel] = None
+        if criar_placeholder:
+            layout.setContentsMargins(10, 10, 10, 10)
+            self.label = QLabel(f"Página: {titulo}\n(A Implementar)", self)
+            self.label.setAlignment(Qt.AlignmentFlag.AlignCenter)
+            self.label.setStyleSheet("font-size: 24px; color: #666; font-weight: bold;")
+            layout.addWidget(self.label)
         self.setStyleSheet(".PaginaBase { background-color: #ffffff; border-radius: 10px; }")
 
     def obter_acoes_contextuais(self) -> List[QAction]:
@@ -81,12 +85,7 @@ class PaginaBase(QWidget):
 
 class PaginaDados(PaginaBase):
     def __init__(self, parent: Optional[QWidget] = None) -> None:
-        super().__init__("Dados", parent)
-        layout = self.layout()
-        if layout:
-            layout.removeWidget(self.label)
-            layout.setContentsMargins(0, 0, 0, 0)
-        self.label.deleteLater()
+        super().__init__("Dados", parent, criar_placeholder=False)
         self.editor_dados: Optional[Any] = None
         
     def carregar_dados(self, model: CroquiModel, controller: CroquiController) -> None:
@@ -102,13 +101,8 @@ class PaginaDados(PaginaBase):
 
 class PaginaImagens(PaginaBase):
     def __init__(self, parent: Optional[QWidget] = None) -> None:
-        super().__init__("Imagens", parent)
-        # Remove o label de placeholder
+        super().__init__("Imagens", parent, criar_placeholder=False)
         layout = self.layout()
-        if layout:
-            layout.removeWidget(self.label)
-            layout.setContentsMargins(0, 0, 0, 0)
-        self.label.deleteLater()
         
         # O folder_path inicial é vazio, será carregado em carregar_imagens
         self.editor: WidgetEditorImagens = WidgetEditorImagens("", modo_integrado=True, parent=self)
@@ -128,13 +122,8 @@ class PaginaImagens(PaginaBase):
 
 class PaginaMapas(PaginaBase):
     def __init__(self, parent: Optional[QWidget] = None) -> None:
-        super().__init__("Mapas", parent)
-        # Remove o label de placeholder
+        super().__init__("Mapas", parent, criar_placeholder=False)
         layout = self.layout()
-        if layout:
-            layout.removeWidget(self.label)
-            layout.setContentsMargins(0, 0, 0, 0)
-        self.label.deleteLater()
         
         self.editor: WidgetEditorMapas = WidgetEditorMapas(parent=self)
         if layout:
@@ -166,16 +155,11 @@ class PaginaMapas(PaginaBase):
 
 class PaginaBetas(PaginaBase):
     def __init__(self, parent: Optional[QWidget] = None) -> None:
-        super().__init__("Betas", parent)
+        super().__init__("Betas", parent, criar_placeholder=False)
         layout = self.layout()
-        if layout:
-            layout.removeWidget(self.label)
-            layout.setContentsMargins(0, 0, 0, 0)
-        self.label.deleteLater()
         from coleta_de_betas.curadoria.painel_curadoria import PainelCuradoria
         self.painel: Any = PainelCuradoria(parent=self)
         if layout:
-
             layout.addWidget(self.painel)
 
 
@@ -187,7 +171,7 @@ class PaginaBetas(PaginaBase):
 
 class PaginaHistorico(PaginaBase):
     def __init__(self, parent: Optional[QWidget] = None) -> None:
-        super().__init__("Histórico", parent)
+        super().__init__("Histórico", parent, criar_placeholder=True)
 
 
 class JanelaPrincipal(QMainWindow):

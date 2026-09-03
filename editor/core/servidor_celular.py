@@ -179,7 +179,9 @@ class ServidorCelular(QObject):
                     host="0.0.0.0",
                     port=self.porta,
                     log_level="warning",
+                    ws="none",
                 )
+
                 self.server = uvicorn.Server(config)
                 
                 print(f"[INFO] Servidor Celular rodando em http://0.0.0.0:{self.porta}")

@@ -200,6 +200,11 @@ def main() -> None:
         app = QApplication(sys.argv)
     app.setApplicationName("EditorAresta")
 
+    storage = GerenciadorCaminhos()
+    caminho_logo_app = storage.obter_caminho_recurso_interno("recursos/logo_app.png")
+    app.setWindowIcon(QIcon(str(caminho_logo_app)))
+
+
     # Previne múltiplas instâncias do editor usando QLocalServer / QLocalSocket
     # com health-check ativo e recuperação de processos zumbis
     from editor.core.instancia_unica import (

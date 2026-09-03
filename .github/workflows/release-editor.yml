@@ -32,6 +32,7 @@ jobs:
           submodules: recursive
           sparse-checkout: |
             .
+            tests
             editor
             scripts
             serving
@@ -67,8 +68,18 @@ jobs:
           git commit -am "chore: Lançar versão ${{ github.event.inputs.new_version }} do Editor Aresta"
           git tag editor-v${{ github.event.inputs.new_version }}
 
+      - name: Desativar Bloqueio de Falhas do Windows (WerFault)
+        shell: pwsh
+        run: |
+          New-Item -Path "HKLM:\SOFTWARE\Microsoft\Windows\Windows Error Reporting" -Force | Out-Null
+          Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\Windows Error Reporting" -Name "DontShowUI" -Value 1
+          Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\Windows Error Reporting" -Name "Disabled" -Value 1
+
       - name: Executar Testes (TDD & Coverage)
         timeout-minutes: 10
+        env:
+          PYTHONFAULTHANDLER: "1"
+          PYTHONUNBUFFERED: "1"
         run: |
           uv run pytest -n auto
 

@@ -156,6 +156,24 @@ def test_main_inicia_servidor_quando_primeira_instancia(qtbot):
                     mock_exit.assert_called_once_with(0)
 
 
+def test_main_configura_icone_global_antecipadamente(qtbot):
+    with patch("editor.core.instancia_unica.verificar_se_ja_em_execucao", return_value=False):
+        with patch("editor.core.instancia_unica.iniciar_servidor_instancia_unica"):
+            with patch("editor.main.ControladorAplicativo") as MockControlador:
+                with patch("editor.main.sys.exit", side_effect=SystemExit):
+                    mock_controlador_inst = MockControlador.return_value
+                    mock_controlador_inst.executar.return_value = 0
+                    
+                    from editor.main import main
+                    from PySide6.QtWidgets import QApplication
+                    with patch("sys.argv", ["editor/main.py"]):
+                        with patch.object(QApplication, "setWindowIcon") as mock_set_icon:
+                            with pytest.raises(SystemExit):
+                                main()
+                            mock_set_icon.assert_called()
+
+
+
 def test_main_abre_modo_local_repo_com_sucesso(qtbot):
     with patch("editor.core.instancia_unica.verificar_se_ja_em_execucao", return_value=False):
         with patch("editor.core.instancia_unica.iniciar_servidor_instancia_unica"):

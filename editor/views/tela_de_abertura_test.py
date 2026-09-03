@@ -353,3 +353,13 @@ def test_tela_abertura_solicitar_otp_com_cliente_padrao_chama_url_absoluta(
         assert abertura.container_auth_codigo.isVisible()
         assert len(rsps.calls) == 1
         assert rsps.calls[0].request.url == "https://yzkhiaoqtxvvcyyuwmqg.supabase.co/auth/v1/otp"
+
+
+def test_tela_abertura_define_titulo_e_configura_barra_de_tarefas(qtbot):
+    with patch("editor.views.tela_de_abertura.configurar_presenca_barra_de_tarefas") as mock_config:
+        abertura = TelaDeAbertura()
+        qtbot.addWidget(abertura)
+
+        assert abertura.windowTitle() == "Editor Aresta"
+        mock_config.assert_called_once_with(int(abertura.winId()))
+
