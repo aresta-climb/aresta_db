@@ -859,14 +859,20 @@ def validar_referencias_mapa(croqui_data: Dict[str, Any]) -> List[str]:
         # Valida os mapas
         for contexto_nome, mapas in mapas_para_validar:
             for idx_mapa, mapa in enumerate(mapas):
-                for ref in mapa.get("referencias", []):
+                referencias = mapa.get("referencias", [])
+                pois = mapa.get("pontos_de_interesse", [])
+                ids_nas_referencias: Set[str] = set()
+
+                for ref in referencias:
                     ids_vistos: Set[str] = set()
                     # Validação de duplicação de ID na mesma referência
                     for ref_id in ref.get("ids", []):
-                        if ref_id in ids_vistos:
+                        ref_id_str = str(ref_id)
+                        if ref_id_str in ids_vistos:
                             nome_ref = ref.get("escalada") or ref.get("setor") or ref.get("grupo") or "Desconhecida"
-                            erros.append(f"O ID '{ref_id}' está duplicado na referência '{nome_ref}' (Mapa {idx_mapa+1} em {contexto_nome}).")
-                        ids_vistos.add(ref_id)
+                            erros.append(f"O ID '{ref_id_str}' está duplicado na referência '{nome_ref}' (Mapa {idx_mapa+1} em {contexto_nome}).")
+                        ids_vistos.add(ref_id_str)
+                        ids_nas_referencias.add(ref_id_str)
                         
                     # Validação de existência da entidade
                     if "escalada" in ref:
@@ -881,6 +887,41 @@ def validar_referencias_mapa(croqui_data: Dict[str, Any]) -> List[str]:
                         nome = ref["grupo"]
                         if nome not in nomes_grupos:
                             erros.append(f"Referência ao grupo '{nome}' não encontrada no pico '{pico_nome}' (Mapa {idx_mapa+1} em {contexto_nome}).")
+
+                # Se houver POIs e referências cadastradas no mapa, valida se há POIs órfãos ou referências quebradas
+                if pois and referencias:
+                    ids_pois_existentes: Set[str] = {str(p.get("id")) for p in pois if isinstance(p, dict) and p.get("id") is not None}
+
+                    # 1. POIs órfãos (existem no mapa, mas não estão em nenhuma referência)
+                    for p in pois:
+                        if not isinstance(p, dict):
+                            continue
+                        p_id = str(p.get("id", ""))
+                        if p_id and p_id not in ids_nas_referencias:
+                            tipo_poi = "Linha" if "linha" in p else ("Círculo" if "circulo" in p else ("Polígono" if "poligono" in p else ("Retângulo" if "retangulo" in p else ("Quadrado" if "quadrado" in p else "Ponto"))))
+                            rotulo = p.get("label") or p.get("texto_visivel") or ""
+                            if not rotulo and "linha" in p:
+                                marcadores = p["linha"].get("compilado", {}).get("marcadores", [])
+                                if marcadores and marcadores[0].get("rotulo"):
+                                    rotulo = marcadores[0]["rotulo"]
+                                else:
+                                    nos = p["linha"].get("conteudo", {}).get("nos", [])
+                                    if nos and nos[0].get("rotulo"):
+                                        rotulo = nos[0]["rotulo"]
+
+                            detalhe_rotulo = f" (rótulo: '{rotulo}')" if rotulo else ""
+                            erros.append(
+                                f"O Ponto de Interesse [{tipo_poi}] com ID '{p_id}'{detalhe_rotulo} em {contexto_nome} (Mapa {idx_mapa+1}) "
+                                f"não possui nenhuma referência associada em 'referencias' e será ignorado pelo aplicativo."
+                            )
+
+                    # 2. Referências quebradas (apontam para IDs que não existem em pontos_de_interesse)
+                    for ref_id in sorted(ids_nas_referencias):
+                        if ref_id not in ids_pois_existentes:
+                            erros.append(
+                                f"A referência no Mapa {idx_mapa+1} em {contexto_nome} aponta para o ID '{ref_id}', "
+                                f"mas esse ID não existe em nenhum Ponto de Interesse do mapa."
+                            )
                             
     return erros
 

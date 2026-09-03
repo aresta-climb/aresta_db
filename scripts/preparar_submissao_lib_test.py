@@ -227,8 +227,65 @@ def test_validar_referencias_mapa_multiplas_enfiadas():
     erros = validar_referencias_mapa(croqui)
     assert not erros
 
-def test_validar_referencias_mapa_com_grupo_e_ids_disponiveis():
-    pass
+def test_validar_referencias_mapa_poi_sem_referencia():
+    croqui = {
+        "picos": [{
+            "nome": "Pico Teste",
+            "setores_ou_grupos": [{
+                "setor": {
+                    "conteudo": {
+                        "nome": "Setor 1",
+                        "mapas": [{
+                            "referencias": [{"escalada": "Via 1", "ids": ["01"]}],
+                            "pontos_de_interesse": [
+                                {"id": "01", "circulo": {"x": 10, "y": 10, "raio": 5}},
+                                {
+                                    "id": "d",
+                                    "linha": {
+                                        "compilado": {
+                                            "caminho_svg": "M 0 0 L 10 10",
+                                            "marcadores": [{"rotulo": "1"}]
+                                        }
+                                    }
+                                }
+                            ]
+                        }],
+                        "escaladas": [{"via_esportiva": {"nome": "Via 1"}}]
+                    }
+                }
+            }]
+        }]
+    }
+    erros = validar_referencias_mapa(croqui)
+    assert len(erros) == 1
+    assert "Ponto de Interesse [Linha] com ID 'd' (rótulo: '1')" in erros[0]
+    assert "não possui nenhuma referência associada" in erros[0]
+
+
+def test_validar_referencias_mapa_referencia_aponta_id_inexistente():
+    croqui = {
+        "picos": [{
+            "nome": "Pico Teste",
+            "setores_ou_grupos": [{
+                "setor": {
+                    "conteudo": {
+                        "nome": "Setor 1",
+                        "mapas": [{
+                            "referencias": [{"escalada": "Via 1", "ids": ["99"]}],
+                            "pontos_de_interesse": [
+                                {"id": "01", "circulo": {"x": 10, "y": 10, "raio": 5}}
+                            ]
+                        }],
+                        "escaladas": [{"via_esportiva": {"nome": "Via 1"}}]
+                    }
+                }
+            }]
+        }]
+    }
+    erros = validar_referencias_mapa(croqui)
+    assert any("aponta para o ID '99', mas esse ID não existe" in e for e in erros)
+    assert any("Ponto de Interesse [Círculo] com ID '01'" in e for e in erros)
+
 
 @patch("scripts.preparar_submissao_lib.Path")
 @patch("scripts.preparar_submissao_lib.yaml.safe_load")

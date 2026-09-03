@@ -47,7 +47,11 @@ class GlobalUndoRedoFilter(QObject):
         return super().eventFilter(obj, event)
 
 
-
+def _garantir_filtro_undo_redo(widget: QWidget) -> None:
+    """Instala o GlobalUndoRedoFilter no widget de forma idempotente (no máximo uma vez)."""
+    if not widget.property("_undo_filter_instalado"):
+        widget.installEventFilter(GlobalUndoRedoFilter(widget))
+        widget.setProperty("_undo_filter_instalado", True)
 
 
 def get_node_path(node: Any) -> str:
@@ -282,6 +286,11 @@ class EditorTextoMarkdown(QTextEdit):
                 return
         super().dropEvent(event)
 
+    def focusOutEvent(self, event: Any) -> None:
+        if hasattr(self, "widget_markdown") and self.widget_markdown:
+            self.widget_markdown.forcar_consolidacao()
+        super().focusOutEvent(event)
+
     def keyPressEvent(self, event: Any) -> None:
         if self._completer and self._completer.popup().isVisible():
             if event.key() in (Qt.Key.Key_Enter, Qt.Key.Key_Return, Qt.Key.Key_Escape, Qt.Key.Key_Tab, Qt.Key.Key_Backtab):
@@ -448,6 +457,10 @@ class WidgetEditorMarkdown(QWidget):
                 preview_text = parts[2]
         self.preview.setMarkdown(preview_text)
         
+        # Temporizador de coalescência para digitação fluida e desacoplada
+        from editor.core.temporizador_coalescencia import TemporizadorCoalescencia
+        self.temporizador: TemporizadorCoalescencia = TemporizadorCoalescencia(atraso_padrao_ms=250, parent=self)
+
         # Connect change signals
         from editor.views.widget_editor_dados import _get_id
         self.editor.setProperty("protobuf_field", self.field.name)
@@ -489,29 +502,32 @@ class WidgetEditorMarkdown(QWidget):
                 cursor.insertText(tag)
                 self.editor.setTextCursor(cursor)
                 self._configurar_autocompletar()
+                self.forcar_consolidacao()
         
     def set_conteudo(self, novo_conteudo: str) -> None:
         text = "" if novo_conteudo is None else str(novo_conteudo)
-        if self.editor.toPlainText() != text:
-            old_text = self.editor.toPlainText()
-            old_cursor = self.editor.textCursor().position()
+        if self.editor.toPlainText() == text:
+            return
+
+        old_text = self.editor.toPlainText()
+        old_cursor = self.editor.textCursor().position()
+        
+        diff_idx = 0
+        min_len = min(len(old_text), len(text))
+        while diff_idx < min_len and old_text[diff_idx] == text[diff_idx]:
+            diff_idx += 1
+        
+        if old_cursor < diff_idx:
+            new_cursor_pos = old_cursor
+        else:
+            new_cursor_pos = max(0, min(old_cursor + len(text) - len(old_text), len(text)))
             
-            diff_idx = 0
-            min_len = min(len(old_text), len(text))
-            while diff_idx < min_len and old_text[diff_idx] == text[diff_idx]:
-                diff_idx += 1
-            
-            if old_cursor < diff_idx:
-                new_cursor_pos = old_cursor
-            else:
-                new_cursor_pos = max(0, min(old_cursor + len(text) - len(old_text), len(text)))
-                
-            self.editor.blockSignals(True)
-            self.editor.setPlainText(text)
-            cursor = self.editor.textCursor()
-            cursor.setPosition(new_cursor_pos)
-            self.editor.setTextCursor(cursor)
-            self.editor.blockSignals(False)
+        self.editor.blockSignals(True)
+        self.editor.setPlainText(text)
+        cursor = self.editor.textCursor()
+        cursor.setPosition(new_cursor_pos)
+        self.editor.setTextCursor(cursor)
+        self.editor.blockSignals(False)
             
         preview_text = text.lstrip()
         if preview_text.startswith("---"):
@@ -521,6 +537,14 @@ class WidgetEditorMarkdown(QWidget):
         self.preview.setMarkdown(preview_text)
 
     def _on_text_changed(self) -> None:
+        self.temporizador.agendar(self._consolidar_edicao)
+
+    def forcar_consolidacao(self) -> None:
+        """Força a consolidação imediata de qualquer edição pendente agendada no temporizador."""
+        if hasattr(self, "temporizador"):
+            self.temporizador.forcar_descarga()
+
+    def _consolidar_edicao(self) -> None:
         text = self.editor.toPlainText()
         
         # Filtra o frontmatter para renderizar na preview
@@ -791,7 +815,7 @@ class ContainerRepeatedWidget(QWidget):
             val = self.repeated_container[idx]
 
             if isinstance(widget, QLineEdit):
-                widget.installEventFilter(GlobalUndoRedoFilter(widget))
+                _garantir_filtro_undo_redo(widget)
                 widget.setText(val)
                 def make_on_item_changed(w: Any = widget) -> Callable[..., None]:
                     def on_item_changed() -> None:
@@ -974,7 +998,7 @@ class WidgetFormularioPadrao(QStackedWidget):
                 widget.blockSignals(True)
                 try:
                     if isinstance(widget, QLineEdit):
-                        widget.installEventFilter(GlobalUndoRedoFilter(widget))
+                        _garantir_filtro_undo_redo(widget)
                         new_text = "" if novo_valor is None else str(novo_valor)
                         if widget.text() != new_text:
                             old_text = widget.text()
@@ -993,10 +1017,10 @@ class WidgetFormularioPadrao(QStackedWidget):
                             widget.setText(new_text)
                             widget.setCursorPosition(max(0, min(new_cursor, len(new_text))))
                     elif isinstance(widget, EditorTextoMarkdown):
-                        widget.installEventFilter(GlobalUndoRedoFilter(widget))
+                        _garantir_filtro_undo_redo(widget)
                         widget.widget_markdown.set_conteudo(novo_valor)
                     elif isinstance(widget, QTextEdit):
-                        widget.installEventFilter(GlobalUndoRedoFilter(widget))
+                        _garantir_filtro_undo_redo(widget)
                         new_text = "" if novo_valor is None else str(novo_valor)
                         if widget.toPlainText() != new_text:
                             old_text = widget.toPlainText()
@@ -1068,7 +1092,7 @@ class WidgetFormularioPadrao(QStackedWidget):
                 widget.blockSignals(True)
                 try:
                     if isinstance(widget, QLineEdit):
-                        widget.installEventFilter(GlobalUndoRedoFilter(widget))
+                        _garantir_filtro_undo_redo(widget)
                         new_text = "" if novo_valor is None else str(novo_valor)
                         if widget.text() != new_text:
                             old_text = widget.text()
@@ -1824,7 +1848,7 @@ class WidgetFormularioPadrao(QStackedWidget):
         elif isinstance(widget, QCheckBox):
             widget.setMaximumWidth(200)
         elif isinstance(widget, QLineEdit):
-            widget.installEventFilter(GlobalUndoRedoFilter(widget))
+            _garantir_filtro_undo_redo(widget)
             widget.setMaximumWidth(450)
 
 
@@ -1849,7 +1873,7 @@ class WidgetFormularioPadrao(QStackedWidget):
         widget.blockSignals(True)
         try:
             if isinstance(widget, QLineEdit):
-                widget.installEventFilter(GlobalUndoRedoFilter(widget))
+                _garantir_filtro_undo_redo(widget)
                 if has_val:
                     val = getattr(msg, field.name)
                     widget.setText(str(val) if val is not None else "")

@@ -157,3 +157,63 @@ class TestCamposCustomizadosIntegracao:
         assert not pico.localizacao.HasField("latitude")
         assert widget_coord.obter_latitude_e7() is None
 
+    def test_integracao_edicao_markdown_coalescencia_e_desfazer_refazer(self, qtbot):
+        from editor.views.widget_editor_dados import WidgetEditorMarkdown
+
+        croqui = Croqui()
+        botao = croqui.botoes.add()
+        botao.texto = "Capa"
+        botao.destino.secao_textual.conteudo = "# Capa Original"
+
+        model = CroquiModel(croqui)
+        undo_stack = QUndoStack()
+        controller = CroquiController(model, undo_stack)
+
+        widget_editor = WidgetEditorDados(model, controller=controller)
+        qtbot.addWidget(widget_editor)
+
+        # Seleciona o Botão na árvore para renderizar seu formulário
+        modelo = widget_editor.tree_model
+        croqui_idx = modelo.index(0, 0)
+        expando_botoes = next(
+            modelo.index(r, 0, croqui_idx)
+            for r in range(modelo.rowCount(croqui_idx))
+            if modelo.data(modelo.index(r, 0, croqui_idx)) == "Botões"
+        )
+        botao_idx = modelo.index(0, 0, expando_botoes)
+        widget_editor.tree_view.selectionModel().setCurrentIndex(
+            botao_idx, QItemSelectionModel.SelectionFlag.ClearAndSelect
+        )
+
+        widgets_md = widget_editor.findChildren(WidgetEditorMarkdown)
+        assert len(widgets_md) == 1, "Deve renderizar 1 WidgetEditorMarkdown"
+        widget_md = widgets_md[0]
+
+        assert widget_md.editor.toPlainText() == "# Capa Original"
+
+        # Simula digitação no final do editor
+        cursor = widget_md.editor.textCursor()
+        cursor.movePosition(cursor.MoveOperation.End)
+        widget_md.editor.setTextCursor(cursor)
+        widget_md.editor.insertPlainText(" - Adicionado")
+
+        # Com o temporizador de coalescência, o modelo NÃO deve ter sido mutado imediatamente
+        assert hasattr(widget_md, "temporizador"), "WidgetEditorMarkdown deve possuir uma instância de TemporizadorCoalescencia"
+        assert widget_md.temporizador.esta_ativo() is True, "O temporizador deve estar ativo após digitação"
+        assert botao.destino.secao_textual.conteudo == "# Capa Original", "Modelo não deve alterar antes da expiração do temporizador"
+
+        # Força a descarga do temporizador (simulando pausa ou perda de foco)
+        widget_md.temporizador.forcar_descarga()
+        assert botao.destino.secao_textual.conteudo == "# Capa Original - Adicionado"
+        assert undo_stack.canUndo() is True
+
+        # Testa Desfazer (Ctrl+Z)
+        undo_stack.undo()
+        assert botao.destino.secao_textual.conteudo == "# Capa Original"
+        assert widget_md.editor.toPlainText() == "# Capa Original"
+
+        # Testa Refazer (Ctrl+Y)
+        undo_stack.redo()
+        assert botao.destino.secao_textual.conteudo == "# Capa Original - Adicionado"
+        assert widget_md.editor.toPlainText() == "# Capa Original - Adicionado"
+

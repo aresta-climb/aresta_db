@@ -68,14 +68,15 @@ class GerenciadorHistorico(QObject):
         """Reescreve diario_pendente.bin com os comandos pendentes atualmente na pilha."""
         if not self._diario:
             return
-        self._diario.descartar_pendente()
         clean_idx = self._pilha.cleanIndex()
         start_idx = max(0, clean_idx) if clean_idx >= 0 else 0
         current_idx = self._pilha.index()
+        comandos_pendentes = []
         for i in range(start_idx, current_idx):
             cmd = self._pilha.command(i)
             if cmd:
-                self._diario.gravar_comando_pendente(cmd)
+                comandos_pendentes.append(cmd)
+        self._diario.substituir_comandos_pendentes(comandos_pendentes)
         try:
             from editor.core.telemetria import anexar_diario_escopo
             anexar_diario_escopo(self._diario)

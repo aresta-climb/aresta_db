@@ -1997,7 +1997,11 @@ class WidgetEditorMapas(QWidget):
         
     def _atualizar_lista_mapas(self, *args: Any) -> None:
         """Reconstrói a lista lendo do CroquiModel."""
-        if len(args) >= 2 and args[1] in ('referencias', 'pontos_de_interesse'):
+        campos_ignorados = (
+            'referencias', 'pontos_de_interesse', 'conteudo', 'descricao',
+            'notas', 'observacao', 'observacoes', 'titulo', 'nome'
+        )
+        if len(args) >= 2 and args[1] in campos_ignorados:
             return
             
         from PySide6.QtWidgets import QListWidgetItem
@@ -2008,7 +2012,9 @@ class WidgetEditorMapas(QWidget):
         current_item = self.list_widget.currentItem()
         selected_data = current_item.data(Qt.ItemDataRole.UserRole) if current_item else None
 
+        self.list_widget.blockSignals(True)
         self.list_widget.clear()
+        self.list_widget.blockSignals(False)
         if not self.mapas_controller or not self.mapas_controller.model: return
         
         croqui_msg = self.mapas_controller.model.obter_croqui_readonly()

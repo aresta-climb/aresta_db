@@ -1173,8 +1173,28 @@ def test_atualizar_lista_mapas_ignora_referencias(qtbot):
     widget._atualizar_lista_mapas(Mock(), 'referencias')
     widget.list_widget.clear.assert_not_called()
     
-    widget._atualizar_lista_mapas(Mock(), 'algum_outro')
+    widget._atualizar_lista_mapas(Mock(), 'caminho_imagem_mapa')
     widget.list_widget.clear.assert_called()
+
+
+def test_atualizar_lista_mapas_ignora_campos_textuais_markdown(qtbot):
+    """[TDD] Garante que alterações em campos textuais como 'conteudo', 'descricao' e 'notas' não acionem _atualizar_lista_mapas."""
+    from editor.views.widget_editor_mapas import WidgetEditorMapas
+    from unittest.mock import Mock
+    widget = WidgetEditorMapas()
+    qtbot.addWidget(widget)
+
+    widget.list_widget.clear = Mock()
+
+    # Campos puramente textuais de Markdown / notas que não afetam a lista de mapas
+    campos_textuais = ['conteudo', 'descricao', 'notas', 'observacao', 'observacoes', 'titulo', 'nome']
+    for campo in campos_textuais:
+        widget._atualizar_lista_mapas(Mock(), campo)
+        widget.list_widget.clear.assert_not_called()
+
+    # Campos relevantes para a lista de mapas devem permitir atualização
+    widget._atualizar_lista_mapas(Mock(), 'caminho_imagem_mapa')
+    widget.list_widget.clear.assert_called_once()
 
 def test_hover_camera_compensa_posicao_cena(qtbot):
     """[TDD] Verifica se o hover desenha a caixa de câmera levando em conta a posição da cena (x, y)."""

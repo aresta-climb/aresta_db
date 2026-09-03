@@ -65,6 +65,39 @@ class TestGerenciadorHistorico(unittest.TestCase):
         gerenciador.refazer()
         self.assertEqual(estado["valor"], 10)
 
+    def test_merge_comandos_preserva_cache_diario(self):
+        import tempfile
+        from pathlib import Path
+        from editor.core.diario import GerenciadorDiario
+        with tempfile.TemporaryDirectory() as tmpdir:
+            diario = GerenciadorDiario(Path(tmpdir))
+            cmd_salvo = {"classe": "CmdSalvo", "valor": 1}
+            diario.gravar_comando_pendente(cmd_salvo)
+            diario.consolidar_salvamento()
+            diario.exportar_diario_anonimizado()
+
+            gerenciador = GerenciadorHistorico(diario=diario)
+            estado = {"valor": 0}
+
+            # Substitui ler_diario_salvo por spy para verificar releitura
+            leituras_disco = []
+            orig_ler_salvo = diario.ler_diario_salvo
+            def spy_ler():
+                leituras_disco.append(True)
+                return orig_ler_salvo()
+            diario.ler_diario_salvo = spy_ler
+
+            cmd1 = ComandoTeste(estado, 0, 5, id_merge=101)
+            cmd2 = ComandoTeste(estado, 5, 10, id_merge=101)
+
+            gerenciador.executar(cmd1)
+            gerenciador.executar(cmd2)
+
+            # Ao exportar após o merge, o cache de comandos salvos não deve ter sido descartado
+            diario.exportar_diario_anonimizado()
+
+            self.assertEqual(len(leituras_disco), 0, "O histórico não deve reler diario_salvo.bin do disco após merge de comandos")
+
     def test_foco_requisitado_emitido(self):
         gerenciador = GerenciadorHistorico()
         estado = {"valor": 0}

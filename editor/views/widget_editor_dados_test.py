@@ -532,6 +532,7 @@ def test_formulario_markdown_editor_split(qapp):
     
     # Altera texto no editor e verifica se atualizou o preview e o protobuf
     md_editor.editor.setPlainText("Novo **markdown**")
+    md_editor.forcar_consolidacao()
     assert md_editor.preview.toPlainText().strip() == "Novo markdown"  # renderizado (HTML/rich text de-formatted to plain text is "Novo markdown")
     assert setor.descricao == "Novo **markdown**"
 
@@ -3260,3 +3261,147 @@ def test_container_repeated_widget_adicionar_item_trilha(qapp):
 
     # Deve ter adicionado uma trilha
     assert len(setor.trilhas) == 1
+
+
+def test_widget_editor_markdown_coalescencia_digitacao(qapp):
+    from unittest.mock import MagicMock
+    from aresta_api.proto.generated.croqui_pb2 import Setor, Croqui
+    from editor.models.croqui_model import CroquiModel
+    from editor.controllers.croqui_controller import CroquiController
+    from editor.views.widget_editor_dados import WidgetEditorDados, WidgetEditorMarkdown
+    from PySide6.QtGui import QUndoStack
+
+    croqui = Croqui()
+    setor = Setor()
+    setor.descricao = "Texto Inicial"
+
+    model = CroquiModel(croqui)
+    pilha = QUndoStack()
+    controller = CroquiController(model, pilha)
+    widget_dados = WidgetEditorDados(model, controller)
+
+    campo_desc = setor.DESCRIPTOR.fields_by_name["descricao"]
+    md_editor = WidgetEditorMarkdown(setor, campo_desc, widget_dados.form_padrao)
+
+    assert hasattr(md_editor, "temporizador"), "WidgetEditorMarkdown deve possuir temporizador"
+    assert md_editor.editor.toPlainText() == "Texto Inicial"
+
+    # Simula digitação no final do texto
+    cursor = md_editor.editor.textCursor()
+    cursor.movePosition(cursor.MoveOperation.End)
+    md_editor.editor.setTextCursor(cursor)
+    md_editor.editor.insertPlainText(" digitado")
+    assert md_editor.temporizador.esta_ativo() is True
+    assert setor.descricao == "Texto Inicial", "Modelo não deve ser mutado antes da expiração do temporizador"
+
+    # Força descarga
+    md_editor.temporizador.forcar_descarga()
+    assert setor.descricao == "Texto Inicial digitado"
+    assert md_editor.temporizador.esta_ativo() is False
+
+
+def test_widget_editor_markdown_focus_out_forca_descarga(qapp):
+    from aresta_api.proto.generated.croqui_pb2 import Setor, Croqui
+    from editor.models.croqui_model import CroquiModel
+    from editor.controllers.croqui_controller import CroquiController
+    from editor.views.widget_editor_dados import WidgetEditorDados, WidgetEditorMarkdown
+    from PySide6.QtGui import QUndoStack, QFocusEvent
+    from PySide6.QtCore import QEvent
+
+    croqui = Croqui()
+    setor = Setor()
+    setor.descricao = "Original"
+
+    model = CroquiModel(croqui)
+    pilha = QUndoStack()
+    controller = CroquiController(model, pilha)
+    widget_dados = WidgetEditorDados(model, controller)
+
+    campo_desc = setor.DESCRIPTOR.fields_by_name["descricao"]
+    md_editor = WidgetEditorMarkdown(setor, campo_desc, widget_dados.form_padrao)
+
+    cursor = md_editor.editor.textCursor()
+    cursor.movePosition(cursor.MoveOperation.End)
+    md_editor.editor.setTextCursor(cursor)
+    md_editor.editor.insertPlainText(" modificado")
+    assert md_editor.temporizador.esta_ativo() is True
+
+    # Simula perda de foco
+    evento_foco = QFocusEvent(QEvent.Type.FocusOut)
+    md_editor.editor.focusOutEvent(evento_foco)
+
+    assert md_editor.temporizador.esta_ativo() is False
+    assert setor.descricao == "Original modificado"
+
+
+def test_widget_editor_markdown_set_conteudo_guarda_igualdade(qapp, monkeypatch):
+    from unittest.mock import MagicMock
+    from aresta_api.proto.generated.croqui_pb2 import Setor, Croqui
+    from editor.models.croqui_model import CroquiModel
+    from editor.controllers.croqui_controller import CroquiController
+    from editor.views.widget_editor_dados import WidgetEditorDados, WidgetEditorMarkdown
+    from PySide6.QtGui import QUndoStack
+
+    croqui = Croqui()
+    setor = Setor()
+    setor.descricao = "Mesmo Texto"
+
+    model = CroquiModel(croqui)
+    pilha = QUndoStack()
+    controller = CroquiController(model, pilha)
+    widget_dados = WidgetEditorDados(model, controller)
+
+    campo_desc = setor.DESCRIPTOR.fields_by_name["descricao"]
+    md_editor = WidgetEditorMarkdown(setor, campo_desc, widget_dados.form_padrao)
+
+    # Monitora chamadas a preview.setMarkdown
+    mock_set_markdown = MagicMock()
+    monkeypatch.setattr(md_editor.preview, "setMarkdown", mock_set_markdown)
+
+    # Chamada com texto idêntico ao já existente
+    md_editor.set_conteudo("Mesmo Texto")
+
+    # Não deve ter chamado o parse do markdown novamente
+    assert mock_set_markdown.call_count == 0
+
+
+def test_formulario_on_campo_alterado_instalacao_idempotente_filtro_undo_redo(qapp, monkeypatch):
+    from unittest.mock import MagicMock
+    from aresta_api.proto.generated.croqui_pb2 import Setor, Croqui
+    from editor.models.croqui_model import CroquiModel
+    from editor.controllers.croqui_controller import CroquiController
+    from editor.views.widget_editor_dados import WidgetEditorDados, WidgetEditorMarkdown, _get_id
+    from PySide6.QtGui import QUndoStack
+
+    croqui = Croqui()
+    setor = Setor()
+    setor.descricao = "Inicial"
+
+    model = CroquiModel(croqui)
+    pilha = QUndoStack()
+    controller = CroquiController(model, pilha)
+    widget_dados = WidgetEditorDados(model, controller)
+
+    campo_desc = setor.DESCRIPTOR.fields_by_name["descricao"]
+    md_editor = WidgetEditorMarkdown(setor, campo_desc, widget_dados.form_padrao, parent=widget_dados.form_padrao)
+
+    # Espiona o método installEventFilter do editor
+    chamadas_filtro = []
+    original_install = md_editor.editor.installEventFilter
+
+    def spy_install(filtro):
+        chamadas_filtro.append(filtro)
+        return original_install(filtro)
+
+    monkeypatch.setattr(md_editor.editor, "installEventFilter", spy_install)
+
+    msg_id = _get_id(setor)
+    # Invoca _on_campo_alterado múltiplas vezes
+    widget_dados.form_padrao._on_campo_alterado(msg_id, "descricao", "Valor 1")
+    widget_dados.form_padrao._on_campo_alterado(msg_id, "descricao", "Valor 2")
+    widget_dados.form_padrao._on_campo_alterado(msg_id, "descricao", "Valor 3")
+
+    # Deve ter instalado o filtro no máximo 1 vez, sem duplicatas
+    from editor.views.widget_editor_dados import GlobalUndoRedoFilter
+    filtros_undo = [f for f in chamadas_filtro if isinstance(f, GlobalUndoRedoFilter)]
+    assert len(filtros_undo) <= 1, f"Filtros de Undo acumulados indevidamente: {len(filtros_undo)}"
