@@ -12,6 +12,7 @@ croquis:
     total_setores: 12
     total_grupos: 0
     total_boulders: 101
+    tamanho_download_bytes: 6154632
 - id: br_mg_araxa_bocaina_esportivas
   nome: Bocaina Park (Esportivas)
   descricao: "O Bocaina Park, localizado em Araxá - MG, é um dos principais polos\
@@ -27,6 +28,7 @@ croquis:
     total_grupos: 0
     total_esportivas: 235
     total_highlines: 5
+    tamanho_download_bytes: 24009387
 - id: br_mg_arcos_bombonera
   nome: Arcos - Bombonera
   descricao: Afloramento de calcário situado em Pains, no estado de Minas Gerais,
@@ -40,6 +42,7 @@ croquis:
     total_setores: 3
     total_grupos: 0
     total_esportivas: 29
+    tamanho_download_bytes: 4385722
 - id: br_mg_arcos_corumba
   nome: Arcos - Corumbá
   descricao: Afloramento de calcário situado entre Arcos e Pains em Minas Gerais,
@@ -53,6 +56,7 @@ croquis:
     total_setores: 4
     total_grupos: 0
     total_esportivas: 51
+    tamanho_download_bytes: 3221184
 - id: br_mg_arcos_novo_mundo
   nome: Afloramento Novo Mundo
   descricao: Um belo afloramento de calcário localizado entre Arcos e Pains, com vias
@@ -66,6 +70,7 @@ croquis:
     total_setores: 4
     total_grupos: 0
     total_esportivas: 27
+    tamanho_download_bytes: 876945
 - id: br_mg_arcos_rastro
   nome: Afloramento Rastro
   descricao: Croqui do Afloramento Rastro em Arcos, Minas Gerais.
@@ -78,6 +83,7 @@ croquis:
     total_setores: 17
     total_grupos: 0
     total_esportivas: 242
+    tamanho_download_bytes: 2094865
 - id: br_mg_caete_monte_alvao
   nome: Monte Alvão - Caeté
   descricao: |
@@ -92,6 +98,7 @@ croquis:
     total_grupos: 3
     total_esportivas: 44
     total_multiplas_enfiadas: 7
+    tamanho_download_bytes: 355142
 - id: br_mg_caete_pedra_branca
   nome: Pedra Branca
   descricao: ''
@@ -104,6 +111,7 @@ croquis:
     total_setores: 2
     total_grupos: 0
     total_esportivas: 40
+    tamanho_download_bytes: 217816
 - id: br_mg_caete_pedra_filha
   nome: Pedra Filha (Pedrinha)
   descricao: Croqui da Pedra Filha, localizada em Caeté, MG. Oferece vias esportivas
@@ -117,6 +125,7 @@ croquis:
     total_setores: 2
     total_grupos: 0
     total_esportivas: 22
+    tamanho_download_bytes: 74708
 - id: br_mg_conceicao_do_mato_dentro_festboulder
   nome: Fest Boulder
   descricao: Croqui do evento Fest Boulder 2023 em Conceição do Mato Dentro, Minas
@@ -131,6 +140,7 @@ croquis:
     total_setores: 32
     total_grupos: 4
     total_boulders: 221
+    tamanho_download_bytes: 7991887
 - id: br_mg_diamantina_diamaboulder
   nome: Diamaboulder (Cerrado Groove)
   descricao: O Cerrado Groove é um setor de boulder localizado em Diamantina, MG,
@@ -144,6 +154,7 @@ croquis:
     total_setores: 22
     total_grupos: 4
     total_boulders: 89
+    tamanho_download_bytes: 15892299
 - id: br_mg_igarape_pedra_grande
   nome: Igarameca - Complexo Pedra Grande
   descricao: Este croqui documenta e divulga a prática da escalada no Complexo da
@@ -159,6 +170,7 @@ croquis:
     total_esportivas: 95
     total_boulders: 7
     total_multiplas_enfiadas: 3
+    tamanho_download_bytes: 14854937
 - id: br_mg_ipatinga_ipaba_vale_verde
   nome: Vale Verde
   descricao: O Vale Verde é uma falésia de Tonalito localizada no Vale do Aço, Minas
@@ -172,6 +184,7 @@ croquis:
     total_setores: 2
     total_grupos: 0
     total_esportivas: 32
+    tamanho_download_bytes: 2376891
 - id: br_mg_januaria_salao_encantado
   nome: Salão Encantado
   descricao: Croqui do Salão Encantado em Januária, MG.
@@ -184,6 +197,7 @@ croquis:
     total_setores: 7
     total_grupos: 0
     total_esportivas: 45
+    tamanho_download_bytes: 2715469
 - id: br_mg_lagoa_santa_gruta_da_lapinha
   nome: Gruta da Lapinha
   descricao: Guia de escalada da Gruta da Lapinha em Lagoa Santa, MG.
@@ -196,6 +210,7 @@ croquis:
     total_setores: 10
     total_grupos: 0
     total_esportivas: 106
+    tamanho_download_bytes: 492598
 - id: br_mg_lagoa_santa_sitio_do_rod
   nome: Sítio do Rod
   descricao: O Sítio do Rod é um importante campo escola de escalada localizado em
@@ -210,6 +225,7 @@ croquis:
     total_setores: 3
     total_grupos: 0
     total_esportivas: 74
+    tamanho_download_bytes: 4013567
 - id: br_mg_ouro_preto_andorinhas
   nome: Parque Natural Municipal das Andorinhas
   descricao: ''
@@ -222,6 +238,7 @@ croquis:
     total_setores: 4
     total_grupos: 0
     total_esportivas: 36
+    tamanho_download_bytes: 2864961
 - id: br_mg_ouro_preto_ouroboulder
   nome: Ouroboulder
   descricao: ''
@@ -234,6 +251,7 @@ croquis:
     total_setores: 43
     total_grupos: 3
     total_boulders: 302
+    tamanho_download_bytes: 79873149
   localizacao:
     latitude: -203677334
     longitude: -435075136
@@ -249,6 +267,7 @@ croquis:
     total_setores: 8
     total_grupos: 1
     total_boulders: 36
+    tamanho_download_bytes: 2697924
 - id: br_mg_paraisopolis_pedra_da_divisa
   nome: Pedra da Divisa - Face MG
   descricao: |
@@ -263,6 +282,7 @@ croquis:
     total_setores: 5
     total_grupos: 0
     total_esportivas: 29
+    tamanho_download_bytes: 4361930
 - id: br_mg_pedro_leopoldo_gruta_do_bau
   nome: Gruta do Baú
   descricao: O maciço do Baú está localizado no município de Pedro Leopoldo, MG. É
@@ -278,6 +298,7 @@ croquis:
     total_grupos: 0
     total_esportivas: 292
     total_multiplas_enfiadas: 2
+    tamanho_download_bytes: 2938155
   localizacao:
     latitude: -195480000
     longitude: -439900000
@@ -293,6 +314,7 @@ croquis:
     total_setores: 10
     total_grupos: 1
     total_boulders: 61
+    tamanho_download_bytes: 11704495
 - id: br_mg_sacramento_vo_gusta
   nome: Pico da Vó Gusta
   descricao: Pico da Vó Gusta em Sacramento, MG. Próximo a Rifaina.
@@ -305,6 +327,7 @@ croquis:
     total_setores: 1
     total_grupos: 0
     total_esportivas: 11
+    tamanho_download_bytes: 2447479
   localizacao:
     latitude: -199973890
     longitude: -473989720
@@ -321,6 +344,7 @@ croquis:
     total_grupos: 0
     total_esportivas: 21
     total_multiplas_enfiadas: 25
+    tamanho_download_bytes: 2942926
 - id: br_mg_santana_do_riacho_serra_do_cipo_rock_master
   nome: Serra do Cipó - Setor Rock Master
   descricao: O Setor Rock Master, localizado na Serra do Cipó (Santana do Riacho -
@@ -334,6 +358,7 @@ croquis:
     total_setores: 1
     total_grupos: 0
     total_esportivas: 35
+    tamanho_download_bytes: 492872
   localizacao:
     latitude: -193155800
     longitude: -436135000
@@ -349,3 +374,4 @@ croquis:
     total_setores: 15
     total_grupos: 1
     total_esportivas: 135
+    tamanho_download_bytes: 19936886
