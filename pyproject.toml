@@ -1,6 +1,6 @@
 [project]
 name = "aresta-db"
-version = "0.2.1-dev"
+version = "0.3.0"
 description = "Banco de dados e ecossistema de croquis de escalada Aresta"
 readme = "README.md"
 requires-python = ">=3.13, <3.14"  # Paddle-paddle não suporta 3.14
