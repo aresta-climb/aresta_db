@@ -109,8 +109,9 @@ def test_configurar_tema_claro_aplicacao_define_color_scheme_light(qtbot):
         configurar_tema_claro_aplicacao(app)
         mock_set_scheme.assert_called_once_with(Qt.ColorScheme.Light)
 
-    # A paleta padrão deve ter sido restaurada para texto escuro
+    # A paleta padrão deve ter sido restaurada para texto escuro e fundo claro moderno
     assert app.palette().color(QPalette.ColorRole.WindowText).name() == "#000000"
     assert app.palette().color(QPalette.ColorRole.ButtonText).name() == "#000000"
+    assert app.palette().color(QPalette.ColorRole.Window).name() != "#d4d0c8"
 
 

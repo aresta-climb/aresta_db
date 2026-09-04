@@ -132,6 +132,7 @@ def configurar_tema_claro_aplicacao(app: Optional[Any] = None) -> None:
     """
     from PySide6.QtWidgets import QApplication
     from PySide6.QtCore import Qt
+    from PySide6.QtGui import QPalette
 
     instancia = app or QApplication.instance()
     if not isinstance(instancia, QApplication):
@@ -143,11 +144,11 @@ def configurar_tema_claro_aplicacao(app: Optional[Any] = None) -> None:
         except Exception:
             pass
 
-    if hasattr(instancia, "style") and hasattr(instancia.style(), "standardPalette"):
-        try:
-            instancia.setPalette(instancia.style().standardPalette())
-        except Exception:
-            pass
+    try:
+        instancia.setPalette(QPalette())
+    except Exception:
+        pass
+
 
 
 

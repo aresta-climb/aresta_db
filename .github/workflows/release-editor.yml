@@ -7,6 +7,11 @@ on:
         description: 'Nova versão (ex: 1.2.3)'
         required: true
         type: string
+      should_publish:
+        description: 'Publicar imediatamente para certificação? (se falso, envia como rascunho com --noCommit)'
+        required: true
+        type: boolean
+        default: true
 
 jobs:
   release:
@@ -114,13 +119,6 @@ jobs:
           
           & $makeappx pack /d $msixDir /p EditorAresta.msix
 
-      - name: Login to Azure (OIDC)
-        uses: azure/login@v3
-        with:
-          client-id: ${{ secrets.AZURE_APPLICATION_CLIENT_ID }}
-          tenant-id: ${{ secrets.AZURE_DIRECTORY_TENANT_ID }}
-          allow-no-subscriptions: true
-
       - name: Disponibilizar pacote MSIX no GitHub
         uses: actions/upload-artifact@v7
         with:
@@ -132,9 +130,24 @@ jobs:
         uses: microsoft/microsoft-store-apppublisher@v1.4
 
       - name: Publish to MS Store
+        shell: pwsh
         run: |
-          msstore reconfigure --tenantId ${{ secrets.AZURE_DIRECTORY_TENANT_ID }} --sellerId ${{ secrets.AZURE_SELLER_ID }} --clientId ${{ secrets.AZURE_APPLICATION_CLIENT_ID }} --clientSecret ${{ secrets.AZURE_CLIENT_SECRET }}
-        # msstore publish EditorAresta.msix --appId ${{ secrets.AZURE_EDITOR_ARESTA_STORE_ID }}
+          msstore reconfigure `
+            --tenantId ${{ secrets.AZURE_DIRECTORY_TENANT_ID }} `
+            --sellerId ${{ secrets.AZURE_SELLER_ID }} `
+            --clientId ${{ secrets.AZURE_APPLICATION_CLIENT_ID }} `
+            --clientSecret ${{ secrets.AZURE_CLIENT_SECRET }}
+
+          $publishArgs = @("publish", "EditorAresta.msix", "-id", "${{ secrets.AZURE_EDITOR_ARESTA_STORE_ID }}")
+
+          if ("${{ github.event.inputs.should_publish }}" -ne "true") {
+              Write-Host "Modo rascunho (--noCommit) ativado. O pacote será enviado sem submeter para certificação."
+              $publishArgs += "--noCommit"
+          } else {
+              Write-Host "Publicação imediata ativada. O pacote será enviado e submetido para certificação."
+          }
+
+          & msstore @publishArgs
 
       - name: Calcular próxima versão -dev
         id: next_dev

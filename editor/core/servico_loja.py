@@ -61,7 +61,7 @@ class ServicoLoja:
     Serviço autônomo (Library-First) para gerenciamento de atualizações via Microsoft Store.
     Fornece verificação assíncrona, estratégia híbrida de instalação e bypass em dev.
     """
-    ID_PRODUTO_PADRAO = "9NBLGGH4NNS1" # ID do produto na Microsoft Store
+    ID_PRODUTO_PADRAO = "9N6CQNH78WN8" # ID oficial do produto na Microsoft Store
 
     def __init__(self, id_produto: Optional[str] = None) -> None:
         self.id_produto: str = id_produto or self.ID_PRODUTO_PADRAO

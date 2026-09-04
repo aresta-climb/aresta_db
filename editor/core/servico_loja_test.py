@@ -17,6 +17,12 @@ class TestServicoLoja(unittest.TestCase):
     def setUp(self):
         self.servico = ServicoLoja(id_produto="fake_product_id")
 
+    def test_id_produto_padrao_oficial(self):
+        """Deve utilizar o Store ID oficial 9N6CQNH78WN8 por padrão."""
+        servico_padrao = ServicoLoja()
+        self.assertEqual(servico_padrao.id_produto, "9N6CQNH78WN8")
+        self.assertEqual(ServicoLoja.ID_PRODUTO_PADRAO, "9N6CQNH78WN8")
+
     def test_obter_pacote_atual_sucesso(self):
         """Testa obter_pacote_atual quando winrt está disponível no Windows."""
         mock_winrt_package = MagicMock()
@@ -295,6 +301,17 @@ class TestServicoLoja(unittest.TestCase):
         mock_open_url.assert_called_once()
         args, _ = mock_open_url.call_args
         self.assertIn("ms-windows-store://pdp/?ProductId=fake_id", args[0].toString())
+        mock_quit.assert_called_once()
+
+    @patch("editor.core.servico_loja.QApplication.quit")
+    @patch("editor.core.servico_loja.QDesktopServices.openUrl")
+    def test_abrir_pagina_na_loja_sem_parametro_usa_id_padrao(self, mock_open_url, mock_quit):
+        """Deve abrir a URL com o ID oficial do produto quando nenhum for informado."""
+        servico = ServicoLoja()
+        sucesso = servico.abrir_pagina_na_loja()
+        self.assertTrue(sucesso)
+        args, _ = mock_open_url.call_args
+        self.assertIn("ms-windows-store://pdp/?ProductId=9N6CQNH78WN8", args[0].toString())
         mock_quit.assert_called_once()
 
 if __name__ == "__main__":
