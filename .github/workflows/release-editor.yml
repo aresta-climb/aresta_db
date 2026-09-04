@@ -163,7 +163,13 @@ jobs:
             --tenantId ${{ secrets.AZURE_DIRECTORY_TENANT_ID }} `
             --sellerId ${{ secrets.AZURE_SELLER_ID }} `
             --clientId ${{ secrets.AZURE_APPLICATION_CLIENT_ID }} `
-            --clientSecret ${{ secrets.AZURE_CLIENT_SECRET }}
+            --clientSecret ${{ secrets.AZURE_CLIENT_SECRET }} `
+            -vvv
+
+          if ($LASTEXITCODE -ne 0) {
+              Write-Error "Falha na autenticação do msstore CLI. Verifique os segredos AZURE_* configurados."
+              exit $LASTEXITCODE
+          }
 
           $publishArgs = @("publish", "EditorAresta.msix", "-id", "${{ secrets.AZURE_EDITOR_ARESTA_STORE_ID }}")
 
@@ -175,6 +181,10 @@ jobs:
           }
 
           & msstore @publishArgs
+          if ($LASTEXITCODE -ne 0) {
+              Write-Error "Falha na publicação do pacote na Microsoft Store."
+              exit $LASTEXITCODE
+          }
 
       - name: Calcular próxima versão -dev
         id: next_dev
