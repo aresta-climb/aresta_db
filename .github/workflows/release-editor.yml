@@ -3,15 +3,27 @@ name: Lançamento Editor Aresta
 on:
   workflow_dispatch:
     inputs:
-      new_version:
-        description: 'Nova versão (ex: 1.2.3)'
+      bump_type:
+        description: 'Tipo de incremento de versão'
         required: true
+        type: choice
+        options:
+          - patch
+          - minor
+          - major
+          - custom
+        default: 'patch'
+      custom_version:
+        description: 'Versão customizada (obrigatório se bump_type for custom, ex: 1.0.0)'
+        required: false
         type: string
+        default: ''
       should_publish:
         description: 'Publicar imediatamente para certificação? (se falso, envia como rascunho com --noCommit)'
         required: true
         type: boolean
         default: true
+
 
 jobs:
   release:
@@ -62,6 +74,13 @@ jobs:
         run: |
           uv sync --frozen
 
+      - name: Calcular Versão de Release
+        id: versao
+        shell: bash
+        run: |
+          RELEASE_VER=$(uv run editor/release_tools/calculate_release_version.py --tipo "${{ github.event.inputs.bump_type }}" --custom "${{ github.event.inputs.custom_version }}")
+          echo "versao=$RELEASE_VER" >> $GITHUB_OUTPUT
+
       - name: Configurar Git
         run: |
           git config --global user.name "github-actions[bot]"
@@ -69,9 +88,9 @@ jobs:
 
       - name: Injetar Versão Oficial
         run: |
-          uv run editor/release_tools/bump_version.py editor/core/version.py ${{ github.event.inputs.new_version }}
-          git commit -am "chore: Lançar versão ${{ github.event.inputs.new_version }} do Editor Aresta"
-          git tag editor-v${{ github.event.inputs.new_version }}
+          uv run editor/release_tools/bump_version.py editor/core/version.py ${{ steps.versao.outputs.versao }}
+          git commit -am "chore: Lançar versão ${{ steps.versao.outputs.versao }} do Editor Aresta"
+          git tag editor-v${{ steps.versao.outputs.versao }}
 
       - name: Desativar Bloqueio de Falhas do Windows (WerFault)
         shell: pwsh
@@ -88,11 +107,16 @@ jobs:
         run: |
           uv run pytest -n 0 -v --durations=10
 
+      - name: Isolar Dependências Exclusivas do Editor
+        run: |
+          uv sync --frozen --only-group editor
+
       - name: Build PyInstaller
         run: |
           uv run editor/build.py dist
         env:
           PYTHONPATH: .
+
 
       - name: Build MSIX Package
         shell: pwsh
@@ -104,7 +128,7 @@ jobs:
           Copy-Item "editor\msix\AppxManifest.xml" -Destination $msixDir
           Copy-Item "editor\msix\Assets" -Destination "$msixDir\Assets" -Recurse
           
-          $version = "${{ github.event.inputs.new_version }}"
+          $version = "${{ steps.versao.outputs.versao }}"
           if ($version -match "^\d+\.\d+\.\d+$") {
               $version = "$version.0"
           }
@@ -153,14 +177,14 @@ jobs:
         id: next_dev
         shell: bash
         run: |
-          NEXT_VER=$(python editor/release_tools/calculate_next_dev.py ${{ github.event.inputs.new_version }})
+          NEXT_VER=$(uv run editor/release_tools/calculate_next_dev.py ${{ steps.versao.outputs.versao }})
           echo "version=$NEXT_VER" >> $GITHUB_OUTPUT
         env:
           PYTHONPATH: .
 
       - name: Injetar Ciclo de Desenvolvimento
         run: |
-          python editor/release_tools/bump_version.py editor/core/version.py ${{ steps.next_dev.outputs.version }}
+          uv run editor/release_tools/bump_version.py editor/core/version.py ${{ steps.next_dev.outputs.version }}
           git commit -am "chore: iniciar ciclo de desenvolvimento do Editor Aresta"
         env:
           PYTHONPATH: .
@@ -168,5 +192,6 @@ jobs:
       - name: Push Repositório
         run: |
           git push origin main
-          git push origin editor-v${{ github.event.inputs.new_version }}
+          git push origin editor-v${{ steps.versao.outputs.versao }}
+
 
