@@ -7,6 +7,11 @@ import sys
 import argparse
 from pathlib import Path
 
+# Garante que a raiz do repositório esteja no sys.path para importação absoluta do módulo editor
+_raiz_repo = str(Path(__file__).resolve().parents[2])
+if _raiz_repo not in sys.path:  # pragma: no cover
+    sys.path.insert(0, _raiz_repo)
+
 from editor.release_tools.bump_version import compare_semver, validar_semver, SemVerError
 
 PADRAO_SEMVER = re.compile(

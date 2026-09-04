@@ -80,6 +80,9 @@ jobs:
         run: |
           RELEASE_VER=$(uv run editor/release_tools/calculate_release_version.py --tipo "${{ github.event.inputs.bump_type }}" --custom "${{ github.event.inputs.custom_version }}")
           echo "versao=$RELEASE_VER" >> $GITHUB_OUTPUT
+        env:
+          PYTHONPATH: .
+
 
       - name: Configurar Git
         run: |
