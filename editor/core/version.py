@@ -4,5 +4,5 @@
 # Este arquivo é atualizado automaticamente durante a esteira de CI/CD.
 # Não altere manualmente, a menos que saiba o que está fazendo.
 
-VERSION: str = "0.3.0"
+VERSION: str = "0.3.1-dev"
 
