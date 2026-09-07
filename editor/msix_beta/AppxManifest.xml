@@ -9,7 +9,8 @@
   <Identity
     Name="ArestaClimbApps.EditorArestaClimb.Beta"
     Publisher="CN=0C77D74C-16DF-46A3-A959-0CA285AF3E46"
-    Version="1.0.0.0" />
+    Version="1.0.0.0"
+    ProcessorArchitecture="x64" />
 
   <Properties>
     <DisplayName>Editor Aresta Climb (Beta)</DisplayName>

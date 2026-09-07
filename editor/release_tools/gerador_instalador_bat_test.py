@@ -60,10 +60,13 @@ def test_gerar_script_instalador_bat_sucesso() -> None:
     thumbprint = calcular_thumbprint_sha256(CERTIFICADO_VALIDO_PEM)
 
     assert "@echo off" in script
+    assert "Unblock-File" in script
+    assert "Start-Process certutil.exe" in script
+    assert "Start-Process '%~f0'" not in script
     assert "net session >nul 2>&1" in script
     assert "-WindowStyle Hidden" in script
     assert 'certutil -decode "%~f0"' in script
-    assert 'certutil -addstore -f "TrustedPeople"' in script
+    assert 'TrustedPeople' in script
     assert 'del "%TEMP%\\ArestaBeta.cer"' in script
     assert f'start "" "{URL_SUCESSO_PADRAO}?origem=instalador&thumbprint={thumbprint}"' in script
     assert "exit /b 0" in script

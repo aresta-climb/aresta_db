@@ -61,19 +61,22 @@ def gerar_script_instalador_bat(
     url_final = f"{url_sucesso}{separador}origem=instalador&thumbprint={thumbprint}"
 
     script = f"""@echo off
-:: Verifica permissao de Administrador
+:: 1. Desbloqueia o arquivo para evitar avisos adicionais de seguranca
+powershell -NoProfile -Command "Unblock-File -Path '%~f0'" >nul 2>&1
+
+:: 2. Decodifica o certificado no diretorio temporario
+certutil -decode "%~f0" "%TEMP%\\ArestaBeta.cer" >nul 2>&1
+
+:: 3. Instala o certificado na loja TrustedPeople com elevacao apenas para o certutil
 net session >nul 2>&1
-if %errorLevel% neq 0 (
-    powershell -Command "Start-Process '%~f0' -Verb RunAs -WindowStyle Hidden"
-    exit /b
+if %errorLevel% equ 0 (
+    certutil -addstore -f "TrustedPeople" "%TEMP%\\ArestaBeta.cer" >nul 2>&1
+) else (
+    powershell -NoProfile -Command "Start-Process certutil.exe -ArgumentList '-addstore -f TrustedPeople \"%TEMP%\\ArestaBeta.cer\"' -Verb RunAs -WindowStyle Hidden -Wait"
 )
 
-:: Extrai e instala o certificado na loja de Pessoas Confiaveis da maquina local
-certutil -decode "%~f0" "%TEMP%\\ArestaBeta.cer" >nul 2>&1
-certutil -addstore -f "TrustedPeople" "%TEMP%\\ArestaBeta.cer" >nul 2>&1
+:: 4. Remove arquivo temporario e abre pagina de sucesso
 del "%TEMP%\\ArestaBeta.cer" >nul 2>&1
-
-:: Abre a pagina de sucesso no navegador padrao
 start "" "{url_final}"
 exit /b 0
 
