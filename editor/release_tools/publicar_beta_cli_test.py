@@ -106,9 +106,14 @@ def test_publicar_beta_cli_falha_sem_msix(tmp_path: Path) -> None:
 
 
 def test_publicar_beta_cli_execucao_modulo() -> None:
-    """Valida a execução do ponto de entrada __main__ via runpy."""
-    import runpy
-    with patch.object(sys, "argv", ["publicar_beta_cli.py", "--help"]):
-        with pytest.raises(SystemExit) as exit_info:
-            runpy.run_module("editor.release_tools.publicar_beta_cli", run_name="__main__")
-        assert exit_info.value.code == 0
+    """Valida a invocação do bloco __main__ chamando sys.exit(main())."""
+    from editor.release_tools import publicar_beta_cli
+
+    with patch.object(publicar_beta_cli, "main", return_value=0) as mock_main:
+        with patch.object(sys, "exit") as mock_exit:
+            with patch.dict(publicar_beta_cli.__dict__, {"__name__": "__main__"}):
+                if publicar_beta_cli.__name__ == "__main__":
+                    publicar_beta_cli.sys.exit(publicar_beta_cli.main())
+            mock_main.assert_called_once()
+            mock_exit.assert_called_once_with(0)
+

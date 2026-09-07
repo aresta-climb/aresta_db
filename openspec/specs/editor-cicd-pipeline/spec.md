@@ -24,13 +24,14 @@ O workflow de CI/CD DEVE (SHALL) incluir o diretório de testes arquiteturais e 
 - **THEN** o sistema baixa os diretórios de código e o diretório `tests/`
 - **AND** executa 100% dos testes do repositório (incluindo tipagem estática e checagem AST)
 
-### Requirement: Supressão do Windows Error Reporting no Runner de Lançamento
-O workflow de lançamento no Windows DEVE (SHALL) suprimir a interface gráfica e o bloqueio de relatórios de falha do Windows (WerFault.exe) antes da execução da suíte de testes.
+### Requirement: Estabilidade e Rastreabilidade Sequencial no Runner de Lançamento Windows
+O workflow de lançamento no Windows DEVE (SHALL) suprimir o bloqueio de relatórios de falha do Windows (WerFault.exe), executar a suíte de testes de forma sequencial com saída em tempo real não-bufferizada para diagnóstico inequívoco de travamentos, e encerrar o processo via chamada rápida de sistema operacional (`os._exit`) ao término para evitar falhas de desalocação nativa do Qt no Windows CRT.
 
-#### Scenario: Encerramento imediato em falha nativa não tratada
-- **WHEN** um processo de teste sofre uma falha fatal nativa ou Access Violation em ambiente Windows não-interativo
-- **THEN** o kernel do Windows encerra o processo imediatamente sem exibir diálogos bloqueantes
-- **AND** o pytest-xdist detecta o término do worker e o substitui automaticamente sem travar a execução
+#### Scenario: Diagnóstico inequívoco de travamento ou falha
+- **WHEN** a etapa de testes do workflow de lançamento no Windows é iniciada
+- **THEN** o sistema executa o pytest sequencialmente com `-n 0 -v -s` sob a flag de ambiente `CI: "true"`
+- **AND** transmite a execução de cada teste imediatamente sem bufferização entre workers
+- **AND** ao concluir, o pytest drena os recursos do Qt e encerra o processo via `os._exit` preservando o status de saída real sem disparar Access Violation no `Py_FinalizeEx`
 
 ### Requirement: Publicação Automatizada de Pacote MSIX na Microsoft Store
 O workflow de CI/CD de lançamento DEVE (SHALL) autenticar na API do Partner Center via MSStore CLI e publicar o pacote MSIX empacotado para o Store ID do aplicativo, operando por padrão em modo de rascunho (`--noCommit`) para validação prévia antes da submissão para certificação oficial.

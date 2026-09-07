@@ -107,8 +107,9 @@ jobs:
         env:
           PYTHONFAULTHANDLER: "1"
           PYTHONUNBUFFERED: "1"
+          CI: "true"
         run: |
-          uv run pytest -n 0 -v --durations=10
+          uv run pytest -n 0 -v -s --durations=10
 
       - name: Isolar Dependências Exclusivas do Editor
         run: |
