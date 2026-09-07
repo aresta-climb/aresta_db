@@ -46,7 +46,7 @@ class TestConftestTeardown(unittest.TestCase):
             conftest.pytest_sessionfinish(None, 0)
 
     def test_pytest_unconfigure_executa_fast_exit_em_ambiente_ci(self) -> None:
-        """Valida que no CI o processo encerra via os._exit para contornar crash de teardown de DLLs."""
+        """Valida que no CI o processo encerra via fast-exit para contornar crash de teardown de DLLs."""
         mock_config = MagicMock()
         mock_config._aresta_exitstatus = 0
 
@@ -54,15 +54,18 @@ class TestConftestTeardown(unittest.TestCase):
              patch("faulthandler.disable") as mock_fh_disable, \
              patch("sys.stdout.flush") as mock_stdout_flush, \
              patch("sys.stderr.flush") as mock_stderr_flush, \
+             patch("ctypes.windll.kernel32.TerminateProcess", create=True) as mock_tp, \
              patch("os._exit") as mock_exit:
             conftest.pytest_unconfigure(mock_config)
             mock_fh_disable.assert_called_once()
             mock_stdout_flush.assert_called_once()
             mock_stderr_flush.assert_called_once()
+            if sys.platform == "win32":
+                mock_tp.assert_called_once()
             mock_exit.assert_called_once_with(0)
 
     def test_pytest_unconfigure_preserva_status_de_falha_no_fast_exit(self) -> None:
-        """Valida que status de falha do pytest (ex: 1) é repassado ao os._exit."""
+        """Valida que status de falha do pytest (ex: 1) é repassado ao fast-exit."""
         mock_config = MagicMock()
         mock_config._aresta_exitstatus = 1
 
@@ -70,14 +73,19 @@ class TestConftestTeardown(unittest.TestCase):
              patch("faulthandler.disable"), \
              patch("sys.stdout.flush"), \
              patch("sys.stderr.flush"), \
+             patch("ctypes.windll.kernel32.TerminateProcess", create=True) as mock_tp, \
              patch("os._exit") as mock_exit:
             conftest.pytest_unconfigure(mock_config)
+            if sys.platform == "win32":
+                mock_tp.assert_called_once()
             mock_exit.assert_called_once_with(1)
 
     def test_pytest_unconfigure_nao_executa_exit_fora_do_ci(self) -> None:
-        """Valida que fora do CI/ARESTA_FAST_EXIT o os._exit não é invocado."""
+        """Valida que fora do CI/ARESTA_FAST_EXIT o fast-exit não é invocado."""
         mock_config = MagicMock()
         with patch.dict(os.environ, {"CI": "", "ARESTA_FAST_EXIT": ""}, clear=False), \
+             patch("ctypes.windll.kernel32.TerminateProcess", create=True) as mock_tp, \
              patch("os._exit") as mock_exit:
             conftest.pytest_unconfigure(mock_config)
+            mock_tp.assert_not_called()
             mock_exit.assert_not_called()

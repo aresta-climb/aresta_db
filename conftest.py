@@ -3,6 +3,7 @@
 
 from typing import Any
 import os
+import sys
 
 def pytest_configure(config: Any) -> None:
     if "QT_QPA_PLATFORM" not in os.environ:
@@ -59,13 +60,11 @@ def pytest_sessionfinish(session: Any, exitstatus: int) -> None:
 
 def pytest_unconfigure(config: Any) -> None:
     """
-    No ambiente de CI ou sob a flag ARESTA_FAST_EXIT, encerra o processo via os._exit
-    após a impressão de todos os resultados pelo pytest. Isso evita que o descarregamento
-    de DLLs C++ do PySide6/Qt no Py_FinalizeEx do Windows dispare Access Violation (0xC0000005).
+    No ambiente de CI ou sob a flag ARESTA_FAST_EXIT, encerra o processo de forma atômica
+    no nível de kernel (TerminateProcess no Windows / os._exit). Isso evita que o descarregamento
+    de DLLs C++ (pyside6.abi3.dll) no DLL_PROCESS_DETACH do Windows dispare Access Violation (0xC0000005).
     """
     if os.environ.get("CI") or os.environ.get("ARESTA_FAST_EXIT"):
-        import sys
-
         try:
             import faulthandler
 
@@ -76,5 +75,18 @@ def pytest_unconfigure(config: Any) -> None:
         sys.stdout.flush()
         sys.stderr.flush()
         status = int(getattr(config, "_aresta_exitstatus", 0))
+
+        if sys.platform == "win32":
+            try:
+                import ctypes
+
+                kernel32 = ctypes.windll.kernel32
+                kernel32.GetCurrentProcess.restype = ctypes.c_void_p
+                kernel32.TerminateProcess.argtypes = [ctypes.c_void_p, ctypes.c_uint]
+                kernel32.TerminateProcess.restype = ctypes.c_bool
+                kernel32.TerminateProcess(kernel32.GetCurrentProcess(), status)
+            except Exception:
+                pass
+
         os._exit(status)
 
