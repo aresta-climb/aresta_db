@@ -58,3 +58,21 @@ class TestWorkflowReleaseEditor(unittest.TestCase):
         self.assertIn("uv run pytest", run_cmd)
         self.assertEqual(str(env_vars.get("CI", "")).lower(), "true", "A variável CI=true deve estar configurada no step.")
         self.assertEqual(str(env_vars.get("PYTHONUNBUFFERED", "")), "1", "PYTHONUNBUFFERED=1 deve estar configurado.")
+
+    def test_workflow_artefatos_beta_possuem_editor_arestabeta_appinstaller(self) -> None:
+        """Garante que o artefato publicado do AppInstaller utiliza o nome EditorArestaBeta.appinstaller."""
+        passos = self.conteudo_yaml["jobs"]["release"]["steps"]
+        passo_upload = next(
+            (
+                s for s in passos
+                if "upload-artifact" in s.get("uses", "")
+                and "Beta" in s.get("name", "")
+            ),
+            None,
+        )
+        self.assertIsNotNone(passo_upload, "Passo upload-artifact do canal Beta não encontrado no workflow.")
+        assert passo_upload is not None
+        caminhos_artefatos = passo_upload.get("with", {}).get("path", "")
+        self.assertIn("EditorArestaBeta.appinstaller", caminhos_artefatos)
+        self.assertNotIn("EditorAresta.appinstaller", caminhos_artefatos)
+

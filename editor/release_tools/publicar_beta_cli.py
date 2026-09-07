@@ -45,8 +45,8 @@ def main(argv: Optional[List[str]] = None) -> int:
     diretorio_saida = Path(args.diretorio_saida).resolve()
     diretorio_saida.mkdir(parents=True, exist_ok=True)
 
-    # 1. Gera EditorAresta.appinstaller
-    caminho_appinstaller = diretorio_saida / "EditorAresta.appinstaller"
+    # 1. Gera EditorArestaBeta.appinstaller
+    caminho_appinstaller = diretorio_saida / "EditorArestaBeta.appinstaller"
     conteudo_appinstaller = gerar_conteudo_appinstaller(args.versao)
     caminho_appinstaller.write_text(conteudo_appinstaller, encoding="utf-8")
     print(f"Manifesto AppInstaller gerado em: {caminho_appinstaller}")

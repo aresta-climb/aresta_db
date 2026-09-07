@@ -150,5 +150,7 @@ class PublicadorR2Beta:
             f"{self.uri_base}/{caminho_appinstaller.name}",
             f"{self.uri_base}/{caminho_msix.name}",
         ]
+        if caminho_bat and caminho_bat.exists():
+            urls_para_purgar.append(f"{self.uri_base}/{caminho_bat.name}")
 
         return self.purgar_cache(urls_para_purgar)

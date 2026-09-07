@@ -48,7 +48,7 @@ def gerar_conteudo_appinstaller(
 <AppInstaller
     xmlns="http://schemas.microsoft.com/appx/appinstaller/2018"
     Version="{versao_normalizada}"
-    Uri="{uri_limpa}/EditorAresta.appinstaller">
+    Uri="{uri_limpa}/EditorArestaBeta.appinstaller">
 
     <MainPackage
         Name="{nome_pacote}"

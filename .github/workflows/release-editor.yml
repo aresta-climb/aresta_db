@@ -274,7 +274,7 @@ jobs:
           name: EditorArestaBeta-Windows-Distribuicao
           path: |
             EditorArestaBeta.msix
-            EditorAresta.appinstaller
+            EditorArestaBeta.appinstaller
             InstalarCertificadoEditorArestaBeta.bat
           retention-days: 7
 

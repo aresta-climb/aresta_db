@@ -42,7 +42,7 @@ def test_integracao_contrato_ponta_a_ponta_distribuicao_beta(tmp_path: Path) -> 
     assert certificado_falso_pem in conteudo_bat
 
     # 3 & 4. Simulação de upload no R2 e purgação de cache
-    caminho_appinstaller = tmp_path / "EditorAresta.appinstaller"
+    caminho_appinstaller = tmp_path / "EditorArestaBeta.appinstaller"
     caminho_appinstaller.write_text(conteudo_appinstaller, encoding="utf-8")
 
     caminho_msix = tmp_path / "EditorArestaBeta.msix"
@@ -76,7 +76,7 @@ def test_integracao_contrato_ponta_a_ponta_distribuicao_beta(tmp_path: Path) -> 
         assert mock_cliente_s3.upload_file.call_count == 3
         chamadas_upload = [chamada[0] for chamada in mock_cliente_s3.upload_file.call_args_list]
         chaves_remotas = [args[2] for args in chamadas_upload]
-        assert "editor-beta/EditorAresta.appinstaller" in chaves_remotas
+        assert "editor-beta/EditorArestaBeta.appinstaller" in chaves_remotas
         assert "editor-beta/EditorArestaBeta.msix" in chaves_remotas
         assert "editor-beta/InstalarCertificadoEditorArestaBeta.bat" in chaves_remotas
 
@@ -85,5 +85,5 @@ def test_integracao_contrato_ponta_a_ponta_distribuicao_beta(tmp_path: Path) -> 
         req = mock_urlopen.call_args[0][0]
         assert "https://api.cloudflare.com/client/v4/zones/zona_teste_123/purge_cache" in req.full_url
         dados_purge = json.loads(req.data.decode("utf-8"))
-        assert f"{uri_base}/EditorAresta.appinstaller" in dados_purge["files"]
+        assert f"{uri_base}/EditorArestaBeta.appinstaller" in dados_purge["files"]
         assert f"{uri_base}/EditorArestaBeta.msix" in dados_purge["files"]

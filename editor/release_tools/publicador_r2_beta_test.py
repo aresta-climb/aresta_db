@@ -15,7 +15,7 @@ from editor.release_tools.publicador_r2_beta import (
 
 def test_determinar_tipo_conteudo() -> None:
     """Verifica se os tipos MIME corretos são atribuídos aos artefatos do canal Beta."""
-    assert determinar_tipo_conteudo(Path("EditorAresta.appinstaller")) == "application/appinstaller"
+    assert determinar_tipo_conteudo(Path("EditorArestaBeta.appinstaller")) == "application/appinstaller"
     assert determinar_tipo_conteudo(Path("EditorArestaBeta.msix")) == "application/msix"
     assert determinar_tipo_conteudo(Path("InstalarCertificado.bat")) == "application/x-bat"
     assert determinar_tipo_conteudo(Path("outro.bin")) == "application/octet-stream"
@@ -23,7 +23,7 @@ def test_determinar_tipo_conteudo() -> None:
 
 def test_publicador_r2_beta_sucesso(tmp_path: Path) -> None:
     """Valida o fluxo completo de upload e purgação com sucesso."""
-    appinstaller = tmp_path / "EditorAresta.appinstaller"
+    appinstaller = tmp_path / "EditorArestaBeta.appinstaller"
     appinstaller.write_text("<AppInstaller />", encoding="utf-8")
 
     msix = tmp_path / "EditorArestaBeta.msix"
@@ -52,8 +52,9 @@ def test_publicador_r2_beta_sucesso(tmp_path: Path) -> None:
         mock_urlopen.assert_called_once()
         req = mock_urlopen.call_args[0][0]
         corpo = json.loads(req.data.decode("utf-8"))
-        assert "https://serving.arestaclimb.com/editor-beta/EditorAresta.appinstaller" in corpo["files"]
+        assert "https://serving.arestaclimb.com/editor-beta/EditorArestaBeta.appinstaller" in corpo["files"]
         assert "https://serving.arestaclimb.com/editor-beta/EditorArestaBeta.msix" in corpo["files"]
+        assert "https://serving.arestaclimb.com/editor-beta/InstalarCertificadoEditorArestaBeta.bat" in corpo["files"]
 
 
 def test_publicador_r2_beta_arquivo_inexistente(tmp_path: Path) -> None:
@@ -71,7 +72,7 @@ def test_publicador_r2_beta_arquivo_inexistente(tmp_path: Path) -> None:
 
 def test_publicador_r2_beta_falha_purge_lanca_excecao(tmp_path: Path) -> None:
     """Valida se erros HTTP da API Cloudflare levantam exceção descritiva."""
-    appinstaller = tmp_path / "EditorAresta.appinstaller"
+    appinstaller = tmp_path / "EditorArestaBeta.appinstaller"
     appinstaller.write_text("<AppInstaller />", encoding="utf-8")
 
     msix = tmp_path / "EditorArestaBeta.msix"

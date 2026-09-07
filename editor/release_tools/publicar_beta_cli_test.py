@@ -30,7 +30,7 @@ def test_publicar_beta_cli_sucesso(tmp_path: Path) -> None:
         ])
 
         assert codigo_saida == 0
-        assert (tmp_path / "EditorAresta.appinstaller").exists()
+        assert (tmp_path / "EditorArestaBeta.appinstaller").exists()
         assert (tmp_path / "InstalarCertificadoEditorArestaBeta.bat").exists()
         mock_publicador.publicar_e_purgar.assert_called_once()
 

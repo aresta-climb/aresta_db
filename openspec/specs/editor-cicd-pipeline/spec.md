@@ -73,6 +73,6 @@ O workflow de lançamento DEVE (SHALL) compilar a versão oficial para a Microso
 - **THEN** o pipeline compila o pacote de produção `EditorAresta.msix` e o envia para a Microsoft Store
 - **AND** o pipeline compila a versão Beta com os recursos gráficos azuis e identidade `.Beta`
 - **AND** assina o pacote `EditorArestaBeta.msix` utilizando a ferramenta `signtool` com o certificado configurado
-- **AND** gera o arquivo `EditorAresta.appinstaller` e o envia juntamente com `EditorArestaBeta.msix` para o Cloudflare R2
+- **AND** gera o arquivo `EditorArestaBeta.appinstaller` e o envia juntamente com `EditorArestaBeta.msix` para o Cloudflare R2
 - **AND** dispara a purgação do cache da Cloudflare para as URLs atualizadas
 

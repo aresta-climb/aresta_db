@@ -39,7 +39,7 @@ def test_gerar_conteudo_appinstaller_estrutura_xml() -> None:
 
     assert raiz.tag == f"{{{ns['appx']}}}AppInstaller"
     assert raiz.attrib["Version"] == "0.2.1.0"
-    assert raiz.attrib["Uri"] == "https://serving.arestaclimb.com/editor-beta/EditorAresta.appinstaller"
+    assert raiz.attrib["Uri"] == "https://serving.arestaclimb.com/editor-beta/EditorArestaBeta.appinstaller"
 
     main_pkg = raiz.find("appx:MainPackage", ns)
     assert main_pkg is not None
@@ -66,5 +66,5 @@ def test_gerar_conteudo_appinstaller_estrutura_xml() -> None:
 def test_gerar_conteudo_appinstaller_normaliza_barras_uri() -> None:
     """Garante que barras extras no final do uri_base sejam tratadas sem duplicação."""
     xml_str = gerar_conteudo_appinstaller("1.0.0", "https://serving.arestaclimb.com/editor-beta///")
-    assert "https://serving.arestaclimb.com/editor-beta/EditorAresta.appinstaller" in xml_str
+    assert "https://serving.arestaclimb.com/editor-beta/EditorArestaBeta.appinstaller" in xml_str
     assert "https://serving.arestaclimb.com/editor-beta/EditorArestaBeta.msix" in xml_str

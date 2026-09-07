@@ -4,11 +4,11 @@
 TBD - created by archiving change editor-canal-beta-appinstaller. Update Purpose after archive.
 ## Requirements
 ### Requirement: Geração do Manifesto Windows App Installer (.appinstaller)
-O sistema DEVE (SHALL) fornecer uma ferramenta para gerar deterministicamente o arquivo de manifesto XML `EditorAresta.appinstaller` parametrizado com o número da versão e o URI de distribuição no Cloudflare R2.
+O sistema DEVE (SHALL) fornecer uma ferramenta para gerar deterministicamente o arquivo de manifesto XML `EditorArestaBeta.appinstaller` parametrizado com o número da versão e o URI de distribuição no Cloudflare R2.
 
 #### Scenario: Geração do arquivo .appinstaller para nova versão
 - **WHEN** o gerador for acionado informando a versão de lançamento (ex: `1.2.0.0`) e a URL base `https://serving.arestaclimb.com/editor-beta`
-- **THEN** o arquivo XML gerado contém o elemento `<AppInstaller>` apontando para `https://serving.arestaclimb.com/editor-beta/EditorAresta.appinstaller`
+- **THEN** o arquivo XML gerado contém o elemento `<AppInstaller>` apontando para `https://serving.arestaclimb.com/editor-beta/EditorArestaBeta.appinstaller`
 - **AND** o elemento `<MainPackage>` declara `Name="ArestaClimbApps.EditorArestaClimb.Beta"`, `Version="1.2.0.0"` e `Uri="https://serving.arestaclimb.com/editor-beta/EditorArestaBeta.msix"`
 - **AND** o elemento `<UpdateSettings>` configura `<OnLaunch HoursBetweenUpdateChecks="0" />` e `<AutomaticBackgroundTask />` para atualização em segundo plano
 
@@ -27,7 +27,7 @@ O sistema DEVE (SHALL) gerar um script batch (`InstalarCertificadoEditorArestaBe
 O sistema DEVE (SHALL) fazer o upload dos artefatos estáticos do canal Beta para o bucket do Cloudflare R2 sob a rota `editor-beta/` e acionar a API da Cloudflare para purgar imediatamente o cache das URLs afetadas.
 
 #### Scenario: Publicação e invalidação de cache do canal Beta
-- **WHEN** os artefatos `EditorAresta.appinstaller` e `EditorArestaBeta.msix` forem gerados com sucesso
+- **WHEN** os artefatos `EditorArestaBeta.appinstaller` e `EditorArestaBeta.msix` forem gerados com sucesso
 - **THEN** o sistema envia os arquivos para o bucket `aresta-serving` sob a chave `editor-beta/`
-- **AND** dispara a requisição de purgação de cache para a zona Cloudflare configurada para as URLs `https://serving.arestaclimb.com/editor-beta/EditorAresta.appinstaller` e `https://serving.arestaclimb.com/editor-beta/EditorArestaBeta.msix`
+- **AND** dispara a requisição de purgação de cache para a zona Cloudflare configurada para as URLs `https://serving.arestaclimb.com/editor-beta/EditorArestaBeta.appinstaller` e `https://serving.arestaclimb.com/editor-beta/EditorArestaBeta.msix`
 
