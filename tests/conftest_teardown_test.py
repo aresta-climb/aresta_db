@@ -24,11 +24,13 @@ class TestConftestTeardown(unittest.TestCase):
         mock_session.config = mock_config
 
         with patch("PySide6.QtWidgets.QApplication.instance", return_value=mock_app), \
-             patch("PySide6.QtCore.QThreadPool.globalInstance", return_value=mock_pool):
+             patch("PySide6.QtCore.QThreadPool.globalInstance", return_value=mock_pool), \
+             patch("shiboken6.delete") as mock_shiboken_delete:
             conftest.pytest_sessionfinish(mock_session, 0)
             mock_app.closeAllWindows.assert_called_once()
             mock_app.processEvents.assert_called_once()
             mock_pool.waitForDone.assert_called_once_with(1000)
+            mock_shiboken_delete.assert_called_once_with(mock_app)
             self.assertEqual(getattr(mock_config, "_aresta_exitstatus", None), 0)
 
     def test_pytest_sessionfinish_ignora_quando_sem_qapplication(self) -> None:
@@ -49,10 +51,12 @@ class TestConftestTeardown(unittest.TestCase):
         mock_config._aresta_exitstatus = 0
 
         with patch.dict(os.environ, {"CI": "true"}), \
+             patch("faulthandler.disable") as mock_fh_disable, \
              patch("sys.stdout.flush") as mock_stdout_flush, \
              patch("sys.stderr.flush") as mock_stderr_flush, \
              patch("os._exit") as mock_exit:
             conftest.pytest_unconfigure(mock_config)
+            mock_fh_disable.assert_called_once()
             mock_stdout_flush.assert_called_once()
             mock_stderr_flush.assert_called_once()
             mock_exit.assert_called_once_with(0)
@@ -63,6 +67,7 @@ class TestConftestTeardown(unittest.TestCase):
         mock_config._aresta_exitstatus = 1
 
         with patch.dict(os.environ, {"ARESTA_FAST_EXIT": "1"}, clear=False), \
+             patch("faulthandler.disable"), \
              patch("sys.stdout.flush"), \
              patch("sys.stderr.flush"), \
              patch("os._exit") as mock_exit:

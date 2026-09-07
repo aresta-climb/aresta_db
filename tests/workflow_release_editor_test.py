@@ -10,12 +10,13 @@ class TestWorkflowReleaseEditor(unittest.TestCase):
     def setUp(self) -> None:
         self.raiz_projeto = Path(__file__).resolve().parent.parent
         self.workflow_path = self.raiz_projeto / ".github" / "workflows" / "release-editor.yml"
-        self.assertTrue(self.workflow_path.exists(), f"Workflow {self.workflow_path} não encontrado.")
+        if not self.workflow_path.exists():
+            self.skipTest(f"Workflow {self.workflow_path} não encontrado no checkout.")
         with open(self.workflow_path, "r", encoding="utf-8") as f:
             self.conteudo_yaml = yaml.safe_load(f)
 
-    def test_workflow_possui_sparse_checkout_com_tests(self) -> None:
-        """Garante que o sparse-checkout do workflow inclui a pasta tests para testes arquiteturais."""
+    def test_workflow_possui_sparse_checkout_com_tests_e_github(self) -> None:
+        """Garante que o sparse-checkout do workflow inclui as pastas tests e .github para testes arquiteturais."""
         passos = self.conteudo_yaml["jobs"]["release"]["steps"]
         passo_checkout = next((s for s in passos if "Checkout" in s.get("name", "")), None)
         self.assertIsNotNone(passo_checkout, "Passo com 'Checkout' não encontrado no workflow.")
@@ -23,6 +24,7 @@ class TestWorkflowReleaseEditor(unittest.TestCase):
         sparse_checkout = passo_checkout.get("with", {}).get("sparse-checkout", "")
         linhas_sparse = [linha.strip() for linha in sparse_checkout.splitlines() if linha.strip()]
         self.assertIn("tests", linhas_sparse, "A pasta 'tests' deve constar no sparse-checkout.")
+        self.assertIn(".github", linhas_sparse, "A pasta '.github' deve constar no sparse-checkout.")
 
     def test_workflow_possui_supressao_werfault(self) -> None:
         """Garante que o passo de supressão do Windows Error Reporting está configurado."""

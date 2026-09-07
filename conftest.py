@@ -45,6 +45,14 @@ def pytest_sessionfinish(session: Any, exitstatus: int) -> None:
         pool = QThreadPool.globalInstance()
         if pool is not None:
             pool.waitForDone(1000)
+
+        if isinstance(app, QApplication):
+            try:
+                import shiboken6
+
+                shiboken6.delete(app)
+            except Exception:
+                pass
     except Exception:
         pass
 
@@ -57,6 +65,13 @@ def pytest_unconfigure(config: Any) -> None:
     """
     if os.environ.get("CI") or os.environ.get("ARESTA_FAST_EXIT"):
         import sys
+
+        try:
+            import faulthandler
+
+            faulthandler.disable()
+        except Exception:
+            pass
 
         sys.stdout.flush()
         sys.stderr.flush()

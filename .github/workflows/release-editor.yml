@@ -49,6 +49,7 @@ jobs:
           submodules: recursive
           sparse-checkout: |
             .
+            .github
             tests
             editor
             scripts
