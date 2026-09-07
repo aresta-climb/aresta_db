@@ -22,7 +22,7 @@ on:
         description: 'Publicar imediatamente para certificação? (se falso, envia como rascunho com --noCommit)'
         required: true
         type: boolean
-        default: true
+        default: false
 
 
 jobs:
@@ -185,6 +185,92 @@ jobs:
               Write-Error "Falha na publicação do pacote na Microsoft Store."
               exit $LASTEXITCODE
           }
+
+      - name: Build PyInstaller (Canal Beta)
+        run: |
+          uv run editor/build.py dist
+        env:
+          PYTHONPATH: .
+          ARESTA_CANAL: beta
+
+      - name: Build MSIX Package (Canal Beta)
+        shell: pwsh
+        run: |
+          $msixBetaDir = "msix_beta_staging"
+          New-Item -ItemType Directory -Force -Path $msixBetaDir
+
+          Copy-Item "editor\dist\EditorAresta.exe" -Destination $msixBetaDir
+          Copy-Item "editor\msix_beta\AppxManifest.xml" -Destination $msixBetaDir
+          Copy-Item "editor\msix_beta\Assets" -Destination "$msixBetaDir\Assets" -Recurse
+
+          $version = "${{ steps.versao.outputs.versao }}"
+          if ($version -match "^\d+\.\d+\.\d+$") {
+              $version = "$version.0"
+          }
+          $manifestPath = "$msixBetaDir\AppxManifest.xml"
+          (Get-Content $manifestPath) -replace 'Version="1\.0\.0\.0"', "Version=`"$version`"" | Set-Content $manifestPath
+
+          $makeappx = (Get-ChildItem "C:\Program Files (x86)\Windows Kits\10\bin\*\x64\makeappx.exe" | Sort-Object FullName -Descending | Select-Object -First 1).FullName
+          if (-not $makeappx) {
+              Write-Error "makeappx.exe not found"
+              exit 1
+          }
+
+          & $makeappx pack /d $msixBetaDir /p EditorArestaBeta.msix
+
+      - name: Assinar Pacote MSIX Beta
+        shell: pwsh
+        run: |
+          $signtool = (Get-ChildItem "C:\Program Files (x86)\Windows Kits\10\bin\*\x64\signtool.exe" | Sort-Object FullName -Descending | Select-Object -First 1).FullName
+          if (-not $signtool) {
+              Write-Error "signtool.exe not found"
+              exit 1
+          }
+
+          if ("${{ secrets.EDITOR_ARESTA_BETA_CERTIFICADO_PRIVADO_PFX }}" -eq "" -or "${{ secrets.EDITOR_ARESTA_BETA_CERTIFICADO_PRIVADO_SENHA }}" -eq "") {
+              Write-Error "ERRO CRITICO: Os segredos EDITOR_ARESTA_BETA_CERTIFICADO_PRIVADO_PFX e EDITOR_ARESTA_BETA_CERTIFICADO_PRIVADO_SENHA são obrigatórios para assinar o canal Beta. Configure-os nos Secrets do repositório."
+              exit 1
+          }
+
+          Write-Host "Decodificando certificado PFX oficial configurado nos segredos..."
+          [System.IO.File]::WriteAllBytes("cert_beta.pfx", [System.Convert]::FromBase64String("${{ secrets.EDITOR_ARESTA_BETA_CERTIFICADO_PRIVADO_PFX }}"))
+          
+          $secPwd = ConvertTo-SecureString -String "${{ secrets.EDITOR_ARESTA_BETA_CERTIFICADO_PRIVADO_SENHA }}" -Force -AsPlainText
+          $certObj = Import-PfxCertificate -FilePath "cert_beta.pfx" -CertStoreLocation "Cert:\CurrentUser\My" -Password $secPwd
+          Export-Certificate -Cert $certObj -FilePath "cert_beta.cer" | Out-Null
+
+          & $signtool sign /fd SHA256 /a /f "cert_beta.pfx" /p "${{ secrets.EDITOR_ARESTA_BETA_CERTIFICADO_PRIVADO_SENHA }}" EditorArestaBeta.msix
+          if ($LASTEXITCODE -ne 0) {
+              Write-Error "Falha na assinatura digital do pacote MSIX Beta."
+              exit $LASTEXITCODE
+          }
+
+      - name: Publicar Canal Beta no Cloudflare R2 e Purgar Cache
+        shell: pwsh
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.CLOUDFLARE_S3_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.CLOUDFLARE_S3_SECRET_ACCESS_KEY }}
+          R2_ENDPOINT_URL: ${{ secrets.CLOUDFLARE_S3_API_URL }}
+          R2_BUCKET: aresta-serving
+          CLOUDFLARE_ZONE_ID: ${{ secrets.CLOUDFLARE_ZONE_ID }}
+          CLOUDFLARE_CACHE_PURGE_API_TOKEN: ${{ secrets.CLOUDFLARE_CACHE_PURGE_API_TOKEN }}
+          PYTHONPATH: .
+        run: |
+          $cliArgs = @("--versao", "${{ steps.versao.outputs.versao }}", "--msix", "EditorArestaBeta.msix")
+          if (Test-Path "cert_beta.cer") {
+              $cliArgs += @("--cer", "cert_beta.cer")
+          }
+          uv run editor/release_tools/publicar_beta_cli.py @cliArgs
+
+      - name: Disponibilizar artefatos do canal Beta no GitHub
+        uses: actions/upload-artifact@v7
+        with:
+          name: EditorArestaBeta-Windows-Distribuicao
+          path: |
+            EditorArestaBeta.msix
+            EditorAresta.appinstaller
+            InstalarCertificadoEditorArestaBeta.bat
+          retention-days: 7
 
       - name: Calcular próxima versão -dev
         id: next_dev

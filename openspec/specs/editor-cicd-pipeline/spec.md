@@ -33,17 +33,17 @@ O workflow de lançamento no Windows DEVE (SHALL) suprimir a interface gráfica 
 - **AND** o pytest-xdist detecta o término do worker e o substitui automaticamente sem travar a execução
 
 ### Requirement: Publicação Automatizada de Pacote MSIX na Microsoft Store
-O workflow de CI/CD de lançamento DEVE (SHALL) autenticar na API do Partner Center via MSStore CLI e publicar o pacote MSIX empacotado para o Store ID do aplicativo, permitindo ao operador escolher entre a submissão imediata para certificação ou o envio como rascunho.
+O workflow de CI/CD de lançamento DEVE (SHALL) autenticar na API do Partner Center via MSStore CLI e publicar o pacote MSIX empacotado para o Store ID do aplicativo, operando por padrão em modo de rascunho (`--noCommit`) para validação prévia antes da submissão para certificação oficial.
 
-#### Scenario: Disparo com publicação imediata (padrão)
-- **WHEN** o workflow de lançamento for acionado com `should_publish: true` (ou omitido, assumindo padrão verdadeiro)
-- **THEN** o sistema executa a publicação apontando para o binário `EditorAresta.msix` e o Store ID configurado
-- **AND** submete a versão diretamente para a esteira de certificação da Microsoft Store
-
-#### Scenario: Disparo em modo rascunho
-- **WHEN** o workflow de lançamento for acionado com `should_publish: false`
+#### Scenario: Disparo em modo rascunho (padrão)
+- **WHEN** o workflow de lançamento for acionado com `should_publish: false` (ou omitido, assumindo falso por padrão)
 - **THEN** o sistema anexa o parâmetro `--noCommit` à instrução de publicação do `msstore`
 - **AND** disponibiliza o pacote no Partner Center em estado de rascunho sem iniciar a certificação imediatamente
+
+#### Scenario: Disparo com submissão imediata para certificação
+- **WHEN** o workflow de lançamento for acionado com `should_publish: true`
+- **THEN** o sistema executa a publicação apontando para o binário `EditorAresta.msix` e o Store ID configurado
+- **AND** submete a versão diretamente para a esteira de certificação da Microsoft Store
 
 ### Requirement: Seleção Parametrizada do Tipo de Release no Workflow
 O workflow de lançamento DEVE (SHALL) permitir ao operador selecionar o tipo de incremento de versão (`patch`, `minor`, `major` ou `custom`), calculando deterministicamente o número de versão semântico oficial a ser lançado antes das etapas de compilação e empacotamento.
@@ -64,5 +64,14 @@ O workflow de lançamento DEVE (SHALL) permitir ao operador selecionar o tipo de
 - **WHEN** o workflow for acionado com `bump_type: custom` e informar `custom_version: 0.5.0`
 - **THEN** o sistema valida a conformidade SemVer e utiliza a versão `0.5.0` para o lançamento
 
+### Requirement: Orquestração de Compilação Dual e Distribuição Beta no Workflow de Lançamento
+O workflow de lançamento DEVE (SHALL) compilar a versão oficial para a Microsoft Store e, em seguida, compilar, assinar digitalmente e distribuir a versão Beta no Cloudflare R2 com purgação de cache.
 
+#### Scenario: Execução completa do workflow de lançamento dual
+- **WHEN** o workflow de lançamento for disparado com uma versão oficial calculada
+- **THEN** o pipeline compila o pacote de produção `EditorAresta.msix` e o envia para a Microsoft Store
+- **AND** o pipeline compila a versão Beta com os recursos gráficos azuis e identidade `.Beta`
+- **AND** assina o pacote `EditorArestaBeta.msix` utilizando a ferramenta `signtool` com o certificado configurado
+- **AND** gera o arquivo `EditorAresta.appinstaller` e o envia juntamente com `EditorArestaBeta.msix` para o Cloudflare R2
+- **AND** dispara a purgação do cache da Cloudflare para as URLs atualizadas
 

@@ -30,7 +30,11 @@ except Exception:
     def filtrar_datas_desnecessarios(d):
         return d
 
+eh_beta = os.environ.get("ARESTA_CANAL", "").strip().lower() == "beta"
+
 datas = [(str(spec_dir / 'recursos'), 'recursos')]
+if eh_beta and (spec_dir / 'recursos_beta').exists():
+    datas.append((str(spec_dir / 'recursos_beta'), 'recursos_beta'))
 binaries = []
 hiddenimports = ['sentry_sdk']
 
@@ -62,6 +66,12 @@ a.binaries = filtrar_binarios_desnecessarios(a.binaries)
 
 pyz = PYZ(a.pure)
 
+caminho_icone_exe = (
+    spec_dir / 'recursos_beta' / 'logo.ico'
+    if (eh_beta and (spec_dir / 'recursos_beta' / 'logo.ico').exists())
+    else spec_dir / 'logo.ico'
+)
+
 exe = EXE(
     pyz,
     a.scripts,
@@ -81,5 +91,5 @@ exe = EXE(
     target_arch=None,
     codesign_identity=None,
     entitlements_file=None,
-    icon=[str(spec_dir / 'logo.ico')],
+    icon=[str(caminho_icone_exe)],
 )

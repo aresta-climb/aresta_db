@@ -39,7 +39,9 @@ from editor.views.estilo import Icones, configurar_tema_claro_aplicacao
 # Fix para o ícone na barra de tarefas do Windows
 try:
     import ctypes
-    ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID("aresta.editor.v1")
+    from editor.core.configuracao_canal import obter_configuracao_canal
+    config_canal_global = obter_configuracao_canal()
+    ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID(config_canal_global.app_user_model_id)
 except Exception:
     pass
 
@@ -57,11 +59,12 @@ class ControladorAplicativo:
             self.app: QApplication = inst
         else:
             self.app = QApplication(sys.argv)
-        self.app.setApplicationName("EditorAresta")
+        
+        config_canal = obter_configuracao_canal()
+        self.app.setApplicationName(config_canal.nome_aplicativo)
         configurar_tema_claro_aplicacao(self.app)
             
-        storage = GerenciadorCaminhos()
-        caminho_logo_app = storage.obter_caminho_recurso_interno("recursos/logo_app.png")
+        caminho_logo_app = config_canal.obter_caminho_recurso("logo_app.png")
         self.app.setWindowIcon(QIcon(str(caminho_logo_app)))
         
         try:

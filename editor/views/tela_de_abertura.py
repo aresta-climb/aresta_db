@@ -78,10 +78,6 @@ class TelaDeAbertura(QWidget):
 
     def __init__(self, cliente_auth: Optional[ClienteAuthSupabase] = None) -> None:
         super().__init__()
-        self.setWindowTitle("Editor Aresta")
-        self.setWindowFlags(Qt.WindowType.FramelessWindowHint)
-        self.setAttribute(Qt.WidgetAttribute.WA_TranslucentBackground)
-
         self.cliente_auth: ClienteAuthSupabase = cliente_auth or ClienteAuthSupabase()
         self.servidor_oauth: Optional[ServidorCallbackOAuth] = None
         self._email_atual: str = ""
@@ -91,9 +87,13 @@ class TelaDeAbertura(QWidget):
         self._drag_pos: Optional[Any] = None
         self._callback_atualizar: Optional[Callable[[], None]] = None
 
-        caminho_logo_janela = GerenciadorCaminhos().obter_caminho_recurso_interno(
-            "recursos/logo_app.png"
-        )
+        from editor.core.configuracao_canal import obter_configuracao_canal
+        self.config_canal = obter_configuracao_canal()
+        self.setWindowTitle(self.config_canal.nome_aplicativo)
+        self.setWindowFlags(Qt.WindowType.FramelessWindowHint)
+        self.setAttribute(Qt.WidgetAttribute.WA_TranslucentBackground)
+
+        caminho_logo_janela = self.config_canal.obter_caminho_recurso("logo_app.png")
         self.setWindowIcon(QIcon(str(caminho_logo_janela)))
         self.setFixedSize(450, 650)
         configurar_presenca_barra_de_tarefas(int(self.winId()))
@@ -145,9 +145,7 @@ class TelaDeAbertura(QWidget):
 
         self.label_logo = QLabel()
         self.label_logo.setAlignment(Qt.AlignmentFlag.AlignCenter)
-        caminho_logo = GerenciadorCaminhos().obter_caminho_recurso_interno(
-            "recursos/logo_splash.png"
-        )
+        caminho_logo = self.config_canal.obter_caminho_recurso("logo_splash.png")
         pixmap = QPixmap(str(caminho_logo))
         if not pixmap.isNull():
             pixmap = pixmap.scaled(
