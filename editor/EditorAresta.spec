@@ -32,9 +32,19 @@ except Exception:
 
 eh_beta = os.environ.get("ARESTA_CANAL", "").strip().lower() == "beta"
 
-datas = [(str(spec_dir / 'recursos'), 'recursos')]
+canal_nome = "beta" if eh_beta else "producao"
+caminho_canal = spec_dir / "canal.txt"
+caminho_canal.write_text(canal_nome, encoding="utf-8")
+
+datas = [
+    (str(spec_dir / 'recursos'), 'recursos'),
+    (str(spec_dir / 'recursos'), 'editor/recursos'),
+    (str(caminho_canal), '.'),
+    (str(caminho_canal), 'editor'),
+]
 if eh_beta and (spec_dir / 'recursos_beta').exists():
     datas.append((str(spec_dir / 'recursos_beta'), 'recursos_beta'))
+    datas.append((str(spec_dir / 'recursos_beta'), 'editor/recursos_beta'))
 binaries = []
 hiddenimports = ['sentry_sdk']
 

@@ -225,6 +225,17 @@ def test_tela_abertura_logo_oficial(qtbot):
     assert not pixmap.isNull()
 
 
+def test_tela_abertura_logo_canal_beta(qtbot, monkeypatch):
+    monkeypatch.setenv("ARESTA_CANAL", "beta")
+    abertura = TelaDeAbertura()
+    qtbot.addWidget(abertura)
+
+    pixmap = abertura.label_logo.pixmap()
+    assert pixmap is not None
+    assert not pixmap.isNull()
+    assert abertura.windowTitle() == "Editor Aresta (Beta)"
+
+
 def test_tela_abertura_exibir_aviso_atualizacao(qtbot):
     abertura = TelaDeAbertura()
     abertura.show()

@@ -96,3 +96,59 @@ def test_configuracao_canal_obter_caminho_recurso(tmp_path: Path) -> None:
     # Recurso inexistente retorna o caminho do canal
     caminho_inexistente = config_beta.obter_caminho_recurso("arquivo_inexistente.png")
     assert caminho_inexistente == dir_recursos_beta / "arquivo_inexistente.png"
+
+
+def test_configuracao_canal_obter_caminho_recurso_ambiente_pyinstaller(tmp_path: Path) -> None:
+    """Garante que a resolução de recursos funcione no executável congelado com sys._MEIPASS."""
+    import sys
+    dir_meipass = tmp_path / "meipass_bundle"
+    dir_recursos_beta = dir_meipass / "recursos_beta"
+    dir_recursos_beta.mkdir(parents=True)
+    logo_beta = dir_recursos_beta / "logo_splash.png"
+    logo_beta.write_bytes(b"logo_azul_empacotada")
+
+    with patch.object(sys, "_MEIPASS", str(dir_meipass), create=True), patch.object(sys, "frozen", True, create=True):
+        config_beta = ConfiguracaoCanal(CANAL_BETA)
+        caminho_resolvido = config_beta.obter_caminho_recurso("logo_splash.png")
+        assert caminho_resolvido == logo_beta
+
+
+def test_configuracao_canal_deteccao_automatica_em_pacote_pyinstaller(tmp_path: Path) -> None:
+    """Garante que o canal Beta seja detectado no executável empacotado via canal.txt sem variável de ambiente."""
+    import sys
+    dir_meipass = tmp_path / "meipass_bundle"
+    dir_meipass.mkdir(parents=True)
+    arquivo_canal = dir_meipass / "canal.txt"
+    arquivo_canal.write_text("beta", encoding="utf-8")
+
+    with patch.dict(os.environ, {}, clear=True), patch.object(sys, "_MEIPASS", str(dir_meipass), create=True), patch.object(sys, "frozen", True, create=True):
+        if "ARESTA_CANAL" in os.environ:
+            del os.environ["ARESTA_CANAL"]
+        config = obter_configuracao_canal()
+        assert config.eh_beta is True
+        assert config.nome_canal == CANAL_BETA
+        assert config.nome_aplicativo == "Editor Aresta (Beta)"
+
+
+def test_configuracao_canal_deteccao_automatica_por_pasta_recursos_beta(tmp_path: Path) -> None:
+    """Garante que o canal Beta seja detectado se recursos_beta existir no pacote PyInstaller."""
+    import sys
+    dir_meipass = tmp_path / "meipass_bundle"
+    (dir_meipass / "recursos_beta").mkdir(parents=True)
+
+    with patch.dict(os.environ, {}, clear=True), patch.object(sys, "_MEIPASS", str(dir_meipass), create=True), patch.object(sys, "frozen", True, create=True):
+        if "ARESTA_CANAL" in os.environ:
+            del os.environ["ARESTA_CANAL"]
+        config = obter_configuracao_canal()
+        assert config.eh_beta is True
+        assert config.nome_canal == CANAL_BETA
+
+
+def test_obter_diretorio_base_recursos(tmp_path: Path) -> None:
+    """Garante que obter_diretorio_base_recursos respeita o parâmetro informado."""
+    from editor.core.configuracao_canal import obter_diretorio_base_recursos
+
+    caminho_customizado = tmp_path / "custom"
+    assert obter_diretorio_base_recursos(caminho_customizado) == caminho_customizado
+
+

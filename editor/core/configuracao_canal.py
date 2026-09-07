@@ -16,6 +16,19 @@ CANAL_PRODUCAO: str = "producao"
 CANAL_BETA: str = "beta"
 
 
+def obter_diretorio_base_recursos(diretorio_base: Optional[Path] = None) -> Path:
+    """
+    Retorna o diretório base para localização de recursos gráficos.
+    Lida corretamente com o sys._MEIPASS quando o executável é congelado via PyInstaller.
+    """
+    if diretorio_base:
+        return diretorio_base
+    import sys
+    if hasattr(sys, "_MEIPASS"):
+        return Path(sys._MEIPASS)
+    return Path(__file__).resolve().parent.parent
+
+
 @dataclass(frozen=True)
 class ConfiguracaoCanal:
     """Representa a configuração e metadados de identidade de um canal do editor."""
@@ -63,28 +76,61 @@ class ConfiguracaoCanal:
         """
         Resolve o caminho absoluto de um recurso gráfico respeitando a pasta prioritária
         do canal e realizando fallback transparente para a pasta padrão de recursos.
+        Suporta tanto ambiente de desenvolvimento quanto executável empacotado (PyInstaller sys._MEIPASS).
         """
-        base = self.diretorio_base or Path(__file__).resolve().parent.parent
-        caminho_canal = base / self.subdiretorio_recursos / nome_recurso
+        base = self.diretorio_base or obter_diretorio_base_recursos()
 
-        if self.eh_beta and caminho_canal.exists():
-            return caminho_canal
+        candidatos_canal = [
+            base / self.subdiretorio_recursos / nome_recurso,
+            base / "editor" / self.subdiretorio_recursos / nome_recurso,
+        ]
+        if self.eh_beta:
+            for cand in candidatos_canal:
+                if cand.exists():
+                    return cand
 
-        caminho_padrao = base / "recursos" / nome_recurso
-        if caminho_padrao.exists():
-            return caminho_padrao
+        candidatos_padrao = [
+            base / "recursos" / nome_recurso,
+            base / "editor" / "recursos" / nome_recurso,
+        ]
+        for cand in candidatos_padrao:
+            if cand.exists():
+                return cand
 
-        return caminho_canal
+        return candidatos_canal[0]
 
 
-def obter_configuracao_canal(nome_canal: Optional[str] = None) -> ConfiguracaoCanal:
+def obter_configuracao_canal(
+    nome_canal: Optional[str] = None,
+    diretorio_base: Optional[Path] = None,
+) -> ConfiguracaoCanal:
     """
     Obtém a instância imutável de ConfiguracaoCanal correspondente.
-    Caso o parâmetro nome_canal seja omitido, consulta a variável de ambiente ARESTA_CANAL.
+    Prioridade de detecção:
+    1. Parâmetro explícito nome_canal
+    2. Variável de ambiente ARESTA_CANAL
+    3. Arquivo canal.txt embutido no pacote (PyInstaller)
+    4. Presença do subdiretório recursos_beta quando empacotado
+    5. Padrão: CANAL_PRODUCAO
     """
+    import sys
+
     canal = (nome_canal or os.environ.get("ARESTA_CANAL", "")).strip().lower()
 
-    if canal == CANAL_BETA:
-        return ConfiguracaoCanal(CANAL_BETA)
+    if not canal:
+        base = diretorio_base or obter_diretorio_base_recursos()
+        # 1. Tenta ler canal.txt na raiz ou em editor/
+        for p in [base / "canal.txt", base / "editor" / "canal.txt"]:
+            if p.exists():
+                canal = p.read_text(encoding="utf-8").strip().lower()
+                break
 
-    return ConfiguracaoCanal(CANAL_PRODUCAO)
+        # 2. Se empacotado e recursos_beta existir na raiz do bundle
+        if not canal and getattr(sys, "frozen", False):
+            if (base / "recursos_beta").exists() or (base / "editor" / "recursos_beta").exists():
+                canal = CANAL_BETA
+
+    if canal == CANAL_BETA:
+        return ConfiguracaoCanal(CANAL_BETA, diretorio_base=diretorio_base)
+
+    return ConfiguracaoCanal(CANAL_PRODUCAO, diretorio_base=diretorio_base)
