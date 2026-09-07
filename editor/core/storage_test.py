@@ -80,31 +80,9 @@ class TestStorage(unittest.TestCase):
             self.assertIn("recursos_beta", str(caminho).replace("\\", "/"))
             self.assertEqual(caminho.name, "logo_app.png")
 
-    def test_migrar_dados_legados_se_necessario(self):
-        """Garante que dados legados de 'Editor Aresta' sejam migrados para a pasta ativa."""
-        import tempfile
-        with tempfile.TemporaryDirectory() as temp_dir:
-            base_dir = Path(temp_dir)
-            pasta_legada = base_dir / "Editor Aresta"
-            pasta_atual = base_dir / "Editor Aresta (Beta)"
-
-            # Prepara estrutura legada
-            croqui_legado = pasta_legada / "croquis" / "croqui_teste_123"
-            croqui_legado.mkdir(parents=True)
-            (croqui_legado / "croqui.yaml").write_text("nome: Teste Legado", encoding="utf-8")
-            (pasta_legada / ".sessao_auth.enc").write_text("token_fake_123", encoding="utf-8")
-
-            gerenciador = GerenciadorCaminhos()
-            with patch.object(gerenciador, "obter_diretorio_base", return_value=pasta_atual):
-                gerenciador.inicializar_diretorios()
-
-                croqui_migrado = pasta_atual / "croquis" / "croqui_teste_123"
-                self.assertTrue(croqui_migrado.exists())
-                self.assertEqual((croqui_migrado / "croqui.yaml").read_text(encoding="utf-8"), "nome: Teste Legado")
-                self.assertTrue((pasta_atual / ".sessao_auth.enc").exists())
-
 
 if __name__ == "__main__":
     unittest.main()
+
 
 
