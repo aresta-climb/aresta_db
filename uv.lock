@@ -127,7 +127,7 @@ wheels = [
 
 [[package]]
 name = "aresta-db"
-version = "0.3.6.dev0"
+version = "0.3.6"
 source = { virtual = "." }
 
 [package.dev-dependencies]
