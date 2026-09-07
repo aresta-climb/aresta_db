@@ -82,6 +82,29 @@ class GerenciadorCaminhos:
         """
         return self.obter_diretorio_base() / ".trash_interna"
 
+    def migrar_dados_legados_se_necessario(self) -> None:
+        """
+        Migra croquis e sessão da pasta legada 'Editor Aresta' para a pasta ativa
+        (ex: 'Editor Aresta (Beta)') caso existam e ainda não estejam presentes.
+        """
+        base_atual = self.obter_diretorio_base()
+        base_legada = base_atual.parent / "Editor Aresta"
+        if base_legada.exists() and base_legada != base_atual:
+            pasta_croquis_legados = base_legada / "croquis"
+            pasta_croquis_atual = self.obter_caminho_croquis_experimentais()
+            if pasta_croquis_legados.is_dir():
+                import shutil
+                for item in pasta_croquis_legados.iterdir():
+                    destino = pasta_croquis_atual / item.name
+                    if item.is_dir() and not destino.exists():
+                        shutil.copytree(item, destino)
+
+            sessao_legada = base_legada / ".sessao_auth.enc"
+            sessao_atual = base_atual / ".sessao_auth.enc"
+            if sessao_legada.is_file() and not sessao_atual.exists():
+                import shutil
+                shutil.copy2(sessao_legada, sessao_atual)
+
     def inicializar_diretorios(self) -> None:
         """
         Cria a estrutura de pastas necessária se não existir.
@@ -91,4 +114,6 @@ class GerenciadorCaminhos:
         self.obter_caminho_croquis_experimentais().mkdir(parents=True, exist_ok=True)
         self.obter_caminho_diarios_locais().mkdir(parents=True, exist_ok=True)
         self.obter_caminho_lixeira().mkdir(parents=True, exist_ok=True)
+        self.migrar_dados_legados_se_necessario()
+
 

@@ -54,6 +54,8 @@ def test_gerar_conteudo_appinstaller_estrutura_xml() -> None:
     on_launch = update_settings.find("appx:OnLaunch", ns)
     assert on_launch is not None
     assert on_launch.attrib["HoursBetweenUpdateChecks"] == "0"
+    assert on_launch.attrib["ShowPrompt"] == "false"
+    assert on_launch.attrib["UpdateBlocksActivation"] == "true"
 
     auto_bg = update_settings.find("appx:AutomaticBackgroundTask", ns)
     assert auto_bg is not None

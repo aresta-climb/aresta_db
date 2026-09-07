@@ -58,7 +58,7 @@ def gerar_conteudo_appinstaller(
         Uri="{uri_limpa}/EditorArestaBeta.msix" />
 
     <UpdateSettings>
-        <OnLaunch HoursBetweenUpdateChecks="0" />
+        <OnLaunch HoursBetweenUpdateChecks="0" ShowPrompt="false" UpdateBlocksActivation="true" />
         <AutomaticBackgroundTask />
         <ForceUpdateFromAnyVersion>true</ForceUpdateFromAnyVersion>
     </UpdateSettings>
