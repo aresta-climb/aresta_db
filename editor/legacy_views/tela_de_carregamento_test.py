@@ -459,6 +459,19 @@ def test_tela_de_carregamento_estilo_define_contraste_legivel(qtbot):
     assert not re.search(r'(?m)^\s*QPushButton\s*\{', estilo), "O seletor genérico QPushButton vaza para diálogos filhos como QInputDialog"
 
 
+def test_tela_de_carregamento_titulo_e_icone_canal_beta(qtbot, monkeypatch):
+    """Garante que a tela de carregamento adote o nome do canal Beta e seu respectivo ícone."""
+    monkeypatch.setenv("ARESTA_CANAL", "beta")
+    tela = TelaDeCarregamento()
+    qtbot.addWidget(tela)
+
+    assert "Beta" in tela.windowTitle()
+    assert tela.windowTitle() == "Iniciar Editor Aresta (Beta)"
+    assert not tela.windowIcon().isNull()
+    tela.close()
+
+
+
 
 
 

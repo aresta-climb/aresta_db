@@ -1150,4 +1150,52 @@ def test_salvar_croqui_trata_excecao_e_delega_dialogo(janela_principal):
             assert "Falha ao instanciar thread" in str(args[1])
 
 
+@patch("editor.legacy_views.area_principal.QCoreApplication.applicationVersion", return_value="0.3.3")
+@patch("editor.legacy_views.area_principal.JanelaPrincipal.carregar_croqui")
+def test_atualizar_titulo_canal_beta(mock_carregar, mock_version, qtbot, monkeypatch):
+    """Garante que o título da janela principal exiba (Beta) quando executando no canal Beta."""
+    monkeypatch.setenv("ARESTA_CANAL", "beta")
+    from editor.legacy_views.area_principal import JanelaPrincipal
+
+    workspace_mock = MagicMock()
+    workspace_mock.obter_tag_titulo.return_value = "Bocaina Park (Esportivas)"
+
+    janela = JanelaPrincipal(workspace=workspace_mock)
+    qtbot.addWidget(janela)
+
+    janela.croqui_data = {"nome": "setor_ensolarado.md"}
+    janela.historico.obter_pilha().isClean = MagicMock(return_value=True)
+
+    janela.atualizar_titulo()
+    assert (
+        janela.windowTitle()
+        == "Editor Aresta (Beta) v0.3.3 - Bocaina Park (Esportivas) - setor_ensolarado.md"
+    )
+    janela.close()
+
+
+@patch("editor.legacy_views.area_principal.JanelaPrincipal.carregar_croqui")
+def test_janela_principal_logo_e_icone_canal_beta(mock_carregar, qtbot, monkeypatch):
+    """Garante que a barra superior e o ícone da janela principal utilizem o logo azul no canal Beta."""
+    monkeypatch.setenv("ARESTA_CANAL", "beta")
+    from editor.legacy_views.area_principal import JanelaPrincipal
+
+    janela = JanelaPrincipal()
+    qtbot.addWidget(janela)
+
+    pixmap = janela.espacador_superior.pixmap()
+    assert pixmap is not None
+    assert not pixmap.isNull()
+
+    # O logo Beta (#4196e9) possui tom predominantemente azul, enquanto o padrão (#e95441) é vermelho/laranja
+    img = pixmap.toImage()
+    cor_centro = img.pixelColor(img.width() // 2, img.height() // 2)
+    assert cor_centro.blue() > cor_centro.red(), f"Esperado azul > vermelho, obteve {cor_centro.name()}"
+
+    icone = janela.windowIcon()
+    assert not icone.isNull()
+    janela.close()
+
+
+
 

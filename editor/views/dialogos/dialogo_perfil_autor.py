@@ -24,10 +24,11 @@ class DialogoPerfilAutor(QDialog):
 
     def __init__(self, nome_sugerido: str = "", parent: Optional[QWidget] = None) -> None:
         super().__init__(parent)
-        from editor.core.storage import GerenciadorCaminhos
+        from editor.core.configuracao_canal import obter_configuracao_canal
         from PySide6.QtGui import QIcon
 
-        caminho_logo_janela = GerenciadorCaminhos().obter_caminho_recurso_interno("recursos/logo_app.png")
+        config_canal = obter_configuracao_canal()
+        caminho_logo_janela = config_canal.obter_caminho_recurso("logo_app.png")
         self.setWindowIcon(QIcon(str(caminho_logo_janela)))
 
         self.setWindowTitle("Identificação do Autor")
@@ -35,7 +36,7 @@ class DialogoPerfilAutor(QDialog):
         self.init_ui(nome_sugerido)
 
     def init_ui(self, nome_sugerido: str) -> None:
-        from editor.core.storage import GerenciadorCaminhos
+        from editor.core.configuracao_canal import obter_configuracao_canal
         from PySide6.QtGui import QPixmap
 
         layout = QVBoxLayout(self)
@@ -43,7 +44,8 @@ class DialogoPerfilAutor(QDialog):
         layout.setContentsMargins(25, 25, 25, 25)
 
         # Logo Aresta Climb
-        caminho_logo = GerenciadorCaminhos().obter_caminho_recurso_interno("recursos/logo_splash.png")
+        config_canal = obter_configuracao_canal()
+        caminho_logo = config_canal.obter_caminho_recurso("logo_splash.png")
         if caminho_logo.exists():
             pixmap = QPixmap(str(caminho_logo))
             if not pixmap.isNull():

@@ -212,11 +212,12 @@ def main() -> None:
         app = inst
     else:
         app = QApplication(sys.argv)
-    app.setApplicationName("EditorAresta")
+    from editor.core.configuracao_canal import obter_configuracao_canal
+    config_canal = obter_configuracao_canal()
+    app.setApplicationName(config_canal.nome_aplicativo)
     configurar_tema_claro_aplicacao(app)
 
-    storage = GerenciadorCaminhos()
-    caminho_logo_app = storage.obter_caminho_recurso_interno("recursos/logo_app.png")
+    caminho_logo_app = config_canal.obter_caminho_recurso("logo_app.png")
     app.setWindowIcon(QIcon(str(caminho_logo_app)))
 
 
@@ -248,10 +249,7 @@ def main() -> None:
         
         if caminho_path.is_dir() and (caminho_path / "croqui.yaml").exists():
             storage = GerenciadorCaminhos()
-            caminho_logo_app = storage.obter_caminho_recurso_interno("recursos/logo_app.png")
-            if not caminho_logo_app.exists() and hasattr(storage, 'obter_caminho_recurso'):
-                # fallback em caso de testes/diferenças
-                pass
+            caminho_logo_app = config_canal.obter_caminho_recurso("logo_app.png")
             
             # QIcon precisa receber string
             try:

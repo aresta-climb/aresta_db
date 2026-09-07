@@ -281,6 +281,17 @@ def test_configurar_ambiente_plataforma_define_darkmode_zero(monkeypatch):
         assert os.environ.get("QT_QPA_PLATFORM") == "windows:darkmode=0"
 
 
+def test_controlador_app_configura_canal_beta(qtbot, monkeypatch):
+    """Garante que o ControladorAplicativo configura o nome da aplicação e o ícone para o canal Beta."""
+    monkeypatch.setenv("ARESTA_CANAL", "beta")
+    with patch("editor.main.TarefaInicializacao"):
+        controlador = ControladorAplicativo()
+        assert controlador.app.applicationName() == "Editor Aresta (Beta)"
+        assert not controlador.app.windowIcon().isNull()
+        controlador.abertura.close()
+
+
+
 
 
 

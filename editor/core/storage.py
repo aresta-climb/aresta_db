@@ -38,8 +38,17 @@ class GerenciadorCaminhos:
     def obter_caminho_recurso_interno(self, caminho_relativo: str) -> Path:
         """
         Retorna o caminho absoluto para um recurso interno empacotado (ex: imagens).
-        Lida corretamente com o sys._MEIPASS quando compilado com PyInstaller.
+        Lida corretamente com o sys._MEIPASS quando compilado com PyInstaller
+        e respeita sobreposições de canais ativos (ex: canal Beta).
         """
+        from editor.core.configuracao_canal import obter_configuracao_canal
+        config = obter_configuracao_canal()
+        if config.eh_beta:
+            nome_arquivo = Path(caminho_relativo).name
+            caminho_canal = config.obter_caminho_recurso(nome_arquivo)
+            if caminho_canal.exists():
+                return caminho_canal
+
         import sys
         if hasattr(sys, '_MEIPASS'):
             base_path = Path(sys._MEIPASS)

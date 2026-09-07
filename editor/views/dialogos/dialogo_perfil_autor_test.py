@@ -44,3 +44,11 @@ class TesteDialogoPerfilAutor:
 
         assert dialogo.result() == QDialog.DialogCode.Accepted
         assert dialogo.obter_nome_completo() == "Renato Utsch"
+
+    def teste_dialogo_perfil_autor_canal_beta(self, qtbot, monkeypatch):
+        monkeypatch.setenv("ARESTA_CANAL", "beta")
+        dialogo = DialogoPerfilAutor()
+        qtbot.addWidget(dialogo)
+
+        assert not dialogo.windowIcon().isNull()
+

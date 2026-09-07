@@ -71,5 +71,16 @@ class TestStorage(unittest.TestCase):
         esperado = str(Path(storage.__file__).resolve().parent.parent / "recursos/logo_splash.png")
         self.assertEqual(str(caminho), esperado)
 
+    def test_obter_caminho_recurso_interno_canal_beta(self):
+        """Garante que obter_caminho_recurso_interno prioriza recursos_beta quando em canal Beta."""
+        import os
+        with patch.dict(os.environ, {"ARESTA_CANAL": "beta"}):
+            gerenciador = GerenciadorCaminhos()
+            caminho = gerenciador.obter_caminho_recurso_interno("recursos/logo_app.png")
+            self.assertIn("recursos_beta", str(caminho).replace("\\", "/"))
+            self.assertEqual(caminho.name, "logo_app.png")
+
+
 if __name__ == "__main__":
     unittest.main()
+

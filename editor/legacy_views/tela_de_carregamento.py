@@ -293,13 +293,13 @@ class TelaDeCarregamento(QDialog):
         self.usuario: str = usuario
         self.gerenciador: Optional[GerenciadorCroquiExperimental] = GerenciadorCroquiExperimental(storage) if storage else None
         self.caminho_croqui_selecionado: Optional[Path] = None
-        self.setWindowTitle("Iniciar Editor Aresta")
+        from editor.core.configuracao_canal import obter_configuracao_canal
+        config_canal = obter_configuracao_canal()
+        self.setWindowTitle(f"Iniciar {config_canal.nome_aplicativo}")
         self.setMinimumSize(650, 600)
         self.resize(750, 700)
         from PySide6.QtGui import QIcon
-        from editor.core.storage import GerenciadorCaminhos
-        storage_atual = storage or GerenciadorCaminhos()
-        caminho_logo_app = storage_atual.obter_caminho_recurso_interno("recursos/logo_app.png")
+        caminho_logo_app = config_canal.obter_caminho_recurso("logo_app.png")
         self.setWindowIcon(QIcon(str(caminho_logo_app)))
         
         # Habilitar botões de minimizar/maximizar em QDialog

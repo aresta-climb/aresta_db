@@ -323,14 +323,14 @@ class JanelaPrincipal(QMainWindow):
         self.toolbar_superior.setMovable(False)
         self.toolbar_superior.setIconSize(QSize(24, 24))
         
-        # Logo do aplicativo (montanha verde musgo)
+        # Logo do aplicativo (montanha verde musgo / azul no beta)
         self.espacador_superior = QLabel()
         self.espacador_superior.setFixedWidth(63)
         self.espacador_superior.setAlignment(Qt.AlignmentFlag.AlignCenter)
         from PySide6.QtGui import QPixmap, QIcon, QPainter, QPainterPath, QColor
-        from editor.core.storage import GerenciadorCaminhos
-        storage_atual = self.storage or GerenciadorCaminhos()
-        caminho_logo_app = storage_atual.obter_caminho_recurso_interno("recursos/logo_app.png")
+        from editor.core.configuracao_canal import obter_configuracao_canal
+        config_canal = obter_configuracao_canal()
+        caminho_logo_app = config_canal.obter_caminho_recurso("logo_app.png")
         pixmap = QPixmap(str(caminho_logo_app))
         
         if not pixmap.isNull():
@@ -369,8 +369,10 @@ class JanelaPrincipal(QMainWindow):
 
     def atualizar_titulo(self) -> None:
         """Atualiza o título da janela baseado no workspace, nome do croqui e estado de modificação."""
+        from editor.core.configuracao_canal import obter_configuracao_canal
+        config_canal = obter_configuracao_canal()
         versao = QCoreApplication.applicationVersion()
-        titulo_base = f"Editor Aresta v{versao}" if versao else "Editor Aresta"
+        titulo_base = config_canal.titulo_janela(versao)
         
         if self.workspace:
             tag = self.workspace.obter_tag_titulo()
