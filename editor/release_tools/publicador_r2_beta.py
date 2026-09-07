@@ -44,7 +44,11 @@ class PublicadorR2Beta:
     ) -> None:
         self.bucket = bucket
         self.zone_id = zone_id or os.environ.get("CLOUDFLARE_ZONE_ID")
-        self.api_token = api_token or os.environ.get("CLOUDFLARE_CACHE_PURGE_API_TOKEN")
+        self.api_token = (
+            api_token
+            or os.environ.get("CLOUDFLARE_CACHE_PURGE_API_TOKEN")
+            or os.environ.get("CLOUDFLARE_API_TOKEN")
+        )
         self.uri_base = uri_base.rstrip("/")
         self._cliente_s3 = cliente_s3
 
@@ -55,12 +59,32 @@ class PublicadorR2Beta:
             import boto3
             from botocore.config import Config
 
-            endpoint = os.environ.get("R2_ENDPOINT_URL")
+            endpoint = (
+                os.environ.get("R2_ENDPOINT_URL")
+                or os.environ.get("CLOUDFLARE_S3_API_URL")
+            )
+            if not endpoint:
+                account_id = (
+                    os.environ.get("CLOUDFLARE_ACCOUNT_ID")
+                    or os.environ.get("CLOUDFLARE_ACOUNT_ID")
+                )
+                if account_id:
+                    endpoint = f"https://{account_id}.r2.cloudflarestorage.com"
+
+            access_key = (
+                os.environ.get("AWS_ACCESS_KEY_ID")
+                or os.environ.get("CLOUDFLARE_S3_ACCESS_KEY_ID")
+            )
+            secret_key = (
+                os.environ.get("AWS_SECRET_ACCESS_KEY")
+                or os.environ.get("CLOUDFLARE_S3_SECRET_ACCESS_KEY")
+            )
+
             self._cliente_s3 = boto3.client(
                 "s3",
                 endpoint_url=endpoint,
-                aws_access_key_id=os.environ.get("AWS_ACCESS_KEY_ID"),
-                aws_secret_access_key=os.environ.get("AWS_SECRET_ACCESS_KEY"),
+                aws_access_key_id=access_key,
+                aws_secret_access_key=secret_key,
                 region_name="auto",
                 config=Config(signature_version="s3v4"),
             )
