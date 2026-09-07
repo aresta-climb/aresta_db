@@ -327,7 +327,7 @@ class TarefaSalvamento(QThread):
     Thread responsável por salvar em background (I/O intensivo e compilação).
     """
     sucesso: Signal = Signal(object, object, bool, int) # caminho_retornado, erros, houve_renomeacao, undo_index
-    erro: Signal = Signal(str)
+    erro: Signal = Signal(str, str) # mensagem_erro, traceback_detalhado
 
     def __init__(
         self,
@@ -364,6 +364,7 @@ class TarefaSalvamento(QThread):
             
             self.sucesso.emit(caminho_retornado, erros, houve_renomeacao, self.undo_index)
         except BaseException as e:
+            tb_str = traceback.format_exc()
             traceback.print_exc()
             from editor.core.registro_log import logger
             from editor.core.telemetria import capturar_excecao
@@ -374,5 +375,5 @@ class TarefaSalvamento(QThread):
                 etapa="tarefa_salvamento",
                 contexto_extra={"novo_id": self.novo_id, "id_atual": self.id_atual, "caminho_db": str(self.caminho_db)},
             )
-            self.erro.emit(str(e))
+            self.erro.emit(str(e), tb_str)
 

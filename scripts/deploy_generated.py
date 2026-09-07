@@ -404,13 +404,14 @@ def passo_a_compilar_croquis(
     force_thumbnails: bool = False,
     gerar_arquivos_de_debug: bool = True,
     verbose: bool = False
-) -> Tuple[List[Tuple[str, Dict[str, Any], Path]], List[str]]:
+) -> Tuple[List[Tuple[str, Dict[str, Any], Path]], List[str], List[Exception]]:
     """
     Passo A: Corrige cada croqui e compila para .binarypb (e .yaml/.md se gerar_arquivos_de_debug=True).
     """
     print("\n=== Passo A: Compilando croquis ===")
     compilados: List[Tuple[str, Dict[str, Any], Path]] = []
     erros: List[str] = []
+    excecoes: List[Exception] = []
     total = len(a_compilar)
 
     for i, (croqui_dir, croqui_data) in enumerate(a_compilar, 1):
@@ -434,10 +435,11 @@ def passo_a_compilar_croquis(
             processar_thumbnail(croqui_dir, GENERATED_DIR, croqui_data, force_thumbnails=force_thumbnails)
         except Exception as e:
             import traceback
-            traceback.print_exc()
+            print(traceback.format_exc())
             msg = f"Erro ao corrigir database de {croqui_id}: {e}"
             print(f"  {msg}")
             erros.append(msg)
+            excecoes.append(e)
             continue
 
         # --- Fase 2: Imagens ---
@@ -489,9 +491,12 @@ def passo_a_compilar_croquis(
                 if verbose:
                     print(f"  [compilado.md] gerado com sucesso!")
         except Exception as e:
+            import traceback
+            print(traceback.format_exc())
             msg = f"Erro ao compilar {croqui_id}: {e}"
             print(f"  {msg}")
             erros.append(msg)
+            excecoes.append(e)
             continue
 
         if not dest_pb.exists():
@@ -500,7 +505,7 @@ def passo_a_compilar_croquis(
 
         compilados.append((croqui_id, croqui_data, dest_pb))
 
-    return compilados, erros
+    return compilados, erros, excecoes
 
 
 
@@ -793,7 +798,17 @@ def deploy(
     preparar_generated(limpar=(not target_paths))
 
     # 5. Compilar os selecionados
-    compilados_novos, erros = passo_a_compilar_croquis(a_compilar, force_thumbnails=force_thumbnails, gerar_arquivos_de_debug=gerar_arquivos_de_debug, verbose=verbose)
+    resultado_passo_a = passo_a_compilar_croquis(
+        a_compilar,
+        force_thumbnails=force_thumbnails,
+        gerar_arquivos_de_debug=gerar_arquivos_de_debug,
+        verbose=verbose
+    )
+    if len(resultado_passo_a) == 3:
+        compilados_novos, erros, excecoes = resultado_passo_a
+    else:
+        compilados_novos, erros = resultado_passo_a
+        excecoes = []
 
     if erros:
         print("\n" + "!" * 60)
@@ -838,7 +853,11 @@ def deploy(
                 import sys
                 sys.exit(1)
             else:
-                raise RuntimeError(f"Ocorreram {len(erros)} erros durante o deploy:\n" + "\n".join(erros))
+                msg_erro = f"Ocorreram {len(erros)} erros durante o deploy:\n" + "\n".join(erros)
+                if excecoes:
+                    raise RuntimeError(msg_erro) from excecoes[0]
+                else:
+                    raise RuntimeError(msg_erro)
         # Se for deploy total, talvez seja erro. Se for específico, avisamos.
         if not target_paths:
             return

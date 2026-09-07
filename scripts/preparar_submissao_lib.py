@@ -622,7 +622,11 @@ def corrigir_database(pico_path: Path) -> None:
 # FASE 2: COMPILAÇÃO DE ARTEFATOS (GENERATED)
 # ===========================================================================
 
-def expandir_arquivo_generico(obj_ref: Dict[str, Any], pico_path: Path) -> Tuple[str, Dict[str, Any]]:
+def expandir_arquivo_generico(
+    obj_ref: Dict[str, Any],
+    pico_path: Path,
+    tipo_esperado: Optional[str] = None
+) -> Tuple[str, Dict[str, Any]]:
     """
     Expande um objeto que pode ser Setor ou Grupo.
     Retorna (tipo, dados_expandidos) onde tipo é 'setor' ou 'grupo'.
@@ -633,19 +637,28 @@ def expandir_arquivo_generico(obj_ref: Dict[str, Any], pico_path: Path) -> Tuple
         frontmatter, corpo = parse_md_com_frontmatter(md_path)
         if not frontmatter: frontmatter = {}
 
-        # Heurística: Se tem setores/sub_setores, é um Grupo. Caso contrário Setor.
-        filhos = frontmatter.get("setores") or frontmatter.get("sub_setores")
+        if tipo_esperado == "grupo":
+            eh_grupo = True
+        elif tipo_esperado == "setor":
+            eh_grupo = False
+        else:
+            eh_grupo = ("setores" in frontmatter) or ("sub_setores" in frontmatter)
         
-        if filhos:
+        if eh_grupo:
             # É um Grupo
             # Grupos só podem ter setores filhos (ArquivoSetor)
             # Filtra eventuais nulos na lista de filhos
+            filhos = frontmatter.get("setores") or frontmatter.get("sub_setores") or []
             setores_expandidos = []
             for s in filhos:
                 if not s: continue
                 # Se s é string, converte para dict com caminho
                 s_ref = {"caminho": s} if isinstance(s, str) else s
-                _, dados = expandir_arquivo_generico(s_ref if "caminho" in s_ref else {"conteudo": s_ref.get("conteudo")}, pico_path)
+                _, dados = expandir_arquivo_generico(
+                    s_ref if "caminho" in s_ref else {"conteudo": s_ref.get("conteudo")},
+                    pico_path,
+                    tipo_esperado="setor"
+                )
                 setores_expandidos.append(dados)
             
             frontmatter["setores"] = setores_expandidos
@@ -663,14 +676,25 @@ def expandir_arquivo_generico(obj_ref: Dict[str, Any], pico_path: Path) -> Tuple
     else:
         # Caso estruturado diretamente no YAML
         conteudo = obj_ref.get("conteudo") or {}
-        filhos = conteudo.get("setores") or conteudo.get("sub_setores")
-        if filhos:
+        if tipo_esperado == "grupo":
+            eh_grupo = True
+        elif tipo_esperado == "setor":
+            eh_grupo = False
+        else:
+            eh_grupo = ("setores" in conteudo) or ("sub_setores" in conteudo)
+
+        if eh_grupo:
             # É um Grupo
+            filhos = conteudo.get("setores") or conteudo.get("sub_setores") or []
             setores_expandidos = []
             for s in filhos:
                 if not s: continue
                 s_ref = {"caminho": s} if isinstance(s, str) else s
-                _, dados = expandir_arquivo_generico(s_ref if "caminho" in s_ref else {"conteudo": s_ref.get("conteudo")}, pico_path)
+                _, dados = expandir_arquivo_generico(
+                    s_ref if "caminho" in s_ref else {"conteudo": s_ref.get("conteudo")},
+                    pico_path,
+                    tipo_esperado="setor"
+                )
                 setores_expandidos.append(dados)
             
             conteudo["setores"] = setores_expandidos
@@ -689,7 +713,7 @@ def expandir_setores_ou_grupos_recursivo(setores_ou_grupos_raw: List[Any], pico_
         obj_ref = e_ref.get(tipo_in)
         if not obj_ref: continue
 
-        tipo_out, dados = expandir_arquivo_generico(obj_ref, pico_path)
+        tipo_out, dados = expandir_arquivo_generico(obj_ref, pico_path, tipo_esperado=tipo_in)
         processados.append({tipo_out: dados})
 
     return processados

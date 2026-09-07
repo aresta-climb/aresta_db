@@ -739,7 +739,9 @@ class JanelaPrincipal(QMainWindow):
             self._worker_salvar.start()
             
         except Exception as e:
-            QMessageBox.critical(self, "Erro ao Salvar", f"Não foi possível iniciar o salvamento:\n{str(e)}")
+            import traceback
+            from editor.views.dialogo_erro_salvamento import exibir_dialogo_erro_salvamento
+            exibir_dialogo_erro_salvamento(self, e, traceback.format_exc())
 
     def _on_salvar_sucesso(self, caminho_retornado: Any, erros: List[str], houve_renomeacao: bool, undo_index: int) -> None:
         self._salvando = False
@@ -782,11 +784,13 @@ class JanelaPrincipal(QMainWindow):
                 self.dlg_espera.accept()
             self.close()
 
-    def _on_salvar_erro(self, e: Exception) -> None:
+    def _on_salvar_erro(self, erro_msg: Union[str, Exception], traceback_detalhado: str = "") -> None:
         self._salvando = False
         if self.label_status_salvamento:
             self.label_status_salvamento.hide()
-        QMessageBox.critical(self, "Erro ao Salvar", f"Não foi possível salvar o croqui:\n{str(e)}")
+            
+        from editor.views.dialogo_erro_salvamento import exibir_dialogo_erro_salvamento
+        exibir_dialogo_erro_salvamento(self, erro_msg, traceback_detalhado)
         
         if hasattr(self, 'salvamento_finalizado'):
             self.salvamento_finalizado.emit()

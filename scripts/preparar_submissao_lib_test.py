@@ -14,7 +14,9 @@ from scripts.preparar_submissao_lib import (
     validar_pontos_de_interesse_recursivo,
     validar_referencias_mapa,
     compilar_croqui,
-    precompilar_linhas_mapas_recursivo
+    precompilar_linhas_mapas_recursivo,
+    expandir_arquivo_generico,
+    expandir_setores_ou_grupos_recursivo
 )
 
 def test_validar_poi_sem_id_lanca_erro():
@@ -1081,5 +1083,41 @@ def test_precompilar_linhas_mapas_propaga_raio_e_tamanho_fonte_nos_marcadores():
     msg = croqui_pb2.Croqui()
     json_format.ParseDict(croqui_data, msg, ignore_unknown_fields=False)
 
+def test_expandir_arquivo_generico_grupo_com_lista_setores_vazia(tmp_path):
+    arquivo_grupo = tmp_path / "grupo_boulders.md"
+    arquivo_grupo.write_text(
+        "---\n"
+        "nome: Bloco Central\n"
+        "setores: []\n"
+        "---\n"
+        "Descrição do grupo de boulders\n",
+        encoding="utf-8"
+    )
+    
+    # Quando o objeto de referência declara tipo 'grupo' ou o arquivo possui a chave setores
+    obj_ref = {"caminho": "grupo_boulders.md"}
+    tipo_out, dados = expandir_arquivo_generico(obj_ref, tmp_path, tipo_esperado="grupo")
+    
+    assert tipo_out == "grupo"
+    assert dados["conteudo"]["nome"] == "Bloco Central"
+    assert dados["conteudo"]["setores"] == []
+    assert "setor" not in dados
 
 
+def test_expandir_setores_ou_grupos_recursivo_preserva_grupo_vazio(tmp_path):
+    arquivo_grupo = tmp_path / "grupo_boulders.md"
+    arquivo_grupo.write_text(
+        "---\n"
+        "nome: Boulders\n"
+        "setores: []\n"
+        "---\n",
+        encoding="utf-8"
+    )
+    setores_ou_grupos_raw = [
+        {"grupo": {"caminho": "grupo_boulders.md"}}
+    ]
+    resultado = expandir_setores_ou_grupos_recursivo(setores_ou_grupos_raw, tmp_path)
+    assert len(resultado) == 1
+    assert "grupo" in resultado[0]
+    assert "setor" not in resultado[0]
+    assert resultado[0]["grupo"]["conteudo"]["setores"] == []

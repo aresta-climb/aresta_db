@@ -99,98 +99,151 @@ def gerar_compilado_md(croqui_dir: Path, compilado_yaml_path: Path, output_md_pa
             }
 
     def coletar_blocos_recursivo(setores_ou_grupos_list: List[Any], compilado_setores_ou_grupos_list: List[Any], pico_nome: str) -> None:
+        if not isinstance(setores_ou_grupos_list, list):
+            return
+        compilado_list = compilado_setores_ou_grupos_list if isinstance(compilado_setores_ou_grupos_list, list) else []
         for j, elemento in enumerate(setores_ou_grupos_list):
-            if j >= len(compilado_setores_ou_grupos_list): continue
-            
+            if not isinstance(elemento, dict):
+                continue
+
             tipo = "setor" if "setor" in elemento else "grupo"
-            dados_compilados = compilado_setores_ou_grupos_list[j].get(tipo)
+            item_compilado = compilado_list[j] if j < len(compilado_list) and isinstance(compilado_list[j], dict) else {}
+            dados_compilados = item_compilado.get(tipo) if isinstance(item_compilado, dict) else None
             dados_originais = elemento.get(tipo)
-            
-            if dados_originais and "caminho" in dados_originais:
+
+            if dados_originais and isinstance(dados_originais, dict) and "caminho" in dados_originais:
                 stem = Path(dados_originais["caminho"]).stem
                 blocks[stem] = {
                     "tipo": tipo,
                     "pico_nome": pico_nome,
                     "dados": dados_compilados
                 }
-            
+
             # Se for um grupo, processa seus setores internos
-            if tipo == "grupo" and dados_compilados and dados_originais:
-                conteudo_compilado = dados_compilados.get("conteudo", dados_compilados)
-                conteudo_original = dados_originais.get("conteudo", dados_originais)
-                
-                filhos_compilados = conteudo_compilado.get("setores", [])
-                filhos_originais = conteudo_original.get("setores", [])
-                coletar_blocos_recursivo(filhos_originais, filhos_compilados, pico_nome)
+            if tipo == "grupo" and dados_originais and isinstance(dados_originais, dict):
+                conteudo_compilado = (
+                    dados_compilados.get("conteudo", dados_compilados)
+                    if isinstance(dados_compilados, dict)
+                    else {}
+                )
+                conteudo_original = (
+                    dados_originais.get("conteudo", dados_originais)
+                    if isinstance(dados_originais, dict)
+                    else {}
+                )
+
+                filhos_compilados = (
+                    conteudo_compilado.get("setores", [])
+                    if isinstance(conteudo_compilado, dict)
+                    else []
+                )
+                filhos_originais = (
+                    conteudo_original.get("setores", [])
+                    if isinstance(conteudo_original, dict)
+                    else []
+                )
+                coletar_blocos_recursivo(filhos_originais or [], filhos_compilados or [], pico_nome)
 
 
     picos = croqui.get("picos", [])
+    if not isinstance(picos, list):
+        picos = []
     compilado_picos = compilado.get("picos", [])
+    if not isinstance(compilado_picos, list):
+        compilado_picos = []
     for i, pico in enumerate(picos):
+        if not isinstance(pico, dict):
+            continue
         setores_ou_grupos = pico.get("setores_ou_grupos", [])
-        if i < len(compilado_picos):
+        if i < len(compilado_picos) and isinstance(compilado_picos[i], dict):
             compilado_setores_ou_grupos = compilado_picos[i].get("setores_ou_grupos", [])
-            coletar_blocos_recursivo(setores_ou_grupos, compilado_setores_ou_grupos, compilado_picos[i].get("nome", f"Pico {i}"))
+            nome_pico = compilado_picos[i].get("nome") or pico.get("nome") or f"Pico {i}"
+        else:
+            compilado_setores_ou_grupos = []
+            nome_pico = pico.get("nome", f"Pico {i}")
+        coletar_blocos_recursivo(setores_ou_grupos or [], compilado_setores_ou_grupos or [], nome_pico)
 
     emisssed_blocks = set()
     for parte in ordem_partes:
         if parte in blocks:
             bloco = blocks[parte]
             emisssed_blocks.add(parte)
-            
+
             md_lines.append(f"## Parte: {parte}\n")
             if bloco["tipo"] == "arquivo_markdown":
-                dados = bloco["dados"]
-                titulo = dados.get("titulo", parte)
-                md_lines.append(f"### {titulo}\n")
-                if "conteudo" in dados:
-                   md_lines.append("#### Conteúdo:\n")
-                   md_lines.append(dados["conteudo"])
-                   md_lines.append("\n")
-                
-                outros = {k: v for k, v in dados.items() if k not in ["titulo", "conteudo"]}
-                if outros:
-                    md_lines.append("#### Detalhes Extras:\n")
-                    md_lines.extend(render_dict(outros))
-                    md_lines.append("\n")
+                dados = bloco.get("dados")
+                if isinstance(dados, dict):
+                    titulo = dados.get("titulo", parte)
+                    md_lines.append(f"### {titulo}\n")
+                    if "conteudo" in dados and dados["conteudo"] is not None:
+                        md_lines.append("#### Conteúdo:\n")
+                        md_lines.append(str(dados["conteudo"]))
+                        md_lines.append("\n")
+
+                    outros = {k: v for k, v in dados.items() if k not in ["titulo", "conteudo"]}
+                    if outros:
+                        md_lines.append("#### Detalhes Extras:\n")
+                        md_lines.extend(render_dict(outros))
+                        md_lines.append("\n")
+                else:
+                    md_lines.append(f"### {parte}\n")
+                    if dados is not None:
+                        md_lines.append(str(dados))
+                        md_lines.append("\n")
 
             elif bloco["tipo"] in ["setor", "grupo"]:
                 label = "Setor" if bloco["tipo"] == "setor" else "Grupo"
                 md_lines.append(f"### {label} (Pico: {bloco['pico_nome']})\n")
-                
-                conteudo = bloco["dados"].get("conteudo", bloco["dados"])
+
+                dados = bloco.get("dados")
+                if isinstance(dados, dict):
+                    conteudo = dados.get("conteudo", dados)
+                else:
+                    conteudo = dados
+
                 if isinstance(conteudo, dict):
                     md_lines.extend(render_dict(conteudo))
                     md_lines.append("\n")
-                else:
+                elif conteudo is not None:
                     md_lines.append(str(conteudo))
                     md_lines.append("\n")
-                    
+
     # Missing blocks not covered by partes.json
     for k, bloco in blocks.items():
         if k not in emisssed_blocks:
             md_lines.append(f"## Parte: {k} (não listada em partes.json)\n")
             if bloco["tipo"] == "arquivo_markdown":
-                dados = bloco["dados"]
-                titulo = dados.get("titulo", k)
-                md_lines.append(f"### {titulo}\n")
-                if "conteudo" in dados:
-                   md_lines.append("#### Conteúdo:\n")
-                   md_lines.append(dados["conteudo"])
-                   md_lines.append("\n")
-                outros = {k: v for k, v in dados.items() if k not in ["titulo", "conteudo"]}
-                if outros:
-                    md_lines.append("#### Detalhes Extras:\n")
-                    md_lines.extend(render_dict(outros))
-                    md_lines.append("\n")
+                dados = bloco.get("dados")
+                if isinstance(dados, dict):
+                    titulo = dados.get("titulo", k)
+                    md_lines.append(f"### {titulo}\n")
+                    if "conteudo" in dados and dados["conteudo"] is not None:
+                        md_lines.append("#### Conteúdo:\n")
+                        md_lines.append(str(dados["conteudo"]))
+                        md_lines.append("\n")
+                    outros = {k: v for k, v in dados.items() if k not in ["titulo", "conteudo"]}
+                    if outros:
+                        md_lines.append("#### Detalhes Extras:\n")
+                        md_lines.extend(render_dict(outros))
+                        md_lines.append("\n")
+                else:
+                    md_lines.append(f"### {k}\n")
+                    if dados is not None:
+                        md_lines.append(str(dados))
+                        md_lines.append("\n")
             elif bloco["tipo"] in ["setor", "grupo"]:
                 label = "Setor" if bloco["tipo"] == "setor" else "Grupo"
                 md_lines.append(f"### {label} (Pico: {bloco['pico_nome']})\n")
-                conteudo = bloco["dados"].get("conteudo", bloco["dados"])
+                dados = bloco.get("dados")
+                if isinstance(dados, dict):
+                    conteudo = dados.get("conteudo", dados)
+                else:
+                    conteudo = dados
+
                 if isinstance(conteudo, dict):
                     md_lines.extend(render_dict(conteudo))
                     md_lines.append("\n")
-                else:
+                elif conteudo is not None:
                     md_lines.append(str(conteudo))
                     md_lines.append("\n")
 

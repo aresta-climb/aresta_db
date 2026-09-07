@@ -1124,4 +1124,30 @@ def test_recuperacao_crash_edicao_repeated_creditos_com_undo_visual_imediato(qtb
         janela2.close()
 
 
+def test_on_salvar_erro_delega_para_exibir_dialogo_erro_salvamento(janela_principal):
+    janela = janela_principal
+    janela._salvando = True
+
+    with patch("editor.views.dialogo_erro_salvamento.exibir_dialogo_erro_salvamento") as mock_exibir:
+        janela._on_salvar_erro("Erro de compilação teste", "Traceback detalhado teste")
+
+        assert janela._salvando is False
+        mock_exibir.assert_called_once_with(janela, "Erro de compilação teste", "Traceback detalhado teste")
+
+
+def test_salvar_croqui_trata_excecao_e_delega_dialogo(janela_principal):
+    janela = janela_principal
+    janela.workspace = MagicMock()
+    janela.croqui_data = {"id": "teste"}
+
+    with patch("editor.core.worker.TarefaSalvamento", side_effect=RuntimeError("Falha ao instanciar thread")):
+        with patch("editor.views.dialogo_erro_salvamento.exibir_dialogo_erro_salvamento") as mock_exibir:
+            janela.salvar_croqui()
+            mock_exibir.assert_called_once()
+            args, _ = mock_exibir.call_args
+            assert args[0] == janela
+            assert isinstance(args[1], RuntimeError)
+            assert "Falha ao instanciar thread" in str(args[1])
+
+
 

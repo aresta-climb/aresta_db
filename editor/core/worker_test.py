@@ -394,7 +394,10 @@ class TestWorker(unittest.TestCase):
                 tarefa.run()
                 
         tarefa.sucesso.emit.assert_not_called()
-        tarefa.erro.emit.assert_called_once_with("Falha na compilação protobuf")
+        tarefa.erro.emit.assert_called_once()
+        args_emit, _ = tarefa.erro.emit.call_args
+        assert args_emit[0] == "Falha na compilação protobuf"
+        assert "ValueError: Falha na compilação protobuf" in args_emit[1]
         mock_capturar_excecao.assert_called_once()
         args, kwargs = mock_capturar_excecao.call_args
         assert isinstance(kwargs.get("erro") or args[0], ValueError)

@@ -300,6 +300,51 @@ class DeployGeneratedTest(unittest.TestCase):
                             deploy_generated.deploy(Path("/fake/out"), sair_ao_falhar=False)
                         self.assertIn("Erro simulado de compilação", str(ctx.exception))
 
+    def test_deploy_com_erros_encadeia_excecao_original(self):
+        """Testa que deploy() encadeia a exceção original causalmente via raise ... from e."""
+        from unittest.mock import patch
+        excecao_raiz = AttributeError("'NoneType' object has no attribute 'get'")
+        with patch("scripts.deploy_generated.encontrar_croquis", return_value=[(Path("/fake"), {"id": "fake"})]):
+            with patch("scripts.deploy_generated.passo_a_compilar_croquis", return_value=([], ["Erro simulado"], [excecao_raiz])):
+                with patch("scripts.deploy_generated.preparar_generated"):
+                    with patch("scripts.deploy_generated.carregar_dados_anteriores", return_value={}):
+                        with self.assertRaises(RuntimeError) as ctx:
+                            deploy_generated.deploy(Path("/fake/out"), sair_ao_falhar=False)
+                        self.assertIs(ctx.exception.__cause__, excecao_raiz)
+
+    def test_passo_a_compilar_croquis_captura_excecao_e_registra_traceback(self):
+        """Testa que passo_a_compilar_croquis registra o traceback completo no console e retorna a exceção."""
+        from unittest.mock import patch
+        import tempfile
+        croqui_dir = Path("/caminho/fake_croqui")
+        croqui_data = {"id": "croqui_teste_erro"}
+
+        with patch("scripts.deploy_generated.corrigir_database"):
+            with patch("scripts.deploy_generated.processar_thumbnail"):
+                with patch("scripts.deploy_generated.compilar_croqui", side_effect=AttributeError("Teste de falha no compilador")):
+                    with tempfile.TemporaryDirectory() as tmp_dir:
+                        deploy_generated.GENERATED_DIR = Path(tmp_dir)
+                        captured_output = StringIO()
+                        sys.stdout = captured_output
+                        try:
+                            resultado = deploy_generated.passo_a_compilar_croquis(
+                                [(croqui_dir, croqui_data)],
+                                gerar_arquivos_de_debug=False
+                            )
+                        finally:
+                            sys.stdout = sys.__stdout__
+
+                        saida = captured_output.getvalue()
+                        self.assertIn("AttributeError: Teste de falha no compilador", saida)
+                        self.assertIn("Traceback", saida)
+
+                        # Verifica que a tupla retornada inclui a lista de exceções
+                        self.assertEqual(len(resultado), 3)
+                        compilados, erros, excecoes = resultado
+                        self.assertEqual(len(erros), 1)
+                        self.assertEqual(len(excecoes), 1)
+                        self.assertIsInstance(excecoes[0], AttributeError)
+
 
 if __name__ == '__main__':
     unittest.main()
