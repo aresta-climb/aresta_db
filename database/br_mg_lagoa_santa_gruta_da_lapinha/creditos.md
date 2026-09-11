@@ -1,6 +1,7 @@
 # Créditos
 
 Este guia é de autoria de:
+
 - **Daniel Ferreira Mariano**
 - **Eustáquio Macedo Melo Júnior**
 
@@ -15,5 +16,17 @@ Este guia é de autoria de:
 ![Logo Loja AltaMontanha.com](imagens/creditos_p0_i2.webp)
 
 ![Logo FEMEMG - Federação de Montanhismo e Escalada de Minas Gerais](imagens/creditos_p0_i0.webp)
+
+## Revitalização e Manutenções (2026)
+
+Inspeções técnicas e manutenções coordenadas e executadas por:
+
+- **ACEC-MG** (Associação Cultural e Esportiva do Carste de Minas Gerais)
+- **Rupestre da Lapa Aventuras**
+
+Grupo de Trabalho de Escalada da Lapinha - GTEL.
+
+Em conformidade com a Portaria IEF nº 72/2023, protocolos operacionais do Parque
+Estadual do Sumidouro (PESU) e autorização dos conquistadores.
 
 > Escale com segurança, respeite o local e traga seu lixo de volta para casa.

@@ -56,8 +56,8 @@ mapas:
       y: 357
       comprimento: 30
       largura: 26
-  - id: 08
-    label: 08
+  - id: '08'
+    label: '08'
     retangulo:
       x: 738
       y: 390
@@ -70,8 +70,8 @@ mapas:
       y: 450
       comprimento: 32
       largura: 27
-  - id: 09
-    label: 09
+  - id: '09'
+    label: '09'
     retangulo:
       x: 700
       y: 473
@@ -311,11 +311,11 @@ mapas:
     ids:
     - '28'
   - ids:
-    - 08
+    - '08'
     setor: Setor Sentinela e Vale do Joga
     escalada: Contagem Regressiva
   - ids:
-    - 09
+    - '09'
     setor: Setor Sentinela e Vale do Joga
     escalada: Woodstock
   - ids:

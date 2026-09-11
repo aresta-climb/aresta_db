@@ -49,15 +49,15 @@ mapas:
       y: 541
       comprimento: 27
       largura: 24
-  - id: 09
-    label: 09
+  - id: '09'
+    label: '09'
     retangulo:
       x: 32
       y: 622
       comprimento: 28
       largura: 23
-  - id: 08
-    label: 08
+  - id: '08'
+    label: '08'
     retangulo:
       x: 167
       y: 677
@@ -184,11 +184,11 @@ mapas:
     ids:
     - '16'
   - ids:
-    - 08
+    - '08'
     setor: Setor Fechadura
     escalada: Primeira Batida
   - ids:
-    - 09
+    - '09'
     setor: Setor Fechadura
     escalada: Menino de Toca
   - ids:

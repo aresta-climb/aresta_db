@@ -379,6 +379,8 @@ escaladas:
 - via_esportiva:
     nome: Scarface
     dificuldade: BR_7A
+    quantidade_protecoes_intermediarias: 6
+    quantidade_protecoes_parada: 2
     conquistadores:
     - Gustavo Piancastelli
     - Ronie
@@ -386,12 +388,16 @@ escaladas:
 - via_esportiva:
     nome: Posições Exóticas
     dificuldade: BR_7B
+    quantidade_protecoes_intermediarias: 7
+    quantidade_protecoes_parada: 2
     conquistadores:
     - Ivo Ferreira Marcelino
     data_abertura: '1994'
 - via_esportiva:
     nome: Garotos não Choram
     dificuldade: BR_7A
+    quantidade_protecoes_intermediarias: 4
+    quantidade_protecoes_parada: 2
     conquistadores:
     - Eustáquio Macedo Melo Júnior
     - Emerson Alves Azeredo

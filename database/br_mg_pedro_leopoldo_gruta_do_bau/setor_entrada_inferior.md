@@ -84,8 +84,8 @@ mapas:
       y: 536
       comprimento: 27
       largura: 29
-  - id: 08
-    label: 08
+  - id: '08'
+    label: '08'
     retangulo:
       x: 561
       y: 560
@@ -98,8 +98,8 @@ mapas:
       y: 560
       comprimento: 33
       largura: 31
-  - id: 09
-    label: 09
+  - id: '09'
+    label: '09'
     retangulo:
       x: 516
       y: 572
@@ -332,10 +332,10 @@ mapas:
     - '07'
   - escalada: Caretas por Acaso
     ids:
-    - 08
+    - '08'
   - escalada: Pop Rock
     ids:
-    - 09
+    - '09'
   - escalada: A Despedida
     ids:
     - '11'

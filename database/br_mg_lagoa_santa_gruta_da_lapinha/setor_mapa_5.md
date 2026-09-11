@@ -102,14 +102,18 @@ escaladas:
 - via_esportiva:
     nome: Ben Moon
     dificuldade: BR_7C
+    quantidade_protecoes_intermediarias: 0
+    quantidade_protecoes_parada: 0
     conquistadores:
     - Eustáquio Macedo
     - Emerson Alves Azeredo
-    descricao: Vía em Top Rope
+    descricao: Via em Top Rope (sem proteções fixas na linha).
     data_abertura: '1994'
 - via_esportiva:
     nome: Come Quieto
     dificuldade: BR_8B
+    quantidade_protecoes_intermediarias: 3
+    quantidade_protecoes_parada: 1
     conquistadores:
     - Alexandre Galvão
     - Glauco
@@ -118,6 +122,8 @@ escaladas:
 - via_esportiva:
     nome: O Perigo que Veio do Céu
     dificuldade: BR_7A
+    quantidade_protecoes_intermediarias: 5
+    quantidade_protecoes_parada: 2
     conquistadores:
     - Fabiano da Silva Fernandes
     - Charles Costa Marinho
@@ -125,6 +131,8 @@ escaladas:
 - via_esportiva:
     nome: Arranca Couro
     dificuldade: BR_7A
+    quantidade_protecoes_intermediarias: 3
+    quantidade_protecoes_parada: 2
     conquistadores:
     - Charles C. Marinho
     - Emerson A. Azeredo

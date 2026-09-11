@@ -122,6 +122,8 @@ escaladas:
 - via_esportiva:
     nome: Cariocas não dizem Uai
     dificuldade: BR_7A
+    quantidade_protecoes_intermediarias: 8
+    quantidade_protecoes_parada: 2
     conquistadores:
     - Ivo Júnior
     - Rma
@@ -129,6 +131,9 @@ escaladas:
 - via_esportiva:
     nome: Doutor Lund
     dificuldade: BR_7A
+    data_manutencao: 05/09/2026
+    quantidade_protecoes_intermediarias: 8
+    quantidade_protecoes_parada: 2
     conquistadores:
     - Eustáquio Macedo Melo Júnior
     - Mário Almeida Neto
@@ -136,6 +141,10 @@ escaladas:
 - via_esportiva:
     nome: Aceitam-se Sugestões
     dificuldade: BR_7C
+    quantidade_protecoes_intermediarias: 6
+    quantidade_protecoes_parada: 2
+    descricao: '**INTERDITADA:** Grande quantidade de chapas de spit antigas; chumbador
+      da 1ª proteção com rosca excessivamente exposta para fora; via muito suja.'
     conquistadores:
     - Juan Kempen
     - Pedro Assis Leite
@@ -163,6 +172,9 @@ escaladas:
 - via_esportiva:
     nome: Três dentro, três fora
     dificuldade: BR_7A
+    data_manutencao: 08/08/2026
+    quantidade_protecoes_intermediarias: 8
+    quantidade_protecoes_parada: 2
     conquistadores:
     - Jovinei Miguel Medeiros
     - Helon Brazil Neto
@@ -171,6 +183,8 @@ escaladas:
 - via_esportiva:
     nome: Só para eles
     dificuldade: BR_6SUP
+    quantidade_protecoes_intermediarias: 4
+    quantidade_protecoes_parada: 2
     conquistadores:
     - Daniel Fernandes "Salim"
     - Ramaya Vallias
@@ -178,6 +192,8 @@ escaladas:
 - via_esportiva:
     nome: Só para elas
     dificuldade: BR_4
+    quantidade_protecoes_intermediarias: 7
+    quantidade_protecoes_parada: 2
     conquistadores:
     - Daniel Fernandes "Salim"
     - Ramaya Vallias
@@ -185,12 +201,16 @@ escaladas:
 - via_esportiva:
     nome: Prestobarba
     dificuldade: BR_5
+    quantidade_protecoes_intermediarias: 5
+    quantidade_protecoes_parada: 2
     conquistadores:
     - Daniel Fernandes "Salim"
     data_abertura: '1999'
 - via_esportiva:
     nome: Bigode Limpo
     dificuldade: BR_5SUP
+    quantidade_protecoes_intermediarias: 5
+    quantidade_protecoes_parada: 2
     conquistadores:
     - Antonio Carlos Magalhães
     - Emerson Alves Azeredo

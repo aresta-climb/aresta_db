@@ -141,7 +141,6 @@
             | :--: |
             | *Foto de escalada na contracapa* |
 - **ultima_migracao**: 4
-- **publicar_croqui**: True
 
 
 ## Parte: setor_cangaco

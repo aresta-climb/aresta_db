@@ -31,6 +31,9 @@ picos:
       caminho: setor_mapa_10.md
   mapas_gerais:
     caminho: mapas_gerais.md
+  localizacao:
+    latitude: -195622616
+    longitude: -439595684
 botoes:
 - texto: Capa
   destino:

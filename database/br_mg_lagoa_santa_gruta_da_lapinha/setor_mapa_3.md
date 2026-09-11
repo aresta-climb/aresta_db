@@ -326,6 +326,10 @@ escaladas:
 - via_esportiva:
     nome: Pipeline
     dificuldade: BR_6SUP
+    quantidade_protecoes_intermediarias: 0
+    quantidade_protecoes_parada: 0
+    descricao: '**INTERDITADA:** Via totalmente desequipada, restando apenas as pontas
+      de bolts cortados.'
     conquistadores:
     - Gabriel Fillizola
     - Sílvio Om
@@ -333,6 +337,10 @@ escaladas:
 - via_esportiva:
     nome: Jurubeba
     dificuldade: BR_8B
+    quantidade_protecoes_intermediarias: 5
+    quantidade_protecoes_parada: 2
+    descricao: '**INTERDITADA:** 1ª proteção muito baixa; grampos em teto/negativo
+      com dimensionamento a verificar, demandando substituição.'
     conquistadores:
     - Wagner Morin Gomes
     - Wilson Novaes
@@ -340,6 +348,10 @@ escaladas:
 - via_esportiva:
     nome: Perigo Mora ao Lado
     dificuldade: BR_8A
+    quantidade_protecoes_intermediarias: 4
+    quantidade_protecoes_parada: 2
+    descricao: '**INTERDITADA:** Grampos com palheta em má situação e instalados em
+      negativo.'
     conquistadores:
     - Márcio Soares Macena
     - Mozart
@@ -347,6 +359,10 @@ escaladas:
 - via_esportiva:
     nome: Pretexto da Traição
     dificuldade: BR_6SUP
+    quantidade_protecoes_intermediarias: 3
+    quantidade_protecoes_parada: 1
+    descricao: '**INTERDITADA:** 1ª chapa alta; grampos de menor diâmetro que necessitam
+      de substituição integral. Top simples.'
     conquistadores:
     - Daniel Fernandes "Salim"
     - Ramaya Vallias
@@ -354,6 +370,9 @@ escaladas:
 - via_esportiva:
     nome: Sorriso do Lagarto
     dificuldade: BR_6
+    quantidade_protecoes_intermediarias: 3
+    quantidade_protecoes_parada: 1
+    descricao: '**INTERDITADA:** Parada simples; grampos de menor diâmetro a substituir.'
     conquistadores:
     - André C. B. "Andrezão"
     - J. Roberto Cardoso "Dagó"
@@ -361,6 +380,10 @@ escaladas:
 - via_esportiva:
     nome: Orgasmatrom
     dificuldade: BR_6
+    quantidade_protecoes_intermediarias: 5
+    quantidade_protecoes_parada: 1
+    descricao: '**INTERDITADA:** Grampos de olhal estreito (dificuldade de clipagem
+      de 2 mosquetões); substituição necessária.'
     conquistadores:
     - André C. B. "Andrezão"
     - J. Roberto Cardoso "Dagó"
@@ -432,11 +455,18 @@ escaladas:
     data_abertura: '1997'
 - via_esportiva:
     nome: Projeto inacabado
+    dificuldade: PROJETO
+    quantidade_protecoes_intermediarias: 2
+    quantidade_protecoes_parada: 0
+    descricao: '**INTERDITADA:** Via inacabada, conta com 2 grampos com palheta e
+      sem parada instalada no topo.'
     conquistadores:
     - André Coutinho
 - via_esportiva:
     nome: Sobrevibrenf´s
     dificuldade: BR_6SUP
+    quantidade_protecoes_intermediarias: 4
+    quantidade_protecoes_parada: 2
     conquistadores:
     - Leonardo Hoffmann
     data_abertura: '2001'
@@ -444,6 +474,8 @@ escaladas:
 - via_esportiva:
     nome: Sobreviventes
     dificuldade: BR_6
+    quantidade_protecoes_intermediarias: 6
+    quantidade_protecoes_parada: 2
     conquistadores:
     - Anderson (Neném)
     - Douglas

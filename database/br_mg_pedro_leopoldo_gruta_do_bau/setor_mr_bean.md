@@ -14,15 +14,15 @@ mapas:
       y: 158
       comprimento: 30
       largura: 25
-  - id: 08
-    label: 08
+  - id: '08'
+    label: '08'
     retangulo:
       x: 707
       y: 164
       comprimento: 32
       largura: 30
-  - id: 09
-    label: 09
+  - id: '09'
+    label: '09'
     retangulo:
       x: 752
       y: 218
@@ -320,11 +320,11 @@ mapas:
     ids:
     - '31'
   - ids:
-    - 08
+    - '08'
     setor: Setor Mr. Bean
     escalada: Fenda Gerações
   - ids:
-    - 09
+    - '09'
     setor: Setor Mr. Bean
     escalada: Encontros Temporais
   - ids:

@@ -1,11 +1,10 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
-
 id: br_mg_caete_monte_alvao
 nome: Monte Alvão - Caeté
-descricao: 'O Alto Monte Alvão, localizado em Caeté, MG, é uma das áreas de escalada mais tradicionais
-  e belas da região, oferecendo vias de diversos estilos e dificuldades em quartzito de alta
-  qualidade.
+descricao: 'O Alto Monte Alvão, localizado em Caeté, MG, é uma das áreas de escalada
+  mais tradicionais e belas da região, oferecendo vias de diversos estilos e dificuldades
+  em quartzito de alta qualidade.
 
   '
 creditos:
@@ -27,6 +26,9 @@ picos:
       caminho: setor_curto_e_grosso_malibu_e_terra_do_nunca.md
   mapas_gerais:
     caminho: mapas_gerais.md
+  localizacao:
+    latitude: -199102878
+    longitude: -435758238
 ultima_migracao: 4
 publicar_croqui: true
 revisado_bounding_circle: true

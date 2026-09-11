@@ -36,6 +36,9 @@ picos:
       caminho: grupo_boulders.md
   mapas_gerais:
     caminho: mapas_gerais.md
+  localizacao:
+    latitude: -201176660
+    longitude: -443593480
 botoes:
 - texto: Capa
   destino:

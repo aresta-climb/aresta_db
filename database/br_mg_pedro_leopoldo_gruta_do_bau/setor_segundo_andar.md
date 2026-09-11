@@ -210,8 +210,8 @@ mapas:
       y: 616
       comprimento: 27
       largura: 25
-  - id: 08
-    label: 08
+  - id: '08'
+    label: '08'
     retangulo:
       x: 284
       y: 666
@@ -224,8 +224,8 @@ mapas:
       y: 658
       comprimento: 31
       largura: 25
-  - id: 09
-    label: 09
+  - id: '09'
+    label: '09'
     retangulo:
       x: 362
       y: 672
@@ -356,10 +356,10 @@ mapas:
     - '07'
   - escalada: Neverland
     ids:
-    - 08
+    - '08'
   - escalada: Mestre Splinter
     ids:
-    - 09
+    - '09'
   - escalada: Enigma da Esfinge
     ids:
     - '10'

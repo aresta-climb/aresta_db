@@ -290,6 +290,8 @@ escaladas:
 - via_esportiva:
     nome: Bigode de Cristo
     dificuldade: BR_6
+    quantidade_protecoes_intermediarias: 4
+    quantidade_protecoes_parada: 2
     conquistadores:
     - Eustáquio Macedo Melo Júnior
     - Fábio Luiz Farias "Fabinho"
@@ -297,25 +299,28 @@ escaladas:
 - via_esportiva:
     nome: Bigode Sujo
     dificuldade: BR_7C
+    data_manutencao: 04/07/2026
+    quantidade_protecoes_intermediarias: 5
+    quantidade_protecoes_parada: 2
     conquistadores:
     - Emerson Alves Azeredo
     - Eustáquio Macedo Melo Júnior
     - Gilberto Torres
-    descricao: Ancorar o seg no telefone ao lado da saída até escalador passar a terceira
-      chapa. Limpar via de baldinho, também ancorar o seg e cuidado com o pêndulo.
     data_abertura: '1993'
-    data_manutencao: 04/07/2026
 - via_esportiva:
     nome: Bigode de Espinho
     dificuldade: BR_6SUP
+    quantidade_protecoes_intermediarias: 0
+    quantidade_protecoes_parada: 0
     conquistadores:
     - Alexandre F. de Queiroz "Caverna"
     - Edgardo Abreu "Caca"
     data_abertura: '1995'
 - via_esportiva:
     nome: Ecos do Além
-    descricao: Era para ser a via 90, mas não tem marcação 90 no mapa.
     dificuldade: BR_6SUP
+    quantidade_protecoes_intermediarias: 4
+    quantidade_protecoes_parada: 2
     conquistadores:
     - Dante Martins Borges
     - Sérgio Bastos da Silva
@@ -334,21 +339,30 @@ escaladas:
 - via_esportiva:
     nome: Golpe Ninja
     dificuldade: BR_7C
+    quantidade_protecoes_intermediarias: 4
+    quantidade_protecoes_parada: 2
+    descricao: '**INTERDITADA:** Bloco com fratura/rachadura crítica na altura da
+      2ª proteção, com alto risco de descolamento.'
     conquistadores:
     - Dante Martins Borges
     - Sérgio Bastos da Silva
     data_abertura: '2000'
 - via_esportiva:
     nome: Tripla Traição
+    dificuldade: BR_5
+    data_manutencao: 05/09/2026
+    quantidade_protecoes_intermediarias: 5
+    quantidade_protecoes_parada: 2
     conquistadores:
     - Emerson A. Azeredo
     - Eustáquio M. M. Júnior
     - Léo Hoffmann
     data_abertura: '1994'
-    dificuldade: BR_5
 - via_esportiva:
     nome: Noivado da Feiticeira
     dificuldade: BR_6
+    quantidade_protecoes_intermediarias: 4
+    quantidade_protecoes_parada: 2
     conquistadores:
     - Emerson Alves Azeredo
     - Leonardo Hoffmann
@@ -356,23 +370,37 @@ escaladas:
     data_abertura: '1994'
 - via_esportiva:
     nome: Planeta dos Macacos
+    dificuldade: PROJETO
+    quantidade_protecoes_intermediarias: 4
+    quantidade_protecoes_parada: 0
+    descricao: '**INTERDITADA:** Via inacabada, sem parada no topo. Presença de spits
+      e grampos com palheta antigos.'
     conquistadores:
     - Leonardo Hoffmann
     - Alexandre "Caverna"
 - via_esportiva:
     nome: Rota de colisão
     dificuldade: BR_8A
+    quantidade_protecoes_intermediarias: 4
+    quantidade_protecoes_parada: 2
     conquistadores:
     - Leonardo Hoffmann
     - Marco Antônio Canelas
     data_abertura: '2001'
 - via_esportiva:
     nome: Projeto Daniel Salim
+    dificuldade: PROJETO
+    quantidade_protecoes_intermediarias: 1
+    quantidade_protecoes_parada: 0
+    descricao: '**INTERDITADA:** Via inacabada, possui apenas 1 proteção com palheta
+      e não possui parada no topo.'
     conquistadores:
     - Daniel Fernandes "Salim"
 - via_esportiva:
     nome: Vale Perdido
     dificuldade: BR_6SUP
+    quantidade_protecoes_intermediarias: 3
+    quantidade_protecoes_parada: 2
     conquistadores:
     - Emerson Alves Azeredo
     - Gilberto Torres
@@ -380,12 +408,16 @@ escaladas:
 - via_esportiva:
     nome: Consolo da Surucucu
     dificuldade: BR_6SUP
+    quantidade_protecoes_intermediarias: 8
+    quantidade_protecoes_parada: 1
     conquistadores:
     - Vinícius B. Assis
     data_abertura: '1997'
 - via_esportiva:
     nome: Santos e Hereges
     dificuldade: BR_9B
+    quantidade_protecoes_intermediarias: 3
+    quantidade_protecoes_parada: 1
     conquistadores:
     - Eustáquio Macedo Melo Júnior
     - Mário Almeida Neto
@@ -393,6 +425,8 @@ escaladas:
 - via_esportiva:
     nome: O Império Contra Ataca
     dificuldade: BR_7C
+    quantidade_protecoes_intermediarias: 4
+    quantidade_protecoes_parada: 2
     conquistadores:
     - Eustáquio Macedo Melo Júnior
     - Fabiano da Silva Fernandes
@@ -400,6 +434,8 @@ escaladas:
 - via_esportiva:
     nome: Jegue Voador
     dificuldade: BR_6SUP
+    quantidade_protecoes_intermediarias: 5
+    quantidade_protecoes_parada: 2
     conquistadores:
     - Léo Hoffmann
     - Marco Antônio Canelas
@@ -408,6 +444,8 @@ escaladas:
 - via_esportiva:
     nome: Labirinto das Maritacas
     dificuldade: BR_6
+    quantidade_protecoes_intermediarias: 5
+    quantidade_protecoes_parada: 2
     conquistadores:
     - Emerson Alves Azeredo
     - Gilberto Torres

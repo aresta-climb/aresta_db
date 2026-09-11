@@ -91,8 +91,8 @@ mapas:
       y: 416
       comprimento: 32
       largura: 27
-  - id: 09
-    label: 09
+  - id: '09'
+    label: '09'
     retangulo:
       x: 647
       y: 422
@@ -119,8 +119,8 @@ mapas:
       y: 485
       comprimento: 38
       largura: 28
-  - id: 08
-    label: 08
+  - id: '08'
+    label: '08'
     retangulo:
       x: 617
       y: 526
@@ -254,11 +254,11 @@ mapas:
     ids:
     - '23'
   - ids:
-    - 08
+    - '08'
     setor: Setor Geriatria
     escalada: Tira o Andador e Vai
   - ids:
-    - 09
+    - '09'
     setor: Setor Geriatria
     escalada: Rupestre
   - ids:

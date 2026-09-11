@@ -21,15 +21,15 @@ mapas:
       y: 414
       comprimento: 37
       largura: 36
-  - id: 08
-    label: 08
+  - id: '08'
+    label: '08'
     retangulo:
       x: 134
       y: 450
       comprimento: 38
       largura: 35
-  - id: 09
-    label: 09
+  - id: '09'
+    label: '09'
     retangulo:
       x: 262
       y: 479
@@ -153,11 +153,11 @@ mapas:
     - Setor_Sentinela
     setor: Setor Sentinela e Vale do Joga
   - ids:
-    - 08
+    - '08'
     setor: Setor Vale do Cinema
     escalada: Navio Fantasma
   - ids:
-    - 09
+    - '09'
     setor: Setor Vale do Cinema
     escalada: Pata Afiada
 escaladas:

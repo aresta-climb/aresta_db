@@ -33,6 +33,7 @@
             # Créditos
             
             Este guia é de autoria de:
+            
             - **Daniel Ferreira Mariano**
             - **Eustáquio Macedo Melo Júnior**
             
@@ -56,6 +57,18 @@
             | :--: |
             | *Logo FEMEMG - Federação de Montanhismo e Escalada de Minas Gerais* |
             
+            ## Revitalização e Manutenções (2026)
+            
+            Inspeções técnicas e manutenções coordenadas e executadas por:
+            
+            - **ACEC-MG** (Associação Cultural e Esportiva do Carste de Minas Gerais)
+            - **Rupestre da Lapa Aventuras**
+            
+            Grupo de Trabalho de Escalada da Lapinha - GTEL.
+            
+            Em conformidade com a Portaria IEF nº 72/2023, protocolos operacionais do Parque
+            Estadual do Sumidouro (PESU) e autorização dos conquistadores.
+            
             > Escale com segurança, respeite o local e traga seu lixo de volta para casa.
 - **ultima_migracao**: 4
 - **publicar_croqui**: True
@@ -69,7 +82,8 @@
 - **descricao**:
     # Setor Castelinho
     
-    Setor localizado próximo ao Restaurante Castelinho. Possui vias de graduação variada, incluindo algumas vias em móvel.
+    Setor localizado próximo ao Restaurante Castelinho. Possui vias de graduação
+    variada, incluindo algumas vias em móvel.
 - **nome**: Castelinho
 - **mapas**:
   - **[0]**:
@@ -162,6 +176,8 @@
     - **via_movel**:
       - **nome**: Favo de Mel
       - **dificuldade**: BR_6
+      - **quantidade_protecoes_intermediarias**: 3
+      - **quantidade_protecoes_parada**: 1
       - **conquistadores**:
         - Márcio Soares Macena
         - Wilson Novaes
@@ -176,6 +192,8 @@
     - **via_esportiva**:
       - **nome**: Tomara que não chova
       - **dificuldade**: BR_6SUP
+      - **quantidade_protecoes_intermediarias**: 6
+      - **quantidade_protecoes_parada**: 2
       - **conquistadores**:
         - Christian A. N. Costa
         - Leo Guimarães "Léo Dandão"
@@ -184,13 +202,19 @@
     - **via_esportiva**:
       - **nome**: Castelinho
       - **dificuldade**: BR_6
+      - **quantidade_protecoes_intermediarias**: 6
+      - **quantidade_protecoes_parada**: 1
       - **conquistadores**:
         - Marcelo Henrique Grijó Utsch
         - Cristiano Loureiro
       - **data_abertura**: 1993
   - **[5]**:
     - **via_esportiva**:
+      - **descricao**: **INTERDITADA:** Via inacabada, conta com apenas 3 proteções intermediárias e sem parada instalada no topo.
       - **nome**: Projeto
+      - **dificuldade**: PROJETO
+      - **quantidade_protecoes_intermediarias**: 3
+      - **quantidade_protecoes_parada**: 0
 - **precomputados**:
   - **total_escaladas**: 6
   - **total_esportivas**: 3
@@ -246,8 +270,11 @@
         - Antonio Carlos Magalhães
   - **[1]**:
     - **via_esportiva**:
+      - **descricao**: **INTERDITADA:** Grampos com palheta demandam substituição por novas ancoragens. Parada simples que necessita ser duplicada.
       - **nome**: O Exibicionista
       - **dificuldade**: BR_5
+      - **quantidade_protecoes_intermediarias**: 2
+      - **quantidade_protecoes_parada**: 1
       - **conquistadores**:
         - Daniel Fernandes "Salim"
 - **precomputados**:
@@ -648,48 +675,66 @@
       - **data_abertura**: 1997
   - **[8]**:
     - **via_esportiva**:
+      - **descricao**: **INTERDITADA:** Via totalmente desequipada, restando apenas as pontas de bolts cortados.
       - **nome**: Pipeline
       - **dificuldade**: BR_6SUP
+      - **quantidade_protecoes_intermediarias**: 0
+      - **quantidade_protecoes_parada**: 0
       - **conquistadores**:
         - Gabriel Fillizola
         - Sílvio Om
       - **data_abertura**: 1997
   - **[9]**:
     - **via_esportiva**:
+      - **descricao**: **INTERDITADA:** 1ª proteção muito baixa; grampos em teto/negativo com dimensionamento a verificar, demandando substituição.
       - **nome**: Jurubeba
       - **dificuldade**: BR_8B
+      - **quantidade_protecoes_intermediarias**: 5
+      - **quantidade_protecoes_parada**: 2
       - **conquistadores**:
         - Wagner Morin Gomes
         - Wilson Novaes
       - **data_abertura**: 1998
   - **[10]**:
     - **via_esportiva**:
+      - **descricao**: **INTERDITADA:** Grampos com palheta em má situação e instalados em negativo.
       - **nome**: Perigo Mora ao Lado
       - **dificuldade**: BR_8A
+      - **quantidade_protecoes_intermediarias**: 4
+      - **quantidade_protecoes_parada**: 2
       - **conquistadores**:
         - Márcio Soares Macena
         - Mozart
       - **data_abertura**: 1998
   - **[11]**:
     - **via_esportiva**:
+      - **descricao**: **INTERDITADA:** 1ª chapa alta; grampos de menor diâmetro que necessitam de substituição integral. Top simples.
       - **nome**: Pretexto da Traição
       - **dificuldade**: BR_6SUP
+      - **quantidade_protecoes_intermediarias**: 3
+      - **quantidade_protecoes_parada**: 1
       - **conquistadores**:
         - Daniel Fernandes "Salim"
         - Ramaya Vallias
       - **data_abertura**: 1994
   - **[12]**:
     - **via_esportiva**:
+      - **descricao**: **INTERDITADA:** Parada simples; grampos de menor diâmetro a substituir.
       - **nome**: Sorriso do Lagarto
       - **dificuldade**: BR_6
+      - **quantidade_protecoes_intermediarias**: 3
+      - **quantidade_protecoes_parada**: 1
       - **conquistadores**:
         - André C. B. "Andrezão"
         - J. Roberto Cardoso "Dagó"
       - **data_abertura**: 1995
   - **[13]**:
     - **via_esportiva**:
+      - **descricao**: **INTERDITADA:** Grampos de olhal estreito (dificuldade de clipagem de 2 mosquetões); substituição necessária.
       - **nome**: Orgasmatrom
       - **dificuldade**: BR_6
+      - **quantidade_protecoes_intermediarias**: 5
+      - **quantidade_protecoes_parada**: 1
       - **conquistadores**:
         - André C. B. "Andrezão"
         - J. Roberto Cardoso "Dagó"
@@ -770,13 +815,19 @@
       - **data_abertura**: 1997
   - **[23]**:
     - **via_esportiva**:
+      - **descricao**: **INTERDITADA:** Via inacabada, conta com 2 grampos com palheta e sem parada instalada no topo.
       - **nome**: Projeto inacabado
+      - **dificuldade**: PROJETO
+      - **quantidade_protecoes_intermediarias**: 2
+      - **quantidade_protecoes_parada**: 0
       - **conquistadores**:
         - André Coutinho
   - **[24]**:
     - **via_esportiva**:
       - **nome**: Sobrevibrenf´s
       - **dificuldade**: BR_6SUP
+      - **quantidade_protecoes_intermediarias**: 4
+      - **quantidade_protecoes_parada**: 2
       - **conquistadores**:
         - Leonardo Hoffmann
       - **data_abertura**: 2001
@@ -785,6 +836,8 @@
     - **via_esportiva**:
       - **nome**: Sobreviventes
       - **dificuldade**: BR_6
+      - **quantidade_protecoes_intermediarias**: 6
+      - **quantidade_protecoes_parada**: 2
       - **conquistadores**:
         - Anderson (Neném)
         - Douglas
@@ -1249,6 +1302,8 @@
     - **via_esportiva**:
       - **nome**: Scarface
       - **dificuldade**: BR_7A
+      - **quantidade_protecoes_intermediarias**: 6
+      - **quantidade_protecoes_parada**: 2
       - **conquistadores**:
         - Gustavo Piancastelli
         - Ronie
@@ -1257,6 +1312,8 @@
     - **via_esportiva**:
       - **nome**: Posições Exóticas
       - **dificuldade**: BR_7B
+      - **quantidade_protecoes_intermediarias**: 7
+      - **quantidade_protecoes_parada**: 2
       - **conquistadores**:
         - Ivo Ferreira Marcelino
       - **data_abertura**: 1994
@@ -1264,6 +1321,8 @@
     - **via_esportiva**:
       - **nome**: Garotos não Choram
       - **dificuldade**: BR_7A
+      - **quantidade_protecoes_intermediarias**: 4
+      - **quantidade_protecoes_parada**: 2
       - **conquistadores**:
         - Eustáquio Macedo Melo Júnior
         - Emerson Alves Azeredo
@@ -1401,9 +1460,11 @@
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
-      - **descricao**: Vía em Top Rope
+      - **descricao**: Via em Top Rope (sem proteções fixas na linha).
       - **nome**: Ben Moon
       - **dificuldade**: BR_7C
+      - **quantidade_protecoes_intermediarias**: 0
+      - **quantidade_protecoes_parada**: 0
       - **conquistadores**:
         - Eustáquio Macedo
         - Emerson Alves Azeredo
@@ -1412,6 +1473,8 @@
     - **via_esportiva**:
       - **nome**: Come Quieto
       - **dificuldade**: BR_8B
+      - **quantidade_protecoes_intermediarias**: 3
+      - **quantidade_protecoes_parada**: 1
       - **conquistadores**:
         - Alexandre Galvão
         - Glauco
@@ -1421,6 +1484,8 @@
     - **via_esportiva**:
       - **nome**: O Perigo que Veio do Céu
       - **dificuldade**: BR_7A
+      - **quantidade_protecoes_intermediarias**: 5
+      - **quantidade_protecoes_parada**: 2
       - **conquistadores**:
         - Fabiano da Silva Fernandes
         - Charles Costa Marinho
@@ -1429,6 +1494,8 @@
     - **via_esportiva**:
       - **nome**: Arranca Couro
       - **dificuldade**: BR_7A
+      - **quantidade_protecoes_intermediarias**: 3
+      - **quantidade_protecoes_parada**: 2
       - **conquistadores**:
         - Charles C. Marinho
         - Emerson A. Azeredo
@@ -1948,6 +2015,8 @@
     - **via_esportiva**:
       - **nome**: Cariocas não dizem Uai
       - **dificuldade**: BR_7A
+      - **quantidade_protecoes_intermediarias**: 8
+      - **quantidade_protecoes_parada**: 2
       - **conquistadores**:
         - Ivo Júnior
         - Rma
@@ -1956,14 +2025,20 @@
     - **via_esportiva**:
       - **nome**: Doutor Lund
       - **dificuldade**: BR_7A
+      - **data_manutencao**: 05/09/2026
+      - **quantidade_protecoes_intermediarias**: 8
+      - **quantidade_protecoes_parada**: 2
       - **conquistadores**:
         - Eustáquio Macedo Melo Júnior
         - Mário Almeida Neto
       - **data_abertura**: 1993
   - **[2]**:
     - **via_esportiva**:
+      - **descricao**: **INTERDITADA:** Grande quantidade de chapas de spit antigas; chumbador da 1ª proteção com rosca excessivamente exposta para fora; via muito suja.
       - **nome**: Aceitam-se Sugestões
       - **dificuldade**: BR_7C
+      - **quantidade_protecoes_intermediarias**: 6
+      - **quantidade_protecoes_parada**: 2
       - **conquistadores**:
         - Juan Kempen
         - Pedro Assis Leite
@@ -1995,6 +2070,9 @@
     - **via_esportiva**:
       - **nome**: Três dentro, três fora
       - **dificuldade**: BR_7A
+      - **data_manutencao**: 08/08/2026
+      - **quantidade_protecoes_intermediarias**: 8
+      - **quantidade_protecoes_parada**: 2
       - **conquistadores**:
         - Jovinei Miguel Medeiros
         - Helon Brazil Neto
@@ -2004,6 +2082,8 @@
     - **via_esportiva**:
       - **nome**: Só para eles
       - **dificuldade**: BR_6SUP
+      - **quantidade_protecoes_intermediarias**: 4
+      - **quantidade_protecoes_parada**: 2
       - **conquistadores**:
         - Daniel Fernandes "Salim"
         - Ramaya Vallias
@@ -2012,6 +2092,8 @@
     - **via_esportiva**:
       - **nome**: Só para elas
       - **dificuldade**: BR_4
+      - **quantidade_protecoes_intermediarias**: 7
+      - **quantidade_protecoes_parada**: 2
       - **conquistadores**:
         - Daniel Fernandes "Salim"
         - Ramaya Vallias
@@ -2020,6 +2102,8 @@
     - **via_esportiva**:
       - **nome**: Prestobarba
       - **dificuldade**: BR_5
+      - **quantidade_protecoes_intermediarias**: 5
+      - **quantidade_protecoes_parada**: 2
       - **conquistadores**:
         - Daniel Fernandes "Salim"
       - **data_abertura**: 1999
@@ -2027,6 +2111,8 @@
     - **via_esportiva**:
       - **nome**: Bigode Limpo
       - **dificuldade**: BR_5SUP
+      - **quantidade_protecoes_intermediarias**: 5
+      - **quantidade_protecoes_parada**: 2
       - **conquistadores**:
         - Antonio Carlos Magalhães
         - Emerson Alves Azeredo
@@ -2391,34 +2477,40 @@
     - **via_esportiva**:
       - **nome**: Bigode de Cristo
       - **dificuldade**: BR_6
+      - **quantidade_protecoes_intermediarias**: 4
+      - **quantidade_protecoes_parada**: 2
       - **conquistadores**:
         - Eustáquio Macedo Melo Júnior
         - Fábio Luiz Farias "Fabinho"
       - **data_abertura**: 1993
   - **[1]**:
     - **via_esportiva**:
-      - **descricao**: Ancorar o seg no telefone ao lado da saída até escalador passar a terceira chapa. Limpar via de baldinho, também ancorar o seg e cuidado com o pêndulo.
       - **nome**: Bigode Sujo
       - **dificuldade**: BR_7C
+      - **data_manutencao**: 04/07/2026
+      - **quantidade_protecoes_intermediarias**: 5
+      - **quantidade_protecoes_parada**: 2
       - **conquistadores**:
         - Emerson Alves Azeredo
         - Eustáquio Macedo Melo Júnior
         - Gilberto Torres
       - **data_abertura**: 1993
-      - **data_manutencao**: 04/07/2026
   - **[2]**:
     - **via_esportiva**:
       - **nome**: Bigode de Espinho
       - **dificuldade**: BR_6SUP
+      - **quantidade_protecoes_intermediarias**: 0
+      - **quantidade_protecoes_parada**: 0
       - **conquistadores**:
         - Alexandre F. de Queiroz "Caverna"
         - Edgardo Abreu "Caca"
       - **data_abertura**: 1995
   - **[3]**:
     - **via_esportiva**:
-      - **descricao**: Era para ser a via 90, mas não tem marcação 90 no mapa.
       - **nome**: Ecos do Além
       - **dificuldade**: BR_6SUP
+      - **quantidade_protecoes_intermediarias**: 4
+      - **quantidade_protecoes_parada**: 2
       - **conquistadores**:
         - Dante Martins Borges
         - Sérgio Bastos da Silva
@@ -2438,8 +2530,11 @@
         - Roberto Lincoln de Freitas
   - **[6]**:
     - **via_esportiva**:
+      - **descricao**: **INTERDITADA:** Bloco com fratura/rachadura crítica na altura da 2ª proteção, com alto risco de descolamento.
       - **nome**: Golpe Ninja
       - **dificuldade**: BR_7C
+      - **quantidade_protecoes_intermediarias**: 4
+      - **quantidade_protecoes_parada**: 2
       - **conquistadores**:
         - Dante Martins Borges
         - Sérgio Bastos da Silva
@@ -2447,16 +2542,21 @@
   - **[7]**:
     - **via_esportiva**:
       - **nome**: Tripla Traição
+      - **dificuldade**: BR_5
+      - **data_manutencao**: 05/09/2026
+      - **quantidade_protecoes_intermediarias**: 5
+      - **quantidade_protecoes_parada**: 2
       - **conquistadores**:
         - Emerson A. Azeredo
         - Eustáquio M. M. Júnior
         - Léo Hoffmann
       - **data_abertura**: 1994
-      - **dificuldade**: BR_5
   - **[8]**:
     - **via_esportiva**:
       - **nome**: Noivado da Feiticeira
       - **dificuldade**: BR_6
+      - **quantidade_protecoes_intermediarias**: 4
+      - **quantidade_protecoes_parada**: 2
       - **conquistadores**:
         - Emerson Alves Azeredo
         - Leonardo Hoffmann
@@ -2464,7 +2564,11 @@
       - **data_abertura**: 1994
   - **[9]**:
     - **via_esportiva**:
+      - **descricao**: **INTERDITADA:** Via inacabada, sem parada no topo. Presença de spits e grampos com palheta antigos.
       - **nome**: Planeta dos Macacos
+      - **dificuldade**: PROJETO
+      - **quantidade_protecoes_intermediarias**: 4
+      - **quantidade_protecoes_parada**: 0
       - **conquistadores**:
         - Leonardo Hoffmann
         - Alexandre "Caverna"
@@ -2472,19 +2576,27 @@
     - **via_esportiva**:
       - **nome**: Rota de colisão
       - **dificuldade**: BR_8A
+      - **quantidade_protecoes_intermediarias**: 4
+      - **quantidade_protecoes_parada**: 2
       - **conquistadores**:
         - Leonardo Hoffmann
         - Marco Antônio Canelas
       - **data_abertura**: 2001
   - **[11]**:
     - **via_esportiva**:
+      - **descricao**: **INTERDITADA:** Via inacabada, possui apenas 1 proteção com palheta e não possui parada no topo.
       - **nome**: Projeto Daniel Salim
+      - **dificuldade**: PROJETO
+      - **quantidade_protecoes_intermediarias**: 1
+      - **quantidade_protecoes_parada**: 0
       - **conquistadores**:
         - Daniel Fernandes "Salim"
   - **[12]**:
     - **via_esportiva**:
       - **nome**: Vale Perdido
       - **dificuldade**: BR_6SUP
+      - **quantidade_protecoes_intermediarias**: 3
+      - **quantidade_protecoes_parada**: 2
       - **conquistadores**:
         - Emerson Alves Azeredo
         - Gilberto Torres
@@ -2493,6 +2605,8 @@
     - **via_esportiva**:
       - **nome**: Consolo da Surucucu
       - **dificuldade**: BR_6SUP
+      - **quantidade_protecoes_intermediarias**: 8
+      - **quantidade_protecoes_parada**: 1
       - **conquistadores**:
         - Vinícius B. Assis
       - **data_abertura**: 1997
@@ -2500,6 +2614,8 @@
     - **via_esportiva**:
       - **nome**: Santos e Hereges
       - **dificuldade**: BR_9B
+      - **quantidade_protecoes_intermediarias**: 3
+      - **quantidade_protecoes_parada**: 1
       - **conquistadores**:
         - Eustáquio Macedo Melo Júnior
         - Mário Almeida Neto
@@ -2508,6 +2624,8 @@
     - **via_esportiva**:
       - **nome**: O Império Contra Ataca
       - **dificuldade**: BR_7C
+      - **quantidade_protecoes_intermediarias**: 4
+      - **quantidade_protecoes_parada**: 2
       - **conquistadores**:
         - Eustáquio Macedo Melo Júnior
         - Fabiano da Silva Fernandes
@@ -2516,6 +2634,8 @@
     - **via_esportiva**:
       - **nome**: Jegue Voador
       - **dificuldade**: BR_6SUP
+      - **quantidade_protecoes_intermediarias**: 5
+      - **quantidade_protecoes_parada**: 2
       - **conquistadores**:
         - Léo Hoffmann
         - Marco Antônio Canelas
@@ -2525,6 +2645,8 @@
     - **via_esportiva**:
       - **nome**: Labirinto das Maritacas
       - **dificuldade**: BR_6
+      - **quantidade_protecoes_intermediarias**: 5
+      - **quantidade_protecoes_parada**: 2
       - **conquistadores**:
         - Emerson Alves Azeredo
         - Gilberto Torres

@@ -12,8 +12,8 @@ picos:
     de vias de diversos graus.
   estado: Minas Gerais
   localizacao:
-    latitude: -195480000
-    longitude: -439900000
+    latitude: -195534530
+    longitude: -439898860
   setores_ou_grupos:
   - setor:
       conteudo:

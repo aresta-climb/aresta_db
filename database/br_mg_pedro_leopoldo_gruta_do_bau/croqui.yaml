@@ -1,6 +1,5 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
-
 id: br_mg_pedro_leopoldo_gruta_do_bau
 nome: Gruta do Baú
 creditos:
@@ -10,13 +9,13 @@ revisado_manualmente: true
 status_desenho_extraivel: NAO_TEM_DESENHO
 picos:
 - nome: Gruta do Baú
-  descricao: O maciço do Baú está localizado no município de Pedro Leopoldo, MG. É um dos 
-    principais picos de escalada em calcário de Minas Gerais, com centenas de vias de 
-    diversos graus.
+  descricao: O maciço do Baú está localizado no município de Pedro Leopoldo, MG. É
+    um dos principais picos de escalada em calcário de Minas Gerais, com centenas
+    de vias de diversos graus.
   estado: Minas Gerais
   localizacao:
-    latitude: -195480000
-    longitude: -439900000
+    latitude: -195534530
+    longitude: -439898860
   setores_ou_grupos:
   - setor:
       caminho: setor_entrada_inferior.md

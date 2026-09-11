@@ -837,6 +837,9 @@ picos:
         - grupo: Sunset
           ids:
           - Setor_Sunset
+  localizacao:
+    latitude: -203600960
+    longitude: -435035650
   precomputados:
     total_escaladas: 36
     total_setores: 8

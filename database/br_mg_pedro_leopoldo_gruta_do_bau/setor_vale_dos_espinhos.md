@@ -70,8 +70,8 @@ mapas:
       y: 396
       comprimento: 33
       largura: 27
-  - id: 09
-    label: 09
+  - id: '09'
+    label: '09'
     retangulo:
       x: 399
       y: 410
@@ -91,8 +91,8 @@ mapas:
       y: 450
       comprimento: 33
       largura: 27
-  - id: 08
-    label: 08
+  - id: '08'
+    label: '08'
     retangulo:
       x: 380
       y: 445
@@ -387,11 +387,11 @@ mapas:
     ids:
     - '37'
   - ids:
-    - 08
+    - '08'
     setor: Setor Vale dos Espinhos
     escalada: Tá Esperando o quê?
   - ids:
-    - 09
+    - '09'
     setor: Setor Vale dos Espinhos
     escalada: Quem Sabe ano que Vem
   - ids:

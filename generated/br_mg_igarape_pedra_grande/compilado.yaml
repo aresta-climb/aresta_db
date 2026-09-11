@@ -3832,6 +3832,9 @@ picos:
           - Me_Leve
           setor: Setor Trad
           escalada: Me Leve ao Cume
+  localizacao:
+    latitude: -201176660
+    longitude: -443593480
   precomputados:
     total_escaladas: 147
     total_setores: 12

@@ -14,7 +14,7 @@ picos:
       caminho: setor_rock_master.md
   estado: Minas Gerais
   localizacao:
-    latitude: -193155800
+    latitude: -193155830
     longitude: -436135000
   url_google_maps: https://maps.app.goo.gl/cxF1NYUhuZw7AWQr9
 ultima_migracao: 4

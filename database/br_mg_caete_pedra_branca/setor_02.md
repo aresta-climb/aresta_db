@@ -56,15 +56,15 @@ mapas:
       y: 464
       comprimento: 24
       largura: 23
-  - id: 08
-    label: 08
+  - id: '08'
+    label: '08'
     retangulo:
       x: 471
       y: 465
       comprimento: 26
       largura: 24
-  - id: 09
-    label: 09
+  - id: '09'
+    label: '09'
     retangulo:
       x: 514
       y: 465
@@ -133,11 +133,11 @@ mapas:
     ids:
     - '13'
   - ids:
-    - 08
+    - '08'
     setor: Croqui 02 da Pedra Branca
     escalada: Barbarela
   - ids:
-    - 09
+    - '09'
     setor: Croqui 02 da Pedra Branca
     escalada: Ciganos Molhados
 escaladas:

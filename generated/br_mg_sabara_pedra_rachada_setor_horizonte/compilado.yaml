@@ -1111,6 +1111,9 @@ picos:
         - setor: Moctezuma
           ids:
           - Sub-setor_Moctezuma
+  localizacao:
+    latitude: -198404745
+    longitude: -437654265
   precomputados:
     total_escaladas: 61
     total_setores: 10

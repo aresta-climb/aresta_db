@@ -77,15 +77,15 @@ mapas:
       y: 510
       comprimento: 31
       largura: 29
-  - id: 08
-    label: 08
+  - id: '08'
+    label: '08'
     retangulo:
       x: 355
       y: 603
       comprimento: 30
       largura: 28
-  - id: 09
-    label: 09
+  - id: '09'
+    label: '09'
     retangulo:
       x: 390
       y: 636
@@ -176,11 +176,11 @@ mapas:
     - Setores_Sentinela_e_Geriatria
     setor: Setor Geriatria
   - ids:
-    - 08
+    - '08'
     setor: Setor Onda de Calcário
     escalada: Rayovac
   - ids:
-    - 09
+    - '09'
     setor: Setor Onda de Calcário
     escalada: O Corpo Ainda é Pouco
 escaladas:

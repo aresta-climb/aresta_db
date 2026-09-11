@@ -1406,6 +1406,9 @@ picos:
           - curto_e_grosso
           - malibu
           grupo: Curto e Grosso, Malibu e Terra do Nunca
+  localizacao:
+    latitude: -199102878
+    longitude: -435758238
   precomputados:
     total_escaladas: 55
     total_setores: 9

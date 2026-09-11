@@ -203,8 +203,8 @@ mapas:
       y: 896
       comprimento: 39
       largura: 24
-  - id: 09
-    label: 09
+  - id: '09'
+    label: '09'
     retangulo:
       x: 558
       y: 908
@@ -217,8 +217,8 @@ mapas:
       y: 966
       comprimento: 42
       largura: 31
-  - id: 08
-    label: 08
+  - id: '08'
+    label: '08'
     retangulo:
       x: 596
       y: 1015
@@ -406,11 +406,11 @@ mapas:
     - Setores_Mr_Bean_e_Geriatria
     setor: Setor Geriatria
   - ids:
-    - 08
+    - '08'
     setor: Setor Vale da Onça
     escalada: Retorno de Borges
   - ids:
-    - 09
+    - '09'
     setor: Setor Vale da Onça
     escalada: 3º Pecado Capital
 escaladas:

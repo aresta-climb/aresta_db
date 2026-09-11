@@ -259,8 +259,8 @@ mapas:
       y: 901
       comprimento: 28
       largura: 28
-  - id: 08
-    label: 08
+  - id: '08'
+    label: '08'
     retangulo:
       x: 154
       y: 914
@@ -273,8 +273,8 @@ mapas:
       y: 908
       comprimento: 28
       largura: 27
-  - id: 09
-    label: 09
+  - id: '09'
+    label: '09'
     retangulo:
       x: 122
       y: 926
@@ -441,11 +441,11 @@ mapas:
     - Entrada_inferior_2
     setor: Setor Entrada Inferior
   - ids:
-    - 08
+    - '08'
     setor: Setor Entrada Superior
     escalada: O Basilisco de Slytherin
   - ids:
-    - 09
+    - '09'
     setor: Setor Entrada Superior
     escalada: Disparada
 escaladas:

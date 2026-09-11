@@ -86,61 +86,76 @@ croquis:
     tamanho_download_bytes: 2094865
 - id: br_mg_caete_monte_alvao
   nome: Monte Alvão - Caeté
-  descricao: |
-    O Alto Monte Alvão, localizado em Caeté, MG, é uma das áreas de escalada mais tradicionais e belas da região, oferecendo vias de diversos estilos e dificuldades em quartzito de alta qualidade.
+  descricao: 'O Alto Monte Alvão, localizado em Caeté, MG, é uma das áreas de escalada
+    mais tradicionais e belas da região, oferecendo vias de diversos estilos e dificuldades
+    em quartzito de alta qualidade.
+
+    '
   caminho_relativo: br_mg_caete_monte_alvao/compilado.binarypb
-  checksum_sha256_croqui: 01fc2f555c9da2a03df27d202b8abf68e01eab28788be17cb4d495b4c895d004
+  checksum_sha256_croqui: 574b66eb17125a6cd4f003dfdac8bf80abc4d9dc007c6c272d4a5d0ad5f6473f
   checksum_sha256_thumbnail: 03f79ad397717faec98f8288a15d55635b103c61f9b2be5cf92a56b1d804df95
-  timestamp_update: '2026-08-05T14:15:01Z'
+  timestamp_update: '2026-09-11T21:52:07Z'
   precomputados:
     total_escaladas: 55
     total_setores: 9
     total_grupos: 3
     total_esportivas: 44
     total_multiplas_enfiadas: 7
-    tamanho_download_bytes: 355142
+    tamanho_download_bytes: 355156
+  localizacao:
+    latitude: -199102878
+    longitude: -435758238
 - id: br_mg_caete_pedra_branca
   nome: Pedra Branca
   descricao: ''
   caminho_relativo: br_mg_caete_pedra_branca/compilado.binarypb
-  checksum_sha256_croqui: dd8a2463c05daa6c28c2764b2e15b80fc7ac9cfb18b63e59728afa69f51e3a01
+  checksum_sha256_croqui: ef25d5444f0b0dfc81a9a161ef829337183c42367a7a055ce80f70193a6b98ff
   checksum_sha256_thumbnail: 5595e0ed31526cb50b44acf14574b4c203e4435e10dbd102f3006ab744f71145
-  timestamp_update: '2026-08-05T14:15:01Z'
+  timestamp_update: '2026-09-11T21:52:51Z'
   precomputados:
     total_escaladas: 40
     total_setores: 2
     total_grupos: 0
     total_esportivas: 40
-    tamanho_download_bytes: 217816
+    tamanho_download_bytes: 217830
+  localizacao:
+    latitude: -198897720
+    longitude: -436539390
 - id: br_mg_caete_pedra_filha
   nome: Pedra Filha (Pedrinha)
   descricao: Croqui da Pedra Filha, localizada em Caeté, MG. Oferece vias esportivas
     técnicas em dois setores principais.
   caminho_relativo: br_mg_caete_pedra_filha/compilado.binarypb
-  checksum_sha256_croqui: 6ff7720710905ddc36bdc2b879d550bd9994f7eef53df8c24624fd7b5b670ea5
+  checksum_sha256_croqui: a731fd51758bcd2ea8eb6fa0f7deeee2863d78e0002ef9a400ca45c4bda28005
   checksum_sha256_thumbnail: 86ebad5aaf4e224f8ae16f15622cd24e33922939de8c4909b5ab598c8444a8f2
-  timestamp_update: '2026-08-05T14:15:01Z'
+  timestamp_update: '2026-09-11T21:53:14Z'
   precomputados:
     total_escaladas: 22
     total_setores: 2
     total_grupos: 0
     total_esportivas: 22
-    tamanho_download_bytes: 74708
+    tamanho_download_bytes: 74722
+  localizacao:
+    latitude: -198960870
+    longitude: -436547850
 - id: br_mg_conceicao_do_mato_dentro_festboulder
   nome: Fest Boulder
   descricao: Croqui do evento Fest Boulder 2023 em Conceição do Mato Dentro, Minas
     Gerais. Localizado na Serra do Espinhaço, reconhecido como um dos melhores lugares
     para a prática de boulder no Brasil.
   caminho_relativo: br_mg_conceicao_do_mato_dentro_festboulder/compilado.binarypb
-  checksum_sha256_croqui: 0810d547d38f583594ea29c096c34b2db9c1b8535f9095235f429a40f8132a23
+  checksum_sha256_croqui: fc83ab2857468b0c2abd2c1716586fd905ef624a9bfd90d97ef95f056b0c232b
   checksum_sha256_thumbnail: 2286cc0d32c56c598adff448e1a883d58691a861959b5c59e1ad39c0434e4c19
-  timestamp_update: '2026-08-05T14:15:01Z'
+  timestamp_update: '2026-09-11T21:53:52Z'
   precomputados:
     total_escaladas: 221
     total_setores: 32
     total_grupos: 4
     total_boulders: 221
-    tamanho_download_bytes: 7991887
+    tamanho_download_bytes: 7991901
+  localizacao:
+    latitude: -190453694
+    longitude: -434356950
 - id: br_mg_diamantina_diamaboulder
   nome: Diamaboulder (Cerrado Groove)
   descricao: O Cerrado Groove é um setor de boulder localizado em Diamantina, MG,
@@ -160,9 +175,9 @@ croquis:
   descricao: Este croqui documenta e divulga a prática da escalada no Complexo da
     Pedra Grande em Igarapé/MG, reunindo informações sobre diversos setores e vias.
   caminho_relativo: br_mg_igarape_pedra_grande/compilado.binarypb
-  checksum_sha256_croqui: 618321d22fb3322592b8abdb31b94c122ef4c5045f3ddf71b090f987143d0dc3
+  checksum_sha256_croqui: 29db6993b34a5c9fe38b74e10f0ed9389efa34f5140addc94fbd502139f7c8ad
   checksum_sha256_thumbnail: d490580138c1b7f24c772f2d6672e895406739da51bd1880ecabb49cd28b7409
-  timestamp_update: '2026-09-02T21:20:46Z'
+  timestamp_update: '2026-09-11T21:55:28Z'
   precomputados:
     total_escaladas: 147
     total_setores: 12
@@ -170,21 +185,24 @@ croquis:
     total_esportivas: 95
     total_boulders: 7
     total_multiplas_enfiadas: 3
-    tamanho_download_bytes: 14854937
+    tamanho_download_bytes: 14854951
+  localizacao:
+    latitude: -201176660
+    longitude: -443593480
 - id: br_mg_ipatinga_ipaba_vale_verde
   nome: Vale Verde
   descricao: O Vale Verde é uma falésia de Tonalito localizada no Vale do Aço, Minas
     Gerais, com vias técnicas em regletes.
   caminho_relativo: br_mg_ipatinga_ipaba_vale_verde/compilado.binarypb
-  checksum_sha256_croqui: 671d001f3958dbdd1ef13dfdcae8a9164c0ace4472d5c59aa11f28d559ca5c47
+  checksum_sha256_croqui: 0e6de8d7a85f1910d4e4f6503b8eaf6b331a97f9331a34f67faeb9c4a8d555f3
   checksum_sha256_thumbnail: b7587af0978a2179d8f3b580f41b16cf4878c540439104afa9d5b1688c9607ce
-  timestamp_update: '2026-08-05T14:15:01Z'
+  timestamp_update: '2026-09-11T22:05:28Z'
   precomputados:
     total_escaladas: 32
     total_setores: 2
     total_grupos: 0
     total_esportivas: 32
-    tamanho_download_bytes: 2376891
+    tamanho_download_bytes: 2376888
 - id: br_mg_januaria_salao_encantado
   nome: Salão Encantado
   descricao: Croqui do Salão Encantado em Januária, MG.
@@ -202,43 +220,52 @@ croquis:
   nome: Gruta da Lapinha
   descricao: Guia de escalada da Gruta da Lapinha em Lagoa Santa, MG.
   caminho_relativo: br_mg_lagoa_santa_gruta_da_lapinha/compilado.binarypb
-  checksum_sha256_croqui: 9d97fc829ee3b5c7e6458d3ca8da5a75ab2895d38b2e301bdd61892be5deeaa8
+  checksum_sha256_croqui: 4dbbf7e8739d01f920110acb98ae0d4dfcb3d553f81363c402ab865f0b269c13
   checksum_sha256_thumbnail: 76c57c2b9159772355858ad8f40ba79a8584dfdda215379031adc9afff1f1416
-  timestamp_update: '2026-08-28T01:19:19Z'
+  timestamp_update: '2026-09-11T21:55:54Z'
   precomputados:
     total_escaladas: 129
     total_setores: 10
     total_grupos: 0
     total_esportivas: 106
-    tamanho_download_bytes: 492598
+    tamanho_download_bytes: 494518
+  localizacao:
+    latitude: -195622616
+    longitude: -439595684
 - id: br_mg_lagoa_santa_sitio_do_rod
   nome: Sítio do Rod
   descricao: O Sítio do Rod é um importante campo escola de escalada localizado em
     Lagoa Santa, MG.  Com cerca de 70 vias, oferece opções para iniciantes e veteranos,
     com acesso fácil e rápido.
   caminho_relativo: br_mg_lagoa_santa_sitio_do_rod/compilado.binarypb
-  checksum_sha256_croqui: 927a1e352817d3a9fc40f7a84e5f42c6e6d0c488f8fce1b05d1e765407321875
+  checksum_sha256_croqui: 4c63d54030a9869a4bb3ab09acf179a46506abf97273e5a7e0b4bb85a60d507b
   checksum_sha256_thumbnail: 65ab5d85f5fb6a078f77306984a141ff013581a8494997c5f77f783c997d4451
-  timestamp_update: '2026-08-05T14:15:01Z'
+  timestamp_update: '2026-09-11T21:56:34Z'
   precomputados:
     total_escaladas: 85
     total_setores: 3
     total_grupos: 0
     total_esportivas: 74
-    tamanho_download_bytes: 4013567
+    tamanho_download_bytes: 4013581
+  localizacao:
+    latitude: -195686709
+    longitude: -439561783
 - id: br_mg_ouro_preto_andorinhas
   nome: Parque Natural Municipal das Andorinhas
   descricao: ''
   caminho_relativo: br_mg_ouro_preto_andorinhas/compilado.binarypb
-  checksum_sha256_croqui: 675dfabb225f45021eabcea6a68080cf7c25313cc42e2e06e57649a00389b578
+  checksum_sha256_croqui: c3176a6807a91c5cf3c461894778eaff328f97079505340094a3058c97e120ca
   checksum_sha256_thumbnail: f6fd316f2dd6ae610fac6ee9137a0b4c2ab388860175d167b03b7bae36efbac0
-  timestamp_update: '2026-08-05T14:15:01Z'
+  timestamp_update: '2026-09-11T21:57:27Z'
   precomputados:
     total_escaladas: 44
     total_setores: 4
     total_grupos: 0
     total_esportivas: 36
-    tamanho_download_bytes: 2864961
+    tamanho_download_bytes: 2864975
+  localizacao:
+    latitude: -203703540
+    longitude: -434619586
 - id: br_mg_ouro_preto_ouroboulder
   nome: Ouroboulder
   descricao: ''
@@ -259,39 +286,46 @@ croquis:
   nome: OuroBoulder Sunset
   descricao: ''
   caminho_relativo: br_mg_ouro_preto_ouroboulder_sunset/compilado.binarypb
-  checksum_sha256_croqui: 2c2be3e0b9fa74ebc9e523f6a82aa51e4ce74d6235e4d364eab9e4ebd1fc2cbd
+  checksum_sha256_croqui: d70dd2aaba4346aaebddcd863d967fb2f3b1fceeecd5801935fa3f832bc4bcd0
   checksum_sha256_thumbnail: 6e6baa3651753e1c62ba612181a8b62509dbe7ea04e07fe12b33b560f0d45c96
-  timestamp_update: '2026-08-05T14:15:01Z'
+  timestamp_update: '2026-09-11T21:58:54Z'
   precomputados:
     total_escaladas: 36
     total_setores: 8
     total_grupos: 1
     total_boulders: 36
-    tamanho_download_bytes: 2697924
+    tamanho_download_bytes: 2697938
+  localizacao:
+    latitude: -203600960
+    longitude: -435035650
 - id: br_mg_paraisopolis_pedra_da_divisa
   nome: Pedra da Divisa - Face MG
-  descricao: |
-    Guia de escalada da face mineira da Pedra da Divisa, em Paraisópolis, MG.
-    Contém vias esportivas e móveis em diversos setores como Cangaço, Ditados, Cervejas, Questão de Tempo e Hospício.
+  descricao: 'Guia de escalada da face mineira da Pedra da Divisa, em Paraisópolis,
+    MG.
+
+    Contém vias esportivas e móveis em diversos setores como Cangaço, Ditados, Cervejas,
+    Questão de Tempo e Hospício.
+
+    '
   caminho_relativo: br_mg_paraisopolis_pedra_da_divisa/compilado.binarypb
-  checksum_sha256_croqui: 9161fc5aa97ac8c8373d685b944cb72b7ed14bfa95c65bd6fff8b9519a063600
+  checksum_sha256_croqui: 8686c8a698035cd2b3a33425715fc719601ba3b5c105b7f66e001aba280e2495
   checksum_sha256_thumbnail: be6561976a3ef2c0f957fc3c72cdb7f0572b912d2d1e74ed1aa23fa1a8d0ebbd
-  timestamp_update: '2026-08-05T14:15:01Z'
+  timestamp_update: '2026-09-11T22:04:23Z'
   precomputados:
     total_escaladas: 43
     total_setores: 5
     total_grupos: 0
     total_esportivas: 29
-    tamanho_download_bytes: 4361930
+    tamanho_download_bytes: 4361927
 - id: br_mg_pedro_leopoldo_gruta_do_bau
   nome: Gruta do Baú
   descricao: O maciço do Baú está localizado no município de Pedro Leopoldo, MG. É
     um dos principais picos de escalada em calcário de Minas Gerais, com centenas
     de vias de diversos graus.
   caminho_relativo: br_mg_pedro_leopoldo_gruta_do_bau/compilado.binarypb
-  checksum_sha256_croqui: 5d6c8133cbf8d4b7ab6e320411e0e8db4f0b04286a8760cbaab6ee8cf9be978a
+  checksum_sha256_croqui: 1ed33be031557398ddb4fab07a44e6c7e38e094283d9c74157aae78a357dae48
   checksum_sha256_thumbnail: dd7a58f4b98506504be378b79117fe97b45fcd5fc927d31680d4c20a54b59052
-  timestamp_update: '2026-08-05T14:15:01Z'
+  timestamp_update: '2026-09-11T22:00:01Z'
   precomputados:
     total_escaladas: 339
     total_setores: 13
@@ -300,21 +334,24 @@ croquis:
     total_multiplas_enfiadas: 2
     tamanho_download_bytes: 2938155
   localizacao:
-    latitude: -195480000
-    longitude: -439900000
+    latitude: -195534530
+    longitude: -439898860
 - id: br_mg_sabara_pedra_rachada_setor_horizonte
   nome: Sabará - Pedra Rachada - Setor Horizonte
   descricao: ''
   caminho_relativo: br_mg_sabara_pedra_rachada_setor_horizonte/compilado.binarypb
-  checksum_sha256_croqui: c927af6ef4b0ce90d2ae2c2c5880f32a80b60aa0c42e8fbff99431b97e679d5e
+  checksum_sha256_croqui: 901fda0382b91f8f6ebe195d21472a6f0cf05ee65f9f7a4e30783a6748067c22
   checksum_sha256_thumbnail: aa6f7fb7f45880dafaba9758e1926aacf072a9b77fec3dda5d336b1404ce2ba9
-  timestamp_update: '2026-08-05T14:15:01Z'
+  timestamp_update: '2026-09-11T22:00:31Z'
   precomputados:
     total_escaladas: 61
     total_setores: 10
     total_grupos: 1
     total_boulders: 61
-    tamanho_download_bytes: 11704495
+    tamanho_download_bytes: 11704509
+  localizacao:
+    latitude: -198404745
+    longitude: -437654265
 - id: br_mg_sacramento_vo_gusta
   nome: Pico da Vó Gusta
   descricao: Pico da Vó Gusta em Sacramento, MG. Próximo a Rifaina.
@@ -335,24 +372,27 @@ croquis:
   nome: Santuário de Santa Luzia
   descricao: ''
   caminho_relativo: br_mg_santa_luzia_santuario/compilado.binarypb
-  checksum_sha256_croqui: 58bb680bb5f6a3db55be610cf9dba147b6bbc69a7838c3b9fd62444047a3e16e
+  checksum_sha256_croqui: 6c3e727ac588b2146ca6119c5532286a95997e7bfc393ac0efb2c2b9d3409d46
   checksum_sha256_thumbnail: cd072d8437c4155c6b8fcebbaaaa568e742daa5ed12c64a6c63ccbdfc1b9a951
-  timestamp_update: '2026-08-05T14:15:01Z'
+  timestamp_update: '2026-09-11T22:01:34Z'
   precomputados:
     total_escaladas: 46
     total_setores: 3
     total_grupos: 0
     total_esportivas: 21
     total_multiplas_enfiadas: 25
-    tamanho_download_bytes: 2942926
+    tamanho_download_bytes: 2942940
+  localizacao:
+    latitude: -197022921
+    longitude: -438754158
 - id: br_mg_santana_do_riacho_serra_do_cipo_rock_master
   nome: Serra do Cipó - Setor Rock Master
   descricao: O Setor Rock Master, localizado na Serra do Cipó (Santana do Riacho -
     MG), é um clássico setor de escalada esportiva com vias de 5b a 10b.
   caminho_relativo: br_mg_santana_do_riacho_serra_do_cipo_rock_master/compilado.binarypb
-  checksum_sha256_croqui: d72a06309dbaedb4c8b9e69564c9ab2bb2db0c7034cc8677b1627c890f206603
+  checksum_sha256_croqui: a9f169ce6e43f8435253efba3a498bcb7d00decb8982a4e577397a4dd81b6faa
   checksum_sha256_thumbnail: 4b48ba5cddb5e36d05bf933205a865c923dea6c9df28926e97ebdae19da210de
-  timestamp_update: '2026-08-28T16:46:21Z'
+  timestamp_update: '2026-09-11T22:02:14Z'
   precomputados:
     total_escaladas: 35
     total_setores: 1
@@ -360,18 +400,21 @@ croquis:
     total_esportivas: 35
     tamanho_download_bytes: 492872
   localizacao:
-    latitude: -193155800
+    latitude: -193155830
     longitude: -436135000
 - id: br_mg_sete_lagoas_sinuosa
   nome: Sinuosa
   descricao: ''
   caminho_relativo: br_mg_sete_lagoas_sinuosa/compilado.binarypb
-  checksum_sha256_croqui: 5acc5511ac1d21f2b734732c45d81e92cc5d7a3ad420919a24532e920d452759
+  checksum_sha256_croqui: 3606f29a9a3221a09fade46c31680b6b1ec33f176be05c2f0b18ec2d13236281
   checksum_sha256_thumbnail: 2bc1ee7c1538698d4dfbd8014b198048449e9541e08c05ee71469c1354d72bed
-  timestamp_update: '2026-08-05T14:15:01Z'
+  timestamp_update: '2026-09-11T22:06:33Z'
   precomputados:
     total_escaladas: 141
     total_setores: 15
     total_grupos: 1
     total_esportivas: 135
-    tamanho_download_bytes: 19936886
+    tamanho_download_bytes: 19936900
+  localizacao:
+    latitude: -194618320
+    longitude: -442793680

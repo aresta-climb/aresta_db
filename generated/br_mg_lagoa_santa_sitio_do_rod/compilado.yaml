@@ -1472,6 +1472,9 @@ picos:
         - setor: G1
           ids:
           - G1
+  localizacao:
+    latitude: -195686709
+    longitude: -439561783
   precomputados:
     total_escaladas: 85
     total_setores: 3

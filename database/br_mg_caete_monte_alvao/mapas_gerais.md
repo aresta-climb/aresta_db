@@ -169,4 +169,3 @@ mapas:
     - malibu
     grupo: Curto e Grosso, Malibu e Terra do Nunca
 ---
-

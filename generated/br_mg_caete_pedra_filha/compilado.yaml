@@ -336,6 +336,9 @@ picos:
         precomputados:
           total_escaladas: 9
           total_esportivas: 9
+  localizacao:
+    latitude: -198960870
+    longitude: -436547850
   precomputados:
     total_escaladas: 22
     total_setores: 2

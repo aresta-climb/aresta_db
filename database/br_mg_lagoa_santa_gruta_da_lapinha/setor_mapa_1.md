@@ -78,6 +78,8 @@ escaladas:
 - via_movel:
     nome: Favo de Mel
     dificuldade: BR_6
+    quantidade_protecoes_intermediarias: 3
+    quantidade_protecoes_parada: 1
     conquistadores:
     - Márcio Soares Macena
     - Wilson Novaes
@@ -90,6 +92,8 @@ escaladas:
 - via_esportiva:
     nome: Tomara que não chova
     dificuldade: BR_6SUP
+    quantidade_protecoes_intermediarias: 6
+    quantidade_protecoes_parada: 2
     conquistadores:
     - Christian A. N. Costa
     - Leo Guimarães "Léo Dandão"
@@ -97,14 +101,22 @@ escaladas:
 - via_esportiva:
     nome: Castelinho
     dificuldade: BR_6
+    quantidade_protecoes_intermediarias: 6
+    quantidade_protecoes_parada: 1
     conquistadores:
     - Marcelo Henrique Grijó Utsch
     - Cristiano Loureiro
     data_abertura: '1993'
 - via_esportiva:
     nome: Projeto
+    dificuldade: PROJETO
+    quantidade_protecoes_intermediarias: 3
+    quantidade_protecoes_parada: 0
+    descricao: '**INTERDITADA:** Via inacabada, conta com apenas 3 proteções intermediárias
+      e sem parada instalada no topo.'
 ---
 
 # Setor Castelinho
 
-Setor localizado próximo ao Restaurante Castelinho. Possui vias de graduação variada, incluindo algumas vias em móvel.
+Setor localizado próximo ao Restaurante Castelinho. Possui vias de graduação
+variada, incluindo algumas vias em móvel.
