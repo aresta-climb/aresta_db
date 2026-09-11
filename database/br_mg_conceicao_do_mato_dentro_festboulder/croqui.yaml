@@ -29,8 +29,8 @@ picos:
   mapas_gerais:
     caminho: mapas_gerais.md
   localizacao:
-    latitude: -190453694
-    longitude: -434356950
+    latitude: -190464720
+    longitude: -434401570
 botoes:
 - texto: Capa
   destino:

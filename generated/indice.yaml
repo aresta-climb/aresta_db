@@ -34,56 +34,68 @@ croquis:
   descricao: Afloramento de calcário situado em Pains, no estado de Minas Gerais,
     com diversos setores de escalada esportiva.
   caminho_relativo: br_mg_arcos_bombonera/compilado.binarypb
-  checksum_sha256_croqui: b540b8a2814e84878811dd366741571c0e0480a10adf517010fc61c723858049
+  checksum_sha256_croqui: 79b98273d7b84da5c8cd0960720e0b8db72c28f41dcb187bcef29a6ba638607b
   checksum_sha256_thumbnail: a7d62c5c5f8654d611b3560f86f35ccf7443d9f70ea0cff8add685cd3bc914e2
-  timestamp_update: '2026-08-05T14:15:01Z'
+  timestamp_update: '2026-09-11T22:27:09Z'
   precomputados:
     total_escaladas: 29
     total_setores: 3
     total_grupos: 0
     total_esportivas: 29
-    tamanho_download_bytes: 4385722
+    tamanho_download_bytes: 4385736
+  localizacao:
+    latitude: -203962230
+    longitude: -456497250
 - id: br_mg_arcos_corumba
   nome: Arcos - Corumbá
   descricao: Afloramento de calcário situado entre Arcos e Pains em Minas Gerais,
     com diversos setores de escalada esportiva.
   caminho_relativo: br_mg_arcos_corumba/compilado.binarypb
-  checksum_sha256_croqui: a004a0afaa1264c53c38a66b70dc50067404cf8e68bff8caf5d9d2e5b59a6aa3
+  checksum_sha256_croqui: adeb6d5ffbe1e568a0a7503d81c653fea6596778c7844763d9e44c784345ec4c
   checksum_sha256_thumbnail: 9e23a1e5fba3d47bd4b7840fc10b22664b461c5feb72d56bd966277f1a8a53ea
-  timestamp_update: '2026-08-05T14:15:01Z'
+  timestamp_update: '2026-09-11T22:27:28Z'
   precomputados:
     total_escaladas: 53
     total_setores: 4
     total_grupos: 0
     total_esportivas: 51
-    tamanho_download_bytes: 3221184
+    tamanho_download_bytes: 3221198
+  localizacao:
+    latitude: -203283130
+    longitude: -456115750
 - id: br_mg_arcos_novo_mundo
   nome: Afloramento Novo Mundo
   descricao: Um belo afloramento de calcário localizado entre Arcos e Pains, com vias
     que variam do 5º ao 9º grau.
   caminho_relativo: br_mg_arcos_novo_mundo/compilado.binarypb
-  checksum_sha256_croqui: b358433319a12003bfb48f6a9a662b58284c1f2b949f8b17ca2952afe73dd402
+  checksum_sha256_croqui: c98b3c70bf3178ac7fcd1d6ada6a5350406adb48fb7e994666f2441580861370
   checksum_sha256_thumbnail: 0f598698530f9bbda980757e782ca7c2e0daff379ab69a7740fa765830111fc9
-  timestamp_update: '2026-08-05T14:15:01Z'
+  timestamp_update: '2026-09-11T22:27:49Z'
   precomputados:
     total_escaladas: 29
     total_setores: 4
     total_grupos: 0
     total_esportivas: 27
-    tamanho_download_bytes: 876945
+    tamanho_download_bytes: 876959
+  localizacao:
+    latitude: -203449420
+    longitude: -455770310
 - id: br_mg_arcos_rastro
   nome: Afloramento Rastro
   descricao: Croqui do Afloramento Rastro em Arcos, Minas Gerais.
   caminho_relativo: br_mg_arcos_rastro/compilado.binarypb
-  checksum_sha256_croqui: 9bb2b848f354b11cbc87d3785d0e941fc392adf4dd3e35fb476395e9e0ad6089
+  checksum_sha256_croqui: 0561bb58adfabe7aa0128ba770c84ce44ea6b17788de300cb50d7f4ba94a706a
   checksum_sha256_thumbnail: cd2a88b34c86579c7cf631e5773abb272835706f5b45e49bb0f1e362bca7ce39
-  timestamp_update: '2026-08-05T14:15:01Z'
+  timestamp_update: '2026-09-11T22:28:09Z'
   precomputados:
     total_escaladas: 247
     total_setores: 17
     total_grupos: 0
     total_esportivas: 242
-    tamanho_download_bytes: 2094865
+    tamanho_download_bytes: 2094879
+  localizacao:
+    latitude: -202953470
+    longitude: -456009710
 - id: br_mg_caete_monte_alvao
   nome: Monte Alvão - Caeté
   descricao: 'O Alto Monte Alvão, localizado em Caeté, MG, é uma das áreas de escalada
@@ -144,9 +156,9 @@ croquis:
     Gerais. Localizado na Serra do Espinhaço, reconhecido como um dos melhores lugares
     para a prática de boulder no Brasil.
   caminho_relativo: br_mg_conceicao_do_mato_dentro_festboulder/compilado.binarypb
-  checksum_sha256_croqui: fc83ab2857468b0c2abd2c1716586fd905ef624a9bfd90d97ef95f056b0c232b
+  checksum_sha256_croqui: 0a64d764d5d4377ead8fa51c4bc258d886682349ddd8e5610e935981486744a5
   checksum_sha256_thumbnail: 2286cc0d32c56c598adff448e1a883d58691a861959b5c59e1ad39c0434e4c19
-  timestamp_update: '2026-09-11T21:53:52Z'
+  timestamp_update: '2026-09-11T22:28:36Z'
   precomputados:
     total_escaladas: 221
     total_setores: 32
@@ -154,22 +166,25 @@ croquis:
     total_boulders: 221
     tamanho_download_bytes: 7991901
   localizacao:
-    latitude: -190453694
-    longitude: -434356950
+    latitude: -190464720
+    longitude: -434401570
 - id: br_mg_diamantina_diamaboulder
   nome: Diamaboulder (Cerrado Groove)
   descricao: O Cerrado Groove é um setor de boulder localizado em Diamantina, MG,
     com blocos de quartzito de alta qualidade.
   caminho_relativo: br_mg_diamantina_diamaboulder/compilado.binarypb
-  checksum_sha256_croqui: 54ba695cfe097ee5ec0d8686b10e5c3a38944c70c1abdc8397348117caf17300
+  checksum_sha256_croqui: 24ba498ea9d7f704ad3e23d9e6f3fe1533a433ce8d9f692e70c43c3e6ea441d2
   checksum_sha256_thumbnail: e4949482a525177c4c86644c29d5d3d840c617994b759fe639817c383053bddb
-  timestamp_update: '2026-08-05T14:15:01Z'
+  timestamp_update: '2026-09-11T22:29:15Z'
   precomputados:
     total_escaladas: 89
     total_setores: 22
     total_grupos: 4
     total_boulders: 89
-    tamanho_download_bytes: 15892299
+    tamanho_download_bytes: 15892313
+  localizacao:
+    latitude: -182821730
+    longitude: -435199450
 - id: br_mg_igarape_pedra_grande
   nome: Igarameca - Complexo Pedra Grande
   descricao: Este croqui documenta e divulga a prática da escalada no Complexo da

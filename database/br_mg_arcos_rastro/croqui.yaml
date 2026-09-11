@@ -1,6 +1,5 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
-
 id: br_mg_arcos_rastro
 nome: Afloramento Rastro
 descricao: Croqui do Afloramento Rastro em Arcos, Minas Gerais.
@@ -46,6 +45,9 @@ picos:
       caminho: setor_3o_andar.md
   mapas_gerais:
     caminho: mapas_gerais.md
+  localizacao:
+    latitude: -202953470
+    longitude: -456009710
 botoes:
 - texto: Capa
   destino:

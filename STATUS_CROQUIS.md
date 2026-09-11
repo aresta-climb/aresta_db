@@ -1,21 +1,21 @@
 # Estado de Saúde dos Croquis
 
-Relatório gerado em: 11/09/2026 19:14:41
+Relatório gerado em: 11/09/2026 19:29:17
 
-| Croqui | Publicado (24/49) | Revisado Manual (25/49) | Revisado Circ (25/49) | Desenho Extraível (30/2/17) | Pontos de Interesse (23/49) | Thumbnail (36/49) | Coordenadas Picos (19/49) | Mapas Gerais (31/49) | Betas Pendentes (49/49) | croqui.yaml (37/49) | Conteúdo PDF (0/49) | partes.json (49/49) | PDF Original (0/49) |
+| Croqui | Publicado (24/49) | Revisado Manual (25/49) | Revisado Circ (25/49) | Desenho Extraível (30/2/17) | Pontos de Interesse (23/49) | Thumbnail (36/49) | Coordenadas Picos (24/49) | Mapas Gerais (31/49) | Betas Pendentes (49/49) | croqui.yaml (37/49) | Conteúdo PDF (0/49) | partes.json (49/49) | PDF Original (0/49) |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | br_mg_araxa_bocaina_boulders | ✅ | ✅ | ✅ | ✅ | ✅ (12/12) | ✅ | ❌ (0/1) | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ |
 | br_mg_araxa_bocaina_esportivas | ✅ | ✅ | ✅ | ✅ | ✅ (15/15) | ✅ | ❌ (0/1) | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ |
-| br_mg_arcos_bombonera | ✅ | ✅ | ✅ | ✅ (não) | ✅ (3/3) | ✅ | ❌ (0/1) | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ |
-| br_mg_arcos_corumba | ✅ | ✅ | ✅ | ✅ (não) | ✅ (4/4) | ✅ | ❌ (0/1) | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ |
-| br_mg_arcos_novo_mundo | ✅ | ✅ | ✅ | ✅ (não) | ✅ (4/4) | ✅ | ❌ (0/1) | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ |
-| br_mg_arcos_rastro | ✅ | ✅ | ✅ | ✅ (não) | ✅ (17/17) | ✅ | ❌ (0/1) | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ |
+| br_mg_arcos_bombonera | ✅ | ✅ | ✅ | ✅ (não) | ✅ (3/3) | ✅ | ✅ (1/1) | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ |
+| br_mg_arcos_corumba | ✅ | ✅ | ✅ | ✅ (não) | ✅ (4/4) | ✅ | ✅ (1/1) | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ |
+| br_mg_arcos_novo_mundo | ✅ | ✅ | ✅ | ✅ (não) | ✅ (4/4) | ✅ | ✅ (1/1) | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ |
+| br_mg_arcos_rastro | ✅ | ✅ | ✅ | ✅ (não) | ✅ (17/17) | ✅ | ✅ (1/1) | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ |
 | br_mg_barao_de_cocais_cambotas | ❌ | ❌ | ❌ | ✅ (não) | ❌ (0/11) | ✅ | ✅ (1/1) | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ |
 | br_mg_caete_monte_alvao | ✅ | ✅ | ✅ | ✅ (não) | ⚠️ (4/12) | ✅ | ✅ (1/1) | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ |
 | br_mg_caete_pedra_branca | ✅ | ✅ | ✅ | ✅ (não) | ✅ (2/2) | ✅ | ✅ (1/1) | ❌ | ✅ | ✅ | ❌ | ✅ | ❌ |
 | br_mg_caete_pedra_filha | ✅ | ✅ | ✅ | ✅ (não) | ✅ (2/2) | ✅ | ✅ (1/1) | ❌ | ✅ | ✅ | ❌ | ✅ | ❌ |
 | br_mg_conceicao_do_mato_dentro_festboulder | ✅ | ✅ | ✅ | ✅ | ✅ (36/36) | ✅ | ✅ (1/1) | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ |
-| br_mg_diamantina_diamaboulder | ✅ | ✅ | ✅ | ✅ | ⚠️ (22/26) | ✅ | ❌ (0/1) | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ |
+| br_mg_diamantina_diamaboulder | ✅ | ✅ | ✅ | ✅ | ⚠️ (22/26) | ✅ | ✅ (1/1) | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ |
 | br_mg_extrema_falesia_da_esfinge | ❌ | ❌ | ❌ | ⚠️ | ❌ (0/3) | ✅ | ❌ (0/1) | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ |
 | br_mg_ferros_ferros | ❌ | ❌ | ❌ | ✅ (não) | ⚠️ (12/21) | ❌ | ❌ (0/1) | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ |
 | br_mg_igarape_pedra_grande | ✅ | ✅ | ✅ | ✅ (não) | ⚠️ (10/13) | ✅ | ✅ (1/1) | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ |
