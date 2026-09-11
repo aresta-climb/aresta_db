@@ -4,31 +4,37 @@ croquis:
   descricao: O Bocaina Park é um parque particular de esportes, lazer e bem estar
     localizado a 30 km do de Araxá aos pés da serra da Bocaina.
   caminho_relativo: br_mg_araxa_bocaina_boulders/compilado.binarypb
-  checksum_sha256_croqui: eaf4ad429c74b818be9276deec4793c298718cb0919317aec0c786e6a725216d
+  checksum_sha256_croqui: 986746832a95295e9b129f47c2136fb18ffc4b6fd2f7d4ad0e2ad9f923b8ce9d
   checksum_sha256_thumbnail: 470aeac79c6fb93c1f0521b4bb5893477c221bf3a09f9b1a0131abf9f324e461
-  timestamp_update: '2026-08-05T14:15:01Z'
+  timestamp_update: '2026-09-11T22:34:28Z'
   precomputados:
     total_escaladas: 101
     total_setores: 12
     total_grupos: 0
     total_boulders: 101
-    tamanho_download_bytes: 6154632
+    tamanho_download_bytes: 6154689
+  localizacao:
+    latitude: -197151450
+    longitude: -467975110
 - id: br_mg_araxa_bocaina_esportivas
   nome: Bocaina Park (Esportivas)
   descricao: "O Bocaina Park, localizado em Araxá - MG, é um dos principais polos\
     \ de escalada esportiva da região. \nEste croqui cobre as 220 vias do parque,\
     \ distribuídas em diversos setores com graduações que vão do 4º ao 10º grau.\n"
   caminho_relativo: br_mg_araxa_bocaina_esportivas/compilado.binarypb
-  checksum_sha256_croqui: e51aaed22400a3720a456aacef7707899e3a44df0d0c6f8a036aa327795914d3
+  checksum_sha256_croqui: 31d13e4911ba5c16ad642cbc6b908a90a85e9fc3e5f9e01680931c968279fad5
   checksum_sha256_thumbnail: f07945364407d969d520d40ad78d646d07e0dba72a51f85285903b356efdd8ef
-  timestamp_update: '2026-08-05T14:15:01Z'
+  timestamp_update: '2026-09-11T22:35:05Z'
   precomputados:
     total_escaladas: 240
     total_setores: 15
     total_grupos: 0
     total_esportivas: 235
     total_highlines: 5
-    tamanho_download_bytes: 24009387
+    tamanho_download_bytes: 24009444
+  localizacao:
+    latitude: -197151110
+    longitude: -467977210
 - id: br_mg_arcos_bombonera
   nome: Arcos - Bombonera
   descricao: Afloramento de calcário situado em Pains, no estado de Minas Gerais,
@@ -222,15 +228,18 @@ croquis:
   nome: Salão Encantado
   descricao: Croqui do Salão Encantado em Januária, MG.
   caminho_relativo: br_mg_januaria_salao_encantado/compilado.binarypb
-  checksum_sha256_croqui: 6cca2ed950efd7046d865de9f86f612eab0d553e87e151a460dc744fd4a08e59
+  checksum_sha256_croqui: 26350287062465a53eafe8505481ef55549c7c30c856d8f6f1dbc9621edadaa8
   checksum_sha256_thumbnail: 7d240fdac4920b32a566c3b13e7e95a4b953405d284d9e9b43930e2f0fa1a71c
-  timestamp_update: '2026-08-05T14:15:01Z'
+  timestamp_update: '2026-09-11T22:37:05Z'
   precomputados:
     total_escaladas: 45
     total_setores: 7
     total_grupos: 0
     total_esportivas: 45
-    tamanho_download_bytes: 2715469
+    tamanho_download_bytes: 2715526
+  localizacao:
+    latitude: -154711340
+    longitude: -444448810
 - id: br_mg_lagoa_santa_gruta_da_lapinha
   nome: Gruta da Lapinha
   descricao: Guia de escalada da Gruta da Lapinha em Lagoa Santa, MG.

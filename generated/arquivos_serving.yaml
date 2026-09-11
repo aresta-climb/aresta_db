@@ -1,6 +1,6 @@
 arquivos:
 - caminho_relativo: br_mg_araxa_bocaina_boulders/compilado.binarypb
-  checksum_sha256: eaf4ad429c74b818be9276deec4793c298718cb0919317aec0c786e6a725216d
+  checksum_sha256: 986746832a95295e9b129f47c2136fb18ffc4b6fd2f7d4ad0e2ad9f923b8ce9d
 - caminho_relativo: thumbnails/br_mg_araxa_bocaina_boulders.webp
   checksum_sha256: 470aeac79c6fb93c1f0521b4bb5893477c221bf3a09f9b1a0131abf9f324e461
 - caminho_relativo: br_mg_araxa_bocaina_boulders/imagens/capa_p0.webp
@@ -54,11 +54,11 @@ arquivos:
 - caminho_relativo: br_mg_araxa_bocaina_boulders/imagens/setor_pressao_enrustida_p0.webp
   checksum_sha256: c894c3ad16831449a17c6e2481b7ba12b7b751abe7cff82f1b0fa483bcb2f837
 - caminho_relativo: br_mg_araxa_bocaina_boulders/compilado.yaml
-  checksum_sha256: 9813c78627c57854b7eca3bc0a71468c92bf810d6f71b0209aca27f6f4661447
+  checksum_sha256: 54b7a12e9b1a9bffca8135bef9aeab23be231577919408be245ff21716ea0853
 - caminho_relativo: br_mg_araxa_bocaina_boulders/compilado.md
   checksum_sha256: b2d6ae4d13d1c20d108faefb12bf498c01d1e3d91c592b48ccfdb4529ca613d8
 - caminho_relativo: br_mg_araxa_bocaina_esportivas/compilado.binarypb
-  checksum_sha256: e51aaed22400a3720a456aacef7707899e3a44df0d0c6f8a036aa327795914d3
+  checksum_sha256: 31d13e4911ba5c16ad642cbc6b908a90a85e9fc3e5f9e01680931c968279fad5
 - caminho_relativo: thumbnails/br_mg_araxa_bocaina_esportivas.webp
   checksum_sha256: f07945364407d969d520d40ad78d646d07e0dba72a51f85285903b356efdd8ef
 - caminho_relativo: br_mg_araxa_bocaina_esportivas/imagens/capa_p0.webp
@@ -192,7 +192,7 @@ arquivos:
 - caminho_relativo: br_mg_araxa_bocaina_esportivas/imagens/setor_udao_p2.webp
   checksum_sha256: 179b635c8bcd811edaa32ae6d1adb9f2773231537704bdca908afa69d71c4dc6
 - caminho_relativo: br_mg_araxa_bocaina_esportivas/compilado.yaml
-  checksum_sha256: a4650df85d095dfea640856c3b853c86296ee9cf05c8e4c2e136608b1d8c2b64
+  checksum_sha256: aa9010734f2fc1c992425727f80830a8e5d971b3d36ae4e694e6d3a36a32db74
 - caminho_relativo: br_mg_araxa_bocaina_esportivas/compilado.md
   checksum_sha256: e2f106871befaaae0192b63c6feaf4948cdabd2d995adf3c306a29d861b2a9a8
 - caminho_relativo: br_mg_arcos_bombonera/compilado.binarypb
@@ -714,7 +714,7 @@ arquivos:
 - caminho_relativo: br_mg_ipatinga_ipaba_vale_verde/compilado.md
   checksum_sha256: c714d4829c996ad50731097403f6df0f9f1df7211151adea5bf69a7bd113355a
 - caminho_relativo: br_mg_januaria_salao_encantado/compilado.binarypb
-  checksum_sha256: 6cca2ed950efd7046d865de9f86f612eab0d553e87e151a460dc744fd4a08e59
+  checksum_sha256: 26350287062465a53eafe8505481ef55549c7c30c856d8f6f1dbc9621edadaa8
 - caminho_relativo: thumbnails/br_mg_januaria_salao_encantado.webp
   checksum_sha256: 7d240fdac4920b32a566c3b13e7e95a4b953405d284d9e9b43930e2f0fa1a71c
 - caminho_relativo: br_mg_januaria_salao_encantado/imagens/capa_p0_i0.webp
@@ -754,7 +754,7 @@ arquivos:
 - caminho_relativo: br_mg_januaria_salao_encantado/imagens/setor_parede_principal_p0_i0.webp
   checksum_sha256: 5774476d9339c1ad497498e763b55cb56ea641852a091b9b72005d59e7609bfe
 - caminho_relativo: br_mg_januaria_salao_encantado/compilado.yaml
-  checksum_sha256: b36a6406b02e23570ac81788498f2f730703a7df68c018b4db57234d7580db3d
+  checksum_sha256: 2d804fa9c6fd16d50401351c909ac06e4a7b313b2b6c5e69fe857561568c3b8e
 - caminho_relativo: br_mg_januaria_salao_encantado/compilado.md
   checksum_sha256: 1f7ccb7fb85ec9c8c65441e052b0b509ad45d31e2fcd5a5eda342a6dddb8cbe9
 - caminho_relativo: br_mg_lagoa_santa_gruta_da_lapinha/compilado.binarypb
@@ -1548,6 +1548,6 @@ arquivos:
 - caminho_relativo: br_mg_sete_lagoas_sinuosa/compilado.md
   checksum_sha256: 9c1cb814fecabc3cc85db508f894a4fac08c13924bc119c29cf9559521c9151f
 - caminho_relativo: indice.binarypb
-  checksum_sha256: 6b614d5aa163399c5530c8532daffe1a35777eb72dc31f3a837a164c6c842e19
+  checksum_sha256: c63460851d7519aeb712acfc6ff569503bf3524a84ec98381e2a9a530bc228ba
 - caminho_relativo: indice.yaml
-  checksum_sha256: 74064724415b8c7b22dc110d11819b5a8d93118b4fc1a151dfcd19bc5f59f03e
+  checksum_sha256: e93b51693357d6608b9e4accc714a8ec55815d1db0ead3924f929ff67196b1ef
