@@ -1276,7 +1276,7 @@ arquivos:
 - caminho_relativo: br_mg_pedro_leopoldo_gruta_do_bau/compilado.md
   checksum_sha256: af17b596a449fb2af3c3117c1371d267ac5cd15f0847201503fca6488ffda168
 - caminho_relativo: br_mg_sabara_pedra_rachada_setor_horizonte/compilado.binarypb
-  checksum_sha256: 901fda0382b91f8f6ebe195d21472a6f0cf05ee65f9f7a4e30783a6748067c22
+  checksum_sha256: b29c77a6c8aea7449a35945a49b97e05dfc1714d69c6fa8a5d6b3b668225fd8e
 - caminho_relativo: thumbnails/br_mg_sabara_pedra_rachada_setor_horizonte.webp
   checksum_sha256: aa6f7fb7f45880dafaba9758e1926aacf072a9b77fec3dda5d336b1404ce2ba9
 - caminho_relativo: br_mg_sabara_pedra_rachada_setor_horizonte/imagens/aviso_p0_i0.webp
@@ -1340,9 +1340,9 @@ arquivos:
 - caminho_relativo: br_mg_sabara_pedra_rachada_setor_horizonte/imagens/setor_outros_blocos_p4_i0.webp
   checksum_sha256: 3591c4fbeb69222c499cee37b74b2342169a5bdb507d986adc0688d054513e0b
 - caminho_relativo: br_mg_sabara_pedra_rachada_setor_horizonte/compilado.yaml
-  checksum_sha256: 68f201048a0cae438ba791629d75b3ff6d93e2237956fe80116605c333418a28
+  checksum_sha256: 4beabd57686d62922eea08af0884811bca2f012db6ac6b4286556abe3c093f13
 - caminho_relativo: br_mg_sabara_pedra_rachada_setor_horizonte/compilado.md
-  checksum_sha256: eac492541988c3a04e6cb6d7b7afd2d59d7fb2b51ea89fe8e62d2089406256fe
+  checksum_sha256: 41a4e26d961ee39794e79cb6acdf09de2b3468667db8fce1f53c1f5d4a3f5708
 - caminho_relativo: br_mg_sacramento_vo_gusta/compilado.binarypb
   checksum_sha256: 3ee20d9824072c6cce138cba33dbf268bd389e2036520049a475d906cbb22221
 - caminho_relativo: thumbnails/br_mg_sacramento_vo_gusta.webp
@@ -1548,6 +1548,6 @@ arquivos:
 - caminho_relativo: br_mg_sete_lagoas_sinuosa/compilado.md
   checksum_sha256: 9c1cb814fecabc3cc85db508f894a4fac08c13924bc119c29cf9559521c9151f
 - caminho_relativo: indice.binarypb
-  checksum_sha256: 7e7606dcf5fcab9ea65586f2b51b76fdb78501cd0197601e2ffd6bc470776bf9
+  checksum_sha256: 208472761a41d04b0986e4f09d0e5e35e25dab769673df2ac512d767d110ebc2
 - caminho_relativo: indice.yaml
-  checksum_sha256: 4beecc29506012132d04088664ca9eb7a1be58b4c7717a25ab766b28d402d9f4
+  checksum_sha256: ed7ec69881922023cb4f1eee5dcf19e9bcf874a6d18fb4302cbfd024bf46a8bc

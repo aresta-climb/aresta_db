@@ -47,6 +47,16 @@
             | *Aviso* |
             
             Os blocos do setor Horizonte ainda não foram moldados para a atividade de escalada, de modo que muitos blocos ainda apresentam agarras quebradiças e pontos de atenção. Nós tentamos avaliar todas as possibilidades e remover agarras que não oferecem segurança, mas com a atividade de escalada intensa, novos betas são tirados e novas agarras utilizadas, bem como mais força é aplicada sobre elas. Por isso, pedimos a todos MUITA ATENÇÃO durante a escalada no novo setor. Sempre teste todas a possibilidades antes e veja se ela aparenta estar firme e boa para utilização. Segurança sempre em primeiro lugar!
+  - **[3]**:
+    - **texto**: Como chegar
+    - **destino**:
+      - **secao_textual**:
+        - **conteudo**:
+            # Como chegar
+            
+            Trilha do Wikiloc do estacionamento aos blocos:
+            
+            https://pt.wikiloc.com/trilhas-trekking/setor-horizonte-estacionamento-ate-bloco-floresta-de-pedra-178034324?h=3p7yvoon8p&wa=sd&utm_campaign=badge&utm_source=unknown&utm_medium=unknown
 - **ultima_migracao**: 4
 - **publicar_croqui**: True
 

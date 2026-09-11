@@ -340,18 +340,18 @@ croquis:
   nome: Sabará - Pedra Rachada - Setor Horizonte
   descricao: ''
   caminho_relativo: br_mg_sabara_pedra_rachada_setor_horizonte/compilado.binarypb
-  checksum_sha256_croqui: 901fda0382b91f8f6ebe195d21472a6f0cf05ee65f9f7a4e30783a6748067c22
+  checksum_sha256_croqui: b29c77a6c8aea7449a35945a49b97e05dfc1714d69c6fa8a5d6b3b668225fd8e
   checksum_sha256_thumbnail: aa6f7fb7f45880dafaba9758e1926aacf072a9b77fec3dda5d336b1404ce2ba9
-  timestamp_update: '2026-09-11T22:00:31Z'
+  timestamp_update: '2026-09-11T22:14:39Z'
   precomputados:
     total_escaladas: 61
     total_setores: 10
     total_grupos: 1
     total_boulders: 61
-    tamanho_download_bytes: 11704509
+    tamanho_download_bytes: 11704782
   localizacao:
-    latitude: -198404745
-    longitude: -437654265
+    latitude: -198396970
+    longitude: -437722740
 - id: br_mg_sacramento_vo_gusta
   nome: Pico da Vó Gusta
   descricao: Pico da Vó Gusta em Sacramento, MG. Próximo a Rifaina.

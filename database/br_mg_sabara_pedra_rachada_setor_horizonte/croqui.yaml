@@ -24,8 +24,8 @@ picos:
   mapas_gerais:
     caminho: mapas_gerais.md
   localizacao:
-    latitude: -198404745
-    longitude: -437654265
+    latitude: -198396970
+    longitude: -437722740
 caminho_thumbnail: imagens/capa_p0_i1.webp
 revisado_manualmente: true
 revisado_bounding_circle: true
@@ -43,5 +43,9 @@ botoes:
   destino:
     secao_textual:
       caminho: aviso.md
+- texto: Como chegar
+  destino:
+    secao_textual:
+      caminho: como_chegar.md
 ultima_migracao: 4
 publicar_croqui: true
