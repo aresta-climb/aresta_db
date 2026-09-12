@@ -100,6 +100,7 @@ class TestMedirSaudeCroquis(unittest.TestCase):
                 "Coordenadas Picos": "N/A",
                 "Mapas Gerais": "❌",
                 "Betas Pendentes": "✅",
+                "URL Google Maps": "✅ (1/1)",
                 "croqui.yaml": "❌",
                 "Conteúdo PDF": "❌",
                 "partes.json": "❌",
@@ -114,6 +115,7 @@ class TestMedirSaudeCroquis(unittest.TestCase):
                 "Pontos de Interesse": "N/A",
                 "Thumbnail": "❌",
                 "Coordenadas Picos": "N/A",
+                "URL Google Maps": "❌ (0/1)",
                 "Mapas Gerais": "❌",
                 "Betas Pendentes": "⚠️ (2)",
                 "croqui.yaml": "❌",
@@ -123,9 +125,11 @@ class TestMedirSaudeCroquis(unittest.TestCase):
             }
         ]
         
-        # Preenche "Betas Pendentes" nos itens 1 e 2
+        # Preenche "Betas Pendentes" e "URL Google Maps" nos itens 1 e 2
         report_data[0]["Betas Pendentes"] = "✅"
         report_data[1]["Betas Pendentes"] = "✅"
+        report_data[0]["URL Google Maps"] = "✅ (1/1)"
+        report_data[1]["URL Google Maps"] = "❌ (0/1)"
 
         table = medir_saude_croquis.generate_report_table(report_data)
         
@@ -134,6 +138,54 @@ class TestMedirSaudeCroquis(unittest.TestCase):
         self.assertIn("Revisado Manual (1/4)", table)
         self.assertIn("Publicado (1/4)", table)
         self.assertIn("Betas Pendentes (3/4)", table)
+        self.assertIn("URL Google Maps (2/4)", table)
+
+    def test_checar_url_google_maps(self):
+        # Sem YAML -> N/A
+        with patch('pathlib.Path.exists', return_value=False):
+            self.assertEqual(medir_saude_croquis.checar_url_google_maps(Path("test")), "N/A")
+
+        # YAML sem picos -> N/A
+        with patch('pathlib.Path.exists', return_value=True):
+            with patch('builtins.open', mock_open(read_data="nome: 'Croqui sem picos'")):
+                self.assertEqual(medir_saude_croquis.checar_url_google_maps(Path("test")), "N/A")
+
+        # YAML com picos todos preenchidos -> ✅ (1/1)
+        yaml_valido = """
+picos:
+  - nome: Pico 1
+    url_google_maps: https://maps.app.goo.gl/abc123xyz
+"""
+        with patch('pathlib.Path.exists', return_value=True):
+            with patch('builtins.open', mock_open(read_data=yaml_valido)):
+                self.assertEqual(medir_saude_croquis.checar_url_google_maps(Path("test")), "✅ (1/1)")
+                self.assertEqual(medir_saude_croquis.check_url_google_maps(Path("test")), "✅ (1/1)")
+
+        # YAML com múltiplos picos onde apenas parte possui URL -> ⚠️ (1/2)
+        yaml_parcial = """
+picos:
+  - nome: Pico 1
+    url_google_maps: https://maps.app.goo.gl/abc123xyz
+  - nome: Pico 2
+    url_google_maps: ""
+"""
+        with patch('pathlib.Path.exists', return_value=True):
+            with patch('builtins.open', mock_open(read_data=yaml_parcial)):
+                self.assertEqual(medir_saude_croquis.checar_url_google_maps(Path("test")), "⚠️ (1/2)")
+
+        # YAML com picos sem URL -> ❌ (0/1)
+        yaml_sem_url = """
+picos:
+  - nome: Pico 1
+"""
+        with patch('pathlib.Path.exists', return_value=True):
+            with patch('builtins.open', mock_open(read_data=yaml_sem_url)):
+                self.assertEqual(medir_saude_croquis.checar_url_google_maps(Path("test")), "❌ (0/1)")
+
+        # YAML corrompido / exceção -> ❌ (Erro)
+        with patch('pathlib.Path.exists', return_value=True):
+            with patch('builtins.open', side_effect=Exception("Erro de leitura")):
+                self.assertEqual(medir_saude_croquis.checar_url_google_maps(Path("test")), "❌ (Erro)")
 
     def test_check_betas_pendentes(self):
         # Sem arquivo staging -> Saudável (✅)

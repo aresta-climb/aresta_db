@@ -141,6 +141,38 @@ def check_pico_coordinates(croqui_path: Path) -> str:
     except Exception:
         return "❌ (Erro)"
 
+def checar_url_google_maps(croqui_path: Path) -> str:
+    """Verifica se os picos possuem link para o Google Maps preenchido."""
+    yaml_path = croqui_path / "croqui.yaml"
+    if not yaml_path.exists():
+        return "N/A"
+    try:
+        with open(yaml_path, "r", encoding="utf-8") as f:
+            data = yaml.safe_load(f)
+        picos = data.get("picos", [])
+        if not picos:
+            return "N/A"
+
+        passaram = 0
+        total = len(picos)
+        for pico in picos:
+            if isinstance(pico, dict):
+                url = pico.get("url_google_maps")
+                if url and isinstance(url, str) and url.strip():
+                    passaram += 1
+
+        if passaram == total:
+            return f"✅ ({passaram}/{total})"
+        elif passaram > 0:
+            return f"⚠️ ({passaram}/{total})"
+        else:
+            return f"❌ (0/{total})"
+    except Exception:
+        return "❌ (Erro)"
+
+# Alias em inglês para compatibilidade
+check_url_google_maps = checar_url_google_maps
+
 from typing import List, Dict, Any, Optional
 
 def find_all_sectors(croqui_path: Path) -> List[Path]:
@@ -274,6 +306,7 @@ def generate_report_table(report_data: List[Dict[str, Any]]) -> str:
     a_pontos = sum(1 for d in report_data if "✅" in d["Pontos de Interesse"])
     a_thumbnail = sum(1 for d in report_data if d["Thumbnail"] == "✅")
     a_coord_picos = sum(1 for d in report_data if "✅" in d["Coordenadas Picos"])
+    a_url_google_maps = sum(1 for d in report_data if "✅" in d.get("URL Google Maps", ""))
     a_mapas_gerais = sum(1 for d in report_data if d["Mapas Gerais"] == "✅")
     a_croqui_yaml = sum(1 for d in report_data if d["croqui.yaml"] == "✅")
     a_raw_pdf_contents = sum(1 for d in report_data if d["Conteúdo PDF"] == "✅")
@@ -296,6 +329,7 @@ def generate_report_table(report_data: List[Dict[str, Any]]) -> str:
         f"Pontos de Interesse ({a_pontos}/{total_croquis})",
         f"Thumbnail ({a_thumbnail}/{total_croquis})",
         f"Coordenadas Picos ({a_coord_picos}/{total_croquis})",
+        f"URL Google Maps ({a_url_google_maps}/{total_croquis})",
         f"Mapas Gerais ({a_mapas_gerais}/{total_croquis})",
         f"Betas Pendentes ({a_betas_pendentes}/{total_croquis})",
         f"croqui.yaml ({a_croqui_yaml}/{total_croquis})", 
@@ -318,6 +352,7 @@ def generate_report_table(report_data: List[Dict[str, Any]]) -> str:
             data["Pontos de Interesse"],
             data["Thumbnail"],
             data["Coordenadas Picos"],
+            data.get("URL Google Maps", "N/A"),
             data["Mapas Gerais"],
             data["Betas Pendentes"],
             data["croqui.yaml"],
@@ -356,6 +391,7 @@ def main() -> None:
         pontos = check_pontos_de_interesse(croqui)
         thumbnail = "✅" if check_caminho_thumbnail(croqui) else "❌"
         coord_picos = check_pico_coordinates(croqui)
+        url_maps = checar_url_google_maps(croqui)
         mapas_gerais = "✅" if check_mapas_gerais_exists(croqui) else "❌"
         status_desenho = check_status_desenho_extraivel(croqui)
         betas_status = check_betas_pendentes(croqui)
@@ -369,6 +405,7 @@ def main() -> None:
             "Pontos de Interesse": pontos,
             "Thumbnail": thumbnail,
             "Coordenadas Picos": coord_picos,
+            "URL Google Maps": url_maps,
             "Mapas Gerais": mapas_gerais,
             "Betas Pendentes": betas_status,
             "croqui.yaml": yaml_present,
