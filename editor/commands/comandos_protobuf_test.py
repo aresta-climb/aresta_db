@@ -590,4 +590,106 @@ def test_comando_editor_carregamento_silencioso():
     assert croqui.nome == "Nome Mutado"
 
 
+def test_guarda_integridade_mensagem_orfa_rejeitada():
+    import pytest
+    from aresta_api.proto.generated.croqui_pb2 import Pico, Patrocinador, SetorOuGrupo, ArquivoSetor
+    from editor.commands.comandos_protobuf import (
+        CmdAlterarPrimitivo,
+        CmdAdicionarRepeated,
+        CmdRemoverRepeated,
+        CmdAlterarOneof,
+        CmdAlterarRepeatedItem,
+        CmdAlterarMultiplosRepeatedItems,
+        CmdMoverRepeated,
+        CmdAlterarMetadadosCaminhoNovo,
+        CmdAlterarCampoImagem,
+    )
+
+    croqui = Croqui(nome="Croqui Teste")
+    model = CroquiModel(croqui)
+    pico_orfa = Pico(nome="Pico Órfão")
+    sog_orfa = SetorOuGrupo()
+
+    # Cada comando que opera sobre mensagem órfã deve lançar ValueError
+    with pytest.raises(ValueError, match="órfã|árvore"):
+        CmdAlterarPrimitivo(model, pico_orfa, "nome", "Antigo", "Novo")
+
+    with pytest.raises(ValueError, match="órfã|árvore"):
+        CmdAdicionarRepeated(model, pico_orfa, "patrocinadores", 0, Patrocinador(nome="P1"))
+
+    with pytest.raises(ValueError, match="órfã|árvore"):
+        CmdRemoverRepeated(model, pico_orfa, "patrocinadores", 0, Patrocinador(nome="P1"))
+
+    with pytest.raises(ValueError, match="órfã|árvore"):
+        CmdAlterarOneof(model, sog_orfa, "tipo", None, None, "setor", ArquivoSetor())
+
+    with pytest.raises(ValueError, match="órfã|árvore"):
+        CmdAlterarRepeatedItem(model, pico_orfa, "patrocinadores", 0, Patrocinador(nome="A"), Patrocinador(nome="B"))
+
+    with pytest.raises(ValueError, match="órfã|árvore"):
+        CmdAlterarMultiplosRepeatedItems(model, pico_orfa, "patrocinadores", [(0, Patrocinador(), Patrocinador())])
+
+    with pytest.raises(ValueError, match="órfã|árvore"):
+        CmdMoverRepeated(model, pico_orfa, "patrocinadores", 0, 1)
+
+    with pytest.raises(ValueError, match="órfã|árvore"):
+        CmdAlterarMetadadosCaminhoNovo(model, pico_orfa, "ext", {}, {})
+
+    with pytest.raises(ValueError, match="órfã|árvore"):
+        CmdAlterarCampoImagem(model, pico_orfa, "caminho_thumbnail", "", None, "img.webp", b"123")
+
+
+def test_guarda_integridade_campo_invalido_rejeitado():
+    import pytest
+    from editor.commands.comandos_protobuf import CmdAlterarPrimitivo, CmdAdicionarRepeated
+
+    croqui = Croqui(nome="Croqui Teste")
+    model = CroquiModel(croqui)
+
+    with pytest.raises(ValueError, match="não existe"):
+        CmdAlterarPrimitivo(model, croqui, "campo_completamente_inexistente", "A", "B")
+
+    with pytest.raises(ValueError, match="não existe"):
+        CmdAdicionarRepeated(model, croqui, "pontos_de_interesse", 0, "algo")
+
+
+def test_guarda_integridade_mensagem_conectada_valida():
+    from aresta_api.proto.generated.croqui_pb2 import Patrocinador
+    from editor.commands.comandos_protobuf import CmdAlterarPrimitivo, CmdAdicionarRepeated
+
+    croqui = Croqui(nome="Croqui Teste")
+    croqui.picos.add(nome="Pico Legítimo")
+    model = CroquiModel(croqui)
+
+    # Mensagem conectada na árvore deve ser aceita
+    proxy_pico = model.obter_croqui_readonly().picos[0]
+    cmd_alt = CmdAlterarPrimitivo(model, proxy_pico, "nome", "Pico Legítimo", "Pico Modificado")
+    assert cmd_alt is not None
+
+    cmd_add = CmdAdicionarRepeated(model, proxy_pico, "patrocinadores", 0, Patrocinador(nome="P1"))
+    assert cmd_add is not None
+
+
+def test_validar_pertence_ao_croqui_casos_limite():
+    import pytest
+    from editor.commands.comandos_protobuf import validar_pertence_ao_croqui
+
+    with pytest.raises(ValueError, match="inválida"):
+        validar_pertence_ao_croqui(None, Croqui())
+
+    with pytest.raises(ValueError, match="inválida"):
+        validar_pertence_ao_croqui(CroquiModel(Croqui()), None)
+
+    class ModelSemRoot:
+        def obter_croqui_readonly(self):
+            return None
+
+    # Se root for None, caminho é vazio
+    caminho = validar_pertence_ao_croqui(ModelSemRoot(), Croqui())
+    assert caminho == ""
+
+
+
+
+
 

@@ -25,7 +25,9 @@ from PySide6.QtGui import (
 )
 import copy
 from google.protobuf.json_format import ParseDict
+from google.protobuf.message import Message
 from aresta_api.proto.generated import croqui_pb2
+from editor.commands.comandos_protobuf import resolver_caminho_mensagem
 
 def registrar_movimento_final(item: Any, estado_inicial: Optional[Dict[str, Any]]) -> None:
     estado_final = copy.deepcopy(item.obter_dict_atualizado())
@@ -40,7 +42,9 @@ def registrar_movimento_final(item: Any, estado_inicial: Optional[Dict[str, Any]
                         idx_poi = idx
                         break
                 
-                if idx_poi != -1 and getattr(widget_editor, 'msg_mapa_proxy', None):
+                if idx_poi != -1 and getattr(widget_editor, 'msg_mapa_proxy', None) and (
+                    not hasattr(widget_editor, '_mapa_ativo_valido') or widget_editor._mapa_ativo_valido()
+                ):
                     try:
                         poi_antigo = croqui_pb2.Mapa.PontoDeInteresse()
                         ParseDict(estado_inicial, poi_antigo)
@@ -1778,6 +1782,11 @@ class WidgetEditorMapas(QWidget):
             self._model_imagem_conectado = None
         self._model_repeated_conectado = None
         
+        if self.croqui_model:
+            self._conectar_model_repeated(self.croqui_model)
+        elif self.mapas_controller and getattr(self.mapas_controller, "model", None):
+            self._conectar_model_repeated(self.mapas_controller.model)
+        
         # Estilo geral para combinar com o editor
         self.setStyleSheet("""
             QWidget { font-family: 'Segoe UI', sans-serif; }
@@ -2014,15 +2023,96 @@ class WidgetEditorMapas(QWidget):
         self.painel_referencias.salvar_modo_camera.connect(self.salvar_ajuste_camera)
         self.painel_referencias.remover_ajuste_camera.connect(self.remover_ajuste_camera)
 
+    def _conectar_model_repeated(self, model: Any) -> None:
+        """Conecta com segurança os sinais de repeated do CroquiModel."""
+        if not model or getattr(self, "_model_repeated_conectado", None) is model:
+            return
+        if getattr(self, "_model_repeated_conectado", None) is not None:
+            try:
+                cast(Any, self._model_repeated_conectado).repeated_item_alterado.disconnect(self._on_repeated_item_alterado)
+                cast(Any, self._model_repeated_conectado).repeated_adicionado.disconnect(self._on_repeated_adicionado)
+                cast(Any, self._model_repeated_conectado).repeated_removido.disconnect(self._on_repeated_removido)
+            except Exception:
+                pass
+        if hasattr(model, "repeated_item_alterado"):
+            cast(Any, model).repeated_item_alterado.connect(self._on_repeated_item_alterado)
+        if hasattr(model, "repeated_adicionado"):
+            cast(Any, model).repeated_adicionado.connect(self._on_repeated_adicionado)
+        if hasattr(model, "repeated_removido"):
+            cast(Any, model).repeated_removido.connect(self._on_repeated_removido)
+        self._model_repeated_conectado = model
+
+    def _mapa_ativo_valido(self) -> bool:
+        """Verifica se o mapa atual selecionado existe e pertence à árvore ativa do CroquiModel."""
+        model = self.croqui_model or (getattr(self.mapas_controller, "model", None) if self.mapas_controller else None)
+        if not model:
+            return True
+        if not hasattr(model, "obter_croqui_readonly"):
+            return True
+        try:
+            croqui_root = model.obter_croqui_readonly()
+        except Exception:
+            return True
+        from editor.models.readonly_proxy import ReadOnlyProxy
+        croqui_real = croqui_root
+        if isinstance(croqui_real, ReadOnlyProxy):
+            croqui_real = object.__getattribute__(croqui_real, "_obj")
+
+        if not isinstance(croqui_real, Message):
+            return True
+        if getattr(croqui_real, "_mock_name", None) is not None or getattr(croqui_real, "_mock_methods", None) is not None:
+            return True
+            
+        if self.msg_mapa_proxy is None:
+            return False
+            
+        caminho = resolver_caminho_mensagem(croqui_real, self.msg_mapa_proxy)
+        return bool(caminho)
+
+    def descarregar_mapa(self) -> None:
+        """Descarrega o mapa atual, limpando a cena, itens e referências."""
+        self.msg_mapa_proxy = None
+        self.pico_idx = -1
+        self.sg_idx = -1
+        self.mapa_idx = -1
+        self.s_idx = -1
+        self.itens_poi.clear()
+        if self.dados_atuais:
+            cena = self.dados_atuais.get('cena')
+            if cena:
+                cena.clear()
+            self.dados_atuais['itens_bb'] = []
+        self.visualizador.setScene(None)
+        self.label_placeholder.show()
+        if hasattr(self, 'painel_referencias') and self.painel_referencias:
+            self.painel_referencias.carregar_mapa(None)
+        self.list_widget.blockSignals(True)
+        self.list_widget.clearSelection()
+        self.list_widget.setCurrentItem(None)
+        self.list_widget.blockSignals(False)
+
     def configurar_lista_mapas(self) -> None:
         """Conecta o modelo reativo e preenche a lista."""
-        if not self.mapas_controller or not self.mapas_controller.model:
+        model = self.croqui_model or (getattr(self.mapas_controller, "model", None) if self.mapas_controller else None)
+        if not model:
             return
             
-        model = self.mapas_controller.model
-        model.dado_alterado.connect(self._atualizar_lista_mapas)
-        model.repeated_adicionado.connect(self._atualizar_lista_mapas)
-        model.repeated_removido.connect(self._atualizar_lista_mapas)
+        self._conectar_model_repeated(model)
+        if hasattr(model, "dado_alterado"):
+            try:
+                model.dado_alterado.connect(self._atualizar_lista_mapas)
+            except Exception:
+                pass
+        if hasattr(model, "repeated_adicionado"):
+            try:
+                model.repeated_adicionado.connect(self._atualizar_lista_mapas)
+            except Exception:
+                pass
+        if hasattr(model, "repeated_removido"):
+            try:
+                model.repeated_removido.connect(self._atualizar_lista_mapas)
+            except Exception:
+                pass
         
         self._atualizar_lista_mapas()
         
@@ -2046,9 +2136,10 @@ class WidgetEditorMapas(QWidget):
         self.list_widget.blockSignals(True)
         self.list_widget.clear()
         self.list_widget.blockSignals(False)
-        if not self.mapas_controller or not self.mapas_controller.model: return
+        model = self.croqui_model or (getattr(self.mapas_controller, "model", None) if self.mapas_controller else None)
+        if not model: return
         
-        croqui_msg = self.mapas_controller.model.obter_croqui_readonly()
+        croqui_msg = model.obter_croqui_readonly()
         
         for p_idx, pico in enumerate(croqui_msg.picos):
             # Mapas Gerais do Pico
@@ -2101,6 +2192,10 @@ class WidgetEditorMapas(QWidget):
             s_idx = getattr(self, 's_idx', -1)
             self.selecionar_mapa_por_indices(self.pico_idx, self.sg_idx, self.mapa_idx, s_idx if s_idx is not None else -1)
             self.list_widget.blockSignals(False)
+
+        # Se havia mapa ativo mas ele não é mais válido na árvore ativa, descarrega
+        if self.msg_mapa_proxy is not None and not self._mapa_ativo_valido():
+            self.descarregar_mapa()
                     
     def _on_mapa_selecionado(self) -> None:
         item = self.list_widget.currentItem()
@@ -2185,28 +2280,18 @@ class WidgetEditorMapas(QWidget):
                     path = f"page:mapas/node:Croqui/expando:picos/item:{pico_idx}/expando:setores_ou_grupos/item:{grupo_idx}/expando:setor/expando:mapas/item:{mapa_idx}"
                 self.mapas_controller.set_contexto(path)
                 
-            model = self.mapas_controller.model
-            if model and getattr(self, "_model_repeated_conectado", None) is not model:
-                if getattr(self, "_model_repeated_conectado", None) is not None:
-                    try:
-                        cast(Any, self._model_repeated_conectado).repeated_item_alterado.disconnect(self._on_repeated_item_alterado)
-                        cast(Any, self._model_repeated_conectado).repeated_adicionado.disconnect(self._on_repeated_adicionado)
-                        cast(Any, self._model_repeated_conectado).repeated_removido.disconnect(self._on_repeated_removido)
-                    except Exception:
-                        pass
-                if hasattr(model, "repeated_item_alterado"):
-                    cast(Any, model).repeated_item_alterado.connect(self._on_repeated_item_alterado)
-                if hasattr(model, "repeated_adicionado"):
-                    cast(Any, model).repeated_adicionado.connect(self._on_repeated_adicionado)
-                if hasattr(model, "repeated_removido"):
-                    cast(Any, model).repeated_removido.connect(self._on_repeated_removido)
-                self._model_repeated_conectado = model
+            model = self.croqui_model or (getattr(self.mapas_controller, "model", None) if self.mapas_controller else None)
+            if model:
+                self._conectar_model_repeated(model)
             
         self.painel_referencias.carregar_mapa(msg_mapa_proxy)
         self._renderizar_mapa(reset_zoom=True)
 
     def carregar_mapa(self, msg_mapa_proxy: Any, reset_zoom: bool = True) -> None:
         """Carrega e renderiza o mapa a partir do objeto ou proxy de mapa."""
+        if msg_mapa_proxy is None:
+            self.descarregar_mapa()
+            return
         self.msg_mapa_proxy = msg_mapa_proxy
         if not self.dados_atuais:
             self.dados_atuais = {
@@ -2323,7 +2408,7 @@ class WidgetEditorMapas(QWidget):
 
     def substituir_imagem_mapa(self) -> None:
         """Abre diálogo para substituir a imagem de fundo do mapa atual com pré-processamento WebP."""
-        if not self.msg_mapa_proxy:
+        if not self._mapa_ativo_valido():
             return
         caminho_rel = getattr(self.msg_mapa_proxy, "caminho_imagem_mapa", "")
         if not caminho_rel:
@@ -2389,7 +2474,7 @@ class WidgetEditorMapas(QWidget):
                 self.carregar_mapa(self.msg_mapa_proxy, reset_zoom=False)
 
     def adicionar_poi(self, tipo: str) -> None:
-        if not self.dados_atuais or not self.mapas_controller: return
+        if not self.dados_atuais or not self.mapas_controller or not self._mapa_ativo_valido(): return
         
         if tipo == 'poligono':
             self.iniciar_modo_desenho(self.dados_atuais)
@@ -2428,7 +2513,7 @@ class WidgetEditorMapas(QWidget):
             self.mapas_controller.adicionar_poi(self.msg_mapa_proxy, novo_poi)
 
     def deletar_item_poi(self, item: Any) -> None:
-        if not self.mapas_controller: return
+        if not self.mapas_controller or not self._mapa_ativo_valido(): return
         
         idx_poi = -1
         for idx, gui_item in self.itens_poi.items():
@@ -2440,7 +2525,7 @@ class WidgetEditorMapas(QWidget):
             self.mapas_controller.deletar_poi(self.msg_mapa_proxy, idx_poi)
 
     def converter_item_para_circulo(self, item: Any) -> None:
-        if not self.mapas_controller: return
+        if not self.mapas_controller or not self._mapa_ativo_valido(): return
         idx_poi = -1
         for idx, gui_item in self.itens_poi.items():
             if gui_item == item:
@@ -2450,7 +2535,7 @@ class WidgetEditorMapas(QWidget):
             self.mapas_controller.converter_boxes_para_circulos(self.msg_mapa_proxy, [idx_poi])
 
     def converter_item_para_retangulo(self, item: Any) -> None:
-        if not self.mapas_controller: return
+        if not self.mapas_controller or not self._mapa_ativo_valido(): return
         idx_poi = -1
         for idx, gui_item in self.itens_poi.items():
             if gui_item == item:
@@ -2466,6 +2551,7 @@ class WidgetEditorMapas(QWidget):
 
     # Lógica de Desenho e Conversão
     def iniciar_modo_desenho(self, dados: Any) -> None:
+        if not self._mapa_ativo_valido(): return
         self.modo_desenho = True
         self.pontos_desenho = []
         self.dados_atuais = dados
@@ -2518,6 +2604,9 @@ class WidgetEditorMapas(QWidget):
                 if self.item_desenho_temp is not None: self.item_desenho_temp.setPath(path)
 
     def finalizar_modo_desenho(self) -> None:
+        if not self._mapa_ativo_valido():
+            self.cancelar_modo_desenho()
+            return
         if len(self.pontos_desenho) < 3:
             self.cancelar_modo_desenho()
             return
@@ -2559,6 +2648,7 @@ class WidgetEditorMapas(QWidget):
         self.pontos_desenho = []
 
     def iniciar_modo_desenho_linha(self, dados: Any) -> None:
+        if not self._mapa_ativo_valido(): return
         self.modo_desenho_linha = True
         self.pontos_desenho_linha = []
         self.dados_atuais = dados
@@ -2632,6 +2722,9 @@ class WidgetEditorMapas(QWidget):
                     self.item_desenho_linha_temp.setPath(path)
 
     def finalizar_modo_desenho_linha(self) -> None:
+        if not self._mapa_ativo_valido():
+            self.cancelar_modo_desenho_linha()
+            return
         if len(self.pontos_desenho_linha) < 2:
             self.cancelar_modo_desenho_linha()
             return
@@ -2681,6 +2774,7 @@ class WidgetEditorMapas(QWidget):
 
 
     def alternar_modo_conversao(self) -> None:
+        if not self._mapa_ativo_valido(): return
         if self.modo_desenho: return
         if self.modo_conversao:
             if self.dados_atuais and self.mapas_controller:
@@ -2695,6 +2789,7 @@ class WidgetEditorMapas(QWidget):
             self.iniciar_modo_conversao()
 
     def iniciar_modo_conversao(self) -> None:
+        if not self._mapa_ativo_valido(): return
         self.modo_conversao = True
         self.label_conversao.setVisible(True)
         self.btn_converter.setStyleSheet("background-color: orange; font-weight: bold;")
@@ -2710,7 +2805,7 @@ class WidgetEditorMapas(QWidget):
         self.origem_selecao = None
 
     def finalizar_area_conversao(self, rect: QRectF) -> None:
-        if not self.dados_atuais or not self.mapas_controller: return
+        if not self.dados_atuais or not self.mapas_controller or not self._mapa_ativo_valido(): return
         a_converter = []
         for idx_poi, gui_item in list(self.itens_poi.items()):
             if isinstance(gui_item, ItemBoundingRetangulo):
@@ -2722,7 +2817,7 @@ class WidgetEditorMapas(QWidget):
 
     # Bulk Sliders logic
     def ao_pressionar_slider_bulk(self, tipo: str) -> None:
-        if not self.dados_atuais: return
+        if not self.dados_atuais or not self._mapa_ativo_valido(): return
         self.bulk_base_dims = {}
         from copy import deepcopy
         for idx, gui_item in self.itens_poi.items():
@@ -2785,6 +2880,9 @@ class WidgetEditorMapas(QWidget):
                     mudou = True
 
     def ao_soltar_slider_bulk(self, tipo: str) -> None:
+        if not self._mapa_ativo_valido():
+            self.bulk_base_dims = {}
+            return
         if self.bulk_base_dims and self.mapas_controller:
             # Dispatch changes to controller
             from aresta_api.proto.generated import croqui_pb2
@@ -2854,6 +2952,9 @@ class WidgetEditorMapas(QWidget):
                         self._adicionar_item_cena(poi, index, cena)
 
     def _on_repeated_adicionado(self, msg: Any, campo_nome: str, index: int) -> None:
+        if campo_nome == 'mapas':
+            self._atualizar_lista_mapas()
+            return
         if self.msg_mapa_proxy == msg and campo_nome == 'referencias':
             self.painel_referencias.carregar_mapa(msg)
         if self.msg_mapa_proxy == msg and campo_nome == 'pontos_de_interesse':
@@ -2871,6 +2972,11 @@ class WidgetEditorMapas(QWidget):
                 self._adicionar_item_cena(poi, index, cena)
 
     def _on_repeated_removido(self, msg: Any, campo_nome: str, index: int) -> None:
+        if campo_nome == 'mapas':
+            self._atualizar_lista_mapas()
+            if not self._mapa_ativo_valido():
+                self.descarregar_mapa()
+            return
         if self.msg_mapa_proxy == msg and campo_nome == 'referencias':
             self.painel_referencias.carregar_mapa(msg)
         if self.msg_mapa_proxy == msg and campo_nome == 'pontos_de_interesse':
@@ -2970,6 +3076,8 @@ class WidgetEditorMapas(QWidget):
         self.destacar_pois_temporariamente(self.referencia_linkagem_ativa)
 
     def iniciar_modo_camera(self, index: int, referencia: Any) -> None:
+        if not self._mapa_ativo_valido():
+            return
         self.referencia_camera_ativa = referencia
         self.camera_ref_idx = index
         self.modo_camera = True
@@ -3035,6 +3143,8 @@ class WidgetEditorMapas(QWidget):
         self.label_modo.setVisible(False)
 
     def salvar_ajuste_camera(self) -> None:
+        if not self._mapa_ativo_valido():
+            return
         if not hasattr(self, 'referencia_camera_ativa') or not self.referencia_camera_ativa:
             return
             
@@ -3087,6 +3197,8 @@ class WidgetEditorMapas(QWidget):
         self.parar_modo_camera()
 
     def remover_ajuste_camera(self, idx: int) -> None:
+        if not self._mapa_ativo_valido():
+            return
         if idx < 0 or idx >= len(cast(Any, self.msg_mapa_proxy).referencias): return
         
         ref = cast(Any, self.msg_mapa_proxy).referencias[idx]
@@ -3106,6 +3218,8 @@ class WidgetEditorMapas(QWidget):
 
 
     def iniciar_modo_linkagem(self, idx_ref: int, ref: Any) -> None:
+        if not self._mapa_ativo_valido():
+            return
         from PySide6.QtCore import Qt
         self.modo_linkagem = True
         self.linkagem_ref_idx = idx_ref
@@ -3138,6 +3252,8 @@ class WidgetEditorMapas(QWidget):
             poi.setFlag(QGraphicsItem.GraphicsItemFlag.ItemIsMovable, True)
 
     def tratar_clique_poi_linkagem(self, poi_id: str) -> bool:
+        if not self._mapa_ativo_valido():
+            return False
         if not hasattr(self, 'modo_linkagem') or not self.modo_linkagem:
             return False
             

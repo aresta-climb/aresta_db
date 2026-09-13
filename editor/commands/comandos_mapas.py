@@ -9,6 +9,7 @@ from editor.commands.comandos_protobuf import (
     ComandoEditor,
     resolver_caminho_mensagem,
     navegar_para_mensagem,
+    validar_pertence_ao_croqui,
     _serializar_valor,
     _deserializar_valor,
 )
@@ -34,6 +35,7 @@ class CmdAdicionarMapaArquivo(ComandoEditor):
         self.model: Any = model
         self.msg: Any = msg
         self.campo_nome: str = campo_nome
+        validar_pertence_ao_croqui(self.model, self.msg, self.campo_nome, nome_comando="CmdAdicionarMapaArquivo")
         self.index: int = index
         self.valor: Any = _copia_segura(valor)
         self.caminho_absoluto: Optional[Path | str] = caminho_absoluto

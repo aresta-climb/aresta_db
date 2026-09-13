@@ -377,3 +377,118 @@ class TestGerenciadorHistorico(unittest.TestCase):
             gerenciador.desfazer()
             self.assertEqual(croqui.creditos[0], "Credito Original")
 
+    def test_restaurar_do_diario_ignora_comando_orfa_ou_corrompido(self):
+        import tempfile
+        from pathlib import Path
+        from editor.core.diario import GerenciadorDiario
+        from aresta_api.proto.generated.croqui_pb2 import Croqui
+        from editor.models.croqui_model import CroquiModel
+        from editor.commands.comandos_protobuf import CmdAlterarPrimitivo
+
+        with tempfile.TemporaryDirectory() as temp_dir:
+            pasta_croqui = Path(temp_dir)
+            diario = GerenciadorDiario(pasta_croqui)
+
+            croqui_orig = Croqui(nome="Original")
+            croqui_orig.creditos.append("Credito 1")
+            model_orig = CroquiModel(croqui_orig)
+
+            # Grava comando 1: válido
+            cmd1 = CmdAlterarPrimitivo(model_orig, croqui_orig, "nome", "Original", "Passo 1")
+            diario.gravar_comando_pendente(cmd1)
+
+            # Grava comando 2: corrompido / órfão (campo inexistente na raiz)
+            cmd_orfa = {
+                "classe": "CmdAdicionarRepeated",
+                "caminho_msg": "",
+                "campo_nome": "pontos_de_interesse",
+                "index": 0,
+                "valor": {},
+                "context_path": None,
+            }
+            diario.gravar_comando_pendente(cmd_orfa)
+
+            # Grava comando 3: válido
+            cmd3 = CmdAlterarPrimitivo(model_orig, croqui_orig, "nome", "Passo 1", "Passo 2")
+            diario.gravar_comando_pendente(cmd3)
+
+            # Restaura em um novo modelo
+            croqui_novo = Croqui(nome="Original")
+            croqui_novo.creditos.append("Credito 1")
+            model_novo = CroquiModel(croqui_novo)
+            gerenciador = GerenciadorHistorico()
+
+            total_restaurados = gerenciador.restaurar_do_diario(model_novo, diario)
+
+            # O comando 2 órfão deve ser ignorado sem interromper a restauração do comando 3
+            self.assertEqual(total_restaurados, 2)
+            self.assertEqual(croqui_novo.nome, "Passo 2")
+
+    def test_carregar_comandos_salvos_ignora_comando_corrompido(self):
+        import tempfile
+        from pathlib import Path
+        from editor.core.diario import GerenciadorDiario
+        from aresta_api.proto.generated.croqui_pb2 import Croqui
+        from editor.models.croqui_model import CroquiModel
+        from editor.commands.comandos_protobuf import CmdAlterarPrimitivo
+
+        with tempfile.TemporaryDirectory() as temp_dir:
+            pasta_croqui = Path(temp_dir)
+            diario = GerenciadorDiario(pasta_croqui)
+
+            croqui_orig = Croqui(nome="Original")
+            model_orig = CroquiModel(croqui_orig)
+
+            cmd1 = CmdAlterarPrimitivo(model_orig, croqui_orig, "nome", "Original", "Passo 1")
+            diario.gravar_comando_pendente(cmd1)
+
+            cmd_invalido = {
+                "classe": "CmdAlterarPrimitivo",
+                "caminho_msg": "",
+                "campo_nome": "campo_inexistente",
+                "valor_antigo": "A",
+                "valor_novo": "B",
+            }
+            diario.gravar_comando_pendente(cmd_invalido)
+
+            cmd3 = CmdAlterarPrimitivo(model_orig, croqui_orig, "nome", "Passo 1", "Passo 2")
+            diario.gravar_comando_pendente(cmd3)
+
+            diario.consolidar_salvamento()
+
+            croqui_novo = Croqui(nome="Passo 2")
+            model_novo = CroquiModel(croqui_novo)
+            gerenciador = GerenciadorHistorico()
+
+            total_carregados = gerenciador.carregar_diario_salvo(model_novo, diario)
+
+            # Ambos os comandos válidos devem ser carregados
+            self.assertEqual(total_carregados, 2)
+
+    def test_replay_diario_trata_excecao_generica_inesperada(self):
+        import tempfile
+        from pathlib import Path
+        from unittest.mock import patch
+        from editor.core.diario import GerenciadorDiario
+        from aresta_api.proto.generated.croqui_pb2 import Croqui
+        from editor.models.croqui_model import CroquiModel
+
+        with tempfile.TemporaryDirectory() as temp_dir:
+            pasta_croqui = Path(temp_dir)
+            diario = GerenciadorDiario(pasta_croqui)
+            diario.gravar_comando_pendente({"classe": "CmdTeste"})
+
+            gerenciador = GerenciadorHistorico()
+            model = CroquiModel(Croqui())
+
+            with patch("editor.commands.comandos_protobuf.deserializar_comando", side_effect=RuntimeError("Erro inesperado")):
+                res_pendente = gerenciador.restaurar_do_diario(model, diario)
+                self.assertEqual(res_pendente, 0)
+
+            diario.consolidar_salvamento()
+            with patch("editor.commands.comandos_protobuf.deserializar_comando", side_effect=RuntimeError("Erro inesperado")):
+                res_salvo = gerenciador.carregar_diario_salvo(model, diario)
+                self.assertEqual(res_salvo, 0)
+
+
+

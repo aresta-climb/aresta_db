@@ -82,6 +82,54 @@ def navegar_para_mensagem(root_msg: Any, caminho: str) -> Any:
     return atual
 
 
+def validar_pertence_ao_croqui(
+    model: Any,
+    msg: Any,
+    campo_nome: Optional[str] = None,
+    nome_comando: str = "Comando"
+) -> str:
+    """
+    Valida se a mensagem alvo fornecida pertence à árvore de dados ativa do croqui.
+    Se msg for o nó raiz (ou proxy do nó raiz), o caminho é considerado "".
+    Se msg for outro nó, resolver_caminho_mensagem(root, msg) deve retornar um caminho não vazio.
+    Se a mensagem for órfã ou o campo_nome não existir no DESCRIPTOR da mensagem, lança ValueError.
+    Retorna o caminho resolvido.
+    """
+    if model is None or msg is None:
+        raise ValueError(f"Modelo ou mensagem inválida para o comando {nome_comando}.")
+
+    from editor.models.readonly_proxy import ReadOnlyProxy
+
+    root_raw = model.obter_croqui_readonly() if hasattr(model, "obter_croqui_readonly") else getattr(model, "croqui", None)
+    if isinstance(root_raw, ReadOnlyProxy):
+        root_raw = object.__getattribute__(root_raw, "_obj")
+
+    msg_raw = msg
+    if isinstance(msg_raw, ReadOnlyProxy):
+        msg_raw = object.__getattribute__(msg_raw, "_obj")
+
+    if root_raw is not None and msg_raw is root_raw:
+        caminho = ""
+    elif root_raw is not None:
+        caminho = resolver_caminho_mensagem(root_raw, msg_raw)
+        if not caminho:
+            raise ValueError(
+                f"Mensagem alvo órfã detectada para o comando {nome_comando}: "
+                f"a mensagem do tipo '{type(msg_raw).__name__}' não pertence à árvore ativa do croqui."
+            )
+    else:
+        caminho = ""
+
+    if campo_nome and hasattr(msg_raw, "DESCRIPTOR"):
+        if campo_nome not in msg_raw.DESCRIPTOR.fields_by_name:
+            raise ValueError(
+                f"Campo '{campo_nome}' não existe na mensagem '{msg_raw.DESCRIPTOR.name}' "
+                f"para o comando {nome_comando}."
+            )
+
+    return caminho
+
+
 def _serializar_valor(valor: Any, anonimizado: bool = False) -> Any:
     """Serializa tipos primitivos ou instâncias Protobuf Message para representação de dicionário."""
     if isinstance(valor, Message):
@@ -156,6 +204,7 @@ class CmdAlterarPrimitivo(ComandoEditor):
         self.model: Any = model
         self.msg: Any = msg
         self.campo_nome: str = campo_nome
+        validar_pertence_ao_croqui(self.model, self.msg, self.campo_nome, nome_comando="CmdAlterarPrimitivo")
         self.valor_antigo: Any = _copia_segura(valor_antigo)
         self.valor_novo: Any = _copia_segura(valor_novo)
         self.context_path: Optional[str] = context_path
@@ -229,6 +278,7 @@ class CmdAdicionarRepeated(ComandoEditor):
         self.model: Any = model
         self.msg: Any = msg
         self.campo_nome: str = campo_nome
+        validar_pertence_ao_croqui(self.model, self.msg, self.campo_nome, nome_comando="CmdAdicionarRepeated")
         self.index: int = index
         self.valor: Any = _copia_segura(valor)
         self.context_path: Optional[str] = context_path
@@ -284,6 +334,7 @@ class CmdRemoverRepeated(ComandoEditor):
         self.model: Any = model
         self.msg: Any = msg
         self.campo_nome: str = campo_nome
+        validar_pertence_ao_croqui(self.model, self.msg, self.campo_nome, nome_comando="CmdRemoverRepeated")
         self.index: int = index
         self.valor_removido: Any = _copia_segura(valor_removido)
         self.context_path: Optional[str] = context_path
@@ -367,6 +418,7 @@ class CmdAlterarOneof(ComandoEditor):
         self.model: Any = model
         self.msg: Any = msg
         self.oneof_nome: str = oneof_nome
+        validar_pertence_ao_croqui(self.model, self.msg, nome_comando="CmdAlterarOneof")
         self.nome_antigo: Optional[str] = nome_antigo
         self.valor_antigo: Any = _copia_segura(valor_antigo)
         self.nome_novo: Optional[str] = nome_novo
@@ -432,6 +484,7 @@ class CmdAlterarRepeatedItem(ComandoEditor):
         self.model: Any = model
         self.msg: Any = msg
         self.campo_nome: str = campo_nome
+        validar_pertence_ao_croqui(self.model, self.msg, self.campo_nome, nome_comando="CmdAlterarRepeatedItem")
         self.index: int = index
         self.valor_antigo: Any = _copia_segura(valor_antigo)
         self.valor_novo: Any = _copia_segura(valor_novo)
@@ -508,6 +561,7 @@ class CmdAlterarMultiplosRepeatedItems(ComandoEditor):
         self.model: Any = model
         self.msg: Any = msg
         self.campo_nome: str = campo_nome
+        validar_pertence_ao_croqui(self.model, self.msg, self.campo_nome, nome_comando="CmdAlterarMultiplosRepeatedItems")
         self.alteracoes: List[Tuple[int, Any, Any]] = []
         for index, valor_antigo, valor_novo in alteracoes:
             self.alteracoes.append((index, _copia_segura(valor_antigo), _copia_segura(valor_novo)))
@@ -571,6 +625,7 @@ class CmdMoverRepeated(ComandoEditor):
         self.model: Any = model
         self.msg: Any = msg
         self.campo_nome: str = campo_nome
+        validar_pertence_ao_croqui(self.model, self.msg, self.campo_nome, nome_comando="CmdMoverRepeated")
         self.index_from: int = index_from
         self.index_to: int = index_to
         self.context_path: Optional[str] = context_path
@@ -625,6 +680,7 @@ class CmdAlterarMetadadosCaminhoNovo(ComandoEditor):
         self.model: Any = model
         self.msg: Any = msg
         self.field_ext: Any = field_ext
+        validar_pertence_ao_croqui(self.model, self.msg, nome_comando="CmdAlterarMetadadosCaminhoNovo")
         self.valor_antigo: Any = _copia_segura(valor_antigo)
         self.valor_novo: Any = _copia_segura(valor_novo)
         self.context_path: Optional[str] = context_path
@@ -692,6 +748,7 @@ class CmdAlterarCampoImagem(ComandoEditor):
         self.model: Any = model
         self.msg: Any = msg
         self.campo_nome: str = campo_nome
+        validar_pertence_ao_croqui(self.model, self.msg, self.campo_nome, nome_comando="CmdAlterarCampoImagem")
         self.caminho_antigo: Optional[str] = caminho_antigo
         self.bytes_antigo: Optional[bytes] = bytes_antigo
         self.caminho_novo: Optional[str] = caminho_novo
