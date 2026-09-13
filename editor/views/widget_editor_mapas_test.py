@@ -2737,9 +2737,164 @@ def test_item_trajeto_linha_solicitar_cor_personalizada_cancelado_mantem_cor(qtb
     assert item_linha.cor_hex == "#FF6D00"
     assert item_linha.pt_dict["cor"] == "#FF6D00"
 
+def test_item_trajeto_linha_shape_estrito_sem_interior_fantasma(qtbot):
+    from editor.views.widget_editor_mapas import ItemTrajetoLinha
+    from PySide6.QtCore import QPointF
+
+    pt_dict = {
+        "id": "via_travessia",
+        "cor": "#FF6D00",
+        "linha": {
+            "espessura": 3,
+            "conteudo": {
+                "nos": [
+                    {"x": 0, "y": 0, "tipo": 1},
+                    {"x": 0, "y": 100, "tipo": 0},
+                    {"x": 100, "y": 100, "tipo": 5},
+                ]
+            },
+        },
+    }
+    item_linha = ItemTrajetoLinha(pt_dict, lambda item: None)
+    formato = item_linha.shape()
+
+    # 1. Ponto no vao interno concavo entre (0,0) e (100,100) NAO deve colidir
+    ponto_vao_interno = QPointF(50, 50)
+    assert not formato.contains(ponto_vao_interno), (
+        "O vao interno da curva concava nao deve ser considerado dentro do shape"
+    )
+
+    # 2. Ponto exatamente sobre o nó inicial (0, 0) e sobre o traço (0, 50)
+    assert formato.contains(QPointF(0, 0)), "Nó inicial deve ser detectado pelo shape"
+    assert formato.contains(QPointF(0, 50)), "Ponto na curva deve ser detectado pelo shape"
+
+    # 3. Ponto próximo ao traço dentro da tolerância de clique (ex: 3px do centro da curva em x=-5)
+    ponto_tolerancia_proxima = QPointF(-8, 50)
+    assert formato.contains(ponto_tolerancia_proxima), (
+        "Ponto na vizinhanca imediata (tolerancia ergonomica) deve ser detectado"
+    )
+
+    # 4. Ponto distante da linha (ex: 30px afastado)
+    ponto_afastado = QPointF(30, 50)
+    assert not formato.contains(ponto_afastado), (
+        "Ponto afastado alem da tolerancia nao deve ser detectado pelo shape"
+    )
 
 
+def test_item_trajeto_linha_paint_selecionado_halo_e_suprime_retangulo_qt(qtbot, mocker):
+    from editor.views.widget_editor_mapas import ItemTrajetoLinha
+    from PySide6.QtWidgets import QStyleOptionGraphicsItem, QStyle
+    from PySide6.QtGui import QImage, QPainter, QColor
+    from PySide6.QtCore import Qt
+
+    pt_dict = {
+        "id": "via_selecionada",
+        "cor": "#FF6D00",
+        "linha": {
+            "espessura": 3,
+            "conteudo": {
+                "nos": [
+                    {"x": 10, "y": 10, "tipo": 1},
+                    {"x": 90, "y": 90, "tipo": 5},
+                ]
+            },
+        },
+    }
+    item_linha = ItemTrajetoLinha(pt_dict, lambda item: None)
+
+    # 1. Renderizacao em estado NAO SELECIONADO
+    img_desmarcado = QImage(100, 100, QImage.Format.Format_ARGB32)
+    img_desmarcado.fill(Qt.GlobalColor.transparent)
+    p_desmarcado = QPainter(img_desmarcado)
+    opt_desmarcado = QStyleOptionGraphicsItem()
+    opt_desmarcado.state &= ~QStyle.StateFlag.State_Selected
+    item_linha.setSelected(False)
+    item_linha.paint(p_desmarcado, opt_desmarcado, None)
+    p_desmarcado.end()
+
+    # 2. Renderizacao em estado SELECIONADO (Halo deve clarear/ocupar area ao redor do traco)
+    img_selecionado = QImage(100, 100, QImage.Format.Format_ARGB32)
+    img_selecionado.fill(Qt.GlobalColor.transparent)
+    p_selecionado = QPainter(img_selecionado)
+    opt_selecionado = QStyleOptionGraphicsItem()
+    opt_selecionado.state |= QStyle.StateFlag.State_Selected
+    item_linha.setSelected(True)
+
+    spy_draw_path = mocker.spy(p_selecionado, "drawPath")
+    item_linha.paint(p_selecionado, opt_selecionado, None)
+    p_selecionado.end()
+
+    # O halo deve ser desenhado via drawPath
+    assert spy_draw_path.call_count >= 1, "drawPath deve ser invocado para desenhar o halo"
+
+    # Comparacao de pixels na margem do halo (a 4px da diagonal, onde o traco de 3px nao alcanca)
+    cor_desmarcado = img_desmarcado.pixelColor(50, 54)
+    cor_selecionado = img_selecionado.pixelColor(50, 54)
+    assert cor_desmarcado.alpha() == 0, "No estado nao selecionado, a margem externa deve estar vazia"
+    assert cor_selecionado.alpha() > 0, "No estado selecionado, o halo deve cobrir a margem externa com alfa > 0"
+
+def test_item_trajeto_linha_shape_path_vazio():
+    from editor.views.widget_editor_mapas import ItemTrajetoLinha
+    from PySide6.QtGui import QPainterPath
+
+    pt_dict = {
+        "id": "via_vazia",
+        "linha": {
+            "conteudo": {
+                "nos": []
+            }
+        }
+    }
+    item = ItemTrajetoLinha(pt_dict, lambda i: None)
+    assert item.shape().isEmpty()
 
 
+def test_alca_no_trajeto_vizinho_no_vao_de_curva_recebe_clique(qtbot):
+    from editor.views.widget_editor_mapas import ItemTrajetoLinha
+    from PySide6.QtWidgets import QGraphicsScene
+    from PySide6.QtGui import QTransform
+    from PySide6.QtCore import QPointF
 
+    cena = QGraphicsScene()
+
+    # Via 1: travessia côncava que envolve o ponto (50, 50)
+    pt_via1 = {
+        "id": "via_travessia",
+        "cor": "#FF6D00",
+        "linha": {
+            "espessura": 3,
+            "conteudo": {
+                "nos": [
+                    {"x": 0, "y": 0, "tipo": 1},
+                    {"x": 0, "y": 100, "tipo": 0},
+                    {"x": 100, "y": 100, "tipo": 5},
+                ]
+            }
+        }
+    }
+    item_via1 = ItemTrajetoLinha(pt_via1, lambda i: None)
+    cena.addItem(item_via1)
+
+    # Via 2: via vizinha com nó em (50, 50)
+    pt_via2 = {
+        "id": "via_vizinha",
+        "cor": "#00E5FF",
+        "linha": {
+            "espessura": 3,
+            "conteudo": {
+                "nos": [
+                    {"x": 50, "y": 50, "tipo": 1},
+                    {"x": 80, "y": 20, "tipo": 5},
+                ]
+            }
+        }
+    }
+    item_via2 = ItemTrajetoLinha(pt_via2, lambda i: None)
+    cena.addItem(item_via2)
+
+    # O item no ponto (50, 50) deve ser a alça da via vizinha, e NÃO a via 1
+    item_no_ponto = cena.itemAt(QPointF(50, 50), QTransform())
+    assert item_no_ponto is not None
+    # Deve ser a alça do nó 0 da via 2
+    assert item_no_ponto == item_via2.alcas[0]
 

@@ -3405,3 +3405,32 @@ def test_formulario_on_campo_alterado_instalacao_idempotente_filtro_undo_redo(qa
     from editor.views.widget_editor_dados import GlobalUndoRedoFilter
     filtros_undo = [f for f in chamadas_filtro if isinstance(f, GlobalUndoRedoFilter)]
     assert len(filtros_undo) <= 1, f"Filtros de Undo acumulados indevidamente: {len(filtros_undo)}"
+
+
+def test_widget_editor_dados_on_add_clicked_mapas_sugere_nome_sem_duplicacao(qapp, monkeypatch):
+    from unittest.mock import MagicMock
+    from aresta_api.proto.generated import croqui_pb2
+    from editor.views.widget_editor_dados import ContainerRepeatedWidget, WidgetEditorDados
+    from editor.views.dialogos.dialogo_adicionar_mapa import DialogoAdicionarMapa
+
+    croqui = croqui_pb2.Croqui()
+    setor = croqui_pb2.Setor(nome="Setor Fugitivos I")
+    model = CroquiModel(croqui)
+    controller = CroquiController(model, QUndoStack())
+    widget_dados = WidgetEditorDados(model, controller)
+
+    campo_mapas = croqui_pb2.Setor.DESCRIPTOR.fields_by_name["mapas"]
+    widget_rep = ContainerRepeatedWidget(setor, campo_mapas, widget_dados.form_padrao)
+
+    mock_dialogo = MagicMock()
+    mock_dialogo.exec.return_value = DialogoAdicionarMapa.DialogCode.Rejected
+    mock_classe_dialogo = MagicMock(return_value=mock_dialogo)
+    monkeypatch.setattr("editor.views.dialogos.dialogo_adicionar_mapa.DialogoAdicionarMapa", mock_classe_dialogo)
+
+    widget_rep._on_add_clicked()
+
+    mock_classe_dialogo.assert_called_once()
+    nome_sugerido_passado = mock_classe_dialogo.call_args[0][0]
+    assert nome_sugerido_passado == "setor_fugitivos_i_p0.webp"
+    assert "setor_setor" not in nome_sugerido_passado
+

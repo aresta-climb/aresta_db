@@ -16,12 +16,12 @@ from PySide6.QtWidgets import (
     QGraphicsRectItem, QGraphicsEllipseItem, QGraphicsPolygonItem,
     QGraphicsPathItem, QGraphicsTextItem, QGraphicsPixmapItem, QDialog, QFormLayout,
     QLineEdit, QDialogButtonBox, QMenu, QSlider, QMessageBox, QFileDialog, QSpinBox,
-    QColorDialog
+    QColorDialog, QStyle, QStyleOptionGraphicsItem
 )
 from PySide6.QtCore import Qt, QRectF, QPointF, Signal
 from PySide6.QtGui import (
     QPixmap, QPen, QColor, QFont, QBrush, QPolygonF, QTransform, QPainterPath,
-    QPainter, QUndoCommand
+    QPainter, QUndoCommand, QPainterPathStroker
 )
 import copy
 from google.protobuf.json_format import ParseDict
@@ -1240,8 +1240,39 @@ class ItemTrajetoLinha(QGraphicsPathItem, BaseItemPOI):
             self.atualizar_pos_texto(nos[0].get('x', 0), nos[0].get('y', 0))
         self.marcar_alterado()
 
+    def shape(self) -> QPainterPath:
+        path = self.path()
+        if path.isEmpty():
+            return path
+        stroker = QPainterPathStroker()
+        espessura = float(self.pen().widthF())
+        largura_hit = max(14.0, espessura + 8.0)
+        stroker.setWidth(largura_hit)
+        stroker.setCapStyle(Qt.PenCapStyle.RoundCap)
+        stroker.setJoinStyle(Qt.PenJoinStyle.RoundJoin)
+        return stroker.createStroke(path)
+
     def paint(self, painter: QPainter, option: Any, widget: Optional[QWidget] = None) -> None:
-        super().paint(painter, option, widget)
+        esta_selecionado = False
+        if option is not None and hasattr(option, "state"):
+            esta_selecionado = bool(option.state & QStyle.StateFlag.State_Selected)
+        esta_selecionado = esta_selecionado or self.isSelected()
+
+        if esta_selecionado and not self.path().isEmpty():
+            painter.save()
+            painter.setRenderHint(QPainter.RenderHint.Antialiasing, True)
+            espessura = int(self.pt_dict.get("linha", {}).get("espessura", 3))
+            pen_halo = QPen(QColor(255, 255, 255, 180), espessura + 6)
+            pen_halo.setCapStyle(Qt.PenCapStyle.RoundCap)
+            pen_halo.setJoinStyle(Qt.PenJoinStyle.RoundJoin)
+            painter.setPen(pen_halo)
+            painter.setBrush(Qt.BrushStyle.NoBrush)
+            painter.drawPath(self.path())
+            painter.restore()
+
+        opt = QStyleOptionGraphicsItem(option) if option is not None else QStyleOptionGraphicsItem()
+        opt.state &= ~QStyle.StateFlag.State_Selected
+        super().paint(painter, opt, widget)
         estilo_str = str(self.pt_dict.get('linha', {}).get('estilo', 'TRACEJADO'))
         if ("CAMINHADA" in estilo_str or estilo_str == "3") and not self.path().isEmpty():
             painter.save()

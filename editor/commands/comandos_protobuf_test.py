@@ -131,6 +131,78 @@ class TestComandosProtobuf(unittest.TestCase):
         self.assertEqual(len(croqui.picos), 1)
         self.assertEqual(croqui.picos[0].nome, "Pico Falso")
 
+    def test_cmd_remover_repeated_limpa_imagens_orfas_da_ram_e_restaura_no_undo(self):
+        from aresta_api.proto.generated.croqui_pb2 import Croqui
+        croqui = Croqui()
+        pico = croqui.picos.add()
+        sg = pico.setores_ou_grupos.add()
+        setor = sg.setor.conteudo
+        setor.nome = "Setor Fugitivos"
+        mapa = setor.mapas.add()
+        mapa.caminho_imagem_mapa = "imagens/setor_fugitivos_p0.webp"
+        
+        model = CroquiModel(croqui)
+        model.definir_imagem_memoria("imagens/setor_fugitivos_p0.webp", b"conteudo_bytes_ram")
+
+        cmd_rem = CmdRemoverRepeated(model, setor, "mapas", 0, setor.mapas[0])
+        self.assertIn("imagens/setor_fugitivos_p0.webp", cmd_rem.imagens_removidas_ram)
+        self.assertEqual(cmd_rem.imagens_removidas_ram["imagens/setor_fugitivos_p0.webp"], b"conteudo_bytes_ram")
+
+        cmd_rem.redo()
+        self.assertEqual(len(setor.mapas), 0)
+        self.assertNotIn("imagens/setor_fugitivos_p0.webp", model.obter_imagens_em_memoria())
+
+        cmd_rem.undo()
+        self.assertEqual(len(setor.mapas), 1)
+        self.assertIn("imagens/setor_fugitivos_p0.webp", model.obter_imagens_em_memoria())
+        self.assertEqual(model.obter_bytes_imagem("imagens/setor_fugitivos_p0.webp"), b"conteudo_bytes_ram")
+
+    def test_cmd_remover_repeated_preserva_imagem_compartilhada_em_ram(self):
+        from aresta_api.proto.generated.croqui_pb2 import Croqui
+        croqui = Croqui()
+        pico = croqui.picos.add()
+        sg = pico.setores_ou_grupos.add()
+        setor = sg.setor.conteudo
+        mapa1 = setor.mapas.add()
+        mapa1.caminho_imagem_mapa = "imagens/compartilhada.webp"
+        mapa2 = setor.mapas.add()
+        mapa2.caminho_imagem_mapa = "imagens/compartilhada.webp"
+
+        model = CroquiModel(croqui)
+        model.definir_imagem_memoria("imagens/compartilhada.webp", b"conteudo_comp")
+
+        cmd_rem = CmdRemoverRepeated(model, setor, "mapas", 0, setor.mapas[0])
+        self.assertEqual(cmd_rem.imagens_removidas_ram, {})
+
+        cmd_rem.redo()
+        self.assertEqual(len(setor.mapas), 1)
+        self.assertIn("imagens/compartilhada.webp", model.obter_imagens_em_memoria())
+
+    def test_cmd_remover_repeated_serializacao_com_imagens_em_ram(self):
+        from aresta_api.proto.generated.croqui_pb2 import Croqui
+        from editor.commands.comandos_protobuf import deserializar_comando
+        croqui = Croqui()
+        pico = croqui.picos.add()
+        sg = pico.setores_ou_grupos.add()
+        setor = sg.setor.conteudo
+        mapa = setor.mapas.add()
+        mapa.caminho_imagem_mapa = "imagens/mapa.webp"
+
+        model = CroquiModel(croqui)
+        model.definir_imagem_memoria("imagens/mapa.webp", b"bytes_teste")
+
+        cmd_rem = CmdRemoverRepeated(model, setor, "mapas", 0, setor.mapas[0])
+        dados = cmd_rem.serializar(anonimizado=False)
+        self.assertIn("imagens_removidas_ram", dados)
+        self.assertEqual(dados["imagens_removidas_ram"], {"imagens/mapa.webp": b"bytes_teste"})
+
+        cmd_deserializado = deserializar_comando(dados, model)
+        self.assertEqual(cmd_deserializado.imagens_removidas_ram, {"imagens/mapa.webp": b"bytes_teste"})
+
+        dados_anon = cmd_rem.serializar(anonimizado=True)
+        self.assertIn("imagens_removidas_ram", dados_anon)
+        self.assertNotEqual(dados_anon["imagens_removidas_ram"]["imagens/mapa.webp"], b"bytes_teste")
+
     def test_cmd_alterar_oneof(self):
         croqui = Croqui()
         pico = croqui.picos.add()

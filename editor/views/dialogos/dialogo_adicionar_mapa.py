@@ -280,8 +280,10 @@ class DialogoAdicionarMapa(QDialog):
             return
 
         # 2. Verifica se o nome já existe na RAM
-        if self.model and hasattr(self.model, "obter_bytes_imagem"):
-            if self.model.obter_bytes_imagem(caminho_rel) is not None:
+        if self.model and hasattr(self.model, "obter_imagens_em_memoria"):
+            imagens_ram = self.model.obter_imagens_em_memoria()
+            caminho_padrao = str(caminho_rel).replace("\\", "/")
+            if caminho_padrao in imagens_ram:
                 self.rotulo_aviso.setText(
                     f"⚠ O arquivo '{Path(caminho_rel).name}' já existe na memória RAM. Escolha outro nome."
                 )

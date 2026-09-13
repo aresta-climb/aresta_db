@@ -64,6 +64,34 @@ def test_croqui_controller_remover_repeated(qapp):
     assert len(proxy.picos) == 1
     assert proxy.picos[0].nome == "A Remover"
 
+def test_croqui_controller_remover_repeated_com_imagens_em_memoria(qapp):
+    from aresta_api.proto.generated import croqui_pb2
+    croqui = croqui_pb2.Croqui()
+    pico = croqui.picos.add(nome="Pico")
+    sg = pico.setores_ou_grupos.add()
+    setor = sg.setor.conteudo
+    setor.nome = "Setor Sul"
+    mapa = setor.mapas.add()
+    mapa.caminho_imagem_mapa = "imagens/setor_sul_p0.webp"
+
+    model = CroquiModel(croqui)
+    model.definir_imagem_memoria("imagens/setor_sul_p0.webp", b"conteudo_bytes")
+    undo_stack = QUndoStack()
+    controller = CroquiController(model, undo_stack)
+
+    proxy_setor = model.obter_croqui_readonly().picos[0].setores_ou_grupos[0].setor.conteudo
+    mapa_removido = proxy_setor.mapas[0]
+
+    controller.remover_repeated(proxy_setor, "mapas", 0, mapa_removido)
+
+    assert len(proxy_setor.mapas) == 0
+    assert "imagens/setor_sul_p0.webp" not in model.obter_imagens_em_memoria()
+
+    undo_stack.undo()
+    assert len(proxy_setor.mapas) == 1
+    assert "imagens/setor_sul_p0.webp" in model.obter_imagens_em_memoria()
+    assert model.obter_bytes_imagem("imagens/setor_sul_p0.webp") == b"conteudo_bytes"
+
 def test_croqui_controller_alterar_oneof(qapp):
     from aresta_api.proto.generated.croqui_pb2 import ArquivoSetor, ArquivoGrupo
     croqui = Croqui()

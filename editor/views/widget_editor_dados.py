@@ -715,13 +715,8 @@ class ContainerRepeatedWidget(QWidget):
             if not db_dir:
                 db_dir = GerenciadorCaminhos().obter_caminho_base_repo()
                 
-            nome_setor = getattr(self.msg, "nome", "setor_desconhecido")
-            import re
-            import unicodedata
-            nome_setor_fmt = unicodedata.normalize('NFKD', nome_setor).encode('ASCII', 'ignore').decode('utf-8')
-            nome_setor_fmt = re.sub(r'[^a-zA-Z0-9]+', '_', nome_setor_fmt).strip('_').lower()
-            
-            nome_sugerido = f"setor_{nome_setor_fmt}_p{idx}.webp"
+            from editor.core.nomes_arquivos import gerar_nome_mapa_sugerido
+            nome_sugerido = gerar_nome_mapa_sugerido(self.msg, idx)
             
             from editor.views.dialogos.dialogo_adicionar_mapa import DialogoAdicionarMapa
             

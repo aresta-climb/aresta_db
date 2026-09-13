@@ -1,14 +1,4 @@
-# undo-redo-protobuf Specification
-
-## Purpose
-TBD - created by archiving change add-undo-redo. Update Purpose after archive.
-## Requirements
-### Requirement: Comandos de Edição Protobuf Genericos
-O sistema DEVE encapsular e restringir a criação e execução de comandos granulares (`QUndoCommand`) estritamente à camada de `commands/` coordenados pelos `controllers/`. A interface do usuário (View) na aba de Dados NÃO PODE criar e empilhar comandos diretamente ou mutar propriedades.
-
-#### Scenario: Edição Primitiva em Protobuf
-- **WHEN** o usuário digita em um campo gerado para um tipo String do Protobuf na View
-- **THEN** a View envia a intenção ao Controller apropriado, que então cria e empilha um comando `CmdAlterarPrimitivo` (da pasta `commands/`). Sucessivas digitações ininterruptas no mesmo campo DEVEM invocar o merge do comando pelo Controller/Histórico para evitar inflar o histórico de desfazer letra por letra.
+## MODIFIED Requirements
 
 ### Requirement: Proteção contra Exclusão Estrutural
 O sistema DEVE suportar a reversão de comandos destrutivos que alteram a hierarquia da árvore, gerenciada pela camada MVC, de tal forma que a lógica de exclusão permaneça desacoplada da interface.
@@ -25,4 +15,3 @@ O sistema DEVE suportar a reversão de comandos destrutivos que alteram a hierar
 - **THEN** o sistema DEVE identificar se essas imagens não são mais referenciadas em nenhum outro ponto do croqui e removê-las do buffer de memória RAM
 - **WHEN** a operação de remoção for desfeita (Desfazer / Undo)
 - **THEN** o sistema DEVE restaurar as imagens no buffer de memória RAM e emitir o sinal de alteração de imagem para atualização da interface
-

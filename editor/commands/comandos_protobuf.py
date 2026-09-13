@@ -268,7 +268,7 @@ class CmdAdicionarRepeated(ComandoEditor):
 
 
 class CmdRemoverRepeated(ComandoEditor):
-    """Comando para remover um item de um campo repeated via Model."""
+    """Comando para remover um item de um campo repeated via Model, limpando imagens em RAM se forem órfãs."""
     def __init__(
         self,
         model: Any,
@@ -277,6 +277,7 @@ class CmdRemoverRepeated(ComandoEditor):
         index: int,
         valor_removido: Any,
         context_path: Optional[str] = None,
+        imagens_removidas_ram: Optional[Dict[str, bytes]] = None,
         parent: Optional[QUndoCommand] = None,
     ) -> None:
         super().__init__(parent)
@@ -287,23 +288,49 @@ class CmdRemoverRepeated(ComandoEditor):
         self.valor_removido: Any = _copia_segura(valor_removido)
         self.context_path: Optional[str] = context_path
 
+        if imagens_removidas_ram is not None:
+            self.imagens_removidas_ram: Dict[str, bytes] = dict(imagens_removidas_ram)
+        else:
+            self.imagens_removidas_ram = {}
+            if hasattr(self.model, "obter_imagens_em_memoria") and hasattr(self.model, "obter_croqui_readonly"):
+                imagens_ram = self.model.obter_imagens_em_memoria()
+                if imagens_ram:
+                    from editor.core.imagens_croqui import obter_imagens_orfas_ao_remover
+                    croqui_raiz = self.model.obter_croqui_readonly()
+                    orfas = obter_imagens_orfas_ao_remover(croqui_raiz, self.valor_removido, imagens_ram)
+                    for caminho in orfas:
+                        if caminho in imagens_ram:
+                            self.imagens_removidas_ram[caminho] = imagens_ram[caminho]
+
     def undo(self) -> None:
         self.model._adicionar_repeated(self.msg, self.campo_nome, self.index, self.valor_removido)
+        for caminho, conteudo in self.imagens_removidas_ram.items():
+            self.model.definir_imagem_memoria(caminho, conteudo)
         if hasattr(self, 'context_path') and self.context_path:
             self.model.notificar_foco_requisitado(self.context_path)
 
     def executar_redo(self) -> None:
         self.model._remover_repeated(self.msg, self.campo_nome, self.index)
+        for caminho in self.imagens_removidas_ram:
+            self.model.remover_imagem_memoria(caminho)
         if hasattr(self, 'context_path') and self.context_path:
             self.model.notificar_foco_requisitado(self.context_path)
 
     def serializar(self, anonimizado: bool = False) -> Dict[str, Any]:
+        imagens_removidas_ram = self.imagens_removidas_ram
+        if anonimizado:
+            from editor.core.imagem_anonimizada import gerar_webp_anonimizado
+            imagens_removidas_ram = {
+                c: gerar_webp_anonimizado(b) for c, b in self.imagens_removidas_ram.items()
+            }
+
         return {
             "classe": "CmdRemoverRepeated",
             "caminho_msg": resolver_caminho_mensagem(self.model.obter_croqui_readonly(), self.msg),
             "campo_nome": self.campo_nome,
             "index": self.index,
             "valor_removido": _serializar_valor(self.valor_removido, anonimizado=anonimizado),
+            "imagens_removidas_ram": imagens_removidas_ram,
             "context_path": self.context_path
         }
 
@@ -317,7 +344,8 @@ class CmdRemoverRepeated(ComandoEditor):
             campo_nome=dados["campo_nome"],
             index=dados["index"],
             valor_removido=valor_removido,
-            context_path=dados.get("context_path")
+            context_path=dados.get("context_path"),
+            imagens_removidas_ram=dados.get("imagens_removidas_ram")
         )
 
 

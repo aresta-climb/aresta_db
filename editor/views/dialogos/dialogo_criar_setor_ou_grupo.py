@@ -15,6 +15,7 @@ from PySide6.QtWidgets import (
 )
 from PySide6.QtCore import Qt
 from editor.core.formatacao import para_snake_case
+from editor.core.nomes_arquivos import gerar_nome_arquivo_entidade
 
 
 class DialogoCriarSetorOuGrupo(QDialog):
@@ -152,7 +153,7 @@ class DialogoCriarSetorOuGrupo(QDialog):
         self._validar()
 
     def _atualizar_proposicao_arquivo(self) -> None:
-        """Gera o nome de arquivo em snake_case com o prefixo correspondente ao tipo."""
+        """Gera o nome de arquivo em snake_case com o prefixo correspondente ao tipo deduplicado."""
         nome = self.edit_nome.text().strip()
         self._atualizando_internamente = True
         try:
@@ -160,12 +161,8 @@ class DialogoCriarSetorOuGrupo(QDialog):
                 self.edit_arquivo.setText("")
                 return
 
-            slug = para_snake_case(nome)
             tipo = self.obter_tipo_selecionado()
-            if slug:
-                self.edit_arquivo.setText(f"{tipo}_{slug}.md")
-            else:
-                self.edit_arquivo.setText(f"{tipo}.md")
+            self.edit_arquivo.setText(gerar_nome_arquivo_entidade(nome, tipo))
         finally:
             self._atualizando_internamente = False
 

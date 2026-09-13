@@ -50,15 +50,19 @@ O sistema SHALL fornecer uma ação na barra de ferramentas do Editor de Mapas p
 - **THEN** o sistema SHALL comutar a visualização para a aba de Imagens da Janela Principal e selecionar o arquivo de imagem do mapa atual.
 
 ### Requirement: Diálogo Robusto de Adição de Mapas
-O sistema SHALL fornecer um diálogo robusto para adição de novos mapas contendo botão explícito de seleção de arquivos, suporte a arrastar e soltar (drag & drop), painel de metadados ricos (dimensões, tamanho formatado e formato), pré-processamento WebP automático em RAM e validação de nomes e colisões em tempo real.
+O sistema DEVE fornecer um diálogo robusto para adição de novos mapas contendo botão explícito de seleção de arquivos, suporte a arrastar e soltar (drag & drop), painel de metadados ricos (dimensões, tamanho formatado e formato), pré-processamento WebP automático em RAM e validação de nomes e colisões em tempo real.
 
 #### Scenario: Seleção de Arquivo com Exibição de Metadados e Pré-processamento
 - **WHEN** o usuário seleciona ou arrasta um arquivo de imagem no diálogo de adição de mapa
-- **THEN** o sistema SHALL exibir a pré-visualização gráfica, apresentar resolução ($W \times H$), tamanho e formato original nos metadados, e pré-processar os bytes para WebP.
+- **THEN** o sistema DEVE exibir a pré-visualização gráfica, apresentar resolução ($W \times H$), tamanho e formato original nos metadados, e pré-processar os bytes para WebP.
 
 #### Scenario: Validação de Conflito de Nomes em Tempo Real
-- **WHEN** o usuário digita um nome de arquivo que já existe na memória RAM ou na pasta `imagens/` do disco
-- **THEN** o sistema SHALL exibir um alerta visual imediato de colisão de nomes e desabilitar o botão de confirmação.
+- **WHEN** o usuário digita um nome de arquivo que já existe no buffer de memória RAM (`_imagens_em_memoria`)
+- **THEN** o sistema DEVE exibir alerta indicando conflito na memória RAM e desabilitar a confirmação
+- **WHEN** o usuário digita um nome de arquivo que não existe na RAM mas já existe na pasta `imagens/` do disco
+- **THEN** o sistema DEVE exibir alerta indicando conflito no disco e desabilitar a confirmação
+- **WHEN** um mapa foi removido e sua imagem não está mais na memória RAM nem no disco
+- **THEN** o sistema DEVE considerar o nome válido e liberar a confirmação
 
 ### Requirement: Ferramenta de Desenho e Edição de Traçados Vetoriais de Vias
 O sistema SHALL fornecer uma ferramenta visual ("Nova Linha" / Caneta) no painel lateral do Editor de Mapas para permitir o desenho interativo de trajetos de vias e boulders diretamente sobre a imagem do mapa, calculando e exibindo a Spline Catmull-Rom em tempo real conforme os pontos são clicados.

@@ -60,7 +60,7 @@ def test_dialogo_criar_setor_ou_grupo_edicao_manual_arquivo(qapp):
     dialogo.show()
 
     dialogo.edit_nome.setText("Setor do Meio")
-    assert dialogo.edit_arquivo.text() == "setor_setor_do_meio.md"
+    assert dialogo.edit_arquivo.text() == "setor_do_meio.md"
 
     # Usuário edita manualmente
     dialogo.edit_arquivo.setText("meu_setor_customizado.md")

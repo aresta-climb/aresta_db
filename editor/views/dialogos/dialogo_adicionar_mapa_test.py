@@ -110,6 +110,49 @@ class TestDialogoAdicionarMapa:
         assert "já existe" in dialogo.rotulo_aviso.text()
         assert dialogo.btn_ok.isEnabled() is False
 
+    def test_arquivo_no_disco_nao_acusa_conflito_de_ram(self, qtbot, tmp_path, imagem_png_teste):
+        croqui = Croqui()
+        model = CroquiModel(croqui)
+        model.definir_caminho_db(tmp_path)
+        
+        # Cria arquivo no disco diretamente
+        pasta_img = tmp_path / "imagens"
+        pasta_img.mkdir(parents=True, exist_ok=True)
+        (pasta_img / "mapa_disco.webp").write_bytes(b"conteudo_disco")
+        
+        # Não existe na RAM
+        assert "imagens/mapa_disco.webp" not in model.obter_imagens_em_memoria()
+        
+        dialogo = DialogoAdicionarMapa("mapa_disco.webp", db_dir=tmp_path, model=model)
+        qtbot.addWidget(dialogo)
+        dialogo.carregar_imagem_arquivo(str(imagem_png_teste))
+        
+        # Deve acusar que existe na pasta imagens/ (disco), mas NÃO na memória RAM
+        assert "já existe na pasta imagens/" in dialogo.rotulo_aviso.text()
+        assert "memória RAM" not in dialogo.rotulo_aviso.text()
+        assert dialogo.btn_ok.isEnabled() is False
+
+    def test_limpeza_em_ram_libera_botao_confirmacao(self, qtbot, tmp_path, imagem_png_teste):
+        croqui = Croqui()
+        model = CroquiModel(croqui)
+        model.definir_caminho_db(tmp_path)
+        model.definir_imagem_memoria("imagens/mapa_temporario.webp", b"bytes_ram")
+
+        dialogo = DialogoAdicionarMapa("mapa_temporario.webp", db_dir=tmp_path, model=model)
+        qtbot.addWidget(dialogo)
+        dialogo.carregar_imagem_arquivo(str(imagem_png_teste))
+
+        # Bloqueado por existir na RAM
+        assert "já existe na memória RAM" in dialogo.rotulo_aviso.text()
+        assert dialogo.btn_ok.isEnabled() is False
+
+        # Ao remover da memória RAM e revalidar
+        model.remover_imagem_memoria("imagens/mapa_temporario.webp")
+        dialogo._validar_estado()
+
+        assert dialogo.rotulo_aviso.text() == ""
+        assert dialogo.btn_ok.isEnabled() is True
+
     def test_sanitizacao_automatica_de_slug_ao_digitar(self, qtbot, tmp_path, imagem_png_teste):
         dialogo = DialogoAdicionarMapa("", db_dir=None)
         qtbot.addWidget(dialogo)
