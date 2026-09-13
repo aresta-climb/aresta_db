@@ -1,0 +1,28 @@
+---
+# SPDX-License-Identifier: ODbL-1.0
+# Copyright (C) 2026 Aresta Climb Contributors
+nome: Setor Fugitivos I
+escaladas:
+- boulder:
+    nome: Polydance
+    dificuldade: V4
+- boulder:
+    nome: Bigdance
+    dificuldade: V5_BARRA_V6
+- boulder:
+    nome: Boulder do Bola
+    dificuldade: V5
+- boulder:
+    nome: Trolls
+    dificuldade: V1
+- boulder:
+    nome: Calcinha Larga
+    dificuldade: V2_BARRA_V3
+- boulder:
+    nome: Tanga Frouxa
+    dificuldade: V2
+mapas:
+- caminho_imagem_mapa: imagens/setor_fugitivos_i_p0.webp
+  largura_mapa: 2155
+  altura_mapa: 1945
+---
