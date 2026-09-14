@@ -46,7 +46,7 @@ mapas:
           y: 297
           tipo: PASSAGEM
       espessura: 3
-    cor: '#FF6D00'
+    cor: '#FFD600'
   - id: '2'
     label: '2'
     linha:
@@ -61,7 +61,7 @@ mapas:
           y: 920
           tipo: PASSAGEM
       espessura: 3
-    cor: '#FF6D00'
+    cor: '#FFD600'
   - id: '3'
     label: '3'
     linha:
@@ -82,7 +82,7 @@ mapas:
           y: 417
           tipo: PASSAGEM
       espessura: 3
-    cor: '#FF6D00'
+    cor: '#FFD600'
   - id: '4'
     label: '4'
     linha:
@@ -100,7 +100,7 @@ mapas:
           y: 492
           tipo: PASSAGEM
       espessura: 3
-    cor: '#FF6D00'
+    cor: '#FFD600'
   - id: '5'
     label: '5'
     linha:
@@ -118,7 +118,7 @@ mapas:
           y: 974
           tipo: PASSAGEM
       espessura: 3
-    cor: '#FF6D00'
+    cor: '#FFD600'
   - id: X
     label: X
     linha:
@@ -145,7 +145,7 @@ mapas:
           tipo: CIRCULO_IDENTIFICADOR
           rotulo: X
       espessura: 3
-    cor: '#FF6D00'
+    cor: '#FFD600'
   - id: a
     label: a
     linha:
@@ -163,7 +163,7 @@ mapas:
           y: 920
           tipo: PASSAGEM
       espessura: 3
-    cor: '#FF6D00'
+    cor: '#FFD600'
   - id: y
     label: y
     linha:
@@ -181,7 +181,7 @@ mapas:
           tipo: CIRCULO_IDENTIFICADOR
           rotulo: y
       espessura: 3
-    cor: '#FF6D00'
+    cor: '#FFD600'
   referencias:
   - ids:
     - '5'

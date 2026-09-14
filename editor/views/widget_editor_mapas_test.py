@@ -2433,11 +2433,11 @@ def test_alca_no_trajeto_raio_e_tamanho_fonte_customizados(qtbot):
     alca_padrao = item.alcas[0]
     alca_custom = item.alcas[1]
 
-    # Padrão: raio 12 (largura 24), fonte 8
-    assert alca_padrao.obter_raio() == 12
-    assert alca_padrao.obter_tamanho_fonte() == 8
-    assert alca_padrao.rect().width() == 24
-    assert alca_padrao.rect().height() == 24
+    # Padrão: raio 19 (largura 38), fonte ampliada estilo Ouroboulder (>= 19)
+    assert alca_padrao.obter_raio() == 19
+    assert alca_padrao.obter_tamanho_fonte() >= 19
+    assert alca_padrao.rect().width() == 38
+    assert alca_padrao.rect().height() == 38
 
     # Customizado: raio 25 (largura 50), fonte 14
     assert alca_custom.obter_raio() == 25
@@ -2462,7 +2462,7 @@ def test_definir_raio_no_atualiza_alca(qtbot):
     }
     item = ItemTrajetoLinha(pt_dict, lambda i: None)
     alca = item.alcas[0]
-    assert alca.obter_raio() == 12
+    assert alca.obter_raio() == 19
 
     item.definir_raio_no(0, 18)
     assert alca.obter_raio() == 18
@@ -2487,7 +2487,7 @@ def test_definir_tamanho_fonte_no_atualiza_alca(qtbot):
     }
     item = ItemTrajetoLinha(pt_dict, lambda i: None)
     alca = item.alcas[0]
-    assert alca.obter_tamanho_fonte() == 8
+    assert alca.obter_tamanho_fonte() >= 12
 
     item.definir_tamanho_fonte_no(0, 15)
     assert alca.obter_tamanho_fonte() == 15
@@ -2557,8 +2557,8 @@ def test_alca_no_trajeto_fim_top_circulo_identificador(qtbot):
     # Meio
     assert alca_meio.obter_tipo_int() == 1
     assert alca_meio.obter_rotulo_exibicao() == "P1"
-    assert alca_meio.obter_raio() == 12
-    assert alca_meio.obter_tamanho_fonte() == 8
+    assert alca_meio.obter_raio() == 19
+    assert alca_meio.obter_tamanho_fonte() >= 19
 
     # Fim
     assert alca_fim.obter_tipo_int() == 1
@@ -2931,8 +2931,10 @@ def test_remocao_reativa_de_mapa_ativo_descarrega_cena_e_limpa_selecao(qtbot, tm
     assert widget.msg_mapa_proxy is not None
     assert widget.list_widget.count() == 1
 
-    # Remove o mapa do modelo via método do model (dispara repeated_removido com campo_nome='mapas')
-    model._remover_repeated(setor, "mapas", 0)
+    # Remove o mapa via controller (dispara repeated_removido com campo_nome='mapas')
+    from editor.controllers.croqui_controller import CroquiController
+    croqui_ctrl = CroquiController(model, undo_stack)
+    croqui_ctrl.remover_repeated(setor, "mapas", 0, mapa)
 
     # O widget DEVE reagir atualizando a lista para 0 e descarregando o mapa excluído
     assert widget.list_widget.count() == 0
@@ -2944,6 +2946,7 @@ def test_adicao_reativa_de_mapa_atualiza_lista(qtbot, tmp_path):
     from aresta_api.proto.generated import croqui_pb2
     from editor.models.croqui_model import CroquiModel
     from editor.controllers.mapas_controller import MapasController
+    from editor.controllers.croqui_controller import CroquiController
     from PySide6.QtGui import QUndoStack
     from editor.views.widget_editor_mapas import WidgetEditorMapas
 
@@ -2963,9 +2966,10 @@ def test_adicao_reativa_de_mapa_atualiza_lista(qtbot, tmp_path):
     widget.configurar_lista_mapas()
     assert widget.list_widget.count() == 0
 
-    # Adiciona mapa reativamente via model
+    # Adiciona mapa reativamente via controller
     novo_mapa = croqui_pb2.Mapa(caminho_imagem_mapa="imagens/novo_mapa.webp")
-    model._adicionar_repeated(setor, "mapas", 0, novo_mapa)
+    croqui_ctrl = CroquiController(model, undo_stack)
+    croqui_ctrl.adicionar_repeated(setor, "mapas", 0, novo_mapa)
 
     assert widget.list_widget.count() == 1
 
@@ -3152,5 +3156,99 @@ def test_mapa_ativo_valido_casos_excepcionais(qtbot):
     cena_mock.clear.assert_called_once()
 
 
+def test_visual_ouroboulder_cor_padrao_e_badges(qtbot):
+    """Testa a nova estética Ouroboulder: amarelo padrão, ausência de borda branca e highlight sob seleção."""
+    from editor.views.widget_editor_mapas import ItemTrajetoLinha, AlcaNoTrajeto
+    from PySide6.QtGui import QColor, QPainter, QImage
+    from PySide6.QtWidgets import QStyleOptionGraphicsItem
+    from unittest.mock import MagicMock
+
+    # 1. Cor padrão de linha sem 'cor' informada deve ser amarelo (#FFD600)
+    pt_sem_cor = {
+        "id": "v_amarela",
+        "linha": {
+            "conteudo": {
+                "nos": [
+                    {"x": 10, "y": 10, "tipo": 1, "rotulo": "1"},
+                    {"x": 50, "y": 50, "tipo": 0},
+                    {"x": 100, "y": 100, "tipo": 11, "rotulo": "T"}
+                ]
+            }
+        }
+    }
+    item = ItemTrajetoLinha(pt_sem_cor, lambda _: None)
+    assert item.cor_hex.upper() == "#FFD600"
+    assert item.pen().color().name().upper() == "#FFD600"
+
+    # 2. Alça de nó em estado de repouso (não selecionada)
+    alca_inicio = item.alcas[0]
+    assert alca_inicio.obter_tipo_int() == 1
+    # Tamanho da fonte dinâmico ampliado para ocupar ~75-80% do diâmetro útil
+    assert alca_inicio.obter_tamanho_fonte() >= 12
+
+    # Verifica renderização: simula paint com QPainter gravando chamadas
+    mock_painter = MagicMock(spec=QPainter)
+    alca_inicio.paint(mock_painter, QStyleOptionGraphicsItem())
+    
+    # Valida que o pincel em repouso é preto neutro (#1A1A1A / 26, 26, 26)
+    pinceis_usados = [chamada[0][0] for chamada in mock_painter.setBrush.call_args_list if chamada[0]]
+    cores_brush = [b.color().name().upper() for b in pinceis_usados if hasattr(b, "color")]
+    assert "#1A1A1A" in cores_brush, f"Esperava pincel #1A1A1A em repouso, obteve: {cores_brush}"
+
+    # Valida que NÃO existe caneta branca (borda branca espessa eliminada!)
+    canetas_usadas = [chamada[0][0] for chamada in mock_painter.setPen.call_args_list if chamada[0]]
+    cores_caneta_stroke = [p.color().name().upper() for p in canetas_usadas if hasattr(p, "color") and p.width() > 1]
+    assert "#FFFFFF" not in cores_caneta_stroke, "Borda branca espessa não deve existir nos badges Ouroboulder"
+
+    # 3. Alça sob seleção (highlight com borda colorida da cor da via e fundo escuro preservado)
+    mock_painter.reset_mock()
+    item.setSelected(True)
+    alca_inicio.paint(mock_painter, QStyleOptionGraphicsItem())
+    pinceis_selecionado = [chamada[0][0] for chamada in mock_painter.setBrush.call_args_list if chamada[0]]
+    cores_brush_sel = [b.color().name().upper() for b in pinceis_selecionado if hasattr(b, "color")]
+    # Fundo permanece #1A1A1A (não preenchimento colorido)
+    assert "#1A1A1A" in cores_brush_sel
+    # Borda (caneta) recebe a cor da via selecionada
+    canetas_selecionado = [chamada[0][0] for chamada in mock_painter.setPen.call_args_list if chamada[0]]
+    cores_caneta_sel = [p.color().name().upper() for p in canetas_selecionado if hasattr(p, "color")]
+    assert "#FFD600" in cores_caneta_sel, f"Esperava borda amarela sob seleção, obteve: {cores_caneta_sel}"
 
 
+def test_alca_no_seta_direcional(qtbot):
+    """Testa a criação, renderização e menu de nó do tipo SETA_DIRECIONAL."""
+    from editor.views.widget_editor_mapas import ItemTrajetoLinha, AlcaNoTrajeto
+    from unittest.mock import MagicMock
+    from PySide6.QtGui import QPainter
+    from PySide6.QtWidgets import QStyleOptionGraphicsItem
+
+    pt_dict = {
+        "id": "v_seta",
+        "cor": "#FFD600",
+        "linha": {
+            "conteudo": {
+                "nos": [
+                    {"x": 0, "y": 0, "tipo": 1, "rotulo": "1"},
+                    {"x": 50, "y": 50, "tipo": 12},  # Seta direcional no meio
+                    {"x": 100, "y": 100, "tipo": 5}
+                ]
+            }
+        }
+    }
+    item = ItemTrajetoLinha(pt_dict, lambda _: None)
+    alca_seta = item.alcas[1]
+    assert alca_seta.obter_tipo_int() == 12
+    assert "Seta Direcional" in alca_seta.obter_nome_tipo(12)
+
+    # Verifica cálculo do ângulo da tangente para orientação da seta
+    ang = alca_seta._obter_angulo_tangente()
+    assert round(ang) == 45  # Vetor de (0,0) para (100,100) tem inclinação de 45 graus
+
+    # Renderização da seta direcional
+    mock_painter = MagicMock(spec=QPainter)
+    alca_seta.paint(mock_painter, QStyleOptionGraphicsItem())
+    mock_painter.drawPolygon.assert_called_once()
+    mock_painter.rotate.assert_called_with(45.0)
+
+    # Alterar outro nó para SETA_DIRECIONAL
+    item.alterar_tipo_no(0, 12)
+    assert item.alcas[0].obter_tipo_int() == 12

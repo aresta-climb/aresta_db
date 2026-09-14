@@ -32,6 +32,7 @@ _CHAVE_PUBLICA_PADRAO = (
     (os.getenv("ARESTA_SUPABASE_PUBLISHABLE_KEY") or "").strip()
     or _CHAVE_PUBLICA_FALLBACK
 )
+_TEMPO_LIMITE_PR_PADRAO: int = 60
 
 
 class ErroSubmissao(Exception):
@@ -63,7 +64,7 @@ def _extrair_id_croqui_da_branch(branch: str) -> str:
             resto = branch[len(prefixo):]
             partes = resto.rsplit("-", 1)
             return partes[0] if len(partes) == 2 else resto
-    return ""
+    return branch
 
 
 class ServicoSubmissao:
@@ -78,6 +79,7 @@ class ServicoSubmissao:
         url_supabase: Optional[str] = None,
         chave_publica: Optional[str] = None,
         cliente_auth: Optional[ClienteAuthSupabase] = None,
+        tempo_limite_requisicao: int = _TEMPO_LIMITE_PR_PADRAO,
     ) -> None:
         self.caminho_repo_base: Path = caminho_repo_base or GerenciadorCaminhos().obter_caminho_base_repo()
         url = (url_supabase or "").strip()
@@ -89,6 +91,7 @@ class ServicoSubmissao:
         self.cliente_auth: ClienteAuthSupabase = cliente_auth or ClienteAuthSupabase(
             url_supabase=self.url_supabase, chave_publica=self.chave_publica
         )
+        self.tempo_limite_requisicao: int = tempo_limite_requisicao
 
 
     def sincronizar_arquivos_croqui(
@@ -303,6 +306,7 @@ class ServicoSubmissao:
         titulo: str,
         descricao: str,
         token_usuario_github: Optional[str] = None,
+        tempo_limite: Optional[int] = None,
     ) -> Dict[str, Any]:
         """Dispara a criação/registro da Pull Request via Edge Function create-pr."""
         url_endpoint = f"{self.url_supabase}/functions/v1/create-pr"
@@ -320,9 +324,10 @@ class ServicoSubmissao:
             payload["token_usuario_github"] = token_usuario_github
 
         id_croqui_extraido = _extrair_id_croqui_da_branch(branch)
+        timeout_efetivo = tempo_limite if tempo_limite is not None else self.tempo_limite_requisicao
 
         try:
-            resposta = requests.post(url_endpoint, json=payload, headers=cabecalhos, timeout=15)
+            resposta = requests.post(url_endpoint, json=payload, headers=cabecalhos, timeout=timeout_efetivo)
         except Exception as e:
             contexto = {"url_endpoint": url_endpoint, "branch": branch, "titulo": titulo}
             categoria = "rede" if isinstance(e, (requests.ConnectionError, requests.Timeout)) else "github_api"

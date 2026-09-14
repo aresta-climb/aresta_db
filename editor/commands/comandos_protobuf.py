@@ -45,12 +45,17 @@ def resolver_caminho_mensagem(root_msg: Any, target_msg: Any) -> str:
             # Para campo singular de mensagem (type == 11)
             is_message = getattr(descriptor, "type", None) == 11
             if is_message:
+                if descriptor.containing_oneof:
+                    try:
+                        active = root_msg.WhichOneof(descriptor.containing_oneof.name)
+                        if active is not None and active != descriptor.name:
+                            continue
+                    except Exception:
+                        pass
                 try:
-                    if not root_msg.HasField(descriptor.name):
-                        continue
-                except ValueError:
+                    val = getattr(root_msg, descriptor.name)
+                except Exception:
                     continue
-                val = getattr(root_msg, descriptor.name)
                 if val is target_msg:
                     return str(descriptor.name)
                 sub_caminho = resolver_caminho_mensagem(val, target_msg)
@@ -112,7 +117,7 @@ def validar_pertence_ao_croqui(
         caminho = ""
     elif root_raw is not None:
         caminho = resolver_caminho_mensagem(root_raw, msg_raw)
-        if not caminho:
+        if not caminho and (not hasattr(root_raw, "ListFields") or len(root_raw.ListFields()) > 0):
             raise ValueError(
                 f"Mensagem alvo órfã detectada para o comando {nome_comando}: "
                 f"a mensagem do tipo '{type(msg_raw).__name__}' não pertence à árvore ativa do croqui."

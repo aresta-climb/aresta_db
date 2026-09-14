@@ -193,9 +193,9 @@ croquis:
   descricao: Este croqui documenta e divulga a prática da escalada no Complexo da
     Pedra Grande em Igarapé/MG, reunindo informações sobre diversos setores e vias.
   caminho_relativo: br_mg_igarape_pedra_grande/compilado.binarypb
-  checksum_sha256_croqui: 73df94ae70f58e84f9e78ffec489d5eb7b1ac97f9704ae91ff5617ec9df4e5ac
+  checksum_sha256_croqui: e752216037119f1df9bdb8f115f3ecdbd4ba100d397310ed839be8509c4e3a36
   checksum_sha256_thumbnail: d490580138c1b7f24c772f2d6672e895406739da51bd1880ecabb49cd28b7409
-  timestamp_update: '2026-09-14T00:12:10Z'
+  timestamp_update: '2026-09-14T01:58:25Z'
   precomputados:
     total_escaladas: 153
     total_setores: 13
@@ -207,20 +207,6 @@ croquis:
   localizacao:
     latitude: -201176660
     longitude: -443593480
-- id: br_mg_ipatinga_ipaba_vale_verde
-  nome: Vale Verde
-  descricao: O Vale Verde é uma falésia de Tonalito localizada no Vale do Aço, Minas
-    Gerais, com vias técnicas em regletes.
-  caminho_relativo: br_mg_ipatinga_ipaba_vale_verde/compilado.binarypb
-  checksum_sha256_croqui: 0e6de8d7a85f1910d4e4f6503b8eaf6b331a97f9331a34f67faeb9c4a8d555f3
-  checksum_sha256_thumbnail: b7587af0978a2179d8f3b580f41b16cf4878c540439104afa9d5b1688c9607ce
-  timestamp_update: '2026-09-11T22:05:28Z'
-  precomputados:
-    total_escaladas: 32
-    total_setores: 2
-    total_grupos: 0
-    total_esportivas: 32
-    tamanho_download_bytes: 2376888
 - id: br_mg_januaria_salao_encantado
   nome: Salão Encantado
   descricao: Croqui do Salão Encantado em Januária, MG.
@@ -319,21 +305,6 @@ croquis:
   localizacao:
     latitude: -203600960
     longitude: -435035650
-- id: br_mg_paraisopolis_pedra_da_divisa
-  nome: Pedra da Divisa - Face MG
-  descricao: |
-    Guia de escalada da face mineira da Pedra da Divisa, em Paraisópolis, MG.
-    Contém vias esportivas e móveis em diversos setores como Cangaço, Ditados, Cervejas, Questão de Tempo e Hospício.
-  caminho_relativo: br_mg_paraisopolis_pedra_da_divisa/compilado.binarypb
-  checksum_sha256_croqui: 8686c8a698035cd2b3a33425715fc719601ba3b5c105b7f66e001aba280e2495
-  checksum_sha256_thumbnail: be6561976a3ef2c0f957fc3c72cdb7f0572b912d2d1e74ed1aa23fa1a8d0ebbd
-  timestamp_update: '2026-09-11T22:04:23Z'
-  precomputados:
-    total_escaladas: 43
-    total_setores: 5
-    total_grupos: 0
-    total_esportivas: 29
-    tamanho_download_bytes: 4361927
 - id: br_mg_pedro_leopoldo_gruta_do_bau
   nome: Gruta do Baú
   descricao: O maciço do Baú está localizado no município de Pedro Leopoldo, MG. É

@@ -150,7 +150,7 @@ class DialogoEdicaoPOI(QDialog):
 
     def _abrir_dialogo_cor(self) -> None:
         from PySide6.QtWidgets import QColorDialog
-        cor_inicial = QColor(self.cor_selecionada) if self.cor_selecionada else QColor("#FF6D00")
+        cor_inicial = QColor(self.cor_selecionada) if self.cor_selecionada else QColor("#FFD600")
         cor = QColorDialog.getColor(cor_inicial, self, "Selecionar Cor do Ponto de Interesse")
         if cor.isValid():
             self._definir_cor(cor.name().upper())
@@ -807,6 +807,10 @@ class AlcaNoTrajeto(QGraphicsEllipseItem):
         "FIM_TOP": 11,
         "TOP_CIRCULO": 11,
         "FIM_CIRCULO": 11,
+        "SETA_DIRECIONAL": 12,
+        "SETA": 12,
+        "DINAMICO": 12,
+        "MOVIMENTO": 12,
     }
 
     MAPA_NOMES_TIPOS: Dict[int, str] = {
@@ -822,6 +826,7 @@ class AlcaNoTrajeto(QGraphicsEllipseItem):
         9: "Fita",
         10: "Buraco de Cliff",
         11: "Círculo Identificador",
+        12: "Seta Direcional (Dinâmico / Bote)",
     }
 
     @classmethod
@@ -862,11 +867,36 @@ class AlcaNoTrajeto(QGraphicsEllipseItem):
 
     def obter_raio(self) -> int:
         r = int(self.no_dict.get("raio", 0) or 0)
-        return r if r > 0 else 12
+        return r if r > 0 else 19
 
     def obter_tamanho_fonte(self) -> int:
         tf = int(self.no_dict.get("tamanho_fonte", 0) or 0)
-        return tf if tf > 0 else 8
+        if tf > 0:
+            return tf
+        r = self.obter_raio()
+        rotulo = self.obter_rotulo_exibicao()
+        if len(rotulo) <= 1:
+            return max(10, int(round(r * 1.50)))
+        elif len(rotulo) == 2:
+            return max(9, int(round(r * 1.30)))
+        else:
+            return max(8, int(round(r * 1.15)))
+
+    def _obter_angulo_tangente(self) -> float:
+        """Calcula o ângulo em graus da tangente no nó para orientar marcadores como a Seta Direcional."""
+        nos = self.item_pai.pt_dict.get('linha', {}).get('conteudo', {}).get('nos', [])
+        if len(nos) >= 2 and 0 <= self.indice < len(nos):
+            if self.indice == 0:
+                dx = nos[1].get('x', 0) - nos[0].get('x', 0)
+                dy = nos[1].get('y', 0) - nos[0].get('y', 0)
+            elif self.indice == len(nos) - 1:
+                dx = nos[-1].get('x', 0) - nos[-2].get('x', 0)
+                dy = nos[-1].get('y', 0) - nos[-2].get('y', 0)
+            else:
+                dx = nos[self.indice + 1].get('x', 0) - nos[self.indice - 1].get('x', 0)
+                dy = nos[self.indice + 1].get('y', 0) - nos[self.indice - 1].get('y', 0)
+            return math.degrees(math.atan2(dy, dx))
+        return 0.0
 
     def obter_rotulo_exibicao(self) -> str:
         rotulo = str(self.no_dict.get("rotulo", "") or "")
@@ -915,6 +945,9 @@ class AlcaNoTrajeto(QGraphicsEllipseItem):
         elif tipo == 6:  # Crux
             self.setRect(-10, -10, 20, 20)
             self.setToolTip("Crux (Lance Chave)")
+        elif tipo == 12:  # Seta Direcional (Dinâmico / Bote)
+            self.setRect(-8, -8, 16, 16)
+            self.setToolTip("Seta Direcional (Dinâmico / Bote)")
         else:  # Passagem / Invisível (0)
             self.setRect(-4, -4, 8, 8)
             self.setToolTip("Invisível (Ponto de Curva)")
@@ -923,25 +956,38 @@ class AlcaNoTrajeto(QGraphicsEllipseItem):
     def paint(self, painter: QPainter, option: Any, widget: Optional[QWidget] = None) -> None:
         painter.setRenderHint(QPainter.RenderHint.Antialiasing, True)
         tipo = self.obter_tipo_int()
-        cor_base = QColor(self.item_pai.cor_hex if self.item_pai.cor_hex else "#FF6D00")
+        cor_base = QColor(self.item_pai.cor_hex if self.item_pai.cor_hex else "#FFD600")
         rect = self.rect()
         
         if tipo in (1, 2, 11):
-            # Círculo Identificador: Círculo com cor da via, borda de alto contraste e texto centralizado
-            painter.setPen(QPen(QColor(0, 0, 0, 180), 3))
-            painter.setBrush(Qt.BrushStyle.NoBrush)
-            painter.drawEllipse(rect.adjusted(1, 1, -1, -1))
-            
+            # Círculo Identificador no padrão Ouroboulder:
+            # - Repouso: Fundo preto neutro (#1A1A1A), texto branco, contorno preto fino (1.0px a 1.2px)
+            # - Selecionado: Fundo cor da via (amarelo/cor_base), texto branco, contorno fino e halo suave
+            esta_selecionado = self.isSelected()
+            if hasattr(self, "item_pai") and self.item_pai and self.item_pai.isSelected():
+                esta_selecionado = True
+
+            cor_fundo = QColor(26, 26, 26)  # #1A1A1A sempre no preenchimento
+
             estilo_borda = Qt.PenStyle.DashLine if tipo == 2 else Qt.PenStyle.SolidLine
-            painter.setPen(QPen(QColor(255, 255, 255), 2, estilo_borda))
-            painter.setBrush(QBrush(cor_base))
+            if esta_selecionado:
+                painter.setPen(QPen(QColor(cor_base.red(), cor_base.green(), cor_base.blue(), 100), 3))
+                painter.setBrush(Qt.BrushStyle.NoBrush)
+                painter.drawEllipse(rect.adjusted(1, 1, -1, -1))
+                painter.setPen(QPen(cor_base, 2.5, estilo_borda))
+            else:
+                painter.setPen(QPen(QColor(0, 0, 0, 220), 1.2, estilo_borda))
+
+            painter.setBrush(QBrush(cor_fundo))
             painter.drawEllipse(rect.adjusted(1, 1, -1, -1))
             
             rotulo = self.obter_rotulo_exibicao()
             if rotulo:
                 painter.setPen(QPen(QColor(255, 255, 255)))
                 tam_fonte = self.obter_tamanho_fonte()
-                fonte = QFont("Arial", tam_fonte, QFont.Weight.Bold)
+                fonte = QFont("Arial")
+                fonte.setPixelSize(tam_fonte)
+                fonte.setBold(True)
                 painter.setFont(fonte)
                 painter.drawText(rect, Qt.AlignmentFlag.AlignCenter, rotulo)
                 
@@ -1028,6 +1074,17 @@ class AlcaNoTrajeto(QGraphicsEllipseItem):
             painter.setFont(fonte)
             painter.drawText(rect, Qt.AlignmentFlag.AlignCenter, "X")
 
+        elif tipo == 12:
+            # Seta Direcional (Dinâmico / Movimento): ponta de seta orientada pela tangente
+            ang_deg = self._obter_angulo_tangente()
+            painter.save()
+            painter.rotate(ang_deg)
+            seta = QPolygonF([QPointF(8, 0), QPointF(-6, -6), QPointF(-3, 0), QPointF(-6, 6)])
+            painter.setPen(QPen(QColor(0, 0, 0, 220), 2, Qt.PenStyle.SolidLine, Qt.PenCapStyle.RoundCap, Qt.PenJoinStyle.RoundJoin))
+            painter.setBrush(QBrush(cor_base))
+            painter.drawPolygon(seta)
+            painter.restore()
+
         else:
             # Invisível (0) - Ponto discreto apenas no editor
             painter.setPen(QPen(QColor(255, 255, 255), 1.2))
@@ -1058,6 +1115,7 @@ class AlcaNoTrajeto(QGraphicsEllipseItem):
             ("Top / Parada Final [XX]", 5),
             ("Buraco de Cliff", 10),
             ("Crux (Chave)", 6),
+            ("Seta Direcional (Dinâmico)", 12),
         ]
         
         for nome, valor in tipos:
@@ -1162,7 +1220,7 @@ class ItemTrajetoLinha(QGraphicsPathItem, BaseItemPOI):
         self.callback_deletar = callback_deletar
         self.configurar_comum(pt_dict, callback_mudanca)
         
-        self.cor_hex = pt_dict.get('cor', '#FF6D00') or '#FF6D00'
+        self.cor_hex = pt_dict.get('cor', '#FFD600') or '#FFD600'
         self.alcas: List[AlcaNoTrajeto] = []
         
         self.carregar_de_dict(pt_dict)
@@ -1171,7 +1229,7 @@ class ItemTrajetoLinha(QGraphicsPathItem, BaseItemPOI):
     def carregar_de_dict(self, pt_dict: Dict[str, Any]) -> None:
         self.inicializando = True
         self.pt_dict.update(pt_dict)
-        self.cor_hex = self.pt_dict.get('cor', '#FF6D00') or '#FF6D00'
+        self.cor_hex = self.pt_dict.get('cor', '#FFD600') or '#FFD600'
         self.setPos(0, 0)
         
         estilo_str = str(self.pt_dict.get('linha', {}).get('estilo', 'TRACEJADO'))
@@ -1281,7 +1339,7 @@ class ItemTrajetoLinha(QGraphicsPathItem, BaseItemPOI):
         if ("CAMINHADA" in estilo_str or estilo_str == "3") and not self.path().isEmpty():
             painter.save()
             painter.setRenderHint(QPainter.RenderHint.Antialiasing, True)
-            cor_linha = QColor(self.cor_hex or "#FF6D00")
+            cor_linha = QColor(self.cor_hex or "#FFD600")
             painter.setPen(QPen(QColor(0, 0, 0, 180), 2))
             painter.setBrush(QBrush(cor_linha))
             path = self.path()
@@ -1408,7 +1466,7 @@ class ItemTrajetoLinha(QGraphicsPathItem, BaseItemPOI):
         
         menu.addSeparator()
         menu_cores = menu.addMenu("Mudar Cor")
-        cor_atual = (self.cor_hex or "#FF6D00").upper()
+        cor_atual = (self.cor_hex or "#FFD600").upper()
         for nome_cor, hex_cor in PALETA_CORES_ROCHA:
             is_ativa = (cor_atual == hex_cor.upper())
             prefixo = "● " if is_ativa else "   "
@@ -1536,7 +1594,7 @@ class ItemTrajetoLinha(QGraphicsPathItem, BaseItemPOI):
             self._definir_espessura(val)
 
     def _solicitar_cor_personalizada(self) -> None:
-        cor_inicial = QColor(self.cor_hex if self.cor_hex else "#FF6D00")
+        cor_inicial = QColor(self.cor_hex if self.cor_hex else "#FFD600")
         nova_cor = self._obter_cor_dialogo(cor_inicial)
         if nova_cor.isValid():
             self._definir_cor(nova_cor.name().upper())
@@ -2088,7 +2146,7 @@ class WidgetEditorMapas(QWidget):
             self.painel_referencias.carregar_mapa(None)
         self.list_widget.blockSignals(True)
         self.list_widget.clearSelection()
-        self.list_widget.setCurrentItem(None)
+        self.list_widget.setCurrentRow(-1)
         self.list_widget.blockSignals(False)
 
     def configurar_lista_mapas(self) -> None:
@@ -2729,7 +2787,7 @@ class WidgetEditorMapas(QWidget):
             self.cancelar_modo_desenho_linha()
             return
 
-        dialogo = DialogoEdicaoPOI("", "", cor_atual="#FF6D00")
+        dialogo = DialogoEdicaoPOI("", "", cor_atual="#FFD600")
         if dialogo.exec() == QDialog.DialogCode.Accepted:
             vals = dialogo.obter_valores()
             novo_id = vals[0]
@@ -2753,7 +2811,7 @@ class WidgetEditorMapas(QWidget):
                         id_linha=novo_id,
                         label=novo_label,
                         nos=nos,
-                        cor=nova_cor if nova_cor else "#FF6D00",
+                        cor=nova_cor if nova_cor else "#FFD600",
                         texto_visivel=novo_texto_visivel
                     )
 

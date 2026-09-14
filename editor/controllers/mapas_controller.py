@@ -186,7 +186,8 @@ class MapasController:
         """Cria e adiciona uma LinhaTrajeto ao mapa com suporte a Undo/Redo."""
         from aresta_api.proto.generated import croqui_pb2
 
-        poi_novo = croqui_pb2.Mapa.PontoDeInteresse(id=id_linha, label=label, cor=cor)
+        cor_final = cor if cor else "#FFD600"
+        poi_novo = croqui_pb2.Mapa.PontoDeInteresse(id=id_linha, label=label, cor=cor_final)
         if texto_visivel:
             poi_novo.texto_visivel = texto_visivel
         if estilo is not None:

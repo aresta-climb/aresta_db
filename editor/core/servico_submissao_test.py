@@ -201,6 +201,43 @@ class TesteServicoSubmissaoUnitario:
         corpo = json.loads(responses.calls[0].request.body)
         assert corpo["token_usuario_github"] == "gho_token_usuario_123"
 
+    @patch("requests.post")
+    def teste_solicitar_abertura_pr_respeita_tempo_limite_padrao(self, mock_post, tmp_path):
+        mock_resposta = MagicMock()
+        mock_resposta.status_code = 200
+        mock_resposta.json.return_value = {"pr_number": 1, "pr_url": "https://github.com/test/pr/1"}
+        mock_post.return_value = mock_resposta
+
+        servico = ServicoSubmissao(caminho_repo_base=tmp_path)
+        assert servico.tempo_limite_requisicao == 60
+
+        servico.solicitar_abertura_pr(
+            jwt="jwt.token",
+            branch="edicao-teste-123",
+            titulo="Título",
+            descricao="Desc",
+        )
+        assert mock_post.call_args.kwargs["timeout"] == 60
+
+    @patch("requests.post")
+    def teste_solicitar_abertura_pr_permite_tempo_limite_customizado(self, mock_post, tmp_path):
+        mock_resposta = MagicMock()
+        mock_resposta.status_code = 200
+        mock_resposta.json.return_value = {"pr_number": 2, "pr_url": "https://github.com/test/pr/2"}
+        mock_post.return_value = mock_resposta
+
+        servico = ServicoSubmissao(caminho_repo_base=tmp_path, tempo_limite_requisicao=45)
+        assert servico.tempo_limite_requisicao == 45
+
+        servico.solicitar_abertura_pr(
+            jwt="jwt.token",
+            branch="edicao-teste-123",
+            titulo="Título",
+            descricao="Desc",
+            tempo_limite=30,
+        )
+        assert mock_post.call_args.kwargs["timeout"] == 30
+
     @responses.activate
     def teste_solicitar_abertura_pr_erro_servidor_lanca_excecao(self, tmp_path):
         url_supabase = "https://teste.supabase.co"
@@ -897,6 +934,60 @@ class TesteTelemetriaSubmissaoIntegracao:
             args, kwargs = mock_capturar.call_args
             categoria = kwargs.get("categoria") or (args[3] if len(args) > 3 else None)
             assert categoria == "git_local"
+
+    def teste_submeter_sugestao_propaga_erro_submissao_obter_commit_base(self, tmp_path):
+        repo_dir = tmp_path / "repo"
+        inicializar_repo_local(repo_dir)
+        servico = ServicoSubmissao(caminho_repo_base=repo_dir)
+
+        caminho_db = tmp_path / "database" / "croqui_teste"
+        caminho_db.mkdir(parents=True)
+        (caminho_db / "croqui.yaml").write_text("nome: Croqui Teste\n", encoding="utf-8")
+
+        sessao = SessaoUsuario(
+            email="autor@aresta.local",
+            nome_completo="Autor Teste",
+            jwt_supabase="jwt_valido",
+            token_atualizacao="refresh_valido",
+        )
+
+        with patch.object(servico.cliente_auth, "obter_usuario_atual", return_value={"id": "u1"}), \
+             patch.object(servico, "_obter_commit_base", side_effect=ErroSubmissao("Falha commit base")):
+            with pytest.raises(ErroSubmissao, match="Falha commit base"):
+                servico.submeter_sugestao(
+                    caminho_database_croqui=caminho_db,
+                    id_croqui="croqui_teste",
+                    titulo="Titulo",
+                    descricao="Desc",
+                    sessao=sessao,
+                )
+
+    def teste_submeter_sugestao_propaga_erro_submissao_criar_commit_sugestao(self, tmp_path):
+        repo_dir = tmp_path / "repo"
+        inicializar_repo_local(repo_dir)
+        servico = ServicoSubmissao(caminho_repo_base=repo_dir)
+
+        caminho_db = tmp_path / "database" / "croqui_teste"
+        caminho_db.mkdir(parents=True)
+        (caminho_db / "croqui.yaml").write_text("nome: Croqui Teste\n", encoding="utf-8")
+
+        sessao = SessaoUsuario(
+            email="autor@aresta.local",
+            nome_completo="Autor Teste",
+            jwt_supabase="jwt_valido",
+            token_atualizacao="refresh_valido",
+        )
+
+        with patch.object(servico.cliente_auth, "obter_usuario_atual", return_value={"id": "u1"}), \
+             patch.object(servico, "criar_commit_sugestao", side_effect=ErroSubmissao("Falha criar commit")):
+            with pytest.raises(ErroSubmissao, match="Falha criar commit"):
+                servico.submeter_sugestao(
+                    caminho_database_croqui=caminho_db,
+                    id_croqui="croqui_teste",
+                    titulo="Titulo",
+                    descricao="Desc",
+                    sessao=sessao,
+                )
 
 
 

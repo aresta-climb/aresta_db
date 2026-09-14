@@ -1083,6 +1083,72 @@ def test_precompilar_linhas_mapas_propaga_raio_e_tamanho_fonte_nos_marcadores():
     msg = croqui_pb2.Croqui()
     json_format.ParseDict(croqui_data, msg, ignore_unknown_fields=False)
 
+
+def test_precompilar_linhas_mapas_seta_direcional():
+    """Testa que nós do tipo SETA_DIRECIONAL geram marcadores compilados com tipo e ângulo calculados."""
+    from scripts.preparar_submissao_lib import precompilar_linhas_mapas_recursivo
+    from aresta_api.proto.generated import croqui_pb2
+    from google.protobuf import json_format
+
+    croqui_data = {
+        "id": "teste_seta",
+        "nome": "Croqui Teste",
+        "picos": [{
+            "nome": "Pico 1",
+            "setores_ou_grupos": [{
+                "setor": {
+                    "conteudo": {
+                        "nome": "Setor 1",
+                        "mapas": [{
+                            "pontos_de_interesse": [{
+                                "id": "linha_seta",
+                                "linha": {
+                                    "conteudo": {
+                                        "nos": [
+                                            {"x": 0, "y": 0, "tipo": 1, "rotulo": "1"},
+                                            {"x": 50, "y": 50, "tipo": 12},  # SETA_DIRECIONAL
+                                            {"x": 100, "y": 100, "tipo": 5}   # TOP
+                                        ]
+                                    }
+                                }
+                            }]
+                        }]
+                    }
+                }
+            }]
+        }]
+    }
+
+    precompilar_linhas_mapas_recursivo(croqui_data)
+
+    pt = croqui_data["picos"][0]["setores_ou_grupos"][0]["setor"]["conteudo"]["mapas"][0]["pontos_de_interesse"][0]
+    compilado = pt["linha"]["compilado"]
+    marcadores = compilado["marcadores"]
+    assert len(marcadores) == 3
+
+    marcador_seta = marcadores[1]
+    assert marcador_seta["tipo"] == 12
+    assert marcador_seta["x"] == 50
+    assert marcador_seta["y"] == 50
+    # O ângulo de uma linha diagonal (0,0) -> (50,50) -> (100,100) deve ser próximo de 45 graus (4500 em x100)
+    assert 4000 <= marcador_seta["angulo_graus_x100"] <= 5000
+
+    # Validação rigorosa no Protobuf
+    msg = croqui_pb2.Croqui()
+    json_format.ParseDict(croqui_data, msg, ignore_unknown_fields=False)
+    assert msg.picos[0].setores_ou_grupos[0].setor.conteudo.mapas[0].pontos_de_interesse[0].linha.compilado.marcadores[1].tipo == croqui_pb2.NoTrajeto.SETA_DIRECIONAL
+
+    # Valida serialização e desserialização binária (.binarypb)
+    bin_bytes = msg.SerializeToString()
+    msg_recuperado = croqui_pb2.Croqui()
+    msg_recuperado.ParseFromString(bin_bytes)
+    marcador_recuperado = msg_recuperado.picos[0].setores_ou_grupos[0].setor.conteudo.mapas[0].pontos_de_interesse[0].linha.compilado.marcadores[1]
+    assert marcador_recuperado.tipo == croqui_pb2.NoTrajeto.SETA_DIRECIONAL
+    assert marcador_recuperado.x == 50
+    assert marcador_recuperado.y == 50
+    assert marcador_recuperado.angulo_graus_x100 == marcador_seta["angulo_graus_x100"]
+
+
 def test_expandir_arquivo_generico_grupo_com_lista_setores_vazia(tmp_path):
     arquivo_grupo = tmp_path / "grupo_boulders.md"
     arquivo_grupo.write_text(

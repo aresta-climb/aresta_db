@@ -3674,7 +3674,7 @@ picos:
                   y: 1175
                   angulo_graus_x100: -9404
                   rotulo: '1'
-            cor: '#FF6D00'
+            cor: '#FFD600'
           - id: '2'
             label: '2'
             linha:
@@ -3693,7 +3693,7 @@ picos:
                   y: 1121
                   angulo_graus_x100: -6588
                   rotulo: '2'
-            cor: '#FF6D00'
+            cor: '#FFD600'
           - id: '3'
             label: '3'
             linha:
@@ -3714,7 +3714,7 @@ picos:
                   y: 1125
                   angulo_graus_x100: -4982
                   rotulo: '3'
-            cor: '#FF6D00'
+            cor: '#FFD600'
           - id: '4'
             label: '4'
             linha:
@@ -3734,7 +3734,7 @@ picos:
                   y: 943
                   angulo_graus_x100: -6356
                   rotulo: '4'
-            cor: '#FF6D00'
+            cor: '#FFD600'
           - id: '5'
             label: '5'
             linha:
@@ -3754,7 +3754,7 @@ picos:
                   y: 872
                   angulo_graus_x100: 16031
                   rotulo: '5'
-            cor: '#FF6D00'
+            cor: '#FFD600'
           - id: X
             label: X
             linha:
@@ -3776,7 +3776,7 @@ picos:
                   y: 368
                   angulo_graus_x100: -9216
                   rotulo: X
-            cor: '#FF6D00'
+            cor: '#FFD600'
           - id: a
             label: a
             linha:
@@ -3796,7 +3796,7 @@ picos:
                   y: 955
                   angulo_graus_x100: -15012
                   rotulo: a
-            cor: '#FF6D00'
+            cor: '#FFD600'
           - id: y
             label: y
             linha:
@@ -3816,7 +3816,7 @@ picos:
                   y: 287
                   angulo_graus_x100: -12389
                   rotulo: y
-            cor: '#FF6D00'
+            cor: '#FFD600'
           referencias:
           - ids:
             - '5'
