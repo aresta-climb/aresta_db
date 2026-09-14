@@ -7,6 +7,9 @@ from pathlib import Path
 from typing import Optional, Any
 from PySide6.QtCore import QObject, Signal
 from PySide6.QtGui import QUndoStack, QUndoCommand
+from editor.core.registro_log import obter_logger
+
+logger = obter_logger("historico")
 
 class GerenciadorHistorico(QObject):
     """
@@ -124,9 +127,12 @@ class GerenciadorHistorico(QObject):
                     self._pilha.push(cmd)
 
                     total_carregados += 1
-                except Exception:
-                    # Se um comando salvo falhar ao ser deserializado, para no último estável
-                    break
+                except (ValueError, AttributeError, KeyError, TypeError) as e:
+                    logger.warning("Comando corrompido ou órfão descartado do diário salvo: %s", e)
+                    continue
+                except Exception as e:
+                    logger.error("Erro inesperado ao deserializar comando salvo: %s", e)
+                    continue
         finally:
             self._pilha.setClean()
             self._gravacao_pausada = False
@@ -152,9 +158,12 @@ class GerenciadorHistorico(QObject):
                     cmd = deserializar_comando(cmd_dict, model)
                     self._pilha.push(cmd)
                     total_restaurados += 1
-                except Exception:
-                    # Se um comando falhar ao ser reconstruído, continua com os anteriores
-                    break
+                except (ValueError, AttributeError, KeyError, TypeError) as e:
+                    logger.warning("Comando corrompido ou órfão descartado do diário pendente: %s", e)
+                    continue
+                except Exception as e:
+                    logger.error("Erro inesperado ao restaurar comando do diário pendente: %s", e)
+                    continue
         finally:
             self._gravacao_pausada = False
             self.definir_gerenciador_diario(diario)

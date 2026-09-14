@@ -2898,3 +2898,259 @@ def test_alca_no_trajeto_vizinho_no_vao_de_curva_recebe_clique(qtbot):
     # Deve ser a alça do nó 0 da via 2
     assert item_no_ponto == item_via2.alcas[0]
 
+
+def test_remocao_reativa_de_mapa_ativo_descarrega_cena_e_limpa_selecao(qtbot, tmp_path):
+    from aresta_api.proto.generated import croqui_pb2
+    from editor.models.croqui_model import CroquiModel
+    from editor.controllers.mapas_controller import MapasController
+    from PySide6.QtGui import QUndoStack
+    from editor.views.widget_editor_mapas import WidgetEditorMapas
+
+    croqui = croqui_pb2.Croqui()
+    pico = croqui.picos.add(nome="Pico Teste")
+    sg = pico.setores_ou_grupos.add()
+    setor = sg.setor.conteudo
+    setor.nome = "Setor A"
+
+    mapa = setor.mapas.add()
+    mapa.caminho_imagem_mapa = "imagens/mapa_a.webp"
+    mapa.pontos_de_interesse.add(id="poi_1")
+
+    model = CroquiModel(croqui)
+    model.definir_caminho_db(tmp_path)
+    undo_stack = QUndoStack()
+    mapas_ctrl = MapasController(model, undo_stack)
+
+    widget = WidgetEditorMapas(croqui_model=model, mapas_controller=mapas_ctrl)
+    qtbot.addWidget(widget)
+    widget.configurar_lista_mapas()
+
+    # Seleciona o mapa ativo
+    proxy_mapa = model.obter_croqui_readonly().picos[0].setores_ou_grupos[0].setor.conteudo.mapas[0]
+    widget.set_mapa_atual(proxy_mapa, pico_idx=0, grupo_idx=0, mapa_idx=0, tipo="setor")
+    assert widget.msg_mapa_proxy is not None
+    assert widget.list_widget.count() == 1
+
+    # Remove o mapa do modelo via método do model (dispara repeated_removido com campo_nome='mapas')
+    model._remover_repeated(setor, "mapas", 0)
+
+    # O widget DEVE reagir atualizando a lista para 0 e descarregando o mapa excluído
+    assert widget.list_widget.count() == 0
+    assert widget.msg_mapa_proxy is None
+    assert len(widget.itens_poi) == 0
+
+
+def test_adicao_reativa_de_mapa_atualiza_lista(qtbot, tmp_path):
+    from aresta_api.proto.generated import croqui_pb2
+    from editor.models.croqui_model import CroquiModel
+    from editor.controllers.mapas_controller import MapasController
+    from PySide6.QtGui import QUndoStack
+    from editor.views.widget_editor_mapas import WidgetEditorMapas
+
+    croqui = croqui_pb2.Croqui()
+    pico = croqui.picos.add(nome="Pico Teste")
+    sg = pico.setores_ou_grupos.add()
+    setor = sg.setor.conteudo
+    setor.nome = "Setor A"
+
+    model = CroquiModel(croqui)
+    model.definir_caminho_db(tmp_path)
+    undo_stack = QUndoStack()
+    mapas_ctrl = MapasController(model, undo_stack)
+
+    widget = WidgetEditorMapas(croqui_model=model, mapas_controller=mapas_ctrl)
+    qtbot.addWidget(widget)
+    widget.configurar_lista_mapas()
+    assert widget.list_widget.count() == 0
+
+    # Adiciona mapa reativamente via model
+    novo_mapa = croqui_pb2.Mapa(caminho_imagem_mapa="imagens/novo_mapa.webp")
+    model._adicionar_repeated(setor, "mapas", 0, novo_mapa)
+
+    assert widget.list_widget.count() == 1
+
+
+def test_mapa_ativo_valido_com_mapa_conectado_e_desconectado(qtbot, tmp_path):
+    from aresta_api.proto.generated import croqui_pb2
+    from editor.models.croqui_model import CroquiModel
+    from editor.controllers.mapas_controller import MapasController
+    from PySide6.QtGui import QUndoStack
+    from editor.views.widget_editor_mapas import WidgetEditorMapas
+
+    croqui = croqui_pb2.Croqui()
+    pico = croqui.picos.add(nome="Pico Teste")
+    sg = pico.setores_ou_grupos.add()
+    setor = sg.setor.conteudo
+    setor.nome = "Setor A"
+    mapa = setor.mapas.add(caminho_imagem_mapa="imagens/mapa.webp")
+
+    model = CroquiModel(croqui)
+    model.definir_caminho_db(tmp_path)
+    undo_stack = QUndoStack()
+    mapas_ctrl = MapasController(model, undo_stack)
+
+    widget = WidgetEditorMapas(croqui_model=model, mapas_controller=mapas_ctrl)
+    qtbot.addWidget(widget)
+
+    # 1. Sem mapa carregado (None) -> False
+    assert widget.msg_mapa_proxy is None
+    assert widget._mapa_ativo_valido() is False
+
+    # 2. Com mapa pertencente à árvore -> True
+    proxy_mapa = model.obter_croqui_readonly().picos[0].setores_ou_grupos[0].setor.conteudo.mapas[0]
+    widget.msg_mapa_proxy = proxy_mapa
+    assert widget._mapa_ativo_valido() is True
+
+    # 3. Com mapa órfão/desconectado -> False
+    mapa_orfa = croqui_pb2.Mapa(caminho_imagem_mapa="imagens/orfa.webp")
+    widget.msg_mapa_proxy = mapa_orfa
+    assert widget._mapa_ativo_valido() is False
+
+
+def test_operacoes_de_mutacao_abortam_quando_mapa_invalido(qtbot, tmp_path, mocker):
+    from aresta_api.proto.generated import croqui_pb2
+    from editor.models.croqui_model import CroquiModel
+    from editor.controllers.mapas_controller import MapasController
+    from PySide6.QtGui import QUndoStack
+    from editor.views.widget_editor_mapas import WidgetEditorMapas
+    from unittest.mock import MagicMock
+
+    croqui = croqui_pb2.Croqui()
+    pico = croqui.picos.add(nome="Pico Teste")
+    sg = pico.setores_ou_grupos.add()
+    setor = sg.setor.conteudo
+    setor.mapas.add(caminho_imagem_mapa="imagens/mapa.webp")
+
+    model = CroquiModel(croqui)
+    model.definir_caminho_db(tmp_path)
+    undo_stack = QUndoStack()
+    mapas_ctrl = MapasController(model, undo_stack)
+    mocker.spy(mapas_ctrl, "adicionar_poi")
+    mocker.spy(mapas_ctrl, "deletar_poi")
+    mocker.spy(mapas_ctrl, "adicionar_linha")
+    mocker.spy(mapas_ctrl, "converter_boxes_para_circulos")
+    mocker.spy(mapas_ctrl, "converter_circulos_para_boxes")
+    mocker.spy(mapas_ctrl, "alterar_referencia")
+
+    widget = WidgetEditorMapas(croqui_model=model, mapas_controller=mapas_ctrl)
+    qtbot.addWidget(widget)
+
+    # Configura mapa órfão
+    mapa_orfa = croqui_pb2.Mapa(caminho_imagem_mapa="imagens/orfa.webp")
+    widget.msg_mapa_proxy = mapa_orfa
+    widget.dados_atuais = {'cena': MagicMock(), 'itens_bb': []}
+
+    # Tentativa de adicionar POI
+    mock_dialogo = mocker.patch("editor.views.widget_editor_mapas.DialogoEdicaoPOI")
+    widget.adicionar_poi("circulo")
+    mock_dialogo.assert_not_called()
+    assert mapas_ctrl.adicionar_poi.call_count == 0
+
+    # Tentativa de desenhar linha
+    widget.pontos_desenho_linha = [MagicMock(), MagicMock()]
+    widget.finalizar_modo_desenho_linha()
+    assert mapas_ctrl.adicionar_linha.call_count == 0
+
+    # Tentativa de desenhar polígono
+    widget.pontos_desenho = [MagicMock(), MagicMock(), MagicMock()]
+    widget.finalizar_modo_desenho()
+    assert mapas_ctrl.adicionar_poi.call_count == 0
+
+    # Tentativa de deletar / converter itens
+    fake_item = MagicMock()
+    widget.itens_poi = {0: fake_item}
+    widget.deletar_item_poi(fake_item)
+    assert mapas_ctrl.deletar_poi.call_count == 0
+
+    widget.converter_item_para_circulo(fake_item)
+    assert mapas_ctrl.converter_boxes_para_circulos.call_count == 0
+
+    widget.converter_item_para_retangulo(fake_item)
+    assert mapas_ctrl.converter_circulos_para_boxes.call_count == 0
+
+    # Tentativa de linkagem e câmera
+    ref = croqui_pb2.Mapa.Referencia()
+    widget.iniciar_modo_linkagem(0, ref)
+    assert getattr(widget, "modo_linkagem", False) is False
+
+    resultado_link = widget.tratar_clique_poi_linkagem("poi_1")
+    assert resultado_link is False
+    assert mapas_ctrl.alterar_referencia.call_count == 0
+
+    widget.iniciar_modo_camera(0, ref)
+    assert getattr(widget, "modo_camera", False) is False
+
+    widget.salvar_ajuste_camera()
+    assert mapas_ctrl.alterar_referencia.call_count == 0
+
+    widget.remover_ajuste_camera(0)
+    assert mapas_ctrl.alterar_referencia.call_count == 0
+
+
+def test_conectar_model_repeated_troca_de_modelo(qtbot):
+    from editor.views.widget_editor_mapas import WidgetEditorMapas
+    from unittest.mock import MagicMock
+
+    widget = WidgetEditorMapas()
+    qtbot.addWidget(widget)
+
+    mock_model_1 = MagicMock()
+    mock_model_2 = MagicMock()
+
+    # Primeira conexão
+    widget._conectar_model_repeated(mock_model_1)
+    assert widget._model_repeated_conectado is mock_model_1
+    mock_model_1.repeated_adicionado.connect.assert_called_once()
+
+    # Segunda conexão com mesmo modelo (não deve reconectar)
+    widget._conectar_model_repeated(mock_model_1)
+
+    # Terceira conexão com modelo diferente (deve desconectar o 1 e conectar o 2)
+    widget._conectar_model_repeated(mock_model_2)
+    assert widget._model_repeated_conectado is mock_model_2
+    mock_model_1.repeated_adicionado.disconnect.assert_called_once()
+    mock_model_2.repeated_adicionado.connect.assert_called_once()
+
+
+def test_mapa_ativo_valido_casos_excepcionais(qtbot):
+    from editor.views.widget_editor_mapas import WidgetEditorMapas
+    from unittest.mock import MagicMock
+    from aresta_api.proto.generated import croqui_pb2
+
+    widget = WidgetEditorMapas()
+    qtbot.addWidget(widget)
+
+    # 1. Model sem obter_croqui_readonly
+    widget.croqui_model = object()
+    assert widget._mapa_ativo_valido() is True
+
+    # 2. Model cujo obter_croqui_readonly levanta exceção
+    class ModelQuebrado:
+        def obter_croqui_readonly(self):
+            raise RuntimeError("Falha de I/O")
+
+    widget.croqui_model = ModelQuebrado()
+    assert widget._mapa_ativo_valido() is True
+
+    # 3. croqui_root com atributos de mock (ex: MagicMock(spec=Croqui))
+    mock_croqui_msg = MagicMock(spec=croqui_pb2.Croqui)
+    class ModelComMockMessage:
+        def obter_croqui_readonly(self):
+            return mock_croqui_msg
+
+    widget.croqui_model = ModelComMockMessage()
+    assert widget._mapa_ativo_valido() is True
+
+    # 4. Descarregar mapa limpa dados atuais e painel
+    cena_mock = MagicMock()
+    widget.dados_atuais = {'cena': cena_mock, 'itens_bb': [1, 2]}
+    widget.itens_poi = {0: MagicMock()}
+    widget.msg_mapa_proxy = croqui_pb2.Mapa()
+    widget.descarregar_mapa()
+    assert widget.msg_mapa_proxy is None
+    assert len(widget.itens_poi) == 0
+    cena_mock.clear.assert_called_once()
+
+
+
+
