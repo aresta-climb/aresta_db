@@ -34,6 +34,8 @@ picos:
       caminho: setor_trad.md
   - grupo:
       caminho: grupo_boulders.md
+  - setor:
+      caminho: setor_fugitivos_i.md
   mapas_gerais:
     caminho: mapas_gerais.md
   localizacao:

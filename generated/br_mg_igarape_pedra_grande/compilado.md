@@ -4458,6 +4458,252 @@
   - **total_boulders**: 7
 
 
+## Parte: setor_fugitivos_i (não listada em partes.json)
+
+### Setor (Pico: Complexo Pedra Grande)
+
+- **descricao**: 
+- **nome**: Setor Fugitivos I
+- **escaladas**:
+  - **[0]**:
+    - **boulder**:
+      - **nome**: Polydance
+      - **dificuldade**: V4
+  - **[1]**:
+    - **boulder**:
+      - **nome**: Bigdance
+      - **dificuldade**: V5_BARRA_V6
+  - **[2]**:
+    - **boulder**:
+      - **nome**: Boulder do Bola
+      - **dificuldade**: V5
+  - **[3]**:
+    - **boulder**:
+      - **nome**: Trolls
+      - **dificuldade**: V1
+  - **[4]**:
+    - **boulder**:
+      - **nome**: Calcinha Larga
+      - **dificuldade**: V2_BARRA_V3
+  - **[5]**:
+    - **boulder**:
+      - **nome**: Tanga Frouxa
+      - **dificuldade**: V2
+- **mapas**:
+  - **[0]**:
+    - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_fugitivos_i_p0.webp)
+    - **largura_mapa**: 1847
+    - **altura_mapa**: 1577
+    - **pontos_de_interesse**:
+      - **[0]**:
+        - **id**: 1
+        - **label**: 1
+        - **linha**:
+          - **estilo**: TRACEJADO
+          - **espessura**: 3
+          - **compilado**:
+            - **caminho_svg**: M 674 1175 C 666.3 1066.3, 651.5 955.2, 651 849 C 650.5 747.7, 663.3 647.2, 669 552 C 674.3 463.8, 679.0 382.0, 684 297
+            - **caixa_delimitadora**:
+              - **x**: 668
+              - **y**: 736
+              - **comprimento**: 33
+              - **largura**: 878
+            - **marcadores**:
+              - **[0]**:
+                - **tipo**: CIRCULO_IDENTIFICADOR
+                - **x**: 674
+                - **y**: 1175
+                - **angulo_graus_x100**: -9404
+                - **rotulo**: 1
+        - **cor**: #FF6D00
+      - **[1]**:
+        - **id**: 2
+        - **label**: 2
+        - **linha**:
+          - **estilo**: TRACEJADO
+          - **espessura**: 3
+          - **compilado**:
+            - **caminho_svg**: M 1022 1121 C 1052.0 1054.0, 1082.0 987.0, 1112 920
+            - **caixa_delimitadora**:
+              - **x**: 1067
+              - **y**: 1020
+              - **comprimento**: 90
+              - **largura**: 201
+            - **marcadores**:
+              - **[0]**:
+                - **tipo**: CIRCULO_IDENTIFICADOR
+                - **x**: 1022
+                - **y**: 1121
+                - **angulo_graus_x100**: -6588
+                - **rotulo**: 2
+        - **cor**: #FF6D00
+      - **[2]**:
+        - **id**: 3
+        - **label**: 3
+        - **linha**:
+          - **estilo**: TRACEJADO
+          - **espessura**: 3
+          - **compilado**:
+            - **caminho_svg**: M 1049 1125 C 1116.0 1045.7, 1196.8 969.5, 1250 887 C 1298.4 811.9, 1330.6 733.2, 1361 654 C 1390.7 576.5, 1407.7 496.0, 1431 417
+            - **caixa_delimitadora**:
+              - **x**: 1240
+              - **y**: 771
+              - **comprimento**: 382
+              - **largura**: 708
+            - **marcadores**:
+              - **[0]**:
+                - **tipo**: CIRCULO_IDENTIFICADOR
+                - **x**: 1049
+                - **y**: 1125
+                - **angulo_graus_x100**: -4982
+                - **rotulo**: 3
+        - **cor**: #FF6D00
+      - **[3]**:
+        - **id**: 4
+        - **label**: 4
+        - **linha**:
+          - **estilo**: TRACEJADO
+          - **espessura**: 3
+          - **compilado**:
+            - **caminho_svg**: M 1293 943 C 1323.7 881.3, 1359.7 826.8, 1385 758 C 1414.1 678.8, 1429.0 580.7, 1451 492
+            - **caixa_delimitadora**:
+              - **x**: 1372
+              - **y**: 718
+              - **comprimento**: 158
+              - **largura**: 451
+            - **marcadores**:
+              - **[0]**:
+                - **tipo**: CIRCULO_IDENTIFICADOR
+                - **x**: 1293
+                - **y**: 943
+                - **angulo_graus_x100**: -6356
+                - **rotulo**: 4
+        - **cor**: #FF6D00
+      - **[4]**:
+        - **id**: 5
+        - **label**: 5
+        - **linha**:
+          - **estilo**: TRACEJADO
+          - **espessura**: 3
+          - **compilado**:
+            - **caminho_svg**: M 1416 872 C 1384.3 883.3, 1353.4 890.8, 1321 906 C 1283.7 923.5, 1244.3 951.3, 1206 974
+            - **caixa_delimitadora**:
+              - **x**: 1311
+              - **y**: 923
+              - **comprimento**: 210
+              - **largura**: 102
+            - **marcadores**:
+              - **[0]**:
+                - **tipo**: CIRCULO_IDENTIFICADOR
+                - **x**: 1416
+                - **y**: 872
+                - **angulo_graus_x100**: 16031
+                - **rotulo**: 5
+        - **cor**: #FF6D00
+      - **[5]**:
+        - **id**: X
+        - **label**: X
+        - **linha**:
+          - **estilo**: TRACEJADO
+          - **espessura**: 3
+          - **compilado**:
+            - **caminho_svg**: M 1205 973 C 1139.7 1012.0, 1085.3 1062.9, 1009 1090 C 918.7 1122.1, 789.4 1121.6, 692 1136 C 608.6 1148.3, 501.1 1208.7, 460 1171 C 405.9 1121.3, 484.2 899.6, 486 765 C 487.7 632.0, 476.0 500.3, 471 368
+            - **caixa_delimitadora**:
+              - **x**: 832
+              - **y**: 770
+              - **comprimento**: 745
+              - **largura**: 803
+            - **marcadores**:
+              - **[0]**:
+                - **tipo**: CIRCULO_IDENTIFICADOR
+                - **x**: 471
+                - **y**: 368
+                - **angulo_graus_x100**: -9216
+                - **rotulo**: X
+        - **cor**: #FF6D00
+      - **[6]**:
+        - **id**: a
+        - **label**: a
+        - **linha**:
+          - **estilo**: TRACEJADO
+          - **espessura**: 3
+          - **compilado**:
+            - **caminho_svg**: M 1206 974 C 1187.3 967.7, 1166.0 964.5, 1150 955 C 1135.0 946.1, 1124.7 931.7, 1112 920
+            - **caixa_delimitadora**:
+              - **x**: 1159
+              - **y**: 947
+              - **comprimento**: 94
+              - **largura**: 54
+            - **marcadores**:
+              - **[0]**:
+                - **tipo**: CIRCULO_IDENTIFICADOR
+                - **x**: 1150
+                - **y**: 955
+                - **angulo_graus_x100**: -15012
+                - **rotulo**: a
+        - **cor**: #FF6D00
+      - **[7]**:
+        - **id**: y
+        - **label**: y
+        - **linha**:
+          - **estilo**: TRACEJADO
+          - **espessura**: 3
+          - **compilado**:
+            - **caminho_svg**: M 1112 920 C 1140.0 859.3, 1201.8 810.2, 1196 738 C 1186.5 619.1, 994.0 437.3, 893 287
+            - **caixa_delimitadora**:
+              - **x**: 1044
+              - **y**: 604
+              - **comprimento**: 303
+              - **largura**: 633
+            - **marcadores**:
+              - **[0]**:
+                - **tipo**: CIRCULO_IDENTIFICADOR
+                - **x**: 893
+                - **y**: 287
+                - **angulo_graus_x100**: -12389
+                - **rotulo**: y
+        - **cor**: #FF6D00
+    - **referencias**:
+      - **[0]**:
+        - **ids**:
+          - 5
+          - 5a
+          - y
+          - a
+        - **setor**: Setor Fugitivos I
+        - **escalada**: Polydance
+      - **[1]**:
+        - **ids**:
+          - 5
+          - X
+        - **setor**: Setor Fugitivos I
+        - **escalada**: Bigdance
+      - **[2]**:
+        - **ids**:
+          - 3
+        - **setor**: Setor Fugitivos I
+        - **escalada**: Boulder do Bola
+      - **[3]**:
+        - **ids**:
+          - 4
+        - **setor**: Setor Fugitivos I
+        - **escalada**: Trolls
+      - **[4]**:
+        - **ids**:
+          - y
+          - 2
+        - **setor**: Setor Fugitivos I
+        - **escalada**: Calcinha Larga
+      - **[5]**:
+        - **ids**:
+          - 1
+        - **setor**: Setor Fugitivos I
+        - **escalada**: Tanga Frouxa
+- **precomputados**:
+  - **total_escaladas**: 6
+  - **total_boulders**: 6
+
+
 ## Arquivos Externos
 
 - **arquivos_externos**:
@@ -4507,51 +4753,54 @@
     - **caminho**: ![caminho](imagens/setor_familia_ii_p1.webp)
     - **checksum_sha256**: 4f3e4bedfed21fafc2284c19063d969b3aae82cd32409bd7bf62d4c941c32765
   - **[15]**:
+    - **caminho**: ![caminho](imagens/setor_fugitivos_i_p0.webp)
+    - **checksum_sha256**: 95239b7b899a1e56c8d919fcbfa733d0e9ae4f9b028a23eeb2a950c5dbabdf25
+  - **[16]**:
     - **caminho**: ![caminho](imagens/setor_igarameca_p0.webp)
     - **checksum_sha256**: e79e4daa827532abd0ff0a16e096f1df0eea148c8589dc7686fa268ba1c84102
-  - **[16]**:
+  - **[17]**:
     - **caminho**: ![caminho](imagens/setor_igarameca_p1.webp)
     - **checksum_sha256**: b2ab0e0a16eb19fe5d54f6a899456ac5ff07671862249a012699dc3631c64662
-  - **[17]**:
+  - **[18]**:
     - **caminho**: ![caminho](imagens/setor_igarameca_p2.webp)
     - **checksum_sha256**: 3a6b8f636bd121e5fa888a5dc855ddb627cea151389890532ba4f50053c78f30
-  - **[18]**:
+  - **[19]**:
     - **caminho**: ![caminho](imagens/setor_micos_p0.webp)
     - **checksum_sha256**: acb374ec8c0ecf85d537c86dd1328bbb91e4fd41576659d596457a818254cd2d
-  - **[19]**:
+  - **[20]**:
     - **caminho**: ![caminho](imagens/setor_micos_p1.webp)
     - **checksum_sha256**: e59d63c298cd1049ee8636ce3e3b78b993f5b2358f4e3fc57a10508e739e8536
-  - **[20]**:
+  - **[21]**:
     - **caminho**: ![caminho](imagens/setor_micos_p2.webp)
     - **checksum_sha256**: 27321d933aca314b50a98e486f662138fd61b049dcb90248b6bb2d162c7b944c
-  - **[21]**:
+  - **[22]**:
     - **caminho**: ![caminho](imagens/setor_nectar_p0.webp)
     - **checksum_sha256**: 7d03d9d98304c9cbdb5552f04633f0bfc830e0847069c46cae353ace2affe9f0
-  - **[22]**:
+  - **[23]**:
     - **caminho**: ![caminho](imagens/setor_pracinha_p0.webp)
     - **checksum_sha256**: ec34526d21a825cbefa2049a1fe82cc4a1d77a4dd1072d39804852cf5c38daf3
-  - **[23]**:
+  - **[24]**:
     - **caminho**: ![caminho](imagens/setor_pracinha_p1.webp)
     - **checksum_sha256**: 42e142af39766186c13a61691e384bddc064bcad6e4a07ce0e802cb429fe73ba
-  - **[24]**:
+  - **[25]**:
     - **caminho**: ![caminho](imagens/setor_pracinha_p2.webp)
     - **checksum_sha256**: 9afa2f619eda4053a096d19b64aa9262e8b85f9f9b05815ad2379e66ccc227e1
-  - **[25]**:
+  - **[26]**:
     - **caminho**: ![caminho](imagens/setor_pracinha_p3.webp)
     - **checksum_sha256**: d60317f3226a9af417557bf7f1d73d46aa152cfbded8a2d8e2a876834398ed64
-  - **[26]**:
+  - **[27]**:
     - **caminho**: ![caminho](imagens/setor_tetos_p0.webp)
     - **checksum_sha256**: 88013468ab3f1c12bc710281758d6e1e205443645aba8dff2828a8b52ee7f2e6
-  - **[27]**:
+  - **[28]**:
     - **caminho**: ![caminho](imagens/setor_tetos_p1.webp)
     - **checksum_sha256**: 4d12e846ce75ebfd1587a51a5661715826e1c800dcfdc1cf99124fa710576d2d
-  - **[28]**:
+  - **[29]**:
     - **caminho**: ![caminho](imagens/setor_totem_p0.webp)
     - **checksum_sha256**: eb605d166d35d36c3b23981ec6144eba7f3375955bed6b1954eff3d1ea441044
-  - **[29]**:
+  - **[30]**:
     - **caminho**: ![caminho](imagens/setor_totem_p1.webp)
     - **checksum_sha256**: 028f8cb259043ddcfd39cf2fb64041b88c41cd3538b6604d384ab2f08514edbf
-  - **[30]**:
+  - **[31]**:
     - **caminho**: ![caminho](imagens/setor_trad_p0.webp)
     - **checksum_sha256**: fa73e3e2fa27a74255e21b0c499f6e72bc47a99626b5bd780473d967c257eaad
 
