@@ -104,11 +104,8 @@ croquis:
     longitude: -456009710
 - id: br_mg_caete_monte_alvao
   nome: Monte Alvão - Caeté
-  descricao: 'O Alto Monte Alvão, localizado em Caeté, MG, é uma das áreas de escalada
-    mais tradicionais e belas da região, oferecendo vias de diversos estilos e dificuldades
-    em quartzito de alta qualidade.
-
-    '
+  descricao: |
+    O Alto Monte Alvão, localizado em Caeté, MG, é uma das áreas de escalada mais tradicionais e belas da região, oferecendo vias de diversos estilos e dificuldades em quartzito de alta qualidade.
   caminho_relativo: br_mg_caete_monte_alvao/compilado.binarypb
   checksum_sha256_croqui: 574b66eb17125a6cd4f003dfdac8bf80abc4d9dc007c6c272d4a5d0ad5f6473f
   checksum_sha256_thumbnail: 03f79ad397717faec98f8288a15d55635b103c61f9b2be5cf92a56b1d804df95
@@ -196,17 +193,17 @@ croquis:
   descricao: Este croqui documenta e divulga a prática da escalada no Complexo da
     Pedra Grande em Igarapé/MG, reunindo informações sobre diversos setores e vias.
   caminho_relativo: br_mg_igarape_pedra_grande/compilado.binarypb
-  checksum_sha256_croqui: 29db6993b34a5c9fe38b74e10f0ed9389efa34f5140addc94fbd502139f7c8ad
+  checksum_sha256_croqui: 73df94ae70f58e84f9e78ffec489d5eb7b1ac97f9704ae91ff5617ec9df4e5ac
   checksum_sha256_thumbnail: d490580138c1b7f24c772f2d6672e895406739da51bd1880ecabb49cd28b7409
-  timestamp_update: '2026-09-11T21:55:28Z'
+  timestamp_update: '2026-09-14T00:12:10Z'
   precomputados:
-    total_escaladas: 147
-    total_setores: 12
+    total_escaladas: 153
+    total_setores: 13
     total_grupos: 1
     total_esportivas: 95
-    total_boulders: 7
+    total_boulders: 13
     total_multiplas_enfiadas: 3
-    tamanho_download_bytes: 14854951
+    tamanho_download_bytes: 16043877
   localizacao:
     latitude: -201176660
     longitude: -443593480
@@ -324,13 +321,9 @@ croquis:
     longitude: -435035650
 - id: br_mg_paraisopolis_pedra_da_divisa
   nome: Pedra da Divisa - Face MG
-  descricao: 'Guia de escalada da face mineira da Pedra da Divisa, em Paraisópolis,
-    MG.
-
-    Contém vias esportivas e móveis em diversos setores como Cangaço, Ditados, Cervejas,
-    Questão de Tempo e Hospício.
-
-    '
+  descricao: |
+    Guia de escalada da face mineira da Pedra da Divisa, em Paraisópolis, MG.
+    Contém vias esportivas e móveis em diversos setores como Cangaço, Ditados, Cervejas, Questão de Tempo e Hospício.
   caminho_relativo: br_mg_paraisopolis_pedra_da_divisa/compilado.binarypb
   checksum_sha256_croqui: 8686c8a698035cd2b3a33425715fc719601ba3b5c105b7f66e001aba280e2495
   checksum_sha256_thumbnail: be6561976a3ef2c0f957fc3c72cdb7f0572b912d2d1e74ed1aa23fa1a8d0ebbd
