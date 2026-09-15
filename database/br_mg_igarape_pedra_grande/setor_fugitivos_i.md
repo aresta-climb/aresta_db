@@ -28,7 +28,7 @@ escaladas:
     nome: Primeiro de todos
     dificuldade: V1
 - boulder:
-    nome: Sem nome (1)
+    nome: Sem nome 18
     dificuldade: V0
 - boulder:
     nome: Bananinha
@@ -73,8 +73,8 @@ mapas:
           y: 1116
           tipo: CIRCULO_IDENTIFICADOR
           rotulo: '3'
-        - x: 1107
-          y: 933
+        - x: 1116
+          y: 912
           tipo: PASSAGEM
           rotulo: D
       espessura: 3
@@ -109,6 +109,9 @@ mapas:
           rotulo: '5'
         - x: 1321
           y: 906
+          tipo: PASSAGEM
+        - x: 1247
+          y: 964
           tipo: PASSAGEM
         - x: 1206
           y: 974
@@ -148,12 +151,16 @@ mapas:
         - x: 1205
           y: 974
           tipo: PASSAGEM
-        - x: 1153
-          y: 957
+        - x: 1152
+          y: 958
           tipo: CIRCULO_IDENTIFICADOR
           rotulo: ▲
-        - x: 1107
-          y: 933
+          raio: 14
+        - x: 1121
+          y: 942
+          tipo: PASSAGEM
+        - x: 1116
+          y: 912
           tipo: PASSAGEM
           rotulo: A
       espessura: 3
@@ -164,8 +171,8 @@ mapas:
       estilo: TRACEJADO
       conteudo:
         nos:
-        - x: 1107
-          y: 933
+        - x: 1116
+          y: 912
           tipo: PASSAGEM
         - x: 1196
           y: 738
@@ -563,6 +570,7 @@ mapas:
           y: 179
           tipo: FIM_TOP
           rotulo: C
+          raio: 14
       espessura: 3
     cor: '#FFD600'
   referencias:
@@ -571,7 +579,8 @@ mapas:
     escalada: Primeiro de todos
   - ids:
     - linha_4
-    escalada: Sem nome (1)
+    escalada: Sem nome 18
+    setor: Setor Fugitivos I
   - ids:
     - linha_8
     - linha_19

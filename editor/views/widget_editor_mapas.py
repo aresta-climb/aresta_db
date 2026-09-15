@@ -1245,7 +1245,7 @@ class AlcaNoTrajeto(QGraphicsEllipseItem):
 
             cena = self.scene()
             if cena and not getattr(cena, "_sincronizando_alcas", False):
-                cena._sincronizando_alcas = True
+                setattr(cena, "_sincronizando_alcas", True)
                 try:
                     for item in cena.items():
                         if isinstance(item, AlcaNoTrajeto) and item != self:
@@ -1256,7 +1256,7 @@ class AlcaNoTrajeto(QGraphicsEllipseItem):
                                 if hasattr(item, "item_pai") and item.item_pai:
                                     item.item_pai.recalcular_spline()
                 finally:
-                    cena._sincronizando_alcas = False
+                    setattr(cena, "_sincronizando_alcas", False)
 
             return novo_valor
         return super().itemChange(mudanca, valor)
@@ -2629,7 +2629,7 @@ class WidgetEditorMapas(QWidget):
             self,
             "Substituir Imagem do Mapa",
             "",
-            "Imagens (*.png *.jpg *.jpeg *.webp *.bmp *.tiff *.tif)",
+            "Imagens (*.png *.jpg *.jpeg *.webp *.bmp *.tiff *.tif *.heic *.heif)",
         )
         if not arquivo:
             return
@@ -2890,12 +2890,15 @@ class WidgetEditorMapas(QWidget):
         s_idx = self.s_idx if (self.s_idx is not None and self.s_idx >= 0) else -1
         tipo = 'setor'
         if self.dados_atuais:
-            if self.dados_atuais.get('pico_idx') is not None and self.dados_atuais.get('pico_idx') >= 0:
-                p_idx = self.dados_atuais['pico_idx']
-            if self.dados_atuais.get('sg_idx') is not None and self.dados_atuais.get('sg_idx') >= 0:
-                sg_idx = self.dados_atuais['sg_idx']
-            if self.dados_atuais.get('s_idx') is not None and self.dados_atuais.get('s_idx') >= 0:
-                s_idx = self.dados_atuais['s_idx']
+            p_cand = self.dados_atuais.get('pico_idx')
+            if p_cand is not None and p_cand >= 0:
+                p_idx = p_cand
+            sg_cand = self.dados_atuais.get('sg_idx')
+            if sg_cand is not None and sg_cand >= 0:
+                sg_idx = sg_cand
+            s_cand = self.dados_atuais.get('s_idx')
+            if s_cand is not None and s_cand >= 0:
+                s_idx = s_cand
             tipo = self.dados_atuais.get('tipo', tipo)
 
         try:
@@ -3406,7 +3409,6 @@ class WidgetEditorMapas(QWidget):
                 from PySide6.QtCore import Qt
                 if isinstance(gui_item, ItemTrajetoLinha):
                     gui_item.setBrush(QBrush(Qt.GlobalColor.transparent))
-                    gui_item.brush = QBrush(Qt.GlobalColor.transparent)
                     gui_item.setPen(gui_item.criar_pen_padrao(cor_override=QColor(0, 255, 255), extra_espessura=2))
                 else:
                     gui_item.brush = QBrush(QColor(0, 255, 255, 150))
@@ -3456,18 +3458,17 @@ class WidgetEditorMapas(QWidget):
             from PySide6.QtCore import Qt
             if isinstance(gui_item, ItemTrajetoLinha):
                 gui_item.setBrush(QBrush(Qt.GlobalColor.transparent))
-                gui_item.brush = QBrush(Qt.GlobalColor.transparent)
                 if getattr(gui_item, 'is_hovered', False):
                     gui_item.setPen(gui_item.criar_pen_padrao(cor_override=QColor(255, 140, 0), extra_espessura=2))
                 else:
                     gui_item.setPen(gui_item.criar_pen_padrao())
             else:
                 if getattr(gui_item, 'is_hovered', False):
-                    gui_item.brush = QBrush(QColor(255, 165, 0, 100)) # Laranja hover
+                    gui_item.brush = QBrush(QColor(255, 165, 0, 100))  # Laranja hover
                     gui_item.setBrush(gui_item.brush)
                     gui_item.setPen(QPen(QColor(255, 140, 0), 2))
                 else:
-                    gui_item.brush = QBrush(QColor(0, 255, 0, 50)) # Verde padrao
+                    gui_item.brush = QBrush(QColor(0, 255, 0, 50))  # Verde padrao
                     gui_item.setBrush(gui_item.brush)
                     gui_item.setPen(QPen(QColor(0, 255, 0), 2))
             

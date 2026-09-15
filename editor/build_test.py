@@ -132,8 +132,9 @@ def test_executar_build_executa_pyinstaller_com_spec():
                 mock_image_open.return_value = mock_img
                 executar_build(force_icon_generation=True)
 
-            assert mock_img.resize.call_count == 6
-            assert mock_img.save.call_count == 1
+            # 6 tamanhos redimensionados para editor/logo.ico e 6 para editor/recursos/logo.ico
+            assert mock_img.resize.call_count == 12
+            assert mock_img.save.call_count == 2
 
             argumentos_passados = mock_run.call_args[0][0]
             assert str(ARQUIVO_SPEC) in argumentos_passados
@@ -210,3 +211,36 @@ def test_validacao_limite_tamanho_executavel_se_existir():
         assert tamanho_mb <= LIMITE_MAXIMO_TAMANHO_EXECUTAVEL_MB, (
             f"Executável EditorAresta.exe excedeu o limite máximo: {tamanho_mb:.2f}MB > {LIMITE_MAXIMO_TAMANHO_EXECUTAVEL_MB}MB"
         )
+
+
+def test_obter_caminho_icone_alvo_producao():
+    """Garante que a resolução de ícone no canal de produção aponte para recursos padrão."""
+    from editor.build import obter_caminho_icone_alvo
+
+    ico, png = obter_caminho_icone_alvo(eh_beta=False)
+    assert ico == DIRETORIO_EDITOR / "logo.ico"
+    assert png == DIRETORIO_EDITOR / "recursos" / "logo_app.png"
+
+
+def test_obter_caminho_icone_alvo_beta():
+    """Garante que a resolução de ícone no canal Beta aponte para recursos_beta."""
+    from editor.build import obter_caminho_icone_alvo
+
+    ico, png = obter_caminho_icone_alvo(eh_beta=True)
+    assert ico == DIRETORIO_EDITOR / "recursos_beta" / "logo.ico"
+    assert png == DIRETORIO_EDITOR / "recursos_beta" / "logo_app.png"
+
+
+def test_executar_build_canal_beta():
+    """Valida se executar_build em canal beta aciona o caminho correto de ícone beta."""
+    with patch.dict(os.environ, {"ARESTA_CANAL": "beta"}):
+        with patch("PyInstaller.__main__.run"):
+            with patch("editor.build.gerar_arquivo_icone") as mock_gerar_ico:
+                with patch("pathlib.Path.exists", return_value=True):
+                    executar_build()
+                    mock_gerar_ico.assert_called_once_with(
+                        DIRETORIO_EDITOR / "recursos_beta" / "logo.ico",
+                        caminho_png=DIRETORIO_EDITOR / "recursos_beta" / "logo_app.png",
+                        force_generation=False,
+                    )
+

@@ -92,12 +92,29 @@ class ConfiguracaoCanal:
         candidatos_padrao = [
             base / "recursos" / nome_recurso,
             base / "editor" / "recursos" / nome_recurso,
+            base / nome_recurso,
+            base / "editor" / nome_recurso,
         ]
         for cand in candidatos_padrao:
             if cand.exists():
                 return cand
 
         return candidatos_canal[0]
+
+    def obter_caminho_icone_aplicacao(self) -> Path:
+        """
+        Retorna o caminho do ícone da aplicação mais apropriado para o sistema operacional.
+        No Windows, prioriza o arquivo multi-resolução (.ico), realizando fallback
+        transparente para .png caso o arquivo de ícone nativo não esteja presente.
+        Em outras plataformas, retorna o arquivo .png padrão.
+        """
+        import sys
+        if sys.platform == "win32":
+            caminho_ico = self.obter_caminho_recurso("logo.ico")
+            if caminho_ico.exists():
+                return caminho_ico
+        return self.obter_caminho_recurso("logo_app.png")
+
 
 
 def obter_configuracao_canal(

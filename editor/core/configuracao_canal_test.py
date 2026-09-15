@@ -152,3 +152,58 @@ def test_obter_diretorio_base_recursos(tmp_path: Path) -> None:
     assert obter_diretorio_base_recursos(caminho_customizado) == caminho_customizado
 
 
+def test_obter_caminho_icone_aplicacao_windows(tmp_path: Path) -> None:
+    """Valida a resolução do ícone nativo .ico no Windows com fallback para .png."""
+    dir_editor = tmp_path / "editor"
+    dir_recursos_padrao = dir_editor / "recursos"
+    dir_recursos_beta = dir_editor / "recursos_beta"
+
+    dir_recursos_padrao.mkdir(parents=True)
+    dir_recursos_beta.mkdir(parents=True)
+
+    png_padrao = dir_recursos_padrao / "logo_app.png"
+    png_padrao.write_bytes(b"png_padrao")
+
+    png_beta = dir_recursos_beta / "logo_app.png"
+    png_beta.write_bytes(b"png_beta")
+
+    ico_padrao = dir_recursos_padrao / "logo.ico"
+    ico_padrao.write_bytes(b"ico_padrao")
+
+    ico_beta = dir_recursos_beta / "logo.ico"
+    ico_beta.write_bytes(b"ico_beta")
+
+    import sys
+    with patch.object(sys, "platform", "win32"):
+        # Canal Produção: encontra logo.ico em recursos
+        config_prod = ConfiguracaoCanal(CANAL_PRODUCAO, diretorio_base=dir_editor)
+        assert config_prod.obter_caminho_icone_aplicacao() == ico_padrao
+
+        # Canal Beta: encontra logo.ico em recursos_beta
+        config_beta = ConfiguracaoCanal(CANAL_BETA, diretorio_base=dir_editor)
+        assert config_beta.obter_caminho_icone_aplicacao() == ico_beta
+
+        # Se o .ico for removido, realiza fallback transparente para logo_app.png
+        ico_padrao.unlink()
+        assert config_prod.obter_caminho_icone_aplicacao() == png_padrao
+
+
+def test_obter_caminho_icone_aplicacao_nao_windows(tmp_path: Path) -> None:
+    """Garante que em plataformas não-Windows priorize o arquivo de imagem logo_app.png."""
+    dir_editor = tmp_path / "editor"
+    dir_recursos_padrao = dir_editor / "recursos"
+    dir_recursos_padrao.mkdir(parents=True)
+
+    png_padrao = dir_recursos_padrao / "logo_app.png"
+    png_padrao.write_bytes(b"png_padrao")
+
+    ico_padrao = dir_recursos_padrao / "logo.ico"
+    ico_padrao.write_bytes(b"ico_padrao")
+
+    import sys
+    with patch.object(sys, "platform", "linux"):
+        config_prod = ConfiguracaoCanal(CANAL_PRODUCAO, diretorio_base=dir_editor)
+        assert config_prod.obter_caminho_icone_aplicacao() == png_padrao
+
+
+

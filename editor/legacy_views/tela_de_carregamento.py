@@ -299,7 +299,7 @@ class TelaDeCarregamento(QDialog):
         self.setMinimumSize(650, 600)
         self.resize(750, 700)
         from PySide6.QtGui import QIcon
-        caminho_logo_app = config_canal.obter_caminho_recurso("logo_app.png")
+        caminho_logo_app = config_canal.obter_caminho_icone_aplicacao()
         self.setWindowIcon(QIcon(str(caminho_logo_app)))
         
         # Habilitar botões de minimizar/maximizar em QDialog

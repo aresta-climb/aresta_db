@@ -168,9 +168,11 @@ def test_main_configura_icone_global_antecipadamente(qtbot):
                     from PySide6.QtWidgets import QApplication
                     with patch("sys.argv", ["editor/main.py"]):
                         with patch.object(QApplication, "setWindowIcon") as mock_set_icon:
-                            with pytest.raises(SystemExit):
-                                main()
-                            mock_set_icon.assert_called()
+                            with patch.object(QApplication, "processEvents") as mock_process_events:
+                                with pytest.raises(SystemExit):
+                                    main()
+                                mock_set_icon.assert_called()
+                                mock_process_events.assert_called()
 
 
 

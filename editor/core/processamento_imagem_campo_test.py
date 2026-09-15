@@ -31,6 +31,16 @@ def imagem_rgba_bytes():
     return buf.getvalue()
 
 
+@pytest.fixture
+def imagem_heic_bytes():
+    import pillow_heif
+    pillow_heif.register_heif_opener()
+    buf = io.BytesIO()
+    img = Image.new("RGB", (250, 150), color=(80, 120, 160))
+    img.save(buf, format="HEIF")
+    return buf.getvalue()
+
+
 class TestSanitizacaoENomes:
     def test_sanitizar_nome_arquivo_imagem(self):
         assert sanitizar_nome_arquivo_imagem("Foto do Setor 01!.jpg") == "foto_do_setor_01.webp"
@@ -204,3 +214,40 @@ class TestMetadadosECompressao:
         with open(caminho, "rb") as f:
             bytes2, w2, h2 = comprimir_imagem_para_bytes_webp(f)
             assert len(bytes2) > 0
+
+    def test_obter_metadados_imagem_heic(self, tmp_path, imagem_heic_bytes):
+        # Metadados a partir de bytes HEIC
+        w, h, size_bytes, str_kb = obter_metadados_imagem(imagem_heic_bytes)
+        assert w == 250
+        assert h == 150
+        assert size_bytes == len(imagem_heic_bytes)
+        assert "B" in str_kb or "KB" in str_kb
+
+        # Metadados a partir de arquivo .heic
+        arquivo_heic = tmp_path / "foto.heic"
+        arquivo_heic.write_bytes(imagem_heic_bytes)
+        w_f, h_f, size_bytes_f, str_kb_f = obter_metadados_imagem(arquivo_heic)
+        assert w_f == 250
+        assert h_f == 150
+        assert size_bytes_f == len(imagem_heic_bytes)
+
+    def test_comprimir_imagem_heic_para_bytes_webp(self, tmp_path, imagem_heic_bytes):
+        # Comprimir a partir de bytes HEIC
+        bytes_webp, w, h = comprimir_imagem_para_bytes_webp(imagem_heic_bytes, quality=90)
+        assert isinstance(bytes_webp, bytes)
+        assert w == 250
+        assert h == 150
+        with Image.open(io.BytesIO(bytes_webp)) as img:
+            assert img.format == "WEBP"
+            assert img.size == (250, 150)
+
+        # Comprimir a partir de arquivo .heic
+        arquivo_heic = tmp_path / "foto.heic"
+        arquivo_heic.write_bytes(imagem_heic_bytes)
+        bytes_webp_f, w_f, h_f = comprimir_imagem_para_bytes_webp(arquivo_heic, quality=90)
+        assert isinstance(bytes_webp_f, bytes)
+        assert w_f == 250
+        assert h_f == 150
+        with Image.open(io.BytesIO(bytes_webp_f)) as img_f:
+            assert img_f.format == "WEBP"
+            assert img_f.size == (250, 150)

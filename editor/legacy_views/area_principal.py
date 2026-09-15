@@ -354,7 +354,8 @@ class JanelaPrincipal(QMainWindow):
         self.espacador_superior.setPixmap(pixmap)
         
         # Define o ícone da janela
-        self.setWindowIcon(QIcon(str(caminho_logo_app)))
+        caminho_icone_janela = config_canal.obter_caminho_icone_aplicacao()
+        self.setWindowIcon(QIcon(str(caminho_icone_janela)))
         
         self.addToolBar(Qt.ToolBarArea.TopToolBarArea, self.toolbar_superior)
         

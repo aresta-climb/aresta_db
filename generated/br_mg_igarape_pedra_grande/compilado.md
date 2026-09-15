@@ -4554,7 +4554,7 @@
       - **dificuldade**: V1
   - **[8]**:
     - **boulder**:
-      - **nome**: Sem nome (1)
+      - **nome**: Sem nome 18
       - **dificuldade**: V0
   - **[9]**:
     - **boulder**:
@@ -4604,18 +4604,18 @@
           - **estilo**: TRACEJADO
           - **espessura**: 3
           - **compilado**:
-            - **caminho_svg**: M 1008 1116 C 1041.0 1055.0, 1074.0 994.0, 1107 933
+            - **caminho_svg**: M 1008 1116 C 1044.0 1048.0, 1080.0 980.0, 1116 912
             - **caixa_delimitadora**:
-              - **x**: 1058
-              - **y**: 1024
-              - **comprimento**: 99
-              - **largura**: 183
+              - **x**: 1062
+              - **y**: 1014
+              - **comprimento**: 108
+              - **largura**: 204
             - **marcadores**:
               - **[0]**:
                 - **tipo**: CIRCULO_IDENTIFICADOR
                 - **x**: 1008
                 - **y**: 1116
-                - **angulo_graus_x100**: -6159
+                - **angulo_graus_x100**: -6210
                 - **rotulo**: 3
         - **cor**: #FFD600
       - **[2]**:
@@ -4646,7 +4646,7 @@
           - **estilo**: TRACEJADO
           - **espessura**: 3
           - **compilado**:
-            - **caminho_svg**: M 1461 842 C 1414.3 863.3, 1364.8 883.1, 1321 906 C 1280.2 927.3, 1244.3 951.3, 1206 974
+            - **caminho_svg**: M 1461 842 C 1414.3 863.3, 1359.2 882.8, 1321 906 C 1291.2 924.2, 1269.1 953.3, 1247 964 C 1232.2 971.2, 1219.7 970.7, 1206 974
             - **caixa_delimitadora**:
               - **x**: 1334
               - **y**: 908
@@ -4682,19 +4682,20 @@
           - **estilo**: TRACEJADO
           - **espessura**: 3
           - **compilado**:
-            - **caminho_svg**: M 1205 974 C 1187.7 968.3, 1169.5 964.0, 1153 957 C 1136.9 950.2, 1122.3 941.0, 1107 933
+            - **caminho_svg**: M 1205 974 C 1187.3 968.7, 1167.1 964.1, 1152 958 C 1140.0 953.2, 1126.9 950.1, 1121 942 C 1115.5 934.4, 1117.7 922.0, 1116 912
             - **caixa_delimitadora**:
-              - **x**: 1156
-              - **y**: 954
-              - **comprimento**: 98
-              - **largura**: 41
+              - **x**: 1160
+              - **y**: 943
+              - **comprimento**: 89
+              - **largura**: 62
             - **marcadores**:
               - **[0]**:
                 - **tipo**: CIRCULO_IDENTIFICADOR
-                - **x**: 1153
-                - **y**: 957
-                - **angulo_graus_x100**: -15730
+                - **x**: 1152
+                - **y**: 958
+                - **angulo_graus_x100**: -15915
                 - **rotulo**: ▲
+                - **raio**: 14
         - **cor**: #FFD600
       - **[6]**:
         - **id**: D
@@ -4703,12 +4704,12 @@
           - **estilo**: TRACEJADO
           - **espessura**: 3
           - **compilado**:
-            - **caminho_svg**: M 1107 933 C 1136.7 868.0, 1201.8 814.8, 1196 738 C 1186.7 615.2, 996.0 432.0, 896 279
+            - **caminho_svg**: M 1116 912 C 1142.7 854.0, 1201.2 808.0, 1196 738 C 1187.2 619.5, 996.0 432.0, 896 279
             - **caixa_delimitadora**:
               - **x**: 1046
-              - **y**: 606
+              - **y**: 596
               - **comprimento**: 300
-              - **largura**: 654
+              - **largura**: 633
             - **marcadores**:
               - **[0]**:
                 - **tipo**: CIRCULO_IDENTIFICADOR
@@ -5115,6 +5116,7 @@
                 - **y**: 179
                 - **angulo_graus_x100**: -11327
                 - **rotulo**: C
+                - **raio**: 14
         - **cor**: #FFD600
     - **referencias**:
       - **[0]**:
@@ -5124,7 +5126,8 @@
       - **[1]**:
         - **ids**:
           - linha_4
-        - **escalada**: Sem nome (1)
+        - **escalada**: Sem nome 18
+        - **setor**: Setor Fugitivos I
       - **[2]**:
         - **ids**:
           - linha_8
@@ -5259,6 +5262,15 @@
 - **precomputados**:
   - **total_escaladas**: 11
   - **total_boulders**: 11
+
+
+## Parte: setor_fugitivos_ii (não listada em partes.json)
+
+### Setor (Pico: Complexo Pedra Grande)
+
+- **descricao**: 
+- **nome**: Setor Fugitivos II
+- **precomputados**:
 
 
 ## Arquivos Externos

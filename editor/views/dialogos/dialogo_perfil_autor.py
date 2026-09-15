@@ -28,7 +28,7 @@ class DialogoPerfilAutor(QDialog):
         from PySide6.QtGui import QIcon
 
         config_canal = obter_configuracao_canal()
-        caminho_logo_janela = config_canal.obter_caminho_recurso("logo_app.png")
+        caminho_logo_janela = config_canal.obter_caminho_icone_aplicacao()
         self.setWindowIcon(QIcon(str(caminho_logo_janela)))
 
         self.setWindowTitle("Identificação do Autor")

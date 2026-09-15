@@ -93,7 +93,7 @@ class TelaDeAbertura(QWidget):
         self.setWindowFlags(Qt.WindowType.FramelessWindowHint)
         self.setAttribute(Qt.WidgetAttribute.WA_TranslucentBackground)
 
-        caminho_logo_janela = self.config_canal.obter_caminho_recurso("logo_app.png")
+        caminho_logo_janela = self.config_canal.obter_caminho_icone_aplicacao()
         self.setWindowIcon(QIcon(str(caminho_logo_janela)))
         self.setFixedSize(450, 650)
         configurar_presenca_barra_de_tarefas(int(self.winId()))

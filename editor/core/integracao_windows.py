@@ -77,3 +77,52 @@ def configurar_presenca_barra_de_tarefas(identificador_janela: int) -> bool:
     except Exception:
         return False
 
+
+def _esta_executando_em_pacote_msix() -> bool:
+    """
+    Verifica se o processo atual está sendo executado dentro de um pacote MSIX com identidade própria.
+    No Windows, pacotes MSIX gerenciam seu próprio AppUserModelID via manifesto (PackageFamilyName!AppId).
+    """
+    if sys.platform != "win32":
+        return False
+
+    try:
+        import ctypes
+        from ctypes import wintypes
+
+        kernel32 = ctypes.windll.kernel32
+        comprimento = wintypes.UINT(0)
+        resultado = kernel32.GetCurrentPackageFamilyName(ctypes.byref(comprimento), None)
+        # Código 0 indica ERROR_SUCCESS, significando que o processo possui identidade de pacote MSIX
+        return bool(resultado == 0)
+    except Exception:
+        return False
+
+
+def configurar_identidade_processo_windows(app_user_model_id: str) -> bool:
+    """
+    Configura explicitamente o AppUserModelID para processos standalone ou em desenvolvimento local.
+    Caso a aplicação esteja rodando dentro de um pacote MSIX, a identidade nativa do pacote é
+    preservada para assegurar a correspondência correta com os ícones e atalhos do Windows Shell.
+
+    Args:
+        app_user_model_id: Identificador único da aplicação no formato 'empresa.produto.versao'.
+
+    Returns:
+        True em caso de sucesso ou se estiver fora do Windows / sob pacote MSIX. False em caso de erro.
+    """
+    if sys.platform != "win32":
+        return True
+
+    try:
+        if _esta_executando_em_pacote_msix():
+            return True
+
+        import ctypes
+
+        resultado_hresult = ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID(app_user_model_id)
+        return bool(resultado_hresult == 0)
+    except Exception:
+        return False
+
+

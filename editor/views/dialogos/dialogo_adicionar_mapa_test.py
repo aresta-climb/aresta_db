@@ -30,6 +30,16 @@ def imagem_bytes_png():
     return buf.getvalue()
 
 
+@pytest.fixture
+def imagem_heic_teste(tmp_path):
+    import pillow_heif
+    pillow_heif.register_heif_opener()
+    img_path = tmp_path / "mapa_foto.heic"
+    img = Image.new("RGB", (320, 240), color=(120, 140, 160))
+    img.save(img_path, format="HEIF")
+    return img_path
+
+
 class TestDialogoAdicionarMapa:
     def test_inicializacao_dialogo(self, qtbot, tmp_path):
         croqui = Croqui()
@@ -285,4 +295,113 @@ class TestDialogoAdicionarMapa:
         # Tentar chamar accept com botão bloqueado
         dialogo.accept()
         assert dialogo.result() != QDialog.DialogCode.Accepted
+
+    def test_selecionar_imagem_heic_via_arquivo(self, qtbot, tmp_path, imagem_heic_teste):
+        croqui = Croqui()
+        model = CroquiModel(croqui)
+        model.definir_caminho_db(tmp_path)
+
+        dialogo = DialogoAdicionarMapa("novo_mapa.webp", db_dir=tmp_path, model=model)
+        qtbot.addWidget(dialogo)
+
+        dialogo.carregar_imagem_arquivo(str(imagem_heic_teste))
+
+        # Deve processar e converter automaticamente para WebP
+        bytes_webp = dialogo.obter_bytes_imagem_processada()
+        assert bytes_webp is not None
+        assert bytes_webp.startswith(b"RIFF")
+        assert b"WEBP" in bytes_webp[:16]
+
+        # Metadados e preview devem estar preenchidos
+        assert "320 x 240" in dialogo.rotulo_metadados.text()
+        assert dialogo.btn_ok.isEnabled() is True
+        assert dialogo.obter_dimensoes_imagem() == (320, 240)
+        assert dialogo.input_nome.text() == "mapa_foto.webp"
+
+    def test_area_drop_drag_and_drop_heic_e_heif(self, qtbot, tmp_path):
+        area = AreaDropImagem()
+        qtbot.addWidget(area)
+
+        caminhos_recebidos = []
+        area.imagem_selecionada.connect(lambda p: caminhos_recebidos.append(p))
+
+        # Testa extensão .heic
+        mime_heic = QMimeData()
+        mime_heic.setUrls([QUrl.fromLocalFile(str(tmp_path / "foto.heic"))])
+        drag_heic = QDragEnterEvent(
+            QPoint(10, 10),
+            Qt.DropAction.CopyAction,
+            mime_heic,
+            Qt.MouseButton.LeftButton,
+            Qt.KeyboardModifier.NoModifier,
+        )
+        area.dragEnterEvent(drag_heic)
+        assert drag_heic.isAccepted() is True
+
+        # Testa extensão .heif
+        mime_heif = QMimeData()
+        mime_heif.setUrls([QUrl.fromLocalFile(str(tmp_path / "foto.heif"))])
+        drag_heif = QDragEnterEvent(
+            QPoint(10, 10),
+            Qt.DropAction.CopyAction,
+            mime_heif,
+            Qt.MouseButton.LeftButton,
+            Qt.KeyboardModifier.NoModifier,
+        )
+        area.dragEnterEvent(drag_heif)
+        assert drag_heif.isAccepted() is True
+
+        # Testa extensão em caixa alta .HEIC
+        mime_alta = QMimeData()
+        mime_alta.setUrls([QUrl.fromLocalFile(str(tmp_path / "foto.HEIC"))])
+        drag_alta = QDragEnterEvent(
+            QPoint(10, 10),
+            Qt.DropAction.CopyAction,
+            mime_alta,
+            Qt.MouseButton.LeftButton,
+            Qt.KeyboardModifier.NoModifier,
+        )
+        area.dragEnterEvent(drag_alta)
+        assert drag_alta.isAccepted() is True
+
+    def test_filtro_seletor_inclui_heic_e_constantes(self, qtbot, monkeypatch, tmp_path):
+        from editor.views.dialogos.dialogo_adicionar_mapa import (
+            EXTENSOES_IMAGEM_SUPORTADAS,
+            FILTRO_ARQUIVOS_IMAGEM,
+        )
+
+        assert ".heic" in EXTENSOES_IMAGEM_SUPORTADAS
+        assert ".heif" in EXTENSOES_IMAGEM_SUPORTADAS
+        assert "*.heic" in FILTRO_ARQUIVOS_IMAGEM
+        assert "*.heif" in FILTRO_ARQUIVOS_IMAGEM
+
+        # Valida que o filtro é passado para o QFileDialog
+        filtros_usados = []
+
+        def mock_get_open_file_name(parent, caption, dir, filter):
+            filtros_usados.append(filter)
+            return ("", "")
+
+        monkeypatch.setattr(QFileDialog, "getOpenFileName", mock_get_open_file_name)
+
+        dialogo = DialogoAdicionarMapa("teste.webp")
+        qtbot.addWidget(dialogo)
+        dialogo._abrir_seletor_arquivos()
+
+        area = AreaDropImagem()
+        qtbot.addWidget(area)
+        mouse_event = QMouseEvent(
+            QMouseEvent.Type.MouseButtonPress,
+            QPointF(10, 10),
+            QPointF(10, 10),
+            Qt.MouseButton.LeftButton,
+            Qt.MouseButton.LeftButton,
+            Qt.KeyboardModifier.NoModifier,
+        )
+        area.mousePressEvent(mouse_event)
+
+        assert len(filtros_usados) == 2
+        for f in filtros_usados:
+            assert "*.heic" in f
+            assert "*.heif" in f
 

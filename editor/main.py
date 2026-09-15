@@ -36,12 +36,12 @@ from editor.legacy_views.tela_de_carregamento import TelaDeCarregamento
 from editor.views.tela_de_abertura import TelaDeAbertura
 from editor.views.estilo import Icones, configurar_tema_claro_aplicacao
 
-# Fix para o ícone na barra de tarefas do Windows
+# Fix para o ícone na barra de tarefas do Windows (preservando MSIX quando aplicável)
 try:
-    import ctypes
     from editor.core.configuracao_canal import obter_configuracao_canal
+    from editor.core.integracao_windows import configurar_identidade_processo_windows
     config_canal_global = obter_configuracao_canal()
-    ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID(config_canal_global.app_user_model_id)
+    configurar_identidade_processo_windows(config_canal_global.app_user_model_id)
 except Exception:
     pass
 
@@ -64,7 +64,7 @@ class ControladorAplicativo:
         self.app.setApplicationName(config_canal.nome_aplicativo)
         configurar_tema_claro_aplicacao(self.app)
             
-        caminho_logo_app = config_canal.obter_caminho_recurso("logo_app.png")
+        caminho_logo_app = config_canal.obter_caminho_icone_aplicacao()
         self.app.setWindowIcon(QIcon(str(caminho_logo_app)))
         
         try:
@@ -217,8 +217,9 @@ def main() -> None:
     app.setApplicationName(config_canal.nome_aplicativo)
     configurar_tema_claro_aplicacao(app)
 
-    caminho_logo_app = config_canal.obter_caminho_recurso("logo_app.png")
-    app.setWindowIcon(QIcon(str(caminho_logo_app)))
+    caminho_icone_app = config_canal.obter_caminho_icone_aplicacao()
+    app.setWindowIcon(QIcon(str(caminho_icone_app)))
+    app.processEvents()
 
 
     # Previne múltiplas instâncias do editor usando QLocalServer / QLocalSocket
@@ -249,11 +250,12 @@ def main() -> None:
         
         if caminho_path.is_dir() and (caminho_path / "croqui.yaml").exists():
             storage = GerenciadorCaminhos()
-            caminho_logo_app = config_canal.obter_caminho_recurso("logo_app.png")
+            caminho_icone_app = config_canal.obter_caminho_icone_aplicacao()
             
             # QIcon precisa receber string
             try:
-                app.setWindowIcon(QIcon(str(caminho_logo_app)))
+                app.setWindowIcon(QIcon(str(caminho_icone_app)))
+                app.processEvents()
             except Exception:
                 pass
                 
@@ -268,7 +270,9 @@ def main() -> None:
             workspace = LocalRepoWorkspace(caminho_path)
             
             janela = JanelaPrincipal(storage=storage, auth=None, workspace=workspace)
+            janela.setWindowIcon(QIcon(str(caminho_icone_app)))
             janela.show()
+            app.processEvents()
             sys.exit(app.exec())
         elif "database" in caminho_str or caminho_str.endswith("croqui.yaml"):
             msg_erro = f"Erro: O caminho especificado '{caminho_str}' não contém um croqui.yaml válido."

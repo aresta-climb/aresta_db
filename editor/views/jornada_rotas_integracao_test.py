@@ -759,6 +759,7 @@ def test_jornada_navegacao_pan_zoom_durante_desenho_de_rota(tmp_path, qtbot):
     ev_press_meio = QMouseEvent(
         QMouseEvent.Type.MouseButtonPress,
         QPointF(150, 150),
+        QPointF(150, 150),
         Qt.MouseButton.MiddleButton,
         Qt.MouseButton.MiddleButton,
         Qt.KeyboardModifier.NoModifier
@@ -769,6 +770,7 @@ def test_jornada_navegacao_pan_zoom_durante_desenho_de_rota(tmp_path, qtbot):
     ev_move_meio = QMouseEvent(
         QMouseEvent.Type.MouseMove,
         QPointF(100, 100),
+        QPointF(100, 100),
         Qt.MouseButton.MiddleButton,
         Qt.MouseButton.MiddleButton,
         Qt.KeyboardModifier.NoModifier
@@ -777,6 +779,7 @@ def test_jornada_navegacao_pan_zoom_durante_desenho_de_rota(tmp_path, qtbot):
 
     ev_release_meio = QMouseEvent(
         QMouseEvent.Type.MouseButtonRelease,
+        QPointF(100, 100),
         QPointF(100, 100),
         Qt.MouseButton.MiddleButton,
         Qt.MouseButton.NoButton,
@@ -794,6 +797,7 @@ def test_jornada_navegacao_pan_zoom_durante_desenho_de_rota(tmp_path, qtbot):
     ev_press_space_esq = QMouseEvent(
         QMouseEvent.Type.MouseButtonPress,
         QPointF(120, 120),
+        QPointF(120, 120),
         Qt.MouseButton.LeftButton,
         Qt.MouseButton.LeftButton,
         Qt.KeyboardModifier.NoModifier
@@ -804,6 +808,7 @@ def test_jornada_navegacao_pan_zoom_durante_desenho_de_rota(tmp_path, qtbot):
     ev_move_space_esq = QMouseEvent(
         QMouseEvent.Type.MouseMove,
         QPointF(80, 80),
+        QPointF(80, 80),
         Qt.MouseButton.LeftButton,
         Qt.MouseButton.LeftButton,
         Qt.KeyboardModifier.NoModifier
@@ -812,6 +817,7 @@ def test_jornada_navegacao_pan_zoom_durante_desenho_de_rota(tmp_path, qtbot):
 
     ev_release_space_esq = QMouseEvent(
         QMouseEvent.Type.MouseButtonRelease,
+        QPointF(80, 80),
         QPointF(80, 80),
         Qt.MouseButton.LeftButton,
         Qt.MouseButton.NoButton,

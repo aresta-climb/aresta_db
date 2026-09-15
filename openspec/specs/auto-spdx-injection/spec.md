@@ -1,7 +1,7 @@
-## ADDED Requirements
+## Requirements
 
 ### Requirement: Preservação e injeção de comentários de licença nos arquivos da base de dados
-O sistema DEVE, durante a compilação (especificamente ao final de `corrigir_database`), varrer todos os arquivos Markdown (`.md`) e YAML (`.yaml`) fonte e assegurar a existência das duas linhas de comentários referentes à licença ODbL e ao Copyright:
+O sistema MUST, durante a compilação (especificamente ao final de `corrigir_database`), varrer todos os arquivos Markdown (`.md`) e YAML (`.yaml`) fonte e assegurar a existência das duas linhas de comentários referentes à licença ODbL e ao Copyright:
 ```yaml
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Contributors

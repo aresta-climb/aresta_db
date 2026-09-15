@@ -1,7 +1,7 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
-from typing import Optional, Any, List, Dict, Tuple
+from typing import Optional, Any, List, Dict, Tuple, Set
 from pathlib import Path
 from editor.models.croqui_model import CroquiModel
 from editor.commands.comandos_protobuf import (
@@ -527,6 +527,7 @@ class MapasController:
                                     sub1, sub2 = fatiar_linha_em_no(linha_cand, no_corte_idx, id_sub1, id_sub2)
                                 else:
                                     assert curva_corte_info is not None
+                                    assert curva_corte_info.indice_segmento is not None
                                     sub1, sub2 = fatiar_linha_em_ponto_curva(
                                         linha_cand,
                                         curva_corte_info.coordenada,

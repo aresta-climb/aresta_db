@@ -3785,6 +3785,7 @@ def test_visualizador_pan_com_botao_do_meio_no_modo_nova_rota(qtbot):
     ev_press = QMouseEvent(
         QMouseEvent.Type.MouseButtonPress,
         QPointF(50, 50),
+        QPointF(50, 50),
         Qt.MouseButton.MiddleButton,
         Qt.MouseButton.MiddleButton,
         Qt.KeyboardModifier.NoModifier
@@ -3797,6 +3798,7 @@ def test_visualizador_pan_com_botao_do_meio_no_modo_nova_rota(qtbot):
     ev_move = QMouseEvent(
         QMouseEvent.Type.MouseMove,
         QPointF(30, 20),
+        QPointF(30, 20),
         Qt.MouseButton.MiddleButton,
         Qt.MouseButton.MiddleButton,
         Qt.KeyboardModifier.NoModifier
@@ -3806,6 +3808,7 @@ def test_visualizador_pan_com_botao_do_meio_no_modo_nova_rota(qtbot):
     # 3. Solta o botão do meio
     ev_release = QMouseEvent(
         QMouseEvent.Type.MouseButtonRelease,
+        QPointF(30, 20),
         QPointF(30, 20),
         Qt.MouseButton.MiddleButton,
         Qt.MouseButton.NoButton,
@@ -3846,6 +3849,7 @@ def test_visualizador_pan_com_barra_de_espaco_no_modo_nova_rota(qtbot):
     ev_press = QMouseEvent(
         QMouseEvent.Type.MouseButtonPress,
         QPointF(60, 60),
+        QPointF(60, 60),
         Qt.MouseButton.LeftButton,
         Qt.MouseButton.LeftButton,
         Qt.KeyboardModifier.NoModifier
@@ -3858,6 +3862,7 @@ def test_visualizador_pan_com_barra_de_espaco_no_modo_nova_rota(qtbot):
     ev_move = QMouseEvent(
         QMouseEvent.Type.MouseMove,
         QPointF(40, 40),
+        QPointF(40, 40),
         Qt.MouseButton.LeftButton,
         Qt.MouseButton.LeftButton,
         Qt.KeyboardModifier.NoModifier
@@ -3867,6 +3872,7 @@ def test_visualizador_pan_com_barra_de_espaco_no_modo_nova_rota(qtbot):
     # 4. Solta botão esquerdo
     ev_release = QMouseEvent(
         QMouseEvent.Type.MouseButtonRelease,
+        QPointF(40, 40),
         QPointF(40, 40),
         Qt.MouseButton.LeftButton,
         Qt.MouseButton.NoButton,
@@ -3908,6 +3914,7 @@ def test_visualizador_pan_com_espaco_solto_durante_arrasto(qtbot):
     vis.mousePressEvent(QMouseEvent(
         QMouseEvent.Type.MouseButtonPress,
         QPointF(50, 50),
+        QPointF(50, 50),
         Qt.MouseButton.LeftButton,
         Qt.MouseButton.LeftButton,
         Qt.KeyboardModifier.NoModifier
@@ -3923,6 +3930,7 @@ def test_visualizador_pan_com_espaco_solto_durante_arrasto(qtbot):
     # 4. Solta Botão Esquerdo
     vis.mouseReleaseEvent(QMouseEvent(
         QMouseEvent.Type.MouseButtonRelease,
+        QPointF(30, 30),
         QPointF(30, 30),
         Qt.MouseButton.LeftButton,
         Qt.MouseButton.NoButton,
@@ -3986,6 +3994,7 @@ def test_visualizador_pan_com_botao_do_meio_em_modo_normal(qtbot):
     ev_press = QMouseEvent(
         QMouseEvent.Type.MouseButtonPress,
         QPointF(50, 50),
+        QPointF(50, 50),
         Qt.MouseButton.MiddleButton,
         Qt.MouseButton.MiddleButton,
         Qt.KeyboardModifier.NoModifier
@@ -3996,6 +4005,7 @@ def test_visualizador_pan_com_botao_do_meio_em_modo_normal(qtbot):
 
     ev_release = QMouseEvent(
         QMouseEvent.Type.MouseButtonRelease,
+        QPointF(30, 20),
         QPointF(30, 20),
         Qt.MouseButton.MiddleButton,
         Qt.MouseButton.NoButton,

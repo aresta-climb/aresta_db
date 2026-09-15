@@ -17,10 +17,10 @@ import re
 import copy
 from enum import Enum
 from dataclasses import dataclass
-from typing import List, Tuple, Optional, Any, Sequence, Set, Union
+from typing import List, Tuple, Optional, Any, Sequence, Set, Union, Dict
 
 from aresta_api.proto.generated import croqui_pb2
-from editor.core.spline_catmull_rom import Ponto2D
+from editor.core.spline_catmull_rom import Ponto2D as Ponto2D
 
 
 class TipoSnap(Enum):

@@ -172,3 +172,36 @@ class TestWidgetEditorMapasImagem:
         # Imagem alterada de outro mapa não recarrega o atual
         widget._on_imagem_alterada("imagens/outro_mapa.webp")
 
+    def test_substituir_imagem_mapa_com_heic(self, qtbot, croqui_com_mapa, tmp_path, monkeypatch):
+        import pillow_heif
+        pillow_heif.register_heif_opener()
+        model, mapa, bytes_iniciais = croqui_com_mapa
+        undo_stack = QUndoStack()
+        controller = CroquiController(model, undo_stack)
+        widget = WidgetEditorMapas(croqui_model=model, croqui_controller=controller)
+        qtbot.addWidget(widget)
+
+        widget.carregar_mapa(mapa)
+
+        nova_img_path = tmp_path / "nova_foto.heic"
+        img_nova = Image.new("RGB", (550, 450), color=(210, 110, 60))
+        img_nova.save(nova_img_path, format="HEIF")
+
+        filtros = []
+
+        def mock_open(*a, **k):
+            filtros.append(a[3] if len(a) > 3 else k.get("filter", ""))
+            return (str(nova_img_path), "HEIF")
+
+        monkeypatch.setattr(QFileDialog, "getOpenFileName", mock_open)
+
+        widget.substituir_imagem_mapa()
+
+        assert len(filtros) == 1
+        assert "*.heic" in filtros[0]
+        assert "*.heif" in filtros[0]
+        bytes_substituidos = model.obter_bytes_imagem("imagens/mapa_setor_a.webp")
+        assert bytes_substituidos != bytes_iniciais
+        assert bytes_substituidos.startswith(b"RIFF")
+        assert undo_stack.count() == 1
+

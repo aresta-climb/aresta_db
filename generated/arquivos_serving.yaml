@@ -602,7 +602,7 @@ arquivos:
 - caminho_relativo: br_mg_diamantina_diamaboulder/compilado.md
   checksum_sha256: aeb01ba15dc7247405045719759e8b4d3957a72c011061fa6beab7ccce877bfd
 - caminho_relativo: br_mg_igarape_pedra_grande/compilado.binarypb
-  checksum_sha256: 345613ebb21aa0520627304f8a0215cca975619a07df0fa7106291ae3a290ee7
+  checksum_sha256: f5c7caec67ac491826d65a15569622c698ddae8e9589c48eb3d7fc3646ecdba8
 - caminho_relativo: thumbnails/br_mg_igarape_pedra_grande.webp
   checksum_sha256: d490580138c1b7f24c772f2d6672e895406739da51bd1880ecabb49cd28b7409
 - caminho_relativo: br_mg_igarape_pedra_grande/imagens/capa_p0.webp
@@ -674,9 +674,9 @@ arquivos:
 - caminho_relativo: br_mg_igarape_pedra_grande/imagens/setor_trad_p0.webp
   checksum_sha256: fa73e3e2fa27a74255e21b0c499f6e72bc47a99626b5bd780473d967c257eaad
 - caminho_relativo: br_mg_igarape_pedra_grande/compilado.yaml
-  checksum_sha256: d4ffaabf20b19650391e0e549f57d712a1478f5523a34cdceb6cb3cfd7320cf2
+  checksum_sha256: d1d613c6f73f7a290ea439fce4bcbf09ca8bc6cf775dbb35414f96d7bf918e9c
 - caminho_relativo: br_mg_igarape_pedra_grande/compilado.md
-  checksum_sha256: 55c354218864f6d0d286a1d6a9eb923cc986553b0e684ecf48f7e853139990fd
+  checksum_sha256: 401f517a726e3e400e35fefb8b2b4a59f1b3c5f946eeef04dbff9335543f83a5
 - caminho_relativo: br_mg_januaria_salao_encantado/compilado.binarypb
   checksum_sha256: 26350287062465a53eafe8505481ef55549c7c30c856d8f6f1dbc9621edadaa8
 - caminho_relativo: thumbnails/br_mg_januaria_salao_encantado.webp
@@ -1466,6 +1466,6 @@ arquivos:
 - caminho_relativo: br_mg_sete_lagoas_sinuosa/compilado.md
   checksum_sha256: 9c1cb814fecabc3cc85db508f894a4fac08c13924bc119c29cf9559521c9151f
 - caminho_relativo: indice.binarypb
-  checksum_sha256: 5eaad481952f08771056150a5637d49bc67b848579e539d92be8e3f37c4c8884
+  checksum_sha256: a16f1524dae902686fdfba825d8719e4669b2edf3d65653fc7235108ddbde4d4
 - caminho_relativo: indice.yaml
-  checksum_sha256: 705e6b31c7e2996eec9e4a7b9a81eddaccc6bc1b56c61d86ed3517d0870116df
+  checksum_sha256: 33a0e8a5188bc76142675c83a050091b6f1d69f3ea65629f0eaefc671616bea0

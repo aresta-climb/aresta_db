@@ -42,6 +42,9 @@ datas = [
     (str(caminho_canal), '.'),
     (str(caminho_canal), 'editor'),
 ]
+if (spec_dir / 'logo.ico').exists():
+    datas.append((str(spec_dir / 'logo.ico'), '.'))
+    datas.append((str(spec_dir / 'logo.ico'), 'editor'))
 if eh_beta and (spec_dir / 'recursos_beta').exists():
     datas.append((str(spec_dir / 'recursos_beta'), 'recursos_beta'))
     datas.append((str(spec_dir / 'recursos_beta'), 'editor/recursos_beta'))

@@ -103,3 +103,76 @@ def test_configurar_presenca_barra_de_tarefas_janela_real_windows():
         user32.DestroyWindow(hwnd)
 
 
+def test_configurar_identidade_processo_windows_fora_do_windows():
+    """Garante que em plataformas não-Windows opere como no-op retornando True."""
+    from editor.core.integracao_windows import configurar_identidade_processo_windows
+
+    with patch("sys.platform", "linux"):
+        resultado = configurar_identidade_processo_windows("aresta.editor.v1")
+        assert resultado is True
+
+
+def test_configurar_identidade_processo_windows_em_pacote_msix():
+    """Garante que não sobrescreva o AppUserModelID se já estiver executando dentro de pacote MSIX."""
+    from editor.core.integracao_windows import configurar_identidade_processo_windows
+
+    with patch("sys.platform", "win32"):
+        with patch("editor.core.integracao_windows._esta_executando_em_pacote_msix", return_value=True):
+            with patch("ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID") as mock_set_id:
+                resultado = configurar_identidade_processo_windows("aresta.editor.v1")
+                assert resultado is True
+                mock_set_id.assert_not_called()
+
+
+def test_configurar_identidade_processo_windows_standalone_ou_python():
+    """Garante que defina o AppUserModelID quando executando fora de pacote MSIX."""
+    from editor.core.integracao_windows import configurar_identidade_processo_windows
+
+    with patch("sys.platform", "win32"):
+        with patch("editor.core.integracao_windows._esta_executando_em_pacote_msix", return_value=False):
+            with patch("ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID", return_value=0) as mock_set_id:
+                resultado = configurar_identidade_processo_windows("aresta.editor.v1")
+                assert resultado is True
+                mock_set_id.assert_called_once_with("aresta.editor.v1")
+
+
+def test_configurar_identidade_processo_windows_trata_excecao():
+    """Garante que falhas na API do Windows sejam tratadas e retornem False."""
+    from editor.core.integracao_windows import configurar_identidade_processo_windows
+
+    with patch("sys.platform", "win32"):
+        with patch("editor.core.integracao_windows._esta_executando_em_pacote_msix", side_effect=RuntimeError("Falha DLL")):
+            resultado = configurar_identidade_processo_windows("aresta.editor.v1")
+            assert resultado is False
+
+
+def test_esta_executando_em_pacote_msix_fora_do_windows():
+    """Garante que a detecção de pacote MSIX retorne False fora do Windows."""
+    from editor.core.integracao_windows import _esta_executando_em_pacote_msix
+
+    with patch("sys.platform", "linux"):
+        assert _esta_executando_em_pacote_msix() is False
+
+
+def test_esta_executando_em_pacote_msix_trata_excecao():
+    """Garante que falha em chamada ctypes no Windows retorne False com resiliência."""
+    from editor.core.integracao_windows import _esta_executando_em_pacote_msix
+
+    with patch("sys.platform", "win32"):
+        with patch("ctypes.windll.kernel32.GetCurrentPackageFamilyName", side_effect=RuntimeError("Falha DLL")):
+            assert _esta_executando_em_pacote_msix() is False
+
+
+@pytest.mark.skipif(sys.platform != "win32", reason="Requer Windows real para teste nativo de identidade")
+def test_configurar_identidade_processo_windows_real():
+
+    """Teste de integração real no Windows sem mock."""
+    from editor.core.integracao_windows import configurar_identidade_processo_windows, _esta_executando_em_pacote_msix
+
+    # No ambiente de desenvolvimento local, não estamos em pacote MSIX
+    assert _esta_executando_em_pacote_msix() is False
+    resultado = configurar_identidade_processo_windows("aresta.editor.v1")
+    assert resultado is True
+
+
+

@@ -13,7 +13,15 @@ import re
 import unicodedata
 from pathlib import Path
 from typing import Optional, Tuple, Dict, Any
-from PIL import Image
+from PIL import Image, ImageOps
+
+try:
+    import pillow_heif
+    abridor_heif = getattr(pillow_heif, "register_heif_opener", None)
+    if callable(abridor_heif):
+        abridor_heif()
+except Exception:  # pragma: no cover
+    pass
 
 
 
@@ -116,7 +124,8 @@ def obter_metadados_imagem(imagem_path_ou_bytes: str | Path | bytes | None) -> T
             return 0, 0, 0, "0 KB"
 
         with Image.open(img_stream) as img:
-            w, h = img.width, img.height
+            img_transposta = ImageOps.exif_transpose(img)
+            w, h = img_transposta.width, img_transposta.height
 
         if tamanho_bytes < 1024:
             str_tamanho = f"{tamanho_bytes} B"
@@ -143,7 +152,7 @@ def comprimir_imagem_para_bytes_webp(
     Retorna uma tupla (bytes_webp, largura, altura).
     """
     if isinstance(fonte_imagem, Image.Image):
-        img_temp = fonte_imagem
+        img_temp = ImageOps.exif_transpose(fonte_imagem)
         if img_temp.mode not in ("RGB", "RGBA"):
             img_temp = img_temp.convert("RGBA" if "transparency" in img_temp.info or img_temp.mode == "P" else "RGB")
 
@@ -169,7 +178,7 @@ def comprimir_imagem_para_bytes_webp(
 
     try:
         with Image.open(img_source) as img:
-            img_proc: Image.Image = img
+            img_proc: Image.Image = ImageOps.exif_transpose(img)
             # Garante RGB ou RGBA dependendo de transparência
             if img_proc.mode not in ("RGB", "RGBA"):
                 img_proc = img_proc.convert("RGBA" if "transparency" in img_proc.info or img_proc.mode == "P" else "RGB")

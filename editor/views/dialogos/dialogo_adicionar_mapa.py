@@ -33,6 +33,23 @@ from editor.core.processamento_imagem_campo import (
 )
 
 
+EXTENSOES_IMAGEM_SUPORTADAS: Tuple[str, ...] = (
+    ".png",
+    ".jpg",
+    ".jpeg",
+    ".webp",
+    ".bmp",
+    ".tiff",
+    ".tif",
+    ".heic",
+    ".heif",
+)
+
+FILTRO_ARQUIVOS_IMAGEM: str = (
+    f"Imagens ({' '.join(f'*{ext}' for ext in EXTENSOES_IMAGEM_SUPORTADAS)})"
+)
+
+
 class AreaDropImagem(QWidget):
     """
     Área visual para arrastar e soltar (Drag & Drop) ou clicar para selecionar uma imagem.
@@ -77,7 +94,7 @@ class AreaDropImagem(QWidget):
                 self,
                 "Selecionar Imagem do Mapa",
                 "",
-                "Imagens (*.png *.jpg *.jpeg *.webp *.bmp *.tiff *.tif)",
+                FILTRO_ARQUIVOS_IMAGEM,
             )
             if arquivo:
                 self.imagem_selecionada.emit(arquivo)
@@ -87,7 +104,7 @@ class AreaDropImagem(QWidget):
             urls = event.mimeData().urls()
             if urls and urls[0].isLocalFile():
                 ext = Path(urls[0].toLocalFile()).suffix.lower()
-                if ext in [".png", ".jpg", ".jpeg", ".webp", ".bmp", ".tiff", ".tif"]:
+                if ext in EXTENSOES_IMAGEM_SUPORTADAS:
                     event.acceptProposedAction()
                     return
         event.ignore()
@@ -204,7 +221,7 @@ class DialogoAdicionarMapa(QDialog):
             self,
             "Selecionar Imagem do Mapa",
             "",
-            "Imagens (*.png *.jpg *.jpeg *.webp *.bmp *.tiff *.tif)",
+            FILTRO_ARQUIVOS_IMAGEM,
         )
         if arquivo:
             self.carregar_imagem_arquivo(arquivo)
