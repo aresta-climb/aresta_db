@@ -235,6 +235,28 @@ mapas:
       x: 1362
       y: 1213
       raio: 14
+  - id: crayzy
+    label: ''
+    circulo:
+      x: 247
+      y: 1211
+      raio: 14
+    cor: ''
+  - id: formigao
+    label: ''
+    circulo:
+      x: 289
+      y: 1202
+      raio: 14
+    cor: ''
+  - id: palestra
+    label: ''
+    retangulo:
+      x: 1410
+      y: 211
+      comprimento: 223
+      largura: 30
+    cor: ''
   referencias:
   - escalada: Aresta Daniel
     ids:
@@ -242,12 +264,14 @@ mapas:
   - escalada: Barriga Verde
     ids:
     - '02'
-  - escalada: ???
+  - escalada: Sem nome 1
     ids:
     - a
-  - escalada: ???
+    setor: Setor Trad
+  - escalada: Sem nome 2
     ids:
     - b
+    setor: Setor Trad
   - escalada: Tosco Climb
     ids:
     - '03'
@@ -257,9 +281,10 @@ mapas:
   - escalada: A Quina
     ids:
     - '05'
-  - escalada: sem nome
+  - escalada: Sem nome 3
     ids:
     - c
+    setor: Setor Trad
   - escalada: Igarapé Cascão
     ids:
     - '06'
@@ -269,9 +294,10 @@ mapas:
   - escalada: Pachamama
     ids:
     - '07'
-  - escalada: sem nome
+  - escalada: Sem nome 4
     ids:
     - e
+    setor: Setor Trad
   - escalada: Absoluta Inconsequência
     ids:
     - '08'
@@ -281,54 +307,65 @@ mapas:
   - escalada: Mentiras Sinceras
     ids:
     - '10'
-  - escalada: sem nome
+  - escalada: Sem nome 5
     ids:
     - f
-  - escalada: sem nome
+    setor: Setor Trad
+  - escalada: Sem nome 6
     ids:
     - g
-  - escalada: sem nome
+    setor: Setor Trad
+  - escalada: Sem nome 7
     ids:
     - '11'
+    setor: Setor Trad
   - escalada: Bituca
     ids:
     - '12'
-  - escalada: ???
+  - escalada: Sem nome 8
     ids:
     - h
-  - escalada: ???
+    setor: Setor Trad
+  - escalada: Sem nome 9
     ids:
     - i
+    setor: Setor Trad
   - escalada: Último Dente
     ids:
     - '13'
-  - escalada: sem nome
+  - escalada: Sem nome 10
     ids:
     - '14'
+    setor: Setor Trad
   - escalada: Inanição
     ids:
     - '15'
   - escalada: Lembranças da Vovó
     ids:
     - '16'
-  - escalada: sem nome
+  - escalada: Sem nome 11
     ids:
     - j
-  - escalada: sem nome
+    setor: Setor Trad
+  - escalada: Sem nome 12
     ids:
     - k
-  - escalada: ???
+    setor: Setor Trad
+  - escalada: Sem nome 13
     ids:
     - L
-  - escalada: ???
+    setor: Setor Trad
+  - escalada: Sem nome 14
     ids:
     - m
+    setor: Setor Trad
   - escalada: Netflix
     ids:
     - '17'
-  - escalada: ???
+  - escalada: Sem nome 15
     ids:
     - n
+    setor: Setor Trad
   - escalada: Que Nem Mendigo
     ids:
     - '18'
@@ -338,30 +375,46 @@ mapas:
   - escalada: Me Leve ao Cume
     ids:
     - '20'
-  - escalada: sem nome
+  - escalada: Sem nome 16
     ids:
     - '21'
+    setor: Setor Trad
   - escalada: Vale Tudo
     ids:
     - '22'
-  - escalada: sem nome
+  - escalada: Sem nome 17
     ids:
     - '23'
+    setor: Setor Trad
   - escalada: Mulher do Fim do Mundo
     ids:
     - '24'
+  - ids:
+    - crayzy
+    setor: Setor Trad
+    escalada: Crayzy
+  - ids:
+    - formigao
+    setor: Setor Trad
+    escalada: Formigão Iannotta
+  - ids:
+    - palestra
+    setor: Setor Trad
+    escalada: Palestra Botânica
 escaladas:
 - via_movel:
     nome: Aresta Daniel
-    dificuldade: INDEFINIDO
+    dificuldade: BR_6SUP
+    exposicao: E1
+    descricao: Via com marimbondos!!! INTERDITADA.
 - via_movel:
     nome: Barriga Verde
     dificuldade: INDEFINIDO
 - via_movel:
-    nome: ???
+    nome: Sem nome 1
     dificuldade: INDEFINIDO
 - via_movel:
-    nome: ???
+    nome: Sem nome 2
     dificuldade: INDEFINIDO
 - via_movel:
     nome: Tosco Climb
@@ -373,7 +426,7 @@ escaladas:
     nome: A Quina
     dificuldade: INDEFINIDO
 - via_movel:
-    nome: sem nome
+    nome: Sem nome 3
     dificuldade: INDEFINIDO
 - via_movel:
     nome: Formigão Iannotta
@@ -391,7 +444,7 @@ escaladas:
     nome: Pachamama
     dificuldade: INDEFINIDO
 - via_movel:
-    nome: sem nome
+    nome: Sem nome 4
     dificuldade: INDEFINIDO
 - via_movel:
     nome: Absoluta Inconsequência
@@ -403,28 +456,28 @@ escaladas:
     nome: Mentiras Sinceras
     dificuldade: INDEFINIDO
 - via_movel:
-    nome: sem nome
+    nome: Sem nome 5
     dificuldade: INDEFINIDO
 - via_movel:
-    nome: sem nome
+    nome: Sem nome 6
     dificuldade: INDEFINIDO
 - via_movel:
-    nome: sem nome
+    nome: Sem nome 7
     dificuldade: INDEFINIDO
 - via_movel:
     nome: Bituca
     dificuldade: INDEFINIDO
 - via_movel:
-    nome: ???
+    nome: Sem nome 8
     dificuldade: INDEFINIDO
 - via_movel:
-    nome: ???
+    nome: Sem nome 9
     dificuldade: INDEFINIDO
 - via_movel:
     nome: Último Dente
     dificuldade: INDEFINIDO
 - via_movel:
-    nome: sem nome
+    nome: Sem nome 10
     dificuldade: INDEFINIDO
 - via_movel:
     nome: Inanição
@@ -433,25 +486,25 @@ escaladas:
     nome: Lembranças da Vovó
     dificuldade: INDEFINIDO
 - via_movel:
-    nome: sem nome
+    nome: Sem nome 11
     dificuldade: INDEFINIDO
 - via_movel:
-    nome: sem nome
+    nome: Sem nome 12
     dificuldade: INDEFINIDO
 - via_movel:
     nome: Palestra Botânica
     dificuldade: INDEFINIDO
 - via_movel:
-    nome: ???
+    nome: Sem nome 13
     dificuldade: INDEFINIDO
 - via_movel:
-    nome: ???
+    nome: Sem nome 14
     dificuldade: INDEFINIDO
 - via_movel:
     nome: Netflix
     dificuldade: INDEFINIDO
 - via_movel:
-    nome: ???
+    nome: Sem nome 15
     dificuldade: INDEFINIDO
 - via_movel:
     nome: Que Nem Mendigo
@@ -463,19 +516,16 @@ escaladas:
     nome: Me Leve ao Cume
     dificuldade: INDEFINIDO
 - via_movel:
-    nome: sem nome
+    nome: Sem nome 16
     dificuldade: INDEFINIDO
 - via_movel:
     nome: Vale Tudo
     dificuldade: INDEFINIDO
 - via_movel:
-    nome: sem nome
+    nome: Sem nome 17
     dificuldade: INDEFINIDO
 - via_movel:
     nome: Mulher do Fim do Mundo
-    dificuldade: INDEFINIDO
-- via_movel:
-    nome: Marimbondos Me Mordam
     dificuldade: INDEFINIDO
 ---
 

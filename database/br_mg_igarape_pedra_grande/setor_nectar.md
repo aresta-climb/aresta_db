@@ -19,28 +19,12 @@ escaladas:
     url_video_beta: https://www.instagram.com/p/DaMdaQKTtFk/
     destaque: true
 mapas:
-- caminho_imagem_mapa: imagens/setor_nectar_p0.webp
-  largura_mapa: 3013
-  altura_mapa: 1392
-  pontos_de_interesse:
-  - id: setor_sherpa_map
-    label: ''
-    poligono:
-      coordenadas:
-      - 224
-      - 811
-      - 255
-      - 797
-      - 282
-      - 703
-      - 106
-      - 684
-      - 117
-      - 801
+- caminho_imagem_mapa: imagens/setor_nectar_p0_i0.webp
+  largura_mapa: 1855
+  altura_mapa: 2261
   referencias:
-  - ids:
-    - setor_sherpa_map
-    grupo: Sherpa
+  - grupo: Sherpa
+    setor: Nectar
+    escalada: Nectar
 indice_mapa_padrao: -1
 ---
-![Bloco Nectar](imagens/20260901_163206.webp)

@@ -188,6 +188,7 @@ mapas:
     escalada: People crazy
   - ids:
     - '09'
+    - P1
     setor: Setor Trad
     escalada: Aresta Daniel
 escaladas:

@@ -1735,13 +1735,12 @@ def test_item_trajeto_linha_inserir_e_remover_no(qtbot):
     assert len(item_linha.pt_dict["linha"]["conteudo"]["nos"]) == 2
 
 
-def test_modo_desenho_linha_fluxo_completo(qtbot, monkeypatch):
-    """Testa o fluxo de criação de linha com início, nós intermediários, desfecho e mock de diálogo."""
-    from editor.views.widget_editor_mapas import WidgetEditorMapas, CenaDesenho, DialogoEdicaoPOI
+def test_modo_nova_rota_fluxo_completo(qtbot):
+    """Testa o fluxo de criação de nova rota com início, nós intermediários, desfecho e chamada no controller."""
+    from editor.views.widget_editor_mapas import WidgetEditorMapas, CenaDesenho
     from aresta_api.proto.generated import croqui_pb2
     from unittest.mock import MagicMock
     from PySide6.QtCore import QPointF, Qt
-    from PySide6.QtWidgets import QDialog
     
     widget = WidgetEditorMapas()
     qtbot.addWidget(widget)
@@ -1757,46 +1756,40 @@ def test_modo_desenho_linha_fluxo_completo(qtbot, monkeypatch):
     dados = {'cena': cena, 'itens_bb': []}
     widget.dados_atuais = dados
     
-    # Inicia modo de desenho de linha
-    widget.iniciar_modo_desenho_linha(dados)
-    assert widget.modo_desenho_linha is True
+    # Inicia modo de nova rota
+    dados_rota = {"nome": "Fenda do Baú", "tipo": "via_esportiva", "grau": "7a"}
+    widget.iniciar_modo_nova_rota(dados_rota, dados)
+    assert widget.modo_nova_rota is True
     assert not widget.label_modo.isHidden()
     
     # Adiciona pontos
-    widget.adicionar_ponto_desenho_linha(QPointF(10, 10))
-    widget.adicionar_ponto_desenho_linha(QPointF(30, 80))
-    widget.adicionar_ponto_desenho_linha(QPointF(50, 150))
-    assert len(widget.pontos_desenho_linha) == 3
+    widget.adicionar_ponto_nova_rota(QPointF(10, 10))
+    widget.adicionar_ponto_nova_rota(QPointF(30, 80))
+    widget.adicionar_ponto_nova_rota(QPointF(50, 150))
+    assert len(widget.pontos_nova_rota) == 3
     
     # Desfaz um ponto
-    widget.desfazer_ponto_desenho_linha()
-    assert len(widget.pontos_desenho_linha) == 2
+    widget.desfazer_ponto_nova_rota()
+    assert len(widget.pontos_nova_rota) == 2
     
     # Adiciona novamente
-    widget.adicionar_ponto_desenho_linha(QPointF(60, 200))
-    assert len(widget.pontos_desenho_linha) == 3
-    
-    # Mock do DialogoEdicaoPOI para aceitar automaticamente
-    monkeypatch.setattr(DialogoEdicaoPOI, "exec", lambda self: QDialog.DialogCode.Accepted)
-    monkeypatch.setattr(DialogoEdicaoPOI, "obter_valores", lambda self: ("1", "Fenda do Baú", "#00E676"))
+    widget.adicionar_ponto_nova_rota(QPointF(60, 200))
+    assert len(widget.pontos_nova_rota) == 3
     
     # Finaliza modo
-    widget.finalizar_modo_desenho_linha()
-    assert widget.modo_desenho_linha is False
+    widget.finalizar_modo_nova_rota()
+    assert widget.modo_nova_rota is False
     assert widget.label_modo.isHidden()
     
     # Verifica chamada no controller
-    mock_controller.adicionar_linha.assert_called_once()
-    args, kwargs = mock_controller.adicionar_linha.call_args
-    assert kwargs["id_linha"] == "1"
-    assert kwargs["label"] == "Fenda do Baú"
-    assert kwargs["cor"] == "#00E676"
-    assert len(kwargs["nos"]) == 3
-    assert all(n["tipo"] == croqui_pb2.NoTrajeto.TipoNo.PASSAGEM for n in kwargs["nos"])
+    mock_controller.adicionar_rota_com_tracado.assert_called_once()
+    _, kwargs = mock_controller.adicionar_rota_com_tracado.call_args
+    assert kwargs["dados_rota"]["nome"] == "Fenda do Baú"
+    assert len(kwargs["pontos_trajeto"]) == 3
 
 
-def test_modo_desenho_linha_cancelamento_e_teclado(qtbot):
-    """Testa cancelamento de linha e atalhos de teclado."""
+def test_modo_nova_rota_cancelamento_e_teclado(qtbot):
+    """Testa cancelamento de nova rota e atalhos de teclado."""
     from editor.views.widget_editor_mapas import WidgetEditorMapas, CenaDesenho
     from PySide6.QtCore import QPointF, Qt
     from PySide6.QtGui import QKeyEvent
@@ -1809,15 +1802,16 @@ def test_modo_desenho_linha_cancelamento_e_teclado(qtbot):
     dados = {'cena': cena, 'itens_bb': []}
     widget.dados_atuais = dados
     
-    widget.iniciar_modo_desenho_linha(dados)
-    widget.adicionar_ponto_desenho_linha(QPointF(20, 20))
+    dados_rota = {"nome": "Via Teste"}
+    widget.iniciar_modo_nova_rota(dados_rota, dados)
+    widget.adicionar_ponto_nova_rota(QPointF(20, 20))
     
     # Pressiona ESC no visualizador
     evento_esc = QKeyEvent(QKeyEvent.Type.KeyPress, Qt.Key.Key_Escape, Qt.KeyboardModifier.NoModifier)
     widget.visualizador.keyPressEvent(evento_esc)
     
-    assert widget.modo_desenho_linha is False
-    assert len(widget.pontos_desenho_linha) == 0
+    assert widget.modo_nova_rota is False
+    assert len(widget.pontos_nova_rota) == 0
 
 
 def test_item_trajeto_linha_mover_linha_completa_move_nos_e_alcas(qtbot):
@@ -2407,11 +2401,13 @@ def test_alterar_tipo_no_atualiza_alca_e_simbolo(qtbot):
     assert alca.rect().width() == 18
 
 
-def test_botao_nova_linha_escalada_texto(qtbot):
+def test_botao_nova_rota(qtbot):
     from editor.views.widget_editor_mapas import WidgetEditorMapas
     widget = WidgetEditorMapas()
     qtbot.addWidget(widget)
-    assert "Nova Linha / Escalada" in widget.btn_add_linha.text()
+    assert "Nova Rota" in widget.btn_nova_rota.text()
+    assert not hasattr(widget, "btn_add_linha")
+    assert widget.btn_nova_rota.shortcut().toString() == "R"
 
 
 def test_alca_no_trajeto_raio_e_tamanho_fonte_customizados(qtbot):
@@ -3032,6 +3028,7 @@ def test_operacoes_de_mutacao_abortam_quando_mapa_invalido(qtbot, tmp_path, mock
     mocker.spy(mapas_ctrl, "adicionar_poi")
     mocker.spy(mapas_ctrl, "deletar_poi")
     mocker.spy(mapas_ctrl, "adicionar_linha")
+    mocker.spy(mapas_ctrl, "adicionar_rota_com_tracado")
     mocker.spy(mapas_ctrl, "converter_boxes_para_circulos")
     mocker.spy(mapas_ctrl, "converter_circulos_para_boxes")
     mocker.spy(mapas_ctrl, "alterar_referencia")
@@ -3050,10 +3047,10 @@ def test_operacoes_de_mutacao_abortam_quando_mapa_invalido(qtbot, tmp_path, mock
     mock_dialogo.assert_not_called()
     assert mapas_ctrl.adicionar_poi.call_count == 0
 
-    # Tentativa de desenhar linha
-    widget.pontos_desenho_linha = [MagicMock(), MagicMock()]
-    widget.finalizar_modo_desenho_linha()
-    assert mapas_ctrl.adicionar_linha.call_count == 0
+    # Tentativa de desenhar rota
+    widget.pontos_nova_rota = [MagicMock(), MagicMock()]
+    widget.finalizar_modo_nova_rota()
+    assert mapas_ctrl.adicionar_rota_com_tracado.call_count == 0
 
     # Tentativa de desenhar polígono
     widget.pontos_desenho = [MagicMock(), MagicMock(), MagicMock()]
@@ -3252,3 +3249,868 @@ def test_alca_no_seta_direcional(qtbot):
     # Alterar outro nó para SETA_DIRECIONAL
     item.alterar_tipo_no(0, 12)
     assert item.alcas[0].obter_tipo_int() == 12
+
+
+def test_ao_clicar_nova_rota_fluxos(qtbot, mocker):
+    """Testa abertura do diálogo de nova rota e início do modo de desenho."""
+    from editor.views.widget_editor_mapas import WidgetEditorMapas
+    from PySide6.QtWidgets import QDialog
+    from aresta_api.proto.generated import croqui_pb2
+
+    widget = WidgetEditorMapas()
+    qtbot.addWidget(widget)
+
+    # 1. Mapa inválido -> aborta
+    mocker.patch.object(widget, "_mapa_ativo_valido", return_value=False)
+    mock_iniciar = mocker.patch.object(widget, "iniciar_modo_nova_rota")
+    widget.ao_clicar_nova_rota()
+    mock_iniciar.assert_not_called()
+
+    # 2. Mapa válido, diálogo cancelado
+    mocker.patch.object(widget, "_mapa_ativo_valido", return_value=True)
+    mocker.patch.object(widget, "_obter_setor_atual", return_value=None)
+    mock_dialogo_cls = mocker.patch("editor.views.dialogos.dialogo_nova_rota_mapa.DialogoNovaRotaMapa")
+    instancia_dlg = mock_dialogo_cls.return_value
+    instancia_dlg.exec.return_value = QDialog.DialogCode.Rejected
+    widget.ao_clicar_nova_rota()
+    mock_iniciar.assert_not_called()
+
+    # 3. Diálogo aceito com dados válidos
+    instancia_dlg.exec.return_value = QDialog.DialogCode.Accepted
+    instancia_dlg.obter_dados_rota.return_value = {"nome": "Super Rota"}
+    widget.ao_clicar_nova_rota()
+    mock_iniciar.assert_called_once_with({"nome": "Super Rota"})
+
+
+def test_obter_setor_atual_fluxos(qtbot):
+    """Testa recuperação do setor ativo por índices e por busca fallback."""
+    from editor.views.widget_editor_mapas import WidgetEditorMapas
+    from editor.models.croqui_model import CroquiModel
+    from aresta_api.proto.generated import croqui_pb2
+
+    # 1. Sem model nem controller
+    widget = WidgetEditorMapas()
+    assert widget._obter_setor_atual() is None
+
+    # 2. Com croqui vazio
+    croqui = croqui_pb2.Croqui()
+    model = CroquiModel(croqui)
+    widget.croqui_model = model
+    assert widget._obter_setor_atual() is None
+
+    # 3. Com subsetor dentro de grupo
+    pico = croqui.picos.add(nome="Pico 1")
+    sg = pico.setores_ou_grupos.add()
+    grupo = sg.grupo.conteudo
+    subsetor = grupo.setores.add()
+    subsetor.conteudo.nome = "Subsetor A"
+    mapa_sub = subsetor.conteudo.mapas.add(caminho_imagem_mapa="sub.webp")
+
+    widget.msg_mapa_proxy = mapa_sub
+    widget.dados_atuais = {
+        'pico_idx': 0,
+        'sg_idx': 0,
+        's_idx': 0,
+        'tipo': 'subsetor'
+    }
+    setor_obtido = widget._obter_setor_atual()
+    assert setor_obtido is not None
+    assert setor_obtido.nome == "Subsetor A"
+
+    # 4. Fallback: índices não batem, mas mapa existe em grupo
+    widget.dados_atuais = {
+        'pico_idx': 99,
+        'sg_idx': 99,
+        's_idx': 99,
+        'tipo': 'subsetor'
+    }
+    setor_fb = widget._obter_setor_atual()
+    assert setor_fb is not None
+    assert setor_fb.nome == "Subsetor A"
+
+
+def test_mira_snap_e_edicao_pontos(qtbot):
+    """Testa mira magnética de snap, adição e remoção de pontos no modo nova rota."""
+    from editor.views.widget_editor_mapas import WidgetEditorMapas, CenaDesenho
+    from aresta_api.proto.generated import croqui_pb2
+    from PySide6.QtCore import QPointF
+    from PySide6.QtGui import QColor
+
+    widget = WidgetEditorMapas()
+    qtbot.addWidget(widget)
+
+    # Fora do modo_nova_rota, mira_snap retorna coordenada intacta
+    pt = QPointF(50, 50)
+    assert widget.atualizar_mira_snap(pt) == pt
+
+    cena = CenaDesenho(widget)
+    widget.visualizador.setScene(cena)
+    dados = {'cena': cena, 'itens_bb': []}
+    widget.dados_atuais = dados
+
+    # Cria mapa com uma linha para testar snap
+    mapa = croqui_pb2.Mapa()
+    poi = mapa.pontos_de_interesse.add(id="linha_existente")
+    no1 = poi.linha.conteudo.nos.add(x=100, y=100)
+    no2 = poi.linha.conteudo.nos.add(x=200, y=200)
+    widget.msg_mapa_proxy = mapa
+
+    widget.iniciar_modo_nova_rota({"nome": "Rota Teste"}, dados)
+
+    # 1. Snap a vértice (nó) -> mira laranja
+    pt_perto_no = QPointF(102, 101)
+    snapped_no = widget.atualizar_mira_snap(pt_perto_no)
+    assert snapped_no == QPointF(100, 100)
+    assert widget.item_mira_snap is not None
+    assert widget.item_mira_snap.isVisible() is True
+    assert widget.item_mira_snap.pen().color() == QColor(255, 109, 0)
+
+    # 2. Snap a curva -> mira ciano
+    pt_perto_curva = QPointF(150, 153)
+    snapped_curva = widget.atualizar_mira_snap(pt_perto_curva)
+    assert snapped_curva != pt_perto_curva
+    assert widget.item_mira_snap.pen().color() == QColor(0, 229, 255)
+
+    # 3. Ponto livre -> esconde a mira
+    pt_livre = QPointF(800, 800)
+    snapped_livre = widget.atualizar_mira_snap(pt_livre)
+    assert snapped_livre == pt_livre
+    assert widget.item_mira_snap.isVisible() is False
+
+    # 4. Adiciona primeiro ponto (ramo de 1 ponto)
+    widget.adicionar_ponto_nova_rota(QPointF(10, 10))
+    assert len(widget.pontos_nova_rota) == 1
+
+    # 5. Adiciona segundo ponto (ramo de curva)
+    widget.adicionar_ponto_nova_rota(QPointF(20, 20))
+    assert len(widget.pontos_nova_rota) == 2
+
+    # 6. Desfaz ponto -> volta para 1 ponto
+    widget.desfazer_ponto_nova_rota()
+    assert len(widget.pontos_nova_rota) == 1
+
+    # 7. Desfaz último ponto -> cancela modo automaticamente
+    widget.desfazer_ponto_nova_rota()
+    assert widget.modo_nova_rota is False
+
+
+def test_finalizar_modo_nova_rota_poucos_pontos(qtbot):
+    """Testa cancelamento automático ao finalizar com menos de 2 pontos."""
+    from editor.views.widget_editor_mapas import WidgetEditorMapas, CenaDesenho
+    from PySide6.QtCore import QPointF
+
+    widget = WidgetEditorMapas()
+    qtbot.addWidget(widget)
+    cena = CenaDesenho(widget)
+    widget.visualizador.setScene(cena)
+    dados = {'cena': cena, 'itens_bb': []}
+    widget.iniciar_modo_nova_rota({"nome": "Curta"}, dados)
+    widget.adicionar_ponto_nova_rota(QPointF(10, 10))
+
+    widget.finalizar_modo_nova_rota()
+    assert widget.modo_nova_rota is False
+
+
+def test_mover_no_soldado_casos_borda(qtbot):
+    """Testa casos de borda do método mover_no_soldado."""
+    from editor.views.widget_editor_mapas import WidgetEditorMapas
+    from PySide6.QtCore import QPointF
+    from unittest.mock import MagicMock
+
+    widget = WidgetEditorMapas()
+    qtbot.addWidget(widget)
+
+    # Sem controller ou proxy -> não quebra
+    widget.mover_no_soldado(QPointF(10, 10), QPointF(20, 20))
+
+    mock_ctrl = MagicMock()
+    widget.mapas_controller = mock_ctrl
+    widget.msg_mapa_proxy = MagicMock()
+
+    # Posição inicial igual à final -> retorna cedo
+    widget.mover_no_soldado(QPointF(10, 10), QPointF(10, 10))
+    mock_ctrl.iniciar_grupo_undo.assert_not_called()
+
+    # Com proxy sem linhas coincidentes -> retorna cedo
+    from aresta_api.proto.generated import croqui_pb2
+    mapa = croqui_pb2.Mapa()
+    widget.msg_mapa_proxy = mapa
+    widget.mover_no_soldado(QPointF(10, 10), QPointF(20, 20))
+    mock_ctrl.iniciar_grupo_undo.assert_not_called()
+
+
+def test_cobertura_restante_novos_metodos(qtbot, mocker):
+    """Testa os branches finais dos métodos para garantir 100% de cobertura nos novos trechos."""
+    from editor.views.widget_editor_mapas import WidgetEditorMapas
+    from editor.models.croqui_model import CroquiModel
+    from aresta_api.proto.generated import croqui_pb2
+    from PySide6.QtCore import QPointF
+    from unittest.mock import MagicMock
+
+    widget = WidgetEditorMapas()
+    qtbot.addWidget(widget)
+
+    # 1. iniciar_modo_nova_rota com mapa inválido
+    mocker.patch.object(widget, "_mapa_ativo_valido", return_value=False)
+    widget.iniciar_modo_nova_rota({"nome": "Via Inv"})
+    assert widget.modo_nova_rota is False
+
+    # 2. _obter_setor_atual com fallback em setor padrão e quando mapa não existe em nenhum setor
+    croqui = croqui_pb2.Croqui()
+    pico = croqui.picos.add(nome="Pico 1")
+    sg = pico.setores_ou_grupos.add()
+    setor = sg.setor.conteudo
+    setor.nome = "Setor Normal"
+    mapa_sec = setor.mapas.add(caminho_imagem_mapa="normal.webp")
+
+    model = CroquiModel(croqui)
+    widget.croqui_model = model
+    # Mapa associado está no Setor Normal, mas índices estão errados -> usa fallback em sg.setor
+    widget.msg_mapa_proxy = mapa_sec
+    widget.dados_atuais = {'pico_idx': 99, 'sg_idx': 99}
+    setor_fb = widget._obter_setor_atual()
+    assert setor_fb is not None
+    assert setor_fb.nome == "Setor Normal"
+
+    # Mapa que não existe em nenhum setor -> fallback retorna None
+    mapa_fantasma = croqui_pb2.Mapa(caminho_imagem_mapa="fantasma.webp")
+    widget.msg_mapa_proxy = mapa_fantasma
+    assert widget._obter_setor_atual() is None
+
+    # 3. mover_no_soldado onde nó já possui coordenada final (x_fim, y_fim) no proxy
+    mapa_com_linha = croqui_pb2.Mapa()
+    poi = mapa_com_linha.pontos_de_interesse.add(id="linha_1")
+    poi.linha.conteudo.nos.add(x=200, y=200)
+    widget.msg_mapa_proxy = mapa_com_linha
+    mock_ctrl = MagicMock()
+    widget.mapas_controller = mock_ctrl
+    widget.mover_no_soldado(QPointF(100, 100), QPointF(200, 200))
+    mock_ctrl.mover_poi.assert_called_once()
+
+    # 4. _obter_setor_atual com setor sem atributo conteudo
+    mock_sg = MagicMock()
+    mock_sg.setor = "SetorDireto"
+    mock_croqui_plano = MagicMock()
+    mock_croqui_plano.picos = [MagicMock(setores_ou_grupos=[mock_sg])]
+    mock_model_plano = MagicMock()
+    mock_model_plano.obter_croqui_readonly.return_value = mock_croqui_plano
+    widget.croqui_model = mock_model_plano
+    widget.dados_atuais = {'pico_idx': 0, 'sg_idx': 0, 'tipo': 'setor'}
+    assert widget._obter_setor_atual() == "SetorDireto"
+
+
+def test_destaque_poi_linha_mantem_brush_transparente_e_altera_pen(qtbot):
+    """[TDD] Verifica que destacar uma linha aplica pen destacada sem preencher a curva aberta com polígono."""
+    from editor.views.widget_editor_mapas import WidgetEditorMapas, ItemTrajetoLinha
+    from aresta_api.proto.generated import croqui_pb2
+    from editor.models.readonly_proxy import ReadOnlyProxy
+    from PySide6.QtGui import QColor
+    from PySide6.QtCore import Qt
+
+    widget = WidgetEditorMapas()
+    qtbot.addWidget(widget)
+
+    mapa = croqui_pb2.Mapa()
+    poi = mapa.pontos_de_interesse.add(id="linha_teste", cor="#FFD600")
+    poi.linha.estilo = croqui_pb2.LinhaTrajeto.EstiloTraco.TRACEJADO
+    poi.linha.espessura = 3
+    n1 = poi.linha.conteudo.nos.add(x=10, y=10, tipo=1)
+    n2 = poi.linha.conteudo.nos.add(x=50, y=100, tipo=0)
+    n3 = poi.linha.conteudo.nos.add(x=100, y=20, tipo=11)
+
+    ref = mapa.referencias.add(escalada="Via Teste")
+    ref.ids.append("linha_teste")
+
+    proxy_mapa = ReadOnlyProxy(mapa)
+    widget.set_mapa_atual(proxy_mapa)
+
+    item_linha = widget.itens_poi.get(0)
+    assert isinstance(item_linha, ItemTrajetoLinha)
+
+    # 1. Destaque temporário (linha selecionada em ciano)
+    widget.destacar_pois_temporariamente(ref)
+
+    # O brush da linha NUNCA pode ser verde ou ciano (deve permanecer transparente sem polígono)
+    brush = item_linha.brush if not callable(item_linha.brush) else item_linha.brush()
+    pen = item_linha.pen if not callable(item_linha.pen) else item_linha.pen()
+    assert brush.color().alpha() == 0 or brush.style() == Qt.BrushStyle.NoBrush
+    # A pen deve estar destacada em ciano
+    assert pen.color() == QColor(0, 255, 255)
+
+    # 2. Remoção de destaque (fora do modo linkagem)
+    widget.remover_destaque_pois(force=True)
+    brush_pos = item_linha.brush if not callable(item_linha.brush) else item_linha.brush()
+    pen_pos = item_linha.pen if not callable(item_linha.pen) else item_linha.pen()
+    # Brush permanece transparente
+    assert brush_pos.color().alpha() == 0 or brush_pos.style() == Qt.BrushStyle.NoBrush
+    # Pen volta para a cor original da linha
+    assert pen_pos.color() == QColor("#FFD600")
+
+    # 3. Hover na linha durante remover_destaque_pois
+    item_linha.is_hovered = True
+    widget.remover_destaque_pois(force=True)
+    pen_hover = item_linha.pen if not callable(item_linha.pen) else item_linha.pen()
+    assert pen_hover.color() == QColor(255, 140, 0)
+    item_linha.is_hovered = False
+
+    # 4. Estilos de traço no criar_pen_padrao
+    for estilo_nome, pen_style in [
+        ("SOLIDO", Qt.PenStyle.SolidLine),
+        ("PONTILHADO", Qt.PenStyle.DotLine),
+        ("CAMINHADA", Qt.PenStyle.DashLine),
+    ]:
+        item_linha.pt_dict["linha"]["estilo"] = estilo_nome
+        pen_estilo = item_linha.criar_pen_padrao()
+        assert pen_estilo.style() == pen_style
+
+
+def test_modo_linkagem_clique_alca_no_trajeto_alterna_linkagem_e_bloqueia_movimento(qtbot):
+    """[TDD] Verifica que clicar no círculo/nó de uma linha alterna a linkagem e bloqueia arraste durante o modo."""
+    from editor.views.widget_editor_mapas import WidgetEditorMapas, ItemTrajetoLinha, AlcaNoTrajeto
+    from aresta_api.proto.generated import croqui_pb2
+    from editor.models.readonly_proxy import ReadOnlyProxy
+    from PySide6.QtWidgets import QGraphicsItem
+    from PySide6.QtGui import QMouseEvent
+    from PySide6.QtCore import Qt, QPoint, QPointF
+    from unittest.mock import MagicMock
+
+    widget = WidgetEditorMapas()
+    qtbot.addWidget(widget)
+
+    mapa = croqui_pb2.Mapa()
+    poi = mapa.pontos_de_interesse.add(id="linha_alca", cor="#FFD600")
+    poi.linha.conteudo.nos.add(x=10, y=10, tipo=1)
+    poi.linha.conteudo.nos.add(x=80, y=80, tipo=11)
+
+    ref = mapa.referencias.add(escalada="Via Alca")
+
+    proxy_mapa = ReadOnlyProxy(mapa)
+    widget.set_mapa_atual(proxy_mapa)
+    mock_ctrl = MagicMock()
+    widget.mapas_controller = mock_ctrl
+
+    item_linha = widget.itens_poi.get(0)
+    assert isinstance(item_linha, ItemTrajetoLinha)
+    assert len(item_linha.alcas) == 2
+    alca_inicio = item_linha.alcas[0]
+
+    # Inicia modo linkagem
+    widget.iniciar_modo_linkagem(0, ref)
+
+    # Verifica que as alças não podem ser arrastadas durante o modo linkagem
+    assert not bool(alca_inicio.flags() & QGraphicsItem.GraphicsItemFlag.ItemIsMovable)
+
+    # Clica diretamente na alça de início da linha
+    evento_clique = QMouseEvent(
+        QMouseEvent.Type.MouseButtonPress,
+        QPointF(0, 0),
+        QPointF(0, 0),
+        QPointF(0, 0),
+        Qt.MouseButton.LeftButton,
+        Qt.MouseButton.LeftButton,
+        Qt.KeyboardModifier.NoModifier,
+    )
+    alca_inicio.mousePressEvent(evento_clique)
+
+    # Deve ter acionado a alteração de referência no controller para vincular a linha
+    mock_ctrl.alterar_referencia.assert_called()
+
+    # Ao parar o modo linkagem, restaura a capacidade de movimentação das alças
+    widget.parar_modo_linkagem()
+    assert bool(alca_inicio.flags() & QGraphicsItem.GraphicsItemFlag.ItemIsMovable)
+
+    # Alça criada durante modo linkagem herda flags não-móveis
+    widget.iniciar_modo_linkagem(0, ref)
+    nova_alca = AlcaNoTrajeto(0, {"x": 0, "y": 0}, item_linha)
+    assert not bool(nova_alca.flags() & QGraphicsItem.GraphicsItemFlag.ItemIsMovable)
+    widget.parar_modo_linkagem()
+
+
+def test_context_menu_alca_no_intermediario_oferece_separar_traco(qtbot, monkeypatch):
+    """[TDD] Verifica que o nó intermediário oferece a ação de separar traço e aciona o controller."""
+    from editor.views.widget_editor_mapas import WidgetEditorMapas, ItemTrajetoLinha, AlcaNoTrajeto
+    from aresta_api.proto.generated import croqui_pb2
+    from editor.models.readonly_proxy import ReadOnlyProxy
+    from unittest.mock import MagicMock
+    from PySide6.QtGui import QContextMenuEvent
+    from PySide6.QtCore import QPoint
+
+    widget = WidgetEditorMapas()
+    qtbot.addWidget(widget)
+
+    mapa = croqui_pb2.Mapa()
+    poi = mapa.pontos_de_interesse.add(id="linha_sep", cor="#FFD600")
+    poi.linha.conteudo.nos.add(x=10, y=10)
+    poi.linha.conteudo.nos.add(x=50, y=50)
+    poi.linha.conteudo.nos.add(x=100, y=100)
+
+    proxy_mapa = ReadOnlyProxy(mapa)
+    widget.set_mapa_atual(proxy_mapa)
+    mock_ctrl = MagicMock()
+    widget.mapas_controller = mock_ctrl
+
+    item_linha = widget.itens_poi.get(0)
+    assert isinstance(item_linha, ItemTrajetoLinha)
+    alca_meio = item_linha.alcas[1]
+    assert alca_meio.indice == 1
+
+    menu_capturado = []
+    def mock_exec(menu, pos):
+        menu_capturado.append(menu)
+        return None
+    monkeypatch.setattr(alca_meio, "_executar_menu", mock_exec)
+
+    evento = QContextMenuEvent(QContextMenuEvent.Reason.Mouse, QPoint(50, 50), QPoint(50, 50))
+    alca_meio.contextMenuEvent(evento)
+
+    assert len(menu_capturado) == 1
+    textos_acoes = [a.text() for a in menu_capturado[0].actions()]
+    assert any("Separar Traços neste Nó" in t for t in textos_acoes)
+
+    alca_meio._separar_traco()
+    mock_ctrl.separar_linha_em_no.assert_called_once()
+
+
+def test_context_menu_alca_no_extremo_oferece_adicionar_linha_a_partir_do_ponto(qtbot, monkeypatch):
+    """[TDD] Verifica que nó de extremo oferece adicionar nova linha a partir deste ponto."""
+    from editor.views.widget_editor_mapas import WidgetEditorMapas, ItemTrajetoLinha
+    from aresta_api.proto.generated import croqui_pb2
+    from editor.models.readonly_proxy import ReadOnlyProxy
+    from PySide6.QtGui import QContextMenuEvent
+    from PySide6.QtCore import QPoint, QPointF
+
+    widget = WidgetEditorMapas()
+    qtbot.addWidget(widget)
+
+    mapa = croqui_pb2.Mapa()
+    poi = mapa.pontos_de_interesse.add(id="linha_ext", cor="#FFD600")
+    poi.linha.conteudo.nos.add(x=10, y=10)
+    poi.linha.conteudo.nos.add(x=50, y=50)
+
+    proxy_mapa = ReadOnlyProxy(mapa)
+    widget.set_mapa_atual(proxy_mapa)
+
+    item_linha = widget.itens_poi.get(0)
+    alca_fim = item_linha.alcas[1]
+
+    menu_capturado = []
+    def mock_exec(menu, pos):
+        menu_capturado.append(menu)
+        return None
+    monkeypatch.setattr(alca_fim, "_executar_menu", mock_exec)
+
+    evento = QContextMenuEvent(QContextMenuEvent.Reason.Mouse, QPoint(50, 50), QPoint(50, 50))
+    alca_fim.contextMenuEvent(evento)
+
+    assert len(menu_capturado) == 1
+    textos_acoes = [a.text() for a in menu_capturado[0].actions()]
+    assert any("Adicionar Nova Linha a partir deste Ponto" in t for t in textos_acoes)
+
+    alca_fim._continuar_nova_linha()
+    assert widget.modo_nova_rota is True
+    assert widget.dados_nova_rota_atual.get("sem_ligacao") is True
+    assert len(widget.pontos_nova_rota) == 1
+    assert widget.pontos_nova_rota[0] == QPointF(50, 50)
+
+
+def test_modo_nova_linha_avulsa_sem_ligacao_adiciona_linha_sem_referencia(qtbot):
+    """[TDD] Verifica que concluir o desenho de uma linha avulsa sem ligação persiste via adicionar_linha."""
+    from editor.views.widget_editor_mapas import WidgetEditorMapas
+    from aresta_api.proto.generated import croqui_pb2
+    from editor.models.readonly_proxy import ReadOnlyProxy
+    from unittest.mock import MagicMock
+    from PySide6.QtCore import QPointF
+
+    widget = WidgetEditorMapas()
+    qtbot.addWidget(widget)
+
+    mapa = croqui_pb2.Mapa()
+    proxy_mapa = ReadOnlyProxy(mapa)
+    widget.set_mapa_atual(proxy_mapa)
+    mock_ctrl = MagicMock()
+    widget.mapas_controller = mock_ctrl
+
+    widget.iniciar_modo_nova_rota(
+        dados_rota={"sem_ligacao": True},
+        ponto_inicial=QPointF(10, 10)
+    )
+    widget.adicionar_ponto_nova_rota(QPointF(40, 40))
+    widget.finalizar_modo_nova_rota()
+
+    mock_ctrl.adicionar_linha.assert_called_once()
+    mock_ctrl.adicionar_rota_com_tracado.assert_not_called()
+
+
+def test_botao_linha_avulsa_inicia_modo_desenho(qtbot):
+    """[TDD] Verifica que o botão btn_nova_linha_avulsa aciona o modo de nova linha sem ligação."""
+    from editor.views.widget_editor_mapas import WidgetEditorMapas
+    from aresta_api.proto.generated import croqui_pb2
+    from editor.models.readonly_proxy import ReadOnlyProxy
+
+    widget = WidgetEditorMapas()
+    qtbot.addWidget(widget)
+
+    mapa = croqui_pb2.Mapa()
+    proxy_mapa = ReadOnlyProxy(mapa)
+    widget.set_mapa_atual(proxy_mapa)
+
+    assert hasattr(widget, "btn_nova_linha_avulsa")
+    widget.btn_nova_linha_avulsa.click()
+
+    assert widget.modo_nova_rota is True
+    assert widget.dados_nova_rota_atual.get("sem_ligacao") is True
+
+
+def test_visualizador_pan_com_botao_do_meio_no_modo_nova_rota(qtbot):
+    """[TDD] Verifica que o botão do meio arrasta a visualização sem inserir nós durante modo_nova_rota."""
+    from editor.views.widget_editor_mapas import WidgetEditorMapas
+    from aresta_api.proto.generated import croqui_pb2
+    from editor.models.readonly_proxy import ReadOnlyProxy
+    from PySide6.QtGui import QMouseEvent
+    from PySide6.QtCore import Qt, QPointF
+
+    widget = WidgetEditorMapas()
+    qtbot.addWidget(widget)
+
+    mapa = croqui_pb2.Mapa()
+    proxy_mapa = ReadOnlyProxy(mapa)
+    widget.set_mapa_atual(proxy_mapa)
+
+    widget.iniciar_modo_nova_rota(ponto_inicial=QPointF(20, 20))
+    assert len(widget.pontos_nova_rota) == 1
+    vis = widget.visualizador
+    assert vis.cursor().shape() == Qt.CursorShape.CrossCursor
+
+    # 1. Pressiona botão do meio
+    ev_press = QMouseEvent(
+        QMouseEvent.Type.MouseButtonPress,
+        QPointF(50, 50),
+        Qt.MouseButton.MiddleButton,
+        Qt.MouseButton.MiddleButton,
+        Qt.KeyboardModifier.NoModifier
+    )
+    vis.mousePressEvent(ev_press)
+    assert vis._arrastando_mapa is True
+    assert vis.cursor().shape() == Qt.CursorShape.ClosedHandCursor
+
+    # 2. Move o mouse
+    ev_move = QMouseEvent(
+        QMouseEvent.Type.MouseMove,
+        QPointF(30, 20),
+        Qt.MouseButton.MiddleButton,
+        Qt.MouseButton.MiddleButton,
+        Qt.KeyboardModifier.NoModifier
+    )
+    vis.mouseMoveEvent(ev_move)
+
+    # 3. Solta o botão do meio
+    ev_release = QMouseEvent(
+        QMouseEvent.Type.MouseButtonRelease,
+        QPointF(30, 20),
+        Qt.MouseButton.MiddleButton,
+        Qt.MouseButton.NoButton,
+        Qt.KeyboardModifier.NoModifier
+    )
+    vis.mouseReleaseEvent(ev_release)
+    assert vis._arrastando_mapa is False
+    assert vis.cursor().shape() == Qt.CursorShape.CrossCursor
+    assert len(widget.pontos_nova_rota) == 1, "Não deve ter adicionado pontos"
+
+
+def test_visualizador_pan_com_barra_de_espaco_no_modo_nova_rota(qtbot):
+    """[TDD] Verifica que segurar Barra de Espaço permite pan com botão esquerdo sem inserir nós."""
+    from editor.views.widget_editor_mapas import WidgetEditorMapas
+    from aresta_api.proto.generated import croqui_pb2
+    from editor.models.readonly_proxy import ReadOnlyProxy
+    from PySide6.QtGui import QMouseEvent, QKeyEvent
+    from PySide6.QtCore import Qt, QPointF
+
+    widget = WidgetEditorMapas()
+    qtbot.addWidget(widget)
+
+    mapa = croqui_pb2.Mapa()
+    proxy_mapa = ReadOnlyProxy(mapa)
+    widget.set_mapa_atual(proxy_mapa)
+
+    widget.iniciar_modo_nova_rota(ponto_inicial=QPointF(20, 20))
+    vis = widget.visualizador
+    assert vis.cursor().shape() == Qt.CursorShape.CrossCursor
+
+    # 1. Pressiona Espaço
+    ev_space_down = QKeyEvent(QKeyEvent.Type.KeyPress, Qt.Key.Key_Space, Qt.KeyboardModifier.NoModifier)
+    vis.keyPressEvent(ev_space_down)
+    assert getattr(vis, "_modo_espaco_pan", False) is True
+    assert vis.cursor().shape() == Qt.CursorShape.OpenHandCursor
+
+    # 2. Pressiona botão esquerdo durante espaço
+    ev_press = QMouseEvent(
+        QMouseEvent.Type.MouseButtonPress,
+        QPointF(60, 60),
+        Qt.MouseButton.LeftButton,
+        Qt.MouseButton.LeftButton,
+        Qt.KeyboardModifier.NoModifier
+    )
+    vis.mousePressEvent(ev_press)
+    assert vis._arrastando_mapa is True
+    assert vis.cursor().shape() == Qt.CursorShape.ClosedHandCursor
+
+    # 3. Move o mouse
+    ev_move = QMouseEvent(
+        QMouseEvent.Type.MouseMove,
+        QPointF(40, 40),
+        Qt.MouseButton.LeftButton,
+        Qt.MouseButton.LeftButton,
+        Qt.KeyboardModifier.NoModifier
+    )
+    vis.mouseMoveEvent(ev_move)
+
+    # 4. Solta botão esquerdo
+    ev_release = QMouseEvent(
+        QMouseEvent.Type.MouseButtonRelease,
+        QPointF(40, 40),
+        Qt.MouseButton.LeftButton,
+        Qt.MouseButton.NoButton,
+        Qt.KeyboardModifier.NoModifier
+    )
+    vis.mouseReleaseEvent(ev_release)
+    assert vis._arrastando_mapa is False
+    assert vis.cursor().shape() == Qt.CursorShape.OpenHandCursor
+
+    # 5. Solta Espaço
+    ev_space_up = QKeyEvent(QKeyEvent.Type.KeyRelease, Qt.Key.Key_Space, Qt.KeyboardModifier.NoModifier)
+    vis.keyReleaseEvent(ev_space_up)
+    assert getattr(vis, "_modo_espaco_pan", False) is False
+    assert vis.cursor().shape() == Qt.CursorShape.CrossCursor
+    assert len(widget.pontos_nova_rota) == 1, "Não deve ter adicionado pontos"
+
+
+def test_visualizador_pan_com_espaco_solto_durante_arrasto(qtbot):
+    """[TDD] Verifica o caso em que a tecla Espaço é solta antes do botão do mouse ser solto."""
+    from editor.views.widget_editor_mapas import WidgetEditorMapas
+    from aresta_api.proto.generated import croqui_pb2
+    from editor.models.readonly_proxy import ReadOnlyProxy
+    from PySide6.QtGui import QMouseEvent, QKeyEvent
+    from PySide6.QtCore import Qt, QPointF
+
+    widget = WidgetEditorMapas()
+    qtbot.addWidget(widget)
+
+    mapa = croqui_pb2.Mapa()
+    proxy_mapa = ReadOnlyProxy(mapa)
+    widget.set_mapa_atual(proxy_mapa)
+
+    widget.iniciar_modo_nova_rota(ponto_inicial=QPointF(20, 20))
+    vis = widget.visualizador
+
+    # 1. Pressiona Espaço
+    vis.keyPressEvent(QKeyEvent(QKeyEvent.Type.KeyPress, Qt.Key.Key_Space, Qt.KeyboardModifier.NoModifier))
+    # 2. Pressiona Botão Esquerdo
+    vis.mousePressEvent(QMouseEvent(
+        QMouseEvent.Type.MouseButtonPress,
+        QPointF(50, 50),
+        Qt.MouseButton.LeftButton,
+        Qt.MouseButton.LeftButton,
+        Qt.KeyboardModifier.NoModifier
+    ))
+    assert vis._arrastando_mapa is True
+
+    # 3. Solta Espaço ENQUANTO ainda está arrastando
+    vis.keyReleaseEvent(QKeyEvent(QKeyEvent.Type.KeyRelease, Qt.Key.Key_Space, Qt.KeyboardModifier.NoModifier))
+    assert getattr(vis, "_modo_espaco_pan", False) is False
+    # Continua arrastando
+    assert vis._arrastando_mapa is True
+
+    # 4. Solta Botão Esquerdo
+    vis.mouseReleaseEvent(QMouseEvent(
+        QMouseEvent.Type.MouseButtonRelease,
+        QPointF(30, 30),
+        Qt.MouseButton.LeftButton,
+        Qt.MouseButton.NoButton,
+        Qt.KeyboardModifier.NoModifier
+    ))
+    assert vis._arrastando_mapa is False
+    # Agora deve restaurar o cursor do modo (CrossCursor)
+    assert vis.cursor().shape() == Qt.CursorShape.CrossCursor
+
+
+def test_visualizador_zoom_wheel_atualiza_snap(qtbot, mocker):
+    """[TDD] Verifica que o zoom de scroll atualiza a mira magnética no modo nova rota."""
+    from editor.views.widget_editor_mapas import WidgetEditorMapas
+    from aresta_api.proto.generated import croqui_pb2
+    from editor.models.readonly_proxy import ReadOnlyProxy
+    from PySide6.QtGui import QWheelEvent
+    from PySide6.QtCore import Qt, QPoint, QPointF
+
+    widget = WidgetEditorMapas()
+    qtbot.addWidget(widget)
+
+    mapa = croqui_pb2.Mapa()
+    proxy_mapa = ReadOnlyProxy(mapa)
+    widget.set_mapa_atual(proxy_mapa)
+
+    widget.iniciar_modo_nova_rota(ponto_inicial=QPointF(20, 20))
+    spy_snap = mocker.spy(widget, "atualizar_mira_snap")
+
+    pos = QPoint(50, 50)
+    ev_wheel = QWheelEvent(
+        QPointF(pos),
+        QPointF(pos),
+        QPoint(0, 0),
+        QPoint(0, 120),
+        Qt.MouseButton.NoButton,
+        Qt.KeyboardModifier.NoModifier,
+        Qt.ScrollPhase.NoScrollPhase,
+        False
+    )
+    widget.visualizador.wheelEvent(ev_wheel)
+    assert spy_snap.call_count >= 1
+
+
+def test_visualizador_pan_com_botao_do_meio_em_modo_normal(qtbot):
+    """[TDD] Verifica que o botão do meio também funciona fora do modo de desenho."""
+    from editor.views.widget_editor_mapas import WidgetEditorMapas
+    from aresta_api.proto.generated import croqui_pb2
+    from editor.models.readonly_proxy import ReadOnlyProxy
+    from PySide6.QtGui import QMouseEvent
+    from PySide6.QtCore import Qt, QPointF
+
+    widget = WidgetEditorMapas()
+    qtbot.addWidget(widget)
+
+    mapa = croqui_pb2.Mapa()
+    proxy_mapa = ReadOnlyProxy(mapa)
+    widget.set_mapa_atual(proxy_mapa)
+
+    vis = widget.visualizador
+
+    ev_press = QMouseEvent(
+        QMouseEvent.Type.MouseButtonPress,
+        QPointF(50, 50),
+        Qt.MouseButton.MiddleButton,
+        Qt.MouseButton.MiddleButton,
+        Qt.KeyboardModifier.NoModifier
+    )
+    vis.mousePressEvent(ev_press)
+    assert vis._arrastando_mapa is True
+    assert vis.cursor().shape() == Qt.CursorShape.ClosedHandCursor
+
+    ev_release = QMouseEvent(
+        QMouseEvent.Type.MouseButtonRelease,
+        QPointF(30, 20),
+        Qt.MouseButton.MiddleButton,
+        Qt.MouseButton.NoButton,
+        Qt.KeyboardModifier.NoModifier
+    )
+    vis.mouseReleaseEvent(ev_release)
+    assert vis._arrastando_mapa is False
+
+
+def test_visualizador_zoom_wheel_zoom_out(qtbot, mocker):
+    """Verifica que o zoom out (roda para baixo) funciona e atualiza o snap."""
+    from editor.views.widget_editor_mapas import WidgetEditorMapas
+    from aresta_api.proto.generated import croqui_pb2
+    from editor.models.readonly_proxy import ReadOnlyProxy
+    from PySide6.QtGui import QWheelEvent
+    from PySide6.QtCore import Qt, QPoint, QPointF
+
+    widget = WidgetEditorMapas()
+    qtbot.addWidget(widget)
+
+    mapa = croqui_pb2.Mapa()
+    proxy_mapa = ReadOnlyProxy(mapa)
+    widget.set_mapa_atual(proxy_mapa)
+
+    widget.iniciar_modo_nova_rota(ponto_inicial=QPointF(20, 20))
+    spy_snap = mocker.spy(widget, "atualizar_mira_snap")
+
+    pos = QPoint(50, 50)
+    ev_wheel = QWheelEvent(
+        QPointF(pos),
+        QPointF(pos),
+        QPoint(0, 0),
+        QPoint(0, -120),  # Zoom out
+        Qt.MouseButton.NoButton,
+        Qt.KeyboardModifier.NoModifier,
+        Qt.ScrollPhase.NoScrollPhase,
+        False
+    )
+    widget.visualizador.wheelEvent(ev_wheel)
+    assert spy_snap.call_count >= 1
+
+
+def test_visualizador_key_release_outras_teclas(qtbot):
+    """Verifica que soltar qualquer tecla além de Espaço é repassado ao super()."""
+    from editor.views.widget_editor_mapas import WidgetEditorMapas
+    from PySide6.QtGui import QKeyEvent
+    from PySide6.QtCore import Qt
+
+    widget = WidgetEditorMapas()
+    qtbot.addWidget(widget)
+
+    ev_key = QKeyEvent(QKeyEvent.Type.KeyRelease, Qt.Key.Key_A, Qt.KeyboardModifier.NoModifier)
+    widget.visualizador.keyReleaseEvent(ev_key)
+
+
+def test_cena_desenho_mouse_press_ignora_quando_arrastando_ou_espaco(qtbot, mocker):
+    """Verifica que a CenaDesenho ignora o clique se o visualizador estiver arrastando ou em modo espaço."""
+    from editor.views.widget_editor_mapas import WidgetEditorMapas, CenaDesenho
+    from unittest.mock import MagicMock
+    from PySide6.QtCore import Qt, QPointF
+
+    widget = WidgetEditorMapas()
+    qtbot.addWidget(widget)
+    cena = CenaDesenho(widget)
+
+    widget.modo_nova_rota = True
+    spy_add = mocker.spy(widget, "adicionar_ponto_nova_rota")
+
+    # 1. Com _modo_espaco_pan
+    widget.visualizador._modo_espaco_pan = True
+    ev1 = MagicMock()
+    ev1.button.return_value = Qt.MouseButton.LeftButton
+    ev1.scenePos.return_value = QPointF(10, 10)
+    cena.mousePressEvent(ev1)
+    assert spy_add.call_count == 0
+
+    # 2. Com _arrastando_mapa
+    widget.visualizador._modo_espaco_pan = False
+    widget.visualizador._arrastando_mapa = True
+    ev2 = MagicMock()
+    ev2.button.return_value = Qt.MouseButton.LeftButton
+    ev2.scenePos.return_value = QPointF(10, 10)
+    cena.mousePressEvent(ev2)
+    assert spy_add.call_count == 0
+
+
+def test_aviso_espaco_arrastar_em_label_modo_e_label_info(qtbot):
+    """Verifica que as mensagens de modo e dicas informam sobre navegação com Espaço+Arrastar."""
+    from editor.views.widget_editor_mapas import WidgetEditorMapas
+    from aresta_api.proto.generated import croqui_pb2
+    from editor.models.readonly_proxy import ReadOnlyProxy
+
+    widget = WidgetEditorMapas()
+    qtbot.addWidget(widget)
+
+    # 1. Verifica label_info
+    assert "Espaço+Arrastar" in widget.label_info.text()
+    assert "Botão Meio" in widget.label_info.text()
+
+    mapa = croqui_pb2.Mapa()
+    widget.set_mapa_atual(ReadOnlyProxy(mapa))
+
+    # 2. Modo nova rota
+    widget.iniciar_modo_nova_rota({"nome": "Via Teste"})
+    assert "Espaço+Arrastar" in widget.label_modo.text()
+    assert "Botão Meio" in widget.label_modo.text()
+
+    # 3. Modo linha avulsa
+    widget.iniciar_modo_nova_rota({"sem_ligacao": True})
+    assert "Espaço+Arrastar" in widget.label_modo.text()
+    assert "Botão Meio" in widget.label_modo.text()
+
+
+
+
+
+
+

@@ -602,15 +602,9 @@ arquivos:
 - caminho_relativo: br_mg_diamantina_diamaboulder/compilado.md
   checksum_sha256: aeb01ba15dc7247405045719759e8b4d3957a72c011061fa6beab7ccce877bfd
 - caminho_relativo: br_mg_igarape_pedra_grande/compilado.binarypb
-  checksum_sha256: e752216037119f1df9bdb8f115f3ecdbd4ba100d397310ed839be8509c4e3a36
+  checksum_sha256: 345613ebb21aa0520627304f8a0215cca975619a07df0fa7106291ae3a290ee7
 - caminho_relativo: thumbnails/br_mg_igarape_pedra_grande.webp
   checksum_sha256: d490580138c1b7f24c772f2d6672e895406739da51bd1880ecabb49cd28b7409
-- caminho_relativo: br_mg_igarape_pedra_grande/imagens/20260901_161018.webp
-  checksum_sha256: 5c133cbadc46815758e0d0cd8665e521fa1fb28471ba7fa3bfe947e9dd9c16da
-- caminho_relativo: br_mg_igarape_pedra_grande/imagens/20260901_163206.webp
-  checksum_sha256: a0ebb1e6ca92ce14b6e43943eb2ff266c097e320ce7670c46a606a887184580f
-- caminho_relativo: br_mg_igarape_pedra_grande/imagens/2026_09_01_16_17_04.webp
-  checksum_sha256: 098115d550c578e90d3edd9325a6894c9eb47cee7961df9ab143bf2e78b52d4f
 - caminho_relativo: br_mg_igarape_pedra_grande/imagens/capa_p0.webp
   checksum_sha256: b4887c391eaf1911eaf809e7132944c4f46760657ebe56af30f2890698fbe289
 - caminho_relativo: br_mg_igarape_pedra_grande/imagens/historia_p0.webp
@@ -637,20 +631,28 @@ arquivos:
   checksum_sha256: 4f3e4bedfed21fafc2284c19063d969b3aae82cd32409bd7bf62d4c941c32765
 - caminho_relativo: br_mg_igarape_pedra_grande/imagens/setor_fugitivos_i_p0.webp
   checksum_sha256: 95239b7b899a1e56c8d919fcbfa733d0e9ae4f9b028a23eeb2a950c5dbabdf25
+- caminho_relativo: br_mg_igarape_pedra_grande/imagens/setor_fugitivos_i_p1.webp
+  checksum_sha256: 40266b678b64ad905696f58ace40b125d04162bfdb4a8c4f8a5f9313ee7a672d
+- caminho_relativo: br_mg_igarape_pedra_grande/imagens/setor_fugitivos_i_p2.webp
+  checksum_sha256: 66fbcb3356cdcbb3001fa95dbd17cdb0989d9e22a394cf2cf96890c3099ed794
+- caminho_relativo: br_mg_igarape_pedra_grande/imagens/setor_fugitivos_i_p3.webp
+  checksum_sha256: 06bd0ef4287fd6e7fa0255e706e814ea441be9d74e11b0d0a5a17173de6d4474
 - caminho_relativo: br_mg_igarape_pedra_grande/imagens/setor_igarameca_p0.webp
   checksum_sha256: e79e4daa827532abd0ff0a16e096f1df0eea148c8589dc7686fa268ba1c84102
 - caminho_relativo: br_mg_igarape_pedra_grande/imagens/setor_igarameca_p1.webp
   checksum_sha256: b2ab0e0a16eb19fe5d54f6a899456ac5ff07671862249a012699dc3631c64662
 - caminho_relativo: br_mg_igarape_pedra_grande/imagens/setor_igarameca_p2.webp
   checksum_sha256: 3a6b8f636bd121e5fa888a5dc855ddb627cea151389890532ba4f50053c78f30
+- caminho_relativo: br_mg_igarape_pedra_grande/imagens/setor_jeitinho_brasileiro_p0.webp
+  checksum_sha256: 9aa633be14db3f0c96a1a656470f87f5bfb7a259a02cb58babd6733dadc8d535
 - caminho_relativo: br_mg_igarape_pedra_grande/imagens/setor_micos_p0.webp
   checksum_sha256: acb374ec8c0ecf85d537c86dd1328bbb91e4fd41576659d596457a818254cd2d
 - caminho_relativo: br_mg_igarape_pedra_grande/imagens/setor_micos_p1.webp
   checksum_sha256: e59d63c298cd1049ee8636ce3e3b78b993f5b2358f4e3fc57a10508e739e8536
 - caminho_relativo: br_mg_igarape_pedra_grande/imagens/setor_micos_p2.webp
   checksum_sha256: 27321d933aca314b50a98e486f662138fd61b049dcb90248b6bb2d162c7b944c
-- caminho_relativo: br_mg_igarape_pedra_grande/imagens/setor_nectar_p0.webp
-  checksum_sha256: 7d03d9d98304c9cbdb5552f04633f0bfc830e0847069c46cae353ace2affe9f0
+- caminho_relativo: br_mg_igarape_pedra_grande/imagens/setor_nectar_p0_i0.webp
+  checksum_sha256: 2b3caa8b248dc3f33ae226aa25d1456c0eb589c5b694e66cf201cd7c4f7927fa
 - caminho_relativo: br_mg_igarape_pedra_grande/imagens/setor_pracinha_p0.webp
   checksum_sha256: ec34526d21a825cbefa2049a1fe82cc4a1d77a4dd1072d39804852cf5c38daf3
 - caminho_relativo: br_mg_igarape_pedra_grande/imagens/setor_pracinha_p1.webp
@@ -659,6 +661,8 @@ arquivos:
   checksum_sha256: 9afa2f619eda4053a096d19b64aa9262e8b85f9f9b05815ad2379e66ccc227e1
 - caminho_relativo: br_mg_igarape_pedra_grande/imagens/setor_pracinha_p3.webp
   checksum_sha256: d60317f3226a9af417557bf7f1d73d46aa152cfbded8a2d8e2a876834398ed64
+- caminho_relativo: br_mg_igarape_pedra_grande/imagens/setor_tarja_preta_p0.webp
+  checksum_sha256: 42f0988f5b3b2455e050c55af801a4422327538c6acf4a39706557d91edea940
 - caminho_relativo: br_mg_igarape_pedra_grande/imagens/setor_tetos_p0.webp
   checksum_sha256: 88013468ab3f1c12bc710281758d6e1e205443645aba8dff2828a8b52ee7f2e6
 - caminho_relativo: br_mg_igarape_pedra_grande/imagens/setor_tetos_p1.webp
@@ -670,9 +674,9 @@ arquivos:
 - caminho_relativo: br_mg_igarape_pedra_grande/imagens/setor_trad_p0.webp
   checksum_sha256: fa73e3e2fa27a74255e21b0c499f6e72bc47a99626b5bd780473d967c257eaad
 - caminho_relativo: br_mg_igarape_pedra_grande/compilado.yaml
-  checksum_sha256: 52c5b2988642cc46245cea256c80eb09636834f898211a77353a75f7cdb7b4d9
+  checksum_sha256: d4ffaabf20b19650391e0e549f57d712a1478f5523a34cdceb6cb3cfd7320cf2
 - caminho_relativo: br_mg_igarape_pedra_grande/compilado.md
-  checksum_sha256: cb62730b248dbf9e38c20ed6a467989ca37742ebd7820d0b008f1d7d6b61590b
+  checksum_sha256: 55c354218864f6d0d286a1d6a9eb923cc986553b0e684ecf48f7e853139990fd
 - caminho_relativo: br_mg_januaria_salao_encantado/compilado.binarypb
   checksum_sha256: 26350287062465a53eafe8505481ef55549c7c30c856d8f6f1dbc9621edadaa8
 - caminho_relativo: thumbnails/br_mg_januaria_salao_encantado.webp
@@ -1462,6 +1466,6 @@ arquivos:
 - caminho_relativo: br_mg_sete_lagoas_sinuosa/compilado.md
   checksum_sha256: 9c1cb814fecabc3cc85db508f894a4fac08c13924bc119c29cf9559521c9151f
 - caminho_relativo: indice.binarypb
-  checksum_sha256: ca4232b0d9caee06778437aa2f6fb34ed45f81e6e646c7864cd09e595462c631
+  checksum_sha256: 5eaad481952f08771056150a5637d49bc67b848579e539d92be8e3f37c4c8884
 - caminho_relativo: indice.yaml
-  checksum_sha256: 01af2d543a53059f2fcc544ea61ad425ba01df58bca16b61c74b3f169cd597d2
+  checksum_sha256: 705e6b31c7e2996eec9e4a7b9a81eddaccc6bc1b56c61d86ed3517d0870116df

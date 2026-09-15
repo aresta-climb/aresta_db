@@ -384,6 +384,201 @@ class MapasControllerTest(unittest.TestCase):
         self.controller.remover_no_linha(self.mapa, idx, 0)
         self.assertEqual(len(self.mapa.pontos_de_interesse[idx].linha.conteudo.nos), 1)
 
+    def test_adicionar_rota_com_tracado_nova_rota_simples(self):
+        setor_proxy = self.model.obter_croqui_readonly().picos[0].setores_ou_grupos[0].setor.conteudo
+        dados_rota = {"nome": "Via Central", "tipo": "boulder", "grau": "V4", "nova": True}
+        pontos = [(100.0, 500.0), (120.0, 300.0), (140.0, 100.0)]
+
+        self.controller.adicionar_rota_com_tracado(self.msg_mapa_proxy, setor_proxy, dados_rota, pontos)
+
+        # Checa criação de escalada, linha e referência
+        setor = self.croqui.picos[0].setores_ou_grupos[0].setor.conteudo
+        self.assertEqual(len(setor.escaladas), 1)
+        self.assertEqual(setor.escaladas[0].boulder.nome, "Via Central")
+        self.assertEqual(len(self.mapa.pontos_de_interesse), 1)
+        self.assertEqual(len(self.mapa.referencias), 1)
+        self.assertEqual(self.mapa.referencias[0].escalada, "Via Central")
+
+        # Rótulo de início 1, término sem TOP
+        nos = self.mapa.pontos_de_interesse[0].linha.conteudo.nos
+        self.assertEqual(nos[0].rotulo, "1")
+        self.assertEqual(nos[0].tipo, croqui_pb2.NoTrajeto.TipoNo.CIRCULO_IDENTIFICADOR)
+        self.assertEqual(nos[-1].tipo, croqui_pb2.NoTrajeto.TipoNo.PASSAGEM
+)
+        self.assertEqual(nos[-1].rotulo, "")
+
+        # Undo atômico
+        self.undo_stack.undo()
+        self.assertEqual(len(setor.escaladas), 0)
+        self.assertEqual(len(self.mapa.pontos_de_interesse), 0)
+        self.assertEqual(len(self.mapa.referencias), 0)
+
+        # Redo atômico
+        self.undo_stack.redo()
+        self.assertEqual(len(setor.escaladas), 1)
+        self.assertEqual(len(self.mapa.pontos_de_interesse), 1)
+        self.assertEqual(len(self.mapa.referencias), 1)
+
+    def test_adicionar_rota_com_tracado_existente_sem_duplicar(self):
+        setor_proxy = self.model.obter_croqui_readonly().picos[0].setores_ou_grupos[0].setor.conteudo
+        setor = self.croqui.picos[0].setores_ou_grupos[0].setor.conteudo
+        e = setor.escaladas.add()
+        e.boulder.nome = "Via Já Cadastrada"
+        e.boulder.dificuldade = croqui_pb2.GrauBoulder.V3
+
+        dados_rota = {"nome": "Via Já Cadastrada", "tipo": "boulder", "grau": "V3", "nova": False}
+        pontos = [(50.0, 500.0), (50.0, 100.0)]
+
+        self.controller.adicionar_rota_com_tracado(self.msg_mapa_proxy, setor_proxy, dados_rota, pontos)
+
+        # Não deve duplicar escalada
+        self.assertEqual(len(setor.escaladas), 1)
+        self.assertEqual(len(self.mapa.referencias), 1)
+        self.assertEqual(self.mapa.referencias[0].escalada, "Via Já Cadastrada")
+
+    def test_adicionar_rota_com_tracado_fatiamento_em_no_e_desambiguacao(self):
+        setor_proxy = self.model.obter_croqui_readonly().picos[0].setores_ou_grupos[0].setor.conteudo
+        # Rota 1
+        dados_1 = {"nome": "Via 1", "tipo": "boulder", "grau": "V4", "nova": True}
+        pontos_1 = [(100.0, 500.0), (100.0, 300.0), (100.0, 100.0)]
+        self.controller.adicionar_rota_com_tracado(self.msg_mapa_proxy, setor_proxy, dados_1, pontos_1)
+
+        # Rota 2 compartilha (100, 500) e (100, 300) e bifurca para (150, 100)
+        dados_2 = {"nome": "Via 2", "tipo": "boulder", "grau": "V6", "nova": True}
+        pontos_2 = [(100.0, 500.0), (100.0, 300.0), (150.0, 100.0)]
+        self.controller.adicionar_rota_com_tracado(self.msg_mapa_proxy, setor_proxy, dados_2, pontos_2)
+
+        # Verifica fatiamento: a linha original foi fatiada em 2 e a variante é a 3ª linha
+        self.assertEqual(len(self.mapa.pontos_de_interesse), 3)
+        # Referências
+        refs = {r.escalada: list(r.ids) for r in self.mapa.referencias}
+        self.assertEqual(len(refs["Via 1"]), 2)
+        self.assertEqual(len(refs["Via 2"]), 2)
+        self.assertEqual(refs["Via 1"][0], refs["Via 2"][0])  # segmento comum
+
+        # Rótulo compartilhado no início
+        pois_por_id = {p.id: p for p in self.mapa.pontos_de_interesse}
+        seg_comum = pois_por_id[refs["Via 1"][0]]
+        self.assertEqual(seg_comum.linha.conteudo.nos[0].rotulo, "1, 2")
+
+        # Topos desambiguados
+        seg_fim_1 = pois_por_id[refs["Via 1"][1]]
+        seg_fim_2 = pois_por_id[refs["Via 2"][1]]
+        self.assertEqual(seg_fim_1.linha.conteudo.nos[-1].tipo, croqui_pb2.NoTrajeto.TipoNo.FIM_TOP)
+        self.assertEqual(seg_fim_1.linha.conteudo.nos[-1].rotulo, "A")
+        self.assertEqual(seg_fim_2.linha.conteudo.nos[-1].tipo, croqui_pb2.NoTrajeto.TipoNo.FIM_TOP)
+        self.assertEqual(seg_fim_2.linha.conteudo.nos[-1].rotulo, "B")
+
+        # Undo atômico
+        self.undo_stack.undo()
+        self.assertEqual(len(self.mapa.pontos_de_interesse), 1)
+        self.assertEqual(self.mapa.pontos_de_interesse[0].linha.conteudo.nos[0].rotulo, "1")
+        self.assertEqual(self.mapa.pontos_de_interesse[0].linha.conteudo.nos[-1].tipo, croqui_pb2.NoTrajeto.TipoNo.PASSAGEM)
+
+    def test_adicionar_rota_com_tracado_fatiamento_no_meio_da_curva(self):
+        setor_proxy = self.model.obter_croqui_readonly().picos[0].setores_ou_grupos[0].setor.conteudo
+        # Rota 1 reta vertical de 100, 500 até 100, 100 com nó intermediário em 100, 300
+        dados_1 = {"nome": "Via Alpha", "tipo": "boulder", "grau": "V4", "nova": True}
+        pontos_1 = [(100.0, 500.0), (100.0, 300.0), (100.0, 100.0)]
+        self.controller.adicionar_rota_com_tracado(self.msg_mapa_proxy, setor_proxy, dados_1, pontos_1)
+
+        # Rota 2 começa em 100, 500, dá snap no meio da curva em (100, 200) e sai para (180, 150)
+        dados_2 = {"nome": "Via Beta", "tipo": "boulder", "grau": "V6", "nova": True}
+        pontos_2 = [(100.0, 500.0), (100.0, 200.0), (180.0, 150.0)]
+        self.controller.adicionar_rota_com_tracado(self.msg_mapa_proxy, setor_proxy, dados_2, pontos_2)
+
+        # Verifica fatiamento por curva
+        self.assertEqual(len(self.mapa.pontos_de_interesse), 3)
+        refs = {r.escalada: list(r.ids) for r in self.mapa.referencias}
+        self.assertEqual(len(refs["Via Alpha"]), 2)
+        self.assertEqual(len(refs["Via Beta"]), 2)
+        self.assertEqual(refs["Via Alpha"][0], refs["Via Beta"][0])
+
+    def test_adicionar_rota_com_tracado_travessia_triplo(self):
+        setor_proxy = self.model.obter_croqui_readonly().picos[0].setores_ou_grupos[0].setor.conteudo
+        # Rota base com 4 nós
+        dados_base = {"nome": "Via Base", "tipo": "boulder", "grau": "V3", "nova": True}
+        pontos_base = [(100.0, 500.0), (100.0, 400.0), (100.0, 300.0), (100.0, 100.0)]
+        self.controller.adicionar_rota_com_tracado(self.msg_mapa_proxy, setor_proxy, dados_base, pontos_base)
+
+        # Travessia entra em (100, 400), percorre até (100, 300) e sai para (180, 250)
+        dados_trav = {"nome": "Travessia", "tipo": "boulder", "grau": "V7", "nova": True}
+        pontos_trav = [(20.0, 400.0), (100.0, 400.0), (100.0, 300.0), (180.0, 250.0)]
+        self.controller.adicionar_rota_com_tracado(self.msg_mapa_proxy, setor_proxy, dados_trav, pontos_trav)
+
+        refs = {r.escalada: list(r.ids) for r in self.mapa.referencias}
+        self.assertEqual(len(refs["Via Base"]), 3)
+        self.assertEqual(len(refs["Travessia"]), 3)
+        self.assertEqual(refs["Via Base"][1], refs["Travessia"][1])
+
+    def test_adicionar_rota_com_tracado_diversos_tipos(self):
+        setor_proxy = self.model.obter_croqui_readonly().picos[0].setores_ou_grupos[0].setor.conteudo
+        # Via esportiva com grau
+        dados_esp = {"nome": "Via Esportiva", "tipo": "via_esportiva", "grau": "7a", "nova": True}
+        self.controller.adicionar_rota_com_tracado(self.msg_mapa_proxy, setor_proxy, dados_esp, [(10.0, 50.0), (10.0, 10.0)])
+
+        # Via móvel
+        dados_mov = {"nome": "Via Movel", "tipo": "via_movel", "nova": True}
+        self.controller.adicionar_rota_com_tracado(self.msg_mapa_proxy, setor_proxy, dados_mov, [(20.0, 50.0), (20.0, 10.0)])
+
+        # Via múltiplas enfiadas
+        dados_mult = {"nome": "Via Multiplas", "tipo": "via_multiplas_enfiadas", "nova": True}
+        self.controller.adicionar_rota_com_tracado(self.msg_mapa_proxy, setor_proxy, dados_mult, [(30.0, 50.0), (30.0, 10.0)])
+
+        # Highline
+        dados_hl = {"nome": "Highline Teste", "tipo": "highline", "nova": True}
+        self.controller.adicionar_rota_com_tracado(self.msg_mapa_proxy, setor_proxy, dados_hl, [(40.0, 50.0), (40.0, 10.0)])
+
+        setor = self.croqui.picos[0].setores_ou_grupos[0].setor.conteudo
+        tipos = [e.WhichOneof("tipo") for e in setor.escaladas]
+        self.assertIn("via_esportiva", tipos)
+        self.assertIn("via_movel", tipos)
+        self.assertIn("via_multiplas_enfiadas", tipos)
+        self.assertIn("highline", tipos)
+
+    def test_separar_linha_em_no_sucesso_e_undo_redo(self):
+        setor_proxy = self.model.obter_croqui_readonly().picos[0].setores_ou_grupos[0].setor.conteudo
+        nos = [
+            {"x": 100, "y": 500, "tipo": 1, "rotulo": "1"},
+            {"x": 120, "y": 300, "tipo": 0, "rotulo": ""},
+            {"x": 140, "y": 100, "tipo": 0, "rotulo": ""},
+        ]
+        self.controller.adicionar_linha(self.msg_mapa_proxy, id_linha="l_original", nos=nos)
+        self.controller.adicionar_referencia(
+            self.msg_mapa_proxy,
+            croqui_pb2.Mapa.Referencia(escalada="Via Original", ids=["l_original"])
+        )
+
+        id1, id2 = self.controller.separar_linha_em_no(self.msg_mapa_proxy, setor_proxy, "l_original", 1)
+        self.assertEqual(len(self.mapa.pontos_de_interesse), 2)
+        self.assertEqual(list(self.mapa.referencias[0].ids), [id1, id2])
+
+        # Undo
+        self.undo_stack.undo()
+        self.assertEqual(len(self.mapa.pontos_de_interesse), 1)
+        self.assertEqual(self.mapa.pontos_de_interesse[0].id, "l_original")
+        self.assertEqual(list(self.mapa.referencias[0].ids), ["l_original"])
+
+        # Redo
+        self.undo_stack.redo()
+        self.assertEqual(len(self.mapa.pontos_de_interesse), 2)
+        self.assertEqual(list(self.mapa.referencias[0].ids), [id1, id2])
+
+    def test_separar_linha_em_no_extremos_ou_invalido_dispara_erro(self):
+        setor_proxy = self.model.obter_croqui_readonly().picos[0].setores_ou_grupos[0].setor.conteudo
+        nos = [{"x": 10, "y": 10}, {"x": 20, "y": 20}, {"x": 30, "y": 30}]
+        self.controller.adicionar_linha(self.msg_mapa_proxy, id_linha="l_teste", nos=nos)
+
+        with self.assertRaises(ValueError):
+            self.controller.separar_linha_em_no(self.msg_mapa_proxy, setor_proxy, "l_teste", 0)
+
+        with self.assertRaises(ValueError):
+            self.controller.separar_linha_em_no(self.msg_mapa_proxy, setor_proxy, "l_teste", 2)
+
+        with self.assertRaises(ValueError):
+            self.controller.separar_linha_em_no(self.msg_mapa_proxy, setor_proxy, "linha_inexistente", 1)
+
+
 if __name__ == '__main__':
     unittest.main()
 

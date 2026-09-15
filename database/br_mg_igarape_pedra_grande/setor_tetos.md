@@ -71,9 +71,11 @@ mapas:
   - escalada: A Quina
     ids:
     - '02'
+    setor: Setor Trad
   - escalada: Pachamama
     ids:
     - '03'
+    setor: Setor Trad
   - escalada: Baba Yaga
     ids:
     - '04'
@@ -102,25 +104,6 @@ mapas:
     setor: Setor dos Tetos
     escalada: Deu Brasil
 escaladas:
-- via_multiplas_enfiadas:
-    nome: A Quina
-    numero_enfiadas: 4
-    conquistadores:
-    - André
-    - Tigrão
-- via_multiplas_enfiadas:
-    nome: Pachamama
-    numero_enfiadas: 7
-    conquistadores:
-    - Berbari
-    - Tonin
-    - Bunitin
-    - Neander
-    - Chinha
-    - Paulão
-    - Bolinha
-    comprimento_total: 130
-    data_abertura: '2024-06-14'
 - via_esportiva:
     nome: Baba Yaga
     dificuldade: BR_5
@@ -134,33 +117,33 @@ escaladas:
 - via_esportiva:
     nome: Soy Loco Por Ti América
     dificuldade: BR_9C_BARRA_10A
+    extensao: 30
+    quantidade_protecoes_intermediarias: 12
+    quantidade_protecoes_parada: 2
     conquistadores:
     - Berbari
     - Chinha
     data_abertura: '2016'
-    extensao: 30
-    quantidade_protecoes_intermediarias: 12
-    quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Afrodite
     dificuldade: BR_7B
-    quantidade_protecoes_intermediarias: 11
-    quantidade_protecoes_parada: 2
-    extensao: 30
     conquistadores:
     - Bunitinho
     - Clebinho
     data_abertura: '2024'
+    extensao: 30
+    quantidade_protecoes_intermediarias: 11
+    quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Ponto de Equilíbrio
     dificuldade: BR_8B_BARRA_8C
-    quantidade_protecoes_intermediarias: 11
-    quantidade_protecoes_parada: 2
-    extensao: 30
     conquistadores:
     - Berbari
     - Chinha
     data_abertura: '2019'
+    extensao: 30
+    quantidade_protecoes_intermediarias: 11
+    quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Lilith
     dificuldade: BR_7A

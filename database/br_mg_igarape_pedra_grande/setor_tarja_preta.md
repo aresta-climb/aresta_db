@@ -15,5 +15,15 @@ escaladas:
     nome: Tarja Preta
     descricao: '![Tarja Preta](imagens/20260901_161341.webp)![Tarja Preta](imagens/20260901_161435.webp)![Tarja
       Preta Face 3](imagens/20260901_161529.webp)![Face 2 Tarja Preta](imagens/20260901_161435_1.webp)'
+mapas:
+- caminho_imagem_mapa: imagens/setor_tarja_preta_p0.webp
+  largura_mapa: 1392
+  altura_mapa: 3013
+  referencias:
+  - grupo: Sherpa
+    setor: Tarja Preta
+    escalada: Película
+  - grupo: Sherpa
+    setor: Tarja Preta
+    escalada: Tarja Preta
 ---
-![Boulders - Vias Trad](imagens/20260901_161018.webp)

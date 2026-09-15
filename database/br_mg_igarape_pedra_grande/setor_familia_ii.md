@@ -80,15 +80,18 @@ mapas:
   - escalada: Pedra Vermelha
     ids:
     - '02'
-  - escalada: Projeto
+  - escalada: Projeto 1
     ids:
     - '03'
-  - escalada: Projeto
+    setor: Setor Família II
+  - escalada: Projeto 2
     ids:
     - '04'
-  - escalada: (via inacabada)
+    setor: Setor Família II
+  - escalada: Via inacabada 1
     ids:
     - '05'
+    setor: Setor Família II
   - escalada: Trinca Ferro
     ids:
     - '06'
@@ -186,15 +189,18 @@ mapas:
   - escalada: Pedra Vermelha
     ids:
     - '02'
-  - escalada: Projeto
+  - escalada: Projeto 1
     ids:
     - '03'
-  - escalada: Projeto
+    setor: Setor Família II
+  - escalada: Projeto 2
     ids:
     - '04'
-  - escalada: (via inacabada)
+    setor: Setor Família II
+  - escalada: Via inacabada 1
     ids:
     - '05'
+    setor: Setor Família II
   - escalada: Trinca Ferro
     ids:
     - '06'
@@ -235,7 +241,7 @@ escaladas:
     - Ró
     data_abertura: '2012'
 - via_esportiva:
-    nome: Projeto
+    nome: Projeto 1
     dificuldade: PROJETO
     quantidade_protecoes_intermediarias: 4
     quantidade_protecoes_parada: 2
@@ -244,7 +250,7 @@ escaladas:
     - Berbari
     data_abertura: '2012'
 - via_esportiva:
-    nome: Projeto
+    nome: Projeto 2
     dificuldade: PROJETO
     quantidade_protecoes_intermediarias: 4
     quantidade_protecoes_parada: 2
@@ -254,7 +260,7 @@ escaladas:
     - Alex
     data_abertura: '2012'
 - via_esportiva:
-    nome: (via inacabada)
+    nome: Via inacabada 1
     dificuldade: INDEFINIDO
     quantidade_protecoes_intermediarias: 3
     quantidade_protecoes_parada: 2

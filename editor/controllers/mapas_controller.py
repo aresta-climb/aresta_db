@@ -1,7 +1,7 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
-from typing import Optional, Any, List, Dict
+from typing import Optional, Any, List, Dict, Tuple
 from pathlib import Path
 from editor.models.croqui_model import CroquiModel
 from editor.commands.comandos_protobuf import (
@@ -327,4 +327,351 @@ class MapasController:
         ctx = context_path if context_path is not None else self.contexto_atual_path
         cmd = CmdSubstituirImagemMemoria(self.model, caminho_relativo, bytes_antigo, bytes_novo, ctx)
         self._executar_comando(cmd)
+
+    def adicionar_rota_com_tracado(
+        self,
+        msg_mapa_proxy: Any,
+        msg_setor_proxy: Any,
+        dados_rota: Dict[str, Any],
+        pontos_trajeto: List[Tuple[float, float]],
+        snaps_info: Optional[List[Any]] = None
+    ) -> None:
+        """
+        Cria ou vincula uma escalada e adiciona seu traçado vetorial no mapa.
+        Executa fatiamento automático de traçados sobrepostos ("sticky"),
+        aplica a convenção semântica Ouroboulder (inícios sequenciais e topos 'A', 'B'),
+        garante IDs mutuamente disjuntos em todo o setor e agrupa todas as mutações
+        em um macro atômico de histórico QUndoStack (Princípios II e VII de AGENTS.md).
+        """
+        from aresta_api.proto.generated import croqui_pb2
+        from editor.models.readonly_proxy import _copia_segura
+        from editor.core.topologia_trajeto import (
+            Ponto2D,
+            detectar_snap_nos,
+            detectar_snap_curva,
+            fatiar_linha_em_no,
+            fatiar_linha_em_ponto_curva,
+            fatiar_linha_triplo,
+            atualizar_referencias_apos_fatiamento,
+            adicionar_numero_inicio,
+            obter_rotulo_escalada_no_setor,
+            calcular_proximo_numero_inicio_setor,
+            gerar_id_poi_disjunto_setor,
+            desambiguar_topos,
+        )
+
+        nome_rota = dados_rota.get("nome", "Nova Rota")
+        self.iniciar_grupo_undo(f"Adicionar Rota: {nome_rota}")
+
+        try:
+            # 1. Criação da escalada no Setor (se for nova)
+            if dados_rota.get("nova", False) and msg_setor_proxy is not None:
+                nomes_existentes = []
+                for esc in msg_setor_proxy.escaladas:
+                    t = esc.WhichOneof("tipo")
+                    if t:
+                        nomes_existentes.append(getattr(esc, t).nome)
+                if nome_rota not in nomes_existentes:
+                    nova_esc = croqui_pb2.Escalada()
+                    tipo_str = dados_rota.get("tipo", "boulder")
+                    grau_str = dados_rota.get("grau", "")
+
+                    if tipo_str == "boulder":
+                        nova_esc.boulder.nome = nome_rota
+                        if grau_str:
+                            grau_enum = getattr(croqui_pb2.GrauBoulder, grau_str.upper(), None)
+                            if grau_enum is not None:
+                                nova_esc.boulder.dificuldade = grau_enum
+                    elif tipo_str == "via_esportiva":
+                        nova_esc.via_esportiva.nome = nome_rota
+                        if grau_str:
+                            g_norm = grau_str.upper().replace("-", "_").replace(" ", "_")
+                            if not g_norm.startswith("BR_") and not g_norm.startswith("FR_") and not g_norm.startswith("US_"):
+                                g_norm = f"BR_{g_norm}"
+                            grau_enum = getattr(croqui_pb2.GrauVia.GrauVia, g_norm, None) or getattr(croqui_pb2.GrauVia, g_norm, None)
+                            if grau_enum is not None:
+                                nova_esc.via_esportiva.dificuldade = grau_enum
+                    elif tipo_str == "via_movel":
+                        nova_esc.via_movel.nome = nome_rota
+                    elif tipo_str == "via_multiplas_enfiadas":
+                        nova_esc.via_multiplas_enfiadas.nome = nome_rota
+                    elif tipo_str == "highline":
+                        nova_esc.highline.nome = nome_rota
+
+                    idx_esc = len(msg_setor_proxy.escaladas)
+                    cmd_esc = CmdAdicionarRepeated(
+                        model=self.model,
+                        msg=msg_setor_proxy,
+                        campo_nome="escaladas",
+                        index=idx_esc,
+                        valor=nova_esc,
+                        context_path=self.contexto_atual_path
+                    )
+                    self._executar_comando(cmd_esc)
+
+            # 2. Resolução do rótulo numérico inicial no escopo do setor
+            rotulo_inicio = obter_rotulo_escalada_no_setor(msg_setor_proxy, nome_rota) if msg_setor_proxy else None
+            if not rotulo_inicio:
+                rotulo_inicio = str(calcular_proximo_numero_inicio_setor(msg_setor_proxy)) if msg_setor_proxy else "1"
+
+            # 3. Análise topológica de traçados existentes
+            linhas_existentes = [p for p in msg_mapa_proxy.pontos_de_interesse if p.HasField("linha")]
+            
+            # Identifica se há sobreposição e necessidade de fatiamento
+            fatiou = False
+            if linhas_existentes and len(pontos_trajeto) >= 2:
+                # Mapeia cada ponto do trajeto contra nós e curvas existentes
+                matches_nos = []
+                for pt in pontos_trajeto:
+                    snap_no = detectar_snap_nos(Ponto2D(pt[0], pt[1]), linhas_existentes, raio_snap=5.0)
+                    matches_nos.append(snap_no)
+
+                # Cenário Travessia: entra no meio de uma linha, compartilha trecho intermediário e sai
+                for linha_cand in linhas_existentes:
+                    id_cand = str(linha_cand.id)
+                    indices_no_cand = [
+                        m.indice_no for m in matches_nos if m is not None and m.id_linha == id_cand and m.indice_no is not None
+                    ]
+                    if len(indices_no_cand) >= 2 and indices_no_cand[0] > 0 and indices_no_cand[-1] < len(linha_cand.linha.conteudo.nos) - 1:
+                        # Identificou travessia intermediária em linha_cand
+                        idx_in = min(indices_no_cand)
+                        idx_out = max(indices_no_cand)
+                        pos_in = [i for i, m in enumerate(matches_nos) if m and m.id_linha == id_cand and m.indice_no == idx_in][0]
+                        pos_out = [i for i, m in enumerate(matches_nos) if m and m.id_linha == id_cand and m.indice_no == idx_out][0]
+
+                        ids_reservados: Set[str] = set()
+                        id_sub1 = gerar_id_poi_disjunto_setor(msg_setor_proxy, "linha", ids_reservados=ids_reservados)
+                        ids_reservados.add(id_sub1)
+                        id_sub2 = gerar_id_poi_disjunto_setor(msg_setor_proxy, "linha", ids_reservados=ids_reservados)
+                        ids_reservados.add(id_sub2)
+                        id_sub3 = gerar_id_poi_disjunto_setor(msg_setor_proxy, "linha", ids_reservados=ids_reservados)
+                        ids_reservados.add(id_sub3)
+                        sub1, sub2, sub3 = fatiar_linha_triplo(linha_cand, idx_in, idx_out, id_sub1, id_sub2, id_sub3)
+
+                        # Remove linha original
+                        idx_original = list(msg_mapa_proxy.pontos_de_interesse).index(linha_cand)
+                        self.deletar_poi(msg_mapa_proxy, idx_original)
+                        self.adicionar_poi(msg_mapa_proxy, sub1)
+                        self.adicionar_poi(msg_mapa_proxy, sub2)
+                        self.adicionar_poi(msg_mapa_proxy, sub3)
+
+                        # Atualiza referências que apontavam para linha_cand
+                        for i_ref, ref in enumerate(msg_mapa_proxy.referencias):
+                            if id_cand in ref.ids:
+                                ref_antiga = _copia_segura(ref)
+                                ref_nova = _copia_segura(ref)
+                                atualizar_referencias_apos_fatiamento([ref_nova], id_cand, [id_sub1, id_sub2, id_sub3])
+                                self.alterar_referencia(msg_mapa_proxy, i_ref, ref_antiga, ref_nova)
+
+                        # Cria entrada própria da travessia (se houver pontos antes da junção)
+                        ids_travessia = []
+                        if pos_in > 0:
+                            id_ent = gerar_id_poi_disjunto_setor(msg_setor_proxy, "linha", ids_reservados=ids_reservados)
+                            ids_reservados.add(id_ent)
+                            pts_ent = [{"x": p[0], "y": p[1]} for p in pontos_trajeto[:pos_in + 1]]
+                            self.adicionar_linha(msg_mapa_proxy, id_linha=id_ent, nos=pts_ent)
+                            ids_travessia.append(id_ent)
+                        
+                        ids_travessia.append(id_sub2)
+
+                        # Cria saída própria da travessia (se houver pontos após a junção)
+                        if pos_out < len(pontos_trajeto) - 1:
+                            id_sai = gerar_id_poi_disjunto_setor(msg_setor_proxy, "linha", ids_reservados=ids_reservados)
+                            ids_reservados.add(id_sai)
+                            pts_sai = [{"x": p[0], "y": p[1]} for p in pontos_trajeto[pos_out:]]
+                            self.adicionar_linha(msg_mapa_proxy, id_linha=id_sai, nos=pts_sai)
+                            ids_travessia.append(id_sai)
+
+                        # Cria referência da travessia
+                        ref_trav = croqui_pb2.Mapa.Referencia(escalada=nome_rota, ids=ids_travessia)
+                        self.adicionar_referencia(msg_mapa_proxy, ref_trav)
+                        fatiou = True
+                        break
+
+                if not fatiou:
+                    # Cenário Bifurcação: compartilha o início e fatiamento em nó ou curva
+                    for linha_cand in linhas_existentes:
+                        id_cand = str(linha_cand.id)
+                        p_primeiro = Ponto2D(pontos_trajeto[0][0], pontos_trajeto[0][1])
+                        snap_inicio = detectar_snap_nos(p_primeiro, [linha_cand], raio_snap=5.0)
+
+                        if snap_inicio and snap_inicio.indice_no == 0:
+                            # A nova rota começa no mesmo ponto inicial de linha_cand
+                            # Procura o ponto de bifurcação (último ponto compartilhado)
+                            idx_bifurcacao_novo = 0
+                            no_corte_idx = None
+                            curva_corte_info = None
+
+                            for idx_p, pt in enumerate(pontos_trajeto):
+                                p_cur = Ponto2D(pt[0], pt[1])
+                                s_no = detectar_snap_nos(p_cur, [linha_cand], raio_snap=5.0)
+                                if s_no:
+                                    idx_bifurcacao_novo = idx_p
+                                    no_corte_idx = s_no.indice_no
+                                else:
+                                    s_curva = detectar_snap_curva(p_cur, [linha_cand], raio_snap=5.0)
+                                    if s_curva:
+                                        idx_bifurcacao_novo = idx_p
+                                        curva_corte_info = s_curva
+                                    else:
+                                        break
+
+                            if (no_corte_idx is not None and 0 < no_corte_idx < len(linha_cand.linha.conteudo.nos) - 1) or curva_corte_info is not None:
+                                ids_reservados = set()
+                                id_sub1 = gerar_id_poi_disjunto_setor(msg_setor_proxy, "linha", ids_reservados=ids_reservados)
+                                ids_reservados.add(id_sub1)
+                                id_sub2 = gerar_id_poi_disjunto_setor(msg_setor_proxy, "linha", ids_reservados=ids_reservados)
+                                ids_reservados.add(id_sub2)
+
+                                if no_corte_idx is not None and 0 < no_corte_idx < len(linha_cand.linha.conteudo.nos) - 1:
+                                    sub1, sub2 = fatiar_linha_em_no(linha_cand, no_corte_idx, id_sub1, id_sub2)
+                                else:
+                                    assert curva_corte_info is not None
+                                    sub1, sub2 = fatiar_linha_em_ponto_curva(
+                                        linha_cand,
+                                        curva_corte_info.coordenada,
+                                        curva_corte_info.indice_segmento,
+                                        id_sub1,
+                                        id_sub2
+                                    )
+
+                                # Atualiza rótulo de início compartilhado (ex: '1, 2')
+                                rot_antigo = str(sub1.linha.conteudo.nos[0].rotulo)
+                                rot_novo = adicionar_numero_inicio(rot_antigo, int(rotulo_inicio))
+                                sub1.linha.conteudo.nos[0].rotulo = rot_novo
+                                sub1.linha.conteudo.nos[0].tipo = croqui_pb2.NoTrajeto.TipoNo.CIRCULO_IDENTIFICADOR
+
+                                # Substitui linha_cand pelas sublinhas
+                                idx_original = list(msg_mapa_proxy.pontos_de_interesse).index(linha_cand)
+                                self.deletar_poi(msg_mapa_proxy, idx_original)
+                                self.adicionar_poi(msg_mapa_proxy, sub1)
+                                self.adicionar_poi(msg_mapa_proxy, sub2)
+
+                                # Atualiza referências existentes de linha_cand
+                                for i_ref, ref in enumerate(msg_mapa_proxy.referencias):
+                                    if id_cand in ref.ids:
+                                        ref_antiga = _copia_segura(ref)
+                                        ref_nova = _copia_segura(ref)
+                                        atualizar_referencias_apos_fatiamento([ref_nova], id_cand, [id_sub1, id_sub2])
+                                        self.alterar_referencia(msg_mapa_proxy, i_ref, ref_antiga, ref_nova)
+
+                                # Cria trecho exclusivo da nova rota
+                                id_novo = gerar_id_poi_disjunto_setor(msg_setor_proxy, "linha", ids_reservados=ids_reservados)
+                                ids_reservados.add(id_novo)
+                                pts_exclusivos = [{"x": p[0], "y": p[1]} for p in pontos_trajeto[idx_bifurcacao_novo:]]
+                                self.adicionar_linha(msg_mapa_proxy, id_linha=id_novo, nos=pts_exclusivos)
+
+                                # Referência da nova rota
+                                ref_nova = croqui_pb2.Mapa.Referencia(escalada=nome_rota, ids=[id_sub1, id_novo])
+                                self.adicionar_referencia(msg_mapa_proxy, ref_nova)
+                                fatiou = True
+                                break
+
+            # 4. Caso simples (sem fatiamento de linha existente)
+            if not fatiou:
+                id_nova_linha = gerar_id_poi_disjunto_setor(msg_setor_proxy, "linha") if msg_setor_proxy else "linha_1"
+                nos_dicts = []
+                for idx, pt in enumerate(pontos_trajeto):
+                    tipo_no = croqui_pb2.NoTrajeto.TipoNo.PASSAGEM
+                    rotulo_no = ""
+                    if idx == 0:
+                        tipo_no = croqui_pb2.NoTrajeto.TipoNo.CIRCULO_IDENTIFICADOR
+                        rotulo_no = rotulo_inicio
+                    nos_dicts.append({
+                        "x": pt[0],
+                        "y": pt[1],
+                        "tipo": tipo_no,
+                        "rotulo": rotulo_no
+                    })
+
+                self.adicionar_linha(msg_mapa_proxy, id_linha=id_nova_linha, nos=nos_dicts)
+                nova_ref = croqui_pb2.Mapa.Referencia(escalada=nome_rota, ids=[id_nova_linha])
+                self.adicionar_referencia(msg_mapa_proxy, nova_ref)
+
+            # 5. Desambiguação de topos sob demanda
+            linhas_atuais = [p for p in msg_mapa_proxy.pontos_de_interesse if p.HasField("linha")]
+            refs_atuais = list(msg_mapa_proxy.referencias)
+            linhas_copia = [_copia_segura(l) for l in linhas_atuais]
+            desambiguar_topos(linhas_copia, refs_atuais)
+
+            # Aplica modificações de topos calculadas
+            for idx_poi, (l_original, l_modificada) in enumerate(zip(linhas_atuais, linhas_copia)):
+                if l_original != l_modificada:
+                    self.mover_poi(msg_mapa_proxy, idx_poi, l_original, l_modificada)
+
+        finally:
+            self.finalizar_grupo_undo()
+
+    def separar_linha_em_no(
+        self,
+        msg_mapa_proxy: Any,
+        msg_setor_proxy: Optional[Any],
+        id_linha: str,
+        indice_no: int
+    ) -> Tuple[str, str]:
+        """
+        Divide uma linha existente em duas sublinhas no nó de índice especificado.
+        Substitui o POI antigo pelas duas novas sublinhas com IDs disjuntos e
+        atualiza todas as referências existentes mantendo a ordenação.
+        Tudo executado dentro de uma transação atômica no QUndoStack.
+        """
+        from aresta_api.proto.generated import croqui_pb2
+        from editor.models.readonly_proxy import _copia_segura
+        from editor.core.topologia_trajeto import (
+            fatiar_linha_em_no,
+            gerar_id_poi_disjunto_setor,
+            atualizar_referencias_apos_fatiamento,
+        )
+
+        idx_linha = -1
+        linha_alvo = None
+        for idx, p in enumerate(msg_mapa_proxy.pontos_de_interesse):
+            if str(p.id) == id_linha and p.HasField("linha"):
+                idx_linha = idx
+                linha_alvo = p
+                break
+
+        if idx_linha == -1 or linha_alvo is None:
+            raise ValueError(f"Linha com ID '{id_linha}' não encontrada no mapa.")
+
+        nos = linha_alvo.linha.conteudo.nos
+        if indice_no <= 0 or indice_no >= len(nos) - 1:
+            raise ValueError(
+                f"O índice do nó para separação ({indice_no}) deve ser intermediário "
+                f"(entre 1 e {len(nos) - 2})."
+            )
+
+        self.iniciar_grupo_undo(f"Separar Traço no Nó {indice_no}")
+        try:
+            ids_reservados: Set[str] = set()
+            id_sub1 = gerar_id_poi_disjunto_setor(msg_setor_proxy, "linha", ids_reservados=ids_reservados)
+            ids_reservados.add(id_sub1)
+            id_sub2 = gerar_id_poi_disjunto_setor(msg_setor_proxy, "linha", ids_reservados=ids_reservados)
+            ids_reservados.add(id_sub2)
+
+            sub1, sub2 = fatiar_linha_em_no(
+                linha_alvo,
+                indice_no,
+                id_sub1,
+                id_sub2,
+                preservar_tipo_no_corte=True
+            )
+
+            # 1. Substitui a linha original pelas duas novas sublinhas
+            self.deletar_poi(msg_mapa_proxy, idx_linha)
+            self.adicionar_poi(msg_mapa_proxy, sub1)
+            self.adicionar_poi(msg_mapa_proxy, sub2)
+
+            # 2. Atualiza referências existentes de id_linha
+            for i_ref, ref in enumerate(msg_mapa_proxy.referencias):
+                if id_linha in ref.ids:
+                    ref_antiga = _copia_segura(ref)
+                    ref_nova = _copia_segura(ref)
+                    atualizar_referencias_apos_fatiamento([ref_nova], id_linha, [id_sub1, id_sub2])
+                    self.alterar_referencia(msg_mapa_proxy, i_ref, ref_antiga, ref_nova)
+
+            return id_sub1, id_sub2
+        finally:
+            self.finalizar_grupo_undo()
+
 

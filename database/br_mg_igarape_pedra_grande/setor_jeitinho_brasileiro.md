@@ -38,5 +38,21 @@ escaladas:
     descricao: '![Italia, sai em um agarrão em invertida, do lado esquerdo do bloco,
       toca reto pra cima.](imagens/20260901_162417.webp)'
     destaque: true
+mapas:
+- caminho_imagem_mapa: imagens/setor_jeitinho_brasileiro_p0.webp
+  largura_mapa: 1392
+  altura_mapa: 3013
+  referencias:
+  - grupo: Sherpa
+    setor: Jeitinho Brasileiro
+    escalada: Jeitinho Brasileiro
+  - grupo: Sherpa
+    setor: Jeitinho Brasileiro
+    escalada: Força G
+  - grupo: Sherpa
+    setor: Jeitinho Brasileiro
+    escalada: Itália
+  - grupo: Sherpa
+    setor: Jeitinho Brasileiro
+    escalada: Glorioso
 ---
-![Jeitinho Brasileiro](imagens/2026_09_01_16_17_04.webp)

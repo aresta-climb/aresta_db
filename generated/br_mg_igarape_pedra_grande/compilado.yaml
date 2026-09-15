@@ -1226,15 +1226,18 @@ picos:
           - escalada: Pedra Vermelha
             ids:
             - '02'
-          - escalada: Projeto
+          - escalada: Projeto 1
             ids:
             - '03'
-          - escalada: Projeto
+            setor: Setor Família II
+          - escalada: Projeto 2
             ids:
             - '04'
-          - escalada: (via inacabada)
+            setor: Setor Família II
+          - escalada: Via inacabada 1
             ids:
             - '05'
+            setor: Setor Família II
           - escalada: Trinca Ferro
             ids:
             - '06'
@@ -1332,15 +1335,18 @@ picos:
           - escalada: Pedra Vermelha
             ids:
             - '02'
-          - escalada: Projeto
+          - escalada: Projeto 1
             ids:
             - '03'
-          - escalada: Projeto
+            setor: Setor Família II
+          - escalada: Projeto 2
             ids:
             - '04'
-          - escalada: (via inacabada)
+            setor: Setor Família II
+          - escalada: Via inacabada 1
             ids:
             - '05'
+            setor: Setor Família II
           - escalada: Trinca Ferro
             ids:
             - '06'
@@ -1381,7 +1387,7 @@ picos:
             - Ró
             data_abertura: '2012'
         - via_esportiva:
-            nome: Projeto
+            nome: Projeto 1
             dificuldade: PROJETO
             quantidade_protecoes_intermediarias: 4
             quantidade_protecoes_parada: 2
@@ -1390,7 +1396,7 @@ picos:
             - Berbari
             data_abertura: '2012'
         - via_esportiva:
-            nome: Projeto
+            nome: Projeto 2
             dificuldade: PROJETO
             quantidade_protecoes_intermediarias: 4
             quantidade_protecoes_parada: 2
@@ -1400,7 +1406,7 @@ picos:
             - Alex
             data_abertura: '2012'
         - via_esportiva:
-            nome: (via inacabada)
+            nome: Via inacabada 1
             dificuldade: INDEFINIDO
             quantidade_protecoes_intermediarias: 3
             quantidade_protecoes_parada: 2
@@ -1568,9 +1574,10 @@ picos:
           - escalada: Chapa Quente
             ids:
             - '06'
-          - escalada: (via inacabada)
+          - escalada: Via inacabada 2
             ids:
             - '07'
+            setor: Setor Micos
         - caminho_imagem_mapa: imagens/setor_micos_p2.webp
           largura_mapa: 1119
           altura_mapa: 840
@@ -1618,9 +1625,10 @@ picos:
           - escalada: Chapa Quente
             ids:
             - '06'
-          - escalada: (via inacabada)
+          - escalada: Via inacabada 2
             ids:
             - '07'
+            setor: Setor Micos
         escaladas:
         - via_esportiva:
             nome: Eu Também Vou
@@ -1687,7 +1695,7 @@ picos:
             - Rômulo
             data_abertura: '2011'
         - via_esportiva:
-            nome: (via inacabada)
+            nome: Via inacabada 2
             dificuldade: INDEFINIDO
             quantidade_protecoes_intermediarias: 0
             quantidade_protecoes_parada: 2
@@ -2713,6 +2721,7 @@ picos:
             escalada: People crazy
           - ids:
             - '09'
+            - P1
             setor: Setor Trad
             escalada: Aresta Daniel
         escaladas:
@@ -2880,9 +2889,11 @@ picos:
           - escalada: A Quina
             ids:
             - '02'
+            setor: Setor Trad
           - escalada: Pachamama
             ids:
             - '03'
+            setor: Setor Trad
           - escalada: Baba Yaga
             ids:
             - '04'
@@ -2911,25 +2922,6 @@ picos:
             setor: Setor dos Tetos
             escalada: Deu Brasil
         escaladas:
-        - via_multiplas_enfiadas:
-            nome: A Quina
-            numero_enfiadas: 4
-            conquistadores:
-            - André
-            - Tigrão
-        - via_multiplas_enfiadas:
-            nome: Pachamama
-            numero_enfiadas: 7
-            conquistadores:
-            - Berbari
-            - Tonin
-            - Bunitin
-            - Neander
-            - Chinha
-            - Paulão
-            - Bolinha
-            comprimento_total: 130
-            data_abertura: '2024-06-14'
         - via_esportiva:
             nome: Baba Yaga
             dificuldade: BR_5
@@ -2943,33 +2935,33 @@ picos:
         - via_esportiva:
             nome: Soy Loco Por Ti América
             dificuldade: BR_9C_BARRA_10A
+            extensao: 30
+            quantidade_protecoes_intermediarias: 12
+            quantidade_protecoes_parada: 2
             conquistadores:
             - Berbari
             - Chinha
             data_abertura: '2016'
-            extensao: 30
-            quantidade_protecoes_intermediarias: 12
-            quantidade_protecoes_parada: 2
         - via_esportiva:
             nome: Afrodite
             dificuldade: BR_7B
-            quantidade_protecoes_intermediarias: 11
-            quantidade_protecoes_parada: 2
-            extensao: 30
             conquistadores:
             - Bunitinho
             - Clebinho
             data_abertura: '2024'
+            extensao: 30
+            quantidade_protecoes_intermediarias: 11
+            quantidade_protecoes_parada: 2
         - via_esportiva:
             nome: Ponto de Equilíbrio
             dificuldade: BR_8B_BARRA_8C
-            quantidade_protecoes_intermediarias: 11
-            quantidade_protecoes_parada: 2
-            extensao: 30
             conquistadores:
             - Berbari
             - Chinha
             data_abertura: '2019'
+            extensao: 30
+            quantidade_protecoes_intermediarias: 11
+            quantidade_protecoes_parada: 2
         - via_esportiva:
             nome: Lilith
             dificuldade: BR_7A
@@ -3012,9 +3004,8 @@ picos:
 
           Sombra após 14h.
         precomputados:
-          total_escaladas: 9
+          total_escaladas: 7
           total_esportivas: 7
-          total_multiplas_enfiadas: 2
   - setor:
       conteudo:
         nome: Setor Trad
@@ -3251,6 +3242,28 @@ picos:
               x: 1362
               y: 1213
               raio: 14
+          - id: crayzy
+            label: ''
+            circulo:
+              x: 247
+              y: 1211
+              raio: 14
+            cor: ''
+          - id: formigao
+            label: ''
+            circulo:
+              x: 289
+              y: 1202
+              raio: 14
+            cor: ''
+          - id: palestra
+            label: ''
+            retangulo:
+              x: 1410
+              y: 211
+              comprimento: 223
+              largura: 30
+            cor: ''
           referencias:
           - escalada: Aresta Daniel
             ids:
@@ -3258,12 +3271,14 @@ picos:
           - escalada: Barriga Verde
             ids:
             - '02'
-          - escalada: ???
+          - escalada: Sem nome 1
             ids:
             - a
-          - escalada: ???
+            setor: Setor Trad
+          - escalada: Sem nome 2
             ids:
             - b
+            setor: Setor Trad
           - escalada: Tosco Climb
             ids:
             - '03'
@@ -3273,9 +3288,10 @@ picos:
           - escalada: A Quina
             ids:
             - '05'
-          - escalada: sem nome
+          - escalada: Sem nome 3
             ids:
             - c
+            setor: Setor Trad
           - escalada: Igarapé Cascão
             ids:
             - '06'
@@ -3285,9 +3301,10 @@ picos:
           - escalada: Pachamama
             ids:
             - '07'
-          - escalada: sem nome
+          - escalada: Sem nome 4
             ids:
             - e
+            setor: Setor Trad
           - escalada: Absoluta Inconsequência
             ids:
             - '08'
@@ -3297,54 +3314,65 @@ picos:
           - escalada: Mentiras Sinceras
             ids:
             - '10'
-          - escalada: sem nome
+          - escalada: Sem nome 5
             ids:
             - f
-          - escalada: sem nome
+            setor: Setor Trad
+          - escalada: Sem nome 6
             ids:
             - g
-          - escalada: sem nome
+            setor: Setor Trad
+          - escalada: Sem nome 7
             ids:
             - '11'
+            setor: Setor Trad
           - escalada: Bituca
             ids:
             - '12'
-          - escalada: ???
+          - escalada: Sem nome 8
             ids:
             - h
-          - escalada: ???
+            setor: Setor Trad
+          - escalada: Sem nome 9
             ids:
             - i
+            setor: Setor Trad
           - escalada: Último Dente
             ids:
             - '13'
-          - escalada: sem nome
+          - escalada: Sem nome 10
             ids:
             - '14'
+            setor: Setor Trad
           - escalada: Inanição
             ids:
             - '15'
           - escalada: Lembranças da Vovó
             ids:
             - '16'
-          - escalada: sem nome
+          - escalada: Sem nome 11
             ids:
             - j
-          - escalada: sem nome
+            setor: Setor Trad
+          - escalada: Sem nome 12
             ids:
             - k
-          - escalada: ???
+            setor: Setor Trad
+          - escalada: Sem nome 13
             ids:
             - L
-          - escalada: ???
+            setor: Setor Trad
+          - escalada: Sem nome 14
             ids:
             - m
+            setor: Setor Trad
           - escalada: Netflix
             ids:
             - '17'
-          - escalada: ???
+          - escalada: Sem nome 15
             ids:
             - n
+            setor: Setor Trad
           - escalada: Que Nem Mendigo
             ids:
             - '18'
@@ -3354,30 +3382,46 @@ picos:
           - escalada: Me Leve ao Cume
             ids:
             - '20'
-          - escalada: sem nome
+          - escalada: Sem nome 16
             ids:
             - '21'
+            setor: Setor Trad
           - escalada: Vale Tudo
             ids:
             - '22'
-          - escalada: sem nome
+          - escalada: Sem nome 17
             ids:
             - '23'
+            setor: Setor Trad
           - escalada: Mulher do Fim do Mundo
             ids:
             - '24'
+          - ids:
+            - crayzy
+            setor: Setor Trad
+            escalada: Crayzy
+          - ids:
+            - formigao
+            setor: Setor Trad
+            escalada: Formigão Iannotta
+          - ids:
+            - palestra
+            setor: Setor Trad
+            escalada: Palestra Botânica
         escaladas:
         - via_movel:
             nome: Aresta Daniel
-            dificuldade: INDEFINIDO
+            dificuldade: BR_6SUP
+            exposicao: E1
+            descricao: Via com marimbondos!!! INTERDITADA.
         - via_movel:
             nome: Barriga Verde
             dificuldade: INDEFINIDO
         - via_movel:
-            nome: ???
+            nome: Sem nome 1
             dificuldade: INDEFINIDO
         - via_movel:
-            nome: ???
+            nome: Sem nome 2
             dificuldade: INDEFINIDO
         - via_movel:
             nome: Tosco Climb
@@ -3389,7 +3433,7 @@ picos:
             nome: A Quina
             dificuldade: INDEFINIDO
         - via_movel:
-            nome: sem nome
+            nome: Sem nome 3
             dificuldade: INDEFINIDO
         - via_movel:
             nome: Formigão Iannotta
@@ -3407,7 +3451,7 @@ picos:
             nome: Pachamama
             dificuldade: INDEFINIDO
         - via_movel:
-            nome: sem nome
+            nome: Sem nome 4
             dificuldade: INDEFINIDO
         - via_movel:
             nome: Absoluta Inconsequência
@@ -3419,28 +3463,28 @@ picos:
             nome: Mentiras Sinceras
             dificuldade: INDEFINIDO
         - via_movel:
-            nome: sem nome
+            nome: Sem nome 5
             dificuldade: INDEFINIDO
         - via_movel:
-            nome: sem nome
+            nome: Sem nome 6
             dificuldade: INDEFINIDO
         - via_movel:
-            nome: sem nome
+            nome: Sem nome 7
             dificuldade: INDEFINIDO
         - via_movel:
             nome: Bituca
             dificuldade: INDEFINIDO
         - via_movel:
-            nome: ???
+            nome: Sem nome 8
             dificuldade: INDEFINIDO
         - via_movel:
-            nome: ???
+            nome: Sem nome 9
             dificuldade: INDEFINIDO
         - via_movel:
             nome: Último Dente
             dificuldade: INDEFINIDO
         - via_movel:
-            nome: sem nome
+            nome: Sem nome 10
             dificuldade: INDEFINIDO
         - via_movel:
             nome: Inanição
@@ -3449,25 +3493,25 @@ picos:
             nome: Lembranças da Vovó
             dificuldade: INDEFINIDO
         - via_movel:
-            nome: sem nome
+            nome: Sem nome 11
             dificuldade: INDEFINIDO
         - via_movel:
-            nome: sem nome
+            nome: Sem nome 12
             dificuldade: INDEFINIDO
         - via_movel:
             nome: Palestra Botânica
             dificuldade: INDEFINIDO
         - via_movel:
-            nome: ???
+            nome: Sem nome 13
             dificuldade: INDEFINIDO
         - via_movel:
-            nome: ???
+            nome: Sem nome 14
             dificuldade: INDEFINIDO
         - via_movel:
             nome: Netflix
             dificuldade: INDEFINIDO
         - via_movel:
-            nome: ???
+            nome: Sem nome 15
             dificuldade: INDEFINIDO
         - via_movel:
             nome: Que Nem Mendigo
@@ -3479,19 +3523,16 @@ picos:
             nome: Me Leve ao Cume
             dificuldade: INDEFINIDO
         - via_movel:
-            nome: sem nome
+            nome: Sem nome 16
             dificuldade: INDEFINIDO
         - via_movel:
             nome: Vale Tudo
             dificuldade: INDEFINIDO
         - via_movel:
-            nome: sem nome
+            nome: Sem nome 17
             dificuldade: INDEFINIDO
         - via_movel:
             nome: Mulher do Fim do Mundo
-            dificuldade: INDEFINIDO
-        - via_movel:
-            nome: Marimbondos Me Mordam
             dificuldade: INDEFINIDO
         descricao: |-
           # Setor Trad
@@ -3500,7 +3541,7 @@ picos:
 
           Catálogo provisório das vias tradicionais e/ou em proteção móvel do Complexo Pedra Grande.
         precomputados:
-          total_escaladas: 42
+          total_escaladas: 41
   - grupo:
       conteudo:
         nome: Sherpa
@@ -3520,10 +3561,18 @@ picos:
                 nome: Tarja Preta
                 descricao: '![Tarja Preta](imagens/20260901_161341.webp)![Tarja Preta](imagens/20260901_161435.webp)![Tarja
                   Preta Face 3](imagens/20260901_161529.webp)![Face 2 Tarja Preta](imagens/20260901_161435_1.webp)'
-            descricao: |-
-              | ![Boulders - Vias Trad](imagens/20260901_161018.webp) |
-              | :--: |
-              | *Boulders - Vias Trad* |
+            mapas:
+            - caminho_imagem_mapa: imagens/setor_tarja_preta_p0.webp
+              largura_mapa: 1392
+              altura_mapa: 3013
+              referencias:
+              - grupo: Sherpa
+                setor: Tarja Preta
+                escalada: Película
+              - grupo: Sherpa
+                setor: Tarja Preta
+                escalada: Tarja Preta
+            descricao: ''
             precomputados:
               total_escaladas: 2
               total_boulders: 2
@@ -3566,10 +3615,24 @@ picos:
                 descricao: '![Italia, sai em um agarrão em invertida, do lado esquerdo
                   do bloco, toca reto pra cima.](imagens/20260901_162417.webp)'
                 destaque: true
-            descricao: |-
-              | ![Jeitinho Brasileiro](imagens/2026_09_01_16_17_04.webp) |
-              | :--: |
-              | *Jeitinho Brasileiro* |
+            mapas:
+            - caminho_imagem_mapa: imagens/setor_jeitinho_brasileiro_p0.webp
+              largura_mapa: 1392
+              altura_mapa: 3013
+              referencias:
+              - grupo: Sherpa
+                setor: Jeitinho Brasileiro
+                escalada: Jeitinho Brasileiro
+              - grupo: Sherpa
+                setor: Jeitinho Brasileiro
+                escalada: Força G
+              - grupo: Sherpa
+                setor: Jeitinho Brasileiro
+                escalada: Itália
+              - grupo: Sherpa
+                setor: Jeitinho Brasileiro
+                escalada: Glorioso
+            descricao: ''
             precomputados:
               total_escaladas: 4
               total_boulders: 4
@@ -3591,33 +3654,15 @@ picos:
                 url_video_beta: https://www.instagram.com/p/DaMdaQKTtFk/
                 destaque: true
             mapas:
-            - caminho_imagem_mapa: imagens/setor_nectar_p0.webp
-              largura_mapa: 406
-              altura_mapa: 882
-              pontos_de_interesse:
-              - id: setor_sherpa_map
-                label: ''
-                poligono:
-                  coordenadas:
-                  - 224
-                  - 811
-                  - 255
-                  - 797
-                  - 282
-                  - 703
-                  - 106
-                  - 684
-                  - 117
-                  - 801
+            - caminho_imagem_mapa: imagens/setor_nectar_p0_i0.webp
+              largura_mapa: 1855
+              altura_mapa: 2261
               referencias:
-              - ids:
-                - setor_sherpa_map
-                grupo: Sherpa
+              - grupo: Sherpa
+                setor: Nectar
+                escalada: Nectar
             indice_mapa_padrao: -1
-            descricao: |-
-              | ![Bloco Nectar](imagens/20260901_163206.webp) |
-              | :--: |
-              | *Bloco Nectar* |
+            descricao: ''
             precomputados:
               total_escaladas: 1
               total_boulders: 1
@@ -3650,49 +3695,50 @@ picos:
         - boulder:
             nome: Tanga Frouxa
             dificuldade: V2
+        - boulder:
+            nome: Barriga de Aluguel
+            dificuldade: V5
+        - boulder:
+            nome: Primeiro de todos
+            dificuldade: V1
+        - boulder:
+            nome: Sem nome (1)
+            dificuldade: V0
+        - boulder:
+            nome: Bananinha
+            dificuldade: V1
+        - boulder:
+            nome: Cactos kid
+            dificuldade: V2
         mapas:
         - caminho_imagem_mapa: imagens/setor_fugitivos_i_p0.webp
           largura_mapa: 1847
           altura_mapa: 1577
           pontos_de_interesse:
-          - id: '1'
-            label: '1'
-            linha:
-              estilo: TRACEJADO
-              espessura: 3
-              compilado:
-                caminho_svg: M 674 1175 C 666.3 1066.3, 651.5 955.2, 651 849 C 650.5
-                  747.7, 663.3 647.2, 669 552 C 674.3 463.8, 679.0 382.0, 684 297
-                caixa_delimitadora:
-                  x: 668
-                  y: 736
-                  comprimento: 33
-                  largura: 878
-                marcadores:
-                - tipo: CIRCULO_IDENTIFICADOR
-                  x: 674
-                  y: 1175
-                  angulo_graus_x100: -9404
-                  rotulo: '1'
-            cor: '#FFD600'
           - id: '2'
             label: '2'
             linha:
               estilo: TRACEJADO
               espessura: 3
               compilado:
-                caminho_svg: M 1022 1121 C 1052.0 1054.0, 1082.0 987.0, 1112 920
+                caminho_svg: M 678 1132 C 670.0 1037.0, 655.1 943.0, 654 847 C 652.9
+                  749.1, 666.3 645.2, 672 550 C 677.3 461.8, 682.0 380.0, 687 295
                 caixa_delimitadora:
-                  x: 1067
-                  y: 1020
-                  comprimento: 90
-                  largura: 201
+                  x: 670
+                  y: 714
+                  comprimento: 33
+                  largura: 837
                 marcadores:
                 - tipo: CIRCULO_IDENTIFICADOR
-                  x: 1022
-                  y: 1121
-                  angulo_graus_x100: -6588
+                  x: 678
+                  y: 1132
+                  angulo_graus_x100: -9481
                   rotulo: '2'
+                - tipo: FIM_TOP
+                  x: 687
+                  y: 295
+                  angulo_graus_x100: -8663
+                  rotulo: B
             cor: '#FFD600'
           - id: '3'
             label: '3'
@@ -3700,19 +3746,17 @@ picos:
               estilo: TRACEJADO
               espessura: 3
               compilado:
-                caminho_svg: M 1049 1125 C 1116.0 1045.7, 1196.8 969.5, 1250 887 C
-                  1298.4 811.9, 1330.6 733.2, 1361 654 C 1390.7 576.5, 1407.7 496.0,
-                  1431 417
+                caminho_svg: M 1008 1116 C 1041.0 1055.0, 1074.0 994.0, 1107 933
                 caixa_delimitadora:
-                  x: 1240
-                  y: 771
-                  comprimento: 382
-                  largura: 708
+                  x: 1058
+                  y: 1024
+                  comprimento: 99
+                  largura: 183
                 marcadores:
                 - tipo: CIRCULO_IDENTIFICADOR
-                  x: 1049
-                  y: 1125
-                  angulo_graus_x100: -4982
+                  x: 1008
+                  y: 1116
+                  angulo_graus_x100: -6159
                   rotulo: '3'
             cor: '#FFD600'
           - id: '4'
@@ -3721,18 +3765,18 @@ picos:
               estilo: TRACEJADO
               espessura: 3
               compilado:
-                caminho_svg: M 1293 943 C 1323.7 881.3, 1359.7 826.8, 1385 758 C 1414.1
-                  678.8, 1429.0 580.7, 1451 492
+                caminho_svg: M 1305 961 C 1332.7 896.7, 1378.3 825.2, 1388 768 C 1395.3
+                  725.4, 1382.7 690.7, 1380 652
                 caixa_delimitadora:
-                  x: 1372
-                  y: 718
-                  comprimento: 158
-                  largura: 451
+                  x: 1346
+                  y: 806
+                  comprimento: 83
+                  largura: 309
                 marcadores:
                 - tipo: CIRCULO_IDENTIFICADOR
-                  x: 1293
-                  y: 943
-                  angulo_graus_x100: -6356
+                  x: 1305
+                  y: 961
+                  angulo_graus_x100: -6673
                   rotulo: '4'
             cor: '#FFD600'
           - id: '5'
@@ -3741,18 +3785,18 @@ picos:
               estilo: TRACEJADO
               espessura: 3
               compilado:
-                caminho_svg: M 1416 872 C 1384.3 883.3, 1353.4 890.8, 1321 906 C 1283.7
-                  923.5, 1244.3 951.3, 1206 974
+                caminho_svg: M 1461 842 C 1414.3 863.3, 1364.8 883.1, 1321 906 C 1280.2
+                  927.3, 1244.3 951.3, 1206 974
                 caixa_delimitadora:
-                  x: 1311
-                  y: 923
-                  comprimento: 210
-                  largura: 102
+                  x: 1334
+                  y: 908
+                  comprimento: 255
+                  largura: 132
                 marcadores:
                 - tipo: CIRCULO_IDENTIFICADOR
-                  x: 1416
-                  y: 872
-                  angulo_graus_x100: 16031
+                  x: 1461
+                  y: 842
+                  angulo_graus_x100: 15543
                   rotulo: '5'
             cor: '#FFD600'
           - id: X
@@ -3761,96 +3805,562 @@ picos:
               estilo: TRACEJADO
               espessura: 3
               compilado:
-                caminho_svg: M 1205 973 C 1139.7 1012.0, 1085.3 1062.9, 1009 1090
-                  C 918.7 1122.1, 789.4 1121.6, 692 1136 C 608.6 1148.3, 501.1 1208.7,
-                  460 1171 C 405.9 1121.3, 484.2 899.6, 486 765 C 487.7 632.0, 476.0
-                  500.3, 471 368
+                caminho_svg: M 1205 973 C 1136.0 991.7, 1075.4 1014.7, 998 1029 C
+                  902.5 1046.7, 765.1 1047.9, 673 1062 C 603.9 1072.6, 523.6 1120.4,
+                  493 1099 C 468.6 1081.9, 481.7 1021.7, 476 983
                 caixa_delimitadora:
-                  x: 832
-                  y: 770
-                  comprimento: 745
-                  largura: 803
-                marcadores:
-                - tipo: CIRCULO_IDENTIFICADOR
-                  x: 471
-                  y: 368
-                  angulo_graus_x100: -9216
-                  rotulo: X
+                  x: 840
+                  y: 1036
+                  comprimento: 729
+                  largura: 126
+                marcadores: []
             cor: '#FFD600'
-          - id: a
-            label: a
+          - id: ▲
+            label: ▲
             linha:
               estilo: TRACEJADO
               espessura: 3
               compilado:
-                caminho_svg: M 1206 974 C 1187.3 967.7, 1166.0 964.5, 1150 955 C 1135.0
-                  946.1, 1124.7 931.7, 1112 920
+                caminho_svg: M 1205 974 C 1187.7 968.3, 1169.5 964.0, 1153 957 C 1136.9
+                  950.2, 1122.3 941.0, 1107 933
                 caixa_delimitadora:
-                  x: 1159
-                  y: 947
-                  comprimento: 94
-                  largura: 54
+                  x: 1156
+                  y: 954
+                  comprimento: 98
+                  largura: 41
                 marcadores:
                 - tipo: CIRCULO_IDENTIFICADOR
-                  x: 1150
-                  y: 955
-                  angulo_graus_x100: -15012
-                  rotulo: a
+                  x: 1153
+                  y: 957
+                  angulo_graus_x100: -15730
+                  rotulo: ▲
             cor: '#FFD600'
-          - id: y
-            label: y
+          - id: D
+            label: D
             linha:
               estilo: TRACEJADO
               espessura: 3
               compilado:
-                caminho_svg: M 1112 920 C 1140.0 859.3, 1201.8 810.2, 1196 738 C 1186.5
-                  619.1, 994.0 437.3, 893 287
+                caminho_svg: M 1107 933 C 1136.7 868.0, 1201.8 814.8, 1196 738 C 1186.7
+                  615.2, 996.0 432.0, 896 279
                 caixa_delimitadora:
-                  x: 1044
-                  y: 604
-                  comprimento: 303
-                  largura: 633
+                  x: 1046
+                  y: 606
+                  comprimento: 300
+                  largura: 654
                 marcadores:
                 - tipo: CIRCULO_IDENTIFICADOR
-                  x: 893
-                  y: 287
-                  angulo_graus_x100: -12389
-                  rotulo: y
+                  x: 896
+                  y: 279
+                  angulo_graus_x100: -12317
+                  rotulo: C
+            cor: '#FFD600'
+          - id: linha_1
+            label: ''
+            linha:
+              estilo: TRACEJADO
+              espessura: 3
+              compilado:
+                caminho_svg: M 284 1097 C 325.0 1110.0, 378.7 1147.7, 407 1136 C 431.5
+                  1125.9, 440.0 1077.3, 452 1050 C 462.2 1026.6, 468.0 1005.3, 476
+                  983
+                caixa_delimitadora:
+                  x: 380
+                  y: 1060
+                  comprimento: 192
+                  largura: 153
+                marcadores:
+                - tipo: CIRCULO_IDENTIFICADOR
+                  x: 284
+                  y: 1097
+                  angulo_graus_x100: 1759
+                  rotulo: '1'
+            cor: '#FFD600'
+          - id: linha_10
+            label: ''
+            linha:
+              estilo: TRACEJADO
+              espessura: 3
+              compilado:
+                caminho_svg: M 476 982 C 483.0 946.7, 493.7 911.7, 497 876 C 500.3
+                  840.3, 497.5 816.8, 496 768 C 492.7 665.0, 478.7 448.0, 470 288
+                caixa_delimitadora:
+                  x: 484
+                  y: 635
+                  comprimento: 27
+                  largura: 694
+                marcadores:
+                - tipo: CIRCULO_IDENTIFICADOR
+                  x: 470
+                  y: 288
+                  angulo_graus_x100: -9310
+                  rotulo: A
+            cor: '#FFD600'
+          - id: linha_7
+            label: d
+            linha:
+              estilo: TRACEJADO
+              espessura: 3
+              compilado:
+                caminho_svg: M 1205 974 C 1263.3 866.7, 1321.7 759.3, 1380 652
+                caixa_delimitadora:
+                  x: 1292
+                  y: 813
+                  comprimento: 175
+                  largura: 322
+                marcadores: []
+            cor: '#FFD600'
+          - id: linha_14
+            label: d
+            linha:
+              estilo: TRACEJADO
+              espessura: 3
+              compilado:
+                caminho_svg: M 1380 652 C 1401.3 575.7, 1422.7 499.3, 1444 423
+                caixa_delimitadora:
+                  x: 1412
+                  y: 538
+                  comprimento: 64
+                  largura: 229
+                marcadores:
+                - tipo: FIM_TOP
+                  x: 1444
+                  y: 423
+                  angulo_graus_x100: -7439
+                  rotulo: D
             cor: '#FFD600'
           referencias:
           - ids:
             - '5'
-            - 5a
-            - y
-            - a
+            - ▲
+            - D
             setor: Setor Fugitivos I
             escalada: Polydance
           - ids:
-            - '5'
             - X
+            - linha_10
+            - '5'
             setor: Setor Fugitivos I
             escalada: Bigdance
           - ids:
             - '3'
+            - ▲
+            - linha_7
+            - linha_14
             setor: Setor Fugitivos I
             escalada: Boulder do Bola
           - ids:
             - '4'
+            - linha_14
             setor: Setor Fugitivos I
             escalada: Trolls
           - ids:
-            - y
-            - '2'
+            - D
+            - '3'
             setor: Setor Fugitivos I
             escalada: Calcinha Larga
           - ids:
-            - '1'
+            - '2'
             setor: Setor Fugitivos I
             escalada: Tanga Frouxa
+          - ids:
+            - linha_1
+            - linha_10
+            escalada: Barriga de Aluguel
+        - caminho_imagem_mapa: imagens/setor_fugitivos_i_p1.webp
+          largura_mapa: 1280
+          altura_mapa: 960
+          pontos_de_interesse:
+          - id: linha_3
+            label: ''
+            linha:
+              estilo: TRACEJADO
+              espessura: 3
+              compilado:
+                caminho_svg: M 1006 507 C 1006.7 450.3, 1005.4 394.4, 1008 337 C 1010.6
+                  277.8, 1023.3 208.5, 1022 157 C 1021.0 118.1, 1013.3 89.0, 1009
+                  55
+                caixa_delimitadora:
+                  x: 1014
+                  y: 281
+                  comprimento: 16
+                  largura: 452
+                marcadores:
+                - tipo: CIRCULO_IDENTIFICADOR
+                  x: 1006
+                  y: 507
+                  angulo_graus_x100: -8933
+                  rotulo: '6'
+                  raio: 14
+                - tipo: FIM_TOP
+                  x: 1009
+                  y: 55
+                  angulo_graus_x100: -9726
+                  rotulo: E
+                  raio: 14
+            cor: '#FFD600'
+          - id: linha_4
+            label: ''
+            linha:
+              estilo: TRACEJADO
+              espessura: 3
+              compilado:
+                caminho_svg: M 1137 455 C 1136.0 404.7, 1139.3 359.6, 1134 304 C 1127.4
+                  234.5, 1107.3 148.7, 1094 71
+                caixa_delimitadora:
+                  x: 1116
+                  y: 263
+                  comprimento: 43
+                  largura: 384
+                marcadores:
+                - tipo: CIRCULO_IDENTIFICADOR
+                  x: 1137
+                  y: 455
+                  angulo_graus_x100: -9114
+                  rotulo: '5'
+                  raio: 14
+                - tipo: FIM_TOP
+                  x: 1094
+                  y: 71
+                  angulo_graus_x100: -9974
+                  rotulo: F
+                  raio: 14
+            cor: '#FFD600'
+          - id: linha_8
+            linha:
+              estilo: TRACEJADO
+              espessura: 3
+              compilado:
+                caminho_svg: M 439 615 C 444.0 589.0, 449.0 563.0, 454 537
+                caixa_delimitadora:
+                  x: 446
+                  y: 576
+                  comprimento: 15
+                  largura: 78
+                marcadores:
+                - tipo: CIRCULO_IDENTIFICADOR
+                  x: 439
+                  y: 615
+                  angulo_graus_x100: -7911
+                  rotulo: '3'
+                  raio: 14
+            cor: '#FFD600'
+          - id: linha_11
+            linha:
+              estilo: TRACEJADO
+              espessura: 3
+              compilado:
+                caminho_svg: M 651 557 C 658.3 506.0, 675.2 451.3, 673 404 C 671.0
+                  362.5, 654.3 326.7, 645 288
+                caixa_delimitadora:
+                  x: 659
+                  y: 422
+                  comprimento: 28
+                  largura: 269
+                marcadores:
+                - tipo: CIRCULO_IDENTIFICADOR
+                  x: 651
+                  y: 557
+                  angulo_graus_x100: -8182
+                  rotulo: '4'
+                  raio: 14
+            cor: '#FFD600'
+            label: ''
+          - id: linha_13
+            linha:
+              estilo: TRACEJADO
+              espessura: 3
+              compilado:
+                caminho_svg: M 646 289 C 636.7 211.3, 627.3 133.7, 618 56
+                caixa_delimitadora:
+                  x: 632
+                  y: 172
+                  comprimento: 28
+                  largura: 233
+                marcadores:
+                - tipo: FIM_TOP
+                  x: 618
+                  y: 56
+                  angulo_graus_x100: -9685
+                  rotulo: D
+                  raio: 14
+            cor: '#FFD600'
+          - id: linha_15
+            linha:
+              estilo: TRACEJADO
+              espessura: 3
+              compilado:
+                caminho_svg: M 454 537 C 465.7 525.3, 477.3 513.7, 489 502
+                caixa_delimitadora:
+                  x: 472
+                  y: 520
+                  comprimento: 35
+                  largura: 35
+                marcadores: []
+            cor: '#FFD600'
+          - id: linha_16
+            linha:
+              estilo: TRACEJADO
+              espessura: 3
+              compilado:
+                caminho_svg: M 489 502 C 515.3 506.3, 541.7 510.7, 568 515
+                caixa_delimitadora:
+                  x: 528
+                  y: 508
+                  comprimento: 79
+                  largura: 13
+                marcadores: []
+            cor: '#FFD600'
+          - id: linha_17
+            linha:
+              estilo: TRACEJADO
+              espessura: 3
+              compilado:
+                caminho_svg: M 568 515 C 573.7 486.0, 573.5 452.8, 585 428 C 595.5
+                  405.5, 620.8 393.2, 631 371 C 641.9 347.3, 641.0 316.3, 646 289
+                caixa_delimitadora:
+                  x: 607
+                  y: 402
+                  comprimento: 78
+                  largura: 226
+                marcadores: []
+            cor: '#FFD600'
+          - id: linha_12
+            label: ''
+            linha:
+              estilo: TRACEJADO
+              espessura: 3
+              compilado:
+                caminho_svg: M 1138 455 C 1094.3 455.0, 1052.7 452.8, 1007 455 C 956.5
+                  457.4, 898.7 463.5, 848 470 C 801.1 476.0, 747.7 487.5, 713 492
+                  C 691.3 494.8, 680.0 494.1, 660 497 C 633.7 500.8, 599.3 509.0,
+                  569 515
+                caixa_delimitadora:
+                  x: 854
+                  y: 485
+                  comprimento: 569
+                  largura: 60
+                marcadores:
+                - tipo: CIRCULO_IDENTIFICADOR
+                  x: 1138
+                  y: 455
+                  angulo_graus_x100: 18000
+                  rotulo: '5'
+                  raio: 14
+            cor: '#FFD600'
+          - id: linha_19
+            linha:
+              estilo: TRACEJADO
+              espessura: 3
+              compilado:
+                caminho_svg: M 454 537 C 454.3 528.0, 456.9 517.5, 455 510 C 453.5
+                  504.0, 449.0 500.0, 446 495
+                caixa_delimitadora:
+                  x: 450
+                  y: 516
+                  comprimento: 9
+                  largura: 42
+                marcadores: []
+            cor: '#FFD600'
+          - id: linha_9
+            label: ''
+            linha:
+              estilo: TRACEJADO
+              espessura: 3
+              compilado:
+                caminho_svg: M 489 502 C 474.7 499.7, 460.3 497.3, 446 495
+                caixa_delimitadora:
+                  x: 468
+                  y: 498
+                  comprimento: 43
+                  largura: 7
+                marcadores: []
+            cor: '#FFD600'
+          - id: linha_50
+            label: ''
+            linha:
+              estilo: TRACEJADO
+              espessura: 3
+              compilado:
+                caminho_svg: M 397 480 C 373.3 480.3, 353.1 476.9, 326 481 C 288.0
+                  486.7, 234.4 518.1, 192 520 C 154.5 521.7, 106.9 519.6, 85 499 C
+                  64.1 479.4, 57.5 438.0, 60 403 C 63.2 358.5, 101.3 304.3, 122 255
+                caixa_delimitadora:
+                  x: 228
+                  y: 388
+                  comprimento: 337
+                  largura: 265
+                marcadores:
+                - tipo: FIM_TOP
+                  x: 122
+                  y: 255
+                  angulo_graus_x100: -6727
+                  rotulo: A
+                  raio: 14
+            cor: '#FFD600'
+          - id: linha_18
+            linha:
+              estilo: TRACEJADO
+              espessura: 3
+              compilado:
+                caminho_svg: M 446 495 C 438.7 491.7, 431.9 487.5, 424 485 C 415.6
+                  482.4, 406.0 481.7, 397 480
+                caixa_delimitadora:
+                  x: 422
+                  y: 488
+                  comprimento: 49
+                  largura: 15
+                marcadores: []
+            cor: '#FFD600'
+          - id: linha_21
+            linha:
+              estilo: TRACEJADO
+              espessura: 3
+              compilado:
+                caminho_svg: M 397 480 C 378.3 447.0, 359.7 414.3, 341 381 C 322.0
+                  347.3, 300.9 313.3, 284 279 C 267.7 245.9, 255.3 212.3, 241 179
+                caixa_delimitadora:
+                  x: 319
+                  y: 330
+                  comprimento: 156
+                  largura: 301
+                marcadores:
+                - tipo: FIM_TOP
+                  x: 241
+                  y: 179
+                  angulo_graus_x100: -11327
+                  rotulo: C
+            cor: '#FFD600'
+          referencias:
+          - ids:
+            - linha_3
+            escalada: Primeiro de todos
+          - ids:
+            - linha_4
+            escalada: Sem nome (1)
+          - ids:
+            - linha_8
+            - linha_19
+            - linha_18
+            - linha_21
+            escalada: Calcinha Larga
+          - ids:
+            - linha_8
+            - linha_15
+            - linha_16
+            - linha_17
+            - linha_13
+            escalada: Boulder do Bola
+          - ids:
+            - linha_11
+            - linha_13
+            escalada: Trolls
+          - ids:
+            - linha_12
+            - linha_16
+            - linha_9
+            - linha_18
+            - linha_21
+            escalada: Polydance
+          - ids:
+            - linha_18
+            - linha_50
+            - linha_9
+            - linha_16
+            - linha_12
+            escalada: Bigdance
+        - caminho_imagem_mapa: imagens/setor_fugitivos_i_p2.webp
+          largura_mapa: 1280
+          altura_mapa: 960
+          pontos_de_interesse:
+          - id: linha_2
+            label: ''
+            linha:
+              estilo: TRACEJADO
+              espessura: 3
+              compilado:
+                caminho_svg: M 632 626 C 662.7 630.0, 695.1 644.4, 724 638 C 753.9
+                  631.4, 791.2 611.3, 808 585 C 826.2 556.5, 820.0 511.6, 823 469
+                  C 826.6 417.2, 829.3 352.2, 825 296 C 820.9 242.0, 804.7 185.5,
+                  799 138 C 794.4 99.3, 793.7 67.3, 791 32
+                caixa_delimitadora:
+                  x: 728
+                  y: 335
+                  comprimento: 193
+                  largura: 606
+                marcadores:
+                - tipo: CIRCULO_IDENTIFICADOR
+                  x: 632
+                  y: 626
+                  angulo_graus_x100: 743
+                  rotulo: '1'
+                  raio: 14
+                - tipo: CIRCULO_IDENTIFICADOR
+                  x: 791
+                  y: 32
+                  angulo_graus_x100: -9432
+                  rotulo: A
+                  raio: 14
+            cor: '#FFD600'
+          referencias:
+          - ids:
+            - linha_2
+            escalada: Barriga de Aluguel
+        - caminho_imagem_mapa: imagens/setor_fugitivos_i_p3.webp
+          largura_mapa: 960
+          altura_mapa: 1280
+          pontos_de_interesse:
+          - id: linha_5
+            label: ''
+            linha:
+              estilo: TRACEJADO
+              espessura: 3
+              compilado:
+                caminho_svg: M 615 776 C 598.3 724.0, 576.0 675.8, 565 620 C 552.8
+                  558.6, 553.6 489.8, 549 422 C 544.2 350.6, 541.0 275.3, 537 202
+                caixa_delimitadora:
+                  x: 576
+                  y: 489
+                  comprimento: 78
+                  largura: 574
+                marcadores:
+                - tipo: CIRCULO_IDENTIFICADOR
+                  x: 615
+                  y: 776
+                  angulo_graus_x100: -10777
+                  rotulo: '7'
+            cor: '#FFD600'
+          - id: linha_6
+            label: ''
+            linha:
+              estilo: TRACEJADO
+              espessura: 3
+              compilado:
+                caminho_svg: M 227 856 C 241.7 787.3, 256.5 717.2, 271 650 C 284.9
+                  585.6, 302.5 532.0, 312 461 C 323.9 371.7, 322.7 257.0, 328 155
+                caixa_delimitadora:
+                  x: 278
+                  y: 506
+                  comprimento: 101
+                  largura: 701
+                marcadores:
+                - tipo: CIRCULO_IDENTIFICADOR
+                  x: 227
+                  y: 856
+                  angulo_graus_x100: -7794
+                  rotulo: '8'
+            cor: '#FFD600'
+          referencias:
+          - ids:
+            - linha_5
+            escalada: Bananinha
+          - ids:
+            - linha_6
+            escalada: Cactos kid
         descricao: ''
         precomputados:
-          total_escaladas: 6
-          total_boulders: 6
+          total_escaladas: 11
+          total_boulders: 11
   mapas_gerais:
     conteudo:
       mapas:
@@ -4059,12 +4569,12 @@ picos:
     latitude: -201176660
     longitude: -443593480
   precomputados:
-    total_escaladas: 153
+    total_escaladas: 155
     total_setores: 13
     total_grupos: 1
     total_esportivas: 95
-    total_boulders: 13
-    total_multiplas_enfiadas: 3
+    total_boulders: 18
+    total_multiplas_enfiadas: 1
 botoes:
 - texto: Capa
   destino:
@@ -4216,12 +4726,6 @@ ultima_migracao: 4
 publicar_croqui: true
 revisado_bounding_circle: true
 arquivos_externos:
-- caminho: imagens/20260901_161018.webp
-  checksum_sha256: 5c133cbadc46815758e0d0cd8665e521fa1fb28471ba7fa3bfe947e9dd9c16da
-- caminho: imagens/20260901_163206.webp
-  checksum_sha256: a0ebb1e6ca92ce14b6e43943eb2ff266c097e320ce7670c46a606a887184580f
-- caminho: imagens/2026_09_01_16_17_04.webp
-  checksum_sha256: 098115d550c578e90d3edd9325a6894c9eb47cee7961df9ab143bf2e78b52d4f
 - caminho: imagens/capa_p0.webp
   checksum_sha256: b4887c391eaf1911eaf809e7132944c4f46760657ebe56af30f2890698fbe289
 - caminho: imagens/historia_p0.webp
@@ -4248,20 +4752,28 @@ arquivos_externos:
   checksum_sha256: 4f3e4bedfed21fafc2284c19063d969b3aae82cd32409bd7bf62d4c941c32765
 - caminho: imagens/setor_fugitivos_i_p0.webp
   checksum_sha256: 95239b7b899a1e56c8d919fcbfa733d0e9ae4f9b028a23eeb2a950c5dbabdf25
+- caminho: imagens/setor_fugitivos_i_p1.webp
+  checksum_sha256: 40266b678b64ad905696f58ace40b125d04162bfdb4a8c4f8a5f9313ee7a672d
+- caminho: imagens/setor_fugitivos_i_p2.webp
+  checksum_sha256: 66fbcb3356cdcbb3001fa95dbd17cdb0989d9e22a394cf2cf96890c3099ed794
+- caminho: imagens/setor_fugitivos_i_p3.webp
+  checksum_sha256: 06bd0ef4287fd6e7fa0255e706e814ea441be9d74e11b0d0a5a17173de6d4474
 - caminho: imagens/setor_igarameca_p0.webp
   checksum_sha256: e79e4daa827532abd0ff0a16e096f1df0eea148c8589dc7686fa268ba1c84102
 - caminho: imagens/setor_igarameca_p1.webp
   checksum_sha256: b2ab0e0a16eb19fe5d54f6a899456ac5ff07671862249a012699dc3631c64662
 - caminho: imagens/setor_igarameca_p2.webp
   checksum_sha256: 3a6b8f636bd121e5fa888a5dc855ddb627cea151389890532ba4f50053c78f30
+- caminho: imagens/setor_jeitinho_brasileiro_p0.webp
+  checksum_sha256: 9aa633be14db3f0c96a1a656470f87f5bfb7a259a02cb58babd6733dadc8d535
 - caminho: imagens/setor_micos_p0.webp
   checksum_sha256: acb374ec8c0ecf85d537c86dd1328bbb91e4fd41576659d596457a818254cd2d
 - caminho: imagens/setor_micos_p1.webp
   checksum_sha256: e59d63c298cd1049ee8636ce3e3b78b993f5b2358f4e3fc57a10508e739e8536
 - caminho: imagens/setor_micos_p2.webp
   checksum_sha256: 27321d933aca314b50a98e486f662138fd61b049dcb90248b6bb2d162c7b944c
-- caminho: imagens/setor_nectar_p0.webp
-  checksum_sha256: 7d03d9d98304c9cbdb5552f04633f0bfc830e0847069c46cae353ace2affe9f0
+- caminho: imagens/setor_nectar_p0_i0.webp
+  checksum_sha256: 2b3caa8b248dc3f33ae226aa25d1456c0eb589c5b694e66cf201cd7c4f7927fa
 - caminho: imagens/setor_pracinha_p0.webp
   checksum_sha256: ec34526d21a825cbefa2049a1fe82cc4a1d77a4dd1072d39804852cf5c38daf3
 - caminho: imagens/setor_pracinha_p1.webp
@@ -4270,6 +4782,8 @@ arquivos_externos:
   checksum_sha256: 9afa2f619eda4053a096d19b64aa9262e8b85f9f9b05815ad2379e66ccc227e1
 - caminho: imagens/setor_pracinha_p3.webp
   checksum_sha256: d60317f3226a9af417557bf7f1d73d46aa152cfbded8a2d8e2a876834398ed64
+- caminho: imagens/setor_tarja_preta_p0.webp
+  checksum_sha256: 42f0988f5b3b2455e050c55af801a4422327538c6acf4a39706557d91edea940
 - caminho: imagens/setor_tetos_p0.webp
   checksum_sha256: 88013468ab3f1c12bc710281758d6e1e205443645aba8dff2828a8b52ee7f2e6
 - caminho: imagens/setor_tetos_p1.webp

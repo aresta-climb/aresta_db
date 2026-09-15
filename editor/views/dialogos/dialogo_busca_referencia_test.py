@@ -85,5 +85,26 @@ class DialogoBuscaReferenciaTest(unittest.TestCase):
         self.assertEqual(self.dialogo.lista_resultados.count(), 1)
         self.assertIn("Vía Láctea", self.dialogo.lista_resultados.item(0).text())
 
+    def test_setter_todas_entidades(self):
+        novas = [{"tipo": "Setor", "display": "🎯 Setor: Novo", "grupo": "", "setor": "Novo", "escalada": ""}]
+        self.dialogo.todas_entidades = novas
+        self.assertEqual(self.dialogo.todas_entidades, novas)
+
+    def test_on_entidade_ativada_chama_accept(self):
+        chamou_accept = False
+        def mock_accept():
+            nonlocal chamou_accept
+            chamou_accept = True
+        self.dialogo.accept = mock_accept
+        self.dialogo._on_entidade_ativada({})
+        self.assertTrue(chamou_accept)
+
+    def test_accept_sem_dados_selecionados_retorna_sem_erro(self):
+        self.dialogo.lista_resultados.clearSelection()
+        self.dialogo.lista_resultados.setCurrentRow(-1)
+        self.dialogo.accept()
+        self.assertIsNone(self.dialogo.obter_referencia())
+
+
 if __name__ == '__main__':
     unittest.main()
