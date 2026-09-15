@@ -122,11 +122,12 @@ picos:
             quantidade_protecoes_parada: 0
             descricao: '**INTERDITADA:** Via inacabada, conta com apenas 3 proteções
               intermediárias e sem parada instalada no topo.'
-        descricao: |-
-          # Setor Castelinho
+        descricao: '# Setor Castelinho
+
 
           Setor localizado próximo ao Restaurante Castelinho. Possui vias de graduação
-          variada, incluindo algumas vias em móvel.
+
+          variada, incluindo algumas vias em móvel.'
         precomputados:
           total_escaladas: 6
           total_esportivas: 3
@@ -662,10 +663,10 @@ picos:
             - Douglas
             - Bombom
             data_abertura: '1994'
-        descricao: |-
-          # Setor Gruta - Mapa 3
+        descricao: '# Setor Gruta - Mapa 3
 
-          Parte interna e externa da gruta com vias esportivas e móveis.
+
+          Parte interna e externa da gruta com vias esportivas e móveis.'
         precomputados:
           total_escaladas: 26
           total_esportivas: 18
@@ -1072,10 +1073,10 @@ picos:
             - Eustáquio Macedo Melo Júnior
             - Emerson Alves Azeredo
             data_abertura: '1997'
-        descricao: |-
-          # Setor Gruta - Mapa 4 (Sala de Aula)
+        descricao: '# Setor Gruta - Mapa 4 (Sala de Aula)
 
-          Vias localizadas na região da Sala de Aula e em direção ao setor Savassinha.
+
+          Vias localizadas na região da Sala de Aula e em direção ao setor Savassinha.'
         precomputados:
           total_escaladas: 17
           total_esportivas: 14
@@ -1256,11 +1257,12 @@ picos:
             - Eustáquio Júnior
             - Fabiano Fernandes
             data_abertura: '1994'
-        descricao: |-
-          # Setor Mapa 5
+        descricao: '# Setor Mapa 5
+
 
           Vias localizadas próximo à região do "Pasto" e "Mancha amarela".
-          Confira a localização no mapa.
+
+          Confira a localização no mapa.'
         precomputados:
           total_escaladas: 9
           total_esportivas: 9
@@ -1521,11 +1523,13 @@ picos:
             conquistadores:
             - Ricardo Jardim Leal
             data_abertura: '1998'
-        descricao: |-
-          # Setor Vale Verde (Mapa 6)
+        descricao: '# Setor Vale Verde (Mapa 6)
 
-          Setor com vias técnicas e atléticas. O mapa está fora de escala ("fora de escala").
-          O Bloco do Raul Seixas está localizado próximo às vias 73, 74 e 75.
+
+          Setor com vias técnicas e atléticas. O mapa está fora de escala ("fora de
+          escala").
+
+          O Bloco do Raul Seixas está localizado próximo às vias 73, 74 e 75.'
         precomputados:
           total_escaladas: 14
           total_esportivas: 11
@@ -1746,10 +1750,11 @@ picos:
             - Antonio Carlos Magalhães
             - Emerson Alves Azeredo
             data_abertura: '1993'
-        descricao: |-
-          # Setor Mapa 7
+        descricao: '# Setor Mapa 7
 
-          Este setor abriga a base da via "Monte Calvário". Possui vias predominantemente esportivas.
+
+          Este setor abriga a base da via "Monte Calvário". Possui vias predominantemente
+          esportivas.'
         precomputados:
           total_escaladas: 11
           total_esportivas: 10
@@ -2159,6 +2164,12 @@ picos:
             - Emerson Alves Azeredo
             - Gilberto Torres
             data_abertura: '1993'
+            descricao: 'Via mista, laçar a ponte de pedra com uma fita de 120cm entre
+              a 3a proteção e o top.
+
+
+              Muito cuidado nas primeiras três proteções por causa do bloco na base
+              da via.'
         - via_esportiva:
             nome: Consolo da Surucucu
             dificuldade: BR_6SUP
@@ -2240,11 +2251,12 @@ picos:
             - Ivo Ferreira Marcelino
             - Alexandre Magos
             data_abertura: '1998'
-        descricao: |-
-          # Setor Túnel de Pedra (Mapa 8)
+        descricao: '# Setor Túnel de Pedra (Mapa 8)
+
 
           Vias localizadas na região do Túnel de Pedra.
-          O setor possui uma grande concentração de vias esportivas de graduação variada.
+
+          O setor possui uma grande concentração de vias esportivas de graduação variada.'
         precomputados:
           total_escaladas: 23
           total_esportivas: 20
@@ -2564,11 +2576,12 @@ picos:
             - Adherbal Muniz
             - Anderson Vila Nova
             - Bruno Madeira
-        descricao: |-
-          # Setor Savassinha (Mapa 9)
+        descricao: '# Setor Savassinha (Mapa 9)
+
 
           Setor com vias de alto nível técnico e físico.
-          Vias localizadas em uma das áreas mais frequentadas da Lapinha.
+
+          Vias localizadas em uma das áreas mais frequentadas da Lapinha.'
         precomputados:
           total_escaladas: 14
           total_esportivas: 13
@@ -2703,11 +2716,12 @@ picos:
             - Gilberto Torres
             - Emerson Alves Azeredo
             data_abertura: '1993'
-        descricao: |-
-          # Setor Bloco Romano (Mapa 10)
+        descricao: '# Setor Bloco Romano (Mapa 10)
+
 
           Setor final do guia, localizado próximo ao Túnel de Pedra e ao Teto.
-          Possui vias predominantemente esportivas.
+
+          Possui vias predominantemente esportivas.'
         precomputados:
           total_escaladas: 7
           total_esportivas: 7
@@ -2903,62 +2917,93 @@ botoes:
 - texto: Capa
   destino:
     secao_textual:
-      conteudo: |-
-        # Guia de escaladas da Lapinha
+      conteudo: '# Guia de escaladas da Lapinha
+
 
         Lagoa Santa - MG
 
+
         | ![Mapa geral da Gruta da Lapinha](imagens/capa_p0_i0.webp) |
+
         | :--: |
+
         | *Mapa geral da Gruta da Lapinha* |
+
 
         **Autores:** Daniel Ferreira Mariano e Eustáquio Macedo Melo Júnior
 
-        **Ano:** 2002
+
+        **Ano:** 2002'
 - texto: Créditos
   destino:
     secao_textual:
-      conteudo: |-
-        # Créditos
+      conteudo: '# Créditos
+
 
         Este guia é de autoria de:
 
+
         - **Daniel Ferreira Mariano**
+
         - **Eustáquio Macedo Melo Júnior**
+
 
         **Ano:** 2002
 
+
         **Disponível em:** [www.rumos.net.br](http://www.rumos.net.br)
 
+
         | ![Logo Rumos Navegação em Montanhas](imagens/creditos_p0_i3.webp) |
+
         | :--: |
+
         | *Logo Rumos Navegação em Montanhas* |
 
+
         | ![Logo AltaMontanha.com](imagens/creditos_p0_i1.webp) |
+
         | :--: |
+
         | *Logo AltaMontanha.com* |
 
+
         | ![Logo Loja AltaMontanha.com](imagens/creditos_p0_i2.webp) |
+
         | :--: |
+
         | *Logo Loja AltaMontanha.com* |
 
-        | ![Logo FEMEMG - Federação de Montanhismo e Escalada de Minas Gerais](imagens/creditos_p0_i0.webp) |
+
+        | ![Logo FEMEMG - Federação de Montanhismo e Escalada de Minas Gerais](imagens/creditos_p0_i0.webp)
+        |
+
         | :--: |
+
         | *Logo FEMEMG - Federação de Montanhismo e Escalada de Minas Gerais* |
+
 
         ## Revitalização e Manutenções (2026)
 
+
         Inspeções técnicas e manutenções coordenadas e executadas por:
 
+
         - **ACEC-MG** (Associação Cultural e Esportiva do Carste de Minas Gerais)
+
         - **Rupestre da Lapa Aventuras**
+
 
         Grupo de Trabalho de Escalada da Lapinha - GTEL.
 
-        Em conformidade com a Portaria IEF nº 72/2023, protocolos operacionais do Parque
+
+        Em conformidade com a Portaria IEF nº 72/2023, protocolos operacionais do
+        Parque
+
         Estadual do Sumidouro (PESU) e autorização dos conquistadores.
 
-        > Escale com segurança, respeite o local e traga seu lixo de volta para casa.
+
+        > Escale com segurança, respeite o local e traga seu lixo de volta para casa.'
 ultima_migracao: 4
 publicar_croqui: true
 revisado_bounding_circle: true

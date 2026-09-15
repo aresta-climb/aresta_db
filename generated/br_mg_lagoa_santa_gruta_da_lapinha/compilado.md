@@ -2593,6 +2593,10 @@
         - Daniel Fernandes "Salim"
   - **[12]**:
     - **via_esportiva**:
+      - **descricao**:
+          Via mista, laçar a ponte de pedra com uma fita de 120cm entre a 3a proteção e o top.
+          
+          Muito cuidado nas primeiras três proteções por causa do bloco na base da via.
       - **nome**: Vale Perdido
       - **dificuldade**: BR_6SUP
       - **quantidade_protecoes_intermediarias**: 3

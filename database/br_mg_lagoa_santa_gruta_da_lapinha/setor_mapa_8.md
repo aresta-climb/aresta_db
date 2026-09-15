@@ -405,6 +405,11 @@ escaladas:
     - Emerson Alves Azeredo
     - Gilberto Torres
     data_abertura: '1993'
+    descricao: 'Via mista, laçar a ponte de pedra com uma fita de 120cm entre a 3a
+      proteção e o top.
+
+
+      Muito cuidado nas primeiras três proteções por causa do bloco na base da via.'
 - via_esportiva:
     nome: Consolo da Surucucu
     dificuldade: BR_6SUP

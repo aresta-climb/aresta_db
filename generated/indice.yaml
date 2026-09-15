@@ -230,15 +230,15 @@ croquis:
   nome: Gruta da Lapinha
   descricao: Guia de escalada da Gruta da Lapinha em Lagoa Santa, MG.
   caminho_relativo: br_mg_lagoa_santa_gruta_da_lapinha/compilado.binarypb
-  checksum_sha256_croqui: 4dbbf7e8739d01f920110acb98ae0d4dfcb3d553f81363c402ab865f0b269c13
+  checksum_sha256_croqui: 57d3d289cff81b5aa31d48f856e8d8826110331bc56839ca92d755706ad742ac
   checksum_sha256_thumbnail: 76c57c2b9159772355858ad8f40ba79a8584dfdda215379031adc9afff1f1416
-  timestamp_update: '2026-09-11T21:55:54Z'
+  timestamp_update: '2026-09-15T22:25:18Z'
   precomputados:
     total_escaladas: 129
     total_setores: 10
     total_grupos: 0
     total_esportivas: 106
-    tamanho_download_bytes: 494518
+    tamanho_download_bytes: 494692
   localizacao:
     latitude: -195622616
     longitude: -439595684
