@@ -240,7 +240,7 @@ def test_validar_referencias_mapa_poi_sem_referencia():
                         "mapas": [{
                             "referencias": [{"escalada": "Via 1", "ids": ["01"]}],
                             "pontos_de_interesse": [
-                                {"id": "01", "circulo": {"x": 10, "y": 10, "raio": 5}},
+                                {"id": "01", "label": "01", "circulo": {"x": 10, "y": 10, "raio": 5}},
                                 {
                                     "id": "d",
                                     "linha": {
@@ -287,6 +287,85 @@ def test_validar_referencias_mapa_referencia_aponta_id_inexistente():
     erros = validar_referencias_mapa(croqui)
     assert any("aponta para o ID '99', mas esse ID não existe" in e for e in erros)
     assert any("Ponto de Interesse [Círculo] com ID '01'" in e for e in erros)
+
+
+def test_validar_referencias_mapa_sem_label_ou_circulo_identificador():
+    """Valida emissão de aviso para referências cujos POIs não possuem label nem nós de círculo identificador com rótulo."""
+    croqui = {
+        "picos": [{
+            "nome": "Pico Teste",
+            "setores_ou_grupos": [{
+                "setor": {
+                    "conteudo": {
+                        "nome": "Setor 1",
+                        "escaladas": [
+                            {"via_esportiva": {"nome": "Via Sem Label"}},
+                            {"via_esportiva": {"nome": "Via Com Label"}},
+                            {"via_esportiva": {"nome": "Via Linha Sem Circulo"}},
+                            {"via_esportiva": {"nome": "Via Linha Com Circulo"}},
+                            {"via_esportiva": {"nome": "Via Linha Sit Start"}},
+                            {"via_esportiva": {"nome": "Via Linha Top"}},
+                            {"via_esportiva": {"nome": "Via Linha Circulo Vazio"}},
+                            {"via_esportiva": {"nome": "Via Linha Compilada"}}
+                        ],
+                        "mapas": [{
+                            "pontos_de_interesse": [
+                                {"id": "poi_sem_label", "label": "", "circulo": {"x": 10, "y": 10, "raio": 5}},
+                                {"id": "poi_com_label", "label": "12", "circulo": {"x": 20, "y": 20, "raio": 5}},
+                                {"id": "linha_sem_circulo", "linha": {"conteudo": {"nos": [
+                                    {"x": 10, "y": 10, "tipo": 0, "rotulo": ""},
+                                    {"x": 20, "y": 20, "tipo": 0, "rotulo": ""}
+                                ]}}},
+                                {"id": "linha_com_circulo", "linha": {"conteudo": {"nos": [
+                                    {"x": 10, "y": 10, "tipo": 1, "rotulo": "5"},
+                                    {"x": 20, "y": 20, "tipo": 0, "rotulo": ""}
+                                ]}}},
+                                {"id": "linha_sit_start", "linha": {"conteudo": {"nos": [
+                                    {"x": 10, "y": 10, "tipo": 2, "rotulo": "SS"},
+                                    {"x": 20, "y": 20, "tipo": 0, "rotulo": ""}
+                                ]}}},
+                                {"id": "linha_top", "linha": {"conteudo": {"nos": [
+                                    {"x": 10, "y": 10, "tipo": 0, "rotulo": ""},
+                                    {"x": 20, "y": 20, "tipo": 11, "rotulo": "C"}
+                                ]}}},
+                                {"id": "linha_circulo_vazio", "linha": {"conteudo": {"nos": [
+                                    {"x": 10, "y": 10, "tipo": 1, "rotulo": "  "},
+                                    {"x": 20, "y": 20, "tipo": 0, "rotulo": ""}
+                                ]}}},
+                                {"id": "linha_compilada", "linha": {"compilado": {"marcadores": [
+                                    {"x": 10, "y": 10, "tipo": 1, "rotulo": "10"}
+                                ]}}}
+                            ],
+                            "referencias": [
+                                {"escalada": "Via Sem Label", "ids": ["poi_sem_label"]},
+                                {"escalada": "Via Com Label", "ids": ["poi_com_label"]},
+                                {"escalada": "Via Linha Sem Circulo", "ids": ["linha_sem_circulo"]},
+                                {"escalada": "Via Linha Com Circulo", "ids": ["linha_com_circulo"]},
+                                {"escalada": "Via Linha Sit Start", "ids": ["linha_sit_start"]},
+                                {"escalada": "Via Linha Top", "ids": ["linha_top"]},
+                                {"escalada": "Via Linha Circulo Vazio", "ids": ["linha_circulo_vazio"]},
+                                {"escalada": "Via Linha Compilada", "ids": ["linha_compilada"]}
+                            ]
+                        }]
+                    }
+                }
+            }]
+        }]
+    }
+    erros = validar_referencias_mapa(croqui)
+    frase_aviso = "não possui label ou rótulo em círculo identificador e não exibirá identificador no mapa do aplicativo"
+
+    # Devem gerar aviso
+    assert any("Via Sem Label" in e and frase_aviso in e for e in erros)
+    assert any("Via Linha Sem Circulo" in e and frase_aviso in e for e in erros)
+    assert any("Via Linha Circulo Vazio" in e and frase_aviso in e for e in erros)
+
+    # NÃO devem gerar aviso
+    assert not any("Via Com Label" in e for e in erros)
+    assert not any("Via Linha Com Circulo" in e for e in erros)
+    assert not any("Via Linha Sit Start" in e for e in erros)
+    assert not any("Via Linha Top" in e for e in erros)
+    assert not any("Via Linha Compilada" in e for e in erros)
 
 
 @patch("scripts.preparar_submissao_lib.Path")

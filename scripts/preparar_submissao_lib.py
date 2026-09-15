@@ -946,6 +946,49 @@ def validar_referencias_mapa(croqui_data: Dict[str, Any]) -> List[str]:
                                 f"A referência no Mapa {idx_mapa+1} em {contexto_nome} aponta para o ID '{ref_id}', "
                                 f"mas esse ID não existe em nenhum Ponto de Interesse do mapa."
                             )
+
+                    # 3. Referências sem label ou rótulo em círculo identificador
+                    pois_map = {str(p.get("id")): p for p in pois if isinstance(p, dict) and p.get("id") is not None}
+                    for ref in referencias:
+                        nome_ref = ref.get("escalada") or ref.get("setor") or ref.get("grupo") or "Desconhecida"
+                        ref_ids = [str(i) for i in ref.get("ids", [])]
+                        if not ref_ids:
+                            continue
+
+                        tem_identificador = False
+                        for rid in ref_ids:
+                            p = pois_map.get(rid)
+                            if not p:
+                                continue
+
+                            if "linha" not in p:
+                                label_str = str(p.get("label") or "").strip()
+                                if label_str:
+                                    tem_identificador = True
+                                    break
+                            else:
+                                linha = p.get("linha", {})
+                                marcadores = linha.get("compilado", {}).get("marcadores", [])
+                                nos = linha.get("conteudo", {}).get("nos", []) or marcadores
+                                for no in nos:
+                                    tipo_no = str(no.get("tipo", "")).upper()
+                                    if tipo_no in (
+                                        "1", "CIRCULO_IDENTIFICADOR", "TIPO_NO_CIRCULO_IDENTIFICADOR",
+                                        "2", "INICIO_AGACHADO", "TIPO_NO_INICIO_AGACHADO",
+                                        "11", "FIM_TOP", "TIPO_NO_FIM_TOP"
+                                    ):
+                                        rotulo = str(no.get("rotulo") or "").strip()
+                                        if rotulo:
+                                            tem_identificador = True
+                                            break
+                                if tem_identificador:
+                                    break
+
+                        if not tem_identificador:
+                            erros.append(
+                                f"A referência '{nome_ref}' no Mapa {idx_mapa+1} em {contexto_nome} "
+                                f"não possui label ou rótulo em círculo identificador e não exibirá identificador no mapa do aplicativo."
+                            )
                             
     return erros
 

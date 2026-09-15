@@ -1,8 +1,8 @@
 ## 1. Validador de Referências e Alerta no Deploy (aresta_db)
 
-- [ ] 1.1 [TDD] Escrever testes unitários em `scripts/preparar_submissao_lib_test.py` cobrindo a detecção de referências que não possuem nenhum POI com `label` nem linhas com nós de círculo identificador (`CIRCULO_IDENTIFICADOR`, `INICIO_AGACHADO`, `FIM_TOP`) com `rotulo` preenchido.
-- [ ] 1.2 Implementar a validação em `validar_referencias_mapa()` de `scripts/preparar_submissao_lib.py` emitindo a frase exata de aviso ("A referência '{nome}' no Mapa {idx} em {contexto} não possui label ou rótulo em círculo identificador e não exibirá identificador no mapa do aplicativo.") e verificar que os testes passam com `pytest scripts/preparar_submissao_lib_test.py`.
-- [ ] 1.3 [TDD] Adicionar testes em `scripts/deploy_generated_test.py` verificando que o processo de deploy exibe os avisos de mapa sem abortar a compilação e validar com `pytest scripts/deploy_generated_test.py`.
+- [x] 1.1 [TDD] Escrever testes unitários em `scripts/preparar_submissao_lib_test.py` cobrindo a detecção de referências que não possuem nenhum POI com `label` nem linhas com nós de círculo identificador (`CIRCULO_IDENTIFICADOR`, `INICIO_AGACHADO`, `FIM_TOP`) com `rotulo` preenchido.
+- [x] 1.2 Implementar a validação em `validar_referencias_mapa()` de `scripts/preparar_submissao_lib.py` emitindo a frase exata de aviso ("A referência '{nome}' no Mapa {idx} em {contexto} não possui label ou rótulo em círculo identificador e não exibirá identificador no mapa do aplicativo.") e verificar que os testes passam com `pytest scripts/preparar_submissao_lib_test.py`.
+- [x] 1.3 [TDD] Adicionar testes em `scripts/deploy_generated_test.py` verificando que o processo de deploy exibe os avisos de mapa sem abortar a compilação e validar com `pytest scripts/deploy_generated_test.py`.
 
 ## 2. Resolvedor Centralizado de Rótulos no Aplicativo Móvel (aresta_app)
 

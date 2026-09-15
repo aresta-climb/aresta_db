@@ -5275,6 +5275,38 @@
     - **boulder**:
       - **nome**: Viva o climb
       - **dificuldade**: V6
+  - **[1]**:
+    - **boulder**:
+      - **descricao**: Saindo em pé com as mãos abertas
+      - **nome**: Pérola negra
+      - **dificuldade**: V11
+  - **[2]**:
+    - **boulder**:
+      - **descricao**: Projeto, sem FA, talvez V12.
+      - **nome**: Pérola negra SDS
+      - **dificuldade**: INDEFINIDO
+  - **[3]**:
+    - **boulder**:
+      - **nome**: Sem nome 19
+      - **dificuldade**: V3
+  - **[4]**:
+    - **boulder**:
+      - **descricao**: Crux duro e toca pra esquerda
+      - **nome**: Malandro não para
+      - **dificuldade**: V10
+  - **[5]**:
+    - **boulder**:
+      - **descricao**: Mesma saída do Malandro não para, mas toca reto
+      - **nome**: Malandragem
+  - **[6]**:
+    - **boulder**:
+      - **descricao**: Sai com as mãos bem abertas na esquerda e direita
+      - **nome**: Abraca
+      - **dificuldade**: V5
+  - **[7]**:
+    - **boulder**:
+      - **nome**: Pica fumo
+      - **dificuldade**: V5
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_fugitivos_ii_p0.webp)
@@ -5308,9 +5340,268 @@
         - **ids**:
           - linha_1
         - **escalada**: Viva o climb
+  - **[1]**:
+    - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_fugitivos_ii_p1.webp)
+    - **largura_mapa**: 1773
+    - **altura_mapa**: 2364
+    - **pontos_de_interesse**:
+      - **[0]**:
+        - **id**: linha_2
+        - **label**: 
+        - **linha**:
+          - **estilo**: TRACEJADO
+          - **espessura**: 5
+          - **compilado**:
+            - **caminho_svg**: M 187 1242 C 149.3 1117.3, 81.9 980.5, 74 868 C 67.7 778.2, 99.3 704.0, 112 622
+            - **caixa_delimitadora**:
+              - **x**: 130
+              - **y**: 932
+              - **comprimento**: 113
+              - **largura**: 620
+            - **marcadores**:
+              - **[0]**:
+                - **tipo**: CIRCULO_IDENTIFICADOR
+                - **x**: 187
+                - **y**: 1242
+                - **angulo_graus_x100**: -10681
+                - **rotulo**: 2
+                - **raio**: 24
+              - **[1]**:
+                - **tipo**: FIM_TOP
+                - **x**: 112
+                - **y**: 622
+                - **angulo_graus_x100**: -8122
+                - **rotulo**: A
+                - **raio**: 24
+        - **cor**: #FFD600
+      - **[1]**:
+        - **id**: linha_3
+        - **label**: 
+        - **linha**:
+          - **estilo**: TRACEJADO
+          - **espessura**: 5
+          - **compilado**:
+            - **caminho_svg**: M 575 1700 C 488.3 1619.3, 380.3 1538.5, 315 1458 C 263.3 1394.2, 238.3 1330.7, 200 1267
+            - **caixa_delimitadora**:
+              - **x**: 388
+              - **y**: 1484
+              - **comprimento**: 375
+              - **largura**: 433
+            - **marcadores**:
+              - **[0]**:
+                - **tipo**: CIRCULO_IDENTIFICADOR
+                - **x**: 575
+                - **y**: 1700
+                - **angulo_graus_x100**: -13705
+                - **rotulo**: 3
+                - **raio**: 24
+        - **cor**: #FFD600
+      - **[2]**:
+        - **id**: linha_4
+        - **label**: 
+        - **linha**:
+          - **estilo**: TRACEJADO
+          - **espessura**: 5
+          - **compilado**:
+            - **caminho_svg**: M 910 1344 C 912.3 1254.3, 941.7 1148.7, 917 1075 C 895.8 1012.0, 823.6 980.9, 794 921 C 761.9 856.1, 748.2 774.5, 738 696 C 727.1 612.3, 735.3 520.7, 734 433
+            - **caixa_delimitadora**:
+              - **x**: 826
+              - **y**: 888
+              - **comprimento**: 183
+              - **largura**: 911
+            - **marcadores**:
+              - **[0]**:
+                - **tipo**: CIRCULO_IDENTIFICADOR
+                - **x**: 910
+                - **y**: 1344
+                - **angulo_graus_x100**: -8851
+                - **rotulo**: 4
+                - **raio**: 24
+              - **[1]**:
+                - **tipo**: FIM_TOP
+                - **x**: 734
+                - **y**: 433
+                - **angulo_graus_x100**: -9087
+                - **rotulo**: B
+                - **raio**: 24
+        - **cor**: #FFD600
+      - **[3]**:
+        - **id**: linha_6
+        - **linha**:
+          - **estilo**: TRACEJADO
+          - **espessura**: 5
+          - **compilado**:
+            - **caminho_svg**: M 1177 1810 C 1175.0 1705.7, 1173.0 1601.3, 1171 1497
+            - **caixa_delimitadora**:
+              - **x**: 1174
+              - **y**: 1654
+              - **comprimento**: 6
+              - **largura**: 313
+            - **marcadores**:
+              - **[0]**:
+                - **tipo**: CIRCULO_IDENTIFICADOR
+                - **x**: 1177
+                - **y**: 1810
+                - **angulo_graus_x100**: -9110
+                - **rotulo**: 5
+                - **raio**: 24
+        - **cor**: #FFD600
+      - **[4]**:
+        - **id**: linha_7
+        - **linha**:
+          - **estilo**: TRACEJADO
+          - **espessura**: 5
+          - **compilado**:
+            - **caminho_svg**: M 1171 1497 C 1159.0 1444.3, 1168.6 1387.5, 1135 1339 C 1086.9 1269.5, 941.5 1212.1, 858 1156 C 788.5 1109.3, 720.0 1083.8, 668 1026 C 611.2 962.9, 561.2 875.6, 538 785 C 512.1 683.6, 536.7 556.3, 536 442
+            - **caixa_delimitadora**:
+              - **x**: 854
+              - **y**: 970
+              - **comprimento**: 635
+              - **largura**: 1055
+            - **marcadores**:
+              - **[0]**:
+                - **tipo**: FIM_TOP
+                - **x**: 536
+                - **y**: 442
+                - **angulo_graus_x100**: -9033
+                - **rotulo**: C
+                - **raio**: 24
+        - **cor**: #FFD600
+      - **[5]**:
+        - **id**: linha_5
+        - **label**: 
+        - **linha**:
+          - **estilo**: TRACEJADO
+          - **espessura**: 5
+          - **compilado**:
+            - **caminho_svg**: M 1171 1497 C 1148.7 1341.7, 1137.6 1162.9, 1104 1031 C 1078.0 929.0, 1027.5 856.1, 1006 767 C 985.2 680.7, 985.5 560.3, 975 505 C 970.0 478.8, 965.0 467.0, 960 448
+            - **caixa_delimitadora**:
+              - **x**: 1066
+              - **y**: 972
+              - **comprimento**: 211
+              - **largura**: 1049
+            - **marcadores**:
+              - **[0]**:
+                - **tipo**: FIM_TOP
+                - **x**: 960
+                - **y**: 448
+                - **angulo_graus_x100**: -10474
+                - **rotulo**: D
+                - **raio**: 24
+        - **cor**: #FFD600
+    - **referencias**:
+      - **[0]**:
+        - **ids**:
+          - linha_2
+        - **escalada**: Pérola negra
+      - **[1]**:
+        - **ids**:
+          - linha_3
+          - linha_2
+        - **escalada**: Pérola negra SDS
+      - **[2]**:
+        - **ids**:
+          - linha_4
+        - **escalada**: Sem nome 19
+      - **[3]**:
+        - **ids**:
+          - linha_6
+          - linha_7
+        - **escalada**: Malandro não para
+      - **[4]**:
+        - **ids**:
+          - linha_5
+          - linha_6
+        - **escalada**: Malandragem
+  - **[2]**:
+    - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_fugitivos_ii_p2.webp)
+    - **largura_mapa**: 1773
+    - **altura_mapa**: 2364
+  - **[3]**:
+    - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_fugitivos_ii_p3.webp)
+    - **largura_mapa**: 960
+    - **altura_mapa**: 1280
+    - **pontos_de_interesse**:
+      - **[0]**:
+        - **id**: linha_8
+        - **label**: 
+        - **linha**:
+          - **estilo**: TRACEJADO
+          - **espessura**: 3
+          - **compilado**:
+            - **caminho_svg**: M 661 849 C 645.3 774.0, 624.9 696.9, 614 624 C 603.9 556.2, 600.5 491.5, 596 426 C 591.6 361.6, 590.0 298.0, 587 234
+            - **caixa_delimitadora**:
+              - **x**: 624
+              - **y**: 542
+              - **comprimento**: 74
+              - **largura**: 615
+            - **marcadores**:
+              - **[0]**:
+                - **tipo**: CIRCULO_IDENTIFICADOR
+                - **x**: 661
+                - **y**: 849
+                - **angulo_graus_x100**: -10180
+                - **rotulo**: 7
+                - **raio**: 17
+        - **cor**: #FFD600
+      - **[1]**:
+        - **id**: sai1
+        - **label**: 
+        - **circulo**:
+          - **x**: 532
+          - **y**: 849
+          - **raio**: 34
+        - **cor**: #FFD600
+      - **[2]**:
+        - **id**: sai2
+        - **label**: 
+        - **circulo**:
+          - **x**: 790
+          - **y**: 759
+          - **raio**: 31
+        - **cor**: #FFD600
+    - **referencias**:
+      - **[0]**:
+        - **ids**:
+          - linha_8
+          - sai2
+          - sai1
+        - **escalada**: Abraca
+  - **[4]**:
+    - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_fugitivos_ii_p4.webp)
+    - **largura_mapa**: 960
+    - **altura_mapa**: 1280
+    - **pontos_de_interesse**:
+      - **[0]**:
+        - **id**: linha_9
+        - **label**: 
+        - **linha**:
+          - **estilo**: TRACEJADO
+          - **espessura**: 3
+          - **compilado**:
+            - **caminho_svg**: M 211 899 C 240.0 870.0, 269.4 840.9, 298 812 C 326.1 783.6, 354.1 756.3, 381 727 C 408.1 697.4, 432.6 661.0, 460 635 C 484.2 612.0, 506.9 587.6, 535 577 C 562.7 566.5, 599.2 574.9, 627 571 C 650.4 567.7, 675.8 569.0, 691 557 C 705.8 545.3, 712.6 522.4, 718 501 C 724.4 475.5, 725.7 440.1, 722 413 C 718.7 388.6, 705.5 368.5, 700 345 C 694.3 320.6, 692.7 294.3, 689 269
+            - **caixa_delimitadora**:
+              - **x**: 466
+              - **y**: 584
+              - **comprimento**: 511
+              - **largura**: 630
+            - **marcadores**:
+              - **[0]**:
+                - **tipo**: CIRCULO_IDENTIFICADOR
+                - **x**: 211
+                - **y**: 899
+                - **angulo_graus_x100**: -4500
+                - **rotulo**: 8
+                - **raio**: 17
+        - **cor**: #FFD600
+    - **referencias**:
+      - **[0]**:
+        - **ids**:
+          - linha_9
+        - **escalada**: Pica fumo
 - **precomputados**:
-  - **total_escaladas**: 1
-  - **total_boulders**: 1
+  - **total_escaladas**: 8
+  - **total_boulders**: 8
 
 
 ## Arquivos Externos
@@ -5368,57 +5659,69 @@
     - **caminho**: ![caminho](imagens/setor_fugitivos_ii_p0.webp)
     - **checksum_sha256**: 94d2480252708d7f25f9234befb17df302bcc0876bbe53025fc3d5ab5321b7c1
   - **[17]**:
+    - **caminho**: ![caminho](imagens/setor_fugitivos_ii_p1.webp)
+    - **checksum_sha256**: be43e895f74116ff63a5ec7ac25290dbce75ad67bf1df0a3ab079d7e4c17ac68
+  - **[18]**:
+    - **caminho**: ![caminho](imagens/setor_fugitivos_ii_p2.webp)
+    - **checksum_sha256**: e3544af684cab5da717ea03b4f77d05f0652be42e0cab50c3f41d62ba5120d57
+  - **[19]**:
+    - **caminho**: ![caminho](imagens/setor_fugitivos_ii_p3.webp)
+    - **checksum_sha256**: 7ca2f6791409aa498f402729b4d426bf972d8db7689f9052a490fe4ee31b7773
+  - **[20]**:
+    - **caminho**: ![caminho](imagens/setor_fugitivos_ii_p4.webp)
+    - **checksum_sha256**: c8e95292e609405375d46753e1010ff78f1ba889355e5f80b6b29321cf8cee5c
+  - **[21]**:
     - **caminho**: ![caminho](imagens/setor_igarameca_p0.webp)
     - **checksum_sha256**: e79e4daa827532abd0ff0a16e096f1df0eea148c8589dc7686fa268ba1c84102
-  - **[18]**:
+  - **[22]**:
     - **caminho**: ![caminho](imagens/setor_igarameca_p1.webp)
     - **checksum_sha256**: b2ab0e0a16eb19fe5d54f6a899456ac5ff07671862249a012699dc3631c64662
-  - **[19]**:
+  - **[23]**:
     - **caminho**: ![caminho](imagens/setor_igarameca_p2.webp)
     - **checksum_sha256**: 3a6b8f636bd121e5fa888a5dc855ddb627cea151389890532ba4f50053c78f30
-  - **[20]**:
+  - **[24]**:
     - **caminho**: ![caminho](imagens/setor_jeitinho_brasileiro_p0.webp)
     - **checksum_sha256**: 9aa633be14db3f0c96a1a656470f87f5bfb7a259a02cb58babd6733dadc8d535
-  - **[21]**:
+  - **[25]**:
     - **caminho**: ![caminho](imagens/setor_micos_p0.webp)
     - **checksum_sha256**: acb374ec8c0ecf85d537c86dd1328bbb91e4fd41576659d596457a818254cd2d
-  - **[22]**:
+  - **[26]**:
     - **caminho**: ![caminho](imagens/setor_micos_p1.webp)
     - **checksum_sha256**: e59d63c298cd1049ee8636ce3e3b78b993f5b2358f4e3fc57a10508e739e8536
-  - **[23]**:
+  - **[27]**:
     - **caminho**: ![caminho](imagens/setor_micos_p2.webp)
     - **checksum_sha256**: 27321d933aca314b50a98e486f662138fd61b049dcb90248b6bb2d162c7b944c
-  - **[24]**:
+  - **[28]**:
     - **caminho**: ![caminho](imagens/setor_nectar_p0_i0.webp)
     - **checksum_sha256**: 2b3caa8b248dc3f33ae226aa25d1456c0eb589c5b694e66cf201cd7c4f7927fa
-  - **[25]**:
+  - **[29]**:
     - **caminho**: ![caminho](imagens/setor_pracinha_p0.webp)
     - **checksum_sha256**: ec34526d21a825cbefa2049a1fe82cc4a1d77a4dd1072d39804852cf5c38daf3
-  - **[26]**:
+  - **[30]**:
     - **caminho**: ![caminho](imagens/setor_pracinha_p1.webp)
     - **checksum_sha256**: 42e142af39766186c13a61691e384bddc064bcad6e4a07ce0e802cb429fe73ba
-  - **[27]**:
+  - **[31]**:
     - **caminho**: ![caminho](imagens/setor_pracinha_p2.webp)
     - **checksum_sha256**: 9afa2f619eda4053a096d19b64aa9262e8b85f9f9b05815ad2379e66ccc227e1
-  - **[28]**:
+  - **[32]**:
     - **caminho**: ![caminho](imagens/setor_pracinha_p3.webp)
     - **checksum_sha256**: d60317f3226a9af417557bf7f1d73d46aa152cfbded8a2d8e2a876834398ed64
-  - **[29]**:
+  - **[33]**:
     - **caminho**: ![caminho](imagens/setor_tarja_preta_p0.webp)
     - **checksum_sha256**: 42f0988f5b3b2455e050c55af801a4422327538c6acf4a39706557d91edea940
-  - **[30]**:
+  - **[34]**:
     - **caminho**: ![caminho](imagens/setor_tetos_p0.webp)
     - **checksum_sha256**: 88013468ab3f1c12bc710281758d6e1e205443645aba8dff2828a8b52ee7f2e6
-  - **[31]**:
+  - **[35]**:
     - **caminho**: ![caminho](imagens/setor_tetos_p1.webp)
     - **checksum_sha256**: 4d12e846ce75ebfd1587a51a5661715826e1c800dcfdc1cf99124fa710576d2d
-  - **[32]**:
+  - **[36]**:
     - **caminho**: ![caminho](imagens/setor_totem_p0.webp)
     - **checksum_sha256**: eb605d166d35d36c3b23981ec6144eba7f3375955bed6b1954eff3d1ea441044
-  - **[33]**:
+  - **[37]**:
     - **caminho**: ![caminho](imagens/setor_totem_p1.webp)
     - **checksum_sha256**: 028f8cb259043ddcfd39cf2fb64041b88c41cd3538b6604d384ab2f08514edbf
-  - **[34]**:
+  - **[38]**:
     - **caminho**: ![caminho](imagens/setor_trad_p0.webp)
     - **checksum_sha256**: fa73e3e2fa27a74255e21b0c499f6e72bc47a99626b5bd780473d967c257eaad
 

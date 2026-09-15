@@ -345,6 +345,47 @@ class DeployGeneratedTest(unittest.TestCase):
                         self.assertEqual(len(excecoes), 1)
                         self.assertIsInstance(excecoes[0], AttributeError)
 
+    def test_deploy_aviso_referencia_sem_identificador_nao_aborta_compilacao(self):
+        """Testa que aviso de referência sem identificador é emitido sem abortar o fluxo de compilação."""
+        from unittest.mock import patch, MagicMock
+        from scripts.preparar_submissao_lib import compilar_croqui
+
+        croqui_data = {
+            "id": "teste_sem_id",
+            "picos": [{
+                "nome": "Pico 1",
+                "setores_ou_grupos": [{
+                    "setor": {
+                        "conteudo": {
+                            "nome": "Setor 1",
+                            "mapas": [{
+                                "pontos_de_interesse": [{"id": "p1", "circulo": {"x": 10, "y": 10, "raio": 5}}],
+                                "referencias": [{"escalada": "Via 1", "ids": ["p1"]}]
+                            }],
+                            "escaladas": [{"via_esportiva": {"nome": "Via 1"}}]
+                        }
+                    }
+                }]
+            }]
+        }
+
+        captured_output = StringIO()
+        sys.stdout = captured_output
+        try:
+            with patch("builtins.open", MagicMock()), \
+                 patch("scripts.preparar_submissao_lib.yaml.safe_load", return_value=croqui_data), \
+                 patch("scripts.preparar_submissao_lib.yaml.dump"), \
+                 patch("scripts.preparar_submissao_lib.Path.mkdir"), \
+                 patch("scripts.preparar_submissao_lib.json_format.ParseDict"):
+                resultado = compilar_croqui(Path("dummy_pico"), Path("dummy_dest.yaml"), Path("dummy_dest.binarypb"))
+        finally:
+            sys.stdout = sys.__stdout__
+
+        saida = captured_output.getvalue()
+        self.assertIn("AVISO: Inconsistência nas referências de mapa:", saida)
+        self.assertIn("não possui label ou rótulo em círculo identificador e não exibirá identificador no mapa do aplicativo", saida)
+        self.assertIsNotNone(resultado)
+
 
 if __name__ == '__main__':
     unittest.main()
