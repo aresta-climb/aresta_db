@@ -30,6 +30,7 @@ from editor.core.processamento_imagem_campo import (
     obter_metadados_imagem,
     comprimir_imagem_para_bytes_webp,
     verificar_conflito_nome_imagem,
+    garantir_suporte_heif,
 )
 
 
@@ -241,6 +242,16 @@ class DialogoAdicionarMapa(QDialog):
     def carregar_imagem_bytes(self, bytes_originais: bytes, nome_sugerido_origem: Optional[str] = None) -> None:
         w_orig, h_orig, tam_orig, txt_tam_orig = obter_metadados_imagem(bytes_originais)
         if w_orig <= 0 or h_orig <= 0:
+            ext = Path(nome_sugerido_origem or "").suffix.lower()
+            eh_heic = (ext in (".heic", ".heif")) or (len(bytes_originais) > 12 and b"ftyp" in bytes_originais[4:12])
+            if eh_heic and not garantir_suporte_heif():
+                QMessageBox.warning(
+                    self,
+                    "Erro",
+                    "O suporte a imagens HEIC/HEIF requer a biblioteca 'pillow-heif'.\n"
+                    "Reinicie o editor ou instale via 'pip install pillow-heif'."
+                )
+                return
             QMessageBox.warning(self, "Erro", "Formato de imagem inválido ou não suportado.")
             return
 

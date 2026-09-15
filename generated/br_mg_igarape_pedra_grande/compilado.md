@@ -5270,7 +5270,47 @@
 
 - **descricao**: 
 - **nome**: Setor Fugitivos II
+- **escaladas**:
+  - **[0]**:
+    - **boulder**:
+      - **nome**: Viva o climb
+      - **dificuldade**: V6
+- **mapas**:
+  - **[0]**:
+    - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_fugitivos_ii_p0.webp)
+    - **largura_mapa**: 1773
+    - **altura_mapa**: 2364
+    - **pontos_de_interesse**:
+      - **[0]**:
+        - **id**: linha_1
+        - **label**: 
+        - **linha**:
+          - **estilo**: TRACEJADO
+          - **espessura**: 5
+          - **compilado**:
+            - **caminho_svg**: M 721 2033 C 751.0 1942.0, 795.3 1850.9, 811 1760 C 825.9 1673.9, 817.5 1594.7, 817 1502 C 816.4 1393.5, 808.5 1268.8, 805 1149 C 801.4 1024.7, 787.2 875.0, 796 769 C 802.4 691.6, 828.4 646.1, 834 570 C 841.4 469.4, 824.0 334.7, 819 217
+            - **caixa_delimitadora**:
+              - **x**: 778
+              - **y**: 1125
+              - **comprimento**: 113
+              - **largura**: 1816
+            - **marcadores**:
+              - **[0]**:
+                - **tipo**: CIRCULO_IDENTIFICADOR
+                - **x**: 721
+                - **y**: 2033
+                - **angulo_graus_x100**: -7175
+                - **rotulo**: 1
+                - **raio**: 26
+        - **cor**: #FFD600
+    - **referencias**:
+      - **[0]**:
+        - **ids**:
+          - linha_1
+        - **escalada**: Viva o climb
 - **precomputados**:
+  - **total_escaladas**: 1
+  - **total_boulders**: 1
 
 
 ## Arquivos Externos
@@ -5325,57 +5365,60 @@
     - **caminho**: ![caminho](imagens/setor_fugitivos_i_p3.webp)
     - **checksum_sha256**: 06bd0ef4287fd6e7fa0255e706e814ea441be9d74e11b0d0a5a17173de6d4474
   - **[16]**:
+    - **caminho**: ![caminho](imagens/setor_fugitivos_ii_p0.webp)
+    - **checksum_sha256**: 94d2480252708d7f25f9234befb17df302bcc0876bbe53025fc3d5ab5321b7c1
+  - **[17]**:
     - **caminho**: ![caminho](imagens/setor_igarameca_p0.webp)
     - **checksum_sha256**: e79e4daa827532abd0ff0a16e096f1df0eea148c8589dc7686fa268ba1c84102
-  - **[17]**:
+  - **[18]**:
     - **caminho**: ![caminho](imagens/setor_igarameca_p1.webp)
     - **checksum_sha256**: b2ab0e0a16eb19fe5d54f6a899456ac5ff07671862249a012699dc3631c64662
-  - **[18]**:
+  - **[19]**:
     - **caminho**: ![caminho](imagens/setor_igarameca_p2.webp)
     - **checksum_sha256**: 3a6b8f636bd121e5fa888a5dc855ddb627cea151389890532ba4f50053c78f30
-  - **[19]**:
+  - **[20]**:
     - **caminho**: ![caminho](imagens/setor_jeitinho_brasileiro_p0.webp)
     - **checksum_sha256**: 9aa633be14db3f0c96a1a656470f87f5bfb7a259a02cb58babd6733dadc8d535
-  - **[20]**:
+  - **[21]**:
     - **caminho**: ![caminho](imagens/setor_micos_p0.webp)
     - **checksum_sha256**: acb374ec8c0ecf85d537c86dd1328bbb91e4fd41576659d596457a818254cd2d
-  - **[21]**:
+  - **[22]**:
     - **caminho**: ![caminho](imagens/setor_micos_p1.webp)
     - **checksum_sha256**: e59d63c298cd1049ee8636ce3e3b78b993f5b2358f4e3fc57a10508e739e8536
-  - **[22]**:
+  - **[23]**:
     - **caminho**: ![caminho](imagens/setor_micos_p2.webp)
     - **checksum_sha256**: 27321d933aca314b50a98e486f662138fd61b049dcb90248b6bb2d162c7b944c
-  - **[23]**:
+  - **[24]**:
     - **caminho**: ![caminho](imagens/setor_nectar_p0_i0.webp)
     - **checksum_sha256**: 2b3caa8b248dc3f33ae226aa25d1456c0eb589c5b694e66cf201cd7c4f7927fa
-  - **[24]**:
+  - **[25]**:
     - **caminho**: ![caminho](imagens/setor_pracinha_p0.webp)
     - **checksum_sha256**: ec34526d21a825cbefa2049a1fe82cc4a1d77a4dd1072d39804852cf5c38daf3
-  - **[25]**:
+  - **[26]**:
     - **caminho**: ![caminho](imagens/setor_pracinha_p1.webp)
     - **checksum_sha256**: 42e142af39766186c13a61691e384bddc064bcad6e4a07ce0e802cb429fe73ba
-  - **[26]**:
+  - **[27]**:
     - **caminho**: ![caminho](imagens/setor_pracinha_p2.webp)
     - **checksum_sha256**: 9afa2f619eda4053a096d19b64aa9262e8b85f9f9b05815ad2379e66ccc227e1
-  - **[27]**:
+  - **[28]**:
     - **caminho**: ![caminho](imagens/setor_pracinha_p3.webp)
     - **checksum_sha256**: d60317f3226a9af417557bf7f1d73d46aa152cfbded8a2d8e2a876834398ed64
-  - **[28]**:
+  - **[29]**:
     - **caminho**: ![caminho](imagens/setor_tarja_preta_p0.webp)
     - **checksum_sha256**: 42f0988f5b3b2455e050c55af801a4422327538c6acf4a39706557d91edea940
-  - **[29]**:
+  - **[30]**:
     - **caminho**: ![caminho](imagens/setor_tetos_p0.webp)
     - **checksum_sha256**: 88013468ab3f1c12bc710281758d6e1e205443645aba8dff2828a8b52ee7f2e6
-  - **[30]**:
+  - **[31]**:
     - **caminho**: ![caminho](imagens/setor_tetos_p1.webp)
     - **checksum_sha256**: 4d12e846ce75ebfd1587a51a5661715826e1c800dcfdc1cf99124fa710576d2d
-  - **[31]**:
+  - **[32]**:
     - **caminho**: ![caminho](imagens/setor_totem_p0.webp)
     - **checksum_sha256**: eb605d166d35d36c3b23981ec6144eba7f3375955bed6b1954eff3d1ea441044
-  - **[32]**:
+  - **[33]**:
     - **caminho**: ![caminho](imagens/setor_totem_p1.webp)
     - **checksum_sha256**: 028f8cb259043ddcfd39cf2fb64041b88c41cd3538b6604d384ab2f08514edbf
-  - **[33]**:
+  - **[34]**:
     - **caminho**: ![caminho](imagens/setor_trad_p0.webp)
     - **checksum_sha256**: fa73e3e2fa27a74255e21b0c499f6e72bc47a99626b5bd780473d967c257eaad
 

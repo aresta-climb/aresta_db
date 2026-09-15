@@ -4389,8 +4389,46 @@ picos:
   - setor:
       conteudo:
         nome: Setor Fugitivos II
+        escaladas:
+        - boulder:
+            nome: Viva o climb
+            dificuldade: V6
+        mapas:
+        - caminho_imagem_mapa: imagens/setor_fugitivos_ii_p0.webp
+          largura_mapa: 1773
+          altura_mapa: 2364
+          pontos_de_interesse:
+          - id: linha_1
+            label: ''
+            linha:
+              estilo: TRACEJADO
+              espessura: 5
+              compilado:
+                caminho_svg: M 721 2033 C 751.0 1942.0, 795.3 1850.9, 811 1760 C 825.9
+                  1673.9, 817.5 1594.7, 817 1502 C 816.4 1393.5, 808.5 1268.8, 805
+                  1149 C 801.4 1024.7, 787.2 875.0, 796 769 C 802.4 691.6, 828.4 646.1,
+                  834 570 C 841.4 469.4, 824.0 334.7, 819 217
+                caixa_delimitadora:
+                  x: 778
+                  y: 1125
+                  comprimento: 113
+                  largura: 1816
+                marcadores:
+                - tipo: CIRCULO_IDENTIFICADOR
+                  x: 721
+                  y: 2033
+                  angulo_graus_x100: -7175
+                  rotulo: '1'
+                  raio: 26
+            cor: '#FFD600'
+          referencias:
+          - ids:
+            - linha_1
+            escalada: Viva o climb
         descricao: ''
-        precomputados: {}
+        precomputados:
+          total_escaladas: 1
+          total_boulders: 1
   mapas_gerais:
     conteudo:
       mapas:
@@ -4599,11 +4637,11 @@ picos:
     latitude: -201176660
     longitude: -443593480
   precomputados:
-    total_escaladas: 155
+    total_escaladas: 156
     total_setores: 14
     total_grupos: 1
     total_esportivas: 95
-    total_boulders: 18
+    total_boulders: 19
     total_multiplas_enfiadas: 1
 botoes:
 - texto: Capa
@@ -4923,6 +4961,8 @@ arquivos_externos:
   checksum_sha256: 66fbcb3356cdcbb3001fa95dbd17cdb0989d9e22a394cf2cf96890c3099ed794
 - caminho: imagens/setor_fugitivos_i_p3.webp
   checksum_sha256: 06bd0ef4287fd6e7fa0255e706e814ea441be9d74e11b0d0a5a17173de6d4474
+- caminho: imagens/setor_fugitivos_ii_p0.webp
+  checksum_sha256: 94d2480252708d7f25f9234befb17df302bcc0876bbe53025fc3d5ab5321b7c1
 - caminho: imagens/setor_igarameca_p0.webp
   checksum_sha256: e79e4daa827532abd0ff0a16e096f1df0eea148c8589dc7686fa268ba1c84102
 - caminho: imagens/setor_igarameca_p1.webp

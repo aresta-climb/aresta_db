@@ -1,6 +1,6 @@
 # Estado de Saúde dos Croquis
 
-Relatório gerado em: 15/09/2026 00:26:30
+Relatório gerado em: 15/09/2026 01:17:42
 
 | Croqui | Publicado (24/49) | Revisado Manual (25/49) | Revisado Circ (25/49) | Desenho Extraível (30/2/17) | Pontos de Interesse (23/49) | Thumbnail (36/49) | Coordenadas Picos (27/49) | URL Google Maps (13/49) | Mapas Gerais (31/49) | Betas Pendentes (49/49) | croqui.yaml (37/49) | Conteúdo PDF (0/49) | partes.json (49/49) | PDF Original (0/49) |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -18,7 +18,7 @@ Relatório gerado em: 15/09/2026 00:26:30
 | br_mg_diamantina_diamaboulder | ✅ | ✅ | ✅ | ✅ | ⚠️ (22/26) | ✅ | ✅ (1/1) | ❌ (0/1) | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ |
 | br_mg_extrema_falesia_da_esfinge | ❌ | ❌ | ❌ | ⚠️ | ❌ (0/3) | ✅ | ❌ (0/1) | ✅ (1/1) | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ |
 | br_mg_ferros_ferros | ❌ | ❌ | ❌ | ✅ (não) | ⚠️ (12/21) | ❌ | ❌ (0/1) | ✅ (1/1) | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ |
-| br_mg_igarape_pedra_grande | ✅ | ✅ | ✅ | ✅ (não) | ⚠️ (10/15) | ✅ | ✅ (1/1) | ❌ (0/1) | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ |
+| br_mg_igarape_pedra_grande | ✅ | ✅ | ✅ | ✅ (não) | ⚠️ (11/15) | ✅ | ✅ (1/1) | ❌ (0/1) | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ |
 | br_mg_ipatinga_ipaba_vale_verde | ❌ | ✅ | ✅ | ✅ (não) | ✅ (2/2) | ✅ | ❌ (0/1) | ❌ (0/1) | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ |
 | br_mg_januaria_salao_encantado | ✅ | ✅ | ✅ | ✅ (não) | ✅ (7/7) | ✅ | ✅ (1/1) | ✅ (1/1) | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ |
 | br_mg_lagoa_santa_gruta_da_lapinha | ✅ | ✅ | ✅ | ✅ (não) | ✅ (10/10) | ✅ | ✅ (1/1) | ❌ (0/1) | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ |

@@ -405,3 +405,17 @@ class TestDialogoAdicionarMapa:
             assert "*.heic" in f
             assert "*.heif" in f
 
+    def test_carregar_heic_sem_pillow_heif_disponivel(self, qtbot, monkeypatch, tmp_path):
+        import editor.views.dialogos.dialogo_adicionar_mapa as mod_dialogo
+        monkeypatch.setattr(mod_dialogo, "garantir_suporte_heif", lambda: False)
+
+        avisos = []
+        monkeypatch.setattr(QMessageBox, "warning", lambda parent, title, text: avisos.append(text))
+
+        dialogo = DialogoAdicionarMapa("teste.webp", db_dir=tmp_path)
+        qtbot.addWidget(dialogo)
+
+        dialogo.carregar_imagem_bytes(b"\x00\x00\x00\x18ftypheic", nome_sugerido_origem="foto.heic")
+        assert len(avisos) == 1
+        assert "pillow-heif" in avisos[0]
+

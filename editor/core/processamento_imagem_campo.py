@@ -15,13 +15,23 @@ from pathlib import Path
 from typing import Optional, Tuple, Dict, Any
 from PIL import Image, ImageOps
 
-try:
-    import pillow_heif
-    abridor_heif = getattr(pillow_heif, "register_heif_opener", None)
-    if callable(abridor_heif):
-        abridor_heif()
-except Exception:  # pragma: no cover
-    pass
+def garantir_suporte_heif() -> bool:
+    """
+    Garante que o registrador de arquivos HEIF/HEIC do pillow-heif esteja carregado no Pillow.
+    Retorna True se o suporte foi registrado com sucesso, False caso contrário.
+    """
+    try:
+        import pillow_heif
+        abridor_heif = getattr(pillow_heif, "register_heif_opener", None)
+        if callable(abridor_heif):
+            abridor_heif()
+            return True
+    except Exception:  # pragma: no cover
+        pass
+    return False
+
+
+garantir_suporte_heif()
 
 
 
@@ -110,6 +120,7 @@ def obter_metadados_imagem(imagem_path_ou_bytes: str | Path | bytes | None) -> T
     img_stream: Any = None
 
     try:
+        garantir_suporte_heif()
         if isinstance(imagem_path_ou_bytes, (str, Path)):
             caminho = Path(imagem_path_ou_bytes)
             if not caminho.exists() or not caminho.is_file():
@@ -177,6 +188,7 @@ def comprimir_imagem_para_bytes_webp(
 
 
     try:
+        garantir_suporte_heif()
         with Image.open(img_source) as img:
             img_proc: Image.Image = ImageOps.exif_transpose(img)
             # Garante RGB ou RGBA dependendo de transparência

@@ -251,3 +251,11 @@ class TestMetadadosECompressao:
         with Image.open(io.BytesIO(bytes_webp_f)) as img_f:
             assert img_f.format == "WEBP"
             assert img_f.size == (250, 150)
+
+    def test_garantir_suporte_heif_com_e_sem_modulo(self, monkeypatch):
+        from editor.core.processamento_imagem_campo import garantir_suporte_heif
+        assert garantir_suporte_heif() is True
+
+        import sys
+        monkeypatch.setitem(sys.modules, "pillow_heif", None)
+        assert garantir_suporte_heif() is False
