@@ -23,7 +23,8 @@ class TestConftestTeardown(unittest.TestCase):
         mock_config = MagicMock()
         mock_session.config = mock_config
 
-        with patch("PySide6.QtWidgets.QApplication.instance", return_value=mock_app), \
+        with patch.dict(os.environ, {"CI": "", "ARESTA_FAST_EXIT": ""}, clear=False), \
+             patch("PySide6.QtWidgets.QApplication.instance", return_value=mock_app), \
              patch("PySide6.QtCore.QThreadPool.globalInstance", return_value=mock_pool), \
              patch("shiboken6.delete") as mock_shiboken_delete:
             conftest.pytest_sessionfinish(mock_session, 0)
@@ -32,6 +33,59 @@ class TestConftestTeardown(unittest.TestCase):
             mock_pool.waitForDone.assert_called_once_with(1000)
             mock_shiboken_delete.assert_called_once_with(mock_app)
             self.assertEqual(getattr(mock_config, "_aresta_exitstatus", None), 0)
+
+    def test_pytest_sessionfinish_nao_deleta_qapplication_em_ambiente_ci(self) -> None:
+        """Valida que no ambiente CI o shiboken6.delete não é chamado para evitar conflito com fast exit."""
+        from PySide6.QtWidgets import QApplication
+        from PySide6.QtCore import QThreadPool
+        mock_app = MagicMock(spec=QApplication)
+        mock_pool = MagicMock(spec=QThreadPool)
+        mock_session = MagicMock()
+
+        with patch.dict(os.environ, {"CI": "true", "ARESTA_FAST_EXIT": ""}, clear=False), \
+             patch("PySide6.QtWidgets.QApplication.instance", return_value=mock_app), \
+             patch("PySide6.QtCore.QThreadPool.globalInstance", return_value=mock_pool), \
+             patch("shiboken6.delete") as mock_shiboken_delete:
+            conftest.pytest_sessionfinish(mock_session, 0)
+            mock_app.closeAllWindows.assert_called_once()
+            mock_app.processEvents.assert_called_once()
+            mock_pool.waitForDone.assert_called_once_with(1000)
+            mock_shiboken_delete.assert_not_called()
+
+    def test_pytest_sessionfinish_nao_deleta_qapplication_com_aresta_fast_exit(self) -> None:
+        """Valida que sob a flag ARESTA_FAST_EXIT o shiboken6.delete não é chamado."""
+        from PySide6.QtWidgets import QApplication
+        from PySide6.QtCore import QThreadPool
+        mock_app = MagicMock(spec=QApplication)
+        mock_pool = MagicMock(spec=QThreadPool)
+        mock_session = MagicMock()
+
+        with patch.dict(os.environ, {"CI": "", "ARESTA_FAST_EXIT": "1"}, clear=False), \
+             patch("PySide6.QtWidgets.QApplication.instance", return_value=mock_app), \
+             patch("PySide6.QtCore.QThreadPool.globalInstance", return_value=mock_pool), \
+             patch("shiboken6.delete") as mock_shiboken_delete:
+            conftest.pytest_sessionfinish(mock_session, 0)
+            mock_app.closeAllWindows.assert_called_once()
+            mock_app.processEvents.assert_called_once()
+            mock_pool.waitForDone.assert_called_once_with(1000)
+            mock_shiboken_delete.assert_not_called()
+
+    def test_pytest_sessionfinish_trata_excecao_no_shiboken_delete(self) -> None:
+        """Valida que falha no shiboken6.delete é tratada graciosamente sem propagar exceção."""
+        from PySide6.QtWidgets import QApplication
+        from PySide6.QtCore import QThreadPool
+        mock_app = MagicMock(spec=QApplication)
+        mock_pool = MagicMock(spec=QThreadPool)
+        mock_session = MagicMock()
+
+        with patch.dict(os.environ, {"CI": "", "ARESTA_FAST_EXIT": ""}, clear=False), \
+             patch("PySide6.QtWidgets.QApplication.instance", return_value=mock_app), \
+             patch("PySide6.QtCore.QThreadPool.globalInstance", return_value=mock_pool), \
+             patch("shiboken6.delete", side_effect=RuntimeError("Erro no shiboken")):
+            conftest.pytest_sessionfinish(mock_session, 0)
+            mock_app.closeAllWindows.assert_called_once()
+            mock_app.processEvents.assert_called_once()
+            mock_pool.waitForDone.assert_called_once_with(1000)
 
     def test_pytest_sessionfinish_ignora_quando_sem_qapplication(self) -> None:
         """Valida que o teardown conclui sem erros quando nenhuma QApplication estiver instanciada."""
