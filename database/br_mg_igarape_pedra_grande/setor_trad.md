@@ -236,21 +236,21 @@ mapas:
       y: 1213
       raio: 14
   - id: crayzy
-    label: ''
+    label: '?'
     circulo:
       x: 247
       y: 1211
       raio: 14
     cor: ''
   - id: formigao
-    label: ''
+    label: '?'
     circulo:
       x: 289
       y: 1202
       raio: 14
     cor: ''
   - id: palestra
-    label: ''
+    label: '?'
     retangulo:
       x: 1410
       y: 211
@@ -437,12 +437,24 @@ escaladas:
 - via_movel:
     nome: Igarapé Cascão
     dificuldade: INDEFINIDO
+    descricao: 'Via com caminhada de volta do cume, não é necessário fazer rapel.
+
+
+      Veja a trilha para voltar do cume da via de volta para a base: https://loc.wiki/t/162907398?wa=sc'
 - via_movel:
     nome: Outra saída da Igarapé Cascão
     dificuldade: INDEFINIDO
+    descricao: 'Via com caminhada de volta do cume, não é necessário fazer rapel.
+
+
+      Veja a trilha para voltar do cume da via de volta para a base: https://loc.wiki/t/162907398?wa=sc'
 - via_movel:
     nome: Pachamama
     dificuldade: INDEFINIDO
+    descricao: 'Via com caminhada de volta do cume, não é necessário fazer rapel.
+
+
+      Veja a trilha para voltar do cume da via de volta para a base: https://loc.wiki/t/162907398?wa=sc'
 - via_movel:
     nome: Sem nome 4
     dificuldade: INDEFINIDO
@@ -514,7 +526,12 @@ escaladas:
     dificuldade: INDEFINIDO
 - via_movel:
     nome: Me Leve ao Cume
-    dificuldade: INDEFINIDO
+    dificuldade: BR_6
+    descricao: 'Trilha principal para a via no WikiLoc: https://loc.wiki/t/142136363?wa=sc
+
+
+      Trilha alternativa pelo setor Sherpa (pode estar mais sujo / com mais mato):
+      https://loc.wiki/t/255009916?wa=sc'
 - via_movel:
     nome: Sem nome 16
     dificuldade: INDEFINIDO

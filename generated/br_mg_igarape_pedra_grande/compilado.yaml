@@ -1145,7 +1145,10 @@ picos:
 
 
           O setor fica do lado direito do início da trilha para a Pedra Grande. Sombra
-          o dia todo (varia de acordo com a estação).'
+          o dia todo (varia de acordo com a estação).
+
+
+          Veja a trilha para chegar ao setor no Wikiloc: https://loc.wiki/t/169745893?wa=sc'
         precomputados:
           total_escaladas: 19
           total_esportivas: 19
@@ -1482,7 +1485,11 @@ picos:
         descricao: '# Setor Família II
 
 
-          Sombra após 14h (varia de acordo com a estação).'
+          Sombra após 14h (varia de acordo com a estação).
+
+
+          Veja a trilha para chegar ao Família II no WikiLoc (começando a partir do
+          Família I): https://loc.wiki/t/157623201?wa=sc'
         precomputados:
           total_escaladas: 11
           total_esportivas: 11
@@ -1719,7 +1726,10 @@ picos:
           Escalar com a corda passada na primeira proteção nas vias esportivas.
 
           Siga a trilha a partir do estacionamento até onde o tronco atravessa o caminho.
-          A rocha fica logo a direita.'
+          A rocha fica logo a direita.
+
+
+          Veja a trilha para chegar ao setor no WikiLoc: https://loc.wiki/t/157666336?wa=sc'
         precomputados:
           total_escaladas: 7
           total_esportivas: 7
@@ -1822,6 +1832,7 @@ picos:
             - Ró
             - Alexandre
             data_abertura: '2005'
+            descricao: 'INTERDITADA: TOPS FORAM ROUBADOS'
         - via_esportiva:
             nome: Pâncepis
             dificuldade: BR_7B
@@ -1834,6 +1845,7 @@ picos:
             - Ró
             - Alexandre
             data_abertura: '2005'
+            descricao: 'INTERDITADA: TOPS FORAM ROUBADOS'
         - via_esportiva:
             nome: Totem
             dificuldade: BR_8A
@@ -1863,7 +1875,10 @@ picos:
         descricao: '# Setor Totem
 
 
-          Sombra até 10h e após 16h.'
+          Sombra até 10h e após 16h.
+
+
+          Veja a trilha para chegar ao setor no WikiLoc: https://loc.wiki/t/160199352?wa=sc'
         precomputados:
           total_escaladas: 4
           total_esportivas: 4
@@ -2536,7 +2551,10 @@ picos:
         descricao: '# Setor Igarameca
 
 
-          Sombra após 12h (varia de acordo com a estação).'
+          Sombra após 12h (varia de acordo com a estação).
+
+
+          Veja a trilha para chegar ao setor no WikiLoc: https://loc.wiki/t/160199352?wa=sc'
         precomputados:
           total_escaladas: 21
           total_esportivas: 20
@@ -3258,21 +3276,21 @@ picos:
               y: 1213
               raio: 14
           - id: crayzy
-            label: ''
+            label: '?'
             circulo:
               x: 247
               y: 1211
               raio: 14
             cor: ''
           - id: formigao
-            label: ''
+            label: '?'
             circulo:
               x: 289
               y: 1202
               raio: 14
             cor: ''
           - id: palestra
-            label: ''
+            label: '?'
             retangulo:
               x: 1410
               y: 211
@@ -3459,12 +3477,27 @@ picos:
         - via_movel:
             nome: Igarapé Cascão
             dificuldade: INDEFINIDO
+            descricao: 'Via com caminhada de volta do cume, não é necessário fazer
+              rapel.
+
+
+              Veja a trilha para voltar do cume da via de volta para a base: https://loc.wiki/t/162907398?wa=sc'
         - via_movel:
             nome: Outra saída da Igarapé Cascão
             dificuldade: INDEFINIDO
+            descricao: 'Via com caminhada de volta do cume, não é necessário fazer
+              rapel.
+
+
+              Veja a trilha para voltar do cume da via de volta para a base: https://loc.wiki/t/162907398?wa=sc'
         - via_movel:
             nome: Pachamama
             dificuldade: INDEFINIDO
+            descricao: 'Via com caminhada de volta do cume, não é necessário fazer
+              rapel.
+
+
+              Veja a trilha para voltar do cume da via de volta para a base: https://loc.wiki/t/162907398?wa=sc'
         - via_movel:
             nome: Sem nome 4
             dificuldade: INDEFINIDO
@@ -3536,7 +3569,12 @@ picos:
             dificuldade: INDEFINIDO
         - via_movel:
             nome: Me Leve ao Cume
-            dificuldade: INDEFINIDO
+            dificuldade: BR_6
+            descricao: 'Trilha principal para a via no WikiLoc: https://loc.wiki/t/142136363?wa=sc
+
+
+              Trilha alternativa pelo setor Sherpa (pode estar mais sujo / com mais
+              mato): https://loc.wiki/t/255009916?wa=sc'
         - via_movel:
             nome: Sem nome 16
             dificuldade: INDEFINIDO
@@ -3695,7 +3733,7 @@ picos:
           total_boulders: 7
   - setor:
       conteudo:
-        nome: Setor Fugitivos I
+        nome: Bloco Fugitivos I
         escaladas:
         - boulder:
             nome: Polydance
@@ -3957,34 +3995,28 @@ picos:
             - '5'
             - ▲
             - D
-            setor: Setor Fugitivos I
             escalada: Polydance
           - ids:
-            - X
-            - linha_10
             - '5'
-            setor: Setor Fugitivos I
+            - linha_10
+            - X
             escalada: Bigdance
           - ids:
             - '3'
             - ▲
             - linha_7
             - linha_14
-            setor: Setor Fugitivos I
             escalada: Boulder do Bola
           - ids:
             - '4'
             - linha_14
-            setor: Setor Fugitivos I
             escalada: Trolls
           - ids:
-            - D
             - '3'
-            setor: Setor Fugitivos I
+            - D
             escalada: Calcinha Larga
           - ids:
             - '2'
-            setor: Setor Fugitivos I
             escalada: Tanga Frouxa
           - ids:
             - linha_1
@@ -4262,7 +4294,6 @@ picos:
           - ids:
             - linha_4
             escalada: Sem nome 18
-            setor: Setor Fugitivos I
           - ids:
             - linha_8
             - linha_19
@@ -4288,11 +4319,11 @@ picos:
             - linha_21
             escalada: Polydance
           - ids:
-            - linha_18
-            - linha_50
-            - linha_9
-            - linha_16
             - linha_12
+            - linha_16
+            - linha_9
+            - linha_50
+            - linha_18
             escalada: Bigdance
         - caminho_imagem_mapa: imagens/setor_fugitivos_i_p2.webp
           largura_mapa: 1280
@@ -4382,13 +4413,13 @@ picos:
           - ids:
             - linha_6
             escalada: Cactos kid
-        descricao: ''
+        descricao: 'Veja a trilha para chegar ao setor no Wikiloc: https://loc.wiki/t/169742661?wa=sc'
         precomputados:
           total_escaladas: 11
           total_boulders: 11
   - setor:
       conteudo:
-        nome: Setor Fugitivos II
+        nome: Bloco Viva o Climb
         escaladas:
         - boulder:
             nome: Viva o climb
@@ -4418,8 +4449,11 @@ picos:
         - boulder:
             nome: Pica fumo
             dificuldade: V5
+        - boulder:
+            nome: Mad max
+            dificuldade: V8
         mapas:
-        - caminho_imagem_mapa: imagens/setor_fugitivos_ii_p0.webp
+        - caminho_imagem_mapa: imagens/setor_viva_o_climb_p0.webp
           largura_mapa: 1773
           altura_mapa: 2364
           pontos_de_interesse:
@@ -4450,7 +4484,7 @@ picos:
           - ids:
             - linha_1
             escalada: Viva o climb
-        - caminho_imagem_mapa: imagens/setor_fugitivos_ii_p1.webp
+        - caminho_imagem_mapa: imagens/setor_viva_o_climb_p1.webp
           largura_mapa: 1773
           altura_mapa: 2364
           pontos_de_interesse:
@@ -4609,13 +4643,44 @@ picos:
             - linha_7
             escalada: Malandro não para
           - ids:
-            - linha_5
             - linha_6
+            - linha_5
             escalada: Malandragem
-        - caminho_imagem_mapa: imagens/setor_fugitivos_ii_p2.webp
+        - caminho_imagem_mapa: imagens/setor_viva_o_climb_p2.webp
           largura_mapa: 1773
           altura_mapa: 2364
-        - caminho_imagem_mapa: imagens/setor_fugitivos_ii_p3.webp
+          pontos_de_interesse:
+          - id: linha_10
+            label: ''
+            linha:
+              estilo: TRACEJADO
+              espessura: 5
+              compilado:
+                caminho_svg: M 1325 1490 C 1318.0 1414.0, 1296.1 1325.3, 1304 1262
+                  C 1310.0 1214.6, 1345.2 1179.2, 1347 1141 C 1348.6 1107.7, 1340.6
+                  1072.0, 1323 1046 C 1304.5 1018.8, 1267.1 1004.3, 1236 983 C 1201.3
+                  959.3, 1149.5 946.2, 1124 911 C 1095.8 872.0, 1089.7 811.7, 1083
+                  753 C 1074.8 681.8, 1089.0 598.4, 1089 513 C 1089.0 415.1, 1083.7
+                  303.0, 1081 198
+                caixa_delimitadora:
+                  x: 1214
+                  y: 844
+                  comprimento: 266
+                  largura: 1292
+                marcadores:
+                - tipo: CIRCULO_IDENTIFICADOR
+                  x: 1325
+                  y: 1490
+                  angulo_graus_x100: -9526
+                  rotulo: '6'
+                  raio: 24
+            cor: '#FFD600'
+          referencias:
+          - ids:
+            - linha_10
+            escalada: Mad max
+            setor: Bloco Viva o Climb
+        - caminho_imagem_mapa: imagens/setor_viva_o_climb_p3.webp
           largura_mapa: 960
           altura_mapa: 1280
           pontos_de_interesse:
@@ -4660,7 +4725,7 @@ picos:
             - sai2
             - sai1
             escalada: Abraca
-        - caminho_imagem_mapa: imagens/setor_fugitivos_ii_p4.webp
+        - caminho_imagem_mapa: imagens/setor_viva_o_climb_p4.webp
           largura_mapa: 960
           altura_mapa: 1280
           pontos_de_interesse:
@@ -4693,10 +4758,10 @@ picos:
           - ids:
             - linha_9
             escalada: Pica fumo
-        descricao: ''
+        descricao: 'Veja a trilha para chegar ao setor no Wikiloc: https://loc.wiki/t/169742661?wa=sc'
         precomputados:
-          total_escaladas: 8
-          total_boulders: 8
+          total_escaladas: 9
+          total_boulders: 9
   mapas_gerais:
     conteudo:
       mapas:
@@ -4905,11 +4970,11 @@ picos:
     latitude: -201176660
     longitude: -443593480
   precomputados:
-    total_escaladas: 163
+    total_escaladas: 164
     total_setores: 14
     total_grupos: 1
     total_esportivas: 95
-    total_boulders: 26
+    total_boulders: 27
     total_multiplas_enfiadas: 1
 botoes:
 - texto: Capa
@@ -5229,16 +5294,6 @@ arquivos_externos:
   checksum_sha256: 66fbcb3356cdcbb3001fa95dbd17cdb0989d9e22a394cf2cf96890c3099ed794
 - caminho: imagens/setor_fugitivos_i_p3.webp
   checksum_sha256: 06bd0ef4287fd6e7fa0255e706e814ea441be9d74e11b0d0a5a17173de6d4474
-- caminho: imagens/setor_fugitivos_ii_p0.webp
-  checksum_sha256: 94d2480252708d7f25f9234befb17df302bcc0876bbe53025fc3d5ab5321b7c1
-- caminho: imagens/setor_fugitivos_ii_p1.webp
-  checksum_sha256: be43e895f74116ff63a5ec7ac25290dbce75ad67bf1df0a3ab079d7e4c17ac68
-- caminho: imagens/setor_fugitivos_ii_p2.webp
-  checksum_sha256: e3544af684cab5da717ea03b4f77d05f0652be42e0cab50c3f41d62ba5120d57
-- caminho: imagens/setor_fugitivos_ii_p3.webp
-  checksum_sha256: 7ca2f6791409aa498f402729b4d426bf972d8db7689f9052a490fe4ee31b7773
-- caminho: imagens/setor_fugitivos_ii_p4.webp
-  checksum_sha256: c8e95292e609405375d46753e1010ff78f1ba889355e5f80b6b29321cf8cee5c
 - caminho: imagens/setor_igarameca_p0.webp
   checksum_sha256: e79e4daa827532abd0ff0a16e096f1df0eea148c8589dc7686fa268ba1c84102
 - caminho: imagens/setor_igarameca_p1.webp
@@ -5275,3 +5330,13 @@ arquivos_externos:
   checksum_sha256: 028f8cb259043ddcfd39cf2fb64041b88c41cd3538b6604d384ab2f08514edbf
 - caminho: imagens/setor_trad_p0.webp
   checksum_sha256: fa73e3e2fa27a74255e21b0c499f6e72bc47a99626b5bd780473d967c257eaad
+- caminho: imagens/setor_viva_o_climb_p0.webp
+  checksum_sha256: 94d2480252708d7f25f9234befb17df302bcc0876bbe53025fc3d5ab5321b7c1
+- caminho: imagens/setor_viva_o_climb_p1.webp
+  checksum_sha256: be43e895f74116ff63a5ec7ac25290dbce75ad67bf1df0a3ab079d7e4c17ac68
+- caminho: imagens/setor_viva_o_climb_p2.webp
+  checksum_sha256: e3544af684cab5da717ea03b4f77d05f0652be42e0cab50c3f41d62ba5120d57
+- caminho: imagens/setor_viva_o_climb_p3.webp
+  checksum_sha256: 7ca2f6791409aa498f402729b4d426bf972d8db7689f9052a490fe4ee31b7773
+- caminho: imagens/setor_viva_o_climb_p4.webp
+  checksum_sha256: c8e95292e609405375d46753e1010ff78f1ba889355e5f80b6b29321cf8cee5c

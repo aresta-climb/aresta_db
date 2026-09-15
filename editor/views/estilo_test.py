@@ -115,3 +115,48 @@ def test_configurar_tema_claro_aplicacao_define_color_scheme_light(qtbot):
     assert app.palette().color(QPalette.ColorRole.Window).name() != "#d4d0c8"
 
 
+def test_configurar_tema_claro_aplicacao_estiliza_qtooltip(qtbot):
+    """Garante que configurar_tema_claro_aplicacao define estilo explícito para QToolTip prevenindo renderização preta no Windows."""
+    from PySide6.QtWidgets import QApplication
+    from PySide6.QtGui import QPalette
+    from editor.views.estilo import configurar_tema_claro_aplicacao
+
+    app = QApplication.instance()
+    assert app is not None
+
+    configurar_tema_claro_aplicacao(app)
+
+    # Verifica folha de estilo global da aplicação
+    folha = app.styleSheet()
+    assert "QToolTip" in folha
+    assert "color:" in folha
+    assert "background-color:" in folha
+
+    # Verifica a paleta do QToolTip
+    pal = app.palette()
+    assert pal.color(QPalette.ColorRole.ToolTipBase).name().lower() == "#ffffff"
+    assert pal.color(QPalette.ColorRole.ToolTipText).name().lower() == "#212529"
+
+
+def test_configurar_tema_claro_aplicacao_sem_instancia():
+    """Garante que a função retorna graciosamente se nenhuma instância de QApplication existir."""
+    from editor.views.estilo import configurar_tema_claro_aplicacao
+    with patch("PySide6.QtWidgets.QApplication.instance", return_value=None):
+        configurar_tema_claro_aplicacao(None)
+
+
+def test_configurar_tema_claro_aplicacao_captura_excecoes(qtbot):
+    """Garante que a função não propaga exceções se styleHints ou setPalette falharem."""
+    from PySide6.QtWidgets import QApplication
+    from editor.views.estilo import configurar_tema_claro_aplicacao
+
+    app = QApplication.instance()
+    assert app is not None
+
+    with patch.object(app, "styleHints", side_effect=RuntimeError("erro simulado")), \
+         patch.object(app, "setPalette", side_effect=RuntimeError("erro paleta")):
+        configurar_tema_claro_aplicacao(app)
+
+
+
+

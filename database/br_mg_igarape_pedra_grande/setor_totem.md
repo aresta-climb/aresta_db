@@ -98,6 +98,7 @@ escaladas:
     - Ró
     - Alexandre
     data_abertura: '2005'
+    descricao: 'INTERDITADA: TOPS FORAM ROUBADOS'
 - via_esportiva:
     nome: Pâncepis
     dificuldade: BR_7B
@@ -110,6 +111,7 @@ escaladas:
     - Ró
     - Alexandre
     data_abertura: '2005'
+    descricao: 'INTERDITADA: TOPS FORAM ROUBADOS'
 - via_esportiva:
     nome: Totem
     dificuldade: BR_8A
@@ -141,3 +143,5 @@ escaladas:
 # Setor Totem
 
 Sombra até 10h e após 16h.
+
+Veja a trilha para chegar ao setor no WikiLoc: https://loc.wiki/t/160199352?wa=sc

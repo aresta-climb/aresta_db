@@ -852,6 +852,8 @@
     # Setor Família I
     
     O setor fica do lado direito do início da trilha para a Pedra Grande. Sombra o dia todo (varia de acordo com a estação).
+    
+    Veja a trilha para chegar ao setor no Wikiloc: https://loc.wiki/t/169745893?wa=sc
 - **nome**: Setor Família I
 - **mapas**:
   - **[0]**:
@@ -1513,6 +1515,8 @@
     # Setor Família II
     
     Sombra após 14h (varia de acordo com a estação).
+    
+    Veja a trilha para chegar ao Família II no WikiLoc (começando a partir do Família I): https://loc.wiki/t/157623201?wa=sc
 - **nome**: Setor Família II
 - **mapas**:
   - **[0]**:
@@ -1914,6 +1918,8 @@
     Risco de agarras se quebrarem e pedras soltas, é recomendado o uso de capacete ao escalar e nas bases das vias.
     Escalar com a corda passada na primeira proteção nas vias esportivas.
     Siga a trilha a partir do estacionamento até onde o tronco atravessa o caminho. A rocha fica logo a direita.
+    
+    Veja a trilha para chegar ao setor no WikiLoc: https://loc.wiki/t/157666336?wa=sc
 - **nome**: Setor Micos
 - **mapas**:
   - **[0]**:
@@ -2185,6 +2191,8 @@
     # Setor Totem
     
     Sombra até 10h e após 16h.
+    
+    Veja a trilha para chegar ao setor no WikiLoc: https://loc.wiki/t/160199352?wa=sc
 - **nome**: Setor Totem
 - **mapas**:
   - **[0]**:
@@ -2290,6 +2298,7 @@
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
+      - **descricao**: INTERDITADA: TOPS FORAM ROUBADOS
       - **nome**: Takeyeasy
       - **dificuldade**: BR_6
       - **quantidade_protecoes_intermediarias**: 4
@@ -2303,6 +2312,7 @@
       - **data_abertura**: 2005
   - **[1]**:
     - **via_esportiva**:
+      - **descricao**: INTERDITADA: TOPS FORAM ROUBADOS
       - **nome**: Pâncepis
       - **dificuldade**: BR_7B
       - **quantidade_protecoes_intermediarias**: 4
@@ -2355,6 +2365,8 @@
     # Setor Igarameca
     
     Sombra após 12h (varia de acordo com a estação).
+    
+    Veja a trilha para chegar ao setor no WikiLoc: https://loc.wiki/t/160199352?wa=sc
 - **nome**: Setor Igarameca
 - **mapas**:
   - **[0]**:
@@ -3984,7 +3996,7 @@
           - **raio**: 14
       - **[38]**:
         - **id**: crayzy
-        - **label**: 
+        - **label**: ?
         - **circulo**:
           - **x**: 247
           - **y**: 1211
@@ -3992,7 +4004,7 @@
         - **cor**: 
       - **[39]**:
         - **id**: formigao
-        - **label**: 
+        - **label**: ?
         - **circulo**:
           - **x**: 289
           - **y**: 1202
@@ -4000,7 +4012,7 @@
         - **cor**: 
       - **[40]**:
         - **id**: palestra
-        - **label**: 
+        - **label**: ?
         - **retangulo**:
           - **x**: 1410
           - **y**: 211
@@ -4237,14 +4249,26 @@
       - **dificuldade**: INDEFINIDO
   - **[10]**:
     - **via_movel**:
+      - **descricao**:
+          Via com caminhada de volta do cume, não é necessário fazer rapel.
+          
+          Veja a trilha para voltar do cume da via de volta para a base: https://loc.wiki/t/162907398?wa=sc
       - **nome**: Igarapé Cascão
       - **dificuldade**: INDEFINIDO
   - **[11]**:
     - **via_movel**:
+      - **descricao**:
+          Via com caminhada de volta do cume, não é necessário fazer rapel.
+          
+          Veja a trilha para voltar do cume da via de volta para a base: https://loc.wiki/t/162907398?wa=sc
       - **nome**: Outra saída da Igarapé Cascão
       - **dificuldade**: INDEFINIDO
   - **[12]**:
     - **via_movel**:
+      - **descricao**:
+          Via com caminhada de volta do cume, não é necessário fazer rapel.
+          
+          Veja a trilha para voltar do cume da via de volta para a base: https://loc.wiki/t/162907398?wa=sc
       - **nome**: Pachamama
       - **dificuldade**: INDEFINIDO
   - **[13]**:
@@ -4341,8 +4365,12 @@
       - **dificuldade**: INDEFINIDO
   - **[36]**:
     - **via_movel**:
+      - **descricao**:
+          Trilha principal para a via no WikiLoc: https://loc.wiki/t/142136363?wa=sc
+          
+          Trilha alternativa pelo setor Sherpa (pode estar mais sujo / com mais mato): https://loc.wiki/t/255009916?wa=sc
       - **nome**: Me Leve ao Cume
-      - **dificuldade**: INDEFINIDO
+      - **dificuldade**: BR_6
   - **[37]**:
     - **via_movel**:
       - **nome**: Sem nome 16
@@ -4517,8 +4545,8 @@
 
 ### Setor (Pico: Complexo Pedra Grande)
 
-- **descricao**: 
-- **nome**: Setor Fugitivos I
+- **descricao**: Veja a trilha para chegar ao setor no Wikiloc: https://loc.wiki/t/169742661?wa=sc
+- **nome**: Bloco Fugitivos I
 - **escaladas**:
   - **[0]**:
     - **boulder**:
@@ -4802,14 +4830,12 @@
           - 5
           - ▲
           - D
-        - **setor**: Setor Fugitivos I
         - **escalada**: Polydance
       - **[1]**:
         - **ids**:
-          - X
-          - linha_10
           - 5
-        - **setor**: Setor Fugitivos I
+          - linha_10
+          - X
         - **escalada**: Bigdance
       - **[2]**:
         - **ids**:
@@ -4817,24 +4843,20 @@
           - ▲
           - linha_7
           - linha_14
-        - **setor**: Setor Fugitivos I
         - **escalada**: Boulder do Bola
       - **[3]**:
         - **ids**:
           - 4
           - linha_14
-        - **setor**: Setor Fugitivos I
         - **escalada**: Trolls
       - **[4]**:
         - **ids**:
-          - D
           - 3
-        - **setor**: Setor Fugitivos I
+          - D
         - **escalada**: Calcinha Larga
       - **[5]**:
         - **ids**:
           - 2
-        - **setor**: Setor Fugitivos I
         - **escalada**: Tanga Frouxa
       - **[6]**:
         - **ids**:
@@ -5127,7 +5149,6 @@
         - **ids**:
           - linha_4
         - **escalada**: Sem nome 18
-        - **setor**: Setor Fugitivos I
       - **[2]**:
         - **ids**:
           - linha_8
@@ -5158,11 +5179,11 @@
         - **escalada**: Polydance
       - **[6]**:
         - **ids**:
-          - linha_18
-          - linha_50
-          - linha_9
-          - linha_16
           - linha_12
+          - linha_16
+          - linha_9
+          - linha_50
+          - linha_18
         - **escalada**: Bigdance
   - **[2]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_fugitivos_i_p2.webp)
@@ -5264,12 +5285,12 @@
   - **total_boulders**: 11
 
 
-## Parte: setor_fugitivos_ii (não listada em partes.json)
+## Parte: setor_viva_o_climb (não listada em partes.json)
 
 ### Setor (Pico: Complexo Pedra Grande)
 
-- **descricao**: 
-- **nome**: Setor Fugitivos II
+- **descricao**: Veja a trilha para chegar ao setor no Wikiloc: https://loc.wiki/t/169742661?wa=sc
+- **nome**: Bloco Viva o Climb
 - **escaladas**:
   - **[0]**:
     - **boulder**:
@@ -5307,9 +5328,13 @@
     - **boulder**:
       - **nome**: Pica fumo
       - **dificuldade**: V5
+  - **[8]**:
+    - **boulder**:
+      - **nome**: Mad max
+      - **dificuldade**: V8
 - **mapas**:
   - **[0]**:
-    - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_fugitivos_ii_p0.webp)
+    - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_viva_o_climb_p0.webp)
     - **largura_mapa**: 1773
     - **altura_mapa**: 2364
     - **pontos_de_interesse**:
@@ -5341,7 +5366,7 @@
           - linha_1
         - **escalada**: Viva o climb
   - **[1]**:
-    - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_fugitivos_ii_p1.webp)
+    - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_viva_o_climb_p1.webp)
     - **largura_mapa**: 1773
     - **altura_mapa**: 2364
     - **pontos_de_interesse**:
@@ -5510,15 +5535,44 @@
         - **escalada**: Malandro não para
       - **[4]**:
         - **ids**:
-          - linha_5
           - linha_6
+          - linha_5
         - **escalada**: Malandragem
   - **[2]**:
-    - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_fugitivos_ii_p2.webp)
+    - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_viva_o_climb_p2.webp)
     - **largura_mapa**: 1773
     - **altura_mapa**: 2364
+    - **pontos_de_interesse**:
+      - **[0]**:
+        - **id**: linha_10
+        - **label**: 
+        - **linha**:
+          - **estilo**: TRACEJADO
+          - **espessura**: 5
+          - **compilado**:
+            - **caminho_svg**: M 1325 1490 C 1318.0 1414.0, 1296.1 1325.3, 1304 1262 C 1310.0 1214.6, 1345.2 1179.2, 1347 1141 C 1348.6 1107.7, 1340.6 1072.0, 1323 1046 C 1304.5 1018.8, 1267.1 1004.3, 1236 983 C 1201.3 959.3, 1149.5 946.2, 1124 911 C 1095.8 872.0, 1089.7 811.7, 1083 753 C 1074.8 681.8, 1089.0 598.4, 1089 513 C 1089.0 415.1, 1083.7 303.0, 1081 198
+            - **caixa_delimitadora**:
+              - **x**: 1214
+              - **y**: 844
+              - **comprimento**: 266
+              - **largura**: 1292
+            - **marcadores**:
+              - **[0]**:
+                - **tipo**: CIRCULO_IDENTIFICADOR
+                - **x**: 1325
+                - **y**: 1490
+                - **angulo_graus_x100**: -9526
+                - **rotulo**: 6
+                - **raio**: 24
+        - **cor**: #FFD600
+    - **referencias**:
+      - **[0]**:
+        - **ids**:
+          - linha_10
+        - **escalada**: Mad max
+        - **setor**: Bloco Viva o Climb
   - **[3]**:
-    - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_fugitivos_ii_p3.webp)
+    - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_viva_o_climb_p3.webp)
     - **largura_mapa**: 960
     - **altura_mapa**: 1280
     - **pontos_de_interesse**:
@@ -5568,7 +5622,7 @@
           - sai1
         - **escalada**: Abraca
   - **[4]**:
-    - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_fugitivos_ii_p4.webp)
+    - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_viva_o_climb_p4.webp)
     - **largura_mapa**: 960
     - **altura_mapa**: 1280
     - **pontos_de_interesse**:
@@ -5600,8 +5654,8 @@
           - linha_9
         - **escalada**: Pica fumo
 - **precomputados**:
-  - **total_escaladas**: 8
-  - **total_boulders**: 8
+  - **total_escaladas**: 9
+  - **total_boulders**: 9
 
 
 ## Arquivos Externos
@@ -5656,73 +5710,73 @@
     - **caminho**: ![caminho](imagens/setor_fugitivos_i_p3.webp)
     - **checksum_sha256**: 06bd0ef4287fd6e7fa0255e706e814ea441be9d74e11b0d0a5a17173de6d4474
   - **[16]**:
-    - **caminho**: ![caminho](imagens/setor_fugitivos_ii_p0.webp)
-    - **checksum_sha256**: 94d2480252708d7f25f9234befb17df302bcc0876bbe53025fc3d5ab5321b7c1
-  - **[17]**:
-    - **caminho**: ![caminho](imagens/setor_fugitivos_ii_p1.webp)
-    - **checksum_sha256**: be43e895f74116ff63a5ec7ac25290dbce75ad67bf1df0a3ab079d7e4c17ac68
-  - **[18]**:
-    - **caminho**: ![caminho](imagens/setor_fugitivos_ii_p2.webp)
-    - **checksum_sha256**: e3544af684cab5da717ea03b4f77d05f0652be42e0cab50c3f41d62ba5120d57
-  - **[19]**:
-    - **caminho**: ![caminho](imagens/setor_fugitivos_ii_p3.webp)
-    - **checksum_sha256**: 7ca2f6791409aa498f402729b4d426bf972d8db7689f9052a490fe4ee31b7773
-  - **[20]**:
-    - **caminho**: ![caminho](imagens/setor_fugitivos_ii_p4.webp)
-    - **checksum_sha256**: c8e95292e609405375d46753e1010ff78f1ba889355e5f80b6b29321cf8cee5c
-  - **[21]**:
     - **caminho**: ![caminho](imagens/setor_igarameca_p0.webp)
     - **checksum_sha256**: e79e4daa827532abd0ff0a16e096f1df0eea148c8589dc7686fa268ba1c84102
-  - **[22]**:
+  - **[17]**:
     - **caminho**: ![caminho](imagens/setor_igarameca_p1.webp)
     - **checksum_sha256**: b2ab0e0a16eb19fe5d54f6a899456ac5ff07671862249a012699dc3631c64662
-  - **[23]**:
+  - **[18]**:
     - **caminho**: ![caminho](imagens/setor_igarameca_p2.webp)
     - **checksum_sha256**: 3a6b8f636bd121e5fa888a5dc855ddb627cea151389890532ba4f50053c78f30
-  - **[24]**:
+  - **[19]**:
     - **caminho**: ![caminho](imagens/setor_jeitinho_brasileiro_p0.webp)
     - **checksum_sha256**: 9aa633be14db3f0c96a1a656470f87f5bfb7a259a02cb58babd6733dadc8d535
-  - **[25]**:
+  - **[20]**:
     - **caminho**: ![caminho](imagens/setor_micos_p0.webp)
     - **checksum_sha256**: acb374ec8c0ecf85d537c86dd1328bbb91e4fd41576659d596457a818254cd2d
-  - **[26]**:
+  - **[21]**:
     - **caminho**: ![caminho](imagens/setor_micos_p1.webp)
     - **checksum_sha256**: e59d63c298cd1049ee8636ce3e3b78b993f5b2358f4e3fc57a10508e739e8536
-  - **[27]**:
+  - **[22]**:
     - **caminho**: ![caminho](imagens/setor_micos_p2.webp)
     - **checksum_sha256**: 27321d933aca314b50a98e486f662138fd61b049dcb90248b6bb2d162c7b944c
-  - **[28]**:
+  - **[23]**:
     - **caminho**: ![caminho](imagens/setor_nectar_p0_i0.webp)
     - **checksum_sha256**: 2b3caa8b248dc3f33ae226aa25d1456c0eb589c5b694e66cf201cd7c4f7927fa
-  - **[29]**:
+  - **[24]**:
     - **caminho**: ![caminho](imagens/setor_pracinha_p0.webp)
     - **checksum_sha256**: ec34526d21a825cbefa2049a1fe82cc4a1d77a4dd1072d39804852cf5c38daf3
-  - **[30]**:
+  - **[25]**:
     - **caminho**: ![caminho](imagens/setor_pracinha_p1.webp)
     - **checksum_sha256**: 42e142af39766186c13a61691e384bddc064bcad6e4a07ce0e802cb429fe73ba
-  - **[31]**:
+  - **[26]**:
     - **caminho**: ![caminho](imagens/setor_pracinha_p2.webp)
     - **checksum_sha256**: 9afa2f619eda4053a096d19b64aa9262e8b85f9f9b05815ad2379e66ccc227e1
-  - **[32]**:
+  - **[27]**:
     - **caminho**: ![caminho](imagens/setor_pracinha_p3.webp)
     - **checksum_sha256**: d60317f3226a9af417557bf7f1d73d46aa152cfbded8a2d8e2a876834398ed64
-  - **[33]**:
+  - **[28]**:
     - **caminho**: ![caminho](imagens/setor_tarja_preta_p0.webp)
     - **checksum_sha256**: 42f0988f5b3b2455e050c55af801a4422327538c6acf4a39706557d91edea940
-  - **[34]**:
+  - **[29]**:
     - **caminho**: ![caminho](imagens/setor_tetos_p0.webp)
     - **checksum_sha256**: 88013468ab3f1c12bc710281758d6e1e205443645aba8dff2828a8b52ee7f2e6
-  - **[35]**:
+  - **[30]**:
     - **caminho**: ![caminho](imagens/setor_tetos_p1.webp)
     - **checksum_sha256**: 4d12e846ce75ebfd1587a51a5661715826e1c800dcfdc1cf99124fa710576d2d
-  - **[36]**:
+  - **[31]**:
     - **caminho**: ![caminho](imagens/setor_totem_p0.webp)
     - **checksum_sha256**: eb605d166d35d36c3b23981ec6144eba7f3375955bed6b1954eff3d1ea441044
-  - **[37]**:
+  - **[32]**:
     - **caminho**: ![caminho](imagens/setor_totem_p1.webp)
     - **checksum_sha256**: 028f8cb259043ddcfd39cf2fb64041b88c41cd3538b6604d384ab2f08514edbf
-  - **[38]**:
+  - **[33]**:
     - **caminho**: ![caminho](imagens/setor_trad_p0.webp)
     - **checksum_sha256**: fa73e3e2fa27a74255e21b0c499f6e72bc47a99626b5bd780473d967c257eaad
+  - **[34]**:
+    - **caminho**: ![caminho](imagens/setor_viva_o_climb_p0.webp)
+    - **checksum_sha256**: 94d2480252708d7f25f9234befb17df302bcc0876bbe53025fc3d5ab5321b7c1
+  - **[35]**:
+    - **caminho**: ![caminho](imagens/setor_viva_o_climb_p1.webp)
+    - **checksum_sha256**: be43e895f74116ff63a5ec7ac25290dbce75ad67bf1df0a3ab079d7e4c17ac68
+  - **[36]**:
+    - **caminho**: ![caminho](imagens/setor_viva_o_climb_p2.webp)
+    - **checksum_sha256**: e3544af684cab5da717ea03b4f77d05f0652be42e0cab50c3f41d62ba5120d57
+  - **[37]**:
+    - **caminho**: ![caminho](imagens/setor_viva_o_climb_p3.webp)
+    - **checksum_sha256**: 7ca2f6791409aa498f402729b4d426bf972d8db7689f9052a490fe4ee31b7773
+  - **[38]**:
+    - **caminho**: ![caminho](imagens/setor_viva_o_climb_p4.webp)
+    - **checksum_sha256**: c8e95292e609405375d46753e1010ff78f1ba889355e5f80b6b29321cf8cee5c
 
 

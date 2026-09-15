@@ -10,6 +10,7 @@ from PySide6.QtCore import Qt, Signal
 from aresta_api.proto.generated import croqui_pb2
 from editor.views.dialogos.dialogo_busca_referencia import DialogoBuscaReferencia
 from editor.views.estilo import Icones
+from editor.core.rotulos_referencia import extrair_rotulo_referencia
 
 class CardReferencia(QFrame):
     """Card visual que representa uma Referência individual."""
@@ -17,10 +18,11 @@ class CardReferencia(QFrame):
     hover_in = Signal(object)
     hover_out = Signal()
     
-    def __init__(self, referencia: croqui_pb2.Mapa.Referencia, index: int, parent: Optional[QWidget] = None) -> None:
+    def __init__(self, referencia: croqui_pb2.Mapa.Referencia, index: int, parent: Optional[QWidget] = None, mapa: Optional[Any] = None) -> None:
         super().__init__(parent)
         self.referencia: croqui_pb2.Mapa.Referencia = referencia
         self.index: int = index
+        self.mapa: Optional[Any] = mapa
         self.setFrameShape(QFrame.Shape.StyledPanel)
         self.setStyleSheet("""
             CardReferencia {
@@ -32,6 +34,14 @@ class CardReferencia(QFrame):
             CardReferencia:hover {
                 border: 1px solid #adb5bd;
                 background-color: #f8f9fa;
+            }
+            QToolTip {
+                color: #212529;
+                background-color: #ffffff;
+                border: 1px solid #ced4da;
+                border-radius: 4px;
+                padding: 4px 6px;
+                font-size: 11px;
             }
         """)
         
@@ -77,9 +87,75 @@ class CardReferencia(QFrame):
             lbl_grupo.setStyleSheet("font-weight: bold; font-size: 13px;")
             v_titles.addWidget(lbl_grupo)
         
-        lbl_ids = QLabel(f"IDs linkados: {len(referencia.ids)}")
-        lbl_ids.setStyleSheet("color: #6c757d; font-size: 11px;")
-        v_titles.addWidget(lbl_ids)
+        h_ids = QHBoxLayout()
+        h_ids.setContentsMargins(0, 0, 0, 0)
+        h_ids.setSpacing(6)
+
+        self.lbl_ids = QLabel(f"IDs linkados: {len(referencia.ids)}")
+        self.lbl_ids.setStyleSheet("color: #6c757d; font-size: 11px;")
+        h_ids.addWidget(self.lbl_ids)
+
+        self.btn_inverter = QPushButton("Inverter Ordem")
+        self.btn_inverter.setIcon(Icones.obter("inverter"))
+        self.btn_inverter.setToolTip("Inverter ordem dos nós/linhas linkados")
+        self.btn_inverter.setCursor(Qt.CursorShape.PointingHandCursor)
+        self.btn_inverter.setStyleSheet("""
+            QPushButton {
+                background-color: #f1f3f5;
+                color: #495057;
+                border: 1px solid #ced4da;
+                border-radius: 3px;
+                padding: 1px 5px;
+                font-size: 10px;
+            }
+            QPushButton:hover {
+                background-color: #e9ecef;
+                border-color: #adb5bd;
+            }
+            QPushButton:disabled {
+                color: #adb5bd;
+                background-color: #f8f9fa;
+                border-color: #e9ecef;
+            }
+        """)
+        self.btn_inverter.setEnabled(len(referencia.ids) > 1)
+        h_ids.addWidget(self.btn_inverter)
+        h_ids.addStretch()
+
+        v_titles.addLayout(h_ids)
+
+        # Preview do codenome da referência
+        codenome = extrair_rotulo_referencia(mapa, referencia) if mapa else ""
+        self.lbl_preview = QLabel()
+        if codenome:
+            self.lbl_preview.setText(f"Codenome: <b>[ {codenome} ]</b>")
+            self.lbl_preview.setStyleSheet("""
+                QLabel {
+                    color: #155724;
+                    background-color: #d4edda;
+                    border: 1px solid #c3e6cb;
+                    border-radius: 4px;
+                    padding: 2px 6px;
+                    font-size: 11px;
+                }
+            """)
+            self.lbl_preview.setToolTip(f"Codenome exibido no aplicativo: {codenome}")
+        else:
+            self.lbl_preview.setText("⚠️ Sem rótulo")
+            self.lbl_preview.setStyleSheet("""
+                QLabel {
+                    color: #856404;
+                    background-color: #fff3cd;
+                    border: 1px solid #ffeeba;
+                    border-radius: 4px;
+                    padding: 2px 6px;
+                    font-size: 11px;
+                }
+            """)
+            self.lbl_preview.setToolTip(
+                "Esta referência não possui label ou nós de círculo identificador e não exibirá identificador no aplicativo."
+            )
+        v_titles.addWidget(self.lbl_preview)
         
         header_layout.addLayout(v_titles)
         header_layout.addStretch()
@@ -233,7 +309,7 @@ class PainelReferencias(QWidget):
             return
             
         for i, ref in enumerate(self.msg_mapa_proxy.referencias):
-            card = CardReferencia(ref, i)
+            card = CardReferencia(ref, i, parent=self.container_cards, mapa=self.msg_mapa_proxy)
             
             # Conecta hover
             card.hover_in.connect(self.destacar_pois.emit)
@@ -242,6 +318,7 @@ class PainelReferencias(QWidget):
             # Conecta botões
             card.btn_remover.clicked.connect(lambda checked=False, idx=i: self._confirmar_remover(idx))
             card.btn_editar_alvo.clicked.connect(lambda checked=False, idx=i, r=ref: self._ao_clicar_editar_alvo(idx, r))
+            card.btn_inverter.clicked.connect(lambda checked=False, idx=i, r=ref: self._ao_clicar_inverter_ids(idx, r))
             if hasattr(card, 'btn_remover_camera'):
                 card.btn_remover_camera.clicked.connect(lambda checked=False, idx=i: self.remover_ajuste_camera.emit(idx))
             
@@ -340,6 +417,21 @@ class PainelReferencias(QWidget):
                 self.mapas_controller.alterar_referencia(
                     self.msg_mapa_proxy, index, ref_antiga, ref_editada
                 )
+
+    def _ao_clicar_inverter_ids(self, index: int, ref_antiga: Any) -> None:
+        """Inverte a ordem dos IDs linkados na referência e registra a alteração no histórico."""
+        if not self.mapas_controller or not self.msg_mapa_proxy:
+            return
+        from editor.models.readonly_proxy import _copia_segura
+
+        ref_nova = _copia_segura(ref_antiga)
+        ids_invertidos = list(reversed(ref_antiga.ids))
+        del ref_nova.ids[:]
+        ref_nova.ids.extend(ids_invertidos)
+
+        self.mapas_controller.alterar_referencia(
+            self.msg_mapa_proxy, index, ref_antiga, ref_nova
+        )
 
     def _confirmar_remover(self, index: int) -> None:
         self._limpar_modos_ativos()

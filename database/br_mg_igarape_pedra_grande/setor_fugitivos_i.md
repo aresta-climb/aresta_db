@@ -1,7 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
-nome: Setor Fugitivos I
+nome: Bloco Fugitivos I
 escaladas:
 - boulder:
     nome: Polydance
@@ -261,34 +261,28 @@ mapas:
     - '5'
     - ▲
     - D
-    setor: Setor Fugitivos I
     escalada: Polydance
   - ids:
-    - X
-    - linha_10
     - '5'
-    setor: Setor Fugitivos I
+    - linha_10
+    - X
     escalada: Bigdance
   - ids:
     - '3'
     - ▲
     - linha_7
     - linha_14
-    setor: Setor Fugitivos I
     escalada: Boulder do Bola
   - ids:
     - '4'
     - linha_14
-    setor: Setor Fugitivos I
     escalada: Trolls
   - ids:
-    - D
     - '3'
-    setor: Setor Fugitivos I
+    - D
     escalada: Calcinha Larga
   - ids:
     - '2'
-    setor: Setor Fugitivos I
     escalada: Tanga Frouxa
   - ids:
     - linha_1
@@ -580,7 +574,6 @@ mapas:
   - ids:
     - linha_4
     escalada: Sem nome 18
-    setor: Setor Fugitivos I
   - ids:
     - linha_8
     - linha_19
@@ -606,11 +599,11 @@ mapas:
     - linha_21
     escalada: Polydance
   - ids:
-    - linha_18
-    - linha_50
-    - linha_9
-    - linha_16
     - linha_12
+    - linha_16
+    - linha_9
+    - linha_50
+    - linha_18
     escalada: Bigdance
 - caminho_imagem_mapa: imagens/setor_fugitivos_i_p2.webp
   largura_mapa: 1280
@@ -709,3 +702,4 @@ mapas:
     - linha_6
     escalada: Cactos kid
 ---
+Veja a trilha para chegar ao setor no Wikiloc: https://loc.wiki/t/169742661?wa=sc

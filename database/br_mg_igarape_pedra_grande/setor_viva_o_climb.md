@@ -1,7 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
-nome: Setor Fugitivos II
+nome: Bloco Viva o Climb
 escaladas:
 - boulder:
     nome: Viva o climb
@@ -31,8 +31,11 @@ escaladas:
 - boulder:
     nome: Pica fumo
     dificuldade: V5
+- boulder:
+    nome: Mad max
+    dificuldade: V8
 mapas:
-- caminho_imagem_mapa: imagens/setor_fugitivos_ii_p0.webp
+- caminho_imagem_mapa: imagens/setor_viva_o_climb_p0.webp
   largura_mapa: 1773
   altura_mapa: 2364
   pontos_de_interesse:
@@ -72,7 +75,7 @@ mapas:
   - ids:
     - linha_1
     escalada: Viva o climb
-- caminho_imagem_mapa: imagens/setor_fugitivos_ii_p1.webp
+- caminho_imagem_mapa: imagens/setor_viva_o_climb_p1.webp
   largura_mapa: 1773
   altura_mapa: 2364
   pontos_de_interesse:
@@ -233,13 +236,57 @@ mapas:
     - linha_7
     escalada: Malandro não para
   - ids:
-    - linha_5
     - linha_6
+    - linha_5
     escalada: Malandragem
-- caminho_imagem_mapa: imagens/setor_fugitivos_ii_p2.webp
+- caminho_imagem_mapa: imagens/setor_viva_o_climb_p2.webp
   largura_mapa: 1773
   altura_mapa: 2364
-- caminho_imagem_mapa: imagens/setor_fugitivos_ii_p3.webp
+  pontos_de_interesse:
+  - id: linha_10
+    label: ''
+    linha:
+      estilo: TRACEJADO
+      conteudo:
+        nos:
+        - x: 1325
+          y: 1490
+          tipo: CIRCULO_IDENTIFICADOR
+          rotulo: '6'
+          raio: 24
+        - x: 1304
+          y: 1262
+          tipo: PASSAGEM
+        - x: 1347
+          y: 1141
+          tipo: PASSAGEM
+        - x: 1323
+          y: 1046
+          tipo: PASSAGEM
+        - x: 1236
+          y: 983
+          tipo: PASSAGEM
+        - x: 1124
+          y: 911
+          tipo: PASSAGEM
+        - x: 1083
+          y: 753
+          tipo: PASSAGEM
+        - x: 1089
+          y: 513
+          tipo: PASSAGEM
+        - x: 1081
+          y: 198
+          tipo: PASSAGEM
+          rotulo: ''
+      espessura: 5
+    cor: '#FFD600'
+  referencias:
+  - ids:
+    - linha_10
+    escalada: Mad max
+    setor: Bloco Viva o Climb
+- caminho_imagem_mapa: imagens/setor_viva_o_climb_p3.webp
   largura_mapa: 960
   altura_mapa: 1280
   pontos_de_interesse:
@@ -286,7 +333,7 @@ mapas:
     - sai2
     - sai1
     escalada: Abraca
-- caminho_imagem_mapa: imagens/setor_fugitivos_ii_p4.webp
+- caminho_imagem_mapa: imagens/setor_viva_o_climb_p4.webp
   largura_mapa: 960
   altura_mapa: 1280
   pontos_de_interesse:
@@ -339,3 +386,4 @@ mapas:
     - linha_9
     escalada: Pica fumo
 ---
+Veja a trilha para chegar ao setor no Wikiloc: https://loc.wiki/t/169742661?wa=sc

@@ -235,3 +235,175 @@ def test_editar_referencia_altera_alvo_e_recusa_duplicada(qapp):
         
         assert ref_antiga_passada.grupo == "alvo1"
         assert ref_nova_passada.grupo == "alvo3"
+
+
+def test_card_referencia_exibe_preview_codenome_valido(qapp):
+    """[TDD] Verifica se o CardReferencia exibe badge com o codenome (ex: 5-C) quando há nós identificadores."""
+    from editor.views.widget_painel_referencias import PainelReferencias
+    from editor.models.readonly_proxy import ReadOnlyProxy
+
+    mapa = croqui_pb2.Mapa()
+    p1 = mapa.pontos_de_interesse.add()
+    p1.id = "linha_1"
+    m1 = p1.linha.compilado.marcadores.add()
+    m1.tipo = croqui_pb2.NoTrajeto.TipoNo.CIRCULO_IDENTIFICADOR
+    m1.rotulo = "5"
+
+    p2 = mapa.pontos_de_interesse.add()
+    p2.id = "linha_2"
+    m2 = p2.linha.compilado.marcadores.add()
+    m2.tipo = croqui_pb2.NoTrajeto.TipoNo.FIM_TOP
+    m2.rotulo = "C"
+
+    ref = mapa.referencias.add()
+    ref.escalada = "Via Teste"
+    ref.ids.extend(["linha_1", "linha_2"])
+
+    painel = PainelReferencias(None)
+    painel.carregar_mapa(ReadOnlyProxy(mapa))
+
+    card = painel.layout_cards.itemAt(0).widget()
+    assert hasattr(card, "lbl_preview")
+    assert "5-C" in card.lbl_preview.text()
+
+
+def test_card_referencia_exibe_aviso_sem_rotulo(qapp):
+    """[TDD] Verifica se o CardReferencia exibe indicativo de aviso quando a referência não possui identificador."""
+    from editor.views.widget_painel_referencias import PainelReferencias
+    from editor.models.readonly_proxy import ReadOnlyProxy
+
+    mapa = croqui_pb2.Mapa()
+    p = mapa.pontos_de_interesse.add()
+    p.id = "linha_sem_no"
+    n = p.linha.conteudo.nos.add()
+    n.tipo = croqui_pb2.NoTrajeto.TipoNo.PASSAGEM
+
+    ref = mapa.referencias.add()
+    ref.escalada = "Via Sem Rotulo"
+    ref.ids.append("linha_sem_no")
+
+    painel = PainelReferencias(None)
+    painel.carregar_mapa(ReadOnlyProxy(mapa))
+
+    card = painel.layout_cards.itemAt(0).widget()
+    assert hasattr(card, "lbl_preview")
+    assert "Sem rótulo" in card.lbl_preview.text()
+
+
+def test_card_referencia_botao_inverter_chama_alterar_referencia(qapp):
+    """[TDD] Verifica se o clique em Inverter Ordem chama alterar_referencia com os IDs invertidos."""
+    from editor.views.widget_painel_referencias import PainelReferencias
+    from editor.models.readonly_proxy import ReadOnlyProxy
+    from unittest.mock import MagicMock
+
+    mapa = croqui_pb2.Mapa()
+    ref = mapa.referencias.add()
+    ref.escalada = "Via Teste"
+    ref.ids.extend(["linha_21", "linha_18", "linha_9", "linha_16", "linha_12"])
+
+    controller = MagicMock()
+    painel = PainelReferencias(controller)
+    proxy = ReadOnlyProxy(mapa)
+    painel.carregar_mapa(proxy)
+
+    card = painel.layout_cards.itemAt(0).widget()
+    assert hasattr(card, "btn_inverter")
+
+    card.btn_inverter.click()
+
+    controller.alterar_referencia.assert_called_once()
+    args = controller.alterar_referencia.call_args[0]
+    msg_mapa, idx, ref_antiga, ref_nova = args
+    assert idx == 0
+    assert list(ref_nova.ids) == ["linha_12", "linha_16", "linha_9", "linha_18", "linha_21"]
+
+
+def test_inversao_ids_reversibilidade_undo_redo(qapp):
+    """[TDD] Verifica a reversibilidade total (Undo/Redo) da inversão de IDs com MapasController real."""
+    from PySide6.QtGui import QUndoStack
+    from editor.models.croqui_model import CroquiModel
+    from editor.controllers.mapas_controller import MapasController
+    from editor.views.widget_painel_referencias import PainelReferencias
+
+    croqui = croqui_pb2.Croqui()
+    pico = croqui.picos.add()
+    sg = pico.setores_ou_grupos.add()
+    mapa = sg.setor.conteudo.mapas.add()
+
+    p1 = mapa.pontos_de_interesse.add()
+    p1.id = "seg_a"
+    m1 = p1.linha.compilado.marcadores.add()
+    m1.tipo = croqui_pb2.NoTrajeto.TipoNo.CIRCULO_IDENTIFICADOR
+    m1.rotulo = "1"
+
+    p2 = mapa.pontos_de_interesse.add()
+    p2.id = "seg_b"
+    m2 = p2.linha.compilado.marcadores.add()
+    m2.tipo = croqui_pb2.NoTrajeto.TipoNo.FIM_TOP
+    m2.rotulo = "TOP"
+
+    ref = mapa.referencias.add()
+    ref.escalada = "Via Reversivel"
+    ref.ids.extend(["seg_a", "seg_b"])
+
+    model = CroquiModel(croqui)
+    undo_stack = QUndoStack()
+    controller = MapasController(model, undo_stack)
+    painel = PainelReferencias(controller)
+
+    proxy_mapa = model.obter_croqui_readonly().picos[0].setores_ou_grupos[0].setor.conteudo.mapas[0]
+    painel.carregar_mapa(proxy_mapa)
+
+    card = painel.layout_cards.itemAt(0).widget()
+    assert "1-TOP" in card.lbl_preview.text()
+
+    # 1. Clicar em inverter
+    card.btn_inverter.click()
+
+    # Atualiza painel com o proxy modificado
+    proxy_mapa = model.obter_croqui_readonly().picos[0].setores_ou_grupos[0].setor.conteudo.mapas[0]
+    painel.carregar_mapa(proxy_mapa)
+    card = painel.layout_cards.itemAt(0).widget()
+    assert list(proxy_mapa.referencias[0].ids) == ["seg_b", "seg_a"]
+    assert "TOP-1" in card.lbl_preview.text()
+
+    # 2. Desfazer (Undo)
+    undo_stack.undo()
+    proxy_mapa = model.obter_croqui_readonly().picos[0].setores_ou_grupos[0].setor.conteudo.mapas[0]
+    painel.carregar_mapa(proxy_mapa)
+    card = painel.layout_cards.itemAt(0).widget()
+    assert list(proxy_mapa.referencias[0].ids) == ["seg_a", "seg_b"]
+    assert "1-TOP" in card.lbl_preview.text()
+
+    # 3. Refazer (Redo)
+    undo_stack.redo()
+    proxy_mapa = model.obter_croqui_readonly().picos[0].setores_ou_grupos[0].setor.conteudo.mapas[0]
+    painel.carregar_mapa(proxy_mapa)
+    card = painel.layout_cards.itemAt(0).widget()
+    assert list(proxy_mapa.referencias[0].ids) == ["seg_b", "seg_a"]
+    assert "TOP-1" in card.lbl_preview.text()
+
+
+def test_ao_clicar_inverter_ids_sem_controller(qapp):
+    """Verifica que _ao_clicar_inverter_ids não lança exceção quando controller ou proxy são None."""
+    from editor.views.widget_painel_referencias import PainelReferencias
+
+    painel = PainelReferencias(None)
+    ref = croqui_pb2.Mapa.Referencia()
+    ref.ids.append("seg_1")
+    # Não deve lançar exceção
+    painel._ao_clicar_inverter_ids(0, ref)
+
+
+def test_card_referencia_possui_estilo_qtooltip(qapp):
+    """[TDD] Garante que CardReferencia possui regra de estilo para QToolTip com fundo claro e texto escuro."""
+    from editor.views.widget_painel_referencias import CardReferencia
+    ref = croqui_pb2.Mapa.Referencia()
+    card = CardReferencia(ref, 0)
+    estilo = card.styleSheet()
+    assert "QToolTip" in estilo
+    assert "background-color" in estilo
+    assert "color" in estilo
+
+
+

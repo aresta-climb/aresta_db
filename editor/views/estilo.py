@@ -37,7 +37,8 @@ class Icones:
         "ciencia": "fa5s.flask",
         "lixeira": "fa5s.trash-alt",
         "check": "fa5s.check",
-        "lapis": "fa5s.pencil-alt"
+        "lapis": "fa5s.pencil-alt",
+        "inverter": "fa5s.exchange-alt"
     }
 
     # Estilo CSS para a barra lateral
@@ -69,6 +70,19 @@ class Icones:
         }
     """
 
+    # Estilo CSS para QToolTip prevenindo o bug de tooltip preto no Windows
+    QSS_TOOLTIP: str = """
+        QToolTip {
+            color: #212529;
+            background-color: #ffffff;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+            padding: 4px 6px;
+            font-size: 11px;
+            font-family: "Segoe UI", "MS Shell Dlg 2", sans-serif;
+        }
+    """
+
     @classmethod
     def obter(cls, nome: str, cor: Optional[str] = None, cor_ativa: Optional[str] = None) -> QIcon:
         """
@@ -82,9 +96,10 @@ class Icones:
         identificador = cls.MAPA.get(nome)
         if not identificador:
             return QIcon()
-        
+            
         cor_final = cor or cls.COR_NORMAL
         cor_ativa_final = cor_ativa or cls.COR_DESTAQUE
+        
         res = qta.icon(
             identificador, 
             color=cor_final, 
@@ -128,27 +143,32 @@ class Icones:
 def configurar_tema_claro_aplicacao(app: Optional[Any] = None) -> None:
     """
     Configura a aplicação Qt para operar estritamente sob o esquema de cores claro (Light Mode).
-    Previne que o modo escuro do sistema operacional corrompa o contraste da interface gráfica.
+    Previne que o modo escuro do sistema operacional corrompa o contraste da interface gráfica
+    e garante que o QToolTip renderize com cores claras e legíveis.
     """
     from PySide6.QtWidgets import QApplication
     from PySide6.QtCore import Qt
-    from PySide6.QtGui import QPalette
+    from PySide6.QtGui import QPalette, QColor
 
     instancia = app or QApplication.instance()
     if not isinstance(instancia, QApplication):
         return
 
-    if hasattr(instancia, "styleHints") and hasattr(instancia.styleHints(), "setColorScheme"):
-        try:
-            instancia.styleHints().setColorScheme(Qt.ColorScheme.Light)
-        except Exception:
-            pass
-
     try:
-        instancia.setPalette(QPalette())
+        if hasattr(instancia, "styleHints") and hasattr(instancia.styleHints(), "setColorScheme"):
+            instancia.styleHints().setColorScheme(Qt.ColorScheme.Light)
     except Exception:
         pass
 
+    try:
+        pal = QPalette()
+        pal.setColor(QPalette.ColorRole.ToolTipBase, QColor("#ffffff"))
+        pal.setColor(QPalette.ColorRole.ToolTipText, QColor("#212529"))
+        instancia.setPalette(pal)
+    except Exception:
+        pass
 
-
-
+    folha_atual = instancia.styleSheet() or ""
+    if "QToolTip" not in folha_atual:
+        nova_folha = (folha_atual + "\n" + Icones.QSS_TOOLTIP).strip()
+        instancia.setStyleSheet(nova_folha)

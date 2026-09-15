@@ -602,7 +602,7 @@ arquivos:
 - caminho_relativo: br_mg_diamantina_diamaboulder/compilado.md
   checksum_sha256: aeb01ba15dc7247405045719759e8b4d3957a72c011061fa6beab7ccce877bfd
 - caminho_relativo: br_mg_igarape_pedra_grande/compilado.binarypb
-  checksum_sha256: aa179e68fe5dad8c24e665e189605c4ef2901d714a58d12f4f5c213f096374bc
+  checksum_sha256: 9e4ee11a88b5f1553ad4eb6ff51b0d60bf4d36cf99f6732e2ebd12d88d09cd89
 - caminho_relativo: thumbnails/br_mg_igarape_pedra_grande.webp
   checksum_sha256: d490580138c1b7f24c772f2d6672e895406739da51bd1880ecabb49cd28b7409
 - caminho_relativo: br_mg_igarape_pedra_grande/imagens/capa_p0.webp
@@ -637,16 +637,6 @@ arquivos:
   checksum_sha256: 66fbcb3356cdcbb3001fa95dbd17cdb0989d9e22a394cf2cf96890c3099ed794
 - caminho_relativo: br_mg_igarape_pedra_grande/imagens/setor_fugitivos_i_p3.webp
   checksum_sha256: 06bd0ef4287fd6e7fa0255e706e814ea441be9d74e11b0d0a5a17173de6d4474
-- caminho_relativo: br_mg_igarape_pedra_grande/imagens/setor_fugitivos_ii_p0.webp
-  checksum_sha256: 94d2480252708d7f25f9234befb17df302bcc0876bbe53025fc3d5ab5321b7c1
-- caminho_relativo: br_mg_igarape_pedra_grande/imagens/setor_fugitivos_ii_p1.webp
-  checksum_sha256: be43e895f74116ff63a5ec7ac25290dbce75ad67bf1df0a3ab079d7e4c17ac68
-- caminho_relativo: br_mg_igarape_pedra_grande/imagens/setor_fugitivos_ii_p2.webp
-  checksum_sha256: e3544af684cab5da717ea03b4f77d05f0652be42e0cab50c3f41d62ba5120d57
-- caminho_relativo: br_mg_igarape_pedra_grande/imagens/setor_fugitivos_ii_p3.webp
-  checksum_sha256: 7ca2f6791409aa498f402729b4d426bf972d8db7689f9052a490fe4ee31b7773
-- caminho_relativo: br_mg_igarape_pedra_grande/imagens/setor_fugitivos_ii_p4.webp
-  checksum_sha256: c8e95292e609405375d46753e1010ff78f1ba889355e5f80b6b29321cf8cee5c
 - caminho_relativo: br_mg_igarape_pedra_grande/imagens/setor_igarameca_p0.webp
   checksum_sha256: e79e4daa827532abd0ff0a16e096f1df0eea148c8589dc7686fa268ba1c84102
 - caminho_relativo: br_mg_igarape_pedra_grande/imagens/setor_igarameca_p1.webp
@@ -683,10 +673,20 @@ arquivos:
   checksum_sha256: 028f8cb259043ddcfd39cf2fb64041b88c41cd3538b6604d384ab2f08514edbf
 - caminho_relativo: br_mg_igarape_pedra_grande/imagens/setor_trad_p0.webp
   checksum_sha256: fa73e3e2fa27a74255e21b0c499f6e72bc47a99626b5bd780473d967c257eaad
+- caminho_relativo: br_mg_igarape_pedra_grande/imagens/setor_viva_o_climb_p0.webp
+  checksum_sha256: 94d2480252708d7f25f9234befb17df302bcc0876bbe53025fc3d5ab5321b7c1
+- caminho_relativo: br_mg_igarape_pedra_grande/imagens/setor_viva_o_climb_p1.webp
+  checksum_sha256: be43e895f74116ff63a5ec7ac25290dbce75ad67bf1df0a3ab079d7e4c17ac68
+- caminho_relativo: br_mg_igarape_pedra_grande/imagens/setor_viva_o_climb_p2.webp
+  checksum_sha256: e3544af684cab5da717ea03b4f77d05f0652be42e0cab50c3f41d62ba5120d57
+- caminho_relativo: br_mg_igarape_pedra_grande/imagens/setor_viva_o_climb_p3.webp
+  checksum_sha256: 7ca2f6791409aa498f402729b4d426bf972d8db7689f9052a490fe4ee31b7773
+- caminho_relativo: br_mg_igarape_pedra_grande/imagens/setor_viva_o_climb_p4.webp
+  checksum_sha256: c8e95292e609405375d46753e1010ff78f1ba889355e5f80b6b29321cf8cee5c
 - caminho_relativo: br_mg_igarape_pedra_grande/compilado.yaml
-  checksum_sha256: e18c016b474f60c78379dfa7cdf6218e1ad23b5e41e185ac45b4bfee46f57740
+  checksum_sha256: e825b2a21d63780e02d08a3439106f1cc22d5ef0f19e8c8b87dc1fdde0069e0c
 - caminho_relativo: br_mg_igarape_pedra_grande/compilado.md
-  checksum_sha256: 38b7896d9cb2c285f29c5bb19a9ea6a9077d47cbe9c5bdf15f9c96abc78c9b1b
+  checksum_sha256: 8e895bfb8a5a88fa0aa02a13f403d6cb7d69bd80b7dfd00ff4df90efd629cbee
 - caminho_relativo: br_mg_januaria_salao_encantado/compilado.binarypb
   checksum_sha256: 26350287062465a53eafe8505481ef55549c7c30c856d8f6f1dbc9621edadaa8
 - caminho_relativo: thumbnails/br_mg_januaria_salao_encantado.webp
@@ -1476,6 +1476,6 @@ arquivos:
 - caminho_relativo: br_mg_sete_lagoas_sinuosa/compilado.md
   checksum_sha256: 9c1cb814fecabc3cc85db508f894a4fac08c13924bc119c29cf9559521c9151f
 - caminho_relativo: indice.binarypb
-  checksum_sha256: 4a080fe1dc1e0461df4cf9aec68c3c027ccaec0ffe1be1cb6dd84b7ba2b828db
+  checksum_sha256: dfd8cbee60a623d1403dd6353efc8aac2ab2196bde551c3b8f88c49926a3058d
 - caminho_relativo: indice.yaml
-  checksum_sha256: 87e5736ec538ce381dc0029cd2919fdcb65f2742ef67f4ba0d2a3756c3355b07
+  checksum_sha256: cc663e248dad8ce0b76a918b5cae0e3882591d5ad61dc33db551fe8cd572de0a

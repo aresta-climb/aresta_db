@@ -229,3 +229,5 @@ Sombra até 11h e após 15h.
 Risco de agarras se quebrarem e pedras soltas, é recomendado o uso de capacete ao escalar e nas bases das vias.
 Escalar com a corda passada na primeira proteção nas vias esportivas.
 Siga a trilha a partir do estacionamento até onde o tronco atravessa o caminho. A rocha fica logo a direita.
+
+Veja a trilha para chegar ao setor no WikiLoc: https://loc.wiki/t/157666336?wa=sc

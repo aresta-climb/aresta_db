@@ -557,3 +557,5 @@ escaladas:
 # Setor Família I
 
 O setor fica do lado direito do início da trilha para a Pedra Grande. Sombra o dia todo (varia de acordo com a estação).
+
+Veja a trilha para chegar ao setor no Wikiloc: https://loc.wiki/t/169745893?wa=sc

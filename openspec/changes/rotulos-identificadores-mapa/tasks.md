@@ -6,20 +6,20 @@
 
 ## 2. Resolvedor Centralizado de Rótulos no Aplicativo Móvel (aresta_app)
 
-- [ ] 2.1 [TDD] Criar arquivo de teste `test/utils/resolvedor_rotulos_referencia_test.dart` em `aresta_app/frontend` com cenários para: caminhos vetoriais com múltiplos nós identificadores ("5-C", "SS-1-TOP"), POIs convencionais com `label`, deduplicação consecutiva e retorno de string vazia sem fallback para IDs de linhas.
-- [ ] 2.2 Implementar o utilitário `extrairRotuloReferencia(Mapa mapa, Mapa_Referencia ref)` em `lib/utils/resolvedor_rotulos_referencia.dart` e verificar aprovação com `flutter test test/utils/resolvedor_rotulos_referencia_test.dart`.
-- [ ] 2.3 Substituir a lógica duplicada de `getLabelsForRef` em `lib/pages/mapa_interativo.dart` e de `_resolveRouteMapData` em `lib/view_functions/setor_functions.dart` pelo novo utilitário.
-- [ ] 2.4 [TDD] Atualizar ou adicionar testes de widget em `test/view_functions/setor_functions_test.dart` e `test/pages/mapa_interativo_test.dart` verificando a exibição correta do badge ("5-C") e a omissão do badge quando não houver rótulos, validando com `flutter test`.
+- [x] 2.1 [TDD] Criar arquivo de teste `test/utils/resolvedor_rotulos_referencia_test.dart` em `aresta_app/frontend` com cenários para: caminhos vetoriais com múltiplos nós identificadores ("5-C", "SS-1-TOP"), POIs convencionais com `label`, deduplicação consecutiva e retorno de string vazia sem fallback para IDs de linhas.
+- [x] 2.2 Implementar o utilitário `extrairRotuloReferencia(Mapa mapa, Mapa_Referencia ref)` em `lib/utils/resolvedor_rotulos_referencia.dart` e verificar aprovação com `flutter test test/utils/resolvedor_rotulos_referencia_test.dart`.
+- [x] 2.3 Substituir a lógica duplicada de `getLabelsForRef` em `lib/pages/mapa_interativo.dart` e de `_resolveRouteMapData` em `lib/view_functions/setor_functions.dart` pelo novo utilitário.
+- [x] 2.4 [TDD] Atualizar ou adicionar testes de widget em `test/view_functions/setor_functions_test.dart` e `test/pages/mapa_interativo_test.dart` verificando a exibição correta do badge ("5-C") e a omissão do badge quando não houver rótulos, validando com `flutter test`.
 
 ## 3. Preview de Codenome e Inversão de Ordem no Editor de Mapas (aresta_db)
 
-- [ ] 3.1 [TDD] Escrever testes unitários em `editor/views/widget_painel_referencias_test.py` para a extração do preview de codenome e para a ação de inversão de IDs.
-- [ ] 3.2 Implementar o cálculo do codenome no editor e adicionar a pílula de preview (`[ 5-C ]` ou `[ ⚠️ Sem rótulo ]`) no `CardReferencia` em `editor/views/widget_painel_referencias.py`.
-- [ ] 3.3 Adicionar o botão `[ 🔄 Inverter ]` no `CardReferencia` que empilha comando de alteração de referência na pilha de histórico `QUndoCommand` invertendo `ref.ids`.
-- [ ] 3.4 Verificar a reversibilidade total (Undo/Redo) da inversão de IDs no `CardReferencia` executando `pytest editor/views/widget_painel_referencias_test.py`.
+- [x] 3.1 [TDD] Escrever testes unitários em `editor/views/widget_painel_referencias_test.py` para a extração do preview de codenome e para a ação de inversão de IDs.
+- [x] 3.2 Implementar o cálculo do codenome no editor e adicionar a pílula de preview (`[ 5-C ]` ou `[ ⚠️ Sem rótulo ]`) no `CardReferencia` em `editor/views/widget_painel_referencias.py`.
+- [x] 3.3 Adicionar o botão `[ 🔄 Inverter ]` no `CardReferencia` que empilha comando de alteração de referência na pilha de histórico `QUndoCommand` invertendo `ref.ids`.
+- [x] 3.4 Verificar a reversibilidade total (Undo/Redo) da inversão de IDs no `CardReferencia` executando `pytest editor/views/widget_painel_referencias_test.py`.
 
 ## 4. Verificação Ponta a Ponta e Integração
 
-- [ ] 4.1 Executar a suíte completa de testes do `aresta_app` com `flutter test` garantindo integridade e regressão zero.
-- [ ] 4.2 Executar a suíte de testes do `aresta_db` com `pytest` assegurando 100% de cobertura.
-- [ ] 4.3 Executar `python scripts/deploy_generated.py -t database/br_mg_igarape_pedra_grande` verificando que o aviso é emitido apropriadamente para o mapa de teste e os binários compilados são gerados com sucesso.
+- [x] 4.1 Executar a suíte completa de testes do `aresta_app` com `flutter test` garantindo integridade e regressão zero.
+- [x] 4.2 Executar a suíte de testes do `aresta_db` com `pytest` assegurando 100% de cobertura.
+- [x] 4.3 Executar `python scripts/deploy_generated.py -t database/br_mg_igarape_pedra_grande` verificando que o aviso é emitido apropriadamente para o mapa de teste e os binários compilados são gerados com sucesso.

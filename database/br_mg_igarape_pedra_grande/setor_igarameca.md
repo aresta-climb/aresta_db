@@ -670,3 +670,5 @@ escaladas:
 # Setor Igarameca
 
 Sombra após 12h (varia de acordo com a estação).
+
+Veja a trilha para chegar ao setor no WikiLoc: https://loc.wiki/t/160199352?wa=sc

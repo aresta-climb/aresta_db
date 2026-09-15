@@ -334,3 +334,5 @@ escaladas:
 # Setor Família II
 
 Sombra após 14h (varia de acordo com a estação).
+
+Veja a trilha para chegar ao Família II no WikiLoc (começando a partir do Família I): https://loc.wiki/t/157623201?wa=sc
