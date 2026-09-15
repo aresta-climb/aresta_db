@@ -96,8 +96,42 @@ class MapasControllerTest(unittest.TestCase):
         self.assertEqual(self.mapa.referencias[0].setor, "Setor Antigo")
         self.assertEqual(list(self.mapa.referencias[0].ids), ["poi1"])
 
+    def test_mover_poi_renomear_id_cascata_referencias_com_undo_redo(self):
+        """[TDD] Garante que alterar o ID de um POI atualiza em cascata os IDs nas referências com Undo/Redo."""
+        from editor.models.readonly_proxy import _copia_segura
+
+        poi = self.mapa.pontos_de_interesse.add()
+        poi.id = "poi_antigo"
+        poi.label = "1"
+        poi.circulo.x = 50
+        poi.circulo.y = 50
+        poi.circulo.raio = 10
+
+        ref = self.mapa.referencias.add()
+        ref.escalada = "Via Teste"
+        ref.ids.extend(["poi_antigo", "outro_poi"])
+
+        poi_antigo = _copia_segura(self.msg_mapa_proxy.pontos_de_interesse[0])
+        poi_novo = _copia_segura(self.msg_mapa_proxy.pontos_de_interesse[0])
+        poi_novo.id = "poi_novo"
+
+        self.controller.mover_poi(self.msg_mapa_proxy, 0, poi_antigo, poi_novo)
+
+        self.assertEqual(self.mapa.pontos_de_interesse[0].id, "poi_novo")
+        self.assertEqual(list(self.mapa.referencias[0].ids), ["poi_novo", "outro_poi"])
+
+        # Undo deve reverter ambos atomicamente
+        self.undo_stack.undo()
+        self.assertEqual(self.mapa.pontos_de_interesse[0].id, "poi_antigo")
+        self.assertEqual(list(self.mapa.referencias[0].ids), ["poi_antigo", "outro_poi"])
+
+        # Redo deve reaplicar ambos
+        self.undo_stack.redo()
+        self.assertEqual(self.mapa.pontos_de_interesse[0].id, "poi_novo")
+        self.assertEqual(list(self.mapa.referencias[0].ids), ["poi_novo", "outro_poi"])
 
     def test_obter_caminho_imagem_mapa(self):
+
         self.mapa.caminho_imagem_mapa = "mapa.png"
         # We need a way for the controller to know the base path, maybe it queries it from somewhere?
         # Typically the app knows the base db path. We'll pass it to the controller.

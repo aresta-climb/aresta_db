@@ -151,17 +151,39 @@ class MapasController:
         self._executar_comando(cmd)
 
     def mover_poi(self, msg_mapa_proxy: Any, index: int, poi_antigo: Any, poi_novo: Any) -> None:
-        """Altera um POI (posição, nome, etc)."""
-        cmd = CmdAlterarRepeatedItem(
-            model=self.model,
-            msg=msg_mapa_proxy,
-            campo_nome="pontos_de_interesse",
-            index=index,
-            valor_antigo=poi_antigo,
-            valor_novo=poi_novo,
-            context_path=self.contexto_atual_path
-        )
-        self._executar_comando(cmd)
+        """Altera um POI (posição, nome, etc) e propaga alterações de ID para referências em cascata."""
+        from editor.models.readonly_proxy import _copia_segura
+
+        id_antigo = str(getattr(poi_antigo, "id", "") or "")
+        id_novo = str(getattr(poi_novo, "id", "") or "")
+        precisa_cascata = bool(id_antigo and id_novo and id_antigo != id_novo)
+
+        if precisa_cascata:
+            self.iniciar_grupo_undo(f"Renomear POI {id_antigo} para {id_novo}")
+        try:
+            cmd = CmdAlterarRepeatedItem(
+                model=self.model,
+                msg=msg_mapa_proxy,
+                campo_nome="pontos_de_interesse",
+                index=index,
+                valor_antigo=poi_antigo,
+                valor_novo=poi_novo,
+                context_path=self.contexto_atual_path
+            )
+            self._executar_comando(cmd)
+
+            if precisa_cascata:
+                for i_ref, ref in list(enumerate(msg_mapa_proxy.referencias)):
+                    if id_antigo in ref.ids:
+                        ref_antiga = _copia_segura(ref)
+                        ref_nova = _copia_segura(ref)
+                        novos_ids = [id_novo if _id == id_antigo else _id for _id in ref.ids]
+                        del ref_nova.ids[:]
+                        ref_nova.ids.extend(novos_ids)
+                        self.alterar_referencia(msg_mapa_proxy, i_ref, ref_antiga, ref_nova)
+        finally:
+            if precisa_cascata:
+                self.finalizar_grupo_undo()
 
     def alterar_cor_poi(self, msg_mapa_proxy: Any, index: int, nova_cor: str) -> None:
         """Altera a cor de um POI ou elemento visual com suporte a Undo/Redo."""

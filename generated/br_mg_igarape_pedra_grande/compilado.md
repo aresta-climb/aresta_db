@@ -5319,6 +5319,7 @@
     - **boulder**:
       - **descricao**: Mesma saída do Malandro não para, mas toca reto
       - **nome**: Malandragem
+      - **dificuldade**: V8_BARRA_V9
   - **[6]**:
     - **boulder**:
       - **descricao**: Sai com as mãos bem abertas na esquerda e direita

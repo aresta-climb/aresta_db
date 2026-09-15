@@ -4119,6 +4119,139 @@ def test_aviso_espaco_arrastar_em_label_modo_e_label_info(qtbot):
     assert "Botão Meio" in widget.label_modo.text()
 
 
+def test_alteracao_rotulo_no_atualiza_painel_referencias_em_tempo_real(qtbot):
+    """[TDD] Verifica se renomear o rótulo de um nó de círculo identificador atualiza o painel de referências em tempo real."""
+    from editor.views.widget_editor_mapas import WidgetEditorMapas
+    from editor.models.croqui_model import CroquiModel
+    from editor.controllers.mapas_controller import MapasController
+    from aresta_api.proto.generated import croqui_pb2
+    from PySide6.QtGui import QUndoStack
+
+    croqui = croqui_pb2.Croqui()
+    pico = croqui.picos.add()
+    sg = pico.setores_ou_grupos.add()
+    mapa = sg.setor.conteudo.mapas.add()
+    mapa.caminho_imagem_mapa = "mapa.png"
+
+    poi = mapa.pontos_de_interesse.add()
+    poi.id = "linha_1"
+    poi.linha.conteudo.nos.add(x=10, y=10, tipo=croqui_pb2.NoTrajeto.TipoNo.CIRCULO_IDENTIFICADOR, rotulo="1")
+    poi.linha.conteudo.nos.add(x=50, y=50, tipo=croqui_pb2.NoTrajeto.TipoNo.PASSAGEM)
+
+    ref = mapa.referencias.add()
+    ref.escalada = "Via das Andorinhas"
+    ref.ids.append("linha_1")
+
+    model = CroquiModel(croqui)
+    stack = QUndoStack()
+    controller = MapasController(model, stack)
+
+    widget = WidgetEditorMapas(mapas_controller=controller)
+    qtbot.addWidget(widget)
+
+    proxy_mapa = model.obter_croqui_readonly().picos[0].setores_ou_grupos[0].setor.conteudo.mapas[0]
+    widget.set_mapa_atual(proxy_mapa)
+
+    card = widget.painel_referencias.layout_cards.itemAt(0).widget()
+    assert "Codenome: <b>[ 1 ]</b>" in card.lbl_preview.text()
+
+    item_linha = widget.itens_poi.get(0)
+    assert item_linha is not None
+
+    # Renomeia o rótulo do nó 0 de "1" para "2"
+    item_linha.definir_rotulo_no(0, "2")
+
+    # Verifica se o card no painel de referências foi atualizado instantaneamente sem trocar de aba
+    assert "Codenome: <b>[ 2 ]</b>" in card.lbl_preview.text()
+
+
+def test_renomear_poi_no_mapa_atualiza_referencias_em_tempo_real(qtbot, mocker):
+    """[TDD] Verifica se renomear o ID e label de um POI pelo menu de contexto do mapa atualiza as referências e o painel em tempo real."""
+    from editor.views.widget_editor_mapas import WidgetEditorMapas, DialogoEdicaoPOI
+    from editor.models.croqui_model import CroquiModel
+    from editor.controllers.mapas_controller import MapasController
+    from aresta_api.proto.generated import croqui_pb2
+    from PySide6.QtGui import QUndoStack
+    from PySide6.QtWidgets import QDialog
+    from unittest.mock import MagicMock
+
+    croqui = croqui_pb2.Croqui()
+    pico = croqui.picos.add()
+    sg = pico.setores_ou_grupos.add()
+    mapa = sg.setor.conteudo.mapas.add()
+    mapa.caminho_imagem_mapa = "mapa.png"
+
+    poi = mapa.pontos_de_interesse.add()
+    poi.id = "poi_setor_1"
+    poi.label = "Setor Bloco"
+    poi.circulo.x = 20
+    poi.circulo.y = 20
+    poi.circulo.raio = 15
+
+    ref = mapa.referencias.add()
+    ref.setor = "Bloco Principal"
+    ref.ids.append("poi_setor_1")
+
+    model = CroquiModel(croqui)
+    stack = QUndoStack()
+    controller = MapasController(model, stack)
+
+    widget = WidgetEditorMapas(mapas_controller=controller)
+    qtbot.addWidget(widget)
+
+    proxy_mapa = model.obter_croqui_readonly().picos[0].setores_ou_grupos[0].setor.conteudo.mapas[0]
+    widget.set_mapa_atual(proxy_mapa)
+
+    card = widget.painel_referencias.layout_cards.itemAt(0).widget()
+    assert "Codenome: <b>[ Setor Bloco ]</b>" in card.lbl_preview.text()
+
+    item_poi = widget.itens_poi.get(0)
+    assert item_poi is not None
+
+    # Simula o diálogo aceitando novos valores (novo ID e novo label)
+    mocker.patch('editor.views.widget_editor_mapas.DialogoEdicaoPOI.exec', return_value=QDialog.DialogCode.Accepted)
+    mocker.patch('editor.views.widget_editor_mapas.DialogoEdicaoPOI.obter_valores', return_value=("poi_setor_renomeado", "Setor Novo Bloco", "#FF1744", ""))
+
+    mock_menu_class = mocker.patch('editor.views.widget_editor_mapas.QMenu')
+    mock_menu_inst = mock_menu_class.return_value
+    mock_acao_renomear = MagicMock()
+
+    def fake_add_action(text):
+        if text == "Renomear Ponto de Interesse":
+            return mock_acao_renomear
+        return MagicMock()
+
+    mock_menu_inst.addAction.side_effect = fake_add_action
+    mock_menu_inst.exec.return_value = mock_acao_renomear
+
+    ev = MagicMock()
+    ev.screenPos.return_value = None
+
+    item_poi.contextMenuEvent(ev)
+
+    # Verifica se o ID no mapa foi alterado
+    croqui_atual = model.obter_croqui_readonly()
+    mapa_atual = croqui_atual.picos[0].setores_ou_grupos[0].setor.conteudo.mapas[0]
+    assert mapa_atual.pontos_de_interesse[0].id == "poi_setor_renomeado"
+    assert mapa_atual.pontos_de_interesse[0].label == "Setor Novo Bloco"
+    # Verifica se a referência no mapa foi atualizada em cascata
+    assert list(mapa_atual.referencias[0].ids) == ["poi_setor_renomeado"]
+
+    # Verifica se o card no painel de referências foi atualizado com o novo codenome
+    card_atualizado = widget.painel_referencias.layout_cards.itemAt(0).widget()
+    assert "Codenome: <b>[ Setor Novo Bloco ]</b>" in card_atualizado.lbl_preview.text()
+
+    # Testa Undo
+    stack.undo()
+    mapa_undo = model.obter_croqui_readonly().picos[0].setores_ou_grupos[0].setor.conteudo.mapas[0]
+    assert mapa_undo.pontos_de_interesse[0].id == "poi_setor_1"
+    assert list(mapa_undo.referencias[0].ids) == ["poi_setor_1"]
+    card_undo = widget.painel_referencias.layout_cards.itemAt(0).widget()
+    assert "Codenome: <b>[ Setor Bloco ]</b>" in card_undo.lbl_preview.text()
+
+
+
+
 
 
 

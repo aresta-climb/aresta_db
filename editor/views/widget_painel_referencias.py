@@ -91,7 +91,7 @@ class CardReferencia(QFrame):
         h_ids.setContentsMargins(0, 0, 0, 0)
         h_ids.setSpacing(6)
 
-        self.lbl_ids = QLabel(f"IDs linkados: {len(referencia.ids)}")
+        self.lbl_ids = QLabel()
         self.lbl_ids.setStyleSheet("color: #6c757d; font-size: 11px;")
         h_ids.addWidget(self.lbl_ids)
 
@@ -118,44 +118,16 @@ class CardReferencia(QFrame):
                 border-color: #e9ecef;
             }
         """)
-        self.btn_inverter.setEnabled(len(referencia.ids) > 1)
         h_ids.addWidget(self.btn_inverter)
         h_ids.addStretch()
 
         v_titles.addLayout(h_ids)
 
         # Preview do codenome da referência
-        codenome = extrair_rotulo_referencia(mapa, referencia) if mapa else ""
         self.lbl_preview = QLabel()
-        if codenome:
-            self.lbl_preview.setText(f"Codenome: <b>[ {codenome} ]</b>")
-            self.lbl_preview.setStyleSheet("""
-                QLabel {
-                    color: #155724;
-                    background-color: #d4edda;
-                    border: 1px solid #c3e6cb;
-                    border-radius: 4px;
-                    padding: 2px 6px;
-                    font-size: 11px;
-                }
-            """)
-            self.lbl_preview.setToolTip(f"Codenome exibido no aplicativo: {codenome}")
-        else:
-            self.lbl_preview.setText("⚠️ Sem rótulo")
-            self.lbl_preview.setStyleSheet("""
-                QLabel {
-                    color: #856404;
-                    background-color: #fff3cd;
-                    border: 1px solid #ffeeba;
-                    border-radius: 4px;
-                    padding: 2px 6px;
-                    font-size: 11px;
-                }
-            """)
-            self.lbl_preview.setToolTip(
-                "Esta referência não possui label ou nós de círculo identificador e não exibirá identificador no aplicativo."
-            )
         v_titles.addWidget(self.lbl_preview)
+
+        self.atualizar_preview(self.mapa)
         
         header_layout.addLayout(v_titles)
         header_layout.addStretch()
@@ -210,7 +182,48 @@ class CardReferencia(QFrame):
         self.btn_salvar_camera.setVisible(False)
         layout.addWidget(self.btn_salvar_camera)
 
+    def atualizar_preview(self, mapa: Optional[Any] = None) -> None:
+        """Atualiza a exibição do codenome e a contagem de IDs linkados na referência."""
+        if mapa is not None:
+            self.mapa = mapa
+            if hasattr(self.mapa, 'referencias') and 0 <= self.index < len(self.mapa.referencias):
+                self.referencia = self.mapa.referencias[self.index]
+
+        self.lbl_ids.setText(f"IDs linkados: {len(self.referencia.ids)}")
+        self.btn_inverter.setEnabled(len(self.referencia.ids) > 1)
+
+        codenome = extrair_rotulo_referencia(self.mapa, self.referencia) if self.mapa else ""
+        if codenome:
+            self.lbl_preview.setText(f"Codenome: <b>[ {codenome} ]</b>")
+            self.lbl_preview.setStyleSheet("""
+                QLabel {
+                    color: #155724;
+                    background-color: #d4edda;
+                    border: 1px solid #c3e6cb;
+                    border-radius: 4px;
+                    padding: 2px 6px;
+                    font-size: 11px;
+                }
+            """)
+            self.lbl_preview.setToolTip(f"Codenome exibido no aplicativo: {codenome}")
+        else:
+            self.lbl_preview.setText("⚠️ Sem rótulo")
+            self.lbl_preview.setStyleSheet("""
+                QLabel {
+                    color: #856404;
+                    background-color: #fff3cd;
+                    border: 1px solid #ffeeba;
+                    border-radius: 4px;
+                    padding: 2px 6px;
+                    font-size: 11px;
+                }
+            """)
+            self.lbl_preview.setToolTip(
+                "Esta referência não possui label ou nós de círculo identificador e não exibirá identificador no aplicativo."
+            )
+
     def enterEvent(self, event: Any) -> None:
+
         self.hover_in.emit(self.referencia)
         super().enterEvent(event)
         
@@ -279,6 +292,15 @@ class PainelReferencias(QWidget):
     def carregar_mapa(self, msg_mapa_proxy: Any) -> None:
         self.msg_mapa_proxy = msg_mapa_proxy
         self.atualizar_cards()
+
+    def atualizar_previews(self) -> None:
+        """Atualiza os badges de codenome e contagem de IDs de todos os cards de referência."""
+        for i in range(self.layout_cards.count()):
+            item = self.layout_cards.itemAt(i)
+            if item:
+                card = item.widget()
+                if card and isinstance(card, CardReferencia):
+                    card.atualizar_preview(self.msg_mapa_proxy)
 
     def atualizar_cards(self) -> None:
         modo_link_index = None

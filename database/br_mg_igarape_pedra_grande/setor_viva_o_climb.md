@@ -24,6 +24,7 @@ escaladas:
 - boulder:
     nome: Malandragem
     descricao: Mesma saída do Malandro não para, mas toca reto
+    dificuldade: V8_BARRA_V9
 - boulder:
     nome: Abraca
     dificuldade: V5

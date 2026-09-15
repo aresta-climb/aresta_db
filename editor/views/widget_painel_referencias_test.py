@@ -406,4 +406,38 @@ def test_card_referencia_possui_estilo_qtooltip(qapp):
     assert "color" in estilo
 
 
+def test_atualizar_previews_atualiza_cards(qapp):
+    """[TDD] Garante que atualizar_previews atualiza o texto do badge sem recriar os widgets."""
+    from editor.views.widget_painel_referencias import PainelReferencias
+
+    mapa = croqui_pb2.Mapa()
+    p1 = mapa.pontos_de_interesse.add()
+    p1.id = "p1"
+    p1.label = "1"
+    p1.circulo.x = 100
+    p1.circulo.y = 100
+    p1.circulo.raio = 10
+
+    ref = mapa.referencias.add()
+    ref.escalada = "Via Teste"
+    ref.ids.append("p1")
+
+    painel = PainelReferencias(None)
+    painel.carregar_mapa(mapa)
+
+    card = painel.layout_cards.itemAt(0).widget()
+    assert "Codenome: <b>[ 1 ]</b>" in card.lbl_preview.text()
+
+    # Altera label do POI
+    p1.label = "2"
+    painel.atualizar_previews()
+    assert "Codenome: <b>[ 2 ]</b>" in card.lbl_preview.text()
+
+    # Remove rótulo
+    p1.ClearField("label")
+    painel.atualizar_previews()
+    assert "⚠️ Sem rótulo" in card.lbl_preview.text()
+
+
+
 

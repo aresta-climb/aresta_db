@@ -3349,6 +3349,8 @@ class WidgetEditorMapas(QWidget):
                             if item_existente in self.dados_atuais['itens_bb']:
                                 self.dados_atuais['itens_bb'].remove(item_existente)
                         self._adicionar_item_cena(poi, index, cena)
+            if hasattr(self, 'painel_referencias') and self.painel_referencias:
+                self.painel_referencias.atualizar_previews()
 
     def _on_repeated_adicionado(self, msg: Any, campo_nome: str, index: int) -> None:
         if campo_nome == 'mapas':
@@ -3369,6 +3371,8 @@ class WidgetEditorMapas(QWidget):
                 self.itens_poi = nova_dict
                 
                 self._adicionar_item_cena(poi, index, cena)
+            if hasattr(self, 'painel_referencias') and self.painel_referencias:
+                self.painel_referencias.atualizar_previews()
 
     def _on_repeated_removido(self, msg: Any, campo_nome: str, index: int) -> None:
         if campo_nome == 'mapas':
@@ -3396,6 +3400,8 @@ class WidgetEditorMapas(QWidget):
                 else:
                     nova_dict[k] = v
             self.itens_poi = nova_dict
+            if hasattr(self, 'painel_referencias') and self.painel_referencias:
+                self.painel_referencias.atualizar_previews()
 
 
     def destacar_pois_temporariamente(self, referencia: Any) -> None:
