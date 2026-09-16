@@ -5325,7 +5325,10 @@
 
 ### Setor (Pico: Complexo Pedra Grande)
 
-- **descricao**: Veja a trilha para chegar ao setor no Wikiloc: https://loc.wiki/t/169742661?wa=sc
+- **descricao**:
+    Veja a trilha para chegar ao setor no Wikiloc: https://loc.wiki/t/169742661?wa=sc
+    
+    O bloco Viva o Climb fica entre os blocos Fugitivos I e Fugitivos II.
 - **nome**: Bloco Viva o Climb
 - **escaladas**:
   - **[0]**:
@@ -5699,7 +5702,7 @@
 
 ### Setor (Pico: Complexo Pedra Grande)
 
-- **descricao**: 
+- **descricao**: Veja a trilha para chegar ao setor no Wikiloc: https://loc.wiki/t/169742661?wa=sc
 - **nome**: Bloco Fugitivos II
 - **escaladas**:
   - **[0]**:

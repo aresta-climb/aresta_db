@@ -161,6 +161,9 @@ mapas:
   - ids:
     - fug12
     setor: Bloco Fugitivos II
+  - ids:
+    - fug12
+    setor: Bloco Viva o Climb
 - caminho_imagem_mapa: imagens/mapas_gerais_p1.webp
   largura_mapa: 2048
   altura_mapa: 1157

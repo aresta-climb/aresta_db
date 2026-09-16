@@ -614,3 +614,4 @@ mapas:
   largura_mapa: 1773
   altura_mapa: 2364
 ---
+Veja a trilha para chegar ao setor no Wikiloc: https://loc.wiki/t/169742661?wa=sc

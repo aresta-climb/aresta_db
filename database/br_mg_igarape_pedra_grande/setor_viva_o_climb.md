@@ -388,3 +388,5 @@ mapas:
     escalada: Pica fumo
 ---
 Veja a trilha para chegar ao setor no Wikiloc: https://loc.wiki/t/169742661?wa=sc
+
+O bloco Viva o Climb fica entre os blocos Fugitivos I e Fugitivos II.
