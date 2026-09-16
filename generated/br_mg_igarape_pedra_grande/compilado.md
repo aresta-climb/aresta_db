@@ -5810,7 +5810,7 @@
                 - **x**: 1301
                 - **y**: 40
                 - **angulo_graus_x100**: -8871
-                - **rotulo**: B
+                - **rotulo**: C
         - **cor**: #FFD600
       - **[3]**:
         - **id**: linha_1
@@ -5921,7 +5921,7 @@
                 - **x**: 2220
                 - **y**: 121
                 - **angulo_graus_x100**: -8658
-                - **rotulo**: C
+                - **rotulo**: D
         - **cor**: #FFD600
       - **[10]**:
         - **id**: linha_14
@@ -5975,7 +5975,7 @@
                 - **x**: 2357
                 - **y**: 176
                 - **angulo_graus_x100**: -10710
-                - **rotulo**: D
+                - **rotulo**: E
         - **cor**: #FFD600
       - **[13]**:
         - **id**: linha_11
@@ -6064,7 +6064,7 @@
                 - **x**: 872
                 - **y**: 24
                 - **angulo_graus_x100**: -8375
-                - **rotulo**: A
+                - **rotulo**: B
         - **cor**: #FFD600
       - **[18]**:
         - **id**: linha_3
@@ -6098,7 +6098,7 @@
                 - **x**: 621
                 - **y**: 28
                 - **angulo_graus_x100**: -8325
-                - **rotulo**: E
+                - **rotulo**: A
         - **cor**: #FFD600
       - **[20]**:
         - **id**: linha_18

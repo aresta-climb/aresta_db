@@ -4898,7 +4898,7 @@ picos:
                   x: 1301
                   y: 40
                   angulo_graus_x100: -8871
-                  rotulo: B
+                  rotulo: C
             cor: '#FFD600'
           - id: linha_1
             linha:
@@ -5014,7 +5014,7 @@ picos:
                   x: 2220
                   y: 121
                   angulo_graus_x100: -8658
-                  rotulo: C
+                  rotulo: D
             cor: '#FFD600'
           - id: linha_14
             linha:
@@ -5071,7 +5071,7 @@ picos:
                   x: 2357
                   y: 176
                   angulo_graus_x100: -10710
-                  rotulo: D
+                  rotulo: E
             cor: '#FFD600'
           - id: linha_11
             linha:
@@ -5158,7 +5158,7 @@ picos:
                   x: 872
                   y: 24
                   angulo_graus_x100: -8375
-                  rotulo: A
+                  rotulo: B
             cor: '#FFD600'
           - id: linha_3
             linha:
@@ -5193,7 +5193,7 @@ picos:
                   x: 621
                   y: 28
                   angulo_graus_x100: -8325
-                  rotulo: E
+                  rotulo: A
             cor: '#FFD600'
           - id: linha_18
             label: ''

@@ -114,7 +114,7 @@ mapas:
         - x: 1301
           y: 40
           tipo: FIM_TOP
-          rotulo: B
+          rotulo: C
       espessura: 3
     cor: '#FFD600'
   - id: linha_1
@@ -286,7 +286,7 @@ mapas:
         - x: 2220
           y: 121
           tipo: FIM_TOP
-          rotulo: C
+          rotulo: D
       espessura: 3
     cor: '#FFD600'
   - id: linha_14
@@ -371,7 +371,7 @@ mapas:
         - x: 2357
           y: 176
           tipo: FIM_TOP
-          rotulo: D
+          rotulo: E
       espessura: 3
     cor: '#FFD600'
   - id: linha_11
@@ -470,7 +470,7 @@ mapas:
         - x: 872
           y: 24
           tipo: FIM_TOP
-          rotulo: A
+          rotulo: B
       espessura: 3
     cor: '#FFD600'
   - id: linha_3
@@ -524,7 +524,7 @@ mapas:
         - x: 621
           y: 28
           tipo: FIM_TOP
-          rotulo: E
+          rotulo: A
       espessura: 3
     cor: '#FFD600'
   - id: linha_18
