@@ -349,6 +349,8 @@ class CroquiModel(QObject):
 
             with open(caminho_arquivo, "w", encoding="utf-8", newline="\n") as f:
                 f.write("---\n")
+                f.write("# SPDX-License-Identifier: ODbL-1.0\n")
+                f.write("# Copyright (C) 2026 Aresta Climb Contributors\n")
                 
                 # Garante que strings compostas apenas por dígitos sejam entre aspas 
                 # (evita que parser YAML confunda com números inteiros no futuro, ex: id '09' -> 09)

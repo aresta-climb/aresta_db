@@ -36,6 +36,9 @@ escaladas:
 - boulder:
     nome: Cactos kid
     dificuldade: V2
+- boulder:
+    nome: Quem vai primeiro
+    dificuldade: V1
 mapas:
 - caminho_imagem_mapa: imagens/setor_fugitivos_i_p0.webp
   largura_mapa: 2155
@@ -701,5 +704,36 @@ mapas:
   - ids:
     - linha_6
     escalada: Cactos kid
+- caminho_imagem_mapa: imagens/setor_bloco_fugitivos_i_p4.webp
+  largura_mapa: 1824
+  altura_mapa: 1376
+  pontos_de_interesse:
+  - id: linha_20
+    label: ''
+    linha:
+      estilo: TRACEJADO
+      conteudo:
+        nos:
+        - x: 821
+          y: 995
+          tipo: CIRCULO_IDENTIFICADOR
+          rotulo: '9'
+          raio: 21
+        - x: 779
+          y: 650
+          tipo: PASSAGEM
+        - x: 741
+          y: 279
+          tipo: PASSAGEM
+        - x: 798
+          y: 20
+          tipo: PASSAGEM
+          rotulo: ''
+      espessura: 4
+    cor: '#FFD600'
+  referencias:
+  - ids:
+    - linha_20
+    escalada: Quem vai primeiro
 ---
 Veja a trilha para chegar ao setor no Wikiloc: https://loc.wiki/t/169742661?wa=sc

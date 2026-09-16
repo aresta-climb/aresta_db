@@ -429,6 +429,45 @@ class TestWorker(unittest.TestCase):
         tarefa.erro.emit.assert_called_once()
         mock_capturar_excecao.assert_called_once()
 
+    def test_tarefa_salvamento_grava_croqui_yaml_com_spdx_e_copyright(self):
+        """Valida que TarefaSalvamento salva o arquivo croqui.yaml já com os cabeçalhos SPDX e Copyright."""
+        import tempfile
+        import shutil
+        from editor.core.worker import TarefaSalvamento
+
+        mock_ws = MagicMock()
+        tmp_dir = Path(tempfile.mkdtemp())
+        try:
+            mock_ws.processar_renomeacao_e_compilacao.return_value = (tmp_dir, [])
+            
+            caminho_db = tmp_dir / "croqui_teste"
+            caminho_db.mkdir()
+            
+            tarefa = TarefaSalvamento(
+                workspace=mock_ws,
+                storage=None,
+                caminho_db=caminho_db,
+                croqui_data={"id": "teste", "nome": "Croqui Teste"},
+                novo_id="teste",
+                id_atual="teste",
+                undo_index=1,
+            )
+            tarefa.sucesso = MagicMock()
+            tarefa.erro = MagicMock()
+            
+            tarefa.run()
+            
+            yaml_salvo = caminho_db / "croqui.yaml"
+            assert yaml_salvo.exists()
+            linhas = yaml_salvo.read_text(encoding="utf-8").splitlines()
+            assert len(linhas) >= 2
+            assert linhas[0].strip() == "# SPDX-License-Identifier: ODbL-1.0"
+            assert linhas[1].strip() == "# Copyright (C) 2026 Aresta Climb Contributors"
+            assert "id: teste" in yaml_salvo.read_text(encoding="utf-8")
+        finally:
+            shutil.rmtree(tmp_dir, ignore_errors=True)
+
 
 if __name__ == "__main__":
     unittest.main()
+

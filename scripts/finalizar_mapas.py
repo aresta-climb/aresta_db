@@ -30,7 +30,13 @@ def salvar_md_com_frontmatter(md_path: Path, frontmatter: Optional[Dict[str, Any
     """Salva o YAML Frontmatter e o corpo de volta no arquivo markdown."""
     with open(md_path, "w", encoding="utf-8") as f:
         if frontmatter:
-            f.write("---\n" + yaml.dump(frontmatter, allow_unicode=True, sort_keys=False).strip() + "\n---\n\n")
+            f.write(
+                "---\n"
+                "# SPDX-License-Identifier: ODbL-1.0\n"
+                "# Copyright (C) 2026 Aresta Climb Contributors\n"
+                + yaml.dump(frontmatter, allow_unicode=True, sort_keys=False).strip()
+                + "\n---\n\n"
+            )
         f.write(corpo)
 
 def finalizar_mapas(pico_path: Union[str, Path]) -> None:

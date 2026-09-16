@@ -631,6 +631,60 @@ def test_md_corrige_spdx_errado_ou_incompleto(tmp_path):
     assert linhas[2].strip() == "# Copyright (C) 2026 Aresta Climb Contributors"
     assert linhas[3].strip() == "nome: Pico"
     assert "copyright do ze" not in "".join(linhas).lower()
+
+
+def test_garantir_comentarios_licenca_retentativa_sucesso_apos_bloqueio_errno_22(tmp_path):
+    p = tmp_path / "setor_bloqueado.md"
+    p.write_text("---\nnome: Bloqueado\n---\nCorpo\n", encoding="utf-8")
+
+    tentativas = 0
+    real_open = open
+
+    def mock_open(file, mode="r", *args, **kwargs):
+        nonlocal tentativas
+        if str(file) == str(p) and "w" in mode:
+            tentativas += 1
+            if tentativas < 3:
+                raise OSError(22, "Invalid argument", str(p))
+        return real_open(file, mode, *args, **kwargs)
+
+    with patch("builtins.open", side_effect=mock_open):
+        with patch("time.sleep") as mock_sleep:
+            garantir_comentarios_licenca(p)
+            assert mock_sleep.call_count >= 2
+
+    linhas = p.read_text(encoding="utf-8").splitlines()
+    assert linhas[0].strip() == "---"
+    assert linhas[1].strip() == "# SPDX-License-Identifier: ODbL-1.0"
+    assert linhas[2].strip() == "# Copyright (C) 2026 Aresta Climb Contributors"
+
+
+def test_garantir_comentarios_licenca_retentativa_sucesso_apos_bloqueio_errno_13(tmp_path):
+    p = tmp_path / "setor_permission.md"
+    p.write_text("---\nnome: Permission\n---\nCorpo\n", encoding="utf-8")
+
+    tentativas = 0
+    real_open = open
+
+    def mock_open(file, mode="r", *args, **kwargs):
+        nonlocal tentativas
+        if str(file) == str(p) and "w" in mode:
+            tentativas += 1
+            if tentativas < 2:
+                raise PermissionError(13, "Permission denied", str(p))
+        return real_open(file, mode, *args, **kwargs)
+
+    with patch("builtins.open", side_effect=mock_open):
+        with patch("time.sleep") as mock_sleep:
+            garantir_comentarios_licenca(p)
+            assert mock_sleep.call_count >= 1
+
+    linhas = p.read_text(encoding="utf-8").splitlines()
+    assert linhas[0].strip() == "---"
+    assert linhas[1].strip() == "# SPDX-License-Identifier: ODbL-1.0"
+    assert linhas[2].strip() == "# Copyright (C) 2026 Aresta Climb Contributors"
+
+
 from scripts.preparar_submissao_lib import limpar_arquivos_nao_utilizados
 
 def test_limpar_arquivos_nao_utilizados_deleta_imagens_e_mds(tmp_path):
@@ -1266,3 +1320,300 @@ def test_expandir_setores_ou_grupos_recursivo_preserva_grupo_vazio(tmp_path):
     assert "grupo" in resultado[0]
     assert "setor" not in resultado[0]
     assert resultado[0]["grupo"]["conteudo"]["setores"] == []
+
+
+def test_salvar_md_com_frontmatter_grava_comentarios_spdx_e_copyright(tmp_path):
+    from scripts.preparar_submissao_lib import salvar_md_com_frontmatter
+    
+    arquivo_md = tmp_path / "setor_teste.md"
+    frontmatter = {"nome": "Setor Teste", "grau": "V3"}
+    corpo = "Descricao do setor de teste\n"
+
+    salvar_md_com_frontmatter(arquivo_md, frontmatter, corpo)
+
+    linhas = arquivo_md.read_text(encoding="utf-8").splitlines()
+    assert len(linhas) >= 3
+    assert linhas[0].strip() == "---"
+    assert linhas[1].strip() == "# SPDX-License-Identifier: ODbL-1.0"
+    assert linhas[2].strip() == "# Copyright (C) 2026 Aresta Climb Contributors"
+    assert "nome: Setor Teste" in arquivo_md.read_text(encoding="utf-8")
+    assert "Descricao do setor de teste" in arquivo_md.read_text(encoding="utf-8")
+
+
+def test_garantir_comentarios_licenca_retentativa_sucesso_apos_bloqueio_errno_22(tmp_path):
+    import builtins
+    from scripts.preparar_submissao_lib import garantir_comentarios_licenca
+
+    arquivo_md = tmp_path / "setor_bloqueado.md"
+    arquivo_md.write_text("---\nnome: Setor\n---\nCorpo\n", encoding="utf-8")
+
+    real_open = builtins.open
+    tentativas = 0
+
+    def open_com_falha_transitoria(*args, **kwargs):
+        nonlocal tentativas
+        if str(args[0]) == str(arquivo_md) and (
+            (len(args) > 1 and "w" in args[1]) or kwargs.get("mode") == "w"
+        ):
+            tentativas += 1
+            if tentativas == 1:
+                raise OSError(22, "Invalid argument")
+        return real_open(*args, **kwargs)
+
+    with patch("builtins.open", side_effect=open_com_falha_transitoria), \
+         patch("time.sleep") as mock_sleep:
+        garantir_comentarios_licenca(arquivo_md)
+
+    assert tentativas == 2
+    mock_sleep.assert_called_once()
+    linhas = arquivo_md.read_text(encoding="utf-8").splitlines()
+    assert linhas[1].strip() == "# SPDX-License-Identifier: ODbL-1.0"
+    assert linhas[2].strip() == "# Copyright (C) 2026 Aresta Climb Contributors"
+
+
+def test_garantir_comentarios_licenca_retentativa_sucesso_apos_bloqueio_errno_13(tmp_path):
+    import builtins
+    from scripts.preparar_submissao_lib import garantir_comentarios_licenca
+
+    arquivo_md = tmp_path / "setor_permissao.md"
+    arquivo_md.write_text("---\nnome: Setor 13\n---\nCorpo\n", encoding="utf-8")
+
+    real_open = builtins.open
+    tentativas = 0
+
+    def open_com_falha_transitoria(*args, **kwargs):
+        nonlocal tentativas
+        if str(args[0]) == str(arquivo_md) and (
+            (len(args) > 1 and "w" in args[1]) or kwargs.get("mode") == "w"
+        ):
+            tentativas += 1
+            if tentativas == 1:
+                raise OSError(13, "Permission denied")
+        return real_open(*args, **kwargs)
+
+    with patch("builtins.open", side_effect=open_com_falha_transitoria), \
+         patch("time.sleep") as mock_sleep:
+        garantir_comentarios_licenca(arquivo_md)
+
+    assert tentativas == 2
+    mock_sleep.assert_called_once()
+    linhas = arquivo_md.read_text(encoding="utf-8").splitlines()
+    assert linhas[1].strip() == "# SPDX-License-Identifier: ODbL-1.0"
+    assert linhas[2].strip() == "# Copyright (C) 2026 Aresta Climb Contributors"
+
+
+def test_garantir_comentarios_licenca_falha_apos_maximo_tentativas(tmp_path, capsys):
+    import builtins
+    from scripts.preparar_submissao_lib import garantir_comentarios_licenca
+
+    arquivo_md = tmp_path / "setor_persistente.md"
+    arquivo_md.write_text("---\nnome: Falha\n---\nCorpo\n", encoding="utf-8")
+
+    real_open = builtins.open
+    tentativas = 0
+
+    def open_com_falha_continua(*args, **kwargs):
+        nonlocal tentativas
+        if str(args[0]) == str(arquivo_md) and (
+            (len(args) > 1 and "w" in args[1]) or kwargs.get("mode") == "w"
+        ):
+            tentativas += 1
+            raise OSError(22, "Invalid argument persistente")
+        return real_open(*args, **kwargs)
+
+    with patch("builtins.open", side_effect=open_com_falha_continua), \
+         patch("time.sleep") as mock_sleep:
+        garantir_comentarios_licenca(arquivo_md)
+
+    assert tentativas == 3
+    assert mock_sleep.call_count == 2
+    captured = capsys.readouterr()
+    assert "Erro ao escrever" in captured.out
+    assert "Invalid argument persistente" in captured.out
+
+
+def test_garantir_comentarios_licenca_yaml_ja_correto_nao_reescreve(tmp_path):
+    import builtins
+    from scripts.preparar_submissao_lib import garantir_comentarios_licenca
+
+    arquivo_yaml = tmp_path / "correto.yaml"
+    arquivo_yaml.write_text(
+        "# SPDX-License-Identifier: ODbL-1.0\n"
+        "# Copyright (C) 2026 Aresta Climb Contributors\n"
+        "versao: 1\n",
+        encoding="utf-8"
+    )
+
+    chamadas_escrita = 0
+    real_open = builtins.open
+
+    def interceptar_open(*args, **kwargs):
+        nonlocal chamadas_escrita
+        if (len(args) > 1 and "w" in args[1]) or kwargs.get("mode") == "w":
+            chamadas_escrita += 1
+        return real_open(*args, **kwargs)
+
+    with patch("builtins.open", side_effect=interceptar_open):
+        garantir_comentarios_licenca(arquivo_yaml)
+
+    assert chamadas_escrita == 0
+
+
+def test_garantir_comentarios_licenca_md_ja_correto_nao_reescreve(tmp_path):
+    import builtins
+    from scripts.preparar_submissao_lib import garantir_comentarios_licenca
+
+    arquivo_md = tmp_path / "correto.md"
+    arquivo_md.write_text(
+        "---\n"
+        "# SPDX-License-Identifier: ODbL-1.0\n"
+        "# Copyright (C) 2026 Aresta Climb Contributors\n"
+        "nome: Setor\n"
+        "---\n"
+        "Descricao\n",
+        encoding="utf-8"
+    )
+
+    chamadas_escrita = 0
+    real_open = builtins.open
+
+    def interceptar_open(*args, **kwargs):
+        nonlocal chamadas_escrita
+        if (len(args) > 1 and "w" in args[1]) or kwargs.get("mode") == "w":
+            chamadas_escrita += 1
+        return real_open(*args, **kwargs)
+
+    with patch("builtins.open", side_effect=interceptar_open):
+        garantir_comentarios_licenca(arquivo_md)
+
+    assert chamadas_escrita == 0
+
+
+def test_garantir_comentarios_licenca_yaml_injeta_se_ausente(tmp_path):
+    from scripts.preparar_submissao_lib import garantir_comentarios_licenca
+
+    arquivo_yaml = tmp_path / "sem_licenca.yaml"
+    arquivo_yaml.write_text("versao: 1\n", encoding="utf-8")
+
+    garantir_comentarios_licenca(arquivo_yaml)
+
+    linhas = arquivo_yaml.read_text(encoding="utf-8").splitlines()
+    assert linhas[0].strip() == "# SPDX-License-Identifier: ODbL-1.0"
+    assert linhas[1].strip() == "# Copyright (C) 2026 Aresta Climb Contributors"
+    assert "versao: 1" in linhas[2]
+
+
+def test_garantir_comentarios_licenca_trata_erro_de_leitura(tmp_path, capsys):
+    from scripts.preparar_submissao_lib import garantir_comentarios_licenca
+
+    arquivo_inexistente = tmp_path / "nao_existe.md"
+    garantir_comentarios_licenca(arquivo_inexistente)
+
+    captured = capsys.readouterr()
+    assert "Erro ao ler" in captured.out
+
+
+def test_garantir_comentarios_licenca_arquivo_vazio(tmp_path):
+    from scripts.preparar_submissao_lib import garantir_comentarios_licenca
+
+    arquivo_vazio = tmp_path / "vazio.md"
+    arquivo_vazio.write_text("", encoding="utf-8")
+
+    garantir_comentarios_licenca(arquivo_vazio)
+    assert arquivo_vazio.read_text(encoding="utf-8") == ""
+
+
+def test_garantir_comentarios_licenca_extensao_nao_suportada(tmp_path):
+    from scripts.preparar_submissao_lib import garantir_comentarios_licenca
+
+    arquivo_txt = tmp_path / "arquivo.txt"
+    arquivo_txt.write_text("texto qualquer", encoding="utf-8")
+
+    garantir_comentarios_licenca(arquivo_txt)
+    assert arquivo_txt.read_text(encoding="utf-8") == "texto qualquer"
+
+
+def test_garantir_comentarios_licenca_md_sem_frontmatter(tmp_path):
+    from scripts.preparar_submissao_lib import garantir_comentarios_licenca
+
+    arquivo_md = tmp_path / "sem_frontmatter.md"
+    arquivo_md.write_text("# Apenas Markdown sem Frontmatter\n", encoding="utf-8")
+
+    garantir_comentarios_licenca(arquivo_md)
+    assert arquivo_md.read_text(encoding="utf-8") == "# Apenas Markdown sem Frontmatter\n"
+
+
+def test_garantir_comentarios_licenca_excecao_generica_na_escrita(tmp_path, capsys):
+    import builtins
+    from scripts.preparar_submissao_lib import garantir_comentarios_licenca
+
+    arquivo_md = tmp_path / "erro_generico.md"
+    arquivo_md.write_text("---\nnome: Erro\n---\n", encoding="utf-8")
+
+    real_open = builtins.open
+    tentativas = 0
+
+    def open_com_erro_generico(*args, **kwargs):
+        nonlocal tentativas
+        if str(args[0]) == str(arquivo_md) and (
+            (len(args) > 1 and "w" in args[1]) or kwargs.get("mode") == "w"
+        ):
+            tentativas += 1
+            raise RuntimeError("Falha inesperada não-OSError")
+        return real_open(*args, **kwargs)
+
+    with patch("builtins.open", side_effect=open_com_erro_generico):
+        garantir_comentarios_licenca(arquivo_md)
+
+    assert tentativas == 1
+    captured = capsys.readouterr()
+    assert "Erro ao escrever" in captured.out
+    assert "Falha inesperada não-OSError" in captured.out
+
+
+def test_garantir_comentarios_licenca_substitui_comentarios_antigos_yaml(tmp_path):
+    from scripts.preparar_submissao_lib import garantir_comentarios_licenca
+
+    arquivo_yaml = tmp_path / "comentarios_antigos.yaml"
+    arquivo_yaml.write_text(
+        "# comentario qualquer\n"
+        "# spdx-license-identifier: MIT\n"
+        "# copyright (c) 2020 Antigo\n"
+        "versao: 1\n",
+        encoding="utf-8"
+    )
+
+    garantir_comentarios_licenca(arquivo_yaml)
+
+    linhas = arquivo_yaml.read_text(encoding="utf-8").splitlines()
+    assert linhas[0].strip() == "# SPDX-License-Identifier: ODbL-1.0"
+    assert linhas[1].strip() == "# Copyright (C) 2026 Aresta Climb Contributors"
+    assert not any("MIT" in l for l in linhas)
+    assert not any("2020" in l for l in linhas)
+
+
+def test_garantir_comentarios_licenca_substitui_comentarios_antigos_md(tmp_path):
+    from scripts.preparar_submissao_lib import garantir_comentarios_licenca
+
+    arquivo_md = tmp_path / "comentarios_antigos.md"
+    arquivo_md.write_text(
+        "---\n"
+        "# spdx-license-identifier: BSD-3-Clause\n"
+        "# copyright (c) 2020 Antigo\n"
+        "nome: Setor\n"
+        "---\n"
+        "Descricao\n",
+        encoding="utf-8"
+    )
+
+    garantir_comentarios_licenca(arquivo_md)
+
+    linhas = arquivo_md.read_text(encoding="utf-8").splitlines()
+    assert linhas[0].strip() == "---"
+    assert linhas[1].strip() == "# SPDX-License-Identifier: ODbL-1.0"
+    assert linhas[2].strip() == "# Copyright (C) 2026 Aresta Climb Contributors"
+    assert not any("BSD-3-Clause" in l for l in linhas)
+
+
+
+

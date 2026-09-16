@@ -3768,6 +3768,9 @@ picos:
         - boulder:
             nome: Cactos kid
             dificuldade: V2
+        - boulder:
+            nome: Quem vai primeiro
+            dificuldade: V1
         mapas:
         - caminho_imagem_mapa: imagens/setor_fugitivos_i_p0.webp
           largura_mapa: 1847
@@ -4413,10 +4416,39 @@ picos:
           - ids:
             - linha_6
             escalada: Cactos kid
+        - caminho_imagem_mapa: imagens/setor_bloco_fugitivos_i_p4.webp
+          largura_mapa: 1824
+          altura_mapa: 1376
+          pontos_de_interesse:
+          - id: linha_20
+            label: ''
+            linha:
+              estilo: TRACEJADO
+              espessura: 4
+              compilado:
+                caminho_svg: M 821 995 C 807.0 880.0, 792.1 767.2, 779 650 C 765.4
+                  528.6, 734.6 391.1, 741 279 C 746.4 184.5, 779.0 106.3, 798 20
+                caixa_delimitadora:
+                  x: 781
+                  y: 508
+                  comprimento: 80
+                  largura: 975
+                marcadores:
+                - tipo: CIRCULO_IDENTIFICADOR
+                  x: 821
+                  y: 995
+                  angulo_graus_x100: -9694
+                  rotulo: '9'
+                  raio: 21
+            cor: '#FFD600'
+          referencias:
+          - ids:
+            - linha_20
+            escalada: Quem vai primeiro
         descricao: 'Veja a trilha para chegar ao setor no Wikiloc: https://loc.wiki/t/169742661?wa=sc'
         precomputados:
-          total_escaladas: 11
-          total_boulders: 11
+          total_escaladas: 12
+          total_boulders: 12
   - setor:
       conteudo:
         nome: Bloco Viva o Climb
@@ -4794,10 +4826,10 @@ picos:
         - id: Estacionamento
           label: Setor Estacionamento
           retangulo:
-            x: 1631
-            y: 556
-            comprimento: 260
-            largura: 162
+            x: 1628
+            y: 561
+            comprimento: 266
+            largura: 156
         - id: Tetos
           label: Setor Tetos
           retangulo:
@@ -4882,6 +4914,14 @@ picos:
             - 1064
             - 609
             - 990
+        - id: fug12
+          label: Fugitivos I e II
+          retangulo:
+            x: 1860
+            y: 430
+            comprimento: 232
+            largura: 101
+          cor: ''
         referencias:
         - setor: Setor Estacionamento
           ids:
@@ -4911,6 +4951,9 @@ picos:
         - ids:
           - micos
           setor: Setor Micos
+        - ids:
+          - fug12
+          setor: Bloco Fugitivos I
       - caminho_imagem_mapa: imagens/mapas_gerais_p1.webp
         largura_mapa: 2048
         altura_mapa: 1157
@@ -4971,11 +5014,11 @@ picos:
     latitude: -201176660
     longitude: -443593480
   precomputados:
-    total_escaladas: 164
+    total_escaladas: 165
     total_setores: 14
     total_grupos: 1
     total_esportivas: 95
-    total_boulders: 27
+    total_boulders: 28
     total_multiplas_enfiadas: 1
 botoes:
 - texto: Capa
@@ -5275,6 +5318,8 @@ arquivos_externos:
   checksum_sha256: 852e3b9ba55da91bda3283501c992927fd6cae1166c0c21717190aa15f51066c
 - caminho: imagens/patrocinadores_p0.webp
   checksum_sha256: 4182ec353e7d169bf4ea4bf1f245e97df7f3b359560ddf5d6d77ebd462259d88
+- caminho: imagens/setor_bloco_fugitivos_i_p4.webp
+  checksum_sha256: 54a37eb42350ba07c9f3490356d5b77fe8b940b07a3fffc08332c8d730344d31
 - caminho: imagens/setor_estacionamento_p0.webp
   checksum_sha256: c0b10e222fdaed24818c31db7a4f62e69cef20e19182efd1f390a605d7023292
 - caminho: imagens/setor_estacionamento_p1.webp

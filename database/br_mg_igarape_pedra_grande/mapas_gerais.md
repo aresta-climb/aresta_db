@@ -30,10 +30,10 @@ mapas:
   - id: Estacionamento
     label: Setor Estacionamento
     retangulo:
-      x: 1631
-      y: 556
-      comprimento: 260
-      largura: 162
+      x: 1628
+      y: 561
+      comprimento: 266
+      largura: 156
   - id: Tetos
     label: Setor Tetos
     retangulo:
@@ -118,6 +118,14 @@ mapas:
       - 1064
       - 609
       - 990
+  - id: fug12
+    label: Fugitivos I e II
+    retangulo:
+      x: 1860
+      y: 430
+      comprimento: 232
+      largura: 101
+    cor: ''
   referencias:
   - setor: Setor Estacionamento
     ids:
@@ -147,6 +155,9 @@ mapas:
   - ids:
     - micos
     setor: Setor Micos
+  - ids:
+    - fug12
+    setor: Bloco Fugitivos I
 - caminho_imagem_mapa: imagens/mapas_gerais_p1.webp
   largura_mapa: 2048
   altura_mapa: 1157

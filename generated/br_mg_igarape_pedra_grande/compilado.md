@@ -4592,6 +4592,10 @@
     - **boulder**:
       - **nome**: Cactos kid
       - **dificuldade**: V2
+  - **[11]**:
+    - **boulder**:
+      - **nome**: Quem vai primeiro
+      - **dificuldade**: V1
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_fugitivos_i_p0.webp)
@@ -5280,9 +5284,41 @@
         - **ids**:
           - linha_6
         - **escalada**: Cactos kid
+  - **[4]**:
+    - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_bloco_fugitivos_i_p4.webp)
+    - **largura_mapa**: 1824
+    - **altura_mapa**: 1376
+    - **pontos_de_interesse**:
+      - **[0]**:
+        - **id**: linha_20
+        - **label**: 
+        - **linha**:
+          - **estilo**: TRACEJADO
+          - **espessura**: 4
+          - **compilado**:
+            - **caminho_svg**: M 821 995 C 807.0 880.0, 792.1 767.2, 779 650 C 765.4 528.6, 734.6 391.1, 741 279 C 746.4 184.5, 779.0 106.3, 798 20
+            - **caixa_delimitadora**:
+              - **x**: 781
+              - **y**: 508
+              - **comprimento**: 80
+              - **largura**: 975
+            - **marcadores**:
+              - **[0]**:
+                - **tipo**: CIRCULO_IDENTIFICADOR
+                - **x**: 821
+                - **y**: 995
+                - **angulo_graus_x100**: -9694
+                - **rotulo**: 9
+                - **raio**: 21
+        - **cor**: #FFD600
+    - **referencias**:
+      - **[0]**:
+        - **ids**:
+          - linha_20
+        - **escalada**: Quem vai primeiro
 - **precomputados**:
-  - **total_escaladas**: 11
-  - **total_boulders**: 11
+  - **total_escaladas**: 12
+  - **total_boulders**: 12
 
 
 ## Parte: setor_viva_o_climb (não listada em partes.json)
@@ -5681,102 +5717,105 @@
     - **caminho**: ![caminho](imagens/patrocinadores_p0.webp)
     - **checksum_sha256**: 4182ec353e7d169bf4ea4bf1f245e97df7f3b359560ddf5d6d77ebd462259d88
   - **[6]**:
+    - **caminho**: ![caminho](imagens/setor_bloco_fugitivos_i_p4.webp)
+    - **checksum_sha256**: 54a37eb42350ba07c9f3490356d5b77fe8b940b07a3fffc08332c8d730344d31
+  - **[7]**:
     - **caminho**: ![caminho](imagens/setor_estacionamento_p0.webp)
     - **checksum_sha256**: c0b10e222fdaed24818c31db7a4f62e69cef20e19182efd1f390a605d7023292
-  - **[7]**:
+  - **[8]**:
     - **caminho**: ![caminho](imagens/setor_estacionamento_p1.webp)
     - **checksum_sha256**: 70ff91fdbc683bf71dcd9a33dbc042e170ef4f49c88b9bc9ce9956edb3fef48c
-  - **[8]**:
+  - **[9]**:
     - **caminho**: ![caminho](imagens/setor_familia_i_p0.webp)
     - **checksum_sha256**: 445e010c4cbaca2db0d2bfc12bb93dc9da30e427bac970d7e06ebe08cee2b0cf
-  - **[9]**:
+  - **[10]**:
     - **caminho**: ![caminho](imagens/setor_familia_i_p1.webp)
     - **checksum_sha256**: feae5245d8419ab4dd0698de889b4879cbe9b7a1324205ceae8dc47d77eb1038
-  - **[10]**:
+  - **[11]**:
     - **caminho**: ![caminho](imagens/setor_familia_ii_p0.webp)
     - **checksum_sha256**: 8435be258ad2d6ed69cd0d4c540050a44bab6186bb884efae83a4998ef1101d3
-  - **[11]**:
+  - **[12]**:
     - **caminho**: ![caminho](imagens/setor_familia_ii_p1.webp)
     - **checksum_sha256**: 4f3e4bedfed21fafc2284c19063d969b3aae82cd32409bd7bf62d4c941c32765
-  - **[12]**:
+  - **[13]**:
     - **caminho**: ![caminho](imagens/setor_fugitivos_i_p0.webp)
     - **checksum_sha256**: 95239b7b899a1e56c8d919fcbfa733d0e9ae4f9b028a23eeb2a950c5dbabdf25
-  - **[13]**:
+  - **[14]**:
     - **caminho**: ![caminho](imagens/setor_fugitivos_i_p1.webp)
     - **checksum_sha256**: 40266b678b64ad905696f58ace40b125d04162bfdb4a8c4f8a5f9313ee7a672d
-  - **[14]**:
+  - **[15]**:
     - **caminho**: ![caminho](imagens/setor_fugitivos_i_p2.webp)
     - **checksum_sha256**: 66fbcb3356cdcbb3001fa95dbd17cdb0989d9e22a394cf2cf96890c3099ed794
-  - **[15]**:
+  - **[16]**:
     - **caminho**: ![caminho](imagens/setor_fugitivos_i_p3.webp)
     - **checksum_sha256**: 06bd0ef4287fd6e7fa0255e706e814ea441be9d74e11b0d0a5a17173de6d4474
-  - **[16]**:
+  - **[17]**:
     - **caminho**: ![caminho](imagens/setor_igarameca_p0.webp)
     - **checksum_sha256**: e79e4daa827532abd0ff0a16e096f1df0eea148c8589dc7686fa268ba1c84102
-  - **[17]**:
+  - **[18]**:
     - **caminho**: ![caminho](imagens/setor_igarameca_p1.webp)
     - **checksum_sha256**: b2ab0e0a16eb19fe5d54f6a899456ac5ff07671862249a012699dc3631c64662
-  - **[18]**:
+  - **[19]**:
     - **caminho**: ![caminho](imagens/setor_igarameca_p2.webp)
     - **checksum_sha256**: 3a6b8f636bd121e5fa888a5dc855ddb627cea151389890532ba4f50053c78f30
-  - **[19]**:
+  - **[20]**:
     - **caminho**: ![caminho](imagens/setor_jeitinho_brasileiro_p0.webp)
     - **checksum_sha256**: 9aa633be14db3f0c96a1a656470f87f5bfb7a259a02cb58babd6733dadc8d535
-  - **[20]**:
+  - **[21]**:
     - **caminho**: ![caminho](imagens/setor_micos_p0.webp)
     - **checksum_sha256**: acb374ec8c0ecf85d537c86dd1328bbb91e4fd41576659d596457a818254cd2d
-  - **[21]**:
+  - **[22]**:
     - **caminho**: ![caminho](imagens/setor_micos_p1.webp)
     - **checksum_sha256**: e59d63c298cd1049ee8636ce3e3b78b993f5b2358f4e3fc57a10508e739e8536
-  - **[22]**:
+  - **[23]**:
     - **caminho**: ![caminho](imagens/setor_micos_p2.webp)
     - **checksum_sha256**: 27321d933aca314b50a98e486f662138fd61b049dcb90248b6bb2d162c7b944c
-  - **[23]**:
+  - **[24]**:
     - **caminho**: ![caminho](imagens/setor_nectar_p0_i0.webp)
     - **checksum_sha256**: 2b3caa8b248dc3f33ae226aa25d1456c0eb589c5b694e66cf201cd7c4f7927fa
-  - **[24]**:
+  - **[25]**:
     - **caminho**: ![caminho](imagens/setor_pracinha_p0.webp)
     - **checksum_sha256**: ec34526d21a825cbefa2049a1fe82cc4a1d77a4dd1072d39804852cf5c38daf3
-  - **[25]**:
+  - **[26]**:
     - **caminho**: ![caminho](imagens/setor_pracinha_p1.webp)
     - **checksum_sha256**: 42e142af39766186c13a61691e384bddc064bcad6e4a07ce0e802cb429fe73ba
-  - **[26]**:
+  - **[27]**:
     - **caminho**: ![caminho](imagens/setor_pracinha_p2.webp)
     - **checksum_sha256**: 9afa2f619eda4053a096d19b64aa9262e8b85f9f9b05815ad2379e66ccc227e1
-  - **[27]**:
+  - **[28]**:
     - **caminho**: ![caminho](imagens/setor_pracinha_p3.webp)
     - **checksum_sha256**: d60317f3226a9af417557bf7f1d73d46aa152cfbded8a2d8e2a876834398ed64
-  - **[28]**:
+  - **[29]**:
     - **caminho**: ![caminho](imagens/setor_tarja_preta_p0.webp)
     - **checksum_sha256**: 42f0988f5b3b2455e050c55af801a4422327538c6acf4a39706557d91edea940
-  - **[29]**:
+  - **[30]**:
     - **caminho**: ![caminho](imagens/setor_tetos_p0.webp)
     - **checksum_sha256**: 88013468ab3f1c12bc710281758d6e1e205443645aba8dff2828a8b52ee7f2e6
-  - **[30]**:
+  - **[31]**:
     - **caminho**: ![caminho](imagens/setor_tetos_p1.webp)
     - **checksum_sha256**: 4d12e846ce75ebfd1587a51a5661715826e1c800dcfdc1cf99124fa710576d2d
-  - **[31]**:
+  - **[32]**:
     - **caminho**: ![caminho](imagens/setor_totem_p0.webp)
     - **checksum_sha256**: eb605d166d35d36c3b23981ec6144eba7f3375955bed6b1954eff3d1ea441044
-  - **[32]**:
+  - **[33]**:
     - **caminho**: ![caminho](imagens/setor_totem_p1.webp)
     - **checksum_sha256**: 028f8cb259043ddcfd39cf2fb64041b88c41cd3538b6604d384ab2f08514edbf
-  - **[33]**:
+  - **[34]**:
     - **caminho**: ![caminho](imagens/setor_trad_p0.webp)
     - **checksum_sha256**: fa73e3e2fa27a74255e21b0c499f6e72bc47a99626b5bd780473d967c257eaad
-  - **[34]**:
+  - **[35]**:
     - **caminho**: ![caminho](imagens/setor_viva_o_climb_p0.webp)
     - **checksum_sha256**: 94d2480252708d7f25f9234befb17df302bcc0876bbe53025fc3d5ab5321b7c1
-  - **[35]**:
+  - **[36]**:
     - **caminho**: ![caminho](imagens/setor_viva_o_climb_p1.webp)
     - **checksum_sha256**: be43e895f74116ff63a5ec7ac25290dbce75ad67bf1df0a3ab079d7e4c17ac68
-  - **[36]**:
+  - **[37]**:
     - **caminho**: ![caminho](imagens/setor_viva_o_climb_p2.webp)
     - **checksum_sha256**: e3544af684cab5da717ea03b4f77d05f0652be42e0cab50c3f41d62ba5120d57
-  - **[37]**:
+  - **[38]**:
     - **caminho**: ![caminho](imagens/setor_viva_o_climb_p3.webp)
     - **checksum_sha256**: 7ca2f6791409aa498f402729b4d426bf972d8db7689f9052a490fe4ee31b7773
-  - **[38]**:
+  - **[39]**:
     - **caminho**: ![caminho](imagens/setor_viva_o_climb_p4.webp)
     - **checksum_sha256**: c8e95292e609405375d46753e1010ff78f1ba889355e5f80b6b29321cf8cee5c
 

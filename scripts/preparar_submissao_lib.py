@@ -5,6 +5,7 @@ from typing import Optional, Dict, Any, List, Tuple, Set, Union
 import os
 import re
 import shutil
+import time
 import yaml
 import sys
 
@@ -141,7 +142,13 @@ def salvar_md_com_frontmatter(md_path: Path, frontmatter: Optional[Dict[str, Any
     """Salva o YAML Frontmatter e o corpo de volta no arquivo markdown."""
     with open(md_path, "w", encoding="utf-8") as f:
         if frontmatter:
-            f.write("---\n" + yaml.dump(frontmatter, allow_unicode=True, sort_keys=False) + "---\n\n")
+            f.write(
+                "---\n"
+                "# SPDX-License-Identifier: ODbL-1.0\n"
+                "# Copyright (C) 2026 Aresta Climb Contributors\n"
+                + yaml.dump(frontmatter, allow_unicode=True, sort_keys=False)
+                + "---\n\n"
+            )
         f.write(corpo)
 
 def aplicar_tabela_nas_imagens(texto_md: str) -> str:
@@ -1353,8 +1360,21 @@ def garantir_comentarios_licenca(file_path: Path) -> None:
         else:
             return
             
-    try:
-        with open(file_path, "w", encoding="utf-8") as f:
-            f.writelines(linhas_limpas)
-    except Exception as e:
-        print(f"Erro ao escrever {file_path} para injetar SPDX: {e}")
+    sucesso_escrita = False
+    ultimo_erro: Optional[Exception] = None
+    for tentativa in range(1, 4):
+        try:
+            with open(file_path, "w", encoding="utf-8") as f:
+                f.writelines(linhas_limpas)
+            sucesso_escrita = True
+            break
+        except OSError as e:
+            ultimo_erro = e
+            if tentativa < 3:
+                time.sleep(0.05 * tentativa)
+        except Exception as e:
+            ultimo_erro = e
+            break
+
+    if not sucesso_escrita:
+        print(f"Erro ao escrever {file_path} para injetar SPDX: {ultimo_erro}")

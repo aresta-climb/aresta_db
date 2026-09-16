@@ -1144,3 +1144,46 @@ def test_extrair_arquivos_e_serializar_salva_com_quebras_lf(tmp_path):
         assert b"\r\n" not in bytes_conteudo, f"Arquivo {arq.name} contém CRLF (\\r\\n), esperado apenas LF (\\n)"
 
 
+def test_extrair_arquivos_e_serializar_grava_comentarios_spdx_e_copyright_no_topo(tmp_path):
+    croqui = Croqui(nome="Croqui Teste SPDX")
+    pico = croqui.picos.add(nome="Pico Teste")
+
+    # 1. Setor
+    sg = pico.setores_ou_grupos.add()
+    sg.setor.conteudo.nome = "Setor A"
+    sg.setor.conteudo.descricao = "Descricao do setor"
+
+    # 2. Grupo
+    sg_grupo = pico.setores_ou_grupos.add()
+    sg_grupo.grupo.conteudo.nome = "Grupo B"
+    setor_interno = sg_grupo.grupo.conteudo.setores.add()
+    setor_interno.conteudo.nome = "Setor Interno"
+
+    # 3. Mapas Gerais
+    pico.mapas_gerais.conteudo.mapas.add(caminho_imagem_mapa="imagens/mapa.webp")
+
+    # 4. Botao de secao textual
+    botao = croqui.botoes.add(texto="Informacoes")
+    botao.destino.secao_textual.conteudo = "# Titulo"
+
+    model = CroquiModel(croqui)
+    model.extrair_arquivos_e_serializar(tmp_path)
+
+    arquivos_md = list(tmp_path.glob("*.md"))
+    assert len(arquivos_md) >= 4
+
+    spdx_esperado = "# SPDX-License-Identifier: ODbL-1.0"
+    copy_esperado = "# Copyright (C) 2026 Aresta Climb Contributors"
+
+    arquivos_com_frontmatter = [arq for arq in arquivos_md if arq.name != "secao_informacoes.md"]
+    assert len(arquivos_com_frontmatter) >= 3
+
+    for arq in arquivos_com_frontmatter:
+        linhas = arq.read_text(encoding="utf-8").splitlines()
+        assert len(linhas) >= 3, f"Arquivo {arq.name} muito curto"
+        assert linhas[0].strip() == "---", f"Arquivo {arq.name} deve comecar com ---"
+        assert linhas[1].strip() == spdx_esperado, f"Arquivo {arq.name} deve conter SPDX na linha 2"
+        assert linhas[2].strip() == copy_esperado, f"Arquivo {arq.name} deve conter Copyright na linha 3"
+
+
+
