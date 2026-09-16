@@ -158,6 +158,9 @@ mapas:
   - ids:
     - fug12
     setor: Bloco Fugitivos I
+  - ids:
+    - fug12
+    setor: Bloco Fugitivos II
 - caminho_imagem_mapa: imagens/mapas_gerais_p1.webp
   largura_mapa: 2048
   altura_mapa: 1157

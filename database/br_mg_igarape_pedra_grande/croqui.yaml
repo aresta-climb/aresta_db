@@ -38,6 +38,8 @@ picos:
       caminho: setor_fugitivos_i.md
   - setor:
       caminho: setor_viva_o_climb.md
+  - setor:
+      caminho: setor_fugitivos_ii.md
   mapas_gerais:
     caminho: mapas_gerais.md
   localizacao:

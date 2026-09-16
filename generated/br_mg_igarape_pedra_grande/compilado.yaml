@@ -4795,6 +4795,494 @@ picos:
         precomputados:
           total_escaladas: 9
           total_boulders: 9
+  - setor:
+      conteudo:
+        nome: Bloco Fugitivos II
+        escaladas:
+        - boulder:
+            nome: Olha a Jaca
+            dificuldade: V7
+            descricao: Escala a face fendilhada
+        - boulder:
+            nome: Olha o Rider
+            dificuldade: V6_BARRA_V7
+            descricao: Olha a Jaca no Low rider
+        - boulder:
+            nome: Low Rider
+            dificuldade: V7_BARRA_V8
+            descricao: Sai da invertida e escala a diagonal para a esquerda
+        - boulder:
+            nome: Easy Rider
+            dificuldade: V8
+            descricao: Low Rider finalizando no Fugitivos
+        - boulder:
+            nome: Big Rider
+            dificuldade: V9_BARRA_V10
+            descricao: Fugitivos finalizando no Low Rider
+        - boulder:
+            nome: Fugitivos
+            dificuldade: V7
+            descricao: Saída sentada abaixo da pedra e escala para a esquerda, dominando
+              em cima da pedra
+        - boulder:
+            nome: Igarapedra
+            dificuldade: V10_BARRA_V11
+            descricao: Escala a face negativa à direita do bloco, iniciando igual
+              ao Fugitivos
+        - boulder:
+            nome: Trombose
+            dificuldade: V8_BARRA_V9
+            descricao: Travessia pelas agarras baixas virando na extrema direita do
+              bloco
+        - boulder:
+            nome: Corrida do Ouro
+            dificuldade: V6
+            descricao: Sai do Olha a Jaca e vira no Audácia, travessia por cima
+        - boulder:
+            nome: Audácia
+            dificuldade: V8_BARRA_V9
+            descricao: Saída em pé em regletes e escala reto
+        mapas:
+        - caminho_imagem_mapa: imagens/setor_bloco_fugitivos_ii_p0.webp
+          largura_mapa: 2796
+          altura_mapa: 1259
+          pontos_de_interesse:
+          - id: linha_2
+            linha:
+              estilo: TRACEJADO
+              espessura: 3
+              compilado:
+                caminho_svg: M 883 948 C 878.7 915.0, 872.9 876.3, 870 849 C 868.0
+                  829.9, 867.3 816.3, 866 800
+                caixa_delimitadora:
+                  x: 874
+                  y: 874
+                  comprimento: 17
+                  largura: 148
+                marcadores:
+                - tipo: CIRCULO_IDENTIFICADOR
+                  x: 883
+                  y: 948
+                  angulo_graus_x100: -9748
+                  rotulo: '2'
+            cor: '#FFD600'
+          - id: linha_5
+            linha:
+              estilo: TRACEJADO
+              espessura: 3
+              compilado:
+                caminho_svg: M 866 799 C 871.0 778.7, 871.9 757.4, 881 738 C 890.9
+                  716.9, 901.4 693.2, 925 678 C 961.4 654.6, 1046.8 660.6, 1098 642
+                  C 1142.9 625.7, 1190.1 610.8, 1218 578 C 1247.1 543.8, 1254.1 493.0,
+                  1266 438 C 1282.1 363.8, 1283.3 259.3, 1292 170
+                caixa_delimitadora:
+                  x: 1079
+                  y: 484
+                  comprimento: 426
+                  largura: 629
+                marcadores: []
+            cor: '#FFD600'
+          - id: linha_6
+            linha:
+              estilo: TRACEJADO
+              espessura: 3
+              compilado:
+                caminho_svg: M 1298 173 C 1299.0 128.7, 1300.0 84.3, 1301 40
+                caixa_delimitadora:
+                  x: 1300
+                  y: 106
+                  comprimento: 3
+                  largura: 133
+                marcadores:
+                - tipo: FIM_TOP
+                  x: 1301
+                  y: 40
+                  angulo_graus_x100: -8871
+                  rotulo: B
+            cor: '#FFD600'
+          - id: linha_1
+            linha:
+              estilo: TRACEJADO
+              espessura: 3
+              compilado:
+                caminho_svg: M 1721 873 C 1722.0 831.0, 1722.5 782.6, 1724 747 C 1725.1
+                  720.9, 1726.7 701.7, 1728 679
+                caixa_delimitadora:
+                  x: 1724
+                  y: 776
+                  comprimento: 7
+                  largura: 194
+                marcadores:
+                - tipo: CIRCULO_IDENTIFICADOR
+                  x: 1721
+                  y: 873
+                  angulo_graus_x100: -8864
+                  rotulo: '3'
+            cor: '#FFD600'
+          - id: linha_9
+            linha:
+              estilo: TRACEJADO
+              espessura: 3
+              compilado:
+                caminho_svg: M 1728 679 C 1728.3 658.0, 1732.3 636.9, 1729 616 C 1725.6
+                  594.2, 1714.3 572.7, 1707 551
+                caixa_delimitadora:
+                  x: 1718
+                  y: 615
+                  comprimento: 22
+                  largura: 128
+                marcadores: []
+            cor: '#FFD600'
+          - id: linha_10
+            linha:
+              estilo: TRACEJADO
+              espessura: 3
+              compilado:
+                caminho_svg: M 1707 551 C 1650.7 508.7, 1588.1 460.3, 1538 424 C 1498.8
+                  395.6, 1466.5 373.7, 1432 350 C 1399.3 327.5, 1358.3 314.3, 1336
+                  285 C 1313.5 255.4, 1310.7 210.3, 1298 173
+                caixa_delimitadora:
+                  x: 1502
+                  y: 362
+                  comprimento: 409
+                  largura: 378
+                marcadores: []
+            cor: '#FFD600'
+          - id: linha_7
+            label: ''
+            linha:
+              estilo: TRACEJADO
+              espessura: 3
+              compilado:
+                caminho_svg: M 2205 766 C 2195.0 753.7, 2182.9 744.0, 2175 729 C 2165.6
+                  711.1, 2160.9 688.8, 2156 664 C 2149.7 632.2, 2145.6 586.7, 2144
+                  553 C 2142.7 525.0, 2143.3 502.1, 2145 476 C 2146.8 448.8, 2151.7
+                  420.7, 2155 393
+                caixa_delimitadora:
+                  x: 2174
+                  y: 580
+                  comprimento: 61
+                  largura: 373
+                marcadores: []
+            cor: '#FFD600'
+          - id: linha_12
+            linha:
+              estilo: TRACEJADO
+              espessura: 3
+              compilado:
+                caminho_svg: M 2205 764 C 2166.7 758.0, 2130.1 754.5, 2090 746 C 2044.9
+                  736.5, 1993.6 724.9, 1948 708 C 1902.6 691.2, 1857.2 671.1, 1817
+                  645 C 1776.9 619.0, 1743.7 583.0, 1707 552
+                caixa_delimitadora:
+                  x: 1956
+                  y: 658
+                  comprimento: 498
+                  largura: 212
+                marcadores: []
+            cor: '#FFD600'
+          - id: linha_8
+            linha:
+              estilo: TRACEJADO
+              espessura: 3
+              compilado:
+                caminho_svg: M 1728 679 C 1737.7 665.7, 1744.8 650.0, 1757 639 C 1769.6
+                  627.5, 1781.7 618.3, 1803 612 C 1841.2 600.7, 1929.3 610.6, 1975
+                  604 C 2006.0 599.5, 2030.7 600.6, 2052 585 C 2077.0 566.7, 2092.0
+                  523.9, 2109 492 C 2125.9 460.3, 2139.0 426.7, 2154 394
+                caixa_delimitadora:
+                  x: 1941
+                  y: 536
+                  comprimento: 426
+                  largura: 285
+                marcadores: []
+            cor: '#FFD600'
+          - id: linha_13
+            linha:
+              estilo: TRACEJADO
+              espessura: 3
+              compilado:
+                caminho_svg: M 2155 393 C 2163.3 363.3, 2170.7 335.6, 2180 304 C 2190.7
+                  267.8, 2209.9 221.7, 2216 188 C 2220.6 162.9, 2218.7 143.3, 2220
+                  121
+                caixa_delimitadora:
+                  x: 2188
+                  y: 257
+                  comprimento: 65
+                  largura: 272
+                marcadores:
+                - tipo: FIM_TOP
+                  x: 2220
+                  y: 121
+                  angulo_graus_x100: -8658
+                  rotulo: C
+            cor: '#FFD600'
+          - id: linha_14
+            linha:
+              estilo: TRACEJADO
+              espessura: 3
+              compilado:
+                caminho_svg: M 2250 903 C 2259.3 870.7, 2285.4 827.4, 2278 806 C 2272.8
+                  791.0, 2251.2 783.8, 2238 777 C 2226.9 771.3, 2216.0 769.7, 2205
+                  766
+                caixa_delimitadora:
+                  x: 2242
+                  y: 834
+                  comprimento: 73
+                  largura: 137
+                marcadores: []
+            cor: '#FFD600'
+          - id: linha_15
+            linha:
+              estilo: TRACEJADO
+              espessura: 3
+              compilado:
+                caminho_svg: M 2250 903 C 2277.7 864.0, 2315.7 817.2, 2333 786 C 2343.4
+                  767.2, 2345.0 756.6, 2353 738 C 2364.1 712.0, 2374.4 663.1, 2394
+                  645 C 2408.7 631.4, 2435.3 635.7, 2448 626 C 2457.9 618.4, 2461.3
+                  606.7, 2468 597
+                caixa_delimitadora:
+                  x: 2359
+                  y: 750
+                  comprimento: 218
+                  largura: 306
+                marcadores:
+                - tipo: CIRCULO_IDENTIFICADOR
+                  x: 2353
+                  y: 738
+                  angulo_graus_x100: -6661
+                  rotulo: ▲
+            cor: '#FFD600'
+          - id: linha_16
+            linha:
+              estilo: TRACEJADO
+              espessura: 3
+              compilado:
+                caminho_svg: M 2468 597 C 2474.7 570.3, 2488.9 547.4, 2488 517 C 2486.8
+                  476.1, 2463.6 406.3, 2443 374 C 2429.4 352.7, 2406.9 350.6, 2395
+                  330 C 2379.0 302.3, 2376.5 243.1, 2369 215 C 2364.6 198.5, 2361.0
+                  189.0, 2357 176
+                caixa_delimitadora:
+                  x: 2422
+                  y: 386
+                  comprimento: 131
+                  largura: 421
+                marcadores:
+                - tipo: FIM_TOP
+                  x: 2357
+                  y: 176
+                  angulo_graus_x100: -10710
+                  rotulo: D
+            cor: '#FFD600'
+          - id: linha_11
+            linha:
+              estilo: TRACEJADO
+              espessura: 3
+              compilado:
+                caminho_svg: M 2172 1011 C 2185.7 992.3, 2199.3 973.7, 2213 955
+                caixa_delimitadora:
+                  x: 2192
+                  y: 983
+                  comprimento: 41
+                  largura: 56
+                marcadores:
+                - tipo: CIRCULO_IDENTIFICADOR
+                  x: 2172
+                  y: 1011
+                  angulo_graus_x100: -5379
+                  rotulo: '4'
+            cor: '#FFD600'
+          - id: linha_17
+            linha:
+              estilo: TRACEJADO
+              espessura: 3
+              compilado:
+                caminho_svg: M 2213 955 C 2225.3 937.7, 2237.7 920.3, 2250 903
+                caixa_delimitadora:
+                  x: 2232
+                  y: 929
+                  comprimento: 37
+                  largura: 52
+                marcadores: []
+            cor: '#FFD600'
+          - id: linha_4
+            label: ''
+            linha:
+              estilo: TRACEJADO
+              espessura: 3
+              compilado:
+                caminho_svg: M 2212 954 C 2227.7 946.3, 2242.6 936.7, 2259 931 C 2275.6
+                  925.3, 2292.4 926.4, 2311 920 C 2334.4 912.0, 2366.9 895.0, 2387
+                  883 C 2401.3 874.5, 2412.7 870.7, 2422 858 C 2434.8 840.6, 2439.4
+                  805.0, 2447 781 C 2453.6 760.1, 2461.3 742.0, 2465 722 C 2468.6
+                  702.0, 2468.5 681.6, 2469 661 C 2469.5 639.9, 2468.3 618.3, 2468
+                  597
+                caixa_delimitadora:
+                  x: 2340
+                  y: 776
+                  comprimento: 257
+                  largura: 357
+                marcadores:
+                - tipo: CIRCULO_IDENTIFICADOR
+                  x: 2422
+                  y: 858
+                  angulo_graus_x100: -5953
+                  rotulo: ★
+            cor: '#FFD600'
+          - id: linha_19
+            linha:
+              estilo: TRACEJADO
+              espessura: 3
+              compilado:
+                caminho_svg: M 866 800 C 861.3 773.0, 856.7 746.0, 852 719
+                caixa_delimitadora:
+                  x: 859
+                  y: 760
+                  comprimento: 14
+                  largura: 81
+                marcadores: []
+            cor: '#FFD600'
+          - id: linha_20
+            linha:
+              estilo: TRACEJADO
+              espessura: 3
+              compilado:
+                caminho_svg: M 853 720 C 849.3 694.7, 844.9 677.3, 842 644 C 836.6
+                  581.2, 830.2 467.3, 834 371 C 838.3 262.1, 859.3 139.7, 872 24
+                caixa_delimitadora:
+                  x: 853
+                  y: 372
+                  comprimento: 38
+                  largura: 696
+                marcadores:
+                - tipo: FIM_TOP
+                  x: 872
+                  y: 24
+                  angulo_graus_x100: -8375
+                  rotulo: A
+            cor: '#FFD600'
+          - id: linha_3
+            linha:
+              estilo: TRACEJADO
+              espessura: 3
+              compilado:
+                caminho_svg: M 853 720 C 847.0 707.0, 843.4 693.8, 835 681 C 825.0
+                  665.8, 813.5 647.4, 795 636 C 771.0 621.2, 730.6 621.3, 697 610
+                  C 659.8 597.5, 601.7 587.8, 582 563 C 566.6 543.6, 574.0 513.0,
+                  570 488
+                caixa_delimitadora:
+                  x: 712
+                  y: 604
+                  comprimento: 283
+                  largura: 232
+                marcadores: []
+            cor: '#FFD600'
+          - id: linha_21
+            linha:
+              estilo: TRACEJADO
+              espessura: 3
+              compilado:
+                caminho_svg: M 570 488 C 572.3 448.3, 572.7 413.1, 577 369 C 582.5
+                  313.2, 595.4 239.6, 603 180 C 609.8 126.6, 615.0 78.7, 621 28
+                caixa_delimitadora:
+                  x: 596
+                  y: 258
+                  comprimento: 51
+                  largura: 460
+                marcadores:
+                - tipo: FIM_TOP
+                  x: 621
+                  y: 28
+                  angulo_graus_x100: -8325
+                  rotulo: E
+            cor: '#FFD600'
+          - id: linha_18
+            label: ''
+            linha:
+              estilo: TRACEJADO
+              espessura: 3
+              compilado:
+                caminho_svg: M 477 714 C 496.7 692.3, 522.4 672.8, 536 649 C 548.5
+                  627.1, 552.4 603.3, 558 578 C 564.2 550.0, 566.0 518.0, 570 488
+                caixa_delimitadora:
+                  x: 524
+                  y: 601
+                  comprimento: 93
+                  largura: 226
+                marcadores:
+                - tipo: CIRCULO_IDENTIFICADOR
+                  x: 477
+                  y: 714
+                  angulo_graus_x100: -4777
+                  rotulo: '1'
+            cor: '#FFD600'
+          referencias:
+          - ids:
+            - linha_2
+            - linha_19
+            - linha_20
+            escalada: Olha a Jaca
+          - ids:
+            - linha_2
+            - linha_5
+            - linha_6
+            escalada: Olha o Rider
+          - ids:
+            - linha_1
+            - linha_9
+            - linha_10
+            - linha_6
+            escalada: Low Rider
+          - ids:
+            - linha_1
+            - linha_8
+            - linha_13
+            escalada: Easy Rider
+          - ids:
+            - linha_11
+            - linha_17
+            - linha_14
+            - linha_12
+            - linha_10
+            - linha_6
+            escalada: Big Rider
+          - ids:
+            - linha_11
+            - linha_17
+            - linha_14
+            - linha_7
+            - linha_13
+            escalada: Fugitivos
+          - ids:
+            - linha_11
+            - linha_17
+            - linha_15
+            - linha_16
+            escalada: Igarapedra
+          - ids:
+            - linha_11
+            - linha_4
+            - linha_16
+            escalada: Trombose
+          - ids:
+            - linha_2
+            - linha_19
+            - linha_3
+            - linha_21
+            escalada: Corrida do Ouro
+          - ids:
+            - linha_18
+            - linha_21
+            escalada: Audácia
+        - caminho_imagem_mapa: imagens/setor_bloco_fugitivos_ii_p1.webp
+          largura_mapa: 1773
+          altura_mapa: 2364
+        - caminho_imagem_mapa: imagens/setor_bloco_fugitivos_ii_p2.webp
+          largura_mapa: 1773
+          altura_mapa: 2364
+        descricao: ''
+        precomputados:
+          total_escaladas: 10
+          total_boulders: 10
   mapas_gerais:
     conteudo:
       mapas:
@@ -4954,6 +5442,9 @@ picos:
         - ids:
           - fug12
           setor: Bloco Fugitivos I
+        - ids:
+          - fug12
+          setor: Bloco Fugitivos II
       - caminho_imagem_mapa: imagens/mapas_gerais_p1.webp
         largura_mapa: 2048
         altura_mapa: 1157
@@ -5014,11 +5505,11 @@ picos:
     latitude: -201176660
     longitude: -443593480
   precomputados:
-    total_escaladas: 165
-    total_setores: 14
+    total_escaladas: 175
+    total_setores: 15
     total_grupos: 1
     total_esportivas: 95
-    total_boulders: 28
+    total_boulders: 38
     total_multiplas_enfiadas: 1
 botoes:
 - texto: Capa
@@ -5320,6 +5811,12 @@ arquivos_externos:
   checksum_sha256: 4182ec353e7d169bf4ea4bf1f245e97df7f3b359560ddf5d6d77ebd462259d88
 - caminho: imagens/setor_bloco_fugitivos_i_p4.webp
   checksum_sha256: 54a37eb42350ba07c9f3490356d5b77fe8b940b07a3fffc08332c8d730344d31
+- caminho: imagens/setor_bloco_fugitivos_ii_p0.webp
+  checksum_sha256: 77cc1dfdcaa11031b3bae33d41b033d9ab60a98c1bd248334e06b2b0debfb90b
+- caminho: imagens/setor_bloco_fugitivos_ii_p1.webp
+  checksum_sha256: 33ba92f155decab3882d3768ca9d9e0a161a5db5402f2d6e522326c8ed56f8ba
+- caminho: imagens/setor_bloco_fugitivos_ii_p2.webp
+  checksum_sha256: 9a165e9848c25a0f9c0595150de68226ce70344246a22d523d4d3438c1204276
 - caminho: imagens/setor_estacionamento_p0.webp
   checksum_sha256: c0b10e222fdaed24818c31db7a4f62e69cef20e19182efd1f390a605d7023292
 - caminho: imagens/setor_estacionamento_p1.webp
