@@ -47,6 +47,12 @@ escaladas:
 - boulder:
     nome: Tandrilax
     dificuldade: V7
+- boulder:
+    nome: Curandeiros
+    dificuldade: V5
+- boulder:
+    nome: Sem nome 20
+    dificuldade: V2
 mapas:
 - caminho_imagem_mapa: imagens/setor_bloco_fugitivos_ii_p0.webp
   largura_mapa: 3331
@@ -625,8 +631,106 @@ mapas:
   largura_mapa: 1773
   altura_mapa: 2364
   pontos_de_interesse:
-  - id: linha_22
+  - id: linha_24
+    linha:
+      estilo: TRACEJADO
+      conteudo:
+        nos:
+        - x: 1627
+          y: 1719
+          tipo: CIRCULO_IDENTIFICADOR
+          rotulo: '6'
+          raio: 24
+        - x: 1552
+          y: 1630
+          tipo: PASSAGEM
+          rotulo: ''
+      espessura: 5
+    cor: '#FFD600'
+  - id: linha_25
+    linha:
+      estilo: TRACEJADO
+      conteudo:
+        nos:
+        - x: 1552
+          y: 1630
+          tipo: PASSAGEM
+          rotulo: ''
+        - x: 1443
+          y: 1564
+          tipo: PASSAGEM
+          rotulo: ''
+        - x: 1317
+          y: 1457
+          tipo: PASSAGEM
+          rotulo: ''
+        - x: 1237
+          y: 1317
+          tipo: PASSAGEM
+          rotulo: ''
+        - x: 1107
+          y: 1242
+          tipo: PASSAGEM
+          rotulo: ''
+        - x: 928
+          y: 1135
+          tipo: PASSAGEM
+          rotulo: ''
+        - x: 835
+          y: 1098
+          tipo: PASSAGEM
+          rotulo: ''
+        - x: 782
+          y: 913
+          tipo: PASSAGEM
+          rotulo: ''
+        - x: 763
+          y: 807
+          tipo: PASSAGEM
+          rotulo: ''
+        - x: 793
+          y: 504
+          tipo: PASSAGEM
+          rotulo: ''
+        - x: 786
+          y: 453
+          tipo: FIM_TOP
+          rotulo: B
+          raio: 24
+      espessura: 5
+    cor: '#FFD600'
+  - id: linha_23
     label: ''
+    linha:
+      estilo: TRACEJADO
+      conteudo:
+        nos:
+        - x: 1552
+          y: 1630
+          tipo: PASSAGEM
+          rotulo: '7'
+        - x: 1484
+          y: 1468
+          tipo: PASSAGEM
+        - x: 1384
+          y: 1326
+          tipo: PASSAGEM
+        - x: 1349
+          y: 1154
+          tipo: PASSAGEM
+        - x: 1256
+          y: 952
+          tipo: PASSAGEM
+        - x: 1158
+          y: 749
+          tipo: PASSAGEM
+        - x: 1120
+          y: 624
+          tipo: PASSAGEM
+          rotulo: C
+      espessura: 5
+    cor: '#FFD600'
+  - id: linha_26
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -639,39 +743,74 @@ mapas:
         - x: 1205
           y: 1835
           tipo: PASSAGEM
+          rotulo: ''
         - x: 1203
           y: 1677
           tipo: PASSAGEM
+          rotulo: ''
         - x: 1182
           y: 1486
           tipo: PASSAGEM
+          rotulo: ''
         - x: 1109
           y: 1394
           tipo: PASSAGEM
+          rotulo: ''
         - x: 1016
           y: 1257
           tipo: PASSAGEM
+          rotulo: ''
         - x: 984
           y: 1139
           tipo: PASSAGEM
+          rotulo: ''
         - x: 1014
           y: 993
           tipo: PASSAGEM
+          rotulo: ''
         - x: 1061
           y: 832
           tipo: PASSAGEM
-        - x: 1076
-          y: 646
+          rotulo: ''
+        - x: 1108
+          y: 665
           tipo: PASSAGEM
-        - x: 1132
-          y: 554
+          rotulo: ''
+        - x: 1120
+          y: 624
           tipo: PASSAGEM
           rotulo: ''
       espessura: 5
     cor: '#FFD600'
+  - id: linha_27
+    linha:
+      estilo: TRACEJADO
+      conteudo:
+        nos:
+        - x: 1120
+          y: 624
+          tipo: PASSAGEM
+          rotulo: ''
+        - x: 1132
+          y: 554
+          tipo: FIM_TOP
+          rotulo: A
+          raio: 24
+      espessura: 5
+    cor: '#FFD600'
   referencias:
   - ids:
-    - linha_22
+    - linha_26
+    - linha_27
     escalada: Tandrilax
+  - ids:
+    - linha_24
+    - linha_25
+    escalada: Curandeiros
+  - ids:
+    - linha_23
+    - linha_24
+    - linha_27
+    escalada: Sem nome 20
 ---
 Veja a trilha para chegar ao setor no Wikiloc: https://loc.wiki/t/169742661?wa=sc

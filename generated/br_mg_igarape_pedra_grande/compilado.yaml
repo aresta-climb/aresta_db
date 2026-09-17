@@ -945,13 +945,467 @@ picos:
               total_boulders: 5
         - conteudo:
             nome: Estacionamento - Bloco Dengoso
+            mapas:
+            - caminho_imagem_mapa: imagens/grupo_estacionamento_bloco_dengoso_p0.webp
+              largura_mapa: 2364
+              altura_mapa: 1773
+              pontos_de_interesse:
+              - id: linha_2
+                linha:
+                  estilo: TRACEJADO
+                  espessura: 5
+                  compilado:
+                    caminho_svg: M 1099 1196 C 1119.3 1173.0, 1139.7 1150.0, 1160
+                      1127
+                    caixa_delimitadora:
+                      x: 1130
+                      y: 1162
+                      comprimento: 61
+                      largura: 69
+                    marcadores:
+                    - tipo: CIRCULO_IDENTIFICADOR
+                      x: 1099
+                      y: 1196
+                      angulo_graus_x100: -4852
+                      rotulo: '2'
+                      raio: 24
+                cor: '#FFD600'
+              - id: linha_1
+                label: ''
+                linha:
+                  estilo: TRACEJADO
+                  espessura: 5
+                  compilado:
+                    caminho_svg: M 1160 1127 C 1176.7 1116.7, 1191.6 1105.0, 1210
+                      1096 C 1230.3 1086.1, 1253.2 1080.6, 1277 1071 C 1304.9 1059.7,
+                      1339.9 1052.5, 1367 1032 C 1398.2 1008.3, 1433.1 972.9, 1449
+                      931 C 1468.0 881.0, 1457.4 805.3, 1457 746 C 1456.6 691.0, 1453.0
+                      638.9, 1448 587 C 1443.2 536.9, 1438.6 487.0, 1428 440 C 1417.9
+                      395.1, 1400.7 354.0, 1387 311
+                    caixa_delimitadora:
+                      x: 1308
+                      y: 719
+                      comprimento: 297
+                      largura: 816
+                    marcadores:
+                    - tipo: FIM_TOP
+                      x: 1387
+                      y: 311
+                      angulo_graus_x100: -10763
+                      rotulo: B
+                      raio: 24
+                cor: '#FFD600'
+              - id: linha_5
+                linha:
+                  estilo: TRACEJADO
+                  espessura: 5
+                  compilado:
+                    caminho_svg: M 1160 1127 C 1168.3 1108.3, 1184.9 1089.4, 1185
+                      1071 C 1185.1 1053.1, 1174.6 1034.9, 1162 1018 C 1145.8 996.4,
+                      1117.3 978.9, 1089 957 C 1052.3 928.6, 1000.5 892.9, 959 864
+                      C 921.5 837.9, 887.7 812.0, 851 791 C 816.0 771.0, 778.7 752.2,
+                      744 740 C 713.6 729.3, 681.5 727.2, 655 719 C 632.8 712.2, 610.0
+                      707.0, 595 696 C 582.6 686.9, 577.0 673.3, 568 662
+                    caixa_delimitadora:
+                      x: 876
+                      y: 894
+                      comprimento: 617
+                      largura: 465
+                    marcadores: []
+                cor: '#FFD600'
+              - id: linha_9
+                linha:
+                  estilo: TRACEJADO
+                  espessura: 5
+                  compilado:
+                    caminho_svg: M 568 662 C 554.3 616.3, 532.7 572.4, 527 525 C 521.1
+                      475.9, 532.3 423.0, 535 372
+                    caixa_delimitadora:
+                      x: 548
+                      y: 517
+                      comprimento: 41
+                      largura: 290
+                    marcadores:
+                    - tipo: FIM_TOP
+                      x: 535
+                      y: 372
+                      angulo_graus_x100: -8701
+                      rotulo: A
+                      raio: 24
+                cor: '#FFD600'
+              - id: linha_3
+                label: ''
+                linha:
+                  estilo: TRACEJADO
+                  espessura: 5
+                  compilado:
+                    caminho_svg: M 626 915 C 622.7 875.3, 622.3 828.5, 616 796 C 611.5
+                      772.6, 605.3 757.7, 598 737 C 589.7 713.3, 578.0 687.0, 568
+                      662
+                    caixa_delimitadora:
+                      x: 597
+                      y: 788
+                      comprimento: 58
+                      largura: 253
+                    marcadores:
+                    - tipo: CIRCULO_IDENTIFICADOR
+                      x: 626
+                      y: 915
+                      angulo_graus_x100: -9480
+                      rotulo: '1'
+                      raio: 24
+                cor: '#FFD600'
+              referencias:
+              - ids:
+                - linha_2
+                - linha_5
+                - linha_9
+                escalada: Dengoso
+              - ids:
+                - linha_2
+                - linha_1
+                escalada: Fênix
+              - ids:
+                - linha_3
+                - linha_9
+                escalada: V5 do Bull
+            - caminho_imagem_mapa: imagens/grupo_estacionamento_bloco_dengoso_p1.webp
+              largura_mapa: 2364
+              altura_mapa: 1773
+              pontos_de_interesse:
+              - id: linha_6
+                linha:
+                  estilo: TRACEJADO
+                  espessura: 5
+                  compilado:
+                    caminho_svg: M 598 1047 C 606.7 981.0, 628.2 913.7, 624 849 C
+                      619.9 785.1, 590.7 723.7, 574 661
+                    caixa_delimitadora:
+                      x: 599
+                      y: 854
+                      comprimento: 50
+                      largura: 386
+                    marcadores:
+                    - tipo: CIRCULO_IDENTIFICADOR
+                      x: 598
+                      y: 1047
+                      angulo_graus_x100: -8252
+                      rotulo: '1'
+                      raio: 24
+                cor: '#FFD600'
+              - id: linha_7
+                linha:
+                  estilo: TRACEJADO
+                  espessura: 5
+                  compilado:
+                    caminho_svg: M 574 661 C 566.0 643.7, 561.9 631.0, 550 609 C 527.2
+                      566.8, 469.5 486.2, 439 431 C 413.9 385.5, 377.3 345.4, 377
+                      303 C 376.7 261.4, 415.7 220.3, 435 179
+                    caixa_delimitadora:
+                      x: 476
+                      y: 420
+                      comprimento: 197
+                      largura: 482
+                    marcadores:
+                    - tipo: FIM_TOP
+                      x: 435
+                      y: 179
+                      angulo_graus_x100: -6493
+                      rotulo: A
+                      raio: 24
+                cor: '#FFD600'
+              - id: linha_4
+                linha:
+                  estilo: TRACEJADO
+                  espessura: 5
+                  compilado:
+                    caminho_svg: M 1228 1493 C 1267.3 1465.7, 1314.5 1432.5, 1346
+                      1411 C 1366.8 1396.8, 1380.7 1387.7, 1398 1376
+                    caixa_delimitadora:
+                      x: 1313
+                      y: 1434
+                      comprimento: 170
+                      largura: 117
+                    marcadores:
+                    - tipo: CIRCULO_IDENTIFICADOR
+                      x: 1228
+                      y: 1493
+                      angulo_graus_x100: -3480
+                      rotulo: '2'
+                      raio: 24
+                cor: '#FFD600'
+              - id: linha_8
+                linha:
+                  estilo: TRACEJADO
+                  espessura: 5
+                  compilado:
+                    caminho_svg: M 1398 1376 C 1418.3 1355.3, 1443.9 1336.2, 1459
+                      1314 C 1472.5 1294.2, 1485.5 1272.8, 1487 1251 C 1488.6 1228.6,
+                      1481.7 1202.4, 1467 1181 C 1448.0 1153.4, 1405.6 1134.8, 1370
+                      1108 C 1326.5 1075.3, 1269.6 1027.6, 1225 999 C 1190.0 976.6,
+                      1159.1 969.5, 1127 946 C 1089.2 918.4, 1065.4 867.3, 1016 839
+                      C 950.3 801.3, 822.7 791.0, 753 765 C 704.7 747.0, 666.0 729.0,
+                      634 709 C 609.5 693.8, 594.0 677.0, 574 661
+                    caixa_delimitadora:
+                      x: 1030
+                      y: 1018
+                      comprimento: 913
+                      largura: 715
+                    marcadores: []
+                cor: '#FFD600'
+              - id: linha_10
+                label: ''
+                linha:
+                  estilo: TRACEJADO
+                  espessura: 5
+                  compilado:
+                    caminho_svg: M 1398 1376 C 1431.3 1368.3, 1465.3 1360.8, 1498
+                      1353 C 1529.6 1345.5, 1563.6 1339.4, 1591 1330 C 1613.9 1322.2,
+                      1631.3 1311.7, 1652 1303 C 1673.2 1294.1, 1696.2 1290.0, 1717
+                      1277 C 1740.8 1262.1, 1765.7 1236.5, 1785 1215 C 1802.4 1195.7,
+                      1814.9 1177.6, 1829 1155 C 1845.5 1128.6, 1860.2 1095.7, 1876
+                      1065 C 1892.5 1033.1, 1916.2 1006.2, 1926 967 C 1938.7 916.0,
+                      1930.1 834.0, 1929 781 C 1928.2 741.3, 1931.5 716.4, 1923 677
+                      C 1910.9 620.7, 1876.1 530.9, 1847 479 C 1825.4 440.6, 1799.7
+                      417.7, 1776 387
+                    caixa_delimitadora:
+                      x: 1664
+                      y: 882
+                      comprimento: 531
+                      largura: 989
+                    marcadores:
+                    - tipo: FIM_TOP
+                      x: 1776
+                      y: 387
+                      angulo_graus_x100: -12766
+                      rotulo: B
+                      raio: 24
+                cor: '#FFD600'
+              referencias:
+              - ids:
+                - linha_6
+                - linha_7
+                escalada: V5 do Bull
+              - ids:
+                - linha_4
+                - linha_8
+                - linha_7
+                escalada: Dengoso
+              - ids:
+                - linha_4
+                - linha_10
+                escalada: Fênix
+            - caminho_imagem_mapa: imagens/grupo_estacionamento_bloco_dengoso_p2.webp
+              largura_mapa: 2364
+              altura_mapa: 1773
+              pontos_de_interesse:
+              - id: linha_11
+                label: ''
+                linha:
+                  estilo: TRACEJADO
+                  espessura: 5
+                  compilado:
+                    caminho_svg: M 1792 1370 C 1780.3 1290.0, 1774.0 1203.8, 1757
+                      1130 C 1741.9 1064.5, 1718.0 1011.7, 1699 948 C 1678.2 878.3,
+                      1658.8 798.3, 1638 728 C 1618.7 662.7, 1591.2 598.4, 1579 540
+                      C 1568.7 491.0, 1577.7 449.3, 1564 402 C 1548.0 346.5, 1498.6
+                      278.5, 1480 230 C 1467.2 196.5, 1463.3 171.3, 1455 142
+                    caixa_delimitadora:
+                      x: 1624
+                      y: 756
+                      comprimento: 337
+                      largura: 1228
+                    marcadores:
+                    - tipo: CIRCULO_IDENTIFICADOR
+                      x: 1792
+                      y: 1370
+                      angulo_graus_x100: -9830
+                      rotulo: '6'
+                      raio: 24
+                    - tipo: FIM_TOP
+                      x: 1455
+                      y: 142
+                      angulo_graus_x100: -10586
+                      rotulo: G
+                      raio: 24
+                cor: '#FFD600'
+              - id: linha_12
+                label: ''
+                linha:
+                  estilo: TRACEJADO
+                  espessura: 5
+                  compilado:
+                    caminho_svg: M 1495 1497 C 1477.3 1427.7, 1460.0 1359.6, 1442
+                      1289 C 1423.3 1215.7, 1409.1 1132.0, 1385 1065 C 1364.1 1006.9,
+                      1330.0 969.5, 1311 908 C 1286.6 829.1, 1275.2 706.1, 1266 626
+                      C 1259.2 567.1, 1267.7 524.6, 1255 472 C 1240.5 412.0, 1197.1
+                      340.7, 1176 287 C 1160.0 246.4, 1150.0 215.0, 1137 179
+                    caixa_delimitadora:
+                      x: 1316
+                      y: 838
+                      comprimento: 358
+                      largura: 1318
+                    marcadores:
+                    - tipo: CIRCULO_IDENTIFICADOR
+                      x: 1495
+                      y: 1497
+                      angulo_graus_x100: -10430
+                      rotulo: '5'
+                      raio: 24
+                    - tipo: FIM_TOP
+                      x: 1137
+                      y: 179
+                      angulo_graus_x100: -10986
+                      rotulo: F
+                      raio: 24
+                cor: '#FFD600'
+              - id: linha_13
+                label: ''
+                linha:
+                  estilo: TRACEJADO
+                  espessura: 5
+                  compilado:
+                    caminho_svg: M 1043 1424 C 1030.7 1381.0, 1022.5 1339.9, 1006
+                      1295 C 986.9 1243.2, 953.6 1185.7, 932 1132 C 911.6 1081.4,
+                      897.2 1039.4, 879 982 C 855.0 906.5, 822.1 788.1, 804 717 C
+                      791.9 669.7, 787.7 640.5, 777 598 C 764.6 548.5, 746.1 496.7,
+                      733 438 C 717.4 367.7, 706.3 282.0, 693 204
+                    caixa_delimitadora:
+                      x: 868
+                      y: 814
+                      comprimento: 350
+                      largura: 1220
+                    marcadores:
+                    - tipo: CIRCULO_IDENTIFICADOR
+                      x: 1043
+                      y: 1424
+                      angulo_graus_x100: -10600
+                      rotulo: '4'
+                      raio: 24
+                    - tipo: FIM_TOP
+                      x: 693
+                      y: 204
+                      angulo_graus_x100: -9970
+                      rotulo: E
+                      raio: 24
+                cor: '#FFD600'
+              - id: linha_14
+                label: ''
+                linha:
+                  estilo: TRACEJADO
+                  espessura: 5
+                  compilado:
+                    caminho_svg: M 599 1230 C 584.0 1200.0, 565.2 1172.5, 554 1140
+                      C 542.0 1105.2, 536.2 1068.3, 531 1027 C 524.8 978.1, 527.2
+                      914.8, 523 865 C 519.4 822.2, 512.8 782.4, 509 746 C 505.8 715.3,
+                      505.6 692.2, 501 661 C 495.3 622.1, 480.8 575.5, 475 531 C 469.0
+                      484.9, 470.4 427.1, 466 389 C 463.0 363.1, 458.7 345.7, 455
+                      324
+                    caixa_delimitadora:
+                      x: 527
+                      y: 777
+                      comprimento: 144
+                      largura: 906
+                    marcadores:
+                    - tipo: CIRCULO_IDENTIFICADOR
+                      x: 599
+                      y: 1230
+                      angulo_graus_x100: -11657
+                      rotulo: '3'
+                      raio: 24
+                    - tipo: FIM_TOP
+                      x: 455
+                      y: 324
+                      angulo_graus_x100: -9961
+                      rotulo: D
+                      raio: 24
+                cor: '#FFD600'
+              - id: linha_15
+                label: ''
+                linha:
+                  estilo: TRACEJADO
+                  espessura: 5
+                  compilado:
+                    caminho_svg: M 1964 1119 C 1938.7 1089.3, 1919.9 1045.9, 1888
+                      1030 C 1856.4 1014.3, 1815.3 1022.9, 1774 1023 C 1724.9 1023.2,
+                      1656.4 1047.8, 1613 1034 C 1576.8 1022.5, 1556.0 980.5, 1526
+                      963 C 1499.4 947.5, 1479.5 941.0, 1444 931 C 1383.1 913.8, 1259.2
+                      899.3, 1189 885 C 1139.2 874.8, 1108.4 873.2, 1062 856 C 999.2
+                      832.8, 917.5 773.1, 851 745 C 795.3 721.4, 751.4 706.8, 692
+                      693 C 619.6 676.1, 514.1 683.9, 446 658 C 390.0 636.7, 337.3
+                      598.7, 306 565 C 283.1 540.4, 275.2 512.1, 262 487 C 250.1 464.3,
+                      240.7 443.0, 230 421
+                    caixa_delimitadora:
+                      x: 1097
+                      y: 770
+                      comprimento: 1734
+                      largura: 698
+                    marcadores:
+                    - tipo: CIRCULO_IDENTIFICADOR
+                      x: 1964
+                      y: 1119
+                      angulo_graus_x100: -13050
+                      rotulo: '7'
+                      raio: 24
+                    - tipo: FIM_TOP
+                      x: 230
+                      y: 421
+                      angulo_graus_x100: -11587
+                      rotulo: C
+                      raio: 24
+                cor: '#FFD600'
+              referencias:
+              - ids:
+                - linha_11
+                escalada: Só o pó
+              - ids:
+                - linha_12
+                escalada: Só poeira
+              - ids:
+                - linha_13
+                escalada: Poeirando
+              - ids:
+                - linha_14
+                escalada: Barla Pé
+              - ids:
+                - linha_15
+                grupo: Setor Estacionamento
+                setor: Estacionamento - Bloco Dengoso
+                escalada: Saara
+            escaladas:
+            - boulder:
+                nome: Dengoso
+                dificuldade: V7
+            - boulder:
+                nome: Fênix
+                dificuldade: V5
+            - boulder:
+                nome: V5 do Bull
+                dificuldade: V5
+            - boulder:
+                nome: Só o pó
+                dificuldade: V1
+            - boulder:
+                nome: Só poeira
+                dificuldade: V1
+            - boulder:
+                nome: Poeirando
+                dificuldade: V1
+            - boulder:
+                nome: Barla Pé
+                dificuldade: V2
+            - boulder:
+                nome: Saara
+                dificuldade: V4
             descricao: ''
-            precomputados: {}
+            precomputados:
+              total_escaladas: 8
+              total_boulders: 8
         descricao: ''
         precomputados:
-          total_escaladas: 28
+          total_escaladas: 36
           total_esportivas: 19
-          total_boulders: 9
+          total_boulders: 17
   - setor:
       conteudo:
         nome: Setor Família I
@@ -5200,6 +5654,12 @@ picos:
         - boulder:
             nome: Tandrilax
             dificuldade: V7
+        - boulder:
+            nome: Curandeiros
+            dificuldade: V5
+        - boulder:
+            nome: Sem nome 20
+            dificuldade: V2
         mapas:
         - caminho_imagem_mapa: imagens/setor_bloco_fugitivos_ii_p0.webp
           largura_mapa: 2796
@@ -5646,8 +6106,69 @@ picos:
           largura_mapa: 1773
           altura_mapa: 2364
           pontos_de_interesse:
-          - id: linha_22
+          - id: linha_24
+            linha:
+              estilo: TRACEJADO
+              espessura: 5
+              compilado:
+                caminho_svg: M 1627 1719 C 1602.0 1689.3, 1577.0 1659.7, 1552 1630
+                caixa_delimitadora:
+                  x: 1590
+                  y: 1674
+                  comprimento: 75
+                  largura: 89
+                marcadores:
+                - tipo: CIRCULO_IDENTIFICADOR
+                  x: 1627
+                  y: 1719
+                  angulo_graus_x100: -13012
+                  rotulo: '6'
+                  raio: 24
+            cor: '#FFD600'
+          - id: linha_25
+            linha:
+              estilo: TRACEJADO
+              espessura: 5
+              compilado:
+                caminho_svg: M 1552 1630 C 1515.7 1608.0, 1479.6 1590.4, 1443 1564
+                  C 1401.3 1534.0, 1351.5 1498.5, 1317 1457 C 1283.0 1416.0, 1273.0
+                  1353.1, 1237 1317 C 1202.3 1282.2, 1153.7 1269.4, 1107 1242 C 1052.0
+                  1209.7, 978.9 1160.1, 928 1135 C 892.8 1117.6, 858.3 1123.8, 835
+                  1098 C 802.6 1062.2, 794.4 966.4, 782 913 C 772.7 873.0, 764.8 851.6,
+                  763 807 C 760.1 732.1, 794.1 562.7, 793 504 C 792.5 479.9, 788.3
+                  470.0, 786 453
+                caixa_delimitadora:
+                  x: 1158
+                  y: 1042
+                  comprimento: 789
+                  largura: 1177
+                marcadores:
+                - tipo: FIM_TOP
+                  x: 786
+                  y: 453
+                  angulo_graus_x100: -9782
+                  rotulo: B
+                  raio: 24
+            cor: '#FFD600'
+          - id: linha_23
             label: ''
+            linha:
+              estilo: TRACEJADO
+              espessura: 5
+              compilado:
+                caminho_svg: M 1552 1630 C 1529.3 1576.0, 1512.1 1518.8, 1484 1468
+                  C 1456.0 1417.5, 1406.5 1378.2, 1384 1326 C 1361.4 1273.6, 1368.1
+                  1212.5, 1349 1154 C 1327.5 1088.1, 1287.7 1019.3, 1256 952 C 1224.1
+                  884.3, 1181.6 809.3, 1158 749 C 1140.1 703.1, 1132.7 665.7, 1120
+                  624
+                caixa_delimitadora:
+                  x: 1336
+                  y: 1127
+                  comprimento: 432
+                  largura: 1006
+                marcadores: []
+            cor: '#FFD600'
+          - id: linha_26
             linha:
               estilo: TRACEJADO
               espessura: 5
@@ -5656,14 +6177,14 @@ picos:
                   C 1205.0 1783.9, 1206.4 1732.1, 1203 1677 C 1199.3 1616.3, 1202.5
                   1535.9, 1182 1486 C 1165.9 1446.9, 1134.1 1428.2, 1109 1394 C 1079.1
                   1353.4, 1037.0 1302.7, 1016 1257 C 998.0 1217.7, 985.3 1180.6, 984
-                  1139 C 982.6 1093.1, 1001.7 1042.6, 1014 993 C 1027.1 940.4, 1050.7
-                  888.2, 1061 832 C 1071.9 772.8, 1059.9 695.7, 1076 646 C 1088.2
-                  608.2, 1113.3 584.7, 1132 554
+                  1139 C 982.6 1093.1, 1001.7 1042.6, 1014 993 C 1027.1 940.4, 1045.5
+                  886.2, 1061 832 C 1076.8 776.9, 1097.4 701.9, 1108 665 C 1113.3
+                  646.7, 1116.0 637.7, 1120 624
                 caixa_delimitadora:
                   x: 1094
-                  y: 1264
+                  y: 1300
                   comprimento: 221
-                  largura: 1421
+                  largura: 1351
                 marcadores:
                 - tipo: CIRCULO_IDENTIFICADOR
                   x: 1203
@@ -5672,14 +6193,43 @@ picos:
                   rotulo: '5'
                   raio: 24
             cor: '#FFD600'
+          - id: linha_27
+            linha:
+              estilo: TRACEJADO
+              espessura: 5
+              compilado:
+                caminho_svg: M 1120 624 C 1124.0 600.7, 1128.0 577.3, 1132 554
+                caixa_delimitadora:
+                  x: 1126
+                  y: 589
+                  comprimento: 12
+                  largura: 70
+                marcadores:
+                - tipo: FIM_TOP
+                  x: 1132
+                  y: 554
+                  angulo_graus_x100: -8027
+                  rotulo: A
+                  raio: 24
+            cor: '#FFD600'
           referencias:
           - ids:
-            - linha_22
+            - linha_26
+            - linha_27
             escalada: Tandrilax
+          - ids:
+            - linha_24
+            - linha_25
+            escalada: Curandeiros
+          - ids:
+            - linha_23
+            - linha_24
+            - linha_27
+            escalada: Sem nome 20
         descricao: 'Veja a trilha para chegar ao setor no Wikiloc: https://loc.wiki/t/169742661?wa=sc'
         precomputados:
-          total_escaladas: 11
-          total_boulders: 11
+          total_escaladas: 13
+          total_boulders: 13
   mapas_gerais:
     conteudo:
       mapas:
@@ -5905,11 +6455,11 @@ picos:
     latitude: -201176660
     longitude: -443593480
   precomputados:
-    total_escaladas: 185
+    total_escaladas: 195
     total_setores: 18
     total_grupos: 2
     total_esportivas: 95
-    total_boulders: 48
+    total_boulders: 58
     total_multiplas_enfiadas: 1
 botoes:
 - texto: Capa
@@ -6199,6 +6749,12 @@ revisado_bounding_circle: true
 arquivos_externos:
 - caminho: imagens/capa_p0.webp
   checksum_sha256: b4887c391eaf1911eaf809e7132944c4f46760657ebe56af30f2890698fbe289
+- caminho: imagens/grupo_estacionamento_bloco_dengoso_p0.webp
+  checksum_sha256: 47a46351235b0b2d4359b979af15cda193a1488e6b24cb62b2c9d2aa8e28026d
+- caminho: imagens/grupo_estacionamento_bloco_dengoso_p1.webp
+  checksum_sha256: 8be773a31d18ecb61fb9955800d7e675f894082bf9e52d1b882ac5e4feb8fe99
+- caminho: imagens/grupo_estacionamento_bloco_dengoso_p2.webp
+  checksum_sha256: 54c520d7b0dbd100fbdfb0c41e64eab7d3d1939b7ff3448d4fb1673ec05d0dbc
 - caminho: imagens/grupo_estacionamento_bloco_pega_negativo_p0.webp
   checksum_sha256: 09539e80afd0a6694cb9c95e640266c6c36ff871b6e6b94bf252982e834adc44
 - caminho: imagens/grupo_estacionamento_bloco_solaris_p0.webp
