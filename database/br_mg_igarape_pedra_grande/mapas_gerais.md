@@ -127,7 +127,7 @@ mapas:
       largura: 101
     cor: ''
   referencias:
-  - setor: Setor Estacionamento
+  - grupo: Grupo Estacionamento
     ids:
     - Estacionamento
   - setor: Setor Família I

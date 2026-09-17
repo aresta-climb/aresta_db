@@ -12,582 +12,942 @@ picos:
 - nome: Complexo Pedra Grande
   estado: MG
   setores_ou_grupos:
-  - setor:
+  - grupo:
       conteudo:
         nome: Setor Estacionamento
-        mapas:
-        - caminho_imagem_mapa: imagens/setor_estacionamento_p0.webp
-          largura_mapa: 1995
-          altura_mapa: 1222
-          pontos_de_interesse:
-          - id: '01'
-            label: '01'
-            circulo:
-              x: 533
-              y: 527
-              raio: 17
-          - id: '02'
-            label: '02'
-            circulo:
-              x: 590
-              y: 561
-              raio: 17
-          - id: '03'
-            label: '03'
-            circulo:
-              x: 617
-              y: 601
-              raio: 17
-          - id: '04'
-            label: '04'
-            circulo:
-              x: 651
-              y: 623
-              raio: 17
-          - id: '05'
-            label: '05'
-            circulo:
-              x: 778
-              y: 706
-              raio: 17
-          - id: '08'
-            label: '08'
-            circulo:
-              x: 905
-              y: 377
-              raio: 18
-          - id: '06'
-            label: '06'
-            circulo:
-              x: 913
-              y: 774
-              raio: 18
-          - id: '07'
-            label: '07'
-            circulo:
-              x: 980
-              y: 809
-              raio: 17
-          - id: '09'
-            label: '09'
-            circulo:
-              x: 1043
-              y: 849
-              raio: 17
-          - id: '10'
-            label: '10'
-            circulo:
-              x: 1111
-              y: 888
-              raio: 17
-          - id: '11'
-            label: '11'
-            circulo:
-              x: 1195
-              y: 918
-              raio: 17
-          - id: '12'
-            label: '12'
-            circulo:
-              x: 1349
-              y: 1037
-              raio: 17
-          - id: '13'
-            label: '13'
-            circulo:
-              x: 1684
-              y: 1071
-              raio: 17
-          - id: '14'
-            label: '14'
-            circulo:
-              x: 1729
-              y: 1024
-              raio: 17
-          - id: '15'
-            label: '15'
-            circulo:
-              x: 1765
-              y: 963
-              raio: 17
-          - id: '16'
-            label: '16'
-            circulo:
-              x: 1804
-              y: 923
-              raio: 17
-          - id: '18'
-            label: '18'
-            circulo:
-              x: 1840
-              y: 476
-              raio: 17
-          - id: '19'
-            label: '19'
-            circulo:
-              x: 1877
-              y: 367
-              raio: 17
-          - id: '17'
-            label: '17'
-            circulo:
-              x: 1901
-              y: 519
-              raio: 17
-          referencias:
-          - escalada: Bacon com Linguiça
-            ids:
-            - '01'
-          - escalada: Quatchú
-            ids:
-            - '02'
-          - escalada: Xoquito
-            ids:
-            - '03'
-          - escalada: Slow Motion
-            ids:
-            - '04'
-          - escalada: Berbaridade Máxima
-            ids:
-            - '05'
-          - escalada: Cirque du Soleil
-            ids:
-            - '06'
-          - escalada: Route Setter
-            ids:
-            - '07'
-          - escalada: Fúria de Titãs
-            ids:
-            - '10'
-          - escalada: Prima Donna
-            ids:
-            - '11'
-          - escalada: Dama de Ferro
-            ids:
-            - '12'
-          - escalada: Primeira de Todas
-            ids:
-            - '13'
-          - escalada: Brinco de Odalisca
-            ids:
-            - '14'
-          - escalada: 10%
-            ids:
-            - '15'
-          - escalada: Quebra Tudo
-            ids:
-            - '16'
-          - escalada: Acorrentado
-            ids:
-            - '17'
-          - escalada: Fidefenda
-            ids:
-            - '18'
-          - escalada: Cochyna Blue
-            ids:
-            - '19'
-          - ids:
-            - '08'
-            setor: Setor Estacionamento
-            escalada: Teto Preto
-          - ids:
-            - '09'
-            setor: Setor Estacionamento
-            escalada: 101 Dalmatas
-        - caminho_imagem_mapa: imagens/setor_estacionamento_p1.webp
-          largura_mapa: 1067
-          altura_mapa: 1440
-          pontos_de_interesse:
-          - id: '17'
-            label: '17'
-            circulo:
-              x: 346
-              y: 189
-              raio: 17
-          - id: '16'
-            label: '16'
-            circulo:
-              x: 406
-              y: 185
-              raio: 18
-          - id: '15'
-            label: '15'
-            circulo:
-              x: 475
-              y: 216
-              raio: 18
-          - id: '19'
-            label: '19'
-            circulo:
-              x: 269
-              y: 235
-              raio: 17
-          - id: '18'
-            label: '18'
-            circulo:
-              x: 314
-              y: 233
-              raio: 17
-          - id: '14'
-            label: '14'
-            circulo:
-              x: 516
-              y: 240
-              raio: 17
-          - id: '13'
-            label: '13'
-            circulo:
-              x: 560
-              y: 236
-              raio: 18
-          - id: '12'
-            label: '12'
-            circulo:
-              x: 644
-              y: 429
-              raio: 17
-          - id: '11'
-            label: '11'
-            circulo:
-              x: 636
-              y: 505
-              raio: 17
-          - id: '10'
-            label: '10'
-            circulo:
-              x: 625
-              y: 558
-              raio: 17
-          - id: '09'
-            label: '09'
-            circulo:
-              x: 614
-              y: 610
-              raio: 17
-          - id: '08'
-            label: '08'
-            circulo:
-              x: 606
-              y: 671
-              raio: 17
-          - id: '07'
-            label: '07'
-            circulo:
-              x: 606
-              y: 707
-              raio: 17
-          - id: '06'
-            label: '06'
-            circulo:
-              x: 604
-              y: 768
-              raio: 17
-          - id: '05'
-            label: '05'
-            circulo:
-              x: 595
-              y: 868
-              raio: 17
-          - id: '04'
-            label: '04'
-            circulo:
-              x: 584
-              y: 915
-              raio: 17
-          - id: '03'
-            label: '03'
-            circulo:
-              x: 569
-              y: 961
-              raio: 17
-          - id: '02'
-            label: '02'
-            circulo:
-              x: 553
-              y: 1024
-              raio: 17
-          - id: '01'
-            label: '01'
-            circulo:
-              x: 541
-              y: 1077
-              raio: 17
-          referencias:
-          - escalada: Bacon com Linguiça
-            ids:
-            - '01'
-          - escalada: Quatchú
-            ids:
-            - '02'
-          - escalada: Xoquito
-            ids:
-            - '03'
-          - escalada: Slow Motion
-            ids:
-            - '04'
-          - escalada: Berbaridade Máxima
-            ids:
-            - '05'
-          - escalada: Cirque du Soleil
-            ids:
-            - '06'
-          - escalada: Route Setter
-            ids:
-            - '07'
-          - escalada: Fúria de Titãs
-            ids:
-            - '10'
-          - escalada: Prima Donna
-            ids:
-            - '11'
-          - escalada: Dama de Ferro
-            ids:
-            - '12'
-          - escalada: Primeira de Todas
-            ids:
-            - '13'
-          - escalada: Brinco de Odalisca
-            ids:
-            - '14'
-          - escalada: 10%
-            ids:
-            - '15'
-          - escalada: Quebra Tudo
-            ids:
-            - '16'
-          - escalada: Acorrentado
-            ids:
-            - '17'
-          - escalada: Fidefenda
-            ids:
-            - '18'
-          - escalada: Cochyna Blue
-            ids:
-            - '19'
-          - ids:
-            - '08'
-            setor: Setor Estacionamento
-            escalada: Teto Preto
-          - ids:
-            - '09'
-            setor: Setor Estacionamento
-            escalada: 101 Dalmatas
-        escaladas:
-        - via_esportiva:
-            nome: Bacon com Linguiça
-            dificuldade: BR_6SUP
-            quantidade_protecoes_intermediarias: 2
-            quantidade_protecoes_parada: 2
-            extensao: 8
-            conquistadores:
-            - Berbari
-            - Chinha
-            - Pauleti
-            data_abertura: '2006'
-        - via_esportiva:
-            nome: Quatchú
-            dificuldade: BR_8A
-            quantidade_protecoes_intermediarias: 2
-            quantidade_protecoes_parada: 2
-            extensao: 9
-            conquistadores:
-            - Berbari
-            - Ró
-            - Chinha
-            data_abertura: '2006'
-        - via_esportiva:
-            nome: Xoquito
-            dificuldade: BR_8B
-            quantidade_protecoes_intermediarias: 3
-            quantidade_protecoes_parada: 2
-            extensao: 10
-            conquistadores:
-            - Berbari
-            - Chinha
-            - Ró
-            data_abertura: '2006'
-        - via_esportiva:
-            nome: Slow Motion
-            dificuldade: BR_8B
-            quantidade_protecoes_intermediarias: 5
-            quantidade_protecoes_parada: 2
-            extensao: 12
-            conquistadores:
-            - Berbari
-            - Chinha
-            - Ró
-            - Toninho
-            data_abertura: '2023'
-        - via_esportiva:
-            nome: Berbaridade Máxima
-            dificuldade: BR_8C
-            quantidade_protecoes_intermediarias: 8
-            quantidade_protecoes_parada: 2
-            extensao: 14
-            conquistadores:
-            - Berbari
-            - Toninho
-            - Chinha
-            data_abertura: '2023'
-        - via_esportiva:
-            nome: Cirque du Soleil
-            dificuldade: BR_9B
-            quantidade_protecoes_intermediarias: 5
-            quantidade_protecoes_parada: 2
-            extensao: 14
-            conquistadores:
-            - Berbari
-            - Chinha
-            - Ró
-            - Moleza
-            data_abertura: '2010'
-        - via_esportiva:
-            nome: Route Setter
-            dificuldade: BR_9A
-            quantidade_protecoes_intermediarias: 6
-            quantidade_protecoes_parada: 2
-            extensao: 15
-            conquistadores:
-            - Berbari
-            - Ró
-            data_abertura: '2010'
-            descricao: Finaliza na via 06 (Cirque du Soleil).
-        - via_esportiva:
-            nome: Teto Preto
-            dificuldade: BR_8B
-            quantidade_protecoes_intermediarias: 8
-            quantidade_protecoes_parada: 2
-            extensao: 14
-            conquistadores:
-            - Berbari
-            - Chinha
-            data_abertura: '2023'
-            descricao: Saída na via 07 (Route Setter).
-        - via_esportiva:
-            nome: 101 Dalmatas
-            dificuldade: BR_8A
-            quantidade_protecoes_intermediarias: 4
-            quantidade_protecoes_parada: 2
-            extensao: 13
-            conquistadores:
-            - Berbari
-            - Chinha
-            data_abertura: '2023'
-        - via_esportiva:
-            nome: Fúria de Titãs
-            dificuldade: BR_10A
-            quantidade_protecoes_intermediarias: 4
-            quantidade_protecoes_parada: 2
-            extensao: 13
-            conquistadores:
-            - Berbari
-            - Chinha
-            - Toninho
-            - Ró
-            data_abertura: '2010'
-        - via_esportiva:
-            nome: Prima Donna
-            dificuldade: BR_10A
-            quantidade_protecoes_intermediarias: 4
-            quantidade_protecoes_parada: 2
-            extensao: 12
-            conquistadores:
-            - Berbari
-            - Chinha
-            - Toninho
-            - Bunitin
-            data_abertura: '2023'
-        - via_esportiva:
-            nome: Dama de Ferro
-            dificuldade: BR_10C
-            quantidade_protecoes_intermediarias: 2
-            quantidade_protecoes_parada: 2
-            extensao: 12
-            conquistadores:
-            - Berbari
-            - Moleza
-            data_abertura: '2010'
-        - via_esportiva:
-            nome: Primeira de Todas
-            dificuldade: BR_7A
-            quantidade_protecoes_intermediarias: 2
-            quantidade_protecoes_parada: 2
-            extensao: 9
-            conquistadores:
-            - Berbari
-            - Ró
-            data_abertura: '2006'
-        - via_esportiva:
-            nome: Brinco de Odalisca
-            dificuldade: BR_6
-            quantidade_protecoes_intermediarias: 3
-            quantidade_protecoes_parada: 2
-            extensao: 9
-            conquistadores:
-            - Márcio Maçona
-            - Jovinei
-            data_abertura: '2023'
-        - via_esportiva:
-            nome: 10%
-            dificuldade: BR_6_BARRA_6SUP
-            quantidade_protecoes_intermediarias: 3
-            quantidade_protecoes_parada: 2
-            extensao: 9
-            conquistadores:
-            - Berbari
-            - Ró
-            data_abertura: '2006'
-        - via_esportiva:
-            nome: Quebra Tudo
-            dificuldade: BR_6_BARRA_6SUP
-            quantidade_protecoes_intermediarias: 2
-            quantidade_protecoes_parada: 2
-            extensao: 7
-            conquistadores:
-            - Berbari
-            - Ró
-            data_abertura: '2006'
-        - via_esportiva:
-            nome: Acorrentado
-            dificuldade: BR_6SUP
-            quantidade_protecoes_intermediarias: 2
-            quantidade_protecoes_parada: 2
-            extensao: 7
-            conquistadores:
-            - Berbari
-            - Ró
-            data_abertura: '2006'
-        - via_esportiva:
-            nome: Fidefenda
-            dificuldade: BR_5SUP
-            quantidade_protecoes_intermediarias: 2
-            quantidade_protecoes_parada: 2
-            extensao: 7
-            conquistadores:
-            - Berbari
-            - Ró
-            - Chinha
-            data_abertura: '2006'
-        - via_esportiva:
-            nome: Cochyna Blue
-            dificuldade: BR_6
-            quantidade_protecoes_intermediarias: 2
-            quantidade_protecoes_parada: 2
-            extensao: 7
-            conquistadores:
-            - Berbari
-            - Chinha
-            data_abertura: '2006'
-        descricao: '# Setor Estacionamento
+        setores:
+        - conteudo:
+            nome: Estacionamento - Esportivas
+            mapas:
+            - caminho_imagem_mapa: imagens/setor_estacionamento_p0.webp
+              largura_mapa: 1995
+              altura_mapa: 1222
+              pontos_de_interesse:
+              - id: '01'
+                label: '01'
+                circulo:
+                  x: 533
+                  y: 527
+                  raio: 17
+              - id: '02'
+                label: '02'
+                circulo:
+                  x: 590
+                  y: 561
+                  raio: 17
+              - id: '03'
+                label: '03'
+                circulo:
+                  x: 617
+                  y: 601
+                  raio: 17
+              - id: '04'
+                label: '04'
+                circulo:
+                  x: 651
+                  y: 623
+                  raio: 17
+              - id: '05'
+                label: '05'
+                circulo:
+                  x: 778
+                  y: 706
+                  raio: 17
+              - id: '08'
+                label: '08'
+                circulo:
+                  x: 905
+                  y: 377
+                  raio: 18
+              - id: '06'
+                label: '06'
+                circulo:
+                  x: 913
+                  y: 774
+                  raio: 18
+              - id: '07'
+                label: '07'
+                circulo:
+                  x: 980
+                  y: 809
+                  raio: 17
+              - id: '09'
+                label: '09'
+                circulo:
+                  x: 1043
+                  y: 849
+                  raio: 17
+              - id: '10'
+                label: '10'
+                circulo:
+                  x: 1111
+                  y: 888
+                  raio: 17
+              - id: '11'
+                label: '11'
+                circulo:
+                  x: 1195
+                  y: 918
+                  raio: 17
+              - id: '12'
+                label: '12'
+                circulo:
+                  x: 1349
+                  y: 1037
+                  raio: 17
+              - id: '13'
+                label: '13'
+                circulo:
+                  x: 1684
+                  y: 1071
+                  raio: 17
+              - id: '14'
+                label: '14'
+                circulo:
+                  x: 1729
+                  y: 1024
+                  raio: 17
+              - id: '15'
+                label: '15'
+                circulo:
+                  x: 1765
+                  y: 963
+                  raio: 17
+              - id: '16'
+                label: '16'
+                circulo:
+                  x: 1804
+                  y: 923
+                  raio: 17
+              - id: '18'
+                label: '18'
+                circulo:
+                  x: 1840
+                  y: 476
+                  raio: 17
+              - id: '19'
+                label: '19'
+                circulo:
+                  x: 1877
+                  y: 367
+                  raio: 17
+              - id: '17'
+                label: '17'
+                circulo:
+                  x: 1901
+                  y: 519
+                  raio: 17
+              referencias:
+              - escalada: Bacon com Linguiça
+                ids:
+                - '01'
+              - escalada: Quatchú
+                ids:
+                - '02'
+              - escalada: Xoquito
+                ids:
+                - '03'
+              - escalada: Slow Motion
+                ids:
+                - '04'
+              - escalada: Berbaridade Máxima
+                ids:
+                - '05'
+              - escalada: Cirque du Soleil
+                ids:
+                - '06'
+              - escalada: Route Setter
+                ids:
+                - '07'
+              - escalada: Fúria de Titãs
+                ids:
+                - '10'
+              - escalada: Prima Donna
+                ids:
+                - '11'
+              - escalada: Dama de Ferro
+                ids:
+                - '12'
+              - escalada: Primeira de Todas
+                ids:
+                - '13'
+              - escalada: Brinco de Odalisca
+                ids:
+                - '14'
+              - escalada: 10%
+                ids:
+                - '15'
+              - escalada: Quebra Tudo
+                ids:
+                - '16'
+              - escalada: Acorrentado
+                ids:
+                - '17'
+              - escalada: Fidefenda
+                ids:
+                - '18'
+              - escalada: Cochyna Blue
+                ids:
+                - '19'
+              - ids:
+                - '08'
+                escalada: Teto Preto
+              - ids:
+                - '09'
+                escalada: 101 Dalmatas
+            - caminho_imagem_mapa: imagens/setor_estacionamento_p1.webp
+              largura_mapa: 1067
+              altura_mapa: 1440
+              pontos_de_interesse:
+              - id: '17'
+                label: '17'
+                circulo:
+                  x: 346
+                  y: 189
+                  raio: 17
+              - id: '16'
+                label: '16'
+                circulo:
+                  x: 406
+                  y: 185
+                  raio: 18
+              - id: '15'
+                label: '15'
+                circulo:
+                  x: 475
+                  y: 216
+                  raio: 18
+              - id: '19'
+                label: '19'
+                circulo:
+                  x: 269
+                  y: 235
+                  raio: 17
+              - id: '18'
+                label: '18'
+                circulo:
+                  x: 314
+                  y: 233
+                  raio: 17
+              - id: '14'
+                label: '14'
+                circulo:
+                  x: 516
+                  y: 240
+                  raio: 17
+              - id: '13'
+                label: '13'
+                circulo:
+                  x: 560
+                  y: 236
+                  raio: 18
+              - id: '12'
+                label: '12'
+                circulo:
+                  x: 644
+                  y: 429
+                  raio: 17
+              - id: '11'
+                label: '11'
+                circulo:
+                  x: 636
+                  y: 505
+                  raio: 17
+              - id: '10'
+                label: '10'
+                circulo:
+                  x: 625
+                  y: 558
+                  raio: 17
+              - id: '09'
+                label: '09'
+                circulo:
+                  x: 614
+                  y: 610
+                  raio: 17
+              - id: '08'
+                label: '08'
+                circulo:
+                  x: 606
+                  y: 671
+                  raio: 17
+              - id: '07'
+                label: '07'
+                circulo:
+                  x: 606
+                  y: 707
+                  raio: 17
+              - id: '06'
+                label: '06'
+                circulo:
+                  x: 604
+                  y: 768
+                  raio: 17
+              - id: '05'
+                label: '05'
+                circulo:
+                  x: 595
+                  y: 868
+                  raio: 17
+              - id: '04'
+                label: '04'
+                circulo:
+                  x: 584
+                  y: 915
+                  raio: 17
+              - id: '03'
+                label: '03'
+                circulo:
+                  x: 569
+                  y: 961
+                  raio: 17
+              - id: '02'
+                label: '02'
+                circulo:
+                  x: 553
+                  y: 1024
+                  raio: 17
+              - id: '01'
+                label: '01'
+                circulo:
+                  x: 541
+                  y: 1077
+                  raio: 17
+              referencias:
+              - escalada: Bacon com Linguiça
+                ids:
+                - '01'
+              - escalada: Quatchú
+                ids:
+                - '02'
+              - escalada: Xoquito
+                ids:
+                - '03'
+              - escalada: Slow Motion
+                ids:
+                - '04'
+              - escalada: Berbaridade Máxima
+                ids:
+                - '05'
+              - escalada: Cirque du Soleil
+                ids:
+                - '06'
+              - escalada: Route Setter
+                ids:
+                - '07'
+              - escalada: Fúria de Titãs
+                ids:
+                - '10'
+              - escalada: Prima Donna
+                ids:
+                - '11'
+              - escalada: Dama de Ferro
+                ids:
+                - '12'
+              - escalada: Primeira de Todas
+                ids:
+                - '13'
+              - escalada: Brinco de Odalisca
+                ids:
+                - '14'
+              - escalada: 10%
+                ids:
+                - '15'
+              - escalada: Quebra Tudo
+                ids:
+                - '16'
+              - escalada: Acorrentado
+                ids:
+                - '17'
+              - escalada: Fidefenda
+                ids:
+                - '18'
+              - escalada: Cochyna Blue
+                ids:
+                - '19'
+              - ids:
+                - '08'
+                escalada: Teto Preto
+              - ids:
+                - '09'
+                escalada: 101 Dalmatas
+            escaladas:
+            - via_esportiva:
+                nome: Bacon com Linguiça
+                dificuldade: BR_6SUP
+                quantidade_protecoes_intermediarias: 2
+                quantidade_protecoes_parada: 2
+                extensao: 8
+                conquistadores:
+                - Berbari
+                - Chinha
+                - Pauleti
+                data_abertura: '2006'
+            - via_esportiva:
+                nome: Quatchú
+                dificuldade: BR_8A
+                quantidade_protecoes_intermediarias: 2
+                quantidade_protecoes_parada: 2
+                extensao: 9
+                conquistadores:
+                - Berbari
+                - Ró
+                - Chinha
+                data_abertura: '2006'
+            - via_esportiva:
+                nome: Xoquito
+                dificuldade: BR_8B
+                quantidade_protecoes_intermediarias: 3
+                quantidade_protecoes_parada: 2
+                extensao: 10
+                conquistadores:
+                - Berbari
+                - Chinha
+                - Ró
+                data_abertura: '2006'
+            - via_esportiva:
+                nome: Slow Motion
+                dificuldade: BR_8B
+                quantidade_protecoes_intermediarias: 5
+                quantidade_protecoes_parada: 2
+                extensao: 12
+                conquistadores:
+                - Berbari
+                - Chinha
+                - Ró
+                - Toninho
+                data_abertura: '2023'
+            - via_esportiva:
+                nome: Berbaridade Máxima
+                dificuldade: BR_8C
+                quantidade_protecoes_intermediarias: 8
+                quantidade_protecoes_parada: 2
+                extensao: 14
+                conquistadores:
+                - Berbari
+                - Toninho
+                - Chinha
+                data_abertura: '2023'
+            - via_esportiva:
+                nome: Cirque du Soleil
+                dificuldade: BR_9B
+                quantidade_protecoes_intermediarias: 5
+                quantidade_protecoes_parada: 2
+                extensao: 14
+                conquistadores:
+                - Berbari
+                - Chinha
+                - Ró
+                - Moleza
+                data_abertura: '2010'
+            - via_esportiva:
+                nome: Route Setter
+                dificuldade: BR_9A
+                quantidade_protecoes_intermediarias: 6
+                quantidade_protecoes_parada: 2
+                extensao: 15
+                conquistadores:
+                - Berbari
+                - Ró
+                data_abertura: '2010'
+                descricao: Finaliza na via 06 (Cirque du Soleil).
+            - via_esportiva:
+                nome: Teto Preto
+                dificuldade: BR_8B
+                quantidade_protecoes_intermediarias: 8
+                quantidade_protecoes_parada: 2
+                extensao: 14
+                conquistadores:
+                - Berbari
+                - Chinha
+                data_abertura: '2023'
+                descricao: Saída na via 07 (Route Setter).
+            - via_esportiva:
+                nome: 101 Dalmatas
+                dificuldade: BR_8A
+                quantidade_protecoes_intermediarias: 4
+                quantidade_protecoes_parada: 2
+                extensao: 13
+                conquistadores:
+                - Berbari
+                - Chinha
+                data_abertura: '2023'
+            - via_esportiva:
+                nome: Fúria de Titãs
+                dificuldade: BR_10A
+                quantidade_protecoes_intermediarias: 4
+                quantidade_protecoes_parada: 2
+                extensao: 13
+                conquistadores:
+                - Berbari
+                - Chinha
+                - Toninho
+                - Ró
+                data_abertura: '2010'
+            - via_esportiva:
+                nome: Prima Donna
+                dificuldade: BR_10A
+                quantidade_protecoes_intermediarias: 4
+                quantidade_protecoes_parada: 2
+                extensao: 12
+                conquistadores:
+                - Berbari
+                - Chinha
+                - Toninho
+                - Bunitin
+                data_abertura: '2023'
+            - via_esportiva:
+                nome: Dama de Ferro
+                dificuldade: BR_10C
+                quantidade_protecoes_intermediarias: 2
+                quantidade_protecoes_parada: 2
+                extensao: 12
+                conquistadores:
+                - Berbari
+                - Moleza
+                data_abertura: '2010'
+            - via_esportiva:
+                nome: Primeira de Todas
+                dificuldade: BR_7A
+                quantidade_protecoes_intermediarias: 2
+                quantidade_protecoes_parada: 2
+                extensao: 9
+                conquistadores:
+                - Berbari
+                - Ró
+                data_abertura: '2006'
+            - via_esportiva:
+                nome: Brinco de Odalisca
+                dificuldade: BR_6
+                quantidade_protecoes_intermediarias: 3
+                quantidade_protecoes_parada: 2
+                extensao: 9
+                conquistadores:
+                - Márcio Maçona
+                - Jovinei
+                data_abertura: '2023'
+            - via_esportiva:
+                nome: 10%
+                dificuldade: BR_6_BARRA_6SUP
+                quantidade_protecoes_intermediarias: 3
+                quantidade_protecoes_parada: 2
+                extensao: 9
+                conquistadores:
+                - Berbari
+                - Ró
+                data_abertura: '2006'
+            - via_esportiva:
+                nome: Quebra Tudo
+                dificuldade: BR_6_BARRA_6SUP
+                quantidade_protecoes_intermediarias: 2
+                quantidade_protecoes_parada: 2
+                extensao: 7
+                conquistadores:
+                - Berbari
+                - Ró
+                data_abertura: '2006'
+            - via_esportiva:
+                nome: Acorrentado
+                dificuldade: BR_6SUP
+                quantidade_protecoes_intermediarias: 2
+                quantidade_protecoes_parada: 2
+                extensao: 7
+                conquistadores:
+                - Berbari
+                - Ró
+                data_abertura: '2006'
+            - via_esportiva:
+                nome: Fidefenda
+                dificuldade: BR_5SUP
+                quantidade_protecoes_intermediarias: 2
+                quantidade_protecoes_parada: 2
+                extensao: 7
+                conquistadores:
+                - Berbari
+                - Ró
+                - Chinha
+                data_abertura: '2006'
+            - via_esportiva:
+                nome: Cochyna Blue
+                dificuldade: BR_6
+                quantidade_protecoes_intermediarias: 2
+                quantidade_protecoes_parada: 2
+                extensao: 7
+                conquistadores:
+                - Berbari
+                - Chinha
+                data_abertura: '2006'
+            descricao: '# Setor Estacionamento
 
 
-          O setor fica na lateral da estrada, ao lado do estacionamento da trilha
-          para a Pedra Grande. A via "Route Setter" e a via "Teto Preto" compartilham
-          as primeiras chapas na saída. Lado esquerdo setor tem sombra após 11h, e
-          o lado direito sombra até 10h.'
+              O setor fica na lateral da estrada, ao lado do estacionamento da trilha
+              para a Pedra Grande. A via "Route Setter" e a via "Teto Preto" compartilham
+              as primeiras chapas na saída. Lado esquerdo setor tem sombra após 11h,
+              e o lado direito sombra até 10h.'
+            precomputados:
+              total_escaladas: 19
+              total_esportivas: 19
+        - conteudo:
+            nome: Estacionamento - Bloco Pega negativo
+            escaladas:
+            - boulder:
+                nome: Pega negativo
+                dificuldade: V7
+            - boulder:
+                nome: Serrado
+                dificuldade: V1
+            - boulder:
+                nome: Coruja
+                dificuldade: V1
+            - boulder:
+                nome: Projeto 3
+            mapas:
+            - caminho_imagem_mapa: imagens/grupo_estacionamento_bloco_pega_negativo_p0.webp
+              largura_mapa: 1824
+              altura_mapa: 1376
+              pontos_de_interesse:
+              - id: linha_2
+                label: ''
+                linha:
+                  estilo: TRACEJADO
+                  espessura: 4
+                  compilado:
+                    caminho_svg: M 1280 1041 C 1259.7 922.7, 1234.6 790.7, 1219 686
+                      C 1206.7 603.5, 1201.9 530.5, 1191 464 C 1182.0 409.2, 1171.0
+                      364.7, 1161 315
+                    caixa_delimitadora:
+                      x: 1220
+                      y: 678
+                      comprimento: 119
+                      largura: 726
+                    marcadores:
+                    - tipo: FIM_TOP
+                      x: 1161
+                      y: 315
+                      angulo_graus_x100: -10138
+                      rotulo: B
+                cor: '#00E5FF'
+              - id: linha_3
+                linha:
+                  estilo: TRACEJADO
+                  espessura: 4
+                  compilado:
+                    caminho_svg: M 1285 1074 C 1283.0 1063.3, 1281.0 1052.7, 1279
+                      1042
+                    caixa_delimitadora:
+                      x: 1282
+                      y: 1058
+                      comprimento: 6
+                      largura: 32
+                    marcadores:
+                    - tipo: CIRCULO_IDENTIFICADOR
+                      x: 1285
+                      y: 1074
+                      angulo_graus_x100: -10062
+                      rotulo: '1'
+                cor: '#FFD600'
+              - id: linha_4
+                linha:
+                  estilo: TRACEJADO
+                  espessura: 4
+                  compilado:
+                    caminho_svg: M 1279 1042 C 1274.0 1036.7, 1271.9 1029.7, 1264
+                      1026 C 1249.9 1019.4, 1219.4 1023.6, 1194 1022 C 1163.6 1020.1,
+                      1128.2 1016.5, 1094 1015 C 1058.0 1013.4, 1013.7 1013.8, 983
+                      1013 C 961.2 1012.4, 947.1 1015.0, 927 1011 C 901.7 1006.0,
+                      873.5 992.0, 844 980 C 809.5 966.0, 762.0 953.5, 733 931 C 707.5
+                      911.2, 682.3 882.5, 675 857 C 668.9 835.6, 682.7 812.2, 682
+                      791 C 681.3 771.0, 678.4 753.0, 672 733 C 664.5 709.6, 655.9
+                      674.4, 637 660 C 618.6 645.9, 584.0 653.6, 561 646 C 540.1 639.1,
+                      518.1 634.2, 504 618 C 486.6 598.1, 482.9 559.9, 474 527 C 463.8
+                      489.3, 455.8 444.3, 448 404 C 440.5 365.3, 433.5 319.1, 428
+                      290 C 424.6 271.9, 422.0 260.7, 419 246
+                    caixa_delimitadora:
+                      x: 849
+                      y: 644
+                      comprimento: 860
+                      largura: 796
+                    marcadores:
+                    - tipo: FIM_TOP
+                      x: 419
+                      y: 246
+                      angulo_graus_x100: -10156
+                      rotulo: A
+                cor: '#00E5FF'
+              - id: linha_1
+                label: ''
+                linha:
+                  estilo: TRACEJADO
+                  espessura: 3
+                  compilado:
+                    caminho_svg: M 1570 965 C 1572.0 925.0, 1578.6 886.3, 1576 845
+                      C 1573.1 800.2, 1559.4 746.4, 1551 706 C 1544.4 674.4, 1539.8
+                      650.5, 1531 622 C 1521.5 591.2, 1509.7 559.8, 1495 528 C 1478.9
+                      493.2, 1453.7 445.7, 1437 422 C 1427.5 408.6, 1419.7 402.7,
+                      1411 393
+                    caixa_delimitadora:
+                      x: 1494
+                      y: 679
+                      comprimento: 165
+                      largura: 572
+                    marcadores:
+                    - tipo: CIRCULO_IDENTIFICADOR
+                      x: 1570
+                      y: 965
+                      angulo_graus_x100: -8714
+                      rotulo: '2'
+                    - tipo: FIM_TOP
+                      x: 1411
+                      y: 393
+                      angulo_graus_x100: -13188
+                      rotulo: C
+                cor: '#00E5FF'
+              - id: linha_5
+                label: ''
+                linha:
+                  estilo: TRACEJADO
+                  espessura: 3
+                  compilado:
+                    caminho_svg: M 714 1035 C 646.3 1005.0, 566.5 982.2, 511 945 C
+                      464.0 913.5, 431.6 873.4, 396 835 C 361.1 797.4, 314.2 761.7,
+                      299 717 C 284.1 673.2, 305.4 616.2, 304 570 C 302.8 528.7, 306.6
+                      491.2, 293 453 C 277.4 409.3, 235.7 367.7, 207 325
+                    caixa_delimitadora:
+                      x: 460
+                      y: 680
+                      comprimento: 507
+                      largura: 710
+                    marcadores:
+                    - tipo: CIRCULO_IDENTIFICADOR
+                      x: 714
+                      y: 1035
+                      angulo_graus_x100: -15609
+                      rotulo: '3'
+                    - tipo: FIM_TOP
+                      x: 207
+                      y: 325
+                      angulo_graus_x100: -12390
+                      rotulo: D
+                cor: '#00E5FF'
+              referencias:
+              - ids:
+                - linha_3
+                - linha_4
+                escalada: Pega negativo
+              - ids:
+                - linha_3
+                - linha_2
+                escalada: Serrado
+              - ids:
+                - linha_1
+                escalada: Coruja
+              - ids:
+                - linha_5
+                escalada: Projeto 3
+            descricao: Grupo composto por vias esportivas e vários blocos de boulders.
+            precomputados:
+              total_escaladas: 4
+              total_boulders: 4
+        - conteudo:
+            nome: Estacionamento - Bloco Solaris
+            escaladas:
+            - boulder:
+                nome: Solaris
+                dificuldade: V4
+            - boulder:
+                nome: Pump
+                dificuldade: V3
+            - boulder:
+                nome: Lítio
+                dificuldade: V2
+            - boulder:
+                nome: Tório
+                dificuldade: V0
+            - boulder:
+                nome: Irídio
+                dificuldade: V0
+            mapas:
+            - caminho_imagem_mapa: imagens/grupo_estacionamento_bloco_solaris_p0.webp
+              largura_mapa: 1773
+              altura_mapa: 2364
+              pontos_de_interesse:
+              - id: linha_2
+                linha:
+                  estilo: TRACEJADO
+                  espessura: 4
+                  compilado:
+                    caminho_svg: M 1530 1748 C 1499.0 1706.3, 1468.2 1655.5, 1437
+                      1623 C 1412.8 1597.8, 1392.9 1582.5, 1364 1564 C 1328.5 1541.3,
+                      1278.8 1522.3, 1237 1501 C 1195.8 1480.0, 1152.4 1456.9, 1115
+                      1437 C 1082.9 1419.9, 1045.8 1416.3, 1026 1389 C 1001.2 1354.8,
+                      1007.3 1285.0, 998 1233
+                    caixa_delimitadora:
+                      x: 1264
+                      y: 1490
+                      comprimento: 532
+                      largura: 515
+                    marcadores:
+                    - tipo: CIRCULO_IDENTIFICADOR
+                      x: 1530
+                      y: 1748
+                      angulo_graus_x100: -12665
+                      rotulo: '1'
+                cor: '#00E5FF'
+              - id: linha_3
+                linha:
+                  estilo: TRACEJADO
+                  espessura: 4
+                  compilado:
+                    caminho_svg: M 998 1233 C 997.7 1180.3, 997.1 1111.4, 997 1075
+                      C 996.9 1055.8, 997.7 1049.5, 997 1031 C 995.8 999.1, 991.1
+                      942.4, 987 901 C 983.3 863.0, 978.3 828.3, 974 792
+                    caixa_delimitadora:
+                      x: 986
+                      y: 1012
+                      comprimento: 24
+                      largura: 441
+                    marcadores:
+                    - tipo: FIM_TOP
+                      x: 974
+                      y: 792
+                      angulo_graus_x100: -9680
+                      rotulo: A
+                cor: '#00E5FF'
+              - id: linha_5
+                linha:
+                  estilo: TRACEJADO
+                  espessura: 4
+                  compilado:
+                    caminho_svg: M 780 1794 C 782.3 1776.3, 784.7 1758.7, 787 1741
+                    caixa_delimitadora:
+                      x: 784
+                      y: 1768
+                      comprimento: 7
+                      largura: 53
+                    marcadores:
+                    - tipo: CIRCULO_IDENTIFICADOR
+                      x: 780
+                      y: 1794
+                      angulo_graus_x100: -8248
+                      rotulo: '2'
+                cor: '#FFD600'
+              - id: linha_6
+                linha:
+                  estilo: TRACEJADO
+                  espessura: 4
+                  compilado:
+                    caminho_svg: M 787 1741 C 794.0 1733.0, 796.0 1724.7, 808 1717
+                      C 835.6 1699.2, 940.8 1702.4, 970 1668 C 996.4 1636.8, 984.8
+                      1580.0, 988 1530 C 991.8 1471.2, 985.4 1391.4, 988 1337 C 989.9
+                      1297.0, 994.7 1267.7, 998 1233
+                    caixa_delimitadora:
+                      x: 892
+                      y: 1487
+                      comprimento: 211
+                      largura: 508
+                    marcadores: []
+                cor: '#00E5FF'
+              - id: linha_7
+                linha:
+                  estilo: TRACEJADO
+                  espessura: 4
+                  compilado:
+                    caminho_svg: M 784 1738 C 776.0 1724.3, 772.8 1715.3, 760 1697
+                      C 729.1 1653.0, 631.4 1550.3, 583 1485 C 544.7 1433.3, 517.6
+                      1384.1, 488 1340 C 462.8 1302.6, 434.0 1277.6, 417 1237 C 397.2
+                      1189.5, 395.7 1125.0, 385 1069
+                    caixa_delimitadora:
+                      x: 584
+                      y: 1404
+                      comprimento: 399
+                      largura: 669
+                    marcadores:
+                    - tipo: FIM_TOP
+                      x: 385
+                      y: 1069
+                      angulo_graus_x100: -10078
+                      rotulo: B
+                cor: '#00E5FF'
+              referencias:
+              - ids:
+                - linha_2
+                - linha_3
+                escalada: Solaris
+              - ids:
+                - linha_5
+                - linha_6
+                - linha_3
+                escalada: Pump
+              - ids:
+                - linha_5
+                - linha_7
+                escalada: Lítio
+            - caminho_imagem_mapa: imagens/grupo_estacionamento_bloco_solaris_p1.webp
+              largura_mapa: 2364
+              altura_mapa: 1773
+              pontos_de_interesse:
+              - id: linha_1
+                label: ''
+                linha:
+                  estilo: TRACEJADO
+                  espessura: 4
+                  compilado:
+                    caminho_svg: M 1366 1285 C 1320.7 1230.0, 1273.9 1162.9, 1230
+                      1120 C 1196.5 1087.3, 1160.8 1078.0, 1132 1043 C 1095.5 998.7,
+                      1061.0 923.5, 1041 865 C 1023.3 813.4, 1023.7 766.6, 1012 712
+                      C 998.4 648.3, 975.3 563.3, 963 506 C 954.3 465.3, 949.7 436.0,
+                      943 401
+                    caixa_delimitadora:
+                      x: 1154
+                      y: 843
+                      comprimento: 423
+                      largura: 884
+                    marcadores:
+                    - tipo: CIRCULO_IDENTIFICADOR
+                      x: 1366
+                      y: 1285
+                      angulo_graus_x100: -12950
+                      rotulo: '3'
+                cor: '#00E5FF'
+              - id: linha_4
+                label: ''
+                linha:
+                  estilo: TRACEJADO
+                  espessura: 4
+                  compilado:
+                    caminho_svg: M 1771 1100 C 1757.7 1045.3, 1751.8 990.1, 1731 936
+                      C 1708.5 877.4, 1670.2 808.3, 1637 762 C 1611.4 726.4, 1587.1
+                      709.2, 1557 676 C 1516.8 631.5, 1462.1 565.2, 1418 518 C 1380.4
+                      477.7, 1340.5 443.5, 1310 409 C 1285.0 380.7, 1267.3 355.0,
+                      1246 328
+                    caixa_delimitadora:
+                      x: 1508
+                      y: 714
+                      comprimento: 525
+                      largura: 772
+                    marcadores:
+                    - tipo: CIRCULO_IDENTIFICADOR
+                      x: 1771
+                      y: 1100
+                      angulo_graus_x100: -10371
+                      rotulo: '4'
+                cor: '#00E5FF'
+              referencias:
+              - ids:
+                - linha_1
+                escalada: Tório
+              - ids:
+                - linha_4
+                escalada: Irídio
+            descricao: ''
+            precomputados:
+              total_escaladas: 5
+              total_boulders: 5
+        descricao: ''
         precomputados:
-          total_escaladas: 19
+          total_escaladas: 28
           total_esportivas: 19
+          total_boulders: 9
   - setor:
       conteudo:
         nome: Setor Família I
@@ -5402,7 +5762,7 @@ picos:
             largura: 101
           cor: ''
         referencias:
-        - setor: Setor Estacionamento
+        - grupo: Grupo Estacionamento
           ids:
           - Estacionamento
         - setor: Setor Família I
@@ -5499,11 +5859,11 @@ picos:
     latitude: -201176660
     longitude: -443593480
   precomputados:
-    total_escaladas: 175
-    total_setores: 15
-    total_grupos: 1
+    total_escaladas: 184
+    total_setores: 17
+    total_grupos: 2
     total_esportivas: 95
-    total_boulders: 38
+    total_boulders: 47
     total_multiplas_enfiadas: 1
 botoes:
 - texto: Capa
@@ -5793,6 +6153,12 @@ revisado_bounding_circle: true
 arquivos_externos:
 - caminho: imagens/capa_p0.webp
   checksum_sha256: b4887c391eaf1911eaf809e7132944c4f46760657ebe56af30f2890698fbe289
+- caminho: imagens/grupo_estacionamento_bloco_pega_negativo_p0.webp
+  checksum_sha256: 09539e80afd0a6694cb9c95e640266c6c36ff871b6e6b94bf252982e834adc44
+- caminho: imagens/grupo_estacionamento_bloco_solaris_p0.webp
+  checksum_sha256: 2006b2fd7865dd3d9f359e052b4d94657ba78ce0fab1e2b47d62125f60582e45
+- caminho: imagens/grupo_estacionamento_bloco_solaris_p1.webp
+  checksum_sha256: 69bb2525361c1048730d730954f8dc6c1bdcd77846b0d2511966fd71b49d8918
 - caminho: imagens/historia_p0.webp
   checksum_sha256: 35328b7fcdf2d9a789fcd300af00cb67997589078e4dc645f00d1180b3ea707d
 - caminho: imagens/igarameca_info_p0.webp

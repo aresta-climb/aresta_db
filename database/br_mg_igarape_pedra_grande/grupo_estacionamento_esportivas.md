@@ -1,7 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
-nome: Setor Estacionamento
+nome: Estacionamento - Esportivas
 mapas:
 - caminho_imagem_mapa: imagens/setor_estacionamento_p0.webp
   largura_mapa: 1995
@@ -175,11 +175,9 @@ mapas:
     - '19'
   - ids:
     - '08'
-    setor: Setor Estacionamento
     escalada: Teto Preto
   - ids:
     - '09'
-    setor: Setor Estacionamento
     escalada: 101 Dalmatas
 - caminho_imagem_mapa: imagens/setor_estacionamento_p1.webp
   largura_mapa: 1067
@@ -353,11 +351,9 @@ mapas:
     - '19'
   - ids:
     - '08'
-    setor: Setor Estacionamento
     escalada: Teto Preto
   - ids:
     - '09'
-    setor: Setor Estacionamento
     escalada: 101 Dalmatas
 escaladas:
 - via_esportiva:

@@ -189,6 +189,10 @@ class ComandoEditor(QUndoCommand):
         """Aplica a mutação de avanço (Redo) no modelo."""
         raise NotImplementedError
 
+    def serializar(self, anonimizado: bool = False) -> Dict[str, Any]:
+        """Serializa o comando para dicionário. Subclasses devem sobrescrever."""
+        raise NotImplementedError
+
 
 class CmdAlterarPrimitivo(ComandoEditor):
     """Comando para alterar um campo primitivo de uma mensagem Protobuf via Model."""
@@ -1063,8 +1067,8 @@ class CmdRenomearEscalada(ComandoEditor):
         )
 
 
-def deserializar_comando(dados: Dict[str, Any], model: CroquiModel) -> QUndoCommand:
-    """Factory global para deserializar qualquer QUndoCommand a partir de seu dicionário serializado."""
+def deserializar_comando(dados: Dict[str, Any], model: CroquiModel) -> ComandoEditor:
+    """Factory global para deserializar qualquer ComandoEditor a partir de seu dicionário serializado."""
     classe_nome = dados.get("classe")
     mapa_classes: Dict[str, Any] = {
         "CmdAlterarPrimitivo": CmdAlterarPrimitivo,

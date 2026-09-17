@@ -14,8 +14,8 @@ picos:
 - nome: Complexo Pedra Grande
   estado: MG
   setores_ou_grupos:
-  - setor:
-      caminho: setor_estacionamento.md
+  - grupo:
+      caminho: grupo_estacionamento.md
   - setor:
       caminho: setor_familia_i.md
   - setor:

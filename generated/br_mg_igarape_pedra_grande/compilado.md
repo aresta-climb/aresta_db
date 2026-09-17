@@ -170,680 +170,6 @@
 - **revisado_bounding_circle**: True
 
 
-## Parte: setor_estacionamento
-
-### Setor (Pico: Complexo Pedra Grande)
-
-- **descricao**:
-    # Setor Estacionamento
-    
-    O setor fica na lateral da estrada, ao lado do estacionamento da trilha para a Pedra Grande. A via "Route Setter" e a via "Teto Preto" compartilham as primeiras chapas na saída. Lado esquerdo setor tem sombra após 11h, e o lado direito sombra até 10h.
-- **nome**: Setor Estacionamento
-- **mapas**:
-  - **[0]**:
-    - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_estacionamento_p0.webp)
-    - **largura_mapa**: 1995
-    - **altura_mapa**: 1222
-    - **pontos_de_interesse**:
-      - **[0]**:
-        - **id**: 01
-        - **label**: 01
-        - **circulo**:
-          - **x**: 533
-          - **y**: 527
-          - **raio**: 17
-      - **[1]**:
-        - **id**: 02
-        - **label**: 02
-        - **circulo**:
-          - **x**: 590
-          - **y**: 561
-          - **raio**: 17
-      - **[2]**:
-        - **id**: 03
-        - **label**: 03
-        - **circulo**:
-          - **x**: 617
-          - **y**: 601
-          - **raio**: 17
-      - **[3]**:
-        - **id**: 04
-        - **label**: 04
-        - **circulo**:
-          - **x**: 651
-          - **y**: 623
-          - **raio**: 17
-      - **[4]**:
-        - **id**: 05
-        - **label**: 05
-        - **circulo**:
-          - **x**: 778
-          - **y**: 706
-          - **raio**: 17
-      - **[5]**:
-        - **id**: 08
-        - **label**: 08
-        - **circulo**:
-          - **x**: 905
-          - **y**: 377
-          - **raio**: 18
-      - **[6]**:
-        - **id**: 06
-        - **label**: 06
-        - **circulo**:
-          - **x**: 913
-          - **y**: 774
-          - **raio**: 18
-      - **[7]**:
-        - **id**: 07
-        - **label**: 07
-        - **circulo**:
-          - **x**: 980
-          - **y**: 809
-          - **raio**: 17
-      - **[8]**:
-        - **id**: 09
-        - **label**: 09
-        - **circulo**:
-          - **x**: 1043
-          - **y**: 849
-          - **raio**: 17
-      - **[9]**:
-        - **id**: 10
-        - **label**: 10
-        - **circulo**:
-          - **x**: 1111
-          - **y**: 888
-          - **raio**: 17
-      - **[10]**:
-        - **id**: 11
-        - **label**: 11
-        - **circulo**:
-          - **x**: 1195
-          - **y**: 918
-          - **raio**: 17
-      - **[11]**:
-        - **id**: 12
-        - **label**: 12
-        - **circulo**:
-          - **x**: 1349
-          - **y**: 1037
-          - **raio**: 17
-      - **[12]**:
-        - **id**: 13
-        - **label**: 13
-        - **circulo**:
-          - **x**: 1684
-          - **y**: 1071
-          - **raio**: 17
-      - **[13]**:
-        - **id**: 14
-        - **label**: 14
-        - **circulo**:
-          - **x**: 1729
-          - **y**: 1024
-          - **raio**: 17
-      - **[14]**:
-        - **id**: 15
-        - **label**: 15
-        - **circulo**:
-          - **x**: 1765
-          - **y**: 963
-          - **raio**: 17
-      - **[15]**:
-        - **id**: 16
-        - **label**: 16
-        - **circulo**:
-          - **x**: 1804
-          - **y**: 923
-          - **raio**: 17
-      - **[16]**:
-        - **id**: 18
-        - **label**: 18
-        - **circulo**:
-          - **x**: 1840
-          - **y**: 476
-          - **raio**: 17
-      - **[17]**:
-        - **id**: 19
-        - **label**: 19
-        - **circulo**:
-          - **x**: 1877
-          - **y**: 367
-          - **raio**: 17
-      - **[18]**:
-        - **id**: 17
-        - **label**: 17
-        - **circulo**:
-          - **x**: 1901
-          - **y**: 519
-          - **raio**: 17
-    - **referencias**:
-      - **[0]**:
-        - **escalada**: Bacon com Linguiça
-        - **ids**:
-          - 01
-      - **[1]**:
-        - **escalada**: Quatchú
-        - **ids**:
-          - 02
-      - **[2]**:
-        - **escalada**: Xoquito
-        - **ids**:
-          - 03
-      - **[3]**:
-        - **escalada**: Slow Motion
-        - **ids**:
-          - 04
-      - **[4]**:
-        - **escalada**: Berbaridade Máxima
-        - **ids**:
-          - 05
-      - **[5]**:
-        - **escalada**: Cirque du Soleil
-        - **ids**:
-          - 06
-      - **[6]**:
-        - **escalada**: Route Setter
-        - **ids**:
-          - 07
-      - **[7]**:
-        - **escalada**: Fúria de Titãs
-        - **ids**:
-          - 10
-      - **[8]**:
-        - **escalada**: Prima Donna
-        - **ids**:
-          - 11
-      - **[9]**:
-        - **escalada**: Dama de Ferro
-        - **ids**:
-          - 12
-      - **[10]**:
-        - **escalada**: Primeira de Todas
-        - **ids**:
-          - 13
-      - **[11]**:
-        - **escalada**: Brinco de Odalisca
-        - **ids**:
-          - 14
-      - **[12]**:
-        - **escalada**: 10%
-        - **ids**:
-          - 15
-      - **[13]**:
-        - **escalada**: Quebra Tudo
-        - **ids**:
-          - 16
-      - **[14]**:
-        - **escalada**: Acorrentado
-        - **ids**:
-          - 17
-      - **[15]**:
-        - **escalada**: Fidefenda
-        - **ids**:
-          - 18
-      - **[16]**:
-        - **escalada**: Cochyna Blue
-        - **ids**:
-          - 19
-      - **[17]**:
-        - **ids**:
-          - 08
-        - **setor**: Setor Estacionamento
-        - **escalada**: Teto Preto
-      - **[18]**:
-        - **ids**:
-          - 09
-        - **setor**: Setor Estacionamento
-        - **escalada**: 101 Dalmatas
-  - **[1]**:
-    - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_estacionamento_p1.webp)
-    - **largura_mapa**: 1067
-    - **altura_mapa**: 1440
-    - **pontos_de_interesse**:
-      - **[0]**:
-        - **id**: 17
-        - **label**: 17
-        - **circulo**:
-          - **x**: 346
-          - **y**: 189
-          - **raio**: 17
-      - **[1]**:
-        - **id**: 16
-        - **label**: 16
-        - **circulo**:
-          - **x**: 406
-          - **y**: 185
-          - **raio**: 18
-      - **[2]**:
-        - **id**: 15
-        - **label**: 15
-        - **circulo**:
-          - **x**: 475
-          - **y**: 216
-          - **raio**: 18
-      - **[3]**:
-        - **id**: 19
-        - **label**: 19
-        - **circulo**:
-          - **x**: 269
-          - **y**: 235
-          - **raio**: 17
-      - **[4]**:
-        - **id**: 18
-        - **label**: 18
-        - **circulo**:
-          - **x**: 314
-          - **y**: 233
-          - **raio**: 17
-      - **[5]**:
-        - **id**: 14
-        - **label**: 14
-        - **circulo**:
-          - **x**: 516
-          - **y**: 240
-          - **raio**: 17
-      - **[6]**:
-        - **id**: 13
-        - **label**: 13
-        - **circulo**:
-          - **x**: 560
-          - **y**: 236
-          - **raio**: 18
-      - **[7]**:
-        - **id**: 12
-        - **label**: 12
-        - **circulo**:
-          - **x**: 644
-          - **y**: 429
-          - **raio**: 17
-      - **[8]**:
-        - **id**: 11
-        - **label**: 11
-        - **circulo**:
-          - **x**: 636
-          - **y**: 505
-          - **raio**: 17
-      - **[9]**:
-        - **id**: 10
-        - **label**: 10
-        - **circulo**:
-          - **x**: 625
-          - **y**: 558
-          - **raio**: 17
-      - **[10]**:
-        - **id**: 09
-        - **label**: 09
-        - **circulo**:
-          - **x**: 614
-          - **y**: 610
-          - **raio**: 17
-      - **[11]**:
-        - **id**: 08
-        - **label**: 08
-        - **circulo**:
-          - **x**: 606
-          - **y**: 671
-          - **raio**: 17
-      - **[12]**:
-        - **id**: 07
-        - **label**: 07
-        - **circulo**:
-          - **x**: 606
-          - **y**: 707
-          - **raio**: 17
-      - **[13]**:
-        - **id**: 06
-        - **label**: 06
-        - **circulo**:
-          - **x**: 604
-          - **y**: 768
-          - **raio**: 17
-      - **[14]**:
-        - **id**: 05
-        - **label**: 05
-        - **circulo**:
-          - **x**: 595
-          - **y**: 868
-          - **raio**: 17
-      - **[15]**:
-        - **id**: 04
-        - **label**: 04
-        - **circulo**:
-          - **x**: 584
-          - **y**: 915
-          - **raio**: 17
-      - **[16]**:
-        - **id**: 03
-        - **label**: 03
-        - **circulo**:
-          - **x**: 569
-          - **y**: 961
-          - **raio**: 17
-      - **[17]**:
-        - **id**: 02
-        - **label**: 02
-        - **circulo**:
-          - **x**: 553
-          - **y**: 1024
-          - **raio**: 17
-      - **[18]**:
-        - **id**: 01
-        - **label**: 01
-        - **circulo**:
-          - **x**: 541
-          - **y**: 1077
-          - **raio**: 17
-    - **referencias**:
-      - **[0]**:
-        - **escalada**: Bacon com Linguiça
-        - **ids**:
-          - 01
-      - **[1]**:
-        - **escalada**: Quatchú
-        - **ids**:
-          - 02
-      - **[2]**:
-        - **escalada**: Xoquito
-        - **ids**:
-          - 03
-      - **[3]**:
-        - **escalada**: Slow Motion
-        - **ids**:
-          - 04
-      - **[4]**:
-        - **escalada**: Berbaridade Máxima
-        - **ids**:
-          - 05
-      - **[5]**:
-        - **escalada**: Cirque du Soleil
-        - **ids**:
-          - 06
-      - **[6]**:
-        - **escalada**: Route Setter
-        - **ids**:
-          - 07
-      - **[7]**:
-        - **escalada**: Fúria de Titãs
-        - **ids**:
-          - 10
-      - **[8]**:
-        - **escalada**: Prima Donna
-        - **ids**:
-          - 11
-      - **[9]**:
-        - **escalada**: Dama de Ferro
-        - **ids**:
-          - 12
-      - **[10]**:
-        - **escalada**: Primeira de Todas
-        - **ids**:
-          - 13
-      - **[11]**:
-        - **escalada**: Brinco de Odalisca
-        - **ids**:
-          - 14
-      - **[12]**:
-        - **escalada**: 10%
-        - **ids**:
-          - 15
-      - **[13]**:
-        - **escalada**: Quebra Tudo
-        - **ids**:
-          - 16
-      - **[14]**:
-        - **escalada**: Acorrentado
-        - **ids**:
-          - 17
-      - **[15]**:
-        - **escalada**: Fidefenda
-        - **ids**:
-          - 18
-      - **[16]**:
-        - **escalada**: Cochyna Blue
-        - **ids**:
-          - 19
-      - **[17]**:
-        - **ids**:
-          - 08
-        - **setor**: Setor Estacionamento
-        - **escalada**: Teto Preto
-      - **[18]**:
-        - **ids**:
-          - 09
-        - **setor**: Setor Estacionamento
-        - **escalada**: 101 Dalmatas
-- **escaladas**:
-  - **[0]**:
-    - **via_esportiva**:
-      - **nome**: Bacon com Linguiça
-      - **dificuldade**: BR_6SUP
-      - **quantidade_protecoes_intermediarias**: 2
-      - **quantidade_protecoes_parada**: 2
-      - **extensao**: 8
-      - **conquistadores**:
-        - Berbari
-        - Chinha
-        - Pauleti
-      - **data_abertura**: 2006
-  - **[1]**:
-    - **via_esportiva**:
-      - **nome**: Quatchú
-      - **dificuldade**: BR_8A
-      - **quantidade_protecoes_intermediarias**: 2
-      - **quantidade_protecoes_parada**: 2
-      - **extensao**: 9
-      - **conquistadores**:
-        - Berbari
-        - Ró
-        - Chinha
-      - **data_abertura**: 2006
-  - **[2]**:
-    - **via_esportiva**:
-      - **nome**: Xoquito
-      - **dificuldade**: BR_8B
-      - **quantidade_protecoes_intermediarias**: 3
-      - **quantidade_protecoes_parada**: 2
-      - **extensao**: 10
-      - **conquistadores**:
-        - Berbari
-        - Chinha
-        - Ró
-      - **data_abertura**: 2006
-  - **[3]**:
-    - **via_esportiva**:
-      - **nome**: Slow Motion
-      - **dificuldade**: BR_8B
-      - **quantidade_protecoes_intermediarias**: 5
-      - **quantidade_protecoes_parada**: 2
-      - **extensao**: 12
-      - **conquistadores**:
-        - Berbari
-        - Chinha
-        - Ró
-        - Toninho
-      - **data_abertura**: 2023
-  - **[4]**:
-    - **via_esportiva**:
-      - **nome**: Berbaridade Máxima
-      - **dificuldade**: BR_8C
-      - **quantidade_protecoes_intermediarias**: 8
-      - **quantidade_protecoes_parada**: 2
-      - **extensao**: 14
-      - **conquistadores**:
-        - Berbari
-        - Toninho
-        - Chinha
-      - **data_abertura**: 2023
-  - **[5]**:
-    - **via_esportiva**:
-      - **nome**: Cirque du Soleil
-      - **dificuldade**: BR_9B
-      - **quantidade_protecoes_intermediarias**: 5
-      - **quantidade_protecoes_parada**: 2
-      - **extensao**: 14
-      - **conquistadores**:
-        - Berbari
-        - Chinha
-        - Ró
-        - Moleza
-      - **data_abertura**: 2010
-  - **[6]**:
-    - **via_esportiva**:
-      - **descricao**: Finaliza na via 06 (Cirque du Soleil).
-      - **nome**: Route Setter
-      - **dificuldade**: BR_9A
-      - **quantidade_protecoes_intermediarias**: 6
-      - **quantidade_protecoes_parada**: 2
-      - **extensao**: 15
-      - **conquistadores**:
-        - Berbari
-        - Ró
-      - **data_abertura**: 2010
-  - **[7]**:
-    - **via_esportiva**:
-      - **descricao**: Saída na via 07 (Route Setter).
-      - **nome**: Teto Preto
-      - **dificuldade**: BR_8B
-      - **quantidade_protecoes_intermediarias**: 8
-      - **quantidade_protecoes_parada**: 2
-      - **extensao**: 14
-      - **conquistadores**:
-        - Berbari
-        - Chinha
-      - **data_abertura**: 2023
-  - **[8]**:
-    - **via_esportiva**:
-      - **nome**: 101 Dalmatas
-      - **dificuldade**: BR_8A
-      - **quantidade_protecoes_intermediarias**: 4
-      - **quantidade_protecoes_parada**: 2
-      - **extensao**: 13
-      - **conquistadores**:
-        - Berbari
-        - Chinha
-      - **data_abertura**: 2023
-  - **[9]**:
-    - **via_esportiva**:
-      - **nome**: Fúria de Titãs
-      - **dificuldade**: BR_10A
-      - **quantidade_protecoes_intermediarias**: 4
-      - **quantidade_protecoes_parada**: 2
-      - **extensao**: 13
-      - **conquistadores**:
-        - Berbari
-        - Chinha
-        - Toninho
-        - Ró
-      - **data_abertura**: 2010
-  - **[10]**:
-    - **via_esportiva**:
-      - **nome**: Prima Donna
-      - **dificuldade**: BR_10A
-      - **quantidade_protecoes_intermediarias**: 4
-      - **quantidade_protecoes_parada**: 2
-      - **extensao**: 12
-      - **conquistadores**:
-        - Berbari
-        - Chinha
-        - Toninho
-        - Bunitin
-      - **data_abertura**: 2023
-  - **[11]**:
-    - **via_esportiva**:
-      - **nome**: Dama de Ferro
-      - **dificuldade**: BR_10C
-      - **quantidade_protecoes_intermediarias**: 2
-      - **quantidade_protecoes_parada**: 2
-      - **extensao**: 12
-      - **conquistadores**:
-        - Berbari
-        - Moleza
-      - **data_abertura**: 2010
-  - **[12]**:
-    - **via_esportiva**:
-      - **nome**: Primeira de Todas
-      - **dificuldade**: BR_7A
-      - **quantidade_protecoes_intermediarias**: 2
-      - **quantidade_protecoes_parada**: 2
-      - **extensao**: 9
-      - **conquistadores**:
-        - Berbari
-        - Ró
-      - **data_abertura**: 2006
-  - **[13]**:
-    - **via_esportiva**:
-      - **nome**: Brinco de Odalisca
-      - **dificuldade**: BR_6
-      - **quantidade_protecoes_intermediarias**: 3
-      - **quantidade_protecoes_parada**: 2
-      - **extensao**: 9
-      - **conquistadores**:
-        - Márcio Maçona
-        - Jovinei
-      - **data_abertura**: 2023
-  - **[14]**:
-    - **via_esportiva**:
-      - **nome**: 10%
-      - **dificuldade**: BR_6_BARRA_6SUP
-      - **quantidade_protecoes_intermediarias**: 3
-      - **quantidade_protecoes_parada**: 2
-      - **extensao**: 9
-      - **conquistadores**:
-        - Berbari
-        - Ró
-      - **data_abertura**: 2006
-  - **[15]**:
-    - **via_esportiva**:
-      - **nome**: Quebra Tudo
-      - **dificuldade**: BR_6_BARRA_6SUP
-      - **quantidade_protecoes_intermediarias**: 2
-      - **quantidade_protecoes_parada**: 2
-      - **extensao**: 7
-      - **conquistadores**:
-        - Berbari
-        - Ró
-      - **data_abertura**: 2006
-  - **[16]**:
-    - **via_esportiva**:
-      - **nome**: Acorrentado
-      - **dificuldade**: BR_6SUP
-      - **quantidade_protecoes_intermediarias**: 2
-      - **quantidade_protecoes_parada**: 2
-      - **extensao**: 7
-      - **conquistadores**:
-        - Berbari
-        - Ró
-      - **data_abertura**: 2006
-  - **[17]**:
-    - **via_esportiva**:
-      - **nome**: Fidefenda
-      - **dificuldade**: BR_5SUP
-      - **quantidade_protecoes_intermediarias**: 2
-      - **quantidade_protecoes_parada**: 2
-      - **extensao**: 7
-      - **conquistadores**:
-        - Berbari
-        - Ró
-        - Chinha
-      - **data_abertura**: 2006
-  - **[18]**:
-    - **via_esportiva**:
-      - **nome**: Cochyna Blue
-      - **dificuldade**: BR_6
-      - **quantidade_protecoes_intermediarias**: 2
-      - **quantidade_protecoes_parada**: 2
-      - **extensao**: 7
-      - **conquistadores**:
-        - Berbari
-        - Chinha
-      - **data_abertura**: 2006
-- **precomputados**:
-  - **total_escaladas**: 19
-  - **total_esportivas**: 19
-
-
 ## Parte: setor_familia_i
 
 ### Setor (Pico: Complexo Pedra Grande)
@@ -4391,6 +3717,1049 @@
   - **total_escaladas**: 41
 
 
+## Parte: grupo_estacionamento (não listada em partes.json)
+
+### Grupo (Pico: Complexo Pedra Grande)
+
+- **descricao**: 
+- **nome**: Setor Estacionamento
+- **setores**:
+  - **[0]**:
+    - **conteudo**:
+      - **descricao**:
+          # Setor Estacionamento
+          
+          O setor fica na lateral da estrada, ao lado do estacionamento da trilha para a Pedra Grande. A via "Route Setter" e a via "Teto Preto" compartilham as primeiras chapas na saída. Lado esquerdo setor tem sombra após 11h, e o lado direito sombra até 10h.
+      - **nome**: Estacionamento - Esportivas
+      - **mapas**:
+        - **[0]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_estacionamento_p0.webp)
+          - **largura_mapa**: 1995
+          - **altura_mapa**: 1222
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 01
+              - **label**: 01
+              - **circulo**:
+                - **x**: 533
+                - **y**: 527
+                - **raio**: 17
+            - **[1]**:
+              - **id**: 02
+              - **label**: 02
+              - **circulo**:
+                - **x**: 590
+                - **y**: 561
+                - **raio**: 17
+            - **[2]**:
+              - **id**: 03
+              - **label**: 03
+              - **circulo**:
+                - **x**: 617
+                - **y**: 601
+                - **raio**: 17
+            - **[3]**:
+              - **id**: 04
+              - **label**: 04
+              - **circulo**:
+                - **x**: 651
+                - **y**: 623
+                - **raio**: 17
+            - **[4]**:
+              - **id**: 05
+              - **label**: 05
+              - **circulo**:
+                - **x**: 778
+                - **y**: 706
+                - **raio**: 17
+            - **[5]**:
+              - **id**: 08
+              - **label**: 08
+              - **circulo**:
+                - **x**: 905
+                - **y**: 377
+                - **raio**: 18
+            - **[6]**:
+              - **id**: 06
+              - **label**: 06
+              - **circulo**:
+                - **x**: 913
+                - **y**: 774
+                - **raio**: 18
+            - **[7]**:
+              - **id**: 07
+              - **label**: 07
+              - **circulo**:
+                - **x**: 980
+                - **y**: 809
+                - **raio**: 17
+            - **[8]**:
+              - **id**: 09
+              - **label**: 09
+              - **circulo**:
+                - **x**: 1043
+                - **y**: 849
+                - **raio**: 17
+            - **[9]**:
+              - **id**: 10
+              - **label**: 10
+              - **circulo**:
+                - **x**: 1111
+                - **y**: 888
+                - **raio**: 17
+            - **[10]**:
+              - **id**: 11
+              - **label**: 11
+              - **circulo**:
+                - **x**: 1195
+                - **y**: 918
+                - **raio**: 17
+            - **[11]**:
+              - **id**: 12
+              - **label**: 12
+              - **circulo**:
+                - **x**: 1349
+                - **y**: 1037
+                - **raio**: 17
+            - **[12]**:
+              - **id**: 13
+              - **label**: 13
+              - **circulo**:
+                - **x**: 1684
+                - **y**: 1071
+                - **raio**: 17
+            - **[13]**:
+              - **id**: 14
+              - **label**: 14
+              - **circulo**:
+                - **x**: 1729
+                - **y**: 1024
+                - **raio**: 17
+            - **[14]**:
+              - **id**: 15
+              - **label**: 15
+              - **circulo**:
+                - **x**: 1765
+                - **y**: 963
+                - **raio**: 17
+            - **[15]**:
+              - **id**: 16
+              - **label**: 16
+              - **circulo**:
+                - **x**: 1804
+                - **y**: 923
+                - **raio**: 17
+            - **[16]**:
+              - **id**: 18
+              - **label**: 18
+              - **circulo**:
+                - **x**: 1840
+                - **y**: 476
+                - **raio**: 17
+            - **[17]**:
+              - **id**: 19
+              - **label**: 19
+              - **circulo**:
+                - **x**: 1877
+                - **y**: 367
+                - **raio**: 17
+            - **[18]**:
+              - **id**: 17
+              - **label**: 17
+              - **circulo**:
+                - **x**: 1901
+                - **y**: 519
+                - **raio**: 17
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Bacon com Linguiça
+              - **ids**:
+                - 01
+            - **[1]**:
+              - **escalada**: Quatchú
+              - **ids**:
+                - 02
+            - **[2]**:
+              - **escalada**: Xoquito
+              - **ids**:
+                - 03
+            - **[3]**:
+              - **escalada**: Slow Motion
+              - **ids**:
+                - 04
+            - **[4]**:
+              - **escalada**: Berbaridade Máxima
+              - **ids**:
+                - 05
+            - **[5]**:
+              - **escalada**: Cirque du Soleil
+              - **ids**:
+                - 06
+            - **[6]**:
+              - **escalada**: Route Setter
+              - **ids**:
+                - 07
+            - **[7]**:
+              - **escalada**: Fúria de Titãs
+              - **ids**:
+                - 10
+            - **[8]**:
+              - **escalada**: Prima Donna
+              - **ids**:
+                - 11
+            - **[9]**:
+              - **escalada**: Dama de Ferro
+              - **ids**:
+                - 12
+            - **[10]**:
+              - **escalada**: Primeira de Todas
+              - **ids**:
+                - 13
+            - **[11]**:
+              - **escalada**: Brinco de Odalisca
+              - **ids**:
+                - 14
+            - **[12]**:
+              - **escalada**: 10%
+              - **ids**:
+                - 15
+            - **[13]**:
+              - **escalada**: Quebra Tudo
+              - **ids**:
+                - 16
+            - **[14]**:
+              - **escalada**: Acorrentado
+              - **ids**:
+                - 17
+            - **[15]**:
+              - **escalada**: Fidefenda
+              - **ids**:
+                - 18
+            - **[16]**:
+              - **escalada**: Cochyna Blue
+              - **ids**:
+                - 19
+            - **[17]**:
+              - **ids**:
+                - 08
+              - **escalada**: Teto Preto
+            - **[18]**:
+              - **ids**:
+                - 09
+              - **escalada**: 101 Dalmatas
+        - **[1]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_estacionamento_p1.webp)
+          - **largura_mapa**: 1067
+          - **altura_mapa**: 1440
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 17
+              - **label**: 17
+              - **circulo**:
+                - **x**: 346
+                - **y**: 189
+                - **raio**: 17
+            - **[1]**:
+              - **id**: 16
+              - **label**: 16
+              - **circulo**:
+                - **x**: 406
+                - **y**: 185
+                - **raio**: 18
+            - **[2]**:
+              - **id**: 15
+              - **label**: 15
+              - **circulo**:
+                - **x**: 475
+                - **y**: 216
+                - **raio**: 18
+            - **[3]**:
+              - **id**: 19
+              - **label**: 19
+              - **circulo**:
+                - **x**: 269
+                - **y**: 235
+                - **raio**: 17
+            - **[4]**:
+              - **id**: 18
+              - **label**: 18
+              - **circulo**:
+                - **x**: 314
+                - **y**: 233
+                - **raio**: 17
+            - **[5]**:
+              - **id**: 14
+              - **label**: 14
+              - **circulo**:
+                - **x**: 516
+                - **y**: 240
+                - **raio**: 17
+            - **[6]**:
+              - **id**: 13
+              - **label**: 13
+              - **circulo**:
+                - **x**: 560
+                - **y**: 236
+                - **raio**: 18
+            - **[7]**:
+              - **id**: 12
+              - **label**: 12
+              - **circulo**:
+                - **x**: 644
+                - **y**: 429
+                - **raio**: 17
+            - **[8]**:
+              - **id**: 11
+              - **label**: 11
+              - **circulo**:
+                - **x**: 636
+                - **y**: 505
+                - **raio**: 17
+            - **[9]**:
+              - **id**: 10
+              - **label**: 10
+              - **circulo**:
+                - **x**: 625
+                - **y**: 558
+                - **raio**: 17
+            - **[10]**:
+              - **id**: 09
+              - **label**: 09
+              - **circulo**:
+                - **x**: 614
+                - **y**: 610
+                - **raio**: 17
+            - **[11]**:
+              - **id**: 08
+              - **label**: 08
+              - **circulo**:
+                - **x**: 606
+                - **y**: 671
+                - **raio**: 17
+            - **[12]**:
+              - **id**: 07
+              - **label**: 07
+              - **circulo**:
+                - **x**: 606
+                - **y**: 707
+                - **raio**: 17
+            - **[13]**:
+              - **id**: 06
+              - **label**: 06
+              - **circulo**:
+                - **x**: 604
+                - **y**: 768
+                - **raio**: 17
+            - **[14]**:
+              - **id**: 05
+              - **label**: 05
+              - **circulo**:
+                - **x**: 595
+                - **y**: 868
+                - **raio**: 17
+            - **[15]**:
+              - **id**: 04
+              - **label**: 04
+              - **circulo**:
+                - **x**: 584
+                - **y**: 915
+                - **raio**: 17
+            - **[16]**:
+              - **id**: 03
+              - **label**: 03
+              - **circulo**:
+                - **x**: 569
+                - **y**: 961
+                - **raio**: 17
+            - **[17]**:
+              - **id**: 02
+              - **label**: 02
+              - **circulo**:
+                - **x**: 553
+                - **y**: 1024
+                - **raio**: 17
+            - **[18]**:
+              - **id**: 01
+              - **label**: 01
+              - **circulo**:
+                - **x**: 541
+                - **y**: 1077
+                - **raio**: 17
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Bacon com Linguiça
+              - **ids**:
+                - 01
+            - **[1]**:
+              - **escalada**: Quatchú
+              - **ids**:
+                - 02
+            - **[2]**:
+              - **escalada**: Xoquito
+              - **ids**:
+                - 03
+            - **[3]**:
+              - **escalada**: Slow Motion
+              - **ids**:
+                - 04
+            - **[4]**:
+              - **escalada**: Berbaridade Máxima
+              - **ids**:
+                - 05
+            - **[5]**:
+              - **escalada**: Cirque du Soleil
+              - **ids**:
+                - 06
+            - **[6]**:
+              - **escalada**: Route Setter
+              - **ids**:
+                - 07
+            - **[7]**:
+              - **escalada**: Fúria de Titãs
+              - **ids**:
+                - 10
+            - **[8]**:
+              - **escalada**: Prima Donna
+              - **ids**:
+                - 11
+            - **[9]**:
+              - **escalada**: Dama de Ferro
+              - **ids**:
+                - 12
+            - **[10]**:
+              - **escalada**: Primeira de Todas
+              - **ids**:
+                - 13
+            - **[11]**:
+              - **escalada**: Brinco de Odalisca
+              - **ids**:
+                - 14
+            - **[12]**:
+              - **escalada**: 10%
+              - **ids**:
+                - 15
+            - **[13]**:
+              - **escalada**: Quebra Tudo
+              - **ids**:
+                - 16
+            - **[14]**:
+              - **escalada**: Acorrentado
+              - **ids**:
+                - 17
+            - **[15]**:
+              - **escalada**: Fidefenda
+              - **ids**:
+                - 18
+            - **[16]**:
+              - **escalada**: Cochyna Blue
+              - **ids**:
+                - 19
+            - **[17]**:
+              - **ids**:
+                - 08
+              - **escalada**: Teto Preto
+            - **[18]**:
+              - **ids**:
+                - 09
+              - **escalada**: 101 Dalmatas
+      - **escaladas**:
+        - **[0]**:
+          - **via_esportiva**:
+            - **nome**: Bacon com Linguiça
+            - **dificuldade**: BR_6SUP
+            - **quantidade_protecoes_intermediarias**: 2
+            - **quantidade_protecoes_parada**: 2
+            - **extensao**: 8
+            - **conquistadores**:
+              - Berbari
+              - Chinha
+              - Pauleti
+            - **data_abertura**: 2006
+        - **[1]**:
+          - **via_esportiva**:
+            - **nome**: Quatchú
+            - **dificuldade**: BR_8A
+            - **quantidade_protecoes_intermediarias**: 2
+            - **quantidade_protecoes_parada**: 2
+            - **extensao**: 9
+            - **conquistadores**:
+              - Berbari
+              - Ró
+              - Chinha
+            - **data_abertura**: 2006
+        - **[2]**:
+          - **via_esportiva**:
+            - **nome**: Xoquito
+            - **dificuldade**: BR_8B
+            - **quantidade_protecoes_intermediarias**: 3
+            - **quantidade_protecoes_parada**: 2
+            - **extensao**: 10
+            - **conquistadores**:
+              - Berbari
+              - Chinha
+              - Ró
+            - **data_abertura**: 2006
+        - **[3]**:
+          - **via_esportiva**:
+            - **nome**: Slow Motion
+            - **dificuldade**: BR_8B
+            - **quantidade_protecoes_intermediarias**: 5
+            - **quantidade_protecoes_parada**: 2
+            - **extensao**: 12
+            - **conquistadores**:
+              - Berbari
+              - Chinha
+              - Ró
+              - Toninho
+            - **data_abertura**: 2023
+        - **[4]**:
+          - **via_esportiva**:
+            - **nome**: Berbaridade Máxima
+            - **dificuldade**: BR_8C
+            - **quantidade_protecoes_intermediarias**: 8
+            - **quantidade_protecoes_parada**: 2
+            - **extensao**: 14
+            - **conquistadores**:
+              - Berbari
+              - Toninho
+              - Chinha
+            - **data_abertura**: 2023
+        - **[5]**:
+          - **via_esportiva**:
+            - **nome**: Cirque du Soleil
+            - **dificuldade**: BR_9B
+            - **quantidade_protecoes_intermediarias**: 5
+            - **quantidade_protecoes_parada**: 2
+            - **extensao**: 14
+            - **conquistadores**:
+              - Berbari
+              - Chinha
+              - Ró
+              - Moleza
+            - **data_abertura**: 2010
+        - **[6]**:
+          - **via_esportiva**:
+            - **descricao**: Finaliza na via 06 (Cirque du Soleil).
+            - **nome**: Route Setter
+            - **dificuldade**: BR_9A
+            - **quantidade_protecoes_intermediarias**: 6
+            - **quantidade_protecoes_parada**: 2
+            - **extensao**: 15
+            - **conquistadores**:
+              - Berbari
+              - Ró
+            - **data_abertura**: 2010
+        - **[7]**:
+          - **via_esportiva**:
+            - **descricao**: Saída na via 07 (Route Setter).
+            - **nome**: Teto Preto
+            - **dificuldade**: BR_8B
+            - **quantidade_protecoes_intermediarias**: 8
+            - **quantidade_protecoes_parada**: 2
+            - **extensao**: 14
+            - **conquistadores**:
+              - Berbari
+              - Chinha
+            - **data_abertura**: 2023
+        - **[8]**:
+          - **via_esportiva**:
+            - **nome**: 101 Dalmatas
+            - **dificuldade**: BR_8A
+            - **quantidade_protecoes_intermediarias**: 4
+            - **quantidade_protecoes_parada**: 2
+            - **extensao**: 13
+            - **conquistadores**:
+              - Berbari
+              - Chinha
+            - **data_abertura**: 2023
+        - **[9]**:
+          - **via_esportiva**:
+            - **nome**: Fúria de Titãs
+            - **dificuldade**: BR_10A
+            - **quantidade_protecoes_intermediarias**: 4
+            - **quantidade_protecoes_parada**: 2
+            - **extensao**: 13
+            - **conquistadores**:
+              - Berbari
+              - Chinha
+              - Toninho
+              - Ró
+            - **data_abertura**: 2010
+        - **[10]**:
+          - **via_esportiva**:
+            - **nome**: Prima Donna
+            - **dificuldade**: BR_10A
+            - **quantidade_protecoes_intermediarias**: 4
+            - **quantidade_protecoes_parada**: 2
+            - **extensao**: 12
+            - **conquistadores**:
+              - Berbari
+              - Chinha
+              - Toninho
+              - Bunitin
+            - **data_abertura**: 2023
+        - **[11]**:
+          - **via_esportiva**:
+            - **nome**: Dama de Ferro
+            - **dificuldade**: BR_10C
+            - **quantidade_protecoes_intermediarias**: 2
+            - **quantidade_protecoes_parada**: 2
+            - **extensao**: 12
+            - **conquistadores**:
+              - Berbari
+              - Moleza
+            - **data_abertura**: 2010
+        - **[12]**:
+          - **via_esportiva**:
+            - **nome**: Primeira de Todas
+            - **dificuldade**: BR_7A
+            - **quantidade_protecoes_intermediarias**: 2
+            - **quantidade_protecoes_parada**: 2
+            - **extensao**: 9
+            - **conquistadores**:
+              - Berbari
+              - Ró
+            - **data_abertura**: 2006
+        - **[13]**:
+          - **via_esportiva**:
+            - **nome**: Brinco de Odalisca
+            - **dificuldade**: BR_6
+            - **quantidade_protecoes_intermediarias**: 3
+            - **quantidade_protecoes_parada**: 2
+            - **extensao**: 9
+            - **conquistadores**:
+              - Márcio Maçona
+              - Jovinei
+            - **data_abertura**: 2023
+        - **[14]**:
+          - **via_esportiva**:
+            - **nome**: 10%
+            - **dificuldade**: BR_6_BARRA_6SUP
+            - **quantidade_protecoes_intermediarias**: 3
+            - **quantidade_protecoes_parada**: 2
+            - **extensao**: 9
+            - **conquistadores**:
+              - Berbari
+              - Ró
+            - **data_abertura**: 2006
+        - **[15]**:
+          - **via_esportiva**:
+            - **nome**: Quebra Tudo
+            - **dificuldade**: BR_6_BARRA_6SUP
+            - **quantidade_protecoes_intermediarias**: 2
+            - **quantidade_protecoes_parada**: 2
+            - **extensao**: 7
+            - **conquistadores**:
+              - Berbari
+              - Ró
+            - **data_abertura**: 2006
+        - **[16]**:
+          - **via_esportiva**:
+            - **nome**: Acorrentado
+            - **dificuldade**: BR_6SUP
+            - **quantidade_protecoes_intermediarias**: 2
+            - **quantidade_protecoes_parada**: 2
+            - **extensao**: 7
+            - **conquistadores**:
+              - Berbari
+              - Ró
+            - **data_abertura**: 2006
+        - **[17]**:
+          - **via_esportiva**:
+            - **nome**: Fidefenda
+            - **dificuldade**: BR_5SUP
+            - **quantidade_protecoes_intermediarias**: 2
+            - **quantidade_protecoes_parada**: 2
+            - **extensao**: 7
+            - **conquistadores**:
+              - Berbari
+              - Ró
+              - Chinha
+            - **data_abertura**: 2006
+        - **[18]**:
+          - **via_esportiva**:
+            - **nome**: Cochyna Blue
+            - **dificuldade**: BR_6
+            - **quantidade_protecoes_intermediarias**: 2
+            - **quantidade_protecoes_parada**: 2
+            - **extensao**: 7
+            - **conquistadores**:
+              - Berbari
+              - Chinha
+            - **data_abertura**: 2006
+      - **precomputados**:
+        - **total_escaladas**: 19
+        - **total_esportivas**: 19
+  - **[1]**:
+    - **conteudo**:
+      - **descricao**: Grupo composto por vias esportivas e vários blocos de boulders.
+      - **nome**: Estacionamento - Bloco Pega negativo
+      - **escaladas**:
+        - **[0]**:
+          - **boulder**:
+            - **nome**: Pega negativo
+            - **dificuldade**: V7
+        - **[1]**:
+          - **boulder**:
+            - **nome**: Serrado
+            - **dificuldade**: V1
+        - **[2]**:
+          - **boulder**:
+            - **nome**: Coruja
+            - **dificuldade**: V1
+        - **[3]**:
+          - **boulder**:
+            - **nome**: Projeto 3
+      - **mapas**:
+        - **[0]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_estacionamento_bloco_pega_negativo_p0.webp)
+          - **largura_mapa**: 1824
+          - **altura_mapa**: 1376
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: linha_2
+              - **label**: 
+              - **linha**:
+                - **estilo**: TRACEJADO
+                - **espessura**: 4
+                - **compilado**:
+                  - **caminho_svg**: M 1280 1041 C 1259.7 922.7, 1234.6 790.7, 1219 686 C 1206.7 603.5, 1201.9 530.5, 1191 464 C 1182.0 409.2, 1171.0 364.7, 1161 315
+                  - **caixa_delimitadora**:
+                    - **x**: 1220
+                    - **y**: 678
+                    - **comprimento**: 119
+                    - **largura**: 726
+                  - **marcadores**:
+                    - **[0]**:
+                      - **tipo**: FIM_TOP
+                      - **x**: 1161
+                      - **y**: 315
+                      - **angulo_graus_x100**: -10138
+                      - **rotulo**: B
+              - **cor**: #00E5FF
+            - **[1]**:
+              - **id**: linha_3
+              - **linha**:
+                - **estilo**: TRACEJADO
+                - **espessura**: 4
+                - **compilado**:
+                  - **caminho_svg**: M 1285 1074 C 1283.0 1063.3, 1281.0 1052.7, 1279 1042
+                  - **caixa_delimitadora**:
+                    - **x**: 1282
+                    - **y**: 1058
+                    - **comprimento**: 6
+                    - **largura**: 32
+                  - **marcadores**:
+                    - **[0]**:
+                      - **tipo**: CIRCULO_IDENTIFICADOR
+                      - **x**: 1285
+                      - **y**: 1074
+                      - **angulo_graus_x100**: -10062
+                      - **rotulo**: 1
+              - **cor**: #FFD600
+            - **[2]**:
+              - **id**: linha_4
+              - **linha**:
+                - **estilo**: TRACEJADO
+                - **espessura**: 4
+                - **compilado**:
+                  - **caminho_svg**: M 1279 1042 C 1274.0 1036.7, 1271.9 1029.7, 1264 1026 C 1249.9 1019.4, 1219.4 1023.6, 1194 1022 C 1163.6 1020.1, 1128.2 1016.5, 1094 1015 C 1058.0 1013.4, 1013.7 1013.8, 983 1013 C 961.2 1012.4, 947.1 1015.0, 927 1011 C 901.7 1006.0, 873.5 992.0, 844 980 C 809.5 966.0, 762.0 953.5, 733 931 C 707.5 911.2, 682.3 882.5, 675 857 C 668.9 835.6, 682.7 812.2, 682 791 C 681.3 771.0, 678.4 753.0, 672 733 C 664.5 709.6, 655.9 674.4, 637 660 C 618.6 645.9, 584.0 653.6, 561 646 C 540.1 639.1, 518.1 634.2, 504 618 C 486.6 598.1, 482.9 559.9, 474 527 C 463.8 489.3, 455.8 444.3, 448 404 C 440.5 365.3, 433.5 319.1, 428 290 C 424.6 271.9, 422.0 260.7, 419 246
+                  - **caixa_delimitadora**:
+                    - **x**: 849
+                    - **y**: 644
+                    - **comprimento**: 860
+                    - **largura**: 796
+                  - **marcadores**:
+                    - **[0]**:
+                      - **tipo**: FIM_TOP
+                      - **x**: 419
+                      - **y**: 246
+                      - **angulo_graus_x100**: -10156
+                      - **rotulo**: A
+              - **cor**: #00E5FF
+            - **[3]**:
+              - **id**: linha_1
+              - **label**: 
+              - **linha**:
+                - **estilo**: TRACEJADO
+                - **espessura**: 3
+                - **compilado**:
+                  - **caminho_svg**: M 1570 965 C 1572.0 925.0, 1578.6 886.3, 1576 845 C 1573.1 800.2, 1559.4 746.4, 1551 706 C 1544.4 674.4, 1539.8 650.5, 1531 622 C 1521.5 591.2, 1509.7 559.8, 1495 528 C 1478.9 493.2, 1453.7 445.7, 1437 422 C 1427.5 408.6, 1419.7 402.7, 1411 393
+                  - **caixa_delimitadora**:
+                    - **x**: 1494
+                    - **y**: 679
+                    - **comprimento**: 165
+                    - **largura**: 572
+                  - **marcadores**:
+                    - **[0]**:
+                      - **tipo**: CIRCULO_IDENTIFICADOR
+                      - **x**: 1570
+                      - **y**: 965
+                      - **angulo_graus_x100**: -8714
+                      - **rotulo**: 2
+                    - **[1]**:
+                      - **tipo**: FIM_TOP
+                      - **x**: 1411
+                      - **y**: 393
+                      - **angulo_graus_x100**: -13188
+                      - **rotulo**: C
+              - **cor**: #00E5FF
+            - **[4]**:
+              - **id**: linha_5
+              - **label**: 
+              - **linha**:
+                - **estilo**: TRACEJADO
+                - **espessura**: 3
+                - **compilado**:
+                  - **caminho_svg**: M 714 1035 C 646.3 1005.0, 566.5 982.2, 511 945 C 464.0 913.5, 431.6 873.4, 396 835 C 361.1 797.4, 314.2 761.7, 299 717 C 284.1 673.2, 305.4 616.2, 304 570 C 302.8 528.7, 306.6 491.2, 293 453 C 277.4 409.3, 235.7 367.7, 207 325
+                  - **caixa_delimitadora**:
+                    - **x**: 460
+                    - **y**: 680
+                    - **comprimento**: 507
+                    - **largura**: 710
+                  - **marcadores**:
+                    - **[0]**:
+                      - **tipo**: CIRCULO_IDENTIFICADOR
+                      - **x**: 714
+                      - **y**: 1035
+                      - **angulo_graus_x100**: -15609
+                      - **rotulo**: 3
+                    - **[1]**:
+                      - **tipo**: FIM_TOP
+                      - **x**: 207
+                      - **y**: 325
+                      - **angulo_graus_x100**: -12390
+                      - **rotulo**: D
+              - **cor**: #00E5FF
+          - **referencias**:
+            - **[0]**:
+              - **ids**:
+                - linha_3
+                - linha_4
+              - **escalada**: Pega negativo
+            - **[1]**:
+              - **ids**:
+                - linha_3
+                - linha_2
+              - **escalada**: Serrado
+            - **[2]**:
+              - **ids**:
+                - linha_1
+              - **escalada**: Coruja
+            - **[3]**:
+              - **ids**:
+                - linha_5
+              - **escalada**: Projeto 3
+      - **precomputados**:
+        - **total_escaladas**: 4
+        - **total_boulders**: 4
+  - **[2]**:
+    - **conteudo**:
+      - **descricao**: 
+      - **nome**: Estacionamento - Bloco Solaris
+      - **escaladas**:
+        - **[0]**:
+          - **boulder**:
+            - **nome**: Solaris
+            - **dificuldade**: V4
+        - **[1]**:
+          - **boulder**:
+            - **nome**: Pump
+            - **dificuldade**: V3
+        - **[2]**:
+          - **boulder**:
+            - **nome**: Lítio
+            - **dificuldade**: V2
+        - **[3]**:
+          - **boulder**:
+            - **nome**: Tório
+            - **dificuldade**: V0
+        - **[4]**:
+          - **boulder**:
+            - **nome**: Irídio
+            - **dificuldade**: V0
+      - **mapas**:
+        - **[0]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_estacionamento_bloco_solaris_p0.webp)
+          - **largura_mapa**: 1773
+          - **altura_mapa**: 2364
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: linha_2
+              - **linha**:
+                - **estilo**: TRACEJADO
+                - **espessura**: 4
+                - **compilado**:
+                  - **caminho_svg**: M 1530 1748 C 1499.0 1706.3, 1468.2 1655.5, 1437 1623 C 1412.8 1597.8, 1392.9 1582.5, 1364 1564 C 1328.5 1541.3, 1278.8 1522.3, 1237 1501 C 1195.8 1480.0, 1152.4 1456.9, 1115 1437 C 1082.9 1419.9, 1045.8 1416.3, 1026 1389 C 1001.2 1354.8, 1007.3 1285.0, 998 1233
+                  - **caixa_delimitadora**:
+                    - **x**: 1264
+                    - **y**: 1490
+                    - **comprimento**: 532
+                    - **largura**: 515
+                  - **marcadores**:
+                    - **[0]**:
+                      - **tipo**: CIRCULO_IDENTIFICADOR
+                      - **x**: 1530
+                      - **y**: 1748
+                      - **angulo_graus_x100**: -12665
+                      - **rotulo**: 1
+              - **cor**: #00E5FF
+            - **[1]**:
+              - **id**: linha_3
+              - **linha**:
+                - **estilo**: TRACEJADO
+                - **espessura**: 4
+                - **compilado**:
+                  - **caminho_svg**: M 998 1233 C 997.7 1180.3, 997.1 1111.4, 997 1075 C 996.9 1055.8, 997.7 1049.5, 997 1031 C 995.8 999.1, 991.1 942.4, 987 901 C 983.3 863.0, 978.3 828.3, 974 792
+                  - **caixa_delimitadora**:
+                    - **x**: 986
+                    - **y**: 1012
+                    - **comprimento**: 24
+                    - **largura**: 441
+                  - **marcadores**:
+                    - **[0]**:
+                      - **tipo**: FIM_TOP
+                      - **x**: 974
+                      - **y**: 792
+                      - **angulo_graus_x100**: -9680
+                      - **rotulo**: A
+              - **cor**: #00E5FF
+            - **[2]**:
+              - **id**: linha_5
+              - **linha**:
+                - **estilo**: TRACEJADO
+                - **espessura**: 4
+                - **compilado**:
+                  - **caminho_svg**: M 780 1794 C 782.3 1776.3, 784.7 1758.7, 787 1741
+                  - **caixa_delimitadora**:
+                    - **x**: 784
+                    - **y**: 1768
+                    - **comprimento**: 7
+                    - **largura**: 53
+                  - **marcadores**:
+                    - **[0]**:
+                      - **tipo**: CIRCULO_IDENTIFICADOR
+                      - **x**: 780
+                      - **y**: 1794
+                      - **angulo_graus_x100**: -8248
+                      - **rotulo**: 2
+              - **cor**: #FFD600
+            - **[3]**:
+              - **id**: linha_6
+              - **linha**:
+                - **estilo**: TRACEJADO
+                - **espessura**: 4
+                - **compilado**:
+                  - **caminho_svg**: M 787 1741 C 794.0 1733.0, 796.0 1724.7, 808 1717 C 835.6 1699.2, 940.8 1702.4, 970 1668 C 996.4 1636.8, 984.8 1580.0, 988 1530 C 991.8 1471.2, 985.4 1391.4, 988 1337 C 989.9 1297.0, 994.7 1267.7, 998 1233
+                  - **caixa_delimitadora**:
+                    - **x**: 892
+                    - **y**: 1487
+                    - **comprimento**: 211
+                    - **largura**: 508
+                  - **marcadores**: []
+              - **cor**: #00E5FF
+            - **[4]**:
+              - **id**: linha_7
+              - **linha**:
+                - **estilo**: TRACEJADO
+                - **espessura**: 4
+                - **compilado**:
+                  - **caminho_svg**: M 784 1738 C 776.0 1724.3, 772.8 1715.3, 760 1697 C 729.1 1653.0, 631.4 1550.3, 583 1485 C 544.7 1433.3, 517.6 1384.1, 488 1340 C 462.8 1302.6, 434.0 1277.6, 417 1237 C 397.2 1189.5, 395.7 1125.0, 385 1069
+                  - **caixa_delimitadora**:
+                    - **x**: 584
+                    - **y**: 1404
+                    - **comprimento**: 399
+                    - **largura**: 669
+                  - **marcadores**:
+                    - **[0]**:
+                      - **tipo**: FIM_TOP
+                      - **x**: 385
+                      - **y**: 1069
+                      - **angulo_graus_x100**: -10078
+                      - **rotulo**: B
+              - **cor**: #00E5FF
+          - **referencias**:
+            - **[0]**:
+              - **ids**:
+                - linha_2
+                - linha_3
+              - **escalada**: Solaris
+            - **[1]**:
+              - **ids**:
+                - linha_5
+                - linha_6
+                - linha_3
+              - **escalada**: Pump
+            - **[2]**:
+              - **ids**:
+                - linha_5
+                - linha_7
+              - **escalada**: Lítio
+        - **[1]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_estacionamento_bloco_solaris_p1.webp)
+          - **largura_mapa**: 2364
+          - **altura_mapa**: 1773
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: linha_1
+              - **label**: 
+              - **linha**:
+                - **estilo**: TRACEJADO
+                - **espessura**: 4
+                - **compilado**:
+                  - **caminho_svg**: M 1366 1285 C 1320.7 1230.0, 1273.9 1162.9, 1230 1120 C 1196.5 1087.3, 1160.8 1078.0, 1132 1043 C 1095.5 998.7, 1061.0 923.5, 1041 865 C 1023.3 813.4, 1023.7 766.6, 1012 712 C 998.4 648.3, 975.3 563.3, 963 506 C 954.3 465.3, 949.7 436.0, 943 401
+                  - **caixa_delimitadora**:
+                    - **x**: 1154
+                    - **y**: 843
+                    - **comprimento**: 423
+                    - **largura**: 884
+                  - **marcadores**:
+                    - **[0]**:
+                      - **tipo**: CIRCULO_IDENTIFICADOR
+                      - **x**: 1366
+                      - **y**: 1285
+                      - **angulo_graus_x100**: -12950
+                      - **rotulo**: 3
+              - **cor**: #00E5FF
+            - **[1]**:
+              - **id**: linha_4
+              - **label**: 
+              - **linha**:
+                - **estilo**: TRACEJADO
+                - **espessura**: 4
+                - **compilado**:
+                  - **caminho_svg**: M 1771 1100 C 1757.7 1045.3, 1751.8 990.1, 1731 936 C 1708.5 877.4, 1670.2 808.3, 1637 762 C 1611.4 726.4, 1587.1 709.2, 1557 676 C 1516.8 631.5, 1462.1 565.2, 1418 518 C 1380.4 477.7, 1340.5 443.5, 1310 409 C 1285.0 380.7, 1267.3 355.0, 1246 328
+                  - **caixa_delimitadora**:
+                    - **x**: 1508
+                    - **y**: 714
+                    - **comprimento**: 525
+                    - **largura**: 772
+                  - **marcadores**:
+                    - **[0]**:
+                      - **tipo**: CIRCULO_IDENTIFICADOR
+                      - **x**: 1771
+                      - **y**: 1100
+                      - **angulo_graus_x100**: -10371
+                      - **rotulo**: 4
+              - **cor**: #00E5FF
+          - **referencias**:
+            - **[0]**:
+              - **ids**:
+                - linha_1
+              - **escalada**: Tório
+            - **[1]**:
+              - **ids**:
+                - linha_4
+              - **escalada**: Irídio
+      - **precomputados**:
+        - **total_escaladas**: 5
+        - **total_boulders**: 5
+- **precomputados**:
+  - **total_escaladas**: 28
+  - **total_esportivas**: 19
+  - **total_boulders**: 9
+
+
 ## Parte: grupo_boulders (não listada em partes.json)
 
 ### Grupo (Pico: Complexo Pedra Grande)
@@ -6206,129 +6575,138 @@
     - **caminho**: ![caminho](imagens/capa_p0.webp)
     - **checksum_sha256**: b4887c391eaf1911eaf809e7132944c4f46760657ebe56af30f2890698fbe289
   - **[1]**:
+    - **caminho**: ![caminho](imagens/grupo_estacionamento_bloco_pega_negativo_p0.webp)
+    - **checksum_sha256**: 09539e80afd0a6694cb9c95e640266c6c36ff871b6e6b94bf252982e834adc44
+  - **[2]**:
+    - **caminho**: ![caminho](imagens/grupo_estacionamento_bloco_solaris_p0.webp)
+    - **checksum_sha256**: 2006b2fd7865dd3d9f359e052b4d94657ba78ce0fab1e2b47d62125f60582e45
+  - **[3]**:
+    - **caminho**: ![caminho](imagens/grupo_estacionamento_bloco_solaris_p1.webp)
+    - **checksum_sha256**: 69bb2525361c1048730d730954f8dc6c1bdcd77846b0d2511966fd71b49d8918
+  - **[4]**:
     - **caminho**: ![caminho](imagens/historia_p0.webp)
     - **checksum_sha256**: 35328b7fcdf2d9a789fcd300af00cb67997589078e4dc645f00d1180b3ea707d
-  - **[2]**:
+  - **[5]**:
     - **caminho**: ![caminho](imagens/igarameca_info_p0.webp)
     - **checksum_sha256**: a25c26a236f78956f6a9eef3b49be1a49e00ac995003bbc7b521a82708113c10
-  - **[3]**:
+  - **[6]**:
     - **caminho**: ![caminho](imagens/mapas_gerais_p0.webp)
     - **checksum_sha256**: 46f1c43fe65af207fde61b213d7876a9eee14afe36a686633b6309a4b9e0bb2c
-  - **[4]**:
+  - **[7]**:
     - **caminho**: ![caminho](imagens/mapas_gerais_p1.webp)
     - **checksum_sha256**: 852e3b9ba55da91bda3283501c992927fd6cae1166c0c21717190aa15f51066c
-  - **[5]**:
+  - **[8]**:
     - **caminho**: ![caminho](imagens/patrocinadores_p0.webp)
     - **checksum_sha256**: 4182ec353e7d169bf4ea4bf1f245e97df7f3b359560ddf5d6d77ebd462259d88
-  - **[6]**:
+  - **[9]**:
     - **caminho**: ![caminho](imagens/setor_bloco_fugitivos_i_p4.webp)
     - **checksum_sha256**: 54a37eb42350ba07c9f3490356d5b77fe8b940b07a3fffc08332c8d730344d31
-  - **[7]**:
+  - **[10]**:
     - **caminho**: ![caminho](imagens/setor_bloco_fugitivos_ii_p0.webp)
     - **checksum_sha256**: 77cc1dfdcaa11031b3bae33d41b033d9ab60a98c1bd248334e06b2b0debfb90b
-  - **[8]**:
+  - **[11]**:
     - **caminho**: ![caminho](imagens/setor_bloco_fugitivos_ii_p1.webp)
     - **checksum_sha256**: 33ba92f155decab3882d3768ca9d9e0a161a5db5402f2d6e522326c8ed56f8ba
-  - **[9]**:
+  - **[12]**:
     - **caminho**: ![caminho](imagens/setor_bloco_fugitivos_ii_p2.webp)
     - **checksum_sha256**: 9a165e9848c25a0f9c0595150de68226ce70344246a22d523d4d3438c1204276
-  - **[10]**:
+  - **[13]**:
     - **caminho**: ![caminho](imagens/setor_estacionamento_p0.webp)
     - **checksum_sha256**: c0b10e222fdaed24818c31db7a4f62e69cef20e19182efd1f390a605d7023292
-  - **[11]**:
+  - **[14]**:
     - **caminho**: ![caminho](imagens/setor_estacionamento_p1.webp)
     - **checksum_sha256**: 70ff91fdbc683bf71dcd9a33dbc042e170ef4f49c88b9bc9ce9956edb3fef48c
-  - **[12]**:
+  - **[15]**:
     - **caminho**: ![caminho](imagens/setor_familia_i_p0.webp)
     - **checksum_sha256**: 445e010c4cbaca2db0d2bfc12bb93dc9da30e427bac970d7e06ebe08cee2b0cf
-  - **[13]**:
+  - **[16]**:
     - **caminho**: ![caminho](imagens/setor_familia_i_p1.webp)
     - **checksum_sha256**: feae5245d8419ab4dd0698de889b4879cbe9b7a1324205ceae8dc47d77eb1038
-  - **[14]**:
+  - **[17]**:
     - **caminho**: ![caminho](imagens/setor_familia_ii_p0.webp)
     - **checksum_sha256**: 8435be258ad2d6ed69cd0d4c540050a44bab6186bb884efae83a4998ef1101d3
-  - **[15]**:
+  - **[18]**:
     - **caminho**: ![caminho](imagens/setor_familia_ii_p1.webp)
     - **checksum_sha256**: 4f3e4bedfed21fafc2284c19063d969b3aae82cd32409bd7bf62d4c941c32765
-  - **[16]**:
+  - **[19]**:
     - **caminho**: ![caminho](imagens/setor_fugitivos_i_p0.webp)
     - **checksum_sha256**: 95239b7b899a1e56c8d919fcbfa733d0e9ae4f9b028a23eeb2a950c5dbabdf25
-  - **[17]**:
+  - **[20]**:
     - **caminho**: ![caminho](imagens/setor_fugitivos_i_p1.webp)
     - **checksum_sha256**: 40266b678b64ad905696f58ace40b125d04162bfdb4a8c4f8a5f9313ee7a672d
-  - **[18]**:
+  - **[21]**:
     - **caminho**: ![caminho](imagens/setor_fugitivos_i_p2.webp)
     - **checksum_sha256**: 66fbcb3356cdcbb3001fa95dbd17cdb0989d9e22a394cf2cf96890c3099ed794
-  - **[19]**:
+  - **[22]**:
     - **caminho**: ![caminho](imagens/setor_fugitivos_i_p3.webp)
     - **checksum_sha256**: 06bd0ef4287fd6e7fa0255e706e814ea441be9d74e11b0d0a5a17173de6d4474
-  - **[20]**:
+  - **[23]**:
     - **caminho**: ![caminho](imagens/setor_igarameca_p0.webp)
     - **checksum_sha256**: e79e4daa827532abd0ff0a16e096f1df0eea148c8589dc7686fa268ba1c84102
-  - **[21]**:
+  - **[24]**:
     - **caminho**: ![caminho](imagens/setor_igarameca_p1.webp)
     - **checksum_sha256**: b2ab0e0a16eb19fe5d54f6a899456ac5ff07671862249a012699dc3631c64662
-  - **[22]**:
+  - **[25]**:
     - **caminho**: ![caminho](imagens/setor_igarameca_p2.webp)
     - **checksum_sha256**: 3a6b8f636bd121e5fa888a5dc855ddb627cea151389890532ba4f50053c78f30
-  - **[23]**:
+  - **[26]**:
     - **caminho**: ![caminho](imagens/setor_jeitinho_brasileiro_p0.webp)
     - **checksum_sha256**: 9aa633be14db3f0c96a1a656470f87f5bfb7a259a02cb58babd6733dadc8d535
-  - **[24]**:
+  - **[27]**:
     - **caminho**: ![caminho](imagens/setor_micos_p0.webp)
     - **checksum_sha256**: acb374ec8c0ecf85d537c86dd1328bbb91e4fd41576659d596457a818254cd2d
-  - **[25]**:
+  - **[28]**:
     - **caminho**: ![caminho](imagens/setor_micos_p1.webp)
     - **checksum_sha256**: e59d63c298cd1049ee8636ce3e3b78b993f5b2358f4e3fc57a10508e739e8536
-  - **[26]**:
+  - **[29]**:
     - **caminho**: ![caminho](imagens/setor_micos_p2.webp)
     - **checksum_sha256**: 27321d933aca314b50a98e486f662138fd61b049dcb90248b6bb2d162c7b944c
-  - **[27]**:
+  - **[30]**:
     - **caminho**: ![caminho](imagens/setor_nectar_p0_i0.webp)
     - **checksum_sha256**: 2b3caa8b248dc3f33ae226aa25d1456c0eb589c5b694e66cf201cd7c4f7927fa
-  - **[28]**:
+  - **[31]**:
     - **caminho**: ![caminho](imagens/setor_pracinha_p0.webp)
     - **checksum_sha256**: ec34526d21a825cbefa2049a1fe82cc4a1d77a4dd1072d39804852cf5c38daf3
-  - **[29]**:
+  - **[32]**:
     - **caminho**: ![caminho](imagens/setor_pracinha_p1.webp)
     - **checksum_sha256**: 42e142af39766186c13a61691e384bddc064bcad6e4a07ce0e802cb429fe73ba
-  - **[30]**:
+  - **[33]**:
     - **caminho**: ![caminho](imagens/setor_pracinha_p2.webp)
     - **checksum_sha256**: 9afa2f619eda4053a096d19b64aa9262e8b85f9f9b05815ad2379e66ccc227e1
-  - **[31]**:
+  - **[34]**:
     - **caminho**: ![caminho](imagens/setor_pracinha_p3.webp)
     - **checksum_sha256**: d60317f3226a9af417557bf7f1d73d46aa152cfbded8a2d8e2a876834398ed64
-  - **[32]**:
+  - **[35]**:
     - **caminho**: ![caminho](imagens/setor_tarja_preta_p0.webp)
     - **checksum_sha256**: 42f0988f5b3b2455e050c55af801a4422327538c6acf4a39706557d91edea940
-  - **[33]**:
+  - **[36]**:
     - **caminho**: ![caminho](imagens/setor_tetos_p0.webp)
     - **checksum_sha256**: 88013468ab3f1c12bc710281758d6e1e205443645aba8dff2828a8b52ee7f2e6
-  - **[34]**:
+  - **[37]**:
     - **caminho**: ![caminho](imagens/setor_tetos_p1.webp)
     - **checksum_sha256**: 4d12e846ce75ebfd1587a51a5661715826e1c800dcfdc1cf99124fa710576d2d
-  - **[35]**:
+  - **[38]**:
     - **caminho**: ![caminho](imagens/setor_totem_p0.webp)
     - **checksum_sha256**: eb605d166d35d36c3b23981ec6144eba7f3375955bed6b1954eff3d1ea441044
-  - **[36]**:
+  - **[39]**:
     - **caminho**: ![caminho](imagens/setor_totem_p1.webp)
     - **checksum_sha256**: 028f8cb259043ddcfd39cf2fb64041b88c41cd3538b6604d384ab2f08514edbf
-  - **[37]**:
+  - **[40]**:
     - **caminho**: ![caminho](imagens/setor_trad_p0.webp)
     - **checksum_sha256**: fa73e3e2fa27a74255e21b0c499f6e72bc47a99626b5bd780473d967c257eaad
-  - **[38]**:
+  - **[41]**:
     - **caminho**: ![caminho](imagens/setor_viva_o_climb_p0.webp)
     - **checksum_sha256**: 94d2480252708d7f25f9234befb17df302bcc0876bbe53025fc3d5ab5321b7c1
-  - **[39]**:
+  - **[42]**:
     - **caminho**: ![caminho](imagens/setor_viva_o_climb_p1.webp)
     - **checksum_sha256**: be43e895f74116ff63a5ec7ac25290dbce75ad67bf1df0a3ab079d7e4c17ac68
-  - **[40]**:
+  - **[43]**:
     - **caminho**: ![caminho](imagens/setor_viva_o_climb_p2.webp)
     - **checksum_sha256**: e3544af684cab5da717ea03b4f77d05f0652be42e0cab50c3f41d62ba5120d57
-  - **[41]**:
+  - **[44]**:
     - **caminho**: ![caminho](imagens/setor_viva_o_climb_p3.webp)
     - **checksum_sha256**: 7ca2f6791409aa498f402729b4d426bf972d8db7689f9052a490fe4ee31b7773
-  - **[42]**:
+  - **[45]**:
     - **caminho**: ![caminho](imagens/setor_viva_o_climb_p4.webp)
     - **checksum_sha256**: c8e95292e609405375d46753e1010ff78f1ba889355e5f80b6b29321cf8cee5c
 
