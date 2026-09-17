@@ -572,6 +572,195 @@ mapas:
   - ids:
     - linha_15
     escalada: Saara
+- caminho_imagem_mapa: imagens/setor_estacionamento_bloco_dengoso_p3.webp
+  largura_mapa: 2364
+  altura_mapa: 1773
+  pontos_de_interesse:
+  - id: linha_17
+    linha:
+      estilo: TRACEJADO
+      conteudo:
+        nos:
+        - x: 971
+          y: 1749
+          tipo: CIRCULO_IDENTIFICADOR
+          rotulo: '8'
+        - x: 967
+          y: 1640
+          tipo: PASSAGEM
+        - x: 967
+          y: 1598
+          tipo: PASSAGEM
+          rotulo: ''
+      espessura: 5
+    cor: '#FFD600'
+  - id: linha_18
+    linha:
+      estilo: TRACEJADO
+      conteudo:
+        nos:
+        - x: 967
+          y: 1598
+          tipo: PASSAGEM
+          rotulo: ''
+        - x: 947
+          y: 1485
+          tipo: PASSAGEM
+          rotulo: ''
+        - x: 793
+          y: 1364
+          tipo: PASSAGEM
+          rotulo: ''
+        - x: 695
+          y: 1301
+          tipo: PASSAGEM
+          rotulo: ''
+        - x: 526
+          y: 1172
+          tipo: PASSAGEM
+          rotulo: ''
+        - x: 483
+          y: 1018
+          tipo: PASSAGEM
+          rotulo: ''
+        - x: 483
+          y: 843
+          tipo: PASSAGEM
+          rotulo: ''
+        - x: 516
+          y: 683
+          tipo: PASSAGEM
+          rotulo: ''
+        - x: 560
+          y: 602
+          tipo: PASSAGEM
+          rotulo: ''
+        - x: 625
+          y: 448
+          tipo: PASSAGEM
+          rotulo: ''
+        - x: 659
+          y: 291
+          tipo: FIM_TOP
+          rotulo: H
+      espessura: 5
+    cor: '#FFD600'
+  - id: linha_16
+    label: ''
+    linha:
+      estilo: TRACEJADO
+      conteudo:
+        nos:
+        - x: 967
+          y: 1598
+          tipo: PASSAGEM
+          rotulo: '9'
+        - x: 1006
+          y: 1527
+          tipo: PASSAGEM
+        - x: 1071
+          y: 1458
+          tipo: PASSAGEM
+        - x: 1113
+          y: 1336
+          tipo: PASSAGEM
+        - x: 1067
+          y: 1170
+          tipo: PASSAGEM
+        - x: 1058
+          y: 992
+          tipo: PASSAGEM
+        - x: 1118
+          y: 902
+          tipo: PASSAGEM
+        - x: 1175
+          y: 789
+          tipo: PASSAGEM
+        - x: 1208
+          y: 635
+          tipo: PASSAGEM
+        - x: 1153
+          y: 426
+          tipo: PASSAGEM
+        - x: 1095
+          y: 254
+          tipo: PASSAGEM
+        - x: 1068
+          y: 77
+          tipo: PASSAGEM
+        - x: 1059
+          y: 26
+          tipo: FIM_TOP
+          rotulo: I
+      espessura: 5
+    cor: '#FFD600'
+  - id: linha_19
+    label: ''
+    linha:
+      estilo: TRACEJADO
+      conteudo:
+        nos:
+        - x: 1702
+          y: 1334
+          tipo: CIRCULO_IDENTIFICADOR
+          rotulo: '9'
+        - x: 1656
+          y: 1175
+          tipo: PASSAGEM
+        - x: 1563
+          y: 982
+          tipo: PASSAGEM
+        - x: 1477
+          y: 849
+          tipo: PASSAGEM
+        - x: 1444
+          y: 669
+          tipo: PASSAGEM
+        - x: 1314
+          y: 431
+          tipo: PASSAGEM
+        - x: 1244
+          y: 311
+          tipo: PASSAGEM
+        - x: 1168
+          y: 123
+          tipo: PASSAGEM
+        - x: 1158
+          y: 52
+          tipo: FIM_TOP
+          rotulo: J
+      espessura: 5
+    cor: '#FFD600'
+  - id: st1
+    label: ''
+    circulo:
+      x: 859
+      y: 1717
+      raio: 40
+    cor: '#FFD600'
+  - id: st2
+    label: ''
+    circulo:
+      x: 1080
+      y: 1672
+      raio: 40
+    cor: '#FFD600'
+  referencias:
+  - ids:
+    - linha_17
+    - linha_18
+    - st1
+    - st2
+    escalada: Sem nome 21
+  - ids:
+    - linha_16
+    - linha_17
+    - st2
+    - st1
+    escalada: Sem nome 22
+  - ids:
+    - linha_19
+    escalada: Sem nome 23
 escaladas:
 - boulder:
     nome: Dengoso
@@ -597,4 +786,13 @@ escaladas:
 - boulder:
     nome: Saara
     dificuldade: V4
+- boulder:
+    nome: Sem nome 21
+    dificuldade: INDEFINIDO
+- boulder:
+    nome: Sem nome 22
+    dificuldade: INDEFINIDO
+- boulder:
+    nome: Sem nome 23
+    dificuldade: INDEFINIDO
 ---

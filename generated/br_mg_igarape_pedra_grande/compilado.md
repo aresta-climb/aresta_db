@@ -5172,9 +5172,135 @@
             - **[4]**:
               - **ids**:
                 - linha_15
-              - **grupo**: Setor Estacionamento
-              - **setor**: Estacionamento - Bloco Dengoso
               - **escalada**: Saara
+        - **[3]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_estacionamento_bloco_dengoso_p3.webp)
+          - **largura_mapa**: 2364
+          - **altura_mapa**: 1773
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: linha_17
+              - **linha**:
+                - **estilo**: TRACEJADO
+                - **espessura**: 5
+                - **compilado**:
+                  - **caminho_svg**: M 971 1749 C 969.7 1712.7, 967.5 1667.8, 967 1640 C 966.7 1622.7, 967.0 1612.0, 967 1598
+                  - **caixa_delimitadora**:
+                    - **x**: 969
+                    - **y**: 1674
+                    - **comprimento**: 4
+                    - **largura**: 151
+                  - **marcadores**:
+                    - **[0]**:
+                      - **tipo**: CIRCULO_IDENTIFICADOR
+                      - **x**: 971
+                      - **y**: 1749
+                      - **angulo_graus_x100**: -9210
+                      - **rotulo**: 8
+              - **cor**: #FFD600
+            - **[1]**:
+              - **id**: linha_18
+              - **linha**:
+                - **estilo**: TRACEJADO
+                - **espessura**: 5
+                - **compilado**:
+                  - **caminho_svg**: M 967 1598 C 960.3 1560.3, 967.8 1519.7, 947 1485 C 919.8 1439.6, 839.3 1396.9, 793 1364 C 757.3 1338.6, 731.5 1326.6, 695 1301 C 645.7 1266.4, 561.0 1223.7, 526 1172 C 495.6 1127.2, 490.3 1071.5, 483 1018 C 475.3 962.0, 477.2 899.7, 483 843 C 488.6 788.2, 500.1 726.4, 516 683 C 527.9 650.4, 544.7 633.7, 560 602 C 580.6 559.3, 608.4 500.4, 625 448 C 641.2 396.7, 647.7 343.3, 659 291
+                  - **caixa_delimitadora**:
+                    - **x**: 725
+                    - **y**: 944
+                    - **comprimento**: 484
+                    - **largura**: 1307
+                  - **marcadores**:
+                    - **[0]**:
+                      - **tipo**: FIM_TOP
+                      - **x**: 659
+                      - **y**: 291
+                      - **angulo_graus_x100**: -7778
+                      - **rotulo**: H
+              - **cor**: #FFD600
+            - **[2]**:
+              - **id**: linha_16
+              - **label**: 
+              - **linha**:
+                - **estilo**: TRACEJADO
+                - **espessura**: 5
+                - **compilado**:
+                  - **caminho_svg**: M 967 1598 C 980.0 1574.3, 989.6 1549.5, 1006 1527 C 1023.7 1502.6, 1053.8 1486.5, 1071 1458 C 1091.1 1424.8, 1111.7 1380.0, 1113 1336 C 1114.6 1285.1, 1076.2 1226.8, 1067 1170 C 1057.6 1112.2, 1044.9 1039.6, 1058 992 C 1068.2 954.9, 1099.2 934.3, 1118 902 C 1138.4 867.0, 1160.3 830.6, 1175 789 C 1191.4 742.6, 1209.3 690.1, 1208 635 C 1206.5 570.5, 1172.8 492.0, 1153 426 C 1134.9 365.6, 1109.2 312.4, 1095 254 C 1080.9 196.0, 1074.8 118.2, 1068 77 C 1064.4 54.8, 1062.0 43.0, 1059 26
+                  - **caixa_delimitadora**:
+                    - **x**: 1088
+                    - **y**: 812
+                    - **comprimento**: 241
+                    - **largura**: 1572
+                  - **marcadores**:
+                    - **[0]**:
+                      - **tipo**: FIM_TOP
+                      - **x**: 1059
+                      - **y**: 26
+                      - **angulo_graus_x100**: -10001
+                      - **rotulo**: I
+              - **cor**: #FFD600
+            - **[3]**:
+              - **id**: linha_19
+              - **label**: 
+              - **linha**:
+                - **estilo**: TRACEJADO
+                - **espessura**: 5
+                - **compilado**:
+                  - **caminho_svg**: M 1702 1334 C 1686.7 1281.0, 1676.9 1229.7, 1656 1175 C 1632.2 1112.8, 1595.3 1039.5, 1563 982 C 1535.3 932.6, 1496.8 898.9, 1477 849 C 1455.7 795.4, 1466.1 731.3, 1444 669 C 1417.1 593.1, 1351.1 496.7, 1314 431 C 1287.5 384.0, 1266.3 356.4, 1244 311 C 1217.1 256.2, 1181.0 171.3, 1168 123 C 1160.3 94.3, 1161.3 75.7, 1158 52
+                  - **caixa_delimitadora**:
+                    - **x**: 1430
+                    - **y**: 693
+                    - **comprimento**: 544
+                    - **largura**: 1282
+                  - **marcadores**:
+                    - **[0]**:
+                      - **tipo**: CIRCULO_IDENTIFICADOR
+                      - **x**: 1702
+                      - **y**: 1334
+                      - **angulo_graus_x100**: -10614
+                      - **rotulo**: 9
+                    - **[1]**:
+                      - **tipo**: FIM_TOP
+                      - **x**: 1158
+                      - **y**: 52
+                      - **angulo_graus_x100**: -9802
+                      - **rotulo**: J
+              - **cor**: #FFD600
+            - **[4]**:
+              - **id**: st1
+              - **label**: 
+              - **circulo**:
+                - **x**: 859
+                - **y**: 1717
+                - **raio**: 40
+              - **cor**: #FFD600
+            - **[5]**:
+              - **id**: st2
+              - **label**: 
+              - **circulo**:
+                - **x**: 1080
+                - **y**: 1672
+                - **raio**: 40
+              - **cor**: #FFD600
+          - **referencias**:
+            - **[0]**:
+              - **ids**:
+                - linha_17
+                - linha_18
+                - st1
+                - st2
+              - **escalada**: Sem nome 21
+            - **[1]**:
+              - **ids**:
+                - linha_16
+                - linha_17
+                - st2
+                - st1
+              - **escalada**: Sem nome 22
+            - **[2]**:
+              - **ids**:
+                - linha_19
+              - **escalada**: Sem nome 23
       - **escaladas**:
         - **[0]**:
           - **boulder**:
@@ -5208,13 +5334,25 @@
           - **boulder**:
             - **nome**: Saara
             - **dificuldade**: V4
+        - **[8]**:
+          - **boulder**:
+            - **nome**: Sem nome 21
+            - **dificuldade**: INDEFINIDO
+        - **[9]**:
+          - **boulder**:
+            - **nome**: Sem nome 22
+            - **dificuldade**: INDEFINIDO
+        - **[10]**:
+          - **boulder**:
+            - **nome**: Sem nome 23
+            - **dificuldade**: INDEFINIDO
       - **precomputados**:
-        - **total_escaladas**: 8
-        - **total_boulders**: 8
+        - **total_escaladas**: 11
+        - **total_boulders**: 11
 - **precomputados**:
-  - **total_escaladas**: 36
+  - **total_escaladas**: 39
   - **total_esportivas**: 19
-  - **total_boulders**: 17
+  - **total_boulders**: 20
 
 
 ## Parte: grupo_boulders (não listada em partes.json)
@@ -7210,102 +7348,105 @@
     - **caminho**: ![caminho](imagens/setor_bloco_fugitivos_ii_p2.webp)
     - **checksum_sha256**: 9a165e9848c25a0f9c0595150de68226ce70344246a22d523d4d3438c1204276
   - **[15]**:
+    - **caminho**: ![caminho](imagens/setor_estacionamento_bloco_dengoso_p3.webp)
+    - **checksum_sha256**: 68a2364b65e2f15249ea9e774d143eaa52739e0575f7bb28c8c7677059663d4a
+  - **[16]**:
     - **caminho**: ![caminho](imagens/setor_estacionamento_p0.webp)
     - **checksum_sha256**: c0b10e222fdaed24818c31db7a4f62e69cef20e19182efd1f390a605d7023292
-  - **[16]**:
+  - **[17]**:
     - **caminho**: ![caminho](imagens/setor_estacionamento_p1.webp)
     - **checksum_sha256**: 70ff91fdbc683bf71dcd9a33dbc042e170ef4f49c88b9bc9ce9956edb3fef48c
-  - **[17]**:
+  - **[18]**:
     - **caminho**: ![caminho](imagens/setor_familia_i_p0.webp)
     - **checksum_sha256**: 445e010c4cbaca2db0d2bfc12bb93dc9da30e427bac970d7e06ebe08cee2b0cf
-  - **[18]**:
+  - **[19]**:
     - **caminho**: ![caminho](imagens/setor_familia_i_p1.webp)
     - **checksum_sha256**: feae5245d8419ab4dd0698de889b4879cbe9b7a1324205ceae8dc47d77eb1038
-  - **[19]**:
+  - **[20]**:
     - **caminho**: ![caminho](imagens/setor_familia_ii_p0.webp)
     - **checksum_sha256**: 8435be258ad2d6ed69cd0d4c540050a44bab6186bb884efae83a4998ef1101d3
-  - **[20]**:
+  - **[21]**:
     - **caminho**: ![caminho](imagens/setor_familia_ii_p1.webp)
     - **checksum_sha256**: 4f3e4bedfed21fafc2284c19063d969b3aae82cd32409bd7bf62d4c941c32765
-  - **[21]**:
+  - **[22]**:
     - **caminho**: ![caminho](imagens/setor_fugitivos_i_p0.webp)
     - **checksum_sha256**: 95239b7b899a1e56c8d919fcbfa733d0e9ae4f9b028a23eeb2a950c5dbabdf25
-  - **[22]**:
+  - **[23]**:
     - **caminho**: ![caminho](imagens/setor_fugitivos_i_p1.webp)
     - **checksum_sha256**: 40266b678b64ad905696f58ace40b125d04162bfdb4a8c4f8a5f9313ee7a672d
-  - **[23]**:
+  - **[24]**:
     - **caminho**: ![caminho](imagens/setor_fugitivos_i_p2.webp)
     - **checksum_sha256**: 66fbcb3356cdcbb3001fa95dbd17cdb0989d9e22a394cf2cf96890c3099ed794
-  - **[24]**:
+  - **[25]**:
     - **caminho**: ![caminho](imagens/setor_fugitivos_i_p3.webp)
     - **checksum_sha256**: 06bd0ef4287fd6e7fa0255e706e814ea441be9d74e11b0d0a5a17173de6d4474
-  - **[25]**:
+  - **[26]**:
     - **caminho**: ![caminho](imagens/setor_igarameca_p0.webp)
     - **checksum_sha256**: e79e4daa827532abd0ff0a16e096f1df0eea148c8589dc7686fa268ba1c84102
-  - **[26]**:
+  - **[27]**:
     - **caminho**: ![caminho](imagens/setor_igarameca_p1.webp)
     - **checksum_sha256**: b2ab0e0a16eb19fe5d54f6a899456ac5ff07671862249a012699dc3631c64662
-  - **[27]**:
+  - **[28]**:
     - **caminho**: ![caminho](imagens/setor_igarameca_p2.webp)
     - **checksum_sha256**: 3a6b8f636bd121e5fa888a5dc855ddb627cea151389890532ba4f50053c78f30
-  - **[28]**:
+  - **[29]**:
     - **caminho**: ![caminho](imagens/setor_jeitinho_brasileiro_p0.webp)
     - **checksum_sha256**: 9aa633be14db3f0c96a1a656470f87f5bfb7a259a02cb58babd6733dadc8d535
-  - **[29]**:
+  - **[30]**:
     - **caminho**: ![caminho](imagens/setor_micos_p0.webp)
     - **checksum_sha256**: acb374ec8c0ecf85d537c86dd1328bbb91e4fd41576659d596457a818254cd2d
-  - **[30]**:
+  - **[31]**:
     - **caminho**: ![caminho](imagens/setor_micos_p1.webp)
     - **checksum_sha256**: e59d63c298cd1049ee8636ce3e3b78b993f5b2358f4e3fc57a10508e739e8536
-  - **[31]**:
+  - **[32]**:
     - **caminho**: ![caminho](imagens/setor_micos_p2.webp)
     - **checksum_sha256**: 27321d933aca314b50a98e486f662138fd61b049dcb90248b6bb2d162c7b944c
-  - **[32]**:
+  - **[33]**:
     - **caminho**: ![caminho](imagens/setor_nectar_p0_i0.webp)
     - **checksum_sha256**: 2b3caa8b248dc3f33ae226aa25d1456c0eb589c5b694e66cf201cd7c4f7927fa
-  - **[33]**:
+  - **[34]**:
     - **caminho**: ![caminho](imagens/setor_pracinha_p0.webp)
     - **checksum_sha256**: ec34526d21a825cbefa2049a1fe82cc4a1d77a4dd1072d39804852cf5c38daf3
-  - **[34]**:
+  - **[35]**:
     - **caminho**: ![caminho](imagens/setor_pracinha_p1.webp)
     - **checksum_sha256**: 42e142af39766186c13a61691e384bddc064bcad6e4a07ce0e802cb429fe73ba
-  - **[35]**:
+  - **[36]**:
     - **caminho**: ![caminho](imagens/setor_pracinha_p2.webp)
     - **checksum_sha256**: 9afa2f619eda4053a096d19b64aa9262e8b85f9f9b05815ad2379e66ccc227e1
-  - **[36]**:
+  - **[37]**:
     - **caminho**: ![caminho](imagens/setor_pracinha_p3.webp)
     - **checksum_sha256**: d60317f3226a9af417557bf7f1d73d46aa152cfbded8a2d8e2a876834398ed64
-  - **[37]**:
+  - **[38]**:
     - **caminho**: ![caminho](imagens/setor_tarja_preta_p0.webp)
     - **checksum_sha256**: 42f0988f5b3b2455e050c55af801a4422327538c6acf4a39706557d91edea940
-  - **[38]**:
+  - **[39]**:
     - **caminho**: ![caminho](imagens/setor_tetos_p0.webp)
     - **checksum_sha256**: 88013468ab3f1c12bc710281758d6e1e205443645aba8dff2828a8b52ee7f2e6
-  - **[39]**:
+  - **[40]**:
     - **caminho**: ![caminho](imagens/setor_tetos_p1.webp)
     - **checksum_sha256**: 4d12e846ce75ebfd1587a51a5661715826e1c800dcfdc1cf99124fa710576d2d
-  - **[40]**:
+  - **[41]**:
     - **caminho**: ![caminho](imagens/setor_totem_p0.webp)
     - **checksum_sha256**: eb605d166d35d36c3b23981ec6144eba7f3375955bed6b1954eff3d1ea441044
-  - **[41]**:
+  - **[42]**:
     - **caminho**: ![caminho](imagens/setor_totem_p1.webp)
     - **checksum_sha256**: 028f8cb259043ddcfd39cf2fb64041b88c41cd3538b6604d384ab2f08514edbf
-  - **[42]**:
+  - **[43]**:
     - **caminho**: ![caminho](imagens/setor_trad_p0.webp)
     - **checksum_sha256**: fa73e3e2fa27a74255e21b0c499f6e72bc47a99626b5bd780473d967c257eaad
-  - **[43]**:
+  - **[44]**:
     - **caminho**: ![caminho](imagens/setor_viva_o_climb_p0.webp)
     - **checksum_sha256**: 94d2480252708d7f25f9234befb17df302bcc0876bbe53025fc3d5ab5321b7c1
-  - **[44]**:
+  - **[45]**:
     - **caminho**: ![caminho](imagens/setor_viva_o_climb_p1.webp)
     - **checksum_sha256**: be43e895f74116ff63a5ec7ac25290dbce75ad67bf1df0a3ab079d7e4c17ac68
-  - **[45]**:
+  - **[46]**:
     - **caminho**: ![caminho](imagens/setor_viva_o_climb_p2.webp)
     - **checksum_sha256**: e3544af684cab5da717ea03b4f77d05f0652be42e0cab50c3f41d62ba5120d57
-  - **[46]**:
+  - **[47]**:
     - **caminho**: ![caminho](imagens/setor_viva_o_climb_p3.webp)
     - **checksum_sha256**: 7ca2f6791409aa498f402729b4d426bf972d8db7689f9052a490fe4ee31b7773
-  - **[47]**:
+  - **[48]**:
     - **caminho**: ![caminho](imagens/setor_viva_o_climb_p4.webp)
     - **checksum_sha256**: c8e95292e609405375d46753e1010ff78f1ba889355e5f80b6b29321cf8cee5c
 
