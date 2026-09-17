@@ -6118,6 +6118,10 @@
       - **descricao**: Saída em pé em regletes e escala reto
       - **nome**: Audácia
       - **dificuldade**: V8_BARRA_V9
+  - **[10]**:
+    - **boulder**:
+      - **nome**: Tandrilax
+      - **dificuldade**: V7
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_bloco_fugitivos_ii_p0.webp)
@@ -6563,9 +6567,37 @@
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_bloco_fugitivos_ii_p2.webp)
     - **largura_mapa**: 1773
     - **altura_mapa**: 2364
+    - **pontos_de_interesse**:
+      - **[0]**:
+        - **id**: linha_22
+        - **label**: 
+        - **linha**:
+          - **estilo**: TRACEJADO
+          - **espessura**: 5
+          - **compilado**:
+            - **caminho_svg**: M 1203 1975 C 1203.7 1928.3, 1205.0 1883.1, 1205 1835 C 1205.0 1783.9, 1206.4 1732.1, 1203 1677 C 1199.3 1616.3, 1202.5 1535.9, 1182 1486 C 1165.9 1446.9, 1134.1 1428.2, 1109 1394 C 1079.1 1353.4, 1037.0 1302.7, 1016 1257 C 998.0 1217.7, 985.3 1180.6, 984 1139 C 982.6 1093.1, 1001.7 1042.6, 1014 993 C 1027.1 940.4, 1050.7 888.2, 1061 832 C 1071.9 772.8, 1059.9 695.7, 1076 646 C 1088.2 608.2, 1113.3 584.7, 1132 554
+            - **caixa_delimitadora**:
+              - **x**: 1094
+              - **y**: 1264
+              - **comprimento**: 221
+              - **largura**: 1421
+            - **marcadores**:
+              - **[0]**:
+                - **tipo**: CIRCULO_IDENTIFICADOR
+                - **x**: 1203
+                - **y**: 1975
+                - **angulo_graus_x100**: -8918
+                - **rotulo**: 5
+                - **raio**: 24
+        - **cor**: #FFD600
+    - **referencias**:
+      - **[0]**:
+        - **ids**:
+          - linha_22
+        - **escalada**: Tandrilax
 - **precomputados**:
-  - **total_escaladas**: 10
-  - **total_boulders**: 10
+  - **total_escaladas**: 11
+  - **total_boulders**: 11
 
 
 ## Arquivos Externos

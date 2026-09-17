@@ -44,6 +44,9 @@ escaladas:
     nome: Audácia
     dificuldade: V8_BARRA_V9
     descricao: Saída em pé em regletes e escala reto
+- boulder:
+    nome: Tandrilax
+    dificuldade: V7
 mapas:
 - caminho_imagem_mapa: imagens/setor_bloco_fugitivos_ii_p0.webp
   largura_mapa: 3331
@@ -613,5 +616,54 @@ mapas:
 - caminho_imagem_mapa: imagens/setor_bloco_fugitivos_ii_p2.webp
   largura_mapa: 1773
   altura_mapa: 2364
+  pontos_de_interesse:
+  - id: linha_22
+    label: ''
+    linha:
+      estilo: TRACEJADO
+      conteudo:
+        nos:
+        - x: 1203
+          y: 1975
+          tipo: CIRCULO_IDENTIFICADOR
+          rotulo: '5'
+          raio: 24
+        - x: 1205
+          y: 1835
+          tipo: PASSAGEM
+        - x: 1203
+          y: 1677
+          tipo: PASSAGEM
+        - x: 1182
+          y: 1486
+          tipo: PASSAGEM
+        - x: 1109
+          y: 1394
+          tipo: PASSAGEM
+        - x: 1016
+          y: 1257
+          tipo: PASSAGEM
+        - x: 984
+          y: 1139
+          tipo: PASSAGEM
+        - x: 1014
+          y: 993
+          tipo: PASSAGEM
+        - x: 1061
+          y: 832
+          tipo: PASSAGEM
+        - x: 1076
+          y: 646
+          tipo: PASSAGEM
+        - x: 1132
+          y: 554
+          tipo: PASSAGEM
+          rotulo: ''
+      espessura: 5
+    cor: '#FFD600'
+  referencias:
+  - ids:
+    - linha_22
+    escalada: Tandrilax
 ---
 Veja a trilha para chegar ao setor no Wikiloc: https://loc.wiki/t/169742661?wa=sc
