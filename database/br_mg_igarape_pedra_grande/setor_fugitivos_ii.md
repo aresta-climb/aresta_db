@@ -61,6 +61,7 @@ mapas:
           y: 948
           tipo: CIRCULO_IDENTIFICADOR
           rotulo: '2'
+          raio: 24
         - x: 870
           y: 849
           tipo: PASSAGEM
@@ -68,7 +69,7 @@ mapas:
           y: 800
           tipo: PASSAGEM
           rotulo: ''
-      espessura: 3
+      espessura: 5
     cor: '#FFD600'
   - id: linha_5
     linha:
@@ -99,26 +100,27 @@ mapas:
           y: 438
           tipo: PASSAGEM
           rotulo: ''
-        - x: 1292
-          y: 170
+        - x: 1301
+          y: 172
           tipo: PASSAGEM
           rotulo: ''
-      espessura: 3
+      espessura: 5
     cor: '#FFD600'
   - id: linha_6
     linha:
       estilo: TRACEJADO
       conteudo:
         nos:
-        - x: 1298
-          y: 173
+        - x: 1301
+          y: 172
           tipo: PASSAGEM
           rotulo: ''
-        - x: 1301
-          y: 40
+        - x: 1303
+          y: 39
           tipo: FIM_TOP
           rotulo: C
-      espessura: 3
+          raio: 24
+      espessura: 5
     cor: '#FFD600'
   - id: linha_1
     linha:
@@ -129,6 +131,7 @@ mapas:
           y: 873
           tipo: CIRCULO_IDENTIFICADOR
           rotulo: '3'
+          raio: 24
         - x: 1724
           y: 747
           tipo: PASSAGEM
@@ -136,7 +139,7 @@ mapas:
           y: 679
           tipo: PASSAGEM
           rotulo: ''
-      espessura: 3
+      espessura: 5
     cor: '#FFD600'
   - id: linha_9
     linha:
@@ -155,34 +158,34 @@ mapas:
           y: 551
           tipo: PASSAGEM
           rotulo: ''
-      espessura: 3
+      espessura: 5
     cor: '#FFD600'
   - id: linha_10
     linha:
       estilo: TRACEJADO
       conteudo:
         nos:
-        - x: 1707
-          y: 551
+        - x: 1708
+          y: 554
           tipo: PASSAGEM
           rotulo: ''
-        - x: 1538
-          y: 424
+        - x: 1539
+          y: 427
           tipo: PASSAGEM
           rotulo: ''
-        - x: 1432
-          y: 350
+        - x: 1433
+          y: 353
           tipo: PASSAGEM
           rotulo: ''
-        - x: 1336
-          y: 285
+        - x: 1337
+          y: 288
           tipo: PASSAGEM
           rotulo: ''
-        - x: 1298
-          y: 173
+        - x: 1301
+          y: 172
           tipo: PASSAGEM
           rotulo: ''
-      espessura: 3
+      espessura: 5
     cor: '#FFD600'
   - id: linha_7
     label: ''
@@ -205,7 +208,7 @@ mapas:
           tipo: PASSAGEM
         - x: 2155
           y: 393
-      espessura: 3
+      espessura: 5
     cor: '#FFD600'
   - id: linha_12
     linha:
@@ -232,7 +235,7 @@ mapas:
           y: 552
           tipo: PASSAGEM
           rotulo: ''
-      espessura: 3
+      espessura: 5
     cor: '#FFD600'
   - id: linha_8
     linha:
@@ -267,7 +270,7 @@ mapas:
           y: 394
           tipo: PASSAGEM
           rotulo: ''
-      espessura: 3
+      espessura: 5
     cor: '#FFD600'
   - id: linha_13
     linha:
@@ -290,7 +293,8 @@ mapas:
           y: 121
           tipo: FIM_TOP
           rotulo: D
-      espessura: 3
+          raio: 24
+      espessura: 5
     cor: '#FFD600'
   - id: linha_14
     linha:
@@ -313,7 +317,7 @@ mapas:
           y: 766
           tipo: PASSAGEM
           rotulo: ''
-      espessura: 3
+      espessura: 5
     cor: '#FFD600'
   - id: linha_15
     linha:
@@ -332,6 +336,7 @@ mapas:
           y: 738
           tipo: CIRCULO_IDENTIFICADOR
           rotulo: ▲
+          raio: 24
         - x: 2394
           y: 645
           tipo: PASSAGEM
@@ -344,7 +349,7 @@ mapas:
           y: 597
           tipo: PASSAGEM
           rotulo: ''
-      espessura: 3
+      espessura: 5
     cor: '#FFD600'
   - id: linha_16
     linha:
@@ -375,7 +380,8 @@ mapas:
           y: 176
           tipo: FIM_TOP
           rotulo: E
-      espessura: 3
+          raio: 24
+      espessura: 5
     cor: '#FFD600'
   - id: linha_11
     linha:
@@ -386,11 +392,12 @@ mapas:
           y: 1011
           tipo: CIRCULO_IDENTIFICADOR
           rotulo: '4'
+          raio: 24
         - x: 2213
           y: 955
           tipo: PASSAGEM
           rotulo: ''
-      espessura: 3
+      espessura: 5
     cor: '#FFD600'
   - id: linha_17
     linha:
@@ -405,7 +412,7 @@ mapas:
           y: 903
           tipo: PASSAGEM
           rotulo: ''
-      espessura: 3
+      espessura: 5
     cor: '#FFD600'
   - id: linha_4
     label: ''
@@ -426,6 +433,7 @@ mapas:
           y: 858
           tipo: CIRCULO_IDENTIFICADOR
           rotulo: ★
+          raio: 24
         - x: 2447
           y: 781
         - x: 2465
@@ -436,7 +444,7 @@ mapas:
           y: 597
           tipo: PASSAGEM
           rotulo: E
-      espessura: 3
+      espessura: 5
     cor: '#FFD600'
   - id: linha_19
     linha:
@@ -451,7 +459,7 @@ mapas:
           y: 719
           tipo: PASSAGEM
           rotulo: ''
-      espessura: 3
+      espessura: 5
     cor: '#FFD600'
   - id: linha_20
     linha:
@@ -474,7 +482,8 @@ mapas:
           y: 24
           tipo: FIM_TOP
           rotulo: B
-      espessura: 3
+          raio: 24
+      espessura: 5
     cor: '#FFD600'
   - id: linha_3
     linha:
@@ -505,7 +514,7 @@ mapas:
           y: 488
           tipo: PASSAGEM
           rotulo: ''
-      espessura: 3
+      espessura: 5
     cor: '#FFD600'
   - id: linha_21
     linha:
@@ -528,7 +537,8 @@ mapas:
           y: 28
           tipo: FIM_TOP
           rotulo: A
-      espessura: 3
+          raio: 24
+      espessura: 5
     cor: '#FFD600'
   - id: linha_18
     label: ''
@@ -540,6 +550,7 @@ mapas:
           y: 714
           tipo: CIRCULO_IDENTIFICADOR
           rotulo: '1'
+          raio: 24
         - x: 536
           y: 649
           tipo: PASSAGEM
@@ -550,7 +561,7 @@ mapas:
           y: 488
           tipo: PASSAGEM
           rotulo: F
-      espessura: 3
+      espessura: 5
     cor: '#FFD600'
   referencias:
   - ids:
@@ -610,9 +621,6 @@ mapas:
     - linha_18
     - linha_21
     escalada: Audácia
-- caminho_imagem_mapa: imagens/setor_bloco_fugitivos_ii_p1.webp
-  largura_mapa: 1773
-  altura_mapa: 2364
 - caminho_imagem_mapa: imagens/setor_bloco_fugitivos_ii_p2.webp
   largura_mapa: 1773
   altura_mapa: 2364
