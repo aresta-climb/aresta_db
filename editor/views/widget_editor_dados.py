@@ -54,6 +54,31 @@ def _garantir_filtro_undo_redo(widget: QWidget) -> None:
         widget.setProperty("_undo_filter_instalado", True)
 
 
+class FiltroSessaoFoco(QObject):
+    """
+    Filtro de eventos que incrementa o session_id do widget a cada FocusIn,
+    delimitando mesclagens contínuas de digitação (mergeWith) estritamente
+    à sessão de foco ininterrupto.
+    """
+    _contador_global: int = 1
+
+    def eventFilter(self, obj: Any, event: Any) -> bool:
+        if event.type() == QEvent.Type.FocusIn:
+            FiltroSessaoFoco._contador_global += 1
+            obj.setProperty("_session_id", FiltroSessaoFoco._contador_global)
+        return super().eventFilter(obj, event)
+
+
+def _garantir_filtro_sessao_foco(widget: QWidget) -> None:
+    """Instala o FiltroSessaoFoco no widget e inicializa o _session_id se necessário."""
+    if not widget.property("_sessao_foco_instalada"):
+        widget.installEventFilter(FiltroSessaoFoco(widget))
+        widget.setProperty("_sessao_foco_instalada", True)
+        if widget.property("_session_id") is None:
+            FiltroSessaoFoco._contador_global += 1
+            widget.setProperty("_session_id", FiltroSessaoFoco._contador_global)
+
+
 def get_node_path(node: Any) -> str:
     path = []
     curr = node
@@ -1869,6 +1894,7 @@ class WidgetFormularioPadrao(QStackedWidget):
         try:
             if isinstance(widget, QLineEdit):
                 _garantir_filtro_undo_redo(widget)
+                _garantir_filtro_sessao_foco(widget)
                 if has_val:
                     val = getattr(msg, field.name)
                     widget.setText(str(val) if val is not None else "")
@@ -1937,7 +1963,10 @@ class WidgetFormularioPadrao(QStackedWidget):
                         val_novo = text if text != "" else None
                         
                     if val_antigo != val_novo:
-                        self.controller.alterar_primitivo(m, f.name, val_antigo, val_novo, pode_mesclar=True)
+                        session_id = w.property("_session_id")
+                        self.controller.alterar_primitivo(
+                            m, f.name, val_antigo, val_novo, pode_mesclar=True, session_id=session_id
+                        )
                         self._mark_dirty()
                         self._notify_tree_changed()
                 return on_changed

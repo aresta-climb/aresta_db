@@ -355,6 +355,35 @@ class MapasControllerTest(unittest.TestCase):
         ctrl = MapasController(self.model, mock_hist)
         self.assertEqual(ctrl.obter_pilha(), "pilha_interna")
 
+    def test_obter_pilha_direto_sem_wrapper(self):
+        pilha_pura = "pilha_pura"
+        ctrl = MapasController(self.model, pilha_pura)
+        self.assertEqual(ctrl.obter_pilha(), "pilha_pura")
+
+    def test_finalizar_grupo_undo_sem_macro_ativo_nao_dispara_erro(self):
+        self.controller.finalizar_grupo_undo()
+
+    def test_macro_undo_redo_aninhado(self):
+        from aresta_api.proto.generated import croqui_pb2
+        self.controller.iniciar_grupo_undo("Macro Pai")
+        poi1 = croqui_pb2.Mapa.PontoDeInteresse(id="poi_pai")
+        self.controller.adicionar_poi(self.msg_mapa_proxy, poi1)
+
+        self.controller.iniciar_grupo_undo("Macro Filho")
+        poi2 = croqui_pb2.Mapa.PontoDeInteresse(id="poi_filho")
+        self.controller.adicionar_poi(self.msg_mapa_proxy, poi2)
+        self.controller.finalizar_grupo_undo()
+
+        self.controller.finalizar_grupo_undo()
+        self.assertEqual(self.undo_stack.count(), 1)
+        self.assertEqual(len(self.mapa.pontos_de_interesse), 2)
+
+        self.undo_stack.undo()
+        self.assertEqual(len(self.mapa.pontos_de_interesse), 0)
+
+        self.undo_stack.redo()
+        self.assertEqual(len(self.mapa.pontos_de_interesse), 2)
+
 
     def test_adicionar_linha_com_estilo_explicito(self):
         self.controller.adicionar_linha(

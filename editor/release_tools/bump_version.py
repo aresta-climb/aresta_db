@@ -80,12 +80,57 @@ def bump_version_file(caminho_arquivo: Union[str, Path], nova_versao: str) -> No
     print(f"Versão atualizada de {versao_atual} para {nova_versao} no arquivo {caminho_arquivo}")
 
 
+def bump_version_lockfile(
+    caminho_lock: Union[str, Path],
+    nova_versao: str,
+    nome_pacote: str = "aresta-db"
+) -> None:
+    """Atualiza a versão do pacote especificado no lockfile (uv.lock)."""
+    validar_semver(nova_versao)
+    caminho = Path(caminho_lock)
+    
+    with open(caminho, 'r', encoding='utf-8') as f:
+        conteudo = f.read()
+        
+    padrao = re.compile(
+        rf'(\[\[package\]\]\s*\n(?:[^\n]*\n)*?\s*name\s*=\s*"{re.escape(nome_pacote)}"\s*\n(?:[^\n]*\n)*?\s*version\s*=\s*)"([^"]+)"',
+        re.MULTILINE
+    )
+    match_atual = padrao.search(conteudo)
+    if not match_atual:
+        padrao_alt = re.compile(
+            rf'(\[\[package\]\]\s*\n(?:[^\n]*\n)*?\s*version\s*=\s*)"([^"]+)"(\s*\n(?:[^\n]*\n)*?\s*name\s*=\s*"{re.escape(nome_pacote)}")',
+            re.MULTILINE
+        )
+        match_alt = padrao_alt.search(conteudo)
+        if not match_alt:
+            raise ValueError(f"Pacote '{nome_pacote}' não encontrado no lockfile {caminho_lock}")
+        prefixo = match_alt.group(1)
+        versao_atual = match_alt.group(2)
+        sufixo = match_alt.group(3)
+        if compare_semver(nova_versao, versao_atual) <= 0:
+            raise SemVerError(f"A nova versão ({nova_versao}) deve ser estritamente maior que a atual ({versao_atual}).")
+        novo_conteudo = padrao_alt.sub(rf'{prefixo}"{nova_versao}"{sufixo}', conteudo, count=1)
+    else:
+        prefixo = match_atual.group(1)
+        versao_atual = match_atual.group(2)
+        if compare_semver(nova_versao, versao_atual) <= 0:
+            raise SemVerError(f"A nova versão ({nova_versao}) deve ser estritamente maior que a atual ({versao_atual}).")
+        novo_conteudo = padrao.sub(rf'{prefixo}"{nova_versao}"', conteudo, count=1)
+        
+    with open(caminho, 'w', encoding='utf-8') as f:
+        f.write(novo_conteudo)
+        
+    print(f"Versão de '{nome_pacote}' atualizada de {versao_atual} para {nova_versao} no lockfile {caminho_lock}")
+
+
 def sincronizar_versoes(nova_versao: str, raiz: Optional[Union[str, Path]] = None) -> List[Path]:
-    """Atualiza e sincroniza a versão tanto em editor/core/version.py quanto em pyproject.toml."""
+    """Atualiza e sincroniza a versão em editor/core/version.py, pyproject.toml e uv.lock."""
     validar_semver(nova_versao)
     dir_raiz = Path(raiz) if raiz else Path(__file__).resolve().parent.parent.parent
     caminho_version_py = dir_raiz / "editor" / "core" / "version.py"
     caminho_pyproject = dir_raiz / "pyproject.toml"
+    caminho_uv_lock = dir_raiz / "uv.lock"
     
     atualizados: List[Path] = []
     if caminho_version_py.exists():
@@ -95,15 +140,19 @@ def sincronizar_versoes(nova_versao: str, raiz: Optional[Union[str, Path]] = Non
     if caminho_pyproject.exists():
         bump_version_file(caminho_pyproject, nova_versao)
         atualizados.append(caminho_pyproject)
+
+    if caminho_uv_lock.exists():
+        bump_version_lockfile(caminho_uv_lock, nova_versao)
+        atualizados.append(caminho_uv_lock)
         
     return atualizados
 
 
-if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Atualiza e sincroniza a versão do Editor Aresta (version.py e pyproject.toml).")
+def main(argumentos: Optional[List[str]] = None) -> int:
+    parser = argparse.ArgumentParser(description="Atualiza e sincroniza a versão do Editor Aresta (version.py, pyproject.toml e uv.lock).")
     parser.add_argument("argumentos", nargs="+", help="[caminho_arquivo] <nova_versao>")
     
-    args = parser.parse_args()
+    args = parser.parse_args(argumentos)
     
     try:
         if len(args.argumentos) == 1:
@@ -120,13 +169,32 @@ if __name__ == "__main__":
                 caminho_toml = dir_raiz / "pyproject.toml"
                 if caminho_toml.exists():
                     bump_version_file(caminho_toml, nova_versao)
+                caminho_lock = dir_raiz / "uv.lock"
+                if caminho_lock.exists():
+                    bump_version_lockfile(caminho_lock, nova_versao)
             elif arquivo_alvo.resolve() == (dir_raiz / "pyproject.toml").resolve():
                 caminho_py = dir_raiz / "editor" / "core" / "version.py"
                 if caminho_py.exists():
                     bump_version_file(caminho_py, nova_versao)
+                caminho_lock = dir_raiz / "uv.lock"
+                if caminho_lock.exists():
+                    bump_version_lockfile(caminho_lock, nova_versao)
+            elif arquivo_alvo.resolve() == (dir_raiz / "uv.lock").resolve():
+                caminho_py = dir_raiz / "editor" / "core" / "version.py"
+                if caminho_py.exists():
+                    bump_version_file(caminho_py, nova_versao)
+                caminho_toml = dir_raiz / "pyproject.toml"
+                if caminho_toml.exists():
+                    bump_version_file(caminho_toml, nova_versao)
         else:
             parser.print_help()
-            sys.exit(1)
+            return 1
+        return 0
     except Exception as e:
         print(f"Erro: {e}", file=sys.stderr)
-        sys.exit(1)
+        return 1
+
+
+if __name__ == "__main__":
+    sys.exit(main())
+

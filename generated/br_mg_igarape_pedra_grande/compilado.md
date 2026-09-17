@@ -4409,12 +4409,10 @@
       - **escaladas**:
         - **[0]**:
           - **boulder**:
-            - **descricao**: ![Tarja Preta](imagens/20260901_161100.webp)
             - **nome**: Película
             - **destaque**: True
         - **[1]**:
           - **boulder**:
-            - **descricao**: ![Tarja Preta](imagens/20260901_161341.webp)![Tarja Preta](imagens/20260901_161435.webp)![Tarja Preta Face 3](imagens/20260901_161529.webp)![Face 2 Tarja Preta](imagens/20260901_161435_1.webp)
             - **nome**: Tarja Preta
       - **mapas**:
         - **[0]**:
@@ -4444,7 +4442,6 @@
       - **escaladas**:
         - **[0]**:
           - **boulder**:
-            - **descricao**: ![Jeitinho Brasileiro.](imagens/2026_09_01_16_17_04_1.webp)![Jeitinho Brasileiro face a](imagens/20260901_161942.webp)![Jeitinho Brasileiro.](imagens/20260901_162114.webp)
             - **nome**: Jeitinho Brasileiro
             - **dificuldade**: V4
             - **tipo_parede**: NEGATIVO
@@ -4454,20 +4451,17 @@
             - **destaque**: True
         - **[1]**:
           - **boulder**:
-            - **descricao**: ![Força G - Sai de um abaulado sobe pra fenda e sai no V0 no final do bloco. - Stand de um V4/5 que sai logo em baixo e sobe reto no bico.](imagens/20260901_162114_1.webp)
             - **nome**: Força G
             - **dificuldade**: V1
             - **data_abertura**: Maio 2026
         - **[2]**:
           - **boulder**:
-            - **descricao**: ![Sai de duas agarras invertidas em baixo do bloco e toca pro lado direito do bloco virando no V2 (Glorioso)](imagens/20260901_162342.webp)
             - **nome**: Itália
             - **dificuldade**: V4
             - **data_abertura**: Maio 2026
             - **destaque**: True
         - **[3]**:
           - **boulder**:
-            - **descricao**: ![Italia, sai em um agarrão em invertida, do lado esquerdo do bloco, toca reto pra cima.](imagens/20260901_162417.webp)
             - **nome**: Glorioso
             - **dificuldade**: V2
             - **tipo_parede**: NEGATIVO
@@ -4509,7 +4503,7 @@
         - **[0]**:
           - **boulder**:
             - **descricao**:
-                ![Face Nectar e Guela](imagens/20260901_163316.webp)
+                
                 
                 
             - **nome**: Nectar

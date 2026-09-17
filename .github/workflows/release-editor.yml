@@ -93,6 +93,7 @@ jobs:
       - name: Injetar Versão Oficial
         run: |
           uv run editor/release_tools/bump_version.py editor/core/version.py ${{ steps.versao.outputs.versao }}
+          uv lock
           git commit -am "chore: Lançar versão ${{ steps.versao.outputs.versao }} do Editor Aresta"
           git tag editor-v${{ steps.versao.outputs.versao }}
 
@@ -286,6 +287,7 @@ jobs:
       - name: Injetar Ciclo de Desenvolvimento
         run: |
           uv run editor/release_tools/bump_version.py editor/core/version.py ${{ steps.next_dev.outputs.version }}
+          uv lock
           git commit -am "chore: iniciar ciclo de desenvolvimento do Editor Aresta"
         env:
           PYTHONPATH: .

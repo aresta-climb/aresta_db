@@ -8,6 +8,7 @@ from editor.commands.comandos_protobuf import (
     CmdAdicionarRepeated,
     CmdRemoverRepeated,
     CmdAlterarRepeatedItem,
+    CmdMacro,
 )
 
 
@@ -22,6 +23,7 @@ class MapasController:
         self.undo_stack: Any = undo_stack
         self.caminho_db: Optional[Path] = None
         self.contexto_atual_path: Optional[str] = None
+        self._pilha_macros: List[CmdMacro] = []
         
     def set_contexto(self, path: Optional[str]) -> None:
         self.contexto_atual_path = path
@@ -37,6 +39,11 @@ class MapasController:
 
     def _executar_comando(self, cmd: Any) -> None:
         """Despacha comando pelo GerenciadorHistorico (persistindo no diário) ou diretamente na pilha."""
+        if self._pilha_macros:
+            cmd.redo()
+            self._pilha_macros[-1].adicionar_comando(cmd)
+            return
+
         if hasattr(self.undo_stack, "executar"):
             self.undo_stack.executar(cmd)
         elif hasattr(self.undo_stack, "push"):
@@ -46,15 +53,20 @@ class MapasController:
 
     def iniciar_grupo_undo(self, texto: str) -> None:
         """Inicia um macro de undo/redo para agrupar múltiplos comandos em um só."""
-        pilha = self.obter_pilha()
-        if pilha is not None:
-            pilha.beginMacro(texto)
+        macro = CmdMacro(texto=texto)
+        self._pilha_macros.append(macro)
 
     def finalizar_grupo_undo(self) -> None:
         """Finaliza o macro atual de undo/redo."""
-        pilha = self.obter_pilha()
-        if pilha is not None:
-            pilha.endMacro()
+        if not self._pilha_macros:
+            return
+        macro = self._pilha_macros.pop()
+        if self._pilha_macros:
+            self._pilha_macros[-1].adicionar_comando(macro)
+        else:
+            if macro.comandos:
+                macro.armar_carregamento_silencioso()
+                self._executar_comando(macro)
 
 
     def converter_boxes_para_circulos(self, msg_mapa_proxy: Any, indices: List[int]) -> None:

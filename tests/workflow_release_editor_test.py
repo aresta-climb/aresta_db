@@ -136,3 +136,20 @@ class TestWorkflowReleaseEditor(unittest.TestCase):
             "A publicação do canal Beta deve ocorrer antes da publicação na MS Store.",
         )
 
+    def test_passos_versao_executam_uv_lock(self) -> None:
+        """Garante que as etapas de injeção de versão oficial e dev executam 'uv lock' para sincronizar o uv.lock."""
+        passos = self.conteudo_yaml["jobs"]["release"]["steps"]
+        passo_oficial = next((s for s in passos if "Injetar Versão Oficial" in s.get("name", "")), None)
+        passo_dev = next((s for s in passos if "Injetar Ciclo de Desenvolvimento" in s.get("name", "")), None)
+
+        self.assertIsNotNone(passo_oficial, "Passo 'Injetar Versão Oficial' não encontrado.")
+        assert passo_oficial is not None
+        linhas_oficial = [linha.strip() for linha in passo_oficial.get("run", "").splitlines()]
+        self.assertIn("uv lock", linhas_oficial, "O passo 'Injetar Versão Oficial' deve executar 'uv lock'.")
+
+        self.assertIsNotNone(passo_dev, "Passo 'Injetar Ciclo de Desenvolvimento' não encontrado.")
+        assert passo_dev is not None
+        linhas_dev = [linha.strip() for linha in passo_dev.get("run", "").splitlines()]
+        self.assertIn("uv lock", linhas_dev, "O passo 'Injetar Ciclo de Desenvolvimento' deve executar 'uv lock'.")
+
+

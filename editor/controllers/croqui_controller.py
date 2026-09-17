@@ -43,9 +43,55 @@ class CroquiController:
         valor_antigo: Any,
         valor_novo: Any,
         pode_mesclar: bool = False,
+        session_id: Optional[int] = None,
     ) -> None:
+        if campo_nome == "nome":
+            from editor.models.referencias_util import obter_contexto_escalada
+            root = self.model.obter_croqui_readonly()
+            pico, _, setor, _ = obter_contexto_escalada(root, msg)
+            if pico is not None and setor is not None:
+                self.renomear_escalada(
+                    msg_escalada=msg,
+                    nome_antigo=str(valor_antigo) if valor_antigo is not None else "",
+                    nome_novo=str(valor_novo) if valor_novo is not None else "",
+                    pode_mesclar=pode_mesclar,
+                    session_id=session_id,
+                )
+                return
+
         cmd = CmdAlterarPrimitivo(
             self.model, msg, campo_nome, valor_antigo, valor_novo, self.contexto_atual_path, pode_mesclar=pode_mesclar
+        )
+        self._executar_comando(cmd)
+
+    def renomear_escalada(
+        self,
+        msg_escalada: Any,
+        nome_antigo: str,
+        nome_novo: str,
+        pode_mesclar: bool = True,
+        session_id: Optional[int] = None,
+    ) -> None:
+        """
+        Renomeia uma escalada e atualiza simultaneamente todas as referências
+        em mapas que apontam para ela no mesmo pico.
+        """
+        from editor.models.referencias_util import buscar_referencias_para_escalada
+        from editor.commands.comandos_protobuf import CmdRenomearEscalada
+
+        root = self.model.obter_croqui_readonly()
+        referencias = buscar_referencias_para_escalada(root, msg_escalada)
+
+        cmd = CmdRenomearEscalada(
+            model=self.model,
+            msg_escalada=msg_escalada,
+            campo_nome="nome",
+            nome_antigo=nome_antigo,
+            nome_novo=nome_novo,
+            referencias=referencias,
+            context_path=self.contexto_atual_path,
+            pode_mesclar=pode_mesclar,
+            session_id=session_id,
         )
         self._executar_comando(cmd)
 

@@ -9,12 +9,9 @@ sinal_de_celular: true
 escaladas:
 - boulder:
     nome: Película
-    descricao: '![Tarja Preta](imagens/20260901_161100.webp)'
     destaque: true
 - boulder:
     nome: Tarja Preta
-    descricao: '![Tarja Preta](imagens/20260901_161341.webp)![Tarja Preta](imagens/20260901_161435.webp)![Tarja
-      Preta Face 3](imagens/20260901_161529.webp)![Face 2 Tarja Preta](imagens/20260901_161435_1.webp)'
 mapas:
 - caminho_imagem_mapa: imagens/setor_tarja_preta_p0.webp
   largura_mapa: 1392

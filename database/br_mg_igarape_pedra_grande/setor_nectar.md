@@ -12,7 +12,7 @@ escaladas:
     conquistadores:
     - Frederico Gonçalves (Bull)
     data_abertura: 30/06/2026
-    descricao: '![Face Nectar e Guela](imagens/20260901_163316.webp)
+    descricao: '
 
 
       '

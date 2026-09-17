@@ -340,3 +340,74 @@ def test_croqui_controller_grava_no_diario_com_gerenciador_historico(qapp, tmp_p
     assert comandos_pendentes[0]["valor_novo"] == "Modificado"
 
 
+def test_croqui_controller_alterar_primitivo_escalada_cria_cmd_renomear_escalada(qapp):
+    from editor.commands.comandos_protobuf import CmdRenomearEscalada
+    from aresta_api.proto.generated import croqui_pb2
+
+    croqui = croqui_pb2.Croqui()
+    pico = croqui.picos.add(nome="Pico 1")
+    sg = pico.setores_ou_grupos.add()
+    setor = sg.setor.conteudo
+    setor.nome = "Setor 1"
+
+    esc = setor.escaladas.add()
+    esc.via_esportiva.nome = "Via Inicial"
+
+    mapa = setor.mapas.add()
+    ref = mapa.referencias.add(escalada="Via Inicial", ids=["linha_1"])
+
+    model = CroquiModel(croqui)
+    undo_stack = QUndoStack()
+    controller = CroquiController(model, undo_stack)
+
+    proxy_via = model.obter_croqui_readonly().picos[0].setores_ou_grupos[0].setor.conteudo.escaladas[0].via_esportiva
+    proxy_ref = model.obter_croqui_readonly().picos[0].setores_ou_grupos[0].setor.conteudo.mapas[0].referencias[0]
+
+    # Altera o nome da via pelo alterar_primitivo
+    controller.alterar_primitivo(proxy_via, "nome", "Via Inicial", "Via Renomeada", pode_mesclar=True, session_id=42)
+
+    # Verifica que o comando gerado foi CmdRenomearEscalada
+    cmd = undo_stack.command(0)
+    assert isinstance(cmd, CmdRenomearEscalada)
+    assert cmd.session_id == 42
+    assert proxy_via.nome == "Via Renomeada"
+    assert proxy_ref.escalada == "Via Renomeada"
+
+    # Undo
+    undo_stack.undo()
+    assert proxy_via.nome == "Via Inicial"
+    assert proxy_ref.escalada == "Via Inicial"
+
+
+def test_croqui_controller_renomear_escalada_direto(qapp):
+    from editor.commands.comandos_protobuf import CmdRenomearEscalada
+    from aresta_api.proto.generated import croqui_pb2
+
+    croqui = croqui_pb2.Croqui()
+    pico = croqui.picos.add(nome="Pico 1")
+    sg = pico.setores_ou_grupos.add()
+    setor = sg.setor.conteudo
+    setor.nome = "Setor 1"
+
+    esc = setor.escaladas.add()
+    esc.boulder.nome = "Boulder 1"
+
+    mapa = setor.mapas.add()
+    ref = mapa.referencias.add(escalada="Boulder 1", ids=["linha_b"])
+
+    model = CroquiModel(croqui)
+    undo_stack = QUndoStack()
+    controller = CroquiController(model, undo_stack)
+
+    proxy_boulder = model.obter_croqui_readonly().picos[0].setores_ou_grupos[0].setor.conteudo.escaladas[0].boulder
+    proxy_ref = model.obter_croqui_readonly().picos[0].setores_ou_grupos[0].setor.conteudo.mapas[0].referencias[0]
+
+    controller.renomear_escalada(proxy_boulder, "Boulder 1", "Boulder Novo", pode_mesclar=False, session_id=10)
+
+    cmd = undo_stack.command(0)
+    assert isinstance(cmd, CmdRenomearEscalada)
+    assert cmd.session_id == 10
+    assert proxy_boulder.nome == "Boulder Novo"
+    assert proxy_ref.escalada == "Boulder Novo"
+
+

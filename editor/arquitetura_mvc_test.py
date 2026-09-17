@@ -76,6 +76,14 @@ def check_architecture_violations():
                                 f"{path_obj.relative_to(editor_dir)}:{node.lineno} - Chamada a metodo privado '{attr_name}' "
                                 f"em objeto externo. Metodos '__*' so podem ser chamados em 'self'."
                             )
+
+                    # Regra 4: É estritamente proibido chamar beginMacro ou endMacro diretamente no QUndoStack
+                    if attr_name in ('beginMacro', 'endMacro'):
+                        violations.append(
+                            f"{path_obj.relative_to(editor_dir)}:{node.lineno} - Chamada proibida a '{attr_name}'. "
+                            f"O uso direto de beginMacro/endMacro do Qt impede a serialização no diário de recuperação. "
+                            f"Utilize 'CmdMacro' em seu lugar."
+                        )
                             
                 # Regra 3: Apenas controllers e commands podem instanciar classes de commands (Cmd*)
                 if isinstance(node.func, ast.Name):
@@ -139,7 +147,8 @@ def test_todos_comandos_implementam_serializacao_e_deserializacao():
         try:
             deserializar_comando({"classe": nome_classe}, model=None)
         except ValueError as e:
-            assert False, f"Comando '{nome_classe}' não está registrado na factory global deserializar_comando: {e}"
+            if "Classe de comando desconhecida" in str(e):
+                assert False, f"Comando '{nome_classe}' não está registrado na factory global deserializar_comando: {e}"
         except Exception:
             # Qualquer exceção de parsing de campos internos é esperada pois passamos dados vazios,
             # mas NÃO deve ser ValueError de classe desconhecida.

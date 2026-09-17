@@ -894,6 +894,175 @@ class CmdSubstituirImagemMemoria(ComandoEditor):
         )
 
 
+class CmdMacro(ComandoEditor):
+    """
+    Comando composto que agrupa uma sequência ordenada de comandos derivados de ComandoEditor.
+    Garante execução atômica de Redo e Undo, serialização completa para o GerenciadorDiario
+    e propagação de armar_carregamento_silencioso para todos os subcomandos.
+    """
+    def __init__(
+        self,
+        comandos: Optional[List[ComandoEditor]] = None,
+        texto: str = "Macro",
+        parent: Optional[QUndoCommand] = None,
+    ) -> None:
+        super().__init__(parent)
+        self.comandos: List[ComandoEditor] = list(comandos) if comandos else []
+        self.setText(texto)
+
+    def adicionar_comando(self, comando: ComandoEditor) -> None:
+        """Adiciona um subcomando à sequência do macro."""
+        self.comandos.append(comando)
+
+    def armar_carregamento_silencioso(self) -> None:
+        """Ativa a flag para que a próxima invocação de redo() do macro não aplique mutações."""
+        super().armar_carregamento_silencioso()
+
+    def undo(self) -> None:
+        """Desfaz todos os subcomandos em ordem reversa."""
+        for cmd in reversed(self.comandos):
+            cmd.undo()
+
+    def executar_redo(self) -> None:
+        """Executa todos os subcomandos em ordem cronológica de avanço."""
+        for cmd in self.comandos:
+            cmd.redo()
+
+    def serializar(self, anonimizado: bool = False) -> Dict[str, Any]:
+        """Serializa o macro e recursivamente todos os seus subcomandos."""
+        return {
+            "classe": "CmdMacro",
+            "texto": self.text(),
+            "comandos": [cmd.serializar(anonimizado=anonimizado) for cmd in self.comandos]
+        }
+
+    @staticmethod
+    def deserializar(dados: Dict[str, Any], model: CroquiModel) -> "CmdMacro":
+        """Reconstrói o macro e todos os seus subcomandos via deserializar_comando."""
+        comandos_reconstruidos = [
+            deserializar_comando(c, model) for c in dados.get("comandos", [])
+        ]
+        return CmdMacro(
+            comandos=comandos_reconstruidos,
+            texto=dados.get("texto", "Macro")
+        )
+
+
+class CmdRenomearEscalada(ComandoEditor):
+    """
+    Comando atômico para renomeação de uma escalada e atualização síncrona
+    de todas as referências em mapas que apontam para ela no pico.
+    Suporta mesclagem contínua via mergeWith delimitada por session_id.
+    """
+    ID_COMANDO = 1008
+
+    def __init__(
+        self,
+        model: Any,
+        msg_escalada: Any,
+        campo_nome: str,
+        nome_antigo: str,
+        nome_novo: str,
+        referencias: Optional[List[Any]] = None,
+        context_path: Optional[str] = None,
+        pode_mesclar: bool = True,
+        session_id: Optional[int] = None,
+        parent: Optional[QUndoCommand] = None,
+    ) -> None:
+        super().__init__(parent)
+        self.model: Any = model
+        self.msg_escalada: Any = msg_escalada
+        self.campo_nome: str = campo_nome
+        validar_pertence_ao_croqui(self.model, self.msg_escalada, self.campo_nome, nome_comando="CmdRenomearEscalada")
+
+        self.nome_antigo: str = _copia_segura(nome_antigo) if nome_antigo is not None else ""
+        self.nome_novo: str = _copia_segura(nome_novo) if nome_novo is not None else ""
+
+        self.referencias: List[Any] = list(referencias) if referencias else []
+        for ref in self.referencias:
+            validar_pertence_ao_croqui(self.model, ref, "escalada", nome_comando="CmdRenomearEscalada")
+
+        self.context_path: Optional[str] = context_path
+        self.pode_mesclar: bool = pode_mesclar
+        self.session_id: Optional[int] = session_id
+        self.setText(f"Renomear escalada para {self.nome_novo}")
+
+    def id(self) -> int:
+        return self.ID_COMANDO if self.pode_mesclar else -1
+
+    def mergeWith(self, outro: QUndoCommand) -> bool:
+        if not self.pode_mesclar or not getattr(outro, "pode_mesclar", False):
+            return False
+        if not isinstance(outro, CmdRenomearEscalada):
+            return False
+        if self.session_id != getattr(outro, "session_id", None):
+            return False
+
+        id_self = self.msg_escalada.obter_id_nativo() if hasattr(self.msg_escalada, 'obter_id_nativo') else id(self.msg_escalada)
+        id_outro = outro.msg_escalada.obter_id_nativo() if hasattr(outro.msg_escalada, 'obter_id_nativo') else id(outro.msg_escalada)
+        if id_self != id_outro or self.campo_nome != outro.campo_nome:
+            return False
+
+        self.nome_novo = outro.nome_novo
+        self.setText(f"Renomear escalada para {self.nome_novo}")
+        if hasattr(outro, 'context_path') and outro.context_path:
+            self.context_path = outro.context_path
+
+        self.model._set_primitivo(self.msg_escalada, self.campo_nome, self.nome_novo)
+        for ref in self.referencias:
+            self.model._set_primitivo(ref, "escalada", self.nome_novo)
+        return True
+
+    def undo(self) -> None:
+        self.model._set_primitivo(self.msg_escalada, self.campo_nome, self.nome_antigo)
+        for ref in self.referencias:
+            self.model._set_primitivo(ref, "escalada", self.nome_antigo)
+        if hasattr(self, 'context_path') and self.context_path:
+            self.model.notificar_foco_requisitado(self.context_path)
+
+    def executar_redo(self) -> None:
+        self.model._set_primitivo(self.msg_escalada, self.campo_nome, self.nome_novo)
+        for ref in self.referencias:
+            self.model._set_primitivo(ref, "escalada", self.nome_novo)
+        if hasattr(self, 'context_path') and self.context_path:
+            self.model.notificar_foco_requisitado(self.context_path)
+
+    def serializar(self, anonimizado: bool = False) -> Dict[str, Any]:
+        root = self.model.obter_croqui_readonly() if hasattr(self.model, "obter_croqui_readonly") else getattr(self.model, "croqui", None)
+        caminho_msg = resolver_caminho_mensagem(root, self.msg_escalada)
+        caminhos_referencias = [resolver_caminho_mensagem(root, ref) for ref in self.referencias]
+        return {
+            "classe": "CmdRenomearEscalada",
+            "caminho_msg": caminho_msg,
+            "campo_nome": self.campo_nome,
+            "nome_antigo": self.nome_antigo,
+            "nome_novo": self.nome_novo,
+            "caminhos_referencias": caminhos_referencias,
+            "context_path": self.context_path,
+            "session_id": self.session_id,
+        }
+
+    @staticmethod
+    def deserializar(dados: Dict[str, Any], model: CroquiModel) -> "CmdRenomearEscalada":
+        root = model.obter_croqui_readonly()
+        msg_escalada = navegar_para_mensagem(root, dados.get("caminho_msg", ""))
+        referencias = [
+            navegar_para_mensagem(root, cam)
+            for cam in dados.get("caminhos_referencias", [])
+            if cam is not None
+        ]
+        return CmdRenomearEscalada(
+            model=model,
+            msg_escalada=msg_escalada,
+            campo_nome=dados.get("campo_nome", "nome"),
+            nome_antigo=dados.get("nome_antigo", ""),
+            nome_novo=dados.get("nome_novo", ""),
+            referencias=referencias,
+            context_path=dados.get("context_path"),
+            session_id=dados.get("session_id"),
+        )
+
+
 def deserializar_comando(dados: Dict[str, Any], model: CroquiModel) -> QUndoCommand:
     """Factory global para deserializar qualquer QUndoCommand a partir de seu dicionário serializado."""
     classe_nome = dados.get("classe")
@@ -908,6 +1077,8 @@ def deserializar_comando(dados: Dict[str, Any], model: CroquiModel) -> QUndoComm
         "CmdAlterarMetadadosCaminhoNovo": CmdAlterarMetadadosCaminhoNovo,
         "CmdAlterarCampoImagem": CmdAlterarCampoImagem,
         "CmdSubstituirImagemMemoria": CmdSubstituirImagemMemoria,
+        "CmdMacro": CmdMacro,
+        "CmdRenomearEscalada": CmdRenomearEscalada,
     }
     
     if classe_nome in mapa_classes:
@@ -919,4 +1090,5 @@ def deserializar_comando(dados: Dict[str, Any], model: CroquiModel) -> QUndoComm
         return CmdAdicionarMapaArquivo.deserializar(dados, model)
         
     raise ValueError(f"Classe de comando desconhecida para deserialização: {classe_nome}")
+
 

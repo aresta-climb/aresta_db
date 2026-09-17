@@ -217,7 +217,8 @@ class GerenciadorHistorico(QObject):
             CmdRemoverRepeated,
             CmdAlterarOneof,
             CmdAlterarRepeatedItem,
-            CmdAlterarMultiplosRepeatedItems
+            CmdAlterarMultiplosRepeatedItems,
+            CmdRenomearEscalada,
         )
 
         if not cmd:
@@ -231,9 +232,21 @@ class GerenciadorHistorico(QObject):
                 self._despachar_sinal(cmd.child(i), is_undo)
             return
 
+        if hasattr(cmd, "comandos") and cmd.comandos:
+            sub_comandos = reversed(cmd.comandos) if is_undo else cmd.comandos
+            for sub_cmd in sub_comandos:
+                self._despachar_sinal(sub_cmd, is_undo)
+            return
+
         if isinstance(cmd, CmdAlterarPrimitivo):
             valor = cmd.valor_antigo if is_undo else cmd.valor_novo
             self.sinal_campo_alterado.emit(id(cmd.msg), cmd.campo_nome, valor)
+
+        elif isinstance(cmd, CmdRenomearEscalada):
+            valor = cmd.nome_antigo if is_undo else cmd.nome_novo
+            self.sinal_campo_alterado.emit(id(cmd.msg_escalada), cmd.campo_nome, valor)
+            for ref in cmd.referencias:
+                self.sinal_campo_alterado.emit(id(ref), "escalada", valor)
 
         elif isinstance(cmd, CmdAdicionarRepeated):
             if is_undo:
