@@ -86,11 +86,14 @@ def test_cli_modo_individual_apenas_svg(tmp_path: Path) -> None:
 
 def test_cli_modo_lote_sucesso(tmp_path: Path, capsys: pytest.CaptureFixture[str]) -> None:
     """Testa geração em lote para todos os setores de um pico."""
+    raiz = tmp_path / "projeto"
+    criar_croqui_teste_pb(raiz, pico_id="br_mg_igarape_pedra_grande")
     pasta_saida = tmp_path / "lote_cli"
     pasta_saida.mkdir()
 
     codigo = main([
         "--lote-pico", "br_mg_igarape_pedra_grande",
+        "--raiz-projeto", str(raiz),
         "--limite", "2",
         "--saida", str(pasta_saida),
         "--largura", "800",
@@ -102,6 +105,7 @@ def test_cli_modo_lote_sucesso(tmp_path: Path, capsys: pytest.CaptureFixture[str
     assert "Exportação em lote concluída" in saida
     arquivos = list(pasta_saida.glob("placa_*"))
     assert len(arquivos) >= 2
+
 
 
 def test_cli_parametros_insuficientes(capsys: pytest.CaptureFixture[str]) -> None:
@@ -183,10 +187,13 @@ def test_cli_cor_borda_logo(tmp_path: Path) -> None:
     assert 'stroke="#ea5341"' in svg_conteudo
 
     # Lote com cor padrão ou hex
+    raiz_borda = tmp_path / "raiz_borda"
+    criar_croqui_teste_pb(raiz_borda, pico_id="br_mg_igarape_pedra_grande")
     pasta_lote = tmp_path / "lote_borda"
     pasta_lote.mkdir()
     cod_lote = main([
         "--lote-pico", "br_mg_igarape_pedra_grande",
+        "--raiz-projeto", str(raiz_borda),
         "--limite", "1",
         "--cor-borda-logo", "preta",
         "--saida", str(pasta_lote),
@@ -218,10 +225,13 @@ def test_cli_logo_aresta(tmp_path: Path) -> None:
     assert (pasta_saida / "placa_savassinha.svg").exists()
 
     # Lote com logo aresta customizado
+    raiz_aresta = tmp_path / "raiz_aresta"
+    criar_croqui_teste_pb(raiz_aresta, pico_id="br_mg_igarape_pedra_grande")
     pasta_lote = tmp_path / "lote_aresta"
     pasta_lote.mkdir()
     cod_lote = main([
         "--lote-pico", "br_mg_igarape_pedra_grande",
+        "--raiz-projeto", str(raiz_aresta),
         "--limite", "1",
         "--logo-aresta", str(logo_custom),
         "--saida", str(pasta_lote),
@@ -252,3 +262,88 @@ def test_cli_parametros_utm(tmp_path: Path, capsys: pytest.CaptureFixture[str]) 
     assert "utm_source=teste_fonte" in saida
     assert "utm_medium=teste_midia" in saida
     assert "utm_campaign=teste_campanha" in saida
+
+
+def criar_croqui_teste_pb(raiz: Path, pico_id: str = "pico_teste") -> Path:
+    """Cria uma árvore hermética de teste com um compilado.binarypb válido."""
+    from aresta_api.proto.generated import croqui_pb2
+
+    pasta_compilado = raiz / "generated" / pico_id
+    pasta_compilado.mkdir(parents=True, exist_ok=True)
+    caminho_pb = pasta_compilado / "compilado.binarypb"
+
+    croqui = croqui_pb2.Croqui()
+    croqui.nome = "Pedra Grande de Teste"
+
+    pico = croqui.picos.add()
+    pico.nome = "Pedra Grande"
+
+    elem_setor = pico.setores_ou_grupos.add()
+    setor = elem_setor.setor.conteudo
+    setor.nome = "Savassinha"
+
+    via_esp = setor.escaladas.add()
+    via_esp.via_esportiva.nome = "Dama de Ferro"
+    via_esp.via_esportiva.dificuldade = croqui_pb2.GrauVia.BR_7A
+
+    boulder = setor.escaladas.add()
+    boulder.boulder.nome = "Boulder Teste"
+    boulder.boulder.dificuldade = croqui_pb2.GrauBoulder.V3
+
+    elem_grupo = pico.setores_ou_grupos.add()
+    grupo = elem_grupo.grupo.conteudo
+    grupo.nome = "Grupo Estacionamento"
+
+    arq_setor = grupo.setores.add()
+    setor_filho = arq_setor.conteudo
+    setor_filho.nome = "Bloco Dengoso"
+
+    via_filho = setor_filho.escaladas.add()
+    via_filho.via_esportiva.nome = "Via Dengosa"
+    via_filho.via_esportiva.dificuldade = croqui_pb2.GrauVia.BR_6SUP
+
+    caminho_pb.write_bytes(croqui.SerializeToString())
+    return caminho_pb
+
+
+def test_cli_raiz_projeto_customizada(tmp_path: Path) -> None:
+    """Testa execução do modo lote com --raiz-projeto explícita."""
+    raiz_custom = tmp_path / "raiz_custom"
+    criar_croqui_teste_pb(raiz_custom, pico_id="pico_custom")
+    saida = tmp_path / "saida_custom"
+
+    codigo = main([
+        "--lote-pico", "pico_custom",
+        "--raiz-projeto", str(raiz_custom),
+        "--limite", "1",
+        "--saida", str(saida),
+        "--largura", "800",
+        "--altura", "1000",
+        "--apenas-svg",
+    ])
+    assert codigo == 0
+    assert len(list(saida.glob("*.svg"))) >= 1
+
+
+def test_cli_lote_raiz_padrao_com_monkeypatch(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    """Testa que o CLI usa DIRETORIO_RAIZ_PADRAO quando --raiz-projeto é omitido."""
+    import scripts.gerar_placas_qrcodes_lib as lib
+
+    criar_croqui_teste_pb(tmp_path, pico_id="pico_raiz_padrao")
+    monkeypatch.setattr(lib, "DIRETORIO_RAIZ_PADRAO", tmp_path)
+
+    saida = tmp_path / "saida_padrao"
+    codigo = main([
+        "--lote-pico", "pico_raiz_padrao",
+        "--limite", "1",
+        "--saida", str(saida),
+        "--largura", "800",
+        "--altura", "1000",
+        "--apenas-svg",
+    ])
+    assert codigo == 0
+    assert len(list(saida.glob("*.svg"))) >= 1
+
+

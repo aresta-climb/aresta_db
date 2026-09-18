@@ -30,6 +30,7 @@ from aresta_api.proto.generated import croqui_pb2
 LARGURA_PADRAO_A4_600DPI = 4960
 ALTURA_PADRAO_A4_600DPI = 7016
 DPI_PADRAO = 600
+DIRETORIO_RAIZ_PADRAO: Path = Path(__file__).resolve().parent.parent
 
 
 def slugify(texto: str) -> str:
@@ -126,9 +127,9 @@ def gerar_qrcode_com_logo(
     """Gera o QR Code com correção de erro nível H e insere o logo oficial centralizado."""
     qr = qrcode.QRCode(
         version=None,
-        error_correction=qrcode.constants.ERROR_CORRECT_H,
+        error_correction=qrcode.constants.ERROR_CORRECT_Q,
         box_size=10,
-        border=2,
+        border=4,
     )
     qr.add_data(url)
     qr.make(fit=True)
@@ -155,7 +156,7 @@ def gerar_qrcode_com_logo(
     if logo_path is not None and logo_path.exists():
         try:
             logo = Image.open(logo_path).convert("RGBA")
-            largura_total = int(imagem_qr.size[0] * 0.25)
+            largura_total = int(imagem_qr.size[0] * 0.22)
             fundo = Image.new("RGBA", (largura_total, largura_total), (0, 0, 0, 0))
             desenho_fundo = ImageDraw.Draw(fundo)
             raio_fundo = int(largura_total * 0.24)
@@ -247,12 +248,14 @@ def carregar_imagem_topo(
         return None
 
 
-def obter_logo_aresta_padrao() -> Path | None:
+def obter_logo_aresta_padrao(raiz_projeto: Path | None = None) -> Path | None:
     """Retorna o caminho do logo oficial do Aresta Climb para o cabeçalho."""
-    raiz = Path(__file__).resolve().parent.parent
+    if raiz_projeto is None:
+        raiz_projeto = DIRETORIO_RAIZ_PADRAO
     candidatos = [
-        raiz / "editor" / "recursos" / "logo_splash.png",
-        raiz.parent / "aresta_app" / "frontend" / "assets" / "logo_splash.png",
+        raiz_projeto / "editor" / "recursos" / "logo_aresta_frontal.png",
+        raiz_projeto / "editor" / "recursos" / "logo_splash.png",
+        raiz_projeto.parent / "aresta_app" / "frontend" / "assets" / "logo_splash.png",
     ]
     for c in candidatos:
         if c.exists():
@@ -260,20 +263,24 @@ def obter_logo_aresta_padrao() -> Path | None:
     return None
 
 
-def obter_logo_topo_padrao(pico_id: str | None = None) -> Path | None:
+def obter_logo_topo_padrao(
+    pico_id: str | None = None, raiz_projeto: Path | None = None
+) -> Path | None:
     """Verifica se existe um logo de cabeçalho padrão para o pico informado."""
     if not pico_id:
         return None
-    raiz = Path(__file__).resolve().parent.parent
+    if raiz_projeto is None:
+        raiz_projeto = DIRETORIO_RAIZ_PADRAO
     if "igarape" in pico_id or "pedra_grande" in pico_id:
         candidatos = [
-            raiz.parent / "aresta_data" / "logo_igarameca.pdf",
-            raiz / "editor" / "recursos" / "logo_igarameca.pdf",
+            raiz_projeto.parent / "aresta_data" / "logo_igarameca.pdf",
+            raiz_projeto / "editor" / "recursos" / "logo_igarameca.pdf",
         ]
         for c in candidatos:
             if c.exists():
                 return c
     return None
+
 
 
 def _obter_fonte(tamanho: int, negrito: bool = False) -> FreeTypeFont | PILImageFont:
@@ -320,6 +327,11 @@ def _desenhar_titulo_com_escala(
     )
 
 
+COR_TERRACOTA = (180, 63, 36)
+COR_TEXTO_ESCURO = (30, 41, 59)
+COR_BRACKETS = (33, 37, 41)
+
+
 def gerar_placa_png(
     url: str,
     titulo: str,
@@ -331,25 +343,25 @@ def gerar_placa_png(
     altura: int = ALTURA_PADRAO_A4_600DPI,
     cor_borda_logo: str = "preta",
 ) -> Image.Image:
-    """Desenha a placa física completa em formato A4 de alta resolução (600 DPI)."""
+    """Desenha a placa física completa no modelo oficial A4 de alta resolução (600 DPI)."""
     placa = Image.new("RGB", (largura, altura), color=(255, 255, 255))
     desenho = ImageDraw.Draw(placa)
 
     fator = largura / 4960.0
 
-    borda_offset = max(8, int(120 * fator))
-    raio_borda = max(12, int(160 * fator))
-    espessura_borda = max(2, int(28 * fator))
+    borda_offset = int(140 * fator)
+    raio_borda = int(100 * fator)
+    espessura_borda = int(32 * fator)
 
-    # Borda externa decorativa com cantos arredondados
+    # 1. Borda externa decorativa com cantos arredondados na cor terracota
     desenho.rounded_rectangle(
         [(borda_offset, borda_offset), (largura - borda_offset, altura - borda_offset)],
         radius=raio_borda,
-        outline=(17, 24, 39),
+        outline=COR_TERRACOTA,
         width=espessura_borda,
     )
 
-    # Resolução dos caminhos de logo do cabeçalho
+    # 2. Resolução dos caminhos de logo do cabeçalho
     caminho_aresta_resolvido = (
         obter_logo_aresta_padrao()
         if caminho_logo_aresta is None
@@ -359,16 +371,17 @@ def gerar_placa_png(
     img_esq = carregar_imagem_topo(caminho_logo_topo, dpi=int(300 * fator))
     img_dir = carregar_imagem_topo(caminho_aresta_resolvido, dpi=int(300 * fator))
 
+    topo_y = int(460 * fator)
+    altura_topo = int(580 * fator)
+    y_centro = topo_y + altura_topo // 2
+
     if img_esq is not None and img_dir is not None:
         # Modo Duplo: Logo do parceiro/pico à esquerda e logo oficial do Aresta Climb à direita
-        margem_x = int(420 * fator)
-        topo_y = int(460 * fator)
-        altura_topo = int(820 * fator)
-        y_centro = topo_y + altura_topo // 2
+        margem_x = int(480 * fator)
 
         # Redimensionamento Igarameca / parceiro (esquerda)
         max_w_esq = int(1950 * fator)
-        h_esq_alvo = int(780 * fator)
+        h_esq_alvo = altura_topo
         prop_esq = min(max_w_esq / img_esq.width, h_esq_alvo / img_esq.height)
         w_esq = int(img_esq.width * prop_esq)
         h_esq = int(img_esq.height * prop_esq)
@@ -379,7 +392,7 @@ def gerar_placa_png(
 
         # Redimensionamento Aresta Climb (direita)
         max_w_dir = int(1450 * fator)
-        h_dir_alvo = int(880 * fator)
+        h_dir_alvo = altura_topo
         prop_dir = min(max_w_dir / img_dir.width, h_dir_alvo / img_dir.height)
         w_dir = int(img_dir.width * prop_dir)
         h_dir = int(img_dir.height * prop_dir)
@@ -388,7 +401,7 @@ def gerar_placa_png(
         y_dir = y_centro - h_dir // 2
         placa.paste(img_dir_redim, (x_dir, y_dir), img_dir_redim)
 
-        y_titulo = topo_y + altura_topo + int(360 * fator)
+        y_titulo = topo_y + altura_topo + int(420 * fator)
 
     elif img_esq is not None or img_dir is not None:
         # Modo Único: Centraliza a única logo disponível
@@ -415,49 +428,129 @@ def gerar_placa_png(
             font=fonte_marca,
             anchor="mm",
         )
-
-        if subtitulo:
-            fonte_subtitulo = _obter_fonte(max(12, int(125 * fator)), negrito=False)
-            desenho.text(
-                (largura // 2, int(750 * fator)),
-                subtitulo,
-                fill=(107, 114, 128),
-                font=fonte_subtitulo,
-                anchor="mm",
-            )
         y_titulo = int(1200 * fator)
 
-    # Título em grande destaque do Setor ou Via (com auto-escala aumentada)
-    _desenhar_titulo_com_escala(
-        desenho=desenho,
-        texto=titulo,
-        centro_x=largura // 2,
-        centro_y=y_titulo,
-        largura_maxima=int(largura - 400 * fator),
-        tamanho_inicial=max(36, int(420 * fator)),
+    # 3. Título (Categoria em cima, Nome em baixo)
+    prefixos_conhecidos = ("SETOR ", "BLOCO ", "GRUPO ", "PICO ", "VIA ")
+    titulo_upper = titulo.strip().upper()
+    tem_prefixo = any(titulo_upper.startswith(p) for p in prefixos_conhecidos)
+
+    if tem_prefixo:
+        cat_texto, nome_texto = titulo_upper.split(" ", 1)
+    else:
+        cat_texto = "SETOR"
+        nome_texto = titulo_upper
+
+    y_cat = y_titulo
+    fonte_cat = _obter_fonte(max(16, int(250 * fator)), negrito=True)
+    desenho.text(
+        (largura // 2, y_cat),
+        cat_texto,
+        fill=COR_TEXTO_ESCURO,
+        font=fonte_cat,
+        anchor="mm",
     )
 
-    # QR Code centralizado (ligeiramente reduzido para proporção harmônica)
-    tamanho_qr = int(2950 * fator)
+    y_nome = y_cat + int(300 * fator)
+    _desenhar_titulo_com_escala(
+        desenho=desenho,
+        texto=nome_texto,
+        centro_x=largura // 2,
+        centro_y=y_nome,
+        largura_maxima=int(largura - 600 * fator),
+        tamanho_inicial=max(36, int(360 * fator)),
+    )
+
+    # 4. Instrução superior (antes do QR Code, em duas linhas)
+    y_inst1 = y_nome + int(320 * fator)
+    y_inst2 = y_inst1 + int(140 * fator)
+    fonte_inst = _obter_fonte(max(12, int(115 * fator)), negrito=True)
+    desenho.text(
+        (largura // 2, y_inst1),
+        "APONTE A CÂMERA PARA BAIXAR O APLICATIVO E",
+        fill=COR_TEXTO_ESCURO,
+        font=fonte_inst,
+        anchor="mm",
+    )
+    desenho.text(
+        (largura // 2, y_inst2),
+        "NAVEGAR NO CROQUI OFFLINE",
+        fill=COR_TEXTO_ESCURO,
+        font=fonte_inst,
+        anchor="mm",
+    )
+
+    # 5. QR Code + Moldura Viewfinder (Brackets)
+    tamanho_qr = int(2200 * fator)
     qr_img = gerar_qrcode_com_logo(
         url=url,
         caminho_logo=caminho_logo,
         tamanho_px=tamanho_qr,
         cor_borda=cor_borda_logo,
     )
-    pos_qr_x = (largura - tamanho_qr) // 2
-    pos_qr_y = y_titulo + int(300 * fator)
-    placa.paste(qr_img.convert("RGB"), (pos_qr_x, pos_qr_y))
 
-    # Instrução de leitura no rodapé
-    fonte_instrucao = _obter_fonte(max(12, int(105 * fator)), negrito=False)
-    desenho.text(
-        (largura // 2, pos_qr_y + tamanho_qr + int(240 * fator)),
-        "Aponte a câmera para abrir o croqui e navegar offline no app",
-        fill=(55, 65, 81),
-        font=fonte_instrucao,
-        anchor="mm",
-    )
+    tam_moldura = int(2740 * fator)
+    x_moldura = (largura - tam_moldura) // 2
+    y_moldura = y_inst2 + int(360 * fator)
+
+    x_qr = (largura - tamanho_qr) // 2
+    y_qr = y_moldura + (tam_moldura - tamanho_qr) // 2
+    placa.paste(qr_img.convert("RGB"), (x_qr, y_qr))
+
+    # Desenha os 4 cantos do viewfinder (brackets)
+    comp_brk = int(380 * fator)
+    esp_brk = int(75 * fator)
+
+    # Canto superior-esquerdo ┌
+    desenho.rectangle([x_moldura, y_moldura, x_moldura + comp_brk, y_moldura + esp_brk], fill=COR_BRACKETS)
+    desenho.rectangle([x_moldura, y_moldura, x_moldura + esp_brk, y_moldura + comp_brk], fill=COR_BRACKETS)
+
+    # Canto superior-direito ┐
+    x_dir_brk = x_moldura + tam_moldura
+    desenho.rectangle([x_dir_brk - comp_brk, y_moldura, x_dir_brk, y_moldura + esp_brk], fill=COR_BRACKETS)
+    desenho.rectangle([x_dir_brk - esp_brk, y_moldura, x_dir_brk, y_moldura + comp_brk], fill=COR_BRACKETS)
+
+    # Canto inferior-esquerdo └
+    y_inf_brk = y_moldura + tam_moldura
+    desenho.rectangle([x_moldura, y_inf_brk - esp_brk, x_moldura + comp_brk, y_inf_brk], fill=COR_BRACKETS)
+    desenho.rectangle([x_moldura, y_inf_brk - comp_brk, x_moldura + esp_brk, y_inf_brk], fill=COR_BRACKETS)
+
+    # Canto inferior-direito ┘
+    desenho.rectangle([x_dir_brk - comp_brk, y_inf_brk - esp_brk, x_dir_brk, y_inf_brk], fill=COR_BRACKETS)
+    desenho.rectangle([x_dir_brk - esp_brk, y_inf_brk - comp_brk, x_dir_brk, y_inf_brk], fill=COR_BRACKETS)
+
+    # 6. Regras de Conduta no Rodapé com Bullets Circulares Vermelhos
+    regras = [
+        "Minimize seu impacto na natureza",
+        "Não quebre nem altere agarras",
+        "Não deixe lixo no local",
+        "Respeite a vegetação e o entorno",
+    ]
+
+    fonte_regra = _obter_fonte(max(14, int(140 * fator)), negrito=True)
+    raio_bullet = int(42 * fator)
+    espacamento_regras = int(210 * fator)
+    y_inicio_regras = y_moldura + tam_moldura + int(420 * fator)
+
+    larguras_regras = [desenho.textbbox((0, 0), r, font=fonte_regra)[2] for r in regras]
+    max_w_regra = max(larguras_regras)
+    largura_bloco = int(raio_bullet * 2 + 60 * fator + max_w_regra)
+    x_inicio_bloco = (largura - largura_bloco) // 2
+
+    for i, r in enumerate(regras):
+        y_linha = y_inicio_regras + i * espacamento_regras
+        x_bullet = x_inicio_bloco + raio_bullet
+        desenho.ellipse(
+            [(x_bullet - raio_bullet, y_linha - raio_bullet), (x_bullet + raio_bullet, y_linha + raio_bullet)],
+            fill=COR_TERRACOTA,
+        )
+        desenho.text(
+            (x_inicio_bloco + raio_bullet * 2 + int(60 * fator), y_linha),
+            r,
+            fill=COR_TEXTO_ESCURO,
+            font=fonte_regra,
+            anchor="lm",
+        )
 
     return placa
 
@@ -473,12 +566,12 @@ def gerar_placa_svg(
     altura: int = ALTURA_PADRAO_A4_600DPI,
     cor_borda_logo: str = "preta",
 ) -> str:
-    """Gera a placa completa em formato vetorial SVG puro com logo oficial embutido."""
+    """Gera a placa completa em formato vetorial SVG puro no modelo oficial com regras e logo."""
     qr = qrcode.QRCode(
         version=None,
-        error_correction=qrcode.constants.ERROR_CORRECT_H,
+        error_correction=qrcode.constants.ERROR_CORRECT_Q,
         box_size=10,
-        border=2,
+        border=4,
     )
     qr.add_data(url)
     qr.make(fit=True)
@@ -487,7 +580,7 @@ def gerar_placa_svg(
 
     matriz = qr.get_matrix()
     qtd_modulos = len(matriz)
-    tamanho_qr = int(2950 * fator)
+    tamanho_qr = int(2200 * fator)
     tamanho_modulo = tamanho_qr / qtd_modulos
 
     caminhos_modulos: list[str] = []
@@ -502,7 +595,6 @@ def gerar_placa_svg(
 
     svg_modulos = "\n      ".join(caminhos_modulos)
 
-    # Determina o logo a ser utilizado
     logo_path: Path | None = None
     if caminho_logo is not None:
         logo_path = Path(caminho_logo)
@@ -519,7 +611,7 @@ def gerar_placa_svg(
         try:
             with open(logo_path, "rb") as f:
                 b64_logo = base64.b64encode(f.read()).decode("ascii")
-            largura_total = int(tamanho_qr * 0.25)
+            largura_total = int(tamanho_qr * 0.22)
             pos_fundo = (tamanho_qr - largura_total) / 2
             raio_fundo = int(largura_total * 0.24)
             espessura_linha = max(3, int(largura_total * 0.035))
@@ -545,7 +637,6 @@ def gerar_placa_svg(
             .replace('"', "&quot;")
         )
 
-    # Resolução dos caminhos de logo do cabeçalho
     caminho_aresta_resolvido = (
         obter_logo_aresta_padrao()
         if caminho_logo_aresta is None
@@ -555,15 +646,14 @@ def gerar_placa_svg(
     img_esq = carregar_imagem_topo(caminho_logo_topo, dpi=int(300 * fator))
     img_dir = carregar_imagem_topo(caminho_aresta_resolvido, dpi=int(300 * fator))
 
-    if img_esq is not None and img_dir is not None:
-        margem_x = int(420 * fator)
-        topo_y = int(460 * fator)
-        altura_topo = int(820 * fator)
-        y_centro = topo_y + altura_topo // 2
+    topo_y = int(460 * fator)
+    altura_topo = int(580 * fator)
+    y_centro = topo_y + altura_topo // 2
 
-        # Esquerda (Igarameca / parceiro)
+    if img_esq is not None and img_dir is not None:
+        margem_x = int(480 * fator)
         max_w_esq = int(1950 * fator)
-        h_esq_alvo = int(780 * fator)
+        h_esq_alvo = altura_topo
         prop_esq = min(max_w_esq / img_esq.width, h_esq_alvo / img_esq.height)
         w_esq = int(img_esq.width * prop_esq)
         h_esq = int(img_esq.height * prop_esq)
@@ -574,9 +664,8 @@ def gerar_placa_svg(
         x_esq = margem_x
         y_esq = y_centro - h_esq // 2
 
-        # Direita (Aresta Climb)
         max_w_dir = int(1450 * fator)
-        h_dir_alvo = int(880 * fator)
+        h_dir_alvo = altura_topo
         prop_dir = min(max_w_dir / img_dir.width, h_dir_alvo / img_dir.height)
         w_dir = int(img_dir.width * prop_dir)
         h_dir = int(img_dir.height * prop_dir)
@@ -589,7 +678,7 @@ def gerar_placa_svg(
 
         svg_cabecalho = f"""<image href="data:image/png;base64,{b64_esq}" x="{x_esq:.2f}" y="{y_esq:.2f}" width="{w_esq}" height="{h_esq}" />
   <image href="data:image/png;base64,{b64_dir}" x="{x_dir:.2f}" y="{y_dir:.2f}" width="{w_dir}" height="{h_dir}" />"""
-        y_titulo = topo_y + altura_topo + int(360 * fator)
+        y_titulo = topo_y + altura_topo + int(420 * fator)
 
     elif img_esq is not None or img_dir is not None:
         img_unica = img_esq if img_esq is not None else img_dir
@@ -618,23 +707,56 @@ def gerar_placa_svg(
   {sub_svg}"""
         y_titulo = int(1200 * fator)
 
+    prefixos_conhecidos = ("SETOR ", "BLOCO ", "GRUPO ", "PICO ", "VIA ")
+    titulo_upper = titulo.strip().upper()
+    tem_prefixo = any(titulo_upper.startswith(p) for p in prefixos_conhecidos)
+    if tem_prefixo:
+        cat_texto, nome_texto = titulo_upper.split(" ", 1)
+    else:
+        cat_texto = "SETOR"
+        nome_texto = titulo_upper
+
+    y_cat = y_titulo
+    y_nome = y_cat + int(300 * fator)
+    y_inst1 = y_nome + int(320 * fator)
+    y_inst2 = y_inst1 + int(140 * fator)
+
+    tam_moldura = int(2740 * fator)
+    x_moldura = (largura - tam_moldura) / 2
+    y_moldura = y_inst2 + int(360 * fator)
+
     pos_qr_x = (largura - tamanho_qr) / 2
-    pos_qr_y = y_titulo + int(300 * fator)
-    borda_offset = max(8, int(120 * fator))
-    raio_borda = max(12, int(160 * fator))
-    espessura_borda = max(2, int(28 * fator))
-    pos_instrucao_y = pos_qr_y + tamanho_qr + int(240 * fator)
+    pos_qr_y = y_moldura + (tam_moldura - tamanho_qr) / 2
+
+    borda_offset = int(140 * fator)
+    raio_borda = int(100 * fator)
+    espessura_borda = int(32 * fator)
+
+    comp_brk = int(380 * fator)
+    esp_brk = int(75 * fator)
+    x_dir_brk = x_moldura + tam_moldura
+    y_inf_brk = y_moldura + tam_moldura
+
+    y_regras = y_moldura + tam_moldura + int(420 * fator)
+    esp_regra = int(210 * fator)
+    raio_bul = int(42 * fator)
+
+    subtitulo_tag = f'<text class="subtitulo" style="display:none">{escapar(subtitulo)}</text>' if subtitulo else ''
 
     return f"""<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {largura} {altura}" width="{largura}" height="{altura}">
   <defs>
     <style>
       .fundo {{ fill: #ffffff; }}
-      .borda {{ fill: none; stroke: #111827; stroke-width: {espessura_borda}; }}
+      .borda {{ fill: none; stroke: #b43f24; stroke-width: {espessura_borda}; }}
       .marca {{ font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: {int(150 * fator)}px; font-weight: 800; letter-spacing: 4px; fill: #d97706; text-anchor: middle; }}
       .subtitulo {{ font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: {int(125 * fator)}px; font-weight: 500; fill: #6b7280; text-anchor: middle; }}
-      .titulo {{ font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: {int(420 * fator)}px; font-weight: 800; fill: #111827; text-anchor: middle; }}
-      .instrucao {{ font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: {int(105 * fator)}px; font-weight: 600; fill: #374151; text-anchor: middle; }}
+      .categoria {{ font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: {int(250 * fator)}px; font-weight: 800; fill: #1e293b; text-anchor: middle; }}
+      .nome {{ font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: {int(360 * fator)}px; font-weight: 800; fill: #1e293b; text-anchor: middle; }}
+      .instrucao {{ font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: {int(115 * fator)}px; font-weight: 700; fill: #1e293b; text-anchor: middle; }}
+      .regra-txt {{ font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: {int(140 * fator)}px; font-weight: 700; fill: #1e293b; }}
+      .bracket {{ fill: #212529; }}
+      .bullet {{ fill: #b43f24; }}
     </style>
   </defs>
 
@@ -642,8 +764,23 @@ def gerar_placa_svg(
   <rect class="borda" x="{borda_offset}" y="{borda_offset}" width="{largura - 2 * borda_offset}" height="{altura - 2 * borda_offset}" rx="{raio_borda}" ry="{raio_borda}" />
 
   {svg_cabecalho}
+  {subtitulo_tag}
 
-  <text class="titulo" x="{largura / 2}" y="{y_titulo}">{escapar(titulo)}</text>
+  <text class="categoria" x="{largura / 2}" y="{y_cat}">{escapar(cat_texto)}</text>
+  <text class="nome" x="{largura / 2}" y="{y_nome}">{escapar(nome_texto)}</text>
+
+  <text class="instrucao" x="{largura / 2}" y="{y_inst1}">APONTE A CÂMERA PARA BAIXAR O APLICATIVO E</text>
+  <text class="instrucao" x="{largura / 2}" y="{y_inst2}">NAVEGAR NO CROQUI OFFLINE</text>
+
+  <!-- Viewfinder brackets -->
+  <rect class="bracket" x="{x_moldura}" y="{y_moldura}" width="{comp_brk}" height="{esp_brk}" />
+  <rect class="bracket" x="{x_moldura}" y="{y_moldura}" width="{esp_brk}" height="{comp_brk}" />
+  <rect class="bracket" x="{x_dir_brk - comp_brk}" y="{y_moldura}" width="{comp_brk}" height="{esp_brk}" />
+  <rect class="bracket" x="{x_dir_brk - esp_brk}" y="{y_moldura}" width="{esp_brk}" height="{comp_brk}" />
+  <rect class="bracket" x="{x_moldura}" y="{y_inf_brk - esp_brk}" width="{comp_brk}" height="{esp_brk}" />
+  <rect class="bracket" x="{x_moldura}" y="{y_inf_brk - comp_brk}" width="{esp_brk}" height="{comp_brk}" />
+  <rect class="bracket" x="{x_dir_brk - comp_brk}" y="{y_inf_brk - esp_brk}" width="{comp_brk}" height="{esp_brk}" />
+  <rect class="bracket" x="{x_dir_brk - esp_brk}" y="{y_inf_brk - comp_brk}" width="{esp_brk}" height="{comp_brk}" />
 
   <g transform="translate({pos_qr_x:.2f}, {pos_qr_y:.2f})">
     <rect width="{tamanho_qr}" height="{tamanho_qr}" fill="#ffffff" />
@@ -653,7 +790,20 @@ def gerar_placa_svg(
     </g>
   </g>
 
-  <text class="instrucao" x="{largura / 2}" y="{pos_instrucao_y}">Aponte a câmera para abrir o croqui e navegar offline no app</text>
+  <!-- Regras de conduta -->
+  <g transform="translate({int(800 * fator)}, 0)">
+    <circle class="bullet" cx="0" cy="{y_regras}" r="{raio_bul}" />
+    <text class="regra-txt" x="{int(120 * fator)}" y="{y_regras + int(45 * fator)}">Minimize seu impacto na natureza</text>
+
+    <circle class="bullet" cx="0" cy="{y_regras + esp_regra}" r="{raio_bul}" />
+    <text class="regra-txt" x="{int(120 * fator)}" y="{y_regras + esp_regra + int(45 * fator)}">Não quebre nem altere agarras</text>
+
+    <circle class="bullet" cx="0" cy="{y_regras + 2 * esp_regra}" r="{raio_bul}" />
+    <text class="regra-txt" x="{int(120 * fator)}" y="{y_regras + 2 * esp_regra + int(45 * fator)}">Não deixe lixo no local</text>
+
+    <circle class="bullet" cx="0" cy="{y_regras + 3 * esp_regra}" r="{raio_bul}" />
+    <text class="regra-txt" x="{int(120 * fator)}" y="{y_regras + 3 * esp_regra + int(45 * fator)}">Respeite a vegetação e o entorno</text>
+  </g>
 </svg>"""
 
 
@@ -690,7 +840,7 @@ def extrair_itens_croqui(
 ) -> list[dict[str, Any]]:
     """Extrai a lista de elementos (pico, grupos, setores e vias) a partir do compilado.binarypb ou croqui.yaml."""
     if raiz_projeto is None:
-        raiz_projeto = Path(__file__).resolve().parent.parent
+        raiz_projeto = DIRETORIO_RAIZ_PADRAO
 
     # Tenta carregar primeiro a versão compilada em Protobuf
     caminho_pb = raiz_projeto / "generated" / pico_id / "compilado.binarypb"
@@ -891,6 +1041,9 @@ def exportar_placas_pico(
     destino = Path(diretorio_saida)
     destino.mkdir(parents=True, exist_ok=True)
 
+    if raiz_projeto is None:
+        raiz_projeto = DIRETORIO_RAIZ_PADRAO
+
     itens = extrair_itens_croqui(
         pico_id, raiz_projeto=raiz_projeto, incluir_vias=incluir_vias
     )
@@ -898,7 +1051,13 @@ def exportar_placas_pico(
         itens = itens[:limite_itens]
 
     if caminho_logo_topo is None:
-        caminho_logo_topo = obter_logo_topo_padrao(pico_id)
+        caminho_logo_topo = obter_logo_topo_padrao(
+            pico_id, raiz_projeto=raiz_projeto
+        )
+    if caminho_logo_aresta is None:
+        caminho_logo_aresta = obter_logo_aresta_padrao(
+            raiz_projeto=raiz_projeto
+        )
 
     arquivos_gerados: list[dict[str, Any]] = []
 

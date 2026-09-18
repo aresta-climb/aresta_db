@@ -177,7 +177,8 @@ def test_gerar_placa_svg() -> None:
     assert isinstance(svg, str)
     assert "<svg" in svg
     assert "</svg>" in svg
-    assert "Setor Savassinha" in svg
+    assert "SETOR" in svg
+    assert "SAVASSINHA" in svg
     assert "Pedra Grande · Igarapé, MG" in svg
     assert "ARESTA CLIMB" in svg
     # Verifica que o link textual foi removido
@@ -281,21 +282,35 @@ def test_recortar_bordas_vazias() -> None:
     assert cortada.size == (1, 1)
 
 
-def test_obter_logo_aresta_padrao(monkeypatch: pytest.MonkeyPatch) -> None:
+def test_obter_logo_aresta_padrao(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
     padrao = obter_logo_aresta_padrao()
     if padrao is not None:
         assert padrao.exists()
+
+    # Simula quando raiz_projeto vazia é informada
+    assert obter_logo_aresta_padrao(raiz_projeto=tmp_path) is None
 
     # Simula quando nenhum arquivo candidato existe
     real_exists = Path.exists
 
     def mock_exists(self: Path) -> bool:
-        if "logo_splash.png" in str(self):
+        nome = self.name
+        if nome in ("logo_splash.png", "logo_aresta_frontal.png"):
             return False
         return real_exists(self)
 
     monkeypatch.setattr(Path, "exists", mock_exists)
     assert obter_logo_aresta_padrao() is None
+
+
+def test_obter_logo_topo_padrao(tmp_path: Path) -> None:
+    # Sem pico informado
+    assert obter_logo_topo_padrao(None) is None
+    # Pico sem mapeamento de logo institucional
+    assert obter_logo_topo_padrao("pico_sem_logo", raiz_projeto=tmp_path) is None
+    # Pico mapeado mas diretório sem os arquivos
+    assert obter_logo_topo_padrao("br_mg_igarape_pedra_grande", raiz_projeto=tmp_path) is None
+
 
 
 def test_gerar_placa_png_e_svg_combinacoes_logos(tmp_path: Path) -> None:
@@ -383,10 +398,53 @@ def test_gerar_placa_png_e_svg_combinacoes_logos(tmp_path: Path) -> None:
 
 
 
-def test_extrair_itens_croqui_existente() -> None:
-    # Testa extração com o pico Pedra Grande presente no repositório
-    raiz = Path(__file__).resolve().parent.parent
-    itens = extrair_itens_croqui("br_mg_igarape_pedra_grande", raiz_projeto=raiz)
+def criar_croqui_teste_pb(raiz: Path, pico_id: str = "pico_teste") -> Path:
+    """Cria uma árvore hermética de teste com um compilado.binarypb válido."""
+    from aresta_api.proto.generated import croqui_pb2
+
+    pasta_compilado = raiz / "generated" / pico_id
+    pasta_compilado.mkdir(parents=True, exist_ok=True)
+    caminho_pb = pasta_compilado / "compilado.binarypb"
+
+    croqui = croqui_pb2.Croqui()
+    croqui.nome = "Pedra Grande de Teste"
+
+    pico = croqui.picos.add()
+    pico.nome = "Pedra Grande"
+
+    elem_setor = pico.setores_ou_grupos.add()
+    setor = elem_setor.setor.conteudo
+    setor.nome = "Savassinha"
+
+    via_esp = setor.escaladas.add()
+    via_esp.via_esportiva.nome = "Dama de Ferro"
+    via_esp.via_esportiva.dificuldade = croqui_pb2.GrauVia.BR_7A
+
+    boulder = setor.escaladas.add()
+    boulder.boulder.nome = "Boulder Teste"
+    boulder.boulder.dificuldade = croqui_pb2.GrauBoulder.V3
+
+    elem_grupo = pico.setores_ou_grupos.add()
+    grupo = elem_grupo.grupo.conteudo
+    grupo.nome = "Grupo Estacionamento"
+
+    arq_setor = grupo.setores.add()
+    setor_filho = arq_setor.conteudo
+    setor_filho.nome = "Bloco Dengoso"
+
+    via_filho = setor_filho.escaladas.add()
+    via_filho.via_esportiva.nome = "Via Dengosa"
+    via_filho.via_esportiva.dificuldade = croqui_pb2.GrauVia.BR_6SUP
+
+    caminho_pb.write_bytes(croqui.SerializeToString())
+    return caminho_pb
+
+
+def test_extrair_itens_croqui_existente(tmp_path: Path) -> None:
+    # Testa extração com um pico compilado em Protobuf hermético
+    pico_id = "br_mg_igarape_pedra_grande"
+    criar_croqui_teste_pb(tmp_path, pico_id=pico_id)
+    itens = extrair_itens_croqui(pico_id, raiz_projeto=tmp_path)
 
     assert len(itens) > 0
 
@@ -396,7 +454,7 @@ def test_extrair_itens_croqui_existente() -> None:
     assert "setor" in tipos or "grupo" in tipos
 
     item_pico = next(item for item in itens if item["tipo"] == "pico")
-    assert item_pico["pico"] == "br_mg_igarape_pedra_grande"
+    assert item_pico["pico"] == pico_id
     assert "Pedra Grande" in item_pico["titulo"]
 
 
@@ -406,7 +464,8 @@ def test_extrair_itens_croqui_nao_encontrado(tmp_path: Path) -> None:
 
 
 def test_exportar_placas_pico(tmp_path: Path) -> None:
-    raiz = Path(__file__).resolve().parent.parent
+    raiz = tmp_path / "projeto"
+    criar_croqui_teste_pb(raiz, pico_id="br_mg_igarape_pedra_grande")
     saida = tmp_path / "saida_placas"
 
     # Por padrão gera PNG A4
@@ -426,7 +485,8 @@ def test_exportar_placas_pico(tmp_path: Path) -> None:
 
 
 def test_exportar_placas_pico_com_svg(tmp_path: Path) -> None:
-    raiz = Path(__file__).resolve().parent.parent
+    raiz = tmp_path / "projeto"
+    criar_croqui_teste_pb(raiz, pico_id="br_mg_igarape_pedra_grande")
     saida_svg = tmp_path / "com_svg"
     arqs_svg = exportar_placas_pico(
         pico_id="br_mg_igarape_pedra_grande",
@@ -466,15 +526,21 @@ def test_formatar_grau() -> None:
     assert _formatar_grau_boulder(999999) == "999999"
 
 
-def test_extrair_itens_croqui_com_vias() -> None:
-    # Testa chamada sem raiz_projeto explícito para exercitar o caminho padrão
-    itens = extrair_itens_croqui("br_mg_igarape_pedra_grande", incluir_vias=True)
+def test_extrair_itens_croqui_com_vias(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
+    pico_id = "br_mg_igarape_pedra_grande"
+    criar_croqui_teste_pb(tmp_path, pico_id=pico_id)
+    # Testa chamada sem raiz_projeto explícito para exercitar o caminho padrão configurado
+    import scripts.gerar_placas_qrcodes_lib as lib
+    monkeypatch.setattr(lib, "DIRETORIO_RAIZ_PADRAO", tmp_path)
+
+    itens = extrair_itens_croqui(pico_id, incluir_vias=True)
     assert len(itens) > 0
     vias = [item for item in itens if item["tipo"] == "via"]
     assert len(vias) > 0
     via_exemplo = vias[0]
     assert "via" in via_exemplo
     assert via_exemplo["via"] is not None
+
 
 
 def test_extrair_itens_croqui_fallback_yaml(tmp_path: Path) -> None:

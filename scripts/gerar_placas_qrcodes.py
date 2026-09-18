@@ -198,6 +198,13 @@ def criar_analisador_argumentos() -> argparse.ArgumentParser:
         default=None,
         help="Parâmetro utm_campaign opcional para rastreamento no QR Code.",
     )
+    parser.add_argument(
+        "--raiz-projeto",
+        dest="raiz_projeto",
+        type=str,
+        default=None,
+        help="Caminho alternativo para a raiz do projeto (contendo generated/ ou database/).",
+    )
 
     return parser
 
@@ -216,16 +223,18 @@ def main(argumentos: list[str] | None = None) -> int:
     diretorio_saida = Path(args.saida)
     diretorio_saida.mkdir(parents=True, exist_ok=True)
 
+    raiz_projeto = Path(args.raiz_projeto) if args.raiz_projeto else None
+
     caminho_logo = Path(args.logo) if args.logo else None
     caminho_logo_topo = (
         Path(args.logo_topo)
         if args.logo_topo
-        else obter_logo_topo_padrao(args.lote_pico or args.pico)
+        else obter_logo_topo_padrao(args.lote_pico or args.pico, raiz_projeto=raiz_projeto)
     )
     caminho_logo_aresta = (
         Path(args.logo_aresta)
         if args.logo_aresta
-        else obter_logo_aresta_padrao()
+        else obter_logo_aresta_padrao(raiz_projeto=raiz_projeto)
     )
     gerar_svg = bool(args.svg or args.apenas_svg)
 
@@ -235,6 +244,7 @@ def main(argumentos: list[str] | None = None) -> int:
         arquivos = exportar_placas_pico(
             pico_id=args.lote_pico,
             diretorio_saida=diretorio_saida,
+            raiz_projeto=raiz_projeto,
             incluir_vias=args.incluir_vias,
             caminho_logo=caminho_logo,
             caminho_logo_topo=caminho_logo_topo,
