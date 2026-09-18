@@ -572,7 +572,7 @@ mapas:
   - ids:
     - linha_15
     escalada: Saara
-- caminho_imagem_mapa: imagens/setor_estacionamento_bloco_dengoso_p3.webp
+- caminho_imagem_mapa: imagens/grupo_estacionamento_bloco_dengoso_p3.webp
   largura_mapa: 2364
   altura_mapa: 1773
   pontos_de_interesse:
@@ -753,14 +753,100 @@ mapas:
     - st2
     escalada: Sem nome 21
   - ids:
-    - linha_16
-    - linha_17
-    - st2
     - st1
-    escalada: Sem nome 22
+    - st2
+    - linha_17
+    - linha_16
+    escalada: Só poeirinha
   - ids:
     - linha_19
     escalada: Sem nome 23
+- caminho_imagem_mapa: imagens/grupo_estacionamento_bloco_dengoso_p4.webp
+  largura_mapa: 2364
+  altura_mapa: 1773
+  pontos_de_interesse:
+  - id: linha_20
+    label: ''
+    linha:
+      estilo: TRACEJADO
+      conteudo:
+        nos:
+        - x: 1087
+          y: 1109
+          tipo: CIRCULO_IDENTIFICADOR
+          rotulo: '10'
+          raio: 24
+        - x: 1026
+          y: 942
+          tipo: PASSAGEM
+        - x: 929
+          y: 708
+          tipo: PASSAGEM
+        - x: 861
+          y: 564
+          tipo: PASSAGEM
+        - x: 683
+          y: 490
+          tipo: PASSAGEM
+        - x: 585
+          y: 409
+          tipo: PASSAGEM
+        - x: 553
+          y: 242
+          tipo: PASSAGEM
+        - x: 544
+          y: 138
+          tipo: PASSAGEM
+          rotulo: K
+          raio: 24
+      espessura: 5
+    cor: '#FFD600'
+  - id: linha_21
+    label: ''
+    linha:
+      estilo: TRACEJADO
+      conteudo:
+        nos:
+        - x: 1833
+          y: 1135
+          tipo: CIRCULO_IDENTIFICADOR
+          rotulo: '11'
+          raio: 24
+        - x: 1713
+          y: 1033
+          tipo: PASSAGEM
+        - x: 1523
+          y: 931
+          tipo: PASSAGEM
+        - x: 1397
+          y: 838
+          tipo: PASSAGEM
+        - x: 1370
+          y: 722
+          tipo: PASSAGEM
+        - x: 1351
+          y: 583
+          tipo: PASSAGEM
+        - x: 1358
+          y: 460
+          tipo: PASSAGEM
+        - x: 1327
+          y: 342
+          tipo: PASSAGEM
+        - x: 1297
+          y: 249
+          tipo: PASSAGEM
+          rotulo: B
+          raio: 24
+      espessura: 5
+    cor: '#FFD600'
+  referencias:
+  - ids:
+    - linha_20
+    escalada: Auto seg
+  - ids:
+    - linha_21
+    escalada: Arla
 escaladas:
 - boulder:
     nome: Dengoso
@@ -788,11 +874,17 @@ escaladas:
     dificuldade: V4
 - boulder:
     nome: Sem nome 21
-    dificuldade: INDEFINIDO
+    dificuldade: V2
 - boulder:
-    nome: Sem nome 22
-    dificuldade: INDEFINIDO
+    nome: Só poeirinha
+    dificuldade: V3
 - boulder:
     nome: Sem nome 23
-    dificuldade: INDEFINIDO
+    dificuldade: V1
+- boulder:
+    nome: Auto seg
+    dificuldade: V0
+- boulder:
+    nome: Arla
+    dificuldade: V3
 ---

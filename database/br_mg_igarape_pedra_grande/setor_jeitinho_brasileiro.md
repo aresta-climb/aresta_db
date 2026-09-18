@@ -35,16 +35,8 @@ mapas:
   largura_mapa: 1392
   altura_mapa: 3013
   referencias:
-  - grupo: Sherpa
-    setor: Jeitinho Brasileiro
-    escalada: Jeitinho Brasileiro
-  - grupo: Sherpa
-    setor: Jeitinho Brasileiro
-    escalada: Força G
-  - grupo: Sherpa
-    setor: Jeitinho Brasileiro
-    escalada: Itália
-  - grupo: Sherpa
-    setor: Jeitinho Brasileiro
-    escalada: Glorioso
+  - escalada: Jeitinho Brasileiro
+  - escalada: Força G
+  - escalada: Itália
+  - escalada: Glorioso
 ---

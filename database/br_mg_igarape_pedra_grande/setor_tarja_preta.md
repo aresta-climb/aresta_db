@@ -17,10 +17,6 @@ mapas:
   largura_mapa: 1392
   altura_mapa: 3013
   referencias:
-  - grupo: Sherpa
-    setor: Tarja Preta
-    escalada: Película
-  - grupo: Sherpa
-    setor: Tarja Preta
-    escalada: Tarja Preta
+  - escalada: Película
+  - escalada: Tarja Preta
 ---

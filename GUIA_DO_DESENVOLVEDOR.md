@@ -98,6 +98,46 @@ O Editor Aresta possui uma arquitetura de resiliência e diagnóstico em produç
 
 ---
 
+## 🪧 Geração de Placas e QR Codes de Sinalização
+
+O repositório possui uma biblioteca dedicada (`scripts/gerar_placas_qrcodes_lib.py`) e um utilitário CLI (`scripts/gerar_placas_qrcodes.py`) para gerar placas físicas de sinalização e QR Codes com o logo oficial do Aresta Climb (`editor/recursos/logo_app.png`) embutido no centro.
+
+Os QR Codes apontam para URLs hierárquicas em `https://app.arestaclimb.com/...` e abrem o setor ou via diretamente no aplicativo Flutter ou redirecionam na web.
+
+### 1. Geração em Lote (Pico Inteiro)
+Gera automaticamente placas em alta resolução (formato A4 a 600 DPI por padrão) para o pico e todos os seus setores (lendo do Protobuf compilado ou banco YAML):
+```bash
+uv run python scripts/gerar_placas_qrcodes.py --lote-pico br_mg_igarape_pedra_grande --saida output/placas/pedra_grande
+```
+
+Para incluir também placas individuais para cada via:
+```bash
+uv run python scripts/gerar_placas_qrcodes.py --lote-pico br_mg_igarape_pedra_grande --incluir-vias --saida output/placas/pedra_grande
+```
+
+### 2. Geração Individual (Placa Única)
+```bash
+uv run python scripts/gerar_placas_qrcodes.py \
+  --pico br_mg_igarape_pedra_grande \
+  --grupo grupo_estacionamento \
+  --setor savassinha \
+  --via teto_da_aresta \
+  --titulo "Teto da Aresta" \
+  --subtitulo "Savassinha · 8a" \
+  --saida output/placas
+```
+
+### 3. Opções Principais
+- Padrão: Imagem raster em formato **A4 a 600 DPI** (4960 x 7016 px), com metadados de densidade de impressão embutidos.
+- `--svg`: Gera adicionalmente arquivos vetoriais SVG (com o logo embutido em base64).
+- `--apenas-svg`: Gera exclusivamente arquivos vetoriais SVG.
+- `--dpi`: Resolução em DPI da placa (padrão: 600).
+- `--largura` e `--altura`: Dimensões em pixels (padrão A4 600 DPI: 4960 x 7016).
+- `--logo`: Caminho customizado para a imagem de logo central.
+- `--limite`: Limita o número de placas geradas em lote.
+
+---
+
 ## 📜 Certificado de Origem do Contribuidor (DCO)
 
 Para garantir que todo código enviado tem procedência limpa, usamos o **Developer Certificate of Origin (DCO)**. Cada commit deve ser assinado com a flag `-s` ou `--signoff`, que adiciona a linha:

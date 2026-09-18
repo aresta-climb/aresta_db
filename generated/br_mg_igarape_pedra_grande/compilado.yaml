@@ -588,6 +588,90 @@ picos:
               total_escaladas: 19
               total_esportivas: 19
         - conteudo:
+            nome: Estacionamento - Boulders
+            escaladas:
+            - boulder:
+                nome: Raio
+                dificuldade: V4
+            - boulder:
+                nome: Dama de ferro (boulder)
+                dificuldade: V6
+            mapas:
+            - caminho_imagem_mapa: imagens/grupo_estacionamento_boulders_p0.webp
+              largura_mapa: 1773
+              altura_mapa: 2364
+              pontos_de_interesse:
+              - id: linha_1
+                label: ''
+                linha:
+                  estilo: TRACEJADO
+                  espessura: 5
+                  compilado:
+                    caminho_svg: M 467 1795 C 485.3 1764.0, 528.5 1728.9, 522 1702
+                      C 514.6 1671.2, 425.3 1657.3, 402 1626 C 383.6 1601.4, 369.9
+                      1565.2, 378 1541 C 386.9 1514.3, 437.3 1496.0, 463 1476 C 484.5
+                      1459.2, 498.9 1450.8, 522 1429 C 562.2 1391.0, 634.3 1305.3,
+                      674 1259 C 700.6 1228.0, 719.3 1213.0, 739 1180 C 765.1 1136.3,
+                      772.4 1056.9, 807 1014 C 839.1 974.3, 889.5 960.0, 934 927 C
+                      986.3 888.2, 1038.8 833.5, 1100 794 C 1165.3 751.8, 1244.0 720.2,
+                      1316 684 C 1387.7 647.9, 1466.0 607.5, 1531 577 C 1583.8 552.2,
+                      1627.7 534.3, 1676 513
+                    caixa_delimitadora:
+                      x: 1027
+                      y: 1154
+                      comprimento: 1298
+                      largura: 1282
+                    marcadores:
+                    - tipo: CIRCULO_IDENTIFICADOR
+                      x: 467
+                      y: 1795
+                      angulo_graus_x100: -5940
+                      rotulo: '1'
+                      raio: 24
+                cor: '#00E5FF'
+              referencias:
+              - ids:
+                - linha_1
+                escalada: Raio
+            - caminho_imagem_mapa: imagens/grupo_estacionamento_boulders_p1.webp
+              largura_mapa: 2364
+              altura_mapa: 1773
+              pontos_de_interesse:
+              - id: linha_2
+                label: ''
+                linha:
+                  estilo: TRACEJADO
+                  espessura: 5
+                  compilado:
+                    caminho_svg: M 797 1448 C 823.7 1408.7, 855.9 1372.5, 877 1330
+                      C 898.4 1286.9, 906.8 1239.0, 924 1191 C 942.8 1138.7, 970.8
+                      1083.1, 986 1028 C 1000.9 974.1, 1018.5 922.4, 1015 864 C 1010.8
+                      794.9, 974.9 713.1, 947 641 C 919.2 569.2, 879.5 499.4, 848
+                      432 C 818.7 369.1, 797.5 311.5, 764 249 C 726.3 178.8, 674.7
+                      105.0, 630 33
+                    caixa_delimitadora:
+                      x: 822
+                      y: 740
+                      comprimento: 385
+                      largura: 1415
+                    marcadores:
+                    - tipo: CIRCULO_IDENTIFICADOR
+                      x: 797
+                      y: 1448
+                      angulo_graus_x100: -5586
+                      rotulo: '2'
+                      raio: 24
+                cor: '#00E5FF'
+              referencias:
+              - ids:
+                - linha_2
+                escalada: Dama de ferro (boulder)
+            descricao: Boulders no bloco principal do estacionamento, onde estão as
+              vias esportivas.
+            precomputados:
+              total_escaladas: 2
+              total_boulders: 2
+        - conteudo:
             nome: Estacionamento - Bloco Pega negativo
             escaladas:
             - boulder:
@@ -744,7 +828,7 @@ picos:
               - ids:
                 - linha_5
                 escalada: Projeto 3
-            descricao: Grupo composto por vias esportivas e vários blocos de boulders.
+            descricao: ''
             precomputados:
               total_escaladas: 4
               total_boulders: 4
@@ -1370,7 +1454,7 @@ picos:
               - ids:
                 - linha_15
                 escalada: Saara
-            - caminho_imagem_mapa: imagens/setor_estacionamento_bloco_dengoso_p3.webp
+            - caminho_imagem_mapa: imagens/grupo_estacionamento_bloco_dengoso_p3.webp
               largura_mapa: 2364
               altura_mapa: 1773
               pontos_de_interesse:
@@ -1494,14 +1578,74 @@ picos:
                 - st2
                 escalada: Sem nome 21
               - ids:
-                - linha_16
-                - linha_17
-                - st2
                 - st1
-                escalada: Sem nome 22
+                - st2
+                - linha_17
+                - linha_16
+                escalada: Só poeirinha
               - ids:
                 - linha_19
                 escalada: Sem nome 23
+            - caminho_imagem_mapa: imagens/grupo_estacionamento_bloco_dengoso_p4.webp
+              largura_mapa: 2364
+              altura_mapa: 1773
+              pontos_de_interesse:
+              - id: linha_20
+                label: ''
+                linha:
+                  estilo: TRACEJADO
+                  espessura: 5
+                  compilado:
+                    caminho_svg: M 1087 1109 C 1066.7 1053.3, 1049.4 1002.1, 1026
+                      942 C 998.1 870.3, 959.2 776.3, 929 708 C 905.0 653.9, 898.6
+                      599.8, 861 564 C 819.7 524.6, 731.8 519.4, 683 490 C 643.4 466.1,
+                      606.8 445.8, 585 409 C 559.8 366.4, 559.8 291.3, 553 242 C 547.6
+                      203.4, 547.0 172.7, 544 138
+                    caixa_delimitadora:
+                      x: 816
+                      y: 624
+                      comprimento: 543
+                      largura: 971
+                    marcadores:
+                    - tipo: CIRCULO_IDENTIFICADOR
+                      x: 1087
+                      y: 1109
+                      angulo_graus_x100: -11007
+                      rotulo: '10'
+                      raio: 24
+                cor: '#FFD600'
+              - id: linha_21
+                label: ''
+                linha:
+                  estilo: TRACEJADO
+                  espessura: 5
+                  compilado:
+                    caminho_svg: M 1833 1135 C 1793.0 1101.0, 1759.5 1064.7, 1713
+                      1033 C 1658.6 995.9, 1578.7 966.3, 1523 931 C 1475.5 900.9,
+                      1422.1 876.1, 1397 838 C 1375.1 804.8, 1377.5 762.6, 1370 722
+                      C 1361.9 677.9, 1352.8 628.0, 1351 583 C 1349.3 540.8, 1362.0
+                      500.3, 1358 460 C 1354.0 419.9, 1337.8 378.9, 1327 342 C 1317.4
+                      309.0, 1307.0 280.0, 1297 249
+                    caixa_delimitadora:
+                      x: 1565
+                      y: 692
+                      comprimento: 536
+                      largura: 886
+                    marcadores:
+                    - tipo: CIRCULO_IDENTIFICADOR
+                      x: 1833
+                      y: 1135
+                      angulo_graus_x100: -13964
+                      rotulo: '11'
+                      raio: 24
+                cor: '#FFD600'
+              referencias:
+              - ids:
+                - linha_20
+                escalada: Auto seg
+              - ids:
+                - linha_21
+                escalada: Arla
             escaladas:
             - boulder:
                 nome: Dengoso
@@ -1529,3153 +1673,296 @@ picos:
                 dificuldade: V4
             - boulder:
                 nome: Sem nome 21
-                dificuldade: INDEFINIDO
+                dificuldade: V2
             - boulder:
-                nome: Sem nome 22
-                dificuldade: INDEFINIDO
+                nome: Só poeirinha
+                dificuldade: V3
             - boulder:
                 nome: Sem nome 23
-                dificuldade: INDEFINIDO
+                dificuldade: V1
+            - boulder:
+                nome: Auto seg
+                dificuldade: V0
+            - boulder:
+                nome: Arla
+                dificuldade: V3
             descricao: ''
             precomputados:
-              total_escaladas: 11
-              total_boulders: 11
+              total_escaladas: 13
+              total_boulders: 13
+        - conteudo:
+            nome: Estacionamento - Bloco Virada Brasil
+            escaladas:
+            - boulder:
+                nome: Virada Brasil
+                dificuldade: V0
+            - boulder:
+                nome: Tio peruca
+                dificuldade: V1
+            - boulder:
+                nome: Sem nome 24
+                dificuldade: V0
+            mapas:
+            - caminho_imagem_mapa: imagens/grupo_estacionamento_bloco_virada_brasil_p0.webp
+              largura_mapa: 2364
+              altura_mapa: 1773
+              pontos_de_interesse:
+              - id: linha_1
+                label: ''
+                linha:
+                  estilo: TRACEJADO
+                  espessura: 4
+                  compilado:
+                    caminho_svg: M 1681 1349 C 1655.7 1280.7, 1628.3 1214.9, 1605
+                      1144 C 1580.5 1069.5, 1579.3 979.9, 1538 912 C 1494.8 841.0,
+                      1387.7 770.1, 1346 730 C 1325.7 710.4, 1313.8 703.4, 1301 686
+                      C 1287.0 667.0, 1275.8 637.9, 1267 619 C 1260.7 605.6, 1257.3
+                      595.7, 1252 584 C 1246.6 572.0, 1241.1 561.1, 1235 548 C 1227.7
+                      532.3, 1219.0 513.3, 1211 496
+                    caixa_delimitadora:
+                      x: 1446
+                      y: 922
+                      comprimento: 470
+                      largura: 853
+                    marcadores:
+                    - tipo: CIRCULO_IDENTIFICADOR
+                      x: 1681
+                      y: 1349
+                      angulo_graus_x100: -11034
+                      rotulo: '3'
+                      raio: 19
+                    - tipo: FIM_TOP
+                      x: 1211
+                      y: 496
+                      angulo_graus_x100: -11478
+                      rotulo: B
+                      raio: 19
+                cor: '#FFD600'
+              - id: linha_3
+                linha:
+                  estilo: TRACEJADO
+                  espessura: 4
+                  compilado:
+                    caminho_svg: M 1466 1370 C 1452.7 1306.7, 1436.3 1234.2, 1426
+                      1180 C 1418.3 1139.6, 1416.0 1104.6, 1408 1074 C 1401.6 1049.7,
+                      1395.7 1029.1, 1385 1010 C 1374.8 991.6, 1361.6 971.7, 1346
+                      961 C 1332.1 951.4, 1315.4 948.2, 1298 946 C 1278.4 943.5, 1254.0
+                      947.5, 1234 949 C 1216.3 950.3, 1202.1 957.4, 1184 954 C 1159.8
+                      949.4, 1128.6 934.1, 1104 913 C 1073.1 886.6, 1038.9 835.5,
+                      1021 799 C 1007.0 770.4, 1005.0 743.7, 997 716
+                    caixa_delimitadora:
+                      x: 1232
+                      y: 1043
+                      comprimento: 469
+                      largura: 654
+                    marcadores:
+                    - tipo: CIRCULO_IDENTIFICADOR
+                      x: 1466
+                      y: 1370
+                      angulo_graus_x100: -10189
+                      rotulo: '2'
+                      raio: 19
+                cor: '#FFD600'
+              - id: linha_4
+                linha:
+                  estilo: TRACEJADO
+                  espessura: 4
+                  compilado:
+                    caminho_svg: M 997 716 C 999.3 691.7, 1001.6 666.5, 1004 643 C
+                      1006.3 621.0, 1009.9 601.4, 1011 579 C 1012.2 554.3, 1010.3
+                      527.0, 1010 501
+                    caixa_delimitadora:
+                      x: 1004
+                      y: 608
+                      comprimento: 14
+                      largura: 215
+                    marcadores:
+                    - tipo: FIM_TOP
+                      x: 1010
+                      y: 501
+                      angulo_graus_x100: -9073
+                      rotulo: A
+                      raio: 19
+                cor: '#FFD600'
+              - id: linha_2
+                label: ''
+                linha:
+                  estilo: TRACEJADO
+                  espessura: 4
+                  compilado:
+                    caminho_svg: M 864 1225 C 871.7 1198.7, 880.2 1169.9, 887 1146
+                      C 892.6 1126.3, 896.9 1111.5, 902 1092 C 907.9 1069.3, 913.8
+                      1041.8, 920 1018 C 925.8 995.6, 931.4 974.8, 938 953 C 944.7
+                      930.5, 954.3 906.4, 960 885 C 964.9 866.4, 966.5 853.1, 971
+                      832 C 977.7 800.8, 988.3 754.7, 997 716
+                    caixa_delimitadora:
+                      x: 930
+                      y: 970
+                      comprimento: 133
+                      largura: 509
+                    marcadores:
+                    - tipo: CIRCULO_IDENTIFICADOR
+                      x: 864
+                      y: 1225
+                      angulo_graus_x100: -7377
+                      rotulo: '1'
+                      raio: 19
+                cor: '#FFD600'
+              referencias:
+              - ids:
+                - linha_1
+                escalada: Virada Brasil
+              - ids:
+                - linha_3
+                - linha_4
+                escalada: Tio peruca
+              - ids:
+                - linha_2
+                - linha_4
+                escalada: Sem nome 24
+            descricao: ''
+            precomputados:
+              total_escaladas: 3
+              total_boulders: 3
+        - conteudo:
+            nome: Estacionamento - Bloco Mega drive
+            escaladas:
+            - boulder:
+                nome: Atari
+                dificuldade: V5
+            - boulder:
+                nome: Projeto Igarapé
+                dificuldade: INDEFINIDO
+            - boulder:
+                nome: Sem Nome 25
+                dificuldade: V2
+            mapas:
+            - caminho_imagem_mapa: imagens/setor_estacionamento_bloco_mega_drive_p0.webp
+              largura_mapa: 1773
+              altura_mapa: 2364
+              pontos_de_interesse:
+              - id: linha_2
+                linha:
+                  estilo: TRACEJADO
+                  espessura: 5
+                  compilado:
+                    caminho_svg: M 948 1676 C 950.0 1663.0, 952.0 1650.0, 954 1637
+                    caixa_delimitadora:
+                      x: 951
+                      y: 1656
+                      comprimento: 6
+                      largura: 39
+                    marcadores:
+                    - tipo: CIRCULO_IDENTIFICADOR
+                      x: 948
+                      y: 1676
+                      angulo_graus_x100: -8125
+                      rotulo: '1'
+                cor: '#00E5FF'
+              - id: linha_3
+                linha:
+                  estilo: TRACEJADO
+                  espessura: 5
+                  compilado:
+                    caminho_svg: M 954 1637 C 963.3 1587.3, 963.7 1528.8, 982 1488
+                      C 997.4 1453.8, 1020.2 1429.3, 1047 1404 C 1076.7 1376.0, 1120.8
+                      1352.7, 1155 1330 C 1185.4 1309.8, 1209.6 1288.4, 1242 1274
+                      C 1277.0 1258.4, 1319.8 1253.4, 1359 1242 C 1398.8 1230.4, 1442.8
+                      1220.4, 1479 1205 C 1511.4 1191.2, 1546.6 1179.7, 1567 1156
+                      C 1587.0 1132.7, 1590.1 1096.5, 1601 1065 C 1612.5 1031.6, 1628.5
+                      995.7, 1634 961 C 1639.3 928.0, 1635.6 891.1, 1635 862 C 1634.6
+                      838.9, 1633.0 820.7, 1632 800
+                    caixa_delimitadora:
+                      x: 1294
+                      y: 1218
+                      comprimento: 681
+                      largura: 837
+                    marcadores:
+                    - tipo: FIM_TOP
+                      x: 1632
+                      y: 800
+                      angulo_graus_x100: -9277
+                      rotulo: A
+                cor: '#00E5FF'
+              - id: linha_1
+                label: ''
+                linha:
+                  estilo: TRACEJADO
+                  espessura: 5
+                  compilado:
+                    caminho_svg: M 954 1637 C 948.3 1622.7, 948.1 1605.7, 937 1594
+                      C 922.5 1578.9, 891.5 1569.3, 866 1562 C 838.8 1554.2, 806.2
+                      1562.3, 778 1550 C 744.8 1535.5, 708.4 1499.9, 683 1472 C 660.9
+                      1447.8, 647.3 1427.4, 631 1395 C 607.6 1348.5, 600.6 1256.7,
+                      567 1214 C 539.7 1179.4, 492.8 1176.3, 461 1145 C 423.8 1108.4,
+                      390.3 1041.4, 364 1001 C 345.2 972.1, 332.1 955.0, 317 926 C
+                      298.1 889.8, 271.3 844.8, 263 799 C 254.1 749.7, 266.9 691.2,
+                      270 639 C 273.0 588.9, 277.3 541.0, 281 492
+                    caixa_delimitadora:
+                      x: 608
+                      y: 1064
+                      comprimento: 691
+                      largura: 1145
+                    marcadores:
+                    - tipo: FIM_TOP
+                      x: 281
+                      y: 492
+                      angulo_graus_x100: -8572
+                      rotulo: B
+                      raio: 24
+                cor: '#00E5FF'
+              referencias:
+              - ids:
+                - linha_2
+                - linha_3
+                escalada: Atari
+              - ids:
+                - linha_2
+                - linha_1
+                escalada: Projeto Igarapé
+            - caminho_imagem_mapa: imagens/setor_estacionamento_bloco_mega_drive_p1.webp
+              largura_mapa: 1773
+              altura_mapa: 2364
+              pontos_de_interesse:
+              - id: linha_4
+                label: ''
+                linha:
+                  estilo: TRACEJADO
+                  espessura: 5
+                  compilado:
+                    caminho_svg: M 412 1718 C 388.3 1684.3, 360.6 1651.4, 341 1617
+                      C 322.8 1584.9, 306.2 1554.3, 297 1519 C 287.1 1481.3, 278.1
+                      1435.5, 286 1397 C 293.9 1358.1, 326.3 1326.8, 345 1287 C 365.9
+                      1242.3, 386.5 1186.6, 404 1141 C 419.3 1101.3, 428.0 1065.0,
+                      445 1029 C 462.2 992.6, 486.6 962.2, 507 924 C 530.3 880.5,
+                      554.5 822.9, 576 781 C 593.3 747.3, 609.7 714.7, 625 691 C 635.8
+                      674.2, 645.7 663.7, 656 650
+                    caixa_delimitadora:
+                      x: 471
+                      y: 1184
+                      comprimento: 370
+                      largura: 1068
+                    marcadores:
+                    - tipo: CIRCULO_IDENTIFICADOR
+                      x: 412
+                      y: 1718
+                      angulo_graus_x100: -12511
+                      rotulo: '2'
+                      raio: 24
+                cor: '#00E5FF'
+              referencias:
+              - ids:
+                - linha_4
+                escalada: Sem Nome 25
+            descricao: ''
+            precomputados:
+              total_escaladas: 3
+              total_boulders: 3
         descricao: ''
         precomputados:
-          total_escaladas: 39
+          total_escaladas: 49
           total_esportivas: 19
-          total_boulders: 20
-  - setor:
-      conteudo:
-        nome: Setor Família I
-        mapas:
-        - caminho_imagem_mapa: imagens/setor_familia_i_p0.webp
-          largura_mapa: 2304
-          altura_mapa: 1300
-          pontos_de_interesse:
-          - id: '01'
-            label: '01'
-            circulo:
-              x: 794
-              y: 257
-              raio: 17
-          - id: '02'
-            label: '02'
-            circulo:
-              x: 731
-              y: 281
-              raio: 17
-          - id: '03'
-            label: '03'
-            circulo:
-              x: 661
-              y: 328
-              raio: 17
-          - id: '04'
-            label: '04'
-            circulo:
-              x: 611
-              y: 387
-              raio: 17
-          - id: '05'
-            label: '05'
-            circulo:
-              x: 562
-              y: 437
-              raio: 17
-          - id: '06'
-            label: '06'
-            circulo:
-              x: 526
-              y: 503
-              raio: 17
-          - id: '07'
-            label: '07'
-            circulo:
-              x: 578
-              y: 619
-              raio: 17
-          - id: '08'
-            label: '08'
-            circulo:
-              x: 614
-              y: 729
-              raio: 17
-          - id: '09'
-            label: '09'
-            circulo:
-              x: 929
-              y: 1212
-              raio: 17
-          - id: '10'
-            label: '10'
-            circulo:
-              x: 1030
-              y: 1236
-              raio: 18
-          - id: '11'
-            label: '11'
-            circulo:
-              x: 1119
-              y: 1245
-              raio: 18
-          - id: '12'
-            label: '12'
-            circulo:
-              x: 1245
-              y: 1244
-              raio: 19
-          - id: '13'
-            label: '13'
-            circulo:
-              x: 1347
-              y: 1269
-              raio: 18
-          - id: '14'
-            label: '14'
-            circulo:
-              x: 1527
-              y: 1227
-              raio: 19
-          - id: '15'
-            label: '15'
-            circulo:
-              x: 1613
-              y: 1170
-              raio: 19
-          - id: '16'
-            label: '16'
-            circulo:
-              x: 1787
-              y: 915
-              raio: 19
-          - id: '17'
-            label: '17'
-            circulo:
-              x: 1866
-              y: 820
-              raio: 19
-          - id: '18'
-            label: '18'
-            circulo:
-              x: 1927
-              y: 768
-              raio: 18
-          - id: '19'
-            label: '19'
-            circulo:
-              x: 1967
-              y: 707
-              raio: 18
-          referencias:
-          - escalada: Florestinha
-            ids:
-            - '01'
-          - escalada: Ação Total
-            ids:
-            - '02'
-          - escalada: Escravos da Pedra
-            ids:
-            - '03'
-          - escalada: Esquerdinha Caviar
-            ids:
-            - '04'
-          - escalada: Mônica
-            ids:
-            - '05'
-          - escalada: Queijo Suíço
-            ids:
-            - '06'
-          - escalada: Aranha Gato
-            ids:
-            - '07'
-          - escalada: Totalflex
-            ids:
-            - '10'
-          - escalada: Haja Broca
-            ids:
-            - '11'
-          - escalada: Juliana
-            ids:
-            - '12'
-          - escalada: Lisebra
-            ids:
-            - '13'
-          - escalada: Croque Monsieur
-            ids:
-            - '14'
-          - escalada: Playground
-            ids:
-            - '15'
-          - escalada: Depressão Pós Reforma
-            ids:
-            - '16'
-          - escalada: Chuvasca
-            ids:
-            - '17'
-          - escalada: Pau Oco
-            ids:
-            - '18'
-          - escalada: Franzinha
-            ids:
-            - '19'
-          - ids:
-            - '08'
-            setor: Setor Família I
-            escalada: Chapas Onorixicas
-          - ids:
-            - '09'
-            setor: Setor Família I
-            escalada: Tora Flex
-        - caminho_imagem_mapa: imagens/setor_familia_i_p1.webp
-          largura_mapa: 1121
-          altura_mapa: 1440
-          pontos_de_interesse:
-          - id: '19'
-            label: '19'
-            circulo:
-              x: 523
-              y: 133
-              raio: 19
-          - id: '18'
-            label: '18'
-            circulo:
-              x: 562
-              y: 177
-              raio: 19
-          - id: '17'
-            label: '17'
-            circulo:
-              x: 638
-              y: 257
-              raio: 19
-          - id: '16'
-            label: '16'
-            circulo:
-              x: 771
-              y: 414
-              raio: 19
-          - id: '15'
-            label: '15'
-            circulo:
-              x: 830
-              y: 505
-              raio: 19
-          - id: '14'
-            label: '14'
-            circulo:
-              x: 920
-              y: 620
-              raio: 19
-          - id: '13'
-            label: '13'
-            circulo:
-              x: 937
-              y: 770
-              raio: 19
-          - id: '12'
-            label: '12'
-            circulo:
-              x: 940
-              y: 904
-              raio: 19
-          - id: '11'
-            label: '11'
-            circulo:
-              x: 914
-              y: 986
-              raio: 19
-          - id: '10'
-            label: '10'
-            circulo:
-              x: 855
-              y: 1071
-              raio: 18
-          - id: '01'
-            label: '01'
-            circulo:
-              x: 241
-              y: 1138
-              raio: 18
-          - id: '09'
-            label: '09'
-            circulo:
-              x: 823
-              y: 1132
-              raio: 19
-          - id: '02'
-            label: '02'
-            circulo:
-              x: 287
-              y: 1162
-              raio: 19
-          - id: '03'
-            label: '03'
-            circulo:
-              x: 330
-              y: 1195
-              raio: 19
-          - id: '04'
-            label: '04'
-            circulo:
-              x: 412
-              y: 1231
-              raio: 19
-          - id: '05'
-            label: '05'
-            circulo:
-              x: 436
-              y: 1277
-              raio: 19
-          - id: '08'
-            label: '08'
-            circulo:
-              x: 637
-              y: 1268
-              raio: 19
-          - id: '06'
-            label: '06'
-            circulo:
-              x: 477
-              y: 1304
-              raio: 19
-          - id: '07'
-            label: '07'
-            circulo:
-              x: 587
-              y: 1299
-              raio: 19
-          referencias:
-          - escalada: Florestinha
-            ids:
-            - '01'
-          - escalada: Ação Total
-            ids:
-            - '02'
-          - escalada: Escravos da Pedra
-            ids:
-            - '03'
-          - escalada: Esquerdinha Caviar
-            ids:
-            - '04'
-          - escalada: Mônica
-            ids:
-            - '05'
-          - escalada: Queijo Suíço
-            ids:
-            - '06'
-          - escalada: Aranha Gato
-            ids:
-            - '07'
-          - escalada: Totalflex
-            ids:
-            - '10'
-          - escalada: Haja Broca
-            ids:
-            - '11'
-          - escalada: Juliana
-            ids:
-            - '12'
-          - escalada: Lisebra
-            ids:
-            - '13'
-          - escalada: Croque Monsieur
-            ids:
-            - '14'
-          - escalada: Playground
-            ids:
-            - '15'
-          - escalada: Depressão Pós Reforma
-            ids:
-            - '16'
-          - escalada: Chuvasca
-            ids:
-            - '17'
-          - escalada: Pau Oco
-            ids:
-            - '18'
-          - escalada: Franzinha
-            ids:
-            - '19'
-          - ids:
-            - '08'
-            setor: Setor Família I
-            escalada: Chapas Onorixicas
-          - ids:
-            - '09'
-            setor: Setor Família I
-            escalada: Tora Flex
-        escaladas:
-        - via_esportiva:
-            nome: Florestinha
-            dificuldade: BR_6SUP
-            conquistadores:
-            - Berbari
-            - Ró
-            data_abertura: '2011'
-        - via_esportiva:
-            nome: Ação Total
-            dificuldade: BR_7A
-            quantidade_protecoes_intermediarias: 3
-            quantidade_protecoes_parada: 2
-            extensao: 10
-            conquistadores:
-            - Berbari
-            - Ró
-            - Rômulo
-            data_abertura: '2011'
-        - via_esportiva:
-            nome: Escravos da Pedra
-            dificuldade: BR_8C
-            quantidade_protecoes_intermediarias: 4
-            quantidade_protecoes_parada: 2
-            extensao: 11
-            conquistadores:
-            - Berbari
-            - Ró
-            - Chinha
-            data_abertura: '2011'
-        - via_esportiva:
-            nome: Esquerdinha Caviar
-            dificuldade: BR_7C
-            quantidade_protecoes_intermediarias: 4
-            quantidade_protecoes_parada: 2
-            extensao: 12
-            conquistadores:
-            - Berbari
-            - Ró
-            - Rômulo
-            data_abertura: '2011'
-        - via_esportiva:
-            nome: Mônica
-            dificuldade: BR_8B
-            quantidade_protecoes_intermediarias: 4
-            quantidade_protecoes_parada: 2
-            extensao: 12
-            conquistadores:
-            - Berbari
-            - Ró
-            data_abertura: '2011'
-        - via_esportiva:
-            nome: Queijo Suíço
-            dificuldade: BR_7A_BARRA_7B
-            quantidade_protecoes_intermediarias: 3
-            quantidade_protecoes_parada: 2
-            extensao: 11
-            conquistadores:
-            - Berbari
-            - Ró
-            data_abertura: '2011'
-        - via_esportiva:
-            nome: Aranha Gato
-            dificuldade: BR_6_BARRA_6SUP
-            quantidade_protecoes_intermediarias: 3
-            quantidade_protecoes_parada: 2
-            extensao: 11
-            conquistadores:
-            - Berbari
-            - Ró
-            - Chinha
-            data_abertura: '2011'
-        - via_esportiva:
-            nome: Chapas Onorixicas
-            dificuldade: BR_6SUP
-            quantidade_protecoes_intermediarias: 3
-            quantidade_protecoes_parada: 2
-            extensao: 11
-            conquistadores:
-            - Mecena
-            - Ivo
-            data_abertura: '2011'
-        - via_esportiva:
-            nome: Tora Flex
-            dificuldade: BR_6SUP
-            quantidade_protecoes_intermediarias: 3
-            quantidade_protecoes_parada: 2
-            extensao: 11
-            conquistadores:
-            - Berbari
-            - Ró
-            - Chinha
-            data_abertura: '2011'
-        - via_esportiva:
-            nome: Totalflex
-            dificuldade: BR_6SUP
-            quantidade_protecoes_intermediarias: 3
-            quantidade_protecoes_parada: 2
-            extensao: 11
-            conquistadores:
-            - Berbari
-            - Ró
-            - Chinha
-            data_abertura: '2011'
-        - via_esportiva:
-            nome: Haja Broca
-            dificuldade: BR_6SUP
-            quantidade_protecoes_intermediarias: 3
-            quantidade_protecoes_parada: 2
-            extensao: 11
-            conquistadores:
-            - Berbari
-            - Ró
-            data_abertura: '2011'
-        - via_esportiva:
-            nome: Juliana
-            dificuldade: BR_5
-            quantidade_protecoes_intermediarias: 4
-            quantidade_protecoes_parada: 2
-            extensao: 10
-            conquistadores:
-            - Berbari
-            - Ró
-            data_abertura: '2011'
-        - via_esportiva:
-            nome: Lisebra
-            dificuldade: BR_4
-            quantidade_protecoes_intermediarias: 3
-            quantidade_protecoes_parada: 2
-            extensao: 10
-            conquistadores:
-            - Mecena
-            - Ivo
-            data_abertura: '2011'
-        - via_esportiva:
-            nome: Croque Monsieur
-            dificuldade: BR_5
-            quantidade_protecoes_intermediarias: 4
-            quantidade_protecoes_parada: 2
-            extensao: 9
-            conquistadores:
-            - Berbari
-            - Ró
-            data_abertura: '2011'
-        - via_esportiva:
-            nome: Playground
-            dificuldade: BR_4
-            quantidade_protecoes_intermediarias: 2
-            quantidade_protecoes_parada: 2
-            extensao: 8
-            conquistadores:
-            - Macena
-            data_abertura: '2013'
-        - via_esportiva:
-            nome: Depressão Pós Reforma
-            dificuldade: BR_4
-            quantidade_protecoes_intermediarias: 2
-            quantidade_protecoes_parada: 2
-            extensao: 7
-            conquistadores:
-            - Macena
-            data_abertura: '2013'
-        - via_esportiva:
-            nome: Chuvasca
-            dificuldade: BR_4
-            quantidade_protecoes_intermediarias: 2
-            quantidade_protecoes_parada: 2
-            extensao: 6
-            conquistadores:
-            - Macena
-            data_abertura: '2013'
-        - via_esportiva:
-            nome: Pau Oco
-            dificuldade: BR_4
-            quantidade_protecoes_intermediarias: 2
-            quantidade_protecoes_parada: 2
-            extensao: 6
-            conquistadores:
-            - Toninho
-            - Fran
-            data_abertura: '2013'
-            descricao: Termina no mesmo tope que a via Franzinha.
-        - via_esportiva:
-            nome: Franzinha
-            dificuldade: BR_4
-            quantidade_protecoes_intermediarias: 2
-            quantidade_protecoes_parada: 2
-            extensao: 6
-            conquistadores:
-            - Toninho
-            - Fran
-            data_abertura: '2013'
-            descricao: Termina no mesmo tope que a via Pau Oco.
-        descricao: '# Setor Família I
-
-
-          O setor fica do lado direito do início da trilha para a Pedra Grande. Sombra
-          o dia todo (varia de acordo com a estação).
-
-
-          Veja a trilha para chegar ao setor no Wikiloc: https://loc.wiki/t/169745893?wa=sc'
-        precomputados:
-          total_escaladas: 19
-          total_esportivas: 19
-  - setor:
-      conteudo:
-        nome: Setor Família II
-        mapas:
-        - caminho_imagem_mapa: imagens/setor_familia_ii_p0.webp
-          largura_mapa: 1224
-          altura_mapa: 1271
-          pontos_de_interesse:
-          - id: '01'
-            label: '01'
-            circulo:
-              x: 154
-              y: 323
-              raio: 17
-          - id: '02'
-            label: '02'
-            circulo:
-              x: 228
-              y: 350
-              raio: 17
-          - id: '03'
-            label: '03'
-            circulo:
-              x: 368
-              y: 557
-              raio: 17
-          - id: '04'
-            label: '04'
-            circulo:
-              x: 476
-              y: 584
-              raio: 17
-          - id: '05'
-            label: '05'
-            circulo:
-              x: 558
-              y: 589
-              raio: 17
-          - id: '06'
-            label: '06'
-            circulo:
-              x: 634
-              y: 581
-              raio: 17
-          - id: '07'
-            label: '07'
-            circulo:
-              x: 749
-              y: 609
-              raio: 17
-          - id: '08'
-            label: '08'
-            circulo:
-              x: 903
-              y: 565
-              raio: 17
-          - id: '11'
-            label: '11'
-            circulo:
-              x: 1113
-              y: 812
-              raio: 17
-          - id: '10'
-            label: '10'
-            circulo:
-              x: 1141
-              y: 878
-              raio: 17
-          - id: '09'
-            label: '09'
-            circulo:
-              x: 1166
-              y: 951
-              raio: 17
-          referencias:
-          - escalada: Filhos da Revolução
-            ids:
-            - '01'
-          - escalada: Pedra Vermelha
-            ids:
-            - '02'
-          - escalada: Projeto 1
-            ids:
-            - '03'
-            setor: Setor Família II
-          - escalada: Projeto 2
-            ids:
-            - '04'
-            setor: Setor Família II
-          - escalada: Via inacabada 1
-            ids:
-            - '05'
-            setor: Setor Família II
-          - escalada: Trinca Ferro
-            ids:
-            - '06'
-          - escalada: Marimbondes me Mordam
-            ids:
-            - '07'
-          - escalada: Pula Um
-            ids:
-            - '10'
-          - escalada: Cerro Azul
-            ids:
-            - '11'
-          - ids:
-            - '08'
-            setor: Setor Família II
-            escalada: Sumchine
-          - ids:
-            - '09'
-            setor: Setor Família II
-            escalada: Cater Pillar
-        - caminho_imagem_mapa: imagens/setor_familia_ii_p1.webp
-          largura_mapa: 1032
-          altura_mapa: 1442
-          pontos_de_interesse:
-          - id: '01'
-            label: '01'
-            circulo:
-              x: 270
-              y: 467
-              raio: 17
-          - id: '02'
-            label: '02'
-            circulo:
-              x: 278
-              y: 557
-              raio: 17
-          - id: '03'
-            label: '03'
-            circulo:
-              x: 285
-              y: 687
-              raio: 17
-          - id: '04'
-            label: '04'
-            circulo:
-              x: 277
-              y: 860
-              raio: 17
-          - id: '05'
-            label: '05'
-            circulo:
-              x: 298
-              y: 935
-              raio: 18
-          - id: '06'
-            label: '06'
-            circulo:
-              x: 314
-              y: 1037
-              raio: 17
-          - id: '07'
-            label: '07'
-            circulo:
-              x: 335
-              y: 1119
-              raio: 17
-          - id: '08'
-            label: '08'
-            circulo:
-              x: 415
-              y: 1149
-              raio: 17
-          - id: '11'
-            label: '11'
-            circulo:
-              x: 547
-              y: 1152
-              raio: 17
-          - id: '10'
-            label: '10'
-            circulo:
-              x: 518
-              y: 1187
-              raio: 17
-          - id: '09'
-            label: '09'
-            circulo:
-              x: 491
-              y: 1224
-              raio: 17
-          referencias:
-          - escalada: Filhos da Revolução
-            ids:
-            - '01'
-          - escalada: Pedra Vermelha
-            ids:
-            - '02'
-          - escalada: Projeto 1
-            ids:
-            - '03'
-            setor: Setor Família II
-          - escalada: Projeto 2
-            ids:
-            - '04'
-            setor: Setor Família II
-          - escalada: Via inacabada 1
-            ids:
-            - '05'
-            setor: Setor Família II
-          - escalada: Trinca Ferro
-            ids:
-            - '06'
-          - escalada: Marimbondes me Mordam
-            ids:
-            - '07'
-          - escalada: Pula Um
-            ids:
-            - '10'
-          - escalada: Cerro Azul
-            ids:
-            - '11'
-          - ids:
-            - '08'
-            setor: Setor Família II
-            escalada: Sumchine
-          - ids:
-            - '09'
-            setor: Setor Família II
-            escalada: Cater Pillar
-        escaladas:
-        - via_esportiva:
-            nome: Filhos da Revolução
-            dificuldade: BR_7A
-            quantidade_protecoes_intermediarias: 5
-            quantidade_protecoes_parada: 2
-            extensao: 10
-            conquistadores:
-            - Berbari
-            - Ró
-            - Toninho
-            data_abertura: '2012'
-        - via_esportiva:
-            nome: Pedra Vermelha
-            dificuldade: BR_7C
-            conquistadores:
-            - Berbari
-            - Ró
-            data_abertura: '2012'
-        - via_esportiva:
-            nome: Projeto 1
-            dificuldade: PROJETO
-            quantidade_protecoes_intermediarias: 4
-            quantidade_protecoes_parada: 2
-            extensao: 10
-            conquistadores:
-            - Berbari
-            data_abertura: '2012'
-        - via_esportiva:
-            nome: Projeto 2
-            dificuldade: PROJETO
-            quantidade_protecoes_intermediarias: 4
-            quantidade_protecoes_parada: 2
-            extensao: 10
-            conquistadores:
-            - Berbari
-            - Alex
-            data_abertura: '2012'
-        - via_esportiva:
-            nome: Via inacabada 1
-            dificuldade: INDEFINIDO
-            quantidade_protecoes_intermediarias: 3
-            quantidade_protecoes_parada: 2
-            extensao: 10
-            conquistadores:
-            - Berbari
-            - Alex
-            data_abertura: '2012'
-        - via_esportiva:
-            nome: Trinca Ferro
-            dificuldade: BR_8B
-            quantidade_protecoes_intermediarias: 6
-            quantidade_protecoes_parada: 2
-            extensao: 12
-            conquistadores:
-            - Berbari
-            data_abertura: '2013'
-        - via_esportiva:
-            nome: Marimbondes me Mordam
-            dificuldade: BR_7C
-            quantidade_protecoes_intermediarias: 4
-            quantidade_protecoes_parada: 2
-            extensao: 8
-            conquistadores:
-            - Berbari
-            - Ró
-            data_abertura: '2009'
-        - via_esportiva:
-            nome: Sumchine
-            dificuldade: BR_6SUP_BARRA_7A
-            quantidade_protecoes_intermediarias: 3
-            quantidade_protecoes_parada: 2
-            extensao: 7
-            conquistadores:
-            - Berbari
-            - Ró
-            data_abertura: '2009'
-        - via_esportiva:
-            nome: Cater Pillar
-            dificuldade: BR_6
-            quantidade_protecoes_intermediarias: 2
-            quantidade_protecoes_parada: 2
-            extensao: 7
-            conquistadores:
-            - Berbari
-            - Ró
-            - Cater
-            data_abertura: '2009'
-        - via_esportiva:
-            nome: Pula Um
-            dificuldade: BR_5
-            quantidade_protecoes_intermediarias: 2
-            quantidade_protecoes_parada: 2
-            extensao: 7
-            conquistadores:
-            - Berbari
-            - Ró
-            data_abertura: '2009'
-        - via_esportiva:
-            nome: Cerro Azul
-            dificuldade: BR_6_BARRA_6SUP
-            quantidade_protecoes_intermediarias: 5
-            quantidade_protecoes_parada: 2
-            extensao: 15
-            conquistadores:
-            - Berbari
-            - Ró
-            data_abertura: '2009'
-        descricao: '# Setor Família II
-
-
-          Sombra após 14h (varia de acordo com a estação).
-
-
-          Veja a trilha para chegar ao Família II no WikiLoc (começando a partir do
-          Família I): https://loc.wiki/t/157623201?wa=sc'
-        precomputados:
-          total_escaladas: 11
-          total_esportivas: 11
-  - setor:
-      conteudo:
-        nome: Setor Micos
-        mapas:
-        - caminho_imagem_mapa: imagens/setor_micos_p0.webp
-          largura_mapa: 1861
-          altura_mapa: 1246
-          pontos_de_interesse:
-          - id: '01'
-            label: '01'
-            circulo:
-              x: 667
-              y: 711
-              raio: 17
-          - id: '02'
-            label: '02'
-            circulo:
-              x: 696
-              y: 755
-              raio: 17
-          referencias:
-          - escalada: Eu Também Vou
-            ids:
-            - '01'
-          - escalada: Lambe Lambe
-            ids:
-            - '02'
-        - caminho_imagem_mapa: imagens/setor_micos_p1.webp
-          largura_mapa: 1101
-          altura_mapa: 1234
-          pontos_de_interesse:
-          - id: '01'
-            label: '01'
-            circulo:
-              x: 343
-              y: 699
-              raio: 17
-          - id: '07'
-            label: '07'
-            circulo:
-              x: 968
-              y: 727
-              raio: 17
-          - id: '06'
-            label: '06'
-            circulo:
-              x: 874
-              y: 748
-              raio: 17
-          - id: '05'
-            label: '05'
-            circulo:
-              x: 862
-              y: 804
-              raio: 17
-          - id: '02'
-            label: '02'
-            circulo:
-              x: 368
-              y: 838
-              raio: 17
-          - id: '04'
-            label: '04'
-            circulo:
-              x: 839
-              y: 906
-              raio: 17
-          - id: '03'
-            label: '03'
-            circulo:
-              x: 821
-              y: 1015
-              raio: 17
-          referencias:
-          - escalada: Eu Também Vou
-            ids:
-            - '01'
-          - escalada: Lambe Lambe
-            ids:
-            - '02'
-          - escalada: TNT
-            ids:
-            - '03'
-          - escalada: For My Brother
-            ids:
-            - '04'
-          - escalada: Diamante Negro
-            ids:
-            - '05'
-          - escalada: Chapa Quente
-            ids:
-            - '06'
-          - escalada: Via inacabada 2
-            ids:
-            - '07'
-            setor: Setor Micos
-        - caminho_imagem_mapa: imagens/setor_micos_p2.webp
-          largura_mapa: 1119
-          altura_mapa: 840
-          pontos_de_interesse:
-          - id: '03'
-            label: '03'
-            circulo:
-              x: 295
-              y: 782
-              raio: 17
-          - id: '04'
-            label: '04'
-            circulo:
-              x: 376
-              y: 803
-              raio: 17
-          - id: '05'
-            label: '05'
-            circulo:
-              x: 480
-              y: 821
-              raio: 17
-          - id: '06'
-            label: '06'
-            circulo:
-              x: 590
-              y: 821
-              raio: 17
-          - id: '07'
-            label: '07'
-            circulo:
-              x: 681
-              y: 811
-              raio: 17
-          referencias:
-          - escalada: TNT
-            ids:
-            - '03'
-          - escalada: For My Brother
-            ids:
-            - '04'
-          - escalada: Diamante Negro
-            ids:
-            - '05'
-          - escalada: Chapa Quente
-            ids:
-            - '06'
-          - escalada: Via inacabada 2
-            ids:
-            - '07'
-            setor: Setor Micos
-        escaladas:
-        - via_esportiva:
-            nome: Eu Também Vou
-            dificuldade: BR_7A
-            quantidade_protecoes_intermediarias: 4
-            quantidade_protecoes_parada: 2
-            extensao: 12
-            conquistadores:
-            - Berbari
-            - Ró
-            data_abertura: '2011'
-        - via_esportiva:
-            nome: Lambe Lambe
-            dificuldade: BR_7A
-            quantidade_protecoes_intermediarias: 4
-            quantidade_protecoes_parada: 2
-            extensao: 12
-            conquistadores:
-            - Berbari
-            - Toninho
-            data_abertura: '2011'
-        - via_esportiva:
-            nome: TNT
-            dificuldade: BR_9B
-            quantidade_protecoes_intermediarias: 4
-            quantidade_protecoes_parada: 2
-            extensao: 12
-            conquistadores:
-            - Berbari
-            - Ró
-            data_abertura: '2011'
-        - via_esportiva:
-            nome: For My Brother
-            dificuldade: BR_8A
-            quantidade_protecoes_intermediarias: 4
-            quantidade_protecoes_parada: 2
-            extensao: 12
-            conquistadores:
-            - Berbari
-            - Ró
-            data_abertura: '2011'
-        - via_esportiva:
-            nome: Diamante Negro
-            dificuldade: BR_8B
-            quantidade_protecoes_intermediarias: 4
-            quantidade_protecoes_parada: 2
-            extensao: 12
-            conquistadores:
-            - Berbari
-            - Ró
-            - Chinha
-            - Rômulo
-            data_abertura: '2011'
-        - via_esportiva:
-            nome: Chapa Quente
-            dificuldade: BR_7C
-            quantidade_protecoes_intermediarias: 4
-            quantidade_protecoes_parada: 2
-            extensao: 12
-            conquistadores:
-            - Berbari
-            - Ró
-            - Chinha
-            - Rômulo
-            data_abertura: '2011'
-        - via_esportiva:
-            nome: Via inacabada 2
-            dificuldade: INDEFINIDO
-            quantidade_protecoes_intermediarias: 0
-            quantidade_protecoes_parada: 2
-            extensao: 12
-            conquistadores:
-            - Berbari
-            - Chinha
-            data_abertura: '2011'
-        descricao: '# Setor Micos
-
-
-          Sombra até 11h e após 15h.
-
-          Risco de agarras se quebrarem e pedras soltas, é recomendado o uso de capacete
-          ao escalar e nas bases das vias.
-
-          Escalar com a corda passada na primeira proteção nas vias esportivas.
-
-          Siga a trilha a partir do estacionamento até onde o tronco atravessa o caminho.
-          A rocha fica logo a direita.
-
-
-          Veja a trilha para chegar ao setor no WikiLoc: https://loc.wiki/t/157666336?wa=sc'
-        precomputados:
-          total_escaladas: 7
-          total_esportivas: 7
-  - setor:
-      conteudo:
-        nome: Setor Totem
-        mapas:
-        - caminho_imagem_mapa: imagens/setor_totem_p0.webp
-          largura_mapa: 1112
-          altura_mapa: 1418
-          pontos_de_interesse:
-          - id: '01'
-            label: '01'
-            circulo:
-              x: 216
-              y: 1397
-              raio: 17
-          - id: '02'
-            label: '02'
-            circulo:
-              x: 561
-              y: 1206
-              raio: 17
-          - id: '03'
-            label: '03'
-            circulo:
-              x: 806
-              y: 1040
-              raio: 17
-          - id: '04'
-            label: '04'
-            circulo:
-              x: 917
-              y: 972
-              raio: 17
-          referencias:
-          - escalada: Takeyeasy
-            ids:
-            - '01'
-          - escalada: Pâncepis
-            ids:
-            - '02'
-          - escalada: Totem
-            ids:
-            - '03'
-          - escalada: '69'
-            ids:
-            - '04'
-        - caminho_imagem_mapa: imagens/setor_totem_p1.webp
-          largura_mapa: 1114
-          altura_mapa: 917
-          pontos_de_interesse:
-          - id: '01'
-            label: '01'
-            circulo:
-              x: 394
-              y: 644
-              raio: 17
-          - id: '02'
-            label: '02'
-            circulo:
-              x: 628
-              y: 715
-              raio: 17
-          - id: '03'
-            label: '03'
-            circulo:
-              x: 826
-              y: 750
-              raio: 17
-          - id: '04'
-            label: '04'
-            circulo:
-              x: 892
-              y: 788
-              raio: 17
-          referencias:
-          - escalada: Takeyeasy
-            ids:
-            - '01'
-          - escalada: Pâncepis
-            ids:
-            - '02'
-          - escalada: Totem
-            ids:
-            - '03'
-          - escalada: '69'
-            ids:
-            - '04'
-        escaladas:
-        - via_esportiva:
-            nome: Takeyeasy
-            dificuldade: BR_6
-            quantidade_protecoes_intermediarias: 4
-            quantidade_protecoes_parada: 2
-            extensao: 10
-            conquistadores:
-            - Berbari
-            - Chinha
-            - Ró
-            - Alexandre
-            data_abertura: '2005'
-            descricao: 'INTERDITADA: TOPS FORAM ROUBADOS'
-        - via_esportiva:
-            nome: Pâncepis
-            dificuldade: BR_7B
-            quantidade_protecoes_intermediarias: 4
-            quantidade_protecoes_parada: 2
-            extensao: 10
-            conquistadores:
-            - Berbari
-            - Chinha
-            - Ró
-            - Alexandre
-            data_abertura: '2005'
-            descricao: 'INTERDITADA: TOPS FORAM ROUBADOS'
-        - via_esportiva:
-            nome: Totem
-            dificuldade: BR_8A
-            quantidade_protecoes_intermediarias: 4
-            quantidade_protecoes_parada: 2
-            extensao: 10
-            conquistadores:
-            - Berbari
-            - Chinha
-            - Ró
-            - Alex
-            - Ruy
-            data_abertura: '2005'
-        - via_esportiva:
-            nome: '69'
-            dificuldade: BR_8B
-            quantidade_protecoes_intermediarias: 4
-            quantidade_protecoes_parada: 2
-            extensao: 10
-            conquistadores:
-            - Berbari
-            - Tchoco
-            - Tonin
-            - Alex
-            - Ruy
-            data_abertura: '2005'
-        descricao: '# Setor Totem
-
-
-          Sombra até 10h e após 16h.
-
-
-          Veja a trilha para chegar ao setor no WikiLoc: https://loc.wiki/t/160199352?wa=sc'
-        precomputados:
-          total_escaladas: 4
-          total_esportivas: 4
-  - setor:
-      conteudo:
-        nome: Setor Igarameca
-        mapas:
-        - caminho_imagem_mapa: imagens/setor_igarameca_p0.webp
-          largura_mapa: 2048
-          altura_mapa: 1232
-          pontos_de_interesse:
-          - id: '01'
-            label: '01'
-            circulo:
-              x: 317
-              y: 1001
-              raio: 15
-          - id: '02'
-            label: '02'
-            circulo:
-              x: 341
-              y: 956
-              raio: 15
-          - id: '03'
-            label: '03'
-            circulo:
-              x: 329
-              y: 656
-              raio: 15
-          - id: '04'
-            label: '04'
-            circulo:
-              x: 327
-              y: 622
-              raio: 15
-          - id: '05'
-            label: '05'
-            circulo:
-              x: 521
-              y: 699
-              raio: 15
-          - id: '06'
-            label: '06'
-            circulo:
-              x: 612
-              y: 711
-              raio: 15
-          - id: '07'
-            label: '07'
-            circulo:
-              x: 643
-              y: 428
-              raio: 15
-          - id: '08'
-            label: '08'
-            circulo:
-              x: 649
-              y: 772
-              raio: 15
-          - id: '09'
-            label: '09'
-            circulo:
-              x: 707
-              y: 815
-              raio: 15
-          - id: '10'
-            label: '10'
-            circulo:
-              x: 797
-              y: 897
-              raio: 15
-          - id: '11'
-            label: '11'
-            circulo:
-              x: 878
-              y: 941
-              raio: 15
-          - id: '12'
-            label: '12'
-            circulo:
-              x: 940
-              y: 968
-              raio: 15
-          - id: '13'
-            label: '13'
-            circulo:
-              x: 1065
-              y: 1002
-              raio: 15
-          - id: '14'
-            label: '14'
-            circulo:
-              x: 1120
-              y: 1015
-              raio: 15
-          - id: '15'
-            label: '15'
-            circulo:
-              x: 1186
-              y: 1084
-              raio: 15
-          - id: '16'
-            label: '16'
-            circulo:
-              x: 1239
-              y: 1103
-              raio: 15
-          - id: '17'
-            label: '17'
-            circulo:
-              x: 1277
-              y: 1162
-              raio: 16
-          - id: '18'
-            label: '18'
-            circulo:
-              x: 1345
-              y: 1216
-              raio: 15
-          - id: '19'
-            label: '19'
-            circulo:
-              x: 1395
-              y: 1218
-              raio: 15
-          - id: '20'
-            label: '20'
-            circulo:
-              x: 1413
-              y: 1193
-              raio: 15
-          - id: '21'
-            label: '21'
-            circulo:
-              x: 1438
-              y: 1173
-              raio: 15
-          referencias:
-          - escalada: Beatrix
-            ids:
-            - '01'
-          - escalada: Na Boca da Gruta Tem Dente
-            ids:
-            - '02'
-          - escalada: Sunday Bloody Sunday
-            ids:
-            - '03'
-          - escalada: People Let's Stop The War
-            ids:
-            - '04'
-          - escalada: Apolo 13
-            ids:
-            - '05'
-          - escalada: Liga Extraordinária
-            ids:
-            - '06'
-          - escalada: Poneis Malditos
-            ids:
-            - '07'
-          - escalada: U.F.O
-            ids:
-            - '10'
-          - escalada: 127 Horas
-            ids:
-            - '11'
-          - escalada: Lero Lero é Mato
-            ids:
-            - '12'
-          - escalada: Renegados de Igarapé
-            ids:
-            - '13'
-          - escalada: Coisa Linda
-            ids:
-            - '14'
-          - escalada: Doce Veneno
-            ids:
-            - '15'
-          - escalada: Alguém Tem Que Ceder
-            ids:
-            - '16'
-          - escalada: Napa
-            ids:
-            - '17'
-          - escalada: Alpes Suínos*
-            ids:
-            - '18'
-          - escalada: Viagem ao Centro da Terra
-            ids:
-            - '19'
-          - escalada: Rolitos
-            ids:
-            - '20'
-          - escalada: Balança Mas Não Cai
-            ids:
-            - '21'
-          - ids:
-            - '08'
-            setor: Setor Igarameca
-            escalada: I Like This
-          - ids:
-            - '09'
-            setor: Setor Igarameca
-            escalada: Igarameca
-        - caminho_imagem_mapa: imagens/setor_igarameca_p1.webp
-          largura_mapa: 1022
-          altura_mapa: 1450
-          pontos_de_interesse:
-          - id: '01'
-            label: '01'
-            circulo:
-              x: 215
-              y: 534
-              raio: 17
-          - id: '02'
-            label: '02'
-            circulo:
-              x: 328
-              y: 520
-              raio: 17
-          - id: '03'
-            label: '03'
-            circulo:
-              x: 396
-              y: 509
-              raio: 17
-          - id: '04'
-            label: '04'
-            circulo:
-              x: 433
-              y: 502
-              raio: 17
-          - id: '05'
-            label: '05'
-            circulo:
-              x: 450
-              y: 572
-              raio: 17
-          - id: '06'
-            label: '06'
-            circulo:
-              x: 477
-              y: 626
-              raio: 17
-          - id: '07'
-            label: '07'
-            circulo:
-              x: 529
-              y: 648
-              raio: 17
-          - id: '08'
-            label: '08'
-            circulo:
-              x: 486
-              y: 680
-              raio: 17
-          - id: '09'
-            label: '09'
-            circulo:
-              x: 460
-              y: 744
-              raio: 17
-          - id: '10'
-            label: '10'
-            circulo:
-              x: 436
-              y: 784
-              raio: 17
-          - id: '11'
-            label: '11'
-            circulo:
-              x: 412
-              y: 823
-              raio: 17
-          - id: '12'
-            label: '12'
-            circulo:
-              x: 397
-              y: 887
-              raio: 17
-          - id: '13'
-            label: '13'
-            circulo:
-              x: 402
-              y: 938
-              raio: 17
-          - id: '14'
-            label: '14'
-            circulo:
-              x: 393
-              y: 975
-              raio: 17
-          - id: '15'
-            label: '15'
-            circulo:
-              x: 381
-              y: 1037
-              raio: 17
-          - id: '16'
-            label: '16'
-            circulo:
-              x: 363
-              y: 1074
-              raio: 17
-          - id: '17'
-            label: '17'
-            circulo:
-              x: 337
-              y: 1104
-              raio: 17
-          - id: '18'
-            label: '18'
-            circulo:
-              x: 296
-              y: 1142
-              raio: 17
-          - id: '19'
-            label: '19'
-            circulo:
-              x: 319
-              y: 1216
-              raio: 17
-          - id: '20'
-            label: '20'
-            circulo:
-              x: 367
-              y: 1274
-              raio: 18
-          referencias:
-          - escalada: Beatrix
-            ids:
-            - '01'
-          - escalada: Na Boca da Gruta Tem Dente
-            ids:
-            - '02'
-          - escalada: Sunday Bloody Sunday
-            ids:
-            - '03'
-          - escalada: People Let's Stop The War
-            ids:
-            - '04'
-          - escalada: Apolo 13
-            ids:
-            - '05'
-          - escalada: Liga Extraordinária
-            ids:
-            - '06'
-          - escalada: Poneis Malditos
-            ids:
-            - '07'
-          - escalada: U.F.O
-            ids:
-            - '10'
-          - escalada: 127 Horas
-            ids:
-            - '11'
-          - escalada: Lero Lero é Mato
-            ids:
-            - '12'
-          - escalada: Renegados de Igarapé
-            ids:
-            - '13'
-          - escalada: Coisa Linda
-            ids:
-            - '14'
-          - escalada: Doce Veneno
-            ids:
-            - '15'
-          - escalada: Alguém Tem Que Ceder
-            ids:
-            - '16'
-          - escalada: Napa
-            ids:
-            - '17'
-          - escalada: Alpes Suínos*
-            ids:
-            - '18'
-          - escalada: Viagem ao Centro da Terra
-            ids:
-            - '19'
-          - escalada: Rolitos
-            ids:
-            - '20'
-          - ids:
-            - '08'
-            setor: Setor Igarameca
-            escalada: I Like This
-          - ids:
-            - '09'
-            setor: Setor Igarameca
-            escalada: Igarameca
-        - caminho_imagem_mapa: imagens/setor_igarameca_p2.webp
-          largura_mapa: 938
-          altura_mapa: 530
-          pontos_de_interesse:
-          - id: '04'
-            label: '04'
-            circulo:
-              x: 515
-              y: 326
-              raio: 17
-          - id: '03'
-            label: '03'
-            circulo:
-              x: 484
-              y: 369
-              raio: 17
-          - id: '02'
-            label: '02'
-            circulo:
-              x: 389
-              y: 490
-              raio: 17
-          - id: '01'
-            label: '01'
-            circulo:
-              x: 218
-              y: 508
-              raio: 17
-          referencias:
-          - escalada: Beatrix
-            ids:
-            - '01'
-          - escalada: Na Boca da Gruta Tem Dente
-            ids:
-            - '02'
-          - escalada: Sunday Bloody Sunday
-            ids:
-            - '03'
-          - escalada: People Let's Stop The War
-            ids:
-            - '04'
-        escaladas:
-        - via_esportiva:
-            nome: Beatrix
-            dificuldade: BR_5
-            quantidade_protecoes_intermediarias: 4
-            quantidade_protecoes_parada: 2
-            extensao: 8
-            conquistadores:
-            - Berbari
-            - Toninho
-            data_abertura: '2023'
-        - via_esportiva:
-            nome: Na Boca da Gruta Tem Dente
-            dificuldade: BR_7B
-            quantidade_protecoes_intermediarias: 6
-            quantidade_protecoes_parada: 2
-            extensao: 16
-            conquistadores:
-            - Berbari
-            - Toninho
-            - Alex
-            data_abertura: '2004'
-        - via_esportiva:
-            nome: Sunday Bloody Sunday
-            dificuldade: BR_8C
-            quantidade_protecoes_intermediarias: 6
-            quantidade_protecoes_parada: 2
-            extensao: 14
-            conquistadores:
-            - Berbari
-            - Alex
-            - Ruy
-            data_abertura: '2006'
-        - via_esportiva:
-            nome: People Let's Stop The War
-            dificuldade: BR_8B
-            quantidade_protecoes_intermediarias: 6
-            quantidade_protecoes_parada: 2
-            extensao: 14
-            conquistadores:
-            - Berbari
-            - Alex
-            - Toninho
-            data_abertura: '2006'
-        - via_esportiva:
-            nome: Apolo 13
-            dificuldade: BR_10B
-            quantidade_protecoes_intermediarias: 8
-            quantidade_protecoes_parada: 2
-            extensao: 20
-            conquistadores:
-            - Berbari
-            - Moleza
-            - Alex
-            - Chinha
-            data_abertura: '2012'
-        - via_esportiva:
-            nome: Liga Extraordinária
-            dificuldade: BR_9C
-            quantidade_protecoes_intermediarias: 9
-            quantidade_protecoes_parada: 2
-            extensao: 25
-            conquistadores:
-            - Berbari
-            - Moleza
-            - Alex
-            data_abertura: '2012'
-        - via_esportiva:
-            nome: Poneis Malditos
-            dificuldade: BR_9B
-            quantidade_protecoes_intermediarias: 11
-            quantidade_protecoes_parada: 2
-            extensao: 25
-            conquistadores:
-            - Berbari
-            - Moleza
-            - Alex
-            data_abertura: '2011'
-        - via_esportiva:
-            nome: I Like This
-            dificuldade: BR_8B
-            quantidade_protecoes_intermediarias: 13
-            quantidade_protecoes_parada: 2
-            extensao: 30
-            conquistadores:
-            - Berbari
-            - Alex
-            - Toninho
-            data_abertura: '2010'
-            descricao: Variante da Boneis Malditos.
-        - via_multiplas_enfiadas:
-            nome: Igarameca
-            dificuldade_media: BR_7B
-            dificuldade_maxima: BR_9A
-            numero_enfiadas: 2
-            comprimento_total: 10
-            conquistadores:
-            - Berbari
-            - Toninho
-            - Pilão
-            data_abertura: '2022'
-            enfiadas:
-            - via_esportiva:
-                nome: Enfiada 1
-                dificuldade: BR_7B
-                quantidade_protecoes_intermediarias: 5
-                quantidade_protecoes_parada: 2
-            - via_esportiva:
-                nome: Enfiada 2
-                dificuldade: BR_9A
-                quantidade_protecoes_intermediarias: 5
-                quantidade_protecoes_parada: 2
-        - via_esportiva:
-            nome: U.F.O
-            dificuldade: BR_7B
-            quantidade_protecoes_intermediarias: 5
-            quantidade_protecoes_parada: 2
-            extensao: 12
-            conquistadores:
-            - Berbari
-            - Bunitinho
-            - Chinha
-            - Toninho
-            data_abertura: '2022'
-        - via_esportiva:
-            nome: 127 Horas
-            dificuldade: BR_7C
-            quantidade_protecoes_intermediarias: 6
-            quantidade_protecoes_parada: 2
-            extensao: 14
-            conquistadores:
-            - Berbari
-            - Bunitinho
-            - Chinha
-            data_abertura: '2022'
-        - via_esportiva:
-            nome: Lero Lero é Mato
-            dificuldade: INDEFINIDO
-            quantidade_protecoes_intermediarias: 6
-            quantidade_protecoes_parada: 2
-            extensao: 15
-            conquistadores:
-            - Berbari
-            - Bunitinho
-            - Chinha
-            data_abertura: '2022'
-        - via_esportiva:
-            nome: Renegados de Igarapé
-            dificuldade: BR_7B
-            quantidade_protecoes_intermediarias: 9
-            quantidade_protecoes_parada: 2
-            extensao: 23
-            conquistadores:
-            - Berbari
-            - Bunitinho
-            - Chinha
-            - Bolinha
-            data_abertura: '2022'
-        - via_esportiva:
-            nome: Coisa Linda
-            dificuldade: BR_8B
-            quantidade_protecoes_intermediarias: 8
-            quantidade_protecoes_parada: 2
-            extensao: 23
-            conquistadores:
-            - Bunitinho
-            - Bolinha
-            data_abertura: '2022'
-        - via_esportiva:
-            nome: Doce Veneno
-            dificuldade: BR_7A
-            quantidade_protecoes_intermediarias: 6
-            quantidade_protecoes_parada: 2
-            extensao: 15
-            conquistadores:
-            - Berbari
-            - Bunitinho
-            - Chinha
-            data_abertura: '2022'
-        - via_esportiva:
-            nome: Alguém Tem Que Ceder
-            dificuldade: BR_7C
-            quantidade_protecoes_intermediarias: 7
-            quantidade_protecoes_parada: 2
-            extensao: 16
-            conquistadores:
-            - Berbari
-            - Bunitinho
-            - Chinha
-            data_abertura: '2022'
-        - via_esportiva:
-            nome: Napa
-            dificuldade: BR_7B
-            quantidade_protecoes_intermediarias: 10
-            quantidade_protecoes_parada: 2
-            extensao: 20
-            conquistadores:
-            - Berbari
-            - Toninho
-            data_abertura: '2022'
-        - via_esportiva:
-            nome: Alpes Suínos*
-            dificuldade: BR_6SUP
-            quantidade_protecoes_intermediarias: 16
-            quantidade_protecoes_parada: 2
-            extensao: 35
-            conquistadores:
-            - Berbari
-            - Toninho
-            data_abertura: '2022'
-        - via_esportiva:
-            nome: Viagem ao Centro da Terra
-            dificuldade: BR_6
-            quantidade_protecoes_intermediarias: 14
-            quantidade_protecoes_parada: 2
-            extensao: 35
-            conquistadores:
-            - Berbari
-            - Toninho
-            data_abertura: '2022'
-        - via_esportiva:
-            nome: Rolitos
-            dificuldade: INDEFINIDO
-            quantidade_protecoes_intermediarias: 1
-            quantidade_protecoes_parada: 0
-            conquistadores:
-            - Bunitin
-            descricao: Via inacabada.
-        - via_esportiva:
-            nome: Balança Mas Não Cai
-            dificuldade: BR_6
-            quantidade_protecoes_intermediarias: 10
-            quantidade_protecoes_parada: 2
-            extensao: 25
-            conquistadores:
-            - Bunitinho
-            - Marcão
-            data_abertura: '2022'
-        descricao: '# Setor Igarameca
-
-
-          Sombra após 12h (varia de acordo com a estação).
-
-
-          Veja a trilha para chegar ao setor no WikiLoc: https://loc.wiki/t/160199352?wa=sc'
-        precomputados:
-          total_escaladas: 21
-          total_esportivas: 20
-          total_multiplas_enfiadas: 1
-  - setor:
-      conteudo:
-        nome: Setor Pracinha
-        mapas:
-        - caminho_imagem_mapa: imagens/setor_pracinha_p0.webp
-          largura_mapa: 1107
-          altura_mapa: 1413
-          pontos_de_interesse:
-          - id: '01'
-            label: '01'
-            circulo:
-              x: 761
-              y: 782
-              raio: 17
-          - id: '02'
-            label: '02'
-            circulo:
-              x: 732
-              y: 757
-              raio: 17
-          - id: '03'
-            label: '03'
-            circulo:
-              x: 697
-              y: 746
-              raio: 17
-          - id: '04'
-            label: '04'
-            circulo:
-              x: 668
-              y: 717
-              raio: 17
-          - id: '05'
-            label: '05'
-            circulo:
-              x: 697
-              y: 641
-              raio: 17
-          - id: '06'
-            label: '06'
-            circulo:
-              x: 734
-              y: 649
-              raio: 17
-          - id: '07'
-            label: '07'
-            circulo:
-              x: 768
-              y: 663
-              raio: 17
-          - id: '08'
-            label: '08'
-            circulo:
-              x: 805
-              y: 663
-              raio: 17
-          - id: '09'
-            label: '09'
-            circulo:
-              x: 962
-              y: 526
-              raio: 17
-          referencias:
-          - escalada: Conflito sensual
-            ids:
-            - '01'
-          - escalada: Duracell
-            ids:
-            - '02'
-          - escalada: Djavú
-            ids:
-            - '03'
-          - escalada: Muita coisa envolvida
-            ids:
-            - '04'
-          - escalada: Netfrix
-            ids:
-            - '05'
-          - escalada: Pouca prática
-            ids:
-            - '06'
-          - escalada: Vainafé
-            ids:
-            - '07'
-          - ids:
-            - '08'
-            setor: Setor Pracinha
-            escalada: People crazy
-          - ids:
-            - '09'
-            setor: Setor Trad
-            escalada: Aresta Daniel
-        - caminho_imagem_mapa: imagens/setor_pracinha_p2.webp
-          largura_mapa: 1109
-          altura_mapa: 1413
-          pontos_de_interesse:
-          - id: '01'
-            label: '01'
-            circulo:
-              x: 349
-              y: 855
-              raio: 17
-          - id: '02'
-            label: '02'
-            circulo:
-              x: 606
-              y: 876
-              raio: 17
-          - id: '03'
-            label: '03'
-            circulo:
-              x: 646
-              y: 870
-              raio: 17
-          - id: '04'
-            label: '04'
-            circulo:
-              x: 725
-              y: 867
-              raio: 17
-          referencias:
-          - escalada: Conflito sensual
-            ids:
-            - '01'
-          - escalada: Duracell
-            ids:
-            - '02'
-          - escalada: Djavú
-            ids:
-            - '03'
-          - escalada: Muita coisa envolvida
-            ids:
-            - '04'
-        - caminho_imagem_mapa: imagens/setor_pracinha_p3.webp
-          largura_mapa: 1109
-          altura_mapa: 1391
-          pontos_de_interesse:
-          - id: P1
-            label: P1
-            circulo:
-              x: 764
-              y: 151
-              raio: 18
-          - id: '05'
-            label: '05'
-            circulo:
-              x: 199
-              y: 665
-              raio: 17
-          - id: '06'
-            label: '06'
-            circulo:
-              x: 285
-              y: 731
-              raio: 17
-          - id: '07'
-            label: '07'
-            circulo:
-              x: 409
-              y: 915
-              raio: 17
-          - id: '08'
-            label: '08'
-            circulo:
-              x: 481
-              y: 1037
-              raio: 17
-          - id: '09'
-            label: '09'
-            circulo:
-              x: 1007
-              y: 1164
-              raio: 17
-          referencias:
-          - escalada: Netfrix
-            ids:
-            - '05'
-          - escalada: Pouca prática
-            ids:
-            - '06'
-          - escalada: Vainafé
-            ids:
-            - '07'
-          - ids:
-            - '08'
-            setor: Setor Pracinha
-            escalada: People crazy
-          - ids:
-            - '09'
-            - P1
-            setor: Setor Trad
-            escalada: Aresta Daniel
-        escaladas:
-        - via_esportiva:
-            nome: Conflito sensual
-            dificuldade: PROJETO
-            quantidade_protecoes_intermediarias: 10
-            quantidade_protecoes_parada: 2
-            extensao: 20
-            conquistadores:
-            - Berbari
-            - Bunitin
-            data_abertura: '2022'
-        - via_esportiva:
-            nome: Duracell
-            dificuldade: BR_8C
-            quantidade_protecoes_intermediarias: 9
-            quantidade_protecoes_parada: 2
-            extensao: 22
-            conquistadores:
-            - Bunitin
-            - Marcão
-            data_abertura: '2022'
-        - via_esportiva:
-            nome: Djavú
-            dificuldade: BR_8B
-            quantidade_protecoes_intermediarias: 9
-            quantidade_protecoes_parada: 2
-            extensao: 22
-            conquistadores:
-            - Berbari
-            - Chinha
-            - Tonin
-            data_abertura: '2022'
-        - via_esportiva:
-            nome: Muita coisa envolvida
-            dificuldade: BR_8A
-            quantidade_protecoes_intermediarias: 10
-            quantidade_protecoes_parada: 2
-            extensao: 22
-            conquistadores:
-            - Berbari
-            - Tonin
-            data_abertura: '2022'
-        - via_esportiva:
-            nome: Netfrix
-            dificuldade: BR_7A
-            quantidade_protecoes_intermediarias: 6
-            quantidade_protecoes_parada: 2
-            extensao: 18
-            conquistadores:
-            - Berbari
-            - Tonin
-            data_abertura: '2022'
-        - via_esportiva:
-            nome: Pouca prática
-            dificuldade: BR_6SUP
-            quantidade_protecoes_intermediarias: 7
-            quantidade_protecoes_parada: 2
-            extensao: 18
-            conquistadores:
-            - Berbari
-            - Tonin
-            data_abertura: '2022'
-        - via_esportiva:
-            nome: Vainafé
-            dificuldade: BR_7A
-            quantidade_protecoes_intermediarias: 8
-            quantidade_protecoes_parada: 2
-            extensao: 18
-            conquistadores:
-            - Berbari
-            - Tonin
-            data_abertura: '2022'
-        - via_esportiva:
-            nome: People crazy
-            dificuldade: BR_6SUP
-            quantidade_protecoes_intermediarias: 9
-            quantidade_protecoes_parada: 2
-            extensao: 20
-            conquistadores:
-            - Berbari
-            - Toninho
-            data_abertura: '2022'
-        descricao: '# Setor Pracinha
-
-
-          | ![Setor pracinha](imagens/setor_pracinha_p1.webp) |
-
-          | :--: |
-
-          | *Setor pracinha* |
-
-
-          Sombra o dia todo (varia de acordo com a estação).'
-        precomputados:
-          total_escaladas: 8
-          total_esportivas: 8
-  - setor:
-      conteudo:
-        nome: Setor dos Tetos
-        mapas:
-        - caminho_imagem_mapa: imagens/setor_tetos_p0.webp
-          largura_mapa: 1201
-          altura_mapa: 1413
-          pontos_de_interesse:
-          - id: '01'
-            label: '01'
-            circulo:
-              x: 21
-              y: 1383
-              raio: 17
-          - id: '02'
-            label: '02'
-            circulo:
-              x: 472
-              y: 1389
-              raio: 17
-          - id: '03'
-            label: '03'
-            circulo:
-              x: 753
-              y: 1300
-              raio: 17
-          - id: '04'
-            label: '04'
-            circulo:
-              x: 823
-              y: 1252
-              raio: 17
-          - id: '05'
-            label: '05'
-            circulo:
-              x: 849
-              y: 1157
-              raio: 17
-          - id: '06'
-            label: '06'
-            circulo:
-              x: 1063
-              y: 1193
-              raio: 17
-          - id: '07'
-            label: '07'
-            circulo:
-              x: 1091
-              y: 1228
-              raio: 17
-          - id: '08'
-            label: '08'
-            circulo:
-              x: 1112
-              y: 1266
-              raio: 17
-          - id: '09'
-            label: '09'
-            circulo:
-              x: 1140
-              y: 1313
-              raio: 17
-          - id: '10'
-            label: '10'
-            circulo:
-              x: 1178
-              y: 1324
-              raio: 17
-          referencias:
-          - escalada: A Quina
-            ids:
-            - '02'
-            setor: Setor Trad
-          - escalada: Pachamama
-            ids:
-            - '03'
-            setor: Setor Trad
-          - escalada: Baba Yaga
-            ids:
-            - '04'
-          - escalada: Soy Loco Por Ti América
-            ids:
-            - '05'
-          - escalada: Afrodite
-            ids:
-            - '06'
-          - escalada: Ponto de Equilíbrio
-            ids:
-            - '07'
-          - escalada: Deu Nois
-            ids:
-            - '10'
-          - escalada: Aresta Daniel
-            ids:
-            - '01'
-            setor: Setor Trad
-          - ids:
-            - '08'
-            setor: Setor dos Tetos
-            escalada: Lilith
-          - ids:
-            - '09'
-            setor: Setor dos Tetos
-            escalada: Deu Brasil
-        escaladas:
-        - via_esportiva:
-            nome: Baba Yaga
-            dificuldade: BR_5
-            conquistadores:
-            - Berbari
-            - Neander
-            - Bunitin
-            - Ana
-            data_abertura: '2024'
-            descricao: Via inacabada.
-        - via_esportiva:
-            nome: Soy Loco Por Ti América
-            dificuldade: BR_9C_BARRA_10A
-            extensao: 30
-            quantidade_protecoes_intermediarias: 12
-            quantidade_protecoes_parada: 2
-            conquistadores:
-            - Berbari
-            - Chinha
-            data_abertura: '2016'
-        - via_esportiva:
-            nome: Afrodite
-            dificuldade: BR_7B
-            conquistadores:
-            - Bunitinho
-            - Clebinho
-            data_abertura: '2024'
-            extensao: 30
-            quantidade_protecoes_intermediarias: 11
-            quantidade_protecoes_parada: 2
-        - via_esportiva:
-            nome: Ponto de Equilíbrio
-            dificuldade: BR_8B_BARRA_8C
-            conquistadores:
-            - Berbari
-            - Chinha
-            data_abertura: '2019'
-            extensao: 30
-            quantidade_protecoes_intermediarias: 11
-            quantidade_protecoes_parada: 2
-        - via_esportiva:
-            nome: Lilith
-            dificuldade: BR_7A
-            quantidade_protecoes_intermediarias: 11
-            quantidade_protecoes_parada: 2
-            extensao: 30
-            conquistadores:
-            - Berbari
-            - Chinha
-            - Bunitinho
-            data_abertura: '2024'
-        - via_esportiva:
-            nome: Deu Brasil
-            dificuldade: BR_7B
-            quantidade_protecoes_intermediarias: 7
-            quantidade_protecoes_parada: 2
-            extensao: 12
-            conquistadores:
-            - Berbari
-            - Chinha
-            - Bolinha
-            data_abertura: '2019'
-        - via_esportiva:
-            nome: Deu Nois
-            dificuldade: BR_6SUP
-            quantidade_protecoes_intermediarias: 7
-            quantidade_protecoes_parada: 2
-            extensao: 14
-            conquistadores:
-            - Berbari
-            - Alex
-            - Tonin
-            data_abertura: '2006'
-        descricao: '# Setor dos Tetos
-
-
-          | ![Setor dos Tetos](imagens/setor_tetos_p1.webp) |
-
-          | :--: |
-
-          | *Setor dos Tetos* |
-
-
-          Sombra após 14h.'
-        precomputados:
-          total_escaladas: 7
-          total_esportivas: 7
-  - setor:
-      conteudo:
-        nome: Setor Trad
-        mapas:
-        - caminho_imagem_mapa: imagens/setor_trad_p0.webp
-          largura_mapa: 2048
-          altura_mapa: 1414
-          pontos_de_interesse:
-          - id: '01'
-            label: '01'
-            circulo:
-              x: 88
-              y: 1153
-              raio: 14
-          - id: a
-            label: a
-            circulo:
-              x: 130
-              y: 1144
-              raio: 14
-          - id: b
-            label: b
-            circulo:
-              x: 160
-              y: 1141
-              raio: 14
-          - id: '02'
-            label: '02'
-            circulo:
-              x: 110
-              y: 1173
-              raio: 14
-          - id: '03'
-            label: '03'
-            circulo:
-              x: 169
-              y: 1173
-              raio: 15
-          - id: '04'
-            label: '04'
-            circulo:
-              x: 202
-              y: 1172
-              raio: 15
-          - id: '05'
-            label: '05'
-            circulo:
-              x: 231
-              y: 1183
-              raio: 14
-          - id: c
-            label: c
-            circulo:
-              x: 263
-              y: 1184
-              raio: 14
-          - id: '06'
-            label: '06'
-            circulo:
-              x: 289
-              y: 1158
-              raio: 14
-          - id: d
-            label: d
-            circulo:
-              x: 366
-              y: 1151
-              raio: 14
-          - id: '07'
-            label: '07'
-            circulo:
-              x: 395
-              y: 1142
-              raio: 14
-          - id: e
-            label: e
-            circulo:
-              x: 404
-              y: 1096
-              raio: 14
-          - id: '08'
-            label: '08'
-            circulo:
-              x: 448
-              y: 1157
-              raio: 14
-          - id: f
-            label: f
-            circulo:
-              x: 487
-              y: 1157
-              raio: 14
-          - id: '10'
-            label: '10'
-            circulo:
-              x: 473
-              y: 1131
-              raio: 14
-          - id: g
-            label: g
-            circulo:
-              x: 536
-              y: 1081
-              raio: 14
-          - id: '11'
-            label: '11'
-            circulo:
-              x: 592
-              y: 569
-              raio: 15
-          - id: '16'
-            label: '16'
-            circulo:
-              x: 1110
-              y: 628
-              raio: 15
-          - id: '09'
-            label: '09'
-            circulo:
-              x: 468
-              y: 730
-              raio: 14
-          - id: '12'
-            label: '12'
-            circulo:
-              x: 631
-              y: 1269
-              raio: 15
-          - id: h
-            label: h
-            circulo:
-              x: 813
-              y: 1268
-              raio: 14
-          - id: '13'
-            label: '13'
-            circulo:
-              x: 844
-              y: 1265
-              raio: 14
-          - id: i
-            label: i
-            circulo:
-              x: 886
-              y: 1246
-              raio: 14
-          - id: '14'
-            label: '14'
-            circulo:
-              x: 934
-              y: 1237
-              raio: 14
-          - id: '15'
-            label: '15'
-            circulo:
-              x: 965
-              y: 1239
-              raio: 15
-          - id: j
-            label: j
-            circulo:
-              x: 1138
-              y: 1251
-              raio: 14
-          - id: k
-            label: k
-            circulo:
-              x: 1214
-              y: 1249
-              raio: 14
-          - id: '17'
-            label: '17'
-            circulo:
-              x: 1481
-              y: 1216
-              raio: 14
-          - id: m
-            label: m
-            circulo:
-              x: 1452
-              y: 1226
-              raio: 14
-          - id: n
-            label: n
-            circulo:
-              x: 1575
-              y: 1198
-              raio: 14
-          - id: '18'
-            label: '18'
-            circulo:
-              x: 1606
-              y: 1195
-              raio: 14
-          - id: '19'
-            label: '19'
-            circulo:
-              x: 1641
-              y: 1164
-              raio: 14
-          - id: '20'
-            label: '20'
-            circulo:
-              x: 1717
-              y: 1098
-              raio: 14
-          - id: '21'
-            label: '21'
-            circulo:
-              x: 1744
-              y: 1084
-              raio: 14
-          - id: '22'
-            label: '22'
-            circulo:
-              x: 1771
-              y: 1069
-              raio: 15
-          - id: '23'
-            label: '23'
-            circulo:
-              x: 1833
-              y: 1051
-              raio: 15
-          - id: '24'
-            label: '24'
-            circulo:
-              x: 1895
-              y: 1045
-              raio: 15
-          - id: L
-            label: L
-            circulo:
-              x: 1362
-              y: 1213
-              raio: 14
-          - id: crayzy
-            label: '?'
-            circulo:
-              x: 247
-              y: 1211
-              raio: 14
-            cor: ''
-          - id: formigao
-            label: '?'
-            circulo:
-              x: 289
-              y: 1202
-              raio: 14
-            cor: ''
-          - id: palestra
-            label: '?'
-            retangulo:
-              x: 1410
-              y: 211
-              comprimento: 223
-              largura: 30
-            cor: ''
-          referencias:
-          - escalada: Aresta Daniel
-            ids:
-            - '01'
-          - escalada: Barriga Verde
-            ids:
-            - '02'
-          - escalada: Sem nome 1
-            ids:
-            - a
-            setor: Setor Trad
-          - escalada: Sem nome 2
-            ids:
-            - b
-            setor: Setor Trad
-          - escalada: Tosco Climb
-            ids:
-            - '03'
-          - escalada: Curió Não Se Cria
-            ids:
-            - '04'
-          - escalada: A Quina
-            ids:
-            - '05'
-          - escalada: Sem nome 3
-            ids:
-            - c
-            setor: Setor Trad
-          - escalada: Igarapé Cascão
-            ids:
-            - '06'
-          - escalada: Outra saída da Igarapé Cascão
-            ids:
-            - d
-          - escalada: Pachamama
-            ids:
-            - '07'
-          - escalada: Sem nome 4
-            ids:
-            - e
-            setor: Setor Trad
-          - escalada: Absoluta Inconsequência
-            ids:
-            - '08'
-          - escalada: Inconsequência Moderada
-            ids:
-            - '09'
-          - escalada: Mentiras Sinceras
-            ids:
-            - '10'
-          - escalada: Sem nome 5
-            ids:
-            - f
-            setor: Setor Trad
-          - escalada: Sem nome 6
-            ids:
-            - g
-            setor: Setor Trad
-          - escalada: Sem nome 7
-            ids:
-            - '11'
-            setor: Setor Trad
-          - escalada: Bituca
-            ids:
-            - '12'
-          - escalada: Sem nome 8
-            ids:
-            - h
-            setor: Setor Trad
-          - escalada: Sem nome 9
-            ids:
-            - i
-            setor: Setor Trad
-          - escalada: Último Dente
-            ids:
-            - '13'
-          - escalada: Sem nome 10
-            ids:
-            - '14'
-            setor: Setor Trad
-          - escalada: Inanição
-            ids:
-            - '15'
-          - escalada: Lembranças da Vovó
-            ids:
-            - '16'
-          - escalada: Sem nome 11
-            ids:
-            - j
-            setor: Setor Trad
-          - escalada: Sem nome 12
-            ids:
-            - k
-            setor: Setor Trad
-          - escalada: Sem nome 13
-            ids:
-            - L
-            setor: Setor Trad
-          - escalada: Sem nome 14
-            ids:
-            - m
-            setor: Setor Trad
-          - escalada: Netflix
-            ids:
-            - '17'
-          - escalada: Sem nome 15
-            ids:
-            - n
-            setor: Setor Trad
-          - escalada: Que Nem Mendigo
-            ids:
-            - '18'
-          - escalada: Wally Caolho
-            ids:
-            - '19'
-          - escalada: Me Leve ao Cume
-            ids:
-            - '20'
-          - escalada: Sem nome 16
-            ids:
-            - '21'
-            setor: Setor Trad
-          - escalada: Vale Tudo
-            ids:
-            - '22'
-          - escalada: Sem nome 17
-            ids:
-            - '23'
-            setor: Setor Trad
-          - escalada: Mulher do Fim do Mundo
-            ids:
-            - '24'
-          - ids:
-            - crayzy
-            setor: Setor Trad
-            escalada: Crayzy
-          - ids:
-            - formigao
-            setor: Setor Trad
-            escalada: Formigão Iannotta
-          - ids:
-            - palestra
-            setor: Setor Trad
-            escalada: Palestra Botânica
-        escaladas:
-        - via_movel:
-            nome: Aresta Daniel
-            dificuldade: BR_6SUP
-            exposicao: E1
-            descricao: Via com marimbondos!!! INTERDITADA.
-        - via_movel:
-            nome: Barriga Verde
-            dificuldade: INDEFINIDO
-        - via_movel:
-            nome: Sem nome 1
-            dificuldade: INDEFINIDO
-        - via_movel:
-            nome: Sem nome 2
-            dificuldade: INDEFINIDO
-        - via_movel:
-            nome: Tosco Climb
-            dificuldade: INDEFINIDO
-        - via_movel:
-            nome: Curió Não Se Cria
-            dificuldade: INDEFINIDO
-        - via_movel:
-            nome: A Quina
-            dificuldade: INDEFINIDO
-        - via_movel:
-            nome: Sem nome 3
-            dificuldade: INDEFINIDO
-        - via_movel:
-            nome: Formigão Iannotta
-            dificuldade: INDEFINIDO
-        - via_movel:
-            nome: Crayzy
-            dificuldade: INDEFINIDO
-        - via_movel:
-            nome: Igarapé Cascão
-            dificuldade: INDEFINIDO
-            descricao: 'Via com caminhada de volta do cume, não é necessário fazer
-              rapel.
-
-
-              Veja a trilha para voltar do cume da via de volta para a base: https://loc.wiki/t/162907398?wa=sc'
-        - via_movel:
-            nome: Outra saída da Igarapé Cascão
-            dificuldade: INDEFINIDO
-            descricao: 'Via com caminhada de volta do cume, não é necessário fazer
-              rapel.
-
-
-              Veja a trilha para voltar do cume da via de volta para a base: https://loc.wiki/t/162907398?wa=sc'
-        - via_movel:
-            nome: Pachamama
-            dificuldade: INDEFINIDO
-            descricao: 'Via com caminhada de volta do cume, não é necessário fazer
-              rapel.
-
-
-              Veja a trilha para voltar do cume da via de volta para a base: https://loc.wiki/t/162907398?wa=sc'
-        - via_movel:
-            nome: Sem nome 4
-            dificuldade: INDEFINIDO
-        - via_movel:
-            nome: Absoluta Inconsequência
-            dificuldade: INDEFINIDO
-        - via_movel:
-            nome: Inconsequência Moderada
-            dificuldade: INDEFINIDO
-        - via_movel:
-            nome: Mentiras Sinceras
-            dificuldade: INDEFINIDO
-        - via_movel:
-            nome: Sem nome 5
-            dificuldade: INDEFINIDO
-        - via_movel:
-            nome: Sem nome 6
-            dificuldade: INDEFINIDO
-        - via_movel:
-            nome: Sem nome 7
-            dificuldade: INDEFINIDO
-        - via_movel:
-            nome: Bituca
-            dificuldade: INDEFINIDO
-        - via_movel:
-            nome: Sem nome 8
-            dificuldade: INDEFINIDO
-        - via_movel:
-            nome: Sem nome 9
-            dificuldade: INDEFINIDO
-        - via_movel:
-            nome: Último Dente
-            dificuldade: INDEFINIDO
-        - via_movel:
-            nome: Sem nome 10
-            dificuldade: INDEFINIDO
-        - via_movel:
-            nome: Inanição
-            dificuldade: INDEFINIDO
-        - via_movel:
-            nome: Lembranças da Vovó
-            dificuldade: INDEFINIDO
-        - via_movel:
-            nome: Sem nome 11
-            dificuldade: INDEFINIDO
-        - via_movel:
-            nome: Sem nome 12
-            dificuldade: INDEFINIDO
-        - via_movel:
-            nome: Palestra Botânica
-            dificuldade: INDEFINIDO
-        - via_movel:
-            nome: Sem nome 13
-            dificuldade: INDEFINIDO
-        - via_movel:
-            nome: Sem nome 14
-            dificuldade: INDEFINIDO
-        - via_movel:
-            nome: Netflix
-            dificuldade: INDEFINIDO
-        - via_movel:
-            nome: Sem nome 15
-            dificuldade: INDEFINIDO
-        - via_movel:
-            nome: Que Nem Mendigo
-            dificuldade: INDEFINIDO
-        - via_movel:
-            nome: Wally Caolho
-            dificuldade: INDEFINIDO
-        - via_movel:
-            nome: Me Leve ao Cume
-            dificuldade: BR_6
-            descricao: 'Trilha principal para a via no WikiLoc: https://loc.wiki/t/142136363?wa=sc
-
-
-              Trilha alternativa pelo setor Sherpa (pode estar mais sujo / com mais
-              mato): https://loc.wiki/t/255009916?wa=sc'
-        - via_movel:
-            nome: Sem nome 16
-            dificuldade: INDEFINIDO
-        - via_movel:
-            nome: Vale Tudo
-            dificuldade: INDEFINIDO
-        - via_movel:
-            nome: Sem nome 17
-            dificuldade: INDEFINIDO
-        - via_movel:
-            nome: Mulher do Fim do Mundo
-            dificuldade: INDEFINIDO
-        descricao: '# Setor Trad
-
-
-          Este setor engloba as vias tradicionais e de proteção móvel do Complexo
-          Pedra Grande. As informações aqui contidas são provisórias e serão atualizadas
-          conforme o catálogo for sendo refinado.
-
-
-          Catálogo provisório das vias tradicionais e/ou em proteção móvel do Complexo
-          Pedra Grande.'
-        precomputados:
-          total_escaladas: 41
-  - grupo:
-      conteudo:
-        nome: Sherpa
-        setores:
-        - conteudo:
-            nome: Tarja Preta
-            localizacao_escalada:
-              latitude: -201224250
-              longitude: -443608700
-            sinal_de_celular: true
-            escaladas:
-            - boulder:
-                nome: Película
-                destaque: true
-            - boulder:
-                nome: Tarja Preta
-            mapas:
-            - caminho_imagem_mapa: imagens/setor_tarja_preta_p0.webp
-              largura_mapa: 1392
-              altura_mapa: 3013
-              referencias:
-              - grupo: Sherpa
-                setor: Tarja Preta
-                escalada: Película
-              - grupo: Sherpa
-                setor: Tarja Preta
-                escalada: Tarja Preta
-            descricao: ''
-            precomputados:
-              total_escaladas: 2
-              total_boulders: 2
-        - conteudo:
-            nome: Jeitinho Brasileiro
-            localizacao_escalada:
-              latitude: -201225340
-              longitude: -443609520
-            sinal_de_celular: true
-            escaladas:
-            - boulder:
-                nome: Jeitinho Brasileiro
-                dificuldade: V4
-                tipo_parede: NEGATIVO
-                conquistadores:
-                - 'Julio G. '
-                data_abertura: Maio 2026
-                destaque: true
-            - boulder:
-                nome: Força G
-                dificuldade: V1
-                data_abertura: Maio 2026
-            - boulder:
-                nome: Itália
-                dificuldade: V4
-                data_abertura: Maio 2026
-                destaque: true
-            - boulder:
-                nome: Glorioso
-                dificuldade: V2
-                tipo_parede: NEGATIVO
-                data_abertura: Maio 2026
-                destaque: true
-            mapas:
-            - caminho_imagem_mapa: imagens/setor_jeitinho_brasileiro_p0.webp
-              largura_mapa: 1392
-              altura_mapa: 3013
-              referencias:
-              - grupo: Sherpa
-                setor: Jeitinho Brasileiro
-                escalada: Jeitinho Brasileiro
-              - grupo: Sherpa
-                setor: Jeitinho Brasileiro
-                escalada: Força G
-              - grupo: Sherpa
-                setor: Jeitinho Brasileiro
-                escalada: Itália
-              - grupo: Sherpa
-                setor: Jeitinho Brasileiro
-                escalada: Glorioso
-            descricao: ''
-            precomputados:
-              total_escaladas: 4
-              total_boulders: 4
-        - conteudo:
-            nome: Nectar
-            localizacao_escalada:
-              latitude: -201225690
-              longitude: -443610090
-            escaladas:
-            - boulder:
-                nome: Nectar
-                dificuldade: V9
-                conquistadores:
-                - Frederico Gonçalves (Bull)
-                data_abertura: 30/06/2026
-                descricao: '
-
-
-                  '
-                url_video_beta: https://www.instagram.com/p/DaMdaQKTtFk/
-                destaque: true
-            mapas:
-            - caminho_imagem_mapa: imagens/setor_nectar_p0_i0.webp
-              largura_mapa: 1855
-              altura_mapa: 2261
-              referencias:
-              - grupo: Sherpa
-                setor: Nectar
-                escalada: Nectar
-            indice_mapa_padrao: -1
-            descricao: ''
-            precomputados:
-              total_escaladas: 1
-              total_boulders: 1
-        localizacao_escalada:
-          latitude: -201224250
-          longitude: -443608700
-        descricao: Tarja Preta - Jeitinho Brasileiro - Nectar
-        precomputados:
-          total_escaladas: 7
-          total_boulders: 7
+          total_boulders: 30
   - setor:
       conteudo:
         nome: Bloco Fugitivos I
@@ -6369,6 +3656,3128 @@ picos:
         precomputados:
           total_escaladas: 13
           total_boulders: 13
+  - setor:
+      conteudo:
+        nome: Setor Família I
+        mapas:
+        - caminho_imagem_mapa: imagens/setor_familia_i_p0.webp
+          largura_mapa: 2304
+          altura_mapa: 1300
+          pontos_de_interesse:
+          - id: '01'
+            label: '01'
+            circulo:
+              x: 794
+              y: 257
+              raio: 17
+          - id: '02'
+            label: '02'
+            circulo:
+              x: 731
+              y: 281
+              raio: 17
+          - id: '03'
+            label: '03'
+            circulo:
+              x: 661
+              y: 328
+              raio: 17
+          - id: '04'
+            label: '04'
+            circulo:
+              x: 611
+              y: 387
+              raio: 17
+          - id: '05'
+            label: '05'
+            circulo:
+              x: 562
+              y: 437
+              raio: 17
+          - id: '06'
+            label: '06'
+            circulo:
+              x: 526
+              y: 503
+              raio: 17
+          - id: '07'
+            label: '07'
+            circulo:
+              x: 578
+              y: 619
+              raio: 17
+          - id: '08'
+            label: '08'
+            circulo:
+              x: 614
+              y: 729
+              raio: 17
+          - id: '09'
+            label: '09'
+            circulo:
+              x: 929
+              y: 1212
+              raio: 17
+          - id: '10'
+            label: '10'
+            circulo:
+              x: 1030
+              y: 1236
+              raio: 18
+          - id: '11'
+            label: '11'
+            circulo:
+              x: 1119
+              y: 1245
+              raio: 18
+          - id: '12'
+            label: '12'
+            circulo:
+              x: 1245
+              y: 1244
+              raio: 19
+          - id: '13'
+            label: '13'
+            circulo:
+              x: 1347
+              y: 1269
+              raio: 18
+          - id: '14'
+            label: '14'
+            circulo:
+              x: 1527
+              y: 1227
+              raio: 19
+          - id: '15'
+            label: '15'
+            circulo:
+              x: 1613
+              y: 1170
+              raio: 19
+          - id: '16'
+            label: '16'
+            circulo:
+              x: 1787
+              y: 915
+              raio: 19
+          - id: '17'
+            label: '17'
+            circulo:
+              x: 1866
+              y: 820
+              raio: 19
+          - id: '18'
+            label: '18'
+            circulo:
+              x: 1927
+              y: 768
+              raio: 18
+          - id: '19'
+            label: '19'
+            circulo:
+              x: 1967
+              y: 707
+              raio: 18
+          referencias:
+          - escalada: Florestinha
+            ids:
+            - '01'
+          - escalada: Ação Total
+            ids:
+            - '02'
+          - escalada: Escravos da Pedra
+            ids:
+            - '03'
+          - escalada: Esquerdinha Caviar
+            ids:
+            - '04'
+          - escalada: Mônica
+            ids:
+            - '05'
+          - escalada: Queijo Suíço
+            ids:
+            - '06'
+          - escalada: Aranha Gato
+            ids:
+            - '07'
+          - escalada: Totalflex
+            ids:
+            - '10'
+          - escalada: Haja Broca
+            ids:
+            - '11'
+          - escalada: Juliana
+            ids:
+            - '12'
+          - escalada: Lisebra
+            ids:
+            - '13'
+          - escalada: Croque Monsieur
+            ids:
+            - '14'
+          - escalada: Playground
+            ids:
+            - '15'
+          - escalada: Depressão Pós Reforma
+            ids:
+            - '16'
+          - escalada: Chuvasca
+            ids:
+            - '17'
+          - escalada: Pau Oco
+            ids:
+            - '18'
+          - escalada: Franzinha
+            ids:
+            - '19'
+          - ids:
+            - '08'
+            setor: Setor Família I
+            escalada: Chapas Onorixicas
+          - ids:
+            - '09'
+            setor: Setor Família I
+            escalada: Tora Flex
+        - caminho_imagem_mapa: imagens/setor_familia_i_p1.webp
+          largura_mapa: 1121
+          altura_mapa: 1440
+          pontos_de_interesse:
+          - id: '19'
+            label: '19'
+            circulo:
+              x: 523
+              y: 133
+              raio: 19
+          - id: '18'
+            label: '18'
+            circulo:
+              x: 562
+              y: 177
+              raio: 19
+          - id: '17'
+            label: '17'
+            circulo:
+              x: 638
+              y: 257
+              raio: 19
+          - id: '16'
+            label: '16'
+            circulo:
+              x: 771
+              y: 414
+              raio: 19
+          - id: '15'
+            label: '15'
+            circulo:
+              x: 830
+              y: 505
+              raio: 19
+          - id: '14'
+            label: '14'
+            circulo:
+              x: 920
+              y: 620
+              raio: 19
+          - id: '13'
+            label: '13'
+            circulo:
+              x: 937
+              y: 770
+              raio: 19
+          - id: '12'
+            label: '12'
+            circulo:
+              x: 940
+              y: 904
+              raio: 19
+          - id: '11'
+            label: '11'
+            circulo:
+              x: 914
+              y: 986
+              raio: 19
+          - id: '10'
+            label: '10'
+            circulo:
+              x: 855
+              y: 1071
+              raio: 18
+          - id: '01'
+            label: '01'
+            circulo:
+              x: 241
+              y: 1138
+              raio: 18
+          - id: '09'
+            label: '09'
+            circulo:
+              x: 823
+              y: 1132
+              raio: 19
+          - id: '02'
+            label: '02'
+            circulo:
+              x: 287
+              y: 1162
+              raio: 19
+          - id: '03'
+            label: '03'
+            circulo:
+              x: 330
+              y: 1195
+              raio: 19
+          - id: '04'
+            label: '04'
+            circulo:
+              x: 412
+              y: 1231
+              raio: 19
+          - id: '05'
+            label: '05'
+            circulo:
+              x: 436
+              y: 1277
+              raio: 19
+          - id: '08'
+            label: '08'
+            circulo:
+              x: 637
+              y: 1268
+              raio: 19
+          - id: '06'
+            label: '06'
+            circulo:
+              x: 477
+              y: 1304
+              raio: 19
+          - id: '07'
+            label: '07'
+            circulo:
+              x: 587
+              y: 1299
+              raio: 19
+          referencias:
+          - escalada: Florestinha
+            ids:
+            - '01'
+          - escalada: Ação Total
+            ids:
+            - '02'
+          - escalada: Escravos da Pedra
+            ids:
+            - '03'
+          - escalada: Esquerdinha Caviar
+            ids:
+            - '04'
+          - escalada: Mônica
+            ids:
+            - '05'
+          - escalada: Queijo Suíço
+            ids:
+            - '06'
+          - escalada: Aranha Gato
+            ids:
+            - '07'
+          - escalada: Totalflex
+            ids:
+            - '10'
+          - escalada: Haja Broca
+            ids:
+            - '11'
+          - escalada: Juliana
+            ids:
+            - '12'
+          - escalada: Lisebra
+            ids:
+            - '13'
+          - escalada: Croque Monsieur
+            ids:
+            - '14'
+          - escalada: Playground
+            ids:
+            - '15'
+          - escalada: Depressão Pós Reforma
+            ids:
+            - '16'
+          - escalada: Chuvasca
+            ids:
+            - '17'
+          - escalada: Pau Oco
+            ids:
+            - '18'
+          - escalada: Franzinha
+            ids:
+            - '19'
+          - ids:
+            - '08'
+            setor: Setor Família I
+            escalada: Chapas Onorixicas
+          - ids:
+            - '09'
+            setor: Setor Família I
+            escalada: Tora Flex
+        escaladas:
+        - via_esportiva:
+            nome: Florestinha
+            dificuldade: BR_6SUP
+            conquistadores:
+            - Berbari
+            - Ró
+            data_abertura: '2011'
+        - via_esportiva:
+            nome: Ação Total
+            dificuldade: BR_7A
+            quantidade_protecoes_intermediarias: 3
+            quantidade_protecoes_parada: 2
+            extensao: 10
+            conquistadores:
+            - Berbari
+            - Ró
+            - Rômulo
+            data_abertura: '2011'
+        - via_esportiva:
+            nome: Escravos da Pedra
+            dificuldade: BR_8C
+            quantidade_protecoes_intermediarias: 4
+            quantidade_protecoes_parada: 2
+            extensao: 11
+            conquistadores:
+            - Berbari
+            - Ró
+            - Chinha
+            data_abertura: '2011'
+        - via_esportiva:
+            nome: Esquerdinha Caviar
+            dificuldade: BR_7C
+            quantidade_protecoes_intermediarias: 4
+            quantidade_protecoes_parada: 2
+            extensao: 12
+            conquistadores:
+            - Berbari
+            - Ró
+            - Rômulo
+            data_abertura: '2011'
+        - via_esportiva:
+            nome: Mônica
+            dificuldade: BR_8B
+            quantidade_protecoes_intermediarias: 4
+            quantidade_protecoes_parada: 2
+            extensao: 12
+            conquistadores:
+            - Berbari
+            - Ró
+            data_abertura: '2011'
+        - via_esportiva:
+            nome: Queijo Suíço
+            dificuldade: BR_7A_BARRA_7B
+            quantidade_protecoes_intermediarias: 3
+            quantidade_protecoes_parada: 2
+            extensao: 11
+            conquistadores:
+            - Berbari
+            - Ró
+            data_abertura: '2011'
+        - via_esportiva:
+            nome: Aranha Gato
+            dificuldade: BR_6_BARRA_6SUP
+            quantidade_protecoes_intermediarias: 3
+            quantidade_protecoes_parada: 2
+            extensao: 11
+            conquistadores:
+            - Berbari
+            - Ró
+            - Chinha
+            data_abertura: '2011'
+        - via_esportiva:
+            nome: Chapas Onorixicas
+            dificuldade: BR_6SUP
+            quantidade_protecoes_intermediarias: 3
+            quantidade_protecoes_parada: 2
+            extensao: 11
+            conquistadores:
+            - Mecena
+            - Ivo
+            data_abertura: '2011'
+        - via_esportiva:
+            nome: Tora Flex
+            dificuldade: BR_6SUP
+            quantidade_protecoes_intermediarias: 3
+            quantidade_protecoes_parada: 2
+            extensao: 11
+            conquistadores:
+            - Berbari
+            - Ró
+            - Chinha
+            data_abertura: '2011'
+        - via_esportiva:
+            nome: Totalflex
+            dificuldade: BR_6SUP
+            quantidade_protecoes_intermediarias: 3
+            quantidade_protecoes_parada: 2
+            extensao: 11
+            conquistadores:
+            - Berbari
+            - Ró
+            - Chinha
+            data_abertura: '2011'
+        - via_esportiva:
+            nome: Haja Broca
+            dificuldade: BR_6SUP
+            quantidade_protecoes_intermediarias: 3
+            quantidade_protecoes_parada: 2
+            extensao: 11
+            conquistadores:
+            - Berbari
+            - Ró
+            data_abertura: '2011'
+        - via_esportiva:
+            nome: Juliana
+            dificuldade: BR_5
+            quantidade_protecoes_intermediarias: 4
+            quantidade_protecoes_parada: 2
+            extensao: 10
+            conquistadores:
+            - Berbari
+            - Ró
+            data_abertura: '2011'
+        - via_esportiva:
+            nome: Lisebra
+            dificuldade: BR_4
+            quantidade_protecoes_intermediarias: 3
+            quantidade_protecoes_parada: 2
+            extensao: 10
+            conquistadores:
+            - Mecena
+            - Ivo
+            data_abertura: '2011'
+        - via_esportiva:
+            nome: Croque Monsieur
+            dificuldade: BR_5
+            quantidade_protecoes_intermediarias: 4
+            quantidade_protecoes_parada: 2
+            extensao: 9
+            conquistadores:
+            - Berbari
+            - Ró
+            data_abertura: '2011'
+        - via_esportiva:
+            nome: Playground
+            dificuldade: BR_4
+            quantidade_protecoes_intermediarias: 2
+            quantidade_protecoes_parada: 2
+            extensao: 8
+            conquistadores:
+            - Macena
+            data_abertura: '2013'
+        - via_esportiva:
+            nome: Depressão Pós Reforma
+            dificuldade: BR_4
+            quantidade_protecoes_intermediarias: 2
+            quantidade_protecoes_parada: 2
+            extensao: 7
+            conquistadores:
+            - Macena
+            data_abertura: '2013'
+        - via_esportiva:
+            nome: Chuvasca
+            dificuldade: BR_4
+            quantidade_protecoes_intermediarias: 2
+            quantidade_protecoes_parada: 2
+            extensao: 6
+            conquistadores:
+            - Macena
+            data_abertura: '2013'
+        - via_esportiva:
+            nome: Pau Oco
+            dificuldade: BR_4
+            quantidade_protecoes_intermediarias: 2
+            quantidade_protecoes_parada: 2
+            extensao: 6
+            conquistadores:
+            - Toninho
+            - Fran
+            data_abertura: '2013'
+            descricao: Termina no mesmo tope que a via Franzinha.
+        - via_esportiva:
+            nome: Franzinha
+            dificuldade: BR_4
+            quantidade_protecoes_intermediarias: 2
+            quantidade_protecoes_parada: 2
+            extensao: 6
+            conquistadores:
+            - Toninho
+            - Fran
+            data_abertura: '2013'
+            descricao: Termina no mesmo tope que a via Pau Oco.
+        descricao: '# Setor Família I
+
+
+          O setor fica do lado direito do início da trilha para a Pedra Grande. Sombra
+          o dia todo (varia de acordo com a estação).
+
+
+          Veja a trilha para chegar ao setor no Wikiloc: https://loc.wiki/t/169745893?wa=sc'
+        precomputados:
+          total_escaladas: 19
+          total_esportivas: 19
+  - setor:
+      conteudo:
+        nome: Setor Família II
+        mapas:
+        - caminho_imagem_mapa: imagens/setor_familia_ii_p0.webp
+          largura_mapa: 1224
+          altura_mapa: 1271
+          pontos_de_interesse:
+          - id: '01'
+            label: '01'
+            circulo:
+              x: 154
+              y: 323
+              raio: 17
+          - id: '02'
+            label: '02'
+            circulo:
+              x: 228
+              y: 350
+              raio: 17
+          - id: '03'
+            label: '03'
+            circulo:
+              x: 368
+              y: 557
+              raio: 17
+          - id: '04'
+            label: '04'
+            circulo:
+              x: 476
+              y: 584
+              raio: 17
+          - id: '05'
+            label: '05'
+            circulo:
+              x: 558
+              y: 589
+              raio: 17
+          - id: '06'
+            label: '06'
+            circulo:
+              x: 634
+              y: 581
+              raio: 17
+          - id: '07'
+            label: '07'
+            circulo:
+              x: 749
+              y: 609
+              raio: 17
+          - id: '08'
+            label: '08'
+            circulo:
+              x: 903
+              y: 565
+              raio: 17
+          - id: '11'
+            label: '11'
+            circulo:
+              x: 1113
+              y: 812
+              raio: 17
+          - id: '10'
+            label: '10'
+            circulo:
+              x: 1141
+              y: 878
+              raio: 17
+          - id: '09'
+            label: '09'
+            circulo:
+              x: 1166
+              y: 951
+              raio: 17
+          referencias:
+          - escalada: Filhos da Revolução
+            ids:
+            - '01'
+          - escalada: Pedra Vermelha
+            ids:
+            - '02'
+          - escalada: Projeto 1
+            ids:
+            - '03'
+            setor: Setor Família II
+          - escalada: Projeto 2
+            ids:
+            - '04'
+            setor: Setor Família II
+          - escalada: Via inacabada 1
+            ids:
+            - '05'
+            setor: Setor Família II
+          - escalada: Trinca Ferro
+            ids:
+            - '06'
+          - escalada: Marimbondes me Mordam
+            ids:
+            - '07'
+          - escalada: Pula Um
+            ids:
+            - '10'
+          - escalada: Cerro Azul
+            ids:
+            - '11'
+          - ids:
+            - '08'
+            setor: Setor Família II
+            escalada: Sumchine
+          - ids:
+            - '09'
+            setor: Setor Família II
+            escalada: Cater Pillar
+        - caminho_imagem_mapa: imagens/setor_familia_ii_p1.webp
+          largura_mapa: 1032
+          altura_mapa: 1442
+          pontos_de_interesse:
+          - id: '01'
+            label: '01'
+            circulo:
+              x: 270
+              y: 467
+              raio: 17
+          - id: '02'
+            label: '02'
+            circulo:
+              x: 278
+              y: 557
+              raio: 17
+          - id: '03'
+            label: '03'
+            circulo:
+              x: 285
+              y: 687
+              raio: 17
+          - id: '04'
+            label: '04'
+            circulo:
+              x: 277
+              y: 860
+              raio: 17
+          - id: '05'
+            label: '05'
+            circulo:
+              x: 298
+              y: 935
+              raio: 18
+          - id: '06'
+            label: '06'
+            circulo:
+              x: 314
+              y: 1037
+              raio: 17
+          - id: '07'
+            label: '07'
+            circulo:
+              x: 335
+              y: 1119
+              raio: 17
+          - id: '08'
+            label: '08'
+            circulo:
+              x: 415
+              y: 1149
+              raio: 17
+          - id: '11'
+            label: '11'
+            circulo:
+              x: 547
+              y: 1152
+              raio: 17
+          - id: '10'
+            label: '10'
+            circulo:
+              x: 518
+              y: 1187
+              raio: 17
+          - id: '09'
+            label: '09'
+            circulo:
+              x: 491
+              y: 1224
+              raio: 17
+          referencias:
+          - escalada: Filhos da Revolução
+            ids:
+            - '01'
+          - escalada: Pedra Vermelha
+            ids:
+            - '02'
+          - escalada: Projeto 1
+            ids:
+            - '03'
+            setor: Setor Família II
+          - escalada: Projeto 2
+            ids:
+            - '04'
+            setor: Setor Família II
+          - escalada: Via inacabada 1
+            ids:
+            - '05'
+            setor: Setor Família II
+          - escalada: Trinca Ferro
+            ids:
+            - '06'
+          - escalada: Marimbondes me Mordam
+            ids:
+            - '07'
+          - escalada: Pula Um
+            ids:
+            - '10'
+          - escalada: Cerro Azul
+            ids:
+            - '11'
+          - ids:
+            - '08'
+            setor: Setor Família II
+            escalada: Sumchine
+          - ids:
+            - '09'
+            setor: Setor Família II
+            escalada: Cater Pillar
+        escaladas:
+        - via_esportiva:
+            nome: Filhos da Revolução
+            dificuldade: BR_7A
+            quantidade_protecoes_intermediarias: 5
+            quantidade_protecoes_parada: 2
+            extensao: 10
+            conquistadores:
+            - Berbari
+            - Ró
+            - Toninho
+            data_abertura: '2012'
+        - via_esportiva:
+            nome: Pedra Vermelha
+            dificuldade: BR_7C
+            conquistadores:
+            - Berbari
+            - Ró
+            data_abertura: '2012'
+        - via_esportiva:
+            nome: Projeto 1
+            dificuldade: PROJETO
+            quantidade_protecoes_intermediarias: 4
+            quantidade_protecoes_parada: 2
+            extensao: 10
+            conquistadores:
+            - Berbari
+            data_abertura: '2012'
+        - via_esportiva:
+            nome: Projeto 2
+            dificuldade: PROJETO
+            quantidade_protecoes_intermediarias: 4
+            quantidade_protecoes_parada: 2
+            extensao: 10
+            conquistadores:
+            - Berbari
+            - Alex
+            data_abertura: '2012'
+        - via_esportiva:
+            nome: Via inacabada 1
+            dificuldade: INDEFINIDO
+            quantidade_protecoes_intermediarias: 3
+            quantidade_protecoes_parada: 2
+            extensao: 10
+            conquistadores:
+            - Berbari
+            - Alex
+            data_abertura: '2012'
+        - via_esportiva:
+            nome: Trinca Ferro
+            dificuldade: BR_8B
+            quantidade_protecoes_intermediarias: 6
+            quantidade_protecoes_parada: 2
+            extensao: 12
+            conquistadores:
+            - Berbari
+            data_abertura: '2013'
+        - via_esportiva:
+            nome: Marimbondes me Mordam
+            dificuldade: BR_7C
+            quantidade_protecoes_intermediarias: 4
+            quantidade_protecoes_parada: 2
+            extensao: 8
+            conquistadores:
+            - Berbari
+            - Ró
+            data_abertura: '2009'
+        - via_esportiva:
+            nome: Sumchine
+            dificuldade: BR_6SUP_BARRA_7A
+            quantidade_protecoes_intermediarias: 3
+            quantidade_protecoes_parada: 2
+            extensao: 7
+            conquistadores:
+            - Berbari
+            - Ró
+            data_abertura: '2009'
+        - via_esportiva:
+            nome: Cater Pillar
+            dificuldade: BR_6
+            quantidade_protecoes_intermediarias: 2
+            quantidade_protecoes_parada: 2
+            extensao: 7
+            conquistadores:
+            - Berbari
+            - Ró
+            - Cater
+            data_abertura: '2009'
+        - via_esportiva:
+            nome: Pula Um
+            dificuldade: BR_5
+            quantidade_protecoes_intermediarias: 2
+            quantidade_protecoes_parada: 2
+            extensao: 7
+            conquistadores:
+            - Berbari
+            - Ró
+            data_abertura: '2009'
+        - via_esportiva:
+            nome: Cerro Azul
+            dificuldade: BR_6_BARRA_6SUP
+            quantidade_protecoes_intermediarias: 5
+            quantidade_protecoes_parada: 2
+            extensao: 15
+            conquistadores:
+            - Berbari
+            - Ró
+            data_abertura: '2009'
+        descricao: '# Setor Família II
+
+
+          Sombra após 14h (varia de acordo com a estação).
+
+
+          Veja a trilha para chegar ao Família II no WikiLoc (começando a partir do
+          Família I): https://loc.wiki/t/157623201?wa=sc'
+        precomputados:
+          total_escaladas: 11
+          total_esportivas: 11
+  - setor:
+      conteudo:
+        nome: Bloco Democracia
+        descricao: 'Trilha para chegar ao setor: https://loc.wiki/t/169745893?wa=sc'
+        precomputados: {}
+  - setor:
+      conteudo:
+        nome: Setor Micos
+        mapas:
+        - caminho_imagem_mapa: imagens/setor_micos_p0.webp
+          largura_mapa: 1861
+          altura_mapa: 1246
+          pontos_de_interesse:
+          - id: '01'
+            label: '01'
+            circulo:
+              x: 667
+              y: 711
+              raio: 17
+          - id: '02'
+            label: '02'
+            circulo:
+              x: 696
+              y: 755
+              raio: 17
+          referencias:
+          - escalada: Eu Também Vou
+            ids:
+            - '01'
+          - escalada: Lambe Lambe
+            ids:
+            - '02'
+        - caminho_imagem_mapa: imagens/setor_micos_p1.webp
+          largura_mapa: 1101
+          altura_mapa: 1234
+          pontos_de_interesse:
+          - id: '01'
+            label: '01'
+            circulo:
+              x: 343
+              y: 699
+              raio: 17
+          - id: '07'
+            label: '07'
+            circulo:
+              x: 968
+              y: 727
+              raio: 17
+          - id: '06'
+            label: '06'
+            circulo:
+              x: 874
+              y: 748
+              raio: 17
+          - id: '05'
+            label: '05'
+            circulo:
+              x: 862
+              y: 804
+              raio: 17
+          - id: '02'
+            label: '02'
+            circulo:
+              x: 368
+              y: 838
+              raio: 17
+          - id: '04'
+            label: '04'
+            circulo:
+              x: 839
+              y: 906
+              raio: 17
+          - id: '03'
+            label: '03'
+            circulo:
+              x: 821
+              y: 1015
+              raio: 17
+          referencias:
+          - escalada: Eu Também Vou
+            ids:
+            - '01'
+          - escalada: Lambe Lambe
+            ids:
+            - '02'
+          - escalada: TNT
+            ids:
+            - '03'
+          - escalada: For My Brother
+            ids:
+            - '04'
+          - escalada: Diamante Negro
+            ids:
+            - '05'
+          - escalada: Chapa Quente
+            ids:
+            - '06'
+          - escalada: Via inacabada 2
+            ids:
+            - '07'
+            setor: Setor Micos
+        - caminho_imagem_mapa: imagens/setor_micos_p2.webp
+          largura_mapa: 1119
+          altura_mapa: 840
+          pontos_de_interesse:
+          - id: '03'
+            label: '03'
+            circulo:
+              x: 295
+              y: 782
+              raio: 17
+          - id: '04'
+            label: '04'
+            circulo:
+              x: 376
+              y: 803
+              raio: 17
+          - id: '05'
+            label: '05'
+            circulo:
+              x: 480
+              y: 821
+              raio: 17
+          - id: '06'
+            label: '06'
+            circulo:
+              x: 590
+              y: 821
+              raio: 17
+          - id: '07'
+            label: '07'
+            circulo:
+              x: 681
+              y: 811
+              raio: 17
+          referencias:
+          - escalada: TNT
+            ids:
+            - '03'
+          - escalada: For My Brother
+            ids:
+            - '04'
+          - escalada: Diamante Negro
+            ids:
+            - '05'
+          - escalada: Chapa Quente
+            ids:
+            - '06'
+          - escalada: Via inacabada 2
+            ids:
+            - '07'
+            setor: Setor Micos
+        escaladas:
+        - via_esportiva:
+            nome: Eu Também Vou
+            dificuldade: BR_7A
+            quantidade_protecoes_intermediarias: 4
+            quantidade_protecoes_parada: 2
+            extensao: 12
+            conquistadores:
+            - Berbari
+            - Ró
+            data_abertura: '2011'
+        - via_esportiva:
+            nome: Lambe Lambe
+            dificuldade: BR_7A
+            quantidade_protecoes_intermediarias: 4
+            quantidade_protecoes_parada: 2
+            extensao: 12
+            conquistadores:
+            - Berbari
+            - Toninho
+            data_abertura: '2011'
+        - via_esportiva:
+            nome: TNT
+            dificuldade: BR_9B
+            quantidade_protecoes_intermediarias: 4
+            quantidade_protecoes_parada: 2
+            extensao: 12
+            conquistadores:
+            - Berbari
+            - Ró
+            data_abertura: '2011'
+        - via_esportiva:
+            nome: For My Brother
+            dificuldade: BR_8A
+            quantidade_protecoes_intermediarias: 4
+            quantidade_protecoes_parada: 2
+            extensao: 12
+            conquistadores:
+            - Berbari
+            - Ró
+            data_abertura: '2011'
+        - via_esportiva:
+            nome: Diamante Negro
+            dificuldade: BR_8B
+            quantidade_protecoes_intermediarias: 4
+            quantidade_protecoes_parada: 2
+            extensao: 12
+            conquistadores:
+            - Berbari
+            - Ró
+            - Chinha
+            - Rômulo
+            data_abertura: '2011'
+        - via_esportiva:
+            nome: Chapa Quente
+            dificuldade: BR_7C
+            quantidade_protecoes_intermediarias: 4
+            quantidade_protecoes_parada: 2
+            extensao: 12
+            conquistadores:
+            - Berbari
+            - Ró
+            - Chinha
+            - Rômulo
+            data_abertura: '2011'
+        - via_esportiva:
+            nome: Via inacabada 2
+            dificuldade: INDEFINIDO
+            quantidade_protecoes_intermediarias: 0
+            quantidade_protecoes_parada: 2
+            extensao: 12
+            conquistadores:
+            - Berbari
+            - Chinha
+            data_abertura: '2011'
+        descricao: '# Setor Micos
+
+
+          Sombra até 11h e após 15h.
+
+          Risco de agarras se quebrarem e pedras soltas, é recomendado o uso de capacete
+          ao escalar e nas bases das vias.
+
+          Escalar com a corda passada na primeira proteção nas vias esportivas.
+
+          Siga a trilha a partir do estacionamento até onde o tronco atravessa o caminho.
+          A rocha fica logo a direita.
+
+
+          Veja a trilha para chegar ao setor no WikiLoc: https://loc.wiki/t/157666336?wa=sc'
+        precomputados:
+          total_escaladas: 7
+          total_esportivas: 7
+  - setor:
+      conteudo:
+        nome: Setor Igarameca
+        mapas:
+        - caminho_imagem_mapa: imagens/setor_igarameca_p0.webp
+          largura_mapa: 2048
+          altura_mapa: 1232
+          pontos_de_interesse:
+          - id: '01'
+            label: '01'
+            circulo:
+              x: 317
+              y: 1001
+              raio: 15
+          - id: '02'
+            label: '02'
+            circulo:
+              x: 341
+              y: 956
+              raio: 15
+          - id: '03'
+            label: '03'
+            circulo:
+              x: 329
+              y: 656
+              raio: 15
+          - id: '04'
+            label: '04'
+            circulo:
+              x: 327
+              y: 622
+              raio: 15
+          - id: '05'
+            label: '05'
+            circulo:
+              x: 521
+              y: 699
+              raio: 15
+          - id: '06'
+            label: '06'
+            circulo:
+              x: 612
+              y: 711
+              raio: 15
+          - id: '07'
+            label: '07'
+            circulo:
+              x: 643
+              y: 428
+              raio: 15
+          - id: '08'
+            label: '08'
+            circulo:
+              x: 649
+              y: 772
+              raio: 15
+          - id: '09'
+            label: '09'
+            circulo:
+              x: 707
+              y: 815
+              raio: 15
+          - id: '10'
+            label: '10'
+            circulo:
+              x: 797
+              y: 897
+              raio: 15
+          - id: '11'
+            label: '11'
+            circulo:
+              x: 878
+              y: 941
+              raio: 15
+          - id: '12'
+            label: '12'
+            circulo:
+              x: 940
+              y: 968
+              raio: 15
+          - id: '13'
+            label: '13'
+            circulo:
+              x: 1065
+              y: 1002
+              raio: 15
+          - id: '14'
+            label: '14'
+            circulo:
+              x: 1120
+              y: 1015
+              raio: 15
+          - id: '15'
+            label: '15'
+            circulo:
+              x: 1186
+              y: 1084
+              raio: 15
+          - id: '16'
+            label: '16'
+            circulo:
+              x: 1239
+              y: 1103
+              raio: 15
+          - id: '17'
+            label: '17'
+            circulo:
+              x: 1277
+              y: 1162
+              raio: 16
+          - id: '18'
+            label: '18'
+            circulo:
+              x: 1345
+              y: 1216
+              raio: 15
+          - id: '19'
+            label: '19'
+            circulo:
+              x: 1395
+              y: 1218
+              raio: 15
+          - id: '20'
+            label: '20'
+            circulo:
+              x: 1413
+              y: 1193
+              raio: 15
+          - id: '21'
+            label: '21'
+            circulo:
+              x: 1438
+              y: 1173
+              raio: 15
+          referencias:
+          - escalada: Beatrix
+            ids:
+            - '01'
+          - escalada: Na Boca da Gruta Tem Dente
+            ids:
+            - '02'
+          - escalada: Sunday Bloody Sunday
+            ids:
+            - '03'
+          - escalada: People Let's Stop The War
+            ids:
+            - '04'
+          - escalada: Apolo 13
+            ids:
+            - '05'
+          - escalada: Liga Extraordinária
+            ids:
+            - '06'
+          - escalada: Poneis Malditos
+            ids:
+            - '07'
+          - escalada: U.F.O
+            ids:
+            - '10'
+          - escalada: 127 Horas
+            ids:
+            - '11'
+          - escalada: Lero Lero é Mato
+            ids:
+            - '12'
+          - escalada: Renegados de Igarapé
+            ids:
+            - '13'
+          - escalada: Coisa Linda
+            ids:
+            - '14'
+          - escalada: Doce Veneno
+            ids:
+            - '15'
+          - escalada: Alguém Tem Que Ceder
+            ids:
+            - '16'
+          - escalada: Napa
+            ids:
+            - '17'
+          - escalada: Alpes Suínos*
+            ids:
+            - '18'
+          - escalada: Viagem ao Centro da Terra
+            ids:
+            - '19'
+          - escalada: Rolitos
+            ids:
+            - '20'
+          - escalada: Balança Mas Não Cai
+            ids:
+            - '21'
+          - ids:
+            - '08'
+            setor: Setor Igarameca
+            escalada: I Like This
+          - ids:
+            - '09'
+            setor: Setor Igarameca
+            escalada: Igarameca
+        - caminho_imagem_mapa: imagens/setor_igarameca_p1.webp
+          largura_mapa: 1022
+          altura_mapa: 1450
+          pontos_de_interesse:
+          - id: '01'
+            label: '01'
+            circulo:
+              x: 215
+              y: 534
+              raio: 17
+          - id: '02'
+            label: '02'
+            circulo:
+              x: 328
+              y: 520
+              raio: 17
+          - id: '03'
+            label: '03'
+            circulo:
+              x: 396
+              y: 509
+              raio: 17
+          - id: '04'
+            label: '04'
+            circulo:
+              x: 433
+              y: 502
+              raio: 17
+          - id: '05'
+            label: '05'
+            circulo:
+              x: 450
+              y: 572
+              raio: 17
+          - id: '06'
+            label: '06'
+            circulo:
+              x: 477
+              y: 626
+              raio: 17
+          - id: '07'
+            label: '07'
+            circulo:
+              x: 529
+              y: 648
+              raio: 17
+          - id: '08'
+            label: '08'
+            circulo:
+              x: 486
+              y: 680
+              raio: 17
+          - id: '09'
+            label: '09'
+            circulo:
+              x: 460
+              y: 744
+              raio: 17
+          - id: '10'
+            label: '10'
+            circulo:
+              x: 436
+              y: 784
+              raio: 17
+          - id: '11'
+            label: '11'
+            circulo:
+              x: 412
+              y: 823
+              raio: 17
+          - id: '12'
+            label: '12'
+            circulo:
+              x: 397
+              y: 887
+              raio: 17
+          - id: '13'
+            label: '13'
+            circulo:
+              x: 402
+              y: 938
+              raio: 17
+          - id: '14'
+            label: '14'
+            circulo:
+              x: 393
+              y: 975
+              raio: 17
+          - id: '15'
+            label: '15'
+            circulo:
+              x: 381
+              y: 1037
+              raio: 17
+          - id: '16'
+            label: '16'
+            circulo:
+              x: 363
+              y: 1074
+              raio: 17
+          - id: '17'
+            label: '17'
+            circulo:
+              x: 337
+              y: 1104
+              raio: 17
+          - id: '18'
+            label: '18'
+            circulo:
+              x: 296
+              y: 1142
+              raio: 17
+          - id: '19'
+            label: '19'
+            circulo:
+              x: 319
+              y: 1216
+              raio: 17
+          - id: '20'
+            label: '20'
+            circulo:
+              x: 367
+              y: 1274
+              raio: 18
+          referencias:
+          - escalada: Beatrix
+            ids:
+            - '01'
+          - escalada: Na Boca da Gruta Tem Dente
+            ids:
+            - '02'
+          - escalada: Sunday Bloody Sunday
+            ids:
+            - '03'
+          - escalada: People Let's Stop The War
+            ids:
+            - '04'
+          - escalada: Apolo 13
+            ids:
+            - '05'
+          - escalada: Liga Extraordinária
+            ids:
+            - '06'
+          - escalada: Poneis Malditos
+            ids:
+            - '07'
+          - escalada: U.F.O
+            ids:
+            - '10'
+          - escalada: 127 Horas
+            ids:
+            - '11'
+          - escalada: Lero Lero é Mato
+            ids:
+            - '12'
+          - escalada: Renegados de Igarapé
+            ids:
+            - '13'
+          - escalada: Coisa Linda
+            ids:
+            - '14'
+          - escalada: Doce Veneno
+            ids:
+            - '15'
+          - escalada: Alguém Tem Que Ceder
+            ids:
+            - '16'
+          - escalada: Napa
+            ids:
+            - '17'
+          - escalada: Alpes Suínos*
+            ids:
+            - '18'
+          - escalada: Viagem ao Centro da Terra
+            ids:
+            - '19'
+          - escalada: Rolitos
+            ids:
+            - '20'
+          - ids:
+            - '08'
+            setor: Setor Igarameca
+            escalada: I Like This
+          - ids:
+            - '09'
+            setor: Setor Igarameca
+            escalada: Igarameca
+        - caminho_imagem_mapa: imagens/setor_igarameca_p2.webp
+          largura_mapa: 938
+          altura_mapa: 530
+          pontos_de_interesse:
+          - id: '04'
+            label: '04'
+            circulo:
+              x: 515
+              y: 326
+              raio: 17
+          - id: '03'
+            label: '03'
+            circulo:
+              x: 484
+              y: 369
+              raio: 17
+          - id: '02'
+            label: '02'
+            circulo:
+              x: 389
+              y: 490
+              raio: 17
+          - id: '01'
+            label: '01'
+            circulo:
+              x: 218
+              y: 508
+              raio: 17
+          referencias:
+          - escalada: Beatrix
+            ids:
+            - '01'
+          - escalada: Na Boca da Gruta Tem Dente
+            ids:
+            - '02'
+          - escalada: Sunday Bloody Sunday
+            ids:
+            - '03'
+          - escalada: People Let's Stop The War
+            ids:
+            - '04'
+        escaladas:
+        - via_esportiva:
+            nome: Beatrix
+            dificuldade: BR_5
+            quantidade_protecoes_intermediarias: 4
+            quantidade_protecoes_parada: 2
+            extensao: 8
+            conquistadores:
+            - Berbari
+            - Toninho
+            data_abertura: '2023'
+        - via_esportiva:
+            nome: Na Boca da Gruta Tem Dente
+            dificuldade: BR_7B
+            quantidade_protecoes_intermediarias: 6
+            quantidade_protecoes_parada: 2
+            extensao: 16
+            conquistadores:
+            - Berbari
+            - Toninho
+            - Alex
+            data_abertura: '2004'
+        - via_esportiva:
+            nome: Sunday Bloody Sunday
+            dificuldade: BR_8C
+            quantidade_protecoes_intermediarias: 6
+            quantidade_protecoes_parada: 2
+            extensao: 14
+            conquistadores:
+            - Berbari
+            - Alex
+            - Ruy
+            data_abertura: '2006'
+        - via_esportiva:
+            nome: People Let's Stop The War
+            dificuldade: BR_8B
+            quantidade_protecoes_intermediarias: 6
+            quantidade_protecoes_parada: 2
+            extensao: 14
+            conquistadores:
+            - Berbari
+            - Alex
+            - Toninho
+            data_abertura: '2006'
+        - via_esportiva:
+            nome: Apolo 13
+            dificuldade: BR_10B
+            quantidade_protecoes_intermediarias: 8
+            quantidade_protecoes_parada: 2
+            extensao: 20
+            conquistadores:
+            - Berbari
+            - Moleza
+            - Alex
+            - Chinha
+            data_abertura: '2012'
+        - via_esportiva:
+            nome: Liga Extraordinária
+            dificuldade: BR_9C
+            quantidade_protecoes_intermediarias: 9
+            quantidade_protecoes_parada: 2
+            extensao: 25
+            conquistadores:
+            - Berbari
+            - Moleza
+            - Alex
+            data_abertura: '2012'
+        - via_esportiva:
+            nome: Poneis Malditos
+            dificuldade: BR_9B
+            quantidade_protecoes_intermediarias: 11
+            quantidade_protecoes_parada: 2
+            extensao: 25
+            conquistadores:
+            - Berbari
+            - Moleza
+            - Alex
+            data_abertura: '2011'
+        - via_esportiva:
+            nome: I Like This
+            dificuldade: BR_8B
+            quantidade_protecoes_intermediarias: 13
+            quantidade_protecoes_parada: 2
+            extensao: 30
+            conquistadores:
+            - Berbari
+            - Alex
+            - Toninho
+            data_abertura: '2010'
+            descricao: Variante da Boneis Malditos.
+        - via_multiplas_enfiadas:
+            nome: Igarameca
+            dificuldade_media: BR_7B
+            dificuldade_maxima: BR_9A
+            numero_enfiadas: 2
+            comprimento_total: 10
+            conquistadores:
+            - Berbari
+            - Toninho
+            - Pilão
+            data_abertura: '2022'
+            enfiadas:
+            - via_esportiva:
+                nome: Enfiada 1
+                dificuldade: BR_7B
+                quantidade_protecoes_intermediarias: 5
+                quantidade_protecoes_parada: 2
+            - via_esportiva:
+                nome: Enfiada 2
+                dificuldade: BR_9A
+                quantidade_protecoes_intermediarias: 5
+                quantidade_protecoes_parada: 2
+        - via_esportiva:
+            nome: U.F.O
+            dificuldade: BR_7B
+            quantidade_protecoes_intermediarias: 5
+            quantidade_protecoes_parada: 2
+            extensao: 12
+            conquistadores:
+            - Berbari
+            - Bunitinho
+            - Chinha
+            - Toninho
+            data_abertura: '2022'
+        - via_esportiva:
+            nome: 127 Horas
+            dificuldade: BR_7C
+            quantidade_protecoes_intermediarias: 6
+            quantidade_protecoes_parada: 2
+            extensao: 14
+            conquistadores:
+            - Berbari
+            - Bunitinho
+            - Chinha
+            data_abertura: '2022'
+        - via_esportiva:
+            nome: Lero Lero é Mato
+            dificuldade: INDEFINIDO
+            quantidade_protecoes_intermediarias: 6
+            quantidade_protecoes_parada: 2
+            extensao: 15
+            conquistadores:
+            - Berbari
+            - Bunitinho
+            - Chinha
+            data_abertura: '2022'
+        - via_esportiva:
+            nome: Renegados de Igarapé
+            dificuldade: BR_7B
+            quantidade_protecoes_intermediarias: 9
+            quantidade_protecoes_parada: 2
+            extensao: 23
+            conquistadores:
+            - Berbari
+            - Bunitinho
+            - Chinha
+            - Bolinha
+            data_abertura: '2022'
+        - via_esportiva:
+            nome: Coisa Linda
+            dificuldade: BR_8B
+            quantidade_protecoes_intermediarias: 8
+            quantidade_protecoes_parada: 2
+            extensao: 23
+            conquistadores:
+            - Bunitinho
+            - Bolinha
+            data_abertura: '2022'
+        - via_esportiva:
+            nome: Doce Veneno
+            dificuldade: BR_7A
+            quantidade_protecoes_intermediarias: 6
+            quantidade_protecoes_parada: 2
+            extensao: 15
+            conquistadores:
+            - Berbari
+            - Bunitinho
+            - Chinha
+            data_abertura: '2022'
+        - via_esportiva:
+            nome: Alguém Tem Que Ceder
+            dificuldade: BR_7C
+            quantidade_protecoes_intermediarias: 7
+            quantidade_protecoes_parada: 2
+            extensao: 16
+            conquistadores:
+            - Berbari
+            - Bunitinho
+            - Chinha
+            data_abertura: '2022'
+        - via_esportiva:
+            nome: Napa
+            dificuldade: BR_7B
+            quantidade_protecoes_intermediarias: 10
+            quantidade_protecoes_parada: 2
+            extensao: 20
+            conquistadores:
+            - Berbari
+            - Toninho
+            data_abertura: '2022'
+        - via_esportiva:
+            nome: Alpes Suínos*
+            dificuldade: BR_6SUP
+            quantidade_protecoes_intermediarias: 16
+            quantidade_protecoes_parada: 2
+            extensao: 35
+            conquistadores:
+            - Berbari
+            - Toninho
+            data_abertura: '2022'
+        - via_esportiva:
+            nome: Viagem ao Centro da Terra
+            dificuldade: BR_6
+            quantidade_protecoes_intermediarias: 14
+            quantidade_protecoes_parada: 2
+            extensao: 35
+            conquistadores:
+            - Berbari
+            - Toninho
+            data_abertura: '2022'
+        - via_esportiva:
+            nome: Rolitos
+            dificuldade: INDEFINIDO
+            quantidade_protecoes_intermediarias: 1
+            quantidade_protecoes_parada: 0
+            conquistadores:
+            - Bunitin
+            descricao: Via inacabada.
+        - via_esportiva:
+            nome: Balança Mas Não Cai
+            dificuldade: BR_6
+            quantidade_protecoes_intermediarias: 10
+            quantidade_protecoes_parada: 2
+            extensao: 25
+            conquistadores:
+            - Bunitinho
+            - Marcão
+            data_abertura: '2022'
+        descricao: '# Setor Igarameca
+
+
+          Sombra após 12h (varia de acordo com a estação).
+
+
+          Veja a trilha para chegar ao setor no WikiLoc: https://loc.wiki/t/160199352?wa=sc'
+        precomputados:
+          total_escaladas: 21
+          total_esportivas: 20
+          total_multiplas_enfiadas: 1
+  - setor:
+      conteudo:
+        nome: Setor Totem
+        mapas:
+        - caminho_imagem_mapa: imagens/setor_totem_p0.webp
+          largura_mapa: 1112
+          altura_mapa: 1418
+          pontos_de_interesse:
+          - id: '01'
+            label: '01'
+            circulo:
+              x: 216
+              y: 1397
+              raio: 17
+          - id: '02'
+            label: '02'
+            circulo:
+              x: 561
+              y: 1206
+              raio: 17
+          - id: '03'
+            label: '03'
+            circulo:
+              x: 806
+              y: 1040
+              raio: 17
+          - id: '04'
+            label: '04'
+            circulo:
+              x: 917
+              y: 972
+              raio: 17
+          referencias:
+          - escalada: Takeyeasy
+            ids:
+            - '01'
+          - escalada: Pâncepis
+            ids:
+            - '02'
+          - escalada: Totem
+            ids:
+            - '03'
+          - escalada: '69'
+            ids:
+            - '04'
+        - caminho_imagem_mapa: imagens/setor_totem_p1.webp
+          largura_mapa: 1114
+          altura_mapa: 917
+          pontos_de_interesse:
+          - id: '01'
+            label: '01'
+            circulo:
+              x: 394
+              y: 644
+              raio: 17
+          - id: '02'
+            label: '02'
+            circulo:
+              x: 628
+              y: 715
+              raio: 17
+          - id: '03'
+            label: '03'
+            circulo:
+              x: 826
+              y: 750
+              raio: 17
+          - id: '04'
+            label: '04'
+            circulo:
+              x: 892
+              y: 788
+              raio: 17
+          referencias:
+          - escalada: Takeyeasy
+            ids:
+            - '01'
+          - escalada: Pâncepis
+            ids:
+            - '02'
+          - escalada: Totem
+            ids:
+            - '03'
+          - escalada: '69'
+            ids:
+            - '04'
+        escaladas:
+        - via_esportiva:
+            nome: Takeyeasy
+            dificuldade: BR_6
+            quantidade_protecoes_intermediarias: 4
+            quantidade_protecoes_parada: 2
+            extensao: 10
+            conquistadores:
+            - Berbari
+            - Chinha
+            - Ró
+            - Alexandre
+            data_abertura: '2005'
+            descricao: 'INTERDITADA: TOPS FORAM ROUBADOS'
+        - via_esportiva:
+            nome: Pâncepis
+            dificuldade: BR_7B
+            quantidade_protecoes_intermediarias: 4
+            quantidade_protecoes_parada: 2
+            extensao: 10
+            conquistadores:
+            - Berbari
+            - Chinha
+            - Ró
+            - Alexandre
+            data_abertura: '2005'
+            descricao: 'INTERDITADA: TOPS FORAM ROUBADOS'
+        - via_esportiva:
+            nome: Totem
+            dificuldade: BR_8A
+            quantidade_protecoes_intermediarias: 4
+            quantidade_protecoes_parada: 2
+            extensao: 10
+            conquistadores:
+            - Berbari
+            - Chinha
+            - Ró
+            - Alex
+            - Ruy
+            data_abertura: '2005'
+        - via_esportiva:
+            nome: '69'
+            dificuldade: BR_8B
+            quantidade_protecoes_intermediarias: 4
+            quantidade_protecoes_parada: 2
+            extensao: 10
+            conquistadores:
+            - Berbari
+            - Tchoco
+            - Tonin
+            - Alex
+            - Ruy
+            data_abertura: '2005'
+        descricao: '# Setor Totem
+
+
+          Sombra até 10h e após 16h.
+
+
+          Veja a trilha para chegar ao setor no WikiLoc: https://loc.wiki/t/160199352?wa=sc'
+        precomputados:
+          total_escaladas: 4
+          total_esportivas: 4
+  - setor:
+      conteudo:
+        nome: Setor Pracinha
+        mapas:
+        - caminho_imagem_mapa: imagens/setor_pracinha_p0.webp
+          largura_mapa: 1107
+          altura_mapa: 1413
+          pontos_de_interesse:
+          - id: '01'
+            label: '01'
+            circulo:
+              x: 761
+              y: 782
+              raio: 17
+          - id: '02'
+            label: '02'
+            circulo:
+              x: 732
+              y: 757
+              raio: 17
+          - id: '03'
+            label: '03'
+            circulo:
+              x: 697
+              y: 746
+              raio: 17
+          - id: '04'
+            label: '04'
+            circulo:
+              x: 668
+              y: 717
+              raio: 17
+          - id: '05'
+            label: '05'
+            circulo:
+              x: 697
+              y: 641
+              raio: 17
+          - id: '06'
+            label: '06'
+            circulo:
+              x: 734
+              y: 649
+              raio: 17
+          - id: '07'
+            label: '07'
+            circulo:
+              x: 768
+              y: 663
+              raio: 17
+          - id: '08'
+            label: '08'
+            circulo:
+              x: 805
+              y: 663
+              raio: 17
+          - id: '09'
+            label: '09'
+            circulo:
+              x: 962
+              y: 526
+              raio: 17
+          referencias:
+          - escalada: Conflito sensual
+            ids:
+            - '01'
+          - escalada: Duracell
+            ids:
+            - '02'
+          - escalada: Djavú
+            ids:
+            - '03'
+          - escalada: Muita coisa envolvida
+            ids:
+            - '04'
+          - escalada: Netfrix
+            ids:
+            - '05'
+          - escalada: Pouca prática
+            ids:
+            - '06'
+          - escalada: Vainafé
+            ids:
+            - '07'
+          - ids:
+            - '08'
+            setor: Setor Pracinha
+            escalada: People crazy
+          - ids:
+            - '09'
+            setor: Setor Trad
+            escalada: Aresta Daniel
+        - caminho_imagem_mapa: imagens/setor_pracinha_p2.webp
+          largura_mapa: 1109
+          altura_mapa: 1413
+          pontos_de_interesse:
+          - id: '01'
+            label: '01'
+            circulo:
+              x: 349
+              y: 855
+              raio: 17
+          - id: '02'
+            label: '02'
+            circulo:
+              x: 606
+              y: 876
+              raio: 17
+          - id: '03'
+            label: '03'
+            circulo:
+              x: 646
+              y: 870
+              raio: 17
+          - id: '04'
+            label: '04'
+            circulo:
+              x: 725
+              y: 867
+              raio: 17
+          referencias:
+          - escalada: Conflito sensual
+            ids:
+            - '01'
+          - escalada: Duracell
+            ids:
+            - '02'
+          - escalada: Djavú
+            ids:
+            - '03'
+          - escalada: Muita coisa envolvida
+            ids:
+            - '04'
+        - caminho_imagem_mapa: imagens/setor_pracinha_p3.webp
+          largura_mapa: 1109
+          altura_mapa: 1391
+          pontos_de_interesse:
+          - id: P1
+            label: P1
+            circulo:
+              x: 764
+              y: 151
+              raio: 18
+          - id: '05'
+            label: '05'
+            circulo:
+              x: 199
+              y: 665
+              raio: 17
+          - id: '06'
+            label: '06'
+            circulo:
+              x: 285
+              y: 731
+              raio: 17
+          - id: '07'
+            label: '07'
+            circulo:
+              x: 409
+              y: 915
+              raio: 17
+          - id: '08'
+            label: '08'
+            circulo:
+              x: 481
+              y: 1037
+              raio: 17
+          - id: '09'
+            label: '09'
+            circulo:
+              x: 1007
+              y: 1164
+              raio: 17
+          referencias:
+          - escalada: Netfrix
+            ids:
+            - '05'
+          - escalada: Pouca prática
+            ids:
+            - '06'
+          - escalada: Vainafé
+            ids:
+            - '07'
+          - ids:
+            - '08'
+            setor: Setor Pracinha
+            escalada: People crazy
+          - ids:
+            - '09'
+            - P1
+            setor: Setor Trad
+            escalada: Aresta Daniel
+        escaladas:
+        - via_esportiva:
+            nome: Conflito sensual
+            dificuldade: PROJETO
+            quantidade_protecoes_intermediarias: 10
+            quantidade_protecoes_parada: 2
+            extensao: 20
+            conquistadores:
+            - Berbari
+            - Bunitin
+            data_abertura: '2022'
+        - via_esportiva:
+            nome: Duracell
+            dificuldade: BR_8C
+            quantidade_protecoes_intermediarias: 9
+            quantidade_protecoes_parada: 2
+            extensao: 22
+            conquistadores:
+            - Bunitin
+            - Marcão
+            data_abertura: '2022'
+        - via_esportiva:
+            nome: Djavú
+            dificuldade: BR_8B
+            quantidade_protecoes_intermediarias: 9
+            quantidade_protecoes_parada: 2
+            extensao: 22
+            conquistadores:
+            - Berbari
+            - Chinha
+            - Tonin
+            data_abertura: '2022'
+        - via_esportiva:
+            nome: Muita coisa envolvida
+            dificuldade: BR_8A
+            quantidade_protecoes_intermediarias: 10
+            quantidade_protecoes_parada: 2
+            extensao: 22
+            conquistadores:
+            - Berbari
+            - Tonin
+            data_abertura: '2022'
+        - via_esportiva:
+            nome: Netfrix
+            dificuldade: BR_7A
+            quantidade_protecoes_intermediarias: 6
+            quantidade_protecoes_parada: 2
+            extensao: 18
+            conquistadores:
+            - Berbari
+            - Tonin
+            data_abertura: '2022'
+        - via_esportiva:
+            nome: Pouca prática
+            dificuldade: BR_6SUP
+            quantidade_protecoes_intermediarias: 7
+            quantidade_protecoes_parada: 2
+            extensao: 18
+            conquistadores:
+            - Berbari
+            - Tonin
+            data_abertura: '2022'
+        - via_esportiva:
+            nome: Vainafé
+            dificuldade: BR_7A
+            quantidade_protecoes_intermediarias: 8
+            quantidade_protecoes_parada: 2
+            extensao: 18
+            conquistadores:
+            - Berbari
+            - Tonin
+            data_abertura: '2022'
+        - via_esportiva:
+            nome: People crazy
+            dificuldade: BR_6SUP
+            quantidade_protecoes_intermediarias: 9
+            quantidade_protecoes_parada: 2
+            extensao: 20
+            conquistadores:
+            - Berbari
+            - Toninho
+            data_abertura: '2022'
+        descricao: '# Setor Pracinha
+
+
+          | ![Setor pracinha](imagens/setor_pracinha_p1.webp) |
+
+          | :--: |
+
+          | *Setor pracinha* |
+
+
+          Sombra o dia todo (varia de acordo com a estação).'
+        precomputados:
+          total_escaladas: 8
+          total_esportivas: 8
+  - setor:
+      conteudo:
+        nome: Setor dos Tetos
+        mapas:
+        - caminho_imagem_mapa: imagens/setor_tetos_p0.webp
+          largura_mapa: 1201
+          altura_mapa: 1413
+          pontos_de_interesse:
+          - id: '01'
+            label: '01'
+            circulo:
+              x: 21
+              y: 1383
+              raio: 17
+          - id: '02'
+            label: '02'
+            circulo:
+              x: 472
+              y: 1389
+              raio: 17
+          - id: '03'
+            label: '03'
+            circulo:
+              x: 753
+              y: 1300
+              raio: 17
+          - id: '04'
+            label: '04'
+            circulo:
+              x: 823
+              y: 1252
+              raio: 17
+          - id: '05'
+            label: '05'
+            circulo:
+              x: 849
+              y: 1157
+              raio: 17
+          - id: '06'
+            label: '06'
+            circulo:
+              x: 1063
+              y: 1193
+              raio: 17
+          - id: '07'
+            label: '07'
+            circulo:
+              x: 1091
+              y: 1228
+              raio: 17
+          - id: '08'
+            label: '08'
+            circulo:
+              x: 1112
+              y: 1266
+              raio: 17
+          - id: '09'
+            label: '09'
+            circulo:
+              x: 1140
+              y: 1313
+              raio: 17
+          - id: '10'
+            label: '10'
+            circulo:
+              x: 1178
+              y: 1324
+              raio: 17
+          referencias:
+          - escalada: A Quina
+            ids:
+            - '02'
+            setor: Setor Trad
+          - escalada: Pachamama
+            ids:
+            - '03'
+            setor: Setor Trad
+          - escalada: Baba Yaga
+            ids:
+            - '04'
+          - escalada: Soy Loco Por Ti América
+            ids:
+            - '05'
+          - escalada: Afrodite
+            ids:
+            - '06'
+          - escalada: Ponto de Equilíbrio
+            ids:
+            - '07'
+          - escalada: Deu Nois
+            ids:
+            - '10'
+          - escalada: Aresta Daniel
+            ids:
+            - '01'
+            setor: Setor Trad
+          - ids:
+            - '08'
+            setor: Setor dos Tetos
+            escalada: Lilith
+          - ids:
+            - '09'
+            setor: Setor dos Tetos
+            escalada: Deu Brasil
+        escaladas:
+        - via_esportiva:
+            nome: Baba Yaga
+            dificuldade: BR_5
+            conquistadores:
+            - Berbari
+            - Neander
+            - Bunitin
+            - Ana
+            data_abertura: '2024'
+            descricao: Via inacabada.
+        - via_esportiva:
+            nome: Soy Loco Por Ti América
+            dificuldade: BR_9C_BARRA_10A
+            extensao: 30
+            quantidade_protecoes_intermediarias: 12
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Berbari
+            - Chinha
+            data_abertura: '2016'
+        - via_esportiva:
+            nome: Afrodite
+            dificuldade: BR_7B
+            conquistadores:
+            - Bunitinho
+            - Clebinho
+            data_abertura: '2024'
+            extensao: 30
+            quantidade_protecoes_intermediarias: 11
+            quantidade_protecoes_parada: 2
+        - via_esportiva:
+            nome: Ponto de Equilíbrio
+            dificuldade: BR_8B_BARRA_8C
+            conquistadores:
+            - Berbari
+            - Chinha
+            data_abertura: '2019'
+            extensao: 30
+            quantidade_protecoes_intermediarias: 11
+            quantidade_protecoes_parada: 2
+        - via_esportiva:
+            nome: Lilith
+            dificuldade: BR_7A
+            quantidade_protecoes_intermediarias: 11
+            quantidade_protecoes_parada: 2
+            extensao: 30
+            conquistadores:
+            - Berbari
+            - Chinha
+            - Bunitinho
+            data_abertura: '2024'
+        - via_esportiva:
+            nome: Deu Brasil
+            dificuldade: BR_7B
+            quantidade_protecoes_intermediarias: 7
+            quantidade_protecoes_parada: 2
+            extensao: 12
+            conquistadores:
+            - Berbari
+            - Chinha
+            - Bolinha
+            data_abertura: '2019'
+        - via_esportiva:
+            nome: Deu Nois
+            dificuldade: BR_6SUP
+            quantidade_protecoes_intermediarias: 7
+            quantidade_protecoes_parada: 2
+            extensao: 14
+            conquistadores:
+            - Berbari
+            - Alex
+            - Tonin
+            data_abertura: '2006'
+        descricao: '# Setor dos Tetos
+
+
+          | ![Setor dos Tetos](imagens/setor_tetos_p1.webp) |
+
+          | :--: |
+
+          | *Setor dos Tetos* |
+
+
+          Sombra após 14h.'
+        precomputados:
+          total_escaladas: 7
+          total_esportivas: 7
+  - setor:
+      conteudo:
+        nome: Setor Trad
+        mapas:
+        - caminho_imagem_mapa: imagens/setor_trad_p0.webp
+          largura_mapa: 2048
+          altura_mapa: 1414
+          pontos_de_interesse:
+          - id: '01'
+            label: '01'
+            circulo:
+              x: 88
+              y: 1153
+              raio: 14
+          - id: a
+            label: a
+            circulo:
+              x: 130
+              y: 1144
+              raio: 14
+          - id: b
+            label: b
+            circulo:
+              x: 160
+              y: 1141
+              raio: 14
+          - id: '02'
+            label: '02'
+            circulo:
+              x: 110
+              y: 1173
+              raio: 14
+          - id: '03'
+            label: '03'
+            circulo:
+              x: 169
+              y: 1173
+              raio: 15
+          - id: '04'
+            label: '04'
+            circulo:
+              x: 202
+              y: 1172
+              raio: 15
+          - id: '05'
+            label: '05'
+            circulo:
+              x: 231
+              y: 1183
+              raio: 14
+          - id: c
+            label: c
+            circulo:
+              x: 263
+              y: 1184
+              raio: 14
+          - id: '06'
+            label: '06'
+            circulo:
+              x: 289
+              y: 1158
+              raio: 14
+          - id: d
+            label: d
+            circulo:
+              x: 366
+              y: 1151
+              raio: 14
+          - id: '07'
+            label: '07'
+            circulo:
+              x: 395
+              y: 1142
+              raio: 14
+          - id: e
+            label: e
+            circulo:
+              x: 404
+              y: 1096
+              raio: 14
+          - id: '08'
+            label: '08'
+            circulo:
+              x: 448
+              y: 1157
+              raio: 14
+          - id: f
+            label: f
+            circulo:
+              x: 487
+              y: 1157
+              raio: 14
+          - id: '10'
+            label: '10'
+            circulo:
+              x: 473
+              y: 1131
+              raio: 14
+          - id: g
+            label: g
+            circulo:
+              x: 536
+              y: 1081
+              raio: 14
+          - id: '11'
+            label: '11'
+            circulo:
+              x: 592
+              y: 569
+              raio: 15
+          - id: '16'
+            label: '16'
+            circulo:
+              x: 1110
+              y: 628
+              raio: 15
+          - id: '09'
+            label: '09'
+            circulo:
+              x: 468
+              y: 730
+              raio: 14
+          - id: '12'
+            label: '12'
+            circulo:
+              x: 631
+              y: 1269
+              raio: 15
+          - id: h
+            label: h
+            circulo:
+              x: 813
+              y: 1268
+              raio: 14
+          - id: '13'
+            label: '13'
+            circulo:
+              x: 844
+              y: 1265
+              raio: 14
+          - id: i
+            label: i
+            circulo:
+              x: 886
+              y: 1246
+              raio: 14
+          - id: '14'
+            label: '14'
+            circulo:
+              x: 934
+              y: 1237
+              raio: 14
+          - id: '15'
+            label: '15'
+            circulo:
+              x: 965
+              y: 1239
+              raio: 15
+          - id: j
+            label: j
+            circulo:
+              x: 1138
+              y: 1251
+              raio: 14
+          - id: k
+            label: k
+            circulo:
+              x: 1214
+              y: 1249
+              raio: 14
+          - id: '17'
+            label: '17'
+            circulo:
+              x: 1481
+              y: 1216
+              raio: 14
+          - id: m
+            label: m
+            circulo:
+              x: 1452
+              y: 1226
+              raio: 14
+          - id: n
+            label: n
+            circulo:
+              x: 1575
+              y: 1198
+              raio: 14
+          - id: '18'
+            label: '18'
+            circulo:
+              x: 1606
+              y: 1195
+              raio: 14
+          - id: '19'
+            label: '19'
+            circulo:
+              x: 1641
+              y: 1164
+              raio: 14
+          - id: '20'
+            label: '20'
+            circulo:
+              x: 1717
+              y: 1098
+              raio: 14
+          - id: '21'
+            label: '21'
+            circulo:
+              x: 1744
+              y: 1084
+              raio: 14
+          - id: '22'
+            label: '22'
+            circulo:
+              x: 1771
+              y: 1069
+              raio: 15
+          - id: '23'
+            label: '23'
+            circulo:
+              x: 1833
+              y: 1051
+              raio: 15
+          - id: '24'
+            label: '24'
+            circulo:
+              x: 1895
+              y: 1045
+              raio: 15
+          - id: L
+            label: L
+            circulo:
+              x: 1362
+              y: 1213
+              raio: 14
+          - id: crayzy
+            label: '?'
+            circulo:
+              x: 247
+              y: 1211
+              raio: 14
+            cor: ''
+          - id: formigao
+            label: '?'
+            circulo:
+              x: 289
+              y: 1202
+              raio: 14
+            cor: ''
+          - id: palestra
+            label: '?'
+            retangulo:
+              x: 1410
+              y: 211
+              comprimento: 223
+              largura: 30
+            cor: ''
+          referencias:
+          - escalada: Aresta Daniel
+            ids:
+            - '01'
+          - escalada: Barriga Verde
+            ids:
+            - '02'
+          - escalada: Sem nome 1
+            ids:
+            - a
+            setor: Setor Trad
+          - escalada: Sem nome 2
+            ids:
+            - b
+            setor: Setor Trad
+          - escalada: Tosco Climb
+            ids:
+            - '03'
+          - escalada: Curió Não Se Cria
+            ids:
+            - '04'
+          - escalada: A Quina
+            ids:
+            - '05'
+          - escalada: Sem nome 3
+            ids:
+            - c
+            setor: Setor Trad
+          - escalada: Igarapé Cascão
+            ids:
+            - '06'
+          - escalada: Outra saída da Igarapé Cascão
+            ids:
+            - d
+          - escalada: Pachamama
+            ids:
+            - '07'
+          - escalada: Sem nome 4
+            ids:
+            - e
+            setor: Setor Trad
+          - escalada: Absoluta Inconsequência
+            ids:
+            - '08'
+          - escalada: Inconsequência Moderada
+            ids:
+            - '09'
+          - escalada: Mentiras Sinceras
+            ids:
+            - '10'
+          - escalada: Sem nome 5
+            ids:
+            - f
+            setor: Setor Trad
+          - escalada: Sem nome 6
+            ids:
+            - g
+            setor: Setor Trad
+          - escalada: Sem nome 7
+            ids:
+            - '11'
+            setor: Setor Trad
+          - escalada: Bituca
+            ids:
+            - '12'
+          - escalada: Sem nome 8
+            ids:
+            - h
+            setor: Setor Trad
+          - escalada: Sem nome 9
+            ids:
+            - i
+            setor: Setor Trad
+          - escalada: Último Dente
+            ids:
+            - '13'
+          - escalada: Sem nome 10
+            ids:
+            - '14'
+            setor: Setor Trad
+          - escalada: Inanição
+            ids:
+            - '15'
+          - escalada: Lembranças da Vovó
+            ids:
+            - '16'
+          - escalada: Sem nome 11
+            ids:
+            - j
+            setor: Setor Trad
+          - escalada: Sem nome 12
+            ids:
+            - k
+            setor: Setor Trad
+          - escalada: Sem nome 13
+            ids:
+            - L
+            setor: Setor Trad
+          - escalada: Sem nome 14
+            ids:
+            - m
+            setor: Setor Trad
+          - escalada: Netflix
+            ids:
+            - '17'
+          - escalada: Sem nome 15
+            ids:
+            - n
+            setor: Setor Trad
+          - escalada: Que Nem Mendigo
+            ids:
+            - '18'
+          - escalada: Wally Caolho
+            ids:
+            - '19'
+          - escalada: Me Leve ao Cume
+            ids:
+            - '20'
+          - escalada: Sem nome 16
+            ids:
+            - '21'
+            setor: Setor Trad
+          - escalada: Vale Tudo
+            ids:
+            - '22'
+          - escalada: Sem nome 17
+            ids:
+            - '23'
+            setor: Setor Trad
+          - escalada: Mulher do Fim do Mundo
+            ids:
+            - '24'
+          - ids:
+            - crayzy
+            setor: Setor Trad
+            escalada: Crayzy
+          - ids:
+            - formigao
+            setor: Setor Trad
+            escalada: Formigão Iannotta
+          - ids:
+            - palestra
+            setor: Setor Trad
+            escalada: Palestra Botânica
+        escaladas:
+        - via_movel:
+            nome: Aresta Daniel
+            dificuldade: BR_6SUP
+            exposicao: E1
+            descricao: Via com marimbondos!!! INTERDITADA.
+        - via_movel:
+            nome: Barriga Verde
+            dificuldade: INDEFINIDO
+        - via_movel:
+            nome: Sem nome 1
+            dificuldade: INDEFINIDO
+        - via_movel:
+            nome: Sem nome 2
+            dificuldade: INDEFINIDO
+        - via_movel:
+            nome: Tosco Climb
+            dificuldade: INDEFINIDO
+        - via_movel:
+            nome: Curió Não Se Cria
+            dificuldade: INDEFINIDO
+        - via_movel:
+            nome: A Quina
+            dificuldade: INDEFINIDO
+        - via_movel:
+            nome: Sem nome 3
+            dificuldade: INDEFINIDO
+        - via_movel:
+            nome: Formigão Iannotta
+            dificuldade: INDEFINIDO
+        - via_movel:
+            nome: Crayzy
+            dificuldade: INDEFINIDO
+        - via_movel:
+            nome: Igarapé Cascão
+            dificuldade: INDEFINIDO
+            descricao: 'Via com caminhada de volta do cume, não é necessário fazer
+              rapel.
+
+
+              Veja a trilha para voltar do cume da via de volta para a base: https://loc.wiki/t/162907398?wa=sc'
+        - via_movel:
+            nome: Outra saída da Igarapé Cascão
+            dificuldade: INDEFINIDO
+            descricao: 'Via com caminhada de volta do cume, não é necessário fazer
+              rapel.
+
+
+              Veja a trilha para voltar do cume da via de volta para a base: https://loc.wiki/t/162907398?wa=sc'
+        - via_movel:
+            nome: Pachamama
+            dificuldade: INDEFINIDO
+            descricao: 'Via com caminhada de volta do cume, não é necessário fazer
+              rapel.
+
+
+              Veja a trilha para voltar do cume da via de volta para a base: https://loc.wiki/t/162907398?wa=sc'
+        - via_movel:
+            nome: Sem nome 4
+            dificuldade: INDEFINIDO
+        - via_movel:
+            nome: Absoluta Inconsequência
+            dificuldade: INDEFINIDO
+        - via_movel:
+            nome: Inconsequência Moderada
+            dificuldade: INDEFINIDO
+        - via_movel:
+            nome: Mentiras Sinceras
+            dificuldade: INDEFINIDO
+        - via_movel:
+            nome: Sem nome 5
+            dificuldade: INDEFINIDO
+        - via_movel:
+            nome: Sem nome 6
+            dificuldade: INDEFINIDO
+        - via_movel:
+            nome: Sem nome 7
+            dificuldade: INDEFINIDO
+        - via_movel:
+            nome: Bituca
+            dificuldade: INDEFINIDO
+        - via_movel:
+            nome: Sem nome 8
+            dificuldade: INDEFINIDO
+        - via_movel:
+            nome: Sem nome 9
+            dificuldade: INDEFINIDO
+        - via_movel:
+            nome: Último Dente
+            dificuldade: INDEFINIDO
+        - via_movel:
+            nome: Sem nome 10
+            dificuldade: INDEFINIDO
+        - via_movel:
+            nome: Inanição
+            dificuldade: INDEFINIDO
+        - via_movel:
+            nome: Lembranças da Vovó
+            dificuldade: INDEFINIDO
+        - via_movel:
+            nome: Sem nome 11
+            dificuldade: INDEFINIDO
+        - via_movel:
+            nome: Sem nome 12
+            dificuldade: INDEFINIDO
+        - via_movel:
+            nome: Palestra Botânica
+            dificuldade: INDEFINIDO
+        - via_movel:
+            nome: Sem nome 13
+            dificuldade: INDEFINIDO
+        - via_movel:
+            nome: Sem nome 14
+            dificuldade: INDEFINIDO
+        - via_movel:
+            nome: Netflix
+            dificuldade: INDEFINIDO
+        - via_movel:
+            nome: Sem nome 15
+            dificuldade: INDEFINIDO
+        - via_movel:
+            nome: Que Nem Mendigo
+            dificuldade: INDEFINIDO
+        - via_movel:
+            nome: Wally Caolho
+            dificuldade: INDEFINIDO
+        - via_movel:
+            nome: Me Leve ao Cume
+            dificuldade: BR_6
+            descricao: 'Trilha principal para a via no WikiLoc: https://loc.wiki/t/142136363?wa=sc
+
+
+              Trilha alternativa pelo setor Sherpa (pode estar mais sujo / com mais
+              mato): https://loc.wiki/t/255009916?wa=sc'
+        - via_movel:
+            nome: Sem nome 16
+            dificuldade: INDEFINIDO
+        - via_movel:
+            nome: Vale Tudo
+            dificuldade: INDEFINIDO
+        - via_movel:
+            nome: Sem nome 17
+            dificuldade: INDEFINIDO
+        - via_movel:
+            nome: Mulher do Fim do Mundo
+            dificuldade: INDEFINIDO
+        descricao: '# Setor Trad
+
+
+          Este setor engloba as vias tradicionais e de proteção móvel do Complexo
+          Pedra Grande. As informações aqui contidas são provisórias e serão atualizadas
+          conforme o catálogo for sendo refinado.
+
+
+          Catálogo provisório das vias tradicionais e/ou em proteção móvel do Complexo
+          Pedra Grande.'
+        precomputados:
+          total_escaladas: 41
+  - grupo:
+      conteudo:
+        nome: Grupo Sherpa
+        setores:
+        - conteudo:
+            nome: Tarja Preta
+            localizacao_escalada:
+              latitude: -201224250
+              longitude: -443608700
+            sinal_de_celular: true
+            escaladas:
+            - boulder:
+                nome: Película
+                destaque: true
+            - boulder:
+                nome: Tarja Preta
+            mapas:
+            - caminho_imagem_mapa: imagens/setor_tarja_preta_p0.webp
+              largura_mapa: 1392
+              altura_mapa: 3013
+              referencias:
+              - escalada: Película
+              - escalada: Tarja Preta
+            descricao: ''
+            precomputados:
+              total_escaladas: 2
+              total_boulders: 2
+        - conteudo:
+            nome: Jeitinho Brasileiro
+            localizacao_escalada:
+              latitude: -201225340
+              longitude: -443609520
+            sinal_de_celular: true
+            escaladas:
+            - boulder:
+                nome: Jeitinho Brasileiro
+                dificuldade: V4
+                tipo_parede: NEGATIVO
+                conquistadores:
+                - 'Julio G. '
+                data_abertura: Maio 2026
+                destaque: true
+            - boulder:
+                nome: Força G
+                dificuldade: V1
+                data_abertura: Maio 2026
+            - boulder:
+                nome: Itália
+                dificuldade: V4
+                data_abertura: Maio 2026
+                destaque: true
+            - boulder:
+                nome: Glorioso
+                dificuldade: V2
+                tipo_parede: NEGATIVO
+                data_abertura: Maio 2026
+                destaque: true
+            mapas:
+            - caminho_imagem_mapa: imagens/setor_jeitinho_brasileiro_p0.webp
+              largura_mapa: 1392
+              altura_mapa: 3013
+              referencias:
+              - escalada: Jeitinho Brasileiro
+              - escalada: Força G
+              - escalada: Itália
+              - escalada: Glorioso
+            descricao: ''
+            precomputados:
+              total_escaladas: 4
+              total_boulders: 4
+        - conteudo:
+            nome: Nectar
+            localizacao_escalada:
+              latitude: -201225690
+              longitude: -443610090
+            escaladas:
+            - boulder:
+                nome: Nectar
+                dificuldade: V9
+                conquistadores:
+                - Frederico Gonçalves (Bull)
+                data_abertura: 30/06/2026
+                descricao: '
+
+
+                  '
+                url_video_beta: https://www.instagram.com/p/DaMdaQKTtFk/
+                destaque: true
+            mapas:
+            - caminho_imagem_mapa: imagens/setor_nectar_p0_i0.webp
+              largura_mapa: 1855
+              altura_mapa: 2261
+              referencias:
+              - escalada: Nectar
+            indice_mapa_padrao: -1
+            descricao: ''
+            precomputados:
+              total_escaladas: 1
+              total_boulders: 1
+        localizacao_escalada:
+          latitude: -201224250
+          longitude: -443608700
+        descricao: ''
+        precomputados:
+          total_escaladas: 7
+          total_boulders: 7
   mapas_gerais:
     conteudo:
       mapas:
@@ -6594,11 +7003,11 @@ picos:
     latitude: -201176660
     longitude: -443593480
   precomputados:
-    total_escaladas: 198
-    total_setores: 18
+    total_escaladas: 208
+    total_setores: 22
     total_grupos: 2
     total_esportivas: 95
-    total_boulders: 61
+    total_boulders: 71
     total_multiplas_enfiadas: 1
 botoes:
 - texto: Capa
@@ -6894,12 +7303,22 @@ arquivos_externos:
   checksum_sha256: 8be773a31d18ecb61fb9955800d7e675f894082bf9e52d1b882ac5e4feb8fe99
 - caminho: imagens/grupo_estacionamento_bloco_dengoso_p2.webp
   checksum_sha256: 54c520d7b0dbd100fbdfb0c41e64eab7d3d1939b7ff3448d4fb1673ec05d0dbc
+- caminho: imagens/grupo_estacionamento_bloco_dengoso_p3.webp
+  checksum_sha256: 68a2364b65e2f15249ea9e774d143eaa52739e0575f7bb28c8c7677059663d4a
+- caminho: imagens/grupo_estacionamento_bloco_dengoso_p4.webp
+  checksum_sha256: b6e1e04f1bab627ead15cf9f1565a5379a17e70184dda91b2f7d7bba71de0166
 - caminho: imagens/grupo_estacionamento_bloco_pega_negativo_p0.webp
   checksum_sha256: 09539e80afd0a6694cb9c95e640266c6c36ff871b6e6b94bf252982e834adc44
 - caminho: imagens/grupo_estacionamento_bloco_solaris_p0.webp
   checksum_sha256: 2006b2fd7865dd3d9f359e052b4d94657ba78ce0fab1e2b47d62125f60582e45
 - caminho: imagens/grupo_estacionamento_bloco_solaris_p1.webp
   checksum_sha256: 69bb2525361c1048730d730954f8dc6c1bdcd77846b0d2511966fd71b49d8918
+- caminho: imagens/grupo_estacionamento_bloco_virada_brasil_p0.webp
+  checksum_sha256: 89c3fb1bda489f51b94cf6914d82ecbf5ca2186e2b2ee1e5d24be59f43befb30
+- caminho: imagens/grupo_estacionamento_boulders_p0.webp
+  checksum_sha256: 171a740a6f3d60f6cfb107255c74c9ed1540e82ff2fb4f33510292cf3d3a5adc
+- caminho: imagens/grupo_estacionamento_boulders_p1.webp
+  checksum_sha256: 9f78c7dd36dcdac3a79217c623dd77c75b4d2b15ecf59b0d47556245f87a9ec8
 - caminho: imagens/historia_p0.webp
   checksum_sha256: 35328b7fcdf2d9a789fcd300af00cb67997589078e4dc645f00d1180b3ea707d
 - caminho: imagens/igarameca_info_p0.webp
@@ -6916,8 +7335,10 @@ arquivos_externos:
   checksum_sha256: 77cc1dfdcaa11031b3bae33d41b033d9ab60a98c1bd248334e06b2b0debfb90b
 - caminho: imagens/setor_bloco_fugitivos_ii_p2.webp
   checksum_sha256: 9a165e9848c25a0f9c0595150de68226ce70344246a22d523d4d3438c1204276
-- caminho: imagens/setor_estacionamento_bloco_dengoso_p3.webp
-  checksum_sha256: 68a2364b65e2f15249ea9e774d143eaa52739e0575f7bb28c8c7677059663d4a
+- caminho: imagens/setor_estacionamento_bloco_mega_drive_p0.webp
+  checksum_sha256: 4293ad52cc79acd4d2aa7e220dd7d8aa18e3cc140991c66125ed03e9b6d25b50
+- caminho: imagens/setor_estacionamento_bloco_mega_drive_p1.webp
+  checksum_sha256: d4922fff99024e1fce8231ad8b4e15e0c274e44827319b35f5f2bda98d1692f0
 - caminho: imagens/setor_estacionamento_p0.webp
   checksum_sha256: c0b10e222fdaed24818c31db7a4f62e69cef20e19182efd1f390a605d7023292
 - caminho: imagens/setor_estacionamento_p1.webp

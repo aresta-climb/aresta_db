@@ -4,6 +4,7 @@
 
 # Scratch folder is also ignored
 scratch/
+output/
 
 # Miscellaneous
 *.class

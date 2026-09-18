@@ -23,8 +23,6 @@ mapas:
   largura_mapa: 1855
   altura_mapa: 2261
   referencias:
-  - grupo: Sherpa
-    setor: Nectar
-    escalada: Nectar
+  - escalada: Nectar
 indice_mapa_padrao: -1
 ---

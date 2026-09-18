@@ -4392,7 +4392,88 @@
         - **total_esportivas**: 19
   - **[1]**:
     - **conteudo**:
-      - **descricao**: Grupo composto por vias esportivas e vários blocos de boulders.
+      - **descricao**: Boulders no bloco principal do estacionamento, onde estão as vias esportivas.
+      - **nome**: Estacionamento - Boulders
+      - **escaladas**:
+        - **[0]**:
+          - **boulder**:
+            - **nome**: Raio
+            - **dificuldade**: V4
+        - **[1]**:
+          - **boulder**:
+            - **nome**: Dama de ferro (boulder)
+            - **dificuldade**: V6
+      - **mapas**:
+        - **[0]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_estacionamento_boulders_p0.webp)
+          - **largura_mapa**: 1773
+          - **altura_mapa**: 2364
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: linha_1
+              - **label**: 
+              - **linha**:
+                - **estilo**: TRACEJADO
+                - **espessura**: 5
+                - **compilado**:
+                  - **caminho_svg**: M 467 1795 C 485.3 1764.0, 528.5 1728.9, 522 1702 C 514.6 1671.2, 425.3 1657.3, 402 1626 C 383.6 1601.4, 369.9 1565.2, 378 1541 C 386.9 1514.3, 437.3 1496.0, 463 1476 C 484.5 1459.2, 498.9 1450.8, 522 1429 C 562.2 1391.0, 634.3 1305.3, 674 1259 C 700.6 1228.0, 719.3 1213.0, 739 1180 C 765.1 1136.3, 772.4 1056.9, 807 1014 C 839.1 974.3, 889.5 960.0, 934 927 C 986.3 888.2, 1038.8 833.5, 1100 794 C 1165.3 751.8, 1244.0 720.2, 1316 684 C 1387.7 647.9, 1466.0 607.5, 1531 577 C 1583.8 552.2, 1627.7 534.3, 1676 513
+                  - **caixa_delimitadora**:
+                    - **x**: 1027
+                    - **y**: 1154
+                    - **comprimento**: 1298
+                    - **largura**: 1282
+                  - **marcadores**:
+                    - **[0]**:
+                      - **tipo**: CIRCULO_IDENTIFICADOR
+                      - **x**: 467
+                      - **y**: 1795
+                      - **angulo_graus_x100**: -5940
+                      - **rotulo**: 1
+                      - **raio**: 24
+              - **cor**: #00E5FF
+          - **referencias**:
+            - **[0]**:
+              - **ids**:
+                - linha_1
+              - **escalada**: Raio
+        - **[1]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_estacionamento_boulders_p1.webp)
+          - **largura_mapa**: 2364
+          - **altura_mapa**: 1773
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: linha_2
+              - **label**: 
+              - **linha**:
+                - **estilo**: TRACEJADO
+                - **espessura**: 5
+                - **compilado**:
+                  - **caminho_svg**: M 797 1448 C 823.7 1408.7, 855.9 1372.5, 877 1330 C 898.4 1286.9, 906.8 1239.0, 924 1191 C 942.8 1138.7, 970.8 1083.1, 986 1028 C 1000.9 974.1, 1018.5 922.4, 1015 864 C 1010.8 794.9, 974.9 713.1, 947 641 C 919.2 569.2, 879.5 499.4, 848 432 C 818.7 369.1, 797.5 311.5, 764 249 C 726.3 178.8, 674.7 105.0, 630 33
+                  - **caixa_delimitadora**:
+                    - **x**: 822
+                    - **y**: 740
+                    - **comprimento**: 385
+                    - **largura**: 1415
+                  - **marcadores**:
+                    - **[0]**:
+                      - **tipo**: CIRCULO_IDENTIFICADOR
+                      - **x**: 797
+                      - **y**: 1448
+                      - **angulo_graus_x100**: -5586
+                      - **rotulo**: 2
+                      - **raio**: 24
+              - **cor**: #00E5FF
+          - **referencias**:
+            - **[0]**:
+              - **ids**:
+                - linha_2
+              - **escalada**: Dama de ferro (boulder)
+      - **precomputados**:
+        - **total_escaladas**: 2
+        - **total_boulders**: 2
+  - **[2]**:
+    - **conteudo**:
+      - **descricao**: 
       - **nome**: Estacionamento - Bloco Pega negativo
       - **escaladas**:
         - **[0]**:
@@ -4553,7 +4634,7 @@
       - **precomputados**:
         - **total_escaladas**: 4
         - **total_boulders**: 4
-  - **[2]**:
+  - **[3]**:
     - **conteudo**:
       - **descricao**: 
       - **nome**: Estacionamento - Bloco Solaris
@@ -4754,7 +4835,7 @@
       - **precomputados**:
         - **total_escaladas**: 5
         - **total_boulders**: 5
-  - **[3]**:
+  - **[4]**:
     - **conteudo**:
       - **descricao**: 
       - **nome**: Estacionamento - Bloco Dengoso
@@ -5174,7 +5255,7 @@
                 - linha_15
               - **escalada**: Saara
         - **[3]**:
-          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_estacionamento_bloco_dengoso_p3.webp)
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_estacionamento_bloco_dengoso_p3.webp)
           - **largura_mapa**: 2364
           - **altura_mapa**: 1773
           - **pontos_de_interesse**:
@@ -5292,15 +5373,73 @@
               - **escalada**: Sem nome 21
             - **[1]**:
               - **ids**:
-                - linha_16
-                - linha_17
-                - st2
                 - st1
-              - **escalada**: Sem nome 22
+                - st2
+                - linha_17
+                - linha_16
+              - **escalada**: Só poeirinha
             - **[2]**:
               - **ids**:
                 - linha_19
               - **escalada**: Sem nome 23
+        - **[4]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_estacionamento_bloco_dengoso_p4.webp)
+          - **largura_mapa**: 2364
+          - **altura_mapa**: 1773
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: linha_20
+              - **label**: 
+              - **linha**:
+                - **estilo**: TRACEJADO
+                - **espessura**: 5
+                - **compilado**:
+                  - **caminho_svg**: M 1087 1109 C 1066.7 1053.3, 1049.4 1002.1, 1026 942 C 998.1 870.3, 959.2 776.3, 929 708 C 905.0 653.9, 898.6 599.8, 861 564 C 819.7 524.6, 731.8 519.4, 683 490 C 643.4 466.1, 606.8 445.8, 585 409 C 559.8 366.4, 559.8 291.3, 553 242 C 547.6 203.4, 547.0 172.7, 544 138
+                  - **caixa_delimitadora**:
+                    - **x**: 816
+                    - **y**: 624
+                    - **comprimento**: 543
+                    - **largura**: 971
+                  - **marcadores**:
+                    - **[0]**:
+                      - **tipo**: CIRCULO_IDENTIFICADOR
+                      - **x**: 1087
+                      - **y**: 1109
+                      - **angulo_graus_x100**: -11007
+                      - **rotulo**: 10
+                      - **raio**: 24
+              - **cor**: #FFD600
+            - **[1]**:
+              - **id**: linha_21
+              - **label**: 
+              - **linha**:
+                - **estilo**: TRACEJADO
+                - **espessura**: 5
+                - **compilado**:
+                  - **caminho_svg**: M 1833 1135 C 1793.0 1101.0, 1759.5 1064.7, 1713 1033 C 1658.6 995.9, 1578.7 966.3, 1523 931 C 1475.5 900.9, 1422.1 876.1, 1397 838 C 1375.1 804.8, 1377.5 762.6, 1370 722 C 1361.9 677.9, 1352.8 628.0, 1351 583 C 1349.3 540.8, 1362.0 500.3, 1358 460 C 1354.0 419.9, 1337.8 378.9, 1327 342 C 1317.4 309.0, 1307.0 280.0, 1297 249
+                  - **caixa_delimitadora**:
+                    - **x**: 1565
+                    - **y**: 692
+                    - **comprimento**: 536
+                    - **largura**: 886
+                  - **marcadores**:
+                    - **[0]**:
+                      - **tipo**: CIRCULO_IDENTIFICADOR
+                      - **x**: 1833
+                      - **y**: 1135
+                      - **angulo_graus_x100**: -13964
+                      - **rotulo**: 11
+                      - **raio**: 24
+              - **cor**: #FFD600
+          - **referencias**:
+            - **[0]**:
+              - **ids**:
+                - linha_20
+              - **escalada**: Auto seg
+            - **[1]**:
+              - **ids**:
+                - linha_21
+              - **escalada**: Arla
       - **escaladas**:
         - **[0]**:
           - **boulder**:
@@ -5337,166 +5476,295 @@
         - **[8]**:
           - **boulder**:
             - **nome**: Sem nome 21
-            - **dificuldade**: INDEFINIDO
+            - **dificuldade**: V2
         - **[9]**:
           - **boulder**:
-            - **nome**: Sem nome 22
-            - **dificuldade**: INDEFINIDO
+            - **nome**: Só poeirinha
+            - **dificuldade**: V3
         - **[10]**:
           - **boulder**:
             - **nome**: Sem nome 23
-            - **dificuldade**: INDEFINIDO
-      - **precomputados**:
-        - **total_escaladas**: 11
-        - **total_boulders**: 11
-- **precomputados**:
-  - **total_escaladas**: 39
-  - **total_esportivas**: 19
-  - **total_boulders**: 20
-
-
-## Parte: grupo_boulders (não listada em partes.json)
-
-### Grupo (Pico: Complexo Pedra Grande)
-
-- **descricao**: Tarja Preta - Jeitinho Brasileiro - Nectar
-- **nome**: Sherpa
-- **setores**:
-  - **[0]**:
-    - **conteudo**:
-      - **descricao**: 
-      - **nome**: Tarja Preta
-      - **localizacao_escalada**:
-        - **latitude**: -201224250
-        - **longitude**: -443608700
-      - **sinal_de_celular**: True
-      - **escaladas**:
-        - **[0]**:
-          - **boulder**:
-            - **nome**: Película
-            - **destaque**: True
-        - **[1]**:
-          - **boulder**:
-            - **nome**: Tarja Preta
-      - **mapas**:
-        - **[0]**:
-          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_tarja_preta_p0.webp)
-          - **largura_mapa**: 1392
-          - **altura_mapa**: 3013
-          - **referencias**:
-            - **[0]**:
-              - **grupo**: Sherpa
-              - **setor**: Tarja Preta
-              - **escalada**: Película
-            - **[1]**:
-              - **grupo**: Sherpa
-              - **setor**: Tarja Preta
-              - **escalada**: Tarja Preta
-      - **precomputados**:
-        - **total_escaladas**: 2
-        - **total_boulders**: 2
-  - **[1]**:
-    - **conteudo**:
-      - **descricao**: 
-      - **nome**: Jeitinho Brasileiro
-      - **localizacao_escalada**:
-        - **latitude**: -201225340
-        - **longitude**: -443609520
-      - **sinal_de_celular**: True
-      - **escaladas**:
-        - **[0]**:
-          - **boulder**:
-            - **nome**: Jeitinho Brasileiro
-            - **dificuldade**: V4
-            - **tipo_parede**: NEGATIVO
-            - **conquistadores**:
-              - Julio G. 
-            - **data_abertura**: Maio 2026
-            - **destaque**: True
-        - **[1]**:
-          - **boulder**:
-            - **nome**: Força G
             - **dificuldade**: V1
-            - **data_abertura**: Maio 2026
+        - **[11]**:
+          - **boulder**:
+            - **nome**: Auto seg
+            - **dificuldade**: V0
+        - **[12]**:
+          - **boulder**:
+            - **nome**: Arla
+            - **dificuldade**: V3
+      - **precomputados**:
+        - **total_escaladas**: 13
+        - **total_boulders**: 13
+  - **[5]**:
+    - **conteudo**:
+      - **descricao**: 
+      - **nome**: Estacionamento - Bloco Virada Brasil
+      - **escaladas**:
+        - **[0]**:
+          - **boulder**:
+            - **nome**: Virada Brasil
+            - **dificuldade**: V0
+        - **[1]**:
+          - **boulder**:
+            - **nome**: Tio peruca
+            - **dificuldade**: V1
         - **[2]**:
           - **boulder**:
-            - **nome**: Itália
-            - **dificuldade**: V4
-            - **data_abertura**: Maio 2026
-            - **destaque**: True
-        - **[3]**:
-          - **boulder**:
-            - **nome**: Glorioso
-            - **dificuldade**: V2
-            - **tipo_parede**: NEGATIVO
-            - **data_abertura**: Maio 2026
-            - **destaque**: True
+            - **nome**: Sem nome 24
+            - **dificuldade**: V0
       - **mapas**:
         - **[0]**:
-          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_jeitinho_brasileiro_p0.webp)
-          - **largura_mapa**: 1392
-          - **altura_mapa**: 3013
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_estacionamento_bloco_virada_brasil_p0.webp)
+          - **largura_mapa**: 2364
+          - **altura_mapa**: 1773
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: linha_1
+              - **label**: 
+              - **linha**:
+                - **estilo**: TRACEJADO
+                - **espessura**: 4
+                - **compilado**:
+                  - **caminho_svg**: M 1681 1349 C 1655.7 1280.7, 1628.3 1214.9, 1605 1144 C 1580.5 1069.5, 1579.3 979.9, 1538 912 C 1494.8 841.0, 1387.7 770.1, 1346 730 C 1325.7 710.4, 1313.8 703.4, 1301 686 C 1287.0 667.0, 1275.8 637.9, 1267 619 C 1260.7 605.6, 1257.3 595.7, 1252 584 C 1246.6 572.0, 1241.1 561.1, 1235 548 C 1227.7 532.3, 1219.0 513.3, 1211 496
+                  - **caixa_delimitadora**:
+                    - **x**: 1446
+                    - **y**: 922
+                    - **comprimento**: 470
+                    - **largura**: 853
+                  - **marcadores**:
+                    - **[0]**:
+                      - **tipo**: CIRCULO_IDENTIFICADOR
+                      - **x**: 1681
+                      - **y**: 1349
+                      - **angulo_graus_x100**: -11034
+                      - **rotulo**: 3
+                      - **raio**: 19
+                    - **[1]**:
+                      - **tipo**: FIM_TOP
+                      - **x**: 1211
+                      - **y**: 496
+                      - **angulo_graus_x100**: -11478
+                      - **rotulo**: B
+                      - **raio**: 19
+              - **cor**: #FFD600
+            - **[1]**:
+              - **id**: linha_3
+              - **linha**:
+                - **estilo**: TRACEJADO
+                - **espessura**: 4
+                - **compilado**:
+                  - **caminho_svg**: M 1466 1370 C 1452.7 1306.7, 1436.3 1234.2, 1426 1180 C 1418.3 1139.6, 1416.0 1104.6, 1408 1074 C 1401.6 1049.7, 1395.7 1029.1, 1385 1010 C 1374.8 991.6, 1361.6 971.7, 1346 961 C 1332.1 951.4, 1315.4 948.2, 1298 946 C 1278.4 943.5, 1254.0 947.5, 1234 949 C 1216.3 950.3, 1202.1 957.4, 1184 954 C 1159.8 949.4, 1128.6 934.1, 1104 913 C 1073.1 886.6, 1038.9 835.5, 1021 799 C 1007.0 770.4, 1005.0 743.7, 997 716
+                  - **caixa_delimitadora**:
+                    - **x**: 1232
+                    - **y**: 1043
+                    - **comprimento**: 469
+                    - **largura**: 654
+                  - **marcadores**:
+                    - **[0]**:
+                      - **tipo**: CIRCULO_IDENTIFICADOR
+                      - **x**: 1466
+                      - **y**: 1370
+                      - **angulo_graus_x100**: -10189
+                      - **rotulo**: 2
+                      - **raio**: 19
+              - **cor**: #FFD600
+            - **[2]**:
+              - **id**: linha_4
+              - **linha**:
+                - **estilo**: TRACEJADO
+                - **espessura**: 4
+                - **compilado**:
+                  - **caminho_svg**: M 997 716 C 999.3 691.7, 1001.6 666.5, 1004 643 C 1006.3 621.0, 1009.9 601.4, 1011 579 C 1012.2 554.3, 1010.3 527.0, 1010 501
+                  - **caixa_delimitadora**:
+                    - **x**: 1004
+                    - **y**: 608
+                    - **comprimento**: 14
+                    - **largura**: 215
+                  - **marcadores**:
+                    - **[0]**:
+                      - **tipo**: FIM_TOP
+                      - **x**: 1010
+                      - **y**: 501
+                      - **angulo_graus_x100**: -9073
+                      - **rotulo**: A
+                      - **raio**: 19
+              - **cor**: #FFD600
+            - **[3]**:
+              - **id**: linha_2
+              - **label**: 
+              - **linha**:
+                - **estilo**: TRACEJADO
+                - **espessura**: 4
+                - **compilado**:
+                  - **caminho_svg**: M 864 1225 C 871.7 1198.7, 880.2 1169.9, 887 1146 C 892.6 1126.3, 896.9 1111.5, 902 1092 C 907.9 1069.3, 913.8 1041.8, 920 1018 C 925.8 995.6, 931.4 974.8, 938 953 C 944.7 930.5, 954.3 906.4, 960 885 C 964.9 866.4, 966.5 853.1, 971 832 C 977.7 800.8, 988.3 754.7, 997 716
+                  - **caixa_delimitadora**:
+                    - **x**: 930
+                    - **y**: 970
+                    - **comprimento**: 133
+                    - **largura**: 509
+                  - **marcadores**:
+                    - **[0]**:
+                      - **tipo**: CIRCULO_IDENTIFICADOR
+                      - **x**: 864
+                      - **y**: 1225
+                      - **angulo_graus_x100**: -7377
+                      - **rotulo**: 1
+                      - **raio**: 19
+              - **cor**: #FFD600
           - **referencias**:
             - **[0]**:
-              - **grupo**: Sherpa
-              - **setor**: Jeitinho Brasileiro
-              - **escalada**: Jeitinho Brasileiro
+              - **ids**:
+                - linha_1
+              - **escalada**: Virada Brasil
             - **[1]**:
-              - **grupo**: Sherpa
-              - **setor**: Jeitinho Brasileiro
-              - **escalada**: Força G
+              - **ids**:
+                - linha_3
+                - linha_4
+              - **escalada**: Tio peruca
             - **[2]**:
-              - **grupo**: Sherpa
-              - **setor**: Jeitinho Brasileiro
-              - **escalada**: Itália
-            - **[3]**:
-              - **grupo**: Sherpa
-              - **setor**: Jeitinho Brasileiro
-              - **escalada**: Glorioso
+              - **ids**:
+                - linha_2
+                - linha_4
+              - **escalada**: Sem nome 24
       - **precomputados**:
-        - **total_escaladas**: 4
-        - **total_boulders**: 4
-  - **[2]**:
+        - **total_escaladas**: 3
+        - **total_boulders**: 3
+  - **[6]**:
     - **conteudo**:
       - **descricao**: 
-      - **nome**: Nectar
-      - **localizacao_escalada**:
-        - **latitude**: -201225690
-        - **longitude**: -443610090
+      - **nome**: Estacionamento - Bloco Mega drive
       - **escaladas**:
         - **[0]**:
           - **boulder**:
-            - **descricao**:
-                
-                
-                
-            - **nome**: Nectar
-            - **dificuldade**: V9
-            - **conquistadores**:
-              - Frederico Gonçalves (Bull)
-            - **data_abertura**: 30/06/2026
-            - **url_video_beta**: https://www.instagram.com/p/DaMdaQKTtFk/
-            - **destaque**: True
+            - **nome**: Atari
+            - **dificuldade**: V5
+        - **[1]**:
+          - **boulder**:
+            - **nome**: Projeto Igarapé
+            - **dificuldade**: INDEFINIDO
+        - **[2]**:
+          - **boulder**:
+            - **nome**: Sem Nome 25
+            - **dificuldade**: V2
       - **mapas**:
         - **[0]**:
-          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_nectar_p0_i0.webp)
-          - **largura_mapa**: 1855
-          - **altura_mapa**: 2261
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_estacionamento_bloco_mega_drive_p0.webp)
+          - **largura_mapa**: 1773
+          - **altura_mapa**: 2364
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: linha_2
+              - **linha**:
+                - **estilo**: TRACEJADO
+                - **espessura**: 5
+                - **compilado**:
+                  - **caminho_svg**: M 948 1676 C 950.0 1663.0, 952.0 1650.0, 954 1637
+                  - **caixa_delimitadora**:
+                    - **x**: 951
+                    - **y**: 1656
+                    - **comprimento**: 6
+                    - **largura**: 39
+                  - **marcadores**:
+                    - **[0]**:
+                      - **tipo**: CIRCULO_IDENTIFICADOR
+                      - **x**: 948
+                      - **y**: 1676
+                      - **angulo_graus_x100**: -8125
+                      - **rotulo**: 1
+              - **cor**: #00E5FF
+            - **[1]**:
+              - **id**: linha_3
+              - **linha**:
+                - **estilo**: TRACEJADO
+                - **espessura**: 5
+                - **compilado**:
+                  - **caminho_svg**: M 954 1637 C 963.3 1587.3, 963.7 1528.8, 982 1488 C 997.4 1453.8, 1020.2 1429.3, 1047 1404 C 1076.7 1376.0, 1120.8 1352.7, 1155 1330 C 1185.4 1309.8, 1209.6 1288.4, 1242 1274 C 1277.0 1258.4, 1319.8 1253.4, 1359 1242 C 1398.8 1230.4, 1442.8 1220.4, 1479 1205 C 1511.4 1191.2, 1546.6 1179.7, 1567 1156 C 1587.0 1132.7, 1590.1 1096.5, 1601 1065 C 1612.5 1031.6, 1628.5 995.7, 1634 961 C 1639.3 928.0, 1635.6 891.1, 1635 862 C 1634.6 838.9, 1633.0 820.7, 1632 800
+                  - **caixa_delimitadora**:
+                    - **x**: 1294
+                    - **y**: 1218
+                    - **comprimento**: 681
+                    - **largura**: 837
+                  - **marcadores**:
+                    - **[0]**:
+                      - **tipo**: FIM_TOP
+                      - **x**: 1632
+                      - **y**: 800
+                      - **angulo_graus_x100**: -9277
+                      - **rotulo**: A
+              - **cor**: #00E5FF
+            - **[2]**:
+              - **id**: linha_1
+              - **label**: 
+              - **linha**:
+                - **estilo**: TRACEJADO
+                - **espessura**: 5
+                - **compilado**:
+                  - **caminho_svg**: M 954 1637 C 948.3 1622.7, 948.1 1605.7, 937 1594 C 922.5 1578.9, 891.5 1569.3, 866 1562 C 838.8 1554.2, 806.2 1562.3, 778 1550 C 744.8 1535.5, 708.4 1499.9, 683 1472 C 660.9 1447.8, 647.3 1427.4, 631 1395 C 607.6 1348.5, 600.6 1256.7, 567 1214 C 539.7 1179.4, 492.8 1176.3, 461 1145 C 423.8 1108.4, 390.3 1041.4, 364 1001 C 345.2 972.1, 332.1 955.0, 317 926 C 298.1 889.8, 271.3 844.8, 263 799 C 254.1 749.7, 266.9 691.2, 270 639 C 273.0 588.9, 277.3 541.0, 281 492
+                  - **caixa_delimitadora**:
+                    - **x**: 608
+                    - **y**: 1064
+                    - **comprimento**: 691
+                    - **largura**: 1145
+                  - **marcadores**:
+                    - **[0]**:
+                      - **tipo**: FIM_TOP
+                      - **x**: 281
+                      - **y**: 492
+                      - **angulo_graus_x100**: -8572
+                      - **rotulo**: B
+                      - **raio**: 24
+              - **cor**: #00E5FF
           - **referencias**:
             - **[0]**:
-              - **grupo**: Sherpa
-              - **setor**: Nectar
-              - **escalada**: Nectar
-      - **indice_mapa_padrao**: -1
+              - **ids**:
+                - linha_2
+                - linha_3
+              - **escalada**: Atari
+            - **[1]**:
+              - **ids**:
+                - linha_2
+                - linha_1
+              - **escalada**: Projeto Igarapé
+        - **[1]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_estacionamento_bloco_mega_drive_p1.webp)
+          - **largura_mapa**: 1773
+          - **altura_mapa**: 2364
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: linha_4
+              - **label**: 
+              - **linha**:
+                - **estilo**: TRACEJADO
+                - **espessura**: 5
+                - **compilado**:
+                  - **caminho_svg**: M 412 1718 C 388.3 1684.3, 360.6 1651.4, 341 1617 C 322.8 1584.9, 306.2 1554.3, 297 1519 C 287.1 1481.3, 278.1 1435.5, 286 1397 C 293.9 1358.1, 326.3 1326.8, 345 1287 C 365.9 1242.3, 386.5 1186.6, 404 1141 C 419.3 1101.3, 428.0 1065.0, 445 1029 C 462.2 992.6, 486.6 962.2, 507 924 C 530.3 880.5, 554.5 822.9, 576 781 C 593.3 747.3, 609.7 714.7, 625 691 C 635.8 674.2, 645.7 663.7, 656 650
+                  - **caixa_delimitadora**:
+                    - **x**: 471
+                    - **y**: 1184
+                    - **comprimento**: 370
+                    - **largura**: 1068
+                  - **marcadores**:
+                    - **[0]**:
+                      - **tipo**: CIRCULO_IDENTIFICADOR
+                      - **x**: 412
+                      - **y**: 1718
+                      - **angulo_graus_x100**: -12511
+                      - **rotulo**: 2
+                      - **raio**: 24
+              - **cor**: #00E5FF
+          - **referencias**:
+            - **[0]**:
+              - **ids**:
+                - linha_4
+              - **escalada**: Sem Nome 25
       - **precomputados**:
-        - **total_escaladas**: 1
-        - **total_boulders**: 1
-- **localizacao_escalada**:
-  - **latitude**: -201224250
-  - **longitude**: -443608700
+        - **total_escaladas**: 3
+        - **total_boulders**: 3
 - **precomputados**:
-  - **total_escaladas**: 7
-  - **total_boulders**: 7
+  - **total_escaladas**: 49
+  - **total_esportivas**: 19
+  - **total_boulders**: 30
 
 
 ## Parte: setor_fugitivos_i (não listada em partes.json)
@@ -7299,6 +7567,145 @@
   - **total_boulders**: 13
 
 
+## Parte: setor_democracia (não listada em partes.json)
+
+### Setor (Pico: Complexo Pedra Grande)
+
+- **descricao**: Trilha para chegar ao setor: https://loc.wiki/t/169745893?wa=sc
+- **nome**: Bloco Democracia
+- **precomputados**:
+
+
+## Parte: grupo_sherpa (não listada em partes.json)
+
+### Grupo (Pico: Complexo Pedra Grande)
+
+- **descricao**: 
+- **nome**: Grupo Sherpa
+- **setores**:
+  - **[0]**:
+    - **conteudo**:
+      - **descricao**: 
+      - **nome**: Tarja Preta
+      - **localizacao_escalada**:
+        - **latitude**: -201224250
+        - **longitude**: -443608700
+      - **sinal_de_celular**: True
+      - **escaladas**:
+        - **[0]**:
+          - **boulder**:
+            - **nome**: Película
+            - **destaque**: True
+        - **[1]**:
+          - **boulder**:
+            - **nome**: Tarja Preta
+      - **mapas**:
+        - **[0]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_tarja_preta_p0.webp)
+          - **largura_mapa**: 1392
+          - **altura_mapa**: 3013
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Película
+            - **[1]**:
+              - **escalada**: Tarja Preta
+      - **precomputados**:
+        - **total_escaladas**: 2
+        - **total_boulders**: 2
+  - **[1]**:
+    - **conteudo**:
+      - **descricao**: 
+      - **nome**: Jeitinho Brasileiro
+      - **localizacao_escalada**:
+        - **latitude**: -201225340
+        - **longitude**: -443609520
+      - **sinal_de_celular**: True
+      - **escaladas**:
+        - **[0]**:
+          - **boulder**:
+            - **nome**: Jeitinho Brasileiro
+            - **dificuldade**: V4
+            - **tipo_parede**: NEGATIVO
+            - **conquistadores**:
+              - Julio G. 
+            - **data_abertura**: Maio 2026
+            - **destaque**: True
+        - **[1]**:
+          - **boulder**:
+            - **nome**: Força G
+            - **dificuldade**: V1
+            - **data_abertura**: Maio 2026
+        - **[2]**:
+          - **boulder**:
+            - **nome**: Itália
+            - **dificuldade**: V4
+            - **data_abertura**: Maio 2026
+            - **destaque**: True
+        - **[3]**:
+          - **boulder**:
+            - **nome**: Glorioso
+            - **dificuldade**: V2
+            - **tipo_parede**: NEGATIVO
+            - **data_abertura**: Maio 2026
+            - **destaque**: True
+      - **mapas**:
+        - **[0]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_jeitinho_brasileiro_p0.webp)
+          - **largura_mapa**: 1392
+          - **altura_mapa**: 3013
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Jeitinho Brasileiro
+            - **[1]**:
+              - **escalada**: Força G
+            - **[2]**:
+              - **escalada**: Itália
+            - **[3]**:
+              - **escalada**: Glorioso
+      - **precomputados**:
+        - **total_escaladas**: 4
+        - **total_boulders**: 4
+  - **[2]**:
+    - **conteudo**:
+      - **descricao**: 
+      - **nome**: Nectar
+      - **localizacao_escalada**:
+        - **latitude**: -201225690
+        - **longitude**: -443610090
+      - **escaladas**:
+        - **[0]**:
+          - **boulder**:
+            - **descricao**:
+                
+                
+                
+            - **nome**: Nectar
+            - **dificuldade**: V9
+            - **conquistadores**:
+              - Frederico Gonçalves (Bull)
+            - **data_abertura**: 30/06/2026
+            - **url_video_beta**: https://www.instagram.com/p/DaMdaQKTtFk/
+            - **destaque**: True
+      - **mapas**:
+        - **[0]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_nectar_p0_i0.webp)
+          - **largura_mapa**: 1855
+          - **altura_mapa**: 2261
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Nectar
+      - **indice_mapa_padrao**: -1
+      - **precomputados**:
+        - **total_escaladas**: 1
+        - **total_boulders**: 1
+- **localizacao_escalada**:
+  - **latitude**: -201224250
+  - **longitude**: -443608700
+- **precomputados**:
+  - **total_escaladas**: 7
+  - **total_boulders**: 7
+
+
 ## Arquivos Externos
 
 - **arquivos_externos**:
@@ -7315,138 +7722,156 @@
     - **caminho**: ![caminho](imagens/grupo_estacionamento_bloco_dengoso_p2.webp)
     - **checksum_sha256**: 54c520d7b0dbd100fbdfb0c41e64eab7d3d1939b7ff3448d4fb1673ec05d0dbc
   - **[4]**:
+    - **caminho**: ![caminho](imagens/grupo_estacionamento_bloco_dengoso_p3.webp)
+    - **checksum_sha256**: 68a2364b65e2f15249ea9e774d143eaa52739e0575f7bb28c8c7677059663d4a
+  - **[5]**:
+    - **caminho**: ![caminho](imagens/grupo_estacionamento_bloco_dengoso_p4.webp)
+    - **checksum_sha256**: b6e1e04f1bab627ead15cf9f1565a5379a17e70184dda91b2f7d7bba71de0166
+  - **[6]**:
     - **caminho**: ![caminho](imagens/grupo_estacionamento_bloco_pega_negativo_p0.webp)
     - **checksum_sha256**: 09539e80afd0a6694cb9c95e640266c6c36ff871b6e6b94bf252982e834adc44
-  - **[5]**:
+  - **[7]**:
     - **caminho**: ![caminho](imagens/grupo_estacionamento_bloco_solaris_p0.webp)
     - **checksum_sha256**: 2006b2fd7865dd3d9f359e052b4d94657ba78ce0fab1e2b47d62125f60582e45
-  - **[6]**:
+  - **[8]**:
     - **caminho**: ![caminho](imagens/grupo_estacionamento_bloco_solaris_p1.webp)
     - **checksum_sha256**: 69bb2525361c1048730d730954f8dc6c1bdcd77846b0d2511966fd71b49d8918
-  - **[7]**:
+  - **[9]**:
+    - **caminho**: ![caminho](imagens/grupo_estacionamento_bloco_virada_brasil_p0.webp)
+    - **checksum_sha256**: 89c3fb1bda489f51b94cf6914d82ecbf5ca2186e2b2ee1e5d24be59f43befb30
+  - **[10]**:
+    - **caminho**: ![caminho](imagens/grupo_estacionamento_boulders_p0.webp)
+    - **checksum_sha256**: 171a740a6f3d60f6cfb107255c74c9ed1540e82ff2fb4f33510292cf3d3a5adc
+  - **[11]**:
+    - **caminho**: ![caminho](imagens/grupo_estacionamento_boulders_p1.webp)
+    - **checksum_sha256**: 9f78c7dd36dcdac3a79217c623dd77c75b4d2b15ecf59b0d47556245f87a9ec8
+  - **[12]**:
     - **caminho**: ![caminho](imagens/historia_p0.webp)
     - **checksum_sha256**: 35328b7fcdf2d9a789fcd300af00cb67997589078e4dc645f00d1180b3ea707d
-  - **[8]**:
+  - **[13]**:
     - **caminho**: ![caminho](imagens/igarameca_info_p0.webp)
     - **checksum_sha256**: a25c26a236f78956f6a9eef3b49be1a49e00ac995003bbc7b521a82708113c10
-  - **[9]**:
+  - **[14]**:
     - **caminho**: ![caminho](imagens/mapas_gerais_p0.webp)
     - **checksum_sha256**: 46f1c43fe65af207fde61b213d7876a9eee14afe36a686633b6309a4b9e0bb2c
-  - **[10]**:
+  - **[15]**:
     - **caminho**: ![caminho](imagens/mapas_gerais_p1.webp)
     - **checksum_sha256**: 852e3b9ba55da91bda3283501c992927fd6cae1166c0c21717190aa15f51066c
-  - **[11]**:
+  - **[16]**:
     - **caminho**: ![caminho](imagens/patrocinadores_p0.webp)
     - **checksum_sha256**: 4182ec353e7d169bf4ea4bf1f245e97df7f3b359560ddf5d6d77ebd462259d88
-  - **[12]**:
+  - **[17]**:
     - **caminho**: ![caminho](imagens/setor_bloco_fugitivos_i_p4.webp)
     - **checksum_sha256**: 54a37eb42350ba07c9f3490356d5b77fe8b940b07a3fffc08332c8d730344d31
-  - **[13]**:
+  - **[18]**:
     - **caminho**: ![caminho](imagens/setor_bloco_fugitivos_ii_p0.webp)
     - **checksum_sha256**: 77cc1dfdcaa11031b3bae33d41b033d9ab60a98c1bd248334e06b2b0debfb90b
-  - **[14]**:
+  - **[19]**:
     - **caminho**: ![caminho](imagens/setor_bloco_fugitivos_ii_p2.webp)
     - **checksum_sha256**: 9a165e9848c25a0f9c0595150de68226ce70344246a22d523d4d3438c1204276
-  - **[15]**:
-    - **caminho**: ![caminho](imagens/setor_estacionamento_bloco_dengoso_p3.webp)
-    - **checksum_sha256**: 68a2364b65e2f15249ea9e774d143eaa52739e0575f7bb28c8c7677059663d4a
-  - **[16]**:
+  - **[20]**:
+    - **caminho**: ![caminho](imagens/setor_estacionamento_bloco_mega_drive_p0.webp)
+    - **checksum_sha256**: 4293ad52cc79acd4d2aa7e220dd7d8aa18e3cc140991c66125ed03e9b6d25b50
+  - **[21]**:
+    - **caminho**: ![caminho](imagens/setor_estacionamento_bloco_mega_drive_p1.webp)
+    - **checksum_sha256**: d4922fff99024e1fce8231ad8b4e15e0c274e44827319b35f5f2bda98d1692f0
+  - **[22]**:
     - **caminho**: ![caminho](imagens/setor_estacionamento_p0.webp)
     - **checksum_sha256**: c0b10e222fdaed24818c31db7a4f62e69cef20e19182efd1f390a605d7023292
-  - **[17]**:
+  - **[23]**:
     - **caminho**: ![caminho](imagens/setor_estacionamento_p1.webp)
     - **checksum_sha256**: 70ff91fdbc683bf71dcd9a33dbc042e170ef4f49c88b9bc9ce9956edb3fef48c
-  - **[18]**:
+  - **[24]**:
     - **caminho**: ![caminho](imagens/setor_familia_i_p0.webp)
     - **checksum_sha256**: 445e010c4cbaca2db0d2bfc12bb93dc9da30e427bac970d7e06ebe08cee2b0cf
-  - **[19]**:
+  - **[25]**:
     - **caminho**: ![caminho](imagens/setor_familia_i_p1.webp)
     - **checksum_sha256**: feae5245d8419ab4dd0698de889b4879cbe9b7a1324205ceae8dc47d77eb1038
-  - **[20]**:
+  - **[26]**:
     - **caminho**: ![caminho](imagens/setor_familia_ii_p0.webp)
     - **checksum_sha256**: 8435be258ad2d6ed69cd0d4c540050a44bab6186bb884efae83a4998ef1101d3
-  - **[21]**:
+  - **[27]**:
     - **caminho**: ![caminho](imagens/setor_familia_ii_p1.webp)
     - **checksum_sha256**: 4f3e4bedfed21fafc2284c19063d969b3aae82cd32409bd7bf62d4c941c32765
-  - **[22]**:
+  - **[28]**:
     - **caminho**: ![caminho](imagens/setor_fugitivos_i_p0.webp)
     - **checksum_sha256**: 95239b7b899a1e56c8d919fcbfa733d0e9ae4f9b028a23eeb2a950c5dbabdf25
-  - **[23]**:
+  - **[29]**:
     - **caminho**: ![caminho](imagens/setor_fugitivos_i_p1.webp)
     - **checksum_sha256**: 40266b678b64ad905696f58ace40b125d04162bfdb4a8c4f8a5f9313ee7a672d
-  - **[24]**:
+  - **[30]**:
     - **caminho**: ![caminho](imagens/setor_fugitivos_i_p2.webp)
     - **checksum_sha256**: 66fbcb3356cdcbb3001fa95dbd17cdb0989d9e22a394cf2cf96890c3099ed794
-  - **[25]**:
+  - **[31]**:
     - **caminho**: ![caminho](imagens/setor_fugitivos_i_p3.webp)
     - **checksum_sha256**: 06bd0ef4287fd6e7fa0255e706e814ea441be9d74e11b0d0a5a17173de6d4474
-  - **[26]**:
+  - **[32]**:
     - **caminho**: ![caminho](imagens/setor_igarameca_p0.webp)
     - **checksum_sha256**: e79e4daa827532abd0ff0a16e096f1df0eea148c8589dc7686fa268ba1c84102
-  - **[27]**:
+  - **[33]**:
     - **caminho**: ![caminho](imagens/setor_igarameca_p1.webp)
     - **checksum_sha256**: b2ab0e0a16eb19fe5d54f6a899456ac5ff07671862249a012699dc3631c64662
-  - **[28]**:
+  - **[34]**:
     - **caminho**: ![caminho](imagens/setor_igarameca_p2.webp)
     - **checksum_sha256**: 3a6b8f636bd121e5fa888a5dc855ddb627cea151389890532ba4f50053c78f30
-  - **[29]**:
+  - **[35]**:
     - **caminho**: ![caminho](imagens/setor_jeitinho_brasileiro_p0.webp)
     - **checksum_sha256**: 9aa633be14db3f0c96a1a656470f87f5bfb7a259a02cb58babd6733dadc8d535
-  - **[30]**:
+  - **[36]**:
     - **caminho**: ![caminho](imagens/setor_micos_p0.webp)
     - **checksum_sha256**: acb374ec8c0ecf85d537c86dd1328bbb91e4fd41576659d596457a818254cd2d
-  - **[31]**:
+  - **[37]**:
     - **caminho**: ![caminho](imagens/setor_micos_p1.webp)
     - **checksum_sha256**: e59d63c298cd1049ee8636ce3e3b78b993f5b2358f4e3fc57a10508e739e8536
-  - **[32]**:
+  - **[38]**:
     - **caminho**: ![caminho](imagens/setor_micos_p2.webp)
     - **checksum_sha256**: 27321d933aca314b50a98e486f662138fd61b049dcb90248b6bb2d162c7b944c
-  - **[33]**:
+  - **[39]**:
     - **caminho**: ![caminho](imagens/setor_nectar_p0_i0.webp)
     - **checksum_sha256**: 2b3caa8b248dc3f33ae226aa25d1456c0eb589c5b694e66cf201cd7c4f7927fa
-  - **[34]**:
+  - **[40]**:
     - **caminho**: ![caminho](imagens/setor_pracinha_p0.webp)
     - **checksum_sha256**: ec34526d21a825cbefa2049a1fe82cc4a1d77a4dd1072d39804852cf5c38daf3
-  - **[35]**:
+  - **[41]**:
     - **caminho**: ![caminho](imagens/setor_pracinha_p1.webp)
     - **checksum_sha256**: 42e142af39766186c13a61691e384bddc064bcad6e4a07ce0e802cb429fe73ba
-  - **[36]**:
+  - **[42]**:
     - **caminho**: ![caminho](imagens/setor_pracinha_p2.webp)
     - **checksum_sha256**: 9afa2f619eda4053a096d19b64aa9262e8b85f9f9b05815ad2379e66ccc227e1
-  - **[37]**:
+  - **[43]**:
     - **caminho**: ![caminho](imagens/setor_pracinha_p3.webp)
     - **checksum_sha256**: d60317f3226a9af417557bf7f1d73d46aa152cfbded8a2d8e2a876834398ed64
-  - **[38]**:
+  - **[44]**:
     - **caminho**: ![caminho](imagens/setor_tarja_preta_p0.webp)
     - **checksum_sha256**: 42f0988f5b3b2455e050c55af801a4422327538c6acf4a39706557d91edea940
-  - **[39]**:
+  - **[45]**:
     - **caminho**: ![caminho](imagens/setor_tetos_p0.webp)
     - **checksum_sha256**: 88013468ab3f1c12bc710281758d6e1e205443645aba8dff2828a8b52ee7f2e6
-  - **[40]**:
+  - **[46]**:
     - **caminho**: ![caminho](imagens/setor_tetos_p1.webp)
     - **checksum_sha256**: 4d12e846ce75ebfd1587a51a5661715826e1c800dcfdc1cf99124fa710576d2d
-  - **[41]**:
+  - **[47]**:
     - **caminho**: ![caminho](imagens/setor_totem_p0.webp)
     - **checksum_sha256**: eb605d166d35d36c3b23981ec6144eba7f3375955bed6b1954eff3d1ea441044
-  - **[42]**:
+  - **[48]**:
     - **caminho**: ![caminho](imagens/setor_totem_p1.webp)
     - **checksum_sha256**: 028f8cb259043ddcfd39cf2fb64041b88c41cd3538b6604d384ab2f08514edbf
-  - **[43]**:
+  - **[49]**:
     - **caminho**: ![caminho](imagens/setor_trad_p0.webp)
     - **checksum_sha256**: fa73e3e2fa27a74255e21b0c499f6e72bc47a99626b5bd780473d967c257eaad
-  - **[44]**:
+  - **[50]**:
     - **caminho**: ![caminho](imagens/setor_viva_o_climb_p0.webp)
     - **checksum_sha256**: 94d2480252708d7f25f9234befb17df302bcc0876bbe53025fc3d5ab5321b7c1
-  - **[45]**:
+  - **[51]**:
     - **caminho**: ![caminho](imagens/setor_viva_o_climb_p1.webp)
     - **checksum_sha256**: be43e895f74116ff63a5ec7ac25290dbce75ad67bf1df0a3ab079d7e4c17ac68
-  - **[46]**:
+  - **[52]**:
     - **caminho**: ![caminho](imagens/setor_viva_o_climb_p2.webp)
     - **checksum_sha256**: e3544af684cab5da717ea03b4f77d05f0652be42e0cab50c3f41d62ba5120d57
-  - **[47]**:
+  - **[53]**:
     - **caminho**: ![caminho](imagens/setor_viva_o_climb_p3.webp)
     - **checksum_sha256**: 7ca2f6791409aa498f402729b4d426bf972d8db7689f9052a490fe4ee31b7773
-  - **[48]**:
+  - **[54]**:
     - **caminho**: ![caminho](imagens/setor_viva_o_climb_p4.webp)
     - **checksum_sha256**: c8e95292e609405375d46753e1010ff78f1ba889355e5f80b6b29321cf8cee5c
 

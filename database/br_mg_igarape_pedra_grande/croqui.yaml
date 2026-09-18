@@ -17,15 +17,23 @@ picos:
   - grupo:
       caminho: grupo_estacionamento.md
   - setor:
+      caminho: setor_fugitivos_i.md
+  - setor:
+      caminho: setor_viva_o_climb.md
+  - setor:
+      caminho: setor_fugitivos_ii.md
+  - setor:
       caminho: setor_familia_i.md
   - setor:
       caminho: setor_familia_ii.md
   - setor:
+      caminho: setor_democracia.md
+  - setor:
       caminho: setor_micos.md
   - setor:
-      caminho: setor_totem.md
-  - setor:
       caminho: setor_igarameca.md
+  - setor:
+      caminho: setor_totem.md
   - setor:
       caminho: setor_pracinha.md
   - setor:
@@ -33,13 +41,7 @@ picos:
   - setor:
       caminho: setor_trad.md
   - grupo:
-      caminho: grupo_boulders.md
-  - setor:
-      caminho: setor_fugitivos_i.md
-  - setor:
-      caminho: setor_viva_o_climb.md
-  - setor:
-      caminho: setor_fugitivos_ii.md
+      caminho: grupo_sherpa.md
   mapas_gerais:
     caminho: mapas_gerais.md
   localizacao:

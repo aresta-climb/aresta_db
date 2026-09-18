@@ -212,4 +212,3 @@ mapas:
     - linha_5
     escalada: Projeto 3
 ---
-Grupo composto por vias esportivas e vários blocos de boulders.
