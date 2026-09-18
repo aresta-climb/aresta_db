@@ -253,9 +253,9 @@ def obter_logo_aresta_padrao(raiz_projeto: Path | None = None) -> Path | None:
     if raiz_projeto is None:
         raiz_projeto = DIRETORIO_RAIZ_PADRAO
     candidatos = [
-        raiz_projeto / "editor" / "recursos" / "logo_aresta_frontal.png",
         raiz_projeto / "editor" / "recursos" / "logo_splash.png",
         raiz_projeto.parent / "aresta_app" / "frontend" / "assets" / "logo_splash.png",
+        raiz_projeto / "editor" / "recursos" / "logo_aresta_frontal.png",
     ]
     for c in candidatos:
         if c.exists():
@@ -391,8 +391,8 @@ def gerar_placa_png(
         placa.paste(img_esq_redim, (x_esq, y_esq), img_esq_redim)
 
         # Redimensionamento Aresta Climb (direita)
-        max_w_dir = int(1450 * fator)
-        h_dir_alvo = altura_topo
+        max_w_dir = int(1700 * fator)
+        h_dir_alvo = int(altura_topo * 1.45)
         prop_dir = min(max_w_dir / img_dir.width, h_dir_alvo / img_dir.height)
         w_dir = int(img_dir.width * prop_dir)
         h_dir = int(img_dir.height * prop_dir)
@@ -461,27 +461,19 @@ def gerar_placa_png(
         tamanho_inicial=max(36, int(360 * fator)),
     )
 
-    # 4. Instrução superior (antes do QR Code, em duas linhas)
-    y_inst1 = y_nome + int(320 * fator)
-    y_inst2 = y_inst1 + int(140 * fator)
-    fonte_inst = _obter_fonte(max(12, int(115 * fator)), negrito=True)
+    # 4. Instrução superior (antes do QR Code)
+    y_inst = y_nome + int(340 * fator)
+    fonte_inst = _obter_fonte(max(14, int(135 * fator)), negrito=True)
     desenho.text(
-        (largura // 2, y_inst1),
-        "APONTE A CÂMERA PARA BAIXAR O APLICATIVO E",
-        fill=COR_TEXTO_ESCURO,
-        font=fonte_inst,
-        anchor="mm",
-    )
-    desenho.text(
-        (largura // 2, y_inst2),
-        "NAVEGAR NO CROQUI OFFLINE",
+        (largura // 2, y_inst),
+        "APONTE A CÂMERA PARA ABRIR NO ARESTA",
         fill=COR_TEXTO_ESCURO,
         font=fonte_inst,
         anchor="mm",
     )
 
     # 5. QR Code + Moldura Viewfinder (Brackets)
-    tamanho_qr = int(2200 * fator)
+    tamanho_qr = int(2550 * fator)
     qr_img = gerar_qrcode_com_logo(
         url=url,
         caminho_logo=caminho_logo,
@@ -489,16 +481,16 @@ def gerar_placa_png(
         cor_borda=cor_borda_logo,
     )
 
-    tam_moldura = int(2740 * fator)
+    tam_moldura = int(2800 * fator)
     x_moldura = (largura - tam_moldura) // 2
-    y_moldura = y_inst2 + int(360 * fator)
+    y_moldura = y_inst + int(300 * fator)
 
     x_qr = (largura - tamanho_qr) // 2
     y_qr = y_moldura + (tam_moldura - tamanho_qr) // 2
     placa.paste(qr_img.convert("RGB"), (x_qr, y_qr))
 
     # Desenha os 4 cantos do viewfinder (brackets)
-    comp_brk = int(380 * fator)
+    comp_brk = int(400 * fator)
     esp_brk = int(75 * fator)
 
     # Canto superior-esquerdo ┌
@@ -527,14 +519,14 @@ def gerar_placa_png(
         "Respeite a vegetação e o entorno",
     ]
 
-    fonte_regra = _obter_fonte(max(14, int(140 * fator)), negrito=True)
-    raio_bullet = int(42 * fator)
-    espacamento_regras = int(210 * fator)
-    y_inicio_regras = y_moldura + tam_moldura + int(420 * fator)
+    fonte_regra = _obter_fonte(max(16, int(175 * fator)), negrito=True)
+    raio_bullet = int(52 * fator)
+    espacamento_regras = int(245 * fator)
+    y_inicio_regras = y_moldura + tam_moldura + int(360 * fator)
 
     larguras_regras = [desenho.textbbox((0, 0), r, font=fonte_regra)[2] for r in regras]
     max_w_regra = max(larguras_regras)
-    largura_bloco = int(raio_bullet * 2 + 60 * fator + max_w_regra)
+    largura_bloco = int(raio_bullet * 2 + 70 * fator + max_w_regra)
     x_inicio_bloco = (largura - largura_bloco) // 2
 
     for i, r in enumerate(regras):
@@ -545,7 +537,7 @@ def gerar_placa_png(
             fill=COR_TERRACOTA,
         )
         desenho.text(
-            (x_inicio_bloco + raio_bullet * 2 + int(60 * fator), y_linha),
+            (x_inicio_bloco + raio_bullet * 2 + int(70 * fator), y_linha),
             r,
             fill=COR_TEXTO_ESCURO,
             font=fonte_regra,
@@ -580,7 +572,7 @@ def gerar_placa_svg(
 
     matriz = qr.get_matrix()
     qtd_modulos = len(matriz)
-    tamanho_qr = int(2200 * fator)
+    tamanho_qr = int(2550 * fator)
     tamanho_modulo = tamanho_qr / qtd_modulos
 
     caminhos_modulos: list[str] = []
@@ -664,8 +656,8 @@ def gerar_placa_svg(
         x_esq = margem_x
         y_esq = y_centro - h_esq // 2
 
-        max_w_dir = int(1450 * fator)
-        h_dir_alvo = altura_topo
+        max_w_dir = int(1700 * fator)
+        h_dir_alvo = int(altura_topo * 1.45)
         prop_dir = min(max_w_dir / img_dir.width, h_dir_alvo / img_dir.height)
         w_dir = int(img_dir.width * prop_dir)
         h_dir = int(img_dir.height * prop_dir)
@@ -718,12 +710,11 @@ def gerar_placa_svg(
 
     y_cat = y_titulo
     y_nome = y_cat + int(300 * fator)
-    y_inst1 = y_nome + int(320 * fator)
-    y_inst2 = y_inst1 + int(140 * fator)
+    y_inst = y_nome + int(340 * fator)
 
-    tam_moldura = int(2740 * fator)
+    tam_moldura = int(2800 * fator)
     x_moldura = (largura - tam_moldura) / 2
-    y_moldura = y_inst2 + int(360 * fator)
+    y_moldura = y_inst + int(300 * fator)
 
     pos_qr_x = (largura - tamanho_qr) / 2
     pos_qr_y = y_moldura + (tam_moldura - tamanho_qr) / 2
@@ -732,14 +723,14 @@ def gerar_placa_svg(
     raio_borda = int(100 * fator)
     espessura_borda = int(32 * fator)
 
-    comp_brk = int(380 * fator)
+    comp_brk = int(400 * fator)
     esp_brk = int(75 * fator)
     x_dir_brk = x_moldura + tam_moldura
     y_inf_brk = y_moldura + tam_moldura
 
-    y_regras = y_moldura + tam_moldura + int(420 * fator)
-    esp_regra = int(210 * fator)
-    raio_bul = int(42 * fator)
+    y_regras = y_moldura + tam_moldura + int(360 * fator)
+    esp_regra = int(245 * fator)
+    raio_bul = int(52 * fator)
 
     subtitulo_tag = f'<text class="subtitulo" style="display:none">{escapar(subtitulo)}</text>' if subtitulo else ''
 
@@ -753,8 +744,8 @@ def gerar_placa_svg(
       .subtitulo {{ font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: {int(125 * fator)}px; font-weight: 500; fill: #6b7280; text-anchor: middle; }}
       .categoria {{ font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: {int(250 * fator)}px; font-weight: 800; fill: #1e293b; text-anchor: middle; }}
       .nome {{ font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: {int(360 * fator)}px; font-weight: 800; fill: #1e293b; text-anchor: middle; }}
-      .instrucao {{ font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: {int(115 * fator)}px; font-weight: 700; fill: #1e293b; text-anchor: middle; }}
-      .regra-txt {{ font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: {int(140 * fator)}px; font-weight: 700; fill: #1e293b; }}
+      .instrucao {{ font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: {int(135 * fator)}px; font-weight: 700; fill: #1e293b; text-anchor: middle; }}
+      .regra-txt {{ font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: {int(175 * fator)}px; font-weight: 700; fill: #1e293b; }}
       .bracket {{ fill: #212529; }}
       .bullet {{ fill: #b43f24; }}
     </style>
@@ -769,8 +760,7 @@ def gerar_placa_svg(
   <text class="categoria" x="{largura / 2}" y="{y_cat}">{escapar(cat_texto)}</text>
   <text class="nome" x="{largura / 2}" y="{y_nome}">{escapar(nome_texto)}</text>
 
-  <text class="instrucao" x="{largura / 2}" y="{y_inst1}">APONTE A CÂMERA PARA BAIXAR O APLICATIVO E</text>
-  <text class="instrucao" x="{largura / 2}" y="{y_inst2}">NAVEGAR NO CROQUI OFFLINE</text>
+  <text class="instrucao" x="{largura / 2}" y="{y_inst}">APONTE A CÂMERA PARA ABRIR NO ARESTA</text>
 
   <!-- Viewfinder brackets -->
   <rect class="bracket" x="{x_moldura}" y="{y_moldura}" width="{comp_brk}" height="{esp_brk}" />
@@ -793,16 +783,16 @@ def gerar_placa_svg(
   <!-- Regras de conduta -->
   <g transform="translate({int(800 * fator)}, 0)">
     <circle class="bullet" cx="0" cy="{y_regras}" r="{raio_bul}" />
-    <text class="regra-txt" x="{int(120 * fator)}" y="{y_regras + int(45 * fator)}">Minimize seu impacto na natureza</text>
+    <text class="regra-txt" x="{int(140 * fator)}" y="{y_regras + int(55 * fator)}">Minimize seu impacto na natureza</text>
 
     <circle class="bullet" cx="0" cy="{y_regras + esp_regra}" r="{raio_bul}" />
-    <text class="regra-txt" x="{int(120 * fator)}" y="{y_regras + esp_regra + int(45 * fator)}">Não quebre nem altere agarras</text>
+    <text class="regra-txt" x="{int(140 * fator)}" y="{y_regras + esp_regra + int(55 * fator)}">Não quebre nem altere agarras</text>
 
     <circle class="bullet" cx="0" cy="{y_regras + 2 * esp_regra}" r="{raio_bul}" />
-    <text class="regra-txt" x="{int(120 * fator)}" y="{y_regras + 2 * esp_regra + int(45 * fator)}">Não deixe lixo no local</text>
+    <text class="regra-txt" x="{int(140 * fator)}" y="{y_regras + 2 * esp_regra + int(55 * fator)}">Não deixe lixo no local</text>
 
     <circle class="bullet" cx="0" cy="{y_regras + 3 * esp_regra}" r="{raio_bul}" />
-    <text class="regra-txt" x="{int(120 * fator)}" y="{y_regras + 3 * esp_regra + int(45 * fator)}">Respeite a vegetação e o entorno</text>
+    <text class="regra-txt" x="{int(140 * fator)}" y="{y_regras + 3 * esp_regra + int(55 * fator)}">Respeite a vegetação e o entorno</text>
   </g>
 </svg>"""
 
