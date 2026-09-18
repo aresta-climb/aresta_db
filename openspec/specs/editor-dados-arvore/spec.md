@@ -10,6 +10,7 @@ O recuo horizontal (indentação) da árvore SHALL ser compacto (12px) para pres
 O final de cada lista repetida na árvore SHALL conter um nó virtual interativo rotulado como `+ Adicionar [Tipo de Item]`.
 O parser e o modelador da árvore SHALL ser compatível com runtimes modernos do Protobuf que depreciaram o campo `.label`.
 Toda adição ou remoção de elementos acionada na árvore SHALL ser realizada via comandos na pilha global de histórico (Undo/Redo), garantindo reversibilidade.
+Ao reordenar itens de campos repetidos na árvore ("Mover para Cima" ou "Mover para Baixo"), o sistema SHALL sincronizar as referências de mensagens dos nós da árvore e de seus descendentes com as instâncias ativas no Protobuf, descarregando preventivamente edições pendentes para garantir que o item movido e suas sub-mensagens permaneçam editáveis sem geração de nós órfãos.
 
 #### Scenario: Carregamento Inicial da Árvore Compacta
 - **WHEN** a página de Editor de Dados é aberta
@@ -46,6 +47,16 @@ Toda adição ou remoção de elementos acionada na árvore SHALL ser realizada 
 #### Scenario: Remoção de item recém-adicionado
 - **WHEN** o usuário adiciona um novo item na árvore e em seguida clica em "Excluir item"
 - **THEN** o sistema SHALL excluir o item corretamente, não importando eventuais re-layouts em plano de fundo que ocorram antes ou durante a exibição do menu de contexto.
+
+#### Scenario: Reordenação de Item Preserva Integridade e Capacidade de Edição
+- **WHEN** o usuário aciona "Mover para Cima" ou "Mover para Baixo" em um item da árvore de dados
+- **THEN** o sistema SHALL atualizar a posição do item na árvore via histórico de Undo/Redo
+- **AND** atualizar as referências internas de mensagens do nó movido e de seus sub-nós (descendentes) para as novas instâncias ativas do Protobuf
+- **AND** permitir que o item e suas sub-mensagens sejam editados sem lançar erros de mensagem órfã.
+
+#### Scenario: Flush Preventivo de Edições Pendentes ao Reordenar
+- **WHEN** o usuário aciona a reordenação de um item enquanto houver edições pendentes agendadas em temporizadores de coalescência
+- **THEN** o sistema SHALL consolidar e descarregar imediatamente as edições pendentes antes de efetuar o movimento na coleção do Protobuf.
 
 ### Requirement: Transparência de Wrappers de Arquivo
 O sistema SHALL esconder os wrappers e mensagens marcadas com `MensagemFormatoUi.ONEOF` do usuário, exibindo e editando a sub-mensagem ou campo ativo diretamente. Ao criar ou inicializar um novo elemento de uma mensagem que inclui um `oneof`, o sistema SHALL selecionar automaticamente o campo com `oneof_default` se presente, ou solicitar a escolha caso contrário.

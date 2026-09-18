@@ -9,6 +9,7 @@ O sistema SHALL criar e exibir formulários na área de edição principal conte
 - **Constrição de Largura**: Controles de edição primitivos curtos (números, strings curtas, combos, caixas de seleção) SHALL ter uma largura máxima configurada (ex: `150px` para números, `450px` para strings curtas) para evitar estiramento horizontal excessivo.
 - **Ocultação de Campos Invisíveis**: Campos que possuam a opção de campo `formato_na_ui = INVISIVEL` no protobuf SHALL ser omitidos e não renderizados no formulário.
 - **Regra Vazio = Ausente**: Campos de texto e markdown em branco SHALL ser automaticamente limpos no Protobuf (`ClearField`) e omitidos na serialização YAML; a inserção de dados SHALL restaurar sua presença.
+- **Invalidação de Cache na Reordenação**: Ao reordenar itens, formulários em cache vinculados a instâncias anteriores desanexadas SHALL ser invalidados, assegurando que formulários reexibidos operem sobre a instância de mensagem ativa.
 
 #### Scenario: Visualização de Campo Primitivo com Largura Constrita
 - **WHEN** um campo primitivo (número ou string curta) é exibido no formulário
@@ -25,6 +26,11 @@ O sistema SHALL criar e exibir formulários na área de edição principal conte
 #### Scenario: Esvaziamento de Campo de Texto
 - **WHEN** o usuário apaga todo o texto de um campo de string ou markdown
 - **THEN** o sistema SHALL remover o campo via `ClearField` no modelo do Protobuf e omiti-lo na serialização YAML.
+
+#### Scenario: Atualização e Invalidação de Formulário após Reordenação
+- **WHEN** um elemento de coleção repetida é reordenado na árvore de dados
+- **THEN** o sistema SHALL invalidar o formulário em cache associado à instância anterior do elemento
+- **AND** renderizar/carregar o formulário vinculado à nova instância ativa do elemento, conectando seus controles de edição à mensagem correta do croqui.
 
 ### Requirement: Documentação e Textos da Interface Guiados pelo Protobuf
 O sistema SHALL extrair dinamicamente a documentação de cada campo (explicações e descrições exibidas na UI) dos comentários presentes nos arquivos `.proto`. Da mesma forma, os rótulos (labels) dos campos SHALL ser extraídos dos nomes dos campos no protobuf ou de field/message options explicitamente definidos, de forma a não haver strings de documentação "hardcoded" na aplicação do editor.
