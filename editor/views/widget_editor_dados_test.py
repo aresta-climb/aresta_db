@@ -3434,3 +3434,317 @@ def test_widget_editor_dados_on_add_clicked_mapas_sugere_nome_sem_duplicacao(qap
     assert nome_sugerido_passado == "setor_fugitivos_i_p0.webp"
     assert "setor_setor" not in nome_sugerido_passado
 
+
+def test_mover_setor_permite_edicao_subsequente_sem_erro_de_orfa(qapp):
+    croqui = Croqui()
+    pico = croqui.picos.add(nome="Pico 1")
+    s1 = pico.setores_ou_grupos.add().setor.conteudo
+    s1.nome = "Setor 1"
+    s2 = pico.setores_ou_grupos.add().setor.conteudo
+    s2.nome = "Setor 2"
+
+    model = CroquiModel(croqui)
+    stack = QUndoStack()
+    controller = CroquiController(model, stack)
+    widget = WidgetEditorDados(model, controller)
+    modelo = widget.tree_model
+
+    croqui_idx = modelo.index(0, 0)
+    widget.tree_view.expand(croqui_idx)
+
+    picos_exp = None
+    for r in range(modelo.rowCount(croqui_idx)):
+        idx = modelo.index(r, 0, croqui_idx)
+        if "Pico" in modelo.data(idx):
+            picos_exp = idx
+            break
+    assert picos_exp is not None
+    widget.tree_view.expand(picos_exp)
+    pico_idx = modelo.index(0, 0, picos_exp)
+    widget.tree_view.expand(pico_idx)
+
+    sog_exp = None
+    for r in range(modelo.rowCount(pico_idx)):
+        idx = modelo.index(r, 0, pico_idx)
+        if "Setor" in modelo.data(idx):
+            sog_exp = idx
+            break
+    assert sog_exp is not None
+    widget.tree_view.expand(sog_exp)
+
+    s2_idx = modelo.index(1, 0, sog_exp)
+    widget._executar_mover_para_cima(s2_idx)
+
+    indexes = widget.tree_view.selectionModel().selectedIndexes()
+    assert len(indexes) == 1
+    no_selecionado = indexes[0].internalPointer()
+    assert no_selecionado.message.nome == "Setor 2"
+
+    controller.alterar_primitivo(no_selecionado.message, "nome", "Setor 2", "Setor 2 Modificado")
+    assert croqui.picos[0].setores_ou_grupos[0].setor.conteudo.nome == "Setor 2 Modificado"
+
+
+def test_mover_setor_com_filhos_populados_permite_edicao_de_filhos(qapp):
+    croqui = Croqui()
+    pico = croqui.picos.add(nome="Pico 1")
+    s1 = pico.setores_ou_grupos.add().setor.conteudo
+    s1.nome = "Setor 1"
+    s2 = pico.setores_ou_grupos.add().setor.conteudo
+    s2.nome = "Setor 2"
+    e = s2.escaladas.add()
+    e.via_esportiva.nome = "Via Acesso"
+
+    model = CroquiModel(croqui)
+    stack = QUndoStack()
+    controller = CroquiController(model, stack)
+    widget = WidgetEditorDados(model, controller)
+    modelo = widget.tree_model
+
+    croqui_idx = modelo.index(0, 0)
+    widget.tree_view.expand(croqui_idx)
+
+    picos_exp = [modelo.index(r, 0, croqui_idx) for r in range(modelo.rowCount(croqui_idx)) if "Pico" in modelo.data(modelo.index(r, 0, croqui_idx))][0]
+    widget.tree_view.expand(picos_exp)
+    pico_idx = modelo.index(0, 0, picos_exp)
+    widget.tree_view.expand(pico_idx)
+
+    sog_exp = [modelo.index(r, 0, pico_idx) for r in range(modelo.rowCount(pico_idx)) if "Setor" in modelo.data(modelo.index(r, 0, pico_idx))][0]
+    widget.tree_view.expand(sog_exp)
+
+    s2_idx = modelo.index(1, 0, sog_exp)
+    widget.tree_view.expand(s2_idx)
+    esc_exp = [modelo.index(r, 0, s2_idx) for r in range(modelo.rowCount(s2_idx)) if "Escalada" in modelo.data(modelo.index(r, 0, s2_idx))][0]
+    widget.tree_view.expand(esc_exp)
+
+    widget._executar_mover_para_cima(s2_idx)
+
+    novo_s2_idx = modelo.index(0, 0, sog_exp)
+    widget.tree_view.expand(novo_s2_idx)
+    novo_esc_exp = [modelo.index(r, 0, novo_s2_idx) for r in range(modelo.rowCount(novo_s2_idx)) if "Escalada" in modelo.data(modelo.index(r, 0, novo_s2_idx))][0]
+    widget.tree_view.expand(novo_esc_exp)
+    novo_esc_idx = modelo.index(0, 0, novo_esc_exp)
+    no_esc = novo_esc_idx.internalPointer()
+
+    controller.alterar_primitivo(no_esc.message.via_esportiva, "nome", "Via Acesso", "Via Nova")
+    assert croqui.picos[0].setores_ou_grupos[0].setor.conteudo.escaladas[0].via_esportiva.nome == "Via Nova"
+
+
+def test_mover_setor_descarrega_temporizador_coalescencia_pendente(qapp):
+    croqui = Croqui()
+    pico = croqui.picos.add(nome="Pico 1")
+    s1 = pico.setores_ou_grupos.add().setor.conteudo
+    s1.nome = "Setor 1"
+    s2 = pico.setores_ou_grupos.add().setor.conteudo
+    s2.nome = "Setor 2"
+
+    model = CroquiModel(croqui)
+    stack = QUndoStack()
+    controller = CroquiController(model, stack)
+    widget = WidgetEditorDados(model, controller)
+    modelo = widget.tree_model
+
+    croqui_idx = modelo.index(0, 0)
+    widget.tree_view.expand(croqui_idx)
+    picos_exp = [modelo.index(r, 0, croqui_idx) for r in range(modelo.rowCount(croqui_idx)) if "Pico" in modelo.data(modelo.index(r, 0, croqui_idx))][0]
+    widget.tree_view.expand(picos_exp)
+    pico_idx = modelo.index(0, 0, picos_exp)
+    widget.tree_view.expand(pico_idx)
+    sog_exp = [modelo.index(r, 0, pico_idx) for r in range(modelo.rowCount(pico_idx)) if "Setor" in modelo.data(modelo.index(r, 0, pico_idx))][0]
+    widget.tree_view.expand(sog_exp)
+
+    s2_idx = modelo.index(1, 0, sog_exp)
+    widget.tree_view.selectionModel().select(s2_idx, QItemSelectionModel.SelectionFlag.ClearAndSelect)
+    widget.form_padrao.load_node(s2_idx.internalPointer())
+
+    from editor.views.widget_editor_dados import WidgetEditorMarkdown
+    w_md = widget.form_padrao.findChild(WidgetEditorMarkdown)
+    assert w_md is not None
+
+    w_md.editor.setPlainText("Nova Descrição Digitada")
+    assert w_md.temporizador.esta_ativo()
+
+    widget._executar_mover_para_cima(s2_idx)
+
+    assert not w_md.temporizador.esta_ativo()
+    assert croqui.picos[0].setores_ou_grupos[0].setor.conteudo.descricao == "Nova Descrição Digitada"
+
+
+def test_undo_redo_mover_repeated_mantem_instancia_editavel(qapp):
+    croqui = Croqui()
+    pico = croqui.picos.add(nome="Pico 1")
+    s1 = pico.setores_ou_grupos.add().setor.conteudo
+    s1.nome = "Setor 1"
+    s2 = pico.setores_ou_grupos.add().setor.conteudo
+    s2.nome = "Setor 2"
+
+    model = CroquiModel(croqui)
+    stack = QUndoStack()
+    controller = CroquiController(model, stack)
+    widget = WidgetEditorDados(model, controller)
+    modelo = widget.tree_model
+
+    croqui_idx = modelo.index(0, 0)
+    widget.tree_view.expand(croqui_idx)
+    picos_exp = [modelo.index(r, 0, croqui_idx) for r in range(modelo.rowCount(croqui_idx)) if "Pico" in modelo.data(modelo.index(r, 0, croqui_idx))][0]
+    widget.tree_view.expand(picos_exp)
+    pico_idx = modelo.index(0, 0, picos_exp)
+    widget.tree_view.expand(pico_idx)
+    sog_exp = [modelo.index(r, 0, pico_idx) for r in range(modelo.rowCount(pico_idx)) if "Setor" in modelo.data(modelo.index(r, 0, pico_idx))][0]
+    widget.tree_view.expand(sog_exp)
+
+    s2_idx = modelo.index(1, 0, sog_exp)
+    widget._executar_mover_para_cima(s2_idx)
+
+    # 1. Desfazer (Undo) -> Setor 2 volta para índice 1
+    stack.undo()
+
+    idx_pos_undo = modelo.index(1, 0, sog_exp)
+    no_pos_undo = idx_pos_undo.internalPointer()
+    assert no_pos_undo.message.nome == "Setor 2"
+    controller.alterar_primitivo(no_pos_undo.message, "nome", "Setor 2", "Setor 2 Pos Undo")
+    assert croqui.picos[0].setores_ou_grupos[1].setor.conteudo.nome == "Setor 2 Pos Undo"
+
+    # 2. Refazer (Redo) -> Setor 2 vai para índice 0
+    stack.redo()
+
+    idx_pos_redo = modelo.index(0, 0, sog_exp)
+    no_pos_redo = idx_pos_redo.internalPointer()
+    controller.alterar_primitivo(no_pos_redo.message, "nome", "Setor 2 Pos Undo", "Setor 2 Pos Redo")
+    assert croqui.picos[0].setores_ou_grupos[0].setor.conteudo.nome == "Setor 2 Pos Redo"
+
+
+def test_undo_redo_mover_repeated_atualiza_formulario_ativo(qapp):
+    from PySide6.QtCore import QItemSelection
+    from editor.views.widget_editor_dados import WidgetEditorMarkdown
+    croqui = Croqui()
+    pico = croqui.picos.add(nome="Pico 1")
+    s1 = pico.setores_ou_grupos.add().setor.conteudo
+    s1.nome = "Setor 1"
+    s2 = pico.setores_ou_grupos.add().setor.conteudo
+    s2.nome = "Setor 2"
+    s2.descricao = "Descricao Inicial S2"
+
+    model = CroquiModel(croqui)
+    stack = QUndoStack()
+    controller = CroquiController(model, stack)
+    widget = WidgetEditorDados(model, controller)
+    widget.show()
+    qapp.processEvents()
+    modelo = widget.tree_model
+
+    croqui_idx = modelo.index(0, 0)
+    widget.tree_view.expand(croqui_idx)
+    picos_exp = [modelo.index(r, 0, croqui_idx) for r in range(modelo.rowCount(croqui_idx)) if "Pico" in modelo.data(modelo.index(r, 0, croqui_idx))][0]
+    widget.tree_view.expand(picos_exp)
+    pico_idx = modelo.index(0, 0, picos_exp)
+    widget.tree_view.expand(pico_idx)
+    sog_exp = [modelo.index(r, 0, pico_idx) for r in range(modelo.rowCount(pico_idx)) if "Setor" in modelo.data(modelo.index(r, 0, pico_idx))][0]
+    widget.tree_view.expand(sog_exp)
+
+    s2_idx = modelo.index(1, 0, sog_exp)
+    widget.tree_view.setCurrentIndex(s2_idx)
+    widget.tree_view.selectionModel().select(s2_idx, QItemSelectionModel.SelectionFlag.ClearAndSelect | QItemSelectionModel.SelectionFlag.Rows)
+    widget._on_tree_selection_changed(widget.tree_view.selectionModel().selection(), QItemSelection())
+    qapp.processEvents()
+
+    # 1. Move para cima: Setor 2 vai para o índice 0
+    widget._executar_mover_para_cima(s2_idx)
+    qapp.processEvents()
+
+    # O formulário ativo deve permitir editar o Setor 2 na nova posição sem erro de mensagem órfã
+    w_md = widget.form_padrao.currentWidget().findChild(WidgetEditorMarkdown)
+    assert w_md is not None
+    w_md.editor.setPlainText("Descricao Pos Mover")
+    w_md.forcar_consolidacao()
+    qapp.processEvents()
+    assert croqui.picos[0].setores_ou_grupos[0].setor.conteudo.descricao == "Descricao Pos Mover"
+
+    # 2. Desfaz a edição e desfaz o movimento (Undo)
+    stack.undo()  # desfaz edição
+    qapp.processEvents()
+    stack.undo()  # desfaz mover -> Setor 2 volta para o índice 1
+    qapp.processEvents()
+
+    # Seleciona Setor 2 de volta no índice 1 e edita no formulário
+    s2_idx_undo = modelo.index(1, 0, sog_exp)
+    widget.tree_view.setCurrentIndex(s2_idx_undo)
+    widget.tree_view.selectionModel().select(s2_idx_undo, QItemSelectionModel.SelectionFlag.ClearAndSelect | QItemSelectionModel.SelectionFlag.Rows)
+    widget._on_tree_selection_changed(widget.tree_view.selectionModel().selection(), QItemSelection())
+    qapp.processEvents()
+
+    w_md = widget.form_padrao.currentWidget().findChild(WidgetEditorMarkdown)
+    assert w_md is not None
+    w_md.editor.setPlainText("Descricao Pos Undo")
+    w_md.forcar_consolidacao()
+    qapp.processEvents()
+    assert croqui.picos[0].setores_ou_grupos[1].setor.conteudo.descricao == "Descricao Pos Undo"
+
+    # 3. Desfaz a edição e refaz o movimento (Redo)
+    stack.undo()  # desfaz edição
+    qapp.processEvents()
+    stack.redo()  # refaz mover -> Setor 2 volta para o índice 0
+    qapp.processEvents()
+
+    s2_idx_redo = modelo.index(0, 0, sog_exp)
+    widget.tree_view.setCurrentIndex(s2_idx_redo)
+    widget.tree_view.selectionModel().select(s2_idx_redo, QItemSelectionModel.SelectionFlag.ClearAndSelect | QItemSelectionModel.SelectionFlag.Rows)
+    widget._on_tree_selection_changed(widget.tree_view.selectionModel().selection(), QItemSelection())
+    qapp.processEvents()
+
+    w_md = widget.form_padrao.currentWidget().findChild(WidgetEditorMarkdown)
+    assert w_md is not None
+    w_md.editor.setPlainText("Descricao Pos Redo")
+    w_md.forcar_consolidacao()
+    qapp.processEvents()
+    assert croqui.picos[0].setores_ou_grupos[0].setor.conteudo.descricao == "Descricao Pos Redo"
+
+
+def test_forcar_consolidacao_pendente_com_foco_e_descarte_cache_guardas(qapp, monkeypatch):
+    from PySide6.QtCore import QModelIndex
+    from PySide6.QtWidgets import QLineEdit, QApplication
+    croqui = Croqui()
+    pico = croqui.picos.add(nome="Pico 1")
+    s1 = pico.setores_ou_grupos.add().setor.conteudo
+    s1.nome = "Setor 1"
+
+    model = CroquiModel(croqui)
+    stack = QUndoStack()
+    controller = CroquiController(model, stack)
+    widget = WidgetEditorDados(model, controller)
+    widget.show()
+    qapp.processEvents()
+
+    # Testa descarte de cache com nós nulos
+    widget._descartar_cache_recursivo(None)
+
+    # Carrega nó e foca em um QLineEdit
+    croqui_idx = widget.tree_model.index(0, 0)
+    widget.tree_view.expand(croqui_idx)
+    picos_exp = [widget.tree_model.index(r, 0, croqui_idx) for r in range(widget.tree_model.rowCount(croqui_idx)) if "Pico" in widget.tree_model.data(widget.tree_model.index(r, 0, croqui_idx))][0]
+    pico_idx = widget.tree_model.index(0, 0, picos_exp)
+    widget.tree_view.selectionModel().select(pico_idx, QItemSelectionModel.SelectionFlag.ClearAndSelect | QItemSelectionModel.SelectionFlag.Rows)
+    widget._on_tree_selection_changed(None, None)
+    qapp.processEvents()
+
+    cur_w = widget.form_padrao.currentWidget()
+    line_edit = cur_w.findChild(QLineEdit)
+    if line_edit:
+        monkeypatch.setattr(QApplication, "focusWidget", lambda: line_edit)
+        widget.form_padrao.forcar_consolidacao_pendente()
+        qapp.processEvents()
+
+    # Testa chamadas de mover para cima no índice 0 (retorno precoce)
+    widget.tree_view.expand(pico_idx)
+    sog_exp = [widget.tree_model.index(r, 0, pico_idx) for r in range(widget.tree_model.rowCount(pico_idx)) if "Setor" in widget.tree_model.data(widget.tree_model.index(r, 0, pico_idx))][0]
+    widget.tree_view.expand(sog_exp)
+    s1_idx = widget.tree_model.index(0, 0, sog_exp)
+    widget._executar_mover_para_cima(s1_idx)
+    # Testa mover para baixo no último índice (retorno precoce)
+    widget._executar_mover_para_baixo(s1_idx)
+    # Testa mover com index inválido
+    widget._executar_mover_para_cima(QModelIndex())
+    widget._executar_mover_para_baixo(QModelIndex())
+
+
+
+

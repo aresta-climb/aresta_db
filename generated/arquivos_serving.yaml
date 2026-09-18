@@ -602,7 +602,7 @@ arquivos:
 - caminho_relativo: br_mg_diamantina_diamaboulder/compilado.md
   checksum_sha256: aeb01ba15dc7247405045719759e8b4d3957a72c011061fa6beab7ccce877bfd
 - caminho_relativo: br_mg_igarape_pedra_grande/compilado.binarypb
-  checksum_sha256: b4914981cd33aeacf8e5cf23fce88170b80adf3668a92ff1d441d58037762e0f
+  checksum_sha256: 208508723c1e315bb313f326935af6fa91b2dca95f617bb1843c471cb78a8409
 - caminho_relativo: thumbnails/br_mg_igarape_pedra_grande.webp
   checksum_sha256: d490580138c1b7f24c772f2d6672e895406739da51bd1880ecabb49cd28b7409
 - caminho_relativo: br_mg_igarape_pedra_grande/imagens/capa_p0.webp
@@ -628,7 +628,7 @@ arquivos:
 - caminho_relativo: br_mg_igarape_pedra_grande/imagens/grupo_estacionamento_boulders_p0.webp
   checksum_sha256: 171a740a6f3d60f6cfb107255c74c9ed1540e82ff2fb4f33510292cf3d3a5adc
 - caminho_relativo: br_mg_igarape_pedra_grande/imagens/grupo_estacionamento_boulders_p1.webp
-  checksum_sha256: 9f78c7dd36dcdac3a79217c623dd77c75b4d2b15ecf59b0d47556245f87a9ec8
+  checksum_sha256: a1f6450e67322bcd2010397db656c5ef5e3711cbd38c646df82e0c7e59d207a1
 - caminho_relativo: br_mg_igarape_pedra_grande/imagens/historia_p0.webp
   checksum_sha256: 35328b7fcdf2d9a789fcd300af00cb67997589078e4dc645f00d1180b3ea707d
 - caminho_relativo: br_mg_igarape_pedra_grande/imagens/igarameca_info_p0.webp
@@ -716,9 +716,9 @@ arquivos:
 - caminho_relativo: br_mg_igarape_pedra_grande/imagens/setor_viva_o_climb_p4.webp
   checksum_sha256: c8e95292e609405375d46753e1010ff78f1ba889355e5f80b6b29321cf8cee5c
 - caminho_relativo: br_mg_igarape_pedra_grande/compilado.yaml
-  checksum_sha256: 429fef10446087adfa5963df223bcaa07872cbf6e7c3797698bcb4184d72ff0f
+  checksum_sha256: 9150f0853102c2657203c4855e69e08ec4efdb83d00df28afed8168d1facdf2b
 - caminho_relativo: br_mg_igarape_pedra_grande/compilado.md
-  checksum_sha256: 115cccff218d3608fcb9d3afe170bde7d32f6ba41b6d5be6a13fd3a20600d23b
+  checksum_sha256: 392dc17e43eb42d78e7611e3086d98f0e52c1efe3c1d8dd5b0e3931288a0f434
 - caminho_relativo: br_mg_januaria_salao_encantado/compilado.binarypb
   checksum_sha256: 26350287062465a53eafe8505481ef55549c7c30c856d8f6f1dbc9621edadaa8
 - caminho_relativo: thumbnails/br_mg_januaria_salao_encantado.webp
@@ -1508,6 +1508,6 @@ arquivos:
 - caminho_relativo: br_mg_sete_lagoas_sinuosa/compilado.md
   checksum_sha256: 9c1cb814fecabc3cc85db508f894a4fac08c13924bc119c29cf9559521c9151f
 - caminho_relativo: indice.binarypb
-  checksum_sha256: fa30c7b452b7510168ad6c6916e243e3b9876cf90f6b6a41713e11810a008ccb
+  checksum_sha256: 0125c5109b091677fd0b3f977190d8813f5f0bc45739534d7657fd8af96e49e3
 - caminho_relativo: indice.yaml
-  checksum_sha256: d816a9d7b50fd290f9a52513dc41810d6356823773048f977ff0adb8585a2938
+  checksum_sha256: 5a0c737795d083a6971c8377ac27bbc0eee6b90be990f98ec7fac9b01259d171

@@ -177,6 +177,27 @@ def criar_analisador_argumentos() -> argparse.ArgumentParser:
         default="app.arestaclimb.com",
         help="Domínio oficial do deep link (padrão: app.arestaclimb.com).",
     )
+    parser.add_argument(
+        "--utm-source",
+        dest="utm_source",
+        type=str,
+        default="setor_igarameca",
+        help="Parâmetro utm_source para rastreamento no QR Code (padrão: setor_igarameca).",
+    )
+    parser.add_argument(
+        "--utm-medium",
+        dest="utm_medium",
+        type=str,
+        default="qrcode",
+        help="Parâmetro utm_medium para rastreamento no QR Code (padrão: qrcode).",
+    )
+    parser.add_argument(
+        "--utm-campaign",
+        dest="utm_campaign",
+        type=str,
+        default=None,
+        help="Parâmetro utm_campaign opcional para rastreamento no QR Code.",
+    )
 
     return parser
 
@@ -224,6 +245,9 @@ def main(argumentos: list[str] | None = None) -> int:
             dpi=args.dpi,
             gerar_svg=gerar_svg,
             cor_borda_logo=args.cor_borda_logo,
+            utm_source=args.utm_source,
+            utm_medium=args.utm_medium,
+            utm_campaign=args.utm_campaign,
         )
         print(
             f"Exportação em lote concluída: {len(arquivos)} placas geradas em {diretorio_saida}."
@@ -237,6 +261,9 @@ def main(argumentos: list[str] | None = None) -> int:
         setor=args.setor,
         via=args.via,
         host=args.host,
+        utm_source=args.utm_source,
+        utm_medium=args.utm_medium,
+        utm_campaign=args.utm_campaign,
     )
 
     # Constrói título e subtítulo amigáveis se não fornecidos

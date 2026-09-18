@@ -81,34 +81,34 @@ mapas:
       estilo: TRACEJADO
       conteudo:
         nos:
-        - x: 797
-          y: 1448
+        - x: 645
+          y: 1465
           tipo: CIRCULO_IDENTIFICADOR
           rotulo: '2'
           raio: 24
-        - x: 877
-          y: 1330
+        - x: 741
+          y: 1306
           tipo: PASSAGEM
-        - x: 924
-          y: 1191
+        - x: 790
+          y: 1059
           tipo: PASSAGEM
-        - x: 986
-          y: 1028
+        - x: 766
+          y: 893
           tipo: PASSAGEM
-        - x: 1015
-          y: 864
+        - x: 669
+          y: 731
           tipo: PASSAGEM
-        - x: 947
-          y: 641
+        - x: 549
+          y: 560
           tipo: PASSAGEM
-        - x: 848
-          y: 432
+        - x: 470
+          y: 430
           tipo: PASSAGEM
-        - x: 764
-          y: 249
+        - x: 399
+          y: 304
           tipo: PASSAGEM
-        - x: 630
-          y: 33
+        - x: 343
+          y: 212
           tipo: PASSAGEM
           rotulo: ''
       espessura: 5

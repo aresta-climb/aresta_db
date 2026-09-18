@@ -634,8 +634,8 @@ picos:
                 - linha_1
                 escalada: Raio
             - caminho_imagem_mapa: imagens/grupo_estacionamento_boulders_p1.webp
-              largura_mapa: 2364
-              altura_mapa: 1773
+              largura_mapa: 1376
+              altura_mapa: 1824
               pontos_de_interesse:
               - id: linha_2
                 label: ''
@@ -643,22 +643,22 @@ picos:
                   estilo: TRACEJADO
                   espessura: 5
                   compilado:
-                    caminho_svg: M 797 1448 C 823.7 1408.7, 855.9 1372.5, 877 1330
-                      C 898.4 1286.9, 906.8 1239.0, 924 1191 C 942.8 1138.7, 970.8
-                      1083.1, 986 1028 C 1000.9 974.1, 1018.5 922.4, 1015 864 C 1010.8
-                      794.9, 974.9 713.1, 947 641 C 919.2 569.2, 879.5 499.4, 848
-                      432 C 818.7 369.1, 797.5 311.5, 764 249 C 726.3 178.8, 674.7
-                      105.0, 630 33
+                    caminho_svg: M 645 1465 C 677.0 1412.0, 717.3 1367.2, 741 1306
+                      C 768.6 1234.8, 788.1 1133.3, 790 1059 C 791.6 998.3, 784.9
+                      946.2, 766 893 C 745.9 836.6, 704.1 785.1, 669 731 C 632.1 674.1,
+                      584.1 613.6, 549 560 C 519.1 514.2, 495.3 473.2, 470 430 C 445.3
+                      387.9, 421.6 342.5, 399 304 C 379.5 270.7, 361.7 242.7, 343
+                      212
                     caixa_delimitadora:
-                      x: 822
-                      y: 740
-                      comprimento: 385
-                      largura: 1415
+                      x: 566
+                      y: 838
+                      comprimento: 447
+                      largura: 1253
                     marcadores:
                     - tipo: CIRCULO_IDENTIFICADOR
-                      x: 797
-                      y: 1448
-                      angulo_graus_x100: -5586
+                      x: 645
+                      y: 1465
+                      angulo_graus_x100: -5888
                       rotulo: '2'
                       raio: 24
                 cor: '#00E5FF'
@@ -7318,7 +7318,7 @@ arquivos_externos:
 - caminho: imagens/grupo_estacionamento_boulders_p0.webp
   checksum_sha256: 171a740a6f3d60f6cfb107255c74c9ed1540e82ff2fb4f33510292cf3d3a5adc
 - caminho: imagens/grupo_estacionamento_boulders_p1.webp
-  checksum_sha256: 9f78c7dd36dcdac3a79217c623dd77c75b4d2b15ecf59b0d47556245f87a9ec8
+  checksum_sha256: a1f6450e67322bcd2010397db656c5ef5e3711cbd38c646df82e0c7e59d207a1
 - caminho: imagens/historia_p0.webp
   checksum_sha256: 35328b7fcdf2d9a789fcd300af00cb67997589078e4dc645f00d1180b3ea707d
 - caminho: imagens/igarameca_info_p0.webp

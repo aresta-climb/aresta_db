@@ -229,3 +229,26 @@ def test_cli_logo_aresta(tmp_path: Path) -> None:
         "--altura", "1000",
     ])
     assert cod_lote == 0
+
+
+def test_cli_parametros_utm(tmp_path: Path, capsys: pytest.CaptureFixture[str]) -> None:
+    """Testa inclusão de parâmetros UTM padrão e customizados no CLI."""
+    pasta_saida = tmp_path / "utm"
+    pasta_saida.mkdir()
+
+    cod = main([
+        "--pico", "br_mg_igarape_pedra_grande",
+        "--setor", "savassinha",
+        "--utm-source", "teste_fonte",
+        "--utm-medium", "teste_midia",
+        "--utm-campaign", "teste_campanha",
+        "--saida", str(pasta_saida),
+        "--largura", "800",
+        "--altura", "1000",
+        "--apenas-svg",
+    ])
+    assert cod == 0
+    saida = capsys.readouterr().out
+    assert "utm_source=teste_fonte" in saida
+    assert "utm_medium=teste_midia" in saida
+    assert "utm_campaign=teste_campanha" in saida

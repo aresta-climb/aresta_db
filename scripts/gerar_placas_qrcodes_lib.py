@@ -54,8 +54,11 @@ def montar_url_deep_link(
     setor: str | None = None,
     via: str | None = None,
     host: str = "app.arestaclimb.com",
+    utm_source: str | None = None,
+    utm_medium: str | None = None,
+    utm_campaign: str | None = None,
 ) -> str:
-    """Monta a URL hierárquica canônica de deep link para o Aresta Climb."""
+    """Monta a URL hierárquica canônica de deep link para o Aresta Climb com suporte a parâmetros UTM."""
     if not pico or not pico.strip():
         raise ValueError("O identificador do pico é obrigatório.")
 
@@ -71,7 +74,19 @@ def montar_url_deep_link(
     if via and via.strip():
         partes.append(slugify(via))
 
-    return f"https://{host}/{'/'.join(partes)}"
+    url_base = f"https://{host}/{'/'.join(partes)}"
+
+    parametros: list[str] = []
+    if utm_source and utm_source.strip():
+        parametros.append(f"utm_source={utm_source.strip()}")
+    if utm_medium and utm_medium.strip():
+        parametros.append(f"utm_medium={utm_medium.strip()}")
+    if utm_campaign and utm_campaign.strip():
+        parametros.append(f"utm_campaign={utm_campaign.strip()}")
+
+    if parametros:
+        return f"{url_base}?{'&'.join(parametros)}"
+    return url_base
 
 
 def resolver_cor_borda_logo(
@@ -868,6 +883,9 @@ def exportar_placas_pico(
     dpi: int = DPI_PADRAO,
     gerar_svg: bool = False,
     cor_borda_logo: str = "preta",
+    utm_source: str | None = "setor_igarameca",
+    utm_medium: str | None = "qrcode",
+    utm_campaign: str | None = None,
 ) -> list[dict[str, Any]]:
     """Gera e salva em disco todas as placas em formato A4 de alta resolução (PNG e opcionalmente SVG)."""
     destino = Path(diretorio_saida)
@@ -890,6 +908,9 @@ def exportar_placas_pico(
             grupo=item.get("grupo"),
             setor=item.get("setor"),
             via=item.get("via"),
+            utm_source=utm_source,
+            utm_medium=utm_medium,
+            utm_campaign=utm_campaign,
         )
 
         caminho_png = destino / f"{item['id']}.png"

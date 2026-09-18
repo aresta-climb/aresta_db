@@ -583,7 +583,10 @@ class ProtobufTreeViewAdapter(QAbstractItemModel):
         
         self.endMoveRows()
         
-        # Atualiza os label e index_in_repeated
+        # Atualiza os labels, index_in_repeated e referências de mensagens vivas
+        parent_node = exp_node.parent_node
+        repeated_field = getattr(parent_node.message, campo) if parent_node and parent_node.message else None
+
         min_idx = min(index_from, index_to)
         max_idx = max(index_from, index_to)
         
@@ -592,9 +595,44 @@ class ProtobufTreeViewAdapter(QAbstractItemModel):
             if c.index_in_repeated is not None:
                 c.index_in_repeated = i
                 c.name = f"[{i}]"
+                if repeated_field is not None and 0 <= i < len(repeated_field):
+                    nova_msg = exp_node._resolve_transparency(repeated_field[i])
+                    self._sincronizar_mensagem_recursiva(c, nova_msg)
                 
         # Notifica mudanca visual
         first_changed = self.index(min_idx, 0, exp_idx)
         last_changed = self.index(max_idx, 0, exp_idx)
         self.dataChanged.emit(first_changed, last_changed)
+
+    def _sincronizar_mensagem_recursiva(self, node: ProtobufNode, nova_msg: Any) -> None:
+        """Atualiza a referência de mensagem em 'node' e propaga recursivamente
+
+        para seus filhos já populados no ProtobufTreeViewAdapter.
+        """
+        node.message = nova_msg
+        if not node._is_populated or nova_msg is None:
+            return
+
+        for child in node.children:
+            if child.eh_no_adicao:
+                continue
+            if child.is_expando:
+                if child.descriptor and hasattr(nova_msg, child.descriptor.name):
+                    sub_repeated = getattr(nova_msg, child.descriptor.name)
+                    for sub_child in child.children:
+                        if sub_child.eh_no_adicao:
+                            continue
+                        if (
+                            sub_child.index_in_repeated is not None
+                            and 0 <= sub_child.index_in_repeated < len(sub_repeated)
+                        ):
+                            item_raw = sub_repeated[sub_child.index_in_repeated]
+                            sub_nova_msg = child._resolve_transparency(item_raw)
+                            self._sincronizar_mensagem_recursiva(sub_child, sub_nova_msg)
+            else:
+                if child.descriptor and hasattr(nova_msg, child.descriptor.name):
+                    sub_raw = getattr(nova_msg, child.descriptor.name)
+                    sub_nova_msg = child._resolve_transparency(sub_raw)
+                    self._sincronizar_mensagem_recursiva(child, sub_nova_msg)
+
 

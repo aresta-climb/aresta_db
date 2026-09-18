@@ -548,3 +548,96 @@ def test_protobuf_tree_model_mapas_gerais():
     assert mapas_gerais_node is not None, f"O nó Mapas gerais deve aparecer na árvore do Pico. Encontrados: {labels}"
     node_ptr = mapas_gerais_node.internalPointer()
     assert node_ptr.message.DESCRIPTOR.name == "ArquivoMapas"
+
+
+def test_on_item_movido_atualiza_referencias_mensagens_vivas():
+    """Garante que ao mover itens repeated, os nós da árvore atualizem node.message
+
+    para a instância ativa real no Protobuf, tanto para mensagens diretas quanto
+    para nós com resolução de transparência (ex: SetorOuGrupo -> Setor).
+    """
+    from aresta_api.proto.generated.croqui_pb2 import Croqui
+    from editor.views.tree_view_adapter import ProtobufTreeViewAdapter
+
+    croqui = Croqui()
+    pico = croqui.picos.add(nome="Pico 1")
+    s1 = pico.setores_ou_grupos.add().setor.conteudo
+    s1.nome = "Setor 1"
+    s2 = pico.setores_ou_grupos.add().setor.conteudo
+    s2.nome = "Setor 2"
+    s3 = pico.setores_ou_grupos.add().setor.conteudo
+    s3.nome = "Setor 3"
+
+    adapter = ProtobufTreeViewAdapter(croqui)
+    croqui_idx = adapter.index(0, 0, QModelIndex())
+
+    picos_idx = _obter_expando(adapter, croqui_idx, "Picos")
+    adapter.rowCount(picos_idx)
+    pico_idx = adapter.index(0, 0, picos_idx)
+    adapter.rowCount(pico_idx)
+
+    sog_idx = None
+    for r in range(adapter.rowCount(pico_idx)):
+        idx = adapter.index(r, 0, pico_idx)
+        if "Setor" in adapter.data(idx, Qt.ItemDataRole.DisplayRole):
+            sog_idx = idx
+            break
+    assert sog_idx is not None and sog_idx.isValid()
+    adapter.rowCount(sog_idx)
+    sog_node = sog_idx.internalPointer()
+
+    # 1. Mover Setor 3 para cima (índice 2 para 0)
+    item = pico.setores_ou_grupos.pop(2)
+    pico.setores_ou_grupos.insert(0, item)
+    adapter._on_item_movido(id(pico), "setores_ou_grupos", 2, 0)
+
+    # Verifica que o nó 0 agora tem como message EXATAMENTE a instância viva no Protobuf
+    setor_vivo_0 = pico.setores_ou_grupos[0].setor.conteudo
+    assert sog_node.children[0].message is setor_vivo_0, (
+        f"Nó movido [0] deve apontar para a instância viva {id(setor_vivo_0)}, "
+        f"mas aponta para {id(sog_node.children[0].message)}"
+    )
+
+    # 2. Mover Setor de volta para baixo (índice 0 para 2)
+    item = pico.setores_ou_grupos.pop(0)
+    pico.setores_ou_grupos.insert(2, item)
+    adapter._on_item_movido(id(pico), "setores_ou_grupos", 0, 2)
+
+    setor_vivo_2 = pico.setores_ou_grupos[2].setor.conteudo
+    assert sog_node.children[2].message is setor_vivo_2, (
+        f"Nó movido [2] deve apontar para a instância viva {id(setor_vivo_2)}, "
+        f"mas aponta para {id(sog_node.children[2].message)}"
+    )
+
+
+def test_sincronizar_mensagem_recursiva_ramos_especiais():
+    from editor.views.tree_view_adapter import ProtobufNode
+    croqui = Croqui()
+    pico = croqui.picos.add(nome="Pico Especial")
+    adapter = ProtobufTreeViewAdapter(croqui)
+
+    # 1. Nó não populado ou nova_msg is None
+    no_vazio = ProtobufNode(name="teste", message=pico)
+    no_vazio._is_populated = False
+    adapter._sincronizar_mensagem_recursiva(no_vazio, None)
+    assert no_vazio.message is None
+
+    # 2. Nó com filho virtual de adição e filho submensagem singular
+    no_pai = ProtobufNode(name="pai", message=croqui, descriptor=Croqui.DESCRIPTOR)
+    no_pai._is_populated = True
+    no_add = ProtobufNode(name="+ Adicionar", parent=no_pai)
+    no_add.eh_no_adicao = True
+    no_pai.children.append(no_add)
+
+    # Filho singular (que não seja expando)
+    campo_picos = Croqui.DESCRIPTOR.fields_by_name["picos"]
+    no_singular = ProtobufNode(name="pico_singular", parent=no_pai, descriptor=campo_picos, is_expando=False)
+    no_singular._is_populated = True
+    no_pai.children.append(no_singular)
+
+    croqui_novo = Croqui()
+    pico_novo = croqui_novo.picos.add(nome="Novo Pico")
+    adapter._sincronizar_mensagem_recursiva(no_pai, croqui_novo)
+    assert no_pai.message is croqui_novo
+
+

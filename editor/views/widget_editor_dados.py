@@ -4,7 +4,7 @@ from typing import Optional, Any, Callable, List, Dict, Set, Tuple, Union
 
 from pathlib import Path
 from PySide6.QtWidgets import (
-    QWidget, QHBoxLayout, QTreeView, QStackedWidget, QScrollArea, QVBoxLayout,
+    QApplication, QWidget, QHBoxLayout, QTreeView, QStackedWidget, QScrollArea, QVBoxLayout,
     QLabel, QFrame, QPushButton, QComboBox, QLineEdit, QSpinBox, QDoubleSpinBox,
     QCheckBox, QTextEdit, QTextBrowser, QMenu, QCompleter, QDialog, QInputDialog
 )
@@ -1205,6 +1205,24 @@ class WidgetFormularioPadrao(QStackedWidget):
         empty_layout.addStretch()
         self.addWidget(self.empty_widget)
         self.setCurrentWidget(self.empty_widget)
+
+    def forcar_consolidacao_pendente(self) -> None:
+        """Força a consolidação imediata de qualquer edição pendente nos widgets do formulário."""
+        cur_w = self.currentWidget()
+        if cur_w and cur_w != self.empty_widget:
+            for w_md in cur_w.findChildren(WidgetEditorMarkdown):
+                w_md.forcar_consolidacao()
+            foco = QApplication.focusWidget()
+            if foco and cur_w.isAncestorOf(foco):
+                foco.clearFocus()
+
+    def descartar_cache_formulario(self, msg_id: Any) -> None:
+        """Descarta formulário em cache associado a um msg_id para liberar memória e evitar referências órfãs."""
+        if msg_id in self.cached_forms:
+            w = self.cached_forms.pop(msg_id)
+            self.removeWidget(w)
+            w.setParent(None)
+            w.deleteLater()
 
     def inicializar_oneofs(self, msg: Any) -> None:
         if not msg:
@@ -2491,50 +2509,12 @@ class WidgetEditorDados(QWidget):
         self.stacked_widget.setCurrentIndex(0)
         self.form_padrao.load_node(None)
 
-    def _atualizar_mapeamentos_apos_troca(self, msg_a: Any, msg_b: Any) -> None:
-        """Atualiza recursivamente os mapeamentos de caminhos originais
-        e referências de mensagens quando os conteúdos de duas mensagens protobuf de mesmo tipo
-        foram trocados em memória por CopyFrom.
-        """
-        def _trocar_recursivo(m_a: Any, m_b: Any) -> None:
-            id_a = _get_id(m_a)
-            id_b = _get_id(m_b)
-
-            # Troca no dicionário caminhos_originais
-            val_a = self.caminhos_originais.pop(id_a, None) if id_a in self.caminhos_originais else None
-            val_b = self.caminhos_originais.pop(id_b, None) if id_b in self.caminhos_originais else None
-            if val_a is not None:
-                self.caminhos_originais[id_b] = val_a
-            if val_b is not None:
-                self.caminhos_originais[id_a] = val_b
-
-            # Troca no dicionário referencias_mensagens
-            tem_a_ref = id_a in self.referencias_mensagens
-            tem_b_ref = id_b in self.referencias_mensagens
-            if tem_a_ref:
-                self.referencias_mensagens[id_a] = m_a
-            if tem_b_ref:
-                self.referencias_mensagens[id_b] = m_b
-
-            # Percorre recursivamente os subcampos de tipo mensagem
-            for campo in m_a.DESCRIPTOR.fields:
-                if campo.type == campo.TYPE_MESSAGE:
-                    try:
-                        if campo.is_repeated:
-                            lista_a, lista_b = getattr(m_a, campo.name), getattr(m_b, campo.name)
-                            for i in range(min(len(lista_a), len(lista_b))):
-                                _trocar_recursivo(lista_a[i], lista_b[i])
-                        elif campo.containing_oneof:
-                            if m_a.WhichOneof(campo.containing_oneof.name) == campo.name or m_b.WhichOneof(campo.containing_oneof.name) == campo.name:
-                                _trocar_recursivo(getattr(m_a, campo.name), getattr(m_b, campo.name))
-                        elif m_a.HasField(campo.name) or m_b.HasField(campo.name):
-                            _trocar_recursivo(getattr(m_a, campo.name), getattr(m_b, campo.name))
-                    except (ValueError, AttributeError):
-                        pass
-        _trocar_recursivo(msg_a, msg_b)
 
     def _executar_mover_para_cima(self, index: QModelIndex) -> None:
         """Move o item selecionado uma posição para cima na coleção."""
+        if hasattr(self, "form_padrao") and self.form_padrao:
+            self.form_padrao.forcar_consolidacao_pendente()
+
         expando_node, campo, repeated_container, idx_no_pai = self._encontrar_parent_expando_e_campo(index)
         if expando_node is None or expando_node.parent_node is None or campo is None or repeated_container is None or idx_no_pai is None or idx_no_pai == 0:
             return
@@ -2543,16 +2523,19 @@ class WidgetEditorDados(QWidget):
         
         # Salva o QModelIndex do pai antes da mutação, pois o 'index' atual será invalidado (removido)
         parent_idx = index.parent()
+
+        # Descarta do cache o ID antigo do nó antes de mover
+        no_antigo = index.internalPointer()
+        if no_antigo and no_antigo.message and hasattr(self, "form_padrao") and self.form_padrao:
+            self.form_padrao.descartar_cache_formulario(_get_id(no_antigo.message))
         
         # O controller vai despachar uma Macro de remover e adicionar, e a UI responderá via eventos do model.
         self.controller.mover_repeated_para_cima(msg_pai, campo.name, idx_no_pai)
 
-        janela = self.window()
-
-
         # Re-seleciona o item na nova posição (idx_no_pai - 1) no mesmo expando node
         novo_idx = self.tree_model.index(idx_no_pai - 1, 0, parent_idx)
         if novo_idx and novo_idx.isValid():
+            self.tree_view.setCurrentIndex(novo_idx)
             self.tree_view.selectionModel().select(
                 novo_idx, self.tree_view.selectionModel().SelectionFlag.ClearAndSelect
             )
@@ -2564,6 +2547,9 @@ class WidgetEditorDados(QWidget):
 
     def _executar_mover_para_baixo(self, index: QModelIndex) -> None:
         """Move o item selecionado uma posição para baixo na coleção."""
+        if hasattr(self, "form_padrao") and self.form_padrao:
+            self.form_padrao.forcar_consolidacao_pendente()
+
         expando_node, campo, repeated_container, idx_no_pai = self._encontrar_parent_expando_e_campo(index)
         if expando_node is None or expando_node.parent_node is None or campo is None or repeated_container is None or idx_no_pai is None:
             return
@@ -2574,16 +2560,19 @@ class WidgetEditorDados(QWidget):
         
         # Salva o QModelIndex do pai antes da mutação, pois o 'index' atual será invalidado (removido)
         parent_idx = index.parent()
+
+        # Descarta do cache o ID antigo do nó antes de mover
+        no_antigo = index.internalPointer()
+        if no_antigo and no_antigo.message and hasattr(self, "form_padrao") and self.form_padrao:
+            self.form_padrao.descartar_cache_formulario(_get_id(no_antigo.message))
         
         # O controller vai despachar uma Macro de remover e adicionar, e a UI responderá via eventos do model.
         self.controller.mover_repeated_para_baixo(msg_pai, campo.name, idx_no_pai)
 
-        janela = self.window()
-
-
         # Re-seleciona o item na nova posição (idx_no_pai + 1) no mesmo expando node
         novo_idx = self.tree_model.index(idx_no_pai + 1, 0, parent_idx)
         if novo_idx and novo_idx.isValid():
+            self.tree_view.setCurrentIndex(novo_idx)
             self.tree_view.selectionModel().select(
                 novo_idx, self.tree_view.selectionModel().SelectionFlag.ClearAndSelect
             )
@@ -2726,8 +2715,36 @@ class WidgetEditorDados(QWidget):
         self.tree_model._on_item_removido(_get_id(msg), campo_nome, index)
         self.form_padrao._on_repeated_removido(msg, campo_nome, index)
 
+    def _descartar_cache_recursivo(self, node: Any) -> None:
+        """Descarta recursivamente o cache de formulários para um nó e seus descendentes."""
+        if not node or not hasattr(self, "form_padrao") or not self.form_padrao:
+            return
+        if getattr(node, "message", None) and not getattr(node, "is_expando", False):
+            self.form_padrao.descartar_cache_formulario(_get_id(node.message))
+        for child in getattr(node, "children", []):
+            if not getattr(child, "eh_no_adicao", False):
+                self._descartar_cache_recursivo(child)
+
     def _on_repeated_movido(self, msg: Any, campo_nome: str, index_from: int, index_to: int) -> None:
+        if hasattr(self, "form_padrao") and self.form_padrao:
+            exp_idx = self.tree_model.find_expando_index(_get_id(msg), campo_nome)
+            if exp_idx.isValid():
+                exp_node = exp_idx.internalPointer()
+                if exp_node and exp_node._is_populated:
+                    min_idx = min(index_from, index_to)
+                    max_idx = max(index_from, index_to)
+                    for i in range(min_idx, min(max_idx + 1, len(exp_node.children))):
+                        c = exp_node.children[i]
+                        self._descartar_cache_recursivo(c)
+
         self.tree_model._on_item_movido(_get_id(msg), campo_nome, index_from, index_to)
+
+        if hasattr(self, "form_padrao") and self.form_padrao and self.form_padrao.current_node:
+            cur_node = self.form_padrao.current_node
+            cur_idx = self.tree_view.currentIndex()
+            cur_selected = cur_idx.internalPointer() if cur_idx and cur_idx.isValid() else None
+            if cur_selected == cur_node or (cur_node.message and _get_id(cur_node.message) not in self.form_padrao.cached_forms):
+                self.form_padrao.load_node(cur_node)
 
 
     def find_node_index(self, target_node: Any, parent_idx: QModelIndex = QModelIndex()) -> QModelIndex:

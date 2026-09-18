@@ -85,6 +85,33 @@ def test_montar_url_deep_link_pico_obrigatorio() -> None:
         montar_url_deep_link("")
 
 
+def test_montar_url_deep_link_com_parametros_utm() -> None:
+    # Apenas utm_source e utm_medium
+    url = montar_url_deep_link(
+        "br_mg_igarape_pedra_grande",
+        setor="setor_estacionamento",
+        utm_source="setor_igarameca",
+        utm_medium="qrcode",
+    )
+    assert (
+        url
+        == "https://app.arestaclimb.com/br_mg_igarape_pedra_grande/setor_estacionamento?utm_source=setor_igarameca&utm_medium=qrcode"
+    )
+
+    # Com utm_campaign
+    url_camp = montar_url_deep_link(
+        "br_mg_igarape_pedra_grande",
+        setor="setor_estacionamento",
+        utm_source="setor_igarameca",
+        utm_medium="qrcode",
+        utm_campaign="placas_2026",
+    )
+    assert (
+        url_camp
+        == "https://app.arestaclimb.com/br_mg_igarape_pedra_grande/setor_estacionamento?utm_source=setor_igarameca&utm_medium=qrcode&utm_campaign=placas_2026"
+    )
+
+
 def test_gerar_qrcode_com_logo(tmp_path: Path) -> None:
     url = "https://app.arestaclimb.com/br_mg_igarape_pedra_grande/savassinha"
 
