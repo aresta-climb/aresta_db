@@ -107,6 +107,51 @@ def test_cli_modo_lote_sucesso(tmp_path: Path, capsys: pytest.CaptureFixture[str
     assert len(arquivos) >= 2
 
 
+def test_cli_modo_individual_com_pdf(tmp_path: Path, capsys: pytest.CaptureFixture[str]) -> None:
+    """Testa geração de placa individual com exportação em PDF."""
+    pasta_saida = tmp_path / "individual_pdf"
+    pasta_saida.mkdir()
+
+    codigo = main([
+        "--pico", "br_mg_igarape_pedra_grande",
+        "--setor", "estacionamento",
+        "--saida", str(pasta_saida),
+        "--largura", "800",
+        "--altura", "1000",
+        "--pdf",
+    ])
+
+    assert codigo == 0
+    arquivos_png = list(pasta_saida.glob("*.png"))
+    arquivos_pdf = list(pasta_saida.glob("*.pdf"))
+    assert len(arquivos_png) == 1
+    assert len(arquivos_pdf) == 1
+    saida = capsys.readouterr().out
+    assert "PDF gerado" in saida
+
+
+def test_cli_modo_lote_com_pdf(tmp_path: Path, capsys: pytest.CaptureFixture[str]) -> None:
+    """Testa geração em lote com suporte a arquivos PDF."""
+    raiz = tmp_path / "projeto"
+    criar_croqui_teste_pb(raiz, pico_id="br_mg_igarape_pedra_grande")
+    pasta_saida = tmp_path / "lote_pdf"
+    pasta_saida.mkdir()
+
+    codigo = main([
+        "--lote-pico", "br_mg_igarape_pedra_grande",
+        "--raiz-projeto", str(raiz),
+        "--limite", "2",
+        "--saida", str(pasta_saida),
+        "--largura", "800",
+        "--altura", "1000",
+        "--pdf",
+    ])
+
+    assert codigo == 0
+    arquivos_pdf = list(pasta_saida.glob("*.pdf"))
+    assert len(arquivos_pdf) == 2
+
+
 
 def test_cli_parametros_insuficientes(capsys: pytest.CaptureFixture[str]) -> None:
     """Testa erro ao executar sem especificar nem --pico nem --lote-pico."""

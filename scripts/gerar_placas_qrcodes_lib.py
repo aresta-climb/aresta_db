@@ -123,13 +123,14 @@ def gerar_qrcode_com_logo(
     caminho_logo: Path | str | None = None,
     tamanho_px: int = 500,
     cor_borda: str = "preta",
+    border: int = 2,
 ) -> Image.Image:
     """Gera o QR Code com correção de erro nível H e insere o logo oficial centralizado."""
     qr = qrcode.QRCode(
         version=None,
         error_correction=qrcode.constants.ERROR_CORRECT_Q,
         box_size=10,
-        border=4,
+        border=border,
     )
     qr.add_data(url)
     qr.make(fit=True)
@@ -305,31 +306,101 @@ def _desenhar_titulo_com_escala(
     centro_y: int,
     largura_maxima: int,
     tamanho_inicial: int = 340,
+    cor: tuple[int, int, int] = (17, 24, 39),
+    stroke_width: int = 0,
 ) -> None:
     """Desenha o título ajustando o tamanho da fonte para caber na largura máxima."""
     tamanho = tamanho_inicial
     fonte = _obter_fonte(tamanho, negrito=True)
-    bbox = desenho.textbbox((0, 0), texto, font=fonte)
+    bbox = desenho.textbbox((0, 0), texto, font=fonte, stroke_width=stroke_width)
     largura_texto = bbox[2] - bbox[0]
     limite_minimo = max(24, int(tamanho_inicial * 0.35))
     while largura_texto > largura_maxima and tamanho > limite_minimo:
         tamanho -= 10
         fonte = _obter_fonte(tamanho, negrito=True)
-        bbox = desenho.textbbox((0, 0), texto, font=fonte)
+        bbox = desenho.textbbox((0, 0), texto, font=fonte, stroke_width=stroke_width)
         largura_texto = bbox[2] - bbox[0]
 
     desenho.text(
         (centro_x, centro_y),
         texto,
-        fill=(17, 24, 39),
+        fill=cor,
         font=fonte,
         anchor="mm",
+        stroke_width=stroke_width,
+        stroke_fill=cor if stroke_width > 0 else None,
     )
 
 
-COR_TERRACOTA = (180, 63, 36)
-COR_TEXTO_ESCURO = (30, 41, 59)
-COR_BRACKETS = (33, 37, 41)
+SVG_ICONE_FOLHA = """<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <g stroke="#111827" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M19 3C12 3 7 7.5 6 13c-.7 3.5 1 6 2 7" />
+    <path d="M19 3c0 7-4.5 12-11 17" />
+    <line x1="4" y1="22" x2="12" y2="14" />
+  </g>
+</svg>"""
+
+SVG_ICONE_ROCHA = """<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <g stroke="#111827" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 19h16a2 2 0 0 0 1.8-2.9L13.8 4.6a2 2 0 0 0-3.6 0L2.2 16.1A2 2 0 0 0 4 19z" />
+    <path d="M12 5.5l-1 5.5v4" />
+  </g>
+</svg>"""
+
+SVG_ICONE_LIXEIRA = """<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <g stroke="#111827" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 6h16" />
+    <path d="M9.5 6V4a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1v2" />
+    <path d="M5.5 6l1.2 13a2 2 0 0 0 2 2h6.6a2 2 0 0 0 2-2L18.5 6" />
+    <line x1="9" y1="10" x2="9" y2="16" />
+    <line x1="12" y1="10" x2="12" y2="16" />
+    <line x1="15" y1="10" x2="15" y2="16" />
+  </g>
+</svg>"""
+
+SVG_ICONE_PESSOAS = """<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <g stroke="#111827" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="7.5" cy="7.5" r="3.2" />
+    <circle cx="16.5" cy="7.5" r="3.2" />
+    <path d="M3 20.5h18" />
+    <path d="M3 20.5v-1a4.5 4.5 0 0 1 4.5-4.5h0a4.5 4.5 0 0 1 4.5 3.5" />
+    <path d="M12 18.5a4.5 4.5 0 0 1 4.5-3.5h0a4.5 4.5 0 0 1 4.5 4.5v1" />
+    <line x1="12" y1="18.5" x2="12" y2="20.5" />
+  </g>
+</svg>"""
+
+
+def _renderizar_icone_svg(svg_str: str, largura: int, altura: int) -> Image.Image:
+    """Renderiza um ícone SVG em uma imagem RGBA PIL usando PyMuPDF com fallback vetorial."""
+    try:
+        import pymupdf
+
+        fitz = cast(Any, pymupdf)
+        doc = fitz.open(stream=svg_str.encode("utf-8"), filetype="svg")
+        page = doc[0]
+        mat = fitz.Matrix(largura / page.rect.width, altura / page.rect.height)
+        pix = page.get_pixmap(matrix=mat, alpha=True)
+        return Image.frombytes("RGBA", (pix.width, pix.height), pix.samples)
+    except Exception:
+        fallback = Image.new("RGBA", (largura, altura), (0, 0, 0, 0))
+        d = ImageDraw.Draw(fallback)
+        d.ellipse(
+            [(2, 2), (largura - 2, altura - 2)],
+            outline=(17, 24, 39, 255),
+            width=max(2, int(largura * 0.08)),
+        )
+        return fallback
+
+
+COR_VERMELHO = (194, 35, 35)
+HEX_VERMELHO = "#c22323"
+COR_TERRACOTA = COR_VERMELHO
+HEX_TERRACOTA = HEX_VERMELHO
+COR_TEXTO_ESCURO = (17, 24, 39)
+HEX_TEXTO_ESCURO = "#111827"
+COR_CINZA_LINHA = (190, 190, 191)
+HEX_CINZA_LINHA = "#bebebf"
+COR_BRACKETS = (0, 0, 0)
 
 
 def gerar_placa_png(
@@ -368,44 +439,48 @@ def gerar_placa_png(
         else (Path(caminho_logo_aresta) if caminho_logo_aresta else None)
     )
 
-    img_esq = carregar_imagem_topo(caminho_logo_topo, dpi=int(300 * fator))
-    img_dir = carregar_imagem_topo(caminho_aresta_resolvido, dpi=int(300 * fator))
+    img_parceiro = carregar_imagem_topo(caminho_logo_topo, dpi=int(300 * fator))
+    img_aresta = carregar_imagem_topo(caminho_aresta_resolvido, dpi=int(300 * fator))
 
     topo_y = int(460 * fator)
     altura_topo = int(580 * fator)
     y_centro = topo_y + altura_topo // 2
 
-    if img_esq is not None and img_dir is not None:
-        # Modo Duplo: Logo do parceiro/pico à esquerda e logo oficial do Aresta Climb à direita
+    if img_parceiro is not None and img_aresta is not None:
+        # Modo Duplo: Logo oficial do Aresta Climb à esquerda e logo do parceiro/pico à direita
         margem_x = int(480 * fator)
 
-        # Redimensionamento Igarameca / parceiro (esquerda)
-        max_w_esq = int(1950 * fator)
-        h_esq_alvo = altura_topo
-        prop_esq = min(max_w_esq / img_esq.width, h_esq_alvo / img_esq.height)
-        w_esq = int(img_esq.width * prop_esq)
-        h_esq = int(img_esq.height * prop_esq)
-        img_esq_redim = img_esq.resize((w_esq, h_esq), Image.Resampling.LANCZOS)
-        x_esq = margem_x
-        y_esq = y_centro - h_esq // 2
-        placa.paste(img_esq_redim, (x_esq, y_esq), img_esq_redim)
-
-        # Redimensionamento Aresta Climb (direita)
-        max_w_dir = int(1700 * fator)
-        h_dir_alvo = int(altura_topo * 1.45)
-        prop_dir = min(max_w_dir / img_dir.width, h_dir_alvo / img_dir.height)
-        w_dir = int(img_dir.width * prop_dir)
-        h_dir = int(img_dir.height * prop_dir)
-        img_dir_redim = img_dir.resize((w_dir, h_dir), Image.Resampling.LANCZOS)
+        # Redimensionamento Parceiro / Igarameca (direita)
+        max_w_dir = int(1950 * fator)
+        h_dir_alvo = altura_topo
+        prop_dir = min(max_w_dir / img_parceiro.width, h_dir_alvo / img_parceiro.height)
+        w_dir = int(img_parceiro.width * prop_dir)
+        h_dir = int(img_parceiro.height * prop_dir)
+        img_dir_redim = img_parceiro.resize((w_dir, h_dir), Image.Resampling.LANCZOS)
         x_dir = largura - margem_x - w_dir
         y_dir = y_centro - h_dir // 2
         placa.paste(img_dir_redim, (x_dir, y_dir), img_dir_redim)
 
+        # Redimensionamento Aresta Climb (esquerda)
+        max_w_esq = int(1700 * fator)
+        h_esq_alvo = int(altura_topo * 1.35)
+        prop_esq = min(max_w_esq / img_aresta.width, h_esq_alvo / img_aresta.height)
+        w_esq = int(img_aresta.width * prop_esq)
+        h_esq = int(img_aresta.height * prop_esq)
+        img_esq_redim = img_aresta.resize((w_esq, h_esq), Image.Resampling.LANCZOS)
+        x_esq = margem_x
+        # Alinhamento da linha de base do texto ARESTA com o texto do parceiro
+        # No logo_splash.png, a base da palavra ARESTA fica em ~77.2% da altura total
+        # No logo do parceiro (ex: Igarameca), a base do texto fica em ~98% da altura total
+        y_base_dir = y_dir + int(h_dir * 0.98)
+        y_esq = y_base_dir - int(h_esq * 0.772)
+        placa.paste(img_esq_redim, (x_esq, y_esq), img_esq_redim)
+
         y_titulo = topo_y + altura_topo + int(420 * fator)
 
-    elif img_esq is not None or img_dir is not None:
+    elif img_parceiro is not None or img_aresta is not None:
         # Modo Único: Centraliza a única logo disponível
-        img_unica = img_esq if img_esq is not None else img_dir
+        img_unica = img_aresta if img_aresta is not None else img_parceiro
         assert img_unica is not None
         max_w = int(largura * 0.72)
         max_h = int(1150 * fator)
@@ -430,7 +505,7 @@ def gerar_placa_png(
         )
         y_titulo = int(1200 * fator)
 
-    # 3. Título (Categoria em cima, Nome em baixo)
+    # 3. Título (Categoria com linhas vermelhas em cima, Nome em vermelho em baixo)
     prefixos_conhecidos = ("SETOR ", "BLOCO ", "GRUPO ", "PICO ", "VIA ")
     titulo_upper = titulo.strip().upper()
     tem_prefixo = any(titulo_upper.startswith(p) for p in prefixos_conhecidos)
@@ -442,107 +517,149 @@ def gerar_placa_png(
         nome_texto = titulo_upper
 
     y_cat = y_titulo
+    stroke_cat = int(8 * fator)
     fonte_cat = _obter_fonte(max(16, int(250 * fator)), negrito=True)
+    cat_bbox = desenho.textbbox((0, 0), cat_texto, font=fonte_cat, stroke_width=stroke_cat)
+    w_cat = cat_bbox[2] - cat_bbox[0]
+
+    largura_linha_cat = int(950 * fator)
+    gap_linha = int(80 * fator)
+    espessura_linha_cat = int(18 * fator)
+
+    x_linha_esq_fim = (largura - w_cat) // 2 - gap_linha
+    x_linha_esq_ini = x_linha_esq_fim - largura_linha_cat
+    x_linha_dir_ini = (largura + w_cat) // 2 + gap_linha
+    x_linha_dir_fim = x_linha_dir_ini + largura_linha_cat
+
+    desenho.line([(x_linha_esq_ini, y_cat), (x_linha_esq_fim, y_cat)], fill=COR_VERMELHO, width=espessura_linha_cat)
     desenho.text(
         (largura // 2, y_cat),
         cat_texto,
         fill=COR_TEXTO_ESCURO,
         font=fonte_cat,
         anchor="mm",
+        stroke_width=stroke_cat,
+        stroke_fill=COR_TEXTO_ESCURO,
     )
+    desenho.line([(x_linha_dir_ini, y_cat), (x_linha_dir_fim, y_cat)], fill=COR_VERMELHO, width=espessura_linha_cat)
 
-    y_nome = y_cat + int(300 * fator)
+    y_nome = y_cat + int(360 * fator)
+    stroke_nome = int(10 * fator)
     _desenhar_titulo_com_escala(
         desenho=desenho,
         texto=nome_texto,
         centro_x=largura // 2,
         centro_y=y_nome,
         largura_maxima=int(largura - 600 * fator),
-        tamanho_inicial=max(36, int(360 * fator)),
+        tamanho_inicial=max(36, int(350 * fator)),
+        cor=COR_VERMELHO,
+        stroke_width=stroke_nome,
     )
 
     # 4. Instrução superior (antes do QR Code)
-    y_inst = y_nome + int(340 * fator)
-    fonte_inst = _obter_fonte(max(14, int(135 * fator)), negrito=True)
+    y_inst = y_nome + int(290 * fator)
+    fonte_inst = _obter_fonte(max(14, int(120 * fator)), negrito=False)
     desenho.text(
         (largura // 2, y_inst),
-        "APONTE A CÂMERA PARA ABRIR NO ARESTA",
+        "Aponte a câmera para abrir no Aresta",
         fill=COR_TEXTO_ESCURO,
         font=fonte_inst,
         anchor="mm",
     )
 
-    # 5. QR Code + Moldura Viewfinder (Brackets)
-    tamanho_qr = int(2550 * fator)
+    # 5. QR Code + Moldura Retangular Preta Arredondada
+    tam_moldura = int(2600 * fator)
+    tamanho_qr = int(2520 * fator)
+    x_moldura = (largura - tam_moldura) // 2
+    y_moldura = y_inst + int(260 * fator)
+    raio_moldura = int(50 * fator)
+    espessura_moldura = int(22 * fator)
+
     qr_img = gerar_qrcode_com_logo(
         url=url,
         caminho_logo=caminho_logo,
         tamanho_px=tamanho_qr,
         cor_borda=cor_borda_logo,
+        border=2,
     )
-
-    tam_moldura = int(2800 * fator)
-    x_moldura = (largura - tam_moldura) // 2
-    y_moldura = y_inst + int(300 * fator)
-
     x_qr = (largura - tamanho_qr) // 2
     y_qr = y_moldura + (tam_moldura - tamanho_qr) // 2
     placa.paste(qr_img.convert("RGB"), (x_qr, y_qr))
 
-    # Desenha os 4 cantos do viewfinder (brackets)
-    comp_brk = int(400 * fator)
-    esp_brk = int(75 * fator)
+    desenho.rounded_rectangle(
+        [(x_moldura, y_moldura), (x_moldura + tam_moldura, y_moldura + tam_moldura)],
+        radius=raio_moldura,
+        outline=(0, 0, 0),
+        width=espessura_moldura,
+    )
 
-    # Canto superior-esquerdo ┌
-    desenho.rectangle([x_moldura, y_moldura, x_moldura + comp_brk, y_moldura + esp_brk], fill=COR_BRACKETS)
-    desenho.rectangle([x_moldura, y_moldura, x_moldura + esp_brk, y_moldura + comp_brk], fill=COR_BRACKETS)
+    # 6. Seção de Diretrizes: ── MÍNIMO IMPACTO NO LOCAL ──
+    y_sec = y_moldura + tam_moldura + int(360 * fator)
+    fonte_sec = _obter_fonte(max(16, int(155 * fator)), negrito=True)
+    sec_texto = "MÍNIMO IMPACTO NO LOCAL"
+    sec_bbox = desenho.textbbox((0, 0), sec_texto, font=fonte_sec)
+    w_sec = sec_bbox[2] - sec_bbox[0]
 
-    # Canto superior-direito ┐
-    x_dir_brk = x_moldura + tam_moldura
-    desenho.rectangle([x_dir_brk - comp_brk, y_moldura, x_dir_brk, y_moldura + esp_brk], fill=COR_BRACKETS)
-    desenho.rectangle([x_dir_brk - esp_brk, y_moldura, x_dir_brk, y_moldura + comp_brk], fill=COR_BRACKETS)
+    gap_sec = int(60 * fator)
+    esp_linha_sec = int(8 * fator)
+    margem_linha_sec = int(350 * fator)
+    x_lsec_esq_ini = margem_linha_sec
+    x_lsec_esq_fim = (largura - w_sec) // 2 - gap_sec
+    x_lsec_dir_ini = (largura + w_sec) // 2 + gap_sec
+    x_lsec_dir_fim = largura - margem_linha_sec
 
-    # Canto inferior-esquerdo └
-    y_inf_brk = y_moldura + tam_moldura
-    desenho.rectangle([x_moldura, y_inf_brk - esp_brk, x_moldura + comp_brk, y_inf_brk], fill=COR_BRACKETS)
-    desenho.rectangle([x_moldura, y_inf_brk - comp_brk, x_moldura + esp_brk, y_inf_brk], fill=COR_BRACKETS)
+    desenho.line([(x_lsec_esq_ini, y_sec), (x_lsec_esq_fim, y_sec)], fill=COR_CINZA_LINHA, width=esp_linha_sec)
+    desenho.text((largura // 2, y_sec), sec_texto, fill=COR_TEXTO_ESCURO, font=fonte_sec, anchor="mm")
+    desenho.line([(x_lsec_dir_ini, y_sec), (x_lsec_dir_fim, y_sec)], fill=COR_CINZA_LINHA, width=esp_linha_sec)
 
-    # Canto inferior-direito ┘
-    desenho.rectangle([x_dir_brk - comp_brk, y_inf_brk - esp_brk, x_dir_brk, y_inf_brk], fill=COR_BRACKETS)
-    desenho.rectangle([x_dir_brk - esp_brk, y_inf_brk - comp_brk, x_dir_brk, y_inf_brk], fill=COR_BRACKETS)
+    # 7. Quatro Regras com Ícones Vetoriais
+    tam_icon = int(155 * fator)
+    icon_leaf = _renderizar_icone_svg(SVG_ICONE_FOLHA, tam_icon, tam_icon)
+    icon_rock = _renderizar_icone_svg(SVG_ICONE_ROCHA, tam_icon, tam_icon)
+    icon_trash = _renderizar_icone_svg(SVG_ICONE_LIXEIRA, tam_icon, tam_icon)
+    icon_users = _renderizar_icone_svg(SVG_ICONE_PESSOAS, tam_icon, tam_icon)
 
-    # 6. Regras de Conduta no Rodapé com Bullets Circulares Vermelhos
-    regras = [
-        "Minimize seu impacto na natureza",
-        "Não quebre nem altere agarras",
-        "Não deixe lixo no local",
-        "Respeite a vegetação e o entorno",
+    fonte_regra = _obter_fonte(max(14, int(130 * fator)), negrito=True)
+    esp_regras = int(210 * fator)
+    y_base_regras = y_sec + int(270 * fator)
+
+    regras_textos = [
+        "Deixe a menor marca possível na natureza",
+        "Preserve a rocha: não quebre nem altere agarras",
+        "Leve todo o seu lixo de volta com você",
+        "Preserve o entorno: faça suas necessidades",
+        "nos sanitários disponibilizados pelo evento",
     ]
+    max_w_regra = max(
+        desenho.textbbox((0, 0), r, font=fonte_regra)[2]
+        - desenho.textbbox((0, 0), r, font=fonte_regra)[0]
+        for r in regras_textos
+    )
+    largura_bloco_regras = tam_icon + int(80 * fator) + int(max_w_regra)
+    x_bloco = int((largura - largura_bloco_regras) // 2)
+    x_texto_regra = int(x_bloco + tam_icon + 80 * fator)
 
-    fonte_regra = _obter_fonte(max(16, int(175 * fator)), negrito=True)
-    raio_bullet = int(52 * fator)
-    espacamento_regras = int(245 * fator)
-    y_inicio_regras = y_moldura + tam_moldura + int(360 * fator)
+    # Regra 1: Folha
+    y1 = y_base_regras
+    placa.paste(icon_leaf, (x_bloco, y1 - tam_icon // 2), icon_leaf)
+    desenho.text((x_texto_regra, y1), "Deixe a menor marca possível na natureza", fill=COR_TEXTO_ESCURO, font=fonte_regra, anchor="lm")
 
-    larguras_regras = [desenho.textbbox((0, 0), r, font=fonte_regra)[2] for r in regras]
-    max_w_regra = max(larguras_regras)
-    largura_bloco = int(raio_bullet * 2 + 70 * fator + max_w_regra)
-    x_inicio_bloco = (largura - largura_bloco) // 2
+    # Regra 2: Rocha
+    y2 = y1 + esp_regras
+    placa.paste(icon_rock, (x_bloco, y2 - tam_icon // 2), icon_rock)
+    desenho.text((x_texto_regra, y2), "Preserve a rocha: não quebre nem altere agarras", fill=COR_TEXTO_ESCURO, font=fonte_regra, anchor="lm")
 
-    for i, r in enumerate(regras):
-        y_linha = y_inicio_regras + i * espacamento_regras
-        x_bullet = x_inicio_bloco + raio_bullet
-        desenho.ellipse(
-            [(x_bullet - raio_bullet, y_linha - raio_bullet), (x_bullet + raio_bullet, y_linha + raio_bullet)],
-            fill=COR_TERRACOTA,
-        )
-        desenho.text(
-            (x_inicio_bloco + raio_bullet * 2 + int(70 * fator), y_linha),
-            r,
-            fill=COR_TEXTO_ESCURO,
-            font=fonte_regra,
-            anchor="lm",
-        )
+    # Regra 3: Lixo
+    y3 = y2 + esp_regras
+    placa.paste(icon_trash, (x_bloco, y3 - tam_icon // 2), icon_trash)
+    desenho.text((x_texto_regra, y3), "Leve todo o seu lixo de volta com você", fill=COR_TEXTO_ESCURO, font=fonte_regra, anchor="lm")
+
+    # Regra 4: Entorno (duas linhas)
+    y4 = y3 + esp_regras
+    altura_linha_regra4 = int(140 * fator)
+    placa.paste(icon_users, (x_bloco, y4 + altura_linha_regra4 // 2 - tam_icon // 2), icon_users)
+    desenho.text((x_texto_regra, y4), "Preserve o entorno: faça suas necessidades", fill=COR_TEXTO_ESCURO, font=fonte_regra, anchor="lm")
+    desenho.text((x_texto_regra, y4 + altura_linha_regra4), "nos sanitários disponibilizados pelo evento", fill=COR_TEXTO_ESCURO, font=fonte_regra, anchor="lm")
 
     return placa
 
@@ -563,7 +680,7 @@ def gerar_placa_svg(
         version=None,
         error_correction=qrcode.constants.ERROR_CORRECT_Q,
         box_size=10,
-        border=4,
+        border=2,
     )
     qr.add_data(url)
     qr.make(fit=True)
@@ -572,7 +689,7 @@ def gerar_placa_svg(
 
     matriz = qr.get_matrix()
     qtd_modulos = len(matriz)
-    tamanho_qr = int(2550 * fator)
+    tamanho_qr = int(2520 * fator)
     tamanho_modulo = tamanho_qr / qtd_modulos
 
     caminhos_modulos: list[str] = []
@@ -635,45 +752,48 @@ def gerar_placa_svg(
         else (Path(caminho_logo_aresta) if caminho_logo_aresta else None)
     )
 
-    img_esq = carregar_imagem_topo(caminho_logo_topo, dpi=int(300 * fator))
-    img_dir = carregar_imagem_topo(caminho_aresta_resolvido, dpi=int(300 * fator))
+    img_parceiro = carregar_imagem_topo(caminho_logo_topo, dpi=int(300 * fator))
+    img_aresta = carregar_imagem_topo(caminho_aresta_resolvido, dpi=int(300 * fator))
 
     topo_y = int(460 * fator)
     altura_topo = int(580 * fator)
     y_centro = topo_y + altura_topo // 2
 
-    if img_esq is not None and img_dir is not None:
+    if img_parceiro is not None and img_aresta is not None:
         margem_x = int(480 * fator)
-        max_w_esq = int(1950 * fator)
-        h_esq_alvo = altura_topo
-        prop_esq = min(max_w_esq / img_esq.width, h_esq_alvo / img_esq.height)
-        w_esq = int(img_esq.width * prop_esq)
-        h_esq = int(img_esq.height * prop_esq)
-        img_esq_redim = img_esq.resize((w_esq, h_esq), Image.Resampling.LANCZOS)
-        buf_esq = BytesIO()
-        img_esq_redim.save(buf_esq, "PNG")
-        b64_esq = base64.b64encode(buf_esq.getvalue()).decode("ascii")
-        x_esq = margem_x
-        y_esq = y_centro - h_esq // 2
 
-        max_w_dir = int(1700 * fator)
-        h_dir_alvo = int(altura_topo * 1.45)
-        prop_dir = min(max_w_dir / img_dir.width, h_dir_alvo / img_dir.height)
-        w_dir = int(img_dir.width * prop_dir)
-        h_dir = int(img_dir.height * prop_dir)
-        img_dir_redim = img_dir.resize((w_dir, h_dir), Image.Resampling.LANCZOS)
+        max_w_dir = int(1950 * fator)
+        h_dir_alvo = altura_topo
+        prop_dir = min(max_w_dir / img_parceiro.width, h_dir_alvo / img_parceiro.height)
+        w_dir = int(img_parceiro.width * prop_dir)
+        h_dir = int(img_parceiro.height * prop_dir)
+        img_dir_redim = img_parceiro.resize((w_dir, h_dir), Image.Resampling.LANCZOS)
         buf_dir = BytesIO()
         img_dir_redim.save(buf_dir, "PNG")
         b64_dir = base64.b64encode(buf_dir.getvalue()).decode("ascii")
         x_dir = largura - margem_x - w_dir
         y_dir = y_centro - h_dir // 2
 
+        max_w_esq = int(1700 * fator)
+        h_esq_alvo = int(altura_topo * 1.35)
+        prop_esq = min(max_w_esq / img_aresta.width, h_esq_alvo / img_aresta.height)
+        w_esq = int(img_aresta.width * prop_esq)
+        h_esq = int(img_aresta.height * prop_esq)
+        img_esq_redim = img_aresta.resize((w_esq, h_esq), Image.Resampling.LANCZOS)
+        buf_esq = BytesIO()
+        img_esq_redim.save(buf_esq, "PNG")
+        b64_esq = base64.b64encode(buf_esq.getvalue()).decode("ascii")
+        x_esq = margem_x
+        # Alinhamento da linha de base do texto ARESTA com o texto do parceiro
+        y_base_dir = y_dir + int(h_dir * 0.98)
+        y_esq = y_base_dir - int(h_esq * 0.772)
+
         svg_cabecalho = f"""<image href="data:image/png;base64,{b64_esq}" x="{x_esq:.2f}" y="{y_esq:.2f}" width="{w_esq}" height="{h_esq}" />
   <image href="data:image/png;base64,{b64_dir}" x="{x_dir:.2f}" y="{y_dir:.2f}" width="{w_dir}" height="{h_dir}" />"""
         y_titulo = topo_y + altura_topo + int(420 * fator)
 
-    elif img_esq is not None or img_dir is not None:
-        img_unica = img_esq if img_esq is not None else img_dir
+    elif img_parceiro is not None or img_aresta is not None:
+        img_unica = img_aresta if img_aresta is not None else img_parceiro
         assert img_unica is not None
         max_w = int(largura * 0.72)
         max_h = int(1150 * fator)
@@ -709,29 +829,96 @@ def gerar_placa_svg(
         nome_texto = titulo_upper
 
     y_cat = y_titulo
-    y_nome = y_cat + int(300 * fator)
-    y_inst = y_nome + int(340 * fator)
 
-    tam_moldura = int(2800 * fator)
+    stroke_cat = int(8 * fator)
+    stroke_nome = int(10 * fator)
+    desenho_temp = ImageDraw.Draw(Image.new("RGB", (1, 1)))
+    fonte_cat = _obter_fonte(max(16, int(250 * fator)), negrito=True)
+    cat_bbox = desenho_temp.textbbox((0, 0), cat_texto, font=fonte_cat, stroke_width=stroke_cat)
+    w_cat = cat_bbox[2] - cat_bbox[0]
+
+    largura_linha_cat = int(950 * fator)
+    gap_linha = int(80 * fator)
+    espessura_linha_cat = int(18 * fator)
+
+    x_linha_esq_fim = (largura - w_cat) / 2 - gap_linha
+    x_linha_esq_ini = x_linha_esq_fim - largura_linha_cat
+    x_linha_dir_ini = (largura + w_cat) / 2 + gap_linha
+    x_linha_dir_fim = x_linha_dir_ini + largura_linha_cat
+
+    y_nome = y_cat + int(360 * fator)
+
+    tam_inicial_nome = max(36, int(350 * fator))
+    tam_fonte_nome = tam_inicial_nome
+    limite_min_nome = max(24, int(tam_inicial_nome * 0.35))
+    largura_max_nome = int(largura - 600 * fator)
+    fonte_teste = _obter_fonte(tam_fonte_nome, negrito=True)
+    bb_nome = desenho_temp.textbbox((0, 0), nome_texto, font=fonte_teste, stroke_width=stroke_nome)
+    w_nome = bb_nome[2] - bb_nome[0]
+    while w_nome > largura_max_nome and tam_fonte_nome > limite_min_nome:
+        tam_fonte_nome -= 10
+        fonte_teste = _obter_fonte(tam_fonte_nome, negrito=True)
+        bb_nome = desenho_temp.textbbox((0, 0), nome_texto, font=fonte_teste, stroke_width=stroke_nome)
+        w_nome = bb_nome[2] - bb_nome[0]
+
+    y_inst = y_nome + int(290 * fator)
+
+    tam_moldura = int(2600 * fator)
+    tamanho_qr = int(2520 * fator)
     x_moldura = (largura - tam_moldura) / 2
-    y_moldura = y_inst + int(300 * fator)
+    y_moldura = y_inst + int(260 * fator)
+    raio_moldura = int(50 * fator)
+    espessura_moldura = int(22 * fator)
 
-    pos_qr_x = (largura - tamanho_qr) / 2
-    pos_qr_y = y_moldura + (tam_moldura - tamanho_qr) / 2
+    x_qr = (largura - tamanho_qr) / 2
+    y_qr = y_moldura + (tam_moldura - tamanho_qr) / 2
 
     borda_offset = int(140 * fator)
     raio_borda = int(100 * fator)
     espessura_borda = int(32 * fator)
 
-    comp_brk = int(400 * fator)
-    esp_brk = int(75 * fator)
-    x_dir_brk = x_moldura + tam_moldura
-    y_inf_brk = y_moldura + tam_moldura
+    y_sec = y_moldura + tam_moldura + int(360 * fator)
+    sec_texto = "MÍNIMO IMPACTO NO LOCAL"
+    fonte_sec = _obter_fonte(max(16, int(155 * fator)), negrito=True)
+    sec_bbox = desenho_temp.textbbox((0, 0), sec_texto, font=fonte_sec)
+    w_sec = sec_bbox[2] - sec_bbox[0]
 
-    y_regras = y_moldura + tam_moldura + int(360 * fator)
-    esp_regra = int(245 * fator)
-    raio_bul = int(52 * fator)
+    gap_sec = int(60 * fator)
+    esp_linha_sec = int(8 * fator)
+    margem_linha_sec = int(350 * fator)
+    x_lsec_esq_ini = margem_linha_sec
+    x_lsec_esq_fim = (largura - w_sec) / 2 - gap_sec
+    x_lsec_dir_ini = (largura + w_sec) / 2 + gap_sec
+    x_lsec_dir_fim = largura - margem_linha_sec
 
+    tam_icon = int(155 * fator)
+    esp_regras = int(210 * fator)
+    y_base_regras = y_sec + int(270 * fator)
+
+    regras_textos = [
+        "Deixe a menor marca possível na natureza",
+        "Preserve a rocha: não quebre nem altere agarras",
+        "Leve todo o seu lixo de volta com você",
+        "Preserve o entorno: faça suas necessidades",
+        "nos sanitários disponibilizados pelo evento",
+    ]
+    fonte_regra_medicao = _obter_fonte(max(14, int(130 * fator)), negrito=True)
+    max_w_regra = max(
+        desenho_temp.textbbox((0, 0), r, font=fonte_regra_medicao)[2]
+        - desenho_temp.textbbox((0, 0), r, font=fonte_regra_medicao)[0]
+        for r in regras_textos
+    )
+    largura_bloco_regras = tam_icon + int(80 * fator) + max_w_regra
+    x_bloco = int((largura - largura_bloco_regras) / 2)
+    x_texto_regra = x_bloco + tam_icon + int(80 * fator)
+    altura_linha_regra4 = int(140 * fator)
+
+    y1 = y_base_regras
+    y2 = y1 + esp_regras
+    y3 = y2 + esp_regras
+    y4 = y3 + esp_regras
+
+    escala_icon = f"{tam_icon / 24:.4f}"
     subtitulo_tag = f'<text class="subtitulo" style="display:none">{escapar(subtitulo)}</text>' if subtitulo else ''
 
     return f"""<?xml version="1.0" encoding="UTF-8"?>
@@ -739,40 +926,36 @@ def gerar_placa_svg(
   <defs>
     <style>
       .fundo {{ fill: #ffffff; }}
-      .borda {{ fill: none; stroke: #b43f24; stroke-width: {espessura_borda}; }}
-      .marca {{ font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: {int(150 * fator)}px; font-weight: 800; letter-spacing: 4px; fill: #d97706; text-anchor: middle; }}
-      .subtitulo {{ font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: {int(125 * fator)}px; font-weight: 500; fill: #6b7280; text-anchor: middle; }}
-      .categoria {{ font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: {int(250 * fator)}px; font-weight: 800; fill: #1e293b; text-anchor: middle; }}
-      .nome {{ font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: {int(360 * fator)}px; font-weight: 800; fill: #1e293b; text-anchor: middle; }}
-      .instrucao {{ font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: {int(135 * fator)}px; font-weight: 700; fill: #1e293b; text-anchor: middle; }}
-      .regra-txt {{ font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: {int(175 * fator)}px; font-weight: 700; fill: #1e293b; }}
-      .bracket {{ fill: #212529; }}
-      .bullet {{ fill: #b43f24; }}
+      .borda {{ fill: none; stroke: {HEX_VERMELHO}; stroke-width: {espessura_borda}; }}
+      .marca {{ font-family: Arial, Helvetica, sans-serif; font-size: {int(150 * fator)}px; font-weight: 800; letter-spacing: 4px; fill: #d97706; text-anchor: middle; dominant-baseline: middle; }}
+      .subtitulo {{ font-family: Arial, Helvetica, sans-serif; font-size: {int(125 * fator)}px; font-weight: 500; fill: #6b7280; text-anchor: middle; dominant-baseline: middle; }}
+      .categoria {{ font-family: Arial, Helvetica, sans-serif; font-size: {int(250 * fator)}px; font-weight: 900; fill: #111827; text-anchor: middle; dominant-baseline: middle; }}
+      .nome {{ font-family: Arial, Helvetica, sans-serif; font-size: {tam_fonte_nome}px; font-weight: 900; fill: {HEX_VERMELHO}; text-anchor: middle; dominant-baseline: middle; }}
+      .instrucao {{ font-family: Arial, Helvetica, sans-serif; font-size: {int(120 * fator)}px; font-weight: 400; fill: #111827; text-anchor: middle; dominant-baseline: middle; }}
+      .secao-txt {{ font-family: Arial, Helvetica, sans-serif; font-size: {int(155 * fator)}px; font-weight: 800; fill: #111827; text-anchor: middle; dominant-baseline: middle; }}
+      .regra-txt {{ font-family: Arial, Helvetica, sans-serif; font-size: {int(130 * fator)}px; font-weight: 700; fill: #111827; text-anchor: start; dominant-baseline: middle; }}
     </style>
   </defs>
 
-  <rect class="fundo" x="0" y="0" width="{largura}" height="{altura}" rx="{raio_borda}" ry="{raio_borda}" />
-  <rect class="borda" x="{borda_offset}" y="{borda_offset}" width="{largura - 2 * borda_offset}" height="{altura - 2 * borda_offset}" rx="{raio_borda}" ry="{raio_borda}" />
+  <rect class="fundo" fill="#ffffff" x="0" y="0" width="{largura}" height="{altura}" rx="{raio_borda}" ry="{raio_borda}" />
+  <rect class="borda" fill="none" stroke="{HEX_VERMELHO}" stroke-width="{espessura_borda}" x="{borda_offset}" y="{borda_offset}" width="{largura - 2 * borda_offset}" height="{altura - 2 * borda_offset}" rx="{raio_borda}" ry="{raio_borda}" />
 
   {svg_cabecalho}
   {subtitulo_tag}
 
-  <text class="categoria" x="{largura / 2}" y="{y_cat}">{escapar(cat_texto)}</text>
-  <text class="nome" x="{largura / 2}" y="{y_nome}">{escapar(nome_texto)}</text>
+  <!-- Título: Categoria com linhas vermelhas e Nome em vermelho -->
+  <line x1="{x_linha_esq_ini:.2f}" y1="{y_cat}" x2="{x_linha_esq_fim:.2f}" y2="{y_cat}" stroke="{HEX_VERMELHO}" stroke-width="{espessura_linha_cat}" stroke-linecap="round" />
+  <text class="categoria" fill="#111827" stroke="#111827" stroke-width="{stroke_cat}" paint-order="stroke fill" font-family="Arial, Helvetica, sans-serif" font-size="{int(250 * fator)}px" font-weight="900" text-anchor="middle" dominant-baseline="middle" x="{largura / 2}" y="{y_cat}">{escapar(cat_texto)}</text>
+  <line x1="{x_linha_dir_ini:.2f}" y1="{y_cat}" x2="{x_linha_dir_fim:.2f}" y2="{y_cat}" stroke="{HEX_VERMELHO}" stroke-width="{espessura_linha_cat}" stroke-linecap="round" />
 
-  <text class="instrucao" x="{largura / 2}" y="{y_inst}">APONTE A CÂMERA PARA ABRIR NO ARESTA</text>
+  <text class="nome" fill="{HEX_VERMELHO}" stroke="{HEX_VERMELHO}" stroke-width="{stroke_nome}" paint-order="stroke fill" font-family="Arial, Helvetica, sans-serif" font-size="{tam_fonte_nome}px" font-weight="900" text-anchor="middle" dominant-baseline="middle" x="{largura / 2}" y="{y_nome}">{escapar(nome_texto)}</text>
 
-  <!-- Viewfinder brackets -->
-  <rect class="bracket" x="{x_moldura}" y="{y_moldura}" width="{comp_brk}" height="{esp_brk}" />
-  <rect class="bracket" x="{x_moldura}" y="{y_moldura}" width="{esp_brk}" height="{comp_brk}" />
-  <rect class="bracket" x="{x_dir_brk - comp_brk}" y="{y_moldura}" width="{comp_brk}" height="{esp_brk}" />
-  <rect class="bracket" x="{x_dir_brk - esp_brk}" y="{y_moldura}" width="{esp_brk}" height="{comp_brk}" />
-  <rect class="bracket" x="{x_moldura}" y="{y_inf_brk - esp_brk}" width="{comp_brk}" height="{esp_brk}" />
-  <rect class="bracket" x="{x_moldura}" y="{y_inf_brk - comp_brk}" width="{esp_brk}" height="{comp_brk}" />
-  <rect class="bracket" x="{x_dir_brk - comp_brk}" y="{y_inf_brk - esp_brk}" width="{comp_brk}" height="{esp_brk}" />
-  <rect class="bracket" x="{x_dir_brk - esp_brk}" y="{y_inf_brk - comp_brk}" width="{esp_brk}" height="{comp_brk}" />
+  <text class="instrucao" fill="#111827" font-family="Arial, Helvetica, sans-serif" font-size="{int(120 * fator)}px" font-weight="400" text-anchor="middle" dominant-baseline="middle" x="{largura / 2}" y="{y_inst}">Aponte a câmera para abrir no Aresta</text>
 
-  <g transform="translate({pos_qr_x:.2f}, {pos_qr_y:.2f})">
+  <!-- Moldura do QR Code Retangular Arredondada -->
+  <rect x="{x_moldura:.2f}" y="{y_moldura:.2f}" width="{tam_moldura}" height="{tam_moldura}" rx="{raio_moldura}" ry="{raio_moldura}" fill="#ffffff" stroke="#000000" stroke-width="{espessura_moldura}" />
+
+  <g transform="translate({x_qr:.2f}, {y_qr:.2f})">
     <rect width="{tamanho_qr}" height="{tamanho_qr}" fill="#ffffff" />
     <g>
       {svg_modulos}
@@ -780,19 +963,58 @@ def gerar_placa_svg(
     </g>
   </g>
 
-  <!-- Regras de conduta -->
-  <g transform="translate({int(800 * fator)}, 0)">
-    <circle class="bullet" cx="0" cy="{y_regras}" r="{raio_bul}" />
-    <text class="regra-txt" x="{int(140 * fator)}" y="{y_regras + int(55 * fator)}">Minimize seu impacto na natureza</text>
+  <!-- Seção MÍNIMO IMPACTO NO LOCAL -->
+  <line x1="{x_lsec_esq_ini:.2f}" y1="{y_sec}" x2="{x_lsec_esq_fim:.2f}" y2="{y_sec}" stroke="{HEX_CINZA_LINHA}" stroke-width="{esp_linha_sec}" stroke-linecap="round" />
+  <text class="secao-txt" fill="#111827" font-family="Arial, Helvetica, sans-serif" font-size="{int(155 * fator)}px" font-weight="800" text-anchor="middle" dominant-baseline="middle" x="{largura / 2}" y="{y_sec}">{sec_texto}</text>
+  <line x1="{x_lsec_dir_ini:.2f}" y1="{y_sec}" x2="{x_lsec_dir_fim:.2f}" y2="{y_sec}" stroke="{HEX_CINZA_LINHA}" stroke-width="{esp_linha_sec}" stroke-linecap="round" />
 
-    <circle class="bullet" cx="0" cy="{y_regras + esp_regra}" r="{raio_bul}" />
-    <text class="regra-txt" x="{int(140 * fator)}" y="{y_regras + esp_regra + int(55 * fator)}">Não quebre nem altere agarras</text>
+  <!-- Diretrizes e Regras com Ícones Vetoriais -->
+  <g class="regras">
+    <!-- Regra 1: Folha -->
+    <g transform="translate({x_bloco}, {y1 - tam_icon // 2}) scale({escala_icon})">
+      <g stroke="#111827" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M19 3C12 3 7 7.5 6 13c-.7 3.5 1 6 2 7" />
+        <path d="M19 3c0 7-4.5 12-11 17" />
+        <line x1="4" y1="22" x2="12" y2="14" />
+      </g>
+    </g>
+    <text class="regra-txt" fill="#111827" font-family="Arial, Helvetica, sans-serif" font-size="{int(130 * fator)}px" font-weight="700" text-anchor="start" dominant-baseline="middle" x="{x_texto_regra}" y="{y1}">Deixe a menor marca possível na natureza</text>
 
-    <circle class="bullet" cx="0" cy="{y_regras + 2 * esp_regra}" r="{raio_bul}" />
-    <text class="regra-txt" x="{int(140 * fator)}" y="{y_regras + 2 * esp_regra + int(55 * fator)}">Não deixe lixo no local</text>
+    <!-- Regra 2: Rocha -->
+    <g transform="translate({x_bloco}, {y2 - tam_icon // 2}) scale({escala_icon})">
+      <g stroke="#111827" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M4 19h16a2 2 0 0 0 1.8-2.9L13.8 4.6a2 2 0 0 0-3.6 0L2.2 16.1A2 2 0 0 0 4 19z" />
+        <path d="M12 5.5l-1 5.5v4" />
+      </g>
+    </g>
+    <text class="regra-txt" fill="#111827" font-family="Arial, Helvetica, sans-serif" font-size="{int(130 * fator)}px" font-weight="700" text-anchor="start" dominant-baseline="middle" x="{x_texto_regra}" y="{y2}">Preserve a rocha: não quebre nem altere agarras</text>
 
-    <circle class="bullet" cx="0" cy="{y_regras + 3 * esp_regra}" r="{raio_bul}" />
-    <text class="regra-txt" x="{int(140 * fator)}" y="{y_regras + 3 * esp_regra + int(55 * fator)}">Respeite a vegetação e o entorno</text>
+    <!-- Regra 3: Lixo -->
+    <g transform="translate({x_bloco}, {y3 - tam_icon // 2}) scale({escala_icon})">
+      <g stroke="#111827" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M4 6h16" />
+        <path d="M9.5 6V4a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1v2" />
+        <path d="M5.5 6l1.2 13a2 2 0 0 0 2 2h6.6a2 2 0 0 0 2-2L18.5 6" />
+        <line x1="9" y1="10" x2="9" y2="16" />
+        <line x1="12" y1="10" x2="12" y2="16" />
+        <line x1="15" y1="10" x2="15" y2="16" />
+      </g>
+    </g>
+    <text class="regra-txt" fill="#111827" font-family="Arial, Helvetica, sans-serif" font-size="{int(130 * fator)}px" font-weight="700" text-anchor="start" dominant-baseline="middle" x="{x_texto_regra}" y="{y3}">Leve todo o seu lixo de volta com você</text>
+
+    <!-- Regra 4: Entorno (duas linhas) -->
+    <g transform="translate({x_bloco}, {y4 + altura_linha_regra4 // 2 - tam_icon // 2}) scale({escala_icon})">
+      <g stroke="#111827" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="7.5" cy="7.5" r="3.2" />
+        <circle cx="16.5" cy="7.5" r="3.2" />
+        <path d="M3 20.5h18" />
+        <path d="M3 20.5v-1a4.5 4.5 0 0 1 4.5-4.5h0a4.5 4.5 0 0 1 4.5 3.5" />
+        <path d="M12 18.5a4.5 4.5 0 0 1 4.5-3.5h0a4.5 4.5 0 0 1 4.5 4.5v1" />
+        <line x1="12" y1="18.5" x2="12" y2="20.5" />
+      </g>
+    </g>
+    <text class="regra-txt" fill="#111827" font-family="Arial, Helvetica, sans-serif" font-size="{int(130 * fator)}px" font-weight="700" text-anchor="start" dominant-baseline="middle" x="{x_texto_regra}" y="{y4}">Preserve o entorno: faça suas necessidades</text>
+    <text class="regra-txt" fill="#111827" font-family="Arial, Helvetica, sans-serif" font-size="{int(130 * fator)}px" font-weight="700" text-anchor="start" dominant-baseline="middle" x="{x_texto_regra}" y="{y4 + altura_linha_regra4}">nos sanitários disponibilizados pelo evento</text>
   </g>
 </svg>"""
 
@@ -1022,12 +1244,13 @@ def exportar_placas_pico(
     altura: int = ALTURA_PADRAO_A4_600DPI,
     dpi: int = DPI_PADRAO,
     gerar_svg: bool = False,
+    gerar_pdf: bool = False,
     cor_borda_logo: str = "preta",
     utm_source: str | None = "setor_igarameca",
     utm_medium: str | None = "qrcode",
     utm_campaign: str | None = None,
 ) -> list[dict[str, Any]]:
-    """Gera e salva em disco todas as placas em formato A4 de alta resolução (PNG e opcionalmente SVG)."""
+    """Gera e salva em disco todas as placas em formato A4 de alta resolução (PNG e opcionalmente SVG/PDF)."""
     destino = Path(diretorio_saida)
     destino.mkdir(parents=True, exist_ok=True)
 
@@ -1097,6 +1320,11 @@ def exportar_placas_pico(
             )
             caminho_svg.write_text(svg_conteudo, encoding="utf-8")
             registro["svg"] = caminho_svg
+
+        if gerar_pdf:
+            caminho_pdf = destino / f"{item['id']}.pdf"
+            img_png.convert("RGB").save(caminho_pdf, "PDF", resolution=float(dpi))
+            registro["pdf"] = caminho_pdf
 
         arquivos_gerados.append(registro)
 

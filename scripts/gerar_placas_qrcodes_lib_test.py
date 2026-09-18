@@ -181,6 +181,13 @@ def test_gerar_placa_svg() -> None:
     assert "SAVASSINHA" in svg
     assert "Pedra Grande · Igarapé, MG" in svg
     assert "ARESTA CLIMB" in svg
+    assert "MÍNIMO IMPACTO NO LOCAL" in svg
+    assert "Deixe a menor marca possível na natureza" in svg
+    assert "Preserve a rocha: não quebre nem altere agarras" in svg
+    assert "Leve todo o seu lixo de volta com você" in svg
+    assert "Preserve o entorno: faça suas necessidades" in svg
+    assert "nos sanitários disponibilizados pelo evento" in svg
+    assert "Aponte a câmera para abrir no Aresta" in svg
     # Verifica que o link textual foi removido
     assert "app.arestaclimb.com" not in svg
 
@@ -504,6 +511,26 @@ def test_exportar_placas_pico_com_svg(tmp_path: Path) -> None:
     assert arqs_svg[0]["svg"].exists()
 
 
+def test_exportar_placas_pico_com_pdf(tmp_path: Path) -> None:
+    raiz = tmp_path / "projeto"
+    criar_croqui_teste_pb(raiz, pico_id="br_mg_igarape_pedra_grande")
+    saida_pdf = tmp_path / "com_pdf"
+    arqs_pdf = exportar_placas_pico(
+        pico_id="br_mg_igarape_pedra_grande",
+        diretorio_saida=saida_pdf,
+        raiz_projeto=raiz,
+        limite_itens=2,
+        largura=800,
+        altura=1000,
+        gerar_pdf=True,
+    )
+    assert len(arqs_pdf) == 2
+    assert "png" in arqs_pdf[0]
+    assert "pdf" in arqs_pdf[0]
+    assert arqs_pdf[0]["png"].exists()
+    assert arqs_pdf[0]["pdf"].exists()
+
+
 def test_formatar_grau() -> None:
     from scripts.gerar_placas_qrcodes_lib import (
         _formatar_grau_via,
@@ -688,4 +715,73 @@ def test_gerar_placas_com_cor_borda_customizada(tmp_path: Path) -> None:
         cor_borda_logo="#3b82f6",
     )
     assert 'stroke="#3b82f6"' in svg_conteudo
+
+
+def test_renderizar_icone_svg_sucesso_e_fallback() -> None:
+    from scripts.gerar_placas_qrcodes_lib import _renderizar_icone_svg, SVG_ICONE_FOLHA
+
+    img_ok = _renderizar_icone_svg(SVG_ICONE_FOLHA, 100, 100)
+    assert isinstance(img_ok, Image.Image)
+    assert img_ok.size == (100, 100)
+
+    img_fallback = _renderizar_icone_svg("svg invalido", 80, 80)
+    assert isinstance(img_fallback, Image.Image)
+    assert img_fallback.size == (80, 80)
+
+
+def test_regras_minimo_impacto_centralizadas_horizontalmente(tmp_path: Path) -> None:
+    """Garante que o bloco de recomendações de mínimo impacto está centralizado horizontalmente."""
+    import re
+
+    largura = 4960
+    altura = 7016
+    svg_conteudo = gerar_placa_svg(
+        url="https://app.arestaclimb.com/br_mg_igarape_pedra_grande/setor_estacionamento",
+        titulo="SETOR ESTACIONAMENTO",
+        largura=largura,
+        altura=altura,
+    )
+
+    # Localiza o valor de x_bloco no SVG
+    match = re.search(r'<g transform="translate\((\d+),', svg_conteudo)
+    assert match is not None, "Transform de ícone de regra não encontrado"
+    x_bloco = int(match.group(1))
+
+    # O valor antigo não-centralizado era int(600 * fator) = 600.
+    # Centralizado, x_bloco deve ser em torno de 850px para largura de 4960px.
+    assert x_bloco > 700, f"x_bloco ({x_bloco}) deve estar centralizado e ser maior que 700"
+
+
+def test_alinhamento_texto_aresta_com_logo_parceiro(tmp_path: Path) -> None:
+    """Garante que o texto ARESTA na logo esquerda está alinhado com a linha de base da logo do parceiro."""
+    import re
+
+    logo_esq = tmp_path / "logo_splash.png"
+    Image.new("RGBA", (1278, 935), color=(20, 20, 20, 255)).save(logo_esq)
+    logo_dir = tmp_path / "logo_igarameca.png"
+    Image.new("RGBA", (3508, 1373), color=(20, 20, 20, 255)).save(logo_dir)
+
+    largura = 4960
+    altura = 7016
+    svg_conteudo = gerar_placa_svg(
+        url="https://app.arestaclimb.com/br_mg_igarape_pedra_grande/setor_estacionamento",
+        titulo="SETOR ESTACIONAMENTO",
+        caminho_logo_topo=logo_dir,
+        caminho_logo_aresta=logo_esq,
+        largura=largura,
+        altura=altura,
+    )
+
+    # Extrai coordenadas y das imagens do cabeçalho (as duas primeiras tags <image>)
+    matches_y = re.findall(r'<image href="data:image/png;base64,[^"]+" x="[^"]+" y="([0-9.]+)"', svg_conteudo)
+    assert len(matches_y) >= 2, "Pelo menos duas imagens de logo devem estar presentes no cabeçalho"
+    y_esq = float(matches_y[0])
+    y_dir = float(matches_y[1])
+
+    # No alinhamento de baseline do texto ARESTA, y_esq deve ser ajustado para baixo (maior que o topo y_dir)
+    # garantindo que a palavra ARESTA (que fica na parte inferior do splash) alinhe com a palavra IGARAMECA.
+    assert y_esq > y_dir - 50
+    # O valor antigo de y_esq era y_centro - h_esq // 2 = 358.5. O novo valor com baseline alinhada é > 400.
+    assert y_esq > 400, f"y_esq ({y_esq}) deve estar alinhado pela linha de base do texto ARESTA (> 400)"
+
 

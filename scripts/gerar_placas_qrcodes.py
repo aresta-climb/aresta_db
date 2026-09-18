@@ -123,6 +123,12 @@ def criar_analisador_argumentos() -> argparse.ArgumentParser:
         help="Gera também arquivos vetoriais SVG (por padrão gera apenas PNG A4 600 DPI).",
     )
     parser.add_argument(
+        "--pdf",
+        dest="pdf",
+        action="store_true",
+        help="Gera também arquivos em formato PDF A4 em alta resolução (600 DPI).",
+    )
+    parser.add_argument(
         "--apenas-svg",
         dest="apenas_svg",
         action="store_true",
@@ -254,6 +260,7 @@ def main(argumentos: list[str] | None = None) -> int:
             altura=args.altura,
             dpi=args.dpi,
             gerar_svg=gerar_svg,
+            gerar_pdf=bool(args.pdf),
             cor_borda_logo=args.cor_borda_logo,
             utm_source=args.utm_source,
             utm_medium=args.utm_medium,
@@ -308,6 +315,7 @@ def main(argumentos: list[str] | None = None) -> int:
     )
     nome_base = f"placa_{slug_base}"
 
+    img = None
     if not args.apenas_svg:
         caminho_png = diretorio_saida / f"{nome_base}.png"
         img = gerar_placa_png(
@@ -323,6 +331,11 @@ def main(argumentos: list[str] | None = None) -> int:
         )
         img.save(caminho_png, "PNG", dpi=(args.dpi, args.dpi))
         print(f"PNG gerado (A4 {args.dpi} DPI): {caminho_png}")
+
+        if args.pdf:
+            caminho_pdf = diretorio_saida / f"{nome_base}.pdf"
+            img.convert("RGB").save(caminho_pdf, "PDF", resolution=float(args.dpi))
+            print(f"PDF gerado (A4 {args.dpi} DPI): {caminho_pdf}")
 
     if gerar_svg:
         caminho_svg = diretorio_saida / f"{nome_base}.svg"

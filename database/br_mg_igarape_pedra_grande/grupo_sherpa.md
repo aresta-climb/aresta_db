@@ -1,7 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
-nome: Grupo Sherpa
+nome: Setor Sherpa
 setores:
 - caminho: setor_tarja_preta.md
 - caminho: setor_jeitinho_brasileiro.md
