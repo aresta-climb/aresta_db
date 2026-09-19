@@ -104,8 +104,11 @@ croquis:
     longitude: -456009710
 - id: br_mg_caete_monte_alvao
   nome: Monte Alvão - Caeté
-  descricao: |
-    O Alto Monte Alvão, localizado em Caeté, MG, é uma das áreas de escalada mais tradicionais e belas da região, oferecendo vias de diversos estilos e dificuldades em quartzito de alta qualidade.
+  descricao: 'O Alto Monte Alvão, localizado em Caeté, MG, é uma das áreas de escalada
+    mais tradicionais e belas da região, oferecendo vias de diversos estilos e dificuldades
+    em quartzito de alta qualidade.
+
+    '
   caminho_relativo: br_mg_caete_monte_alvao/compilado.binarypb
   checksum_sha256_croqui: 574b66eb17125a6cd4f003dfdac8bf80abc4d9dc007c6c272d4a5d0ad5f6473f
   checksum_sha256_thumbnail: 03f79ad397717faec98f8288a15d55635b103c61f9b2be5cf92a56b1d804df95
@@ -193,17 +196,17 @@ croquis:
   descricao: Este croqui documenta e divulga a prática da escalada no Complexo da
     Pedra Grande em Igarapé/MG, reunindo informações sobre diversos setores e vias.
   caminho_relativo: br_mg_igarape_pedra_grande/compilado.binarypb
-  checksum_sha256_croqui: 622410f70d1666cb6199c975679676425e2c8c184ea95412e10a7589c7901e04
+  checksum_sha256_croqui: e55c0ed2ceff64418c4f8ad1d79b559b0e0f68f87007e62fc4320f15d3d7960f
   checksum_sha256_thumbnail: d490580138c1b7f24c772f2d6672e895406739da51bd1880ecabb49cd28b7409
-  timestamp_update: '2026-09-19T03:18:22Z'
+  timestamp_update: '2026-09-19T03:22:24Z'
   precomputados:
     total_escaladas: 233
-    total_setores: 21
+    total_setores: 20
     total_grupos: 2
     total_esportivas: 95
     total_boulders: 96
     total_multiplas_enfiadas: 1
-    tamanho_download_bytes: 49306183
+    tamanho_download_bytes: 49306148
   localizacao:
     latitude: -201176660
     longitude: -443593480

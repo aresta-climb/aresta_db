@@ -28,6 +28,8 @@ picos:
       caminho: setor_familia_ii.md
   - setor:
       caminho: setor_democracia.md
+  - grupo:
+      caminho: grupo_setor_sherpa.md
   - setor:
       caminho: setor_micos.md
   - setor:
@@ -40,8 +42,6 @@ picos:
       caminho: setor_tetos.md
   - setor:
       caminho: setor_trad.md
-  - grupo:
-      caminho: grupo_setor_sherpa.md
   mapas_gerais:
     caminho: mapas_gerais.md
   localizacao:
