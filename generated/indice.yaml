@@ -196,17 +196,17 @@ croquis:
   descricao: Este croqui documenta e divulga a prática da escalada no Complexo da
     Pedra Grande em Igarapé/MG, reunindo informações sobre diversos setores e vias.
   caminho_relativo: br_mg_igarape_pedra_grande/compilado.binarypb
-  checksum_sha256_croqui: 208508723c1e315bb313f326935af6fa91b2dca95f617bb1843c471cb78a8409
+  checksum_sha256_croqui: 5c283660a0c5e75c072c075c39a8feb3906d5dc543fc0f25a8d9087efbfd9c48
   checksum_sha256_thumbnail: d490580138c1b7f24c772f2d6672e895406739da51bd1880ecabb49cd28b7409
-  timestamp_update: '2026-09-18T01:54:49Z'
+  timestamp_update: '2026-09-19T01:57:08Z'
   precomputados:
-    total_escaladas: 208
+    total_escaladas: 231
     total_setores: 22
     total_grupos: 2
     total_esportivas: 95
-    total_boulders: 71
+    total_boulders: 94
     total_multiplas_enfiadas: 1
-    tamanho_download_bytes: 42445621
+    tamanho_download_bytes: 47908207
   localizacao:
     latitude: -201176660
     longitude: -443593480

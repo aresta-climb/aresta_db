@@ -2638,7 +2638,7 @@ class WidgetEditorMapas(QWidget):
         from pathlib import Path
         try:
             bytes_originais = Path(arquivo).read_bytes()
-            bytes_webp, _, _ = comprimir_imagem_para_bytes_webp(bytes_originais, quality=90)
+            bytes_webp, _, _ = comprimir_imagem_para_bytes_webp(bytes_originais)
         except Exception as e:
             QMessageBox.warning(self, "Erro", f"Falha ao processar nova imagem: {e}")
             return

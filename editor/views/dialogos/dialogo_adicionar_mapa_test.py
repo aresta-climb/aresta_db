@@ -419,3 +419,30 @@ class TestDialogoAdicionarMapa:
         assert len(avisos) == 1
         assert "pillow-heif" in avisos[0]
 
+    def test_carregar_imagem_usa_parametros_otimizados_webp_2_5_mp_e_metodo_6(self, qtbot, tmp_path, imagem_png_teste, monkeypatch):
+        import inspect
+        import editor.views.dialogos.dialogo_adicionar_mapa as mod_dialogo
+
+        chamadas_compressao = []
+        fn_original = mod_dialogo.comprimir_imagem_para_bytes_webp
+        sig = inspect.signature(fn_original)
+
+        def mock_comprimir(*args, **kwargs):
+            vinculo = sig.bind(*args, **kwargs)
+            vinculo.apply_defaults()
+            chamadas_compressao.append(vinculo.arguments)
+            return fn_original(*args, **kwargs)
+
+        monkeypatch.setattr(mod_dialogo, "comprimir_imagem_para_bytes_webp", mock_comprimir)
+
+        dialogo = DialogoAdicionarMapa("teste.webp", db_dir=tmp_path)
+        qtbot.addWidget(dialogo)
+
+        dialogo.carregar_imagem_arquivo(str(imagem_png_teste))
+
+        assert len(chamadas_compressao) == 1
+        assert chamadas_compressao[0]["quality"] == 85
+        assert chamadas_compressao[0]["max_area"] == 2_500_000
+        assert chamadas_compressao[0]["method"] == 6
+
+
