@@ -41,7 +41,7 @@ picos:
   - setor:
       caminho: setor_trad.md
   - grupo:
-      caminho: grupo_sherpa.md
+      caminho: grupo_setor_sherpa.md
   mapas_gerais:
     caminho: mapas_gerais.md
   localizacao:
