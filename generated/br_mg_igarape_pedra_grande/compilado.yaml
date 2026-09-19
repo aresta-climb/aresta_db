@@ -4564,8 +4564,958 @@ picos:
   - setor:
       conteudo:
         nome: Bloco Democracia
+        escaladas:
+        - boulder:
+            nome: Escalda pé
+            dificuldade: V3
+        - boulder:
+            nome: Sai sentado
+            dificuldade: V0
+        - boulder:
+            nome: Titi terremoto
+            dificuldade: V4
+        - boulder:
+            nome: Faixa preta
+            dificuldade: V2
+        - boulder:
+            nome: Portátil
+            dificuldade: V6
+        - boulder:
+            nome: Democracia
+            dificuldade: V4
+        - boulder:
+            nome: 127 horas (boulder)
+            dificuldade: V5
+        - boulder:
+            nome: Perda de memória recente
+            dificuldade: V6
+        - boulder:
+            nome: Utopia
+            dificuldade: V6
+            descricao: Começa na parede da direita e muda pra parede da esquerda no
+              meio do boulder.
+        - boulder:
+            nome: Dejavu
+            dificuldade: V5
+        - boulder:
+            nome: Maquiavel
+            dificuldade: V8
+        - boulder:
+            nome: Dejavu SDS
+            dificuldade: V6
+        - boulder:
+            nome: Sem nome 26
+            dificuldade: V6
+        - boulder:
+            nome: Vai mas não cai
+            dificuldade: V4
+        - boulder:
+            nome: Direita que me resta
+            dificuldade: V3
+        - boulder:
+            nome: Distopia
+            dificuldade: V10
+            descricao: Mesma saída do Utopia.
+        - boulder:
+            nome: Sem nome 27
+            dificuldade: V1
+        - boulder:
+            nome: Engana bobo
+            dificuldade: V2
+        - boulder:
+            nome: Sem nome 29
+            dificuldade: V2
+        - boulder:
+            nome: Sem nome 30
+            dificuldade: V4
+        - boulder:
+            nome: Pequeno desafio
+            dificuldade: V1
+        - boulder:
+            nome: Porco espinho
+            dificuldade: V2
+        - boulder:
+            nome: Passa um
+            dificuldade: V1
+        mapas:
+        - caminho_imagem_mapa: imagens/setor_bloco_democracia_p0.webp
+          largura_mapa: 1825
+          altura_mapa: 1369
+          pontos_de_interesse:
+          - id: linha_2
+            linha:
+              estilo: TRACEJADO
+              espessura: 3
+              compilado:
+                caminho_svg: M 615 1117 C 611.3 1102.3, 607.7 1087.7, 604 1073
+                caixa_delimitadora:
+                  x: 610
+                  y: 1095
+                  comprimento: 11
+                  largura: 44
+                marcadores:
+                - tipo: CIRCULO_IDENTIFICADOR
+                  x: 615
+                  y: 1117
+                  angulo_graus_x100: -10404
+                  rotulo: '2'
+                  raio: 17
+            cor: '#FFD600'
+          - id: linha_3
+            linha:
+              estilo: TRACEJADO
+              espessura: 3
+              compilado:
+                caminho_svg: M 604 1073 C 596.0 1064.3, 590.1 1055.6, 580 1047 C 566.9
+                  1035.8, 542.4 1031.9, 530 1014 C 512.3 988.4, 509.9 934.1, 503 895
+                  C 496.4 857.8, 487.6 822.4, 489 785 C 490.5 745.5, 498.8 692.7,
+                  514 664 C 524.6 644.0, 544.8 635.8, 556 621 C 565.8 608.0, 574.8
+                  595.4, 579 581 C 583.2 566.4, 580.3 549.7, 581 534
+                caixa_delimitadora:
+                  x: 546
+                  y: 804
+                  comprimento: 115
+                  largura: 539
+                marcadores:
+                - tipo: FIM_TOP
+                  x: 581
+                  y: 534
+                  angulo_graus_x100: -8756
+                  rotulo: B
+                  raio: 17
+            cor: '#FFD600'
+          - id: linha_1
+            label: ''
+            linha:
+              estilo: TRACEJADO
+              espessura: 3
+              compilado:
+                caminho_svg: M 456 1105 C 447.0 1085.0, 438.6 1064.0, 429 1045 C 419.9
+                  1027.1, 409.1 1012.0, 400 994 C 390.3 974.8, 380.9 951.4, 373 933
+                  C 366.6 918.0, 359.3 907.9, 356 892 C 351.8 871.7, 354.0 843.9,
+                  355 820 C 356.0 796.2, 359.1 776.0, 362 749 C 365.9 713.2, 372.0
+                  665.7, 377 624
+                caixa_delimitadora:
+                  x: 406
+                  y: 864
+                  comprimento: 101
+                  largura: 481
+                marcadores:
+                - tipo: CIRCULO_IDENTIFICADOR
+                  x: 456
+                  y: 1105
+                  angulo_graus_x100: -11423
+                  rotulo: '1'
+                  raio: 17
+                - tipo: FIM_TOP
+                  x: 377
+                  y: 624
+                  angulo_graus_x100: -8316
+                  rotulo: A
+                  raio: 17
+            cor: '#FFD600'
+          - id: linha_5
+            linha:
+              estilo: TRACEJADO
+              espessura: 3
+              compilado:
+                caminho_svg: M 604 1073 C 604.7 1057.7, 600.9 1040.3, 606 1027 C 610.9
+                  1014.2, 623.0 1000.0, 633 994 C 640.7 989.4, 650.0 992.6, 658 989
+                  C 667.1 984.9, 676.6 977.6, 684 969 C 692.3 959.4, 694.0 942.5,
+                  704 933 C 715.0 922.6, 732.5 916.6, 749 911 C 767.4 904.8, 788.3
+                  904.0, 810 899 C 835.4 893.1, 867.9 884.4, 892 877 C 911.4 871.0,
+                  927.0 867.2, 944 859 C 962.3 850.2, 987.8 837.6, 998 825 C 1004.9
+                  816.6, 1004.7 807.0, 1008 798
+                caixa_delimitadora:
+                  x: 806
+                  y: 936
+                  comprimento: 404
+                  largura: 275
+                marcadores: []
+            cor: '#FFD600'
+          - id: linha_6
+            linha:
+              estilo: TRACEJADO
+              espessura: 3
+              compilado:
+                caminho_svg: M 1008 798 C 1008.0 776.3, 1008.8 756.0, 1008 733 C 1007.1
+                  706.8, 1003.1 674.4, 1002 649 C 1001.1 627.9, 1001.3 610.7, 1001
+                  591 C 1000.7 570.7, 1000.3 549.7, 1000 529
+                caixa_delimitadora:
+                  x: 1004
+                  y: 664
+                  comprimento: 8
+                  largura: 269
+                marcadores:
+                - tipo: FIM_TOP
+                  x: 1000
+                  y: 529
+                  angulo_graus_x100: -9092
+                  rotulo: C
+                  raio: 17
+            cor: '#FFD600'
+          - id: linha_4
+            label: ''
+            linha:
+              estilo: TRACEJADO
+              espessura: 3
+              compilado:
+                caminho_svg: M 1059 998 C 1058.7 999.0, 1058.6 1001.0, 1058 1001 C
+                  1055.5 1001.0, 1043.3 965.2, 1037 945 C 1029.8 922.0, 1022.9 894.9,
+                  1018 870 C 1013.3 845.9, 1011.3 822.0, 1008 798
+                caixa_delimitadora:
+                  x: 1034
+                  y: 900
+                  comprimento: 51
+                  largura: 203
+                marcadores:
+                - tipo: CIRCULO_IDENTIFICADOR
+                  x: 1059
+                  y: 998
+                  angulo_graus_x100: 10843
+                  rotulo: '3'
+                  raio: 17
+            cor: '#FFD600'
+          - id: linha_7
+            label: ''
+            linha:
+              estilo: TRACEJADO
+              espessura: 3
+              compilado:
+                caminho_svg: M 1394 897 C 1380.7 871.3, 1364.6 847.1, 1354 820 C 1343.1
+                  792.2, 1338.4 759.0, 1330 732 C 1322.7 708.5, 1317.4 689.5, 1307
+                  667 C 1294.8 640.5, 1275.3 610.8, 1259 584 C 1243.3 558.2, 1227.0
+                  534.0, 1211 509
+                caixa_delimitadora:
+                  x: 1302
+                  y: 703
+                  comprimento: 183
+                  largura: 388
+                marcadores:
+                - tipo: CIRCULO_IDENTIFICADOR
+                  x: 1394
+                  y: 897
+                  angulo_graus_x100: -11745
+                  rotulo: '4'
+                  raio: 17
+                - tipo: FIM_TOP
+                  x: 1211
+                  y: 509
+                  angulo_graus_x100: -12262
+                  rotulo: D
+                  raio: 17
+            cor: '#FFD600'
+          referencias:
+          - ids:
+            - linha_2
+            - linha_3
+            escalada: Escalda pé
+          - ids:
+            - linha_1
+            escalada: Sai sentado
+          - ids:
+            - linha_2
+            - linha_5
+            - linha_6
+            escalada: Titi terremoto
+          - ids:
+            - linha_4
+            - linha_6
+            escalada: Faixa preta
+          - ids:
+            - linha_7
+            escalada: Portátil
+        - caminho_imagem_mapa: imagens/setor_bloco_democracia_p1.webp
+          largura_mapa: 1825
+          altura_mapa: 1369
+          pontos_de_interesse:
+          - id: linha_9
+            label: ''
+            linha:
+              estilo: TRACEJADO
+              espessura: 3
+              compilado:
+                caminho_svg: M 1503 834 C 1500.3 810.3, 1499.5 788.1, 1495 763 C 1489.8
+                  733.9, 1489.0 693.8, 1472 670 C 1455.5 646.9, 1418.2 620.1, 1396
+                  621 C 1377.9 621.8, 1367.3 652.2, 1348 658 C 1325.8 664.7, 1285.5
+                  665.9, 1268 652 C 1250.2 637.9, 1251.3 599.3, 1243 573
+                caixa_delimitadora:
+                  x: 1373
+                  y: 704
+                  comprimento: 260
+                  largura: 261
+                marcadores:
+                - tipo: CIRCULO_IDENTIFICADOR
+                  x: 1503
+                  y: 834
+                  angulo_graus_x100: -9643
+                  rotulo: '7'
+            cor: '#FFD600'
+          - id: linha_10
+            linha:
+              estilo: TRACEJADO
+              espessura: 3
+              compilado:
+                caminho_svg: M 1021 930 C 1044.0 907.3, 1067.8 886.0, 1090 862 C 1112.8
+                  837.4, 1136.1 812.2, 1156 784 C 1176.6 754.7, 1196.6 723.2, 1211
+                  689 C 1226.0 653.2, 1232.3 611.7, 1243 573
+                caixa_delimitadora:
+                  x: 1132
+                  y: 752
+                  comprimento: 222
+                  largura: 357
+                marcadores:
+                - tipo: CIRCULO_IDENTIFICADOR
+                  x: 1021
+                  y: 930
+                  angulo_graus_x100: -4458
+                  rotulo: '6'
+            cor: '#FFD600'
+          - id: linha_8
+            label: ''
+            linha:
+              estilo: TRACEJADO
+              espessura: 3
+              compilado:
+                caminho_svg: M 638 928 C 663.0 892.3, 695.1 859.1, 713 821 C 730.3
+                  784.3, 722.2 733.4, 745 704 C 767.7 674.8, 817.4 662.3, 849 645
+                  C 875.1 630.7, 897.7 623.6, 921 607 C 947.5 588.1, 976.2 557.9,
+                  998 535 C 1015.9 516.2, 1029.6 502.1, 1044 481 C 1061.0 456.0, 1091.0
+                  420.2, 1091 393 C 1091.0 369.4, 1067.7 349.0, 1056 327
+                caixa_delimitadora:
+                  x: 864
+                  y: 628
+                  comprimento: 453
+                  largura: 601
+                marcadores:
+                - tipo: CIRCULO_IDENTIFICADOR
+                  x: 638
+                  y: 928
+                  angulo_graus_x100: -5497
+                  rotulo: '5'
+            cor: '#FFD600'
+          - id: linha_12
+            linha:
+              estilo: TRACEJADO
+              espessura: 3
+              compilado:
+                caminho_svg: M 1241 575 C 1240.7 538.0, 1253.4 494.8, 1240 464 C 1227.0
+                  434.1, 1193.0 413.8, 1164 392 C 1132.1 368.0, 1091.3 349.3, 1055
+                  328
+                caixa_delimitadora:
+                  x: 1148
+                  y: 452
+                  comprimento: 186
+                  largura: 247
+                marcadores: []
+            cor: '#FFD600'
+          - id: linha_13
+            linha:
+              estilo: TRACEJADO
+              espessura: 3
+              compilado:
+                caminho_svg: M 1055 328 C 1024.3 305.3, 989.9 288.5, 963 260 C 933.5
+                  228.7, 903.6 173.2, 888 145 C 879.5 129.7, 876.7 120.3, 871 108
+                caixa_delimitadora:
+                  x: 963
+                  y: 218
+                  comprimento: 184
+                  largura: 220
+                marcadores:
+                - tipo: FIM_TOP
+                  x: 871
+                  y: 108
+                  angulo_graus_x100: -11468
+                  rotulo: E
+            cor: '#FFD600'
+          referencias:
+          - ids:
+            - linha_10
+            - linha_12
+            - linha_13
+            escalada: Democracia
+          - ids:
+            - linha_9
+            - linha_12
+            - linha_13
+            escalada: 127 horas (boulder)
+          - ids:
+            - linha_8
+            - linha_13
+            escalada: Perda de memória recente
+        - caminho_imagem_mapa: imagens/setor_bloco_democracia_p2.webp
+          largura_mapa: 1825
+          altura_mapa: 1369
+          pontos_de_interesse:
+          - id: linha_11
+            label: ''
+            linha:
+              estilo: TRACEJADO
+              espessura: 3
+              compilado:
+                caminho_svg: M 942 871 C 921.7 855.7, 901.6 842.1, 881 825 C 858.3
+                  806.1, 832.0 780.4, 812 762 C 796.5 747.8, 783.4 737.9, 771 724
+                  C 758.4 709.9, 751.1 692.8, 737 678 C 720.5 660.6, 692.3 643.7,
+                  676 628 C 663.7 616.1, 654.9 592.8, 646 594 C 635.8 595.4, 631.2
+                  637.0, 620 648 C 612.0 655.9, 598.7 664.2, 592 661 C 583.1 656.7,
+                  583.8 625.0, 579 608 C 574.4 592.0, 566.9 575.3, 564 562 C 561.9
+                  552.2, 561.9 546.5, 561 536 C 559.7 520.0, 558.0 496.7, 558 475
+                  C 558.0 450.1, 562.9 417.8, 562 395 C 561.3 377.8, 558.0 365.0,
+                  556 350
+                caixa_delimitadora:
+                  x: 749
+                  y: 610
+                  comprimento: 386
+                  largura: 521
+                marcadores:
+                - tipo: CIRCULO_IDENTIFICADOR
+                  x: 942
+                  y: 871
+                  angulo_graus_x100: -14298
+                  rotulo: '8'
+                - tipo: CIRCULO_IDENTIFICADOR
+                  x: 556
+                  y: 350
+                  angulo_graus_x100: -9759
+                  rotulo: E
+            cor: '#FFD600'
+          referencias:
+          - ids:
+            - linha_11
+            escalada: Utopia
+        - caminho_imagem_mapa: imagens/setor_bloco_democracia_p3.webp
+          largura_mapa: 1825
+          altura_mapa: 1369
+          pontos_de_interesse:
+          - id: linha_16
+            linha:
+              estilo: TRACEJADO
+              espessura: 3
+              compilado:
+                caminho_svg: M 1095 1113 C 1076.7 1111.7, 1058.7 1108.7, 1040 1109
+                  C 1020.4 1109.3, 997.7 1114.6, 980 1115 C 965.9 1115.3, 949.1 1119.0,
+                  942 1113 C 936.0 1107.9, 934.3 1094.6, 936 1086 C 937.9 1076.6,
+                  947.8 1066.8, 955 1059 C 961.9 1051.6, 974.3 1048.3, 978 1040 C
+                  981.9 1031.4, 981.9 1016.7, 977 1008 C 971.6 998.3, 952.4 995.3,
+                  944 986 C 936.0 977.1, 930.1 965.7, 927 954 C 923.8 941.8, 923.9
+                  927.3, 926 914 C 928.3 900.0, 936.2 885.8, 941 872 C 945.6 858.8,
+                  950.2 846.6, 954 833 C 958.0 818.6, 961.8 803.8, 964 788 C 966.4
+                  770.7, 972.9 750.6, 967 733 C 959.9 712.0, 937.5 691.5, 916 673
+                  C 890.0 650.5, 853.1 629.5, 818 612 C 781.1 593.6, 736.0 576.9,
+                  699 566 C 668.1 556.9, 634.2 556.3, 612 548 C 596.9 542.4, 588.0
+                  534.7, 576 528
+                caixa_delimitadora:
+                  x: 836
+                  y: 822
+                  comprimento: 519
+                  largura: 587
+                marcadores:
+                - tipo: CIRCULO_IDENTIFICADOR
+                  x: 1095
+                  y: 1113
+                  angulo_graus_x100: -17584
+                  rotulo: '11'
+            cor: '#FFD600'
+          - id: linha_17
+            linha:
+              estilo: TRACEJADO
+              espessura: 3
+              compilado:
+                caminho_svg: M 576 529 C 563.7 509.3, 549.7 490.9, 539 470 C 527.9
+                  448.4, 516.6 424.3, 511 401 C 505.6 378.6, 507.7 356.6, 505 333
+                  C 502.1 307.4, 497.7 279.7, 494 253
+                caixa_delimitadora:
+                  x: 535
+                  y: 391
+                  comprimento: 82
+                  largura: 276
+                marcadores:
+                - tipo: FIM_TOP
+                  x: 494
+                  y: 253
+                  angulo_graus_x100: -9783
+                  rotulo: A
+            cor: '#FFD600'
+          - id: linha_22
+            label: ''
+            linha:
+              estilo: TRACEJADO
+              espessura: 3
+              compilado:
+                caminho_svg: M 297 902 C 318.7 910.7, 340.0 922.3, 362 928 C 383.1
+                  933.4, 404.5 933.8, 426 936 C 447.8 938.2, 472.3 945.8, 492 941
+                  C 510.3 936.6, 526.9 927.4, 541 911 C 561.7 886.9, 573.0 835.0,
+                  589 797
+                caixa_delimitadora:
+                  x: 443
+                  y: 869
+                  comprimento: 292
+                  largura: 144
+                marcadores:
+                - tipo: CIRCULO_IDENTIFICADOR
+                  x: 297
+                  y: 902
+                  angulo_graus_x100: 2180
+                  rotulo: '9'
+            cor: '#FFD600'
+          - id: linha_23
+            linha:
+              estilo: TRACEJADO
+              espessura: 3
+              compilado:
+                caminho_svg: M 845 1136 C 823.7 1134.0, 802.2 1133.5, 781 1130 C 759.5
+                  1126.5, 733.9 1124.7, 717 1115 C 702.3 1106.6, 694.5 1091.6, 683
+                  1079 C 670.8 1065.6, 655.7 1051.6, 646 1037 C 637.2 1023.8, 632.0
+                  1011.1, 626 996 C 619.1 978.6, 613.0 958.4, 608 938 C 602.5 915.9,
+                  598.2 891.5, 595 868 C 591.8 844.5, 591.0 820.7, 589 797
+                caixa_delimitadora:
+                  x: 717
+                  y: 966
+                  comprimento: 256
+                  largura: 339
+                marcadores:
+                - tipo: CIRCULO_IDENTIFICADOR
+                  x: 845
+                  y: 1136
+                  angulo_graus_x100: -17464
+                  rotulo: '10'
+            cor: '#FFD600'
+          - id: linha_24
+            linha:
+              estilo: TRACEJADO
+              espessura: 3
+              compilado:
+                caminho_svg: M 588 798 C 591.3 774.7, 594.9 748.5, 598 728 C 600.5
+                  711.9, 604.6 702.1, 605 685 C 605.5 660.1, 599.5 620.8, 594 593
+                  C 589.3 569.3, 582.0 549.7, 576 528
+                caixa_delimitadora:
+                  x: 590
+                  y: 663
+                  comprimento: 29
+                  largura: 270
+                marcadores: []
+            cor: '#FFD600'
+          referencias:
+          - ids:
+            - linha_16
+            - linha_17
+            escalada: Dejavu
+          - ids:
+            - linha_23
+            - linha_24
+            - linha_17
+            escalada: Maquiavel
+          - ids:
+            - linha_22
+            - linha_24
+            - linha_17
+            escalada: Distopia
+        - caminho_imagem_mapa: imagens/setor_bloco_democracia_p4.webp
+          largura_mapa: 1369
+          altura_mapa: 1825
+          pontos_de_interesse:
+          - id: linha_18
+            linha:
+              estilo: TRACEJADO
+              espessura: 3
+              compilado:
+                caminho_svg: M 1232 1406 C 1199.7 1410.7, 1167.3 1415.3, 1135 1420
+                caixa_delimitadora:
+                  x: 1184
+                  y: 1413
+                  comprimento: 97
+                  largura: 14
+                marcadores:
+                - tipo: CIRCULO_IDENTIFICADOR
+                  x: 1232
+                  y: 1406
+                  angulo_graus_x100: 17179
+                  rotulo: '13'
+            cor: '#FFD600'
+          - id: linha_19
+            linha:
+              estilo: TRACEJADO
+              espessura: 3
+              compilado:
+                caminho_svg: M 1135 1420 C 1105.0 1424.7, 1076.2 1431.3, 1045 1434
+                  C 1011.7 1436.9, 973.3 1442.1, 941 1436 C 910.6 1430.3, 879.4 1414.9,
+                  856 1401 C 837.1 1389.8, 820.6 1376.1, 809 1363 C 799.8 1352.6,
+                  799.4 1336.6, 789 1331 C 776.8 1324.4, 754.1 1332.9, 737 1332 C
+                  720.1 1331.2, 703.2 1331.0, 687 1326 C 669.8 1320.7, 652.5 1310.7,
+                  637 1300 C 621.1 1289.1, 606.6 1277.1, 593 1261 C 576.9 1242.0,
+                  556.6 1213.0, 549 1191 C 543.2 1174.2, 548.5 1159.2, 544 1143 C
+                  538.9 1124.6, 527.1 1104.5, 518 1087 C 509.7 1071.0, 504.8 1054.4,
+                  492 1042 C 477.4 1027.9, 451.4 1019.3, 432 1010 C 414.5 1001.6,
+                  394.6 999.0, 381 988 C 367.9 977.4, 358.7 962.1, 351 946 C 342.5
+                  928.2, 339.6 905.1, 334 885 C 328.6 865.4, 325.0 844.5, 318 827
+                  C 311.7 811.2, 301.0 799.9, 295 784 C 288.3 766.3, 285.7 744.7,
+                  281 725
+                caixa_delimitadora:
+                  x: 708
+                  y: 1080
+                  comprimento: 854
+                  largura: 711
+                marcadores:
+                - tipo: FIM_TOP
+                  x: 281
+                  y: 725
+                  angulo_graus_x100: -10335
+                  rotulo: F
+            cor: '#FFD600'
+          - id: linha_14
+            label: ''
+            linha:
+              estilo: TRACEJADO
+              espessura: 3
+              compilado:
+                caminho_svg: M 1135 1420 C 1108.0 1409.0, 1076.8 1400.1, 1054 1387
+                  C 1035.1 1376.1, 1019.5 1362.5, 1006 1350 C 994.6 1339.5, 983.0
+                  1331.3, 977 1318 C 970.3 1303.0, 970.8 1281.3, 971 1263 C 971.2
+                  1244.7, 970.9 1224.0, 978 1208 C 984.9 1192.4, 1003.4 1182.2, 1012
+                  1168 C 1020.0 1154.8, 1026.2 1140.4, 1029 1126 C 1031.8 1111.8,
+                  1031.8 1100.3, 1029 1082 C 1024.2 1050.0, 1003.4 992.7, 989 953
+                  C 976.2 917.8, 961.8 889.4, 948 855 C 932.9 817.4, 914.8 773.8,
+                  902 736 C 890.7 702.5, 883.4 672.7, 874 640 C 864.1 605.8, 852.2
+                  570.4, 844 535 C 835.8 499.7, 832.7 454.6, 825 428 C 820.2 411.5,
+                  814.3 402.0, 809 389
+                caixa_delimitadora:
+                  x: 972
+                  y: 904
+                  comprimento: 326
+                  largura: 1031
+                marcadores:
+                - tipo: FIM_TOP
+                  x: 809
+                  y: 389
+                  angulo_graus_x100: -11231
+                  rotulo: H
+            cor: '#FFD600'
+          - id: linha_20
+            label: ''
+            linha:
+              estilo: TRACEJADO
+              espessura: 3
+              compilado:
+                caminho_svg: M 889 1475 C 862.7 1457.3, 830.2 1447.5, 810 1422 C 786.3
+                  1392.1, 765.8 1335.6, 764 1300 C 762.6 1273.1, 773.0 1250.1, 783
+                  1228 C 792.8 1206.2, 812.5 1188.4, 823 1168 C 832.8 1149.0, 841.1
+                  1132.9, 845 1110 C 850.2 1079.2, 848.5 1039.0, 842 998 C 833.7 945.7,
+                  804.6 878.1, 790 823 C 777.2 774.5, 768.9 728.5, 758 685 C 748.2
+                  645.6, 737.9 615.3, 728 573 C 715.2 518.8, 702.7 448.3, 690 386
+                caixa_delimitadora:
+                  x: 790
+                  y: 930
+                  comprimento: 199
+                  largura: 1089
+                marcadores:
+                - tipo: CIRCULO_IDENTIFICADOR
+                  x: 889
+                  y: 1475
+                  angulo_graus_x100: -14614
+                  rotulo: '12'
+                - tipo: FIM_TOP
+                  x: 690
+                  y: 386
+                  angulo_graus_x100: -10149
+                  rotulo: G
+            cor: '#FFD600'
+          - id: linha_21
+            label: ''
+            linha:
+              estilo: TRACEJADO
+              espessura: 3
+              compilado:
+                caminho_svg: M 1272 1389 C 1273.3 1336.3, 1278.9 1280.8, 1276 1231
+                  C 1273.4 1186.0, 1266.8 1143.4, 1258 1103 C 1249.8 1065.4, 1237.6
+                  1031.6, 1226 996 C 1214.3 959.9, 1200.7 923.9, 1188 888 C 1175.4
+                  852.2, 1165.7 819.0, 1150 781 C 1131.3 735.7, 1103.1 676.5, 1081
+                  635 C 1063.8 602.7, 1051.8 577.1, 1031 551 C 1008.7 523.1, 977.0
+                  499.7, 950 474
+                caixa_delimitadora:
+                  x: 1113
+                  y: 932
+                  comprimento: 326
+                  largura: 915
+                marcadores:
+                - tipo: CIRCULO_IDENTIFICADOR
+                  x: 1272
+                  y: 1389
+                  angulo_graus_x100: -8855
+                  rotulo: '14'
+                - tipo: FIM_TOP
+                  x: 950
+                  y: 474
+                  angulo_graus_x100: -13645
+                  rotulo: I
+            cor: '#FFD600'
+          referencias:
+          - ids:
+            - linha_18
+            - linha_19
+            escalada: Dejavu SDS
+          - ids:
+            - linha_18
+            - linha_14
+            escalada: Sem nome 26
+          - ids:
+            - linha_20
+            escalada: Vai mas não cai
+          - ids:
+            - linha_21
+            escalada: Direita que me resta
+        - caminho_imagem_mapa: imagens/setor_bloco_democracia_p5.webp
+          largura_mapa: 1825
+          altura_mapa: 1369
+          pontos_de_interesse:
+          - id: linha_26
+            label: ''
+            linha:
+              estilo: TRACEJADO
+              espessura: 3
+              compilado:
+                caminho_svg: M 1261 1102 C 1255.7 1091.0, 1245.8 1080.3, 1245 1069
+                  C 1244.2 1057.7, 1254.2 1047.2, 1256 1034 C 1258.2 1017.9, 1255.9
+                  1000.0, 1254 979 C 1251.4 950.5, 1245.8 913.3, 1239 879 C 1231.7
+                  842.1, 1220.3 803.0, 1211 765
+                caixa_delimitadora:
+                  x: 1236
+                  y: 934
+                  comprimento: 50
+                  largura: 337
+                marcadores:
+                - tipo: CIRCULO_IDENTIFICADOR
+                  x: 1261
+                  y: 1102
+                  angulo_graus_x100: -11587
+                  rotulo: '20'
+                  raio: 17
+            cor: '#FFD600'
+          - id: linha_27
+            label: ''
+            linha:
+              estilo: TRACEJADO
+              espessura: 3
+              compilado:
+                caminho_svg: M 1434 1088 C 1446.7 1073.0, 1462.9 1060.3, 1472 1043
+                  C 1481.5 1024.9, 1481.3 1001.4, 1489 981 C 1497.1 959.7, 1511.7
+                  939.3, 1520 918 C 1527.9 897.6, 1539.3 880.3, 1538 856 C 1536.1
+                  819.8, 1502.0 767.3, 1484 723
+                caixa_delimitadora:
+                  x: 1486
+                  y: 906
+                  comprimento: 104
+                  largura: 365
+                marcadores:
+                - tipo: CIRCULO_IDENTIFICADOR
+                  x: 1434
+                  y: 1088
+                  angulo_graus_x100: -4982
+                  rotulo: '21'
+                  raio: 17
+            cor: '#FFD600'
+          - id: linha_28
+            label: ''
+            linha:
+              estilo: TRACEJADO
+              espessura: 3
+              compilado:
+                caminho_svg: M 1017 1133 C 1016.3 1113.3, 1008.5 1089.1, 1015 1074
+                  C 1020.6 1061.0, 1040.3 1056.1, 1048 1045 C 1055.0 1034.9, 1059.2
+                  1024.1, 1061 1011 C 1063.3 994.5, 1062.8 971.2, 1056 953 C 1048.7
+                  933.3, 1029.9 916.1, 1016 898 C 1001.9 879.7, 986.7 862.0, 972 844
+                caixa_delimitadora:
+                  x: 1016
+                  y: 988
+                  comprimento: 89
+                  largura: 289
+                marcadores:
+                - tipo: CIRCULO_IDENTIFICADOR
+                  x: 1017
+                  y: 1133
+                  angulo_graus_x100: -9194
+                  rotulo: '19'
+                  raio: 17
+            cor: '#FFD600'
+          - id: linha_29
+            label: ''
+            linha:
+              estilo: TRACEJADO
+              espessura: 3
+              compilado:
+                caminho_svg: M 650 1076 C 657.3 1061.0, 667.5 1047.4, 672 1031 C 676.9
+                  1013.3, 682.7 989.3, 677 973 C 671.6 957.6, 655.8 944.4, 641 935
+                  C 625.2 924.9, 600.6 926.8, 584 916 C 566.7 904.8, 549.2 886.5,
+                  540 868 C 531.0 849.8, 528.9 824.1, 529 806 C 529.0 791.8, 532.3
+                  781.1, 536 768 C 540.2 753.2, 548.0 737.3, 554 722
+                caixa_delimitadora:
+                  x: 603
+                  y: 899
+                  comprimento: 148
+                  largura: 354
+                marcadores:
+                - tipo: CIRCULO_IDENTIFICADOR
+                  x: 650
+                  y: 1076
+                  angulo_graus_x100: -6395
+                  rotulo: '18'
+                  raio: 17
+            cor: '#FFD600'
+          - id: linha_30
+            label: ''
+            linha:
+              estilo: TRACEJADO
+              espessura: 3
+              compilado:
+                caminho_svg: M 496 1010 C 480.7 983.7, 468.7 951.3, 450 931 C 433.8
+                  913.5, 405.7 910.2, 394 892 C 381.5 872.6, 382.4 840.1, 380 816
+                  C 377.8 794.4, 374.9 772.6, 379 754 C 382.7 737.3, 393.7 724.0,
+                  401 709
+                caixa_delimitadora:
+                  x: 438
+                  y: 860
+                  comprimento: 117
+                  largura: 301
+                marcadores:
+                - tipo: CIRCULO_IDENTIFICADOR
+                  x: 496
+                  y: 1010
+                  angulo_graus_x100: -12021
+                  rotulo: '17'
+                  raio: 17
+            cor: '#FFD600'
+          - id: linha_31
+            label: ''
+            linha:
+              estilo: TRACEJADO
+              espessura: 3
+              compilado:
+                caminho_svg: M 348 965 C 348.3 951.3, 350.6 936.7, 349 924 C 347.6
+                  912.6, 344.4 903.0, 340 892 C 334.9 879.2, 324.6 866.4, 319 852
+                  C 313.0 836.6, 307.5 819.0, 306 802 C 304.4 784.7, 305.6 764.5,
+                  310 749 C 313.8 735.7, 322.0 725.7, 328 714
+                caixa_delimitadora:
+                  x: 328
+                  y: 840
+                  comprimento: 43
+                  largura: 251
+                marcadores:
+                - tipo: CIRCULO_IDENTIFICADOR
+                  x: 348
+                  y: 965
+                  angulo_graus_x100: -8860
+                  rotulo: '16'
+                  raio: 17
+            cor: '#FFD600'
+          - id: linha_32
+            label: ''
+            linha:
+              estilo: TRACEJADO
+              espessura: 3
+              compilado:
+                caminho_svg: M 278 871 C 262.7 856.7, 250.1 838.0, 232 828 C 213.3
+                  817.7, 188.6 817.7, 167 811 C 144.9 804.1, 118.7 799.6, 101 787
+                  C 84.6 775.3, 69.1 756.8, 63 740 C 57.6 725.2, 57.4 707.5, 62 693
+                  C 66.9 677.7, 82.3 664.0, 93 651 C 103.0 638.8, 113.7 628.3, 124
+                  617
+                caixa_delimitadora:
+                  x: 170
+                  y: 744
+                  comprimento: 216
+                  largura: 254
+                marcadores:
+                - tipo: CIRCULO_IDENTIFICADOR
+                  x: 278
+                  y: 871
+                  angulo_graus_x100: -13693
+                  rotulo: '15'
+                  raio: 17
+            cor: '#FFD600'
+          referencias:
+          - ids:
+            - linha_26
+            escalada: Pequeno desafio
+          - ids:
+            - linha_30
+            escalada: Engana bobo
+          - ids:
+            - linha_28
+            escalada: Sem nome 30
+          - ids:
+            - linha_29
+            escalada: Sem nome 29
+          - ids:
+            - linha_31
+            escalada: Sem nome 27
+          - ids:
+            - linha_27
+            escalada: Porco espinho
+            setor: Bloco Democracia
+          - ids:
+            - linha_32
+            escalada: Passa um
+        - caminho_imagem_mapa: imagens/setor_bloco_democracia_p6.webp
+          largura_mapa: 1825
+          altura_mapa: 1369
+          pontos_de_interesse:
+          - id: linha_15
+            label: ''
+            linha:
+              estilo: TRACEJADO
+              espessura: 3
+              compilado:
+                caminho_svg: M 715 932 C 712.3 909.3, 718.4 879.0, 707 864 C 696.5
+                  850.1, 669.0 852.5, 653 842 C 637.0 831.5, 619.9 817.9, 611 801
+                  C 601.7 783.2, 602.2 759.1, 600 737 C 597.7 713.5, 597.4 684.1,
+                  598 664 C 598.4 649.9, 600.0 640.0, 601 628
+                caixa_delimitadora:
+                  x: 656
+                  y: 780
+                  comprimento: 117
+                  largura: 304
+                marcadores:
+                - tipo: CIRCULO_IDENTIFICADOR
+                  x: 715
+                  y: 932
+                  angulo_graus_x100: -9671
+                  rotulo: '20'
+                  raio: 17
+            cor: '#FFD600'
+          - id: linha_25
+            label: ''
+            linha:
+              estilo: TRACEJADO
+              espessura: 3
+              compilado:
+                caminho_svg: M 911 954 C 911.7 941.7, 905.9 926.9, 913 917 C 923.2
+                  902.8, 976.3 904.7, 983 889 C 989.2 874.3, 964.3 849.2, 958 828
+                  C 951.5 806.3, 944.3 780.9, 945 760 C 945.6 742.0, 955.2 726.7,
+                  958 710 C 960.8 693.7, 962.6 677.0, 962 661 C 961.5 645.4, 959.0
+                  630.9, 955 615 C 950.5 597.0, 941.7 577.7, 935 559
+                caixa_delimitadora:
+                  x: 947
+                  y: 756
+                  comprimento: 72
+                  largura: 395
+                marcadores:
+                - tipo: CIRCULO_IDENTIFICADOR
+                  x: 911
+                  y: 954
+                  angulo_graus_x100: -8691
+                  rotulo: '21'
+                  raio: 19
+            cor: '#FFD600'
+          referencias:
+          - ids:
+            - linha_15
+            escalada: Pequeno desafio
+          - ids:
+            - linha_25
+            escalada: Porco espinho
+            setor: Bloco Democracia
         descricao: 'Trilha para chegar ao setor: https://loc.wiki/t/169745893?wa=sc'
-        precomputados: {}
+        precomputados:
+          total_escaladas: 23
+          total_boulders: 23
   - setor:
       conteudo:
         nome: Setor Micos
@@ -6674,7 +7624,7 @@ picos:
           total_escaladas: 41
   - grupo:
       conteudo:
-        nome: Grupo Sherpa
+        nome: Setor Sherpa
         setores:
         - conteudo:
             nome: Tarja Preta
@@ -6905,6 +7855,14 @@ picos:
             comprimento: 232
             largura: 101
           cor: ''
+        - id: democracia
+          label: Democracia
+          retangulo:
+            x: 1016
+            y: 264
+            comprimento: 200
+            largura: 121
+          cor: ''
         referencias:
         - grupo: Setor Estacionamento
           ids:
@@ -6943,6 +7901,9 @@ picos:
         - ids:
           - fug12
           setor: Bloco Viva o Climb
+        - ids:
+          - democracia
+          setor: Bloco Democracia
       - caminho_imagem_mapa: imagens/mapas_gerais_p1.webp
         largura_mapa: 2048
         altura_mapa: 1157
@@ -7003,11 +7964,11 @@ picos:
     latitude: -201176660
     longitude: -443593480
   precomputados:
-    total_escaladas: 208
+    total_escaladas: 231
     total_setores: 22
     total_grupos: 2
     total_esportivas: 95
-    total_boulders: 71
+    total_boulders: 94
     total_multiplas_enfiadas: 1
 botoes:
 - texto: Capa
@@ -7329,6 +8290,20 @@ arquivos_externos:
   checksum_sha256: 852e3b9ba55da91bda3283501c992927fd6cae1166c0c21717190aa15f51066c
 - caminho: imagens/patrocinadores_p0.webp
   checksum_sha256: 4182ec353e7d169bf4ea4bf1f245e97df7f3b359560ddf5d6d77ebd462259d88
+- caminho: imagens/setor_bloco_democracia_p0.webp
+  checksum_sha256: ca3eb9f7551a11b7a69aa87fb8fdb3e1fcc0026fc31bff7e6ffabcb523873b2e
+- caminho: imagens/setor_bloco_democracia_p1.webp
+  checksum_sha256: daffa105a6302b241b26f9357a7def2c74177c5d61a35a051bf2488ecef1c507
+- caminho: imagens/setor_bloco_democracia_p2.webp
+  checksum_sha256: de154bb0f77993971843b9266c24fcdc620c7281a04dda449079a73f0352a5a2
+- caminho: imagens/setor_bloco_democracia_p3.webp
+  checksum_sha256: e7814c2517b99feb5f8b8bdf43aab1710f76adb71ca6c48f6280b5e39b50a761
+- caminho: imagens/setor_bloco_democracia_p4.webp
+  checksum_sha256: 12895f794bd5e53a9544616e1e579f545dd5a784a7ae1b818fba477f384dd5e1
+- caminho: imagens/setor_bloco_democracia_p5.webp
+  checksum_sha256: 9095c11badd601f256fc23ee39925adf784595f01185440e547cb947279c4ab7
+- caminho: imagens/setor_bloco_democracia_p6.webp
+  checksum_sha256: 017ab76dce1ea63c414f79f6b3e3fc7600f86337fc3ce8084d7d6802167cc0f1
 - caminho: imagens/setor_bloco_fugitivos_i_p4.webp
   checksum_sha256: 54a37eb42350ba07c9f3490356d5b77fe8b940b07a3fffc08332c8d730344d31
 - caminho: imagens/setor_bloco_fugitivos_ii_p0.webp

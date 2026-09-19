@@ -126,6 +126,14 @@ mapas:
       comprimento: 232
       largura: 101
     cor: ''
+  - id: democracia
+    label: Democracia
+    retangulo:
+      x: 1016
+      y: 264
+      comprimento: 200
+      largura: 121
+    cor: ''
   referencias:
   - grupo: Setor Estacionamento
     ids:
@@ -164,6 +172,9 @@ mapas:
   - ids:
     - fug12
     setor: Bloco Viva o Climb
+  - ids:
+    - democracia
+    setor: Bloco Democracia
 - caminho_imagem_mapa: imagens/mapas_gerais_p1.webp
   largura_mapa: 2048
   altura_mapa: 1157
