@@ -153,10 +153,16 @@ def obter_metadados_imagem(imagem_path_ou_bytes: str | Path | bytes | None) -> T
             img_stream.close()
 
 
+AREA_MAXIMA_PADRAO: int = 2_500_000
+QUALIDADE_WEBP_PADRAO: int = 85
+METODO_WEBP_PADRAO: int = 6
+
+
 def comprimir_imagem_para_bytes_webp(
     fonte_imagem: str | Path | bytes | Image.Image,
-    quality: int = 85,
-    max_area: int = 4194304,
+    quality: int = QUALIDADE_WEBP_PADRAO,
+    max_area: int = AREA_MAXIMA_PADRAO,
+    method: int = METODO_WEBP_PADRAO,
 ) -> Tuple[bytes, int, int]:
     """
     Redimensiona (se exceder max_area) e comprime uma imagem para bytes em formato WebP.
@@ -175,7 +181,7 @@ def comprimir_imagem_para_bytes_webp(
             img_temp = img_temp.resize((nova_largura, nova_altura), Image.Resampling.LANCZOS)
 
         out_buf = io.BytesIO()
-        img_temp.save(out_buf, format="WEBP", quality=quality)
+        img_temp.save(out_buf, format="WEBP", quality=quality, method=method)
         return out_buf.getvalue(), img_temp.width, img_temp.height
 
     img_source: Any = None
@@ -185,7 +191,6 @@ def comprimir_imagem_para_bytes_webp(
         img_source = io.BytesIO(fonte_imagem)
     else:
         img_source = fonte_imagem
-
 
     try:
         garantir_suporte_heif()
@@ -203,7 +208,7 @@ def comprimir_imagem_para_bytes_webp(
                 img_proc = img_proc.resize((nova_largura, nova_altura), Image.Resampling.LANCZOS)
 
             out_buf = io.BytesIO()
-            img_proc.save(out_buf, format="WEBP", quality=quality)
+            img_proc.save(out_buf, format="WEBP", quality=quality, method=method)
             return out_buf.getvalue(), img_proc.width, img_proc.height
     finally:
         if img_source is not None and hasattr(img_source, "close"):

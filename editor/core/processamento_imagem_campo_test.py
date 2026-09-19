@@ -259,3 +259,37 @@ class TestMetadadosECompressao:
         import sys
         monkeypatch.setitem(sys.modules, "pillow_heif", None)
         assert garantir_suporte_heif() is False
+
+    def test_constantes_padrao_processamento_imagem(self):
+        from editor.core.processamento_imagem_campo import (
+            AREA_MAXIMA_PADRAO,
+            QUALIDADE_WEBP_PADRAO,
+            METODO_WEBP_PADRAO,
+        )
+        assert AREA_MAXIMA_PADRAO == 2_500_000
+        assert QUALIDADE_WEBP_PADRAO == 85
+        assert METODO_WEBP_PADRAO == 6
+
+    def test_comprimir_imagem_com_valores_padrao_2_5_mp_e_metodo_6(self, monkeypatch):
+        from editor.core.processamento_imagem_campo import comprimir_imagem_para_bytes_webp
+        # Imagem com 3 MP (2000 x 1500 = 3.000.000 > 2.500.000)
+        img_grande = Image.new("RGB", (2000, 1500), color=(10, 20, 30))
+
+        # Espiona chamadas ao save do PIL.Image
+        save_chamadas = []
+        original_save = Image.Image.save
+
+        def mock_save(self, *args, **kwargs):
+            save_chamadas.append(kwargs)
+            return original_save(self, *args, **kwargs)
+
+        monkeypatch.setattr(Image.Image, "save", mock_save)
+
+        bytes_webp, w, h = comprimir_imagem_para_bytes_webp(img_grande)
+        assert w * h <= 2_500_000
+        assert w < 2000
+        assert h < 1500
+        assert len(save_chamadas) == 1
+        assert save_chamadas[0].get("quality") == 85
+        assert save_chamadas[0].get("method") == 6
+        assert save_chamadas[0].get("format") == "WEBP"

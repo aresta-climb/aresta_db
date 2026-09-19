@@ -255,8 +255,7 @@ class DialogoAdicionarMapa(QDialog):
             QMessageBox.warning(self, "Erro", "Formato de imagem inválido ou não suportado.")
             return
 
-        # Converte para WebP de alta qualidade
-        bytes_webp, w_final, h_final = comprimir_imagem_para_bytes_webp(bytes_originais, quality=90)
+        bytes_webp, w_final, h_final = comprimir_imagem_para_bytes_webp(bytes_originais)
         self.bytes_processados_webp = bytes_webp
         self.dimensoes = (w_final, h_final)
 
