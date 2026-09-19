@@ -8522,7 +8522,7 @@
   - **total_boulders**: 23
 
 
-## Parte: grupo_sherpa (não listada em partes.json)
+## Parte: grupo_setor_sherpa (não listada em partes.json)
 
 ### Grupo (Pico: Complexo Pedra Grande)
 
@@ -8532,124 +8532,516 @@
   - **[0]**:
     - **conteudo**:
       - **descricao**: 
-      - **nome**: Tarja Preta
-      - **localizacao_escalada**:
-        - **latitude**: -201224250
-        - **longitude**: -443608700
-      - **sinal_de_celular**: True
-      - **escaladas**:
-        - **[0]**:
-          - **boulder**:
-            - **nome**: Película
-            - **destaque**: True
-        - **[1]**:
-          - **boulder**:
-            - **nome**: Tarja Preta
-      - **mapas**:
-        - **[0]**:
-          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_tarja_preta_p0.webp)
-          - **largura_mapa**: 1392
-          - **altura_mapa**: 3013
-          - **referencias**:
-            - **[0]**:
-              - **escalada**: Película
-            - **[1]**:
-              - **escalada**: Tarja Preta
+      - **nome**: Setor Sherpa - Esportivas
       - **precomputados**:
-        - **total_escaladas**: 2
-        - **total_boulders**: 2
   - **[1]**:
     - **conteudo**:
       - **descricao**: 
-      - **nome**: Jeitinho Brasileiro
-      - **localizacao_escalada**:
-        - **latitude**: -201225340
-        - **longitude**: -443609520
-      - **sinal_de_celular**: True
+      - **nome**: Setor Sherpa - Boulders
       - **escaladas**:
         - **[0]**:
           - **boulder**:
-            - **nome**: Jeitinho Brasileiro
+            - **nome**: Jetinho Brasileiro
             - **dificuldade**: V4
-            - **tipo_parede**: NEGATIVO
-            - **conquistadores**:
-              - Julio G. 
-            - **data_abertura**: Maio 2026
-            - **destaque**: True
         - **[1]**:
           - **boulder**:
-            - **nome**: Força G
-            - **dificuldade**: V1
-            - **data_abertura**: Maio 2026
+            - **nome**: Fenda do Bikini
+            - **dificuldade**: V4
         - **[2]**:
           - **boulder**:
-            - **nome**: Itália
-            - **dificuldade**: V4
-            - **data_abertura**: Maio 2026
-            - **destaque**: True
+            - **nome**: Força G
+            - **dificuldade**: V2
         - **[3]**:
+          - **boulder**:
+            - **nome**: Francês
+        - **[4]**:
           - **boulder**:
             - **nome**: Glorioso
             - **dificuldade**: V2
-            - **tipo_parede**: NEGATIVO
-            - **data_abertura**: Maio 2026
-            - **destaque**: True
-      - **mapas**:
-        - **[0]**:
-          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_jeitinho_brasileiro_p0.webp)
-          - **largura_mapa**: 1392
-          - **altura_mapa**: 3013
-          - **referencias**:
-            - **[0]**:
-              - **escalada**: Jeitinho Brasileiro
-            - **[1]**:
-              - **escalada**: Força G
-            - **[2]**:
-              - **escalada**: Itália
-            - **[3]**:
-              - **escalada**: Glorioso
-      - **precomputados**:
-        - **total_escaladas**: 4
-        - **total_boulders**: 4
-  - **[2]**:
-    - **conteudo**:
-      - **descricao**: 
-      - **nome**: Nectar
-      - **localizacao_escalada**:
-        - **latitude**: -201225690
-        - **longitude**: -443610090
-      - **escaladas**:
-        - **[0]**:
+        - **[5]**:
           - **boulder**:
-            - **descricao**:
-                
-                
-                
+            - **nome**: Itália
+            - **dificuldade**: V4
+        - **[6]**:
+          - **boulder**:
+            - **nome**: Garganta
+            - **dificuldade**: V5
+        - **[7]**:
+          - **boulder**:
+            - **nome**: Guela
+            - **dificuldade**: V5
+        - **[8]**:
+          - **boulder**:
             - **nome**: Nectar
             - **dificuldade**: V9
-            - **conquistadores**:
-              - Frederico Gonçalves (Bull)
-            - **data_abertura**: 30/06/2026
-            - **url_video_beta**: https://www.instagram.com/p/DaMdaQKTtFk/
-            - **destaque**: True
       - **mapas**:
         - **[0]**:
-          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_nectar_p0_i0.webp)
-          - **largura_mapa**: 1855
-          - **altura_mapa**: 2261
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_sherpa_boulders_p0.webp)
+          - **largura_mapa**: 853
+          - **altura_mapa**: 1844
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: linha_1
+              - **label**: 
+              - **linha**:
+                - **estilo**: TRACEJADO
+                - **espessura**: 3
+                - **compilado**:
+                  - **caminho_svg**: M 490 1372 C 450.7 1330.3, 417.3 1278.7, 372 1247 C 328.0 1216.2, 265.4 1212.0, 223 1183 C 183.2 1155.8, 147.1 1121.3, 123 1081 C 98.2 1039.4, 93.0 984.3, 78 936
+                  - **caixa_delimitadora**:
+                    - **x**: 284
+                    - **y**: 1154
+                    - **comprimento**: 412
+                    - **largura**: 436
+                  - **marcadores**:
+                    - **[0]**:
+                      - **tipo**: CIRCULO_IDENTIFICADOR
+                      - **x**: 490
+                      - **y**: 1372
+                      - **angulo_graus_x100**: -13335
+                      - **rotulo**: 1
+                    - **[1]**:
+                      - **tipo**: FIM_TOP
+                      - **x**: 78
+                      - **y**: 936
+                      - **angulo_graus_x100**: -10724
+                      - **rotulo**: A
+              - **cor**: #FFD600
+            - **[1]**:
+              - **id**: linha_2
+              - **label**: 
+              - **linha**:
+                - **estilo**: TRACEJADO
+                - **espessura**: 3
+                - **compilado**:
+                  - **caminho_svg**: M 490 1372 C 491.3 1316.0, 492.9 1252.2, 494 1204 C 494.8 1167.6, 500.5 1139.3, 496 1108 C 491.5 1076.6, 470.0 1040.0, 467 1016 C 465.1 1001.1, 462.2 990.6, 469 979 C 479.9 960.5, 525.5 947.2, 549 929 C 570.3 912.6, 586.2 889.9, 605 876 C 620.9 864.3, 638.7 861.7, 653 849 C 669.3 834.5, 683.2 814.0, 695 791 C 709.3 763.1, 714.0 721.3, 728 691 C 740.8 663.1, 758.7 640.3, 774 615
+                  - **caixa_delimitadora**:
+                    - **x**: 620
+                    - **y**: 994
+                    - **comprimento**: 307
+                    - **largura**: 757
+                  - **marcadores**:
+                    - **[0]**:
+                      - **tipo**: CIRCULO_IDENTIFICADOR
+                      - **x**: 490
+                      - **y**: 1372
+                      - **angulo_graus_x100**: -8864
+                      - **rotulo**: 2
+                    - **[1]**:
+                      - **tipo**: FIM_TOP
+                      - **x**: 774
+                      - **y**: 615
+                      - **angulo_graus_x100**: -5882
+                      - **rotulo**: B
+              - **cor**: #FFD600
+            - **[2]**:
+              - **id**: linha_3
+              - **label**: 
+              - **linha**:
+                - **estilo**: TRACEJADO
+                - **espessura**: 3
+                - **compilado**:
+                  - **caminho_svg**: M 731 1045 C 717.7 997.7, 680.5 911.1, 691 903 C 697.0 898.4, 718.9 919.7, 732 927 C 743.8 933.6, 758.5 947.7, 766 945 C 772.5 942.7, 773.3 927.7, 777 919
+                  - **caixa_delimitadora**:
+                    - **x**: 734
+                    - **y**: 974
+                    - **comprimento**: 86
+                    - **largura**: 142
+                  - **marcadores**:
+                    - **[0]**:
+                      - **tipo**: CIRCULO_IDENTIFICADOR
+                      - **x**: 731
+                      - **y**: 1045
+                      - **angulo_graus_x100**: -10573
+                      - **rotulo**: 3
+              - **cor**: #FFD600
+            - **[3]**:
+              - **id**: linha_4
+              - **label**: 
+              - **linha**:
+                - **estilo**: TRACEJADO
+                - **espessura**: 3
+                - **compilado**:
+                  - **caminho_svg**: M 766 945 C 769.7 936.3, 773.3 927.7, 777 919
+                  - **caixa_delimitadora**:
+                    - **x**: 772
+                    - **y**: 932
+                    - **comprimento**: 11
+                    - **largura**: 26
+                  - **marcadores**:
+                    - **[0]**:
+                      - **tipo**: CIRCULO_IDENTIFICADOR
+                      - **x**: 766
+                      - **y**: 945
+                      - **angulo_graus_x100**: -6707
+                      - **rotulo**: 4
+              - **cor**: #FFD600
           - **referencias**:
             - **[0]**:
+              - **ids**:
+                - linha_1
+              - **escalada**: Jetinho Brasileiro
+            - **[1]**:
+              - **ids**:
+                - linha_2
+              - **escalada**: Fenda do Bikini
+            - **[2]**:
+              - **ids**:
+                - linha_3
+              - **escalada**: Força G
+            - **[3]**:
+              - **ids**:
+                - linha_4
+              - **escalada**: Francês
+        - **[1]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_sherpa_boulders_p2.webp)
+          - **largura_mapa**: 893
+          - **altura_mapa**: 700
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: linha_9
+              - **linha**:
+                - **estilo**: TRACEJADO
+                - **espessura**: 3
+                - **compilado**:
+                  - **caminho_svg**: M 320 483 C 325.7 442.7, 313.4 390.3, 337 362 C 363.8 329.8, 438.6 327.6, 487 312 C 532.1 297.4, 574.3 284.7, 618 271
+                  - **caixa_delimitadora**:
+                    - **x**: 469
+                    - **y**: 377
+                    - **comprimento**: 298
+                    - **largura**: 212
+                  - **marcadores**:
+                    - **[0]**:
+                      - **tipo**: CIRCULO_IDENTIFICADOR
+                      - **x**: 320
+                      - **y**: 483
+                      - **angulo_graus_x100**: -8200
+                      - **rotulo**: 1
+              - **cor**: #FFD600
+            - **[1]**:
+              - **id**: linha_10
+              - **linha**:
+                - **estilo**: TRACEJADO
+                - **espessura**: 3
+                - **compilado**:
+                  - **caminho_svg**: M 618 271 C 647.0 264.0, 689.3 270.1, 705 250 C 724.0 225.7, 709.0 158.6, 704 120 C 699.9 88.1, 689.3 62.7, 682 34
+                  - **caixa_delimitadora**:
+                    - **x**: 662
+                    - **y**: 152
+                    - **comprimento**: 87
+                    - **largura**: 237
+                  - **marcadores**:
+                    - **[0]**:
+                      - **tipo**: CIRCULO_IDENTIFICADOR
+                      - **x**: 618
+                      - **y**: 271
+                      - **angulo_graus_x100**: -1357
+                      - **rotulo**: 2
+              - **cor**: #FFD600
+            - **[2]**:
+              - **id**: linha_11
+              - **linha**:
+                - **estilo**: TRACEJADO
+                - **espessura**: 3
+                - **compilado**:
+                  - **caminho_svg**: M 682 34
+                  - **caixa_delimitadora**:
+                    - **x**: 682
+                    - **y**: 34
+                    - **comprimento**: 1
+                    - **largura**: 1
+                  - **marcadores**:
+                    - **[0]**:
+                      - **tipo**: FIM_TOP
+                      - **x**: 682
+                      - **y**: 34
+                      - **angulo_graus_x100**: 0
+                      - **rotulo**: A
+              - **cor**: #FFD600
+            - **[3]**:
+              - **id**: linha_8
+              - **label**: 
+              - **linha**:
+                - **estilo**: TRACEJADO
+                - **espessura**: 3
+                - **compilado**:
+                  - **caminho_svg**: M 682 34
+                  - **caixa_delimitadora**:
+                    - **x**: 682
+                    - **y**: 34
+                    - **comprimento**: 1
+                    - **largura**: 1
+                  - **marcadores**:
+                    - **[0]**:
+                      - **tipo**: FIM_TOP
+                      - **x**: 682
+                      - **y**: 34
+                      - **angulo_graus_x100**: 0
+                      - **rotulo**: A
+              - **cor**: #FFD600
+          - **referencias**:
+            - **[0]**:
+              - **ids**:
+                - linha_9
+                - linha_10
+                - linha_11
+              - **escalada**: Força G
+            - **[1]**:
+              - **ids**:
+                - linha_10
+                - linha_8
+              - **escalada**: Francês
+        - **[2]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_sherpa_boulders_p3.webp)
+          - **largura_mapa**: 940
+          - **altura_mapa**: 910
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: linha_12
+              - **label**: 
+              - **linha**:
+                - **estilo**: TRACEJADO
+                - **espessura**: 3
+                - **compilado**:
+                  - **caminho_svg**: M 316 705 C 329.3 689.7, 349.5 676.8, 356 659 C 362.4 641.4, 356.8 620.1, 355 599 C 352.9 575.1, 342.5 551.1, 343 523 C 343.6 487.7, 362.6 436.0, 366 404 C 368.2 382.6, 370.0 368.3, 367 350 C 363.7 329.8, 352.3 308.7, 345 288
+                  - **caixa_delimitadora**:
+                    - **x**: 342
+                    - **y**: 496
+                    - **comprimento**: 51
+                    - **largura**: 417
+                  - **marcadores**:
+                    - **[0]**:
+                      - **tipo**: CIRCULO_IDENTIFICADOR
+                      - **x**: 316
+                      - **y**: 705
+                      - **angulo_graus_x100**: -4899
+                      - **rotulo**: 1
+                    - **[1]**:
+                      - **tipo**: FIM_TOP
+                      - **x**: 345
+                      - **y**: 288
+                      - **angulo_graus_x100**: -10954
+                      - **rotulo**: A
+              - **cor**: #FFD600
+            - **[1]**:
+              - **id**: linha_13
+              - **label**: 
+              - **linha**:
+                - **estilo**: TRACEJADO
+                - **espessura**: 3
+                - **compilado**:
+                  - **caminho_svg**: M 491 722 C 533.3 714.3, 589.9 716.1, 618 699 C 637.5 687.2, 649.6 666.7, 656 650 C 661.3 636.2, 660.2 624.3, 659 608 C 657.3 584.5, 650.2 550.7, 640 523 C 629.3 493.9, 619.9 460.5, 595 438 C 563.8 409.8, 497.1 406.5, 455 381 C 413.9 356.2, 381.7 319.0, 345 288
+                  - **caixa_delimitadora**:
+                    - **x**: 502
+                    - **y**: 505
+                    - **comprimento**: 314
+                    - **largura**: 434
+                  - **marcadores**:
+                    - **[0]**:
+                      - **tipo**: CIRCULO_IDENTIFICADOR
+                      - **x**: 491
+                      - **y**: 722
+                      - **angulo_graus_x100**: -1027
+                      - **rotulo**: 2
+                    - **[1]**:
+                      - **tipo**: FIM_TOP
+                      - **x**: 345
+                      - **y**: 288
+                      - **angulo_graus_x100**: 0
+                      - **rotulo**: A
+              - **cor**: #FFD600
+          - **referencias**:
+            - **[0]**:
+              - **ids**:
+                - linha_12
+              - **escalada**: Glorioso
+            - **[1]**:
+              - **ids**:
+                - linha_13
+              - **escalada**: Itália
+        - **[3]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_sherpa_boulders_p4.webp)
+          - **largura_mapa**: 1392
+          - **altura_mapa**: 3013
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: linha_14
+              - **label**: 
+              - **linha**:
+                - **estilo**: TRACEJADO
+                - **espessura**: 3
+                - **compilado**:
+                  - **caminho_svg**: M 1155 2036 C 1133.7 1919.7, 1130.7 1795.8, 1091 1687 C 1051.9 1579.7, 961.7 1476.1, 920 1387 C 888.7 1320.2, 876.5 1270.2, 852 1205 C 823.5 1129.1, 783.2 1055.2, 759 959 C 727.0 831.6, 701.6 541.3, 699 502 C 698.6 496.2, 699.0 495.3, 699 492
+                  - **caixa_delimitadora**:
+                    - **x**: 927
+                    - **y**: 1264
+                    - **comprimento**: 456
+                    - **largura**: 1544
+                  - **marcadores**:
+                    - **[0]**:
+                      - **tipo**: CIRCULO_IDENTIFICADOR
+                      - **x**: 1155
+                      - **y**: 2036
+                      - **angulo_graus_x100**: -10039
+                      - **rotulo**: 1
+                    - **[1]**:
+                      - **tipo**: CIRCULO_IDENTIFICADOR
+                      - **x**: 699
+                      - **y**: 492
+                      - **angulo_graus_x100**: -9000
+                      - **rotulo**: A
+              - **cor**: #FFD600
+          - **referencias**:
+            - **[0]**:
+              - **ids**:
+                - linha_14
+              - **escalada**: Garganta
+        - **[4]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_sherpa_boulders_p5.webp)
+          - **largura_mapa**: 1392
+          - **altura_mapa**: 3013
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: linha_15
+              - **label**: 
+              - **linha**:
+                - **estilo**: TRACEJADO
+                - **espessura**: 3
+                - **compilado**:
+                  - **caminho_svg**: M 898 2129 C 891.7 2091.7, 872.4 2059.1, 879 2017 C 888.6 1955.3, 961.8 1879.5, 991 1801 C 1022.6 1715.9, 1044.7 1618.7, 1057 1523 C 1069.8 1423.6, 1083.9 1317.3, 1064 1215 C 1042.6 1104.6, 969.3 995.0, 922 885
+                  - **caixa_delimitadora**:
+                    - **x**: 972
+                    - **y**: 1507
+                    - **comprimento**: 185
+                    - **largura**: 1244
+                  - **marcadores**:
+                    - **[0]**:
+                      - **tipo**: CIRCULO_IDENTIFICADOR
+                      - **x**: 898
+                      - **y**: 2129
+                      - **angulo_graus_x100**: -9963
+                      - **rotulo**: 3
+                      - **raio**: 30
+                    - **[1]**:
+                      - **tipo**: FIM_TOP
+                      - **x**: 922
+                      - **y**: 885
+                      - **angulo_graus_x100**: -11328
+                      - **rotulo**: A
+                      - **raio**: 25
+                      - **tamanho_fonte**: 28
+              - **cor**: #FFD600
+            - **[1]**:
+              - **id**: linha_16
+              - **label**: 
+              - **linha**:
+                - **estilo**: TRACEJADO
+                - **espessura**: 3
+                - **compilado**:
+                  - **caminho_svg**: M 805 2050 C 735.7 2039.7, 656.1 2048.7, 597 2019 C 538.7 1989.8, 478.7 1928.5, 452 1875 C 428.9 1828.8, 445.0 1772.7, 431 1724 C 416.8 1674.6, 382.4 1631.3, 367 1581 C 351.1 1529.1, 351.3 1473.9, 338 1417 C 323.2 1353.7, 297.4 1280.7, 280 1219 C 264.8 1165.1, 244.5 1117.0, 239 1067 C 233.8 1019.8, 243.0 973.7, 245 927
+                  - **caixa_delimitadora**:
+                    - **x**: 522
+                    - **y**: 1488
+                    - **comprimento**: 566
+                    - **largura**: 1123
+                  - **marcadores**:
+                    - **[0]**:
+                      - **tipo**: CIRCULO_IDENTIFICADOR
+                      - **x**: 805
+                      - **y**: 2050
+                      - **angulo_graus_x100**: -17152
+                      - **rotulo**: 2
+                      - **raio**: 25
+                    - **[1]**:
+                      - **tipo**: FIM_TOP
+                      - **x**: 245
+                      - **y**: 927
+                      - **angulo_graus_x100**: 0
+                      - **rotulo**: B
+              - **cor**: #FFD600
+            - **[2]**:
+              - **id**: linha_17
+              - **label**: 
+              - **linha**:
+                - **estilo**: TRACEJADO
+                - **espessura**: 3
+                - **compilado**:
+                  - **caminho_svg**: M 474 1976 C 448.7 1913.3, 434.7 1842.4, 398 1788 C 361.8 1734.3, 293.5 1701.0, 256 1651 C 221.2 1604.7, 187.1 1555.7, 177 1501 C 166.3 1442.9, 213.0 1375.9, 200 1311 C 184.3 1232.9, 83.8 1123.3, 63 1070 C 53.5 1045.7, 54.3 1032.7, 50 1014
+                  - **caixa_delimitadora**:
+                    - **x**: 262
+                    - **y**: 1495
+                    - **comprimento**: 424
+                    - **largura**: 962
+                  - **marcadores**:
+                    - **[0]**:
+                      - **tipo**: CIRCULO_IDENTIFICADOR
+                      - **x**: 474
+                      - **y**: 1976
+                      - **angulo_graus_x100**: -11201
+                      - **rotulo**: 1
+                    - **[1]**:
+                      - **tipo**: FIM_TOP
+                      - **x**: 50
+                      - **y**: 1014
+                      - **angulo_graus_x100**: -10307
+                      - **rotulo**: C
+              - **cor**: #FFD600
+          - **referencias**:
+            - **[0]**:
+              - **ids**:
+                - linha_15
+              - **escalada**: Guela
+            - **[1]**:
+              - **ids**:
+                - linha_16
               - **escalada**: Nectar
-      - **indice_mapa_padrao**: -1
+            - **[2]**:
+              - **ids**:
+                - linha_17
+              - **escalada**: Garganta
+        - **[5]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_sherpa_boulders_p6.webp)
+          - **largura_mapa**: 1057
+          - **altura_mapa**: 1697
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: linha_18
+              - **label**: 
+              - **linha**:
+                - **estilo**: TRACEJADO
+                - **espessura**: 3
+                - **compilado**:
+                  - **caminho_svg**: M 377 1468 C 357.3 1454.7, 343.4 1443.2, 318 1428 C 276.0 1402.8, 194.9 1375.5, 145 1337 C 96.8 1299.9, 39.1 1255.5, 22 1203 C 4.9 1150.3, 27.0 1085.1, 43 1021 C 62.3 944.0, 107.5 838.6, 140 775 C 162.3 731.3, 187.4 709.3, 207 670 C 229.2 625.3, 244.8 569.8, 263 519 C 281.5 467.5, 293.7 407.0, 317 363 C 336.6 326.0, 363.7 300.3, 387 269
+                  - **caixa_delimitadora**:
+                    - **x**: 204
+                    - **y**: 868
+                    - **comprimento**: 365
+                    - **largura**: 1199
+                  - **marcadores**:
+                    - **[0]**:
+                      - **tipo**: CIRCULO_IDENTIFICADOR
+                      - **x**: 377
+                      - **y**: 1468
+                      - **angulo_graus_x100**: -14586
+                      - **rotulo**: 1
+                    - **[1]**:
+                      - **tipo**: CIRCULO_IDENTIFICADOR
+                      - **x**: 387
+                      - **y**: 269
+                      - **angulo_graus_x100**: 0
+                      - **rotulo**: A
+              - **cor**: #FFD600
+          - **referencias**:
+            - **[0]**:
+              - **ids**:
+                - linha_18
+              - **escalada**: Nectar
       - **precomputados**:
-        - **total_escaladas**: 1
-        - **total_boulders**: 1
-- **localizacao_escalada**:
-  - **latitude**: -201224250
-  - **longitude**: -443608700
+        - **total_escaladas**: 9
+        - **total_boulders**: 9
 - **precomputados**:
-  - **total_escaladas**: 7
-  - **total_boulders**: 7
+  - **total_escaladas**: 9
+  - **total_boulders**: 9
 
 
 ## Arquivos Externos
@@ -8782,63 +9174,72 @@
     - **caminho**: ![caminho](imagens/setor_igarameca_p2.webp)
     - **checksum_sha256**: 3a6b8f636bd121e5fa888a5dc855ddb627cea151389890532ba4f50053c78f30
   - **[42]**:
-    - **caminho**: ![caminho](imagens/setor_jeitinho_brasileiro_p0.webp)
-    - **checksum_sha256**: 9aa633be14db3f0c96a1a656470f87f5bfb7a259a02cb58babd6733dadc8d535
-  - **[43]**:
     - **caminho**: ![caminho](imagens/setor_micos_p0.webp)
     - **checksum_sha256**: acb374ec8c0ecf85d537c86dd1328bbb91e4fd41576659d596457a818254cd2d
-  - **[44]**:
+  - **[43]**:
     - **caminho**: ![caminho](imagens/setor_micos_p1.webp)
     - **checksum_sha256**: e59d63c298cd1049ee8636ce3e3b78b993f5b2358f4e3fc57a10508e739e8536
-  - **[45]**:
+  - **[44]**:
     - **caminho**: ![caminho](imagens/setor_micos_p2.webp)
     - **checksum_sha256**: 27321d933aca314b50a98e486f662138fd61b049dcb90248b6bb2d162c7b944c
-  - **[46]**:
-    - **caminho**: ![caminho](imagens/setor_nectar_p0_i0.webp)
-    - **checksum_sha256**: 2b3caa8b248dc3f33ae226aa25d1456c0eb589c5b694e66cf201cd7c4f7927fa
-  - **[47]**:
+  - **[45]**:
     - **caminho**: ![caminho](imagens/setor_pracinha_p0.webp)
     - **checksum_sha256**: ec34526d21a825cbefa2049a1fe82cc4a1d77a4dd1072d39804852cf5c38daf3
-  - **[48]**:
+  - **[46]**:
     - **caminho**: ![caminho](imagens/setor_pracinha_p1.webp)
     - **checksum_sha256**: 42e142af39766186c13a61691e384bddc064bcad6e4a07ce0e802cb429fe73ba
-  - **[49]**:
+  - **[47]**:
     - **caminho**: ![caminho](imagens/setor_pracinha_p2.webp)
     - **checksum_sha256**: 9afa2f619eda4053a096d19b64aa9262e8b85f9f9b05815ad2379e66ccc227e1
-  - **[50]**:
+  - **[48]**:
     - **caminho**: ![caminho](imagens/setor_pracinha_p3.webp)
     - **checksum_sha256**: d60317f3226a9af417557bf7f1d73d46aa152cfbded8a2d8e2a876834398ed64
+  - **[49]**:
+    - **caminho**: ![caminho](imagens/setor_sherpa_boulders_p0.webp)
+    - **checksum_sha256**: 1f6a6b52c8cb2aa8be37300d1fd11fd6f77f3efe33a003b9f8880bae59f3f0a7
+  - **[50]**:
+    - **caminho**: ![caminho](imagens/setor_sherpa_boulders_p2.webp)
+    - **checksum_sha256**: cc6b406bd22c8997daed188dd52a1d62ec8f96a4a208af442ec596d7f59a790f
   - **[51]**:
-    - **caminho**: ![caminho](imagens/setor_tarja_preta_p0.webp)
-    - **checksum_sha256**: 42f0988f5b3b2455e050c55af801a4422327538c6acf4a39706557d91edea940
+    - **caminho**: ![caminho](imagens/setor_sherpa_boulders_p3.webp)
+    - **checksum_sha256**: fd5ba7245fe8b6e8774cfee47bc6905685e6051f4300f5aeed7e73913cffba26
   - **[52]**:
+    - **caminho**: ![caminho](imagens/setor_sherpa_boulders_p4.webp)
+    - **checksum_sha256**: 2ea7865c35ad12890fe46561ce34276871c62604692931257e17c60f0a847cb7
+  - **[53]**:
+    - **caminho**: ![caminho](imagens/setor_sherpa_boulders_p5.webp)
+    - **checksum_sha256**: e524f72e5094d9b3dde579c09f360b43d0b391b85bd1ebab13807aa555fb25fa
+  - **[54]**:
+    - **caminho**: ![caminho](imagens/setor_sherpa_boulders_p6.webp)
+    - **checksum_sha256**: 5b3347cb5f967cd0112ef013c0030d8cd6403efacd2595db2a4438ccdf02198a
+  - **[55]**:
     - **caminho**: ![caminho](imagens/setor_tetos_p0.webp)
     - **checksum_sha256**: 88013468ab3f1c12bc710281758d6e1e205443645aba8dff2828a8b52ee7f2e6
-  - **[53]**:
+  - **[56]**:
     - **caminho**: ![caminho](imagens/setor_tetos_p1.webp)
     - **checksum_sha256**: 4d12e846ce75ebfd1587a51a5661715826e1c800dcfdc1cf99124fa710576d2d
-  - **[54]**:
+  - **[57]**:
     - **caminho**: ![caminho](imagens/setor_totem_p0.webp)
     - **checksum_sha256**: eb605d166d35d36c3b23981ec6144eba7f3375955bed6b1954eff3d1ea441044
-  - **[55]**:
+  - **[58]**:
     - **caminho**: ![caminho](imagens/setor_totem_p1.webp)
     - **checksum_sha256**: 028f8cb259043ddcfd39cf2fb64041b88c41cd3538b6604d384ab2f08514edbf
-  - **[56]**:
+  - **[59]**:
     - **caminho**: ![caminho](imagens/setor_trad_p0.webp)
     - **checksum_sha256**: fa73e3e2fa27a74255e21b0c499f6e72bc47a99626b5bd780473d967c257eaad
-  - **[57]**:
+  - **[60]**:
     - **caminho**: ![caminho](imagens/setor_viva_o_climb_p0.webp)
     - **checksum_sha256**: 94d2480252708d7f25f9234befb17df302bcc0876bbe53025fc3d5ab5321b7c1
-  - **[58]**:
+  - **[61]**:
     - **caminho**: ![caminho](imagens/setor_viva_o_climb_p1.webp)
     - **checksum_sha256**: be43e895f74116ff63a5ec7ac25290dbce75ad67bf1df0a3ab079d7e4c17ac68
-  - **[59]**:
+  - **[62]**:
     - **caminho**: ![caminho](imagens/setor_viva_o_climb_p2.webp)
     - **checksum_sha256**: e3544af684cab5da717ea03b4f77d05f0652be42e0cab50c3f41d62ba5120d57
-  - **[60]**:
+  - **[63]**:
     - **caminho**: ![caminho](imagens/setor_viva_o_climb_p3.webp)
     - **checksum_sha256**: 7ca2f6791409aa498f402729b4d426bf972d8db7689f9052a490fe4ee31b7773
-  - **[61]**:
+  - **[64]**:
     - **caminho**: ![caminho](imagens/setor_viva_o_climb_p4.webp)
     - **checksum_sha256**: c8e95292e609405375d46753e1010ff78f1ba889355e5f80b6b29321cf8cee5c
 
