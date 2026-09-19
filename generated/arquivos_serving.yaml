@@ -602,7 +602,7 @@ arquivos:
 - caminho_relativo: br_mg_diamantina_diamaboulder/compilado.md
   checksum_sha256: aeb01ba15dc7247405045719759e8b4d3957a72c011061fa6beab7ccce877bfd
 - caminho_relativo: br_mg_igarape_pedra_grande/compilado.binarypb
-  checksum_sha256: e55c0ed2ceff64418c4f8ad1d79b559b0e0f68f87007e62fc4320f15d3d7960f
+  checksum_sha256: df01269402d272abae0da4ed734e6bdd6713b90f7e257ebec61cb75a557e0229
 - caminho_relativo: thumbnails/br_mg_igarape_pedra_grande.webp
   checksum_sha256: d490580138c1b7f24c772f2d6672e895406739da51bd1880ecabb49cd28b7409
 - caminho_relativo: br_mg_igarape_pedra_grande/imagens/capa_p0.webp
@@ -736,9 +736,9 @@ arquivos:
 - caminho_relativo: br_mg_igarape_pedra_grande/imagens/setor_viva_o_climb_p4.webp
   checksum_sha256: c8e95292e609405375d46753e1010ff78f1ba889355e5f80b6b29321cf8cee5c
 - caminho_relativo: br_mg_igarape_pedra_grande/compilado.yaml
-  checksum_sha256: 8062ef7d10bf4e5ead06cbca0f702c91aed0fd47e434dc6164ea3508ce54e711
+  checksum_sha256: 3070ee7789e375f44c5a375d90e05c893ea8be61d91c3150be5f8448e85d01fa
 - caminho_relativo: br_mg_igarape_pedra_grande/compilado.md
-  checksum_sha256: 5eba691cd32bfae90aa9b3eb6894643ce0cc311db1a30d482eb586b8074e88b3
+  checksum_sha256: 882aafc173251b31c2b6bce2b8ecdf365ad8160c09996ec410864cb130875282
 - caminho_relativo: br_mg_januaria_salao_encantado/compilado.binarypb
   checksum_sha256: 26350287062465a53eafe8505481ef55549c7c30c856d8f6f1dbc9621edadaa8
 - caminho_relativo: thumbnails/br_mg_januaria_salao_encantado.webp
@@ -1528,6 +1528,6 @@ arquivos:
 - caminho_relativo: br_mg_sete_lagoas_sinuosa/compilado.md
   checksum_sha256: 9c1cb814fecabc3cc85db508f894a4fac08c13924bc119c29cf9559521c9151f
 - caminho_relativo: indice.binarypb
-  checksum_sha256: 50ad6cecbfb0d4dce69193adaa208f841756740cafa3149b0dd0469cb55fb989
+  checksum_sha256: fc0953cfbd7d035eca203424d06bbf64ebe315a6c9c0bd647b5f48f82d7b3d2a
 - caminho_relativo: indice.yaml
-  checksum_sha256: 21ed8b1b33c96d5cabdb444dfd06eca93d12e84334c4d9ae2cad3f1cc02c1f5d
+  checksum_sha256: ec70e113bf3d1601758933840b8d54e5d907b3b3f98fd2174684a9079bfd0b98

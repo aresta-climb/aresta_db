@@ -8526,12 +8526,12 @@
 
 ### Grupo (Pico: Complexo Pedra Grande)
 
-- **descricao**: 
+- **descricao**: Trilha para os blocos: https://loc.wiki/t/283472918?wa=share&og=4EnP4vijgDE
 - **nome**: Setor Sherpa
 - **setores**:
   - **[0]**:
     - **conteudo**:
-      - **descricao**: 
+      - **descricao**: Trilha para os blocos: https://loc.wiki/t/283472918?wa=share&og=4EnP4vijgDE
       - **nome**: Setor Sherpa - Boulders
       - **escaladas**:
         - **[0]**:

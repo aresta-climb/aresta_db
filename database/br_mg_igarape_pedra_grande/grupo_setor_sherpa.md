@@ -5,3 +5,4 @@ nome: Setor Sherpa
 setores:
 - caminho: setor_sherpa_boulders.md
 ---
+Trilha para os blocos: https://loc.wiki/t/283472918?wa=share&og=4EnP4vijgDE
