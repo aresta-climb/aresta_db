@@ -7833,20 +7833,20 @@
                 - **raio**: 17
         - **cor**: #FFD600
       - **[7]**:
-        - **id**: 3ini1
-        - **label**: 
-        - **circulo**:
-          - **x**: 930
-          - **y**: 870
-          - **raio**: 15
-        - **cor**: #FFD600
-      - **[8]**:
         - **id**: 3ini2
         - **label**: 
         - **circulo**:
           - **x**: 1027
           - **y**: 967
           - **raio**: 19
+        - **cor**: 
+      - **[8]**:
+        - **id**: circ3p1
+        - **label**: 
+        - **circulo**:
+          - **x**: 927
+          - **y**: 875
+          - **raio**: 20
         - **cor**: 
     - **referencias**:
       - **[0]**:
@@ -7869,7 +7869,7 @@
           - linha_4
           - linha_6
           - 3ini2
-          - 3ini1
+          - circ3p1
         - **escalada**: Faixa preta
       - **[4]**:
         - **ids**:

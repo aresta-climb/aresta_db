@@ -602,7 +602,7 @@ arquivos:
 - caminho_relativo: br_mg_diamantina_diamaboulder/compilado.md
   checksum_sha256: aeb01ba15dc7247405045719759e8b4d3957a72c011061fa6beab7ccce877bfd
 - caminho_relativo: br_mg_igarape_pedra_grande/compilado.binarypb
-  checksum_sha256: ecfb6c6a18544eb9c8e010cb05f2a376707a8622b0daae6a273a91e10ab8cc40
+  checksum_sha256: 3c47477f0f89b2490d39515a0bbf8a4b8d8e46fa2a0927c9c53e0861a9bb8d19
 - caminho_relativo: thumbnails/br_mg_igarape_pedra_grande.webp
   checksum_sha256: d490580138c1b7f24c772f2d6672e895406739da51bd1880ecabb49cd28b7409
 - caminho_relativo: br_mg_igarape_pedra_grande/imagens/capa_p0.webp
@@ -736,9 +736,9 @@ arquivos:
 - caminho_relativo: br_mg_igarape_pedra_grande/imagens/setor_viva_o_climb_p4.webp
   checksum_sha256: c8e95292e609405375d46753e1010ff78f1ba889355e5f80b6b29321cf8cee5c
 - caminho_relativo: br_mg_igarape_pedra_grande/compilado.yaml
-  checksum_sha256: 42e74ffba4bbe1ccf83c94acff31d11784549529fe4c5937b3cb2d46448d5a46
+  checksum_sha256: eba0aaf03e117ea6b17e65e2e655f29fe0c3b3f87cf54adfa8db8d8e27e0bc8f
 - caminho_relativo: br_mg_igarape_pedra_grande/compilado.md
-  checksum_sha256: a20a9e474c0125371a31c6cf4cf45104301397159b6ac19517428a16ac5e63dd
+  checksum_sha256: 3274affb27fe6736f6b945e67713a6d722708de7d7bc677727b1be1d195b0d1d
 - caminho_relativo: br_mg_januaria_salao_encantado/compilado.binarypb
   checksum_sha256: 26350287062465a53eafe8505481ef55549c7c30c856d8f6f1dbc9621edadaa8
 - caminho_relativo: thumbnails/br_mg_januaria_salao_encantado.webp
@@ -1528,6 +1528,6 @@ arquivos:
 - caminho_relativo: br_mg_sete_lagoas_sinuosa/compilado.md
   checksum_sha256: 9c1cb814fecabc3cc85db508f894a4fac08c13924bc119c29cf9559521c9151f
 - caminho_relativo: indice.binarypb
-  checksum_sha256: 4e092bbbbb9ab3ffd9ca01dc165d0baec954d8ee4dc10bfabd545ce377077f24
+  checksum_sha256: 7f6fb1a82dac13ee5b413ba644f9bbcfddde70428b21509a783e449c2cbfb5aa
 - caminho_relativo: indice.yaml
-  checksum_sha256: 77103c3daaec6e1946ff10888f1d6e1a7fa35e2e3c3d8ffbaafedaba349a580c
+  checksum_sha256: 58392fcdc0479f3221dfa8b9af08f5335e6f009ce82f6ceb1309f7cbd5baad1a

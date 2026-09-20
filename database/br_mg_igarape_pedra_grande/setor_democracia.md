@@ -316,19 +316,19 @@ mapas:
           raio: 17
       espessura: 3
     cor: '#FFD600'
-  - id: 3ini1
-    label: ''
-    circulo:
-      x: 930
-      y: 870
-      raio: 15
-    cor: '#FFD600'
   - id: 3ini2
     label: ''
     circulo:
       x: 1027
       y: 967
       raio: 19
+    cor: ''
+  - id: circ3p1
+    label: ''
+    circulo:
+      x: 927
+      y: 875
+      raio: 20
     cor: ''
   referencias:
   - ids:
@@ -347,7 +347,7 @@ mapas:
     - linha_4
     - linha_6
     - 3ini2
-    - 3ini1
+    - circ3p1
     escalada: Faixa preta
   - ids:
     - linha_7
