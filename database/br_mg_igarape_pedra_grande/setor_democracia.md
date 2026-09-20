@@ -8,7 +8,8 @@ escaladas:
     dificuldade: V3
 - boulder:
     nome: Sai sentado
-    dificuldade: V0
+    dificuldade: V1
+    descricao: Sai sentado segurando no batente.
 - boulder:
     nome: Titi terremoto
     dificuldade: V4
@@ -146,27 +147,27 @@ mapas:
       estilo: TRACEJADO
       conteudo:
         nos:
-        - x: 456
-          y: 1105
+        - x: 326
+          y: 1061
           tipo: CIRCULO_IDENTIFICADOR
           rotulo: '1'
           raio: 17
-        - x: 429
-          y: 1045
+        - x: 322
+          y: 1015
           tipo: PASSAGEM
-        - x: 400
-          y: 994
+        - x: 315
+          y: 974
           tipo: PASSAGEM
-        - x: 373
-          y: 933
+        - x: 315
+          y: 941
           tipo: PASSAGEM
-        - x: 356
-          y: 892
+        - x: 315
+          y: 885
           tipo: PASSAGEM
-        - x: 355
-          y: 820
+        - x: 314
+          y: 826
           tipo: PASSAGEM
-        - x: 362
+        - x: 329
           y: 749
           tipo: PASSAGEM
         - x: 377
@@ -205,24 +206,24 @@ mapas:
           y: 933
           tipo: PASSAGEM
           rotulo: ''
-        - x: 749
-          y: 911
+        - x: 744
+          y: 909
           tipo: PASSAGEM
           rotulo: ''
-        - x: 810
-          y: 899
+        - x: 805
+          y: 892
           tipo: PASSAGEM
           rotulo: ''
-        - x: 892
-          y: 877
+        - x: 881
+          y: 865
           tipo: PASSAGEM
           rotulo: ''
-        - x: 944
-          y: 859
+        - x: 941
+          y: 842
           tipo: PASSAGEM
           rotulo: ''
-        - x: 998
-          y: 825
+        - x: 997
+          y: 820
           tipo: PASSAGEM
           rotulo: ''
         - x: 1008
@@ -240,20 +241,20 @@ mapas:
           y: 798
           tipo: PASSAGEM
           rotulo: ''
-        - x: 1008
-          y: 733
+        - x: 1017
+          y: 743
           tipo: PASSAGEM
           rotulo: ''
-        - x: 1002
-          y: 649
+        - x: 1093
+          y: 703
           tipo: PASSAGEM
           rotulo: ''
-        - x: 1001
-          y: 591
+        - x: 1079
+          y: 595
           tipo: PASSAGEM
           rotulo: ''
-        - x: 1000
-          y: 529
+        - x: 1074
+          y: 510
           tipo: FIM_TOP
           rotulo: C
           raio: 17
@@ -265,19 +266,19 @@ mapas:
       estilo: TRACEJADO
       conteudo:
         nos:
-        - x: 1059
-          y: 998
+        - x: 979
+          y: 962
           tipo: CIRCULO_IDENTIFICADOR
           rotulo: '3'
           raio: 17
-        - x: 1058
-          y: 1001
+        - x: 977
+          y: 937
           tipo: PASSAGEM
-        - x: 1037
-          y: 945
+        - x: 986
+          y: 907
           tipo: PASSAGEM
-        - x: 1018
-          y: 870
+        - x: 1001
+          y: 868
           tipo: PASSAGEM
         - x: 1008
           y: 798
@@ -315,6 +316,20 @@ mapas:
           raio: 17
       espessura: 3
     cor: '#FFD600'
+  - id: 3ini1
+    label: ''
+    circulo:
+      x: 930
+      y: 870
+      raio: 15
+    cor: '#FFD600'
+  - id: 3ini2
+    label: ''
+    circulo:
+      x: 1027
+      y: 967
+      raio: 19
+    cor: ''
   referencias:
   - ids:
     - linha_2
@@ -331,6 +346,8 @@ mapas:
   - ids:
     - linha_4
     - linha_6
+    - 3ini2
+    - 3ini1
     escalada: Faixa preta
   - ids:
     - linha_7
