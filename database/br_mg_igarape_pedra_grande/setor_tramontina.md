@@ -11,12 +11,18 @@ escaladas:
 
 
       ![Agarra de saída do Sobe e desce](imagens/setor_tramontina_sobe_e_desce_p0.webp)'
+    conquistadores:
+    - Renato Utsch
 - boulder:
     nome: Questionamentos
     dificuldade: V0
+    conquistadores:
+    - Renato Utsch
 - boulder:
     nome: Não vai descalço
     dificuldade: V0
+    conquistadores:
+    - Bunitin
 - boulder:
     nome: Linhas paralelas
     dificuldade: V1
@@ -26,10 +32,14 @@ escaladas:
 
 
       ![Agarras de saída](imagens/whatsapp_image_2026_09_20_at_230736.webp)'
+    conquistadores:
+    - Renato Utsch
 - boulder:
     nome: Só vejo almas
     dificuldade: V1
     descricao: Virada um pouco mais delicada do que os boulders ao lado desse boulder.
+    conquistadores:
+    - Bunitin
 mapas:
 - caminho_imagem_mapa: imagens/setor_tramontina_p0.webp
   largura_mapa: 1825
@@ -45,6 +55,7 @@ mapas:
           y: 925
           tipo: CIRCULO_IDENTIFICADOR
           rotulo: '1'
+          raio: 21
         - x: 128
           y: 776
           tipo: PASSAGEM
@@ -58,8 +69,8 @@ mapas:
           y: 546
           tipo: PASSAGEM
           rotulo: A
-      espessura: 3
-    cor: '#FFD600'
+      espessura: 4
+    cor: '#00E5FF'
   - id: linha_2
     label: ''
     linha:
@@ -70,6 +81,7 @@ mapas:
           y: 805
           tipo: CIRCULO_IDENTIFICADOR
           rotulo: '2'
+          raio: 21
         - x: 428
           y: 656
           tipo: PASSAGEM
@@ -83,8 +95,8 @@ mapas:
           y: 293
           tipo: PASSAGEM
           rotulo: B
-      espessura: 3
-    cor: '#FFD600'
+      espessura: 4
+    cor: '#00E5FF'
   - id: linha_3
     label: ''
     linha:
@@ -95,6 +107,7 @@ mapas:
           y: 720
           tipo: CIRCULO_IDENTIFICADOR
           rotulo: '3'
+          raio: 21
         - x: 963
           y: 564
           tipo: PASSAGEM
@@ -108,8 +121,8 @@ mapas:
           y: 191
           tipo: PASSAGEM
           rotulo: C
-      espessura: 3
-    cor: '#FFD600'
+      espessura: 4
+    cor: '#00E5FF'
   - id: linha_4
     label: ''
     linha:
@@ -120,6 +133,7 @@ mapas:
           y: 579
           tipo: CIRCULO_IDENTIFICADOR
           rotulo: '4'
+          raio: 21
         - x: 1375
           y: 419
           tipo: PASSAGEM
@@ -130,8 +144,8 @@ mapas:
           y: 238
           tipo: PASSAGEM
           rotulo: D
-      espessura: 3
-    cor: '#FFD600'
+      espessura: 4
+    cor: '#00E5FF'
   - id: linha_5
     label: ''
     linha:
@@ -142,6 +156,7 @@ mapas:
           y: 634
           tipo: CIRCULO_IDENTIFICADOR
           rotulo: '5'
+          raio: 21
         - x: 1592
           y: 500
           tipo: PASSAGEM
@@ -155,8 +170,8 @@ mapas:
           y: 274
           tipo: PASSAGEM
           rotulo: E
-      espessura: 3
-    cor: '#FFD600'
+      espessura: 4
+    cor: '#00E5FF'
   - id: paral1
     label: ''
     circulo:
@@ -203,6 +218,7 @@ mapas:
           y: 690
           tipo: CIRCULO_IDENTIFICADOR
           rotulo: '4'
+          raio: 21
         - x: 335
           y: 540
           tipo: PASSAGEM
@@ -216,8 +232,8 @@ mapas:
           y: 263
           tipo: PASSAGEM
           rotulo: A
-      espessura: 3
-    cor: '#FFD600'
+      espessura: 4
+    cor: '#00E5FF'
   - id: linha_7
     label: ''
     linha:
@@ -228,6 +244,7 @@ mapas:
           y: 658
           tipo: CIRCULO_IDENTIFICADOR
           rotulo: '5'
+          raio: 21
         - x: 663
           y: 424
           tipo: PASSAGEM
@@ -241,8 +258,8 @@ mapas:
           y: 211
           tipo: PASSAGEM
           rotulo: B
-      espessura: 3
-    cor: '#FFD600'
+      espessura: 4
+    cor: '#00E5FF'
   - id: paral1
     label: ''
     circulo:
@@ -280,6 +297,7 @@ mapas:
           y: 764
           tipo: CIRCULO_IDENTIFICADOR
           rotulo: '1'
+          raio: 21
         - x: 1323
           y: 631
           tipo: PASSAGEM
@@ -296,8 +314,8 @@ mapas:
           y: 323
           tipo: PASSAGEM
           rotulo: ''
-      espessura: 3
-    cor: '#FFD600'
+      espessura: 4
+    cor: '#00E5FF'
   referencias:
   - ids:
     - linha_8
