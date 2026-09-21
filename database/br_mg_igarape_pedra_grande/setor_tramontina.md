@@ -13,16 +13,28 @@ escaladas:
       ![Agarra de saída do Sobe e desce](imagens/setor_tramontina_sobe_e_desce_p0.webp)'
     conquistadores:
     - Renato Utsch
+    - Bunitin
+    - Ana
+    - Camila
+    - Lucas
+    - Evandro
 - boulder:
     nome: Questionamentos
     dificuldade: V0
     conquistadores:
     - Renato Utsch
+    - Ana
+    - Lucas
+    - Evandro
 - boulder:
     nome: Não vai descalço
     dificuldade: V0
     conquistadores:
     - Bunitin
+    - Lucas
+    - Ana
+    - Renato Utsch
+    - Evandro
 - boulder:
     nome: Linhas paralelas
     dificuldade: V1
@@ -34,12 +46,15 @@ escaladas:
       ![Agarras de saída](imagens/whatsapp_image_2026_09_20_at_230736.webp)'
     conquistadores:
     - Renato Utsch
+    - Evandro
+    - Ana
 - boulder:
     nome: Só vejo almas
     dificuldade: V1
     descricao: Virada um pouco mais delicada do que os boulders ao lado desse boulder.
     conquistadores:
     - Bunitin
+    - Renato Utsch
 mapas:
 - caminho_imagem_mapa: imagens/setor_tramontina_p0.webp
   largura_mapa: 1825

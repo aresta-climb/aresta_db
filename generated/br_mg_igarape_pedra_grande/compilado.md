@@ -7741,18 +7741,30 @@
       - **dificuldade**: VB
       - **conquistadores**:
         - Renato Utsch
+        - Bunitin
+        - Ana
+        - Camila
+        - Lucas
+        - Evandro
   - **[1]**:
     - **boulder**:
       - **nome**: Questionamentos
       - **dificuldade**: V0
       - **conquistadores**:
         - Renato Utsch
+        - Ana
+        - Lucas
+        - Evandro
   - **[2]**:
     - **boulder**:
       - **nome**: Não vai descalço
       - **dificuldade**: V0
       - **conquistadores**:
         - Bunitin
+        - Lucas
+        - Ana
+        - Renato Utsch
+        - Evandro
   - **[3]**:
     - **boulder**:
       - **descricao**:
@@ -7763,6 +7775,8 @@
       - **dificuldade**: V1
       - **conquistadores**:
         - Renato Utsch
+        - Evandro
+        - Ana
   - **[4]**:
     - **boulder**:
       - **descricao**: Virada um pouco mais delicada do que os boulders ao lado desse boulder.
@@ -7770,6 +7784,7 @@
       - **dificuldade**: V1
       - **conquistadores**:
         - Bunitin
+        - Renato Utsch
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_tramontina_p0.webp)
