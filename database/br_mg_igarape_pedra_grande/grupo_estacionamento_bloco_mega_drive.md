@@ -15,6 +15,8 @@ escaladas:
 - boulder:
     nome: Master System
     dificuldade: V10_BARRA_V11
+    conquistadores:
+    - Drosa
 - boulder:
     nome: Mega drive
     dificuldade: V7

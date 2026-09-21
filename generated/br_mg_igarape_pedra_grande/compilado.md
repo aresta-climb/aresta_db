@@ -5651,6 +5651,8 @@
           - **boulder**:
             - **nome**: Master System
             - **dificuldade**: V10_BARRA_V11
+            - **conquistadores**:
+              - Drosa
         - **[4]**:
           - **boulder**:
             - **nome**: Mega drive
