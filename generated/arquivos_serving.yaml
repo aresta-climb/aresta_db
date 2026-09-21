@@ -602,7 +602,7 @@ arquivos:
 - caminho_relativo: br_mg_diamantina_diamaboulder/compilado.md
   checksum_sha256: aeb01ba15dc7247405045719759e8b4d3957a72c011061fa6beab7ccce877bfd
 - caminho_relativo: br_mg_igarape_pedra_grande/compilado.binarypb
-  checksum_sha256: b2fc9756cd7e7773d502022e39edb2317e0161828271d997a8372f59beedde61
+  checksum_sha256: bb1ac52fb53f67a82ce6daae551b9d76a232d7490c0c061434f5227152e05af8
 - caminho_relativo: thumbnails/br_mg_igarape_pedra_grande.webp
   checksum_sha256: d490580138c1b7f24c772f2d6672e895406739da51bd1880ecabb49cd28b7409
 - caminho_relativo: br_mg_igarape_pedra_grande/imagens/capa_p0.webp
@@ -746,9 +746,9 @@ arquivos:
 - caminho_relativo: br_mg_igarape_pedra_grande/imagens/whatsapp_image_2026_09_20_at_230736.webp
   checksum_sha256: 39f87f0b083f245ee120402bc41beb2ba89c62aa9a4f44af8efccf47f8d60b3e
 - caminho_relativo: br_mg_igarape_pedra_grande/compilado.yaml
-  checksum_sha256: eb21159bcb2ac344a2c5f4bc5e8bdd2f776d0b633b9855031c267ea2ebec79ed
+  checksum_sha256: 20394a6dc5a72fd87378804c33999091fc4c2f77875264a0b16b72385671a4e9
 - caminho_relativo: br_mg_igarape_pedra_grande/compilado.md
-  checksum_sha256: 20470bb5dc6b0e9651df08bc6bc756363b83032fb4cb56e7f94fc0ed364c985e
+  checksum_sha256: c508641e734153d84b2ca258edc15d8b0d2e3d203307ea2dd53f419a23e4368a
 - caminho_relativo: br_mg_januaria_salao_encantado/compilado.binarypb
   checksum_sha256: 26350287062465a53eafe8505481ef55549c7c30c856d8f6f1dbc9621edadaa8
 - caminho_relativo: thumbnails/br_mg_januaria_salao_encantado.webp
@@ -1538,6 +1538,6 @@ arquivos:
 - caminho_relativo: br_mg_sete_lagoas_sinuosa/compilado.md
   checksum_sha256: 9c1cb814fecabc3cc85db508f894a4fac08c13924bc119c29cf9559521c9151f
 - caminho_relativo: indice.binarypb
-  checksum_sha256: 4930c967b2b15fe23c6617be8813ed265e39f98d6af10778e25ed9790034fbae
+  checksum_sha256: 0c4dbd2d08774719d3cf660688392c6ec0407693e71d089c57e324a2f26204d1
 - caminho_relativo: indice.yaml
-  checksum_sha256: 1efa96bc53fca1b87fb35fb0db1c7132ccd3cf547f8e0427a9a5f8259f93e525
+  checksum_sha256: 1968ba8dc764756474c92d422db40b7d4d2abe3262eee9cdc1bf54217792fb6a

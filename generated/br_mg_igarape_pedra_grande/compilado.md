@@ -7717,6 +7717,307 @@
   - **total_boulders**: 13
 
 
+## Parte: setor_tramontina (não listada em partes.json)
+
+### Setor (Pico: Complexo Pedra Grande)
+
+- **descricao**:
+    Descida do topo do bloco Tramontina é feita pelo boulder "Sobe e desce".
+    
+    Setor com vários boulders dos mais variados graus. Destaque a boulders bem acessíveis para pessoal iniciando no climb.
+    
+    Trilha para o setor começa no setor Fugitivos II, cerca de 2 minutos de caminhada do boulder Olha a Jaca no Fugitivos II. Link para a trilha: https://loc.wiki/t/287028747?wa=sc
+- **nome**: Setor Tramontina
+- **escaladas**:
+  - **[0]**:
+    - **boulder**:
+      - **descricao**:
+          Boulder usado para descer do topo do bloco. Desça de frente para a rocha, desescalando.
+          
+          ![Agarra de saída do Sobe e desce](imagens/setor_tramontina_sobe_e_desce_p0.webp)
+      - **nome**: Sobe e desce
+      - **dificuldade**: VB
+  - **[1]**:
+    - **boulder**:
+      - **nome**: Questionamentos
+      - **dificuldade**: V0
+  - **[2]**:
+    - **boulder**:
+      - **nome**: Não vai descalço
+      - **dificuldade**: V0
+  - **[3]**:
+    - **boulder**:
+      - **descricao**:
+          Boulder sai bem aberto, com as duas mãos em barbatanas opostas. A ideia é subir mantendo a oposição em agarras opostas entre as duas linhas até a virada!
+          
+          ![Agarras de saída](imagens/whatsapp_image_2026_09_20_at_230736.webp)
+      - **nome**: Linhas paralelas
+      - **dificuldade**: V1
+  - **[4]**:
+    - **boulder**:
+      - **descricao**: Virada um pouco mais delicada do que os boulders ao lado desse boulder.
+      - **nome**: Só vejo almas
+      - **dificuldade**: V1
+- **mapas**:
+  - **[0]**:
+    - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_tramontina_p0.webp)
+    - **largura_mapa**: 1825
+    - **altura_mapa**: 1369
+    - **pontos_de_interesse**:
+      - **[0]**:
+        - **id**: linha_1
+        - **label**: 
+        - **linha**:
+          - **estilo**: TRACEJADO
+          - **espessura**: 3
+          - **compilado**:
+            - **caminho_svg**: M 100 925 C 109.3 875.3, 120.5 821.0, 128 776 C 134.2 738.9, 138.0 707.1, 143 674 C 147.7 642.5, 150.2 605.3, 157 582 C 161.4 566.9, 167.7 558.0, 173 546
+            - **caixa_delimitadora**:
+              - **x**: 136
+              - **y**: 736
+              - **comprimento**: 73
+              - **largura**: 379
+            - **marcadores**:
+              - **[0]**:
+                - **tipo**: CIRCULO_IDENTIFICADOR
+                - **x**: 100
+                - **y**: 925
+                - **angulo_graus_x100**: -7936
+                - **rotulo**: 1
+        - **cor**: #FFD600
+      - **[1]**:
+        - **id**: linha_2
+        - **label**: 
+        - **linha**:
+          - **estilo**: TRACEJADO
+          - **espessura**: 3
+          - **compilado**:
+            - **caminho_svg**: M 447 805 C 440.7 755.3, 430.8 705.8, 428 656 C 425.2 606.2, 427.5 554.2, 430 506 C 432.4 461.1, 438.1 414.5, 442 376 C 445.1 345.2, 448.0 320.7, 451 293
+            - **caixa_delimitadora**:
+              - **x**: 440
+              - **y**: 549
+              - **comprimento**: 23
+              - **largura**: 512
+            - **marcadores**:
+              - **[0]**:
+                - **tipo**: CIRCULO_IDENTIFICADOR
+                - **x**: 447
+                - **y**: 805
+                - **angulo_graus_x100**: -9727
+                - **rotulo**: 2
+        - **cor**: #FFD600
+      - **[2]**:
+        - **id**: linha_3
+        - **label**: 
+        - **linha**:
+          - **estilo**: TRACEJADO
+          - **espessura**: 3
+          - **compilado**:
+            - **caminho_svg**: M 991 720 C 981.7 668.0, 976.4 619.0, 963 564 C 947.5 500.3, 921.1 418.1, 900 361 C 884.1 318.0, 864.1 281.4, 852 250 C 843.3 227.5, 838.7 210.7, 832 191
+            - **caixa_delimitadora**:
+              - **x**: 912
+              - **y**: 456
+              - **comprimento**: 159
+              - **largura**: 529
+            - **marcadores**:
+              - **[0]**:
+                - **tipo**: CIRCULO_IDENTIFICADOR
+                - **x**: 991
+                - **y**: 720
+                - **angulo_graus_x100**: -10018
+                - **rotulo**: 3
+        - **cor**: #FFD600
+      - **[3]**:
+        - **id**: linha_4
+        - **label**: 
+        - **linha**:
+          - **estilo**: TRACEJADO
+          - **espessura**: 3
+          - **compilado**:
+            - **caminho_svg**: M 1420 579 C 1405.0 525.7, 1393.3 469.6, 1375 419 C 1357.6 370.9, 1330.5 314.8, 1314 282 C 1304.4 263.0, 1297.3 252.7, 1289 238
+            - **caixa_delimitadora**:
+              - **x**: 1354
+              - **y**: 408
+              - **comprimento**: 131
+              - **largura**: 341
+            - **marcadores**:
+              - **[0]**:
+                - **tipo**: CIRCULO_IDENTIFICADOR
+                - **x**: 1420
+                - **y**: 579
+                - **angulo_graus_x100**: -10571
+                - **rotulo**: 4
+        - **cor**: #FFD600
+      - **[4]**:
+        - **id**: linha_5
+        - **label**: 
+        - **linha**:
+          - **estilo**: TRACEJADO
+          - **espessura**: 3
+          - **compilado**:
+            - **caminho_svg**: M 1629 634 C 1616.7 589.3, 1606.6 538.2, 1592 500 C 1580.4 469.6, 1564.8 446.3, 1553 421 C 1542.3 398.1, 1535.2 377.9, 1524 355 C 1511.3 329.1, 1494.7 301.0, 1480 274
+            - **caixa_delimitadora**:
+              - **x**: 1554
+              - **y**: 454
+              - **comprimento**: 149
+              - **largura**: 360
+            - **marcadores**:
+              - **[0]**:
+                - **tipo**: CIRCULO_IDENTIFICADOR
+                - **x**: 1629
+                - **y**: 634
+                - **angulo_graus_x100**: -10544
+                - **rotulo**: 5
+        - **cor**: #FFD600
+      - **[5]**:
+        - **id**: paral1
+        - **label**: 
+        - **circulo**:
+          - **x**: 1232
+          - **y**: 562
+          - **raio**: 26
+        - **cor**: 
+      - **[6]**:
+        - **id**: paral2
+        - **label**: 
+        - **circulo**:
+          - **x**: 1519
+          - **y**: 613
+          - **raio**: 24
+        - **cor**: 
+    - **referencias**:
+      - **[0]**:
+        - **ids**:
+          - linha_1
+        - **escalada**: Sobe e desce
+      - **[1]**:
+        - **ids**:
+          - linha_2
+        - **escalada**: Questionamentos
+      - **[2]**:
+        - **ids**:
+          - linha_3
+        - **escalada**: Não vai descalço
+      - **[3]**:
+        - **ids**:
+          - linha_4
+          - paral2
+          - paral1
+        - **escalada**: Linhas paralelas
+      - **[4]**:
+        - **ids**:
+          - linha_5
+        - **escalada**: Só vejo almas
+  - **[1]**:
+    - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_tramontina_p1.webp)
+    - **largura_mapa**: 1825
+    - **altura_mapa**: 1369
+    - **pontos_de_interesse**:
+      - **[0]**:
+        - **id**: linha_6
+        - **label**: 
+        - **linha**:
+          - **estilo**: TRACEJADO
+          - **espessura**: 3
+          - **compilado**:
+            - **caminho_svg**: M 331 690 C 332.3 640.0, 328.8 585.7, 335 540 C 340.4 500.5, 349.6 465.7, 362 431 C 374.1 397.1, 394.2 363.9, 408 334 C 419.8 308.6, 429.3 286.7, 440 263
+            - **caixa_delimitadora**:
+              - **x**: 386
+              - **y**: 476
+              - **comprimento**: 109
+              - **largura**: 427
+            - **marcadores**:
+              - **[0]**:
+                - **tipo**: CIRCULO_IDENTIFICADOR
+                - **x**: 331
+                - **y**: 690
+                - **angulo_graus_x100**: -8847
+                - **rotulo**: 4
+        - **cor**: #FFD600
+      - **[1]**:
+        - **id**: linha_7
+        - **label**: 
+        - **linha**:
+          - **estilo**: TRACEJADO
+          - **espessura**: 3
+          - **compilado**:
+            - **caminho_svg**: M 651 658 C 655.0 580.0, 658.6 488.9, 663 424 C 666.1 377.7, 667.4 339.2, 673 305 C 677.3 278.4, 686.1 252.3, 690 235 C 692.3 224.9, 693.3 219.0, 695 211
+            - **caixa_delimitadora**:
+              - **x**: 673
+              - **y**: 434
+              - **comprimento**: 44
+              - **largura**: 447
+            - **marcadores**:
+              - **[0]**:
+                - **tipo**: CIRCULO_IDENTIFICADOR
+                - **x**: 651
+                - **y**: 658
+                - **angulo_graus_x100**: -8706
+                - **rotulo**: 5
+        - **cor**: #FFD600
+      - **[2]**:
+        - **id**: paral1
+        - **label**: 
+        - **circulo**:
+          - **x**: 207
+          - **y**: 642
+          - **raio**: 21
+        - **cor**: 
+      - **[3]**:
+        - **id**: paral2
+        - **label**: 
+        - **circulo**:
+          - **x**: 437
+          - **y**: 660
+          - **raio**: 27
+        - **cor**: 
+    - **referencias**:
+      - **[0]**:
+        - **ids**:
+          - linha_6
+          - paral2
+          - paral1
+        - **escalada**: Linhas paralelas
+      - **[1]**:
+        - **ids**:
+          - linha_7
+        - **escalada**: Só vejo almas
+  - **[2]**:
+    - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_tramontina_p2.webp)
+    - **largura_mapa**: 1825
+    - **altura_mapa**: 1369
+    - **pontos_de_interesse**:
+      - **[0]**:
+        - **id**: linha_8
+        - **label**: 
+        - **linha**:
+          - **estilo**: TRACEJADO
+          - **espessura**: 3
+          - **compilado**:
+            - **caminho_svg**: M 1376 764 C 1358.3 719.7, 1334.8 670.7, 1323 631 C 1313.8 600.3, 1312.6 577.2, 1306 547 C 1298.3 511.4, 1296.7 462.4, 1279 431 C 1263.1 402.8, 1232.6 382.9, 1210 364 C 1190.7 347.8, 1172.0 336.7, 1153 323
+            - **caixa_delimitadora**:
+              - **x**: 1264
+              - **y**: 544
+              - **comprimento**: 223
+              - **largura**: 441
+            - **marcadores**:
+              - **[0]**:
+                - **tipo**: CIRCULO_IDENTIFICADOR
+                - **x**: 1376
+                - **y**: 764
+                - **angulo_graus_x100**: -11173
+                - **rotulo**: 1
+        - **cor**: #FFD600
+    - **referencias**:
+      - **[0]**:
+        - **ids**:
+          - linha_8
+        - **escalada**: Sobe e desce
+- **precomputados**:
+  - **total_escaladas**: 5
+  - **total_boulders**: 5
+
+
 ## Parte: setor_democracia (não listada em partes.json)
 
 ### Setor (Pico: Complexo Pedra Grande)
@@ -9206,307 +9507,6 @@
 - **precomputados**:
   - **total_escaladas**: 9
   - **total_boulders**: 9
-
-
-## Parte: setor_tramontina (não listada em partes.json)
-
-### Setor (Pico: Complexo Pedra Grande)
-
-- **descricao**:
-    Descida do topo do bloco Tramontina é feita pelo boulder "Sobe e desce".
-    
-    Setor com vários boulders dos mais variados graus. Destaque a boulders bem acessíveis para pessoal iniciando no climb.
-    
-    Trilha para o setor começa no setor Fugitivos II, cerca de 2 minutos de caminhada do boulder Olha a Jaca no Fugitivos II. Link para a trilha: https://loc.wiki/t/287028747?wa=sc
-- **nome**: Setor Tramontina
-- **escaladas**:
-  - **[0]**:
-    - **boulder**:
-      - **descricao**:
-          Boulder usado para descer do topo do bloco. Desça de frente para a rocha, desescalando.
-          
-          ![Agarra de saída do Sobe e desce](imagens/setor_tramontina_sobe_e_desce_p0.webp)
-      - **nome**: Sobe e desce
-      - **dificuldade**: VB
-  - **[1]**:
-    - **boulder**:
-      - **nome**: Questionamentos
-      - **dificuldade**: V0
-  - **[2]**:
-    - **boulder**:
-      - **nome**: Não vai descalço
-      - **dificuldade**: V0
-  - **[3]**:
-    - **boulder**:
-      - **descricao**:
-          Boulder sai bem aberto, com as duas mãos em barbatanas opostas. A ideia é subir mantendo a oposição em agarras opostas entre as duas linhas até a virada!
-          
-          ![Agarras de saída](imagens/whatsapp_image_2026_09_20_at_230736.webp)
-      - **nome**: Linhas paralelas
-      - **dificuldade**: V1
-  - **[4]**:
-    - **boulder**:
-      - **descricao**: Virada um pouco mais delicada do que os boulders ao lado desse boulder.
-      - **nome**: Só vejo almas
-      - **dificuldade**: V1
-- **mapas**:
-  - **[0]**:
-    - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_tramontina_p0.webp)
-    - **largura_mapa**: 1825
-    - **altura_mapa**: 1369
-    - **pontos_de_interesse**:
-      - **[0]**:
-        - **id**: linha_1
-        - **label**: 
-        - **linha**:
-          - **estilo**: TRACEJADO
-          - **espessura**: 3
-          - **compilado**:
-            - **caminho_svg**: M 100 925 C 109.3 875.3, 120.5 821.0, 128 776 C 134.2 738.9, 138.0 707.1, 143 674 C 147.7 642.5, 150.2 605.3, 157 582 C 161.4 566.9, 167.7 558.0, 173 546
-            - **caixa_delimitadora**:
-              - **x**: 136
-              - **y**: 736
-              - **comprimento**: 73
-              - **largura**: 379
-            - **marcadores**:
-              - **[0]**:
-                - **tipo**: CIRCULO_IDENTIFICADOR
-                - **x**: 100
-                - **y**: 925
-                - **angulo_graus_x100**: -7936
-                - **rotulo**: 1
-        - **cor**: #FFD600
-      - **[1]**:
-        - **id**: linha_2
-        - **label**: 
-        - **linha**:
-          - **estilo**: TRACEJADO
-          - **espessura**: 3
-          - **compilado**:
-            - **caminho_svg**: M 447 805 C 440.7 755.3, 430.8 705.8, 428 656 C 425.2 606.2, 427.5 554.2, 430 506 C 432.4 461.1, 438.1 414.5, 442 376 C 445.1 345.2, 448.0 320.7, 451 293
-            - **caixa_delimitadora**:
-              - **x**: 440
-              - **y**: 549
-              - **comprimento**: 23
-              - **largura**: 512
-            - **marcadores**:
-              - **[0]**:
-                - **tipo**: CIRCULO_IDENTIFICADOR
-                - **x**: 447
-                - **y**: 805
-                - **angulo_graus_x100**: -9727
-                - **rotulo**: 2
-        - **cor**: #FFD600
-      - **[2]**:
-        - **id**: linha_3
-        - **label**: 
-        - **linha**:
-          - **estilo**: TRACEJADO
-          - **espessura**: 3
-          - **compilado**:
-            - **caminho_svg**: M 991 720 C 981.7 668.0, 976.4 619.0, 963 564 C 947.5 500.3, 921.1 418.1, 900 361 C 884.1 318.0, 864.1 281.4, 852 250 C 843.3 227.5, 838.7 210.7, 832 191
-            - **caixa_delimitadora**:
-              - **x**: 912
-              - **y**: 456
-              - **comprimento**: 159
-              - **largura**: 529
-            - **marcadores**:
-              - **[0]**:
-                - **tipo**: CIRCULO_IDENTIFICADOR
-                - **x**: 991
-                - **y**: 720
-                - **angulo_graus_x100**: -10018
-                - **rotulo**: 3
-        - **cor**: #FFD600
-      - **[3]**:
-        - **id**: linha_4
-        - **label**: 
-        - **linha**:
-          - **estilo**: TRACEJADO
-          - **espessura**: 3
-          - **compilado**:
-            - **caminho_svg**: M 1420 579 C 1405.0 525.7, 1393.3 469.6, 1375 419 C 1357.6 370.9, 1330.5 314.8, 1314 282 C 1304.4 263.0, 1297.3 252.7, 1289 238
-            - **caixa_delimitadora**:
-              - **x**: 1354
-              - **y**: 408
-              - **comprimento**: 131
-              - **largura**: 341
-            - **marcadores**:
-              - **[0]**:
-                - **tipo**: CIRCULO_IDENTIFICADOR
-                - **x**: 1420
-                - **y**: 579
-                - **angulo_graus_x100**: -10571
-                - **rotulo**: 4
-        - **cor**: #FFD600
-      - **[4]**:
-        - **id**: linha_5
-        - **label**: 
-        - **linha**:
-          - **estilo**: TRACEJADO
-          - **espessura**: 3
-          - **compilado**:
-            - **caminho_svg**: M 1629 634 C 1616.7 589.3, 1606.6 538.2, 1592 500 C 1580.4 469.6, 1564.8 446.3, 1553 421 C 1542.3 398.1, 1535.2 377.9, 1524 355 C 1511.3 329.1, 1494.7 301.0, 1480 274
-            - **caixa_delimitadora**:
-              - **x**: 1554
-              - **y**: 454
-              - **comprimento**: 149
-              - **largura**: 360
-            - **marcadores**:
-              - **[0]**:
-                - **tipo**: CIRCULO_IDENTIFICADOR
-                - **x**: 1629
-                - **y**: 634
-                - **angulo_graus_x100**: -10544
-                - **rotulo**: 5
-        - **cor**: #FFD600
-      - **[5]**:
-        - **id**: paral1
-        - **label**: 
-        - **circulo**:
-          - **x**: 1232
-          - **y**: 562
-          - **raio**: 26
-        - **cor**: 
-      - **[6]**:
-        - **id**: paral2
-        - **label**: 
-        - **circulo**:
-          - **x**: 1519
-          - **y**: 613
-          - **raio**: 24
-        - **cor**: 
-    - **referencias**:
-      - **[0]**:
-        - **ids**:
-          - linha_1
-        - **escalada**: Sobe e desce
-      - **[1]**:
-        - **ids**:
-          - linha_2
-        - **escalada**: Questionamentos
-      - **[2]**:
-        - **ids**:
-          - linha_3
-        - **escalada**: Não vai descalço
-      - **[3]**:
-        - **ids**:
-          - linha_4
-          - paral2
-          - paral1
-        - **escalada**: Linhas paralelas
-      - **[4]**:
-        - **ids**:
-          - linha_5
-        - **escalada**: Só vejo almas
-  - **[1]**:
-    - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_tramontina_p1.webp)
-    - **largura_mapa**: 1825
-    - **altura_mapa**: 1369
-    - **pontos_de_interesse**:
-      - **[0]**:
-        - **id**: linha_6
-        - **label**: 
-        - **linha**:
-          - **estilo**: TRACEJADO
-          - **espessura**: 3
-          - **compilado**:
-            - **caminho_svg**: M 331 690 C 332.3 640.0, 328.8 585.7, 335 540 C 340.4 500.5, 349.6 465.7, 362 431 C 374.1 397.1, 394.2 363.9, 408 334 C 419.8 308.6, 429.3 286.7, 440 263
-            - **caixa_delimitadora**:
-              - **x**: 386
-              - **y**: 476
-              - **comprimento**: 109
-              - **largura**: 427
-            - **marcadores**:
-              - **[0]**:
-                - **tipo**: CIRCULO_IDENTIFICADOR
-                - **x**: 331
-                - **y**: 690
-                - **angulo_graus_x100**: -8847
-                - **rotulo**: 4
-        - **cor**: #FFD600
-      - **[1]**:
-        - **id**: linha_7
-        - **label**: 
-        - **linha**:
-          - **estilo**: TRACEJADO
-          - **espessura**: 3
-          - **compilado**:
-            - **caminho_svg**: M 651 658 C 655.0 580.0, 658.6 488.9, 663 424 C 666.1 377.7, 667.4 339.2, 673 305 C 677.3 278.4, 686.1 252.3, 690 235 C 692.3 224.9, 693.3 219.0, 695 211
-            - **caixa_delimitadora**:
-              - **x**: 673
-              - **y**: 434
-              - **comprimento**: 44
-              - **largura**: 447
-            - **marcadores**:
-              - **[0]**:
-                - **tipo**: CIRCULO_IDENTIFICADOR
-                - **x**: 651
-                - **y**: 658
-                - **angulo_graus_x100**: -8706
-                - **rotulo**: 5
-        - **cor**: #FFD600
-      - **[2]**:
-        - **id**: paral1
-        - **label**: 
-        - **circulo**:
-          - **x**: 207
-          - **y**: 642
-          - **raio**: 21
-        - **cor**: 
-      - **[3]**:
-        - **id**: paral2
-        - **label**: 
-        - **circulo**:
-          - **x**: 437
-          - **y**: 660
-          - **raio**: 27
-        - **cor**: 
-    - **referencias**:
-      - **[0]**:
-        - **ids**:
-          - linha_6
-          - paral2
-          - paral1
-        - **escalada**: Linhas paralelas
-      - **[1]**:
-        - **ids**:
-          - linha_7
-        - **escalada**: Só vejo almas
-  - **[2]**:
-    - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_tramontina_p2.webp)
-    - **largura_mapa**: 1825
-    - **altura_mapa**: 1369
-    - **pontos_de_interesse**:
-      - **[0]**:
-        - **id**: linha_8
-        - **label**: 
-        - **linha**:
-          - **estilo**: TRACEJADO
-          - **espessura**: 3
-          - **compilado**:
-            - **caminho_svg**: M 1376 764 C 1358.3 719.7, 1334.8 670.7, 1323 631 C 1313.8 600.3, 1312.6 577.2, 1306 547 C 1298.3 511.4, 1296.7 462.4, 1279 431 C 1263.1 402.8, 1232.6 382.9, 1210 364 C 1190.7 347.8, 1172.0 336.7, 1153 323
-            - **caixa_delimitadora**:
-              - **x**: 1264
-              - **y**: 544
-              - **comprimento**: 223
-              - **largura**: 441
-            - **marcadores**:
-              - **[0]**:
-                - **tipo**: CIRCULO_IDENTIFICADOR
-                - **x**: 1376
-                - **y**: 764
-                - **angulo_graus_x100**: -11173
-                - **rotulo**: 1
-        - **cor**: #FFD600
-    - **referencias**:
-      - **[0]**:
-        - **ids**:
-          - linha_8
-        - **escalada**: Sobe e desce
-- **precomputados**:
-  - **total_escaladas**: 5
-  - **total_boulders**: 5
 
 
 ## Arquivos Externos
