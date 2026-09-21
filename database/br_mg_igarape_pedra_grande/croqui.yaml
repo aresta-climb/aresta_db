@@ -42,6 +42,8 @@ picos:
       caminho: setor_tetos.md
   - setor:
       caminho: setor_trad.md
+  - setor:
+      caminho: setor_tramontina.md
   mapas_gerais:
     caminho: mapas_gerais.md
   localizacao:

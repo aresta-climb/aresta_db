@@ -747,6 +747,99 @@ def test_limpar_arquivos_preserva_mapas_gerais(tmp_path):
 
     assert mapa_geral_md.exists(), "mapas_gerais.md não deve ser deletado se referenciado por um pico"
 
+def test_limpar_arquivos_preserva_imagens_em_descricoes_markdown(tmp_path):
+    pasta_img = tmp_path / "imagens"
+    pasta_img.mkdir()
+
+    img_croqui = pasta_img / "croqui_desc.webp"
+    img_croqui.write_text("dummy")
+    img_pico = pasta_img / "pico_desc.webp"
+    img_pico.write_text("dummy")
+    img_via = pasta_img / "via_desc.webp"
+    img_via.write_text("dummy")
+    img_trilha = pasta_img / "trilha_desc.webp"
+    img_trilha.write_text("dummy")
+    img_ponto = pasta_img / "ponto_desc.webp"
+    img_ponto.write_text("dummy")
+    img_sem_prefixo = pasta_img / "sem_prefixo.webp"
+    img_sem_prefixo.write_text("dummy")
+    img_md = pasta_img / "md_foto.webp"
+    img_md.write_text("dummy")
+    img_fm = pasta_img / "fm_foto.webp"
+    img_fm.write_text("dummy")
+    img_orfa = pasta_img / "orfam_real.webp"
+    img_orfa.write_text("dummy")
+
+    setor_md = tmp_path / "setor.md"
+    setor_md.write_text(
+        "---\nmapas:\n  - caminho_imagem_mapa: imagens/fm_foto.webp\n---\nTexto com ![Foto](imagens/md_foto.webp)\n",
+        encoding="utf-8"
+    )
+
+    croqui_data = {
+        "descricao": "Visão geral do croqui: ![Croqui](imagens/croqui_desc.webp) e tag vazia ![]()",
+        "caminho_thumbnail": "sem_prefixo.webp",
+        "picos": [
+            {
+                "nome": "Pico Teste",
+                "descricao": "Detalhes do pico: ![Pico](imagens/pico_desc.webp)",
+                "setores_ou_grupos": [
+                    {
+                        "setor": {
+                            "caminho": "setor.md"
+                        }
+                    },
+                    {
+                        "setor": {
+                            # Referência duplicada para testar md_visitados
+                            "caminho": "setor.md"
+                        }
+                    },
+                    {
+                        "setor": {
+                            "nome": "Setor 1",
+                            "conteudo": {
+                                "escaladas": [
+                                    {
+                                        "via_esportiva": {
+                                            "nome": "Via 1",
+                                            "descricao": "Crux do teto ![Crux](imagens/via_desc.webp)",
+                                        }
+                                    }
+                                ],
+                                "trilhas": [
+                                    {
+                                        "nome": "Caminho",
+                                        "descricao": "Subida íngreme ![Trilha](imagens/trilha_desc.webp)",
+                                    }
+                                ],
+                                "pontos_de_interesse": [
+                                    {
+                                        "nome": "Bica",
+                                        "descricao": "Água fresca ![Bica](imagens/ponto_desc.webp)",
+                                    }
+                                ],
+                            }
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+
+    limpar_arquivos_nao_utilizados(tmp_path, croqui_data)
+
+    assert img_croqui.exists(), "Imagem da descrição do croqui não deve ser deletada"
+    assert img_pico.exists(), "Imagem da descrição do pico não deve ser deletada"
+    assert img_via.exists(), "Imagem da descrição de via não deve ser deletada"
+    assert img_trilha.exists(), "Imagem da descrição de trilha não deve ser deletada"
+    assert img_ponto.exists(), "Imagem da descrição de ponto de interesse não deve ser deletada"
+    assert img_sem_prefixo.exists(), "Imagem referenciada sem prefixo imagens/ não deve ser deletada"
+    assert img_md.exists(), "Imagem dentro do corpo do .md não deve ser deletada"
+    assert img_fm.exists(), "Imagem dentro do frontmatter do .md não deve ser deletada"
+    assert not img_orfa.exists(), "Imagem órfã real deve ser deletada"
+
+
 def test_compilar_croqui_faz_inline_de_mapas_gerais(tmp_path):
     import yaml
     from scripts.preparar_submissao_lib import compilar_croqui

@@ -25,7 +25,8 @@ def test_dialogo_galeria_listagem_e_busca(qapp, tmp_path):
     img2.save(str(pasta_imagens / "setor_bloco_b.webp"), "WEBP")
 
     dialogo = DialogoInserirImagemMarkdown(caminho_db=tmp_path)
-    assert dialogo.tab_widget.currentIndex() == 0  # Inicia na aba de galeria
+    dialogo.tab_widget.setCurrentIndex(1)  # Alterna para aba de galeria
+    assert dialogo.tab_widget.currentIndex() == 1
 
     # Verifica que as 2 imagens aparecem na lista
     assert dialogo.lista_imagens.count() == 2
@@ -60,6 +61,7 @@ def test_dialogo_galeria_legenda_obrigatoria(qapp, tmp_path, monkeypatch):
     img.save(str(pasta_imagens / "foto_teste.webp"), "WEBP")
 
     dialogo = DialogoInserirImagemMarkdown(caminho_db=tmp_path)
+    dialogo.tab_widget.setCurrentIndex(1)
     dialogo.lista_imagens.setCurrentRow(0)
     assert dialogo.nome_imagem_selecionada == "foto_teste.webp"
     
@@ -85,7 +87,7 @@ def test_dialogo_imagem_inicial_interna(qapp, tmp_path):
     img.save(str(caminho_img), "WEBP")
 
     dialogo = DialogoInserirImagemMarkdown(caminho_db=tmp_path, imagem_inicial=caminho_img)
-    assert dialogo.tab_widget.currentIndex() == 0  # Permanece na galeria
+    assert dialogo.tab_widget.currentIndex() == 1  # Foca na galeria
     assert dialogo.nome_imagem_selecionada == "setor_interno.webp"
 
 
@@ -102,7 +104,7 @@ def test_dialogo_importar_nova_imagem_arquivo(qapp, tmp_path):
     img_externa.save(str(caminho_png_externo), "PNG")
 
     dialogo = DialogoInserirImagemMarkdown(caminho_db=caminho_db)
-    dialogo.tab_widget.setCurrentIndex(1)  # Aba de importação
+    assert dialogo.tab_widget.currentIndex() == 0  # Aba de importação
 
     # Carrega o arquivo externo
     dialogo.carregar_imagem_externa(caminho_png_externo)
@@ -132,7 +134,7 @@ def test_dialogo_importar_imagem_clipboard(qapp, tmp_path):
 
     # Inicia o diálogo já com a imagem do clipboard
     dialogo = DialogoInserirImagemMarkdown(caminho_db=caminho_db, imagem_inicial=img_clipboard)
-    assert dialogo.tab_widget.currentIndex() == 1  # Deve focar na aba de importação
+    assert dialogo.tab_widget.currentIndex() == 0  # Deve focar na aba de importação
     assert dialogo.input_nome_arquivo.text().startswith("imagem_")
     assert dialogo.input_nome_arquivo.text().endswith(".webp")
 
@@ -169,6 +171,7 @@ def test_dialogo_galeria_duplo_clique(qapp, tmp_path):
     img.save(str(pasta_imagens / "duplo_clique.webp"), "WEBP")
 
     dialogo = DialogoInserirImagemMarkdown(caminho_db=tmp_path)
+    dialogo.tab_widget.setCurrentIndex(1)
     item = dialogo.lista_imagens.item(0)
 
     # Duplo clique sem legenda não fecha e foca na legenda
@@ -264,6 +267,7 @@ def test_dialogo_pasta_imagens_inexistente(qapp, tmp_path):
     caminho_db = tmp_path / "croqui_vazio"
     # Não cria a pasta imagens
     dialogo = DialogoInserirImagemMarkdown(caminho_db=caminho_db)
+    dialogo.tab_widget.setCurrentIndex(1)
     assert dialogo.lista_imagens.count() == 0
 
 
@@ -292,6 +296,7 @@ def test_dialogo_deselecao_e_accept_vazios(qapp, tmp_path):
     img.save(str(pasta_imagens / "img.webp"), "WEBP")
 
     dialogo = DialogoInserirImagemMarkdown(caminho_db=tmp_path)
+    dialogo.tab_widget.setCurrentIndex(1)
     dialogo.input_legenda.setText("Legenda válida")
     dialogo.lista_imagens.setCurrentRow(0)
     assert dialogo.btn_inserir.isEnabled() is True
@@ -304,13 +309,15 @@ def test_dialogo_deselecao_e_accept_vazios(qapp, tmp_path):
     assert dialogo.result() == 0
 
     # Vai para aba de importacao sem fonte carregada
-    dialogo.tab_widget.setCurrentIndex(1)
+    dialogo.tab_widget.setCurrentIndex(0)
     dialogo.fonte_imagem_importacao = None
+    dialogo.bytes_processados_webp = None
     dialogo.accept()
     assert dialogo.result() == 0
 
     # Com fonte mas com nome vazio
     dialogo.fonte_imagem_importacao = img
+    dialogo.bytes_processados_webp = b"dummy"
     dialogo.input_nome_arquivo.setText("")
     dialogo.accept()
     assert dialogo.result() == 0
@@ -375,6 +382,7 @@ def test_dialogo_galeria_lista_imagens_em_memoria(qapp, tmp_path):
     model.definir_imagem_memoria("imagens/apenas_na_ram.webp", bytes_webp)
 
     dialogo = DialogoInserirImagemMarkdown(caminho_db=tmp_path, model=model)
+    dialogo.tab_widget.setCurrentIndex(1)
     assert dialogo.lista_imagens.count() == 1
     assert dialogo.lista_imagens.item(0).text() == "apenas_na_ram.webp"
 
@@ -419,5 +427,161 @@ def test_dialogo_area_drop_clique_selecionado(qapp, tmp_path, monkeypatch):
     )
     dialogo.area_drop.mousePressEvent(event)
     assert dialogo.fonte_imagem_importacao == str(arquivo_png)
+
+
+def test_dialogo_cabecalho_botao_selecionar(qapp, tmp_path, monkeypatch):
+    caminho_img = tmp_path / "foto_cabecalho.png"
+    img = QImage(30, 30, QImage.Format.Format_RGB32)
+    img.save(str(caminho_img), "PNG")
+
+    dialogo = DialogoInserirImagemMarkdown(caminho_db=tmp_path)
+    assert hasattr(dialogo, "btn_selecionar")
+    assert dialogo.btn_selecionar.text() == "Selecionar Imagem..."
+
+    from PySide6.QtWidgets import QFileDialog
+    monkeypatch.setattr(QFileDialog, "getOpenFileName", lambda *args, **kwargs: (str(caminho_img), "PNG"))
+    dialogo.btn_selecionar.click()
+
+    assert dialogo.input_nome_arquivo.text() == "foto_cabecalho.webp"
+
+
+def test_dialogo_painel_metadados_ricos(qapp, tmp_path):
+    dialogo = DialogoInserirImagemMarkdown(caminho_db=tmp_path)
+    dialogo.show()
+    assert hasattr(dialogo, "rotulo_metadados")
+    assert dialogo.rotulo_metadados.isHidden() is True
+
+    img = QImage(120, 80, QImage.Format.Format_RGB32)
+    dialogo.carregar_imagem_externa(img)
+
+    assert dialogo.rotulo_metadados.isVisible() is True
+    texto_meta = dialogo.rotulo_metadados.text()
+    assert "120 x 80 px" in texto_meta
+    assert "WebP" in texto_meta
+
+
+def test_dialogo_validacao_colisao_tempo_real(qapp, tmp_path):
+    pasta_img = tmp_path / "imagens"
+    pasta_img.mkdir(parents=True, exist_ok=True)
+    (pasta_img / "conflito_disco.webp").write_bytes(b"dummy")
+
+    from editor.models.croqui_model import CroquiModel
+    from aresta_api.proto.generated.croqui_pb2 import Croqui
+    croqui = Croqui()
+    model = CroquiModel(croqui)
+    model.definir_imagem_memoria("imagens/conflito_ram.webp", b"dummy")
+
+    img = QImage(40, 40, QImage.Format.Format_RGB32)
+    dialogo = DialogoInserirImagemMarkdown(caminho_db=tmp_path, model=model, imagem_inicial=img)
+    dialogo.input_legenda.setText("Legenda válida")
+
+    # Nome sem conflito
+    dialogo.input_nome_arquivo.setText("nome_livre.webp")
+    assert dialogo.rotulo_aviso.text() == ""
+    assert dialogo.btn_inserir.isEnabled() is True
+
+    # Conflito em disco
+    dialogo.input_nome_arquivo.setText("conflito_disco.webp")
+    assert "já existe na pasta imagens/" in dialogo.rotulo_aviso.text()
+    assert dialogo.btn_inserir.isEnabled() is False
+
+    # Conflito na RAM
+    dialogo.input_nome_arquivo.setText("conflito_ram.webp")
+    assert "já existe na memória RAM" in dialogo.rotulo_aviso.text()
+    assert dialogo.btn_inserir.isEnabled() is False
+
+
+def test_dialogo_obter_bytes_e_dimensoes(qapp, tmp_path):
+    dialogo = DialogoInserirImagemMarkdown(caminho_db=tmp_path)
+    assert dialogo.obter_bytes_imagem_processada() is None
+    assert dialogo.obter_dimensoes_imagem() is None
+
+    img = QImage(64, 32, QImage.Format.Format_RGB32)
+    dialogo.carregar_imagem_externa(img)
+
+    assert dialogo.obter_bytes_imagem_processada() is not None
+    assert dialogo.obter_dimensoes_imagem() == (64, 32)
+
+
+def test_dialogo_carregar_arquivo_inexistente_ou_erro(qapp, tmp_path, monkeypatch):
+    from PySide6.QtWidgets import QMessageBox
+
+    avisos = []
+    monkeypatch.setattr(QMessageBox, "warning", lambda *args, **kwargs: avisos.append(True))
+
+    dialogo = DialogoInserirImagemMarkdown(caminho_db=tmp_path)
+    # Arquivo inexistente
+    dialogo.carregar_imagem_arquivo(tmp_path / "nao_existe.png")
+    assert len(avisos) == 1
+
+    # Erro de leitura
+    arquivo_bloqueado = tmp_path / "arquivo_bloqueado.png"
+    arquivo_bloqueado.write_bytes(b"dummy")
+    orig_read = Path.read_bytes
+
+    def falha_leitura_arquivo(self):
+        if "arquivo_bloqueado" in str(self):
+            raise IOError("Falha de IO")
+        return orig_read(self)
+
+    monkeypatch.setattr(Path, "read_bytes", falha_leitura_arquivo)
+    dialogo.carregar_imagem_arquivo(arquivo_bloqueado)
+    assert len(avisos) == 2
+
+
+def test_dialogo_heic_sem_suporte(qapp, tmp_path, monkeypatch):
+    import editor.views.dialogos.dialogo_inserir_imagem_markdown as dim
+    from PySide6.QtWidgets import QMessageBox
+
+    avisos = []
+    monkeypatch.setattr(QMessageBox, "warning", lambda *args, **kwargs: avisos.append(True))
+    monkeypatch.setattr(dim, "garantir_suporte_heif", lambda: False)
+
+    dialogo = dim.DialogoInserirImagemMarkdown(caminho_db=tmp_path)
+    # Simula bytes com ftyp heic
+    bytes_fake_heic = b"\x00\x00\x00\x18ftypheic" + b"\x00" * 30
+    dialogo.carregar_imagem_bytes(bytes_fake_heic, nome_sugerido_origem="foto.heic")
+    assert len(avisos) == 1
+
+
+def test_dialogo_imagem_inicial_caminho_com_excecao(qapp, tmp_path, monkeypatch):
+    from PySide6.QtWidgets import QMessageBox
+    monkeypatch.setattr(QMessageBox, "warning", lambda *args, **kwargs: None)
+
+    caminho = tmp_path / "caminho_estranho.webp"
+    img = QImage(20, 20, QImage.Format.Format_RGB32)
+    img.save(str(caminho), "WEBP")
+
+    orig_resolve = Path.resolve
+
+    def falha_resolve(self, *args, **kwargs):
+        if "caminho_estranho" in str(self):
+            raise ValueError("Erro simulado")
+        return orig_resolve(self, *args, **kwargs)
+
+    monkeypatch.setattr(Path, "resolve", falha_resolve)
+
+    dialogo = DialogoInserirImagemMarkdown(caminho_db=tmp_path, imagem_inicial=caminho)
+    assert dialogo.tab_widget.currentIndex() == 0
+
+
+def test_dialogo_carregar_imagens_existentes_com_erro_de_leitura(qapp, tmp_path, monkeypatch):
+    pasta_img = tmp_path / "imagens"
+    pasta_img.mkdir(parents=True, exist_ok=True)
+    (pasta_img / "quebrada.webp").write_bytes(b"dados")
+
+    orig_read_exist = Path.read_bytes
+
+    def falha_leitura(self):
+        if self.name == "quebrada.webp":
+            raise PermissionError("Sem permissão")
+        return orig_read_exist(self)
+
+    monkeypatch.setattr(Path, "read_bytes", falha_leitura)
+
+    dialogo = DialogoInserirImagemMarkdown(caminho_db=tmp_path)
+    assert dialogo.lista_imagens.count() == 0
+
+
 
 

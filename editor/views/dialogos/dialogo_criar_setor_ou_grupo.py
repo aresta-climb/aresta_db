@@ -78,7 +78,7 @@ class DialogoCriarSetorOuGrupo(QDialog):
         lbl_arquivo = QLabel("Nome do arquivo (.md):", self)
         lbl_arquivo.setStyleSheet("font-weight: bold;")
         self.edit_arquivo = QLineEdit(self)
-        self.edit_arquivo.setPlaceholderText("Ex: setor_campo_escola.md")
+        self.edit_arquivo.setPlaceholderText("Ex: setor_campo_escola.md, bloco_central.md")
         layout_principal.addWidget(lbl_arquivo)
         layout_principal.addWidget(self.edit_arquivo)
 
@@ -178,7 +178,15 @@ class DialogoCriarSetorOuGrupo(QDialog):
 
         if nome.lower() in self.nomes_existentes:
             tipo = self.obter_tipo_selecionado()
-            self.lbl_aviso.setText(f"Já existe um {tipo} com este nome.")
+            nome_limpo = nome.strip().lower()
+            tipo_rotulo = "bloco" if tipo == "setor" and (
+                nome_limpo in ("bloco", "blocos")
+                or nome_limpo.startswith("bloco ")
+                or nome_limpo.startswith("blocos ")
+                or nome_limpo.startswith("bloco_")
+                or nome_limpo.startswith("blocos_")
+            ) else tipo
+            self.lbl_aviso.setText(f"Já existe um {tipo_rotulo} com este nome.")
             self.btn_criar.setEnabled(False)
             return
 

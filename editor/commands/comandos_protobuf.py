@@ -898,6 +898,82 @@ class CmdSubstituirImagemMemoria(ComandoEditor):
         )
 
 
+class CmdInserirImagemMarkdown(ComandoEditor):
+    """
+    Comando para inserir uma tag de imagem no Markdown e gerenciar os bytes em memória RAM.
+    """
+    def __init__(
+        self,
+        model: Any,
+        msg: Any,
+        campo_nome: str,
+        texto_antigo: Optional[str],
+        texto_novo: str,
+        caminho_imagem: Optional[str] = None,
+        bytes_imagem: Optional[bytes] = None,
+        context_path: Optional[str] = None,
+        parent: Optional[QUndoCommand] = None,
+    ) -> None:
+        super().__init__(parent)
+        self.model: Any = model
+        self.msg: Any = msg
+        self.campo_nome: str = campo_nome
+        validar_pertence_ao_croqui(self.model, self.msg, self.campo_nome, nome_comando="CmdInserirImagemMarkdown")
+        self.texto_antigo: Optional[str] = _copia_segura(texto_antigo)
+        self.texto_novo: str = _copia_segura(texto_novo)
+        self.caminho_imagem: Optional[str] = caminho_imagem
+        self.bytes_imagem: Optional[bytes] = bytes_imagem
+        self.context_path: Optional[str] = context_path
+
+    def undo(self) -> None:
+        if self.caminho_imagem and self.bytes_imagem:
+            self.model.remover_imagem_memoria(self.caminho_imagem)
+        self.model._set_primitivo(self.msg, self.campo_nome, self.texto_antigo)
+        if hasattr(self, 'context_path') and self.context_path:
+            self.model.notificar_foco_requisitado(self.context_path)
+
+    def executar_redo(self) -> None:
+        if self.caminho_imagem and self.bytes_imagem:
+            self.model.definir_imagem_memoria(self.caminho_imagem, self.bytes_imagem)
+        self.model._set_primitivo(self.msg, self.campo_nome, self.texto_novo)
+        if hasattr(self, 'context_path') and self.context_path:
+            self.model.notificar_foco_requisitado(self.context_path)
+
+    def serializar(self, anonimizado: bool = False) -> Dict[str, Any]:
+        bytes_imagem = self.bytes_imagem
+        if anonimizado and bytes_imagem:
+            from editor.core.imagem_anonimizada import gerar_webp_anonimizado
+            bytes_imagem = gerar_webp_anonimizado(self.bytes_imagem)
+
+        return {
+            "classe": "CmdInserirImagemMarkdown",
+            "caminho_msg": resolver_caminho_mensagem(self.model.obter_croqui_readonly(), self.msg),
+            "campo_nome": self.campo_nome,
+            "texto_antigo": self.texto_antigo,
+            "texto_novo": self.texto_novo,
+            "caminho_imagem": self.caminho_imagem,
+            "bytes_imagem": bytes_imagem,
+            "context_path": self.context_path,
+        }
+
+    @staticmethod
+    def deserializar(dados: Dict[str, Any], model: CroquiModel) -> "CmdInserirImagemMarkdown":
+        msg = navegar_para_mensagem(model.obter_croqui_readonly(), dados.get("caminho_msg", ""))
+        return CmdInserirImagemMarkdown(
+            model=model,
+            msg=msg,
+            campo_nome=dados["campo_nome"],
+            texto_antigo=dados.get("texto_antigo"),
+            texto_novo=dados.get("texto_novo", ""),
+            caminho_imagem=dados.get("caminho_imagem"),
+            bytes_imagem=dados.get("bytes_imagem"),
+            context_path=dados.get("context_path"),
+        )
+
+
+ComandoInserirImagemMarkdown = CmdInserirImagemMarkdown
+
+
 class CmdMacro(ComandoEditor):
     """
     Comando composto que agrupa uma sequência ordenada de comandos derivados de ComandoEditor.
@@ -1081,6 +1157,7 @@ def deserializar_comando(dados: Dict[str, Any], model: CroquiModel) -> ComandoEd
         "CmdAlterarMetadadosCaminhoNovo": CmdAlterarMetadadosCaminhoNovo,
         "CmdAlterarCampoImagem": CmdAlterarCampoImagem,
         "CmdSubstituirImagemMemoria": CmdSubstituirImagemMemoria,
+        "CmdInserirImagemMarkdown": CmdInserirImagemMarkdown,
         "CmdMacro": CmdMacro,
         "CmdRenomearEscalada": CmdRenomearEscalada,
     }

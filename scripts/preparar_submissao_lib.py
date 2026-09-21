@@ -447,98 +447,58 @@ def corrigir_arquivo_setor_recursivo(setores_raw: List[Any], pico_path: Path) ->
 def coletar_referencias_arquivos(pico_path: Path, croqui_data: Dict[str, Any]) -> Set[str]:
     """Coleta referências a arquivos (imagens e md) existentes no croqui."""
     referencias: Set[str] = set()
-    
-    # 1. Thumbnail
-    if "caminho_thumbnail" in croqui_data:
-        referencias.add(croqui_data["caminho_thumbnail"])
-        
-    # 2. Markdown Globais em Botões
-    for botao in croqui_data.get("botoes", []):
-        if isinstance(botao, dict):
-            destino = botao.get("destino", {})
-            secao = destino.get("secao_textual", {})
-            if isinstance(secao, dict) and "caminho" in secao:
-                md_path = pico_path / secao["caminho"]
-                referencias.add(secao["caminho"])
-                if md_path.exists():
-                    _, corpo = parse_md_com_frontmatter(md_path)
-                    referencias.update(re.findall(r"!\[.*?\]\((.*?)\)", corpo))
-            
-    # 3. Picos e Elementos
-    def coletar_setores_ou_grupos_recursivo(setores_ou_grupos_raw: List[Any]) -> None:
-        for e_ref in setores_ou_grupos_raw:
-            tipo = "setor" if "setor" in e_ref else "grupo"
-            obj_ref = e_ref.get(tipo)
-            if not obj_ref: continue
+    md_visitados: Set[str] = set()
 
-            if "caminho" in obj_ref:
-                md_path = pico_path / obj_ref["caminho"]
-                referencias.add(obj_ref["caminho"])
-                if md_path.exists():
-                    frontmatter, corpo = parse_md_com_frontmatter(md_path)
-                    referencias.update(re.findall(r"!\[.*?\]\((.*?)\)", corpo))
-                    if frontmatter and "mapas" in frontmatter:
-                        for mapa in frontmatter["mapas"]:
-                            if "caminho_imagem_mapa" in mapa:
-                                referencias.add(mapa["caminho_imagem_mapa"])
-                    
-                    # Coleta imagens de mapas de vias de múltiplas enfiadas
-                    for key in ["escaladas", "vias"]:
-                        if frontmatter and key in frontmatter:
-                            for via in frontmatter[key]:
-                                if via and isinstance(via, dict) and "via_multiplas_enfiadas" in via:
-                                    vmf = via["via_multiplas_enfiadas"]
-                                    if vmf and "mapas" in vmf:
-                                        for mapa in vmf["mapas"]:
-                                            if "caminho_imagem_mapa" in mapa:
-                                                referencias.add(mapa["caminho_imagem_mapa"])
-                    if frontmatter:
-                        filhos = frontmatter.get("setores") or frontmatter.get("sub_setores")
-                        if filhos:
-                            coletar_setores_ou_grupos_recursivo([{"setor": s} for s in filhos])
+    def adicionar_referencia_imagem(caminho_img: str) -> None:
+        caminho_norm = caminho_img.replace("\\", "/").strip()
+        if not caminho_norm:
+            return
+        referencias.add(caminho_norm)
+        if not caminho_norm.startswith("imagens/") and any(
+            caminho_norm.lower().endswith(ext)
+            for ext in (".webp", ".png", ".jpg", ".jpeg", ".bmp", ".tif", ".tiff", ".heic", ".heif")
+        ):
+            referencias.add(f"imagens/{caminho_norm}")
 
-            else:
-                # Caso estruturado diretamente no YAML
-                conteudo = obj_ref.get("conteudo") or {}
-                if "descricao" in conteudo:
-                    referencias.update(re.findall(r"!\[.*?\]\((.*?)\)", conteudo["descricao"]))
-                if "mapas" in conteudo:
-                    for mapa in conteudo["mapas"]:
-                        if "caminho_imagem_mapa" in mapa:
-                            referencias.add(mapa["caminho_imagem_mapa"])
-                
-                # Coleta imagens de mapas de vias de múltiplas enfiadas
-                for key in ["escaladas", "vias"]:
-                    if key in conteudo:
-                        for via in conteudo[key]:
-                            if via and isinstance(via, dict) and "via_multiplas_enfiadas" in via:
-                                vmf = via["via_multiplas_enfiadas"]
-                                if vmf and "mapas" in vmf:
-                                    for mapa in vmf["mapas"]:
-                                        if "caminho_imagem_mapa" in mapa:
-                                            referencias.add(mapa["caminho_imagem_mapa"])
-                filhos = conteudo.get("setores") or conteudo.get("sub_setores")
-                if filhos:
-                    coletar_setores_ou_grupos_recursivo([{"setor": s} for s in filhos if s])
+    def processar_md(caminho_rel: str) -> None:
+        caminho_norm = caminho_rel.replace("\\", "/").strip()
+        if caminho_norm in md_visitados:
+            return
+        md_visitados.add(caminho_norm)
+        referencias.add(caminho_norm)
+        md_path = pico_path / caminho_norm
+        if md_path.exists():
+            frontmatter, corpo = parse_md_com_frontmatter(md_path)
+            for match in re.findall(r"!\[.*?\]\((.*?)\)", corpo):
+                adicionar_referencia_imagem(match)
+            if frontmatter:
+                varrer_objeto(frontmatter)
 
-    for pico in croqui_data.get("picos", []):
-        if "setores_ou_grupos" in pico:
-            coletar_setores_ou_grupos_recursivo(pico["setores_ou_grupos"])
-        if "mapas_gerais" in pico:
-            mg = pico["mapas_gerais"]
-            if isinstance(mg, dict) and "caminho" in mg:
-                md_path = pico_path / mg["caminho"]
-                referencias.add(mg["caminho"])
-                if md_path.exists():
-                    frontmatter, corpo = parse_md_com_frontmatter(md_path)
-                    referencias.update(re.findall(r"!\[.*?\]\((.*?)\)", corpo))
-                    if frontmatter and "mapas" in frontmatter:
-                        for mapa in frontmatter["mapas"]:
-                            if "caminho_imagem_mapa" in mapa:
-                                referencias.add(mapa["caminho_imagem_mapa"])
-            
+    def varrer_objeto(obj: Any) -> None:
+        if isinstance(obj, str):
+            for match in re.findall(r"!\[.*?\]\((.*?)\)", obj):
+                adicionar_referencia_imagem(match)
+        elif isinstance(obj, dict):
+            if "caminho" in obj and isinstance(obj["caminho"], str) and obj["caminho"].endswith(".md"):
+                processar_md(obj["caminho"])
+            for k, v in obj.items():
+                if k in ("caminho_imagem_mapa", "caminho_thumbnail", "caminho_imagem") and isinstance(v, str):
+                    adicionar_referencia_imagem(v)
+                else:
+                    varrer_objeto(v)
+        elif isinstance(obj, list):
+            for item in obj:
+                varrer_objeto(item)
+
+    varrer_objeto(croqui_data)
+
     # Filtra e normaliza: apenas referências que apontam para imagens/ ou .md
-    return {ref.replace("\\", "/") for ref in referencias if isinstance(ref, str) and (ref.startswith("imagens/") or ref.endswith(".md"))}
+    return {
+        ref.replace("\\", "/").strip()
+        for ref in referencias
+        if isinstance(ref, str)
+        and (ref.replace("\\", "/").strip().startswith("imagens/") or ref.replace("\\", "/").strip().endswith(".md"))
+    }
 
 def limpar_arquivos_nao_utilizados(pico_path: Path, croqui_data: Dict[str, Any]) -> None:
     """Deleta arquivos (imagens e markdowns) que não possuem referências nos metadados."""

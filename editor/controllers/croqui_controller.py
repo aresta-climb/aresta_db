@@ -12,6 +12,7 @@ from editor.commands.comandos_protobuf import (
     CmdAlterarRepeatedItem,
     CmdMoverRepeated,
     CmdAlterarCampoImagem,
+    CmdInserirImagemMarkdown,
 )
 
 
@@ -107,6 +108,28 @@ class CroquiController:
         """Despacha comando de alteração de imagem com gerenciamento em RAM."""
         cmd = CmdAlterarCampoImagem(
             self.model, msg, campo_nome, caminho_antigo, bytes_antigo, caminho_novo, bytes_novo, self.contexto_atual_path
+        )
+        self._executar_comando(cmd)
+
+    def inserir_imagem_markdown(
+        self,
+        msg: Any,
+        campo_nome: str,
+        texto_antigo: Optional[str],
+        texto_novo: str,
+        caminho_imagem: Optional[str] = None,
+        bytes_imagem: Optional[bytes] = None,
+    ) -> None:
+        """Despacha comando de inserção de imagem no Markdown com gestão transacional de bytes em RAM."""
+        cmd = CmdInserirImagemMarkdown(
+            self.model,
+            msg,
+            campo_nome,
+            texto_antigo,
+            texto_novo,
+            caminho_imagem,
+            bytes_imagem,
+            self.contexto_atual_path,
         )
         self._executar_comando(cmd)
 

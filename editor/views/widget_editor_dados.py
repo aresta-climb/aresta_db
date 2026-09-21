@@ -491,6 +491,19 @@ class WidgetEditorMarkdown(QWidget):
         self.editor.setProperty("protobuf_field", self.field.name)
         self.editor.setProperty("protobuf_msg_id", _get_id(self.msg))
         self.editor.textChanged.connect(self._on_text_changed)
+        if self.model and hasattr(self.model, "dado_alterado"):
+            self.model.dado_alterado.connect(self._ao_dado_alterado_model)
+
+    def _ao_dado_alterado_model(self, msg: Any, campo_nome: str, *args: Any) -> None:
+        from editor.views.widget_editor_dados import _get_id
+        if _get_id(msg) == _get_id(self.msg) and campo_nome == self.field.name:
+            has_field = False
+            try:
+                has_field = msg.HasField(campo_nome)
+            except ValueError:
+                has_field = bool(getattr(msg, campo_nome, None))
+            novo_valor = getattr(msg, campo_nome) if has_field else ""
+            self.set_conteudo(novo_valor)
 
     def _configurar_autocompletar(self) -> None:
         extensoes = {".webp", ".png", ".jpg", ".jpeg", ".bmp"}
@@ -519,15 +532,50 @@ class WidgetEditorMarkdown(QWidget):
 
     def abrir_dialogo_inserir_imagem(self, imagem_inicial: Optional[str] = None) -> None:
         caminho = self.caminho_db or Path(".")
-        dialogo = DialogoInserirImagemMarkdown(caminho_db=caminho, model=self.model, imagem_inicial=imagem_inicial, parent=self)
+        dialogo = DialogoInserirImagemMarkdown(
+            caminho_db=caminho, model=self.model, imagem_inicial=imagem_inicial, parent=self
+        )
         if dialogo.exec() == QDialog.DialogCode.Accepted:
             tag = dialogo.obter_tag_markdown()
             if tag:
+                texto_antigo = self.editor.toPlainText()
                 cursor = self.editor.textCursor()
                 cursor.insertText(tag)
                 self.editor.setTextCursor(cursor)
+                texto_novo = self.editor.toPlainText()
+
+                nome_imagem = dialogo.obter_nome_imagem() if hasattr(dialogo, "obter_nome_imagem") else None
+                bytes_imagem = dialogo.obter_bytes_imagem_processada() if hasattr(dialogo, "obter_bytes_imagem_processada") else None
+                caminho_relativo = f"imagens/{nome_imagem}" if nome_imagem else None
+
+                if hasattr(self, "temporizador"):
+                    self.temporizador.descartar()
+
+                if self.controller and hasattr(self.controller, "inserir_imagem_markdown"):
+                    self.controller.inserir_imagem_markdown(
+                        self.msg,
+                        self.field.name,
+                        texto_antigo,
+                        texto_novo,
+                        caminho_imagem=caminho_relativo if bytes_imagem else None,
+                        bytes_imagem=bytes_imagem,
+                    )
+                    if hasattr(self, "formulario") and self.formulario:
+                        self.formulario._mark_dirty()
+                        self.formulario._notify_tree_changed()
+                else:
+                    self.forcar_consolidacao()
+
                 self._configurar_autocompletar()
-                self.forcar_consolidacao()
+                self._atualizar_preview(texto_novo)
+
+    def _atualizar_preview(self, text: str) -> None:
+        preview_text = text.lstrip()
+        if preview_text.startswith("---"):
+            parts = preview_text.split("---", 2)
+            if len(parts) >= 3:
+                preview_text = parts[2]
+        self.preview.setMarkdown(preview_text)
         
     def set_conteudo(self, novo_conteudo: str) -> None:
         text = "" if novo_conteudo is None else str(novo_conteudo)
@@ -554,12 +602,7 @@ class WidgetEditorMarkdown(QWidget):
         self.editor.setTextCursor(cursor)
         self.editor.blockSignals(False)
             
-        preview_text = text.lstrip()
-        if preview_text.startswith("---"):
-            parts = preview_text.split("---", 2)
-            if len(parts) >= 3:
-                preview_text = parts[2]
-        self.preview.setMarkdown(preview_text)
+        self._atualizar_preview(text)
 
     def _on_text_changed(self) -> None:
         self.temporizador.agendar(self._consolidar_edicao)
@@ -572,14 +615,7 @@ class WidgetEditorMarkdown(QWidget):
     def _consolidar_edicao(self) -> None:
         text = self.editor.toPlainText()
         
-        # Filtra o frontmatter para renderizar na preview
-        preview_text = text.lstrip()
-        if preview_text.startswith("---"):
-            parts = preview_text.split("---", 2)
-            if len(parts) >= 3:
-                preview_text = parts[2]
-                
-        self.preview.setMarkdown(preview_text)
+        self._atualizar_preview(text)
         
         try:
             has_field = self.msg.HasField(self.field.name)

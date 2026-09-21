@@ -34,101 +34,11 @@ from editor.core.processamento_imagem_campo import (
 )
 
 
-EXTENSOES_IMAGEM_SUPORTADAS: Tuple[str, ...] = (
-    ".png",
-    ".jpg",
-    ".jpeg",
-    ".webp",
-    ".bmp",
-    ".tiff",
-    ".tif",
-    ".heic",
-    ".heif",
+from editor.views.componentes.area_drop_imagem import (
+    AreaDropImagem,
+    EXTENSOES_IMAGEM_SUPORTADAS,
+    FILTRO_ARQUIVOS_IMAGEM,
 )
-
-FILTRO_ARQUIVOS_IMAGEM: str = (
-    f"Imagens ({' '.join(f'*{ext}' for ext in EXTENSOES_IMAGEM_SUPORTADAS)})"
-)
-
-
-class AreaDropImagem(QWidget):
-    """
-    Área visual para arrastar e soltar (Drag & Drop) ou clicar para selecionar uma imagem.
-    """
-    imagem_selecionada = Signal(str)
-
-    def __init__(self, parent: Optional[QWidget] = None) -> None:
-        super().__init__(parent)
-        self.setAcceptDrops(True)
-        self.setMinimumSize(420, 220)
-        self.setStyleSheet("""
-            AreaDropImagem {
-                border: 2px dashed #888;
-                border-radius: 8px;
-                background-color: #fafafa;
-            }
-            AreaDropImagem:hover {
-                background-color: #f0f4f8;
-                border-color: #0066cc;
-            }
-        """)
-
-        self.layout_conteudo = QVBoxLayout(self)
-        self.layout_conteudo.setAlignment(Qt.AlignmentFlag.AlignCenter)
-        self.layout_conteudo.setContentsMargins(12, 12, 12, 12)
-
-        self.label_info = QLabel("Arraste e solte uma imagem aqui\nou clique para selecionar")
-        self.label_info.setAlignment(Qt.AlignmentFlag.AlignCenter)
-        self.label_info.setStyleSheet("border: none; background: transparent; color: #555; font-size: 13px;")
-
-        self.label_preview = QLabel()
-        self.label_preview.setAlignment(Qt.AlignmentFlag.AlignCenter)
-        self.label_preview.setStyleSheet("border: none; background: transparent;")
-        self.label_preview.hide()
-
-        self.layout_conteudo.addWidget(self.label_info)
-        self.layout_conteudo.addWidget(self.label_preview)
-
-    def mousePressEvent(self, event: Any) -> None:
-        if event.button() == Qt.MouseButton.LeftButton:
-            arquivo, _ = QFileDialog.getOpenFileName(
-                self,
-                "Selecionar Imagem do Mapa",
-                "",
-                FILTRO_ARQUIVOS_IMAGEM,
-            )
-            if arquivo:
-                self.imagem_selecionada.emit(arquivo)
-
-    def dragEnterEvent(self, event: QDragEnterEvent) -> None:
-        if event.mimeData().hasUrls():
-            urls = event.mimeData().urls()
-            if urls and urls[0].isLocalFile():
-                ext = Path(urls[0].toLocalFile()).suffix.lower()
-                if ext in EXTENSOES_IMAGEM_SUPORTADAS:
-                    event.acceptProposedAction()
-                    return
-        event.ignore()
-
-    def dropEvent(self, event: QDropEvent) -> None:
-        urls = event.mimeData().urls()
-        if urls and urls[0].isLocalFile():
-            arquivo = urls[0].toLocalFile()
-            self.imagem_selecionada.emit(arquivo)
-            event.acceptProposedAction()
-
-    def definir_preview_bytes(self, bytes_img: bytes) -> None:
-        pixmap = QPixmap()
-        if pixmap.loadFromData(bytes_img):
-            pixmap_scaled = pixmap.scaled(
-                self.width() - 30,
-                self.height() - 30,
-                Qt.AspectRatioMode.KeepAspectRatio,
-                Qt.TransformationMode.SmoothTransformation,
-            )
-            self.label_preview.setPixmap(pixmap_scaled)
-            self.label_info.hide()
-            self.label_preview.show()
 
 
 class DialogoAdicionarMapa(QDialog):

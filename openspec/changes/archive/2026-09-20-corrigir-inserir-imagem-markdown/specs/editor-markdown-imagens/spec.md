@@ -1,29 +1,19 @@
-# editor-markdown-imagens Specification
+## ADDED Requirements
 
-## Purpose
-TBD - created by archiving change suporte-imagens-editor-markdown. Update Purpose after archive.
-## Requirements
-### Requirement: Biblioteca de Regras de Imagens Markdown (Library-First)
-O sistema SHALL fornecer uma biblioteca autossuficiente (`editor.core.imagens_markdown`) para regras de negócio de nomenclatura, sanitização, formatação de tags e processamento de imagens destinadas ao Markdown.
-- **Sanitização de Nomes**: A biblioteca SHALL converter nomes brutos para formato `snake_case`, em caracteres minúsculos, sem acentos ou símbolos especiais, com extensão `.webp`.
-- **Prevenção de Colisões**: Ao sugerir um nome para uma pasta de destino, a biblioteca SHALL verificar a existência de arquivos com o mesmo nome e adicionar sufixos numéricos sequenciais (`_1`, `_2`).
-- **Nomenclatura de Capturas de Tela**: Para imagens provenientes da área de transferência, a biblioteca SHALL gerar nomes no formato `imagem_AAAAMMDD_HHMMSS.webp`.
-- **Formatação de Tag**: A biblioteca SHALL gerar strings no formato `![<legenda>](imagens/<nome_arquivo>)`.
-- **Compressão e Persistência**: A biblioteca SHALL aplicar a conversão de imagem em formato WebP com qualidade lossy 85 e limite de área de 4.194.304 pixels (`comprimir_imagem_para_bytes_webp`) antes de gravar no disco.
+### Requirement: Preservação de Imagens Markdown na Limpeza de Arquivos no Salvamento
+O sistema SHALL identificar e preservar todas as imagens referenciadas via tags Markdown (`![]()`) durante o ciclo de salvamento, compilação e higienização do banco de dados (`limpar_arquivos_nao_utilizados` / `coletar_referencias_arquivos`).
+- **Varredura Completa de Campos de Texto**: A rotina de coleta de referências SHALL inspecionar recursivamente e extrair nomes de imagens presentes em `croqui.descricao`, `pico.descricao`, em todas as escaladas filhas (`via_esportiva.descricao`, `via_movel.descricao`, `boulder.descricao`, `via_multiplas_enfiadas.descricao`, `highline.descricao`), em `trilha.descricao` e em `ponto_de_interesse.descricao`.
+- **Prevenção de Exclusão Indevida**: Nenhuma imagem referenciada em campos Markdown válidos do croqui SHALL ser excluída (`unlink`) pelo limpador de arquivos órfãos.
 
-#### Scenario: Sanitização de Nome de Arquivo
-- **WHEN** a função de sanitização recebe a string `"Foto do Setor Principal (Cópia).png"`
-- **THEN** ela SHALL retornar `"foto_do_setor_principal_copia.webp"`.
+#### Scenario: Preservação de Imagem em Descrição de Croqui ou Pico ao Salvar
+- **WHEN** o usuário insere uma imagem na descrição do croqui ou na descrição de um pico e executa o salvamento
+- **THEN** a rotina de limpeza de arquivos NÃO SHALL excluir o arquivo WebP correspondente do disco, mantendo-o íntegro e detectável pelo controle de versão.
 
-#### Scenario: Incremento Numérico em Caso de Colisão
-- **WHEN** a função de geração de nome padrão recebe um nome cujo arquivo já existe na pasta de destino
-- **THEN** ela SHALL retornar o nome acrescido de um sufixo numérico que garanta a unicidade do novo arquivo.
+#### Scenario: Preservação de Imagem em Descrição de Vias e Trilhas
+- **WHEN** uma imagem for referenciada na descrição de uma via esportiva, móvel, boulder, enfiada, highline ou trilha
+- **THEN** o sistema SHALL computar o arquivo como referenciado na lista de arquivos ativos durante a higienização do banco de dados.
 
-#### Scenario: Formatação de Tag com e sem Legenda
-- **WHEN** a função de formatação de tag recebe o arquivo `"setor_bloco.webp"` com a legenda `"Bloco Central"`
-- **THEN** ela SHALL retornar `"![Bloco Central](imagens/setor_bloco.webp)"`.
-- **WHEN** a função de formatação de tag recebe o arquivo `"setor_bloco.webp"` com a legenda vazia
-- **THEN** ela SHALL retornar `"![](imagens/setor_bloco.webp)"`.
+## MODIFIED Requirements
 
 ### Requirement: Diálogo de Inserção de Imagens no Markdown
 O sistema SHALL fornecer um diálogo modal (`DialogoInserirImagemMarkdown`) para auxiliar a seleção, importação e inserção de imagens em campos Markdown do editor.
@@ -43,25 +33,6 @@ O sistema SHALL fornecer um diálogo modal (`DialogoInserirImagemMarkdown`) para
 #### Scenario: Unificação de Layout e Feedback de Colisão em Tempo Real
 - **WHEN** o usuário abre o diálogo para importar uma nova imagem
 - **THEN** a interface exibe área de drag & drop, botão de cabeçalho "Selecionar Imagem...", painel de metadados da imagem selecionada e campo de slug com feedback de validação em tempo real.
-
-### Requirement: Galeria de Imagens do Croqui Atual
-O diálogo SHALL listar todas as imagens disponíveis na pasta `imagens/` do croqui atual com pré-visualização de miniaturas e busca rápida.
-- **Visualização em Grade**: Cada imagem da pasta `imagens/` SHALL ser representada com sua miniatura e nome de arquivo.
-- **Filtro Textual**: O diálogo SHALL fornecer um campo de busca para filtrar dinamicamente a lista de imagens pelo nome do arquivo.
-
-#### Scenario: Filtragem de Imagens na Galeria
-- **WHEN** o usuário digita um termo no campo de busca do diálogo
-- **THEN** a galeria SHALL exibir apenas as imagens cujo nome do arquivo contenha o termo digitado.
-
-### Requirement: Importação e Otimização de Imagens
-O sistema SHALL permitir importar novas imagens a partir do computador ou área de transferência, convertendo-as e otimizando-as automaticamente para o padrão do projeto.
-- **Formatos Aceitos**: O importador SHALL aceitar arquivos nos formatos `.webp`, `.png`, `.jpg`, `.jpeg` e `.bmp`, além de imagens contidas na área de transferência (clipboard).
-- **Parâmetros de Compressão**: As imagens importadas SHALL ser processadas com formato WebP, qualidade de compressão lossy `quality=85` e limitação de área máxima de 4 Megapixels (`max_area=4194304`), preservando a proporção de aspecto.
-- **Destino do Arquivo**: O arquivo WebP resultante SHALL ser salvo diretamente na subpasta `imagens/` do croqui atual.
-
-#### Scenario: Importação e Conversão de Imagem PNG Externa
-- **WHEN** o usuário seleciona um arquivo `.png` de alta resolução de fora do projeto
-- **THEN** o sistema SHALL redimensionar a imagem para caber em 4kk pixels (se necessário), compactar em WebP com qualidade 85 e salvá-la em `imagens/<nome>.webp`.
 
 ### Requirement: Interações Ágeis no Editor Markdown e Registro no Histórico (Undo/Redo)
 O editor Markdown (`WidgetEditorMarkdown`) SHALL oferecer múltiplos pontos de entrada para inserção rápida de imagens e registrar as modificações de texto na pilha de histórico (`QUndoStack`), garantindo digitação responsiva e sem congelamentos.
@@ -92,18 +63,3 @@ O editor Markdown (`WidgetEditorMarkdown`) SHALL oferecer múltiplos pontos de e
 #### Scenario: Prevenção de Duplo Render em Ciclo de Eco
 - **WHEN** o editor Markdown recebe a confirmação de dado alterado via `set_conteudo` com o mesmo texto já digitado
 - **THEN** o editor não deve invocar novamente a renderização Markdown nem o redimensionamento de imagens.
-
-### Requirement: Preservação de Imagens Markdown na Limpeza de Arquivos no Salvamento
-O sistema SHALL identificar e preservar todas as imagens referenciadas via tags Markdown (`![]()`) durante o ciclo de salvamento, compilação e higienização do banco de dados (`limpar_arquivos_nao_utilizados` / `coletar_referencias_arquivos`).
-- **Varredura Completa de Campos de Texto**: A rotina de coleta de referências SHALL inspecionar recursivamente e extrair nomes de imagens presentes em `croqui.descricao`, `pico.descricao`, em todas as escaladas filhas (`via_esportiva.descricao`, `via_movel.descricao`, `boulder.descricao`, `via_multiplas_enfiadas.descricao`, `highline.descricao`), em `trilha.descricao` e em `ponto_de_interesse.descricao`.
-- **Prevenção de Exclusão Indevida**: Nenhuma imagem referenciada em campos Markdown válidos do croqui SHALL ser excluída (`unlink`) pelo limpador de arquivos órfãos.
-
-#### Scenario: Preservação de Imagem em Descrição de Croqui ou Pico ao Salvar
-- **WHEN** o usuário insere uma imagem na descrição do croqui ou na descrição de um pico e executa o salvamento
-- **THEN** a rotina de limpeza de arquivos NÃO SHALL excluir o arquivo WebP correspondente do disco, mantendo-o íntegro e detectável pelo controle de versão.
-
-#### Scenario: Preservação de Imagem em Descrição de Vias e Trilhas
-- **WHEN** uma imagem for referenciada na descrição de uma via esportiva, móvel, boulder, enfiada, highline ou trilha
-- **THEN** o sistema SHALL computar o arquivo como referenciado na lista de arquivos ativos durante a higienização do banco de dados.
-
-

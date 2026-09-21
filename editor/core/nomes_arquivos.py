@@ -11,12 +11,17 @@ from editor.core.formatacao import para_snake_case
 def deduplicar_prefixo(nome: Optional[str], prefixo: str) -> str:
     """Deduplica o prefixo em nomes de entidades para geração de nomes em snake_case.
 
-    Evita nomes redundantes como 'setor_setor_fugitivos'.
+    Evita nomes redundantes como 'setor_setor_fugitivos' ou 'setor_bloco_fugitivos'.
+    Caso a entidade seja um setor e seu nome utilize 'bloco' ou 'blocos', adota 'bloco'
+    como prefixo automaticamente ao invés de forçar 'setor_'.
 
     Exemplos:
         deduplicar_prefixo("Setor Fugitivos I", "setor") -> "setor_fugitivos_i"
+        deduplicar_prefixo("Bloco Fugitivos I", "setor") -> "bloco_fugitivos_i"
+        deduplicar_prefixo("Blocos da Entrada", "setor") -> "blocos_da_entrada"
         deduplicar_prefixo("Fugitivos I", "setor") -> "setor_fugitivos_i"
         deduplicar_prefixo("Setor", "setor") -> "setor"
+        deduplicar_prefixo("Bloco", "setor") -> "bloco"
         deduplicar_prefixo("", "setor") -> "setor"
     """
     prefixo_limpo = prefixo.strip().lower()
@@ -26,6 +31,14 @@ def deduplicar_prefixo(nome: Optional[str], prefixo: str) -> str:
     slug = para_snake_case(nome)
     if not slug or slug == prefixo_limpo:
         return prefixo_limpo
+
+    # Se a entidade for setor e o nome iniciar com 'bloco' ou 'blocos', adota o próprio bloco como prefixo
+    if prefixo_limpo == "setor" and (
+        slug in ("bloco", "blocos")
+        or slug.startswith("bloco_")
+        or slug.startswith("blocos_")
+    ):
+        return slug
 
     if slug.startswith(f"{prefixo_limpo}_"):
         return slug

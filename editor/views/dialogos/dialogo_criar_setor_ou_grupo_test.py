@@ -154,3 +154,25 @@ def test_dialogo_criar_setor_ou_grupo_validacao_duplicidade(qapp):
     assert dialogo.lbl_aviso.text() == ""
 
 
+def test_dialogo_criar_setor_ou_grupo_auto_proposicao_bloco(qapp):
+    """Verifica se ao digitar o nome de um bloco, o arquivo é auto-proposto com prefixo bloco_ ao invés de setor_."""
+    dialogo = DialogoCriarSetorOuGrupo(modo="ambos")
+    dialogo.show()
+
+    dialogo.edit_nome.setText("Bloco Tremembé")
+    assert dialogo.edit_arquivo.text() == "bloco_tremembe.md"
+    assert dialogo.btn_criar.isEnabled() is True
+
+
+def test_dialogo_criar_setor_ou_grupo_validacao_duplicidade_bloco(qapp):
+    """Verifica se a mensagem de duplicidade referencia 'bloco' quando o nome digitado for de um bloco."""
+    nomes_existentes = ["Bloco do Lago"]
+    dialogo = DialogoCriarSetorOuGrupo(nomes_existentes=nomes_existentes)
+    dialogo.show()
+
+    dialogo.edit_nome.setText("Bloco do Lago")
+    assert dialogo.btn_criar.isEnabled() is False
+    assert dialogo.lbl_aviso.text() == "Já existe um bloco com este nome."
+
+
+

@@ -689,6 +689,60 @@ def test_validar_pertence_ao_croqui_casos_limite():
     assert caminho == ""
 
 
+def test_cmd_inserir_imagem_markdown():
+    from editor.commands.comandos_protobuf import CmdInserirImagemMarkdown, deserializar_comando
+    from aresta_api.proto.generated.croqui_pb2 import Croqui
+    from editor.models.croqui_model import CroquiModel
+
+    croqui = Croqui()
+    croqui.descricao = "Texto inicial"
+    model = CroquiModel(croqui)
+
+    foco_notificado = []
+    model.foco_requisitado.connect(lambda ctx: foco_notificado.append(ctx))
+
+    bytes_img = b"fake_bytes_img_123"
+    cmd = CmdInserirImagemMarkdown(
+        model=model,
+        msg=croqui,
+        campo_nome="descricao",
+        texto_antigo="Texto inicial",
+        texto_novo="Texto inicial\n![Foto](imagens/foto.webp)",
+        caminho_imagem="imagens/foto.webp",
+        bytes_imagem=bytes_img,
+        context_path="croqui.descricao",
+    )
+
+    # Redo
+    cmd.redo()
+    assert croqui.descricao == "Texto inicial\n![Foto](imagens/foto.webp)"
+    assert model.obter_imagens_em_memoria().get("imagens/foto.webp") == bytes_img
+    assert foco_notificado == ["croqui.descricao"]
+
+    # Undo
+    cmd.undo()
+    assert croqui.descricao == "Texto inicial"
+    assert "imagens/foto.webp" not in model.obter_imagens_em_memoria()
+    assert foco_notificado == ["croqui.descricao", "croqui.descricao"]
+
+    # Serialização e Deserialização
+    dados = cmd.serializar(anonimizado=False)
+    assert dados["classe"] == "CmdInserirImagemMarkdown"
+    assert dados["campo_nome"] == "descricao"
+    assert dados["texto_novo"] == "Texto inicial\n![Foto](imagens/foto.webp)"
+    assert dados["caminho_imagem"] == "imagens/foto.webp"
+    assert dados["bytes_imagem"] == bytes_img
+
+    cmd_deserializado = deserializar_comando(dados, model)
+    assert isinstance(cmd_deserializado, CmdInserirImagemMarkdown)
+    assert cmd_deserializado.caminho_imagem == "imagens/foto.webp"
+    assert cmd_deserializado.bytes_imagem == bytes_img
+
+    # Serialização anonimizada
+    dados_anon = cmd.serializar(anonimizado=True)
+    assert dados_anon["bytes_imagem"] is not None
+
+
 
 
 

@@ -3746,5 +3746,61 @@ def test_forcar_consolidacao_pendente_com_foco_e_descarte_cache_guardas(qapp, mo
     widget._executar_mover_para_baixo(QModelIndex())
 
 
+def test_widget_editor_markdown_inserir_imagem_historico_undo_redo(qapp, monkeypatch):
+    from unittest.mock import MagicMock
+    from aresta_api.proto.generated.croqui_pb2 import Croqui
+    from editor.models.croqui_model import CroquiModel
+    from editor.controllers.croqui_controller import CroquiController
+    from editor.views.widget_editor_dados import WidgetEditorDados, WidgetEditorMarkdown
+    from PySide6.QtGui import QUndoStack
+    from PySide6.QtWidgets import QDialog
+
+    croqui = Croqui()
+    croqui.nome = "Croqui Teste"
+    croqui.descricao = "Texto antes da imagem."
+
+    model = CroquiModel(croqui)
+    pilha = QUndoStack()
+    controller = CroquiController(model, pilha)
+    widget_dados = WidgetEditorDados(model, controller)
+
+    campo_desc = croqui.DESCRIPTOR.fields_by_name["descricao"]
+    md_editor = WidgetEditorMarkdown(croqui, campo_desc, widget_dados.form_padrao, parent=widget_dados.form_padrao)
+
+    # Mock do diálogo para simular inserção aceita
+    mock_dialogo = MagicMock()
+    mock_dialogo.exec.return_value = QDialog.DialogCode.Accepted
+    mock_dialogo.obter_tag_markdown.return_value = "\n![Via Principal](imagens/foto_teste.webp)\n"
+    mock_dialogo.obter_nome_imagem.return_value = "foto_teste.webp"
+    mock_dialogo.obter_bytes_imagem_processada.return_value = b"fake_bytes_webp_123"
+
+    monkeypatch.setattr(
+        "editor.views.widget_editor_dados.DialogoInserirImagemMarkdown",
+        lambda *args, **kwargs: mock_dialogo,
+    )
+
+    # Executa a ação de inserir imagem
+    md_editor.abrir_dialogo_inserir_imagem()
+
+    # 1. Verifica empilhamento no histórico (Princípio VII)
+    assert pilha.count() == 1, "Comando deve ser empilhado na pilha de histórico"
+    assert "![Via Principal](imagens/foto_teste.webp)" in croqui.descricao
+    assert "![Via Principal](imagens/foto_teste.webp)" in md_editor.editor.toPlainText()
+    assert model.obter_imagens_em_memoria().get("imagens/foto_teste.webp") == b"fake_bytes_webp_123"
+
+    # 2. Testa Desfazer (Undo - Ctrl+Z)
+    pilha.undo()
+    assert croqui.descricao == "Texto antes da imagem."
+    assert "imagens/foto_teste.webp" not in model.obter_imagens_em_memoria()
+    assert md_editor.editor.toPlainText() == "Texto antes da imagem."
+
+    # 3. Testa Refazer (Redo - Ctrl+Y)
+    pilha.redo()
+    assert "![Via Principal](imagens/foto_teste.webp)" in croqui.descricao
+    assert model.obter_imagens_em_memoria().get("imagens/foto_teste.webp") == b"fake_bytes_webp_123"
+    assert "![Via Principal](imagens/foto_teste.webp)" in md_editor.editor.toPlainText()
+
+
+
 
 

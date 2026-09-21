@@ -411,3 +411,32 @@ def test_croqui_controller_renomear_escalada_direto(qapp):
     assert proxy_ref.escalada == "Boulder Novo"
 
 
+def test_croqui_controller_inserir_imagem_markdown(qapp):
+    from editor.commands.comandos_protobuf import CmdInserirImagemMarkdown
+
+    croqui = Croqui()
+    croqui.descricao = "Descricao antes"
+    model = CroquiModel(croqui)
+    undo_stack = QUndoStack()
+    controller = CroquiController(model, undo_stack)
+
+    proxy = model.obter_croqui_readonly()
+    controller.inserir_imagem_markdown(
+        proxy,
+        "descricao",
+        "Descricao antes",
+        "Descricao antes\n![Foto](imagens/via.webp)",
+        caminho_imagem="imagens/via.webp",
+        bytes_imagem=b"bytes_da_imagem",
+    )
+
+    assert proxy.descricao == "Descricao antes\n![Foto](imagens/via.webp)"
+    assert model.obter_imagens_em_memoria().get("imagens/via.webp") == b"bytes_da_imagem"
+    assert undo_stack.count() == 1
+    assert isinstance(undo_stack.command(0), CmdInserirImagemMarkdown)
+
+    undo_stack.undo()
+    assert proxy.descricao == "Descricao antes"
+    assert "imagens/via.webp" not in model.obter_imagens_em_memoria()
+
+
