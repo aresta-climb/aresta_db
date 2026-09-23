@@ -466,61 +466,71 @@ class MapasController:
                     indices_no_cand = [
                         m.indice_no for m in matches_nos if m is not None and m.id_linha == id_cand and m.indice_no is not None
                     ]
-                    if len(indices_no_cand) >= 2 and indices_no_cand[0] > 0 and indices_no_cand[-1] < len(linha_cand.linha.conteudo.nos) - 1:
+                    nos_unicos = sorted(set(indices_no_cand))
+                    total_nos_cand = len(linha_cand.linha.conteudo.nos)
+                    if len(nos_unicos) >= 2 and nos_unicos[0] > 0 and nos_unicos[-1] < total_nos_cand - 1:
                         # Identificou travessia intermediária em linha_cand
-                        idx_in = min(indices_no_cand)
-                        idx_out = max(indices_no_cand)
+                        idx_in = nos_unicos[0]
+                        idx_out = nos_unicos[-1]
                         pos_in = [i for i, m in enumerate(matches_nos) if m and m.id_linha == id_cand and m.indice_no == idx_in][0]
                         pos_out = [i for i, m in enumerate(matches_nos) if m and m.id_linha == id_cand and m.indice_no == idx_out][0]
 
-                        ids_reservados: Set[str] = set()
-                        id_sub1 = gerar_id_poi_disjunto_setor(msg_setor_proxy, "linha", ids_reservados=ids_reservados)
-                        ids_reservados.add(id_sub1)
-                        id_sub2 = gerar_id_poi_disjunto_setor(msg_setor_proxy, "linha", ids_reservados=ids_reservados)
-                        ids_reservados.add(id_sub2)
-                        id_sub3 = gerar_id_poi_disjunto_setor(msg_setor_proxy, "linha", ids_reservados=ids_reservados)
-                        ids_reservados.add(id_sub3)
-                        sub1, sub2, sub3 = fatiar_linha_triplo(linha_cand, idx_in, idx_out, id_sub1, id_sub2, id_sub3)
+                        if pos_in < pos_out:
+                            try:
+                                ids_reservados: Set[str] = set()
+                                id_sub1 = gerar_id_poi_disjunto_setor(msg_setor_proxy, "linha", ids_reservados=ids_reservados)
+                                ids_reservados.add(id_sub1)
+                                id_sub2 = gerar_id_poi_disjunto_setor(msg_setor_proxy, "linha", ids_reservados=ids_reservados)
+                                ids_reservados.add(id_sub2)
+                                id_sub3 = gerar_id_poi_disjunto_setor(msg_setor_proxy, "linha", ids_reservados=ids_reservados)
+                                ids_reservados.add(id_sub3)
+                                sub1, sub2, sub3 = fatiar_linha_triplo(linha_cand, idx_in, idx_out, id_sub1, id_sub2, id_sub3)
 
-                        # Remove linha original
-                        idx_original = list(msg_mapa_proxy.pontos_de_interesse).index(linha_cand)
-                        self.deletar_poi(msg_mapa_proxy, idx_original)
-                        self.adicionar_poi(msg_mapa_proxy, sub1)
-                        self.adicionar_poi(msg_mapa_proxy, sub2)
-                        self.adicionar_poi(msg_mapa_proxy, sub3)
+                                # Remove linha original
+                                idx_original = list(msg_mapa_proxy.pontos_de_interesse).index(linha_cand)
+                                self.deletar_poi(msg_mapa_proxy, idx_original)
+                                self.adicionar_poi(msg_mapa_proxy, sub1)
+                                self.adicionar_poi(msg_mapa_proxy, sub2)
+                                self.adicionar_poi(msg_mapa_proxy, sub3)
 
-                        # Atualiza referências que apontavam para linha_cand
-                        for i_ref, ref in enumerate(msg_mapa_proxy.referencias):
-                            if id_cand in ref.ids:
-                                ref_antiga = _copia_segura(ref)
-                                ref_nova = _copia_segura(ref)
-                                atualizar_referencias_apos_fatiamento([ref_nova], id_cand, [id_sub1, id_sub2, id_sub3])
-                                self.alterar_referencia(msg_mapa_proxy, i_ref, ref_antiga, ref_nova)
+                                # Atualiza referências que apontavam para linha_cand
+                                for i_ref, ref in enumerate(msg_mapa_proxy.referencias):
+                                    if id_cand in ref.ids:
+                                        ref_antiga = _copia_segura(ref)
+                                        ref_nova = _copia_segura(ref)
+                                        atualizar_referencias_apos_fatiamento([ref_nova], id_cand, [id_sub1, id_sub2, id_sub3])
+                                        self.alterar_referencia(msg_mapa_proxy, i_ref, ref_antiga, ref_nova)
 
-                        # Cria entrada própria da travessia (se houver pontos antes da junção)
-                        ids_travessia = []
-                        if pos_in > 0:
-                            id_ent = gerar_id_poi_disjunto_setor(msg_setor_proxy, "linha", ids_reservados=ids_reservados)
-                            ids_reservados.add(id_ent)
-                            pts_ent = [{"x": p[0], "y": p[1]} for p in pontos_trajeto[:pos_in + 1]]
-                            self.adicionar_linha(msg_mapa_proxy, id_linha=id_ent, nos=pts_ent)
-                            ids_travessia.append(id_ent)
-                        
-                        ids_travessia.append(id_sub2)
+                                # Cria entrada própria da travessia (se houver pontos antes da junção)
+                                ids_travessia = []
+                                if pos_in > 0:
+                                    id_ent = gerar_id_poi_disjunto_setor(msg_setor_proxy, "linha", ids_reservados=ids_reservados)
+                                    ids_reservados.add(id_ent)
+                                    pts_ent = [{"x": p[0], "y": p[1]} for p in pontos_trajeto[:pos_in + 1]]
+                                    self.adicionar_linha(msg_mapa_proxy, id_linha=id_ent, nos=pts_ent)
+                                    ids_travessia.append(id_ent)
+                                
+                                ids_travessia.append(id_sub2)
 
-                        # Cria saída própria da travessia (se houver pontos após a junção)
-                        if pos_out < len(pontos_trajeto) - 1:
-                            id_sai = gerar_id_poi_disjunto_setor(msg_setor_proxy, "linha", ids_reservados=ids_reservados)
-                            ids_reservados.add(id_sai)
-                            pts_sai = [{"x": p[0], "y": p[1]} for p in pontos_trajeto[pos_out:]]
-                            self.adicionar_linha(msg_mapa_proxy, id_linha=id_sai, nos=pts_sai)
-                            ids_travessia.append(id_sai)
+                                # Cria saída própria da travessia (se houver pontos após a junção)
+                                if pos_out < len(pontos_trajeto) - 1:
+                                    id_sai = gerar_id_poi_disjunto_setor(msg_setor_proxy, "linha", ids_reservados=ids_reservados)
+                                    ids_reservados.add(id_sai)
+                                    pts_sai = [{"x": p[0], "y": p[1]} for p in pontos_trajeto[pos_out:]]
+                                    self.adicionar_linha(msg_mapa_proxy, id_linha=id_sai, nos=pts_sai)
+                                    ids_travessia.append(id_sai)
 
-                        # Cria referência da travessia
-                        ref_trav = croqui_pb2.Mapa.Referencia(escalada=nome_rota, ids=ids_travessia)
-                        self.adicionar_referencia(msg_mapa_proxy, ref_trav)
-                        fatiou = True
-                        break
+                                # Cria referência da travessia
+                                ref_trav = croqui_pb2.Mapa.Referencia(escalada=nome_rota, ids=ids_travessia)
+                                self.adicionar_referencia(msg_mapa_proxy, ref_trav)
+                                fatiou = True
+                                break
+                            except Exception as exc:
+                                import logging
+                                logging.getLogger(__name__).warning(
+                                    "Falha no fatiamento triplo da linha %s: %s. Revertendo para caso simples.", id_cand, exc
+                                )
+                                fatiou = False
 
                 if not fatiou:
                     # Cenário Bifurcação: compartilha o início e fatiamento em nó ou curva

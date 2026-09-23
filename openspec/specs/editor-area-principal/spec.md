@@ -40,8 +40,8 @@ A Top Toolbar SHALL conter ícones premium (via QtAwesome) para ações globais 
 - **THEN** o sistema SHALL executar a ação correspondente no histórico de comandos do croqui
 
 #### Scenario: Interação com botão Exportar
-- **WHEN** o usuário clica no botão "Exportar" na barra superior
-- **THEN** o sistema SHALL gerar o arquivo `.croqui` (ZIP) com os dados do croqui
+- **WHEN** o usuário busca a ação de exportação na barra superior
+- **THEN** a barra superior SHALL não exibir botão de exportação para formato .croqui
 
 ### Requirement: Barra de Ferramentas Lateral (Side Toolbar)
 A Side Toolbar SHALL conter ícones premium (via QtAwesome) dispostos verticalmente na lateral esquerda, permitindo alternar entre as visões: Dados, Imagens, Mapas e Histórico.

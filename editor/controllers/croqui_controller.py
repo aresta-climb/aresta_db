@@ -267,3 +267,48 @@ class CroquiController:
         cmd = CmdSubstituirImagemMemoria(self.model, caminho_relativo, bytes_antigo, bytes_novo, ctx)
         self._executar_comando(cmd)
 
+    def migrar_setor(
+        self,
+        pai_origem: Any = None,
+        campo_origem: str = "",
+        indice_origem: int = 0,
+        pai_destino: Any = None,
+        campo_destino: str = "",
+        indice_destino: int = 0,
+        caminho_novo: Optional[str] = None,
+        caminho_antigo: Optional[str] = None,
+        caminho_msg_origem: Optional[str] = None,
+        caminho_msg_destino: Optional[str] = None,
+        context_path: Optional[str] = None,
+    ) -> None:
+        """Despacha comando atômico de migração de setor entre pais hierárquicos."""
+        from editor.commands.comandos_protobuf import CmdMigrarSetor
+        cmd = CmdMigrarSetor(
+            model=self.model,
+            pai_origem=pai_origem,
+            campo_origem=campo_origem,
+            indice_origem=indice_origem,
+            pai_destino=pai_destino,
+            campo_destino=campo_destino,
+            indice_destino=indice_destino,
+            caminho_novo=caminho_novo,
+            caminho_antigo=caminho_antigo,
+            caminho_msg_origem=caminho_msg_origem,
+            caminho_msg_destino=caminho_msg_destino,
+            context_path=context_path or self.contexto_atual_path,
+        )
+        self._executar_comando(cmd)
+
+    def mover_repeated_para_posicao(
+        self,
+        msg: Any,
+        campo_nome: str,
+        index_from: int,
+        index_to: int,
+    ) -> None:
+        """Move o item do index_from para index_to na coleção repeated."""
+        if index_from == index_to:
+            return
+        cmd = CmdMoverRepeated(self.model, msg, campo_nome, index_from, index_to, context_path=self.contexto_atual_path)
+        self._executar_comando(cmd)
+

@@ -3152,8 +3152,26 @@ class WidgetEditorMapas(QWidget):
             self.cancelar_modo_nova_rota()
             return
 
+        # Sanitiza pontos consecutivos duplicados ou com distância menor que 1.0px (ex: gerados por duplo clique)
+        pts_limpos: List[Any] = []
+        for p in self.pontos_nova_rota:
+            if not pts_limpos:
+                pts_limpos.append(p)
+            else:
+                try:
+                    dx = float(p.x()) - float(pts_limpos[-1].x())
+                    dy = float(p.y()) - float(pts_limpos[-1].y())
+                    if (dx * dx + dy * dy) >= 1.0:
+                        pts_limpos.append(p)
+                except (TypeError, ValueError, AttributeError):
+                    pts_limpos.append(p)
+
+        if len(pts_limpos) < 2:
+            self.cancelar_modo_nova_rota()
+            return
+
         if self.mapas_controller and self.dados_nova_rota_atual:
-            pts = [(float(p.x()), float(p.y())) for p in self.pontos_nova_rota]
+            pts = [(float(p.x()), float(p.y())) for p in pts_limpos]
             if not self.dados_nova_rota_atual.get("sem_ligacao", False):
                 setor = self.dados_nova_rota_atual.get("setor_obj") or self._obter_setor_atual()
                 self.mapas_controller.adicionar_rota_com_tracado(

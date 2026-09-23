@@ -252,27 +252,6 @@ class TarefaPublicacao(QThread):
             )
             self.erro.emit(str(e))
 
-class TarefaExportacao(QThread):
-    """
-    Thread responsável por exportar um croqui para um arquivo .croqui ofuscado.
-    """
-    sucesso: Signal = Signal()
-    erro: Signal = Signal(str)
-    
-    def __init__(self, caminho_raiz: Path, caminho_destino: Path) -> None:
-        super().__init__()
-        self.caminho_raiz: Path = Path(caminho_raiz)
-        self.caminho_destino: Path = Path(caminho_destino)
-        
-    def run(self) -> None:
-        try:
-            from editor.core.croqui_format import empacotar_croqui
-            empacotar_croqui(self.caminho_raiz, self.caminho_destino)
-            self.sucesso.emit()
-        except Exception as e:
-            traceback.print_exc()
-            self.erro.emit(str(e))
-
 class TarefaDadosConexao(QThread):
     """
     Thread responsável por obter a URL canônica de prévia, IP local e gerar o QR Code de conexão.

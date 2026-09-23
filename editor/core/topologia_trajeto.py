@@ -275,7 +275,7 @@ def fatiar_linha_triplo(
     nos = linha_proto.linha.conteudo.nos
     total_nos = len(nos)
 
-    if not (0 <= indice_entrada < indice_saida < total_nos):
+    if not (0 < indice_entrada < indice_saida < total_nos - 1):
         raise ValueError("Índices de entrada e saída inválidos para fatiamento triplo.")
 
     sub1 = _copiar_poi_linha_base(linha_proto, id_sub1)

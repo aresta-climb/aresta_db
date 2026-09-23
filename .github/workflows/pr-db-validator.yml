@@ -55,35 +55,29 @@ jobs:
         env:
           PYTHONPATH: .
         run: |
-          uv run serving/pr_db_validator.py --pastas ${{ steps.changed-files.outputs.all_changed_files }} --saida saida_croquis
-          
-      - name: Upload para Cloudflare R2
-        if: success() && steps.changed-files.outputs.any_changed == 'true'
-        env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.CLOUDFLARE_S3_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.CLOUDFLARE_S3_SECRET_ACCESS_KEY }}
-          AWS_REGION: auto
-          R2_ENDPOINT_URL: ${{ secrets.CLOUDFLARE_S3_API_URL }}
-        run: |
-          COMMENT_BODY="📦 **Validação Concluída!** O(s) croqui(s) compilado(s) estão prontos para testes direto no app:\n"
-          
-          for file in saida_croquis/*.croqui; do
-            if [ -f "$file" ]; then
-              UUID=$(uuidgen)
-              NEW_NAME="pr-${UUID}.croqui"
-              aws s3 cp "$file" "s3://aresta-serving/pr-artifacts/$NEW_NAME" --endpoint-url $R2_ENDPOINT_URL --content-disposition "attachment" --content-type "application/octet-stream"
-              URL="https://serving.arestaclimb.com/pr-artifacts/$NEW_NAME"
-              COMMENT_BODY="$COMMENT_BODY\n- 🧗 [Baixar $NEW_NAME]($URL)"
-            fi
-          done
-          
-          echo -e "$COMMENT_BODY" > pr_comment.txt
+          set -o pipefail
+          uv run serving/pr_db_validator.py --pastas ${{ steps.changed-files.outputs.all_changed_files }} 2>&1 | tee validador_output.txt
 
-      - name: Comentar Link na PR
+      - name: Gerar Comentário de Sucesso
         if: success() && steps.changed-files.outputs.any_changed == 'true'
+        run: |
+          echo "✅ **Validação Concluída com Sucesso!** Todos os cabeçalhos, licenças e croquis modificados foram validados sem erros." > pr_comment.txt
+
+      - name: Gerar Comentário de Falha
+        if: failure() && steps.changed-files.outputs.any_changed == 'true'
+        run: |
+          echo "❌ **Falha na Validação do Pull Request**" > pr_comment.txt
+          echo "" >> pr_comment.txt
+          echo "\`\`\`" >> pr_comment.txt
+          cat validador_output.txt >> pr_comment.txt 2>/dev/null || echo "Falha na execução do validador." >> pr_comment.txt
+          echo "\`\`\`" >> pr_comment.txt
+
+      - name: Comentar no PR
+        if: always() && steps.changed-files.outputs.any_changed == 'true'
         env:
           GH_TOKEN: ${{ steps.app-token.outputs.token }}
         run: |
           if [ -f pr_comment.txt ]; then
             gh pr comment ${{ github.event.pull_request.number }} --body-file pr_comment.txt
           fi
+

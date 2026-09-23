@@ -5,7 +5,6 @@ import sys
 from pathlib import Path
 import shutil
 import os
-import zipfile
 import pygit2
 import yaml
 import uuid
@@ -13,7 +12,6 @@ from datetime import datetime
 from google.protobuf.json_format import MessageToDict
 
 from editor.core.storage import GerenciadorCaminhos
-from editor.core.croqui_format import empacotar_croqui, ler_croqui
 from aresta_api.proto.generated.croqui_experimental_pb2 import CroquiExperimental
 
 # Adiciona a raiz do projeto ao sys.path para encontrar o módulo 'scripts'
@@ -338,71 +336,6 @@ class GerenciadorCroquiExperimental:
                         raise
                     time.sleep(0.2)
 
-
-    def exportar_croqui(self, caminho_raiz: Path, caminho_destino: Path) -> None:
-        """
-        Exporta o croqui experimental compactando toda a pasta num arquivo zip ofuscado (extensão .croqui).
-        """
-        if not caminho_raiz.is_dir():
-            raise FileNotFoundError(f"A pasta do croqui não foi encontrada: {caminho_raiz}")
-            
-        empacotar_croqui(caminho_raiz, caminho_destino)
-
-    def importar_croqui(self, caminho_arquivo_croqui: Path) -> Path:
-        """
-        Importa um arquivo .croqui descompactando para a pasta croquis_experimentais.
-        """
-        caminho_arquivo_croqui = Path(caminho_arquivo_croqui)
-        if not caminho_arquivo_croqui.is_file():
-            raise FileNotFoundError(f"Arquivo não encontrado: {caminho_arquivo_croqui}")
-            
-        if caminho_arquivo_croqui.suffix.lower() not in [".croqui", ".zip"]:
-            raise ValueError("O editor aceita apenas arquivos com as extensões .croqui ou .zip para importação.")
-            
-        pasta_dest = self.caminhos.obter_caminho_croquis_experimentais()
-        
-        nome_pasta_extraida = uuid.uuid4().hex[:8]
-        caminho_extracao = pasta_dest / nome_pasta_extraida
-        
-        caminho_extracao.mkdir(parents=True, exist_ok=False)
-        
-        try:
-            ler_croqui(caminho_arquivo_croqui, caminho_extracao)
-                
-            # Normalização: se extraiu apenas uma pasta raiz, move o conteúdo para cima
-            import shutil
-            conteudo = list(caminho_extracao.iterdir())
-            if len(conteudo) == 1 and conteudo[0].is_dir() and (conteudo[0] / "database").is_dir():
-                pasta_raiz = conteudo[0]
-                for item in pasta_raiz.iterdir():
-                    # No Windows, shutil.move pode falhar se o destino já existir ou por locks
-                    # Mas aqui o destino (caminho_extracao) deve estar limpo
-                    shutil.move(str(item), str(caminho_extracao / item.name))
-                pasta_raiz.rmdir()
-
-            # Pequena pausa para o Windows liberar os arquivos recém-extraídos
-            import time
-            time.sleep(0.1)
-                
-            # Opcional: Ler o croqui.yaml dentro de database/
-            yaml_path = caminho_extracao / "database" / "croqui.yaml"
-            real_id = None
-            if yaml_path.is_file():
-                try:
-                    with open(yaml_path, "r", encoding="utf-8") as f:
-                        dados = yaml.safe_load(f)
-                        real_id = dados.get("id")
-                except Exception:
-                    pass
-
-            # Como a pasta é UUID, não precisamos renomear baseando no real_id.
-            # Basta compilar na pasta de extração.
-            self.compilar_croqui(caminho_extracao)
-            return caminho_extracao
-        except Exception as e:
-            # Remove a pasta de extração (ou a nova pasta se já tiver renomeado) em caso de falha
-            self.excluir_croqui(caminho_extracao)
-            raise e
 
     def renomear_pasta_croqui(self, caminho_raiz: Path, novo_id: str) -> Path:
         """

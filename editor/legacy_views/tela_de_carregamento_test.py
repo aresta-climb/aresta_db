@@ -24,8 +24,8 @@ def test_tela_de_carregamento_tem_botoes_com_nomes_completos(qtbot):
     textos_botoes = [b.text() for b in botoes]
     
     assert "Novo croqui" in textos_botoes
-    assert "Importar croqui experimental" in textos_botoes
     assert "Editar croqui oficial" in textos_botoes
+    assert "Importar croqui experimental" not in textos_botoes
     
 def test_tela_de_carregamento_carrega_croquis(qtbot, tmp_path):
     # Setup de diretórios temporários
@@ -69,19 +69,6 @@ def test_tela_de_carregamento_exibe_mensagem_vazia(qtbot, tmp_path):
     assert label_vazio.isVisible()
     assert "nenhum croqui no histórico" in label_vazio.text().lower()
     assert not tela.lista_croquis.isVisible()
-
-def test_tela_de_carregamento_importar_croqui(qtbot):
-
-    mock_storage = MagicMock()
-    
-    with patch("PySide6.QtWidgets.QFileDialog.getOpenFileName", return_value=("test.croqui", "Arquivos de Croqui (*.croqui)")):
-        with patch("editor.legacy_views.tela_de_carregamento.GerenciadorCroquiExperimental") as mock_gen_class:
-            mock_gen = mock_gen_class.return_value
-            tela = TelaDeCarregamento(storage=mock_storage)
-            qtbot.addWidget(tela)
-            
-            qtbot.mouseClick(tela.btn_importar, Qt.MouseButton.LeftButton)
-            mock_gen.importar_croqui.assert_called_once()
 
 def test_tela_de_carregamento_editar_oficial(qtbot):
     mock_storage = MagicMock()

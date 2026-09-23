@@ -2,9 +2,9 @@
 # Copyright (C) 2026 Aresta Climb Contributors
 
 import re
-from typing import Optional, Any, List, Dict, Union
+from typing import Optional, Any, List, Dict, Union, Sequence
 
-from PySide6.QtCore import QAbstractItemModel, QModelIndex, Qt, QObject
+from PySide6.QtCore import QAbstractItemModel, QModelIndex, Qt, QObject, QMimeData, QByteArray
 from PySide6.QtGui import QFont
 from google.protobuf.message import Message
 from google.protobuf.descriptor import FieldDescriptor
@@ -243,6 +243,8 @@ class ProtobufNode:
 
 
 class ProtobufTreeViewAdapter(QAbstractItemModel):
+    MIME_TYPE = "application/x-aresta-arvore-item"
+
     def __init__(self, root_message: Any, parent: Optional[QObject] = None) -> None:
         super().__init__(parent)
         self.root_message: Any = root_message
@@ -254,6 +256,60 @@ class ProtobufTreeViewAdapter(QAbstractItemModel):
             message=self.root_message,
             is_expando=False
         )
+
+    def supportedDropActions(self) -> Qt.DropAction:
+        return Qt.DropAction.MoveAction
+
+    def mimeTypes(self) -> List[str]:
+        return [self.MIME_TYPE]
+
+    def mimeData(self, indexes: Sequence[QModelIndex]) -> QMimeData:
+        mime = QMimeData()
+        if not indexes:
+            return mime
+        idx = indexes[0]
+        if not idx.isValid():
+            return mime
+        node = idx.internalPointer()
+        if not node or getattr(node, "eh_no_adicao", False) or getattr(node, "is_expando", False) or node.message is None:
+            return mime
+        resolved = node._resolve_transparency(node.message)
+        tipo = resolved.DESCRIPTOR.name if resolved and hasattr(resolved, "DESCRIPTOR") else ""
+        from editor.views.widget_editor_dados import get_node_path, _get_id
+        import json
+        dados = {
+            "row": idx.row(),
+            "tipo": tipo,
+            "id_nativo": _get_id(node.message),
+            "caminho": get_node_path(node),
+        }
+        mime.setData(self.MIME_TYPE, QByteArray(json.dumps(dados).encode("utf-8")))
+        return mime
+
+    def flags(self, index: Union[QModelIndex, Any]) -> Qt.ItemFlag:
+        if not index.isValid():
+            return Qt.ItemFlag.NoItemFlags
+
+        node = index.internalPointer()
+        padrao = Qt.ItemFlag.ItemIsEnabled | Qt.ItemFlag.ItemIsSelectable
+
+        if node is None or getattr(node, "eh_no_adicao", False):
+            return padrao
+
+        if getattr(node, "is_expando", False):
+            return padrao | Qt.ItemFlag.ItemIsDropEnabled
+
+        if node.message is not None:
+            resolved = node._resolve_transparency(node.message)
+            if resolved is not None and hasattr(resolved, "DESCRIPTOR"):
+                tipo = resolved.DESCRIPTOR.name
+                if tipo in ("Grupo", "ArquivoGrupo"):
+                    return padrao | Qt.ItemFlag.ItemIsDragEnabled | Qt.ItemFlag.ItemIsDropEnabled
+                if node.parent_node and getattr(node.parent_node, "is_expando", False):
+                    return padrao | Qt.ItemFlag.ItemIsDragEnabled
+
+        return padrao
+
         
     def rebuild_tree(self) -> None:
         self.beginResetModel()

@@ -126,6 +126,49 @@ class CroquiModel(QObject):
         repeated_container.insert(index_to, item)
         self.repeated_movido.emit(msg, campo_nome, index_from, index_to)
 
+    def _migrar_setor(
+        self,
+        pai_origem: Any,
+        campo_origem: str,
+        indice_origem: int,
+        pai_destino: Any,
+        campo_destino: str,
+        indice_destino: int,
+        novo_caminho: Optional[str] = None,
+    ) -> None:
+        """
+        Migra um setor de uma coleção/pai para outra, atualizando opcionalmente seu caminho_novo.
+        Remove do pai de origem (emitindo repeated_removido) e insere no pai de destino
+        (emitindo repeated_adicionado).
+        """
+        pai_origem = self.__desembrulhar_proxy(pai_origem)
+        pai_destino = self.__desembrulhar_proxy(pai_destino)
+        from aresta_api.proto.generated import croqui_pb2
+
+        container_origem = getattr(pai_origem, campo_origem)
+        item_removido = container_origem[indice_origem]
+
+        arq_setor = croqui_pb2.ArquivoSetor()
+        if campo_origem == "setores_ou_grupos":
+            arq_setor.CopyFrom(item_removido.setor)
+        else:
+            arq_setor.CopyFrom(item_removido)
+
+        if novo_caminho is not None:
+            arq_setor.Extensions[croqui_pb2.ArquivoSetor.ext_metadados_arquivo].caminho_novo = novo_caminho
+
+        container_origem.pop(indice_origem)
+        self.repeated_removido.emit(pai_origem, campo_origem, indice_origem)
+
+        container_destino = getattr(pai_destino, campo_destino)
+        if campo_destino == "setores_ou_grupos":
+            sg = croqui_pb2.SetorOuGrupo()
+            sg.setor.CopyFrom(arq_setor)
+            container_destino.insert(indice_destino, sg)
+        else:
+            container_destino.insert(indice_destino, arq_setor)
+        self.repeated_adicionado.emit(pai_destino, campo_destino, indice_destino)
+
     def _alterar_repeated_item(self, msg: Any, campo_nome: str, index: int, valor_novo: Any) -> None:
         msg = self.__desembrulhar_proxy(msg)
         repeated_container = getattr(msg, campo_nome)

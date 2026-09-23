@@ -574,6 +574,55 @@ class MapasControllerTest(unittest.TestCase):
         self.assertEqual(len(refs["Travessia"]), 3)
         self.assertEqual(refs["Via Base"][1], refs["Travessia"][1])
 
+    def test_adicionar_rota_com_tracado_duplo_clique_mesmo_no_nao_quebra(self):
+        setor_proxy = self.model.obter_croqui_readonly().picos[0].setores_ou_grupos[0].setor.conteudo
+        # Rota base com 4 nós
+        dados_base = {"nome": "Via Base", "tipo": "boulder", "grau": "V3", "nova": True}
+        pontos_base = [(100.0, 500.0), (100.0, 400.0), (100.0, 300.0), (100.0, 100.0)]
+        self.controller.adicionar_rota_com_tracado(self.msg_mapa_proxy, setor_proxy, dados_base, pontos_base)
+
+        # Nova rota termina com duplo clique no nó (100, 400), gerando pontos repetidos no mesmo nó
+        dados_nova = {"nome": "Via Duplo Clique", "tipo": "boulder", "grau": "V4", "nova": True}
+        pontos_nova = [(20.0, 450.0), (100.0, 400.0), (100.0, 400.0)]
+        # Não deve lançar ValueError de fatiamento triplo
+        self.controller.adicionar_rota_com_tracado(self.msg_mapa_proxy, setor_proxy, dados_nova, pontos_nova)
+
+        refs = {r.escalada: list(r.ids) for r in self.mapa.referencias}
+        # Via Base continua íntegra (não fatiada)
+        self.assertEqual(len(refs["Via Base"]), 1)
+        self.assertIn("Via Duplo Clique", refs)
+
+    def test_adicionar_rota_com_tracado_travessia_sentido_inverso_fallback(self):
+        setor_proxy = self.model.obter_croqui_readonly().picos[0].setores_ou_grupos[0].setor.conteudo
+        dados_base = {"nome": "Via Base", "tipo": "boulder", "grau": "V3", "nova": True}
+        pontos_base = [(100.0, 500.0), (100.0, 400.0), (100.0, 300.0), (100.0, 100.0)]
+        self.controller.adicionar_rota_com_tracado(self.msg_mapa_proxy, setor_proxy, dados_base, pontos_base)
+
+        # Travessia no sentido inverso (do nó 2 para o nó 1)
+        dados_rev = {"nome": "Travessia Reversa", "tipo": "boulder", "grau": "V5", "nova": True}
+        pontos_rev = [(20.0, 250.0), (100.0, 300.0), (100.0, 400.0), (180.0, 450.0)]
+        self.controller.adicionar_rota_com_tracado(self.msg_mapa_proxy, setor_proxy, dados_rev, pontos_rev)
+
+        refs = {r.escalada: list(r.ids) for r in self.mapa.referencias}
+        self.assertIn("Travessia Reversa", refs)
+
+    def test_adicionar_rota_com_tracado_fallback_gracioso_em_excecao(self):
+        setor_proxy = self.model.obter_croqui_readonly().picos[0].setores_ou_grupos[0].setor.conteudo
+        dados_base = {"nome": "Via Base", "tipo": "boulder", "grau": "V3", "nova": True}
+        pontos_base = [(100.0, 500.0), (100.0, 400.0), (100.0, 300.0), (100.0, 100.0)]
+        self.controller.adicionar_rota_com_tracado(self.msg_mapa_proxy, setor_proxy, dados_base, pontos_base)
+
+        dados_trav = {"nome": "Travessia Falha", "tipo": "boulder", "grau": "V7", "nova": True}
+        pontos_trav = [(20.0, 400.0), (100.0, 400.0), (100.0, 300.0), (180.0, 250.0)]
+
+        from unittest.mock import patch
+        with patch("editor.core.topologia_trajeto.fatiar_linha_triplo", side_effect=ValueError("Falha simulada")):
+            self.controller.adicionar_rota_com_tracado(self.msg_mapa_proxy, setor_proxy, dados_trav, pontos_trav)
+
+        refs = {r.escalada: list(r.ids) for r in self.mapa.referencias}
+        self.assertIn("Travessia Falha", refs)
+        self.assertEqual(len(refs["Via Base"]), 1)
+
     def test_adicionar_rota_com_tracado_diversos_tipos(self):
         setor_proxy = self.model.obter_croqui_readonly().picos[0].setores_ou_grupos[0].setor.conteudo
         # Via esportiva com grau

@@ -101,7 +101,7 @@ def test_toolbar_superior_tem_acoes_globais(janela_principal):
     assert "Salvar" in textos_acoes
     assert "Desfazer" in textos_acoes
     assert "Refazer" in textos_acoes
-    assert "Exportar .croqui" in textos_acoes
+    assert "Exportar .croqui" not in textos_acoes
     assert "Conectar com celular..." in textos_acoes
     assert "Enviar proposta de mudança no croqui" in textos_acoes
 

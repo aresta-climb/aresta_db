@@ -6,10 +6,11 @@ from pathlib import Path
 from PySide6.QtWidgets import (
     QApplication, QWidget, QHBoxLayout, QTreeView, QStackedWidget, QScrollArea, QVBoxLayout,
     QLabel, QFrame, QPushButton, QComboBox, QLineEdit, QSpinBox, QDoubleSpinBox,
-    QCheckBox, QTextEdit, QTextBrowser, QMenu, QCompleter, QDialog, QInputDialog
+    QCheckBox, QTextEdit, QTextBrowser, QMenu, QCompleter, QDialog, QInputDialog,
+    QAbstractItemView, QMessageBox
 )
-from PySide6.QtCore import Qt, QModelIndex, QUrl, QItemSelectionModel, QObject, QEvent, QTimer, QMimeData
-from PySide6.QtGui import QImage, QPixmap, QTextDocument, QTextCursor, QKeySequence, QDragEnterEvent, QDropEvent
+from PySide6.QtCore import Qt, QModelIndex, QUrl, QItemSelectionModel, QObject, QEvent, QTimer, QMimeData, QByteArray, QPoint
+from PySide6.QtGui import QImage, QPixmap, QTextDocument, QTextCursor, QKeySequence, QDragEnterEvent, QDropEvent, QDragMoveEvent, QDragLeaveEvent, QDrag, QPainter
 from google.protobuf.descriptor import FieldDescriptor
 from aresta_api.proto.generated import croqui_pb2
 from editor.views.tree_view_adapter import ProtobufTreeViewAdapter
@@ -19,6 +20,8 @@ from editor.views.protobuf_widget_factory import ProtobufWidgetFactory, ComboBox
 from editor.views.widget_campo_coordenada_e7 import WidgetCampoCoordenadaE7, TipoCoordenada
 from editor.views.widget_mensagem_coordenada import WidgetMensagemCoordenada
 from editor.views.widget_campo_imagem import WidgetCampoImagem
+from editor.views.componentes.alca_arraste_item import AlcaArrasteItem
+from editor.views.componentes.widget_card_mapa import WidgetCardMapa
 from editor.views.dialogos.dialogo_inserir_imagem_markdown import DialogoInserirImagemMarkdown
 from ..core.atualizador_ui import AtualizadorUI
 from google.protobuf.message_factory import GetMessageClass
@@ -687,6 +690,13 @@ class WidgetColapsavel(QWidget):
         
     def add_header_widget(self, widget: QWidget) -> None:
         self.header_layout.addWidget(widget)
+
+    def inserir_header_widget(self, index: int, widget: QWidget) -> None:
+        self.header_layout.insertWidget(index, widget)
+
+    def definir_prefixo_titulo(self, novo_prefixo: str) -> None:
+        self.title_prefix = novo_prefixo
+        self.update_title()
         
     def update_title(self) -> None:
         heuristico = _extrair_titulo_heuristico(self.msg)
@@ -754,14 +764,22 @@ class ContainerRepeatedWidget(QWidget):
         self.items_layout.setSpacing(10)
         self.layout_principal.addLayout(self.items_layout)
 
+        self.setAcceptDrops(True)
+        self._indicador_drop = QFrame(self)
+        self._indicador_drop.setFixedHeight(3)
+        self._indicador_drop.setStyleSheet("background-color: #2b579a; border-radius: 1px;")
+        self._indicador_drop.hide()
+
         # Renderiza os itens iniciais
         for i in range(len(self.repeated_container)):
             self._renderizar_item_no_indice(i)
+        self._atualizar_indices_e_botoes()
 
         # Conecta aos sinais estruturais do historico
         if self.model:
             self.model.repeated_adicionado.connect(self._on_item_adicionado)
             self.model.repeated_removido.connect(self._on_item_removido)
+            self.model.repeated_movido.connect(self._on_item_movido)
 
     def _on_add_clicked(self) -> None:
         f = self.field
@@ -830,40 +848,116 @@ class ContainerRepeatedWidget(QWidget):
         item_widget.setProperty("repeated_index", idx)
         item_layout = QHBoxLayout(item_widget)
         item_layout.setContentsMargins(0, 0, 0, 0)
+        item_layout.setSpacing(6)
 
+        # Alça de arraste (drag handle)
+        alca = AlcaArrasteItem(item_widget)
+        alca.solicitar_arraste.connect(lambda pt, w=item_widget: self._iniciar_drag(w))
+
+        # Botão remover
         btn_remove = QPushButton("Remover")
         btn_remove.setStyleSheet("background-color: #d9534f; color: white; border-radius: 4px; padding: 4px 8px;")
 
         def on_remove_item() -> None:
             current_idx = item_widget.property("repeated_index")
             if current_idx is not None:
+                if hasattr(self.formulario, "forcar_consolidacao_pendente"):
+                    self.formulario.forcar_consolidacao_pendente()
                 self.controller.remover_repeated(self.msg, self.field.name, current_idx, getattr(self.msg, self.field.name)[current_idx])
                 self.formulario._mark_dirty()
                 self.formulario._notify_tree_changed()
 
         btn_remove.clicked.connect(on_remove_item)
 
+        # Botões subir e descer
+        btn_subir = QPushButton("▲")
+        btn_subir.setToolTip("Mover para cima")
+        btn_subir.setStyleSheet("QPushButton { padding: 4px 8px; font-size: 8pt; border-radius: 4px; } QPushButton:disabled { color: #aaaaaa; }")
+
+        btn_descer = QPushButton("▼")
+        btn_descer.setToolTip("Mover para baixo")
+        btn_descer.setStyleSheet("QPushButton { padding: 4px 8px; font-size: 8pt; border-radius: 4px; } QPushButton:disabled { color: #aaaaaa; }")
+
+        def on_subir_clicked() -> None:
+            cur_idx = item_widget.property("repeated_index")
+            if cur_idx is not None and cur_idx > 0:
+                if hasattr(self.formulario, "forcar_consolidacao_pendente"):
+                    self.formulario.forcar_consolidacao_pendente()
+                self.formulario._mark_dirty()
+                self.controller.mover_repeated_para_cima(self.msg, self.field.name, cur_idx)
+                self.formulario._notify_tree_changed()
+
+        def on_descer_clicked() -> None:
+            cur_idx = item_widget.property("repeated_index")
+            total = len(self.repeated_container)
+            if cur_idx is not None and cur_idx < total - 1:
+                if hasattr(self.formulario, "forcar_consolidacao_pendente"):
+                    self.formulario.forcar_consolidacao_pendente()
+                self.formulario._mark_dirty()
+                self.controller.mover_repeated_para_baixo(self.msg, self.field.name, cur_idx)
+                self.formulario._notify_tree_changed()
+
+        btn_subir.clicked.connect(on_subir_clicked)
+        btn_descer.clicked.connect(on_descer_clicked)
+
+        item_widget.setProperty("btn_subir", btn_subir)
+        item_widget.setProperty("btn_descer", btn_descer)
+
         if self.field.type == FieldDescriptor.TYPE_MESSAGE:
             item_msg = self.repeated_container[idx]
-            
-            def lazy_loader(msg: Any, layout: Any) -> None:
+
+            is_mapa = False
+            if hasattr(item_msg, "DESCRIPTOR"):
+                opts = item_msg.DESCRIPTOR.GetOptions()
+                if opts.HasExtension(croqui_pb2.mensagem_formato_na_ui):
+                    is_mapa = (opts.Extensions[croqui_pb2.mensagem_formato_na_ui] == croqui_pb2.MensagemFormatoUi.MAPA)
+                elif item_msg.DESCRIPTOR.name == "Mapa":
+                    is_mapa = True
+            elif self.field.name == "mapas":
+                is_mapa = True
+
+            if is_mapa:
                 new_path = f"expando:{self.field.name}/item:{idx}"
                 if self.extra_path:
                     new_path = f"{self.extra_path}/{new_path}"
-                self.formulario._render_message_fields(msg, layout, extra_path=new_path)
+                card_mapa = WidgetCardMapa(
+                    msg_mapa=item_msg,
+                    indice=idx,
+                    model=self.model,
+                    controller=self.controller,
+                    formulario=self.formulario,
+                    extra_path=new_path,
+                    parent=item_widget,
+                )
+                card_mapa.alca.solicitar_arraste.connect(lambda pt, w=item_widget: self._iniciar_drag(w))
+                card_mapa.btn_subir.clicked.connect(on_subir_clicked)
+                card_mapa.btn_descer.clicked.connect(on_descer_clicked)
+                card_mapa.btn_remover.clicked.connect(on_remove_item)
+                item_widget.setProperty("btn_subir", card_mapa.btn_subir)
+                item_widget.setProperty("btn_descer", card_mapa.btn_descer)
+                item_layout.addWidget(card_mapa)
+            else:
+                def lazy_loader(msg: Any, layout: Any) -> None:
+                    new_path = f"expando:{self.field.name}/item:{idx}"
+                    if self.extra_path:
+                        new_path = f"{self.extra_path}/{new_path}"
+                    self.formulario._render_message_fields(msg, layout, extra_path=new_path)
+                    
+                prefix = f"Item {idx}"
+                if hasattr(self.field, "name"):
+                    prefix = f"{self.field.name.replace('_', ' ').capitalize()} [{idx}]"
                 
-            prefix = f"Item {idx}"
-            if hasattr(self.field, "name"):
-                prefix = f"{self.field.name.replace('_', ' ').capitalize()} [{idx}]"
-            
-            colapsavel = WidgetColapsavel(item_msg, prefix, lazy_loader, parent=self)
-            colapsavel.add_header_widget(btn_remove)
-            
-            if not hasattr(self, "_widgets_colapsaveis"):
-                self._widgets_colapsaveis = []
-            self._widgets_colapsaveis.append((item_msg, colapsavel))
-            
-            item_layout.addWidget(colapsavel)
+                colapsavel = WidgetColapsavel(item_msg, prefix, lazy_loader, parent=self)
+                colapsavel.inserir_header_widget(0, alca)
+                colapsavel.add_header_widget(btn_subir)
+                colapsavel.add_header_widget(btn_descer)
+                colapsavel.add_header_widget(btn_remove)
+                
+                if not hasattr(self, "_widgets_colapsaveis"):
+                    self._widgets_colapsaveis = []
+                self._widgets_colapsaveis.append((item_msg, colapsavel))
+                
+                item_layout.addWidget(colapsavel)
         else:
             widget = ProtobufWidgetFactory.create_widget(self.field)
             widget.setProperty("protobuf_field", f"{self.field.name}[{idx}]")
@@ -955,33 +1049,50 @@ class ContainerRepeatedWidget(QWidget):
                     return on_item_changed
                 widget.currentIndexChanged.connect(make_on_item_changed())
 
+            item_layout.addWidget(alca)
             item_layout.addWidget(widget)
+            item_layout.addWidget(btn_subir)
+            item_layout.addWidget(btn_descer)
             item_layout.addWidget(btn_remove)
 
         self.items_layout.insertWidget(idx, item_widget)
+        self._atualizar_indices_e_botoes()
+
+    def _atualizar_indices_e_botoes(self) -> None:
+        total = len(self.repeated_container)
+        for i in range(self.items_layout.count()):
+            item_layout = self.items_layout.itemAt(i)
+            w = item_layout.widget() if item_layout else None
+            if not w:
+                continue
+            w.setProperty("repeated_index", i)
+            for child in w.findChildren(QWidget):
+                p_field = child.property("protobuf_field")
+                if p_field and p_field.startswith(f"{self.field.name}["):
+                    child.setProperty("protobuf_field", f"{self.field.name}[{i}]")
+
+            btn_subir = w.property("btn_subir")
+            if btn_subir:
+                btn_subir.setEnabled(i > 0)
+            btn_descer = w.property("btn_descer")
+            if btn_descer:
+                btn_descer.setEnabled(i < total - 1)
+
+            colapsavel = w.findChild(WidgetColapsavel)
+            if colapsavel:
+                prefixo = f"{self.field.name.replace('_', ' ').capitalize()} [{i}]"
+                colapsavel.definir_prefixo_titulo(prefixo)
+
+            card_mapa = w.findChild(WidgetCardMapa)
+            if card_mapa:
+                card_mapa.definir_indice(i)
 
     def _on_item_adicionado(self, msg: Any, campo: Any, idx: int) -> None:
         if _get_id(msg) == _get_id(self.msg) and campo == self.field.name:
-            # 1. Corrige os índices dos widgets existentes que vêm depois do novo índice
-            for i in range(self.items_layout.count()):
-                item_layout = self.items_layout.itemAt(i)
-                w = item_layout.widget() if item_layout else None
-                if w:
-                    cur_idx = w.property("repeated_index")
-                    if cur_idx is not None and cur_idx >= idx:
-                        w.setProperty("repeated_index", cur_idx + 1)
-                        # Atualiza a propriedade protobuf_field se for primitivo
-                        for child in w.findChildren(QWidget):
-                            p_field = child.property("protobuf_field")
-                            if p_field and p_field.startswith(f"{self.field.name}["):
-                                child.setProperty("protobuf_field", f"{self.field.name}[{cur_idx + 1}]")
-
-            # 2. Insere visualmente o novo item no índice
             self._renderizar_item_no_indice(idx)
 
     def _on_item_removido(self, msg: Any, campo: Any, idx: int) -> None:
         if _get_id(msg) == _get_id(self.msg) and campo == self.field.name:
-            # 1. Encontra e deleta o widget
             widget_alvo = None
             for i in range(self.items_layout.count()):
                 item_layout = self.items_layout.itemAt(i)
@@ -992,26 +1103,13 @@ class ContainerRepeatedWidget(QWidget):
 
             if widget_alvo:
                 self.items_layout.removeWidget(widget_alvo)
-                widget_alvo.hide()  # Impede flashing no Windows
+                widget_alvo.hide()
                 widget_alvo.deleteLater()
-                
-            # 2. Corrige os índices dos widgets existentes que vinham depois do índice removido
-            for i in range(self.items_layout.count()):
-                item_layout = self.items_layout.itemAt(i)
-                w = item_layout.widget() if item_layout else None
-                if w:
-                    cur_idx = w.property("repeated_index")
-                    if cur_idx is not None and cur_idx > idx:
-                        w.setProperty("repeated_index", cur_idx - 1)
-                        # Atualiza a propriedade protobuf_field se for primitivo
-                        for child in w.findChildren(QWidget):
-                            p_field = child.property("protobuf_field")
-                            if p_field and p_field.startswith(f"{self.field.name}["):
-                                child.setProperty("protobuf_field", f"{self.field.name}[{cur_idx - 1}]")
+
+            self._atualizar_indices_e_botoes()
 
     def _on_item_movido(self, msg: Any, campo: Any, index_from: int, index_to: int) -> None:
         if _get_id(msg) == _get_id(self.msg) and campo == self.field.name:
-            # 1. Encontra e remove o widget da origem sem deletar
             widget_alvo = None
             for i in range(self.items_layout.count()):
                 item_layout = self.items_layout.itemAt(i)
@@ -1019,24 +1117,154 @@ class ContainerRepeatedWidget(QWidget):
                 if w and w.property("repeated_index") == index_from:
                     widget_alvo = w
                     break
-                    
+
             if widget_alvo:
-                # Retira do layout
                 self.items_layout.removeWidget(widget_alvo)
-                
-                # 2. Insere na nova posicao baseada nos index fisicos
                 self.items_layout.insertWidget(index_to, widget_alvo)
-                
-                # 3. Corrige repetidos index para todos para garantir que fique consistente
-                for i in range(self.items_layout.count()):
-                    item_layout = self.items_layout.itemAt(i)
-                    w = item_layout.widget() if item_layout else None
-                    if w:
-                        w.setProperty("repeated_index", i)
-                        for child in w.findChildren(QWidget):
-                            p_field = child.property("protobuf_field")
-                            if p_field and p_field.startswith(f"{self.field.name}["):
-                                child.setProperty("protobuf_field", f"{self.field.name}[{i}]")
+
+            self._atualizar_indices_e_botoes()
+
+    def _iniciar_drag(self, item_widget: QWidget) -> None:
+        idx = item_widget.property("repeated_index")
+        if idx is None:
+            return
+
+        mime_data = QMimeData()
+        payload = f"{_get_id(self.msg)}:{self.field.name}:{idx}".encode("utf-8")
+        mime_data.setData("application/x-aresta-repeated-item", QByteArray(payload))
+
+        drag = QDrag(self)
+        drag.setMimeData(mime_data)
+
+        colapsavel = item_widget.findChild(WidgetColapsavel)
+        card_mapa = item_widget.findChild(WidgetCardMapa)
+        if colapsavel:
+            widget_alvo = colapsavel.header_widget
+        elif card_mapa:
+            widget_alvo = card_mapa
+        else:
+            widget_alvo = item_widget
+        pixmap = widget_alvo.grab()
+
+        if not pixmap.isNull():
+            transparent_pixmap = QPixmap(pixmap.size())
+            transparent_pixmap.fill(Qt.GlobalColor.transparent)
+            painter = QPainter(transparent_pixmap)
+            painter.setOpacity(0.7)
+            painter.drawPixmap(0, 0, pixmap)
+            painter.end()
+            drag.setPixmap(transparent_pixmap)
+            drag.setHotSpot(QPoint(15, 15))
+
+        drag.exec(Qt.DropAction.MoveAction)
+        self._indicador_drop.hide()
+
+    def _extrair_dados_drag(self, mime_data: QMimeData) -> Optional[Tuple[str, str, int]]:
+        if not mime_data.hasFormat("application/x-aresta-repeated-item"):
+            return None
+        try:
+            dados = bytes(mime_data.data("application/x-aresta-repeated-item").data()).decode("utf-8")
+            partes = dados.split(":", 2)
+            if len(partes) == 3:
+                msg_id_str, campo_nome, idx_str = partes
+                return msg_id_str, campo_nome, int(idx_str)
+        except Exception:
+            return None
+        return None
+
+    def _calcular_posicao_drop_e_indicador(self, pos_y: float, origem_idx: int) -> Tuple[int, int]:
+        total_widgets = self.items_layout.count()
+        if total_widgets == 0:
+            return 0, 0
+
+        geometrias: List[Tuple[int, int, int, float]] = []
+        for i in range(total_widgets):
+            item_layout = self.items_layout.itemAt(i)
+            w = item_layout.widget() if item_layout else None
+            if w:
+                geo = w.geometry()
+                geometrias.append((i, geo.top(), geo.bottom(), (geo.top() + geo.bottom()) / 2.0))
+
+        if not geometrias:
+            return 0, 0
+
+        # Antes do primeiro item
+        _, prim_top, _, prim_meio = geometrias[0]
+        if pos_y <= prim_meio:
+            return 0, prim_top
+
+        # Depois do último item
+        _, _, ult_bot, ult_meio = geometrias[-1]
+        if pos_y >= ult_meio:
+            return len(geometrias) - 1, ult_bot
+
+        # Entre os itens
+        for idx in range(len(geometrias)):
+            cur_i, cur_top, cur_bot, cur_meio = geometrias[idx]
+            if cur_top <= pos_y <= cur_meio:
+                destino_idx = cur_i - 1 if origem_idx < cur_i else cur_i
+                return max(0, min(destino_idx, len(geometrias) - 1)), cur_top
+            elif cur_meio < pos_y <= cur_bot:
+                destino_idx = cur_i if origem_idx < cur_i else cur_i + 1
+                return max(0, min(destino_idx, len(geometrias) - 1)), cur_bot
+            elif idx + 1 < len(geometrias):
+                _, prox_top, _, _ = geometrias[idx + 1]
+                if cur_bot < pos_y < prox_top:
+                    destino_idx = cur_i if origem_idx <= cur_i else cur_i + 1
+                    y_ind = int((cur_bot + prox_top) / 2)
+                    return max(0, min(destino_idx, len(geometrias) - 1)), y_ind
+
+        return 0, 0
+
+    def dragEnterEvent(self, event: QDragEnterEvent) -> None:
+        dados = self._extrair_dados_drag(event.mimeData())
+        if dados is not None:
+            msg_id_str, campo_nome, _ = dados
+            if msg_id_str == str(_get_id(self.msg)) and campo_nome == self.field.name:
+                event.acceptProposedAction()
+                return
+        event.ignore()
+
+    def dragMoveEvent(self, event: QDragMoveEvent) -> None:
+        dados = self._extrair_dados_drag(event.mimeData())
+        if dados is not None:
+            msg_id_str, campo_nome, origem_idx = dados
+            if msg_id_str == str(_get_id(self.msg)) and campo_nome == self.field.name:
+                pos_y = event.position().y()
+                _, y_indicador = self._calcular_posicao_drop_e_indicador(pos_y, origem_idx)
+                largura = max(50, self.width() - 10)
+                self._indicador_drop.setGeometry(5, int(y_indicador) - 1, largura, 3)
+                self._indicador_drop.show()
+                self._indicador_drop.raise_()
+                event.acceptProposedAction()
+                return
+        self._indicador_drop.hide()
+        event.ignore()
+
+    def dragLeaveEvent(self, event: Any) -> None:
+        self._indicador_drop.hide()
+        if event is not None:
+            event.accept()
+
+    def dropEvent(self, event: QDropEvent) -> None:
+        self._indicador_drop.hide()
+        dados = self._extrair_dados_drag(event.mimeData())
+        if dados is not None:
+            msg_id_str, campo_nome, origem_idx = dados
+            if msg_id_str == str(_get_id(self.msg)) and campo_nome == self.field.name:
+                pos_y = event.position().y()
+                destino_idx, _ = self._calcular_posicao_drop_e_indicador(pos_y, origem_idx)
+                if destino_idx != origem_idx and 0 <= destino_idx < len(self.repeated_container):
+                    if hasattr(self.formulario, "forcar_consolidacao_pendente"):
+                        self.formulario.forcar_consolidacao_pendente()
+                    self.formulario._mark_dirty()
+                    self.controller.mover_repeated_para_posicao(
+                        self.msg, self.field.name, origem_idx, destino_idx
+                    )
+                    self.formulario._notify_tree_changed()
+                event.acceptProposedAction()
+                return
+        event.ignore()
 
 
 class WidgetFormularioPadrao(QStackedWidget):
@@ -1443,16 +1671,25 @@ class WidgetFormularioPadrao(QStackedWidget):
         
         if msg_name == "Setor" or msg_name == "Grupo":
             if node and node.parent_node and node.parent_node.parent_node:
-                pico_node = node.parent_node.parent_node
-                pico = pico_node.message
-                if pico and hasattr(pico, "setores_ou_grupos") and node.index_in_repeated is not None:
-                    sg = pico.setores_ou_grupos[node.index_in_repeated]
-                    if msg_name == "Setor" and hasattr(sg, "HasField") and sg.HasField("setor"):
-                        wrapper_msg = sg.setor
-                        ext_desc = croqui_pb2.ArquivoSetor.ext_metadados_arquivo
-                    elif msg_name == "Grupo" and hasattr(sg, "HasField") and sg.HasField("grupo"):
-                        wrapper_msg = sg.grupo
-                        ext_desc = croqui_pb2.ArquivoGrupo.ext_metadados_arquivo
+                ancestor_node = node.parent_node.parent_node
+                ancestor_msg = ancestor_node.message
+                if ancestor_msg is not None:
+                    resolved_ancestor = ancestor_node._resolve_transparency(ancestor_msg)
+                    if hasattr(resolved_ancestor, "setores_ou_grupos") and node.index_in_repeated is not None:
+                        if 0 <= node.index_in_repeated < len(resolved_ancestor.setores_ou_grupos):
+                            sg = resolved_ancestor.setores_ou_grupos[node.index_in_repeated]
+                            if msg_name == "Setor" and hasattr(sg, "HasField") and sg.HasField("setor"):
+                                wrapper_msg = sg.setor
+                                ext_desc = croqui_pb2.ArquivoSetor.ext_metadados_arquivo
+                            elif msg_name == "Grupo" and hasattr(sg, "HasField") and sg.HasField("grupo"):
+                                wrapper_msg = sg.grupo
+                                ext_desc = croqui_pb2.ArquivoGrupo.ext_metadados_arquivo
+                    elif hasattr(resolved_ancestor, "setores") and node.index_in_repeated is not None:
+                        if 0 <= node.index_in_repeated < len(resolved_ancestor.setores):
+                            s = resolved_ancestor.setores[node.index_in_repeated]
+                            if msg_name == "Setor":
+                                wrapper_msg = s
+                                ext_desc = croqui_pb2.ArquivoSetor.ext_metadados_arquivo
         elif msg_name == "ArquivoMarkdown":
             ext_desc = croqui_pb2.ArquivoMarkdown.ext_metadados_arquivo
         elif msg_name == "ArquivoMapas":
@@ -2134,6 +2371,113 @@ class WidgetFormularioPadrao(QStackedWidget):
         pass
 
 
+class ArvoreDadosTreeView(QTreeView):
+    """QTreeView customizada com interceptação de drag-and-drop para reordenação e migração."""
+    def __init__(self, widget_editor: Any, parent: Optional[QWidget] = None) -> None:
+        super().__init__(parent)
+        self.widget_editor = widget_editor
+        self._idx_arrastado: Optional[QModelIndex] = None
+        self.setDragEnabled(True)
+        self.setAcceptDrops(True)
+        self.setDropIndicatorShown(True)
+        self.setDragDropMode(QAbstractItemView.DragDropMode.DragDrop)
+        self.setDefaultDropAction(Qt.DropAction.MoveAction)
+
+    def startDrag(self, supportedActions: Qt.DropAction) -> None:
+        indexes = self.selectedIndexes()
+        self._idx_arrastado = indexes[0] if indexes else self.currentIndex()
+        super().startDrag(supportedActions)
+
+    def _obter_idx_origem(self, event: Any) -> QModelIndex:
+        if hasattr(self, "_idx_arrastado") and self._idx_arrastado and self._idx_arrastado.isValid():
+            return self._idx_arrastado
+        mime = event.mimeData()
+        if mime and mime.hasFormat(ProtobufTreeViewAdapter.MIME_TYPE):
+            import json
+            try:
+                dados = json.loads(bytes(mime.data(ProtobufTreeViewAdapter.MIME_TYPE)).decode("utf-8"))
+                caminho = dados.get("caminho")
+                tree_model = self.model()
+                if caminho and hasattr(tree_model, "find_index_for_path"):
+                    idx = tree_model.find_index_for_path(caminho)
+                    if idx.isValid():
+                        return idx
+                id_nativo = dados.get("id_nativo")
+                if id_nativo and hasattr(tree_model, "find_index_for_message_id"):
+                    idx = tree_model.find_index_for_message_id(id_nativo)
+                    if idx.isValid():
+                        return idx
+            except Exception:
+                pass
+        return self.currentIndex()
+
+    def dragEnterEvent(self, event: Any) -> None:
+        if event.mimeData().hasFormat(ProtobufTreeViewAdapter.MIME_TYPE):
+            event.acceptProposedAction()
+        else:
+            super().dragEnterEvent(event)
+
+    def dragMoveEvent(self, event: Any) -> None:
+        if not event.mimeData().hasFormat(ProtobufTreeViewAdapter.MIME_TYPE):
+            super().dragMoveEvent(event)
+            return
+
+        super().dragMoveEvent(event)
+
+        pos = event.position().toPoint() if hasattr(event, "position") else event.pos()
+        idx_destino = self.indexAt(pos)
+        posicao_drop = self.dropIndicatorPosition()
+
+        idx_origem = self._obter_idx_origem(event)
+        if not idx_origem.isValid() or not idx_destino.isValid():
+            event.ignore()
+            return
+
+        node_origem = idx_origem.internalPointer()
+        node_destino = idx_destino.internalPointer()
+
+        if not node_origem or not node_destino:
+            event.ignore()
+            return
+
+        from editor.core.migracao_setor import validar_movimento_permitido
+        eh_sobre = (posicao_drop == QAbstractItemView.DropIndicatorPosition.OnItem)
+        msg_origem = node_origem._resolve_transparency(node_origem.message)
+        tipo_origem = msg_origem.DESCRIPTOR.name.lower() if msg_origem and hasattr(msg_origem, "DESCRIPTOR") else "expando"
+        if getattr(node_destino, "is_expando", False):
+            tipo_destino = "expando"
+        elif getattr(node_destino, "eh_no_adicao", False):
+            tipo_destino = "no_adicao"
+        elif node_destino.message is not None:
+            msg_dest = node_destino._resolve_transparency(node_destino.message)
+            tipo_destino = msg_dest.DESCRIPTOR.name.lower() if msg_dest and hasattr(msg_dest, "DESCRIPTOR") else "expando"
+        else:
+            tipo_destino = "expando"
+
+        if validar_movimento_permitido(tipo_origem, tipo_destino, eh_sobre):
+            event.setDropAction(Qt.DropAction.MoveAction)
+            event.accept()
+        else:
+            event.ignore()
+
+    def dropEvent(self, event: Any) -> None:
+        if not event.mimeData().hasFormat(ProtobufTreeViewAdapter.MIME_TYPE):
+            super().dropEvent(event)
+            return
+
+        pos = event.position().toPoint() if hasattr(event, "position") else event.pos()
+        idx_destino = self.indexAt(pos)
+        posicao_drop = self.dropIndicatorPosition()
+        idx_origem = self._obter_idx_origem(event)
+
+        if self.widget_editor._executar_soltura_arvore(idx_origem, idx_destino, posicao_drop):
+            event.acceptProposedAction()
+        else:
+            event.ignore()
+        self._idx_arrastado = None
+
+
+
 class WidgetEditorDados(QWidget):
     def __init__(self, model: Any, controller: Any, caminhos_originais: Optional[Any] = None, referencias_mensagens: Optional[Any] = None, parent: Optional[QWidget] = None) -> None:
         super().__init__(parent)
@@ -2142,9 +2486,10 @@ class WidgetEditorDados(QWidget):
         self.croqui = model.obter_croqui_readonly()
         self.caminhos_originais = caminhos_originais if caminhos_originais is not None else {}
         self.referencias_mensagens = referencias_mensagens if referencias_mensagens is not None else {}
+        self._arquivos_existentes_croqui: Optional[Set[str]] = None
         self.main_layout = QHBoxLayout(self)
         
-        self.tree_view = QTreeView()
+        self.tree_view = ArvoreDadosTreeView(self)
         self.tree_view.setHeaderHidden(True)
         self.tree_view.setIndentation(12)
         self.tree_view.setContextMenuPolicy(Qt.ContextMenuPolicy.CustomContextMenu)
@@ -2814,4 +3159,241 @@ class WidgetEditorDados(QWidget):
                     return child_match
 
         return QModelIndex()
+
+    def _obter_caminhos_arquivos_existentes(self) -> Set[str]:
+        """Retorna o conjunto de nomes de arquivos existentes no croqui ou no disco."""
+        arquivos_croqui = getattr(self, "_arquivos_existentes_croqui", None)
+        if arquivos_croqui is not None:
+            return set(arquivos_croqui)
+        caminhos: Set[str] = set()
+        root = self.model.obter_croqui_readonly() if hasattr(self.model, "obter_croqui_readonly") else getattr(self.model, "croqui", None)
+        if root is not None:
+            for pico in getattr(root, "picos", []):
+                for sg in getattr(pico, "setores_ou_grupos", []):
+                    item_tipo = sg.WhichOneof("tipo")
+                    if item_tipo == "setor":
+                        if sg.setor.HasExtension(croqui_pb2.ArquivoSetor.ext_metadados_arquivo):
+                            ext = sg.setor.Extensions[croqui_pb2.ArquivoSetor.ext_metadados_arquivo]
+                            c = ext.caminho_novo or ext.caminho_original
+                            if c:
+                                caminhos.add(c)
+                    elif item_tipo == "grupo":
+                        if sg.grupo.HasExtension(croqui_pb2.ArquivoGrupo.ext_metadados_arquivo):
+                            ext = sg.grupo.Extensions[croqui_pb2.ArquivoGrupo.ext_metadados_arquivo]
+                            c = ext.caminho_novo or ext.caminho_original
+                            if c:
+                                caminhos.add(c)
+                        for s in getattr(sg.grupo.conteudo, "setores", []):
+                            if s.HasExtension(croqui_pb2.ArquivoSetor.ext_metadados_arquivo):
+                                ext = s.Extensions[croqui_pb2.ArquivoSetor.ext_metadados_arquivo]
+                                c = ext.caminho_novo or ext.caminho_original
+                                if c:
+                                    caminhos.add(c)
+        caminho_db = getattr(self.model, "_caminho_db_atual", None)
+        if caminho_db and hasattr(caminho_db, "glob"):
+            try:
+                for f in caminho_db.glob("*.md"):
+                    caminhos.add(f.name)
+            except Exception:
+                pass
+        return caminhos
+
+    def _executar_soltura_arvore(
+        self,
+        idx_origem: QModelIndex,
+        idx_destino: QModelIndex,
+        posicao_drop: QAbstractItemView.DropIndicatorPosition,
+    ) -> bool:
+        """
+        Orquestra a soltura de um item da árvore após validação e verificação de colisões.
+        Retorna True se a operação foi executada com sucesso, False se abortada.
+        """
+        if hasattr(self, "form_padrao") and self.form_padrao:
+            self.form_padrao.forcar_consolidacao_pendente()
+
+        if not idx_origem.isValid() or not idx_destino.isValid():
+            return False
+
+        node_origem = idx_origem.internalPointer()
+        node_destino = idx_destino.internalPointer()
+
+        if not node_origem or not node_destino:
+            return False
+
+        if getattr(node_origem, "eh_no_adicao", False) or getattr(node_origem, "is_expando", False):
+            return False
+
+        msg_origem_res = node_origem._resolve_transparency(node_origem.message)
+        if not msg_origem_res or not hasattr(msg_origem_res, "DESCRIPTOR"):
+            return False
+        origem_tipo = msg_origem_res.DESCRIPTOR.name.lower()
+
+        eh_sobre_item = (posicao_drop == QAbstractItemView.DropIndicatorPosition.OnItem)
+        if getattr(node_destino, "is_expando", False):
+            destino_tipo = "expando"
+        elif getattr(node_destino, "eh_no_adicao", False):
+            destino_tipo = "no_adicao"
+        elif node_destino.message is not None:
+            msg_destino_res = node_destino._resolve_transparency(node_destino.message)
+            destino_tipo = msg_destino_res.DESCRIPTOR.name.lower() if msg_destino_res and hasattr(msg_destino_res, "DESCRIPTOR") else ""
+        else:
+            destino_tipo = "expando"
+
+        from editor.core.migracao_setor import (
+            validar_movimento_permitido,
+            calcular_novo_caminho_setor,
+            verificar_colisao_nome_arquivo,
+        )
+
+        if not validar_movimento_permitido(origem_tipo, destino_tipo, eh_sobre_item):
+            return False
+
+        # Extrai pai e coleção de origem
+        exp_origem = node_origem.parent_node
+        if not exp_origem or not exp_origem.descriptor:
+            return False
+        campo_origem = exp_origem.descriptor.name
+        ancestor_origem = exp_origem.parent_node
+        if not ancestor_origem or ancestor_origem.message is None:
+            return False
+        pai_origem = ancestor_origem._resolve_transparency(ancestor_origem.message)
+        indice_origem = node_origem.row()
+
+        # Extrai pai e coleção de destino
+        if eh_sobre_item:
+            # Soltura diretamente sobre grupo
+            pai_destino = node_destino._resolve_transparency(node_destino.message)
+            campo_destino = "setores"
+            indice_destino = len(getattr(pai_destino, campo_destino))
+        elif getattr(node_destino, "is_expando", False):
+            exp_destino = node_destino
+            if not exp_destino or not exp_destino.descriptor:
+                return False
+            campo_destino = exp_destino.descriptor.name
+            ancestor_destino = exp_destino.parent_node
+            if not ancestor_destino or ancestor_destino.message is None:
+                return False
+            pai_destino = ancestor_destino._resolve_transparency(ancestor_destino.message)
+            target_row = len(getattr(pai_destino, campo_destino))
+            if _get_id(pai_origem) == _get_id(pai_destino) and campo_origem == campo_destino:
+                indice_destino = target_row - 1 if indice_origem < target_row else target_row
+            else:
+                indice_destino = target_row
+        elif getattr(node_destino, "eh_no_adicao", False):
+            exp_destino = node_destino.parent_node
+            if not exp_destino or not exp_destino.descriptor:
+                return False
+            campo_destino = exp_destino.descriptor.name
+            ancestor_destino = exp_destino.parent_node
+            if not ancestor_destino or ancestor_destino.message is None:
+                return False
+            pai_destino = ancestor_destino._resolve_transparency(ancestor_destino.message)
+            target_row = len(getattr(pai_destino, campo_destino))
+            if _get_id(pai_origem) == _get_id(pai_destino) and campo_origem == campo_destino:
+                indice_destino = target_row - 1 if indice_origem < target_row else target_row
+            else:
+                indice_destino = target_row
+        else:
+            exp_destino = node_destino.parent_node
+            if not exp_destino or not exp_destino.descriptor:
+                return False
+            campo_destino = exp_destino.descriptor.name
+            ancestor_destino = exp_destino.parent_node
+            if not ancestor_destino or ancestor_destino.message is None:
+                return False
+            pai_destino = ancestor_destino._resolve_transparency(ancestor_destino.message)
+            target_row = node_destino.row()
+
+            if _get_id(pai_origem) == _get_id(pai_destino) and campo_origem == campo_destino:
+                # Reordenação na mesma lista
+                if posicao_drop == QAbstractItemView.DropIndicatorPosition.AboveItem:
+                    indice_destino = target_row - 1 if indice_origem < target_row else target_row
+                else:
+                    indice_destino = target_row if indice_origem < target_row else target_row + 1
+            else:
+                # Migração para outra lista
+                if posicao_drop == QAbstractItemView.DropIndicatorPosition.AboveItem:
+                    indice_destino = target_row
+                else:
+                    indice_destino = target_row + 1
+
+
+        # Caso 1: Reordenação na mesma lista
+        if _get_id(pai_origem) == _get_id(pai_destino) and campo_origem == campo_destino:
+            if indice_origem == indice_destino:
+                return True
+            self._descartar_cache_recursivo(node_origem)
+            self.controller.mover_repeated_para_posicao(
+                msg=pai_origem,
+                campo_nome=campo_origem,
+                index_from=indice_origem,
+                index_to=indice_destino,
+            )
+            idx_novo = self.tree_model.find_index_for_message_id(_get_id(node_origem.message))
+            if idx_novo.isValid():
+                self.tree_view.setCurrentIndex(idx_novo)
+            return True
+
+        # Caso 2: Migração hierárquica (apenas setores)
+        if origem_tipo != "setor":
+            return False
+
+        container_origem = getattr(pai_origem, campo_origem)
+        item_origem = container_origem[indice_origem]
+        if campo_origem == "setores_ou_grupos":
+            arq_setor = item_origem.setor
+        else:
+            arq_setor = item_origem
+
+        nome_setor = arq_setor.conteudo.nome
+
+        caminho_atual = ""
+        if arq_setor.HasExtension(croqui_pb2.ArquivoSetor.ext_metadados_arquivo):
+            ext = arq_setor.Extensions[croqui_pb2.ArquivoSetor.ext_metadados_arquivo]
+            caminho_atual = ext.caminho_novo or ext.caminho_original or ""
+        if not caminho_atual:
+            from editor.core.formatacao import para_snake_case
+            caminho_atual = f"setor_{para_snake_case(nome_setor)}.md"
+
+        caminho_antigo = caminho_atual
+
+        nome_grupo_destino = pai_destino.nome if campo_destino == "setores" else None
+        novo_caminho = calcular_novo_caminho_setor(caminho_atual, nome_setor, nome_grupo_destino)
+
+        # Verificação de colisão
+        caminhos_existentes = self._obter_caminhos_arquivos_existentes()
+        if verificar_colisao_nome_arquivo(novo_caminho, caminhos_existentes, caminho_antigo):
+            QMessageBox.warning(
+                self,
+                "Conflito de Nome de Arquivo",
+                f"Não é possível mover o setor: já existe um arquivo com o nome '{novo_caminho}'."
+            )
+            return False
+
+        # Descartar cache de formulário antes da migração
+        self._descartar_cache_recursivo(node_origem)
+
+        # Despachar comando no controller
+        self.controller.migrar_setor(
+            pai_origem=pai_origem,
+            campo_origem=campo_origem,
+            indice_origem=indice_origem,
+            pai_destino=pai_destino,
+            campo_destino=campo_destino,
+            indice_destino=indice_destino,
+            caminho_novo=novo_caminho,
+            caminho_antigo=caminho_antigo,
+        )
+
+        # Se o destino for um grupo, auto-expande o grupo
+        if campo_destino == "setores":
+            idx_grupo_destino = self.tree_model.find_index_for_message_id(_get_id(pai_destino))
+            if idx_grupo_destino.isValid():
+                self.tree_view.expand(idx_grupo_destino)
+
+        idx_setor_novo = self.tree_model.find_index_for_message_id(_get_id(arq_setor.conteudo))
+        if idx_setor_novo.isValid():
+            self.tree_view.setCurrentIndex(idx_setor_novo)
+
+        return True
 

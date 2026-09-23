@@ -1776,6 +1776,18 @@ def test_widget_colapsavel_undo_redo_atualiza_titulo(qapp):
     
     assert widget.toggle_button.text() == "▶ Item 0 - Alterado"
 
+def test_widget_colapsavel_definir_prefixo_titulo(qapp):
+    from editor.views.widget_editor_dados import WidgetColapsavel
+    from aresta_api.proto.generated.croqui_pb2 import Pico
+    
+    pico = Pico(nome="Pico 1")
+    widget = WidgetColapsavel(pico, "Item 0", lambda m, l: None)
+    assert widget.toggle_button.text() == "▶ Item 0 - Pico 1"
+    
+    widget.definir_prefixo_titulo("Item 2")
+    assert widget.toggle_button.text() == "▶ Item 2 - Pico 1"
+
+
 def test_formulario_exibe_e_edita_nome_de_arquivo_mapas_gerais(qapp):
     from editor.views.tree_view_adapter import ProtobufNode
     from editor.views.widget_editor_dados import WidgetEditorDados
@@ -1883,43 +1895,43 @@ def test_fluxo_integracao_carregamento_e_salvamento_yaml_campos_vazios(tmp_path,
 def test_formulario_inteiro_vazio_e_step_by_vira_zero(qapp):
     """Garante que campos de inteiros são exibidos como vazios quando ausentes,
     e que ao clicar para cima/baixo eles inicializam com 0 e gravam a alteração."""
-    from aresta_api.proto.generated.croqui_pb2 import Setor
+    from aresta_api.proto.generated.croqui_pb2 import ViaEsportiva
     from editor.views.protobuf_widget_factory import SpinBoxVazio
     from editor.views.tree_view_adapter import ProtobufNode
     
-    setor = Setor()
+    via = ViaEsportiva()
     pilha = QUndoStack()
-    model = CroquiModel(setor)
+    model = CroquiModel(via)
     controller = CroquiController(model, pilha)
     widget = WidgetEditorDados(model, controller)
     form = widget.form_padrao
     
-    node = ProtobufNode(name="Setor", message=setor, descriptor=Setor.DESCRIPTOR)
+    node = ProtobufNode(name="ViaEsportiva", message=via, descriptor=ViaEsportiva.DESCRIPTOR)
     form.load_node(node)
     
-    # Encontra o spinbox do indice_mapa_padrao
+    # Encontra o spinbox da extensao
     spins = form.findChildren(SpinBoxVazio)
-    spin_mapa = next(s for s in spins if s.property("protobuf_field") == "indice_mapa_padrao")
+    spin_extensao = next(s for s in spins if s.property("protobuf_field") == "extensao")
     
     # 1. Campo inicialmente vazio (texto vazio)
-    assert not setor.HasField("indice_mapa_padrao")
-    assert spin_mapa.text() == ""
-    assert spin_mapa.value() == spin_mapa.VALOR_NULO
+    assert not via.HasField("extensao")
+    assert spin_extensao.text() == ""
+    assert spin_extensao.value() == spin_extensao.VALOR_NULO
     
     # 2. Clicar para cima (stepBy 1) transforma em 0
-    spin_mapa.stepBy(1)
+    spin_extensao.stepBy(1)
     qapp.processEvents()
-    assert spin_mapa.value() == 0
-    assert spin_mapa.text() == "0"
-    assert setor.HasField("indice_mapa_padrao")
-    assert setor.indice_mapa_padrao == 0
+    assert spin_extensao.value() == 0
+    assert spin_extensao.text() == "0"
+    assert via.HasField("extensao")
+    assert via.extensao == 0
     
     # 3. Undo restaura para vazio
     pilha.undo()
     qapp.processEvents()
-    assert not setor.HasField("indice_mapa_padrao")
-    assert spin_mapa.text() == ""
-    assert spin_mapa.value() == spin_mapa.VALOR_NULO
+    assert not via.HasField("extensao")
+    assert spin_extensao.text() == ""
+    assert spin_extensao.value() == spin_extensao.VALOR_NULO
 
 
 def test_booleano_selecionar_nao_informado_permanece_nao_informado(qapp):
@@ -1975,28 +1987,28 @@ def test_booleano_selecionar_nao_informado_permanece_nao_informado(qapp):
 def test_formulario_inteiro_apagar_com_backspace_limpa_campo_no_modelo(qapp):
     """Garante que no formulário, ao apagar o valor de um inteiro com backspace e perder o foco,
     o campo tem sua presença limpa no Protobuf e a UI permanece vazia."""
-    from aresta_api.proto.generated.croqui_pb2 import Setor
+    from aresta_api.proto.generated.croqui_pb2 import ViaEsportiva
     from editor.views.tree_view_adapter import ProtobufNode
     from editor.views.protobuf_widget_factory import SpinBoxVazio
     from PySide6.QtGui import QFocusEvent
     from PySide6.QtCore import QEvent
     from PySide6.QtWidgets import QApplication
     
-    setor = Setor()
-    setor.indice_mapa_padrao = 5
+    via = ViaEsportiva()
+    via.extensao = 5
     pilha = QUndoStack()
-    model = CroquiModel(setor)
+    model = CroquiModel(via)
     controller = CroquiController(model, pilha)
     widget = WidgetEditorDados(model, controller)
     form = widget.form_padrao
     
-    node = ProtobufNode(name="Setor", message=setor, descriptor=Setor.DESCRIPTOR)
+    node = ProtobufNode(name="ViaEsportiva", message=via, descriptor=ViaEsportiva.DESCRIPTOR)
     form.load_node(node)
     
-    spin = next(s for s in form.findChildren(SpinBoxVazio) if s.property("protobuf_field") == "indice_mapa_padrao")
+    spin = next(s for s in form.findChildren(SpinBoxVazio) if s.property("protobuf_field") == "extensao")
     assert spin.value() == 5
     assert spin.text() == "5"
-    assert setor.HasField("indice_mapa_padrao")
+    assert via.HasField("extensao")
     
     # Simula o usuário apagando o conteúdo
     spin.lineEdit().setText("")
@@ -2006,7 +2018,7 @@ def test_formulario_inteiro_apagar_com_backspace_limpa_campo_no_modelo(qapp):
     QApplication.sendEvent(spin, event)
     qapp.processEvents()
     
-    assert not setor.HasField("indice_mapa_padrao")
+    assert not via.HasField("extensao")
     assert spin.value() == SpinBoxVazio.VALOR_NULO
     assert spin.text() == ""
 
@@ -3799,6 +3811,923 @@ def test_widget_editor_markdown_inserir_imagem_historico_undo_redo(qapp, monkeyp
     assert "![Via Principal](imagens/foto_teste.webp)" in croqui.descricao
     assert model.obter_imagens_em_memoria().get("imagens/foto_teste.webp") == b"fake_bytes_webp_123"
     assert "![Via Principal](imagens/foto_teste.webp)" in md_editor.editor.toPlainText()
+
+
+def test_arvore_drag_drop_reordenacao_mesma_lista(qapp):
+    """Garante que arrastar e soltar para reordenar na mesma lista move o item e suporta Undo/Redo."""
+    from PySide6.QtWidgets import QAbstractItemView
+    from editor.views.widget_editor_dados import _get_id
+    from aresta_api.proto.generated import croqui_pb2
+    croqui = Croqui()
+    pico = croqui.picos.add()
+    pico.nome = "Pico Central"
+
+    sg1 = pico.setores_ou_grupos.add()
+    sg1.setor.conteudo.nome = "Setor Um"
+    sg2 = pico.setores_ou_grupos.add()
+    sg2.setor.conteudo.nome = "Setor Dois"
+    sg3 = pico.setores_ou_grupos.add()
+    sg3.setor.conteudo.nome = "Setor Tres"
+
+    model = CroquiModel(croqui)
+    pilha = QUndoStack()
+    controller = CroquiController(model, pilha)
+    widget = WidgetEditorDados(model, controller)
+
+    # Localiza índices na árvore
+    picos_exp = widget.tree_model.find_expando_index(_get_id(croqui), "picos")
+    pico_idx = widget.tree_model.index(0, 0, picos_exp)
+    setores_exp = widget.tree_model.find_expando_index(_get_id(pico), "setores_ou_grupos")
+
+    idx_setor_1 = widget.tree_model.index(0, 0, setores_exp)
+    idx_setor_3 = widget.tree_model.index(2, 0, setores_exp)
+
+    # Move Setor Tres (índice 2) para antes de Setor Um (índice 0)
+    sucesso = widget._executar_soltura_arvore(idx_setor_3, idx_setor_1, QAbstractItemView.DropIndicatorPosition.AboveItem)
+    assert sucesso is True
+
+    # Verifica Protobuf
+    assert [s.setor.conteudo.nome for s in pico.setores_ou_grupos] == ["Setor Tres", "Setor Um", "Setor Dois"]
+    assert pilha.count() == 1
+
+    # Desfazer (Undo)
+    pilha.undo()
+    assert [s.setor.conteudo.nome for s in pico.setores_ou_grupos] == ["Setor Um", "Setor Dois", "Setor Tres"]
+
+    # Refazer (Redo)
+    pilha.redo()
+    assert [s.setor.conteudo.nome for s in pico.setores_ou_grupos] == ["Setor Tres", "Setor Um", "Setor Dois"]
+
+
+def test_arvore_flags_itens_e_expandos(qapp):
+    """Garante que expandos e itens repeated recebam flags adequadas de drag e drop."""
+    from PySide6.QtCore import Qt
+    from aresta_api.proto.generated import croqui_pb2
+    from editor.views.widget_editor_dados import _get_id
+    croqui = Croqui()
+    b1 = croqui.botoes.add()
+    b1.texto = "Capa"
+
+    pico = croqui.picos.add()
+    pico.nome = "Pico 1"
+
+    sg_setor = pico.setores_ou_grupos.add()
+    sg_setor.setor.conteudo.nome = "Setor A"
+
+    sg_grupo = pico.setores_ou_grupos.add()
+    sg_grupo.grupo.conteudo.nome = "Grupo B"
+
+    model = CroquiModel(croqui)
+    controller = CroquiController(model, QUndoStack())
+    widget = WidgetEditorDados(model, controller)
+    adapter = widget.tree_model
+
+    # 1. Expando de Botões: deve aceitar drop
+    exp_botoes = adapter.find_expando_index(_get_id(croqui), "botoes")
+    assert exp_botoes.isValid()
+    assert bool(adapter.flags(exp_botoes) & Qt.ItemFlag.ItemIsDropEnabled) is True
+
+    # 2. Item Botao: pode ser arrastado, mas NÃO aceita drop direto (nó folha)
+    idx_botao = adapter.index(0, 0, exp_botoes)
+    assert bool(adapter.flags(idx_botao) & Qt.ItemFlag.ItemIsDragEnabled) is True
+    assert bool(adapter.flags(idx_botao) & Qt.ItemFlag.ItemIsDropEnabled) is False
+
+    # 3. Expando de Picos: deve aceitar drop
+    exp_picos = adapter.find_expando_index(_get_id(croqui), "picos")
+    assert exp_picos.isValid()
+    assert bool(adapter.flags(exp_picos) & Qt.ItemFlag.ItemIsDropEnabled) is True
+
+    # 4. Expando de Setores ou grupos: deve aceitar drop
+    exp_sg = adapter.find_expando_index(_get_id(pico), "setores_ou_grupos")
+    assert exp_sg.isValid()
+    assert bool(adapter.flags(exp_sg) & Qt.ItemFlag.ItemIsDropEnabled) is True
+
+    # 5. Item Setor: pode ser arrastado, mas NÃO aceita drop direto (folha)
+    idx_setor = adapter.index(0, 0, exp_sg)
+    assert bool(adapter.flags(idx_setor) & Qt.ItemFlag.ItemIsDragEnabled) is True
+    assert bool(adapter.flags(idx_setor) & Qt.ItemFlag.ItemIsDropEnabled) is False
+
+    # 6. Item Grupo: pode ser arrastado E aceita drop direto (container)
+    idx_grupo = adapter.index(1, 0, exp_sg)
+    assert bool(adapter.flags(idx_grupo) & Qt.ItemFlag.ItemIsDragEnabled) is True
+    assert bool(adapter.flags(idx_grupo) & Qt.ItemFlag.ItemIsDropEnabled) is True
+
+    # 7. Nó de adição: não pode ser arrastado nem receber drop
+    idx_adicao = adapter.index(2, 0, exp_sg)
+    assert idx_adicao.internalPointer().eh_no_adicao is True
+    assert bool(adapter.flags(idx_adicao) & Qt.ItemFlag.ItemIsDragEnabled) is False
+    assert bool(adapter.flags(idx_adicao) & Qt.ItemFlag.ItemIsDropEnabled) is False
+
+
+def test_reordenar_botoes_via_soltura_arvore_com_undo_redo(qapp):
+    """Garante que itens da lista de botões podem ser reordenados via drag & drop na árvore."""
+    from PySide6.QtWidgets import QAbstractItemView
+    from editor.views.widget_editor_dados import _get_id
+    croqui = Croqui()
+    b1 = croqui.botoes.add()
+    b1.texto = "Capa"
+    b2 = croqui.botoes.add()
+    b2.texto = "Introdução"
+    b3 = croqui.botoes.add()
+    b3.texto = "Patrocinadores"
+
+    model = CroquiModel(croqui)
+    pilha = QUndoStack()
+    controller = CroquiController(model, pilha)
+    widget = WidgetEditorDados(model, controller)
+
+    exp_botoes = widget.tree_model.find_expando_index(_get_id(croqui), "botoes")
+    idx_b1 = widget.tree_model.index(0, 0, exp_botoes)
+    idx_b2 = widget.tree_model.index(1, 0, exp_botoes)
+    idx_b3 = widget.tree_model.index(2, 0, exp_botoes)
+
+    # Move Patrocinadores (2) para cima de Capa (0)
+    sucesso = widget._executar_soltura_arvore(idx_b3, idx_b1, QAbstractItemView.DropIndicatorPosition.AboveItem)
+    assert sucesso is True
+    assert [b.texto for b in croqui.botoes] == ["Patrocinadores", "Capa", "Introdução"]
+
+    # Undo
+    pilha.undo()
+    assert [b.texto for b in croqui.botoes] == ["Capa", "Introdução", "Patrocinadores"]
+
+    # Redo
+    pilha.redo()
+    assert [b.texto for b in croqui.botoes] == ["Patrocinadores", "Capa", "Introdução"]
+
+    # Move Patrocinadores (0) para baixo de Introdução (agora linha 2)
+    idx_patroc = widget.tree_model.index(0, 0, exp_botoes)
+    idx_intro = widget.tree_model.index(2, 0, exp_botoes)
+    sucesso2 = widget._executar_soltura_arvore(idx_patroc, idx_intro, QAbstractItemView.DropIndicatorPosition.BelowItem)
+    assert sucesso2 is True
+    assert [b.texto for b in croqui.botoes] == ["Capa", "Introdução", "Patrocinadores"]
+
+
+def test_soltura_sobre_no_adicao_move_ao_fim_da_lista(qapp):
+    """Garante que soltar um item sobre o nó '+ Adicionar ...' posiciona o item no fim da lista."""
+    from PySide6.QtWidgets import QAbstractItemView
+    from editor.views.widget_editor_dados import _get_id
+    croqui = Croqui()
+    pico = croqui.picos.add()
+    pico.nome = "Pico Principal"
+    s1 = pico.setores_ou_grupos.add()
+    s1.setor.conteudo.nome = "Setor 1"
+    s2 = pico.setores_ou_grupos.add()
+    s2.setor.conteudo.nome = "Setor 2"
+    s3 = pico.setores_ou_grupos.add()
+    s3.setor.conteudo.nome = "Setor 3"
+
+    model = CroquiModel(croqui)
+    pilha = QUndoStack()
+    controller = CroquiController(model, pilha)
+    widget = WidgetEditorDados(model, controller)
+
+    exp_sg = widget.tree_model.find_expando_index(_get_id(pico), "setores_ou_grupos")
+    idx_s1 = widget.tree_model.index(0, 0, exp_sg)
+    idx_adicao = widget.tree_model.index(3, 0, exp_sg)
+    assert idx_adicao.internalPointer().eh_no_adicao is True
+
+    # Move Setor 1 para cima de + Adicionar (fim da lista)
+    sucesso = widget._executar_soltura_arvore(idx_s1, idx_adicao, QAbstractItemView.DropIndicatorPosition.AboveItem)
+    assert sucesso is True
+    assert [s.setor.conteudo.nome for s in pico.setores_ou_grupos] == ["Setor 2", "Setor 3", "Setor 1"]
+
+    # Undo
+    pilha.undo()
+    assert [s.setor.conteudo.nome for s in pico.setores_ou_grupos] == ["Setor 1", "Setor 2", "Setor 3"]
+
+
+def test_arvore_drag_move_event_calcula_drop_indicator_corretamente(qapp):
+    """Garante que dragMoveEvent chama super() para calcular dropIndicator e aceita reordenação entre setores."""
+    from PySide6.QtCore import Qt
+    from PySide6.QtGui import QDragMoveEvent
+    from PySide6.QtCore import QPoint
+    from PySide6.QtWidgets import QAbstractItemView
+    from editor.views.widget_editor_dados import _get_id
+    croqui = Croqui()
+    pico = croqui.picos.add()
+    pico.nome = "Pico Teste"
+    s1 = pico.setores_ou_grupos.add()
+    s1.setor.conteudo.nome = "Setor 1"
+    s2 = pico.setores_ou_grupos.add()
+    s2.setor.conteudo.nome = "Setor 2"
+
+    model = CroquiModel(croqui)
+    controller = CroquiController(model, QUndoStack())
+    widget = WidgetEditorDados(model, controller)
+    tree = widget.tree_view
+    tree.show()
+    tree.expandAll()
+
+    adapter = widget.tree_model
+    exp_sg = adapter.find_expando_index(_get_id(pico), "setores_ou_grupos")
+    idx1 = adapter.index(0, 0, exp_sg)
+    idx2 = adapter.index(1, 0, exp_sg)
+
+    tree.setCurrentIndex(idx1)
+    mime = adapter.mimeData([idx1])
+
+    rect2 = tree.visualRect(idx2)
+    pos_top = QPoint(rect2.center().x(), rect2.top() + 2)
+    evt = QDragMoveEvent(pos_top, Qt.DropAction.MoveAction, mime, Qt.MouseButton.LeftButton, Qt.KeyboardModifier.NoModifier)
+
+    tree.dragMoveEvent(evt)
+    assert evt.isAccepted() is True
+    assert tree.dropIndicatorPosition() == QAbstractItemView.DropIndicatorPosition.AboveItem
+
+
+def test_arvore_drop_event_usa_idx_arrastado_em_vez_de_current_index(qapp):
+    """Garante que a soltura na árvore usa o nó arrastado mesmo se currentIndex estiver em outro elemento."""
+    from PySide6.QtCore import Qt
+    from PySide6.QtWidgets import QAbstractItemView
+    from editor.views.widget_editor_dados import _get_id
+    croqui = Croqui()
+    pico = croqui.picos.add()
+    pico.nome = "Pico Teste"
+    s1 = pico.setores_ou_grupos.add()
+    s1.setor.conteudo.nome = "Setor 1"
+    s2 = pico.setores_ou_grupos.add()
+    s2.setor.conteudo.nome = "Setor 2"
+    s3 = pico.setores_ou_grupos.add()
+    s3.setor.conteudo.nome = "Setor 3"
+
+    model = CroquiModel(croqui)
+    controller = CroquiController(model, QUndoStack())
+    widget = WidgetEditorDados(model, controller)
+    tree = widget.tree_view
+    tree.show()
+    tree.expandAll()
+
+    adapter = widget.tree_model
+    exp_sg = adapter.find_expando_index(_get_id(pico), "setores_ou_grupos")
+    idx1 = adapter.index(0, 0, exp_sg)
+    idx2 = adapter.index(1, 0, exp_sg)
+    idx3 = adapter.index(2, 0, exp_sg)
+
+    # Define currentIndex como Setor 3 (item não arrastado)
+    tree.setCurrentIndex(idx3)
+
+    # Marca Setor 1 como o nó arrastado
+    tree._idx_arrastado = idx1
+
+    from PySide6.QtGui import QDropEvent
+    from PySide6.QtCore import QPointF
+    rect2 = tree.visualRect(idx2)
+    mime = adapter.mimeData([idx1])
+    evt = QDropEvent(QPointF(rect2.center()), Qt.DropAction.MoveAction, mime, Qt.MouseButton.LeftButton, Qt.KeyboardModifier.NoModifier)
+
+    # Simula dropIndicatorPosition como BelowItem
+    tree.dropIndicatorPosition = lambda: QAbstractItemView.DropIndicatorPosition.BelowItem
+    tree.dropEvent(evt)
+
+    # Verifica que Setor 1 foi movido abaixo de Setor 2, e NÃO Setor 3
+    assert [s.setor.conteudo.nome for s in pico.setores_ou_grupos] == ["Setor 2", "Setor 1", "Setor 3"]
+
+
+def test_arvore_drag_drop_migracao_hierarquica_pico_para_grupo(qapp):
+
+    from PySide6.QtWidgets import QAbstractItemView
+    from editor.views.widget_editor_dados import _get_id
+    from aresta_api.proto.generated import croqui_pb2
+    croqui = Croqui()
+    pico = croqui.picos.add()
+    pico.nome = "Pico Central"
+
+    # Setor no Pico
+    sg_setor = pico.setores_ou_grupos.add()
+    sg_setor.setor.conteudo.nome = "Savassinha"
+    sg_setor.setor.Extensions[croqui_pb2.ArquivoSetor.ext_metadados_arquivo].caminho_original = "setor_savassinha.md"
+    sg_setor.setor.Extensions[croqui_pb2.ArquivoSetor.ext_metadados_arquivo].caminho_novo = "setor_savassinha.md"
+
+    # Grupo no Pico
+    sg_grupo = pico.setores_ou_grupos.add()
+    sg_grupo.grupo.conteudo.nome = "Vale Oculto"
+    sg_grupo.grupo.Extensions[croqui_pb2.ArquivoGrupo.ext_metadados_arquivo].caminho_original = "grupo_vale_oculto.md"
+    sg_grupo.grupo.Extensions[croqui_pb2.ArquivoGrupo.ext_metadados_arquivo].caminho_novo = "grupo_vale_oculto.md"
+
+    s_interno = sg_grupo.grupo.conteudo.setores.add()
+    s_interno.conteudo.nome = "De Cara"
+    s_interno.Extensions[croqui_pb2.ArquivoSetor.ext_metadados_arquivo].caminho_original = "grupo_vale_oculto_setor_de_cara.md"
+    s_interno.Extensions[croqui_pb2.ArquivoSetor.ext_metadados_arquivo].caminho_novo = "grupo_vale_oculto_setor_de_cara.md"
+
+    model = CroquiModel(croqui)
+    pilha = QUndoStack()
+    controller = CroquiController(model, pilha)
+    widget = WidgetEditorDados(model, controller)
+
+    setores_exp = widget.tree_model.find_expando_index(_get_id(pico), "setores_ou_grupos")
+    idx_setor = widget.tree_model.index(0, 0, setores_exp)
+    idx_grupo = widget.tree_model.index(1, 0, setores_exp)
+
+    # Arraste do Setor Savassinha sobre o Grupo Vale Oculto
+    sucesso = widget._executar_soltura_arvore(idx_setor, idx_grupo, QAbstractItemView.DropIndicatorPosition.OnItem)
+    assert sucesso is True
+
+    # Verifica que Savassinha saiu do Pico e agora é o segundo setor do Grupo Vale Oculto
+    assert len(pico.setores_ou_grupos) == 1
+    assert pico.setores_ou_grupos[0].WhichOneof("tipo") == "grupo"
+    grupo_msg = pico.setores_ou_grupos[0].grupo.conteudo
+    assert len(grupo_msg.setores) == 2
+    assert grupo_msg.setores[1].conteudo.nome == "Savassinha"
+    assert grupo_msg.setores[1].Extensions[croqui_pb2.ArquivoSetor.ext_metadados_arquivo].caminho_novo == "grupo_vale_oculto_setor_savassinha.md"
+    assert pilha.count() == 1
+
+    # Desfazer (Undo)
+    pilha.undo()
+    assert len(pico.setores_ou_grupos) == 2
+    assert pico.setores_ou_grupos[0].setor.conteudo.nome == "Savassinha"
+    assert pico.setores_ou_grupos[0].setor.Extensions[croqui_pb2.ArquivoSetor.ext_metadados_arquivo].caminho_novo == "setor_savassinha.md"
+    assert len(pico.setores_ou_grupos[1].grupo.conteudo.setores) == 1
+
+
+def test_arvore_drag_drop_migracao_hierarquica_grupo_para_pico(qapp):
+    """Garante que mover um setor de dentro de um Grupo para a raiz do Pico remove o prefixo do grupo."""
+    from PySide6.QtWidgets import QAbstractItemView
+    from editor.views.widget_editor_dados import _get_id
+    from aresta_api.proto.generated import croqui_pb2
+    croqui = Croqui()
+    pico = croqui.picos.add()
+    pico.nome = "Pico Central"
+
+    sg_grupo = pico.setores_ou_grupos.add()
+    sg_grupo.grupo.conteudo.nome = "Vale Oculto"
+
+    s_interno = sg_grupo.grupo.conteudo.setores.add()
+    s_interno.conteudo.nome = "De Cara"
+    s_interno.Extensions[croqui_pb2.ArquivoSetor.ext_metadados_arquivo].caminho_original = "grupo_vale_oculto_setor_de_cara.md"
+    s_interno.Extensions[croqui_pb2.ArquivoSetor.ext_metadados_arquivo].caminho_novo = "grupo_vale_oculto_setor_de_cara.md"
+
+    model = CroquiModel(croqui)
+    pilha = QUndoStack()
+    controller = CroquiController(model, pilha)
+    widget = WidgetEditorDados(model, controller)
+
+    setores_exp = widget.tree_model.find_expando_index(_get_id(pico), "setores_ou_grupos")
+    idx_grupo = widget.tree_model.index(0, 0, setores_exp)
+    setores_grupo_exp = widget.tree_model.find_expando_index(_get_id(sg_grupo.grupo.conteudo), "setores")
+    idx_setor_interno = widget.tree_model.index(0, 0, setores_grupo_exp)
+
+    # Arraste de "De Cara" para fora do grupo (abaixo do grupo no Pico)
+    sucesso = widget._executar_soltura_arvore(idx_setor_interno, idx_grupo, QAbstractItemView.DropIndicatorPosition.BelowItem)
+    assert sucesso is True
+
+    # Verifica que agora o Pico tem o Grupo e o Setor na raiz
+    assert len(pico.setores_ou_grupos) == 2
+    assert pico.setores_ou_grupos[1].WhichOneof("tipo") == "setor"
+    assert pico.setores_ou_grupos[1].setor.conteudo.nome == "De Cara"
+    assert pico.setores_ou_grupos[1].setor.Extensions[croqui_pb2.ArquivoSetor.ext_metadados_arquivo].caminho_novo == "setor_de_cara.md"
+    assert len(sg_grupo.grupo.conteudo.setores) == 0
+
+    # Desfazer (Undo)
+    pilha.undo()
+    assert len(pico.setores_ou_grupos) == 1
+    assert len(sg_grupo.grupo.conteudo.setores) == 1
+    assert sg_grupo.grupo.conteudo.setores[0].Extensions[croqui_pb2.ArquivoSetor.ext_metadados_arquivo].caminho_novo == "grupo_vale_oculto_setor_de_cara.md"
+
+
+def test_arvore_drag_drop_migracao_hierarquica_entre_grupos(qapp):
+    """Garante que mover um setor entre dois grupos substitui o prefixo do grupo antigo pelo novo."""
+    from PySide6.QtWidgets import QAbstractItemView
+    from editor.views.widget_editor_dados import _get_id
+    from aresta_api.proto.generated import croqui_pb2
+    croqui = Croqui()
+    pico = croqui.picos.add()
+    pico.nome = "Pico Central"
+
+    sg_g1 = pico.setores_ou_grupos.add()
+    sg_g1.grupo.conteudo.nome = "Grupo Alpha"
+
+    s1 = sg_g1.grupo.conteudo.setores.add()
+    s1.conteudo.nome = "Setor X"
+    s1.Extensions[croqui_pb2.ArquivoSetor.ext_metadados_arquivo].caminho_original = "grupo_grupo_alpha_setor_x.md"
+    s1.Extensions[croqui_pb2.ArquivoSetor.ext_metadados_arquivo].caminho_novo = "grupo_grupo_alpha_setor_x.md"
+
+    sg_g2 = pico.setores_ou_grupos.add()
+    sg_g2.grupo.conteudo.nome = "Grupo Beta"
+
+    model = CroquiModel(croqui)
+    pilha = QUndoStack()
+    controller = CroquiController(model, pilha)
+    widget = WidgetEditorDados(model, controller)
+
+    setores_exp = widget.tree_model.find_expando_index(_get_id(pico), "setores_ou_grupos")
+    idx_g1 = widget.tree_model.index(0, 0, setores_exp)
+    idx_g2 = widget.tree_model.index(1, 0, setores_exp)
+
+    setores_g1_exp = widget.tree_model.find_expando_index(_get_id(sg_g1.grupo.conteudo), "setores")
+    idx_setor = widget.tree_model.index(0, 0, setores_g1_exp)
+
+    # Arraste de Setor X para dentro de Grupo Beta
+    sucesso = widget._executar_soltura_arvore(idx_setor, idx_g2, QAbstractItemView.DropIndicatorPosition.OnItem)
+    assert sucesso is True
+
+    assert len(sg_g1.grupo.conteudo.setores) == 0
+    assert len(sg_g2.grupo.conteudo.setores) == 1
+    assert sg_g2.grupo.conteudo.setores[0].conteudo.nome == "Setor X"
+    assert sg_g2.grupo.conteudo.setores[0].Extensions[croqui_pb2.ArquivoSetor.ext_metadados_arquivo].caminho_novo == "grupo_grupo_beta_setor_x.md"
+
+    # Desfazer (Undo)
+    pilha.undo()
+    assert len(sg_g1.grupo.conteudo.setores) == 1
+    assert len(sg_g2.grupo.conteudo.setores) == 0
+
+
+def test_arvore_drag_drop_colisao_arquivo_aborta_com_aviso(qapp, monkeypatch):
+    """Garante que se o caminho_novo resultante já existe, o drop é abortado e exibe aviso."""
+    from PySide6.QtWidgets import QAbstractItemView, QMessageBox
+    from editor.views.widget_editor_dados import _get_id
+    from aresta_api.proto.generated import croqui_pb2
+    croqui = Croqui()
+    pico = croqui.picos.add()
+    pico.nome = "Pico Central"
+
+    sg_setor = pico.setores_ou_grupos.add()
+    sg_setor.setor.conteudo.nome = "Savassinha"
+    sg_setor.setor.Extensions[croqui_pb2.ArquivoSetor.ext_metadados_arquivo].caminho_original = "setor_savassinha.md"
+    sg_setor.setor.Extensions[croqui_pb2.ArquivoSetor.ext_metadados_arquivo].caminho_novo = "setor_savassinha.md"
+
+    sg_grupo = pico.setores_ou_grupos.add()
+    sg_grupo.grupo.conteudo.nome = "Vale Oculto"
+
+    # Simula arquivo que já existe no disco/croqui com o nome resultante da migração
+    avisos = []
+    monkeypatch.setattr(QMessageBox, "warning", lambda parent, titulo, msg: avisos.append((titulo, msg)))
+
+    caminhos_existentes = {"grupo_vale_oculto_setor_savassinha.md"}
+    model = CroquiModel(croqui)
+    pilha = QUndoStack()
+    controller = CroquiController(model, pilha)
+    widget = WidgetEditorDados(model, controller)
+    widget._arquivos_existentes_croqui = caminhos_existentes
+
+    setores_exp = widget.tree_model.find_expando_index(_get_id(pico), "setores_ou_grupos")
+    idx_setor = widget.tree_model.index(0, 0, setores_exp)
+    idx_grupo = widget.tree_model.index(1, 0, setores_exp)
+
+    # Tenta soltar sobre o grupo
+    sucesso = widget._executar_soltura_arvore(idx_setor, idx_grupo, QAbstractItemView.DropIndicatorPosition.OnItem)
+    assert sucesso is False
+    assert len(avisos) == 1
+    assert "já existe um arquivo" in avisos[0][1].lower() or "conflito" in avisos[0][0].lower() or "arquivo" in avisos[0][1].lower()
+
+    # O setor permaneceu intocado no Pico e a pilha está vazia
+    assert len(pico.setores_ou_grupos) == 2
+    assert pico.setores_ou_grupos[0].setor.conteudo.nome == "Savassinha"
+    assert pilha.count() == 0
+
+
+def test_arvore_dados_tree_view_eventos_drag_drop(qapp):
+    """Testa diretamente os manipuladores de eventos dragEnterEvent, dragMoveEvent e dropEvent da ArvoreDadosTreeView."""
+    from PySide6.QtCore import QPoint, QMimeData, QByteArray, Qt
+    from PySide6.QtGui import QDragEnterEvent, QDragMoveEvent, QDropEvent
+    from editor.views.tree_view_adapter import ProtobufTreeViewAdapter
+    from editor.views.widget_editor_dados import _get_id
+
+    croqui = Croqui()
+    pico = croqui.picos.add(nome="Pico 1")
+    sg1 = pico.setores_ou_grupos.add()
+    sg1.setor.conteudo.nome = "Setor A"
+    sg2 = pico.setores_ou_grupos.add()
+    sg2.grupo.conteudo.nome = "Grupo B"
+
+    model = CroquiModel(croqui)
+    controller = CroquiController(model, QUndoStack())
+    widget = WidgetEditorDados(model, controller)
+    tree = widget.tree_view
+
+    setores_exp = widget.tree_model.find_expando_index(_get_id(pico), "setores_ou_grupos")
+    idx_setor = widget.tree_model.index(0, 0, setores_exp)
+    idx_grupo = widget.tree_model.index(1, 0, setores_exp)
+
+    # 1. dragEnterEvent com mime válido e inválido
+    mime_valido = QMimeData()
+    mime_valido.setData(ProtobufTreeViewAdapter.MIME_TYPE, QByteArray(b"{}"))
+    event_enter_ok = QDragEnterEvent(QPoint(10, 10), Qt.DropAction.MoveAction, mime_valido, Qt.MouseButton.LeftButton, Qt.KeyboardModifier.NoModifier)
+    tree.dragEnterEvent(event_enter_ok)
+    assert event_enter_ok.isAccepted()
+
+    mime_invalido = QMimeData()
+    event_enter_invalido = QDragEnterEvent(QPoint(10, 10), Qt.DropAction.MoveAction, mime_invalido, Qt.MouseButton.LeftButton, Qt.KeyboardModifier.NoModifier)
+    tree.dragEnterEvent(event_enter_invalido)
+
+    # 2. dragMoveEvent com mime válido sobre índice de grupo (permitido)
+    tree.setCurrentIndex(idx_setor)
+    rect_grupo = tree.visualRect(idx_grupo)
+    pt_grupo = rect_grupo.center()
+
+    event_move = QDragMoveEvent(pt_grupo, Qt.DropAction.MoveAction, mime_valido, Qt.MouseButton.LeftButton, Qt.KeyboardModifier.NoModifier)
+    tree.dragMoveEvent(event_move)
+    assert event_move.isAccepted()
+
+    # dragMoveEvent com mime inválido
+    event_move_invalido = QDragMoveEvent(pt_grupo, Qt.DropAction.MoveAction, mime_invalido, Qt.MouseButton.LeftButton, Qt.KeyboardModifier.NoModifier)
+    tree.dragMoveEvent(event_move_invalido)
+
+    # 3. dropEvent com mime inválido
+    event_drop_invalido = QDropEvent(pt_grupo, Qt.DropAction.MoveAction, mime_invalido, Qt.MouseButton.LeftButton, Qt.KeyboardModifier.NoModifier)
+    tree.dropEvent(event_drop_invalido)
+
+    # 4. dropEvent válido
+    event_drop = QDropEvent(pt_grupo, Qt.DropAction.MoveAction, mime_valido, Qt.MouseButton.LeftButton, Qt.KeyboardModifier.NoModifier)
+    tree.dropEvent(event_drop)
+    assert len(sg2.grupo.conteudo.setores) == 1
+    assert sg2.grupo.conteudo.setores[0].conteudo.nome == "Setor A"
+
+
+def test_container_repeated_botoes_subir_descer_reordena_e_undo_redo(qapp):
+    from editor.models.croqui_model import CroquiModel
+    from editor.controllers.croqui_controller import CroquiController
+    from editor.views.widget_editor_dados import ContainerRepeatedWidget, WidgetFormularioPadrao
+    from aresta_api.proto.generated.croqui_pb2 import Croqui
+    from PySide6.QtGui import QUndoStack
+
+    croqui = Croqui()
+    p0 = croqui.picos.add()
+    p0.nome = "Pico Zero"
+    p1 = croqui.picos.add()
+    p1.nome = "Pico Um"
+    p2 = croqui.picos.add()
+    p2.nome = "Pico Dois"
+
+    undo_stack = QUndoStack()
+    model = CroquiModel(croqui)
+    controller = CroquiController(model, undo_stack)
+    form = WidgetFormularioPadrao(model, controller)
+
+    field = croqui.DESCRIPTOR.fields_by_name["picos"]
+    container = ContainerRepeatedWidget(croqui, field, form)
+
+    assert container.items_layout.count() == 3
+    w0 = container.items_layout.itemAt(0).widget()
+    w1 = container.items_layout.itemAt(1).widget()
+    w2 = container.items_layout.itemAt(2).widget()
+
+    btn_subir_0 = w0.property("btn_subir")
+    btn_descer_0 = w0.property("btn_descer")
+    btn_subir_1 = w1.property("btn_subir")
+    btn_descer_1 = w1.property("btn_descer")
+    btn_subir_2 = w2.property("btn_subir")
+    btn_descer_2 = w2.property("btn_descer")
+
+    assert btn_subir_0.isEnabled() is False
+    assert btn_descer_0.isEnabled() is True
+    assert btn_subir_1.isEnabled() is True
+    assert btn_descer_1.isEnabled() is True
+    assert btn_subir_2.isEnabled() is True
+    assert btn_descer_2.isEnabled() is False
+
+    # Move item 0 para baixo (vai para index 1)
+    btn_descer_0.click()
+    assert croqui.picos[0].nome == "Pico Um"
+    assert croqui.picos[1].nome == "Pico Zero"
+    assert croqui.picos[2].nome == "Pico Dois"
+
+    # Verifica novos estados dos botões após a movimentação
+    novo_w0 = container.items_layout.itemAt(0).widget()
+    novo_w1 = container.items_layout.itemAt(1).widget()
+    assert novo_w0.property("btn_subir").isEnabled() is False
+    assert novo_w0.property("btn_descer").isEnabled() is True
+    assert novo_w1.property("btn_subir").isEnabled() is True
+    assert novo_w1.property("btn_descer").isEnabled() is True
+
+    # Move de volta para cima
+    novo_w1.property("btn_subir").click()
+    assert croqui.picos[0].nome == "Pico Zero"
+    assert croqui.picos[1].nome == "Pico Um"
+
+    # Testa Undo
+    undo_stack.undo()
+    assert croqui.picos[0].nome == "Pico Um"
+    assert croqui.picos[1].nome == "Pico Zero"
+
+    # Testa Redo
+    undo_stack.redo()
+    assert croqui.picos[0].nome == "Pico Zero"
+    assert croqui.picos[1].nome == "Pico Um"
+
+
+def test_container_repeated_item_unico_desabilita_botoes(qapp):
+    from editor.models.croqui_model import CroquiModel
+    from editor.controllers.croqui_controller import CroquiController
+    from editor.views.widget_editor_dados import ContainerRepeatedWidget, WidgetFormularioPadrao
+    from aresta_api.proto.generated.croqui_pb2 import Croqui
+    from PySide6.QtGui import QUndoStack
+
+    croqui = Croqui()
+    p0 = croqui.picos.add()
+    p0.nome = "Pico Solo"
+
+    undo_stack = QUndoStack()
+    model = CroquiModel(croqui)
+    controller = CroquiController(model, undo_stack)
+    form = WidgetFormularioPadrao(model, controller)
+
+    field = croqui.DESCRIPTOR.fields_by_name["picos"]
+    container = ContainerRepeatedWidget(croqui, field, form)
+
+    assert container.items_layout.count() == 1
+    w0 = container.items_layout.itemAt(0).widget()
+    btn_subir = w0.property("btn_subir")
+    btn_descer = w0.property("btn_descer")
+
+    assert btn_subir.isEnabled() is False
+    assert btn_descer.isEnabled() is False
+
+
+def test_container_repeated_drag_and_drop_reordena_e_undo(qapp):
+    from editor.models.croqui_model import CroquiModel
+    from editor.controllers.croqui_controller import CroquiController
+    from editor.views.widget_editor_dados import ContainerRepeatedWidget, WidgetFormularioPadrao, _get_id
+    from aresta_api.proto.generated.croqui_pb2 import Croqui
+    from PySide6.QtCore import Qt, QPoint, QPointF, QMimeData, QByteArray
+    from PySide6.QtGui import QDragEnterEvent, QDragMoveEvent, QDropEvent, QUndoStack
+
+    croqui = Croqui()
+    p0 = croqui.picos.add()
+    p0.nome = "Pico Alpha"
+    p1 = croqui.picos.add()
+    p1.nome = "Pico Beta"
+    p2 = croqui.picos.add()
+    p2.nome = "Pico Gamma"
+
+    undo_stack = QUndoStack()
+    model = CroquiModel(croqui)
+    controller = CroquiController(model, undo_stack)
+    form = WidgetFormularioPadrao(model, controller)
+
+    field = croqui.DESCRIPTOR.fields_by_name["picos"]
+    container = ContainerRepeatedWidget(croqui, field, form)
+    container.show()
+    container.resize(400, 300)
+
+    # 1. dragEnterEvent com dados inválidos (campo diferente)
+    mime_errado = QMimeData()
+    mime_errado.setData("application/x-aresta-repeated-item", QByteArray(b"9999:outro_campo:0"))
+    event_enter_invalido = QDragEnterEvent(QPoint(10, 10), Qt.DropAction.MoveAction, mime_errado, Qt.MouseButton.LeftButton, Qt.KeyboardModifier.NoModifier)
+    container.dragEnterEvent(event_enter_invalido)
+    assert not event_enter_invalido.isAccepted()
+
+    # 2. dragEnterEvent válido
+    mime_valido = QMimeData()
+    payload = f"{_get_id(croqui)}:picos:0".encode("utf-8")
+    mime_valido.setData("application/x-aresta-repeated-item", QByteArray(payload))
+    event_enter_ok = QDragEnterEvent(QPoint(10, 10), Qt.DropAction.MoveAction, mime_valido, Qt.MouseButton.LeftButton, Qt.KeyboardModifier.NoModifier)
+    container.dragEnterEvent(event_enter_ok)
+    assert event_enter_ok.isAccepted()
+
+    # 3. dragMoveEvent posiciona e exibe indicador
+    w2 = container.items_layout.itemAt(2).widget()
+    pt_move = QPointF(w2.x() + 10, w2.y() + w2.height() - 2)
+    event_move = QDragMoveEvent(pt_move.toPoint(), Qt.DropAction.MoveAction, mime_valido, Qt.MouseButton.LeftButton, Qt.KeyboardModifier.NoModifier)
+    container.dragMoveEvent(event_move)
+    assert event_move.isAccepted()
+    assert container._indicador_drop.isVisible()
+
+    # 4. dragLeaveEvent esconde indicador
+    container.dragLeaveEvent(None)
+    assert container._indicador_drop.isHidden()
+
+    # 5. dropEvent soltando item 0 no final (após item 2)
+    pt_drop = QPointF(w2.x() + 10, w2.y() + w2.height() + 10)
+    event_drop = QDropEvent(pt_drop.toPoint(), Qt.DropAction.MoveAction, mime_valido, Qt.MouseButton.LeftButton, Qt.KeyboardModifier.NoModifier)
+    container.dropEvent(event_drop)
+    assert event_drop.isAccepted()
+    assert container._indicador_drop.isHidden()
+
+    # Verifica nova ordenação: Pico Alpha foi para o final
+    assert croqui.picos[0].nome == "Pico Beta"
+    assert croqui.picos[1].nome == "Pico Gamma"
+    assert croqui.picos[2].nome == "Pico Alpha"
+
+    # Testa Undo
+    undo_stack.undo()
+    assert croqui.picos[0].nome == "Pico Alpha"
+    assert croqui.picos[1].nome == "Pico Beta"
+    assert croqui.picos[2].nome == "Pico Gamma"
+
+
+def test_container_repeated_primitivo_botoes_e_reordenacao(qapp):
+    from editor.models.croqui_model import CroquiModel
+    from editor.controllers.croqui_controller import CroquiController
+    from editor.views.widget_editor_dados import ContainerRepeatedWidget, WidgetFormularioPadrao
+    from editor.views.componentes.alca_arraste_item import AlcaArrasteItem
+    from aresta_api.proto.generated.croqui_pb2 import Croqui
+    from PySide6.QtGui import QUndoStack
+
+    croqui = Croqui()
+    croqui.creditos.append("Autor 0")
+    croqui.creditos.append("Autor 1")
+    croqui.creditos.append("Autor 2")
+
+    undo_stack = QUndoStack()
+    model = CroquiModel(croqui)
+    controller = CroquiController(model, undo_stack)
+    form = WidgetFormularioPadrao(model, controller)
+
+    field = croqui.DESCRIPTOR.fields_by_name["creditos"]
+    container = ContainerRepeatedWidget(croqui, field, form)
+
+    assert container.items_layout.count() == 3
+    w1 = container.items_layout.itemAt(1).widget()
+
+    # Verifica presença da alça e botões no item primitivo
+    alcas = w1.findChildren(AlcaArrasteItem)
+    assert len(alcas) == 1
+
+    btn_subir_1 = w1.property("btn_subir")
+    assert btn_subir_1 is not None
+    assert btn_subir_1.isEnabled() is True
+
+    # Move item 1 para cima via botão
+    btn_subir_1.click()
+    assert list(croqui.creditos) == ["Autor 1", "Autor 0", "Autor 2"]
+
+    # Undo
+    undo_stack.undo()
+    assert list(croqui.creditos) == ["Autor 0", "Autor 1", "Autor 2"]
+
+
+def test_container_repeated_iniciar_drag(qapp, monkeypatch):
+    from editor.models.croqui_model import CroquiModel
+    from editor.controllers.croqui_controller import CroquiController
+    from editor.views.widget_editor_dados import ContainerRepeatedWidget, WidgetFormularioPadrao, _get_id
+    from aresta_api.proto.generated.croqui_pb2 import Croqui
+    from PySide6.QtGui import QUndoStack, QDrag
+
+    croqui = Croqui()
+    p0 = croqui.picos.add()
+    p0.nome = "Pico Drag"
+
+    undo_stack = QUndoStack()
+    model = CroquiModel(croqui)
+    controller = CroquiController(model, undo_stack)
+    form = WidgetFormularioPadrao(model, controller)
+
+    field = croqui.DESCRIPTOR.fields_by_name["picos"]
+    container = ContainerRepeatedWidget(croqui, field, form)
+    container.show()
+
+    chamou_exec = False
+    def fake_exec(self, *args, **kwargs):
+        nonlocal chamou_exec
+        chamou_exec = True
+        assert self.mimeData().hasFormat("application/x-aresta-repeated-item")
+        dados = bytes(self.mimeData().data("application/x-aresta-repeated-item")).decode("utf-8")
+        assert dados == f"{_get_id(croqui)}:picos:0"
+
+    monkeypatch.setattr(QDrag, "exec", fake_exec)
+
+    w0 = container.items_layout.itemAt(0).widget()
+    container._iniciar_drag(w0)
+    assert chamou_exec is True
+
+
+def test_container_repeated_mapas_renderiza_widget_card_mapa(qapp, monkeypatch):
+    from unittest.mock import MagicMock
+    from editor.views.componentes.widget_card_mapa import WidgetCardMapa
+    from editor.views.widget_editor_dados import WidgetColapsavel, ContainerRepeatedWidget, WidgetFormularioPadrao
+    from editor.models.croqui_model import CroquiModel
+    from editor.controllers.croqui_controller import CroquiController
+    from PySide6.QtGui import QUndoStack, QImage, QColor
+    from PySide6.QtCore import QBuffer, QIODevice
+    from aresta_api.proto.generated import croqui_pb2
+
+    croqui = croqui_pb2.Croqui()
+    setor = croqui_pb2.Setor(nome="Setor das Pedras")
+    m0 = setor.mapas.add(caminho_imagem_mapa="imagens/parede_a.webp", largura_mapa=1920, altura_mapa=1080)
+    m1 = setor.mapas.add(caminho_imagem_mapa="imagens/parede_b.webp", largura_mapa=1280, altura_mapa=720)
+
+    # Imagem de teste para o mapa 0
+    img = QImage(30, 30, QImage.Format.Format_RGB32)
+    img.fill(QColor("purple"))
+    buf = QBuffer()
+    buf.open(QIODevice.OpenModeFlag.WriteOnly)
+    img.save(buf, "PNG")
+    bytes_img = bytes(buf.data())
+
+    undo_stack = QUndoStack()
+    model = CroquiModel(croqui)
+    model.definir_imagem_memoria("imagens/parede_a.webp", bytes_img)
+    controller = CroquiController(model, undo_stack)
+    form = WidgetFormularioPadrao(model, controller)
+
+    import editor.views.widget_editor_dados as wed
+    monkeypatch.setattr(wed, "get_node_path", lambda node: "expando:setores/item:0")
+    form.current_node = MagicMock()
+
+    campo_mapas = croqui_pb2.Setor.DESCRIPTOR.fields_by_name["mapas"]
+    container = ContainerRepeatedWidget(setor, campo_mapas, form)
+
+    # Não deve existir WidgetColapsavel para mapas
+    assert len(container.findChildren(WidgetColapsavel)) == 0
+
+    # Devem existir exatamente 2 cartões de mapa
+    cards = container.findChildren(WidgetCardMapa)
+    assert len(cards) == 2
+
+    # Card 0
+    assert "Mapa [0]" in cards[0].rotulo_titulo.text()
+    assert "parede_a.webp" in cards[0].rotulo_titulo.text()
+    assert "1920 × 1080 px" in cards[0].rotulo_resolucao.text()
+    assert cards[0].rotulo_miniatura.pixmap() is not None
+    assert not cards[0].rotulo_miniatura.pixmap().isNull()
+    assert not cards[0].btn_subir.isEnabled()
+    assert cards[0].btn_descer.isEnabled()
+
+    # Card 1
+    assert "Mapa [1]" in cards[1].rotulo_titulo.text()
+    assert "parede_b.webp" in cards[1].rotulo_titulo.text()
+    assert "1280 × 720 px" in cards[1].rotulo_resolucao.text()
+    assert cards[1].rotulo_miniatura.text() == "Sem Imagem"
+    assert cards[1].btn_subir.isEnabled()
+    assert not cards[1].btn_descer.isEnabled()
+
+    # Teste de clique para abrir no editor
+    last_contexto = None
+    def mock_set_contexto(ctx):
+        nonlocal last_contexto
+        last_contexto = ctx
+    controller.set_contexto = mock_set_contexto
+
+    cards[0].btn_abrir_editor.click()
+    assert last_contexto == "page:mapas/expando:setores/item:0/expando:mapas/item:0"
+
+
+def test_container_repeated_mapas_reordenacao_botoes_e_drag_and_drop_undo_redo(qapp):
+    from editor.views.componentes.widget_card_mapa import WidgetCardMapa
+    from editor.views.widget_editor_dados import ContainerRepeatedWidget, WidgetFormularioPadrao, _get_id
+    from editor.models.croqui_model import CroquiModel
+    from editor.controllers.croqui_controller import CroquiController
+    from PySide6.QtGui import QUndoStack, QDropEvent
+    from PySide6.QtCore import QMimeData, QByteArray, QPointF, Qt
+    from aresta_api.proto.generated import croqui_pb2
+
+    croqui = croqui_pb2.Croqui()
+    setor = croqui_pb2.Setor(nome="Setor Sol")
+    setor.mapas.add(caminho_imagem_mapa="imagens/mapa_0.webp", largura_mapa=100, altura_mapa=100)
+    setor.mapas.add(caminho_imagem_mapa="imagens/mapa_1.webp", largura_mapa=200, altura_mapa=200)
+
+    undo_stack = QUndoStack()
+    model = CroquiModel(croqui)
+    controller = CroquiController(model, undo_stack)
+    form = WidgetFormularioPadrao(model, controller)
+
+    campo_mapas = croqui_pb2.Setor.DESCRIPTOR.fields_by_name["mapas"]
+    container = ContainerRepeatedWidget(setor, campo_mapas, form)
+
+    w0 = container.items_layout.itemAt(0).widget()
+    card0 = w0.findChild(WidgetCardMapa)
+    w1 = container.items_layout.itemAt(1).widget()
+    card1 = w1.findChild(WidgetCardMapa)
+
+    assert "mapa_0.webp" in card0.rotulo_titulo.text()
+    assert "mapa_1.webp" in card1.rotulo_titulo.text()
+
+    # 1. Clica em btn_descer do card 0
+    card0.btn_descer.click()
+    assert setor.mapas[0].caminho_imagem_mapa == "imagens/mapa_1.webp"
+    assert setor.mapas[1].caminho_imagem_mapa == "imagens/mapa_0.webp"
+
+    # Layout reordenado
+    novo_card0 = container.items_layout.itemAt(0).widget().findChild(WidgetCardMapa)
+    novo_card1 = container.items_layout.itemAt(1).widget().findChild(WidgetCardMapa)
+    assert "Mapa [0] - mapa_1.webp" in novo_card0.rotulo_titulo.text()
+    assert "Mapa [1] - mapa_0.webp" in novo_card1.rotulo_titulo.text()
+    assert not novo_card0.btn_subir.isEnabled()
+    assert novo_card0.btn_descer.isEnabled()
+    assert novo_card1.btn_subir.isEnabled()
+    assert not novo_card1.btn_descer.isEnabled()
+
+    # 2. Undo
+    undo_stack.undo()
+    assert setor.mapas[0].caminho_imagem_mapa == "imagens/mapa_0.webp"
+    assert setor.mapas[1].caminho_imagem_mapa == "imagens/mapa_1.webp"
+    assert "Mapa [0] - mapa_0.webp" in container.items_layout.itemAt(0).widget().findChild(WidgetCardMapa).rotulo_titulo.text()
+
+    # 3. Redo
+    undo_stack.redo()
+    assert setor.mapas[0].caminho_imagem_mapa == "imagens/mapa_1.webp"
+    assert "Mapa [0] - mapa_1.webp" in container.items_layout.itemAt(0).widget().findChild(WidgetCardMapa).rotulo_titulo.text()
+
+    # 4. Drag & Drop: move de volta índice 1 para 0
+    mime = QMimeData()
+    payload = f"{_get_id(setor)}:mapas:1".encode("utf-8")
+    mime.setData("application/x-aresta-repeated-item", QByteArray(payload))
+    container._calcular_posicao_drop_e_indicador = lambda pos_y, orig: (0, 0)
+    drop_event = QDropEvent(
+        QPointF(10, 10),
+        Qt.DropAction.MoveAction,
+        mime,
+        Qt.MouseButton.LeftButton,
+        Qt.KeyboardModifier.NoModifier,
+    )
+    container.dropEvent(drop_event)
+
+    assert setor.mapas[0].caminho_imagem_mapa == "imagens/mapa_0.webp"
+    assert setor.mapas[1].caminho_imagem_mapa == "imagens/mapa_1.webp"
+    assert "Mapa [0] - mapa_0.webp" in container.items_layout.itemAt(0).widget().findChild(WidgetCardMapa).rotulo_titulo.text()
+
+
+
 
 
 

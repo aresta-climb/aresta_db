@@ -422,10 +422,6 @@ class JanelaPrincipal(QMainWindow):
         self.historico.obter_pilha().canUndoChanged.connect(self.acao_desfazer.setEnabled)
         self.historico.obter_pilha().canRedoChanged.connect(self.acao_refazer.setEnabled)
         
-        self.acao_exportar = QAction(Icones.obter("exportar"), "Exportar", self)
-        self.acao_exportar.setToolTip("Exportar .croqui")
-        self.acao_exportar.triggered.connect(self.exportar_croqui)
-        
         self.acao_celular = QAction(Icones.obter_celular(conectado=False), "Celular", self)
         self.acao_celular.setToolTip("Conectar com celular...")
         self.acao_celular.triggered.connect(self._exibir_conexao_celular)
@@ -452,8 +448,6 @@ class JanelaPrincipal(QMainWindow):
         self.addAction(self.acao_desfazer)
         self.toolbar_superior.addAction(self.acao_refazer)
         self.addAction(self.acao_refazer)
-        self.toolbar_superior.addSeparator()
-        self.toolbar_superior.addAction(self.acao_exportar)
         self.toolbar_superior.addAction(self.acao_celular)
         self.toolbar_superior.addSeparator()
         self.toolbar_superior.addAction(self.acao_publicar)
@@ -802,40 +796,6 @@ class JanelaPrincipal(QMainWindow):
             self._fechar_apos_salvar = False
             if hasattr(self, 'dlg_fechamento') and self.dlg_fechamento:
                 self.dlg_fechamento.reject()
-
-    def exportar_croqui(self) -> None:
-        """Gera o arquivo .croqui (ZIP)."""
-        if not self.workspace:
-            return
-            
-        from PySide6.QtWidgets import QFileDialog
-        
-        id_croqui = self.croqui_data.get("id", "croqui") if self.croqui_data else "croqui"
-        sugestao_nome = f"{id_croqui}.croqui"
-        
-        destino, _ = QFileDialog.getSaveFileName(
-            self, "Exportar Croqui", sugestao_nome, "Arquivos de Croqui (*.croqui)"
-        )
-        
-        if destino:
-            try:
-                from editor.core.worker import TarefaExportacao
-                from PySide6.QtWidgets import QProgressDialog
-                
-                self.progresso_export: QProgressDialog = QProgressDialog("Compactando e ofuscando...", "", 0, 0, self)
-                self.progresso_export.setWindowTitle("Exportando Croqui")
-                self.progresso_export.setWindowModality(Qt.WindowModality.WindowModal)
-                self.progresso_export.show()
-                
-                self._worker_export: TarefaExportacao = TarefaExportacao(self.workspace.caminho_raiz, Path(destino))
-                self._worker_export.sucesso.connect(lambda: self.exibir_notificacao("Croqui exportado com sucesso!"))
-                self._worker_export.sucesso.connect(self.progresso_export.close)
-                self._worker_export.erro.connect(lambda e: QMessageBox.critical(self, "Erro ao Exportar", f"Falha na exportação:\n{e}"))
-                self._worker_export.erro.connect(self.progresso_export.close)
-                
-                self._worker_export.start()
-            except Exception as e:
-                QMessageBox.critical(self, "Erro ao Exportar", f"Não foi possível iniciar a exportação:\n{str(e)}")
 
     def publicar_croqui(self) -> None:
         """Inicia o fluxo de publicação do croqui."""

@@ -7,7 +7,6 @@
 *.jpeg binary
 *.webp binary
 *.ico binary
-*.croqui binary
 *.bin binary
 *.binarypb binary
 *.exe binary

@@ -216,11 +216,26 @@ class TestFatiamentoTrajeto:
         assert (sub_meio.linha.conteudo.nos[1].x, sub_meio.linha.conteudo.nos[1].y) == (100, 300)
 
     def test_fatiar_linha_triplo_indices_invalidos_levanta_erro(self):
-        linha = _criar_linha_pb("linha_base", [(100, 500), (100, 400), (100, 300)])
+        linha = _criar_linha_pb("linha_base", [(100, 500), (100, 400), (100, 300), (100, 200)])
+        # Entrada maior que saída
         with pytest.raises(ValueError):
             fatiar_linha_triplo(linha, indice_entrada=2, indice_saida=1, id_sub1="a", id_sub2="b", id_sub3="c")
+        # Índices negativos
         with pytest.raises(ValueError):
             fatiar_linha_triplo(linha, indice_entrada=-1, indice_saida=2, id_sub1="a", id_sub2="b", id_sub3="c")
+        # Entrada igual a saída (mesmo nó)
+        with pytest.raises(ValueError):
+            fatiar_linha_triplo(linha, indice_entrada=1, indice_saida=1, id_sub1="a", id_sub2="b", id_sub3="c")
+        # Entrada no índice 0 (não intermediário, sub1 ficaria com 1 nó)
+        with pytest.raises(ValueError):
+            fatiar_linha_triplo(linha, indice_entrada=0, indice_saida=2, id_sub1="a", id_sub2="b", id_sub3="c")
+        # Saída no último nó (não intermediário, sub3 ficaria com 1 nó)
+        with pytest.raises(ValueError):
+            fatiar_linha_triplo(linha, indice_entrada=1, indice_saida=3, id_sub1="a", id_sub2="b", id_sub3="c")
+        # Linha com menos de 4 nós
+        linha_curta = _criar_linha_pb("curta", [(100, 500), (100, 400), (100, 300)])
+        with pytest.raises(ValueError):
+            fatiar_linha_triplo(linha_curta, indice_entrada=1, indice_saida=2, id_sub1="a", id_sub2="b", id_sub3="c")
 
     def test_atualizar_referencias_apos_fatiamento(self):
         mapa = croqui_pb2.Mapa()

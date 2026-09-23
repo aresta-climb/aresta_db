@@ -306,6 +306,57 @@ def test_croqui_model_alterar_repeated_item(qapp):
     assert croqui.picos[0].nome == "Pico Atualizado"
     slot_mock.assert_called_once_with(croqui, "picos", 0)
 
+def test_croqui_model_migrar_setor(qapp):
+    from aresta_api.proto.generated import croqui_pb2
+    croqui = Croqui()
+    pico = croqui.picos.add(nome="Pico 1")
+    sg_setor = pico.setores_ou_grupos.add()
+    sg_setor.setor.conteudo.nome = "Setor A"
+    sg_grupo = pico.setores_ou_grupos.add()
+    sg_grupo.grupo.conteudo.nome = "Grupo G"
+
+    model = CroquiModel(croqui)
+    removido_mock = MagicMock()
+    adicionado_mock = MagicMock()
+    model.repeated_removido.connect(removido_mock)
+    model.repeated_adicionado.connect(adicionado_mock)
+
+    # 1. Pico -> Grupo com novo caminho
+    model._migrar_setor(
+        pai_origem=pico,
+        campo_origem="setores_ou_grupos",
+        indice_origem=0,
+        pai_destino=sg_grupo.grupo.conteudo,
+        campo_destino="setores",
+        indice_destino=0,
+        novo_caminho="grupo_g_setor_a.md"
+    )
+
+    assert len(pico.setores_ou_grupos) == 1
+    assert len(sg_grupo.grupo.conteudo.setores) == 1
+    assert sg_grupo.grupo.conteudo.setores[0].conteudo.nome == "Setor A"
+    assert sg_grupo.grupo.conteudo.setores[0].Extensions[croqui_pb2.ArquivoSetor.ext_metadados_arquivo].caminho_novo == "grupo_g_setor_a.md"
+    removido_mock.assert_called_once_with(pico, "setores_ou_grupos", 0)
+    adicionado_mock.assert_called_once_with(sg_grupo.grupo.conteudo, "setores", 0)
+
+    # 2. Grupo -> Pico sem alterar novo caminho (novo_caminho=None)
+    removido_mock.reset_mock()
+    adicionado_mock.reset_mock()
+    model._migrar_setor(
+        pai_origem=sg_grupo.grupo.conteudo,
+        campo_origem="setores",
+        indice_origem=0,
+        pai_destino=pico,
+        campo_destino="setores_ou_grupos",
+        indice_destino=0,
+        novo_caminho=None
+    )
+    assert len(sg_grupo.grupo.conteudo.setores) == 0
+    assert len(pico.setores_ou_grupos) == 2
+    assert pico.setores_ou_grupos[0].setor.conteudo.nome == "Setor A"
+    removido_mock.assert_called_once_with(sg_grupo.grupo.conteudo, "setores", 0)
+    adicionado_mock.assert_called_once_with(pico, "setores_ou_grupos", 0)
+
 def test_croqui_model_alterar_oneof(qapp):
     from aresta_api.proto.generated.croqui_pb2 import ArquivoGrupo
     croqui = Croqui()

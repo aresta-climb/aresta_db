@@ -356,11 +356,9 @@ class TelaDeCarregamento(QDialog):
         self.layout_acoes.setSpacing(10)
         
         self.btn_novo: QPushButton = QPushButton("Novo croqui")
-        self.btn_importar: QPushButton = QPushButton("Importar croqui experimental")
         self.btn_oficial: QPushButton = QPushButton("Editar croqui oficial")
         
         self.layout_acoes.addWidget(self.btn_novo)
-        self.layout_acoes.addWidget(self.btn_importar)
         self.layout_acoes.addWidget(self.btn_oficial)
         
         self.layout_principal.addWidget(self.grupo_acoes)
@@ -468,7 +466,6 @@ class TelaDeCarregamento(QDialog):
         
         # Conecta sinais
         self.btn_novo.clicked.connect(self.ao_clicar_novo)
-        self.btn_importar.clicked.connect(self.ao_clicar_importar)
         self.btn_oficial.clicked.connect(self.ao_clicar_oficial)
         self.lista_croquis.itemDoubleClicked.connect(self.ao_clicar_item)
         
@@ -654,31 +651,6 @@ class TelaDeCarregamento(QDialog):
 
                 log_dialog.adicionar_log(f"\n[ERRO] {e}")
                 QMessageBox.critical(self, "Erro", f"Falha ao criar croqui: {e}")
-            finally:
-                sys.stdout = old_stdout
-                log_dialog.btn_fechar.setEnabled(True)
-
-    def ao_clicar_importar(self) -> None:
-        if not self.gerenciador:
-            return
-        arquivo, _ = QFileDialog.getOpenFileName(
-            self, "Importar Croqui", "", "Arquivos Aresta (*.croqui *.zip)"
-        )
-        if arquivo:
-            log_dialog = DialogoProgressoLog("Importando Croqui Experimental...", self)
-            log_dialog.show()
-            
-            old_stdout = sys.stdout
-            sys.stdout = StreamToCallback(log_dialog.adicionar_log)
-            try:
-                caminho = self.gerenciador.importar_croqui(Path(arquivo))
-                self.caminho_croqui_selecionado = caminho
-                log_dialog.adicionar_log("\n[SUCESSO] Croqui importado e compilado com sucesso!")
-                log_dialog.accept()
-                self.accept()
-            except Exception as e:
-                log_dialog.adicionar_log(f"\n[ERRO] Falha ao importar: {e}")
-                QMessageBox.critical(self, "Erro", f"Falha ao importar croqui: {e}")
             finally:
                 sys.stdout = old_stdout
                 log_dialog.btn_fechar.setEnabled(True)

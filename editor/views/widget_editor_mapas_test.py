@@ -3411,6 +3411,66 @@ def test_finalizar_modo_nova_rota_poucos_pontos(qtbot):
     assert widget.modo_nova_rota is False
 
 
+def test_finalizar_modo_nova_rota_deduplica_pontos_consecutivos(qtbot):
+    """Testa remoção de pontos consecutivos idênticos ou jitter (<1px) ao finalizar."""
+    from editor.views.widget_editor_mapas import WidgetEditorMapas, CenaDesenho
+    from PySide6.QtCore import QPointF
+    from unittest.mock import MagicMock
+
+    mock_controller = MagicMock()
+    widget = WidgetEditorMapas(mapas_controller=mock_controller)
+    qtbot.addWidget(widget)
+    cena = CenaDesenho(widget)
+    widget.visualizador.setScene(cena)
+    dados = {'cena': cena, 'itens_bb': []}
+    widget.iniciar_modo_nova_rota({"nome": "Via Jitter"}, dados)
+
+    # 3 pontos onde os dois últimos são coincidentes/muito próximos (duplo clique)
+    widget.pontos_nova_rota = [
+        QPointF(10.0, 10.0),
+        QPointF(50.0, 50.0),
+        QPointF(50.0, 50.0),
+        QPointF(50.2, 50.1),
+    ]
+
+    widget.finalizar_modo_nova_rota()
+    assert widget.modo_nova_rota is False
+    mock_controller.adicionar_rota_com_tracado.assert_called_once()
+    _, kwargs = mock_controller.adicionar_rota_com_tracado.call_args
+    pts = kwargs["pontos_trajeto"]
+    assert len(pts) == 2
+    assert pts[0] == (10.0, 10.0)
+    assert pts[1] == (50.0, 50.0)
+
+
+def test_finalizar_modo_nova_rota_sem_ligacao_deduplica_pontos(qtbot):
+    """Testa finalização de linha avulsa (sem_ligacao=True) com deduplicação de pontos."""
+    from editor.views.widget_editor_mapas import WidgetEditorMapas, CenaDesenho
+    from PySide6.QtCore import QPointF
+    from unittest.mock import MagicMock
+
+    mock_controller = MagicMock()
+    widget = WidgetEditorMapas(mapas_controller=mock_controller)
+    qtbot.addWidget(widget)
+    cena = CenaDesenho(widget)
+    widget.visualizador.setScene(cena)
+    dados = {'cena': cena, 'itens_bb': []}
+    widget.iniciar_modo_nova_rota({"sem_ligacao": True}, dados)
+
+    widget.pontos_nova_rota = [
+        QPointF(10.0, 10.0),
+        QPointF(50.0, 50.0),
+        QPointF(50.0, 50.0),
+    ]
+
+    widget.finalizar_modo_nova_rota()
+    assert widget.modo_nova_rota is False
+    mock_controller.adicionar_linha.assert_called_once()
+    _, kwargs = mock_controller.adicionar_linha.call_args
+    nos = kwargs["nos"]
+    assert len(nos) == 2
+
+
 def test_mover_no_soldado_casos_borda(qtbot):
     """Testa casos de borda do método mover_no_soldado."""
     from editor.views.widget_editor_mapas import WidgetEditorMapas

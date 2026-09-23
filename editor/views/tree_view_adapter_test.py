@@ -641,3 +641,69 @@ def test_sincronizar_mensagem_recursiva_ramos_especiais():
     assert no_pai.message is croqui_novo
 
 
+def test_tree_view_adapter_drag_drop_flags_e_mime():
+    """Testa flags de arrastar/soltar e empacotamento MIME no ProtobufTreeViewAdapter."""
+    import json
+    from PySide6.QtCore import Qt, QModelIndex
+    from aresta_api.proto.generated.croqui_pb2 import Croqui
+
+    croqui = Croqui()
+    pico = croqui.picos.add(nome="Pico 1")
+    sg_setor = pico.setores_ou_grupos.add()
+    sg_setor.setor.conteudo.nome = "Setor A"
+    sg_grupo = pico.setores_ou_grupos.add()
+    sg_grupo.grupo.conteudo.nome = "Grupo G"
+
+    adapter = ProtobufTreeViewAdapter(croqui)
+
+    # 1. supportedDropActions e mimeTypes
+    assert adapter.supportedDropActions() == Qt.DropAction.MoveAction
+    assert ProtobufTreeViewAdapter.MIME_TYPE in adapter.mimeTypes()
+
+    # 2. flags em índice inválido
+    assert adapter.flags(QModelIndex()) == Qt.ItemFlag.NoItemFlags
+
+    # Root -> Croqui -> Picos (row 1) -> Pico 1 (row 0) -> Setores ou grupos (row 0) -> Setor A / Grupo G
+    idx_croqui = adapter.index(0, 0, QModelIndex())
+    idx_picos_exp = adapter.index(1, 0, idx_croqui) # Expando Picos
+    idx_pico = adapter.index(0, 0, idx_picos_exp) # Pico 1
+    idx_sog_exp = adapter.index(0, 0, idx_pico) # Expando Setores ou grupos
+    idx_setor = adapter.index(0, 0, idx_sog_exp) # Setor A
+    idx_grupo = adapter.index(1, 0, idx_sog_exp) # Grupo G
+    idx_add = adapter.index(2, 0, idx_sog_exp) # + Adicionar Setor ou Grupo
+
+    # 3. Flags do Setor: ItemIsDragEnabled e não ItemIsDropEnabled (nó folha)
+    flags_setor = adapter.flags(idx_setor)
+    assert bool(flags_setor & Qt.ItemFlag.ItemIsDragEnabled)
+    assert not bool(flags_setor & Qt.ItemFlag.ItemIsDropEnabled)
+
+
+    # 4. Flags do Grupo: ItemIsDragEnabled e ItemIsDropEnabled
+    flags_grupo = adapter.flags(idx_grupo)
+    assert bool(flags_grupo & Qt.ItemFlag.ItemIsDragEnabled)
+    assert bool(flags_grupo & Qt.ItemFlag.ItemIsDropEnabled)
+
+    # 5. Flags do Expando "Setores ou grupos": ItemIsDropEnabled (mas não drag)
+    flags_exp = adapter.flags(idx_sog_exp)
+    assert not bool(flags_exp & Qt.ItemFlag.ItemIsDragEnabled)
+    assert bool(flags_exp & Qt.ItemFlag.ItemIsDropEnabled)
+
+    # 6. Flags do nó virtual de adição: nem drag nem drop
+    flags_add = adapter.flags(idx_add)
+    assert not bool(flags_add & Qt.ItemFlag.ItemIsDragEnabled)
+    assert not bool(flags_add & Qt.ItemFlag.ItemIsDropEnabled)
+
+    # 7. mimeData de item válido
+    mime = adapter.mimeData([idx_setor])
+    assert mime.hasFormat(ProtobufTreeViewAdapter.MIME_TYPE)
+    payload = json.loads(bytes(mime.data(ProtobufTreeViewAdapter.MIME_TYPE)).decode("utf-8"))
+    assert payload["tipo"] == "Setor"
+    assert payload["id_nativo"] == id(sg_setor.setor.conteudo)
+
+    # 8. mimeData com lista vazia ou nó de adição
+    mime_vazio = adapter.mimeData([])
+    assert not mime_vazio.hasFormat(ProtobufTreeViewAdapter.MIME_TYPE)
+    mime_add = adapter.mimeData([idx_add])
+    assert not mime_add.hasFormat(ProtobufTreeViewAdapter.MIME_TYPE)
+
+

@@ -23,3 +23,8 @@ A aplicação MUST apresentar dois botões principais de ação rápida: "Novo c
 #### Scenario: Editar croqui oficial
 - **WHEN** o usuário clica no botão "Editar croqui oficial"
 - **THEN** a aplicação MUST abrir o diálogo de busca de croquis oficiais
+
+#### Scenario: Importar croqui experimental
+- **WHEN** o usuário busca a ação de importação na tela de carregamento
+- **THEN** a tela de carregamento SHALL não exibir botão de importação para formato .croqui
+

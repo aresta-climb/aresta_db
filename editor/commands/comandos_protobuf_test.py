@@ -2,6 +2,7 @@
 # Copyright (C) 2026 Aresta Climb Contributors
 
 import unittest
+from aresta_api.proto.generated import croqui_pb2
 from aresta_api.proto.generated.croqui_pb2 import Croqui, Pico, SetorOuGrupo, ArquivoSetor, ArquivoGrupo
 from PySide6.QtGui import QUndoStack
 from editor.commands.comandos_protobuf import (
@@ -70,20 +71,20 @@ class TestComandosProtobuf(unittest.TestCase):
         self.assertTrue(setor.sinal_de_celular)
 
     def test_cmd_alterar_primitivo_inteiro_nullable_e_zero(self):
-        from aresta_api.proto.generated.croqui_pb2 import Setor
-        setor = Setor()
-        model = CroquiModel(setor)
-        self.assertFalse(setor.HasField("indice_mapa_padrao"))
+        from aresta_api.proto.generated.croqui_pb2 import ViaEsportiva
+        via = ViaEsportiva()
+        model = CroquiModel(via)
+        self.assertFalse(via.HasField("extensao"))
         
         # Define como 0 (presente!)
-        cmd = CmdAlterarPrimitivo(model, setor, "indice_mapa_padrao", None, 0)
+        cmd = CmdAlterarPrimitivo(model, via, "extensao", None, 0)
         cmd.redo()
-        self.assertTrue(setor.HasField("indice_mapa_padrao"))
-        self.assertEqual(setor.indice_mapa_padrao, 0)
+        self.assertTrue(via.HasField("extensao"))
+        self.assertEqual(via.extensao, 0)
         
         # Desfaz (volta a ser None / ausente)
         cmd.undo()
-        self.assertFalse(setor.HasField("indice_mapa_padrao"))
+        self.assertFalse(via.HasField("extensao"))
 
     def test_cmd_adicionar_remover_repeated_primitives(self):
         croqui = Croqui()
@@ -879,6 +880,218 @@ def test_comando_editor_metodos_base_e_validacao():
         cmd.executar_redo()
     with pytest.raises(NotImplementedError):
         cmd.serializar()
+
+
+def test_cmd_migrar_setor_pico_para_grupo():
+    """Testa migração de setor de Pico para Grupo com Undo, Redo e alteração de caminho_novo."""
+    from editor.commands.comandos_protobuf import CmdMigrarSetor
+    croqui = Croqui()
+    pico = croqui.picos.add()
+    pico.nome = "Pico Central"
+
+    sg_setor = pico.setores_ou_grupos.add()
+    sg_setor.setor.conteudo.nome = "Savassinha"
+    sg_setor.setor.Extensions[croqui_pb2.ArquivoSetor.ext_metadados_arquivo].caminho_original = "setor_savassinha.md"
+    sg_setor.setor.Extensions[croqui_pb2.ArquivoSetor.ext_metadados_arquivo].caminho_novo = "setor_savassinha.md"
+
+    sg_grupo = pico.setores_ou_grupos.add()
+    sg_grupo.grupo.conteudo.nome = "Vale Oculto"
+
+    model = CroquiModel(croqui)
+    pilha = QUndoStack()
+
+    cmd = CmdMigrarSetor(
+        model=model,
+        pai_origem=pico,
+        campo_origem="setores_ou_grupos",
+        indice_origem=0,
+        pai_destino=sg_grupo.grupo.conteudo,
+        campo_destino="setores",
+        indice_destino=0,
+        caminho_novo="grupo_vale_oculto_setor_savassinha.md",
+        caminho_antigo="setor_savassinha.md"
+    )
+    pilha.push(cmd)
+
+    # Verifica estado após redo/execução
+    assert len(pico.setores_ou_grupos) == 1
+    assert len(sg_grupo.grupo.conteudo.setores) == 1
+    assert sg_grupo.grupo.conteudo.setores[0].conteudo.nome == "Savassinha"
+    assert sg_grupo.grupo.conteudo.setores[0].Extensions[croqui_pb2.ArquivoSetor.ext_metadados_arquivo].caminho_novo == "grupo_vale_oculto_setor_savassinha.md"
+
+    # Undo
+    pilha.undo()
+    assert len(pico.setores_ou_grupos) == 2
+    assert pico.setores_ou_grupos[0].setor.conteudo.nome == "Savassinha"
+    assert pico.setores_ou_grupos[0].setor.Extensions[croqui_pb2.ArquivoSetor.ext_metadados_arquivo].caminho_novo == "setor_savassinha.md"
+    assert len(sg_grupo.grupo.conteudo.setores) == 0
+
+    # Redo
+    pilha.redo()
+    assert len(pico.setores_ou_grupos) == 1
+    assert len(sg_grupo.grupo.conteudo.setores) == 1
+
+
+def test_cmd_migrar_setor_grupo_para_pico():
+    """Testa migração de setor de dentro de um Grupo para a raiz do Pico."""
+    from editor.commands.comandos_protobuf import CmdMigrarSetor
+    croqui = Croqui()
+    pico = croqui.picos.add()
+
+    sg_grupo = pico.setores_ou_grupos.add()
+    sg_grupo.grupo.conteudo.nome = "Vale Oculto"
+    setor_interno = sg_grupo.grupo.conteudo.setores.add()
+    setor_interno.conteudo.nome = "De Cara"
+    setor_interno.Extensions[croqui_pb2.ArquivoSetor.ext_metadados_arquivo].caminho_original = "grupo_vale_oculto_setor_de_cara.md"
+    setor_interno.Extensions[croqui_pb2.ArquivoSetor.ext_metadados_arquivo].caminho_novo = "grupo_vale_oculto_setor_de_cara.md"
+
+    model = CroquiModel(croqui)
+    pilha = QUndoStack()
+
+    cmd = CmdMigrarSetor(
+        model=model,
+        pai_origem=sg_grupo.grupo.conteudo,
+        campo_origem="setores",
+        indice_origem=0,
+        pai_destino=pico,
+        campo_destino="setores_ou_grupos",
+        indice_destino=1,
+        caminho_novo="setor_de_cara.md",
+        caminho_antigo="grupo_vale_oculto_setor_de_cara.md"
+    )
+    pilha.push(cmd)
+
+    assert len(sg_grupo.grupo.conteudo.setores) == 0
+    assert len(pico.setores_ou_grupos) == 2
+    assert pico.setores_ou_grupos[1].setor.conteudo.nome == "De Cara"
+    assert pico.setores_ou_grupos[1].setor.Extensions[croqui_pb2.ArquivoSetor.ext_metadados_arquivo].caminho_novo == "setor_de_cara.md"
+
+    pilha.undo()
+    assert len(sg_grupo.grupo.conteudo.setores) == 1
+    assert len(pico.setores_ou_grupos) == 1
+
+
+def test_cmd_migrar_setor_serializacao_deserializacao():
+    """Testa serialização e deserialização com resolução tardia de caminhos."""
+    from editor.commands.comandos_protobuf import CmdMigrarSetor, deserializar_comando
+    croqui = Croqui()
+    pico = croqui.picos.add()
+    pico.nome = "Pico Central"
+
+    sg_setor = pico.setores_ou_grupos.add()
+    sg_setor.setor.conteudo.nome = "Savassinha"
+    sg_grupo = pico.setores_ou_grupos.add()
+    sg_grupo.grupo.conteudo.nome = "Vale Oculto"
+
+    model = CroquiModel(croqui)
+
+    cmd = CmdMigrarSetor(
+        model=model,
+        pai_origem=pico,
+        campo_origem="setores_ou_grupos",
+        indice_origem=0,
+        pai_destino=sg_grupo.grupo.conteudo,
+        campo_destino="setores",
+        indice_destino=0,
+        caminho_novo="grupo_vale_oculto_setor_savassinha.md",
+        caminho_antigo="setor_savassinha.md"
+    )
+
+    dados = cmd.serializar()
+    assert dados["classe"] == "CmdMigrarSetor"
+    assert dados["campo_origem"] == "setores_ou_grupos"
+    assert dados["campo_destino"] == "setores"
+
+    cmd_recriado = deserializar_comando(dados, model)
+    assert isinstance(cmd_recriado, CmdMigrarSetor)
+    assert cmd_recriado.caminho_novo == "grupo_vale_oculto_setor_savassinha.md"
+
+
+def test_cmd_migrar_setor_execucao_apos_deserializacao_e_foco():
+    """Testa que comando deserializado resolve caminhos lazy e notifica foco."""
+    from editor.commands.comandos_protobuf import CmdMigrarSetor, deserializar_comando
+    from editor.models.readonly_proxy import ReadOnlyProxy
+    croqui = Croqui()
+    pico = croqui.picos.add()
+    pico.nome = "Pico Central"
+
+    sg_setor = pico.setores_ou_grupos.add()
+    sg_setor.setor.conteudo.nome = "Savassinha"
+    sg_grupo = pico.setores_ou_grupos.add()
+    sg_grupo.grupo.conteudo.nome = "Vale Oculto"
+
+    model = CroquiModel(croqui)
+    foco_recebido = []
+    model.foco_requisitado.connect(lambda ctx: foco_recebido.append(ctx))
+
+    # Testa também passando ReadOnlyProxy nos pais
+    cmd = CmdMigrarSetor(
+        model=model,
+        pai_origem=ReadOnlyProxy(pico),
+        campo_origem="setores_ou_grupos",
+        indice_origem=0,
+        pai_destino=ReadOnlyProxy(sg_grupo.grupo.conteudo),
+        campo_destino="setores",
+        indice_destino=0,
+        caminho_novo="grupo_vale_oculto_setor_savassinha.md",
+        caminho_antigo="setor_savassinha.md",
+        context_path="setores.0"
+    )
+
+    assert cmd.pai_origem == pico
+    dados = cmd.serializar()
+    cmd_recriado = deserializar_comando(dados, model)
+    assert cmd_recriado._pai_origem_cache is None
+    assert cmd_recriado._pai_destino_cache is None
+
+    # Redo usando lazy resolution
+    cmd_recriado.executar_redo()
+    assert len(pico.setores_ou_grupos) == 1
+    assert len(sg_grupo.grupo.conteudo.setores) == 1
+    assert "setores.0" in foco_recebido
+
+    # Undo usando lazy resolution
+    cmd_recriado.undo()
+    assert len(pico.setores_ou_grupos) == 2
+    assert len(sg_grupo.grupo.conteudo.setores) == 0
+
+
+def test_cmd_migrar_setor_casos_borda_e_erros():
+    """Testa caminhos inválidos, model nulo e fallbacks de resolução de pai."""
+    from editor.commands.comandos_protobuf import CmdMigrarSetor
+    croqui = Croqui()
+    pico = croqui.picos.add()
+    model = CroquiModel(croqui)
+
+    cmd = CmdMigrarSetor(
+        model=model,
+        pai_origem=pico,
+        campo_origem="setores_ou_grupos",
+        indice_origem=0,
+        pai_destino=pico,
+        campo_destino="setores_ou_grupos",
+        indice_destino=0,
+    )
+
+    # 1. model é None e caminho_msg é None
+    cmd.model = None
+    cmd._pai_origem_cache = None
+    assert cmd._obter_pai(None, "_pai_origem_cache") is None
+
+    # 2. caminho_msg aponta para nó inexistente
+    cmd.model = model
+    cmd.caminho_msg_origem = "caminho.completamente.invalido"
+    assert cmd.pai_origem is None
+
+    # 3. undo e redo com pais não resolvidos abortam silenciosamente
+    cmd.undo()
+    cmd.executar_redo()
+
+    # 4. caminho_msg vazio ("") resolve para a raiz croqui
+    cmd.caminho_msg_origem = ""
+    cmd._pai_origem_cache = None
+    assert cmd.pai_origem == croqui
+
 
 
 

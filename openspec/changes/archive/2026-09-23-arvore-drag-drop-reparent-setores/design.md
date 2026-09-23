@@ -39,7 +39,8 @@ Para manter a integridade arquitetural do repositório, este design adota rigoro
   - *Embutir a lógica diretamente nos métodos de evento da UI:* Rejeitado por violar frontalmente o princípio Library-First e dificultar testes unitários isolados.
 
 ### 2. Comando Atômico de Histórico: `CmdMigrarSetor`
-- **Decisão:** Criar um comando dedicado `CmdMigrarSetor(model, setor_wrapper, pai_origem, campo_origem, indice_origem, pai_destino, campo_destino, indice_destino, caminho_novo, caminho_antigo)` derivado de `ComandoEditor`.
+- **Decisão:** Criar um comando dedicado `CmdMigrarSetor(model, setor_wrapper, pai_origem, campo_origem, indice_origem, pai_destino, campo_destino, indice_destino, caminho_novo, caminho_antigo, caminho_msg_origem=None, caminho_msg_destino=None)` derivado de `ComandoEditor`.
+- **Padrão de Resolução Tardia (Lazy Resolution):** Em conformidade com a evolução recente da arquitetura de comandos (`editor/commands/comandos_protobuf.py`), o comando armazena os caminhos Protobuf dos pais (`caminho_msg_origem` e `caminho_msg_destino`), resolvendo-os de forma tardia (lazy) durante `undo()`, `executar_redo()`, `serializar()` e `deserializar()`, além de registrar `validar_pertence_ao_croqui(...)` na inicialização.
 - **Rationale (Princípio VII - Edições via Comandos do Histórico):** O `PRINCIPIOS.md` determina que toda e qualquer mutação de estado a partir da UI DEVE ser realizada via comandos na pilha global de histórico (`QUndoCommand`). A migração de um setor entre listas e a alteração de seu `caminho_novo` precisam ser atômicas. Um único `Ctrl+Z` deve retornar o setor para sua lista original, no índice exato onde estava, restaurando o `caminho_novo` prévio.
 - **Alternativas consideradas:**
   - *Compor múltiplos comandos separados:* Rejeitado por exigir múltiplos acionamentos de `Ctrl+Z` do usuário, podendo deixar a aplicação em estado intermediário inconsistente.
@@ -51,14 +52,16 @@ Para manter a integridade arquitetural do repositório, este design adota rigoro
   - Parâmetros e variáveis: `caminho_origem`, `indice_origem`, `slug_grupo`, `eh_sobre_item`, etc.
 - **Rationale:** Obediência mandatória ao Princípio I de `PRINCIPIOS.md`.
 
-### 4. Interceptação de Eventos na `QTreeView`
+### 4. Interceptação de Eventos na `QTreeView` e Sincronização de Cache
 - **Decisão:** Interceptar os eventos `dragEnterEvent`, `dragMoveEvent` e `dropEvent` da `tree_view` em `WidgetEditorDados`.
 - **Rationale:** A implementação padrão do Qt tenta remover e reinserir linhas diretamente no modelo de visualização sem passar pelos comandos do controlador. Interceptar o evento de soltura nos permite:
-  1. Extrair os índices e nós de origem e destino.
-  2. Consultar a biblioteca `migracao_setor` para validar se o movimento é lícito.
-  3. Verificar se há colisão de arquivos; se houver, emitir `QMessageBox.warning` e abortar (`event.ignore()`).
-  4. Despachar para `self.controller.mover_repeated_...` (no caso de reordenação) ou para `self.controller.migrar_setor(...)` (no caso de migração hierárquica).
-  5. Auto-expandir o grupo de destino e selecionar o setor movido.
+  1. Forçar a consolidação de eventuais edições pendentes (`self.form_padrao.forcar_consolidacao_pendente()`).
+  2. Extrair os índices e nós de origem e destino.
+  3. Consultar a biblioteca `migracao_setor` para validar se o movimento é lícito.
+  4. Verificar se há colisão de arquivos; se houver, emitir `QMessageBox.warning` e abortar (`event.ignore()`).
+  5. Descartar o cache de formulário do nó afetado (`self.form_padrao.descartar_cache_formulario(...)`).
+  6. Despachar para `self.controller.mover_repeated_...` (no caso de reordenação) ou para `self.controller.migrar_setor(...)` (no caso de migração hierárquica).
+  7. Auto-expandir o grupo de destino e selecionar o setor movido.
 
 ### 5. Resolução de Conflitos por Aborto com Notificação
 - **Decisão:** Se `verificar_colisao_nome_arquivo` acusar conflito, a soltura é cancelada imediatamente sem mutação no modelo ou poluição da pilha de histórico, e um aviso modal explicativo (`QMessageBox.warning`) orienta o usuário a resolver a duplicidade antes de mover.

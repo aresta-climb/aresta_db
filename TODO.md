@@ -78,13 +78,8 @@ Precisa de MUITO trabalho no croqui de Cambotas pra fazer sentido dele.
 
 # TODOs do Linter
 
-- Adicionar verificação de Linter para emitir warnings caso o
-  `indice_mapa_padrao` de um Setor, Grupo ou Escalada estiver apontando para um
-  índice de mapa inválido (fora dos limites da lista de mapas).
-- Adicionar verificação de Linter para emitir warnings caso o
-  `indice_mapa_padrao` de uma Escalada apontar para um mapa onde a escalada não
-  possui referência (`Referencia` na lista de referencias do mapa).
 - Adicionar verificação de Linter para emitir warnings caso um Ponto de
   Interesse (POI) em um mapa não for referenciado por nenhuma `Referencia`
   naquele mesmo mapa (pois eles não serão desenhados no app frontend). Publicar
   ouroboulder
+

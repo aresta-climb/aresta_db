@@ -75,11 +75,11 @@ def test_float_widget_como_qlineedit(qapp):
     assert widget.validator() is not None
 
 def test_inteiro_widget_spinbox_nullable(qapp):
-    from aresta_api.proto.generated.croqui_pb2 import Setor
+    from aresta_api.proto.generated.croqui_pb2 import ViaEsportiva
     from editor.views.protobuf_widget_factory import SpinBoxVazio
     
-    campo_mapa_padrao = Setor.DESCRIPTOR.fields_by_name['indice_mapa_padrao']
-    widget = ProtobufWidgetFactory.create_widget(campo_mapa_padrao)
+    campo_extensao = ViaEsportiva.DESCRIPTOR.fields_by_name['extensao']
+    widget = ProtobufWidgetFactory.create_widget(campo_extensao)
     assert isinstance(widget, SpinBoxVazio)
     assert widget.textFromValue(widget.VALOR_NULO) == ""
 

@@ -4,11 +4,8 @@
 import pytest
 from pathlib import Path
 import os
-import shutil
-import zipfile
 import pygit2
 import yaml
-from editor.core.croqui_format import ler_croqui, empacotar_croqui
 
 from unittest.mock import patch
 from editor.core.storage import GerenciadorCaminhos
@@ -64,31 +61,6 @@ def test_criar_novo_croqui_experimental(gerenciador, storage_temp):
     # E os arquivos YAML devem estar com quebras de linha estritamente em LF (\n)
     assert b"\r\n" not in croqui_yaml.read_bytes()
     assert b"\r\n" not in (caminho_croqui / "croqui_experimental.yaml").read_bytes()
-
-def test_exportar_croqui(gerenciador, storage_temp, tmp_path):
-    # DADO um croqui experimental existente
-    caminho_croqui = gerenciador._criar_estrutura_croqui("br_sp_export", "A")
-    
-    # Criamos um arquivo simulado dentro do database para garantir que é exportado
-    (caminho_croqui / "database" / "croqui.yaml").write_text("teste")
-    
-    caminho_destino = tmp_path / "exportado.croqui"
-    
-    # QUANDO exportar
-    gerenciador.exportar_croqui(caminho_croqui, caminho_destino)
-    
-    # ENTÃO o arquivo .croqui deve ser gerado
-    assert caminho_destino.is_file()
-    
-    # E o primeiro byte deve estar ofuscado
-    assert caminho_destino.read_bytes()[:1] != b"P"
-    
-    # E deve ser possível extrair o conteúdo (desofuscando)
-    pasta_verificacao = tmp_path / "verificacao"
-    ler_croqui(caminho_destino, pasta_verificacao)
-    
-    assert (pasta_verificacao / "database" / "croqui.yaml").is_file()
-    assert (pasta_verificacao / "croqui_experimental.yaml").is_file()
 
 def test_abrir_croqui(gerenciador, storage_temp):
     caminho_croqui = gerenciador._criar_estrutura_croqui("br_es_abrir", "A")
@@ -214,43 +186,6 @@ def test_criar_croqui_a_partir_de_oficial_cleanup_em_falha(gerenciador, storage_
     diretorio_exp = storage_temp.obter_caminho_croquis_experimentais()
     pastas = list(diretorio_exp.iterdir())
     assert len(pastas) == 0
-
-def test_importar_croqui_cleanup_em_falha(gerenciador, tmp_path):
-    """Verifica se remove a pasta se falhar ao importar zip corrompido."""
-    # DADO um arquivo zip inválido
-    zip_ruim = tmp_path / "corrompido.croqui"
-    zip_ruim.write_text("não sou um zip")
-    
-    # QUANDO tentar importar
-    with pytest.raises(Exception): # zipfile.BadZipFile
-        gerenciador.importar_croqui(zip_ruim)
-        
-    # ENTÃO a pasta temporária de extração deve ter sido removida
-    diretorio_exp = gerenciador.caminhos.obter_caminho_croquis_experimentais()
-    pastas = list(diretorio_exp.iterdir())
-    assert len(pastas) == 0
-
-def test_importar_croqui_com_pasta_raiz_aninhada(gerenciador, tmp_path):
-    """Verifica se normaliza a estrutura se o ZIP tiver uma pasta raiz aninhada."""
-    # DADO um ZIP com estrutura: raiz/database/croqui.yaml
-    caminho_zip = tmp_path / "aninhado.croqui"
-    temp_dir = tmp_path / "preparar_zip"
-    pasta_raiz = temp_dir / "minha_pasta_extra"
-    db_dir = pasta_raiz / "database"
-    db_dir.mkdir(parents=True)
-    (db_dir / "croqui.yaml").write_text("id: 'pico_aninhado'\nnome: 'Pico Aninhado'")
-    
-    # Empacotamos como .croqui ofuscado
-    empacotar_croqui(temp_dir, caminho_zip)
-        
-    # QUANDO importar
-    with patch("editor.core.croqui_experimental.deploy"): # Mock deploy para não precisar de tudo
-        caminho_final = gerenciador.importar_croqui(caminho_zip)
-        
-    # ENTÃO a estrutura deve ter sido achatada (database deve estar na raiz do destino)
-    assert (caminho_final / "database" / "croqui.yaml").exists()
-    assert not (caminho_final / "minha_pasta_extra").exists()
-    assert len(caminho_final.name) == 8
 
 def test_id_original_salvo_ao_criar_e_importar(gerenciador, storage_temp):
     """Verifica se o id_original é salvo no yaml ao criar novo ou importar de oficial."""

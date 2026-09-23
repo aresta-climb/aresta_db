@@ -118,3 +118,82 @@ O sistema SHALL renderizar seções/cartões contextuais no rodapé da visualiza
 - **WHEN** o usuário clica no botão de adicionar em um cartão de sub-elementos no formulário
 - **THEN** o sistema SHALL empilhar a adição no histórico de Undo/Redo, criar o novo item na coleção da mensagem pai, refletir a alteração na árvore e focar no formulário do novo item criado.
 
+### Requirement: Reordenação de Itens em Coleções Repetidas via Botões
+O sistema SHALL disponibilizar controles de movimentação rápida "Subir" (▲) e "Descer" (▼) em cada item pertencente a uma coleção repetida no formulário (`ContainerRepeatedWidget`).
+- O botão "Subir" SHALL ser desabilitado quando o item for o primeiro da coleção (índice 0).
+- O botão "Descer" SHALL ser desabilitado quando o item for o último da coleção (índice `N - 1`).
+- Para coleções de item único (tamanho 1), ambos os botões SHALL permanecer desabilitados.
+- Ao clicar em "Subir" ou "Descer", o sistema SHALL consolidar edições pendentes e despachar o comando no histórico de Undo/Redo (`CmdMoverRepeated`), garantindo reversibilidade total.
+
+#### Scenario: Mover item para cima na lista
+- **WHEN** o usuário clica no botão "Subir" de um item no índice 1 ou superior
+- **THEN** o sistema SHALL trocar de posição o item com seu antecessor imediato no Protobuf via histórico, reposicionar o widget na interface e atualizar os estados dos botões.
+
+#### Scenario: Mover item para baixo na lista
+- **WHEN** o usuário clica no botão "Descer" de um item que não seja o último
+- **THEN** o sistema SHALL trocar de posição o item com seu sucessor imediato no Protobuf via histórico, reposicionar o widget na interface e atualizar os estados dos botões.
+
+#### Scenario: Desfazer e refazer reordenação por botão
+- **WHEN** o usuário reordena um item via botão e em seguida executa Desfazer (Undo)
+- **THEN** o sistema SHALL restaurar a posição original do item na coleção do Protobuf e no formulário.
+
+### Requirement: Reordenação de Itens em Coleções Repetidas via Arrastar e Soltar
+O sistema SHALL disponibilizar uma alça visual de arraste (`⠿`) em cada item de coleção repetida permitindo a reordenação direta por arrastar e soltar (drag-and-drop) dentro do mesmo container.
+- O arraste SHALL iniciar apenas a partir da interação com a alça de arraste ou cabeçalho do item com distância mínima de arraste (para não conflitar com cliques de seleção e foco).
+- Durante o arraste, o container SHALL exibir um indicador visual de inserção (linha horizontal) demarcando a posição de soltura entre os itens adjacentes.
+- A soltura SHALL aceitar apenas itens da mesma coleção repetida de origem, ignorando eventos externos ou de outros campos.
+- Ao soltar o item, o sistema SHALL consolidar edições pendentes, calcular o novo índice de destino e despachar o comando no histórico (`CmdMoverRepeated`).
+
+#### Scenario: Reordenar item por arrastar e soltar
+- **WHEN** o usuário arrasta um item pela alça e o solta em uma nova posição entre dois itens da mesma lista
+- **THEN** o sistema SHALL mover o item para a posição correspondente no Protobuf via comando de histórico e reorganizar os widgets no layout.
+
+#### Scenario: Desfazer e refazer reordenação por arrastar e soltar
+- **WHEN** o usuário conclui um drag-and-drop na lista e aciona Desfazer (Undo)
+- **THEN** o sistema SHALL retornar o item ao seu índice anterior no Protobuf e na interface gráfica.
+
+### Requirement: Sincronização e Atualização Visual da Lista ao Mover
+O sistema SHALL responder ao sinal `repeated_movido` emitido pelo modelo para sincronizar os widgets e propriedades da coleção repetida.
+- Os índices armazenados nos widgets (`repeated_index`) e nos caminhos de campos primitivos (`protobuf_field`) SHALL ser atualizados para refletir a nova ordem contígua `0, 1, ..., N - 1`.
+- Para sub-mensagens encapsuladas em itens colapsáveis (`WidgetColapsavel`), o prefixo de título do cabeçalho SHALL ser recalculado com o novo índice (ex: `Escalada [0]` -> `Escalada [1]`), preservando o estado de expansão (se o item estava aberto ou fechado) e eventuais títulos heurísticos.
+- Os estados de habilitação dos botões "Subir" e "Descer" de todos os itens da coleção SHALL ser recalculados e atualizados imediatamente.
+
+#### Scenario: Atualização de títulos indexados após movimentação
+- **WHEN** um item colapsável é movido do índice 0 para o índice 2
+- **THEN** o sistema SHALL atualizar o cabeçalho do item para refletir o novo índice `[2]`, assim como atualizar os índices dos itens intermediários que mudaram de posição.
+
+#### Scenario: Atualização dos botões nos extremos da lista
+- **WHEN** o primeiro item é movido para outra posição
+- **THEN** o novo primeiro item da lista SHALL ter seu botão "Subir" desabilitado, e o item movido SHALL ter seus botões ajustados conforme sua nova posição.
+
+### Requirement: Renderização Direta de Card Visual para Mapas em Coleções Repetidas
+O sistema SHALL renderizar itens de coleções repetidas do tipo `Mapa` (ou com anotação `mensagem_formato_na_ui = MAPA`) diretamente como cartões visuais abertos, sem encapsulamento em accordion colapsável (`WidgetColapsavel`).
+- **Barra de Controle Superior**: Cada cartão SHALL exibir no topo uma alça de arraste `⠿`, o título composto pelo índice e nome do arquivo da foto (ex: `Mapa [0] - setor_fugitivos_p0.webp`), os botões de ação rápida `▲` (Subir) e `▼` (Descer), e o botão `Remover`.
+- **Corpo Visual**: Cada cartão SHALL exibir uma miniatura com proporção preservada da imagem (`caminho_imagem_mapa`), as dimensões em pixels (`largura_mapa × altura_mapa`), o caminho relativo do arquivo e o botão de ação `Abrir no Editor de Mapas`.
+- **Tratamento de Imagem Ausente**: Caso o arquivo da imagem não exista ou não possa ser lido, o cartão SHALL exibir um indicador visual de imagem ausente/placeholder sem interromper o fluxo da interface.
+
+#### Scenario: Visualização de cartão de mapa no formulário
+- **WHEN** o formulário de uma mensagem contendo mapas (ex: setor ou pico) é exibido
+- **THEN** cada item da coleção de mapas SHALL ser renderizado como um cartão aberto com sua foto em miniatura, metadados de resolução e botão para o editor de mapas, sem botão de colapso/expansão.
+
+#### Scenario: Visualização de mapa sem arquivo de imagem
+- **WHEN** um mapa cadastrado não possui arquivo de imagem disponível no disco ou na memória
+- **THEN** o cartão correspondente SHALL exibir um marcador de "Sem Imagem" no espaço da miniatura e desabilitar ações que dependam da imagem física.
+
+### Requirement: Atualização e Sincronização de Cards de Mapa na Reordenação
+O sistema SHALL sincronizar os cartões visuais de mapas ao responder ao sinal de movimentação no modelo (`repeated_movido`).
+- Os índices nos títulos dos cartões (`Mapa [i]`) SHALL ser atualizados para refletir a nova posição contígua.
+- Os botões `▲` e `▼` SHALL ter seus estados recalculados (desabilitando `▲` no índice 0 e `▼` no último índice).
+- O reposicionamento do cartão no layout SHALL preservar a miniatura carregada e os metadados do mapa.
+- A operação de movimentação SHALL ser despachada via comando no histórico (`CmdMoverRepeated`), garantindo reversibilidade com Desfazer (Undo) e Refazer (Redo).
+
+#### Scenario: Reordenação de cards de mapa por botões ou arraste
+- **WHEN** o usuário move um cartão de mapa para outra posição via botão ou drag-and-drop
+- **THEN** o cartão do mapa com sua respectiva miniatura e dados SHALL se mover para a nova posição no layout
+- **AND** os índices e botões de limite de todos os cartões da coleção SHALL ser atualizados.
+
+#### Scenario: Desfazer reordenação de card de mapa
+- **WHEN** o usuário desfaz (Undo) uma movimentação de mapa
+- **THEN** o cartão do mapa e sua miniatura SHALL retornar à posição anterior na listagem visual e no Protobuf.
+
+

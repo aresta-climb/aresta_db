@@ -494,3 +494,35 @@ def test_croqui_controller_alterar_primitivo_escalada_reutiliza_referencias_do_t
     assert proxy_ref.escalada == "Via ABC"
 
 
+def test_croqui_controller_migrar_setor(qapp):
+    """Testa que controller despacha CmdMigrarSetor na pilha de undo."""
+    croqui = Croqui()
+    pico = croqui.picos.add()
+    pico.nome = "Pico Central"
+
+    sg_setor = pico.setores_ou_grupos.add()
+    sg_setor.setor.conteudo.nome = "Savassinha"
+    sg_grupo = pico.setores_ou_grupos.add()
+    sg_grupo.grupo.conteudo.nome = "Vale Oculto"
+
+    model = CroquiModel(croqui)
+    undo_stack = QUndoStack()
+    controller = CroquiController(model, undo_stack)
+
+    controller.migrar_setor(
+        pai_origem=pico,
+        campo_origem="setores_ou_grupos",
+        indice_origem=0,
+        pai_destino=sg_grupo.grupo.conteudo,
+        campo_destino="setores",
+        indice_destino=0,
+        caminho_novo="grupo_vale_oculto_setor_savassinha.md",
+        caminho_antigo="setor_savassinha.md"
+    )
+
+    assert undo_stack.count() == 1
+    assert len(pico.setores_ou_grupos) == 1
+    assert len(sg_grupo.grupo.conteudo.setores) == 1
+
+
+

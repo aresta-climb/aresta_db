@@ -844,6 +844,157 @@ class CmdMoverRepeated(ComandoEditor):
         )
 
 
+class CmdMigrarSetor(ComandoEditor):
+    """Comando para migrar um setor entre listas repetidas (Pico/Grupo) via Model com Undo/Redo."""
+    def __init__(
+        self,
+        model: Any,
+        pai_origem: Any = None,
+        campo_origem: str = "",
+        indice_origem: int = 0,
+        pai_destino: Any = None,
+        campo_destino: str = "",
+        indice_destino: int = 0,
+        caminho_novo: Optional[str] = None,
+        caminho_antigo: Optional[str] = None,
+        caminho_msg_origem: Optional[str] = None,
+        caminho_msg_destino: Optional[str] = None,
+        context_path: Optional[str] = None,
+        parent: Optional[QUndoCommand] = None,
+    ) -> None:
+        super().__init__(parent)
+        self.model: Any = model
+        self.campo_origem: str = campo_origem
+        self.indice_origem: int = indice_origem
+        self.campo_destino: str = campo_destino
+        self.indice_destino: int = indice_destino
+        self.caminho_novo: Optional[str] = caminho_novo
+        self.caminho_antigo: Optional[str] = caminho_antigo
+        self.context_path: Optional[str] = context_path
+
+        if caminho_msg_origem is not None:
+            self.caminho_msg_origem: str = caminho_msg_origem
+            _validar_campo_se_msg_existir(self.model, self.caminho_msg_origem, self.campo_origem, "CmdMigrarSetor (origem)")
+            self._pai_origem_cache = pai_origem
+        else:
+            self.caminho_msg_origem = validar_pertence_ao_croqui(self.model, pai_origem, self.campo_origem, nome_comando="CmdMigrarSetor (origem)")
+            self._pai_origem_cache = pai_origem
+
+        if caminho_msg_destino is not None:
+            self.caminho_msg_destino: str = caminho_msg_destino
+            _validar_campo_se_msg_existir(self.model, self.caminho_msg_destino, self.campo_destino, "CmdMigrarSetor (destino)")
+            self._pai_destino_cache = pai_destino
+        else:
+            self.caminho_msg_destino = validar_pertence_ao_croqui(self.model, pai_destino, self.campo_destino, nome_comando="CmdMigrarSetor (destino)")
+            self._pai_destino_cache = pai_destino
+
+        self.caminho_msg = self.caminho_msg_origem
+        self.setText(f"Migrar setor para {self.campo_destino}")
+
+    def _obter_pai(self, caminho_msg: Optional[str], cache_attr: str) -> Any:
+        cache_val = getattr(self, cache_attr, None)
+        if cache_val is not None:
+            from editor.models.readonly_proxy import ReadOnlyProxy
+            if isinstance(cache_val, ReadOnlyProxy):
+                return object.__getattribute__(cache_val, "_obj")
+            return cache_val
+
+        if self.model is None or caminho_msg is None:
+            return None
+
+        root = self.model.obter_croqui_readonly() if hasattr(self.model, "obter_croqui_readonly") else getattr(self.model, "croqui", None)
+        if caminho_msg == "":
+            alvo = root
+        else:
+            alvo = navegar_para_mensagem(root, caminho_msg)
+
+        if alvo is None:
+            logger.error(
+                "Falha ao resolver mensagem pai no caminho '%s' para o comando %s",
+                caminho_msg,
+                type(self).__name__
+            )
+            return None
+
+        from editor.models.readonly_proxy import ReadOnlyProxy
+        if isinstance(alvo, ReadOnlyProxy):
+            alvo = object.__getattribute__(alvo, "_obj")
+
+        setattr(self, cache_attr, alvo)
+        return alvo
+
+    @property
+    def pai_origem(self) -> Any:
+        return self._obter_pai(self.caminho_msg_origem, "_pai_origem_cache")
+
+    @property
+    def pai_destino(self) -> Any:
+        return self._obter_pai(self.caminho_msg_destino, "_pai_destino_cache")
+
+    def undo(self) -> None:
+        origem = self.pai_origem
+        destino = self.pai_destino
+        if origem is None or destino is None:
+            return
+        self.model._migrar_setor(
+            destino,
+            self.campo_destino,
+            self.indice_destino,
+            origem,
+            self.campo_origem,
+            self.indice_origem,
+            self.caminho_antigo,
+        )
+        if hasattr(self, "context_path") and self.context_path:
+            self.model.notificar_foco_requisitado(self.context_path)
+
+    def executar_redo(self) -> None:
+        origem = self.pai_origem
+        destino = self.pai_destino
+        if origem is None or destino is None:
+            return
+        self.model._migrar_setor(
+            origem,
+            self.campo_origem,
+            self.indice_origem,
+            destino,
+            self.campo_destino,
+            self.indice_destino,
+            self.caminho_novo,
+        )
+        if hasattr(self, "context_path") and self.context_path:
+            self.model.notificar_foco_requisitado(self.context_path)
+
+    def serializar(self, anonimizado: bool = False) -> Dict[str, Any]:
+        return {
+            "classe": "CmdMigrarSetor",
+            "caminho_msg_origem": self.caminho_msg_origem,
+            "campo_origem": self.campo_origem,
+            "indice_origem": self.indice_origem,
+            "caminho_msg_destino": self.caminho_msg_destino,
+            "campo_destino": self.campo_destino,
+            "indice_destino": self.indice_destino,
+            "caminho_novo": self.caminho_novo,
+            "caminho_antigo": self.caminho_antigo,
+            "context_path": self.context_path,
+        }
+
+    @staticmethod
+    def deserializar(dados: Dict[str, Any], model: CroquiModel) -> "CmdMigrarSetor":
+        return CmdMigrarSetor(
+            model=model,
+            caminho_msg_origem=dados.get("caminho_msg_origem"),
+            campo_origem=dados.get("campo_origem", ""),
+            indice_origem=dados.get("indice_origem", 0),
+            caminho_msg_destino=dados.get("caminho_msg_destino"),
+            campo_destino=dados.get("campo_destino", ""),
+            indice_destino=dados.get("indice_destino", 0),
+            caminho_novo=dados.get("caminho_novo"),
+            caminho_antigo=dados.get("caminho_antigo"),
+            context_path=dados.get("context_path"),
+        )
+
+
 
 class CmdAlterarMetadadosCaminhoNovo(ComandoEditor):
     """Comando para alterar o sub-campo caminho_novo de uma extensão MetadadosArquivoNoEditor via Model."""
@@ -1394,6 +1545,7 @@ def deserializar_comando(dados: Dict[str, Any], model: CroquiModel) -> ComandoEd
         "CmdInserirImagemMarkdown": CmdInserirImagemMarkdown,
         "CmdMacro": CmdMacro,
         "CmdRenomearEscalada": CmdRenomearEscalada,
+        "CmdMigrarSetor": CmdMigrarSetor,
     }
     
     if classe_nome in mapa_classes:

@@ -30,3 +30,8 @@ A Top Toolbar SHALL conter ícones premium (via QtAwesome) para ações globais 
 #### Scenario: Interação com botões Desfazer/Refazer
 - **WHEN** o usuário clica em "Desfazer" ou "Refazer"
 - **THEN** o sistema SHALL executar a ação correspondente no histórico de comandos do croqui
+
+#### Scenario: Interação com botão Exportar
+- **WHEN** o usuário busca a ação de exportação na barra superior
+- **THEN** a barra superior SHALL não exibir botão de exportação para formato .croqui
+
