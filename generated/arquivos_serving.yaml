@@ -54,9 +54,9 @@ arquivos:
 - caminho_relativo: br_mg_araxa_bocaina_boulders/imagens/setor_pressao_enrustida_p0.webp
   checksum_sha256: c894c3ad16831449a17c6e2481b7ba12b7b751abe7cff82f1b0fa483bcb2f837
 - caminho_relativo: br_mg_araxa_bocaina_boulders/compilado.yaml
-  checksum_sha256: 7d1757e893cd6a2f84a7a152825ba6728fddfe93d2b0b005adf0fb8444285440
+  checksum_sha256: 8c0a786037b532769c9b8cad0d3e8834b3da19e62da01832283441100387f509
 - caminho_relativo: br_mg_araxa_bocaina_boulders/compilado.md
-  checksum_sha256: b2d6ae4d13d1c20d108faefb12bf498c01d1e3d91c592b48ccfdb4529ca613d8
+  checksum_sha256: 63a5211d20560ea96e0181764e955fc3cb2c953638bc270734a11bdfa6cb865f
 - caminho_relativo: br_mg_araxa_bocaina_esportivas/compilado.binarypb
   checksum_sha256: 31d13e4911ba5c16ad642cbc6b908a90a85e9fc3e5f9e01680931c968279fad5
 - caminho_relativo: thumbnails/br_mg_araxa_bocaina_esportivas.webp
@@ -192,9 +192,9 @@ arquivos:
 - caminho_relativo: br_mg_araxa_bocaina_esportivas/imagens/setor_udao_p2.webp
   checksum_sha256: 179b635c8bcd811edaa32ae6d1adb9f2773231537704bdca908afa69d71c4dc6
 - caminho_relativo: br_mg_araxa_bocaina_esportivas/compilado.yaml
-  checksum_sha256: 43b9b8c30bb4a5a77bac2878f3c0260ac8a4956f155cd661ded1f90ffca87d06
+  checksum_sha256: 96611924df27f1476d18e989dab577a077bd6742ce937fc3cfeb655901ff7517
 - caminho_relativo: br_mg_araxa_bocaina_esportivas/compilado.md
-  checksum_sha256: e2f106871befaaae0192b63c6feaf4948cdabd2d995adf3c306a29d861b2a9a8
+  checksum_sha256: b85125ec97b3d5e475c85aa93bfa89bc94aec1bf44e6a32839cf2edbae9f1125
 - caminho_relativo: br_mg_arcos_bombonera/compilado.binarypb
   checksum_sha256: 79b98273d7b84da5c8cd0960720e0b8db72c28f41dcb187bcef29a6ba638607b
 - caminho_relativo: thumbnails/br_mg_arcos_bombonera.webp
@@ -228,9 +228,9 @@ arquivos:
 - caminho_relativo: br_mg_arcos_bombonera/imagens/setor_esquerda_p2_i0.webp
   checksum_sha256: 05c24e3cac4c06f65055600fa9b9b68edcaacd8bf98160880e6e0eabaa1aaa0c
 - caminho_relativo: br_mg_arcos_bombonera/compilado.yaml
-  checksum_sha256: e2d3ce130a60923852ae7dcd715c45d879759a6b25632a0180d988cfd64f81ab
+  checksum_sha256: 7dd69fb746729d7efcf6fc1ffaf23a56827c424759b33fbadcc0bee3e71a2bd8
 - caminho_relativo: br_mg_arcos_bombonera/compilado.md
-  checksum_sha256: 9d8affbe0d067fc1643c253fbb6b045aad94b0fd000668d9db422d9c1d753ae3
+  checksum_sha256: c224c7a612e2ac112f7190456c11386b375d3532ead77b5ee9fdb70a2c68a9cc
 - caminho_relativo: br_mg_arcos_corumba/compilado.binarypb
   checksum_sha256: adeb6d5ffbe1e568a0a7503d81c653fea6596778c7844763d9e44c784345ec4c
 - caminho_relativo: thumbnails/br_mg_arcos_corumba.webp
@@ -260,9 +260,9 @@ arquivos:
 - caminho_relativo: br_mg_arcos_corumba/imagens/setor_yanomami_p1_i0.webp
   checksum_sha256: 184c19cb7bd4e388098aa054deb3b4078ac1cca3e194514e5ca80b8001b32d57
 - caminho_relativo: br_mg_arcos_corumba/compilado.yaml
-  checksum_sha256: fb52c4c4a2fc10f35c4162ae23b87ab31c4c9af54a787af920da99e3c6673861
+  checksum_sha256: 7f883ad970b6ae848480f89793903cd7125f71d8b4606ccd4e0dc87f32380ff4
 - caminho_relativo: br_mg_arcos_corumba/compilado.md
-  checksum_sha256: 9ca84bd08c522b75eac0f2022a98eda75d3ff2c59b41e9f157fd181de60b35fb
+  checksum_sha256: f56db5ce63a4b51ea19ab9df0813df2e4819ea134044699a6b9749c2d4d15ebb
 - caminho_relativo: br_mg_arcos_novo_mundo/compilado.binarypb
   checksum_sha256: c98b3c70bf3178ac7fcd1d6ada6a5350406adb48fb7e994666f2441580861370
 - caminho_relativo: thumbnails/br_mg_arcos_novo_mundo.webp
@@ -284,9 +284,9 @@ arquivos:
 - caminho_relativo: br_mg_arcos_novo_mundo/imagens/setor_corredor_polones_p0_i0.webp
   checksum_sha256: fc7610a0413cdd5ef0f98a49d85296c2fec2ba5acd16e95388af54c1039308a4
 - caminho_relativo: br_mg_arcos_novo_mundo/compilado.yaml
-  checksum_sha256: 39ef0493264b32c7f5109daa98d7a190c325701659d61afc16157d21ab8b3358
+  checksum_sha256: adbf7a15e4996fc922b75075c4a3f13a645735a54a2f0088ab6b49b771161c28
 - caminho_relativo: br_mg_arcos_novo_mundo/compilado.md
-  checksum_sha256: 0b2a475bb66a95cb1d57a9e196e6926a41359321602c5fd3b36466e29ac04e97
+  checksum_sha256: 558f1721643bb0fc24b419ca6d3bdbb12f8c1dbec33337309241e327f74c6a99
 - caminho_relativo: br_mg_arcos_rastro/compilado.binarypb
   checksum_sha256: 0561bb58adfabe7aa0128ba770c84ce44ea6b17788de300cb50d7f4ba94a706a
 - caminho_relativo: thumbnails/br_mg_arcos_rastro.webp
@@ -336,9 +336,9 @@ arquivos:
 - caminho_relativo: br_mg_arcos_rastro/imagens/setor_zona_leste_p0_i0.webp
   checksum_sha256: 427bbb0c15906e94687cc2bc6aa3fdd9fd0a3cf4292d40a6dd3b473129c5bc6d
 - caminho_relativo: br_mg_arcos_rastro/compilado.yaml
-  checksum_sha256: 46f6cc7a5b0933d9a091074e0353039eb25bb25213437b6a6a9f2205323297b2
+  checksum_sha256: 4df5a007884c78e97bef9f0010376828ff2e24e9ec975647cddc7bee0dd59807
 - caminho_relativo: br_mg_arcos_rastro/compilado.md
-  checksum_sha256: 6a4e42ab1f291a0b8fe1f6484bbf6b127f28d6017177eea53c36a4ac3f9933eb
+  checksum_sha256: 60ab972a291c2cceae5db9259052394ace7d2af797755f36256099cc7b017bfa
 - caminho_relativo: br_mg_caete_monte_alvao/compilado.binarypb
   checksum_sha256: 574b66eb17125a6cd4f003dfdac8bf80abc4d9dc007c6c272d4a5d0ad5f6473f
 - caminho_relativo: thumbnails/br_mg_caete_monte_alvao.webp
@@ -368,9 +368,9 @@ arquivos:
 - caminho_relativo: br_mg_caete_pedra_branca/imagens/pagina_2_imagem_0.webp
   checksum_sha256: 2be1ba32f6bc4191dd1dfbb6c5cd9c12e12760cbac900bd67f3e855ff7e066a4
 - caminho_relativo: br_mg_caete_pedra_branca/compilado.yaml
-  checksum_sha256: 46c0ca0991680a07c768000f0aa437729b1f98623998119eb6621c619e208d28
+  checksum_sha256: bf1738b6ba8b9987d289feda421b1c88470ad4f15d1ab654fdda912c5d3a36ad
 - caminho_relativo: br_mg_caete_pedra_branca/compilado.md
-  checksum_sha256: cd0ecebe96233829211fbbe951bb9ebef3e475dc82ef4adecea5cb7c795990a6
+  checksum_sha256: c61d3ed8741fdd711645a65954b9ce56dce3cd3e56ede7f0dcbc32d5c17e51f5
 - caminho_relativo: br_mg_caete_pedra_filha/compilado.binarypb
   checksum_sha256: a731fd51758bcd2ea8eb6fa0f7deeee2863d78e0002ef9a400ca45c4bda28005
 - caminho_relativo: thumbnails/br_mg_caete_pedra_filha.webp
@@ -380,9 +380,9 @@ arquivos:
 - caminho_relativo: br_mg_caete_pedra_filha/imagens/setor_de_cima_p0.webp
   checksum_sha256: 89777869e4ce42931b2036452a129f7fc7c2208f06df31bbbf2df809cfdf5a77
 - caminho_relativo: br_mg_caete_pedra_filha/compilado.yaml
-  checksum_sha256: b7b63cbdd670e9b839f23f4d1a0e2fa63b455c71ebde083bb13bc228ed19fa6c
+  checksum_sha256: 81a8d6e4b96bde77fc43893cc51ae47cfa11fa2751f0e97450ffe7ca29c00ed9
 - caminho_relativo: br_mg_caete_pedra_filha/compilado.md
-  checksum_sha256: 04b1f96d71a9a4af94209fc5f8f789bfeb438f6a34508c66e9adad9b6089df3e
+  checksum_sha256: de194fdfacd8aa8815365264a3f915b70e6e6077a378fbc163c02b20399ca7c4
 - caminho_relativo: br_mg_conceicao_do_mato_dentro_festboulder/compilado.binarypb
   checksum_sha256: 0a64d764d5d4377ead8fa51c4bc258d886682349ddd8e5610e935981486744a5
 - caminho_relativo: thumbnails/br_mg_conceicao_do_mato_dentro_festboulder.webp
@@ -528,9 +528,9 @@ arquivos:
 - caminho_relativo: br_mg_conceicao_do_mato_dentro_festboulder/imagens/secao_rupestre_p0_i0.webp
   checksum_sha256: 390c4ae0ca91d29bfac8ae77757e3b0bc333dca5fbc0b5051c2ba50b985c1f62
 - caminho_relativo: br_mg_conceicao_do_mato_dentro_festboulder/compilado.yaml
-  checksum_sha256: 1b78919b5ead2c4fa6843484ce6bc7b0eaa0769bfd824a983818408a685cf555
+  checksum_sha256: 42a0b49ba6c7ea1ee95328166eea26312b013609115e78e53a00a347cc735149
 - caminho_relativo: br_mg_conceicao_do_mato_dentro_festboulder/compilado.md
-  checksum_sha256: 71ddf6c3a6e7ece951e0cd4c743ebf36542eca9ad45b73689ed036999205e0e9
+  checksum_sha256: 6e0db1686c3347da09fcbc860d11fd49cdd82393cc624324e674f50e6439a786
 - caminho_relativo: br_mg_diamantina_diamaboulder/compilado.binarypb
   checksum_sha256: 24ba498ea9d7f704ad3e23d9e6f3fe1533a433ce8d9f692e70c43c3e6ea441d2
 - caminho_relativo: thumbnails/br_mg_diamantina_diamaboulder.webp
@@ -598,9 +598,9 @@ arquivos:
 - caminho_relativo: br_mg_diamantina_diamaboulder/imagens/mapas_gerais_p1_i0.webp
   checksum_sha256: 6ad872db4b9d5e03999754c13b1b357bcde74c3bfe208c8bb9c2e29d22d682f7
 - caminho_relativo: br_mg_diamantina_diamaboulder/compilado.yaml
-  checksum_sha256: f2d5522eaed3c07091519df138cd1fa5f693e080c28044f24dd1a4a3ec8e9866
+  checksum_sha256: baa548ce0c106cd9ece6588b0e85271a9df8999226ade61023bb5d6f673b971a
 - caminho_relativo: br_mg_diamantina_diamaboulder/compilado.md
-  checksum_sha256: aeb01ba15dc7247405045719759e8b4d3957a72c011061fa6beab7ccce877bfd
+  checksum_sha256: c9712b18252881c66b5cc2c48a11ac34a3fd25c9e96e96e0c8848a6669b931ca
 - caminho_relativo: br_mg_igarape_pedra_grande/compilado.binarypb
   checksum_sha256: a7973827056fb42afd707dba76665b57e83bc8442e158890bb358f9679b309b0
 - caminho_relativo: thumbnails/br_mg_igarape_pedra_grande.webp
@@ -746,9 +746,9 @@ arquivos:
 - caminho_relativo: br_mg_igarape_pedra_grande/imagens/whatsapp_image_2026_09_20_at_230736.webp
   checksum_sha256: 39f87f0b083f245ee120402bc41beb2ba89c62aa9a4f44af8efccf47f8d60b3e
 - caminho_relativo: br_mg_igarape_pedra_grande/compilado.yaml
-  checksum_sha256: 9e3ed40ce61e72a997527e35b74a082a567923105317789aafaf297f450a414f
+  checksum_sha256: 256e77de94114e54494292dd22520e58a9981f0b4a47a42189d483c314ecb5af
 - caminho_relativo: br_mg_igarape_pedra_grande/compilado.md
-  checksum_sha256: f59e8a7ae44cc2a9c87a85ae927ea35e1191cfabd82482a44d111dc25a0a5fea
+  checksum_sha256: 220a5376a829e583df4758631d5eb16b904e7ae80ce33522f2f5e47086702a5c
 - caminho_relativo: br_mg_januaria_salao_encantado/compilado.binarypb
   checksum_sha256: 26350287062465a53eafe8505481ef55549c7c30c856d8f6f1dbc9621edadaa8
 - caminho_relativo: thumbnails/br_mg_januaria_salao_encantado.webp
@@ -790,9 +790,9 @@ arquivos:
 - caminho_relativo: br_mg_januaria_salao_encantado/imagens/setor_parede_principal_p0_i0.webp
   checksum_sha256: 5774476d9339c1ad497498e763b55cb56ea641852a091b9b72005d59e7609bfe
 - caminho_relativo: br_mg_januaria_salao_encantado/compilado.yaml
-  checksum_sha256: a76b02bc04533d3603bbd95155dd97869faffb23f240209de0aa4819c8988dca
+  checksum_sha256: 384164ed15c9389350f4a343071104a3a6093ae40572f6469f060912a255326c
 - caminho_relativo: br_mg_januaria_salao_encantado/compilado.md
-  checksum_sha256: 1f7ccb7fb85ec9c8c65441e052b0b509ad45d31e2fcd5a5eda342a6dddb8cbe9
+  checksum_sha256: 32d28553006b2b93cd27cfdbe7490c0a26f986bdb9de74f65885378b51ae581c
 - caminho_relativo: br_mg_lagoa_santa_gruta_da_lapinha/compilado.binarypb
   checksum_sha256: 57d3d289cff81b5aa31d48f856e8d8826110331bc56839ca92d755706ad742ac
 - caminho_relativo: thumbnails/br_mg_lagoa_santa_gruta_da_lapinha.webp
@@ -830,9 +830,9 @@ arquivos:
 - caminho_relativo: br_mg_lagoa_santa_gruta_da_lapinha/imagens/setor_mapa_9_p0_i0.webp
   checksum_sha256: e9f415800c4e7311d2d7da6fbd76eafafba99ec58c1c3453a7131eaee20d5cae
 - caminho_relativo: br_mg_lagoa_santa_gruta_da_lapinha/compilado.yaml
-  checksum_sha256: e632fcb673540fd99ac1513a08c03334d3e13039d87c0737dedb6d60fd89e1c7
+  checksum_sha256: f32b35fa3465e0d00ea595c75213f34aa8b06b6d51d218895264a6cfae1c6d02
 - caminho_relativo: br_mg_lagoa_santa_gruta_da_lapinha/compilado.md
-  checksum_sha256: aff7289f53514c9bb2d9a57903f0cba32fcf36214ee051a3abcd42931eedc1bd
+  checksum_sha256: c58397d2486e4dcba727fe106152f9f76cd99b104dfb06ad5439345a2624017b
 - caminho_relativo: br_mg_lagoa_santa_sitio_do_rod/compilado.binarypb
   checksum_sha256: 4c63d54030a9869a4bb3ab09acf179a46506abf97273e5a7e0b4bb85a60d507b
 - caminho_relativo: thumbnails/br_mg_lagoa_santa_sitio_do_rod.webp
@@ -878,9 +878,9 @@ arquivos:
 - caminho_relativo: br_mg_lagoa_santa_sitio_do_rod/imagens/pagina_9_imagem_0.webp
   checksum_sha256: 7e414c19af5e57d238220b9808660b548d93e8cbc15793e72a8f98a813add20d
 - caminho_relativo: br_mg_lagoa_santa_sitio_do_rod/compilado.yaml
-  checksum_sha256: ad0e588272c523248ae6b6656300e4d0174f91339fb390656d2a52026523cfee
+  checksum_sha256: c1d25f2e6aea79d54a11ca2cabba44d42850b719283f88f1397ee7c627d87f55
 - caminho_relativo: br_mg_lagoa_santa_sitio_do_rod/compilado.md
-  checksum_sha256: 91e0a0e46810810dde265f3befbcb6013020eac1d125c9cc8ea64afd60b9e1c6
+  checksum_sha256: 07bd6ff718c5b42d68d5cb50a50e69ff101eaf3df128e94ac36fd47aa8894a6e
 - caminho_relativo: br_mg_ouro_preto_andorinhas/compilado.binarypb
   checksum_sha256: c3176a6807a91c5cf3c461894778eaff328f97079505340094a3058c97e120ca
 - caminho_relativo: thumbnails/br_mg_ouro_preto_andorinhas.webp
@@ -900,9 +900,9 @@ arquivos:
 - caminho_relativo: br_mg_ouro_preto_andorinhas/imagens/setor_tchau_querida_p0.webp
   checksum_sha256: 1d38e55236e681b23e438e548a4d2b70fa0c4d6a265a33c9c7fc0acbfb8cbe94
 - caminho_relativo: br_mg_ouro_preto_andorinhas/compilado.yaml
-  checksum_sha256: a4d5c7e4dc4ee8b80b55446c9369574823e7a071aad5a16194a70619d9d51a12
+  checksum_sha256: 478a7f69e7dd5e13c7e517befea2455d7b99f838ee2e98aa817bcba107f5d5af
 - caminho_relativo: br_mg_ouro_preto_andorinhas/compilado.md
-  checksum_sha256: 832aa0509128d4b8a691db2f616e80861bfb3fa34029e1e9ba7e15d21f6b1692
+  checksum_sha256: 0908a33b85bc73967333501026db5045651145e9d4987bdc2f0e578314d28379
 - caminho_relativo: br_mg_ouro_preto_ouroboulder/compilado.binarypb
   checksum_sha256: 13ec72019581a86fc1d0c6cb1c703b0076192051e29e1efef28de1df2ae2672a
 - caminho_relativo: thumbnails/br_mg_ouro_preto_ouroboulder.webp
@@ -1130,9 +1130,9 @@ arquivos:
 - caminho_relativo: br_mg_ouro_preto_ouroboulder/imagens/sobre_ouro_preto_p1_i1.webp
   checksum_sha256: db70f068ad17cac698cf815163b5a909c7284c3f2bd3c5998fbbe28d9db29082
 - caminho_relativo: br_mg_ouro_preto_ouroboulder/compilado.yaml
-  checksum_sha256: 25199fa77ee13ac46a29e4f4dcf12f078d4828e620331951e62f9ea15a70c9e0
+  checksum_sha256: 87ec1953407b73d934ec1d98a9f2acf8df84bd8c417054582b5bca1f600a95d0
 - caminho_relativo: br_mg_ouro_preto_ouroboulder/compilado.md
-  checksum_sha256: a57a3c951ffb243adc559c16e3f5016519fdd98bffacc91385a5e6c0b911bb42
+  checksum_sha256: 4debe1de0ec21712f384d82d4ceae5f52390b5e28e9bd81946176a83d17d76cd
 - caminho_relativo: br_mg_ouro_preto_ouroboulder_sunset/compilado.binarypb
   checksum_sha256: d70dd2aaba4346aaebddcd863d967fb2f3b1fceeecd5801935fa3f832bc4bcd0
 - caminho_relativo: thumbnails/br_mg_ouro_preto_ouroboulder_sunset.webp
@@ -1182,9 +1182,9 @@ arquivos:
 - caminho_relativo: br_mg_ouro_preto_ouroboulder_sunset/imagens/mapas_gerais_p0.webp
   checksum_sha256: 76bf730bbb663e5e0907044c468a68cc1d80079a776eeab308e29d1f9a2ac852
 - caminho_relativo: br_mg_ouro_preto_ouroboulder_sunset/compilado.yaml
-  checksum_sha256: 0a31659fd81b40a28102d47e414c0bb72b0a087dc0961ba7278068e0e8c43d4b
+  checksum_sha256: bbfa50f87b6ba83c3aa7c55642e633b35de9a48ab3adda4b95cd0e023953451f
 - caminho_relativo: br_mg_ouro_preto_ouroboulder_sunset/compilado.md
-  checksum_sha256: 900fef198b7f74d0bdf9dc4fc9b0fd9d0455bbb82670d8f75285c6f090c1a915
+  checksum_sha256: 112a5eef9d13a3212cf3b78ac550081c71717b95e71c4e1b97d83b3227e138b5
 - caminho_relativo: br_mg_pedro_leopoldo_gruta_do_bau/compilado.binarypb
   checksum_sha256: 1ed33be031557398ddb4fab07a44e6c7e38e094283d9c74157aae78a357dae48
 - caminho_relativo: thumbnails/br_mg_pedro_leopoldo_gruta_do_bau.webp
@@ -1262,9 +1262,9 @@ arquivos:
 - caminho_relativo: br_mg_pedro_leopoldo_gruta_do_bau/imagens/setor_vale_dos_espinhos_p0_i6.webp
   checksum_sha256: 4e9c73398fdcba3611a5fe93b973779f891ed008fea953df46f9e9796b44809d
 - caminho_relativo: br_mg_pedro_leopoldo_gruta_do_bau/compilado.yaml
-  checksum_sha256: e588c4aedaf8aa48c463986938d12f7ae1ee8eaa1856395f13509efac8c8af79
+  checksum_sha256: 0f741815daeea37f546a19cfea8e30f83fb1422ebb2e3291568b04a819b26aff
 - caminho_relativo: br_mg_pedro_leopoldo_gruta_do_bau/compilado.md
-  checksum_sha256: af17b596a449fb2af3c3117c1371d267ac5cd15f0847201503fca6488ffda168
+  checksum_sha256: 7355d26145c516d83b5679cf906576bdd81c8ecb3b6d6463641581501626c730
 - caminho_relativo: br_mg_sabara_pedra_rachada_setor_horizonte/compilado.binarypb
   checksum_sha256: b29c77a6c8aea7449a35945a49b97e05dfc1714d69c6fa8a5d6b3b668225fd8e
 - caminho_relativo: thumbnails/br_mg_sabara_pedra_rachada_setor_horizonte.webp
@@ -1330,9 +1330,9 @@ arquivos:
 - caminho_relativo: br_mg_sabara_pedra_rachada_setor_horizonte/imagens/setor_outros_blocos_p4_i0.webp
   checksum_sha256: 3591c4fbeb69222c499cee37b74b2342169a5bdb507d986adc0688d054513e0b
 - caminho_relativo: br_mg_sabara_pedra_rachada_setor_horizonte/compilado.yaml
-  checksum_sha256: 98c704353a923e375ad5a050a732abf215b96113bae0895e3653cf5936b76a98
+  checksum_sha256: a7881b7a2eec2ce9fbe86c6562d29662a7cbff0b6b7489af2900160733eb2fcd
 - caminho_relativo: br_mg_sabara_pedra_rachada_setor_horizonte/compilado.md
-  checksum_sha256: 41a4e26d961ee39794e79cb6acdf09de2b3468667db8fce1f53c1f5d4a3f5708
+  checksum_sha256: 5cdeb039550d68a7c750c9f2f204a40f1cf691ecac3392ca9dd4be0bc5b4a82d
 - caminho_relativo: br_mg_sacramento_vo_gusta/compilado.binarypb
   checksum_sha256: 3ee20d9824072c6cce138cba33dbf268bd389e2036520049a475d906cbb22221
 - caminho_relativo: thumbnails/br_mg_sacramento_vo_gusta.webp
@@ -1348,9 +1348,9 @@ arquivos:
 - caminho_relativo: br_mg_sacramento_vo_gusta/imagens/setor_quintal_p0_i0_2.webp
   checksum_sha256: fed325281c8138d6e4e8d538f76eaeb1390ab1d54bd7349867d69cbe3d004d38
 - caminho_relativo: br_mg_sacramento_vo_gusta/compilado.yaml
-  checksum_sha256: 650f85ac2b88026aab4e74fc398e4fd8571eeb5067ac8f6e761f33a20f78f6a3
+  checksum_sha256: 53e35fe3576b0cd5c4f085315b957054e880c474d882e0d048f94c4dd02b68db
 - caminho_relativo: br_mg_sacramento_vo_gusta/compilado.md
-  checksum_sha256: cc95e9102d4097133962d009933a38326916e561f7ff76225461427f7481ca9a
+  checksum_sha256: 44969ed648f566b595964603b9db201233874166840d183c4c80510f8218ff01
 - caminho_relativo: br_mg_santa_luzia_santuario/compilado.binarypb
   checksum_sha256: 6c3e727ac588b2146ca6119c5532286a95997e7bfc393ac0efb2c2b9d3409d46
 - caminho_relativo: thumbnails/br_mg_santa_luzia_santuario.webp
@@ -1390,9 +1390,9 @@ arquivos:
 - caminho_relativo: br_mg_santa_luzia_santuario/imagens/setor_santa_linea_p1.webp
   checksum_sha256: f2e2ec352aae40f51d713d6d363d2a30156231806ed7751fec9011d923b79835
 - caminho_relativo: br_mg_santa_luzia_santuario/compilado.yaml
-  checksum_sha256: 30341a48fad01e68c5cd2bb19f70f718dde85078df42e6dff970e56cf595739a
+  checksum_sha256: 950ed05c940a6fc92e00a6b858badeba3e503c7b52fb8d07b48f5af543824be4
 - caminho_relativo: br_mg_santa_luzia_santuario/compilado.md
-  checksum_sha256: 269a6d62943fccb7d41e76b9f935cc9fbeffa0262b3ca8377a3bba75a327dfe4
+  checksum_sha256: 9c0682fcbcf95710d02683603ac6db4df0b080e89d1ab53bfb415aec0d182e20
 - caminho_relativo: br_mg_santana_do_riacho_serra_do_cipo_rock_master/compilado.binarypb
   checksum_sha256: a9f169ce6e43f8435253efba3a498bcb7d00decb8982a4e577397a4dd81b6faa
 - caminho_relativo: thumbnails/br_mg_santana_do_riacho_serra_do_cipo_rock_master.webp
@@ -1402,9 +1402,9 @@ arquivos:
 - caminho_relativo: br_mg_santana_do_riacho_serra_do_cipo_rock_master/imagens/setor_rock_master_p0_i0.webp
   checksum_sha256: 2f98291b008899f3e83f61a9bcfea55d93a61fdf0dca8a1970bd304bc15651dd
 - caminho_relativo: br_mg_santana_do_riacho_serra_do_cipo_rock_master/compilado.yaml
-  checksum_sha256: 2f934a407be3f052f8a553ed8bea904a76df28cb1f482a399a2447eeb6fa06e9
+  checksum_sha256: b9ea2068fec24bebaff7a186b45b9f657d29e613b74c5daa4244670bdc775576
 - caminho_relativo: br_mg_santana_do_riacho_serra_do_cipo_rock_master/compilado.md
-  checksum_sha256: b641917b61b6e9dd50882bb6f8caa89737fb987e279434b162cd0dd0fd6ad01a
+  checksum_sha256: 6e1fb49438ea1e330b2e99742137ee7f21a7b7cc5ca7f4a606dcbfef2d628add
 - caminho_relativo: br_mg_sete_lagoas_sinuosa/compilado.binarypb
   checksum_sha256: 3606f29a9a3221a09fade46c31680b6b1ec33f176be05c2f0b18ec2d13236281
 - caminho_relativo: thumbnails/br_mg_sete_lagoas_sinuosa.webp
@@ -1534,10 +1534,10 @@ arquivos:
 - caminho_relativo: br_mg_sete_lagoas_sinuosa/imagens/setor_vale_zela_p0_i1.webp
   checksum_sha256: b3f58c2bb35e9505cf32469055205168eb32bb58cbfec573ea3fa0aed04464c6
 - caminho_relativo: br_mg_sete_lagoas_sinuosa/compilado.yaml
-  checksum_sha256: 5eac3b2b01b546d8c6bc90d286762a06ba4885a04bf8ac45979ff5892d08218e
+  checksum_sha256: 836e7fbef90ed8f5ea174b78cd0909ec28fb60a6f1fbe1ba0798c4b88b52ca68
 - caminho_relativo: br_mg_sete_lagoas_sinuosa/compilado.md
-  checksum_sha256: 9c1cb814fecabc3cc85db508f894a4fac08c13924bc119c29cf9559521c9151f
+  checksum_sha256: 90ae5f1154203e8088b4c825a4d015695a80b2d4787cfa31d95ecd61a497ee6a
 - caminho_relativo: indice.binarypb
   checksum_sha256: eaf461faa5771dbbb4d7bee1ca9f02a278516842026d2da8280548e9fe2abf0b
 - caminho_relativo: indice.yaml
-  checksum_sha256: 9381afc77301f27a96e6041713632fd5ec188fc4b0154ab7d798c0cb094b03a3
+  checksum_sha256: b06288481d25ae03d8cb828ca16791184db5634e1333ad773c3fe287b39eea6f
