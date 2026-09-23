@@ -1,0 +1,1 @@
+[Localização Google Maps](https://www.google.com/maps/place/22%C2%B013'43.3%22S+42%C2%B025'26.0%22W/@-22.228703,-42.423876,807m/data=!3m2!1e3!4b1!4m4!3m3!8m2!3d-22.228703!4d-42.423876!18m1!1e1?entry=ttu&g_ep=EgoyMDI2MDkyMC4wIKXMDSoASAFQAw%3D%3D)
