@@ -10,6 +10,7 @@ from editor.commands.comandos_protobuf import (
     resolver_caminho_mensagem,
     navegar_para_mensagem,
     validar_pertence_ao_croqui,
+    _validar_campo_se_msg_existir,
     _serializar_valor,
     _deserializar_valor,
 )
@@ -22,20 +23,25 @@ class CmdAdicionarMapaArquivo(ComandoEditor):
     def __init__(
         self,
         model: Any,
-        msg: Any,
-        campo_nome: str,
-        index: int,
-        valor: Any,
-        caminho_absoluto: Optional[Path | str],
-        img_bytes: Optional[bytes],
+        msg: Any = None,
+        campo_nome: str = "",
+        index: int = 0,
+        valor: Any = None,
+        caminho_absoluto: Optional[Path | str] = None,
+        img_bytes: Optional[bytes] = None,
         context_path: Optional[str] = None,
+        caminho_msg: Optional[str] = None,
         parent: Optional[QUndoCommand] = None,
     ) -> None:
         super().__init__(parent)
         self.model: Any = model
-        self.msg: Any = msg
         self.campo_nome: str = campo_nome
-        validar_pertence_ao_croqui(self.model, self.msg, self.campo_nome, nome_comando="CmdAdicionarMapaArquivo")
+        if caminho_msg is not None:
+            self.caminho_msg = caminho_msg
+            _validar_campo_se_msg_existir(self.model, self.caminho_msg, self.campo_nome, "CmdAdicionarMapaArquivo")
+        else:
+            self.caminho_msg = validar_pertence_ao_croqui(self.model, msg, self.campo_nome, nome_comando="CmdAdicionarMapaArquivo")
+            self._msg_cache = msg
         self.index: int = index
         self.valor: Any = _copia_segura(valor)
         self.caminho_absoluto: Optional[Path | str] = caminho_absoluto
@@ -45,8 +51,11 @@ class CmdAdicionarMapaArquivo(ComandoEditor):
         self.context_path: Optional[str] = context_path
 
     def undo(self) -> None:
+        msg = self._obter_msg()
+        if msg is None:
+            return
         # 1. Remove do modelo
-        self.model._remover_repeated(self.msg, self.campo_nome, self.index)
+        self.model._remover_repeated(msg, self.campo_nome, self.index)
         # 2. Remove do buffer de RAM
         if self.caminho_relativo:
             self.model.remover_imagem_memoria(self.caminho_relativo)
@@ -55,11 +64,14 @@ class CmdAdicionarMapaArquivo(ComandoEditor):
             self.model.notificar_foco_requisitado(self.context_path)
 
     def executar_redo(self) -> None:
+        msg = self._obter_msg()
+        if msg is None:
+            return
         # 1. Registra imagem no buffer de RAM
         if self.caminho_relativo and self.img_bytes:
             self.model.definir_imagem_memoria(self.caminho_relativo, self.img_bytes)
         # 2. Adiciona ao modelo
-        self.model._adicionar_repeated(self.msg, self.campo_nome, self.index, self.valor)
+        self.model._adicionar_repeated(msg, self.campo_nome, self.index, self.valor)
         
         if hasattr(self, 'context_path') and self.context_path:
             self.model.notificar_foco_requisitado(self.context_path)
@@ -75,7 +87,7 @@ class CmdAdicionarMapaArquivo(ComandoEditor):
             
         return {
             "classe": "CmdAdicionarMapaArquivo",
-            "caminho_msg": resolver_caminho_mensagem(self.model.obter_croqui_readonly(), self.msg),
+            "caminho_msg": self.caminho_msg or resolver_caminho_mensagem(self.model.obter_croqui_readonly(), self._obter_msg()),
             "campo_nome": self.campo_nome,
             "index": self.index,
             "valor": _serializar_valor(self.valor, anonimizado=anonimizado),
@@ -86,12 +98,11 @@ class CmdAdicionarMapaArquivo(ComandoEditor):
 
     @staticmethod
     def deserializar(dados: Dict[str, Any], model: Any) -> "CmdAdicionarMapaArquivo":
-        msg = navegar_para_mensagem(model.obter_croqui_readonly(), dados.get("caminho_msg", ""))
         valor = _deserializar_valor(dados["valor"], model=model)
         caminho_abs = Path(dados["caminho_absoluto"]) if dados.get("caminho_absoluto") else None
         return CmdAdicionarMapaArquivo(
             model=model,
-            msg=msg,
+            caminho_msg=dados.get("caminho_msg", ""),
             campo_nome=dados["campo_nome"],
             index=dados["index"],
             valor=valor,

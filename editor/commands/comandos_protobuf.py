@@ -1,11 +1,14 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
+import logging
 from typing import Optional, Any, Dict, List, Tuple
 from PySide6.QtGui import QUndoCommand
 from google.protobuf.message import Message
 from editor.models.croqui_model import CroquiModel
 from editor.models.readonly_proxy import _copia_segura
+
+logger = logging.getLogger(__name__)
 
 
 def resolver_caminho_mensagem(root_msg: Any, target_msg: Any) -> str:
@@ -68,7 +71,10 @@ def resolver_caminho_mensagem(root_msg: Any, target_msg: Any) -> str:
 def navegar_para_mensagem(root_msg: Any, caminho: str) -> Any:
     """
     Navega a partir de root_msg seguindo o caminho (ex: 'setores.0.vias.1') e retorna a Message correspondente.
+    Retorna None de forma segura se o caminho for inválido, índice fora de limite ou variante oneof inativa.
     """
+    if root_msg is None:
+        return None
     from editor.models.readonly_proxy import ReadOnlyProxy
     if isinstance(root_msg, ReadOnlyProxy):
         root_msg = object.__getattribute__(root_msg, "_obj")
@@ -79,11 +85,32 @@ def navegar_para_mensagem(root_msg: Any, caminho: str) -> Any:
     atual = root_msg
     for parte in partes:
         if parte.isdigit():
-            atual = atual[int(parte)]
+            idx = int(parte)
+            try:
+                if not hasattr(atual, "__len__") or idx < 0 or idx >= len(atual):
+                    return None
+                atual = atual[idx]
+            except Exception:
+                return None
         else:
-            atual = getattr(atual, parte)
+            try:
+                if hasattr(atual, "DESCRIPTOR"):
+                    campo_desc = atual.DESCRIPTOR.fields_by_name.get(parte)
+                    if campo_desc is None:
+                        return None
+                    if campo_desc.containing_oneof:
+                        ativo = atual.WhichOneof(campo_desc.containing_oneof.name)
+                        if ativo != parte:
+                            return None
+                if not hasattr(atual, parte):
+                    return None
+                atual = getattr(atual, parte)
+            except Exception:
+                return None
         if isinstance(atual, ReadOnlyProxy):
             atual = object.__getattribute__(atual, "_obj")
+        if atual is None:
+            return None
     return atual
 
 
@@ -135,6 +162,29 @@ def validar_pertence_ao_croqui(
     return caminho
 
 
+def _validar_campo_se_msg_existir(
+    model: Any,
+    caminho_msg: Optional[str],
+    campo_nome: Optional[str],
+    nome_comando: str = "Comando"
+) -> None:
+    """
+    Valida a existência do campo no descriptor se a mensagem puder ser resolvida no modelo.
+    Se a mensagem não existir no modelo (lazy resolution), não levanta erro prematuro.
+    """
+    if model is None or caminho_msg is None or not campo_nome:
+        return
+    root = model.obter_croqui_readonly() if hasattr(model, "obter_croqui_readonly") else getattr(model, "croqui", None)
+    msg_alvo = navegar_para_mensagem(root, caminho_msg)
+    if msg_alvo is not None and hasattr(msg_alvo, "DESCRIPTOR"):
+        if campo_nome not in msg_alvo.DESCRIPTOR.fields_by_name:
+            raise ValueError(
+                f"Campo '{campo_nome}' não existe na mensagem '{msg_alvo.DESCRIPTOR.name}' "
+                f"para o comando {nome_comando}."
+            )
+
+
+
 def _serializar_valor(valor: Any, anonimizado: bool = False) -> Any:
     """Serializa tipos primitivos ou instâncias Protobuf Message para representação de dicionário."""
     if isinstance(valor, Message):
@@ -169,10 +219,60 @@ class ComandoEditor(QUndoCommand):
     em memória, a flag `_ignorar_primeiro_redo` pode ser ativada antes do push.
     Ao ser empurrado na pilha, o Qt chama `redo()`, que consome a flag silenciosamente sem alterar o modelo.
     Chamadas subsequentes de Redo (Ctrl+Y) pelo usuário executam a mutação normalmente.
+
+    Suporta resolução tardia (Lazy Resolution) da mensagem alvo:
+    Armazena o caminho `caminho_msg` e resolve a referência da mensagem no modelo
+    sob demanda através do método `_obter_msg()` e da propriedade `msg`.
     """
     def __init__(self, parent: Optional[QUndoCommand] = None) -> None:
         super().__init__(parent)
         self._ignorar_primeiro_redo: bool = False
+        self._caminho_msg: Optional[str] = None
+        self._msg_cache: Any = None
+
+    @property
+    def caminho_msg(self) -> Optional[str]:
+        return self._caminho_msg
+
+    @caminho_msg.setter
+    def caminho_msg(self, valor: Optional[str]) -> None:
+        self._caminho_msg = valor
+
+    def _obter_msg(self) -> Any:
+        """
+        Resolve a mensagem alvo atual na árvore do modelo a partir de caminho_msg.
+        Se caminho_msg não estiver definido, retorna _msg_cache.
+        Se não for possível encontrar a mensagem alvo, registra logger.error e retorna None.
+        """
+        model = getattr(self, "model", None)
+        if model is None:
+            return self._msg_cache
+
+        if self._caminho_msg is None:
+            return self._msg_cache
+
+        root = model.obter_croqui_readonly() if hasattr(model, "obter_croqui_readonly") else getattr(model, "croqui", None)
+        alvo = navegar_para_mensagem(root, self._caminho_msg)
+        if alvo is None:
+            logger.error(
+                "Falha ao resolver mensagem alvo no caminho '%s' para o comando %s",
+                self._caminho_msg,
+                type(self).__name__
+            )
+            return None
+
+        if self._msg_cache is not None:
+            return self._msg_cache
+
+        return alvo
+
+    @property
+    def msg(self) -> Any:
+        return self._obter_msg()
+
+    @msg.setter
+    def msg(self, valor: Any) -> None:
+        self._msg_cache = valor
 
     def armar_carregamento_silencioso(self) -> None:
         """Ativa a flag para que a próxima invocação de redo() (ao ser adicionado na QUndoStack) não aplique mutações."""
@@ -201,19 +301,24 @@ class CmdAlterarPrimitivo(ComandoEditor):
     def __init__(
         self,
         model: Any,
-        msg: Any,
-        campo_nome: str,
-        valor_antigo: Any,
-        valor_novo: Any,
+        msg: Any = None,
+        campo_nome: str = "",
+        valor_antigo: Any = None,
+        valor_novo: Any = None,
         context_path: Optional[str] = None,
         pode_mesclar: bool = False,
+        caminho_msg: Optional[str] = None,
         parent: Optional[QUndoCommand] = None,
     ) -> None:
         super().__init__(parent)
         self.model: Any = model
-        self.msg: Any = msg
         self.campo_nome: str = campo_nome
-        validar_pertence_ao_croqui(self.model, self.msg, self.campo_nome, nome_comando="CmdAlterarPrimitivo")
+        if caminho_msg is not None:
+            self.caminho_msg = caminho_msg
+            _validar_campo_se_msg_existir(self.model, self.caminho_msg, self.campo_nome, "CmdAlterarPrimitivo")
+        else:
+            self.caminho_msg = validar_pertence_ao_croqui(self.model, msg, self.campo_nome, nome_comando="CmdAlterarPrimitivo")
+            self._msg_cache = msg
         self.valor_antigo: Any = _copia_segura(valor_antigo)
         self.valor_novo: Any = _copia_segura(valor_novo)
         self.context_path: Optional[str] = context_path
@@ -227,30 +332,37 @@ class CmdAlterarPrimitivo(ComandoEditor):
             return False
         if not isinstance(outro, CmdAlterarPrimitivo):
             return False
-        id_self = self.msg.obter_id_nativo() if hasattr(self.msg, 'obter_id_nativo') else id(self.msg)
-        id_outro = outro.msg.obter_id_nativo() if hasattr(outro.msg, 'obter_id_nativo') else id(outro.msg)
-        if id_self == id_outro and self.campo_nome == outro.campo_nome:
+        if self.caminho_msg == outro.caminho_msg and self.campo_nome == outro.campo_nome:
+            msg = self.msg
+            if msg is None:
+                return False
             self.valor_novo = outro.valor_novo
             if hasattr(outro, 'context_path') and outro.context_path:
                 self.context_path = outro.context_path
-            self.model._set_primitivo(self.msg, self.campo_nome, self.valor_novo)
+            self.model._set_primitivo(msg, self.campo_nome, self.valor_novo)
             return True
         return False
 
     def undo(self) -> None:
-        self.model._set_primitivo(self.msg, self.campo_nome, self.valor_antigo)
+        msg = self.msg
+        if msg is None:
+            return
+        self.model._set_primitivo(msg, self.campo_nome, self.valor_antigo)
         if hasattr(self, 'context_path') and self.context_path:
             self.model.notificar_foco_requisitado(self.context_path)
 
     def executar_redo(self) -> None:
-        self.model._set_primitivo(self.msg, self.campo_nome, self.valor_novo)
+        msg = self.msg
+        if msg is None:
+            return
+        self.model._set_primitivo(msg, self.campo_nome, self.valor_novo)
         if hasattr(self, 'context_path') and self.context_path:
             self.model.notificar_foco_requisitado(self.context_path)
 
     def serializar(self, anonimizado: bool = False) -> Dict[str, Any]:
         return {
             "classe": "CmdAlterarPrimitivo",
-            "caminho_msg": resolver_caminho_mensagem(self.model.obter_croqui_readonly(), self.msg),
+            "caminho_msg": self.caminho_msg if self.caminho_msg is not None else resolver_caminho_mensagem(self.model.obter_croqui_readonly(), self.msg),
             "campo_nome": self.campo_nome,
             "valor_antigo": self.valor_antigo,
             "valor_novo": self.valor_novo,
@@ -259,10 +371,9 @@ class CmdAlterarPrimitivo(ComandoEditor):
 
     @staticmethod
     def deserializar(dados: Dict[str, Any], model: CroquiModel) -> "CmdAlterarPrimitivo":
-        msg = navegar_para_mensagem(model.obter_croqui_readonly(), dados.get("caminho_msg", ""))
         return CmdAlterarPrimitivo(
             model=model,
-            msg=msg,
+            caminho_msg=dados.get("caminho_msg", ""),
             campo_nome=dados["campo_nome"],
             valor_antigo=dados.get("valor_antigo"),
             valor_novo=dados.get("valor_novo"),
@@ -276,36 +387,47 @@ class CmdAdicionarRepeated(ComandoEditor):
     def __init__(
         self,
         model: Any,
-        msg: Any,
-        campo_nome: str,
-        index: int,
-        valor: Any,
+        msg: Any = None,
+        campo_nome: str = "",
+        index: int = 0,
+        valor: Any = None,
         context_path: Optional[str] = None,
+        caminho_msg: Optional[str] = None,
         parent: Optional[QUndoCommand] = None,
     ) -> None:
         super().__init__(parent)
         self.model: Any = model
-        self.msg: Any = msg
         self.campo_nome: str = campo_nome
-        validar_pertence_ao_croqui(self.model, self.msg, self.campo_nome, nome_comando="CmdAdicionarRepeated")
+        if caminho_msg is not None:
+            self.caminho_msg = caminho_msg
+            _validar_campo_se_msg_existir(self.model, self.caminho_msg, self.campo_nome, "CmdAdicionarRepeated")
+        else:
+            self.caminho_msg = validar_pertence_ao_croqui(self.model, msg, self.campo_nome, nome_comando="CmdAdicionarRepeated")
+            self._msg_cache = msg
         self.index: int = index
         self.valor: Any = _copia_segura(valor)
         self.context_path: Optional[str] = context_path
 
     def undo(self) -> None:
-        self.model._remover_repeated(self.msg, self.campo_nome, self.index)
+        msg = self.msg
+        if msg is None:
+            return
+        self.model._remover_repeated(msg, self.campo_nome, self.index)
         if hasattr(self, 'context_path') and self.context_path:
             self.model.notificar_foco_requisitado(self.context_path)
 
     def executar_redo(self) -> None:
-        self.model._adicionar_repeated(self.msg, self.campo_nome, self.index, self.valor)
+        msg = self.msg
+        if msg is None:
+            return
+        self.model._adicionar_repeated(msg, self.campo_nome, self.index, self.valor)
         if hasattr(self, 'context_path') and self.context_path:
             self.model.notificar_foco_requisitado(self.context_path)
 
     def serializar(self, anonimizado: bool = False) -> Dict[str, Any]:
         return {
             "classe": "CmdAdicionarRepeated",
-            "caminho_msg": resolver_caminho_mensagem(self.model.obter_croqui_readonly(), self.msg),
+            "caminho_msg": self.caminho_msg if self.caminho_msg is not None else resolver_caminho_mensagem(self.model.obter_croqui_readonly(), self.msg),
             "campo_nome": self.campo_nome,
             "index": self.index,
             "valor": _serializar_valor(self.valor, anonimizado=anonimizado),
@@ -314,11 +436,10 @@ class CmdAdicionarRepeated(ComandoEditor):
 
     @staticmethod
     def deserializar(dados: Dict[str, Any], model: CroquiModel) -> "CmdAdicionarRepeated":
-        msg = navegar_para_mensagem(model.obter_croqui_readonly(), dados.get("caminho_msg", ""))
         valor = _deserializar_valor(dados["valor"], model=model)
         return CmdAdicionarRepeated(
             model=model,
-            msg=msg,
+            caminho_msg=dados.get("caminho_msg", ""),
             campo_nome=dados["campo_nome"],
             index=dados["index"],
             valor=valor,
@@ -331,19 +452,24 @@ class CmdRemoverRepeated(ComandoEditor):
     def __init__(
         self,
         model: Any,
-        msg: Any,
-        campo_nome: str,
-        index: int,
-        valor_removido: Any,
+        msg: Any = None,
+        campo_nome: str = "",
+        index: int = 0,
+        valor_removido: Any = None,
         context_path: Optional[str] = None,
         imagens_removidas_ram: Optional[Dict[str, bytes]] = None,
+        caminho_msg: Optional[str] = None,
         parent: Optional[QUndoCommand] = None,
     ) -> None:
         super().__init__(parent)
         self.model: Any = model
-        self.msg: Any = msg
         self.campo_nome: str = campo_nome
-        validar_pertence_ao_croqui(self.model, self.msg, self.campo_nome, nome_comando="CmdRemoverRepeated")
+        if caminho_msg is not None:
+            self.caminho_msg = caminho_msg
+            _validar_campo_se_msg_existir(self.model, self.caminho_msg, self.campo_nome, "CmdRemoverRepeated")
+        else:
+            self.caminho_msg = validar_pertence_ao_croqui(self.model, msg, self.campo_nome, nome_comando="CmdRemoverRepeated")
+            self._msg_cache = msg
         self.index: int = index
         self.valor_removido: Any = _copia_segura(valor_removido)
         self.context_path: Optional[str] = context_path
@@ -363,14 +489,20 @@ class CmdRemoverRepeated(ComandoEditor):
                             self.imagens_removidas_ram[caminho] = imagens_ram[caminho]
 
     def undo(self) -> None:
-        self.model._adicionar_repeated(self.msg, self.campo_nome, self.index, self.valor_removido)
+        msg = self.msg
+        if msg is None:
+            return
+        self.model._adicionar_repeated(msg, self.campo_nome, self.index, self.valor_removido)
         for caminho, conteudo in self.imagens_removidas_ram.items():
             self.model.definir_imagem_memoria(caminho, conteudo)
         if hasattr(self, 'context_path') and self.context_path:
             self.model.notificar_foco_requisitado(self.context_path)
 
     def executar_redo(self) -> None:
-        self.model._remover_repeated(self.msg, self.campo_nome, self.index)
+        msg = self.msg
+        if msg is None:
+            return
+        self.model._remover_repeated(msg, self.campo_nome, self.index)
         for caminho in self.imagens_removidas_ram:
             self.model.remover_imagem_memoria(caminho)
         if hasattr(self, 'context_path') and self.context_path:
@@ -386,7 +518,7 @@ class CmdRemoverRepeated(ComandoEditor):
 
         return {
             "classe": "CmdRemoverRepeated",
-            "caminho_msg": resolver_caminho_mensagem(self.model.obter_croqui_readonly(), self.msg),
+            "caminho_msg": self.caminho_msg if self.caminho_msg is not None else resolver_caminho_mensagem(self.model.obter_croqui_readonly(), self.msg),
             "campo_nome": self.campo_nome,
             "index": self.index,
             "valor_removido": _serializar_valor(self.valor_removido, anonimizado=anonimizado),
@@ -396,11 +528,10 @@ class CmdRemoverRepeated(ComandoEditor):
 
     @staticmethod
     def deserializar(dados: Dict[str, Any], model: CroquiModel) -> "CmdRemoverRepeated":
-        msg = navegar_para_mensagem(model.obter_croqui_readonly(), dados.get("caminho_msg", ""))
         valor_removido = _deserializar_valor(dados["valor_removido"], model=model)
         return CmdRemoverRepeated(
             model=model,
-            msg=msg,
+            caminho_msg=dados.get("caminho_msg", ""),
             campo_nome=dados["campo_nome"],
             index=dados["index"],
             valor_removido=valor_removido,
@@ -414,20 +545,24 @@ class CmdAlterarOneof(ComandoEditor):
     def __init__(
         self,
         model: Any,
-        msg: Any,
-        oneof_nome: str,
-        nome_antigo: Optional[str],
-        valor_antigo: Any,
-        nome_novo: Optional[str],
-        valor_novo: Any,
+        msg: Any = None,
+        oneof_nome: str = "",
+        nome_antigo: Optional[str] = None,
+        valor_antigo: Any = None,
+        nome_novo: Optional[str] = None,
+        valor_novo: Any = None,
         context_path: Optional[str] = None,
+        caminho_msg: Optional[str] = None,
         parent: Optional[QUndoCommand] = None,
     ) -> None:
         super().__init__(parent)
         self.model: Any = model
-        self.msg: Any = msg
         self.oneof_nome: str = oneof_nome
-        validar_pertence_ao_croqui(self.model, self.msg, nome_comando="CmdAlterarOneof")
+        if caminho_msg is not None:
+            self.caminho_msg = caminho_msg
+        else:
+            self.caminho_msg = validar_pertence_ao_croqui(self.model, msg, nome_comando="CmdAlterarOneof")
+            self._msg_cache = msg
         self.nome_antigo: Optional[str] = nome_antigo
         self.valor_antigo: Any = _copia_segura(valor_antigo)
         self.nome_novo: Optional[str] = nome_novo
@@ -435,19 +570,25 @@ class CmdAlterarOneof(ComandoEditor):
         self.context_path: Optional[str] = context_path
 
     def undo(self) -> None:
-        self.model._alterar_oneof(self.msg, self.oneof_nome, self.nome_novo, self.nome_antigo, self.valor_antigo)
+        msg = self.msg
+        if msg is None:
+            return
+        self.model._alterar_oneof(msg, self.oneof_nome, self.nome_novo, self.nome_antigo, self.valor_antigo)
         if hasattr(self, 'context_path') and self.context_path:
             self.model.notificar_foco_requisitado(self.context_path)
 
     def executar_redo(self) -> None:
-        self.model._alterar_oneof(self.msg, self.oneof_nome, self.nome_antigo, self.nome_novo, self.valor_novo)
+        msg = self.msg
+        if msg is None:
+            return
+        self.model._alterar_oneof(msg, self.oneof_nome, self.nome_antigo, self.nome_novo, self.valor_novo)
         if hasattr(self, 'context_path') and self.context_path:
             self.model.notificar_foco_requisitado(self.context_path)
 
     def serializar(self, anonimizado: bool = False) -> Dict[str, Any]:
         return {
             "classe": "CmdAlterarOneof",
-            "caminho_msg": resolver_caminho_mensagem(self.model.obter_croqui_readonly(), self.msg),
+            "caminho_msg": self.caminho_msg if self.caminho_msg is not None else resolver_caminho_mensagem(self.model.obter_croqui_readonly(), self.msg),
             "oneof_nome": self.oneof_nome,
             "nome_antigo": self.nome_antigo,
             "valor_antigo": _serializar_valor(self.valor_antigo, anonimizado=anonimizado),
@@ -458,12 +599,11 @@ class CmdAlterarOneof(ComandoEditor):
 
     @staticmethod
     def deserializar(dados: Dict[str, Any], model: CroquiModel) -> "CmdAlterarOneof":
-        msg = navegar_para_mensagem(model.obter_croqui_readonly(), dados.get("caminho_msg", ""))
         valor_antigo = _deserializar_valor(dados["valor_antigo"], model=model)
         valor_novo = _deserializar_valor(dados["valor_novo"], model=model)
         return CmdAlterarOneof(
             model=model,
-            msg=msg,
+            caminho_msg=dados.get("caminho_msg", ""),
             oneof_nome=dados["oneof_nome"],
             nome_antigo=dados["nome_antigo"],
             valor_antigo=valor_antigo,
@@ -480,20 +620,25 @@ class CmdAlterarRepeatedItem(ComandoEditor):
     def __init__(
         self,
         model: Any,
-        msg: Any,
-        campo_nome: str,
-        index: int,
-        valor_antigo: Any,
-        valor_novo: Any,
+        msg: Any = None,
+        campo_nome: str = "",
+        index: int = 0,
+        valor_antigo: Any = None,
+        valor_novo: Any = None,
         context_path: Optional[str] = None,
         pode_mesclar: bool = False,
+        caminho_msg: Optional[str] = None,
         parent: Optional[QUndoCommand] = None,
     ) -> None:
         super().__init__(parent)
         self.model: Any = model
-        self.msg: Any = msg
         self.campo_nome: str = campo_nome
-        validar_pertence_ao_croqui(self.model, self.msg, self.campo_nome, nome_comando="CmdAlterarRepeatedItem")
+        if caminho_msg is not None:
+            self.caminho_msg = caminho_msg
+            _validar_campo_se_msg_existir(self.model, self.caminho_msg, self.campo_nome, "CmdAlterarRepeatedItem")
+        else:
+            self.caminho_msg = validar_pertence_ao_croqui(self.model, msg, self.campo_nome, nome_comando="CmdAlterarRepeatedItem")
+            self._msg_cache = msg
         self.index: int = index
         self.valor_antigo: Any = _copia_segura(valor_antigo)
         self.valor_novo: Any = _copia_segura(valor_novo)
@@ -508,30 +653,37 @@ class CmdAlterarRepeatedItem(ComandoEditor):
             return False
         if not isinstance(outro, CmdAlterarRepeatedItem):
             return False
-        id_self = self.msg.obter_id_nativo() if hasattr(self.msg, 'obter_id_nativo') else id(self.msg)
-        id_outro = outro.msg.obter_id_nativo() if hasattr(outro.msg, 'obter_id_nativo') else id(outro.msg)
-        if id_self == id_outro and self.campo_nome == outro.campo_nome and self.index == outro.index:
+        if self.caminho_msg == outro.caminho_msg and self.campo_nome == outro.campo_nome and self.index == outro.index:
+            msg = self.msg
+            if msg is None:
+                return False
             self.valor_novo = outro.valor_novo
             if hasattr(outro, 'context_path') and outro.context_path:
                 self.context_path = outro.context_path
-            self.model._alterar_repeated_item(self.msg, self.campo_nome, self.index, self.valor_novo)
+            self.model._alterar_repeated_item(msg, self.campo_nome, self.index, self.valor_novo)
             return True
         return False
 
     def undo(self) -> None:
-        self.model._alterar_repeated_item(self.msg, self.campo_nome, self.index, self.valor_antigo)
+        msg = self.msg
+        if msg is None:
+            return
+        self.model._alterar_repeated_item(msg, self.campo_nome, self.index, self.valor_antigo)
         if hasattr(self, 'context_path') and self.context_path:
             self.model.notificar_foco_requisitado(self.context_path)
 
     def executar_redo(self) -> None:
-        self.model._alterar_repeated_item(self.msg, self.campo_nome, self.index, self.valor_novo)
+        msg = self.msg
+        if msg is None:
+            return
+        self.model._alterar_repeated_item(msg, self.campo_nome, self.index, self.valor_novo)
         if hasattr(self, 'context_path') and self.context_path:
             self.model.notificar_foco_requisitado(self.context_path)
 
     def serializar(self, anonimizado: bool = False) -> Dict[str, Any]:
         return {
             "classe": "CmdAlterarRepeatedItem",
-            "caminho_msg": resolver_caminho_mensagem(self.model.obter_croqui_readonly(), self.msg),
+            "caminho_msg": self.caminho_msg if self.caminho_msg is not None else resolver_caminho_mensagem(self.model.obter_croqui_readonly(), self.msg),
             "campo_nome": self.campo_nome,
             "index": self.index,
             "valor_antigo": _serializar_valor(self.valor_antigo, anonimizado=anonimizado),
@@ -541,12 +693,11 @@ class CmdAlterarRepeatedItem(ComandoEditor):
 
     @staticmethod
     def deserializar(dados: Dict[str, Any], model: CroquiModel) -> "CmdAlterarRepeatedItem":
-        msg = navegar_para_mensagem(model.obter_croqui_readonly(), dados.get("caminho_msg", ""))
         valor_antigo = _deserializar_valor(dados["valor_antigo"], model=model)
         valor_novo = _deserializar_valor(dados["valor_novo"], model=model)
         return CmdAlterarRepeatedItem(
             model=model,
-            msg=msg,
+            caminho_msg=dados.get("caminho_msg", ""),
             campo_nome=dados["campo_nome"],
             index=dados["index"],
             valor_antigo=valor_antigo,
@@ -560,32 +711,44 @@ class CmdAlterarMultiplosRepeatedItems(ComandoEditor):
     def __init__(
         self,
         model: Any,
-        msg: Any,
-        campo_nome: str,
-        alteracoes: List[Tuple[int, Any, Any]],
+        msg: Any = None,
+        campo_nome: str = "",
+        alteracoes: Optional[List[Tuple[int, Any, Any]]] = None,
         context_path: Optional[str] = None,
+        caminho_msg: Optional[str] = None,
         parent: Optional[QUndoCommand] = None,
     ) -> None:
         super().__init__(parent)
         self.model: Any = model
-        self.msg: Any = msg
         self.campo_nome: str = campo_nome
-        validar_pertence_ao_croqui(self.model, self.msg, self.campo_nome, nome_comando="CmdAlterarMultiplosRepeatedItems")
+        if caminho_msg is not None:
+            self.caminho_msg = caminho_msg
+            _validar_campo_se_msg_existir(self.model, self.caminho_msg, self.campo_nome, "CmdAlterarMultiplosRepeatedItems")
+        else:
+            self.caminho_msg = validar_pertence_ao_croqui(self.model, msg, self.campo_nome, nome_comando="CmdAlterarMultiplosRepeatedItems")
+            self._msg_cache = msg
         self.alteracoes: List[Tuple[int, Any, Any]] = []
-        for index, valor_antigo, valor_novo in alteracoes:
-            self.alteracoes.append((index, _copia_segura(valor_antigo), _copia_segura(valor_novo)))
+        if alteracoes:
+            for index, valor_antigo, valor_novo in alteracoes:
+                self.alteracoes.append((index, _copia_segura(valor_antigo), _copia_segura(valor_novo)))
         self.context_path: Optional[str] = context_path
         self.setText(f"Alterados {len(self.alteracoes)} itens em {self.campo_nome}")
 
     def undo(self) -> None:
+        msg = self.msg
+        if msg is None:
+            return
         for index, valor_antigo, _ in self.alteracoes:
-            self.model._alterar_repeated_item(self.msg, self.campo_nome, index, valor_antigo)
+            self.model._alterar_repeated_item(msg, self.campo_nome, index, valor_antigo)
         if hasattr(self, 'context_path') and self.context_path:
             self.model.notificar_foco_requisitado(self.context_path)
 
     def executar_redo(self) -> None:
+        msg = self.msg
+        if msg is None:
+            return
         for index, _, valor_novo in self.alteracoes:
-            self.model._alterar_repeated_item(self.msg, self.campo_nome, index, valor_novo)
+            self.model._alterar_repeated_item(msg, self.campo_nome, index, valor_novo)
         if hasattr(self, 'context_path') and self.context_path:
             self.model.notificar_foco_requisitado(self.context_path)
 
@@ -596,7 +759,7 @@ class CmdAlterarMultiplosRepeatedItems(ComandoEditor):
         ]
         return {
             "classe": "CmdAlterarMultiplosRepeatedItems",
-            "caminho_msg": resolver_caminho_mensagem(self.model.obter_croqui_readonly(), self.msg),
+            "caminho_msg": self.caminho_msg if self.caminho_msg is not None else resolver_caminho_mensagem(self.model.obter_croqui_readonly(), self.msg),
             "campo_nome": self.campo_nome,
             "alteracoes": alt_serializadas,
             "context_path": self.context_path
@@ -604,14 +767,13 @@ class CmdAlterarMultiplosRepeatedItems(ComandoEditor):
 
     @staticmethod
     def deserializar(dados: Dict[str, Any], model: CroquiModel) -> "CmdAlterarMultiplosRepeatedItems":
-        msg = navegar_para_mensagem(model.obter_croqui_readonly(), dados.get("caminho_msg", ""))
         alt_deserializadas = [
             (idx, _deserializar_valor(v_ant, model=model), _deserializar_valor(v_nov, model=model))
             for idx, v_ant, v_nov in dados["alteracoes"]
         ]
         return CmdAlterarMultiplosRepeatedItems(
             model=model,
-            msg=msg,
+            caminho_msg=dados.get("caminho_msg", ""),
             campo_nome=dados["campo_nome"],
             alteracoes=alt_deserializadas,
             context_path=dados.get("context_path")
@@ -623,36 +785,47 @@ class CmdMoverRepeated(ComandoEditor):
     def __init__(
         self,
         model: Any,
-        msg: Any,
-        campo_nome: str,
-        index_from: int,
-        index_to: int,
+        msg: Any = None,
+        campo_nome: str = "",
+        index_from: int = 0,
+        index_to: int = 0,
         context_path: Optional[str] = None,
+        caminho_msg: Optional[str] = None,
         parent: Optional[QUndoCommand] = None,
     ) -> None:
         super().__init__(parent)
         self.model: Any = model
-        self.msg: Any = msg
         self.campo_nome: str = campo_nome
-        validar_pertence_ao_croqui(self.model, self.msg, self.campo_nome, nome_comando="CmdMoverRepeated")
+        if caminho_msg is not None:
+            self.caminho_msg = caminho_msg
+            _validar_campo_se_msg_existir(self.model, self.caminho_msg, self.campo_nome, "CmdMoverRepeated")
+        else:
+            self.caminho_msg = validar_pertence_ao_croqui(self.model, msg, self.campo_nome, nome_comando="CmdMoverRepeated")
+            self._msg_cache = msg
         self.index_from: int = index_from
         self.index_to: int = index_to
         self.context_path: Optional[str] = context_path
 
     def undo(self) -> None:
-        self.model._mover_repeated(self.msg, self.campo_nome, self.index_to, self.index_from)
+        msg = self.msg
+        if msg is None:
+            return
+        self.model._mover_repeated(msg, self.campo_nome, self.index_to, self.index_from)
         if hasattr(self, 'context_path') and self.context_path:
             self.model.notificar_foco_requisitado(self.context_path)
 
     def executar_redo(self) -> None:
-        self.model._mover_repeated(self.msg, self.campo_nome, self.index_from, self.index_to)
+        msg = self.msg
+        if msg is None:
+            return
+        self.model._mover_repeated(msg, self.campo_nome, self.index_from, self.index_to)
         if hasattr(self, 'context_path') and self.context_path:
             self.model.notificar_foco_requisitado(self.context_path)
 
     def serializar(self, anonimizado: bool = False) -> Dict[str, Any]:
         return {
             "classe": "CmdMoverRepeated",
-            "caminho_msg": resolver_caminho_mensagem(self.model.obter_croqui_readonly(), self.msg),
+            "caminho_msg": self.caminho_msg if self.caminho_msg is not None else resolver_caminho_mensagem(self.model.obter_croqui_readonly(), self.msg),
             "campo_nome": self.campo_nome,
             "index_from": self.index_from,
             "index_to": self.index_to,
@@ -661,10 +834,9 @@ class CmdMoverRepeated(ComandoEditor):
 
     @staticmethod
     def deserializar(dados: Dict[str, Any], model: CroquiModel) -> "CmdMoverRepeated":
-        msg = navegar_para_mensagem(model.obter_croqui_readonly(), dados.get("caminho_msg", ""))
         return CmdMoverRepeated(
             model=model,
-            msg=msg,
+            caminho_msg=dados.get("caminho_msg", ""),
             campo_nome=dados["campo_nome"],
             index_from=dados["index_from"],
             index_to=dados["index_to"],
@@ -678,38 +850,48 @@ class CmdAlterarMetadadosCaminhoNovo(ComandoEditor):
     def __init__(
         self,
         model: Any,
-        msg: Any,
-        field_ext: Any,
-        valor_antigo: Any,
-        valor_novo: Any,
+        msg: Any = None,
+        field_ext: Any = None,
+        valor_antigo: Any = None,
+        valor_novo: Any = None,
         context_path: Optional[str] = None,
+        caminho_msg: Optional[str] = None,
         parent: Optional[QUndoCommand] = None,
     ) -> None:
         super().__init__(parent)
         self.model: Any = model
-        self.msg: Any = msg
         self.field_ext: Any = field_ext
-        validar_pertence_ao_croqui(self.model, self.msg, nome_comando="CmdAlterarMetadadosCaminhoNovo")
+        if caminho_msg is not None:
+            self.caminho_msg = caminho_msg
+        else:
+            self.caminho_msg = validar_pertence_ao_croqui(self.model, msg, nome_comando="CmdAlterarMetadadosCaminhoNovo")
+            self._msg_cache = msg
         self.valor_antigo: Any = _copia_segura(valor_antigo)
         self.valor_novo: Any = _copia_segura(valor_novo)
         self.context_path: Optional[str] = context_path
 
     def undo(self) -> None:
-        self.model._alterar_metadados_caminho_novo(self.msg, self.field_ext, self.valor_antigo)
+        msg = self.msg
+        if msg is None:
+            return
+        self.model._alterar_metadados_caminho_novo(msg, self.field_ext, self.valor_antigo)
         if hasattr(self, 'context_path') and self.context_path:
             self.model.notificar_foco_requisitado(self.context_path)
 
     def executar_redo(self) -> None:
-        self.model._alterar_metadados_caminho_novo(self.msg, self.field_ext, self.valor_novo)
+        msg = self.msg
+        if msg is None:
+            return
+        self.model._alterar_metadados_caminho_novo(msg, self.field_ext, self.valor_novo)
         if hasattr(self, 'context_path') and self.context_path:
             self.model.notificar_foco_requisitado(self.context_path)
 
     def serializar(self, anonimizado: bool = False) -> Dict[str, Any]:
         return {
             "classe": "CmdAlterarMetadadosCaminhoNovo",
-            "caminho_msg": resolver_caminho_mensagem(self.model.obter_croqui_readonly(), self.msg),
-            "containing_type": self.field_ext.containing_type.name if self.field_ext.containing_type else None,
-            "field_ext_nome": self.field_ext.name,
+            "caminho_msg": self.caminho_msg if self.caminho_msg is not None else resolver_caminho_mensagem(self.model.obter_croqui_readonly(), self.msg),
+            "containing_type": self.field_ext.containing_type.name if self.field_ext and self.field_ext.containing_type else None,
+            "field_ext_nome": self.field_ext.name if self.field_ext else "",
             "valor_antigo": self.valor_antigo,
             "valor_novo": self.valor_novo,
             "context_path": self.context_path
@@ -717,7 +899,6 @@ class CmdAlterarMetadadosCaminhoNovo(ComandoEditor):
 
     @staticmethod
     def deserializar(dados: Dict[str, Any], model: CroquiModel) -> "CmdAlterarMetadadosCaminhoNovo":
-        msg = navegar_para_mensagem(model.obter_croqui_readonly(), dados.get("caminho_msg", ""))
         import aresta_api.proto.generated.croqui_pb2 as croqui_pb2
         containing_type = dados.get("containing_type")
         field_ext_nome = dados["field_ext_nome"]
@@ -729,7 +910,7 @@ class CmdAlterarMetadadosCaminhoNovo(ComandoEditor):
             
         return CmdAlterarMetadadosCaminhoNovo(
             model=model,
-            msg=msg,
+            caminho_msg=dados.get("caminho_msg", ""),
             field_ext=field_ext,
             valor_antigo=dados.get("valor_antigo"),
             valor_novo=dados.get("valor_novo"),
@@ -744,20 +925,25 @@ class CmdAlterarCampoImagem(ComandoEditor):
     def __init__(
         self,
         model: Any,
-        msg: Any,
-        campo_nome: str,
-        caminho_antigo: Optional[str],
-        bytes_antigo: Optional[bytes],
-        caminho_novo: Optional[str],
-        bytes_novo: Optional[bytes],
+        msg: Any = None,
+        campo_nome: str = "",
+        caminho_antigo: Optional[str] = None,
+        bytes_antigo: Optional[bytes] = None,
+        caminho_novo: Optional[str] = None,
+        bytes_novo: Optional[bytes] = None,
         context_path: Optional[str] = None,
+        caminho_msg: Optional[str] = None,
         parent: Optional[QUndoCommand] = None,
     ) -> None:
         super().__init__(parent)
         self.model: Any = model
-        self.msg: Any = msg
         self.campo_nome: str = campo_nome
-        validar_pertence_ao_croqui(self.model, self.msg, self.campo_nome, nome_comando="CmdAlterarCampoImagem")
+        if caminho_msg is not None:
+            self.caminho_msg = caminho_msg
+            _validar_campo_se_msg_existir(self.model, self.caminho_msg, self.campo_nome, "CmdAlterarCampoImagem")
+        else:
+            self.caminho_msg = validar_pertence_ao_croqui(self.model, msg, self.campo_nome, nome_comando="CmdAlterarCampoImagem")
+            self._msg_cache = msg
         self.caminho_antigo: Optional[str] = caminho_antigo
         self.bytes_antigo: Optional[bytes] = bytes_antigo
         self.caminho_novo: Optional[str] = caminho_novo
@@ -765,22 +951,28 @@ class CmdAlterarCampoImagem(ComandoEditor):
         self.context_path: Optional[str] = context_path
 
     def undo(self) -> None:
+        msg = self.msg
+        if msg is None:
+            return
         if self.caminho_novo and self.caminho_novo != self.caminho_antigo:
             self.model.remover_imagem_memoria(self.caminho_novo)
         if self.caminho_antigo and self.bytes_antigo:
             self.model.definir_imagem_memoria(self.caminho_antigo, self.bytes_antigo)
             
-        self.model._set_primitivo(self.msg, self.campo_nome, self.caminho_antigo)
+        self.model._set_primitivo(msg, self.campo_nome, self.caminho_antigo)
         if hasattr(self, 'context_path') and self.context_path:
             self.model.notificar_foco_requisitado(self.context_path)
 
     def executar_redo(self) -> None:
+        msg = self.msg
+        if msg is None:
+            return
         if self.caminho_antigo and self.caminho_antigo != self.caminho_novo:
             self.model.remover_imagem_memoria(self.caminho_antigo)
         if self.caminho_novo and self.bytes_novo:
             self.model.definir_imagem_memoria(self.caminho_novo, self.bytes_novo)
             
-        self.model._set_primitivo(self.msg, self.campo_nome, self.caminho_novo)
+        self.model._set_primitivo(msg, self.campo_nome, self.caminho_novo)
         if hasattr(self, 'context_path') and self.context_path:
             self.model.notificar_foco_requisitado(self.context_path)
 
@@ -794,7 +986,7 @@ class CmdAlterarCampoImagem(ComandoEditor):
             
         return {
             "classe": "CmdAlterarCampoImagem",
-            "caminho_msg": resolver_caminho_mensagem(self.model.obter_croqui_readonly(), self.msg),
+            "caminho_msg": self.caminho_msg if self.caminho_msg is not None else resolver_caminho_mensagem(self.model.obter_croqui_readonly(), self.msg),
             "campo_nome": self.campo_nome,
             "caminho_antigo": self.caminho_antigo,
             "bytes_antigo": bytes_antigo,
@@ -805,10 +997,9 @@ class CmdAlterarCampoImagem(ComandoEditor):
 
     @staticmethod
     def deserializar(dados: Dict[str, Any], model: CroquiModel) -> "CmdAlterarCampoImagem":
-        msg = navegar_para_mensagem(model.obter_croqui_readonly(), dados.get("caminho_msg", ""))
         return CmdAlterarCampoImagem(
             model=model,
-            msg=msg,
+            caminho_msg=dados.get("caminho_msg", ""),
             campo_nome=dados["campo_nome"],
             caminho_antigo=dados.get("caminho_antigo"),
             bytes_antigo=dados.get("bytes_antigo"),
@@ -905,20 +1096,25 @@ class CmdInserirImagemMarkdown(ComandoEditor):
     def __init__(
         self,
         model: Any,
-        msg: Any,
-        campo_nome: str,
-        texto_antigo: Optional[str],
-        texto_novo: str,
+        msg: Any = None,
+        campo_nome: str = "",
+        texto_antigo: Optional[str] = None,
+        texto_novo: str = "",
         caminho_imagem: Optional[str] = None,
         bytes_imagem: Optional[bytes] = None,
         context_path: Optional[str] = None,
+        caminho_msg: Optional[str] = None,
         parent: Optional[QUndoCommand] = None,
     ) -> None:
         super().__init__(parent)
         self.model: Any = model
-        self.msg: Any = msg
         self.campo_nome: str = campo_nome
-        validar_pertence_ao_croqui(self.model, self.msg, self.campo_nome, nome_comando="CmdInserirImagemMarkdown")
+        if caminho_msg is not None:
+            self.caminho_msg = caminho_msg
+            _validar_campo_se_msg_existir(self.model, self.caminho_msg, self.campo_nome, "CmdInserirImagemMarkdown")
+        else:
+            self.caminho_msg = validar_pertence_ao_croqui(self.model, msg, self.campo_nome, nome_comando="CmdInserirImagemMarkdown")
+            self._msg_cache = msg
         self.texto_antigo: Optional[str] = _copia_segura(texto_antigo)
         self.texto_novo: str = _copia_segura(texto_novo)
         self.caminho_imagem: Optional[str] = caminho_imagem
@@ -926,16 +1122,22 @@ class CmdInserirImagemMarkdown(ComandoEditor):
         self.context_path: Optional[str] = context_path
 
     def undo(self) -> None:
+        msg = self.msg
+        if msg is None:
+            return
         if self.caminho_imagem and self.bytes_imagem:
             self.model.remover_imagem_memoria(self.caminho_imagem)
-        self.model._set_primitivo(self.msg, self.campo_nome, self.texto_antigo)
+        self.model._set_primitivo(msg, self.campo_nome, self.texto_antigo)
         if hasattr(self, 'context_path') and self.context_path:
             self.model.notificar_foco_requisitado(self.context_path)
 
     def executar_redo(self) -> None:
+        msg = self.msg
+        if msg is None:
+            return
         if self.caminho_imagem and self.bytes_imagem:
             self.model.definir_imagem_memoria(self.caminho_imagem, self.bytes_imagem)
-        self.model._set_primitivo(self.msg, self.campo_nome, self.texto_novo)
+        self.model._set_primitivo(msg, self.campo_nome, self.texto_novo)
         if hasattr(self, 'context_path') and self.context_path:
             self.model.notificar_foco_requisitado(self.context_path)
 
@@ -947,7 +1149,7 @@ class CmdInserirImagemMarkdown(ComandoEditor):
 
         return {
             "classe": "CmdInserirImagemMarkdown",
-            "caminho_msg": resolver_caminho_mensagem(self.model.obter_croqui_readonly(), self.msg),
+            "caminho_msg": self.caminho_msg if self.caminho_msg is not None else resolver_caminho_mensagem(self.model.obter_croqui_readonly(), self.msg),
             "campo_nome": self.campo_nome,
             "texto_antigo": self.texto_antigo,
             "texto_novo": self.texto_novo,
@@ -958,10 +1160,9 @@ class CmdInserirImagemMarkdown(ComandoEditor):
 
     @staticmethod
     def deserializar(dados: Dict[str, Any], model: CroquiModel) -> "CmdInserirImagemMarkdown":
-        msg = navegar_para_mensagem(model.obter_croqui_readonly(), dados.get("caminho_msg", ""))
         return CmdInserirImagemMarkdown(
             model=model,
-            msg=msg,
+            caminho_msg=dados.get("caminho_msg", ""),
             campo_nome=dados["campo_nome"],
             texto_antigo=dados.get("texto_antigo"),
             texto_novo=dados.get("texto_novo", ""),
@@ -1039,33 +1240,69 @@ class CmdRenomearEscalada(ComandoEditor):
     def __init__(
         self,
         model: Any,
-        msg_escalada: Any,
-        campo_nome: str,
-        nome_antigo: str,
-        nome_novo: str,
+        msg_escalada: Any = None,
+        campo_nome: str = "nome",
+        nome_antigo: str = "",
+        nome_novo: str = "",
         referencias: Optional[List[Any]] = None,
         context_path: Optional[str] = None,
         pode_mesclar: bool = True,
         session_id: Optional[int] = None,
+        caminho_msg: Optional[str] = None,
+        caminhos_referencias: Optional[List[str]] = None,
         parent: Optional[QUndoCommand] = None,
     ) -> None:
         super().__init__(parent)
         self.model: Any = model
-        self.msg_escalada: Any = msg_escalada
         self.campo_nome: str = campo_nome
-        validar_pertence_ao_croqui(self.model, self.msg_escalada, self.campo_nome, nome_comando="CmdRenomearEscalada")
+
+        if caminho_msg is not None:
+            self.caminho_msg = caminho_msg
+            _validar_campo_se_msg_existir(self.model, self.caminho_msg, self.campo_nome, "CmdRenomearEscalada")
+            if msg_escalada is not None:
+                self._msg_cache = msg_escalada
+        else:
+            self.caminho_msg = validar_pertence_ao_croqui(self.model, msg_escalada, self.campo_nome, nome_comando="CmdRenomearEscalada")
+            self._msg_cache = msg_escalada
 
         self.nome_antigo: str = _copia_segura(nome_antigo) if nome_antigo is not None else ""
         self.nome_novo: str = _copia_segura(nome_novo) if nome_novo is not None else ""
 
-        self.referencias: List[Any] = list(referencias) if referencias else []
-        for ref in self.referencias:
-            validar_pertence_ao_croqui(self.model, ref, "escalada", nome_comando="CmdRenomearEscalada")
+        if caminhos_referencias is not None:
+            self.caminhos_referencias: List[str] = list(caminhos_referencias)
+            self._referencias_cache: List[Any] = list(referencias) if referencias else []
+        else:
+            self.caminhos_referencias = []
+            self._referencias_cache = list(referencias) if referencias else []
+            for ref in self._referencias_cache:
+                caminho_ref = validar_pertence_ao_croqui(self.model, ref, "escalada", nome_comando="CmdRenomearEscalada")
+                self.caminhos_referencias.append(caminho_ref)
 
         self.context_path: Optional[str] = context_path
         self.pode_mesclar: bool = pode_mesclar
         self.session_id: Optional[int] = session_id
         self.setText(f"Renomear escalada para {self.nome_novo}")
+
+    @property
+    def msg_escalada(self) -> Any:
+        return self._obter_msg()
+
+    @property
+    def referencias(self) -> List[Any]:
+        return self._obter_referencias()
+
+    def _obter_referencias(self) -> List[Any]:
+        if self._referencias_cache:
+            return self._referencias_cache
+        if not self.caminhos_referencias:
+            return []
+        root = self.model.obter_croqui_readonly() if hasattr(self.model, "obter_croqui_readonly") else getattr(self.model, "croqui", None)
+        resolvidos = []
+        for cam in self.caminhos_referencias:
+            ref = navegar_para_mensagem(root, cam)
+            if ref is not None:
+                resolvidos.append(ref)
+        return resolvidos
 
     def id(self) -> int:
         return self.ID_COMANDO if self.pode_mesclar else -1
@@ -1077,10 +1314,11 @@ class CmdRenomearEscalada(ComandoEditor):
             return False
         if self.session_id != getattr(outro, "session_id", None):
             return False
+        if self.caminho_msg != outro.caminho_msg or self.campo_nome != outro.campo_nome:
+            return False
 
-        id_self = self.msg_escalada.obter_id_nativo() if hasattr(self.msg_escalada, 'obter_id_nativo') else id(self.msg_escalada)
-        id_outro = outro.msg_escalada.obter_id_nativo() if hasattr(outro.msg_escalada, 'obter_id_nativo') else id(outro.msg_escalada)
-        if id_self != id_outro or self.campo_nome != outro.campo_nome:
+        msg = self.msg_escalada
+        if msg is None:
             return False
 
         self.nome_novo = outro.nome_novo
@@ -1088,56 +1326,52 @@ class CmdRenomearEscalada(ComandoEditor):
         if hasattr(outro, 'context_path') and outro.context_path:
             self.context_path = outro.context_path
 
-        self.model._set_primitivo(self.msg_escalada, self.campo_nome, self.nome_novo)
+        self.model._set_primitivo(msg, self.campo_nome, self.nome_novo)
         for ref in self.referencias:
             self.model._set_primitivo(ref, "escalada", self.nome_novo)
         return True
 
     def undo(self) -> None:
-        self.model._set_primitivo(self.msg_escalada, self.campo_nome, self.nome_antigo)
+        msg = self.msg_escalada
+        if msg is None:
+            return
+        self.model._set_primitivo(msg, self.campo_nome, self.nome_antigo)
         for ref in self.referencias:
             self.model._set_primitivo(ref, "escalada", self.nome_antigo)
         if hasattr(self, 'context_path') and self.context_path:
             self.model.notificar_foco_requisitado(self.context_path)
 
     def executar_redo(self) -> None:
-        self.model._set_primitivo(self.msg_escalada, self.campo_nome, self.nome_novo)
+        msg = self.msg_escalada
+        if msg is None:
+            return
+        self.model._set_primitivo(msg, self.campo_nome, self.nome_novo)
         for ref in self.referencias:
             self.model._set_primitivo(ref, "escalada", self.nome_novo)
         if hasattr(self, 'context_path') and self.context_path:
             self.model.notificar_foco_requisitado(self.context_path)
 
     def serializar(self, anonimizado: bool = False) -> Dict[str, Any]:
-        root = self.model.obter_croqui_readonly() if hasattr(self.model, "obter_croqui_readonly") else getattr(self.model, "croqui", None)
-        caminho_msg = resolver_caminho_mensagem(root, self.msg_escalada)
-        caminhos_referencias = [resolver_caminho_mensagem(root, ref) for ref in self.referencias]
         return {
             "classe": "CmdRenomearEscalada",
-            "caminho_msg": caminho_msg,
+            "caminho_msg": self.caminho_msg,
             "campo_nome": self.campo_nome,
             "nome_antigo": self.nome_antigo,
             "nome_novo": self.nome_novo,
-            "caminhos_referencias": caminhos_referencias,
+            "caminhos_referencias": self.caminhos_referencias,
             "context_path": self.context_path,
             "session_id": self.session_id,
         }
 
     @staticmethod
     def deserializar(dados: Dict[str, Any], model: CroquiModel) -> "CmdRenomearEscalada":
-        root = model.obter_croqui_readonly()
-        msg_escalada = navegar_para_mensagem(root, dados.get("caminho_msg", ""))
-        referencias = [
-            navegar_para_mensagem(root, cam)
-            for cam in dados.get("caminhos_referencias", [])
-            if cam is not None
-        ]
         return CmdRenomearEscalada(
             model=model,
-            msg_escalada=msg_escalada,
+            caminho_msg=dados.get("caminho_msg", ""),
+            caminhos_referencias=dados.get("caminhos_referencias", []),
             campo_nome=dados.get("campo_nome", "nome"),
             nome_antigo=dados.get("nome_antigo", ""),
             nome_novo=dados.get("nome_novo", ""),
-            referencias=referencias,
             context_path=dados.get("context_path"),
             session_id=dados.get("session_id"),
         )

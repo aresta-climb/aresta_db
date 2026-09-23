@@ -1562,14 +1562,14 @@ picos:
                   x: 859
                   y: 1717
                   raio: 40
-                cor: '#FFD600'
+                cor: '#FF6D00'
               - id: st2
                 label: ''
                 circulo:
                   x: 1080
                   y: 1672
                   raio: 40
-                cor: '#FFD600'
+                cor: '#FF6D00'
               referencias:
               - ids:
                 - linha_17
@@ -1933,7 +1933,7 @@ picos:
                   x: 380
                   y: 1183
                   raio: 26
-                cor: ''
+                cor: '#FFD600'
               - id: linha_1
                 label: ''
                 linha:
@@ -2002,7 +2002,7 @@ picos:
                   x: 284
                   y: 1248
                   raio: 27
-                cor: ''
+                cor: '#FFD600'
               referencias:
               - ids:
                 - linha_2
@@ -2083,14 +2083,14 @@ picos:
                   x: 696
                   y: 1206
                   raio: 28
-                cor: ''
+                cor: '#FFD600'
               - id: master2
                 label: ''
                 circulo:
                   x: 836
                   y: 1142
                   raio: 27
-                cor: ''
+                cor: '#FFD600'
               referencias:
               - ids:
                 - linha_4
@@ -3980,14 +3980,14 @@ picos:
               x: 1232
               y: 562
               raio: 26
-            cor: ''
+            cor: '#FFD600'
           - id: paral2
             label: ''
             circulo:
               x: 1519
               y: 613
               raio: 24
-            cor: ''
+            cor: '#FFD600'
           referencias:
           - ids:
             - linha_1
@@ -4060,14 +4060,14 @@ picos:
               x: 207
               y: 642
               raio: 21
-            cor: ''
+            cor: '#FFD600'
           - id: paral2
             label: ''
             circulo:
               x: 437
               y: 660
               raio: 27
-            cor: ''
+            cor: '#FFD600'
           referencias:
           - ids:
             - linha_6
@@ -4560,7 +4560,7 @@ picos:
             quantidade_protecoes_parada: 2
             extensao: 11
             conquistadores:
-            - Mecena
+            - Macena
             - Ivo
             data_abertura: '2011'
         - via_esportiva:
@@ -4612,7 +4612,7 @@ picos:
             quantidade_protecoes_parada: 2
             extensao: 10
             conquistadores:
-            - Mecena
+            - Macena
             - Ivo
             data_abertura: '2011'
         - via_esportiva:

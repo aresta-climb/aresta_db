@@ -743,6 +743,148 @@ def test_cmd_inserir_imagem_markdown():
     assert dados_anon["bytes_imagem"] is not None
 
 
+def test_navegar_para_mensagem_limites_e_oneofs():
+    from editor.commands.comandos_protobuf import navegar_para_mensagem
+    from aresta_api.proto.generated.croqui_pb2 import Croqui
+
+    croqui = Croqui()
+
+    # 1. Caminho raiz
+    assert navegar_para_mensagem(croqui, "") is croqui
+    assert navegar_para_mensagem(croqui, "root") is croqui
+
+    # 2. Índice fora de limite em lista vazia deve retornar None com segurança
+    assert navegar_para_mensagem(croqui, "picos.0") is None
+
+    # Adiciona um pico e setor com caminho (variante externa do oneof)
+    pico = croqui.picos.add()
+    sg = pico.setores_ou_grupos.add()
+    sg.setor.caminho = "setores/setor1.md"
+
+    # 3. Índice dentro do limite
+    assert navegar_para_mensagem(croqui, "picos.0") is pico
+    assert navegar_para_mensagem(croqui, "picos.0.setores_ou_grupos.0.setor") is sg.setor
+
+    # 4. Índice além do tamanho da lista
+    assert navegar_para_mensagem(croqui, "picos.1") is None
+    assert navegar_para_mensagem(croqui, "picos.0.setores_ou_grupos.5") is None
+
+    # 5. Oneof inativo: sg.setor tem 'caminho', então acessar 'conteudo' deve retornar None
+    assert sg.setor.WhichOneof("arquivo") == "caminho"
+    assert navegar_para_mensagem(croqui, "picos.0.setores_ou_grupos.0.setor.conteudo") is None
+    assert navegar_para_mensagem(croqui, "picos.0.setores_ou_grupos.0.setor.conteudo.mapas.0") is None
+
+    # 6. Campo inexistente
+    assert navegar_para_mensagem(croqui, "campo_que_nao_existe") is None
+    assert navegar_para_mensagem(croqui, "picos.0.campo_que_nao_existe") is None
+
+
+def test_comando_editor_resolucao_tardia_e_alvo_inexistente(caplog):
+    import logging
+    from aresta_api.proto.generated.croqui_pb2 import Croqui
+    from editor.models.croqui_model import CroquiModel
+    from editor.commands.comandos_protobuf import CmdAlterarPrimitivo
+
+    croqui = Croqui()
+    pico = croqui.picos.add()
+    pico.nome = "Pico Antigo"
+    model = CroquiModel(croqui)
+
+    # 1. Instanciação direta com caminho_msg (resolução tardia)
+    cmd = CmdAlterarPrimitivo(
+        model=model,
+        caminho_msg="picos.0",
+        campo_nome="nome",
+        valor_antigo="Pico Antigo",
+        valor_novo="Pico Novo",
+    )
+    assert cmd.caminho_msg == "picos.0"
+    assert cmd.msg is pico
+
+    # 2. Executa redo e undo normalmente
+    cmd.executar_redo()
+    assert pico.nome == "Pico Novo"
+    cmd.undo()
+    assert pico.nome == "Pico Antigo"
+
+    # 3. Remove o pico da árvore do croqui tornando o caminho inválido
+    croqui.ClearField("picos")
+    assert len(croqui.picos) == 0
+
+    # 4. Tentar executar undo() com alvo inexistente deve registrar erro e abortar com segurança
+    with caplog.at_level(logging.ERROR):
+        cmd.undo()
+    assert "Falha ao resolver mensagem alvo no caminho 'picos.0'" in caplog.text
+
+
+def test_deserializar_comando_sem_navegacao_ansiosa():
+    from aresta_api.proto.generated.croqui_pb2 import Croqui
+    from editor.models.croqui_model import CroquiModel
+    from editor.commands.comandos_protobuf import deserializar_comando, CmdAlterarPrimitivo
+
+    croqui = Croqui()  # Sem picos cadastrados
+    model = CroquiModel(croqui)
+
+    dados = {
+        "classe": "CmdAlterarPrimitivo",
+        "caminho_msg": "picos.5.setores_ou_grupos.0",
+        "campo_nome": "nome",
+        "valor_antigo": "Antigo",
+        "valor_novo": "Novo",
+        "context_path": None,
+    }
+
+    # Deserialização NÃO deve falhar com IndexError mesmo o índice 5 não existindo no momento da carga
+    cmd = deserializar_comando(dados, model)
+    assert isinstance(cmd, CmdAlterarPrimitivo)
+    assert cmd.caminho_msg == "picos.5.setores_ou_grupos.0"
+
+
+def test_comando_editor_metodos_base_e_validacao():
+    import pytest
+    from aresta_api.proto.generated.croqui_pb2 import Croqui
+    from editor.models.croqui_model import CroquiModel
+    from editor.commands.comandos_protobuf import (
+        ComandoEditor,
+        _validar_campo_se_msg_existir,
+    )
+
+    croqui = Croqui(nome="Croqui Teste")
+    model = CroquiModel(croqui)
+
+    # 1. Validação de campo antecipada com parâmetros nulos/vazios
+    _validar_campo_se_msg_existir(None, "qualquer", "nome")
+    _validar_campo_se_msg_existir(model, None, "nome")
+    _validar_campo_se_msg_existir(model, "", "")
+
+    # 2. Validação com campo inexistente na mensagem raiz existente
+    with pytest.raises(ValueError, match="não existe na mensagem"):
+        _validar_campo_se_msg_existir(model, "", "campo_totalmente_invalido", "CmdTeste")
+
+    # 3. Métodos da classe base ComandoEditor
+    cmd = ComandoEditor()
+    assert cmd.caminho_msg is None
+    assert cmd._obter_msg() is None
+
+    # msg.setter atualiza cache
+    cmd.msg = "objeto_cache"
+    assert cmd.msg == "objeto_cache"
+
+    # Quando model existe mas caminho_msg é None, retorna cache
+    cmd.model = model
+    assert cmd._obter_msg() == "objeto_cache"
+
+    # Métodos abstratos levantam NotImplementedError
+    with pytest.raises(NotImplementedError):
+        cmd.executar_redo()
+    with pytest.raises(NotImplementedError):
+        cmd.serializar()
+
+
+
+
+
+
 
 
 

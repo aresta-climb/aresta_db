@@ -703,7 +703,7 @@
       - **quantidade_protecoes_parada**: 2
       - **extensao**: 11
       - **conquistadores**:
-        - Mecena
+        - Macena
         - Ivo
       - **data_abertura**: 2011
   - **[8]**:
@@ -760,7 +760,7 @@
       - **quantidade_protecoes_parada**: 2
       - **extensao**: 10
       - **conquistadores**:
-        - Mecena
+        - Macena
         - Ivo
       - **data_abertura**: 2011
   - **[13]**:
@@ -5354,7 +5354,7 @@
                 - **x**: 859
                 - **y**: 1717
                 - **raio**: 40
-              - **cor**: #FFD600
+              - **cor**: #FF6D00
             - **[5]**:
               - **id**: st2
               - **label**: 
@@ -5362,7 +5362,7 @@
                 - **x**: 1080
                 - **y**: 1672
                 - **raio**: 40
-              - **cor**: #FFD600
+              - **cor**: #FF6D00
           - **referencias**:
             - **[0]**:
               - **ids**:
@@ -5745,7 +5745,7 @@
                 - **x**: 380
                 - **y**: 1183
                 - **raio**: 26
-              - **cor**: 
+              - **cor**: #FFD600
             - **[5]**:
               - **id**: linha_1
               - **label**: 
@@ -5808,7 +5808,7 @@
                 - **x**: 284
                 - **y**: 1248
                 - **raio**: 27
-              - **cor**: 
+              - **cor**: #FFD600
           - **referencias**:
             - **[0]**:
               - **ids**:
@@ -5890,7 +5890,7 @@
                 - **x**: 696
                 - **y**: 1206
                 - **raio**: 28
-              - **cor**: 
+              - **cor**: #FFD600
             - **[3]**:
               - **id**: master2
               - **label**: 
@@ -5898,7 +5898,7 @@
                 - **x**: 836
                 - **y**: 1142
                 - **raio**: 27
-              - **cor**: 
+              - **cor**: #FFD600
           - **referencias**:
             - **[0]**:
               - **ids**:
@@ -7908,7 +7908,7 @@
           - **x**: 1232
           - **y**: 562
           - **raio**: 26
-        - **cor**: 
+        - **cor**: #FFD600
       - **[6]**:
         - **id**: paral2
         - **label**: 
@@ -7916,7 +7916,7 @@
           - **x**: 1519
           - **y**: 613
           - **raio**: 24
-        - **cor**: 
+        - **cor**: #FFD600
     - **referencias**:
       - **[0]**:
         - **ids**:
@@ -7996,7 +7996,7 @@
           - **x**: 207
           - **y**: 642
           - **raio**: 21
-        - **cor**: 
+        - **cor**: #FFD600
       - **[3]**:
         - **id**: paral2
         - **label**: 
@@ -8004,7 +8004,7 @@
           - **x**: 437
           - **y**: 660
           - **raio**: 27
-        - **cor**: 
+        - **cor**: #FFD600
     - **referencias**:
       - **[0]**:
         - **ids**:

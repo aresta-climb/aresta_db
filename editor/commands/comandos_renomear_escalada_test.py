@@ -489,3 +489,29 @@ def test_historico_despacha_sinal_renomear_escalada():
     assert (id_via, "nome", "Via Inicial") in sinais_recebidos
     assert (id_ref_geral, "escalada", "Via Inicial") in sinais_recebidos
     assert (id_ref_setor, "escalada", "Via Inicial") in sinais_recebidos
+
+
+def test_cmd_renomear_escalada_preserva_cache_de_referencias_pre_resolvidas():
+    """Garante que quando referências e seus caminhos são fornecidos juntos, o cache de objetos em RAM é preservado."""
+    model, ref_geral, ref_setor = _criar_model_com_escalada_e_mapas()
+    croqui = model.obter_croqui_readonly()
+    via = croqui.picos[0].setores_ou_grupos[0].setor.conteudo.escaladas[0].via_esportiva
+
+    cmd = CmdRenomearEscalada(
+        model=model,
+        msg_escalada=via,
+        caminho_msg="picos[0].setores_ou_grupos[0].setor.conteudo.escaladas[0].via_esportiva",
+        campo_nome="nome",
+        nome_antigo="Via Inicial",
+        nome_novo="Via Cache",
+        referencias=[ref_geral, ref_setor],
+        caminhos_referencias=[
+            "picos[0].mapas_gerais.conteudo.mapas[0].referencias[0]",
+            "picos[0].setores_ou_grupos[0].setor.conteudo.mapas[0].referencias[0]",
+        ],
+    )
+
+    # O cache em memória deve conter os objetos passados sem esvaziá-los
+    assert cmd._referencias_cache == [ref_geral, ref_setor]
+    assert cmd.referencias == [ref_geral, ref_setor]
+    assert cmd._msg_cache is via

@@ -135,5 +135,5 @@ class AreaDropImagem(QWidget):
         from PySide6.QtCore import QBuffer, QIODevice
         buffer = QBuffer()
         buffer.open(QIODevice.OpenModeFlag.ReadWrite)
-        qimage.save(buffer, "PNG")
+        qimage.save(buffer, "PNG")  # type: ignore[call-overload]
         self.definir_preview_bytes(bytes(buffer.data().data()))

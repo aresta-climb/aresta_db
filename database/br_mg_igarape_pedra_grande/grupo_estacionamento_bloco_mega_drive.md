@@ -144,7 +144,7 @@ mapas:
       x: 380
       y: 1183
       raio: 26
-    cor: ''
+    cor: '#FFD600'
   - id: linha_1
     label: ''
     linha:
@@ -260,7 +260,7 @@ mapas:
       x: 284
       y: 1248
       raio: 27
-    cor: ''
+    cor: '#FFD600'
   referencias:
   - ids:
     - linha_2
@@ -365,14 +365,14 @@ mapas:
       x: 696
       y: 1206
       raio: 28
-    cor: ''
+    cor: '#FFD600'
   - id: master2
     label: ''
     circulo:
       x: 836
       y: 1142
       raio: 27
-    cor: ''
+    cor: '#FFD600'
   referencias:
   - ids:
     - linha_4

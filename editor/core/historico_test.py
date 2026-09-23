@@ -30,6 +30,13 @@ class ComandoTeste(QUndoCommand):
 
 
 class TestGerenciadorHistorico(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        from PySide6.QtWidgets import QApplication
+        cls.app = QApplication.instance()
+        if not cls.app:
+            cls.app = QApplication([])
+
     def test_fluxo_basico_undo_redo(self):
         gerenciador = GerenciadorHistorico()
         estado = {"valor": 0}
@@ -485,10 +492,190 @@ class TestGerenciadorHistorico(unittest.TestCase):
                 res_pendente = gerenciador.restaurar_do_diario(model, diario)
                 self.assertEqual(res_pendente, 0)
 
+            diario.gravar_comando_pendente({"classe": "CmdTeste"})
             diario.consolidar_salvamento()
             with patch("editor.commands.comandos_protobuf.deserializar_comando", side_effect=RuntimeError("Erro inesperado")):
                 res_salvo = gerenciador.carregar_diario_salvo(model, diario)
                 self.assertEqual(res_salvo, 0)
+
+    def test_carregar_diario_salvo_e_restaurar_tratam_index_error_como_warning(self):
+        import tempfile
+        from pathlib import Path
+        from unittest.mock import patch
+        from editor.core.diario import GerenciadorDiario
+        from aresta_api.proto.generated.croqui_pb2 import Croqui
+        from editor.models.croqui_model import CroquiModel
+
+        with tempfile.TemporaryDirectory() as temp_dir:
+            pasta_croqui = Path(temp_dir)
+            diario = GerenciadorDiario(pasta_croqui)
+            diario.gravar_comando_pendente({"classe": "CmdComIndexError"})
+
+            gerenciador = GerenciadorHistorico()
+            model = CroquiModel(Croqui())
+
+            # Testar restaurar_do_diario com IndexError
+            with patch("editor.commands.comandos_protobuf.deserializar_comando", side_effect=IndexError("list index out of range")):
+                with self.assertLogs("aresta_editor.historico", level="WARNING") as cm_warn:
+                    total = gerenciador.restaurar_do_diario(model, diario)
+                    self.assertEqual(total, 0)
+                self.assertTrue(any("Comando corrompido ou órfão descartado do diário pendente" in log for log in cm_warn.output))
+                self.assertFalse(any("Erro inesperado" in log for log in cm_warn.output))
+
+            # Testar carregar_diario_salvo com IndexError
+            diario.gravar_comando_pendente({"classe": "CmdComIndexError"})
+            diario.consolidar_salvamento()
+            with patch("editor.commands.comandos_protobuf.deserializar_comando", side_effect=IndexError("list index out of range")):
+                with self.assertLogs("aresta_editor.historico", level="WARNING") as cm_warn:
+                    total = gerenciador.carregar_diario_salvo(model, diario)
+                    self.assertEqual(total, 0)
+                self.assertTrue(any("Comando corrompido ou órfão descartado do diário salvo" in log for log in cm_warn.output))
+                self.assertFalse(any("Erro inesperado" in log for log in cm_warn.output))
+
+    def test_sincronizar_diario_pendente_com_debounce(self):
+        import tempfile
+        from pathlib import Path
+        from unittest.mock import MagicMock
+        from editor.core.diario import GerenciadorDiario
+
+        with tempfile.TemporaryDirectory() as temp_dir:
+            pasta_croqui = Path(temp_dir)
+            diario = GerenciadorDiario(pasta_croqui)
+            diario.substituir_comandos_pendentes = MagicMock()
+
+            gerenciador = GerenciadorHistorico(diario=diario)
+            self.assertEqual(gerenciador.intervalo_debounce_ms, 300)
+
+            estado = {"valor": 0}
+            cmd1 = ComandoTeste(estado, 0, 5, id_merge=42)
+            cmd2 = ComandoTeste(estado, 5, 10, id_merge=42)
+            cmd3 = ComandoTeste(estado, 10, 15, id_merge=42)
+
+            # 1. Executa primeiro comando
+            gerenciador.executar(cmd1)
+            self.assertEqual(diario.substituir_comandos_pendentes.call_count, 0)
+
+            # 2. Executa comandos mescláveis sucessivos: devem ser agrupados pelo debounce sem I/O imediato
+            gerenciador.executar(cmd2)
+            self.assertEqual(diario.substituir_comandos_pendentes.call_count, 0)
+            self.assertTrue(gerenciador._timer_sincronizacao.isActive())
+
+            gerenciador.executar(cmd3)
+            self.assertEqual(diario.substituir_comandos_pendentes.call_count, 0)
+            self.assertTrue(gerenciador._timer_sincronizacao.isActive())
+
+            # 3. flush_diario_pendente força a persistência pendente no disco
+            gerenciador.flush_diario_pendente()
+            self.assertEqual(diario.substituir_comandos_pendentes.call_count, 1)
+            self.assertFalse(gerenciador._timer_sincronizacao.isActive())
+
+    def test_comando_novo_nao_mesclado_faz_flush_antes(self):
+        import tempfile
+        from pathlib import Path
+        from unittest.mock import MagicMock
+        from editor.core.diario import GerenciadorDiario
+
+        with tempfile.TemporaryDirectory() as temp_dir:
+            pasta_croqui = Path(temp_dir)
+            diario = GerenciadorDiario(pasta_croqui)
+            diario.substituir_comandos_pendentes = MagicMock()
+            diario.gravar_comando_pendente = MagicMock()
+
+            gerenciador = GerenciadorHistorico(diario=diario)
+
+            estado = {"valor": 0}
+            cmd1 = ComandoTeste(estado, 0, 5, id_merge=42)
+            cmd2 = ComandoTeste(estado, 5, 10, id_merge=42)
+            cmd_novo = ComandoTeste(estado, 10, 20, id_merge=None)
+
+            gerenciador.executar(cmd1)
+            gerenciador.executar(cmd2)
+            self.assertTrue(gerenciador._timer_sincronizacao.isActive())
+            self.assertEqual(diario.substituir_comandos_pendentes.call_count, 0)
+
+            # Executar novo comando não mesclado deve chamar flush antes de gravar o novo
+            gerenciador.executar(cmd_novo)
+            self.assertEqual(diario.substituir_comandos_pendentes.call_count, 1)
+            self.assertFalse(gerenciador._timer_sincronizacao.isActive())
+            self.assertEqual(diario.gravar_comando_pendente.call_count, 2)
+
+    def test_debounce_zero_sincroniza_imediatamente(self):
+        import tempfile
+        from pathlib import Path
+        from unittest.mock import MagicMock
+        from editor.core.diario import GerenciadorDiario
+
+        with tempfile.TemporaryDirectory() as temp_dir:
+            pasta_croqui = Path(temp_dir)
+            diario = GerenciadorDiario(pasta_croqui)
+            diario.substituir_comandos_pendentes = MagicMock()
+
+            gerenciador = GerenciadorHistorico(diario=diario)
+            gerenciador.intervalo_debounce_ms = 0
+
+            estado = {"valor": 0}
+            cmd1 = ComandoTeste(estado, 0, 5, id_merge=42)
+            cmd2 = ComandoTeste(estado, 5, 10, id_merge=42)
+
+            gerenciador.executar(cmd1)
+            gerenciador.executar(cmd2)
+
+            # Com debounce 0, a persistência deve ocorrer imediatamente na mesclagem
+            self.assertEqual(diario.substituir_comandos_pendentes.call_count, 1)
+            self.assertFalse(gerenciador._timer_sincronizacao.isActive())
+
+    def test_desfazer_e_refazer_fazem_flush_diario(self):
+        import tempfile
+        from pathlib import Path
+        from unittest.mock import MagicMock
+        from editor.core.diario import GerenciadorDiario
+
+        with tempfile.TemporaryDirectory() as temp_dir:
+            pasta_croqui = Path(temp_dir)
+            diario = GerenciadorDiario(pasta_croqui)
+            diario.substituir_comandos_pendentes = MagicMock()
+
+            gerenciador = GerenciadorHistorico(diario=diario)
+
+            estado = {"valor": 0}
+            cmd1 = ComandoTeste(estado, 0, 5, id_merge=42)
+            cmd2 = ComandoTeste(estado, 5, 10, id_merge=42)
+
+            gerenciador.executar(cmd1)
+            gerenciador.executar(cmd2)
+            self.assertTrue(gerenciador._timer_sincronizacao.isActive())
+
+            # Ao desfazer, deve forçar flush antes e atualizar o diário
+            gerenciador.desfazer()
+            self.assertFalse(gerenciador._timer_sincronizacao.isActive())
+            self.assertTrue(diario.substituir_comandos_pendentes.call_count >= 1)
+
+            # Refazer
+            gerenciador.refazer()
+            self.assertTrue(diario.substituir_comandos_pendentes.call_count >= 2)
+
+    def test_limpar_para_timer_debounce(self):
+        import tempfile
+        from pathlib import Path
+        from unittest.mock import MagicMock
+        from editor.core.diario import GerenciadorDiario
+
+        with tempfile.TemporaryDirectory() as temp_dir:
+            pasta_croqui = Path(temp_dir)
+            diario = GerenciadorDiario(pasta_croqui)
+            gerenciador = GerenciadorHistorico(diario=diario)
+
+            estado = {"valor": 0}
+            cmd1 = ComandoTeste(estado, 0, 5, id_merge=42)
+            cmd2 = ComandoTeste(estado, 5, 10, id_merge=42)
+
+            gerenciador.executar(cmd1)
+            gerenciador.executar(cmd2)
+            self.assertTrue(gerenciador._timer_sincronizacao.isActive())
+
+            gerenciador.limpar()
+            self.assertFalse(gerenciador._timer_sincronizacao.isActive())
+
 
 
 

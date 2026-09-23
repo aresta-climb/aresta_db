@@ -737,14 +737,14 @@ mapas:
       x: 859
       y: 1717
       raio: 40
-    cor: '#FFD600'
+    cor: '#FF6D00'
   - id: st2
     label: ''
     circulo:
       x: 1080
       y: 1672
       raio: 40
-    cor: '#FFD600'
+    cor: '#FF6D00'
   referencias:
   - ids:
     - linha_17

@@ -885,6 +885,9 @@ class JanelaPrincipal(QMainWindow):
 
     def closeEvent(self, event: QCloseEvent) -> None:
         """Intercepta o fechamento da janela para verificar modificações."""
+        if hasattr(self, "historico") and self.historico:
+            self.historico.flush_diario_pendente()
+
         if self._forcar_fechamento:
             event.accept()
             return

@@ -37,6 +37,29 @@ class CroquiController:
         elif hasattr(self.undo_stack, "push"):
             self.undo_stack.push(cmd)
 
+    def _obter_comando_renomear_topo(self, session_id: Optional[int], msg: Any) -> Optional[Any]:
+        """Retorna o comando do topo se for CmdRenomearEscalada da mesma sessão e mensagem."""
+        if session_id is None:
+            return None
+        pilha = getattr(self.undo_stack, "_pilha", self.undo_stack)
+        if not hasattr(pilha, "index") or not hasattr(pilha, "command"):
+            return None
+        idx = pilha.index()
+        if idx <= 0:
+            return None
+        cmd = pilha.command(idx - 1)
+        from editor.commands.comandos_protobuf import CmdRenomearEscalada
+        if not isinstance(cmd, CmdRenomearEscalada):
+            return None
+        if not cmd.pode_mesclar or cmd.session_id != session_id:
+            return None
+        msg_topo = getattr(cmd, "_msg_cache", None) or cmd.msg_escalada
+        msg_real = getattr(msg, "_obj", msg)
+        msg_topo_real = getattr(msg_topo, "_obj", msg_topo)
+        if msg_topo_real is msg_real:
+            return cmd
+        return None
+
     def alterar_primitivo(
         self,
         msg: Any,
@@ -47,6 +70,20 @@ class CroquiController:
         session_id: Optional[int] = None,
     ) -> None:
         if campo_nome == "nome":
+            cmd_topo = self._obter_comando_renomear_topo(session_id, msg)
+            if cmd_topo is not None:
+                self.renomear_escalada(
+                    msg_escalada=msg,
+                    nome_antigo=cmd_topo.nome_antigo,
+                    nome_novo=str(valor_novo) if valor_novo is not None else "",
+                    pode_mesclar=pode_mesclar,
+                    session_id=session_id,
+                    referencias=cmd_topo.referencias,
+                    caminhos_referencias=cmd_topo.caminhos_referencias,
+                    caminho_msg=cmd_topo.caminho_msg,
+                )
+                return
+
             from editor.models.referencias_util import obter_contexto_escalada
             root = self.model.obter_croqui_readonly()
             pico, _, setor, _ = obter_contexto_escalada(root, msg)
@@ -72,16 +109,26 @@ class CroquiController:
         nome_novo: str,
         pode_mesclar: bool = True,
         session_id: Optional[int] = None,
+        referencias: Optional[Any] = None,
+        caminhos_referencias: Optional[Any] = None,
+        caminho_msg: Optional[str] = None,
     ) -> None:
         """
         Renomeia uma escalada e atualiza simultaneamente todas as referências
         em mapas que apontam para ela no mesmo pico.
         """
-        from editor.models.referencias_util import buscar_referencias_para_escalada
         from editor.commands.comandos_protobuf import CmdRenomearEscalada
 
-        root = self.model.obter_croqui_readonly()
-        referencias = buscar_referencias_para_escalada(root, msg_escalada)
+        if referencias is None and caminhos_referencias is None:
+            cmd_topo = self._obter_comando_renomear_topo(session_id, msg_escalada)
+            if cmd_topo is not None:
+                referencias = cmd_topo.referencias
+                caminhos_referencias = cmd_topo.caminhos_referencias
+                caminho_msg = cmd_topo.caminho_msg
+            else:
+                from editor.models.referencias_util import buscar_referencias_para_escalada
+                root = self.model.obter_croqui_readonly()
+                referencias = buscar_referencias_para_escalada(root, msg_escalada)
 
         cmd = CmdRenomearEscalada(
             model=self.model,
@@ -90,6 +137,8 @@ class CroquiController:
             nome_antigo=nome_antigo,
             nome_novo=nome_novo,
             referencias=referencias,
+            caminhos_referencias=caminhos_referencias,
+            caminho_msg=caminho_msg,
             context_path=self.contexto_atual_path,
             pode_mesclar=pode_mesclar,
             session_id=session_id,

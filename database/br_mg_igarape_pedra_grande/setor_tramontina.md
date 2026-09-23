@@ -193,14 +193,14 @@ mapas:
       x: 1232
       y: 562
       raio: 26
-    cor: ''
+    cor: '#FFD600'
   - id: paral2
     label: ''
     circulo:
       x: 1519
       y: 613
       raio: 24
-    cor: ''
+    cor: '#FFD600'
   referencias:
   - ids:
     - linha_1
@@ -281,14 +281,14 @@ mapas:
       x: 207
       y: 642
       raio: 21
-    cor: ''
+    cor: '#FFD600'
   - id: paral2
     label: ''
     circulo:
       x: 437
       y: 660
       raio: 27
-    cor: ''
+    cor: '#FFD600'
   referencias:
   - ids:
     - linha_6

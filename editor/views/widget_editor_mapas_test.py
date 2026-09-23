@@ -4250,6 +4250,531 @@ def test_renomear_poi_no_mapa_atualiza_referencias_em_tempo_real(qtbot, mocker):
     assert "Codenome: <b>[ Setor Bloco ]</b>" in card_undo.lbl_preview.text()
 
 
+def test_montar_submenu_cores_com_padrao_ativo(qtbot):
+    from PySide6.QtWidgets import QMenu
+    from editor.views.widget_editor_mapas import montar_submenu_cores
+
+    menu_principal = QMenu()
+    chamadas_definir = []
+    chamadas_custom = []
+    chamadas_padrao = []
+
+    sub = montar_submenu_cores(
+        menu=menu_principal,
+        cor_atual=None,
+        callback_definir=lambda c: chamadas_definir.append(c),
+        callback_personalizada=lambda: chamadas_custom.append(True),
+        callback_padrao=lambda: chamadas_padrao.append(True)
+    )
+
+    acoes = sub.actions()
+    # A primeira ação deve ser Padrão do Sistema com ●
+    acao_padrao = acoes[0]
+    assert "Padrão do Sistema" in acao_padrao.text()
+    assert "●" in acao_padrao.text()
+    assert acao_padrao.isChecked()
+
+    # Dispara a ação de padrão
+    acao_padrao.trigger()
+    assert len(chamadas_padrao) == 1
+
+    # Verifica que as cores da paleta estão presentes e desmarcadas
+    acoes_texto = [a.text() for a in acoes]
+    assert any("Vermelho" in t and "●" not in t for t in acoes_texto)
+
+    # Dispara uma cor da paleta
+    acao_vermelho = next(a for a in acoes if "Vermelho" in a.text())
+    acao_vermelho.trigger()
+    assert chamadas_definir == ["#FF1744"]
+
+    # Verifica ação personalizada
+    acao_custom = next(a for a in acoes if "Personalizada" in a.text())
+    assert "●" not in acao_custom.text()
+    acao_custom.trigger()
+    assert len(chamadas_custom) == 1
+
+
+def test_montar_submenu_cores_com_paleta_ativa(qtbot):
+    from PySide6.QtWidgets import QMenu
+    from editor.views.widget_editor_mapas import montar_submenu_cores
+
+    menu_principal = QMenu()
+    sub = montar_submenu_cores(
+        menu=menu_principal,
+        cor_atual="#FF6D00",
+        callback_definir=lambda c: None,
+        callback_personalizada=lambda: None,
+        callback_padrao=lambda: None
+    )
+
+    acoes = sub.actions()
+    acao_padrao = acoes[0]
+    assert "Padrão do Sistema" in acao_padrao.text()
+    assert "●" not in acao_padrao.text()
+    assert not acao_padrao.isChecked()
+
+    acao_laranja = next(a for a in acoes if "Laranja" in a.text())
+    assert "●" in acao_laranja.text()
+    assert acao_laranja.isChecked()
+
+
+def test_montar_submenu_cores_com_cor_personalizada_e_sem_padrao(qtbot):
+    from PySide6.QtWidgets import QMenu
+    from editor.views.widget_editor_mapas import montar_submenu_cores
+
+    menu_principal = QMenu()
+    sub = montar_submenu_cores(
+        menu=menu_principal,
+        cor_atual="#998877",
+        callback_definir=lambda c: None,
+        callback_personalizada=lambda: None,
+        callback_padrao=None
+    )
+
+    acoes = sub.actions()
+    # Sem callback_padrao, Padrão do Sistema não deve existir
+    assert not any("Padrão do Sistema" in a.text() for a in acoes)
+
+    acao_custom = next(a for a in acoes if "Personalizada" in a.text())
+    assert "●" in acao_custom.text()
+    assert "#998877" in acao_custom.text()
+    assert acao_custom.isChecked()
+
+
+def test_estilo_visual_circulo_retangulo_quadrado_padrao_e_customizado(qtbot):
+    from PySide6.QtGui import QColor
+    from editor.views.widget_editor_mapas import ItemBoundingCirculo, ItemBoundingRetangulo, ItemBoundingQuadrado
+
+    # Círculo
+    circ = ItemBoundingCirculo({"circulo": {"x": 10, "y": 10, "raio": 5}}, lambda item: None)
+    assert circ.pen().color() == QColor(100, 255, 100)
+    assert circ.brush().color().alpha() == 60
+
+    # Atualiza com cor customizada
+    circ.carregar_de_dict({"circulo": {"x": 10, "y": 10, "raio": 5}, "cor": "#FF1744"})
+    assert circ.pen().color().name().upper() == "#FF1744"
+    assert circ.brush().color().alpha() == 60
+    assert circ.brush().color().red() == 255
+
+    # Reset para padrão (removendo cor)
+    circ.carregar_de_dict({"circulo": {"x": 10, "y": 10, "raio": 5}, "cor": ""})
+    assert circ.pen().color() == QColor(100, 255, 100)
+    assert circ.brush().color().alpha() == 60
+
+    # Retângulo
+    ret = ItemBoundingRetangulo({"retangulo": {"x": 10, "y": 10, "comprimento": 20, "largura": 15}, "cor": "#FFD600"}, lambda item: None)
+    assert ret.pen().color().name().upper() == "#FFD600"
+    assert ret.brush().color().alpha() == 60
+
+    ret.carregar_de_dict({"retangulo": {"x": 10, "y": 10, "comprimento": 20, "largura": 15}, "cor": ""})
+    assert ret.pen().color() == QColor(100, 255, 100)
+
+    # Quadrado
+    quad = ItemBoundingQuadrado({"quadrado": {"x": 10, "y": 10, "lado": 20}}, lambda item: None)
+    assert quad.pen().color() == QColor(100, 255, 100)
+
+    quad.carregar_de_dict({"quadrado": {"x": 10, "y": 10, "lado": 20}, "cor": "#00E5FF"})
+    assert quad.pen().color().name().upper() == "#00E5FF"
+    assert quad.brush().color().alpha() == 60
+
+
+def test_estilo_visual_poligono_e_alcas_padrao_e_customizado(qtbot):
+    from PySide6.QtGui import QColor
+    from editor.views.widget_editor_mapas import ItemBoundingPoligono
+
+    poly = ItemBoundingPoligono({"poligono": {"coordenadas": [0, 0, 10, 0, 10, 10]}}, lambda item: None)
+    assert poly.pen().color() == QColor(100, 100, 255)
+    assert poly.brush().color().alpha() == 60
+    assert len(poly.alcas) == 3
+    for alca in poly.alcas:
+        assert alca.brush().color() == QColor(100, 100, 255)
+
+    # Aplica cor customizada
+    poly.carregar_de_dict({"poligono": {"coordenadas": [0, 0, 10, 0, 10, 10]}, "cor": "#D500F9"})
+    assert poly.pen().color().name().upper() == "#D500F9"
+    assert poly.brush().color().alpha() == 60
+    for alca in poly.alcas:
+        assert alca.brush().color().name().upper() == "#D500F9"
+
+    # Reset para padrão
+    poly.carregar_de_dict({"poligono": {"coordenadas": [0, 0, 10, 0, 10, 10]}, "cor": ""})
+    assert poly.pen().color() == QColor(100, 100, 255)
+    for alca in poly.alcas:
+        assert alca.brush().color() == QColor(100, 100, 255)
+
+
+def test_menu_contexto_formas_mudar_cor_paleta(qtbot, monkeypatch):
+    from PySide6.QtCore import QPointF, QPoint
+    from PySide6.QtGui import QColor
+    from editor.views.widget_editor_mapas import ItemBoundingCirculo
+
+    circ_dict = {"id": "c1", "circulo": {"x": 50, "y": 50, "raio": 20}}
+    circ = ItemBoundingCirculo(circ_dict, lambda item: None)
+
+    acoes_por_submenu = {}
+    menus_mantidos = []
+    def mock_executar_menu(menu, pos):
+        menus_mantidos.append(menu)
+        for action in menu.actions():
+            sub = action.menu()
+            if sub:
+                acoes_por_submenu[action.text()] = {a.text(): a for a in sub.actions()}
+        return None
+
+    monkeypatch.setattr(circ, "_executar_menu", mock_executar_menu)
+
+    evento_mock = MagicMock()
+    evento_mock.pos.return_value = QPointF(50, 50)
+    evento_mock.screenPos.return_value = QPoint(100, 100)
+    circ.contextMenuEvent(evento_mock)
+
+    nome_menu_cores = next((k for k in acoes_por_submenu if "Mudar Cor" in k), None)
+    assert nome_menu_cores is not None, "Submenu Mudar Cor não foi encontrado"
+    mapa_acoes = acoes_por_submenu[nome_menu_cores]
+
+    # Verifica que Padrão do Sistema está ativo
+    acao_padrao = next(a for t, a in mapa_acoes.items() if "Padrão do Sistema" in t)
+    assert "●" in acao_padrao.text()
+
+    # Dispara a cor Laranja da paleta
+    acao_laranja = next(a for t, a in mapa_acoes.items() if "Laranja" in t)
+    acao_laranja.trigger()
+
+    assert circ.pt_dict.get("cor") == "#FF6D00"
+    assert circ.pen().color().name().upper() == "#FF6D00"
+    assert circ.brush().color().alpha() == 60
+
+
+def test_menu_contexto_formas_restaurar_padrao(qtbot, monkeypatch):
+    from PySide6.QtCore import QPointF, QPoint
+    from PySide6.QtGui import QColor
+    from editor.views.widget_editor_mapas import ItemBoundingRetangulo
+
+    ret_dict = {"id": "r1", "retangulo": {"x": 50, "y": 50, "comprimento": 30, "largura": 20}, "cor": "#FF1744"}
+    ret = ItemBoundingRetangulo(ret_dict, lambda item: None)
+    assert ret.pen().color().name().upper() == "#FF1744"
+
+    acoes_por_submenu = {}
+    menus_mantidos = []
+    def mock_executar_menu(menu, pos):
+        menus_mantidos.append(menu)
+        for action in menu.actions():
+            sub = action.menu()
+            if sub:
+                acoes_por_submenu[action.text()] = {a.text(): a for a in sub.actions()}
+        return None
+
+    monkeypatch.setattr(ret, "_executar_menu", mock_executar_menu)
+
+    evento_mock = MagicMock()
+    evento_mock.pos.return_value = QPointF(50, 50)
+    evento_mock.screenPos.return_value = QPoint(100, 100)
+    ret.contextMenuEvent(evento_mock)
+
+    mapa_acoes = acoes_por_submenu["Mudar Cor"]
+    acao_padrao = next(a for t, a in mapa_acoes.items() if "Padrão do Sistema" in t)
+    assert "●" not in acao_padrao.text()
+
+    acao_vermelho = next(a for t, a in mapa_acoes.items() if "Vermelho" in t)
+    assert "●" in acao_vermelho.text()
+
+    # Dispara reset para padrão
+    acao_padrao.trigger()
+    assert "cor" not in ret.pt_dict
+    assert ret.pen().color() == QColor(100, 255, 100)
+
+
+def test_menu_contexto_poligono_mudar_cor_e_adicionar_ponto(qtbot, monkeypatch):
+    from PySide6.QtCore import QPointF, QPoint
+    from PySide6.QtGui import QColor
+    from editor.views.widget_editor_mapas import ItemBoundingPoligono
+
+    poly_dict = {"id": "p1", "poligono": {"coordenadas": [0, 0, 20, 0, 20, 20]}}
+    poly = ItemBoundingPoligono(poly_dict, lambda item: None)
+
+    acoes_menu_principal = {}
+    acoes_por_submenu = {}
+    menus_mantidos = []
+
+    def mock_executar_menu(menu, pos):
+        menus_mantidos.append(menu)
+        for action in menu.actions():
+            acoes_menu_principal[action.text()] = action
+            sub = action.menu()
+            if sub:
+                acoes_por_submenu[action.text()] = {a.text(): a for a in sub.actions()}
+        return None
+
+    monkeypatch.setattr(poly, "_executar_menu", mock_executar_menu)
+
+    evento_mock = MagicMock()
+    evento_mock.pos.return_value = QPointF(10, 30)
+    evento_mock.screenPos.return_value = QPoint(100, 100)
+    poly.contextMenuEvent(evento_mock)
+
+    assert "Mudar Cor" in acoes_por_submenu
+    assert "Adicionar Ponto" in acoes_menu_principal
+
+    # Testa adicionar ponto
+    acoes_menu_principal["Adicionar Ponto"].trigger()
+    assert len(poly.pontos) == 4
+    assert len(poly.alcas) == 4
+
+    # Testa mudar cor
+    mapa_cores = acoes_por_submenu["Mudar Cor"]
+    acao_roxo = next(a for t, a in mapa_cores.items() if "Roxo" in t)
+    acao_roxo.trigger()
+
+    assert poly.pt_dict.get("cor") == "#D500F9"
+    assert poly.pen().color().name().upper() == "#D500F9"
+    for alca in poly.alcas:
+        assert alca.brush().color().name().upper() == "#D500F9"
+
+
+def test_menu_contexto_formas_cor_personalizada(qtbot, monkeypatch):
+    from PySide6.QtCore import QPointF, QPoint
+    from PySide6.QtGui import QColor
+    from editor.views.widget_editor_mapas import ItemBoundingQuadrado
+
+    quad_dict = {"id": "q1", "quadrado": {"x": 50, "y": 50, "lado": 20}}
+    quad = ItemBoundingQuadrado(quad_dict, lambda item: None)
+
+    monkeypatch.setattr(quad, "_obter_cor_dialogo", lambda cor_inicial: QColor("#123456"))
+
+    acoes_por_submenu = {}
+    menus_mantidos = []
+    def mock_executar_menu(menu, pos):
+        menus_mantidos.append(menu)
+        for action in menu.actions():
+            sub = action.menu()
+            if sub:
+                acoes_por_submenu[action.text()] = {a.text(): a for a in sub.actions()}
+        return None
+
+    monkeypatch.setattr(quad, "_executar_menu", mock_executar_menu)
+
+    evento_mock = MagicMock()
+    evento_mock.pos.return_value = QPointF(50, 50)
+    evento_mock.screenPos.return_value = QPoint(100, 100)
+    quad.contextMenuEvent(evento_mock)
+
+    mapa_cores = acoes_por_submenu["Mudar Cor"]
+    acao_custom = next(a for t, a in mapa_cores.items() if "Personalizada" in t)
+    acao_custom.trigger()
+
+    assert quad.pt_dict.get("cor") == "#123456"
+    assert quad.pen().color().name().upper() == "#123456"
+
+
+
+def test_dialogo_edicao_poi_atualiza_estilo_visual_forma(qtbot, monkeypatch, mocker):
+    from PySide6.QtCore import QPointF, QPoint
+    from PySide6.QtWidgets import QDialog
+    from editor.views.widget_editor_mapas import ItemBoundingCirculo
+
+    circ_dict = {"id": "c1", "label": "Circulo Original", "circulo": {"x": 50, "y": 50, "raio": 20}}
+    circ = ItemBoundingCirculo(circ_dict, lambda item: None)
+
+    mocker.patch('editor.views.widget_editor_mapas.DialogoEdicaoPOI.exec', return_value=QDialog.DialogCode.Accepted)
+    mocker.patch('editor.views.widget_editor_mapas.DialogoEdicaoPOI.obter_valores', return_value=("c1", "Circulo Renomeado", "#00E5FF", ""))
+
+    def mock_executar_menu(menu, pos):
+        for a in menu.actions():
+            if a.text() == "Renomear Ponto de Interesse":
+                return a
+        return None
+
+    monkeypatch.setattr(circ, "_executar_menu", mock_executar_menu)
+
+    evento_mock = MagicMock()
+    evento_mock.screenPos.return_value = None
+    circ.contextMenuEvent(evento_mock)
+
+    assert circ.pt_dict.get("cor") == "#00E5FF"
+    assert circ.pen().color().name().upper() == "#00E5FF"
+
+
+def test_menu_contexto_mudar_cor_forma_undo_redo_integracao(qtbot, monkeypatch):
+    from croqui_pb2 import Croqui
+    from editor.models.croqui_model import CroquiModel
+    from editor.controllers.mapas_controller import MapasController
+    from editor.views.widget_editor_mapas import WidgetEditorMapas
+    from PySide6.QtGui import QUndoStack, QColor
+    from PySide6.QtCore import QPointF, QPoint
+
+    croqui = Croqui()
+    pico = croqui.picos.add()
+    pico.nome = "Pico Teste"
+    sg = pico.setores_ou_grupos.add()
+    mapa = sg.setor.conteudo.mapas.add()
+    mapa.caminho_imagem_mapa = "mapa.png"
+
+    poi = mapa.pontos_de_interesse.add()
+    poi.id = "poi_circulo_1"
+    poi.label = "Circulo Teste"
+    poi.circulo.x = 30
+    poi.circulo.y = 30
+    poi.circulo.raio = 15
+
+    model = CroquiModel(croqui)
+    stack = QUndoStack()
+    controller = MapasController(model, stack)
+
+    widget = WidgetEditorMapas(mapas_controller=controller)
+    qtbot.addWidget(widget)
+
+    proxy_mapa = model.obter_croqui_readonly().picos[0].setores_ou_grupos[0].setor.conteudo.mapas[0]
+    widget.set_mapa_atual(proxy_mapa)
+
+    item_poi = widget.itens_poi.get(0)
+    assert item_poi is not None
+    assert item_poi.pen().color() == QColor(100, 255, 100)
+
+    acoes_por_submenu = {}
+    menus_mantidos = []
+
+    def mock_executar_menu(menu, pos):
+        menus_mantidos.append(menu)
+        for action in menu.actions():
+            sub = action.menu()
+            if sub:
+                acoes_por_submenu[action.text()] = {a.text(): a for a in sub.actions()}
+        return None
+
+    monkeypatch.setattr(item_poi, "_executar_menu", mock_executar_menu)
+
+    evento_mock = MagicMock()
+    evento_mock.pos.return_value = QPointF(30, 30)
+    evento_mock.screenPos.return_value = QPoint(100, 100)
+    item_poi.contextMenuEvent(evento_mock)
+
+    mapa_acoes = acoes_por_submenu["Mudar Cor"]
+    acao_amarelo = next(a for t, a in mapa_acoes.items() if "Amarelo" in t)
+    acao_amarelo.trigger()
+
+    # Verifica se a cor foi alterada no item e no modelo
+    assert item_poi.pt_dict.get("cor") == "#FFD600"
+    assert item_poi.pen().color().name().upper() == "#FFD600"
+    croqui_atual = model.obter_croqui_readonly()
+    mapa_atual = croqui_atual.picos[0].setores_ou_grupos[0].setor.conteudo.mapas[0]
+    assert mapa_atual.pontos_de_interesse[0].cor == "#FFD600"
+
+    # Testa Undo
+    stack.undo()
+    assert item_poi.pen().color() == QColor(100, 255, 100)
+    croqui_undo = model.obter_croqui_readonly()
+    mapa_undo = croqui_undo.picos[0].setores_ou_grupos[0].setor.conteudo.mapas[0]
+    assert mapa_undo.pontos_de_interesse[0].cor == ""
+
+    # Testa Redo
+    stack.redo()
+    assert item_poi.pen().color().name().upper() == "#FFD600"
+    croqui_redo = model.obter_croqui_readonly()
+    mapa_redo = croqui_redo.picos[0].setores_ou_grupos[0].setor.conteudo.mapas[0]
+    assert mapa_redo.pontos_de_interesse[0].cor == "#FFD600"
+
+
+def test_obter_cor_dialogo_chama_qcolordialog(qtbot, mocker):
+    from editor.views.widget_editor_mapas import ItemBoundingCirculo
+    from PySide6.QtGui import QColor
+
+    circ = ItemBoundingCirculo({"circulo": {"x": 0, "y": 0, "raio": 10}}, lambda item: None)
+    mocker.patch('editor.views.widget_editor_mapas.QColorDialog.getColor', return_value=QColor("#112233"))
+    res = circ._obter_cor_dialogo(QColor("#FFFFFF"))
+    assert res == QColor("#112233")
+
+
+def test_menu_contexto_deletar_poi_chama_callback(qtbot, monkeypatch):
+    from editor.views.widget_editor_mapas import ItemBoundingCirculo
+
+    deletado = []
+    circ = ItemBoundingCirculo({"circulo": {"x": 0, "y": 0, "raio": 10}}, lambda item: deletado.append(item))
+
+    def mock_executar_menu(menu, pos):
+        for a in menu.actions():
+            if a.text() == "Deletar Ponto de Interesse":
+                return a
+        return None
+
+    monkeypatch.setattr(circ, "_executar_menu", mock_executar_menu)
+    evento_mock = MagicMock()
+    evento_mock.screenPos.return_value = None
+    circ.contextMenuEvent(evento_mock)
+
+    assert deletado == [circ]
+
+
+def test_dialogo_edicao_poi_remove_cor_e_texto_quando_vazios(qtbot, monkeypatch, mocker):
+    from editor.views.widget_editor_mapas import ItemBoundingCirculo
+    from PySide6.QtWidgets import QDialog
+
+    circ_dict = {"id": "c1", "label": "Circulo", "cor": "#FF0000", "texto_visivel": "Texto", "circulo": {"x": 0, "y": 0, "raio": 10}}
+    circ = ItemBoundingCirculo(circ_dict, lambda item: None)
+
+    mocker.patch('editor.views.widget_editor_mapas.DialogoEdicaoPOI.exec', return_value=QDialog.DialogCode.Accepted)
+    mocker.patch('editor.views.widget_editor_mapas.DialogoEdicaoPOI.obter_valores', return_value=("c1", "Circulo", "", ""))
+
+    def mock_executar_menu(menu, pos):
+        for a in menu.actions():
+            if a.text() == "Renomear Ponto de Interesse":
+                return a
+        return None
+
+    monkeypatch.setattr(circ, "_executar_menu", mock_executar_menu)
+    evento_mock = MagicMock()
+    evento_mock.screenPos.return_value = None
+    circ.contextMenuEvent(evento_mock)
+
+    assert "cor" not in circ.pt_dict
+    assert "texto_visivel" not in circ.pt_dict
+
+
+def test_atualizar_lista_mapas_allowlist(mocker, qtbot):
+    """Garante que apenas campos em escopo disparam a reconstrução da lista de mapas."""
+    from editor.views.widget_editor_mapas import WidgetEditorMapas
+    from aresta_api.proto.generated import croqui_pb2
+    from editor.models.croqui_model import CroquiModel
+
+    croqui = croqui_pb2.Croqui()
+    pico = croqui.picos.add()
+    mapa = pico.mapas_gerais.conteudo.mapas.add()
+    mapa.caminho_imagem_mapa = "mapa_teste.png"
+
+    model = CroquiModel(croqui)
+    widget = WidgetEditorMapas(croqui_model=model)
+    qtbot.addWidget(widget)
+
+    widget.configurar_lista_mapas()
+    assert widget.list_widget.count() == 1
+
+    spy_clear = mocker.spy(widget.list_widget, "clear")
+
+    # Campo fora da allowlist (ex: 'escalada') deve ser ignorado
+    widget._atualizar_lista_mapas(croqui, "escalada")
+    assert spy_clear.call_count == 0
+
+    # Campo fora da allowlist (ex: 'nome') deve ser ignorado
+    widget._atualizar_lista_mapas(croqui, "nome")
+    assert spy_clear.call_count == 0
+
+    # Campo em escopo (ex: 'caminho_imagem_mapa') deve reconstruir
+    widget._atualizar_lista_mapas(mapa, "caminho_imagem_mapa")
+    assert spy_clear.call_count == 1
+
+    # Campo em escopo (ex: 'mapas') deve reconstruir
+    widget._atualizar_lista_mapas(pico.mapas_gerais.conteudo, "mapas")
+    assert spy_clear.call_count == 2
+
+    # Chamada sem argumentos (ex: inicialização direta) deve reconstruir
+    widget._atualizar_lista_mapas()
+    assert spy_clear.call_count == 3
+
+
+
+
+
+
+
 
 
 

@@ -5,7 +5,7 @@ import shutil
 import uuid
 from pathlib import Path
 from typing import Optional, Any
-from PySide6.QtCore import QObject, Signal
+from PySide6.QtCore import QObject, Signal, QTimer
 from PySide6.QtGui import QUndoStack, QUndoCommand
 from editor.core.registro_log import obter_logger
 
@@ -28,11 +28,22 @@ class GerenciadorHistorico(QObject):
         self._ultimo_index: int = 0
         self._diario: Any = diario
         self._gravacao_pausada: bool = False
+        self.intervalo_debounce_ms: int = 300
+        self._timer_sincronizacao: QTimer = QTimer(self)
+        self._timer_sincronizacao.setSingleShot(True)
+        self._timer_sincronizacao.timeout.connect(self._sincronizar_diario_pendente_imediato)
+        if self._diario and hasattr(self._diario, "_hook_flush"):
+            self._diario._hook_flush = self.flush_diario_pendente
         self._pilha.indexChanged.connect(self._on_index_changed)
 
     def definir_gerenciador_diario(self, diario: Any) -> None:
         """Configura o GerenciadorDiario associado para persistência append-only."""
+        self.flush_diario_pendente()
+        if self._diario and getattr(self._diario, "_hook_flush", None) == self.flush_diario_pendente:
+            self._diario._hook_flush = None
         self._diario = diario
+        if self._diario and hasattr(self._diario, "_hook_flush"):
+            self._diario._hook_flush = self.flush_diario_pendente
 
     def obter_gerenciador_diario(self) -> Any:
         """Retorna o GerenciadorDiario associado, se houver."""
@@ -57,10 +68,11 @@ class GerenciadorHistorico(QObject):
         if self._diario and not self._gravacao_pausada:
             try:
                 # Se o comando foi mesclado pelo QUndoStack (a contagem não aumentou),
-                # sincroniza o diário pendente no disco para refletir a versão consolidada.
+                # agenda a sincronização do diário pendente no disco com debounce para digitação fluida.
                 if count_depois == count_antes and count_depois > 0:
                     self._sincronizar_diario_pendente()
                 else:
+                    self.flush_diario_pendente()
                     self._diario.gravar_comando_pendente(comando)
                     from editor.core.telemetria import anexar_diario_escopo
                     anexar_diario_escopo(self._diario)
@@ -68,7 +80,23 @@ class GerenciadorHistorico(QObject):
                 pass
 
     def _sincronizar_diario_pendente(self) -> None:
-        """Reescreve diario_pendente.bin com os comandos pendentes atualmente na pilha."""
+        """Agenda a sincronização do diário pendente no disco respeitando o debounce."""
+        if not self._diario:
+            return
+        from PySide6.QtCore import QCoreApplication
+        if self.intervalo_debounce_ms > 0 and QCoreApplication.instance() is not None:
+            self._timer_sincronizacao.start(self.intervalo_debounce_ms)
+        else:
+            self._sincronizar_diario_pendente_imediato()
+
+    def flush_diario_pendente(self) -> None:
+        """Força a persistência imediata de quaisquer alterações pendentes agendadas via debounce."""
+        if hasattr(self, "_timer_sincronizacao") and self._timer_sincronizacao.isActive():
+            self._timer_sincronizacao.stop()
+            self._sincronizar_diario_pendente_imediato()
+
+    def _sincronizar_diario_pendente_imediato(self) -> None:
+        """Reescreve diario_pendente.bin imediatamente com os comandos pendentes atualmente na pilha."""
         if not self._diario:
             return
         clean_idx = self._pilha.cleanIndex()
@@ -127,7 +155,7 @@ class GerenciadorHistorico(QObject):
                     self._pilha.push(cmd)
 
                     total_carregados += 1
-                except (ValueError, AttributeError, KeyError, TypeError) as e:
+                except (ValueError, AttributeError, LookupError, TypeError) as e:
                     logger.warning("Comando corrompido ou órfão descartado do diário salvo: %s", e)
                     continue
                 except Exception as e:
@@ -158,7 +186,7 @@ class GerenciadorHistorico(QObject):
                     cmd = deserializar_comando(cmd_dict, model)
                     self._pilha.push(cmd)
                     total_restaurados += 1
-                except (ValueError, AttributeError, KeyError, TypeError) as e:
+                except (ValueError, AttributeError, LookupError, TypeError) as e:
                     logger.warning("Comando corrompido ou órfão descartado do diário pendente: %s", e)
                     continue
                 except Exception as e:
@@ -167,26 +195,30 @@ class GerenciadorHistorico(QObject):
         finally:
             self._gravacao_pausada = False
             self.definir_gerenciador_diario(diario)
-            self._sincronizar_diario_pendente()
+            self._sincronizar_diario_pendente_imediato()
 
         return total_restaurados
 
     def desfazer(self) -> None:
         """Desfaz o último comando empilhado."""
         if self._pilha.canUndo():
+            self.flush_diario_pendente()
             self._pilha.undo()
             if self._diario and not self._gravacao_pausada:
-                self._sincronizar_diario_pendente()
+                self._sincronizar_diario_pendente_imediato()
 
     def refazer(self) -> None:
         """Refaz o próximo comando na pilha."""
         if self._pilha.canRedo():
+            self.flush_diario_pendente()
             self._pilha.redo()
             if self._diario and not self._gravacao_pausada:
-                self._sincronizar_diario_pendente()
+                self._sincronizar_diario_pendente_imediato()
 
     def limpar(self) -> None:
         """Limpa o histórico atual."""
+        if hasattr(self, "_timer_sincronizacao"):
+            self._timer_sincronizacao.stop()
         self._pilha.clear()
         self._ultimo_index = 0
 

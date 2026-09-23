@@ -438,7 +438,7 @@ escaladas:
     quantidade_protecoes_parada: 2
     extensao: 11
     conquistadores:
-    - Mecena
+    - Macena
     - Ivo
     data_abertura: '2011'
 - via_esportiva:
@@ -490,7 +490,7 @@ escaladas:
     quantidade_protecoes_parada: 2
     extensao: 10
     conquistadores:
-    - Mecena
+    - Macena
     - Ivo
     data_abertura: '2011'
 - via_esportiva:

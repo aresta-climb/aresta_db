@@ -21,6 +21,7 @@ class GerenciadorDiario:
         self.caminho_salvo: Path = self.pasta_croqui / "diario_salvo.bin"
         self._cache_salvo: Optional[List[Dict[str, Any]]] = None
         self._cache_pendente: Optional[List[Dict[str, Any]]] = None
+        self._hook_flush: Optional[Any] = None
 
     @property
     def _comandos_anonimizados_cache(self) -> Optional[List[Dict[str, Any]]]:
@@ -82,10 +83,20 @@ class GerenciadorDiario:
 
     def tem_alteracoes_pendentes(self) -> bool:
         """Verifica se existem comandos não consolidados no diário pendente."""
+        if hasattr(self, "_hook_flush") and callable(self._hook_flush):
+            try:
+                self._hook_flush()
+            except Exception:
+                pass
         return self.caminho_pendente.exists() and self.caminho_pendente.stat().st_size > 0
 
     def ler_diario_pendente(self) -> List[Dict[str, Any]]:
         """Lê todos os comandos do diário pendente de forma tolerante a falhas de final de arquivo."""
+        if hasattr(self, "_hook_flush") and callable(self._hook_flush):
+            try:
+                self._hook_flush()
+            except Exception:
+                pass
         return self._ler_arquivo_pickle(self.caminho_pendente)
 
     def ler_diario_salvo(self) -> List[Dict[str, Any]]:

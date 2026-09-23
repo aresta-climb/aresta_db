@@ -440,3 +440,57 @@ def test_croqui_controller_inserir_imagem_markdown(qapp):
     assert "imagens/via.webp" not in model.obter_imagens_em_memoria()
 
 
+def test_croqui_controller_alterar_primitivo_escalada_reutiliza_referencias_do_topo(mocker, qapp):
+    """Garante que digitações consecutivas com mesmo session_id reutilizam referências já resolvidas sem re-varrer a árvore."""
+    from editor.commands.comandos_protobuf import CmdRenomearEscalada
+    from aresta_api.proto.generated import croqui_pb2
+    import editor.models.referencias_util as ref_util
+
+    croqui = croqui_pb2.Croqui()
+    pico = croqui.picos.add(nome="Pico 1")
+    sg = pico.setores_ou_grupos.add()
+    setor = sg.setor.conteudo
+    setor.nome = "Setor 1"
+
+    esc = setor.escaladas.add()
+    esc.via_esportiva.nome = "Via Inicial"
+
+    mapa = setor.mapas.add()
+    ref = mapa.referencias.add(escalada="Via Inicial", ids=["linha_1"])
+
+    model = CroquiModel(croqui)
+    undo_stack = QUndoStack()
+    controller = CroquiController(model, undo_stack)
+
+    proxy_via = model.obter_croqui_readonly().picos[0].setores_ou_grupos[0].setor.conteudo.escaladas[0].via_esportiva
+    proxy_ref = model.obter_croqui_readonly().picos[0].setores_ou_grupos[0].setor.conteudo.mapas[0].referencias[0]
+
+    spy_buscar = mocker.spy(ref_util, "buscar_referencias_para_escalada")
+    spy_contexto = mocker.spy(ref_util, "obter_contexto_escalada")
+
+    # 1ª digitação: Inicializa sessão com session_id=99
+    controller.alterar_primitivo(proxy_via, "nome", "Via Inicial", "Via A", pode_mesclar=True, session_id=99)
+    assert spy_buscar.call_count == 1
+    assert spy_contexto.call_count == 2
+    assert undo_stack.count() == 1
+    assert proxy_via.nome == "Via A"
+    assert proxy_ref.escalada == "Via A"
+
+    # 2ª digitação consecutiva: mesmo session_id e mesma via
+    controller.alterar_primitivo(proxy_via, "nome", "Via A", "Via AB", pode_mesclar=True, session_id=99)
+    # Não deve refazer busca nem obter contexto
+    assert spy_buscar.call_count == 1
+    assert spy_contexto.call_count == 2
+    assert undo_stack.count() == 1
+    assert proxy_via.nome == "Via AB"
+    assert proxy_ref.escalada == "Via AB"
+
+    # 3ª digitação: nova sessão (ex: mudou de campo ou perdeu foco e voltou)
+    controller.alterar_primitivo(proxy_via, "nome", "Via AB", "Via ABC", pode_mesclar=True, session_id=100)
+    assert spy_buscar.call_count == 2
+    assert spy_contexto.call_count == 4
+    assert undo_stack.count() == 2
+    assert proxy_via.nome == "Via ABC"
+    assert proxy_ref.escalada == "Via ABC"
+
+

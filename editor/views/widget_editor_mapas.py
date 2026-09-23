@@ -70,6 +70,51 @@ PALETA_CORES_ROCHA: List[Tuple[str, str]] = [
 ]
 
 
+def montar_submenu_cores(
+    menu: QMenu,
+    cor_atual: Optional[str],
+    callback_definir: Callable[[str], None],
+    callback_personalizada: Callable[[], None],
+    callback_padrao: Optional[Callable[[], None]] = None,
+    titulo_menu: str = "Mudar Cor"
+) -> QMenu:
+    """Monta um submenu de seleção de cores padronizado para elementos do mapa."""
+    menu_cores = menu.addMenu(titulo_menu)
+    cor_norm = cor_atual.strip().upper() if cor_atual and cor_atual.strip() else ""
+
+    if callback_padrao is not None:
+        is_padrao = not cor_norm
+        prefixo_padrao = "● " if is_padrao else "   "
+        acao_padrao = menu_cores.addAction(f"{prefixo_padrao}Padrão do Sistema")
+        acao_padrao.setCheckable(True)
+        if is_padrao:
+            acao_padrao.setChecked(True)
+        acao_padrao.triggered.connect(lambda checked=False: callback_padrao())
+        menu_cores.addSeparator()
+
+    for nome_cor, hex_cor in PALETA_CORES_ROCHA:
+        is_ativa = bool(cor_norm and cor_norm == hex_cor.upper())
+        prefixo = "● " if is_ativa else "   "
+        acao_cor = menu_cores.addAction(f"{prefixo}{nome_cor}")
+        acao_cor.setCheckable(True)
+        if is_ativa:
+            acao_cor.setChecked(True)
+        acao_cor.triggered.connect(lambda checked=False, c=hex_cor: callback_definir(c))
+
+    menu_cores.addSeparator()
+    eh_custom = bool(cor_norm and not any(cor_norm == h.upper() for _, h in PALETA_CORES_ROCHA))
+    prefixo_custom = "● " if eh_custom else "   "
+    texto_custom = f"{prefixo_custom}Personalizada ({cor_norm})..." if eh_custom else "   Personalizada..."
+    acao_custom_cor = menu_cores.addAction(texto_custom)
+    acao_custom_cor.setCheckable(True)
+    if eh_custom:
+        acao_custom_cor.setChecked(True)
+    acao_custom_cor.triggered.connect(lambda checked=False: callback_personalizada())
+
+    return menu_cores
+
+
+
 class DialogoEdicaoPOI(QDialog):
     def __init__(
         self,
@@ -183,9 +228,43 @@ class BaseItemPOI:
     
     def obter_dict_atualizado(self) -> Dict[str, Any]:
         raise NotImplementedError
+
+    def carregar_de_dict(self, pt_dict: Dict[str, Any]) -> None:
+        raise NotImplementedError
         
     def setToolTip(self, text: str) -> None:
         pass
+
+    def obter_cor_padrao(self) -> QColor:
+        if self.__class__.__name__ == 'ItemBoundingPoligono':
+            return QColor(100, 100, 255)
+        return QColor(100, 255, 100)
+
+    def obter_cor_ativa(self) -> QColor:
+        cor_str = str(getattr(self, 'pt_dict', {}).get('cor', '') or '').strip()
+        if cor_str:
+            cor_obj = QColor(cor_str)
+            if cor_obj.isValid():
+                return cor_obj
+        return self.obter_cor_padrao()
+
+    def atualizar_estilo_visual(self) -> None:
+        cor = self.obter_cor_ativa()
+        self.pen_poi = QPen(cor)
+        self.pen_poi.setWidth(2)
+        self.brush_poi = QBrush(QColor(cor.red(), cor.green(), cor.blue(), 60))
+
+        cast_self = cast(Any, self)
+        if hasattr(cast_self, 'setPen'):
+            cast_self.setPen(self.pen_poi)
+        if hasattr(cast_self, 'setBrush'):
+            cast_self.setBrush(self.brush_poi)
+
+        if hasattr(self, 'alcas') and getattr(self, 'alcas'):
+            for alca in getattr(self, 'alcas'):
+                if hasattr(alca, 'setBrush'):
+                    alca.setBrush(QBrush(cor))
+
     def configurar_comum(self, pt_dict: Dict[str, Any], callback_mudanca: Any) -> None:
         self.inicializando = True
         self.pt_dict = pt_dict
@@ -201,10 +280,8 @@ class BaseItemPOI:
         texto_visivel = str(pt_dict.get('texto_visivel', '') or '')
         cast(Any, self).setToolTip(f"ID: {id_atual} | Label: {label_atual}")
         
-        # Estilo visual
-        self.pen_poi = QPen(QColor(100, 255, 100))
-        self.pen_poi.setWidth(2)
-        self.brush_poi = QBrush(QColor(100, 255, 100, 60))
+        # Estilo visual dinâmico
+        self.atualizar_estilo_visual()
         
         # Texto: exibido apenas se texto_visivel estiver preenchido
         self.item_texto = QGraphicsTextItem(texto_visivel, cast(Any, self))
@@ -234,24 +311,58 @@ class BaseItemPOI:
     def set_clique_handler(self, handler: Any) -> None:
         self.clique_handler = handler
 
+    def _definir_cor(self, nova_cor: str) -> None:
+        estado_inicial = copy.deepcopy(self.obter_dict_atualizado())
+        self.pt_dict['cor'] = nova_cor
+        self.carregar_de_dict(self.pt_dict)
+        registrar_movimento_final(self, estado_inicial)
+
+    def _definir_cor_padrao(self) -> None:
+        estado_inicial = copy.deepcopy(self.obter_dict_atualizado())
+        self.pt_dict.pop('cor', None)
+        self.carregar_de_dict(self.pt_dict)
+        registrar_movimento_final(self, estado_inicial)
+
+    def _solicitar_cor_personalizada(self) -> None:
+        cor_inicial = self.obter_cor_ativa()
+        nova_cor = self._obter_cor_dialogo(cor_inicial)
+        if nova_cor.isValid():
+            self._definir_cor(nova_cor.name().upper())
+
+    def _obter_cor_dialogo(self, cor_inicial: QColor) -> QColor:
+        return QColorDialog.getColor(cor_inicial, None, "Escolher Cor Customizada")
+
+    def _executar_menu(self, menu: QMenu, pos: Any) -> Any:
+        return menu.exec(pos) if pos is not None else menu.exec()
+
     def tratar_menu_contexto(self, evento: Any, callback_deletar: Any, acoes_extras: Optional[List[Tuple[str, Callable[[], None]]]] = None) -> None:
         menu = QMenu()
-        acao_renomear = menu.addAction("Renomear Ponto de Interesse")
-        acao_deletar = menu.addAction("Deletar Ponto de Interesse")
-        
-        acoes_map = {}
+
+        montar_submenu_cores(
+            menu=menu,
+            cor_atual=self.pt_dict.get('cor'),
+            callback_definir=self._definir_cor,
+            callback_personalizada=self._solicitar_cor_personalizada,
+            callback_padrao=self._definir_cor_padrao
+        )
+
         if acoes_extras:
             menu.addSeparator()
             for texto, cb in acoes_extras:
                 acao = menu.addAction(texto)
-                acoes_map[acao] = cb
-                
-        pos = evento.screenPos() if hasattr(evento, 'screenPos') else None
-        if pos is not None:
-            acao = menu.exec(pos)
-        else:
-            acao = menu.exec()
-        
+                acao.triggered.connect(cb)
+
+        menu.addSeparator()
+        acao_renomear = menu.addAction("Renomear Ponto de Interesse")
+        acao_deletar = menu.addAction("Deletar Ponto de Interesse")
+
+        pos = None
+        if hasattr(evento, 'screenPos'):
+            sp = evento.screenPos()
+            pos = sp.toPoint() if hasattr(sp, 'toPoint') else sp
+
+        acao = self._executar_menu(menu, pos)
+
         if acao == acao_renomear:
             id_atual = str(self.pt_dict.get('id', ''))
             label_atual = str(self.pt_dict.get('label', ''))
@@ -264,17 +375,20 @@ class BaseItemPOI:
                 novo_label = vals[1]
                 nova_cor = vals[2] if len(vals) > 2 else ""
                 novo_texto_visivel = vals[3] if len(vals) > 3 else ""
-                
+
                 estado_inicial = copy.deepcopy(self.obter_dict_atualizado())
                 self.pt_dict['id'] = novo_id
                 self.pt_dict['label'] = novo_label
                 if nova_cor:
                     self.pt_dict['cor'] = nova_cor
+                elif 'cor' in self.pt_dict:
+                    del self.pt_dict['cor']
                 if novo_texto_visivel:
                     self.pt_dict['texto_visivel'] = novo_texto_visivel
                 elif 'texto_visivel' in self.pt_dict:
                     del self.pt_dict['texto_visivel']
-                
+
+                self.atualizar_estilo_visual()
                 self.atualizar_texto_exibicao()
                 if hasattr(self, 'atualizar_posicao_texto'):
                     getattr(self, 'atualizar_posicao_texto')()
@@ -283,9 +397,7 @@ class BaseItemPOI:
         elif acao == acao_deletar:
             if callback_deletar:
                 callback_deletar(self)
-                
-        elif acao in acoes_map:
-            acoes_map[acao]()
+
 
 
 class ItemBoundingRetangulo(QGraphicsRectItem, BaseItemPOI):
@@ -315,6 +427,8 @@ class ItemBoundingRetangulo(QGraphicsRectItem, BaseItemPOI):
 
     def carregar_de_dict(self, pt_dict: Dict[str, Any]) -> None:
         self.inicializando = True
+        if 'cor' not in pt_dict:
+            self.pt_dict.pop('cor', None)
         self.pt_dict.update(pt_dict)
         box = self.pt_dict['retangulo']
         w, h = box['comprimento'], box['largura']
@@ -322,9 +436,11 @@ class ItemBoundingRetangulo(QGraphicsRectItem, BaseItemPOI):
         self.setPos(box['x'] - w / 2, box['y'] - h / 2)
         self.setRotation(box.get('angulo_graus_x100', 0) / 100.0)
         self.setTransformOriginPoint(self.rect().center())
+        self.atualizar_estilo_visual()
         self.atualizar_texto_exibicao()
         self.atualizar_posicao_texto()
         self.inicializando = False
+
 
     def contextMenuEvent(self, evento: Any) -> None:
         acoes_extras = []
@@ -449,15 +565,19 @@ class ItemBoundingQuadrado(QGraphicsRectItem, BaseItemPOI):
 
     def carregar_de_dict(self, pt_dict: Dict[str, Any]) -> None:
         self.inicializando = True
+        if 'cor' not in pt_dict:
+            self.pt_dict.pop('cor', None)
         self.pt_dict.update(pt_dict)
         box = self.pt_dict['quadrado']
         lado = box['lado']
         self.setRect(0, 0, lado, lado)
         self.setPos(box['x'] - lado / 2, box['y'] - lado / 2)
         self.setTransformOriginPoint(self.rect().center())
+        self.atualizar_estilo_visual()
         self.atualizar_texto_exibicao()
         self.atualizar_posicao_texto()
         self.inicializando = False
+
 
     def contextMenuEvent(self, evento: Any) -> None:
         acoes_extras = []
@@ -551,14 +671,18 @@ class ItemBoundingCirculo(QGraphicsEllipseItem, BaseItemPOI):
 
     def carregar_de_dict(self, pt_dict: Dict[str, Any]) -> None:
         self.inicializando = True
+        if 'cor' not in pt_dict:
+            self.pt_dict.pop('cor', None)
         self.pt_dict.update(pt_dict)
         circ = self.pt_dict['circulo']
         r = circ['raio']
         self.setRect(-r, -r, 2 * r, 2 * r)
         self.setPos(circ['x'], circ['y'])
+        self.atualizar_estilo_visual()
         self.atualizar_texto_exibicao()
         self.atualizar_posicao_texto()
         self.inicializando = False
+
 
     def contextMenuEvent(self, evento: Any) -> None:
         acoes_extras = []
@@ -618,7 +742,10 @@ class AlcaVertice(QGraphicsEllipseItem):
         super().__init__(-7, -7, 14, 14, pai)
         self.indice = indice
         self.item_pai = pai
-        cor = QColor(100, 100, 255) if isinstance(pai, ItemBoundingPoligono) else QColor(100, 255, 100)
+        if hasattr(pai, 'obter_cor_ativa'):
+            cor = pai.obter_cor_ativa()
+        else:
+            cor = QColor(100, 100, 255) if isinstance(pai, ItemBoundingPoligono) else QColor(100, 255, 100)
         self.setBrush(QBrush(cor))
         self.setPen(QPen(QColor(0, 0, 0), 1))
         self.setFlag(QGraphicsEllipseItem.GraphicsItemFlag.ItemIsMovable)
@@ -660,13 +787,6 @@ class ItemBoundingPoligono(QGraphicsPolygonItem, BaseItemPOI):
         self.pontos = [QPointF(coords[i], coords[i+1]) for i in range(0, len(coords), 2)]
         
         self.setPolygon(QPolygonF(self.pontos))
-        # Estilo azul para Área Livre
-        self.pen_poi = QPen(QColor(100, 100, 255))
-        self.pen_poi.setWidth(2)
-        self.brush_poi = QBrush(QColor(100, 100, 255, 60))
-        
-        self.setPen(self.pen_poi)
-        self.setBrush(self.brush_poi)
         
         self.redimensionando = False
         self.rotacionando = False
@@ -677,11 +797,14 @@ class ItemBoundingPoligono(QGraphicsPolygonItem, BaseItemPOI):
             alca.setPos(p)
             self.alcas.append(alca)
             
+        self.atualizar_estilo_visual()
         self.atualizar_posicao_texto()
         self.inicializando = False
 
     def carregar_de_dict(self, pt_dict: Dict[str, Any]) -> None:
         self.inicializando = True
+        if 'cor' not in pt_dict:
+            self.pt_dict.pop('cor', None)
         self.pt_dict.update(pt_dict)
         coords = self.pt_dict['poligono']['coordenadas']
         self.pontos = [QPointF(coords[i], coords[i+1]) for i in range(0, len(coords), 2)]
@@ -697,12 +820,14 @@ class ItemBoundingPoligono(QGraphicsPolygonItem, BaseItemPOI):
             alca = AlcaVertice(i, self)
             alca.setPos(p)
             self.alcas.append(alca)
+        self.atualizar_estilo_visual()
         self.atualizar_posicao_texto()
         id_atual = self.pt_dict.get('id', '')
         label_atual = self.pt_dict.get('label', '')
         self.item_texto.setPlainText(str(id_atual if id_atual else label_atual))
         cast(Any, self).setToolTip(f"ID: {id_atual} | Label: {label_atual}")
         self.inicializando = False
+
 
     def atualizar_ponto(self, indice: int, pos: QPointF) -> None:
         self.pontos[indice] = pos
@@ -737,47 +862,19 @@ class ItemBoundingPoligono(QGraphicsPolygonItem, BaseItemPOI):
         return super().itemChange(mudanca, valor)
 
     def contextMenuEvent(self, evento: Any) -> None:
-        menu = QMenu()
-        acao_renomear = menu.addAction("Renomear Ponto de Interesse")
-        acao_deletar = menu.addAction("Deletar Ponto de Interesse")
-        acao_add_ponto = menu.addAction("Adicionar Ponto")
-        acao = menu.exec(evento.screenPos())
-        
-        if acao == acao_renomear:
-            id_atual = str(self.pt_dict.get('id', ''))
-            label_atual = str(self.pt_dict.get('label', ''))
-            cor_atual = str(self.pt_dict.get('cor', ''))
-            texto_visivel_atual = str(self.pt_dict.get('texto_visivel', ''))
-            dialogo = DialogoEdicaoPOI(id_atual, label_atual, cor_atual, texto_visivel_atual)
-            if dialogo.exec() == QDialog.DialogCode.Accepted:
-                vals = dialogo.obter_valores()
-                novo_id = vals[0]
-                novo_label = vals[1]
-                nova_cor = vals[2] if len(vals) > 2 else ""
-                novo_texto_visivel = vals[3] if len(vals) > 3 else ""
-                
-                self.pt_dict['id'] = novo_id
-                self.pt_dict['label'] = novo_label
-                if nova_cor:
-                    self.pt_dict['cor'] = nova_cor
-                if novo_texto_visivel:
-                    self.pt_dict['texto_visivel'] = novo_texto_visivel
-                elif 'texto_visivel' in self.pt_dict:
-                    del self.pt_dict['texto_visivel']
-                    
-                self.atualizar_texto_exibicao()
-                self.marcar_alterado()
-        elif acao == acao_deletar:
-            self.callback_deletar(self)
-        elif acao == acao_add_ponto:
+        def callback_add_ponto() -> None:
             p = self.mapFromScene(evento.pos())
             self.pontos.append(p)
             self.setPolygon(QPolygonF(self.pontos))
-            alca = AlcaVertice(len(self.pontos)-1, self)
+            alca = AlcaVertice(len(self.pontos) - 1, self)
             alca.setPos(p)
             self.alcas.append(alca)
             self.atualizar_posicao_texto()
             self.marcar_alterado()
+
+        acoes_extras = [("Adicionar Ponto", callback_add_ponto)]
+        self.tratar_menu_contexto(evento, self.callback_deletar, acoes_extras)
+
 
     def obter_dict_atualizado(self) -> Dict[str, Any]:
         pos = self.pos()
@@ -1541,26 +1638,13 @@ class ItemTrajetoLinha(QGraphicsPathItem, BaseItemPOI):
         acao_inserir_no.triggered.connect(lambda: self.inserir_no_em_posicao(pos_cena))
         
         menu.addSeparator()
-        menu_cores = menu.addMenu("Mudar Cor")
-        cor_atual = (self.cor_hex or "#FFD600").upper()
-        for nome_cor, hex_cor in PALETA_CORES_ROCHA:
-            is_ativa = (cor_atual == hex_cor.upper())
-            prefixo = "● " if is_ativa else "   "
-            acao_cor = menu_cores.addAction(f"{prefixo}{nome_cor}")
-            acao_cor.setCheckable(True)
-            if is_ativa:
-                acao_cor.setChecked(True)
-            acao_cor.triggered.connect(lambda checked=False, c=hex_cor: self._definir_cor(c))
+        montar_submenu_cores(
+            menu=menu,
+            cor_atual=self.cor_hex or "#FFD600",
+            callback_definir=self._definir_cor,
+            callback_personalizada=self._solicitar_cor_personalizada
+        )
 
-        menu_cores.addSeparator()
-        eh_custom = not any(cor_atual == h.upper() for _, h in PALETA_CORES_ROCHA)
-        prefixo_custom = "● " if eh_custom else "   "
-        texto_custom = f"{prefixo_custom}Personalizada ({cor_atual})..." if eh_custom else "   Personalizada..."
-        acao_custom_cor = menu_cores.addAction(texto_custom)
-        acao_custom_cor.setCheckable(True)
-        if eh_custom:
-            acao_custom_cor.setChecked(True)
-        acao_custom_cor.triggered.connect(self._solicitar_cor_personalizada)
             
         menu_estilo = menu.addMenu("Estilo do Traço (FEMEMG)")
         estilo_atual = str(self.pt_dict.get('linha', {}).get('estilo', 'TRACEJADO'))
@@ -2328,11 +2412,15 @@ class WidgetEditorMapas(QWidget):
         
     def _atualizar_lista_mapas(self, *args: Any) -> None:
         """Reconstrói a lista lendo do CroquiModel."""
-        campos_ignorados = (
-            'referencias', 'pontos_de_interesse', 'conteudo', 'descricao',
-            'notas', 'observacao', 'observacoes', 'titulo', 'nome'
+        campos_em_escopo = (
+            'caminho_imagem_mapa',
+            'mapas',
+            'picos',
+            'setores_ou_grupos',
+            'setores',
+            'mapas_gerais',
         )
-        if len(args) >= 2 and args[1] in campos_ignorados:
+        if len(args) >= 2 and args[1] not in campos_em_escopo:
             return
             
         from PySide6.QtWidgets import QListWidgetItem
