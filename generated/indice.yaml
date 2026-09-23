@@ -104,11 +104,8 @@ croquis:
     longitude: -456009710
 - id: br_mg_caete_monte_alvao
   nome: Monte Alvão - Caeté
-  descricao: 'O Alto Monte Alvão, localizado em Caeté, MG, é uma das áreas de escalada
-    mais tradicionais e belas da região, oferecendo vias de diversos estilos e dificuldades
-    em quartzito de alta qualidade.
-
-    '
+  descricao: |
+    O Alto Monte Alvão, localizado em Caeté, MG, é uma das áreas de escalada mais tradicionais e belas da região, oferecendo vias de diversos estilos e dificuldades em quartzito de alta qualidade.
   caminho_relativo: br_mg_caete_monte_alvao/compilado.binarypb
   checksum_sha256_croqui: 574b66eb17125a6cd4f003dfdac8bf80abc4d9dc007c6c272d4a5d0ad5f6473f
   checksum_sha256_thumbnail: 03f79ad397717faec98f8288a15d55635b103c61f9b2be5cf92a56b1d804df95
@@ -409,3 +406,20 @@ croquis:
   localizacao:
     latitude: -194618320
     longitude: -442793680
+- id: br_rj_nova_friburgobom_jardim_capelinha
+  nome: Capelinha
+  descricao: Setor Capelinha localizado entre os municipios de Nova Friburgo e Bom
+    Jardim /RJ
+  caminho_relativo: br_rj_nova_friburgobom_jardim_capelinha/compilado.binarypb
+  checksum_sha256_croqui: 8fa8a3a96901e85f996187366d9e48782e247895c9100dffadf3af9b41268ea8
+  checksum_sha256_thumbnail: e188f6665ef5d9916e72701bdfd1677c2cf22f480d626f8d6ac7d9d1fbff1230
+  timestamp_update: '2026-09-23T14:31:54Z'
+  precomputados:
+    total_escaladas: 15
+    total_setores: 1
+    total_grupos: 0
+    total_esportivas: 15
+    tamanho_download_bytes: 9651894
+  localizacao:
+    latitude: -222285860
+    longitude: -424249510
