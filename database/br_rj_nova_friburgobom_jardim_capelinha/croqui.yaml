@@ -39,3 +39,5 @@ botoes:
   destino:
     secao_textual:
       caminho: comunidade.md
+revisado_manualmente: true
+publicar_croqui: true
