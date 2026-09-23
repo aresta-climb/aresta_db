@@ -406,3 +406,20 @@ croquis:
   localizacao:
     latitude: -194618320
     longitude: -442793680
+- id: br_rj_nova_friburgobom_jardim_capelinha
+  nome: Capelinha
+  descricao: Setor Capelinha localizado entre os municipios de Nova Friburgo e Bom
+    Jardim /RJ
+  caminho_relativo: br_rj_nova_friburgobom_jardim_capelinha/compilado.binarypb
+  checksum_sha256_croqui: 8fa8a3a96901e85f996187366d9e48782e247895c9100dffadf3af9b41268ea8
+  checksum_sha256_thumbnail: e188f6665ef5d9916e72701bdfd1677c2cf22f480d626f8d6ac7d9d1fbff1230
+  timestamp_update: '2026-09-23T14:31:54Z'
+  precomputados:
+    total_escaladas: 15
+    total_setores: 1
+    total_grupos: 0
+    total_esportivas: 15
+    tamanho_download_bytes: 9651894
+  localizacao:
+    latitude: -222285860
+    longitude: -424249510

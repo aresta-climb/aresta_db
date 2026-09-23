@@ -42,6 +42,8 @@
     - **destino**:
       - **secao_textual**:
         - **conteudo**: [Instagram @friburgo_climb](https://www.instagram.com/friburgo_climb?stkn=OHFmZnN4c2h5cmlt)
+- **revisado_manualmente**: True
+- **publicar_croqui**: True
 
 
 ## Parte: setor_de_baixo_caverna (não listada em partes.json)

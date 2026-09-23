@@ -1621,6 +1621,8 @@ botoes:
   destino:
     secao_textual:
       conteudo: '[Instagram @friburgo_climb](https://www.instagram.com/friburgo_climb?stkn=OHFmZnN4c2h5cmlt)'
+revisado_manualmente: true
+publicar_croqui: true
 arquivos_externos:
 - caminho: imagens/setor_baixo_visao_externa_p0.webp
   checksum_sha256: b6d17e1310daafb6d4ccc46de1214c98858778b659797531dbd6aaabeafc11f2
