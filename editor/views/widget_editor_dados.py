@@ -1,4 +1,4 @@
-from typing import Optional, Any, Callable, List, Dict, Set, Tuple, Union
+from typing import Optional, Any, Callable, List, Dict, Set, Tuple, Union, cast
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
@@ -2399,13 +2399,13 @@ class ArvoreDadosTreeView(QTreeView):
                 caminho = dados.get("caminho")
                 tree_model = self.model()
                 if caminho and hasattr(tree_model, "find_index_for_path"):
-                    idx = tree_model.find_index_for_path(caminho)
-                    if idx.isValid():
+                    idx = cast(QModelIndex, tree_model.find_index_for_path(caminho))
+                    if isinstance(idx, QModelIndex) and idx.isValid():
                         return idx
                 id_nativo = dados.get("id_nativo")
                 if id_nativo and hasattr(tree_model, "find_index_for_message_id"):
-                    idx = tree_model.find_index_for_message_id(id_nativo)
-                    if idx.isValid():
+                    idx = cast(QModelIndex, tree_model.find_index_for_message_id(id_nativo))
+                    if isinstance(idx, QModelIndex) and idx.isValid():
                         return idx
             except Exception:
                 pass
