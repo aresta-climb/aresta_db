@@ -2,6 +2,8 @@
 
 Veja `proposal.md - Why`. Atualmente, a integração com o sistema operacional no Editor Aresta está dispersa em arquivos no diretório `editor/core/` (`integracao_windows.py`, `servico_loja.py`) e acoplada a chamadas do Windows no `main.py`. Além disso, o pipeline de release em `.github/workflows/release-editor.yml` roda unicamente em runners `windows-latest`.
 
+Recentemente, a arquitetura de empacotamento do editor foi otimizada para o modelo `onedir` (pasta `dist/EditorAresta` gerada via `COLLECT` no PyInstaller) e o arranque do aplicativo foi acelerado para < 1s via carregamento sob demanda (`__getattr__` em `main.py`). Este design capitaliza diretamente essas melhorias recentes.
+
 ## Alinhamento com os Princípios de Engenharia Aresta
 
 Esta proposta e design seguem estritamente as diretrizes inegociáveis de `AGENTS.md` e da skill `principios_desenvolvimento`:
@@ -20,7 +22,8 @@ Esta proposta e design seguem estritamente as diretrizes inegociáveis de `AGENT
 - Centralizar integrações de sistema operacional em uma biblioteca limpa sob `editor/plataforma/`.
 - Garantir via teste de linting baseado em AST que nenhum módulo externo acesse APIs nativas de plataforma.
 - Criar o manifesto Flatpak e arquivos AppStream para publicação no Flathub.
-- Criar o pipeline de empacotamento, assinatura Developer ID, notarização Apple e geração de feed Sparkle (`appcast.xml`) para macOS ARM64 hospedado no Cloudflare R2.
+- Criar o pipeline de empacotamento, assinatura Developer ID, notarização Apple e geração de feed Sparkle (`appcast.xml`) para macOS ARM64 hospedado no Cloudflare R2, baseado na estrutura `onedir` já consolidada.
+- Preservar o arranque instantâneo (< 1s) garantindo que a inicialização de plataforma não realize importações pesadas síncronas.
 - Unificar a cadência de lançamentos: macOS e Linux publicam na track de produção com deploys automatizados e rápidos.
 
 **Non-Goals:**
@@ -31,9 +34,8 @@ Esta proposta e design seguem estritamente as diretrizes inegociáveis de `AGENT
 ## Decisions
 
 ### Decisão 1: Biblioteca `editor/plataforma/` com Fachada Agnóstica e Teste AST
-- **Abordagem:** Criar a biblioteca `editor/plataforma/` contendo `__init__.py` (fachada pública declarativa), `contrato.py` (protocolo simples), `windows/`, `linux/` e `macos/`. O código do editor consome apenas funções agnósticas (ex: `configurar_ambiente_plataforma()`, `verificar_atualizacoes_plataforma()`).
-- **Alternativas consideradas:**
-  - Manter verificações `if sys.platform == "win32"` espalhadas no código: Rejeitado por degradar a manutenibilidade e violar o princípio *Library-First*.
+- **Abordagem:** Criar a biblioteca `editor/plataforma/` contendo `__init__.py` (fachada pública declarativa e ultraleve), `contrato.py` (protocolo simples), `windows/`, `linux/` e `macos/`. O código do editor consome apenas funções agnósticas (ex: `configurar_ambiente_plataforma()`, `verificar_atualizacoes_plataforma()`).
+- **Preservação de Performance:** A fachada `editor.plataforma` não importa módulos pesados de rede ou UI no topo do arquivo, preservando a inicialização rápida (< 1s) conquistada em `main.py`.
 - **Garantia Arquitetural:** Teste de integração (`tests/fronteiras_plataforma_test.py`) utilizando o módulo `ast` do Python que varre `editor/` e garante que nenhuma importação de `winrt`, `ctypes.windll`, `objc` ou módulos de plataforma ocorra fora de `editor/plataforma/`.
 
 ### Decisão 2: Linux via Flatpak / Flathub (Track Única de Produção)
@@ -43,10 +45,8 @@ Esta proposta e design seguem estritamente as diretrizes inegociáveis de `AGENT
   - AppImage: Considerado, mas o Flatpak oferece integração superior com lojas de aplicativos do ecossistema Linux (GNOME Software, KDE Discover).
 
 ### Decisão 3: macOS via DMG Notarizado ARM64 e Sparkle Framework no Cloudflare R2
-- **Abordagem:** Runner `macos-14` do GitHub Actions compila com PyInstaller para ARM64, assina com certificado *Developer ID Application*, submete ao `xcrun notarytool`, gera o `.dmg` e atualiza o feed `appcast.xml` no Cloudflare R2. O aplicativo integra o Sparkle Framework para auto-update in-app nativo.
-- **Alternativas consideradas:**
-  - Mac App Store: Rejeitada devido a exigências restritivas de App Sandbox que conflitam com Git (`pygit2`), servidores locais e PyInstaller.
-  - Verificação manual in-app de JSON: O Sparkle oferece experiência superior ao usuário (download em segundo plano, validação criptográfica Ed25519 e substituição atômica do `.app`).
+- **Abordagem:** Runner `macos-14` do GitHub Actions compila com PyInstaller para ARM64 em modo `onedir`/bundle `.app`, assina cada binário e framework com certificado *Developer ID Application*, submete ao `xcrun notarytool`, empacota em `.dmg` e atualiza o feed `appcast.xml` no Cloudflare R2. O aplicativo integra o Sparkle Framework para auto-update in-app nativo.
+- **Aproveitamento da Arquitetura `onedir`:** A recente transição do PyInstaller para `COLLECT` elimina completamente incompatibilidades com assinatura e notarização no macOS, permitindo assinar os binários diretamente na árvore de diretório do bundle.
 
 ### Decisão 4: Eliminação de Track Beta no Linux e macOS
 - **Abordagem:** No Linux e macOS, todo lançamento é oficial e direto. Apenas o Windows mantém o canal Beta no Cloudflare R2.

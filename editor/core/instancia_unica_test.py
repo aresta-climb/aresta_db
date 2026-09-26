@@ -95,10 +95,11 @@ def test_ativar_janela_existente_com_janela_visivel(qtbot):
     janela.show()
 
     with patch.object(QApplication, "activeWindow", return_value=None):
-        with patch("editor.core.integracao_windows.trazer_janela_para_frente", return_value=True) as mock_win32:
-            resultado = ativar_janela_existente()
-            assert resultado is True
-            mock_win32.assert_called_once_with(int(janela.winId()))
+        with patch.object(QApplication, "topLevelWidgets", return_value=[janela]):
+            with patch("editor.core.integracao_windows.trazer_janela_para_frente", return_value=True) as mock_win32:
+                resultado = ativar_janela_existente()
+                assert resultado is True
+                mock_win32.assert_called_once_with(int(janela.winId()))
 
 
 def test_ativar_janela_existente_com_janela_minimizada(qtbot):
@@ -111,10 +112,11 @@ def test_ativar_janela_existente_com_janela_minimizada(qtbot):
     janela.showMinimized()
 
     with patch.object(QApplication, "activeWindow", return_value=None):
-        with patch("editor.core.integracao_windows.trazer_janela_para_frente", return_value=True):
-            resultado = ativar_janela_existente()
-            assert resultado is True
-            assert not janela.isMinimized()
+        with patch.object(QApplication, "topLevelWidgets", return_value=[janela]):
+            with patch("editor.core.integracao_windows.trazer_janela_para_frente", return_value=True):
+                resultado = ativar_janela_existente()
+                assert resultado is True
+                assert not janela.isMinimized()
 
 
 def test_ativar_janela_existente_com_active_window():

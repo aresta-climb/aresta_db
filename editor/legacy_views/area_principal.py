@@ -598,7 +598,8 @@ class JanelaPrincipal(QMainWindow):
                 self._trocar_pagina(2)
             else:
                 self.pagina_mapas.garantir_editor_criado()
-            if ctx.arquivo_mapa and hasattr(self.pagina_mapas, 'editor') and self.croqui_model:
+            editor = getattr(self.pagina_mapas, 'editor', None)
+            if ctx.arquivo_mapa and editor is not None and self.croqui_model:
                 croqui_ro = self.croqui_model.obter_croqui_readonly() if hasattr(self.croqui_model, "obter_croqui_readonly") else getattr(self.croqui_model, "croqui", None)
                 if croqui_ro:
                     encontrou = False
@@ -608,10 +609,10 @@ class JanelaPrincipal(QMainWindow):
                             for m_idx, mapa in enumerate(pico.mapas_gerais.conteudo.mapas):
                                 from pathlib import Path
                                 if mapa.caminho_imagem_mapa and Path(mapa.caminho_imagem_mapa).name == ctx.arquivo_mapa:
-                                    if hasattr(self.pagina_mapas.editor, 'selecionar_mapa_por_indices'):
-                                        self.pagina_mapas.editor.selecionar_mapa_por_indices(p_idx, -1, m_idx)
+                                    if hasattr(editor, 'selecionar_mapa_por_indices'):
+                                        editor.selecionar_mapa_por_indices(p_idx, -1, m_idx)
                                     else:
-                                        self.pagina_mapas.editor.set_mapa_atual(mapa, p_idx, -1, m_idx)
+                                        editor.set_mapa_atual(mapa, p_idx, -1, m_idx)
                                     encontrou = True
                                     break
                         if encontrou: break
@@ -621,30 +622,33 @@ class JanelaPrincipal(QMainWindow):
                             for m_idx, mapa in enumerate(sg.setor.conteudo.mapas):
                                 from pathlib import Path
                                 if mapa.caminho_imagem_mapa and Path(mapa.caminho_imagem_mapa).name == ctx.arquivo_mapa:
-                                    if hasattr(self.pagina_mapas.editor, 'selecionar_mapa_por_indices'):
-                                        self.pagina_mapas.editor.selecionar_mapa_por_indices(p_idx, sg_idx, m_idx)
+                                    if hasattr(editor, 'selecionar_mapa_por_indices'):
+                                        editor.selecionar_mapa_por_indices(p_idx, sg_idx, m_idx)
                                     else:
-                                        self.pagina_mapas.editor.set_mapa_atual(mapa, p_idx, sg_idx, m_idx)
+                                        editor.set_mapa_atual(mapa, p_idx, sg_idx, m_idx)
                                     encontrou = True
                                     break
-            elif ctx.caminho_local_arvore and hasattr(self.pagina_mapas, 'editor'):
-                # Busca via node path
-                import re
-                p_idx, sg_idx, s_idx, m_idx = -1, -1, -1, -1
-                match_s = re.search(r'expando:picos/item:(\d+)/expando:setores_ou_grupos/item:(\d+).*?expando:setores/item:(\d+).*?expando:mapas/item:(\d+)', ctx.caminho_local_arvore)
-                if match_s:
-                    p_idx, sg_idx, s_idx, m_idx = int(match_s.group(1)), int(match_s.group(2)), int(match_s.group(3)), int(match_s.group(4))
-                else:
-                    match_mg = re.search(r'expando:picos/item:(\d+).*?mapas_gerais.*?item:(\d+)', ctx.caminho_local_arvore)
-                    if match_mg:
-                        p_idx, m_idx = int(match_mg.group(1)), int(match_mg.group(2))
+            elif ctx.caminho_local_arvore:
+                self.pagina_mapas.garantir_editor_criado()
+                editor = getattr(self.pagina_mapas, 'editor', None)
+                if editor is not None:
+                    # Busca via node path
+                    import re
+                    p_idx, sg_idx, s_idx, m_idx = -1, -1, -1, -1
+                    match_s = re.search(r'expando:picos/item:(\d+)/expando:setores_ou_grupos/item:(\d+).*?expando:setores/item:(\d+).*?expando:mapas/item:(\d+)', ctx.caminho_local_arvore)
+                    if match_s:
+                        p_idx, sg_idx, s_idx, m_idx = int(match_s.group(1)), int(match_s.group(2)), int(match_s.group(3)), int(match_s.group(4))
                     else:
-                        match = re.search(r'expando:picos/item:(\d+)/expando:setores_ou_grupos/item:(\d+).*?expando:mapas/item:(\d+)', ctx.caminho_local_arvore)
-                        if match:
-                            p_idx, sg_idx, m_idx = int(match.group(1)), int(match.group(2)), int(match.group(3))
-                
-                if p_idx >= 0 and hasattr(self.pagina_mapas.editor, 'selecionar_mapa_por_indices'):
-                    self.pagina_mapas.editor.selecionar_mapa_por_indices(p_idx, sg_idx, m_idx, s_idx)
+                        match_mg = re.search(r'expando:picos/item:(\d+).*?mapas_gerais.*?item:(\d+)', ctx.caminho_local_arvore)
+                        if match_mg:
+                            p_idx, m_idx = int(match_mg.group(1)), int(match_mg.group(2))
+                        else:
+                            match = re.search(r'expando:picos/item:(\d+)/expando:setores_ou_grupos/item:(\d+).*?expando:mapas/item:(\d+)', ctx.caminho_local_arvore)
+                            if match:
+                                p_idx, sg_idx, m_idx = int(match.group(1)), int(match.group(2)), int(match.group(3))
+                    
+                    if p_idx >= 0 and hasattr(editor, 'selecionar_mapa_por_indices'):
+                        editor.selecionar_mapa_por_indices(p_idx, sg_idx, m_idx, s_idx)
         elif ctx.pagina == "historico":
             if self.stack.currentIndex() != 3:
                 self._trocar_pagina(3)

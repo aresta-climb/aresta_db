@@ -4,7 +4,7 @@
 TBD - created by archiving change editor-crash-reporting-and-command-journal. Update Purpose after archive.
 ## Requirements
 ### Requirement: Inicialização da Telemetria e Captura Global de Erros
-O Editor Aresta SHALL prover a biblioteca `editor/core/telemetria.py` para inicializar o cliente Sentry no início do ciclo de vida da aplicação (`editor/main.py`) e capturar de forma global e silenciosa quaisquer exceções não tratadas disparadas na thread principal (`sys.excepthook`) e em threads secundárias (`threading.excepthook`).
+O Editor Aresta SHALL prover a biblioteca `editor/core/telemetria.py` para inicializar o cliente Sentry de forma leve no ciclo de vida da aplicação (`editor/main.py`), desativando a detecção e ativação automática de integrações com bibliotecas de terceiros (`auto_enabling_integrations=False`), e capturar de forma global e silenciosa quaisquer exceções não tratadas disparadas na thread principal (`sys.excepthook`) e em threads secundárias (`threading.excepthook`).
 
 #### Scenario: Exceção não tratada na interface gráfica
 - **WHEN** uma exceção não tratada é disparada em um callback ou slot do PyQt6
@@ -13,6 +13,11 @@ O Editor Aresta SHALL prover a biblioteca `editor/core/telemetria.py` para inici
 #### Scenario: Exceção em thread de sincronização em segundo plano
 - **WHEN** uma thread de background (worker) sofre uma falha fatal não capturada
 - **THEN** o `threading.excepthook` intercepta o erro e submete o relatório de diagnóstico ao Sentry.
+
+#### Scenario: Inicialização rápida sem auto-integrações externas
+- **WHEN** a função de inicialização da telemetria for executada no arranque da aplicação
+- **THEN** o cliente Sentry SHALL ser inicializado com `auto_enabling_integrations=False`
+- **THEN** o tempo gasto na inicialização do Sentry não SHALL bloquear a inicialização ou renderização da interface gráfica.
 
 ### Requirement: Sanitização de Dados Sensíveis e Nomes de Usuário (PII)
 O sistema SHALL sanitizar todos os eventos e breadcrumbs antes do envio ao Sentry através do interceptador `before_send`, substituindo caminhos absolutos do sistema operacional contendo nomes de usuários por `%APPDATA%`, `%LOCALAPPDATA%` ou `%USERPROFILE%`, e removendo quaisquer tokens de autenticação ou credenciais sensíveis.

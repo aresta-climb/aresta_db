@@ -72,6 +72,8 @@ def test_janela_roteamento_foco(qtbot):
     janela.croqui_model = MagicMock()
     janela.croqui_model.obter_croqui_readonly.return_value = croqui_ro
 
+    janela.pagina_mapas.garantir_editor_criado()
+    assert janela.pagina_mapas.editor is not None
     with patch.object(janela.pagina_mapas.editor, 'selecionar_mapa_por_indices') as mock_selecionar:
         # Roteamento para Dados
         janela.stack.setCurrentIndex(1) # Muda para imagens antes

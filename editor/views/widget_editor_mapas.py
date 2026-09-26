@@ -2458,6 +2458,15 @@ class WidgetEditorMapas(QWidget):
                         item = QListWidgetItem(nome)
                         item.setData(Qt.ItemDataRole.UserRole, ('setor', p_idx, sg_idx, m_idx))
                         self.list_widget.addItem(item)
+
+                    # Mapas de Escaladas do Setor
+                    for e_idx, escalada in enumerate(sg.setor.conteudo.escaladas):
+                        for m_idx, mapa in enumerate(escalada.mapas):
+                            if not mapa.caminho_imagem_mapa: continue
+                            nome = Path(mapa.caminho_imagem_mapa).name
+                            item = QListWidgetItem(nome)
+                            item.setData(Qt.ItemDataRole.UserRole, ('escalada_setor', p_idx, sg_idx, e_idx, m_idx))
+                            self.list_widget.addItem(item)
                 
                 # Mapas do Grupo e seus Sub-setores
                 if getattr(sg, 'grupo', None):
@@ -2475,6 +2484,15 @@ class WidgetEditorMapas(QWidget):
                             item = QListWidgetItem(nome)
                             item.setData(Qt.ItemDataRole.UserRole, ('subsetor', p_idx, sg_idx, s_idx, m_idx))
                             self.list_widget.addItem(item)
+
+                        # Mapas de Escaladas do Sub-setor
+                        for e_idx, escalada in enumerate(subsetor.conteudo.escaladas):
+                            for m_idx, mapa in enumerate(escalada.mapas):
+                                if not mapa.caminho_imagem_mapa: continue
+                                nome = Path(mapa.caminho_imagem_mapa).name
+                                item = QListWidgetItem(nome)
+                                item.setData(Qt.ItemDataRole.UserRole, ('escalada_subsetor', p_idx, sg_idx, s_idx, e_idx, m_idx))
+                                self.list_widget.addItem(item)
 
         # Restaura a seleção da lista
         if selected_data:
@@ -2508,7 +2526,13 @@ class WidgetEditorMapas(QWidget):
             tipo = 'setor'
             s_idx = -1
         elif len(indices) == 5:
-            tipo, p_idx, sg_idx, s_idx, m_idx = indices
+            if indices[0] == 'escalada_setor':
+                tipo, p_idx, sg_idx, e_idx, m_idx = indices
+                s_idx = -1
+            else:
+                tipo, p_idx, sg_idx, s_idx, m_idx = indices
+        elif len(indices) == 6:
+            tipo, p_idx, sg_idx, s_idx, e_idx, m_idx = indices
         else:
             tipo, p_idx, sg_idx, m_idx = indices
             s_idx = -1
@@ -2523,11 +2547,13 @@ class WidgetEditorMapas(QWidget):
                 mapa = croqui_msg.picos[p_idx].setores_ou_grupos[sg_idx].grupo.conteudo.mapas[m_idx]
             elif tipo == 'subsetor':
                 mapa = croqui_msg.picos[p_idx].setores_ou_grupos[sg_idx].grupo.conteudo.setores[s_idx].conteudo.mapas[m_idx]
+            elif tipo == 'escalada_setor':
+                mapa = croqui_msg.picos[p_idx].setores_ou_grupos[sg_idx].setor.conteudo.escaladas[e_idx].mapas[m_idx]
+            elif tipo == 'escalada_subsetor':
+                mapa = croqui_msg.picos[p_idx].setores_ou_grupos[sg_idx].grupo.conteudo.setores[s_idx].conteudo.escaladas[e_idx].mapas[m_idx]
             else: # setor
                 mapa = croqui_msg.picos[p_idx].setores_ou_grupos[sg_idx].setor.conteudo.mapas[m_idx]
                 
-            # O set_mapa_atual interno ainda não precisa do tipo pois ele emite sinais usando MapasController
-            # que depois vai salvar_mapa. Precisamos ver se o MapasController também requer ajuste.
             self.set_mapa_atual(mapa, p_idx, sg_idx, m_idx, s_idx=s_idx, tipo=tipo)
         except IndexError:
             pass # Prevenção de falhas de sincronia na deleção

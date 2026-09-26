@@ -392,25 +392,25 @@ def corrigir_setores_ou_grupos_recursivo(setores_ou_grupos_raw: List[Any], pico_
                             mapa["caminho_imagem_mapa"] = novo_caminho_img
                             modificado = True
 
-            # 2.1 Corrige imagens em via_multiplas_enfiadas dentro de escaladas/vias no frontmatter
+            # 2.1 Corrige imagens de mapas em escaladas/vias no frontmatter
             for key in ["escaladas", "vias"]:
                 if key in frontmatter and isinstance(frontmatter[key], list):
                     for via in frontmatter[key]:
-                        if via and isinstance(via, dict) and "via_multiplas_enfiadas" in via:
-                            vmf = via["via_multiplas_enfiadas"]
-                            if vmf and "mapas" in vmf:
-                                for mapa in vmf["mapas"]:
-                                    if "caminho_imagem_mapa" in mapa:
-                                        img_original = mapa["caminho_imagem_mapa"]
-                                        
-                                        # Tenta integrar metadados antes de mudar o caminho
-                                        if integrar_metadados_mapa(mapa, pico_path):
-                                            modificado = True
-                                            
-                                        novo_caminho_img = processar_caminho_imagem(img_original, pico_path)
-                                        if novo_caminho_img != img_original:
-                                            mapa["caminho_imagem_mapa"] = novo_caminho_img
-                                            modificado = True
+                        if not via or not isinstance(via, dict):
+                            continue
+                        mapas_lista = via.get("mapas")
+                        if not mapas_lista and "via_multiplas_enfiadas" in via and isinstance(via["via_multiplas_enfiadas"], dict):
+                            mapas_lista = via["via_multiplas_enfiadas"].get("mapas")
+                        if mapas_lista and isinstance(mapas_lista, list):
+                            for mapa in mapas_lista:
+                                if isinstance(mapa, dict) and "caminho_imagem_mapa" in mapa:
+                                    img_original = mapa["caminho_imagem_mapa"]
+                                    if integrar_metadados_mapa(mapa, pico_path):
+                                        modificado = True
+                                    novo_caminho_img = processar_caminho_imagem(img_original, pico_path)
+                                    if novo_caminho_img != img_original:
+                                        mapa["caminho_imagem_mapa"] = novo_caminho_img
+                                        modificado = True
 
             # 2.2 Converte coordenadas para E7 no frontmatter
             if converter_coordenadas_e7_recursivo(frontmatter):
@@ -804,19 +804,30 @@ def validar_referencias_mapa(croqui_data: Dict[str, Any]) -> List[str]:
         if "mapas" in pico:
             mapas_para_validar.append((f"Pico '{pico_nome}'", pico["mapas"]))
             
-        def registrar_escaladas(escaladas_lista: List[Any]) -> None:
+        def registrar_escaladas(escaladas_lista: List[Any], contexto_local: str = "") -> None:
             for esc in escaladas_lista:
-                tipo_via = list(esc.keys())[0] if esc else None
-                if tipo_via:
-                    via = esc[tipo_via]
-                    if tipo_via == "via_multiplas_enfiadas" and "enfiadas" in via:
-                        nomes_escaladas.add(via.get("nome", "Sem Nome"))
+                if not esc or not isinstance(esc, dict):
+                    continue
+                tipo_via = [k for k in esc.keys() if k not in ("betas", "mapas")]
+                tipo_via_nome = tipo_via[0] if tipo_via else None
+                via_nome = "Sem Nome"
+                if tipo_via_nome:
+                    via = esc[tipo_via_nome]
+                    via_nome = via.get("nome", "Sem Nome")
+                    if tipo_via_nome == "via_multiplas_enfiadas" and "enfiadas" in via:
+                        nomes_escaladas.add(via_nome)
                         for e in via["enfiadas"]:
-                            tipo_e = list(e.keys())[0] if e else None
+                            tipo_e = [k for k in e.keys() if k not in ("betas", "mapas")] if e else []
                             if tipo_e:
-                                nomes_escaladas.add(e[tipo_e].get("nome", "Sem Nome"))
+                                nomes_escaladas.add(e[tipo_e[0]].get("nome", "Sem Nome"))
                     else:
-                        nomes_escaladas.add(via.get("nome", "Sem Nome"))
+                        nomes_escaladas.add(via_nome)
+                else:
+                    nomes_escaladas.add(via_nome)
+
+                # Inclui mapas da escalada na validação
+                if "mapas" in esc and isinstance(esc["mapas"], list):
+                    mapas_para_validar.append((f"Escalada '{via_nome}' ({contexto_local})", esc["mapas"]))
 
         for obj_sg in pico.get("setores_ou_grupos", []):
             if "grupo" in obj_sg:
@@ -835,7 +846,7 @@ def validar_referencias_mapa(croqui_data: Dict[str, Any]) -> List[str]:
                     if "mapas" in setor_conteudo:
                         mapas_para_validar.append((f"Setor '{setor_nome}' (no Grupo '{grupo_nome}')", setor_conteudo["mapas"]))
                         
-                    registrar_escaladas(setor_conteudo.get("escaladas", []))
+                    registrar_escaladas(setor_conteudo.get("escaladas", []), f"Setor '{setor_nome}' no Grupo '{grupo_nome}'")
                                 
             elif "setor" in obj_sg:
                 setor_conteudo = obj_sg["setor"].get("conteudo", {})
@@ -845,7 +856,7 @@ def validar_referencias_mapa(croqui_data: Dict[str, Any]) -> List[str]:
                 if "mapas" in setor_conteudo:
                     mapas_para_validar.append((f"Setor '{setor_nome}'", setor_conteudo["mapas"]))
                     
-                registrar_escaladas(setor_conteudo.get("escaladas", []))
+                registrar_escaladas(setor_conteudo.get("escaladas", []), f"Setor '{setor_nome}'")
 
         # Valida os mapas
         for contexto_nome, mapas in mapas_para_validar:

@@ -305,6 +305,8 @@ def test_e2e_selecao_mapa_por_node_path(tmp_path, qapp):
     from editor.core.workspace import ExperimentalWorkspace
     janela = JanelaPrincipal(workspace=ExperimentalWorkspace(tmp_path))
     janela.carregar_croqui()
+    janela.pagina_mapas.garantir_editor_criado()
+    assert janela.pagina_mapas.editor is not None
     list_widget = janela.pagina_mapas.editor.list_widget
     uri = "page:mapas/node:Croqui/expando:picos/item:0/expando:setores_ou_grupos/item:0/node:Setor/expando:mapas/item:1"
     

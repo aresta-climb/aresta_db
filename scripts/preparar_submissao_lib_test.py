@@ -1708,5 +1708,82 @@ def test_garantir_comentarios_licenca_substitui_comentarios_antigos_md(tmp_path)
     assert not any("BSD-3-Clause" in l for l in linhas)
 
 
+def test_corrigir_markdowns_com_mapas_em_escaladas(tmp_path):
+    from scripts.preparar_submissao_lib import corrigir_setores_ou_grupos_recursivo
+    from PIL import Image
+
+    # Cria imagem em raw_pdf_contents/imagens/bloco_1/foto_boulder.webp
+    pasta_raw = tmp_path / "raw_pdf_contents" / "imagens" / "bloco_1"
+    pasta_raw.mkdir(parents=True, exist_ok=True)
+    img = Image.new("RGB", (300, 200), color=(10, 20, 30))
+    img_path = pasta_raw / "foto_boulder.webp"
+    img.save(img_path, format="WEBP")
+
+    md_path = tmp_path / "setor.md"
+    conteudo_md = (
+        "---\n"
+        "nome: Bloco Central\n"
+        "escaladas:\n"
+        "  - boulder:\n"
+        "      nome: Sit Start\n"
+        "    mapas:\n"
+        "      - caminho_imagem_mapa: raw_pdf_contents/imagens/bloco_1/foto_boulder.webp\n"
+        "---\n"
+        "Descricao do bloco\n"
+    )
+    md_path.write_text(conteudo_md, encoding="utf-8")
+
+    setores_ou_grupos = [
+        {"setor": {"caminho": "setor.md"}}
+    ]
+
+    corrigir_setores_ou_grupos_recursivo(setores_ou_grupos, tmp_path)
+
+    novo_conteudo = md_path.read_text(encoding="utf-8")
+    assert "imagens/bloco_1_foto_boulder.webp" in novo_conteudo
+    assert (tmp_path / "imagens" / "bloco_1_foto_boulder.webp").exists()
+
+
+def test_validar_referencias_mapas_em_escalada():
+    from scripts.preparar_submissao_lib import validar_referencias_mapa
+
+    croqui_data = {
+        "picos": [
+            {
+                "nome": "Pico Teste",
+                "setores_ou_grupos": [
+                    {
+                        "setor": {
+                            "conteudo": {
+                                "nome": "Bloco 1",
+                                "escaladas": [
+                                    {
+                                        "boulder": {"nome": "Saída"},
+                                        "mapas": [
+                                            {
+                                                "pontos_de_interesse": [
+                                                    {"id": "p1", "label": "Agarra 1"}
+                                                ],
+                                                "referencias": [
+                                                    {"ids": ["p1", "p1"]}  # ID duplicado na mesma referência
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+
+    erros = validar_referencias_mapa(croqui_data)
+    assert len(erros) >= 1
+    assert any("p1" in e and "duplicado" in e for e in erros)
+
+
+
 
 

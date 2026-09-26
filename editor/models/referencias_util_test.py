@@ -144,7 +144,7 @@ def _criar_croqui_com_arvore_completa():
 
     esc_mult = setor_sul.escaladas.add()
     esc_mult.via_multiplas_enfiadas.nome = "Grande Parede"
-    mapa_mult = esc_mult.via_multiplas_enfiadas.mapas.add(caminho_imagem_mapa="mapa_mult.webp")
+    mapa_mult = esc_mult.mapas.add(caminho_imagem_mapa="mapa_mult.webp")
     ref_mult = mapa_mult.referencias.add(escalada="Enfiada Crux")
     enf1 = esc_mult.via_multiplas_enfiadas.enfiadas.add()
     enf1.via_esportiva.nome = "Enfiada Crux"
@@ -284,7 +284,7 @@ def test_cobertura_enfiada_em_setor_isolado_sem_grupo():
 
     esc_mult = setor.escaladas.add()
     esc_mult.via_multiplas_enfiadas.nome = "Via Trad Isolada"
-    mapa_mult = esc_mult.via_multiplas_enfiadas.mapas.add(caminho_imagem_mapa="mapa_trad.webp")
+    mapa_mult = esc_mult.mapas.add(caminho_imagem_mapa="mapa_trad.webp")
     ref_enf = mapa_mult.referencias.add(escalada="P2 Isolada")
 
     enf = esc_mult.via_multiplas_enfiadas.enfiadas.add()

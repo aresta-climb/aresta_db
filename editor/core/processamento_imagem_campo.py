@@ -157,6 +157,10 @@ AREA_MAXIMA_PADRAO: int = 2_500_000
 QUALIDADE_WEBP_PADRAO: int = 85
 METODO_WEBP_PADRAO: int = 6
 
+# Orçamento de imagem estrito para escaladas individuais (boulders, vias), garantindo fotos leves e nítidas (~120 KB).
+AREA_MAXIMA_ESCALADA: int = 1_000_000
+QUALIDADE_WEBP_ESCALADA: int = 85
+
 
 def comprimir_imagem_para_bytes_webp(
     fonte_imagem: str | Path | bytes | Image.Image,

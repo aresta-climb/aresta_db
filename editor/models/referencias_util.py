@@ -164,9 +164,8 @@ def buscar_referencias_para_escalada(
                     _verificar_mapa(mapa, str(s.nome), str(g.nome))
 
                 for esc in s.escaladas:
-                    if esc.WhichOneof("tipo") == "via_multiplas_enfiadas":
-                        for mapa in esc.via_multiplas_enfiadas.mapas:
-                            _verificar_mapa(mapa, str(s.nome), str(g.nome))
+                    for mapa in esc.mapas:
+                        _verificar_mapa(mapa, str(s.nome), str(g.nome))
 
         elif sg.HasField("setor"):
             s = sg.setor.conteudo
@@ -174,8 +173,7 @@ def buscar_referencias_para_escalada(
                 _verificar_mapa(mapa, str(s.nome), None)
 
             for esc in s.escaladas:
-                if esc.WhichOneof("tipo") == "via_multiplas_enfiadas":
-                    for mapa in esc.via_multiplas_enfiadas.mapas:
-                        _verificar_mapa(mapa, str(s.nome), None)
+                for mapa in esc.mapas:
+                    _verificar_mapa(mapa, str(s.nome), None)
 
     return referencias_encontradas

@@ -960,7 +960,8 @@ class ContainerRepeatedWidget(QWidget):
             
             from editor.views.dialogos.dialogo_adicionar_mapa import DialogoAdicionarMapa
             
-            dialog = DialogoAdicionarMapa(nome_sugerido, db_dir, model=self.model, parent=self)
+            eh_escalada = isinstance(self.msg, croqui_pb2.Escalada)
+            dialog = DialogoAdicionarMapa(nome_sugerido, db_dir, model=self.model, parent=self, eh_escalada=eh_escalada)
             if dialog.exec() == DialogoAdicionarMapa.DialogCode.Accepted:
                 img_bytes = dialog.obter_bytes_imagem_processada()
                 dimensoes = dialog.obter_dimensoes_imagem() or (0, 0)

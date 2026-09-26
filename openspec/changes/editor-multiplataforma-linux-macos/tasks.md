@@ -5,17 +5,17 @@
 - [ ] 1.3 Migrar as rotinas de Windows para `editor/plataforma/windows/` (`integracao.py` e `servico_loja.py`), criando `integracao_test.py` e `servico_loja_test.py` acompanhados no mesmo diretório com 100% de cobertura
 - [ ] 1.4 Criar `editor/plataforma/linux/integracao_test.py` e implementar `editor/plataforma/linux/integracao.py` com resolução de diretórios XDG e 100% de cobertura
 - [ ] 1.5 Criar `editor/plataforma/macos/integracao_test.py` e implementar `editor/plataforma/macos/integracao.py` com resolução de diretórios de Application Support e 100% de cobertura
-- [ ] 1.6 Refatorar `editor/main.py` e `editor/core/storage.py` para consumir exclusivamente `editor.plataforma`, garantindo que `tests/fronteiras_plataforma_test.py` passe integralmente
+- [ ] 1.6 Refatorar `editor/main.py` e `editor/core/storage.py` para consumir exclusivamente `editor.plataforma`, preservando rigorosamente o arranque rápido (< 1s) e o padrão de importações sob demanda (`__getattr__`), garantindo que `tests/fronteiras_plataforma_test.py` e `editor/main_test.py` passem integralmente
 
 ## 2. Ajustes de Empacotamento Cross-Platform no PyInstaller (TDD)
 
-- [ ] 2.1 Atualizar `editor/build_test.py` com testes para filtros de bibliotecas dinâmicas Unix (`.so`, `.dylib`) e estender `editor/build.py` e `editor/EditorAresta.spec` para fazê-los passar com 100% de cobertura
-- [ ] 2.2 Adicionar teste unitário em `editor/build_test.py` para geração de ícone `.icns` a partir de `recursos/logo_app.png` e implementar a rotina correspondente em `editor/build.py`
+- [ ] 2.1 Atualizar `editor/build_test.py` com testes para filtros de bibliotecas dinâmicas Unix (`.so`, `.dylib`) na estrutura `onedir` gerada por `COLLECT` e estender `editor/build.py` e `editor/EditorAresta.spec` para fazê-los passar com 100% de cobertura
+- [ ] 2.2 Adicionar teste unitário em `editor/build_test.py` e `editor/core/configuracao_canal_test.py` para geração de ícone `.icns` a partir de `recursos/logo_app.png` e integração com `obter_caminho_icone_aplicacao()` no macOS, implementando a rotina correspondente
 
 ## 3. Empacotamento e Distribuição macOS (TDD)
 
 - [ ] 3.1 Criar `editor/release_tools/gerador_feed_sparkle_test.py` e implementar `editor/release_tools/gerador_feed_sparkle.py` para geração do XML assinado com Ed25519 com 100% de cobertura de testes unitários
-- [ ] 3.2 Criar `editor/release_tools/empacotar_macos_dmg_test.py` e implementar `editor/release_tools/empacotar_macos_dmg.py` com validação de modo dry-run e 100% de cobertura de testes unitários
+- [ ] 3.2 Criar `editor/release_tools/empacotar_macos_dmg_test.py` e implementar `editor/release_tools/empacotar_macos_dmg.py` utilizando o diretório `dist/EditorAresta` gerado pelo PyInstaller para montagem do bundle `EditorAresta.app`, assinatura e geração do DMG com validação em modo dry-run e 100% de cobertura
 
 ## 4. Empacotamento e Distribuição Linux (TDD)
 
