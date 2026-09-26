@@ -7,7 +7,7 @@ from PySide6.QtWidgets import (
     QApplication, QWidget, QHBoxLayout, QTreeView, QStackedWidget, QScrollArea, QVBoxLayout,
     QLabel, QFrame, QPushButton, QComboBox, QLineEdit, QSpinBox, QDoubleSpinBox,
     QCheckBox, QTextEdit, QTextBrowser, QMenu, QCompleter, QDialog, QInputDialog,
-    QAbstractItemView, QMessageBox
+    QAbstractItemView, QMessageBox, QToolButton, QSizePolicy
 )
 from PySide6.QtCore import Qt, QModelIndex, QUrl, QItemSelectionModel, QObject, QEvent, QTimer, QMimeData, QByteArray, QPoint
 from PySide6.QtGui import QImage, QPixmap, QTextDocument, QTextCursor, QKeySequence, QDragEnterEvent, QDropEvent, QDragMoveEvent, QDragLeaveEvent, QDrag, QPainter
@@ -23,8 +23,21 @@ from editor.views.widget_campo_imagem import WidgetCampoImagem
 from editor.views.componentes.alca_arraste_item import AlcaArrasteItem
 from editor.views.componentes.widget_card_mapa import WidgetCardMapa
 from editor.views.dialogos.dialogo_inserir_imagem_markdown import DialogoInserirImagemMarkdown
+from editor.views.estilo import Icones
 from ..core.atualizador_ui import AtualizadorUI
 from google.protobuf.message_factory import GetMessageClass
+
+
+def _obter_rotulo_singular(rotulo: str) -> str:
+    """Extrai o singular em português para títulos plurais em botões de ação."""
+    if rotulo.endswith("ões"):
+        return rotulo[:-3] + "ão"
+    if rotulo.endswith("res") or rotulo.endswith("ses") or rotulo.endswith("zes"):
+        return rotulo[:-2]
+    if rotulo.endswith("s") and len(rotulo) > 2:
+        return rotulo[:-1]
+    return rotulo
+
 
 class GlobalUndoRedoFilter(QObject):
     def eventFilter(self, obj: Any, event: Any) -> bool:
@@ -718,6 +731,118 @@ class WidgetColapsavel(QWidget):
         self.update_title()
 
 
+def _eh_campo_avancado(field: Any) -> bool:
+    """Verifica se um campo do Protobuf está anotado com (aresta.avancado) = true."""
+    if not hasattr(field, "GetOptions"):
+        return False
+    opts = field.GetOptions()
+    if opts.HasExtension(croqui_pb2.avancado):
+        return bool(opts.Extensions[croqui_pb2.avancado])
+    return False
+
+
+def _campo_esta_preenchido(msg: Any, field: Any) -> bool:
+    """Verifica se um campo do Protobuf na mensagem fornecida possui valor preenchido/não-nulo."""
+    if field.is_repeated:
+        return len(getattr(msg, field.name, [])) > 0
+    if field.type == FieldDescriptor.TYPE_MESSAGE:
+        try:
+            return bool(msg.HasField(field.name))
+        except (ValueError, AttributeError):
+            val = getattr(msg, field.name, None)
+            return val is not None
+    # Primitivos
+    try:
+        if msg.HasField(field.name):
+            return True
+    except (ValueError, AttributeError):
+        pass
+    val = getattr(msg, field.name, None)
+    if val is None or val == "" or val == 0 or val == ProtobufWidgetFactory.VALOR_INTEIRO_NULO:
+        return False
+    return True
+
+
+class WidgetSecaoAvancada(QWidget):
+    """
+    Contêiner colapsável para campos avançados no formulário de dados.
+    """
+    def __init__(
+        self,
+        total_campos: int,
+        campos_preenchidos: int,
+        iniciar_expandido: bool = False,
+        ao_alternar_expansao: Optional[Callable[[bool], None]] = None,
+        parent: Optional[QWidget] = None
+    ) -> None:
+        super().__init__(parent)
+        self.total_campos = total_campos
+        self.campos_preenchidos = campos_preenchidos
+        self.ao_alternar_expansao = ao_alternar_expansao
+
+        self._layout = QVBoxLayout(self)
+        self._layout.setContentsMargins(0, 4, 0, 4)
+        self._layout.setSpacing(6)
+
+        self.toggle_button = QPushButton(self)
+        self.toggle_button.setStyleSheet("""
+            QPushButton {
+                border: 1px solid #d0d7de;
+                border-radius: 6px;
+                font-weight: bold;
+                text-align: left;
+                background-color: #f6f8fa;
+                padding: 8px 12px;
+                color: #24292f;
+            }
+            QPushButton:hover {
+                background-color: #eaeef2;
+                border-color: #afb8c1;
+            }
+        """)
+        self.toggle_button.setCursor(Qt.CursorShape.PointingHandCursor)
+        self.toggle_button.setCheckable(True)
+        self.toggle_button.setChecked(iniciar_expandido)
+        self.toggle_button.setSizePolicy(self.toggle_button.sizePolicy().Policy.Expanding, self.toggle_button.sizePolicy().Policy.Fixed)
+        self._layout.addWidget(self.toggle_button)
+
+        self.content_area = QFrame(self)
+        self.content_area.setObjectName("SecaoAvancadaFrame")
+        self.content_area.setStyleSheet("""
+            QFrame#SecaoAvancadaFrame {
+                border: 1px solid #d0d7de;
+                border-radius: 6px;
+                background-color: #fafbfc;
+            }
+        """)
+        self.content_layout = QVBoxLayout(self.content_area)
+        self.content_layout.setContentsMargins(10, 10, 10, 10)
+        self.content_layout.setSpacing(10)
+        self._layout.addWidget(self.content_area)
+
+        self.content_area.setVisible(iniciar_expandido)
+        self._atualizar_rotulo(iniciar_expandido)
+
+        self.toggle_button.toggled.connect(self._on_toggled)
+
+    def _atualizar_rotulo(self, expandido: bool) -> None:
+        if expandido:
+            self.toggle_button.setText("▼ Ocultar Opções Avançadas")
+        else:
+            if self.campos_preenchidos > 0:
+                texto_preenchidos = f"{self.campos_preenchidos} preenchido de {self.total_campos}" if self.campos_preenchidos == 1 else f"{self.campos_preenchidos} preenchidos de {self.total_campos}"
+                self.toggle_button.setText(f"▶ Opções Avançadas ({texto_preenchidos})")
+            else:
+                texto_total = f"{self.total_campos} campo" if self.total_campos == 1 else f"{self.total_campos} campos"
+                self.toggle_button.setText(f"▶ Opções Avançadas ({texto_total})")
+
+    def _on_toggled(self, checked: bool) -> None:
+        self.content_area.setVisible(checked)
+        self._atualizar_rotulo(checked)
+        if self.ao_alternar_expansao:
+            self.ao_alternar_expansao(checked)
+
+
 class ContainerRepeatedWidget(QWidget):
     def __init__(self, msg: Any, field: Any, formulario: Any, parent: Optional[QWidget] = None, extra_path: Optional[str] = None) -> None:
         self.model = formulario.model
@@ -729,12 +854,13 @@ class ContainerRepeatedWidget(QWidget):
         self.extra_path = extra_path
         self.formulario = formulario
         self.repeated_container = getattr(msg, field.name)
+        self.is_scalar = (field.type != FieldDescriptor.TYPE_MESSAGE)
 
         self.layout_principal = QVBoxLayout(self)
         self.layout_principal.setContentsMargins(0, 0, 0, 0)
         self.layout_principal.setSpacing(6)
 
-        # Cabeçalho
+        # Cabeçalho (apenas título e descrição, sem botão de adicionar na direita)
         self.header_layout = QHBoxLayout()
         label_text = ProtobufWidgetFactory.get_label(field)
         self.label_widget = QLabel(label_text)
@@ -750,19 +876,43 @@ class ContainerRepeatedWidget(QWidget):
 
         self.header_layout.addStretch()
 
-        self.btn_add = QPushButton("Adicionar Item")
-        self.btn_add.setStyleSheet("background-color: #2b579a; color: white; border-radius: 4px; padding: 4px 8px;")
-        self.btn_add.clicked.connect(self._on_add_clicked)
-        self.header_layout.addWidget(self.btn_add)
-
         self.layout_principal.addLayout(self.header_layout)
         if self.desc_label:
             self.layout_principal.addWidget(self.desc_label)
 
-        self.items_layout = QVBoxLayout()
-        self.items_layout.setContentsMargins(0, 0, 0, 0)
-        self.items_layout.setSpacing(10)
-        self.layout_principal.addLayout(self.items_layout)
+        # Botão de adicionar no rodapé
+        rotulo_singular = _obter_rotulo_singular(label_text)
+        self.btn_add = QPushButton(f"+ Adicionar {rotulo_singular}")
+        self.btn_add.setStyleSheet(Icones.QSS_BOTAO_RODAPE_ADICIONAR)
+        self.btn_add.setCursor(Qt.CursorShape.PointingHandCursor)
+        self.btn_add.setSizePolicy(QSizePolicy.Policy.Maximum, QSizePolicy.Policy.Fixed)
+        self.btn_add.clicked.connect(self._on_add_clicked)
+
+        self.lbl_vazio = QLabel("Nenhum item cadastrado.")
+        self.lbl_vazio.setStyleSheet("color: #888888; font-style: italic; font-size: 9pt; padding: 4px;")
+
+        if self.is_scalar:
+            self.frame_conteudo = QFrame(self)
+            self.frame_conteudo.setObjectName("ContainerRepeatedIntegrado")
+            self.frame_conteudo.setStyleSheet(Icones.QSS_CONTAINER_REPEATED_INTEGRADO)
+            self.frame_layout = QVBoxLayout(self.frame_conteudo)
+            self.frame_layout.setContentsMargins(10, 8, 10, 8)
+            self.frame_layout.setSpacing(6)
+
+            self.items_layout = QVBoxLayout()
+            self.items_layout.setContentsMargins(0, 0, 0, 0)
+            self.items_layout.setSpacing(4)
+            self.frame_layout.addLayout(self.items_layout)
+            self.frame_layout.addWidget(self.lbl_vazio)
+            self.frame_layout.addWidget(self.btn_add, 0, Qt.AlignmentFlag.AlignLeft)
+            self.layout_principal.addWidget(self.frame_conteudo)
+        else:
+            self.items_layout = QVBoxLayout()
+            self.items_layout.setContentsMargins(0, 0, 0, 0)
+            self.items_layout.setSpacing(10)
+            self.layout_principal.addLayout(self.items_layout)
+            self.layout_principal.addWidget(self.lbl_vazio)
+            self.layout_principal.addWidget(self.btn_add, 0, Qt.AlignmentFlag.AlignLeft)
 
         self.setAcceptDrops(True)
         self._indicador_drop = QFrame(self)
@@ -780,6 +930,17 @@ class ContainerRepeatedWidget(QWidget):
             self.model.repeated_adicionado.connect(self._on_item_adicionado)
             self.model.repeated_removido.connect(self._on_item_removido)
             self.model.repeated_movido.connect(self._on_item_movido)
+
+    def _focar_ultimo_item(self) -> None:
+        total = self.items_layout.count()
+        if total > 0:
+            ultimo_item = self.items_layout.itemAt(total - 1)
+            w = ultimo_item.widget() if ultimo_item else None
+            if w:
+                line_edit = w.findChild(QLineEdit)
+                if line_edit:
+                    line_edit.setFocus()
+
 
     def _on_add_clicked(self) -> None:
         f = self.field
@@ -854,9 +1015,12 @@ class ContainerRepeatedWidget(QWidget):
         alca = AlcaArrasteItem(item_widget)
         alca.solicitar_arraste.connect(lambda pt, w=item_widget: self._iniciar_drag(w))
 
-        # Botão remover
-        btn_remove = QPushButton("Remover")
-        btn_remove.setStyleSheet("background-color: #d9534f; color: white; border-radius: 4px; padding: 4px 8px;")
+        # Botão remover discreto
+        btn_remove = QPushButton()
+        btn_remove.setIcon(Icones.obter_lixeira())
+        btn_remove.setToolTip("Remover item")
+        btn_remove.setStyleSheet(Icones.QSS_BOTAO_REMOVER_DISCRETO)
+        btn_remove.setCursor(Qt.CursorShape.PointingHandCursor)
 
         def on_remove_item() -> None:
             current_idx = item_widget.property("repeated_index")
@@ -868,40 +1032,6 @@ class ContainerRepeatedWidget(QWidget):
                 self.formulario._notify_tree_changed()
 
         btn_remove.clicked.connect(on_remove_item)
-
-        # Botões subir e descer
-        btn_subir = QPushButton("▲")
-        btn_subir.setToolTip("Mover para cima")
-        btn_subir.setStyleSheet("QPushButton { padding: 4px 8px; font-size: 8pt; border-radius: 4px; } QPushButton:disabled { color: #aaaaaa; }")
-
-        btn_descer = QPushButton("▼")
-        btn_descer.setToolTip("Mover para baixo")
-        btn_descer.setStyleSheet("QPushButton { padding: 4px 8px; font-size: 8pt; border-radius: 4px; } QPushButton:disabled { color: #aaaaaa; }")
-
-        def on_subir_clicked() -> None:
-            cur_idx = item_widget.property("repeated_index")
-            if cur_idx is not None and cur_idx > 0:
-                if hasattr(self.formulario, "forcar_consolidacao_pendente"):
-                    self.formulario.forcar_consolidacao_pendente()
-                self.formulario._mark_dirty()
-                self.controller.mover_repeated_para_cima(self.msg, self.field.name, cur_idx)
-                self.formulario._notify_tree_changed()
-
-        def on_descer_clicked() -> None:
-            cur_idx = item_widget.property("repeated_index")
-            total = len(self.repeated_container)
-            if cur_idx is not None and cur_idx < total - 1:
-                if hasattr(self.formulario, "forcar_consolidacao_pendente"):
-                    self.formulario.forcar_consolidacao_pendente()
-                self.formulario._mark_dirty()
-                self.controller.mover_repeated_para_baixo(self.msg, self.field.name, cur_idx)
-                self.formulario._notify_tree_changed()
-
-        btn_subir.clicked.connect(on_subir_clicked)
-        btn_descer.clicked.connect(on_descer_clicked)
-
-        item_widget.setProperty("btn_subir", btn_subir)
-        item_widget.setProperty("btn_descer", btn_descer)
 
         if self.field.type == FieldDescriptor.TYPE_MESSAGE:
             item_msg = self.repeated_container[idx]
@@ -930,11 +1060,7 @@ class ContainerRepeatedWidget(QWidget):
                     parent=item_widget,
                 )
                 card_mapa.alca.solicitar_arraste.connect(lambda pt, w=item_widget: self._iniciar_drag(w))
-                card_mapa.btn_subir.clicked.connect(on_subir_clicked)
-                card_mapa.btn_descer.clicked.connect(on_descer_clicked)
                 card_mapa.btn_remover.clicked.connect(on_remove_item)
-                item_widget.setProperty("btn_subir", card_mapa.btn_subir)
-                item_widget.setProperty("btn_descer", card_mapa.btn_descer)
                 item_layout.addWidget(card_mapa)
             else:
                 def lazy_loader(msg: Any, layout: Any) -> None:
@@ -949,8 +1075,6 @@ class ContainerRepeatedWidget(QWidget):
                 
                 colapsavel = WidgetColapsavel(item_msg, prefix, lazy_loader, parent=self)
                 colapsavel.inserir_header_widget(0, alca)
-                colapsavel.add_header_widget(btn_subir)
-                colapsavel.add_header_widget(btn_descer)
                 colapsavel.add_header_widget(btn_remove)
                 
                 if not hasattr(self, "_widgets_colapsaveis"):
@@ -959,6 +1083,7 @@ class ContainerRepeatedWidget(QWidget):
                 
                 item_layout.addWidget(colapsavel)
         else:
+            item_widget.setObjectName("ItemRepeatedLinha")
             widget = ProtobufWidgetFactory.create_widget(self.field)
             widget.setProperty("protobuf_field", f"{self.field.name}[{idx}]")
             widget.setProperty("protobuf_msg_id", _get_id(self.msg))
@@ -967,6 +1092,8 @@ class ContainerRepeatedWidget(QWidget):
             if isinstance(widget, QLineEdit):
                 _garantir_filtro_undo_redo(widget)
                 widget.setText(val)
+                widget.setMaximumWidth(16777215)
+                widget.setSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Fixed)
                 def make_on_item_changed(w: Any = widget) -> Callable[..., None]:
                     def on_item_changed() -> None:
                         current_idx = item_widget.property("repeated_index")
@@ -979,6 +1106,12 @@ class ContainerRepeatedWidget(QWidget):
                                 self.formulario._notify_tree_changed()
                     return on_item_changed
                 widget.textChanged.connect(make_on_item_changed())
+
+                def on_enter_pressed(w_self: Any = widget) -> None:
+                    if w_self.text().strip():
+                        self._on_add_clicked()
+                        QTimer.singleShot(50, self._focar_ultimo_item)
+                widget.returnPressed.connect(on_enter_pressed)
 
             elif isinstance(widget, QSpinBox):
                 widget.setValue(val)
@@ -1050,16 +1183,15 @@ class ContainerRepeatedWidget(QWidget):
                 widget.currentIndexChanged.connect(make_on_item_changed())
 
             item_layout.addWidget(alca)
-            item_layout.addWidget(widget)
-            item_layout.addWidget(btn_subir)
-            item_layout.addWidget(btn_descer)
-            item_layout.addWidget(btn_remove)
+            item_layout.addWidget(widget, 1)
+            item_layout.addWidget(btn_remove, 0, Qt.AlignmentFlag.AlignRight)
 
         self.items_layout.insertWidget(idx, item_widget)
         self._atualizar_indices_e_botoes()
 
     def _atualizar_indices_e_botoes(self) -> None:
         total = len(self.repeated_container)
+        self.lbl_vazio.setVisible(total == 0)
         for i in range(self.items_layout.count()):
             item_layout = self.items_layout.itemAt(i)
             w = item_layout.widget() if item_layout else None
@@ -1070,13 +1202,6 @@ class ContainerRepeatedWidget(QWidget):
                 p_field = child.property("protobuf_field")
                 if p_field and p_field.startswith(f"{self.field.name}["):
                     child.setProperty("protobuf_field", f"{self.field.name}[{i}]")
-
-            btn_subir = w.property("btn_subir")
-            if btn_subir:
-                btn_subir.setEnabled(i > 0)
-            btn_descer = w.property("btn_descer")
-            if btn_descer:
-                btn_descer.setEnabled(i < total - 1)
 
             colapsavel = w.findChild(WidgetColapsavel)
             if colapsavel:
@@ -1090,6 +1215,8 @@ class ContainerRepeatedWidget(QWidget):
     def _on_item_adicionado(self, msg: Any, campo: Any, idx: int) -> None:
         if _get_id(msg) == _get_id(self.msg) and campo == self.field.name:
             self._renderizar_item_no_indice(idx)
+            self._atualizar_indices_e_botoes()
+
 
     def _on_item_removido(self, msg: Any, campo: Any, idx: int) -> None:
         if _get_id(msg) == _get_id(self.msg) and campo == self.field.name:
@@ -1182,8 +1309,9 @@ class ContainerRepeatedWidget(QWidget):
             item_layout = self.items_layout.itemAt(i)
             w = item_layout.widget() if item_layout else None
             if w:
-                geo = w.geometry()
-                geometrias.append((i, geo.top(), geo.bottom(), (geo.top() + geo.bottom()) / 2.0))
+                top = w.mapTo(self, QPoint(0, 0)).y()
+                bot = top + w.height()
+                geometrias.append((i, top, bot, (top + bot) / 2.0))
 
         if not geometrias:
             return 0, 0
@@ -1469,6 +1597,19 @@ class WidgetFormularioPadrao(QStackedWidget):
         empty_layout.addStretch()
         self.addWidget(self.empty_widget)
         self.setCurrentWidget(self.empty_widget)
+
+    _estado_avancado_expandido_padrao: bool = False
+
+    def definir_estado_avancado_expandido(self, expandido: bool) -> None:
+        if self.widget_editor and hasattr(self.widget_editor, "_campos_avancados_expandidos"):
+            self.widget_editor._campos_avancados_expandidos = expandido
+        else:
+            WidgetFormularioPadrao._estado_avancado_expandido_padrao = expandido
+
+    def obter_estado_avancado_expandido(self) -> bool:
+        if self.widget_editor and hasattr(self.widget_editor, "_campos_avancados_expandidos"):
+            return getattr(self.widget_editor, "_campos_avancados_expandidos", False)
+        return WidgetFormularioPadrao._estado_avancado_expandido_padrao
 
     def forcar_consolidacao_pendente(self) -> None:
         """Força a consolidação imediata de qualquer edição pendente nos widgets do formulário."""
@@ -1799,7 +1940,9 @@ class WidgetFormularioPadrao(QStackedWidget):
             self._render_oneof_container(msg, oneof, parent_layout, extra_path)
             parent_layout.addSpacing(10)
             
-        # 2. Renderiza os demais campos individuais
+        # 2. Segrega os demais campos individuais em principais e avançados
+        campos_principais = []
+        campos_avancados = []
         for field in msg.DESCRIPTOR.fields:
             if field.name in oneof_fields:
                 continue
@@ -1825,14 +1968,40 @@ class WidgetFormularioPadrao(QStackedWidget):
             if field.containing_oneof:
                 continue
                 
+            if _eh_campo_avancado(field):
+                campos_avancados.append(field)
+            else:
+                campos_principais.append(field)
+
+        # 3. Renderiza os campos principais
+        for field in campos_principais:
             if field.is_repeated:
                 self._render_repeated_field(msg, field, parent_layout, extra_path)
             else:
                 self._render_field_container(msg, field, parent_layout, extra_path)
-                
             parent_layout.addSpacing(10)
 
-        # 3. Renderiza cartões no rodapé para coleções repetidas de sub-elementos da árvore
+        # 4. Renderiza seção de campos avançados (se houver)
+        if campos_avancados:
+            total_avancados = len(campos_avancados)
+            preenchidos_avancados = sum(1 for f in campos_avancados if _campo_esta_preenchido(msg, f))
+            secao_avancada = WidgetSecaoAvancada(
+                total_campos=total_avancados,
+                campos_preenchidos=preenchidos_avancados,
+                iniciar_expandido=self.obter_estado_avancado_expandido(),
+                ao_alternar_expansao=self.definir_estado_avancado_expandido,
+                parent=self
+            )
+            parent_layout.addWidget(secao_avancada)
+            for field in campos_avancados:
+                if field.is_repeated:
+                    self._render_repeated_field(msg, field, secao_avancada.content_layout, extra_path)
+                else:
+                    self._render_field_container(msg, field, secao_avancada.content_layout, extra_path)
+                secao_avancada.content_layout.addSpacing(10)
+            parent_layout.addSpacing(10)
+
+        # 5. Renderiza cartões no rodapé para coleções repetidas de sub-elementos da árvore
         if campos_cartoes:
             parent_layout.addSpacing(10)
             for field in campos_cartoes:
@@ -1855,14 +2024,14 @@ class WidgetFormularioPadrao(QStackedWidget):
                 padding: 8px;
             }
         """)
-        card_layout = QHBoxLayout(card)
-        card_layout.setContentsMargins(12, 8, 12, 8)
+        card_layout = QVBoxLayout(card)
+        card_layout.setContentsMargins(12, 10, 12, 10)
+        card_layout.setSpacing(2)
 
         titulo_colecao = ProtobufWidgetFactory.get_label(field)
         container = getattr(msg, field.name, [])
         total_itens = len(container)
 
-        info_layout = QVBoxLayout()
         lbl_titulo = QLabel(titulo_colecao)
         lbl_titulo.setStyleSheet("font-weight: bold; font-size: 10pt; color: #2b579a; border: none; background: transparent;")
 
@@ -1870,9 +2039,9 @@ class WidgetFormularioPadrao(QStackedWidget):
         lbl_contador = QLabel(texto_contador)
         lbl_contador.setStyleSheet("color: #666; font-size: 9pt; border: none; background: transparent;")
 
-        info_layout.addWidget(lbl_titulo)
-        info_layout.addWidget(lbl_contador)
-        card_layout.addLayout(info_layout, 1)
+        card_layout.addWidget(lbl_titulo)
+        card_layout.addWidget(lbl_contador)
+        card_layout.addSpacing(6)
 
         self.card_containers[(_get_id(msg), field.name)] = (lbl_contador, msg, field)
 
@@ -1892,18 +2061,9 @@ class WidgetFormularioPadrao(QStackedWidget):
             label_tipo = titulo_colecao
 
         btn_adicionar = QPushButton(f"+ Adicionar {label_tipo}")
-        btn_adicionar.setStyleSheet("""
-            QPushButton {
-                background-color: #2b579a;
-                color: white;
-                font-weight: bold;
-                padding: 6px 14px;
-                border-radius: 4px;
-            }
-            QPushButton:hover {
-                background-color: #1e3f6f;
-            }
-        """)
+        btn_adicionar.setStyleSheet(Icones.QSS_BOTAO_RODAPE_ADICIONAR)
+        btn_adicionar.setSizePolicy(QSizePolicy.Policy.Maximum, QSizePolicy.Policy.Fixed)
+        btn_adicionar.setCursor(Qt.CursorShape.PointingHandCursor)
 
         def on_adicionar_clicado() -> None:
             if self.widget_editor:
@@ -1914,7 +2074,7 @@ class WidgetFormularioPadrao(QStackedWidget):
                 self.controller.adicionar_repeated(msg, field.name, idx, msg_class())
 
         btn_adicionar.clicked.connect(on_adicionar_clicado)
-        card_layout.addWidget(btn_adicionar)
+        card_layout.addWidget(btn_adicionar, 0, Qt.AlignmentFlag.AlignLeft)
 
         parent_layout.addWidget(card)
 
@@ -2487,6 +2647,7 @@ class WidgetEditorDados(QWidget):
         self.caminhos_originais = caminhos_originais if caminhos_originais is not None else {}
         self.referencias_mensagens = referencias_mensagens if referencias_mensagens is not None else {}
         self._arquivos_existentes_croqui: Optional[Set[str]] = None
+        self._campos_avancados_expandidos: bool = False
         self.main_layout = QHBoxLayout(self)
         
         self.tree_view = ArvoreDadosTreeView(self)

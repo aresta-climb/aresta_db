@@ -4356,56 +4356,25 @@ def test_container_repeated_botoes_subir_descer_reordena_e_undo_redo(qapp):
     field = croqui.DESCRIPTOR.fields_by_name["picos"]
     container = ContainerRepeatedWidget(croqui, field, form)
 
+    # 1. Verifica que btn_add não está no header_layout e sim no rodapé, com tamanho contido
+    from PySide6.QtWidgets import QSizePolicy
+    assert container.header_layout.indexOf(container.btn_add) == -1
+    assert container.btn_add is not None
+    assert "+ Adicionar" in container.btn_add.text()
+    assert container.btn_add.sizePolicy().horizontalPolicy() == QSizePolicy.Policy.Maximum
+
+    # 2. Verifica ausência de btn_subir e btn_descer nos itens
     assert container.items_layout.count() == 3
-    w0 = container.items_layout.itemAt(0).widget()
-    w1 = container.items_layout.itemAt(1).widget()
-    w2 = container.items_layout.itemAt(2).widget()
+    for i in range(3):
+        wi = container.items_layout.itemAt(i).widget()
+        assert not hasattr(wi, "btn_subir") or wi.property("btn_subir") is None
+        assert not hasattr(wi, "btn_descer") or wi.property("btn_descer") is None
 
-    btn_subir_0 = w0.property("btn_subir")
-    btn_descer_0 = w0.property("btn_descer")
-    btn_subir_1 = w1.property("btn_subir")
-    btn_descer_1 = w1.property("btn_descer")
-    btn_subir_2 = w2.property("btn_subir")
-    btn_descer_2 = w2.property("btn_descer")
-
-    assert btn_subir_0.isEnabled() is False
-    assert btn_descer_0.isEnabled() is True
-    assert btn_subir_1.isEnabled() is True
-    assert btn_descer_1.isEnabled() is True
-    assert btn_subir_2.isEnabled() is True
-    assert btn_descer_2.isEnabled() is False
-
-    # Move item 0 para baixo (vai para index 1)
-    btn_descer_0.click()
-    assert croqui.picos[0].nome == "Pico Um"
-    assert croqui.picos[1].nome == "Pico Zero"
-    assert croqui.picos[2].nome == "Pico Dois"
-
-    # Verifica novos estados dos botões após a movimentação
-    novo_w0 = container.items_layout.itemAt(0).widget()
-    novo_w1 = container.items_layout.itemAt(1).widget()
-    assert novo_w0.property("btn_subir").isEnabled() is False
-    assert novo_w0.property("btn_descer").isEnabled() is True
-    assert novo_w1.property("btn_subir").isEnabled() is True
-    assert novo_w1.property("btn_descer").isEnabled() is True
-
-    # Move de volta para cima
-    novo_w1.property("btn_subir").click()
-    assert croqui.picos[0].nome == "Pico Zero"
-    assert croqui.picos[1].nome == "Pico Um"
-
-    # Testa Undo
-    undo_stack.undo()
-    assert croqui.picos[0].nome == "Pico Um"
-    assert croqui.picos[1].nome == "Pico Zero"
-
-    # Testa Redo
-    undo_stack.redo()
-    assert croqui.picos[0].nome == "Pico Zero"
-    assert croqui.picos[1].nome == "Pico Um"
+    # 3. Estado vazio não visível quando há itens
+    assert container.lbl_vazio.isVisible() is False
 
 
-def test_container_repeated_item_unico_desabilita_botoes(qapp):
+def test_container_repeated_estado_vazio_quando_sem_itens(qapp):
     from editor.models.croqui_model import CroquiModel
     from editor.controllers.croqui_controller import CroquiController
     from editor.views.widget_editor_dados import ContainerRepeatedWidget, WidgetFormularioPadrao
@@ -4413,9 +4382,6 @@ def test_container_repeated_item_unico_desabilita_botoes(qapp):
     from PySide6.QtGui import QUndoStack
 
     croqui = Croqui()
-    p0 = croqui.picos.add()
-    p0.nome = "Pico Solo"
-
     undo_stack = QUndoStack()
     model = CroquiModel(croqui)
     controller = CroquiController(model, undo_stack)
@@ -4424,13 +4390,14 @@ def test_container_repeated_item_unico_desabilita_botoes(qapp):
     field = croqui.DESCRIPTOR.fields_by_name["picos"]
     container = ContainerRepeatedWidget(croqui, field, form)
 
-    assert container.items_layout.count() == 1
-    w0 = container.items_layout.itemAt(0).widget()
-    btn_subir = w0.property("btn_subir")
-    btn_descer = w0.property("btn_descer")
+    assert container.items_layout.count() == 0
+    assert not container.lbl_vazio.isHidden()
 
-    assert btn_subir.isEnabled() is False
-    assert btn_descer.isEnabled() is False
+    # Adiciona item e verifica que estado vazio é ocultado
+    container.btn_add.click()
+    assert container.items_layout.count() == 1
+    assert container.lbl_vazio.isHidden()
+
 
 
 def test_container_repeated_drag_and_drop_reordena_e_undo(qapp):
@@ -4505,18 +4472,18 @@ def test_container_repeated_drag_and_drop_reordena_e_undo(qapp):
     assert croqui.picos[2].nome == "Pico Gamma"
 
 
-def test_container_repeated_primitivo_botoes_e_reordenacao(qapp):
+def test_container_repeated_primitivos_container_integrado_e_enter(qapp):
     from editor.models.croqui_model import CroquiModel
     from editor.controllers.croqui_controller import CroquiController
     from editor.views.widget_editor_dados import ContainerRepeatedWidget, WidgetFormularioPadrao
     from editor.views.componentes.alca_arraste_item import AlcaArrasteItem
     from aresta_api.proto.generated.croqui_pb2 import Croqui
     from PySide6.QtGui import QUndoStack
+    from PySide6.QtWidgets import QFrame, QLineEdit, QPushButton
 
     croqui = Croqui()
     croqui.creditos.append("Autor 0")
     croqui.creditos.append("Autor 1")
-    croqui.creditos.append("Autor 2")
 
     undo_stack = QUndoStack()
     model = CroquiModel(croqui)
@@ -4526,24 +4493,40 @@ def test_container_repeated_primitivo_botoes_e_reordenacao(qapp):
     field = croqui.DESCRIPTOR.fields_by_name["creditos"]
     container = ContainerRepeatedWidget(croqui, field, form)
 
+    # 1. Verifica container integrado emoldurado
+    frame_integrado = container.findChild(QFrame, "ContainerRepeatedIntegrado")
+    assert frame_integrado is not None
+
+    # 2. Verifica linha de item primitivo: alça, QLineEdit expansivo e botão de lixeira (sem setas)
+    assert container.items_layout.count() == 2
+    w0 = container.items_layout.itemAt(0).widget()
+    assert w0.objectName() == "ItemRepeatedLinha"
+    assert len(w0.findChildren(AlcaArrasteItem)) == 1
+
+    le0 = w0.findChild(QLineEdit)
+    assert le0 is not None
+    assert le0.text() == "Autor 0"
+
+    # Sem setas
+    assert not hasattr(w0, "btn_subir") or w0.property("btn_subir") is None
+    assert not hasattr(w0, "btn_descer") or w0.property("btn_descer") is None
+
+    # Botão de remoção discreto
+    botoes_remove = [b for b in w0.findChildren(QPushButton) if b.toolTip() == "Remover item"]
+    assert len(botoes_remove) == 1
+    assert not botoes_remove[0].icon().isNull()
+
+    # 3. Enter key no QLineEdit adiciona novo item
+    le0.setText("Novo Autor")
+    le0.returnPressed.emit()
     assert container.items_layout.count() == 3
-    w1 = container.items_layout.itemAt(1).widget()
+    assert len(croqui.creditos) == 3
 
-    # Verifica presença da alça e botões no item primitivo
-    alcas = w1.findChildren(AlcaArrasteItem)
-    assert len(alcas) == 1
-
-    btn_subir_1 = w1.property("btn_subir")
-    assert btn_subir_1 is not None
-    assert btn_subir_1.isEnabled() is True
-
-    # Move item 1 para cima via botão
-    btn_subir_1.click()
-    assert list(croqui.creditos) == ["Autor 1", "Autor 0", "Autor 2"]
-
-    # Undo
+    # Testa Undo da adição via Enter
     undo_stack.undo()
-    assert list(croqui.creditos) == ["Autor 0", "Autor 1", "Autor 2"]
+    assert container.items_layout.count() == 2
+    assert len(croqui.creditos) == 2
+
 
 
 def test_container_repeated_iniciar_drag(qapp, monkeypatch):
@@ -4630,16 +4613,16 @@ def test_container_repeated_mapas_renderiza_widget_card_mapa(qapp, monkeypatch):
     assert "1920 × 1080 px" in cards[0].rotulo_resolucao.text()
     assert cards[0].rotulo_miniatura.pixmap() is not None
     assert not cards[0].rotulo_miniatura.pixmap().isNull()
-    assert not cards[0].btn_subir.isEnabled()
-    assert cards[0].btn_descer.isEnabled()
+    assert cards[0].btn_remover is not None
+    assert cards[0].btn_remover.toolTip() == "Remover mapa"
 
     # Card 1
     assert "Mapa [1]" in cards[1].rotulo_titulo.text()
     assert "parede_b.webp" in cards[1].rotulo_titulo.text()
     assert "1280 × 720 px" in cards[1].rotulo_resolucao.text()
     assert cards[1].rotulo_miniatura.text() == "Sem Imagem"
-    assert cards[1].btn_subir.isEnabled()
-    assert not cards[1].btn_descer.isEnabled()
+    assert cards[1].btn_remover is not None
+    assert cards[1].btn_remover.toolTip() == "Remover mapa"
 
     # Teste de clique para abrir no editor
     last_contexto = None
@@ -4652,7 +4635,7 @@ def test_container_repeated_mapas_renderiza_widget_card_mapa(qapp, monkeypatch):
     assert last_contexto == "page:mapas/expando:setores/item:0/expando:mapas/item:0"
 
 
-def test_container_repeated_mapas_reordenacao_botoes_e_drag_and_drop_undo_redo(qapp):
+def test_container_repeated_mapas_drag_and_drop_undo_redo(qapp):
     from editor.views.componentes.widget_card_mapa import WidgetCardMapa
     from editor.views.widget_editor_dados import ContainerRepeatedWidget, WidgetFormularioPadrao, _get_id
     from editor.models.croqui_model import CroquiModel
@@ -4682,20 +4665,26 @@ def test_container_repeated_mapas_reordenacao_botoes_e_drag_and_drop_undo_redo(q
     assert "mapa_0.webp" in card0.rotulo_titulo.text()
     assert "mapa_1.webp" in card1.rotulo_titulo.text()
 
-    # 1. Clica em btn_descer do card 0
-    card0.btn_descer.click()
+    # 1. Drag & Drop: move índice 0 para 1
+    mime = QMimeData()
+    payload = f"{_get_id(setor)}:mapas:0".encode("utf-8")
+    mime.setData("application/x-aresta-repeated-item", QByteArray(payload))
+    container._calcular_posicao_drop_e_indicador = lambda pos_y, orig: (1, 100)
+    drop_event = QDropEvent(
+        QPointF(10, 10),
+        Qt.DropAction.MoveAction,
+        mime,
+        Qt.MouseButton.LeftButton,
+        Qt.KeyboardModifier.NoModifier,
+    )
+    container.dropEvent(drop_event)
+
     assert setor.mapas[0].caminho_imagem_mapa == "imagens/mapa_1.webp"
     assert setor.mapas[1].caminho_imagem_mapa == "imagens/mapa_0.webp"
-
-    # Layout reordenado
     novo_card0 = container.items_layout.itemAt(0).widget().findChild(WidgetCardMapa)
     novo_card1 = container.items_layout.itemAt(1).widget().findChild(WidgetCardMapa)
     assert "Mapa [0] - mapa_1.webp" in novo_card0.rotulo_titulo.text()
     assert "Mapa [1] - mapa_0.webp" in novo_card1.rotulo_titulo.text()
-    assert not novo_card0.btn_subir.isEnabled()
-    assert novo_card0.btn_descer.isEnabled()
-    assert novo_card1.btn_subir.isEnabled()
-    assert not novo_card1.btn_descer.isEnabled()
 
     # 2. Undo
     undo_stack.undo()
@@ -4708,23 +4697,458 @@ def test_container_repeated_mapas_reordenacao_botoes_e_drag_and_drop_undo_redo(q
     assert setor.mapas[0].caminho_imagem_mapa == "imagens/mapa_1.webp"
     assert "Mapa [0] - mapa_1.webp" in container.items_layout.itemAt(0).widget().findChild(WidgetCardMapa).rotulo_titulo.text()
 
-    # 4. Drag & Drop: move de volta índice 1 para 0
-    mime = QMimeData()
-    payload = f"{_get_id(setor)}:mapas:1".encode("utf-8")
-    mime.setData("application/x-aresta-repeated-item", QByteArray(payload))
-    container._calcular_posicao_drop_e_indicador = lambda pos_y, orig: (0, 0)
-    drop_event = QDropEvent(
-        QPointF(10, 10),
-        Qt.DropAction.MoveAction,
-        mime,
-        Qt.MouseButton.LeftButton,
-        Qt.KeyboardModifier.NoModifier,
-    )
-    container.dropEvent(drop_event)
 
-    assert setor.mapas[0].caminho_imagem_mapa == "imagens/mapa_0.webp"
-    assert setor.mapas[1].caminho_imagem_mapa == "imagens/mapa_1.webp"
-    assert "Mapa [0] - mapa_0.webp" in container.items_layout.itemAt(0).widget().findChild(WidgetCardMapa).rotulo_titulo.text()
+
+def test_deteccao_campos_avancados_e_verificacao_preenchidos(qapp):
+    from aresta_api.proto.generated import croqui_pb2
+    from editor.views.widget_editor_dados import _campo_esta_preenchido, _eh_campo_avancado
+
+    # 1. Verificação de metadado avançado
+    desc_via = croqui_pb2.ViaEsportiva.DESCRIPTOR
+    campo_nome = desc_via.fields_by_name["nome"]
+    campo_destaque = desc_via.fields_by_name["destaque"]
+    campo_conquistadores = desc_via.fields_by_name["conquistadores"]
+    campo_data_abertura = desc_via.fields_by_name["data_abertura"]
+    campo_pix = desc_via.fields_by_name["chave_pix_manutencao"]
+    campo_art = desc_via.fields_by_name["dificuldade_artificial"]
+
+    assert not _eh_campo_avancado("objeto_invalido")
+    assert not _eh_campo_avancado(campo_nome)
+    assert not _eh_campo_avancado(campo_destaque)
+    assert not _eh_campo_avancado(campo_conquistadores)
+    assert not _eh_campo_avancado(campo_data_abertura)
+    assert _eh_campo_avancado(campo_pix)
+    assert _eh_campo_avancado(campo_art)
+
+    # 2. Verificação de preenchimento
+    via = croqui_pb2.ViaEsportiva()
+    assert not _campo_esta_preenchido(via, campo_pix)
+    assert not _campo_esta_preenchido(via, campo_art)
+    assert not _campo_esta_preenchido(via, campo_conquistadores)
+
+    via.conquistadores.append("Conquistador 1")
+    assert _campo_esta_preenchido(via, campo_conquistadores)
+
+    via.chave_pix_manutencao = "aresta@climb.org"
+    assert _campo_esta_preenchido(via, campo_pix)
+
+    via.dificuldade_artificial = croqui_pb2.GrauArtificial.A1
+    assert _campo_esta_preenchido(via, campo_art)
+
+    # Teste de submensagem em Setor
+    desc_setor = croqui_pb2.Setor.DESCRIPTOR
+    campo_loc = desc_setor.fields_by_name["localizacao_estacionamento"]
+    setor = croqui_pb2.Setor()
+    assert not _campo_esta_preenchido(setor, campo_loc)
+    setor.localizacao_estacionamento.latitude = 12345
+    assert _campo_esta_preenchido(setor, campo_loc)
+
+    # Teste de rótulos no singular (1 campo, 1 preenchido de 1)
+    from editor.views.widget_editor_dados import WidgetSecaoAvancada
+    secao_singular = WidgetSecaoAvancada(total_campos=1, campos_preenchidos=0, iniciar_expandido=False)
+    assert "1 campo" in secao_singular.toggle_button.text()
+    secao_singular_preenchido = WidgetSecaoAvancada(total_campos=1, campos_preenchidos=1, iniciar_expandido=False)
+    assert "1 preenchido de 1" in secao_singular_preenchido.toggle_button.text()
+
+    # Teste de persistência de estado com widget_editor configurado
+    from unittest.mock import MagicMock
+    from editor.views.widget_editor_dados import WidgetFormularioPadrao
+    mock_editor = MagicMock()
+    mock_editor._campos_avancados_expandidos = False
+    mock_form = WidgetFormularioPadrao(MagicMock(), MagicMock())
+    mock_form.widget_editor = mock_editor
+    assert mock_form.obter_estado_avancado_expandido() is False
+    mock_form.definir_estado_avancado_expandido(True)
+    assert mock_editor._campos_avancados_expandidos is True
+    assert mock_form.obter_estado_avancado_expandido() is True
+
+
+def test_mensagem_sem_campos_avancados_nao_exibe_expando(qapp):
+    from aresta_api.proto.generated import croqui_pb2
+    from editor.views.widget_editor_dados import WidgetFormularioPadrao, WidgetSecaoAvancada
+    from editor.models.croqui_model import CroquiModel
+    from editor.controllers.croqui_controller import CroquiController
+    from PySide6.QtGui import QUndoStack
+    from PySide6.QtWidgets import QVBoxLayout, QWidget
+
+    patrocinador = croqui_pb2.Patrocinador(nome="Aresta Equipamentos")
+    croqui = croqui_pb2.Croqui()
+    model = CroquiModel(croqui)
+    controller = CroquiController(model, QUndoStack())
+
+    form = WidgetFormularioPadrao(model, controller)
+    container = QWidget()
+    layout = QVBoxLayout(container)
+    form._render_message_fields(patrocinador, layout)
+
+    secoes = container.findChildren(WidgetSecaoAvancada)
+    assert len(secoes) == 0
+
+
+def test_formulario_campos_avancados_vazios_inicia_colapsado(qapp):
+    from aresta_api.proto.generated import croqui_pb2
+    from editor.views.widget_editor_dados import WidgetFormularioPadrao, WidgetSecaoAvancada
+    from editor.models.croqui_model import CroquiModel
+    from editor.controllers.croqui_controller import CroquiController
+    from PySide6.QtGui import QUndoStack
+    from PySide6.QtWidgets import QVBoxLayout, QWidget
+
+    via = croqui_pb2.ViaEsportiva(nome="Via Teste")
+    croqui = croqui_pb2.Croqui()
+    model = CroquiModel(croqui)
+    controller = CroquiController(model, QUndoStack())
+
+    form = WidgetFormularioPadrao(model, controller)
+    form.definir_estado_avancado_expandido(False)
+    container = QWidget()
+    layout = QVBoxLayout(container)
+    form._render_message_fields(via, layout)
+
+    secoes = container.findChildren(WidgetSecaoAvancada)
+    assert len(secoes) == 1
+    secao = secoes[0]
+    assert not secao.toggle_button.isChecked()
+    assert secao.content_area.isHidden()
+    assert "Opções Avançadas" in secao.toggle_button.text()
+    assert f"{secao.total_campos} campos" in secao.toggle_button.text()
+
+
+def test_rotulo_expando_indica_campos_preenchidos(qapp):
+    from aresta_api.proto.generated import croqui_pb2
+    from editor.views.widget_editor_dados import WidgetFormularioPadrao, WidgetSecaoAvancada
+    from editor.models.croqui_model import CroquiModel
+    from editor.controllers.croqui_controller import CroquiController
+    from PySide6.QtGui import QUndoStack
+    from PySide6.QtWidgets import QVBoxLayout, QWidget
+
+    via = croqui_pb2.ViaEsportiva(
+        nome="Via Preenchida",
+        chave_pix_manutencao="pix@via.com",
+        dificuldade_artificial=croqui_pb2.GrauArtificial.A2
+    )
+    croqui = croqui_pb2.Croqui()
+    model = CroquiModel(croqui)
+    controller = CroquiController(model, QUndoStack())
+
+    form = WidgetFormularioPadrao(model, controller)
+    form.definir_estado_avancado_expandido(False)
+    container = QWidget()
+    layout = QVBoxLayout(container)
+    form._render_message_fields(via, layout)
+
+    secoes = container.findChildren(WidgetSecaoAvancada)
+    assert len(secoes) == 1
+    secao = secoes[0]
+    assert f"2 preenchidos de {secao.total_campos}" in secao.toggle_button.text()
+
+
+def test_alternancia_visibilidade_e_persistencia_sessao_expando(qapp):
+    from aresta_api.proto.generated import croqui_pb2
+    from editor.views.widget_editor_dados import WidgetFormularioPadrao, WidgetSecaoAvancada
+    from editor.models.croqui_model import CroquiModel
+    from editor.controllers.croqui_controller import CroquiController
+    from PySide6.QtGui import QUndoStack
+    from PySide6.QtWidgets import QVBoxLayout, QWidget
+
+    via1 = croqui_pb2.ViaEsportiva(nome="Via 1")
+    via2 = croqui_pb2.ViaEsportiva(nome="Via 2")
+    croqui = croqui_pb2.Croqui()
+    model = CroquiModel(croqui)
+    controller = CroquiController(model, QUndoStack())
+
+    form = WidgetFormularioPadrao(model, controller)
+    form.definir_estado_avancado_expandido(False)
+
+    container1 = QWidget()
+    layout1 = QVBoxLayout(container1)
+    form._render_message_fields(via1, layout1)
+
+    secao1 = container1.findChild(WidgetSecaoAvancada)
+    assert not secao1.toggle_button.isChecked()
+    assert secao1.content_area.isHidden()
+
+    # Usuário expande
+    secao1.toggle_button.click()
+    assert secao1.toggle_button.isChecked()
+    assert not secao1.content_area.isHidden()
+    assert "Ocultar Opções Avançadas" in secao1.toggle_button.text()
+    assert form.obter_estado_avancado_expandido() is True
+
+    # Renderiza via 2 - deve herdar o estado aberto da sessão
+    container2 = QWidget()
+    layout2 = QVBoxLayout(container2)
+    form._render_message_fields(via2, layout2)
+
+    secao2 = container2.findChild(WidgetSecaoAvancada)
+    assert secao2.toggle_button.isChecked()
+    assert not secao2.content_area.isHidden()
+
+
+def test_edicao_campo_avancado_suporta_undo_redo(qapp):
+    from aresta_api.proto.generated import croqui_pb2
+    from editor.views.widget_editor_dados import WidgetFormularioPadrao, WidgetSecaoAvancada
+    from editor.models.croqui_model import CroquiModel
+    from editor.controllers.croqui_controller import CroquiController
+    from PySide6.QtGui import QUndoStack
+    from PySide6.QtWidgets import QVBoxLayout, QWidget, QLineEdit
+
+    via = croqui_pb2.ViaEsportiva(nome="Via Undo Redo")
+    croqui = croqui_pb2.Croqui()
+    undo_stack = QUndoStack()
+    model = CroquiModel(croqui)
+    controller = CroquiController(model, undo_stack)
+
+    form = WidgetFormularioPadrao(model, controller)
+    container = QWidget()
+    layout = QVBoxLayout(container)
+    form._render_message_fields(via, layout)
+
+    secao = container.findChild(WidgetSecaoAvancada)
+    # Localiza o line edit da chave pix dentro da seção avançada
+    edit_pix = None
+    for edit in secao.findChildren(QLineEdit):
+        if edit.property("protobuf_field") == "chave_pix_manutencao":
+            edit_pix = edit
+            break
+
+    assert edit_pix is not None
+    assert edit_pix.text() == ""
+
+    # Simula edição do usuário
+    edit_pix.setText("mantenedor@aresta.org")
+    edit_pix.editingFinished.emit()
+
+    assert via.chave_pix_manutencao == "mantenedor@aresta.org"
+
+    # Desfazer (Undo)
+    undo_stack.undo()
+    assert via.chave_pix_manutencao == ""
+
+    # Refazer (Redo)
+    undo_stack.redo()
+    assert via.chave_pix_manutencao == "mantenedor@aresta.org"
+
+
+def test_widget_colapsavel_cabecalho_alca_e_lixeira_discreta(qapp):
+    """Verifica se WidgetColapsavel possui alça de arraste na esquerda e lixeira discreta na extrema direita."""
+    from aresta_api.proto.generated import croqui_pb2
+    from editor.views.widget_editor_dados import ContainerRepeatedWidget, WidgetFormularioPadrao, WidgetColapsavel
+    from editor.views.componentes.alca_arraste_item import AlcaArrasteItem
+    from editor.models.croqui_model import CroquiModel
+    from editor.controllers.croqui_controller import CroquiController
+    from PySide6.QtGui import QUndoStack
+    from PySide6.QtWidgets import QPushButton
+
+    croqui = croqui_pb2.Croqui()
+    pico = croqui.picos.add()
+    pico.nome = "Pico Lapinha"
+    setor = pico.setores_ou_grupos.add().setor.conteudo
+    setor.nome = "Setor Lapinha"
+    trilha = setor.trilhas.add()
+    trilha.nome = "Trilha Principal"
+
+    undo_stack = QUndoStack()
+    model = CroquiModel(croqui)
+    controller = CroquiController(model, undo_stack)
+    form = WidgetFormularioPadrao(model, controller)
+
+    campo_trilhas = setor.DESCRIPTOR.fields_by_name["trilhas"]
+    container = ContainerRepeatedWidget(setor, campo_trilhas, form)
+
+    assert container.items_layout.count() == 1
+    w_item = container.items_layout.itemAt(0).widget()
+    colapsavel = w_item.findChild(WidgetColapsavel)
+    assert colapsavel is not None
+
+    # Verifica os componentes do cabeçalho
+    # Posição 0: AlcaArrasteItem
+    header_layout = colapsavel.header_layout
+    assert header_layout.count() == 3
+    widget_alca = header_layout.itemAt(0).widget()
+    assert isinstance(widget_alca, AlcaArrasteItem)
+
+    # Posição 1: toggle_button
+    assert header_layout.itemAt(1).widget() is colapsavel.toggle_button
+
+    # Posição 2: btn_remove com ícone de lixeira
+    widget_remove = header_layout.itemAt(2).widget()
+    assert isinstance(widget_remove, QPushButton)
+    assert not widget_remove.icon().isNull()
+    assert widget_remove.toolTip() == "Remover item"
+
+    # Sem setas
+    assert not hasattr(colapsavel, "btn_subir")
+    assert not hasattr(colapsavel, "btn_descer")
+
+    # Testa remoção via clique na lixeira
+    widget_remove.click()
+    assert len(setor.trilhas) == 0
+    assert container.items_layout.count() == 0
+
+    # Testa Undo
+    undo_stack.undo()
+    assert len(setor.trilhas) == 1
+    assert setor.trilhas[0].nome == "Trilha Principal"
+    assert container.items_layout.count() == 1
+
+
+def test_renderizar_cartao_subelementos_layout_vertical_e_botao_rodape(qapp):
+    """Verifica que o cartão de subelementos exibe layout vertical com contador no topo e botão de ação no rodapé."""
+    from aresta_api.proto.generated import croqui_pb2
+    from editor.views.widget_editor_dados import WidgetFormularioPadrao
+    from editor.views.estilo import Icones
+    from editor.models.croqui_model import CroquiModel
+    from editor.controllers.croqui_controller import CroquiController
+    from PySide6.QtGui import QUndoStack
+    from PySide6.QtWidgets import QVBoxLayout, QWidget, QFrame, QPushButton, QLabel
+
+    croqui = croqui_pb2.Croqui()
+    pico = croqui.picos.add()
+    pico.nome = "Pico dos Três Irmãos"
+    setor = pico.setores_ou_grupos.add().setor.conteudo
+    setor.nome = "Setor Sul"
+    setor.escaladas.add()
+    setor.escaladas.add()
+
+    undo_stack = QUndoStack()
+    model = CroquiModel(croqui)
+    controller = CroquiController(model, undo_stack)
+    form = WidgetFormularioPadrao(model, controller)
+
+    container_pai = QWidget()
+    layout_pai = QVBoxLayout(container_pai)
+
+    campo_escaladas = setor.DESCRIPTOR.fields_by_name["escaladas"]
+    form._renderizar_cartao_subelementos(setor, campo_escaladas, layout_pai)
+
+    # Localiza o cartão (QFrame)
+    cartoes = container_pai.findChildren(QFrame)
+    assert len(cartoes) >= 1
+    cartao = cartoes[0]
+
+    # Layout do cartão deve ser QVBoxLayout (vertical) com título e contador empilhados
+    card_layout = cartao.layout()
+    assert isinstance(card_layout, QVBoxLayout)
+    assert card_layout.itemAt(0).widget().text() == "Escaladas"
+    assert card_layout.itemAt(1).widget().text() == "2 itens cadastrados"
+
+    # Rodapé possui botão de adicionar com estilo padronizado e tamanho contido
+    from PySide6.QtWidgets import QSizePolicy
+    botoes = cartao.findChildren(QPushButton)
+    assert len(botoes) == 1
+    btn_add = botoes[0]
+    assert "+ Adicionar" in btn_add.text()
+    assert btn_add.styleSheet() == Icones.QSS_BOTAO_RODAPE_ADICIONAR
+    assert btn_add.sizePolicy().horizontalPolicy() == QSizePolicy.Policy.Maximum
+
+    # Clica no botão e verifica adição via controller
+    btn_add.click()
+    assert len(setor.escaladas) == 3
+
+    # Testa Undo
+    undo_stack.undo()
+    assert len(setor.escaladas) == 2
+
+
+def test_renderizar_cartao_subelementos_com_widget_editor_e_rotulos_especiais(qapp):
+    """Verifica delegação para widget_editor e rótulos para tipos especiais como SetorOuGrupo."""
+    from unittest.mock import MagicMock
+    from aresta_api.proto.generated import croqui_pb2
+    from editor.views.widget_editor_dados import WidgetFormularioPadrao
+    from editor.models.croqui_model import CroquiModel
+    from editor.controllers.croqui_controller import CroquiController
+    from PySide6.QtGui import QUndoStack
+    from PySide6.QtWidgets import QVBoxLayout, QWidget, QPushButton
+
+    croqui = croqui_pb2.Croqui()
+    pico = croqui.picos.add()
+    pico.nome = "Pico Lapinha"
+
+    undo_stack = QUndoStack()
+    model = CroquiModel(croqui)
+    controller = CroquiController(model, undo_stack)
+    form = WidgetFormularioPadrao(model, controller)
+    mock_editor = MagicMock()
+    form.widget_editor = mock_editor
+
+    container_pai = QWidget()
+    layout_pai = QVBoxLayout(container_pai)
+
+    campo_sg = pico.DESCRIPTOR.fields_by_name["setores_ou_grupos"]
+    form._renderizar_cartao_subelementos(pico, campo_sg, layout_pai)
+
+    botoes = container_pai.findChildren(QPushButton)
+    assert len(botoes) == 1
+    btn_add = botoes[0]
+    assert "+ Adicionar Setor ou Grupo" in btn_add.text()
+
+    # Clica no botão e valida chamada ao widget_editor
+    btn_add.click()
+    mock_editor.executar_adicionar_subelemento.assert_called_once_with(pico, "setores_ou_grupos")
+
+    # Testa campo escalar sem message_type
+    campo_creditos = croqui.DESCRIPTOR.fields_by_name["creditos"]
+    container_pai2 = QWidget()
+    layout_pai2 = QVBoxLayout(container_pai2)
+    form._renderizar_cartao_subelementos(croqui, campo_creditos, layout_pai2)
+    botoes2 = container_pai2.findChildren(QPushButton)
+    assert len(botoes2) == 1
+    assert "+ Adicionar" in botoes2[0].text()
+
+
+def test_calcular_posicao_drop_e_indicador_casos_diversos(qapp):
+    """Testa os cálculos de geometria e posicionamento do drop em diferentes posições da lista."""
+    from aresta_api.proto.generated import croqui_pb2
+    from editor.views.widget_editor_dados import ContainerRepeatedWidget, WidgetFormularioPadrao
+    from editor.models.croqui_model import CroquiModel
+    from editor.controllers.croqui_controller import CroquiController
+    from PySide6.QtGui import QUndoStack
+
+    croqui = croqui_pb2.Croqui()
+    undo_stack = QUndoStack()
+    model = CroquiModel(croqui)
+    controller = CroquiController(model, undo_stack)
+    form = WidgetFormularioPadrao(model, controller)
+
+    campo_picos = croqui.DESCRIPTOR.fields_by_name["picos"]
+    container = ContainerRepeatedWidget(croqui, campo_picos, form)
+
+    # 1. Lista vazia
+    idx, y = container._calcular_posicao_drop_e_indicador(50.0, 0)
+    assert (idx, y) == (0, 0)
+
+    # 2. Adiciona 3 itens
+    croqui.picos.add(nome="P1")
+    croqui.picos.add(nome="P2")
+    croqui.picos.add(nome="P3")
+    container._on_item_adicionado(croqui, "picos", 0)
+    container._on_item_adicionado(croqui, "picos", 1)
+    container._on_item_adicionado(croqui, "picos", 2)
+    container.show()
+    container.resize(400, 300)
+
+    # Simula mapa de geometrias forçando retorno do mapTo
+    w0 = container.items_layout.itemAt(0).widget()
+    w1 = container.items_layout.itemAt(1).widget()
+    w2 = container.items_layout.itemAt(2).widget()
+
+    w0.setGeometry(0, 10, 400, 30)
+    w1.setGeometry(0, 50, 400, 30)
+    w2.setGeometry(0, 90, 400, 30)
+
+    # Acima do primeiro item
+    idx, _ = container._calcular_posicao_drop_e_indicador(5.0, 1)
+    assert idx == 0
+
+    # Depois do último item
+    idx, _ = container._calcular_posicao_drop_e_indicador(500.0, 0)
+    assert idx == 2
+
+    # Foco no último item
+    container._focar_ultimo_item()
+
+
+
 
 
 

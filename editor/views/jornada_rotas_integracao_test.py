@@ -847,3 +847,85 @@ def test_jornada_navegacao_pan_zoom_durante_desenho_de_rota(tmp_path, qtbot):
     assert (linha_poi.linha.conteudo.nos[1].x, linha_poi.linha.conteudo.nos[1].y) == (100, 100)
 
 
+def test_14_multiplas_rotas_isoladas_sem_letras_de_topo(qtbot, tmp_path):
+    """
+    Cenário 14: Criação de múltiplas rotas isoladas garantindo que nenhuma receba letra de topo,
+    e que ao adicionar uma variante a uma delas, apenas a via com variante e a variante ganhem
+    letras, preservando as demais rotas isoladas limpas.
+    """
+    env = _criar_ambiente_teste(tmp_path)
+    widget = env["widget"]
+    undo_stack = env["undo_stack"]
+    qtbot.addWidget(widget)
+
+    # 1. Cria 'Via Esquerda' isolada
+    widget.iniciar_modo_nova_rota({"nome": "Via Esquerda", "tipo": "boulder", "grau": "V3", "nova": True})
+    for p in [QPointF(100, 500), QPointF(100, 300), QPointF(100, 100)]:
+        widget.adicionar_ponto_nova_rota(p)
+    widget.finalizar_modo_nova_rota()
+
+    # 2. Cria 'Via Direita' isolada
+    widget.iniciar_modo_nova_rota({"nome": "Via Direita", "tipo": "boulder", "grau": "V4", "nova": True})
+    for p in [QPointF(300, 500), QPointF(300, 300), QPointF(300, 100)]:
+        widget.adicionar_ponto_nova_rota(p)
+    widget.finalizar_modo_nova_rota()
+
+    croqui_ro = env["model"].obter_croqui_readonly()
+    mapa_ro = croqui_ro.picos[0].setores_ou_grupos[0].setor.conteudo.mapas[0]
+
+    assert len(mapa_ro.pontos_de_interesse) == 2
+    l_esq = mapa_ro.pontos_de_interesse[0]
+    l_dir = mapa_ro.pontos_de_interesse[1]
+
+    # Inícios identificados com 1 e 2
+    assert l_esq.linha.conteudo.nos[0].rotulo == "1"
+    assert l_dir.linha.conteudo.nos[0].rotulo == "2"
+
+    # Ambos os topos DEVEM permanecer limpos (PASSAGEM, sem rótulo)
+    assert l_esq.linha.conteudo.nos[-1].tipo == croqui_pb2.NoTrajeto.TipoNo.PASSAGEM
+    assert l_esq.linha.conteudo.nos[-1].rotulo == ""
+    assert l_dir.linha.conteudo.nos[-1].tipo == croqui_pb2.NoTrajeto.TipoNo.PASSAGEM
+    assert l_dir.linha.conteudo.nos[-1].rotulo == ""
+
+    # 3. Cria 'Variante Esquerda' bifurcando no nó (100, 300) da 'Via Esquerda'
+    widget.iniciar_modo_nova_rota({"nome": "Variante Esquerda", "tipo": "boulder", "grau": "V5", "nova": True})
+    widget.adicionar_ponto_nova_rota(QPointF(100, 500))  # snap início
+    widget.adicionar_ponto_nova_rota(QPointF(100, 300))  # snap bifurcação
+    widget.adicionar_ponto_nova_rota(QPointF(150, 100))  # topo exclusivo
+    widget.finalizar_modo_nova_rota()
+
+    croqui_ro2 = env["model"].obter_croqui_readonly()
+    mapa_ro2 = croqui_ro2.picos[0].setores_ou_grupos[0].setor.conteudo.mapas[0]
+    refs = {r.escalada: list(r.ids) for r in mapa_ro2.referencias}
+    pois = {p.id: p for p in mapa_ro2.pontos_de_interesse}
+
+    # 'Via Esquerda' e 'Variante Esquerda' devem ganhar topos A e B
+    fim_esq = pois[refs["Via Esquerda"][-1]].linha.conteudo.nos[-1]
+    fim_var = pois[refs["Variante Esquerda"][-1]].linha.conteudo.nos[-1]
+    assert fim_esq.tipo == croqui_pb2.NoTrajeto.TipoNo.FIM_TOP
+    assert fim_esq.rotulo == "A"
+    assert fim_var.tipo == croqui_pb2.NoTrajeto.TipoNo.FIM_TOP
+    assert fim_var.rotulo == "B"
+
+    # 'Via Direita' DEVE continuar com topo limpo (sem letra C)
+    fim_dir = pois[refs["Via Direita"][-1]].linha.conteudo.nos[-1]
+    assert fim_dir.tipo == croqui_pb2.NoTrajeto.TipoNo.PASSAGEM
+    assert fim_dir.rotulo == ""
+
+    # 4. Undo remove a variante e reverte o topo da 'Via Esquerda' para limpo
+    undo_stack.undo()
+    croqui_ro3 = env["model"].obter_croqui_readonly()
+    mapa_ro3 = croqui_ro3.picos[0].setores_ou_grupos[0].setor.conteudo.mapas[0]
+    refs3 = {r.escalada: list(r.ids) for r in mapa_ro3.referencias}
+    pois3 = {p.id: p for p in mapa_ro3.pontos_de_interesse}
+
+    assert "Variante Esquerda" not in refs3
+    fim_esq_undo = pois3[refs3["Via Esquerda"][-1]].linha.conteudo.nos[-1]
+    assert fim_esq_undo.tipo == croqui_pb2.NoTrajeto.TipoNo.PASSAGEM
+    assert fim_esq_undo.rotulo == ""
+    fim_dir_undo = pois3[refs3["Via Direita"][-1]].linha.conteudo.nos[-1]
+    assert fim_dir_undo.tipo == croqui_pb2.NoTrajeto.TipoNo.PASSAGEM
+    assert fim_dir_undo.rotulo == ""
+
+
+

@@ -280,11 +280,14 @@ class TestConvencaoSemanticaOuroboulder:
 
     def test_desambiguar_topos_com_referencias_vazias_ou_inexistentes(self):
         linha = _criar_linha_pb("linha_1", [(100, 500), (100, 100)])
+        linha_sem_nos = croqui_pb2.Mapa.PontoDeInteresse(id="linha_vazia")
+        linha_sem_nos.linha.estilo = croqui_pb2.LinhaTrajeto.EstiloTraco.TRACEJADO
         ref_vazia = croqui_pb2.Mapa.Referencia(escalada="Vazia")
         ref_inexistente = croqui_pb2.Mapa.Referencia(escalada="NaoExiste", ids=["linha_fantasma"])
-        
+        ref_linha_sem_nos = croqui_pb2.Mapa.Referencia(escalada="SemNos", ids=["linha_vazia"])
+
         # Não deve lançar exceção
-        desambiguar_topos([linha], [ref_vazia, ref_inexistente])
+        desambiguar_topos([linha, linha_sem_nos], [ref_vazia, ref_inexistente, ref_linha_sem_nos])
 
     def test_desambiguar_topos_rota_isolada_sem_circulo(self):
         linha = _criar_linha_pb("linha_1", [(100, 500), (100, 100)], rotulo_inicio="1")
@@ -323,6 +326,74 @@ class TestConvencaoSemanticaOuroboulder:
         assert linha2.linha.conteudo.nos[-1].rotulo == "A"
         assert linha1.linha.conteudo.nos[-1].tipo == croqui_pb2.NoTrajeto.TipoNo.FIM_TOP
         assert linha2.linha.conteudo.nos[-1].tipo == croqui_pb2.NoTrajeto.TipoNo.FIM_TOP
+
+    def test_desambiguar_topos_multiplas_rotas_isoladas_sem_circulo(self):
+        linha1 = _criar_linha_pb("v1", [(50, 500), (50, 100)], rotulo_inicio="1")
+        linha2 = _criar_linha_pb("v2", [(150, 500), (150, 100)], rotulo_inicio="2")
+        linha3 = _criar_linha_pb("v3", [(250, 500), (250, 100)], rotulo_inicio="3")
+
+        ref1 = croqui_pb2.Mapa.Referencia(escalada="Via 1", ids=["v1"])
+        ref2 = croqui_pb2.Mapa.Referencia(escalada="Via 2", ids=["v2"])
+        ref3 = croqui_pb2.Mapa.Referencia(escalada="Via 3", ids=["v3"])
+
+        desambiguar_topos([linha1, linha2, linha3], [ref1, ref2, ref3])
+
+        for l in [linha1, linha2, linha3]:
+            assert l.linha.conteudo.nos[-1].tipo == croqui_pb2.NoTrajeto.TipoNo.PASSAGEM
+            assert l.linha.conteudo.nos[-1].rotulo == ""
+
+    def test_desambiguar_topos_cenario_misto_isolada_variante_convergente(self):
+        # 1 e 2: bifurcação
+        seg_comum = _criar_linha_pb("comum", [(100, 500), (100, 300)], rotulo_inicio="1, 2")
+        seg_v1 = _criar_linha_pb("v1", [(100, 300), (80, 100)])
+        seg_v2 = _criar_linha_pb("v2", [(100, 300), (120, 100)])
+        ref1 = croqui_pb2.Mapa.Referencia(escalada="Via 1", ids=["comum", "v1"])
+        ref2 = croqui_pb2.Mapa.Referencia(escalada="Via 2", ids=["comum", "v2"])
+
+        # 3 e 4: convergência no mesmo topo (250, 100)
+        linha3 = _criar_linha_pb("v3", [(200, 500), (250, 100)], rotulo_inicio="3")
+        linha4 = _criar_linha_pb("v4", [(300, 500), (250, 100)], rotulo_inicio="4")
+        ref3 = croqui_pb2.Mapa.Referencia(escalada="Via 3", ids=["v3"])
+        ref4 = croqui_pb2.Mapa.Referencia(escalada="Via 4", ids=["v4"])
+
+        # 5: rota isolada
+        linha5 = _criar_linha_pb("v5", [(400, 500), (400, 100)], rotulo_inicio="5")
+        ref5 = croqui_pb2.Mapa.Referencia(escalada="Via 5", ids=["v5"])
+
+        desambiguar_topos(
+            [seg_comum, seg_v1, seg_v2, linha3, linha4, linha5],
+            [ref1, ref2, ref3, ref4, ref5]
+        )
+
+        # Variantes ganham A e B
+        assert seg_v1.linha.conteudo.nos[-1].tipo == croqui_pb2.NoTrajeto.TipoNo.FIM_TOP
+        assert seg_v1.linha.conteudo.nos[-1].rotulo == "A"
+        assert seg_v2.linha.conteudo.nos[-1].tipo == croqui_pb2.NoTrajeto.TipoNo.FIM_TOP
+        assert seg_v2.linha.conteudo.nos[-1].rotulo == "B"
+
+        # Convergência ganha C compartilhado
+        assert linha3.linha.conteudo.nos[-1].tipo == croqui_pb2.NoTrajeto.TipoNo.FIM_TOP
+        assert linha3.linha.conteudo.nos[-1].rotulo == "C"
+        assert linha4.linha.conteudo.nos[-1].tipo == croqui_pb2.NoTrajeto.TipoNo.FIM_TOP
+        assert linha4.linha.conteudo.nos[-1].rotulo == "C"
+
+        # Rota isolada permanece PASSAGEM e sem rótulo
+        assert linha5.linha.conteudo.nos[-1].tipo == croqui_pb2.NoTrajeto.TipoNo.PASSAGEM
+        assert linha5.linha.conteudo.nos[-1].rotulo == ""
+
+    def test_desambiguar_topos_restauracao_apos_remocao_de_variante(self):
+        seg_comum = _criar_linha_pb("comum", [(100, 500), (100, 300)], rotulo_inicio="1")
+        seg_v1 = _criar_linha_pb("v1", [(100, 300), (80, 100)], rotulo_fim="A")
+
+        ref1 = croqui_pb2.Mapa.Referencia(escalada="Via 1", ids=["comum", "v1"])
+
+        # Via 1 agora é a única referência
+        desambiguar_topos([seg_comum, seg_v1], [ref1])
+
+        # O topo "A" deve ser revertido para PASSAGEM sem rótulo
+        assert seg_v1.linha.conteudo.nos[-1].tipo == croqui_pb2.NoTrajeto.TipoNo.PASSAGEM
+        assert seg_v1.linha.conteudo.nos[-1].rotulo == ""
+
 
 
 class TestEscopoSetor:

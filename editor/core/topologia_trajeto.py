@@ -371,38 +371,80 @@ def desambiguar_topos(
     - Rotas que convergem no mesmo topo compartilham o mesmo rótulo de topo.
     """
     linhas_por_id = {str(linha.id): linha for linha in linhas if hasattr(linha, "id")}
-    
-    # Identifica o último nó de cada referência
-    topos_por_ref: Dict[str, Tuple[int, int]] = {}
-    ultimo_no_por_ref: Dict[str, Any] = {}
+
+    rotas_info: List[Dict[str, Any]] = []
 
     for ref in referencias:
-        nome_escalada = getattr(ref, "escalada", "")
         if not ref.ids:
             continue
-        ultimo_id = str(ref.ids[-1])
-        if ultimo_id in linhas_por_id:
-            linha = linhas_por_id[ultimo_id]
-            nos = linha.linha.conteudo.nos
-            if nos:
-                ultimo_no = nos[-1]
-                coord = (int(ultimo_no.x), int(ultimo_no.y))
-                topos_por_ref[nome_escalada] = coord
-                ultimo_no_por_ref[nome_escalada] = ultimo_no
 
-    # Verifica se há bifurcação ou convergência
-    rotas = list(referencias)
-    if len(rotas) <= 1:
-        # Rota isolada: garante que o término seja PASSAGEM sem rótulo
-        for ultimo_no in ultimo_no_por_ref.values():
-            ultimo_no.tipo = croqui_pb2.NoTrajeto.TipoNo.PASSAGEM
-            ultimo_no.rotulo = ""
+        linhas_validas = [
+            linhas_por_id[str(lid)]
+            for lid in ref.ids
+            if str(lid) in linhas_por_id and len(linhas_por_id[str(lid)].linha.conteudo.nos) > 0
+        ]
+        if not linhas_validas:
+            continue
+
+        primeira_linha = linhas_validas[0]
+        nos_primeira = primeira_linha.linha.conteudo.nos
+        coord_inicio = (int(nos_primeira[0].x), int(nos_primeira[0].y))
+
+        ultima_linha = linhas_validas[-1]
+        nos_ultima = ultima_linha.linha.conteudo.nos
+        ultimo_no = nos_ultima[-1]
+        coord_fim = (int(ultimo_no.x), int(ultimo_no.y))
+
+        linhas_ids = {str(lid) for lid in ref.ids}
+        pontos: Set[Tuple[int, int]] = set()
+        for l in linhas_validas:
+            for no in l.linha.conteudo.nos:
+                pontos.add((int(no.x), int(no.y)))
+
+        nome_escalada = getattr(ref, "escalada", "")
+        rotas_info.append({
+            "nome_escalada": nome_escalada,
+            "coord_inicio": coord_inicio,
+            "coord_fim": coord_fim,
+            "linhas_ids": linhas_ids,
+            "pontos": pontos,
+            "ultimo_no": ultimo_no,
+        })
+
+    if not rotas_info:
         return
 
-    # Mapeia coordenadas únicas de topo para letras
+    # Determina quais topos requerem desambiguação
+    coords_que_precisam_letra: Set[Tuple[int, int]] = set()
+
+    for i, r_i in enumerate(rotas_info):
+        fim_i = r_i["coord_fim"]
+        inicio_i = r_i["coord_inicio"]
+        linhas_i = r_i["linhas_ids"]
+        pontos_i = r_i["pontos"]
+
+        for j, r_j in enumerate(rotas_info):
+            if i == j:
+                continue
+            fim_j = r_j["coord_fim"]
+            inicio_j = r_j["coord_inicio"]
+            linhas_j = r_j["linhas_ids"]
+            pontos_j = r_j["pontos"]
+
+            # 1. Convergência no mesmo topo
+            if fim_i == fim_j:
+                coords_que_precisam_letra.add(fim_i)
+
+            # 2. Bifurcação / dois finais para rota conectada
+            elif (inicio_i == inicio_j) or bool(linhas_i & linhas_j) or bool(pontos_i & pontos_j):
+                coords_que_precisam_letra.add(fim_i)
+                coords_que_precisam_letra.add(fim_j)
+
+    # Coleta coordenadas únicas na ordem de aparição para atribuição estável
     coords_unicas: List[Tuple[int, int]] = []
-    for coord in topos_por_ref.values():
-        if coord not in coords_unicas:
+    for r in rotas_info:
+        coord = r["coord_fim"]
+        if coord in coords_que_precisam_letra and coord not in coords_unicas:
             coords_unicas.append(coord)
 
     letras_atribuidas: Dict[Tuple[int, int], str] = {}
@@ -413,11 +455,16 @@ def desambiguar_topos(
         letras_atribuidas[coord] = proxima_letra
         letras_em_uso.append(proxima_letra)
 
-    # Aplica as letras e tipos aos nós de topo
-    for nome_escalada, coord in topos_por_ref.items():
-        no_topo = ultimo_no_por_ref[nome_escalada]
-        no_topo.tipo = croqui_pb2.NoTrajeto.TipoNo.FIM_TOP
-        no_topo.rotulo = letras_atribuidas[coord]
+    # Aplica as letras aos nós que precisam e limpa os demais
+    for r in rotas_info:
+        ultimo_no = r["ultimo_no"]
+        coord = r["coord_fim"]
+        if coord in letras_atribuidas:
+            ultimo_no.tipo = croqui_pb2.NoTrajeto.TipoNo.FIM_TOP
+            ultimo_no.rotulo = letras_atribuidas[coord]
+        else:
+            ultimo_no.tipo = croqui_pb2.NoTrajeto.TipoNo.PASSAGEM
+            ultimo_no.rotulo = ""
 
 
 def obter_rotulo_escalada_no_setor(setor_msg: Any, nome_escalada: str) -> Optional[str]:

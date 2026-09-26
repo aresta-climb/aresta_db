@@ -57,6 +57,32 @@ def test_icones_obter_celular_retorna_icon_valido(qtbot):
     icon_off = Icones.obter_celular(conectado=False)
     assert isinstance(icon_off, QIcon)
 
+def test_icones_obter_lixeira_retorna_icon_valido(qtbot):
+    """Valida se o helper obter_lixeira retorna um QIcon configurado."""
+    icon = Icones.obter_lixeira()
+    assert isinstance(icon, QIcon)
+
+def test_icones_obter_lixeira_usa_cores_apropriadas():
+    """Valida se o obter_lixeira chama qtawesome com cor vermelha (COR_ERRO) para deixar clara a ação de deletar."""
+    with patch("qtawesome.icon") as mock_qta:
+        mock_qta.return_value = QIcon()
+        Icones.obter_lixeira()
+        mock_qta.assert_called_once_with(
+            "fa5s.trash-alt",
+            color=Icones.COR_ERRO,
+            color_active=Icones.COR_ERRO,
+            color_selected=Icones.COR_ERRO
+        )
+
+def test_icones_constantes_estilo_css_definidas():
+    """Valida se as constantes de estilo QSS para coleções repetidas estão definidas com borda sólida."""
+    assert hasattr(Icones, "QSS_BOTAO_REMOVER_DISCRETO")
+    assert "QPushButton" in Icones.QSS_BOTAO_REMOVER_DISCRETO
+    assert hasattr(Icones, "QSS_CONTAINER_REPEATED_INTEGRADO")
+    assert hasattr(Icones, "QSS_BOTAO_RODAPE_ADICIONAR")
+    assert "solid" in Icones.QSS_BOTAO_RODAPE_ADICIONAR
+
+
 def test_icones_obter_celular_usa_stacking_correto():
     """Valida se o qtawesome é chamado com múltiplos argumentos para empilhamento."""
     with patch("qtawesome.icon") as mock_qta:

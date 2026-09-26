@@ -3,8 +3,11 @@
 
 import json
 import os
+import sys
 import argparse
 from PIL import Image, ImageDraw
+
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 def processar_mapa(caminho_imagem: str, caminho_json: str) -> None:
     # Determinar caminho de saída: mesma pasta do json, com sufixo _processado.webp

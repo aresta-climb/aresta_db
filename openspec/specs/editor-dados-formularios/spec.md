@@ -107,35 +107,16 @@ O sistema SHALL renderizar números de ponto flutuante e coordenadas como `QLine
 
 ### Requirement: Cartões de Ação para Sub-elementos no Rodapé do Formulário
 O sistema SHALL renderizar seções/cartões contextuais no rodapé da visualização de formulário para mensagens que possuem coleções repetidas de sub-elementos exibidos na árvore (ex: `Croqui`, `Pico`, `Grupo`, `Setor`, `ViaMultiplasEnfiadas`).
-- Cada cartão SHALL exibir o título da coleção, a contagem atual de itens cadastrados e um botão de ação rápida para adicionar um novo item.
+- Cada cartão SHALL exibir o título da coleção, a contagem atual de itens cadastrados e um botão de ação rápida posicionado na área inferior do cartão para adicionar um novo item.
 - Ao clicar no botão de adição do cartão, o sistema SHALL acionar a criação do novo elemento na coleção da mensagem atual através do histórico de Undo/Redo (`QUndoCommand`), atualizar a árvore de dados e selecionar o novo elemento para edição.
 
 #### Scenario: Visualização do Cartão de Sub-elementos
 - **WHEN** o formulário de uma mensagem que contém coleções filhas na árvore (ex: `Pico`) é carregado
-- **THEN** o sistema SHALL renderizar no rodapé do formulário um cartão para cada coleção (ex: "Setores e Grupos"), contendo a contagem de itens e o botão de adição correspondente.
+- **THEN** o sistema SHALL renderizar no rodapé do formulário um cartão para cada coleção (ex: "Setores e Grupos"), contendo a contagem de itens e o botão de adição posicionado no corpo inferior do cartão.
 
 #### Scenario: Adição Rápida de Sub-elemento via Cartão do Formulário
 - **WHEN** o usuário clica no botão de adicionar em um cartão de sub-elementos no formulário
 - **THEN** o sistema SHALL empilhar a adição no histórico de Undo/Redo, criar o novo item na coleção da mensagem pai, refletir a alteração na árvore e focar no formulário do novo item criado.
-
-### Requirement: Reordenação de Itens em Coleções Repetidas via Botões
-O sistema SHALL disponibilizar controles de movimentação rápida "Subir" (▲) e "Descer" (▼) em cada item pertencente a uma coleção repetida no formulário (`ContainerRepeatedWidget`).
-- O botão "Subir" SHALL ser desabilitado quando o item for o primeiro da coleção (índice 0).
-- O botão "Descer" SHALL ser desabilitado quando o item for o último da coleção (índice `N - 1`).
-- Para coleções de item único (tamanho 1), ambos os botões SHALL permanecer desabilitados.
-- Ao clicar em "Subir" ou "Descer", o sistema SHALL consolidar edições pendentes e despachar o comando no histórico de Undo/Redo (`CmdMoverRepeated`), garantindo reversibilidade total.
-
-#### Scenario: Mover item para cima na lista
-- **WHEN** o usuário clica no botão "Subir" de um item no índice 1 ou superior
-- **THEN** o sistema SHALL trocar de posição o item com seu antecessor imediato no Protobuf via histórico, reposicionar o widget na interface e atualizar os estados dos botões.
-
-#### Scenario: Mover item para baixo na lista
-- **WHEN** o usuário clica no botão "Descer" de um item que não seja o último
-- **THEN** o sistema SHALL trocar de posição o item com seu sucessor imediato no Protobuf via histórico, reposicionar o widget na interface e atualizar os estados dos botões.
-
-#### Scenario: Desfazer e refazer reordenação por botão
-- **WHEN** o usuário reordena um item via botão e em seguida executa Desfazer (Undo)
-- **THEN** o sistema SHALL restaurar a posição original do item na coleção do Protobuf e no formulário.
 
 ### Requirement: Reordenação de Itens em Coleções Repetidas via Arrastar e Soltar
 O sistema SHALL disponibilizar uma alça visual de arraste (`⠿`) em cada item de coleção repetida permitindo a reordenação direta por arrastar e soltar (drag-and-drop) dentro do mesmo container.
@@ -156,7 +137,6 @@ O sistema SHALL disponibilizar uma alça visual de arraste (`⠿`) em cada item 
 O sistema SHALL responder ao sinal `repeated_movido` emitido pelo modelo para sincronizar os widgets e propriedades da coleção repetida.
 - Os índices armazenados nos widgets (`repeated_index`) e nos caminhos de campos primitivos (`protobuf_field`) SHALL ser atualizados para refletir a nova ordem contígua `0, 1, ..., N - 1`.
 - Para sub-mensagens encapsuladas em itens colapsáveis (`WidgetColapsavel`), o prefixo de título do cabeçalho SHALL ser recalculado com o novo índice (ex: `Escalada [0]` -> `Escalada [1]`), preservando o estado de expansão (se o item estava aberto ou fechado) e eventuais títulos heurísticos.
-- Os estados de habilitação dos botões "Subir" e "Descer" de todos os itens da coleção SHALL ser recalculados e atualizados imediatamente.
 
 #### Scenario: Atualização de títulos indexados após movimentação
 - **WHEN** um item colapsável é movido do índice 0 para o índice 2
@@ -164,17 +144,17 @@ O sistema SHALL responder ao sinal `repeated_movido` emitido pelo modelo para si
 
 #### Scenario: Atualização dos botões nos extremos da lista
 - **WHEN** o primeiro item é movido para outra posição
-- **THEN** o novo primeiro item da lista SHALL ter seu botão "Subir" desabilitado, e o item movido SHALL ter seus botões ajustados conforme sua nova posição.
+- **THEN** o sistema SHALL atualizar os índices e propriedades visuais de todos os itens reorganizados contiguamente.
 
 ### Requirement: Renderização Direta de Card Visual para Mapas em Coleções Repetidas
 O sistema SHALL renderizar itens de coleções repetidas do tipo `Mapa` (ou com anotação `mensagem_formato_na_ui = MAPA`) diretamente como cartões visuais abertos, sem encapsulamento em accordion colapsável (`WidgetColapsavel`).
-- **Barra de Controle Superior**: Cada cartão SHALL exibir no topo uma alça de arraste `⠿`, o título composto pelo índice e nome do arquivo da foto (ex: `Mapa [0] - setor_fugitivos_p0.webp`), os botões de ação rápida `▲` (Subir) e `▼` (Descer), e o botão `Remover`.
+- **Barra de Controle Superior**: Cada cartão SHALL exibir no topo uma alça de arraste `⠿` na extremidade esquerda, o título composto pelo índice e nome do arquivo da foto (ex: `Mapa 0: Parede Principal`), e exclusivamente o botão de remoção discreto na extremidade direita.
 - **Corpo Visual**: Cada cartão SHALL exibir uma miniatura com proporção preservada da imagem (`caminho_imagem_mapa`), as dimensões em pixels (`largura_mapa × altura_mapa`), o caminho relativo do arquivo e o botão de ação `Abrir no Editor de Mapas`.
 - **Tratamento de Imagem Ausente**: Caso o arquivo da imagem não exista ou não possa ser lido, o cartão SHALL exibir um indicador visual de imagem ausente/placeholder sem interromper o fluxo da interface.
 
 #### Scenario: Visualização de cartão de mapa no formulário
 - **WHEN** o formulário de uma mensagem contendo mapas (ex: setor ou pico) é exibido
-- **THEN** cada item da coleção de mapas SHALL ser renderizado como um cartão aberto com sua foto em miniatura, metadados de resolução e botão para o editor de mapas, sem botão de colapso/expansão.
+- **THEN** cada item da coleção de mapas SHALL ser renderizado como um cartão aberto com sua foto em miniatura, metadados de resolução e botão para o editor de mapas, exibindo na barra superior apenas a alça de arraste, o título e a ação de remoção à direita.
 
 #### Scenario: Visualização de mapa sem arquivo de imagem
 - **WHEN** um mapa cadastrado não possui arquivo de imagem disponível no disco ou na memória
@@ -183,17 +163,88 @@ O sistema SHALL renderizar itens de coleções repetidas do tipo `Mapa` (ou com 
 ### Requirement: Atualização e Sincronização de Cards de Mapa na Reordenação
 O sistema SHALL sincronizar os cartões visuais de mapas ao responder ao sinal de movimentação no modelo (`repeated_movido`).
 - Os índices nos títulos dos cartões (`Mapa [i]`) SHALL ser atualizados para refletir a nova posição contígua.
-- Os botões `▲` e `▼` SHALL ter seus estados recalculados (desabilitando `▲` no índice 0 e `▼` no último índice).
 - O reposicionamento do cartão no layout SHALL preservar a miniatura carregada e os metadados do mapa.
 - A operação de movimentação SHALL ser despachada via comando no histórico (`CmdMoverRepeated`), garantindo reversibilidade com Desfazer (Undo) e Refazer (Redo).
 
 #### Scenario: Reordenação de cards de mapa por botões ou arraste
-- **WHEN** o usuário move um cartão de mapa para outra posição via botão ou drag-and-drop
+- **WHEN** o usuário move um cartão de mapa para outra posição via alça `⠿`
 - **THEN** o cartão do mapa com sua respectiva miniatura e dados SHALL se mover para a nova posição no layout
-- **AND** os índices e botões de limite de todos os cartões da coleção SHALL ser atualizados.
+- **AND** os índices de todos os cartões da coleção SHALL ser atualizados contiguamente.
 
 #### Scenario: Desfazer reordenação de card de mapa
 - **WHEN** o usuário desfaz (Undo) uma movimentação de mapa
 - **THEN** o cartão do mapa e sua miniatura SHALL retornar à posição anterior na listagem visual e no Protobuf.
+
+### Requirement: Agrupamento e Ocultação Progressiva de Campos Avançados
+O sistema SHALL agrupar dinamicamente os campos marcados com a opção `avancado = true` no Protobuf dentro de uma seção colapsável ("Opções Avançadas") no final da lista de campos de cada formulário de entidade.
+
+- **Identificação Declarativa**: O sistema SHALL inspecionar as opções de cada campo (`FieldDescriptor`) e identificar como avançado qualquer campo que contenha `(aresta.avancado) = true`.
+- **Campos Principais**: Campos que não possuam `avancado = true` (incluindo `nome`, `dificuldade`, `extensao`, `conquistadores`, `data_abertura`, `destaque` e `descricao`) SHALL ser renderizados diretamente no layout principal do formulário.
+- **Renderização Condicional do Expando**: Se uma mensagem não possuir nenhum campo marcado como avançado, a seção colapsável de avançados SHALL NÃO ser renderizada.
+- **Rótulo Informativo de Preenchimento**: Quando colapsado, o cabeçalho do expando SHALL exibir a contagem total de campos avançados e, caso algum deles possua valor não-nulo/não-vazio no Protobuf, exibir a quantidade de campos preenchidos (ex: `▶ Opções Avançadas (X preenchidos de Y)` quando houver dados preenchidos, ou `▶ Opções Avançadas (Y campos)` quando todos estiverem vazios). Quando expandido, o rótulo SHALL exibir `▼ Ocultar Opções Avançadas`.
+- **Persistência de Expansão na Sessão**: Ao expandir ou recolher a seção de campos avançados, o sistema SHALL memorizar o estado (aberto ou fechado) como preferência da sessão do editor. Ao navegar para qualquer outro elemento na árvore de dados durante a mesma sessão, o novo formulário exibido SHALL inicializar a seção de avançados respeitando o estado memorizado.
+- **Sincronização com Undo/Redo e Modelo**: Todos os controles de edição pertencentes à seção de avançados SHALL manter as propriedades de mapeamento do Protobuf (`protobuf_field` e `protobuf_msg_id`), despachar alterações exclusivamente através do controlador e responder a atualizações de Undo/Redo e notificações de sinais do modelo de dados.
+
+#### Scenario: Formulário de Mensagem sem Campos Avançados
+- **WHEN** o usuário seleciona um nó na árvore cuja mensagem Protobuf não possui nenhum campo com a opção `(aresta.avancado) = true`
+- **THEN** o sistema SHALL renderizar todos os campos visíveis normalmente e NÃO exibir o botão/expando de "Opções Avançadas".
+
+#### Scenario: Visualização Inicial de Formulário com Campos Avançados Vazios
+- **WHEN** o formulário de uma mensagem que contém campos avançados vazios (ex: nova `ViaEsportiva`) é exibido pela primeira vez
+- **THEN** os campos principais (`nome`, `dificuldade`, `extensao`, `conquistadores`, `data_abertura`, `destaque`, `descricao`) SHALL estar visíveis diretamente
+- **AND** a seção de campos avançados SHALL estar colapsada com o texto indicando o total de campos (ex: `▶ Opções Avançadas (N campos)`).
+
+#### Scenario: Indicador de Campos Avançados Preenchidos
+- **WHEN** uma mensagem possui 2 campos avançados preenchidos com valores não-padrão (ex: `dificuldade_artificial` e `chave_pix_manutencao`) e o expando está colapsado
+- **THEN** o rótulo do expando SHALL exibir `▶ Opções Avançadas (2 preenchidos de N)`.
+
+#### Scenario: Alternância de Visibilidade dos Campos Avançados
+- **WHEN** o usuário clica no botão do expando de campos avançados colapsado
+- **THEN** a área de conteúdo dos campos avançados SHALL tornar-se visível, exibindo os cards dos campos avançados para edição
+- **AND** o rótulo do botão SHALL mudar para `▼ Ocultar Opções Avançadas`.
+
+#### Scenario: Persistência do Estado de Expansão ao Navegar na Árvore
+- **WHEN** o usuário expande a seção de campos avançados em uma via e em seguida seleciona outra via ou setor na árvore de dados
+- **THEN** o formulário do novo item selecionado SHALL ser exibido com a seção de campos avançados já aberta automaticamente.
+
+#### Scenario: Suporte a Undo e Redo em Campos Avançados
+- **WHEN** o usuário edita um campo dentro da seção de opções avançadas e em seguida aciona a ação Desfazer (Undo)
+- **THEN** o valor anterior do campo SHALL ser restaurado no widget e no Protobuf através do histórico global de comandos.
+
+### Requirement: Container Integrado e Ação de Adição no Rodapé para Coleções Repetidas
+O sistema SHALL estruturar coleções repetidas (`ContainerRepeatedWidget`) com a ação de adição de novos itens posicionada obrigatoriamente no rodapé da lista/container, e nunca no cabeçalho superior direito.
+- **Cabeçalho**: O cabeçalho da coleção SHALL conter apenas o título do campo e eventuais dicas/descrições contextuais.
+- **Rodapé de Adição**: O rodapé da coleção SHALL conter o botão de adição de novo item (ex: `+ Adicionar Item`, `+ Adicionar Mapa`), alinhado de forma natural ao fluxo vertical de leitura após os itens existentes.
+- **Container Integrado para Primitivos**: Para coleções de campos escalares (primitivos como strings e inteiros), os itens SHALL ser encapsulados em um container emoldurado (cartão integrado), com campos de entrada de texto com largura responsiva e separadores sutis entre as linhas.
+- **Estado Vazio**: Quando a coleção repetida contiver 0 itens, o container SHALL exibir uma indicação textual suave de lista vazia (ex: "Nenhum item cadastrado.") acompanhada do botão de adição.
+
+#### Scenario: Visualização de coleção repetida com itens
+- **WHEN** o usuário visualiza um campo repeated (escalar, mapa ou colapsável) com itens existentes
+- **THEN** o botão de adicionar novo item SHALL estar posicionado após o último item da lista no rodapé da coleção, e o cabeçalho superior SHALL não conter botões de ação à direita.
+
+#### Scenario: Visualização de coleção repetida vazia
+- **WHEN** o usuário visualiza um campo repeated sem nenhum item cadastrado
+- **THEN** o container SHALL exibir uma mensagem de lista vazia e disponibilizar o botão de adição no rodapé.
+
+### Requirement: Remoção Discreta de Itens em Coleções Repetidas
+O sistema SHALL disponibilizar em cada linha ou cabeçalho de item de coleção repetida exclusivamente o controle de remoção posicionado na extrema direita.
+- O botão de remoção SHALL utilizar ícone discreto (lixeira `fa5s.trash-alt`), sem texto redundante longo.
+- O estilo visual do botão SHALL ser neutro (*ghost/flat*) em estado de repouso, destacando-se em tom de alerta suave apenas sob foco ou passagem do cursor do mouse (*hover*).
+- Ao clicar no botão de remoção, o sistema SHALL consolidar edições pendentes e despachar o comando no histórico de Undo/Redo (`CmdRemoverRepeated`).
+
+#### Scenario: Remoção de item através de ícone discreto
+- **WHEN** o usuário clica no ícone de lixeira na extrema direita de um item de coleção repetida
+- **THEN** o sistema SHALL remover o item via histórico de Undo/Redo, atualizar o container e permitir reversão total via Desfazer.
+
+### Requirement: Adição Rápida via Tecla Enter em Campos Escalares Repetidos
+O sistema SHALL permitir que o usuário adicione rapidamente novos itens em coleções de campos de texto escalares repetidos através da tecla `Enter`.
+- Ao pressionar `Enter` em um campo de texto de item escalar que contenha texto preenchido, o sistema SHALL despachar a adição do novo item vazio no histórico (`CmdAdicionarRepeated`).
+- O foco do teclado do sistema SHALL ser imediatamente transferido para o novo campo de texto criado.
+
+#### Scenario: Pressionamento de Enter para adicionar próximo item
+- **WHEN** o usuário está editando um campo de texto escalar repetido e pressiona `Enter`
+- **THEN** um novo item é adicionado ao final da coleção via histórico e o cursor de foco é automaticamente posicionado no novo campo de entrada.
+
+
 
 

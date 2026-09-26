@@ -690,6 +690,50 @@ class MapasControllerTest(unittest.TestCase):
         with self.assertRaises(ValueError):
             self.controller.separar_linha_em_no(self.msg_mapa_proxy, setor_proxy, "linha_inexistente", 1)
 
+    def test_adicionar_rota_com_tracado_multiplas_rotas_isoladas_sem_letras_top_e_undo_redo(self):
+        setor_proxy = self.model.obter_croqui_readonly().picos[0].setores_ou_grupos[0].setor.conteudo
+
+        # 1. Rota 1 isolada
+        dados_1 = {"nome": "Via Alpha", "tipo": "boulder", "grau": "V3", "nova": True}
+        self.controller.adicionar_rota_com_tracado(self.msg_mapa_proxy, setor_proxy, dados_1, [(10.0, 50.0), (10.0, 10.0)])
+        linha_1 = self.mapa.pontos_de_interesse[0]
+        self.assertEqual(linha_1.linha.conteudo.nos[0].rotulo, "1")
+        self.assertEqual(linha_1.linha.conteudo.nos[-1].tipo, croqui_pb2.NoTrajeto.TipoNo.PASSAGEM)
+        self.assertEqual(linha_1.linha.conteudo.nos[-1].rotulo, "")
+
+        # 2. Rota 2 isolada
+        dados_2 = {"nome": "Via Beta", "tipo": "boulder", "grau": "V4", "nova": True}
+        self.controller.adicionar_rota_com_tracado(self.msg_mapa_proxy, setor_proxy, dados_2, [(30.0, 50.0), (30.0, 10.0)])
+        linha_2 = self.mapa.pontos_de_interesse[1]
+        self.assertEqual(linha_2.linha.conteudo.nos[0].rotulo, "2")
+        self.assertEqual(linha_2.linha.conteudo.nos[-1].tipo, croqui_pb2.NoTrajeto.TipoNo.PASSAGEM)
+        self.assertEqual(linha_2.linha.conteudo.nos[-1].rotulo, "")
+        # Linha 1 NÃO deve ter virado 'A'
+        self.assertEqual(linha_1.linha.conteudo.nos[-1].tipo, croqui_pb2.NoTrajeto.TipoNo.PASSAGEM)
+        self.assertEqual(linha_1.linha.conteudo.nos[-1].rotulo, "")
+
+        # 3. Rota 3 isolada
+        dados_3 = {"nome": "Via Gamma", "tipo": "boulder", "grau": "V5", "nova": True}
+        self.controller.adicionar_rota_com_tracado(self.msg_mapa_proxy, setor_proxy, dados_3, [(50.0, 50.0), (50.0, 10.0)])
+        self.assertEqual(len(self.mapa.pontos_de_interesse), 3)
+        for p in self.mapa.pontos_de_interesse:
+            self.assertEqual(p.linha.conteudo.nos[-1].tipo, croqui_pb2.NoTrajeto.TipoNo.PASSAGEM)
+            self.assertEqual(p.linha.conteudo.nos[-1].rotulo, "")
+
+        # 4. Undo remove a Rota 3
+        self.undo_stack.undo()
+        self.assertEqual(len(self.mapa.pontos_de_interesse), 2)
+        for p in self.mapa.pontos_de_interesse:
+            self.assertEqual(p.linha.conteudo.nos[-1].tipo, croqui_pb2.NoTrajeto.TipoNo.PASSAGEM)
+            self.assertEqual(p.linha.conteudo.nos[-1].rotulo, "")
+
+        # 5. Redo restaura a Rota 3 sem letras de topo
+        self.undo_stack.redo()
+        self.assertEqual(len(self.mapa.pontos_de_interesse), 3)
+        for p in self.mapa.pontos_de_interesse:
+            self.assertEqual(p.linha.conteudo.nos[-1].tipo, croqui_pb2.NoTrajeto.TipoNo.PASSAGEM)
+            self.assertEqual(p.linha.conteudo.nos[-1].rotulo, "")
+
 
 if __name__ == '__main__':
     unittest.main()

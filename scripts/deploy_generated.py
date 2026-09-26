@@ -961,6 +961,12 @@ def create_parser() -> argparse.ArgumentParser:
         description="Compila todos os croquis (ou um específico) e gera o indice."
     )
     parser.add_argument(
+        "croquis",
+        nargs="*",
+        default=[],
+        help="Caminhos para croquis específicos (ex: database/meu_croqui).",
+    )
+    parser.add_argument(
         "--target",
         "-t",
         nargs="+",
@@ -1008,11 +1014,13 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     output_dir = Path(args.output_dir)
+    alvos = (args.target or []) + (args.croquis or [])
+    target_paths = alvos if alvos else None
 
     try:
         deploy(
             output_dir, 
-            target_paths=args.target, 
+            target_paths=target_paths, 
             force_thumbnails=args.force_thumbnails,
             gerar_arquivos_de_debug=args.arquivos_de_debug,
             is_producao=args.producao,
