@@ -1197,5 +1197,44 @@ def test_janela_principal_logo_e_icone_canal_beta(mock_carregar, qtbot, monkeypa
     janela.close()
 
 
+def test_pagina_mapas_carregamento_sob_demanda(qtbot):
+    """Garante que WidgetEditorMapas não é criado na inicialização de PaginaMapas."""
+    from editor.legacy_views.area_principal import PaginaMapas
+    pagina = PaginaMapas()
+    qtbot.addWidget(pagina)
+    assert pagina.editor is None
+
+    model_mock = MagicMock()
+    undo_mock = MagicMock()
+    pagina.carregar_mapas(model_mock, undo_mock)
+    assert pagina.editor is None
+
+    editor = pagina.garantir_editor_criado()
+    assert editor is not None
+    assert pagina.editor is editor
+
+
+def test_pagina_betas_carregamento_sob_demanda(qtbot):
+    """Garante que PainelCuradoria não é criado na inicialização de PaginaBetas."""
+    from editor.legacy_views.area_principal import PaginaBetas
+    pagina = PaginaBetas()
+    qtbot.addWidget(pagina)
+    assert pagina.painel is None
+
+    painel = pagina.garantir_painel_criado()
+    assert painel is not None
+    assert pagina.painel is painel
+
+
+def test_janela_principal_lazy_loading_mapas_ao_trocar_pagina(criar_janela):
+    """Garante que JanelaPrincipal só instancia o editor de mapas ao navegar para a aba."""
+    janela = criar_janela()
+    assert janela.pagina_mapas.editor is None
+    assert janela.pagina_betas.painel is None
+
+    janela._trocar_pagina(2)
+    assert janela.pagina_mapas.editor is not None
+
+
 
 

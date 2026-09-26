@@ -244,3 +244,20 @@ def test_executar_build_canal_beta():
                         force_generation=False,
                     )
 
+
+def test_spec_configura_modo_onedir_com_collect_e_sem_upx():
+    """Valida se EditorAresta.spec está configurado no modo onedir com COLLECT e upx=False."""
+    conteudo_spec = ARQUIVO_SPEC.read_text(encoding="utf-8")
+    assert "COLLECT(" in conteudo_spec, "EditorAresta.spec deve definir bloco COLLECT para distribuição onedir"
+    assert "upx=False" in conteudo_spec, "EditorAresta.spec deve desativar UPX em tempo de execução"
+    assert "upx=True" not in conteudo_spec, "EditorAresta.spec não deve conter upx=True"
+    assert "exclude_binaries=True" in conteudo_spec, "EXE deve conter exclude_binaries=True para modo onedir"
+
+
+def test_obter_diretorio_distribuicao_onedir():
+    """Valida o diretório de destino da distribuição onedir."""
+    from editor.build import obter_diretorio_distribuicao_onedir, DIRETORIO_DIST_ONEDIR
+    diretorio = obter_diretorio_distribuicao_onedir()
+    assert diretorio == DIRETORIO_EDITOR / "dist" / "EditorAresta"
+    assert DIRETORIO_DIST_ONEDIR == DIRETORIO_EDITOR / "dist" / "EditorAresta"
+

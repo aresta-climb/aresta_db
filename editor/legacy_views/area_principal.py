@@ -16,7 +16,6 @@ from editor.views.estilo import Icones
 from ..core.servidor_celular import ServidorCelular
 from ..core.monitor_inatividade import MonitorInatividade
 from .dialogo_conexao_celular import DialogoConexaoCelular
-from editor.views.widget_editor_mapas import WidgetEditorMapas
 from editor.legacy_views.widget_editor_imagens import WidgetEditorImagens
 from editor.views.notificacao import NotificacaoToast
 from ..core.historico import GerenciadorHistorico
@@ -123,14 +122,40 @@ class PaginaImagens(PaginaBase):
 class PaginaMapas(PaginaBase):
     def __init__(self, parent: Optional[QWidget] = None) -> None:
         super().__init__("Mapas", parent, criar_placeholder=False)
-        layout = self.layout()
-        
-        self.editor: WidgetEditorMapas = WidgetEditorMapas(parent=self)
-        if layout:
-            layout.addWidget(self.editor)
-        
+        self.editor: Optional[Any] = None
+        self._dados_carregamento_pendentes: Optional[Dict[str, Any]] = None
+
+    def garantir_editor_criado(self) -> Any:
+        """Instancia e conecta o WidgetEditorMapas sob demanda (lazy loading)."""
+        if self.editor is None:
+            from editor.views.widget_editor_mapas import WidgetEditorMapas
+            layout = self.layout()
+            self.editor = WidgetEditorMapas(parent=self)
+            if layout:
+                layout.addWidget(self.editor)
+            if self._dados_carregamento_pendentes:
+                dados = self._dados_carregamento_pendentes
+                self._aplicar_carregamento(
+                    dados["model"],
+                    dados["undo_stack"],
+                    dados.get("caminho_db"),
+                    dados.get("controller")
+                )
+        return self.editor
+
     def carregar_mapas(self, model: Optional[Any], undo_stack: Optional[Any], caminho_db: Optional[Union[str, Path]] = None, controller: Optional[Any] = None) -> None:
-        if model:
+        if self.editor is None:
+            self._dados_carregamento_pendentes = {
+                "model": model,
+                "undo_stack": undo_stack,
+                "caminho_db": caminho_db,
+                "controller": controller,
+            }
+            return
+        self._aplicar_carregamento(model, undo_stack, caminho_db, controller)
+
+    def _aplicar_carregamento(self, model: Optional[Any], undo_stack: Optional[Any], caminho_db: Optional[Union[str, Path]] = None, controller: Optional[Any] = None) -> None:
+        if model and self.editor:
             from editor.controllers.mapas_controller import MapasController
             mapas_controller = MapasController(model, undo_stack)
             if caminho_db:
@@ -156,18 +181,28 @@ class PaginaMapas(PaginaBase):
 class PaginaBetas(PaginaBase):
     def __init__(self, parent: Optional[QWidget] = None) -> None:
         super().__init__("Betas", parent, criar_placeholder=False)
-        layout = self.layout()
-        from coleta_de_betas.curadoria.painel_curadoria import PainelCuradoria
-        self.painel: Any = PainelCuradoria(parent=self)
-        if layout:
-            layout.addWidget(self.painel)
+        self.painel: Optional[Any] = None
+        self._caminho_staging_pendente: Optional[Path] = None
 
+    def garantir_painel_criado(self) -> Any:
+        """Instancia e conecta o PainelCuradoria sob demanda (lazy loading)."""
+        if self.painel is None:
+            layout = self.layout()
+            from coleta_de_betas.curadoria.painel_curadoria import PainelCuradoria
+            self.painel = PainelCuradoria(parent=self)
+            if layout:
+                layout.addWidget(self.painel)
+            if self._caminho_staging_pendente:
+                self.painel.carregar_staging(self._caminho_staging_pendente)
+        return self.painel
 
     def carregar_betas(self, caminho_db: Optional[Union[str, Path]]) -> None:
         if caminho_db:
             caminho_staging = Path(caminho_db) / "betas_pendentes.binarypb"
             if caminho_staging.exists():
-                self.painel.carregar_staging(caminho_staging)
+                self._caminho_staging_pendente = caminho_staging
+                if self.painel is not None:
+                    self.painel.carregar_staging(caminho_staging)
 
 class PaginaHistorico(PaginaBase):
     def __init__(self, parent: Optional[QWidget] = None) -> None:
@@ -515,6 +550,11 @@ class JanelaPrincipal(QMainWindow):
         for i, acao in enumerate(self.grupo_nav):
             acao.setChecked(i == indice)
         
+        if indice == 2:
+            self.pagina_mapas.garantir_editor_criado()
+        elif indice == 3:
+            self.pagina_betas.garantir_painel_criado()
+
         self.stack.setCurrentIndex(indice)
         self._atualizar_acoes_contextuais()
         
@@ -556,6 +596,8 @@ class JanelaPrincipal(QMainWindow):
         elif ctx.pagina == "mapas":
             if self.stack.currentIndex() != 2:
                 self._trocar_pagina(2)
+            else:
+                self.pagina_mapas.garantir_editor_criado()
             if ctx.arquivo_mapa and hasattr(self.pagina_mapas, 'editor') and self.croqui_model:
                 croqui_ro = self.croqui_model.obter_croqui_readonly() if hasattr(self.croqui_model, "obter_croqui_readonly") else getattr(self.croqui_model, "croqui", None)
                 if croqui_ro:
@@ -698,7 +740,7 @@ class JanelaPrincipal(QMainWindow):
                 self.croqui_data = self.croqui_model.extrair_arquivos_e_serializar(caminho_db)
 
                 
-            if hasattr(self.pagina_mapas.editor, 'salvar_todas_mudancas'):
+            if self.pagina_mapas.editor and hasattr(self.pagina_mapas.editor, 'salvar_todas_mudancas'):
                 self.pagina_mapas.editor.salvar_todas_mudancas(mostrar_mensagem=False)
             
             self.pagina_imagens.editor.salvar_alteracoes(mostrar_mensagem=False)

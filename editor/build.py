@@ -14,7 +14,13 @@ from pathlib import Path
 DIRETORIO_EDITOR = Path(__file__).parent.resolve()
 ARQUIVO_MAIN = DIRETORIO_EDITOR / "main.py"
 ARQUIVO_SPEC = DIRETORIO_EDITOR / "EditorAresta.spec"
+DIRETORIO_DIST_ONEDIR = DIRETORIO_EDITOR / "dist" / "EditorAresta"
 LIMITE_MAXIMO_TAMANHO_EXECUTAVEL_MB = 95.0
+
+
+def obter_diretorio_distribuicao_onedir() -> Path:
+    """Retorna o diretório onde os binários onedir são gerados pelo PyInstaller."""
+    return DIRETORIO_DIST_ONEDIR
 
 # Binários pesados de fallback gráfico do Qt que não são necessários no Windows moderno
 BINARIOS_DISPENSAVEIS = {

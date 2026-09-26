@@ -30,11 +30,24 @@ from PySide6.QtNetwork import QLocalServer, QLocalSocket
 from PySide6.QtGui import QIcon
 from pathlib import Path
 
-from editor.core.storage import GerenciadorCaminhos
-from editor.core.worker import TarefaInicializacao
-from editor.legacy_views.tela_de_carregamento import TelaDeCarregamento
-from editor.views.tela_de_abertura import TelaDeAbertura
 from editor.views.estilo import Icones, configurar_tema_claro_aplicacao
+
+
+def __getattr__(name: str) -> Any:
+    """Carregamento tardio e sob demanda de classes pesadas para acelerar o arranque do editor."""
+    if name == "TarefaInicializacao":
+        from editor.core.worker import TarefaInicializacao
+        return TarefaInicializacao
+    if name == "TelaDeCarregamento":
+        from editor.legacy_views.tela_de_carregamento import TelaDeCarregamento
+        return TelaDeCarregamento
+    if name == "TelaDeAbertura":
+        from editor.views.tela_de_abertura import TelaDeAbertura
+        return TelaDeAbertura
+    if name == "GerenciadorCaminhos":
+        from editor.core.storage import GerenciadorCaminhos
+        return GerenciadorCaminhos
+    raise AttributeError(f"module '{__name__}' has no attribute '{name}'")
 
 # Fix para o ícone na barra de tarefas do Windows (preservando MSIX quando aplicável)
 try:
@@ -74,17 +87,19 @@ class ControladorAplicativo:
             pass
 
             
-        self.abertura: TelaDeAbertura = TelaDeAbertura()
+        abertura_cls = getattr(sys.modules[__name__], "TelaDeAbertura")
+        self.abertura: Any = abertura_cls()
         self.janela_principal: Optional[Any] = None
-        self.tela_carregamento: Optional[TelaDeCarregamento] = None
-        self.tarefa: Optional[TarefaInicializacao] = None
+        self.tela_carregamento: Optional[Any] = None
+        self.tarefa: Optional[Any] = None
         self._logout_em_andamento: bool = False
 
         self.iniciar_inicializacao()
 
     def iniciar_inicializacao(self) -> None:
         """Inicia ou reinicia a tarefa de inicialização e sincronização."""
-        self.tarefa = TarefaInicializacao(ID_CLIENTE_GITHUB)
+        tarefa_cls = getattr(sys.modules[__name__], "TarefaInicializacao")
+        self.tarefa = tarefa_cls(ID_CLIENTE_GITHUB)
         self.tarefa.status.connect(self.abertura.atualizar_status)
         self.tarefa.progresso.connect(self.abertura.atualizar_progresso)
         self.tarefa.mostrar_progresso.connect(self.abertura.exibir_barra_progresso)
@@ -144,7 +159,8 @@ class ControladorAplicativo:
             if self.tarefa.sessao_usuario
             else ""
         )
-        self.tela_carregamento = TelaDeCarregamento(
+        tela_carregamento_cls = getattr(sys.modules[__name__], "TelaDeCarregamento")
+        self.tela_carregamento = tela_carregamento_cls(
             self.tarefa.storage,
             usuario=usuario,
         )
@@ -249,7 +265,8 @@ def main() -> None:
             caminho_path = caminho_path.parent
         
         if caminho_path.is_dir() and (caminho_path / "croqui.yaml").exists():
-            storage = GerenciadorCaminhos()
+            gerenciador_caminhos_cls = getattr(sys.modules[__name__], "GerenciadorCaminhos")
+            storage = gerenciador_caminhos_cls()
             caminho_icone_app = config_canal.obter_caminho_icone_aplicacao()
             
             # QIcon precisa receber string

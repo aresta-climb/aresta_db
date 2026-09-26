@@ -147,6 +147,7 @@ def inicializar_telemetria(dsn: str | None = None) -> bool:
             send_default_pii=True,
             traces_sample_rate=1.0,
             profile_session_sample_rate=1.0,
+            auto_enabling_integrations=False,
             before_send=sanitizar_evento_sentry,
         )
         if hasattr(sentry_sdk, "start_transaction"):
