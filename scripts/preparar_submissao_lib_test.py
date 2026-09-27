@@ -1973,6 +1973,200 @@ def test_compilar_croqui_com_mapas_gerais_e_mapas_de_escaladas(tmp_path):
     assert "top" in ids_pois
 
 
+def test_corrigir_database_migra_mapas_gerais_de_raw_pdf_contents(tmp_path):
+    """
+    Testa se corrigir_database move e comprime imagens de mapas gerais de
+    raw_pdf_contents/imagens/mapas_gerais/p0_i3.webp para imagens/mapas_gerais_p0_i3.webp,
+    atualizando o arquivo mapas_gerais.md e preservando-o contra a limpeza de órfãos.
+    """
+    import yaml
+    from PIL import Image
+    from scripts.preparar_submissao_lib import corrigir_database, parse_md_com_frontmatter
+
+    # 1. Cria a pasta e imagem em raw_pdf_contents
+    raw_mapas_dir = tmp_path / "raw_pdf_contents" / "imagens" / "mapas_gerais"
+    raw_mapas_dir.mkdir(parents=True, exist_ok=True)
+    img_orig = raw_mapas_dir / "p0_i3.webp"
+    img = Image.new("RGB", (800, 600), color=(50, 100, 150))
+    img.save(img_orig, format="WEBP")
+
+    # 2. Cria mapas_gerais.md apontando para raw_pdf_contents
+    mapas_gerais_md = tmp_path / "mapas_gerais.md"
+    conteudo_md = (
+        "---\n"
+        "# SPDX-License-Identifier: ODbL-1.0\n"
+        "# Copyright (C) 2026 Aresta Climb Contributors\n"
+        "mapas:\n"
+        "  - caminho_imagem_mapa: raw_pdf_contents/imagens/mapas_gerais/p0_i3.webp\n"
+        "    largura_mapa: 800\n"
+        "    altura_mapa: 600\n"
+        "    pontos_de_interesse:\n"
+        "      - id: Ponto_1\n"
+        "        label: Ponto 1\n"
+        "        circulo:\n"
+        "          x: 100\n"
+        "          y: 200\n"
+        "          raio: 15\n"
+        "---\n"
+    )
+    mapas_gerais_md.write_text(conteudo_md, encoding="utf-8")
+
+    # 3. Cria croqui.yaml
+    croqui_yaml = tmp_path / "croqui.yaml"
+    croqui_data = {
+        "id": "teste_croqui_lenheiro",
+        "nome": "Croqui Teste Lenheiro",
+        "picos": [
+            {
+                "nome": "Serra Teste",
+                "mapas_gerais": {
+                    "caminho": "mapas_gerais.md"
+                }
+            }
+        ]
+    }
+    with open(croqui_yaml, "w", encoding="utf-8") as f:
+        yaml.dump(croqui_data, f)
+
+    # Executa corrigir_database
+    corrigir_database(tmp_path)
+
+    # Verifica se a imagem foi movida e comprimida no diretório imagens/
+    img_esperada = tmp_path / "imagens" / "mapas_gerais_p0_i3.webp"
+    assert img_esperada.exists(), f"A imagem {img_esperada} não foi criada em imagens/"
+
+    # Verifica se o arquivo mapas_gerais.md foi atualizado
+    fm, _ = parse_md_com_frontmatter(mapas_gerais_md)
+    assert fm is not None
+    assert "mapas" in fm
+    assert fm["mapas"][0]["caminho_imagem_mapa"] == "imagens/mapas_gerais_p0_i3.webp"
+
+
+def test_corrigir_database_migra_mapas_gerais_inline_no_yaml(tmp_path):
+    """
+    Testa se corrigir_database processa mapas gerais estruturados inline no croqui.yaml,
+    movendo imagens de raw_pdf_contents e salvando o croqui.yaml com o caminho corrigido.
+    """
+    import yaml
+    from PIL import Image
+    from scripts.preparar_submissao_lib import corrigir_database
+
+    raw_mapas_dir = tmp_path / "raw_pdf_contents" / "imagens" / "mapas_gerais"
+    raw_mapas_dir.mkdir(parents=True, exist_ok=True)
+    img_orig = raw_mapas_dir / "p0_i3.webp"
+    img = Image.new("RGB", (400, 300), color=(20, 40, 60))
+    img.save(img_orig, format="WEBP")
+
+    croqui_yaml = tmp_path / "croqui.yaml"
+    croqui_data = {
+        "id": "teste_inline",
+        "nome": "Croqui Inline",
+        "picos": [
+            {
+                "nome": "Pico Inline",
+                "mapas_gerais": {
+                    "conteudo": {
+                        "mapas": [
+                            {
+                                "caminho_imagem_mapa": "raw_pdf_contents/imagens/mapas_gerais/p0_i3.webp",
+                                "largura_mapa": 400,
+                                "altura_mapa": 300
+                            }
+                        ]
+                    }
+                }
+            }
+        ]
+    }
+    with open(croqui_yaml, "w", encoding="utf-8") as f:
+        yaml.dump(croqui_data, f)
+
+    corrigir_database(tmp_path)
+
+    img_esperada = tmp_path / "imagens" / "mapas_gerais_p0_i3.webp"
+    assert img_esperada.exists()
+
+    with open(croqui_yaml, "r", encoding="utf-8") as f:
+        dados_atualizados = yaml.safe_load(f)
+
+    pico = dados_atualizados["picos"][0]
+    assert pico["mapas_gerais"]["conteudo"]["mapas"][0]["caminho_imagem_mapa"] == "imagens/mapas_gerais_p0_i3.webp"
+
+
+def test_corrigir_mapas_gerais_casos_borda(tmp_path):
+    """Testa entradas inválidas e arquivo MD sem frontmatter em corrigir_mapas_gerais."""
+    from scripts.preparar_submissao_lib import corrigir_mapas_gerais
+
+    # Entradas inválidas retornam False
+    assert not corrigir_mapas_gerais(None, tmp_path)
+    assert not corrigir_mapas_gerais("invalido", tmp_path)
+    assert not corrigir_mapas_gerais({}, tmp_path)
+
+    # Arquivo MD sem frontmatter
+    md_sem_fm = tmp_path / "mapas_sem_fm.md"
+    md_sem_fm.write_text("Apenas texto sem cabecalho frontmatter", encoding="utf-8")
+    assert not corrigir_mapas_gerais({"caminho": "mapas_sem_fm.md"}, tmp_path)
+
+
+def test_corrigir_mapas_gerais_com_metadados_json_e_coordenadas(tmp_path):
+    """Testa integração de JSON de metadados e conversão para E7 em mapas gerais (MD e inline)."""
+    import json
+    from PIL import Image
+    from scripts.preparar_submissao_lib import corrigir_mapas_gerais, parse_md_com_frontmatter
+
+    raw_dir = tmp_path / "raw_pdf_contents" / "imagens" / "mapas_gerais"
+    raw_dir.mkdir(parents=True, exist_ok=True)
+    img_raw = raw_dir / "p0_i3.webp"
+    Image.new("RGB", (100, 100)).save(img_raw, format="WEBP")
+
+    json_raw = raw_dir / "p0_i3.json"
+    json_raw.write_text(json.dumps({
+        "dimensoes_imagem": {"largura": 500, "altura": 400},
+        "pontos_de_interesse": [{"id": "poi_1", "label": "Ponto Extraido"}]
+    }), encoding="utf-8")
+
+    # 1. Teste via arquivo .md
+    md_path = tmp_path / "mapas_gerais_meta.md"
+    md_path.write_text(
+        "---\n"
+        "mapas:\n"
+        "  - caminho_imagem_mapa: raw_pdf_contents/imagens/mapas_gerais/p0_i3.webp\n"
+        "    latitude: -20.123456\n"
+        "    longitude: -44.654321\n"
+        "---\n",
+        encoding="utf-8"
+    )
+
+    corrigir_mapas_gerais({"caminho": "mapas_gerais_meta.md"}, tmp_path)
+
+    fm, _ = parse_md_com_frontmatter(md_path)
+    assert fm["mapas"][0]["largura_mapa"] == 500
+    assert fm["mapas"][0]["altura_mapa"] == 400
+    assert fm["mapas"][0]["latitude"] == -201234560
+    assert fm["mapas"][0]["pontos_de_interesse"][0]["id"] == "poi_1"
+
+    # 2. Teste via YAML inline
+    inline_raw = {
+        "conteudo": {
+            "mapas": [
+                {
+                    "caminho_imagem_mapa": "raw_pdf_contents/imagens/mapas_gerais/p0_i3.webp",
+                    "latitude": -21.0,
+                    "longitude": -43.0
+                }
+            ]
+        }
+    }
+    modificado = corrigir_mapas_gerais(inline_raw, tmp_path)
+    assert modificado is True
+    mapa_inline = inline_raw["conteudo"]["mapas"][0]
+    assert mapa_inline["caminho_imagem_mapa"] == "imagens/mapas_gerais_p0_i3.webp"
+    assert mapa_inline["largura_mapa"] == 500
+    assert mapa_inline["latitude"] == -210000000
+
+
+
+
 
 
 

@@ -11,7 +11,7 @@ Para iniciar esse workflow, você receberá um arquivo PDF (Fase 1) ou uma pasta
 
 ### 1. Inicialização: Definição de Sub-agentes
 
-Sempre comece o workflow declarando as "classes" de trabalhadores que você precisa usando a ferramenta `define_subagent`. Declare as seguintes 3 classes:
+Sempre comece o workflow declarando as "classes" de trabalhadores que você precisa usando a ferramenta `define_subagent`. Declare as seguintes 4 classes:
 
 - **TypeName**: `SeparadorPDF`
   - **system_prompt**: Siga rigorosamente as instruções da skill `@separar_croqui_pdf_em_partes`.
@@ -47,7 +47,7 @@ Sempre verifique o sistema de arquivos antes de começar para deduzir de qual fa
 
 ### Fase 1: Preparação do PDF
 
-1. Invoque (usando `invoke_subagent`) um único sub-agente do tipo `SeparadorPDF` enviando o PDF completo. 
+1. Invoque (usando `invoke_subagent`) um único sub-agente do tipo `SeparadorPDF` enviando o PDF completo. No prompt, reforce explicitamente a exigência de usar `view_file` diretamente no arquivo PDF para visualização e a proibição expressa de criar ou executar scripts Python para ler ou extrair texto do PDF.
 2. A tarefa do sub-agente é inspecionar o PDF visualmente, criar a pasta do croqui apropriada em `database/`, gerar o `partes.json` e **retornar para você o caminho da pasta criada**.
 4. Copie o PDF original para `database/<croqui>/raw_original_pdf/croqui_original.pdf`.
 5. Execute `python scripts/repartir_pdf.py database/<croqui>` para desmembrar os `.pdf` menores na pasta `raw_pdf_contents`.

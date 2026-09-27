@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 mapas:
-- caminho_imagem_mapa: raw_pdf_contents/imagens/mapas_gerais/p0_i3.webp
+- caminho_imagem_mapa: imagens/mapas_gerais_p0_i3.webp
   largura_mapa: 866
   altura_mapa: 649
   pontos_de_interesse:
@@ -37,7 +37,7 @@ mapas:
   - grupo: Rio das Mortes
     ids:
     - Setores_Rio_das_Mortes
-- caminho_imagem_mapa: raw_pdf_contents/imagens/mapas_gerais/p1_i2.webp
+- caminho_imagem_mapa: imagens/mapas_gerais_p1_i2.webp
   largura_mapa: 1367
   altura_mapa: 769
   pontos_de_interesse:
@@ -173,3 +173,4 @@ mapas:
     ids:
     - Pedra_do_Livro
 ---
+

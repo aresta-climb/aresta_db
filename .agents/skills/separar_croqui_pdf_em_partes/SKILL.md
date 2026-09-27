@@ -25,6 +25,12 @@ Além disso, provavelmente haverão várias partes que não são úteis para o w
 
 ### 1. Criação Resiliente da Pasta do Croqui
 
+> [!IMPORTANT]
+> **Leitura Visual Direta com `view_file` (Proibido Criar/Executar Scripts de Extração):**
+> Você DEVE usar a ferramenta `view_file` diretamente no arquivo `.pdf` para inspecioná-lo de forma visual e multimodal. A ferramenta suporta arquivos PDF nativamente.
+> É expressamente PROIBIDO criar ou rodar scripts Python (como pymupdf, pdfplumber, pypdf, scripts em scratch/, etc.) para tentar extrair texto ou ler páginas do PDF. Inspecione as páginas exclusivamente abrindo o PDF com `view_file`.
+
+
 Antes de separar as páginas, você precisa identificar as informações exatas sobre a localização do croqui:
 - País
 - Estado

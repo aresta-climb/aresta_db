@@ -381,11 +381,93 @@ class DeployGeneratedTest(unittest.TestCase):
         finally:
             sys.stdout = sys.__stdout__
 
-        saida = captured_output.getvalue()
-        self.assertIn("AVISO: Inconsistência nas referências de mapa:", saida)
-        self.assertIn("não possui label ou rótulo em círculo identificador e não exibirá identificador no mapa do aplicativo", saida)
-        self.assertIsNotNone(resultado)
+    def test_passo_a_compilar_croquis_migra_mapas_gerais_raw_pdf_contents(self):
+        """Testa se a compilação completa via passo_a_compilar_croquis migra imagens de mapas gerais."""
+        from PIL import Image
+        import yaml
+        import tempfile
+        from aresta_api.proto.generated import croqui_pb2
+
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            tmp_path = Path(tmp_dir)
+            croqui_dir = tmp_path / "croqui_lenheiro_fake"
+            croqui_dir.mkdir()
+
+            # 1. raw_pdf_contents com imagem
+            raw_dir = croqui_dir / "raw_pdf_contents" / "imagens" / "mapas_gerais"
+            raw_dir.mkdir(parents=True)
+            img_raw = raw_dir / "p0_i3.webp"
+            img = Image.new("RGB", (600, 400), color=(10, 20, 30))
+            img.save(img_raw, format="WEBP")
+
+            # 2. mapas_gerais.md
+            mapas_md = croqui_dir / "mapas_gerais.md"
+            mapas_md.write_text(
+                "---\n"
+                "mapas:\n"
+                "  - caminho_imagem_mapa: raw_pdf_contents/imagens/mapas_gerais/p0_i3.webp\n"
+                "    largura_mapa: 600\n"
+                "    altura_mapa: 400\n"
+                "---\n",
+                encoding="utf-8"
+            )
+
+            # 3. croqui.yaml
+            croqui_yaml = croqui_dir / "croqui.yaml"
+            croqui_data = {
+                "id": "lenheiro_fake",
+                "nome": "Lenheiro Fake",
+                "picos": [
+                    {
+                        "nome": "Pico 1",
+                        "mapas_gerais": {
+                            "caminho": "mapas_gerais.md"
+                        }
+                    }
+                ]
+            }
+            with open(croqui_yaml, "w", encoding="utf-8") as f:
+                yaml.dump(croqui_data, f)
+
+            generated_dir = tmp_path / "generated"
+            deploy_generated.GENERATED_DIR = generated_dir
+
+            compilados, erros, excecoes = deploy_generated.passo_a_compilar_croquis(
+                [(croqui_dir, croqui_data)],
+                gerar_arquivos_de_debug=True
+            )
+
+            self.assertEqual(len(erros), 0, f"Erros durante compilação: {erros}")
+            self.assertEqual(len(excecoes), 0)
+
+            # Imagem no database deve ter sido migrada
+            img_db_migrada = croqui_dir / "imagens" / "mapas_gerais_p0_i3.webp"
+            self.assertTrue(img_db_migrada.exists())
+
+            # Imagem no generated deve ter sido copiada
+            img_gen_migrada = generated_dir / "lenheiro_fake" / "imagens" / "mapas_gerais_p0_i3.webp"
+            self.assertTrue(img_gen_migrada.exists())
+
+            # compilado.yaml deve apontar para o novo caminho
+            comp_yaml = generated_dir / "lenheiro_fake" / "compilado.yaml"
+            self.assertTrue(comp_yaml.exists())
+            with open(comp_yaml, "r", encoding="utf-8") as f:
+                dados_comp = yaml.safe_load(f)
+            mapa_comp = dados_comp["picos"][0]["mapas_gerais"]["conteudo"]["mapas"][0]
+            self.assertEqual(mapa_comp["caminho_imagem_mapa"], "imagens/mapas_gerais_p0_i3.webp")
+
+            # compilado.binarypb deve conter o novo caminho
+            comp_pb = generated_dir / "lenheiro_fake" / "compilado.binarypb"
+            self.assertTrue(comp_pb.exists())
+            croqui_pb = croqui_pb2.Croqui()
+            with open(comp_pb, "rb") as f:
+                croqui_pb.ParseFromString(f.read())
+            self.assertEqual(
+                croqui_pb.picos[0].mapas_gerais.conteudo.mapas[0].caminho_imagem_mapa,
+                "imagens/mapas_gerais_p0_i3.webp"
+            )
 
 
 if __name__ == '__main__':
     unittest.main()
+

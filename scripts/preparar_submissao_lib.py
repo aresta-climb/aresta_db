@@ -79,6 +79,7 @@ def processar_caminho_imagem(
     respeitando o perfil da entidade (1.0 MP @ Q85 para escalada, 2.5 MP @ Q85 para setor/grupo)
     e retorna o novo caminho relativo.
     """
+    caminho_img_original = caminho_img_original.replace("\\", "/")
     if caminho_img_original.lower().endswith('.png'):
         raise ValueError(f"Imagens no formato PNG não são permitidas: {caminho_img_original}. Por favor converta para WebP ou JPEG.")
 
@@ -122,7 +123,10 @@ def integrar_metadados_mapa(mapa: Dict[str, Any], pico_path: Path) -> bool:
     correspondente e preenche largura_mapa, altura_mapa e pontos_de_interesse.
     """
     img_path_str = mapa.get("caminho_imagem_mapa")
-    if not img_path_str or "raw_pdf_contents/imagens" not in img_path_str:
+    if not img_path_str:
+        return False
+    img_path_str = img_path_str.replace("\\", "/")
+    if "raw_pdf_contents/imagens" not in img_path_str:
         return False
         
     json_path = pico_path / img_path_str.replace(".webp", ".json")
@@ -469,6 +473,81 @@ def corrigir_arquivo_setor_recursivo(setores_raw: List[Any], pico_path: Path) ->
     fake_setores_ou_grupos = [{"setor": s} for s in setores_raw]
     corrigir_setores_ou_grupos_recursivo(fake_setores_ou_grupos, pico_path)
 
+def corrigir_mapas_gerais(mapas_gerais_raw: Dict[str, Any], pico_path: Path) -> bool:
+    """
+    Percorre mapas gerais corrigindo imagens (migrando de raw_pdf_contents),
+    integrando metadados e convertendo coordenadas.
+    Retorna True se houve modificações inline no YAML que precisam ser salvas.
+    """
+    if not mapas_gerais_raw or not isinstance(mapas_gerais_raw, dict):
+        return False
+
+    modificado_yaml = False
+
+    if "caminho" in mapas_gerais_raw and isinstance(mapas_gerais_raw["caminho"], str):
+        md_path = pico_path / mapas_gerais_raw["caminho"]
+        if md_path.exists():
+            frontmatter, corpo = parse_md_com_frontmatter(md_path)
+            if frontmatter is None:
+                frontmatter = {}
+
+            # 1. Move descricao para o corpo (se existir)
+            frontmatter_atualizado, corpo, modificado_desc = mover_descricao_para_corpo(frontmatter, corpo)
+            frontmatter = frontmatter_atualizado or {}
+
+            # 2. Corrige imagens no corpo do MD se houver
+            novo_corpo = coletar_e_atualizar_imagens(corpo, pico_path)
+            modificado = (corpo != novo_corpo) or modificado_desc
+
+            # 3. Corrige imagens dos mapas no frontmatter
+            if "mapas" in frontmatter and isinstance(frontmatter["mapas"], list):
+                for mapa in frontmatter["mapas"]:
+                    if isinstance(mapa, dict) and "caminho_imagem_mapa" in mapa:
+                        img_original = mapa["caminho_imagem_mapa"]
+
+                        # Tenta integrar metadados antes de mudar o caminho
+                        if integrar_metadados_mapa(mapa, pico_path):
+                            modificado = True
+
+                        novo_caminho_img = processar_caminho_imagem(img_original, pico_path)
+                        if novo_caminho_img != img_original:
+                            mapa["caminho_imagem_mapa"] = novo_caminho_img
+                            modificado = True
+
+            # 4. Converte coordenadas para E7 no frontmatter
+            if converter_coordenadas_e7_recursivo(frontmatter):
+                modificado = True
+
+            if modificado:
+                salvar_md_com_frontmatter(md_path, frontmatter, novo_corpo)
+
+            # 5. Desduplica referências no arquivo MD
+            desduplicar_referencias_no_md(md_path, pico_path)
+
+    else:
+        # Caso estruturado diretamente inline no YAML
+        conteudo = mapas_gerais_raw.get("conteudo") if "conteudo" in mapas_gerais_raw else mapas_gerais_raw
+        if isinstance(conteudo, dict):
+            mapas_lista = conteudo.get("mapas")
+            if isinstance(mapas_lista, list):
+                for mapa in mapas_lista:
+                    if isinstance(mapa, dict) and "caminho_imagem_mapa" in mapa:
+                        img_original = mapa["caminho_imagem_mapa"]
+
+                        if integrar_metadados_mapa(mapa, pico_path):
+                            modificado_yaml = True
+
+                        novo_caminho_img = processar_caminho_imagem(img_original, pico_path)
+                        if novo_caminho_img != img_original:
+                            mapa["caminho_imagem_mapa"] = novo_caminho_img
+                            modificado_yaml = True
+
+            if converter_coordenadas_e7_recursivo(conteudo):
+                modificado_yaml = True
+
+    return modificado_yaml
+
+
 def coletar_referencias_arquivos(pico_path: Path, croqui_data: Dict[str, Any]) -> Set[str]:
     """Coleta referências a arquivos (imagens e md) existentes no croqui."""
     referencias: Set[str] = set()
@@ -597,10 +676,18 @@ def corrigir_database(pico_path: Path) -> None:
                     # 2.1 Desduplica referências
                     desduplicar_referencias_no_md(md_path, pico_path)
 
-    # 3. Corrige imagens nos setores ou grupos de cada pico
+    # 3. Corrige imagens nos setores ou grupos de cada pico e mapas gerais
+    yaml_modificado = False
     for pico in croqui_data.get("picos", []):
+        if "mapas_gerais" in pico:
+            if corrigir_mapas_gerais(pico["mapas_gerais"], pico_path):
+                yaml_modificado = True
         if "setores_ou_grupos" in pico:
             corrigir_setores_ou_grupos_recursivo(pico["setores_ou_grupos"], pico_path)
+
+    if yaml_modificado:
+        with open(croqui_yaml_path, "w", encoding="utf-8") as f:
+            yaml.dump(croqui_data, f, allow_unicode=True, sort_keys=False)
 
     # 4. Limpeza de imagens órfãs
     limpar_arquivos_nao_utilizados(pico_path, croqui_data)
@@ -828,6 +915,12 @@ def validar_referencias_mapa(croqui_data: Dict[str, Any]) -> List[str]:
         
         if "mapas" in pico:
             mapas_para_validar.append((f"Pico '{pico_nome}'", pico["mapas"]))
+        if "mapas_gerais" in pico and isinstance(pico["mapas_gerais"], dict):
+            conteudo_mg = pico["mapas_gerais"].get("conteudo")
+            if isinstance(conteudo_mg, dict) and "mapas" in conteudo_mg and isinstance(conteudo_mg["mapas"], list):
+                mapas_para_validar.append((f"Pico '{pico_nome}' (Mapas Gerais)", conteudo_mg["mapas"]))
+            elif "mapas" in pico["mapas_gerais"] and isinstance(pico["mapas_gerais"]["mapas"], list):
+                mapas_para_validar.append((f"Pico '{pico_nome}' (Mapas Gerais)", pico["mapas_gerais"]["mapas"]))
             
         def registrar_escaladas(escaladas_lista: List[Any], contexto_local: str = "") -> None:
             for esc in escaladas_lista:

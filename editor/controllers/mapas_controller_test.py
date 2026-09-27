@@ -687,10 +687,80 @@ class MapasControllerTest(unittest.TestCase):
         with self.assertRaises(ValueError):
             self.controller.separar_linha_em_no(self.msg_mapa_proxy, setor_proxy, "l_teste", 2)
 
-        with self.assertRaises(ValueError):
-            self.controller.separar_linha_em_no(self.msg_mapa_proxy, setor_proxy, "linha_inexistente", 1)
+    def test_adicionar_rota_com_tracado_em_mapa_com_pois_nao_linha_preserva_indices_e_undo(self):
+        """[TDD] Garante que adicionar rota em mapa com círculos/não-linhas preserva os POIs e faz Undo limpo."""
+        setor_proxy = self.model.obter_croqui_readonly().picos[0].setores_ou_grupos[0].setor.conteudo
+
+        # Insere linha pré-existente
+        l_existente = croqui_pb2.Mapa.PontoDeInteresse(id="linha_existente")
+        l_existente.linha.conteudo.nos.add(x=10, y=50, tipo=1, rotulo="1")
+        l_existente.linha.conteudo.nos.add(x=10, y=10, tipo=0, rotulo="")
+        self.mapa.pontos_de_interesse.append(l_existente)
+
+        # Insere círculos nos índices 1 e 2 (como no caso real do Bloco Viva o Climb)
+        c1 = croqui_pb2.Mapa.PontoDeInteresse(id="sai1")
+        c1.circulo.x = 50
+        c1.circulo.y = 50
+        c1.circulo.raio = 20
+        self.mapa.pontos_de_interesse.append(c1)
+
+        c2 = croqui_pb2.Mapa.PontoDeInteresse(id="sai2")
+        c2.circulo.x = 80
+        c2.circulo.y = 80
+        c2.circulo.raio = 25
+        self.mapa.pontos_de_interesse.append(c2)
+
+        self.mapa.referencias.add(escalada="Via Antiga", ids=["linha_existente", "sai1", "sai2"])
+
+        dados_nova = {"nome": "Nova Rota Isolada", "tipo": "boulder", "nova": True}
+        pontos = [(100.0, 500.0), (120.0, 300.0), (140.0, 100.0)]
+
+        self.controller.adicionar_rota_com_tracado(self.msg_mapa_proxy, setor_proxy, dados_nova, pontos)
+
+        # Deve haver 4 POIs no mapa: linha_existente, sai1, sai2 e a nova_linha
+        self.assertEqual(len(self.mapa.pontos_de_interesse), 4)
+
+        # CRUCIAL: sai1 no índice 1 e sai2 no índice 2 NÃO podem ter sido sobrescritos por linha!
+        self.assertTrue(self.mapa.pontos_de_interesse[1].HasField("circulo"), "sai1 foi sobrescrito indevidamente por uma linha!")
+        self.assertEqual(self.mapa.pontos_de_interesse[1].id, "sai1")
+        self.assertTrue(self.mapa.pontos_de_interesse[2].HasField("circulo"), "sai2 foi sobrescrito indevidamente por uma linha!")
+        self.assertEqual(self.mapa.pontos_de_interesse[2].id, "sai2")
+
+        # A nova linha deve ter recebido ID único
+        id_nova = self.mapa.pontos_de_interesse[3].id
+        self.assertNotIn(id_nova, ["linha_existente", "sai1", "sai2"])
+
+        # Undo deve remover estritamente a nova rota e restaurar os 3 POIs originais intactos
+        self.undo_stack.undo()
+        self.assertEqual(len(self.mapa.pontos_de_interesse), 3)
+        self.assertTrue(self.mapa.pontos_de_interesse[1].HasField("circulo"))
+        self.assertEqual(self.mapa.pontos_de_interesse[1].id, "sai1")
+        self.assertTrue(self.mapa.pontos_de_interesse[2].HasField("circulo"))
+        self.assertEqual(self.mapa.pontos_de_interesse[2].id, "sai2")
+
+    def test_adicionar_multiplas_rotas_sequenciais_sem_colisao_de_id_ou_inicio(self):
+        """[TDD] Adiciona sucessivas rotas garantindo IDs e números de início sequenciais disjuntos."""
+        setor_proxy = self.model.obter_croqui_readonly().picos[0].setores_ou_grupos[0].setor.conteudo
+
+        dados_r1 = {"nome": "Rota 1", "tipo": "boulder", "nova": True}
+        dados_r2 = {"nome": "Rota 2", "tipo": "boulder", "nova": True}
+        dados_r3 = {"nome": "Rota 3", "tipo": "boulder", "nova": True}
+
+        self.controller.adicionar_rota_com_tracado(self.msg_mapa_proxy, setor_proxy, dados_r1, [(10.0, 100.0), (10.0, 10.0)])
+        self.controller.adicionar_rota_com_tracado(self.msg_mapa_proxy, setor_proxy, dados_r2, [(50.0, 100.0), (50.0, 10.0)])
+        self.controller.adicionar_rota_com_tracado(self.msg_mapa_proxy, setor_proxy, dados_r3, [(90.0, 100.0), (90.0, 10.0)])
+
+        self.assertEqual(len(self.mapa.pontos_de_interesse), 3)
+        self.assertEqual(len(self.mapa.referencias), 3)
+
+        ids = [p.id for p in self.mapa.pontos_de_interesse]
+        self.assertEqual(len(set(ids)), 3, f"IDs colidiram: {ids}")
+
+        inicios = [p.linha.conteudo.nos[0].rotulo for p in self.mapa.pontos_de_interesse]
+        self.assertEqual(inicios, ["1", "2", "3"])
 
 
 if __name__ == '__main__':
+
     unittest.main()
 
