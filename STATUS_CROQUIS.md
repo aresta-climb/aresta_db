@@ -1,8 +1,8 @@
 # Estado de Saúde dos Croquis
 
-Relatório gerado em: 23/09/2026 06:49:46
+Relatório gerado em: 26/09/2026 21:49:39
 
-| Croqui | Publicado (24/49) | Revisado Manual (25/49) | Revisado Circ (25/49) | Desenho Extraível (30/2/17) | Pontos de Interesse (23/49) | Thumbnail (36/49) | Coordenadas Picos (27/49) | URL Google Maps (13/49) | Mapas Gerais (31/49) | Betas Pendentes (49/49) | croqui.yaml (37/49) | Conteúdo PDF (0/49) | partes.json (49/49) | PDF Original (0/49) |
+| Croqui | Publicado (26/50) | Revisado Manual (27/50) | Revisado Circ (25/50) | Desenho Extraível (30/2/18) | Pontos de Interesse (24/50) | Thumbnail (38/50) | Coordenadas Picos (29/50) | URL Google Maps (15/50) | Mapas Gerais (32/50) | Betas Pendentes (50/50) | croqui.yaml (39/50) | Conteúdo PDF (1/50) | partes.json (49/50) | PDF Original (1/50) |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | br_mg_araxa_bocaina_boulders | ✅ | ✅ | ✅ | ✅ | ✅ (12/12) | ✅ | ✅ (1/1) | ✅ (1/1) | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ |
 | br_mg_araxa_bocaina_esportivas | ✅ | ✅ | ✅ | ✅ | ✅ (15/15) | ✅ | ✅ (1/1) | ✅ (1/1) | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ |
@@ -47,9 +47,10 @@ Relatório gerado em: 23/09/2026 06:49:46
 | br_mg_santana_do_paraiso_boulders | ❌ | ❌ | ❌ | ❌ | N/A | ❌ | N/A | N/A | ❌ | ✅ | ❌ | ❌ | ✅ | ❌ |
 | br_mg_santana_do_riacho_rio_de_pedras | ❌ | ❌ | ❌ | ❌ | N/A | ❌ | N/A | N/A | ❌ | ✅ | ❌ | ❌ | ✅ | ❌ |
 | br_mg_santana_do_riacho_serra_do_cipo_rock_master | ✅ | ❌ | ❌ | ❌ | ✅ (1/1) | ✅ | ✅ (1/1) | ✅ (1/1) | ❌ | ✅ | ✅ | ❌ | ✅ | ❌ |
-| br_mg_sao_joao_del_rei_serra_do_lenheiro | ❌ | ❌ | ❌ | ❌ | N/A | ❌ | N/A | N/A | ❌ | ✅ | ❌ | ❌ | ✅ | ❌ |
+| br_mg_sao_joao_del_rei_serra_do_lenheiro | ✅ | ✅ | ❌ | ❌ | ⚠️ (26/30) | ✅ | ✅ (1/1) | ✅ (1/1) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | br_mg_sao_joao_del_rei_serra_do_lenheiro_boulders_ave_maria_2017 | ❌ | ❌ | ❌ | ❌ | N/A | ❌ | N/A | N/A | ❌ | ✅ | ❌ | ❌ | ✅ | ❌ |
 | br_mg_sao_thome_das_letras | ❌ | ❌ | ❌ | ❌ | N/A | ❌ | N/A | N/A | ❌ | ✅ | ❌ | ❌ | ✅ | ❌ |
 | br_mg_sao_thome_das_letras_shangrila | ❌ | ❌ | ❌ | ❌ | N/A | ❌ | N/A | N/A | ❌ | ✅ | ❌ | ❌ | ✅ | ❌ |
 | br_mg_sete_lagoas_sinuosa | ✅ | ✅ | ✅ | ✅ (não) | ⚠️ (15/16) | ✅ | ✅ (1/1) | ❌ (0/1) | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ |
 | br_mg_unai_vico | ❌ | ❌ | ❌ | ❌ | N/A | ❌ | N/A | N/A | ❌ | ✅ | ❌ | ❌ | ✅ | ❌ |
+| br_rj_nova_friburgobom_jardim_capelinha | ✅ | ✅ | ❌ | ❌ | ✅ (1/1) | ✅ | ✅ (1/1) | ✅ (1/1) | ❌ | ✅ | ✅ | ❌ | ❌ | ❌ |

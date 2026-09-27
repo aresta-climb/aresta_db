@@ -104,8 +104,11 @@ croquis:
     longitude: -456009710
 - id: br_mg_caete_monte_alvao
   nome: Monte Alvão - Caeté
-  descricao: |
-    O Alto Monte Alvão, localizado em Caeté, MG, é uma das áreas de escalada mais tradicionais e belas da região, oferecendo vias de diversos estilos e dificuldades em quartzito de alta qualidade.
+  descricao: 'O Alto Monte Alvão, localizado em Caeté, MG, é uma das áreas de escalada
+    mais tradicionais e belas da região, oferecendo vias de diversos estilos e dificuldades
+    em quartzito de alta qualidade.
+
+    '
   caminho_relativo: br_mg_caete_monte_alvao/compilado.binarypb
   checksum_sha256_croqui: 574b66eb17125a6cd4f003dfdac8bf80abc4d9dc007c6c272d4a5d0ad5f6473f
   checksum_sha256_thumbnail: 03f79ad397717faec98f8288a15d55635b103c61f9b2be5cf92a56b1d804df95
@@ -390,6 +393,23 @@ croquis:
   localizacao:
     latitude: -193155830
     longitude: -436135000
+- id: br_mg_sao_joao_del_rei_serra_do_lenheiro
+  nome: Serra do Lenheiro - São João Del Rei
+  descricao: Guia de escalada da Serra do Lenheiro em São João Del Rei - MG (5ª Edição,
+    2025).
+  caminho_relativo: br_mg_sao_joao_del_rei_serra_do_lenheiro/compilado.binarypb
+  checksum_sha256_croqui: 6003e3c97384c97063601a5cc269b9ecf55bda0c751d8d808c7acab22c03d8de
+  checksum_sha256_thumbnail: 6b567bf0f04a055be1ddde56cc1f36e7fe4b908fd8fdbab98564099e3bc429ab
+  timestamp_update: '2026-09-27T00:49:36Z'
+  precomputados:
+    total_escaladas: 310
+    total_setores: 26
+    total_grupos: 4
+    total_esportivas: 207
+    tamanho_download_bytes: 14414683
+  localizacao:
+    latitude: -211406830
+    longitude: -442847810
 - id: br_mg_sete_lagoas_sinuosa
   nome: Sinuosa
   descricao: ''
