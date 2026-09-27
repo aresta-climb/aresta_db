@@ -16,11 +16,14 @@ from PySide6.QtWidgets import (
     QHBoxLayout,
     QLabel,
     QPushButton,
+    QSizePolicy,
     QVBoxLayout,
     QWidget,
 )
 
 from editor.views.componentes.alca_arraste_item import AlcaArrasteItem
+from editor.views.estilo import Icones
+
 
 
 class WidgetCardMapa(QFrame):
@@ -77,29 +80,15 @@ class WidgetCardMapa(QFrame):
 
         layout_cabecalho.addStretch()
 
-        # Botões de reordenação e remoção
-        self.btn_subir = QPushButton("▲")
-        self.btn_subir.setToolTip("Mover para cima")
-        self.btn_subir.setStyleSheet(
-            "QPushButton { padding: 4px 8px; font-size: 8pt; border-radius: 4px; } "
-            "QPushButton:disabled { color: #aaaaaa; }"
-        )
+        # Botão de remoção discreto na extrema direita
+        self.btn_remover = QPushButton()
+        self.btn_remover.setIcon(Icones.obter_lixeira())
+        self.btn_remover.setToolTip("Remover mapa")
+        self.btn_remover.setStyleSheet(Icones.QSS_BOTAO_REMOVER_DISCRETO)
+        self.btn_remover.setCursor(Qt.CursorShape.PointingHandCursor)
 
-        self.btn_descer = QPushButton("▼")
-        self.btn_descer.setToolTip("Mover para baixo")
-        self.btn_descer.setStyleSheet(
-            "QPushButton { padding: 4px 8px; font-size: 8pt; border-radius: 4px; } "
-            "QPushButton:disabled { color: #aaaaaa; }"
-        )
-
-        self.btn_remover = QPushButton("Remover")
-        self.btn_remover.setStyleSheet(
-            "background-color: #d9534f; color: white; border-radius: 4px; padding: 4px 8px;"
-        )
-
-        layout_cabecalho.addWidget(self.btn_subir)
-        layout_cabecalho.addWidget(self.btn_descer)
         layout_cabecalho.addWidget(self.btn_remover)
+
 
         layout_principal.addLayout(layout_cabecalho)
 
@@ -133,11 +122,13 @@ class WidgetCardMapa(QFrame):
 
         self.btn_abrir_editor = QPushButton("Abrir no Editor de Mapas")
         self.btn_abrir_editor.setStyleSheet(
-            "QPushButton { padding: 6px 12px; font-weight: bold; background-color: #2ea44f; color: white; border-radius: 4px; } "
+            "QPushButton { padding: 6px 16px; font-weight: bold; background-color: #2ea44f; color: white; border-radius: 4px; } "
             "QPushButton:hover { background-color: #2c974b; }"
         )
+        self.btn_abrir_editor.setSizePolicy(QSizePolicy.Policy.Maximum, QSizePolicy.Policy.Fixed)
+        self.btn_abrir_editor.setCursor(Qt.CursorShape.PointingHandCursor)
         self.btn_abrir_editor.clicked.connect(self._ao_clicar_abrir_editor)
-        layout_info.addWidget(self.btn_abrir_editor)
+        layout_info.addWidget(self.btn_abrir_editor, 0, Qt.AlignmentFlag.AlignLeft)
 
         layout_corpo.addLayout(layout_info, stretch=1)
         layout_principal.addLayout(layout_corpo)

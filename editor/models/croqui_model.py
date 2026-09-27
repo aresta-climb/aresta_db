@@ -1,7 +1,7 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
-from typing import Any, Optional
+from typing import Any, Optional, cast
 from editor.models.readonly_proxy import _copia_segura
 
 from PySide6.QtCore import QObject, Signal
@@ -43,6 +43,7 @@ class CroquiModel(QObject):
         from editor.models.readonly_proxy import ReadOnlyProxy
         self.__croqui_proxy: Any = ReadOnlyProxy(self.__croqui)
         self._imagens_em_memoria: dict[str, bytes] = {}
+        self._anexos_em_memoria: dict[str, bytes] = {}
         self._caminho_db_atual: Any = None
 
     def definir_caminho_db(self, caminho_db: Any) -> None:
@@ -89,6 +90,43 @@ class CroquiModel(QObject):
     def limpar_imagens_em_memoria(self) -> None:
         """Limpa o buffer de imagens em memória."""
         self._imagens_em_memoria.clear()
+
+    def obter_bytes_anexo(self, caminho_relativo: str) -> Optional[bytes]:
+        """
+        Obtém os bytes do documento anexo.
+        Verifica primeiro o buffer em memória; se não encontrar, tenta ler do disco no caminho_db_atual.
+        """
+        if not caminho_relativo:
+            return None
+        caminho_padrao = str(caminho_relativo).replace("\\", "/")
+        if caminho_padrao in self._anexos_em_memoria:
+            return self._anexos_em_memoria[caminho_padrao]
+        if self._caminho_db_atual:
+            caminho_disco = self._caminho_db_atual / caminho_padrao
+            if caminho_disco.exists() and caminho_disco.is_file():
+                try:
+                    return cast(bytes, caminho_disco.read_bytes())
+                except Exception:
+                    return None
+        return None
+
+    def definir_anexo_memoria(self, caminho_relativo: str, bytes_conteudo: bytes) -> None:
+        """Armazena os bytes de um documento anexo no buffer em memória RAM."""
+        caminho_padrao = str(caminho_relativo).replace("\\", "/")
+        self._anexos_em_memoria[caminho_padrao] = bytes_conteudo
+
+    def remover_anexo_memoria(self, caminho_relativo: str) -> None:
+        """Remove os bytes de um documento anexo do buffer em memória RAM."""
+        caminho_padrao = str(caminho_relativo).replace("\\", "/")
+        self._anexos_em_memoria.pop(caminho_padrao, None)
+
+    def obter_anexos_em_memoria(self) -> dict[str, bytes]:
+        """Retorna uma cópia do dicionário de anexos no buffer de memória."""
+        return dict(self._anexos_em_memoria)
+
+    def limpar_anexos_em_memoria(self) -> None:
+        """Limpa o buffer de anexos em memória."""
+        self._anexos_em_memoria.clear()
 
     def obter_croqui_readonly(self) -> Any:
         """Retorna uma view somente leitura do Croqui encapsulado."""
@@ -314,10 +352,23 @@ class CroquiModel(QObject):
                         try:
                             with open(caminho_arquivo, "r", encoding="utf-8") as f:
                                 conteudo_md = f.read()
-                            md.conteudo = conteudo_md
+
+                            frontmatter_bloco = ""
+                            corpo_md = conteudo_md
+                            if conteudo_md.startswith("---"):
+                                parts = conteudo_md.split("---", 2)
+                                if len(parts) >= 3:
+                                    frontmatter_bloco = f"---{parts[1]}---\n"
+                                    corpo_md = parts[2]
+                                    if corpo_md.startswith("\n"):
+                                        corpo_md = corpo_md[1:]
+
+                            md.conteudo = corpo_md
                             from aresta_api.proto.generated.croqui_pb2 import ArquivoMarkdown
                             md.Extensions[ArquivoMarkdown.ext_metadados_arquivo].caminho_original = nome_relativo
                             md.Extensions[ArquivoMarkdown.ext_metadados_arquivo].caminho_novo = nome_relativo
+                            if frontmatter_bloco:
+                                md.Extensions[ArquivoMarkdown.ext_metadados_arquivo].dados_json_originais = frontmatter_bloco
                             md.ClearField("caminho")
                         except Exception as e:
                             print(f"Erro ao carregar markdown externo {nome_relativo}: {e}")
@@ -352,6 +403,12 @@ class CroquiModel(QObject):
                     from editor.core.transformacoes_imagem import converter_para_webp_disco
                     bytes_img = converter_para_webp_disco(bytes_img, qualidade=90)
                 destino.write_bytes(bytes_img)
+
+        if self._anexos_em_memoria:
+            for caminho_rel, bytes_anexo in self._anexos_em_memoria.items():
+                destino = caminho_db_path / caminho_rel
+                destino.parent.mkdir(parents=True, exist_ok=True)
+                destino.write_bytes(bytes_anexo)
 
         croqui_msg_copy = Croqui()
         croqui_msg_copy.CopyFrom(self.__croqui)
@@ -540,9 +597,17 @@ class CroquiModel(QObject):
                             try: old_file_path.unlink()
                             except Exception: pass
                     
+                    frontmatter_bloco = ext.dados_json_originais if ext and ext.dados_json_originais else ""
+                    conteudo_normalizado = (md.conteudo or "").replace("\r\n", "\n")
+                    if frontmatter_bloco:
+                        if not frontmatter_bloco.endswith("\n"):
+                            frontmatter_bloco += "\n"
+                        conteudo_final = frontmatter_bloco + conteudo_normalizado
+                    else:
+                        conteudo_final = conteudo_normalizado
+
                     with open(caminho_db_path / novo_caminho, "w", encoding="utf-8", newline="\n") as f:
-                        conteudo_normalizado = (md.conteudo or "").replace("\r\n", "\n")
-                        f.write(conteudo_normalizado)
+                        f.write(conteudo_final)
                     md.caminho = novo_caminho
                     md.ClearField("conteudo")
                     md.ClearExtension(ArquivoMarkdown.ext_metadados_arquivo)

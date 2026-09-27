@@ -4,11 +4,20 @@
 TBD - created by archiving change otimizar-build-pyinstaller-editor. Update Purpose after archive.
 ## Requirements
 ### Requirement: Empacotamento enxuto do executável do editor
-O sistema DEVE (SHALL) gerar um executável standalone para Windows utilizando PyInstaller contendo estritamente as dependências necessárias para a execução da interface do editor, mantendo o tamanho total do arquivo `.exe` abaixo de 95MB.
+O sistema SHALL gerar um pacote de distribuição em diretório (`onedir`) para Windows utilizando PyInstaller contendo estritamente as dependências necessárias para a execução da interface do editor, desativando a compressão UPX em tempo de execução para permitir carregamento instantâneo via memória mapeada no contêiner MSIX.
 
 #### Scenario: Compilação padrão em ambiente isolado
 - **WHEN** o comando de compilação do editor (`editor/build.py dist`) for executado
-- **THEN** o executável gerado em `editor/dist/EditorAresta.exe` deve ter tamanho inferior a 95MB e inicializar a interface gráfica normalmente
+- **THEN** o PyInstaller SHALL produzir um diretório de distribuição em `editor/dist/EditorAresta/` contendo o binário `EditorAresta.exe` e suas dependências descompactadas
+- **THEN** o executável dentro do diretório gerado SHALL inicializar a interface gráfica normalmente sem requerer descompactação temporária em `%TEMP%`.
+
+### Requirement: Empacotamento MSIX a partir de diretório onedir
+O pipeline de integração e empacotamento MSIX SHALL coletar o diretório de distribuição `onedir` gerado pelo PyInstaller e empacotá-lo diretamente no contêiner de instalação sem etapas intermediárias de extração em tempo de execução.
+
+#### Scenario: Empacotamento do contêiner MSIX
+- **WHEN** o workflow de release do editor empacotar os artefatos de build
+- **THEN** o conteúdo completo do diretório `editor/dist/EditorAresta/` SHALL ser copiado para o diretório de staging do MSIX
+- **THEN** o arquivo `.msix` gerado SHALL instalar a aplicação com acesso direto aos binários mapeados em disco.
 
 ### Requirement: Isolamento de dependências de IA e OCR
 O pipeline de build do editor DEVE (SHALL) garantir que dependências externas pertencentes a outros grupos (como bibliotecas de visão computacional `cv2`, `paddleocr`, `pymupdf` e `scipy`) não sejam incorporadas ao executável do editor.

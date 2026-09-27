@@ -324,6 +324,87 @@ class TestConvencaoSemanticaOuroboulder:
         assert linha1.linha.conteudo.nos[-1].tipo == croqui_pb2.NoTrajeto.TipoNo.FIM_TOP
         assert linha2.linha.conteudo.nos[-1].tipo == croqui_pb2.NoTrajeto.TipoNo.FIM_TOP
 
+    def test_desambiguar_topos_multiplas_rotas_isoladas_sem_letras(self):
+        linha1 = _criar_linha_pb("v1", [(50, 500), (50, 100)], rotulo_inicio="1")
+        linha2 = _criar_linha_pb("v2", [(150, 500), (150, 100)], rotulo_inicio="2")
+        linha3 = _criar_linha_pb("v3", [(250, 500), (250, 100)], rotulo_inicio="3")
+
+        ref1 = croqui_pb2.Mapa.Referencia(escalada="Via 1", ids=["v1"])
+        ref2 = croqui_pb2.Mapa.Referencia(escalada="Via 2", ids=["v2"])
+        ref3 = croqui_pb2.Mapa.Referencia(escalada="Via 3", ids=["v3"])
+
+        desambiguar_topos([linha1, linha2, linha3], [ref1, ref2, ref3])
+
+        for l in (linha1, linha2, linha3):
+            assert l.linha.conteudo.nos[-1].tipo == croqui_pb2.NoTrajeto.TipoNo.PASSAGEM
+            assert l.linha.conteudo.nos[-1].rotulo == ""
+
+    def test_desambiguar_topos_rota_isolada_junto_com_bifurcacao(self):
+        seg_comum = _criar_linha_pb("comum", [(100, 500), (100, 300)], rotulo_inicio="1, 2")
+        seg_v1 = _criar_linha_pb("v1", [(100, 300), (80, 100)])
+        seg_v2 = _criar_linha_pb("v2", [(100, 300), (120, 100)])
+        linha_isolada = _criar_linha_pb("isolada", [(300, 500), (300, 100)], rotulo_inicio="3")
+
+        ref1 = croqui_pb2.Mapa.Referencia(escalada="Via 1", ids=["comum", "v1"])
+        ref2 = croqui_pb2.Mapa.Referencia(escalada="Via 2", ids=["comum", "v2"])
+        ref3 = croqui_pb2.Mapa.Referencia(escalada="Via 3 Isolada", ids=["isolada"])
+
+        desambiguar_topos([seg_comum, seg_v1, seg_v2, linha_isolada], [ref1, ref2, ref3])
+
+        # As variantes ganham letras distintas
+        assert seg_v1.linha.conteudo.nos[-1].tipo == croqui_pb2.NoTrajeto.TipoNo.FIM_TOP
+        assert seg_v1.linha.conteudo.nos[-1].rotulo == "A"
+        assert seg_v2.linha.conteudo.nos[-1].tipo == croqui_pb2.NoTrajeto.TipoNo.FIM_TOP
+        assert seg_v2.linha.conteudo.nos[-1].rotulo == "B"
+
+        # A rota isolada NÃO ganha letra nem círculo de topo
+        assert linha_isolada.linha.conteudo.nos[-1].tipo == croqui_pb2.NoTrajeto.TipoNo.PASSAGEM
+        assert linha_isolada.linha.conteudo.nos[-1].rotulo == ""
+
+    def test_desambiguar_topos_reversao_restaura_rota_isolada(self):
+        # Linha que antes tinha FIM_TOP e rótulo 'A' de quando havia uma variante
+        linha = _criar_linha_pb("v1", [(50, 500), (50, 100)], rotulo_inicio="1")
+        linha.linha.conteudo.nos[-1].tipo = croqui_pb2.NoTrajeto.TipoNo.FIM_TOP
+        linha.linha.conteudo.nos[-1].rotulo = "A"
+
+        ref = croqui_pb2.Mapa.Referencia(escalada="Via 1", ids=["v1"])
+        desambiguar_topos([linha], [ref])
+
+        assert linha.linha.conteudo.nos[-1].tipo == croqui_pb2.NoTrajeto.TipoNo.PASSAGEM
+        assert linha.linha.conteudo.nos[-1].rotulo == ""
+
+    def test_desambiguar_topos_sem_referencias_normaliza_fim_top(self):
+        linha = _criar_linha_pb("v1", [(50, 500), (50, 100)], rotulo_inicio="1")
+        linha.linha.conteudo.nos[-1].tipo = croqui_pb2.NoTrajeto.TipoNo.FIM_TOP
+        linha.linha.conteudo.nos[-1].rotulo = "A"
+
+        desambiguar_topos([linha], [])
+        assert linha.linha.conteudo.nos[-1].tipo == croqui_pb2.NoTrajeto.TipoNo.PASSAGEM
+        assert linha.linha.conteudo.nos[-1].rotulo == ""
+
+    def test_desambiguar_topos_inicio_compartilhado_sem_id_comum(self):
+        linha1 = _criar_linha_pb("v1", [(100, 500), (80, 100)], rotulo_inicio="1")
+        linha2 = _criar_linha_pb("v2", [(100, 500), (120, 100)], rotulo_inicio="2")
+        ref1 = croqui_pb2.Mapa.Referencia(escalada="Via 1", ids=["v1"])
+        ref2 = croqui_pb2.Mapa.Referencia(escalada="Via 2", ids=["v2"])
+
+        desambiguar_topos([linha1, linha2], [ref1, ref2])
+        assert linha1.linha.conteudo.nos[-1].tipo == croqui_pb2.NoTrajeto.TipoNo.FIM_TOP
+        assert linha1.linha.conteudo.nos[-1].rotulo == "A"
+        assert linha2.linha.conteudo.nos[-1].tipo == croqui_pb2.NoTrajeto.TipoNo.FIM_TOP
+        assert linha2.linha.conteudo.nos[-1].rotulo == "B"
+
+    def test_desambiguar_topos_no_intermediario_compartilhado(self):
+        linha1 = _criar_linha_pb("v1", [(50, 500), (100, 300), (50, 100)], rotulo_inicio="1")
+        linha2 = _criar_linha_pb("v2", [(150, 500), (100, 300), (150, 100)], rotulo_inicio="2")
+        ref1 = croqui_pb2.Mapa.Referencia(escalada="Via 1", ids=["v1"])
+        ref2 = croqui_pb2.Mapa.Referencia(escalada="Via 2", ids=["v2"])
+
+        desambiguar_topos([linha1, linha2], [ref1, ref2])
+        assert linha1.linha.conteudo.nos[-1].tipo == croqui_pb2.NoTrajeto.TipoNo.FIM_TOP
+        assert linha2.linha.conteudo.nos[-1].tipo == croqui_pb2.NoTrajeto.TipoNo.FIM_TOP
+
+
 
 class TestEscopoSetor:
     def test_obter_rotulo_escalada_no_setor(self):
@@ -370,6 +451,74 @@ class TestEscopoSetor:
         novo_id = gerar_id_poi_disjunto_setor(setor, prefixo="linha")
         assert novo_id == "linha_4"
         assert novo_id not in ["linha_1", "linha_2", "linha_3"]
+
+    def test_desembrulhar_setor_formatos(self):
+        from editor.core.topologia_trajeto import desembrulhar_setor
+        from editor.models.readonly_proxy import ReadOnlyProxy
+
+        setor = croqui_pb2.Setor(nome="Setor Direto")
+        assert desembrulhar_setor(setor) == setor
+
+        arq = croqui_pb2.ArquivoSetor(conteudo=setor)
+        assert desembrulhar_setor(arq) == setor
+
+        proxy_setor = ReadOnlyProxy(setor)
+        assert desembrulhar_setor(proxy_setor) == setor
+
+        proxy_arq = ReadOnlyProxy(arq)
+        assert desembrulhar_setor(proxy_arq) == setor
+
+        sg = croqui_pb2.SetorOuGrupo(setor=arq)
+        assert desembrulhar_setor(sg) == setor
+
+        assert desembrulhar_setor(None) is None
+
+    def test_obter_rotulo_escalada_no_setor_invalido_ou_vazio(self):
+        assert obter_rotulo_escalada_no_setor(None, "Via") is None
+        setor_vazio = croqui_pb2.Setor()
+        assert obter_rotulo_escalada_no_setor(setor_vazio, "Via") is None
+
+    def test_calcular_proximo_numero_inicio_setor_mapa_sem_pontos(self):
+        mapa_vazio = croqui_pb2.Mapa()
+        assert calcular_proximo_numero_inicio_setor(None, mapa_ativo=mapa_vazio) == 1
+        assert calcular_proximo_numero_inicio_setor(None, mapa_ativo="invalido") == 1
+
+    def test_gerar_id_poi_disjunto_setor_com_arquivo_setor(self):
+        setor = croqui_pb2.Setor(nome="Setor Interno")
+        m = setor.mapas.add()
+        m.pontos_de_interesse.add(id="linha_1")
+        arq = croqui_pb2.ArquivoSetor(conteudo=setor)
+
+        novo_id = gerar_id_poi_disjunto_setor(arq, prefixo="linha")
+        assert novo_id == "linha_2"
+
+    def test_gerar_id_poi_disjunto_setor_com_mapa_ativo_prioritario(self):
+        mapa_ativo = croqui_pb2.Mapa()
+        mapa_ativo.pontos_de_interesse.add(id="linha_1")
+        mapa_ativo.pontos_de_interesse.add(id="sai1")
+        mapa_ativo.pontos_de_interesse.add(id="linha_2")
+
+        # Setor vazio ou None: deve inspecionar mapa_ativo
+        novo_id = gerar_id_poi_disjunto_setor(None, prefixo="linha", mapa_ativo=mapa_ativo)
+        assert novo_id == "linha_3"
+
+    def test_calcular_proximo_numero_inicio_setor_com_arquivo_setor_e_mapa_ativo(self):
+        setor = croqui_pb2.Setor(nome="Setor")
+        m1 = setor.mapas.add()
+        l1 = _criar_linha_pb("l1", [(100, 500), (100, 100)], rotulo_inicio="5")
+        m1.pontos_de_interesse.append(l1)
+        arq = croqui_pb2.ArquivoSetor(conteudo=setor)
+
+        # Inspeciona através de ArquivoSetor
+        assert calcular_proximo_numero_inicio_setor(arq) == 6
+
+        # Com mapa ativo trazendo número maior
+        mapa_ativo = croqui_pb2.Mapa()
+        l_ativo = _criar_linha_pb("l_at", [(200, 500), (200, 100)], rotulo_inicio="8")
+        mapa_ativo.pontos_de_interesse.append(l_ativo)
+
+        assert calcular_proximo_numero_inicio_setor(arq, mapa_ativo=mapa_ativo) == 9
+
 
     def test_fatiar_linha_preserva_cor_e_label(self):
         linha = _criar_linha_pb("l_custom", [(0, 0), (50, 50), (100, 100)])

@@ -46,12 +46,35 @@ def deduplicar_prefixo(nome: Optional[str], prefixo: str) -> str:
     return f"{prefixo_limpo}_{slug}"
 
 
+def extrair_prefixo_e_nome_escalada(obj: Any) -> tuple[str, Optional[str]]:
+    """Extrai o prefixo ('boulder', 'via', 'highline') e o nome de uma escalada ou sub-mensagem."""
+    if isinstance(obj, croqui_pb2.Escalada):
+        campo_tipo = obj.WhichOneof("tipo")
+        if campo_tipo:
+            sub = getattr(obj, campo_tipo)
+            prefixo = "boulder" if campo_tipo == "boulder" else ("highline" if campo_tipo == "highline" else "via")
+            nome = getattr(sub, "nome", None)
+            return prefixo, nome
+        return "escalada", None
+
+    if isinstance(obj, croqui_pb2.Boulder):
+        return "boulder", getattr(obj, "nome", None)
+    if isinstance(obj, (croqui_pb2.ViaEsportiva, croqui_pb2.ViaMovel, croqui_pb2.ViaMultiplasEnfiadas)):
+        return "via", getattr(obj, "nome", None)
+    if isinstance(obj, croqui_pb2.Highline):
+        return "highline", getattr(obj, "nome", None)
+
+    return "", None
+
+
 def gerar_nome_mapa_sugerido(entidade: Any, indice: int) -> str:
-    """Gera nome sugerido de mapa para Setor, Grupo ou ColecaoDeMapas com sufixo de página.
+    """Gera nome sugerido de mapa para Setor, Grupo, Escalada ou ColecaoDeMapas com sufixo de página.
 
     Exemplos:
         Setor com nome "Setor Fugitivos I", indice 0 -> "setor_fugitivos_i_p0.webp"
         Setor com nome "Pedra do Sino", indice 0 -> "setor_pedra_do_sino_p0.webp"
+        Escalada Boulder com nome "La Bamba", indice 0 -> "boulder_la_bamba_p0.webp"
+        Escalada Via com nome "Fenda da Ilusão", indice 0 -> "via_fenda_da_ilusao_p0.webp"
         ColecaoDeMapas, indice 0 -> "mapas_gerais_p0.webp"
     """
     obj = getattr(entidade, "_obj", entidade)
@@ -60,10 +83,24 @@ def gerar_nome_mapa_sugerido(entidade: Any, indice: int) -> str:
         base = deduplicar_prefixo(getattr(obj, "nome", None), "setor")
     elif isinstance(obj, croqui_pb2.Grupo):
         base = deduplicar_prefixo(getattr(obj, "nome", None), "grupo")
+    elif isinstance(
+        obj,
+        (
+            croqui_pb2.Escalada,
+            croqui_pb2.Boulder,
+            croqui_pb2.ViaEsportiva,
+            croqui_pb2.ViaMovel,
+            croqui_pb2.ViaMultiplasEnfiadas,
+            croqui_pb2.Highline,
+        ),
+    ):
+        prefixo, nome = extrair_prefixo_e_nome_escalada(obj)
+        base = deduplicar_prefixo(nome, prefixo)
     else:
         base = "mapas_gerais"
 
     return f"{base}_p{indice}.webp"
+
 
 
 def gerar_nome_arquivo_entidade(nome: Optional[str], tipo: str) -> str:

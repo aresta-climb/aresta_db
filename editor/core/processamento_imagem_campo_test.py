@@ -293,3 +293,45 @@ class TestMetadadosECompressao:
         assert save_chamadas[0].get("quality") == 85
         assert save_chamadas[0].get("method") == 6
         assert save_chamadas[0].get("format") == "WEBP"
+
+    def test_constantes_perfil_escalada(self):
+        from editor.core.processamento_imagem_campo import (
+            AREA_MAXIMA_ESCALADA,
+            QUALIDADE_WEBP_ESCALADA,
+        )
+        assert AREA_MAXIMA_ESCALADA == 1_000_000
+        assert QUALIDADE_WEBP_ESCALADA == 85
+
+    def test_comprimir_imagem_perfil_escalada_1_0_mp_e_qualidade_85(self, monkeypatch):
+        from editor.core.processamento_imagem_campo import (
+            comprimir_imagem_para_bytes_webp,
+            AREA_MAXIMA_ESCALADA,
+            QUALIDADE_WEBP_ESCALADA,
+        )
+        # Imagem com 1.5 MP (1500 x 1000 = 1.500.000 > 1.000.000)
+        img_grande = Image.new("RGB", (1500, 1000), color=(50, 60, 70))
+
+        save_chamadas = []
+        original_save = Image.Image.save
+
+        def mock_save(self, *args, **kwargs):
+            save_chamadas.append(kwargs)
+            return original_save(self, *args, **kwargs)
+
+        monkeypatch.setattr(Image.Image, "save", mock_save)
+
+        bytes_webp, w, h = comprimir_imagem_para_bytes_webp(
+            img_grande,
+            quality=QUALIDADE_WEBP_ESCALADA,
+            max_area=AREA_MAXIMA_ESCALADA,
+        )
+        assert w * h <= AREA_MAXIMA_ESCALADA
+        assert w < 1500
+        assert h < 1000
+        # Aspect ratio original (1500/1000 = 1.5) deve ser preservado
+        assert abs((w / h) - 1.5) < 0.02
+        assert len(save_chamadas) == 1
+        assert save_chamadas[0].get("quality") == 85
+        assert save_chamadas[0].get("method") == 6
+        assert save_chamadas[0].get("format") == "WEBP"
+

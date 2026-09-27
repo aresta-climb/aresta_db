@@ -115,7 +115,7 @@ class ExperimentalWorkspace:
         return ""
 
 
-    def processar_renomeacao_e_compilacao(self, novo_id: str, id_atual: str, storage: GerenciadorCaminhos | None) -> tuple[Path, list[str]]:
+    def processar_renomeacao_e_compilacao(self, novo_id: str, id_atual: str, storage: GerenciadorCaminhos | None) -> tuple[Path, list[str], bool]:
         gerenciador = GerenciadorCroquiExperimental(storage or GerenciadorCaminhos())
         caminho = self.caminho_raiz
         
@@ -125,13 +125,15 @@ class ExperimentalWorkspace:
             from editor.core.diario import GerenciadorDiario
             self.diario = GerenciadorDiario(self.caminho_raiz)
             
+        database_modificado = False
         with capturar_saida() as out:
-            gerenciador.compilar_croqui(caminho)
+            resultado_compilacao = gerenciador.compilar_croqui(caminho)
+            database_modificado = bool(resultado_compilacao)
             
         mensagens = _filtrar_mensagens(out.getvalue())
         if self.diario:
             self.diario.consolidar_salvamento()
-        return caminho, mensagens
+        return caminho, mensagens, database_modificado
 
 
 
@@ -198,7 +200,7 @@ class LocalRepoWorkspace:
     def obter_diario(self) -> GerenciadorDiario | None:
         return self.diario
 
-    def processar_renomeacao_e_compilacao(self, novo_id: str, id_atual: str, storage: GerenciadorCaminhos | None) -> tuple[Path, list[str]]:
+    def processar_renomeacao_e_compilacao(self, novo_id: str, id_atual: str, storage: GerenciadorCaminhos | None) -> tuple[Path, list[str], bool]:
         caminho = self.caminho_raiz
         
         if novo_id and id_atual and novo_id != id_atual:
@@ -230,17 +232,18 @@ class LocalRepoWorkspace:
         
         caminho_compilado = self.obter_caminho_compilado().parent
         caminho_base = self.obter_caminho_database()
+        database_modificado = False
         
         with capturar_saida() as out:
             try:
-                deploy(
+                database_modificado = bool(deploy(
                     output_dir=caminho_compilado,
                     target_paths=[caminho_base],
                     force_thumbnails=True,
                     gerar_arquivos_de_debug=True,
                     is_producao=False,
                     sair_ao_falhar=False
-                )
+                ))
             except Exception as e:
                 print(f"Erro ao compilar croqui: {e}")
                 
@@ -255,5 +258,5 @@ class LocalRepoWorkspace:
         mensagens = _filtrar_mensagens(out.getvalue())
         if self.diario:
             self.diario.consolidar_salvamento()
-        return caminho, mensagens
+        return caminho, mensagens, database_modificado
 

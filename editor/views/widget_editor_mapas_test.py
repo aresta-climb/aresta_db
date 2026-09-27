@@ -151,6 +151,74 @@ def test_configurar_lista_mapas_todos_niveis(qtbot):
     assert item_setor.data(Qt.ItemDataRole.UserRole) == ('setor', 0, 1, 0)
 
 
+def test_configurar_lista_mapas_inclui_escaladas_e_permite_selecao(qtbot):
+    from editor.views.widget_editor_mapas import WidgetEditorMapas
+    from PySide6.QtCore import Qt
+    from aresta_api.proto.generated import croqui_pb2
+    from editor.models.readonly_proxy import ReadOnlyProxy
+    from unittest.mock import MagicMock
+
+    widget = WidgetEditorMapas()
+    qtbot.addWidget(widget)
+
+    mock_controller = MagicMock()
+    mock_model = MagicMock()
+    mock_controller.model = mock_model
+    widget.mapas_controller = mock_controller
+
+    croqui = croqui_pb2.Croqui()
+    pico = croqui.picos.add()
+
+    # 1. Escalada dentro de Setor direto
+    sg_setor = pico.setores_ou_grupos.add()
+    sg_setor.setor.conteudo.nome = "Bloco da Entrada"
+    escalada_boulder = sg_setor.setor.conteudo.escaladas.add()
+    escalada_boulder.boulder.nome = "Sit Start do Bloco"
+    mapa_boulder = escalada_boulder.mapas.add()
+    mapa_boulder.caminho_imagem_mapa = "imagens/boulder_sit_start_p0.webp"
+    mapa_boulder.largura_mapa = 1000
+    mapa_boulder.altura_mapa = 800
+
+    # 2. Escalada dentro de Sub-setor de um Grupo
+    sg_grupo = pico.setores_ou_grupos.add()
+    sg_grupo.grupo.conteudo.nome = "Grupo Alto"
+    subsetor = sg_grupo.grupo.conteudo.setores.add()
+    subsetor.conteudo.nome = "Parede Principal"
+    escalada_via = subsetor.conteudo.escaladas.add()
+    escalada_via.via_esportiva.nome = "Fissura do Meio"
+    mapa_via = escalada_via.mapas.add()
+    mapa_via.caminho_imagem_mapa = "imagens/via_fissura_p0.webp"
+    mapa_via.largura_mapa = 1200
+    mapa_via.altura_mapa = 900
+
+    mock_model.obter_croqui_readonly.return_value = ReadOnlyProxy(croqui)
+
+    # Executa a listagem
+    widget.configurar_lista_mapas()
+
+    assert widget.list_widget.count() == 2
+
+    # Verifica item 0 (boulder no setor)
+    item_boulder = widget.list_widget.item(0)
+    assert item_boulder.text() == "boulder_sit_start_p0.webp"
+    assert item_boulder.data(Qt.ItemDataRole.UserRole) == ('escalada_setor', 0, 0, 0, 0)
+
+    # Seleciona o boulder e verifica que carregou o mapa
+    widget.list_widget.setCurrentItem(item_boulder)
+    assert widget.msg_mapa_proxy.caminho_imagem_mapa == "imagens/boulder_sit_start_p0.webp"
+    assert widget.dados_atuais['tipo'] == 'escalada_setor'
+
+    # Verifica item 1 (via no sub-setor do grupo)
+    item_via = widget.list_widget.item(1)
+    assert item_via.text() == "via_fissura_p0.webp"
+    assert item_via.data(Qt.ItemDataRole.UserRole) == ('escalada_subsetor', 0, 1, 0, 0, 0)
+
+    # Seleciona a via e verifica que carregou o mapa
+    widget.list_widget.setCurrentItem(item_via)
+    assert widget.msg_mapa_proxy.caminho_imagem_mapa == "imagens/via_fissura_p0.webp"
+    assert widget.dados_atuais['tipo'] == 'escalada_subsetor'
+
+
 def test_selecao_mantida_apos_atualizacao(qtbot):
     from editor.views.widget_editor_mapas import WidgetEditorMapas
     from PySide6.QtCore import Qt
@@ -4828,6 +4896,102 @@ def test_atualizar_lista_mapas_allowlist(mocker, qtbot):
     # Chamada sem argumentos (ex: inicialização direta) deve reconstruir
     widget._atualizar_lista_mapas()
     assert spy_clear.call_count == 3
+
+
+def test_adicionar_rotas_sequenciais_selecao_independente_e_undo_limpo(qtbot):
+    """[TDD] Verifica que rotas sequenciais possuem destaque visual independente e Undo limpo na cena."""
+    from editor.views.widget_editor_mapas import WidgetEditorMapas
+    from editor.controllers.mapas_controller import MapasController
+    from editor.models.croqui_model import CroquiModel
+    from aresta_api.proto.generated import croqui_pb2
+    from PySide6.QtGui import QColor, QUndoStack
+
+    croqui = croqui_pb2.Croqui()
+    pico = croqui.picos.add(nome="Pico Teste")
+    sg = pico.setores_ou_grupos.add()
+    setor = sg.setor.conteudo
+    setor.nome = "Setor Teste"
+    mapa = setor.mapas.add(largura_mapa=1000, altura_mapa=1000)
+
+    model = CroquiModel(croqui)
+    undo_stack = QUndoStack()
+    controller = MapasController(model, undo_stack)
+    widget = WidgetEditorMapas(mapas_controller=controller, croqui_model=model)
+    qtbot.addWidget(widget)
+
+    proxy_mapa = model.obter_croqui_readonly().picos[0].setores_ou_grupos[0].setor.conteudo.mapas[0]
+    proxy_setor = model.obter_croqui_readonly().picos[0].setores_ou_grupos[0].setor.conteudo
+    widget.set_mapa_atual(proxy_mapa)
+
+    # Adiciona rota 1
+    controller.adicionar_rota_com_tracado(proxy_mapa, proxy_setor, {"nome": "Rota 1", "tipo": "boulder", "nova": True}, [(10.0, 50.0), (10.0, 10.0)])
+    # Adiciona rota 2
+    controller.adicionar_rota_com_tracado(proxy_mapa, proxy_setor, {"nome": "Rota 2", "tipo": "boulder", "nova": True}, [(50.0, 50.0), (50.0, 10.0)])
+
+    assert len(widget.itens_poi) == 2
+    item1 = widget.itens_poi[0]
+    item2 = widget.itens_poi[1]
+
+    ref1 = proxy_mapa.referencias[0]
+    ref2 = proxy_mapa.referencias[1]
+
+    # Destacar ref1 não deve destacar item2
+    widget.destacar_pois_temporariamente(ref1)
+    assert item1.pen().color() == QColor(0, 255, 255)
+    assert item2.pen().color() != QColor(0, 255, 255)
+
+    # Undo deve remover item2 da cena e de itens_poi
+    controller.undo_stack.undo()
+    assert len(widget.itens_poi) == 1
+    assert 1 not in widget.itens_poi
+
+
+def test_finalizar_modo_nova_rota_usa_setor_do_mapa_ativo(qtbot):
+    """[TDD] Garante que finalizar_modo_nova_rota passe o setor do mapa ativo para o controller."""
+    from editor.views.widget_editor_mapas import WidgetEditorMapas
+    from editor.controllers.mapas_controller import MapasController
+    from editor.models.croqui_model import CroquiModel
+    from aresta_api.proto.generated import croqui_pb2
+    from PySide6.QtCore import QPointF
+    from unittest.mock import MagicMock
+
+    croqui = croqui_pb2.Croqui()
+    pico = croqui.picos.add(nome="Pico Teste")
+    sg1 = pico.setores_ou_grupos.add()
+    setor_ativo = sg1.setor.conteudo
+    setor_ativo.nome = "Setor Ativo"
+    mapa_ativo = setor_ativo.mapas.add(largura_mapa=1000, altura_mapa=1000)
+
+    sg2 = pico.setores_ou_grupos.add()
+    setor_estrangeiro = sg2.setor.conteudo
+    setor_estrangeiro.nome = "Setor Estrangeiro"
+
+    model = CroquiModel(croqui)
+    mock_controller = MagicMock(spec=MapasController)
+    mock_controller.model = model
+    widget = WidgetEditorMapas(mapas_controller=mock_controller, croqui_model=model)
+    qtbot.addWidget(widget)
+
+    proxy_setor_ativo = model.obter_croqui_readonly().picos[0].setores_ou_grupos[0].setor.conteudo
+    proxy_mapa_ativo = proxy_setor_ativo.mapas[0]
+    widget.set_mapa_atual(proxy_mapa_ativo)
+
+    # Inicia modo nova rota com dados contendo setor_obj estrangeiro
+    widget.modo_nova_rota = True
+    widget.dados_nova_rota_atual = {
+        "nome": "Via Estrangeira",
+        "tipo": "boulder",
+        "nova": True,
+        "setor_obj": setor_estrangeiro,
+    }
+    widget.pontos_nova_rota = [QPointF(10.0, 50.0), QPointF(10.0, 10.0)]
+
+    widget.finalizar_modo_nova_rota()
+
+    mock_controller.adicionar_rota_com_tracado.assert_called_once()
+    _, kwargs = mock_controller.adicionar_rota_com_tracado.call_args
+    assert kwargs["msg_setor_proxy"].nome == "Setor Ativo"
+
 
 
 

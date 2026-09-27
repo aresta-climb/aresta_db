@@ -58,15 +58,37 @@ Para setores (começando com o prefixo `setor_`), siga RIGOROSAMENTE o formato d
   - Para as escaladas que estiverem marcadas como uma "estrela" ou "diamante", adicione o campo `destaque: true`.
   - Tipo da escalada (use Boulder para boulders, ViaEsportiva para vias inteiramente fixas, ViaMovel para vias móveis ou mistas, e ViaMultiplasEnfiadas para vias com múltiplas enfiadas)
   - Conquistadores
-  - Outros campos que fazem parte da mensagem e sub-mensagens de `Escalada` em `croqui.proto`. 
-  - Note que vias de múltiplas enfiadas podem possuir um croqui dedicado à própria via. Nesses casos, adicione a imagem do croqui no campo `caminho_imagem_croqui` da mensagem `ViaMultiplasEnfiadas`.
-  - Escolha as imagens dentre as imagens em `raw_pdf_contents/imagens/` que representam os mapas setor. Coloque o caminho para cada imagem em uma nova sub-mensagem `mapas`, campo `caminho_imagem_mapa`. Compare o conteúdo visual do pdf com cada imagem individual para decidir as imagens mais representativas para os mapas do setor.
-  - **IMPORTANTE:** Para cada escalada listada no setor, extraia a numeração/código que a representa no mapa visual e preencha a lista `referencias` dentro do mapa correspondente. Cada referência deve conter o campo `escalada` (com o nome exato da escalada) e o campo `ids` (uma lista com a numeração encontrada). Exemplo de estrutura no YAML: dentro de `mapas`, adicione `referencias: [{escalada: 'Nome da Via', ids: ['12']}]`. NUNCA coloque IDs de mapa dentro da mensagem da escalada em si.
-  - Caso o campo `caminho_imagem_croqui` já for preenchido, não é preciso adicionar nenhuma imagem de mapa na seção Markdown do arquivo, a não ser que seja para mostrar alguma outra parte da imagem (por exemplo foto de uma pessoa escalando).
+  - Outros campos que fazem parte da mensagem e sub-mensagens de `Escalada` em `croqui.proto`.
+  - Escolha as imagens em `raw_pdf_contents/imagens/` que representam os mapas do setor ou escalada.
+  - **Diferenciação e Mapeamento de Mapas e Imagens:**
+    - **Mapas Gerais do Setor (`Setor.mapas`)**: Imagens que apresentam a visão ampla da parede, do bloco como um todo, ou a vista panorâmica com o traçado de múltiplas vias/boulders e seus respectivos números/IDs.
+      - Adicione o caminho de cada mapa geral em um item da lista `mapas` na raiz do Setor com o campo `caminho_imagem_mapa`.
+      - Preencha a lista `referencias` dentro do mapa correspondente vinculando cada escalada aos seus identificadores numéricos ou textuais na imagem: `referencias: [{escalada: 'Nome da Via', ids: ['01']}]`. NUNCA coloque IDs de mapa dentro da mensagem da escalada em si.
+    - **Mapas Específicos de Escaladas (`escaladas[].mapas`)**: Imagens dedicadas exclusivamente a uma única escalada ou detalhe restrito a ela, tais como:
+      - Close-ups de blocos de boulder destacando agarras específicas, linha de saída sentada (*sit-start*), ou sequência detalhada de pegas;
+      - Croquis verticais ou topos detalhados de vias (especialmente vias de múltiplas enfiadas com divisão de enfiadas, paradas e proteções);
+      - Fotos focadas apenas no traçado de uma escalada individual específica.
+      - **Sintaxe no YAML Frontmatter:** Adicione a sub-lista `mapas` diretamente dentro do item da escalada correspondente (como campo irmão do tipo de escalada `via_esportiva`, `boulder`, etc.):
+        ```yaml
+        escaladas:
+          - via_esportiva:
+              nome: "Fenda do Medo"
+              dificuldade: BR_7A
+              descricao: "Croqui vertical detalhado com paradas e proteções"
+            mapas:
+              - caminho_imagem_mapa: raw_pdf_contents/imagens/p12_i2.webp
+          - boulder:
+              nome: "Tigre Branco"
+              dificuldade: V6
+              descricao: "Detalhe da saída sentada (sit-start)"
+            mapas:
+              - caminho_imagem_mapa: raw_pdf_contents/imagens/p14_i1.webp
+        ```
+    - **Imagens no Corpo Markdown:** Caso a imagem seja um mapa ou croqui (seja do setor ou de uma escalada individual), NÃO a adicione como tag de imagem Markdown `![]()` no corpo do texto para evitar duplicações visuais. Deixe para o Markdown apenas imagens fotográficas contextuais e ambientais (ex: foto de alguém escalando, paisagem do local).
   - Caso a imagem selecionada for do tipo `pX.webp`, confira se a imagem `pX_i0.webp` é a mesma imagem mas com resolução diferente. Se sim, prefira usar `pX_i0.webp` pois irá ter melhor qualidade e menor tamanho.
-  - Quaisquer informação restante que não mapear diretamente para um campo no proto, adicione à área de texto livre do markdown ou ao campo `descricao` da escalada, o que for mais apropriado. Se houverem outras imagens sobre o setor, também incluir elas aqui com a funcionalidade de incluir imagens em Markdown.
+  - Quaisquer informação restante que não mapear diretamente para um campo no proto, adicione à área de texto livre do markdown ou ao campo `descricao` da escalada, o que for mais apropriado.
   - **IMPORTANTE**: TODA a informação do setor, incluindo partes textuais, deve ser transcrita para algum campo do protobuf ou da área de markdown.
-  - Organizar a estrutura hierárquica: `Setores` -> `Escaladas` -> `ViaEsportiva`
+  - Organizar a estrutura hierárquica: `Setores` -> `Escaladas` -> (uma entre `ViaEsportiva`, `Boulder`, `ViaMovel`, `ViaMultiplasEnfiadas`)
 
 ## 2. Regras Estritas de Formatação e Sintaxe
 

@@ -7,8 +7,8 @@ Componente visual para seleção e arrastar e soltar (Drag & Drop) de imagens.
 
 from pathlib import Path
 from typing import Optional, Tuple, Any, Union
-from PySide6.QtWidgets import QWidget, QVBoxLayout, QLabel, QFileDialog, QMessageBox
-from PySide6.QtCore import Qt, Signal
+from PySide6.QtWidgets import QWidget, QVBoxLayout, QLabel, QFileDialog, QMessageBox, QRubberBand
+from PySide6.QtCore import Qt, Signal, QRect, QPoint, QSize
 from PySide6.QtGui import QPixmap, QDragEnterEvent, QDropEvent, QMouseEvent, QImage
 
 
@@ -31,9 +31,11 @@ FILTRO_ARQUIVOS_IMAGEM: str = (
 
 class AreaDropImagem(QWidget):
     """
-    Área visual para arrastar e soltar (Drag & Drop) ou clicar para selecionar uma imagem.
+    Área visual para arrastar e soltar (Drag & Drop), clicar para selecionar uma imagem
+    e seleção interativa de recorte retangular (Rubber-band selection).
     """
     imagem_selecionada = Signal(str)
+    regiao_selecionada = Signal(tuple)
 
     def __init__(self, parent: Optional[QWidget] = None) -> None:
         super().__init__(parent)
@@ -67,8 +69,21 @@ class AreaDropImagem(QWidget):
         self.layout_conteudo.addWidget(self.label_info)
         self.layout_conteudo.addWidget(self.label_preview)
 
+        # Suporte a seleção com Rubber-band
+        self.rubber_band = QRubberBand(QRubberBand.Shape.Rectangle, self)
+        self._ponto_origem_selecao: Optional[QPoint] = None
+        self._retangulo_selecionado_img: Optional[Tuple[int, int, int, int]] = None
+        self.bytes_imagem_atual: Optional[bytes] = None
+        self.dimensoes_imagem_original: Optional[Tuple[int, int]] = None
+
     def mousePressEvent(self, event: QMouseEvent) -> None:
         if event.button() == Qt.MouseButton.LeftButton:
+            if self.bytes_imagem_atual and self.label_preview.isVisible():
+                self._ponto_origem_selecao = event.position().toPoint() if hasattr(event, "position") else event.pos()
+                self.rubber_band.setGeometry(QRect(self._ponto_origem_selecao, QSize()))
+                self.rubber_band.show()
+                return
+
             arquivo, _ = QFileDialog.getOpenFileName(
                 self,
                 "Selecionar Imagem",
@@ -99,9 +114,61 @@ class AreaDropImagem(QWidget):
                 return
         event.ignore()
 
+    def mouseMoveEvent(self, event: QMouseEvent) -> None:
+        if self._ponto_origem_selecao is not None and self.rubber_band:
+            pos_atual = event.position().toPoint() if hasattr(event, "position") else event.pos()
+            self.rubber_band.setGeometry(QRect(self._ponto_origem_selecao, pos_atual).normalized())
+        super().mouseMoveEvent(event)
+
+    def mouseReleaseEvent(self, event: QMouseEvent) -> None:
+        if self._ponto_origem_selecao is not None:
+            rect = self.rubber_band.geometry()
+            if rect.width() > 5 and rect.height() > 5 and self.dimensoes_imagem_original:
+                orig_w, orig_h = self.dimensoes_imagem_original
+                lbl_geom = self.label_preview.geometry()
+                px = self.label_preview.pixmap()
+                if px and not px.isNull() and px.width() > 0 and px.height() > 0:
+                    offset_x = lbl_geom.x() + (lbl_geom.width() - px.width()) // 2
+                    offset_y = lbl_geom.y() + (lbl_geom.height() - px.height()) // 2
+
+                    x1_disp = max(0, min(px.width(), rect.left() - offset_x))
+                    y1_disp = max(0, min(px.height(), rect.top() - offset_y))
+                    x2_disp = max(0, min(px.width(), rect.right() - offset_x))
+                    y2_disp = max(0, min(px.height(), rect.bottom() - offset_y))
+
+                    escala_x = orig_w / px.width()
+                    escala_y = orig_h / px.height()
+
+                    img_x1 = max(0, min(orig_w, int(x1_disp * escala_x)))
+                    img_y1 = max(0, min(orig_h, int(y1_disp * escala_y)))
+                    img_x2 = max(0, min(orig_w, int(x2_disp * escala_x)))
+                    img_y2 = max(0, min(orig_h, int(y2_disp * escala_y)))
+
+                    if img_x2 > img_x1 and img_y2 > img_y1:
+                        self._retangulo_selecionado_img = (img_x1, img_y1, img_x2, img_y2)
+                        self.regiao_selecionada.emit(self._retangulo_selecionado_img)
+            self._ponto_origem_selecao = None
+        super().mouseReleaseEvent(event)
+
+    def obter_retangulo_selecionado_imagem(self) -> Optional[Tuple[int, int, int, int]]:
+        """Retorna o retângulo de seleção mapeado para as coordenadas em pixels da imagem."""
+        return self._retangulo_selecionado_img
+
+    def limpar_selecao(self) -> None:
+        """Limpa a seleção atual do rubber-band."""
+        self._retangulo_selecionado_img = None
+        if hasattr(self, "rubber_band"):
+            self.rubber_band.hide()
+
     def definir_preview_bytes(self, bytes_img: bytes) -> None:
+        self.bytes_imagem_atual = bytes_img
+        self._retangulo_selecionado_img = None
+        if hasattr(self, "rubber_band"):
+            self.rubber_band.hide()
+
         pixmap = QPixmap()
         if pixmap.loadFromData(bytes_img):
+            self.dimensoes_imagem_original = (pixmap.width(), pixmap.height())
             largura_max = max(10, self.width() - 30)
             altura_max = max(10, self.height() - 30)
             pixmap_scaled = pixmap.scaled(

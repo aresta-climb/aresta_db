@@ -438,6 +438,37 @@ def test_corrigir_database_chama_aplicar_migracoes(mock_aplicar, tmp_path):
     mock_aplicar.assert_called_once_with(croqui_dir)
 
 
+@patch("scripts.migrador.aplicar_migracoes")
+def test_corrigir_database_retorna_false_quando_nada_modificado(mock_aplicar, tmp_path):
+    yaml_content = """# SPDX-License-Identifier: ODbL-1.0
+# Copyright (C) 2026 Aresta Climb Contributors
+id: test_sem_modificacao
+nome: Teste Sem Modificacao
+"""
+    croqui_dir = configurar_croqui_teste(tmp_path, yaml_content=yaml_content)
+    (croqui_dir / "imagens").mkdir(exist_ok=True)
+    
+    modificou = corrigir_database(croqui_dir)
+    assert modificou is False
+
+
+@patch("scripts.migrador.aplicar_migracoes")
+def test_corrigir_database_retorna_true_quando_limpa_orfaos(mock_aplicar, tmp_path):
+    yaml_content = """# SPDX-License-Identifier: ODbL-1.0
+# Copyright (C) 2026 Aresta Climb Contributors
+id: test_com_modificacao
+nome: Teste Com Modificacao
+"""
+    croqui_dir = configurar_croqui_teste(tmp_path, yaml_content=yaml_content)
+    pasta_img = croqui_dir / "imagens"
+    pasta_img.mkdir(exist_ok=True)
+    (pasta_img / "orfa.webp").write_bytes(b"dummy")
+    
+    modificou = corrigir_database(croqui_dir)
+    assert modificou is True
+
+
+
 from scripts.preparar_submissao_lib import limpar_arquivos_nao_utilizados
 
 def test_limpar_arquivos_nao_utilizados_deleta_imagens_e_mds(tmp_path):
@@ -499,6 +530,85 @@ def test_limpar_arquivos_preserva_mapas_gerais(tmp_path):
     limpar_arquivos_nao_utilizados(tmp_path, croqui_data)
 
     assert mapa_geral_md.exists(), "mapas_gerais.md não deve ser deletado se referenciado por um pico"
+
+def test_coletar_referencias_arquivos_inclui_anexos(tmp_path: Path) -> None:
+    from scripts.preparar_submissao_lib import coletar_referencias_arquivos
+
+    md_path = tmp_path / "secao.md"
+    md_path.write_text(
+        "---\n"
+        "titulo: Seção de Acesso\n"
+        "---\n"
+        "Texto com anexo: [Termo](anexos/termo_no_md.pdf), [Link Web](https://aresta.app), "
+        "[Email](mailto:info@aresta.app) e [Vazio]() e [Foto](imagens/foto.webp)\n",
+        encoding="utf-8"
+    )
+
+    croqui_data = {
+        "descricao": "Croqui com botão [Ficha](anexos/ficha_croqui.pdf) e [Site](http://exemplo.com)",
+        "botoes": [
+            {
+                "destino": {
+                    "secao_textual": {
+                        "caminho": "secao.md"
+                    }
+                },
+                "caminho_anexo": "formulario.pdf",
+            },
+            {
+                "caminho_anexo": "",
+            },
+            {
+                "caminho_anexo": "https://externo.com/doc.pdf",
+            },
+        ]
+    }
+
+    refs = coletar_referencias_arquivos(tmp_path, croqui_data)
+    assert "anexos/ficha_croqui.pdf" in refs
+    assert "anexos/termo_no_md.pdf" in refs
+    assert "anexos/formulario.pdf" in refs
+    assert "imagens/foto.webp" in refs
+    assert "secao.md" in refs
+    assert not any("http" in ref for ref in refs)
+    assert not any("mailto" in ref for ref in refs)
+
+def test_limpar_arquivos_nao_utilizados_deleta_anexos_orfaos(tmp_path: Path) -> None:
+    pasta_anexos = tmp_path / "anexos"
+    pasta_anexos.mkdir()
+
+    anexo_usado = pasta_anexos / "termo_usado.pdf"
+    anexo_usado.write_bytes(b"%PDF-1.4 Usado")
+    anexo_orfao = pasta_anexos / "termo_orfao.pdf"
+    anexo_orfao.write_bytes(b"%PDF-1.4 Orfao")
+
+    croqui_data = {
+        "descricao": "Baixe o [Termo](anexos/termo_usado.pdf)",
+        "picos": []
+    }
+
+    limpar_arquivos_nao_utilizados(tmp_path, croqui_data)
+
+    assert anexo_usado.exists(), "Anexo usado não deve ser deletado"
+    assert not anexo_orfao.exists(), "Anexo órfão deve ser deletado fisicamente do disco"
+
+def test_limpar_arquivos_nao_utilizados_remove_pasta_anexos_quando_vazia(tmp_path: Path) -> None:
+    pasta_anexos = tmp_path / "anexos"
+    pasta_anexos.mkdir()
+
+    anexo_orfao = pasta_anexos / "termo_orfao.pdf"
+    anexo_orfao.write_bytes(b"%PDF-1.4 Orfao")
+
+    croqui_data = {
+        "descricao": "Croqui sem anexos",
+        "picos": []
+    }
+
+    limpar_arquivos_nao_utilizados(tmp_path, croqui_data)
+
+    assert not anexo_orfao.exists(), "Anexo órfão deve ser deletado"
+    assert not pasta_anexos.exists(), "Pasta anexos deve ser removida quando vazia"
+
 
 def test_compilar_croqui_faz_inline_de_mapas_gerais(tmp_path):
     import yaml
@@ -1706,6 +1816,468 @@ def test_garantir_comentarios_licenca_substitui_comentarios_antigos_md(tmp_path)
     assert linhas[1].strip() == "# SPDX-License-Identifier: ODbL-1.0"
     assert linhas[2].strip() == "# Copyright (C) 2026 Aresta Climb Contributors"
     assert not any("BSD-3-Clause" in l for l in linhas)
+
+
+def test_corrigir_markdowns_com_mapas_em_escaladas(tmp_path):
+    from scripts.preparar_submissao_lib import corrigir_setores_ou_grupos_recursivo
+    from PIL import Image
+
+    # Cria imagem em raw_pdf_contents/imagens/bloco_1/foto_boulder.webp
+    pasta_raw = tmp_path / "raw_pdf_contents" / "imagens" / "bloco_1"
+    pasta_raw.mkdir(parents=True, exist_ok=True)
+    img = Image.new("RGB", (300, 200), color=(10, 20, 30))
+    img_path = pasta_raw / "foto_boulder.webp"
+    img.save(img_path, format="WEBP")
+
+    md_path = tmp_path / "setor.md"
+    conteudo_md = (
+        "---\n"
+        "nome: Bloco Central\n"
+        "escaladas:\n"
+        "  - boulder:\n"
+        "      nome: Sit Start\n"
+        "    mapas:\n"
+        "      - caminho_imagem_mapa: raw_pdf_contents/imagens/bloco_1/foto_boulder.webp\n"
+        "---\n"
+        "Descricao do bloco\n"
+    )
+    md_path.write_text(conteudo_md, encoding="utf-8")
+
+    setores_ou_grupos = [
+        {"setor": {"caminho": "setor.md"}}
+    ]
+
+    corrigir_setores_ou_grupos_recursivo(setores_ou_grupos, tmp_path)
+
+    novo_conteudo = md_path.read_text(encoding="utf-8")
+    assert "imagens/bloco_1_foto_boulder.webp" in novo_conteudo
+    assert (tmp_path / "imagens" / "bloco_1_foto_boulder.webp").exists()
+
+
+def test_validar_referencias_mapas_em_escalada():
+    from scripts.preparar_submissao_lib import validar_referencias_mapa
+
+    croqui_data = {
+        "picos": [
+            {
+                "nome": "Pico Teste",
+                "setores_ou_grupos": [
+                    {
+                        "setor": {
+                            "conteudo": {
+                                "nome": "Bloco 1",
+                                "escaladas": [
+                                    {
+                                        "boulder": {"nome": "Saída"},
+                                        "mapas": [
+                                            {
+                                                "pontos_de_interesse": [
+                                                    {"id": "p1", "label": "Agarra 1"}
+                                                ],
+                                                "referencias": [
+                                                    {"ids": ["p1", "p1"]}  # ID duplicado na mesma referência
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+
+    erros = validar_referencias_mapa(croqui_data)
+    assert len(erros) >= 1
+    assert any("p1" in e and "duplicado" in e for e in erros)
+
+
+def test_migracao_imagens_redimensiona_por_tipo_entidade(tmp_path):
+    """
+    Valida que imagens migradas de raw_pdf_contents/ para imagens/ são comprimidas
+    e redimensionadas respeitando o perfil da entidade:
+    - 2.5 MP @ Q85 para mapas de setor/grupo
+    - 1.0 MP @ Q85 para mapas de escalada
+    """
+    from scripts.preparar_submissao_lib import corrigir_setores_ou_grupos_recursivo
+    from PIL import Image
+
+    pasta_raw = tmp_path / "raw_pdf_contents" / "imagens" / "bloco"
+    pasta_raw.mkdir(parents=True, exist_ok=True)
+
+    # Imagem de 3.0 MP (2000 x 1500 = 3.000.000 > 2.5 MP e > 1.0 MP)
+    img_setor_path = pasta_raw / "foto_setor.webp"
+    img_esc_path = pasta_raw / "foto_escalada.webp"
+
+    img_grande = Image.new("RGB", (2000, 1500), color=(100, 120, 140))
+    img_grande.save(img_setor_path, format="WEBP")
+    img_grande.save(img_esc_path, format="WEBP")
+
+    md_path = tmp_path / "setor.md"
+    conteudo_md = (
+        "---\n"
+        "nome: Setor Teste\n"
+        "mapas:\n"
+        "  - caminho_imagem_mapa: raw_pdf_contents/imagens/bloco/foto_setor.webp\n"
+        "escaladas:\n"
+        "  - boulder:\n"
+        "      nome: Boulder Teste\n"
+        "    mapas:\n"
+        "      - caminho_imagem_mapa: raw_pdf_contents/imagens/bloco/foto_escalada.webp\n"
+        "---\n"
+        "Descricao do setor\n"
+    )
+    md_path.write_text(conteudo_md, encoding="utf-8")
+
+    setores_ou_grupos = [{"setor": {"caminho": "setor.md"}}]
+
+    corrigir_setores_ou_grupos_recursivo(setores_ou_grupos, tmp_path)
+
+    img_setor_dest = tmp_path / "imagens" / "bloco_foto_setor.webp"
+    img_esc_dest = tmp_path / "imagens" / "bloco_foto_escalada.webp"
+
+    assert img_setor_dest.exists()
+    assert img_esc_dest.exists()
+
+    with Image.open(img_setor_dest) as img_s:
+        area_s = img_s.width * img_s.height
+        assert area_s <= 2_500_000
+        assert abs((img_s.width / img_s.height) - (2000 / 1500)) < 0.05
+
+    with Image.open(img_esc_dest) as img_e:
+        area_e = img_e.width * img_e.height
+        assert area_e <= 1_000_000
+        assert abs((img_e.width / img_e.height) - (2000 / 1500)) < 0.05
+
+
+def test_compilar_croqui_com_mapas_gerais_e_mapas_de_escaladas(tmp_path):
+    """
+    Testa se o compilador de croqui compila e serializa para Protobuf (binarypb e yaml)
+    com sucesso um croqui contendo mapas gerais (no pico), mapas de setor e
+    mapas específicos dentro de escaladas individuais com pontos de interesse.
+    """
+    import yaml
+    from aresta_api.proto.generated import croqui_pb2
+    from scripts.preparar_submissao_lib import compilar_croqui
+
+    pico_dir = tmp_path / "pico_completo"
+    pico_dir.mkdir()
+
+    # 1. Mapas gerais
+    mapas_gerais_md = pico_dir / "mapas_gerais.md"
+    mapas_gerais_md.write_text(
+        "---\n"
+        "mapas:\n"
+        "  - caminho_imagem_mapa: imagens/mapa_geral.webp\n"
+        "    largura_mapa: 1920\n"
+        "    altura_mapa: 1080\n"
+        "---\n",
+        encoding="utf-8"
+    )
+
+    # 2. Setor com mapa de setor e escalada com mapa próprio
+    setor_md = pico_dir / "setor_1.md"
+    setor_conteudo = (
+        "---\n"
+        "nome: Setor Falésia Alta\n"
+        "mapas:\n"
+        "  - caminho_imagem_mapa: imagens/mapa_setor.webp\n"
+        "    largura_mapa: 2000\n"
+        "    altura_mapa: 1200\n"
+        "    referencias:\n"
+        "      - escalada: Super Via\n"
+        "        ids:\n"
+        "          - '01'\n"
+        "escaladas:\n"
+        "  - via_esportiva:\n"
+        "      nome: Super Via\n"
+        "      dificuldade: BR_7A\n"
+        "      descricao: Croqui detalhado da via\n"
+        "    mapas:\n"
+        "      - caminho_imagem_mapa: imagens/croqui_super_via.webp\n"
+        "        largura_mapa: 800\n"
+        "        altura_mapa: 1200\n"
+        "        pontos_de_interesse:\n"
+        "          - id: start\n"
+        "            label: Start\n"
+        "            circulo:\n"
+        "              x: 400\n"
+        "              y: 1100\n"
+        "              raio: 20\n"
+        "          - id: crux\n"
+        "            label: Crux\n"
+        "            circulo:\n"
+        "              x: 420\n"
+        "              y: 600\n"
+        "              raio: 15\n"
+        "          - id: top\n"
+        "            label: Top\n"
+        "            quadrado:\n"
+        "              x: 410\n"
+        "              y: 100\n"
+        "              lado: 30\n"
+        "---\n"
+        "Descrição da Falésia Alta.\n"
+    )
+    setor_md.write_text(setor_conteudo, encoding="utf-8")
+
+    # 3. croqui.yaml
+    croqui_yaml = pico_dir / "croqui.yaml"
+    croqui_data = {
+        "nome": "Croqui Teste Completo",
+        "picos": [
+            {
+                "nome": "Pico Falésia",
+                "mapas_gerais": {
+                    "caminho": "mapas_gerais.md"
+                },
+                "setores_ou_grupos": [
+                    {
+                        "setor": {
+                            "caminho": "setor_1.md"
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+    with open(croqui_yaml, "w", encoding="utf-8") as f:
+        yaml.dump(croqui_data, f)
+
+    destino_yaml = tmp_path / "compilado.yaml"
+    destino_binarypb = tmp_path / "compilado.binarypb"
+
+    compilar_croqui(pico_dir, destino_yaml, destino_binarypb)
+
+    assert destino_yaml.exists()
+    assert destino_binarypb.exists()
+
+    # Validação no modelo Protobuf
+    croqui_msg = croqui_pb2.Croqui()
+    with open(destino_binarypb, "rb") as f:
+        croqui_msg.ParseFromString(f.read())
+
+    pico = croqui_msg.picos[0]
+    assert len(pico.mapas_gerais.conteudo.mapas) == 1
+    assert pico.mapas_gerais.conteudo.mapas[0].caminho_imagem_mapa == "imagens/mapa_geral.webp"
+
+    setor = pico.setores_ou_grupos[0].setor.conteudo
+    assert len(setor.mapas) == 1
+    assert setor.mapas[0].caminho_imagem_mapa == "imagens/mapa_setor.webp"
+
+    assert len(setor.escaladas) == 1
+    escalada = setor.escaladas[0]
+    assert escalada.via_esportiva.nome == "Super Via"
+    assert escalada.via_esportiva.descricao == "Croqui detalhado da via"
+    assert len(escalada.mapas) == 1
+    mapa_esc = escalada.mapas[0]
+    assert mapa_esc.caminho_imagem_mapa == "imagens/croqui_super_via.webp"
+    assert mapa_esc.largura_mapa == 800
+    assert mapa_esc.altura_mapa == 1200
+    assert len(mapa_esc.pontos_de_interesse) == 3
+    ids_pois = [poi.id for poi in mapa_esc.pontos_de_interesse]
+    assert "start" in ids_pois
+    assert "crux" in ids_pois
+    assert "top" in ids_pois
+
+
+def test_corrigir_database_migra_mapas_gerais_de_raw_pdf_contents(tmp_path):
+    """
+    Testa se corrigir_database move e comprime imagens de mapas gerais de
+    raw_pdf_contents/imagens/mapas_gerais/p0_i3.webp para imagens/mapas_gerais_p0_i3.webp,
+    atualizando o arquivo mapas_gerais.md e preservando-o contra a limpeza de órfãos.
+    """
+    import yaml
+    from PIL import Image
+    from scripts.preparar_submissao_lib import corrigir_database, parse_md_com_frontmatter
+
+    # 1. Cria a pasta e imagem em raw_pdf_contents
+    raw_mapas_dir = tmp_path / "raw_pdf_contents" / "imagens" / "mapas_gerais"
+    raw_mapas_dir.mkdir(parents=True, exist_ok=True)
+    img_orig = raw_mapas_dir / "p0_i3.webp"
+    img = Image.new("RGB", (800, 600), color=(50, 100, 150))
+    img.save(img_orig, format="WEBP")
+
+    # 2. Cria mapas_gerais.md apontando para raw_pdf_contents
+    mapas_gerais_md = tmp_path / "mapas_gerais.md"
+    conteudo_md = (
+        "---\n"
+        "# SPDX-License-Identifier: ODbL-1.0\n"
+        "# Copyright (C) 2026 Aresta Climb Contributors\n"
+        "mapas:\n"
+        "  - caminho_imagem_mapa: raw_pdf_contents/imagens/mapas_gerais/p0_i3.webp\n"
+        "    largura_mapa: 800\n"
+        "    altura_mapa: 600\n"
+        "    pontos_de_interesse:\n"
+        "      - id: Ponto_1\n"
+        "        label: Ponto 1\n"
+        "        circulo:\n"
+        "          x: 100\n"
+        "          y: 200\n"
+        "          raio: 15\n"
+        "---\n"
+    )
+    mapas_gerais_md.write_text(conteudo_md, encoding="utf-8")
+
+    # 3. Cria croqui.yaml
+    croqui_yaml = tmp_path / "croqui.yaml"
+    croqui_data = {
+        "id": "teste_croqui_lenheiro",
+        "nome": "Croqui Teste Lenheiro",
+        "picos": [
+            {
+                "nome": "Serra Teste",
+                "mapas_gerais": {
+                    "caminho": "mapas_gerais.md"
+                }
+            }
+        ]
+    }
+    with open(croqui_yaml, "w", encoding="utf-8") as f:
+        yaml.dump(croqui_data, f)
+
+    # Executa corrigir_database
+    corrigir_database(tmp_path)
+
+    # Verifica se a imagem foi movida e comprimida no diretório imagens/
+    img_esperada = tmp_path / "imagens" / "mapas_gerais_p0_i3.webp"
+    assert img_esperada.exists(), f"A imagem {img_esperada} não foi criada em imagens/"
+
+    # Verifica se o arquivo mapas_gerais.md foi atualizado
+    fm, _ = parse_md_com_frontmatter(mapas_gerais_md)
+    assert fm is not None
+    assert "mapas" in fm
+    assert fm["mapas"][0]["caminho_imagem_mapa"] == "imagens/mapas_gerais_p0_i3.webp"
+
+
+def test_corrigir_database_migra_mapas_gerais_inline_no_yaml(tmp_path):
+    """
+    Testa se corrigir_database processa mapas gerais estruturados inline no croqui.yaml,
+    movendo imagens de raw_pdf_contents e salvando o croqui.yaml com o caminho corrigido.
+    """
+    import yaml
+    from PIL import Image
+    from scripts.preparar_submissao_lib import corrigir_database
+
+    raw_mapas_dir = tmp_path / "raw_pdf_contents" / "imagens" / "mapas_gerais"
+    raw_mapas_dir.mkdir(parents=True, exist_ok=True)
+    img_orig = raw_mapas_dir / "p0_i3.webp"
+    img = Image.new("RGB", (400, 300), color=(20, 40, 60))
+    img.save(img_orig, format="WEBP")
+
+    croqui_yaml = tmp_path / "croqui.yaml"
+    croqui_data = {
+        "id": "teste_inline",
+        "nome": "Croqui Inline",
+        "picos": [
+            {
+                "nome": "Pico Inline",
+                "mapas_gerais": {
+                    "conteudo": {
+                        "mapas": [
+                            {
+                                "caminho_imagem_mapa": "raw_pdf_contents/imagens/mapas_gerais/p0_i3.webp",
+                                "largura_mapa": 400,
+                                "altura_mapa": 300
+                            }
+                        ]
+                    }
+                }
+            }
+        ]
+    }
+    with open(croqui_yaml, "w", encoding="utf-8") as f:
+        yaml.dump(croqui_data, f)
+
+    corrigir_database(tmp_path)
+
+    img_esperada = tmp_path / "imagens" / "mapas_gerais_p0_i3.webp"
+    assert img_esperada.exists()
+
+    with open(croqui_yaml, "r", encoding="utf-8") as f:
+        dados_atualizados = yaml.safe_load(f)
+
+    pico = dados_atualizados["picos"][0]
+    assert pico["mapas_gerais"]["conteudo"]["mapas"][0]["caminho_imagem_mapa"] == "imagens/mapas_gerais_p0_i3.webp"
+
+
+def test_corrigir_mapas_gerais_casos_borda(tmp_path):
+    """Testa entradas inválidas e arquivo MD sem frontmatter em corrigir_mapas_gerais."""
+    from scripts.preparar_submissao_lib import corrigir_mapas_gerais
+
+    # Entradas inválidas retornam False
+    assert not corrigir_mapas_gerais(None, tmp_path)
+    assert not corrigir_mapas_gerais("invalido", tmp_path)
+    assert not corrigir_mapas_gerais({}, tmp_path)
+
+    # Arquivo MD sem frontmatter
+    md_sem_fm = tmp_path / "mapas_sem_fm.md"
+    md_sem_fm.write_text("Apenas texto sem cabecalho frontmatter", encoding="utf-8")
+    assert not corrigir_mapas_gerais({"caminho": "mapas_sem_fm.md"}, tmp_path)
+
+
+def test_corrigir_mapas_gerais_com_metadados_json_e_coordenadas(tmp_path):
+    """Testa integração de JSON de metadados e conversão para E7 em mapas gerais (MD e inline)."""
+    import json
+    from PIL import Image
+    from scripts.preparar_submissao_lib import corrigir_mapas_gerais, parse_md_com_frontmatter
+
+    raw_dir = tmp_path / "raw_pdf_contents" / "imagens" / "mapas_gerais"
+    raw_dir.mkdir(parents=True, exist_ok=True)
+    img_raw = raw_dir / "p0_i3.webp"
+    Image.new("RGB", (100, 100)).save(img_raw, format="WEBP")
+
+    json_raw = raw_dir / "p0_i3.json"
+    json_raw.write_text(json.dumps({
+        "dimensoes_imagem": {"largura": 500, "altura": 400},
+        "pontos_de_interesse": [{"id": "poi_1", "label": "Ponto Extraido"}]
+    }), encoding="utf-8")
+
+    # 1. Teste via arquivo .md
+    md_path = tmp_path / "mapas_gerais_meta.md"
+    md_path.write_text(
+        "---\n"
+        "mapas:\n"
+        "  - caminho_imagem_mapa: raw_pdf_contents/imagens/mapas_gerais/p0_i3.webp\n"
+        "    latitude: -20.123456\n"
+        "    longitude: -44.654321\n"
+        "---\n",
+        encoding="utf-8"
+    )
+
+    corrigir_mapas_gerais({"caminho": "mapas_gerais_meta.md"}, tmp_path)
+
+    fm, _ = parse_md_com_frontmatter(md_path)
+    assert fm["mapas"][0]["largura_mapa"] == 500
+    assert fm["mapas"][0]["altura_mapa"] == 400
+    assert fm["mapas"][0]["latitude"] == -201234560
+    assert fm["mapas"][0]["pontos_de_interesse"][0]["id"] == "poi_1"
+
+    # 2. Teste via YAML inline
+    inline_raw = {
+        "conteudo": {
+            "mapas": [
+                {
+                    "caminho_imagem_mapa": "raw_pdf_contents/imagens/mapas_gerais/p0_i3.webp",
+                    "latitude": -21.0,
+                    "longitude": -43.0
+                }
+            ]
+        }
+    }
+    modificado = corrigir_mapas_gerais(inline_raw, tmp_path)
+    assert modificado is True
+    mapa_inline = inline_raw["conteudo"]["mapas"][0]
+    assert mapa_inline["caminho_imagem_mapa"] == "imagens/mapas_gerais_p0_i3.webp"
+    assert mapa_inline["largura_mapa"] == 500
+    assert mapa_inline["latitude"] == -210000000
+
+
+
+
+
 
 
 

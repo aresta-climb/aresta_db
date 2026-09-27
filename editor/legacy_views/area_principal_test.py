@@ -268,6 +268,86 @@ def test_salvar_croqui_assincrono_nao_trava_ui(qtbot, tmp_path, criar_janela):
                 assert event_loop_ran, "O Event Loop travou e o QTimer não rodou!"
                 qtbot.waitUntil(lambda: janela.label_status_salvamento.isHidden(), timeout=1000)
 
+def test_salvar_croqui_sem_modificacao_database_nao_recarrega(qtbot, tmp_path, criar_janela):
+    """Verifica que quando database_modificado=False, o editor não recarrega os dados."""
+    db_path = tmp_path / "temp_croqui"
+    db_path.mkdir()
+    mock_workspace = MagicMock()
+    mock_workspace.obter_caminho_database.return_value = db_path
+    mock_workspace.caminho_raiz.name = "temp_croqui"
+    mock_workspace.processar_renomeacao_e_compilacao.return_value = (db_path, [], False)
+    
+    janela = criar_janela(workspace=mock_workspace)
+    janela.croqui_data = {"id": "teste"}
+    janela.croqui_model = MagicMock()
+    janela.pagina_dados = MagicMock()
+    janela.pagina_mapas = MagicMock()
+    janela.pagina_imagens = MagicMock()
+    
+    with patch.object(janela, "_recarregar_dados_apos_salvamento") as mock_recarregar, \
+         patch.object(janela, "exibir_notificacao"), \
+         patch("builtins.open", MagicMock()), \
+         patch("editor.legacy_views.area_principal.yaml.dump"):
+        with qtbot.waitSignal(janela.salvamento_finalizado, timeout=2000):
+            janela.salvar_croqui()
+            
+        mock_recarregar.assert_not_called()
+
+
+def test_salvar_croqui_com_modificacao_database_chama_recarregar(qtbot, tmp_path, criar_janela):
+    """Verifica que quando database_modificado=True, o editor dispara _recarregar_dados_apos_salvamento."""
+    db_path = tmp_path / "temp_croqui"
+    db_path.mkdir()
+    mock_workspace = MagicMock()
+    mock_workspace.obter_caminho_database.return_value = db_path
+    mock_workspace.caminho_raiz.name = "temp_croqui"
+    mock_workspace.processar_renomeacao_e_compilacao.return_value = (db_path, [], True)
+    
+    janela = criar_janela(workspace=mock_workspace)
+    janela.croqui_data = {"id": "teste"}
+    janela.croqui_model = MagicMock()
+    janela.pagina_dados = MagicMock()
+    janela.pagina_mapas = MagicMock()
+    janela.pagina_imagens = MagicMock()
+    
+    with patch.object(janela, "_recarregar_dados_apos_salvamento") as mock_recarregar, \
+         patch.object(janela, "exibir_notificacao"), \
+         patch("builtins.open", MagicMock()), \
+         patch("editor.legacy_views.area_principal.yaml.dump"):
+        with qtbot.waitSignal(janela.salvamento_finalizado, timeout=2000):
+            janela.salvar_croqui()
+            
+        mock_recarregar.assert_called_once()
+
+
+def test_recarregar_dados_apos_salvamento_reconstroi_dados_e_restaura_selecao(criar_janela, tmp_path):
+    """Verifica que _recarregar_dados_apos_salvamento recarrega arquivos e restaura a seleção ativa."""
+    db_path = tmp_path / "temp_croqui"
+    db_path.mkdir()
+    yaml_file = db_path / "croqui.yaml"
+    yaml_file.write_text("id: teste_recarga\nnome: Teste Recarga\n", encoding="utf-8")
+    
+    mock_workspace = MagicMock()
+    mock_workspace.obter_caminho_database.return_value = db_path
+    
+    janela = criar_janela(workspace=mock_workspace)
+    janela.croqui_data = {"id": "teste_recarga"}
+    janela.croqui_model = MagicMock()
+    janela.croqui_controller = MagicMock()
+    janela.pagina_dados = MagicMock()
+    
+    editor_dados_mock = MagicMock()
+    editor_dados_mock.obter_caminho_no_selecionado.return_value = "node:croqui/expando:picos/item:0"
+    janela.pagina_dados.editor_dados = editor_dados_mock
+    
+    janela._recarregar_dados_apos_salvamento()
+    
+    janela.croqui_model.carregar_arquivos_externos.assert_called_once_with(db_path)
+    janela.pagina_dados.carregar_dados.assert_called_once_with(janela.croqui_model, janela.croqui_controller)
+    editor_dados_mock.selecionar_por_caminho_no.assert_called_once_with("node:croqui/expando:picos/item:0")
+
+
+
 def test_janela_principal_tem_icone_configurado(janela_principal):
     """Garante que a Janela Principal carrega o ícone de montanha."""
     assert not janela_principal.windowIcon().isNull()
@@ -1195,6 +1275,45 @@ def test_janela_principal_logo_e_icone_canal_beta(mock_carregar, qtbot, monkeypa
     icone = janela.windowIcon()
     assert not icone.isNull()
     janela.close()
+
+
+def test_pagina_mapas_carregamento_sob_demanda(qtbot):
+    """Garante que WidgetEditorMapas não é criado na inicialização de PaginaMapas."""
+    from editor.legacy_views.area_principal import PaginaMapas
+    pagina = PaginaMapas()
+    qtbot.addWidget(pagina)
+    assert pagina.editor is None
+
+    model_mock = MagicMock()
+    undo_mock = MagicMock()
+    pagina.carregar_mapas(model_mock, undo_mock)
+    assert pagina.editor is None
+
+    editor = pagina.garantir_editor_criado()
+    assert editor is not None
+    assert pagina.editor is editor
+
+
+def test_pagina_betas_carregamento_sob_demanda(qtbot):
+    """Garante que PainelCuradoria não é criado na inicialização de PaginaBetas."""
+    from editor.legacy_views.area_principal import PaginaBetas
+    pagina = PaginaBetas()
+    qtbot.addWidget(pagina)
+    assert pagina.painel is None
+
+    painel = pagina.garantir_painel_criado()
+    assert painel is not None
+    assert pagina.painel is painel
+
+
+def test_janela_principal_lazy_loading_mapas_ao_trocar_pagina(criar_janela):
+    """Garante que JanelaPrincipal só instancia o editor de mapas ao navegar para a aba."""
+    janela = criar_janela()
+    assert janela.pagina_mapas.editor is None
+    assert janela.pagina_betas.painel is None
+
+    janela._trocar_pagina(2)
+    assert janela.pagina_mapas.editor is not None
 
 
 

@@ -78,3 +78,37 @@ class TestNomesArquivos:
         assert gerar_nome_arquivo_entidade("Setor", "setor") == "setor.md"
         assert gerar_nome_arquivo_entidade("", "setor") == "setor.md"
 
+    def test_gerar_nome_mapa_sugerido_escalada_boulder(self):
+        escalada = croqui_pb2.Escalada()
+        escalada.boulder.nome = "La Bamba"
+        assert gerar_nome_mapa_sugerido(escalada, 0) == "boulder_la_bamba_p0.webp"
+        assert gerar_nome_mapa_sugerido(escalada, 1) == "boulder_la_bamba_p1.webp"
+
+        escalada_com_prefixo = croqui_pb2.Escalada()
+        escalada_com_prefixo.boulder.nome = "Boulder do Meio"
+        assert gerar_nome_mapa_sugerido(escalada_com_prefixo, 0) == "boulder_do_meio_p0.webp"
+
+        boulder_direto = croqui_pb2.Boulder(nome="Super Teto")
+        assert gerar_nome_mapa_sugerido(boulder_direto, 0) == "boulder_super_teto_p0.webp"
+
+    def test_gerar_nome_mapa_sugerido_escalada_vias(self):
+        # Via Esportiva
+        escalada_esp = croqui_pb2.Escalada()
+        escalada_esp.via_esportiva.nome = "Fenda da Ilusão"
+        assert gerar_nome_mapa_sugerido(escalada_esp, 0) == "via_fenda_da_ilusao_p0.webp"
+
+        # Via Móvel
+        escalada_movel = croqui_pb2.Escalada()
+        escalada_movel.via_movel.nome = "Via Fissura"
+        assert gerar_nome_mapa_sugerido(escalada_movel, 0) == "via_fissura_p0.webp"
+
+        # Via Múltiplas Enfiadas
+        escalada_multi = croqui_pb2.Escalada()
+        escalada_multi.via_multiplas_enfiadas.nome = "Paredão Central"
+        assert gerar_nome_mapa_sugerido(escalada_multi, 0) == "via_paredao_central_p0.webp"
+
+        # Objeto direto ViaEsportiva
+        via_direta = croqui_pb2.ViaEsportiva(nome="Sol Nascente")
+        assert gerar_nome_mapa_sugerido(via_direta, 0) == "via_sol_nascente_p0.webp"
+
+

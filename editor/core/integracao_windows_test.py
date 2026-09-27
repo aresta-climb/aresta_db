@@ -175,4 +175,56 @@ def test_configurar_identidade_processo_windows_real():
     assert resultado is True
 
 
+def test_trazer_janela_para_frente_no_op_fora_do_windows():
+    """Garante que fora do Windows seja um no-op seguro retornando True."""
+    from editor.core.integracao_windows import trazer_janela_para_frente
+
+    with patch("sys.platform", "linux"):
+        assert trazer_janela_para_frente(12345) is True
+
+
+def test_trazer_janela_para_frente_sucesso_com_mocks():
+    """Garante que ShowWindow (SW_RESTORE=9) e SetForegroundWindow sejam invocados com o HWND."""
+    from editor.core.integracao_windows import trazer_janela_para_frente
+
+    mock_user32 = MagicMock()
+    with patch("sys.platform", "win32"):
+        with patch("editor.core.integracao_windows._obter_user32", return_value=mock_user32):
+            resultado = trazer_janela_para_frente(98765)
+            assert resultado is True
+            mock_user32.ShowWindow.assert_called_once_with(98765, 9)
+            mock_user32.SetForegroundWindow.assert_called_once_with(98765)
+
+
+def test_trazer_janela_para_frente_trata_excecao():
+    """Garante resiliência caso ocorra falha ao invocar APIs do Win32."""
+    from editor.core.integracao_windows import trazer_janela_para_frente
+
+    mock_user32 = MagicMock()
+    mock_user32.ShowWindow.side_effect = RuntimeError("Falha ao restaurar")
+    with patch("sys.platform", "win32"):
+        with patch("editor.core.integracao_windows._obter_user32", return_value=mock_user32):
+            resultado = trazer_janela_para_frente(98765)
+            assert resultado is False
+
+
+@pytest.mark.skipif(sys.platform != "win32", reason="Requer Windows real para teste nativo com HWND")
+def test_trazer_janela_para_frente_janela_real_windows():
+    """Teste de integração real no Windows trazendo janela Win32 para o primeiro plano."""
+    from editor.core.integracao_windows import trazer_janela_para_frente
+    import ctypes
+
+    user32 = ctypes.windll.user32
+    hwnd = user32.CreateWindowExW(
+        0, "STATIC", "JanelaTesteFrente", 0, 0, 0, 100, 100, 0, 0, 0, 0
+    )
+    assert hwnd != 0
+    try:
+        resultado = trazer_janela_para_frente(hwnd)
+        assert resultado is True
+    finally:
+        user32.DestroyWindow(hwnd)
+
+
+
 

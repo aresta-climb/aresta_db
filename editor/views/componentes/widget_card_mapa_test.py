@@ -51,12 +51,16 @@ def test_widget_card_mapa_inicializacao_com_imagem(qapp):
     assert pixmap is not None
     assert not pixmap.isNull()
 
-    # Verifica controles essenciais
+    # Verifica controles essenciais: alça na esquerda, botão discreto de lixeira na direita e ausência de setas
     assert card.alca is not None
-    assert card.btn_subir is not None
-    assert card.btn_descer is not None
+    assert not hasattr(card, "btn_subir")
+    assert not hasattr(card, "btn_descer")
     assert card.btn_remover is not None
+    assert card.btn_remover.toolTip() == "Remover mapa"
+    assert not card.btn_remover.icon().isNull()
     assert card.btn_abrir_editor is not None
+    from PySide6.QtWidgets import QSizePolicy
+    assert card.btn_abrir_editor.sizePolicy().horizontalPolicy() == QSizePolicy.Policy.Maximum
 
 
 def test_widget_card_mapa_sem_imagem(qapp):

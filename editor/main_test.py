@@ -293,6 +293,51 @@ def test_controlador_app_configura_canal_beta(qtbot, monkeypatch):
         controlador.abertura.close()
 
 
+def test_main_getattr_carregamento_sob_demanda():
+    """Garante que classes pesadas são resolvidas sob demanda via PEP 562 __getattr__."""
+    import editor.main as main_mod
+    from editor.core.worker import TarefaInicializacao as TarefaReal
+    from editor.legacy_views.tela_de_carregamento import TelaDeCarregamento as TelaCarregamentoReal
+    from editor.views.tela_de_abertura import TelaDeAbertura as TelaAberturaReal
+    from editor.core.storage import GerenciadorCaminhos as GerenciadorReal
+
+    assert main_mod.__getattr__("TarefaInicializacao") is TarefaReal
+    assert main_mod.__getattr__("TelaDeCarregamento") is TelaCarregamentoReal
+    assert main_mod.__getattr__("TelaDeAbertura") is TelaAberturaReal
+    assert main_mod.__getattr__("GerenciadorCaminhos") is GerenciadorReal
+
+    with pytest.raises(AttributeError):
+        main_mod.__getattr__("SimboloInexistenteNoEditor")
+
+
+def test_controlador_app_ao_login_concluido(qtbot):
+    with patch("editor.main.TarefaInicializacao"):
+        controlador = ControladorAplicativo()
+        sessao_mock = MagicMock()
+        sessao_mock.nome_completo = "Escalador Teste"
+        controlador.ao_login_concluido(sessao_mock)
+        controlador.tarefa.gerenciador_sessao.salvar_sessao.assert_called_once_with(sessao_mock)
+        controlador.tarefa.definir_sessao_concluida.assert_called_once_with(sessao_mock)
+        controlador.abertura.close()
+
+
+def test_controlador_app_ao_login_cancelado(qtbot):
+    with patch("editor.main.TarefaInicializacao"):
+        controlador = ControladorAplicativo()
+        controlador.ao_login_cancelado()
+        controlador.tarefa.definir_sessao_concluida.assert_called_once_with(None)
+        controlador.abertura.close()
+
+
+def test_controlador_app_mostrar_janela_principal_sem_selecao(qtbot):
+    with patch("editor.main.TarefaInicializacao"):
+        controlador = ControladorAplicativo()
+        controlador.tela_carregamento = None
+        controlador.mostrar_janela_principal()
+        assert controlador.janela_principal is None
+        controlador.abertura.close()
+
+
 
 
 

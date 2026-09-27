@@ -367,7 +367,32 @@ class TestWorker(unittest.TestCase):
                 tarefa.run()
                 
         mock_ws.processar_renomeacao_e_compilacao.assert_called_once_with("teste", "teste", None)
-        tarefa.sucesso.emit.assert_called_once_with(Path("/fake/compilado"), [], False, 3)
+        tarefa.sucesso.emit.assert_called_once_with(Path("/fake/compilado"), [], False, 3, False)
+        tarefa.erro.emit.assert_not_called()
+
+    def test_tarefa_salvamento_sucesso_com_database_modificado(self):
+        """Valida que TarefaSalvamento propaga database_modificado=True quando reportado pelo workspace."""
+        from editor.core.worker import TarefaSalvamento
+        mock_ws = MagicMock()
+        mock_ws.processar_renomeacao_e_compilacao.return_value = (Path("/fake/compilado"), ["Aviso"], True)
+        
+        tarefa = TarefaSalvamento(
+            workspace=mock_ws,
+            storage=None,
+            caminho_db=Path("/fake/db"),
+            croqui_data={"id": "teste", "nome": "Teste"},
+            novo_id="teste",
+            id_atual="teste",
+            undo_index=3,
+        )
+        tarefa.sucesso = MagicMock()
+        tarefa.erro = MagicMock()
+        
+        with patch("builtins.open", MagicMock()):
+            with patch("yaml.dump"):
+                tarefa.run()
+                
+        tarefa.sucesso.emit.assert_called_once_with(Path("/fake/compilado"), ["Aviso"], False, 3, True)
         tarefa.erro.emit.assert_not_called()
 
     @patch("editor.core.telemetria.capturar_excecao")

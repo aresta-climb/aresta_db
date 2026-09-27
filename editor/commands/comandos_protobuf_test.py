@@ -1093,6 +1093,87 @@ def test_cmd_migrar_setor_casos_borda_e_erros():
     assert cmd.pai_origem == croqui
 
 
+def test_cmd_inserir_botao_markdown_com_anexo_undo_redo():
+    """Valida CmdInserirBotaoMarkdown com anexo em memória, Undo e Redo."""
+    from editor.commands.comandos_protobuf import CmdInserirBotaoMarkdown
+    from aresta_api.proto.generated.croqui_pb2 import Croqui
+    from editor.models.croqui_model import CroquiModel
+    from PySide6.QtGui import QUndoStack
+
+    croqui = Croqui()
+    croqui.descricao = "Texto inicial sem botão."
+    model = CroquiModel(croqui)
+    pilha = QUndoStack()
+
+    caminho_anexo = "anexos/formulario_termo.pdf"
+    bytes_anexo = b"%PDF-1.4 Termo de Risco Anexo"
+
+    texto_antigo = croqui.descricao
+    texto_novo = "Texto inicial sem botão.\n\n[Assinar Termo](anexos/formulario_termo.pdf)"
+
+    cmd = CmdInserirBotaoMarkdown(
+        model=model,
+        msg=croqui,
+        campo_nome="descricao",
+        texto_antigo=texto_antigo,
+        texto_novo=texto_novo,
+        caminho_anexo=caminho_anexo,
+        bytes_anexo=bytes_anexo,
+    )
+    pilha.push(cmd)
+
+    # Estado após Redo
+    assert croqui.descricao == texto_novo
+    assert model.obter_bytes_anexo(caminho_anexo) == bytes_anexo
+
+    # Undo
+    pilha.undo()
+    assert croqui.descricao == texto_antigo
+    assert model.obter_bytes_anexo(caminho_anexo) is None
+
+    # Redo novamente
+    pilha.redo()
+    assert croqui.descricao == texto_novo
+    assert model.obter_bytes_anexo(caminho_anexo) == bytes_anexo
+
+
+def test_cmd_inserir_botao_markdown_serializacao_deserializacao():
+    """Valida serialização e deserialização do CmdInserirBotaoMarkdown."""
+    from editor.commands.comandos_protobuf import CmdInserirBotaoMarkdown, deserializar_comando
+    from aresta_api.proto.generated.croqui_pb2 import Croqui
+    from editor.models.croqui_model import CroquiModel
+
+    croqui = Croqui()
+    pico = croqui.picos.add()
+    pico.descricao = "Descricao antiga."
+    model = CroquiModel(croqui)
+
+    cmd = CmdInserirBotaoMarkdown(
+        model=model,
+        msg=pico,
+        campo_nome="descricao",
+        texto_antigo="Descricao antiga.",
+        texto_novo="Descricao antiga.\n\n[Acessar Guia](https://aresta.app)",
+        caminho_anexo=None,
+        bytes_anexo=None,
+        context_path="picos.0.descricao",
+    )
+
+    dados = cmd.serializar()
+    assert dados["classe"] == "CmdInserirBotaoMarkdown"
+    assert dados["caminho_msg"] == "picos.0"
+    assert dados["campo_nome"] == "descricao"
+    assert dados["context_path"] == "picos.0.descricao"
+
+    cmd_recriado = deserializar_comando(dados, model)
+    assert isinstance(cmd_recriado, CmdInserirBotaoMarkdown)
+    cmd_recriado.executar_redo()
+    assert pico.descricao == "Descricao antiga.\n\n[Acessar Guia](https://aresta.app)"
+    cmd_recriado.undo()
+    assert pico.descricao == "Descricao antiga."
+
+
+
 
 
 

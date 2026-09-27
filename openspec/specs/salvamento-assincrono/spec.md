@@ -1,4 +1,9 @@
-## ADDED Requirements
+# salvamento-assincrono Specification
+
+## Purpose
+Executa rotinas de persistência do croqui em background sem congelar a interface.
+
+## Requirements
 
 ### Requirement: Salvamento de croqui não bloqueante
 O sistema SHALL executar as rotinas de persistência do croqui (disco/banco de dados) em uma thread separada (background), evitando qualquer congelamento da interface principal.

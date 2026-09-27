@@ -13,6 +13,7 @@ from editor.commands.comandos_protobuf import (
     CmdMoverRepeated,
     CmdAlterarCampoImagem,
     CmdInserirImagemMarkdown,
+    CmdInserirBotaoMarkdown,
 )
 
 
@@ -178,6 +179,28 @@ class CroquiController:
             texto_novo,
             caminho_imagem,
             bytes_imagem,
+            self.contexto_atual_path,
+        )
+        self._executar_comando(cmd)
+
+    def inserir_botao_markdown(
+        self,
+        msg: Any,
+        campo_nome: str,
+        texto_antigo: Optional[str],
+        texto_novo: str,
+        caminho_anexo: Optional[str] = None,
+        bytes_anexo: Optional[bytes] = None,
+    ) -> None:
+        """Despacha comando de inserção de botão/link no Markdown com gestão transacional de arquivo anexo em RAM."""
+        cmd = CmdInserirBotaoMarkdown(
+            self.model,
+            msg,
+            campo_nome,
+            texto_antigo,
+            texto_novo,
+            caminho_anexo,
+            bytes_anexo,
             self.contexto_atual_path,
         )
         self._executar_comando(cmd)

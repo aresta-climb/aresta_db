@@ -14,6 +14,7 @@ class Icones:
     COR_DESTAQUE: str = "#2b579a"
     COR_SUCESSO: str = "#28a745"
     COR_ERRO: str = "#dc3545"
+    COR_MUTED: str = "#777777"
     
     # Mapeamento de ações para identificadores do QtAwesome (FontAwesome 5 Solid/Brands)
     MAPA: Dict[str, str] = {
@@ -40,6 +41,46 @@ class Icones:
         "lapis": "fa5s.pencil-alt",
         "inverter": "fa5s.exchange-alt"
     }
+
+    # Estilo CSS para botão de remoção discreto (ghost icon)
+    QSS_BOTAO_REMOVER_DISCRETO: str = """
+        QPushButton {
+            border: none;
+            background-color: transparent;
+            padding: 4px;
+            border-radius: 4px;
+        }
+        QPushButton:hover {
+            background-color: #fee2e2;
+        }
+    """
+
+    # Estilo CSS para container emoldurado de coleções repetidas
+    QSS_CONTAINER_REPEATED_INTEGRADO: str = """
+        QFrame#ContainerRepeatedIntegrado {
+            border: 1px solid #d0d7de;
+            border-radius: 6px;
+            background-color: #ffffff;
+        }
+    """
+
+    # Estilo CSS para o botão de adicionar no rodapé de coleções repetidas
+    QSS_BOTAO_RODAPE_ADICIONAR: str = """
+        QPushButton {
+            background-color: #f6f8fa;
+            color: #2b579a;
+            border: 1px solid #d0d7de;
+            border-radius: 4px;
+            padding: 6px 16px;
+            font-weight: bold;
+            font-size: 9pt;
+        }
+        QPushButton:hover {
+            background-color: #eef3f9;
+            border-color: #2b579a;
+            color: #1a3b68;
+        }
+    """
 
     # Estilo CSS para a barra lateral
     QSS_BARRA_LATERAL: str = """
@@ -112,6 +153,12 @@ class Icones:
     def obter_destaque(cls, nome: str) -> QIcon:
         """Retorna um QIcon com a cor de destaque do sistema."""
         return cls.obter(nome, cor=cls.COR_DESTAQUE)
+
+    @classmethod
+    def obter_lixeira(cls, cor: Optional[str] = None) -> QIcon:
+        """Retorna o ícone de lixeira em vermelho para indicar ação de remoção clara."""
+        cor_final = cor or cls.COR_ERRO
+        return cls.obter("lixeira", cor=cor_final, cor_ativa=cls.COR_ERRO)
 
     @classmethod
     def obter_celular(cls, conectado: bool = False) -> QIcon:

@@ -130,7 +130,7 @@ jobs:
           $msixBetaDir = "msix_beta_staging"
           New-Item -ItemType Directory -Force -Path $msixBetaDir
 
-          Copy-Item "editor\dist\EditorAresta.exe" -Destination $msixBetaDir
+          Copy-Item "editor\dist\EditorAresta\*" -Destination $msixBetaDir -Recurse
           Copy-Item "editor\msix_beta\AppxManifest.xml" -Destination $msixBetaDir
           Copy-Item "editor\msix_beta\Assets" -Destination "$msixBetaDir\Assets" -Recurse
 
@@ -221,7 +221,7 @@ jobs:
           $msixDir = "msix_staging"
           New-Item -ItemType Directory -Force -Path $msixDir
           
-          Copy-Item "editor\dist\EditorAresta.exe" -Destination $msixDir
+          Copy-Item "editor\dist\EditorAresta\*" -Destination $msixDir -Recurse
           Copy-Item "editor\msix\AppxManifest.xml" -Destination $msixDir
           Copy-Item "editor\msix\Assets" -Destination "$msixDir\Assets" -Recurse
           

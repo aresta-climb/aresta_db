@@ -360,6 +360,23 @@ def obter_proxima_letra_top(letras_em_uso: Sequence[str]) -> str:
     return "Z"
 
 
+def desembrulhar_setor(setor_msg: Any) -> Optional[Any]:
+    """
+    Extrai seguramente a mensagem de Setor de qualquer envoltório
+    (Setor, ArquivoSetor, SetorOuGrupo ou proxies ReadOnlyProxy).
+    """
+    if setor_msg is None:
+        return None
+    obj = getattr(setor_msg, "_obj", setor_msg)
+    if hasattr(obj, "setor"):
+        obj = getattr(obj, "setor")
+        obj = getattr(obj, "_obj", obj)
+    if hasattr(obj, "conteudo"):
+        obj = getattr(obj, "conteudo")
+        obj = getattr(obj, "_obj", obj)
+    return obj
+
+
 def desambiguar_topos(
     linhas: Sequence[Any],
     referencias: Sequence[Any]
@@ -371,53 +388,106 @@ def desambiguar_topos(
     - Rotas que convergem no mesmo topo compartilham o mesmo rótulo de topo.
     """
     linhas_por_id = {str(linha.id): linha for linha in linhas if hasattr(linha, "id")}
-    
-    # Identifica o último nó de cada referência
-    topos_por_ref: Dict[str, Tuple[int, int]] = {}
-    ultimo_no_por_ref: Dict[str, Any] = {}
 
+    info_rotas: List[Dict[str, Any]] = []
     for ref in referencias:
-        nome_escalada = getattr(ref, "escalada", "")
         if not ref.ids:
             continue
-        ultimo_id = str(ref.ids[-1])
-        if ultimo_id in linhas_por_id:
-            linha = linhas_por_id[ultimo_id]
-            nos = linha.linha.conteudo.nos
-            if nos:
-                ultimo_no = nos[-1]
-                coord = (int(ultimo_no.x), int(ultimo_no.y))
-                topos_por_ref[nome_escalada] = coord
-                ultimo_no_por_ref[nome_escalada] = ultimo_no
+        ids_rota = [str(i) for i in ref.ids]
+        nos_rota = []
+        for lid in ids_rota:
+            if lid in linhas_por_id:
+                linha = linhas_por_id[lid]
+                if hasattr(linha, "HasField") and linha.HasField("linha"):
+                    nos_rota.extend(linha.linha.conteudo.nos)
+        if not nos_rota:
+            continue
 
-    # Verifica se há bifurcação ou convergência
-    rotas = list(referencias)
-    if len(rotas) <= 1:
-        # Rota isolada: garante que o término seja PASSAGEM sem rótulo
-        for ultimo_no in ultimo_no_por_ref.values():
-            ultimo_no.tipo = croqui_pb2.NoTrajeto.TipoNo.PASSAGEM
-            ultimo_no.rotulo = ""
+        no_inicio = nos_rota[0]
+        no_fim = nos_rota[-1]
+        p_inicio = (float(no_inicio.x), float(no_inicio.y))
+        p_fim = (float(no_fim.x), float(no_fim.y))
+        pts = [(float(n.x), float(n.y)) for n in nos_rota]
+
+        info_rotas.append({
+            "ref": ref,
+            "escalada": getattr(ref, "escalada", ""),
+            "ids": set(ids_rota),
+            "no_inicio": no_inicio,
+            "no_fim": no_fim,
+            "p_inicio": p_inicio,
+            "p_fim": p_fim,
+            "pts": pts,
+        })
+
+    if not info_rotas:
+        # Se não há referências válidas, garante que qualquer linha com FIM_TOP seja normalizada
+        for linha in linhas:
+            if hasattr(linha, "HasField") and linha.HasField("linha") and linha.linha.conteudo.nos:
+                ultimo_no = linha.linha.conteudo.nos[-1]
+                if ultimo_no.tipo == croqui_pb2.NoTrajeto.TipoNo.FIM_TOP:
+                    ultimo_no.tipo = croqui_pb2.NoTrajeto.TipoNo.PASSAGEM
+                    ultimo_no.rotulo = ""
         return
 
-    # Mapeia coordenadas únicas de topo para letras
-    coords_unicas: List[Tuple[int, int]] = []
-    for coord in topos_por_ref.values():
-        if coord not in coords_unicas:
-            coords_unicas.append(coord)
+    def estao_conectadas(r1: Dict[str, Any], r2: Dict[str, Any]) -> bool:
+        dist_fim = math.hypot(r1["p_fim"][0] - r2["p_fim"][0], r1["p_fim"][1] - r2["p_fim"][1])
+        if dist_fim <= 5.0:
+            return True
 
-    letras_atribuidas: Dict[Tuple[int, int], str] = {}
+        if bool(r1["ids"] & r2["ids"]):
+            return True
+
+        dist_inicio = math.hypot(r1["p_inicio"][0] - r2["p_inicio"][0], r1["p_inicio"][1] - r2["p_inicio"][1])
+        if dist_inicio <= 5.0:
+            return True
+
+        for p1 in r1["pts"][:-1]:
+            for p2 in r2["pts"][:-1]:
+                if math.hypot(p1[0] - p2[0], p1[1] - p2[1]) <= 5.0:
+                    return True
+
+        return False
+
+    n = len(info_rotas)
+    rotas_conectadas: Set[int] = set()
+    for i in range(n):
+        for j in range(i + 1, n):
+            if estao_conectadas(info_rotas[i], info_rotas[j]):
+                rotas_conectadas.add(i)
+                rotas_conectadas.add(j)
+
+    # 1. Rotas isoladas: término PASSAGEM e rótulo vazio
+    for i in range(n):
+        if i not in rotas_conectadas:
+            no_fim = info_rotas[i]["no_fim"]
+            no_fim.tipo = croqui_pb2.NoTrajeto.TipoNo.PASSAGEM
+            no_fim.rotulo = ""
+
+    # 2. Rotas conectadas: agrupa topos em clusters por proximidade e atribui letras
+    clusters_topo: List[List[int]] = []
+    for i in range(n):
+        if i not in rotas_conectadas:
+            continue
+        p_fim_i = info_rotas[i]["p_fim"]
+        encontrou_cluster = False
+        for cluster in clusters_topo:
+            p_rep = info_rotas[cluster[0]]["p_fim"]
+            if math.hypot(p_fim_i[0] - p_rep[0], p_fim_i[1] - p_rep[1]) <= 5.0:
+                cluster.append(i)
+                encontrou_cluster = True
+                break
+        if not encontrou_cluster:
+            clusters_topo.append([i])
+
     letras_em_uso: List[str] = []
-
-    for coord in coords_unicas:
-        proxima_letra = obter_proxima_letra_top(letras_em_uso)
-        letras_atribuidas[coord] = proxima_letra
-        letras_em_uso.append(proxima_letra)
-
-    # Aplica as letras e tipos aos nós de topo
-    for nome_escalada, coord in topos_por_ref.items():
-        no_topo = ultimo_no_por_ref[nome_escalada]
-        no_topo.tipo = croqui_pb2.NoTrajeto.TipoNo.FIM_TOP
-        no_topo.rotulo = letras_atribuidas[coord]
+    for cluster in clusters_topo:
+        letra = obter_proxima_letra_top(letras_em_uso)
+        letras_em_uso.append(letra)
+        for idx_rota in cluster:
+            no_fim = info_rotas[idx_rota]["no_fim"]
+            no_fim.tipo = croqui_pb2.NoTrajeto.TipoNo.FIM_TOP
+            no_fim.rotulo = letra
 
 
 def obter_rotulo_escalada_no_setor(setor_msg: Any, nome_escalada: str) -> Optional[str]:
@@ -425,8 +495,11 @@ def obter_rotulo_escalada_no_setor(setor_msg: Any, nome_escalada: str) -> Option
     Verifica se a escalada já possui traçado em outro mapa do mesmo setor e
     retorna o rótulo numérico do seu ponto inicial, mantendo a coerência.
     """
-    for mapa in setor_msg.mapas:
-        linhas_mapa = {str(p.id): p for p in mapa.pontos_de_interesse if p.HasField("linha")}
+    setor = desembrulhar_setor(setor_msg)
+    if not setor or not hasattr(setor, "mapas"):
+        return None
+    for mapa in setor.mapas:
+        linhas_mapa = {str(p.id): p for p in mapa.pontos_de_interesse if hasattr(p, "HasField") and p.HasField("linha")}
         for ref in mapa.referencias:
             if getattr(ref, "escalada", "") == nome_escalada and ref.ids:
                 primeiro_id = str(ref.ids[0])
@@ -438,16 +511,21 @@ def obter_rotulo_escalada_no_setor(setor_msg: Any, nome_escalada: str) -> Option
     return None
 
 
-def calcular_proximo_numero_inicio_setor(setor_msg: Any) -> int:
+def calcular_proximo_numero_inicio_setor(
+    setor_msg: Any,
+    mapa_ativo: Optional[Any] = None
+) -> int:
     """
-    Analisa todos os mapas do setor para encontrar o maior número de início em uso
-    e retorna o próximo número inteiro sequencial disponível.
+    Analisa todos os mapas do setor e o mapa ativo para encontrar o maior número
+    de início em uso e retorna o próximo número inteiro sequencial disponível.
     """
     numeros_encontrados: Set[int] = set()
 
-    for mapa in setor_msg.mapas:
+    def extrair_numeros_de_mapa(mapa: Any) -> None:
+        if not mapa or not hasattr(mapa, "pontos_de_interesse"):
+            return
         for p in mapa.pontos_de_interesse:
-            if p.HasField("linha"):
+            if hasattr(p, "HasField") and p.HasField("linha"):
                 nos = p.linha.conteudo.nos
                 if nos:
                     rotulo = str(nos[0].rotulo)
@@ -455,23 +533,39 @@ def calcular_proximo_numero_inicio_setor(setor_msg: Any) -> int:
                         if pedaco.isdigit():
                             numeros_encontrados.add(int(pedaco))
 
+    if mapa_ativo is not None:
+        extrair_numeros_de_mapa(mapa_ativo)
+
+    setor = desembrulhar_setor(setor_msg)
+    if setor and hasattr(setor, "mapas"):
+        for mapa in setor.mapas:
+            extrair_numeros_de_mapa(mapa)
+
     return max(numeros_encontrados) + 1 if numeros_encontrados else 1
 
 
 def gerar_id_poi_disjunto_setor(
     setor_msg: Any,
     prefixo: str = "linha",
-    ids_reservados: Optional[Set[str]] = None
+    ids_reservados: Optional[Set[str]] = None,
+    mapa_ativo: Optional[Any] = None
 ) -> str:
     """
     Gera um novo identificador de POI garantindo que seja estritamente disjunto
-    em relação a todos os IDs de todos os mapas pertencentes ao setor e ao conjunto de IDs reservados.
+    em relação a todos os IDs do mapa ativo, de todos os mapas do setor e ao conjunto de IDs reservados.
     """
     ids_existentes: Set[str] = set(ids_reservados or [])
-    if setor_msg and hasattr(setor_msg, "mapas"):
-        for mapa in setor_msg.mapas:
+
+    if mapa_ativo is not None and hasattr(mapa_ativo, "pontos_de_interesse"):
+        for p in mapa_ativo.pontos_de_interesse:
+            if getattr(p, "id", None):
+                ids_existentes.add(str(p.id))
+
+    setor = desembrulhar_setor(setor_msg)
+    if setor and hasattr(setor, "mapas"):
+        for mapa in setor.mapas:
             for p in mapa.pontos_de_interesse:
-                if p.id:
+                if getattr(p, "id", None):
                     ids_existentes.add(str(p.id))
 
     indice = 1
@@ -479,3 +573,4 @@ def gerar_id_poi_disjunto_setor(
         indice += 1
 
     return f"{prefixo}_{indice}"
+

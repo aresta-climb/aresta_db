@@ -28,6 +28,10 @@ def _obter_user32() -> Any:
     user32.GetWindowLongW.restype = wintypes.LONG
     user32.SetWindowLongW.argtypes = [wintypes.HWND, ctypes.c_int, wintypes.LONG]
     user32.SetWindowLongW.restype = wintypes.LONG
+    user32.ShowWindow.argtypes = [wintypes.HWND, ctypes.c_int]
+    user32.ShowWindow.restype = wintypes.BOOL
+    user32.SetForegroundWindow.argtypes = [wintypes.HWND]
+    user32.SetForegroundWindow.restype = wintypes.BOOL
     return user32
 
 
@@ -124,5 +128,30 @@ def configurar_identidade_processo_windows(app_user_model_id: str) -> bool:
         return bool(resultado_hresult == 0)
     except Exception:
         return False
+
+
+def trazer_janela_para_frente(identificador_janela: int) -> bool:
+    """
+    Traz uma janela para o primeiro plano no Windows utilizando a API Win32.
+    Restaura a janela caso esteja minimizada e define o foco de primeiro plano.
+
+    Args:
+        identificador_janela: O identificador Win32 nativo da janela (HWND).
+
+    Returns:
+        True em caso de sucesso (ou em plataformas não-Windows), False em caso de falha.
+    """
+    if sys.platform != "win32":
+        return True
+
+    try:
+        user32 = _obter_user32()
+        sw_restore: int = 9
+        user32.ShowWindow(identificador_janela, sw_restore)
+        user32.SetForegroundWindow(identificador_janela)
+        return True
+    except Exception:
+        return False
+
 
 

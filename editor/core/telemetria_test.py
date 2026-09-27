@@ -81,9 +81,10 @@ def test_inicializar_telemetria(mock_sentry):
     assert sucesso is True
     mock_sentry.init.assert_called_once()
     
-    # Verifica que chamou com before_send=sanitizar_evento_sentry
+    # Verifica que chamou com before_send=sanitizar_evento_sentry e auto_enabling_integrations=False
     kwargs = mock_sentry.init.call_args[1]
     assert kwargs["before_send"] == sanitizar_evento_sentry
+    assert kwargs["auto_enabling_integrations"] is False
 
 
 @patch.dict(os.environ, {"ARESTA_DESATIVAR_TELEMETRIA": "1"})

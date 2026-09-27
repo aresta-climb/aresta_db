@@ -390,6 +390,23 @@ croquis:
   localizacao:
     latitude: -193155830
     longitude: -436135000
+- id: br_mg_sao_joao_del_rei_serra_do_lenheiro
+  nome: Serra do Lenheiro - São João Del Rei
+  descricao: Guia de escalada da Serra do Lenheiro em São João Del Rei - MG (5ª Edição,
+    2025).
+  caminho_relativo: br_mg_sao_joao_del_rei_serra_do_lenheiro/compilado.binarypb
+  checksum_sha256_croqui: e016858b4a60739218d17098694889678d6379d034c2fbefa7d31e1bca86668c
+  checksum_sha256_thumbnail: 6b567bf0f04a055be1ddde56cc1f36e7fe4b908fd8fdbab98564099e3bc429ab
+  timestamp_update: '2026-09-27T02:10:16Z'
+  precomputados:
+    total_escaladas: 310
+    total_setores: 26
+    total_grupos: 4
+    total_esportivas: 207
+    tamanho_download_bytes: 15391246
+  localizacao:
+    latitude: -211406830
+    longitude: -442847810
 - id: br_mg_sete_lagoas_sinuosa
   nome: Sinuosa
   descricao: ''

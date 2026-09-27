@@ -227,3 +227,17 @@ def test_delta_deploy_with_compilado_only(deployer, mock_s3):
         with patch.object(deployer.purger, 'purge_manifests'):
             deployer.execute()
             mock_run.assert_any_call(["git", "checkout", "HEAD", "--ignore-skip-worktree-bits", "--", "generated/arquivos_serving.yaml", "generated/compilado.binarypb", "generated/indice.binarypb"], check=True)
+
+def test_upload_file_content_types(deployer, mock_s3):
+    (deployer.generated_dir / "doc.pdf").write_bytes(b"%PDF-1.4 fake")
+    (deployer.generated_dir / "imagem.webp").write_bytes(b"fake webp")
+    
+    deployer._upload_file("doc.pdf")
+    deployer._upload_file("imagem.webp")
+    
+    obj_pdf = mock_s3.get_object(Bucket="aresta", Key="v1/doc.pdf")
+    assert obj_pdf["ContentType"] == "application/pdf"
+    
+    obj_webp = mock_s3.get_object(Bucket="aresta", Key="v1/imagem.webp")
+    assert obj_webp["ContentType"] == "image/webp"
+

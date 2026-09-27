@@ -445,4 +445,94 @@ class TestDialogoAdicionarMapa:
         assert chamadas_compressao[0]["max_area"] == 2_500_000
         assert chamadas_compressao[0]["method"] == 6
 
+    def test_dialogo_escalada_banner_dica_e_perfil_1_0_mp(self, qtbot, tmp_path, monkeypatch):
+        import inspect
+        import editor.views.dialogos.dialogo_adicionar_mapa as mod_dialogo
+
+        chamadas_compressao = []
+        fn_original = mod_dialogo.comprimir_imagem_para_bytes_webp
+        sig = inspect.signature(fn_original)
+
+        def mock_comprimir(*args, **kwargs):
+            vinculo = sig.bind(*args, **kwargs)
+            vinculo.apply_defaults()
+            chamadas_compressao.append(vinculo.arguments)
+            return fn_original(*args, **kwargs)
+
+        monkeypatch.setattr(mod_dialogo, "comprimir_imagem_para_bytes_webp", mock_comprimir)
+
+        # Imagem grande 2000 x 1000
+        img_path = tmp_path / "boulder_saida.png"
+        img = Image.new("RGB", (2000, 1000), color=(100, 120, 140))
+        img.save(img_path, format="PNG")
+
+        dialogo = DialogoAdicionarMapa("boulder_la_bamba_p0.webp", db_dir=tmp_path, eh_escalada=True)
+        qtbot.addWidget(dialogo)
+
+        assert dialogo.eh_escalada is True
+        assert hasattr(dialogo, "banner_dica")
+        assert not dialogo.banner_dica.isHidden()
+        assert "Dica de Qualidade" in dialogo.banner_dica.text()
+
+        dialogo.carregar_imagem_arquivo(str(img_path))
+
+        assert len(chamadas_compressao) == 1
+        assert chamadas_compressao[0]["quality"] == 85
+        assert chamadas_compressao[0]["max_area"] == 1_000_000
+        assert chamadas_compressao[0]["method"] == 6
+
+    def test_dialogo_setor_nao_exibe_banner_dica_e_usa_perfil_padrao(self, qtbot, tmp_path):
+        dialogo = DialogoAdicionarMapa("setor_fugitivos_p0.webp", db_dir=tmp_path, eh_escalada=False)
+        qtbot.addWidget(dialogo)
+
+        assert dialogo.eh_escalada is False
+        assert dialogo.banner_dica.isHidden()
+
+    def test_recorte_imagem_e_reverter_para_original(self, qtbot, tmp_path):
+        img_path = tmp_path / "bloco_original.png"
+        img = Image.new("RGB", (400, 400), color=(200, 100, 50))
+        img.save(img_path, format="PNG")
+
+        dialogo = DialogoAdicionarMapa("boulder_bloco_p0.webp", db_dir=tmp_path, eh_escalada=True)
+        qtbot.addWidget(dialogo)
+        dialogo.carregar_imagem_arquivo(str(img_path))
+
+        assert dialogo.obter_dimensoes_imagem() == (400, 400)
+        assert dialogo.btn_reverter_corte.isEnabled() is False
+
+        # Aplica corte de 200x200 no centro
+        dialogo.aplicar_corte((100, 100, 300, 300))
+        assert dialogo.obter_dimensoes_imagem() == (200, 200)
+        assert dialogo.btn_reverter_corte.isEnabled() is True
+
+        # Reverte para original
+        dialogo.reverter_corte()
+        assert dialogo.obter_dimensoes_imagem() == (400, 400)
+        assert dialogo.btn_reverter_corte.isEnabled() is False
+
+    def test_area_drop_rubber_band_selecao(self, qtbot, imagem_bytes_png):
+        area = AreaDropImagem()
+        qtbot.addWidget(area)
+        area.resize(500, 400)
+        area.show()
+        area.definir_preview_bytes(imagem_bytes_png)
+
+        # Com imagem carregada, arrastar com o mouse deve ativar QRubberBand
+        assert hasattr(area, "rubber_band")
+        ponto_inicio = area.rect().center()
+        ponto_fim = ponto_inicio + QPoint(100, 80)
+
+        # Mouse press
+        qtbot.mousePress(area, Qt.MouseButton.LeftButton, pos=ponto_inicio)
+        # Mouse move
+        qtbot.mouseMove(area, pos=ponto_fim)
+        # Mouse release
+        qtbot.mouseRelease(area, Qt.MouseButton.LeftButton, pos=ponto_fim)
+
+        ret = area.obter_retangulo_selecionado_imagem()
+        assert ret is not None
+        assert ret[2] > ret[0]
+        assert ret[3] > ret[1]
+
+
 

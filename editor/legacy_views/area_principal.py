@@ -16,7 +16,6 @@ from editor.views.estilo import Icones
 from ..core.servidor_celular import ServidorCelular
 from ..core.monitor_inatividade import MonitorInatividade
 from .dialogo_conexao_celular import DialogoConexaoCelular
-from editor.views.widget_editor_mapas import WidgetEditorMapas
 from editor.legacy_views.widget_editor_imagens import WidgetEditorImagens
 from editor.views.notificacao import NotificacaoToast
 from ..core.historico import GerenciadorHistorico
@@ -123,14 +122,40 @@ class PaginaImagens(PaginaBase):
 class PaginaMapas(PaginaBase):
     def __init__(self, parent: Optional[QWidget] = None) -> None:
         super().__init__("Mapas", parent, criar_placeholder=False)
-        layout = self.layout()
-        
-        self.editor: WidgetEditorMapas = WidgetEditorMapas(parent=self)
-        if layout:
-            layout.addWidget(self.editor)
-        
+        self.editor: Optional[Any] = None
+        self._dados_carregamento_pendentes: Optional[Dict[str, Any]] = None
+
+    def garantir_editor_criado(self) -> Any:
+        """Instancia e conecta o WidgetEditorMapas sob demanda (lazy loading)."""
+        if self.editor is None:
+            from editor.views.widget_editor_mapas import WidgetEditorMapas
+            layout = self.layout()
+            self.editor = WidgetEditorMapas(parent=self)
+            if layout:
+                layout.addWidget(self.editor)
+            if self._dados_carregamento_pendentes:
+                dados = self._dados_carregamento_pendentes
+                self._aplicar_carregamento(
+                    dados["model"],
+                    dados["undo_stack"],
+                    dados.get("caminho_db"),
+                    dados.get("controller")
+                )
+        return self.editor
+
     def carregar_mapas(self, model: Optional[Any], undo_stack: Optional[Any], caminho_db: Optional[Union[str, Path]] = None, controller: Optional[Any] = None) -> None:
-        if model:
+        if self.editor is None:
+            self._dados_carregamento_pendentes = {
+                "model": model,
+                "undo_stack": undo_stack,
+                "caminho_db": caminho_db,
+                "controller": controller,
+            }
+            return
+        self._aplicar_carregamento(model, undo_stack, caminho_db, controller)
+
+    def _aplicar_carregamento(self, model: Optional[Any], undo_stack: Optional[Any], caminho_db: Optional[Union[str, Path]] = None, controller: Optional[Any] = None) -> None:
+        if model and self.editor:
             from editor.controllers.mapas_controller import MapasController
             mapas_controller = MapasController(model, undo_stack)
             if caminho_db:
@@ -156,18 +181,28 @@ class PaginaMapas(PaginaBase):
 class PaginaBetas(PaginaBase):
     def __init__(self, parent: Optional[QWidget] = None) -> None:
         super().__init__("Betas", parent, criar_placeholder=False)
-        layout = self.layout()
-        from coleta_de_betas.curadoria.painel_curadoria import PainelCuradoria
-        self.painel: Any = PainelCuradoria(parent=self)
-        if layout:
-            layout.addWidget(self.painel)
+        self.painel: Optional[Any] = None
+        self._caminho_staging_pendente: Optional[Path] = None
 
+    def garantir_painel_criado(self) -> Any:
+        """Instancia e conecta o PainelCuradoria sob demanda (lazy loading)."""
+        if self.painel is None:
+            layout = self.layout()
+            from coleta_de_betas.curadoria.painel_curadoria import PainelCuradoria
+            self.painel = PainelCuradoria(parent=self)
+            if layout:
+                layout.addWidget(self.painel)
+            if self._caminho_staging_pendente:
+                self.painel.carregar_staging(self._caminho_staging_pendente)
+        return self.painel
 
     def carregar_betas(self, caminho_db: Optional[Union[str, Path]]) -> None:
         if caminho_db:
             caminho_staging = Path(caminho_db) / "betas_pendentes.binarypb"
             if caminho_staging.exists():
-                self.painel.carregar_staging(caminho_staging)
+                self._caminho_staging_pendente = caminho_staging
+                if self.painel is not None:
+                    self.painel.carregar_staging(caminho_staging)
 
 class PaginaHistorico(PaginaBase):
     def __init__(self, parent: Optional[QWidget] = None) -> None:
@@ -515,6 +550,11 @@ class JanelaPrincipal(QMainWindow):
         for i, acao in enumerate(self.grupo_nav):
             acao.setChecked(i == indice)
         
+        if indice == 2:
+            self.pagina_mapas.garantir_editor_criado()
+        elif indice == 3:
+            self.pagina_betas.garantir_painel_criado()
+
         self.stack.setCurrentIndex(indice)
         self._atualizar_acoes_contextuais()
         
@@ -556,7 +596,10 @@ class JanelaPrincipal(QMainWindow):
         elif ctx.pagina == "mapas":
             if self.stack.currentIndex() != 2:
                 self._trocar_pagina(2)
-            if ctx.arquivo_mapa and hasattr(self.pagina_mapas, 'editor') and self.croqui_model:
+            else:
+                self.pagina_mapas.garantir_editor_criado()
+            editor = getattr(self.pagina_mapas, 'editor', None)
+            if ctx.arquivo_mapa and editor is not None and self.croqui_model:
                 croqui_ro = self.croqui_model.obter_croqui_readonly() if hasattr(self.croqui_model, "obter_croqui_readonly") else getattr(self.croqui_model, "croqui", None)
                 if croqui_ro:
                     encontrou = False
@@ -566,10 +609,10 @@ class JanelaPrincipal(QMainWindow):
                             for m_idx, mapa in enumerate(pico.mapas_gerais.conteudo.mapas):
                                 from pathlib import Path
                                 if mapa.caminho_imagem_mapa and Path(mapa.caminho_imagem_mapa).name == ctx.arquivo_mapa:
-                                    if hasattr(self.pagina_mapas.editor, 'selecionar_mapa_por_indices'):
-                                        self.pagina_mapas.editor.selecionar_mapa_por_indices(p_idx, -1, m_idx)
+                                    if hasattr(editor, 'selecionar_mapa_por_indices'):
+                                        editor.selecionar_mapa_por_indices(p_idx, -1, m_idx)
                                     else:
-                                        self.pagina_mapas.editor.set_mapa_atual(mapa, p_idx, -1, m_idx)
+                                        editor.set_mapa_atual(mapa, p_idx, -1, m_idx)
                                     encontrou = True
                                     break
                         if encontrou: break
@@ -579,30 +622,33 @@ class JanelaPrincipal(QMainWindow):
                             for m_idx, mapa in enumerate(sg.setor.conteudo.mapas):
                                 from pathlib import Path
                                 if mapa.caminho_imagem_mapa and Path(mapa.caminho_imagem_mapa).name == ctx.arquivo_mapa:
-                                    if hasattr(self.pagina_mapas.editor, 'selecionar_mapa_por_indices'):
-                                        self.pagina_mapas.editor.selecionar_mapa_por_indices(p_idx, sg_idx, m_idx)
+                                    if hasattr(editor, 'selecionar_mapa_por_indices'):
+                                        editor.selecionar_mapa_por_indices(p_idx, sg_idx, m_idx)
                                     else:
-                                        self.pagina_mapas.editor.set_mapa_atual(mapa, p_idx, sg_idx, m_idx)
+                                        editor.set_mapa_atual(mapa, p_idx, sg_idx, m_idx)
                                     encontrou = True
                                     break
-            elif ctx.caminho_local_arvore and hasattr(self.pagina_mapas, 'editor'):
-                # Busca via node path
-                import re
-                p_idx, sg_idx, s_idx, m_idx = -1, -1, -1, -1
-                match_s = re.search(r'expando:picos/item:(\d+)/expando:setores_ou_grupos/item:(\d+).*?expando:setores/item:(\d+).*?expando:mapas/item:(\d+)', ctx.caminho_local_arvore)
-                if match_s:
-                    p_idx, sg_idx, s_idx, m_idx = int(match_s.group(1)), int(match_s.group(2)), int(match_s.group(3)), int(match_s.group(4))
-                else:
-                    match_mg = re.search(r'expando:picos/item:(\d+).*?mapas_gerais.*?item:(\d+)', ctx.caminho_local_arvore)
-                    if match_mg:
-                        p_idx, m_idx = int(match_mg.group(1)), int(match_mg.group(2))
+            elif ctx.caminho_local_arvore:
+                self.pagina_mapas.garantir_editor_criado()
+                editor = getattr(self.pagina_mapas, 'editor', None)
+                if editor is not None:
+                    # Busca via node path
+                    import re
+                    p_idx, sg_idx, s_idx, m_idx = -1, -1, -1, -1
+                    match_s = re.search(r'expando:picos/item:(\d+)/expando:setores_ou_grupos/item:(\d+).*?expando:setores/item:(\d+).*?expando:mapas/item:(\d+)', ctx.caminho_local_arvore)
+                    if match_s:
+                        p_idx, sg_idx, s_idx, m_idx = int(match_s.group(1)), int(match_s.group(2)), int(match_s.group(3)), int(match_s.group(4))
                     else:
-                        match = re.search(r'expando:picos/item:(\d+)/expando:setores_ou_grupos/item:(\d+).*?expando:mapas/item:(\d+)', ctx.caminho_local_arvore)
-                        if match:
-                            p_idx, sg_idx, m_idx = int(match.group(1)), int(match.group(2)), int(match.group(3))
-                
-                if p_idx >= 0 and hasattr(self.pagina_mapas.editor, 'selecionar_mapa_por_indices'):
-                    self.pagina_mapas.editor.selecionar_mapa_por_indices(p_idx, sg_idx, m_idx, s_idx)
+                        match_mg = re.search(r'expando:picos/item:(\d+).*?mapas_gerais.*?item:(\d+)', ctx.caminho_local_arvore)
+                        if match_mg:
+                            p_idx, m_idx = int(match_mg.group(1)), int(match_mg.group(2))
+                        else:
+                            match = re.search(r'expando:picos/item:(\d+)/expando:setores_ou_grupos/item:(\d+).*?expando:mapas/item:(\d+)', ctx.caminho_local_arvore)
+                            if match:
+                                p_idx, sg_idx, m_idx = int(match.group(1)), int(match.group(2)), int(match.group(3))
+                    
+                    if p_idx >= 0 and hasattr(editor, 'selecionar_mapa_por_indices'):
+                        editor.selecionar_mapa_por_indices(p_idx, sg_idx, m_idx, s_idx)
         elif ctx.pagina == "historico":
             if self.stack.currentIndex() != 3:
                 self._trocar_pagina(3)
@@ -698,7 +744,7 @@ class JanelaPrincipal(QMainWindow):
                 self.croqui_data = self.croqui_model.extrair_arquivos_e_serializar(caminho_db)
 
                 
-            if hasattr(self.pagina_mapas.editor, 'salvar_todas_mudancas'):
+            if self.pagina_mapas.editor and hasattr(self.pagina_mapas.editor, 'salvar_todas_mudancas'):
                 self.pagina_mapas.editor.salvar_todas_mudancas(mostrar_mensagem=False)
             
             self.pagina_imagens.editor.salvar_alteracoes(mostrar_mensagem=False)
@@ -740,7 +786,41 @@ class JanelaPrincipal(QMainWindow):
             from editor.views.dialogo_erro_salvamento import exibir_dialogo_erro_salvamento
             exibir_dialogo_erro_salvamento(self, e, traceback.format_exc())
 
-    def _on_salvar_sucesso(self, caminho_retornado: Any, erros: List[str], houve_renomeacao: bool, undo_index: int) -> None:
+    def _recarregar_dados_apos_salvamento(self) -> None:
+        """Recarrega os dados do disco preservando a seleção do nó ativo na árvore."""
+        if not self.workspace:
+            return
+        caminho_db = self.workspace.obter_caminho_database()
+
+        # 1. Guarda a seleção atual da árvore
+        caminho_selecionado = None
+        if hasattr(self.pagina_dados, 'editor_dados') and self.pagina_dados.editor_dados:
+            if hasattr(self.pagina_dados.editor_dados, 'obter_caminho_no_selecionado'):
+                caminho_selecionado = self.pagina_dados.editor_dados.obter_caminho_no_selecionado()
+
+        # 2. Atualiza croqui_data a partir do croqui.yaml no disco
+        yaml_path = caminho_db / "croqui.yaml"
+        if yaml_path.exists():
+            import yaml
+            with open(yaml_path, "r", encoding="utf-8") as f:
+                self.croqui_data = yaml.safe_load(f)
+
+        # 3. Recarrega arquivos externos (mds com imagens atualizadas, etc.)
+        if self.croqui_model is not None:
+            self.croqui_model.carregar_arquivos_externos(caminho_db)
+
+        # 4. Atualiza os componentes da interface
+        if hasattr(self, 'pagina_dados') and self.croqui_model is not None and self.croqui_controller is not None:
+            self.pagina_dados.carregar_dados(self.croqui_model, self.croqui_controller)
+            if caminho_selecionado and self.pagina_dados.editor_dados:
+                if hasattr(self.pagina_dados.editor_dados, 'selecionar_por_caminho_no'):
+                    self.pagina_dados.editor_dados.selecionar_por_caminho_no(caminho_selecionado)
+
+        self.pagina_imagens.carregar_imagens(caminho_db, model=self.croqui_model, controller=self.croqui_controller)
+        if self.croqui_model is not None:
+            self.pagina_mapas.carregar_mapas(self.croqui_model, self.historico, caminho_db, controller=self.croqui_controller)
+
+    def _on_salvar_sucesso(self, caminho_retornado: Any, erros: List[str], houve_renomeacao: bool, undo_index: int, database_modificado: bool = False) -> None:
         self._salvando = False
         if self.label_status_salvamento:
             self.label_status_salvamento.hide()
@@ -762,7 +842,9 @@ class JanelaPrincipal(QMainWindow):
         else:
             print("⚡ [HotReload] Servidor celular não está ativo neste momento.")
         
-        if self.workspace:
+        if database_modificado:
+            self._recarregar_dados_apos_salvamento()
+        elif self.workspace:
             caminho_db = self.workspace.obter_caminho_database()
             if getattr(self, 'croqui_model', None):
                 self.pagina_mapas.carregar_mapas(self.croqui_model, self.historico, caminho_db)

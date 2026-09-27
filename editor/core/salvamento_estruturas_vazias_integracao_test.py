@@ -83,7 +83,7 @@ def test_salvamento_e_compilacao_com_pico_vazio_e_grupo_sem_setores(storage_temp
     workspace = ExperimentalWorkspace(caminho_croqui)
     
     # QUANDO processar a compilação de salvamento
-    caminho_resultado, mensagens_erro = workspace.processar_renomeacao_e_compilacao(
+    caminho_resultado, mensagens_erro, _ = workspace.processar_renomeacao_e_compilacao(
         novo_id="br_mg_teste_vazio",
         id_atual="br_mg_teste_vazio",
         storage=storage_temporario

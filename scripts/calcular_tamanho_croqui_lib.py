@@ -17,17 +17,20 @@ def calcular_tamanho_croqui_bytes(
     caminho_compilado: Union[Path, str],
     pasta_imagens: Optional[Union[Path, str]] = None,
     pastas_excluidas: Optional[Set[str]] = None,
+    pasta_anexos: Optional[Union[Path, str]] = None,
 ) -> int:
     """
     Calcula o tamanho total em bytes para download offline de um croqui.
 
     Soma o tamanho do arquivo compilado.binarypb com todas as mídias da
-    pasta de imagens, ignorando subdiretórios presentes em pastas_excluidas.
+    pasta de imagens (ignorando subdiretórios presentes em pastas_excluidas)
+    e todos os arquivos da pasta de anexos.
 
     Argumentos:
         caminho_compilado: Caminho para o arquivo compilado.binarypb.
         pasta_imagens: Caminho para o diretório de imagens do croqui.
         pastas_excluidas: Conjunto de nomes de subdiretórios a serem ignorados (ex: {'raw_mapas'}).
+        pasta_anexos: Caminho para o diretório de anexos do croqui (ex: documentos PDF).
 
     Retorna:
         Tamanho total em bytes como inteiro.
@@ -52,5 +55,12 @@ def calcular_tamanho_croqui_bytes(
                     continue
 
                 tamanho_total += arquivo.stat().st_size
+
+    if pasta_anexos is not None:
+        caminho_anexos = Path(pasta_anexos)
+        if caminho_anexos.is_dir():
+            for arquivo in caminho_anexos.rglob("*"):
+                if arquivo.is_file():
+                    tamanho_total += arquivo.stat().st_size
 
     return tamanho_total
