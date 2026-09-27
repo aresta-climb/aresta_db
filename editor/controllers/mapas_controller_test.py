@@ -687,6 +687,9 @@ class MapasControllerTest(unittest.TestCase):
         with self.assertRaises(ValueError):
             self.controller.separar_linha_em_no(self.msg_mapa_proxy, setor_proxy, "l_teste", 2)
 
+        with self.assertRaises(ValueError):
+            self.controller.separar_linha_em_no(self.msg_mapa_proxy, setor_proxy, "id_inexistente", 1)
+
     def test_adicionar_rota_com_tracado_em_mapa_com_pois_nao_linha_preserva_indices_e_undo(self):
         """[TDD] Garante que adicionar rota em mapa com círculos/não-linhas preserva os POIs e faz Undo limpo."""
         setor_proxy = self.model.obter_croqui_readonly().picos[0].setores_ou_grupos[0].setor.conteudo

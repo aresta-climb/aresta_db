@@ -4898,6 +4898,102 @@ def test_atualizar_lista_mapas_allowlist(mocker, qtbot):
     assert spy_clear.call_count == 3
 
 
+def test_adicionar_rotas_sequenciais_selecao_independente_e_undo_limpo(qtbot):
+    """[TDD] Verifica que rotas sequenciais possuem destaque visual independente e Undo limpo na cena."""
+    from editor.views.widget_editor_mapas import WidgetEditorMapas
+    from editor.controllers.mapas_controller import MapasController
+    from editor.models.croqui_model import CroquiModel
+    from aresta_api.proto.generated import croqui_pb2
+    from PySide6.QtGui import QColor, QUndoStack
+
+    croqui = croqui_pb2.Croqui()
+    pico = croqui.picos.add(nome="Pico Teste")
+    sg = pico.setores_ou_grupos.add()
+    setor = sg.setor.conteudo
+    setor.nome = "Setor Teste"
+    mapa = setor.mapas.add(largura_mapa=1000, altura_mapa=1000)
+
+    model = CroquiModel(croqui)
+    undo_stack = QUndoStack()
+    controller = MapasController(model, undo_stack)
+    widget = WidgetEditorMapas(mapas_controller=controller, croqui_model=model)
+    qtbot.addWidget(widget)
+
+    proxy_mapa = model.obter_croqui_readonly().picos[0].setores_ou_grupos[0].setor.conteudo.mapas[0]
+    proxy_setor = model.obter_croqui_readonly().picos[0].setores_ou_grupos[0].setor.conteudo
+    widget.set_mapa_atual(proxy_mapa)
+
+    # Adiciona rota 1
+    controller.adicionar_rota_com_tracado(proxy_mapa, proxy_setor, {"nome": "Rota 1", "tipo": "boulder", "nova": True}, [(10.0, 50.0), (10.0, 10.0)])
+    # Adiciona rota 2
+    controller.adicionar_rota_com_tracado(proxy_mapa, proxy_setor, {"nome": "Rota 2", "tipo": "boulder", "nova": True}, [(50.0, 50.0), (50.0, 10.0)])
+
+    assert len(widget.itens_poi) == 2
+    item1 = widget.itens_poi[0]
+    item2 = widget.itens_poi[1]
+
+    ref1 = proxy_mapa.referencias[0]
+    ref2 = proxy_mapa.referencias[1]
+
+    # Destacar ref1 não deve destacar item2
+    widget.destacar_pois_temporariamente(ref1)
+    assert item1.pen().color() == QColor(0, 255, 255)
+    assert item2.pen().color() != QColor(0, 255, 255)
+
+    # Undo deve remover item2 da cena e de itens_poi
+    controller.undo_stack.undo()
+    assert len(widget.itens_poi) == 1
+    assert 1 not in widget.itens_poi
+
+
+def test_finalizar_modo_nova_rota_usa_setor_do_mapa_ativo(qtbot):
+    """[TDD] Garante que finalizar_modo_nova_rota passe o setor do mapa ativo para o controller."""
+    from editor.views.widget_editor_mapas import WidgetEditorMapas
+    from editor.controllers.mapas_controller import MapasController
+    from editor.models.croqui_model import CroquiModel
+    from aresta_api.proto.generated import croqui_pb2
+    from PySide6.QtCore import QPointF
+    from unittest.mock import MagicMock
+
+    croqui = croqui_pb2.Croqui()
+    pico = croqui.picos.add(nome="Pico Teste")
+    sg1 = pico.setores_ou_grupos.add()
+    setor_ativo = sg1.setor.conteudo
+    setor_ativo.nome = "Setor Ativo"
+    mapa_ativo = setor_ativo.mapas.add(largura_mapa=1000, altura_mapa=1000)
+
+    sg2 = pico.setores_ou_grupos.add()
+    setor_estrangeiro = sg2.setor.conteudo
+    setor_estrangeiro.nome = "Setor Estrangeiro"
+
+    model = CroquiModel(croqui)
+    mock_controller = MagicMock(spec=MapasController)
+    mock_controller.model = model
+    widget = WidgetEditorMapas(mapas_controller=mock_controller, croqui_model=model)
+    qtbot.addWidget(widget)
+
+    proxy_setor_ativo = model.obter_croqui_readonly().picos[0].setores_ou_grupos[0].setor.conteudo
+    proxy_mapa_ativo = proxy_setor_ativo.mapas[0]
+    widget.set_mapa_atual(proxy_mapa_ativo)
+
+    # Inicia modo nova rota com dados contendo setor_obj estrangeiro
+    widget.modo_nova_rota = True
+    widget.dados_nova_rota_atual = {
+        "nome": "Via Estrangeira",
+        "tipo": "boulder",
+        "nova": True,
+        "setor_obj": setor_estrangeiro,
+    }
+    widget.pontos_nova_rota = [QPointF(10.0, 50.0), QPointF(10.0, 10.0)]
+
+    widget.finalizar_modo_nova_rota()
+
+    mock_controller.adicionar_rota_com_tracado.assert_called_once()
+    _, kwargs = mock_controller.adicionar_rota_com_tracado.call_args
+    assert kwargs["msg_setor_proxy"].nome == "Setor Ativo"
+
+
+
 
 
 

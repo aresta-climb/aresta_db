@@ -537,7 +537,7 @@ def test_formulario_markdown_editor_split(qapp):
     assert setor.descricao == "Novo **markdown**"
 
 
-def test_markdown_editor_frontmatter_and_base_url(qapp):
+def test_markdown_editor_renderizacao_direta_e_base_url(qapp):
     from editor.views.tree_view_adapter import ProtobufNode
     from editor.views.widget_editor_dados import WidgetFormularioPadrao, WidgetEditorMarkdown
     from aresta_api.proto.generated.croqui_pb2 import Setor
@@ -561,11 +561,7 @@ def test_markdown_editor_frontmatter_and_base_url(qapp):
     form = WidgetFormularioPadrao(model, controller, parent=win)
     
     setor = Setor()
-    setor.descricao = """---
-nome: Setor Fantasma
----
-Este é o corpo do markdown.
-"""
+    setor.descricao = "# Titulo do Setor\n\nEste é o corpo do markdown."
     
     node = ProtobufNode(name="Setor", message=setor, descriptor=setor.DESCRIPTOR)
     form.load_node(node)
@@ -573,16 +569,41 @@ Este é o corpo do markdown.
     md_editor = form.findChild(WidgetEditorMarkdown)
     assert md_editor is not None
     
-    # O editor deve conter todo o texto (incluindo o frontmatter)
-    assert "nome: Setor Fantasma" in md_editor.editor.toPlainText()
+    # O editor deve conter o texto limpo
+    assert md_editor.editor.toPlainText() == "# Titulo do Setor\n\nEste é o corpo do markdown."
     
-    # O preview deve ter pulado o frontmatter
-    assert "nome: Setor Fantasma" not in md_editor.preview.toPlainText()
+    # O preview deve renderizar o markdown diretamente
+    assert "Titulo do Setor" in md_editor.preview.toPlainText()
     assert "Este é o corpo do markdown." in md_editor.preview.toPlainText()
     
     # O base URL do preview deve ter sido definido apontando para o caminho do banco de dados
     base_url = md_editor.preview.document().baseUrl().toLocalFile()
     assert base_url.rstrip("/") == "C:/test_croqui_folder/database"
+
+
+def test_widget_editor_markdown_renderiza_markdown_com_regua_horizontal_sem_cortar_texto(qapp):
+    from editor.views.tree_view_adapter import ProtobufNode
+    from editor.views.widget_editor_dados import WidgetFormularioPadrao, WidgetEditorMarkdown
+    from aresta_api.proto.generated.croqui_pb2 import Setor, Croqui
+    from editor.models.croqui_model import CroquiModel
+    from editor.controllers.croqui_controller import CroquiController
+    from PySide6.QtGui import QUndoStack
+    
+    model = CroquiModel(Croqui())
+    controller = CroquiController(model, QUndoStack())
+    form = WidgetFormularioPadrao(model, controller)
+    
+    setor = Setor()
+    setor.descricao = "---\n# Titulo Logo Apos Linha\n\nTexto adicional"
+    node = ProtobufNode(name="Setor", message=setor, descriptor=setor.DESCRIPTOR)
+    form.load_node(node)
+    
+    md_editor = form.findChild(WidgetEditorMarkdown)
+    assert md_editor is not None
+    
+    # Nao deve cortar o texto que vem depois da linha horizontal ---
+    assert "Titulo Logo Apos Linha" in md_editor.preview.toPlainText()
+    assert "Texto adicional" in md_editor.preview.toPlainText()
 
 
 def test_markdown_editor_base_url_from_model_and_local_image(qapp, tmp_path):
@@ -3811,6 +3832,80 @@ def test_widget_editor_markdown_inserir_imagem_historico_undo_redo(qapp, monkeyp
     assert "![Via Principal](imagens/foto_teste.webp)" in croqui.descricao
     assert model.obter_imagens_em_memoria().get("imagens/foto_teste.webp") == b"fake_bytes_webp_123"
     assert "![Via Principal](imagens/foto_teste.webp)" in md_editor.editor.toPlainText()
+
+
+def test_widget_editor_markdown_componentes_cabecalho_botao(qapp):
+    """Valida que o WidgetEditorMarkdown possui o botão Inserir Botão no cabeçalho."""
+    from aresta_api.proto.generated.croqui_pb2 import Croqui
+    from editor.models.croqui_model import CroquiModel
+    from editor.controllers.croqui_controller import CroquiController
+    from editor.views.widget_editor_dados import WidgetEditorDados, WidgetEditorMarkdown
+    from PySide6.QtGui import QUndoStack
+
+    croqui = Croqui()
+    model = CroquiModel(croqui)
+    controller = CroquiController(model, QUndoStack())
+    widget_dados = WidgetEditorDados(model, controller)
+
+    campo_desc = croqui.DESCRIPTOR.fields_by_name["descricao"]
+    md_editor = WidgetEditorMarkdown(croqui, campo_desc, widget_dados.form_padrao, parent=widget_dados.form_padrao)
+
+    assert hasattr(md_editor, "btn_inserir_botao"), "Deve possuir o atributo btn_inserir_botao"
+    assert "Inserir Botão" in md_editor.btn_inserir_botao.text()
+
+
+def test_widget_editor_markdown_inserir_botao_historico_undo_redo(qapp, monkeypatch):
+    """Garante que a inserção de botão empilha CmdInserirBotaoMarkdown na pilha de histórico."""
+    from unittest.mock import MagicMock
+    from aresta_api.proto.generated.croqui_pb2 import Croqui
+    from editor.models.croqui_model import CroquiModel
+    from editor.controllers.croqui_controller import CroquiController
+    from editor.views.widget_editor_dados import WidgetEditorDados, WidgetEditorMarkdown
+    from PySide6.QtGui import QUndoStack
+    from PySide6.QtWidgets import QDialog
+
+    croqui = Croqui()
+    croqui.descricao = "Regras de Acesso Gerais."
+
+    model = CroquiModel(croqui)
+    pilha = QUndoStack()
+    controller = CroquiController(model, pilha)
+    widget_dados = WidgetEditorDados(model, controller)
+
+    campo_desc = croqui.DESCRIPTOR.fields_by_name["descricao"]
+    md_editor = WidgetEditorMarkdown(croqui, campo_desc, widget_dados.form_padrao, parent=widget_dados.form_padrao)
+
+    mock_dialogo = MagicMock()
+    mock_dialogo.exec.return_value = QDialog.DialogCode.Accepted
+    mock_dialogo.obter_tag_markdown.return_value = "\n[Baixar Ficha](anexos/ficha.pdf)\n"
+    mock_dialogo.obter_caminho_anexo.return_value = "anexos/ficha.pdf"
+    mock_dialogo.obter_bytes_anexo.return_value = b"%PDF-1.4 Ficha Anexo"
+
+    monkeypatch.setattr(
+        "editor.views.widget_editor_dados.DialogoInserirBotaoMarkdown",
+        lambda *args, **kwargs: mock_dialogo,
+    )
+
+    md_editor.abrir_dialogo_inserir_botao()
+
+    # 1. Empilhado no histórico
+    assert pilha.count() == 1
+    assert "[Baixar Ficha](anexos/ficha.pdf)" in croqui.descricao
+    assert "[Baixar Ficha](anexos/ficha.pdf)" in md_editor.editor.toPlainText()
+    assert model.obter_bytes_anexo("anexos/ficha.pdf") == b"%PDF-1.4 Ficha Anexo"
+
+    # 2. Undo
+    pilha.undo()
+    assert croqui.descricao == "Regras de Acesso Gerais."
+    assert model.obter_bytes_anexo("anexos/ficha.pdf") is None
+    assert md_editor.editor.toPlainText() == "Regras de Acesso Gerais."
+
+    # 3. Redo
+    pilha.redo()
+    assert "[Baixar Ficha](anexos/ficha.pdf)" in croqui.descricao
+    assert model.obter_bytes_anexo("anexos/ficha.pdf") == b"%PDF-1.4 Ficha Anexo"
+    assert "[Baixar Ficha](anexos/ficha.pdf)" in md_editor.editor.toPlainText()
+
 
 
 def test_arvore_drag_drop_reordenacao_mesma_lista(qapp):

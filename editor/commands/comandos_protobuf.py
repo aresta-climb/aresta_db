@@ -1326,6 +1326,90 @@ class CmdInserirImagemMarkdown(ComandoEditor):
 ComandoInserirImagemMarkdown = CmdInserirImagemMarkdown
 
 
+class CmdInserirBotaoMarkdown(ComandoEditor):
+    """
+    Comando para inserir um botão/link no Markdown e opcionalmente gerenciar os bytes
+    do documento anexo associado na memória RAM do CroquiModel.
+    """
+    def __init__(
+        self,
+        model: Any,
+        msg: Any = None,
+        campo_nome: str = "",
+        texto_antigo: Optional[str] = None,
+        texto_novo: str = "",
+        caminho_anexo: Optional[str] = None,
+        bytes_anexo: Optional[bytes] = None,
+        context_path: Optional[str] = None,
+        caminho_msg: Optional[str] = None,
+        parent: Optional[QUndoCommand] = None,
+    ) -> None:
+        super().__init__(parent)
+        self.model: Any = model
+        self.campo_nome: str = campo_nome
+        if caminho_msg is not None:
+            self.caminho_msg = caminho_msg
+            _validar_campo_se_msg_existir(self.model, self.caminho_msg, self.campo_nome, "CmdInserirBotaoMarkdown")
+        else:
+            self.caminho_msg = validar_pertence_ao_croqui(self.model, msg, self.campo_nome, nome_comando="CmdInserirBotaoMarkdown")
+            self._msg_cache = msg
+        self.texto_antigo: Optional[str] = _copia_segura(texto_antigo)
+        self.texto_novo: str = _copia_segura(texto_novo)
+        self.caminho_anexo: Optional[str] = caminho_anexo
+        self.bytes_anexo: Optional[bytes] = bytes_anexo
+        self.context_path: Optional[str] = context_path
+
+    def undo(self) -> None:
+        msg = self.msg
+        if msg is None:
+            return
+        if self.caminho_anexo and self.bytes_anexo:
+            if hasattr(self.model, "remover_anexo_memoria"):
+                self.model.remover_anexo_memoria(self.caminho_anexo)
+        self.model._set_primitivo(msg, self.campo_nome, self.texto_antigo)
+        if hasattr(self, 'context_path') and self.context_path:
+            self.model.notificar_foco_requisitado(self.context_path)
+
+    def executar_redo(self) -> None:
+        msg = self.msg
+        if msg is None:
+            return
+        if self.caminho_anexo and self.bytes_anexo:
+            if hasattr(self.model, "definir_anexo_memoria"):
+                self.model.definir_anexo_memoria(self.caminho_anexo, self.bytes_anexo)
+        self.model._set_primitivo(msg, self.campo_nome, self.texto_novo)
+        if hasattr(self, 'context_path') and self.context_path:
+            self.model.notificar_foco_requisitado(self.context_path)
+
+    def serializar(self, anonimizado: bool = False) -> Dict[str, Any]:
+        return {
+            "classe": "CmdInserirBotaoMarkdown",
+            "caminho_msg": self.caminho_msg if self.caminho_msg is not None else resolver_caminho_mensagem(self.model.obter_croqui_readonly(), self.msg),
+            "campo_nome": self.campo_nome,
+            "texto_antigo": self.texto_antigo,
+            "texto_novo": self.texto_novo,
+            "caminho_anexo": self.caminho_anexo,
+            "bytes_anexo": self.bytes_anexo,
+            "context_path": self.context_path,
+        }
+
+    @staticmethod
+    def deserializar(dados: Dict[str, Any], model: CroquiModel) -> "CmdInserirBotaoMarkdown":
+        return CmdInserirBotaoMarkdown(
+            model=model,
+            caminho_msg=dados.get("caminho_msg", ""),
+            campo_nome=dados["campo_nome"],
+            texto_antigo=dados.get("texto_antigo"),
+            texto_novo=dados.get("texto_novo", ""),
+            caminho_anexo=dados.get("caminho_anexo"),
+            bytes_anexo=dados.get("bytes_anexo"),
+            context_path=dados.get("context_path"),
+        )
+
+
+ComandoInserirBotaoMarkdown = CmdInserirBotaoMarkdown
+
+
 class CmdMacro(ComandoEditor):
     """
     Comando composto que agrupa uma sequência ordenada de comandos derivados de ComandoEditor.
@@ -1543,6 +1627,7 @@ def deserializar_comando(dados: Dict[str, Any], model: CroquiModel) -> ComandoEd
         "CmdAlterarCampoImagem": CmdAlterarCampoImagem,
         "CmdSubstituirImagemMemoria": CmdSubstituirImagemMemoria,
         "CmdInserirImagemMarkdown": CmdInserirImagemMarkdown,
+        "CmdInserirBotaoMarkdown": CmdInserirBotaoMarkdown,
         "CmdMacro": CmdMacro,
         "CmdRenomearEscalada": CmdRenomearEscalada,
         "CmdMigrarSetor": CmdMigrarSetor,

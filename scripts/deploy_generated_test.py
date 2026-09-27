@@ -338,9 +338,9 @@ class DeployGeneratedTest(unittest.TestCase):
                         self.assertIn("AttributeError: Teste de falha no compilador", saida)
                         self.assertIn("Traceback", saida)
 
-                        # Verifica que a tupla retornada inclui a lista de exceções
-                        self.assertEqual(len(resultado), 3)
-                        compilados, erros, excecoes = resultado
+                        # Verifica que a tupla retornada inclui a lista de exceções e a flag database_modificado
+                        self.assertEqual(len(resultado), 4)
+                        compilados, erros, excecoes, database_modificado = resultado
                         self.assertEqual(len(erros), 1)
                         self.assertEqual(len(excecoes), 1)
                         self.assertIsInstance(excecoes[0], AttributeError)
@@ -432,13 +432,14 @@ class DeployGeneratedTest(unittest.TestCase):
             generated_dir = tmp_path / "generated"
             deploy_generated.GENERATED_DIR = generated_dir
 
-            compilados, erros, excecoes = deploy_generated.passo_a_compilar_croquis(
+            compilados, erros, excecoes, database_modificado = deploy_generated.passo_a_compilar_croquis(
                 [(croqui_dir, croqui_data)],
                 gerar_arquivos_de_debug=True
             )
 
             self.assertEqual(len(erros), 0, f"Erros durante compilação: {erros}")
             self.assertEqual(len(excecoes), 0)
+            self.assertTrue(database_modificado)
 
             # Imagem no database deve ter sido migrada
             img_db_migrada = croqui_dir / "imagens" / "mapas_gerais_p0_i3.webp"
@@ -466,6 +467,236 @@ class DeployGeneratedTest(unittest.TestCase):
                 croqui_pb.picos[0].mapas_gerais.conteudo.mapas[0].caminho_imagem_mapa,
                 "imagens/mapas_gerais_p0_i3.webp"
             )
+
+    def test_passo_a_compilar_croqui_com_anexos(self):
+        import tempfile
+        import yaml
+        from PIL import Image
+        from aresta_api.proto.generated import croqui_pb2
+
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            tmp_path = Path(tmp_dir)
+            croqui_dir = tmp_path / "croqui_com_anexos"
+            croqui_dir.mkdir()
+
+            # 1. Pasta anexos/ com dois PDFs fictícios
+            anexos_dir = croqui_dir / "anexos"
+            anexos_dir.mkdir()
+            pdf_ficha = anexos_dir / "ficha.pdf"
+            pdf_ficha.write_bytes(b"%PDF-1.4 ficha ficticia")
+            pdf_termo = anexos_dir / "termo.pdf"
+            pdf_termo.write_bytes(b"%PDF-1.4 termo ficticio")
+
+            # 2. Pasta imagens/ com uma imagem
+            imagens_dir = croqui_dir / "imagens"
+            imagens_dir.mkdir()
+            img_path = imagens_dir / "foto.webp"
+            Image.new("RGB", (100, 100), color=(50, 60, 70)).save(img_path, format="WEBP")
+
+            # 3. croqui.yaml
+            croqui_yaml = croqui_dir / "croqui.yaml"
+            croqui_data = {
+                "id": "croqui_com_anexos",
+                "nome": "Croqui com Anexos",
+                "picos": [{
+                    "nome": "Pico Teste",
+                    "mapas_gerais": {
+                        "conteudo": {
+                            "mapas": [{"caminho_imagem_mapa": "imagens/foto.webp"}]
+                        }
+                    }
+                }]
+            }
+            with open(croqui_yaml, "w", encoding="utf-8") as f:
+                yaml.dump(croqui_data, f)
+
+            generated_dir = tmp_path / "generated"
+            deploy_generated.GENERATED_DIR = generated_dir
+
+            compilados, erros, excecoes, database_modificado = deploy_generated.passo_a_compilar_croquis(
+                [(croqui_dir, croqui_data)],
+                gerar_arquivos_de_debug=True
+            )
+
+            self.assertEqual(len(erros), 0, f"Erros durante compilação: {erros}")
+            self.assertEqual(len(excecoes), 0)
+
+            # 1. Verifica se os anexos foram copiados para generated/croqui_com_anexos/anexos/
+            dest_anexos = generated_dir / "croqui_com_anexos" / "anexos"
+            self.assertTrue(dest_anexos.exists(), "Pasta anexos/ deve existir em generated")
+            self.assertTrue((dest_anexos / "ficha.pdf").exists())
+            self.assertTrue((dest_anexos / "termo.pdf").exists())
+
+            # 2. Verifica se compilado.binarypb contém os anexos indexados em arquivos_externos
+            dest_pb = generated_dir / "croqui_com_anexos" / "compilado.binarypb"
+            self.assertTrue(dest_pb.exists())
+            croqui_pb = croqui_pb2.Croqui()
+            with open(dest_pb, "rb") as f:
+                croqui_pb.ParseFromString(f.read())
+
+            caminhos_externos = {arq.caminho: arq.checksum_sha256 for arq in croqui_pb.arquivos_externos}
+            self.assertIn("anexos/ficha.pdf", caminhos_externos)
+            self.assertIn("anexos/termo.pdf", caminhos_externos)
+            self.assertIn("imagens/foto.webp", caminhos_externos)
+
+            # Checksums devem bater com o cálculo real
+            self.assertEqual(
+                caminhos_externos["anexos/ficha.pdf"],
+                deploy_generated.calcular_sha256(pdf_ficha)
+            )
+            self.assertEqual(
+                caminhos_externos["anexos/termo.pdf"],
+                deploy_generated.calcular_sha256(pdf_termo)
+            )
+
+    def test_verificar_imagens_inexistentes_avisa_mapa_inexistente(self):
+        import tempfile
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            croqui_dir = Path(tmp_dir)
+            compiled_data = {
+                "picos": [
+                    {
+                        "setores_ou_grupos": [
+                            {
+                                "setor": {
+                                    "mapas": [
+                                        {"caminho_imagem_mapa": "imagens/mapa_inexistente.webp"}
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+            captured_output = StringIO()
+            sys.stdout = captured_output
+            try:
+                deploy_generated.verificar_imagens_inexistentes(croqui_dir, "croqui_teste", compiled_data)
+            finally:
+                sys.stdout = sys.__stdout__
+
+            saida = captured_output.getvalue()
+            self.assertIn("Aviso: A imagem 'imagens/mapa_inexistente.webp' referenciada no croqui 'croqui_teste'", saida)
+            self.assertIn("não foi encontrada no disco", saida)
+
+    def test_verificar_imagens_inexistentes_avisa_markdown_inexistente(self):
+        import tempfile
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            croqui_dir = Path(tmp_dir)
+            compiled_data = {
+                "botoes": [
+                    {
+                        "texto": "Capa",
+                        "destino": {
+                            "secao_textual": {
+                                "conteudo": "# Capa\n\n![Foto da Pedra](imagens/pedra_inexistente.webp)\n"
+                            }
+                        }
+                    }
+                ]
+            }
+            captured_output = StringIO()
+            sys.stdout = captured_output
+            try:
+                deploy_generated.verificar_imagens_inexistentes(croqui_dir, "croqui_teste", compiled_data)
+            finally:
+                sys.stdout = sys.__stdout__
+
+            saida = captured_output.getvalue()
+            self.assertIn("Aviso: A imagem 'imagens/pedra_inexistente.webp' referenciada no croqui 'croqui_teste'", saida)
+
+    def test_verificar_imagens_inexistentes_avisa_thumbnail_inexistente(self):
+        import tempfile
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            croqui_dir = Path(tmp_dir)
+            compiled_data = {
+                "caminho_thumbnail": "imagens/thumb_inexistente.webp"
+            }
+            captured_output = StringIO()
+            sys.stdout = captured_output
+            try:
+                deploy_generated.verificar_imagens_inexistentes(croqui_dir, "croqui_teste", compiled_data)
+            finally:
+                sys.stdout = sys.__stdout__
+
+            saida = captured_output.getvalue()
+            self.assertIn("Aviso: A imagem 'imagens/thumb_inexistente.webp' referenciada no croqui 'croqui_teste'", saida)
+
+    def test_verificar_imagens_inexistentes_ignora_urls_externas(self):
+        import tempfile
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            croqui_dir = Path(tmp_dir)
+            compiled_data = {
+                "descricao": "Texto com link externo: ![Logo](https://exemplo.com/logo.webp) e ![Outro](http://site.com/foto.png)"
+            }
+            captured_output = StringIO()
+            sys.stdout = captured_output
+            try:
+                deploy_generated.verificar_imagens_inexistentes(croqui_dir, "croqui_teste", compiled_data)
+            finally:
+                sys.stdout = sys.__stdout__
+
+            saida = captured_output.getvalue()
+            self.assertNotIn("Aviso:", saida)
+
+    def test_verificar_imagens_inexistentes_sucesso_quando_arquivo_existe(self):
+        import tempfile
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            croqui_dir = Path(tmp_dir)
+            pasta_img = croqui_dir / "imagens"
+            pasta_img.mkdir()
+            (pasta_img / "mapa_ok.webp").write_bytes(b"dummy")
+            (pasta_img / "foto_ok.webp").write_bytes(b"dummy")
+
+            compiled_data = {
+                "picos": [
+                    {
+                        "setores_ou_grupos": [
+                            {
+                                "setor": {
+                                    "descricao": "![Foto](imagens/foto_ok.webp)",
+                                    "mapas": [
+                                        {"caminho_imagem_mapa": "imagens/mapa_ok.webp"}
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+            captured_output = StringIO()
+            sys.stdout = captured_output
+            try:
+                deploy_generated.verificar_imagens_inexistentes(croqui_dir, "croqui_teste", compiled_data)
+            finally:
+                sys.stdout = sys.__stdout__
+
+            saida = captured_output.getvalue()
+            self.assertNotIn("Aviso:", saida)
+
+    def test_deploy_retorna_booleano_database_modificado(self):
+        import tempfile
+        from unittest.mock import patch
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            out_dir = Path(tmp_dir) / "out"
+            with patch("scripts.deploy_generated.encontrar_croquis", return_value=[]):
+                # Sem croquis para compilar, deve retornar False
+                resultado = deploy_generated.deploy(out_dir)
+                self.assertIs(resultado, False)
+
+            with patch("scripts.deploy_generated.encontrar_croquis") as mock_encontrar:
+                fake_croqui_dir = Path(tmp_dir) / "fake"
+                fake_croqui_dir.mkdir(exist_ok=True)
+                mock_encontrar.return_value = [(fake_croqui_dir, {"id": "fake"})]
+                with patch("scripts.deploy_generated.carregar_dados_anteriores", return_value={}):
+                    with patch("scripts.deploy_generated.passo_a_compilar_croquis", return_value=([("fake", {"id": "fake"}, fake_croqui_dir / "compilado.binarypb")], [], [], True)):
+                        with patch("scripts.deploy_generated.passo_b_calcular_checksums", return_value={"fake": "hash"}):
+                            with patch("scripts.deploy_generated.passo_c_gerar_indice"):
+                                with patch("scripts.deploy_generated.passo_d_gerar_manifesto_serving"):
+                                    (out_dir / "fake").mkdir(parents=True, exist_ok=True)
+                                    (out_dir / "fake" / "compilado.binarypb").write_bytes(b"dummy")
+                                    resultado = deploy_generated.deploy(out_dir)
+                                    self.assertIs(resultado, True)
 
 
 if __name__ == '__main__':

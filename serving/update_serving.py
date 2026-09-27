@@ -111,6 +111,7 @@ class Deployer:
         if rel_path.endswith(".webp"): content_type = "image/webp"
         elif rel_path.endswith(".jpg") or rel_path.endswith(".jpeg"): content_type = "image/jpeg"
         elif rel_path.endswith(".png"): content_type = "image/png"
+        elif rel_path.endswith(".pdf"): content_type = "application/pdf"
         elif rel_path.endswith(".md"): content_type = "text/markdown; charset=utf-8"
         elif rel_path.endswith(".yaml") or rel_path.endswith(".yml"): content_type = "text/yaml; charset=utf-8"
             

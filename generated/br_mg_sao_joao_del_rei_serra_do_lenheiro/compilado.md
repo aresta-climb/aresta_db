@@ -164,10 +164,9 @@
             # NORMAS DE CONDUTA E AUTORIZAÇÃO PARA USO DO CAMPO ESCOLA DE MONTANHISMO (CEMONTA)
             
             ## SERRA DO LENHEIRO – TRÊS PONTÕES
+            [📥 Baixar Ficha para Autorização de Uso do CEMONTA (PDF)](anexos/ficha_autorizacao_cemonta.pdf)
             
-            **Baixe as fichas de autorização e termo reconhecimento de riscos nos anexos 1, 2 e 3 desse documento [AQUI](https://drive.google.com/drive/folders/1ErE5HCYTzF5a017DwEURxrmlK9QOe2cS?usp=sharing).**
-            
-            https://drive.google.com/drive/folders/1ErE5HCYTzF5a017DwEURxrmlK9QOe2cS?usp=sharing
+            [📥 Baixar Termo de Reconhecimento de Riscos (PDF)](anexos/termo_reconhecimento_riscos_cemonta.pdf)
             
             O Campo Escola de Montanhismo (CEMONTA), mais conhecido como Lenheiro ou Três Pontões, está localizado na cidade de São João del – Rei, MG, em uma Área Militar, de propriedade do Exército Brasileiro. Por esta razão e para o bom relacionamento entre escaladores e o 11º Batalhão de Infantaria de Montanha (11º BI Mth), responsável pela área, as regras abaixo devem ser seguidas:
             
@@ -8463,5 +8462,11 @@
   - **[82]**:
     - **caminho**: ![caminho](imagens/setores_do_lenheiro_p0_i4.webp)
     - **checksum_sha256**: 2eebd9627807b701bf31af70221531eb751eb1fb4c4c601e60cb07ad0638c765
+  - **[83]**:
+    - **caminho**: anexos/ficha_autorizacao_cemonta.pdf
+    - **checksum_sha256**: 42e90ef6bd47e74045407c8726a24f40bb37637aeb1a89eafaa825a79068bf96
+  - **[84]**:
+    - **caminho**: anexos/termo_reconhecimento_riscos_cemonta.pdf
+    - **checksum_sha256**: de3e2bb6918d2e08b58354e1f20e948a6ec47ef9d4547769b099d9f526d34ef1
 
 

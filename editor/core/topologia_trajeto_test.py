@@ -373,6 +373,37 @@ class TestConvencaoSemanticaOuroboulder:
         assert linha.linha.conteudo.nos[-1].tipo == croqui_pb2.NoTrajeto.TipoNo.PASSAGEM
         assert linha.linha.conteudo.nos[-1].rotulo == ""
 
+    def test_desambiguar_topos_sem_referencias_normaliza_fim_top(self):
+        linha = _criar_linha_pb("v1", [(50, 500), (50, 100)], rotulo_inicio="1")
+        linha.linha.conteudo.nos[-1].tipo = croqui_pb2.NoTrajeto.TipoNo.FIM_TOP
+        linha.linha.conteudo.nos[-1].rotulo = "A"
+
+        desambiguar_topos([linha], [])
+        assert linha.linha.conteudo.nos[-1].tipo == croqui_pb2.NoTrajeto.TipoNo.PASSAGEM
+        assert linha.linha.conteudo.nos[-1].rotulo == ""
+
+    def test_desambiguar_topos_inicio_compartilhado_sem_id_comum(self):
+        linha1 = _criar_linha_pb("v1", [(100, 500), (80, 100)], rotulo_inicio="1")
+        linha2 = _criar_linha_pb("v2", [(100, 500), (120, 100)], rotulo_inicio="2")
+        ref1 = croqui_pb2.Mapa.Referencia(escalada="Via 1", ids=["v1"])
+        ref2 = croqui_pb2.Mapa.Referencia(escalada="Via 2", ids=["v2"])
+
+        desambiguar_topos([linha1, linha2], [ref1, ref2])
+        assert linha1.linha.conteudo.nos[-1].tipo == croqui_pb2.NoTrajeto.TipoNo.FIM_TOP
+        assert linha1.linha.conteudo.nos[-1].rotulo == "A"
+        assert linha2.linha.conteudo.nos[-1].tipo == croqui_pb2.NoTrajeto.TipoNo.FIM_TOP
+        assert linha2.linha.conteudo.nos[-1].rotulo == "B"
+
+    def test_desambiguar_topos_no_intermediario_compartilhado(self):
+        linha1 = _criar_linha_pb("v1", [(50, 500), (100, 300), (50, 100)], rotulo_inicio="1")
+        linha2 = _criar_linha_pb("v2", [(150, 500), (100, 300), (150, 100)], rotulo_inicio="2")
+        ref1 = croqui_pb2.Mapa.Referencia(escalada="Via 1", ids=["v1"])
+        ref2 = croqui_pb2.Mapa.Referencia(escalada="Via 2", ids=["v2"])
+
+        desambiguar_topos([linha1, linha2], [ref1, ref2])
+        assert linha1.linha.conteudo.nos[-1].tipo == croqui_pb2.NoTrajeto.TipoNo.FIM_TOP
+        assert linha2.linha.conteudo.nos[-1].tipo == croqui_pb2.NoTrajeto.TipoNo.FIM_TOP
+
 
 
 class TestEscopoSetor:
@@ -437,7 +468,20 @@ class TestEscopoSetor:
         proxy_arq = ReadOnlyProxy(arq)
         assert desembrulhar_setor(proxy_arq) == setor
 
+        sg = croqui_pb2.SetorOuGrupo(setor=arq)
+        assert desembrulhar_setor(sg) == setor
+
         assert desembrulhar_setor(None) is None
+
+    def test_obter_rotulo_escalada_no_setor_invalido_ou_vazio(self):
+        assert obter_rotulo_escalada_no_setor(None, "Via") is None
+        setor_vazio = croqui_pb2.Setor()
+        assert obter_rotulo_escalada_no_setor(setor_vazio, "Via") is None
+
+    def test_calcular_proximo_numero_inicio_setor_mapa_sem_pontos(self):
+        mapa_vazio = croqui_pb2.Mapa()
+        assert calcular_proximo_numero_inicio_setor(None, mapa_ativo=mapa_vazio) == 1
+        assert calcular_proximo_numero_inicio_setor(None, mapa_ativo="invalido") == 1
 
     def test_gerar_id_poi_disjunto_setor_com_arquivo_setor(self):
         setor = croqui_pb2.Setor(nome="Setor Interno")

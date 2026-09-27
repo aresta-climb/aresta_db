@@ -45,6 +45,7 @@ import hashlib
 import datetime
 import shutil
 import argparse
+import re
 import yaml
 import base64
 from pathlib import Path
@@ -346,6 +347,37 @@ def verificar_escaladas_sem_mapa(croqui_id: str, compiled_data: Dict[str, Any]) 
         print(f"\nAviso: A escalada '{nome}' não está referenciada em nenhum mapa no croqui '{croqui_id}'.")
 
 
+def verificar_imagens_inexistentes(croqui_dir: Path, croqui_id: str, compiled_data: Dict[str, Any]) -> None:
+    """Verifica se imagens referenciadas em mapas, miniaturas e Markdown existem no disco."""
+    imagens_para_checar: Set[str] = set()
+    regex_md_img = re.compile(r'!\[.*?\]\((.*?)\)')
+
+    def _coletar_imagens(obj: Any) -> None:
+        if isinstance(obj, dict):
+            for k, v in obj.items():
+                if k in ("caminho_imagem_mapa", "caminho_thumbnail") and isinstance(v, str):
+                    caminho = v.strip()
+                    if caminho and not (caminho.startswith("http://") or caminho.startswith("https://")):
+                        imagens_para_checar.add(caminho)
+                elif isinstance(v, str):
+                    for match in regex_md_img.findall(v):
+                        caminho_md = match.strip()
+                        if caminho_md and not (caminho_md.startswith("http://") or caminho_md.startswith("https://")):
+                            imagens_para_checar.add(caminho_md)
+                _coletar_imagens(v)
+        elif isinstance(obj, list):
+            for item in obj:
+                _coletar_imagens(item)
+
+    _coletar_imagens(compiled_data)
+
+    for caminho_rel in sorted(imagens_para_checar):
+        caminho_completo = croqui_dir / caminho_rel
+        if not caminho_completo.exists():
+            print(f"\nAviso: A imagem '{caminho_rel}' referenciada no croqui '{croqui_id}' não foi encontrada no disco ({caminho_completo}).")
+
+
+
 
 # ---------------------------------------------------------------------------
 # Imagens: symlink ou cópia
@@ -388,6 +420,40 @@ def calcular_arquivos_externos(imagens_src: Path) -> List[Dict[str, str]]:
     return arquivos
 
 
+def copiar_anexos(src_anexos: Path, dest_anexos: Path) -> None:
+    """Copia a pasta de anexos para o destino."""
+    shutil.copytree(src_anexos, dest_anexos, dirs_exist_ok=True)
+    print(f"  Anexos copiados: {dest_anexos}")
+
+
+def listar_anexos_exportaveis(anexos_path: Path) -> List[Path]:
+    """
+    Lista todos os arquivos dentro de anexos/ recursivamente.
+    Retorna lista de Path absolutos.
+    """
+    if not anexos_path.exists():
+        return []
+    return sorted([
+        f for f in anexos_path.rglob("*")
+        if f.is_file()
+    ])
+
+
+def calcular_anexos_externos(anexos_src: Path) -> List[Dict[str, str]]:
+    """
+    Retorna lista de dicts {caminho, checksum_sha256} para cada anexo exportável,
+    com caminho relativo à raiz do croqui (ex: anexos/ficha_autorizacao.pdf).
+    """
+    arquivos: List[Dict[str, str]] = []
+    for arq in listar_anexos_exportaveis(anexos_src):
+        rel = arq.relative_to(anexos_src).as_posix()
+        arquivos.append({
+            "caminho": f"anexos/{rel}",
+            "checksum_sha256": calcular_sha256(arq),
+        })
+    return arquivos
+
+
 # ---------------------------------------------------------------------------
 # Pipeline principal
 # ---------------------------------------------------------------------------
@@ -404,14 +470,16 @@ def passo_a_compilar_croquis(
     force_thumbnails: bool = False,
     gerar_arquivos_de_debug: bool = True,
     verbose: bool = False
-) -> Tuple[List[Tuple[str, Dict[str, Any], Path]], List[str], List[Exception]]:
+) -> Tuple[List[Tuple[str, Dict[str, Any], Path]], List[str], List[Exception], bool]:
     """
     Passo A: Corrige cada croqui e compila para .binarypb (e .yaml/.md se gerar_arquivos_de_debug=True).
+    Retorna (compilados, erros, excecoes, database_modificado).
     """
     print("\n=== Passo A: Compilando croquis ===")
     compilados: List[Tuple[str, Dict[str, Any], Path]] = []
     erros: List[str] = []
     excecoes: List[Exception] = []
+    database_modificado: bool = False
     total = len(a_compilar)
 
     for i, (croqui_dir, croqui_data) in enumerate(a_compilar, 1):
@@ -430,7 +498,8 @@ def passo_a_compilar_croquis(
 
         # --- Fase 1: Correção do Database (Migração de Imagens e Thumbnails) ---
         try:
-            corrigir_database(croqui_dir)
+            if corrigir_database(croqui_dir):
+                database_modificado = True
             # Gera a thumbnail na pasta generated/thumbnails/
             processar_thumbnail(croqui_dir, GENERATED_DIR, croqui_data, force_thumbnails=force_thumbnails)
         except Exception as e:
@@ -442,17 +511,25 @@ def passo_a_compilar_croquis(
             excecoes.append(e)
             continue
 
-        # --- Fase 2: Imagens ---
+        # --- Fase 2: Imagens e Anexos ---
         src_imagens  = croqui_dir / "imagens"
         dest_imagens = dest_dir / "imagens"
         arquivos_externos = []
 
         if src_imagens.exists():
             copiar_imagens(src_imagens, dest_imagens)
-            arquivos_externos = calcular_arquivos_externos(src_imagens)
+            arquivos_externos.extend(calcular_arquivos_externos(src_imagens))
             print(f"  {len(arquivos_externos)} imagem(ns) indexada(s) em arquivos_externos")
         else:
             print(f"  Sem pasta imagens/")
+
+        src_anexos  = croqui_dir / "anexos"
+        dest_anexos = dest_dir / "anexos"
+        if src_anexos.exists():
+            copiar_anexos(src_anexos, dest_anexos)
+            anexos_externos = calcular_anexos_externos(src_anexos)
+            arquivos_externos.extend(anexos_externos)
+            print(f"  {len(anexos_externos)} anexo(s) indexado(s) em arquivos_externos")
 
         # --- Fase 3: Compilação ---
         try:
@@ -483,6 +560,7 @@ def passo_a_compilar_croquis(
                 _check_integer_ids(compiled_data)
                 verificar_nomes_duplicados_de_escalada(croqui_id, compiled_data)
                 verificar_escaladas_sem_mapa(croqui_id, compiled_data)
+                verificar_imagens_inexistentes(croqui_dir, croqui_id, compiled_data)
                 
             # Gerar também o compilado.md (opcional)
             if gerar_arquivos_de_debug and dest_yaml:
@@ -505,7 +583,7 @@ def passo_a_compilar_croquis(
 
         compilados.append((croqui_id, croqui_data, dest_pb))
 
-    return compilados, erros, excecoes
+    return compilados, erros, excecoes, database_modificado
 
 
 
@@ -619,10 +697,12 @@ def passo_c_gerar_indice(
 
         # Injeta tamanho estimado de download para modo offline
         pasta_imagens = caminho_compilado_pb.parent / "imagens"
+        pasta_anexos = caminho_compilado_pb.parent / "anexos"
         resumo.precomputados.tamanho_download_bytes = calcular_tamanho_croqui_bytes(
             caminho_compilado=caminho_compilado_pb,
             pasta_imagens=pasta_imagens,
             pastas_excluidas=IMAGENS_SUBDIRS_EXCLUIDOS,
+            pasta_anexos=pasta_anexos,
         )
 
         if isinstance(picos, list) and len(picos) > 0 and isinstance(picos[0], dict) and "localizacao" in picos[0]:
@@ -739,7 +819,7 @@ def deploy(
     is_producao: bool = True,
     verbose: bool = False,
     sair_ao_falhar: bool = False,
-) -> None:
+) -> bool:
 
     global GENERATED_DIR
     GENERATED_DIR = output_dir.resolve()
@@ -788,8 +868,7 @@ def deploy(
     else:
         if not todos_croquis:
             print("Nenhum croqui encontrado em database/. Nada a fazer.")
-            return
-        a_compilar = todos_croquis
+            return False
 
     # 3. Carregar dados do índice anterior antes de (opcionalmente) limpar a pasta
     dados_anteriores = carregar_dados_anteriores(GENERATED_DIR / "indice.binarypb")
@@ -804,11 +883,15 @@ def deploy(
         gerar_arquivos_de_debug=gerar_arquivos_de_debug,
         verbose=verbose
     )
-    if len(resultado_passo_a) == 3:
+    if len(resultado_passo_a) == 4:
+        compilados_novos, erros, excecoes, database_modificado = resultado_passo_a
+    elif len(resultado_passo_a) == 3:
         compilados_novos, erros, excecoes = resultado_passo_a
+        database_modificado = False
     else:
         compilados_novos, erros = resultado_passo_a
         excecoes = []
+        database_modificado = False
 
     if erros:
         print("\n" + "!" * 60)
@@ -860,7 +943,7 @@ def deploy(
                     raise RuntimeError(msg_erro)
         # Se for deploy total, talvez seja erro. Se for específico, avisamos.
         if not target_paths:
-            return
+            return False
         else:
             raise RuntimeError(f"Nenhum croqui válido encontrado no alvo: {target_paths}")
 
@@ -885,6 +968,9 @@ def deploy(
             sys.exit(1)
         else:
             raise RuntimeError(f"Ocorreram {len(erros)} erros durante o deploy:\n" + "\n".join(erros))
+
+    return database_modificado
+
 
 def passo_d_gerar_manifesto_serving(indice: indice_pb2.Indice, verbose: bool = False) -> None:
     """

@@ -23,6 +23,7 @@ from editor.views.widget_campo_imagem import WidgetCampoImagem
 from editor.views.componentes.alca_arraste_item import AlcaArrasteItem
 from editor.views.componentes.widget_card_mapa import WidgetCardMapa
 from editor.views.dialogos.dialogo_inserir_imagem_markdown import DialogoInserirImagemMarkdown
+from editor.views.dialogos.dialogo_inserir_botao_markdown import DialogoInserirBotaoMarkdown
 from editor.views.estilo import Icones
 from ..core.atualizador_ui import AtualizadorUI
 from google.protobuf.message_factory import GetMessageClass
@@ -427,6 +428,23 @@ class WidgetEditorMarkdown(QWidget):
         left_label = QLabel("Edição (Markdown Raw)")
         left_label.setStyleSheet("color: #666; font-size: 8.5pt; font-weight: bold;")
         
+        self.btn_inserir_botao = QPushButton("🔘 Inserir Botão")
+        self.btn_inserir_botao.setStyleSheet("""
+            QPushButton {
+                font-size: 8.5pt;
+                padding: 3px 8px;
+                border: 1px solid #ccc;
+                border-radius: 3px;
+                background-color: #f5f5f5;
+                color: #333;
+            }
+            QPushButton:hover {
+                background-color: #e5e5e5;
+                border-color: #999;
+            }
+        """)
+        self.btn_inserir_botao.clicked.connect(lambda: self.abrir_dialogo_inserir_botao())
+
         self.btn_inserir_imagem = QPushButton("🖼️ Inserir Imagem")
         self.btn_inserir_imagem.setStyleSheet("""
             QPushButton {
@@ -446,6 +464,7 @@ class WidgetEditorMarkdown(QWidget):
         
         header_layout.addWidget(left_label)
         header_layout.addStretch()
+        header_layout.addWidget(self.btn_inserir_botao)
         header_layout.addWidget(self.btn_inserir_imagem)
 
         left_layout.addLayout(header_layout)
@@ -490,13 +509,8 @@ class WidgetEditorMarkdown(QWidget):
         initial_val = getattr(self.msg, self.field.name)
         self.editor.setPlainText(initial_val)
         
-        # Filtra o frontmatter para renderizar na preview
-        preview_text = initial_val.lstrip()
-        if preview_text.startswith("---"):
-            parts = preview_text.split("---", 2)
-            if len(parts) >= 3:
-                preview_text = parts[2]
-        self.preview.setMarkdown(preview_text)
+        # Renderiza o conteúdo inicial na pré-visualização
+        self.preview.setMarkdown(initial_val or "")
         
         # Temporizador de coalescência para digitação fluida e desacoplada
         from editor.core.temporizador_coalescencia import TemporizadorCoalescencia
@@ -585,13 +599,45 @@ class WidgetEditorMarkdown(QWidget):
                 self._configurar_autocompletar()
                 self._atualizar_preview(texto_novo)
 
+    def abrir_dialogo_inserir_botao(self) -> None:
+        caminho = self.caminho_db or Path(".")
+        dialogo = DialogoInserirBotaoMarkdown(
+            caminho_db=caminho, model=self.model, parent=self
+        )
+        if dialogo.exec() == QDialog.DialogCode.Accepted:
+            tag = dialogo.obter_tag_markdown()
+            if tag:
+                texto_antigo = self.editor.toPlainText()
+                cursor = self.editor.textCursor()
+                cursor.insertText(tag)
+                self.editor.setTextCursor(cursor)
+                texto_novo = self.editor.toPlainText()
+
+                caminho_anexo = dialogo.obter_caminho_anexo()
+                bytes_anexo = dialogo.obter_bytes_anexo()
+
+                if hasattr(self, "temporizador"):
+                    self.temporizador.descartar()
+
+                if self.controller and hasattr(self.controller, "inserir_botao_markdown"):
+                    self.controller.inserir_botao_markdown(
+                        self.msg,
+                        self.field.name,
+                        texto_antigo,
+                        texto_novo,
+                        caminho_anexo=caminho_anexo,
+                        bytes_anexo=bytes_anexo,
+                    )
+                    if hasattr(self, "formulario") and self.formulario:
+                        self.formulario._mark_dirty()
+                        self.formulario._notify_tree_changed()
+                else:
+                    self.forcar_consolidacao()
+
+                self._atualizar_preview(texto_novo)
+
     def _atualizar_preview(self, text: str) -> None:
-        preview_text = text.lstrip()
-        if preview_text.startswith("---"):
-            parts = preview_text.split("---", 2)
-            if len(parts) >= 3:
-                preview_text = parts[2]
-        self.preview.setMarkdown(preview_text)
+        self.preview.setMarkdown(text or "")
         
     def set_conteudo(self, novo_conteudo: str) -> None:
         text = "" if novo_conteudo is None else str(novo_conteudo)

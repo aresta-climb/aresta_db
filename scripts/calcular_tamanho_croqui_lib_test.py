@@ -108,6 +108,30 @@ class CalcularTamanhoCroquiLibTest(unittest.TestCase):
             # 100 + 200 = 300
             self.assertEqual(tamanho, 300)
 
+    def test_calcular_tamanho_com_pasta_anexos(self):
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            base_dir = Path(tmp_dir)
+            compilado_pb = base_dir / 'compilado.binarypb'
+            compilado_pb.write_bytes(b'x' * 100)
+
+            imagens_dir = base_dir / 'imagens'
+            imagens_dir.mkdir()
+            (imagens_dir / 'foto1.webp').write_bytes(b'a' * 200)
+
+            anexos_dir = base_dir / 'anexos'
+            anexos_dir.mkdir()
+            (anexos_dir / 'ficha.pdf').write_bytes(b'b' * 350)
+            (anexos_dir / 'termo.pdf').write_bytes(b'c' * 150)
+
+            tamanho = calcular_tamanho_croqui_bytes(
+                caminho_compilado=compilado_pb,
+                pasta_imagens=imagens_dir,
+                pasta_anexos=anexos_dir
+            )
+            # 100 + 200 + 350 + 150 = 800
+            self.assertEqual(tamanho, 800)
+
 
 if __name__ == '__main__':
     unittest.main()
+

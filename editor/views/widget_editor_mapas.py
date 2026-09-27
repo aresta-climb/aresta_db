@@ -3198,8 +3198,8 @@ class WidgetEditorMapas(QWidget):
 
         if self.mapas_controller and self.dados_nova_rota_atual:
             pts = [(float(p.x()), float(p.y())) for p in pts_limpos]
+            setor = self._obter_setor_atual()
             if not self.dados_nova_rota_atual.get("sem_ligacao", False):
-                setor = self.dados_nova_rota_atual.get("setor_obj") or self._obter_setor_atual()
                 self.mapas_controller.adicionar_rota_com_tracado(
                     msg_mapa_proxy=self.msg_mapa_proxy,
                     msg_setor_proxy=setor,
@@ -3207,9 +3207,8 @@ class WidgetEditorMapas(QWidget):
                     pontos_trajeto=pts
                 )
             else:
-                setor = self._obter_setor_atual()
                 from editor.core.topologia_trajeto import gerar_id_poi_disjunto_setor
-                id_nova = gerar_id_poi_disjunto_setor(setor, "linha") if setor else "linha_1"
+                id_nova = gerar_id_poi_disjunto_setor(setor, "linha", mapa_ativo=self.msg_mapa_proxy) if (setor or self.msg_mapa_proxy) else "linha_1"
                 nos_dicts = [{"x": p[0], "y": p[1]} for p in pts]
                 self.mapas_controller.adicionar_linha(
                     msg_mapa_proxy=self.msg_mapa_proxy,

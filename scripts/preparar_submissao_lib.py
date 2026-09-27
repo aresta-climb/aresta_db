@@ -629,13 +629,29 @@ def limpar_arquivos_nao_utilizados(pico_path: Path, croqui_data: Dict[str, Any])
                 print(f"    - Deletando: {f_rel}")
                 f_abs.unlink()
 
-def corrigir_database(pico_path: Path) -> None:
+def _obter_snapshot_arquivos_croqui(pico_path: Path) -> Dict[str, Tuple[int, int]]:
+    """Captura o estado dos arquivos do croqui (caminho_relativo -> (tamanho, mtime_ns))."""
+    snapshot = {}
+    if pico_path.exists():
+        for arq in pico_path.rglob("*"):
+            if arq.is_file():
+                try:
+                    st = arq.stat()
+                    snapshot[arq.relative_to(pico_path).as_posix()] = (st.st_size, st.st_mtime_ns)
+                except OSError:
+                    pass
+    return snapshot
 
+
+def corrigir_database(pico_path: Path) -> bool:
     """
     Função principal que coordena o processamento do database para garantir
     que imagens em raw_pdf_contents sejam migradas e os caminhos corrigidos.
+    Retorna True se qualquer arquivo do database foi criado, modificado, movido ou excluído.
     """
     pico_path = Path(pico_path)
+    snapshot_antes = _obter_snapshot_arquivos_croqui(pico_path)
+
     # Executa o motor de migrações no início da rotina de correção
     from scripts.migrador import aplicar_migracoes
     aplicar_migracoes(pico_path)
@@ -696,6 +712,10 @@ def corrigir_database(pico_path: Path) -> None:
     for file_path in pico_path.rglob("*"):
         if file_path.is_file() and file_path.suffix in [".yaml", ".md"]:
             garantir_comentarios_licenca(file_path)
+
+    snapshot_depois = _obter_snapshot_arquivos_croqui(pico_path)
+    return snapshot_antes != snapshot_depois
+
 
 # ===========================================================================
 # FASE 2: COMPILAÇÃO DE ARTEFATOS (GENERATED)

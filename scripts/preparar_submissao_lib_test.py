@@ -438,6 +438,37 @@ def test_corrigir_database_chama_aplicar_migracoes(mock_aplicar, tmp_path):
     mock_aplicar.assert_called_once_with(croqui_dir)
 
 
+@patch("scripts.migrador.aplicar_migracoes")
+def test_corrigir_database_retorna_false_quando_nada_modificado(mock_aplicar, tmp_path):
+    yaml_content = """# SPDX-License-Identifier: ODbL-1.0
+# Copyright (C) 2026 Aresta Climb Contributors
+id: test_sem_modificacao
+nome: Teste Sem Modificacao
+"""
+    croqui_dir = configurar_croqui_teste(tmp_path, yaml_content=yaml_content)
+    (croqui_dir / "imagens").mkdir(exist_ok=True)
+    
+    modificou = corrigir_database(croqui_dir)
+    assert modificou is False
+
+
+@patch("scripts.migrador.aplicar_migracoes")
+def test_corrigir_database_retorna_true_quando_limpa_orfaos(mock_aplicar, tmp_path):
+    yaml_content = """# SPDX-License-Identifier: ODbL-1.0
+# Copyright (C) 2026 Aresta Climb Contributors
+id: test_com_modificacao
+nome: Teste Com Modificacao
+"""
+    croqui_dir = configurar_croqui_teste(tmp_path, yaml_content=yaml_content)
+    pasta_img = croqui_dir / "imagens"
+    pasta_img.mkdir(exist_ok=True)
+    (pasta_img / "orfa.webp").write_bytes(b"dummy")
+    
+    modificou = corrigir_database(croqui_dir)
+    assert modificou is True
+
+
+
 from scripts.preparar_submissao_lib import limpar_arquivos_nao_utilizados
 
 def test_limpar_arquivos_nao_utilizados_deleta_imagens_e_mds(tmp_path):

@@ -446,7 +446,7 @@ class MapasController:
             # 2. Resolução do rótulo numérico inicial no escopo do setor
             rotulo_inicio = obter_rotulo_escalada_no_setor(msg_setor_proxy, nome_rota) if msg_setor_proxy else None
             if not rotulo_inicio:
-                rotulo_inicio = str(calcular_proximo_numero_inicio_setor(msg_setor_proxy)) if msg_setor_proxy else "1"
+                rotulo_inicio = str(calcular_proximo_numero_inicio_setor(msg_setor_proxy, mapa_ativo=msg_mapa_proxy))
 
             # 3. Análise topológica de traçados existentes
             linhas_existentes = [p for p in msg_mapa_proxy.pontos_de_interesse if p.HasField("linha")]
@@ -478,11 +478,11 @@ class MapasController:
                         if pos_in < pos_out:
                             try:
                                 ids_reservados: Set[str] = set()
-                                id_sub1 = gerar_id_poi_disjunto_setor(msg_setor_proxy, "linha", ids_reservados=ids_reservados)
+                                id_sub1 = gerar_id_poi_disjunto_setor(msg_setor_proxy, "linha", ids_reservados=ids_reservados, mapa_ativo=msg_mapa_proxy)
                                 ids_reservados.add(id_sub1)
-                                id_sub2 = gerar_id_poi_disjunto_setor(msg_setor_proxy, "linha", ids_reservados=ids_reservados)
+                                id_sub2 = gerar_id_poi_disjunto_setor(msg_setor_proxy, "linha", ids_reservados=ids_reservados, mapa_ativo=msg_mapa_proxy)
                                 ids_reservados.add(id_sub2)
-                                id_sub3 = gerar_id_poi_disjunto_setor(msg_setor_proxy, "linha", ids_reservados=ids_reservados)
+                                id_sub3 = gerar_id_poi_disjunto_setor(msg_setor_proxy, "linha", ids_reservados=ids_reservados, mapa_ativo=msg_mapa_proxy)
                                 ids_reservados.add(id_sub3)
                                 sub1, sub2, sub3 = fatiar_linha_triplo(linha_cand, idx_in, idx_out, id_sub1, id_sub2, id_sub3)
 
@@ -504,7 +504,7 @@ class MapasController:
                                 # Cria entrada própria da travessia (se houver pontos antes da junção)
                                 ids_travessia = []
                                 if pos_in > 0:
-                                    id_ent = gerar_id_poi_disjunto_setor(msg_setor_proxy, "linha", ids_reservados=ids_reservados)
+                                    id_ent = gerar_id_poi_disjunto_setor(msg_setor_proxy, "linha", ids_reservados=ids_reservados, mapa_ativo=msg_mapa_proxy)
                                     ids_reservados.add(id_ent)
                                     pts_ent = [{"x": p[0], "y": p[1]} for p in pontos_trajeto[:pos_in + 1]]
                                     self.adicionar_linha(msg_mapa_proxy, id_linha=id_ent, nos=pts_ent)
@@ -514,7 +514,7 @@ class MapasController:
 
                                 # Cria saída própria da travessia (se houver pontos após a junção)
                                 if pos_out < len(pontos_trajeto) - 1:
-                                    id_sai = gerar_id_poi_disjunto_setor(msg_setor_proxy, "linha", ids_reservados=ids_reservados)
+                                    id_sai = gerar_id_poi_disjunto_setor(msg_setor_proxy, "linha", ids_reservados=ids_reservados, mapa_ativo=msg_mapa_proxy)
                                     ids_reservados.add(id_sai)
                                     pts_sai = [{"x": p[0], "y": p[1]} for p in pontos_trajeto[pos_out:]]
                                     self.adicionar_linha(msg_mapa_proxy, id_linha=id_sai, nos=pts_sai)
@@ -562,9 +562,9 @@ class MapasController:
 
                             if (no_corte_idx is not None and 0 < no_corte_idx < len(linha_cand.linha.conteudo.nos) - 1) or curva_corte_info is not None:
                                 ids_reservados = set()
-                                id_sub1 = gerar_id_poi_disjunto_setor(msg_setor_proxy, "linha", ids_reservados=ids_reservados)
+                                id_sub1 = gerar_id_poi_disjunto_setor(msg_setor_proxy, "linha", ids_reservados=ids_reservados, mapa_ativo=msg_mapa_proxy)
                                 ids_reservados.add(id_sub1)
-                                id_sub2 = gerar_id_poi_disjunto_setor(msg_setor_proxy, "linha", ids_reservados=ids_reservados)
+                                id_sub2 = gerar_id_poi_disjunto_setor(msg_setor_proxy, "linha", ids_reservados=ids_reservados, mapa_ativo=msg_mapa_proxy)
                                 ids_reservados.add(id_sub2)
 
                                 if no_corte_idx is not None and 0 < no_corte_idx < len(linha_cand.linha.conteudo.nos) - 1:
@@ -601,7 +601,7 @@ class MapasController:
                                         self.alterar_referencia(msg_mapa_proxy, i_ref, ref_antiga, ref_nova)
 
                                 # Cria trecho exclusivo da nova rota
-                                id_novo = gerar_id_poi_disjunto_setor(msg_setor_proxy, "linha", ids_reservados=ids_reservados)
+                                id_novo = gerar_id_poi_disjunto_setor(msg_setor_proxy, "linha", ids_reservados=ids_reservados, mapa_ativo=msg_mapa_proxy)
                                 ids_reservados.add(id_novo)
                                 pts_exclusivos = [{"x": p[0], "y": p[1]} for p in pontos_trajeto[idx_bifurcacao_novo:]]
                                 self.adicionar_linha(msg_mapa_proxy, id_linha=id_novo, nos=pts_exclusivos)
@@ -614,7 +614,7 @@ class MapasController:
 
             # 4. Caso simples (sem fatiamento de linha existente)
             if not fatiou:
-                id_nova_linha = gerar_id_poi_disjunto_setor(msg_setor_proxy, "linha") if msg_setor_proxy else "linha_1"
+                id_nova_linha = gerar_id_poi_disjunto_setor(msg_setor_proxy, "linha", mapa_ativo=msg_mapa_proxy)
                 nos_dicts = []
                 for idx, pt in enumerate(pontos_trajeto):
                     tipo_no = croqui_pb2.NoTrajeto.TipoNo.PASSAGEM
@@ -639,10 +639,11 @@ class MapasController:
             linhas_copia = [_copia_segura(l) for l in linhas_atuais]
             desambiguar_topos(linhas_copia, refs_atuais)
 
-            # Aplica modificações de topos calculadas
-            for idx_poi, (l_original, l_modificada) in enumerate(zip(linhas_atuais, linhas_copia)):
+            # Aplica modificações de topos calculadas no índice real de pontos_de_interesse
+            for l_original, l_modificada in zip(linhas_atuais, linhas_copia):
                 if l_original != l_modificada:
-                    self.mover_poi(msg_mapa_proxy, idx_poi, l_original, l_modificada)
+                    idx_real = list(msg_mapa_proxy.pontos_de_interesse).index(l_original)
+                    self.mover_poi(msg_mapa_proxy, idx_real, l_original, l_modificada)
 
         finally:
             self.finalizar_grupo_undo()
@@ -689,9 +690,9 @@ class MapasController:
         self.iniciar_grupo_undo(f"Separar Traço no Nó {indice_no}")
         try:
             ids_reservados: Set[str] = set()
-            id_sub1 = gerar_id_poi_disjunto_setor(msg_setor_proxy, "linha", ids_reservados=ids_reservados)
+            id_sub1 = gerar_id_poi_disjunto_setor(msg_setor_proxy, "linha", ids_reservados=ids_reservados, mapa_ativo=msg_mapa_proxy)
             ids_reservados.add(id_sub1)
-            id_sub2 = gerar_id_poi_disjunto_setor(msg_setor_proxy, "linha", ids_reservados=ids_reservados)
+            id_sub2 = gerar_id_poi_disjunto_setor(msg_setor_proxy, "linha", ids_reservados=ids_reservados, mapa_ativo=msg_mapa_proxy)
             ids_reservados.add(id_sub2)
 
             sub1, sub2 = fatiar_linha_em_no(

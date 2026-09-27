@@ -1237,4 +1237,92 @@ def test_extrair_arquivos_e_serializar_grava_comentarios_spdx_e_copyright_no_top
         assert linhas[2].strip() == copy_esperado, f"Arquivo {arq.name} deve conter Copyright na linha 3"
 
 
+def test_carregar_arquivos_externos_separa_frontmatter_de_botao(tmp_path):
+    croqui_dir = tmp_path / "meu_croqui"
+    croqui_dir.mkdir()
+    capa_md = croqui_dir / "capa.md"
+    capa_md.write_text(
+        "---\n"
+        "# SPDX-License-Identifier: ODbL-1.0\n"
+        "# Copyright (C) 2026 Aresta Climb Contributors\n"
+        "---\n"
+        "# Titulo da Capa\n\n"
+        "Corpo da secao textual.\n",
+        encoding="utf-8"
+    )
 
+    croqui = Croqui(nome="Croqui com Botao")
+    botao = croqui.botoes.add(texto="Capa")
+    botao.destino.secao_textual.caminho = "capa.md"
+
+    model = CroquiModel(croqui)
+    model.carregar_arquivos_externos(croqui_dir)
+
+    md = croqui.botoes[0].destino.secao_textual
+    assert md.WhichOneof("arquivo") == "conteudo"
+    assert "---" not in md.conteudo
+    assert "SPDX-License-Identifier" not in md.conteudo
+    assert md.conteudo.startswith("# Titulo da Capa")
+    assert "Corpo da secao textual." in md.conteudo
+
+
+def test_extrair_arquivos_e_serializar_recompoe_frontmatter_de_botao(tmp_path):
+    croqui_dir = tmp_path / "meu_croqui"
+    croqui_dir.mkdir()
+    capa_md = croqui_dir / "capa.md"
+    frontmatter_original = (
+        "---\n"
+        "# SPDX-License-Identifier: ODbL-1.0\n"
+        "# Copyright (C) 2026 Aresta Climb Contributors\n"
+        "---\n"
+    )
+    capa_md.write_text(
+        frontmatter_original + "# Titulo Antigo\n\nTexto original.\n",
+        encoding="utf-8"
+    )
+
+    croqui = Croqui(nome="Croqui com Botao")
+    botao = croqui.botoes.add(texto="Capa")
+    botao.destino.secao_textual.caminho = "capa.md"
+
+    model = CroquiModel(croqui)
+    model.carregar_arquivos_externos(croqui_dir)
+
+    # Modifica o conteudo do botao
+    croqui.botoes[0].destino.secao_textual.conteudo = "# Titulo Modificado\n\nNovo texto."
+
+    dest_dir = tmp_path / "salvo"
+    dest_dir.mkdir()
+    model.extrair_arquivos_e_serializar(dest_dir)
+
+    arquivo_salvo = dest_dir / "capa.md"
+    assert arquivo_salvo.exists()
+    conteudo_salvo = arquivo_salvo.read_text(encoding="utf-8")
+
+    assert conteudo_salvo.startswith(frontmatter_original)
+    assert "# Titulo Modificado\n\nNovo texto." in conteudo_salvo
+
+
+def test_carregar_e_serializar_botao_sem_frontmatter_preserva_sem_frontmatter(tmp_path):
+    croqui_dir = tmp_path / "meu_croqui"
+    croqui_dir.mkdir()
+    sobre_md = croqui_dir / "sobre.md"
+    sobre_md.write_text("# Sobre o Local\n\nApenas texto puro sem frontmatter.\n", encoding="utf-8")
+
+    croqui = Croqui(nome="Croqui Sem Frontmatter")
+    botao = croqui.botoes.add(texto="Sobre")
+    botao.destino.secao_textual.caminho = "sobre.md"
+
+    model = CroquiModel(croqui)
+    model.carregar_arquivos_externos(croqui_dir)
+
+    md = croqui.botoes[0].destino.secao_textual
+    assert md.conteudo == "# Sobre o Local\n\nApenas texto puro sem frontmatter.\n"
+
+    dest_dir = tmp_path / "salvo_sem_fm"
+    dest_dir.mkdir()
+    model.extrair_arquivos_e_serializar(dest_dir)
+
+    conteudo_salvo = (dest_dir / "sobre.md").read_text(encoding="utf-8")
+    assert not conteudo_salvo.startswith("---")
+    assert conteudo_salvo == "# Sobre o Local\n\nApenas texto puro sem frontmatter.\n"

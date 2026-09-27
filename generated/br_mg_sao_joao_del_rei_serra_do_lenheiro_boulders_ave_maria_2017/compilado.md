@@ -1,0 +1,2909 @@
+# Croqui: Boulders da Ave Maria - Serra do Lenheiro
+
+## Informações Gerais
+
+- **descricao**: Guia de escalada em boulder do setor Ave Maria, na Serra do Lenheiro em São João del Rei - MG (1ª Edição, 2017).
+- **id**: br_mg_sao_joao_del_rei_serra_do_lenheiro_boulders_ave_maria_2017
+- **nome**: Boulders da Ave Maria - Serra do Lenheiro
+- **creditos**:
+  - Flora Kesselring Zugaib
+  - Klauss Castanheira
+  - Thomás Alexandre Kämpf (Tomi)
+  - Webert Resende (Beto)
+- **caminho_thumbnail**: ![caminho_thumbnail](imagens/capa_p0_i0.webp)
+- **ultima_migracao**: 4
+- **botoes**:
+  - **[0]**:
+    - **texto**: Capa
+    - **destino**:
+      - **secao_textual**:
+        - **conteudo**:
+            # Boulders da Ave Maria
+            
+            ## Serra do Lenheiro - MG
+            
+            | ![Boulders da Ave Maria - Serra do Lenheiro - MG](imagens/capa_p0_i0.webp) |
+            | :--: |
+            | *Boulders da Ave Maria - Serra do Lenheiro - MG* |
+  - **[1]**:
+    - **texto**: Apresentação
+    - **destino**:
+      - **secao_textual**:
+        - **conteudo**:
+            # Boulders da Ave Maria
+            
+            ## Serra do Lenheiro - MG
+            
+            | ![Boulders da Ave Maria - Serra do Lenheiro](imagens/apresentacao_p0_i0.webp) |
+            | :--: |
+            | *Boulders da Ave Maria - Serra do Lenheiro* |
+            
+            **Flora Kesselring Zugaib**  
+            **Klauss Castanheira**  
+            **Thomás Alexandre Kämpf (Tomi)**  
+            **Webert Resende (Beto)**  
+            
+            1ª edição  
+            jan-2017  
+            
+            ---
+            
+            # Apresentação
+            
+            **Por: Flora Kesselring Zugaib**
+            
+            | ![Apresentação dos Boulders da Ave Maria](imagens/apresentacao_p1_i0.webp) |
+            | :--: |
+            | *Apresentação dos Boulders da Ave Maria* |
+            
+            Tomi e eu passamos dois anos tentando conhecer as escaladas de São João Del Rei-MG. Vamos sempre pra lá porque minha mãe mora na cidade vizinha, Tiradentes, mas não encontrávamos escaladores para nos apresentar às escaladas da região... Só em 2012 conseguimos. O escalador Claudio Matsuzaki, foi quem nos recebeu e nos apresentou o setor Ave Maria, até então um setor de vias irado, com alguns boulders abertos.
+            
+            Quando fomos chegando no setor vimos muitOOOs blocos e perguntávamos pra galera " lá tem boulder?" eles diziam "não"... A pergunta se repetia e a resposta também... Desfrutamos das vias, mas de olho no que tinha ao redor...
+            
+            No Ave Maria reencontramos um escalador que já tínhamos conhecido na Serra do Cipó, Webert (Beto) Resente "Betão", ele nos apresentou alguns bons boulders já abertos, muitos por ele inclusive, escalamos e começamos os trabalhos de abertura... Logo chamamos o casal de amigos Carlera e Paulinha, que vieram com o Christian Fernandes e Ayra. Com os amigos abrimos alguns bons boulders. Em parceria com o Beto abrimos desta vez e nos anos seguintes, até agora, 2015, mais de 100 linhas de boulders de V0 a projeto!! Linhas francas!!!
+            
+            Arrumando sempre a base e catalogando, o que virou um croqui "roots", que no momento mora no bloco do boulder Reza Braba, para que todos possam usar e se localizar! Fizemos isso para que não fosse aberto um boulder em cima do outro e para a informação não se perder, pois nesta modalidade quando se abre uma linha, só fica o magnésio, que a chuva lava... Em 2014 o pessoal de BH, com Felipe Alvares e Roberta Resende foram conhecer o pico e confirmaram o potencial do local!!! Tetos e negativos de Quartzito, com agarras sólidas, perfeito para ser escalado!!! Abriram mais 30 ótimas linhas.
+            
+            A área do setor é particular de acesso livre, para que continuemos desfrutando e outros escaladores possam conhecer, contamos com a BOA EDUCAÇÃO dos escaladores!!! Por isso cabem as regras de boa conduta!!!
+            
+            Mais informações sobre o setor pode ser conosco, com o Webert Beto Resende ou com o Klauss Castanheira, também parceiro nosso. Para quem quiser escalar lá e ficar por alguns dias, tem a opção de ficar no CEMONTA, área militar com toda infraestrutura, mediante a um pedido de autorização, com certo tempo de antecedência ou podem também consultar hospedagem na HOSPEDARIA CASA DA ANITA!!!
+            
+            Viva o Ave Maria!!! Flora e Tomi tem o apoio da Quatro Ventos, Flor Roupas Esportivas, Campo Base, Alto Estilo, Capituva Agroflorestal e Marunbeer e Hospedaria Casa da Anita!!!
+  - **[2]**:
+    - **texto**: Ética e Regras
+    - **destino**:
+      - **secao_textual**:
+        - **conteudo**:
+            # ATENÇÃO
+            
+            Respeite a ética e regras locais:
+            
+            - É EXPRESSAMENTE PROIBIDO cavar, melhorar, quebrar ou adicionar agarras.
+            - O Hih Ball é uma forte característica do setor. NÃO FIXE PROTEÇÕES NOS BLOCOS.
+            - Utilize as trilhas existentes.
+            - Traga seu lixo de volta.
+            - Não corte árvores ou arranque plantas. Respeite os animais.
+            - Evite fogo, fogueiras.
+            
+            Lembre-se, você está em uma área particular:
+            
+            - Trate os moradores da área com cortesia e respeito.
+            - Deixe os carros e motos no espaço delimitado para estacionamento.
+            - Atenção às porteiras. Se abriu feche!
+            - Evite concentração de grandes grupos, e cuidado com barulho, principalmente no Nightclimb.
+            
+            | ![Atenção - Regras e Ética Locais - Escaladores da Serra do Lenheiro](imagens/etica_e_regras_p0_i0.webp) |
+            | :--: |
+            | *Atenção - Regras e Ética Locais - Escaladores da Serra do Lenheiro* |
+
+
+## Parte: grupo_frigideira
+
+### Grupo (Pico: Serra do Lenheiro)
+
+- **descricao**:
+    # Grupo Frigideira
+    
+    **Bloco: Frigideira**
+    Localizado à esquerda da trilha antes do muro de pedra.
+    
+    **Principais blocos:** O Dedo, Escondendo Leite, Barba Ruiva, Casa da Sogra, Rosquinha da Sogra.
+- **nome**: Frigideira
+- **mapas**:
+  - **[0]**:
+    - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_frigideira_p0_i0.webp)
+    - **largura_mapa**: 596
+    - **altura_mapa**: 839
+- **setores**:
+  - **[0]**:
+    - **conteudo**:
+      - **descricao**: # Setor Frigideira
+      - **nome**: Frigideira
+      - **mapas**:
+        - **[0]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_frigideira_setor_frigideira_p0_i0.webp)
+          - **largura_mapa**: 1497
+          - **altura_mapa**: 731
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 1
+              - **label**: 1
+              - **circulo**:
+                - **x**: 414
+                - **y**: 574
+                - **raio**: 34
+            - **[1]**:
+              - **id**: 2
+              - **label**: 2
+              - **circulo**:
+                - **x**: 525
+                - **y**: 568
+                - **raio**: 33
+            - **[2]**:
+              - **id**: 3
+              - **label**: 3
+              - **circulo**:
+                - **x**: 500
+                - **y**: 388
+                - **raio**: 30
+            - **[3]**:
+              - **id**: 4
+              - **label**: 4
+              - **circulo**:
+                - **x**: 858
+                - **y**: 537
+                - **raio**: 30
+            - **[4]**:
+              - **id**: 5
+              - **label**: 5
+              - **circulo**:
+                - **x**: 1341
+                - **y**: 656
+                - **raio**: 34
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Fendinha
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Frigideira
+              - **ids**:
+                - 2
+            - **[2]**:
+              - **escalada**: Teflon
+              - **ids**:
+                - 3
+            - **[3]**:
+              - **escalada**: Por do sol
+              - **ids**:
+                - 4
+            - **[4]**:
+              - **escalada**: Passageiros
+              - **ids**:
+                - 5
+      - **escaladas**:
+        - **[0]**:
+          - **boulder**:
+            - **nome**: Fendinha
+            - **dificuldade**: V1
+        - **[1]**:
+          - **boulder**:
+            - **descricao**: Projeto
+            - **nome**: Frigideira
+        - **[2]**:
+          - **boulder**:
+            - **descricao**: Projeto
+            - **nome**: Teflon
+        - **[3]**:
+          - **boulder**:
+            - **nome**: Por do sol
+            - **dificuldade**: V3
+        - **[4]**:
+          - **boulder**:
+            - **nome**: Passageiros
+            - **dificuldade**: V1
+      - **precomputados**:
+        - **total_escaladas**: 5
+        - **total_boulders**: 5
+  - **[1]**:
+    - **conteudo**:
+      - **descricao**: # Barba Ruiva
+      - **nome**: Barba Ruiva
+      - **mapas**:
+        - **[0]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_frigideira_setor_barba_ruiva_p0_i0.webp)
+          - **largura_mapa**: 966
+          - **altura_mapa**: 850
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 1
+              - **label**: 1
+              - **circulo**:
+                - **x**: 859
+                - **y**: 687
+                - **raio**: 29
+            - **[1]**:
+              - **id**: 2
+              - **label**: 2
+              - **circulo**:
+                - **x**: 567
+                - **y**: 549
+                - **raio**: 25
+            - **[2]**:
+              - **id**: 3
+              - **label**: 3
+              - **circulo**:
+                - **x**: 359
+                - **y**: 783
+                - **raio**: 29
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Barba Ruiva SDS
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Barba Ruiva
+              - **ids**:
+                - 2
+            - **[2]**:
+              - **escalada**: Barba Aresta
+              - **ids**:
+                - 3
+        - **[1]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_frigideira_setor_barba_ruiva_p0_i1.webp)
+          - **largura_mapa**: 618
+          - **altura_mapa**: 550
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 4
+              - **label**: 4
+              - **circulo**:
+                - **x**: 234
+                - **y**: 424
+                - **raio**: 17
+            - **[1]**:
+              - **id**: 5
+              - **label**: 5
+              - **circulo**:
+                - **x**: 279
+                - **y**: 353
+                - **raio**: 17
+            - **[2]**:
+              - **id**: 6
+              - **label**: 6
+              - **circulo**:
+                - **x**: 438
+                - **y**: 419
+                - **raio**: 17
+            - **[3]**:
+              - **id**: 7
+              - **label**: 7
+              - **circulo**:
+                - **x**: 463
+                - **y**: 373
+                - **raio**: 17
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Vira Folha
+              - **ids**:
+                - 4
+            - **[1]**:
+              - **escalada**: Indecisão
+              - **ids**:
+                - 5
+            - **[2]**:
+              - **escalada**: Revolução Feminina
+              - **ids**:
+                - 6
+            - **[3]**:
+              - **escalada**: Direitos Iguais
+              - **ids**:
+                - 7
+      - **escaladas**:
+        - **[0]**:
+          - **boulder**:
+            - **nome**: Barba Ruiva SDS
+            - **dificuldade**: V6
+        - **[1]**:
+          - **boulder**:
+            - **nome**: Barba Ruiva
+            - **dificuldade**: V2
+        - **[2]**:
+          - **boulder**:
+            - **nome**: Barba Aresta
+            - **dificuldade**: V3
+        - **[3]**:
+          - **boulder**:
+            - **nome**: Vira Folha
+            - **dificuldade**: V2
+        - **[4]**:
+          - **boulder**:
+            - **nome**: Indecisão
+            - **dificuldade**: V2
+        - **[5]**:
+          - **boulder**:
+            - **nome**: Revolução Feminina
+            - **dificuldade**: V5
+        - **[6]**:
+          - **boulder**:
+            - **nome**: Direitos Iguais
+            - **dificuldade**: V6
+      - **precomputados**:
+        - **total_escaladas**: 7
+        - **total_boulders**: 7
+  - **[2]**:
+    - **conteudo**:
+      - **descricao**: # Setor Escondendo Leite
+      - **nome**: Escondendo Leite
+      - **mapas**:
+        - **[0]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_frigideira_setor_escondendo_leite_p0_i0.webp)
+          - **largura_mapa**: 739
+          - **altura_mapa**: 555
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 01
+              - **label**: 01
+              - **circulo**:
+                - **x**: 489
+                - **y**: 397
+                - **raio**: 17
+            - **[1]**:
+              - **id**: 02
+              - **label**: 02
+              - **circulo**:
+                - **x**: 613
+                - **y**: 363
+                - **raio**: 18
+            - **[2]**:
+              - **id**: 03
+              - **label**: 03
+              - **circulo**:
+                - **x**: 488
+                - **y**: 351
+                - **raio**: 18
+            - **[3]**:
+              - **id**: 04
+              - **label**: 04
+              - **circulo**:
+                - **x**: 512
+                - **y**: 257
+                - **raio**: 18
+            - **[4]**:
+              - **id**: 05
+              - **label**: 05
+              - **circulo**:
+                - **x**: 556
+                - **y**: 235
+                - **raio**: 18
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Escondendo Leite
+              - **ids**:
+                - 01
+            - **[1]**:
+              - **escalada**: Principiante
+              - **ids**:
+                - 02
+            - **[2]**:
+              - **escalada**: Tá o Néctar
+              - **ids**:
+                - 03
+            - **[3]**:
+              - **escalada**: Leite Condensado
+              - **ids**:
+                - 04
+            - **[4]**:
+              - **escalada**: Leite Ninho
+              - **ids**:
+                - 05
+      - **escaladas**:
+        - **[0]**:
+          - **boulder**:
+            - **nome**: Escondendo Leite
+            - **dificuldade**: V5
+        - **[1]**:
+          - **boulder**:
+            - **nome**: Principiante
+            - **dificuldade**: V0
+        - **[2]**:
+          - **boulder**:
+            - **nome**: Tá o Néctar
+            - **dificuldade**: V5
+        - **[3]**:
+          - **boulder**:
+            - **nome**: Leite Condensado
+            - **dificuldade**: V5
+        - **[4]**:
+          - **boulder**:
+            - **nome**: Leite Ninho
+            - **dificuldade**: V3
+      - **precomputados**:
+        - **total_escaladas**: 5
+        - **total_boulders**: 5
+  - **[3]**:
+    - **conteudo**:
+      - **descricao**: # Rosquinha da Sogra
+      - **nome**: Rosquinha da Sogra
+      - **mapas**:
+        - **[0]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_frigideira_setor_rosquinha_da_sogra_p0_i1.webp)
+          - **largura_mapa**: 736
+          - **altura_mapa**: 562
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 1
+              - **label**: 1
+              - **circulo**:
+                - **x**: 339
+                - **y**: 361
+                - **raio**: 28
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Rosquinha da Sogra
+              - **ids**:
+                - 1
+      - **escaladas**:
+        - **[0]**:
+          - **boulder**:
+            - **nome**: Rosquinha da Sogra
+            - **dificuldade**: V2
+      - **precomputados**:
+        - **total_escaladas**: 1
+        - **total_boulders**: 1
+  - **[4]**:
+    - **conteudo**:
+      - **descricao**: # Casa da Sogra
+      - **nome**: Casa da Sogra
+      - **mapas**:
+        - **[0]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_frigideira_setor_casa_da_sogra_p0_i0.webp)
+          - **largura_mapa**: 811
+          - **altura_mapa**: 609
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 1
+              - **label**: 1
+              - **circulo**:
+                - **x**: 264
+                - **y**: 294
+                - **raio**: 20
+            - **[1]**:
+              - **id**: 2
+              - **label**: 2
+              - **circulo**:
+                - **x**: 222
+                - **y**: 307
+                - **raio**: 16
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Casa da Sogra
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Energia
+              - **ids**:
+                - 2
+      - **escaladas**:
+        - **[0]**:
+          - **boulder**:
+            - **nome**: Casa da Sogra
+            - **dificuldade**: V3
+        - **[1]**:
+          - **boulder**:
+            - **nome**: Energia
+            - **dificuldade**: V8
+      - **precomputados**:
+        - **total_escaladas**: 2
+        - **total_boulders**: 2
+  - **[5]**:
+    - **conteudo**:
+      - **descricao**: # O Dedo
+      - **nome**: O Dedo
+      - **mapas**:
+        - **[0]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_frigideira_setor_o_dedo_p0_i1.webp)
+          - **largura_mapa**: 799
+          - **altura_mapa**: 594
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 1
+              - **label**: 1
+              - **circulo**:
+                - **x**: 346
+                - **y**: 289
+                - **raio**: 19
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: O Dedo
+              - **ids**:
+                - 1
+      - **escaladas**:
+        - **[0]**:
+          - **boulder**:
+            - **nome**: O Dedo
+            - **dificuldade**: V1
+      - **precomputados**:
+        - **total_escaladas**: 1
+        - **total_boulders**: 1
+- **precomputados**:
+  - **total_escaladas**: 21
+  - **total_boulders**: 21
+
+
+## Parte: grupo_reza
+
+### Grupo (Pico: Serra do Lenheiro)
+
+- **descricao**:
+    # Grupo Reza
+    
+    **Principais blocos:** Reza, Profeta, Locomotiva, Bat-Caverna, Almadém, Busão.
+- **nome**: Reza
+- **mapas**:
+  - **[0]**:
+    - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_reza_p0_i0.webp)
+    - **largura_mapa**: 595
+    - **altura_mapa**: 839
+- **setores**:
+  - **[0]**:
+    - **conteudo**:
+      - **descricao**: # Setor O Profeta
+      - **nome**: O Profeta
+      - **mapas**:
+        - **[0]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_reza_setor_o_profeta_p0_i0.webp)
+          - **largura_mapa**: 1500
+          - **altura_mapa**: 727
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 1
+              - **label**: 1
+              - **circulo**:
+                - **x**: 968
+                - **y**: 523
+                - **raio**: 24
+            - **[1]**:
+              - **id**: 2
+              - **label**: 2
+              - **circulo**:
+                - **x**: 426
+                - **y**: 677
+                - **raio**: 24
+            - **[2]**:
+              - **id**: 3
+              - **label**: 3
+              - **circulo**:
+                - **x**: 243
+                - **y**: 696
+                - **raio**: 24
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: O Profeta
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Êxodos
+              - **ids**:
+                - 2
+            - **[2]**:
+              - **escalada**: Maomé
+              - **ids**:
+                - 3
+      - **escaladas**:
+        - **[0]**:
+          - **boulder**:
+            - **nome**: O Profeta
+            - **dificuldade**: V4
+        - **[1]**:
+          - **boulder**:
+            - **nome**: Êxodos
+            - **dificuldade**: V7
+        - **[2]**:
+          - **boulder**:
+            - **descricao**: Projeto
+            - **nome**: Maomé
+            - **dificuldade**: INDEFINIDO
+      - **precomputados**:
+        - **total_escaladas**: 3
+        - **total_boulders**: 3
+  - **[1]**:
+    - **conteudo**:
+      - **descricao**: # Reza
+      - **nome**: Reza
+      - **mapas**:
+        - **[0]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_reza_setor_reza_p0_i0.webp)
+          - **largura_mapa**: 1513
+          - **altura_mapa**: 712
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 1
+              - **label**: 1
+              - **circulo**:
+                - **x**: 254
+                - **y**: 545
+                - **raio**: 20
+            - **[1]**:
+              - **id**: 2
+              - **label**: 2
+              - **circulo**:
+                - **x**: 466
+                - **y**: 597
+                - **raio**: 20
+            - **[2]**:
+              - **id**: 3
+              - **label**: 3
+              - **circulo**:
+                - **x**: 554
+                - **y**: 597
+                - **raio**: 20
+            - **[3]**:
+              - **id**: 4
+              - **label**: 4
+              - **circulo**:
+                - **x**: 634
+                - **y**: 590
+                - **raio**: 19
+            - **[4]**:
+              - **id**: 5
+              - **label**: 5
+              - **circulo**:
+                - **x**: 1104
+                - **y**: 632
+                - **raio**: 26
+            - **[5]**:
+              - **id**: 6
+              - **label**: 6
+              - **circulo**:
+                - **x**: 1139
+                - **y**: 581
+                - **raio**: 25
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Inconfidência Mineira
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Reza Vela
+              - **ids**:
+                - 2
+            - **[2]**:
+              - **escalada**: Reza Braba
+              - **ids**:
+                - 3
+            - **[3]**:
+              - **escalada**: Reza Santa
+              - **ids**:
+                - 4
+            - **[4]**:
+              - **escalada**: Santa do Pau Oco
+              - **ids**:
+                - 5
+            - **[5]**:
+              - **escalada**: Gênesis
+              - **ids**:
+                - 6
+      - **escaladas**:
+        - **[0]**:
+          - **boulder**:
+            - **descricao**: Projeto
+            - **nome**: Inconfidência Mineira
+        - **[1]**:
+          - **boulder**:
+            - **descricao**: Projeto
+            - **nome**: Reza Vela
+        - **[2]**:
+          - **boulder**:
+            - **nome**: Reza Braba
+            - **dificuldade**: V8
+        - **[3]**:
+          - **boulder**:
+            - **nome**: Reza Santa
+            - **dificuldade**: V4
+        - **[4]**:
+          - **boulder**:
+            - **nome**: Santa do Pau Oco
+            - **dificuldade**: V3
+        - **[5]**:
+          - **boulder**:
+            - **nome**: Gênesis
+            - **dificuldade**: V8
+      - **precomputados**:
+        - **total_escaladas**: 6
+        - **total_boulders**: 6
+  - **[2]**:
+    - **conteudo**:
+      - **descricao**: # Setor Locomotiva
+      - **nome**: Locomotiva
+      - **mapas**:
+        - **[0]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_reza_setor_locomotiva_p0_i0.webp)
+          - **largura_mapa**: 1489
+          - **altura_mapa**: 726
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 1
+              - **label**: 1
+              - **circulo**:
+                - **x**: 473
+                - **y**: 668
+                - **raio**: 36
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Compressão
+              - **ids**:
+                - 1
+        - **[1]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_reza_setor_locomotiva_p1_i0.webp)
+          - **largura_mapa**: 1501
+          - **altura_mapa**: 730
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 2
+              - **label**: 2
+              - **circulo**:
+                - **x**: 476
+                - **y**: 552
+                - **raio**: 22
+            - **[1]**:
+              - **id**: 3
+              - **label**: 3
+              - **circulo**:
+                - **x**: 600
+                - **y**: 448
+                - **raio**: 21
+            - **[2]**:
+              - **id**: 4
+              - **label**: 4
+              - **circulo**:
+                - **x**: 710
+                - **y**: 651
+                - **raio**: 22
+            - **[3]**:
+              - **id**: 5
+              - **label**: 5
+              - **circulo**:
+                - **x**: 1301
+                - **y**: 663
+                - **raio**: 22
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Locomotiva
+              - **ids**:
+                - 2
+            - **[1]**:
+              - **escalada**: Buraco
+              - **ids**:
+                - 3
+            - **[2]**:
+              - **escalada**: Projeto (Locomotiva)
+              - **ids**:
+                - 4
+            - **[3]**:
+              - **escalada**: Desayuno
+              - **ids**:
+                - 5
+      - **escaladas**:
+        - **[0]**:
+          - **boulder**:
+            - **nome**: Compressão
+            - **dificuldade**: V9
+        - **[1]**:
+          - **boulder**:
+            - **nome**: Locomotiva
+            - **dificuldade**: V7
+        - **[2]**:
+          - **boulder**:
+            - **nome**: Buraco
+            - **dificuldade**: V5
+        - **[3]**:
+          - **boulder**:
+            - **nome**: Projeto (Locomotiva)
+        - **[4]**:
+          - **boulder**:
+            - **nome**: Desayuno
+            - **dificuldade**: V4
+      - **precomputados**:
+        - **total_escaladas**: 5
+        - **total_boulders**: 5
+  - **[3]**:
+    - **conteudo**:
+      - **descricao**: # Batcaverna
+      - **nome**: Batcaverna
+      - **mapas**:
+        - **[0]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_reza_setor_batcaverna_p0_i0.webp)
+          - **largura_mapa**: 1498
+          - **altura_mapa**: 726
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 1
+              - **label**: 1
+              - **circulo**:
+                - **x**: 1373
+                - **y**: 649
+                - **raio**: 32
+            - **[1]**:
+              - **id**: 2
+              - **label**: 2
+              - **circulo**:
+                - **x**: 664
+                - **y**: 640
+                - **raio**: 32
+            - **[2]**:
+              - **id**: 3
+              - **label**: 3
+              - **circulo**:
+                - **x**: 400
+                - **y**: 681
+                - **raio**: 32
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Batman Também Fuma
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Mulher Gato
+              - **ids**:
+                - 2
+            - **[2]**:
+              - **escalada**: Robin Larica
+              - **ids**:
+                - 3
+      - **escaladas**:
+        - **[0]**:
+          - **boulder**:
+            - **nome**: Batman Também Fuma
+            - **dificuldade**: V4
+        - **[1]**:
+          - **boulder**:
+            - **nome**: Mulher Gato
+            - **dificuldade**: V7
+        - **[2]**:
+          - **boulder**:
+            - **nome**: Robin Larica
+            - **dificuldade**: V4
+      - **precomputados**:
+        - **total_escaladas**: 3
+        - **total_boulders**: 3
+  - **[4]**:
+    - **conteudo**:
+      - **descricao**:
+          # Setor Apoio Resende
+          
+          (Face da Batcaverna)
+      - **nome**: Apoio Resende
+      - **mapas**:
+        - **[0]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_reza_setor_apoio_resende_p0_i0.webp)
+          - **largura_mapa**: 736
+          - **altura_mapa**: 552
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 1
+              - **label**: 1
+              - **circulo**:
+                - **x**: 172
+                - **y**: 464
+                - **raio**: 20
+            - **[1]**:
+              - **id**: 2
+              - **label**: 2
+              - **circulo**:
+                - **x**: 274
+                - **y**: 465
+                - **raio**: 18
+            - **[2]**:
+              - **id**: 3
+              - **label**: 3
+              - **circulo**:
+                - **x**: 455
+                - **y**: 445
+                - **raio**: 18
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Apoio Resende
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Ranca Couro
+              - **ids**:
+                - 2
+            - **[2]**:
+              - **escalada**: Sagarana
+              - **ids**:
+                - 3
+      - **escaladas**:
+        - **[0]**:
+          - **boulder**:
+            - **nome**: Apoio Resende
+            - **dificuldade**: V2
+        - **[1]**:
+          - **boulder**:
+            - **descricao**: Projeto
+            - **nome**: Ranca Couro
+            - **dificuldade**: INDEFINIDO
+        - **[2]**:
+          - **boulder**:
+            - **nome**: Sagarana
+            - **dificuldade**: V6
+      - **precomputados**:
+        - **total_escaladas**: 3
+        - **total_boulders**: 3
+  - **[5]**:
+    - **conteudo**:
+      - **descricao**: # Setor Busão
+      - **nome**: Busão
+      - **mapas**:
+        - **[0]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_reza_setor_busao_p0_i0.webp)
+          - **largura_mapa**: 1495
+          - **altura_mapa**: 724
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 1
+              - **label**: 1
+              - **circulo**:
+                - **x**: 283
+                - **y**: 648
+                - **raio**: 27
+            - **[1]**:
+              - **id**: 2
+              - **label**: 2
+              - **circulo**:
+                - **x**: 479
+                - **y**: 658
+                - **raio**: 27
+            - **[2]**:
+              - **id**: 3
+              - **label**: 3
+              - **circulo**:
+                - **x**: 650
+                - **y**: 664
+                - **raio**: 24
+            - **[3]**:
+              - **id**: 4
+              - **label**: 4
+              - **circulo**:
+                - **x**: 715
+                - **y**: 391
+                - **raio**: 27
+            - **[4]**:
+              - **id**: 5
+              - **label**: 5
+              - **circulo**:
+                - **x**: 760
+                - **y**: 671
+                - **raio**: 27
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Miranda
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Projeto 2
+              - **ids**:
+                - 2
+            - **[2]**:
+              - **escalada**: Projeto 3
+              - **ids**:
+                - 3
+            - **[3]**:
+              - **escalada**: 8 de Março
+              - **ids**:
+                - 4
+            - **[4]**:
+              - **escalada**: 21 de Abril
+              - **ids**:
+                - 5
+        - **[1]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_reza_setor_busao_p1_i0.webp)
+          - **largura_mapa**: 726
+          - **altura_mapa**: 830
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 6
+              - **label**: 6
+              - **circulo**:
+                - **x**: 344
+                - **y**: 558
+                - **raio**: 33
+            - **[1]**:
+              - **id**: 7
+              - **label**: 7
+              - **circulo**:
+                - **x**: 549
+                - **y**: 577
+                - **raio**: 33
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Clichê
+              - **ids**:
+                - 6
+            - **[1]**:
+              - **escalada**: Plágio
+              - **ids**:
+                - 7
+        - **[2]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_reza_setor_busao_p1_i1.webp)
+          - **largura_mapa**: 735
+          - **altura_mapa**: 517
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 8
+              - **label**: 8
+              - **circulo**:
+                - **x**: 381
+                - **y**: 460
+                - **raio**: 22
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Mancha Cinza
+              - **ids**:
+                - 8
+      - **escaladas**:
+        - **[0]**:
+          - **boulder**:
+            - **nome**: Miranda
+            - **dificuldade**: V2
+        - **[1]**:
+          - **boulder**:
+            - **descricao**: Projeto
+            - **nome**: Projeto 2
+        - **[2]**:
+          - **boulder**:
+            - **descricao**: Projeto
+            - **nome**: Projeto 3
+        - **[3]**:
+          - **boulder**:
+            - **nome**: 8 de Março
+            - **dificuldade**: V3
+        - **[4]**:
+          - **boulder**:
+            - **nome**: 21 de Abril
+            - **dificuldade**: V5
+        - **[5]**:
+          - **boulder**:
+            - **descricao**: Projeto
+            - **nome**: Clichê
+        - **[6]**:
+          - **boulder**:
+            - **nome**: Plágio
+            - **dificuldade**: V5
+        - **[7]**:
+          - **boulder**:
+            - **nome**: Mancha Cinza
+            - **dificuldade**: V3
+      - **precomputados**:
+        - **total_escaladas**: 8
+        - **total_boulders**: 8
+  - **[6]**:
+    - **conteudo**:
+      - **descricao**: # Almadém
+      - **nome**: Almadém
+      - **mapas**:
+        - **[0]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_reza_setor_almadem_p0_i0.webp)
+          - **largura_mapa**: 1221
+          - **altura_mapa**: 814
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 1
+              - **label**: 1
+              - **circulo**:
+                - **x**: 785
+                - **y**: 705
+                - **raio**: 26
+            - **[1]**:
+              - **id**: 2
+              - **label**: 2
+              - **circulo**:
+                - **x**: 965
+                - **y**: 661
+                - **raio**: 26
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Siriema
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Mil Grau
+              - **ids**:
+                - 2
+        - **[1]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_reza_setor_almadem_p0_i1.webp)
+          - **largura_mapa**: 520
+          - **altura_mapa**: 379
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 3
+              - **label**: 3
+              - **circulo**:
+                - **x**: 241
+                - **y**: 339
+                - **raio**: 18
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Almadém
+              - **ids**:
+                - 3
+      - **escaladas**:
+        - **[0]**:
+          - **boulder**:
+            - **nome**: Siriema
+            - **dificuldade**: V7
+        - **[1]**:
+          - **boulder**:
+            - **nome**: Mil Grau
+            - **dificuldade**: V4
+        - **[2]**:
+          - **boulder**:
+            - **nome**: Almadém
+            - **dificuldade**: V4
+      - **precomputados**:
+        - **total_escaladas**: 3
+        - **total_boulders**: 3
+  - **[7]**:
+    - **conteudo**:
+      - **descricao**: # Setor Lek Pression
+      - **nome**: Lek Pression
+      - **mapas**:
+        - **[0]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_reza_setor_lek_pression_p0_i0.webp)
+          - **largura_mapa**: 1294
+          - **altura_mapa**: 729
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 1
+              - **label**: 1
+              - **circulo**:
+                - **x**: 562
+                - **y**: 660
+                - **raio**: 26
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Lek Pression
+              - **ids**:
+                - 1
+      - **escaladas**:
+        - **[0]**:
+          - **boulder**:
+            - **nome**: Lek Pression
+            - **dificuldade**: V7
+      - **precomputados**:
+        - **total_escaladas**: 1
+        - **total_boulders**: 1
+- **precomputados**:
+  - **total_escaladas**: 32
+  - **total_boulders**: 32
+
+
+## Parte: grupo_laranjinha
+
+### Grupo (Pico: Serra do Lenheiro)
+
+- **descricao**:
+    # Grupo Laranjinha
+    
+    **Principais blocos:** Laranjinha, Unha de Gato, Boca de Tubarão, Matsuzaki, Embutidos.
+- **nome**: Laranjinha
+- **mapas**:
+  - **[0]**:
+    - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_laranjinha_p0_i0.webp)
+    - **largura_mapa**: 595
+    - **altura_mapa**: 839
+- **setores**:
+  - **[0]**:
+    - **conteudo**:
+      - **descricao**: 
+      - **nome**: Matsuzaki
+      - **mapas**:
+        - **[0]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_laranjinha_setor_matsuzaki_p0_i0.webp)
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Matsuzaki
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Agente Laranja
+              - **ids**:
+                - 2
+          - **largura_mapa**: 746
+          - **altura_mapa**: 578
+      - **escaladas**:
+        - **[0]**:
+          - **boulder**:
+            - **nome**: Matsuzaki
+            - **dificuldade**: V4
+        - **[1]**:
+          - **boulder**:
+            - **nome**: Agente Laranja
+            - **dificuldade**: V4
+      - **precomputados**:
+        - **total_escaladas**: 2
+        - **total_boulders**: 2
+  - **[1]**:
+    - **conteudo**:
+      - **descricao**: # Setor Embutidos
+      - **nome**: Embutidos
+      - **mapas**:
+        - **[0]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_laranjinha_setor_embutidos_p0_i1.webp)
+          - **largura_mapa**: 735
+          - **altura_mapa**: 576
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 1
+              - **label**: 1
+              - **circulo**:
+                - **x**: 310
+                - **y**: 289
+                - **raio**: 19
+            - **[1]**:
+              - **id**: 2
+              - **label**: 2
+              - **circulo**:
+                - **x**: 432
+                - **y**: 289
+                - **raio**: 18
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Embutidos Não
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Costelinha
+              - **ids**:
+                - 2
+      - **escaladas**:
+        - **[0]**:
+          - **boulder**:
+            - **nome**: Embutidos Não
+            - **dificuldade**: V3
+        - **[1]**:
+          - **boulder**:
+            - **nome**: Costelinha
+            - **dificuldade**: V3
+      - **precomputados**:
+        - **total_escaladas**: 2
+        - **total_boulders**: 2
+  - **[2]**:
+    - **conteudo**:
+      - **descricao**: # Boca de Tubarão
+      - **nome**: Boca de Tubarão
+      - **mapas**:
+        - **[0]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_laranjinha_setor_boca_de_tubarao_p0_i0.webp)
+          - **largura_mapa**: 1493
+          - **altura_mapa**: 841
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 01
+              - **label**: 1
+              - **circulo**:
+                - **x**: 622
+                - **y**: 579
+                - **raio**: 32
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Boca de Tubarão
+              - **ids**:
+                - 01
+      - **escaladas**:
+        - **[0]**:
+          - **boulder**:
+            - **nome**: Boca de Tubarão
+            - **dificuldade**: V4
+      - **precomputados**:
+        - **total_escaladas**: 1
+        - **total_boulders**: 1
+  - **[3]**:
+    - **conteudo**:
+      - **descricao**: # Laranjinha
+      - **nome**: Laranjinha
+      - **mapas**:
+        - **[0]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_laranjinha_setor_laranjinha_p0_i0.webp)
+          - **largura_mapa**: 944
+          - **altura_mapa**: 708
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 1
+              - **label**: 1
+              - **circulo**:
+                - **x**: 487
+                - **y**: 587
+                - **raio**: 30
+            - **[1]**:
+              - **id**: 2
+              - **label**: 2
+              - **circulo**:
+                - **x**: 304
+                - **y**: 459
+                - **raio**: 30
+            - **[2]**:
+              - **id**: 3
+              - **label**: 3
+              - **circulo**:
+                - **x**: 793
+                - **y**: 587
+                - **raio**: 30
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Laranjinha
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Sabotagem Feminina
+              - **ids**:
+                - 2
+            - **[2]**:
+              - **escalada**: Laranja Preta
+              - **ids**:
+                - 3
+        - **[1]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_laranjinha_setor_laranjinha_p0_i1.webp)
+          - **largura_mapa**: 712
+          - **altura_mapa**: 399
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 4
+              - **label**: 4
+              - **circulo**:
+                - **x**: 182
+                - **y**: 302
+                - **raio**: 17
+            - **[1]**:
+              - **id**: 5
+              - **label**: 5
+              - **circulo**:
+                - **x**: 188
+                - **y**: 246
+                - **raio**: 15
+            - **[2]**:
+              - **id**: 6
+              - **label**: 6
+              - **circulo**:
+                - **x**: 486
+                - **y**: 264
+                - **raio**: 15
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Laranja Lima
+              - **ids**:
+                - 4
+            - **[1]**:
+              - **escalada**: Limão Capeta
+              - **ids**:
+                - 5
+            - **[2]**:
+              - **escalada**: Quincan
+              - **ids**:
+                - 6
+      - **escaladas**:
+        - **[0]**:
+          - **boulder**:
+            - **nome**: Laranjinha
+            - **dificuldade**: V0
+        - **[1]**:
+          - **boulder**:
+            - **nome**: Sabotagem Feminina
+            - **dificuldade**: V1
+        - **[2]**:
+          - **boulder**:
+            - **nome**: Laranja Preta
+            - **dificuldade**: V0
+        - **[3]**:
+          - **boulder**:
+            - **nome**: Laranja Lima
+            - **dificuldade**: V2
+        - **[4]**:
+          - **boulder**:
+            - **descricao**: Projeto.
+            - **nome**: Limão Capeta
+            - **dificuldade**: INDEFINIDO
+        - **[5]**:
+          - **boulder**:
+            - **nome**: Quincan
+            - **dificuldade**: V1
+      - **precomputados**:
+        - **total_escaladas**: 6
+        - **total_boulders**: 6
+  - **[4]**:
+    - **conteudo**:
+      - **descricao**: # Setor Unha de Gato
+      - **nome**: Unha de Gato
+      - **mapas**:
+        - **[0]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_laranjinha_setor_unha_de_gato_p0_i1.webp)
+          - **largura_mapa**: 1059
+          - **altura_mapa**: 707
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 1
+              - **label**: 1
+              - **circulo**:
+                - **x**: 665
+                - **y**: 502
+                - **raio**: 19
+            - **[1]**:
+              - **id**: 2
+              - **label**: 2
+              - **circulo**:
+                - **x**: 553
+                - **y**: 427
+                - **raio**: 19
+            - **[2]**:
+              - **id**: 3
+              - **label**: 3
+              - **circulo**:
+                - **x**: 182
+                - **y**: 488
+                - **raio**: 19
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Unha de Gato SDS
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Unha de Gato
+              - **ids**:
+                - 2
+            - **[2]**:
+              - **escalada**: Roçadeira
+              - **ids**:
+                - 3
+        - **[1]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_laranjinha_setor_unha_de_gato_p0_i0.webp)
+          - **largura_mapa**: 528
+          - **altura_mapa**: 396
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 4
+              - **label**: 4
+              - **circulo**:
+                - **x**: 162
+                - **y**: 224
+                - **raio**: 19
+            - **[1]**:
+              - **id**: 5
+              - **label**: 5
+              - **circulo**:
+                - **x**: 200
+                - **y**: 228
+                - **raio**: 19
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Voilà
+              - **ids**:
+                - 4
+            - **[1]**:
+              - **escalada**: Saída Pela Direita
+              - **ids**:
+                - 5
+      - **escaladas**:
+        - **[0]**:
+          - **boulder**:
+            - **descricao**: Projeto
+            - **nome**: Unha de Gato SDS
+            - **dificuldade**: INDEFINIDO
+        - **[1]**:
+          - **boulder**:
+            - **nome**: Unha de Gato
+            - **dificuldade**: V4
+        - **[2]**:
+          - **boulder**:
+            - **nome**: Roçadeira
+            - **dificuldade**: V6
+        - **[3]**:
+          - **boulder**:
+            - **nome**: Voilà
+            - **dificuldade**: V5
+        - **[4]**:
+          - **boulder**:
+            - **nome**: Saída Pela Direita
+            - **dificuldade**: V2
+      - **precomputados**:
+        - **total_escaladas**: 5
+        - **total_boulders**: 5
+- **precomputados**:
+  - **total_escaladas**: 16
+  - **total_boulders**: 16
+
+
+## Parte: grupo_ditadura
+
+### Grupo (Pico: Serra do Lenheiro)
+
+- **descricao**:
+    # Grupo Ditadura
+    
+    **Principais blocos:** Ditadura, Cabeça de Cachorro, Catatau, Espiga, Aero-Dinâmico, Coroinha, Iguana, Faixa Preta.
+- **nome**: Ditadura
+- **mapas**:
+  - **[0]**:
+    - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_ditadura_p0_i0.webp)
+    - **largura_mapa**: 596
+    - **altura_mapa**: 839
+- **setores**:
+  - **[0]**:
+    - **conteudo**:
+      - **descricao**: # Ditadura
+      - **nome**: Ditadura
+      - **mapas**:
+        - **[0]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_ditadura_setor_ditadura_p0_i0.webp)
+          - **largura_mapa**: 1420
+          - **altura_mapa**: 848
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 1
+              - **label**: 1
+              - **circulo**:
+                - **x**: 941
+                - **y**: 818
+                - **raio**: 20
+            - **[1]**:
+              - **id**: 2
+              - **label**: 2
+              - **circulo**:
+                - **x**: 990
+                - **y**: 695
+                - **raio**: 22
+            - **[2]**:
+              - **id**: 3
+              - **label**: 3
+              - **circulo**:
+                - **x**: 1170
+                - **y**: 599
+                - **raio**: 17
+            - **[3]**:
+              - **id**: 4
+              - **label**: 4
+              - **circulo**:
+                - **x**: 213
+                - **y**: 506
+                - **raio**: 20
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Ditadura
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Democracia
+              - **ids**:
+                - 2
+            - **[2]**:
+              - **escalada**: Repressão
+              - **ids**:
+                - 3
+            - **[3]**:
+              - **escalada**: Via Rupestre
+              - **ids**:
+                - 4
+      - **escaladas**:
+        - **[0]**:
+          - **boulder**:
+            - **nome**: Ditadura
+            - **dificuldade**: V10
+        - **[1]**:
+          - **boulder**:
+            - **nome**: Democracia
+            - **dificuldade**: V7
+        - **[2]**:
+          - **boulder**:
+            - **descricao**: Projeto
+            - **nome**: Repressão
+        - **[3]**:
+          - **boulder**:
+            - **descricao**: v0/6º sup (Proteções Móveis)
+            - **nome**: Via Rupestre
+            - **dificuldade**: V0
+      - **precomputados**:
+        - **total_escaladas**: 4
+        - **total_boulders**: 4
+  - **[1]**:
+    - **conteudo**:
+      - **descricao**: # Cabeça de Cachorro
+      - **nome**: Cabeça de Cachorro
+      - **mapas**:
+        - **[0]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_ditadura_setor_cabeca_de_cachorro_p0_i0.webp)
+          - **largura_mapa**: 710
+          - **altura_mapa**: 568
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 01
+              - **label**: 1
+              - **circulo**:
+                - **x**: 211
+                - **y**: 458
+                - **raio**: 19
+            - **[1]**:
+              - **id**: 02
+              - **label**: 2
+              - **circulo**:
+                - **x**: 500
+                - **y**: 338
+                - **raio**: 19
+            - **[2]**:
+              - **id**: 03
+              - **label**: 3
+              - **circulo**:
+                - **x**: 250
+                - **y**: 350
+                - **raio**: 19
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Cachorro Louco
+              - **ids**:
+                - 01
+            - **[1]**:
+              - **escalada**: T-Rex
+              - **ids**:
+                - 02
+            - **[2]**:
+              - **escalada**: Rex
+              - **ids**:
+                - 03
+      - **escaladas**:
+        - **[0]**:
+          - **boulder**:
+            - **nome**: Cachorro Louco
+            - **dificuldade**: V4
+        - **[1]**:
+          - **boulder**:
+            - **nome**: T-Rex
+            - **dificuldade**: V2
+        - **[2]**:
+          - **boulder**:
+            - **nome**: Rex
+            - **dificuldade**: V0
+      - **precomputados**:
+        - **total_escaladas**: 3
+        - **total_boulders**: 3
+  - **[2]**:
+    - **conteudo**:
+      - **descricao**: # Setor Catatau
+      - **nome**: Catatau
+      - **mapas**:
+        - **[0]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_ditadura_setor_catatau_p0_i1.webp)
+          - **largura_mapa**: 727
+          - **altura_mapa**: 571
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 1
+              - **label**: 1
+              - **circulo**:
+                - **x**: 203
+                - **y**: 406
+                - **raio**: 19
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Catatau
+              - **ids**:
+                - 1
+      - **escaladas**:
+        - **[0]**:
+          - **boulder**:
+            - **nome**: Catatau
+            - **dificuldade**: V2
+      - **precomputados**:
+        - **total_escaladas**: 1
+        - **total_boulders**: 1
+  - **[3]**:
+    - **conteudo**:
+      - **descricao**: # Espiga
+      - **nome**: Espiga
+      - **mapas**:
+        - **[0]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_ditadura_setor_espiga_p0_i0.webp)
+          - **largura_mapa**: 1488
+          - **altura_mapa**: 854
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Espião
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Espiga
+              - **ids**:
+                - 2
+            - **[2]**:
+              - **escalada**: Sabugo
+              - **ids**:
+                - 3
+      - **escaladas**:
+        - **[0]**:
+          - **boulder**:
+            - **nome**: Espião
+            - **dificuldade**: V2
+        - **[1]**:
+          - **boulder**:
+            - **nome**: Espiga
+            - **dificuldade**: V6
+        - **[2]**:
+          - **boulder**:
+            - **nome**: Sabugo
+            - **dificuldade**: V0
+      - **precomputados**:
+        - **total_escaladas**: 3
+        - **total_boulders**: 3
+  - **[4]**:
+    - **conteudo**:
+      - **descricao**: # Aero Dinâmico
+      - **nome**: Aero Dinâmico
+      - **mapas**:
+        - **[0]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_ditadura_setor_aero_dinamico_p0_i0.webp)
+          - **largura_mapa**: 748
+          - **altura_mapa**: 536
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 1
+              - **label**: 1
+              - **circulo**:
+                - **x**: 415
+                - **y**: 379
+                - **raio**: 17
+            - **[1]**:
+              - **id**: 2
+              - **label**: 2
+              - **circulo**:
+                - **x**: 315
+                - **y**: 359
+                - **raio**: 17
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Aero Dinâmico
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Projeto (Aero Dinâmico)
+              - **ids**:
+                - 2
+      - **escaladas**:
+        - **[0]**:
+          - **boulder**:
+            - **descricao**: Projeto
+            - **nome**: Aero Dinâmico
+        - **[1]**:
+          - **boulder**:
+            - **nome**: Projeto (Aero Dinâmico)
+      - **precomputados**:
+        - **total_escaladas**: 2
+        - **total_boulders**: 2
+  - **[5]**:
+    - **conteudo**:
+      - **descricao**: # Setor Coroinha
+      - **nome**: Coroinha
+      - **mapas**:
+        - **[0]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_ditadura_setor_coroinha_p0_i1.webp)
+          - **largura_mapa**: 745
+          - **altura_mapa**: 559
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 1
+              - **label**: 1
+              - **circulo**:
+                - **x**: 333
+                - **y**: 482
+                - **raio**: 24
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Coroinha
+              - **ids**:
+                - 1
+      - **escaladas**:
+        - **[0]**:
+          - **boulder**:
+            - **nome**: Coroinha
+            - **dificuldade**: V1
+      - **precomputados**:
+        - **total_escaladas**: 1
+        - **total_boulders**: 1
+  - **[6]**:
+    - **conteudo**:
+      - **descricao**: # Setor Iguana
+      - **nome**: Iguana
+      - **mapas**:
+        - **[0]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_ditadura_setor_iguana_p0_i0.webp)
+          - **largura_mapa**: 1501
+          - **altura_mapa**: 726
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 1
+              - **label**: 1
+              - **circulo**:
+                - **x**: 310
+                - **y**: 549
+                - **raio**: 38
+            - **[1]**:
+              - **id**: 2
+              - **label**: 2
+              - **circulo**:
+                - **x**: 698
+                - **y**: 604
+                - **raio**: 38
+            - **[2]**:
+              - **id**: 3
+              - **label**: 3
+              - **circulo**:
+                - **x**: 1187
+                - **y**: 638
+                - **raio**: 38
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Iguana
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Calango
+              - **ids**:
+                - 2
+            - **[2]**:
+              - **escalada**: Camaleão
+              - **ids**:
+                - 3
+      - **escaladas**:
+        - **[0]**:
+          - **boulder**:
+            - **nome**: Iguana
+            - **dificuldade**: V8
+        - **[1]**:
+          - **boulder**:
+            - **nome**: Calango
+            - **dificuldade**: V1
+        - **[2]**:
+          - **boulder**:
+            - **nome**: Camaleão
+            - **dificuldade**: V4
+      - **precomputados**:
+        - **total_escaladas**: 3
+        - **total_boulders**: 3
+  - **[7]**:
+    - **conteudo**:
+      - **descricao**: # Faixa Preta
+      - **nome**: Faixa Preta
+      - **mapas**:
+        - **[0]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_ditadura_setor_faixa_preta_p0_i0.webp)
+          - **largura_mapa**: 826
+          - **altura_mapa**: 589
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 1
+              - **label**: 1
+              - **circulo**:
+                - **x**: 358
+                - **y**: 540
+                - **raio**: 33
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Faixa Preta
+              - **ids**:
+                - 1
+        - **[1]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_ditadura_setor_faixa_preta_p0_i1.webp)
+          - **largura_mapa**: 897
+          - **altura_mapa**: 673
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 2
+              - **label**: 2
+              - **circulo**:
+                - **x**: 395
+                - **y**: 602
+                - **raio**: 27
+            - **[1]**:
+              - **id**: 3
+              - **label**: 3
+              - **circulo**:
+                - **x**: 645
+                - **y**: 504
+                - **raio**: 28
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Aresta Dinâmica
+              - **ids**:
+                - 2
+            - **[1]**:
+              - **escalada**: Projeto (Faixa Preta)
+              - **ids**:
+                - 3
+      - **escaladas**:
+        - **[0]**:
+          - **boulder**:
+            - **nome**: Faixa Preta
+            - **dificuldade**: V1
+        - **[1]**:
+          - **boulder**:
+            - **nome**: Aresta Dinâmica
+            - **dificuldade**: V3
+        - **[2]**:
+          - **boulder**:
+            - **nome**: Projeto (Faixa Preta)
+            - **dificuldade**: INDEFINIDO
+      - **precomputados**:
+        - **total_escaladas**: 3
+        - **total_boulders**: 3
+- **precomputados**:
+  - **total_escaladas**: 20
+  - **total_boulders**: 20
+
+
+## Parte: grupo_mulher_de_bigode
+
+### Grupo (Pico: Serra do Lenheiro)
+
+- **descricao**:
+    # Grupo Mulher de Bigode
+    
+    **Principais blocos:** Mulher de Bigode, Beiço, Diabinha, Eco, Meretríssimo, Ziriguidum, Viúva Negra, Carga pesada, Ota aranha, Fingerboard, Módulo.
+- **nome**: Mulher de Bigode
+- **mapas**:
+  - **[0]**:
+    - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_mulher_de_bigode_p0_i0.webp)
+    - **largura_mapa**: 596
+    - **altura_mapa**: 839
+- **setores**:
+  - **[0]**:
+    - **conteudo**:
+      - **descricao**: # Setor Mulher de Bigode
+      - **nome**: Mulher de Bigode
+      - **mapas**:
+        - **[0]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_mulher_de_bigode_setor_mulher_e_bigode_p0_i0.webp)
+          - **largura_mapa**: 601
+          - **altura_mapa**: 300
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 01
+              - **label**: 01
+              - **circulo**:
+                - **x**: 193
+                - **y**: 207
+                - **raio**: 13
+            - **[1]**:
+              - **id**: 02
+              - **label**: 02
+              - **circulo**:
+                - **x**: 233
+                - **y**: 136
+                - **raio**: 10
+            - **[2]**:
+              - **id**: 03
+              - **label**: 03
+              - **circulo**:
+                - **x**: 271
+                - **y**: 199
+                - **raio**: 13
+            - **[3]**:
+              - **id**: 04
+              - **label**: 04
+              - **circulo**:
+                - **x**: 318
+                - **y**: 184
+                - **raio**: 13
+            - **[4]**:
+              - **id**: 05
+              - **label**: 05
+              - **circulo**:
+                - **x**: 493
+                - **y**: 250
+                - **raio**: 13
+            - **[5]**:
+              - **id**: 06
+              - **label**: 06
+              - **circulo**:
+                - **x**: 45
+                - **y**: 60
+                - **raio**: 13
+            - **[6]**:
+              - **id**: 07
+              - **label**: 07
+              - **circulo**:
+                - **x**: 267
+                - **y**: 154
+                - **raio**: 13
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Liberdade de Expressão
+              - **ids**:
+                - 01
+            - **[1]**:
+              - **escalada**: Planta de Shiva
+              - **ids**:
+                - 02
+            - **[2]**:
+              - **escalada**: Planta de Shiva SDS
+              - **ids**:
+                - 03
+            - **[3]**:
+              - **escalada**: Planta Rara
+              - **ids**:
+                - 04
+            - **[4]**:
+              - **escalada**: Tendinite
+              - **ids**:
+                - 05
+            - **[5]**:
+              - **escalada**: Burning
+              - **ids**:
+                - 06
+            - **[6]**:
+              - **escalada**: Albatroz
+              - **ids**:
+                - 07
+        - **[1]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_mulher_de_bigode_setor_mulher_e_bigode_p1_i0.webp)
+          - **largura_mapa**: 491
+          - **altura_mapa**: 413
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 01
+              - **label**: 01
+              - **circulo**:
+                - **x**: 213
+                - **y**: 306
+                - **raio**: 14
+            - **[1]**:
+              - **id**: 02
+              - **label**: 02
+              - **circulo**:
+                - **x**: 300
+                - **y**: 259
+                - **raio**: 14
+            - **[2]**:
+              - **id**: 03
+              - **label**: 03
+              - **circulo**:
+                - **x**: 158
+                - **y**: 288
+                - **raio**: 14
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Mulher de Bigode
+              - **ids**:
+                - 01
+            - **[1]**:
+              - **escalada**: Homem de Saia
+              - **ids**:
+                - 02
+            - **[2]**:
+              - **escalada**: Mais Facinha
+              - **ids**:
+                - 03
+        - **[2]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_mulher_de_bigode_setor_mulher_e_bigode_p1_i1.webp)
+          - **largura_mapa**: 530
+          - **altura_mapa**: 453
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 04
+              - **label**: 04
+              - **circulo**:
+                - **x**: 406
+                - **y**: 380
+                - **raio**: 18
+            - **[1]**:
+              - **id**: 05
+              - **label**: 05
+              - **circulo**:
+                - **x**: 185
+                - **y**: 414
+                - **raio**: 18
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Reino Animal
+              - **ids**:
+                - 04
+            - **[1]**:
+              - **escalada**: Blue Cheese
+              - **ids**:
+                - 05
+      - **escaladas**:
+        - **[0]**:
+          - **boulder**:
+            - **nome**: Liberdade de Expressão
+            - **dificuldade**: V4
+        - **[1]**:
+          - **boulder**:
+            - **nome**: Planta de Shiva
+            - **dificuldade**: V1
+        - **[2]**:
+          - **boulder**:
+            - **nome**: Planta de Shiva SDS
+            - **dificuldade**: V5
+        - **[3]**:
+          - **boulder**:
+            - **nome**: Planta Rara
+            - **dificuldade**: V10
+        - **[4]**:
+          - **boulder**:
+            - **nome**: Tendinite
+            - **dificuldade**: V4
+        - **[5]**:
+          - **boulder**:
+            - **nome**: Burning
+            - **dificuldade**: V8
+        - **[6]**:
+          - **boulder**:
+            - **nome**: Albatroz
+            - **dificuldade**: V8
+        - **[7]**:
+          - **boulder**:
+            - **nome**: Mulher de Bigode
+            - **dificuldade**: V5
+        - **[8]**:
+          - **boulder**:
+            - **nome**: Homem de Saia
+            - **dificuldade**: V3
+        - **[9]**:
+          - **boulder**:
+            - **nome**: Mais Facinha
+            - **dificuldade**: V2
+        - **[10]**:
+          - **boulder**:
+            - **nome**: Reino Animal
+            - **dificuldade**: V4
+        - **[11]**:
+          - **boulder**:
+            - **nome**: Blue Cheese
+            - **dificuldade**: V2
+      - **precomputados**:
+        - **total_escaladas**: 12
+        - **total_boulders**: 12
+  - **[1]**:
+    - **conteudo**:
+      - **descricao**: # Ziriguidum
+      - **nome**: Ziriguidum
+      - **mapas**:
+        - **[0]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_mulher_de_bigode_setor_ziriguidum_p0_i0.webp)
+          - **largura_mapa**: 1489
+          - **altura_mapa**: 783
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 1
+              - **label**: 1
+              - **circulo**:
+                - **x**: 1134
+                - **y**: 502
+                - **raio**: 29
+            - **[1]**:
+              - **id**: 2
+              - **label**: 2
+              - **circulo**:
+                - **x**: 930
+                - **y**: 563
+                - **raio**: 29
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Siricutico
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Ziriguidum
+              - **ids**:
+                - 2
+        - **[1]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_mulher_de_bigode_setor_ziriguidum_p0_i1.webp)
+          - **largura_mapa**: 509
+          - **altura_mapa**: 432
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 3
+              - **label**: 3
+              - **circulo**:
+                - **x**: 163
+                - **y**: 345
+                - **raio**: 14
+            - **[1]**:
+              - **id**: 4
+              - **label**: 4
+              - **circulo**:
+                - **x**: 200
+                - **y**: 348
+                - **raio**: 14
+            - **[2]**:
+              - **id**: 5
+              - **label**: 5
+              - **circulo**:
+                - **x**: 238
+                - **y**: 345
+                - **raio**: 14
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Esticadinha
+              - **ids**:
+                - 3
+            - **[1]**:
+              - **escalada**: Esquisitinha
+              - **ids**:
+                - 4
+            - **[2]**:
+              - **escalada**: Rapunzel
+              - **ids**:
+                - 5
+      - **escaladas**:
+        - **[0]**:
+          - **boulder**:
+            - **nome**: Siricutico
+            - **dificuldade**: V2
+        - **[1]**:
+          - **boulder**:
+            - **nome**: Ziriguidum
+            - **dificuldade**: V5
+        - **[2]**:
+          - **boulder**:
+            - **nome**: Esticadinha
+            - **dificuldade**: V3
+        - **[3]**:
+          - **boulder**:
+            - **nome**: Esquisitinha
+            - **dificuldade**: V2
+        - **[4]**:
+          - **boulder**:
+            - **nome**: Rapunzel
+            - **dificuldade**: V3
+      - **precomputados**:
+        - **total_escaladas**: 5
+        - **total_boulders**: 5
+  - **[2]**:
+    - **conteudo**:
+      - **descricao**: # Eco
+      - **nome**: Eco
+      - **mapas**:
+        - **[0]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_mulher_de_bigode_setor_eco_p0_i0.webp)
+          - **largura_mapa**: 1498
+          - **altura_mapa**: 818
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 1
+              - **label**: 1
+              - **circulo**:
+                - **x**: 688
+                - **y**: 623
+                - **raio**: 20
+            - **[1]**:
+              - **id**: 2
+              - **label**: 2
+              - **circulo**:
+                - **x**: 821
+                - **y**: 709
+                - **raio**: 20
+            - **[2]**:
+              - **id**: 3
+              - **label**: 3
+              - **circulo**:
+                - **x**: 959
+                - **y**: 627
+                - **raio**: 20
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Baioneta
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Eco
+              - **ids**:
+                - 2
+            - **[2]**:
+              - **escalada**: Escotilha
+              - **ids**:
+                - 3
+      - **escaladas**:
+        - **[0]**:
+          - **boulder**:
+            - **nome**: Baioneta
+            - **dificuldade**: V5
+        - **[1]**:
+          - **boulder**:
+            - **nome**: Eco
+            - **dificuldade**: V3
+        - **[2]**:
+          - **boulder**:
+            - **nome**: Escotilha
+            - **dificuldade**: V3
+      - **precomputados**:
+        - **total_escaladas**: 3
+        - **total_boulders**: 3
+  - **[3]**:
+    - **conteudo**:
+      - **descricao**: # Meretríssimo
+      - **nome**: Meretríssimo
+      - **mapas**:
+        - **[0]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_mulher_de_bigode_setor_meretrissimo_p0_i0.webp)
+          - **largura_mapa**: 748
+          - **altura_mapa**: 638
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 1
+              - **label**: 1
+              - **circulo**:
+                - **x**: 639
+                - **y**: 504
+                - **raio**: 21
+            - **[1]**:
+              - **id**: 2
+              - **label**: 2
+              - **circulo**:
+                - **x**: 591
+                - **y**: 402
+                - **raio**: 21
+            - **[2]**:
+              - **id**: 3
+              - **label**: 3
+              - **circulo**:
+                - **x**: 26
+                - **y**: 384
+                - **raio**: 21
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Meretríssimo SDS
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Meretríssimo
+              - **ids**:
+                - 2
+            - **[2]**:
+              - **escalada**: Toco Preto
+              - **ids**:
+                - 3
+      - **escaladas**:
+        - **[0]**:
+          - **boulder**:
+            - **descricao**: Projeto
+            - **nome**: Meretríssimo SDS
+            - **dificuldade**: INDEFINIDO
+        - **[1]**:
+          - **boulder**:
+            - **nome**: Meretríssimo
+            - **dificuldade**: V4
+        - **[2]**:
+          - **boulder**:
+            - **nome**: Toco Preto
+            - **dificuldade**: V2
+      - **precomputados**:
+        - **total_escaladas**: 3
+        - **total_boulders**: 3
+  - **[4]**:
+    - **conteudo**:
+      - **descricao**: # Diabinha
+      - **nome**: Diabinha
+      - **mapas**:
+        - **[0]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_mulher_de_bigode_setor_diabinha_p0_i1.webp)
+          - **largura_mapa**: 687
+          - **altura_mapa**: 590
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Diabinha
+              - **ids**:
+                - 1
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 1
+              - **label**: 1
+              - **circulo**:
+                - **x**: 552
+                - **y**: 333
+                - **raio**: 21
+      - **escaladas**:
+        - **[0]**:
+          - **boulder**:
+            - **nome**: Diabinha
+            - **dificuldade**: V0
+      - **precomputados**:
+        - **total_escaladas**: 1
+        - **total_boulders**: 1
+  - **[5]**:
+    - **conteudo**:
+      - **descricao**: # Beiço
+      - **nome**: Beiço
+      - **mapas**:
+        - **[0]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_mulher_de_bigode_setor_beico_p0_i0.webp)
+          - **largura_mapa**: 897
+          - **altura_mapa**: 766
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 1
+              - **label**: 1
+              - **circulo**:
+                - **x**: 226
+                - **y**: 583
+                - **raio**: 23
+            - **[1]**:
+              - **id**: 2
+              - **label**: 2
+              - **circulo**:
+                - **x**: 506
+                - **y**: 583
+                - **raio**: 24
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Beiçudo
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Beiçola
+              - **ids**:
+                - 2
+        - **[1]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_mulher_de_bigode_setor_beico_p0_i1.webp)
+          - **largura_mapa**: 591
+          - **altura_mapa**: 444
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 3
+              - **label**: 3
+              - **circulo**:
+                - **x**: 102
+                - **y**: 381
+                - **raio**: 14
+            - **[1]**:
+              - **id**: 4
+              - **label**: 4
+              - **circulo**:
+                - **x**: 152
+                - **y**: 401
+                - **raio**: 14
+            - **[2]**:
+              - **id**: 5
+              - **label**: 5
+              - **circulo**:
+                - **x**: 207
+                - **y**: 243
+                - **raio**: 14
+            - **[3]**:
+              - **id**: 6
+              - **label**: 6
+              - **circulo**:
+                - **x**: 493
+                - **y**: 258
+                - **raio**: 14
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Boulder dos Buracos
+              - **ids**:
+                - 3
+            - **[1]**:
+              - **escalada**: Zé Colméia
+              - **ids**:
+                - 4
+            - **[2]**:
+              - **escalada**: Charlie
+              - **ids**:
+                - 5
+            - **[3]**:
+              - **escalada**: Bravo
+              - **ids**:
+                - 6
+      - **escaladas**:
+        - **[0]**:
+          - **boulder**:
+            - **nome**: Beiçudo
+            - **dificuldade**: V2
+        - **[1]**:
+          - **boulder**:
+            - **nome**: Beiçola
+            - **dificuldade**: V2
+        - **[2]**:
+          - **boulder**:
+            - **nome**: Boulder dos Buracos
+            - **dificuldade**: V0
+        - **[3]**:
+          - **boulder**:
+            - **nome**: Zé Colméia
+            - **dificuldade**: V2
+        - **[4]**:
+          - **boulder**:
+            - **nome**: Charlie
+            - **dificuldade**: V4
+        - **[5]**:
+          - **boulder**:
+            - **nome**: Bravo
+            - **dificuldade**: V5
+      - **precomputados**:
+        - **total_escaladas**: 6
+        - **total_boulders**: 6
+  - **[6]**:
+    - **conteudo**:
+      - **descricao**: # Fingerboard
+      - **nome**: Fingerboard
+      - **mapas**:
+        - **[0]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_mulher_de_bigode_setor_fingerboard_p0_i0.webp)
+          - **largura_mapa**: 719
+          - **altura_mapa**: 570
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 1
+              - **label**: 1
+              - **circulo**:
+                - **x**: 360
+                - **y**: 351
+                - **raio**: 27
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Fingerboard
+              - **ids**:
+                - 1
+      - **escaladas**:
+        - **[0]**:
+          - **boulder**:
+            - **nome**: Fingerboard
+            - **dificuldade**: V0
+      - **precomputados**:
+        - **total_escaladas**: 1
+        - **total_boulders**: 1
+  - **[7]**:
+    - **conteudo**:
+      - **descricao**: # Setor Carga Pesada
+      - **nome**: Carga Pesada
+      - **mapas**:
+        - **[0]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_mulher_de_bigode_setor_carga_pesada_p0_i1.webp)
+          - **largura_mapa**: 717
+          - **altura_mapa**: 538
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 1
+              - **label**: 1
+              - **circulo**:
+                - **x**: 210
+                - **y**: 345
+                - **raio**: 27
+            - **[1]**:
+              - **id**: 2
+              - **label**: 2
+              - **circulo**:
+                - **x**: 113
+                - **y**: 310
+                - **raio**: 27
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Carga Pesada SDS
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Carga Pesada
+              - **ids**:
+                - 2
+      - **escaladas**:
+        - **[0]**:
+          - **boulder**:
+            - **descricao**: Projeto
+            - **nome**: Carga Pesada SDS
+            - **dificuldade**: INDEFINIDO
+        - **[1]**:
+          - **boulder**:
+            - **nome**: Carga Pesada
+            - **dificuldade**: V6
+      - **precomputados**:
+        - **total_escaladas**: 2
+        - **total_boulders**: 2
+  - **[8]**:
+    - **conteudo**:
+      - **descricao**: # Setor Viúva Negra
+      - **nome**: Viúva Negra
+      - **mapas**:
+        - **[0]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_mulher_de_bigode_setor_viuva_negra_p0_i0.webp)
+          - **largura_mapa**: 736
+          - **altura_mapa**: 552
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 01
+              - **label**: 01
+              - **circulo**:
+                - **x**: 436
+                - **y**: 352
+                - **raio**: 22
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Viúva Negra
+              - **ids**:
+                - 01
+      - **escaladas**:
+        - **[0]**:
+          - **boulder**:
+            - **nome**: Viúva Negra
+            - **dificuldade**: V1
+      - **precomputados**:
+        - **total_escaladas**: 1
+        - **total_boulders**: 1
+  - **[9]**:
+    - **conteudo**:
+      - **descricao**: # Ota Aranha
+      - **nome**: Ota Aranha
+      - **mapas**:
+        - **[0]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_mulher_de_bigode_setor_ota_aranha_p0_i1.webp)
+          - **largura_mapa**: 735
+          - **altura_mapa**: 551
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 1
+              - **label**: 1
+              - **circulo**:
+                - **x**: 434
+                - **y**: 346
+                - **raio**: 16
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Ota Aranha
+              - **ids**:
+                - 1
+      - **escaladas**:
+        - **[0]**:
+          - **boulder**:
+            - **nome**: Ota Aranha
+            - **dificuldade**: V9
+      - **precomputados**:
+        - **total_escaladas**: 1
+        - **total_boulders**: 1
+  - **[10]**:
+    - **conteudo**:
+      - **descricao**: # Setor Módulo
+      - **nome**: Módulo
+      - **mapas**:
+        - **[0]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_mulher_de_bigode_setor_modulo_p0_i0.webp)
+          - **largura_mapa**: 1044
+          - **altura_mapa**: 783
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 1
+              - **label**: 1
+              - **circulo**:
+                - **x**: 488
+                - **y**: 579
+                - **raio**: 22
+            - **[1]**:
+              - **id**: 2
+              - **label**: 2
+              - **circulo**:
+                - **x**: 280
+                - **y**: 507
+                - **raio**: 22
+            - **[2]**:
+              - **id**: 3
+              - **label**: 3
+              - **circulo**:
+                - **x**: 147
+                - **y**: 179
+                - **raio**: 22
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Módulo
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Dilúvio
+              - **ids**:
+                - 2
+            - **[2]**:
+              - **escalada**: Tempestade
+              - **ids**:
+                - 3
+      - **escaladas**:
+        - **[0]**:
+          - **boulder**:
+            - **descricao**: Projeto.
+            - **nome**: Módulo
+            - **dificuldade**: INDEFINIDO
+        - **[1]**:
+          - **boulder**:
+            - **nome**: Dilúvio
+            - **dificuldade**: V4
+        - **[2]**:
+          - **boulder**:
+            - **nome**: Tempestade
+            - **dificuldade**: V3
+      - **precomputados**:
+        - **total_escaladas**: 3
+        - **total_boulders**: 3
+- **precomputados**:
+  - **total_escaladas**: 38
+  - **total_boulders**: 38
+
+
+## Arquivos Externos
+
+- **arquivos_externos**:
+  - **[0]**:
+    - **caminho**: ![caminho](imagens/apresentacao_p0_i0.webp)
+    - **checksum_sha256**: ac75c793cf80a57c919291b0a2a703d5ef0e36b726ee7a93471654d9dc6e34a6
+  - **[1]**:
+    - **caminho**: ![caminho](imagens/apresentacao_p1_i0.webp)
+    - **checksum_sha256**: bf3179d8c426d89da6dceb8c01cec3a041b5c3f37516ba366c1d71a81900937e
+  - **[2]**:
+    - **caminho**: ![caminho](imagens/capa_p0_i0.webp)
+    - **checksum_sha256**: 329eb34f4bdb4e7944b5a4b9348b064d399d951f528b41e1b3957649b7138fa0
+  - **[3]**:
+    - **caminho**: ![caminho](imagens/etica_e_regras_p0_i0.webp)
+    - **checksum_sha256**: db7346289488b7ca7a4df9483d867cd562a5ed520e297c4106f2c101f668fd6a
+  - **[4]**:
+    - **caminho**: ![caminho](imagens/grupo_ditadura_p0_i0.webp)
+    - **checksum_sha256**: 9f602c432e5bfe0a6a9a606f73fd03f2579b31e4f727cffe189d3bce465fe837
+  - **[5]**:
+    - **caminho**: ![caminho](imagens/grupo_ditadura_setor_aero_dinamico_p0_i0.webp)
+    - **checksum_sha256**: 25af18a42d1eff1e7b0a344c4a0e1747bf1f66e3e7a2b683268d75c3f09d4910
+  - **[6]**:
+    - **caminho**: ![caminho](imagens/grupo_ditadura_setor_cabeca_de_cachorro_p0_i0.webp)
+    - **checksum_sha256**: 16e0abe8fcadf5f44a9b3b7f97c92ab8ffc3f6bcbcf5e99bdc5d6eb1f405c7fc
+  - **[7]**:
+    - **caminho**: ![caminho](imagens/grupo_ditadura_setor_catatau_p0_i1.webp)
+    - **checksum_sha256**: 06728b1f02c04fbed1ecd68c47de85d0274741d8a0362843d71c710dc58d3f03
+  - **[8]**:
+    - **caminho**: ![caminho](imagens/grupo_ditadura_setor_coroinha_p0_i1.webp)
+    - **checksum_sha256**: ac30643924a309a25b39e834251d9dca63b156fcba14859d18af1c82cf256755
+  - **[9]**:
+    - **caminho**: ![caminho](imagens/grupo_ditadura_setor_ditadura_p0_i0.webp)
+    - **checksum_sha256**: 2acd56cd8d92ede8e08d4fcda7f3974d791626199eb23ce4a47c7e42aa1c3efb
+  - **[10]**:
+    - **caminho**: ![caminho](imagens/grupo_ditadura_setor_espiga_p0_i0.webp)
+    - **checksum_sha256**: d0614f7a5aa5969ec6478462473e42da9cb8315ee1e8f3c23f88f130015b2efa
+  - **[11]**:
+    - **caminho**: ![caminho](imagens/grupo_ditadura_setor_faixa_preta_p0_i0.webp)
+    - **checksum_sha256**: e2936e7cf18eb82de721e3975e9750192eaba5fb276bcbf760c5c9205b9188c1
+  - **[12]**:
+    - **caminho**: ![caminho](imagens/grupo_ditadura_setor_faixa_preta_p0_i1.webp)
+    - **checksum_sha256**: 37c60e7389ba5aeb199a294eb6b29a1c815ec5918b465245ca07307b012be882
+  - **[13]**:
+    - **caminho**: ![caminho](imagens/grupo_ditadura_setor_iguana_p0_i0.webp)
+    - **checksum_sha256**: 33a72a9d1ce52ef9bfe4e824d9536d971bce0de6d58caaf2632096e6fdc35a0e
+  - **[14]**:
+    - **caminho**: ![caminho](imagens/grupo_frigideira_p0_i0.webp)
+    - **checksum_sha256**: bc37532b7225004450f5ac4a51fbba3574efa7e69311ea43a3869462fcfa1f94
+  - **[15]**:
+    - **caminho**: ![caminho](imagens/grupo_frigideira_setor_barba_ruiva_p0_i0.webp)
+    - **checksum_sha256**: 9c0a44219ef659579e425036f19a92831b1bd74f1a32d2c4338e44e59bfb8620
+  - **[16]**:
+    - **caminho**: ![caminho](imagens/grupo_frigideira_setor_barba_ruiva_p0_i1.webp)
+    - **checksum_sha256**: 288d0f2fbe2d5304faea37a70d03c73639540fd43c656a709742cd0126d1a97e
+  - **[17]**:
+    - **caminho**: ![caminho](imagens/grupo_frigideira_setor_casa_da_sogra_p0_i0.webp)
+    - **checksum_sha256**: 9d281dcc04f5923ebce36ed133c1a8e04a4edc86f31078d1e6da85449a9dd364
+  - **[18]**:
+    - **caminho**: ![caminho](imagens/grupo_frigideira_setor_escondendo_leite_p0_i0.webp)
+    - **checksum_sha256**: 9bca8cd13ddfc1d12ed745347a78767239ff5345b87f52b88d5759efd9586cab
+  - **[19]**:
+    - **caminho**: ![caminho](imagens/grupo_frigideira_setor_frigideira_p0_i0.webp)
+    - **checksum_sha256**: 18a708c4433517adab1559d9c26a2b84ea78a0b40d4e6b9f1e8fdd962067746d
+  - **[20]**:
+    - **caminho**: ![caminho](imagens/grupo_frigideira_setor_o_dedo_p0_i1.webp)
+    - **checksum_sha256**: 16f276176c139a8a824803dec0918089261539b9efe5e0d460e51f7aa5905009
+  - **[21]**:
+    - **caminho**: ![caminho](imagens/grupo_frigideira_setor_rosquinha_da_sogra_p0_i1.webp)
+    - **checksum_sha256**: e6465a5e881ca27285874caa045e37cf94cb5c1f9c2b7b9eaee9ca12b9da385e
+  - **[22]**:
+    - **caminho**: ![caminho](imagens/grupo_laranjinha_p0_i0.webp)
+    - **checksum_sha256**: efb15a71546c39c1ad245df24ce3252ff65d9622a9bc8e35df8604ce2a75edea
+  - **[23]**:
+    - **caminho**: ![caminho](imagens/grupo_laranjinha_setor_boca_de_tubarao_p0_i0.webp)
+    - **checksum_sha256**: eb0fce527356d117626469688d966999c9928df35c9287ca34226cfc94db0239
+  - **[24]**:
+    - **caminho**: ![caminho](imagens/grupo_laranjinha_setor_embutidos_p0_i1.webp)
+    - **checksum_sha256**: 050ebfb636b57f861b891c4898c3d5f6de19b35b9e4ab61206e083ec3609a7a3
+  - **[25]**:
+    - **caminho**: ![caminho](imagens/grupo_laranjinha_setor_laranjinha_p0_i0.webp)
+    - **checksum_sha256**: 8db51aa9268bf9aa9da14543b6ec8741ac9eddafe79d5a9b8f1622dd9ac83cc9
+  - **[26]**:
+    - **caminho**: ![caminho](imagens/grupo_laranjinha_setor_laranjinha_p0_i1.webp)
+    - **checksum_sha256**: 7f0f892f14108079975f18522653eedb32692cac0053254859faa4597b522f63
+  - **[27]**:
+    - **caminho**: ![caminho](imagens/grupo_laranjinha_setor_matsuzaki_p0_i0.webp)
+    - **checksum_sha256**: 931bb47ea6ea12feeb11465ce74c3472690eb4e500b3dd0121e691629c647ac1
+  - **[28]**:
+    - **caminho**: ![caminho](imagens/grupo_laranjinha_setor_unha_de_gato_p0_i0.webp)
+    - **checksum_sha256**: 599ecc799e83a22b4f52793ba456b053a466fb84c20e978a618b2e340c66b8ba
+  - **[29]**:
+    - **caminho**: ![caminho](imagens/grupo_laranjinha_setor_unha_de_gato_p0_i1.webp)
+    - **checksum_sha256**: f8be8b256f8b0d8ca28236643b0e2fd7d30579df46ad6bf3870a718e43f7ab0c
+  - **[30]**:
+    - **caminho**: ![caminho](imagens/grupo_mulher_de_bigode_p0_i0.webp)
+    - **checksum_sha256**: 1b4f78ba7c68ac332e3bd8104ee00a7cb04217f6df873a6e2cd9e246f78ce788
+  - **[31]**:
+    - **caminho**: ![caminho](imagens/grupo_mulher_de_bigode_setor_beico_p0_i0.webp)
+    - **checksum_sha256**: d056a2e908cd458d992f08afc65848f183e1cdc164b867e2c14d48bf7ca7aeb4
+  - **[32]**:
+    - **caminho**: ![caminho](imagens/grupo_mulher_de_bigode_setor_beico_p0_i1.webp)
+    - **checksum_sha256**: fe47277b61c0f0bdab0698f63d81416151575066b1c3e0e2d3d485512cc2baf7
+  - **[33]**:
+    - **caminho**: ![caminho](imagens/grupo_mulher_de_bigode_setor_carga_pesada_p0_i1.webp)
+    - **checksum_sha256**: 83098714b8edda3a8c93faace955c36ca194b796e81d7b14cfb1f56251a232aa
+  - **[34]**:
+    - **caminho**: ![caminho](imagens/grupo_mulher_de_bigode_setor_diabinha_p0_i1.webp)
+    - **checksum_sha256**: ee0f06ab67421ceca3673ea3908e0f69bc162e0344a203c75ef638c4a0411c95
+  - **[35]**:
+    - **caminho**: ![caminho](imagens/grupo_mulher_de_bigode_setor_eco_p0_i0.webp)
+    - **checksum_sha256**: 7dceecd4256df5fcbec295a1a33730257a1b28f84783351ee92056d49040e729
+  - **[36]**:
+    - **caminho**: ![caminho](imagens/grupo_mulher_de_bigode_setor_fingerboard_p0_i0.webp)
+    - **checksum_sha256**: d7f487f6f86ac492fa853a190ff06d48aa77bd49cd9439acd1bfc5d795521844
+  - **[37]**:
+    - **caminho**: ![caminho](imagens/grupo_mulher_de_bigode_setor_meretrissimo_p0_i0.webp)
+    - **checksum_sha256**: 3f8b93c1c7d4c6a0264f6fb0e55b74cf5833963ccec122e77746b7c5127d5859
+  - **[38]**:
+    - **caminho**: ![caminho](imagens/grupo_mulher_de_bigode_setor_modulo_p0_i0.webp)
+    - **checksum_sha256**: 57029ba72f89b54941fbe106ba7e6bdfbf683f56ffa8710ce54ef5d863aa0db6
+  - **[39]**:
+    - **caminho**: ![caminho](imagens/grupo_mulher_de_bigode_setor_mulher_e_bigode_p0_i0.webp)
+    - **checksum_sha256**: 9024ef22b0d3dd42909665ba57c8cc20d4d03ee54327d3a14735ed3f886408d3
+  - **[40]**:
+    - **caminho**: ![caminho](imagens/grupo_mulher_de_bigode_setor_mulher_e_bigode_p1_i0.webp)
+    - **checksum_sha256**: 2d63d955a7083cd4f603ac840c28b161cc5df58bdca4dac870d6dca2cfe16e5e
+  - **[41]**:
+    - **caminho**: ![caminho](imagens/grupo_mulher_de_bigode_setor_mulher_e_bigode_p1_i1.webp)
+    - **checksum_sha256**: 0bbe7f5afc9669a801f6edcc83124844e19363b9c2631e61104f9baf7661a930
+  - **[42]**:
+    - **caminho**: ![caminho](imagens/grupo_mulher_de_bigode_setor_ota_aranha_p0_i1.webp)
+    - **checksum_sha256**: c5fe731772b944f101e26b3b6675f936dfc234569b9a1111828c094d701db685
+  - **[43]**:
+    - **caminho**: ![caminho](imagens/grupo_mulher_de_bigode_setor_viuva_negra_p0_i0.webp)
+    - **checksum_sha256**: a46770ddf07797d34703479b21f2d27600de3dd6a5c78e81478f6693ac9fd348
+  - **[44]**:
+    - **caminho**: ![caminho](imagens/grupo_mulher_de_bigode_setor_ziriguidum_p0_i0.webp)
+    - **checksum_sha256**: 8cd80b190a2d7d09b928be225118fbcb2ebfd54d887562750daae5e929007f62
+  - **[45]**:
+    - **caminho**: ![caminho](imagens/grupo_mulher_de_bigode_setor_ziriguidum_p0_i1.webp)
+    - **checksum_sha256**: 969fa99307a30930d9c6a9c916fccb6f5b2fa4d0404acf0e89a3c5abc3c7e5b9
+  - **[46]**:
+    - **caminho**: ![caminho](imagens/grupo_reza_p0_i0.webp)
+    - **checksum_sha256**: f9c039574cea76e4801c99aab8b6b6004dc96e9d7a3238e1b9da68cd402fd460
+  - **[47]**:
+    - **caminho**: ![caminho](imagens/grupo_reza_setor_almadem_p0_i0.webp)
+    - **checksum_sha256**: bbf715d081f7fed27f70a2a16090044bf38cddc775761c14c09505e9ea6957c7
+  - **[48]**:
+    - **caminho**: ![caminho](imagens/grupo_reza_setor_almadem_p0_i1.webp)
+    - **checksum_sha256**: 0821fbff8993f618f2c049b340cc672a9fe90c9eaa9bc971b38c4c492c8a8ab2
+  - **[49]**:
+    - **caminho**: ![caminho](imagens/grupo_reza_setor_apoio_resende_p0_i0.webp)
+    - **checksum_sha256**: f20351c5cc4d0b2ec213c8d1ee6f7fd20fb88ce4356413aea89edcf6de42bb85
+  - **[50]**:
+    - **caminho**: ![caminho](imagens/grupo_reza_setor_batcaverna_p0_i0.webp)
+    - **checksum_sha256**: 83ca5023af5b11b614a01fbffab26315008d7622eeafd30786b10b81d3ed0fc9
+  - **[51]**:
+    - **caminho**: ![caminho](imagens/grupo_reza_setor_busao_p0_i0.webp)
+    - **checksum_sha256**: eeb5fb47f4535f7cae9ac151a0828cb293277636768cc43b5195939310f4f7f5
+  - **[52]**:
+    - **caminho**: ![caminho](imagens/grupo_reza_setor_busao_p1_i0.webp)
+    - **checksum_sha256**: e72823b8392effb762415f81b2df9cd5dd7c009c13032672eca66848d2d9194f
+  - **[53]**:
+    - **caminho**: ![caminho](imagens/grupo_reza_setor_busao_p1_i1.webp)
+    - **checksum_sha256**: fb2798c6dabcbd47215d87724ae5d43dc74def953ebc216ec8b237481492d488
+  - **[54]**:
+    - **caminho**: ![caminho](imagens/grupo_reza_setor_lek_pression_p0_i0.webp)
+    - **checksum_sha256**: 4d076e7bbe31f7fbf576684adf098d78e8061fe282bf5b0793cbf9c034350458
+  - **[55]**:
+    - **caminho**: ![caminho](imagens/grupo_reza_setor_locomotiva_p0_i0.webp)
+    - **checksum_sha256**: 164ef302aa4a6d89f965d4426262f43364d2c4878904ba564f91622f2035b7be
+  - **[56]**:
+    - **caminho**: ![caminho](imagens/grupo_reza_setor_locomotiva_p1_i0.webp)
+    - **checksum_sha256**: bc2c0807d890fd9df595f67dff11fe669996b503cb27d928db8cfacad7da03b1
+  - **[57]**:
+    - **caminho**: ![caminho](imagens/grupo_reza_setor_o_profeta_p0_i0.webp)
+    - **checksum_sha256**: 6e46579573e1314492b9d4e72a7c74c9f96e55658cda4580b3941d04eaab8ffa
+  - **[58]**:
+    - **caminho**: ![caminho](imagens/grupo_reza_setor_reza_p0_i0.webp)
+    - **checksum_sha256**: 91b2fc073200d15c8f6743035148b97370865bbf1d5b069e590c6e7aa95d7a2b
+  - **[59]**:
+    - **caminho**: ![caminho](imagens/mapas_gerais_p0_i0.webp)
+    - **checksum_sha256**: 629bebe0c7b817c48c28ae2d029174fdb82a02c29480def2a4d8caeacd841013
+  - **[60]**:
+    - **caminho**: ![caminho](imagens/mapas_gerais_p1_i0.webp)
+    - **checksum_sha256**: 97f723b8ffea3acbcc79df60b932ddea9a9df919f609d2a17993f8d24784a880
+
+
