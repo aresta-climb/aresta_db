@@ -134,3 +134,55 @@ mapas:
     poi1 = frontmatter["mapas"][0]["pontos_de_interesse"][0]
     assert poi1["id"] == "Setor_A"
     assert poi1["retangulo"]["x"] == 100
+
+
+def test_finalizacao_mapas_em_escaladas(tmp_path):
+    pico_path = tmp_path / "pico_esc"
+    raw_mapas_dir = pico_path / "imagens" / "raw_mapas"
+    raw_mapas_dir.mkdir(parents=True)
+
+    md_file = pico_path / "setor_bloco.md"
+    md_content = """---
+nome: Bloco Central
+escaladas:
+- boulder:
+    nome: Boulder Alpha
+  mapas:
+  - caminho_imagem_mapa: imagens/mapa_boulder.webp
+---
+Corpo do bloco.
+"""
+    md_file.write_text(md_content, encoding="utf-8")
+
+    img_dir = pico_path / "imagens"
+    img_dir.mkdir(exist_ok=True)
+    (img_dir / "mapa_boulder.webp").write_bytes(b"fake_image_data")
+
+    json_data = {
+        "arquivo_md": "setor_bloco.md",
+        "caminho_imagem_mapa": "imagens/mapa_boulder.webp",
+        "dimensoes_imagem": {"largura": 600, "altura": 400},
+        "pertence_a_escalada": True,
+        "escalada_nome": "Boulder Alpha",
+        "escalada_indice": 0,
+        "pontos_de_interesse": [
+            {"id": "start", "label": "Start", "circulo": {"x": 20, "y": 30, "raio": 15}}
+        ]
+    }
+    json_file = raw_mapas_dir / "mapa_boulder.json"
+    with open(json_file, "w", encoding="utf-8") as f:
+        json.dump(json_data, f)
+
+    finalizar_mapas(str(pico_path))
+
+    frontmatter, _ = parse_md_com_frontmatter(str(md_file))
+    esc = frontmatter["escaladas"][0]
+    assert "mapas" in esc
+    assert esc["mapas"][0]["largura_mapa"] == 600
+    assert esc["mapas"][0]["altura_mapa"] == 400
+
+    poi = esc["mapas"][0]["pontos_de_interesse"][0]
+    assert poi["id"] == "start"
+    assert poi["label"] == "Start"
+    assert poi["circulo"]["x"] == 20
+

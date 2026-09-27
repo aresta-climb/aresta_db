@@ -38,6 +38,13 @@ sys.path.append(str(Path(__file__).resolve().parent.parent))
 
 import build
 from aresta_api.proto.generated import croqui_pb2
+from editor.core.processamento_imagem_campo import (
+    AREA_MAXIMA_ESCALADA,
+    AREA_MAXIMA_PADRAO,
+    QUALIDADE_WEBP_ESCALADA,
+    QUALIDADE_WEBP_PADRAO,
+    comprimir_imagem_para_bytes_webp,
+)
 
 # ===========================================================================
 # UTILITÁRIOS DE PROCESSAMENTO DE TEXTO E IMAGEM
@@ -62,9 +69,14 @@ def parse_md_com_frontmatter(caminho_arquivo: Union[str, Path]) -> Tuple[Optiona
     return None, conteudo.strip()
 
 
-def processar_caminho_imagem(caminho_img_original: str, pico_path: Path) -> str:
+def processar_caminho_imagem(
+    caminho_img_original: str,
+    pico_path: Path,
+    eh_escalada: bool = False,
+) -> str:
     """
-    Processa um caminho de imagem original, copia para a pasta de destino com nome único
+    Processa um caminho de imagem original, comprime para a pasta de destino com nome único
+    respeitando o perfil da entidade (1.0 MP @ Q85 para escalada, 2.5 MP @ Q85 para setor/grupo)
     e retorna o novo caminho relativo.
     """
     if caminho_img_original.lower().endswith('.png'):
@@ -88,7 +100,20 @@ def processar_caminho_imagem(caminho_img_original: str, pico_path: Path) -> str:
     if not dest.parent.exists():
         dest.parent.mkdir(parents=True, exist_ok=True)
     
-    shutil.copy2(src, dest)
+    max_area = AREA_MAXIMA_ESCALADA if eh_escalada else AREA_MAXIMA_PADRAO
+    quality = QUALIDADE_WEBP_ESCALADA if eh_escalada else QUALIDADE_WEBP_PADRAO
+
+    try:
+        bytes_webp, _, _ = comprimir_imagem_para_bytes_webp(
+            src,
+            quality=quality,
+            max_area=max_area,
+        )
+        dest.write_bytes(bytes_webp)
+    except Exception as e:
+        print(f"    Aviso: Falha ao comprimir imagem {src}, recorrendo a cópia direta: {e}")
+        shutil.copy2(src, dest)
+
     return f"imagens/{novo_nome_arquivo}"
 
 def integrar_metadados_mapa(mapa: Dict[str, Any], pico_path: Path) -> bool:
@@ -407,7 +432,7 @@ def corrigir_setores_ou_grupos_recursivo(setores_ou_grupos_raw: List[Any], pico_
                                     img_original = mapa["caminho_imagem_mapa"]
                                     if integrar_metadados_mapa(mapa, pico_path):
                                         modificado = True
-                                    novo_caminho_img = processar_caminho_imagem(img_original, pico_path)
+                                    novo_caminho_img = processar_caminho_imagem(img_original, pico_path, eh_escalada=True)
                                     if novo_caminho_img != img_original:
                                         mapa["caminho_imagem_mapa"] = novo_caminho_img
                                         modificado = True

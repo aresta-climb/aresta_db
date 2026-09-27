@@ -82,6 +82,11 @@ Croquis de boulders usualmente são organizados em blocos, onde vários blocos j
 - O "setor" que agrupa os blocos deve ser representado como um grupo de setores, ou seja, `grupo_X.md`.
 - Cada bloco dentro do grupo deve ser representado como um setor dentro do grupo, ou seja, `grupo_X_setor_Y.md`.
 
+> [!IMPORTANT]
+> **Páginas com Fotos Gerais e Fotos de Detalhe de Escaladas:**
+> Se uma ou mais páginas consecutivas de um bloco ou setor contiverem tanto a visão geral da pedra quanto fotos de close-up/detalhes de boulders ou vias específicas (ex: fotos de saídas, pegas-chave ou agarras), **todas essas páginas devem ser agrupadas no mesmo setor** no `partes.json`.
+> **NUNCA crie chaves ou partes separadas para fotos de escaladas individuais**. O processamento e a vinculação de fotos de detalhe para cada escalada serão realizados pelo agente conversor diretamente dentro de `escaladas[].mapas` no arquivo `.md` daquele setor.
+
 Desse modo, os boulders individuais poderão ser representados apropriadamente na nossa database.
 
 ## Grupos de setores 

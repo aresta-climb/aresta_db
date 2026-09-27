@@ -251,3 +251,55 @@ mapas:
         assert target_json.exists(), "O script não extraiu os mapas gerais a partir do mapas_gerais.md"
 
 
+def test_processamento_de_md_com_mapas_em_escaladas(tmp_path):
+    pico_path = tmp_path / "pico_escalada"
+    pico_path.mkdir()
+    img_dir = pico_path / "imagens"
+    img_dir.mkdir()
+    img_path = img_dir / "mapa_boulder.webp"
+    Image.new('RGB', (120, 80), color='blue').save(img_path)
+
+    md_file = pico_path / "setor_bloco.md"
+    md_content = """---
+nome: Setor Bloco
+escaladas:
+- boulder:
+    nome: Boulder Alpha
+  mapas:
+  - caminho_imagem_mapa: imagens/mapa_boulder.webp
+---
+Descricao do bloco
+"""
+    md_file.write_text(md_content, encoding="utf-8")
+
+    with patch("scripts.preparar_extracao_de_mapas.PaddleOCR") as MockOCR:
+        mock_engine = MagicMock()
+        MockOCR.return_value = mock_engine
+
+        mock_result = MagicMock()
+        mock_result.get.side_effect = lambda key, default=None: {
+            "rec_texts": ["S"],
+            "rec_boxes": [[5, 5, 25, 25]]
+        }.get(key, default)
+        mock_engine.predict.return_value = [mock_result]
+
+        preparador = PreparadorDeMapas(idioma="pt")
+        preparador.executar(pico_path)
+
+        target_json = pico_path / "imagens" / "raw_mapas" / "mapa_boulder.json"
+        assert target_json.exists(), "O JSON do mapa da escalada deve ser criado em raw_mapas"
+
+        with open(target_json, "r", encoding="utf-8") as f:
+            dados = json.load(f)
+            assert dados["caminho_imagem_mapa"] == "imagens/mapa_boulder.webp"
+            assert dados["arquivo_md"] == "setor_bloco.md"
+            assert dados["dimensoes_imagem"] == {"largura": 120, "altura": 80}
+            assert dados.get("pertence_a_escalada") is True
+            assert dados.get("escalada_nome") == "Boulder Alpha"
+            assert dados.get("escalada_indice") == 0
+
+        ocr_json = pico_path / "imagens" / "raw_mapas" / "mapa_boulder.ocr_result.json"
+        assert ocr_json.exists()
+
+
+

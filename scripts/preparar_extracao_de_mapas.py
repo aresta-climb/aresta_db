@@ -78,40 +78,47 @@ class PreparadorDeMapas:
                     print(f"Erro ao processar frontmatter em {md_file.name}: {e}")
                     return []
 
-        mapas = frontmatter.get("mapas", [])
-        if not mapas:
-            return []
-
         imagens_de_mapa = []
-        for mapa in mapas:
+
+        def _extrair_nome_escalada(esc: Dict[str, Any]) -> str:
+            if "nome" in esc and esc["nome"]:
+                return str(esc["nome"])
+            for sub in ["boulder", "via_esportiva", "via_movel", "via_multiplas_enfiadas", "via"]:
+                if sub in esc and isinstance(esc[sub], dict) and "nome" in esc[sub]:
+                    return str(esc[sub]["nome"])
+            return ""
+
+        def _registrar_mapa(
+            mapa: Dict[str, Any],
+            pertence_a_escalada: bool = False,
+            escalada_nome: str = "",
+            escalada_indice: Optional[int] = None,
+        ) -> None:
             caminho_img = mapa.get("caminho_imagem_mapa")
             if not caminho_img:
-                continue
+                return
 
             full_img_path = pico_path / caminho_img
             if not full_img_path.exists():
                 print(f"Aviso: Imagem não encontrada: {full_img_path}")
-                continue
+                return
             imagens_de_mapa.append(full_img_path)
 
-            # Obter dimensões da imagem
             try:
                 with Image.open(full_img_path) as img:
                     largura, altura = img.size
             except Exception as e:
                 print(f"Erro ao abrir imagem {full_img_path.name}: {e}")
-                continue
+                return
 
-            # Criar ou atualizar o JSON individual
             nome_base = full_img_path.stem
             target_json = output_dir / f"{nome_base}.json"
 
             if target_json.exists():
                 print(f"Aviso: O arquivo JSON {target_json.name} já existe. Pulando criação do metadado.")
             else:
-                # Estrutura do JSON inicial, preenchendo com pontos já existentes se houver
                 pontos_existentes = mapa.get("pontos_de_interesse", [])
-                dados = {
+                dados: Dict[str, Any] = {
                     "arquivo_md": md_file.name,
                     "caminho_imagem_mapa": caminho_img,
                     "dimensoes_imagem": {
@@ -120,6 +127,10 @@ class PreparadorDeMapas:
                     },
                     "pontos_de_interesse": pontos_existentes
                 }
+                if pertence_a_escalada:
+                    dados["pertence_a_escalada"] = True
+                    dados["escalada_nome"] = escalada_nome
+                    dados["escalada_indice"] = escalada_indice
 
                 try:
                     with open(target_json, "w", encoding="utf-8") as f:
@@ -127,7 +138,30 @@ class PreparadorDeMapas:
                     print(f"Criado JSON: {target_json.name} (Fonte: {md_file.name})")
                 except Exception as e:
                     print(f"Erro ao salvar JSON {target_json.name}: {e}")
+
+        # 1. Mapas do nível de setor/grupo
+        for mapa in frontmatter.get("mapas", []) or []:
+            if isinstance(mapa, dict):
+                _registrar_mapa(mapa)
+
+        # 2. Mapas de escaladas/vias
+        for key in ["escaladas", "vias"]:
+            for idx, via in enumerate(frontmatter.get(key, []) or []):
+                if not isinstance(via, dict):
                     continue
+                mapas_esc = via.get("mapas")
+                if not mapas_esc and "via_multiplas_enfiadas" in via and isinstance(via["via_multiplas_enfiadas"], dict):
+                    mapas_esc = via["via_multiplas_enfiadas"].get("mapas")
+                if mapas_esc and isinstance(mapas_esc, list):
+                    nome_esc = _extrair_nome_escalada(via)
+                    for mapa_item in mapas_esc:
+                        if isinstance(mapa_item, dict):
+                            _registrar_mapa(
+                                mapa_item,
+                                pertence_a_escalada=True,
+                                escalada_nome=nome_esc,
+                                escalada_indice=idx,
+                            )
 
         return imagens_de_mapa
 

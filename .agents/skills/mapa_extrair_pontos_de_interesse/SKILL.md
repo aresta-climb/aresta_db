@@ -20,13 +20,22 @@ O arquivo JSON `raw_mapas/<imagem>.json` estritamente formatado e populado com o
 
 ## 1. O que é um ponto de interesse
 
-Um ponto de interesse é qualquer elemento do mapa que possa ser útil para o escalador, como:
-* Id de vias
-* Id de boulders
-* Indicações para outros setores ou trilhas, possivelmente com setas
-* Outras áreas de interesse no mapa, como pontes, túneis, mesas, etc.
+Um ponto de interesse é qualquer elemento do mapa que possa ser útil para o escalador. O tipo de ponto varia dependendo do contexto do mapa:
 
-Normalmente os pontos de interesse estão marcados no mapa com um símbolo (como um ponto, quadrado, seta, etc) e uma descrição textual (como "01", "02", "03", "X", "y", "Z", "Ponte", "Setor Y", etc).
+### 1.1 Mapas de Setor ou Grupo (`pertence_a_escalada: false`)
+Em mapas gerais de setor ou bloco:
+* Identificadores de vias ou boulders (ex: "01", "02", "15", "A", "B").
+* Indicações para outros setores ou trilhas, possivelmente com setas (ex: "Setor Savassinha ->", "Trilha").
+* Outras áreas ou referências de apoio, como pontes, mesas, estacionamento, etc.
+
+### 1.2 Mapas Específicos de Escaladas (`pertence_a_escalada: true`)
+Quando o metadado no arquivo `raw_mapas/<imagem>.json` indicar `"pertence_a_escalada": true` (ou a imagem for um close-up de boulder / croqui vertical dedicado a uma via específica):
+* **Pontos de Início / Saída:** Marcações de largada, agarras iniciais de mãos ou pés, saída sentada (ex: `start`, `sit_start`, `saida`, `L`).
+* **Pontos de Finalização / Topo:** Agarras finais, paradas ou cume (ex: `top`, `fim`, `parada`, `cume`, `cadena`).
+* **Passagens-Chave e Dificuldades:** Movimentos cruciais ou lances de maior dificuldade (ex: `crux`, `dinamico`, `boca_de_sapo`).
+* **Proteções e Paradas Técnicas:** Chapeletas, grampos, posições de proteções móveis (friends/nuts), paradas intermediárias em vias de múltiplas enfiadas (ex: `P1`, `P2`, `protecao_1`, `chapeleta`).
+
+Normalmente os pontos de interesse estão marcados no mapa com um símbolo (como um ponto, círculo, quadrado, seta) ou uma descrição textual identificadora.
 
 ## 2. Extraindo pontos de interesse 
 
@@ -60,7 +69,7 @@ Sua tarefa é extrair **todos** os pontos de interesse do mapa. Para isso, exami
 * Não crie pontos de interesse para desenhos soltos (como traços). Todo ponto extraído precisa ter um significado (via, boulder, setor, etc).
 * Se um mesmo texto (ex: "2") aparecer repetido no mapa em locais distintos (o que acontece em continuações), extraia todos, diferenciando seus IDs lógicos no JSON (ex: "02_abaixo" e "02_acima"), mas mantendo o `label` idêntico ("2").
 
-Um exemplo de como ficaria a seção de pontos de interesse do arquivo JSON:
+Exemplo de pontos de interesse para mapa geral de setor:
 
 ```json
 {
@@ -70,6 +79,18 @@ Um exemplo de como ficaria a seção de pontos de interesse do arquivo JSON:
     { "id": "Mesa", "label": "Mesa", "retangulo": { "x": 876, "y": 547, "comprimento": 48, "largura": 25 } },
     { "id": "Setor_Savassinha", "label": "Setor Savassinha", "retangulo": { "x": 1167, "y": 637, "comprimento": 265, "largura": 25, "angulo_graus_x100": 4500 } },
     { "id": "Livre", "label": "Livre", "poligono": { "coordenadas": [0, 0, 10, 0, 10, 10] } }
+  ]
+}
+```
+
+Exemplo de pontos de interesse para mapa específico de escalada (`pertence_a_escalada: true`):
+
+```json
+{
+  "pontos_de_interesse": [
+    { "id": "start", "label": "Start", "circulo": { "x": 320, "y": 910, "raio": 22 } },
+    { "id": "crux", "label": "Crux", "circulo": { "x": 350, "y": 480, "raio": 18 } },
+    { "id": "top", "label": "Top", "quadrado": { "x": 310, "y": 140, "lado": 30 } }
   ]
 }
 ```

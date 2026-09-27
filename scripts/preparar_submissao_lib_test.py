@@ -1784,6 +1784,197 @@ def test_validar_referencias_mapas_em_escalada():
     assert any("p1" in e and "duplicado" in e for e in erros)
 
 
+def test_migracao_imagens_redimensiona_por_tipo_entidade(tmp_path):
+    """
+    Valida que imagens migradas de raw_pdf_contents/ para imagens/ são comprimidas
+    e redimensionadas respeitando o perfil da entidade:
+    - 2.5 MP @ Q85 para mapas de setor/grupo
+    - 1.0 MP @ Q85 para mapas de escalada
+    """
+    from scripts.preparar_submissao_lib import corrigir_setores_ou_grupos_recursivo
+    from PIL import Image
+
+    pasta_raw = tmp_path / "raw_pdf_contents" / "imagens" / "bloco"
+    pasta_raw.mkdir(parents=True, exist_ok=True)
+
+    # Imagem de 3.0 MP (2000 x 1500 = 3.000.000 > 2.5 MP e > 1.0 MP)
+    img_setor_path = pasta_raw / "foto_setor.webp"
+    img_esc_path = pasta_raw / "foto_escalada.webp"
+
+    img_grande = Image.new("RGB", (2000, 1500), color=(100, 120, 140))
+    img_grande.save(img_setor_path, format="WEBP")
+    img_grande.save(img_esc_path, format="WEBP")
+
+    md_path = tmp_path / "setor.md"
+    conteudo_md = (
+        "---\n"
+        "nome: Setor Teste\n"
+        "mapas:\n"
+        "  - caminho_imagem_mapa: raw_pdf_contents/imagens/bloco/foto_setor.webp\n"
+        "escaladas:\n"
+        "  - boulder:\n"
+        "      nome: Boulder Teste\n"
+        "    mapas:\n"
+        "      - caminho_imagem_mapa: raw_pdf_contents/imagens/bloco/foto_escalada.webp\n"
+        "---\n"
+        "Descricao do setor\n"
+    )
+    md_path.write_text(conteudo_md, encoding="utf-8")
+
+    setores_ou_grupos = [{"setor": {"caminho": "setor.md"}}]
+
+    corrigir_setores_ou_grupos_recursivo(setores_ou_grupos, tmp_path)
+
+    img_setor_dest = tmp_path / "imagens" / "bloco_foto_setor.webp"
+    img_esc_dest = tmp_path / "imagens" / "bloco_foto_escalada.webp"
+
+    assert img_setor_dest.exists()
+    assert img_esc_dest.exists()
+
+    with Image.open(img_setor_dest) as img_s:
+        area_s = img_s.width * img_s.height
+        assert area_s <= 2_500_000
+        assert abs((img_s.width / img_s.height) - (2000 / 1500)) < 0.05
+
+    with Image.open(img_esc_dest) as img_e:
+        area_e = img_e.width * img_e.height
+        assert area_e <= 1_000_000
+        assert abs((img_e.width / img_e.height) - (2000 / 1500)) < 0.05
+
+
+def test_compilar_croqui_com_mapas_gerais_e_mapas_de_escaladas(tmp_path):
+    """
+    Testa se o compilador de croqui compila e serializa para Protobuf (binarypb e yaml)
+    com sucesso um croqui contendo mapas gerais (no pico), mapas de setor e
+    mapas específicos dentro de escaladas individuais com pontos de interesse.
+    """
+    import yaml
+    from aresta_api.proto.generated import croqui_pb2
+    from scripts.preparar_submissao_lib import compilar_croqui
+
+    pico_dir = tmp_path / "pico_completo"
+    pico_dir.mkdir()
+
+    # 1. Mapas gerais
+    mapas_gerais_md = pico_dir / "mapas_gerais.md"
+    mapas_gerais_md.write_text(
+        "---\n"
+        "mapas:\n"
+        "  - caminho_imagem_mapa: imagens/mapa_geral.webp\n"
+        "    largura_mapa: 1920\n"
+        "    altura_mapa: 1080\n"
+        "---\n",
+        encoding="utf-8"
+    )
+
+    # 2. Setor com mapa de setor e escalada com mapa próprio
+    setor_md = pico_dir / "setor_1.md"
+    setor_conteudo = (
+        "---\n"
+        "nome: Setor Falésia Alta\n"
+        "mapas:\n"
+        "  - caminho_imagem_mapa: imagens/mapa_setor.webp\n"
+        "    largura_mapa: 2000\n"
+        "    altura_mapa: 1200\n"
+        "    referencias:\n"
+        "      - escalada: Super Via\n"
+        "        ids:\n"
+        "          - '01'\n"
+        "escaladas:\n"
+        "  - via_esportiva:\n"
+        "      nome: Super Via\n"
+        "      dificuldade: BR_7A\n"
+        "      descricao: Croqui detalhado da via\n"
+        "    mapas:\n"
+        "      - caminho_imagem_mapa: imagens/croqui_super_via.webp\n"
+        "        largura_mapa: 800\n"
+        "        altura_mapa: 1200\n"
+        "        pontos_de_interesse:\n"
+        "          - id: start\n"
+        "            label: Start\n"
+        "            circulo:\n"
+        "              x: 400\n"
+        "              y: 1100\n"
+        "              raio: 20\n"
+        "          - id: crux\n"
+        "            label: Crux\n"
+        "            circulo:\n"
+        "              x: 420\n"
+        "              y: 600\n"
+        "              raio: 15\n"
+        "          - id: top\n"
+        "            label: Top\n"
+        "            quadrado:\n"
+        "              x: 410\n"
+        "              y: 100\n"
+        "              lado: 30\n"
+        "---\n"
+        "Descrição da Falésia Alta.\n"
+    )
+    setor_md.write_text(setor_conteudo, encoding="utf-8")
+
+    # 3. croqui.yaml
+    croqui_yaml = pico_dir / "croqui.yaml"
+    croqui_data = {
+        "nome": "Croqui Teste Completo",
+        "picos": [
+            {
+                "nome": "Pico Falésia",
+                "mapas_gerais": {
+                    "caminho": "mapas_gerais.md"
+                },
+                "setores_ou_grupos": [
+                    {
+                        "setor": {
+                            "caminho": "setor_1.md"
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+    with open(croqui_yaml, "w", encoding="utf-8") as f:
+        yaml.dump(croqui_data, f)
+
+    destino_yaml = tmp_path / "compilado.yaml"
+    destino_binarypb = tmp_path / "compilado.binarypb"
+
+    compilar_croqui(pico_dir, destino_yaml, destino_binarypb)
+
+    assert destino_yaml.exists()
+    assert destino_binarypb.exists()
+
+    # Validação no modelo Protobuf
+    croqui_msg = croqui_pb2.Croqui()
+    with open(destino_binarypb, "rb") as f:
+        croqui_msg.ParseFromString(f.read())
+
+    pico = croqui_msg.picos[0]
+    assert len(pico.mapas_gerais.conteudo.mapas) == 1
+    assert pico.mapas_gerais.conteudo.mapas[0].caminho_imagem_mapa == "imagens/mapa_geral.webp"
+
+    setor = pico.setores_ou_grupos[0].setor.conteudo
+    assert len(setor.mapas) == 1
+    assert setor.mapas[0].caminho_imagem_mapa == "imagens/mapa_setor.webp"
+
+    assert len(setor.escaladas) == 1
+    escalada = setor.escaladas[0]
+    assert escalada.via_esportiva.nome == "Super Via"
+    assert escalada.via_esportiva.descricao == "Croqui detalhado da via"
+    assert len(escalada.mapas) == 1
+    mapa_esc = escalada.mapas[0]
+    assert mapa_esc.caminho_imagem_mapa == "imagens/croqui_super_via.webp"
+    assert mapa_esc.largura_mapa == 800
+    assert mapa_esc.altura_mapa == 1200
+    assert len(mapa_esc.pontos_de_interesse) == 3
+    ids_pois = [poi.id for poi in mapa_esc.pontos_de_interesse]
+    assert "start" in ids_pois
+    assert "crux" in ids_pois
+    assert "top" in ids_pois
+
+
+
+
 
 
 

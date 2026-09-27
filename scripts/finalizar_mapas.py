@@ -83,13 +83,32 @@ def finalizar_mapas(pico_path: Union[str, Path]) -> None:
             print(f"Erro: Não foi possível carregar frontmatter em {full_md_path}")
             continue
 
-        # Encontrar a entrada correspondente no campo 'mapas'
+        # Encontrar a entrada correspondente no campo 'mapas' (raiz ou em escaladas)
         mapas = frontmatter.get("mapas", [])
         mapa_alvo = None
-        for mapa in mapas:
-            if mapa.get("caminho_imagem_mapa") == img_relative_path:
-                mapa_alvo = mapa
-                break
+        if isinstance(mapas, list):
+            for mapa in mapas:
+                if isinstance(mapa, dict) and mapa.get("caminho_imagem_mapa") == img_relative_path:
+                    mapa_alvo = mapa
+                    break
+
+        if mapa_alvo is None:
+            for key in ["escaladas", "vias"]:
+                for via in frontmatter.get(key, []) or []:
+                    if not isinstance(via, dict):
+                        continue
+                    mapas_esc = via.get("mapas")
+                    if not mapas_esc and "via_multiplas_enfiadas" in via and isinstance(via["via_multiplas_enfiadas"], dict):
+                        mapas_esc = via["via_multiplas_enfiadas"].get("mapas")
+                    if mapas_esc and isinstance(mapas_esc, list):
+                        for mapa in mapas_esc:
+                            if isinstance(mapa, dict) and mapa.get("caminho_imagem_mapa") == img_relative_path:
+                                mapa_alvo = mapa
+                                break
+                    if mapa_alvo is not None:
+                        break
+                if mapa_alvo is not None:
+                    break
 
         if mapa_alvo is not None:
             dim_img = dados.get("dimensoes_imagem", {})
