@@ -9,11 +9,11 @@ picos:
   setores_ou_grupos:
   - setor:
       caminho: setor_de_baixo_caverna.md
-  descricao: "![Foto aérea](imagens/foto_drone.webp)\nEm uma área de extração e exploração\
-    \ de pedreiras o setor mantém-se ainda intacto devido a sua história de missas\
-    \ realizadas no local. Ainda podemos observar resquícios como janelas, muretas,\
-    \ altar... \nO setor fica localizado entre as cidades de Nova Friburgo e Bom Jardim,\
-    \ tendo acesso pelas duas cidades."
+  descricao: "![Foto aérea](imagens/foto_drone.webp)\n\nEm uma área de extração e\
+    \ exploração de pedreiras o setor mantém-se ainda intacto devido a sua história\
+    \ de missas realizadas no local. Ainda podemos observar resquícios como janelas,\
+    \ muretas, altar... \nO setor fica localizado entre as cidades de Nova Friburgo\
+    \ e Bom Jardim, tendo acesso pelas duas cidades."
   localizacao:
     latitude: -222285860
     longitude: -424249510

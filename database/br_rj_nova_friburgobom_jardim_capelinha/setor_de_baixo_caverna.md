@@ -3,786 +3,6 @@
 # Copyright (C) 2026 Aresta Climb Contributors
 nome: Setor principal
 mapas:
-- caminho_imagem_mapa: imagens/setor_baixo_visao_externa_p0.webp
-  largura_mapa: 1773
-  altura_mapa: 2364
-  pontos_de_interesse:
-  - id: linha_1
-    label: ''
-    linha:
-      estilo: SOLIDO
-      conteudo:
-        nos:
-        - x: 669
-          y: 2069
-          tipo: CIRCULO_IDENTIFICADOR
-          rotulo: '1'
-        - x: 674
-          y: 1981
-          tipo: PASSAGEM
-        - x: 605
-          y: 1926
-          tipo: PASSAGEM
-        - x: 524
-          y: 1846
-          tipo: PASSAGEM
-        - x: 465
-          y: 1767
-          tipo: PASSAGEM
-        - x: 476
-          y: 1697
-          tipo: PASSAGEM
-        - x: 590
-          y: 1476
-          tipo: PASSAGEM
-        - x: 589
-          y: 1326
-          tipo: PASSAGEM
-        - x: 693
-          y: 1172
-          tipo: PASSAGEM
-        - x: 891
-          y: 929
-          tipo: PASSAGEM
-        - x: 923
-          y: 785
-          tipo: PASSAGEM
-        - x: 958
-          y: 694
-          tipo: PASSAGEM
-        - x: 1069
-          y: 518
-          tipo: PASSAGEM
-        - x: 1071
-          y: 366
-          tipo: PASSAGEM
-        - x: 1148
-          y: 328
-          tipo: PASSAGEM
-        - x: 1202
-          y: 298
-          tipo: PASSAGEM
-        - x: 1214
-          y: 257
-          tipo: PASSAGEM
-        - x: 1242
-          y: 118
-          tipo: PASSAGEM
-        - x: 1279
-          y: 51
-          tipo: PASSAGEM
-        - x: 1323
-          y: 0
-          tipo: FIM_TOP
-          rotulo: A
-      espessura: 6
-    cor: '#FF1744'
-  - id: linha_2
-    label: ''
-    linha:
-      estilo: SOLIDO
-      conteudo:
-        nos:
-        - x: 701
-          y: 2070
-          tipo: CIRCULO_IDENTIFICADOR
-          rotulo: '2'
-        - x: 708
-          y: 1996
-          tipo: PASSAGEM
-        - x: 689
-          y: 1906
-          tipo: PASSAGEM
-        - x: 716
-          y: 1780
-          tipo: PASSAGEM
-        - x: 744
-          y: 1630
-          tipo: PASSAGEM
-        - x: 736
-          y: 1487
-          tipo: PASSAGEM
-        - x: 815
-          y: 1312
-          tipo: PASSAGEM
-        - x: 890
-          y: 1143
-          tipo: PASSAGEM
-        - x: 1034
-          y: 1049
-          tipo: PASSAGEM
-        - x: 1072
-          y: 886
-          tipo: PASSAGEM
-        - x: 1122
-          y: 735
-          tipo: PASSAGEM
-        - x: 1176
-          y: 585
-          tipo: PASSAGEM
-        - x: 1241
-          y: 471
-          tipo: PASSAGEM
-        - x: 1241
-          y: 298
-          tipo: PASSAGEM
-        - x: 1247
-          y: 175
-          tipo: PASSAGEM
-        - x: 1300
-          y: 69
-          tipo: PASSAGEM
-        - x: 1323
-          y: 0
-          tipo: FIM_TOP
-          rotulo: A
-      espessura: 6
-    cor: '#FF1744'
-  - id: linha_3
-    label: ''
-    linha:
-      estilo: SOLIDO
-      conteudo:
-        nos:
-        - x: 736
-          y: 2069
-          tipo: CIRCULO_IDENTIFICADOR
-          rotulo: '3'
-        - x: 716
-          y: 1907
-          tipo: PASSAGEM
-        - x: 785
-          y: 1814
-          tipo: PASSAGEM
-        - x: 881
-          y: 1685
-          tipo: PASSAGEM
-        - x: 934
-          y: 1601
-          tipo: PASSAGEM
-        - x: 958
-          y: 1443
-          tipo: PASSAGEM
-        - x: 1010
-          y: 1266
-          tipo: PASSAGEM
-        - x: 1047
-          y: 1151
-          tipo: PASSAGEM
-        - x: 1127
-          y: 977
-          tipo: PASSAGEM
-        - x: 1190
-          y: 767
-          tipo: PASSAGEM
-        - x: 1266
-          y: 656
-          tipo: PASSAGEM
-        - x: 1274
-          y: 526
-          tipo: PASSAGEM
-        - x: 1300
-          y: 371
-          tipo: PASSAGEM
-        - x: 1338
-          y: 261
-          tipo: FIM_TOP
-          rotulo: B
-      espessura: 6
-    cor: '#FF1744'
-  - id: linha_4
-    label: ''
-    linha:
-      estilo: SOLIDO
-      conteudo:
-        nos:
-        - x: 765
-          y: 2070
-          tipo: CIRCULO_IDENTIFICADOR
-          rotulo: '4'
-        - x: 743
-          y: 1979
-          tipo: PASSAGEM
-        - x: 739
-          y: 1908
-          tipo: PASSAGEM
-        - x: 763
-          y: 1873
-          tipo: PASSAGEM
-        - x: 814
-          y: 1810
-          tipo: PASSAGEM
-        - x: 885
-          y: 1711
-          tipo: PASSAGEM
-        - x: 935
-          y: 1636
-          tipo: PASSAGEM
-        - x: 970
-          y: 1539
-          tipo: PASSAGEM
-        - x: 982
-          y: 1486
-          tipo: PASSAGEM
-        - x: 1045
-          y: 1455
-          tipo: PASSAGEM
-        - x: 1113
-          y: 1371
-          tipo: PASSAGEM
-        - x: 1158
-          y: 1275
-          tipo: PASSAGEM
-        - x: 1168
-          y: 1188
-          tipo: PASSAGEM
-        - x: 1205
-          y: 1115
-          tipo: PASSAGEM
-        - x: 1231
-          y: 1079
-          tipo: PASSAGEM
-        - x: 1266
-          y: 964
-          tipo: PASSAGEM
-        - x: 1266
-          y: 903
-          tipo: PASSAGEM
-        - x: 1275
-          y: 834
-          tipo: PASSAGEM
-        - x: 1316
-          y: 719
-          tipo: FIM_TOP
-          rotulo: C
-      espessura: 6
-    cor: '#FF1744'
-  - id: linha_5
-    label: ''
-    linha:
-      estilo: SOLIDO
-      conteudo:
-        nos:
-        - x: 1139
-          y: 1895
-          tipo: CIRCULO_IDENTIFICADOR
-          rotulo: '5'
-        - x: 1151
-          y: 1805
-          tipo: PASSAGEM
-        - x: 1188
-          y: 1699
-          tipo: PASSAGEM
-        - x: 1201
-          y: 1646
-          tipo: PASSAGEM
-        - x: 1198
-          y: 1567
-          tipo: PASSAGEM
-        - x: 1193
-          y: 1500
-          tipo: PASSAGEM
-        - x: 1246
-          y: 1379
-          tipo: PASSAGEM
-        - x: 1277
-          y: 1294
-          tipo: PASSAGEM
-        - x: 1278
-          y: 1218
-          tipo: PASSAGEM
-        - x: 1279
-          y: 1179
-          tipo: PASSAGEM
-        - x: 1319
-          y: 1125
-          tipo: PASSAGEM
-        - x: 1393
-          y: 1050
-          tipo: FIM_TOP
-          rotulo: D
-      espessura: 6
-    cor: '#FF1744'
-  - id: linha_6
-    label: ''
-    linha:
-      estilo: SOLIDO
-      conteudo:
-        nos:
-        - x: 1231
-          y: 1871
-          tipo: CIRCULO_IDENTIFICADOR
-          rotulo: '6'
-        - x: 1253
-          y: 1766
-          tipo: PASSAGEM
-        - x: 1255
-          y: 1704
-          tipo: PASSAGEM
-        - x: 1237
-          y: 1650
-          tipo: PASSAGEM
-        - x: 1283
-          y: 1518
-          tipo: PASSAGEM
-        - x: 1322
-          y: 1443
-          tipo: PASSAGEM
-        - x: 1343
-          y: 1376
-          tipo: PASSAGEM
-        - x: 1372
-          y: 1326
-          tipo: PASSAGEM
-        - x: 1409
-          y: 1281
-          tipo: PASSAGEM
-        - x: 1420
-          y: 1229
-          tipo: PASSAGEM
-        - x: 1426
-          y: 1185
-          tipo: PASSAGEM
-        - x: 1426
-          y: 1184
-          tipo: FIM_TOP
-          rotulo: E
-      espessura: 6
-    cor: '#FF1744'
-  - id: linha_7
-    label: ''
-    linha:
-      estilo: TRACEJADO
-      conteudo:
-        nos:
-        - x: 1327
-          y: 1775
-          tipo: CIRCULO_IDENTIFICADOR
-          rotulo: '7'
-        - x: 1360
-          y: 1675
-          tipo: PASSAGEM
-        - x: 1366
-          y: 1592
-          tipo: PASSAGEM
-        - x: 1399
-          y: 1489
-          tipo: PASSAGEM
-        - x: 1408
-          y: 1438
-          tipo: PASSAGEM
-        - x: 1418
-          y: 1377
-          tipo: PASSAGEM
-        - x: 1439
-          y: 1301
-          tipo: PASSAGEM
-        - x: 1464
-          y: 1221
-          tipo: FIM_TOP
-          rotulo: F
-      espessura: 6
-    cor: '#00E676'
-  referencias:
-  - escalada: Água Benta
-    ids:
-    - linha_1
-  - ids:
-    - linha_2
-    escalada: Misericórdia
-  - ids:
-    - linha_3
-    escalada: Excomungado
-  - ids:
-    - linha_4
-    escalada: Crisma
-  - ids:
-    - linha_5
-    escalada: Primeira Comunhão
-  - ids:
-    - linha_6
-    escalada: Tribunal da inquisição
-  - ids:
-    - linha_7
-    escalada: Proj
-- caminho_imagem_mapa: imagens/setor_capela_interna_p1.webp
-  largura_mapa: 2364
-  altura_mapa: 1773
-  pontos_de_interesse:
-  - id: linha_8
-    label: ''
-    linha:
-      estilo: SOLIDO
-      conteudo:
-        nos:
-        - x: 502
-          y: 1099
-          tipo: CIRCULO_IDENTIFICADOR
-          rotulo: '1'
-        - x: 440
-          y: 1031
-          tipo: PASSAGEM
-        - x: 364
-          y: 992
-          tipo: PASSAGEM
-        - x: 286
-          y: 930
-          tipo: PASSAGEM
-        - x: 164
-          y: 841
-          tipo: PASSAGEM
-        - x: 144
-          y: 799
-          tipo: PASSAGEM
-        - x: 155
-          y: 744
-          tipo: PASSAGEM
-        - x: 154
-          y: 647
-          tipo: PASSAGEM
-        - x: 158
-          y: 566
-          tipo: PASSAGEM
-        - x: 201
-          y: 466
-          tipo: PASSAGEM
-        - x: 289
-          y: 235
-          tipo: PASSAGEM
-        - x: 289
-          y: 233
-          tipo: FIM_TOP
-          rotulo: A
-      espessura: 6
-    cor: '#FF1744'
-  - id: linha_9
-    label: ''
-    linha:
-      estilo: SOLIDO
-      conteudo:
-        nos:
-        - x: 531
-          y: 1104
-          tipo: CIRCULO_IDENTIFICADOR
-          rotulo: '2'
-        - x: 512
-          y: 1063
-          tipo: PASSAGEM
-        - x: 467
-          y: 1025
-          tipo: PASSAGEM
-        - x: 436
-          y: 989
-          tipo: PASSAGEM
-        - x: 393
-          y: 967
-          tipo: PASSAGEM
-        - x: 383
-          y: 923
-          tipo: PASSAGEM
-        - x: 389
-          y: 833
-          tipo: PASSAGEM
-        - x: 390
-          y: 790
-          tipo: PASSAGEM
-        - x: 337
-          y: 693
-          tipo: PASSAGEM
-        - x: 371
-          y: 589
-          tipo: PASSAGEM
-        - x: 396
-          y: 522
-          tipo: PASSAGEM
-        - x: 412
-          y: 464
-          tipo: PASSAGEM
-        - x: 544
-          y: 333
-          tipo: PASSAGEM
-        - x: 539
-          y: 239
-          tipo: PASSAGEM
-        - x: 535
-          y: 136
-          tipo: PASSAGEM
-        - x: 537
-          y: 134
-          tipo: FIM_TOP
-          rotulo: B
-      espessura: 6
-    cor: '#FF1744'
-  - id: linha_10
-    label: ''
-    linha:
-      estilo: SOLIDO
-      conteudo:
-        nos:
-        - x: 559
-          y: 1128
-          tipo: CIRCULO_IDENTIFICADOR
-          rotulo: '3'
-        - x: 562
-          y: 1076
-          tipo: PASSAGEM
-        - x: 542
-          y: 1027
-          tipo: PASSAGEM
-        - x: 489
-          y: 945
-          tipo: PASSAGEM
-        - x: 504
-          y: 901
-          tipo: PASSAGEM
-        - x: 571
-          y: 815
-          tipo: PASSAGEM
-        - x: 656
-          y: 693
-          tipo: PASSAGEM
-        - x: 653
-          y: 562
-          tipo: PASSAGEM
-        - x: 645
-          y: 470
-          tipo: PASSAGEM
-        - x: 674
-          y: 285
-          tipo: PASSAGEM
-        - x: 679
-          y: 235
-          tipo: PASSAGEM
-        - x: 673
-          y: 120
-          tipo: PASSAGEM
-        - x: 673
-          y: 119
-          tipo: FIM_TOP
-          rotulo: C
-      espessura: 6
-    cor: '#FF1744'
-  - id: linha_11
-    label: ''
-    linha:
-      estilo: SOLIDO
-      conteudo:
-        nos:
-        - x: 592
-          y: 1146
-          tipo: CIRCULO_IDENTIFICADOR
-          rotulo: '4'
-        - x: 589
-          y: 1076
-          tipo: PASSAGEM
-        - x: 583
-          y: 1033
-          tipo: PASSAGEM
-        - x: 548
-          y: 974
-          tipo: PASSAGEM
-        - x: 526
-          y: 943
-          tipo: PASSAGEM
-        - x: 522
-          y: 907
-          tipo: PASSAGEM
-        - x: 554
-          y: 873
-          tipo: PASSAGEM
-        - x: 592
-          y: 838
-          tipo: PASSAGEM
-        - x: 636
-          y: 798
-          tipo: PASSAGEM
-        - x: 720
-          y: 725
-          tipo: PASSAGEM
-        - x: 833
-          y: 650
-          tipo: PASSAGEM
-        - x: 876
-          y: 581
-          tipo: PASSAGEM
-        - x: 872
-          y: 462
-          tipo: PASSAGEM
-        - x: 884
-          y: 388
-          tipo: PASSAGEM
-        - x: 895
-          y: 300
-          tipo: PASSAGEM
-        - x: 905
-          y: 214
-          tipo: PASSAGEM
-        - x: 898
-          y: 117
-          tipo: PASSAGEM
-        - x: 898
-          y: 117
-          tipo: FIM_TOP
-          rotulo: D
-      espessura: 6
-    cor: '#FF1744'
-  - id: linha_12
-    label: ''
-    linha:
-      estilo: SOLIDO
-      conteudo:
-        nos:
-        - x: 1302
-          y: 1185
-          tipo: CIRCULO_IDENTIFICADOR
-          rotulo: '5'
-        - x: 1357
-          y: 1052
-          tipo: PASSAGEM
-        - x: 1395
-          y: 987
-          tipo: PASSAGEM
-        - x: 1355
-          y: 892
-          tipo: PASSAGEM
-        - x: 1320
-          y: 821
-          tipo: PASSAGEM
-        - x: 1367
-          y: 729
-          tipo: PASSAGEM
-        - x: 1391
-          y: 644
-          tipo: PASSAGEM
-        - x: 1351
-          y: 500
-          tipo: PASSAGEM
-        - x: 1336
-          y: 399
-          tipo: PASSAGEM
-        - x: 1298
-          y: 333
-          tipo: PASSAGEM
-        - x: 1328
-          y: 268
-          tipo: PASSAGEM
-        - x: 1353
-          y: 201
-          tipo: PASSAGEM
-        - x: 1353
-          y: 197
-          tipo: FIM_TOP
-          rotulo: E
-      espessura: 6
-    cor: '#FF1744'
-  - id: linha_13
-    label: ''
-    linha:
-      estilo: SOLIDO
-      conteudo:
-        nos:
-        - x: 1645
-          y: 1268
-          tipo: CIRCULO_IDENTIFICADOR
-          rotulo: '6'
-        - x: 1674
-          y: 1169
-          tipo: PASSAGEM
-        - x: 1680
-          y: 1088
-          tipo: PASSAGEM
-        - x: 1659
-          y: 999
-          tipo: PASSAGEM
-        - x: 1609
-          y: 935
-          tipo: PASSAGEM
-        - x: 1571
-          y: 874
-          tipo: PASSAGEM
-        - x: 1569
-          y: 785
-          tipo: PASSAGEM
-        - x: 1625
-          y: 700
-          tipo: PASSAGEM
-        - x: 1627
-          y: 581
-          tipo: PASSAGEM
-        - x: 1651
-          y: 521
-          tipo: PASSAGEM
-        - x: 1703
-          y: 415
-          tipo: PASSAGEM
-        - x: 1658
-          y: 208
-          tipo: PASSAGEM
-        - x: 1656
-          y: 207
-          tipo: FIM_TOP
-          rotulo: F
-      espessura: 6
-    cor: '#FF1744'
-  - id: linha_14
-    label: ''
-    linha:
-      estilo: TRACEJADO
-      conteudo:
-        nos:
-        - x: 2174
-          y: 1073
-          tipo: CIRCULO_IDENTIFICADOR
-          rotulo: '7'
-        - x: 2197
-          y: 867
-          tipo: PASSAGEM
-        - x: 2147
-          y: 794
-          tipo: PASSAGEM
-        - x: 2059
-          y: 699
-          tipo: PASSAGEM
-        - x: 1967
-          y: 607
-          tipo: PASSAGEM
-        - x: 1944
-          y: 492
-          tipo: PASSAGEM
-        - x: 1857
-          y: 359
-          tipo: PASSAGEM
-        - x: 1750
-          y: 141
-          tipo: PASSAGEM
-        - x: 1749
-          y: 140
-          tipo: FIM_TOP
-          rotulo: G
-      espessura: 6
-    cor: '#00E676'
-  referencias:
-  - ids:
-    - linha_8
-    escalada: Água Benta
-  - ids:
-    - linha_9
-    escalada: Misericórdia
-  - ids:
-    - linha_10
-    escalada: Excomungado
-  - ids:
-    - linha_11
-    escalada: Crisma
-  - ids:
-    - linha_12
-    escalada: Primeira Comunhão
-  - ids:
-    - linha_13
-    escalada: Tribunal da inquisição
-  - ids:
-    - linha_14
-    escalada: Proj
 - caminho_imagem_mapa: imagens/setor_capela_externa_p2.webp
   largura_mapa: 1773
   altura_mapa: 2364
@@ -1300,6 +520,7 @@ mapas:
       espessura: 6
     cor: '#FF1744'
   - id: linha_27
+    label: ''
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -1344,8 +565,8 @@ mapas:
           rotulo: J
       espessura: 6
     cor: '#00E676'
-    label: ''
   - id: linha_44
+    label: ''
     linha:
       estilo: SOLIDO
       conteudo:
@@ -1393,7 +614,6 @@ mapas:
           rotulo: K
       espessura: 6
     cor: '#FF1744'
-    label: ''
   - id: linha_16
     linha:
       estilo: SOLIDO
@@ -1553,9 +773,9 @@ mapas:
       espessura: 6
     cor: '#D500F9'
   referencias:
-  - ids:
+  - escalada: Misericórdia
+    ids:
     - linha_17
-    escalada: Misericórdia
   - ids:
     - linha_18
     escalada: Excomungado
@@ -2149,6 +1369,786 @@ mapas:
     - linha_30
     - linha_33
     escalada: Variante Água Ardente
+- caminho_imagem_mapa: imagens/setor_baixo_visao_externa_p0.webp
+  largura_mapa: 1773
+  altura_mapa: 2364
+  pontos_de_interesse:
+  - id: linha_1
+    label: ''
+    linha:
+      estilo: SOLIDO
+      conteudo:
+        nos:
+        - x: 669
+          y: 2069
+          tipo: CIRCULO_IDENTIFICADOR
+          rotulo: '1'
+        - x: 674
+          y: 1981
+          tipo: PASSAGEM
+        - x: 605
+          y: 1926
+          tipo: PASSAGEM
+        - x: 524
+          y: 1846
+          tipo: PASSAGEM
+        - x: 465
+          y: 1767
+          tipo: PASSAGEM
+        - x: 476
+          y: 1697
+          tipo: PASSAGEM
+        - x: 590
+          y: 1476
+          tipo: PASSAGEM
+        - x: 589
+          y: 1326
+          tipo: PASSAGEM
+        - x: 693
+          y: 1172
+          tipo: PASSAGEM
+        - x: 891
+          y: 929
+          tipo: PASSAGEM
+        - x: 923
+          y: 785
+          tipo: PASSAGEM
+        - x: 958
+          y: 694
+          tipo: PASSAGEM
+        - x: 1069
+          y: 518
+          tipo: PASSAGEM
+        - x: 1071
+          y: 366
+          tipo: PASSAGEM
+        - x: 1148
+          y: 328
+          tipo: PASSAGEM
+        - x: 1202
+          y: 298
+          tipo: PASSAGEM
+        - x: 1214
+          y: 257
+          tipo: PASSAGEM
+        - x: 1242
+          y: 118
+          tipo: PASSAGEM
+        - x: 1279
+          y: 51
+          tipo: PASSAGEM
+        - x: 1323
+          y: 0
+          tipo: FIM_TOP
+          rotulo: A
+      espessura: 6
+    cor: '#FF1744'
+  - id: linha_2
+    label: ''
+    linha:
+      estilo: SOLIDO
+      conteudo:
+        nos:
+        - x: 701
+          y: 2070
+          tipo: CIRCULO_IDENTIFICADOR
+          rotulo: '2'
+        - x: 708
+          y: 1996
+          tipo: PASSAGEM
+        - x: 689
+          y: 1906
+          tipo: PASSAGEM
+        - x: 716
+          y: 1780
+          tipo: PASSAGEM
+        - x: 744
+          y: 1630
+          tipo: PASSAGEM
+        - x: 736
+          y: 1487
+          tipo: PASSAGEM
+        - x: 815
+          y: 1312
+          tipo: PASSAGEM
+        - x: 890
+          y: 1143
+          tipo: PASSAGEM
+        - x: 1034
+          y: 1049
+          tipo: PASSAGEM
+        - x: 1072
+          y: 886
+          tipo: PASSAGEM
+        - x: 1122
+          y: 735
+          tipo: PASSAGEM
+        - x: 1176
+          y: 585
+          tipo: PASSAGEM
+        - x: 1241
+          y: 471
+          tipo: PASSAGEM
+        - x: 1241
+          y: 298
+          tipo: PASSAGEM
+        - x: 1247
+          y: 175
+          tipo: PASSAGEM
+        - x: 1300
+          y: 69
+          tipo: PASSAGEM
+        - x: 1323
+          y: 0
+          tipo: FIM_TOP
+          rotulo: A
+      espessura: 6
+    cor: '#FF1744'
+  - id: linha_3
+    label: ''
+    linha:
+      estilo: SOLIDO
+      conteudo:
+        nos:
+        - x: 736
+          y: 2069
+          tipo: CIRCULO_IDENTIFICADOR
+          rotulo: '3'
+        - x: 716
+          y: 1907
+          tipo: PASSAGEM
+        - x: 785
+          y: 1814
+          tipo: PASSAGEM
+        - x: 881
+          y: 1685
+          tipo: PASSAGEM
+        - x: 934
+          y: 1601
+          tipo: PASSAGEM
+        - x: 958
+          y: 1443
+          tipo: PASSAGEM
+        - x: 1010
+          y: 1266
+          tipo: PASSAGEM
+        - x: 1047
+          y: 1151
+          tipo: PASSAGEM
+        - x: 1127
+          y: 977
+          tipo: PASSAGEM
+        - x: 1190
+          y: 767
+          tipo: PASSAGEM
+        - x: 1266
+          y: 656
+          tipo: PASSAGEM
+        - x: 1274
+          y: 526
+          tipo: PASSAGEM
+        - x: 1300
+          y: 371
+          tipo: PASSAGEM
+        - x: 1338
+          y: 261
+          tipo: FIM_TOP
+          rotulo: B
+      espessura: 6
+    cor: '#FF1744'
+  - id: linha_4
+    label: ''
+    linha:
+      estilo: SOLIDO
+      conteudo:
+        nos:
+        - x: 765
+          y: 2070
+          tipo: CIRCULO_IDENTIFICADOR
+          rotulo: '4'
+        - x: 743
+          y: 1979
+          tipo: PASSAGEM
+        - x: 739
+          y: 1908
+          tipo: PASSAGEM
+        - x: 763
+          y: 1873
+          tipo: PASSAGEM
+        - x: 814
+          y: 1810
+          tipo: PASSAGEM
+        - x: 885
+          y: 1711
+          tipo: PASSAGEM
+        - x: 935
+          y: 1636
+          tipo: PASSAGEM
+        - x: 970
+          y: 1539
+          tipo: PASSAGEM
+        - x: 982
+          y: 1486
+          tipo: PASSAGEM
+        - x: 1045
+          y: 1455
+          tipo: PASSAGEM
+        - x: 1113
+          y: 1371
+          tipo: PASSAGEM
+        - x: 1158
+          y: 1275
+          tipo: PASSAGEM
+        - x: 1168
+          y: 1188
+          tipo: PASSAGEM
+        - x: 1205
+          y: 1115
+          tipo: PASSAGEM
+        - x: 1231
+          y: 1079
+          tipo: PASSAGEM
+        - x: 1266
+          y: 964
+          tipo: PASSAGEM
+        - x: 1266
+          y: 903
+          tipo: PASSAGEM
+        - x: 1275
+          y: 834
+          tipo: PASSAGEM
+        - x: 1316
+          y: 719
+          tipo: FIM_TOP
+          rotulo: C
+      espessura: 6
+    cor: '#FF1744'
+  - id: linha_5
+    label: ''
+    linha:
+      estilo: SOLIDO
+      conteudo:
+        nos:
+        - x: 1139
+          y: 1895
+          tipo: CIRCULO_IDENTIFICADOR
+          rotulo: '5'
+        - x: 1151
+          y: 1805
+          tipo: PASSAGEM
+        - x: 1188
+          y: 1699
+          tipo: PASSAGEM
+        - x: 1201
+          y: 1646
+          tipo: PASSAGEM
+        - x: 1198
+          y: 1567
+          tipo: PASSAGEM
+        - x: 1193
+          y: 1500
+          tipo: PASSAGEM
+        - x: 1246
+          y: 1379
+          tipo: PASSAGEM
+        - x: 1277
+          y: 1294
+          tipo: PASSAGEM
+        - x: 1278
+          y: 1218
+          tipo: PASSAGEM
+        - x: 1279
+          y: 1179
+          tipo: PASSAGEM
+        - x: 1319
+          y: 1125
+          tipo: PASSAGEM
+        - x: 1393
+          y: 1050
+          tipo: FIM_TOP
+          rotulo: D
+      espessura: 6
+    cor: '#FF1744'
+  - id: linha_6
+    label: ''
+    linha:
+      estilo: SOLIDO
+      conteudo:
+        nos:
+        - x: 1231
+          y: 1871
+          tipo: CIRCULO_IDENTIFICADOR
+          rotulo: '6'
+        - x: 1253
+          y: 1766
+          tipo: PASSAGEM
+        - x: 1255
+          y: 1704
+          tipo: PASSAGEM
+        - x: 1237
+          y: 1650
+          tipo: PASSAGEM
+        - x: 1283
+          y: 1518
+          tipo: PASSAGEM
+        - x: 1322
+          y: 1443
+          tipo: PASSAGEM
+        - x: 1343
+          y: 1376
+          tipo: PASSAGEM
+        - x: 1372
+          y: 1326
+          tipo: PASSAGEM
+        - x: 1409
+          y: 1281
+          tipo: PASSAGEM
+        - x: 1420
+          y: 1229
+          tipo: PASSAGEM
+        - x: 1426
+          y: 1185
+          tipo: PASSAGEM
+        - x: 1426
+          y: 1184
+          tipo: FIM_TOP
+          rotulo: E
+      espessura: 6
+    cor: '#FF1744'
+  - id: linha_7
+    label: ''
+    linha:
+      estilo: TRACEJADO
+      conteudo:
+        nos:
+        - x: 1327
+          y: 1775
+          tipo: CIRCULO_IDENTIFICADOR
+          rotulo: '7'
+        - x: 1360
+          y: 1675
+          tipo: PASSAGEM
+        - x: 1366
+          y: 1592
+          tipo: PASSAGEM
+        - x: 1399
+          y: 1489
+          tipo: PASSAGEM
+        - x: 1408
+          y: 1438
+          tipo: PASSAGEM
+        - x: 1418
+          y: 1377
+          tipo: PASSAGEM
+        - x: 1439
+          y: 1301
+          tipo: PASSAGEM
+        - x: 1464
+          y: 1221
+          tipo: FIM_TOP
+          rotulo: F
+      espessura: 6
+    cor: '#00E676'
+  referencias:
+  - ids:
+    - linha_1
+    escalada: Água Benta
+  - ids:
+    - linha_2
+    escalada: Misericórdia
+  - ids:
+    - linha_3
+    escalada: Excomungado
+  - ids:
+    - linha_4
+    escalada: Crisma
+  - ids:
+    - linha_5
+    escalada: Primeira Comunhão
+  - ids:
+    - linha_6
+    escalada: Tribunal da inquisição
+  - ids:
+    - linha_7
+    escalada: Proj
+- caminho_imagem_mapa: imagens/setor_capela_interna_p1.webp
+  largura_mapa: 2364
+  altura_mapa: 1773
+  pontos_de_interesse:
+  - id: linha_8
+    label: ''
+    linha:
+      estilo: SOLIDO
+      conteudo:
+        nos:
+        - x: 502
+          y: 1099
+          tipo: CIRCULO_IDENTIFICADOR
+          rotulo: '1'
+        - x: 440
+          y: 1031
+          tipo: PASSAGEM
+        - x: 364
+          y: 992
+          tipo: PASSAGEM
+        - x: 286
+          y: 930
+          tipo: PASSAGEM
+        - x: 164
+          y: 841
+          tipo: PASSAGEM
+        - x: 144
+          y: 799
+          tipo: PASSAGEM
+        - x: 155
+          y: 744
+          tipo: PASSAGEM
+        - x: 154
+          y: 647
+          tipo: PASSAGEM
+        - x: 158
+          y: 566
+          tipo: PASSAGEM
+        - x: 201
+          y: 466
+          tipo: PASSAGEM
+        - x: 289
+          y: 235
+          tipo: PASSAGEM
+        - x: 289
+          y: 233
+          tipo: FIM_TOP
+          rotulo: A
+      espessura: 6
+    cor: '#FF1744'
+  - id: linha_9
+    label: ''
+    linha:
+      estilo: SOLIDO
+      conteudo:
+        nos:
+        - x: 531
+          y: 1104
+          tipo: CIRCULO_IDENTIFICADOR
+          rotulo: '2'
+        - x: 512
+          y: 1063
+          tipo: PASSAGEM
+        - x: 467
+          y: 1025
+          tipo: PASSAGEM
+        - x: 436
+          y: 989
+          tipo: PASSAGEM
+        - x: 393
+          y: 967
+          tipo: PASSAGEM
+        - x: 383
+          y: 923
+          tipo: PASSAGEM
+        - x: 389
+          y: 833
+          tipo: PASSAGEM
+        - x: 390
+          y: 790
+          tipo: PASSAGEM
+        - x: 337
+          y: 693
+          tipo: PASSAGEM
+        - x: 371
+          y: 589
+          tipo: PASSAGEM
+        - x: 396
+          y: 522
+          tipo: PASSAGEM
+        - x: 412
+          y: 464
+          tipo: PASSAGEM
+        - x: 544
+          y: 333
+          tipo: PASSAGEM
+        - x: 539
+          y: 239
+          tipo: PASSAGEM
+        - x: 535
+          y: 136
+          tipo: PASSAGEM
+        - x: 537
+          y: 134
+          tipo: FIM_TOP
+          rotulo: B
+      espessura: 6
+    cor: '#FF1744'
+  - id: linha_10
+    label: ''
+    linha:
+      estilo: SOLIDO
+      conteudo:
+        nos:
+        - x: 559
+          y: 1128
+          tipo: CIRCULO_IDENTIFICADOR
+          rotulo: '3'
+        - x: 562
+          y: 1076
+          tipo: PASSAGEM
+        - x: 542
+          y: 1027
+          tipo: PASSAGEM
+        - x: 489
+          y: 945
+          tipo: PASSAGEM
+        - x: 504
+          y: 901
+          tipo: PASSAGEM
+        - x: 571
+          y: 815
+          tipo: PASSAGEM
+        - x: 656
+          y: 693
+          tipo: PASSAGEM
+        - x: 653
+          y: 562
+          tipo: PASSAGEM
+        - x: 645
+          y: 470
+          tipo: PASSAGEM
+        - x: 674
+          y: 285
+          tipo: PASSAGEM
+        - x: 679
+          y: 235
+          tipo: PASSAGEM
+        - x: 673
+          y: 120
+          tipo: PASSAGEM
+        - x: 673
+          y: 119
+          tipo: FIM_TOP
+          rotulo: C
+      espessura: 6
+    cor: '#FF1744'
+  - id: linha_11
+    label: ''
+    linha:
+      estilo: SOLIDO
+      conteudo:
+        nos:
+        - x: 592
+          y: 1146
+          tipo: CIRCULO_IDENTIFICADOR
+          rotulo: '4'
+        - x: 589
+          y: 1076
+          tipo: PASSAGEM
+        - x: 583
+          y: 1033
+          tipo: PASSAGEM
+        - x: 548
+          y: 974
+          tipo: PASSAGEM
+        - x: 526
+          y: 943
+          tipo: PASSAGEM
+        - x: 522
+          y: 907
+          tipo: PASSAGEM
+        - x: 554
+          y: 873
+          tipo: PASSAGEM
+        - x: 592
+          y: 838
+          tipo: PASSAGEM
+        - x: 636
+          y: 798
+          tipo: PASSAGEM
+        - x: 720
+          y: 725
+          tipo: PASSAGEM
+        - x: 833
+          y: 650
+          tipo: PASSAGEM
+        - x: 876
+          y: 581
+          tipo: PASSAGEM
+        - x: 872
+          y: 462
+          tipo: PASSAGEM
+        - x: 884
+          y: 388
+          tipo: PASSAGEM
+        - x: 895
+          y: 300
+          tipo: PASSAGEM
+        - x: 905
+          y: 214
+          tipo: PASSAGEM
+        - x: 898
+          y: 117
+          tipo: PASSAGEM
+        - x: 898
+          y: 117
+          tipo: FIM_TOP
+          rotulo: D
+      espessura: 6
+    cor: '#FF1744'
+  - id: linha_12
+    linha:
+      estilo: SOLIDO
+      conteudo:
+        nos:
+        - x: 1302
+          y: 1185
+          tipo: CIRCULO_IDENTIFICADOR
+          rotulo: '5'
+        - x: 1357
+          y: 1052
+          tipo: PASSAGEM
+        - x: 1395
+          y: 987
+          tipo: PASSAGEM
+        - x: 1355
+          y: 892
+          tipo: PASSAGEM
+        - x: 1320
+          y: 821
+          tipo: PASSAGEM
+        - x: 1367
+          y: 729
+          tipo: PASSAGEM
+        - x: 1391
+          y: 644
+          tipo: PASSAGEM
+        - x: 1351
+          y: 500
+          tipo: PASSAGEM
+        - x: 1336
+          y: 399
+          tipo: PASSAGEM
+        - x: 1298
+          y: 333
+          tipo: PASSAGEM
+        - x: 1328
+          y: 268
+          tipo: PASSAGEM
+        - x: 1353
+          y: 201
+          tipo: PASSAGEM
+        - x: 1353
+          y: 197
+          tipo: FIM_TOP
+          rotulo: E
+      espessura: 6
+    cor: '#FF1744'
+    label: ''
+  - id: linha_13
+    linha:
+      estilo: SOLIDO
+      conteudo:
+        nos:
+        - x: 1645
+          y: 1268
+          tipo: CIRCULO_IDENTIFICADOR
+          rotulo: '6'
+        - x: 1674
+          y: 1169
+          tipo: PASSAGEM
+        - x: 1680
+          y: 1088
+          tipo: PASSAGEM
+        - x: 1659
+          y: 999
+          tipo: PASSAGEM
+        - x: 1609
+          y: 935
+          tipo: PASSAGEM
+        - x: 1571
+          y: 874
+          tipo: PASSAGEM
+        - x: 1569
+          y: 785
+          tipo: PASSAGEM
+        - x: 1625
+          y: 700
+          tipo: PASSAGEM
+        - x: 1627
+          y: 581
+          tipo: PASSAGEM
+        - x: 1651
+          y: 521
+          tipo: PASSAGEM
+        - x: 1703
+          y: 415
+          tipo: PASSAGEM
+        - x: 1658
+          y: 208
+          tipo: PASSAGEM
+        - x: 1656
+          y: 207
+          tipo: FIM_TOP
+          rotulo: F
+      espessura: 6
+    cor: '#FF1744'
+    label: ''
+  - id: linha_14
+    label: ''
+    linha:
+      estilo: TRACEJADO
+      conteudo:
+        nos:
+        - x: 2174
+          y: 1073
+          tipo: CIRCULO_IDENTIFICADOR
+          rotulo: '7'
+        - x: 2197
+          y: 867
+          tipo: PASSAGEM
+        - x: 2147
+          y: 794
+          tipo: PASSAGEM
+        - x: 2059
+          y: 699
+          tipo: PASSAGEM
+        - x: 1967
+          y: 607
+          tipo: PASSAGEM
+        - x: 1944
+          y: 492
+          tipo: PASSAGEM
+        - x: 1857
+          y: 359
+          tipo: PASSAGEM
+        - x: 1750
+          y: 141
+          tipo: PASSAGEM
+        - x: 1749
+          y: 140
+          tipo: FIM_TOP
+          rotulo: G
+      espessura: 6
+    cor: '#00E676'
+  referencias:
+  - ids:
+    - linha_8
+    escalada: Água Benta
+  - ids:
+    - linha_9
+    escalada: Misericórdia
+  - ids:
+    - linha_10
+    escalada: Excomungado
+  - ids:
+    - linha_11
+    escalada: Crisma
+  - ids:
+    - linha_12
+    escalada: Primeira Comunhão
+  - ids:
+    - linha_13
+    escalada: Tribunal da inquisição
+  - ids:
+    - linha_14
+    escalada: Proj
 escaladas:
 - via_esportiva:
     nome: Água Benta
@@ -2156,7 +2156,6 @@ escaladas:
     tipo_parede: NEGATIVO
     quantidade_protecoes_intermediarias: 6
     quantidade_protecoes_parada: 2
-    indice_mapa_padrao: 0
     extensao: 0
     descricao: Saindo de cima da mureta, a via é graduada como 8a
 - via_esportiva:
@@ -2178,7 +2177,6 @@ escaladas:
     extensao: 0
     quantidade_protecoes_intermediarias: 3
     quantidade_protecoes_parada: 2
-    indice_mapa_padrao: 8
 - via_esportiva:
     nome: Primeira Comunhão
     dificuldade: BR_7A
@@ -2263,8 +2261,5 @@ localizacao_escalada:
   latitude: -222285860
   longitude: -424249510
 amigavel_a_criancas: true
-indice_mapa_padrao: 2
 ---
 ![Visão Geral Capelinha](imagens/visao_geral.webp)
-
-É possível escalar nesse setor em dias de chuva fraca.
