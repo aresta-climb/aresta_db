@@ -786,7 +786,41 @@ class JanelaPrincipal(QMainWindow):
             from editor.views.dialogo_erro_salvamento import exibir_dialogo_erro_salvamento
             exibir_dialogo_erro_salvamento(self, e, traceback.format_exc())
 
-    def _on_salvar_sucesso(self, caminho_retornado: Any, erros: List[str], houve_renomeacao: bool, undo_index: int) -> None:
+    def _recarregar_dados_apos_salvamento(self) -> None:
+        """Recarrega os dados do disco preservando a seleção do nó ativo na árvore."""
+        if not self.workspace:
+            return
+        caminho_db = self.workspace.obter_caminho_database()
+
+        # 1. Guarda a seleção atual da árvore
+        caminho_selecionado = None
+        if hasattr(self.pagina_dados, 'editor_dados') and self.pagina_dados.editor_dados:
+            if hasattr(self.pagina_dados.editor_dados, 'obter_caminho_no_selecionado'):
+                caminho_selecionado = self.pagina_dados.editor_dados.obter_caminho_no_selecionado()
+
+        # 2. Atualiza croqui_data a partir do croqui.yaml no disco
+        yaml_path = caminho_db / "croqui.yaml"
+        if yaml_path.exists():
+            import yaml
+            with open(yaml_path, "r", encoding="utf-8") as f:
+                self.croqui_data = yaml.safe_load(f)
+
+        # 3. Recarrega arquivos externos (mds com imagens atualizadas, etc.)
+        if self.croqui_model is not None:
+            self.croqui_model.carregar_arquivos_externos(caminho_db)
+
+        # 4. Atualiza os componentes da interface
+        if hasattr(self, 'pagina_dados') and self.croqui_model is not None and self.croqui_controller is not None:
+            self.pagina_dados.carregar_dados(self.croqui_model, self.croqui_controller)
+            if caminho_selecionado and self.pagina_dados.editor_dados:
+                if hasattr(self.pagina_dados.editor_dados, 'selecionar_por_caminho_no'):
+                    self.pagina_dados.editor_dados.selecionar_por_caminho_no(caminho_selecionado)
+
+        self.pagina_imagens.carregar_imagens(caminho_db, model=self.croqui_model, controller=self.croqui_controller)
+        if self.croqui_model is not None:
+            self.pagina_mapas.carregar_mapas(self.croqui_model, self.historico, caminho_db, controller=self.croqui_controller)
+
+    def _on_salvar_sucesso(self, caminho_retornado: Any, erros: List[str], houve_renomeacao: bool, undo_index: int, database_modificado: bool = False) -> None:
         self._salvando = False
         if self.label_status_salvamento:
             self.label_status_salvamento.hide()
@@ -808,7 +842,9 @@ class JanelaPrincipal(QMainWindow):
         else:
             print("⚡ [HotReload] Servidor celular não está ativo neste momento.")
         
-        if self.workspace:
+        if database_modificado:
+            self._recarregar_dados_apos_salvamento()
+        elif self.workspace:
             caminho_db = self.workspace.obter_caminho_database()
             if getattr(self, 'croqui_model', None):
                 self.pagina_mapas.carregar_mapas(self.croqui_model, self.historico, caminho_db)

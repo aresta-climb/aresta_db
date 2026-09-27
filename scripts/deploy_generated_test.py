@@ -498,6 +498,7 @@ class DeployGeneratedTest(unittest.TestCase):
             croqui_data = {
                 "id": "croqui_com_anexos",
                 "nome": "Croqui com Anexos",
+                "descricao": "Documentos: [Ficha](anexos/ficha.pdf) e [Termo](anexos/termo.pdf)",
                 "picos": [{
                     "nome": "Pico Teste",
                     "mapas_gerais": {

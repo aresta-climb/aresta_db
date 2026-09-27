@@ -549,7 +549,7 @@ def corrigir_mapas_gerais(mapas_gerais_raw: Dict[str, Any], pico_path: Path) -> 
 
 
 def coletar_referencias_arquivos(pico_path: Path, croqui_data: Dict[str, Any]) -> Set[str]:
-    """Coleta referências a arquivos (imagens e md) existentes no croqui."""
+    """Coleta referências a arquivos (imagens, anexos e md) existentes no croqui."""
     referencias: Set[str] = set()
     md_visitados: Set[str] = set()
 
@@ -564,6 +564,24 @@ def coletar_referencias_arquivos(pico_path: Path, croqui_data: Dict[str, Any]) -
         ):
             referencias.add(f"imagens/{caminho_norm}")
 
+    def adicionar_referencia_anexo(caminho_anexo: str) -> None:
+        caminho_norm = caminho_anexo.replace("\\", "/").strip()
+        if not caminho_norm or "://" in caminho_norm or caminho_norm.startswith("mailto:"):
+            return
+        referencias.add(caminho_norm)
+        if not caminho_norm.startswith("anexos/"):
+            referencias.add(f"anexos/{caminho_norm}")
+
+    def extrair_links_markdown(texto: str) -> None:
+        for match in re.findall(r"!\[.*?\]\((.*?)\)", texto):
+            adicionar_referencia_imagem(match)
+        for match in re.findall(r"\[.*?\]\((.*?)\)", texto):
+            caminho_link = match.strip()
+            if caminho_link.startswith("anexos/"):
+                adicionar_referencia_anexo(caminho_link)
+            elif caminho_link.startswith("imagens/"):
+                adicionar_referencia_imagem(caminho_link)
+
     def processar_md(caminho_rel: str) -> None:
         caminho_norm = caminho_rel.replace("\\", "/").strip()
         if caminho_norm in md_visitados:
@@ -573,21 +591,21 @@ def coletar_referencias_arquivos(pico_path: Path, croqui_data: Dict[str, Any]) -
         md_path = pico_path / caminho_norm
         if md_path.exists():
             frontmatter, corpo = parse_md_com_frontmatter(md_path)
-            for match in re.findall(r"!\[.*?\]\((.*?)\)", corpo):
-                adicionar_referencia_imagem(match)
+            extrair_links_markdown(corpo)
             if frontmatter:
                 varrer_objeto(frontmatter)
 
     def varrer_objeto(obj: Any) -> None:
         if isinstance(obj, str):
-            for match in re.findall(r"!\[.*?\]\((.*?)\)", obj):
-                adicionar_referencia_imagem(match)
+            extrair_links_markdown(obj)
         elif isinstance(obj, dict):
             if "caminho" in obj and isinstance(obj["caminho"], str) and obj["caminho"].endswith(".md"):
                 processar_md(obj["caminho"])
             for k, v in obj.items():
                 if k in ("caminho_imagem_mapa", "caminho_thumbnail", "caminho_imagem") and isinstance(v, str):
                     adicionar_referencia_imagem(v)
+                elif k in ("caminho_anexo", "anexo") and isinstance(v, str):
+                    adicionar_referencia_anexo(v)
                 else:
                     varrer_objeto(v)
         elif isinstance(obj, list):
@@ -596,17 +614,22 @@ def coletar_referencias_arquivos(pico_path: Path, croqui_data: Dict[str, Any]) -
 
     varrer_objeto(croqui_data)
 
-    # Filtra e normaliza: apenas referências que apontam para imagens/ ou .md
+    # Filtra e normaliza: apenas referências que apontam para imagens/, anexos/ ou .md
     return {
         ref.replace("\\", "/").strip()
         for ref in referencias
         if isinstance(ref, str)
-        and (ref.replace("\\", "/").strip().startswith("imagens/") or ref.replace("\\", "/").strip().endswith(".md"))
+        and (
+            ref.replace("\\", "/").strip().startswith("imagens/")
+            or ref.replace("\\", "/").strip().startswith("anexos/")
+            or ref.replace("\\", "/").strip().endswith(".md")
+        )
     }
 
 def limpar_arquivos_nao_utilizados(pico_path: Path, croqui_data: Dict[str, Any]) -> None:
-    """Deleta arquivos (imagens e markdowns) que não possuem referências nos metadados."""
+    """Deleta arquivos (imagens, anexos e markdowns) que não possuem referências nos metadados."""
     pasta_imagens = pico_path / "imagens"
+    pasta_anexos = pico_path / "anexos"
     
     referencias = coletar_referencias_arquivos(pico_path, croqui_data)
     
@@ -614,6 +637,14 @@ def limpar_arquivos_nao_utilizados(pico_path: Path, croqui_data: Dict[str, Any])
     arquivos_fisicos: Set[str] = set()
     if pasta_imagens.exists():
         arquivos_fisicos.update(f"imagens/{f.name}" for f in pasta_imagens.iterdir() if f.is_file())
+
+    # Arquivos físicos na pasta anexos/ (suporta arquivos diretos e subdiretórios)
+    if pasta_anexos.exists():
+        arquivos_fisicos.update(
+            f"anexos/{f.relative_to(pasta_anexos).as_posix()}"
+            for f in pasta_anexos.rglob("*")
+            if f.is_file()
+        )
         
     # Arquivos físicos markdown na raiz e subdiretórios rasos
     # Aqui procuramos .md dentro da pasta do pico. Não fazemos rglob para evitar apagar coisas fora.
@@ -628,6 +659,20 @@ def limpar_arquivos_nao_utilizados(pico_path: Path, croqui_data: Dict[str, Any])
             if f_abs.exists():
                 print(f"    - Deletando: {f_rel}")
                 f_abs.unlink()
+
+        # Se subdiretórios ou a pasta anexos ficarem vazios, remove diretórios vazios
+        if pasta_anexos.exists():
+            for subpasta in sorted(pasta_anexos.glob("**/*"), key=lambda p: len(p.parts), reverse=True):
+                if subpasta.is_dir() and not any(subpasta.iterdir()):
+                    try:
+                        subpasta.rmdir()
+                    except OSError:
+                        pass
+            if not any(pasta_anexos.iterdir()):
+                try:
+                    pasta_anexos.rmdir()
+                except OSError:
+                    pass
 
 def _obter_snapshot_arquivos_croqui(pico_path: Path) -> Dict[str, Tuple[int, int]]:
     """Captura o estado dos arquivos do croqui (caminho_relativo -> (tamanho, mtime_ns))."""

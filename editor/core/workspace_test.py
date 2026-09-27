@@ -45,6 +45,7 @@ def test_experimental_workspace_paths(tmp_paths):
 @patch("editor.core.workspace.GerenciadorCroquiExperimental")
 def test_experimental_workspace_processar(mock_gerenciador_cls, tmp_paths):
     mock_gerenciador = MagicMock()
+    mock_gerenciador.compilar_croqui.return_value = False
     mock_gerenciador_cls.return_value = mock_gerenciador
     
     # Mock para renomear
@@ -55,7 +56,7 @@ def test_experimental_workspace_processar(mock_gerenciador_cls, tmp_paths):
     mock_storage = MagicMock()
     
     # Testa quando ID muda
-    resultado, msgs = ws.processar_renomeacao_e_compilacao("novo_id", "id_atual", mock_storage)
+    resultado, msgs, database_modificado = ws.processar_renomeacao_e_compilacao("novo_id", "id_atual", mock_storage)
     
     mock_gerenciador_cls.assert_called_once_with(mock_storage)
     mock_gerenciador.renomear_pasta_croqui.assert_called_once_with(tmp_paths, "novo_id")
@@ -63,14 +64,17 @@ def test_experimental_workspace_processar(mock_gerenciador_cls, tmp_paths):
     assert resultado == novo_caminho
     assert ws.caminho_raiz == novo_caminho
     assert isinstance(msgs, list)
+    assert database_modificado is False
     
-    # Testa quando ID não muda
+    # Testa quando ID não muda e compilar_croqui indica modificação
     mock_gerenciador.reset_mock()
-    resultado2, msgs2 = ws.processar_renomeacao_e_compilacao("novo_id", "novo_id", mock_storage)
+    mock_gerenciador.compilar_croqui.return_value = True
+    resultado2, msgs2, database_modificado2 = ws.processar_renomeacao_e_compilacao("novo_id", "novo_id", mock_storage)
     mock_gerenciador.renomear_pasta_croqui.assert_not_called()
     mock_gerenciador.compilar_croqui.assert_called_once_with(novo_caminho)
     assert resultado2 == novo_caminho
     assert isinstance(msgs2, list)
+    assert database_modificado2 is True
 
 def test_local_repo_workspace_paths(tmp_paths):
     # tmp_paths simula aresta_db/database/meu_croqui
@@ -85,11 +89,12 @@ def test_local_repo_workspace_paths(tmp_paths):
 @patch("editor.core.workspace.deploy")
 @patch("editor.core.workspace.subprocess.run")
 def test_local_repo_workspace_processar(mock_run, mock_deploy, tmp_paths):
+    mock_deploy.return_value = True
     ws = LocalRepoWorkspace(tmp_paths)
     mock_storage = MagicMock()
     
     # Testa quando ID não muda
-    resultado, msgs = ws.processar_renomeacao_e_compilacao("meu_croqui", "meu_croqui", mock_storage)
+    resultado, msgs, database_modificado = ws.processar_renomeacao_e_compilacao("meu_croqui", "meu_croqui", mock_storage)
     
     # O health check deve ter sido chamado via subprocess
     mock_run.assert_called_once()
@@ -106,10 +111,12 @@ def test_local_repo_workspace_processar(mock_run, mock_deploy, tmp_paths):
     
     assert resultado == tmp_paths
     assert isinstance(msgs, list)
+    assert database_modificado is True
     
 @patch("editor.core.workspace.deploy")
 @patch("editor.core.workspace.subprocess.run")
 def test_local_repo_workspace_processar_com_renomeacao(mock_run, mock_deploy, tmp_paths):
+    mock_deploy.return_value = False
     ws = LocalRepoWorkspace(tmp_paths)
     mock_storage = MagicMock()
     
@@ -118,7 +125,8 @@ def test_local_repo_workspace_processar_com_renomeacao(mock_run, mock_deploy, tm
     caminho_compilado.mkdir()
     
     # Testa quando ID muda
-    resultado, msgs = ws.processar_renomeacao_e_compilacao("novo_croqui", "meu_croqui", mock_storage)
+    resultado, msgs, database_modificado = ws.processar_renomeacao_e_compilacao("novo_croqui", "meu_croqui", mock_storage)
+    assert database_modificado is False
     
     novo_caminho = tmp_paths.parent / "novo_croqui"
     assert resultado == novo_caminho
@@ -173,7 +181,7 @@ def test_captura_mensagens(tmp_paths):
             
         mock_gerenciador.compilar_croqui.side_effect = fake_compilar
         
-        _, msgs = ws.processar_renomeacao_e_compilacao("id", "id", mock_storage)
+        _, msgs, _ = ws.processar_renomeacao_e_compilacao("id", "id", mock_storage)
         
         assert "Aviso: ID duplicado." in msgs
         assert "Erro ao tentar fazer algo." in msgs

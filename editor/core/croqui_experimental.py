@@ -252,7 +252,7 @@ class GerenciadorCroquiExperimental:
             yaml_str = yaml.dump(dict_meta, allow_unicode=True, sort_keys=False)
             f.write(yaml_str.replace("\r\n", "\n"))
 
-    def compilar_croqui(self, caminho_raiz: Path) -> None:
+    def compilar_croqui(self, caminho_raiz: Path) -> bool:
         """
         Compila o croqui experimental usando o script de deploy oficial.
         """
@@ -278,7 +278,7 @@ class GerenciadorCroquiExperimental:
             else:
                 repo = pygit2.Repository(str(caminho_raiz))
             
-            deploy(
+            database_modificado = deploy(
                 output_dir=caminho_compilado,
                 target_paths=[str(caminho_database)],
                 force_thumbnails=True,
@@ -309,6 +309,7 @@ class GerenciadorCroquiExperimental:
             
             # Força liberação de handles no Windows
             del repo
+            return bool(database_modificado)
         except Exception as e:
             # Re-lança como RuntimeError para ser capturado pela UI
             raise RuntimeError(f"Erro durante a compilação do croqui: {str(e)}")

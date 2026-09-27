@@ -2783,6 +2783,28 @@ class WidgetEditorDados(QWidget):
             self.tree_view.scrollTo(idx)
             self._on_tree_selection_changed(None, None)
 
+    def obter_caminho_no_selecionado(self) -> Optional[str]:
+        """Retorna o caminho canônico do nó atualmente selecionado na árvore, ou None."""
+        if not hasattr(self, "tree_view") or not self.tree_view.selectionModel():
+            return None
+        indexes = self.tree_view.selectionModel().selectedIndexes()
+        if not indexes:
+            return None
+        node = indexes[0].internalPointer()
+        return get_node_path(node) if node else None
+
+    def selecionar_por_caminho_no(self, caminho: Optional[str]) -> bool:
+        """Restaura a seleção do nó na árvore a partir de seu caminho canônico."""
+        if not caminho or not hasattr(self, "tree_model") or not hasattr(self, "tree_view"):
+            return False
+        idx = self.tree_model.find_index_for_path(caminho)
+        if idx and idx.isValid():
+            self.tree_view.selectionModel().setCurrentIndex(idx, QItemSelectionModel.SelectionFlag.ClearAndSelect)
+            self.tree_view.scrollTo(idx)
+            self._on_tree_selection_changed(None, None)
+            return True
+        return False
+
     def _salvar_estado_expansao(self) -> Dict[int, bool]:
         """Salva o estado de expansão de todos os nós da árvore."""
         estado = {}

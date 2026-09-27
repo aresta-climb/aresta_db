@@ -531,6 +531,85 @@ def test_limpar_arquivos_preserva_mapas_gerais(tmp_path):
 
     assert mapa_geral_md.exists(), "mapas_gerais.md não deve ser deletado se referenciado por um pico"
 
+def test_coletar_referencias_arquivos_inclui_anexos(tmp_path: Path) -> None:
+    from scripts.preparar_submissao_lib import coletar_referencias_arquivos
+
+    md_path = tmp_path / "secao.md"
+    md_path.write_text(
+        "---\n"
+        "titulo: Seção de Acesso\n"
+        "---\n"
+        "Texto com anexo: [Termo](anexos/termo_no_md.pdf), [Link Web](https://aresta.app), "
+        "[Email](mailto:info@aresta.app) e [Vazio]() e [Foto](imagens/foto.webp)\n",
+        encoding="utf-8"
+    )
+
+    croqui_data = {
+        "descricao": "Croqui com botão [Ficha](anexos/ficha_croqui.pdf) e [Site](http://exemplo.com)",
+        "botoes": [
+            {
+                "destino": {
+                    "secao_textual": {
+                        "caminho": "secao.md"
+                    }
+                },
+                "caminho_anexo": "formulario.pdf",
+            },
+            {
+                "caminho_anexo": "",
+            },
+            {
+                "caminho_anexo": "https://externo.com/doc.pdf",
+            },
+        ]
+    }
+
+    refs = coletar_referencias_arquivos(tmp_path, croqui_data)
+    assert "anexos/ficha_croqui.pdf" in refs
+    assert "anexos/termo_no_md.pdf" in refs
+    assert "anexos/formulario.pdf" in refs
+    assert "imagens/foto.webp" in refs
+    assert "secao.md" in refs
+    assert not any("http" in ref for ref in refs)
+    assert not any("mailto" in ref for ref in refs)
+
+def test_limpar_arquivos_nao_utilizados_deleta_anexos_orfaos(tmp_path: Path) -> None:
+    pasta_anexos = tmp_path / "anexos"
+    pasta_anexos.mkdir()
+
+    anexo_usado = pasta_anexos / "termo_usado.pdf"
+    anexo_usado.write_bytes(b"%PDF-1.4 Usado")
+    anexo_orfao = pasta_anexos / "termo_orfao.pdf"
+    anexo_orfao.write_bytes(b"%PDF-1.4 Orfao")
+
+    croqui_data = {
+        "descricao": "Baixe o [Termo](anexos/termo_usado.pdf)",
+        "picos": []
+    }
+
+    limpar_arquivos_nao_utilizados(tmp_path, croqui_data)
+
+    assert anexo_usado.exists(), "Anexo usado não deve ser deletado"
+    assert not anexo_orfao.exists(), "Anexo órfão deve ser deletado fisicamente do disco"
+
+def test_limpar_arquivos_nao_utilizados_remove_pasta_anexos_quando_vazia(tmp_path: Path) -> None:
+    pasta_anexos = tmp_path / "anexos"
+    pasta_anexos.mkdir()
+
+    anexo_orfao = pasta_anexos / "termo_orfao.pdf"
+    anexo_orfao.write_bytes(b"%PDF-1.4 Orfao")
+
+    croqui_data = {
+        "descricao": "Croqui sem anexos",
+        "picos": []
+    }
+
+    limpar_arquivos_nao_utilizados(tmp_path, croqui_data)
+
+    assert not anexo_orfao.exists(), "Anexo órfão deve ser deletado"
+    assert not pasta_anexos.exists(), "Pasta anexos deve ser removida quando vazia"
+
+
 def test_compilar_croqui_faz_inline_de_mapas_gerais(tmp_path):
     import yaml
     from scripts.preparar_submissao_lib import compilar_croqui

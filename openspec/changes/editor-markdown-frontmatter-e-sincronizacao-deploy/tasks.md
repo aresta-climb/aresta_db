@@ -19,11 +19,12 @@
 
 ## 4. Recarregamento Condicional da Interface no Editor
 
-- [ ] 4.1 Criar testes de integração em `editor/legacy_views/area_principal_test.py` cobrindo o fluxo de salvamento: sem reload quando não há alterações no database e com reload e preservação de seleção quando o database é alterado
-- [ ] 4.2 Implementar método de recarga condicional `_recarregar_dados_apos_salvamento` em `area_principal.py` conectado ao `_on_salvar_sucesso`
-- [ ] 4.3 Garantir que o item ativo da árvore (`tree_view`) e o formulário em edição sejam restaurados após o recarregamento
+- [x] 4.1 Criar testes de integração em `editor/legacy_views/area_principal_test.py` cobrindo o fluxo de salvamento: sem reload quando não há alterações no database e com reload e preservação de seleção quando o database é alterado
+- [x] 4.2 Implementar método de recarga condicional `_recarregar_dados_apos_salvamento` em `area_principal.py` conectado ao `_on_salvar_sucesso`
+- [x] 4.3 Garantir que o item ativo da árvore (`tree_view`) e o formulário em edição sejam restaurados após o recarregamento
 
 ## 5. Validação e Testes Finais de Cobertura
 
-- [ ] 5.1 Executar a suíte de testes com cobertura (`pytest`) cobrindo todos os módulos alterados para assegurar 100% de cobertura
-- [ ] 5.2 Executar validação de cabeçalhos e licenças (`scripts/validador_cabecalhos.py`) garantindo conformidade total
+- [x] 5.1 Executar a suíte de testes com cobertura (`pytest`) cobrindo todos os módulos alterados para assegurar 100% de cobertura
+- [x] 5.2 Executar validação de cabeçalhos e licenças (`scripts/validador_cabecalhos.py`) garantindo conformidade total
+

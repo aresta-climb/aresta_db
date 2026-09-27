@@ -305,7 +305,7 @@ class TarefaSalvamento(QThread):
     """
     Thread responsável por salvar em background (I/O intensivo e compilação).
     """
-    sucesso: Signal = Signal(object, object, bool, int) # caminho_retornado, erros, houve_renomeacao, undo_index
+    sucesso: Signal = Signal(object, object, bool, int, bool) # caminho_retornado, erros, houve_renomeacao, undo_index, database_modificado
     erro: Signal = Signal(str, str) # mensagem_erro, traceback_detalhado
 
     def __init__(
@@ -341,9 +341,14 @@ class TarefaSalvamento(QThread):
             if self.novo_id and self.id_atual and self.novo_id != self.id_atual:
                 houve_renomeacao = True
                 
-            caminho_retornado, erros = self.workspace.processar_renomeacao_e_compilacao(self.novo_id, self.id_atual, self.storage)
+            resultado_proc = self.workspace.processar_renomeacao_e_compilacao(self.novo_id, self.id_atual, self.storage)
+            if len(resultado_proc) == 3:
+                caminho_retornado, erros, database_modificado = resultado_proc
+            else:
+                caminho_retornado, erros = resultado_proc
+                database_modificado = False
             
-            self.sucesso.emit(caminho_retornado, erros, houve_renomeacao, self.undo_index)
+            self.sucesso.emit(caminho_retornado, erros, houve_renomeacao, self.undo_index, database_modificado)
         except BaseException as e:
             tb_str = traceback.format_exc()
             traceback.print_exc()
