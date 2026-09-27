@@ -9,499 +9,6 @@ picos:
       conteudo:
         nome: Setor principal
         mapas:
-        - caminho_imagem_mapa: imagens/setor_baixo_visao_externa_p0.webp
-          largura_mapa: 1773
-          altura_mapa: 2364
-          pontos_de_interesse:
-          - id: linha_1
-            label: ''
-            linha:
-              estilo: SOLIDO
-              espessura: 6
-              compilado:
-                caminho_svg: M 669 2069 C 670.7 2039.7, 684.7 2004.8, 674 1981 C 663.3
-                  1957.2, 628.4 1946.7, 605 1926 C 578.5 1902.4, 548.0 1873.5, 524
-                  1846 C 501.7 1820.4, 471.7 1794.0, 465 1767 C 459.3 1744.1, 466.5
-                  1725.9, 476 1697 C 493.7 1642.9, 573.6 1544.4, 590 1476 C 602.7
-                  1422.8, 574.4 1374.2, 589 1326 C 605.2 1272.4, 651.3 1228.1, 693
-                  1172 C 747.1 1099.1, 854.9 1003.5, 891 929 C 915.7 877.9, 910.3
-                  827.1, 923 785 C 933.3 750.8, 940.8 728.3, 958 694 C 983.2 643.9,
-                  1051.5 577.0, 1069 518 C 1083.9 467.6, 1051.2 397.4, 1071 366 C
-                  1085.9 342.4, 1124.7 340.2, 1148 328 C 1167.7 317.7, 1191.2 311.5,
-                  1202 298 C 1211.0 286.8, 1209.6 274.8, 1214 257 C 1222.0 224.5,
-                  1228.4 155.1, 1242 118 C 1252.0 90.7, 1265.0 71.2, 1279 51 C 1292.2
-                  32.1, 1308.3 17.0, 1323 0
-                caixa_delimitadora:
-                  x: 894
-                  y: 1034
-                  comprimento: 858
-                  largura: 2069
-                marcadores:
-                - tipo: CIRCULO_IDENTIFICADOR
-                  x: 669
-                  y: 2069
-                  angulo_graus_x100: -8675
-                  rotulo: '1'
-                - tipo: FIM_TOP
-                  x: 1323
-                  y: 0
-                  angulo_graus_x100: -4921
-                  rotulo: A
-            cor: '#FF1744'
-          - id: linha_2
-            label: ''
-            linha:
-              estilo: SOLIDO
-              espessura: 6
-              compilado:
-                caminho_svg: M 701 2070 C 703.3 2045.3, 709.5 2021.8, 708 1996 C 706.4
-                  1967.3, 689.0 1938.5, 689 1906 C 689.1 1867.5, 707.2 1823.9, 716
-                  1780 C 725.6 1732.2, 740.8 1679.6, 744 1630 C 747.1 1582.0, 726.9
-                  1535.9, 736 1487 C 746.5 1430.4, 789.1 1369.9, 815 1312 C 840.4
-                  1255.2, 852.4 1187.2, 890 1143 C 926.3 1100.4, 1003.7 1092.3, 1034
-                  1049 C 1063.9 1006.3, 1057.1 939.0, 1072 886 C 1086.5 834.4, 1104.7
-                  785.1, 1122 735 C 1139.3 684.8, 1154.9 630.7, 1176 585 C 1195.1
-                  543.5, 1229.4 514.7, 1241 471 C 1254.3 420.8, 1239.7 350.7, 1241
-                  298 C 1242.1 253.5, 1236.9 213.5, 1247 175 C 1256.9 137.2, 1286.8
-                  101.0, 1300 69 C 1310.4 43.9, 1315.3 23.0, 1323 0
-                caixa_delimitadora:
-                  x: 1006
-                  y: 1035
-                  comprimento: 634
-                  largura: 2070
-                marcadores:
-                - tipo: CIRCULO_IDENTIFICADOR
-                  x: 701
-                  y: 2070
-                  angulo_graus_x100: -8460
-                  rotulo: '2'
-                - tipo: FIM_TOP
-                  x: 1323
-                  y: 0
-                  angulo_graus_x100: -7157
-                  rotulo: A
-            cor: '#FF1744'
-          - id: linha_3
-            label: ''
-            linha:
-              estilo: SOLIDO
-              espessura: 6
-              compilado:
-                caminho_svg: M 736 2069 C 729.3 2015.0, 704.2 1951.7, 716 1907 C 725.9
-                  1869.4, 760.1 1847.5, 785 1814 C 814.4 1774.5, 854.3 1723.9, 881
-                  1685 C 902.0 1654.4, 921.3 1635.0, 934 1601 C 950.1 1557.9, 946.1
-                  1496.7, 958 1443 C 970.8 1385.3, 993.8 1318.6, 1010 1266 C 1023.1
-                  1223.5, 1030.8 1192.8, 1047 1151 C 1067.5 1098.4, 1103.7 1038.6,
-                  1127 977 C 1151.9 911.1, 1162.6 824.2, 1190 767 C 1211.4 722.2,
-                  1252.1 696.5, 1266 656 C 1279.7 616.1, 1268.8 571.1, 1274 526 C
-                  1279.7 476.5, 1288.1 417.8, 1300 371 C 1310.3 330.7, 1325.3 297.7,
-                  1338 261
-                caixa_delimitadora:
-                  x: 1027
-                  y: 1165
-                  comprimento: 622
-                  largura: 1808
-                marcadores:
-                - tipo: CIRCULO_IDENTIFICADOR
-                  x: 736
-                  y: 2069
-                  angulo_graus_x100: -9704
-                  rotulo: '3'
-                - tipo: FIM_TOP
-                  x: 1338
-                  y: 261
-                  angulo_graus_x100: -7094
-                  rotulo: B
-            cor: '#FF1744'
-          - id: linha_4
-            label: ''
-            linha:
-              estilo: SOLIDO
-              espessura: 6
-              compilado:
-                caminho_svg: M 765 2070 C 757.7 2039.7, 747.2 2007.6, 743 1979 C 739.3
-                  1954.0, 733.7 1926.8, 739 1908 C 743.1 1893.4, 753.2 1886.1, 763
-                  1873 C 776.6 1854.8, 796.0 1833.7, 814 1810 C 836.1 1781.0, 863.6
-                  1741.9, 885 1711 C 903.4 1684.4, 921.1 1663.5, 935 1636 C 949.9
-                  1606.6, 961.9 1566.7, 970 1539 C 975.9 1518.9, 971.2 1499.7, 982
-                  1486 C 994.2 1470.5, 1025.2 1470.8, 1045 1455 C 1069.5 1435.4, 1094.1
-                  1401.2, 1113 1371 C 1131.7 1341.1, 1148.9 1307.0, 1158 1275 C 1166.2
-                  1246.0, 1159.9 1215.1, 1168 1188 C 1175.9 1161.8, 1193.0 1134.7,
-                  1205 1115 C 1213.8 1100.5, 1222.9 1095.3, 1231 1079 C 1244.3 1052.2,
-                  1261.1 996.6, 1266 964 C 1269.5 940.8, 1264.6 923.9, 1266 903 C
-                  1267.5 880.7, 1268.9 859.6, 1275 834 C 1283.1 800.1, 1302.3 757.3,
-                  1316 719
-                caixa_delimitadora:
-                  x: 1028
-                  y: 1394
-                  comprimento: 577
-                  largura: 1351
-                marcadores:
-                - tipo: CIRCULO_IDENTIFICADOR
-                  x: 765
-                  y: 2070
-                  angulo_graus_x100: -10359
-                  rotulo: '4'
-                - tipo: FIM_TOP
-                  x: 1316
-                  y: 719
-                  angulo_graus_x100: -7038
-                  rotulo: C
-            cor: '#FF1744'
-          - id: linha_5
-            label: ''
-            linha:
-              estilo: SOLIDO
-              espessura: 6
-              compilado:
-                caminho_svg: M 1139 1895 C 1143.0 1865.0, 1143.6 1835.8, 1151 1805
-                  C 1159.2 1770.7, 1179.3 1728.4, 1188 1699 C 1194.1 1678.5, 1199.0
-                  1665.6, 1201 1646 C 1203.4 1622.4, 1199.4 1592.2, 1198 1567 C 1196.7
-                  1543.7, 1188.7 1525.0, 1193 1500 C 1199.0 1464.9, 1231.2 1416.0,
-                  1246 1379 C 1258.3 1348.4, 1271.9 1322.0, 1277 1294 C 1281.7 1268.4,
-                  1277.6 1239.1, 1278 1218 C 1278.3 1202.9, 1274.4 1192.3, 1279 1179
-                  C 1285.0 1161.5, 1302.8 1143.9, 1319 1125 C 1339.2 1101.4, 1368.3
-                  1075.0, 1393 1050
-                caixa_delimitadora:
-                  x: 1266
-                  y: 1472
-                  comprimento: 254
-                  largura: 845
-                marcadores:
-                - tipo: CIRCULO_IDENTIFICADOR
-                  x: 1139
-                  y: 1895
-                  angulo_graus_x100: -8241
-                  rotulo: '5'
-                - tipo: FIM_TOP
-                  x: 1393
-                  y: 1050
-                  angulo_graus_x100: -4538
-                  rotulo: D
-            cor: '#FF1744'
-          - id: linha_6
-            label: ''
-            linha:
-              estilo: SOLIDO
-              espessura: 6
-              compilado:
-                caminho_svg: M 1231 1871 C 1238.3 1836.0, 1249.3 1796.6, 1253 1766
-                  C 1255.8 1742.8, 1257.9 1723.7, 1255 1704 C 1252.2 1685.1, 1236.9
-                  1671.9, 1237 1650 C 1237.2 1615.6, 1266.9 1555.3, 1283 1518 C 1295.5
-                  1489.0, 1311.8 1467.7, 1322 1443 C 1331.3 1420.5, 1334.1 1396.3,
-                  1343 1376 C 1351.1 1357.6, 1361.0 1341.8, 1372 1326 C 1383.0 1310.1,
-                  1401.0 1297.6, 1409 1281 C 1416.6 1265.1, 1417.1 1245.7, 1420 1229
-                  C 1422.6 1213.8, 1425.7 1188.8, 1426 1185 C 1426.0 1184.4, 1426.0
-                  1184.3, 1426 1184
-                caixa_delimitadora:
-                  x: 1328
-                  y: 1528
-                  comprimento: 195
-                  largura: 687
-                marcadores:
-                - tipo: CIRCULO_IDENTIFICADOR
-                  x: 1231
-                  y: 1871
-                  angulo_graus_x100: -7817
-                  rotulo: '6'
-                - tipo: FIM_TOP
-                  x: 1426
-                  y: 1184
-                  angulo_graus_x100: -9000
-                  rotulo: E
-            cor: '#FF1744'
-          - id: linha_7
-            label: ''
-            linha:
-              estilo: TRACEJADO
-              espessura: 6
-              compilado:
-                caminho_svg: M 1327 1775 C 1338.0 1741.7, 1353.6 1707.2, 1360 1675
-                  C 1365.7 1646.4, 1360.4 1620.8, 1366 1592 C 1372.4 1559.2, 1391.9
-                  1517.6, 1399 1489 C 1403.9 1469.2, 1405.0 1455.8, 1408 1438 C 1411.3
-                  1418.6, 1413.3 1398.3, 1418 1377 C 1423.3 1352.9, 1431.5 1326.6,
-                  1439 1301 C 1446.8 1274.6, 1455.7 1247.7, 1464 1221
-                caixa_delimitadora:
-                  x: 1396
-                  y: 1498
-                  comprimento: 137
-                  largura: 554
-                marcadores:
-                - tipo: CIRCULO_IDENTIFICADOR
-                  x: 1327
-                  y: 1775
-                  angulo_graus_x100: -7174
-                  rotulo: '7'
-                - tipo: FIM_TOP
-                  x: 1464
-                  y: 1221
-                  angulo_graus_x100: -7265
-                  rotulo: F
-            cor: '#00E676'
-          referencias:
-          - escalada: Água Benta
-            ids:
-            - linha_1
-          - ids:
-            - linha_2
-            escalada: Misericórdia
-          - ids:
-            - linha_3
-            escalada: Excomungado
-          - ids:
-            - linha_4
-            escalada: Crisma
-          - ids:
-            - linha_5
-            escalada: Primeira Comunhão
-          - ids:
-            - linha_6
-            escalada: Tribunal da inquisição
-          - ids:
-            - linha_7
-            escalada: Proj
-        - caminho_imagem_mapa: imagens/setor_capela_interna_p1.webp
-          largura_mapa: 2364
-          altura_mapa: 1773
-          pontos_de_interesse:
-          - id: linha_8
-            label: ''
-            linha:
-              estilo: SOLIDO
-              espessura: 6
-              compilado:
-                caminho_svg: M 502 1099 C 481.3 1076.3, 463.5 1049.0, 440 1031 C 417.3
-                  1013.7, 388.7 1007.9, 364 992 C 337.3 974.8, 315.2 952.2, 286 930
-                  C 250.1 902.7, 186.2 867.8, 164 841 C 151.7 826.1, 145.9 814.3,
-                  144 799 C 141.9 782.2, 153.0 765.0, 155 744 C 157.6 716.3, 153.4
-                  677.9, 154 647 C 154.6 618.8, 151.6 593.8, 158 566 C 165.5 533.8,
-                  184.6 506.4, 201 466 C 225.7 405.1, 286.6 248.2, 289 235 C 289.2
-                  233.8, 289.0 233.7, 289 233
-                caixa_delimitadora:
-                  x: 323
-                  y: 666
-                  comprimento: 358
-                  largura: 866
-                marcadores:
-                - tipo: CIRCULO_IDENTIFICADOR
-                  x: 502
-                  y: 1099
-                  angulo_graus_x100: -13236
-                  rotulo: '1'
-                - tipo: FIM_TOP
-                  x: 289
-                  y: 233
-                  angulo_graus_x100: -9000
-                  rotulo: A
-            cor: '#FF1744'
-          - id: linha_9
-            label: ''
-            linha:
-              estilo: SOLIDO
-              espessura: 6
-              compilado:
-                caminho_svg: M 531 1104 C 524.7 1090.3, 521.5 1075.5, 512 1063 C 501.1
-                  1048.8, 480.2 1038.0, 467 1025 C 455.2 1013.3, 448.3 998.6, 436
-                  989 C 423.6 979.3, 401.8 978.3, 393 967 C 384.5 956.1, 384.4 940.4,
-                  383 923 C 381.1 898.4, 387.9 857.5, 389 833 C 389.8 816.1, 394.0
-                  806.6, 390 790 C 383.5 763.4, 340.1 726.6, 337 693 C 333.9 659.6,
-                  360.2 619.8, 371 589 C 379.7 564.1, 389.0 543.7, 396 522 C 402.4
-                  502.1, 399.5 485.3, 412 464 C 433.9 426.5, 527.1 376.9, 544 333
-                  C 556.0 301.8, 540.5 271.1, 539 239 C 537.5 205.5, 531.7 144.3,
-                  535 136 C 535.5 134.6, 536.3 134.7, 537 134
-                caixa_delimitadora:
-                  x: 440
-                  y: 619
-                  comprimento: 207
-                  largura: 970
-                marcadores:
-                - tipo: CIRCULO_IDENTIFICADOR
-                  x: 531
-                  y: 1104
-                  angulo_graus_x100: -11486
-                  rotulo: '2'
-                - tipo: FIM_TOP
-                  x: 537
-                  y: 134
-                  angulo_graus_x100: -4500
-                  rotulo: B
-            cor: '#FF1744'
-          - id: linha_10
-            label: ''
-            linha:
-              estilo: SOLIDO
-              espessura: 6
-              compilado:
-                caminho_svg: M 559 1128 C 560.0 1110.7, 564.8 1092.8, 562 1076 C 559.2
-                  1059.1, 551.4 1044.9, 542 1027 C 529.3 1002.6, 491.9 968.7, 489
-                  945 C 487.0 928.6, 495.2 917.3, 504 901 C 517.5 876.1, 547.8 846.5,
-                  571 815 C 598.1 778.2, 642.8 736.7, 656 693 C 668.4 652.0, 655.2
-                  601.8, 653 562 C 651.2 528.6, 643.8 505.9, 645 470 C 646.8 418.9,
-                  668.6 327.2, 674 285 C 676.8 263.1, 678.5 255.1, 679 235 C 679.7
-                  204.6, 673.2 126.5, 673 120 C 673.0 119.4, 673.0 119.3, 673 119
-                caixa_delimitadora:
-                  x: 584
-                  y: 624
-                  comprimento: 190
-                  largura: 1009
-                marcadores:
-                - tipo: CIRCULO_IDENTIFICADOR
-                  x: 559
-                  y: 1128
-                  angulo_graus_x100: -8670
-                  rotulo: '3'
-                - tipo: FIM_TOP
-                  x: 673
-                  y: 119
-                  angulo_graus_x100: -9000
-                  rotulo: C
-            cor: '#FF1744'
-          - id: linha_11
-            label: ''
-            linha:
-              estilo: SOLIDO
-              espessura: 6
-              compilado:
-                caminho_svg: M 592 1146 C 591.0 1122.7, 590.9 1096.5, 589 1076 C 587.5
-                  1059.9, 588.2 1047.9, 583 1033 C 576.4 1014.3, 558.6 990.4, 548
-                  974 C 540.1 961.8, 530.3 954.3, 526 943 C 521.8 931.9, 518.3 918.1,
-                  522 907 C 526.2 894.4, 542.7 884.2, 554 873 C 565.9 861.2, 578.8
-                  850.0, 592 838 C 606.1 825.1, 618.9 813.2, 636 798 C 659.4 777.2,
-                  689.1 748.5, 720 725 C 754.1 699.0, 806.1 677.7, 833 650 C 853.8
-                  628.6, 868.7 608.4, 876 581 C 884.9 547.8, 869.8 496.9, 872 462
-                  C 873.8 434.3, 880.3 413.8, 884 388 C 888.0 360.0, 891.5 329.2,
-                  895 300 C 898.5 271.2, 904.4 243.6, 905 214 C 905.7 182.7, 900.3
-                  149.3, 898 117
-                caixa_delimitadora:
-                  x: 714
-                  y: 632
-                  comprimento: 383
-                  largura: 1029
-                marcadores:
-                - tipo: CIRCULO_IDENTIFICADOR
-                  x: 592
-                  y: 1146
-                  angulo_graus_x100: -9245
-                  rotulo: '4'
-                - tipo: FIM_TOP
-                  x: 898
-                  y: 117
-                  angulo_graus_x100: 0
-                  rotulo: D
-            cor: '#FF1744'
-          - id: linha_12
-            label: ''
-            linha:
-              estilo: SOLIDO
-              espessura: 6
-              compilado:
-                caminho_svg: M 1302 1185 C 1320.3 1140.7, 1339.1 1088.0, 1357 1052
-                  C 1369.9 1026.0, 1393.4 1011.2, 1395 987 C 1396.8 958.7, 1368.3
-                  921.2, 1355 892 C 1343.3 866.4, 1319.8 846.1, 1320 821 C 1320.2
-                  792.3, 1355.0 759.7, 1367 729 C 1378.1 700.7, 1390.9 676.1, 1391
-                  644 C 1391.1 602.3, 1360.3 544.0, 1351 500 C 1343.3 463.6, 1346.2
-                  428.3, 1336 399 C 1327.2 373.7, 1299.0 355.2, 1298 333 C 1297.0
-                  311.5, 1318.8 290.0, 1328 268 C 1337.2 246.0, 1351.4 209.8, 1353
-                  201 C 1353.4 198.9, 1353.0 198.3, 1353 197
-                caixa_delimitadora:
-                  x: 1346
-                  y: 691
-                  comprimento: 97
-                  largura: 988
-                marcadores:
-                - tipo: CIRCULO_IDENTIFICADOR
-                  x: 1302
-                  y: 1185
-                  angulo_graus_x100: -6753
-                  rotulo: '5'
-                - tipo: FIM_TOP
-                  x: 1353
-                  y: 197
-                  angulo_graus_x100: -9000
-                  rotulo: E
-            cor: '#FF1744'
-          - id: linha_13
-            label: ''
-            linha:
-              estilo: SOLIDO
-              espessura: 6
-              compilado:
-                caminho_svg: M 1645 1268 C 1654.7 1235.0, 1668.3 1200.6, 1674 1169
-                  C 1679.1 1140.9, 1682.2 1115.5, 1680 1088 C 1677.7 1058.9, 1671.5
-                  1025.0, 1659 999 C 1647.2 974.5, 1624.0 956.5, 1609 935 C 1594.9
-                  914.8, 1578.0 897.3, 1571 874 C 1563.3 848.0, 1560.9 813.1, 1569
-                  785 C 1577.7 754.9, 1615.0 732.3, 1625 700 C 1635.8 665.0, 1620.5
-                  613.5, 1627 581 C 1631.8 557.1, 1640.9 543.6, 1651 521 C 1664.6
-                  490.4, 1697.9 457.2, 1703 415 C 1709.9 358.4, 1665.3 217.4, 1658
-                  208 C 1657.3 207.0, 1656.7 207.3, 1656 207
-                caixa_delimitadora:
-                  x: 1636
-                  y: 738
-                  comprimento: 134
-                  largura: 1061
-                marcadores:
-                - tipo: CIRCULO_IDENTIFICADOR
-                  x: 1645
-                  y: 1268
-                  angulo_graus_x100: -7367
-                  rotulo: '6'
-                - tipo: FIM_TOP
-                  x: 1656
-                  y: 207
-                  angulo_graus_x100: -15343
-                  rotulo: F
-            cor: '#FF1744'
-          - id: linha_14
-            label: ''
-            linha:
-              estilo: TRACEJADO
-              espessura: 6
-              compilado:
-                caminho_svg: M 2174 1073 C 2181.7 1004.3, 2209.4 916.7, 2197 867 C
-                  2188.9 834.6, 2167.1 819.2, 2147 794 C 2122.7 763.6, 2089.0 730.1,
-                  2059 699 C 2029.0 667.8, 1986.1 642.6, 1967 607 C 1948.9 573.2,
-                  1959.6 530.2, 1944 492 C 1925.8 447.5, 1885.9 409.8, 1857 359 C
-                  1821.2 296.2, 1756.6 150.2, 1750 141 C 1749.5 140.3, 1749.3 140.3,
-                  1749 140
-                caixa_delimitadora:
-                  x: 1973
-                  y: 606
-                  comprimento: 448
-                  largura: 933
-                marcadores:
-                - tipo: CIRCULO_IDENTIFICADOR
-                  x: 2174
-                  y: 1073
-                  angulo_graus_x100: -8363
-                  rotulo: '7'
-                - tipo: FIM_TOP
-                  x: 1749
-                  y: 140
-                  angulo_graus_x100: -13500
-                  rotulo: G
-            cor: '#00E676'
-          referencias:
-          - ids:
-            - linha_8
-            escalada: Água Benta
-          - ids:
-            - linha_9
-            escalada: Misericórdia
-          - ids:
-            - linha_10
-            escalada: Excomungado
-          - ids:
-            - linha_11
-            escalada: Crisma
-          - ids:
-            - linha_12
-            escalada: Primeira Comunhão
-          - ids:
-            - linha_13
-            escalada: Tribunal da inquisição
-          - ids:
-            - linha_14
-            escalada: Proj
         - caminho_imagem_mapa: imagens/setor_capela_externa_p2.webp
           largura_mapa: 1773
           altura_mapa: 2364
@@ -857,6 +364,7 @@ picos:
                   rotulo: I
             cor: '#FF1744'
           - id: linha_27
+            label: ''
             linha:
               estilo: TRACEJADO
               espessura: 6
@@ -885,8 +393,8 @@ picos:
                   angulo_graus_x100: 0
                   rotulo: J
             cor: '#00E676'
-            label: ''
           - id: linha_44
+            label: ''
             linha:
               estilo: SOLIDO
               espessura: 6
@@ -916,7 +424,6 @@ picos:
                   angulo_graus_x100: -8543
                   rotulo: K
             cor: '#FF1744'
-            label: ''
           - id: linha_16
             linha:
               estilo: SOLIDO
@@ -997,9 +504,9 @@ picos:
                   rotulo: G
             cor: '#D500F9'
           referencias:
-          - ids:
+          - escalada: Misericórdia
+            ids:
             - linha_17
-            escalada: Misericórdia
           - ids:
             - linha_18
             escalada: Excomungado
@@ -1447,6 +954,499 @@ picos:
             - linha_30
             - linha_33
             escalada: Variante Água Ardente
+        - caminho_imagem_mapa: imagens/setor_baixo_visao_externa_p0.webp
+          largura_mapa: 1773
+          altura_mapa: 2364
+          pontos_de_interesse:
+          - id: linha_1
+            label: ''
+            linha:
+              estilo: SOLIDO
+              espessura: 6
+              compilado:
+                caminho_svg: M 669 2069 C 670.7 2039.7, 684.7 2004.8, 674 1981 C 663.3
+                  1957.2, 628.4 1946.7, 605 1926 C 578.5 1902.4, 548.0 1873.5, 524
+                  1846 C 501.7 1820.4, 471.7 1794.0, 465 1767 C 459.3 1744.1, 466.5
+                  1725.9, 476 1697 C 493.7 1642.9, 573.6 1544.4, 590 1476 C 602.7
+                  1422.8, 574.4 1374.2, 589 1326 C 605.2 1272.4, 651.3 1228.1, 693
+                  1172 C 747.1 1099.1, 854.9 1003.5, 891 929 C 915.7 877.9, 910.3
+                  827.1, 923 785 C 933.3 750.8, 940.8 728.3, 958 694 C 983.2 643.9,
+                  1051.5 577.0, 1069 518 C 1083.9 467.6, 1051.2 397.4, 1071 366 C
+                  1085.9 342.4, 1124.7 340.2, 1148 328 C 1167.7 317.7, 1191.2 311.5,
+                  1202 298 C 1211.0 286.8, 1209.6 274.8, 1214 257 C 1222.0 224.5,
+                  1228.4 155.1, 1242 118 C 1252.0 90.7, 1265.0 71.2, 1279 51 C 1292.2
+                  32.1, 1308.3 17.0, 1323 0
+                caixa_delimitadora:
+                  x: 894
+                  y: 1034
+                  comprimento: 858
+                  largura: 2069
+                marcadores:
+                - tipo: CIRCULO_IDENTIFICADOR
+                  x: 669
+                  y: 2069
+                  angulo_graus_x100: -8675
+                  rotulo: '1'
+                - tipo: FIM_TOP
+                  x: 1323
+                  y: 0
+                  angulo_graus_x100: -4921
+                  rotulo: A
+            cor: '#FF1744'
+          - id: linha_2
+            label: ''
+            linha:
+              estilo: SOLIDO
+              espessura: 6
+              compilado:
+                caminho_svg: M 701 2070 C 703.3 2045.3, 709.5 2021.8, 708 1996 C 706.4
+                  1967.3, 689.0 1938.5, 689 1906 C 689.1 1867.5, 707.2 1823.9, 716
+                  1780 C 725.6 1732.2, 740.8 1679.6, 744 1630 C 747.1 1582.0, 726.9
+                  1535.9, 736 1487 C 746.5 1430.4, 789.1 1369.9, 815 1312 C 840.4
+                  1255.2, 852.4 1187.2, 890 1143 C 926.3 1100.4, 1003.7 1092.3, 1034
+                  1049 C 1063.9 1006.3, 1057.1 939.0, 1072 886 C 1086.5 834.4, 1104.7
+                  785.1, 1122 735 C 1139.3 684.8, 1154.9 630.7, 1176 585 C 1195.1
+                  543.5, 1229.4 514.7, 1241 471 C 1254.3 420.8, 1239.7 350.7, 1241
+                  298 C 1242.1 253.5, 1236.9 213.5, 1247 175 C 1256.9 137.2, 1286.8
+                  101.0, 1300 69 C 1310.4 43.9, 1315.3 23.0, 1323 0
+                caixa_delimitadora:
+                  x: 1006
+                  y: 1035
+                  comprimento: 634
+                  largura: 2070
+                marcadores:
+                - tipo: CIRCULO_IDENTIFICADOR
+                  x: 701
+                  y: 2070
+                  angulo_graus_x100: -8460
+                  rotulo: '2'
+                - tipo: FIM_TOP
+                  x: 1323
+                  y: 0
+                  angulo_graus_x100: -7157
+                  rotulo: A
+            cor: '#FF1744'
+          - id: linha_3
+            label: ''
+            linha:
+              estilo: SOLIDO
+              espessura: 6
+              compilado:
+                caminho_svg: M 736 2069 C 729.3 2015.0, 704.2 1951.7, 716 1907 C 725.9
+                  1869.4, 760.1 1847.5, 785 1814 C 814.4 1774.5, 854.3 1723.9, 881
+                  1685 C 902.0 1654.4, 921.3 1635.0, 934 1601 C 950.1 1557.9, 946.1
+                  1496.7, 958 1443 C 970.8 1385.3, 993.8 1318.6, 1010 1266 C 1023.1
+                  1223.5, 1030.8 1192.8, 1047 1151 C 1067.5 1098.4, 1103.7 1038.6,
+                  1127 977 C 1151.9 911.1, 1162.6 824.2, 1190 767 C 1211.4 722.2,
+                  1252.1 696.5, 1266 656 C 1279.7 616.1, 1268.8 571.1, 1274 526 C
+                  1279.7 476.5, 1288.1 417.8, 1300 371 C 1310.3 330.7, 1325.3 297.7,
+                  1338 261
+                caixa_delimitadora:
+                  x: 1027
+                  y: 1165
+                  comprimento: 622
+                  largura: 1808
+                marcadores:
+                - tipo: CIRCULO_IDENTIFICADOR
+                  x: 736
+                  y: 2069
+                  angulo_graus_x100: -9704
+                  rotulo: '3'
+                - tipo: FIM_TOP
+                  x: 1338
+                  y: 261
+                  angulo_graus_x100: -7094
+                  rotulo: B
+            cor: '#FF1744'
+          - id: linha_4
+            label: ''
+            linha:
+              estilo: SOLIDO
+              espessura: 6
+              compilado:
+                caminho_svg: M 765 2070 C 757.7 2039.7, 747.2 2007.6, 743 1979 C 739.3
+                  1954.0, 733.7 1926.8, 739 1908 C 743.1 1893.4, 753.2 1886.1, 763
+                  1873 C 776.6 1854.8, 796.0 1833.7, 814 1810 C 836.1 1781.0, 863.6
+                  1741.9, 885 1711 C 903.4 1684.4, 921.1 1663.5, 935 1636 C 949.9
+                  1606.6, 961.9 1566.7, 970 1539 C 975.9 1518.9, 971.2 1499.7, 982
+                  1486 C 994.2 1470.5, 1025.2 1470.8, 1045 1455 C 1069.5 1435.4, 1094.1
+                  1401.2, 1113 1371 C 1131.7 1341.1, 1148.9 1307.0, 1158 1275 C 1166.2
+                  1246.0, 1159.9 1215.1, 1168 1188 C 1175.9 1161.8, 1193.0 1134.7,
+                  1205 1115 C 1213.8 1100.5, 1222.9 1095.3, 1231 1079 C 1244.3 1052.2,
+                  1261.1 996.6, 1266 964 C 1269.5 940.8, 1264.6 923.9, 1266 903 C
+                  1267.5 880.7, 1268.9 859.6, 1275 834 C 1283.1 800.1, 1302.3 757.3,
+                  1316 719
+                caixa_delimitadora:
+                  x: 1028
+                  y: 1394
+                  comprimento: 577
+                  largura: 1351
+                marcadores:
+                - tipo: CIRCULO_IDENTIFICADOR
+                  x: 765
+                  y: 2070
+                  angulo_graus_x100: -10359
+                  rotulo: '4'
+                - tipo: FIM_TOP
+                  x: 1316
+                  y: 719
+                  angulo_graus_x100: -7038
+                  rotulo: C
+            cor: '#FF1744'
+          - id: linha_5
+            label: ''
+            linha:
+              estilo: SOLIDO
+              espessura: 6
+              compilado:
+                caminho_svg: M 1139 1895 C 1143.0 1865.0, 1143.6 1835.8, 1151 1805
+                  C 1159.2 1770.7, 1179.3 1728.4, 1188 1699 C 1194.1 1678.5, 1199.0
+                  1665.6, 1201 1646 C 1203.4 1622.4, 1199.4 1592.2, 1198 1567 C 1196.7
+                  1543.7, 1188.7 1525.0, 1193 1500 C 1199.0 1464.9, 1231.2 1416.0,
+                  1246 1379 C 1258.3 1348.4, 1271.9 1322.0, 1277 1294 C 1281.7 1268.4,
+                  1277.6 1239.1, 1278 1218 C 1278.3 1202.9, 1274.4 1192.3, 1279 1179
+                  C 1285.0 1161.5, 1302.8 1143.9, 1319 1125 C 1339.2 1101.4, 1368.3
+                  1075.0, 1393 1050
+                caixa_delimitadora:
+                  x: 1266
+                  y: 1472
+                  comprimento: 254
+                  largura: 845
+                marcadores:
+                - tipo: CIRCULO_IDENTIFICADOR
+                  x: 1139
+                  y: 1895
+                  angulo_graus_x100: -8241
+                  rotulo: '5'
+                - tipo: FIM_TOP
+                  x: 1393
+                  y: 1050
+                  angulo_graus_x100: -4538
+                  rotulo: D
+            cor: '#FF1744'
+          - id: linha_6
+            label: ''
+            linha:
+              estilo: SOLIDO
+              espessura: 6
+              compilado:
+                caminho_svg: M 1231 1871 C 1238.3 1836.0, 1249.3 1796.6, 1253 1766
+                  C 1255.8 1742.8, 1257.9 1723.7, 1255 1704 C 1252.2 1685.1, 1236.9
+                  1671.9, 1237 1650 C 1237.2 1615.6, 1266.9 1555.3, 1283 1518 C 1295.5
+                  1489.0, 1311.8 1467.7, 1322 1443 C 1331.3 1420.5, 1334.1 1396.3,
+                  1343 1376 C 1351.1 1357.6, 1361.0 1341.8, 1372 1326 C 1383.0 1310.1,
+                  1401.0 1297.6, 1409 1281 C 1416.6 1265.1, 1417.1 1245.7, 1420 1229
+                  C 1422.6 1213.8, 1425.7 1188.8, 1426 1185 C 1426.0 1184.4, 1426.0
+                  1184.3, 1426 1184
+                caixa_delimitadora:
+                  x: 1328
+                  y: 1528
+                  comprimento: 195
+                  largura: 687
+                marcadores:
+                - tipo: CIRCULO_IDENTIFICADOR
+                  x: 1231
+                  y: 1871
+                  angulo_graus_x100: -7817
+                  rotulo: '6'
+                - tipo: FIM_TOP
+                  x: 1426
+                  y: 1184
+                  angulo_graus_x100: -9000
+                  rotulo: E
+            cor: '#FF1744'
+          - id: linha_7
+            label: ''
+            linha:
+              estilo: TRACEJADO
+              espessura: 6
+              compilado:
+                caminho_svg: M 1327 1775 C 1338.0 1741.7, 1353.6 1707.2, 1360 1675
+                  C 1365.7 1646.4, 1360.4 1620.8, 1366 1592 C 1372.4 1559.2, 1391.9
+                  1517.6, 1399 1489 C 1403.9 1469.2, 1405.0 1455.8, 1408 1438 C 1411.3
+                  1418.6, 1413.3 1398.3, 1418 1377 C 1423.3 1352.9, 1431.5 1326.6,
+                  1439 1301 C 1446.8 1274.6, 1455.7 1247.7, 1464 1221
+                caixa_delimitadora:
+                  x: 1396
+                  y: 1498
+                  comprimento: 137
+                  largura: 554
+                marcadores:
+                - tipo: CIRCULO_IDENTIFICADOR
+                  x: 1327
+                  y: 1775
+                  angulo_graus_x100: -7174
+                  rotulo: '7'
+                - tipo: FIM_TOP
+                  x: 1464
+                  y: 1221
+                  angulo_graus_x100: -7265
+                  rotulo: F
+            cor: '#00E676'
+          referencias:
+          - ids:
+            - linha_1
+            escalada: Água Benta
+          - ids:
+            - linha_2
+            escalada: Misericórdia
+          - ids:
+            - linha_3
+            escalada: Excomungado
+          - ids:
+            - linha_4
+            escalada: Crisma
+          - ids:
+            - linha_5
+            escalada: Primeira Comunhão
+          - ids:
+            - linha_6
+            escalada: Tribunal da inquisição
+          - ids:
+            - linha_7
+            escalada: Proj
+        - caminho_imagem_mapa: imagens/setor_capela_interna_p1.webp
+          largura_mapa: 2364
+          altura_mapa: 1773
+          pontos_de_interesse:
+          - id: linha_8
+            label: ''
+            linha:
+              estilo: SOLIDO
+              espessura: 6
+              compilado:
+                caminho_svg: M 502 1099 C 481.3 1076.3, 463.5 1049.0, 440 1031 C 417.3
+                  1013.7, 388.7 1007.9, 364 992 C 337.3 974.8, 315.2 952.2, 286 930
+                  C 250.1 902.7, 186.2 867.8, 164 841 C 151.7 826.1, 145.9 814.3,
+                  144 799 C 141.9 782.2, 153.0 765.0, 155 744 C 157.6 716.3, 153.4
+                  677.9, 154 647 C 154.6 618.8, 151.6 593.8, 158 566 C 165.5 533.8,
+                  184.6 506.4, 201 466 C 225.7 405.1, 286.6 248.2, 289 235 C 289.2
+                  233.8, 289.0 233.7, 289 233
+                caixa_delimitadora:
+                  x: 323
+                  y: 666
+                  comprimento: 358
+                  largura: 866
+                marcadores:
+                - tipo: CIRCULO_IDENTIFICADOR
+                  x: 502
+                  y: 1099
+                  angulo_graus_x100: -13236
+                  rotulo: '1'
+                - tipo: FIM_TOP
+                  x: 289
+                  y: 233
+                  angulo_graus_x100: -9000
+                  rotulo: A
+            cor: '#FF1744'
+          - id: linha_9
+            label: ''
+            linha:
+              estilo: SOLIDO
+              espessura: 6
+              compilado:
+                caminho_svg: M 531 1104 C 524.7 1090.3, 521.5 1075.5, 512 1063 C 501.1
+                  1048.8, 480.2 1038.0, 467 1025 C 455.2 1013.3, 448.3 998.6, 436
+                  989 C 423.6 979.3, 401.8 978.3, 393 967 C 384.5 956.1, 384.4 940.4,
+                  383 923 C 381.1 898.4, 387.9 857.5, 389 833 C 389.8 816.1, 394.0
+                  806.6, 390 790 C 383.5 763.4, 340.1 726.6, 337 693 C 333.9 659.6,
+                  360.2 619.8, 371 589 C 379.7 564.1, 389.0 543.7, 396 522 C 402.4
+                  502.1, 399.5 485.3, 412 464 C 433.9 426.5, 527.1 376.9, 544 333
+                  C 556.0 301.8, 540.5 271.1, 539 239 C 537.5 205.5, 531.7 144.3,
+                  535 136 C 535.5 134.6, 536.3 134.7, 537 134
+                caixa_delimitadora:
+                  x: 440
+                  y: 619
+                  comprimento: 207
+                  largura: 970
+                marcadores:
+                - tipo: CIRCULO_IDENTIFICADOR
+                  x: 531
+                  y: 1104
+                  angulo_graus_x100: -11486
+                  rotulo: '2'
+                - tipo: FIM_TOP
+                  x: 537
+                  y: 134
+                  angulo_graus_x100: -4500
+                  rotulo: B
+            cor: '#FF1744'
+          - id: linha_10
+            label: ''
+            linha:
+              estilo: SOLIDO
+              espessura: 6
+              compilado:
+                caminho_svg: M 559 1128 C 560.0 1110.7, 564.8 1092.8, 562 1076 C 559.2
+                  1059.1, 551.4 1044.9, 542 1027 C 529.3 1002.6, 491.9 968.7, 489
+                  945 C 487.0 928.6, 495.2 917.3, 504 901 C 517.5 876.1, 547.8 846.5,
+                  571 815 C 598.1 778.2, 642.8 736.7, 656 693 C 668.4 652.0, 655.2
+                  601.8, 653 562 C 651.2 528.6, 643.8 505.9, 645 470 C 646.8 418.9,
+                  668.6 327.2, 674 285 C 676.8 263.1, 678.5 255.1, 679 235 C 679.7
+                  204.6, 673.2 126.5, 673 120 C 673.0 119.4, 673.0 119.3, 673 119
+                caixa_delimitadora:
+                  x: 584
+                  y: 624
+                  comprimento: 190
+                  largura: 1009
+                marcadores:
+                - tipo: CIRCULO_IDENTIFICADOR
+                  x: 559
+                  y: 1128
+                  angulo_graus_x100: -8670
+                  rotulo: '3'
+                - tipo: FIM_TOP
+                  x: 673
+                  y: 119
+                  angulo_graus_x100: -9000
+                  rotulo: C
+            cor: '#FF1744'
+          - id: linha_11
+            label: ''
+            linha:
+              estilo: SOLIDO
+              espessura: 6
+              compilado:
+                caminho_svg: M 592 1146 C 591.0 1122.7, 590.9 1096.5, 589 1076 C 587.5
+                  1059.9, 588.2 1047.9, 583 1033 C 576.4 1014.3, 558.6 990.4, 548
+                  974 C 540.1 961.8, 530.3 954.3, 526 943 C 521.8 931.9, 518.3 918.1,
+                  522 907 C 526.2 894.4, 542.7 884.2, 554 873 C 565.9 861.2, 578.8
+                  850.0, 592 838 C 606.1 825.1, 618.9 813.2, 636 798 C 659.4 777.2,
+                  689.1 748.5, 720 725 C 754.1 699.0, 806.1 677.7, 833 650 C 853.8
+                  628.6, 868.7 608.4, 876 581 C 884.9 547.8, 869.8 496.9, 872 462
+                  C 873.8 434.3, 880.3 413.8, 884 388 C 888.0 360.0, 891.5 329.2,
+                  895 300 C 898.5 271.2, 904.4 243.6, 905 214 C 905.7 182.7, 900.3
+                  149.3, 898 117
+                caixa_delimitadora:
+                  x: 714
+                  y: 632
+                  comprimento: 383
+                  largura: 1029
+                marcadores:
+                - tipo: CIRCULO_IDENTIFICADOR
+                  x: 592
+                  y: 1146
+                  angulo_graus_x100: -9245
+                  rotulo: '4'
+                - tipo: FIM_TOP
+                  x: 898
+                  y: 117
+                  angulo_graus_x100: 0
+                  rotulo: D
+            cor: '#FF1744'
+          - id: linha_12
+            linha:
+              estilo: SOLIDO
+              espessura: 6
+              compilado:
+                caminho_svg: M 1302 1185 C 1320.3 1140.7, 1339.1 1088.0, 1357 1052
+                  C 1369.9 1026.0, 1393.4 1011.2, 1395 987 C 1396.8 958.7, 1368.3
+                  921.2, 1355 892 C 1343.3 866.4, 1319.8 846.1, 1320 821 C 1320.2
+                  792.3, 1355.0 759.7, 1367 729 C 1378.1 700.7, 1390.9 676.1, 1391
+                  644 C 1391.1 602.3, 1360.3 544.0, 1351 500 C 1343.3 463.6, 1346.2
+                  428.3, 1336 399 C 1327.2 373.7, 1299.0 355.2, 1298 333 C 1297.0
+                  311.5, 1318.8 290.0, 1328 268 C 1337.2 246.0, 1351.4 209.8, 1353
+                  201 C 1353.4 198.9, 1353.0 198.3, 1353 197
+                caixa_delimitadora:
+                  x: 1346
+                  y: 691
+                  comprimento: 97
+                  largura: 988
+                marcadores:
+                - tipo: CIRCULO_IDENTIFICADOR
+                  x: 1302
+                  y: 1185
+                  angulo_graus_x100: -6753
+                  rotulo: '5'
+                - tipo: FIM_TOP
+                  x: 1353
+                  y: 197
+                  angulo_graus_x100: -9000
+                  rotulo: E
+            cor: '#FF1744'
+            label: ''
+          - id: linha_13
+            linha:
+              estilo: SOLIDO
+              espessura: 6
+              compilado:
+                caminho_svg: M 1645 1268 C 1654.7 1235.0, 1668.3 1200.6, 1674 1169
+                  C 1679.1 1140.9, 1682.2 1115.5, 1680 1088 C 1677.7 1058.9, 1671.5
+                  1025.0, 1659 999 C 1647.2 974.5, 1624.0 956.5, 1609 935 C 1594.9
+                  914.8, 1578.0 897.3, 1571 874 C 1563.3 848.0, 1560.9 813.1, 1569
+                  785 C 1577.7 754.9, 1615.0 732.3, 1625 700 C 1635.8 665.0, 1620.5
+                  613.5, 1627 581 C 1631.8 557.1, 1640.9 543.6, 1651 521 C 1664.6
+                  490.4, 1697.9 457.2, 1703 415 C 1709.9 358.4, 1665.3 217.4, 1658
+                  208 C 1657.3 207.0, 1656.7 207.3, 1656 207
+                caixa_delimitadora:
+                  x: 1636
+                  y: 738
+                  comprimento: 134
+                  largura: 1061
+                marcadores:
+                - tipo: CIRCULO_IDENTIFICADOR
+                  x: 1645
+                  y: 1268
+                  angulo_graus_x100: -7367
+                  rotulo: '6'
+                - tipo: FIM_TOP
+                  x: 1656
+                  y: 207
+                  angulo_graus_x100: -15343
+                  rotulo: F
+            cor: '#FF1744'
+            label: ''
+          - id: linha_14
+            label: ''
+            linha:
+              estilo: TRACEJADO
+              espessura: 6
+              compilado:
+                caminho_svg: M 2174 1073 C 2181.7 1004.3, 2209.4 916.7, 2197 867 C
+                  2188.9 834.6, 2167.1 819.2, 2147 794 C 2122.7 763.6, 2089.0 730.1,
+                  2059 699 C 2029.0 667.8, 1986.1 642.6, 1967 607 C 1948.9 573.2,
+                  1959.6 530.2, 1944 492 C 1925.8 447.5, 1885.9 409.8, 1857 359 C
+                  1821.2 296.2, 1756.6 150.2, 1750 141 C 1749.5 140.3, 1749.3 140.3,
+                  1749 140
+                caixa_delimitadora:
+                  x: 1973
+                  y: 606
+                  comprimento: 448
+                  largura: 933
+                marcadores:
+                - tipo: CIRCULO_IDENTIFICADOR
+                  x: 2174
+                  y: 1073
+                  angulo_graus_x100: -8363
+                  rotulo: '7'
+                - tipo: FIM_TOP
+                  x: 1749
+                  y: 140
+                  angulo_graus_x100: -13500
+                  rotulo: G
+            cor: '#00E676'
+          referencias:
+          - ids:
+            - linha_8
+            escalada: Água Benta
+          - ids:
+            - linha_9
+            escalada: Misericórdia
+          - ids:
+            - linha_10
+            escalada: Excomungado
+          - ids:
+            - linha_11
+            escalada: Crisma
+          - ids:
+            - linha_12
+            escalada: Primeira Comunhão
+          - ids:
+            - linha_13
+            escalada: Tribunal da inquisição
+          - ids:
+            - linha_14
+            escalada: Proj
         escaladas:
         - via_esportiva:
             nome: Água Benta
@@ -1454,7 +1454,6 @@ picos:
             tipo_parede: NEGATIVO
             quantidade_protecoes_intermediarias: 6
             quantidade_protecoes_parada: 2
-            indice_mapa_padrao: 0
             extensao: 0
             descricao: Saindo de cima da mureta, a via é graduada como 8a
         - via_esportiva:
@@ -1476,7 +1475,6 @@ picos:
             extensao: 0
             quantidade_protecoes_intermediarias: 3
             quantidade_protecoes_parada: 2
-            indice_mapa_padrao: 8
         - via_esportiva:
             nome: Primeira Comunhão
             dificuldade: BR_7A
@@ -1563,21 +1561,18 @@ picos:
           latitude: -222285860
           longitude: -424249510
         amigavel_a_criancas: true
-        indice_mapa_padrao: 2
         descricao: |-
           | ![Visão Geral Capelinha](imagens/visao_geral.webp) |
           | :--: |
           | *Visão Geral Capelinha* |
-
-          É possível escalar nesse setor em dias de chuva fraca.
         precomputados:
           total_escaladas: 15
           total_esportivas: 15
-  descricao: "![Foto aérea](imagens/foto_drone.webp)\nEm uma área de extração e exploração\
-    \ de pedreiras o setor mantém-se ainda intacto devido a sua história de missas\
-    \ realizadas no local. Ainda podemos observar resquícios como janelas, muretas,\
-    \ altar... \nO setor fica localizado entre as cidades de Nova Friburgo e Bom Jardim,\
-    \ tendo acesso pelas duas cidades."
+  descricao: "![Foto aérea](imagens/foto_drone.webp)\n\nEm uma área de extração e\
+    \ exploração de pedreiras o setor mantém-se ainda intacto devido a sua história\
+    \ de missas realizadas no local. Ainda podemos observar resquícios como janelas,\
+    \ muretas, altar... \nO setor fica localizado entre as cidades de Nova Friburgo\
+    \ e Bom Jardim, tendo acesso pelas duas cidades."
   localizacao:
     latitude: -222285860
     longitude: -424249510
@@ -1624,6 +1619,8 @@ botoes:
 revisado_manualmente: true
 publicar_croqui: true
 arquivos_externos:
+- caminho: imagens/foto_drone.webp
+  checksum_sha256: c41bb9f60efbf52c008e6f5b32d25d998b61140461b23802976326b8ce359fd1
 - caminho: imagens/setor_baixo_visao_externa_p0.webp
   checksum_sha256: b6d17e1310daafb6d4ccc46de1214c98858778b659797531dbd6aaabeafc11f2
 - caminho: imagens/setor_capela_externa_p2.webp
