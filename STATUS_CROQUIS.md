@@ -1,8 +1,8 @@
 # Estado de Saúde dos Croquis
 
-Relatório gerado em: 26/09/2026 23:38:08
+Relatório gerado em: 28/09/2026 09:48:22
 
-| Croqui | Publicado (26/50) | Revisado Manual (27/50) | Revisado Circ (25/50) | Desenho Extraível (30/2/18) | Pontos de Interesse (24/50) | Thumbnail (39/50) | Coordenadas Picos (30/50) | URL Google Maps (16/50) | Mapas Gerais (33/50) | Betas Pendentes (50/50) | croqui.yaml (40/50) | Conteúdo PDF (2/50) | partes.json (49/50) | PDF Original (2/50) |
+| Croqui | Publicado (28/50) | Revisado Manual (29/50) | Revisado Circ (27/50) | Desenho Extraível (32/2/16) | Pontos de Interesse (26/50) | Thumbnail (40/50) | Coordenadas Picos (31/50) | URL Google Maps (16/50) | Mapas Gerais (34/50) | Betas Pendentes (50/50) | croqui.yaml (41/50) | Conteúdo PDF (3/50) | partes.json (49/50) | PDF Original (3/50) |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | br_mg_araxa_bocaina_boulders | ✅ | ✅ | ✅ | ✅ | ✅ (12/12) | ✅ | ✅ (1/1) | ✅ (1/1) | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ |
 | br_mg_araxa_bocaina_esportivas | ✅ | ✅ | ✅ | ✅ | ✅ (15/15) | ✅ | ✅ (1/1) | ✅ (1/1) | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ |
@@ -41,14 +41,14 @@ Relatório gerado em: 26/09/2026 23:38:08
 | br_mg_sabara_pedra_rachada_setor_horizonte | ✅ | ✅ | ✅ | ✅ | ✅ (11/11) | ✅ | ✅ (1/1) | ❌ (0/1) | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ |
 | br_mg_sacramento_vo_gusta | ✅ | ✅ | ✅ | ✅ (não) | ✅ (1/1) | ✅ | ✅ (1/1) | ✅ (1/1) | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ |
 | br_mg_santa_luzia_bigorna_ou_lapa_da_zumba | ❌ | ❌ | ❌ | ❌ | ❌ (0/1) | ✅ | ❌ (0/1) | ❌ (0/1) | ❌ | ✅ | ✅ | ❌ | ✅ | ❌ |
-| br_mg_santa_luzia_morro_do_carrapato_setor_covide | ❌ | ❌ | ❌ | ❌ | N/A | ❌ | N/A | N/A | ❌ | ✅ | ❌ | ❌ | ✅ | ❌ |
+| br_mg_santa_luzia_morro_do_carrapato_setor_covide | ✅ | ✅ | ✅ | ✅ | ✅ (3/3) | ✅ | ✅ (1/1) | ❌ (0/1) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | br_mg_santa_luzia_santuario | ✅ | ✅ | ✅ | ✅ | ✅ (3/3) | ✅ | ✅ (1/1) | ❌ (0/1) | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ |
 | br_mg_santana_do_paraiso | ❌ | ❌ | ❌ | ❌ | N/A | ❌ | N/A | N/A | ❌ | ✅ | ❌ | ❌ | ✅ | ❌ |
 | br_mg_santana_do_paraiso_boulders | ❌ | ❌ | ❌ | ❌ | N/A | ❌ | N/A | N/A | ❌ | ✅ | ❌ | ❌ | ✅ | ❌ |
 | br_mg_santana_do_riacho_rio_de_pedras | ❌ | ❌ | ❌ | ❌ | N/A | ❌ | N/A | N/A | ❌ | ✅ | ❌ | ❌ | ✅ | ❌ |
 | br_mg_santana_do_riacho_serra_do_cipo_rock_master | ✅ | ❌ | ❌ | ❌ | ✅ (1/1) | ✅ | ✅ (1/1) | ✅ (1/1) | ❌ | ✅ | ✅ | ❌ | ✅ | ❌ |
 | br_mg_sao_joao_del_rei_serra_do_lenheiro | ✅ | ✅ | ❌ | ❌ | ⚠️ (26/30) | ✅ | ✅ (1/1) | ✅ (1/1) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| br_mg_sao_joao_del_rei_serra_do_lenheiro_boulders_ave_maria_2017 | ❌ | ❌ | ❌ | ❌ | ⚠️ (36/43) | ✅ | ✅ (1/1) | ✅ (1/1) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| br_mg_sao_joao_del_rei_serra_do_lenheiro_boulders_ave_maria_2017 | ✅ | ✅ | ✅ | ✅ | ✅ (43/43) | ✅ | ✅ (1/1) | ✅ (1/1) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | br_mg_sao_thome_das_letras | ❌ | ❌ | ❌ | ❌ | N/A | ❌ | N/A | N/A | ❌ | ✅ | ❌ | ❌ | ✅ | ❌ |
 | br_mg_sao_thome_das_letras_shangrila | ❌ | ❌ | ❌ | ❌ | N/A | ❌ | N/A | N/A | ❌ | ✅ | ❌ | ❌ | ✅ | ❌ |
 | br_mg_sete_lagoas_sinuosa | ✅ | ✅ | ✅ | ✅ (não) | ⚠️ (15/16) | ✅ | ✅ (1/1) | ❌ (0/1) | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ |

@@ -52,10 +52,6 @@
             
             **Por: Flora Kesselring Zugaib**
             
-            | ![Apresentação dos Boulders da Ave Maria](imagens/apresentacao_p1_i0.webp) |
-            | :--: |
-            | *Apresentação dos Boulders da Ave Maria* |
-            
             Tomi e eu passamos dois anos tentando conhecer as escaladas de São João Del Rei-MG. Vamos sempre pra lá porque minha mãe mora na cidade vizinha, Tiradentes, mas não encontrávamos escaladores para nos apresentar às escaladas da região... Só em 2012 conseguimos. O escalador Claudio Matsuzaki, foi quem nos recebeu e nos apresentou o setor Ave Maria, até então um setor de vias irado, com alguns boulders abertos.
             
             Quando fomos chegando no setor vimos muitOOOs blocos e perguntávamos pra galera " lá tem boulder?" eles diziam "não"... A pergunta se repetia e a resposta também... Desfrutamos das vias, mas de olho no que tinha ao redor...
@@ -91,10 +87,78 @@
             - Deixe os carros e motos no espaço delimitado para estacionamento.
             - Atenção às porteiras. Se abriu feche!
             - Evite concentração de grandes grupos, e cuidado com barulho, principalmente no Nightclimb.
+  - **[3]**:
+    - **texto**: Como Chegar
+    - **destino**:
+      - **secao_textual**:
+        - **conteudo**:
+            # Como Chegar
             
-            | ![Atenção - Regras e Ética Locais - Escaladores da Serra do Lenheiro](imagens/etica_e_regras_p0_i0.webp) |
+            Em São João del Rei, saindo da Praça Frei Orlando-Centro (A), siga pela rua Padre José Maria Xavier (B) em direção à Ponte do Rosário. Vire à esquerda na Av. Gen. Osório (C) e continue pela rua São José Operário (D). Ao final desta, faça a curva à direita para rua Mario Mazoni (E). Aproximadamente 300m depois vire à direita na Paulo Severino (F) até o fim da rua virando à esquerda na Geraldo Batista Alves até a Estrada Caburu (estrada de terra) e siga sentido ao Campo Escola de Montanhismo (CEMONTA). Deixe os carros na área de estacionamento determinada e siga caminhando até o setor de escalada.
+            
+            | ![Mapa de Acesso](imagens/mapas_gerais_p0_i0.webp) |
             | :--: |
-            | *Atenção - Regras e Ética Locais - Escaladores da Serra do Lenheiro* |
+            | *Mapa de Acesso* |
+  - **[4]**:
+    - **texto**: Apoiadores
+    - **destino**:
+      - **secao_textual**:
+        - **conteudo**:
+            # Apoiadores e Patrocinadores
+            
+            ## Quatro Ventos
+            Costura especializada em montanha.
+            - Contato: florabelhas@yahoo.com.br | (41) 99138-0256
+            - Foto: Paola Gonçalves | Fotografia
+            - Facebook: Quatro Ventos
+            
+            | ![Quatro Ventos](imagens/apoiador_quatro_ventos.webp) |
+            | :--: |
+            | *Quatro Ventos* |
+            
+            ---
+            
+            ## Bonier
+            Equipamentos de Segurança e Resgate. Sempre na seg!
+            - Website: [www.bonier.com.br](http://www.bonier.com.br)
+            
+            | ![Bonier](imagens/apoiador_bonier.webp) |
+            | :--: |
+            | *Bonier* |
+            
+            ---
+            
+            ## Alto Estilo
+            Apoiando suas aventuras desde 1988.
+            - Website: [www.altoestilo.com](http://www.altoestilo.com)
+            
+            | ![Alto Estilo](imagens/apoiador_alto_estilo.webp) |
+            | :--: |
+            | *Alto Estilo* |
+            
+            ---
+            
+            ## Capituva
+            Produtos Ecológicos.
+            - Contato: (41) 99865-7109
+            
+            | ![Capituva](imagens/apoiador_capituva.webp) |
+            | :--: |
+            | *Capituva* |
+            
+            ---
+            
+            ## Campo Base
+            Ginásio de escalada e loja de equipamentos de aventura.
+            - Website: [www.lojacampobase.com](http://www.lojacampobase.com)
+            
+            | ![Campo Base](imagens/apoiador_campo_base.webp) |
+            | :--: |
+            | *Campo Base* |
+- **revisado_manualmente**: True
+- **publicar_croqui**: True
+- **revisado_bounding_circle**: True
+- **status_desenho_extraivel**: DESENHO_EXTRAIDO
 
 
 ## Parte: grupo_frigideira
@@ -114,6 +178,20 @@
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_frigideira_p0_i0.webp)
     - **largura_mapa**: 596
     - **altura_mapa**: 839
+    - **pontos_de_interesse**:
+      - **[0]**:
+        - **id**: bloco_frigideira
+        - **label**: Bloco Frigideira
+        - **retangulo**:
+          - **x**: 281
+          - **y**: 793
+          - **comprimento**: 189
+          - **largura**: 91
+    - **referencias**:
+      - **[0]**:
+        - **setor**: Frigideira
+        - **ids**:
+          - bloco_frigideira
 - **setores**:
   - **[0]**:
     - **conteudo**:
@@ -145,14 +223,14 @@
               - **circulo**:
                 - **x**: 500
                 - **y**: 388
-                - **raio**: 30
+                - **raio**: 31
             - **[3]**:
               - **id**: 4
               - **label**: 4
               - **circulo**:
                 - **x**: 858
                 - **y**: 537
-                - **raio**: 30
+                - **raio**: 31
             - **[4]**:
               - **id**: 5
               - **label**: 5
@@ -219,7 +297,7 @@
               - **id**: 1
               - **label**: 1
               - **circulo**:
-                - **x**: 859
+                - **x**: 858
                 - **y**: 687
                 - **raio**: 29
             - **[1]**:
@@ -227,8 +305,8 @@
               - **label**: 2
               - **circulo**:
                 - **x**: 567
-                - **y**: 549
-                - **raio**: 25
+                - **y**: 548
+                - **raio**: 26
             - **[2]**:
               - **id**: 3
               - **label**: 3
@@ -260,28 +338,28 @@
               - **circulo**:
                 - **x**: 234
                 - **y**: 424
-                - **raio**: 17
+                - **raio**: 18
             - **[1]**:
               - **id**: 5
               - **label**: 5
               - **circulo**:
                 - **x**: 279
                 - **y**: 353
-                - **raio**: 17
+                - **raio**: 18
             - **[2]**:
               - **id**: 6
               - **label**: 6
               - **circulo**:
                 - **x**: 438
                 - **y**: 419
-                - **raio**: 17
+                - **raio**: 18
             - **[3]**:
               - **id**: 7
               - **label**: 7
               - **circulo**:
                 - **x**: 463
                 - **y**: 373
-                - **raio**: 17
+                - **raio**: 18
           - **referencias**:
             - **[0]**:
               - **escalada**: Vira Folha
@@ -345,35 +423,35 @@
               - **id**: 01
               - **label**: 01
               - **circulo**:
-                - **x**: 489
-                - **y**: 397
-                - **raio**: 17
+                - **x**: 488
+                - **y**: 396
+                - **raio**: 18
             - **[1]**:
               - **id**: 02
               - **label**: 02
               - **circulo**:
                 - **x**: 613
-                - **y**: 363
+                - **y**: 362
                 - **raio**: 18
             - **[2]**:
               - **id**: 03
               - **label**: 03
               - **circulo**:
                 - **x**: 488
-                - **y**: 351
+                - **y**: 350
                 - **raio**: 18
             - **[3]**:
               - **id**: 04
               - **label**: 04
               - **circulo**:
-                - **x**: 512
+                - **x**: 511
                 - **y**: 257
                 - **raio**: 18
             - **[4]**:
               - **id**: 05
               - **label**: 05
               - **circulo**:
-                - **x**: 556
+                - **x**: 555
                 - **y**: 235
                 - **raio**: 18
           - **referencias**:
@@ -472,9 +550,9 @@
               - **id**: 2
               - **label**: 2
               - **circulo**:
-                - **x**: 222
+                - **x**: 223
                 - **y**: 307
-                - **raio**: 16
+                - **raio**: 17
           - **referencias**:
             - **[0]**:
               - **escalada**: Casa da Sogra
@@ -545,6 +623,15 @@
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_reza_p0_i0.webp)
     - **largura_mapa**: 595
     - **altura_mapa**: 839
+    - **pontos_de_interesse**:
+      - **[0]**:
+        - **id**: grupo_reza
+        - **label**: Reza
+        - **retangulo**:
+          - **x**: 340
+          - **y**: 296
+          - **comprimento**: 210
+          - **largura**: 134
 - **setores**:
   - **[0]**:
     - **conteudo**:
@@ -568,14 +655,14 @@
               - **label**: 2
               - **circulo**:
                 - **x**: 426
-                - **y**: 677
+                - **y**: 676
                 - **raio**: 24
             - **[2]**:
               - **id**: 3
               - **label**: 3
               - **circulo**:
                 - **x**: 243
-                - **y**: 696
+                - **y**: 695
                 - **raio**: 24
           - **referencias**:
             - **[0]**:
@@ -609,7 +696,7 @@
         - **total_boulders**: 3
   - **[1]**:
     - **conteudo**:
-      - **descricao**: # Reza
+      - **descricao**: # Setor Reza
       - **nome**: Reza
       - **mapas**:
         - **[0]**:
@@ -636,36 +723,36 @@
               - **label**: 3
               - **circulo**:
                 - **x**: 554
-                - **y**: 597
+                - **y**: 596
                 - **raio**: 20
             - **[3]**:
               - **id**: 4
               - **label**: 4
               - **circulo**:
                 - **x**: 634
-                - **y**: 590
+                - **y**: 589
                 - **raio**: 19
             - **[4]**:
               - **id**: 5
               - **label**: 5
               - **circulo**:
                 - **x**: 1104
-                - **y**: 632
+                - **y**: 631
                 - **raio**: 26
             - **[5]**:
               - **id**: 6
               - **label**: 6
               - **circulo**:
-                - **x**: 1139
+                - **x**: 1138
                 - **y**: 581
                 - **raio**: 25
           - **referencias**:
             - **[0]**:
-              - **escalada**: Inconfidência Mineira
+              - **escalada**: Rezando pra São Longuinho
               - **ids**:
                 - 1
             - **[1]**:
-              - **escalada**: Reza Vela
+              - **escalada**: Reza Forte
               - **ids**:
                 - 2
             - **[2]**:
@@ -673,42 +760,42 @@
               - **ids**:
                 - 3
             - **[3]**:
-              - **escalada**: Reza Santa
+              - **escalada**: Padre Nosso
               - **ids**:
                 - 4
             - **[4]**:
-              - **escalada**: Santa do Pau Oco
+              - **escalada**: Reza Fria
               - **ids**:
                 - 5
             - **[5]**:
-              - **escalada**: Gênesis
+              - **escalada**: Ave Maria
               - **ids**:
                 - 6
       - **escaladas**:
         - **[0]**:
           - **boulder**:
-            - **descricao**: Projeto
-            - **nome**: Inconfidência Mineira
+            - **nome**: Rezando pra São Longuinho
+            - **dificuldade**: V2
         - **[1]**:
           - **boulder**:
-            - **descricao**: Projeto
-            - **nome**: Reza Vela
+            - **nome**: Reza Forte
+            - **dificuldade**: V7
         - **[2]**:
           - **boulder**:
             - **nome**: Reza Braba
-            - **dificuldade**: V8
+            - **dificuldade**: V9
         - **[3]**:
           - **boulder**:
-            - **nome**: Reza Santa
-            - **dificuldade**: V4
+            - **nome**: Padre Nosso
+            - **dificuldade**: V1
         - **[4]**:
           - **boulder**:
-            - **nome**: Santa do Pau Oco
-            - **dificuldade**: V3
+            - **nome**: Reza Fria
+            - **dificuldade**: V6
         - **[5]**:
           - **boulder**:
-            - **nome**: Gênesis
-            - **dificuldade**: V8
+            - **nome**: Ave Maria
+            - **dificuldade**: V7
       - **precomputados**:
         - **total_escaladas**: 6
         - **total_boulders**: 6
@@ -727,7 +814,7 @@
               - **label**: 1
               - **circulo**:
                 - **x**: 473
-                - **y**: 668
+                - **y**: 667
                 - **raio**: 36
           - **referencias**:
             - **[0]**:
@@ -744,28 +831,28 @@
               - **label**: 2
               - **circulo**:
                 - **x**: 476
-                - **y**: 552
-                - **raio**: 22
+                - **y**: 551
+                - **raio**: 23
             - **[1]**:
               - **id**: 3
               - **label**: 3
               - **circulo**:
-                - **x**: 600
+                - **x**: 599
                 - **y**: 448
-                - **raio**: 21
+                - **raio**: 22
             - **[2]**:
               - **id**: 4
               - **label**: 4
               - **circulo**:
                 - **x**: 710
-                - **y**: 651
+                - **y**: 650
                 - **raio**: 22
             - **[3]**:
               - **id**: 5
               - **label**: 5
               - **circulo**:
                 - **x**: 1301
-                - **y**: 663
+                - **y**: 662
                 - **raio**: 22
           - **referencias**:
             - **[0]**:
@@ -821,22 +908,22 @@
               - **id**: 1
               - **label**: 1
               - **circulo**:
-                - **x**: 1373
-                - **y**: 649
+                - **x**: 1372
+                - **y**: 648
                 - **raio**: 32
             - **[1]**:
               - **id**: 2
               - **label**: 2
               - **circulo**:
                 - **x**: 664
-                - **y**: 640
+                - **y**: 639
                 - **raio**: 32
             - **[2]**:
               - **id**: 3
               - **label**: 3
               - **circulo**:
                 - **x**: 400
-                - **y**: 681
+                - **y**: 680
                 - **raio**: 32
           - **referencias**:
             - **[0]**:
@@ -884,23 +971,23 @@
               - **id**: 1
               - **label**: 1
               - **circulo**:
-                - **x**: 172
+                - **x**: 173
                 - **y**: 464
                 - **raio**: 20
             - **[1]**:
               - **id**: 2
               - **label**: 2
               - **circulo**:
-                - **x**: 274
+                - **x**: 275
                 - **y**: 465
-                - **raio**: 18
+                - **raio**: 19
             - **[2]**:
               - **id**: 3
               - **label**: 3
               - **circulo**:
                 - **x**: 455
                 - **y**: 445
-                - **raio**: 18
+                - **raio**: 19
           - **referencias**:
             - **[0]**:
               - **escalada**: Apoio Resende
@@ -953,7 +1040,7 @@
               - **label**: 2
               - **circulo**:
                 - **x**: 479
-                - **y**: 658
+                - **y**: 657
                 - **raio**: 27
             - **[2]**:
               - **id**: 3
@@ -973,7 +1060,7 @@
               - **id**: 5
               - **label**: 5
               - **circulo**:
-                - **x**: 760
+                - **x**: 759
                 - **y**: 671
                 - **raio**: 27
           - **referencias**:
@@ -1007,7 +1094,7 @@
               - **label**: 6
               - **circulo**:
                 - **x**: 344
-                - **y**: 558
+                - **y**: 557
                 - **raio**: 33
             - **[1]**:
               - **id**: 7
@@ -1035,8 +1122,8 @@
               - **label**: 8
               - **circulo**:
                 - **x**: 381
-                - **y**: 460
-                - **raio**: 22
+                - **y**: 459
+                - **raio**: 23
           - **referencias**:
             - **[0]**:
               - **escalada**: Mancha Cinza
@@ -1092,14 +1179,14 @@
               - **id**: 1
               - **label**: 1
               - **circulo**:
-                - **x**: 785
-                - **y**: 705
+                - **x**: 784
+                - **y**: 704
                 - **raio**: 26
             - **[1]**:
               - **id**: 2
               - **label**: 2
               - **circulo**:
-                - **x**: 965
+                - **x**: 964
                 - **y**: 661
                 - **raio**: 26
           - **referencias**:
@@ -1121,8 +1208,8 @@
               - **label**: 3
               - **circulo**:
                 - **x**: 241
-                - **y**: 339
-                - **raio**: 18
+                - **y**: 338
+                - **raio**: 19
           - **referencias**:
             - **[0]**:
               - **escalada**: Almadém
@@ -1158,9 +1245,9 @@
               - **id**: 1
               - **label**: 1
               - **circulo**:
-                - **x**: 562
+                - **x**: 563
                 - **y**: 660
-                - **raio**: 26
+                - **raio**: 27
           - **referencias**:
             - **[0]**:
               - **escalada**: Lek Pression
@@ -1193,6 +1280,15 @@
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_laranjinha_p0_i0.webp)
     - **largura_mapa**: 595
     - **altura_mapa**: 839
+    - **pontos_de_interesse**:
+      - **[0]**:
+        - **id**: grupo_laranjinha
+        - **label**: Laranjinha
+        - **retangulo**:
+          - **x**: 300
+          - **y**: 400
+          - **comprimento**: 130
+          - **largura**: 124
 - **setores**:
   - **[0]**:
     - **conteudo**:
@@ -1201,6 +1297,23 @@
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_laranjinha_setor_matsuzaki_p0_i0.webp)
+          - **largura_mapa**: 746
+          - **altura_mapa**: 578
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 1
+              - **label**: 1
+              - **circulo**:
+                - **x**: 331
+                - **y**: 466
+                - **raio**: 27
+            - **[1]**:
+              - **id**: 2
+              - **label**: 2
+              - **circulo**:
+                - **x**: 403
+                - **y**: 480
+                - **raio**: 27
           - **referencias**:
             - **[0]**:
               - **escalada**: Matsuzaki
@@ -1210,8 +1323,6 @@
               - **escalada**: Agente Laranja
               - **ids**:
                 - 2
-          - **largura_mapa**: 746
-          - **altura_mapa**: 578
       - **escaladas**:
         - **[0]**:
           - **boulder**:
@@ -1283,9 +1394,9 @@
               - **id**: 01
               - **label**: 1
               - **circulo**:
-                - **x**: 622
-                - **y**: 579
-                - **raio**: 32
+                - **x**: 623
+                - **y**: 578
+                - **raio**: 33
           - **referencias**:
             - **[0]**:
               - **escalada**: Boca de Tubarão
@@ -1314,21 +1425,21 @@
               - **label**: 1
               - **circulo**:
                 - **x**: 487
-                - **y**: 587
+                - **y**: 588
                 - **raio**: 30
             - **[1]**:
               - **id**: 2
               - **label**: 2
               - **circulo**:
                 - **x**: 304
-                - **y**: 459
+                - **y**: 458
                 - **raio**: 30
             - **[2]**:
               - **id**: 3
               - **label**: 3
               - **circulo**:
                 - **x**: 793
-                - **y**: 587
+                - **y**: 588
                 - **raio**: 30
           - **referencias**:
             - **[0]**:
@@ -1352,21 +1463,21 @@
               - **id**: 4
               - **label**: 4
               - **circulo**:
-                - **x**: 182
+                - **x**: 183
                 - **y**: 302
                 - **raio**: 17
             - **[1]**:
               - **id**: 5
               - **label**: 5
               - **circulo**:
-                - **x**: 188
-                - **y**: 246
-                - **raio**: 15
+                - **x**: 187
+                - **y**: 247
+                - **raio**: 16
             - **[2]**:
               - **id**: 6
               - **label**: 6
               - **circulo**:
-                - **x**: 486
+                - **x**: 485
                 - **y**: 264
                 - **raio**: 15
           - **referencias**:
@@ -1434,7 +1545,7 @@
               - **circulo**:
                 - **x**: 553
                 - **y**: 427
-                - **raio**: 19
+                - **raio**: 20
             - **[2]**:
               - **id**: 3
               - **label**: 3
@@ -1466,14 +1577,14 @@
               - **circulo**:
                 - **x**: 162
                 - **y**: 224
-                - **raio**: 19
+                - **raio**: 20
             - **[1]**:
               - **id**: 5
               - **label**: 5
               - **circulo**:
-                - **x**: 200
+                - **x**: 201
                 - **y**: 228
-                - **raio**: 19
+                - **raio**: 20
           - **referencias**:
             - **[0]**:
               - **escalada**: Voilà
@@ -1527,6 +1638,15 @@
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_ditadura_p0_i0.webp)
     - **largura_mapa**: 596
     - **altura_mapa**: 839
+    - **pontos_de_interesse**:
+      - **[0]**:
+        - **id**: grupo_ditadura
+        - **label**: Ditadura
+        - **retangulo**:
+          - **x**: 124
+          - **y**: 314
+          - **comprimento**: 208
+          - **largura**: 195
 - **setores**:
   - **[0]**:
     - **conteudo**:
@@ -1543,15 +1663,15 @@
               - **label**: 1
               - **circulo**:
                 - **x**: 941
-                - **y**: 818
+                - **y**: 817
                 - **raio**: 20
             - **[1]**:
               - **id**: 2
               - **label**: 2
               - **circulo**:
-                - **x**: 990
-                - **y**: 695
-                - **raio**: 22
+                - **x**: 991
+                - **y**: 694
+                - **raio**: 23
             - **[2]**:
               - **id**: 3
               - **label**: 3
@@ -1563,9 +1683,9 @@
               - **id**: 4
               - **label**: 4
               - **circulo**:
-                - **x**: 213
+                - **x**: 214
                 - **y**: 506
-                - **raio**: 20
+                - **raio**: 21
           - **referencias**:
             - **[0]**:
               - **escalada**: Ditadura
@@ -1703,6 +1823,28 @@
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_ditadura_setor_espiga_p0_i0.webp)
           - **largura_mapa**: 1488
           - **altura_mapa**: 854
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 1
+              - **label**: 1
+              - **circulo**:
+                - **x**: 511
+                - **y**: 674
+                - **raio**: 24
+            - **[1]**:
+              - **id**: 2
+              - **label**: 2
+              - **circulo**:
+                - **x**: 866
+                - **y**: 673
+                - **raio**: 25
+            - **[2]**:
+              - **id**: 3
+              - **label**: 3
+              - **circulo**:
+                - **x**: 934
+                - **y**: 673
+                - **raio**: 25
           - **referencias**:
             - **[0]**:
               - **escalada**: Espião
@@ -1791,7 +1933,7 @@
               - **label**: 1
               - **circulo**:
                 - **x**: 333
-                - **y**: 482
+                - **y**: 481
                 - **raio**: 24
           - **referencias**:
             - **[0]**:
@@ -1828,15 +1970,15 @@
               - **label**: 2
               - **circulo**:
                 - **x**: 698
-                - **y**: 604
-                - **raio**: 38
+                - **y**: 605
+                - **raio**: 39
             - **[2]**:
               - **id**: 3
               - **label**: 3
               - **circulo**:
                 - **x**: 1187
-                - **y**: 638
-                - **raio**: 38
+                - **y**: 637
+                - **raio**: 37
           - **referencias**:
             - **[0]**:
               - **escalada**: Iguana
@@ -1951,6 +2093,15 @@
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_mulher_de_bigode_p0_i0.webp)
     - **largura_mapa**: 596
     - **altura_mapa**: 839
+    - **pontos_de_interesse**:
+      - **[0]**:
+        - **id**: grupo_mulher_de_bigode
+        - **label**: Mulher de Bigode
+        - **retangulo**:
+          - **x**: 166
+          - **y**: 491
+          - **comprimento**: 206
+          - **largura**: 194
 - **setores**:
   - **[0]**:
     - **conteudo**:
@@ -1966,7 +2117,7 @@
               - **id**: 01
               - **label**: 01
               - **circulo**:
-                - **x**: 193
+                - **x**: 194
                 - **y**: 207
                 - **raio**: 13
             - **[1]**:
@@ -1981,7 +2132,7 @@
               - **label**: 03
               - **circulo**:
                 - **x**: 271
-                - **y**: 199
+                - **y**: 198
                 - **raio**: 13
             - **[3]**:
               - **id**: 04
@@ -1995,21 +2146,21 @@
               - **label**: 05
               - **circulo**:
                 - **x**: 493
-                - **y**: 250
+                - **y**: 249
                 - **raio**: 13
             - **[5]**:
               - **id**: 06
               - **label**: 06
               - **circulo**:
                 - **x**: 45
-                - **y**: 60
+                - **y**: 61
                 - **raio**: 13
             - **[6]**:
               - **id**: 07
               - **label**: 07
               - **circulo**:
                 - **x**: 267
-                - **y**: 154
+                - **y**: 153
                 - **raio**: 13
           - **referencias**:
             - **[0]**:
@@ -2057,7 +2208,7 @@
               - **label**: 02
               - **circulo**:
                 - **x**: 300
-                - **y**: 259
+                - **y**: 260
                 - **raio**: 14
             - **[2]**:
               - **id**: 03
@@ -2065,7 +2216,7 @@
               - **circulo**:
                 - **x**: 158
                 - **y**: 288
-                - **raio**: 14
+                - **raio**: 13
           - **referencias**:
             - **[0]**:
               - **escalada**: Mulher de Bigode
@@ -2088,7 +2239,7 @@
               - **id**: 04
               - **label**: 04
               - **circulo**:
-                - **x**: 406
+                - **x**: 405
                 - **y**: 380
                 - **raio**: 18
             - **[1]**:
@@ -2174,7 +2325,7 @@
               - **label**: 1
               - **circulo**:
                 - **x**: 1134
-                - **y**: 502
+                - **y**: 501
                 - **raio**: 29
             - **[1]**:
               - **id**: 2
@@ -2183,6 +2334,27 @@
                 - **x**: 930
                 - **y**: 563
                 - **raio**: 29
+            - **[2]**:
+              - **id**: 3
+              - **label**: 3
+              - **circulo**:
+                - **x**: 106
+                - **y**: 761
+                - **raio**: 14
+            - **[3]**:
+              - **id**: 4
+              - **label**: 4
+              - **circulo**:
+                - **x**: 143
+                - **y**: 763
+                - **raio**: 14
+            - **[4]**:
+              - **id**: 5
+              - **label**: 5
+              - **circulo**:
+                - **x**: 181
+                - **y**: 761
+                - **raio**: 14
           - **referencias**:
             - **[0]**:
               - **escalada**: Siricutico
@@ -2192,6 +2364,24 @@
               - **escalada**: Ziriguidum
               - **ids**:
                 - 2
+            - **[2]**:
+              - **ids**:
+                - 3
+              - **grupo**: Mulher de Bigode
+              - **setor**: Ziriguidum
+              - **escalada**: Esticadinha
+            - **[3]**:
+              - **ids**:
+                - 4
+              - **grupo**: Mulher de Bigode
+              - **setor**: Ziriguidum
+              - **escalada**: Esquisitinha
+            - **[4]**:
+              - **ids**:
+                - 5
+              - **grupo**: Mulher de Bigode
+              - **setor**: Ziriguidum
+              - **escalada**: Rapunzel
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_mulher_de_bigode_setor_ziriguidum_p0_i1.webp)
           - **largura_mapa**: 509
@@ -2209,14 +2399,14 @@
               - **label**: 4
               - **circulo**:
                 - **x**: 200
-                - **y**: 348
+                - **y**: 347
                 - **raio**: 14
             - **[2]**:
               - **id**: 5
               - **label**: 5
               - **circulo**:
                 - **x**: 238
-                - **y**: 345
+                - **y**: 344
                 - **raio**: 14
           - **referencias**:
             - **[0]**:
@@ -2269,23 +2459,23 @@
               - **id**: 1
               - **label**: 1
               - **circulo**:
-                - **x**: 688
+                - **x**: 689
                 - **y**: 623
-                - **raio**: 20
+                - **raio**: 21
             - **[1]**:
               - **id**: 2
               - **label**: 2
               - **circulo**:
                 - **x**: 821
-                - **y**: 709
-                - **raio**: 20
+                - **y**: 708
+                - **raio**: 21
             - **[2]**:
               - **id**: 3
               - **label**: 3
               - **circulo**:
                 - **x**: 959
                 - **y**: 627
-                - **raio**: 20
+                - **raio**: 21
           - **referencias**:
             - **[0]**:
               - **escalada**: Baioneta
@@ -2329,21 +2519,21 @@
               - **id**: 1
               - **label**: 1
               - **circulo**:
-                - **x**: 639
-                - **y**: 504
+                - **x**: 638
+                - **y**: 503
                 - **raio**: 21
             - **[1]**:
               - **id**: 2
               - **label**: 2
               - **circulo**:
                 - **x**: 591
-                - **y**: 402
+                - **y**: 401
                 - **raio**: 21
             - **[2]**:
               - **id**: 3
               - **label**: 3
               - **circulo**:
-                - **x**: 26
+                - **x**: 27
                 - **y**: 384
                 - **raio**: 21
           - **referencias**:
@@ -2395,9 +2585,9 @@
               - **id**: 1
               - **label**: 1
               - **circulo**:
-                - **x**: 552
+                - **x**: 551
                 - **y**: 333
-                - **raio**: 21
+                - **raio**: 20
       - **escaladas**:
         - **[0]**:
           - **boulder**:
@@ -2420,7 +2610,7 @@
               - **id**: 1
               - **label**: 1
               - **circulo**:
-                - **x**: 226
+                - **x**: 227
                 - **y**: 583
                 - **raio**: 23
             - **[1]**:
@@ -2450,28 +2640,28 @@
               - **circulo**:
                 - **x**: 102
                 - **y**: 381
-                - **raio**: 14
+                - **raio**: 15
             - **[1]**:
               - **id**: 4
               - **label**: 4
               - **circulo**:
-                - **x**: 152
+                - **x**: 153
                 - **y**: 401
-                - **raio**: 14
+                - **raio**: 15
             - **[2]**:
               - **id**: 5
               - **label**: 5
               - **circulo**:
-                - **x**: 207
+                - **x**: 208
                 - **y**: 243
-                - **raio**: 14
+                - **raio**: 15
             - **[3]**:
               - **id**: 6
               - **label**: 6
               - **circulo**:
                 - **x**: 493
-                - **y**: 258
-                - **raio**: 14
+                - **y**: 257
+                - **raio**: 15
           - **referencias**:
             - **[0]**:
               - **escalada**: Boulder dos Buracos
@@ -2532,8 +2722,8 @@
               - **label**: 1
               - **circulo**:
                 - **x**: 360
-                - **y**: 351
-                - **raio**: 27
+                - **y**: 350
+                - **raio**: 28
           - **referencias**:
             - **[0]**:
               - **escalada**: Fingerboard
@@ -2561,8 +2751,8 @@
               - **id**: 1
               - **label**: 1
               - **circulo**:
-                - **x**: 210
-                - **y**: 345
+                - **x**: 209
+                - **y**: 344
                 - **raio**: 27
             - **[1]**:
               - **id**: 2
@@ -2570,7 +2760,7 @@
               - **circulo**:
                 - **x**: 113
                 - **y**: 310
-                - **raio**: 27
+                - **raio**: 28
           - **referencias**:
             - **[0]**:
               - **escalada**: Carga Pesada SDS
@@ -2637,9 +2827,9 @@
               - **id**: 1
               - **label**: 1
               - **circulo**:
-                - **x**: 434
+                - **x**: 435
                 - **y**: 346
-                - **raio**: 16
+                - **raio**: 15
           - **referencias**:
             - **[0]**:
               - **escalada**: Ota Aranha
@@ -2723,186 +2913,195 @@
 
 - **arquivos_externos**:
   - **[0]**:
+    - **caminho**: ![caminho](imagens/apoiador_alto_estilo.webp)
+    - **checksum_sha256**: cf2249fdfb93f1d243846c8cea2592af9e74f8c3a04b79f5769cc4d555af6e51
+  - **[1]**:
+    - **caminho**: ![caminho](imagens/apoiador_bonier.webp)
+    - **checksum_sha256**: ba5b00a13c669a5fe06c71921f73b0b3b840fa491cd6f92278d98744b34dd8a3
+  - **[2]**:
+    - **caminho**: ![caminho](imagens/apoiador_campo_base.webp)
+    - **checksum_sha256**: 73d7b465868dde1f1f024a176f2bea63e501e18027066f14564efec189d49dc8
+  - **[3]**:
+    - **caminho**: ![caminho](imagens/apoiador_capituva.webp)
+    - **checksum_sha256**: 28917e006488f18e75eb616c103211db0f85c73f337498a8d84039ba75b8cacb
+  - **[4]**:
+    - **caminho**: ![caminho](imagens/apoiador_quatro_ventos.webp)
+    - **checksum_sha256**: e112313ac0302c831dc4442542e0807ec542cc50370521f99b2a40f6f4db1cd9
+  - **[5]**:
     - **caminho**: ![caminho](imagens/apresentacao_p0_i0.webp)
     - **checksum_sha256**: ac75c793cf80a57c919291b0a2a703d5ef0e36b726ee7a93471654d9dc6e34a6
-  - **[1]**:
-    - **caminho**: ![caminho](imagens/apresentacao_p1_i0.webp)
-    - **checksum_sha256**: bf3179d8c426d89da6dceb8c01cec3a041b5c3f37516ba366c1d71a81900937e
-  - **[2]**:
+  - **[6]**:
     - **caminho**: ![caminho](imagens/capa_p0_i0.webp)
     - **checksum_sha256**: 329eb34f4bdb4e7944b5a4b9348b064d399d951f528b41e1b3957649b7138fa0
-  - **[3]**:
-    - **caminho**: ![caminho](imagens/etica_e_regras_p0_i0.webp)
-    - **checksum_sha256**: db7346289488b7ca7a4df9483d867cd562a5ed520e297c4106f2c101f668fd6a
-  - **[4]**:
+  - **[7]**:
     - **caminho**: ![caminho](imagens/grupo_ditadura_p0_i0.webp)
     - **checksum_sha256**: 9f602c432e5bfe0a6a9a606f73fd03f2579b31e4f727cffe189d3bce465fe837
-  - **[5]**:
+  - **[8]**:
     - **caminho**: ![caminho](imagens/grupo_ditadura_setor_aero_dinamico_p0_i0.webp)
     - **checksum_sha256**: 25af18a42d1eff1e7b0a344c4a0e1747bf1f66e3e7a2b683268d75c3f09d4910
-  - **[6]**:
+  - **[9]**:
     - **caminho**: ![caminho](imagens/grupo_ditadura_setor_cabeca_de_cachorro_p0_i0.webp)
     - **checksum_sha256**: 16e0abe8fcadf5f44a9b3b7f97c92ab8ffc3f6bcbcf5e99bdc5d6eb1f405c7fc
-  - **[7]**:
+  - **[10]**:
     - **caminho**: ![caminho](imagens/grupo_ditadura_setor_catatau_p0_i1.webp)
     - **checksum_sha256**: 06728b1f02c04fbed1ecd68c47de85d0274741d8a0362843d71c710dc58d3f03
-  - **[8]**:
+  - **[11]**:
     - **caminho**: ![caminho](imagens/grupo_ditadura_setor_coroinha_p0_i1.webp)
     - **checksum_sha256**: ac30643924a309a25b39e834251d9dca63b156fcba14859d18af1c82cf256755
-  - **[9]**:
+  - **[12]**:
     - **caminho**: ![caminho](imagens/grupo_ditadura_setor_ditadura_p0_i0.webp)
     - **checksum_sha256**: 2acd56cd8d92ede8e08d4fcda7f3974d791626199eb23ce4a47c7e42aa1c3efb
-  - **[10]**:
+  - **[13]**:
     - **caminho**: ![caminho](imagens/grupo_ditadura_setor_espiga_p0_i0.webp)
     - **checksum_sha256**: d0614f7a5aa5969ec6478462473e42da9cb8315ee1e8f3c23f88f130015b2efa
-  - **[11]**:
+  - **[14]**:
     - **caminho**: ![caminho](imagens/grupo_ditadura_setor_faixa_preta_p0_i0.webp)
     - **checksum_sha256**: e2936e7cf18eb82de721e3975e9750192eaba5fb276bcbf760c5c9205b9188c1
-  - **[12]**:
+  - **[15]**:
     - **caminho**: ![caminho](imagens/grupo_ditadura_setor_faixa_preta_p0_i1.webp)
     - **checksum_sha256**: 37c60e7389ba5aeb199a294eb6b29a1c815ec5918b465245ca07307b012be882
-  - **[13]**:
+  - **[16]**:
     - **caminho**: ![caminho](imagens/grupo_ditadura_setor_iguana_p0_i0.webp)
     - **checksum_sha256**: 33a72a9d1ce52ef9bfe4e824d9536d971bce0de6d58caaf2632096e6fdc35a0e
-  - **[14]**:
+  - **[17]**:
     - **caminho**: ![caminho](imagens/grupo_frigideira_p0_i0.webp)
     - **checksum_sha256**: bc37532b7225004450f5ac4a51fbba3574efa7e69311ea43a3869462fcfa1f94
-  - **[15]**:
+  - **[18]**:
     - **caminho**: ![caminho](imagens/grupo_frigideira_setor_barba_ruiva_p0_i0.webp)
     - **checksum_sha256**: 9c0a44219ef659579e425036f19a92831b1bd74f1a32d2c4338e44e59bfb8620
-  - **[16]**:
+  - **[19]**:
     - **caminho**: ![caminho](imagens/grupo_frigideira_setor_barba_ruiva_p0_i1.webp)
     - **checksum_sha256**: 288d0f2fbe2d5304faea37a70d03c73639540fd43c656a709742cd0126d1a97e
-  - **[17]**:
+  - **[20]**:
     - **caminho**: ![caminho](imagens/grupo_frigideira_setor_casa_da_sogra_p0_i0.webp)
     - **checksum_sha256**: 9d281dcc04f5923ebce36ed133c1a8e04a4edc86f31078d1e6da85449a9dd364
-  - **[18]**:
+  - **[21]**:
     - **caminho**: ![caminho](imagens/grupo_frigideira_setor_escondendo_leite_p0_i0.webp)
     - **checksum_sha256**: 9bca8cd13ddfc1d12ed745347a78767239ff5345b87f52b88d5759efd9586cab
-  - **[19]**:
+  - **[22]**:
     - **caminho**: ![caminho](imagens/grupo_frigideira_setor_frigideira_p0_i0.webp)
     - **checksum_sha256**: 18a708c4433517adab1559d9c26a2b84ea78a0b40d4e6b9f1e8fdd962067746d
-  - **[20]**:
+  - **[23]**:
     - **caminho**: ![caminho](imagens/grupo_frigideira_setor_o_dedo_p0_i1.webp)
     - **checksum_sha256**: 16f276176c139a8a824803dec0918089261539b9efe5e0d460e51f7aa5905009
-  - **[21]**:
+  - **[24]**:
     - **caminho**: ![caminho](imagens/grupo_frigideira_setor_rosquinha_da_sogra_p0_i1.webp)
     - **checksum_sha256**: e6465a5e881ca27285874caa045e37cf94cb5c1f9c2b7b9eaee9ca12b9da385e
-  - **[22]**:
+  - **[25]**:
     - **caminho**: ![caminho](imagens/grupo_laranjinha_p0_i0.webp)
     - **checksum_sha256**: efb15a71546c39c1ad245df24ce3252ff65d9622a9bc8e35df8604ce2a75edea
-  - **[23]**:
+  - **[26]**:
     - **caminho**: ![caminho](imagens/grupo_laranjinha_setor_boca_de_tubarao_p0_i0.webp)
     - **checksum_sha256**: eb0fce527356d117626469688d966999c9928df35c9287ca34226cfc94db0239
-  - **[24]**:
+  - **[27]**:
     - **caminho**: ![caminho](imagens/grupo_laranjinha_setor_embutidos_p0_i1.webp)
     - **checksum_sha256**: 050ebfb636b57f861b891c4898c3d5f6de19b35b9e4ab61206e083ec3609a7a3
-  - **[25]**:
+  - **[28]**:
     - **caminho**: ![caminho](imagens/grupo_laranjinha_setor_laranjinha_p0_i0.webp)
     - **checksum_sha256**: 8db51aa9268bf9aa9da14543b6ec8741ac9eddafe79d5a9b8f1622dd9ac83cc9
-  - **[26]**:
+  - **[29]**:
     - **caminho**: ![caminho](imagens/grupo_laranjinha_setor_laranjinha_p0_i1.webp)
     - **checksum_sha256**: 7f0f892f14108079975f18522653eedb32692cac0053254859faa4597b522f63
-  - **[27]**:
+  - **[30]**:
     - **caminho**: ![caminho](imagens/grupo_laranjinha_setor_matsuzaki_p0_i0.webp)
     - **checksum_sha256**: 931bb47ea6ea12feeb11465ce74c3472690eb4e500b3dd0121e691629c647ac1
-  - **[28]**:
+  - **[31]**:
     - **caminho**: ![caminho](imagens/grupo_laranjinha_setor_unha_de_gato_p0_i0.webp)
     - **checksum_sha256**: 599ecc799e83a22b4f52793ba456b053a466fb84c20e978a618b2e340c66b8ba
-  - **[29]**:
+  - **[32]**:
     - **caminho**: ![caminho](imagens/grupo_laranjinha_setor_unha_de_gato_p0_i1.webp)
     - **checksum_sha256**: f8be8b256f8b0d8ca28236643b0e2fd7d30579df46ad6bf3870a718e43f7ab0c
-  - **[30]**:
+  - **[33]**:
     - **caminho**: ![caminho](imagens/grupo_mulher_de_bigode_p0_i0.webp)
     - **checksum_sha256**: 1b4f78ba7c68ac332e3bd8104ee00a7cb04217f6df873a6e2cd9e246f78ce788
-  - **[31]**:
+  - **[34]**:
     - **caminho**: ![caminho](imagens/grupo_mulher_de_bigode_setor_beico_p0_i0.webp)
     - **checksum_sha256**: d056a2e908cd458d992f08afc65848f183e1cdc164b867e2c14d48bf7ca7aeb4
-  - **[32]**:
+  - **[35]**:
     - **caminho**: ![caminho](imagens/grupo_mulher_de_bigode_setor_beico_p0_i1.webp)
     - **checksum_sha256**: fe47277b61c0f0bdab0698f63d81416151575066b1c3e0e2d3d485512cc2baf7
-  - **[33]**:
+  - **[36]**:
     - **caminho**: ![caminho](imagens/grupo_mulher_de_bigode_setor_carga_pesada_p0_i1.webp)
     - **checksum_sha256**: 83098714b8edda3a8c93faace955c36ca194b796e81d7b14cfb1f56251a232aa
-  - **[34]**:
+  - **[37]**:
     - **caminho**: ![caminho](imagens/grupo_mulher_de_bigode_setor_diabinha_p0_i1.webp)
     - **checksum_sha256**: ee0f06ab67421ceca3673ea3908e0f69bc162e0344a203c75ef638c4a0411c95
-  - **[35]**:
+  - **[38]**:
     - **caminho**: ![caminho](imagens/grupo_mulher_de_bigode_setor_eco_p0_i0.webp)
     - **checksum_sha256**: 7dceecd4256df5fcbec295a1a33730257a1b28f84783351ee92056d49040e729
-  - **[36]**:
+  - **[39]**:
     - **caminho**: ![caminho](imagens/grupo_mulher_de_bigode_setor_fingerboard_p0_i0.webp)
     - **checksum_sha256**: d7f487f6f86ac492fa853a190ff06d48aa77bd49cd9439acd1bfc5d795521844
-  - **[37]**:
+  - **[40]**:
     - **caminho**: ![caminho](imagens/grupo_mulher_de_bigode_setor_meretrissimo_p0_i0.webp)
     - **checksum_sha256**: 3f8b93c1c7d4c6a0264f6fb0e55b74cf5833963ccec122e77746b7c5127d5859
-  - **[38]**:
+  - **[41]**:
     - **caminho**: ![caminho](imagens/grupo_mulher_de_bigode_setor_modulo_p0_i0.webp)
     - **checksum_sha256**: 57029ba72f89b54941fbe106ba7e6bdfbf683f56ffa8710ce54ef5d863aa0db6
-  - **[39]**:
+  - **[42]**:
     - **caminho**: ![caminho](imagens/grupo_mulher_de_bigode_setor_mulher_e_bigode_p0_i0.webp)
     - **checksum_sha256**: 9024ef22b0d3dd42909665ba57c8cc20d4d03ee54327d3a14735ed3f886408d3
-  - **[40]**:
+  - **[43]**:
     - **caminho**: ![caminho](imagens/grupo_mulher_de_bigode_setor_mulher_e_bigode_p1_i0.webp)
     - **checksum_sha256**: 2d63d955a7083cd4f603ac840c28b161cc5df58bdca4dac870d6dca2cfe16e5e
-  - **[41]**:
+  - **[44]**:
     - **caminho**: ![caminho](imagens/grupo_mulher_de_bigode_setor_mulher_e_bigode_p1_i1.webp)
     - **checksum_sha256**: 0bbe7f5afc9669a801f6edcc83124844e19363b9c2631e61104f9baf7661a930
-  - **[42]**:
+  - **[45]**:
     - **caminho**: ![caminho](imagens/grupo_mulher_de_bigode_setor_ota_aranha_p0_i1.webp)
     - **checksum_sha256**: c5fe731772b944f101e26b3b6675f936dfc234569b9a1111828c094d701db685
-  - **[43]**:
+  - **[46]**:
     - **caminho**: ![caminho](imagens/grupo_mulher_de_bigode_setor_viuva_negra_p0_i0.webp)
     - **checksum_sha256**: a46770ddf07797d34703479b21f2d27600de3dd6a5c78e81478f6693ac9fd348
-  - **[44]**:
+  - **[47]**:
     - **caminho**: ![caminho](imagens/grupo_mulher_de_bigode_setor_ziriguidum_p0_i0.webp)
     - **checksum_sha256**: 8cd80b190a2d7d09b928be225118fbcb2ebfd54d887562750daae5e929007f62
-  - **[45]**:
+  - **[48]**:
     - **caminho**: ![caminho](imagens/grupo_mulher_de_bigode_setor_ziriguidum_p0_i1.webp)
     - **checksum_sha256**: 969fa99307a30930d9c6a9c916fccb6f5b2fa4d0404acf0e89a3c5abc3c7e5b9
-  - **[46]**:
+  - **[49]**:
     - **caminho**: ![caminho](imagens/grupo_reza_p0_i0.webp)
     - **checksum_sha256**: f9c039574cea76e4801c99aab8b6b6004dc96e9d7a3238e1b9da68cd402fd460
-  - **[47]**:
+  - **[50]**:
     - **caminho**: ![caminho](imagens/grupo_reza_setor_almadem_p0_i0.webp)
     - **checksum_sha256**: bbf715d081f7fed27f70a2a16090044bf38cddc775761c14c09505e9ea6957c7
-  - **[48]**:
+  - **[51]**:
     - **caminho**: ![caminho](imagens/grupo_reza_setor_almadem_p0_i1.webp)
     - **checksum_sha256**: 0821fbff8993f618f2c049b340cc672a9fe90c9eaa9bc971b38c4c492c8a8ab2
-  - **[49]**:
+  - **[52]**:
     - **caminho**: ![caminho](imagens/grupo_reza_setor_apoio_resende_p0_i0.webp)
     - **checksum_sha256**: f20351c5cc4d0b2ec213c8d1ee6f7fd20fb88ce4356413aea89edcf6de42bb85
-  - **[50]**:
+  - **[53]**:
     - **caminho**: ![caminho](imagens/grupo_reza_setor_batcaverna_p0_i0.webp)
     - **checksum_sha256**: 83ca5023af5b11b614a01fbffab26315008d7622eeafd30786b10b81d3ed0fc9
-  - **[51]**:
+  - **[54]**:
     - **caminho**: ![caminho](imagens/grupo_reza_setor_busao_p0_i0.webp)
     - **checksum_sha256**: eeb5fb47f4535f7cae9ac151a0828cb293277636768cc43b5195939310f4f7f5
-  - **[52]**:
+  - **[55]**:
     - **caminho**: ![caminho](imagens/grupo_reza_setor_busao_p1_i0.webp)
     - **checksum_sha256**: e72823b8392effb762415f81b2df9cd5dd7c009c13032672eca66848d2d9194f
-  - **[53]**:
+  - **[56]**:
     - **caminho**: ![caminho](imagens/grupo_reza_setor_busao_p1_i1.webp)
     - **checksum_sha256**: fb2798c6dabcbd47215d87724ae5d43dc74def953ebc216ec8b237481492d488
-  - **[54]**:
+  - **[57]**:
     - **caminho**: ![caminho](imagens/grupo_reza_setor_lek_pression_p0_i0.webp)
     - **checksum_sha256**: 4d076e7bbe31f7fbf576684adf098d78e8061fe282bf5b0793cbf9c034350458
-  - **[55]**:
+  - **[58]**:
     - **caminho**: ![caminho](imagens/grupo_reza_setor_locomotiva_p0_i0.webp)
     - **checksum_sha256**: 164ef302aa4a6d89f965d4426262f43364d2c4878904ba564f91622f2035b7be
-  - **[56]**:
+  - **[59]**:
     - **caminho**: ![caminho](imagens/grupo_reza_setor_locomotiva_p1_i0.webp)
     - **checksum_sha256**: bc2c0807d890fd9df595f67dff11fe669996b503cb27d928db8cfacad7da03b1
-  - **[57]**:
+  - **[60]**:
     - **caminho**: ![caminho](imagens/grupo_reza_setor_o_profeta_p0_i0.webp)
     - **checksum_sha256**: 6e46579573e1314492b9d4e72a7c74c9f96e55658cda4580b3941d04eaab8ffa
-  - **[58]**:
+  - **[61]**:
     - **caminho**: ![caminho](imagens/grupo_reza_setor_reza_p0_i0.webp)
     - **checksum_sha256**: 91b2fc073200d15c8f6743035148b97370865bbf1d5b069e590c6e7aa95d7a2b
-  - **[59]**:
+  - **[62]**:
     - **caminho**: ![caminho](imagens/mapas_gerais_p0_i0.webp)
-    - **checksum_sha256**: 629bebe0c7b817c48c28ae2d029174fdb82a02c29480def2a4d8caeacd841013
-  - **[60]**:
+    - **checksum_sha256**: f93da19e2d2359a441377b67cb7ce3a0c6aac0eb9d84f8dc8c1de5364e78479e
+  - **[63]**:
     - **caminho**: ![caminho](imagens/mapas_gerais_p1_i0.webp)
     - **checksum_sha256**: 97f723b8ffea3acbcc79df60b932ddea9a9df919f609d2a17993f8d24784a880
 

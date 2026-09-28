@@ -113,6 +113,14 @@ Nesse caso, arquivo do grupo passa a ser `grupo_X.md`, e cada subsetor fica em u
 
 Grupos (Setores com sub-setores) são representados em `croqui.proto` utilizando o proto de Grupo, que possui sub protos de `setores`. No `croqui.yaml`, a mensagem `Pico` pode listar ou setores ou grupos. Utilize dessa habilidade para listar grupos.
 
+## 3. Conferência de Imagens e Preservação de Páginas Inteiras
+
+Ao inspecionar o PDF e preparar as partes:
+- **Diagramação e Fragmentação:** Verifique visualmente como o PDF foi construído. Em PDFs modernos (feitos no Canva, InDesign, Illustrator, etc.), fotos de paredes que contêm traçados vetoriais de vias, caixas de texto ou outros elementos sobrepostos costumam ser fragmentadas pela extração padrão de streams em dezenas de pedaços recortados (tiras verticais, mosaicos parciais, banners).
+- **Preservação de Páginas Inteiras (`--incluir-paginas`):** O script `repartir_pdf.py` deve sempre ser executado com a flag `--incluir-paginas` para que a renderização da página completa (`pX.webp`) seja preservada na pasta de imagens de cada parte.
+- **Conferência Obrigatória:** Ao concluir a separação e geração das imagens, faça a conferência visual em conjunto com o `partes.json`: confirme se as imagens extraídas da parede estão completas ou se foram fatiadas. Em caso de fatiamento/mosaico incompleto nas imagens embutidas (`pX_iY.webp`), a imagem completa da página (`pX.webp`) deve ser a indicada e usada para o croqui.
+
 ## Quando usar essa habilidade
 
 Use essa habilidade quando precisar separar um croqui em partes lógicas para processamento posterior.
+

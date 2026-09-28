@@ -50,8 +50,8 @@ Sempre verifique o sistema de arquivos antes de começar para deduzir de qual fa
 1. Invoque (usando `invoke_subagent`) um único sub-agente do tipo `SeparadorPDF` enviando o PDF completo. No prompt, reforce explicitamente a exigência de usar `view_file` diretamente no arquivo PDF para visualização e a proibição expressa de criar ou executar scripts Python para ler ou extrair texto do PDF.
 2. A tarefa do sub-agente é inspecionar o PDF visualmente, criar a pasta do croqui apropriada em `database/`, gerar o `partes.json` e **retornar para você o caminho da pasta criada**.
 4. Copie o PDF original para `database/<croqui>/raw_original_pdf/croqui_original.pdf`.
-5. Execute `python scripts/repartir_pdf.py database/<croqui>` para desmembrar os `.pdf` menores na pasta `raw_pdf_contents`.
-6. **[Checkpoint]** Pause a execução. Pergunte ao usuário: *"As partes e imagens foram geradas corretamente? Posso prosseguir com a Fase 2 (Conversão)?"*
+5. Execute `python scripts/repartir_pdf.py database/<croqui> --incluir-paginas` para desmembrar os `.pdf` menores na pasta `raw_pdf_contents` e garantir a extração das imagens inteiras das páginas (`pX.webp`).
+6. **[Checkpoint]** Pause a execução. Inspecione as imagens geradas em `raw_pdf_contents/imagens/` junto com o `partes.json`: confira se as imagens extraídas representam as paredes/croquis de forma íntegra e completa. Se as imagens embutidas (`pX_iY.webp`) tiverem sido fragmentadas ou recortadas em tiras/mosaicos pelo PDF, garanta que as imagens completas das páginas (`pX.webp`) foram geradas e instrua os conversores a utilizarem-nas. Pergunte ao usuário: *"As partes e imagens foram geradas corretamente? Posso prosseguir com a Fase 2 (Conversão)?"*
 
 ### Fase 2: Conversão Paralela para Markdown
 

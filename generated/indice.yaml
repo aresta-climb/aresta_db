@@ -104,8 +104,11 @@ croquis:
     longitude: -456009710
 - id: br_mg_caete_monte_alvao
   nome: Monte Alvão - Caeté
-  descricao: |
-    O Alto Monte Alvão, localizado em Caeté, MG, é uma das áreas de escalada mais tradicionais e belas da região, oferecendo vias de diversos estilos e dificuldades em quartzito de alta qualidade.
+  descricao: 'O Alto Monte Alvão, localizado em Caeté, MG, é uma das áreas de escalada
+    mais tradicionais e belas da região, oferecendo vias de diversos estilos e dificuldades
+    em quartzito de alta qualidade.
+
+    '
   caminho_relativo: br_mg_caete_monte_alvao/compilado.binarypb
   checksum_sha256_croqui: 574b66eb17125a6cd4f003dfdac8bf80abc4d9dc007c6c272d4a5d0ad5f6473f
   checksum_sha256_thumbnail: 03f79ad397717faec98f8288a15d55635b103c61f9b2be5cf92a56b1d804df95
@@ -356,6 +359,22 @@ croquis:
   localizacao:
     latitude: -199973890
     longitude: -473989720
+- id: br_mg_santa_luzia_morro_do_carrapato_setor_covide
+  nome: Morro do Carrapato - Setor Covide
+  descricao: ''
+  caminho_relativo: br_mg_santa_luzia_morro_do_carrapato_setor_covide/compilado.binarypb
+  checksum_sha256_croqui: 62649d7b5a1f56cb392d5c7ec2c3dde8e9aad658470f9b3c8c46106be9959589
+  checksum_sha256_thumbnail: 0c93f073dc2a415f562f1f237494c4b1f939f50bd050323fc9e073bc69a1d8f1
+  timestamp_update: '2026-09-28T12:47:59Z'
+  precomputados:
+    total_escaladas: 31
+    total_setores: 3
+    total_grupos: 0
+    total_esportivas: 31
+    tamanho_download_bytes: 12913200
+  localizacao:
+    latitude: -197584200
+    longitude: -438851100
 - id: br_mg_santa_luzia_santuario
   nome: Santuário de Santa Luzia
   descricao: ''
@@ -404,6 +423,23 @@ croquis:
     total_grupos: 4
     total_esportivas: 207
     tamanho_download_bytes: 15391246
+  localizacao:
+    latitude: -211406830
+    longitude: -442847810
+- id: br_mg_sao_joao_del_rei_serra_do_lenheiro_boulders_ave_maria_2017
+  nome: Boulders da Ave Maria - Serra do Lenheiro
+  descricao: Guia de escalada em boulder do setor Ave Maria, na Serra do Lenheiro
+    em São João del Rei - MG (1ª Edição, 2017).
+  caminho_relativo: br_mg_sao_joao_del_rei_serra_do_lenheiro_boulders_ave_maria_2017/compilado.binarypb
+  checksum_sha256_croqui: dba9e44ee73a7916d9bff7070c0500879483ca17fdd9ab08b91d9968b63666b2
+  checksum_sha256_thumbnail: 8bea9a58c1af2476bf89e447d5fb1b46ea51e0f6e3cd31a90b6b0c420a683752
+  timestamp_update: '2026-09-28T12:48:19Z'
+  precomputados:
+    total_escaladas: 127
+    total_setores: 38
+    total_grupos: 5
+    total_boulders: 127
+    tamanho_download_bytes: 7887105
   localizacao:
     latitude: -211406830
     longitude: -442847810
