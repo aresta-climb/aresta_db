@@ -372,16 +372,13 @@ picos:
             precomputados:
               total_escaladas: 1
               total_boulders: 1
-        descricao: '# Grupo Frigideira
-
+        descricao: |-
+          # Grupo Frigideira
 
           **Bloco: Frigideira**
-
           Localizado à esquerda da trilha antes do muro de pedra.
 
-
-          **Principais blocos:** O Dedo, Escondendo Leite, Barba Ruiva, Casa da Sogra,
-          Rosquinha da Sogra.'
+          **Principais blocos:** O Dedo, Escondendo Leite, Barba Ruiva, Casa da Sogra, Rosquinha da Sogra.
         precomputados:
           total_escaladas: 21
           total_boulders: 21
@@ -708,10 +705,10 @@ picos:
             - boulder:
                 nome: Sagarana
                 dificuldade: V6
-            descricao: '# Setor Apoio Resende
+            descricao: |-
+              # Setor Apoio Resende
 
-
-              (Face da Batcaverna)'
+              (Face da Batcaverna)
             precomputados:
               total_escaladas: 3
               total_boulders: 3
@@ -913,11 +910,10 @@ picos:
             precomputados:
               total_escaladas: 1
               total_boulders: 1
-        descricao: '# Grupo Reza
+        descricao: |-
+          # Grupo Reza
 
-
-          **Principais blocos:** Reza, Profeta, Locomotiva, Bat-Caverna, Almadém,
-          Busão.'
+          **Principais blocos:** Reza, Profeta, Locomotiva, Bat-Caverna, Almadém, Busão.
         precomputados:
           total_escaladas: 32
           total_boulders: 32
@@ -1206,11 +1202,10 @@ picos:
             precomputados:
               total_escaladas: 5
               total_boulders: 5
-        descricao: '# Grupo Laranjinha
+        descricao: |-
+          # Grupo Laranjinha
 
-
-          **Principais blocos:** Laranjinha, Unha de Gato, Boca de Tubarão, Matsuzaki,
-          Embutidos.'
+          **Principais blocos:** Laranjinha, Unha de Gato, Boca de Tubarão, Matsuzaki, Embutidos.
         precomputados:
           total_escaladas: 16
           total_boulders: 16
@@ -1579,11 +1574,10 @@ picos:
             precomputados:
               total_escaladas: 3
               total_boulders: 3
-        descricao: '# Grupo Ditadura
+        descricao: |-
+          # Grupo Ditadura
 
-
-          **Principais blocos:** Ditadura, Cabeça de Cachorro, Catatau, Espiga, Aero-Dinâmico,
-          Coroinha, Iguana, Faixa Preta.'
+          **Principais blocos:** Ditadura, Cabeça de Cachorro, Catatau, Espiga, Aero-Dinâmico, Coroinha, Iguana, Faixa Preta.
         precomputados:
           total_escaladas: 20
           total_boulders: 20
@@ -2258,11 +2252,10 @@ picos:
             precomputados:
               total_escaladas: 3
               total_boulders: 3
-        descricao: '# Grupo Mulher de Bigode
+        descricao: |-
+          # Grupo Mulher de Bigode
 
-
-          **Principais blocos:** Mulher de Bigode, Beiço, Diabinha, Eco, Meretríssimo,
-          Ziriguidum, Viúva Negra, Carga pesada, Ota aranha, Fingerboard, Módulo.'
+          **Principais blocos:** Mulher de Bigode, Beiço, Diabinha, Eco, Meretríssimo, Ziriguidum, Viúva Negra, Carga pesada, Ota aranha, Fingerboard, Módulo.
         precomputados:
           total_escaladas: 38
           total_boulders: 38
@@ -2399,18 +2392,14 @@ botoes:
 - texto: Capa
   destino:
     secao_textual:
-      conteudo: '# Boulders da Ave Maria
-
+      conteudo: |-
+        # Boulders da Ave Maria
 
         ## Serra do Lenheiro - MG
 
-
-        | ![Boulders da Ave Maria - Serra do Lenheiro - MG](imagens/capa_p0_i0.webp)
-        |
-
+        | ![Boulders da Ave Maria - Serra do Lenheiro - MG](imagens/capa_p0_i0.webp) |
         | :--: |
-
-        | *Boulders da Ave Maria - Serra do Lenheiro - MG* |'
+        | *Boulders da Ave Maria - Serra do Lenheiro - MG* |
 - texto: Apresentação
   destino:
     secao_textual:
@@ -2457,147 +2446,90 @@ botoes:
 - texto: Ética e Regras
   destino:
     secao_textual:
-      conteudo: '# ATENÇÃO
-
+      conteudo: |-
+        # ATENÇÃO
 
         Respeite a ética e regras locais:
 
-
         - É EXPRESSAMENTE PROIBIDO cavar, melhorar, quebrar ou adicionar agarras.
-
         - O Hih Ball é uma forte característica do setor. NÃO FIXE PROTEÇÕES NOS BLOCOS.
-
         - Utilize as trilhas existentes.
-
         - Traga seu lixo de volta.
-
         - Não corte árvores ou arranque plantas. Respeite os animais.
-
         - Evite fogo, fogueiras.
-
 
         Lembre-se, você está em uma área particular:
 
-
         - Trate os moradores da área com cortesia e respeito.
-
         - Deixe os carros e motos no espaço delimitado para estacionamento.
-
         - Atenção às porteiras. Se abriu feche!
-
-        - Evite concentração de grandes grupos, e cuidado com barulho, principalmente
-        no Nightclimb.'
+        - Evite concentração de grandes grupos, e cuidado com barulho, principalmente no Nightclimb.
 - texto: Como Chegar
   destino:
     secao_textual:
-      conteudo: '# Como Chegar
+      conteudo: |-
+        # Como Chegar
 
-
-        Em São João del Rei, saindo da Praça Frei Orlando-Centro (A), siga pela rua
-        Padre José Maria Xavier (B) em direção à Ponte do Rosário. Vire à esquerda
-        na Av. Gen. Osório (C) e continue pela rua São José Operário (D). Ao final
-        desta, faça a curva à direita para rua Mario Mazoni (E). Aproximadamente 300m
-        depois vire à direita na Paulo Severino (F) até o fim da rua virando à esquerda
-        na Geraldo Batista Alves até a Estrada Caburu (estrada de terra) e siga sentido
-        ao Campo Escola de Montanhismo (CEMONTA). Deixe os carros na área de estacionamento
-        determinada e siga caminhando até o setor de escalada.
-
+        Em São João del Rei, saindo da Praça Frei Orlando-Centro (A), siga pela rua Padre José Maria Xavier (B) em direção à Ponte do Rosário. Vire à esquerda na Av. Gen. Osório (C) e continue pela rua São José Operário (D). Ao final desta, faça a curva à direita para rua Mario Mazoni (E). Aproximadamente 300m depois vire à direita na Paulo Severino (F) até o fim da rua virando à esquerda na Geraldo Batista Alves até a Estrada Caburu (estrada de terra) e siga sentido ao Campo Escola de Montanhismo (CEMONTA). Deixe os carros na área de estacionamento determinada e siga caminhando até o setor de escalada.
 
         | ![Mapa de Acesso](imagens/mapas_gerais_p0_i0.webp) |
-
         | :--: |
-
-        | *Mapa de Acesso* |'
+        | *Mapa de Acesso* |
 - texto: Apoiadores
   destino:
     secao_textual:
-      conteudo: '# Apoiadores e Patrocinadores
-
+      conteudo: |-
+        # Apoiadores e Patrocinadores
 
         ## Quatro Ventos
-
         Costura especializada em montanha.
-
         - Contato: florabelhas@yahoo.com.br | (41) 99138-0256
-
         - Foto: Paola Gonçalves | Fotografia
-
         - Facebook: Quatro Ventos
 
-
         | ![Quatro Ventos](imagens/apoiador_quatro_ventos.webp) |
-
         | :--: |
-
         | *Quatro Ventos* |
 
-
         ---
-
 
         ## Bonier
-
         Equipamentos de Segurança e Resgate. Sempre na seg!
-
         - Website: [www.bonier.com.br](http://www.bonier.com.br)
 
-
         | ![Bonier](imagens/apoiador_bonier.webp) |
-
         | :--: |
-
         | *Bonier* |
 
-
         ---
-
 
         ## Alto Estilo
-
         Apoiando suas aventuras desde 1988.
-
         - Website: [www.altoestilo.com](http://www.altoestilo.com)
 
-
         | ![Alto Estilo](imagens/apoiador_alto_estilo.webp) |
-
         | :--: |
-
         | *Alto Estilo* |
 
-
         ---
-
 
         ## Capituva
-
         Produtos Ecológicos.
-
         - Contato: (41) 99865-7109
 
-
         | ![Capituva](imagens/apoiador_capituva.webp) |
-
         | :--: |
-
         | *Capituva* |
-
 
         ---
 
-
         ## Campo Base
-
         Ginásio de escalada e loja de equipamentos de aventura.
-
         - Website: [www.lojacampobase.com](http://www.lojacampobase.com)
 
-
         | ![Campo Base](imagens/apoiador_campo_base.webp) |
-
         | :--: |
-
-        | *Campo Base* |'
+        | *Campo Base* |
 revisado_manualmente: true
 publicar_croqui: true
 revisado_bounding_circle: true

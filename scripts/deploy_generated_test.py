@@ -699,6 +699,36 @@ class DeployGeneratedTest(unittest.TestCase):
                                     resultado = deploy_generated.deploy(out_dir)
                                     self.assertIs(resultado, True)
 
+    def test_deploy_sem_alvos_compila_todos_os_croquis(self):
+        import tempfile
+        from unittest.mock import patch
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            out_dir = Path(tmp_dir) / "out"
+            fake_croqui_dir = Path(tmp_dir) / "fake"
+            fake_croqui_dir.mkdir(exist_ok=True)
+            croquis_esperados = [(fake_croqui_dir, {"id": "fake"})]
+
+            with patch("scripts.deploy_generated.encontrar_croquis", return_value=croquis_esperados):
+                with patch("scripts.deploy_generated.carregar_dados_anteriores", return_value={}):
+                    with patch("scripts.deploy_generated.passo_a_compilar_croquis") as mock_passo_a:
+                        mock_passo_a.return_value = (
+                            [("fake", {"id": "fake"}, fake_croqui_dir / "compilado.binarypb")],
+                            [],
+                            [],
+                            False,
+                        )
+                        with patch("scripts.deploy_generated.passo_b_calcular_checksums", return_value={"fake": "hash"}):
+                            with patch("scripts.deploy_generated.passo_c_gerar_indice"):
+                                with patch("scripts.deploy_generated.passo_d_gerar_manifesto_serving"):
+                                    (out_dir / "fake").mkdir(parents=True, exist_ok=True)
+                                    (out_dir / "fake" / "compilado.binarypb").write_bytes(b"dummy")
+                                    deploy_generated.deploy(out_dir, target_paths=None)
+
+                                    # Verifica se passo_a_compilar_croquis recebeu todos os croquis encontrados
+                                    mock_passo_a.assert_called_once()
+                                    args_passados, _ = mock_passo_a.call_args
+                                    self.assertEqual(args_passados[0], croquis_esperados)
+
 
 if __name__ == '__main__':
     unittest.main()

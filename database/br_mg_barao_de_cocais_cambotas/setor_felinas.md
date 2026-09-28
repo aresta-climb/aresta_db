@@ -5,6 +5,7 @@
 nome: Felinas
 mapas:
 - caminho_imagem_mapa: imagens/setor_felinas_p0_i7.webp
+- caminho_imagem_mapa: imagens/setor_felinas_p0_i8.webp
 - caminho_imagem_mapa: imagens/setor_felinas_p0_i28.webp
 escaladas:
 - via_multiplas_enfiadas:
@@ -12,8 +13,6 @@ escaladas:
     dificuldade_maxima: BR_7A
     exposicao: E3
     duracao: D2
-    mapas:
-    - caminho_imagem_mapa: imagens/setor_felinas_p0_i8.webp
     equipamento_recomendado: Costuras diversas incluindo longas, 1 jogo de Camalot do .3 
       ao 4, repetição (não obrigatório) 0,5, .075, 1 e 2. Levar 2 cordas de 60m.
     descricao: Via técnica e exigente.

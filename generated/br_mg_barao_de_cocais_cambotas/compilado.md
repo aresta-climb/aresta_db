@@ -227,6 +227,10 @@
     - **largura_mapa**: 487
     - **altura_mapa**: 958
   - **[1]**:
+    - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_felinas_p0_i8.webp)
+    - **largura_mapa**: 1448
+    - **altura_mapa**: 2048
+  - **[2]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_felinas_p0_i28.webp)
     - **largura_mapa**: 981
     - **altura_mapa**: 673
@@ -238,11 +242,6 @@
       - **dificuldade_maxima**: BR_7A
       - **exposicao**: E3
       - **duracao**: D2
-      - **mapas**:
-        - **[0]**:
-          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_felinas_p0_i8.webp)
-          - **largura_mapa**: 1448
-          - **altura_mapa**: 2048
       - **equipamento_recomendado**: Costuras diversas incluindo longas, 1 jogo de Camalot do .3 ao 4, repetição (não obrigatório) 0,5, .075, 1 e 2. Levar 2 cordas de 60m.
   - **[1]**:
     - **via_esportiva**:

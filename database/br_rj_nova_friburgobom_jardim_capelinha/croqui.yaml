@@ -2,24 +2,23 @@
 # Copyright (C) 2026 Aresta Climb Contributors
 id: br_rj_nova_friburgobom_jardim_capelinha
 nome: Capelinha
-ultima_migracao: 0
+ultima_migracao: 4
 picos:
 - nome: Capelinha
   estado: Rio de janeiro
   setores_ou_grupos:
   - setor:
       caminho: setor_de_baixo_caverna.md
-  descricao: "![Foto aérea](imagens/foto_drone.webp)\n\nEm uma área de extração e\
-    \ exploração de pedreiras o setor mantém-se ainda intacto devido a sua história\
-    \ de missas realizadas no local. Ainda podemos observar resquícios como janelas,\
-    \ muretas, altar... \nO setor fica localizado entre as cidades de Nova Friburgo\
-    \ e Bom Jardim, tendo acesso pelas duas cidades."
+  descricao: "![Foto aérea](imagens/foto_drone.webp)\n\nEm uma área de extração e exploração
+    de pedreiras o setor mantém-se ainda intacto devido a sua história de missas realizadas
+    no local. Ainda podemos observar resquícios como janelas, muretas, altar... \nO setor fica
+    localizado entre as cidades de Nova Friburgo e Bom Jardim, tendo acesso pelas duas cidades."
   localizacao:
     latitude: -222285860
     longitude: -424249510
   url_google_maps: https://maps.app.goo.gl/ehxMtrACYudb1sxY7?g_st=aw
   url_filiacao_associacao: https://www.instagram.com/friburgo_climb?stkn=OHFmZnN4c2h5cmlt
-descricao: Setor Capelinha localizado entre os municipios de Nova Friburgo e Bom Jardim
+descricao: Setor Capelinha localizado entre os municipios de Nova Friburgo e Bom Jardim 
   /RJ
 caminho_thumbnail: imagens/thumbnail.webp
 botoes:

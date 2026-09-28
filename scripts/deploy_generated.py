@@ -869,6 +869,7 @@ def deploy(
         if not todos_croquis:
             print("Nenhum croqui encontrado em database/. Nada a fazer.")
             return False
+        a_compilar = todos_croquis
 
     # 3. Carregar dados do índice anterior antes de (opcionalmente) limpar a pasta
     dados_anteriores = carregar_dados_anteriores(GENERATED_DIR / "indice.binarypb")
