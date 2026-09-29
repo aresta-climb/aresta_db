@@ -28,7 +28,11 @@ Além disso, provavelmente haverão várias partes que não são úteis para o w
 > [!IMPORTANT]
 > **Leitura Visual Direta com `view_file` (Proibido Criar/Executar Scripts de Extração):**
 > Você DEVE usar a ferramenta `view_file` diretamente no arquivo `.pdf` para inspecioná-lo de forma visual e multimodal. A ferramenta suporta arquivos PDF nativamente.
-> É expressamente PROIBIDO criar ou rodar scripts Python (como pymupdf, pdfplumber, pypdf, scripts em scratch/, etc.) para tentar extrair texto ou ler páginas do PDF. Inspecione as páginas exclusivamente abrindo o PDF com `view_file`.
+> É expressamente PROIBIDO criar ou rodar scripts Python (como pymupdf, pdfplumber, pypdf, scripts em scratch/, etc.) para tentar extrair texto ou ler páginas do PDF via código. Inspecione as páginas exclusivamente abrindo o PDF com `view_file`.
+>
+> **PDFs maiores que 100 MB:**
+> A ferramenta `view_file` possui um limite de 100 MB. Se o arquivo PDF for grande demais para abrir diretamente com `view_file` (> 100 MB), divida o PDF em partes menores que 100 MB usando o `pymupdf` e visualize cada parte individualmente com `view_file` para definir o `partes.json` (mantendo a contagem de páginas referente ao PDF original, começando em 0).
+
 
 
 Antes de separar as páginas, você precisa identificar as informações exatas sobre a localização do croqui:
