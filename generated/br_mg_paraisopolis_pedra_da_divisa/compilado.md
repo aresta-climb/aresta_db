@@ -10,7 +10,7 @@
 - **nome**: Pedra da Divisa - Face MG
 - **revisado_manualmente**: True
 - **revisado_bounding_circle**: True
-- **status_desenho_extraivel**: NAO_TEM_DESENHO
+- **status_desenho_extraivel**: DESENHO_EXTRAIDO
 - **creditos**:
   - Ana Fujita
   - Eliseu Frechou
@@ -141,6 +141,7 @@
             | :--: |
             | *Foto de escalada na contracapa* |
 - **ultima_migracao**: 4
+- **publicar_croqui**: True
 
 
 ## Parte: setor_cangaco

@@ -1,8 +1,8 @@
 # Estado de Saúde dos Croquis
 
-Relatório gerado em: 28/09/2026 19:57:04
+Relatório gerado em: 28/09/2026 22:45:10
 
-| Croqui | Publicado (28/50) | Revisado Manual (29/50) | Revisado Circ (27/50) | Desenho Extraível (32/2/16) | Pontos de Interesse (26/50) | Thumbnail (40/50) | Coordenadas Picos (31/50) | URL Google Maps (16/50) | Mapas Gerais (34/50) | Betas Pendentes (50/50) | croqui.yaml (41/50) | Conteúdo PDF (3/50) | partes.json (49/50) | PDF Original (3/50) |
+| Croqui | Publicado (29/50) | Revisado Manual (29/50) | Revisado Circ (27/50) | Desenho Extraível (32/2/16) | Pontos de Interesse (26/50) | Thumbnail (40/50) | Coordenadas Picos (31/50) | URL Google Maps (16/50) | Mapas Gerais (34/50) | Betas Pendentes (50/50) | croqui.yaml (41/50) | Conteúdo PDF (4/50) | partes.json (49/50) | PDF Original (4/50) |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | br_mg_araxa_bocaina_boulders | ✅ | ✅ | ✅ | ✅ | ✅ (12/12) | ✅ | ✅ (1/1) | ✅ (1/1) | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ |
 | br_mg_araxa_bocaina_esportivas | ✅ | ✅ | ✅ | ✅ | ✅ (15/15) | ✅ | ✅ (1/1) | ✅ (1/1) | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ |
@@ -31,7 +31,7 @@ Relatório gerado em: 28/09/2026 19:57:04
 | br_mg_ouro_preto_andorinhas | ✅ | ✅ | ✅ | ✅ | ✅ (4/4) | ✅ | ✅ (1/1) | ❌ (0/1) | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ |
 | br_mg_ouro_preto_ouroboulder | ✅ | ✅ | ✅ | ✅ | ✅ (46/46) | ✅ | ✅ (1/1) | ✅ (1/1) | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ |
 | br_mg_ouro_preto_ouroboulder_sunset | ✅ | ✅ | ✅ | ✅ | ✅ (9/9) | ✅ | ✅ (1/1) | ❌ (0/1) | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ |
-| br_mg_paraisopolis_pedra_da_divisa | ❌ | ✅ | ✅ | ✅ (não) | ✅ (5/5) | ✅ | ❌ (0/1) | ❌ (0/1) | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ |
+| br_mg_paraisopolis_pedra_da_divisa | ✅ | ✅ | ✅ | ✅ | ✅ (5/5) | ✅ | ❌ (0/1) | ❌ (0/1) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | br_mg_passa_vinte_gruta | ❌ | ❌ | ❌ | ⚠️ | ✅ (7/7) | ✅ | ✅ (1/1) | ✅ (1/1) | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ |
 | br_mg_passa_vinte_pedra_do_carapuca | ❌ | ❌ | ❌ | ❌ | N/A | ❌ | N/A | N/A | ❌ | ✅ | ❌ | ❌ | ✅ | ❌ |
 | br_mg_pedro_leopoldo_gruta_do_bau | ✅ | ✅ | ✅ | ✅ (não) | ✅ (13/13) | ✅ | ✅ (1/1) | ❌ (0/1) | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ |

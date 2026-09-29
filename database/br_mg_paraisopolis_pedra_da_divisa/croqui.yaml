@@ -11,7 +11,7 @@ descricao: 'Guia de escalada da face mineira da Pedra da Divisa, em Paraisópoli
   '
 revisado_manualmente: true
 revisado_bounding_circle: true
-status_desenho_extraivel: NAO_TEM_DESENHO
+status_desenho_extraivel: DESENHO_EXTRAIDO
 creditos:
 - Ana Fujita
 - Eliseu Frechou
@@ -53,3 +53,4 @@ botoes:
     secao_textual:
       caminho: contracapa.md
 ultima_migracao: 4
+publicar_croqui: true

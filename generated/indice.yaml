@@ -308,6 +308,25 @@ croquis:
   localizacao:
     latitude: -203600960
     longitude: -435035650
+- id: br_mg_paraisopolis_pedra_da_divisa
+  nome: Pedra da Divisa - Face MG
+  descricao: 'Guia de escalada da face mineira da Pedra da Divisa, em Paraisópolis,
+    MG.
+
+    Contém vias esportivas e móveis em diversos setores como Cangaço, Ditados, Cervejas,
+    Questão de Tempo e Hospício.
+
+    '
+  caminho_relativo: br_mg_paraisopolis_pedra_da_divisa/compilado.binarypb
+  checksum_sha256_croqui: 8265d869e5f3c586dc9521429435c16ef33a6b2d8e6ccbed427a378c5faa176b
+  checksum_sha256_thumbnail: be6561976a3ef2c0f957fc3c72cdb7f0572b912d2d1e74ed1aa23fa1a8d0ebbd
+  timestamp_update: '2026-09-29T01:45:04Z'
+  precomputados:
+    total_escaladas: 43
+    total_setores: 5
+    total_grupos: 0
+    total_esportivas: 29
+    tamanho_download_bytes: 4361930
 - id: br_mg_pedro_leopoldo_gruta_do_bau
   nome: Gruta do Baú
   descricao: O maciço do Baú está localizado no município de Pedro Leopoldo, MG. É
