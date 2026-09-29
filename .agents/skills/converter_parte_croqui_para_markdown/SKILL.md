@@ -85,9 +85,10 @@ Para setores (começando com o prefixo `setor_`), siga RIGOROSAMENTE o formato d
               - caminho_imagem_mapa: raw_pdf_contents/imagens/p14_i1.webp
         ```
     - **Imagens no Corpo Markdown:** Caso a imagem seja um mapa ou croqui (seja do setor ou de uma escalada individual), NÃO a adicione como tag de imagem Markdown `![]()` no corpo do texto para evitar duplicações visuais. Deixe para o Markdown apenas imagens fotográficas contextuais e ambientais (ex: foto de alguém escalando, paisagem do local).
-  - **Atenção à integridade das imagens (pX.webp vs pX_iY.webp):** Inspecione visualmente as imagens antes de selecioná-las:
-    - Se `pX_i0.webp` (ou `pX_iY.webp`) for um recorte parcial, tira vertical, banner ou pedaço incompleto da página/parede, **NUNCA** a utilize. Use obrigatoriamente a imagem completa da página `pX.webp`.
-    - Apenas utilize `pX_i0.webp` se ela for comprovadamente a imagem original íntegra da rocha/setor sem cortes ou fragmentações. Em caso de dúvida ou páginas diagramadas com croquis completos, utilize sempre `pX.webp`.
+  - **Atenção à integridade das imagens (pX.webp vs pX_iY.webp):**
+    - Se a página possuía diagramação com sobreposições vetoriais ou transparências, o particionador terá detectado o fatiamento e gerado automaticamente a imagem de página completa `pX.webp`. Nesses casos, use diretamente `pX.webp`.
+    - Se a página possuía uma foto individual limpa e íntegra sem fatiamento, `pX_i0.webp` estará disponível e deve ser utilizada normalmente.
+
   - Quaisquer informação restante que não mapear diretamente para um campo no proto, adicione à área de texto livre do markdown ou ao campo `descricao` da escalada, o que for mais apropriado.
   - **IMPORTANTE**: TODA a informação do setor, incluindo partes textuais, deve ser transcrita para algum campo do protobuf ou da área de markdown.
   - Organizar a estrutura hierárquica: `Setores` -> `Escaladas` -> (uma entre `ViaEsportiva`, `Boulder`, `ViaMovel`, `ViaMultiplasEnfiadas`)

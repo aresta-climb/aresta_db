@@ -380,3 +380,140 @@ def test_translate_coordinates_quad():
     
     # Scale is 2.0, origin is (0,0), so (10,10) -> (20,20)
     assert quad_list == [[20.0, 20.0], [40.0, 20.0], [20.0, 40.0], [40.0, 40.0]]
+
+def test_sao_fatias_adjacentes():
+    import pymupdf
+    from scripts.repartir_pdf import sao_fatias_adjacentes
+
+    # 1. Adjacência vertical (um ao lado do outro com sobreposição no eixo Y)
+    r1 = pymupdf.Rect(0, 0, 100, 200)
+    r2 = pymupdf.Rect(100, 50, 200, 250)
+    assert sao_fatias_adjacentes(r1, r2)
+    assert sao_fatias_adjacentes(r2, r1)
+
+    # 2. Adjacência horizontal (um acima do outro com sobreposição no eixo X)
+    r3 = pymupdf.Rect(0, 0, 200, 100)
+    r4 = pymupdf.Rect(50, 100, 250, 200)
+    assert sao_fatias_adjacentes(r3, r4)
+    assert sao_fatias_adjacentes(r4, r3)
+
+    # 3. Tocam na coordenada X mas não têm sobreposição no eixo Y
+    r5 = pymupdf.Rect(0, 0, 100, 100)
+    r6 = pymupdf.Rect(100, 200, 200, 300)
+    assert not sao_fatias_adjacentes(r5, r6)
+
+    # 4. Tocam na coordenada Y mas não têm sobreposição no eixo X
+    r7 = pymupdf.Rect(0, 0, 100, 100)
+    r8 = pymupdf.Rect(200, 100, 300, 200)
+    assert not sao_fatias_adjacentes(r7, r8)
+
+    # 5. Afastados
+    r9 = pymupdf.Rect(0, 0, 100, 100)
+    r10 = pymupdf.Rect(150, 150, 250, 250)
+    assert not sao_fatias_adjacentes(r9, r10)
+
+def test_detectar_fatiamento_pagina():
+    import pymupdf
+    from scripts.repartir_pdf import detectar_fatiamento_pagina
+
+    mock_page = MagicMock()
+    mock_page.rect = pymupdf.Rect(0, 0, 500, 700)
+
+    # Caso 1: Menos de 2 imagens
+    mock_page.get_image_info.return_value = [{"bbox": (0, 0, 200, 200)}]
+    assert not detectar_fatiamento_pagina(mock_page)
+
+    # Caso 2: Apenas ícones minúsculos (< 20 pt)
+    mock_page.get_image_info.return_value = [
+        {"bbox": (0, 0, 10, 10)},
+        {"bbox": (10, 0, 20, 10)}
+    ]
+    assert not detectar_fatiamento_pagina(mock_page)
+
+    # Caso 3: Imagens normais isoladas sem adjacência
+    mock_page.get_image_info.return_value = [
+        {"bbox": (50, 50, 200, 200)},
+        {"bbox": (50, 350, 200, 500)}
+    ]
+    assert not detectar_fatiamento_pagina(mock_page)
+
+    # Caso 4: Mosaico de fatias adjacentes cobrindo área substancial (>= 3 pares)
+    mock_page.get_image_info.return_value = [
+        {"bbox": (0, 0, 250, 350)},
+        {"bbox": (250, 0, 500, 350)},
+        {"bbox": (0, 350, 250, 700)},
+        {"bbox": (250, 350, 500, 700)}
+    ]
+    assert detectar_fatiamento_pagina(mock_page)
+
+    # Caso 5: 1 par adjacente cobrindo >= 40% da página
+    mock_page.get_image_info.return_value = [
+        {"bbox": (0, 0, 250, 700)},
+        {"bbox": (250, 0, 500, 700)}
+    ]
+    assert detectar_fatiamento_pagina(mock_page)
+
+    # Caso 6: 1 par adjacente pequeno cobrindo < 40% da página
+    mock_page.get_image_info.return_value = [
+        {"bbox": (0, 0, 50, 50)},
+        {"bbox": (50, 0, 100, 50)}
+    ]
+    assert not detectar_fatiamento_pagina(mock_page)
+
+    # Caso 7: Exceção ao acessar page.rect
+    mock_page_err = MagicMock()
+    mock_page_err.get_image_info.return_value = [
+        {"bbox": (0, 0, 50, 50)},
+        {"bbox": (50, 0, 100, 50)}
+    ]
+    type(mock_page_err).rect = property(lambda self: (_ for _ in ()).throw(RuntimeError("Erro rect")))
+    assert not detectar_fatiamento_pagina(mock_page_err)
+
+
+def test_extrair_imagens_auto_detect_fatiamento(tmp_path):
+    import pymupdf
+    from scripts.repartir_pdf import extrair_imagens_da_parte
+
+    output_path = tmp_path / "output_autodetect"
+    
+    with patch("scripts.repartir_pdf.Image.frombytes") as mock_frombytes, \
+         patch("scripts.repartir_pdf.Image.open") as mock_open_pil, \
+         patch("scripts.repartir_pdf.converter_para_webp") as mock_conv_webp:
+        mock_doc = MagicMock()
+        mock_page = MagicMock()
+        mock_doc.load_page.return_value = mock_page
+        mock_page.rect = pymupdf.Rect(0, 0, 500, 700)
+        mock_page.rotation_matrix = pymupdf.Matrix(1.0, 1.0)
+        mock_page.get_drawings.return_value = []
+        mock_page.get_text.return_value = {"blocks": []}
+        
+        # Simula 4 fatias que formam um mosaico
+        mock_page.get_image_info.return_value = [
+            {"bbox": (0, 0, 250, 350), "width": 500, "height": 500, "xref": 0},
+            {"bbox": (250, 0, 500, 350), "width": 500, "height": 500, "xref": 0},
+            {"bbox": (0, 350, 250, 700), "width": 500, "height": 500, "xref": 0},
+            {"bbox": (250, 350, 500, 700), "width": 500, "height": 500, "xref": 0}
+        ]
+        
+        mock_pix = MagicMock()
+        mock_pix.width = 1000
+        mock_pix.height = 1400
+        mock_pix.samples = b"..."
+        mock_page.get_pixmap.return_value = mock_pix
+        
+        mock_pil = MagicMock()
+        mock_pil.size = (1000, 1400)
+        mock_pil.width = 1000
+        mock_pil.height = 1400
+        mock_open_pil.return_value.__enter__.return_value = mock_pil
+
+        # Chama SEM a flag extract_full_pages (deve auto-detectar!)
+        extrair_imagens_da_parte(mock_doc, [0], "setor_teste", output_path, extract_full_pages=False)
+        
+        # 1. get_pixmap deve ter sido chamado para renderizar a página completa (p0.png)
+        mock_page.get_pixmap.assert_called_once_with(dpi=150)
+        # 2. converter_para_webp deve ter sido chamado para p0.png
+        assert mock_conv_webp.call_count == 1
+        # 3. As fatias quebradas individuais NÃO devem ter sido renderizadas ou salvas como grupos
+        assert mock_frombytes.call_count == 0
+

@@ -746,7 +746,7 @@ arquivos:
 - caminho_relativo: br_mg_igarape_pedra_grande/imagens/whatsapp_image_2026_09_20_at_230736.webp
   checksum_sha256: 39f87f0b083f245ee120402bc41beb2ba89c62aa9a4f44af8efccf47f8d60b3e
 - caminho_relativo: br_mg_igarape_pedra_grande/compilado.yaml
-  checksum_sha256: f9f563a86ad52082e67d28e088d0349c3793630f76f9323fe0cac73a37a07de8
+  checksum_sha256: 9e3ed40ce61e72a997527e35b74a082a567923105317789aafaf297f450a414f
 - caminho_relativo: br_mg_igarape_pedra_grande/compilado.md
   checksum_sha256: f59e8a7ae44cc2a9c87a85ae927ea35e1191cfabd82482a44d111dc25a0a5fea
 - caminho_relativo: br_mg_januaria_salao_encantado/compilado.binarypb
@@ -1966,4 +1966,4 @@ arquivos:
 - caminho_relativo: indice.binarypb
   checksum_sha256: 5a9272a16c4f43bb59b92c27053b0bfd791b4ed6e2d485377709759eba30c8b3
 - caminho_relativo: indice.yaml
-  checksum_sha256: 7c91b2b33520bf93d8faf4e05dd8be833dfaaf44d0ac83944c3d910c61b5a872
+  checksum_sha256: 14fbbf168305294dbfbbf75b6451bb1328fbcc57e754627ddf639b7848b685bf

@@ -148,6 +148,66 @@ def are_tiles(r1: Any, r2: Any, tolerance: float = 1.5) -> bool:
     
     return bool(same_width or same_height)
 
+def sao_fatias_adjacentes(r1: Any, r2: Any, tolerancia: float = 2.0) -> bool:
+    """Verifica se dois retângulos compartilham uma borda comum (são fatias adjacentes)."""
+    # Adjacência vertical (um ao lado do outro com sobreposição no eixo Y)
+    toca_horizontal = abs(r1.x1 - r2.x0) <= tolerancia or abs(r2.x1 - r1.x0) <= tolerancia
+    sobrepoe_y = max(r1.y0, r2.y0) < min(r1.y1, r2.y1) - tolerancia
+    if toca_horizontal and sobrepoe_y:
+        return True
+
+    # Adjacência horizontal (um acima do outro com sobreposição no eixo X)
+    toca_vertical = abs(r1.y1 - r2.y0) <= tolerancia or abs(r2.y1 - r1.y0) <= tolerancia
+    sobrepoe_x = max(r1.x0, r2.x0) < min(r1.x1, r2.x1) - tolerancia
+    if toca_vertical and sobrepoe_x:
+        return True
+
+    return False
+
+def detectar_fatiamento_pagina(page: Any, tolerancia: float = 2.0) -> bool:
+    """Detecta se as imagens da página formam um mosaico de fatias decorrente de transparências."""
+    image_info = page.get_image_info()
+    if not image_info or len(image_info) < 2:
+        return False
+
+    # Filtra imagens minúsculas (< 20 pt de largura ou altura)
+    rects = []
+    for info in image_info:
+        r = pymupdf.Rect(info["bbox"])
+        if r.width >= 20 and r.height >= 20:
+            rects.append(r)
+
+    if len(rects) < 2:
+        return False
+
+    pares_adjacentes = 0
+    adj_indices = set()
+    for i in range(len(rects)):
+        for j in range(i + 1, len(rects)):
+            if sao_fatias_adjacentes(rects[i], rects[j], tolerancia):
+                pares_adjacentes += 1
+                adj_indices.add(i)
+                adj_indices.add(j)
+
+    if pares_adjacentes == 0:
+        return False
+
+    # Alta densidade de fragmentos adjacentes (mosaico em grade com múltiplas fatias)
+    if pares_adjacentes >= 3:
+        return True
+
+    # Com 1 ou 2 pares adjacentes, verifica se a área unida cobre proporção significativa da página
+    try:
+        area_pagina = page.rect.get_area()
+        if area_pagina > 0:
+            area_fatias = sum(rects[idx].get_area() for idx in adj_indices)
+            if (area_fatias / area_pagina) >= 0.4:
+                return True
+    except Exception:
+        pass
+
+    return False
+
 
 def group_rects(rect_info_list: List[Any], tolerance: float = 2.0) -> List[Dict[str, Any]]:
     """Agrupa retângulos que são compatíveis como tiles."""
@@ -204,15 +264,26 @@ def extrair_imagens_da_parte(
         # Matriz para converter de coordenadas do mediabox (unrotated) para página (rotated)
         trans_mat = page.rotation_matrix
 
-        # 1. Extrair a página inteira como imagem se solicitado
-        if extract_full_pages:
+        fatiamento_detectado = False if apenas_extrair else detectar_fatiamento_pagina(page)
+        extrair_pagina_atual = extract_full_pages or fatiamento_detectado
+
+        # 1. Extrair a página inteira como imagem se solicitado ou se fatiamento foi detectado
+        if extrair_pagina_atual:
+            if fatiamento_detectado and not extract_full_pages:
+                print(f"  [AUTO-DETECT] Fatiamento de imagem detectado na página {local_index} de '{part_name}'. Renderizando página completa.")
             pix = page.get_pixmap(dpi=150)
             page_png_path = raw_image_dir / f"p{local_index}.png"
             pix.save(str(page_png_path))
             converter_para_webp(output_image_dir, page_png_path)
+            img_count += 1
+
+        # Se fatiamento foi detectado, suprime os recortes individuais quebrados
+        if fatiamento_detectado:
+            continue
 
         # 2. Obter informações de todas as imagens da página e agrupar tiles
         image_info = page.get_image_info()
+
         if not image_info:
             continue
 
@@ -407,7 +478,10 @@ def main() -> None:
 
     if output_path.exists():
         print(f"Limpando pasta de saída: {output_path}")
-        shutil.rmtree(output_path)
+        try:
+            shutil.rmtree(output_path)
+        except Exception:
+            shutil.rmtree(output_path, ignore_errors=True)
         
     output_path.mkdir(parents=True, exist_ok=True)
 
