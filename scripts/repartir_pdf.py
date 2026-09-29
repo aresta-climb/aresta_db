@@ -308,6 +308,10 @@ def extrair_imagens_da_parte(
             if img_bbox.width < 1 or img_bbox.height < 1:
                 continue
 
+            # Se o grupo não intersectar a página visível, ignorar
+            if not page.rect.intersects(img_bbox):
+                continue
+
             # Tenta inferir o zoom original baseado na maior largura/altura das imagens do grupo
             # para manter a resolução nativa do PDF
             max_zoom = 1.0
@@ -341,6 +345,10 @@ def extrair_imagens_da_parte(
                 mat = pymupdf.Matrix(1.5, 1.5)
                 pix = page.get_pixmap(matrix=mat, clip=img_bbox, colorspace=pymupdf.csRGB)
             
+            if isinstance(getattr(pix, "width", None), (int, float)) and isinstance(getattr(pix, "height", None), (int, float)):
+                if pix.width <= 0 or pix.height <= 0:
+                    continue
+
             img_pil = Image.frombytes("RGB", (int(pix.width), int(pix.height)), pix.samples)
 
             
@@ -371,8 +379,13 @@ def extrair_imagens_da_parte(
                             raw_file_path.write_bytes(img_data["image"])
                     else:
                         # Se for imagem inline, renderizamos o recorte individual
+                        if not page.rect.intersects(sub_rect_rotated):
+                            continue
                         sub_mat = pymupdf.Matrix(max_zoom, max_zoom)
                         sub_pix = page.get_pixmap(matrix=sub_mat, clip=sub_rect_rotated, colorspace=pymupdf.csRGB)
+                        if isinstance(getattr(sub_pix, "width", None), (int, float)) and isinstance(getattr(sub_pix, "height", None), (int, float)):
+                            if sub_pix.width <= 0 or sub_pix.height <= 0:
+                                continue
                         raw_file_path = raw_image_dir / f"{sub_name}.png"
                         sub_pix.save(str(raw_file_path))
                 except Exception as e:

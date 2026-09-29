@@ -1,16 +1,4 @@
-# editor-mapas-mvc-sidebar Specification
-
-## Purpose
-Gerencia a exibição, navegação e seleção de mapas na barra lateral do editor de mapas em conformidade com o padrão MVC.
-
-## Requirements
-
-### Requirement: Sidebar alimentada pelo modelo
-A sidebar do WidgetEditorMapas MUST exibir uma lista interativa de todos os mapas disponíveis extraídos da árvore de mensagens correntes (`CroquiModel`), e não varrendo o disco por arquivos markdown.
-
-#### Scenario: Atualizar contexto de mapas disponíveis
-- **WHEN** o `CroquiModel` é carregado no editor de mapas
-- **THEN** a barra lateral esvazia a lista anterior e renderiza itens correspondentes a cada mensagem Protobuf que define um `Mapa` no croqui, listando-os pelo seu título.
+## ADDED Requirements
 
 ### Requirement: Seleção e retenção estrita de mapas de escalada na lista lateral
 A lista lateral de mapas do editor MUST manter a seleção destacada no mapa de escalada individual selecionado, sem redefinir ou retroceder a seleção para o mapa do setor pai.
@@ -41,4 +29,3 @@ O editor de mapas MUST garantir que qualquer mapa selecionado programaticamente 
 #### Scenario: Foco em mapa fora da área visível
 - **WHEN** um mapa de escalada ou setor distante do topo da lista é selecionado
 - **THEN** a lista lateral rola automaticamente até tornar o item selecionado visível ao usuário
-

@@ -4993,6 +4993,192 @@ def test_finalizar_modo_nova_rota_usa_setor_do_mapa_ativo(qtbot):
     assert kwargs["msg_setor_proxy"].nome == "Setor Ativo"
 
 
+def test_selecao_mapa_escalada_em_setor_com_mapas_proprios_mantem_item_destacado(qtbot):
+    """[TDD] Verifica que selecionar o mapa de uma escalada em um setor com mapa próprio
+    mantém o destaque no mapa da escalada e não retrocede para o mapa do setor."""
+    from editor.views.widget_editor_mapas import WidgetEditorMapas
+    from PySide6.QtCore import Qt
+    from aresta_api.proto.generated import croqui_pb2
+    from editor.models.readonly_proxy import ReadOnlyProxy
+    from unittest.mock import MagicMock
+
+    widget = WidgetEditorMapas()
+    qtbot.addWidget(widget)
+
+    mock_controller = MagicMock()
+    mock_model = MagicMock()
+    mock_controller.model = mock_model
+    widget.mapas_controller = mock_controller
+
+    croqui = croqui_pb2.Croqui()
+    pico = croqui.picos.add()
+    sg = pico.setores_ou_grupos.add()
+    sg.setor.conteudo.nome = "Setor com Mapa Próprio"
+    
+    # Mapa próprio do setor
+    mapa_setor = sg.setor.conteudo.mapas.add()
+    mapa_setor.caminho_imagem_mapa = "imagens/mapa_setor.webp"
+
+    # Escalada com mapa próprio
+    escalada = sg.setor.conteudo.escaladas.add()
+    escalada.boulder.nome = "Boulder no Setor"
+    mapa_esc = escalada.mapas.add()
+    mapa_esc.caminho_imagem_mapa = "imagens/mapa_boulder.webp"
+
+    mock_model.obter_croqui_readonly.return_value = ReadOnlyProxy(croqui)
+    widget.configurar_lista_mapas()
+
+    assert widget.list_widget.count() == 2
+    item_setor = widget.list_widget.item(0)
+    item_escalada = widget.list_widget.item(1)
+
+    # Seleciona o mapa da escalada
+    widget.list_widget.setCurrentItem(item_escalada)
+
+    # O mapa atual deve ser o da escalada
+    assert widget.msg_mapa_proxy.caminho_imagem_mapa == "imagens/mapa_boulder.webp"
+    # O item selecionado na lista NÃO pode ter revertido para o item do setor
+    assert widget.list_widget.currentItem() == item_escalada
+
+
+def test_navegacao_teclado_passa_por_mapas_de_escalada_sem_ciclo(qtbot):
+    """[TDD] Simula navegação por teclado (Key_Down) passando do mapa do setor para o mapa
+    da escalada e depois para o próximo setor, sem ficar em loop no setor."""
+    from editor.views.widget_editor_mapas import WidgetEditorMapas
+    from PySide6.QtCore import Qt
+    from aresta_api.proto.generated import croqui_pb2
+    from editor.models.readonly_proxy import ReadOnlyProxy
+    from unittest.mock import MagicMock
+
+    widget = WidgetEditorMapas()
+    qtbot.addWidget(widget)
+
+    mock_controller = MagicMock()
+    mock_model = MagicMock()
+    mock_controller.model = mock_model
+    widget.mapas_controller = mock_controller
+
+    croqui = croqui_pb2.Croqui()
+    pico = croqui.picos.add()
+
+    # Setor 1: com mapa próprio e uma escalada com mapa
+    sg1 = pico.setores_ou_grupos.add()
+    sg1.setor.conteudo.nome = "Setor 1"
+    mapa1 = sg1.setor.conteudo.mapas.add()
+    mapa1.caminho_imagem_mapa = "imagens/s1_mapa.webp"
+    esc1 = sg1.setor.conteudo.escaladas.add()
+    esc1.boulder.nome = "Via S1"
+    mapa_esc1 = esc1.mapas.add()
+    mapa_esc1.caminho_imagem_mapa = "imagens/s1_via_mapa.webp"
+
+    # Setor 2: com mapa próprio
+    sg2 = pico.setores_ou_grupos.add()
+    sg2.setor.conteudo.nome = "Setor 2"
+    mapa2 = sg2.setor.conteudo.mapas.add()
+    mapa2.caminho_imagem_mapa = "imagens/s2_mapa.webp"
+
+    mock_model.obter_croqui_readonly.return_value = ReadOnlyProxy(croqui)
+    widget.configurar_lista_mapas()
+
+    assert widget.list_widget.count() == 3
+
+    # Inicia no Setor 1 (item 0)
+    widget.list_widget.setCurrentRow(0)
+    assert widget.list_widget.currentRow() == 0
+
+    # Pressiona seta para baixo -> deve ir para o mapa da escalada (item 1)
+    qtbot.keyClick(widget.list_widget, Qt.Key.Key_Down)
+    assert widget.list_widget.currentRow() == 1
+    assert widget.msg_mapa_proxy.caminho_imagem_mapa == "imagens/s1_via_mapa.webp"
+
+    # Pressiona seta para baixo novamente -> DEVE ir para o Setor 2 (item 2), e NÃO retroceder para 0
+    qtbot.keyClick(widget.list_widget, Qt.Key.Key_Down)
+    assert widget.list_widget.currentRow() == 2
+    assert widget.msg_mapa_proxy.caminho_imagem_mapa == "imagens/s2_mapa.webp"
+
+
+def test_selecionar_mapa_invoca_scroll_to_item(qtbot):
+    """[TDD] Verifica que selecionar mapa via selecionar_mapa_por_indices invoca scrollToItem."""
+    from editor.views.widget_editor_mapas import WidgetEditorMapas
+    from PySide6.QtCore import Qt
+    from aresta_api.proto.generated import croqui_pb2
+    from editor.models.readonly_proxy import ReadOnlyProxy
+    from unittest.mock import MagicMock, patch
+
+    widget = WidgetEditorMapas()
+    qtbot.addWidget(widget)
+
+    mock_controller = MagicMock()
+    mock_model = MagicMock()
+    mock_controller.model = mock_model
+    widget.mapas_controller = mock_controller
+
+    croqui = croqui_pb2.Croqui()
+    pico = croqui.picos.add()
+    sg = pico.setores_ou_grupos.add()
+    mapa = sg.setor.conteudo.mapas.add()
+    mapa.caminho_imagem_mapa = "imagens/mapa_scroll.webp"
+
+    mock_model.obter_croqui_readonly.return_value = ReadOnlyProxy(croqui)
+    widget.configurar_lista_mapas()
+
+    with patch.object(widget.list_widget, "scrollToItem") as mock_scroll:
+        sucesso = widget.selecionar_mapa_por_indices(0, 0, 0, tipo="setor")
+        assert sucesso is True
+        assert mock_scroll.call_count >= 1
+
+
+def test_selecionar_mapa_por_indices_todos_tipos_e_fallbacks(qtbot):
+    """[TDD] Cobre todas as ramificações e tipos de casamento em selecionar_mapa_por_indices."""
+    from editor.views.widget_editor_mapas import WidgetEditorMapas
+    from PySide6.QtWidgets import QListWidgetItem
+    from PySide6.QtCore import Qt
+
+    widget = WidgetEditorMapas()
+    qtbot.addWidget(widget)
+
+    itens_dados = [
+        ("Item sem dados", None),
+        ("Mapa Geral", ("mapa_geral", 0, -1, 0)),
+        ("Setor", ("setor", 0, 1, 0)),
+        ("Grupo", ("grupo", 0, 2, 0)),
+        ("Subsetor", ("subsetor", 0, 2, 0, 0)),
+        ("Escalada Setor", ("escalada_setor", 0, 1, 0, 0)),
+        ("Escalada Subsetor", ("escalada_subsetor", 0, 2, 0, 0, 0)),
+        ("Legado Geral 3", (0, -1, 1)),
+        ("Legado Setor 3", (0, 1, 1)),
+        ("Legado Setor 4", ("setor", 0, 1, 2)),
+    ]
+    for texto, dados in itens_dados:
+        item = QListWidgetItem(texto)
+        if dados is not None:
+            item.setData(Qt.ItemDataRole.UserRole, dados)
+        widget.list_widget.addItem(item)
+
+    # 1. Casamento com tipo explícito
+    assert widget.selecionar_mapa_por_indices(0, -1, 0, tipo="mapa_geral") is True
+    assert widget.selecionar_mapa_por_indices(0, 1, 0, tipo="setor") is True
+    assert widget.selecionar_mapa_por_indices(0, 2, 0, tipo="grupo") is True
+    assert widget.selecionar_mapa_por_indices(0, 2, 0, s_idx=0, tipo="subsetor") is True
+    assert widget.selecionar_mapa_por_indices(0, 1, 0, e_idx=0, tipo="escalada_setor") is True
+    assert widget.selecionar_mapa_por_indices(0, 2, 0, s_idx=0, e_idx=0, tipo="escalada_subsetor") is True
+
+    # 2. Casamento com inferência (tipo is None)
+    assert widget.selecionar_mapa_por_indices(0, 2, 0, s_idx=0, e_idx=0) is True
+    assert widget.selecionar_mapa_por_indices(0, 1, 0, e_idx=0) is True
+    assert widget.selecionar_mapa_por_indices(0, 2, 0, s_idx=0) is True
+    assert widget.selecionar_mapa_por_indices(0, -1, 0) is True
+    assert widget.selecionar_mapa_por_indices(0, -1, 1) is True
+    assert widget.selecionar_mapa_por_indices(0, 1, 0) is True
+    assert widget.selecionar_mapa_por_indices(0, 1, 1) is True
+    assert widget.selecionar_mapa_por_indices(0, 1, 2) is True
+
+    # 3. Item inexistente retorna False
+    assert widget.selecionar_mapa_por_indices(99, 99, 99) is False
+
+
+
+
 
 
 

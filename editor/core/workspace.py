@@ -68,8 +68,8 @@ class EditorWorkspace(Protocol):
     def obter_diario(self) -> GerenciadorDiario | None: ...
     def obter_commit_base_sha(self) -> str: ...
     
-    def processar_renomeacao_e_compilacao(self, novo_id: str, id_atual: str, storage: GerenciadorCaminhos | None) -> tuple[Path, list[str]]:
-        """Realiza rename se necessário, compila e retorna o caminho raiz e uma lista de msgs de warning/erro."""
+    def processar_renomeacao_e_compilacao(self, novo_id: str, id_atual: str, storage: GerenciadorCaminhos | None) -> tuple[Path, list[str], bool]:
+        """Realiza rename se necessário, compila e retorna o caminho raiz, lista de msgs de warning/erro e se o database foi modificado."""
         ...
 
 

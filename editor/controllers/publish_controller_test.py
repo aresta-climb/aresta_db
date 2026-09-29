@@ -24,7 +24,7 @@ class TestPublishController(unittest.TestCase):
         # Configura o histórico e compilação como limpos por padrão
         self.historico_mock.obter_pilha().isClean.return_value = True
         self.auth_mock.recuperar_token.return_value = "fake_token"
-        self.workspace_mock.processar_renomeacao_e_compilacao.return_value = (Path("/fake"), [])
+        self.workspace_mock.processar_renomeacao_e_compilacao.return_value = (Path("/fake"), [], False)
         self.workspace_mock.obter_caminho_database.return_value = Path("/fake/database")
         self.workspace_mock.caminho_raiz = None
 
@@ -424,6 +424,42 @@ class TestPublishController(unittest.TestCase):
             self.assertIn("Falha ao validar compilação", messagebox_mock.critical.call_args[0][2])
             mock_prosseguir.assert_not_called()
 
+    @patch("editor.controllers.publish_controller.QMessageBox")
+    def test_validar_compilacao_limpa_com_retorno_triplo(self, messagebox_mock):
+        """Valida que o retorno de 3 elementos (Path, list[str], bool) é tratado sem erro de desempacotamento."""
+        self.controller.workspace.processar_renomeacao_e_compilacao.return_value = (
+            Path("/fake"),
+            [],
+            False,
+        )
+        self.controller.croqui_data = {"id": "meu_croqui"}
+        self.assertTrue(self.controller._validar_compilacao_limpa())
+        messagebox_mock.critical.assert_not_called()
+
+    @patch("editor.controllers.publish_controller.QMessageBox")
+    def test_validar_compilacao_limpa_com_retorno_triplo_com_erros(self, messagebox_mock):
+        """Valida que erros na lista do retorno de 3 elementos bloqueiam a compilação."""
+        self.controller.workspace.processar_renomeacao_e_compilacao.return_value = (
+            Path("/fake"),
+            ["[ERRO] Falha de validação"],
+            False,
+        )
+        self.controller.croqui_data = {"id": "meu_croqui"}
+        self.assertFalse(self.controller._validar_compilacao_limpa())
+        messagebox_mock.critical.assert_called_once()
+        self.assertIn("possui erros de compilação", messagebox_mock.critical.call_args[0][2])
+
+    @patch("editor.controllers.publish_controller.QMessageBox")
+    def test_validar_compilacao_limpa_com_retorno_duplo(self, messagebox_mock):
+        """Garante compatibilidade retroativa com workspaces que retornam tupla de 2 elementos."""
+        self.controller.workspace.processar_renomeacao_e_compilacao.return_value = (
+            Path("/fake"),
+            [],
+        )
+        self.controller.croqui_data = {"id": "meu_croqui"}
+        self.assertTrue(self.controller._validar_compilacao_limpa())
+        messagebox_mock.critical.assert_not_called()
+
     def test_obter_resumo_arquivos_com_servico_injetado(self):
         """Testa _obter_resumo_arquivos delegando para servico_submissao."""
         self.controller.servico_submissao = MagicMock()
@@ -574,5 +610,41 @@ class TestPublishController(unittest.TestCase):
             parent=self.parent_mock
         )
 
+    def test_obter_resumo_arquivos_sem_id_croqui(self):
+        """Quando id_croqui for vazio, deve retornar lista vazia."""
+        mock_dir = MagicMock(spec=Path)
+        mock_dir.is_dir.return_value = True
+        self.controller.workspace.obter_caminho_database.return_value = mock_dir
+        self.controller.croqui_data = {}
+        self.controller.workspace.caminho_raiz = None
+        self.assertEqual(self.controller._obter_resumo_arquivos(), [])
+
+    @patch("editor.controllers.publish_controller.QProgressDialog")
+    @patch("editor.controllers.publish_controller.PublishDialog")
+    @patch("editor.controllers.publish_controller.TarefaPublicacao")
+    def test_prosseguir_publicacao_com_recuperar_token(self, tarefa_mock_class, dialog_mock_class, progress_mock):
+        """Testa _iniciar_worker quando auth possui apenas recuperar_token."""
+        dialog_mock = dialog_mock_class.return_value
+        dialog_mock.exec.return_value = 1
+        dialog_mock.obter_dados.return_value = {"titulo": "T", "descricao": "D"}
+        
+        self.controller.auth = MagicMock(spec=["recuperar_token"])
+        self.controller.auth.recuperar_token.return_value = "token_legado"
+
+        self.controller._prosseguir_publicacao()
+        
+        args, kwargs = tarefa_mock_class.call_args
+        self.assertEqual(kwargs.get("token"), "token_legado")
+        self.assertIsNone(kwargs.get("sessao"))
+
+    @patch("editor.controllers.publish_controller.DialogoSucessoPR")
+    def test_on_sucesso_fecha_progresso_pr(self, dialogo_mock_class):
+        """Garante que self.progresso_pr é fechado em _on_sucesso se estiver ativo."""
+        mock_progresso = MagicMock()
+        self.controller.progresso_pr = mock_progresso
+        self.controller._on_sucesso("https://github.com/fake/pr/1", "branch_teste", "usuario_teste")
+        mock_progresso.close.assert_called_once()
+
 if __name__ == "__main__":
     unittest.main()
+

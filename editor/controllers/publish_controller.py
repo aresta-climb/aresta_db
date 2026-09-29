@@ -139,7 +139,8 @@ class PublishController:
         try:
             if hasattr(self.workspace, "processar_renomeacao_e_compilacao"):
                 id_atual = self.croqui_data.get("id", "") if self.croqui_data else ""
-                _, mensagens = self.workspace.processar_renomeacao_e_compilacao(id_atual, id_atual, self.storage)
+                resultado_compilacao = self.workspace.processar_renomeacao_e_compilacao(id_atual, id_atual, self.storage)
+                mensagens = resultado_compilacao[1] if len(resultado_compilacao) > 1 else []
                 erros = [m for m in mensagens if "erro" in m.lower() or "error" in m.lower()]
                 if erros:
                     QMessageBox.critical(

@@ -2053,6 +2053,8 @@ class WidgetEditorMapas(QWidget):
         self.sg_idx: Optional[int] = -1
         self.mapa_idx: Optional[int] = -1
         self.s_idx: Optional[int] = -1
+        self.e_idx: Optional[int] = -1
+        self.tipo: Optional[str] = None
         self.item_hover_camera_overlay: Optional[Any] = None
         self.item_camera_overlay: Optional[Any] = None
         self.referencia_linkagem_ativa: Optional[Any] = None
@@ -2370,6 +2372,8 @@ class WidgetEditorMapas(QWidget):
         self.sg_idx = -1
         self.mapa_idx = -1
         self.s_idx = -1
+        self.e_idx = -1
+        self.tipo = None
         self.itens_poi.clear()
         if self.dados_atuais:
             cena = self.dados_atuais.get('cena')
@@ -2501,12 +2505,20 @@ class WidgetEditorMapas(QWidget):
                 if item.data(Qt.ItemDataRole.UserRole) == selected_data:
                     self.list_widget.blockSignals(True)
                     self.list_widget.setCurrentItem(item)
+                    self.list_widget.scrollToItem(item)
                     self.list_widget.blockSignals(False)
                     break
-        elif hasattr(self, 'pico_idx') and self.pico_idx is not None and self.pico_idx >= 0 and self.sg_idx is not None and self.sg_idx >= 0 and self.mapa_idx is not None and self.mapa_idx >= 0 and getattr(self, 's_idx', -1) is not None:
+        elif hasattr(self, 'pico_idx') and self.pico_idx is not None and self.pico_idx >= 0 and self.mapa_idx is not None and self.mapa_idx >= 0:
             self.list_widget.blockSignals(True)
             s_idx = getattr(self, 's_idx', -1)
-            self.selecionar_mapa_por_indices(self.pico_idx, self.sg_idx, self.mapa_idx, s_idx if s_idx is not None else -1)
+            e_idx = getattr(self, 'e_idx', -1)
+            tipo = getattr(self, 'tipo', None)
+            self.selecionar_mapa_por_indices(
+                self.pico_idx, self.sg_idx, self.mapa_idx,
+                s_idx=s_idx if s_idx is not None else -1,
+                e_idx=e_idx if e_idx is not None else -1,
+                tipo=tipo
+            )
             self.list_widget.blockSignals(False)
 
         # Se havia mapa ativo mas ele não é mais válido na árvore ativa, descarrega
@@ -2520,6 +2532,7 @@ class WidgetEditorMapas(QWidget):
         indices = item.data(Qt.ItemDataRole.UserRole)
         if not indices: return
         
+        e_idx = -1
         if len(indices) == 3:
             # Compatibilidade com índices antigos por segurança, assumindo setor
             p_idx, sg_idx, m_idx = indices
@@ -2554,34 +2567,68 @@ class WidgetEditorMapas(QWidget):
             else: # setor
                 mapa = croqui_msg.picos[p_idx].setores_ou_grupos[sg_idx].setor.conteudo.mapas[m_idx]
                 
-            self.set_mapa_atual(mapa, p_idx, sg_idx, m_idx, s_idx=s_idx, tipo=tipo)
+            self.set_mapa_atual(mapa, p_idx, sg_idx, m_idx, s_idx=s_idx, e_idx=e_idx, tipo=tipo)
         except IndexError:
             pass # Prevenção de falhas de sincronia na deleção
 
-    def selecionar_mapa_por_indices(self, pico_idx: Optional[int] = None, grupo_idx: Optional[int] = None, mapa_idx: Optional[int] = None, s_idx: Optional[int] = -1) -> bool:
+    def selecionar_mapa_por_indices(
+        self,
+        pico_idx: Optional[int] = None,
+        grupo_idx: Optional[int] = None,
+        mapa_idx: Optional[int] = None,
+        s_idx: Optional[int] = -1,
+        e_idx: Optional[int] = -1,
+        tipo: Optional[str] = None
+    ) -> bool:
         """Seleciona visualmente o mapa na lista dado os seus índices, disparando a atualização da tela."""
         for i in range(self.list_widget.count()):
             item = self.list_widget.item(i)
             indices = item.data(Qt.ItemDataRole.UserRole)
-            if indices:
-                if len(indices) == 3 and indices == (pico_idx, grupo_idx, mapa_idx):
-                    self.list_widget.setCurrentItem(item)
-                    return True
-                elif len(indices) == 4 and indices[1:] == (pico_idx, grupo_idx, mapa_idx) and s_idx == -1:
-                    self.list_widget.setCurrentItem(item)
-                    return True
-                elif len(indices) == 5 and indices[1:] == (pico_idx, grupo_idx, s_idx, mapa_idx):
-                    self.list_widget.setCurrentItem(item)
-                    return True
+            if not indices:
+                continue
+
+            match = False
+            if tipo is not None:
+                if tipo == 'mapa_geral':
+                    match = len(indices) == 4 and indices[0] == 'mapa_geral' and indices[1] == pico_idx and indices[3] == mapa_idx
+                elif tipo == 'setor':
+                    match = len(indices) == 4 and indices[0] == 'setor' and indices[1] == pico_idx and indices[2] == grupo_idx and indices[3] == mapa_idx
+                elif tipo == 'grupo':
+                    match = len(indices) == 4 and indices[0] == 'grupo' and indices[1] == pico_idx and indices[2] == grupo_idx and indices[3] == mapa_idx
+                elif tipo == 'subsetor':
+                    match = len(indices) == 5 and indices[0] == 'subsetor' and indices[1] == pico_idx and indices[2] == grupo_idx and indices[3] == s_idx and indices[4] == mapa_idx
+                elif tipo == 'escalada_setor':
+                    match = len(indices) == 5 and indices[0] == 'escalada_setor' and indices[1] == pico_idx and indices[2] == grupo_idx and indices[3] == e_idx and indices[4] == mapa_idx
+                elif tipo == 'escalada_subsetor':
+                    match = len(indices) == 6 and indices[0] == 'escalada_subsetor' and indices[1] == pico_idx and indices[2] == grupo_idx and indices[3] == s_idx and indices[4] == e_idx and indices[5] == mapa_idx
+            else:
+                if e_idx is not None and e_idx >= 0:
+                    if s_idx is not None and s_idx >= 0:
+                        match = len(indices) == 6 and indices[0] == 'escalada_subsetor' and indices[1] == pico_idx and indices[2] == grupo_idx and indices[3] == s_idx and indices[4] == e_idx and indices[5] == mapa_idx
+                    else:
+                        match = len(indices) == 5 and indices[0] == 'escalada_setor' and indices[1] == pico_idx and indices[2] == grupo_idx and indices[3] == e_idx and indices[4] == mapa_idx
+                elif s_idx is not None and s_idx >= 0:
+                    match = len(indices) == 5 and indices[0] == 'subsetor' and indices[1] == pico_idx and indices[2] == grupo_idx and indices[3] == s_idx and indices[4] == mapa_idx
+                elif grupo_idx == -1:
+                    match = (len(indices) == 4 and indices[0] == 'mapa_geral' and indices[1] == pico_idx and indices[3] == mapa_idx) or (len(indices) == 3 and indices == (pico_idx, -1, mapa_idx))
+                else:
+                    match = (len(indices) == 4 and indices[0] in ('setor', 'grupo') and indices[1] == pico_idx and indices[2] == grupo_idx and indices[3] == mapa_idx) or (len(indices) == 3 and indices == (pico_idx, grupo_idx, mapa_idx)) or (len(indices) == 4 and indices[1:] == (pico_idx, grupo_idx, mapa_idx) and s_idx == -1)
+
+            if match:
+                self.list_widget.setCurrentItem(item)
+                self.list_widget.scrollToItem(item)
+                return True
         return False
 
-    def set_mapa_atual(self, msg_mapa_proxy: Any, pico_idx: Optional[int] = -1, grupo_idx: Optional[int] = -1, mapa_idx: Optional[int] = -1, s_idx: Optional[int] = -1, tipo: str = 'setor') -> None:
+    def set_mapa_atual(self, msg_mapa_proxy: Any, pico_idx: Optional[int] = -1, grupo_idx: Optional[int] = -1, mapa_idx: Optional[int] = -1, s_idx: Optional[int] = -1, e_idx: Optional[int] = -1, tipo: str = 'setor') -> None:
         """Define o mapa atual para exibição na view, limpando a cena."""
         self.msg_mapa_proxy = msg_mapa_proxy
         self.pico_idx = pico_idx
         self.sg_idx = grupo_idx
         self.mapa_idx = mapa_idx
         self.s_idx = s_idx
+        self.e_idx = e_idx
+        self.tipo = tipo
         self.dados_atuais = {
             'cena': CenaDesenho(self),
             'itens_bb': [],
@@ -2590,6 +2637,7 @@ class WidgetEditorMapas(QWidget):
             'sg_idx': grupo_idx,
             'mapa_idx': mapa_idx,
             's_idx': s_idx,
+            'e_idx': e_idx,
             'tipo': tipo
         }
         self.itens_poi.clear()
@@ -2597,10 +2645,16 @@ class WidgetEditorMapas(QWidget):
         # Conectar sinais do Model caso haja um MapasController com o Model (necessário para reatividade)
         if self.mapas_controller and self.mapas_controller.model:
             if hasattr(self.mapas_controller, 'set_contexto') and pico_idx is not None and pico_idx >= 0 and mapa_idx is not None and mapa_idx >= 0:
-                if tipo == 'grupo':
+                if tipo == 'mapa_geral':
+                    path = f"page:mapas/node:Croqui/expando:picos/item:{pico_idx}/expando:mapas_gerais/expando:mapas/item:{mapa_idx}"
+                elif tipo == 'grupo':
                     path = f"page:mapas/node:Croqui/expando:picos/item:{pico_idx}/expando:setores_ou_grupos/item:{grupo_idx}/expando:grupo/expando:mapas/item:{mapa_idx}"
                 elif tipo == 'subsetor':
                     path = f"page:mapas/node:Croqui/expando:picos/item:{pico_idx}/expando:setores_ou_grupos/item:{grupo_idx}/expando:grupo/expando:setores/item:{s_idx}/expando:setor/expando:mapas/item:{mapa_idx}"
+                elif tipo == 'escalada_setor':
+                    path = f"page:mapas/node:Croqui/expando:picos/item:{pico_idx}/expando:setores_ou_grupos/item:{grupo_idx}/expando:setor/expando:escaladas/item:{e_idx}/expando:mapas/item:{mapa_idx}"
+                elif tipo == 'escalada_subsetor':
+                    path = f"page:mapas/node:Croqui/expando:picos/item:{pico_idx}/expando:setores_ou_grupos/item:{grupo_idx}/expando:grupo/expando:setores/item:{s_idx}/expando:setor/expando:escaladas/item:{e_idx}/expando:mapas/item:{mapa_idx}"
                 else:
                     path = f"page:mapas/node:Croqui/expando:picos/item:{pico_idx}/expando:setores_ou_grupos/item:{grupo_idx}/expando:setor/expando:mapas/item:{mapa_idx}"
                 self.mapas_controller.set_contexto(path)
@@ -2695,11 +2749,40 @@ class WidgetEditorMapas(QWidget):
             self.visualizador.verticalScrollBar().setValue(old_v_scroll)
 
         # Sincroniza a seleção na lista se os índices foram passados
-        if getattr(self, 'pico_idx', -1) >= 0 and getattr(self, 'sg_idx', -1) >= 0 and getattr(self, 'mapa_idx', -1) >= 0:
-            self.list_widget.blockSignals(True)
+        if getattr(self, 'pico_idx', -1) is not None and getattr(self, 'pico_idx', -1) >= 0 and getattr(self, 'mapa_idx', -1) is not None and getattr(self, 'mapa_idx', -1) >= 0:
             s_idx = getattr(self, 's_idx', -1)
-            self.selecionar_mapa_por_indices(self.pico_idx, self.sg_idx, self.mapa_idx, s_idx if s_idx is not None else -1)
-            self.list_widget.blockSignals(False)
+            e_idx = getattr(self, 'e_idx', -1)
+            tipo = getattr(self, 'tipo', None)
+
+            cur_item = self.list_widget.currentItem()
+            ja_selecionado = False
+            if cur_item:
+                c_data = cur_item.data(Qt.ItemDataRole.UserRole)
+                if c_data:
+                    if tipo == 'mapa_geral' and len(c_data) == 4 and c_data[0] == 'mapa_geral' and c_data[1] == self.pico_idx and c_data[3] == self.mapa_idx:
+                        ja_selecionado = True
+                    elif tipo == 'setor' and len(c_data) == 4 and c_data[0] == 'setor' and c_data[1] == self.pico_idx and c_data[2] == self.sg_idx and c_data[3] == self.mapa_idx:
+                        ja_selecionado = True
+                    elif tipo == 'grupo' and len(c_data) == 4 and c_data[0] == 'grupo' and c_data[1] == self.pico_idx and c_data[2] == self.sg_idx and c_data[3] == self.mapa_idx:
+                        ja_selecionado = True
+                    elif tipo == 'subsetor' and len(c_data) == 5 and c_data[0] == 'subsetor' and c_data[1] == self.pico_idx and c_data[2] == self.sg_idx and c_data[3] == s_idx and c_data[4] == self.mapa_idx:
+                        ja_selecionado = True
+                    elif tipo == 'escalada_setor' and len(c_data) == 5 and c_data[0] == 'escalada_setor' and c_data[1] == self.pico_idx and c_data[2] == self.sg_idx and c_data[3] == e_idx and c_data[4] == self.mapa_idx:
+                        ja_selecionado = True
+                    elif tipo == 'escalada_subsetor' and len(c_data) == 6 and c_data[0] == 'escalada_subsetor' and c_data[1] == self.pico_idx and c_data[2] == self.sg_idx and c_data[3] == s_idx and c_data[4] == e_idx and c_data[5] == self.mapa_idx:
+                        ja_selecionado = True
+
+            if ja_selecionado and cur_item:
+                self.list_widget.scrollToItem(cur_item)
+            else:
+                self.list_widget.blockSignals(True)
+                self.selecionar_mapa_por_indices(
+                    self.pico_idx, self.sg_idx, self.mapa_idx,
+                    s_idx=s_idx if s_idx is not None else -1,
+                    e_idx=e_idx if e_idx is not None else -1,
+                    tipo=tipo
+                )
+                self.list_widget.blockSignals(False)
     def _adicionar_item_cena(self, poi: Any, index: int, cena: Any) -> None:
         # Transforma mensagem protobuf em dicionário genérico para os itens gráficos legacy
         from google.protobuf.json_format import MessageToDict

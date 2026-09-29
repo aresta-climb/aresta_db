@@ -618,37 +618,105 @@ class JanelaPrincipal(QMainWindow):
                         if encontrou: break
                         for sg_idx, sg in enumerate(pico.setores_ou_grupos):
                             if encontrou: break
-                            if not sg.HasField('setor'): continue
-                            for m_idx, mapa in enumerate(sg.setor.conteudo.mapas):
-                                from pathlib import Path
-                                if mapa.caminho_imagem_mapa and Path(mapa.caminho_imagem_mapa).name == ctx.arquivo_mapa:
-                                    if hasattr(editor, 'selecionar_mapa_por_indices'):
-                                        editor.selecionar_mapa_por_indices(p_idx, sg_idx, m_idx)
-                                    else:
-                                        editor.set_mapa_atual(mapa, p_idx, sg_idx, m_idx)
-                                    encontrou = True
-                                    break
+                            if getattr(sg, 'setor', None) and (sg.HasField('setor') if hasattr(sg, 'HasField') else True):
+                                for m_idx, mapa in enumerate(sg.setor.conteudo.mapas):
+                                    from pathlib import Path
+                                    if mapa.caminho_imagem_mapa and Path(mapa.caminho_imagem_mapa).name == ctx.arquivo_mapa:
+                                        if hasattr(editor, 'selecionar_mapa_por_indices'):
+                                            editor.selecionar_mapa_por_indices(p_idx, sg_idx, m_idx)
+                                        else:
+                                            editor.set_mapa_atual(mapa, p_idx, sg_idx, m_idx)
+                                        encontrou = True
+                                        break
+                                if encontrou: break
+                                for e_idx, escalada in enumerate(sg.setor.conteudo.escaladas):
+                                    for m_idx, mapa in enumerate(escalada.mapas):
+                                        from pathlib import Path
+                                        if mapa.caminho_imagem_mapa and Path(mapa.caminho_imagem_mapa).name == ctx.arquivo_mapa:
+                                            if hasattr(editor, 'selecionar_mapa_por_indices'):
+                                                editor.selecionar_mapa_por_indices(p_idx, sg_idx, m_idx, e_idx=e_idx, tipo='escalada_setor')
+                                            else:
+                                                editor.set_mapa_atual(mapa, p_idx, sg_idx, m_idx, e_idx=e_idx, tipo='escalada_setor')
+                                            encontrou = True
+                                            break
+                                    if encontrou: break
+                            elif getattr(sg, 'grupo', None) and (sg.HasField('grupo') if hasattr(sg, 'HasField') else True):
+                                for m_idx, mapa in enumerate(sg.grupo.conteudo.mapas):
+                                    from pathlib import Path
+                                    if mapa.caminho_imagem_mapa and Path(mapa.caminho_imagem_mapa).name == ctx.arquivo_mapa:
+                                        if hasattr(editor, 'selecionar_mapa_por_indices'):
+                                            editor.selecionar_mapa_por_indices(p_idx, sg_idx, m_idx)
+                                        else:
+                                            editor.set_mapa_atual(mapa, p_idx, sg_idx, m_idx)
+                                        encontrou = True
+                                        break
+                                if encontrou: break
+                                for s_idx, subsetor in enumerate(sg.grupo.conteudo.setores):
+                                    for m_idx, mapa in enumerate(subsetor.conteudo.mapas):
+                                        from pathlib import Path
+                                        if mapa.caminho_imagem_mapa and Path(mapa.caminho_imagem_mapa).name == ctx.arquivo_mapa:
+                                            if hasattr(editor, 'selecionar_mapa_por_indices'):
+                                                editor.selecionar_mapa_por_indices(p_idx, sg_idx, m_idx, s_idx=s_idx)
+                                            else:
+                                                editor.set_mapa_atual(mapa, p_idx, sg_idx, m_idx, s_idx=s_idx)
+                                            encontrou = True
+                                            break
+                                    if encontrou: break
+                                    for e_idx, escalada in enumerate(subsetor.conteudo.escaladas):
+                                        for m_idx, mapa in enumerate(escalada.mapas):
+                                            from pathlib import Path
+                                            if mapa.caminho_imagem_mapa and Path(mapa.caminho_imagem_mapa).name == ctx.arquivo_mapa:
+                                                if hasattr(editor, 'selecionar_mapa_por_indices'):
+                                                    editor.selecionar_mapa_por_indices(p_idx, sg_idx, m_idx, s_idx=s_idx, e_idx=e_idx, tipo='escalada_subsetor')
+                                                else:
+                                                    editor.set_mapa_atual(mapa, p_idx, sg_idx, m_idx, s_idx=s_idx, e_idx=e_idx, tipo='escalada_subsetor')
+                                                encontrou = True
+                                                break
+                                        if encontrou: break
             elif ctx.caminho_local_arvore:
                 self.pagina_mapas.garantir_editor_criado()
                 editor = getattr(self.pagina_mapas, 'editor', None)
                 if editor is not None:
                     # Busca via node path
                     import re
-                    p_idx, sg_idx, s_idx, m_idx = -1, -1, -1, -1
-                    match_s = re.search(r'expando:picos/item:(\d+)/expando:setores_ou_grupos/item:(\d+).*?expando:setores/item:(\d+).*?expando:mapas/item:(\d+)', ctx.caminho_local_arvore)
-                    if match_s:
-                        p_idx, sg_idx, s_idx, m_idx = int(match_s.group(1)), int(match_s.group(2)), int(match_s.group(3)), int(match_s.group(4))
+                    p_idx, sg_idx, s_idx, e_idx, m_idx = -1, -1, -1, -1, -1
+                    tipo = None
+
+                    # 1. Escalada em Sub-setor de Grupo
+                    match_esc_sub = re.search(r'expando:picos/item:(\d+)/expando:setores_ou_grupos/item:(\d+).*?expando:setores/item:(\d+).*?expando:escaladas/item:(\d+).*?expando:mapas/item:(\d+)', ctx.caminho_local_arvore)
+                    if match_esc_sub:
+                        p_idx, sg_idx, s_idx, e_idx, m_idx = int(match_esc_sub.group(1)), int(match_esc_sub.group(2)), int(match_esc_sub.group(3)), int(match_esc_sub.group(4)), int(match_esc_sub.group(5))
+                        tipo = 'escalada_subsetor'
                     else:
-                        match_mg = re.search(r'expando:picos/item:(\d+).*?mapas_gerais.*?item:(\d+)', ctx.caminho_local_arvore)
-                        if match_mg:
-                            p_idx, m_idx = int(match_mg.group(1)), int(match_mg.group(2))
+                        # 2. Escalada em Setor
+                        match_esc_set = re.search(r'expando:picos/item:(\d+)/expando:setores_ou_grupos/item:(\d+).*?expando:escaladas/item:(\d+).*?expando:mapas/item:(\d+)', ctx.caminho_local_arvore)
+                        if match_esc_set:
+                            p_idx, sg_idx, e_idx, m_idx = int(match_esc_set.group(1)), int(match_esc_set.group(2)), int(match_esc_set.group(3)), int(match_esc_set.group(4))
+                            tipo = 'escalada_setor'
                         else:
-                            match = re.search(r'expando:picos/item:(\d+)/expando:setores_ou_grupos/item:(\d+).*?expando:mapas/item:(\d+)', ctx.caminho_local_arvore)
-                            if match:
-                                p_idx, sg_idx, m_idx = int(match.group(1)), int(match.group(2)), int(match.group(3))
-                    
+                            # 3. Sub-setor de Grupo
+                            match_s = re.search(r'expando:picos/item:(\d+)/expando:setores_ou_grupos/item:(\d+).*?expando:setores/item:(\d+).*?expando:mapas/item:(\d+)', ctx.caminho_local_arvore)
+                            if match_s:
+                                p_idx, sg_idx, s_idx, m_idx = int(match_s.group(1)), int(match_s.group(2)), int(match_s.group(3)), int(match_s.group(4))
+                                tipo = 'subsetor'
+                            else:
+                                # 4. Mapas Gerais do Pico
+                                match_mg = re.search(r'expando:picos/item:(\d+).*?mapas_gerais.*?item:(\d+)', ctx.caminho_local_arvore)
+                                if match_mg:
+                                    p_idx, m_idx = int(match_mg.group(1)), int(match_mg.group(2))
+                                    tipo = 'mapa_geral'
+                                else:
+                                    # 5. Setor ou Grupo
+                                    match = re.search(r'expando:picos/item:(\d+)/expando:setores_ou_grupos/item:(\d+).*?expando:mapas/item:(\d+)', ctx.caminho_local_arvore)
+                                    if match:
+                                        p_idx, sg_idx, m_idx = int(match.group(1)), int(match.group(2)), int(match.group(3))
+                                        tipo = 'setor'
+
                     if p_idx >= 0 and hasattr(editor, 'selecionar_mapa_por_indices'):
-                        editor.selecionar_mapa_por_indices(p_idx, sg_idx, m_idx, s_idx)
+                        if e_idx >= 0:
+                            editor.selecionar_mapa_por_indices(p_idx, sg_idx, m_idx, s_idx, e_idx=e_idx, tipo=tipo)
+                        else:
+                            editor.selecionar_mapa_por_indices(p_idx, sg_idx, m_idx, s_idx)
         elif ctx.pagina == "historico":
             if self.stack.currentIndex() != 3:
                 self._trocar_pagina(3)

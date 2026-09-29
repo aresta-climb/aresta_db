@@ -517,3 +517,35 @@ def test_extrair_imagens_auto_detect_fatiamento(tmp_path):
         # 3. As fatias quebradas individuais NÃO devem ter sido renderizadas ou salvas como grupos
         assert mock_frombytes.call_count == 0
 
+
+def test_extrair_imagens_ignora_bbox_fora_da_pagina(tmp_path):
+    import pymupdf
+    output_path = tmp_path / "output"
+    output_path.mkdir()
+
+    with patch("scripts.repartir_pdf.Image.frombytes") as mock_frombytes:
+        mock_doc = MagicMock()
+        mock_page = MagicMock()
+        mock_doc.load_page.return_value = mock_page
+        mock_doc.__getitem__.return_value = mock_page
+        mock_page.rect = pymupdf.Rect(0, 0, 500, 700)
+        mock_page.rotation_matrix = pymupdf.Matrix(1.0, 1.0)
+        mock_page.get_drawings.return_value = []
+        mock_page.get_text.return_value = {"blocks": []}
+
+        mock_pix = MagicMock()
+        mock_pix.width = 100
+        mock_pix.height = 100
+        mock_pix.samples = b"x" * 30000
+        mock_page.get_pixmap.return_value = mock_pix
+
+        # Imagem com bbox completamente fora da página (ex: x entre 800 e 900)
+        mock_page.get_image_info.return_value = [
+            {"bbox": (800, 100, 900, 200), "width": 100, "height": 100, "xref": 0}
+        ]
+
+        extrair_imagens_da_parte(mock_doc, [0], "setor_teste", output_path)
+
+        # Não deve tentar criar imagem via frombytes pois o bbox está fora da página
+        mock_frombytes.assert_not_called()
+

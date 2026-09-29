@@ -633,6 +633,287 @@ def test_area_principal_regex_mapas_gerais(mock_carregar, qtbot):
     
     janela.close()
 
+
+@patch("editor.legacy_views.area_principal.JanelaPrincipal.carregar_croqui")
+def test_area_principal_foco_mapa_escalada_setor(mock_carregar, qtbot):
+    """[TDD] Verifica se foco em mapa de escalada em setor repassa e_idx e tipo corretamente."""
+    from editor.legacy_views.area_principal import JanelaPrincipal
+    from unittest.mock import MagicMock
+
+    workspace_mock = MagicMock()
+    workspace_mock.can_publish_pr.return_value = True
+
+    janela = JanelaPrincipal(workspace=workspace_mock)
+    qtbot.addWidget(janela)
+
+    janela.pagina_mapas = MagicMock()
+    janela.pagina_mapas.editor = MagicMock()
+
+    uri = "page:mapas/node:Croqui/expando:picos/item:0/expando:setores_ou_grupos/item:1/node:setor/expando:escaladas/item:2/expando:mapas/item:0"
+    janela._on_foco_requisitado(uri)
+
+    janela.pagina_mapas.editor.selecionar_mapa_por_indices.assert_called_with(
+        0, 1, 0, -1, e_idx=2, tipo="escalada_setor"
+    )
+    janela.close()
+
+
+@patch("editor.legacy_views.area_principal.JanelaPrincipal.carregar_croqui")
+def test_area_principal_foco_mapa_escalada_subsetor(mock_carregar, qtbot):
+    """[TDD] Verifica se foco em mapa de escalada em sub-setor de grupo repassa e_idx, s_idx e tipo."""
+    from editor.legacy_views.area_principal import JanelaPrincipal
+    from unittest.mock import MagicMock
+
+    workspace_mock = MagicMock()
+    workspace_mock.can_publish_pr.return_value = True
+
+    janela = JanelaPrincipal(workspace=workspace_mock)
+    qtbot.addWidget(janela)
+
+    janela.pagina_mapas = MagicMock()
+    janela.pagina_mapas.editor = MagicMock()
+
+    uri = "page:mapas/node:Croqui/expando:picos/item:0/expando:setores_ou_grupos/item:1/expando:setores/item:2/node:setor/expando:escaladas/item:3/expando:mapas/item:0"
+    janela._on_foco_requisitado(uri)
+
+    janela.pagina_mapas.editor.selecionar_mapa_por_indices.assert_called_with(
+        0, 1, 0, 2, e_idx=3, tipo="escalada_subsetor"
+    )
+    janela.close()
+
+
+@patch("editor.legacy_views.area_principal.JanelaPrincipal.carregar_croqui")
+def test_area_principal_foco_arquivo_mapa_escalada(mock_carregar, qtbot):
+    """[TDD] Verifica se busca por ctx.arquivo_mapa encontra mapas de escalada."""
+    from editor.legacy_views.area_principal import JanelaPrincipal
+    from aresta_api.proto.generated import croqui_pb2
+    from editor.models.readonly_proxy import ReadOnlyProxy
+    from unittest.mock import MagicMock
+
+    workspace_mock = MagicMock()
+    workspace_mock.can_publish_pr.return_value = True
+
+    janela = JanelaPrincipal(workspace=workspace_mock)
+    qtbot.addWidget(janela)
+
+    croqui = croqui_pb2.Croqui()
+    pico = croqui.picos.add()
+    sg = pico.setores_ou_grupos.add()
+    sg.setor.conteudo.nome = "Setor"
+    esc = sg.setor.conteudo.escaladas.add()
+    mapa = esc.mapas.add()
+    mapa.caminho_imagem_mapa = "imagens/mapa_boulder_raro.webp"
+
+    janela.croqui_model = MagicMock()
+    janela.croqui_model.obter_croqui_readonly.return_value = ReadOnlyProxy(croqui)
+
+    janela.pagina_mapas = MagicMock()
+    janela.pagina_mapas.editor = MagicMock()
+
+    janela._on_foco_requisitado("page:mapas/file:mapa_boulder_raro.webp")
+
+    janela.pagina_mapas.editor.selecionar_mapa_por_indices.assert_called_with(
+        0, 0, 0, e_idx=0, tipo="escalada_setor"
+    )
+    janela.close()
+
+
+@patch("editor.legacy_views.area_principal.JanelaPrincipal.carregar_croqui")
+def test_area_principal_foco_arquivo_mapa_grupo_e_subsetores(mock_carregar, qtbot):
+    """[TDD] Verifica se busca por ctx.arquivo_mapa encontra mapas em grupo, subsetores e escaladas de subsetor."""
+    from editor.legacy_views.area_principal import JanelaPrincipal
+    from aresta_api.proto.generated import croqui_pb2
+    from editor.models.readonly_proxy import ReadOnlyProxy
+    from unittest.mock import MagicMock
+
+    workspace_mock = MagicMock()
+    workspace_mock.can_publish_pr.return_value = True
+
+    janela = JanelaPrincipal(workspace=workspace_mock)
+    qtbot.addWidget(janela)
+
+    croqui = croqui_pb2.Croqui()
+    pico = croqui.picos.add()
+    sg = pico.setores_ou_grupos.add()
+    grupo = sg.grupo
+    mapa_grp = grupo.conteudo.mapas.add()
+    mapa_grp.caminho_imagem_mapa = "imagens/mapa_grupo.webp"
+
+    sub = grupo.conteudo.setores.add()
+    mapa_sub = sub.conteudo.mapas.add()
+    mapa_sub.caminho_imagem_mapa = "imagens/mapa_sub.webp"
+
+    esc = sub.conteudo.escaladas.add()
+    mapa_esc_sub = esc.mapas.add()
+    mapa_esc_sub.caminho_imagem_mapa = "imagens/mapa_esc_sub.webp"
+
+    janela.croqui_model = MagicMock()
+    janela.croqui_model.obter_croqui_readonly.return_value = ReadOnlyProxy(croqui)
+
+    janela.pagina_mapas = MagicMock()
+    janela.pagina_mapas.editor = MagicMock()
+
+    # 1. Mapa do grupo
+    janela._on_foco_requisitado("page:mapas/file:mapa_grupo.webp")
+    janela.pagina_mapas.editor.selecionar_mapa_por_indices.assert_called_with(0, 0, 0)
+
+    # 2. Mapa do subsetor
+    janela._on_foco_requisitado("page:mapas/file:mapa_sub.webp")
+    janela.pagina_mapas.editor.selecionar_mapa_por_indices.assert_called_with(0, 0, 0, s_idx=0)
+
+    # 3. Mapa de escalada no subsetor
+    janela._on_foco_requisitado("page:mapas/file:mapa_esc_sub.webp")
+    janela.pagina_mapas.editor.selecionar_mapa_por_indices.assert_called_with(
+        0, 0, 0, s_idx=0, e_idx=0, tipo="escalada_subsetor"
+    )
+
+    janela.close()
+
+
+@patch("editor.legacy_views.area_principal.JanelaPrincipal.carregar_croqui")
+def test_area_principal_foco_caminho_arvore_setor_e_subsetor(mock_carregar, qtbot):
+    """[TDD] Verifica foco via caminho_local_arvore para setor e subsetor."""
+    from editor.legacy_views.area_principal import JanelaPrincipal
+    from unittest.mock import MagicMock
+
+    workspace_mock = MagicMock()
+    workspace_mock.can_publish_pr.return_value = True
+
+    janela = JanelaPrincipal(workspace=workspace_mock)
+    qtbot.addWidget(janela)
+
+    janela.pagina_mapas = MagicMock()
+    janela.pagina_mapas.editor = MagicMock()
+
+    # Sub-setor
+    uri_sub = "page:mapas/node:Croqui/expando:picos/item:0/expando:setores_ou_grupos/item:1/expando:setores/item:2/expando:mapas/item:0"
+    janela._on_foco_requisitado(uri_sub)
+    janela.pagina_mapas.editor.selecionar_mapa_por_indices.assert_called_with(0, 1, 0, 2)
+
+    # Setor
+    uri_set = "page:mapas/node:Croqui/expando:picos/item:0/expando:setores_ou_grupos/item:1/expando:mapas/item:0"
+    janela._on_foco_requisitado(uri_set)
+    janela.pagina_mapas.editor.selecionar_mapa_por_indices.assert_called_with(0, 1, 0, -1)
+
+    janela.close()
+
+
+@patch("editor.legacy_views.area_principal.JanelaPrincipal.carregar_croqui")
+def test_area_principal_foco_arquivo_mapa_geral_e_setor(mock_carregar, qtbot):
+    """[TDD] Verifica busca por ctx.arquivo_mapa em mapas gerais do pico e mapas de setor."""
+    from editor.legacy_views.area_principal import JanelaPrincipal
+    from aresta_api.proto.generated import croqui_pb2
+    from editor.models.readonly_proxy import ReadOnlyProxy
+    from unittest.mock import MagicMock
+
+    workspace_mock = MagicMock()
+    workspace_mock.can_publish_pr.return_value = True
+
+    janela = JanelaPrincipal(workspace=workspace_mock)
+    qtbot.addWidget(janela)
+
+    croqui = croqui_pb2.Croqui()
+    pico = croqui.picos.add()
+    mg = pico.mapas_gerais.conteudo.mapas.add()
+    mg.caminho_imagem_mapa = "imagens/mapa_geral_pico.webp"
+
+    sg = pico.setores_ou_grupos.add()
+    mapa_setor = sg.setor.conteudo.mapas.add()
+    mapa_setor.caminho_imagem_mapa = "imagens/mapa_setor_pico.webp"
+
+    janela.croqui_model = MagicMock()
+    janela.croqui_model.obter_croqui_readonly.return_value = ReadOnlyProxy(croqui)
+
+    janela.pagina_mapas = MagicMock()
+    janela.pagina_mapas.editor = MagicMock()
+
+    # 1. Mapa Geral
+    janela._on_foco_requisitado("page:mapas/file:mapa_geral_pico.webp")
+    janela.pagina_mapas.editor.selecionar_mapa_por_indices.assert_called_with(0, -1, 0)
+
+    # 2. Mapa de Setor
+    janela._on_foco_requisitado("page:mapas/file:mapa_setor_pico.webp")
+    janela.pagina_mapas.editor.selecionar_mapa_por_indices.assert_called_with(0, 0, 0)
+
+    janela.close()
+
+
+@patch("editor.legacy_views.area_principal.JanelaPrincipal.carregar_croqui")
+def test_area_principal_foco_editor_fallback_set_mapa_atual(mock_carregar, qtbot):
+    """[TDD] Verifica fallback para editor.set_mapa_atual quando editor não possui selecionar_mapa_por_indices."""
+    from editor.legacy_views.area_principal import JanelaPrincipal
+    from aresta_api.proto.generated import croqui_pb2
+    from editor.models.readonly_proxy import ReadOnlyProxy
+    from unittest.mock import MagicMock
+
+    class EditorDummy:
+        def __init__(self):
+            self.chamadas = []
+        def set_mapa_atual(self, mapa, *args, **kwargs):
+            self.chamadas.append((mapa, args, kwargs))
+
+    workspace_mock = MagicMock()
+    workspace_mock.can_publish_pr.return_value = True
+
+    janela = JanelaPrincipal(workspace=workspace_mock)
+    qtbot.addWidget(janela)
+
+    croqui = croqui_pb2.Croqui()
+    pico = croqui.picos.add()
+    mg = pico.mapas_gerais.conteudo.mapas.add()
+    mg.caminho_imagem_mapa = "imagens/mg_fb.webp"
+
+    sg_set = pico.setores_ou_grupos.add()
+    m_set = sg_set.setor.conteudo.mapas.add()
+    m_set.caminho_imagem_mapa = "imagens/m_set_fb.webp"
+    esc_set = sg_set.setor.conteudo.escaladas.add()
+    m_esc_set = esc_set.mapas.add()
+    m_esc_set.caminho_imagem_mapa = "imagens/m_esc_set_fb.webp"
+
+    sg_grp = pico.setores_ou_grupos.add()
+    m_grp = sg_grp.grupo.conteudo.mapas.add()
+    m_grp.caminho_imagem_mapa = "imagens/m_grp_fb.webp"
+    sub = sg_grp.grupo.conteudo.setores.add()
+    m_sub = sub.conteudo.mapas.add()
+    m_sub.caminho_imagem_mapa = "imagens/m_sub_fb.webp"
+    esc_sub = sub.conteudo.escaladas.add()
+    m_esc_sub = esc_sub.mapas.add()
+    m_esc_sub.caminho_imagem_mapa = "imagens/m_esc_sub_fb.webp"
+
+    janela.croqui_model = MagicMock()
+    janela.croqui_model.obter_croqui_readonly.return_value = ReadOnlyProxy(croqui)
+
+    editor_dummy = EditorDummy()
+    janela.pagina_mapas = MagicMock()
+    janela.pagina_mapas.editor = editor_dummy
+
+    # Mapa Geral
+    janela._on_foco_requisitado("page:mapas/file:mg_fb.webp")
+    assert editor_dummy.chamadas[-1][1] == (0, -1, 0)
+
+    # Setor
+    janela._on_foco_requisitado("page:mapas/file:m_set_fb.webp")
+    assert editor_dummy.chamadas[-1][1] == (0, 0, 0)
+
+    # Escalada em Setor
+    janela._on_foco_requisitado("page:mapas/file:m_esc_set_fb.webp")
+    assert editor_dummy.chamadas[-1][2] == {"e_idx": 0, "tipo": "escalada_setor"}
+
+    # Grupo
+    janela._on_foco_requisitado("page:mapas/file:m_grp_fb.webp")
+    assert editor_dummy.chamadas[-1][1] == (0, 1, 0)
+
+    # Subsetor
+    janela._on_foco_requisitado("page:mapas/file:m_sub_fb.webp")
+    assert editor_dummy.chamadas[-1][2] == {"s_idx": 0}
+
+    # Escalada em Subsetor
+    janela._on_foco_requisitado("page:mapas/file:m_esc_sub_fb.webp")
+    assert editor_dummy.chamadas[-1][2] == {"s_idx": 0, "e_idx": 0, "tipo": "escalada_subsetor"}
+
+    janela.close()
+
+
 def test_close_event_enquanto_salva_marca_para_fechar(janela_principal):
     """[TDD] Verifica se tentar fechar a janela durante o salvamento marca _fechar_apos_salvar."""
     from editor.legacy_views.area_principal import JanelaPrincipal
