@@ -1566,14 +1566,6 @@
     - **altura_mapa**: 340
     - **pontos_de_interesse**:
       - **[0]**:
-        - **id**: 61
-        - **label**: 61
-        - **retangulo**:
-          - **x**: 31
-          - **y**: 140
-          - **comprimento**: 14
-          - **largura**: 12
-      - **[1]**:
         - **id**: 62
         - **label**: 62
         - **retangulo**:
@@ -1581,7 +1573,7 @@
           - **y**: 164
           - **comprimento**: 14
           - **largura**: 12
-      - **[2]**:
+      - **[1]**:
         - **id**: 63
         - **label**: 63
         - **retangulo**:
@@ -1589,7 +1581,7 @@
           - **y**: 189
           - **comprimento**: 14
           - **largura**: 12
-      - **[3]**:
+      - **[2]**:
         - **id**: 64
         - **label**: 64
         - **retangulo**:
@@ -1597,7 +1589,7 @@
           - **y**: 179
           - **comprimento**: 10
           - **largura**: 8
-      - **[4]**:
+      - **[3]**:
         - **id**: 65
         - **label**: 65
         - **retangulo**:
@@ -1605,7 +1597,7 @@
           - **y**: 157
           - **comprimento**: 10
           - **largura**: 8
-      - **[5]**:
+      - **[4]**:
         - **id**: 66
         - **label**: 66
         - **retangulo**:
@@ -1613,7 +1605,7 @@
           - **y**: 146
           - **comprimento**: 10
           - **largura**: 8
-      - **[6]**:
+      - **[5]**:
         - **id**: 67
         - **label**: 67
         - **retangulo**:
@@ -1621,7 +1613,7 @@
           - **y**: 152
           - **comprimento**: 10
           - **largura**: 8
-      - **[7]**:
+      - **[6]**:
         - **id**: 68
         - **label**: 68
         - **retangulo**:
@@ -1629,7 +1621,7 @@
           - **y**: 123
           - **comprimento**: 10
           - **largura**: 10
-      - **[8]**:
+      - **[7]**:
         - **id**: 69
         - **label**: 69
         - **retangulo**:
@@ -1637,7 +1629,7 @@
           - **y**: 97
           - **comprimento**: 14
           - **largura**: 12
-      - **[9]**:
+      - **[8]**:
         - **id**: 70
         - **label**: 70
         - **retangulo**:
@@ -1645,7 +1637,7 @@
           - **y**: 104
           - **comprimento**: 14
           - **largura**: 12
-      - **[10]**:
+      - **[9]**:
         - **id**: 71
         - **label**: 71
         - **retangulo**:
@@ -1653,7 +1645,7 @@
           - **y**: 136
           - **comprimento**: 11
           - **largura**: 10
-      - **[11]**:
+      - **[10]**:
         - **id**: 72
         - **label**: 72
         - **retangulo**:
@@ -1661,7 +1653,7 @@
           - **y**: 175
           - **comprimento**: 14
           - **largura**: 12
-      - **[12]**:
+      - **[11]**:
         - **id**: 73
         - **label**: 73
         - **retangulo**:
@@ -1669,7 +1661,7 @@
           - **y**: 202
           - **comprimento**: 14
           - **largura**: 12
-      - **[13]**:
+      - **[12]**:
         - **id**: 74
         - **label**: 74
         - **retangulo**:
@@ -1677,7 +1669,7 @@
           - **y**: 216
           - **comprimento**: 14
           - **largura**: 12
-      - **[14]**:
+      - **[13]**:
         - **id**: 75
         - **label**: 75
         - **retangulo**:
@@ -2368,106 +2360,102 @@
         - **ids**:
           - 89
       - **[3]**:
-        - **escalada**: Ecos do Além
-        - **ids**:
-          - 90
-      - **[4]**:
         - **escalada**: Trombeta Acéfala
         - **ids**:
           - 91
-      - **[5]**:
+      - **[4]**:
         - **escalada**: Meio Cubanos
         - **ids**:
           - 92
-      - **[6]**:
+      - **[5]**:
         - **escalada**: Golpe Ninja
         - **ids**:
           - 93
-      - **[7]**:
+      - **[6]**:
         - **escalada**: Tripla Traição
         - **ids**:
           - 94
-      - **[8]**:
+      - **[7]**:
         - **escalada**: Noivado da Feiticeira
         - **ids**:
           - 95
-      - **[9]**:
+      - **[8]**:
         - **escalada**: Planeta dos Macacos
         - **ids**:
           - 96
-      - **[10]**:
+      - **[9]**:
         - **escalada**: Rota de colisão
         - **ids**:
           - 97
-      - **[11]**:
+      - **[10]**:
         - **escalada**: Projeto Daniel Salim
         - **ids**:
           - 98
-      - **[12]**:
+      - **[11]**:
         - **escalada**: Vale Perdido
         - **ids**:
           - 99
-      - **[13]**:
+      - **[12]**:
         - **escalada**: Consolo da Surucucu
         - **ids**:
           - 100
-      - **[14]**:
+      - **[13]**:
         - **escalada**: Santos e Hereges
         - **ids**:
           - 101
-      - **[15]**:
+      - **[14]**:
         - **escalada**: O Império Contra Ataca
         - **ids**:
           - 102
-      - **[16]**:
+      - **[15]**:
         - **escalada**: Jegue Voador
         - **ids**:
           - 103
-      - **[17]**:
+      - **[16]**:
         - **escalada**: Labirinto das Maritacas
         - **ids**:
           - 104
-      - **[18]**:
+      - **[17]**:
         - **escalada**: Tentações de Maria Madalena
         - **ids**:
           - 105
-      - **[19]**:
+      - **[18]**:
         - **escalada**: Sai do chão
         - **ids**:
           - 106
-      - **[20]**:
+      - **[19]**:
         - **escalada**: Ato Imperdoável
         - **ids**:
           - 107
-      - **[21]**:
+      - **[20]**:
         - **escalada**: Projeto Rodrigo do Paraná
         - **ids**:
           - 108
-      - **[22]**:
+      - **[21]**:
         - **escalada**: Pequena Criança
         - **ids**:
           - 109
-      - **[23]**:
+      - **[22]**:
+        - **escalada**: Três dentro, três fora
         - **ids**:
           - 82
         - **setor**: Setor Mapa 7
-        - **escalada**: Três dentro, três fora
-      - **[24]**:
+      - **[23]**:
         - **ids**:
           - 83
         - **setor**: Setor Mapa 7
         - **escalada**: Só para eles
-      - **[25]**:
+      - **[24]**:
         - **ids**:
           - 84
         - **setor**: Setor Mapa 7
         - **escalada**: Só para elas
-      - **[26]**:
+      - **[25]**:
         - **ids**:
           - 85
         - **setor**: Setor Mapa 7
         - **escalada**: Prestobarba
-      - **[27]**:
+      - **[26]**:
         - **ids**:
           - 86
         - **setor**: Setor Mapa 7
@@ -2475,6 +2463,7 @@
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
+      - **descricao**: ATENÇÃO: não utilizar o bico de pedra próximo ao top rope como agarra! Risco de queda do bloco!
       - **nome**: Bigode de Cristo
       - **dificuldade**: BR_6
       - **quantidade_protecoes_intermediarias**: 4
@@ -2854,14 +2843,6 @@
           - **comprimento**: 20
           - **largura**: 12
       - **[17]**:
-        - **id**: 122
-        - **label**: 122
-        - **retangulo**:
-          - **x**: 420
-          - **y**: 131
-          - **comprimento**: 21
-          - **largura**: 12
-      - **[18]**:
         - **id**: 123
         - **label**: 123
         - **retangulo**:
@@ -2869,7 +2850,7 @@
           - **y**: 76
           - **comprimento**: 20
           - **largura**: 12
-      - **[19]**:
+      - **[18]**:
         - **id**: 124
         - **label**: 124
         - **retangulo**:

@@ -206,9 +206,6 @@ mapas:
   - escalada: Bigode de Espinho
     ids:
     - '89'
-  - escalada: Ecos do Além
-    ids:
-    - '90'
   - escalada: Trombeta Acéfala
     ids:
     - '91'
@@ -266,10 +263,10 @@ mapas:
   - escalada: Pequena Criança
     ids:
     - '109'
-  - ids:
+  - escalada: Três dentro, três fora
+    ids:
     - '82'
     setor: Setor Mapa 7
-    escalada: Três dentro, três fora
   - ids:
     - '83'
     setor: Setor Mapa 7
@@ -296,6 +293,8 @@ escaladas:
     - Eustáquio Macedo Melo Júnior
     - Fábio Luiz Farias "Fabinho"
     data_abertura: '1993'
+    descricao: 'ATENÇÃO: não utilizar o bico de pedra próximo ao top rope como agarra!
+      Risco de queda do bloco!'
 - via_esportiva:
     nome: Bigode Sujo
     dificuldade: BR_7C
