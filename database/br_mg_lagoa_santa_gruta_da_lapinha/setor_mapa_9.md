@@ -126,13 +126,6 @@ mapas:
       y: 141
       comprimento: 20
       largura: 12
-  - id: '122'
-    label: '122'
-    retangulo:
-      x: 420
-      y: 131
-      comprimento: 21
-      largura: 12
   - id: '123'
     label: '123'
     retangulo:
