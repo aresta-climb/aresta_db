@@ -3120,14 +3120,6 @@
           - **comprimento**: 26
           - **largura**: 23
       - **[11]**:
-        - **id**: Top
-        - **label**: Top
-        - **retangulo**:
-          - **x**: 120
-          - **y**: 844
-          - **comprimento**: 37
-          - **largura**: 23
-      - **[12]**:
         - **id**: 11
         - **label**: 11
         - **retangulo**:
@@ -3135,7 +3127,7 @@
           - **y**: 846
           - **comprimento**: 25
           - **largura**: 23
-      - **[13]**:
+      - **[12]**:
         - **id**: 14
         - **label**: 14
         - **retangulo**:
@@ -3143,7 +3135,7 @@
           - **y**: 897
           - **comprimento**: 22
           - **largura**: 26
-      - **[14]**:
+      - **[13]**:
         - **id**: 10
         - **label**: 10
         - **retangulo**:
@@ -3151,7 +3143,7 @@
           - **y**: 880
           - **comprimento**: 26
           - **largura**: 23
-      - **[15]**:
+      - **[14]**:
         - **id**: 16
         - **label**: 16
         - **retangulo**:
@@ -3159,7 +3151,7 @@
           - **y**: 900
           - **comprimento**: 23
           - **largura**: 21
-      - **[16]**:
+      - **[15]**:
         - **id**: 12
         - **label**: 12
         - **retangulo**:
@@ -3167,7 +3159,7 @@
           - **y**: 916
           - **comprimento**: 29
           - **largura**: 23
-      - **[17]**:
+      - **[16]**:
         - **id**: 15
         - **label**: 15
         - **retangulo**:
@@ -3175,7 +3167,7 @@
           - **y**: 913
           - **comprimento**: 23
           - **largura**: 18
-      - **[18]**:
+      - **[17]**:
         - **id**: Setor_Pasto
         - **label**: Setor Pasto
         - **retangulo**:
@@ -3213,7 +3205,7 @@
         - **ids**:
           - 07
       - **[7]**:
-        - **escalada**: Via sem informação
+        - **escalada**: Via sem informação 2
         - **ids**:
           - 10
       - **[8]**:
@@ -3343,7 +3335,7 @@
   - **[9]**:
     - **via_esportiva**:
       - **descricao**: Fixa
-      - **nome**: Via sem informação
+      - **nome**: Via sem informação 2
       - **dificuldade**: INDEFINIDO
   - **[10]**:
     - **via_esportiva**:
@@ -3891,7 +3883,7 @@
         - **ids**:
           - 14
       - **[12]**:
-        - **escalada**: Candymam
+        - **escalada**: Candyman
         - **ids**:
           - 15
       - **[13]**:
@@ -4088,7 +4080,8 @@
         - Joviney
   - **[14]**:
     - **via_esportiva**:
-      - **nome**: Candymam
+      - **descricao**: Via INTERDITADA devido à ABELHAS.
+      - **nome**: Candyman
       - **dificuldade**: BR_5SUP
       - **quantidade_protecoes_intermediarias**: 8
       - **quantidade_protecoes_parada**: 2
@@ -4594,7 +4587,7 @@
         - **ids**:
           - 10
       - **[8]**:
-        - **escalada**: Sem informação
+        - **escalada**: Via sem informação 3
         - **ids**:
           - 11
       - **[9]**:
@@ -4614,9 +4607,10 @@
         - **ids**:
           - 15
       - **[13]**:
-        - **escalada**: Sem informação
+        - **escalada**: Via sem informação 4
         - **ids**:
           - 16
+        - **setor**: Setor Vale dos Espinhos
       - **[14]**:
         - **escalada**: Jornada nas Estrelas
         - **ids**:
@@ -4646,9 +4640,10 @@
         - **ids**:
           - 23
       - **[21]**:
-        - **escalada**: Sem informação
+        - **escalada**: Via sem informação 5
         - **ids**:
           - 24
+        - **setor**: Setor Vale dos Espinhos
       - **[22]**:
         - **escalada**: Duplo Sentido
         - **ids**:
@@ -4811,7 +4806,7 @@
   - **[10]**:
     - **via_esportiva**:
       - **descricao**: Fixa
-      - **nome**: Sem informação
+      - **nome**: Via sem informação 3
       - **dificuldade**: INDEFINIDO
   - **[11]**:
     - **via_esportiva**:
@@ -4843,7 +4838,7 @@
         - Roberto Lincoln
   - **[15]**:
     - **via_movel**:
-      - **nome**: Sem informação
+      - **nome**: Via sem informação 4
       - **dificuldade**: INDEFINIDO
       - **protecoes_moveis**: Mista
   - **[16]**:
@@ -4912,7 +4907,7 @@
   - **[23]**:
     - **via_movel**:
       - **descricao**: Via longa – Usar corda de 60 mts
-      - **nome**: Sem informação
+      - **nome**: Via sem informação 5
       - **dificuldade**: INDEFINIDO
       - **protecoes_moveis**: Mista
   - **[24]**:
@@ -5114,14 +5109,6 @@
           - **comprimento**: 32
           - **largura**: 27
       - **[6]**:
-        - **id**: Top
-        - **label**: Top
-        - **retangulo**:
-          - **x**: 366
-          - **y**: 491
-          - **comprimento**: 39
-          - **largura**: 28
-      - **[7]**:
         - **id**: Setor_Sentinela
         - **label**: Setor Sentinela
         - **retangulo**:
