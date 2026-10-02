@@ -2470,13 +2470,6 @@ picos:
               y: 800
               comprimento: 26
               largura: 23
-          - id: Top
-            label: Top
-            retangulo:
-              x: 120
-              y: 844
-              comprimento: 37
-              largura: 23
           - id: '11'
             label: '11'
             retangulo:
@@ -2548,7 +2541,7 @@ picos:
           - escalada: Despedida de Solteiro
             ids:
             - '07'
-          - escalada: Via sem informação
+          - escalada: Via sem informação 2
             ids:
             - '10'
           - escalada: Rins de Aço
@@ -2657,7 +2650,7 @@ picos:
             - Novais
             - Vinicinho
         - via_esportiva:
-            nome: Via sem informação
+            nome: Via sem informação 2
             dificuldade: INDEFINIDO
             descricao: Fixa
         - via_esportiva:
@@ -3126,7 +3119,7 @@ picos:
           - escalada: Muvuca
             ids:
             - '14'
-          - escalada: Candymam
+          - escalada: Candyman
             ids:
             - '15'
           - escalada: Agarras de Mateus
@@ -3290,13 +3283,14 @@ picos:
             - Márcio
             - Joviney
         - via_esportiva:
-            nome: Candymam
+            nome: Candyman
             dificuldade: BR_5SUP
             quantidade_protecoes_intermediarias: 8
             quantidade_protecoes_parada: 2
             conquistadores:
             - Roberto
             - Romulo
+            descricao: Via INTERDITADA devido à ABELHAS.
         - via_esportiva:
             nome: Agarras de Mateus
             dificuldade: BR_6SUP
@@ -3728,7 +3722,7 @@ picos:
           - escalada: Eau Rouge
             ids:
             - '10'
-          - escalada: Sem informação
+          - escalada: Via sem informação 3
             ids:
             - '11'
           - escalada: Via inacabada
@@ -3743,9 +3737,10 @@ picos:
           - escalada: R770
             ids:
             - '15'
-          - escalada: Sem informação
+          - escalada: Via sem informação 4
             ids:
             - '16'
+            setor: Setor Vale dos Espinhos
           - escalada: Jornada nas Estrelas
             ids:
             - '17'
@@ -3767,9 +3762,10 @@ picos:
           - escalada: Comunidade Flebótomo
             ids:
             - '23'
-          - escalada: Sem informação
+          - escalada: Via sem informação 5
             ids:
             - '24'
+            setor: Setor Vale dos Espinhos
           - escalada: Duplo Sentido
             ids:
             - '25'
@@ -3904,7 +3900,7 @@ picos:
             conquistadores:
             - GT Baú 2021
         - via_esportiva:
-            nome: Sem informação
+            nome: Via sem informação 3
             dificuldade: INDEFINIDO
             descricao: Fixa
         - via_esportiva:
@@ -3932,7 +3928,7 @@ picos:
             conquistadores:
             - Roberto Lincoln
         - via_movel:
-            nome: Sem informação
+            nome: Via sem informação 4
             dificuldade: INDEFINIDO
             protecoes_moveis: Mista
         - via_esportiva:
@@ -3992,7 +3988,7 @@ picos:
             conquistadores:
             - GT Baú 2021
         - via_movel:
-            nome: Sem informação
+            nome: Via sem informação 5
             dificuldade: INDEFINIDO
             protecoes_moveis: Mista
             descricao: Via longa – Usar corda de 60 mts
@@ -4168,13 +4164,6 @@ picos:
               y: 462
               comprimento: 32
               largura: 27
-          - id: Top
-            label: Top
-            retangulo:
-              x: 366
-              y: 491
-              comprimento: 39
-              largura: 28
           - id: Setor_Sentinela
             label: Setor Sentinela
             retangulo:

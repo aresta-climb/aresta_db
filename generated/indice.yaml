@@ -326,16 +326,16 @@ croquis:
     um dos principais picos de escalada em calcário de Minas Gerais, com centenas
     de vias de diversos graus.
   caminho_relativo: br_mg_pedro_leopoldo_gruta_do_bau/compilado.binarypb
-  checksum_sha256_croqui: 1ed33be031557398ddb4fab07a44e6c7e38e094283d9c74157aae78a357dae48
+  checksum_sha256_croqui: a9471d2def3ca407a0288bea418b320812bb8cb8d27e302e896923b8c5fadbcd
   checksum_sha256_thumbnail: dd7a58f4b98506504be378b79117fe97b45fcd5fc927d31680d4c20a54b59052
-  timestamp_update: '2026-09-11T22:00:01Z'
+  timestamp_update: '2026-10-02T18:01:00Z'
   precomputados:
     total_escaladas: 339
     total_setores: 13
     total_grupos: 0
     total_esportivas: 292
     total_multiplas_enfiadas: 2
-    tamanho_download_bytes: 2938155
+    tamanho_download_bytes: 2938234
   localizacao:
     latitude: -195534530
     longitude: -439898860

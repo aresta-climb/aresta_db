@@ -84,13 +84,6 @@ mapas:
       y: 800
       comprimento: 26
       largura: 23
-  - id: Top
-    label: Top
-    retangulo:
-      x: 120
-      y: 844
-      comprimento: 37
-      largura: 23
   - id: '11'
     label: '11'
     retangulo:
@@ -162,7 +155,7 @@ mapas:
   - escalada: Despedida de Solteiro
     ids:
     - '07'
-  - escalada: Via sem informação
+  - escalada: Via sem informação 2
     ids:
     - '10'
   - escalada: Rins de Aço
@@ -271,7 +264,7 @@ escaladas:
     - Novais
     - Vinicinho
 - via_esportiva:
-    nome: Via sem informação
+    nome: Via sem informação 2
     dificuldade: INDEFINIDO
     descricao: Fixa
 - via_esportiva:

@@ -1232,7 +1232,7 @@ arquivos:
 - caminho_relativo: br_mg_paraisopolis_pedra_da_divisa/compilado.md
   checksum_sha256: ffc7338ecbdcdec2e213cf37fe23ab27f2e461144156ea2e69b6fc5bdc99519f
 - caminho_relativo: br_mg_pedro_leopoldo_gruta_do_bau/compilado.binarypb
-  checksum_sha256: 1ed33be031557398ddb4fab07a44e6c7e38e094283d9c74157aae78a357dae48
+  checksum_sha256: a9471d2def3ca407a0288bea418b320812bb8cb8d27e302e896923b8c5fadbcd
 - caminho_relativo: thumbnails/br_mg_pedro_leopoldo_gruta_do_bau.webp
   checksum_sha256: dd7a58f4b98506504be378b79117fe97b45fcd5fc927d31680d4c20a54b59052
 - caminho_relativo: br_mg_pedro_leopoldo_gruta_do_bau/imagens/acesso_p0_i10.webp
@@ -1308,9 +1308,9 @@ arquivos:
 - caminho_relativo: br_mg_pedro_leopoldo_gruta_do_bau/imagens/setor_vale_dos_espinhos_p0_i6.webp
   checksum_sha256: 4e9c73398fdcba3611a5fe93b973779f891ed008fea953df46f9e9796b44809d
 - caminho_relativo: br_mg_pedro_leopoldo_gruta_do_bau/compilado.yaml
-  checksum_sha256: 0f741815daeea37f546a19cfea8e30f83fb1422ebb2e3291568b04a819b26aff
+  checksum_sha256: 6237e0c1c1eb20f7305abe3d6b0616d5d96180523ba7569c57d8b6ed2e50b0a4
 - caminho_relativo: br_mg_pedro_leopoldo_gruta_do_bau/compilado.md
-  checksum_sha256: 7355d26145c516d83b5679cf906576bdd81c8ecb3b6d6463641581501626c730
+  checksum_sha256: 885b188b766089c537ddfb4f002b4866b991baf4434b0d2b59b5aea3623bfc04
 - caminho_relativo: br_mg_sabara_pedra_rachada_setor_horizonte/compilado.binarypb
   checksum_sha256: b29c77a6c8aea7449a35945a49b97e05dfc1714d69c6fa8a5d6b3b668225fd8e
 - caminho_relativo: thumbnails/br_mg_sabara_pedra_rachada_setor_horizonte.webp
@@ -2010,6 +2010,6 @@ arquivos:
 - caminho_relativo: br_rj_nova_friburgobom_jardim_capelinha/compilado.md
   checksum_sha256: 98d75eebcfa45058b6372fe0be496d3d5d42b7541d814daffa7d76141cb47cdc
 - caminho_relativo: indice.binarypb
-  checksum_sha256: 5fee1eff6dbbea2122ae258d3ad613c4d9f5014e47b0989883912ca70df9e9ee
+  checksum_sha256: a68853e8e60b27ecf227bbccb241565daccc7ee19b4b10241faf0bd6241fbdcb
 - caminho_relativo: indice.yaml
-  checksum_sha256: a72ce6f603c732c69c86560f935e327f8cf7a8acb1b8c2c6bcad9c13fc7b8e1f
+  checksum_sha256: 0aa3a8d14e151e984928e96ee4a901070cf2ca6bcc2b4b5cf47bff81556a2eb9
