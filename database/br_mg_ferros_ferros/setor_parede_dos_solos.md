@@ -7,44 +7,34 @@ mapas:
   largura_mapa: 660
   altura_mapa: 419
   pontos_de_interesse:
-  - id: Parede_dos_Solos
-    label: Parede dos Solos
-    retangulo:
-      x: 160
-      y: 40
-      comprimento: 310
-      largura: 40
   - id: '01'
     label: '1'
     circulo:
-      x: 40
-      y: 295
-      raio: 15
+      x: 43
+      y: 297
+      raio: 21
   - id: '02'
     label: '2'
     circulo:
       x: 140
-      y: 352
-      raio: 15
+      y: 355
+      raio: 21
   - id: '03'
     label: '3'
     circulo:
-      x: 284
-      y: 390
-      raio: 15
+      x: 283
+      y: 391
+      raio: 21
   - id: '04'
     label: '4'
     circulo:
-      x: 514
-      y: 387
-      raio: 15
+      x: 516
+      y: 386
+      raio: 21
   referencias:
-  - setor: Parede dos Solos
-    ids:
-    - Parede_dos_Solos
-  - escalada: Caipora
-    ids:
+  - ids:
     - '01'
+    escalada: Caipora
   - escalada: Iaci
     ids:
     - '02'

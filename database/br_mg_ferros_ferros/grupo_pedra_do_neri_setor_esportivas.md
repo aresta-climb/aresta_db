@@ -25,61 +25,42 @@ mapas:
   - escalada: Pé de Chinelo
     ids:
     - '6'
-  - ids:
-    - titulo
-    setor: Face das Esportivas
-  - ids:
-    - anotacao_arvore
   pontos_de_interesse:
-  - id: titulo
-    label: Pedra do Neri - Face das Esportivas
-    retangulo:
-      x: 206
-      y: 23
-      comprimento: 360
-      largura: 22
   - id: '1'
     label: '1'
     circulo:
-      x: 147
-      y: 314
+      x: 149
+      y: 316
       raio: 11
   - id: '2'
     label: '2'
     circulo:
-      x: 220
-      y: 305
+      x: 221
+      y: 308
       raio: 11
   - id: '3'
     label: '3'
     circulo:
-      x: 299
-      y: 298
+      x: 300
+      y: 299
       raio: 11
-  - id: anotacao_arvore
-    label: Árvore fora de escala!
-    retangulo:
-      x: 367
-      y: 325
-      comprimento: 131
-      largura: 18
   - id: '4'
     label: '4'
     circulo:
-      x: 428
-      y: 296
+      x: 429
+      y: 297
       raio: 11
   - id: '5'
     label: '5'
     circulo:
       x: 503
-      y: 296
+      y: 298
       raio: 11
   - id: '6'
     label: '6'
     circulo:
-      x: 537
-      y: 298
+      x: 538
+      y: 301
       raio: 11
 escaladas:
 - via_movel:

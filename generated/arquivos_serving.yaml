@@ -602,7 +602,7 @@ arquivos:
 - caminho_relativo: br_mg_diamantina_diamaboulder/compilado.md
   checksum_sha256: aeb01ba15dc7247405045719759e8b4d3957a72c011061fa6beab7ccce877bfd
 - caminho_relativo: br_mg_ferros_ferros/compilado.binarypb
-  checksum_sha256: 1472fcdc96667e5cecb514fce57591cda7a6603405a8219c2eb2974a5be03d0f
+  checksum_sha256: 4fdf47c7645d28ff20332bc71460274160537da4a65e30db8ae89ef70c69fbc9
 - caminho_relativo: thumbnails/br_mg_ferros_ferros.webp
   checksum_sha256: 84902a86389e5ffd380d2584588e2ddcb820bb3b96b90fb6d8cc7ae3feabbb48
 - caminho_relativo: br_mg_ferros_ferros/imagens/capa_p0_i0.webp
@@ -716,7 +716,7 @@ arquivos:
 - caminho_relativo: br_mg_ferros_ferros/imagens/grupo_principal_setor_central_p5_i0.webp
   checksum_sha256: 5ab48af0644ee16b795769a6224da24c8608759022a29a5795ffa094e7f0104c
 - caminho_relativo: br_mg_ferros_ferros/imagens/grupo_principal_setor_central_p6.webp
-  checksum_sha256: 00283946d7900c69f889396739338e07624475b9b00781e3c21fb693cfcca162
+  checksum_sha256: ceb20ee95652af3d01e582be353656d6b98dcbca0fd7652446fcfa57c0449457
 - caminho_relativo: br_mg_ferros_ferros/imagens/grupo_principal_setor_central_p7_i1.webp
   checksum_sha256: 7358acebeef208597e386cf40ca5176f923256be9d70e8d0198f0a2ba7a56132
 - caminho_relativo: br_mg_ferros_ferros/imagens/grupo_principal_setor_central_p7_i3.webp
@@ -751,8 +751,6 @@ arquivos:
   checksum_sha256: 30e69a7c19bfb2357ce71499228ae339d0c4759140b8af25949b83fe225d3f37
 - caminho_relativo: br_mg_ferros_ferros/imagens/grupo_principal_setor_classicas_longas_p6_i3.webp
   checksum_sha256: 6bcb864a2920807cc5cd0759d25720b0574da3fc2f51c6476e16f9c40faf8c19
-- caminho_relativo: br_mg_ferros_ferros/imagens/grupo_principal_setor_classicas_longas_p7.webp
-  checksum_sha256: 695d9679ae1ea2a0c37699b05e716bb6300ac31263b9832d1eea37715e4fdda6
 - caminho_relativo: br_mg_ferros_ferros/imagens/grupo_principal_setor_classicas_longas_p8_i1.webp
   checksum_sha256: 1a1d9ce483f7bcb4b8c86d33106f3bf6de3f92b4220bce874044727b72d89bf9
 - caminho_relativo: br_mg_ferros_ferros/imagens/grupo_principal_setor_classicas_longas_p9_i1.webp
@@ -819,10 +817,16 @@ arquivos:
   checksum_sha256: f01d0e235df67459dcb722989e9bd9d1b0082b6a72ae0b67d0900638c8eadbf5
 - caminho_relativo: br_mg_ferros_ferros/imagens/sobre_ferros_e_historia_p0_i0.webp
   checksum_sha256: f766ed8599b01fd66a48273b4a7329ce3cb0127da44e5fb99eec5063bfd49918
+- caminho_relativo: br_mg_ferros_ferros/imagens/via_conquista_do_paraiso_p0.webp
+  checksum_sha256: c173971e660ffca269cce97f9c7199d9aaf829f2084b60b7346d5626a656cdfd
+- caminho_relativo: br_mg_ferros_ferros/imagens/via_ferro_no_judas_p0.webp
+  checksum_sha256: 02292a808ae6ee555e8aa6ee0379f73f66b57e6a5e1a2c135828c723ac784ce1
+- caminho_relativo: br_mg_ferros_ferros/imagens/via_jardim_do_eden_p0.webp
+  checksum_sha256: 1c76570fd31ae3ea325b8a3c84fc045dcf325ffe0f38df4a95c57e2a8ae939eb
 - caminho_relativo: br_mg_ferros_ferros/compilado.yaml
-  checksum_sha256: 1342ba72059172a622fec2554e3e1d79e8c5deb15862c994a0e9e1613eb845e7
+  checksum_sha256: 7d64415e6bd34fbd4126aee6a80bdb1c88aba7d6af6f8348d3834e6789f81038
 - caminho_relativo: br_mg_ferros_ferros/compilado.md
-  checksum_sha256: 469be41cf708dda99773ef42f337e88a887bbcd20e6258f6f174b5345f251b1e
+  checksum_sha256: cc13deda9b08d993011aea0ba65a816b4a687b6eb535704f99bfe92ec9b9aaad
 - caminho_relativo: br_mg_igarape_pedra_grande/compilado.binarypb
   checksum_sha256: 3c175e84c81a7cc6aef6624671abd5839f21c5267635cb164a64db0f5a010da9
 - caminho_relativo: thumbnails/br_mg_igarape_pedra_grande.webp
@@ -2232,6 +2236,6 @@ arquivos:
 - caminho_relativo: br_rj_nova_friburgobom_jardim_capelinha/compilado.md
   checksum_sha256: ba81dd87949c18f9ff95512c2fb25f9210fb9590fc591004b0905fdb8c8ec582
 - caminho_relativo: indice.binarypb
-  checksum_sha256: 1db8b7c021a633248ff6de8c964aa2de6e20a59489b10bf1fb24ed19d5bbde30
+  checksum_sha256: 0151fc96d3eb868f77d7c1cedbece708b54295a8678795d6bc8c30226674b6f9
 - caminho_relativo: indice.yaml
-  checksum_sha256: 45ef00114a52e3a01f6834b3543b8d41797776c6312bc218356d286af0c5fed6
+  checksum_sha256: 285c7e780862b3a9f8b56676ca6935aff052894708ef90b3cd3b38e28568c0f6

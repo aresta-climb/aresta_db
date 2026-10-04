@@ -599,3 +599,64 @@ def test_confirmar_remover_ajusta_indice_selecionado(qapp):
     painel._confirmar_remover(1)
     assert painel.idx_card_selecionado is None
 
+
+def test_card_referencia_renomeacao_vincular_elementos_texto_e_tooltip(qapp):
+    """[TDD 1.1] Verifica se o botão de vinculação possui o texto e tooltip em português brasileiro."""
+    from editor.views.widget_painel_referencias import CardReferencia
+    ref = croqui_pb2.Mapa.Referencia()
+    card = CardReferencia(ref, 0)
+
+    # Verifica tanto btn_vincular quanto btn_linkar (compatibilidade)
+    assert hasattr(card, "btn_vincular")
+    assert card.btn_vincular is card.btn_linkar
+    assert "Vincular Elementos" in card.btn_vincular.text()
+    assert "Vincular ou desvincular elementos (pontos e trajetos) do mapa a esta referência" in card.btn_vincular.toolTip()
+
+
+def test_card_referencia_botao_vincular_toggle_texto_e_selecao_automatica(qapp):
+    """[TDD 1.1] Verifica se ativar Vincular Elementos muda o texto para 'Vinculando...' e seleciona o card no painel."""
+    painel = PainelReferencias(None)
+    mapa = croqui_pb2.Mapa()
+    ref = mapa.referencias.add()
+    ref.grupo = "Grupo Teste"
+    painel.carregar_mapa(mapa)
+
+    card = painel.layout_cards.itemAt(0).widget()
+    assert "Vincular Elementos" in card.btn_vincular.text()
+    assert painel.idx_card_selecionado is None
+
+    # Ativa vinculação
+    card.btn_vincular.setChecked(True)
+    assert "Vinculando..." in card.btn_vincular.text()
+    assert painel.idx_card_selecionado == 0
+    assert card.selecionado is True
+
+    # Desativa vinculação
+    card.btn_vincular.setChecked(False)
+    assert "Vincular Elementos" in card.btn_vincular.text()
+
+
+def test_alternar_vinculacao_entre_cards_sincroniza_selecao_e_desativa_anterior(qapp):
+    """[TDD 1.1] Verifica que ativar vinculação no card B seleciona B e desativa o modo no card A."""
+    painel = PainelReferencias(None)
+    mapa = croqui_pb2.Mapa()
+    ref0 = mapa.referencias.add()
+    ref0.grupo = "Grupo 0"
+    ref1 = mapa.referencias.add()
+    ref1.grupo = "Grupo 1"
+    painel.carregar_mapa(mapa)
+
+    card0 = painel.layout_cards.itemAt(0).widget()
+    card1 = painel.layout_cards.itemAt(1).widget()
+
+    card0.btn_vincular.setChecked(True)
+    assert painel.idx_card_selecionado == 0
+    assert card0.btn_vincular.isChecked() is True
+    assert card1.btn_vincular.isChecked() is False
+
+    # Agora ativa no card 1
+    card1.btn_vincular.setChecked(True)
+    assert painel.idx_card_selecionado == 1
+    assert card1.btn_vincular.isChecked() is True
+    assert card0.btn_vincular.isChecked() is False
+

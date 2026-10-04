@@ -65,3 +65,6 @@ botoes:
       caminho: regras.md
 ultima_migracao: 4
 publicar_croqui: true
+revisado_manualmente: false
+revisado_bounding_circle: false
+status_desenho_extraivel: DESENHO_EXTRAIDO

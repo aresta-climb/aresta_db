@@ -3,173 +3,6 @@
 # Copyright (C) 2026 Aresta Climb Contributors
 nome: Setor Central
 mapas:
-- caminho_imagem_mapa: imagens/grupo_principal_setor_central_p2_i0.webp
-  largura_mapa: 2044
-  altura_mapa: 1222
-  referencias:
-  - escalada: Ferro no Judas
-    ids:
-    - '1'
-  - escalada: Marcado a Ferro
-    ids:
-    - '2'
-  - escalada: Rolam as Pedras
-    ids:
-    - '3'
-  - escalada: Tromba D’Água
-    ids:
-    - '4'
-  - escalada: Ferro Velho
-    ids:
-    - '5'
-  - escalada: Pum Medonho
-    ids:
-    - '6'
-  - escalada: Dona Flor e Suas Duas Marretas
-    ids:
-    - '7'
-  - escalada: Pr. Chapado
-    ids:
-    - '8'
-  - escalada: Pé de Pano
-    ids:
-    - '9'
-  - escalada: CDF
-    ids:
-    - '10'
-  - escalada: Eu Sei o Que Vocês Fizeram no Blackout Passado
-    ids:
-    - '11'
-  - escalada: Hilda Furacão
-    ids:
-    - '12'
-  - escalada: Iron Men
-    ids:
-    - '13'
-  - escalada: Cordão do Bola Preta
-    ids:
-    - '14'
-  - escalada: A Ferro e Fogo
-    ids:
-    - '15'
-  - escalada: Chuva Ácida
-    ids:
-    - '16'
-  - escalada: A Decadência da Bufa
-    ids:
-    - '17'
-  - escalada: Jeca Tatu
-    ids:
-    - '18'
-  pontos_de_interesse:
-  - id: '1'
-    label: '1'
-    circulo:
-      x: 139
-      y: 743
-      raio: 18
-  - id: '2'
-    label: '2'
-    circulo:
-      x: 306
-      y: 738
-      raio: 18
-  - id: '3'
-    label: '3'
-    circulo:
-      x: 382
-      y: 758
-      raio: 18
-  - id: '4'
-    label: '4'
-    circulo:
-      x: 468
-      y: 772
-      raio: 18
-  - id: '5'
-    label: '5'
-    circulo:
-      x: 582
-      y: 803
-      raio: 18
-  - id: '6'
-    label: '6'
-    circulo:
-      x: 657
-      y: 772
-      raio: 18
-  - id: '7'
-    label: '7'
-    circulo:
-      x: 732
-      y: 771
-      raio: 18
-  - id: '8'
-    label: '8'
-    circulo:
-      x: 791
-      y: 819
-      raio: 20
-  - id: '9'
-    label: '9'
-    circulo:
-      x: 906
-      y: 879
-      raio: 18
-  - id: '10'
-    label: '10'
-    circulo:
-      x: 982
-      y: 901
-      raio: 24
-  - id: '11'
-    label: '11'
-    circulo:
-      x: 1062
-      y: 904
-      raio: 24
-  - id: '12'
-    label: '12'
-    circulo:
-      x: 1161
-      y: 932
-      raio: 26
-  - id: '13'
-    label: '13'
-    circulo:
-      x: 1277
-      y: 953
-      raio: 24
-  - id: '14'
-    label: '14'
-    circulo:
-      x: 1373
-      y: 980
-      raio: 26
-  - id: '15'
-    label: '15'
-    circulo:
-      x: 1475
-      y: 953
-      raio: 24
-  - id: '16'
-    label: '16'
-    circulo:
-      x: 1530
-      y: 988
-      raio: 24
-  - id: '17'
-    label: '17'
-    circulo:
-      x: 1607
-      y: 1078
-      raio: 26
-  - id: '18'
-    label: '18'
-    circulo:
-      x: 1773
-      y: 1184
-      raio: 26
 - caminho_imagem_mapa: imagens/grupo_principal_setor_central_p1_i0.webp
   largura_mapa: 2009
   altura_mapa: 1243
@@ -189,43 +22,586 @@ mapas:
   - escalada: Ferro Velho
     ids:
     - '5'
+  - ids:
+    - aderências_esquerda
+    grupo: Parede das Aderências
+    setor: Esquerda
+  - ids:
+    - aderencias_central
+    grupo: Parede das Aderências
+    setor: Face Central
+  - ids:
+    - aderencias_cima
+    grupo: Parede das Aderências
+    setor: Setor de Cima
+  - ids:
+    - parede_principal_direita
+    grupo: Parede Principal (Paredes de Aço)
+    setor: Parede Principal – Direita
+  - escalada: Chuva Ácida
+    ids:
+    - '3'
+    grupo: Parede Principal (Paredes de Aço)
+    setor: Setor Central
+  - escalada: A Ferro e Fogo
+    ids:
+    - '3'
+    grupo: Parede Principal (Paredes de Aço)
+    setor: Setor Central
+  - escalada: Cordão do Bola Preta
+    ids:
+    - '3'
+    grupo: Parede Principal (Paredes de Aço)
+    setor: Setor Central
+  - escalada: Iron Men
+    ids:
+    - '3'
+    grupo: Parede Principal (Paredes de Aço)
+    setor: Setor Central
+  - escalada: Hilda Furacão
+    ids:
+    - '4'
+    grupo: Parede Principal (Paredes de Aço)
+    setor: Setor Central
+  - escalada: Eu Sei o Que Vocês Fizeram no Blackout Passado
+    ids:
+    - '4'
+    grupo: Parede Principal (Paredes de Aço)
+    setor: Setor Central
+  - escalada: CDF
+    ids:
+    - '4'
+    grupo: Parede Principal (Paredes de Aço)
+    setor: Setor Central
+  - escalada: Pé de Pano
+    ids:
+    - '4'
+    grupo: Parede Principal (Paredes de Aço)
+    setor: Setor Central
+  - escalada: Pr. Chapado
+    ids:
+    - '4'
+    grupo: Parede Principal (Paredes de Aço)
+    setor: Setor Central
+  - ids:
+    - '4'
+    grupo: Parede Principal (Paredes de Aço)
+    setor: Setor Central
+    escalada: Dona Flor e Suas Duas Marretas
+  - ids:
+    - '4'
+    grupo: Parede Principal (Paredes de Aço)
+    setor: Setor Central
+    escalada: Pum Medonho
+  - ids:
+    - '5'
+    grupo: Parede Principal (Paredes de Aço)
+    setor: Setor Central
+    escalada: Ferro Velho
+  - ids:
+    - '5'
+    grupo: Parede Principal (Paredes de Aço)
+    setor: Setor Central
+    escalada: Tromba D’Água
+  - ids:
+    - '5'
+    grupo: Parede Principal (Paredes de Aço)
+    setor: Setor Central
+    escalada: Rolam as Pedras
+  - ids:
+    - '5'
+    grupo: Parede Principal (Paredes de Aço)
+    setor: Setor Central
+    escalada: Marcado a Ferro
+  - ids:
+    - '5'
+    grupo: Parede Principal (Paredes de Aço)
+    setor: Setor Central
+    escalada: Ferro no Judas
   pontos_de_interesse:
   - id: '1'
     label: '1'
     circulo:
-      x: 928
-      y: 465
-      raio: 18
+      x: 929
+      y: 467
+      raio: 22
   - id: '2'
     label: '2'
     circulo:
-      x: 976
-      y: 552
-      raio: 18
+      x: 977
+      y: 553
+      raio: 22
   - id: '3'
     label: '3'
     circulo:
       x: 1048
-      y: 628
-      raio: 18
+      y: 629
+      raio: 22
   - id: '4'
     label: '4'
     circulo:
       x: 1193
-      y: 787
-      raio: 18
+      y: 788
+      raio: 22
   - id: '5'
     label: '5'
     circulo:
       x: 1419
-      y: 1080
-      raio: 18
+      y: 1081
+      raio: 22
+  - id: parede_principal_direita
+    label: Parede Principal Direita
+    retangulo:
+      x: 602
+      y: 372
+      comprimento: 355
+      largura: 64
+    cor: ''
+  - id: aderências_esquerda
+    label: Aderências Esquerda
+    retangulo:
+      x: 1068
+      y: 37
+      comprimento: 356
+      largura: 64
+    cor: ''
+  - id: aderencias_central
+    label: Aderências Central
+    retangulo:
+      x: 1372
+      y: 368
+      comprimento: 292
+      largura: 57
+    cor: ''
+  - id: aderencias_cima
+    label: Aderências Setor de Cima
+    retangulo:
+      x: 1746
+      y: 418
+      comprimento: 319
+      largura: 80
+    cor: ''
+- caminho_imagem_mapa: imagens/grupo_principal_setor_central_p2_i0.webp
+  largura_mapa: 2044
+  altura_mapa: 1222
+  referencias:
+  - escalada: Ferro no Judas
+    ids:
+    - '1'
+  - escalada: Marcado a Ferro
+    ids:
+    - '2'
+  - escalada: Rolam as Pedras
+    ids:
+    - '3'
+  - escalada: Tromba D’Água
+    ids:
+    - '4'
+  - escalada: Ferro Velho
+    ids:
+    - '5'
+  - ids:
+    - '6'
+    escalada: Pum Medonho
+  - ids:
+    - '7'
+    escalada: Dona Flor e Suas Duas Marretas
+  - ids:
+    - '8'
+    escalada: Pr. Chapado
+  - ids:
+    - '9'
+    escalada: Pé de Pano
+  - ids:
+    - '10'
+    escalada: CDF
+  - ids:
+    - '11'
+    escalada: Eu Sei o Que Vocês Fizeram no Blackout Passado
+  - ids:
+    - '12'
+    escalada: Hilda Furacão
+  - ids:
+    - '13'
+    escalada: Iron Men
+  - ids:
+    - '14'
+    escalada: Cordão do Bola Preta
+  - ids:
+    - '15'
+    escalada: A Ferro e Fogo
+  - ids:
+    - '16'
+    escalada: Chuva Ácida
+  - ids:
+    - '17'
+    escalada: A Decadência da Bufa
+  - ids:
+    - '18'
+    escalada: Jeca Tatu
+  - ids:
+    - parede_cima
+    grupo: Parede Principal (Paredes de Aço)
+    setor: Setor de Cima
+  - ids:
+    - noite
+    grupo: Parede Principal (Paredes de Aço)
+    setor: Setor de Cima
+    escalada: Noite de São João
+  - ids:
+    - valeu
+    grupo: Parede Principal (Paredes de Aço)
+    setor: Parede Principal – Direita
+    escalada: Valeu Papito
+  pontos_de_interesse:
+  - id: '1'
+    label: '1'
+    circulo:
+      x: 137
+      y: 746
+      raio: 22
+  - id: '2'
+    label: '2'
+    circulo:
+      x: 303
+      y: 740
+      raio: 22
+  - id: '3'
+    label: '3'
+    circulo:
+      x: 379
+      y: 759
+      raio: 22
+  - id: '4'
+    label: '4'
+    circulo:
+      x: 466
+      y: 774
+      raio: 22
+  - id: '5'
+    label: '5'
+    circulo:
+      x: 580
+      y: 804
+      raio: 22
+  - id: '6'
+    label: '6'
+    circulo:
+      x: 656
+      y: 773
+      raio: 22
+  - id: '7'
+    label: '7'
+    circulo:
+      x: 729
+      y: 775
+      raio: 22
+  - id: '8'
+    label: '8'
+    circulo:
+      x: 790
+      y: 820
+      raio: 24
+  - id: '9'
+    label: '9'
+    circulo:
+      x: 904
+      y: 881
+      raio: 22
+  - id: '10'
+    label: '10'
+    circulo:
+      x: 978
+      y: 903
+      raio: 30
+  - id: '11'
+    label: '11'
+    circulo:
+      x: 1059
+      y: 907
+      raio: 30
+  - id: '12'
+    label: '12'
+    circulo:
+      x: 1158
+      y: 935
+      raio: 32
+  - id: '13'
+    label: '13'
+    circulo:
+      x: 1276
+      y: 956
+      raio: 30
+  - id: '14'
+    label: '14'
+    circulo:
+      x: 1369
+      y: 983
+      raio: 32
+  - id: '15'
+    label: '15'
+    circulo:
+      x: 1471
+      y: 956
+      raio: 30
+  - id: '16'
+    label: '16'
+    circulo:
+      x: 1527
+      y: 990
+      raio: 30
+  - id: '17'
+    label: '17'
+    circulo:
+      x: 1606
+      y: 1081
+      raio: 32
+  - id: '18'
+    label: '18'
+    circulo:
+      x: 1771
+      y: 1186
+      raio: 32
+  - id: parede_cima
+    label: Setor de Cima
+    retangulo:
+      x: 261
+      y: 208
+      comprimento: 214
+      largura: 59
+    cor: ''
+  - id: noite
+    label: Noite de São João
+    retangulo:
+      x: 158
+      y: 384
+      comprimento: 299
+      largura: 59
+    cor: ''
+  - id: valeu
+    label: Valeu Papito
+    retangulo:
+      x: 1930
+      y: 974
+      comprimento: 223
+      largura: 59
+    cor: ''
 - caminho_imagem_mapa: imagens/grupo_principal_setor_central_p6.webp
-  largura_mapa: 1188
-  altura_mapa: 841
+  largura_mapa: 788
+  altura_mapa: 1088
+  pontos_de_interesse:
+  - id: '1'
+    label: '1'
+    circulo:
+      x: 293
+      y: 1023
+      raio: 16
+    cor: ''
+  - id: 1_p1
+    label: ''
+    circulo:
+      x: 450
+      y: 615
+      raio: 13
+  - id: 1_p2
+    label: ''
+    circulo:
+      x: 502
+      y: 311
+      raio: 13
+  - id: 1_p3
+    label: ''
+    circulo:
+      x: 540
+      y: 170
+      raio: 13
+  - id: 1_p4
+    label: P4
+    circulo:
+      x: 541
+      y: 67
+      raio: 13
+    cor: ''
+  - id: '2'
+    label: '2'
+    circulo:
+      x: 586
+      y: 1033
+      raio: 17
+    cor: ''
+  - id: 2_p1
+    label: ''
+    circulo:
+      x: 612
+      y: 654
+      raio: 12
+  - id: 2_p2
+    label: ''
+    circulo:
+      x: 607
+      y: 467
+      raio: 12
+  - id: 2_p3
+    label: ''
+    circulo:
+      x: 641
+      y: 176
+      raio: 13
+  referencias:
+  - escalada: Tromba D’Água
+    ids:
+    - '1'
+    - 1_p1
+    - 1_p2
+    - 1_p3
+    - 1_p4
+  - escalada: Ferro Velho
+    ids:
+    - '2'
+    - 2_p1
+    - 2_p2
+    - 2_p3
 - caminho_imagem_mapa: imagens/grupo_principal_setor_central_p9_i1.webp
   largura_mapa: 845
   altura_mapa: 1182
+  pontos_de_interesse:
+  - id: '14'
+    label: '14'
+    circulo:
+      x: 134
+      y: 1051
+      raio: 18
+    cor: ''
+  - id: 14_p1
+    label: ''
+    circulo:
+      x: 67
+      y: 636
+      raio: 11
+  - id: 14_p2
+    label: ''
+    circulo:
+      x: 189
+      y: 422
+      raio: 11
+  - id: 14_p3
+    label: ''
+    circulo:
+      x: 103
+      y: 224
+      raio: 11
+  - id: '15'
+    label: '15'
+    circulo:
+      x: 330
+      y: 951
+      raio: 18
+    cor: ''
+  - id: '16'
+    label: '16'
+    circulo:
+      x: 393
+      y: 968
+      raio: 18
+    cor: ''
+  - id: 16_p1
+    label: ''
+    circulo:
+      x: 415
+      y: 576
+      raio: 11
+  - id: 16_p2
+    label: ''
+    circulo:
+      x: 399
+      y: 489
+      raio: 11
+  - id: 16_p3
+    label: ''
+    circulo:
+      x: 338
+      y: 238
+      raio: 11
+  - id: '17'
+    label: '17'
+    circulo:
+      x: 468
+      y: 1028
+      raio: 18
+    cor: ''
+  - id: 17_p1
+    label: ''
+    circulo:
+      x: 532
+      y: 768
+      raio: 11
+  - id: '18'
+    label: '18'
+    circulo:
+      x: 760
+      y: 1156
+      raio: 18
+    cor: ''
+  - id: 18_p1
+    label: ''
+    circulo:
+      x: 727
+      y: 850
+      raio: 11
+  - id: 18_p2
+    label: ''
+    circulo:
+      x: 673
+      y: 555
+      raio: 11
+  - id: 18_p3
+    label: ''
+    circulo:
+      x: 710
+      y: 400
+      raio: 11
+  - id: 15pp
+    label: ''
+    circulo:
+      x: 227
+      y: 248
+      raio: 12
+    cor: ''
+  - id: 14_fr
+    label: ''
+    circulo:
+      x: 289
+      y: 499
+      raio: 9
+    cor: ''
+  referencias:
+  - escalada: Cordão do Bola Preta
+    ids:
+    - '14'
+    - 14_p1
+    - 14_p2
+    - 14_p3
+    - 14_fr
+  - escalada: A Ferro e Fogo
+    ids:
+    - '15'
+    - 15pp
+  - escalada: Chuva Ácida
+    ids:
+    - '16'
+    - 16_p1
+  - escalada: A Decadência da Bufa
+    ids:
+    - '17'
+    - 17_p1
+    - 16_p2
+    - 16_p3
+  - escalada: Jeca Tatu
+    ids:
+    - '18'
+    - 18_p1
+    - 18_p2
+    - 18_p3
 escaladas:
 - via_multiplas_enfiadas:
     nome: Ferro no Judas
@@ -243,6 +619,10 @@ escaladas:
     data_abertura: '2011-04-23'
     descricao: Excelente e imperdível via. Os lances mais difíceis estão na primeira
       enfiada.
+  mapas:
+  - caminho_imagem_mapa: imagens/via_ferro_no_judas_p0.webp
+    largura_mapa: 689
+    altura_mapa: 1088
 - via_multiplas_enfiadas:
     nome: Marcado a Ferro
     destaque: true

@@ -23,47 +23,37 @@ mapas:
   - escalada: Brumas de Inverno
     ids:
     - '5'
-  - ids:
-    - titulo
-    setor: Face das Aderências
   pontos_de_interesse:
-  - id: titulo
-    label: Pedra do Neri - Face das Aderências
-    retangulo:
-      x: 415
-      y: 62
-      comprimento: 634
-      largura: 36
   - id: '1'
     label: '1'
     circulo:
-      x: 231
-      y: 436
-      raio: 16
+      x: 234
+      y: 439
+      raio: 21
   - id: '2'
     label: '2'
     circulo:
-      x: 374
-      y: 386
-      raio: 16
+      x: 375
+      y: 392
+      raio: 21
   - id: '3'
     label: '3'
     circulo:
       x: 465
-      y: 370
-      raio: 16
+      y: 372
+      raio: 21
   - id: '4'
     label: '4'
     circulo:
-      x: 539
-      y: 345
-      raio: 16
+      x: 540
+      y: 344
+      raio: 21
   - id: '5'
     label: '5'
     circulo:
       x: 625
       y: 336
-      raio: 16
+      raio: 21
 escaladas:
 - via_esportiva:
     nome: Queima de Arquivo

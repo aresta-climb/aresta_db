@@ -4,49 +4,6 @@
 caminho_imagem_capa: imagens/grupo_principal_setor_setor_de_cima_p2_i1.webp
 nome: Setor de Cima
 mapas:
-- caminho_imagem_mapa: imagens/grupo_principal_setor_setor_de_cima_p1_i0.webp
-  largura_mapa: 2015
-  altura_mapa: 1240
-  referencias:
-  - escalada: Um Momento no Tempo
-    ids:
-    - '1'
-  - escalada: Noite de São João
-    ids:
-    - '2'
-  - setor: Setor Central
-    ids:
-    - Setor Central
-  - setor: Setor Clássicas Longas
-    ids:
-    - Clássicas Longas
-  pontos_de_interesse:
-  - id: '1'
-    label: '1'
-    circulo:
-      x: 897
-      y: 1050
-      raio: 26
-  - id: '2'
-    label: '2'
-    circulo:
-      x: 867
-      y: 1195
-      raio: 26
-  - id: Setor Central
-    label: Setor Central
-    retangulo:
-      x: 1797
-      y: 1126
-      comprimento: 180
-      largura: 110
-  - id: Clássicas Longas
-    label: Clássicas Longas
-    retangulo:
-      x: 160
-      y: 830
-      comprimento: 260
-      largura: 120
 - caminho_imagem_mapa: imagens/grupo_principal_setor_setor_de_cima_p0_i0.webp
   largura_mapa: 2009
   altura_mapa: 1243
@@ -58,26 +15,111 @@ mapas:
     ids:
     - '2'
   - ids:
-    - '3'
+    - parede_principal_central
+    grupo: Parede Principal (Paredes de Aço)
+    setor: Setor Central
+  - ids:
+    - parede_principal_classicas_longas
+    grupo: Parede Principal (Paredes de Aço)
+    setor: Setor Clássicas Longas
   pontos_de_interesse:
   - id: '1'
     label: '1'
     circulo:
-      x: 855
-      y: 698
-      raio: 20
+      x: 857
+      y: 699
+      raio: 24
   - id: '2'
     label: '2'
     circulo:
       x: 898
-      y: 794
-      raio: 20
-  - id: '3'
-    label: '3'
+      y: 796
+      raio: 24
+  - id: parede_principal_central
+    label: Parede Principal Central
+    retangulo:
+      x: 356
+      y: 380
+      comprimento: 394
+      largura: 77
+    cor: ''
+  - id: parede_principal_classicas_longas
+    label: Parede Principal Clássicas Longas
+    retangulo:
+      x: 1355
+      y: 1152
+      comprimento: 538
+      largura: 74
+    cor: ''
+- caminho_imagem_mapa: imagens/grupo_principal_setor_setor_de_cima_p1_i0.webp
+  largura_mapa: 2015
+  altura_mapa: 1240
+  referencias:
+  - escalada: Um Momento no Tempo
+    ids:
+    - '1'
+  - escalada: Noite de São João
+    ids:
+    - '2'
+  - ids:
+    - Setor Central
+    setor: Setor Central
+  - ids:
+    - Clássicas Longas
+    setor: Setor Clássicas Longas
+  - ids:
+    - a_francesa
+    grupo: Parede Principal (Paredes de Aço)
+    setor: Setor Clássicas Longas
+    escalada: À Francesa
+  - ids:
+    - ferro_no_judas
+    grupo: Parede Principal (Paredes de Aço)
+    setor: Setor Central
+    escalada: Ferro no Judas
+  pontos_de_interesse:
+  - id: '1'
+    label: '1'
     circulo:
-      x: 876
-      y: 904
-      raio: 20
+      x: 900
+      y: 1053
+      raio: 36
+  - id: '2'
+    label: '2'
+    circulo:
+      x: 866
+      y: 1195
+      raio: 36
+  - id: Setor Central
+    label: Setor Central
+    retangulo:
+      x: 1798
+      y: 1126
+      comprimento: 219
+      largura: 134
+  - id: Clássicas Longas
+    label: Clássicas Longas
+    retangulo:
+      x: 162
+      y: 830
+      comprimento: 281
+      largura: 153
+  - id: a_francesa
+    label: À Francesa
+    retangulo:
+      x: 528
+      y: 930
+      comprimento: 278
+      largura: 77
+    cor: ''
+  - id: ferro_no_judas
+    label: Ferro no Judas
+    retangulo:
+      x: 1484
+      y: 1158
+      comprimento: 209
+      largura: 104
+    cor: ''
 escaladas:
 - via_multiplas_enfiadas:
     nome: Um Momento no Tempo

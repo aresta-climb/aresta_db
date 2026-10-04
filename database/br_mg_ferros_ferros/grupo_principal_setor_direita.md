@@ -51,17 +51,15 @@ mapas:
     - '5'
   - escalada: O Tempo e o Vento
     ids:
-    - '5'
+    - '4'
   - grupo: Parede das Aderências
     setor: Extrema Esquerda
     ids:
     - Aderências - Extrema Esquerda
   - ids:
-    - Porteira
-  - grupo: Parede das Aderências
-    setor: Esquerda
-    ids:
     - Aderências - Esquerda 1
+    grupo: Parede das Aderências
+    setor: Esquerda
   - grupo: Parede das Aderências
     setor: Esquerda
     ids:
@@ -72,156 +70,93 @@ mapas:
   - setor: Setor Clássicas Curtas
     ids:
     - Setor Clássicas Curtas
-  - grupo: Parede das Aderências
-    setor: Face Central
+  - setor: Face Central
     ids:
     - Aderências - Face Central
-  - setor: Parede Principal – Direita
-    ids:
-    - Parede Principal - Direita
+    grupo: Parede das Aderências
   - setor: Setor Central
     ids:
     - Parede Principal - Central
-  - ids:
-    - Rio Tanque
-  - ids:
-    - Estrada
-  - ids:
-    - Córrego
-  - ids:
-    - Trilha
-  - ids:
-    - 20m
   pontos_de_interesse:
   - id: '1'
     label: '1'
     circulo:
       x: 963
-      y: 607
-      raio: 16
+      y: 611
+      raio: 19
   - id: '2'
     label: '2'
     circulo:
-      x: 997
+      x: 998
       y: 680
-      raio: 16
+      raio: 19
   - id: '3'
     label: '3'
     circulo:
       x: 1021
       y: 740
-      raio: 16
+      raio: 19
   - id: '4'
     label: '4'
     circulo:
       x: 1071
-      y: 760
-      raio: 16
+      y: 762
+      raio: 19
   - id: '5'
     label: '5'
     circulo:
       x: 1106
-      y: 829
-      raio: 16
+      y: 830
+      raio: 19
   - id: Aderências - Extrema Esquerda
     label: Aderências - Extrema Esquerda
     retangulo:
-      x: 782
-      y: 43
-      comprimento: 215
-      largura: 45
-  - id: Porteira
-    label: Porteira
-    retangulo:
-      x: 820
-      y: 166
-      comprimento: 100
-      largura: 25
+      x: 790
+      y: 44
+      comprimento: 254
+      largura: 69
   - id: Aderências - Esquerda 1
     label: Aderências - Esquerda 1
     retangulo:
       x: 1083
       y: 275
-      comprimento: 290
-      largura: 25
+      comprimento: 326
+      largura: 64
   - id: Aderências - Esquerda 2
     label: Aderências - Esquerda 2
     retangulo:
-      x: 1314
-      y: 430
-      comprimento: 290
-      largura: 25
+      x: 1313
+      y: 431
+      comprimento: 334
+      largura: 54
   - id: Subsetor Cachoeira
     label: Subsetor Cachoeira
     retangulo:
-      x: 260
-      y: 338
-      comprimento: 235
-      largura: 25
+      x: 254
+      y: 337
+      comprimento: 271
+      largura: 46
   - id: Setor Clássicas Curtas
     label: Setor Clássicas Curtas
     retangulo:
-      x: 522
-      y: 357
-      comprimento: 190
-      largura: 50
+      x: 554
+      y: 354
+      comprimento: 215
+      largura: 67
   - id: Aderências - Face Central
     label: Aderências - Face Central
     retangulo:
-      x: 1425
-      y: 750
-      comprimento: 160
-      largura: 50
-  - id: Parede Principal - Direita
-    label: Parede Principal - Direita
-    retangulo:
-      x: 870
-      y: 788
-      comprimento: 300
-      largura: 25
+      x: 1433
+      y: 754
+      comprimento: 184
+      largura: 74
   - id: Parede Principal - Central
     label: Parede Principal - Central
     retangulo:
-      x: 1076
+      x: 1080
       y: 990
-      comprimento: 305
-      largura: 25
-  - id: Rio Tanque
-    label: Rio Tanque
-    retangulo:
-      x: 182
-      y: 60
-      comprimento: 120
-      largura: 25
-      angulo_graus_x100: 12900
-  - id: Estrada
-    label: Estrada
-    retangulo:
-      x: 291
-      y: 174
-      comprimento: 95
-      largura: 25
-  - id: Córrego
-    label: Córrego
-    retangulo:
-      x: 846
-      y: 439
-      comprimento: 100
-      largura: 25
-  - id: Trilha
-    label: Trilha
-    retangulo:
-      x: 1001
-      y: 422
-      comprimento: 85
-      largura: 25
-  - id: 20m
-    label: 20m
-    retangulo:
-      x: 359
-      y: 866
-      comprimento: 60
-      largura: 25
+      comprimento: 332
+      largura: 52
 - caminho_imagem_mapa: imagens/grupo_principal_setor_direita_p2_i1.webp
   largura_mapa: 1996
   altura_mapa: 1252
@@ -279,100 +214,100 @@ mapas:
   - id: '1'
     label: '1'
     circulo:
-      x: 306
-      y: 878
-      raio: 18
+      x: 304
+      y: 882
+      raio: 22
   - id: '2'
     label: '2'
     circulo:
-      x: 452
+      x: 450
       y: 812
-      raio: 18
+      raio: 22
   - id: '3'
     label: '3'
     circulo:
-      x: 534
+      x: 530
       y: 835
-      raio: 18
+      raio: 22
   - id: '4'
     label: '4'
     circulo:
       x: 598
       y: 868
-      raio: 18
+      raio: 22
   - id: '5'
     label: '5'
     circulo:
-      x: 704
+      x: 702
       y: 937
-      raio: 18
+      raio: 22
   - id: '6'
     label: '6'
     circulo:
       x: 783
       y: 1009
-      raio: 18
+      raio: 22
   - id: '7'
     label: '7'
     circulo:
-      x: 911
-      y: 944
-      raio: 18
+      x: 907
+      y: 947
+      raio: 22
   - id: '8'
     label: '8'
     circulo:
-      x: 1029
-      y: 963
-      raio: 18
+      x: 1027
+      y: 964
+      raio: 22
   - id: '9'
     label: '9'
     circulo:
-      x: 1129
-      y: 1154
-      raio: 18
+      x: 1127
+      y: 1156
+      raio: 22
   - id: '10'
     label: '10'
     circulo:
-      x: 1189
-      y: 1150
-      raio: 20
+      x: 1185
+      y: 1152
+      raio: 24
   - id: '11'
     label: '11'
     circulo:
       x: 1287
-      y: 1143
-      raio: 20
+      y: 1147
+      raio: 24
   - id: '12'
     label: '12'
     circulo:
-      x: 1351
-      y: 1158
-      raio: 22
+      x: 1348
+      y: 1161
+      raio: 26
   - id: '13'
     label: '13'
     circulo:
-      x: 1405
-      y: 1173
-      raio: 21
+      x: 1403
+      y: 1175
+      raio: 25
   - id: '14'
     label: '14'
     circulo:
-      x: 1469
-      y: 1184
-      raio: 22
+      x: 1466
+      y: 1186
+      raio: 26
   - id: '15'
     label: '15'
     circulo:
-      x: 1553
-      y: 1183
-      raio: 21
+      x: 1550
+      y: 1185
+      raio: 25
   - id: Jeca Tatu
     label: Jeca Tatu
     retangulo:
-      x: 201
+      x: 208
       y: 666
-      comprimento: 180
-      largura: 42
+      comprimento: 189
+      largura: 57
 - caminho_imagem_mapa: imagens/grupo_principal_setor_direita_p6_i1.webp
   largura_mapa: 1059
   altura_mapa: 1476
@@ -401,73 +336,55 @@ mapas:
   - escalada: Cutícula
     ids:
     - '12'
-  - ids:
-    - Trilha_1
-  - ids:
-    - Trilha_2
   pontos_de_interesse:
   - id: '5'
     label: '5'
     circulo:
-      x: 107
+      x: 110
       y: 1044
-      raio: 22
+      raio: 23
   - id: '6'
     label: '6'
     circulo:
-      x: 262
+      x: 261
       y: 1058
-      raio: 20
+      raio: 21
   - id: '7'
     label: '7'
     circulo:
-      x: 395
-      y: 1306
-      raio: 22
+      x: 397
+      y: 1307
+      raio: 23
   - id: '8'
     label: '8'
     circulo:
       x: 478
-      y: 1306
-      raio: 22
+      y: 1307
+      raio: 23
   - id: '9'
     label: '9'
     circulo:
-      x: 636
-      y: 1318
-      raio: 22
+      x: 637
+      y: 1321
+      raio: 23
   - id: '10'
     label: '10'
     circulo:
-      x: 730
-      y: 1337
-      raio: 26
+      x: 731
+      y: 1338
+      raio: 28
   - id: '11'
     label: '11'
     circulo:
-      x: 806
-      y: 1348
-      raio: 26
+      x: 808
+      y: 1349
+      raio: 28
   - id: '12'
     label: '12'
     circulo:
-      x: 937
-      y: 1354
-      raio: 26
-  - id: Trilha_1
-    label: Trilha 1
-    retangulo:
-      x: 398
-      y: 1379
-      comprimento: 74
-      largura: 24
-  - id: Trilha_2
-    label: Trilha 2
-    retangulo:
-      x: 99
-      y: 1152
-      comprimento: 70
-      largura: 26
+      x: 938
+      y: 1355
+      raio: 28
 escaladas:
 - via_multiplas_enfiadas:
     nome: Valeu Papito

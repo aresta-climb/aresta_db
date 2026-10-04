@@ -14,9 +14,9 @@ mapas:
   - id: '1'
     label: '1'
     circulo:
-      x: 600
+      x: 601
       y: 591
-      raio: 14
+      raio: 17
 escaladas:
 - via_movel:
     nome: Pr. Pellé 70

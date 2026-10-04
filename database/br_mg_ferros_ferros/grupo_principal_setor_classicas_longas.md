@@ -68,31 +68,65 @@ mapas:
   - escalada: Quarto 304
     ids:
     - '4'
+  - ids:
+    - central
+    grupo: Parede Principal (Paredes de Aço)
+    setor: Setor Central
+  - ids:
+    - aderencias_extrema_direita
+    grupo: Parede das Aderências
+    setor: Extrema Direita
+  - ids:
+    - '1'
+    grupo: Parede Principal (Paredes de Aço)
+    setor: Setor Clássicas Longas
+    escalada: Grand Finale
+  - ids:
+    - '2'
+    grupo: Parede Principal (Paredes de Aço)
+    setor: Setor Clássicas Longas
+    escalada: Pr. Conrado Ferro
   pontos_de_interesse:
   - id: '1'
     label: '1'
     circulo:
-      x: 833
-      y: 371
-      raio: 18
+      x: 832
+      y: 373
+      raio: 19
   - id: '2'
     label: '2'
     circulo:
-      x: 1036
+      x: 1033
       y: 696
-      raio: 18
+      raio: 19
   - id: '3'
     label: '3'
     circulo:
-      x: 1088
-      y: 777
-      raio: 18
+      x: 1084
+      y: 779
+      raio: 19
   - id: '4'
     label: '4'
     circulo:
       x: 1175
       y: 848
-      raio: 18
+      raio: 19
+  - id: central
+    label: Parede Principal Central
+    retangulo:
+      x: 442
+      y: 183
+      comprimento: 215
+      largura: 68
+    cor: ''
+  - id: aderencias_extrema_direita
+    label: Aderências Extrema Direita
+    retangulo:
+      x: 1430
+      y: 216
+      comprimento: 268
+      largura: 63
+    cor: ''
 - caminho_imagem_mapa: imagens/grupo_principal_setor_classicas_longas_p2_i0.webp
   largura_mapa: 2069
   altura_mapa: 1207
@@ -132,6 +166,7 @@ mapas:
     - '11'
   - escalada: Tanto Bate Até Que Fura
     ids:
+    - '11'
     - '12'
   - escalada: Trem de Ferro
     ids:
@@ -150,6 +185,7 @@ mapas:
     - '17'
   - escalada: Vr. SEM
     ids:
+    - '17'
     - '18'
   - escalada: Eu Não Sou de Ferro
     ids:
@@ -162,146 +198,144 @@ mapas:
     - '21'
   - escalada: Grand Finale
     ids:
+    - '21'
     - '22'
   pontos_de_interesse:
   - id: '1'
     label: '1'
     circulo:
-      x: 65
-      y: 602
-      raio: 18
+      x: 63
+      y: 604
+      raio: 24
   - id: '2'
     label: '2'
     circulo:
       x: 115
       y: 816
-      raio: 18
+      raio: 24
   - id: '3'
     label: '3'
     circulo:
-      x: 304
-      y: 775
-      raio: 18
+      x: 294
+      y: 803
+      raio: 24
   - id: '4'
     label: '4'
     circulo:
-      x: 429
-      y: 740
-      raio: 18
+      x: 404
+      y: 779
+      raio: 24
   - id: '5'
     label: '5'
     circulo:
-      x: 574
-      y: 816
-      raio: 18
+      x: 563
+      y: 843
+      raio: 24
   - id: '6'
     label: '6'
     circulo:
-      x: 669
-      y: 799
-      raio: 18
+      x: 652
+      y: 819
+      raio: 24
   - id: '7'
     label: '7'
     circulo:
-      x: 772
-      y: 764
-      raio: 18
+      x: 710
+      y: 801
+      raio: 24
   - id: '8'
     label: '8'
     circulo:
-      x: 821
-      y: 738
-      raio: 18
+      x: 771
+      y: 765
+      raio: 24
   - id: '9'
     label: '9'
     circulo:
-      x: 880
-      y: 724
-      raio: 18
+      x: 820
+      y: 739
+      raio: 24
   - id: '10'
     label: '10'
     circulo:
-      x: 1055
-      y: 690
-      raio: 18
+      x: 869
+      y: 726
+      raio: 28
   - id: '11'
     label: '11'
     circulo:
-      x: 964
-      y: 700
-      raio: 18
+      x: 962
+      y: 705
+      raio: 26
   - id: '12'
     label: '12'
     circulo:
-      x: 1047
+      x: 1044
       y: 438
-      raio: 18
+      raio: 28
   - id: '13'
     label: '13'
     circulo:
-      x: 1059
-      y: 700
-      raio: 18
+      x: 1041
+      y: 691
+      raio: 28
   - id: '14'
     label: '14'
     circulo:
-      x: 1094
-      y: 725
-      raio: 18
+      x: 1078
+      y: 739
+      raio: 27
   - id: '15'
     label: '15'
     circulo:
-      x: 1119
-      y: 770
-      raio: 18
+      x: 1118
+      y: 784
+      raio: 28
   - id: '16'
     label: '16'
     circulo:
-      x: 1169
-      y: 850
-      raio: 18
+      x: 1154
+      y: 858
+      raio: 27
   - id: '17'
     label: '17'
     circulo:
-      x: 1234
-      y: 930
-      raio: 18
+      x: 1218
+      y: 944
+      raio: 28
   - id: '18'
     label: '18'
     circulo:
       x: 1233
       y: 280
-      raio: 18
+      raio: 27
   - id: '19'
     label: '19'
     circulo:
-      x: 1462
-      y: 1054
-      raio: 18
+      x: 1461
+      y: 1055
+      raio: 26
   - id: '20'
     label: '20'
     circulo:
-      x: 1666
-      y: 954
-      raio: 18
+      x: 1664
+      y: 956
+      raio: 29
   - id: '21'
     label: '21'
     circulo:
       x: 1877
-      y: 892
-      raio: 18
+      y: 894
+      raio: 28
   - id: '22'
     label: '22'
     circulo:
-      x: 1594
-      y: 440
-      raio: 18
+      x: 1592
+      y: 442
+      raio: 30
 - caminho_imagem_mapa: imagens/grupo_principal_setor_classicas_longas_p6_i3.webp
   largura_mapa: 714
   altura_mapa: 1071
-- caminho_imagem_mapa: imagens/grupo_principal_setor_classicas_longas_p7.webp
-  largura_mapa: 1188
-  altura_mapa: 841
 - caminho_imagem_mapa: imagens/grupo_principal_setor_classicas_longas_p8_i1.webp
   largura_mapa: 816
   altura_mapa: 1224
@@ -413,6 +447,10 @@ escaladas:
     descricao: Via maravilhosa iniciada em lances fortes, em sequência bastante vertical,
       com alguns trechos negativos. Proteção fixa generosa em toda extensão da via.
       Rapel possível com uma corda de 50m. Dois lances de VIIa obrigatórios.
+  mapas:
+  - caminho_imagem_mapa: imagens/via_jardim_do_eden_p0.webp
+    largura_mapa: 765
+    altura_mapa: 1071
 - via_multiplas_enfiadas:
     nome: A Dois Passos do Paraíso
     destaque: true
@@ -450,6 +488,10 @@ escaladas:
       setor. Rapel com corda única de 60m. Três lances de VIIa obrigatórios. Juntamente
       com a Jardim do Éden, forma o conjunto atual do pólo que pode ser considerado
       como tipo esportivas longas.
+  mapas:
+  - caminho_imagem_mapa: imagens/via_conquista_do_paraiso_p0.webp
+    largura_mapa: 736
+    altura_mapa: 1068
 - via_multiplas_enfiadas:
     nome: Purgatório
     destaque: true

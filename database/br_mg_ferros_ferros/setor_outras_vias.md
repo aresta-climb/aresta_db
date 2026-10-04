@@ -49,13 +49,13 @@ mapas:
     circulo:
       x: 83
       y: 330
-      raio: 13
+      raio: 17
   - id: '2'
     label: '2'
     circulo:
       x: 82
       y: 543
-      raio: 13
+      raio: 17
 ---
 
 # Outras Vias

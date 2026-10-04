@@ -4,6 +4,151 @@
 caminho_imagem_capa: imagens/grupo_principal_setor_classicas_curtas_p0_i1.webp
 nome: Setor Clássicas Curtas
 mapas:
+- caminho_imagem_mapa: imagens/grupo_principal_setor_classicas_curtas_p1_i1.webp
+  largura_mapa: 1681
+  altura_mapa: 1025
+  referencias:
+  - ids:
+    - Subsetor Cachoeira
+    setor: Cachoeira
+  - ids:
+    - Aderências - Extrema Esquerda
+    grupo: Parede das Aderências
+    setor: Extrema Esquerda
+  - escalada: Deu Tilt
+    ids:
+    - '1'
+    grupo: Parede Principal (Paredes de Aço)
+    setor: Setor Clássicas Curtas
+  - escalada: Ferroada
+    ids:
+    - '1'
+    grupo: Parede Principal (Paredes de Aço)
+    setor: Setor Clássicas Curtas
+  - escalada: Scarface
+    ids:
+    - '1'
+    grupo: Parede Principal (Paredes de Aço)
+    setor: Setor Clássicas Curtas
+  - escalada: Se Meu Fusca Falasse
+    ids:
+    - '1'
+    grupo: Parede Principal (Paredes de Aço)
+    setor: Setor Clássicas Curtas
+  - escalada: Couro de Lobisomem
+    ids:
+    - '1'
+    grupo: Parede Principal (Paredes de Aço)
+    setor: Setor Clássicas Curtas
+  - escalada: Enferrujados
+    ids:
+    - '1'
+    grupo: Parede Principal (Paredes de Aço)
+    setor: Setor Clássicas Curtas
+  - escalada: Rastro de Cobra
+    ids:
+    - '1'
+    grupo: Parede Principal (Paredes de Aço)
+    setor: Setor Clássicas Curtas
+  - escalada: Entrando no Ferro
+    ids:
+    - '1'
+    grupo: Parede Principal (Paredes de Aço)
+    setor: Setor Clássicas Curtas
+  - escalada: Cambal a Quatro
+    ids:
+    - '2'
+    grupo: Parede Principal (Paredes de Aço)
+    setor: Setor Clássicas Curtas
+  - escalada: El Bigodón
+    ids:
+    - '2'
+    grupo: Parede Principal (Paredes de Aço)
+    setor: Setor Clássicas Curtas
+  - escalada: Testa de Aço
+    ids:
+    - '2'
+    grupo: Parede Principal (Paredes de Aço)
+    setor: Setor Clássicas Curtas
+  - escalada: Me Ferrei
+    ids:
+    - '2'
+    grupo: Parede Principal (Paredes de Aço)
+    setor: Setor Clássicas Curtas
+  - escalada: Amor Profano
+    ids:
+    - '2'
+    grupo: Parede Principal (Paredes de Aço)
+    setor: Setor Clássicas Curtas
+  - escalada: Ferrolho
+    ids:
+    - '3'
+    grupo: Parede Principal (Paredes de Aço)
+    setor: Setor Clássicas Curtas
+  - escalada: Ferradura
+    ids:
+    - '3'
+    grupo: Parede Principal (Paredes de Aço)
+    setor: Setor Clássicas Curtas
+  - escalada: A Medalha de Lúcia
+    ids:
+    - '4'
+    grupo: Parede Principal (Paredes de Aço)
+    setor: Setor Clássicas Curtas
+  - escalada: Águas de Março
+    ids:
+    - '4'
+    grupo: Parede Principal (Paredes de Aço)
+    setor: Setor Clássicas Curtas
+  - ids:
+    - '4'
+    grupo: Parede Principal (Paredes de Aço)
+    setor: Setor Clássicas Curtas
+    escalada: Vou Dançar o Xaxaxá
+  - ids:
+    - '4'
+    grupo: Parede Principal (Paredes de Aço)
+    setor: Setor Clássicas Curtas
+    escalada: Casas da Banha
+  pontos_de_interesse:
+  - id: '1'
+    label: '1'
+    circulo:
+      x: 903
+      y: 628
+      raio: 22
+  - id: '2'
+    label: '2'
+    circulo:
+      x: 1010
+      y: 711
+      raio: 22
+  - id: '3'
+    label: '3'
+    circulo:
+      x: 1099
+      y: 792
+      raio: 22
+  - id: '4'
+    label: '4'
+    circulo:
+      x: 1183
+      y: 914
+      raio: 22
+  - id: Subsetor Cachoeira
+    label: Subsetor Cachoeira
+    retangulo:
+      x: 372
+      y: 847
+      comprimento: 317
+      largura: 68
+  - id: Aderências - Extrema Esquerda
+    label: Aderências - Extrema Esquerda
+    retangulo:
+      x: 1283
+      y: 370
+      comprimento: 350
+      largura: 85
 - caminho_imagem_mapa: imagens/grupo_principal_setor_classicas_curtas_p2_i0.webp
   largura_mapa: 2041
   altura_mapa: 1224
@@ -20,321 +165,247 @@ mapas:
   - escalada: Casas da Banha
     ids:
     - '4'
-  - escalada: Ferradura
-    ids:
+  - ids:
     - '5'
-  - escalada: Ferrolho
-    ids:
+    escalada: Ferradura
+  - ids:
     - '6'
-  - escalada: Cambal a Quatro
-    ids:
+    escalada: Ferrolho
+  - ids:
     - '7'
-  - escalada: El Bigodón
-    ids:
+    escalada: Cambal a Quatro
+  - ids:
     - '8'
-  - escalada: Testa de Aço
-    ids:
+    escalada: El Bigodón
+  - ids:
     - '9'
-  - escalada: Me Ferrei
-    ids:
+    escalada: Testa de Aço
+  - ids:
     - '10'
-  - escalada: Amor Profano
-    ids:
+    escalada: Me Ferrei
+  - ids:
     - '11'
-  - escalada: Deu Tilt
-    ids:
+    escalada: Amor Profano
+  - ids:
     - '12'
-  - escalada: Ferroada
-    ids:
+    escalada: Deu Tilt
+  - ids:
     - '13'
-  - escalada: Scarface
-    ids:
+    escalada: Ferroada
+  - ids:
     - '14'
-  - escalada: Se Meu Fusca Falasse
-    ids:
+    escalada: Scarface
+  - ids:
     - '15'
-  - escalada: Couro de Lobisomem
-    ids:
+    escalada: Se Meu Fusca Falasse
+  - ids:
     - '16'
-  - escalada: Enferrujados
-    ids:
+    escalada: Couro de Lobisomem
+  - ids:
     - '17'
-  - escalada: Rastro de Cobra
-    ids:
+    escalada: Enferrujados
+  - ids:
     - '18'
-  - escalada: Entrando no Ferro
-    ids:
+    escalada: Rastro de Cobra
+  - ids:
     - '19'
+    escalada: Entrando no Ferro
   pontos_de_interesse:
   - id: '1'
     label: '1'
     circulo:
-      x: 65
-      y: 691
-      raio: 17
+      x: 63
+      y: 693
+      raio: 23
   - id: '2'
     label: '2'
     circulo:
-      x: 118
-      y: 718
-      raio: 17
+      x: 116
+      y: 719
+      raio: 23
   - id: '3'
     label: '3'
     circulo:
-      x: 171
+      x: 169
       y: 761
-      raio: 17
+      raio: 23
   - id: '4'
     label: '4'
     circulo:
-      x: 340
-      y: 815
-      raio: 17
+      x: 339
+      y: 816
+      raio: 23
   - id: '5'
     label: '5'
     circulo:
-      x: 645
+      x: 644
       y: 943
-      raio: 17
+      raio: 23
   - id: '6'
     label: '6'
     circulo:
       x: 768
       y: 929
-      raio: 17
+      raio: 23
   - id: '7'
     label: '7'
     circulo:
-      x: 985
-      y: 1026
-      raio: 17
+      x: 983
+      y: 1031
+      raio: 23
   - id: '8'
     label: '8'
     circulo:
-      x: 1143
-      y: 1048
-      raio: 17
+      x: 1141
+      y: 1049
+      raio: 23
   - id: '9'
     label: '9'
     circulo:
-      x: 1229
-      y: 1050
-      raio: 17
+      x: 1226
+      y: 1051
+      raio: 23
   - id: '10'
     label: '10'
     circulo:
-      x: 1275
-      y: 1050
-      raio: 18
+      x: 1272
+      y: 1052
+      raio: 25
   - id: '11'
     label: '11'
     circulo:
-      x: 1339
-      y: 1039
-      raio: 18
+      x: 1337
+      y: 1041
+      raio: 25
   - id: '12'
     label: '12'
     circulo:
-      x: 1510
-      y: 1015
-      raio: 20
+      x: 1508
+      y: 1016
+      raio: 27
   - id: '13'
     label: '13'
     circulo:
       x: 1612
-      y: 1010
-      raio: 20
+      y: 1011
+      raio: 27
   - id: '14'
     label: '14'
     circulo:
-      x: 1671
-      y: 1017
-      raio: 20
+      x: 1669
+      y: 1018
+      raio: 27
   - id: '15'
     label: '15'
     circulo:
-      x: 1735
-      y: 1037
-      raio: 20
+      x: 1733
+      y: 1040
+      raio: 27
   - id: '16'
     label: '16'
     circulo:
-      x: 1794
-      y: 1035
-      raio: 20
+      x: 1791
+      y: 1038
+      raio: 27
   - id: '17'
     label: '17'
     circulo:
       x: 1843
-      y: 1027
-      raio: 20
+      y: 1029
+      raio: 27
   - id: '18'
     label: '18'
     circulo:
-      x: 1942
-      y: 1031
-      raio: 20
+      x: 1940
+      y: 1033
+      raio: 27
   - id: '19'
     label: '19'
     circulo:
-      x: 2013
-      y: 1019
-      raio: 20
+      x: 2011
+      y: 1021
+      raio: 27
 - caminho_imagem_mapa: imagens/grupo_principal_setor_classicas_curtas_p5_i1.webp
   largura_mapa: 870
   altura_mapa: 1211
   referencias:
-  - escalada: A Medalha de Lúcia
-    ids:
+  - ids:
     - '1'
-  - escalada: Águas de Março
-    ids:
+    - p1_1
+    escalada: A Medalha de Lúcia
+  - ids:
     - '2'
-  - escalada: Vou Dançar o Xaxaxá
-    ids:
+    - p1_2
+    - p2_2
+    escalada: Águas de Março
+  - ids:
     - '3'
-  - escalada: Casas da Banha
-    ids:
+    - p1_3
+    escalada: Vou Dançar o Xaxaxá
+  - ids:
     - '4'
+    - p1_4
+    escalada: Casas da Banha
   pontos_de_interesse:
   - id: '1'
     label: '1'
     circulo:
       x: 98
       y: 1077
-      raio: 18
+      raio: 22
   - id: '2'
     label: '2'
     circulo:
       x: 195
       y: 1091
-      raio: 18
+      raio: 22
   - id: '3'
     label: '3'
     circulo:
       x: 478
       y: 1125
-      raio: 18
+      raio: 22
   - id: '4'
     label: '4'
     circulo:
       x: 789
       y: 1169
-      raio: 18
-- caminho_imagem_mapa: imagens/grupo_principal_setor_classicas_curtas_p1_i1.webp
-  largura_mapa: 1681
-  altura_mapa: 1025
-  referencias:
-  - ids:
-    - '1'
-  - ids:
-    - '2'
-  - ids:
-    - '3'
-  - ids:
-    - '4'
-  - ids:
-    - Subsetor Cachoeira
-    setor: Cachoeira
-  - ids:
-    - Aderências - Extrema Esquerda
-    grupo: Parede das Aderências
-    setor: Extrema Esquerda
-  - ids:
-    - Setor Clássicas Curtas
-    setor: Setor Clássicas Curtas
-  - ids:
-    - Trilha
-  - ids:
-    - Estrada
-  - ids:
-    - Córrego
-  - ids:
-    - Rio Tanque
-  - ids:
-    - 20m
-  pontos_de_interesse:
-  - id: '1'
-    label: '1'
+      raio: 22
+  - id: p1_1
+    label: ''
     circulo:
-      x: 903
-      y: 628
-      raio: 18
-  - id: '2'
-    label: '2'
+      x: 196
+      y: 625
+      raio: 15
+    cor: ''
+  - id: p1_2
+    label: ''
     circulo:
-      x: 1010
-      y: 711
-      raio: 18
-  - id: '3'
-    label: '3'
+      x: 377
+      y: 647
+      raio: 15
+    cor: ''
+  - id: p2_2
+    label: ''
     circulo:
-      x: 1099
-      y: 792
-      raio: 18
-  - id: '4'
-    label: '4'
+      x: 397
+      y: 346
+      raio: 15
+    cor: ''
+  - id: p1_4
+    label: ''
     circulo:
-      x: 1187
-      y: 908
-      raio: 18
-  - id: Subsetor Cachoeira
-    label: Subsetor Cachoeira
-    retangulo:
-      x: 386
-      y: 846
-      comprimento: 255
-      largura: 28
-  - id: Setor Clássicas Curtas
-    label: Setor Clássicas Curtas
-    retangulo:
-      x: 901
-      y: 861
-      comprimento: 300
-      largura: 28
-  - id: Aderências - Extrema Esquerda
-    label: Aderências - Extrema Esquerda
-    retangulo:
-      x: 1291
-      y: 370
-      comprimento: 285
-      largura: 55
-  - id: Trilha
-    label: Trilha
-    retangulo:
-      x: 607
-      y: 488
-      comprimento: 95
-      largura: 28
-  - id: Estrada
-    label: Estrada
-    retangulo:
-      x: 765
-      y: 188
-      comprimento: 120
-      largura: 28
-  - id: Córrego
-    label: Córrego
-    retangulo:
-      x: 471
-      y: 209
-      comprimento: 125
-      largura: 28
-  - id: Rio Tanque
-    label: Rio Tanque
-    retangulo:
-      x: 257
-      y: 458
-      comprimento: 160
-      largura: 32
-      angulo_graus_x100: 12300
-  - id: 20m
-    label: 20m
-    retangulo:
-      x: 635
-      y: 722
-      comprimento: 75
-      largura: 28
+      x: 704
+      y: 688
+      raio: 14
+    cor: ''
+  - id: p1_3
+    label: ''
+    circulo:
+      x: 638
+      y: 371
+      raio: 17
+    cor: ''
 escaladas:
 - via_esportiva:
     nome: A Medalha de Lúcia

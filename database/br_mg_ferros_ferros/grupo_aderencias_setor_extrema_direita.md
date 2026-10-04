@@ -17,29 +17,15 @@ mapas:
   - escalada: Só a Cabecinha
     ids:
     - '3'
-  - setor: Extrema Direita
-    ids:
-    - Aderencias_Extrema_Direita
-  - grupo: Parede Principal (Paredes de Aço)
-    setor: Setor Central
+  - setor: Setor Central
     ids:
     - Parede_Principal_Face_Central
+    grupo: Parede Principal (Paredes de Aço)
   - grupo: Parede Principal (Paredes de Aço)
     setor: Setor Clássicas Longas
     ids:
     - Parede_Principal_Classicas_Longas
-  - grupo: Parede Principal (Paredes de Aço)
-    setor: Setor Clássicas Longas
-    ids:
     - Para_o_Setor_das_Classicas_Longas
-  - ids:
-    - Estrada
-  - ids:
-    - Trilha
-  - ids:
-    - Corrego
-  - ids:
-    - Pasto
   largura_mapa: 1639
   altura_mapa: 1025
   pontos_de_interesse:
@@ -48,75 +34,40 @@ mapas:
     circulo:
       x: 1092
       y: 670
-      raio: 16
+      raio: 18
   - id: '2'
     label: '2'
     circulo:
       x: 1174
       y: 709
-      raio: 16
+      raio: 18
   - id: '3'
     label: '3'
     circulo:
       x: 1190
       y: 768
-      raio: 16
-  - id: Aderencias_Extrema_Direita
-    label: Parede das Aderências Extrema Direita
-    retangulo:
-      x: 1308
-      y: 621
-      comprimento: 215
-      largura: 45
+      raio: 18
   - id: Parede_Principal_Face_Central
     label: Parede Principal Face Central
     retangulo:
-      x: 101
-      y: 379
-      comprimento: 145
-      largura: 44
+      x: 120
+      y: 378
+      comprimento: 223
+      largura: 66
   - id: Parede_Principal_Classicas_Longas
-    label: Parede Principal Clássicas Longas
+    label: ''
     retangulo:
       x: 480
       y: 930
-      comprimento: 190
-      largura: 46
-  - id: Estrada
-    label: Estrada
-    retangulo:
-      x: 90
-      y: 196
-      comprimento: 90
-      largura: 20
-  - id: Trilha
-    label: Trilha
-    retangulo:
-      x: 448
-      y: 389
-      comprimento: 70
-      largura: 20
-  - id: Corrego
-    label: Córrego
-    retangulo:
-      x: 601
-      y: 362
-      comprimento: 88
-      largura: 24
-  - id: Pasto
-    label: Pasto
-    retangulo:
-      x: 563
-      y: 639
-      comprimento: 55
-      largura: 20
+      comprimento: 224
+      largura: 58
   - id: Para_o_Setor_das_Classicas_Longas
-    label: Para o Setor das Clássicas Longas
+    label: Clássicas Longas
     retangulo:
-      x: 704
-      y: 803
-      comprimento: 135
-      largura: 44
+      x: 736
+      y: 804
+      comprimento: 213
+      largura: 51
 - caminho_imagem_mapa: imagens/grupo_aderencias_setor_extrema_direita_p2_i1.webp
   referencias:
   - escalada: Bolo de Cenoura
@@ -137,27 +88,27 @@ mapas:
   - id: '1'
     label: '1'
     circulo:
-      x: 840
-      y: 1159
-      raio: 24
+      x: 843
+      y: 1157
+      raio: 35
   - id: '2'
     label: '2'
     circulo:
-      x: 1070
-      y: 1031
-      raio: 24
+      x: 1068
+      y: 1033
+      raio: 35
   - id: '3'
     label: '3'
     circulo:
       x: 1282
       y: 1180
-      raio: 24
+      raio: 35
   - id: '4'
     label: '4'
     circulo:
       x: 1369
       y: 1142
-      raio: 24
+      raio: 35
 escaladas:
 - via_multiplas_enfiadas:
     nome: Bolo de Cenoura

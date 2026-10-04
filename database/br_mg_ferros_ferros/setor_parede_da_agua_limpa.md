@@ -14,9 +14,9 @@ mapas:
   - id: '1'
     label: '1'
     circulo:
-      x: 1020
-      y: 1205
-      raio: 25
+      x: 802
+      y: 1020
+      raio: 34
 escaladas:
 - via_multiplas_enfiadas:
     nome: Dama de Ferros

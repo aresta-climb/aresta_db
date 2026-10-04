@@ -17,6 +17,9 @@ mapas:
     - '3'
   - escalada: Gangorra
     ids:
+    - '7'
+    - '8'
+    - 4_f
     - '4'
   - escalada: Jabá com Jerimum
     ids:
@@ -27,8 +30,12 @@ mapas:
   - escalada: Vomitão em Ferros
     ids:
     - '7'
+    - 7_m
+    - 7_f
   - escalada: Iron Slow
     ids:
+    - 7_f
+    - '7'
     - '8'
   largura_mapa: 766
   altura_mapa: 567
@@ -36,51 +43,72 @@ mapas:
   - id: '1'
     label: '1'
     circulo:
-      x: 209
-      y: 530
-      raio: 13
+      x: 210
+      y: 531
+      raio: 14
   - id: '2'
     label: '2'
     circulo:
       x: 364
       y: 416
-      raio: 13
+      raio: 14
   - id: '3'
     label: '3'
     circulo:
       x: 417
       y: 397
-      raio: 13
+      raio: 14
   - id: '4'
     label: '4'
     circulo:
-      x: 482
+      x: 483
       y: 245
-      raio: 13
+      raio: 14
   - id: '5'
     label: '5'
     circulo:
       x: 512
       y: 537
-      raio: 13
+      raio: 14
   - id: '6'
     label: '6'
     circulo:
-      x: 559
+      x: 560
       y: 533
-      raio: 13
+      raio: 14
   - id: '7'
     label: '7'
     circulo:
       x: 601
       y: 530
-      raio: 13
+      raio: 14
   - id: '8'
     label: '8'
     circulo:
-      x: 569
+      x: 570
       y: 323
+      raio: 14
+  - id: 4_f
+    label: ''
+    circulo:
+      x: 225
+      y: 127
       raio: 13
+    cor: ''
+  - id: 7_m
+    label: ''
+    circulo:
+      x: 607
+      y: 266
+      raio: 14
+    cor: ''
+  - id: 7_f
+    label: ''
+    circulo:
+      x: 557
+      y: 116
+      raio: 18
+    cor: ''
 - caminho_imagem_mapa: imagens/setor_vias_esportivas_p3_i1.webp
   referencias:
   - escalada: Bicho de Pé
@@ -89,18 +117,23 @@ mapas:
   - escalada: Os Três Mosqueteiros
     ids:
     - '10'
+    - 10_f
   - escalada: Nó de Porco
     ids:
     - '11'
   - escalada: Ícaro
     ids:
     - '12'
+    - 10_f
   - escalada: Champinha
     ids:
+    - '14'
     - '13'
+    - 13_f
   - escalada: Falcatrua
     ids:
     - '14'
+    - 14_f
   largura_mapa: 569
   altura_mapa: 364
   pontos_de_interesse:
@@ -109,37 +142,58 @@ mapas:
     circulo:
       x: 77
       y: 332
-      raio: 12
+      raio: 14
   - id: '10'
     label: '10'
     circulo:
       x: 140
       y: 348
-      raio: 14
+      raio: 17
   - id: '11'
     label: '11'
     circulo:
       x: 215
       y: 350
-      raio: 14
+      raio: 17
   - id: '12'
     label: '12'
     circulo:
       x: 350
       y: 351
-      raio: 14
+      raio: 17
   - id: '13'
     label: '13'
     circulo:
       x: 438
       y: 265
-      raio: 14
+      raio: 17
   - id: '14'
     label: '14'
     circulo:
       x: 504
       y: 336
-      raio: 14
+      raio: 17
+  - id: 13_f
+    label: ''
+    circulo:
+      x: 376
+      y: 123
+      raio: 12
+    cor: ''
+  - id: 10_f
+    label: ''
+    circulo:
+      x: 238
+      y: 47
+      raio: 12
+    cor: ''
+  - id: 14_f
+    label: ''
+    circulo:
+      x: 453
+      y: 148
+      raio: 12
+    cor: ''
 escaladas:
 - via_esportiva:
     nome: Diedro da Rabada

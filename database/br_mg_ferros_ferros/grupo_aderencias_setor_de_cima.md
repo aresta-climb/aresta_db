@@ -16,113 +16,67 @@ mapas:
   - escalada: Carnaferros
     ids:
     - '3'
-  - setor: Setor de Cima
-    ids:
-    - Aderencias_Setor_de_Cima
   - setor: Face Central
     ids:
     - Aderencias_Face_Central
   - setor: Esquerda
     ids:
     - Aderencias_Esquerda_2
-  - grupo: Parede Principal (Paredes de Aço)
-    setor: Parede Principal – Direita
+  - setor: Parede Principal – Direita
     ids:
     - Parede_Principal_Direira
+    grupo: Parede Principal (Paredes de Aço)
   - grupo: Parede Principal (Paredes de Aço)
     setor: Setor Central
     ids:
     - Parede_Principal_Face_Central
-  - ids:
-    - Bambuzal
-  - ids:
-    - Travessia_de_corrego
-  - ids:
-    - Trilha
-  - ids:
-    - Corrego
   pontos_de_interesse:
   - id: '1'
     label: '1'
     circulo:
       x: 1507
       y: 642
-      raio: 18
+      raio: 22
   - id: '2'
     label: '2'
     circulo:
       x: 1617
       y: 629
-      raio: 18
+      raio: 22
   - id: '3'
     label: '3'
     circulo:
       x: 1909
       y: 726
-      raio: 18
-  - id: Aderencias_Setor_de_Cima
-    label: Aderências - Setor de Cima
-    retangulo:
-      x: 1697
-      y: 544
-      comprimento: 260
-      largura: 70
+      raio: 22
   - id: Aderencias_Face_Central
     label: Aderências - Face Central
     retangulo:
-      x: 1245
-      y: 487
-      comprimento: 350
-      largura: 26
+      x: 1236
+      y: 490
+      comprimento: 395
+      largura: 65
   - id: Aderencias_Esquerda_2
     label: Aderências - Esquerda 2
     retangulo:
-      x: 840
-      y: 71
-      comprimento: 330
-      largura: 26
+      x: 834
+      y: 72
+      comprimento: 360
+      largura: 53
   - id: Parede_Principal_Direira
     label: Parede Principal Direira
     retangulo:
-      x: 306
-      y: 380
-      comprimento: 220
-      largura: 52
+      x: 312
+      y: 377
+      comprimento: 259
+      largura: 76
   - id: Parede_Principal_Face_Central
     label: Parede Principal - Face Central
     retangulo:
-      x: 610
-      y: 943
-      comprimento: 420
-      largura: 28
-  - id: Bambuzal
-    label: Bambuzal
-    retangulo:
-      x: 1411
-      y: 1187
-      comprimento: 135
-      largura: 26
-  - id: Travessia_de_corrego
-    label: Travessia de córrego
-    retangulo:
-      x: 1709
-      y: 1113
-      comprimento: 290
-      largura: 30
-  - id: Trilha
-    label: Trilha
-    retangulo:
-      x: 391
-      y: 42
-      comprimento: 82
-      largura: 24
-  - id: Corrego
-    label: Córrego
-    retangulo:
-      x: 256
-      y: 99
-      comprimento: 112
-      largura: 28
+      x: 616
+      y: 944
+      comprimento: 459
+      largura: 55
 - caminho_imagem_mapa: imagens/grupo_aderencias_setor_de_cima_p2_i0.webp
   largura_mapa: 2034
   altura_mapa: 1228
@@ -144,28 +98,28 @@ mapas:
   - id: '1'
     label: '1'
     circulo:
-      x: 315
-      y: 1185
-      raio: 26
+      x: 318
+      y: 1187
+      raio: 34
   - id: '2'
     label: '2'
     circulo:
       x: 540
-      y: 1182
-      raio: 26
+      y: 1184
+      raio: 34
   - id: '3'
     label: '3'
     circulo:
       x: 663
-      y: 1182
-      raio: 26
+      y: 1184
+      raio: 34
   - id: E o Rio Levou
     label: E o Rio Levou
     retangulo:
-      x: 123
+      x: 122
       y: 896
-      comprimento: 188
-      largura: 100
+      comprimento: 221
+      largura: 121
 escaladas:
 - via_esportiva:
     nome: Buena Vista
