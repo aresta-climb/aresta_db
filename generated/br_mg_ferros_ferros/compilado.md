@@ -213,15 +213,13 @@
 - **descricao**:
     # Subsetor Cachoeira
     
+    <sup><sub>Capa: Maria Fernanda na conquista da "Pé na Chapa" (Foto: Pedro Bugim)</sub></sup>
+    
     O Subsetor Cachoeira, próximo à Cachoeira do Córrego Sapé, conta com apenas quatro vias, ideais para os primeiros contatos com a escalada em rocha, em particular, para as vias tradicionais, com pouca inclinação e muita aderência.
     
     A base destas vias fica a cinco minutos da sede da fazenda Retiro das Águas, na lateral direita da estrada de terra, ainda acessível por automóveis, logo após uma pequena casa sem uso no lado esquerdo da mesma.
     
     Este setor, apesar de curto e com lances simples, por ficar no sol o dia quase todo, apresenta uma parede bastante quente (como indica o nome de duas das vias), sendo ideal para escaladas pela parte inicial da manhã, ou ao final da tarde.
-    
-    | ![Maria Fernanda na conquista da “Pé na Chapa” (Foto: Pedro Bugim)](imagens/setor_cachoeira_p2_i0.webp) |
-    | :--: |
-    | *Maria Fernanda na conquista da “Pé na Chapa” (Foto: Pedro Bugim)* |
 - **nome**: Cachoeira
 - **mapas**:
   - **[0]**:
@@ -398,6 +396,7 @@
         - Tonico Magalhães
         - Celso Ferreira Gomes
       - **data_abertura**: 2010-02-16
+- **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_cachoeira_p2_i0.webp)
 - **precomputados**:
   - **total_escaladas**: 4
   - **total_esportivas**: 3
@@ -409,6 +408,8 @@
 
 - **descricao**:
     # A Parede das Aderências
+    
+    <sup><sub>Capa: Tonico, na conquista da "Solamente" - solo integral (Foto: Celso Gomes)</sub></sup>
     
     Ao entrar no vale do Roncador, o excursionista terá à sua esquerda a Parede das Aderências, de dimensões mais reduzidas do que a Parede Principal e com vias predominantemente em aderência - como o próprio nome sugere – variando de 20 a 230 metros de extensão.
     
@@ -427,13 +428,11 @@
       - **descricao**:
           # Parede das Aderências – Extrema Esquerda
           
+          <sup><sub>Capa: Maria Fernanda na "Vr. Cachorro Louco" (Foto: Pedro Bugim)</sub></sup>
+          
           Este é o primeiro setor da Parede das Aderências, um pouco isolado do resto da parede, por localizar-se quase na borda inicial do Vale do Roncador e por possuir muita vegetação ao seu redor.
           
           Para acessar as bases das vias neste setor, é necessário pegar a trilha do Vale do Roncador, que se inicia pouco depois do Subsetor Cachoeira, subindo em diagonal para a direita da estrada de terra.
-          
-          | ![Maria Fernanda na “Vr. Cachorro Louco”. (Foto: Pedro Bugim)](imagens/grupo_aderencias_setor_extrema_esquerda_p0_i0.webp) |
-          | :--: |
-          | *Maria Fernanda na “Vr. Cachorro Louco”. (Foto: Pedro Bugim)* |
           
           Andando pouco mais de 100 metros na trilha, deve-se cruzar o córrego e passar pela cerca de arame farpado ao lado esquerdo. Muita atenção ao fazer este procedimento, primeiro para não causar lesões, e em segundo lugar, para não causar danos à estrutura da cerca. Existe um bom espaço que possibilita a passagem por baixo da cerca, sem grandes esforços.
           
@@ -715,6 +714,7 @@
               - Celso Ferreira Gomes
               - Tonico Magalhães
             - **data_abertura**: 2012-05-06
+      - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/grupo_aderencias_setor_extrema_esquerda_p0_i0.webp)
       - **precomputados**:
         - **total_escaladas**: 5
         - **total_esportivas**: 4
@@ -722,6 +722,8 @@
     - **conteudo**:
       - **descricao**:
           # Parede das Aderências – Esquerda
+          
+          <sup><sub>Capa: Pedro Bugim na conquista da "O Psicopata de Ferros" (Foto: Maria Fernanda)</sub></sup>
           
           O Setor Esquerdo da Parede das Aderências é dividido em duas partes (Esquerda 1 e Esquerda 2), separadas por uma forte língua de vegetação, possuindo vias de 20 até 140 metros de extensão, predominantemente em aderência.
           
@@ -742,10 +744,6 @@
           - **3**: Base das vias entre “Professor Moriarty” e “O Psicopata de Ferros”
           - **4**: Base das vias “Frio na Barriga” e “Pescoço de Minhoca”
           - **5**: Base das vias “Grampos de Ferros” e “Prateado”
-          
-          | ![Pedro Bugim na conquista da “O Psicopata de Ferros” (Foto: Maria Fernanda)](imagens/grupo_aderencias_setor_esquerda_p0_i1.webp) |
-          | :--: |
-          | *Pedro Bugim na conquista da “O Psicopata de Ferros” (Foto: Maria Fernanda)* |
           
           | ![Giselle Melo repetindo a “Professor Moriarty” logo após a conquista. (Foto: Pedro Bugim)](imagens/grupo_aderencias_setor_esquerda_p8_i0.webp) |
           | :--: |
@@ -1689,6 +1687,7 @@
               - Tonico Magalhães
               - Glesse Gripp
             - **data_abertura**: 2011-09-18
+      - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/grupo_aderencias_setor_esquerda_p0_i1.webp)
       - **precomputados**:
         - **total_escaladas**: 19
         - **total_esportivas**: 8
@@ -1698,15 +1697,13 @@
       - **descricao**:
           # Parede das Aderências – Face Central
           
+          <sup><sub>Capa: Celso e Tonico na conquista da "Elementar, Meu Caro Watson!" (Foto: Pedro Bugim)</sub></sup>
+          
           A parede central das aderências concentra a maioria das vias longas deste lado do vale, com linhas de até 200 metros.
           
           Como o próprio nome sugere, a maioria esmagadora das vias neste setor são predominantemente em aderência, com poucas agarras e buracos, porém, o abrasivo granito confere ao escalador uma ótima confiança nos pés.
           
           O acesso às bases é realizado pela trilha principal do Vale do Roncador, passando pelo setor das Aderências – Esquerda e seguindo por mais aproximadamente 200 metros. A trilha para as bases encontra-se imediatamente antes da segunda travessia do córrego, à esquerda (de quem está entrando no vale). Neste ponto, é possível também, recarregar os cantis de água, antes e após as escaladas.
-          
-          | ![Celso e Tonico na conquista da “Elementar, Meu Caro Watson!” (Foto: Pedro Bugim)](imagens/grupo_aderencias_setor_face_central_p0_i1.webp) |
-          | :--: |
-          | *Celso e Tonico na conquista da “Elementar, Meu Caro Watson!” (Foto: Pedro Bugim)* |
           
           A trilha sobe por poucos metros e chega à base das vias “Cordeiro de Deus” e “Cinquentona de Ferros”. Para acessar as bases das vias adjacentes, basta costear a parede, para a esquerda ou direita, seguindo sempre pela picada bem definida.
           
@@ -2605,6 +2602,7 @@
               - Pedro Bugim
               - Maria Fernanda Patrício
             - **data_abertura**: 2014-03-02
+      - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/grupo_aderencias_setor_face_central_p0_i1.webp)
       - **precomputados**:
         - **total_escaladas**: 16
         - **total_esportivas**: 4
@@ -2613,6 +2611,8 @@
     - **conteudo**:
       - **descricao**:
           # Parede das Aderências – Setor de Cima
+          
+          <sup><sub>Capa: Maria Fernanda descendo a trilha de acesso do Setor de Cima da Parede das Aderências (Foto: Pedro Bugim)</sub></sup>
           
           Trata-se da continuação da Parede das Aderências – Setor Central, seguindo para um setor mais elevado, com parede levemente mais vertical, contando com apenas três vias e com boas possibilidades de novas conquistas, sobretudo, seguindo-se para a direita.
           
@@ -2837,6 +2837,8 @@
       - **descricao**:
           # Parede das Aderências – Extrema Direita
           
+          <sup><sub>Capa: Ricardo Barros na conquista da “Mais Chuva Que Sol” (Foto: Pedro Bugim)</sub></sup>
+          
           Paredão rochoso com potencial para novas vias, contando, no momento, com apenas quatro linhas completas.
           
           A caminhada até a base para as duas vias da esquerda (“Bolo de Cenoura” e “51, Uma Boa Ideia”) é praticamente a mesma para acessar as vias do Setor das Clássicas Longas (na Parede Principal), apresentando cerca de dois quilômetros desde a sede da fazenda. Após passar pela bifurcação para a direita, que sobe para a Parede Principal, continue pela trilha principal e pegue a bifurcação à esquerda. É necessário cruzar o córrego localizado em frente à subida para o setor esquerdo da Parede Principal, um pouco antes de um pequeno curral existente.
@@ -2846,10 +2848,6 @@
           O acesso à base das vias da direita (“Mais Chuva Que Sol” e “Só a Cabecinha”) pode ser feito de duas formas: (I) acessar a parede pela picada até a “Bolo de Cenoura”, subir a encosta e acessar o primeiro grampo da via “51, Uma Boa Ideia” e, a partir daí, rapelar até a base das vias em uma diagonal para a direita; ou (II) continuar seguindo a trilha principal até o ponto onde aparece uma porteira de um pequeno curral. Deste ponto, deve-se descer até o córrego à esquerda em direção ao início de um bambuzal, onde pode-se avistar um grotão seco onde se inicia a trilha que dá acesso à parede. A trilha segue por cerca de 50 metros, inicialmente pelo grotão e em seguida subindo para a esquerda até encostar na pedra. Os primeiros grampos das vias ficam logo a vista.
           
           A trilha pode não estar muito bem definida devido à pouca frequência atual neste setor.
-          
-          | ![Ricardo Barros na conquista da “Mais Chuva Que Sol” (Foto: Pedro Bugim)](imagens/grupo_aderencias_setor_extrema_direita_p3_i0.webp) |
-          | :--: |
-          | *Ricardo Barros na conquista da “Mais Chuva Que Sol” (Foto: Pedro Bugim)* |
       - **nome**: Extrema Direita
       - **mapas**:
         - **[0]**:
@@ -3059,6 +3057,7 @@
               - Diogo Cruz
               - Alessandra da Silva Gomes
             - **data_abertura**: 2012-09-08
+      - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/grupo_aderencias_setor_extrema_direita_p3_i0.webp)
       - **precomputados**:
         - **total_escaladas**: 4
         - **total_multiplas_enfiadas**: 4
@@ -3075,6 +3074,8 @@
 - **descricao**:
     # A Parede Principal (Paredes de Aço)
     
+    <sup><sub>Capa: A Parede Principal, vista do topo da Parede das Aderências - Central. (Foto: Pedro Bugim)</sub></sup>
+    
     Com vias entre 18 e 220 metros, a Parede Principal é uma das principais atrações para os escaladores que visitam Ferros. Esta parede colossal possui cerca de dois quilômetros de extensão, desde sua extremidade direita (Setor Clássicas Curtas) à sua extrema esquerda (Setor Clássicas Longas), com vias de praticamente todos os tipos.
     
     A predominância é de vias em agarras e ótimos abaulados / buracos, conferindo ao escalador, lances bem estéticos. Como não poderia deixar de ser, estas paredes apresentam também boas passadas em aderência.
@@ -3087,6 +3088,8 @@
     - **conteudo**:
       - **descricao**:
           # Parede Principal – Setor Clássicas Curtas
+          
+          <sup><sub>Capa: Rodrigo Magalhães guiando a "Couro de Lobisomem" (Foto: Tamires Lima)</sub></sup>
           
           Ao entrar no vale, o excursionista terá à sua direita o Setor das Clássicas Curtas, que se estende do início da Parede Principal até uma língua de mato que o separa do núcleo da parede. Este setor concentra vias curtas, variando de 10 a 45 metros.
           
@@ -3838,6 +3841,8 @@
       - **descricao**:
           # Parede Principal – Direita
           
+          <sup><sub>Capa: Gustavo “Xaxá” Carrozzino na conquista da “Amor, Meu Grande Amor”, após o diedro em móvel (Foto: Maria Fernanda Patrício)</sub></sup>
+          
           Localizada ao início da Parede Principal com vias de pequena extensão e muito boas para um primeiro contato com o tipo de escalada da região. Concentra vias que vão de 20 a 100 metros, em sua maioria bem protegidas por grampos de ½ polegada, com predominância de agarras, regletes e buracos, possuindo por vezes, algumas fendas interessantes.
           
           O acesso às bases pode ser feito por duas picadas que derivam da trilha principal do Vale do Roncador, ambas aproximadamente 200 metros após a primeira travessia do córrego.
@@ -3845,10 +3850,6 @@
           Na primeira opção, pega-se a bifurcação para a esquerda e com poucos metros de caminhada, cruza-se novamente o córrego. A descida é amena, porém após atravessar o córrego, existe um pequeno barranco. Tocando para cima, chega-se na base da via “Rapidinha no Escurinho”.
           
           Na segunda picada, pega-se a bifurcação à esquerda, descendo por uma trilha um pouco íngreme antes de cruzar o córrego, para então, voltar a subir, chegando na base da via “O Burro e o Capacete”, onde se encontra o esqueleto de um burro que veio a falecer após cair do topo da parede (daí, parte do nome da via).
-          
-          | ![Gustavo “Xaxá” Carrozzino na conquista da “Amor, Meu Grande Amor”, após o diedro em móvel (Foto: Maria Fernanda Patrício)](imagens/grupo_principal_setor_direita_p0_i1.webp) |
-          | :--: |
-          | *Gustavo “Xaxá” Carrozzino na conquista da “Amor, Meu Grande Amor”, após o diedro em móvel (Foto: Maria Fernanda Patrício)* |
           
           ## Esquema de Trilhas e Acesso
           
@@ -4555,6 +4556,7 @@
               - Pedro Bugim
               - Maria Fernanda Patrício
             - **data_abertura**: 2012-02-20
+      - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/grupo_principal_setor_direita_p0_i1.webp)
       - **precomputados**:
         - **total_escaladas**: 15
         - **total_esportivas**: 8
@@ -4564,9 +4566,7 @@
       - **descricao**:
           # Parede Principal – Setor Central
           
-          | ![Tonico e Celso na conquista da “Hilda Furacão” (Foto: Glesse Gripp)](imagens/grupo_principal_setor_central_p0_i0.webp) |
-          | :--: |
-          | *Tonico e Celso na conquista da “Hilda Furacão” (Foto: Glesse Gripp)* |
+          <sup><sub>Capa: Tonico e Celso na conquista da "Hilda Furacão" (Foto: Glesse Gripp)</sub></sup>
           
           O setor apresenta, de um modo geral, vias nas quais predominam lances em agarras e impressionantes buracos, apesar de haver boa solicitação de aderência da sola na pedra. A extensão das vias neste setor (metade esquerda da Parede Principal) varia de 90 até 180 metros, com graduação de IIIsup até Vsup.
           
@@ -4675,78 +4675,60 @@
               - **grupo**: Parede Principal (Paredes de Aço)
               - **setor**: Setor Central
             - **[12]**:
-              - **escalada**: Iron Men
-              - **ids**:
-                - 3
-              - **grupo**: Parede Principal (Paredes de Aço)
-              - **setor**: Setor Central
-            - **[13]**:
               - **escalada**: Hilda Furacão
               - **ids**:
                 - 4
               - **grupo**: Parede Principal (Paredes de Aço)
               - **setor**: Setor Central
-            - **[14]**:
+            - **[13]**:
               - **escalada**: Eu Sei o Que Vocês Fizeram no Blackout Passado
               - **ids**:
                 - 4
               - **grupo**: Parede Principal (Paredes de Aço)
               - **setor**: Setor Central
-            - **[15]**:
+            - **[14]**:
               - **escalada**: CDF
               - **ids**:
                 - 4
               - **grupo**: Parede Principal (Paredes de Aço)
               - **setor**: Setor Central
-            - **[16]**:
+            - **[15]**:
               - **escalada**: Pé de Pano
               - **ids**:
                 - 4
               - **grupo**: Parede Principal (Paredes de Aço)
               - **setor**: Setor Central
-            - **[17]**:
+            - **[16]**:
               - **escalada**: Pr. Chapado
+              - **ids**:
+                - 4
+              - **grupo**: Parede Principal (Paredes de Aço)
+              - **setor**: Setor Central
+            - **[17]**:
+              - **escalada**: Dona Flor e Suas Duas Marretas
               - **ids**:
                 - 4
               - **grupo**: Parede Principal (Paredes de Aço)
               - **setor**: Setor Central
             - **[18]**:
               - **ids**:
-                - 4
-              - **grupo**: Parede Principal (Paredes de Aço)
-              - **setor**: Setor Central
-              - **escalada**: Dona Flor e Suas Duas Marretas
-            - **[19]**:
-              - **ids**:
-                - 4
-              - **grupo**: Parede Principal (Paredes de Aço)
-              - **setor**: Setor Central
-              - **escalada**: Pum Medonho
-            - **[20]**:
-              - **ids**:
-                - 5
-              - **grupo**: Parede Principal (Paredes de Aço)
-              - **setor**: Setor Central
-              - **escalada**: Ferro Velho
-            - **[21]**:
-              - **ids**:
                 - 5
               - **grupo**: Parede Principal (Paredes de Aço)
               - **setor**: Setor Central
               - **escalada**: Tromba D’Água
-            - **[22]**:
+            - **[19]**:
               - **ids**:
                 - 5
               - **grupo**: Parede Principal (Paredes de Aço)
               - **setor**: Setor Central
               - **escalada**: Rolam as Pedras
-            - **[23]**:
+            - **[20]**:
               - **ids**:
                 - 5
               - **grupo**: Parede Principal (Paredes de Aço)
               - **setor**: Setor Central
               - **escalada**: Marcado a Ferro
-            - **[24]**:
+            - **[21]**:
               - **ids**:
                 - 5
               - **grupo**: Parede Principal (Paredes de Aço)
@@ -5614,6 +5596,7 @@
               - Gustavo "Xaxá" Carrozzino
               - Celso Ferreira Gomes
             - **data_abertura**: 2011-04-21
+      - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/grupo_principal_setor_central_p0_i0.webp)
       - **precomputados**:
         - **total_escaladas**: 18
         - **total_multiplas_enfiadas**: 18
@@ -5622,13 +5605,19 @@
       - **descricao**:
           # Parede Principal - Setor de Cima
           
+          <sup><sub>Capa: Vista da Parede Principal - Setor de Cima, durante o rapel da "Um Momento no Tempo". Todo este setor encontra-se ainda sem vias (Foto: Pedro Bugim)</sub></sup>
+          
           ## Esquema de Trilhas e Acesso
           
           - **1 – Base da via "Noite de São João"**: Acessando pela trilha do rio seco, para a parte esquerda da Parede Principal Central.
           - **2 – Base da via "Um Momento no Tempo"**: Acessando pela trilha das vias da direita, da Parede Principal – Clássicas Longas.
           - **3 – Acesso à parede deste setor**: Ainda sem conquistas.
+          
+          | ![Costão inicial na base do Setor de Cima, na Parede Principal (Foto: Maria Fernanda Patrício)](imagens/grupo_principal_setor_setor_de_cima_p2_i1.webp) |
+          | :--: |
+          | *Costão inicial na base do Setor de Cima, na Parede Principal (Foto: Maria Fernanda Patrício)* |
       - **nome**: Setor de Cima
-      - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/grupo_principal_setor_setor_de_cima_p2_i1.webp)
+      - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/grupo_principal_setor_setor_de_cima_p1_i0_0.webp)
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_principal_setor_setor_de_cima_p0_i0.webp)
@@ -5852,6 +5841,8 @@
     - **conteudo**:
       - **descricao**:
           # Parede Principal – Setor Clássicas Longas
+          
+          <sup><sub>Capa: Maria Fernanda na terceira passada em móvel (e crux) do Pr. "Ih, Ferrou!" (Foto: Pedro Bugim)</sub></sup>
           
           Setor da Parede Principal que concentra as maiores vias do Vale do Roncador, com vias de até 220 metros de extensão, como é o caso do Pr. “Eu Não Sou de Ferro”.
           
@@ -6673,15 +6664,19 @@
 ### Setor (Pico: Ferros)
 
 - **descricao**:
-    | ![Tonico martelando a “Bruxa Albano” (Foto: Celso Ferreira Gomes)](imagens/setor_vias_esportivas_p2_i0.webp) |
-    | :--: |
-    | *Tonico martelando a “Bruxa Albano” (Foto: Celso Ferreira Gomes)* |
+    # Setor Vias Esportivas
+    
+    <sup><sub>Capa: Visão geral do Setor das Vias Esportivas</sub></sup>
     
     Apresenta vias curtas, em torno de 10 a 15 metros, de V até VIIIa, de muito fácil acesso, pois o setor está muito próximo da sede da fazenda, a cerca de 15 minutos de caminhada. Permite escalar algumas vias mesmo após dias de chuva moderada, pois um grande teto as protege.
     
     Os conquistadores neste setor, até o momento, são: Tonico, Nádia Moreira, Emerson Caverna, Fabiano Fernandes, Juliano Magalhães e Valdinei Lima, com destaque para os dois últimos, em função da quantidade: dez e nove vias, respectivamente.
     
     Dentre suas 14 vias, destacam-se “Jabá com Jerimum” (VI), “Rabada” (VIIa), “Vomitão em Ferros” (VIIIa) e “Bruxa Albano” (VI).
+    
+    | ![Tonico martelando a “Bruxa Albano” (Foto: Celso Ferreira Gomes)](imagens/setor_vias_esportivas_p2_i0.webp) |
+    | :--: |
+    | *Tonico martelando a “Bruxa Albano” (Foto: Celso Ferreira Gomes)* |
 - **nome**: Setor Vias Esportivas
 - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_vias_esportivas_p0_i1.webp)
 - **mapas**:
@@ -7080,6 +7075,8 @@
 ### Setor (Pico: Ferros)
 
 - **descricao**:
+    # Parede dos Solos
+    
     Pequena parede apropriada à modalidade solo, que conta com quatro vias de 12 a 18 metros, graduadas de II a IIIsup. Possui um grampo de ½ polegada no topo da pedra para a escalada em *top-rope*, batido imediatamente após as conquistas de outubro de 2010.
     
     As vias são de tipo escalada clássica, apesar de curtas, combinando agarras e aderências, sendo a volta à base feita por caminhada. A aptidão ao solo deve-se ao fato dos lances mais difíceis estarem nas primeiras passadas, ainda em pequena altura. Existe um grampo para proteção dos lances iniciais, caso o escalador queira fazê-los com corda.
@@ -7188,6 +7185,8 @@
 - **descricao**:
     # Pedra do Neri
     
+    <sup><sub>Capa: Pedra do Neri - À esquerda, vias esportivas; à direita, vias em aderência. (Foto: Celso Ferreira Gomes)</sub></sup>
+    
     Enorme bloco rolado situado na propriedade do Sr. Neri, próxima do povoado quilombola denominado Mendonça, apresenta duas faces escaláveis, totalizando onze vias implantadas.
     
     Este bloco apresenta dois setores distintos: Esportivas (esquerda) e Aderências (direita).
@@ -7203,41 +7202,7 @@
       - **descricao**:
           # Face das Esportivas
           
-          ## 1 – Fissura Lapada na Rachada (Vsup – 15m - Móvel)
-          
-          Por Juliano Magalhães e Tonico Magalhães em 25/12/2010
-          
-          Via totalmente protegida em materiais móveis, com grampo no topo para rapel / top-rope.
-          
-          ## 2 – Fissura Sopa de Pedra (Vsup – 15m - Móvel)
-          
-          Por Juliano Magalhães e Tonico Magalhães em 25/12/2010
-          
-          Via totalmente protegida em materiais móveis, com grampo no topo para rapel / top-rope.
-          
-          ## 3 – Até o Osso (VIIIa – 15m)
-          
-          Por Juliano Magalhães e Tonico Magalhães em 25/12/2010
-          
-          Via bem protegida em grampos, com grampo no topo para rapel / top-rope. Inicia-se pela árvore da base.
-          
-          ## 4 – Diedro Caboclo D’Água (VIIIa – 15m - Mista)
-          
-          Por Juliano Magalhães e Tonico Magalhães em 25/12/2010
-          
-          Via mista, iniciada em móvel no diedro, progredindo para os lances mais fortes, protegidos em grampos.
-          
-          ## 5 – Balangandã (VIIc – 15m)
-          
-          Por Juliano Magalhães e Tonico Magalhães em 25/12/2010
-          
-          Via totalmente protegida em grampos, com grampo no topo, para rapel / top-rope.
-          
-          ## 6 – Pé de Chinelo (VIIa – 15m)
-          
-          Por Juliano Magalhães e Tonico Magalhães em 25/12/2010
-          
-          Via totalmente protegida em grampos, com grampo no topo, para rapel / top-rope.
+          <sup><sub>Capa: Juliano Magalhães escalando a Face das Esportivas, da Pedra do Neri (Foto: Celso Ferreira Gomes)</sub></sup>
       - **nome**: Face das Esportivas
       - **mapas**:
         - **[0]**:
@@ -7383,21 +7348,22 @@
               - Juliano Magalhães
               - Tonico Magalhães
             - **data_abertura**: 2010-12-25
+      - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/grupo_pedra_do_neri_setor_aderencias_p1_i1.webp)
       - **precomputados**:
         - **total_escaladas**: 6
         - **total_esportivas**: 3
   - **[1]**:
     - **conteudo**:
       - **descricao**:
-          | ![Julinho Cardozo, Tonico e Glesse, na Face das Aderências, da Pedra do Neri. (Foto: Celso Ferreira Gomes)](imagens/grupo_pedra_do_neri_setor_aderencias_p1_i2.webp) |
-          | :--: |
-          | *Julinho Cardozo, Tonico e Glesse, na Face das Aderências, da Pedra do Neri. (Foto: Celso Ferreira Gomes)* |
+          # Face das Aderências
+          
+          <sup><sub>Capa: Julinho Cardozo, Tonico e Glesse, na Face das Aderências, da Pedra do Neri (Foto: Celso Ferreira Gomes)</sub></sup>
           
           | ![O entorno da Pedra do Neri. É possível vê-la (bem diminuta), no canto superior esquerdo da foto, junto à vegetação. (Foto: Pedro Bugim)](imagens/grupo_pedra_do_neri_setor_aderencias_p1_i0.webp) |
           | :--: |
           | *O entorno da Pedra do Neri. É possível vê-la (bem diminuta), no canto superior esquerdo da foto, junto à vegetação. (Foto: Pedro Bugim)* |
       - **nome**: Face das Aderências
-      - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/grupo_pedra_do_neri_setor_aderencias_p1_i1.webp)
+      - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/grupo_pedra_do_neri_setor_aderencias_p1_i2.webp)
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedra_do_neri_setor_aderencias_p0_i1.webp)
@@ -7734,10 +7700,10 @@
     - **checksum_sha256**: 9c5138c747913e2847b64fa09df73d91202b08c6a49c70cd1d62674856dd47bc
   - **[3]**:
     - **caminho**: ![caminho](imagens/grupo_aderencias_p0_i0.webp)
-    - **checksum_sha256**: 7934375af115855bae06112ed5f6e6067527fe69ca4adeecd8bcdba75fcf7a78
+    - **checksum_sha256**: a418a970e2ee1961037ed17039020ea047652977181b4611b87f05a04560ebc9
   - **[4]**:
     - **caminho**: ![caminho](imagens/grupo_aderencias_setor_de_cima_p0_i0.webp)
-    - **checksum_sha256**: d20b2ff4df7bdb35d5cb2b0b64aa0eb7e226823d6a22cd101573ba71c9bdd20c
+    - **checksum_sha256**: 1bbfacc291c4b054073efbef61f308966a01eb000a5e89c44ce3b8dd9f703790
   - **[5]**:
     - **caminho**: ![caminho](imagens/grupo_aderencias_setor_de_cima_p1_i0.webp)
     - **checksum_sha256**: c9839c7c1afaf09c32fd2691a7a730fdcc4164ded30df14c1c932a2d6a23a729
@@ -7857,16 +7823,16 @@
     - **checksum_sha256**: b9f457c78f212cac000373fd3e77d42a0fe2a1024aff076b5c635a205e859e6c
   - **[44]**:
     - **caminho**: ![caminho](imagens/grupo_pedra_do_neri_setor_aderencias_p1_i2.webp)
-    - **checksum_sha256**: 6f57cd087b80d7d3f17e3e76c99daaf0723a493650b82e66899413876b018019
+    - **checksum_sha256**: 1dcce56eb0f62672c7c2ca09e7480525ba63868319dc90f8e11ef524ac5d3b2c
   - **[45]**:
     - **caminho**: ![caminho](imagens/grupo_pedra_do_neri_setor_esportivas_p0_i1.webp)
     - **checksum_sha256**: e3ce4b8ad779d8fdc7455f35e39f25acd818fb27243702c6cff3a6152889f735
   - **[46]**:
     - **caminho**: ![caminho](imagens/grupo_principal_p0_i0.webp)
-    - **checksum_sha256**: 7e6339afbabfc9308d1bfffae36477e8efd0ab3e0f21e4149b87b3fdcca1dff8
+    - **checksum_sha256**: c85d9b2ea09f8b2438842909ff59f0549bdf947af73c75d1e9b1ebac9dc8adba
   - **[47]**:
     - **caminho**: ![caminho](imagens/grupo_principal_setor_central_p0_i0.webp)
-    - **checksum_sha256**: 3b356364ea5cc2ca946a4647263d565f5b32e7e0c041d38acb5de25b5c6aed2a
+    - **checksum_sha256**: db29b6a0a446a5f1fc10ae1eee3364c1473573239e730505c22c9bef5d22894b
   - **[48]**:
     - **caminho**: ![caminho](imagens/grupo_principal_setor_central_p10_i0.webp)
     - **checksum_sha256**: da883682ff123df5ee032ef15aa8e1dae60bcbfe4b5bfc4f5de3aa0cd78c02d6
@@ -7878,7 +7844,7 @@
     - **checksum_sha256**: e5371778e25404309f57290e87e2684a43ade400a1afa2b5e7dca06bf44ce632
   - **[51]**:
     - **caminho**: ![caminho](imagens/grupo_principal_setor_central_p11_i0.webp)
-    - **checksum_sha256**: 3fc7ba2bbcd9a23dc0920731043664eb3a4f982b67ae9b772eac98d0ba0dabfb
+    - **checksum_sha256**: 445df9c43d5b95bc3149325c3c84469ec60573edc9a6b37f5411fba024d97bc2
   - **[52]**:
     - **caminho**: ![caminho](imagens/grupo_principal_setor_central_p1_i0.webp)
     - **checksum_sha256**: ce17c63c6abed1714e1da398f224b33bf4baa0d9548796ce7ed086f87f7b7f5f
@@ -7982,72 +7948,75 @@
     - **caminho**: ![caminho](imagens/grupo_principal_setor_setor_de_cima_p1_i0.webp)
     - **checksum_sha256**: b48c5f0376c9a04cc45062dc3428f9e08b7815f4e81470d5a139abe8355d80af
   - **[86]**:
+    - **caminho**: ![caminho](imagens/grupo_principal_setor_setor_de_cima_p1_i0_0.webp)
+    - **checksum_sha256**: 09b6ef6c2b3c96f3b0ef99ab8951c10621a7a6ac52036d0f98f1dfd2ac33fea4
+  - **[87]**:
     - **caminho**: ![caminho](imagens/grupo_principal_setor_setor_de_cima_p2_i1.webp)
     - **checksum_sha256**: 130dfa12ca9e93dc90b1a93468ae6830e61d1b9afc0a779dd5e5cddaa8605064
-  - **[87]**:
+  - **[88]**:
     - **caminho**: ![caminho](imagens/grupo_principal_setor_setor_de_cima_p3_i1.webp)
     - **checksum_sha256**: e63ddf49f60db8963c6825342c354d2c4c0e6492fa2ab79be5a2a77c667b2076
-  - **[88]**:
+  - **[89]**:
     - **caminho**: ![caminho](imagens/grupo_principal_setor_setor_de_cima_p3_i3.webp)
     - **checksum_sha256**: cdce60b7ebc4895e82d416b4b20be1ea56baa58a4e1f610f5946eb1ca20ffa70
-  - **[89]**:
+  - **[90]**:
     - **caminho**: ![caminho](imagens/mapas_gerais_p1_i1.webp)
     - **checksum_sha256**: abd6378ae8e97cb7d88a6b3949f21b27e9374638ba0119d45bdd88424395f4f1
-  - **[90]**:
+  - **[91]**:
     - **caminho**: ![caminho](imagens/mapas_gerais_p2_i1.webp)
     - **checksum_sha256**: b8cc89113b2f5fed688927fb29a7008908c182efe592a35f3d2bc2e01263aa79
-  - **[91]**:
+  - **[92]**:
     - **caminho**: ![caminho](imagens/mapas_gerais_p3_i0.webp)
     - **checksum_sha256**: b60330f9bf8bda3b3a9431713871103642f8193c60f2b42cf15fa44e09e152dd
-  - **[92]**:
+  - **[93]**:
     - **caminho**: ![caminho](imagens/setor_cachoeira_p0_i1.webp)
     - **checksum_sha256**: 35b58e477b09798ed3b2758e63bea7c4ec5ae8a9f9bec39c289f790b5a4c0f7a
-  - **[93]**:
+  - **[94]**:
     - **caminho**: ![caminho](imagens/setor_cachoeira_p1_i1.webp)
     - **checksum_sha256**: 54a2c494e7f090e73207674c27526c62010673f4bd519acca441d33cbc8498d3
-  - **[94]**:
+  - **[95]**:
     - **caminho**: ![caminho](imagens/setor_cachoeira_p1_i3.webp)
     - **checksum_sha256**: 992c5c57362798a3bd3118bcac0569549219ebadb2aeac6fb15d1f41bf89ac68
-  - **[95]**:
+  - **[96]**:
     - **caminho**: ![caminho](imagens/setor_cachoeira_p2_i0.webp)
     - **checksum_sha256**: 3e7b903094250c103d246a7c21bd09d1269ed209d57b33691c6a98388597967c
-  - **[96]**:
+  - **[97]**:
     - **caminho**: ![caminho](imagens/setor_outras_vias_p0.webp)
     - **checksum_sha256**: 00a22aaa4dcc2c4be23b3ba748df41ef4ae00eb20a3bcddd02af7cd467e55067
-  - **[97]**:
+  - **[98]**:
     - **caminho**: ![caminho](imagens/setor_parede_da_agua_limpa_p1_i0.webp)
     - **checksum_sha256**: cb5a36c736d6d6eb7e6e6cab13c58e10bcd86c833e715a628af23088d3ae968a
-  - **[98]**:
+  - **[99]**:
     - **caminho**: ![caminho](imagens/setor_parede_da_agua_limpa_p2_i1.webp)
     - **checksum_sha256**: 9d25d6e4f377d58a02e452ae43a36bbef089cf5ac39e1cf803386c9eb6f57e2d
-  - **[99]**:
+  - **[100]**:
     - **caminho**: ![caminho](imagens/setor_parede_da_cenibra_p0_i1.webp)
     - **checksum_sha256**: de2ad03f00270657d7c2df65b673311322b26a7fe5a71006db014d9c5057cc5d
-  - **[100]**:
+  - **[101]**:
     - **caminho**: ![caminho](imagens/setor_parede_dos_solos_p0_i1.webp)
     - **checksum_sha256**: 1ada3a40ead64c984f268ef8b3a61521d684d5f07cc21dc6b18ed4519bb0705c
-  - **[101]**:
+  - **[102]**:
     - **caminho**: ![caminho](imagens/setor_vias_esportivas_p0_i1.webp)
     - **checksum_sha256**: f9db7915427d348aadd98adb19132429b387f4dfa96cf2a63c585cf6b8e1f0ba
-  - **[102]**:
+  - **[103]**:
     - **caminho**: ![caminho](imagens/setor_vias_esportivas_p1_i1.webp)
     - **checksum_sha256**: dca9013fee7faa4965f5b7fa0912767a837fddfb7ebbca616bfc1bb4c05181d4
-  - **[103]**:
+  - **[104]**:
     - **caminho**: ![caminho](imagens/setor_vias_esportivas_p2_i0.webp)
     - **checksum_sha256**: 1dcc0f13685bb67d983b00c78e54449cedfe5e47587c90196e9d7cc86dec6856
-  - **[104]**:
+  - **[105]**:
     - **caminho**: ![caminho](imagens/setor_vias_esportivas_p3_i1.webp)
     - **checksum_sha256**: f01d0e235df67459dcb722989e9bd9d1b0082b6a72ae0b67d0900638c8eadbf5
-  - **[105]**:
+  - **[106]**:
     - **caminho**: ![caminho](imagens/sobre_ferros_e_historia_p0_i0.webp)
     - **checksum_sha256**: f766ed8599b01fd66a48273b4a7329ce3cb0127da44e5fb99eec5063bfd49918
-  - **[106]**:
+  - **[107]**:
     - **caminho**: ![caminho](imagens/via_conquista_do_paraiso_p0.webp)
     - **checksum_sha256**: c173971e660ffca269cce97f9c7199d9aaf829f2084b60b7346d5626a656cdfd
-  - **[107]**:
+  - **[108]**:
     - **caminho**: ![caminho](imagens/via_ferro_no_judas_p0.webp)
     - **checksum_sha256**: 02292a808ae6ee555e8aa6ee0379f73f66b57e6a5e1a2c135828c723ac784ce1
-  - **[108]**:
+  - **[109]**:
     - **caminho**: ![caminho](imagens/via_jardim_do_eden_p0.webp)
     - **checksum_sha256**: 1c76570fd31ae3ea325b8a3c84fc045dcf325ffe0f38df4a95c57e2a8ae939eb
 

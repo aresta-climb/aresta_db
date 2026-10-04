@@ -600,9 +600,12 @@ escaladas:
     data_abertura: '2012-02-20'
     descricao: Semelhante à via anterior possui grampeação longa e lances simplórios,
       porém, um pouco mais curta.
+caminho_imagem_capa: imagens/grupo_principal_setor_direita_p0_i1.webp
 ---
 
 # Parede Principal – Direita
+
+<sup><sub>Capa: Gustavo “Xaxá” Carrozzino na conquista da “Amor, Meu Grande Amor”, após o diedro em móvel (Foto: Maria Fernanda Patrício)</sub></sup>
 
 Localizada ao início da Parede Principal com vias de pequena extensão e muito boas para um primeiro contato com o tipo de escalada da região. Concentra vias que vão de 20 a 100 metros, em sua maioria bem protegidas por grampos de ½ polegada, com predominância de agarras, regletes e buracos, possuindo por vezes, algumas fendas interessantes.
 
@@ -611,8 +614,6 @@ O acesso às bases pode ser feito por duas picadas que derivam da trilha princip
 Na primeira opção, pega-se a bifurcação para a esquerda e com poucos metros de caminhada, cruza-se novamente o córrego. A descida é amena, porém após atravessar o córrego, existe um pequeno barranco. Tocando para cima, chega-se na base da via “Rapidinha no Escurinho”.
 
 Na segunda picada, pega-se a bifurcação à esquerda, descendo por uma trilha um pouco íngreme antes de cruzar o córrego, para então, voltar a subir, chegando na base da via “O Burro e o Capacete”, onde se encontra o esqueleto de um burro que veio a falecer após cair do topo da parede (daí, parte do nome da via).
-
-![Gustavo “Xaxá” Carrozzino na conquista da “Amor, Meu Grande Amor”, após o diedro em móvel (Foto: Maria Fernanda Patrício)](imagens/grupo_principal_setor_direita_p0_i1.webp)
 
 ## Esquema de Trilhas e Acesso
 

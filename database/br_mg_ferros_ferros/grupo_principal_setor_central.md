@@ -53,11 +53,6 @@ mapas:
     - '3'
     grupo: Parede Principal (Paredes de Aço)
     setor: Setor Central
-  - escalada: Iron Men
-    ids:
-    - '3'
-    grupo: Parede Principal (Paredes de Aço)
-    setor: Setor Central
   - escalada: Hilda Furacão
     ids:
     - '4'
@@ -83,21 +78,11 @@ mapas:
     - '4'
     grupo: Parede Principal (Paredes de Aço)
     setor: Setor Central
-  - ids:
+  - escalada: Dona Flor e Suas Duas Marretas
+    ids:
     - '4'
     grupo: Parede Principal (Paredes de Aço)
     setor: Setor Central
-    escalada: Dona Flor e Suas Duas Marretas
-  - ids:
-    - '4'
-    grupo: Parede Principal (Paredes de Aço)
-    setor: Setor Central
-    escalada: Pum Medonho
-  - ids:
-    - '5'
-    grupo: Parede Principal (Paredes de Aço)
-    setor: Setor Central
-    escalada: Ferro Velho
   - ids:
     - '5'
     grupo: Parede Principal (Paredes de Aço)
@@ -920,11 +905,12 @@ escaladas:
     - Celso Ferreira Gomes
     data_abertura: '2011-04-21'
     descricao: O crux é logo no início. Via com acesso rápido e muito bem grampeada.
+caminho_imagem_capa: imagens/grupo_principal_setor_central_p0_i0.webp
 ---
 
 # Parede Principal – Setor Central
 
-![Tonico e Celso na conquista da “Hilda Furacão” (Foto: Glesse Gripp)](imagens/grupo_principal_setor_central_p0_i0.webp)
+<sup><sub>Capa: Tonico e Celso na conquista da "Hilda Furacão" (Foto: Glesse Gripp)</sub></sup>
 
 O setor apresenta, de um modo geral, vias nas quais predominam lances em agarras e impressionantes buracos, apesar de haver boa solicitação de aderência da sola na pedra. A extensão das vias neste setor (metade esquerda da Parede Principal) varia de 90 até 180 metros, com graduação de IIIsup até Vsup.
 

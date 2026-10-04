@@ -256,15 +256,16 @@ escaladas:
       O acesso à base não foi feito pelo mesmo caminho que leva às outras vias do
       setor, passando sob a cerca ao lado do córrego. Sobe-se a trilha mais uns 20
       metros após o córrego e toma-se à esquerda nesse ponto.
+caminho_imagem_capa: imagens/grupo_aderencias_setor_extrema_esquerda_p0_i0.webp
 ---
 
 # Parede das Aderências – Extrema Esquerda
 
+<sup><sub>Capa: Maria Fernanda na "Vr. Cachorro Louco" (Foto: Pedro Bugim)</sub></sup>
+
 Este é o primeiro setor da Parede das Aderências, um pouco isolado do resto da parede, por localizar-se quase na borda inicial do Vale do Roncador e por possuir muita vegetação ao seu redor.
 
 Para acessar as bases das vias neste setor, é necessário pegar a trilha do Vale do Roncador, que se inicia pouco depois do Subsetor Cachoeira, subindo em diagonal para a direita da estrada de terra.
-
-![Maria Fernanda na “Vr. Cachorro Louco”. (Foto: Pedro Bugim)](imagens/grupo_aderencias_setor_extrema_esquerda_p0_i0.webp)
 
 Andando pouco mais de 100 metros na trilha, deve-se cruzar o córrego e passar pela cerca de arame farpado ao lado esquerdo. Muita atenção ao fazer este procedimento, primeiro para não causar lesões, e em segundo lugar, para não causar danos à estrutura da cerca. Existe um bom espaço que possibilita a passagem por baixo da cerca, sem grandes esforços.
 

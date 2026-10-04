@@ -1,7 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
-caminho_imagem_capa: imagens/grupo_principal_setor_setor_de_cima_p2_i1.webp
+caminho_imagem_capa: imagens/grupo_principal_setor_setor_de_cima_p1_i0_0.webp
 nome: Setor de Cima
 mapas:
 - caminho_imagem_mapa: imagens/grupo_principal_setor_setor_de_cima_p0_i0.webp
@@ -197,8 +197,12 @@ escaladas:
 
 # Parede Principal - Setor de Cima
 
+<sup><sub>Capa: Vista da Parede Principal - Setor de Cima, durante o rapel da "Um Momento no Tempo". Todo este setor encontra-se ainda sem vias (Foto: Pedro Bugim)</sub></sup>
+
 ## Esquema de Trilhas e Acesso
 
 - **1 – Base da via "Noite de São João"**: Acessando pela trilha do rio seco, para a parte esquerda da Parede Principal Central.
 - **2 – Base da via "Um Momento no Tempo"**: Acessando pela trilha das vias da direita, da Parede Principal – Clássicas Longas.
 - **3 – Acesso à parede deste setor**: Ainda sem conquistas.
+
+![Costão inicial na base do Setor de Cima, na Parede Principal (Foto: Maria Fernanda Patrício)](imagens/grupo_principal_setor_setor_de_cima_p2_i1.webp)

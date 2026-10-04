@@ -13,6 +13,8 @@ setores:
 
 # A Parede das Aderências
 
+<sup><sub>Capa: Tonico, na conquista da "Solamente" - solo integral (Foto: Celso Gomes)</sub></sup>
+
 Ao entrar no vale do Roncador, o excursionista terá à sua esquerda a Parede das Aderências, de dimensões mais reduzidas do que a Parede Principal e com vias predominantemente em aderência - como o próprio nome sugere – variando de 20 a 230 metros de extensão.
 
 As vias mais longas apresentam grau geral 3º, à exceção da via “Solamente”, paredão com 120 metros, em 1º II, conquistada em solo integral pelo Tonico. Os graus específicos mais frequentes ficam entre IV e V (crux), havendo uma via curta de VIIa (“Ferro na Boneca” – 20m) e outra mista, em VI (“O Psicopata de Ferros”).

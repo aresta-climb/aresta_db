@@ -180,6 +180,8 @@ escaladas:
 
 # Parede das Aderências – Setor de Cima
 
+<sup><sub>Capa: Maria Fernanda descendo a trilha de acesso do Setor de Cima da Parede das Aderências (Foto: Pedro Bugim)</sub></sup>
+
 Trata-se da continuação da Parede das Aderências – Setor Central, seguindo para um setor mais elevado, com parede levemente mais vertical, contando com apenas três vias e com boas possibilidades de novas conquistas, sobretudo, seguindo-se para a direita.
 
 O acesso às bases é realizado pela trilha principal do Vale do Roncador, passando pelo setor das Aderências – Central e seguindo mais uns 300 metros após a segunda travessia do córrego. Neste ponto, existe um vasto bambuzal à esquerda da trilha. Deve-se cruzar o mesmo, bem como cruzar o riacho. Neste ponto, a trilha está bem demarcada e é possível ver a parede, logo após cruzar o riacho.

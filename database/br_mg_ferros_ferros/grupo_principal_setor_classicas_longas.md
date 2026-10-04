@@ -765,6 +765,8 @@ escaladas:
 
 # Parede Principal – Setor Clássicas Longas
 
+<sup><sub>Capa: Maria Fernanda na terceira passada em móvel (e crux) do Pr. "Ih, Ferrou!" (Foto: Pedro Bugim)</sub></sup>
+
 Setor da Parede Principal que concentra as maiores vias do Vale do Roncador, com vias de até 220 metros de extensão, como é o caso do Pr. “Eu Não Sou de Ferro”.
 
 Para acessá-lo é necessário seguir a trilha principal do Vale do Roncador por cerca de dois quilômetros, sempre beirando o córrego de mesmo nome. Após cruzar o rio duas vezes, passar por uma tronqueira e contornar um pasto, é necessário pegar uma bifurcação à direita, subindo em diagonal. Em certo ponto, ao encontrar uma laje de pedra com um filete de água escorrendo, vindo da direita, pode-se seguir por ele (cuidado para não escorregar!) ou seguir pelo barranco à esquerda.

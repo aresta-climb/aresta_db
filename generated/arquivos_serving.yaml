@@ -602,7 +602,7 @@ arquivos:
 - caminho_relativo: br_mg_diamantina_diamaboulder/compilado.md
   checksum_sha256: aeb01ba15dc7247405045719759e8b4d3957a72c011061fa6beab7ccce877bfd
 - caminho_relativo: br_mg_ferros_ferros/compilado.binarypb
-  checksum_sha256: 4fdf47c7645d28ff20332bc71460274160537da4a65e30db8ae89ef70c69fbc9
+  checksum_sha256: 58716e250820ac2a6445dc3adb0c54fb71649d974b0f5e28f1849c5b20d26fda
 - caminho_relativo: thumbnails/br_mg_ferros_ferros.webp
   checksum_sha256: 84902a86389e5ffd380d2584588e2ddcb820bb3b96b90fb6d8cc7ae3feabbb48
 - caminho_relativo: br_mg_ferros_ferros/imagens/capa_p0_i0.webp
@@ -612,9 +612,9 @@ arquivos:
 - caminho_relativo: br_mg_ferros_ferros/imagens/geografia_e_logistica_p1_i1.webp
   checksum_sha256: 9c5138c747913e2847b64fa09df73d91202b08c6a49c70cd1d62674856dd47bc
 - caminho_relativo: br_mg_ferros_ferros/imagens/grupo_aderencias_p0_i0.webp
-  checksum_sha256: 7934375af115855bae06112ed5f6e6067527fe69ca4adeecd8bcdba75fcf7a78
+  checksum_sha256: a418a970e2ee1961037ed17039020ea047652977181b4611b87f05a04560ebc9
 - caminho_relativo: br_mg_ferros_ferros/imagens/grupo_aderencias_setor_de_cima_p0_i0.webp
-  checksum_sha256: d20b2ff4df7bdb35d5cb2b0b64aa0eb7e226823d6a22cd101573ba71c9bdd20c
+  checksum_sha256: 1bbfacc291c4b054073efbef61f308966a01eb000a5e89c44ce3b8dd9f703790
 - caminho_relativo: br_mg_ferros_ferros/imagens/grupo_aderencias_setor_de_cima_p1_i0.webp
   checksum_sha256: c9839c7c1afaf09c32fd2691a7a730fdcc4164ded30df14c1c932a2d6a23a729
 - caminho_relativo: br_mg_ferros_ferros/imagens/grupo_aderencias_setor_de_cima_p2_i0.webp
@@ -694,13 +694,13 @@ arquivos:
 - caminho_relativo: br_mg_ferros_ferros/imagens/grupo_pedra_do_neri_setor_aderencias_p1_i1.webp
   checksum_sha256: b9f457c78f212cac000373fd3e77d42a0fe2a1024aff076b5c635a205e859e6c
 - caminho_relativo: br_mg_ferros_ferros/imagens/grupo_pedra_do_neri_setor_aderencias_p1_i2.webp
-  checksum_sha256: 6f57cd087b80d7d3f17e3e76c99daaf0723a493650b82e66899413876b018019
+  checksum_sha256: 1dcce56eb0f62672c7c2ca09e7480525ba63868319dc90f8e11ef524ac5d3b2c
 - caminho_relativo: br_mg_ferros_ferros/imagens/grupo_pedra_do_neri_setor_esportivas_p0_i1.webp
   checksum_sha256: e3ce4b8ad779d8fdc7455f35e39f25acd818fb27243702c6cff3a6152889f735
 - caminho_relativo: br_mg_ferros_ferros/imagens/grupo_principal_p0_i0.webp
-  checksum_sha256: 7e6339afbabfc9308d1bfffae36477e8efd0ab3e0f21e4149b87b3fdcca1dff8
+  checksum_sha256: c85d9b2ea09f8b2438842909ff59f0549bdf947af73c75d1e9b1ebac9dc8adba
 - caminho_relativo: br_mg_ferros_ferros/imagens/grupo_principal_setor_central_p0_i0.webp
-  checksum_sha256: 3b356364ea5cc2ca946a4647263d565f5b32e7e0c041d38acb5de25b5c6aed2a
+  checksum_sha256: db29b6a0a446a5f1fc10ae1eee3364c1473573239e730505c22c9bef5d22894b
 - caminho_relativo: br_mg_ferros_ferros/imagens/grupo_principal_setor_central_p10_i0.webp
   checksum_sha256: da883682ff123df5ee032ef15aa8e1dae60bcbfe4b5bfc4f5de3aa0cd78c02d6
 - caminho_relativo: br_mg_ferros_ferros/imagens/grupo_principal_setor_central_p10_i1.webp
@@ -708,7 +708,7 @@ arquivos:
 - caminho_relativo: br_mg_ferros_ferros/imagens/grupo_principal_setor_central_p10_i2.webp
   checksum_sha256: e5371778e25404309f57290e87e2684a43ade400a1afa2b5e7dca06bf44ce632
 - caminho_relativo: br_mg_ferros_ferros/imagens/grupo_principal_setor_central_p11_i0.webp
-  checksum_sha256: 3fc7ba2bbcd9a23dc0920731043664eb3a4f982b67ae9b772eac98d0ba0dabfb
+  checksum_sha256: 445df9c43d5b95bc3149325c3c84469ec60573edc9a6b37f5411fba024d97bc2
 - caminho_relativo: br_mg_ferros_ferros/imagens/grupo_principal_setor_central_p1_i0.webp
   checksum_sha256: ce17c63c6abed1714e1da398f224b33bf4baa0d9548796ce7ed086f87f7b7f5f
 - caminho_relativo: br_mg_ferros_ferros/imagens/grupo_principal_setor_central_p2_i0.webp
@@ -777,6 +777,8 @@ arquivos:
   checksum_sha256: d19a9ab57f6b761ab2d43a9f05a2ed10745314978b3742c323d1e9f4d01f741b
 - caminho_relativo: br_mg_ferros_ferros/imagens/grupo_principal_setor_setor_de_cima_p1_i0.webp
   checksum_sha256: b48c5f0376c9a04cc45062dc3428f9e08b7815f4e81470d5a139abe8355d80af
+- caminho_relativo: br_mg_ferros_ferros/imagens/grupo_principal_setor_setor_de_cima_p1_i0_0.webp
+  checksum_sha256: 09b6ef6c2b3c96f3b0ef99ab8951c10621a7a6ac52036d0f98f1dfd2ac33fea4
 - caminho_relativo: br_mg_ferros_ferros/imagens/grupo_principal_setor_setor_de_cima_p2_i1.webp
   checksum_sha256: 130dfa12ca9e93dc90b1a93468ae6830e61d1b9afc0a779dd5e5cddaa8605064
 - caminho_relativo: br_mg_ferros_ferros/imagens/grupo_principal_setor_setor_de_cima_p3_i1.webp
@@ -824,9 +826,9 @@ arquivos:
 - caminho_relativo: br_mg_ferros_ferros/imagens/via_jardim_do_eden_p0.webp
   checksum_sha256: 1c76570fd31ae3ea325b8a3c84fc045dcf325ffe0f38df4a95c57e2a8ae939eb
 - caminho_relativo: br_mg_ferros_ferros/compilado.yaml
-  checksum_sha256: 7d64415e6bd34fbd4126aee6a80bdb1c88aba7d6af6f8348d3834e6789f81038
+  checksum_sha256: 68b81881cf36a352f6dda0bc80db28e01e40c625d0396505afa074a8377a4b07
 - caminho_relativo: br_mg_ferros_ferros/compilado.md
-  checksum_sha256: cc13deda9b08d993011aea0ba65a816b4a687b6eb535704f99bfe92ec9b9aaad
+  checksum_sha256: 5709c7049aac6f5ab218b5553f4495148868d50658d1040cc3f452d168cdc086
 - caminho_relativo: br_mg_igarape_pedra_grande/compilado.binarypb
   checksum_sha256: 3c175e84c81a7cc6aef6624671abd5839f21c5267635cb164a64db0f5a010da9
 - caminho_relativo: thumbnails/br_mg_igarape_pedra_grande.webp
@@ -2236,6 +2238,6 @@ arquivos:
 - caminho_relativo: br_rj_nova_friburgobom_jardim_capelinha/compilado.md
   checksum_sha256: ba81dd87949c18f9ff95512c2fb25f9210fb9590fc591004b0905fdb8c8ec582
 - caminho_relativo: indice.binarypb
-  checksum_sha256: 0151fc96d3eb868f77d7c1cedbece708b54295a8678795d6bc8c30226674b6f9
+  checksum_sha256: 1de058838538a6343672e1c75ab9fb7495efc02273f221ffecaa8d05ed74d713
 - caminho_relativo: indice.yaml
-  checksum_sha256: 285c7e780862b3a9f8b56676ca6935aff052894708ef90b3cd3b38e28568c0f6
+  checksum_sha256: d6af737cf0deebebfeb11640378edfaa530a784210cacc3b6e8e5fda8d1a72ef

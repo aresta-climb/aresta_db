@@ -2,8 +2,8 @@
 
 ## 1. Renomeação para Português e Sincronização no Painel de Referências
 
-- [ ] 1.1 [TDD Red] Criar testes unitários em `editor/views/widget_painel_referencias_test.py` validando os novos textos ("Vincular Elementos" / "Vinculando..."), tooltips em português e a seleção automática do card ao alternar o botão de vinculação.
-- [ ] 1.2 [Green] Implementar em `editor/views/widget_painel_referencias.py` a renomeação dos botões e tooltips de `CardReferencia` e conectar o toggle do botão à seleção automática do card (`selecionar_referencia`), verificando a aprovação dos testes.
+- [x] 1.1 [TDD Red] Criar testes unitários em `editor/views/widget_painel_referencias_test.py` validando os novos textos ("Vincular Elementos" / "Vinculando..."), tooltips em português e a seleção automática do card ao alternar o botão de vinculação.
+- [x] 1.2 [Green] Implementar em `editor/views/widget_painel_referencias.py` a renomeação dos botões e tooltips de `CardReferencia` e conectar o toggle do botão à seleção automática do card (`selecionar_referencia`), verificando a aprovação dos testes.
 
 ## 2. Eliminação de Referência Órfã e Feedback Visual Imediato no Editor de Mapas
 

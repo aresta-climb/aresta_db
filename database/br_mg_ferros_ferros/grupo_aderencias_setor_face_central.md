@@ -801,17 +801,18 @@ escaladas:
       em diante, segue o bonito crux da via, em uma parede com boa verticalidade e
       regletes bem definidos, até a P1. Da P1 em diante, a via segue por incríveis
       “corcovas” na pedra, até sua segunda parada. A enfiada final é feita em aderência.
+caminho_imagem_capa: imagens/grupo_aderencias_setor_face_central_p0_i1.webp
 ---
 
 # Parede das Aderências – Face Central
+
+<sup><sub>Capa: Celso e Tonico na conquista da "Elementar, Meu Caro Watson!" (Foto: Pedro Bugim)</sub></sup>
 
 A parede central das aderências concentra a maioria das vias longas deste lado do vale, com linhas de até 200 metros.
 
 Como o próprio nome sugere, a maioria esmagadora das vias neste setor são predominantemente em aderência, com poucas agarras e buracos, porém, o abrasivo granito confere ao escalador uma ótima confiança nos pés.
 
 O acesso às bases é realizado pela trilha principal do Vale do Roncador, passando pelo setor das Aderências – Esquerda e seguindo por mais aproximadamente 200 metros. A trilha para as bases encontra-se imediatamente antes da segunda travessia do córrego, à esquerda (de quem está entrando no vale). Neste ponto, é possível também, recarregar os cantis de água, antes e após as escaladas.
-
-![Celso e Tonico na conquista da “Elementar, Meu Caro Watson!” (Foto: Pedro Bugim)](imagens/grupo_aderencias_setor_face_central_p0_i1.webp)
 
 A trilha sobe por poucos metros e chega à base das vias “Cordeiro de Deus” e “Cinquentona de Ferros”. Para acessar as bases das vias adjacentes, basta costear a parede, para a esquerda ou direita, seguindo sempre pela picada bem definida.
 

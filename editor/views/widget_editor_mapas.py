@@ -2336,6 +2336,8 @@ class WidgetEditorMapas(QWidget):
 
     def _on_referencia_selecionada(self, index: int, referencia: Any) -> None:
         self.referencia_selecionada = referencia
+        if not getattr(self, 'modo_linkagem', False):
+            self.referencia_linkagem_ativa = None
         self.destacar_pois_temporariamente(referencia)
 
     def _on_referencia_desmarcada(self) -> None:

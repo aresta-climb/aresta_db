@@ -645,6 +645,8 @@ escaladas:
 
 # Parede Principal – Setor Clássicas Curtas
 
+<sup><sub>Capa: Rodrigo Magalhães guiando a "Couro de Lobisomem" (Foto: Tamires Lima)</sub></sup>
+
 Ao entrar no vale, o excursionista terá à sua direita o Setor das Clássicas Curtas, que se estende do início da Parede Principal até uma língua de mato que o separa do núcleo da parede. Este setor concentra vias curtas, variando de 10 a 45 metros.
 
 As exceções são as vias “Vou Dançar um Xaxaxá” e “Águas de Março”, que apresentam 90 e 65 metros de extensão, respectivamente, localizadas na extremidade esquerda do setor, junto à referida língua de mato.

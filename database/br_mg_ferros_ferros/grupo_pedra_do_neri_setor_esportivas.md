@@ -133,42 +133,9 @@ escaladas:
     data_abertura: '2010-12-25'
     descricao: Via totalmente protegida em grampos, com grampo no topo, para rapel
       / top-rope.
+caminho_imagem_capa: imagens/grupo_pedra_do_neri_setor_aderencias_p1_i1.webp
 ---
 
 # Face das Esportivas
 
-## 1 – Fissura Lapada na Rachada (Vsup – 15m - Móvel)
-
-Por Juliano Magalhães e Tonico Magalhães em 25/12/2010
-
-Via totalmente protegida em materiais móveis, com grampo no topo para rapel / top-rope.
-
-## 2 – Fissura Sopa de Pedra (Vsup – 15m - Móvel)
-
-Por Juliano Magalhães e Tonico Magalhães em 25/12/2010
-
-Via totalmente protegida em materiais móveis, com grampo no topo para rapel / top-rope.
-
-## 3 – Até o Osso (VIIIa – 15m)
-
-Por Juliano Magalhães e Tonico Magalhães em 25/12/2010
-
-Via bem protegida em grampos, com grampo no topo para rapel / top-rope. Inicia-se pela árvore da base.
-
-## 4 – Diedro Caboclo D’Água (VIIIa – 15m - Mista)
-
-Por Juliano Magalhães e Tonico Magalhães em 25/12/2010
-
-Via mista, iniciada em móvel no diedro, progredindo para os lances mais fortes, protegidos em grampos.
-
-## 5 – Balangandã (VIIc – 15m)
-
-Por Juliano Magalhães e Tonico Magalhães em 25/12/2010
-
-Via totalmente protegida em grampos, com grampo no topo, para rapel / top-rope.
-
-## 6 – Pé de Chinelo (VIIa – 15m)
-
-Por Juliano Magalhães e Tonico Magalhães em 25/12/2010
-
-Via totalmente protegida em grampos, com grampo no topo, para rapel / top-rope.
+<sup><sub>Capa: Juliano Magalhães escalando a Face das Esportivas, da Pedra do Neri (Foto: Celso Ferreira Gomes)</sub></sup>

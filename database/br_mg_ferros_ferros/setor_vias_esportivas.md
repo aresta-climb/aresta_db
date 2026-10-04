@@ -343,11 +343,14 @@ escaladas:
     data_abertura: '2008-02-06'
     descricao: Via atlética cujo crux é o último lance.
 ---
+# Setor Vias Esportivas
 
-![Tonico martelando a “Bruxa Albano” (Foto: Celso Ferreira Gomes)](imagens/setor_vias_esportivas_p2_i0.webp)
+<sup><sub>Capa: Visão geral do Setor das Vias Esportivas</sub></sup>
 
 Apresenta vias curtas, em torno de 10 a 15 metros, de V até VIIIa, de muito fácil acesso, pois o setor está muito próximo da sede da fazenda, a cerca de 15 minutos de caminhada. Permite escalar algumas vias mesmo após dias de chuva moderada, pois um grande teto as protege.
 
 Os conquistadores neste setor, até o momento, são: Tonico, Nádia Moreira, Emerson Caverna, Fabiano Fernandes, Juliano Magalhães e Valdinei Lima, com destaque para os dois últimos, em função da quantidade: dez e nove vias, respectivamente.
 
 Dentre suas 14 vias, destacam-se “Jabá com Jerimum” (VI), “Rabada” (VIIa), “Vomitão em Ferros” (VIIIa) e “Bruxa Albano” (VI).
+
+![Tonico martelando a “Bruxa Albano” (Foto: Celso Ferreira Gomes)](imagens/setor_vias_esportivas_p2_i0.webp)

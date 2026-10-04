@@ -198,9 +198,12 @@ escaladas:
       da extrema direita da parede. Apesar das proteções relativamente longas, é uma
       ótima via para quem está aprendendo a guiar, sobretudo, para treinar como “garimpar”
       as proteções móveis (peças pequenas e médias).
+caminho_imagem_capa: imagens/grupo_aderencias_setor_extrema_direita_p3_i0.webp
 ---
 
 # Parede das Aderências – Extrema Direita
+
+<sup><sub>Capa: Ricardo Barros na conquista da “Mais Chuva Que Sol” (Foto: Pedro Bugim)</sub></sup>
 
 Paredão rochoso com potencial para novas vias, contando, no momento, com apenas quatro linhas completas.
 
@@ -211,5 +214,3 @@ Uma boa dica é que este ponto de cruzamento do rio é bem próximo à junção 
 O acesso à base das vias da direita (“Mais Chuva Que Sol” e “Só a Cabecinha”) pode ser feito de duas formas: (I) acessar a parede pela picada até a “Bolo de Cenoura”, subir a encosta e acessar o primeiro grampo da via “51, Uma Boa Ideia” e, a partir daí, rapelar até a base das vias em uma diagonal para a direita; ou (II) continuar seguindo a trilha principal até o ponto onde aparece uma porteira de um pequeno curral. Deste ponto, deve-se descer até o córrego à esquerda em direção ao início de um bambuzal, onde pode-se avistar um grotão seco onde se inicia a trilha que dá acesso à parede. A trilha segue por cerca de 50 metros, inicialmente pelo grotão e em seguida subindo para a esquerda até encostar na pedra. Os primeiros grampos das vias ficam logo a vista.
 
 A trilha pode não estar muito bem definida devido à pouca frequência atual neste setor.
-
-![Ricardo Barros na conquista da “Mais Chuva Que Sol” (Foto: Pedro Bugim)](imagens/grupo_aderencias_setor_extrema_direita_p3_i0.webp)

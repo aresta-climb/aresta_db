@@ -82,6 +82,7 @@ escaladas:
     - Celso Ferreira Gomes
     data_abertura: '2010-10-24'
 ---
+# Parede dos Solos
 
 Pequena parede apropriada à modalidade solo, que conta com quatro vias de 12 a 18 metros, graduadas de II a IIIsup. Possui um grampo de ½ polegada no topo da pedra para a escalada em *top-rope*, batido imediatamente após as conquistas de outubro de 2010.
 

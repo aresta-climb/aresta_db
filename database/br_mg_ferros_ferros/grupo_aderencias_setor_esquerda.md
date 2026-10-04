@@ -854,9 +854,11 @@ escaladas:
       necessitando repetição para confirmação.
 
       '
+caminho_imagem_capa: imagens/grupo_aderencias_setor_esquerda_p0_i1.webp
 ---
-
 # Parede das Aderências – Esquerda
+
+<sup><sub>Capa: Pedro Bugim na conquista da "O Psicopata de Ferros" (Foto: Maria Fernanda)</sub></sup>
 
 O Setor Esquerdo da Parede das Aderências é dividido em duas partes (Esquerda 1 e Esquerda 2), separadas por uma forte língua de vegetação, possuindo vias de 20 até 140 metros de extensão, predominantemente em aderência.
 
@@ -877,8 +879,6 @@ Para acessar as bases do setor da direita, segue-se por aproximadamente 80 metro
 - **3**: Base das vias entre “Professor Moriarty” e “O Psicopata de Ferros”
 - **4**: Base das vias “Frio na Barriga” e “Pescoço de Minhoca”
 - **5**: Base das vias “Grampos de Ferros” e “Prateado”
-
-![Pedro Bugim na conquista da “O Psicopata de Ferros” (Foto: Maria Fernanda)](imagens/grupo_aderencias_setor_esquerda_p0_i1.webp)
 
 ![Giselle Melo repetindo a “Professor Moriarty” logo após a conquista. (Foto: Pedro Bugim)](imagens/grupo_aderencias_setor_esquerda_p8_i0.webp)
 

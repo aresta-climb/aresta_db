@@ -5480,6 +5480,128 @@ def test_cancelar_modos_interativos_camera_linkagem_e_cobertura_defensiva(qtbot)
     assert widget.modo_nova_rota is False
 
 
+def test_iniciar_modo_vinculacao_texto_barra_superior_portugues(qtbot):
+    """[TDD 2.1] Verifica se o texto da barra superior está em português brasileiro seguindo o Princípio I."""
+    from editor.views.widget_editor_mapas import WidgetEditorMapas
+    from aresta_api.proto.generated import croqui_pb2
+    from editor.models.readonly_proxy import ReadOnlyProxy
+
+    widget = WidgetEditorMapas()
+    qtbot.addWidget(widget)
+
+    mapa = croqui_pb2.Mapa()
+    ref = mapa.referencias.add()
+    ref.grupo = "Grupo Teste"
+    widget.set_mapa_atual(ReadOnlyProxy(mapa))
+
+    widget.iniciar_modo_linkagem(0, ref)
+
+    texto_barra = widget.label_modo.text()
+    assert "MODO VINCULAÇÃO" in texto_barra
+    assert "Clique nos elementos do mapa para vinculá-los ou desvinculá-los desta referência" in texto_barra
+    assert "Elementos vinculados ficam em Ciano" in texto_barra
+
+
+def test_toggle_clique_poi_adiciona_e_remove_com_ciano_imediato(qtbot):
+    """[TDD 2.1] Verifica que clicar num POI adiciona e clicar novamente remove, alternando o ciano instantaneamente."""
+    from editor.views.widget_editor_mapas import WidgetEditorMapas
+    from aresta_api.proto.generated import croqui_pb2
+    from editor.models.readonly_proxy import ReadOnlyProxy
+    from unittest.mock import MagicMock
+    from PySide6.QtGui import QColor
+
+    widget = WidgetEditorMapas()
+    qtbot.addWidget(widget)
+    widget.mapas_controller = MagicMock()
+
+    mapa = croqui_pb2.Mapa()
+    poi = mapa.pontos_de_interesse.add()
+    poi.id = "poi_teste"
+    poi.circulo.x = 50
+    poi.circulo.y = 50
+    poi.circulo.raio = 15
+
+    ref = mapa.referencias.add()
+    widget.set_mapa_atual(ReadOnlyProxy(mapa))
+
+    widget.iniciar_modo_linkagem(0, ref)
+    item_visual = widget.itens_poi[0]
+
+    # Inicialmente não está na referência -> não ciano
+    assert item_visual.brush.color() != QColor(0, 255, 255, 150)
+
+    # 1. Primeiro clique: adiciona o POI -> fica ciano imediatamente
+    retorno = widget.tratar_clique_poi_linkagem("poi_teste")
+    assert retorno is True
+    assert item_visual.brush.color() == QColor(0, 255, 255, 150)
+    assert "poi_teste" in widget.referencia_linkagem_ativa.ids
+
+    # 2. Segundo clique: remove o POI -> perde o ciano imediatamente
+    retorno_desvincular = widget.tratar_clique_poi_linkagem("poi_teste")
+    assert retorno_desvincular is True
+    assert item_visual.brush.color() != QColor(0, 255, 255, 150)
+    assert "poi_teste" not in widget.referencia_linkagem_ativa.ids
+
+
+def test_alternar_referencias_limpa_estado_anterior_sem_residuo_no_hover_out(qtbot):
+    """[TDD 2.1] Verifica se desativar a vinculação e selecionar nova referência não restaura a anterior no hover out."""
+    from editor.views.widget_editor_mapas import WidgetEditorMapas
+    from aresta_api.proto.generated import croqui_pb2
+    from editor.models.readonly_proxy import ReadOnlyProxy
+    from PySide6.QtGui import QColor
+
+    widget = WidgetEditorMapas()
+    qtbot.addWidget(widget)
+
+    mapa = croqui_pb2.Mapa()
+    poi0 = mapa.pontos_de_interesse.add()
+    poi0.id = "p0"
+    poi0.circulo.x = 10
+    poi0.circulo.y = 10
+    poi0.circulo.raio = 10
+
+    poi1 = mapa.pontos_de_interesse.add()
+    poi1.id = "p1"
+    poi1.circulo.x = 100
+    poi1.circulo.y = 100
+    poi1.circulo.raio = 10
+
+    ref0 = mapa.referencias.add()
+    ref0.grupo = "Grupo 0"
+    ref0.ids.append("p0")
+
+    ref1 = mapa.referencias.add()
+    ref1.grupo = "Grupo 1"
+    ref1.ids.append("p1")
+
+    widget.set_mapa_atual(ReadOnlyProxy(mapa))
+
+    item0 = widget.itens_poi[0]
+    item1 = widget.itens_poi[1]
+
+    # Inicia vinculação na ref 0
+    widget.iniciar_modo_linkagem(0, ref0)
+    assert item0.brush.color() == QColor(0, 255, 255, 150)
+    assert item1.brush.color() != QColor(0, 255, 255, 150)
+
+    # Para modo de vinculação
+    widget.parar_modo_linkagem()
+    assert widget.referencia_linkagem_ativa is None
+    assert item0.brush.color() != QColor(0, 255, 255, 150)
+
+    # Agora o usuário seleciona a ref 1
+    widget._on_referencia_selecionada(1, ref1)
+    assert item1.brush.color() == QColor(0, 255, 255, 150)
+    assert item0.brush.color() != QColor(0, 255, 255, 150)
+
+    # Simula hover out (que chamava remover_destaque_pois)
+    widget.remover_destaque_pois()
+
+    # O item1 DEVE permanecer destacado em ciano, e o item0 NÃO deve voltar a ser destacado!
+    assert item1.brush.color() == QColor(0, 255, 255, 150)
+    assert item0.brush.color() != QColor(0, 255, 255, 150)
+
+
 
 
 

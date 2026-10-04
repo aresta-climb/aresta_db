@@ -168,15 +168,17 @@ class CardReferencia(QFrame):
         
         layout.addLayout(header_layout)
         
-        # Linha 1: Linkar POIs
+        # Linha 1: Vincular Elementos
         layout_linha1 = QHBoxLayout()
         layout_linha1.setContentsMargins(0, 0, 0, 0)
         
-        self.btn_linkar = QPushButton(" Linkar POIs")
-        self.btn_linkar.setCheckable(True)
-        self.btn_linkar.setIcon(Icones.obter("mapas"))
+        self.btn_vincular = QPushButton(" Vincular Elementos")
+        self.btn_vincular.setCheckable(True)
+        self.btn_vincular.setIcon(Icones.obter("mapas"))
+        self.btn_vincular.setToolTip("Vincular ou desvincular elementos (pontos e trajetos) do mapa a esta referência")
+        self.btn_linkar = self.btn_vincular  # Alias de compatibilidade
         
-        layout_linha1.addWidget(self.btn_linkar)
+        layout_linha1.addWidget(self.btn_vincular)
         layout_linha1.addStretch()
         layout.addLayout(layout_linha1)
         
@@ -397,11 +399,12 @@ class PainelReferencias(QWidget):
                 self.idx_card_selecionado = i
             
             if modo_link_index == i:
-                card.btn_linkar.blockSignals(True)
-                card.btn_linkar.setChecked(True)
-                card.btn_linkar.setStyleSheet("background-color: #007bff; color: white;")
-                self.btn_ativo_link = card.btn_linkar
-                card.btn_linkar.blockSignals(False)
+                card.btn_vincular.blockSignals(True)
+                card.btn_vincular.setChecked(True)
+                card.btn_vincular.setText(" Vinculando...")
+                card.btn_vincular.setStyleSheet("background-color: #007bff; color: white;")
+                self.btn_ativo_link = card.btn_vincular
+                card.btn_vincular.blockSignals(False)
             
             if modo_camera_index == i:
                 card.btn_camera.blockSignals(True)
@@ -442,6 +445,8 @@ class PainelReferencias(QWidget):
                     card = item.widget()
                     if isinstance(card, CardReferencia):
                         card.definir_selecionado(False)
+                        if card.btn_vincular.isChecked() and self.btn_ativo_link == card.btn_vincular:
+                            card.btn_vincular.setChecked(False)
         if 0 <= index < self.layout_cards.count():
             item = self.layout_cards.itemAt(index)
             if item:
@@ -554,14 +559,17 @@ class PainelReferencias(QWidget):
         if checked:
             # Desmarca qualquer outro botão de ação
             self._limpar_modos_ativos()
-            self.btn_ativo_link = card.btn_linkar
-            card.btn_linkar.setStyleSheet("background-color: #007bff; color: white;")
+            self.btn_ativo_link = card.btn_vincular
+            card.btn_vincular.setText(" Vinculando...")
+            card.btn_vincular.setStyleSheet("background-color: #007bff; color: white;")
+            self.selecionar_referencia(card.index)
             self.iniciar_modo_linkagem.emit(card.index, card.referencia)
         else:
-            if self.btn_ativo_link == card.btn_linkar:
+            if self.btn_ativo_link == card.btn_vincular:
                 self.btn_ativo_link = None
                 self.parar_modo_linkagem.emit()
-            card.btn_linkar.setStyleSheet("")
+            card.btn_vincular.setText(" Vincular Elementos")
+            card.btn_vincular.setStyleSheet("")
 
     def _on_camera_toggled(self, checked: bool, card: CardReferencia) -> None:
         if checked:
@@ -595,7 +603,11 @@ class PainelReferencias(QWidget):
 
     def _limpar_modos_ativos(self) -> None:
         if self.btn_ativo_link:
-            self.btn_ativo_link.setChecked(False)
+            btn = self.btn_ativo_link
+            self.btn_ativo_link = None
+            btn.setChecked(False)
         if self.btn_ativo_camera:
-            self.btn_ativo_camera.setChecked(False)
+            btn_cam = self.btn_ativo_camera
+            self.btn_ativo_camera = None
+            btn_cam.setChecked(False)
 
