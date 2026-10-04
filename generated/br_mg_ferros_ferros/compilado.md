@@ -334,7 +334,7 @@
         - **id**: 3
         - **label**: 3
         - **circulo**:
-          - **x**: 384
+          - **x**: 385
           - **y**: 854
           - **raio**: 33
       - **[1]**:
@@ -440,6 +440,49 @@
       - **nome**: Extrema Esquerda
       - **mapas**:
         - **[0]**:
+          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_aderencias_setor_extrema_esquerda_p1_i1.webp)
+          - **referencias**:
+            - **[0]**:
+              - **escalada**: Solamente
+              - **ids**:
+                - 1
+            - **[1]**:
+              - **escalada**: Nesse Mato Tem Cachorro
+              - **ids**:
+                - 2
+            - **[2]**:
+              - **escalada**: Vr. Cachorro Louco
+              - **ids**:
+                - 2
+            - **[3]**:
+              - **escalada**: Libera Liberou
+              - **ids**:
+                - 3
+          - **largura_mapa**: 1607
+          - **altura_mapa**: 1025
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 1
+              - **label**: 1
+              - **circulo**:
+                - **x**: 934
+                - **y**: 340
+                - **raio**: 25
+            - **[1]**:
+              - **id**: 2
+              - **label**: 2
+              - **circulo**:
+                - **x**: 1043
+                - **y**: 522
+                - **raio**: 26
+            - **[2]**:
+              - **id**: 3
+              - **label**: 3
+              - **circulo**:
+                - **x**: 1095
+                - **y**: 585
+                - **raio**: 25
+        - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_aderencias_setor_extrema_esquerda_p2_i1.webp)
           - **referencias**:
             - **[0]**:
@@ -510,7 +553,7 @@
                 - **y**: 702
                 - **raio**: 34
               - **cor**: 
-        - **[1]**:
+        - **[2]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_aderencias_setor_extrema_esquerda_p4_i1.webp)
           - **referencias**:
             - **[0]**:
@@ -535,10 +578,10 @@
                 - 4
                 - p1_2
             - **[4]**:
-              - **escalada**: Dez Mil e Uma Noites
               - **ids**:
                 - 5
                 - P1_3
+              - **escalada**: Dez Mil e Uma Noites
           - **largura_mapa**: 2041
           - **altura_mapa**: 1224
           - **pontos_de_interesse**:
@@ -606,49 +649,6 @@
                 - **y**: 753
                 - **raio**: 46
               - **cor**: 
-        - **[2]**:
-          - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_aderencias_setor_extrema_esquerda_p1_i1.webp)
-          - **referencias**:
-            - **[0]**:
-              - **escalada**: Solamente
-              - **ids**:
-                - 1
-            - **[1]**:
-              - **escalada**: Nesse Mato Tem Cachorro
-              - **ids**:
-                - 2
-            - **[2]**:
-              - **escalada**: Vr. Cachorro Louco
-              - **ids**:
-                - 2
-            - **[3]**:
-              - **escalada**: Libera Liberou
-              - **ids**:
-                - 3
-          - **largura_mapa**: 1607
-          - **altura_mapa**: 1025
-          - **pontos_de_interesse**:
-            - **[0]**:
-              - **id**: 1
-              - **label**: 1
-              - **circulo**:
-                - **x**: 934
-                - **y**: 340
-                - **raio**: 25
-            - **[1]**:
-              - **id**: 2
-              - **label**: 2
-              - **circulo**:
-                - **x**: 1043
-                - **y**: 522
-                - **raio**: 26
-            - **[2]**:
-              - **id**: 3
-              - **label**: 3
-              - **circulo**:
-                - **x**: 1095
-                - **y**: 585
-                - **raio**: 25
       - **escaladas**:
         - **[0]**:
           - **via_movel**:
@@ -1925,6 +1925,11 @@
               - **grupo**: Parede das Aderências
               - **setor**: Face Central
               - **escalada**: E o Rio Levou
+            - **[21]**:
+              - **ids**:
+                - Parede_Principal_Direira
+              - **grupo**: Parede Principal (Paredes de Aço)
+              - **setor**: Parede Principal – Direita
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_aderencias_setor_face_central_p2_i0.webp)
           - **largura_mapa**: 1970
@@ -2189,10 +2194,193 @@
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_aderencias_setor_face_central_p8_i1.webp)
           - **largura_mapa**: 801
           - **altura_mapa**: 1102
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 8
+              - **label**: 8
+              - **circulo**:
+                - **x**: 685
+                - **y**: 1011
+                - **raio**: 17
+              - **cor**: 
+            - **[1]**:
+              - **id**: 7
+              - **label**: 7
+              - **circulo**:
+                - **x**: 647
+                - **y**: 1007
+                - **raio**: 17
+              - **cor**: 
+            - **[2]**:
+              - **id**: p1_8
+              - **label**: 
+              - **circulo**:
+                - **x**: 645
+                - **y**: 610
+                - **raio**: 14
+              - **cor**: 
+            - **[3]**:
+              - **id**: p1_7
+              - **label**: 
+              - **circulo**:
+                - **x**: 498
+                - **y**: 611
+                - **raio**: 14
+              - **cor**: 
+            - **[4]**:
+              - **id**: p2_7
+              - **label**: 
+              - **circulo**:
+                - **x**: 443
+                - **y**: 370
+                - **raio**: 14
+              - **cor**: 
+            - **[5]**:
+              - **id**: p2_8
+              - **label**: 
+              - **circulo**:
+                - **x**: 561
+                - **y**: 371
+                - **raio**: 14
+              - **cor**: 
+            - **[6]**:
+              - **id**: p3_7
+              - **label**: 
+              - **circulo**:
+                - **x**: 465
+                - **y**: 218
+                - **raio**: 14
+              - **cor**: 
+            - **[7]**:
+              - **id**: p3_8
+              - **label**: 
+              - **circulo**:
+                - **x**: 517
+                - **y**: 176
+                - **raio**: 14
+              - **cor**: 
+          - **referencias**:
+            - **[0]**:
+              - **ids**:
+                - 7
+                - p1_7
+                - p2_7
+                - p3_7
+              - **grupo**: Parede das Aderências
+              - **setor**: Face Central
+              - **escalada**: Coração Valente
+            - **[1]**:
+              - **ids**:
+                - 8
+                - p1_8
+                - p2_8
+                - p3_8
+              - **grupo**: Parede das Aderências
+              - **setor**: Face Central
+              - **escalada**: Expo CERJ!
         - **[4]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_aderencias_setor_face_central_p9_i1.webp)
           - **largura_mapa**: 852
           - **altura_mapa**: 1172
+          - **pontos_de_interesse**:
+            - **[0]**:
+              - **id**: 1
+              - **label**: 1
+              - **circulo**:
+                - **x**: 474
+                - **y**: 1063
+                - **raio**: 17
+              - **cor**: 
+            - **[1]**:
+              - **id**: 2
+              - **label**: 2
+              - **circulo**:
+                - **x**: 582
+                - **y**: 861
+                - **raio**: 17
+              - **cor**: 
+            - **[2]**:
+              - **id**: 3
+              - **label**: 3
+              - **circulo**:
+                - **x**: 614
+                - **y**: 768
+                - **raio**: 17
+              - **cor**: 
+            - **[3]**:
+              - **id**: P1_2
+              - **label**: 
+              - **circulo**:
+                - **x**: 576
+                - **y**: 473
+                - **raio**: 15
+              - **cor**: 
+            - **[4]**:
+              - **id**: p2_2
+              - **label**: 
+              - **circulo**:
+                - **x**: 576
+                - **y**: 335
+                - **raio**: 15
+              - **cor**: 
+            - **[5]**:
+              - **id**: p3_2
+              - **label**: 
+              - **circulo**:
+                - **x**: 513
+                - **y**: 180
+                - **raio**: 14
+              - **cor**: 
+            - **[6]**:
+              - **id**: p1_3
+              - **label**: 
+              - **circulo**:
+                - **x**: 736
+                - **y**: 500
+                - **raio**: 15
+              - **cor**: 
+            - **[7]**:
+              - **id**: p2_3
+              - **label**: 
+              - **circulo**:
+                - **x**: 746
+                - **y**: 238
+                - **raio**: 15
+              - **cor**: 
+            - **[8]**:
+              - **id**: p3_3
+              - **label**: 
+              - **circulo**:
+                - **x**: 771
+                - **y**: 67
+                - **raio**: 14
+              - **cor**: 
+          - **referencias**:
+            - **[0]**:
+              - **ids**:
+                - 1
+                - p3_2
+              - **grupo**: Parede das Aderências
+              - **setor**: Face Central
+              - **escalada**: Social Club
+            - **[1]**:
+              - **ids**:
+                - 2
+                - P1_2
+                - p2_2
+                - p3_2
+              - **grupo**: Parede das Aderências
+              - **setor**: Face Central
+              - **escalada**: Pr. Tonico Magalhães
+            - **[2]**:
+              - **ids**:
+                - 3
+                - p1_3
+                - p2_3
+                - p3_3
+              - **grupo**: Parede das Aderências
+              - **setor**: Face Central
+              - **escalada**: E o Rio Levou
       - **escaladas**:
         - **[0]**:
           - **via_esportiva**:

@@ -96,7 +96,7 @@ mapas:
   - id: '3'
     label: '3'
     circulo:
-      x: 384
+      x: 385
       y: 854
       raio: 33
   - id: '4'

@@ -174,6 +174,10 @@ mapas:
     grupo: Parede das Aderências
     setor: Face Central
     escalada: E o Rio Levou
+  - ids:
+    - Parede_Principal_Direira
+    grupo: Parede Principal (Paredes de Aço)
+    setor: Parede Principal – Direita
 - caminho_imagem_mapa: imagens/grupo_aderencias_setor_face_central_p2_i0.webp
   largura_mapa: 1970
   altura_mapa: 1268
@@ -393,9 +397,170 @@ mapas:
 - caminho_imagem_mapa: imagens/grupo_aderencias_setor_face_central_p8_i1.webp
   largura_mapa: 801
   altura_mapa: 1102
+  pontos_de_interesse:
+  - id: '8'
+    label: '8'
+    circulo:
+      x: 685
+      y: 1011
+      raio: 17
+    cor: ''
+  - id: '7'
+    label: '7'
+    circulo:
+      x: 647
+      y: 1007
+      raio: 17
+    cor: ''
+  - id: p1_8
+    label: ''
+    circulo:
+      x: 645
+      y: 610
+      raio: 14
+    cor: ''
+  - id: p1_7
+    label: ''
+    circulo:
+      x: 498
+      y: 611
+      raio: 14
+    cor: ''
+  - id: p2_7
+    label: ''
+    circulo:
+      x: 443
+      y: 370
+      raio: 14
+    cor: ''
+  - id: p2_8
+    label: ''
+    circulo:
+      x: 561
+      y: 371
+      raio: 14
+    cor: ''
+  - id: p3_7
+    label: ''
+    circulo:
+      x: 465
+      y: 218
+      raio: 14
+    cor: ''
+  - id: p3_8
+    label: ''
+    circulo:
+      x: 517
+      y: 176
+      raio: 14
+    cor: ''
+  referencias:
+  - ids:
+    - '7'
+    - p1_7
+    - p2_7
+    - p3_7
+    grupo: Parede das Aderências
+    setor: Face Central
+    escalada: Coração Valente
+  - ids:
+    - '8'
+    - p1_8
+    - p2_8
+    - p3_8
+    grupo: Parede das Aderências
+    setor: Face Central
+    escalada: Expo CERJ!
 - caminho_imagem_mapa: imagens/grupo_aderencias_setor_face_central_p9_i1.webp
   largura_mapa: 852
   altura_mapa: 1172
+  pontos_de_interesse:
+  - id: '1'
+    label: '1'
+    circulo:
+      x: 474
+      y: 1063
+      raio: 17
+    cor: ''
+  - id: '2'
+    label: '2'
+    circulo:
+      x: 582
+      y: 861
+      raio: 17
+    cor: ''
+  - id: '3'
+    label: '3'
+    circulo:
+      x: 614
+      y: 768
+      raio: 17
+    cor: ''
+  - id: P1_2
+    label: ''
+    circulo:
+      x: 576
+      y: 473
+      raio: 15
+    cor: ''
+  - id: p2_2
+    label: ''
+    circulo:
+      x: 576
+      y: 335
+      raio: 15
+    cor: ''
+  - id: p3_2
+    label: ''
+    circulo:
+      x: 513
+      y: 180
+      raio: 14
+    cor: ''
+  - id: p1_3
+    label: ''
+    circulo:
+      x: 736
+      y: 500
+      raio: 15
+    cor: ''
+  - id: p2_3
+    label: ''
+    circulo:
+      x: 746
+      y: 238
+      raio: 15
+    cor: ''
+  - id: p3_3
+    label: ''
+    circulo:
+      x: 771
+      y: 67
+      raio: 14
+    cor: ''
+  referencias:
+  - ids:
+    - '1'
+    - p3_2
+    grupo: Parede das Aderências
+    setor: Face Central
+    escalada: Social Club
+  - ids:
+    - '2'
+    - P1_2
+    - p2_2
+    - p3_2
+    grupo: Parede das Aderências
+    setor: Face Central
+    escalada: Pr. Tonico Magalhães
+  - ids:
+    - '3'
+    - p1_3
+    - p2_3
+    - p3_3
+    grupo: Parede das Aderências
+    setor: Face Central
+    escalada: E o Rio Levou
 escaladas:
 - via_esportiva:
     nome: Vr. Esquibunda

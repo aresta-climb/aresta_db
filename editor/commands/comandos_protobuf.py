@@ -11,6 +11,11 @@ from editor.models.readonly_proxy import _copia_segura
 logger = logging.getLogger(__name__)
 
 
+class MensagemAlvoNaoEncontradaError(LookupError):
+    """Exceção levantada quando uma mensagem do Protobuf não pode ser encontrada ou resolvida na árvore ativa do croqui."""
+    pass
+
+
 def resolver_caminho_mensagem(root_msg: Any, target_msg: Any) -> str:
     """
     Retorna a string de caminho (ex: 'setores.0.vias.1') a partir de root_msg até target_msg.
@@ -238,12 +243,18 @@ class ComandoEditor(QUndoCommand):
     def caminho_msg(self, valor: Optional[str]) -> None:
         self._caminho_msg = valor
 
-    def _obter_msg(self) -> Any:
+    def _obter_msg(self, levantar_se_nao_encontrado: bool = False) -> Any:
         """
         Resolve a mensagem alvo atual na árvore do modelo a partir de caminho_msg.
+        Se _msg_cache já estiver definido, retorna-o diretamente sem navegar novamente.
         Se caminho_msg não estiver definido, retorna _msg_cache.
-        Se não for possível encontrar a mensagem alvo, registra logger.error e retorna None.
+        Se não for possível encontrar a mensagem alvo:
+        - Levanta MensagemAlvoNaoEncontradaError se levantar_se_nao_encontrado for True.
+        - Registra logger.error e retorna None se levantar_se_nao_encontrado for False.
         """
+        if self._msg_cache is not None:
+            return self._msg_cache
+
         model = getattr(self, "model", None)
         if model is None:
             return self._msg_cache
@@ -254,15 +265,17 @@ class ComandoEditor(QUndoCommand):
         root = model.obter_croqui_readonly() if hasattr(model, "obter_croqui_readonly") else getattr(model, "croqui", None)
         alvo = navegar_para_mensagem(root, self._caminho_msg)
         if alvo is None:
+            if levantar_se_nao_encontrado:
+                raise MensagemAlvoNaoEncontradaError(
+                    f"Mensagem alvo não encontrada no caminho '{self._caminho_msg}' "
+                    f"para o comando {type(self).__name__}."
+                )
             logger.error(
                 "Falha ao resolver mensagem alvo no caminho '%s' para o comando %s",
                 self._caminho_msg,
                 type(self).__name__
             )
             return None
-
-        if self._msg_cache is not None:
-            return self._msg_cache
 
         return alvo
 

@@ -3,6 +3,41 @@
 # Copyright (C) 2026 Aresta Climb Contributors
 nome: Extrema Esquerda
 mapas:
+- caminho_imagem_mapa: imagens/grupo_aderencias_setor_extrema_esquerda_p1_i1.webp
+  referencias:
+  - escalada: Solamente
+    ids:
+    - '1'
+  - escalada: Nesse Mato Tem Cachorro
+    ids:
+    - '2'
+  - escalada: Vr. Cachorro Louco
+    ids:
+    - '2'
+  - escalada: Libera Liberou
+    ids:
+    - '3'
+  largura_mapa: 1607
+  altura_mapa: 1025
+  pontos_de_interesse:
+  - id: '1'
+    label: '1'
+    circulo:
+      x: 934
+      y: 340
+      raio: 25
+  - id: '2'
+    label: '2'
+    circulo:
+      x: 1043
+      y: 522
+      raio: 26
+  - id: '3'
+    label: '3'
+    circulo:
+      x: 1095
+      y: 585
+      raio: 25
 - caminho_imagem_mapa: imagens/grupo_aderencias_setor_extrema_esquerda_p2_i1.webp
   referencias:
   - escalada: Solamente
@@ -81,10 +116,10 @@ mapas:
     ids:
     - '4'
     - p1_2
-  - escalada: Dez Mil e Uma Noites
-    ids:
+  - ids:
     - '5'
     - P1_3
+    escalada: Dez Mil e Uma Noites
   largura_mapa: 2041
   altura_mapa: 1224
   pontos_de_interesse:
@@ -143,41 +178,6 @@ mapas:
       y: 753
       raio: 46
     cor: ''
-- caminho_imagem_mapa: imagens/grupo_aderencias_setor_extrema_esquerda_p1_i1.webp
-  referencias:
-  - escalada: Solamente
-    ids:
-    - '1'
-  - escalada: Nesse Mato Tem Cachorro
-    ids:
-    - '2'
-  - escalada: Vr. Cachorro Louco
-    ids:
-    - '2'
-  - escalada: Libera Liberou
-    ids:
-    - '3'
-  largura_mapa: 1607
-  altura_mapa: 1025
-  pontos_de_interesse:
-  - id: '1'
-    label: '1'
-    circulo:
-      x: 934
-      y: 340
-      raio: 25
-  - id: '2'
-    label: '2'
-    circulo:
-      x: 1043
-      y: 522
-      raio: 26
-  - id: '3'
-    label: '3'
-    circulo:
-      x: 1095
-      y: 585
-      raio: 25
 escaladas:
 - via_movel:
     nome: Solamente

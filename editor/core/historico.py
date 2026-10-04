@@ -227,6 +227,10 @@ class GerenciadorHistorico(QObject):
         if diff == 0:
             return
 
+        if self._gravacao_pausada:
+            self._ultimo_index = novo_index
+            return
+
         try:
             if diff > 0:
                 # Redo ou Push: o comando executado está no índice anterior
@@ -251,6 +255,7 @@ class GerenciadorHistorico(QObject):
             CmdAlterarRepeatedItem,
             CmdAlterarMultiplosRepeatedItems,
             CmdRenomearEscalada,
+            MensagemAlvoNaoEncontradaError,
         )
 
         if not cmd:
@@ -270,40 +275,71 @@ class GerenciadorHistorico(QObject):
                 self._despachar_sinal(sub_cmd, is_undo)
             return
 
+        def _obter_msg_segura(comando: Any) -> Any:
+            try:
+                obter_fn = getattr(comando, "_obter_msg", None)
+                if callable(obter_fn):
+                    return obter_fn(levantar_se_nao_encontrado=True)
+                return getattr(comando, "msg", None)
+            except (MensagemAlvoNaoEncontradaError, LookupError, AttributeError):
+                return None
+
         if isinstance(cmd, CmdAlterarPrimitivo):
+            msg = _obter_msg_segura(cmd)
+            if msg is None:
+                return
             valor = cmd.valor_antigo if is_undo else cmd.valor_novo
-            self.sinal_campo_alterado.emit(id(cmd.msg), cmd.campo_nome, valor)
+            self.sinal_campo_alterado.emit(id(msg), cmd.campo_nome, valor)
 
         elif isinstance(cmd, CmdRenomearEscalada):
+            msg = _obter_msg_segura(cmd)
+            if msg is None:
+                return
             valor = cmd.nome_antigo if is_undo else cmd.nome_novo
-            self.sinal_campo_alterado.emit(id(cmd.msg_escalada), cmd.campo_nome, valor)
+            self.sinal_campo_alterado.emit(id(msg), cmd.campo_nome, valor)
             for ref in cmd.referencias:
-                self.sinal_campo_alterado.emit(id(ref), "escalada", valor)
+                if ref is not None:
+                    self.sinal_campo_alterado.emit(id(ref), "escalada", valor)
 
         elif isinstance(cmd, CmdAdicionarRepeated):
+            msg = _obter_msg_segura(cmd)
+            if msg is None:
+                return
             if is_undo:
-                self.sinal_item_removido.emit(id(cmd.msg), cmd.campo_nome, cmd.index)
+                self.sinal_item_removido.emit(id(msg), cmd.campo_nome, cmd.index)
             else:
-                self.sinal_item_adicionado.emit(id(cmd.msg), cmd.campo_nome, cmd.index)
+                self.sinal_item_adicionado.emit(id(msg), cmd.campo_nome, cmd.index)
 
         elif isinstance(cmd, CmdRemoverRepeated):
+            msg = _obter_msg_segura(cmd)
+            if msg is None:
+                return
             if is_undo:
-                self.sinal_item_adicionado.emit(id(cmd.msg), cmd.campo_nome, cmd.index)
+                self.sinal_item_adicionado.emit(id(msg), cmd.campo_nome, cmd.index)
             else:
-                self.sinal_item_removido.emit(id(cmd.msg), cmd.campo_nome, cmd.index)
+                self.sinal_item_removido.emit(id(msg), cmd.campo_nome, cmd.index)
 
         elif isinstance(cmd, CmdAlterarRepeatedItem):
+            msg = _obter_msg_segura(cmd)
+            if msg is None:
+                return
             valor = cmd.valor_antigo if is_undo else cmd.valor_novo
             chave = f"{cmd.campo_nome}[{cmd.index}]"
-            self.sinal_campo_alterado.emit(id(cmd.msg), chave, valor)
+            self.sinal_campo_alterado.emit(id(msg), chave, valor)
 
         elif isinstance(cmd, CmdAlterarMultiplosRepeatedItems):
+            msg = _obter_msg_segura(cmd)
+            if msg is None:
+                return
             # Para múltiplos itens, emitimos o sinal de alteração no nome do campo repetido (apenas informativo)
-            self.sinal_campo_alterado.emit(id(cmd.msg), cmd.campo_nome, cmd.alteracoes)
+            self.sinal_campo_alterado.emit(id(msg), cmd.campo_nome, cmd.alteracoes)
 
         elif isinstance(cmd, CmdAlterarOneof):
+            msg = _obter_msg_segura(cmd)
+            if msg is None:
+                return
             valor = cmd.nome_antigo if is_undo else cmd.nome_novo
-            self.sinal_campo_alterado.emit(id(cmd.msg), cmd.oneof_nome, valor)
+            self.sinal_campo_alterado.emit(id(msg), cmd.oneof_nome, valor)
 
 
 

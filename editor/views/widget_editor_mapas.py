@@ -29,6 +29,12 @@ from google.protobuf.message import Message
 from aresta_api.proto.generated import croqui_pb2
 from editor.commands.comandos_protobuf import resolver_caminho_mensagem
 
+shiboken6: Any
+try:
+    import shiboken6
+except ImportError:
+    shiboken6 = None
+
 def registrar_movimento_final(item: Any, estado_inicial: Optional[Dict[str, Any]]) -> None:
     estado_final = copy.deepcopy(item.obter_dict_atualizado())
     if estado_inicial and estado_inicial != estado_final:
@@ -1882,6 +1888,12 @@ class VisualizadorMapa(QGraphicsView):
                 iniciar_arrasto = True
             elif (not item or isinstance(item, QGraphicsPixmapItem)) and cursor_atual != Qt.CursorShape.CrossCursor:
                 iniciar_arrasto = True
+                cena = self.scene()
+                if cena and hasattr(cena, 'widget_editor'):
+                    widget = cena.widget_editor
+                    if widget and not getattr(widget, 'modo_linkagem', False) and not getattr(widget, 'modo_camera', False):
+                        if hasattr(widget, 'painel_referencias') and widget.painel_referencias:
+                            widget.painel_referencias.desmarcar_selecao()
                 
         if iniciar_arrasto:
             self._arrastando_mapa = True
@@ -2059,6 +2071,7 @@ class WidgetEditorMapas(QWidget):
         self.item_camera_overlay: Optional[Any] = None
         self.referencia_linkagem_ativa: Optional[Any] = None
         self.idx_referencia_linkagem: int = -1
+        self.referencia_selecionada: Optional[Any] = None
 
         self._setup_ui()
         
@@ -2312,12 +2325,22 @@ class WidgetEditorMapas(QWidget):
         self.splitter.setSizes([260, 680, 260])
         self.painel_referencias.destacar_pois.connect(self.destacar_pois_temporariamente)
         self.painel_referencias.remover_destaque_pois.connect(self.remover_destaque_pois)
+        self.painel_referencias.referencia_selecionada.connect(self._on_referencia_selecionada)
+        self.painel_referencias.referencia_desmarcada.connect(self._on_referencia_desmarcada)
         self.painel_referencias.iniciar_modo_linkagem.connect(self.iniciar_modo_linkagem)
         self.painel_referencias.parar_modo_linkagem.connect(self.parar_modo_linkagem)
         self.painel_referencias.iniciar_modo_camera.connect(self.iniciar_modo_camera)
         self.painel_referencias.parar_modo_camera.connect(self.parar_modo_camera)
         self.painel_referencias.salvar_modo_camera.connect(self.salvar_ajuste_camera)
         self.painel_referencias.remover_ajuste_camera.connect(self.remover_ajuste_camera)
+
+    def _on_referencia_selecionada(self, index: int, referencia: Any) -> None:
+        self.referencia_selecionada = referencia
+        self.destacar_pois_temporariamente(referencia)
+
+    def _on_referencia_desmarcada(self) -> None:
+        self.referencia_selecionada = None
+        self.remover_destaque_pois()
 
     def _conectar_model_repeated(self, model: Any) -> None:
         """Conecta com segurança os sinais de repeated do CroquiModel."""
@@ -2365,8 +2388,41 @@ class WidgetEditorMapas(QWidget):
         caminho = resolver_caminho_mensagem(croqui_real, self.msg_mapa_proxy)
         return bool(caminho)
 
+    def _remover_item_seguro(self, item: Any, cena: Optional[Any] = None) -> None:
+        """Remove um QGraphicsItem da cena com segurança, garantindo que seu objeto C++ subjacente não foi deletado."""
+        if item is None:
+            return
+        try:
+            if shiboken6 is not None and hasattr(shiboken6, "isValid"):
+                if not shiboken6.isValid(item):
+                    return
+            target_cena = cena
+            if target_cena is None and self.dados_atuais:
+                target_cena = self.dados_atuais.get("cena")
+            if target_cena is None and hasattr(item, "scene"):
+                target_cena = item.scene()
+            if target_cena is not None:
+                if hasattr(item, "scene") and item.scene() == target_cena:
+                    target_cena.removeItem(item)
+        except Exception:
+            pass
+
+    def cancelar_modos_interativos(self) -> None:
+        """Encerra com segurança quaisquer modos temporários ou interativos ativos."""
+        if getattr(self, "modo_desenho", False):
+            self.cancelar_modo_desenho()
+        if getattr(self, "modo_nova_rota", False):
+            self.cancelar_modo_nova_rota()
+        if getattr(self, "modo_conversao", False):
+            self.parar_modo_conversao()
+        if getattr(self, "modo_camera", False):
+            self.parar_modo_camera()
+        if getattr(self, "modo_linkagem", False):
+            self.parar_modo_linkagem()
+
     def descarregar_mapa(self) -> None:
         """Descarrega o mapa atual, limpando a cena, itens e referências."""
+        self.cancelar_modos_interativos()
         self.msg_mapa_proxy = None
         self.pico_idx = -1
         self.sg_idx = -1
@@ -2622,6 +2678,7 @@ class WidgetEditorMapas(QWidget):
 
     def set_mapa_atual(self, msg_mapa_proxy: Any, pico_idx: Optional[int] = -1, grupo_idx: Optional[int] = -1, mapa_idx: Optional[int] = -1, s_idx: Optional[int] = -1, e_idx: Optional[int] = -1, tipo: str = 'setor') -> None:
         """Define o mapa atual para exibição na view, limpando a cena."""
+        self.cancelar_modos_interativos()
         self.msg_mapa_proxy = msg_mapa_proxy
         self.pico_idx = pico_idx
         self.sg_idx = grupo_idx
@@ -2629,6 +2686,7 @@ class WidgetEditorMapas(QWidget):
         self.s_idx = s_idx
         self.e_idx = e_idx
         self.tipo = tipo
+        self.referencia_selecionada = None
         self.dados_atuais = {
             'cena': CenaDesenho(self),
             'itens_bb': [],
@@ -2694,6 +2752,7 @@ class WidgetEditorMapas(QWidget):
         self.label_placeholder.hide()
         if not self.dados_atuais:
             return
+        self.cancelar_modos_interativos()
         dados = self.dados_atuais
         cena = dados['cena']
         cena.clear()
@@ -2808,7 +2867,7 @@ class WidgetEditorMapas(QWidget):
             item_visual = ItemTrajetoLinha(pt_dict, cb_deletar)
             
         if item_visual:
-            item_visual.set_clique_handler(self.tratar_clique_poi_linkagem)
+            item_visual.set_clique_handler(self.tratar_clique_poi)
             cena.addItem(item_visual)
             self.itens_poi[index] = item_visual
             if self.dados_atuais:
@@ -2957,9 +3016,9 @@ class WidgetEditorMapas(QWidget):
             self.esta_modificado = True
             self.alterado.emit(True)
 
-    # Lógica de Desenho e Conversão
     def iniciar_modo_desenho(self, dados: Any) -> None:
         if not self._mapa_ativo_valido(): return
+        self.cancelar_modos_interativos()
         self.modo_desenho = True
         self.pontos_desenho = []
         self.dados_atuais = dados
@@ -2975,6 +3034,26 @@ class WidgetEditorMapas(QWidget):
         self.alcas_desenho_temp = []
 
     def adicionar_ponto_desenho(self, pos: QPointF) -> None:
+        if not self.modo_desenho:
+            return
+        cena_atual = self.dados_atuais.get('cena') if self.dados_atuais else None
+        if not cena_atual:
+            self.cancelar_modo_desenho()
+            return
+
+        # Verifica integridade do item temporário em C++
+        valido = self.item_desenho_temp is not None
+        if valido and self.item_desenho_temp is not None and shiboken6 is not None and hasattr(shiboken6, "isValid"):
+            valido = bool(shiboken6.isValid(self.item_desenho_temp))
+        if valido and self.item_desenho_temp is not None and hasattr(self.item_desenho_temp, "scene"):
+            valido = (self.item_desenho_temp.scene() == cena_atual)
+
+        if not valido:
+            self.item_desenho_temp = QGraphicsPathItem()
+            self.item_desenho_temp.setPen(QPen(QColor(255, 100, 100), 2))
+            self.item_desenho_temp.setBrush(QBrush(QColor(255, 100, 100, 50)))
+            cena_atual.addItem(self.item_desenho_temp)
+
         if self.pontos_desenho:
             p_inicio = self.pontos_desenho[0]
             dist = math.sqrt((pos.x() - p_inicio.x())**2 + (pos.y() - p_inicio.y())**2)
@@ -2987,21 +3066,23 @@ class WidgetEditorMapas(QWidget):
         path.moveTo(self.pontos_desenho[0])
         for p in self.pontos_desenho[1:]:
             path.lineTo(p)
-        if self.item_desenho_temp is not None: self.item_desenho_temp.setPath(path)
+        if self.item_desenho_temp is not None:
+            self.item_desenho_temp.setPath(path)
         
         alca = QGraphicsEllipseItem(-4, -4, 8, 8)
         alca.setPos(pos)
         alca.setPen(QPen(QColor(255, 100, 100)))
         alca.setBrush(QBrush(QColor(255, 255, 255)))
         alca.setZValue(1000)
-        if self.dados_atuais: self.dados_atuais['cena'].addItem(alca)
+        cena_atual.addItem(alca)
         self.alcas_desenho_temp.append(alca)
 
     def desfazer_ponto_desenho(self) -> None:
         if self.pontos_desenho:
             self.pontos_desenho.pop()
-            alca = self.alcas_desenho_temp.pop()
-            if self.dados_atuais: self.dados_atuais['cena'].removeItem(alca)
+            if self.alcas_desenho_temp:
+                alca = self.alcas_desenho_temp.pop()
+                self._remover_item_seguro(alca)
             if not self.pontos_desenho:
                 self.cancelar_modo_desenho()
             else:
@@ -3009,7 +3090,12 @@ class WidgetEditorMapas(QWidget):
                 path.moveTo(self.pontos_desenho[0])
                 for p in self.pontos_desenho[1:]:
                     path.lineTo(p)
-                if self.item_desenho_temp is not None: self.item_desenho_temp.setPath(path)
+                if self.item_desenho_temp is not None:
+                    valido = True
+                    if shiboken6 is not None and hasattr(shiboken6, "isValid"):
+                        valido = shiboken6.isValid(self.item_desenho_temp)
+                    if valido:
+                        self.item_desenho_temp.setPath(path)
 
     def finalizar_modo_desenho(self) -> None:
         if not self._mapa_ativo_valido():
@@ -3047,11 +3133,11 @@ class WidgetEditorMapas(QWidget):
         self.label_modo.setVisible(False)
         # self.visualizador.setDragMode(QGraphicsView.DragMode.ScrollHandDrag) # Substituído por controle customizado
         self.visualizador.unsetCursor()
-        if self.item_desenho_temp and self.dados_atuais:
-            self.dados_atuais['cena'].removeItem(self.item_desenho_temp)
+        if self.item_desenho_temp:
+            self._remover_item_seguro(self.item_desenho_temp)
             self.item_desenho_temp = None
         for alca in self.alcas_desenho_temp:
-            if self.dados_atuais: self.dados_atuais['cena'].removeItem(alca)
+            self._remover_item_seguro(alca)
         self.alcas_desenho_temp = []
         self.pontos_desenho = []
 
@@ -3141,6 +3227,7 @@ class WidgetEditorMapas(QWidget):
         """Inicia o modo interativo de desenho do traçado para a rota informada ou linha avulsa."""
         if not self._mapa_ativo_valido():
             return
+        self.cancelar_modos_interativos()
         if dados_mapa is not None:
             self.dados_atuais = dados_mapa
         self.modo_nova_rota = True
@@ -3175,6 +3262,15 @@ class WidgetEditorMapas(QWidget):
             return pos
 
         cena = self.dados_atuais['cena']
+        if self.item_mira_snap is not None:
+            valido = True
+            if shiboken6 is not None and hasattr(shiboken6, "isValid"):
+                valido = shiboken6.isValid(self.item_mira_snap)
+            if valido and hasattr(self.item_mira_snap, "scene"):
+                valido = (self.item_mira_snap.scene() == cena)
+            if not valido:
+                self.item_mira_snap = None
+
         from editor.core.topologia_trajeto import Ponto2D, calcular_snap, TipoSnap
 
         linhas_existentes = []
@@ -3205,6 +3301,27 @@ class WidgetEditorMapas(QWidget):
 
     def adicionar_ponto_nova_rota(self, pos: QPointF) -> None:
         """Adiciona um ponto ao traçado da nova rota com suporte a snap magnético."""
+        if not self.modo_nova_rota:
+            return
+        cena_atual = self.dados_atuais.get('cena') if self.dados_atuais else None
+        if not cena_atual:
+            self.cancelar_modo_nova_rota()
+            return
+
+        valido = self.item_desenho_nova_rota_temp is not None
+        if valido and self.item_desenho_nova_rota_temp is not None and shiboken6 is not None and hasattr(shiboken6, "isValid"):
+            valido = bool(shiboken6.isValid(self.item_desenho_nova_rota_temp))
+        if valido and self.item_desenho_nova_rota_temp is not None and hasattr(self.item_desenho_nova_rota_temp, "scene"):
+            valido = (self.item_desenho_nova_rota_temp.scene() == cena_atual)
+
+        if not valido:
+            self.item_desenho_nova_rota_temp = QGraphicsPathItem()
+            pen = QPen(QColor(46, 125, 50), 3, Qt.PenStyle.CustomDashLine)
+            pen.setDashPattern([6, 3])
+            self.item_desenho_nova_rota_temp.setPen(pen)
+            self.item_desenho_nova_rota_temp.setBrush(QBrush(Qt.GlobalColor.transparent))
+            cena_atual.addItem(self.item_desenho_nova_rota_temp)
+
         pos_ajustada = self.atualizar_mira_snap(pos)
         self.pontos_nova_rota.append(pos_ajustada)
 
@@ -3227,8 +3344,7 @@ class WidgetEditorMapas(QWidget):
         alca_temp.setPen(QPen(QColor(255, 255, 255), 2))
         alca_temp.setBrush(QBrush(QColor(46, 125, 50)))
         alca_temp.setZValue(1000)
-        if self.dados_atuais and 'cena' in self.dados_atuais:
-            self.dados_atuais['cena'].addItem(alca_temp)
+        cena_atual.addItem(alca_temp)
         self.alcas_desenho_nova_rota_temp.append(alca_temp)
 
     def desfazer_ponto_nova_rota(self) -> None:
@@ -3237,8 +3353,7 @@ class WidgetEditorMapas(QWidget):
             self.pontos_nova_rota.pop()
             if self.alcas_desenho_nova_rota_temp:
                 alca_temp = self.alcas_desenho_nova_rota_temp.pop()
-                if self.dados_atuais and 'cena' in self.dados_atuais:
-                    self.dados_atuais['cena'].removeItem(alca_temp)
+                self._remover_item_seguro(alca_temp)
             if not self.pontos_nova_rota:
                 self.cancelar_modo_nova_rota()
             else:
@@ -3253,7 +3368,11 @@ class WidgetEditorMapas(QWidget):
                 elif len(self.pontos_nova_rota) == 1:
                     path.moveTo(self.pontos_nova_rota[0])
                 if self.item_desenho_nova_rota_temp is not None:
-                    self.item_desenho_nova_rota_temp.setPath(path)
+                    valido = True
+                    if shiboken6 is not None and hasattr(shiboken6, "isValid"):
+                        valido = shiboken6.isValid(self.item_desenho_nova_rota_temp)
+                    if valido:
+                        self.item_desenho_nova_rota_temp.setPath(path)
 
     def finalizar_modo_nova_rota(self) -> None:
         """Conclui o traçado da nova rota ou linha avulsa e aciona o controller."""
@@ -3319,15 +3438,14 @@ class WidgetEditorMapas(QWidget):
         self.dados_nova_rota_atual = None
         self.label_modo.setVisible(False)
         self.visualizador.unsetCursor()
-        if self.item_desenho_nova_rota_temp and self.dados_atuais and 'cena' in self.dados_atuais:
-            self.dados_atuais['cena'].removeItem(self.item_desenho_nova_rota_temp)
+        if self.item_desenho_nova_rota_temp:
+            self._remover_item_seguro(self.item_desenho_nova_rota_temp)
             self.item_desenho_nova_rota_temp = None
-        if self.item_mira_snap and self.dados_atuais and 'cena' in self.dados_atuais:
-            self.dados_atuais['cena'].removeItem(self.item_mira_snap)
+        if self.item_mira_snap:
+            self._remover_item_seguro(self.item_mira_snap)
             self.item_mira_snap = None
         for alca in self.alcas_desenho_nova_rota_temp:
-            if self.dados_atuais and 'cena' in self.dados_atuais:
-                self.dados_atuais['cena'].removeItem(alca)
+            self._remover_item_seguro(alca)
         self.alcas_desenho_nova_rota_temp = []
         self.pontos_nova_rota = []
 
@@ -3403,6 +3521,7 @@ class WidgetEditorMapas(QWidget):
 
     def iniciar_modo_conversao(self) -> None:
         if not self._mapa_ativo_valido(): return
+        self.cancelar_modos_interativos()
         self.modo_conversao = True
         self.label_conversao.setVisible(True)
         self.btn_converter.setStyleSheet("background-color: orange; font-weight: bold;")
@@ -3416,6 +3535,15 @@ class WidgetEditorMapas(QWidget):
         # self.visualizador.setDragMode(QGraphicsView.DragMode.ScrollHandDrag) # Substituído por controle customizado
         self.visualizador.unsetCursor()
         self.origem_selecao = None
+        if hasattr(self, 'item_selecao_conversao') and self.item_selecao_conversao:
+            self._remover_item_seguro(self.item_selecao_conversao)
+            self.item_selecao_conversao = None
+        if self.dados_atuais and 'cena' in self.dados_atuais:
+            cena = self.dados_atuais['cena']
+            if hasattr(cena, 'item_selecao') and cena.item_selecao:
+                self._remover_item_seguro(cena.item_selecao, cena)
+                cena.item_selecao = None
+                cena.selection_item = None
 
     def finalizar_area_conversao(self, rect: QRectF) -> None:
         if not self.dados_atuais or not self.mapas_controller or not self._mapa_ativo_valido(): return
@@ -3693,8 +3821,7 @@ class WidgetEditorMapas(QWidget):
                     gui_item.setPen(QPen(QColor(0, 255, 0), 2))
             
         if hasattr(self, 'item_hover_camera_overlay') and self.item_hover_camera_overlay:
-            if self.visualizador.scene():
-                self.visualizador.scene().removeItem(self.item_hover_camera_overlay)
+            self._remover_item_seguro(self.item_hover_camera_overlay)
             self.item_hover_camera_overlay = None
             
         if not force:
@@ -3702,6 +3829,8 @@ class WidgetEditorMapas(QWidget):
                 self.destacar_pois_temporariamente(self.referencia_camera_ativa)
             elif getattr(self, 'referencia_linkagem_ativa', None):
                 self.destacar_pois_temporariamente(self.referencia_linkagem_ativa)
+            elif getattr(self, 'referencia_selecionada', None):
+                self.destacar_pois_temporariamente(self.referencia_selecionada)
 
     def _aplicar_highlight_linkagem(self) -> None:
         self.remover_destaque_pois(force=True)
@@ -3768,8 +3897,7 @@ class WidgetEditorMapas(QWidget):
         self.referencia_camera_ativa = None
         self.modo_camera = False
         if hasattr(self, 'item_camera_overlay') and self.item_camera_overlay:
-            if self.visualizador.scene():
-                self.visualizador.scene().removeItem(self.item_camera_overlay)
+            self._remover_item_seguro(self.item_camera_overlay)
             self.item_camera_overlay = None
         self.remover_destaque_pois()
         self.label_modo.setVisible(False)
@@ -3912,6 +4040,23 @@ class WidgetEditorMapas(QWidget):
         self.referencia_linkagem_ativa = ref_nova
         self._aplicar_highlight_linkagem()
         return True
+
+    def tratar_clique_poi(self, poi_id: str) -> bool:
+        """Trata o clique sobre um POI no mapa, gerenciando modo de linkagem ou acionando a seleção bidirecional."""
+        if not self._mapa_ativo_valido():
+            return False
+        if getattr(self, 'modo_linkagem', False):
+            return self.tratar_clique_poi_linkagem(poi_id)
+        if getattr(self, 'modo_camera', False) or getattr(self, 'modo_nova_rota', False):
+            return False
+        if self.msg_mapa_proxy:
+            for idx, ref in enumerate(self.msg_mapa_proxy.referencias):
+                if poi_id in ref.ids:
+                    if hasattr(self, 'painel_referencias') and self.painel_referencias:
+                        self.painel_referencias.selecionar_referencia(idx)
+                    break
+        return False
+
 class ItemCameraOverlay(QGraphicsRectItem):
     def __init__(self, rect: Optional[QRectF] = None) -> None:
         from PySide6.QtGui import QPen, QColor, QBrush

@@ -4,8 +4,9 @@
 # Copyright (C) 2026 ARESTA
 import unittest
 from unittest.mock import MagicMock
-from PySide6.QtWidgets import QApplication
+from PySide6.QtWidgets import QApplication, QGraphicsRectItem
 from PySide6.QtCore import Qt, QPointF
+from aresta_api.proto.generated import croqui_pb2
 from editor.views.widget_editor_mapas import CenaDesenho, WidgetEditorMapas, VisualizadorMapa
 
 class TestCenaDesenho(unittest.TestCase):
@@ -5175,6 +5176,312 @@ def test_selecionar_mapa_por_indices_todos_tipos_e_fallbacks(qtbot):
 
     # 3. Item inexistente retorna False
     assert widget.selecionar_mapa_por_indices(99, 99, 99) is False
+
+
+def test_remover_destaque_pois_restaura_referencia_selecionada(qtbot):
+    """[TDD 2.1 e 2.3] Garante que remover_destaque_pois restaura o destaque da referencia_selecionada."""
+    from editor.views.widget_editor_mapas import WidgetEditorMapas
+    from aresta_api.proto.generated import croqui_pb2
+    from PySide6.QtGui import QColor
+
+    widget = WidgetEditorMapas()
+    qtbot.addWidget(widget)
+
+    mapa = croqui_pb2.Mapa()
+    p1 = mapa.pontos_de_interesse.add()
+    p1.id = "poi_1"
+    p1.circulo.x = 50; p1.circulo.y = 50; p1.circulo.raio = 10
+
+    p2 = mapa.pontos_de_interesse.add()
+    p2.id = "poi_2"
+    p2.circulo.x = 100; p2.circulo.y = 100; p2.circulo.raio = 10
+
+    ref1 = mapa.referencias.add()
+    ref1.grupo = "Ref 1"
+    ref1.ids.append("poi_1")
+
+    ref2 = mapa.referencias.add()
+    ref2.grupo = "Ref 2"
+    ref2.ids.append("poi_2")
+
+    widget.carregar_mapa(mapa)
+
+    item_poi1 = widget.itens_poi[0]
+    item_poi2 = widget.itens_poi[1]
+
+    # Simula seleção ativa da Ref 1
+    widget.referencia_selecionada = ref1
+    widget.destacar_pois_temporariamente(ref1)
+
+    # POI 1 deve estar destacado em ciano (0, 255, 255)
+    assert item_poi1.pen().color().name().upper() == "#00FFFF"
+    assert item_poi2.pen().color().name().upper() != "#00FFFF"
+
+    # Hover em Ref 2
+    widget.destacar_pois_temporariamente(ref2)
+    assert item_poi2.pen().color().name().upper() == "#00FFFF"
+
+    # Hover out: deve restaurar o destaque da Ref 1 selecionada
+    widget.remover_destaque_pois()
+    assert item_poi1.pen().color().name().upper() == "#00FFFF"
+    assert item_poi2.pen().color().name().upper() != "#00FFFF"
+
+
+def test_clique_fundo_mapa_desmarca_referencia_ativa(qtbot):
+    """[TDD 2.4] Verifica que clicar em área vazia do visualizador desmarca a referência ativa."""
+    from editor.views.widget_editor_mapas import WidgetEditorMapas
+    from aresta_api.proto.generated import croqui_pb2
+    from PySide6.QtGui import QMouseEvent
+    from PySide6.QtCore import Qt, QPointF, QEvent
+
+    widget = WidgetEditorMapas()
+    qtbot.addWidget(widget)
+
+    mapa = croqui_pb2.Mapa()
+    p1 = mapa.pontos_de_interesse.add()
+    p1.id = "poi_1"
+    p1.circulo.x = 50; p1.circulo.y = 50; p1.circulo.raio = 10
+
+    ref = mapa.referencias.add()
+    ref.grupo = "Ref 1"
+    ref.ids.append("poi_1")
+
+    widget.carregar_mapa(mapa)
+
+    # Seleciona a referência no painel
+    widget.painel_referencias.selecionar_referencia(0)
+    assert widget.painel_referencias.idx_card_selecionado == 0
+    assert widget.referencia_selecionada is not None
+
+    # Dispara clique em área vazia do visualizador
+    ev = QMouseEvent(
+        QEvent.Type.MouseButtonPress,
+        QPointF(20, 20),
+        QPointF(20, 20),
+        Qt.MouseButton.LeftButton,
+        Qt.MouseButton.LeftButton,
+        Qt.KeyboardModifier.NoModifier
+    )
+    widget.visualizador.mousePressEvent(ev)
+
+    # Referência deve ter sido desmarcada
+    assert widget.painel_referencias.idx_card_selecionado is None
+    assert widget.referencia_selecionada is None
+
+
+def test_clique_poi_seleciona_referencia_no_painel_bidirecional(qtbot):
+    """[TDD 3.1] Verifica que clicar em um POI no mapa em modo normal seleciona a referência proprietária."""
+    from editor.views.widget_editor_mapas import WidgetEditorMapas
+    from aresta_api.proto.generated import croqui_pb2
+    from PySide6.QtGui import QMouseEvent
+    from PySide6.QtCore import Qt, QPointF, QEvent
+
+    widget = WidgetEditorMapas()
+    qtbot.addWidget(widget)
+
+    mapa = croqui_pb2.Mapa()
+    p1 = mapa.pontos_de_interesse.add()
+    p1.id = "poi_1"
+    p1.circulo.x = 50; p1.circulo.y = 50; p1.circulo.raio = 10
+
+    p2 = mapa.pontos_de_interesse.add()
+    p2.id = "poi_2"
+    p2.circulo.x = 100; p2.circulo.y = 100; p2.circulo.raio = 10
+
+    ref1 = mapa.referencias.add()
+    ref1.grupo = "Ref 1"
+    ref1.ids.append("poi_1")
+
+    ref2 = mapa.referencias.add()
+    ref2.grupo = "Ref 2"
+    ref2.ids.append("poi_2")
+
+    widget.carregar_mapa(mapa)
+
+    item_poi2 = widget.itens_poi[1]
+
+    from PySide6.QtWidgets import QGraphicsSceneMouseEvent
+
+    # Simula clique do mouse sobre o POI 2
+    ev = QGraphicsSceneMouseEvent(QEvent.Type.GraphicsSceneMousePress)
+    ev.setButton(Qt.MouseButton.LeftButton)
+    ev.setPos(QPointF(5, 5))
+    ev.setScenePos(item_poi2.mapToScene(QPointF(5, 5)))
+    item_poi2.mousePressEvent(ev)
+
+    # Deve ter selecionado a referência 1 (índice da ref2) no painel e mantido o destaque
+    assert widget.painel_referencias.idx_card_selecionado == 1
+    assert widget.referencia_selecionada == ref2
+    assert item_poi2.pen().color().name().upper() == "#00FFFF"
+
+
+def test_tratar_clique_poi_ramificacoes_modos(qtbot):
+    """[TDD] Testa as ramificações de modo_linkagem, modo_camera, modo_nova_rota e POI sem referência em tratar_clique_poi."""
+    from editor.views.widget_editor_mapas import WidgetEditorMapas
+    from aresta_api.proto.generated import croqui_pb2
+    from unittest.mock import MagicMock
+
+    widget = WidgetEditorMapas()
+    qtbot.addWidget(widget)
+
+    # 1. Sem mapa válido
+    widget._mapa_ativo_valido = MagicMock(return_value=False)
+    assert widget.tratar_clique_poi("qualquer") is False
+
+    widget._mapa_ativo_valido = MagicMock(return_value=True)
+
+    # 2. Modo linkagem delega para tratar_clique_poi_linkagem
+    widget.modo_linkagem = True
+    widget.tratar_clique_poi_linkagem = MagicMock(return_value=True)
+    assert widget.tratar_clique_poi("poi_1") is True
+    widget.tratar_clique_poi_linkagem.assert_called_once_with("poi_1")
+    widget.modo_linkagem = False
+
+    # 3. Modo câmera ativo
+    widget.modo_camera = True
+    assert widget.tratar_clique_poi("poi_1") is False
+    widget.modo_camera = False
+
+    # 4. Modo nova rota ativo
+    widget.modo_nova_rota = True
+    assert widget.tratar_clique_poi("poi_1") is False
+    widget.modo_nova_rota = False
+
+    # 5. POI sem referência correspondente
+    mapa = croqui_pb2.Mapa()
+    ref = mapa.referencias.add()
+    ref.ids.append("outro_poi")
+    widget.carregar_mapa(mapa)
+    widget.painel_referencias.selecionar_referencia = MagicMock()
+    assert widget.tratar_clique_poi("poi_sem_ref") is False
+    widget.painel_referencias.selecionar_referencia.assert_not_called()
+
+
+def test_troca_de_mapa_durante_modo_desenho_cancela_e_nao_lanca_shiboken(qtbot):
+    """Verifica se a troca de mapa durante modo_desenho cancela o modo com segurança sem gerar erro Shiboken."""
+    widget = WidgetEditorMapas()
+    qtbot.addWidget(widget)
+    widget._mapa_ativo_valido = lambda: True
+
+    mapa1 = croqui_pb2.Mapa()
+    mapa2 = croqui_pb2.Mapa()
+
+    widget.set_mapa_atual(mapa1)
+    widget.iniciar_modo_desenho(widget.dados_atuais)
+    assert widget.modo_desenho is True
+    assert widget.item_desenho_temp is not None
+
+    # Troca de mapa
+    widget.set_mapa_atual(mapa2)
+    assert widget.modo_desenho is False
+    assert widget.item_desenho_temp is None
+
+    # Próximo clique não deve lançar exceção do Shiboken
+    widget.adicionar_ponto_desenho(QPointF(10, 10))
+
+
+def test_recarregamento_cena_durante_modo_nova_rota_e_modo_conversao(qtbot):
+    """Verifica se recarregar ou descarregar cena durante nova rota e conversão limpa os modos com segurança."""
+    widget = WidgetEditorMapas()
+    qtbot.addWidget(widget)
+    widget._mapa_ativo_valido = lambda: True
+
+    mapa1 = croqui_pb2.Mapa()
+    widget.set_mapa_atual(mapa1)
+
+    # 1. Modo nova rota
+    widget.iniciar_modo_nova_rota({"sem_ligacao": True})
+    assert widget.modo_nova_rota is True
+    assert widget.item_desenho_nova_rota_temp is not None
+
+    # Recarregar mapa cancela modo_nova_rota
+    widget.carregar_mapa(mapa1)
+    assert widget.modo_nova_rota is False
+    assert widget.item_desenho_nova_rota_temp is None
+    # Adicionar ponto após recarga não quebra
+    widget.adicionar_ponto_nova_rota(QPointF(20, 20))
+
+    # 2. Modo conversão
+    widget.modo_conversao = True
+    item_sel = QGraphicsRectItem()
+    widget.dados_atuais["cena"].addItem(item_sel)
+    widget.item_selecao_conversao = item_sel
+    cena_anterior = widget.dados_atuais["cena"]
+    setattr(cena_anterior, "item_selecao", item_sel)
+
+    widget.descarregar_mapa()
+    assert widget.modo_conversao is False
+
+
+def test_cancelar_modos_seguro_apos_cena_clear(qtbot):
+    """Verifica se cancelar_modo_desenho e cancelar_modo_nova_rota não falham mesmo após cena.clear()."""
+    widget = WidgetEditorMapas()
+    qtbot.addWidget(widget)
+    widget._mapa_ativo_valido = lambda: True
+
+    mapa1 = croqui_pb2.Mapa()
+    widget.set_mapa_atual(mapa1)
+
+    # Inicia modo desenho e limpa a cena via clear() antes de cancelar
+    widget.iniciar_modo_desenho(widget.dados_atuais)
+    cena = widget.dados_atuais["cena"]
+    cena.clear()
+
+    # O cancelamento não deve lançar RuntimeError: libshiboken: Internal C++ object already deleted
+    widget.cancelar_modo_desenho()
+    assert widget.modo_desenho is False
+    assert widget.item_desenho_temp is None
+
+    # Inicia nova rota e limpa a cena
+    widget.iniciar_modo_nova_rota({"sem_ligacao": True})
+    cena.clear()
+
+    widget.cancelar_modo_nova_rota()
+    assert widget.modo_nova_rota is False
+    assert widget.item_desenho_nova_rota_temp is None
+
+
+def test_cancelar_modos_interativos_camera_linkagem_e_cobertura_defensiva(qtbot):
+    """Garante 100% de cobertura nos ramos defensivos de _remover_item_seguro e cancelar_modos_interativos."""
+    widget = WidgetEditorMapas()
+    qtbot.addWidget(widget)
+
+    # 1. _remover_item_seguro com None
+    widget._remover_item_seguro(None)
+
+    # 2. _remover_item_seguro com exceção
+    mock_item_erro = MagicMock()
+    mock_item_erro.scene.side_effect = RuntimeError("Erro simulado")
+    widget._remover_item_seguro(mock_item_erro)
+
+    # 3. cancelar_modos_interativos com camera e linkagem
+    widget.modo_camera = True
+    widget.modo_linkagem = True
+    widget.cancelar_modos_interativos()
+    assert widget.modo_camera is False
+    assert widget.modo_linkagem is False
+
+    # 4. adicionar_ponto_desenho e adicionar_ponto_nova_rota desativados
+    widget.modo_desenho = False
+    widget.adicionar_ponto_desenho(QPointF(0, 0))
+
+    widget.modo_nova_rota = False
+    widget.adicionar_ponto_nova_rota(QPointF(0, 0))
+
+    # 5. adicionar_ponto com dados_atuais vazio
+    widget.modo_desenho = True
+    widget.dados_atuais = None
+    widget.adicionar_ponto_desenho(QPointF(0, 0))
+    assert widget.modo_desenho is False
+
+    widget.modo_nova_rota = True
+    widget.dados_atuais = None
+    widget.adicionar_ponto_nova_rota(QPointF(0, 0))
+    assert widget.modo_nova_rota is False
+
+
+
+
 
 
 

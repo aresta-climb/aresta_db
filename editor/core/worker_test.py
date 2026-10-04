@@ -9,6 +9,7 @@ import pygit2
 from editor.core.worker import TarefaPublicacao, TarefaInicializacao
 from editor.core.gerenciador_sessao import SessaoUsuario
 from editor.core.servico_submissao import ResultadoSubmissao, ErroSubmissao
+from editor.core.sync import ErroSincronizacaoGit
 
 class TestWorker(unittest.TestCase):
     """Testes unitários para as tarefas de background do editor."""
@@ -321,6 +322,107 @@ class TestWorker(unittest.TestCase):
         tarefa.erro.emit.assert_called_once_with(
             "Autenticação necessária para utilizar o Aresta Editor."
         )
+
+    @patch("editor.core.worker.GerenciadorSincronizacao")
+    @patch("editor.core.worker.GerenciadorCaminhos")
+    @patch("editor.core.worker.ServicoLoja")
+    def test_tarefa_inicializacao_falha_fetch_com_base_existente_continua_offline(
+        self, mock_servico_loja_class, mock_storage_class, mock_sync_class
+    ):
+        """Quando o repositório já existe e o fetch falha, deve emitir aviso e continuar com sucesso em modo offline."""
+        from editor.core.servico_loja import ResultadoAtualizacao, StatusAtualizacao
+
+        mock_servico = mock_servico_loja_class.return_value
+        mock_servico.verificar_atualizacoes_disponiveis.return_value = ResultadoAtualizacao(
+            status=StatusAtualizacao.NAO_APLICAVEL
+        )
+
+        mock_storage = mock_storage_class.return_value
+        caminho_repo = MagicMock()
+        caminho_repo.exists.return_value = True
+        caminho_repo.iterdir.return_value = ["dummy"]
+        mock_storage.obter_caminho_base_repo.return_value = caminho_repo
+
+        mock_sync = mock_sync_class.return_value
+        mock_sync.fazer_fetch.side_effect = ErroSincronizacaoGit("Tempo limite esgotado...")
+
+        tarefa = TarefaInicializacao()
+        tarefa.gerenciador_sessao = MagicMock()
+        tarefa.cliente_auth = MagicMock()
+        tarefa.sessao_usuario = SessaoUsuario(
+            email="autor@arestaclimb.com",
+            nome_completo="Renato Autor",
+            jwt_supabase="jwt.valido",
+            token_atualizacao="refresh.valido",
+            token_github="fake_token",
+        )
+        tarefa.gerenciador_sessao.obter_sessao.return_value = tarefa.sessao_usuario
+
+        tarefa.sucesso = MagicMock()
+        tarefa.erro = MagicMock()
+        tarefa.status = MagicMock()
+        tarefa.progresso = MagicMock()
+        tarefa.mostrar_progresso = MagicMock()
+
+        tarefa.run()
+
+        # Deve configurar remotes e tentar fetch
+        mock_sync.configurar_remotes.assert_called_once()
+        mock_sync.fazer_fetch.assert_called_once()
+        # Não deve tentar checkout do upstream se o fetch falhou
+        mock_sync.fazer_checkout_main_upstream.assert_not_called()
+        # Não deve emitir erro crítico
+        tarefa.erro.emit.assert_not_called()
+        # Deve emitir sucesso concluindo em modo offline
+        tarefa.sucesso.emit.assert_called_once()
+        # Deve notificar modo offline no status
+        mensagens_status = [call[0][0].lower() for call in tarefa.status.emit.call_args_list]
+        self.assertTrue(any("offline" in msg for msg in mensagens_status))
+
+    @patch("editor.core.worker.GerenciadorSincronizacao")
+    @patch("editor.core.worker.GerenciadorCaminhos")
+    @patch("editor.core.worker.ServicoLoja")
+    def test_tarefa_inicializacao_falha_clone_base_limpa_emite_erro_critico(
+        self, mock_servico_loja_class, mock_storage_class, mock_sync_class
+    ):
+        """Quando o repositório ainda não existe no disco e o clone falha, deve emitir erro crítico."""
+        from editor.core.servico_loja import ResultadoAtualizacao, StatusAtualizacao
+
+        mock_servico = mock_servico_loja_class.return_value
+        mock_servico.verificar_atualizacoes_disponiveis.return_value = ResultadoAtualizacao(
+            status=StatusAtualizacao.NAO_APLICAVEL
+        )
+
+        mock_storage = mock_storage_class.return_value
+        caminho_repo = MagicMock()
+        caminho_repo.exists.return_value = False
+        mock_storage.obter_caminho_base_repo.return_value = caminho_repo
+
+        mock_sync = mock_sync_class.return_value
+        mock_sync.clonar.side_effect = ErroSincronizacaoGit("Falha ao clonar repositório")
+
+        tarefa = TarefaInicializacao()
+        tarefa.gerenciador_sessao = MagicMock()
+        tarefa.cliente_auth = MagicMock()
+        tarefa.sessao_usuario = SessaoUsuario(
+            email="autor@arestaclimb.com",
+            nome_completo="Renato Autor",
+            jwt_supabase="jwt.valido",
+            token_atualizacao="refresh.valido",
+        )
+        tarefa.gerenciador_sessao.obter_sessao.return_value = tarefa.sessao_usuario
+
+        tarefa.sucesso = MagicMock()
+        tarefa.erro = MagicMock()
+        tarefa.status = MagicMock()
+        tarefa.progresso = MagicMock()
+        tarefa.mostrar_progresso = MagicMock()
+
+        tarefa.run()
+
+        mock_sync.clonar.assert_called_once()
+        tarefa.erro.emit.assert_called_once_with("Falha ao clonar repositório")
+        tarefa.sucesso.emit.assert_not_called()
 
     def test_tarefa_dados_conexao_emite_dados_completos(self):
         """Valida que TarefaDadosConexao executa solicitar_sessao_servidor e emite sinais corretamente."""

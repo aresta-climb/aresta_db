@@ -602,7 +602,7 @@ arquivos:
 - caminho_relativo: br_mg_diamantina_diamaboulder/compilado.md
   checksum_sha256: aeb01ba15dc7247405045719759e8b4d3957a72c011061fa6beab7ccce877bfd
 - caminho_relativo: br_mg_ferros_ferros/compilado.binarypb
-  checksum_sha256: 597a07cb5b599a9d1d05a1ec6753703bf69e8a0abd092b86d80929ab922cd2a7
+  checksum_sha256: 1472fcdc96667e5cecb514fce57591cda7a6603405a8219c2eb2974a5be03d0f
 - caminho_relativo: thumbnails/br_mg_ferros_ferros.webp
   checksum_sha256: 84902a86389e5ffd380d2584588e2ddcb820bb3b96b90fb6d8cc7ae3feabbb48
 - caminho_relativo: br_mg_ferros_ferros/imagens/capa_p0_i0.webp
@@ -820,9 +820,9 @@ arquivos:
 - caminho_relativo: br_mg_ferros_ferros/imagens/sobre_ferros_e_historia_p0_i0.webp
   checksum_sha256: f766ed8599b01fd66a48273b4a7329ce3cb0127da44e5fb99eec5063bfd49918
 - caminho_relativo: br_mg_ferros_ferros/compilado.yaml
-  checksum_sha256: 540c8dd57f614f0441eb511ec645b0678f1aedbcdd48d5e273348fff17438e15
+  checksum_sha256: 1342ba72059172a622fec2554e3e1d79e8c5deb15862c994a0e9e1613eb845e7
 - caminho_relativo: br_mg_ferros_ferros/compilado.md
-  checksum_sha256: 6e0a2033ef053aa5eea4a1eaf93ed8562e649310008985ef5246ae5c33380658
+  checksum_sha256: 469be41cf708dda99773ef42f337e88a887bbcd20e6258f6f174b5345f251b1e
 - caminho_relativo: br_mg_igarape_pedra_grande/compilado.binarypb
   checksum_sha256: 3c175e84c81a7cc6aef6624671abd5839f21c5267635cb164a64db0f5a010da9
 - caminho_relativo: thumbnails/br_mg_igarape_pedra_grande.webp
@@ -2232,6 +2232,6 @@ arquivos:
 - caminho_relativo: br_rj_nova_friburgobom_jardim_capelinha/compilado.md
   checksum_sha256: ba81dd87949c18f9ff95512c2fb25f9210fb9590fc591004b0905fdb8c8ec582
 - caminho_relativo: indice.binarypb
-  checksum_sha256: 8e7ec99225df10cd79f977589ad5d87ef39519370c1e001b6e8d22fd123cb9d2
+  checksum_sha256: 1db8b7c021a633248ff6de8c964aa2de6e20a59489b10bf1fb24ed19d5bbde30
 - caminho_relativo: indice.yaml
-  checksum_sha256: ed20d0f3ff0b7e3e83842ef0260a622afd71ed4de5194c2c2aab5453ac8ef3b3
+  checksum_sha256: 45ef00114a52e3a01f6834b3543b8d41797776c6312bc218356d286af0c5fed6

@@ -841,6 +841,63 @@ def test_deserializar_comando_sem_navegacao_ansiosa():
     assert cmd.caminho_msg == "picos.5.setores_ou_grupos.0"
 
 
+def test_mensagem_alvo_nao_encontrada_error_e_msg_cache(caplog):
+    import logging
+    import pytest
+    from aresta_api.proto.generated.croqui_pb2 import Croqui
+    from editor.models.croqui_model import CroquiModel
+    from editor.commands.comandos_protobuf import (
+        CmdAlterarPrimitivo,
+        MensagemAlvoNaoEncontradaError,
+    )
+
+    # 1. Verifica hierarquia da exceção customizada
+    assert issubclass(MensagemAlvoNaoEncontradaError, LookupError)
+
+    croqui = Croqui()
+    pico = croqui.picos.add()
+    pico.nome = "Pico A"
+    model = CroquiModel(croqui)
+
+    # 2. Comando instanciado com mensagem viva (popula _msg_cache)
+    cmd = CmdAlterarPrimitivo(
+        model=model,
+        msg=pico,
+        campo_nome="nome",
+        valor_antigo="Pico A",
+        valor_novo="Pico B",
+    )
+    assert cmd._msg_cache is pico
+
+    # Se a árvore for alterada e o caminho picos.0 se tornar inválido, mas _msg_cache estiver presente:
+    croqui.ClearField("picos")
+    assert len(croqui.picos) == 0
+
+    # Com _msg_cache presente, _obter_msg deve retornar _msg_cache sem logar erro
+    caplog.clear()
+    with caplog.at_level(logging.ERROR):
+        msg_resolvida = cmd.msg
+    assert msg_resolvida is pico
+    assert "Falha ao resolver mensagem alvo" not in caplog.text
+
+    # 3. Quando _msg_cache é None e o caminho não existe no modelo:
+    cmd._msg_cache = None
+    with pytest.raises(MensagemAlvoNaoEncontradaError):
+        cmd._obter_msg(levantar_se_nao_encontrado=True)
+
+    # Em acesso passivo via propriedade msg, retorna None e registra log de erro
+    with caplog.at_level(logging.ERROR):
+        assert cmd.msg is None
+
+    # 4. Caso de borda: _caminho_msg é None e _msg_cache é None
+    cmd._caminho_msg = None
+    assert cmd._obter_msg() is None
+
+    # 5. Caso de borda: model é None
+    cmd.model = None
+    assert cmd._obter_msg() is None
+
+
 def test_comando_editor_metodos_base_e_validacao():
     import pytest
     from aresta_api.proto.generated.croqui_pb2 import Croqui

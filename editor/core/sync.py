@@ -5,6 +5,17 @@ import pygit2
 from pathlib import Path
 from typing import Optional, Callable, Any, cast
 
+class ErroSincronizacaoGit(Exception):
+    """Exceção levantada em caso de falha de conexão, transporte ou sincronização com Git."""
+    pass
+
+def _tratar_erro_git(e: pygit2.GitError) -> ErroSincronizacaoGit:
+    """Traduz exceções pygit2.GitError, tratando especificamente a mensagem opaca 'no error'."""
+    msg = str(e).strip()
+    if msg.lower() == "no error" or "no error" in msg.lower():
+        return ErroSincronizacaoGit("Tempo limite esgotado ou falha de conexão segura (SSL) ao conectar com o GitHub.")
+    return ErroSincronizacaoGit(f"Erro no Git ao sincronizar: {msg}")
+
 class GerenciadorSincronizacao:
     """
     Gerencia operações Git (clone, fetch, reset) usando pygit2.
@@ -28,7 +39,7 @@ class GerenciadorSincronizacao:
                 # Para GitHub, usamos o token como usuário (ou x-access-token)
                 if self.token:
                     return pygit2.UserPass(self.token, "x-oauth-basic")
-                return None
+                raise pygit2.Passthrough()
 
             def transfer_progress(self, stats: Any) -> None:
                 if self.p_callback:
@@ -52,7 +63,10 @@ class GerenciadorSincronizacao:
         
         # 3. Configura remote e faz fetch (clone raso para agilizar)
         remote = repo.remotes.create("origin", url_repositorio)
-        remote.fetch(callbacks=callbacks, depth=1)
+        try:
+            remote.fetch(callbacks=callbacks, depth=1)
+        except pygit2.GitError as e:
+            raise _tratar_erro_git(e) from e
         
         # 4. Faz checkout da main
         branch_remota = repo.branches.remote.get("origin/main")
@@ -99,14 +113,25 @@ class GerenciadorSincronizacao:
 
     def fazer_fetch(self, progresso_callback: Optional[Callable[[float], None]] = None) -> None:
         """
-        Faz fetch apenas dos remotes oficiais (origin e upstream).
+        Faz fetch apenas dos remotes oficiais (origin e upstream), evitando requisições duplicadas.
         """
         repo = pygit2.Repository(str(self.caminho_repo))
         callbacks = self._obter_callbacks(progresso_callback)
         
         remotes_para_fetch = [r for r in repo.remotes if getattr(r, "name", None) in ("origin", "upstream")]
+        urls_visitadas: set[str] = set()
+
         for remote in remotes_para_fetch:
-            remote.fetch(callbacks=callbacks)
+            url = getattr(remote, "url", None)
+            if url:
+                if url in urls_visitadas:
+                    continue
+                urls_visitadas.add(url)
+
+            try:
+                remote.fetch(callbacks=callbacks)
+            except pygit2.GitError as e:
+                raise _tratar_erro_git(e) from e
 
     def fazer_checkout_main_upstream(self) -> None:
         """

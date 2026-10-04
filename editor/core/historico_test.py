@@ -676,6 +676,202 @@ class TestGerenciadorHistorico(unittest.TestCase):
             gerenciador.limpar()
             self.assertFalse(gerenciador._timer_sincronizacao.isActive())
 
+    def test_carregar_diario_salvo_silencia_sinais_ui(self):
+        """Verifica que carregar_diario_salvo silencia a emissão de sinais para a UI."""
+        import tempfile
+        from pathlib import Path
+        from editor.core.diario import GerenciadorDiario
+        from aresta_api.proto.generated.croqui_pb2 import Croqui
+        from editor.models.croqui_model import CroquiModel
+        from editor.commands.comandos_protobuf import CmdAlterarPrimitivo
+
+        with tempfile.TemporaryDirectory() as temp_dir:
+            pasta_croqui = Path(temp_dir)
+            diario = GerenciadorDiario(pasta_croqui)
+
+            croqui_orig = Croqui(nome="Original")
+            model_orig = CroquiModel(croqui_orig)
+
+            cmd1 = CmdAlterarPrimitivo(model_orig, croqui_orig, "nome", "Original", "Passo 1")
+            cmd2 = CmdAlterarPrimitivo(model_orig, croqui_orig, "nome", "Passo 1", "Passo 2")
+            diario.gravar_comando_pendente(cmd1)
+            diario.gravar_comando_pendente(cmd2)
+            diario.consolidar_salvamento()
+
+            croqui_novo = Croqui(nome="Passo 2")
+            model_novo = CroquiModel(croqui_novo)
+            gerenciador = GerenciadorHistorico()
+
+            sinais_emitidos = []
+            gerenciador.sinal_campo_alterado.connect(lambda *args: sinais_emitidos.append(("campo", args)))
+            gerenciador.sinal_item_adicionado.connect(lambda *args: sinais_emitidos.append(("adicionado", args)))
+            gerenciador.sinal_item_removido.connect(lambda *args: sinais_emitidos.append(("removido", args)))
+            gerenciador.sinal_foco_requisitado.connect(lambda *args: sinais_emitidos.append(("foco", args)))
+
+            total_carregados = gerenciador.carregar_diario_salvo(model_novo, diario)
+
+            self.assertEqual(total_carregados, 2)
+            self.assertEqual(gerenciador._pilha.count(), 2)
+            # Nenhum sinal deve ter sido emitido durante a carga do diário salvo
+            self.assertEqual(len(sinais_emitidos), 0)
+
+    def test_despachar_sinal_descarta_comando_sem_mensagem_alvo(self):
+        """Verifica que _despachar_sinal descarta graciosamente comandos cuja mensagem não pode ser resolvida sem emitir com id(None)."""
+        from aresta_api.proto.generated.croqui_pb2 import Croqui
+        from editor.models.croqui_model import CroquiModel
+        from editor.commands.comandos_protobuf import (
+            CmdAlterarPrimitivo,
+            CmdAdicionarRepeated,
+            CmdRemoverRepeated,
+            CmdAlterarRepeatedItem,
+            CmdAlterarMultiplosRepeatedItems,
+            CmdAlterarOneof,
+            CmdRenomearEscalada,
+        )
+
+        croqui = Croqui()
+        model = CroquiModel(croqui)
+        gerenciador = GerenciadorHistorico()
+
+        sinais_emitidos = []
+        gerenciador.sinal_campo_alterado.connect(lambda *args: sinais_emitidos.append(("campo", args)))
+        gerenciador.sinal_item_adicionado.connect(lambda *args: sinais_emitidos.append(("adicionado", args)))
+        gerenciador.sinal_item_removido.connect(lambda *args: sinais_emitidos.append(("removido", args)))
+
+        # Comando com caminho inexistente e _msg_cache nulo
+        cmd_primitivo = CmdAlterarPrimitivo(model, croqui, "nome", "A", "B")
+        cmd_primitivo._caminho_msg = "picos.99.setor"
+        cmd_primitivo._msg_cache = None
+
+        gerenciador._despachar_sinal(cmd_primitivo, is_undo=False)
+        gerenciador._despachar_sinal(cmd_primitivo, is_undo=True)
+
+        cmd_renomear = CmdRenomearEscalada(model=model, msg_escalada=croqui, campo_nome="nome", nome_antigo="A", nome_novo="B")
+        cmd_renomear._caminho_msg = "picos.99.via"
+        cmd_renomear._msg_cache = None
+        cmd_renomear._referencias_cache = [None]
+        gerenciador._despachar_sinal(cmd_renomear, is_undo=False)
+
+        cmd_add = CmdAdicionarRepeated(model=model, msg=croqui, campo_nome="creditos", index=0, valor="teste")
+        cmd_add._caminho_msg = "picos.99"
+        cmd_add._msg_cache = None
+        gerenciador._despachar_sinal(cmd_add, is_undo=False)
+        gerenciador._despachar_sinal(cmd_add, is_undo=True)
+
+        cmd_rem = CmdRemoverRepeated(model=model, msg=croqui, campo_nome="creditos", index=0)
+        cmd_rem._caminho_msg = "picos.99"
+        cmd_rem._msg_cache = None
+        gerenciador._despachar_sinal(cmd_rem, is_undo=False)
+        gerenciador._despachar_sinal(cmd_rem, is_undo=True)
+
+        cmd_item = CmdAlterarRepeatedItem(model=model, msg=croqui, campo_nome="creditos", index=0, valor_antigo="A", valor_novo="B")
+        cmd_item._caminho_msg = "picos.99"
+        cmd_item._msg_cache = None
+        gerenciador._despachar_sinal(cmd_item, is_undo=False)
+
+        cmd_mult = CmdAlterarMultiplosRepeatedItems(model=model, msg=croqui, campo_nome="creditos", alteracoes=[(0, "A", "B")])
+        cmd_mult._caminho_msg = "picos.99"
+        cmd_mult._msg_cache = None
+        gerenciador._despachar_sinal(cmd_mult, is_undo=False)
+
+        cmd_oneof = CmdAlterarOneof(model=model, msg=croqui, oneof_nome="detalhe", nome_antigo=None, nome_novo=None)
+        cmd_oneof._caminho_msg = "picos.99"
+        cmd_oneof._msg_cache = None
+        gerenciador._despachar_sinal(cmd_oneof, is_undo=False)
+
+        # Nenhum sinal deve ter sido emitido com id(None)
+        for tipo, args in sinais_emitidos:
+            self.assertNotEqual(args[0], id(None))
+        self.assertEqual(len(sinais_emitidos), 0)
+
+    def test_despachar_sinal_sucesso_todos_comandos(self):
+        """Valida que todos os tipos de comando emitem os sinais esperados ao despachar com mensagem válida."""
+        from aresta_api.proto.generated.croqui_pb2 import Croqui
+        from editor.models.croqui_model import CroquiModel
+        from editor.commands.comandos_protobuf import (
+            CmdAlterarPrimitivo,
+            CmdAdicionarRepeated,
+            CmdRemoverRepeated,
+            CmdAlterarRepeatedItem,
+            CmdAlterarMultiplosRepeatedItems,
+            CmdAlterarOneof,
+            CmdRenomearEscalada,
+        )
+
+        croqui = Croqui()
+        croqui.nome = "Pico"
+        croqui.creditos.append("Autor")
+        model = CroquiModel(croqui)
+        gerenciador = GerenciadorHistorico()
+
+        sinais_campo = []
+        sinais_adicionado = []
+        sinais_removido = []
+        gerenciador.sinal_campo_alterado.connect(lambda *args: sinais_campo.append(args))
+        gerenciador.sinal_item_adicionado.connect(lambda *args: sinais_adicionado.append(args))
+        gerenciador.sinal_item_removido.connect(lambda *args: sinais_removido.append(args))
+
+        # 1. CmdAlterarPrimitivo
+        cmd_prim = CmdAlterarPrimitivo(model, croqui, "nome", "Pico", "Novo Pico")
+        gerenciador._despachar_sinal(cmd_prim, is_undo=False)
+        self.assertEqual(len(sinais_campo), 1)
+        self.assertEqual(sinais_campo[-1], (id(croqui), "nome", "Novo Pico"))
+
+        # 2. CmdRenomearEscalada
+        ref_mock = Croqui()
+        cmd_ren = CmdRenomearEscalada(model=model, msg_escalada=croqui, campo_nome="nome", nome_antigo="V1", nome_novo="V2")
+        cmd_ren._referencias_cache = [ref_mock]
+        gerenciador._despachar_sinal(cmd_ren, is_undo=False)
+        self.assertEqual(sinais_campo[-2], (id(croqui), "nome", "V2"))
+        self.assertEqual(sinais_campo[-1], (id(ref_mock), "escalada", "V2"))
+
+        # 3. CmdAdicionarRepeated (redo e undo)
+        cmd_add = CmdAdicionarRepeated(model=model, msg=croqui, campo_nome="creditos", index=0, valor="Novo Autor")
+        gerenciador._despachar_sinal(cmd_add, is_undo=False)
+        self.assertEqual(sinais_adicionado[-1], (id(croqui), "creditos", 0))
+        gerenciador._despachar_sinal(cmd_add, is_undo=True)
+        self.assertEqual(sinais_removido[-1], (id(croqui), "creditos", 0))
+
+        # 4. CmdRemoverRepeated (redo e undo)
+        cmd_rem = CmdRemoverRepeated(model=model, msg=croqui, campo_nome="creditos", index=0)
+        gerenciador._despachar_sinal(cmd_rem, is_undo=False)
+        self.assertEqual(sinais_removido[-1], (id(croqui), "creditos", 0))
+        gerenciador._despachar_sinal(cmd_rem, is_undo=True)
+        self.assertEqual(sinais_adicionado[-1], (id(croqui), "creditos", 0))
+
+        # 5. CmdAlterarRepeatedItem
+        cmd_item = CmdAlterarRepeatedItem(model=model, msg=croqui, campo_nome="creditos", index=0, valor_antigo="Autor", valor_novo="Autor Editado")
+        gerenciador._despachar_sinal(cmd_item, is_undo=False)
+        self.assertEqual(sinais_campo[-1], (id(croqui), "creditos[0]", "Autor Editado"))
+
+        # 6. CmdAlterarMultiplosRepeatedItems
+        cmd_mult = CmdAlterarMultiplosRepeatedItems(model=model, msg=croqui, campo_nome="creditos", alteracoes=[(0, "Autor", "Autor Modificado")])
+        gerenciador._despachar_sinal(cmd_mult, is_undo=False)
+        self.assertEqual(sinais_campo[-1], (id(croqui), "creditos", [(0, "Autor", "Autor Modificado")]))
+
+        # 7. CmdAlterarOneof
+        cmd_oneof = CmdAlterarOneof(model=model, msg=croqui, oneof_nome="detalhe", nome_antigo="vazio", nome_novo="preenchido")
+        gerenciador._despachar_sinal(cmd_oneof, is_undo=False)
+        self.assertEqual(sinais_campo[-1], (id(croqui), "detalhe", "preenchido"))
+
+        # 8. Comando com atributo msg sem _obter_msg (cobre fallback de comando customizado)
+        class MockCmd(CmdAlterarPrimitivo):
+            _obter_msg = None
+            msg = None
+
+            def __init__(self, msg_val):
+                self.msg = msg_val
+                self.campo_nome = "nome"
+                self.valor_antigo = "A"
+                self.valor_novo = "B"
+
+            def childCount(self):
+                return 0
+
+        cmd_prim_sem_obter = MockCmd(croqui)
+        gerenciador._despachar_sinal(cmd_prim_sem_obter, is_undo=False)
+        self.assertEqual(sinais_campo[-1], (id(croqui), "nome", "B"))
+
 
 
 

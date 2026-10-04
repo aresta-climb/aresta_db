@@ -633,5 +633,72 @@ def test_cliente_tunel_casos_de_borda_e_cobertura(pasta_temporaria):
     asyncio.run(run_retry())
 
 
+def test_deve_retornar_etag_sha256_em_requisicao_proxy_com_sucesso(pasta_temporaria):
+    """A resposta proxy de arquivo existente deve incluir o cabeçalho etag com o hash SHA-256."""
+    import hashlib
+    cliente = ClienteTunelRetransmissor(
+        codigo_sessao="etag_teste",
+        pasta_compilado=pasta_temporaria,
+    )
+    conteudo = (pasta_temporaria / "indice.binarypb").read_bytes()
+    etag_esperado = f'"{hashlib.sha256(conteudo).hexdigest()}"'
+
+    resposta = cliente._ler_arquivo_proxy("req-etag-1", "indice.binarypb")
+    assert resposta["status"] == 200
+    assert "etag" in resposta["cabecalhos"]
+    assert resposta["cabecalhos"]["etag"] == etag_esperado
+    assert resposta["corpoBase64"] != ""
+
+
+def test_deve_retornar_304_not_modified_quando_if_none_match_corresponder(pasta_temporaria):
+    """Quando o cabeçalho If-None-Match coincidir com o hash SHA-256, deve responder 304 com corpo vazio."""
+    import hashlib
+    cliente = ClienteTunelRetransmissor(
+        codigo_sessao="etag_teste",
+        pasta_compilado=pasta_temporaria,
+    )
+    conteudo = (pasta_temporaria / "indice.binarypb").read_bytes()
+    etag_hash = hashlib.sha256(conteudo).hexdigest()
+    etag_com_aspas = f'"{etag_hash}"'
+
+    # Teste com aspas
+    resposta = cliente._ler_arquivo_proxy(
+        "req-304-1",
+        "indice.binarypb",
+        cabecalhos={"if-none-match": etag_com_aspas},
+    )
+    assert resposta["status"] == 304
+    assert resposta["cabecalhos"]["etag"] == etag_com_aspas
+    assert resposta["corpoBase64"] == ""
+
+    # Teste sem aspas no cabeçalho enviado pelo cliente
+    resposta2 = cliente._ler_arquivo_proxy(
+        "req-304-2",
+        "indice.binarypb",
+        cabecalhos={"If-None-Match": etag_hash},
+    )
+    assert resposta2["status"] == 304
+    assert resposta2["cabecalhos"]["etag"] == etag_com_aspas
+    assert resposta2["corpoBase64"] == ""
+
+
+def test_deve_retornar_200_quando_if_none_match_for_diferente(pasta_temporaria):
+    """Quando o cabeçalho If-None-Match não coincidir, deve responder 200 com novo payload e novo ETag."""
+    cliente = ClienteTunelRetransmissor(
+        codigo_sessao="etag_teste",
+        pasta_compilado=pasta_temporaria,
+    )
+    resposta = cliente._ler_arquivo_proxy(
+        "req-200-modificado",
+        "indice.binarypb",
+        cabecalhos={"if-none-match": '"hash_antigo_obsoleto"'},
+    )
+    assert resposta["status"] == 200
+    assert resposta["corpoBase64"] != ""
+    assert "etag" in resposta["cabecalhos"]
+    assert resposta["cabecalhos"]["etag"] != '"hash_antigo_obsoleto"'
+
+
+
 
 

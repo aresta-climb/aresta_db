@@ -119,8 +119,7 @@ class TarefaInicializacao(QThread):
             self.status.emit("Sincronizando repositório base...")
             self.mostrar_progresso.emit(True)
             
-            token_git = self.sessao_usuario.token_github if self.sessao_usuario else None
-            sync = GerenciadorSincronizacao(self.storage.obter_caminho_base_repo(), token=token_git)
+            sync = GerenciadorSincronizacao(self.storage.obter_caminho_base_repo())
             
             caminho_repo = self.storage.obter_caminho_base_repo()
             if not caminho_repo.exists() or not any(caminho_repo.iterdir()):
@@ -132,15 +131,21 @@ class TarefaInicializacao(QThread):
                 logger.info(f"Repositório existente em {caminho_repo}. Configurando remotes...")
                 sync.configurar_remotes()
             
-            # Fetch Origin e Upstream
-            logger.info("Executando fetch de dados dos remotes...")
-            self.status.emit("Fazendo fetch de dados...")
-            sync.fazer_fetch(progresso_callback=lambda p: self.progresso.emit(70 + int(p * 0.15)))
-            
-            # Checkout do upstream/main
-            logger.info("Fazendo checkout do upstream/main...")
-            self.status.emit("Aplicando estado oficial mais recente...")
-            sync.fazer_checkout_main_upstream()
+                # Fetch Origin e Upstream
+                logger.info("Executando fetch de dados dos remotes...")
+                self.status.emit("Fazendo fetch de dados...")
+                try:
+                    sync.fazer_fetch(progresso_callback=lambda p: self.progresso.emit(70 + int(p * 0.15)))
+                    
+                    # Checkout do upstream/main
+                    logger.info("Fazendo checkout do upstream/main...")
+                    self.status.emit("Aplicando estado oficial mais recente...")
+                    sync.fazer_checkout_main_upstream()
+                except Exception as e:
+                    logger.warning(
+                        f"Não foi possível sincronizar com o GitHub ({e}). Continuando em modo offline com a base local."
+                    )
+                    self.status.emit("GitHub inacessível. Usando dados locais offline...")
 
             logger.info("[Worker] Inicialização e sincronização finalizadas com sucesso!")
             self.progresso.emit(100)

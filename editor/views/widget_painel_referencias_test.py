@@ -439,5 +439,163 @@ def test_atualizar_previews_atualiza_cards(qapp):
     assert "⚠️ Sem rótulo" in card.lbl_preview.text()
 
 
+def test_card_referencia_clique_define_selecionado_e_emite_sinais(qapp):
+    """[TDD] Garante que clicar no CardReferencia seleciona o card, emite referencia_selecionada e toggle emite referencia_desmarcada."""
+    from editor.views.widget_painel_referencias import PainelReferencias
+    from PySide6.QtGui import QMouseEvent
+    from PySide6.QtCore import Qt, QPointF, QEvent
 
+    painel = PainelReferencias(None)
+    mapa = croqui_pb2.Mapa()
+    ref1 = mapa.referencias.add()
+    ref1.grupo = "Grupo 1"
+    ref2 = mapa.referencias.add()
+    ref2.grupo = "Grupo 2"
+
+    painel.carregar_mapa(mapa)
+
+    sinais_selecao = []
+    sinais_desmarcacao = []
+    painel.referencia_selecionada.connect(lambda idx, r: sinais_selecao.append((idx, r)))
+    painel.referencia_desmarcada.connect(lambda: sinais_desmarcacao.append(True))
+
+    card1 = painel.layout_cards.itemAt(0).widget()
+    card2 = painel.layout_cards.itemAt(1).widget()
+
+    assert not card1.selecionado
+    assert not card2.selecionado
+
+    # 1. Clique com botão esquerdo no Card 1
+    ev_press = QMouseEvent(QEvent.Type.MouseButtonPress, QPointF(10, 10), QPointF(10, 10), Qt.MouseButton.LeftButton, Qt.MouseButton.LeftButton, Qt.KeyboardModifier.NoModifier)
+    card1.mousePressEvent(ev_press)
+
+    assert card1.selecionado
+    assert not card2.selecionado
+    assert len(sinais_selecao) == 1
+    assert sinais_selecao[0][0] == 0
+    assert sinais_selecao[0][1].grupo == "Grupo 1"
+    assert len(sinais_desmarcacao) == 0
+
+    # 2. Clique no Card 2 desmarca Card 1 e seleciona Card 2
+    ev_press2 = QMouseEvent(QEvent.Type.MouseButtonPress, QPointF(10, 10), QPointF(10, 10), Qt.MouseButton.LeftButton, Qt.MouseButton.LeftButton, Qt.KeyboardModifier.NoModifier)
+    card2.mousePressEvent(ev_press2)
+
+    assert not card1.selecionado
+    assert card2.selecionado
+    assert len(sinais_selecao) == 2
+    assert sinais_selecao[1][0] == 1
+    assert sinais_selecao[1][1].grupo == "Grupo 2"
+
+    # 3. Toggle: Clicar novamente no Card 2 selecionado desmarca
+    card2.mousePressEvent(ev_press2)
+
+    assert not card2.selecionado
+    assert len(sinais_desmarcacao) == 1
+
+
+def test_card_referencia_definir_selecionado_estilo(qapp):
+    """[TDD] Verifica se o método definir_selecionado aplica cursor apontador e estilo visual de destaque."""
+    from editor.views.widget_painel_referencias import CardReferencia
+    from PySide6.QtCore import Qt
+
+    ref = croqui_pb2.Mapa.Referencia()
+    card = CardReferencia(ref, 0)
+
+    assert not getattr(card, "selecionado", False)
+    assert card.cursor().shape() == Qt.CursorShape.PointingHandCursor
+
+    card.definir_selecionado(True)
+    assert card.selecionado is True
+    assert "#007bff" in card.styleSheet()
+
+    card.definir_selecionado(False)
+    assert card.selecionado is False
+    assert "#007bff" not in card.styleSheet()
+
+
+def test_selecionar_referencia_com_rolagem_e_preservacao_ao_atualizar(qapp):
+    """[TDD] Verifica se selecionar_referencia chama ensureWidgetVisible e se atualizar_cards preserva a seleção."""
+    from editor.views.widget_painel_referencias import PainelReferencias
+    from unittest.mock import MagicMock
+
+    painel = PainelReferencias(None)
+    mapa = croqui_pb2.Mapa()
+    ref1 = mapa.referencias.add()
+    ref1.grupo = "Grupo 1"
+    ref2 = mapa.referencias.add()
+    ref2.grupo = "Grupo 2"
+
+    painel.carregar_mapa(mapa)
+
+    painel.scroll_area.ensureWidgetVisible = MagicMock()
+    sinais_emitidos = []
+    painel.referencia_selecionada.connect(lambda idx, ref: sinais_emitidos.append((idx, ref)))
+
+    # 1. Seleciona a referência 1 programaticamente
+    painel.selecionar_referencia(1)
+
+    assert painel.idx_card_selecionado == 1
+    card1 = painel.layout_cards.itemAt(1).widget()
+    assert card1.selecionado is True
+    painel.scroll_area.ensureWidgetVisible.assert_called_once_with(card1)
+    assert len(sinais_emitidos) == 1
+    assert sinais_emitidos[0][0] == 1
+
+    # 2. Chama atualizar_cards (reconstrução dos cards) e verifica se preserva a seleção
+    painel.atualizar_cards()
+
+    assert painel.idx_card_selecionado == 1
+    novo_card1 = painel.layout_cards.itemAt(1).widget()
+    assert novo_card1.selecionado is True
+
+    # 3. Se o mapa agora tiver apenas 1 referência, o índice selecionado anterior (1) fica fora e deve ser resetado
+    del mapa.referencias[1]
+    painel.atualizar_cards()
+    assert painel.idx_card_selecionado is None
+
+
+def test_mouse_press_botao_direito_nao_seleciona(qapp):
+    """[TDD] Garante que clicar com botão direito no CardReferencia não emite o sinal de clique de seleção."""
+    from editor.views.widget_painel_referencias import PainelReferencias
+    from PySide6.QtGui import QMouseEvent
+    from PySide6.QtCore import Qt, QPointF, QEvent
+
+    painel = PainelReferencias(None)
+    mapa = croqui_pb2.Mapa()
+    ref = mapa.referencias.add()
+    ref.grupo = "Grupo Teste"
+    painel.carregar_mapa(mapa)
+
+    card = painel.layout_cards.itemAt(0).widget()
+    sinais_clique = []
+    card.clicado.connect(lambda idx: sinais_clique.append(idx))
+
+    ev_direito = QMouseEvent(QEvent.Type.MouseButtonPress, QPointF(10, 10), QPointF(10, 10), Qt.MouseButton.RightButton, Qt.MouseButton.RightButton, Qt.KeyboardModifier.NoModifier)
+    card.mousePressEvent(ev_direito)
+
+    assert len(sinais_clique) == 0
+
+
+def test_confirmar_remover_ajusta_indice_selecionado(qapp):
+    """[TDD] Verifica se ao remover um card, o índice selecionado é ajustado corretamente."""
+    from editor.views.widget_painel_referencias import PainelReferencias
+
+    painel = PainelReferencias(None)
+    mapa = croqui_pb2.Mapa()
+    for i in range(3):
+        r = mapa.referencias.add()
+        r.grupo = f"Grupo {i}"
+    painel.carregar_mapa(mapa)
+
+    # Seleciona o card 2
+    painel.selecionar_referencia(2)
+    assert painel.idx_card_selecionado == 2
+
+    # Remove o card 0 (anterior ao selecionado)
+    painel._confirmar_remover(0)
+    assert painel.idx_card_selecionado == 1
+
+    # Remove o próprio card selecionado (agora no índice 1)
+    painel._confirmar_remover(1)
+    assert painel.idx_card_selecionado is None
 

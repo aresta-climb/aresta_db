@@ -12,38 +12,64 @@ from editor.views.dialogos.dialogo_busca_referencia import DialogoBuscaReferenci
 from editor.views.estilo import Icones
 from editor.core.rotulos_referencia import extrair_rotulo_referencia
 
+ESTILO_CARD_PADRAO = """
+    CardReferencia {
+        background-color: white;
+        border: 1px solid #dee2e6;
+        border-radius: 6px;
+        margin-bottom: 8px;
+    }
+    CardReferencia:hover {
+        border: 1px solid #adb5bd;
+        background-color: #f8f9fa;
+    }
+    QToolTip {
+        color: #212529;
+        background-color: #ffffff;
+        border: 1px solid #ced4da;
+        border-radius: 4px;
+        padding: 4px 6px;
+        font-size: 11px;
+    }
+"""
+
+ESTILO_CARD_SELECIONADO = """
+    CardReferencia {
+        background-color: #f0f7ff;
+        border: 2px solid #007bff;
+        border-radius: 6px;
+        margin-bottom: 8px;
+    }
+    CardReferencia:hover {
+        border: 2px solid #0056b3;
+        background-color: #e2f0fd;
+    }
+    QToolTip {
+        color: #212529;
+        background-color: #ffffff;
+        border: 1px solid #ced4da;
+        border-radius: 4px;
+        padding: 4px 6px;
+        font-size: 11px;
+    }
+"""
+
 class CardReferencia(QFrame):
     """Card visual que representa uma Referência individual."""
     
     hover_in = Signal(object)
     hover_out = Signal()
+    clicado = Signal(int)
     
     def __init__(self, referencia: croqui_pb2.Mapa.Referencia, index: int, parent: Optional[QWidget] = None, mapa: Optional[Any] = None) -> None:
         super().__init__(parent)
         self.referencia: croqui_pb2.Mapa.Referencia = referencia
         self.index: int = index
         self.mapa: Optional[Any] = mapa
+        self.selecionado: bool = False
         self.setFrameShape(QFrame.Shape.StyledPanel)
-        self.setStyleSheet("""
-            CardReferencia {
-                background-color: white;
-                border: 1px solid #dee2e6;
-                border-radius: 6px;
-                margin-bottom: 8px;
-            }
-            CardReferencia:hover {
-                border: 1px solid #adb5bd;
-                background-color: #f8f9fa;
-            }
-            QToolTip {
-                color: #212529;
-                background-color: #ffffff;
-                border: 1px solid #ced4da;
-                border-radius: 4px;
-                padding: 4px 6px;
-                font-size: 11px;
-            }
-        """)
+        self.setCursor(Qt.CursorShape.PointingHandCursor)
+        self.setStyleSheet(ESTILO_CARD_PADRAO)
         
         layout = QVBoxLayout(self)
         layout.setContentsMargins(10, 10, 10, 10)
@@ -73,7 +99,6 @@ class CardReferencia(QFrame):
         self.btn_editar_alvo = QPushButton()
         self.btn_editar_alvo.setIcon(Icones.obter("lapis"))
         self.btn_editar_alvo.setStyleSheet("background-color: transparent; border: none; color: #007bff;")
-        from PySide6.QtCore import Qt
         self.btn_editar_alvo.setCursor(Qt.CursorShape.PointingHandCursor)
         self.btn_editar_alvo.setToolTip("Editar Referência")
         self.btn_editar_alvo.setFixedSize(24, 24)
@@ -136,7 +161,6 @@ class CardReferencia(QFrame):
         self.btn_remover.setIcon(Icones.obter("lixeira"))
         self.btn_remover.setStyleSheet("background-color: transparent; border: none; color: #dc3545;")
         self.btn_remover.setToolTip("Excluir Referência")
-        from PySide6.QtCore import Qt
         self.btn_remover.setCursor(Qt.CursorShape.PointingHandCursor)
         self.btn_remover.setFixedSize(24, 24)
         
@@ -222,6 +246,18 @@ class CardReferencia(QFrame):
                 "Esta referência não possui label ou nós de círculo identificador e não exibirá identificador no aplicativo."
             )
 
+    def definir_selecionado(self, selecionado: bool) -> None:
+        """Define o estado de seleção visual do card."""
+        self.selecionado = selecionado
+        self.setStyleSheet(ESTILO_CARD_SELECIONADO if selecionado else ESTILO_CARD_PADRAO)
+
+    def mousePressEvent(self, event: Any) -> None:
+        if event.button() == Qt.MouseButton.LeftButton:
+            self.clicado.emit(self.index)
+            event.accept()
+            return
+        super().mousePressEvent(event)
+
     def enterEvent(self, event: Any) -> None:
 
         self.hover_in.emit(self.referencia)
@@ -236,6 +272,8 @@ class PainelReferencias(QWidget):
     
     # Sinais para interagir com o WidgetEditorMapas
     referencia_removida = Signal(int)
+    referencia_selecionada = Signal(int, object)
+    referencia_desmarcada = Signal()
     iniciar_modo_linkagem = Signal(int, object)
     parar_modo_linkagem = Signal()
     
@@ -288,6 +326,7 @@ class PainelReferencias(QWidget):
         self.btn_ativo_link: Optional[QPushButton] = None
         self.btn_ativo_camera: Optional[QPushButton] = None
         self.card_camera_ativo: Optional[CardReferencia] = None
+        self.idx_card_selecionado: Optional[int] = None
 
     def carregar_mapa(self, msg_mapa_proxy: Any) -> None:
         self.msg_mapa_proxy = msg_mapa_proxy
@@ -305,6 +344,7 @@ class PainelReferencias(QWidget):
     def atualizar_cards(self) -> None:
         modo_link_index = None
         modo_camera_index = None
+        modo_selecionado_index = self.idx_card_selecionado
         
         for i in range(self.layout_cards.count()):
             item = self.layout_cards.itemAt(i)
@@ -328,14 +368,16 @@ class PainelReferencias(QWidget):
         self.btn_ativo_camera = None
                 
         if not self.msg_mapa_proxy:
+            self.idx_card_selecionado = None
             return
             
         for i, ref in enumerate(self.msg_mapa_proxy.referencias):
             card = CardReferencia(ref, i, parent=self.container_cards, mapa=self.msg_mapa_proxy)
             
-            # Conecta hover
+            # Conecta hover e clique
             card.hover_in.connect(self.destacar_pois.emit)
             card.hover_out.connect(self.remover_destaque_pois.emit)
+            card.clicado.connect(self._ao_clicar_card)
             
             # Conecta botões
             card.btn_remover.clicked.connect(lambda checked=False, idx=i: self._confirmar_remover(idx))
@@ -349,6 +391,10 @@ class PainelReferencias(QWidget):
             card.btn_salvar_camera.clicked.connect(self.salvar_modo_camera.emit)
             
             self.layout_cards.addWidget(card)
+            
+            if modo_selecionado_index == i:
+                card.definir_selecionado(True)
+                self.idx_card_selecionado = i
             
             if modo_link_index == i:
                 card.btn_linkar.blockSignals(True)
@@ -365,6 +411,46 @@ class PainelReferencias(QWidget):
                 self.btn_ativo_camera = card.btn_camera
                 self.card_camera_ativo = card
                 card.btn_camera.blockSignals(False)
+
+        if modo_selecionado_index is not None and modo_selecionado_index >= len(self.msg_mapa_proxy.referencias):
+            self.idx_card_selecionado = None
+
+    def _ao_clicar_card(self, index: int) -> None:
+        if self.idx_card_selecionado == index:
+            self.desmarcar_selecao()
+        else:
+            self.selecionar_referencia(index)
+
+    def desmarcar_selecao(self) -> None:
+        """Desmarca o card de referência atualmente selecionado."""
+        if self.idx_card_selecionado is not None:
+            if 0 <= self.idx_card_selecionado < self.layout_cards.count():
+                item = self.layout_cards.itemAt(self.idx_card_selecionado)
+                if item:
+                    card = item.widget()
+                    if isinstance(card, CardReferencia):
+                        card.definir_selecionado(False)
+            self.idx_card_selecionado = None
+            self.referencia_desmarcada.emit()
+
+    def selecionar_referencia(self, index: int) -> None:
+        """Seleciona programaticamente a referência pelo índice do card."""
+        if self.idx_card_selecionado is not None and self.idx_card_selecionado != index:
+            if 0 <= self.idx_card_selecionado < self.layout_cards.count():
+                item = self.layout_cards.itemAt(self.idx_card_selecionado)
+                if item:
+                    card = item.widget()
+                    if isinstance(card, CardReferencia):
+                        card.definir_selecionado(False)
+        if 0 <= index < self.layout_cards.count():
+            item = self.layout_cards.itemAt(index)
+            if item:
+                card = item.widget()
+                if isinstance(card, CardReferencia):
+                    card.definir_selecionado(True)
+                    self.idx_card_selecionado = index
+                    self.scroll_area.ensureWidgetVisible(card)
+                    self.referencia_selecionada.emit(index, card.referencia)
 
     def _referencias_iguais(self, ref1: Any, ref2: Any) -> bool:
         if ref1.HasField('grupo') != ref2.HasField('grupo') or (ref1.HasField('grupo') and ref1.grupo != ref2.grupo):
@@ -457,6 +543,10 @@ class PainelReferencias(QWidget):
 
     def _confirmar_remover(self, index: int) -> None:
         self._limpar_modos_ativos()
+        if self.idx_card_selecionado == index:
+            self.desmarcar_selecao()
+        elif self.idx_card_selecionado is not None and self.idx_card_selecionado > index:
+            self.idx_card_selecionado -= 1
         if self.mapas_controller:
             self.mapas_controller.deletar_referencia(self.msg_mapa_proxy, index)
 

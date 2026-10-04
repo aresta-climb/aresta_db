@@ -6,7 +6,7 @@ from unittest.mock import MagicMock, patch
 from pathlib import Path
 import pygit2
 
-from editor.core.sync import GerenciadorSincronizacao
+from editor.core.sync import GerenciadorSincronizacao, ErroSincronizacaoGit
 
 class TestGerenciadorSincronizacao(unittest.TestCase):
     """Testes unitários para o GerenciadorSincronizacao (100% Coverage Target)."""
@@ -105,11 +105,11 @@ class TestGerenciadorSincronizacao(unittest.TestCase):
         mock_pygit2.Repository.return_value = mock_repo
         
         mock_origin = MagicMock()
-        mock_origin.configure_mock(name="origin")
+        mock_origin.configure_mock(name="origin", url="https://github.com/usuario/aresta_db.git")
         mock_upstream = MagicMock()
-        mock_upstream.configure_mock(name="upstream")
+        mock_upstream.configure_mock(name="upstream", url="https://github.com/aresta-climb/aresta_db.git")
         mock_proxy = MagicMock()
-        mock_proxy.configure_mock(name="proxy")
+        mock_proxy.configure_mock(name="proxy", url="https://proxy.arestaclimb.com.br")
         
         mock_repo.remotes = [mock_origin, mock_upstream, mock_proxy]
         
@@ -118,6 +118,59 @@ class TestGerenciadorSincronizacao(unittest.TestCase):
         mock_origin.fetch.assert_called_once()
         mock_upstream.fetch.assert_called_once()
         mock_proxy.fetch.assert_not_called()
+
+    @patch("editor.core.sync.pygit2")
+    def test_fazer_fetch_deduplica_remotes_com_mesma_url(self, mock_pygit2):
+        """Não deve fazer fetch repetido para remotes apontando para a mesma URL."""
+        mock_repo = MagicMock()
+        mock_pygit2.Repository.return_value = mock_repo
+        
+        mock_origin = MagicMock()
+        mock_origin.configure_mock(name="origin", url="https://github.com/aresta-climb/aresta_db.git")
+        mock_upstream = MagicMock()
+        mock_upstream.configure_mock(name="upstream", url="https://github.com/aresta-climb/aresta_db.git")
+        
+        mock_repo.remotes = [mock_origin, mock_upstream]
+        
+        self.gerenciador.fazer_fetch()
+        
+        chamadas_totais = mock_origin.fetch.call_count + mock_upstream.fetch.call_count
+        self.assertEqual(chamadas_totais, 1)
+
+    @patch("editor.core.sync.pygit2")
+    def test_fazer_fetch_traduz_giterror_no_error(self, mock_pygit2):
+        """Deve traduzir GitError com mensagem 'no error' para ErroSincronizacaoGit com mensagem amigável."""
+        mock_repo = MagicMock()
+        mock_pygit2.Repository.return_value = mock_repo
+        mock_pygit2.GitError = pygit2.GitError
+        
+        mock_origin = MagicMock()
+        mock_origin.configure_mock(name="origin", url="https://github.com/aresta-climb/aresta_db.git")
+        mock_origin.fetch.side_effect = pygit2.GitError("no error")
+        mock_repo.remotes = [mock_origin]
+        
+        with self.assertRaises(ErroSincronizacaoGit) as ctx:
+            self.gerenciador.fazer_fetch()
+        
+        mensagem = str(ctx.exception).lower()
+        self.assertTrue("tempo limite" in mensagem or "conexão" in mensagem or "ssl" in mensagem)
+
+    @patch("editor.core.sync.pygit2")
+    def test_fazer_fetch_traduz_outro_giterror(self, mock_pygit2):
+        """Deve traduzir qualquer outro GitError para ErroSincronizacaoGit preservando o motivo."""
+        mock_repo = MagicMock()
+        mock_pygit2.Repository.return_value = mock_repo
+        mock_pygit2.GitError = pygit2.GitError
+        
+        mock_origin = MagicMock()
+        mock_origin.configure_mock(name="origin", url="https://github.com/aresta-climb/aresta_db.git")
+        mock_origin.fetch.side_effect = pygit2.GitError("erro generico de rede")
+        mock_repo.remotes = [mock_origin]
+        
+        with self.assertRaises(ErroSincronizacaoGit) as ctx:
+            self.gerenciador.fazer_fetch()
+        
+        self.assertIn("erro generico de rede", str(ctx.exception))
 
     @patch("editor.core.sync.pygit2")
     def test_clonar_sucesso(self, mock_pygit2):
@@ -155,6 +208,23 @@ class TestGerenciadorSincronizacao(unittest.TestCase):
         
         with self.assertRaisesRegex(RuntimeError, "Não foi possível encontrar a branch main ou master"):
             self.gerenciador.clonar("https://github.com/url_invalida.git")
+
+    @patch("editor.core.sync.pygit2")
+    def test_clonar_traduz_giterror_no_error(self, mock_pygit2):
+        """Verifica se clone traduz GitError 'no error' para ErroSincronizacaoGit."""
+        mock_repo = MagicMock()
+        mock_repo.config = {}
+        mock_pygit2.init_repository.return_value = mock_repo
+        mock_pygit2.GitError = pygit2.GitError
+        
+        mock_remote = MagicMock()
+        mock_remote.fetch.side_effect = pygit2.GitError("no error")
+        mock_repo.remotes.create.return_value = mock_remote
+        
+        with self.assertRaises(ErroSincronizacaoGit) as ctx:
+            self.gerenciador.clonar("https://github.com/aresta-climb/aresta_db.git")
+        
+        self.assertTrue("tempo limite" in str(ctx.exception).lower() or "conexão" in str(ctx.exception).lower())
 
     @patch("editor.core.sync.pygit2")
     def test_fazer_checkout_main_upstream_cria_branch(self, mock_pygit2):
@@ -225,10 +295,11 @@ class TestGerenciadorSincronizacao(unittest.TestCase):
         cred = callbacks.credentials("url", "user", 0)
         self.assertIsInstance(cred, pygit2.UserPass)
         
-        # Teste de credentials sem token
+        # Teste de credentials sem token deve levantar pygit2.Passthrough
         gerenciador_sem_token = GerenciadorSincronizacao(self.caminho_fake, token=None)
         callbacks_sem_token = gerenciador_sem_token._obter_callbacks()
-        self.assertIsNone(callbacks_sem_token.credentials("url", "user", 0))
+        with self.assertRaises(pygit2.Passthrough):
+            callbacks_sem_token.credentials("url", "user", 0)
         
         # Teste de transfer_progress
         stats = MagicMock()

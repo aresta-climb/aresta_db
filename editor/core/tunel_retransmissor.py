@@ -6,6 +6,7 @@
 import asyncio
 import json
 import base64
+import hashlib
 import mimetypes
 from pathlib import Path
 from typing import Optional, Dict, Any, Callable, cast
@@ -242,8 +243,9 @@ class ClienteTunelRetransmissor:
             req = dados.get("dados", {})
             req_id = req.get("id")
             caminho = req.get("caminho", "").lstrip("/")
+            cabecalhos = req.get("cabecalhos", {})
 
-            resposta = self._ler_arquivo_proxy(req_id, caminho)
+            resposta = self._ler_arquivo_proxy(req_id, caminho, cabecalhos=cabecalhos)
             await ws.send(
                 json.dumps({
                     "tipo": "resposta_proxy",
@@ -253,8 +255,13 @@ class ClienteTunelRetransmissor:
         elif tipo == "ping":
             await ws.send(json.dumps({"tipo": "pong"}))
 
-    def _ler_arquivo_proxy(self, req_id: str, caminho_relativo: str) -> Dict[str, Any]:
-        """Lê um arquivo da pasta compilada e formata a resposta base64 com isolamento total de diretório."""
+    def _ler_arquivo_proxy(
+        self,
+        req_id: str,
+        caminho_relativo: str,
+        cabecalhos: Optional[Dict[str, str]] = None,
+    ) -> Dict[str, Any]:
+        """Lê um arquivo da pasta compilada e formata a resposta base64 com suporte a ETag e isolamento total de diretório."""
         try:
             pasta_base = self.pasta_compilado.resolve()
             
@@ -284,6 +291,26 @@ class ClienteTunelRetransmissor:
                 }
 
             conteudo_bytes = caminho_alvo.read_bytes()
+            hash_sha256 = hashlib.sha256(conteudo_bytes).hexdigest()
+            etag = f'"{hash_sha256}"'
+
+            # Avalia cabeçalho If-None-Match para retorno HTTP 304 Not Modified
+            if cabecalhos:
+                cabecalhos_normalizados = {k.lower(): v for k, v in cabecalhos.items()}
+                if_none_match = cabecalhos_normalizados.get("if-none-match")
+                if if_none_match:
+                    tokens = [t.strip().strip('"') for t in if_none_match.split(",")]
+                    if hash_sha256 in tokens or "*" in tokens:
+                        return {
+                            "id": req_id,
+                            "status": 304,
+                            "cabecalhos": {
+                                "etag": etag,
+                                "access-control-allow-origin": "*",
+                            },
+                            "corpoBase64": "",
+                        }
+
             tipo_mime, _ = mimetypes.guess_type(str(caminho_alvo))
             if not tipo_mime:
                 if caminho_alvo.suffix in (".binarypb", ".bin"):
@@ -297,6 +324,8 @@ class ClienteTunelRetransmissor:
                 "cabecalhos": {
                     "content-type": tipo_mime,
                     "content-length": str(len(conteudo_bytes)),
+                    "etag": etag,
+                    "access-control-allow-origin": "*",
                 },
                 "corpoBase64": base64.b64encode(conteudo_bytes).decode(),
             }
