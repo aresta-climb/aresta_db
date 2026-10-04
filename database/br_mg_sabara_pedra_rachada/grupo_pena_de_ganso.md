@@ -1,6 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+caminho_imagem_capa: imagens/setor_pena_de_ganso_p0_i0.webp
 nome: Pena de Ganso
 setores:
 - caminho: grupo_pena_de_ganso_setor_bloco_a_gangrena.md
@@ -11,8 +12,6 @@ setores:
 ---
 
 # Pena de Ganso
-
-![Escalador no Setor Pena de Ganso](imagens/setor_pena_de_ganso_p0_i0.webp)
 
 Após muito tempo sem muitas novidades, no ano de 2013 novas linhas abertas nos blocos “Gangrena” e “Pena de ganso” colocaram o setor mais uma vez em movimento. Apesar destas novas linhas, o maior destaque para este setor continua sendo uma de suas escaladas mais antigas, o clássico “Pena de ganso”, que possui uma movimentação única.
 

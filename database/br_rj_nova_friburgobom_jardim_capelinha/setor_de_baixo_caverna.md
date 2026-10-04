@@ -1,6 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+caminho_imagem_capa: imagens/visao_geral.webp
 nome: Setor principal
 mapas:
 - caminho_imagem_mapa: imagens/setor_capela_externa_p2.webp
@@ -2262,4 +2263,4 @@ localizacao_escalada:
   longitude: -424249510
 amigavel_a_criancas: true
 ---
-![Visão Geral Capelinha](imagens/visao_geral.webp)
+

@@ -1,6 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+caminho_imagem_capa: imagens/setor_daqui_a_20_anos_p0_i0.webp
 nome: Daqui a 20 Anos
 mapas:
 - caminho_imagem_mapa: imagens/setor_daqui_a_20_anos_p2_i2.webp
@@ -24,8 +25,6 @@ setores:
 # Daqui a 20 Anos
 
 Último setor antes do cume da Pedra Rachada que, apesar de possuir poucos blocos, guarda algumas das escaladas mais desafiadoras mentalmente de todo o complexo. Dois clássicos highball fazem deste setor um dos preferidos de muitos viciados em adrenalina. Se você gosta de apertar, não deixe de tentar o único “Amanita” v11.
-
-![Escalada no Setor Daqui a 20 Anos](imagens/setor_daqui_a_20_anos_p0_i0.webp)
 
 ## Acesso (25 min)
 

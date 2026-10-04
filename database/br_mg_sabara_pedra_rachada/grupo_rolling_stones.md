@@ -1,6 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+caminho_imagem_capa: imagens/setor_rolling_stones_p0_i0.webp
 nome: Rolling Stones
 mapas:
 - caminho_imagem_mapa: imagens/setor_rolling_stones_p6_i1.webp
@@ -86,8 +87,6 @@ setores:
 ---
 
 Em 2013, os trabalhos no bloco “Pantaloneta” proporcionaram o surgimento de vários novos boulders que confirmaram este setor como um dos melhores da Pedra Rachada. Os blocos “Rolling Stones” e “Pantaloneta”, que juntos somam a maior concentração de clássicos do local, são obrigatórios a qualquer visitante do local. Aproveite também para conhecer os blocos “Gaston a la meson” e as escaladas do bloco “Universo Paralello”.
-
-![Escaladora dominando o cume da falésia com vista panorâmica dos vales e montanhas](imagens/setor_rolling_stones_p0_i0.webp)
 
 ## Acesso (20 min)
 

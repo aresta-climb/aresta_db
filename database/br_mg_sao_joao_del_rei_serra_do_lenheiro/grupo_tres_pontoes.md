@@ -1,6 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+caminho_imagem_capa: imagens/grupo_tres_pontoes_p0_i3.webp
 nome: Três Pontões (CEMONTA)
 setores:
 - caminho: grupo_tres_pontoes_setor_rota_interna.md
@@ -15,8 +16,6 @@ setores:
 # Três Pontões (CEMONTA)
 
 Setor mais antigo, teve suas primeiras conquistas no final da década de 70 por militares e no início dos anos 80 através de escaladores cariocas como André Ilha e Tonico Magalhães.
-
-![Três Pontões](imagens/grupo_tres_pontoes_p0_i3.webp)
 
 Os Três Pontões concentram a maior quantidade de vias clássicas da região, seja por sua imponência, beleza, qualidade ou valor histórico à nível nacional e mundial.
 

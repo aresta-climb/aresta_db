@@ -1,6 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+caminho_imagem_capa: imagens/setor_deslize_p0_i0.webp
 nome: Deslize
 mapas:
 - caminho_imagem_mapa: imagens/setor_deslize_p8_i1.webp
@@ -31,8 +32,6 @@ setores:
 # Deslize
 
 Setor com uma grande concentração de boulders, principalmente do circuito amarelo, o Deslize é também berço do boulder com o maior registro de cadenas no site 8a.nu, o mega-clássico “Lua cheia” v5. Neste setor também está o primeiro boulder aberto em um teto na Pedra Rachada, o incrível “Terceira entrada” v7 além de muitas outras escaladas clássicas, como o bote do “Carne moída” v6, o “Deslize” v8 e o “Hey Fred”, um v10 no melhor estilo compressão da Pedra Rachada!
-
-![Escalador em teto no Setor Deslize](imagens/setor_deslize_p0_i0.webp)
 
 ## Acesso (15 min)
 

@@ -573,6 +573,39 @@ def test_coletar_referencias_arquivos_inclui_anexos(tmp_path: Path) -> None:
     assert not any("http" in ref for ref in refs)
     assert not any("mailto" in ref for ref in refs)
 
+def test_coletar_referencias_arquivos_inclui_caminho_imagem_capa(tmp_path: Path) -> None:
+    from scripts.preparar_submissao_lib import coletar_referencias_arquivos
+
+    croqui_data = {
+        "picos": [
+            {
+                "setores_ou_grupos": [
+                    {
+                        "setor": {
+                            "conteudo": {
+                                "nome": "Setor Com Capa",
+                                "caminho_imagem_capa": "imagens/capa_setor.webp"
+                            }
+                        }
+                    },
+                    {
+                        "grupo": {
+                            "conteudo": {
+                                "nome": "Grupo Com Capa",
+                                "caminho_imagem_capa": "imagens/capa_grupo.webp"
+                            }
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+
+    refs = coletar_referencias_arquivos(tmp_path, croqui_data)
+    assert "imagens/capa_setor.webp" in refs
+    assert "imagens/capa_grupo.webp" in refs
+
+
 def test_limpar_arquivos_nao_utilizados_deleta_anexos_orfaos(tmp_path: Path) -> None:
     pasta_anexos = tmp_path / "anexos"
     pasta_anexos.mkdir()

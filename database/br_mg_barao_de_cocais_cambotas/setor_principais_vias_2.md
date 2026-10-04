@@ -1,7 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
-
+caminho_imagem_capa: imagens/setor_principais_vias_2_p0.webp
 nome: Principais Vias II
 mapas:
 - caminho_imagem_mapa: raw_pdf_contents/imagens/setor_principais_vias_2/p0.webp
@@ -98,9 +98,6 @@ escaladas:
     nome: Double Trouble
 ---
 
-
 # Principais Vias da Serra da Cambota (Mapa Geral)
 
 Este mapa ilustra a localização das principais vias em relação às paredes e setores da Serra da Cambota.
-
-![Mapa Geral de Vias](imagens/setor_principais_vias_2_p0.webp)

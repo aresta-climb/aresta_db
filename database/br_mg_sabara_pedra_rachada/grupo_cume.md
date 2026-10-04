@@ -1,6 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+caminho_imagem_capa: imagens/setor_cume_p0_i0.webp
 nome: Cume
 mapas:
 - caminho_imagem_mapa: imagens/setor_cume_p9_i1.webp
@@ -39,8 +40,6 @@ setores:
 # Cume
 
 Além de algumas das melhores escaladas de toda a Pedra Rachada em todos os circuitos de grau, o setor “Cume” impressiona também pelo visual de tirar o fôlego. São quase 1500m de altitude que proporcionam 360º de uma vista estonteante de toda a região metropolitana de Belo Horizonte e seus arredores, com um pôr do sol digno de filme. Difícil aqui é decidir qual linha escalar, mas, independente do seu grau de escalada, não saia de lá sem ao menos conhecer o mega-clássico “Blood América”.
-
-![Escalador no boulder Blood América](imagens/setor_cume_p0_i0.webp)
 
 ## Acesso (30 min)
 

@@ -1,6 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+caminho_imagem_capa: imagens/setor_ditados_p1_i0.webp
 nome: Setor Ditados
 mapas:
 - caminho_imagem_mapa: imagens/setor_ditados_p0_i0.webp
@@ -165,8 +166,6 @@ escaladas:
     - Eliseu Frechou
     data_abertura: '2018'
 ---
-
-![Ana Fujita na via Boa noite Cinderela, 6ºsup](imagens/setor_ditados_p1_i0.webp)
 
 ![Ana Fujita na via Mais vale um na mão... 7a](imagens/setor_ditados_p0_i0_2.webp)
 

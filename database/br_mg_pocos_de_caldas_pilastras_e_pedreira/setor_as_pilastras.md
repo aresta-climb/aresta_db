@@ -1,7 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
-
+caminho_imagem_capa: imagens/setor_as_pilastras_p0_i1.webp
 nome: As Pilastras
 mapas:
 - caminho_imagem_mapa: imagens/setor_as_pilastras_p1_i1.webp
@@ -53,9 +53,6 @@ escaladas:
     nome: Stuart Little
     dificuldade: BR_5
 ---
-
-
-![Escalador na via Normal da primeira Pilastra](imagens/setor_as_pilastras_p0_i1.webp)
 
 Setor clássico com escalada em pilastras de pedra.
 Atenção: Abelhas em todas as faces da Segunda Pilastra.

@@ -50,11 +50,9 @@
 
 ### Setor (Pico: Capelinha)
 
-- **descricao**:
-    | ![Visão Geral Capelinha](imagens/visao_geral.webp) |
-    | :--: |
-    | *Visão Geral Capelinha* |
+- **descricao**: 
 - **nome**: Setor principal
+- **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/visao_geral.webp)
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_capela_externa_p2.webp)
@@ -1568,6 +1566,6 @@
     - **checksum_sha256**: b6dcb92fb3a2fa6421ebbe0dbaf79cf0500c46df183bd35b5874d61fbea714f5
   - **[6]**:
     - **caminho**: ![caminho](imagens/visao_geral.webp)
-    - **checksum_sha256**: 267c796b2bf24127596f64720faa4026e4a282a1fa1aa8053f7e902cd5fb3257
+    - **checksum_sha256**: 7d50ccbbfec657be6bce6f05ecd94496fef3ff385312e4497b20b97e53099eee
 
 

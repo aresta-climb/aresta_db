@@ -27,6 +27,10 @@ def extrair_caminhos_imagens(msg: Any) -> List[str]:
         caminho_norm = str(msg_real.caminho_thumbnail).replace("\\", "/")
         caminhos.append(caminho_norm)
 
+    if hasattr(msg_real, "caminho_imagem_capa") and msg_real.caminho_imagem_capa:
+        caminho_norm = str(msg_real.caminho_imagem_capa).replace("\\", "/")
+        caminhos.append(caminho_norm)
+
     # Percorre recursivamente campos compostos e listas repeated
     if hasattr(msg_real, "ListFields"):
         for descriptor, valor in msg_real.ListFields():

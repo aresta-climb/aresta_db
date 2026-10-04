@@ -1,6 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+caminho_imagem_capa: imagens/grupo_pedreira_setor_bloco_to_de_boa_p2_i0.webp
 nome: 'Bloco: Tô de Boa'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_to_de_boa_p0.webp
@@ -130,4 +131,3 @@ escaladas:
     dificuldade: V4_BARRA_V5
 ---
 
-![Escalador no Bloco Tô de Boa](imagens/grupo_pedreira_setor_bloco_to_de_boa_p2_i0.webp)

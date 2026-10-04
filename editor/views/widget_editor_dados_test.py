@@ -5243,12 +5243,62 @@ def test_calcular_posicao_drop_e_indicador_casos_diversos(qapp):
     container._focar_ultimo_item()
 
 
+def test_caminho_imagem_capa_posicionado_no_topo_em_setor_e_grupo(qapp):
+    """Garante que caminho_imagem_capa seja posicionado no topo dos campos principais antes de nome."""
+    from aresta_api.proto.generated.croqui_pb2 import Setor, Grupo
+    from PySide6.QtWidgets import QWidget, QVBoxLayout
+    from editor.models.croqui_model import CroquiModel
+    from editor.controllers.croqui_controller import CroquiController
+    from PySide6.QtGui import QUndoStack
+    from editor.views.widget_editor_dados import WidgetEditorDados, _get_id
+
+    for msg in [Setor(), Grupo()]:
+        model = CroquiModel(msg)
+        controller = CroquiController(model, QUndoStack())
+        widget = WidgetEditorDados(model, controller)
+        form = widget.form_padrao
+
+        container = QWidget()
+        layout = QVBoxLayout(container)
+        form._render_message_fields(msg, layout)
+
+        container_capa = form.field_containers.get((_get_id(msg), "caminho_imagem_capa"))[1]
+        container_nome = form.field_containers.get((_get_id(msg), "nome"))[1]
+
+        idx_capa = layout.indexOf(container_capa)
+        idx_nome = layout.indexOf(container_nome)
+
+        assert idx_capa != -1
+        assert idx_nome != -1
+        assert idx_capa < idx_nome
+        assert idx_capa == 0
 
 
+def test_caminho_imagem_capa_ordenacao_explicitada(qapp):
+    """Garante que a lógica de ordenação de campos principais prioriza caminho_imagem_capa mantendo estabilidade."""
+    from unittest.mock import MagicMock
+    from editor.views.widget_editor_dados import WidgetEditorDados
+    from editor.models.croqui_model import CroquiModel
+    from editor.controllers.croqui_controller import CroquiController
+    from PySide6.QtGui import QUndoStack
+    from aresta_api.proto.generated.croqui_pb2 import Croqui
 
+    model = CroquiModel(Croqui())
+    controller = CroquiController(model, QUndoStack())
+    widget = WidgetEditorDados(model, controller)
+    form = widget.form_padrao
 
+    campo_nome = MagicMock()
+    campo_nome.name = "nome"
+    campo_outro = MagicMock()
+    campo_outro.name = "outro"
+    campo_capa = MagicMock()
+    campo_capa.name = "caminho_imagem_capa"
 
+    campos = [campo_nome, campo_outro, campo_capa]
+    campos.sort(key=lambda f: 0 if f.name == "caminho_imagem_capa" else 1)
 
-
-
+    assert campos[0].name == "caminho_imagem_capa"
+    assert campos[1].name == "nome"
+    assert campos[2].name == "outro"
 

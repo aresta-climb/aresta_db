@@ -1,6 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+caminho_imagem_capa: imagens/grupo_rio_das_mortes_setor_thundercats_p0_i3.webp
 nome: Thundercats
 mapas:
 - caminho_imagem_mapa: imagens/grupo_rio_das_mortes_setor_thundercats_p0_i2.webp
@@ -68,7 +69,5 @@ Via muito boa para iniciantes. Além de fácil, proporciona um lindo visual e um
 **Conquistadores:** Pedro Naves, Mariana Fiche e Frederico Araújo
 
 Interessante via móvel com boas colocações. Um jogo de friends e nuts (caso não tenha micro-friends).
-
-![Mariana Fiche na via Thundercats](imagens/grupo_rio_das_mortes_setor_thundercats_p0_i3.webp)
 
 Bem ao lado do setor anterior, descendo alguns metros pra direita. Possui apenas duas vias bem bonitas e com vista incrível do top. Sombra o dia todo na base, sol na via de tarde.

@@ -234,6 +234,16 @@ def test_widgets_coordenada_e_imagem(qapp):
     assert isinstance(w_thumb, WidgetCampoImagem)
     assert w_thumb.nome_arquivo_fixo == "thumbnail.webp"
 
+    from aresta_api.proto.generated.croqui_pb2 import Setor
+    from editor.core.processamento_imagem_campo import AREA_MAXIMA_ESCALADA, AREA_MAXIMA_PADRAO
+
+    campo_capa = Setor.DESCRIPTOR.fields_by_name['caminho_imagem_capa']
+    w_capa = ProtobufWidgetFactory.create_widget(campo_capa)
+    assert isinstance(w_capa, WidgetCampoImagem)
+    assert w_capa.nome_arquivo_fixo is None
+    assert w_capa.area_maxima == AREA_MAXIMA_ESCALADA
+    assert w_thumb.area_maxima == AREA_MAXIMA_PADRAO
+
 
 
 

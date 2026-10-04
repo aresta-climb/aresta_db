@@ -117,10 +117,6 @@
     
     O Setor Principal da Pedra do Zé oferece uma grande variedade de vias, desde móveis clássicas até esportivas de alta dificuldade.
     
-    | ![Croqui Geral do Setor Principal](imagens/setor_principal_p0_i0_2.webp) |
-    | :--: |
-    | *Croqui Geral do Setor Principal* |
-    
     | ![Detalhe Esquerda](imagens/setor_principal_p1_i0.webp) |
     | :--: |
     | *Detalhe Esquerda* |
@@ -137,6 +133,7 @@
     | :--: |
     | *Totem* |
 - **nome**: Setor Principal
+- **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_principal_p0_i0_2.webp)
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_principal_p0_i0.webp)
@@ -395,7 +392,7 @@
     - **checksum_sha256**: e80a92726383fde656cc48dc0060db9660e638370b5ef9755d7d7d214fbb8ca7
   - **[7]**:
     - **caminho**: ![caminho](imagens/setor_principal_p0_i0_2.webp)
-    - **checksum_sha256**: e80a92726383fde656cc48dc0060db9660e638370b5ef9755d7d7d214fbb8ca7
+    - **checksum_sha256**: 5d73ba2cc5c363c1c06f39de24f0372b35cf63b62a5ffbf1c4f55cb9b658deb5
   - **[8]**:
     - **caminho**: ![caminho](imagens/setor_principal_p1_i0.webp)
     - **checksum_sha256**: 53ab97d691548eed708a35e4bbf814f6787b077f24f510493686db2f838b9180

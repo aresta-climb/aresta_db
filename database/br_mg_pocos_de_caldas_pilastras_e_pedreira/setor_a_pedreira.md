@@ -1,7 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
-
+caminho_imagem_capa: imagens/setor_a_pedreira_p1_i1.webp
 nome: A Pedreira
 mapas:
 - caminho_imagem_mapa: imagens/setor_a_pedreira_p1_i2.webp
@@ -26,8 +26,6 @@ escaladas:
 
 
 ![Mapa de acesso à Pedreira](imagens/setor_a_pedreira_p0_i1.webp)
-
-![Escalador na via Europa](imagens/setor_a_pedreira_p1_i1.webp)
 
 Próximo a estes setores possui uma pedreira com algumas vias também.
 

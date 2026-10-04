@@ -1,6 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+caminho_imagem_capa: imagens/setor_yin_yang_p0_i0.webp
 nome: Yin Yang
 setores:
 - caminho: grupo_yin_yang_setor_bloco_a_abraco.md
@@ -14,8 +15,6 @@ setores:
 # Yin Yang
 
 Esse pequeno aglomerado de blocos, à direita do setor do Deslize, começou a ser explorado em 2006, com a abertura do clássico “Bicicletinha 2000”. Permaneceu sem novidades expressivas por alguns anos até que, em 2011, o escalador Mahavir Jneesh realizou a primeira ascensão do boulder “Yang” e, logo após, sua saída sentada denominada “Yin Yang”, dois mega clássicos da Pedra Rachada!
-
-![Escalador no boulder Yin Yang](imagens/setor_yin_yang_p0_i0.webp)
 
 ## Acesso (15 min)
 

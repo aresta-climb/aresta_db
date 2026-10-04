@@ -234,6 +234,7 @@ picos:
           total_esportivas: 12
   - setor:
       conteudo:
+        caminho_imagem_capa: imagens/setor_da_pracinha_p0_i0.webp
         nome: Setor da Pracinha
         mapas:
         - caminho_imagem_mapa: imagens/setor_da_pracinha_p0_i1.webp
@@ -373,17 +374,14 @@ picos:
             dificuldade: PROJETO
             descricao: Via a direita da pelas mãos do senhor. Cuidado ao caminhar
               na base
-        descricao: |-
-          Para chegar até o setor é preciso fazer uma escalaminhada. Cuidado ao caminhar nas trilhas altas e pedras soltas.
-
-          | ![Escalador na via Pelas Mãos do Senhor](imagens/setor_da_pracinha_p0_i0.webp) |
-          | :--: |
-          | *Escalador na via Pelas Mãos do Senhor* |
+        descricao: Para chegar até o setor é preciso fazer uma escalaminhada. Cuidado
+          ao caminhar nas trilhas altas e pedras soltas.
         precomputados:
           total_escaladas: 5
           total_esportivas: 5
   - setor:
       conteudo:
+        caminho_imagem_capa: imagens/setor_do_plato_p1.webp
         nome: Setor do Platô
         mapas:
         - caminho_imagem_mapa: imagens/setor_do_plato_p0.webp
@@ -464,17 +462,14 @@ picos:
             dificuldade: BR_7A
             descricao: Ultima via da parede. Se quiser fazer a via a partir da base
               tem que descer até o platô mais baixo.
-        descricao: |-
-          Para chegar até o setor é necessário fazer uma escalaminhada. Cuidado com pedras soltas.
-
-          | ![Escalador na via Visitante Oculto](imagens/setor_do_plato_p1.webp) |
-          | :--: |
-          | *Escalador na via Visitante Oculto* |
+        descricao: Para chegar até o setor é necessário fazer uma escalaminhada. Cuidado
+          com pedras soltas.
         precomputados:
           total_escaladas: 5
           total_esportivas: 5
   - setor:
       conteudo:
+        caminho_imagem_capa: imagens/setor_da_claraboia_p1.webp
         nome: Setor da Claraboia
         mapas:
         - caminho_imagem_mapa: imagens/setor_da_claraboia_p0.webp
@@ -523,17 +518,15 @@ picos:
             dificuldade: BR_7A
             descricao: Primeiro grampo a 5 metros do chão. Escalada de um 3º grau
               positivo para chegar ao grampo.
-        descricao: |-
-          ATENÇÃO! Para chegar no o setor é preciso fazer uma escalaminhada cuidadosa. Cuidado com pedras soltas e trilhas altas. Opção para descida é fazer um rapel a partir do top da via Cordadinha.
-
-          | ![Escalador na via Calazar Certo](imagens/setor_da_claraboia_p1.webp) |
-          | :--: |
-          | *Escalador na via Calazar Certo* |
+        descricao: ATENÇÃO! Para chegar no o setor é preciso fazer uma escalaminhada
+          cuidadosa. Cuidado com pedras soltas e trilhas altas. Opção para descida
+          é fazer um rapel a partir do top da via Cordadinha.
         precomputados:
           total_escaladas: 2
           total_esportivas: 2
   - setor:
       conteudo:
+        caminho_imagem_capa: imagens/setor_do_sertao_p0_i1.webp
         nome: Setor do Sertão
         mapas:
         - caminho_imagem_mapa: imagens/setor_do_sertao_p0_i0.webp
@@ -672,17 +665,14 @@ picos:
             nome: Insolação
             dificuldade: BR_7A
             descricao: Via oposições em fendas. Protegida com chapeletas.
-        descricao: |-
-          Setor com sol quase o dia todo. Horário ideal para escalar aqui é bem cedo pela manhã e a partir das 15 horas.
-
-          | ![Conquista da via Dazão e o Pé de Feijão](imagens/setor_do_sertao_p0_i1.webp) |
-          | :--: |
-          | *Conquista da via Dazão e o Pé de Feijão* |
+        descricao: Setor com sol quase o dia todo. Horário ideal para escalar aqui
+          é bem cedo pela manhã e a partir das 15 horas.
         precomputados:
           total_escaladas: 7
           total_esportivas: 7
   - setor:
       conteudo:
+        caminho_imagem_capa: imagens/setor_do_moco_p0_2.webp
         nome: Setor do Mocó
         mapas:
         - caminho_imagem_mapa: imagens/setor_do_moco_p0.webp
@@ -848,17 +838,15 @@ picos:
             nome: Bicho Morto
             dificuldade: BR_6SUP
             descricao: Última via da parede.
-        descricao: |-
-          Setor localizado em outro bloco de rocha. Para chegar no setor é necessário caminhar um pouco, passando em frente ao setor do sertão. Setor fica a direta do bloco da claraboia.
-
-          | ![Escaladores no setor do mocó](imagens/setor_do_moco_p0_2.webp) |
-          | :--: |
-          | *Escaladores no setor do mocó* |
+        descricao: Setor localizado em outro bloco de rocha. Para chegar no setor
+          é necessário caminhar um pouco, passando em frente ao setor do sertão. Setor
+          fica a direta do bloco da claraboia.
         precomputados:
           total_escaladas: 9
           total_esportivas: 9
   - setor:
       conteudo:
+        caminho_imagem_capa: imagens/setor_do_abrigo_p0_i1.webp
         nome: Setor do Abrigo
         mapas:
         - caminho_imagem_mapa: imagens/setor_do_abrigo_p0_i0.webp
@@ -957,12 +945,9 @@ picos:
             nome: Tardia
             dificuldade: BR_7A
             descricao: Ultima via da parede.
-        descricao: |-
-          O setor fica localizado acima da claraboia. Para chegar até o Abrigo é preciso fazer uma caminhada passando em frente ao setor do sertão. É necessário escalar um pequeno bloco de rocha para chegar ao setor.
-
-          | ![Escalador na via Estrela no Coco](imagens/setor_do_abrigo_p0_i1.webp) |
-          | :--: |
-          | *Escalador na via Estrela no Coco* |
+        descricao: O setor fica localizado acima da claraboia. Para chegar até o Abrigo
+          é preciso fazer uma caminhada passando em frente ao setor do sertão. É necessário
+          escalar um pequeno bloco de rocha para chegar ao setor.
         precomputados:
           total_escaladas: 5
           total_esportivas: 5
@@ -1116,7 +1101,7 @@ arquivos_externos:
 - caminho: imagens/setor_do_abrigo_p0_i0.webp
   checksum_sha256: 36097b9d58a6e8c0329a204ae32ea49d26802c6911c89644ce34501b90ceedef
 - caminho: imagens/setor_do_abrigo_p0_i1.webp
-  checksum_sha256: 420ac69eb85888cea5b95117610c77f93d19f9157cb663bab6dc4a1680006ce6
+  checksum_sha256: 194d37ffc681a18b9c823bd962f349ca2611de7442091a3eb4dbc007da9080f2
 - caminho: imagens/setor_do_moco_p0.webp
   checksum_sha256: fece16e9e088ed2969eeb59be686e84feeb3c41c3e5eaa760394204951b910ec
 - caminho: imagens/setor_do_moco_p0_2.webp

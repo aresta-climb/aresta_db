@@ -1,6 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+caminho_imagem_capa: imagens/setor_mezanino_p0_i0.webp
 nome: Mezanino
 mapas:
 - caminho_imagem_mapa: imagens/setor_mezanino_p1.webp
@@ -383,8 +384,6 @@ escaladas:
 ---
 
 # Setor Mezanino
-
-![Setor Mezanino](imagens/setor_mezanino_p0_i0.webp)
 
 O Setor Mezanino oferece uma excelente mistura de vias fáceis (5º grau) e caminhos extremamente difíceis ultrapassando o 10º grau.
 

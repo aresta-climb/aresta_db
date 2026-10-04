@@ -1,6 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+caminho_imagem_capa: imagens/grupo_pedreira_setor_bloco_fiat_lux_p1_i0.webp
 nome: 'Bloco: Fiat Lux'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_fiat_lux_p0.webp
@@ -36,4 +37,3 @@ escaladas:
     descricao: (vira pela aresta atrás do bloco)
 ---
 
-![Escalada Noturna](imagens/grupo_pedreira_setor_bloco_fiat_lux_p1_i0.webp)

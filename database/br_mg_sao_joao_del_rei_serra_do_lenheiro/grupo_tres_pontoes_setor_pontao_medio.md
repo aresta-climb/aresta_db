@@ -1,6 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+caminho_imagem_capa: imagens/grupo_tres_pontoes_setor_pontao_medio_p1_i2.webp
 nome: Pontão Médio
 mapas:
 - caminho_imagem_mapa: imagens/grupo_tres_pontoes_setor_pontao_medio_p0_i2.webp
@@ -335,7 +336,5 @@ escaladas:
 # Pontão Médio
 
 Encontra-se antes do Pontão Menor vindo pela trilha principal. Devido à sua posição, melhor escalar pela manhã, pois o sol pega de tarde, principalmente no inverno. Possui vias bem verticais e altas, algumas com mais de 50 metros. Rapel na Nova Era ou trilha atrás.
-
-![Pedro Naves conquistando a via Olhos de Águia](imagens/grupo_tres_pontoes_setor_pontao_medio_p1_i2.webp)
 
 ![André Ilha conquistando a Sinfonia Fantástica](imagens/grupo_tres_pontoes_setor_pontao_medio_p2_i3.webp)

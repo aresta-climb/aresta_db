@@ -2486,12 +2486,9 @@
 - **descricao**:
     # Setor Pracinha
     
-    | ![Setor pracinha](imagens/setor_pracinha_p1.webp) |
-    | :--: |
-    | *Setor pracinha* |
-    
     Sombra o dia todo (varia de acordo com a estação).
 - **nome**: Setor Pracinha
+- **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_pracinha_p1.webp)
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_pracinha_p0.webp)
@@ -2823,12 +2820,9 @@
 - **descricao**:
     # Setor dos Tetos
     
-    | ![Setor dos Tetos](imagens/setor_tetos_p1.webp) |
-    | :--: |
-    | *Setor dos Tetos* |
-    
     Sombra após 14h.
 - **nome**: Setor dos Tetos
+- **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_tetos_p1.webp)
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_tetos_p0.webp)

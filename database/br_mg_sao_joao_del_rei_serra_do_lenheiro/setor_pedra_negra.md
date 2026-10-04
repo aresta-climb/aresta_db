@@ -1,6 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+caminho_imagem_capa: imagens/setor_pedra_negra_p2_i2.webp
 nome: Pedra Negra
 mapas:
 - caminho_imagem_mapa: imagens/setor_pedra_negra_p0_i2.webp
@@ -447,5 +448,3 @@ O setor é bem agradável, com base boa e sombreada por árvores. Mas o melhor p
 Sua graduação é bem diversificada com vias dos mais variados estilos, agradando a todos os tipos de escaladores. As vias em geral são bem protegidas, mas quase todas tem como característica a primeira chapeleta alta, portanto é obrigatório sair com a primeira costurada!
 
 Há clip-stick no local, favor usar, pois já houveram acidentes com quem não usou!!
-
-![Carlos Pádua na via Seja O Que Deus Quiser](imagens/setor_pedra_negra_p2_i2.webp)

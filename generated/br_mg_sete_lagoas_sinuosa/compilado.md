@@ -175,10 +175,6 @@
     Por ser um setor com vias de graduação baixa e estar ao lado do setor "Panelinhas"
     é ideal para os iniciantes.
     
-    | ![Setor de Esquerda](imagens/setor_de_esquerda_p0_i1.webp) |
-    | :--: |
-    | *Setor de Esquerda* |
-    
     | ![Milicianos 5º](imagens/setor_de_esquerda_p1_i0.webp) |
     | :--: |
     | *Milicianos 5º* |
@@ -191,6 +187,7 @@
     | :--: |
     | *Vista do Top da "Inimigos do Estado" 6º sup* |
 - **nome**: Setor de Esquerda
+- **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_de_esquerda_p0_i1.webp)
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_de_esquerda_p0_i0.webp)
@@ -319,10 +316,6 @@
     
     Vista panorâmica do pico e da cidade.
     
-    | ![Setor Panelinha](imagens/setor_panelinha_p0_i1.webp) |
-    | :--: |
-    | *Setor Panelinha* |
-    
     | ![Caipora - 5º](imagens/setor_panelinha_p1_i1.webp) |
     | :--: |
     | *Caipora - 5º* |
@@ -331,6 +324,7 @@
     | :--: |
     | *Vista do Mirante* |
 - **nome**: Setor Panelinha
+- **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_panelinha_p0_i1.webp)
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_panelinha_p0_i0.webp)
@@ -441,10 +435,6 @@
     
     Também no final do setor, a maioria das vias é indicado sair com a primeira proteção clipada.
     
-    | ![Brenfestival 7a](imagens/setor_7_paralelo_p0_i1.webp) |
-    | :--: |
-    | *Brenfestival 7a* |
-    
     | ![Classe Social 8c/9a](imagens/setor_7_paralelo_p0_i2.webp) |
     | :--: |
     | *Classe Social 8c/9a* |
@@ -461,6 +451,7 @@
     | :--: |
     | *Mais Fotos* |
 - **nome**: Setor 7 Paralelo
+- **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_7_paralelo_p0_i1.webp)
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_7_paralelo_p0_i0.webp)
@@ -799,10 +790,6 @@
     de serem mais baixas, as vias deste setor são exigentes devido a leve negatividade
     da pedra.
     
-    | ![Setor Sentinela](imagens/setor_sentinela_p0_i1.webp) |
-    | :--: |
-    | *Setor Sentinela* |
-    
     | ![Foto 2](imagens/setor_sentinela_p1_i0.webp) |
     | :--: |
     | *Foto 2* |
@@ -815,6 +802,7 @@
     | :--: |
     | *Mais fotos* |
 - **nome**: Setor Sentinela
+- **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_sentinela_p0_i1.webp)
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_sentinela_p0_i0.webp)
@@ -972,10 +960,6 @@
     Na chuva é possível escalar algumas vias. Setor ainda pouco explorado,
     apesar do enorme potencial para vias de alta graduação.
     
-    | ![Setor Death Horse](imagens/setor_death_horse_p0_i1.webp) |
-    | :--: |
-    | *Setor Death Horse* |
-    
     | ![Sabbath Blood Sabbath 9a](imagens/setor_death_horse_p1_i0.webp) |
     | :--: |
     | *Sabbath Blood Sabbath 9a* |
@@ -984,6 +968,7 @@
     | :--: |
     | *Mais fotos* |
 - **nome**: Setor Death Horse
+- **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_death_horse_p0_i1.webp)
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_death_horse_p0_i0.webp)
@@ -1188,10 +1173,6 @@
     A via "Mordida de Égua 5º" é muito repetida por iniciantes e faz parte
     das vias mais elogiadas da Sinuosa.
     
-    | ![Setor Gameleira](imagens/setor_gameleira_p0_i1.webp) |
-    | :--: |
-    | *Setor Gameleira* |
-    
     | ![Sou Fria 9a](imagens/setor_gameleira_p1_i0.webp) |
     | :--: |
     | *Sou Fria 9a* |
@@ -1200,6 +1181,7 @@
     | :--: |
     | *Sou Fria 9a Foto 2* |
 - **nome**: Setor Gameleira
+- **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_gameleira_p0_i1.webp)
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_gameleira_p0_i0.webp)
@@ -1321,10 +1303,6 @@
     O setor é o segundo a ser aberto pelos precursores da Sinuosa
     na década de 90.
     
-    | ![Vale das Sombras](imagens/setor_vale_das_sombras_p2_i0.webp) |
-    | :--: |
-    | *Vale das Sombras* |
-    
     | ![Tiu Marreteiro 8a](imagens/setor_vale_das_sombras_p2_i1.webp) |
     | :--: |
     | *Tiu Marreteiro 8a* |
@@ -1333,6 +1311,7 @@
     | :--: |
     | *Fotos* |
 - **nome**: Setor Vale das Sombras
+- **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_vale_das_sombras_p2_i0.webp)
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_vale_das_sombras_p0_i0.webp)
@@ -2039,13 +2018,9 @@
 
 ### Setor (Pico: Sinuosa)
 
-- **descricao**:
-    # Setor Vale Zela
-    
-    | ![Vale Zela](imagens/setor_vale_zela_p0_i1.webp) |
-    | :--: |
-    | *Vale Zela* |
+- **descricao**: # Setor Vale Zela
 - **nome**: Setor Vale Zela
+- **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_vale_zela_p0_i1.webp)
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_vale_zela_p0_i0.webp)
@@ -2188,13 +2163,9 @@
 
 ### Setor (Pico: Sinuosa)
 
-- **descricao**:
-    # Setor Macaúbas
-    
-    | ![Setor Macaúbas](imagens/setor_macaubas_p0_i1.webp) |
-    | :--: |
-    | *Setor Macaúbas* |
+- **descricao**: # Setor Macaúbas
 - **nome**: Setor Macaúbas
+- **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_macaubas_p0_i1.webp)
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_macaubas_p0_i0.webp)
@@ -2293,10 +2264,6 @@
     espaço para grupos, bom para armar redes e descansar, pois o setor possui sombra
     o dia todo.
     
-    | ![De volta às origens 8a](imagens/setor_primordios_p0_i1.webp) |
-    | :--: |
-    | *De volta às origens 8a* |
-    
     | ![De volta às origens 8a foto 2](imagens/setor_primordios_p0_i2.webp) |
     | :--: |
     | *De volta às origens 8a foto 2* |
@@ -2317,6 +2284,7 @@
     | :--: |
     | *Mais Fotos* |
 - **nome**: Setor Primórdios
+- **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_primordios_p0_i1.webp)
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_primordios_p0_i0.webp)
@@ -2526,13 +2494,9 @@
 
 ### Setor (Pico: Sinuosa)
 
-- **descricao**:
-    # Setor 4 Picos
-    
-    | ![4 Picos](imagens/setor_4_picos_p0_i1.webp) |
-    | :--: |
-    | *4 Picos* |
+- **descricao**: # Setor 4 Picos
 - **nome**: Setor 4 Picos
+- **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_4_picos_p0_i1.webp)
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_4_picos_p0_i0.webp)
@@ -2641,10 +2605,6 @@
 - **descricao**:
     # Vale Oculto Sinuosa
     
-    | ![Capa Vale Oculto](imagens/setor_vale_oculto_p0_i0.webp) |
-    | :--: |
-    | *Capa Vale Oculto* |
-    
     A área recém descoberta por escaladores locais em 2018, o local deu origem a três sub-setores, chamados: **"De Cara"**, **"Laranja"** e **"Anfiteatro"**.
     
     O Local tem acesso diferente da parte já conhecida dos escaladores. O acesso está ilustrado neste croqui.
@@ -2665,16 +2625,13 @@
     
     O mapa acima ilustra a trilha de acesso para o Vale Oculto, partindo das proximidades do Shopping Sete Lagoas.
 - **nome**: Vale Oculto
+- **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_vale_oculto_p0_i0.webp)
 - **setores**:
   - **[0]**:
     - **conteudo**:
-      - **descricao**:
-          # Setor Vale Oculto - Sub Setor de Cara
-          
-          | ![Sub Setor de Cara](imagens/setor_vale_oculto__subsetor_de_cara_p0_i1.webp) |
-          | :--: |
-          | *Sub Setor de Cara* |
+      - **descricao**: # Setor Vale Oculto - Sub Setor de Cara
       - **nome**: Sub Setor de Cara
+      - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_vale_oculto__subsetor_de_cara_p0_i1.webp)
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_vale_oculto__subsetor_de_cara_p0_i0.webp)
@@ -2792,13 +2749,9 @@
         - **total_esportivas**: 5
   - **[1]**:
     - **conteudo**:
-      - **descricao**:
-          # Setor Vale Oculto - Sub Setor Laranja
-          
-          | ![Sub Setor Laranja](imagens/setor_vale_oculto__subsetor_laranja_p0_i1.webp) |
-          | :--: |
-          | *Sub Setor Laranja* |
+      - **descricao**: # Setor Vale Oculto - Sub Setor Laranja
       - **nome**: Sub Setor Laranja
+      - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_vale_oculto__subsetor_laranja_p0_i1.webp)
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_vale_oculto__subsetor_laranja_p0_i0.webp)
@@ -3044,13 +2997,9 @@
         - **total_esportivas**: 12
   - **[2]**:
     - **conteudo**:
-      - **descricao**:
-          # Setor Vale Oculto - Sub Setor Anfiteatro
-          
-          | ![Sub Setor Anfiteatro](imagens/setor_vale_oculto__subsetor_anfiteatro_p0_i1.webp) |
-          | :--: |
-          | *Sub Setor Anfiteatro* |
+      - **descricao**: # Setor Vale Oculto - Sub Setor Anfiteatro
       - **nome**: Sub Setor Anfiteatro
+      - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_vale_oculto__subsetor_anfiteatro_p0_i1.webp)
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_vale_oculto__subsetor_anfiteatro_p0_i0.webp)
@@ -3369,7 +3318,7 @@
     - **checksum_sha256**: 04bf6771127f68cdaf7a3ccdb25a9a166a9c0bf946a0d169e96d5d7effbea8e5
   - **[7]**:
     - **caminho**: ![caminho](imagens/setor_4_picos_p0_i1.webp)
-    - **checksum_sha256**: 819d207759f59ec5f998ea635e4d69ff45b276abbce278712f174f6253f1f7f0
+    - **checksum_sha256**: 26f8714410aac3bd99475307e38cc9e6a5798e0813dafb4bf4f437625d10ba6d
   - **[8]**:
     - **caminho**: ![caminho](imagens/setor_7_paralelo_p0_i0.webp)
     - **checksum_sha256**: e2611b1dd7bf66bbf46e233d00c21a49eda304d50a9d34cdd4e252764d52744a
@@ -3393,7 +3342,7 @@
     - **checksum_sha256**: 41a44f0ae119d6004e88427a9a93126029d271595a380b382e46702b62438342
   - **[15]**:
     - **caminho**: ![caminho](imagens/setor_de_esquerda_p0_i1.webp)
-    - **checksum_sha256**: a72e71ba5cd31bfc9a07b1bea1edb8ced9cf0142ce73bdfb23b97d33a6a7f449
+    - **checksum_sha256**: 778a002f6254f011b5ff2b9f0eb0c0edf626af7b30a963daed25d5a3c9c4b7f8
   - **[16]**:
     - **caminho**: ![caminho](imagens/setor_de_esquerda_p1_i0.webp)
     - **checksum_sha256**: b4a97a62b6aba29129715cced05500d9dd1e7d8d4184218365bc25ada7d9c1c0
@@ -3408,7 +3357,7 @@
     - **checksum_sha256**: 8740659abb98efe5487787583fc1e5d819724bda9dc960b5de901aa787d8eff8
   - **[20]**:
     - **caminho**: ![caminho](imagens/setor_death_horse_p0_i1.webp)
-    - **checksum_sha256**: c15c5fef62a57100a52e56f5aa5ef531c7160b60188ff8596a4fc928bce5c788
+    - **checksum_sha256**: 67d71b4458137ab5695be7b5331a78a0ff480f7a7963a740637b944b502d1bf4
   - **[21]**:
     - **caminho**: ![caminho](imagens/setor_death_horse_p1_i0.webp)
     - **checksum_sha256**: 88cec07d27eea0ed34638ec717bb6128b94aa1da61770ab4fa69129bb4b670ad
@@ -3420,7 +3369,7 @@
     - **checksum_sha256**: 931c57b1dc14bfc40802f81eaf7caa2c800779c453ba1f4412e06c7656a4f644
   - **[24]**:
     - **caminho**: ![caminho](imagens/setor_gameleira_p0_i1.webp)
-    - **checksum_sha256**: 88a8f485c10b90c849aee037ebd1de3b939336053dba886bb0c0f01c42fb2713
+    - **checksum_sha256**: c1737ee3a603494743f0336ed663f87e290cd03e3fe434cee471c005dcd032fd
   - **[25]**:
     - **caminho**: ![caminho](imagens/setor_gameleira_p1_i0.webp)
     - **checksum_sha256**: 31d892315d5c92dc46e1de2cf595c585990a8047b64d077333baf453c707036d
@@ -3435,13 +3384,13 @@
     - **checksum_sha256**: bbeec037fad97983096efbb191e70be5740957f9128c40afe003748073e730c6
   - **[29]**:
     - **caminho**: ![caminho](imagens/setor_macaubas_p0_i1.webp)
-    - **checksum_sha256**: 407f984c9ab3ea77c6d12384dfc0600efd5b7c6638087284695e55d0caa5baaa
+    - **checksum_sha256**: 6bf5a5e97783477aa693f465c07d3259a9ffb6d8c21b1ff6b570602edbef5b26
   - **[30]**:
     - **caminho**: ![caminho](imagens/setor_panelinha_p0_i0.webp)
     - **checksum_sha256**: 75c24f6a1f5703b55d9c16f4f35d71f09e1c4e6bc63db2736fbc13569f785c24
   - **[31]**:
     - **caminho**: ![caminho](imagens/setor_panelinha_p0_i1.webp)
-    - **checksum_sha256**: a412ba2f86ce35a4c2f6e1a83c61cd502e04017c83c2b92262668265595072d6
+    - **checksum_sha256**: 0615c9ba27e485e1a2a796252256c739672ad8ea5a09d91c72a5bbdaeaf2c563
   - **[32]**:
     - **caminho**: ![caminho](imagens/setor_panelinha_p1_i0.webp)
     - **checksum_sha256**: 895d5d6bd7a82ce2f821395f2458ceda70af8af5727bbead831e9bfb662325d7
@@ -3492,7 +3441,7 @@
     - **checksum_sha256**: a1e605f115d789b2881f024cf98e23b2e823cc106c0479c39831809d10094810
   - **[48]**:
     - **caminho**: ![caminho](imagens/setor_vale_das_sombras_p2_i0.webp)
-    - **checksum_sha256**: 953a46fea9f730fecad4dc2bb308595c3fb02919bc226ac073c7d90293de7005
+    - **checksum_sha256**: 4467f820ea2909ab397334034f2d50df9f66d2c5e421fd8af388269bb4bb9c7e
   - **[49]**:
     - **caminho**: ![caminho](imagens/setor_vale_das_sombras_p2_i1.webp)
     - **checksum_sha256**: d4f86d0b5001fe48aa9c246b5320b95a9096cf759691bce4eafab814a00d3823
@@ -3510,16 +3459,16 @@
     - **checksum_sha256**: fa37a8141db8c044789367904bfbccc8d51c6aebf2082a384aa037d6d5d2bc0b
   - **[54]**:
     - **caminho**: ![caminho](imagens/setor_vale_oculto__subsetor_de_cara_p0_i1.webp)
-    - **checksum_sha256**: 4a696bbe565d823542fe32c3b2775ea79a9c4a843125879c05ca34d4fc1a4d5e
+    - **checksum_sha256**: 2ea956ba5c4f46530c8fb6514e34c7f60204f70d1b3ba7a738fdadbb169bcf98
   - **[55]**:
     - **caminho**: ![caminho](imagens/setor_vale_oculto__subsetor_laranja_p0_i0.webp)
     - **checksum_sha256**: 5b616b889ff927ed0913a651eb90c581011e38671a5be227c870f9ef2a2c1797
   - **[56]**:
     - **caminho**: ![caminho](imagens/setor_vale_oculto__subsetor_laranja_p0_i1.webp)
-    - **checksum_sha256**: 1109fc5389e3ed74d4335506eaaac658b7bdcfb8267c84a9b1fe603edb640f8c
+    - **checksum_sha256**: a94420a135d0a0866a7a9b3adbd0ac78f30e2e223ae00615ec9ba17b53566446
   - **[57]**:
     - **caminho**: ![caminho](imagens/setor_vale_oculto_p0_i0.webp)
-    - **checksum_sha256**: b7d67ab78015d734f60b07c1abded1e5bfbdf8f0a494b532b574c2cf49cc0de0
+    - **checksum_sha256**: 6ed6fe4fe56ff05ead526ea847c375ca305755846da3c259c0268b66d7c480d5
   - **[58]**:
     - **caminho**: ![caminho](imagens/setor_vale_oculto_p1_i0.webp)
     - **checksum_sha256**: 19bd3a36a84e04924e226b0977802d21862852f09a9a573ae89b3016d16ce9b5
@@ -3531,6 +3480,6 @@
     - **checksum_sha256**: 67074b10d3c48ae76b98aa0f780432cd7daa4efd4b4cdaae7f62bac9422dc50d
   - **[61]**:
     - **caminho**: ![caminho](imagens/setor_vale_zela_p0_i1.webp)
-    - **checksum_sha256**: b3f58c2bb35e9505cf32469055205168eb32bb58cbfec573ea3fa0aed04464c6
+    - **checksum_sha256**: c691a3d668fd943642c6e4a667634d949ecb99510eaddab97f147be0481a9f4d
 
 

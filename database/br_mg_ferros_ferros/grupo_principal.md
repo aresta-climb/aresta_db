@@ -1,6 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+caminho_imagem_capa: imagens/grupo_principal_p0_i0.webp
 nome: Parede Principal (Paredes de Aço)
 setores:
 - caminho: grupo_principal_setor_classicas_curtas.md
@@ -17,5 +18,3 @@ Com vias entre 18 e 220 metros, a Parede Principal é uma das principais atraç�
 A predominância é de vias em agarras e ótimos abaulados / buracos, conferindo ao escalador, lances bem estéticos. Como não poderia deixar de ser, estas paredes apresentam também boas passadas em aderência.
 
 O interessante é o fato de a parede apresentar vias curtas e longas, ambas, tanto com graduações elevadas, quando com graduações bem simplórias, agradando a todos os gostos.
-
-![A Parede Principal, vista do topo da Parede das Aderências – Central. (Foto: Pedro Bugim)](imagens/grupo_principal_p0_i0.webp)

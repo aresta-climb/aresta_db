@@ -1,6 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+caminho_imagem_capa: imagens/grupo_pedreira_setor_bloco_lagartixa_p2_i0.webp
 nome: 'Bloco: Lagartixa'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_lagartixa_p0.webp
@@ -388,7 +389,5 @@ escaladas:
     nome: Chapeuzinho Vermelho
     dificuldade: V13
 ---
-
-![Escalada 1](imagens/grupo_pedreira_setor_bloco_lagartixa_p2_i0.webp)
 
 ![Escalada 2](imagens/grupo_pedreira_setor_bloco_lagartixa_p4_i0.webp)

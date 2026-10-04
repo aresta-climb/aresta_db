@@ -470,10 +470,6 @@
     
     Os trabalhos neste setor começaram apenas em 2007, com o descobrimento do imponente Bloco 0 e a abertura de seus primeiros boulders, como o incrível “Verticale” v5. Durante algum tempo o setor permaneceu sem novidades até que, em 2011, o Bloco 0 voltou a ser freqüentado e recebeu os FAs mais duros do setor, incluindo o mítico “Medalhão” v10, que até os dias de hoje recebeu poucas cadenas. Em 2013, os blocos mais próximos do estacionamento começaram a ser explorados e se mostraram um excelente playground para os iniciantes.
     
-    | ![Escalada no Setor Estacionamento](imagens/setor_estacionamento_p0_i0.webp) |
-    | :--: |
-    | *Escalada no Setor Estacionamento* |
-    
     ## Acesso (10 min)
     
     Ao estacionar o carro é possível avistar, a cerca de 100m, os 03 primeiros blocos. Para acessá-los basta pegar a trilha óbvia que vai em direção a eles por cerca de 1min. Já para os outros blocos, siga a estrada que sobe em direção ao setor “Entrada” e, pouco antes da forte curva à direita, você verá duas trilhas: a da direita te leva ao bloco “Psicotrópicos” e a da esquerda ao “Bloco 0”.
@@ -503,6 +499,7 @@
     
     *Fotos e vídeos de escalada: [www.facebook.com/vivapedra](https://www.facebook.com/vivapedra)*
 - **nome**: Estacionamento
+- **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_estacionamento_p0_i0.webp)
 - **setores**:
   - **[0]**:
     - **conteudo**:
@@ -877,10 +874,6 @@
 - **descricao**:
     # Entrada
     
-    | ![Escalador no teto do Setor Entrada](imagens/setor_entrada_p0_i0.webp) |
-    | :--: |
-    | *Escalador no teto do Setor Entrada* |
-    
     O mais frequentado setor da Pedra Rachada dá as boas vindas aos seus visitantes com dois grandes blocos, conhecidos por “Bloco 1” e “Bloco 2”. São quase 60 escaladas com os mais variados estilos e diversos clássicos de todos os graus. Neste setor também encontra-se a escalada mais difícil já encadenada em toda Pedra Rachada, o incrível “Projeto Sabará”. Não deixe de checar este boulder único, nem que seja para apreciar sua imponente linha!
     
     ## Acesso (15 min)
@@ -931,6 +924,7 @@
     - A partir da área dos blocos Libélula e Bloco 1 ramificam-se as trilhas secundárias para o **Setor Lua Cheia** (à esquerda) e para o **Setor Sono do Calango** (à direita).
     - Próximos ao Bloco 2 encontram-se os blocos **D (Chupa Lombriga)**, **E (Abraço do Calango)** e, mais acima na crista, o **F (Nave)**.
 - **nome**: Entrada
+- **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_entrada_p0_i0.webp)
 - **setores**:
   - **[0]**:
     - **conteudo**:
@@ -1631,10 +1625,6 @@
 - **descricao**:
     # Sono do Calango
     
-    | ![Escalador no Setor Sono do Calango](imagens/setor_sono_do_calango_p0_i0.webp) |
-    | :--: |
-    | *Escalador no Setor Sono do Calango* |
-    
     Setor com uma grande concentração de boulders do circuito verde e muitas linhas clássicas. Apesar de estar ao lado do Setor Entrada, é muito pouco conhecido e freqüentado. É também lugar das duas únicas vias de toda a Rachada, que valem muito a pena serem escaladas! O destaque para este setor fica por conta dos blocos “High vibe”, “Das vias” e “Sono do calango”, que possuem escaladas incríveis dos mais variados graus de dificuldade.
     
     ## Acesso (15 min)
@@ -1672,6 +1662,7 @@
     - **Bloco G – Das Vias**: boulders e vias 12 a 16.
     - **Bloco H – Sono do Calango**: boulders 17 a 34.
 - **nome**: Sono do Calango
+- **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_sono_do_calango_p0_i0.webp)
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_sono_do_calango_p3_i0.webp)
@@ -2159,10 +2150,6 @@
     
     Setor com uma grande concentração de boulders, principalmente do circuito amarelo, o Deslize é também berço do boulder com o maior registro de cadenas no site 8a.nu, o mega-clássico “Lua cheia” v5. Neste setor também está o primeiro boulder aberto em um teto na Pedra Rachada, o incrível “Terceira entrada” v7 além de muitas outras escaladas clássicas, como o bote do “Carne moída” v6, o “Deslize” v8 e o “Hey Fred”, um v10 no melhor estilo compressão da Pedra Rachada!
     
-    | ![Escalador em teto no Setor Deslize](imagens/setor_deslize_p0_i0.webp) |
-    | :--: |
-    | *Escalador em teto no Setor Deslize* |
-    
     ## Acesso (15 min)
     
     Para acessar este setor, a partir do “Estacionamento 2”, pegue a trilha principal logo em frente e siga reto. Ao passar o “Bloco 1”, à sua direita, siga pela trilha que sobe ao lado dela por mais 2min e chegará ao primeiro bloco deste setor, o “Lua cheia”. Todos os outros blocos estão a menos de 50m daí.
@@ -2232,6 +2219,7 @@
     | :--: |
     | *Detalhe das mãos do escalador nas agarras* |
 - **nome**: Deslize
+- **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_deslize_p0_i0.webp)
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_deslize_p8_i1.webp)
@@ -2884,10 +2872,6 @@
     
     Esse pequeno aglomerado de blocos, à direita do setor do Deslize, começou a ser explorado em 2006, com a abertura do clássico “Bicicletinha 2000”. Permaneceu sem novidades expressivas por alguns anos até que, em 2011, o escalador Mahavir Jneesh realizou a primeira ascensão do boulder “Yang” e, logo após, sua saída sentada denominada “Yin Yang”, dois mega clássicos da Pedra Rachada!
     
-    | ![Escalador no boulder Yin Yang](imagens/setor_yin_yang_p0_i0.webp) |
-    | :--: |
-    | *Escalador no boulder Yin Yang* |
-    
     ## Acesso (15 min)
     
     A partir do “Estacionamento 2”, siga pela trilha principal e, após passar à esquerda do “Bloco 1”, continue subindo até o bloco “Lua Cheia” e contorne-o pela direita, de onde será possível avistar o setor “Yin Yang” à sua direita. Para acessá-lo, basta tomar a trilha à direita em frente ao bloco “Bagagem” que vai em direção ao setor.
@@ -2931,6 +2915,7 @@
     | :--: |
     | *Escalador na saída do boulder com vista panorâmica para a serra* |
 - **nome**: Yin Yang
+- **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_yin_yang_p0_i0.webp)
 - **setores**:
   - **[0]**:
     - **conteudo**:
@@ -3235,10 +3220,6 @@
 - **descricao**:
     Em 2013, os trabalhos no bloco “Pantaloneta” proporcionaram o surgimento de vários novos boulders que confirmaram este setor como um dos melhores da Pedra Rachada. Os blocos “Rolling Stones” e “Pantaloneta”, que juntos somam a maior concentração de clássicos do local, são obrigatórios a qualquer visitante do local. Aproveite também para conhecer os blocos “Gaston a la meson” e as escaladas do bloco “Universo Paralello”.
     
-    | ![Escaladora dominando o cume da falésia com vista panorâmica dos vales e montanhas](imagens/setor_rolling_stones_p0_i0.webp) |
-    | :--: |
-    | *Escaladora dominando o cume da falésia com vista panorâmica dos vales e montanhas* |
-    
     ## Acesso (20 min)
     
     Este setor fica logo acima do setor “Deslize”. Para acessá-lo, basta seguir a trilha principal que sobe passando pelo setor Entrada (à esquerda do “Bloco 1”) e pelo setor “Deslize”, contornando o bloco Lua cheia pela direita. Logo após o bloco “Zafar”, a primeira trilha à esquerda dá acesso aos blocos “Gaston a la meson”, “Casulo” e “Marrento”. Continuando reto estará bloco “Rolling Stones” e o bloco “Eject”. Um pouco mais a direita está o bloco “Universo Paralello” e, acima dele, o complexo das aranhas, com os blocos “Pantaloneta”, “Octopus”, “Protons” e “Aranha albina”.
@@ -3295,6 +3276,7 @@
     > "Linha Stretch Limits: Alta performance para esportes outdoor."  
     > — *4Climb*
 - **nome**: Rolling Stones
+- **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_rolling_stones_p0_i0.webp)
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_rolling_stones_p6_i1.webp)
@@ -4306,10 +4288,6 @@
 - **descricao**:
     # Pena de Ganso
     
-    | ![Escalador no Setor Pena de Ganso](imagens/setor_pena_de_ganso_p0_i0.webp) |
-    | :--: |
-    | *Escalador no Setor Pena de Ganso* |
-    
     Após muito tempo sem muitas novidades, no ano de 2013 novas linhas abertas nos blocos “Gangrena” e “Pena de ganso” colocaram o setor mais uma vez em movimento. Apesar destas novas linhas, o maior destaque para este setor continua sendo uma de suas escaladas mais antigas, o clássico “Pena de ganso”, que possui uma movimentação única.
     
     ## Acesso (15 min)
@@ -4341,6 +4319,7 @@
     - **Bloco D – Escondido**: boulder 21.
     - **Bloco E – Caramujo**: boulders 22 a 25.
 - **nome**: Pena de Ganso
+- **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_pena_de_ganso_p0_i0.webp)
 - **setores**:
   - **[0]**:
     - **conteudo**:
@@ -4707,10 +4686,6 @@
     
     Setor que abriga uma grande quantidade de boulders do circuito verde e azul, com destaque para o clássico “Aresta visual” v3. Por outro lado, se você escala boulders do circuito amarelo ou vermelho e gosta de dinâmicos, este será um de seus setores preferidos, com escaladas incríveis deste estilo nos blocos “Aresta visual”, “Tosco” e “Motricidade”. Mas não pense que a diversão acaba por aí, se você curte aderência não deixe de visitar o mítico “Frita pé” e quebrar a cabeça desvendando seus betas!
     
-    | ![Escalador no Setor Tosco](imagens/setor_tosco_p0_i0.webp) |
-    | :--: |
-    | *Escalador no Setor Tosco* |
-    
     ## Acesso (25 min)
     
     A partir do “Estacionamento 2” siga a trilha principal, passando à esquerda do “Bloco 1” e à direita do bloco “Lua cheia” até chegar ao bloco “Rolling Stones”. De lá, siga pela trilha que segue para a esquerda do bloco por 1min até os blocos “Boliche”, o “Amarelão” e o “Lajinha”. Logo acima dele, encontra-se o bloco “Aresta visual” e o acesso para todos os outros blocos.
@@ -4772,6 +4747,7 @@
     > "Não existe um caminho para a felicidade. A felicidade é o caminho."  
     > — *Mahatma Gandhi*
 - **nome**: Tosco
+- **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_tosco_p0_i0.webp)
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_tosco_p2_i0.webp)
@@ -5558,10 +5534,6 @@
     
     O setor menos explorado de todos abriga uma das escaladas mais clássicas da Pedra Rachada. Seu nome deve-se à sua formação, uma espécie de canaleta de blocos que se estende por toda a “crista” do morro, de norte a sul. São inúmeros blocos praticamente inexplorados em toda a sua extensão, que se concentram principalmente a sudoeste do setor ”Sono do calango”, um convite aos caçadores de boulders de plantão.
     
-    | ![Escalador no Setor Canaleta](imagens/setor_canaleta_p0_i0.webp) |
-    | :--: |
-    | *Escalador no Setor Canaleta* |
-    
     ## Acesso (20 min)
     
     Para chegar a este setor, a melhor forma é pegar a trilha principal a partir do “Estacionamento 2” e entrar à esquerda na primeira bifurcação, pouco antes da placa “Seja bem vindo a Pedra Rachada”. Para acessar os blocos “Cavalo de Tróia” e “Destinos”, pegue para a direita em frente ao bloco “High vibe”, 50m após a bifurcação.
@@ -5596,6 +5568,7 @@
     
     *Suporte Vertical – Alpinismo Industrial: Soluções inteligentes para trabalhos verticais. (31) 3607-2440 / (31) 9233-2075 | contato@suportevertical.com.br | suportevertical.com.br*
 - **nome**: Canaleta
+- **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_canaleta_p0_i0.webp)
 - **setores**:
   - **[0]**:
     - **conteudo**:
@@ -6043,10 +6016,6 @@
 - **descricao**:
     # Tubarão
     
-    | ![Escalador no teto do Setor Tubarão](imagens/setor_tubarao_p0_i0.webp) |
-    | :--: |
-    | *Escalador no teto do Setor Tubarão* |
-    
     Setor com os projetos mais difíceis da Pedra Rachada, sendo alguns extensões do clássico “Abrigo de ferro”, v11 sólido de movimentação única. O bloco “Fogos de Vênus”, que apoia o bloco Abrigo de Ferro, possui algumas das escaladas verticais mais divertidas de toda a área. Já o bloco “Tubarão”, possui um dos tetos mais explorados da Rachada, com várias linhas e variantes incríveis que garantem aos escaladores do circuito amarelo muita diversão!
     
     ## Acesso (25 min)
@@ -6087,6 +6056,7 @@
     | :--: |
     | *Publicidade Tom Alves Fotografia Outdoor* |
 - **nome**: Tubarão
+- **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_tubarao_p0_i0.webp)
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_tubarao_p6_i5.webp)
@@ -6672,10 +6642,6 @@
     
     Último setor antes do cume da Pedra Rachada que, apesar de possuir poucos blocos, guarda algumas das escaladas mais desafiadoras mentalmente de todo o complexo. Dois clássicos highball fazem deste setor um dos preferidos de muitos viciados em adrenalina. Se você gosta de apertar, não deixe de tentar o único “Amanita” v11.
     
-    | ![Escalada no Setor Daqui a 20 Anos](imagens/setor_daqui_a_20_anos_p0_i0.webp) |
-    | :--: |
-    | *Escalada no Setor Daqui a 20 Anos* |
-    
     ## Acesso (25 min)
     
     Este é o último setor antes do cume. Para acessá-lo, a partir do “Estacionamento 2”, siga a trilha principal que sobe passando à esquerda do “Bloco 1” e à direita do bloco “Lua cheia”, chegando ao bloco “Rolling Stones”. Contorne-o pela direita e siga a trilha pegando a segunda trilha que sobe à esquerda, em direção à grande pedra com uma rachadura no meio (em forma de boca). O primeiro bloco, o “Análise crítica” estará logo acima, uns 100m, à sua direita.
@@ -6703,6 +6669,7 @@
     Os melhores produtos para as melhores experiências. Experimente essa vibe.  
     *Foto: Murilo Vargas*
 - **nome**: Daqui a 20 Anos
+- **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_daqui_a_20_anos_p0_i0.webp)
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_daqui_a_20_anos_p2_i2.webp)
@@ -6844,10 +6811,6 @@
     
     Além de algumas das melhores escaladas de toda a Pedra Rachada em todos os circuitos de grau, o setor “Cume” impressiona também pelo visual de tirar o fôlego. São quase 1500m de altitude que proporcionam 360º de uma vista estonteante de toda a região metropolitana de Belo Horizonte e seus arredores, com um pôr do sol digno de filme. Difícil aqui é decidir qual linha escalar, mas, independente do seu grau de escalada, não saia de lá sem ao menos conhecer o mega-clássico “Blood América”.
     
-    | ![Escalador no boulder Blood América](imagens/setor_cume_p0_i0.webp) |
-    | :--: |
-    | *Escalador no boulder Blood América* |
-    
     ## Acesso (30 min)
     
     A partir do “Estacionamento 2”, siga a trilha principal que passa à esquerda do “Bloco 1”, à direita do bloco “Lua cheia” e chega ao bloco “Rolling Stones”. Contorne-o pela direita e siga a trilha pegando a segunda trilha que sobe à esquerda, em direção à grande pedra com uma rachadura no meio (em forma de boca). O setor “Cume” consiste em um grande platô com um aglomerado de blocos no cume do morro.
@@ -6881,6 +6844,7 @@
     | :--: |
     | *Escalador no bloco Testarossa* |
 - **nome**: Cume
+- **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_cume_p0_i0.webp)
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_cume_p9_i1.webp)
@@ -7438,7 +7402,7 @@
     - **checksum_sha256**: 45205c3d56172970c4e98917a45cbb8da577664928cdcdf839bc5acb8a45fbc6
   - **[10]**:
     - **caminho**: ![caminho](imagens/setor_canaleta_p0_i0.webp)
-    - **checksum_sha256**: 67851cebcae348abdfbc34c48e3f6f5040507f0144f161e18071a3a210193418
+    - **checksum_sha256**: 5cb378ade10c98d49099a040f422ba9382530bf422ffcc14c6b50f1af141e120
   - **[11]**:
     - **caminho**: ![caminho](imagens/setor_canaleta_p2_i0.webp)
     - **checksum_sha256**: 4ceb4d92fc8ec9a1d98ce35f54f465c6bf268bddd584b880439314622198e921
@@ -7468,7 +7432,7 @@
     - **checksum_sha256**: 0ab7dbf889c3c7e0b74f113a9da89cac9534eb74382940046fde8f511328721a
   - **[20]**:
     - **caminho**: ![caminho](imagens/setor_cume_p0_i0.webp)
-    - **checksum_sha256**: 5ebe2356d9564ab284cc9bf06dc3b4d7cc76865e04ce05a5508f16a6576371fd
+    - **checksum_sha256**: 258a719d73394ed0b9189d7392c21fb26030e1197347969ca940052bd89c947d
   - **[21]**:
     - **caminho**: ![caminho](imagens/setor_cume_p2_i1.webp)
     - **checksum_sha256**: 8262eaf9eba0e3b99b86211020107057cf472c7c3a6fc7c9f060fcf85c003980
@@ -7510,7 +7474,7 @@
     - **checksum_sha256**: c2ca685d8f0f6115a898a3dca4226b8bde80a148b8b4af1f93063c3efbb1b86d
   - **[34]**:
     - **caminho**: ![caminho](imagens/setor_daqui_a_20_anos_p0_i0.webp)
-    - **checksum_sha256**: accf1f4982b2d5d447b1ccb28510994890ee56b60085c4ed186dc9e23f38221c
+    - **checksum_sha256**: b2f23147169963ed19e76113af555797f017bce2a2ea9f8ef43016ffbaf42b20
   - **[35]**:
     - **caminho**: ![caminho](imagens/setor_daqui_a_20_anos_p2_i1.webp)
     - **checksum_sha256**: d675d09dfab26280ce6f04b10fcb9a03652502d04ce65b77ae0f4ee50a3cdc30
@@ -7531,7 +7495,7 @@
     - **checksum_sha256**: f5b5e73f2ecc227ec4fcc90ce91648be56bc0f85f4964c5c12e52ad46c4d4bb3
   - **[41]**:
     - **caminho**: ![caminho](imagens/setor_deslize_p0_i0.webp)
-    - **checksum_sha256**: 664815b86847fb6707c55fe2e3df9e802715af68e2fd552549be15b5d092ce2a
+    - **checksum_sha256**: 0d8887b395e9ebf3f505a92cd760055ce80b06a982bdf75bdd345af4667e2e98
   - **[42]**:
     - **caminho**: ![caminho](imagens/setor_deslize_p10_i0.webp)
     - **checksum_sha256**: fe6441496e9373f0c9ae41e587140f1ca6b337f66ec3e71954a84a4a4ed950ed
@@ -7585,7 +7549,7 @@
     - **checksum_sha256**: c7198c4836b47165d93aef56682ec4a81884cb1af60e65cac1310a95588cfd4a
   - **[59]**:
     - **caminho**: ![caminho](imagens/setor_entrada_p0_i0.webp)
-    - **checksum_sha256**: 47bd9d9dae7e34e061326458b6c490cc42d8d7dde21a974bffdee82afe4a98a2
+    - **checksum_sha256**: c5072cf9074e6f5d2b96277d428691f83194923a9f6f7ac400f971a377a1e31a
   - **[60]**:
     - **caminho**: ![caminho](imagens/setor_entrada_p10_i0.webp)
     - **checksum_sha256**: a98186a7d66e55f82adbf2e957acf126c79aa3217e95ea2136138a856b06f863
@@ -7630,7 +7594,7 @@
     - **checksum_sha256**: b955d331edcf60a95c4385d6b9d8aef4d2247fcb5e367496bc7bb009b45ddd8c
   - **[74]**:
     - **caminho**: ![caminho](imagens/setor_estacionamento_p0_i0.webp)
-    - **checksum_sha256**: b2b5a065cb17d8c747d11d1a3986854199e365c779b24bb6910c9a2bb44b6daf
+    - **checksum_sha256**: e03fda42aff66afd68da2671905812558b7a0f6441fcfb7c9d3613c6981a647f
   - **[75]**:
     - **caminho**: ![caminho](imagens/setor_estacionamento_p2_i0.webp)
     - **checksum_sha256**: bf45759273eebb1e2d0a864299869ef8c21befe0697c1bf74ba31feae01e532a
@@ -7663,7 +7627,7 @@
     - **checksum_sha256**: fc351131d63835e5818741475bd1715bfcaccf3c8f9637e446e427078422e553
   - **[85]**:
     - **caminho**: ![caminho](imagens/setor_pena_de_ganso_p0_i0.webp)
-    - **checksum_sha256**: 6f603f07c7c6536d42e5f1444fe3f7d000a17126dcc0093b18fbe9bbe1ed68dc
+    - **checksum_sha256**: 32c5ca9036cf4c7479a8efa1bbb44d9988a01501560d6d57781d016760c25a64
   - **[86]**:
     - **caminho**: ![caminho](imagens/setor_pena_de_ganso_p2_i0.webp)
     - **checksum_sha256**: bd065dc42eec68c98c3117986cd35ba105f5303d3c852f3bf4426dd5f94278ce
@@ -7690,7 +7654,7 @@
     - **checksum_sha256**: 51a205b961f8a82f58b399e23ddfde7d29c1ab09f327affbd41e598ff4bc13dd
   - **[94]**:
     - **caminho**: ![caminho](imagens/setor_rolling_stones_p0_i0.webp)
-    - **checksum_sha256**: d58e785513f34da1e4ea5e90171fe046f305128c153cc1e52cc9feeaf2c0e62c
+    - **checksum_sha256**: a131df5ab8ca3d9c33569509a8b7080f192bd8b9425ab3ccf2bea5224166c820
   - **[95]**:
     - **caminho**: ![caminho](imagens/setor_rolling_stones_p10_i0.webp)
     - **checksum_sha256**: 47539164345a3e2f155eddb62f2d37bdda8d1ad1cc199849a5ba03fc0ad98aa2
@@ -7735,7 +7699,7 @@
     - **checksum_sha256**: e8dd152eb47948beb934c82800c35f817a977a6f07b22f9a6ba4c2ff86a34c82
   - **[109]**:
     - **caminho**: ![caminho](imagens/setor_sono_do_calango_p0_i0.webp)
-    - **checksum_sha256**: 5aad02ced09aeb51b2230547aef85604c79b18d6f96a442496f9113b913c6f77
+    - **checksum_sha256**: 05d9fb60ad1b548654b32406a8a227c55429cd1fe40918c8d4dfdd837dd7ccc7
   - **[110]**:
     - **caminho**: ![caminho](imagens/setor_sono_do_calango_p2_i0.webp)
     - **checksum_sha256**: 7879e6c0d2062d9be8b8b8a2207e4937a703d938780210e5864e2f529b5faa01
@@ -7768,7 +7732,7 @@
     - **checksum_sha256**: c09d4492c6461d9723f14b25a1d34f02c3720ae865726bf5a840bc7e5c45ba6e
   - **[120]**:
     - **caminho**: ![caminho](imagens/setor_tosco_p0_i0.webp)
-    - **checksum_sha256**: fb3bbb3c287b3ce0ad9b930fc9a8309b0b2410a4db3904f44ba74089144a28f1
+    - **checksum_sha256**: f8403be8951cfb027414002db55c441a9902ad11bb1ca28611962679e3a43329
   - **[121]**:
     - **caminho**: ![caminho](imagens/setor_tosco_p10_i0.webp)
     - **checksum_sha256**: 2a39fa97e342a2a1c2367016f9f54fd0b347a4ecf82d2cd27424a1d0a553a021
@@ -7819,7 +7783,7 @@
     - **checksum_sha256**: c2fdb6d7b34ea6998d0309467b5598ab179d17548fd49100cd2c3dadcbbadf20
   - **[137]**:
     - **caminho**: ![caminho](imagens/setor_tubarao_p0_i0.webp)
-    - **checksum_sha256**: ffd9766e88340f3d67a72db75a8f7f11543813a4c5f2b1e069a4ceba048beac0
+    - **checksum_sha256**: 40bcf7ae80e83e3eba1b9cab3978252dd1d5524ceda1b18ee1b6bc1dbf436c28
   - **[138]**:
     - **caminho**: ![caminho](imagens/setor_tubarao_p2_i0.webp)
     - **checksum_sha256**: 0ce5bf7b4b228ee9fbc4ea51bcfefb336728b467f7210d72e35e8e959dc05de3
@@ -7852,7 +7816,7 @@
     - **checksum_sha256**: fb74b02d1adf7b88eb968d1ca09c9ff570f312d6ee4f844e60c7f49e3494c526
   - **[148]**:
     - **caminho**: ![caminho](imagens/setor_yin_yang_p0_i0.webp)
-    - **checksum_sha256**: c36dd93e48a57b553d8341e52e3116c14a50f00616596d2eaf63bcbba642d4e9
+    - **checksum_sha256**: 079b75fc04f502f30cbc1c3a3e7e9b9d7fa8f232cd7b084cd98cbe1057422f6e
   - **[149]**:
     - **caminho**: ![caminho](imagens/setor_yin_yang_p2_i1.webp)
     - **checksum_sha256**: dd7fc08f4b837ce7fff7098da38fd9568f17fb53743f646b5c26818815056f10

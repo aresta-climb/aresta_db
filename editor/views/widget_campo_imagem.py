@@ -29,6 +29,7 @@ from editor.core.processamento_imagem_campo import (
     verificar_conflito_nome_imagem,
     obter_metadados_imagem,
     comprimir_imagem_para_bytes_webp,
+    AREA_MAXIMA_PADRAO,
 )
 
 
@@ -104,12 +105,14 @@ class WidgetCampoImagem(QWidget):
         model: Optional[CroquiModel] = None,
         caminho_imagem: str = "",
         nome_arquivo_fixo: Optional[str] = None,
+        area_maxima: int = AREA_MAXIMA_PADRAO,
         parent: Optional[QWidget] = None,
     ) -> None:
         super().__init__(parent)
         self.model: Optional[CroquiModel] = model
         self._caminho_atual: str = caminho_imagem
         self.nome_arquivo_fixo: Optional[str] = nome_arquivo_fixo
+        self.area_maxima: int = area_maxima
 
         layout_principal = QVBoxLayout(self)
         layout_principal.setContentsMargins(0, 0, 0, 0)
@@ -257,7 +260,11 @@ class WidgetCampoImagem(QWidget):
             nome_final = dialogo.obter_nome_escolhido()
 
         caminho_relativo = f"imagens/{nome_final}"
-        bytes_webp, _, _ = comprimir_imagem_para_bytes_webp(caminho_arquivo, quality=85)
+        bytes_webp, _, _ = comprimir_imagem_para_bytes_webp(
+            caminho_arquivo,
+            quality=85,
+            max_area=self.area_maxima,
+        )
 
         self.aplicar_nova_imagem(caminho_relativo, bytes_webp)
 

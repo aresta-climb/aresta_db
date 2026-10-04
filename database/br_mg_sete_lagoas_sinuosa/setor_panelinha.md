@@ -1,6 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+caminho_imagem_capa: imagens/setor_panelinha_p0_i1.webp
 nome: Setor Panelinha
 mapas:
 - caminho_imagem_mapa: imagens/setor_panelinha_p0_i0.webp
@@ -89,8 +90,6 @@ alguns instrutores esta é uma facilidade na aplicação de ensino de procedimen
 de ancoragem e desmontagem de vias.
 
 Vista panorâmica do pico e da cidade.
-
-![Setor Panelinha](imagens/setor_panelinha_p0_i1.webp)
 
 ![Caipora - 5º](imagens/setor_panelinha_p1_i1.webp)
 

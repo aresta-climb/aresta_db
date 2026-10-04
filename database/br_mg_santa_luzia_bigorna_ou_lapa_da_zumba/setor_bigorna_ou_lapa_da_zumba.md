@@ -1,6 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+caminho_imagem_capa: imagens/setor_bigorna_ou_lapa_da_zumba_p0_i0_2.webp
 escaladas:
 - via_esportiva:
     nome: Xeque Mate
@@ -230,5 +231,3 @@ mapas:
 ---
 
 # Setor Bigorna ou Lapa da Zumba
-
-![Mapa do Setor Bigorna ou Lapa da Zumba](imagens/setor_bigorna_ou_lapa_da_zumba_p0_i0_2.webp)

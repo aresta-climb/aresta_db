@@ -1,6 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+caminho_imagem_capa: imagens/setor_garganta_p0_i0.webp
 nome: Garganta
 mapas:
 - caminho_imagem_mapa: imagens/setor_garganta_p1.webp
@@ -598,8 +599,6 @@ escaladas:
 ---
 
 # Setor Garganta
-
-![Setor Garganta](imagens/setor_garganta_p0_i0.webp)
 
 O Setor Garganta é um dos mais icônicos do Bocaina Park, com uma grande concentração de vias de 6º e 7º grau, além da clássica "Ceder Writhe" (8c).
 

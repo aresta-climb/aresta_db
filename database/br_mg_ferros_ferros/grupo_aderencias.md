@@ -1,6 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+caminho_imagem_capa: imagens/grupo_aderencias_p0_i0.webp
 nome: Parede das Aderências
 setores:
 - caminho: grupo_aderencias_setor_extrema_esquerda.md
@@ -19,7 +20,5 @@ As vias mais longas apresentam grau geral 3º, à exceção da via “Solamente�
 Dentre suas vias, destacam-se a “Cordeiro de Deus” (V – 60m), “O Psicopata de Ferros” (4° VI E2 D1 – 70m – Mista), “Cinquentona de Ferros” (IIIsup – 60m), “Grampos de Ferros” (3º IVsup – 110m) e “Social Club” (3º IIIsup – 200m), vias que, em seu conjunto, permitem um bom conhecimento desse trecho do vale.
 
 Este setor é imperdível para aqueles que apreciam a técnica de aderência, bem como aos que estão necessitando de treino na referida. Apesar das poucas agarras, a aderência da pedra é impressionante, conferindo muita confiança ao escalador.
-
-![Tonico, na conquista da “Solamente” - solo integral. (Foto: Celso Gomes)](imagens/grupo_aderencias_p0_i0.webp)
 
 Curiosamente, algumas destas vias possuem também proteções mistas, ou seja, intercalando grampos fixos e materiais móveis.

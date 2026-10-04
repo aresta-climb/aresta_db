@@ -1,6 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+caminho_imagem_capa: imagens/setor_quintal_p0_i0_2.webp
 nome: Setor Quintal
 mapas:
 - caminho_imagem_mapa: imagens/setor_quintal_p0_i0.webp
@@ -214,5 +215,3 @@ escaladas:
 ---
 
 # Setor Quintal
-
-![Setor Quintal](imagens/setor_quintal_p0_i0_2.webp)

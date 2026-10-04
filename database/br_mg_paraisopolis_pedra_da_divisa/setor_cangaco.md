@@ -1,6 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+caminho_imagem_capa: imagens/setor_cangaco_p0_i0.webp
 nome: Setor Cangaço
 mapas:
 - caminho_imagem_mapa: imagens/setor_cangaco_p1_i0.webp
@@ -269,8 +270,6 @@ escaladas:
     - Leonard Moreira
     data_abertura: 2021-03
 ---
-
-![Leonard Moreira na via Zé Sereno, 7b](imagens/setor_cangaco_p0_i0.webp)
 
 ![Charlie Alves na via Corisco, 6ºsup](imagens/setor_cangaco_p2_i0.webp)
 

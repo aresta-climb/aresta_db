@@ -1,6 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+caminho_imagem_capa: imagens/grupo_serra_de_sao_jose_setor_cachoeira_pedra_do_indio_p1_i3.webp
 nome: Cachoeira Pedra do Índio (Marco Zero)
 mapas:
 - caminho_imagem_mapa: imagens/grupo_serra_de_sao_jose_setor_cachoeira_pedra_do_indio_p0_i2.webp
@@ -147,7 +148,5 @@ Setor localizado bem ao lado da queda da Pedra do Índio, no complexo de cachoei
 Fica bem ao lado da Estrada Velha que liga São João Del Rei à Tiradentes, mas está no munícipio de Santa Cruz de Minas, que é na verdade um bairro de Tiradentes que emancipou.
 
 Este local fica muito próximo da cidade, dependendo de onde se está partindo fica até mais próximo que a própria Serra do Lenheiro. Para se chegar basta digitar Totem Marco Zero no Google Maps. A pequena trilha de acesso às vias fica ao lado esquerdo das primeiras quedas.
-
-![Lucas Agostini escalando a via Cacique](imagens/grupo_serra_de_sao_jose_setor_cachoeira_pedra_do_indio_p1_i3.webp)
 
 *Lucas Agostini escalando a via Cacique*

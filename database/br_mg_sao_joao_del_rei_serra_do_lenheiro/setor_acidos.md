@@ -1,6 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+caminho_imagem_capa: imagens/setor_acidos_p1_i2.webp
 nome: Ácidos
 mapas:
 - caminho_imagem_mapa: imagens/setor_acidos_p0_i2.webp
@@ -233,8 +234,6 @@ Localizado no início da formação rochosa da Serra do Lenheiro ao lado do Bloc
 ## Dica
 
 Como o setor possui todas as vias acima de sétimo grau, uma opção usada por aqueles que querem escalar algo mais fácil é fazer o início da via Olho Clínico e na metade passar pra Ácido Lático, deve dar algo em torno de sexto grau. Por ser uma linha reta pode ser feita em Top-rope e tem o apelido de Olho Lático.
-
-![Michel Rodrigues na via Nitroglicerina](imagens/setor_acidos_p1_i2.webp)
 
 O setor Ácidos apresenta como característica vias verticais com movimentações surpreendentes, podendo ser utilizados entalamentos, bidedo, calcanhar e movimentos dinâmicos. As linhas necessitam de uma leitura apurada e muita criatividade. Todas as vias são fixas e com parada dupla no top.
 

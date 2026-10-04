@@ -1,6 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+caminho_imagem_capa: imagens/grupo_pedra_do_neri_setor_aderencias_p1_i1.webp
 nome: Face das Aderências
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedra_do_neri_setor_aderencias_p0_i1.webp
@@ -120,8 +121,6 @@ escaladas:
     data_abertura: '2011-09-03'
     descricao: Via em agarras bem protegida.
 ---
-
-![Juliano Magalhães escalando da Face das Esportivas, da Pedra do Neri. (Foto: Celso Ferreira Gomes)](imagens/grupo_pedra_do_neri_setor_aderencias_p1_i1.webp)
 
 ![Julinho Cardozo, Tonico e Glesse, na Face das Aderências, da Pedra do Neri. (Foto: Celso Ferreira Gomes)](imagens/grupo_pedra_do_neri_setor_aderencias_p1_i2.webp)
 

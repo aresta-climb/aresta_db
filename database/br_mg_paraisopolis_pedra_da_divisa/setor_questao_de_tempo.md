@@ -1,6 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+caminho_imagem_capa: imagens/setor_questao_de_tempo_p0_i0_2.webp
 nome: Setor Questão de Tempo
 mapas:
 - caminho_imagem_mapa: imagens/setor_questao_de_tempo_p0_i0.webp
@@ -92,8 +93,6 @@ escaladas:
     - Samuel Moreira
     data_abertura: '2020'
 ---
-
-![Antonio Calvo e Michel Gonçalves na via Hospício jamais, 6ºsup](imagens/setor_questao_de_tempo_p0_i0_2.webp)
 
 ![Michel Gonçalves na via Eu prefiro uma cerveja, 5ºsup](imagens/setor_questao_de_tempo_p1_i0.webp)
 

@@ -1,6 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+caminho_imagem_capa: imagens/setor_7_paralelo_p0_i1.webp
 nome: Setor 7 Paralelo
 mapas:
 - caminho_imagem_mapa: imagens/setor_7_paralelo_p0_i0.webp
@@ -279,8 +280,6 @@ ao setor "Sentinela" deve-se tomar cuidado para evitar acidentes, pois este trec
 Atenção para a base de algumas vias no final do setor.
 
 Também no final do setor, a maioria das vias é indicado sair com a primeira proteção clipada.
-
-![Brenfestival 7a](imagens/setor_7_paralelo_p0_i1.webp)
 
 ![Classe Social 8c/9a](imagens/setor_7_paralelo_p0_i2.webp)
 

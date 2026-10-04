@@ -1,6 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+caminho_imagem_capa: imagens/setor_pirados_de_rocha_p0_i0.webp
 nome: Pirados de Rocha
 mapas:
 - caminho_imagem_mapa: imagens/setor_pirados_de_rocha_p1.webp
@@ -146,8 +147,6 @@ escaladas:
 ---
 
 # Setor Pirados de Rocha
-
-![Setor Pirados de Rocha](imagens/setor_pirados_de_rocha_p0_i0.webp)
 
 Setor com várias vias de projeto e nomes inspirados no cenário político brasileiro de 2017.
 

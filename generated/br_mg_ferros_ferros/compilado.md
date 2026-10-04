@@ -415,12 +415,9 @@
     
     Este setor é imperdível para aqueles que apreciam a técnica de aderência, bem como aos que estão necessitando de treino na referida. Apesar das poucas agarras, a aderência da pedra é impressionante, conferindo muita confiança ao escalador.
     
-    | ![Tonico, na conquista da “Solamente” - solo integral. (Foto: Celso Gomes)](imagens/grupo_aderencias_p0_i0.webp) |
-    | :--: |
-    | *Tonico, na conquista da “Solamente” - solo integral. (Foto: Celso Gomes)* |
-    
     Curiosamente, algumas destas vias possuem também proteções mistas, ou seja, intercalando grampos fixos e materiais móveis.
 - **nome**: Parede das Aderências
+- **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/grupo_aderencias_p0_i0.webp)
 - **setores**:
   - **[0]**:
     - **conteudo**:
@@ -3008,11 +3005,8 @@
     A predominância é de vias em agarras e ótimos abaulados / buracos, conferindo ao escalador, lances bem estéticos. Como não poderia deixar de ser, estas paredes apresentam também boas passadas em aderência.
     
     O interessante é o fato de a parede apresentar vias curtas e longas, ambas, tanto com graduações elevadas, quando com graduações bem simplórias, agradando a todos os gostos.
-    
-    | ![A Parede Principal, vista do topo da Parede das Aderências – Central. (Foto: Pedro Bugim)](imagens/grupo_principal_p0_i0.webp) |
-    | :--: |
-    | *A Parede Principal, vista do topo da Parede das Aderências – Central. (Foto: Pedro Bugim)* |
 - **nome**: Parede Principal (Paredes de Aço)
+- **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/grupo_principal_p0_i0.webp)
 - **setores**:
   - **[0]**:
     - **conteudo**:
@@ -3027,10 +3021,6 @@
           
           Com graduações variando entre III e VIsup, estas vias são perfeitas para treinamento em top-rope e guiada, neste caso pela ótima proteção que elas oferecem. Algumas vias possuem passadas em móvel, sempre em fendas sólidas, proporcionando proteções “à prova de bomba”.
           
-          | ![Rodrigo Magalhães guiando a "Couro de Lobisomem" (Foto: Tamires Lima)](imagens/grupo_principal_setor_classicas_curtas_p0_i1.webp) |
-          | :--: |
-          | *Rodrigo Magalhães guiando a "Couro de Lobisomem" (Foto: Tamires Lima)* |
-          
           ## Esquema de Trilhas
           
           - **1 – Base das vias "Deu Tilt" até "Entrando no Ferro"**
@@ -3042,6 +3032,7 @@
           | :--: |
           | *Luciano Bender intermediando um lance durante a conquista da "Casas da Banha" (Foto: Celso Ferreira Gomes)* |
       - **nome**: Setor Clássicas Curtas
+      - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/grupo_principal_setor_classicas_curtas_p0_i1.webp)
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_principal_setor_classicas_curtas_p2_i0.webp)
@@ -5139,11 +5130,8 @@
           - **1 – Base da via "Noite de São João"**: Acessando pela trilha do rio seco, para a parte esquerda da Parede Principal Central.
           - **2 – Base da via "Um Momento no Tempo"**: Acessando pela trilha das vias da direita, da Parede Principal – Clássicas Longas.
           - **3 – Acesso à parede deste setor**: Ainda sem conquistas.
-          
-          | ![Costão inicial na base do Setor de Cima, na Parede Principal (Foto: Maria Fernanda Patrício)](imagens/grupo_principal_setor_setor_de_cima_p2_i1.webp) |
-          | :--: |
-          | *Costão inicial na base do Setor de Cima, na Parede Principal (Foto: Maria Fernanda Patrício)* |
       - **nome**: Setor de Cima
+      - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/grupo_principal_setor_setor_de_cima_p2_i1.webp)
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_principal_setor_setor_de_cima_p1_i0.webp)
@@ -5320,10 +5308,6 @@
       - **descricao**:
           # Parede Principal – Setor Clássicas Longas
           
-          | ![Maria Fernanda na terceira passada em móvel (e crux) do Pr. “Ih, Ferrou!” (Foto: Pedro Bugim)](imagens/grupo_principal_setor_classicas_longas_p0_i1.webp) |
-          | :--: |
-          | *Maria Fernanda na terceira passada em móvel (e crux) do Pr. “Ih, Ferrou!” (Foto: Pedro Bugim)* |
-          
           Setor da Parede Principal que concentra as maiores vias do Vale do Roncador, com vias de até 220 metros de extensão, como é o caso do Pr. “Eu Não Sou de Ferro”.
           
           Para acessá-lo é necessário seguir a trilha principal do Vale do Roncador por cerca de dois quilômetros, sempre beirando o córrego de mesmo nome. Após cruzar o rio duas vezes, passar por uma tronqueira e contornar um pasto, é necessário pegar uma bifurcação à direita, subindo em diagonal. Em certo ponto, ao encontrar uma laje de pedra com um filete de água escorrendo, vindo da direita, pode-se seguir por ele (cuidado para não escorregar!) ou seguir pelo barranco à esquerda.
@@ -5341,6 +5325,7 @@
           - **3**: Base da via “Ih, Ferrou!”
           - **4**: Base das vias “O Retorno de Jedi” e “O Nome da Rosa”
       - **nome**: Setor Clássicas Longas
+      - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/grupo_principal_setor_classicas_longas_p0_i1.webp)
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_principal_setor_classicas_longas_p1_i1.webp)
@@ -6094,10 +6079,6 @@
 ### Setor (Pico: Ferros)
 
 - **descricao**:
-    | ![Visão geral do Setor das Vias Esportivas](imagens/setor_vias_esportivas_p0_i1.webp) |
-    | :--: |
-    | *Visão geral do Setor das Vias Esportivas* |
-    
     | ![Tonico martelando a “Bruxa Albano” (Foto: Celso Ferreira Gomes)](imagens/setor_vias_esportivas_p2_i0.webp) |
     | :--: |
     | *Tonico martelando a “Bruxa Albano” (Foto: Celso Ferreira Gomes)* |
@@ -6108,6 +6089,7 @@
     
     Dentre suas 14 vias, destacam-se “Jabá com Jerimum” (VI), “Rabada” (VIIa), “Vomitão em Ferros” (VIIIa) e “Bruxa Albano” (VI).
 - **nome**: Setor Vias Esportivas
+- **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_vias_esportivas_p0_i1.webp)
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_vias_esportivas_p1_i1.webp)
@@ -6571,11 +6553,8 @@
     As seis vias do setor das Esportivas, todas com extensão de 15 metros, foram conquistadas no dia de Natal de 2010 por Juliano Magalhães e Tonico.
     
     A face das Aderências apresenta cinco vias com extensão de 10 a 12 metros e graduação bastante variável, de IIIsup a VIIc.
-    
-    | ![Pedra do Neri – À esquerda, vias esportivas; à direita, vias em aderência. (Foto: Celso Ferreira Gomes)](imagens/grupo_pedra_do_neri_p0_i1.webp) |
-    | :--: |
-    | *Pedra do Neri – À esquerda, vias esportivas; à direita, vias em aderência. (Foto: Celso Ferreira Gomes)* |
 - **nome**: Pedra do Neri
+- **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/grupo_pedra_do_neri_p0_i1.webp)
 - **setores**:
   - **[0]**:
     - **conteudo**:
@@ -6791,10 +6770,6 @@
   - **[1]**:
     - **conteudo**:
       - **descricao**:
-          | ![Juliano Magalhães escalando da Face das Esportivas, da Pedra do Neri. (Foto: Celso Ferreira Gomes)](imagens/grupo_pedra_do_neri_setor_aderencias_p1_i1.webp) |
-          | :--: |
-          | *Juliano Magalhães escalando da Face das Esportivas, da Pedra do Neri. (Foto: Celso Ferreira Gomes)* |
-          
           | ![Julinho Cardozo, Tonico e Glesse, na Face das Aderências, da Pedra do Neri. (Foto: Celso Ferreira Gomes)](imagens/grupo_pedra_do_neri_setor_aderencias_p1_i2.webp) |
           | :--: |
           | *Julinho Cardozo, Tonico e Glesse, na Face das Aderências, da Pedra do Neri. (Foto: Celso Ferreira Gomes)* |
@@ -6803,6 +6778,7 @@
           | :--: |
           | *O entorno da Pedra do Neri. É possível vê-la (bem diminuta), no canto superior esquerdo da foto, junto à vegetação. (Foto: Pedro Bugim)* |
       - **nome**: Face das Aderências
+      - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/grupo_pedra_do_neri_setor_aderencias_p1_i1.webp)
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedra_do_neri_setor_aderencias_p0_i1.webp)

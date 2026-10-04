@@ -1,6 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+caminho_imagem_capa: imagens/setor_falesias_do_lenheiro_p0_i3.webp
 nome: Falésias do Lenheiro
 mapas:
 - caminho_imagem_mapa: imagens/setor_falesias_do_lenheiro_p0_i2.webp
@@ -263,8 +264,6 @@ escaladas:
 # Falésias do Lenheiro
 
 Este não é exatamente um setor, é na verdade o corpo rochoso que vai desde o Bloco dos Dois Dedos até os Três Pontões e contém várias vias espalhadas em pequenos setores ou isoladas. Aqui estão também setores de treinamentos militares denominados Paredão 1, 2, 2½, 3 e 4 (este último encontra-se na parte de trás da montanha) e podem ser visualizados no mapa no início deste guia. As rotas de treinamento estão pintadas na rocha com numeração de 1 a 10 e são em geral móveis ou top-rope/rapel de baixa graduação e podem ser usadas por quem se interessar.
-
-![Vista geral das Falésias do Lenheiro](imagens/setor_falesias_do_lenheiro_p0_i3.webp)
 
 ## Paredão 2,5
 

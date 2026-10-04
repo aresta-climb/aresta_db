@@ -1,6 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+caminho_imagem_capa: imagens/grupo_principal_setor_classicas_curtas_p0_i1.webp
 nome: Setor Clássicas Curtas
 mapas:
 - caminho_imagem_mapa: imagens/grupo_principal_setor_classicas_curtas_p2_i0.webp
@@ -580,8 +581,6 @@ As exceções são as vias “Vou Dançar um Xaxaxá” e “Águas de Março”
 Para acessar a base destas vias, deve-se pegar a trilha principal do vale do Roncador e seguir por aproximadamente 50 metros, até a bifurcação à direita, que sobe alguns poucos metros, juntando com a parede. Esta trilha se estende por toda extensão do setor, sendo necessário apenas seguir pela mesma para atingir o início de todas as vias.
 
 Com graduações variando entre III e VIsup, estas vias são perfeitas para treinamento em top-rope e guiada, neste caso pela ótima proteção que elas oferecem. Algumas vias possuem passadas em móvel, sempre em fendas sólidas, proporcionando proteções “à prova de bomba”.
-
-![Rodrigo Magalhães guiando a "Couro de Lobisomem" (Foto: Tamires Lima)](imagens/grupo_principal_setor_classicas_curtas_p0_i1.webp)
 
 ## Esquema de Trilhas
 

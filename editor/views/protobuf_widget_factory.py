@@ -142,10 +142,12 @@ class ProtobufWidgetFactory:
 
         if formato == croqui_pb2.CampoFormatoUi.IMAGEM:
             from editor.views.widget_campo_imagem import WidgetCampoImagem
+            from editor.core.processamento_imagem_campo import AREA_MAXIMA_ESCALADA, AREA_MAXIMA_PADRAO
             nome_fixo = None
             if options.HasExtension(croqui_pb2.nome_arquivo_imagem):
                 nome_fixo = options.Extensions[croqui_pb2.nome_arquivo_imagem]
-            return WidgetCampoImagem(nome_arquivo_fixo=nome_fixo)
+            area_maxima = AREA_MAXIMA_ESCALADA if field_descriptor.name == "caminho_imagem_capa" else AREA_MAXIMA_PADRAO
+            return WidgetCampoImagem(nome_arquivo_fixo=nome_fixo, area_maxima=area_maxima)
 
         if field_descriptor.type in (FieldDescriptor.TYPE_INT32, FieldDescriptor.TYPE_INT64,
                                      FieldDescriptor.TYPE_UINT32, FieldDescriptor.TYPE_UINT64,

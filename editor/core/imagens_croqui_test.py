@@ -111,3 +111,21 @@ class TestImagensCroqui:
         croqui = croqui_pb2.Croqui()
         orfas = obter_imagens_orfas_ao_remover(croqui, None, {"imagens/teste.webp": b"123"})
         assert orfas == {}
+
+    def test_extrair_caminhos_imagens_setor_e_grupo_com_capa(self):
+        setor = croqui_pb2.Setor(nome="Setor Com Capa", caminho_imagem_capa="imagens\\capa_setor.webp")
+        assert extrair_caminhos_imagens(setor) == ["imagens/capa_setor.webp"]
+
+        grupo = croqui_pb2.Grupo(nome="Grupo Com Capa", caminho_imagem_capa="imagens/capa_grupo.webp")
+        assert extrair_caminhos_imagens(grupo) == ["imagens/capa_grupo.webp"]
+
+    def test_obter_imagens_orfas_ao_remover_setor_com_capa(self):
+        croqui = croqui_pb2.Croqui()
+        pico = croqui.picos.add()
+        sg = pico.setores_ou_grupos.add()
+        setor = sg.setor.conteudo
+        setor.caminho_imagem_capa = "imagens/capa_exclusiva.webp"
+
+        imagens_ram = {"imagens/capa_exclusiva.webp": b"bytes_da_capa"}
+        orfas = obter_imagens_orfas_ao_remover(croqui, sg, imagens_ram)
+        assert orfas == {"imagens/capa_exclusiva.webp": b"bytes_da_capa"}

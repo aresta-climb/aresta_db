@@ -1,6 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+caminho_imagem_capa: imagens/setor_clube_da_luta_p0_i0.webp
 nome: Setor Clube da Luta
 mapas:
 - caminho_imagem_mapa: imagens/setor_clube_da_luta_p1.webp
@@ -249,5 +250,3 @@ escaladas:
 ---
 
 # Setor Clube da Luta
-
-![Escaladora Júlia Lima na via Rins de Pedra](imagens/setor_clube_da_luta_p0_i0.webp)

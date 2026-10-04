@@ -1,6 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+caminho_imagem_capa: imagens/grupo_pedreira_setor_bloco_teto_de_vidro_p1_i0.webp
 nome: 'Bloco: Teto de Vidro'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_teto_de_vidro_p0.webp
@@ -161,4 +162,3 @@ escaladas:
     dificuldade: V1
 ---
 
-![Fotos](imagens/grupo_pedreira_setor_bloco_teto_de_vidro_p1_i0.webp)

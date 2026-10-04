@@ -1,6 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+caminho_imagem_capa: imagens/pagina_16_imagem_0.webp
 nome: G1
 mapas:
 - caminho_imagem_mapa: imagens/pagina_15.webp
@@ -234,8 +235,6 @@ escaladas:
 ---
 
 # Setor G1
-
-![Escalador Fábio Pavesi na via "O poder do Silêncio". Foto: Jean Carlos](imagens/pagina_16_imagem_0.webp)
 
 O setor G1 tem ótimas vias e boulder. Porem é necessário manter o silêncio e prestar muita atenção quanto a presença de abelhas.
 

@@ -358,15 +358,12 @@
 - **descricao**:
     # Setor G1
     
-    | ![Escalador Fábio Pavesi na via "O poder do Silêncio". Foto: Jean Carlos](imagens/pagina_16_imagem_0.webp) |
-    | :--: |
-    | *Escalador Fábio Pavesi na via "O poder do Silêncio". Foto: Jean Carlos* |
-    
     O setor G1 tem ótimas vias e boulder. Porem é necessário manter o silêncio e prestar muita atenção quanto a presença de abelhas.
     
     **Boulders:**
     Boulders clássicos entre V0 e V4.
 - **nome**: G1
+- **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/pagina_16_imagem_0.webp)
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/pagina_15.webp)
@@ -650,14 +647,11 @@
 - **descricao**:
     # Setor G2
     
-    | ![Escaladores no G2, diversão garantida! Foto: Luciana dos Anjos](imagens/pagina_18_imagem_0.webp) |
-    | :--: |
-    | *Escaladores no G2, diversão garantida! Foto: Luciana dos Anjos* |
-    
     **Travessias:**
     * C: Boas opções de travessias, muito legais.
     * D: Boas opções de travessias, muito legais.
 - **nome**: G2
+- **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/pagina_18_imagem_0.webp)
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/pagina_17.webp)
@@ -2056,13 +2050,13 @@
     - **checksum_sha256**: 693618076bfabd1987ce77f624b241981352e0260d3602ef49adac9ea3277229
   - **[9]**:
     - **caminho**: ![caminho](imagens/pagina_16_imagem_0.webp)
-    - **checksum_sha256**: 18a971e58eadcd8f8f876adc2657e6b3fcad0136a466d242215d00b1b94b129e
+    - **checksum_sha256**: 2557759a09f8a3a296c8f0c8eb2fff466acd0a5d4168d9705c61486a2016db1e
   - **[10]**:
     - **caminho**: ![caminho](imagens/pagina_17.webp)
     - **checksum_sha256**: 055f5c5f4a66ed5fb44cc115a2429ef8521a0910eec24cb559adc6bdcb7d6dd1
   - **[11]**:
     - **caminho**: ![caminho](imagens/pagina_18_imagem_0.webp)
-    - **checksum_sha256**: 2ae279ba4aeaa3a23cf3d484d4581dca6d1cc36da10290a5ab20374ba0b49b5d
+    - **checksum_sha256**: e695fb5e84615f50a877edef89eaa43fdb1ee04c38fcddf276f3461c849fe829
   - **[12]**:
     - **caminho**: ![caminho](imagens/pagina_19.webp)
     - **checksum_sha256**: f9ea6ff74b06347f667b07f0008ecde640afa741f72698d2a660d5f8133ef548

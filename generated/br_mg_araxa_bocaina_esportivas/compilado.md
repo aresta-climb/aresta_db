@@ -173,15 +173,12 @@
 - **descricao**:
     # Setor Ensolarado
     
-    | ![Setor Ensolarado](imagens/setor_ensolarado_p0_i0.webp) |
-    | :--: |
-    | *Setor Ensolarado* |
-    
     O Setor Ensolarado é um dos setores iniciais do Bocaina Park, caracterizado por vias de graduação variada, do 5º ao 9b.
     
     > [!TIP]
     > Leve seu lixo e outro que encontrar para a cidade. Não faça necessidades fisiológicas nas trilhas e base de vias. Avisar a administração sobre a abertura de novas vias de escalada. **USE CAPACETE NAS BASES DE VIAS DE ESCALADA.**
 - **nome**: Ensolarado
+- **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_ensolarado_p0_i0.webp)
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_ensolarado_p1.webp)
@@ -707,15 +704,12 @@
 - **descricao**:
     # Setor Garganta
     
-    | ![Setor Garganta](imagens/setor_garganta_p0_i0.webp) |
-    | :--: |
-    | *Setor Garganta* |
-    
     O Setor Garganta é um dos mais icônicos do Bocaina Park, com uma grande concentração de vias de 6º e 7º grau, além da clássica "Ceder Writhe" (8c).
     
     > [!TIP]
     > Leve seu lixo e outro que encontrar para a cidade. Não faça necessidades fisiológicas nas trilhas e base de vias. Avisar a administração sobre a abertura de novas vias de escalada. **USE CAPACETE NAS BASES DE VIAS DE ESCALADA.**
 - **nome**: Garganta
+- **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_garganta_p0_i0.webp)
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_garganta_p1.webp)
@@ -1422,15 +1416,12 @@
 - **descricao**:
     # Setor Tapa na Cara
     
-    | ![Setor Tapa na Cara](imagens/setor_tapa_na_cara_p0_i0.webp) |
-    | :--: |
-    | *Setor Tapa na Cara* |
-    
     Setor com vias curtas e técnicas, ideal para quem busca vias de 6º e 7º grau.
     
     > [!TIP]
     > Leve seu lixo e outro que encontrar para a cidade. Não faça necessidades fisiológicas nas trilhas e base de vias. Avisar a administração sobre a abertura de novas vias de escalada. **USE CAPACETE NAS BASES DE VIAS DE ESCALADA.**
 - **nome**: Tapa na Cara
+- **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_tapa_na_cara_p0_i0.webp)
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_tapa_na_cara_p1.webp)
@@ -1541,15 +1532,12 @@
 - **descricao**:
     # Setor Terceiro Andar
     
-    | ![Setor Terceiro Andar](imagens/setor_terceiro_andar_p0_i0.webp) |
-    | :--: |
-    | *Setor Terceiro Andar* |
-    
     O Setor Terceiro Andar é conhecido por suas vias de alta dificuldade, incluindo projetos e vias de 9º grau consolidado.
     
     > [!TIP]
     > Leve seu lixo e outro que encontrar para a cidade. Não faça necessidades fisiológicas nas trilhas e base de vias. Avisar a administração sobre a abertura de novas vias de escalada. **USE CAPACETE NAS BASES DE VIAS DE ESCALADA.**
 - **nome**: Terceiro Andar
+- **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_terceiro_andar_p0_i0.webp)
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_terceiro_andar_p1.webp)
@@ -1994,15 +1982,12 @@
 - **descricao**:
     # Setor Paulistas
     
-    | ![Setor Paulistas](imagens/setor_paulistas_p0_i0.webp) |
-    | :--: |
-    | *Setor Paulistas* |
-    
     O Setor Paulistas contém uma grande variedade de vias técnicas, com destaque para a "Cortina de Fumaça" (9c).
     
     > [!TIP]
     > Leve seu lixo e outro que encontrar para a cidade. Não faça necessidades fisiológicas nas trilhas e base de vias. Avisar a administração sobre a abertura de novas vias de escalada. **USE CAPACETE NAS BASES DE VIAS DE ESCALADA.**
 - **nome**: Paulistas
+- **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_paulistas_p0_i0.webp)
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_paulistas_p1.webp)
@@ -2382,15 +2367,12 @@
 - **descricao**:
     # Setor Mezanino
     
-    | ![Setor Mezanino](imagens/setor_mezanino_p0_i0.webp) |
-    | :--: |
-    | *Setor Mezanino* |
-    
     O Setor Mezanino oferece uma excelente mistura de vias fáceis (5º grau) e caminhos extremamente difíceis ultrapassando o 10º grau.
     
     > [!TIP]
     > Leve seu lixo e outro que encontrar para a cidade. Não faça necessidades fisiológicas nas trilhas e base de vias. Avisar a administração sobre a abertura de novas vias de escalada. **USE CAPACETE NAS BASES DE VIAS DE ESCALADA.**
 - **nome**: Mezanino
+- **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_mezanino_p0_i0.webp)
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_mezanino_p1.webp)
@@ -2846,15 +2828,12 @@
 - **descricao**:
     # Setor Shana Crazy
     
-    | ![Setor Shana Crazy](imagens/setor_shana_crazy_p0_i0.webp) |
-    | :--: |
-    | *Setor Shana Crazy* |
-    
     O Setor Shana Crazy possui vias curtas e intensas, variando do 4º ao 7º grau.
     
     > [!TIP]
     > Leve seu lixo e outro que encontrar para a cidade. Não faça necessidades fisiológicas nas trilhas e base de vias. Avisar a administração sobre a abertura de novas vias de escalada. **USE CAPACETE NAS BASES DE VIAS DE ESCALADA.**
 - **nome**: Shana Crazy
+- **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_shana_crazy_p0_i0.webp)
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_shana_crazy_p1.webp)
@@ -3079,15 +3058,12 @@
 - **descricao**:
     # Setor Tsunami
     
-    | ![Setor Tsunami](imagens/setor_tsunami_p0_i0.webp) |
-    | :--: |
-    | *Setor Tsunami* |
-    
     O Setor Tsunami é um dos maiores do Bocaina Park, com vias extensas e desafiadoras que chegam ao 10º grau.
     
     > [!TIP]
     > Leve seu lixo e outro que encontrar para a cidade. Não faça necessidades fisiológicas nas trilhas e base de vias. Avisar a administração sobre a abertura de novas vias de escalada. **USE CAPACETE NAS BASES DE VIAS DE ESCALADA.**
 - **nome**: Tsunami
+- **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_tsunami_p0_i0.webp)
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_tsunami_p1.webp)
@@ -3640,15 +3616,12 @@
 - **descricao**:
     # Setor Udão
     
-    | ![Setor Udão](imagens/setor_udao_p0_i0.webp) |
-    | :--: |
-    | *Setor Udão* |
-    
     O Setor Udão apresenta vias de 5º a 7º grau, com uma boa concentração de vias de 6º sup.
     
     > [!TIP]
     > Leve seu lixo e outro que encontrar para a cidade. Não faça necessidades fisiológicas nas trilhas e base de vias. Avisar a administração sobre a abertura de novas vias de escalada. **USE CAPACETE NAS BASES DE VIAS DE ESCALADA.**
 - **nome**: Udão
+- **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_udao_p0_i0.webp)
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_udao_p1.webp)
@@ -3956,15 +3929,12 @@
 - **descricao**:
     # Setor Tereza
     
-    | ![Setor Tereza](imagens/setor_tereza_p0_i0.webp) |
-    | :--: |
-    | *Setor Tereza* |
-    
     Setor com vias acessíveis de 5º grau e desafios técnicos de até 7º grau.
     
     > [!TIP]
     > Leve seu lixo e outro que encontrar para a cidade. Não faça necessidades fisiológicas nas trilhas e base de vias. Avisar a administração sobre a abertura de novas vias de escalada. **USE CAPACETE NAS BASES DE VIAS DE ESCALADA.**
 - **nome**: Tereza
+- **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_tereza_p0_i0.webp)
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_tereza_p1.webp)
@@ -4596,15 +4566,12 @@
 - **descricao**:
     # Setor Tetos
     
-    | ![Setor Tetos](imagens/setor_tetos_p0_i0.webp) |
-    | :--: |
-    | *Setor Tetos* |
-    
     O Setor Tetos é conhecido por suas vias atléticas e desafiadoras, com muitos tetos e negativas. Contém vias variadas de 5º a 10a grau, além de vários projetos promissores.
     
     > [!TIP]
     > Leve seu lixo e outro que encontrar para a cidade. Não faça necessidades fisiológicas nas trilhas e base de vias. Avisar a administração sobre a abertura de novas vias de escalada. **USE CAPACETE NAS BASES DE VIAS DE ESCALADA.**
 - **nome**: Tetos
+- **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_tetos_p0_i0.webp)
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_tetos_p1.webp)
@@ -5513,15 +5480,12 @@
 - **descricao**:
     # Setor Segundo Andar
     
-    | ![Setor Segundo Andar](imagens/setor_segundo_andar_p0_i0.webp) |
-    | :--: |
-    | *Setor Segundo Andar* |
-    
     O Setor Segundo Andar oferece vias atléticas com nomes inspirados na cultura pop, variando de 6º a 9º grau.
     
     > [!TIP]
     > Leve seu lixo e outro que encontrar para a cidade. Não faça necessidades fisiológicas nas trilhas e base de vias. Avisar a administração sobre a abertura de novas vias de escalada. **USE CAPACETE NAS BASES DE VIAS DE ESCALADA.**
 - **nome**: Segundo Andar
+- **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_segundo_andar_p0_i0.webp)
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_segundo_andar_p1.webp)
@@ -5788,15 +5752,12 @@
 - **descricao**:
     # Setor Pirados de Rocha
     
-    | ![Setor Pirados de Rocha](imagens/setor_pirados_de_rocha_p0_i0.webp) |
-    | :--: |
-    | *Setor Pirados de Rocha* |
-    
     Setor com várias vias de projeto e nomes inspirados no cenário político brasileiro de 2017.
     
     > [!TIP]
     > Leve seu lixo e outro que encontrar para a cidade. Não faça necessidades fisiológicas nas trilhas e base de vias. Avisar a administração sobre a abertura de novas vias de escalada. **USE CAPACETE NAS BASES DE VIAS DE ESCALADA.**
 - **nome**: Pirados de Rocha
+- **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_pirados_de_rocha_p0_i0.webp)
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_pirados_de_rocha_p1.webp)
@@ -5988,7 +5949,7 @@
     - **checksum_sha256**: 6a8e93e36b950fd6b960e38a0e0fc8ecf5d088512975c0eb960e8e68cae5e6af
   - **[6]**:
     - **caminho**: ![caminho](imagens/setor_ensolarado_p0_i0.webp)
-    - **checksum_sha256**: 2505acc210cddf1073fc00e783d27445b45693f9f1c53152d43ea554ba01250e
+    - **checksum_sha256**: 2d9ae1ef21c2aed7afe944b9f1fe95011e711c103fc444625870988a188c8eb6
   - **[7]**:
     - **caminho**: ![caminho](imagens/setor_ensolarado_p1.webp)
     - **checksum_sha256**: 30f49c7173c7ea117534754daf5e8b4c68c6a0a9c00edbee3938624950ba3e81
@@ -6003,7 +5964,7 @@
     - **checksum_sha256**: 60639836f514a5523c5df91d128ed77e6284fcdb16ec8d6cc1890b6fc572ef4f
   - **[11]**:
     - **caminho**: ![caminho](imagens/setor_garganta_p0_i0.webp)
-    - **checksum_sha256**: f1f06801996aee94356d97784d5b2b87115aa38d7984dd56ccafb6b152af4467
+    - **checksum_sha256**: c3b29f6f0d4910b5c8aa8591f6e696409f475578e200ee7c6e87a24fc0aed778
   - **[12]**:
     - **caminho**: ![caminho](imagens/setor_garganta_p1.webp)
     - **checksum_sha256**: f25a4d6cd9de39d6918cd03cd7bcbea4a298592003ce94eb6c4c14a2222537cc
@@ -6036,7 +5997,7 @@
     - **checksum_sha256**: 388a4978082a1266ca6552ecad367d9f7d09228aef4af1a47e5596e5e35ac6d8
   - **[22]**:
     - **caminho**: ![caminho](imagens/setor_mezanino_p0_i0.webp)
-    - **checksum_sha256**: 04532c8f783364a99267ac78513406c9181da7fdcc244123fece89962241fffa
+    - **checksum_sha256**: 92fc8f67446ade6b32b643d4dd90df0ad2fac8acbd62556733638fa30a9fa265
   - **[23]**:
     - **caminho**: ![caminho](imagens/setor_mezanino_p1.webp)
     - **checksum_sha256**: e8f1745ac21f9fea43b9676b9b080007cdbb25a806ad0ce5342f8cf7182b2324
@@ -6054,7 +6015,7 @@
     - **checksum_sha256**: 4b9a914ec880623c16aadd2a209e00c15f6fb86dfe5292c49340752c7f199eae
   - **[28]**:
     - **caminho**: ![caminho](imagens/setor_paulistas_p0_i0.webp)
-    - **checksum_sha256**: d2f5170d3266cacdc63afa8cedf6c1b58e1e36cd5b1a5e0c111ce315ed94b21d
+    - **checksum_sha256**: 6def226f7dbbfd667f179ee7b897fdf891e93adb71a87eb53b48e88e14def2b5
   - **[29]**:
     - **caminho**: ![caminho](imagens/setor_paulistas_p1.webp)
     - **checksum_sha256**: b3226cf31712c19ff8881d58c4ee80993a604a46c46cf67800ab861d906bb23f
@@ -6066,13 +6027,13 @@
     - **checksum_sha256**: 6f6a01b045eba8f248572b849027b215ab35404d2ecac705e9a8fa75c208a8f8
   - **[32]**:
     - **caminho**: ![caminho](imagens/setor_pirados_de_rocha_p0_i0.webp)
-    - **checksum_sha256**: 15db817a945539dcdcc2fed34cafc24094b01343027cda44b2681597b5628a25
+    - **checksum_sha256**: c0e26f1dbb5e3adb00bbc143ac70be29eb835de645d4dc02f0889bbda0731909
   - **[33]**:
     - **caminho**: ![caminho](imagens/setor_pirados_de_rocha_p1.webp)
     - **checksum_sha256**: 759fa49b557fe14493693943da7f4bf158a25f0a95c2574ba48047e381bc8e47
   - **[34]**:
     - **caminho**: ![caminho](imagens/setor_segundo_andar_p0_i0.webp)
-    - **checksum_sha256**: 1dca86ae3b5c231f158e43aa36fac5da250b9ef7202d908dcf8651893959a569
+    - **checksum_sha256**: 839b6737f10836f2f922ea0f2627a6d51a6977f462d4582066538a106ac8de69
   - **[35]**:
     - **caminho**: ![caminho](imagens/setor_segundo_andar_p1.webp)
     - **checksum_sha256**: 707a604a3e52c283beef73a0b05bc253ee4ecf4b394c1b110f9bd9935a50c9f7
@@ -6081,7 +6042,7 @@
     - **checksum_sha256**: 6035b82a10d882bf194e197e46e2d1e4e4ae1a671457cef0bef4c8d829991e7b
   - **[37]**:
     - **caminho**: ![caminho](imagens/setor_shana_crazy_p0_i0.webp)
-    - **checksum_sha256**: 689329d6d02242c6dd744faca80183c6a5e27c5e7d8e4bf28bdb16bbf8dc688b
+    - **checksum_sha256**: f1a0895ee4f39be0398fd8853cf87759645e4f3a0de98f9a5e6315fad5d1925e
   - **[38]**:
     - **caminho**: ![caminho](imagens/setor_shana_crazy_p1.webp)
     - **checksum_sha256**: 81d51af31bc4832ca0c4e078d6f7e69d5a51a7263e11d76bf923490aa841b99b
@@ -6093,13 +6054,13 @@
     - **checksum_sha256**: 736401c0f6791b498a253511c61abac47f65a22d4dcfb306b981afff4b6f5e48
   - **[41]**:
     - **caminho**: ![caminho](imagens/setor_tapa_na_cara_p0_i0.webp)
-    - **checksum_sha256**: 87282a740256c98b44fe041023c1f9ff1fe4b9208fcef6ee06b5ba9541635512
+    - **checksum_sha256**: 7bbc29e7ab18aa47d1289aa45b1f8eb6c46682eb5c584dde5a6235e1714ca1d1
   - **[42]**:
     - **caminho**: ![caminho](imagens/setor_tapa_na_cara_p1.webp)
     - **checksum_sha256**: 21152048d452c2d712d213e164f028518e1d76a62dbe44747f3735c45f51df1b
   - **[43]**:
     - **caminho**: ![caminho](imagens/setor_terceiro_andar_p0_i0.webp)
-    - **checksum_sha256**: 089de33c6a6df6072b17096d0980b4d3e6a80db59e5d1784034917462e4ff4a5
+    - **checksum_sha256**: 059ffde64944a28b0cee9271a4e1fd797e51052a223b036a3a201ffdf4f4a144
   - **[44]**:
     - **caminho**: ![caminho](imagens/setor_terceiro_andar_p1.webp)
     - **checksum_sha256**: 2c042b787052182296eb9976711f7af552f80bca24cd521b604d81fb7ac59070
@@ -6114,7 +6075,7 @@
     - **checksum_sha256**: fe1ff9b10e90e68fdc600e8caa3cae0c9c4f6500de9e21f043dc9d76916e55e8
   - **[48]**:
     - **caminho**: ![caminho](imagens/setor_tereza_p0_i0.webp)
-    - **checksum_sha256**: fcd60bd2d6069ca7a12be0a25eac20735c16589ccc0cedce061a008c21c49458
+    - **checksum_sha256**: 7fec60387867ec3cc659d2b9386ee09b48ad1eb60c2fc097ff59a8a1347bd968
   - **[49]**:
     - **caminho**: ![caminho](imagens/setor_tereza_p1.webp)
     - **checksum_sha256**: d6ee53ecc97b99b91ed389fff218bdb99827c88d7738b75f07b7ebe6220f1be7
@@ -6123,7 +6084,7 @@
     - **checksum_sha256**: 51f278ae2da3e0f303dff9c84f83c5353b41bad9ed8c94f65c1aad91c8019292
   - **[51]**:
     - **caminho**: ![caminho](imagens/setor_tetos_p0_i0.webp)
-    - **checksum_sha256**: 01da080a74a529c5a9762d133445638057a42dd132f54b6a1697f8b0a9d16bcd
+    - **checksum_sha256**: 05ec3ed33641fec63f276a2c0607dedbf83770f2cc04b51fc68ed382d58fe4fc
   - **[52]**:
     - **caminho**: ![caminho](imagens/setor_tetos_p1.webp)
     - **checksum_sha256**: 6ce803349efdd30a66197d1df7708db771896be7af6a2055fa28379a2d24e041
@@ -6144,7 +6105,7 @@
     - **checksum_sha256**: 44237e143c6c290bf2fbccba3c2d8cda71a251b220adfcccab68d68031ea29a9
   - **[58]**:
     - **caminho**: ![caminho](imagens/setor_tsunami_p0_i0.webp)
-    - **checksum_sha256**: 38f2a4c4b970a558020fe0df40b3ed99e4fd1afc8b1586ab73732b4eb767d449
+    - **checksum_sha256**: 25108431b22dc17ac2e72d79c63da3ae84a8b24c713de56697be5b0871b47357
   - **[59]**:
     - **caminho**: ![caminho](imagens/setor_tsunami_p1.webp)
     - **checksum_sha256**: 9e4a5b3671776cc7d8c9813b3ad170293f0564c157026337b0a64607d0801f2a
@@ -6156,7 +6117,7 @@
     - **checksum_sha256**: 15e17350b3d1b519eb2b5c8d05220843d35c449599cb2a2bbd8104d240d2505e
   - **[62]**:
     - **caminho**: ![caminho](imagens/setor_udao_p0_i0.webp)
-    - **checksum_sha256**: 145cd518742e1164014bd7a3e564b25cd7596f318142f331dffa04944fde1d54
+    - **checksum_sha256**: a334dbeea358ec0c81dea81acaa75e1eae529f3e59d88f11839c29864d53d494
   - **[63]**:
     - **caminho**: ![caminho](imagens/setor_udao_p1.webp)
     - **checksum_sha256**: 8fad307d25a31b31c4cdf2b91411d7640a5e42c428d9adcd844d7aa732c8bc21

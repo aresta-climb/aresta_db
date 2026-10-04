@@ -1,6 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+caminho_imagem_capa: imagens/pagina_18_imagem_0.webp
 nome: G2
 mapas:
 - caminho_imagem_mapa: imagens/pagina_17.webp
@@ -352,8 +353,6 @@ escaladas:
 ---
 
 # Setor G2
-
-![Escaladores no G2, diversão garantida! Foto: Luciana dos Anjos](imagens/pagina_18_imagem_0.webp)
 
 **Travessias:**
 * C: Boas opções de travessias, muito legais.

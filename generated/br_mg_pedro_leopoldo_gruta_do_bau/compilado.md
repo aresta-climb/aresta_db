@@ -3401,11 +3401,8 @@
     **Acesso:** Seguindo pela estrada partindo do estacionamento, é o setor que se localiza a esquerda. Um pouco antes de chegar na pedra, basta pegar a trilha que desce a esquerda.
     
     **Coordenadas na base da via Rolha de Algodão:** -19º32.911’ -43º59.268’
-    
-    | ![Alisson Tavares - Via Rolha de Algodão](imagens/setor_pasto_p0_i6.webp) |
-    | :--: |
-    | *Alisson Tavares - Via Rolha de Algodão* |
 - **nome**: Setor Pasto
+- **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_pasto_p0_i6.webp)
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_pasto_p0_i8.webp)

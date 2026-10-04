@@ -1,6 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+caminho_imagem_capa: imagens/setor_sono_do_calango_p0_i0.webp
 nome: Sono do Calango
 mapas:
 - caminho_imagem_mapa: imagens/setor_sono_do_calango_p3_i0.webp
@@ -59,8 +60,6 @@ setores:
 ---
 
 # Sono do Calango
-
-![Escalador no Setor Sono do Calango](imagens/setor_sono_do_calango_p0_i0.webp)
 
 Setor com uma grande concentração de boulders do circuito verde e muitas linhas clássicas. Apesar de estar ao lado do Setor Entrada, é muito pouco conhecido e freqüentado. É também lugar das duas únicas vias de toda a Rachada, que valem muito a pena serem escaladas! O destaque para este setor fica por conta dos blocos “High vibe”, “Das vias” e “Sono do calango”, que possuem escaladas incríveis dos mais variados graus de dificuldade.
 

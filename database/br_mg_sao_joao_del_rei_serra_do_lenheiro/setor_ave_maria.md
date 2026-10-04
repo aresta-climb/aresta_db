@@ -1,6 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+caminho_imagem_capa: imagens/setor_ave_maria_p0_i2.webp
 nome: Ave Maria
 mapas:
 - caminho_imagem_mapa: imagens/setor_ave_maria_p1_i2.webp
@@ -524,8 +525,5 @@ Este bloco encontra-se ao lado esquerdo do bloco 1, possuindo uma única via de 
 Parede lateral localizada à esquerda do bloco 1. Para uma fácil aproximação segue-se uma trilha descendo entre o bloco 1 e o bloco 2. Neste bloco é possível visualizar ao fundo as elevações a Pedra da Rapadura.
 
 Este setor se tornou famoso entre escaladores esportivos que buscam por uma escalada mais atlética. Suas vias, em geral, são bem negativas e exigentes fisicamente. A área no entorno também possui uma grande quantidade de Boulders, que são tratados num guia independente que pode ser acessado no link disponibilizado no início deste guia.
-
-
-![Luiz Cláudio conquistando a via Ave Maria](imagens/setor_ave_maria_p0_i2.webp)
 
 ![Jonatas Lima no final da via Apocalipse](imagens/setor_ave_maria_p2_i2.webp)

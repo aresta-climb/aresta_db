@@ -1,6 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+caminho_imagem_capa: imagens/grupo_tres_pontoes_setor_pontao_menor_face_norte_p1_i2.webp
 nome: Pontão Menor - Face Norte (Área da Guerra e Paz)
 mapas:
 - caminho_imagem_mapa: imagens/grupo_tres_pontoes_setor_pontao_menor_face_norte_p0_i2.webp
@@ -249,7 +250,5 @@ escaladas:
 ---
 
 É a face do pontão que pode ser vista da estrada. Para acessá-la basta pegar as mesmas trilhas da Face Leste citadas acima, que fica logo ao lado virando a grande aresta.
-
-![Vivianne Sawczuk na Variante Teto da Guerra e Paz](imagens/grupo_tres_pontoes_setor_pontao_menor_face_norte_p1_i2.webp)
 
 *Vivianne Sawczuk na Variante Teto da Guerra e Paz*

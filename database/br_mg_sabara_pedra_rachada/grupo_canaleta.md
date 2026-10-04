@@ -1,6 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+caminho_imagem_capa: imagens/setor_canaleta_p0_i0.webp
 nome: Canaleta
 setores:
 - caminho: grupo_canaleta_setor_bloco_a_cavalo_de_troia.md
@@ -17,8 +18,6 @@ setores:
 # Canaleta
 
 O setor menos explorado de todos abriga uma das escaladas mais clássicas da Pedra Rachada. Seu nome deve-se à sua formação, uma espécie de canaleta de blocos que se estende por toda a “crista” do morro, de norte a sul. São inúmeros blocos praticamente inexplorados em toda a sua extensão, que se concentram principalmente a sudoeste do setor ”Sono do calango”, um convite aos caçadores de boulders de plantão.
-
-![Escalador no Setor Canaleta](imagens/setor_canaleta_p0_i0.webp)
 
 ## Acesso (20 min)
 

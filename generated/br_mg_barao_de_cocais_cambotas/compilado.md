@@ -34,11 +34,7 @@
         - **conteudo**:
             # Principais Vias da Serra da Cambota, Caeté, MG.
             
-            Esta lista apresenta as principais vias do complexo de Cambotas, abrangendo diferentes setores e estilos. 
-            
-            | ![Setores e Vias Principais](imagens/setor_principais_vias_1_p0.webp) |
-            | :--: |
-            | *Setores e Vias Principais* |
+            Esta lista apresenta as principais vias do complexo de Cambotas, abrangendo diferentes setores e estilos.
   - **[2]**:
     - **texto**: Principais Vias II
     - **destino**:
@@ -47,10 +43,6 @@
             # Principais Vias da Serra da Cambota (Mapa Geral)
             
             Este mapa ilustra a localização das principais vias em relação às paredes e setores da Serra da Cambota.
-            
-            | ![Mapa Geral de Vias](imagens/setor_principais_vias_2_p0.webp) |
-            | :--: |
-            | *Mapa Geral de Vias* |
   - **[3]**:
     - **texto**: Contato
     - **destino**:
@@ -107,11 +99,8 @@
     # Setor Caverninha
     
     O setor Caverninha possui algumas das vias mais desafiadoras e interessantes do complexo, incluindo a via "O doce e o amargo".
-    
-    | ![Via 'O doce e o amargo', número 3](imagens/setor_caverninha_p0_i1.webp) |
-    | :--: |
-    | *Via 'O doce e o amargo', número 3* |
 - **nome**: Caverninha
+- **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_caverninha_p0_i1.webp)
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_caverninha_p0_i0.webp)
@@ -481,11 +470,8 @@
     # Setor Aresta
     
     O setor Aresta é famoso pela imponente "Aresta Eletrizante", uma via de 200 metros que é um marco na escalada mineira.
-    
-    | ![Aresta Eletrizante](imagens/setor_aresta_p3.webp) |
-    | :--: |
-    | *Aresta Eletrizante* |
 - **nome**: Aresta
+- **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_aresta_p3.webp)
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_aresta_p2.webp)
@@ -597,11 +583,8 @@
     # Setor Polegar
     
     O setor Polegar apresenta vias que exploram as arestas e chaminés desta formação característica.
-    
-    | ![Visão do Polegar](imagens/setor_polegar_p0.webp) |
-    | :--: |
-    | *Visão do Polegar* |
 - **nome**: Polegar
+- **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_polegar_p0.webp)
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_polegar_p1.webp)
@@ -647,11 +630,8 @@
     # Setor Totem
     
     O setor Totem é uma formação isolada com vias técnicas e estéticas.
-    
-    | ![Visão do Totem](imagens/setor_totem_p0.webp) |
-    | :--: |
-    | *Visão do Totem* |
 - **nome**: Totem
+- **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_totem_p0.webp)
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_totem_p1.webp)
@@ -770,13 +750,13 @@
     - **checksum_sha256**: 60f36fbc6f8fc7c2ee4aa55a64338a49b70ac9273f06ad65a75637797b8c2956
   - **[5]**:
     - **caminho**: ![caminho](imagens/setor_aresta_p3.webp)
-    - **checksum_sha256**: 1e8c993fcdee0d2bd324fe8f1d531c564b77e8ab9c9f4f40de3e1a30b6f58cfe
+    - **checksum_sha256**: c9484d676a7c0ed64e407f08977cda2a377a162a61eb15a18d878025ace0131d
   - **[6]**:
     - **caminho**: ![caminho](imagens/setor_caverninha_p0_i0.webp)
     - **checksum_sha256**: d684ba2192bfdc5a04a28593dacc114d0e70d76e8c2b3b36f9f15aeeba1eb7e1
   - **[7]**:
     - **caminho**: ![caminho](imagens/setor_caverninha_p0_i1.webp)
-    - **checksum_sha256**: 5d656068a1676229112e26176eb959ccc41a12722015183316ed9f287c5f15bb
+    - **checksum_sha256**: c95b5fa58915954758c562381552711b0bb5df6cbb6bad2feaaf76448fba4ac2
   - **[8]**:
     - **caminho**: ![caminho](imagens/setor_chamine_p0_i0.webp)
     - **checksum_sha256**: d684ba2192bfdc5a04a28593dacc114d0e70d76e8c2b3b36f9f15aeeba1eb7e1
@@ -800,19 +780,19 @@
     - **checksum_sha256**: 5e531035be67b6dc96a5eb5895c6cff501a5a4075a8d77dda5f1d5b9733cf0dc
   - **[15]**:
     - **caminho**: ![caminho](imagens/setor_polegar_p0.webp)
-    - **checksum_sha256**: f4333807a45a7f5183bfb68d06939a5ae0372534310cf6afb03c66e6c5833f6d
+    - **checksum_sha256**: 08adfa6c806fae831247250c3097391d156791aeb07c164d52712b5eec22fc61
   - **[16]**:
     - **caminho**: ![caminho](imagens/setor_polegar_p1.webp)
     - **checksum_sha256**: c56a5ef8f496a254f95e9770bd64354ccd766eb34b2ea82295833d30fd74d2bd
   - **[17]**:
     - **caminho**: ![caminho](imagens/setor_principais_vias_2_p0.webp)
-    - **checksum_sha256**: c56a5ef8f496a254f95e9770bd64354ccd766eb34b2ea82295833d30fd74d2bd
+    - **checksum_sha256**: 51e9343437e145fd0269f8127805e0d5d56287e186c45458bf780d2b7530cd88
   - **[18]**:
     - **caminho**: ![caminho](imagens/setor_torres_p2.webp)
     - **checksum_sha256**: dc353ac5c0e2311ea2e8e2e1cc68ed4115d33aeaa208035a4d278a5f87f69881
   - **[19]**:
     - **caminho**: ![caminho](imagens/setor_totem_p0.webp)
-    - **checksum_sha256**: f4333807a45a7f5183bfb68d06939a5ae0372534310cf6afb03c66e6c5833f6d
+    - **checksum_sha256**: 08adfa6c806fae831247250c3097391d156791aeb07c164d52712b5eec22fc61
   - **[20]**:
     - **caminho**: ![caminho](imagens/setor_totem_p1.webp)
     - **checksum_sha256**: c56a5ef8f496a254f95e9770bd64354ccd766eb34b2ea82295833d30fd74d2bd

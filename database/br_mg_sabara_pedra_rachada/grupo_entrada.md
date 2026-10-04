@@ -1,6 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+caminho_imagem_capa: imagens/setor_entrada_p0_i0.webp
 nome: Entrada
 setores:
 - caminho: grupo_entrada_setor_bloco_a_libelula.md
@@ -12,8 +13,6 @@ setores:
 ---
 
 # Entrada
-
-![Escalador no teto do Setor Entrada](imagens/setor_entrada_p0_i0.webp)
 
 O mais frequentado setor da Pedra Rachada dá as boas vindas aos seus visitantes com dois grandes blocos, conhecidos por “Bloco 1” e “Bloco 2”. São quase 60 escaladas com os mais variados estilos e diversos clássicos de todos os graus. Neste setor também encontra-se a escalada mais difícil já encadenada em toda Pedra Rachada, o incrível “Projeto Sabará”. Não deixe de checar este boulder único, nem que seja para apreciar sua imponente linha!
 

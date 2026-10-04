@@ -1,6 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+caminho_imagem_capa: imagens/setor_bloco_dos_dois_dedos_p1_i2.webp
 nome: Bloco dos Dois Dedos
 mapas:
 - caminho_imagem_mapa: imagens/setor_bloco_dos_dois_dedos_p0_i2.webp
@@ -845,7 +846,5 @@ escaladas:
 Excelente campo-escola, pois possui varias vias interessantes tanto pra quem está tendo o primeiro contato com a escalada quanto pra quem está começando a guiar via fixa ou móvel.
 
 Várias vias móveis não possuem parada fixa no cume, portanto é um bom local para se treinar parada móvel. No croqui pode-se ver as vias com parada fixa para a rapel (círculos vermelhos).
-
-![Jefferson Lara no final da Fissura dos Dois Dedos](imagens/setor_bloco_dos_dois_dedos_p1_i2.webp)
 
 ![Márcio Andrade participando da conquista da via Jurassic Park, ao fundo a bela fissura da Magnésio de Cheirar](imagens/setor_bloco_dos_dois_dedos_p4_i2.webp)

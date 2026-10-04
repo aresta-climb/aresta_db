@@ -1,6 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+caminho_imagem_capa: imagens/setor_pataxos_p1_i0.webp
 nome: Setor Pataxós
 mapas:
 - caminho_imagem_mapa: imagens/setor_pataxos_p0_i0.webp
@@ -347,5 +348,3 @@ escaladas:
 # Setor Pataxós
 
 Sombra a partir de 11h (varia de acordo com a sessão).
-
-![Escaladora](imagens/setor_pataxos_p1_i0.webp)

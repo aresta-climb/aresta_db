@@ -7530,6 +7530,7 @@ picos:
           total_esportivas: 4
   - setor:
       conteudo:
+        caminho_imagem_capa: imagens/setor_pracinha_p1.webp
         nome: Setor Pracinha
         mapas:
         - caminho_imagem_mapa: imagens/setor_pracinha_p0.webp
@@ -7805,16 +7806,13 @@ picos:
         descricao: |-
           # Setor Pracinha
 
-          | ![Setor pracinha](imagens/setor_pracinha_p1.webp) |
-          | :--: |
-          | *Setor pracinha* |
-
           Sombra o dia todo (varia de acordo com a estação).
         precomputados:
           total_escaladas: 8
           total_esportivas: 8
   - setor:
       conteudo:
+        caminho_imagem_capa: imagens/setor_tetos_p1.webp
         nome: Setor dos Tetos
         mapas:
         - caminho_imagem_mapa: imagens/setor_tetos_p0.webp
@@ -7993,10 +7991,6 @@ picos:
             data_abertura: '2006'
         descricao: |-
           # Setor dos Tetos
-
-          | ![Setor dos Tetos](imagens/setor_tetos_p1.webp) |
-          | :--: |
-          | *Setor dos Tetos* |
 
           Sombra após 14h.
         precomputados:

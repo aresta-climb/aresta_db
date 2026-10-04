@@ -2020,6 +2020,9 @@ class WidgetFormularioPadrao(QStackedWidget):
             else:
                 campos_principais.append(field)
 
+        # Garante que o campo de foto de capa fique no topo absoluto dos campos principais
+        campos_principais.sort(key=lambda f: 0 if f.name == "caminho_imagem_capa" else 1)
+
         # 3. Renderiza os campos principais
         for field in campos_principais:
             if field.is_repeated:

@@ -1,6 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+caminho_imagem_capa: imagens/setor_pracinha_p1.webp
 nome: Setor Pracinha
 mapas:
 - caminho_imagem_mapa: imagens/setor_pracinha_p0.webp
@@ -276,7 +277,5 @@ escaladas:
 ---
 
 # Setor Pracinha
-
-![Setor pracinha](imagens/setor_pracinha_p1.webp)
 
 Sombra o dia todo (varia de acordo com a estação).

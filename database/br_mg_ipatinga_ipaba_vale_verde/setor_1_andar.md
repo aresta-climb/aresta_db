@@ -1,6 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+caminho_imagem_capa: imagens/setor_1_andar_p1_i2.webp
 nome: 1° Andar
 mapas:
 - caminho_imagem_mapa: imagens/setor_1_andar_p0.webp
@@ -409,8 +410,6 @@ escaladas:
 # 1° Andar
 
 O 1° Andar é o principal setor da Falésia do Vale Verde, com uma grande concentração de vias de alta dificuldade técnica.
-
-![Poul na Extensão do Vale do Verde](imagens/setor_1_andar_p1_i2.webp)
 
 ![Vista do 1° Andar](imagens/setor_1_andar_p1_i3.webp)
 

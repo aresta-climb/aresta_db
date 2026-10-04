@@ -1,6 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+caminho_imagem_capa: imagens/grupo_tres_pontoes_setor_pontao_maior_p1_i2.webp
 nome: Pontão Maior
 mapas:
 - caminho_imagem_mapa: imagens/grupo_tres_pontoes_setor_pontao_maior_p0_i2.webp
@@ -323,17 +324,11 @@ escaladas:
     - Fabio Rufino
     - Márcio Douglas
     data_abertura: 2021-01
-    descricao: 'Uma das vias mais fotogênicas do Lenheiro, divide-se em duas enfiadas.
-      A primeira com lances técnicos, que exigem uma boa leitura, regletes e abaulados
-      apimentam essa parte que está cotada em 7b/c, até acessar o grande platô onde
-      possui uma parada dupla. A segunda parte é uma escalada em horizontal cortando
-      um dos tetos mais bonitos da serra, onde a via passa a subir verticalmente "negativa".
-      Final após um bonito teto.
-
+    descricao: |-
+      Uma das vias mais fotogênicas do Lenheiro, divide-se em duas enfiadas. A primeira com lances técnicos, que exigem uma boa leitura, regletes e abaulados apimentam essa parte que está cotada em 7b/c, até acessar o grande platô onde possui uma parada dupla. A segunda parte é uma escalada em horizontal cortando um dos tetos mais bonitos da serra, onde a via passa a subir verticalmente "negativa". Final após um bonito teto.
 
       Vídeo: https://www.youtube.com/watch?v=jDrkC1YNgo4
-
-      Variantes: https://drive.google.com/file/d/1HxcEPpiLX-5GXE2pLM_Vsu8SMjTGdOQZ/view?usp=sharing'
+      Variantes: https://drive.google.com/file/d/1HxcEPpiLX-5GXE2pLM_Vsu8SMjTGdOQZ/view?usp=sharing
 - via_esportiva:
     nome: Macacos P1
     dificuldade: BR_7B_BARRA_7C
@@ -354,13 +349,11 @@ escaladas:
     - Jonatas Lima
     - Márcio Douglas
     data_abertura: '2022'
-    descricao: 'Via dura com início em positivo mais fácil, mas depois passa o diedro
-      e segue diagonal nos fortes negativos.
-
+    descricao: |-
+      Via dura com início em positivo mais fácil, mas depois passa o diedro e segue diagonal nos fortes negativos.
 
       Vídeo: https://www.youtube.com/watch?v=W7DCQ7zbYJM&t=121s
-
-      Variantes: https://drive.google.com/file/d/19MBOGl1C3KeN4_aXMetM4JE8E_dmJD7N/view?usp=sharing'
+      Variantes: https://drive.google.com/file/d/19MBOGl1C3KeN4_aXMetM4JE8E_dmJD7N/view?usp=sharing
 - via_esportiva:
     nome: Início da Visão
     dificuldade: BR_5SUP
@@ -408,11 +401,10 @@ escaladas:
     - Jonatas Lima
     - Márcio Douglas
     data_abertura: 2024-01
-    descricao: 'Início da via anterior, terminando na parada à direita logo abaixo
-      do teto. Via vertical muito técnica.
+    descricao: |-
+      Início da via anterior, terminando na parada à direita logo abaixo do teto. Via vertical muito técnica.
 
-
-      Variantes: https://drive.google.com/file/d/1vqplNsdg1yzDz798YHD4qzJiWkS1oDpk/view?usp=sharing'
+      Variantes: https://drive.google.com/file/d/1vqplNsdg1yzDz798YHD4qzJiWkS1oDpk/view?usp=sharing
 - via_movel:
     nome: Rivotril
     dificuldade: INDEFINIDO
@@ -434,14 +426,11 @@ escaladas:
     - Antônio Gilmar (Tonhão)
     - Jonatas Lima
     data_abertura: '2022'
-    descricao: 'Clássica! Linda linha natural com movimentação complexa e variada.
-      Começa logo a direita das pinturas rupestres. Saída vertical bem técnica, depois
-      horizontal pra esquerda e termina em um forte negativo.
-
+    descricao: |-
+      Clássica! Linda linha natural com movimentação complexa e variada. Começa logo a direita das pinturas rupestres. Saída vertical bem técnica, depois horizontal pra esquerda e termina em um forte negativo.
 
       Vídeo: https://www.youtube.com/watch?v=w4cKssSq5kU
-
-      Variantes: https://drive.google.com/file/d/1F_fCzvLYR0qUuU6vrYTdP-EHYXQLHru2/view?usp=sharing'
+      Variantes: https://drive.google.com/file/d/1F_fCzvLYR0qUuU6vrYTdP-EHYXQLHru2/view?usp=sharing
 - via_esportiva:
     nome: Revolução da Espécie
     dificuldade: BR_8C
@@ -450,11 +439,10 @@ escaladas:
     - Jonatas Lima
     - Márcio Douglas
     data_abertura: '2022'
-    descricao: 'Compartilha a mesma saída da via anterior, mas segue mais reto na
-      fenda e depois vira diagonal pra direita.
+    descricao: |-
+      Compartilha a mesma saída da via anterior, mas segue mais reto na fenda e depois vira diagonal pra direita.
 
-
-      Variantes: https://drive.google.com/file/d/1aKpRe22mwsIh3CWrPEbrDoHn82DnDWmj/view?usp=sharing'
+      Variantes: https://drive.google.com/file/d/1aKpRe22mwsIh3CWrPEbrDoHn82DnDWmj/view?usp=sharing
 - via_esportiva:
     nome: O Ego é Seu Inimigo
     dificuldade: BR_8A
@@ -463,11 +451,10 @@ escaladas:
     - Jonatas Lima
     - Márcio Douglas
     data_abertura: '2022'
-    descricao: 'Linda via. Após uma saída vertical com boas agarras é hora de descansar
-      pois a segunda metade não alivia.
+    descricao: |-
+      Linda via. Após uma saída vertical com boas agarras é hora de descansar pois a segunda metade não alivia.
 
-
-      Variantes: https://drive.google.com/file/d/1NNovnH65hs_07uiuxunn1jglOmNxuEIn/view?usp=sharing'
+      Variantes: https://drive.google.com/file/d/1NNovnH65hs_07uiuxunn1jglOmNxuEIn/view?usp=sharing
 - via_esportiva:
     nome: Boca Loca
     dificuldade: BR_8B
@@ -540,7 +527,5 @@ escaladas:
 Para as vias de cume, a forma de descida mais usual é uma trilha que se inicia na parte de trás à direita. Essas trilhas podem ser visualizadas no mapa de trilhas acima.
 
 É nesse bloco que estão as Pinturas Rupestres, elas ficam à direita da via Lúcifer. Vale a visita, independente de onde vai escalar, pois são de fácil acesso e tem valor histórico importante.
-
-![Jonatas Lima na via A Profecia](imagens/grupo_tres_pontoes_setor_pontao_maior_p1_i2.webp)
 
 ![Eliseu Frechou conquistando a via O Grande Encontro](imagens/grupo_tres_pontoes_setor_pontao_maior_p3_i3.webp)

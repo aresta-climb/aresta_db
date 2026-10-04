@@ -1,6 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+caminho_imagem_capa: imagens/grupo_tres_pontoes_setor_pontao_menor_face_oeste_p1_i2.webp
 nome: Pontão Menor – Face Oeste (Cantinho - Dança Macabra)
 mapas:
 - caminho_imagem_mapa: imagens/grupo_tres_pontoes_setor_pontao_menor_face_oeste_p0_i2.webp
@@ -179,14 +180,10 @@ escaladas:
     - Tonico Magalhães
     - André Ilha
     data_abertura: '1984-04-27'
-    descricao: 'Considerada uma das vias mais clássica do Cemonta, consta no livro
-      “50 vias clássicas no Brasil”. Uma linda fissura que inicia na base e segue
-      até o cume. O crux que está em sua metade após o platô, foi conquistada contornando-o
-      pela esquerda, mas tem sido repetida tocando reto pela fenda óbvia devido sua
-      beleza. 1 jogo de nuts e 1 de friends do .3 ao 4
+    descricao: |-
+      Considerada uma das vias mais clássica do Cemonta, consta no livro “50 vias clássicas no Brasil”. Uma linda fissura que inicia na base e segue até o cume. O crux que está em sua metade após o platô, foi conquistada contornando-o pela esquerda, mas tem sido repetida tocando reto pela fenda óbvia devido sua beleza. 1 jogo de nuts e 1 de friends do .3 ao 4
 
-
-      Vídeo: https://www.youtube.com/watch?v=_VfPH78NUYc&t=2s'
+      Vídeo: https://www.youtube.com/watch?v=_VfPH78NUYc&t=2s
 - via_esportiva:
     nome: No Limite
     dificuldade: BR_5
@@ -254,7 +251,5 @@ escaladas:
 ---
 
 Esta face fica um pouco escondida, pois a trilha principal não passa por sua base. Seguindo as orientações da trilha principal citada anteriormente, deve-se ficar atento para pegar uma trilha à direita alguns metros antes da via Tempos de Guerra. Esta trilha sobe por alguns blocos de pedra e logo estará na base das vias. A trilha também dá acesso à uma das entradas da Rota Interna e para a base das primeiras vias do Pontão Médio. Sombra pela manhã.
-
-![Nativo conquistando a Sublime Inconsequência](imagens/grupo_tres_pontoes_setor_pontao_menor_face_oeste_p1_i2.webp)
 
 ![Tonico Magalhães conquistando a Dança Macabra](imagens/grupo_tres_pontoes_setor_pontao_menor_face_oeste_p2_i2.webp)

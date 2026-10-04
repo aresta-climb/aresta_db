@@ -106,11 +106,8 @@
     # Setor Pataxós
     
     Sombra a partir de 11h (varia de acordo com a sessão).
-    
-    | ![Escaladora](imagens/setor_pataxos_p1_i0.webp) |
-    | :--: |
-    | *Escaladora* |
 - **nome**: Setor Pataxós
+- **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_pataxos_p1_i0.webp)
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_pataxos_p0_i0.webp)
@@ -592,11 +589,8 @@
     # Setor Xavante
     
     Sombra o dia todo (varia de acordo com a estação).
-    
-    | ![Escalador na sombra](imagens/setor_xavante_p1_i0.webp) |
-    | :--: |
-    | *Escalador na sombra* |
 - **nome**: Setor Xavante
+- **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_xavante_p1_i0.webp)
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_xavante_p0_i0.webp)
@@ -733,11 +727,8 @@
     # Setor Yanomami
     
     Sombra até as 14h30 (varia de acordo com a estação).
-    
-    | ![Parede Yanomami](imagens/setor_yanomami_p1_i0.webp) |
-    | :--: |
-    | *Parede Yanomami* |
 - **nome**: Setor Yanomami
+- **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_yanomami_p1_i0.webp)
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_yanomami_p0_i0.webp)
@@ -1162,7 +1153,7 @@
     - **checksum_sha256**: fe65499ff9e24848725c984582c888e087503ae028d4585b8f9bd1cf78b00a3e
   - **[6]**:
     - **caminho**: ![caminho](imagens/setor_pataxos_p1_i0.webp)
-    - **checksum_sha256**: 1acd7f291c10ff6dc955e565eee7cfa08d2743063f3b922cf0412906ba96ab03
+    - **checksum_sha256**: bdffe5c678e8a064636567f365e1e15a13277ddf0d64a3f436a5d52d342364ac
   - **[7]**:
     - **caminho**: ![caminho](imagens/setor_xavante_p0_i0.webp)
     - **checksum_sha256**: 7bedaf6a98f2dd7c8dd977671ef4f1acda8169cb6b14c4aa9eab0a49622d0af9
@@ -1171,12 +1162,12 @@
     - **checksum_sha256**: 19fb51364adf542c471a53448a66760674950eb7ca018a4318dfb0925c262345
   - **[9]**:
     - **caminho**: ![caminho](imagens/setor_xavante_p1_i0.webp)
-    - **checksum_sha256**: b1cd26b513cc6af3056f07197175e6ba9749cbcda7340c39dd4daa30f4f54259
+    - **checksum_sha256**: ff428ed7b2e804c8db9f304a4b1fa6bfc3a1ee2ba792e6840fd6db6096c92e51
   - **[10]**:
     - **caminho**: ![caminho](imagens/setor_yanomami_p0_i0.webp)
     - **checksum_sha256**: a56b6f6e8edb8d1103272d14d07b050428a8a04d36ddc603e29e812d68045bb6
   - **[11]**:
     - **caminho**: ![caminho](imagens/setor_yanomami_p1_i0.webp)
-    - **checksum_sha256**: 184c19cb7bd4e388098aa054deb3b4078ac1cca3e194514e5ca80b8001b32d57
+    - **checksum_sha256**: 93c5cccad4cfe81af5c602cda086b56611da4ffcdabc05b018a5212b8dc0678c
 
 

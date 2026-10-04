@@ -1,6 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+caminho_imagem_capa: imagens/setor_da_pracinha_p0_i0.webp
 nome: Setor da Pracinha
 mapas:
 - caminho_imagem_mapa: imagens/setor_da_pracinha_p0_i1.webp
@@ -141,5 +142,3 @@ escaladas:
 ---
 
 Para chegar até o setor é preciso fazer uma escalaminhada. Cuidado ao caminhar nas trilhas altas e pedras soltas.
-
-![Escalador na via Pelas Mãos do Senhor](imagens/setor_da_pracinha_p0_i0.webp)

@@ -193,3 +193,26 @@ class TestWidgetCampoImagem:
 
         widget.selecionar_e_trocar_imagem()
         assert widget.obter_caminho_atual() == ""
+
+    def test_trocar_imagem_com_area_maxima_customizada(self, qtbot, tmp_path, monkeypatch):
+        from editor.core.processamento_imagem_campo import AREA_MAXIMA_ESCALADA, obter_metadados_imagem
+
+        croqui = Croqui()
+        model = CroquiModel(croqui)
+
+        # Imagem grande de 2000x2000 = 4 MP
+        arquivo_grande = tmp_path / "foto_grande.jpg"
+        img = Image.new("RGB", (2000, 2000), color=(255, 0, 0))
+        img.save(arquivo_grande, format="JPEG")
+
+        widget = WidgetCampoImagem(model=model, nome_arquivo_fixo="capa.webp", area_maxima=AREA_MAXIMA_ESCALADA)
+        qtbot.addWidget(widget)
+
+        monkeypatch.setattr(QFileDialog, "getOpenFileName", lambda *args, **kwargs: (str(arquivo_grande), "Imagens"))
+        widget.selecionar_e_trocar_imagem()
+
+        bytes_resultado = model.obter_bytes_imagem("imagens/capa.webp")
+        assert bytes_resultado is not None
+        w, h, _, _ = obter_metadados_imagem(bytes_resultado)
+        assert w * h <= AREA_MAXIMA_ESCALADA
+

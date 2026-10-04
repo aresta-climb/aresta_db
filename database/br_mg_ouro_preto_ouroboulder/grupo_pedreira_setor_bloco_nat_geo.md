@@ -1,6 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+caminho_imagem_capa: imagens/grupo_pedreira_setor_bloco_nat_geo_p1_i0.webp
 nome: 'Bloco: Nat Geo'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_nat_geo_p0_i0.webp
@@ -35,4 +36,3 @@ escaladas:
     dificuldade: V3
 ---
 
-![Escalada Noturna](imagens/grupo_pedreira_setor_bloco_nat_geo_p1_i0.webp)

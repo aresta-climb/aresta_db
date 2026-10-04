@@ -1,6 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+caminho_imagem_capa: imagens/setor_headwall_p0_i0_2.webp
 nome: Headwall
 mapas:
 - caminho_imagem_mapa: imagens/setor_headwall_p0_i1.webp
@@ -66,8 +67,6 @@ escaladas:
       a 5, 10) ou compatíveis
     descricao: 'OBSERVAÇÕES: Atenção com esticão do final da fenda até a parada.'
 ---
-
-![Vista do Setor Headwall](imagens/setor_headwall_p0_i0_2.webp)
 
 ![Arthropoda](imagens/setor_headwall_p1_i0.webp)
 

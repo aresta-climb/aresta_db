@@ -1,6 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+caminho_imagem_capa: imagens/setor_do_plato_p1.webp
 nome: Setor do Platô
 mapas:
 - caminho_imagem_mapa: imagens/setor_do_plato_p0.webp
@@ -84,5 +85,3 @@ escaladas:
 ---
 
 Para chegar até o setor é necessário fazer uma escalaminhada. Cuidado com pedras soltas.
-
-![Escalador na via Visitante Oculto](imagens/setor_do_plato_p1.webp)

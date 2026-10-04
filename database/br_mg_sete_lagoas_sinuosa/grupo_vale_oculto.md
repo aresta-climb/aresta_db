@@ -1,6 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+caminho_imagem_capa: imagens/setor_vale_oculto_p0_i0.webp
 nome: Vale Oculto
 setores:
 - caminho: grupo_vale_oculto_setor_de_cara.md
@@ -9,8 +10,6 @@ setores:
 ---
 
 # Vale Oculto Sinuosa
-
-![Capa Vale Oculto](imagens/setor_vale_oculto_p0_i0.webp)
 
 A área recém descoberta por escaladores locais em 2018, o local deu origem a três sub-setores, chamados: **"De Cara"**, **"Laranja"** e **"Anfiteatro"**.
 

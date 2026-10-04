@@ -1,6 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+caminho_imagem_capa: imagens/setor_pasto_p0_i6.webp
 nome: Setor Pasto
 mapas:
 - caminho_imagem_mapa: imagens/setor_pasto_p0_i8.webp
@@ -136,5 +137,3 @@ escaladas:
 **Acesso:** Seguindo pela estrada partindo do estacionamento, é o setor que se localiza a esquerda. Um pouco antes de chegar na pedra, basta pegar a trilha que desce a esquerda.
 
 **Coordenadas na base da via Rolha de Algodão:** -19º32.911’ -43º59.268’
-
-![Alisson Tavares - Via Rolha de Algodão](imagens/setor_pasto_p0_i6.webp)

@@ -1,6 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+caminho_imagem_capa: imagens/setor_cruz_credo_p1_i3.webp
 nome: Cruz Credo
 mapas:
 - caminho_imagem_mapa: imagens/setor_cruz_credo_p0_i2.webp
@@ -180,8 +181,6 @@ Setor localizado à esquerda seguindo o pequeno leito de rio seco:
 4. **Jesus Humilha o Satanás** (V – 20m - Mista)
 5. **Praga Divina** (V – 15m - Mista)
 6. **Variante Pedra na Cruz** (III – 8m - Móvel)
-
-![Pedro Bugim conquistando a via Cruz Credo](imagens/setor_cruz_credo_p1_i3.webp)
 
 Setor localizado atrás do setor da Ave Maria, ainda com boas possibilidades de novas vias. Atualmente, possui cinco vias e uma variante, quase todas mistas e apenas uma fixa.
 

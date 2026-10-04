@@ -1,6 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+caminho_imagem_capa: imagens/setor_vale_das_sombras_p2_i0.webp
 nome: Setor Vale das Sombras
 mapas:
 - caminho_imagem_mapa: imagens/setor_vale_das_sombras_p0_i0.webp
@@ -446,8 +447,6 @@ mais alta das vias.
 
 O setor é o segundo a ser aberto pelos precursores da Sinuosa
 na década de 90.
-
-![Vale das Sombras](imagens/setor_vale_das_sombras_p2_i0.webp)
 
 ![Tiu Marreteiro 8a](imagens/setor_vale_das_sombras_p2_i1.webp)
 

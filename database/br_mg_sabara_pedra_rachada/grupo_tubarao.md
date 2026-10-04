@@ -1,6 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+caminho_imagem_capa: imagens/setor_tubarao_p0_i0.webp
 nome: Tubarão
 mapas:
 - caminho_imagem_mapa: imagens/setor_tubarao_p6_i5.webp
@@ -25,8 +26,6 @@ setores:
 ---
 
 # Tubarão
-
-![Escalador no teto do Setor Tubarão](imagens/setor_tubarao_p0_i0.webp)
 
 Setor com os projetos mais difíceis da Pedra Rachada, sendo alguns extensões do clássico “Abrigo de ferro”, v11 sólido de movimentação única. O bloco “Fogos de Vênus”, que apoia o bloco Abrigo de Ferro, possui algumas das escaladas verticais mais divertidas de toda a área. Já o bloco “Tubarão”, possui um dos tetos mais explorados da Rachada, com várias linhas e variantes incríveis que garantem aos escaladores do circuito amarelo muita diversão!
 

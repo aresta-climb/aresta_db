@@ -1,6 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+caminho_imagem_capa: imagens/setor_do_abrigo_p0_i1.webp
 nome: Setor do Abrigo
 mapas:
 - caminho_imagem_mapa: imagens/setor_do_abrigo_p0_i0.webp
@@ -102,5 +103,3 @@ escaladas:
 ---
 
 O setor fica localizado acima da claraboia. Para chegar até o Abrigo é preciso fazer uma caminhada passando em frente ao setor do sertão. É necessário escalar um pequeno bloco de rocha para chegar ao setor.
-
-![Escalador na via Estrela no Coco](imagens/setor_do_abrigo_p0_i1.webp)

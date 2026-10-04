@@ -1,6 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+caminho_imagem_capa: imagens/grupo_pedreira_setor_bloco_altinho_p1_i0.webp
 nome: 'Bloco: Altinho'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_altinho_p0_i0.webp
@@ -57,4 +58,3 @@ escaladas:
     dificuldade: V0
 ---
 
-![Imagem Adicional](imagens/grupo_pedreira_setor_bloco_altinho_p1_i0.webp)

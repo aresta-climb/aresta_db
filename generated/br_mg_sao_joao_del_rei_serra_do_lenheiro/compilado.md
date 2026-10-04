@@ -211,10 +211,6 @@
     
     Setor mais antigo, teve suas primeiras conquistas no final da década de 70 por militares e no início dos anos 80 através de escaladores cariocas como André Ilha e Tonico Magalhães.
     
-    | ![Três Pontões](imagens/grupo_tres_pontoes_p0_i3.webp) |
-    | :--: |
-    | *Três Pontões* |
-    
     Os Três Pontões concentram a maior quantidade de vias clássicas da região, seja por sua imponência, beleza, qualidade ou valor histórico à nível nacional e mundial.
     
     As vias, em sua grande maioria são feitas com proteções móveis, haja vista a grande quantidade de fendas perfeitas nos setores desta formação. Boa parte das vias possui proteção fixa no topo para a descida e para aquelas que não possuem, pode-se descer por vias adjacentes ou por caminhada e cabos de aço (vide imagem setor Rota Interna).
@@ -237,6 +233,7 @@
     
     O local conta ainda com um sítio arqueológico com pinturas rupestres bem interessantes, próximo à base de algumas vias no Pontão Maior. Essas pinturas são datadas com idade de 6 a 10 mil anos e foram feitas por tribos nômades que habitaram essa serra e viviam nas cavidades da rocha.
 - **nome**: Três Pontões (CEMONTA)
+- **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/grupo_tres_pontoes_p0_i3.webp)
 - **setores**:
   - **[0]**:
     - **conteudo**:
@@ -463,11 +460,8 @@
           Para acessar esta área pode-se pegar a trilha principal (início no pequeno portão de ferro que fica ao lado do abrigo) ou, caso não tenha entrado nas dependências do Cemonta, existe um acesso para esta trilha seguindo pela estrada de terra, 150 metros após a porteira principal, conforme desenho acima. Esta trilha chega na base do Pontão Maior, neste ponto deve-se seguir para a esquerda passando pelo Pontão Médio e contornando toda a rocha.
           
           Existe também uma trilha mais curta para esta área, sem passar pelos outros Pontões, ela se inicia atrás do abrigo.
-          
-          | ![Lucia Duarte escalando a Rota das Âncoras](imagens/grupo_tres_pontoes_setor_pontao_menor_face_leste_p1_i3.webp) |
-          | :--: |
-          | *Lucia Duarte escalando a Rota das Âncoras* |
       - **nome**: Pontão Menor - Face Leste (Área da Esquina da Alegria)
+      - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/grupo_tres_pontoes_setor_pontao_menor_face_leste_p1_i3.webp)
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_tres_pontoes_setor_pontao_menor_face_leste_p0_i2.webp)
@@ -695,12 +689,9 @@
       - **descricao**:
           É a face do pontão que pode ser vista da estrada. Para acessá-la basta pegar as mesmas trilhas da Face Leste citadas acima, que fica logo ao lado virando a grande aresta.
           
-          | ![Vivianne Sawczuk na Variante Teto da Guerra e Paz](imagens/grupo_tres_pontoes_setor_pontao_menor_face_norte_p1_i2.webp) |
-          | :--: |
-          | *Vivianne Sawczuk na Variante Teto da Guerra e Paz* |
-          
           *Vivianne Sawczuk na Variante Teto da Guerra e Paz*
       - **nome**: Pontão Menor - Face Norte (Área da Guerra e Paz)
+      - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/grupo_tres_pontoes_setor_pontao_menor_face_norte_p1_i2.webp)
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_tres_pontoes_setor_pontao_menor_face_norte_p0_i2.webp)
@@ -961,14 +952,11 @@
       - **descricao**:
           Esta face fica um pouco escondida, pois a trilha principal não passa por sua base. Seguindo as orientações da trilha principal citada anteriormente, deve-se ficar atento para pegar uma trilha à direita alguns metros antes da via Tempos de Guerra. Esta trilha sobe por alguns blocos de pedra e logo estará na base das vias. A trilha também dá acesso à uma das entradas da Rota Interna e para a base das primeiras vias do Pontão Médio. Sombra pela manhã.
           
-          | ![Nativo conquistando a Sublime Inconsequência](imagens/grupo_tres_pontoes_setor_pontao_menor_face_oeste_p1_i2.webp) |
-          | :--: |
-          | *Nativo conquistando a Sublime Inconsequência* |
-          
           | ![Tonico Magalhães conquistando a Dança Macabra](imagens/grupo_tres_pontoes_setor_pontao_menor_face_oeste_p2_i2.webp) |
           | :--: |
           | *Tonico Magalhães conquistando a Dança Macabra* |
       - **nome**: Pontão Menor – Face Oeste (Cantinho - Dança Macabra)
+      - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/grupo_tres_pontoes_setor_pontao_menor_face_oeste_p1_i2.webp)
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_tres_pontoes_setor_pontao_menor_face_oeste_p0_i2.webp)
@@ -1236,14 +1224,11 @@
           
           Encontra-se antes do Pontão Menor vindo pela trilha principal. Devido à sua posição, melhor escalar pela manhã, pois o sol pega de tarde, principalmente no inverno. Possui vias bem verticais e altas, algumas com mais de 50 metros. Rapel na Nova Era ou trilha atrás.
           
-          | ![Pedro Naves conquistando a via Olhos de Águia](imagens/grupo_tres_pontoes_setor_pontao_medio_p1_i2.webp) |
-          | :--: |
-          | *Pedro Naves conquistando a via Olhos de Águia* |
-          
           | ![André Ilha conquistando a Sinfonia Fantástica](imagens/grupo_tres_pontoes_setor_pontao_medio_p2_i3.webp) |
           | :--: |
           | *André Ilha conquistando a Sinfonia Fantástica* |
       - **nome**: Pontão Médio
+      - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/grupo_tres_pontoes_setor_pontao_medio_p1_i2.webp)
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_tres_pontoes_setor_pontao_medio_p0_i2.webp)
@@ -1601,14 +1586,11 @@
           
           É nesse bloco que estão as Pinturas Rupestres, elas ficam à direita da via Lúcifer. Vale a visita, independente de onde vai escalar, pois são de fácil acesso e tem valor histórico importante.
           
-          | ![Jonatas Lima na via A Profecia](imagens/grupo_tres_pontoes_setor_pontao_maior_p1_i2.webp) |
-          | :--: |
-          | *Jonatas Lima na via A Profecia* |
-          
           | ![Eliseu Frechou conquistando a via O Grande Encontro](imagens/grupo_tres_pontoes_setor_pontao_maior_p3_i3.webp) |
           | :--: |
           | *Eliseu Frechou conquistando a via O Grande Encontro* |
       - **nome**: Pontão Maior
+      - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/grupo_tres_pontoes_setor_pontao_maior_p1_i2.webp)
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_tres_pontoes_setor_pontao_maior_p0_i2.webp)
@@ -2268,15 +2250,11 @@
     
     Este setor se tornou famoso entre escaladores esportivos que buscam por uma escalada mais atlética. Suas vias, em geral, são bem negativas e exigentes fisicamente. A área no entorno também possui uma grande quantidade de Boulders, que são tratados num guia independente que pode ser acessado no link disponibilizado no início deste guia.
     
-    
-    | ![Luiz Cláudio conquistando a via Ave Maria](imagens/setor_ave_maria_p0_i2.webp) |
-    | :--: |
-    | *Luiz Cláudio conquistando a via Ave Maria* |
-    
     | ![Jonatas Lima no final da via Apocalipse](imagens/setor_ave_maria_p2_i2.webp) |
     | :--: |
     | *Jonatas Lima no final da via Apocalipse* |
 - **nome**: Ave Maria
+- **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_ave_maria_p0_i2.webp)
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_ave_maria_p1_i2.webp)
@@ -2824,14 +2802,11 @@
     
     Como o setor possui todas as vias acima de sétimo grau, uma opção usada por aqueles que querem escalar algo mais fácil é fazer o início da via Olho Clínico e na metade passar pra Ácido Lático, deve dar algo em torno de sexto grau. Por ser uma linha reta pode ser feita em Top-rope e tem o apelido de Olho Lático.
     
-    | ![Michel Rodrigues na via Nitroglicerina](imagens/setor_acidos_p1_i2.webp) |
-    | :--: |
-    | *Michel Rodrigues na via Nitroglicerina* |
-    
     O setor Ácidos apresenta como característica vias verticais com movimentações surpreendentes, podendo ser utilizados entalamentos, bidedo, calcanhar e movimentos dinâmicos. As linhas necessitam de uma leitura apurada e muita criatividade. Todas as vias são fixas e com parada dupla no top.
     
     Localizado no início da formação rochosa da Serra do Lenheiro ao lado do Bloco dos Dois Dedos, tem como grande vantagem a rápida aproximação, pois encontra-se muito próximo da estrada que sobe para o CEMONTA, é a primeira formação mais vertical do lado esquerdo. Fica na sombra durante toda a tarde, porém totalmente no sol de manhã.
 - **nome**: Ácidos
+- **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_acidos_p1_i2.webp)
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_acidos_p0_i2.webp)
@@ -3075,14 +3050,11 @@
     
     Várias vias móveis não possuem parada fixa no cume, portanto é um bom local para se treinar parada móvel. No croqui pode-se ver as vias com parada fixa para a rapel (círculos vermelhos).
     
-    | ![Jefferson Lara no final da Fissura dos Dois Dedos](imagens/setor_bloco_dos_dois_dedos_p1_i2.webp) |
-    | :--: |
-    | *Jefferson Lara no final da Fissura dos Dois Dedos* |
-    
     | ![Márcio Andrade participando da conquista da via Jurassic Park, ao fundo a bela fissura da Magnésio de Cheirar](imagens/setor_bloco_dos_dois_dedos_p4_i2.webp) |
     | :--: |
     | *Márcio Andrade participando da conquista da via Jurassic Park, ao fundo a bela fissura da Magnésio de Cheirar* |
 - **nome**: Bloco dos Dois Dedos
+- **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_bloco_dos_dois_dedos_p1_i2.webp)
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_bloco_dos_dois_dedos_p0_i2.webp)
@@ -5061,10 +5033,6 @@
     
     Este não é exatamente um setor, é na verdade o corpo rochoso que vai desde o Bloco dos Dois Dedos até os Três Pontões e contém várias vias espalhadas em pequenos setores ou isoladas. Aqui estão também setores de treinamentos militares denominados Paredão 1, 2, 2½, 3 e 4 (este último encontra-se na parte de trás da montanha) e podem ser visualizados no mapa no início deste guia. As rotas de treinamento estão pintadas na rocha com numeração de 1 a 10 e são em geral móveis ou top-rope/rapel de baixa graduação e podem ser usadas por quem se interessar.
     
-    | ![Vista geral das Falésias do Lenheiro](imagens/setor_falesias_do_lenheiro_p0_i3.webp) |
-    | :--: |
-    | *Vista geral das Falésias do Lenheiro* |
-    
     ## Paredão 2,5
     
     Bloco que faz parte das Falésias do Lenheiro.
@@ -5073,6 +5041,7 @@
     
     Belo bloco que fica bem escondido na parte alta da falésia e com acesso um pouco complicado, visualizar no mapa no início deste guia. Pode-se acessar pelo Cemonta, percorrendo o Paredão 1 para a esquerda até o final e depois subindo um trepa pedras ou através do Paredão 2, subindo a falésia em diagonal pra direita.
 - **nome**: Falésias do Lenheiro
+- **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_falesias_do_lenheiro_p0_i3.webp)
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_falesias_do_lenheiro_p0_i2.webp)
@@ -5380,11 +5349,8 @@
     Sua graduação é bem diversificada com vias dos mais variados estilos, agradando a todos os tipos de escaladores. As vias em geral são bem protegidas, mas quase todas tem como característica a primeira chapeleta alta, portanto é obrigatório sair com a primeira costurada!
     
     Há clip-stick no local, favor usar, pois já houveram acidentes com quem não usou!!
-    
-    | ![Carlos Pádua na via Seja O Que Deus Quiser](imagens/setor_pedra_negra_p2_i2.webp) |
-    | :--: |
-    | *Carlos Pádua na via Seja O Que Deus Quiser* |
 - **nome**: Pedra Negra
+- **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_pedra_negra_p2_i2.webp)
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_pedra_negra_p0_i2.webp)
@@ -5902,14 +5868,11 @@
     5. **Praga Divina** (V – 15m - Mista)
     6. **Variante Pedra na Cruz** (III – 8m - Móvel)
     
-    | ![Pedro Bugim conquistando a via Cruz Credo](imagens/setor_cruz_credo_p1_i3.webp) |
-    | :--: |
-    | *Pedro Bugim conquistando a via Cruz Credo* |
-    
     Setor localizado atrás do setor da Ave Maria, ainda com boas possibilidades de novas vias. Atualmente, possui cinco vias e uma variante, quase todas mistas e apenas uma fixa.
     
     Tem como característica os grandes buracos que conferem às vias, agarras impressionantes, tornando a graduação não muito elevada, apesar dos lances levemente negativos. As proteções nem sempre são óbvias, obrigando o escalador e “garimpar” fendas e buracos. Importante ficar atento à agarras quebrando, por se tratar de um setor relativamente novo. Todas as vias possuem grampo no topo, para segurança, top-rope e rapel.
 - **nome**: Cruz Credo
+- **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_cruz_credo_p1_i3.webp)
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_cruz_credo_p0_i2.webp)
@@ -6529,12 +6492,9 @@
           
           Interessante via móvel com boas colocações. Um jogo de friends e nuts (caso não tenha micro-friends).
           
-          | ![Mariana Fiche na via Thundercats](imagens/grupo_rio_das_mortes_setor_thundercats_p0_i3.webp) |
-          | :--: |
-          | *Mariana Fiche na via Thundercats* |
-          
           Bem ao lado do setor anterior, descendo alguns metros pra direita. Possui apenas duas vias bem bonitas e com vista incrível do top. Sombra o dia todo na base, sol na via de tarde.
       - **nome**: Thundercats
+      - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/grupo_rio_das_mortes_setor_thundercats_p0_i3.webp)
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_rio_das_mortes_setor_thundercats_p0_i2.webp)
@@ -6716,14 +6676,11 @@
           
           Setor com maior altura e quantidade de vias. É por onde chega a trilha principal. Por estar dentro de uma mata tem sombra o dia todo na base, mas de tarde partes das vias pega sol.
           
-          | ![Pedro Naves na via Liberdade Vigiada](imagens/grupo_rio_das_mortes_setor_namata_p0_i2.webp) |
-          | :--: |
-          | *Pedro Naves na via Liberdade Vigiada* |
-          
           | ![Beto no teto da Corona Vírus](imagens/grupo_rio_das_mortes_setor_namata_p1_i4.webp) |
           | :--: |
           | *Beto no teto da Corona Vírus* |
       - **nome**: Setor Namata
+      - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/grupo_rio_das_mortes_setor_namata_p0_i2.webp)
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_rio_das_mortes_setor_namata_p0_i3.webp)
@@ -8037,11 +7994,8 @@
     Fica bem ao lado da Estrada Velha que liga São João Del Rei à Tiradentes, mas está no munícipio de Santa Cruz de Minas, que é na verdade um bairro de Tiradentes que emancipou.
     
     Este local fica muito próximo da cidade, dependendo de onde se está partindo fica até mais próximo que a própria Serra do Lenheiro. Para se chegar basta digitar Totem Marco Zero no Google Maps. A pequena trilha de acesso às vias fica ao lado esquerdo das primeiras quedas.
-    
-    | ![Setor Cachoeira Pedra do Índio (Marco Zero)](imagens/grupo_serra_de_sao_jose_p0_i2.webp) |
-    | :--: |
-    | *Setor Cachoeira Pedra do Índio (Marco Zero)* |
 - **nome**: Serra de São José
+- **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/grupo_serra_de_sao_jose_p0_i2.webp)
 - **setores**:
   - **[0]**:
     - **conteudo**:
@@ -8054,12 +8008,9 @@
           
           Este local fica muito próximo da cidade, dependendo de onde se está partindo fica até mais próximo que a própria Serra do Lenheiro. Para se chegar basta digitar Totem Marco Zero no Google Maps. A pequena trilha de acesso às vias fica ao lado esquerdo das primeiras quedas.
           
-          | ![Lucas Agostini escalando a via Cacique](imagens/grupo_serra_de_sao_jose_setor_cachoeira_pedra_do_indio_p1_i3.webp) |
-          | :--: |
-          | *Lucas Agostini escalando a via Cacique* |
-          
           *Lucas Agostini escalando a via Cacique*
       - **nome**: Cachoeira Pedra do Índio (Marco Zero)
+      - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/grupo_serra_de_sao_jose_setor_cachoeira_pedra_do_indio_p1_i3.webp)
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_serra_de_sao_jose_setor_cachoeira_pedra_do_indio_p0_i2.webp)
@@ -8284,7 +8235,7 @@
     - **checksum_sha256**: 7ecfacf8cc2db9696f37268a2d49dee1efbd3d3c95d6ccb91d6fefc9e9d61c9c
   - **[23]**:
     - **caminho**: ![caminho](imagens/grupo_serra_de_sao_jose_p0_i2.webp)
-    - **checksum_sha256**: e3d4f1f53924bb6ec167569fc7fd17f97c6164f6b0fc48b4164bc7d1e0962458
+    - **checksum_sha256**: 7243c8cf0555c2b611855c0a8ee580aa395fba93788b9a0fc09e1a2355d1730a
   - **[24]**:
     - **caminho**: ![caminho](imagens/grupo_serra_de_sao_jose_setor_cachoeira_pedra_do_indio_p0_i2.webp)
     - **checksum_sha256**: e3d4f1f53924bb6ec167569fc7fd17f97c6164f6b0fc48b4164bc7d1e0962458
@@ -8368,7 +8319,7 @@
     - **checksum_sha256**: 536690015d1446bff59a657508a64de7975b172a5e3359854ee325eeb3f82b9f
   - **[51]**:
     - **caminho**: ![caminho](imagens/setor_ave_maria_p0_i2.webp)
-    - **checksum_sha256**: 54d4f76d9169daa5ca309cb80098835ec0ab9f612be2caa7b2a88c2f3062d79f
+    - **checksum_sha256**: da2594c9b5d28baf3bb7465990b7422a164f67cdecf44a9b74a5b83c1e22f5fe
   - **[52]**:
     - **caminho**: ![caminho](imagens/setor_ave_maria_p1_i2.webp)
     - **checksum_sha256**: 45e697db28ceeda3f5da17ed95eaa9f76235bda71795f1a797d6f95e193877d2

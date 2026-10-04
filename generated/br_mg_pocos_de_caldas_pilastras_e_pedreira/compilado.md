@@ -144,14 +144,11 @@
 ### Setor (Pico: Poços de Caldas)
 
 - **descricao**:
-    | ![Escalador na via Normal da primeira Pilastra](imagens/setor_as_pilastras_p0_i1.webp) |
-    | :--: |
-    | *Escalador na via Normal da primeira Pilastra* |
-    
     Setor clássico com escalada em pilastras de pedra.
     Atenção: Abelhas em todas as faces da Segunda Pilastra.
     Terceira Pilastra possui projetos inacabados devido às abelhas.
 - **nome**: As Pilastras
+- **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_as_pilastras_p0_i1.webp)
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_as_pilastras_p1_i1.webp)
@@ -234,10 +231,6 @@
     | :--: |
     | *Mapa de acesso à Pedreira* |
     
-    | ![Escalador na via Europa](imagens/setor_a_pedreira_p1_i1.webp) |
-    | :--: |
-    | *Escalador na via Europa* |
-    
     Próximo a estes setores possui uma pedreira com algumas vias também.
     
     Como chegar:
@@ -245,6 +238,7 @@
     
     Obs: Não tome os graus deste croqui como verdade são apenas sugestões, podem variar de acordo com a técnica e a estatura do escalador.
 - **nome**: A Pedreira
+- **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_a_pedreira_p1_i1.webp)
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_a_pedreira_p1_i2.webp)

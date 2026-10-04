@@ -13,12 +13,8 @@
 
 ### Setor (Pico: Santa Luzia)
 
-- **descricao**:
-    # Setor Bigorna ou Lapa da Zumba
-    
-    | ![Mapa do Setor Bigorna ou Lapa da Zumba](imagens/setor_bigorna_ou_lapa_da_zumba_p0_i0_2.webp) |
-    | :--: |
-    | *Mapa do Setor Bigorna ou Lapa da Zumba* |
+- **descricao**: # Setor Bigorna ou Lapa da Zumba
+- **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_bigorna_ou_lapa_da_zumba_p0_i0_2.webp)
 - **escaladas**:
   - **[0]**:
     - **via_esportiva**:
@@ -335,6 +331,6 @@
     - **checksum_sha256**: 87d9ec8e12cd74357c545d4a29cd5b778cc1304d8739f78bdd552befbe2aa59c
   - **[1]**:
     - **caminho**: ![caminho](imagens/setor_bigorna_ou_lapa_da_zumba_p0_i0_2.webp)
-    - **checksum_sha256**: 87d9ec8e12cd74357c545d4a29cd5b778cc1304d8739f78bdd552befbe2aa59c
+    - **checksum_sha256**: cc35d6c35b588f9013d84b902173f2e2e6473f6f651eb851fd124f2fe361b670
 
 

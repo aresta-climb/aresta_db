@@ -1,6 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+caminho_imagem_capa: imagens/setor_santa_linea_p0_i0.webp
 nome: Setor Santa Línea
 mapas:
 - caminho_imagem_mapa: imagens/setor_santa_linea_p1.webp
@@ -306,8 +307,6 @@ escaladas:
 ---
 
 # Setor Santa Línea
-
-![Escalador Felipe Alvares na via Santa Linea](imagens/setor_santa_linea_p0_i0.webp)
 
 ## Conexões e Variantes
 

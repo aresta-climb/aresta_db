@@ -356,7 +356,7 @@ def verificar_imagens_inexistentes(croqui_dir: Path, croqui_id: str, compiled_da
     def _coletar_imagens(obj: Any) -> None:
         if isinstance(obj, dict):
             for k, v in obj.items():
-                if k in ("caminho_imagem_mapa", "caminho_thumbnail") and isinstance(v, str):
+                if k in ("caminho_imagem_mapa", "caminho_thumbnail", "caminho_imagem_capa") and isinstance(v, str):
                     caminho = v.strip()
                     if caminho and not (caminho.startswith("http://") or caminho.startswith("https://")):
                         imagens_para_checar.add(caminho)

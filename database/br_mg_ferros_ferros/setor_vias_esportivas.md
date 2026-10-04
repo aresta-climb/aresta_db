@@ -1,6 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+caminho_imagem_capa: imagens/setor_vias_esportivas_p0_i1.webp
 nome: Setor Vias Esportivas
 mapas:
 - caminho_imagem_mapa: imagens/setor_vias_esportivas_p1_i1.webp
@@ -288,8 +289,6 @@ escaladas:
     data_abertura: '2008-02-06'
     descricao: Via atlética cujo crux é o último lance.
 ---
-
-![Visão geral do Setor das Vias Esportivas](imagens/setor_vias_esportivas_p0_i1.webp)
 
 ![Tonico martelando a “Bruxa Albano” (Foto: Celso Ferreira Gomes)](imagens/setor_vias_esportivas_p2_i0.webp)
 

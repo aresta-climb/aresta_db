@@ -163,10 +163,6 @@
     
     O 1° Andar é o principal setor da Falésia do Vale Verde, com uma grande concentração de vias de alta dificuldade técnica.
     
-    | ![Poul na Extensão do Vale do Verde](imagens/setor_1_andar_p1_i2.webp) |
-    | :--: |
-    | *Poul na Extensão do Vale do Verde* |
-    
     | ![Vista do 1° Andar](imagens/setor_1_andar_p1_i3.webp) |
     | :--: |
     | *Vista do 1° Andar* |
@@ -179,6 +175,7 @@
     | :--: |
     | *João TG nos trabalhos de conquista* |
 - **nome**: 1° Andar
+- **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_1_andar_p1_i2.webp)
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_1_andar_p0.webp)

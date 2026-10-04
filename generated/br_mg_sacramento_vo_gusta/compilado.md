@@ -40,13 +40,9 @@
 
 ### Setor (Pico: Pico da Vó Gusta)
 
-- **descricao**:
-    # Setor Quintal
-    
-    | ![Setor Quintal](imagens/setor_quintal_p0_i0_2.webp) |
-    | :--: |
-    | *Setor Quintal* |
+- **descricao**: # Setor Quintal
 - **nome**: Setor Quintal
+- **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_quintal_p0_i0_2.webp)
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_quintal_p0_i0.webp)
@@ -312,6 +308,6 @@
     - **checksum_sha256**: fed325281c8138d6e4e8d538f76eaeb1390ab1d54bd7349867d69cbe3d004d38
   - **[4]**:
     - **caminho**: ![caminho](imagens/setor_quintal_p0_i0_2.webp)
-    - **checksum_sha256**: fed325281c8138d6e4e8d538f76eaeb1390ab1d54bd7349867d69cbe3d004d38
+    - **checksum_sha256**: 92badcdcb80b01edaffd43e2f62283157f32c1593705fed5730ce25807d054e8
 
 

@@ -1,6 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+caminho_imagem_capa: imagens/setor_primordios_p0_i1.webp
 nome: Setor Primórdios
 mapas:
 - caminho_imagem_mapa: imagens/setor_primordios_p0_i0.webp
@@ -173,8 +174,6 @@ Setor onde tudo começou na década de 90, parede com grande concentração
 de vias e de características bem diferentes. As vias possuem ótimas base e bastante
 espaço para grupos, bom para armar redes e descansar, pois o setor possui sombra
 o dia todo.
-
-![De volta às origens 8a](imagens/setor_primordios_p0_i1.webp)
 
 ![De volta às origens 8a foto 2](imagens/setor_primordios_p0_i2.webp)
 

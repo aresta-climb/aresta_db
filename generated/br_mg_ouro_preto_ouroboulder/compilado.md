@@ -773,11 +773,9 @@
         - **total_boulders**: 5
   - **[1]**:
     - **conteudo**:
-      - **descricao**:
-          | ![Imagem Adicional](imagens/grupo_pedreira_setor_bloco_altinho_p1_i0.webp) |
-          | :--: |
-          | *Imagem Adicional* |
+      - **descricao**: 
       - **nome**: Bloco: Altinho
+      - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/grupo_pedreira_setor_bloco_altinho_p1_i0.webp)
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_altinho_p0_i0.webp)
@@ -2301,11 +2299,9 @@
         - **total_boulders**: 11
   - **[9]**:
     - **conteudo**:
-      - **descricao**:
-          | ![Escalada Noturna](imagens/grupo_pedreira_setor_bloco_fiat_lux_p1_i0.webp) |
-          | :--: |
-          | *Escalada Noturna* |
+      - **descricao**: 
       - **nome**: Bloco: Fiat Lux
+      - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/grupo_pedreira_setor_bloco_fiat_lux_p1_i0.webp)
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_fiat_lux_p0.webp)
@@ -2796,14 +2792,11 @@
   - **[13]**:
     - **conteudo**:
       - **descricao**:
-          | ![Escalada 1](imagens/grupo_pedreira_setor_bloco_lagartixa_p2_i0.webp) |
-          | :--: |
-          | *Escalada 1* |
-          
           | ![Escalada 2](imagens/grupo_pedreira_setor_bloco_lagartixa_p4_i0.webp) |
           | :--: |
           | *Escalada 2* |
       - **nome**: Bloco: Lagartixa
+      - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/grupo_pedreira_setor_bloco_lagartixa_p2_i0.webp)
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_lagartixa_p0.webp)
@@ -3963,11 +3956,9 @@
         - **total_boulders**: 2
   - **[18]**:
     - **conteudo**:
-      - **descricao**:
-          | ![Escalada Noturna](imagens/grupo_pedreira_setor_bloco_nat_geo_p1_i0.webp) |
-          | :--: |
-          | *Escalada Noturna* |
+      - **descricao**: 
       - **nome**: Bloco: Nat Geo
+      - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/grupo_pedreira_setor_bloco_nat_geo_p1_i0.webp)
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_nat_geo_p0_i0.webp)
@@ -4730,11 +4721,9 @@
         - **total_boulders**: 25
   - **[20]**:
     - **conteudo**:
-      - **descricao**:
-          | ![Escalada Pedra Queimada](imagens/grupo_pedreira_setor_bloco_pedra_queimada_p1_i0.webp) |
-          | :--: |
-          | *Escalada Pedra Queimada* |
+      - **descricao**: 
       - **nome**: Bloco: Pedra Queimada
+      - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/grupo_pedreira_setor_bloco_pedra_queimada_p1_i0.webp)
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_pedra_queimada_p0.webp)
@@ -5106,11 +5095,9 @@
         - **total_boulders**: 3
   - **[24]**:
     - **conteudo**:
-      - **descricao**:
-          | ![Fotos](imagens/grupo_pedreira_setor_bloco_teto_de_vidro_p1_i0.webp) |
-          | :--: |
-          | *Fotos* |
+      - **descricao**: 
       - **nome**: Bloco: Teto de Vidro
+      - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/grupo_pedreira_setor_bloco_teto_de_vidro_p1_i0.webp)
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_teto_de_vidro_p0.webp)
@@ -5306,11 +5293,9 @@
         - **total_boulders**: 8
   - **[25]**:
     - **conteudo**:
-      - **descricao**:
-          | ![Escalador no Bloco Tô de Boa](imagens/grupo_pedreira_setor_bloco_to_de_boa_p2_i0.webp) |
-          | :--: |
-          | *Escalador no Bloco Tô de Boa* |
+      - **descricao**: 
       - **nome**: Bloco: Tô de Boa
+      - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/grupo_pedreira_setor_bloco_to_de_boa_p2_i0.webp)
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_to_de_boa_p0.webp)
@@ -6221,11 +6206,9 @@
         - **total_boulders**: 15
   - **[1]**:
     - **conteudo**:
-      - **descricao**:
-          | ![parada obrigatória](imagens/grupo_mont_blanc_setor_bloco_parada_obrigatoria_p1_i0.webp) |
-          | :--: |
-          | *parada obrigatória* |
+      - **descricao**: 
       - **nome**: Bloco: Parada Obrigatória
+      - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/grupo_mont_blanc_setor_bloco_parada_obrigatoria_p1_i0.webp)
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_mont_blanc_setor_bloco_parada_obrigatoria_p0.webp)
@@ -7733,7 +7716,7 @@
     - **checksum_sha256**: e19e1498e7ff7805878b4216aa6a1915f4b168f98b09682978820bc04539de38
   - **[28]**:
     - **caminho**: ![caminho](imagens/grupo_mont_blanc_setor_bloco_parada_obrigatoria_p1_i0.webp)
-    - **checksum_sha256**: 5eae4cb945afb6f51b0ffc3d125e2513e7f6c0574163a7212bfaab8f863bc096
+    - **checksum_sha256**: bcc662e6c74c857e0ec6b8f66a4183bfbd143aeb08f8c0096dd70844916255fc
   - **[29]**:
     - **caminho**: ![caminho](imagens/grupo_mont_blanc_setor_bloco_parada_obrigatoria_p2.webp)
     - **checksum_sha256**: 6552e12fbfcc3403186f2d8bef3198ab798d6770713ea8abd072a71112598185
@@ -7760,7 +7743,7 @@
     - **checksum_sha256**: ee9c54dc48ab20a7184cb41ce08f6e264f78c8f99f67f6bd7264c66a43e4fe24
   - **[37]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_altinho_p1_i0.webp)
-    - **checksum_sha256**: fe4a493c099dea12523ab3ee2ec76f7efc03bcabce9d0e79a9693bdef8bdd035
+    - **checksum_sha256**: f369437d1046c4279d37d59d5481e712f04e7f26af44a0e1c6f887122b58b2ba
   - **[38]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_bob_p0.webp)
     - **checksum_sha256**: 317d0a1de150ee3baab01895ab7e2a31030b77030570960aef5b7e2c5470814e
@@ -7826,7 +7809,7 @@
     - **checksum_sha256**: e789f06c2389c2333e818b832f7d4bdf1201920e774639c66bb6e35314d94e35
   - **[59]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_fiat_lux_p1_i0.webp)
-    - **checksum_sha256**: 27bc5efec6c635d0395434f67f5f8f0f85a73cdf12ddcf719e2dc76ac946abd6
+    - **checksum_sha256**: a03c6472e4d1521f3fbd0354d3f473cd56955e103ca444adb6f03d38b1d950ee
   - **[60]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_hora_da_janta_p0.webp)
     - **checksum_sha256**: 430dc49308456fd23cc9274b75b5ee1ea7837316e3ff6d14976cb2b0c1c7e462
@@ -7853,7 +7836,7 @@
     - **checksum_sha256**: 22e14b252cc05d1072adbbde7f00e03ee2337dd6363785350fde6b4c8d8fc532
   - **[68]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_lagartixa_p2_i0.webp)
-    - **checksum_sha256**: 1c86878493d87e83c99f3310f4b69761d1a6f0331b17488c9ec8271473006d65
+    - **checksum_sha256**: 1db84b3f0d7bdb4b5f307de56af31afb133581a64d8d04fc03b2a431f89f78ee
   - **[69]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_lagartixa_p4_i0.webp)
     - **checksum_sha256**: b2300c002604310e104e90492e05485a145358291c73adb66cd1672a19b632e0
@@ -7898,7 +7881,7 @@
     - **checksum_sha256**: fc03dfd6ae2c5c1b28300740508e76bfb3473f76c7d7945953d9754b38f086f9
   - **[83]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_nat_geo_p1_i0.webp)
-    - **checksum_sha256**: 985d6e53f3ce7a2f630eb963c2c7bca136df5085569ac630ff6f15132ab9cdc9
+    - **checksum_sha256**: 7f0b2fc9b9f5c7d0c5c25d3e08dce432e00bc01054d15a7158806ef9c811e64d
   - **[84]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_nave_mae_p0.webp)
     - **checksum_sha256**: 6ffe339c6743a1938665aa50669543e3e50bc9212470fade61f79908f69cb5a3
@@ -7925,7 +7908,7 @@
     - **checksum_sha256**: 39cd20e711dac0fa6c7b7b6b9579af6016a5d6c29aade78dde284720db4eb35e
   - **[92]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_pedra_queimada_p1_i0.webp)
-    - **checksum_sha256**: ac8620d2bf24ab9cd5248de1fe91321bb68459dcc0120392f90a05ce96316039
+    - **checksum_sha256**: 4a2739b56f30b985c1bcf33ec1da36b6d940644784c5e433af6dfabdd427895f
   - **[93]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_red_bull_p0.webp)
     - **checksum_sha256**: a4f429dfce861bbb1bd33e8b21a36c29605464f4afe9aa9ae5941d57f321d775
@@ -7943,7 +7926,7 @@
     - **checksum_sha256**: 874c8a98aac23e92476d51d75d25d350afe1d37ce24357de98f62748f26ee0df
   - **[98]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_teto_de_vidro_p1_i0.webp)
-    - **checksum_sha256**: 193cc56b2a2bdb8c15970033e3ed8b07ea1d8fe9a0aa61761df9e39c4b5cbf07
+    - **checksum_sha256**: 613c77886704bd5ac1f831231fab90d78e40d0f823740135fcaa5b282ca8b562
   - **[99]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_to_de_boa_p0.webp)
     - **checksum_sha256**: cf20d077e5ef559d0776dc520c3eb11e0a2a19ee1245fddf27331fde25eb8264
@@ -7952,7 +7935,7 @@
     - **checksum_sha256**: c4ee9379c20ffe34f4922fc60360b13d4235ddf090f2b56a4c5035ee4e43baa5
   - **[101]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_to_de_boa_p2_i0.webp)
-    - **checksum_sha256**: 9f3db820467d3c3050a15c662c4d81bd0eb7c0d1d7ddb173c2332ae60bf53a4f
+    - **checksum_sha256**: b60c49e1cd1972a6a4751f97b1d9bc8db39f2451e31fb28f88496ad7a2274c69
   - **[102]**:
     - **caminho**: ![caminho](imagens/grupo_pedreira_setor_bloco_travessia_p0.webp)
     - **checksum_sha256**: 7554d99f5f8c5cff3e8da84c2eb2b6723ecd78067939ca2c2d66784cf5308efe

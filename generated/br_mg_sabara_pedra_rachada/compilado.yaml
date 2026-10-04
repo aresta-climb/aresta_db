@@ -20,6 +20,7 @@ picos:
   setores_ou_grupos:
   - grupo:
       conteudo:
+        caminho_imagem_capa: imagens/setor_estacionamento_p0_i0.webp
         nome: Estacionamento
         setores:
         - conteudo:
@@ -350,17 +351,15 @@ picos:
           \ ser freqüentado e recebeu os FAs mais duros do setor, incluindo o mítico\
           \ “Medalhão” v10, que até os dias de hoje recebeu poucas cadenas. Em 2013,\
           \ os blocos mais próximos do estacionamento começaram a ser explorados e\
-          \ se mostraram um excelente playground para os iniciantes.\n\n| ![Escalada\
-          \ no Setor Estacionamento](imagens/setor_estacionamento_p0_i0.webp) |\n\
-          | :--: |\n| *Escalada no Setor Estacionamento* |\n\n## Acesso (10 min)\n\
-          \nAo estacionar o carro é possível avistar, a cerca de 100m, os 03 primeiros\
-          \ blocos. Para acessá-los basta pegar a trilha óbvia que vai em direção\
-          \ a eles por cerca de 1min. Já para os outros blocos, siga a estrada que\
-          \ sobe em direção ao setor “Entrada” e, pouco antes da forte curva à direita,\
-          \ você verá duas trilhas: a da direita te leva ao bloco “Psicotrópicos”\
-          \ e a da esquerda ao “Bloco 0”.\n\n## Boulders Clássicos\n\n- 13 Davy Jones\
-          \ v0\n- 16 Aresta v3\n- 20 Verticale v5\n- 21 Obina v7\n- 23 Medalhão v10\n\
-          \n| ![Escalador no boulder Traverse ao Tito](imagens/setor_estacionamento_p2_i0.webp)\
+          \ se mostraram um excelente playground para os iniciantes.\n\n## Acesso\
+          \ (10 min)\n\nAo estacionar o carro é possível avistar, a cerca de 100m,\
+          \ os 03 primeiros blocos. Para acessá-los basta pegar a trilha óbvia que\
+          \ vai em direção a eles por cerca de 1min. Já para os outros blocos, siga\
+          \ a estrada que sobe em direção ao setor “Entrada” e, pouco antes da forte\
+          \ curva à direita, você verá duas trilhas: a da direita te leva ao bloco\
+          \ “Psicotrópicos” e a da esquerda ao “Bloco 0”.\n\n## Boulders Clássicos\n\
+          \n- 13 Davy Jones v0\n- 16 Aresta v3\n- 20 Verticale v5\n- 21 Obina v7\n\
+          - 23 Medalhão v10\n\n| ![Escalador no boulder Traverse ao Tito](imagens/setor_estacionamento_p2_i0.webp)\
           \ |\n| :--: |\n| *Escalador no boulder Traverse ao Tito* |\n\n| ![Escaladora\
           \ no boulder Davy Jones](imagens/setor_estacionamento_p5_i0.webp) |\n| :--:\
           \ |\n| *Escaladora no boulder Davy Jones* |\n\n> \"O melhor escalador do\
@@ -373,6 +372,7 @@ picos:
           total_boulders: 27
   - grupo:
       conteudo:
+        caminho_imagem_capa: imagens/setor_entrada_p0_i0.webp
         nome: Entrada
         setores:
         - conteudo:
@@ -989,26 +989,25 @@ picos:
             precomputados:
               total_escaladas: 2
               total_boulders: 2
-        descricao: "# Entrada\n\n| ![Escalador no teto do Setor Entrada](imagens/setor_entrada_p0_i0.webp)\
-          \ |\n| :--: |\n| *Escalador no teto do Setor Entrada* |\n\nO mais frequentado\
-          \ setor da Pedra Rachada dá as boas vindas aos seus visitantes com dois\
-          \ grandes blocos, conhecidos por “Bloco 1” e “Bloco 2”. São quase 60 escaladas\
-          \ com os mais variados estilos e diversos clássicos de todos os graus. Neste\
-          \ setor também encontra-se a escalada mais difícil já encadenada em toda\
-          \ Pedra Rachada, o incrível “Projeto Sabará”. Não deixe de checar este boulder\
-          \ único, nem que seja para apreciar sua imponente linha!\n\n## Acesso (15\
-          \ min)\n\nDo estacionamento, pegue a estrada que sobe em direção às pedras\
-          \ até chegar a um plano onde se encontra o primeiro bloco, o “Libélula”.\
-          \ De lá, continue reto pela trilha principal que segue por mais 1min para\
-          \ acessar os gigantes “Bloco 1” e “Bloco 2”. Os outros blocos estão há menos\
-          \ de 1min deles.\n\n## Boulders Clássicos\n\n- **8. Easy** – V1 (listado\
-          \ como V0 nos destaques)\n- **13. Pipe line** – V2\n- **42. Ziglyn** – V4\n\
-          - **46. Cadê minha força?** – V5\n- **36. Rala frek lek** – V7\n- **30.\
-          \ Projeto Sabará** – V12\n\n> \"A felicidade só é real quando compartilhada.\"\
-          \n> \n> — *Christopher McCandless*\n\n| ![Detalhe das mãos do escalador\
-          \ em reglete na rocha com crashpad](imagens/setor_entrada_p3_i0.webp) |\n\
-          | :--: |\n| *Detalhe das mãos do escalador em reglete na rocha com crashpad*\
-          \ |\n\n| ![Escalador no Bloco 2 sob céu tempestuoso ao entardecer](imagens/setor_entrada_p7_i0.webp)\
+        descricao: "# Entrada\n\nO mais frequentado setor da Pedra Rachada dá as boas\
+          \ vindas aos seus visitantes com dois grandes blocos, conhecidos por “Bloco\
+          \ 1” e “Bloco 2”. São quase 60 escaladas com os mais variados estilos e\
+          \ diversos clássicos de todos os graus. Neste setor também encontra-se a\
+          \ escalada mais difícil já encadenada em toda Pedra Rachada, o incrível\
+          \ “Projeto Sabará”. Não deixe de checar este boulder único, nem que seja\
+          \ para apreciar sua imponente linha!\n\n## Acesso (15 min)\n\nDo estacionamento,\
+          \ pegue a estrada que sobe em direção às pedras até chegar a um plano onde\
+          \ se encontra o primeiro bloco, o “Libélula”. De lá, continue reto pela\
+          \ trilha principal que segue por mais 1min para acessar os gigantes “Bloco\
+          \ 1” e “Bloco 2”. Os outros blocos estão há menos de 1min deles.\n\n## Boulders\
+          \ Clássicos\n\n- **8. Easy** – V1 (listado como V0 nos destaques)\n- **13.\
+          \ Pipe line** – V2\n- **42. Ziglyn** – V4\n- **46. Cadê minha força?** –\
+          \ V5\n- **36. Rala frek lek** – V7\n- **30. Projeto Sabará** – V12\n\n>\
+          \ \"A felicidade só é real quando compartilhada.\"\n> \n> — *Christopher\
+          \ McCandless*\n\n| ![Detalhe das mãos do escalador em reglete na rocha com\
+          \ crashpad](imagens/setor_entrada_p3_i0.webp) |\n| :--: |\n| *Detalhe das\
+          \ mãos do escalador em reglete na rocha com crashpad* |\n\n| ![Escalador\
+          \ no Bloco 2 sob céu tempestuoso ao entardecer](imagens/setor_entrada_p7_i0.webp)\
           \ |\n| :--: |\n| *Escalador no Bloco 2 sob céu tempestuoso ao entardecer*\
           \ |\n\n> \"Quanto mais eu me elevo, menor eu pareço aos olhos de quem não\
           \ sabe voar.\"\n> \n> — *Friedrich Nietzsche*\n\n| ![Escalador na linha\
@@ -1031,6 +1030,7 @@ picos:
           total_boulders: 56
   - grupo:
       conteudo:
+        caminho_imagem_capa: imagens/setor_sono_do_calango_p0_i0.webp
         nome: Sono do Calango
         mapas:
         - caminho_imagem_mapa: imagens/setor_sono_do_calango_p3_i0.webp
@@ -1456,26 +1456,24 @@ picos:
             precomputados:
               total_escaladas: 18
               total_boulders: 18
-        descricao: "# Sono do Calango\n\n| ![Escalador no Setor Sono do Calango](imagens/setor_sono_do_calango_p0_i0.webp)\
-          \ |\n| :--: |\n| *Escalador no Setor Sono do Calango* |\n\nSetor com uma\
-          \ grande concentração de boulders do circuito verde e muitas linhas clássicas.\
-          \ Apesar de estar ao lado do Setor Entrada, é muito pouco conhecido e freqüentado.\
-          \ É também lugar das duas únicas vias de toda a Rachada, que valem muito\
-          \ a pena serem escaladas! O destaque para este setor fica por conta dos\
-          \ blocos “High vibe”, “Das vias” e “Sono do calango”, que possuem escaladas\
-          \ incríveis dos mais variados graus de dificuldade.\n\n## Acesso (15 min)\n\
-          \nO melhor acesso para este setor, a partir do “Estacionamento 2” é pegar\
-          \ a trilha principal até o “Bloco 2” e continuar pela trilha que sobe à\
-          \ direita dele por 1min, chegando ao gigante bloco “Das vias”. Chegando\
-          \ a ele, o bloco “Sono do calango”, que da nome ao setor, está à direita,\
-          \ poucos metros mais acima. Para acessar os outros blocos, basta seguir\
-          \ a trilha à esquerda do bloco “Das vias”.\n\n## Boulders Clássicos\n\n\
-          - **12. Vendo a vó pela greta** – V0\n- **28. Chaparam os bago** – V1\n\
-          - **24. Sono do calango** – V3\n- **20. Bromélia** – V4\n- **19. Módulo\
-          \ SDS** – V7\n\n> \"As montanhas são uma espécie de reino mágico onde, por\
-          \ meio de algum encantamento, eu me sinto a pessoa mais feliz do mundo.\"\
-          \n> \n> — *Bernardo Collares*\n\n| ![Escalador no highball Vendo a vó pela\
-          \ greta com seguranças de crashpad na base](imagens/setor_sono_do_calango_p4_i0.webp)\
+        descricao: "# Sono do Calango\n\nSetor com uma grande concentração de boulders\
+          \ do circuito verde e muitas linhas clássicas. Apesar de estar ao lado do\
+          \ Setor Entrada, é muito pouco conhecido e freqüentado. É também lugar das\
+          \ duas únicas vias de toda a Rachada, que valem muito a pena serem escaladas!\
+          \ O destaque para este setor fica por conta dos blocos “High vibe”, “Das\
+          \ vias” e “Sono do calango”, que possuem escaladas incríveis dos mais variados\
+          \ graus de dificuldade.\n\n## Acesso (15 min)\n\nO melhor acesso para este\
+          \ setor, a partir do “Estacionamento 2” é pegar a trilha principal até o\
+          \ “Bloco 2” e continuar pela trilha que sobe à direita dele por 1min, chegando\
+          \ ao gigante bloco “Das vias”. Chegando a ele, o bloco “Sono do calango”,\
+          \ que da nome ao setor, está à direita, poucos metros mais acima. Para acessar\
+          \ os outros blocos, basta seguir a trilha à esquerda do bloco “Das vias”.\n\
+          \n## Boulders Clássicos\n\n- **12. Vendo a vó pela greta** – V0\n- **28.\
+          \ Chaparam os bago** – V1\n- **24. Sono do calango** – V3\n- **20. Bromélia**\
+          \ – V4\n- **19. Módulo SDS** – V7\n\n> \"As montanhas são uma espécie de\
+          \ reino mágico onde, por meio de algum encantamento, eu me sinto a pessoa\
+          \ mais feliz do mundo.\"\n> \n> — *Bernardo Collares*\n\n| ![Escalador no\
+          \ highball Vendo a vó pela greta com seguranças de crashpad na base](imagens/setor_sono_do_calango_p4_i0.webp)\
           \ |\n| :--: |\n| *Escalador no highball Vendo a vó pela greta com seguranças\
           \ de crashpad na base* |\n\n| ![Escalador dominando o topo do bloco visto\
           \ através da vegetação](imagens/setor_sono_do_calango_p5_i0.webp) |\n| :--:\
@@ -1491,6 +1489,7 @@ picos:
           total_boulders: 34
   - grupo:
       conteudo:
+        caminho_imagem_capa: imagens/setor_deslize_p0_i0.webp
         nome: Deslize
         mapas:
         - caminho_imagem_mapa: imagens/setor_deslize_p8_i1.webp
@@ -2090,14 +2089,12 @@ picos:
           \ também está o primeiro boulder aberto em um teto na Pedra Rachada, o incrível\
           \ “Terceira entrada” v7 além de muitas outras escaladas clássicas, como\
           \ o bote do “Carne moída” v6, o “Deslize” v8 e o “Hey Fred”, um v10 no melhor\
-          \ estilo compressão da Pedra Rachada!\n\n| ![Escalador em teto no Setor\
-          \ Deslize](imagens/setor_deslize_p0_i0.webp) |\n| :--: |\n| *Escalador em\
-          \ teto no Setor Deslize* |\n\n## Acesso (15 min)\n\nPara acessar este setor,\
-          \ a partir do “Estacionamento 2”, pegue a trilha principal logo em frente\
-          \ e siga reto. Ao passar o “Bloco 1”, à sua direita, siga pela trilha que\
-          \ sobe ao lado dela por mais 2min e chegará ao primeiro bloco deste setor,\
-          \ o “Lua cheia”. Todos os outros blocos estão a menos de 50m daí.\n\n##\
-          \ Mapa de Blocos\n\n| ![Mapa esquemático de blocos do Setor Deslize](imagens/setor_deslize_p1_i1.webp)\
+          \ estilo compressão da Pedra Rachada!\n\n## Acesso (15 min)\n\nPara acessar\
+          \ este setor, a partir do “Estacionamento 2”, pegue a trilha principal logo\
+          \ em frente e siga reto. Ao passar o “Bloco 1”, à sua direita, siga pela\
+          \ trilha que sobe ao lado dela por mais 2min e chegará ao primeiro bloco\
+          \ deste setor, o “Lua cheia”. Todos os outros blocos estão a menos de 50m\
+          \ daí.\n\n## Mapa de Blocos\n\n| ![Mapa esquemático de blocos do Setor Deslize](imagens/setor_deslize_p1_i1.webp)\
           \ |\n| :--: |\n| *Mapa esquemático de blocos do Setor Deslize* |\n\n###\
           \ Blocos\n- **A** – Lua Cheia\n- **B** – Deslize\n- **C** – Pequenino\n\
           - **D** – Bagagem\n- **E** – Hey Fred\n- **F** – Bom Boulder\n- **G** –\
@@ -2131,6 +2128,7 @@ picos:
           total_boulders: 48
   - grupo:
       conteudo:
+        caminho_imagem_capa: imagens/setor_yin_yang_p0_i0.webp
         nome: Yin Yang
         setores:
         - conteudo:
@@ -2408,17 +2406,15 @@ picos:
           \ “Bicicletinha 2000”. Permaneceu sem novidades expressivas por alguns anos\
           \ até que, em 2011, o escalador Mahavir Jneesh realizou a primeira ascensão\
           \ do boulder “Yang” e, logo após, sua saída sentada denominada “Yin Yang”,\
-          \ dois mega clássicos da Pedra Rachada!\n\n| ![Escalador no boulder Yin\
-          \ Yang](imagens/setor_yin_yang_p0_i0.webp) |\n| :--: |\n| *Escalador no\
-          \ boulder Yin Yang* |\n\n## Acesso (15 min)\n\nA partir do “Estacionamento\
-          \ 2”, siga pela trilha principal e, após passar à esquerda do “Bloco 1”,\
-          \ continue subindo até o bloco “Lua Cheia” e contorne-o pela direita, de\
-          \ onde será possível avistar o setor “Yin Yang” à sua direita. Para acessá-lo,\
-          \ basta tomar a trilha à direita em frente ao bloco “Bagagem” que vai em\
-          \ direção ao setor.\n\n## Boulders Clássicos\n\n- 19 Fenda Cega v0\n- 7\
-          \ Bicicletinha 2000 v5\n- 15 Yin Yang v10/11\n\n| ![Escaladora em teto com\
-          \ mar de nuvens ao fundo](imagens/setor_yin_yang_p3_i0.webp) |\n| :--: |\n\
-          | *Escaladora em teto com mar de nuvens ao fundo* |\n\n> \"A felicidade\
+          \ dois mega clássicos da Pedra Rachada!\n\n## Acesso (15 min)\n\nA partir\
+          \ do “Estacionamento 2”, siga pela trilha principal e, após passar à esquerda\
+          \ do “Bloco 1”, continue subindo até o bloco “Lua Cheia” e contorne-o pela\
+          \ direita, de onde será possível avistar o setor “Yin Yang” à sua direita.\
+          \ Para acessá-lo, basta tomar a trilha à direita em frente ao bloco “Bagagem”\
+          \ que vai em direção ao setor.\n\n## Boulders Clássicos\n\n- 19 Fenda Cega\
+          \ v0\n- 7 Bicicletinha 2000 v5\n- 15 Yin Yang v10/11\n\n| ![Escaladora em\
+          \ teto com mar de nuvens ao fundo](imagens/setor_yin_yang_p3_i0.webp) |\n\
+          | :--: |\n| *Escaladora em teto com mar de nuvens ao fundo* |\n\n> \"A felicidade\
           \ não está na estrada que leva a algum lugar. A felicidade é a própria estrada.\"\
           \  \n> — *Bob Dylan*\n\n| ![Anúncio Revista PQN - Pão de Queijo Notícias](imagens/setor_yin_yang_p5.webp)\
           \ |\n| :--: |\n| *Anúncio Revista PQN - Pão de Queijo Notícias* |\n\n###\
@@ -2457,6 +2453,7 @@ picos:
           total_boulders: 21
   - grupo:
       conteudo:
+        caminho_imagem_capa: imagens/setor_rolling_stones_p0_i0.webp
         nome: Rolling Stones
         mapas:
         - caminho_imagem_mapa: imagens/setor_rolling_stones_p6_i1.webp
@@ -3379,12 +3376,9 @@ picos:
           \ que juntos somam a maior concentração de clássicos do local, são obrigatórios\
           \ a qualquer visitante do local. Aproveite também para conhecer os blocos\
           \ “Gaston a la meson” e as escaladas do bloco “Universo Paralello”.\n\n\
-          | ![Escaladora dominando o cume da falésia com vista panorâmica dos vales\
-          \ e montanhas](imagens/setor_rolling_stones_p0_i0.webp) |\n| :--: |\n| *Escaladora\
-          \ dominando o cume da falésia com vista panorâmica dos vales e montanhas*\
-          \ |\n\n## Acesso (20 min)\n\nEste setor fica logo acima do setor “Deslize”.\
-          \ Para acessá-lo, basta seguir a trilha principal que sobe passando pelo\
-          \ setor Entrada (à esquerda do “Bloco 1”) e pelo setor “Deslize”, contornando\
+          ## Acesso (20 min)\n\nEste setor fica logo acima do setor “Deslize”. Para\
+          \ acessá-lo, basta seguir a trilha principal que sobe passando pelo setor\
+          \ Entrada (à esquerda do “Bloco 1”) e pelo setor “Deslize”, contornando\
           \ o bloco Lua cheia pela direita. Logo após o bloco “Zafar”, a primeira\
           \ trilha à esquerda dá acesso aos blocos “Gaston a la meson”, “Casulo” e\
           \ “Marrento”. Continuando reto estará bloco “Rolling Stones” e o bloco “Eject”.\
@@ -3421,6 +3415,7 @@ picos:
           total_boulders: 79
   - grupo:
       conteudo:
+        caminho_imagem_capa: imagens/setor_pena_de_ganso_p0_i0.webp
         nome: Pena de Ganso
         setores:
         - conteudo:
@@ -3739,26 +3734,24 @@ picos:
             precomputados:
               total_escaladas: 4
               total_boulders: 4
-        descricao: "# Pena de Ganso\n\n| ![Escalador no Setor Pena de Ganso](imagens/setor_pena_de_ganso_p0_i0.webp)\
-          \ |\n| :--: |\n| *Escalador no Setor Pena de Ganso* |\n\nApós muito tempo\
-          \ sem muitas novidades, no ano de 2013 novas linhas abertas nos blocos “Gangrena”\
-          \ e “Pena de ganso” colocaram o setor mais uma vez em movimento. Apesar\
-          \ destas novas linhas, o maior destaque para este setor continua sendo uma\
-          \ de suas escaladas mais antigas, o clássico “Pena de ganso”, que possui\
-          \ uma movimentação única.\n\n## Acesso (15 min)\n\nPara acessar este setor,\
-          \ a partir do “Estacionamento 2”, siga a trilha principal que sobe passando\
-          \ à esquerda do “Bloco 1” e à direita do bloco “Lua cheia”, chegando ao\
-          \ bloco “Rolling Stones”. Contorne-o pela direita e siga reto pela trilha\
-          \ por cerca de 1min até o primeiro bloco deste setor, o “Gangrena”. Os outros\
-          \ blocos estão mais a frente, continuando pela trilha à direita deste bloco.\n\
-          \n## Boulders Clássicos\n\n- **25. Tartaruga** – V1\n- **23. Lesma** – V2\n\
-          - **3. Aderência** – V3\n- **24. Caramujo** – V4\n- **19. Lacrimogênio**\
-          \ – V6\n- **15. Pena de ganso** – V8\n\n| ![Escaladora com lanterna de cabeça\
-          \ na Pedra Rachada](imagens/setor_pena_de_ganso_p3_i0.webp) |\n| :--: |\n\
-          | *Escaladora com lanterna de cabeça na Pedra Rachada* |\n\n> \"A coisa\
-          \ mais essencial do espírito vivo de um homem é sua paixão pela aventura.\
-          \ A alegria da vida vem de nossos encontros com novas experiências.\"\n\
-          > \n> — *Into The Wild*\n\n## Blocos do Setor\n\n- **Bloco A – Gangrena**:\
+        descricao: "# Pena de Ganso\n\nApós muito tempo sem muitas novidades, no ano\
+          \ de 2013 novas linhas abertas nos blocos “Gangrena” e “Pena de ganso” colocaram\
+          \ o setor mais uma vez em movimento. Apesar destas novas linhas, o maior\
+          \ destaque para este setor continua sendo uma de suas escaladas mais antigas,\
+          \ o clássico “Pena de ganso”, que possui uma movimentação única.\n\n## Acesso\
+          \ (15 min)\n\nPara acessar este setor, a partir do “Estacionamento 2”, siga\
+          \ a trilha principal que sobe passando à esquerda do “Bloco 1” e à direita\
+          \ do bloco “Lua cheia”, chegando ao bloco “Rolling Stones”. Contorne-o pela\
+          \ direita e siga reto pela trilha por cerca de 1min até o primeiro bloco\
+          \ deste setor, o “Gangrena”. Os outros blocos estão mais a frente, continuando\
+          \ pela trilha à direita deste bloco.\n\n## Boulders Clássicos\n\n- **25.\
+          \ Tartaruga** – V1\n- **23. Lesma** – V2\n- **3. Aderência** – V3\n- **24.\
+          \ Caramujo** – V4\n- **19. Lacrimogênio** – V6\n- **15. Pena de ganso**\
+          \ – V8\n\n| ![Escaladora com lanterna de cabeça na Pedra Rachada](imagens/setor_pena_de_ganso_p3_i0.webp)\
+          \ |\n| :--: |\n| *Escaladora com lanterna de cabeça na Pedra Rachada* |\n\
+          \n> \"A coisa mais essencial do espírito vivo de um homem é sua paixão pela\
+          \ aventura. A alegria da vida vem de nossos encontros com novas experiências.\"\
+          \n> \n> — *Into The Wild*\n\n## Blocos do Setor\n\n- **Bloco A – Gangrena**:\
           \ boulders 1 a 8 (e 9 e 10 na face posterior).\n- **Bloco B – Exilado**:\
           \ boulders 11 e 12.\n- **Bloco C – Pena de Ganso**: boulders 13 a 20.\n\
           - **Bloco D – Escondido**: boulder 21.\n- **Bloco E – Caramujo**: boulders\
@@ -3768,6 +3761,7 @@ picos:
           total_boulders: 25
   - grupo:
       conteudo:
+        caminho_imagem_capa: imagens/setor_tosco_p0_i0.webp
         nome: Tosco
         mapas:
         - caminho_imagem_mapa: imagens/setor_tosco_p2_i0.webp
@@ -4477,32 +4471,30 @@ picos:
           \ incríveis deste estilo nos blocos “Aresta visual”, “Tosco” e “Motricidade”.\
           \ Mas não pense que a diversão acaba por aí, se você curte aderência não\
           \ deixe de visitar o mítico “Frita pé” e quebrar a cabeça desvendando seus\
-          \ betas!\n\n| ![Escalador no Setor Tosco](imagens/setor_tosco_p0_i0.webp)\
-          \ |\n| :--: |\n| *Escalador no Setor Tosco* |\n\n## Acesso (25 min)\n\n\
-          A partir do “Estacionamento 2” siga a trilha principal, passando à esquerda\
-          \ do “Bloco 1” e à direita do bloco “Lua cheia” até chegar ao bloco “Rolling\
-          \ Stones”. De lá, siga pela trilha que segue para a esquerda do bloco por\
-          \ 1min até os blocos “Boliche”, o “Amarelão” e o “Lajinha”. Logo acima dele,\
-          \ encontra-se o bloco “Aresta visual” e o acesso para todos os outros blocos.\n\
-          \n## Boulders Clássicos\n\n- **9. Aresta visual** – V3\n- **15. Frita pé**\
-          \ – V6\n- **22. Tosco** – V8\n- **36. Potencial de ação** – V11\n- **38.\
-          \ Motricidade fina** – V11\n\n## Blocos\n\n- **Bloco A** – Boliche (boulders\
-          \ 1 a 3)\n- **Bloco B** – Amarelão (boulders 4 e 5)\n- **Bloco C** – Aresta\
-          \ Visual (boulders 6 a 11)\n- **Bloco D** – Lajinha (boulders 12 e 13)\n\
-          - **Bloco E** – Viradinha Nacional (boulder 14)\n- **Bloco F** – Frita Pé\
-          \ (boulders 15 e 16)\n- **Bloco G** – Rolezinho (boulders 17 e 18)\n- **Bloco\
-          \ H** – Cor do Bicho (boulders 19 e 20)\n- **Bloco I** – Tosco (boulders\
-          \ 21 a 25)\n- **Bloco J** – Tô Partindo (boulders 26 a 28)\n- **Bloco K**\
-          \ – Oval (boulders 29 a 34)\n- **Bloco L** – Motricidade (boulders 35 a\
-          \ 44)\n- **Bloco M** – Night Climb (boulders 45 a 47)\n- **Bloco N** – Piolho\
-          \ de Cobra (boulders 48 a 50)\n- **Bloco O** – Democrático (boulders 51\
-          \ a 54)\n- **Bloco P** – Ferrugem (boulders 55 a 58)\n\n| ![Vitor Maciel\
-          \ Fotografia - Você nasceu para grandes coisas. Eternize as que são mais\
-          \ importantes.](imagens/setor_tosco_p3_i0.webp) |\n| :--: |\n| *Vitor Maciel\
-          \ Fotografia - Você nasceu para grandes coisas. Eternize as que são mais\
-          \ importantes.* |\n\n> \"Você nasceu para grandes coisas. Eternize as que\
-          \ são mais importantes.\"  \n> — *Vitor Maciel Fotografia*\n\n| ![Solo -\
-          \ Sua experiência é única. Vista sua liberdade.](imagens/setor_tosco_p5.webp)\
+          \ betas!\n\n## Acesso (25 min)\n\nA partir do “Estacionamento 2” siga a\
+          \ trilha principal, passando à esquerda do “Bloco 1” e à direita do bloco\
+          \ “Lua cheia” até chegar ao bloco “Rolling Stones”. De lá, siga pela trilha\
+          \ que segue para a esquerda do bloco por 1min até os blocos “Boliche”, o\
+          \ “Amarelão” e o “Lajinha”. Logo acima dele, encontra-se o bloco “Aresta\
+          \ visual” e o acesso para todos os outros blocos.\n\n## Boulders Clássicos\n\
+          \n- **9. Aresta visual** – V3\n- **15. Frita pé** – V6\n- **22. Tosco**\
+          \ – V8\n- **36. Potencial de ação** – V11\n- **38. Motricidade fina** –\
+          \ V11\n\n## Blocos\n\n- **Bloco A** – Boliche (boulders 1 a 3)\n- **Bloco\
+          \ B** – Amarelão (boulders 4 e 5)\n- **Bloco C** – Aresta Visual (boulders\
+          \ 6 a 11)\n- **Bloco D** – Lajinha (boulders 12 e 13)\n- **Bloco E** – Viradinha\
+          \ Nacional (boulder 14)\n- **Bloco F** – Frita Pé (boulders 15 e 16)\n-\
+          \ **Bloco G** – Rolezinho (boulders 17 e 18)\n- **Bloco H** – Cor do Bicho\
+          \ (boulders 19 e 20)\n- **Bloco I** – Tosco (boulders 21 a 25)\n- **Bloco\
+          \ J** – Tô Partindo (boulders 26 a 28)\n- **Bloco K** – Oval (boulders 29\
+          \ a 34)\n- **Bloco L** – Motricidade (boulders 35 a 44)\n- **Bloco M** –\
+          \ Night Climb (boulders 45 a 47)\n- **Bloco N** – Piolho de Cobra (boulders\
+          \ 48 a 50)\n- **Bloco O** – Democrático (boulders 51 a 54)\n- **Bloco P**\
+          \ – Ferrugem (boulders 55 a 58)\n\n| ![Vitor Maciel Fotografia - Você nasceu\
+          \ para grandes coisas. Eternize as que são mais importantes.](imagens/setor_tosco_p3_i0.webp)\
+          \ |\n| :--: |\n| *Vitor Maciel Fotografia - Você nasceu para grandes coisas.\
+          \ Eternize as que são mais importantes.* |\n\n> \"Você nasceu para grandes\
+          \ coisas. Eternize as que são mais importantes.\"  \n> — *Vitor Maciel Fotografia*\n\
+          \n| ![Solo - Sua experiência é única. Vista sua liberdade.](imagens/setor_tosco_p5.webp)\
           \ |\n| :--: |\n| *Solo - Sua experiência é única. Vista sua liberdade.*\
           \ |\n\n*Sua experiência é única. Solo – Vista sua liberdade. www.solobr.com*\n\
           \n| ![Escalador em boulder no Setor Tosco](imagens/setor_tosco_p7_i0.webp)\
@@ -4518,6 +4510,7 @@ picos:
           total_boulders: 58
   - grupo:
       conteudo:
+        caminho_imagem_capa: imagens/setor_canaleta_p0_i0.webp
         nome: Canaleta
         setores:
         - conteudo:
@@ -4933,35 +4926,34 @@ picos:
           \ morro, de norte a sul. São inúmeros blocos praticamente inexplorados em\
           \ toda a sua extensão, que se concentram principalmente a sudoeste do setor\
           \ ”Sono do calango”, um convite aos caçadores de boulders de plantão.\n\n\
-          | ![Escalador no Setor Canaleta](imagens/setor_canaleta_p0_i0.webp) |\n\
-          | :--: |\n| *Escalador no Setor Canaleta* |\n\n## Acesso (20 min)\n\nPara\
-          \ chegar a este setor, a melhor forma é pegar a trilha principal a partir\
-          \ do “Estacionamento 2” e entrar à esquerda na primeira bifurcação, pouco\
-          \ antes da placa “Seja bem vindo a Pedra Rachada”. Para acessar os blocos\
-          \ “Cavalo de Tróia” e “Destinos”, pegue para a direita em frente ao bloco\
-          \ “High vibe”, 50m após a bifurcação.\n\n## Boulders Clássicos\n\n- **30.\
-          \ The Dark Side of the Moon** – V3\n- **12. Logística** – V5\n- **28. Prisma**\
-          \ – V6\n- **19. Toca da onça** – V6\n- **15. Puma** – V8\n- **17. Esparrachado**\
-          \ – V8\n\n> \"Escalada em particular, é um passatempo paradoxalmente intelectual,\
-          \ mas com a seguinte diferença: você tem que pensar com seu corpo. [...]\
-          \ Por um curto período eu sou diretamente responsável pelas minhas ações.\
-          \ No belo, silencioso, mundo das montanhas, me parece válido esse pequeno\
-          \ risco.\"  \n> — *Al Alvarez*\n\n## Blocos do Setor\n\n- **Bloco A – Cavalo\
-          \ de Tróia**: boulders 1 a 3.\n- **Bloco B – Destinos**: boulders 4 a 7.\n\
-          - **Bloco C – Forrest Gump**: boulder 8.\n- **Bloco D – Fábulas**: boulder\
-          \ 9.\n- **Bloco E – Logística**: boulders 10 a 12.\n- **Bloco F – Puma**:\
-          \ boulders 13 a 15.\n- **Bloco G – Esparrachado**: boulders 16 a 23.\n-\
-          \ **Bloco H – Beto Carneiro**: boulders 24 a 27.\n- **Bloco I – Prisma**:\
-          \ boulders 28 a 33.\n\n| ![Suporte Vertical - Alpinismo Industrial](imagens/setor_canaleta_p4_i0.webp)\
-          \ |\n| :--: |\n| *Suporte Vertical - Alpinismo Industrial* |\n\n*Suporte\
-          \ Vertical – Alpinismo Industrial: Soluções inteligentes para trabalhos\
-          \ verticais. (31) 3607-2440 / (31) 9233-2075 | contato@suportevertical.com.br\
-          \ | suportevertical.com.br*"
+          ## Acesso (20 min)\n\nPara chegar a este setor, a melhor forma é pegar a\
+          \ trilha principal a partir do “Estacionamento 2” e entrar à esquerda na\
+          \ primeira bifurcação, pouco antes da placa “Seja bem vindo a Pedra Rachada”.\
+          \ Para acessar os blocos “Cavalo de Tróia” e “Destinos”, pegue para a direita\
+          \ em frente ao bloco “High vibe”, 50m após a bifurcação.\n\n## Boulders\
+          \ Clássicos\n\n- **30. The Dark Side of the Moon** – V3\n- **12. Logística**\
+          \ – V5\n- **28. Prisma** – V6\n- **19. Toca da onça** – V6\n- **15. Puma**\
+          \ – V8\n- **17. Esparrachado** – V8\n\n> \"Escalada em particular, é um\
+          \ passatempo paradoxalmente intelectual, mas com a seguinte diferença: você\
+          \ tem que pensar com seu corpo. [...] Por um curto período eu sou diretamente\
+          \ responsável pelas minhas ações. No belo, silencioso, mundo das montanhas,\
+          \ me parece válido esse pequeno risco.\"  \n> — *Al Alvarez*\n\n## Blocos\
+          \ do Setor\n\n- **Bloco A – Cavalo de Tróia**: boulders 1 a 3.\n- **Bloco\
+          \ B – Destinos**: boulders 4 a 7.\n- **Bloco C – Forrest Gump**: boulder\
+          \ 8.\n- **Bloco D – Fábulas**: boulder 9.\n- **Bloco E – Logística**: boulders\
+          \ 10 a 12.\n- **Bloco F – Puma**: boulders 13 a 15.\n- **Bloco G – Esparrachado**:\
+          \ boulders 16 a 23.\n- **Bloco H – Beto Carneiro**: boulders 24 a 27.\n\
+          - **Bloco I – Prisma**: boulders 28 a 33.\n\n| ![Suporte Vertical - Alpinismo\
+          \ Industrial](imagens/setor_canaleta_p4_i0.webp) |\n| :--: |\n| *Suporte\
+          \ Vertical - Alpinismo Industrial* |\n\n*Suporte Vertical – Alpinismo Industrial:\
+          \ Soluções inteligentes para trabalhos verticais. (31) 3607-2440 / (31)\
+          \ 9233-2075 | contato@suportevertical.com.br | suportevertical.com.br*"
         precomputados:
           total_escaladas: 33
           total_boulders: 33
   - grupo:
       conteudo:
+        caminho_imagem_capa: imagens/setor_tubarao_p0_i0.webp
         nome: Tubarão
         mapas:
         - caminho_imagem_mapa: imagens/setor_tubarao_p6_i5.webp
@@ -5488,42 +5480,42 @@ picos:
             precomputados:
               total_escaladas: 2
               total_boulders: 2
-        descricao: "# Tubarão\n\n| ![Escalador no teto do Setor Tubarão](imagens/setor_tubarao_p0_i0.webp)\
-          \ |\n| :--: |\n| *Escalador no teto do Setor Tubarão* |\n\nSetor com os\
-          \ projetos mais difíceis da Pedra Rachada, sendo alguns extensões do clássico\
-          \ “Abrigo de ferro”, v11 sólido de movimentação única. O bloco “Fogos de\
-          \ Vênus”, que apoia o bloco Abrigo de Ferro, possui algumas das escaladas\
-          \ verticais mais divertidas de toda a área. Já o bloco “Tubarão”, possui\
-          \ um dos tetos mais explorados da Rachada, com várias linhas e variantes\
-          \ incríveis que garantem aos escaladores do circuito amarelo muita diversão!\n\
-          \n## Acesso (25 min)\n\nPara acessar este setor, a partir do “Estacionamento\
-          \ 2”, siga a trilha principal que passa à esquerda do “Bloco 1” e à direita\
-          \ do bloco “Lua cheia” e suba até o bloco “Rolling Stones”. A partir daí,\
-          \ existem duas opções: para os blocos “Fogos de Vênus” e “Abrigo de ferro”,\
-          \ contorne o bloco “Rolling Stones” pela esquerda e pegue a trilha que sobe\
-          \ à direita por 3min. Para acessar o “Tubarão” e os outros blocos, contorne\
-          \ o bloco “Rolling Stones pela direita e pegue a primeira trilha larga à\
-          \ esquerda, subindo por 5min.\n\n## Boulders Clássicos\n\n- **3. Fogos de\
-          \ Vênus** – V2\n- **2. Vênus** – V3\n- **15. Tubarão** – V5\n- **21. Chivas**\
-          \ – V7\n- **6. Abrigo de ferro** – V11\n\n| ![Escalador com a mão em reglete\
-          \ em teto](imagens/setor_tubarao_p3_i0.webp) |\n| :--: |\n| *Escalador com\
-          \ a mão em reglete em teto* |\n\n## Blocos do Setor\n\n- **Bloco A – Fogos\
-          \ de Vênus**: boulders 1 a 5.\n- **Bloco B – Abrigo de Ferro**: boulders\
-          \ 6 a 10.\n- **Bloco C – Meteoro**: boulders 11 e 12.\n- **Bloco D – Tubarão**:\
-          \ boulders 13 a 37.\n- **Bloco E – Hindu**: boulder 38.\n- **Bloco F – Ganesh**:\
-          \ boulder 39.\n- **Bloco G – Croissant**: boulders 40 e 41.\n- **Bloco H\
-          \ – Túnel do Vento**: boulders 42 e 43.\n\n| ![Escalador dominando a borda\
-          \ com agarras de reglete](imagens/setor_tubarao_p5_i0.webp) |\n| :--: |\n\
-          | *Escalador dominando a borda com agarras de reglete* |\n\n> \"É impossível\
-          \ avaliar a força que possuímos sem medir o tamanho do obstáculo que podemos\
-          \ vencer, nem o valor de uma ação sem sabermos o sacrifício que ela comporta.\"\
-          \  \n> — *H. W. Beecher*\n\n| ![Publicidade Tom Alves Fotografia Outdoor](imagens/setor_tubarao_p6_i0.webp)\
-          \ |\n| :--: |\n| *Publicidade Tom Alves Fotografia Outdoor* |"
+        descricao: "# Tubarão\n\nSetor com os projetos mais difíceis da Pedra Rachada,\
+          \ sendo alguns extensões do clássico “Abrigo de ferro”, v11 sólido de movimentação\
+          \ única. O bloco “Fogos de Vênus”, que apoia o bloco Abrigo de Ferro, possui\
+          \ algumas das escaladas verticais mais divertidas de toda a área. Já o bloco\
+          \ “Tubarão”, possui um dos tetos mais explorados da Rachada, com várias\
+          \ linhas e variantes incríveis que garantem aos escaladores do circuito\
+          \ amarelo muita diversão!\n\n## Acesso (25 min)\n\nPara acessar este setor,\
+          \ a partir do “Estacionamento 2”, siga a trilha principal que passa à esquerda\
+          \ do “Bloco 1” e à direita do bloco “Lua cheia” e suba até o bloco “Rolling\
+          \ Stones”. A partir daí, existem duas opções: para os blocos “Fogos de Vênus”\
+          \ e “Abrigo de ferro”, contorne o bloco “Rolling Stones” pela esquerda e\
+          \ pegue a trilha que sobe à direita por 3min. Para acessar o “Tubarão” e\
+          \ os outros blocos, contorne o bloco “Rolling Stones pela direita e pegue\
+          \ a primeira trilha larga à esquerda, subindo por 5min.\n\n## Boulders Clássicos\n\
+          \n- **3. Fogos de Vênus** – V2\n- **2. Vênus** – V3\n- **15. Tubarão** –\
+          \ V5\n- **21. Chivas** – V7\n- **6. Abrigo de ferro** – V11\n\n| ![Escalador\
+          \ com a mão em reglete em teto](imagens/setor_tubarao_p3_i0.webp) |\n| :--:\
+          \ |\n| *Escalador com a mão em reglete em teto* |\n\n## Blocos do Setor\n\
+          \n- **Bloco A – Fogos de Vênus**: boulders 1 a 5.\n- **Bloco B – Abrigo\
+          \ de Ferro**: boulders 6 a 10.\n- **Bloco C – Meteoro**: boulders 11 e 12.\n\
+          - **Bloco D – Tubarão**: boulders 13 a 37.\n- **Bloco E – Hindu**: boulder\
+          \ 38.\n- **Bloco F – Ganesh**: boulder 39.\n- **Bloco G – Croissant**: boulders\
+          \ 40 e 41.\n- **Bloco H – Túnel do Vento**: boulders 42 e 43.\n\n| ![Escalador\
+          \ dominando a borda com agarras de reglete](imagens/setor_tubarao_p5_i0.webp)\
+          \ |\n| :--: |\n| *Escalador dominando a borda com agarras de reglete* |\n\
+          \n> \"É impossível avaliar a força que possuímos sem medir o tamanho do\
+          \ obstáculo que podemos vencer, nem o valor de uma ação sem sabermos o sacrifício\
+          \ que ela comporta.\"  \n> — *H. W. Beecher*\n\n| ![Publicidade Tom Alves\
+          \ Fotografia Outdoor](imagens/setor_tubarao_p6_i0.webp) |\n| :--: |\n| *Publicidade\
+          \ Tom Alves Fotografia Outdoor* |"
         precomputados:
           total_escaladas: 43
           total_boulders: 43
   - grupo:
       conteudo:
+        caminho_imagem_capa: imagens/setor_daqui_a_20_anos_p0_i0.webp
         nome: Daqui a 20 Anos
         mapas:
         - caminho_imagem_mapa: imagens/setor_daqui_a_20_anos_p2_i2.webp
@@ -5643,29 +5635,29 @@ picos:
           \ que, apesar de possuir poucos blocos, guarda algumas das escaladas mais\
           \ desafiadoras mentalmente de todo o complexo. Dois clássicos highball fazem\
           \ deste setor um dos preferidos de muitos viciados em adrenalina. Se você\
-          \ gosta de apertar, não deixe de tentar o único “Amanita” v11.\n\n| ![Escalada\
-          \ no Setor Daqui a 20 Anos](imagens/setor_daqui_a_20_anos_p0_i0.webp) |\n\
-          | :--: |\n| *Escalada no Setor Daqui a 20 Anos* |\n\n## Acesso (25 min)\n\
-          \nEste é o último setor antes do cume. Para acessá-lo, a partir do “Estacionamento\
-          \ 2”, siga a trilha principal que sobe passando à esquerda do “Bloco 1”\
-          \ e à direita do bloco “Lua cheia”, chegando ao bloco “Rolling Stones”.\
-          \ Contorne-o pela direita e siga a trilha pegando a segunda trilha que sobe\
-          \ à esquerda, em direção à grande pedra com uma rachadura no meio (em forma\
-          \ de boca). O primeiro bloco, o “Análise crítica” estará logo acima, uns\
-          \ 100m, à sua direita.\n\n## Boulders Clássicos\n\n- 4 Surpresa v3\n- 1\
-          \ Análise crítica v6\n- 2 Daqui a 20 anos v7\n- 3 Amanita v11\n\n| ![Escalador\
-          \ no boulder Amanita v11](imagens/setor_daqui_a_20_anos_p4_i0.webp) |\n\
-          | :--: |\n| *Escalador no boulder Amanita v11* |\n\n> \"No que diz respeito\
-          \ ao empenho, ao compromisso, ao esforço, à dedicação, não existe meio termo.\
-          \ Ou você faz uma coisa bem feita ou não faz.\"  \n> — *Airton Senna*\n\n\
-          | ![Anúncio 4Climb](imagens/setor_daqui_a_20_anos_p3_i0.webp) |\n| :--:\
-          \ |\n| *Anúncio 4Climb* |\n\n### 4Climb\n\nOs melhores produtos para as\
-          \ melhores experiências. Experimente essa vibe.  \n*Foto: Murilo Vargas*"
+          \ gosta de apertar, não deixe de tentar o único “Amanita” v11.\n\n## Acesso\
+          \ (25 min)\n\nEste é o último setor antes do cume. Para acessá-lo, a partir\
+          \ do “Estacionamento 2”, siga a trilha principal que sobe passando à esquerda\
+          \ do “Bloco 1” e à direita do bloco “Lua cheia”, chegando ao bloco “Rolling\
+          \ Stones”. Contorne-o pela direita e siga a trilha pegando a segunda trilha\
+          \ que sobe à esquerda, em direção à grande pedra com uma rachadura no meio\
+          \ (em forma de boca). O primeiro bloco, o “Análise crítica” estará logo\
+          \ acima, uns 100m, à sua direita.\n\n## Boulders Clássicos\n\n- 4 Surpresa\
+          \ v3\n- 1 Análise crítica v6\n- 2 Daqui a 20 anos v7\n- 3 Amanita v11\n\n\
+          | ![Escalador no boulder Amanita v11](imagens/setor_daqui_a_20_anos_p4_i0.webp)\
+          \ |\n| :--: |\n| *Escalador no boulder Amanita v11* |\n\n> \"No que diz\
+          \ respeito ao empenho, ao compromisso, ao esforço, à dedicação, não existe\
+          \ meio termo. Ou você faz uma coisa bem feita ou não faz.\"  \n> — *Airton\
+          \ Senna*\n\n| ![Anúncio 4Climb](imagens/setor_daqui_a_20_anos_p3_i0.webp)\
+          \ |\n| :--: |\n| *Anúncio 4Climb* |\n\n### 4Climb\n\nOs melhores produtos\
+          \ para as melhores experiências. Experimente essa vibe.  \n*Foto: Murilo\
+          \ Vargas*"
         precomputados:
           total_escaladas: 6
           total_boulders: 6
   - grupo:
       conteudo:
+        caminho_imagem_capa: imagens/setor_cume_p0_i0.webp
         nome: Cume
         mapas:
         - caminho_imagem_mapa: imagens/setor_cume_p9_i1.webp
@@ -6137,27 +6129,25 @@ picos:
           \ 360º de uma vista estonteante de toda a região metropolitana de Belo Horizonte\
           \ e seus arredores, com um pôr do sol digno de filme. Difícil aqui é decidir\
           \ qual linha escalar, mas, independente do seu grau de escalada, não saia\
-          \ de lá sem ao menos conhecer o mega-clássico “Blood América”.\n\n| ![Escalador\
-          \ no boulder Blood América](imagens/setor_cume_p0_i0.webp) |\n| :--: |\n\
-          | *Escalador no boulder Blood América* |\n\n## Acesso (30 min)\n\nA partir\
-          \ do “Estacionamento 2”, siga a trilha principal que passa à esquerda do\
-          \ “Bloco 1”, à direita do bloco “Lua cheia” e chega ao bloco “Rolling Stones”.\
-          \ Contorne-o pela direita e siga a trilha pegando a segunda trilha que sobe\
-          \ à esquerda, em direção à grande pedra com uma rachadura no meio (em forma\
-          \ de boca). O setor “Cume” consiste em um grande platô com um aglomerado\
-          \ de blocos no cume do morro.\n\n## Boulders Clássicos\n\n- **4. Mosquitos**\
-          \ – V2\n- **19. Sai do teto** – V3\n- **28. Seriema** – V3\n- **8. Blood\
-          \ América** – V4\n- **12. Mistral** – V7\n- **11. The summit** – V7\n- **21.\
-          \ Laranja mecânica** – V8\n- **14. Testarossa** – V10\n\n> \"Superar o fácil\
-          \ não tem mérito, é obrigação; vencer o difícil é glorificante; ultrapassar\
-          \ o outrora impossível é esplendoroso.\"  \n> — *Alexandre Fonteles*\n\n\
-          | ![Escaladora no boulder Ulísses](imagens/setor_cume_p3_i0.webp) |\n| :--:\
-          \ |\n| *Escaladora no boulder Ulísses* |\n\n| ![Escalada no pôr do sol no\
-          \ boulder Blood América](imagens/setor_cume_p4_i0.webp) |\n| :--: |\n| *Escalada\
-          \ no pôr do sol no boulder Blood América* |\n\n> \"É melhor viver dez anos\
-          \ a mil do que mil anos a dez.\"  \n> — *Lobão*\n\n| ![Escalador no bloco\
-          \ Testarossa](imagens/setor_cume_p7_i0.webp) |\n| :--: |\n| *Escalador no\
-          \ bloco Testarossa* |"
+          \ de lá sem ao menos conhecer o mega-clássico “Blood América”.\n\n## Acesso\
+          \ (30 min)\n\nA partir do “Estacionamento 2”, siga a trilha principal que\
+          \ passa à esquerda do “Bloco 1”, à direita do bloco “Lua cheia” e chega\
+          \ ao bloco “Rolling Stones”. Contorne-o pela direita e siga a trilha pegando\
+          \ a segunda trilha que sobe à esquerda, em direção à grande pedra com uma\
+          \ rachadura no meio (em forma de boca). O setor “Cume” consiste em um grande\
+          \ platô com um aglomerado de blocos no cume do morro.\n\n## Boulders Clássicos\n\
+          \n- **4. Mosquitos** – V2\n- **19. Sai do teto** – V3\n- **28. Seriema**\
+          \ – V3\n- **8. Blood América** – V4\n- **12. Mistral** – V7\n- **11. The\
+          \ summit** – V7\n- **21. Laranja mecânica** – V8\n- **14. Testarossa** –\
+          \ V10\n\n> \"Superar o fácil não tem mérito, é obrigação; vencer o difícil\
+          \ é glorificante; ultrapassar o outrora impossível é esplendoroso.\"  \n\
+          > — *Alexandre Fonteles*\n\n| ![Escaladora no boulder Ulísses](imagens/setor_cume_p3_i0.webp)\
+          \ |\n| :--: |\n| *Escaladora no boulder Ulísses* |\n\n| ![Escalada no pôr\
+          \ do sol no boulder Blood América](imagens/setor_cume_p4_i0.webp) |\n| :--:\
+          \ |\n| *Escalada no pôr do sol no boulder Blood América* |\n\n> \"É melhor\
+          \ viver dez anos a mil do que mil anos a dez.\"  \n> — *Lobão*\n\n| ![Escalador\
+          \ no bloco Testarossa](imagens/setor_cume_p7_i0.webp) |\n| :--: |\n| *Escalador\
+          \ no bloco Testarossa* |"
         precomputados:
           total_escaladas: 33
           total_boulders: 33
@@ -6593,7 +6583,7 @@ arquivos_externos:
 - caminho: imagens/poema_p0_i0.webp
   checksum_sha256: 45205c3d56172970c4e98917a45cbb8da577664928cdcdf839bc5acb8a45fbc6
 - caminho: imagens/setor_canaleta_p0_i0.webp
-  checksum_sha256: 67851cebcae348abdfbc34c48e3f6f5040507f0144f161e18071a3a210193418
+  checksum_sha256: 5cb378ade10c98d49099a040f422ba9382530bf422ffcc14c6b50f1af141e120
 - caminho: imagens/setor_canaleta_p2_i0.webp
   checksum_sha256: 4ceb4d92fc8ec9a1d98ce35f54f465c6bf268bddd584b880439314622198e921
 - caminho: imagens/setor_canaleta_p2_i1.webp
@@ -6613,7 +6603,7 @@ arquivos_externos:
 - caminho: imagens/setor_canaleta_p7_i0.webp
   checksum_sha256: 0ab7dbf889c3c7e0b74f113a9da89cac9534eb74382940046fde8f511328721a
 - caminho: imagens/setor_cume_p0_i0.webp
-  checksum_sha256: 5ebe2356d9564ab284cc9bf06dc3b4d7cc76865e04ce05a5508f16a6576371fd
+  checksum_sha256: 258a719d73394ed0b9189d7392c21fb26030e1197347969ca940052bd89c947d
 - caminho: imagens/setor_cume_p2_i1.webp
   checksum_sha256: 8262eaf9eba0e3b99b86211020107057cf472c7c3a6fc7c9f060fcf85c003980
 - caminho: imagens/setor_cume_p2_i2.webp
@@ -6641,7 +6631,7 @@ arquivos_externos:
 - caminho: imagens/setor_cume_p9_i1.webp
   checksum_sha256: c2ca685d8f0f6115a898a3dca4226b8bde80a148b8b4af1f93063c3efbb1b86d
 - caminho: imagens/setor_daqui_a_20_anos_p0_i0.webp
-  checksum_sha256: accf1f4982b2d5d447b1ccb28510994890ee56b60085c4ed186dc9e23f38221c
+  checksum_sha256: b2f23147169963ed19e76113af555797f017bce2a2ea9f8ef43016ffbaf42b20
 - caminho: imagens/setor_daqui_a_20_anos_p2_i1.webp
   checksum_sha256: d675d09dfab26280ce6f04b10fcb9a03652502d04ce65b77ae0f4ee50a3cdc30
 - caminho: imagens/setor_daqui_a_20_anos_p2_i2.webp
@@ -6655,7 +6645,7 @@ arquivos_externos:
 - caminho: imagens/setor_daqui_a_20_anos_p5_i2.webp
   checksum_sha256: f5b5e73f2ecc227ec4fcc90ce91648be56bc0f85f4964c5c12e52ad46c4d4bb3
 - caminho: imagens/setor_deslize_p0_i0.webp
-  checksum_sha256: 664815b86847fb6707c55fe2e3df9e802715af68e2fd552549be15b5d092ce2a
+  checksum_sha256: 0d8887b395e9ebf3f505a92cd760055ce80b06a982bdf75bdd345af4667e2e98
 - caminho: imagens/setor_deslize_p10_i0.webp
   checksum_sha256: fe6441496e9373f0c9ae41e587140f1ca6b337f66ec3e71954a84a4a4ed950ed
 - caminho: imagens/setor_deslize_p11_i0.webp
@@ -6691,7 +6681,7 @@ arquivos_externos:
 - caminho: imagens/setor_deslize_p9_i0.webp
   checksum_sha256: c7198c4836b47165d93aef56682ec4a81884cb1af60e65cac1310a95588cfd4a
 - caminho: imagens/setor_entrada_p0_i0.webp
-  checksum_sha256: 47bd9d9dae7e34e061326458b6c490cc42d8d7dde21a974bffdee82afe4a98a2
+  checksum_sha256: c5072cf9074e6f5d2b96277d428691f83194923a9f6f7ac400f971a377a1e31a
 - caminho: imagens/setor_entrada_p10_i0.webp
   checksum_sha256: a98186a7d66e55f82adbf2e957acf126c79aa3217e95ea2136138a856b06f863
 - caminho: imagens/setor_entrada_p10_i1.webp
@@ -6721,7 +6711,7 @@ arquivos_externos:
 - caminho: imagens/setor_entrada_p9_i2.webp
   checksum_sha256: b955d331edcf60a95c4385d6b9d8aef4d2247fcb5e367496bc7bb009b45ddd8c
 - caminho: imagens/setor_estacionamento_p0_i0.webp
-  checksum_sha256: b2b5a065cb17d8c747d11d1a3986854199e365c779b24bb6910c9a2bb44b6daf
+  checksum_sha256: e03fda42aff66afd68da2671905812558b7a0f6441fcfb7c9d3613c6981a647f
 - caminho: imagens/setor_estacionamento_p2_i0.webp
   checksum_sha256: bf45759273eebb1e2d0a864299869ef8c21befe0697c1bf74ba31feae01e532a
 - caminho: imagens/setor_estacionamento_p2_i1.webp
@@ -6743,7 +6733,7 @@ arquivos_externos:
 - caminho: imagens/setor_estacionamento_p7_i1.webp
   checksum_sha256: fc351131d63835e5818741475bd1715bfcaccf3c8f9637e446e427078422e553
 - caminho: imagens/setor_pena_de_ganso_p0_i0.webp
-  checksum_sha256: 6f603f07c7c6536d42e5f1444fe3f7d000a17126dcc0093b18fbe9bbe1ed68dc
+  checksum_sha256: 32c5ca9036cf4c7479a8efa1bbb44d9988a01501560d6d57781d016760c25a64
 - caminho: imagens/setor_pena_de_ganso_p2_i0.webp
   checksum_sha256: bd065dc42eec68c98c3117986cd35ba105f5303d3c852f3bf4426dd5f94278ce
 - caminho: imagens/setor_pena_de_ganso_p2_i1.webp
@@ -6761,7 +6751,7 @@ arquivos_externos:
 - caminho: imagens/setor_pena_de_ganso_p5_i1.webp
   checksum_sha256: 51a205b961f8a82f58b399e23ddfde7d29c1ab09f327affbd41e598ff4bc13dd
 - caminho: imagens/setor_rolling_stones_p0_i0.webp
-  checksum_sha256: d58e785513f34da1e4ea5e90171fe046f305128c153cc1e52cc9feeaf2c0e62c
+  checksum_sha256: a131df5ab8ca3d9c33569509a8b7080f192bd8b9425ab3ccf2bea5224166c820
 - caminho: imagens/setor_rolling_stones_p10_i0.webp
   checksum_sha256: 47539164345a3e2f155eddb62f2d37bdda8d1ad1cc199849a5ba03fc0ad98aa2
 - caminho: imagens/setor_rolling_stones_p11_i0.webp
@@ -6791,7 +6781,7 @@ arquivos_externos:
 - caminho: imagens/setor_rolling_stones_p9_i0.webp
   checksum_sha256: e8dd152eb47948beb934c82800c35f817a977a6f07b22f9a6ba4c2ff86a34c82
 - caminho: imagens/setor_sono_do_calango_p0_i0.webp
-  checksum_sha256: 5aad02ced09aeb51b2230547aef85604c79b18d6f96a442496f9113b913c6f77
+  checksum_sha256: 05d9fb60ad1b548654b32406a8a227c55429cd1fe40918c8d4dfdd837dd7ccc7
 - caminho: imagens/setor_sono_do_calango_p2_i0.webp
   checksum_sha256: 7879e6c0d2062d9be8b8b8a2207e4937a703d938780210e5864e2f529b5faa01
 - caminho: imagens/setor_sono_do_calango_p2_i1.webp
@@ -6813,7 +6803,7 @@ arquivos_externos:
 - caminho: imagens/setor_sono_do_calango_p7_i0.webp
   checksum_sha256: c09d4492c6461d9723f14b25a1d34f02c3720ae865726bf5a840bc7e5c45ba6e
 - caminho: imagens/setor_tosco_p0_i0.webp
-  checksum_sha256: fb3bbb3c287b3ce0ad9b930fc9a8309b0b2410a4db3904f44ba74089144a28f1
+  checksum_sha256: f8403be8951cfb027414002db55c441a9902ad11bb1ca28611962679e3a43329
 - caminho: imagens/setor_tosco_p10_i0.webp
   checksum_sha256: 2a39fa97e342a2a1c2367016f9f54fd0b347a4ecf82d2cd27424a1d0a553a021
 - caminho: imagens/setor_tosco_p10_i1.webp
@@ -6847,7 +6837,7 @@ arquivos_externos:
 - caminho: imagens/setor_tosco_p9_i0.webp
   checksum_sha256: c2fdb6d7b34ea6998d0309467b5598ab179d17548fd49100cd2c3dadcbbadf20
 - caminho: imagens/setor_tubarao_p0_i0.webp
-  checksum_sha256: ffd9766e88340f3d67a72db75a8f7f11543813a4c5f2b1e069a4ceba048beac0
+  checksum_sha256: 40bcf7ae80e83e3eba1b9cab3978252dd1d5524ceda1b18ee1b6bc1dbf436c28
 - caminho: imagens/setor_tubarao_p2_i0.webp
   checksum_sha256: 0ce5bf7b4b228ee9fbc4ea51bcfefb336728b467f7210d72e35e8e959dc05de3
 - caminho: imagens/setor_tubarao_p2_i1.webp
@@ -6869,7 +6859,7 @@ arquivos_externos:
 - caminho: imagens/setor_tubarao_p7_i1.webp
   checksum_sha256: fb74b02d1adf7b88eb968d1ca09c9ff570f312d6ee4f844e60c7f49e3494c526
 - caminho: imagens/setor_yin_yang_p0_i0.webp
-  checksum_sha256: c36dd93e48a57b553d8341e52e3116c14a50f00616596d2eaf63bcbba642d4e9
+  checksum_sha256: 079b75fc04f502f30cbc1c3a3e7e9b9d7fa8f232cd7b084cd98cbe1057422f6e
 - caminho: imagens/setor_yin_yang_p2_i1.webp
   checksum_sha256: dd7fc08f4b837ce7fff7098da38fd9568f17fb53743f646b5c26818815056f10
 - caminho: imagens/setor_yin_yang_p2_i2.webp

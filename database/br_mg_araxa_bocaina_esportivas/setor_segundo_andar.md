@@ -1,6 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+caminho_imagem_capa: imagens/setor_segundo_andar_p0_i0.webp
 nome: Segundo Andar
 mapas:
 - caminho_imagem_mapa: imagens/setor_segundo_andar_p1.webp
@@ -224,8 +225,6 @@ escaladas:
 ---
 
 # Setor Segundo Andar
-
-![Setor Segundo Andar](imagens/setor_segundo_andar_p0_i0.webp)
 
 O Setor Segundo Andar oferece vias atléticas com nomes inspirados na cultura pop, variando de 6º a 9º grau.
 

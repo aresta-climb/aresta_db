@@ -1,6 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+caminho_imagem_capa: imagens/setor_de_esquerda_p0_i1.webp
 nome: Setor de Esquerda
 mapas:
 - caminho_imagem_mapa: imagens/setor_de_esquerda_p0_i0.webp
@@ -104,8 +105,6 @@ O setor é ideal para grupos de até 8 pessoas.
 
 Por ser um setor com vias de graduação baixa e estar ao lado do setor "Panelinhas"
 é ideal para os iniciantes.
-
-![Setor de Esquerda](imagens/setor_de_esquerda_p0_i1.webp)
 
 ![Milicianos 5º](imagens/setor_de_esquerda_p1_i0.webp)
 

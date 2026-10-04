@@ -327,7 +327,7 @@ def desduplicar_referencias_no_md(md_path: Path, pico_path: Path) -> None:
             # Recorre em todos os campos, mas ignora escaladas/vias para desduplicação
             for k, v in obj.items():
                 ignorar_filho = ignorar or k in ("escaladas", "vias")
-                if not ignorar and k == "caminho_imagem_mapa":
+                if not ignorar and k in ("caminho_imagem_mapa", "caminho_imagem_capa"):
                     original = v
                     novo = processar_caminho(original)
                     if novo != original:
@@ -601,7 +601,7 @@ def coletar_referencias_arquivos(pico_path: Path, croqui_data: Dict[str, Any]) -
             if "caminho" in obj and isinstance(obj["caminho"], str) and obj["caminho"].endswith(".md"):
                 processar_md(obj["caminho"])
             for k, v in obj.items():
-                if k in ("caminho_imagem_mapa", "caminho_thumbnail", "caminho_imagem") and isinstance(v, str):
+                if k in ("caminho_imagem_mapa", "caminho_thumbnail", "caminho_imagem", "caminho_imagem_capa") and isinstance(v, str):
                     adicionar_referencia_imagem(v)
                 elif k in ("caminho_anexo", "anexo") and isinstance(v, str):
                     adicionar_referencia_anexo(v)

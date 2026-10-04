@@ -1,6 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+caminho_imagem_capa: imagens/setor_do_sertao_p0_i1.webp
 nome: Setor do Sertão
 mapas:
 - caminho_imagem_mapa: imagens/setor_do_sertao_p0_i0.webp
@@ -142,5 +143,3 @@ escaladas:
 ---
 
 Setor com sol quase o dia todo. Horário ideal para escalar aqui é bem cedo pela manhã e a partir das 15 horas.
-
-![Conquista da via Dazão e o Pé de Feijão](imagens/setor_do_sertao_p0_i1.webp)

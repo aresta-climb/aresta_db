@@ -1,6 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+caminho_imagem_capa: imagens/setor_do_moco_p0_2.webp
 nome: Setor do Mocó
 mapas:
 - caminho_imagem_mapa: imagens/setor_do_moco_p0.webp
@@ -169,5 +170,3 @@ escaladas:
 ---
 
 Setor localizado em outro bloco de rocha. Para chegar no setor é necessário caminhar um pouco, passando em frente ao setor do sertão. Setor fica a direta do bloco da claraboia.
-
-![Escaladores no setor do mocó](imagens/setor_do_moco_p0_2.webp)

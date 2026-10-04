@@ -332,13 +332,9 @@
 
 ### Setor (Pico: Salão Encantado)
 
-- **descricao**:
-    Para chegar até o setor é preciso fazer uma escalaminhada. Cuidado ao caminhar nas trilhas altas e pedras soltas.
-    
-    | ![Escalador na via Pelas Mãos do Senhor](imagens/setor_da_pracinha_p0_i0.webp) |
-    | :--: |
-    | *Escalador na via Pelas Mãos do Senhor* |
+- **descricao**: Para chegar até o setor é preciso fazer uma escalaminhada. Cuidado ao caminhar nas trilhas altas e pedras soltas.
 - **nome**: Setor da Pracinha
+- **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_da_pracinha_p0_i0.webp)
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_da_pracinha_p0_i1.webp)
@@ -511,13 +507,9 @@
 
 ### Setor (Pico: Salão Encantado)
 
-- **descricao**:
-    Para chegar até o setor é necessário fazer uma escalaminhada. Cuidado com pedras soltas.
-    
-    | ![Escalador na via Visitante Oculto](imagens/setor_do_plato_p1.webp) |
-    | :--: |
-    | *Escalador na via Visitante Oculto* |
+- **descricao**: Para chegar até o setor é necessário fazer uma escalaminhada. Cuidado com pedras soltas.
 - **nome**: Setor do Platô
+- **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_do_plato_p1.webp)
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_do_plato_p0.webp)
@@ -620,13 +612,9 @@
 
 ### Setor (Pico: Salão Encantado)
 
-- **descricao**:
-    ATENÇÃO! Para chegar no o setor é preciso fazer uma escalaminhada cuidadosa. Cuidado com pedras soltas e trilhas altas. Opção para descida é fazer um rapel a partir do top da via Cordadinha.
-    
-    | ![Escalador na via Calazar Certo](imagens/setor_da_claraboia_p1.webp) |
-    | :--: |
-    | *Escalador na via Calazar Certo* |
+- **descricao**: ATENÇÃO! Para chegar no o setor é preciso fazer uma escalaminhada cuidadosa. Cuidado com pedras soltas e trilhas altas. Opção para descida é fazer um rapel a partir do top da via Cordadinha.
 - **nome**: Setor da Claraboia
+- **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_da_claraboia_p1.webp)
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_da_claraboia_p0.webp)
@@ -690,13 +678,9 @@
 
 ### Setor (Pico: Salão Encantado)
 
-- **descricao**:
-    Setor com sol quase o dia todo. Horário ideal para escalar aqui é bem cedo pela manhã e a partir das 15 horas.
-    
-    | ![Conquista da via Dazão e o Pé de Feijão](imagens/setor_do_sertao_p0_i1.webp) |
-    | :--: |
-    | *Conquista da via Dazão e o Pé de Feijão* |
+- **descricao**: Setor com sol quase o dia todo. Horário ideal para escalar aqui é bem cedo pela manhã e a partir das 15 horas.
 - **nome**: Setor do Sertão
+- **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_do_sertao_p0_i1.webp)
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_do_sertao_p0_i0.webp)
@@ -871,13 +855,9 @@
 
 ### Setor (Pico: Salão Encantado)
 
-- **descricao**:
-    Setor localizado em outro bloco de rocha. Para chegar no setor é necessário caminhar um pouco, passando em frente ao setor do sertão. Setor fica a direta do bloco da claraboia.
-    
-    | ![Escaladores no setor do mocó](imagens/setor_do_moco_p0_2.webp) |
-    | :--: |
-    | *Escaladores no setor do mocó* |
+- **descricao**: Setor localizado em outro bloco de rocha. Para chegar no setor é necessário caminhar um pouco, passando em frente ao setor do sertão. Setor fica a direta do bloco da claraboia.
 - **nome**: Setor do Mocó
+- **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_do_moco_p0_2.webp)
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_do_moco_p0.webp)
@@ -1085,13 +1065,9 @@
 
 ### Setor (Pico: Salão Encantado)
 
-- **descricao**:
-    O setor fica localizado acima da claraboia. Para chegar até o Abrigo é preciso fazer uma caminhada passando em frente ao setor do sertão. É necessário escalar um pequeno bloco de rocha para chegar ao setor.
-    
-    | ![Escalador na via Estrela no Coco](imagens/setor_do_abrigo_p0_i1.webp) |
-    | :--: |
-    | *Escalador na via Estrela no Coco* |
+- **descricao**: O setor fica localizado acima da claraboia. Para chegar até o Abrigo é preciso fazer uma caminhada passando em frente ao setor do sertão. É necessário escalar um pequeno bloco de rocha para chegar ao setor.
 - **nome**: Setor do Abrigo
+- **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_do_abrigo_p0_i1.webp)
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_do_abrigo_p0_i0.webp)
@@ -1249,7 +1225,7 @@
     - **checksum_sha256**: 36097b9d58a6e8c0329a204ae32ea49d26802c6911c89644ce34501b90ceedef
   - **[10]**:
     - **caminho**: ![caminho](imagens/setor_do_abrigo_p0_i1.webp)
-    - **checksum_sha256**: 420ac69eb85888cea5b95117610c77f93d19f9157cb663bab6dc4a1680006ce6
+    - **checksum_sha256**: 194d37ffc681a18b9c823bd962f349ca2611de7442091a3eb4dbc007da9080f2
   - **[11]**:
     - **caminho**: ![caminho](imagens/setor_do_moco_p0.webp)
     - **checksum_sha256**: fece16e9e088ed2969eeb59be686e84feeb3c41c3e5eaa760394204951b910ec

@@ -1,6 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+caminho_imagem_capa: imagens/setor_gameleira_p0_i1.webp
 nome: Setor Gameleira
 mapas:
 - caminho_imagem_mapa: imagens/setor_gameleira_p0_i0.webp
@@ -92,8 +93,6 @@ em V4/5.
 
 A via "Mordida de Égua 5º" é muito repetida por iniciantes e faz parte
 das vias mais elogiadas da Sinuosa.
-
-![Setor Gameleira](imagens/setor_gameleira_p0_i1.webp)
 
 ![Sou Fria 9a](imagens/setor_gameleira_p1_i0.webp)
 

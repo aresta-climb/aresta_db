@@ -353,12 +353,9 @@
 - **descricao**:
     # Setor bombonera
     
-    | ![Bombonera](imagens/setor_bombonera_p1_i0.webp) |
-    | :--: |
-    | *Bombonera* |
-    
     Sombra a partir das 12h (varia de acordo com a estação).
 - **nome**: Setor Bombonera
+- **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_bombonera_p1_i0.webp)
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_bombonera_p0_i0.webp)
@@ -907,7 +904,7 @@
     - **checksum_sha256**: a32351e87bead4c90db1e86def4cf7c38901e6cd1e33d9deace58941617dca9e
   - **[5]**:
     - **caminho**: ![caminho](imagens/setor_bombonera_p1_i0.webp)
-    - **checksum_sha256**: 3efb9357b4e5efb56f3403cc83d7b0037fc3cc717765b68e6564c988c525cf73
+    - **checksum_sha256**: 948f63bffa0840d8cbbb7cf3519f807365c431e3588885a8627cbe631b7dbc24
   - **[6]**:
     - **caminho**: ![caminho](imagens/setor_bosque_p0_i0.webp)
     - **checksum_sha256**: b2a413d380fc3a214fb6142e123455e5e41e8578a50751467d9327dd2488126d

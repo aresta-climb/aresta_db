@@ -1,6 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+caminho_imagem_capa: imagens/grupo_principal_setor_classicas_longas_p0_i1.webp
 nome: Setor Clássicas Longas
 mapas:
 - caminho_imagem_mapa: imagens/grupo_principal_setor_classicas_longas_p1_i1.webp
@@ -721,8 +722,6 @@ escaladas:
 ---
 
 # Parede Principal – Setor Clássicas Longas
-
-![Maria Fernanda na terceira passada em móvel (e crux) do Pr. “Ih, Ferrou!” (Foto: Pedro Bugim)](imagens/grupo_principal_setor_classicas_longas_p0_i1.webp)
 
 Setor da Parede Principal que concentra as maiores vias do Vale do Roncador, com vias de até 220 metros de extensão, como é o caso do Pr. “Eu Não Sou de Ferro”.
 

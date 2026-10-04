@@ -1,6 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+caminho_imagem_capa: imagens/setor_paulistas_p0_i0.webp
 nome: Paulistas
 mapas:
 - caminho_imagem_mapa: imagens/setor_paulistas_p1.webp
@@ -321,8 +322,6 @@ escaladas:
 ---
 
 # Setor Paulistas
-
-![Setor Paulistas](imagens/setor_paulistas_p0_i0.webp)
 
 O Setor Paulistas contém uma grande variedade de vias técnicas, com destaque para a "Cortina de Fumaça" (9c).
 

@@ -1,6 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+caminho_imagem_capa: imagens/grupo_tres_pontoes_setor_pontao_menor_face_leste_p1_i3.webp
 nome: Pontão Menor - Face Leste (Área da Esquina da Alegria)
 mapas:
 - caminho_imagem_mapa: imagens/grupo_tres_pontoes_setor_pontao_menor_face_leste_p0_i2.webp
@@ -212,5 +213,3 @@ São vias bastante usadas por quem está começando a frequentar os Três Pontõ
 Para acessar esta área pode-se pegar a trilha principal (início no pequeno portão de ferro que fica ao lado do abrigo) ou, caso não tenha entrado nas dependências do Cemonta, existe um acesso para esta trilha seguindo pela estrada de terra, 150 metros após a porteira principal, conforme desenho acima. Esta trilha chega na base do Pontão Maior, neste ponto deve-se seguir para a esquerda passando pelo Pontão Médio e contornando toda a rocha.
 
 Existe também uma trilha mais curta para esta área, sem passar pelos outros Pontões, ela se inicia atrás do abrigo.
-
-![Lucia Duarte escalando a Rota das Âncoras](imagens/grupo_tres_pontoes_setor_pontao_menor_face_leste_p1_i3.webp)

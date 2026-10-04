@@ -1,6 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+caminho_imagem_capa: imagens/setor_tosco_p0_i0.webp
 nome: Tosco
 mapas:
 - caminho_imagem_mapa: imagens/setor_tosco_p2_i0.webp
@@ -73,8 +74,6 @@ setores:
 # Tosco
 
 Setor que abriga uma grande quantidade de boulders do circuito verde e azul, com destaque para o clássico “Aresta visual” v3. Por outro lado, se você escala boulders do circuito amarelo ou vermelho e gosta de dinâmicos, este será um de seus setores preferidos, com escaladas incríveis deste estilo nos blocos “Aresta visual”, “Tosco” e “Motricidade”. Mas não pense que a diversão acaba por aí, se você curte aderência não deixe de visitar o mítico “Frita pé” e quebrar a cabeça desvendando seus betas!
-
-![Escalador no Setor Tosco](imagens/setor_tosco_p0_i0.webp)
 
 ## Acesso (25 min)
 

@@ -1,6 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+caminho_imagem_capa: imagens/setor_death_horse_p0_i1.webp
 nome: Setor Death Horse
 mapas:
 - caminho_imagem_mapa: imagens/setor_death_horse_p0_i0.webp
@@ -165,8 +166,6 @@ local bem arejado.
 
 Na chuva é possível escalar algumas vias. Setor ainda pouco explorado,
 apesar do enorme potencial para vias de alta graduação.
-
-![Setor Death Horse](imagens/setor_death_horse_p0_i1.webp)
 
 ![Sabbath Blood Sabbath 9a](imagens/setor_death_horse_p1_i0.webp)
 

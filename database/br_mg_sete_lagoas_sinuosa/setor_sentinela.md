@@ -1,6 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+caminho_imagem_capa: imagens/setor_sentinela_p0_i1.webp
 nome: Setor Sentinela
 mapas:
 - caminho_imagem_mapa: imagens/setor_sentinela_p0_i0.webp
@@ -126,8 +127,6 @@ Parede bonita, de
 cor amarelada, com excelente variação de agarras e característica esportiva. Apesar
 de serem mais baixas, as vias deste setor são exigentes devido a leve negatividade
 da pedra.
-
-![Setor Sentinela](imagens/setor_sentinela_p0_i1.webp)
 
 ![Foto 2](imagens/setor_sentinela_p1_i0.webp)
 

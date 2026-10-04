@@ -171,10 +171,6 @@
 ### Setor (Pico: Falésia da Esfinge)
 
 - **descricao**:
-    | ![Vista do Setor Headwall](imagens/setor_headwall_p0_i0_2.webp) |
-    | :--: |
-    | *Vista do Setor Headwall* |
-    
     | ![Arthropoda](imagens/setor_headwall_p1_i0.webp) |
     | :--: |
     | *Arthropoda* |
@@ -195,6 +191,7 @@
     | :--: |
     | *Apertadinha* |
 - **nome**: Headwall
+- **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_headwall_p0_i0_2.webp)
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_headwall_p0_i1.webp)
@@ -272,10 +269,6 @@
 ### Setor (Pico: Falésia da Esfinge)
 
 - **descricao**:
-    | ![Vista do Setor Roca Master](imagens/setor_roca_master_p0_i0_2.webp) |
-    | :--: |
-    | *Vista do Setor Roca Master* |
-    
     | ![Cão Castrado](imagens/setor_roca_master_p1_i0.webp) |
     | :--: |
     | *Cão Castrado* |
@@ -304,6 +297,7 @@
     | :--: |
     | *Tico Skywalker* |
 - **nome**: Roca Master
+- **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_roca_master_p0_i0_2.webp)
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_roca_master_p0_i0.webp)
@@ -404,10 +398,6 @@
 ### Setor (Pico: Falésia da Esfinge)
 
 - **descricao**:
-    | ![Vista do Setor Ecumênico](imagens/setor_ecumenico_p0_i0_2.webp) |
-    | :--: |
-    | *Vista do Setor Ecumênico* |
-    
     | ![Dízimo](imagens/setor_ecumenico_p1_i0.webp) |
     | :--: |
     | *Dízimo* |
@@ -436,6 +426,7 @@
     - El Ninõ (projeto)
     - Univervia (projeto)
 - **nome**: Ecumênico
+- **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_ecumenico_p0_i0_2.webp)
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_ecumenico_p0_i0.webp)

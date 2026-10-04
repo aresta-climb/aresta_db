@@ -1,6 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+caminho_imagem_capa: imagens/grupo_rio_das_mortes_setor_namata_p0_i2.webp
 nome: Setor Namata
 mapas:
 - caminho_imagem_mapa: imagens/grupo_rio_das_mortes_setor_namata_p0_i3.webp
@@ -244,7 +245,5 @@ escaladas:
 # Setor Namata
 
 Setor com maior altura e quantidade de vias. É por onde chega a trilha principal. Por estar dentro de uma mata tem sombra o dia todo na base, mas de tarde partes das vias pega sol.
-
-![Pedro Naves na via Liberdade Vigiada](imagens/grupo_rio_das_mortes_setor_namata_p0_i2.webp)
 
 ![Beto no teto da Corona Vírus](imagens/grupo_rio_das_mortes_setor_namata_p1_i4.webp)

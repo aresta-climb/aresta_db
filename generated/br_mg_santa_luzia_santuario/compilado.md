@@ -131,13 +131,9 @@
 
 ### Setor (Pico: Santuário)
 
-- **descricao**:
-    # Setor Clube da Luta
-    
-    | ![Escaladora Júlia Lima na via Rins de Pedra](imagens/setor_clube_da_luta_p0_i0.webp) |
-    | :--: |
-    | *Escaladora Júlia Lima na via Rins de Pedra* |
+- **descricao**: # Setor Clube da Luta
 - **nome**: Setor Clube da Luta
+- **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_clube_da_luta_p0_i0.webp)
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_clube_da_luta_p1.webp)
@@ -457,10 +453,6 @@
 - **descricao**:
     # Setor Santa Línea
     
-    | ![Escalador Felipe Alvares na via Santa Linea](imagens/setor_santa_linea_p0_i0.webp) |
-    | :--: |
-    | *Escalador Felipe Alvares na via Santa Linea* |
-    
     ## Conexões e Variantes
     
     Este setor possui diversas conexões entre as vias, permitindo combinar diferentes partes (P1, P2, P3...) de vias adjacentes.
@@ -481,6 +473,7 @@
     | 14.3 | CHÁ NA CARTOLINA P2 | SANTA LINEA P3 | PROJETO |
     | 15.1 | AVE MARIA P2 | CHÁ NA CARTOLINA P3 | 9b |
 - **nome**: Setor Santa Línea
+- **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_santa_linea_p0_i0.webp)
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_santa_linea_p1.webp)
@@ -872,13 +865,9 @@
 
 ### Setor (Pico: Santuário)
 
-- **descricao**:
-    # Setor Democracia
-    
-    | ![Escalador Lucas Rocha na via Buffalo Bill](imagens/setor_democracia_p0_i0.webp) |
-    | :--: |
-    | *Escalador Lucas Rocha na via Buffalo Bill* |
+- **descricao**: # Setor Democracia
 - **nome**: Setor Democracia
+- **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_democracia_p0_i0.webp)
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_democracia_p1.webp)
@@ -1233,13 +1222,13 @@
     - **checksum_sha256**: 140796ae3b4a00fbc2a2f25db9d8dce7f6f2f312ca58d95af87017635f47fca8
   - **[11]**:
     - **caminho**: ![caminho](imagens/setor_clube_da_luta_p0_i0.webp)
-    - **checksum_sha256**: 20f2e3574f2d6aac3cb9ba07a7bc4d7382206819eb92ed6f74a68533ed96d657
+    - **checksum_sha256**: 9bf2ee9adef8f666eb6b2e1587a15912a88ef13cdfc0eff797babdc26bc3c8a9
   - **[12]**:
     - **caminho**: ![caminho](imagens/setor_clube_da_luta_p1.webp)
     - **checksum_sha256**: 995eda0e8684b11fdec57aa6a557f6369be184d93c165fb9876bfb305567744f
   - **[13]**:
     - **caminho**: ![caminho](imagens/setor_democracia_p0_i0.webp)
-    - **checksum_sha256**: b554b812cc27dbfd2b6f7f6c816190f8409a3bc4eb3b3d5127488286c822a5bd
+    - **checksum_sha256**: bd6ab900117e3abdbb942f27b80d0560d0ab5f97aac92b85aa846cb2863f53d1
   - **[14]**:
     - **caminho**: ![caminho](imagens/setor_democracia_p1.webp)
     - **checksum_sha256**: 09777667e0f00e43074a4c72cee7ab9c7913c9df79ed633b6bf62cb786d35b5e

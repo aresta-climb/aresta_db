@@ -1,6 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+caminho_imagem_capa: imagens/setor_yanomami_p1_i0.webp
 nome: Setor Yanomami
 mapas:
 - caminho_imagem_mapa: imagens/setor_yanomami_p0_i0.webp
@@ -339,5 +340,3 @@ escaladas:
 # Setor Yanomami
 
 Sombra até as 14h30 (varia de acordo com a estação).
-
-![Parede Yanomami](imagens/setor_yanomami_p1_i0.webp)

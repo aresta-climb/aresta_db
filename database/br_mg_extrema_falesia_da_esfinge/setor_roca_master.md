@@ -1,6 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+caminho_imagem_capa: imagens/setor_roca_master_p0_i0_2.webp
 nome: Roca Master
 mapas:
 - caminho_imagem_mapa: imagens/setor_roca_master_p0_i0.webp
@@ -85,8 +86,6 @@ escaladas:
     protecoes_moveis: Camalot (5 e 6) ou compatíveis.
     descricao: 'Obs: Importante a utilização de algumas costuras longas.'
 ---
-
-![Vista do Setor Roca Master](imagens/setor_roca_master_p0_i0_2.webp)
 
 ![Cão Castrado](imagens/setor_roca_master_p1_i0.webp)
 

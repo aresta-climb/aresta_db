@@ -1,6 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+caminho_imagem_capa: imagens/setor_tetos_p0_i0.webp
 nome: Tetos
 mapas:
 - caminho_imagem_mapa: imagens/setor_tetos_p1.webp
@@ -772,8 +773,6 @@ escaladas:
 ---
 
 # Setor Tetos
-
-![Setor Tetos](imagens/setor_tetos_p0_i0.webp)
 
 O Setor Tetos é conhecido por suas vias atléticas e desafiadoras, com muitos tetos e negativas. Contém vias variadas de 5º a 10a grau, além de vários projetos promissores.
 

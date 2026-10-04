@@ -1,6 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+caminho_imagem_capa: imagens/setor_ecumenico_p0_i0_2.webp
 nome: Ecumênico
 mapas:
 - caminho_imagem_mapa: imagens/setor_ecumenico_p0_i0.webp
@@ -66,8 +67,6 @@ escaladas:
     - André Morales
     - Kaio Lupone
 ---
-
-![Vista do Setor Ecumênico](imagens/setor_ecumenico_p0_i0_2.webp)
 
 ![Dízimo](imagens/setor_ecumenico_p1_i0.webp)
 

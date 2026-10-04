@@ -1,6 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+caminho_imagem_capa: imagens/grupo_mont_blanc_setor_bloco_parada_obrigatoria_p1_i0.webp
 nome: 'Bloco: Parada Obrigatória'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_mont_blanc_setor_bloco_parada_obrigatoria_p0.webp
@@ -110,4 +111,3 @@ escaladas:
     dificuldade: V1
 ---
 
-![parada obrigatória](imagens/grupo_mont_blanc_setor_bloco_parada_obrigatoria_p1_i0.webp)

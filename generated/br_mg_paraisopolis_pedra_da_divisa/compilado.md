@@ -149,10 +149,6 @@
 ### Setor (Pico: Pedra da Divisa (Face MG))
 
 - **descricao**:
-    | ![Leonard Moreira na via Zé Sereno, 7b](imagens/setor_cangaco_p0_i0.webp) |
-    | :--: |
-    | *Leonard Moreira na via Zé Sereno, 7b* |
-    
     | ![Charlie Alves na via Corisco, 6ºsup](imagens/setor_cangaco_p2_i0.webp) |
     | :--: |
     | *Charlie Alves na via Corisco, 6ºsup* |
@@ -160,6 +156,7 @@
     **Equipamentos Necessários:** Corda de 60m é obrigatória para rapelar. Para as vias
     esportivas, você vai precisar de 15 costuras.
 - **nome**: Setor Cangaço
+- **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_cangaco_p0_i0.webp)
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_cangaco_p1_i0.webp)
@@ -484,10 +481,6 @@
 ### Setor (Pico: Pedra da Divisa (Face MG))
 
 - **descricao**:
-    | ![Ana Fujita na via Boa noite Cinderela, 6ºsup](imagens/setor_ditados_p1_i0.webp) |
-    | :--: |
-    | *Ana Fujita na via Boa noite Cinderela, 6ºsup* |
-    
     | ![Ana Fujita na via Mais vale um na mão... 7a](imagens/setor_ditados_p0_i0_2.webp) |
     | :--: |
     | *Ana Fujita na via Mais vale um na mão... 7a* |
@@ -495,6 +488,7 @@
     **Equipamentos Necessários:** Corda de 60m é obrigatória para rapelar. Para as vias
     esportivas, você vai precisar de 15 costuras.
 - **nome**: Setor Ditados
+- **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_ditados_p1_i0.webp)
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_ditados_p0_i0.webp)
@@ -695,13 +689,9 @@
 
 ### Setor (Pico: Pedra da Divisa (Face MG))
 
-- **descricao**:
-    | ![Eliseu Frechou na via Black, 6ºsup](imagens/setor_cervejas_p1_i0.webp) |
-    | :--: |
-    | *Eliseu Frechou na via Black, 6ºsup* |
-    
-    **Equipamentos Necessários:** Corda de 60m é obrigatória para rapelar. Para as vias esportivas, você vai precisar de 10 costuras.
+- **descricao**: **Equipamentos Necessários:** Corda de 60m é obrigatória para rapelar. Para as vias esportivas, você vai precisar de 10 costuras.
 - **nome**: Setor Cervejas
+- **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_cervejas_p1_i0.webp)
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_cervejas_p0_i0.webp)
@@ -1022,16 +1012,13 @@
 ### Setor (Pico: Pedra da Divisa (Face MG))
 
 - **descricao**:
-    | ![Antonio Calvo e Michel Gonçalves na via Hospício jamais, 6ºsup](imagens/setor_questao_de_tempo_p0_i0_2.webp) |
-    | :--: |
-    | *Antonio Calvo e Michel Gonçalves na via Hospício jamais, 6ºsup* |
-    
     | ![Michel Gonçalves na via Eu prefiro uma cerveja, 5ºsup](imagens/setor_questao_de_tempo_p1_i0.webp) |
     | :--: |
     | *Michel Gonçalves na via Eu prefiro uma cerveja, 5ºsup* |
     
     **Equipamentos Necessários:** Corda de 60m é obrigatória para rapelar. Para as vias esportivas, você vai precisar de 10 costuras.
 - **nome**: Setor Questão de Tempo
+- **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_questao_de_tempo_p0_i0_2.webp)
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_questao_de_tempo_p0_i0.webp)
@@ -1312,7 +1299,7 @@
     - **checksum_sha256**: ce754bb08e432452f7916a04f9451cd51a2c4b5523a8411209255b800170dab6
   - **[7]**:
     - **caminho**: ![caminho](imagens/setor_cangaco_p0_i0.webp)
-    - **checksum_sha256**: 54163e7131db3ce08fd8481b24dab502a62916c874b04da8bbcb43c3cd1eda20
+    - **checksum_sha256**: 4dea3321bc750174277ab6d74a4bea1c49dc19ef2e3a24691b5c61962274ff0f
   - **[8]**:
     - **caminho**: ![caminho](imagens/setor_cangaco_p1_i0.webp)
     - **checksum_sha256**: 2cbad5364b22f9874f9e99d77d012e8ad1d82a49cdae8de8384394c5cee79f0e
@@ -1324,7 +1311,7 @@
     - **checksum_sha256**: aef4b0a5720159521bfa8be6dd496c465bb13bcad7ae7b81965479e7fdd2e073
   - **[11]**:
     - **caminho**: ![caminho](imagens/setor_cervejas_p1_i0.webp)
-    - **checksum_sha256**: b13235b22917ed39f0f61333eb3cfdd1320eaa86ce55a329d2ff0c5ed3304bf8
+    - **checksum_sha256**: b5ceaf2ef93e483cec41ceea7b022d058ec40ce4f19d5f31a4e02c60d357176d
   - **[12]**:
     - **caminho**: ![caminho](imagens/setor_ditados_p0_i0.webp)
     - **checksum_sha256**: b6371882c1d34682c44a32707f2024650cb9cfaa0f393d34bf882a7747a81429
@@ -1333,7 +1320,7 @@
     - **checksum_sha256**: e8fa92f0175c2e6bd2dda546574face20201678c11d13186bdc794ddd12b1a00
   - **[14]**:
     - **caminho**: ![caminho](imagens/setor_ditados_p1_i0.webp)
-    - **checksum_sha256**: e812e5a7c2f5639278470cef02b5c12eaf9bb35c6decc5bc4f4926d360d0d325
+    - **checksum_sha256**: 1853993da76a48aeb81ba6aef6705894ec89f705fa7f870d0c9395184946fa2a
   - **[15]**:
     - **caminho**: ![caminho](imagens/setor_hospicio_p0_i0.webp)
     - **checksum_sha256**: 9043a0e4e73a563c67ee8dd9f5d7a6a529f41f979399e4bbeeff5837e2edcfa7

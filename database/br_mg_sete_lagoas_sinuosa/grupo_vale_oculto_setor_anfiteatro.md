@@ -1,6 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+caminho_imagem_capa: imagens/setor_vale_oculto__subsetor_anfiteatro_p0_i1.webp
 nome: Sub Setor Anfiteatro
 mapas:
 - caminho_imagem_mapa: imagens/setor_vale_oculto__subsetor_anfiteatro_p0_i0.webp
@@ -240,5 +241,3 @@ escaladas:
 ---
 
 # Setor Vale Oculto - Sub Setor Anfiteatro
-
-![Sub Setor Anfiteatro](imagens/setor_vale_oculto__subsetor_anfiteatro_p0_i1.webp)

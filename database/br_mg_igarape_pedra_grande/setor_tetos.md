@@ -1,6 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+caminho_imagem_capa: imagens/setor_tetos_p1.webp
 nome: Setor dos Tetos
 mapas:
 - caminho_imagem_mapa: imagens/setor_tetos_p0.webp
@@ -180,7 +181,5 @@ escaladas:
 ---
 
 # Setor dos Tetos
-
-![Setor dos Tetos](imagens/setor_tetos_p1.webp)
 
 Sombra após 14h.

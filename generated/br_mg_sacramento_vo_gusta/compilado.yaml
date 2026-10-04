@@ -17,6 +17,7 @@ picos:
   setores_ou_grupos:
   - setor:
       conteudo:
+        caminho_imagem_capa: imagens/setor_quintal_p0_i0_2.webp
         nome: Setor Quintal
         mapas:
         - caminho_imagem_mapa: imagens/setor_quintal_p0_i0.webp
@@ -227,12 +228,7 @@ picos:
             dificuldade: BR_5SUP_BARRA_6
             quantidade_protecoes_intermediarias: 4
             quantidade_protecoes_parada: 2
-        descricao: |-
-          # Setor Quintal
-
-          | ![Setor Quintal](imagens/setor_quintal_p0_i0_2.webp) |
-          | :--: |
-          | *Setor Quintal* |
+        descricao: '# Setor Quintal'
         precomputados:
           total_escaladas: 11
           total_esportivas: 11
@@ -335,4 +331,4 @@ arquivos_externos:
 - caminho: imagens/setor_quintal_p0_i0.webp
   checksum_sha256: fed325281c8138d6e4e8d538f76eaeb1390ab1d54bd7349867d69cbe3d004d38
 - caminho: imagens/setor_quintal_p0_i0_2.webp
-  checksum_sha256: fed325281c8138d6e4e8d538f76eaeb1390ab1d54bd7349867d69cbe3d004d38
+  checksum_sha256: 92badcdcb80b01edaffd43e2f62283157f32c1593705fed5730ce25807d054e8
