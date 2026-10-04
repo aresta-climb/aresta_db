@@ -3829,7 +3829,7 @@ class WidgetEditorMapas(QWidget):
         if not force:
             if getattr(self, 'referencia_camera_ativa', None):
                 self.destacar_pois_temporariamente(self.referencia_camera_ativa)
-            elif getattr(self, 'referencia_linkagem_ativa', None):
+            elif getattr(self, 'modo_linkagem', False) and getattr(self, 'referencia_linkagem_ativa', None):
                 self.destacar_pois_temporariamente(self.referencia_linkagem_ativa)
             elif getattr(self, 'referencia_selecionada', None):
                 self.destacar_pois_temporariamente(self.referencia_selecionada)
@@ -3988,7 +3988,7 @@ class WidgetEditorMapas(QWidget):
         self.linkagem_ref = ref
         self.referencia_linkagem_ativa = ref
         self.visualizador.setCursor(Qt.CursorShape.CrossCursor)
-        self.label_modo.setText("MODO LINKAGEM - Clique nos POIs para linkar ou deslinkar à referência. Selecionados ficam em Ciano.")
+        self.label_modo.setText("MODO VINCULAÇÃO - Clique nos elementos do mapa para vinculá-los ou desvinculá-los desta referência. Elementos vinculados ficam em Ciano.")
         self.label_modo.setStyleSheet("color: white; background-color: #007bff; font-weight: bold; padding: 8px; border-radius: 4px;")
         self.label_modo.setVisible(True)
         self._aplicar_highlight_linkagem()

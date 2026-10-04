@@ -111,8 +111,6 @@ escaladas:
     data_abertura: '2011-09-03'
     descricao: Via em agarras bem protegida.
 ---
-# Face das Aderências
-
 <sup><sub>Capa: Julinho Cardozo, Tonico e Glesse, na Face das Aderências, da Pedra do Neri (Foto: Celso Ferreira Gomes)</sub></sup>
 
 ![O entorno da Pedra do Neri. É possível vê-la (bem diminuta), no canto superior esquerdo da foto, junto à vegetação. (Foto: Pedro Bugim)](imagens/grupo_pedra_do_neri_setor_aderencias_p1_i0.webp)

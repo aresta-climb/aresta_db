@@ -57,17 +57,3 @@ mapas:
       y: 543
       raio: 17
 ---
-
-# Outras Vias
-
-## 1 – Amazonita (Iº II – 200m)
-
-**Por:** Tonico Magalhães e Vicente Alvarenga em 19/07/2013
-
-Via localizada na última parede do Vale do Roncador, após a parede das Aderências - Extrema Direita. Possui apenas dois grampos de ½ polegada.
-
-## 2 – Fissura Cachoeira Quente (VI – 50m - Mista)
-
-**Por:** Tonico Magalhães e Luciando Bender em 21/07/2013
-
-Próximo ao encontro dos Rios Tanque e Santo Antonio. Fica localizada à direita de uma pequena cachoeira que despenca da parede. Inicia-se em um lindo diedro em móvel, onde se encontra o crux, protegido por friends pequenos e médios. Segue em grampos pela extensão da fissura, ali mal definida. VI e 50 metros, 7 grampos de 1/2".

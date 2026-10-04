@@ -1030,7 +1030,7 @@ def test_label_modo_exibida(qtbot):
     # Teste Linkagem
     widget.iniciar_modo_linkagem(0, ref)
     assert widget.label_modo.isVisibleTo(widget)
-    assert "MODO LINKAGEM" in widget.label_modo.text()
+    assert "MODO VINCULAÇÃO" in widget.label_modo.text()
     
     # Teste Camera
     widget.parar_modo_linkagem()
@@ -5602,22 +5602,45 @@ def test_alternar_referencias_limpa_estado_anterior_sem_residuo_no_hover_out(qtb
     assert item0.brush.color() != QColor(0, 255, 255, 150)
 
 
+def test_remover_destaque_pois_com_item_hovered(qtbot):
+    """Verifica que remover_destaque_pois aplica a cor de hover quando o item possui is_hovered=True."""
+    from editor.views.widget_editor_mapas import WidgetEditorMapas
+    from aresta_api.proto.generated import croqui_pb2
+    from editor.models.readonly_proxy import ReadOnlyProxy
+    from PySide6.QtGui import QColor
+
+    widget = WidgetEditorMapas()
+    qtbot.addWidget(widget)
+
+    mapa = croqui_pb2.Mapa()
+    poi = mapa.pontos_de_interesse.add()
+    poi.id = "p_hover"
+    poi.circulo.x = 20
+    poi.circulo.y = 20
+    poi.circulo.raio = 10
+
+    widget.set_mapa_atual(ReadOnlyProxy(mapa))
+    item = widget.itens_poi[0]
+    item.is_hovered = True
+
+    widget.remover_destaque_pois()
+    assert item.brush.color() == QColor(255, 165, 0, 100)
 
 
+def test_tratar_clique_poi_linkagem_fora_do_modo_linkagem(qtbot):
+    """Verifica que tratar_clique_poi_linkagem retorna False quando modo_linkagem não está ativo."""
+    from editor.views.widget_editor_mapas import WidgetEditorMapas
+    from aresta_api.proto.generated import croqui_pb2
+    from editor.models.readonly_proxy import ReadOnlyProxy
 
+    widget = WidgetEditorMapas()
+    qtbot.addWidget(widget)
 
+    mapa = croqui_pb2.Mapa()
+    poi = mapa.pontos_de_interesse.add()
+    poi.id = "p0"
+    widget.set_mapa_atual(ReadOnlyProxy(mapa))
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+    widget.modo_linkagem = False
+    assert widget.tratar_clique_poi_linkagem("p0") is False
 

@@ -194,9 +194,6 @@ escaladas:
     largura_mapa: 518
     altura_mapa: 331
 ---
-
-# Parede Principal - Setor de Cima
-
 <sup><sub>Capa: Vista da Parede Principal - Setor de Cima, durante o rapel da "Um Momento no Tempo". Todo este setor encontra-se ainda sem vias (Foto: Pedro Bugim)</sub></sup>
 
 ## Esquema de Trilhas e Acesso

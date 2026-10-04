@@ -343,8 +343,6 @@ escaladas:
     data_abertura: '2008-02-06'
     descricao: Via atlética cujo crux é o último lance.
 ---
-# Setor Vias Esportivas
-
 <sup><sub>Capa: Visão geral do Setor das Vias Esportivas</sub></sup>
 
 Apresenta vias curtas, em torno de 10 a 15 metros, de V até VIIIa, de muito fácil acesso, pois o setor está muito próximo da sede da fazenda, a cerca de 15 minutos de caminhada. Permite escalar algumas vias mesmo após dias de chuva moderada, pois um grande teto as protege.

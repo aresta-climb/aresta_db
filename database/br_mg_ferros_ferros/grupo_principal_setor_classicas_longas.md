@@ -762,9 +762,6 @@ escaladas:
       por uma sequência mais delicada, até encontrar com o final da via "Eu Não Sou
       de Ferro".
 ---
-
-# Parede Principal – Setor Clássicas Longas
-
 <sup><sub>Capa: Maria Fernanda na terceira passada em móvel (e crux) do Pr. "Ih, Ferrou!" (Foto: Pedro Bugim)</sub></sup>
 
 Setor da Parede Principal que concentra as maiores vias do Vale do Roncador, com vias de até 220 metros de extensão, como é o caso do Pr. “Eu Não Sou de Ferro”.

@@ -907,9 +907,6 @@ escaladas:
     descricao: O crux é logo no início. Via com acesso rápido e muito bem grampeada.
 caminho_imagem_capa: imagens/grupo_principal_setor_central_p0_i0.webp
 ---
-
-# Parede Principal – Setor Central
-
 <sup><sub>Capa: Tonico e Celso na conquista da "Hilda Furacão" (Foto: Glesse Gripp)</sub></sup>
 
 O setor apresenta, de um modo geral, vias nas quais predominam lances em agarras e impressionantes buracos, apesar de haver boa solicitação de aderência da sola na pedra. A extensão das vias neste setor (metade esquerda da Parede Principal) varia de 90 até 180 metros, com graduação de IIIsup até Vsup.

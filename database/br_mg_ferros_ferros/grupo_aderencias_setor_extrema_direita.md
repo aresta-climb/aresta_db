@@ -200,9 +200,6 @@ escaladas:
       as proteções móveis (peças pequenas e médias).
 caminho_imagem_capa: imagens/grupo_aderencias_setor_extrema_direita_p3_i0.webp
 ---
-
-# Parede das Aderências – Extrema Direita
-
 <sup><sub>Capa: Ricardo Barros na conquista da “Mais Chuva Que Sol” (Foto: Pedro Bugim)</sub></sup>
 
 Paredão rochoso com potencial para novas vias, contando, no momento, com apenas quatro linhas completas.

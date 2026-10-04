@@ -64,9 +64,6 @@ escaladas:
     largura_mapa: 816
     altura_mapa: 1224
 ---
-
-# Parede da Água Limpa
-
 As paredes de Água Limpa ficam situadas no vale homônimo e distantes cerca de seis quilômetros do vale do Roncador (onde fica a maioria das escaladas do guia). Para se chegar até a Água Limpa deve-se ir para o encontro dos rios Santo Antonio e Tanque, conhecido ponto turístico de Ferros, encontro esse que pode ser atingido seguindo-se a estrada que acompanha o rio Tanque por cerca de cinco quilômetros abaixo da fazenda-sede. De lá uma rápida estradinha adentra ao mágico vale.
 
 O vale Água Limpa chamou atenção por possuir paredes gigantescas com comprimentos que podem atingir mais de 600 metros. A via Dama de Ferros é a primeira do local e possui mais de 400 metros. Um projeto, que visa aproveitar a máxima extensão da parede, já foi iniciado em meio a uma grande extensão de paredes intocadas.

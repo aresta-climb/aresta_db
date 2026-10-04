@@ -31,7 +31,4 @@ escaladas:
       de vias. A conquista homenageou o veterano escalador Giuseppe Pellegrini, por
       ocasião de seu aniversário de 70 anos.
 ---
-
-# Parede da CENIBRA
-
 Também conhecida como fazenda Baião, esta área é propriedade da CENIBRA (Celulose Nipo-Brasileira) e só possui uma via de escalada.

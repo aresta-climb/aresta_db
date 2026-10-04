@@ -602,7 +602,7 @@ arquivos:
 - caminho_relativo: br_mg_diamantina_diamaboulder/compilado.md
   checksum_sha256: aeb01ba15dc7247405045719759e8b4d3957a72c011061fa6beab7ccce877bfd
 - caminho_relativo: br_mg_ferros_ferros/compilado.binarypb
-  checksum_sha256: 58716e250820ac2a6445dc3adb0c54fb71649d974b0f5e28f1849c5b20d26fda
+  checksum_sha256: 3f4509dffa39d075be3969da4ed2e88901a604e865ecb4fbdec1a93dff527e4f
 - caminho_relativo: thumbnails/br_mg_ferros_ferros.webp
   checksum_sha256: 84902a86389e5ffd380d2584588e2ddcb820bb3b96b90fb6d8cc7ae3feabbb48
 - caminho_relativo: br_mg_ferros_ferros/imagens/capa_p0_i0.webp
@@ -826,9 +826,9 @@ arquivos:
 - caminho_relativo: br_mg_ferros_ferros/imagens/via_jardim_do_eden_p0.webp
   checksum_sha256: 1c76570fd31ae3ea325b8a3c84fc045dcf325ffe0f38df4a95c57e2a8ae939eb
 - caminho_relativo: br_mg_ferros_ferros/compilado.yaml
-  checksum_sha256: 68b81881cf36a352f6dda0bc80db28e01e40c625d0396505afa074a8377a4b07
+  checksum_sha256: 0b7209ecc4780014e63560ee8124568ead0ddf3763a8dc0405b2aa142acd3b43
 - caminho_relativo: br_mg_ferros_ferros/compilado.md
-  checksum_sha256: 5709c7049aac6f5ab218b5553f4495148868d50658d1040cc3f452d168cdc086
+  checksum_sha256: b3c71eab44fb06adab9544ab2899eb5e2450a42dd6647402d89f611176c33931
 - caminho_relativo: br_mg_igarape_pedra_grande/compilado.binarypb
   checksum_sha256: 3c175e84c81a7cc6aef6624671abd5839f21c5267635cb164a64db0f5a010da9
 - caminho_relativo: thumbnails/br_mg_igarape_pedra_grande.webp
@@ -2238,6 +2238,6 @@ arquivos:
 - caminho_relativo: br_rj_nova_friburgobom_jardim_capelinha/compilado.md
   checksum_sha256: ba81dd87949c18f9ff95512c2fb25f9210fb9590fc591004b0905fdb8c8ec582
 - caminho_relativo: indice.binarypb
-  checksum_sha256: 1de058838538a6343672e1c75ab9fb7495efc02273f221ffecaa8d05ed74d713
+  checksum_sha256: bce8e26a2f98b676560dffb81d40bba9c12c7488ebd9610095adfb1ad20df56c
 - caminho_relativo: indice.yaml
-  checksum_sha256: d6af737cf0deebebfeb11640378edfaa530a784210cacc3b6e8e5fda8d1a72ef
+  checksum_sha256: aba308968a4a8737e604b524eba5e83877c9fac43e65f1456851ba510fa1a5f4

@@ -660,3 +660,44 @@ def test_alternar_vinculacao_entre_cards_sincroniza_selecao_e_desativa_anterior(
     assert card1.btn_vincular.isChecked() is True
     assert card0.btn_vincular.isChecked() is False
 
+
+def test_selecionar_referencia_desativa_vinculacao_de_card_anterior(qapp):
+    """Verifica que chamar selecionar_referencia para outro card desativa a vinculação ativa do card anterior."""
+    painel = PainelReferencias(None)
+    mapa = croqui_pb2.Mapa()
+    ref0 = mapa.referencias.add()
+    ref0.grupo = "Grupo 0"
+    ref1 = mapa.referencias.add()
+    ref1.grupo = "Grupo 1"
+    painel.carregar_mapa(mapa)
+
+    card0 = painel.layout_cards.itemAt(0).widget()
+    card1 = painel.layout_cards.itemAt(1).widget()
+
+    card0.btn_vincular.setChecked(True)
+    assert card0.btn_vincular.isChecked() is True
+
+    # Seleciona o card 1 diretamente
+    painel.selecionar_referencia(1)
+    assert card0.btn_vincular.isChecked() is False
+    assert painel.idx_card_selecionado == 1
+
+
+def test_atualizar_cards_preserva_modo_vinculacao_ativo(qapp):
+    """Verifica que atualizar_cards restaura o estado do botão de vinculação ativo."""
+    painel = PainelReferencias(None)
+    mapa = croqui_pb2.Mapa()
+    ref0 = mapa.referencias.add()
+    ref0.grupo = "Grupo 0"
+    painel.carregar_mapa(mapa)
+
+    card0 = painel.layout_cards.itemAt(0).widget()
+    card0.btn_vincular.setChecked(True)
+    assert "Vinculando..." in card0.btn_vincular.text()
+
+    # Atualiza cards e verifica se o estado é mantido
+    painel.atualizar_cards()
+    novo_card0 = painel.layout_cards.itemAt(0).widget()
+    assert novo_card0.btn_vincular.isChecked() is True
+    assert "Vinculando..." in novo_card0.btn_vincular.text()
+

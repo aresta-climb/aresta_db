@@ -163,9 +163,6 @@ escaladas:
       o topo.
 caminho_imagem_capa: imagens/setor_cachoeira_p2_i0.webp
 ---
-
-# Subsetor Cachoeira
-
 <sup><sub>Capa: Maria Fernanda na conquista da "Pé na Chapa" (Foto: Pedro Bugim)</sub></sup>
 
 O Subsetor Cachoeira, próximo à Cachoeira do Córrego Sapé, conta com apenas quatro vias, ideais para os primeiros contatos com a escalada em rocha, em particular, para as vias tradicionais, com pouca inclinação e muita aderência.

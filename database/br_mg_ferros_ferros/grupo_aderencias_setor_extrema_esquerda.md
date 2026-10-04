@@ -258,9 +258,6 @@ escaladas:
       metros após o córrego e toma-se à esquerda nesse ponto.
 caminho_imagem_capa: imagens/grupo_aderencias_setor_extrema_esquerda_p0_i0.webp
 ---
-
-# Parede das Aderências – Extrema Esquerda
-
 <sup><sub>Capa: Maria Fernanda na "Vr. Cachorro Louco" (Foto: Pedro Bugim)</sub></sup>
 
 Este é o primeiro setor da Parede das Aderências, um pouco isolado do resto da parede, por localizar-se quase na borda inicial do Vale do Roncador e por possuir muita vegetação ao seu redor.

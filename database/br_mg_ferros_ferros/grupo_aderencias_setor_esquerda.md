@@ -856,8 +856,6 @@ escaladas:
       '
 caminho_imagem_capa: imagens/grupo_aderencias_setor_esquerda_p0_i1.webp
 ---
-# Parede das Aderências – Esquerda
-
 <sup><sub>Capa: Pedro Bugim na conquista da "O Psicopata de Ferros" (Foto: Maria Fernanda)</sub></sup>
 
 O Setor Esquerdo da Parede das Aderências é dividido em duas partes (Esquerda 1 e Esquerda 2), separadas por uma forte língua de vegetação, possuindo vias de 20 até 140 metros de extensão, predominantemente em aderência.
