@@ -135,4 +135,4 @@ escaladas:
       / top-rope.
 caminho_imagem_capa: imagens/grupo_pedra_do_neri_setor_aderencias_p1_i1.webp
 ---
-<sup><sub>Capa: Juliano Magalhães escalando a Face das Esportivas, da Pedra do Neri (Foto: Celso Ferreira Gomes)</sub></sup>
+<small>Capa: Juliano Magalhães escalando a Face das Esportivas, da Pedra do Neri (Foto: Celso Ferreira Gomes)</small>

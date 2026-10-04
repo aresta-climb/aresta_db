@@ -642,7 +642,7 @@ escaladas:
     descricao: Primeira via na extrema direita deste setor, seguindo a linha de vegetação.
       O crux é o primeiro lance.
 ---
-<sup><sub>Capa: Rodrigo Magalhães guiando a "Couro de Lobisomem" (Foto: Tamires Lima)</sub></sup>
+<small>Capa: Rodrigo Magalhães guiando a "Couro de Lobisomem" (Foto: Tamires Lima)</small>
 
 Ao entrar no vale, o excursionista terá à sua direita o Setor das Clássicas Curtas, que se estende do início da Parede Principal até uma língua de mato que o separa do núcleo da parede. Este setor concentra vias curtas, variando de 10 a 45 metros.
 

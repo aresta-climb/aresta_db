@@ -602,7 +602,7 @@ arquivos:
 - caminho_relativo: br_mg_diamantina_diamaboulder/compilado.md
   checksum_sha256: aeb01ba15dc7247405045719759e8b4d3957a72c011061fa6beab7ccce877bfd
 - caminho_relativo: br_mg_ferros_ferros/compilado.binarypb
-  checksum_sha256: 3f4509dffa39d075be3969da4ed2e88901a604e865ecb4fbdec1a93dff527e4f
+  checksum_sha256: 7c062bd4ad65635863ce08bb0d181001b29c8143809c9e66a81592e8a104e8c3
 - caminho_relativo: thumbnails/br_mg_ferros_ferros.webp
   checksum_sha256: 84902a86389e5ffd380d2584588e2ddcb820bb3b96b90fb6d8cc7ae3feabbb48
 - caminho_relativo: br_mg_ferros_ferros/imagens/capa_p0_i0.webp
@@ -826,9 +826,9 @@ arquivos:
 - caminho_relativo: br_mg_ferros_ferros/imagens/via_jardim_do_eden_p0.webp
   checksum_sha256: 1c76570fd31ae3ea325b8a3c84fc045dcf325ffe0f38df4a95c57e2a8ae939eb
 - caminho_relativo: br_mg_ferros_ferros/compilado.yaml
-  checksum_sha256: 0b7209ecc4780014e63560ee8124568ead0ddf3763a8dc0405b2aa142acd3b43
+  checksum_sha256: 542939b856204f08347cb4cd8f8df9a22ea22ceed60f761e7ae871309532717b
 - caminho_relativo: br_mg_ferros_ferros/compilado.md
-  checksum_sha256: b3c71eab44fb06adab9544ab2899eb5e2450a42dd6647402d89f611176c33931
+  checksum_sha256: 08f57e1407a330abd651c0f9c748d817619222f7f09ae67c013d23211d303090
 - caminho_relativo: br_mg_igarape_pedra_grande/compilado.binarypb
   checksum_sha256: 3c175e84c81a7cc6aef6624671abd5839f21c5267635cb164a64db0f5a010da9
 - caminho_relativo: thumbnails/br_mg_igarape_pedra_grande.webp
@@ -2238,6 +2238,6 @@ arquivos:
 - caminho_relativo: br_rj_nova_friburgobom_jardim_capelinha/compilado.md
   checksum_sha256: ba81dd87949c18f9ff95512c2fb25f9210fb9590fc591004b0905fdb8c8ec582
 - caminho_relativo: indice.binarypb
-  checksum_sha256: bce8e26a2f98b676560dffb81d40bba9c12c7488ebd9610095adfb1ad20df56c
+  checksum_sha256: 971754cf8ed21ca5f3364c2095acc12fbd1f38c9f7466f665f40b9cb1ac19f2b
 - caminho_relativo: indice.yaml
-  checksum_sha256: aba308968a4a8737e604b524eba5e83877c9fac43e65f1456851ba510fa1a5f4
+  checksum_sha256: da78eb6a884374b1c1e2ae9f2f56bee6cfab153e6dfd18d90dfea701012b8997

@@ -602,7 +602,7 @@ escaladas:
       porém, um pouco mais curta.
 caminho_imagem_capa: imagens/grupo_principal_setor_direita_p0_i1.webp
 ---
-<sup><sub>Capa: Gustavo “Xaxá” Carrozzino na conquista da “Amor, Meu Grande Amor”, após o diedro em móvel (Foto: Maria Fernanda Patrício)</sub></sup>
+<small>Capa: Gustavo “Xaxá” Carrozzino na conquista da “Amor, Meu Grande Amor”, após o diedro em móvel (Foto: Maria Fernanda Patrício)</small>
 
 Localizada ao início da Parede Principal com vias de pequena extensão e muito boas para um primeiro contato com o tipo de escalada da região. Concentra vias que vão de 20 a 100 metros, em sua maioria bem protegidas por grampos de ½ polegada, com predominância de agarras, regletes e buracos, possuindo por vezes, algumas fendas interessantes.
 

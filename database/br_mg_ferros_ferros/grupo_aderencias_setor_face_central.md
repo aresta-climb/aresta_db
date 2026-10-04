@@ -803,7 +803,7 @@ escaladas:
       “corcovas” na pedra, até sua segunda parada. A enfiada final é feita em aderência.
 caminho_imagem_capa: imagens/grupo_aderencias_setor_face_central_p0_i1.webp
 ---
-<sup><sub>Capa: Celso e Tonico na conquista da "Elementar, Meu Caro Watson!" (Foto: Pedro Bugim)</sub></sup>
+<small>Capa: Celso e Tonico na conquista da "Elementar, Meu Caro Watson!" (Foto: Pedro Bugim)</small>
 
 A parede central das aderências concentra a maioria das vias longas deste lado do vale, com linhas de até 200 metros.
 

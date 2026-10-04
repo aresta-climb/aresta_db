@@ -200,7 +200,7 @@ escaladas:
       as proteções móveis (peças pequenas e médias).
 caminho_imagem_capa: imagens/grupo_aderencias_setor_extrema_direita_p3_i0.webp
 ---
-<sup><sub>Capa: Ricardo Barros na conquista da “Mais Chuva Que Sol” (Foto: Pedro Bugim)</sub></sup>
+<small>Capa: Ricardo Barros na conquista da “Mais Chuva Que Sol” (Foto: Pedro Bugim)</small>
 
 Paredão rochoso com potencial para novas vias, contando, no momento, com apenas quatro linhas completas.
 

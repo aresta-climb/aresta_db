@@ -10,7 +10,7 @@ setores:
 - caminho: grupo_aderencias_setor_de_cima.md
 - caminho: grupo_aderencias_setor_extrema_direita.md
 ---
-<sup><sub>Capa: Tonico, na conquista da "Solamente" - solo integral (Foto: Celso Gomes)</sub></sup>
+<small>Capa: Tonico, na conquista da "Solamente" - solo integral (Foto: Celso Gomes)</small>
 
 Ao entrar no vale do Roncador, o excursionista terá à sua esquerda a Parede das Aderências, de dimensões mais reduzidas do que a Parede Principal e com vias predominantemente em aderência - como o próprio nome sugere – variando de 20 a 230 metros de extensão.
 

@@ -7,7 +7,7 @@ setores:
 - caminho: grupo_pedra_do_neri_setor_esportivas.md
 - caminho: grupo_pedra_do_neri_setor_aderencias.md
 ---
-<sup><sub>Capa: Pedra do Neri - À esquerda, vias esportivas; à direita, vias em aderência. (Foto: Celso Ferreira Gomes)</sub></sup>
+<small>Capa: Pedra do Neri - À esquerda, vias esportivas; à direita, vias em aderência. (Foto: Celso Ferreira Gomes)</small>
 
 Enorme bloco rolado situado na propriedade do Sr. Neri, próxima do povoado quilombola denominado Mendonça, apresenta duas faces escaláveis, totalizando onze vias implantadas.
 

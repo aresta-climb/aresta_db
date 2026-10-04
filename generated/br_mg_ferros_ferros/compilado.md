@@ -211,7 +211,7 @@
 ### Setor (Pico: Ferros)
 
 - **descricao**:
-    <sup><sub>Capa: Maria Fernanda na conquista da "Pé na Chapa" (Foto: Pedro Bugim)</sub></sup>
+    <small>Capa: Maria Fernanda na conquista da "Pé na Chapa" (Foto: Pedro Bugim)</small>
     
     O Subsetor Cachoeira, próximo à Cachoeira do Córrego Sapé, conta com apenas quatro vias, ideais para os primeiros contatos com a escalada em rocha, em particular, para as vias tradicionais, com pouca inclinação e muita aderência.
     
@@ -405,7 +405,7 @@
 ### Grupo (Pico: Ferros)
 
 - **descricao**:
-    <sup><sub>Capa: Tonico, na conquista da "Solamente" - solo integral (Foto: Celso Gomes)</sub></sup>
+    <small>Capa: Tonico, na conquista da "Solamente" - solo integral (Foto: Celso Gomes)</small>
     
     Ao entrar no vale do Roncador, o excursionista terá à sua esquerda a Parede das Aderências, de dimensões mais reduzidas do que a Parede Principal e com vias predominantemente em aderência - como o próprio nome sugere – variando de 20 a 230 metros de extensão.
     
@@ -422,7 +422,7 @@
   - **[0]**:
     - **conteudo**:
       - **descricao**:
-          <sup><sub>Capa: Maria Fernanda na "Vr. Cachorro Louco" (Foto: Pedro Bugim)</sub></sup>
+          <small>Capa: Maria Fernanda na "Vr. Cachorro Louco" (Foto: Pedro Bugim)</small>
           
           Este é o primeiro setor da Parede das Aderências, um pouco isolado do resto da parede, por localizar-se quase na borda inicial do Vale do Roncador e por possuir muita vegetação ao seu redor.
           
@@ -715,7 +715,7 @@
   - **[1]**:
     - **conteudo**:
       - **descricao**:
-          <sup><sub>Capa: Pedro Bugim na conquista da "O Psicopata de Ferros" (Foto: Maria Fernanda)</sub></sup>
+          <small>Capa: Pedro Bugim na conquista da "O Psicopata de Ferros" (Foto: Maria Fernanda)</small>
           
           O Setor Esquerdo da Parede das Aderências é dividido em duas partes (Esquerda 1 e Esquerda 2), separadas por uma forte língua de vegetação, possuindo vias de 20 até 140 metros de extensão, predominantemente em aderência.
           
@@ -1687,7 +1687,7 @@
   - **[2]**:
     - **conteudo**:
       - **descricao**:
-          <sup><sub>Capa: Celso e Tonico na conquista da "Elementar, Meu Caro Watson!" (Foto: Pedro Bugim)</sub></sup>
+          <small>Capa: Celso e Tonico na conquista da "Elementar, Meu Caro Watson!" (Foto: Pedro Bugim)</small>
           
           A parede central das aderências concentra a maioria das vias longas deste lado do vale, com linhas de até 200 metros.
           
@@ -2600,7 +2600,7 @@
   - **[3]**:
     - **conteudo**:
       - **descricao**:
-          <sup><sub>Capa: Maria Fernanda descendo a trilha de acesso do Setor de Cima da Parede das Aderências (Foto: Pedro Bugim)</sub></sup>
+          <small>Capa: Maria Fernanda descendo a trilha de acesso do Setor de Cima da Parede das Aderências (Foto: Pedro Bugim)</small>
           
           Trata-se da continuação da Parede das Aderências – Setor Central, seguindo para um setor mais elevado, com parede levemente mais vertical, contando com apenas três vias e com boas possibilidades de novas conquistas, sobretudo, seguindo-se para a direita.
           
@@ -2823,7 +2823,7 @@
   - **[4]**:
     - **conteudo**:
       - **descricao**:
-          <sup><sub>Capa: Ricardo Barros na conquista da “Mais Chuva Que Sol” (Foto: Pedro Bugim)</sub></sup>
+          <small>Capa: Ricardo Barros na conquista da “Mais Chuva Que Sol” (Foto: Pedro Bugim)</small>
           
           Paredão rochoso com potencial para novas vias, contando, no momento, com apenas quatro linhas completas.
           
@@ -3058,7 +3058,7 @@
 ### Grupo (Pico: Ferros)
 
 - **descricao**:
-    <sup><sub>Capa: A Parede Principal, vista do topo da Parede das Aderências - Central. (Foto: Pedro Bugim)</sub></sup>
+    <small>Capa: A Parede Principal, vista do topo da Parede das Aderências - Central. (Foto: Pedro Bugim)</small>
     
     Com vias entre 18 e 220 metros, a Parede Principal é uma das principais atrações para os escaladores que visitam Ferros. Esta parede colossal possui cerca de dois quilômetros de extensão, desde sua extremidade direita (Setor Clássicas Curtas) à sua extrema esquerda (Setor Clássicas Longas), com vias de praticamente todos os tipos.
     
@@ -3071,7 +3071,7 @@
   - **[0]**:
     - **conteudo**:
       - **descricao**:
-          <sup><sub>Capa: Rodrigo Magalhães guiando a "Couro de Lobisomem" (Foto: Tamires Lima)</sub></sup>
+          <small>Capa: Rodrigo Magalhães guiando a "Couro de Lobisomem" (Foto: Tamires Lima)</small>
           
           Ao entrar no vale, o excursionista terá à sua direita o Setor das Clássicas Curtas, que se estende do início da Parede Principal até uma língua de mato que o separa do núcleo da parede. Este setor concentra vias curtas, variando de 10 a 45 metros.
           
@@ -3821,7 +3821,7 @@
   - **[1]**:
     - **conteudo**:
       - **descricao**:
-          <sup><sub>Capa: Gustavo “Xaxá” Carrozzino na conquista da “Amor, Meu Grande Amor”, após o diedro em móvel (Foto: Maria Fernanda Patrício)</sub></sup>
+          <small>Capa: Gustavo “Xaxá” Carrozzino na conquista da “Amor, Meu Grande Amor”, após o diedro em móvel (Foto: Maria Fernanda Patrício)</small>
           
           Localizada ao início da Parede Principal com vias de pequena extensão e muito boas para um primeiro contato com o tipo de escalada da região. Concentra vias que vão de 20 a 100 metros, em sua maioria bem protegidas por grampos de ½ polegada, com predominância de agarras, regletes e buracos, possuindo por vezes, algumas fendas interessantes.
           
@@ -4544,7 +4544,7 @@
   - **[2]**:
     - **conteudo**:
       - **descricao**:
-          <sup><sub>Capa: Tonico e Celso na conquista da "Hilda Furacão" (Foto: Glesse Gripp)</sub></sup>
+          <small>Capa: Tonico e Celso na conquista da "Hilda Furacão" (Foto: Glesse Gripp)</small>
           
           O setor apresenta, de um modo geral, vias nas quais predominam lances em agarras e impressionantes buracos, apesar de haver boa solicitação de aderência da sola na pedra. A extensão das vias neste setor (metade esquerda da Parede Principal) varia de 90 até 180 metros, com graduação de IIIsup até Vsup.
           
@@ -5581,7 +5581,7 @@
   - **[3]**:
     - **conteudo**:
       - **descricao**:
-          <sup><sub>Capa: Vista da Parede Principal - Setor de Cima, durante o rapel da "Um Momento no Tempo". Todo este setor encontra-se ainda sem vias (Foto: Pedro Bugim)</sub></sup>
+          <small>Capa: Vista da Parede Principal - Setor de Cima, durante o rapel da "Um Momento no Tempo". Todo este setor encontra-se ainda sem vias (Foto: Pedro Bugim)</small>
           
           ## Esquema de Trilhas e Acesso
           
@@ -5816,7 +5816,7 @@
   - **[4]**:
     - **conteudo**:
       - **descricao**:
-          <sup><sub>Capa: Maria Fernanda na terceira passada em móvel (e crux) do Pr. "Ih, Ferrou!" (Foto: Pedro Bugim)</sub></sup>
+          <small>Capa: Maria Fernanda na terceira passada em móvel (e crux) do Pr. "Ih, Ferrou!" (Foto: Pedro Bugim)</small>
           
           Setor da Parede Principal que concentra as maiores vias do Vale do Roncador, com vias de até 220 metros de extensão, como é o caso do Pr. “Eu Não Sou de Ferro”.
           
@@ -6638,7 +6638,7 @@
 ### Setor (Pico: Ferros)
 
 - **descricao**:
-    <sup><sub>Capa: Visão geral do Setor das Vias Esportivas</sub></sup>
+    <small>Capa: Visão geral do Setor das Vias Esportivas</small>
     
     Apresenta vias curtas, em torno de 10 a 15 metros, de V até VIIIa, de muito fácil acesso, pois o setor está muito próximo da sede da fazenda, a cerca de 15 minutos de caminhada. Permite escalar algumas vias mesmo após dias de chuva moderada, pois um grande teto as protege.
     
@@ -7153,7 +7153,7 @@
 ### Grupo (Pico: Ferros)
 
 - **descricao**:
-    <sup><sub>Capa: Pedra do Neri - À esquerda, vias esportivas; à direita, vias em aderência. (Foto: Celso Ferreira Gomes)</sub></sup>
+    <small>Capa: Pedra do Neri - À esquerda, vias esportivas; à direita, vias em aderência. (Foto: Celso Ferreira Gomes)</small>
     
     Enorme bloco rolado situado na propriedade do Sr. Neri, próxima do povoado quilombola denominado Mendonça, apresenta duas faces escaláveis, totalizando onze vias implantadas.
     
@@ -7167,7 +7167,7 @@
 - **setores**:
   - **[0]**:
     - **conteudo**:
-      - **descricao**: <sup><sub>Capa: Juliano Magalhães escalando a Face das Esportivas, da Pedra do Neri (Foto: Celso Ferreira Gomes)</sub></sup>
+      - **descricao**: <small>Capa: Juliano Magalhães escalando a Face das Esportivas, da Pedra do Neri (Foto: Celso Ferreira Gomes)</small>
       - **nome**: Face das Esportivas
       - **mapas**:
         - **[0]**:
@@ -7320,7 +7320,7 @@
   - **[1]**:
     - **conteudo**:
       - **descricao**:
-          <sup><sub>Capa: Julinho Cardozo, Tonico e Glesse, na Face das Aderências, da Pedra do Neri (Foto: Celso Ferreira Gomes)</sub></sup>
+          <small>Capa: Julinho Cardozo, Tonico e Glesse, na Face das Aderências, da Pedra do Neri (Foto: Celso Ferreira Gomes)</small>
           
           | ![O entorno da Pedra do Neri. É possível vê-la (bem diminuta), no canto superior esquerdo da foto, junto à vegetação. (Foto: Pedro Bugim)](imagens/grupo_pedra_do_neri_setor_aderencias_p1_i0.webp) |
           | :--: |

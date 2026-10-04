@@ -197,16 +197,16 @@ croquis:
     escalada tradicional, esportiva e de aderência como a Parede Principal, Parede
     das Aderências, Pedra do Neri e outras.
   caminho_relativo: br_mg_ferros_ferros/compilado.binarypb
-  checksum_sha256_croqui: 3f4509dffa39d075be3969da4ed2e88901a604e865ecb4fbdec1a93dff527e4f
+  checksum_sha256_croqui: 7c062bd4ad65635863ce08bb0d181001b29c8143809c9e66a81592e8a104e8c3
   checksum_sha256_thumbnail: 84902a86389e5ffd380d2584588e2ddcb820bb3b96b90fb6d8cc7ae3feabbb48
-  timestamp_update: '2026-10-04T19:21:29Z'
+  timestamp_update: '2026-10-04T19:27:20Z'
   precomputados:
     total_escaladas: 160
     total_setores: 18
     total_grupos: 3
     total_esportivas: 71
     total_multiplas_enfiadas: 72
-    tamanho_download_bytes: 14815495
+    tamanho_download_bytes: 14815376
   localizacao:
     latitude: -192905010
     longitude: -429844990

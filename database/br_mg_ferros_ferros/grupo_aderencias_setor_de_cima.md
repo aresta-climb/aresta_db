@@ -177,7 +177,7 @@ escaladas:
     largura_mapa: 1078
     altura_mapa: 748
 ---
-<sup><sub>Capa: Maria Fernanda descendo a trilha de acesso do Setor de Cima da Parede das Aderências (Foto: Pedro Bugim)</sub></sup>
+<small>Capa: Maria Fernanda descendo a trilha de acesso do Setor de Cima da Parede das Aderências (Foto: Pedro Bugim)</small>
 
 Trata-se da continuação da Parede das Aderências – Setor Central, seguindo para um setor mais elevado, com parede levemente mais vertical, contando com apenas três vias e com boas possibilidades de novas conquistas, sobretudo, seguindo-se para a direita.
 

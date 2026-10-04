@@ -19,12 +19,28 @@ The system SHALL permitir a adição de novas referências buscando entidades l�
 - **WHEN** o usuário clica em "Nova Referência"
 - **THEN** um modal de busca abrangendo todo o croqui é exibido para seleção do alvo
 
-### Requirement: Linkagem Interativa de Formas
-The system SHALL fornecer um modo especial de interação de mouse ("Linkagem") para associar formas desenhadas (círculos/retângulos) à Referência ativa.
+### Requirement: Vinculação Interativa de Elementos
+O sistema SHALL fornecer um modo de interação de mouse ("Modo Vinculação") acionado pelo botão "Vincular Elementos" no card para associar ou desassociar elementos gráficos (pontos de interesse e trajetos) à Referência ativa.
 
 #### Scenario: Adicionando IDs à referência
-- **WHEN** no modo de Linkagem, o usuário clica sobre uma forma do mapa
-- **THEN** o ID da forma é adicionado à lista de IDs da Referência no painel
+- **WHEN** no modo de Vinculação, o usuário clica sobre um elemento do mapa não vinculado
+- **THEN** o ID da forma é adicionado à lista de IDs da Referência no painel e destacado em ciano imediatamente
+
+#### Scenario: Entrada em modo de vinculação
+- **WHEN** o usuário ativa o botão "Vincular Elementos" em um card de referência
+- **THEN** a barra superior de aviso exibe orientações em português sobre o modo de vinculação
+- **THEN** o card correspondente é selecionado no painel lateral
+- **THEN** todos os elementos já vinculados à referência são destacados em ciano imediatamente no mapa
+
+#### Scenario: Vinculação de elemento não associado
+- **WHEN** no modo de Vinculação, o usuário clica sobre um elemento do mapa que não pertença à referência ativa
+- **THEN** o ID do elemento é adicionado à lista de IDs da referência ativa
+- **THEN** o elemento passa a ser destacado em ciano imediatamente no mapa
+
+#### Scenario: Desvinculação de elemento já associado (Toggle)
+- **WHEN** no modo de Vinculação, o usuário clica sobre um elemento do mapa que já pertença à referência ativa
+- **THEN** o ID do elemento é removido da lista de IDs da referência ativa
+- **THEN** o destaque em ciano do elemento é removido imediatamente no mapa
 
 ### Requirement: Ajuste Visual de Câmera (WYSIWYG)
 The system SHALL permitir que o usuário defina o `ajuste_de_camera` manipulando uma caixa de proporção vertical (ex: 9:16) diretamente sobre a imagem do mapa.
@@ -68,7 +84,7 @@ O sistema SHALL delimitar a mesclagem contínua (`mergeWith`) de comandos de ren
 - **THEN** uma nova busca completa SHALL ser executada, descobrindo tanto as referências antigas quanto a nova referência criada
 
 ### Requirement: Seleção Persistente de Referência no Painel Lateral
-O sistema SHALL permitir que o usuário selecione uma referência clicando sobre o seu card no painel direito, mantendo a seleção ativa e destacando persistentemente no mapa os pontos de interesse vinculados.
+The system SHALL permitir que o usuário selecione uma referência clicando sobre o seu card no painel direito, mantendo a seleção ativa e destacando persistentemente no mapa os elementos vinculados sem reter estados de vinculação anteriores no fallback de restauração.
 
 #### Scenario: Seleção de card de referência por clique
 - **WHEN** o usuário clica com o botão esquerdo sobre a área do card de referência no painel lateral
@@ -82,7 +98,7 @@ O sistema SHALL permitir que o usuário selecione uma referência clicando sobre
 - **WHEN** uma referência A está selecionada e o usuário move o cursor sobre o card de uma referência B
 - **THEN** os POIs da referência B são destacados temporariamente no mapa
 - **WHEN** o cursor deixa o card da referência B
-- **THEN** o sistema restaura imediatamente o destaque dos POIs da referência selecionada A
+- **THEN** o sistema restaura imediatamente o destaque dos POIs da referência selecionada A, sem restaurar referências de vinculações anteriores
 
 #### Scenario: Alternância e desmarcação da referência ativa
 - **WHEN** o usuário clica sobre o card da referência que já se encontra selecionada, ou clica no fundo neutro do mapa

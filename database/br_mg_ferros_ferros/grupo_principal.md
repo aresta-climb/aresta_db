@@ -10,7 +10,7 @@ setores:
 - caminho: grupo_principal_setor_setor_de_cima.md
 - caminho: grupo_principal_setor_classicas_longas.md
 ---
-<sup><sub>Capa: A Parede Principal, vista do topo da Parede das Aderências - Central. (Foto: Pedro Bugim)</sub></sup>
+<small>Capa: A Parede Principal, vista do topo da Parede das Aderências - Central. (Foto: Pedro Bugim)</small>
 
 Com vias entre 18 e 220 metros, a Parede Principal é uma das principais atrações para os escaladores que visitam Ferros. Esta parede colossal possui cerca de dois quilômetros de extensão, desde sua extremidade direita (Setor Clássicas Curtas) à sua extrema esquerda (Setor Clássicas Longas), com vias de praticamente todos os tipos.
 
