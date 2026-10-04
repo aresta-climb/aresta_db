@@ -6171,82 +6171,37 @@ botoes:
 - texto: Capa
   destino:
     secao_textual:
-      conteudo: '# Pedra Rachada Bouldering
-
+      conteudo: |-
+        # Pedra Rachada Bouldering
 
         ## Guia de Escalada
 
-
         **Autores:**
-
         - Nathalia Daneliczin
-
         - Luca Portilho
 
-
         | ![Capa da Pedra Rachada Bouldering](imagens/capa_capa.webp) |
-
         | :--: |
-
-        | *Capa da Pedra Rachada Bouldering* |'
+        | *Capa da Pedra Rachada Bouldering* |
 - texto: Aviso
   destino:
     secao_textual:
-      conteudo: '# AVISO!
-
+      conteudo: |-
+        # AVISO!
 
         ### NÃO FAÇA USO DESTE LIVRO GUIA SEM LER E CONCORDAR COM O SEGUINTE:
 
+        **A escalada em boulder é um esporte perigoso que pode ter como resultado morte, paralisia e/ou ferimentos graves.**
 
-        **A escalada em boulder é um esporte perigoso que pode ter como resultado
-        morte, paralisia e/ou ferimentos graves.**
+        Este livro serve como uma ferramenta de referência para os escaladores avançados/profissionais. A atividade e o terreno nele descritos podem ser ou são extremamente perigosos e requerem um alto grau de habilidade e experiência para lidar. Este livro não é destinado para escaladores novatos ou inexperientes e não tem como objetivo ser um manual de instruções. Se você é incerto quanto à sua habilidade para lidar com quaisquer circunstâncias que possam surgir, contrate os serviços de um guia ou instrutor profissional.
 
+        Este livro se baseia em informações e opiniões, fornecidas por terceiros, que podem não ser precisas. Opiniões a respeito de dificuldades técnicas, graduação e perigos de um boulder, ou a falta dos mesmos, são subjetivas e podem ser diferentes das suas opiniões ou de outros. Graduações podem ser diferentes de uma área para outra, agarras podem se quebrar, proteção fixa pode falhar, cair ou até estar em falta, e o clima pode deteriorá-las. Esses e outros fatores, como a queda de rochas, falta de equipamento ou equipamento inadequado, etc., podem aumentar o risco de se escalar um boulder e podem contribuir para que a escalada seja diferente da descrita no livro.
 
-        Este livro serve como uma ferramenta de referência para os escaladores avançados/profissionais.
-        A atividade e o terreno nele descritos podem ser ou são extremamente perigosos
-        e requerem um alto grau de habilidade e experiência para lidar. Este livro
-        não é destinado para escaladores novatos ou inexperientes e não tem como objetivo
-        ser um manual de instruções. Se você é incerto quanto à sua habilidade para
-        lidar com quaisquer circunstâncias que possam surgir, contrate os serviços
-        de um guia ou instrutor profissional.
+        Ademais, podem ter ocorrido erros durante a edição, criação, prova de revisão e impressão deste livro. Portanto, a informação neste livro é não verificada, e os autores e publicadores não podem garantir sua exatidão. Há vários riscos existentes que não são descritos neste livro. Escalar em qualquer terreno descrito neste livro, independentemente de sua descrição ou graduação, pode resultar em morte, paralisia e/ou ferimentos graves.
 
+        Não utilize este livro, salvo o caso de você ser um escalador hábil e experiente, que compreenda e aceite os riscos do bouldering. Se você escolher se utilizar de qualquer informação contida neste livro para planejar, tentar, ou escalar um boulder específico, você o está fazendo por sua própria conta e risco. Por favor tome todas as precauções e se utilize de sua própria habilidade, avaliação e julgamento para aferir os riscos da escalada escolhida, ao invés de contar com as informações deste livro.
 
-        Este livro se baseia em informações e opiniões, fornecidas por terceiros,
-        que podem não ser precisas. Opiniões a respeito de dificuldades técnicas,
-        graduação e perigos de um boulder, ou a falta dos mesmos, são subjetivas e
-        podem ser diferentes das suas opiniões ou de outros. Graduações podem ser
-        diferentes de uma área para outra, agarras podem se quebrar, proteção fixa
-        pode falhar, cair ou até estar em falta, e o clima pode deteriorá-las. Esses
-        e outros fatores, como a queda de rochas, falta de equipamento ou equipamento
-        inadequado, etc., podem aumentar o risco de se escalar um boulder e podem
-        contribuir para que a escalada seja diferente da descrita no livro.
-
-
-        Ademais, podem ter ocorrido erros durante a edição, criação, prova de revisão
-        e impressão deste livro. Portanto, a informação neste livro é não verificada,
-        e os autores e publicadores não podem garantir sua exatidão. Há vários riscos
-        existentes que não são descritos neste livro. Escalar em qualquer terreno
-        descrito neste livro, independentemente de sua descrição ou graduação, pode
-        resultar em morte, paralisia e/ou ferimentos graves.
-
-
-        Não utilize este livro, salvo o caso de você ser um escalador hábil e experiente,
-        que compreenda e aceite os riscos do bouldering. Se você escolher se utilizar
-        de qualquer informação contida neste livro para planejar, tentar, ou escalar
-        um boulder específico, você o está fazendo por sua própria conta e risco.
-        Por favor tome todas as precauções e se utilize de sua própria habilidade,
-        avaliação e julgamento para aferir os riscos da escalada escolhida, ao invés
-        de contar com as informações deste livro.
-
-
-        **O autores e publicadores não fazem representações ou garantias, expressadas
-        ou inferidas, de quaisquer formas em relação ao conteúdo deste livro, e expressamente
-        renunciam quaisquer e todas as representações ou garantias em relação ao conteúdo
-        deste livro, inclusive, sem limitações, a exatidão e confiabilidade das informações
-        incluídas. garantias de aptidão para um propósito particular e/ou comercialização
-        estão expressamente abdicadas. O usuário assume todos os riscos associados
-        com o uso deste livro incluindo, sem limitações, todos os riscos associados
-        com a escalada e o bouldering.**'
+        **O autores e publicadores não fazem representações ou garantias, expressadas ou inferidas, de quaisquer formas em relação ao conteúdo deste livro, e expressamente renunciam quaisquer e todas as representações ou garantias em relação ao conteúdo deste livro, inclusive, sem limitações, a exatidão e confiabilidade das informações incluídas. garantias de aptidão para um propósito particular e/ou comercialização estão expressamente abdicadas. O usuário assume todos os riscos associados com o uso deste livro incluindo, sem limitações, todos os riscos associados com a escalada e o bouldering.**
 - texto: Poema
   destino:
     secao_textual:
@@ -6262,619 +6217,243 @@ botoes:
 - texto: Prefácio
   destino:
     secao_textual:
-      conteudo: '# Prefácio
+      conteudo: |-
+        # Prefácio
 
+        Quando o meu melhor amigo idealizou o guia de escalada da Pedra Rachada, em junho do ano passado, confesso que fiquei apreensiva. A cultura de croquis de escalada no Brasil ainda não era tão forte; os croquis já existentes eram feitos pelos apaixonados pelo esporte, mas que não podiam dedicar seu tempo exclusivamente para o desenvolvimento de guias mais elaborados. Além disso, o trabalho para catalogar todos os blocos e linhas de escalada seria duro, complexo e longo para apenas uma pessoa.
 
-        Quando o meu melhor amigo idealizou o guia de escalada da Pedra Rachada, em
-        junho do ano passado, confesso que fiquei apreensiva. A cultura de croquis
-        de escalada no Brasil ainda não era tão forte; os croquis já existentes eram
-        feitos pelos apaixonados pelo esporte, mas que não podiam dedicar seu tempo
-        exclusivamente para o desenvolvimento de guias mais elaborados. Além disso,
-        o trabalho para catalogar todos os blocos e linhas de escalada seria duro,
-        complexo e longo para apenas uma pessoa.
+        Algum tempo depois, comecei a perceber o rumo que o projeto estava tomando e a importância desse trabalho para a comunidade escaladora do nosso país.
 
+        Me envolvi no projeto, mudei de casa, passei a ajudar no levantamento de informações das escaladas, da cidade de Sabará, de todas as informações necessárias no guia. Falávamos de escalada, Boulder e Pedra Rachada vinte e quatro horas por dia. No café da manhã, almoço, durante a tarde, no jantar, na cama. Nos aniversários dos amigos, durante a Copa do Mundo de 2014. Na fila do cinema e às vezes durante o filme. Aliás, cinema nunca mais rolou até a finalização do livro.
 
-        Algum tempo depois, comecei a perceber o rumo que o projeto estava tomando
-        e a importância desse trabalho para a comunidade escaladora do nosso país.
+        Contamos com a ajuda de muitos amigos, mas fazíamos a maioria das coisas em dupla, tarefa árdua para um peão de obra e uma ex jogadora de vôlei. Perdi as contas de quantar vezes fomos à Pedra Rachada desde que o projeto começou a ser desenvolvido. Ralamos dia e noite – são 3:47 da manhã – trabalhamos duro para oferecer o melhor conteúdo para um público apaixonado pelo o que faz.
 
-
-        Me envolvi no projeto, mudei de casa, passei a ajudar no levantamento de informações
-        das escaladas, da cidade de Sabará, de todas as informações necessárias no
-        guia. Falávamos de escalada, Boulder e Pedra Rachada vinte e quatro horas
-        por dia. No café da manhã, almoço, durante a tarde, no jantar, na cama. Nos
-        aniversários dos amigos, durante a Copa do Mundo de 2014. Na fila do cinema
-        e às vezes durante o filme. Aliás, cinema nunca mais rolou até a finalização
-        do livro.
-
-
-        Contamos com a ajuda de muitos amigos, mas fazíamos a maioria das coisas em
-        dupla, tarefa árdua para um peão de obra e uma ex jogadora de vôlei. Perdi
-        as contas de quantar vezes fomos à Pedra Rachada desde que o projeto começou
-        a ser desenvolvido. Ralamos dia e noite – são 3:47 da manhã – trabalhamos
-        duro para oferecer o melhor conteúdo para um público apaixonado pelo o que
-        faz.
-
-
-        Maravilhosas fotos foram produzidas por seis dos melhores fotógrafos de escalada
-        do Brasil, a marca Pedra Rachada Bouldering surgiu das mãos de um talentoso
-        designer de Belo Horizonte e o Guia de Escalada Pedra Rachada Bouldering começou
-        a ganhar forma.
-
+        Maravilhosas fotos foram produzidas por seis dos melhores fotógrafos de escalada do Brasil, a marca Pedra Rachada Bouldering surgiu das mãos de um talentoso designer de Belo Horizonte e o Guia de Escalada Pedra Rachada Bouldering começou a ganhar forma.
 
         Cada minuto valeu a pena.
 
+        O Luca deve à escalada sua filosofia de vida, sua saúde, sua alegria de viver. Eu não conheço ninguém mais apaixonado pela escalada que ele, e essa paixão você confere aqui, no Guia de Escalada mais incrível já produzido no Brasil!
 
-        O Luca deve à escalada sua filosofia de vida, sua saúde, sua alegria de viver.
-        Eu não conheço ninguém mais apaixonado pela escalada que ele, e essa paixão
-        você confere aqui, no Guia de Escalada mais incrível já produzido no Brasil!
-
-
-        **Nathalia Daneliczin**'
+        **Nathalia Daneliczin**
 - texto: Agradecimentos
   destino:
     secao_textual:
-      conteudo: '# Agradecimentos
+      conteudo: |-
+        # Agradecimentos
 
+        Um trabalho complexo como esse não poderia ser feito sem a ajuda de algumas pessoas. Mas jamais poderia imaginar quantas pessoas estariam dispostas a me acompanhar nessa empreitada.
 
-        Um trabalho complexo como esse não poderia ser feito sem a ajuda de algumas
-        pessoas. Mas jamais poderia imaginar quantas pessoas estariam dispostas a
-        me acompanhar nessa empreitada.
+        Primeiramente, meu eterno agradecimento à minha melhor amiga e companheira de todas as horas, Nathalia Daneliczin. Quando conversamos a primeira vez sobre sua participação no projeto, não pude imaginar a forma com que ela iria encarar este desafio: entrou de corpo e alma no projeto e tomou frente em todos os processos. Foram meses de dedicação total e absoluta de sua parte para que chegássemos juntos ao resultado maravilhoso deste trabalho. Sem ela, tudo não passaria de um sonho. Não tenho palavras para lhe dizer o quanto você é importante em minha vida, muito obrigado por tudo, meu amor!
 
+        Gostaria de agradecer aos meus amigos Pedro Hostalácio e Ronaldo Portilho, que estiveram presentes em todas as etapas do trabalho; no levantamento de dados, na descrição de boulders, nas fotos, nos textos complementares do livro, compartilharam idéias, me acompanharam todo o tempo, disponibilizaram o seu tempo, se dedicaram. Serei eternamente grato.
 
-        Primeiramente, meu eterno agradecimento à minha melhor amiga e companheira
-        de todas as horas, Nathalia Daneliczin. Quando conversamos a primeira vez
-        sobre sua participação no projeto, não pude imaginar a forma com que ela iria
-        encarar este desafio: entrou de corpo e alma no projeto e tomou frente em
-        todos os processos. Foram meses de dedicação total e absoluta de sua parte
-        para que chegássemos juntos ao resultado maravilhoso deste trabalho. Sem ela,
-        tudo não passaria de um sonho. Não tenho palavras para lhe dizer o quanto
-        você é importante em minha vida, muito obrigado por tudo, meu amor!
+        Quero agradecer ao meu amigo e designer, o talentoso Thales Ramonielli, pela paciência, pelo trabalho duro e pelas idéias. Pela criação da identidade da marca Pedra Rachada Bouldering e pelo design deste livro – que ficou exatamente como eu tinha imaginado. Sei que foi um trabalho complexo e difícil e você o fez com dedicação, transformando uma idéia num guia lindo. Obrigado por tudo!
 
+        Ao Christian e Aira, amigos que ajudaram em todos os momentos, com dados do setor, fotos aéreas, abrigo, dados de GPS. Vocês são especiais!
 
-        Gostaria de agradecer aos meus amigos Pedro Hostalácio e Ronaldo Portilho,
-        que estiveram presentes em todas as etapas do trabalho; no levantamento de
-        dados, na descrição de boulders, nas fotos, nos textos complementares do livro,
-        compartilharam idéias, me acompanharam todo o tempo, disponibilizaram o seu
-        tempo, se dedicaram. Serei eternamente grato.
-
-
-        Quero agradecer ao meu amigo e designer, o talentoso Thales Ramonielli, pela
-        paciência, pelo trabalho duro e pelas idéias. Pela criação da identidade da
-        marca Pedra Rachada Bouldering e pelo design deste livro – que ficou exatamente
-        como eu tinha imaginado. Sei que foi um trabalho complexo e difícil e você
-        o fez com dedicação, transformando uma idéia num guia lindo. Obrigado por
-        tudo!
-
-
-        Ao Christian e Aira, amigos que ajudaram em todos os momentos, com dados do
-        setor, fotos aéreas, abrigo, dados de GPS. Vocês são especiais!
-
-
-        Aos amigos fotógrafos que fizeram muito pelo projeto: fotos e vídeos incríveis,
-        muitas idéias, muita parceria e disponibilidade: Bruno Graciano, João Mello,
-        Murilo Vargas, Tom Alves e Vitor Maciel. Sou muito grato pela sorte de ter
-        grandes fotógrafos ao meu lado. Em especial ao grande amigo Gabriel Oliveira,
-        que veio do Planalto Central especialmente para me ajudar com o projeto. Foram
-        dias intensos de muito empenho, muitas horas de caminhada no sol quente, com
-        poucas horas de sono e, claro, muita escalada. Muito obrigado!
-
+        Aos amigos fotógrafos que fizeram muito pelo projeto: fotos e vídeos incríveis, muitas idéias, muita parceria e disponibilidade: Bruno Graciano, João Mello, Murilo Vargas, Tom Alves e Vitor Maciel. Sou muito grato pela sorte de ter grandes fotógrafos ao meu lado. Em especial ao grande amigo Gabriel Oliveira, que veio do Planalto Central especialmente para me ajudar com o projeto. Foram dias intensos de muito empenho, muitas horas de caminhada no sol quente, com poucas horas de sono e, claro, muita escalada. Muito obrigado!
 
         Ao Lucas Oliveira pelo belo poema, pelas fotos, pela amizade e parceria.
 
-
-        Ao Pedro Furtado, Leonardo Lott e Paulo César, que fizeram as imagens aéreas
-        fruto dos mapas deste guia, muito obrigado.
-
+        Ao Pedro Furtado, Leonardo Lott e Paulo César, que fizeram as imagens aéreas fruto dos mapas deste guia, muito obrigado.
 
         À Alaine Prado, pelo texto “Fauna e Flora”, obrigado.
 
+        Agradeço aos amigos que participaram das fotos, idéias, aqueles que divulgaram o trabalho, que acreditaram: César Augusto, Chander Christian, Ciro Thielmann, Eric Dornelles, Flávio Cro, Federico Sanz, Frederico Gonçalves, Gabriel Henrique, Gabriel Vargas, Gustavo Fontes, Jean Ouriques, Larissa Pena, Laura Castanheira, Laura Volponi, Lucas Sá, Luiz Veríssimo, Maíra Villas Boas, Malquior Saviotti, Mahavir Jneesh, Marcia Veira, Patrícia Antunes, Paulo Cisotto, Paulo Veríssimo, Pedro Xavier, Raiane Melo, Rafael Pimenta, Rafael Sanna, Renata Tavares, Roberta Rezende, Sandro de Castro, Tomaz Hamdan, Yan Ouriques e Hugo Barcellos. Obrigado!
 
-        Agradeço aos amigos que participaram das fotos, idéias, aqueles que divulgaram
-        o trabalho, que acreditaram: César Augusto, Chander Christian, Ciro Thielmann,
-        Eric Dornelles, Flávio Cro, Federico Sanz, Frederico Gonçalves, Gabriel Henrique,
-        Gabriel Vargas, Gustavo Fontes, Jean Ouriques, Larissa Pena, Laura Castanheira,
-        Laura Volponi, Lucas Sá, Luiz Veríssimo, Maíra Villas Boas, Malquior Saviotti,
-        Mahavir Jneesh, Marcia Veira, Patrícia Antunes, Paulo Cisotto, Paulo Veríssimo,
-        Pedro Xavier, Raiane Melo, Rafael Pimenta, Rafael Sanna, Renata Tavares, Roberta
-        Rezende, Sandro de Castro, Tomaz Hamdan, Yan Ouriques e Hugo Barcellos. Obrigado!
+        À minha família, pais, irmãos, primos, tios e avós. Obrigada a todos por acreditarem e apostarem em mim e no projeto desde o início! Pelas palavras de motivação, pela preocupação, pela disponibilidade, conselhos, pelo interesse, por todo o amor que recebo todos os dias. Agradeço especialmente ao meu irmão e amigo Tiago: você foi especialmente importante durante essa caminhada; obrigado pela atenção, pela revisão dos textos, pelos conselhos, obrigado por tudo!
 
+        Obrigado aos patrocinadores, que viabilizaram esse livro e acreditaram que um projeto pioneiro poderia aumentar a visibilidade da escalada no Brasil.
 
-        À minha família, pais, irmãos, primos, tios e avós. Obrigada a todos por acreditarem
-        e apostarem em mim e no projeto desde o início! Pelas palavras de motivação,
-        pela preocupação, pela disponibilidade, conselhos, pelo interesse, por todo
-        o amor que recebo todos os dias. Agradeço especialmente ao meu irmão e amigo
-        Tiago: você foi especialmente importante durante essa caminhada; obrigado
-        pela atenção, pela revisão dos textos, pelos conselhos, obrigado por tudo!
+        Agradeço especialmente ao Pedro Leite, que apostou no guia desde o primeiro momento, investiu e, acima de tudo, esteve disponível e me ajudou em muitos momentos!
 
-
-        Obrigado aos patrocinadores, que viabilizaram esse livro e acreditaram que
-        um projeto pioneiro poderia aumentar a visibilidade da escalada no Brasil.
-
-
-        Agradeço especialmente ao Pedro Leite, que apostou no guia desde o primeiro
-        momento, investiu e, acima de tudo, esteve disponível e me ajudou em muitos
-        momentos!
-
-
-        Enfim, a eles: Daniel Mendes e Felipe Álvares. Muito obrigado por investirem
-        na escalada brasileira, por acreditarem nos projetos e por participarem de
-        cada passo dessa longa jornada. Por me ajudar nas descrições dos boulders,
-        por me acompanharem até a Pedra Rachada várias vezes, por investir o tempo
-        de vocês no projeto, pelas reuniões, pelas idéias. Sem vocês esse guia não
-        estaria impresso. Muito obrigado por tudo!'
+        Enfim, a eles: Daniel Mendes e Felipe Álvares. Muito obrigado por investirem na escalada brasileira, por acreditarem nos projetos e por participarem de cada passo dessa longa jornada. Por me ajudar nas descrições dos boulders, por me acompanharem até a Pedra Rachada várias vezes, por investir o tempo de vocês no projeto, pelas reuniões, pelas idéias. Sem vocês esse guia não estaria impresso. Muito obrigado por tudo!
 - texto: Introdução
   destino:
     secao_textual:
-      conteudo: '# Introdução
+      conteudo: |-
+        # Introdução
 
+        Sentimos falta de guias para escalar no Brasil. Algumas vezes não conseguimos explorar o melhor da escalada de alguns setores pela falta de informações e receio, afinal não sabemos o nível de exposição de algumas escaladas, o grau de dificuldade ou até mesmo a linha correta. No caso do boulder é ainda mais complicado, pois não temos as chapeletas para nos guiar durante o caminho. A escalada não fica menos divertida – somos adeptos da diversão no esporte! – mas torna-se mais subjetiva.
 
-        Sentimos falta de guias para escalar no Brasil. Algumas vezes não conseguimos
-        explorar o melhor da escalada de alguns setores pela falta de informações
-        e receio, afinal não sabemos o nível de exposição de algumas escaladas, o
-        grau de dificuldade ou até mesmo a linha correta. No caso do boulder é ainda
-        mais complicado, pois não temos as chapeletas para nos guiar durante o caminho.
-        A escalada não fica menos divertida – somos adeptos da diversão no esporte!
-        – mas torna-se mais subjetiva.
+        Com o intuito de melhorar e ampliar a experiência dos escaladores, criamos o Guia de Escalada Pedra Rachada Bouldering. Decidimos empreender um projeto pioneiro no país e dedicamos muitas e muitas horas, durante mais de um ano, coletando e editando todas as informações que julgamos importantes para que escalar na Pedra Rachada fosse incrivelmente bom, porém não menos desafiador.
 
+        A idéia sempre foi lançar um livro guia da melhor qualidade, um livro que nós, autores, também iríamos utilizar. Nos perguntávamos como inserir as informações e quais delas seriam mais relevantes para os escaladores, como trataríamos da importância dos boulders mais clássicos, como seria feita a graduação. Fizemos o levantamento de 95 blocos de pedra e quase 500 linhas de escalada. Reunimos amigos escaladores e trocamos idéias sobre o grau de dificuldade de cada linha, sobre as agarras de saída, sobre a qualidade da escalada. Utilizamos o “circuito de grau”, fotos de todos os blocos com o desenho das linhas, descrição dos boulders e tratamos dos principais projetos.
 
-        Com o intuito de melhorar e ampliar a experiência dos escaladores, criamos
-        o Guia de Escalada Pedra Rachada Bouldering. Decidimos empreender um projeto
-        pioneiro no país e dedicamos muitas e muitas horas, durante mais de um ano,
-        coletando e editando todas as informações que julgamos importantes para que
-        escalar na Pedra Rachada fosse incrivelmente bom, porém não menos desafiador.
+        Baseamos esse guia nos melhores guias de escalada em boulder do mundo, de setores mundialmente conhecidos e muito importantes, como Fontainebleau, na França, Bishop, nos Estados Unidos e Rocklands, na África do Sul.
 
+        Escolhemos a Pedra Rachada porque é considerada, por muitos dos melhores escaladores do Brasil, um dos melhores setores de boulder para se escalar no país. Há linhas para todos os escaladores, desde os iniciantes, até os atletas mais experientes. O tipo de escalada é único e reúne boulders de todos os estilos: muita compressão, tensão corporal, pinças, agarrões, regletes perfeitos, abaulados, batentes, agarras de ombro, agarras de oposição, pés chapados, drops, calcanhar, tetos, verticais, positivos, negativos, proas, cavernas, highballs! O potencial e a qualidade da rocha chamam a atenção dos melhores escaladores do país. Felipe Álvares “Cabeção”, Daniel “TioDan”, Gustavo Fontes, Rafael Passos, Fred “Bull”, Mahavir Jneesh, Christian Fernandes, Maíra Villas Boas, Chander Cristian e Emerson “Caverna” são os principais responsáveis pela abertura da maioria dos boulders da Pedra Rachada e pela evolução do pico.
 
-        A idéia sempre foi lançar um livro guia da melhor qualidade, um livro que
-        nós, autores, também iríamos utilizar. Nos perguntávamos como inserir as informações
-        e quais delas seriam mais relevantes para os escaladores, como trataríamos
-        da importância dos boulders mais clássicos, como seria feita a graduação.
-        Fizemos o levantamento de 95 blocos de pedra e quase 500 linhas de escalada.
-        Reunimos amigos escaladores e trocamos idéias sobre o grau de dificuldade
-        de cada linha, sobre as agarras de saída, sobre a qualidade da escalada. Utilizamos
-        o “circuito de grau”, fotos de todos os blocos com o desenho das linhas, descrição
-        dos boulders e tratamos dos principais projetos.
+        A Pedra Rachada é considerada mágica pelos escaladores também pela sua beleza estonteante. O cume tem uma vista de tirar o fôlego: fica a quase 1500 metros de altitude e podemos avistar Belo Horizonte, a cidade de Sabará, Caeté, Cambotas, Pedra Branca, Serra do Caraça (Pico do Baiano) e a imponente Serra da Piedade. A proximidade da cidade também faz da Pedra Rachada um setor importante, já que os escaladores tem facilidade de acesso e uma ótima estrutura para descanso à disposição.
 
+        Aqui, além de todas as informações sobre as escaladas do setor, você terá todas as informações necessárias para chegar, se instalar na cidade de Sabará ou Belo Horizonte, para comer e conseguir suprimentos. Indicaremos a melhor época para a prática do esporte, e alguns programas para os dias de folga – Sabará é uma belíssima cidade histórica e Belo Horizonte, a capital, é conhecida nacionalmente como a cidade dos bares.
 
-        Baseamos esse guia nos melhores guias de escalada em boulder do mundo, de
-        setores mundialmente conhecidos e muito importantes, como Fontainebleau, na
-        França, Bishop, nos Estados Unidos e Rocklands, na África do Sul.
-
-
-        Escolhemos a Pedra Rachada porque é considerada, por muitos dos melhores escaladores
-        do Brasil, um dos melhores setores de boulder para se escalar no país. Há
-        linhas para todos os escaladores, desde os iniciantes, até os atletas mais
-        experientes. O tipo de escalada é único e reúne boulders de todos os estilos:
-        muita compressão, tensão corporal, pinças, agarrões, regletes perfeitos, abaulados,
-        batentes, agarras de ombro, agarras de oposição, pés chapados, drops, calcanhar,
-        tetos, verticais, positivos, negativos, proas, cavernas, highballs! O potencial
-        e a qualidade da rocha chamam a atenção dos melhores escaladores do país.
-        Felipe Álvares “Cabeção”, Daniel “TioDan”, Gustavo Fontes, Rafael Passos,
-        Fred “Bull”, Mahavir Jneesh, Christian Fernandes, Maíra Villas Boas, Chander
-        Cristian e Emerson “Caverna” são os principais responsáveis pela abertura
-        da maioria dos boulders da Pedra Rachada e pela evolução do pico.
-
-
-        A Pedra Rachada é considerada mágica pelos escaladores também pela sua beleza
-        estonteante. O cume tem uma vista de tirar o fôlego: fica a quase 1500 metros
-        de altitude e podemos avistar Belo Horizonte, a cidade de Sabará, Caeté, Cambotas,
-        Pedra Branca, Serra do Caraça (Pico do Baiano) e a imponente Serra da Piedade.
-        A proximidade da cidade também faz da Pedra Rachada um setor importante, já
-        que os escaladores tem facilidade de acesso e uma ótima estrutura para descanso
-        à disposição.
-
-
-        Aqui, além de todas as informações sobre as escaladas do setor, você terá
-        todas as informações necessárias para chegar, se instalar na cidade de Sabará
-        ou Belo Horizonte, para comer e conseguir suprimentos. Indicaremos a melhor
-        época para a prática do esporte, e alguns programas para os dias de folga
-        – Sabará é uma belíssima cidade histórica e Belo Horizonte, a capital, é conhecida
-        nacionalmente como a cidade dos bares.
-
-
-        Divirta-se, boa escalada!'
+        Divirta-se, boa escalada!
 - texto: Como Chegar em Sabará
   destino:
     secao_textual:
-      conteudo: '# Como Chegar
+      conteudo: |-
+        # Como Chegar
 
-
-        Para chegar à cidade de Sabará a partir da capital mineira Belo Horizonte,
-        existem duas opções: acessando a Av. José Cândido através da Av. Cristiano
-        Machado, ou pelo Anel Rodoviário (BR-381 / BR-262).
-
+        Para chegar à cidade de Sabará a partir da capital mineira Belo Horizonte, existem duas opções: acessando a Av. José Cândido através da Av. Cristiano Machado, ou pelo Anel Rodoviário (BR-381 / BR-262).
 
         ### Av. José Cândido
 
-
-        Siga por 3,5km até uma grande rotatória e mantenha à direita, sentido Sabará.
-        Após 12km você chegará ao Centro de Informação ao Turista de Sabará, onde
-        você poderá conseguir mais informações sobre a cidade, de lá o Centro da cidade
-        está a apenas 1km.
-
+        Siga por 3,5km até uma grande rotatória e mantenha à direita, sentido Sabará. Após 12km você chegará ao Centro de Informação ao Turista de Sabará, onde você poderá conseguir mais informações sobre a cidade, de lá o Centro da cidade está a apenas 1km.
 
         ### Anel Rodoviário (BR-381 / BR-262)
 
-
-        Siga reto por aproximadamente 3,4km depois de passar por cima da Av. Cristiano
-        Machado e mantenha à esquerda (BR-262) na bifurcação, logo após uma passarela,
-        seguindo as placas que indicam à cidade de Sabará. De lá, são mais 8km até
-        o Centro de Informação ao Turista de Sabará, onde você pode conseguir mais
-        informações sobre a cidade, e mais 1km até o Centro da cidade.'
+        Siga reto por aproximadamente 3,4km depois de passar por cima da Av. Cristiano Machado e mantenha à esquerda (BR-262) na bifurcação, logo após uma passarela, seguindo as placas que indicam à cidade de Sabará. De lá, são mais 8km até o Centro de Informação ao Turista de Sabará, onde você pode conseguir mais informações sobre a cidade, e mais 1km até o Centro da cidade.
 - texto: A Cidade de Sabará
   destino:
     secao_textual:
-      conteudo: '# A Cidade de Sabará
+      conteudo: |-
+        # A Cidade de Sabará
 
+        Uma cidade que nasceu como ponto de descanso para os bandeirantes paulistas do Brasil Colônia, hoje atrai outros tipos de desbravadores: turistas de todo o mundo ávidos por viajar através de mais de três séculos de história.
 
-        Uma cidade que nasceu como ponto de descanso para os bandeirantes paulistas
-        do Brasil Colônia, hoje atrai outros tipos de desbravadores: turistas de todo
-        o mundo ávidos por viajar através de mais de três séculos de história.
-
-
-        | ![Casario colonial do Centro Histórico de Sabará](imagens/a_cidade_de_sabara_p0_i0.webp)
-        |
-
+        | ![Casario colonial do Centro Histórico de Sabará](imagens/a_cidade_de_sabara_p0_i0.webp) |
         | :--: |
-
         | *Casario colonial do Centro Histórico de Sabará* |
 
+        Com pouco mais de 126mil habitantes e aproximadamente 700m de altitude, a cidade de Sabará fica a apenas 23km da capital Belo Horizonte e integra sua Região Metropolitana. É a cidade histórica mais próxima da capital.
 
-        Com pouco mais de 126mil habitantes e aproximadamente 700m de altitude, a
-        cidade de Sabará fica a apenas 23km da capital Belo Horizonte e integra sua
-        Região Metropolitana. É a cidade histórica mais próxima da capital.
+        Sua história tem suas raízes nos primórdios da colonização do Brasil. Às margens do Rio das Velhas, a cidade tem mais de 330 anos de fundação. As primeiras expedições chegaram a Sabará por indicação dos índios. Eles contaram aos bandeirantes paulistas sobre o Sabaraçu (hoje Serra da Piedade), cuja fama era de possuir, em abundância, ouro, prata e outros metais e pedras preciosas. A cidade atraiu inúmeros aventureiros em busca da riqueza das serras. Em 1674, chegou à região a bandeira de Fernão Dias Paes, dando início ao que se tornaria o mais importante arraial fundado pelo bandeirante paulista.
 
+        Sabará foi povoada e explorada. Muitos resquícios do período colonial provavelmente ainda esperam por serem descobertos. São 24 quilômetros de estradas e trilhas dentro da extensão da Estrada Real; nelas, 55 marcos indicam o caminho oficial. Toda a história encontra-se à disposição dos turistas.
 
-        Sua história tem suas raízes nos primórdios da colonização do Brasil. Às margens
-        do Rio das Velhas, a cidade tem mais de 330 anos de fundação. As primeiras
-        expedições chegaram a Sabará por indicação dos índios. Eles contaram aos bandeirantes
-        paulistas sobre o Sabaraçu (hoje Serra da Piedade), cuja fama era de possuir,
-        em abundância, ouro, prata e outros metais e pedras preciosas. A cidade atraiu
-        inúmeros aventureiros em busca da riqueza das serras. Em 1674, chegou à região
-        a bandeira de Fernão Dias Paes, dando início ao que se tornaria o mais importante
-        arraial fundado pelo bandeirante paulista.
+        A cidade é formada por 19 conjuntos arquitetônicos e bens culturais tombados pelo Instituto do Patrimônio Histórico e Artístico Nacional (Iphan), quatro deles protegidos pelo Instituto Estadual do Patrimônio Histórico e Artístico (Iepha), e 23 obras tombadas pelo Governo Municipal.
 
+        Sabará conserva muita história em suas ruas, principalmente no centro da cidade. Casarões, igrejas e capelas setecentistas encantam os visitantes pela sua imponência. No Centro Histórico está localizada a maioria dos atrativos históricos e arquitetônicos. Há igrejas que mesclam características artísticas das três diferentes fases do Barroco Mineiro e vários chafarizes. O mais conhecido é o Chafariz do Kaquende (pág xx); segundo a lenda, quem beber de sua água sempre retornará à cidade.
 
-        Sabará foi povoada e explorada. Muitos resquícios do período colonial provavelmente
-        ainda esperam por serem descobertos. São 24 quilômetros de estradas e trilhas
-        dentro da extensão da Estrada Real; nelas, 55 marcos indicam o caminho oficial.
-        Toda a história encontra-se à disposição dos turistas.
+        Sabará possui, ainda, diversos festejos culturais. Considerada a capital mineira da jabuticaba, a cidade realiza todos os anos o famoso Festival da Jabuticaba. Entre música, comidas típicas e muita dança, o hospitaleiro povo sabarense acolhe com prazer a todos os seus visitantes. Como todo bom mineiro, o sabarense é caloroso e receptive. O Festival do Ora-Pro-Nobis também é realizado na cidade e atrai turistas interessados na deliciosa e famosa gastronomia mineira. Lá acontece, ainda, o Festival de Inverno, em comemoração ao aniversário da cidade, O Festival acontece durante todo o mês de julho e tem diversas atrações, como oficinas de literatura, mostras de filmes, feira de artes e cultura, festivais de dança, shows e peças teatrais.
 
-
-        A cidade é formada por 19 conjuntos arquitetônicos e bens culturais tombados
-        pelo Instituto do Patrimônio Histórico e Artístico Nacional (Iphan), quatro
-        deles protegidos pelo Instituto Estadual do Patrimônio Histórico e Artístico
-        (Iepha), e 23 obras tombadas pelo Governo Municipal.
-
-
-        Sabará conserva muita história em suas ruas, principalmente no centro da cidade.
-        Casarões, igrejas e capelas setecentistas encantam os visitantes pela sua
-        imponência. No Centro Histórico está localizada a maioria dos atrativos históricos
-        e arquitetônicos. Há igrejas que mesclam características artísticas das três
-        diferentes fases do Barroco Mineiro e vários chafarizes. O mais conhecido
-        é o Chafariz do Kaquende (pág xx); segundo a lenda, quem beber de sua água
-        sempre retornará à cidade.
-
-
-        Sabará possui, ainda, diversos festejos culturais. Considerada a capital mineira
-        da jabuticaba, a cidade realiza todos os anos o famoso Festival da Jabuticaba.
-        Entre música, comidas típicas e muita dança, o hospitaleiro povo sabarense
-        acolhe com prazer a todos os seus visitantes. Como todo bom mineiro, o sabarense
-        é caloroso e receptive. O Festival do Ora-Pro-Nobis também é realizado na
-        cidade e atrai turistas interessados na deliciosa e famosa gastronomia mineira.
-        Lá acontece, ainda, o Festival de Inverno, em comemoração ao aniversário da
-        cidade, O Festival acontece durante todo o mês de julho e tem diversas atrações,
-        como oficinas de literatura, mostras de filmes, feira de artes e cultura,
-        festivais de dança, shows e peças teatrais.
-
-
-        A fusão secular das etnias negra, branca e indígena moldou em Sabará uma identidade
-        cultural extremamente rica, com tradições preservadas pelas manifestações
-        populares e cultos que ainda povoam as ruas e templos da cidade. Dentre muitos
-        outros, destacam-se a Folia de Reis, a Abertura do Santo Sepulcro na Semana
-        Santa, a confecção dos tapetes artesanais na festa de Corpus Christi, o encontro
-        das bandas de música no coreto da Praça Santa Rita, as quadrilhas nas festividades
-        juninas, o Carnaval dos blocos caricatos, os grupos de seresta e os corais.
-        A maioria das tradições locais está preservada e podem ser contempladas, principalmente,
-        na ocasião destes eventos tradicionais. Estas manifestações materializam a
-        relação destes diversos grupos com a história da cidade de Sabará.'
+        A fusão secular das etnias negra, branca e indígena moldou em Sabará uma identidade cultural extremamente rica, com tradições preservadas pelas manifestações populares e cultos que ainda povoam as ruas e templos da cidade. Dentre muitos outros, destacam-se a Folia de Reis, a Abertura do Santo Sepulcro na Semana Santa, a confecção dos tapetes artesanais na festa de Corpus Christi, o encontro das bandas de música no coreto da Praça Santa Rita, as quadrilhas nas festividades juninas, o Carnaval dos blocos caricatos, os grupos de seresta e os corais. A maioria das tradições locais está preservada e podem ser contempladas, principalmente, na ocasião destes eventos tradicionais. Estas manifestações materializam a relação destes diversos grupos com a história da cidade de Sabará.
 - texto: Turismo Histórico e Religioso
   destino:
     secao_textual:
-      conteudo: '# Turismo Histórico e Religioso
-
+      conteudo: |-
+        # Turismo Histórico e Religioso
 
         Uma seleção de alguns dos melhores pontos turísticos da cidade de Sabará:
 
-
         ## Igreja Nossa Senhora do Ó, de 1717
 
-
-        | ![Igreja Nossa Senhora do Ó](imagens/turismo_historico_e_religioso_p0_i0.webp)
-        |
-
+        | ![Igreja Nossa Senhora do Ó](imagens/turismo_historico_e_religioso_p0_i0.webp) |
         | :--: |
-
         | *Igreja Nossa Senhora do Ó* |
 
-
-        Uma das mais representativas do barroco mineiro, possui influência chinesa
-        em sua arquitetura externa e na decoração interna. O seu nome é devido às
-        ladainhas de Nossa Senhora que sempre começam com o Ó e seguem com algum louvor.
-
+        Uma das mais representativas do barroco mineiro, possui influência chinesa em sua arquitetura externa e na decoração interna. O seu nome é devido às ladainhas de Nossa Senhora que sempre começam com o Ó e seguem com algum louvor.
 
         - **Localização:** Largo Nossa Senhora do Ó
-
         - **Funcionamento:** Diário, das 08h às 17h.
-
 
         ## Igreja Matriz Nossa Senhora da Conceição, de 1710
 
-
-        | ![Igreja Matriz Nossa Senhora da Conceição](imagens/turismo_historico_e_religioso_p0_i1.webp)
-        |
-
+        | ![Igreja Matriz Nossa Senhora da Conceição](imagens/turismo_historico_e_religioso_p0_i1.webp) |
         | :--: |
-
         | *Igreja Matriz Nossa Senhora da Conceição* |
 
-
-        É uma das mais antigas de Minas Gerais e uma das mais ricas matrizes mineiras.
-        Representa um período em que o ouro era abundante na região. Nela se encontram
-        influência das três fases do Barroco Brasileiro e também fortes influências
-        orientais.
-
+        É uma das mais antigas de Minas Gerais e uma das mais ricas matrizes mineiras. Representa um período em que o ouro era abundante na região. Nela se encontram influência das três fases do Barroco Brasileiro e também fortes influências orientais.
 
         - **Localização:** Praça Getúlio Vargas.
-
         - **Funcionamento:** Diário, das 08h às 17h.
-
 
         ## Igreja Nossa Senhora do Carmo, de 1763
 
-
-        | ![Igreja Nossa Senhora do Carmo](imagens/turismo_historico_e_religioso_p0_i3.webp)
-        |
-
+        | ![Igreja Nossa Senhora do Carmo](imagens/turismo_historico_e_religioso_p0_i3.webp) |
         | :--: |
-
         | *Igreja Nossa Senhora do Carmo* |
 
-
-        A igreja é um dos palcos mais espetaculares da arte e da genialidade do Mestre
-        Aleijadinho, ao lado de outros artistas. Templo característico da terceira
-        fase do Barroco Mineiro e do estilo Rococó, é tombada como Patrimônio Histórico.
-
+        A igreja é um dos palcos mais espetaculares da arte e da genialidade do Mestre Aleijadinho, ao lado de outros artistas. Templo característico da terceira fase do Barroco Mineiro e do estilo Rococó, é tombada como Patrimônio Histórico.
 
         - **Localização:** Rua do Carmo
-
         - **Funcionamento:** Diário, das 09h às 17h.
-
 
         ## Conjunto arquitetônico da Rua Dom Pedro II
 
-
-        | ![Conjunto arquitetônico da Rua Dom Pedro II - Casa da Ópera Teatro Municipal](imagens/turismo_historico_e_religioso_p0_i2.webp)
-        |
-
+        | ![Conjunto arquitetônico da Rua Dom Pedro II - Casa da Ópera Teatro Municipal](imagens/turismo_historico_e_religioso_p0_i2.webp) |
         | :--: |
+        | *Conjunto arquitetônico da Rua Dom Pedro II - Casa da Ópera Teatro Municipal* |
 
-        | *Conjunto arquitetônico da Rua Dom Pedro II - Casa da Ópera Teatro Municipal*
-        |
-
-
-        A antiga Rua Direita possui um conjunto arquitetônico tombado como Patrimônio
-        Histórico e Artístico Nacional. Destacam-se entre as edificações, o Solar
-        do Padre Correia, a Casa Azul, o Sobrado de Dona Sofia e a Casa da Ópera (Teatro
-        Municipal).
-
+        A antiga Rua Direita possui um conjunto arquitetônico tombado como Patrimônio Histórico e Artístico Nacional. Destacam-se entre as edificações, o Solar do Padre Correia, a Casa Azul, o Sobrado de Dona Sofia e a Casa da Ópera (Teatro Municipal).
 
         - **Localização:** Rua Dom Pedro II
-
-        - **Funcionamento:** Varia em função ponto turístico.'
+        - **Funcionamento:** Varia em função ponto turístico.
 - texto: Ecoturismo
   destino:
     secao_textual:
-      conteudo: '# Ecoturismo
+      conteudo: |-
+        # Ecoturismo
 
+        Em Sabará, o ecoturismo pode ser praticado principalmente no Arraial Velho e no Pompéu, pequenos vilarejos às margens da Estrada Real. Além disso, a cidade acolhe a bela Área de Proteção Ambiental da Serra da Piedade, da qual a Pedra Rachada faz parte. Com vegetação de campos ferruginosos, esta APA possui grande riqueza e diversidade de espécies. Por lá, é possível realizar vários passeios pelas suas trilhas de mata Atlântica.
 
-        Em Sabará, o ecoturismo pode ser praticado principalmente no Arraial Velho
-        e no Pompéu, pequenos vilarejos às margens da Estrada Real. Além disso, a
-        cidade acolhe a bela Área de Proteção Ambiental da Serra da Piedade, da qual
-        a Pedra Rachada faz parte. Com vegetação de campos ferruginosos, esta APA
-        possui grande riqueza e diversidade de espécies. Por lá, é possível realizar
-        vários passeios pelas suas trilhas de mata Atlântica.
+        Nessas regiões, o visitante tem contato singular com o ambiente natural. Lá, muitos esportistas já praticam caminhadas na natureza, mountain bike e boulder. Passeios a cavalo também podem ser realizados em determinadas áreas.
 
+        Além de promover o bem-estar da população envolvida, o ecoturismo propicia um maior contato do homem com o meio natural e cria um novo tipo de relação, incentivando-o a preservar os recursos naturais e a valorizar da vida. É um dos principais meios de educação sustentável e formação de uma consciência ambientalista através da interpretação do ambiente.
 
-        Nessas regiões, o visitante tem contato singular com o ambiente natural. Lá,
-        muitos esportistas já praticam caminhadas na natureza, mountain bike e boulder.
-        Passeios a cavalo também podem ser realizados em determinadas áreas.
-
-
-        Além de promover o bem-estar da população envolvida, o ecoturismo propicia
-        um maior contato do homem com o meio natural e cria um novo tipo de relação,
-        incentivando-o a preservar os recursos naturais e a valorizar da vida. É um
-        dos principais meios de educação sustentável e formação de uma consciência
-        ambientalista através da interpretação do ambiente.
-
-
-        | ![Contemplação e práticas na natureza da APA da Serra da Piedade](imagens/ecoturismo_p0_i0.webp)
-        |
-
+        | ![Contemplação e práticas na natureza da APA da Serra da Piedade](imagens/ecoturismo_p0_i0.webp) |
         | :--: |
-
         | *Contemplação e práticas na natureza da APA da Serra da Piedade* |
-
 
         Em Sabará é possível, também, visitar parques ecológicos gratuitamente:
 
-
         ## Parque Eco Pedagógico Quinta dos Cristais
 
-
-        O Parque possui uma grande área verde, situada na porção sul da cidade, na
-        estrada para Olaria no bairro Adelmolândia. Possui ainda diversas atrações
-        como o Museu Temático da Escravidão, Museu de Antiguidades, Museu da Nanoescultura,
-        trilhas, belas vistas panorâmicas da região, nascentes e riachos. O Parque
-        está aberto ao público aos fins de semana e feriados, das 11 às 19 horas.
-        A visitação ao parque é gratuita.
-
+        O Parque possui uma grande área verde, situada na porção sul da cidade, na estrada para Olaria no bairro Adelmolândia. Possui ainda diversas atrações como o Museu Temático da Escravidão, Museu de Antiguidades, Museu da Nanoescultura, trilhas, belas vistas panorâmicas da região, nascentes e riachos. O Parque está aberto ao público aos fins de semana e feriados, das 11 às 19 horas. A visitação ao parque é gratuita.
 
         - **Endereço:** Rua Gavião, 1 - Adelmolândia
-
         - **Informações:** www.quintadoscristais.com.br / (31) 3671-3241.
-
 
         ## Parque Natural Municipal Chácara do Lessa
 
-
-        A poucos metros do centro histórico, o visitante pode contemplar a natureza,
-        visitar ruínas e minas remanescentes do século XVIII e XIX. No mirante, está
-        disponível uma belíssima vista panorâmica da região. Oferece opções para trilhas
-        interpretativas e pequenas caminhadas. O parque está aberto de terça-feira
-        a domingo, das 08 às 16 horas e a entrada é gratuita.
-
+        A poucos metros do centro histórico, o visitante pode contemplar a natureza, visitar ruínas e minas remanescentes do século XVIII e XIX. No mirante, está disponível uma belíssima vista panorâmica da região. Oferece opções para trilhas interpretativas e pequenas caminhadas. O parque está aberto de terça-feira a domingo, das 08 às 16 horas e a entrada é gratuita.
 
         - **Endereço:** Rua Arthur Lima Júnior, s/nº - Terra Santa
-
         - **Informações:** semma@sabara.mg.gov.br / (31) 3671-2282 / (31) 3672-7694
-
 
         ## Bosque Alfredo Machado
 
-
-        Localizado no centro histórico, possui área verde, viveiro de mudas, cascata,
-        pequenas trilhas, área de descanso e pista para caminhada. Também sedia atualmente
-        a Secretaria Municipal de Meio Ambiente. O parque está aberto de terça-feira
-        a domingo, das 08 às 16 horas e a entrada é gratuita.
-
+        Localizado no centro histórico, possui área verde, viveiro de mudas, cascata, pequenas trilhas, área de descanso e pista para caminhada. Também sedia atualmente a Secretaria Municipal de Meio Ambiente. O parque está aberto de terça-feira a domingo, das 08 às 16 horas e a entrada é gratuita.
 
         - **Endereço:** Av. Serafim Mota Barros s/n – Centro
-
-        - **Informações:** semma@sabara.mg.gov.br / (31) 3671-2282 / (31) 3672-7694'
+        - **Informações:** semma@sabara.mg.gov.br / (31) 3671-2282 / (31) 3672-7694
 - texto: Ecossistema
   destino:
     secao_textual:
-      conteudo: '# Ecossistema
+      conteudo: |-
+        # Ecossistema
 
+        O Brasil é considerado como um dos países de maior biodiversidade no mundo, pois segundo Mittermeier e colaboradores (1997), calcula-se que nada menos do que 10% de toda a biota terrestre encontram-se no país.
 
-        O Brasil é considerado como um dos países de maior biodiversidade no mundo,
-        pois segundo Mittermeier e colaboradores (1997), calcula-se que nada menos
-        do que 10% de toda a biota terrestre encontram-se no país.
-
-
-        O município de Sabará localiza-se na região denominada Quadrilátero Ferrífero
-        de Minas Gerais, levantada, sob o ponto de vista zoogeográfico, como uma área
-        de transição entre os biomas Cerrado e Mata Atlântica, compondo um ecótono,
-        ou seja, uma região de grande diversidade de espécies da flora e da fauna,
-        uma vez que há o contato de diferentes comunidades que habitam ambos os biomas
-        e seus hábitats associados (RICKLEFS, 2003; BEGON et al, 2007). Cabe ressaltar,
-        que a vegetação típica do bioma Cerrado, predominante na paisagem, já é composta
-        por um mosaico de diferentes tipos fisionômicos, propiciando por si só, uma
-        grande diversidade de espécies faunísticas associadas com a expressiva diversidade
-        de hábitats por ela oferecida. Estas características ecológicas lhes conferem
-        uma heterogeneidade espacial ímpar, responsável pela expressiva diversidade
-        biológica e alto número de endemismos já catalogados para o bioma (MACHADO,
-        2004; MACHADO, 2008; BOCCHINGLIERI et al., 2010; PAGLIA, 2012). O Quadrilátero
-        Ferrífero destaca-se no contexto estadual, sobretudo, pela presença de campos
-        rupestres hematíticos e por abrigar muitas espécies endêmicas assim como espécies
-        ameaçadas de extinção, já identificadas em alguns estudos, sendo por isso,
-        definida como prioritária para a conservação em Minas Gerais (DRUMMOND et
-        al., 2005).
-
+        O município de Sabará localiza-se na região denominada Quadrilátero Ferrífero de Minas Gerais, levantada, sob o ponto de vista zoogeográfico, como uma área de transição entre os biomas Cerrado e Mata Atlântica, compondo um ecótono, ou seja, uma região de grande diversidade de espécies da flora e da fauna, uma vez que há o contato de diferentes comunidades que habitam ambos os biomas e seus hábitats associados (RICKLEFS, 2003; BEGON et al, 2007). Cabe ressaltar, que a vegetação típica do bioma Cerrado, predominante na paisagem, já é composta por um mosaico de diferentes tipos fisionômicos, propiciando por si só, uma grande diversidade de espécies faunísticas associadas com a expressiva diversidade de hábitats por ela oferecida. Estas características ecológicas lhes conferem uma heterogeneidade espacial ímpar, responsável pela expressiva diversidade biológica e alto número de endemismos já catalogados para o bioma (MACHADO, 2004; MACHADO, 2008; BOCCHINGLIERI et al., 2010; PAGLIA, 2012). O Quadrilátero Ferrífero destaca-se no contexto estadual, sobretudo, pela presença de campos rupestres hematíticos e por abrigar muitas espécies endêmicas assim como espécies ameaçadas de extinção, já identificadas em alguns estudos, sendo por isso, definida como prioritária para a conservação em Minas Gerais (DRUMMOND et al., 2005).
 
         ## Fauna
 
+        A fauna do Cerrado brasileiro é pouco conhecida, sendo recentes os estudos mais consistentes sobre o tema. O Cerrado abriga um grande número de espécies animais, mamíferos, aves, répteis, anfíbios e peixes fazem parte das cerca de 2.500 espécies de vertebrados que utilizam o bioma como hábitat. Isso sem contar os insetos que possuem papel fundamental na ecologia e dinâmica energética dos ecossistemas terrestres.
 
-        A fauna do Cerrado brasileiro é pouco conhecida, sendo recentes os estudos
-        mais consistentes sobre o tema. O Cerrado abriga um grande número de espécies
-        animais, mamíferos, aves, répteis, anfíbios e peixes fazem parte das cerca
-        de 2.500 espécies de vertebrados que utilizam o bioma como hábitat. Isso sem
-        contar os insetos que possuem papel fundamental na ecologia e dinâmica energética
-        dos ecossistemas terrestres.
+        Entre os vertebrados de maior porte comumente encontrados em suas diferentes fitofisionomias, citamos a cascavel (*Crotalus durissus*), a jararaca (*Bothrops* sp.), o lagarto teiú (*Tupinambis merianae*), a siriema (*Cariama cristata*), a águia cinzenta (*Urubitinga coronata*), o carcará (*Caracara plancus*), o urubu-de-cabeça-preta (*Coragyps atratus*), tucanos (*Ramphastos* sp.), maritacas e araras, o tatu-peba (*Euphractus sexcinctus*), o tatu-galinha (*Dasypus novemcinctus*), o tatu-canastra (*Priodontes maximus*), o tatu-de-rabo-mole (*Cabassous unicinctus*), o tamanduá-bandeira (*Myrmecophaga tridactyla*), o tamanduá-mirim (*Tamandua tetradactyla*), o veado catingueiro (*Mazama gouazoubira*), a raposinha (*Lycalopex vetulus*), o cachorro-do-mato (*Cerdocyon thous*), o lobo-guará (*Chrysocyon brachyurus*), a jeritataca (*Conepatus semistriatus*), o tapeti (*Silvilagus brasiliensis*), o gato-do-mato (*Leopardus tigrinus*), a jaguatirica (*Leopardus pardalis*), o gato mourisco (*Leopardus yagouaroundi*) e as onças parda (*Puma concolor*) e pintada (*Panthera onca*). Na Pedra Rachada, escaladores já visualizaram na estrada, na “volta do nightclimb” uma onça parda atravessando-a, e também há registros de visualizações de tapetis, carcarás e raposinhas, o que não exclui a possibilidade das demais espécies, com exceção da onça pintada, também estarem presentes na região.
 
+        Com relação aos invertebrados, os cupins, insetos da Ordem Isoptera, Família Termitidae, são de grande importância, sobretudo pelo seu papel no fluxo de energia no ecossistema, atuando como herbívoros vorazes e servindo de alimentos para um grande número de espécies, tais como o tamanduá-bandeira, as diversas espécies de tatus, a cobra-de-duas-cabeças, dentre outras. Outra ordem de grande importância é a das formigas e abelhas, Ordem Hymenoptera, sobretudo pelo importante papel das abelhas na polinização das flores.
 
-        Entre os vertebrados de maior porte comumente encontrados em suas diferentes
-        fitofisionomias, citamos a cascavel (*Crotalus durissus*), a jararaca (*Bothrops*
-        sp.), o lagarto teiú (*Tupinambis merianae*), a siriema (*Cariama cristata*),
-        a águia cinzenta (*Urubitinga coronata*), o carcará (*Caracara plancus*),
-        o urubu-de-cabeça-preta (*Coragyps atratus*), tucanos (*Ramphastos* sp.),
-        maritacas e araras, o tatu-peba (*Euphractus sexcinctus*), o tatu-galinha
-        (*Dasypus novemcinctus*), o tatu-canastra (*Priodontes maximus*), o tatu-de-rabo-mole
-        (*Cabassous unicinctus*), o tamanduá-bandeira (*Myrmecophaga tridactyla*),
-        o tamanduá-mirim (*Tamandua tetradactyla*), o veado catingueiro (*Mazama gouazoubira*),
-        a raposinha (*Lycalopex vetulus*), o cachorro-do-mato (*Cerdocyon thous*),
-        o lobo-guará (*Chrysocyon brachyurus*), a jeritataca (*Conepatus semistriatus*),
-        o tapeti (*Silvilagus brasiliensis*), o gato-do-mato (*Leopardus tigrinus*),
-        a jaguatirica (*Leopardus pardalis*), o gato mourisco (*Leopardus yagouaroundi*)
-        e as onças parda (*Puma concolor*) e pintada (*Panthera onca*). Na Pedra Rachada,
-        escaladores já visualizaram na estrada, na “volta do nightclimb” uma onça
-        parda atravessando-a, e também há registros de visualizações de tapetis, carcarás
-        e raposinhas, o que não exclui a possibilidade das demais espécies, com exceção
-        da onça pintada, também estarem presentes na região.
-
-
-        Com relação aos invertebrados, os cupins, insetos da Ordem Isoptera, Família
-        Termitidae, são de grande importância, sobretudo pelo seu papel no fluxo de
-        energia no ecossistema, atuando como herbívoros vorazes e servindo de alimentos
-        para um grande número de espécies, tais como o tamanduá-bandeira, as diversas
-        espécies de tatus, a cobra-de-duas-cabeças, dentre outras. Outra ordem de
-        grande importância é a das formigas e abelhas, Ordem Hymenoptera, sobretudo
-        pelo importante papel das abelhas na polinização das flores.
-
-
-        Com isso escaladores, devemos estar atentos a deixar sempre o ambiente da
-        forma na qual o encontramos, para que este sempre nos surpreenda com sua riqueza
-        e belezas naturais. Devemos nos atentar a preservá-lo sempre, mantendo-o limpo
-        e evitando deixar restos de alimentos industrializados na base das pedras
-        e curso das trilhas, pois estes podem ser ingeridos pelos animais silvestres
-        lhes causando danos ao seu bem estar.
-
+        Com isso escaladores, devemos estar atentos a deixar sempre o ambiente da forma na qual o encontramos, para que este sempre nos surpreenda com sua riqueza e belezas naturais. Devemos nos atentar a preservá-lo sempre, mantendo-o limpo e evitando deixar restos de alimentos industrializados na base das pedras e curso das trilhas, pois estes podem ser ingeridos pelos animais silvestres lhes causando danos ao seu bem estar.
 
         Além disso:
+        - Cuidado redobrado deve ser tomado com relação às abelhas, pois pessoas alérgicas podem ter fortes reações às suas picadas, portanto, evitem ao máximo estar em locais com colmeias ou na presença de enxames em voo.
+        - Cascavéis e jararacas se “simpatizam” muito à ambientes como o da Pedra Rachada, então esteja sempre atento ao caminhar nas trilhas e aos locais nos quais colocará sua mochila ou se sentará para lanchar.
+        - A mesma atenção dada à presença das cobras, também deve ser dada à aranhas e escorpiões, que também estão sempre presentes em ambientes de pedreiras e em campos abertos.
 
-        - Cuidado redobrado deve ser tomado com relação às abelhas, pois pessoas alérgicas
-        podem ter fortes reações às suas picadas, portanto, evitem ao máximo estar
-        em locais com colmeias ou na presença de enxames em voo.
-
-        - Cascavéis e jararacas se “simpatizam” muito à ambientes como o da Pedra
-        Rachada, então esteja sempre atento ao caminhar nas trilhas e aos locais nos
-        quais colocará sua mochila ou se sentará para lanchar.
-
-        - A mesma atenção dada à presença das cobras, também deve ser dada à aranhas
-        e escorpiões, que também estão sempre presentes em ambientes de pedreiras
-        e em campos abertos.
-
-
-        | ![Aranha em sua teia nos arredores da Pedra Rachada](imagens/ecossistema_p1_i0.webp)
-        |
-
+        | ![Aranha em sua teia nos arredores da Pedra Rachada](imagens/ecossistema_p1_i0.webp) |
         | :--: |
-
         | *Aranha em sua teia nos arredores da Pedra Rachada* |
-
 
         ## Vegetação
 
-
-        A fitofisionomia se configura em um mosaico formado por Savana Arbórea ou
-        Cerrado senso stricto, Savana graminho-lenhosa associada à Campos Rupestres
-        geralmente com ocorrência para altitudes superiores à 1500 metros nas cristas
-        das serras, e Campos Rupestres que aparecem nos afloramentos e solos litólicos
-        de itabirito característicos da Pedra Rachada.
-
+        A fitofisionomia se configura em um mosaico formado por Savana Arbórea ou Cerrado senso stricto, Savana graminho-lenhosa associada à Campos Rupestres geralmente com ocorrência para altitudes superiores à 1500 metros nas cristas das serras, e Campos Rupestres que aparecem nos afloramentos e solos litólicos de itabirito característicos da Pedra Rachada.
 
         ## Clima
 
-
-        O período ideal para a prática da escalada na Pedra Rachada é durante o outono
-        e o inverno, do início de maio até o início de setembro, quando as temperaturas
-        tornam-se mais amenas e a umidade relativa do ar é mais baixa. Nessa época,
-        como dizem os escaladores locais, a pedra fica “colando”, perfeita para encadear
-        seus projetos. De outubro a abril, as temperaturas são mais elevadas e as
-        chances de chuva aumentam, especialmente no período de dezembro a março. Esta
-        não é a melhor época para uma escalada forte durante o dia e muita atenção
-        para fortes tempestades deve ser tomada, mas durante a noite o tempo está
-        sempre fresco, perfeito para o night climb, tradicional no setor.'
+        O período ideal para a prática da escalada na Pedra Rachada é durante o outono e o inverno, do início de maio até o início de setembro, quando as temperaturas tornam-se mais amenas e a umidade relativa do ar é mais baixa. Nessa época, como dizem os escaladores locais, a pedra fica “colando”, perfeita para encadear seus projetos. De outubro a abril, as temperaturas são mais elevadas e as chances de chuva aumentam, especialmente no período de dezembro a março. Esta não é a melhor época para uma escalada forte durante o dia e muita atenção para fortes tempestades deve ser tomada, mas durante a noite o tempo está sempre fresco, perfeito para o night climb, tradicional no setor.
 - texto: Onde Ficar
   destino:
     secao_textual:
@@ -6905,215 +6484,92 @@ botoes:
 - texto: Ética Local
   destino:
     secao_textual:
-      conteudo: '# Ética Local
+      conteudo: |-
+        # Ética Local
 
+        Amigo montanhista, antes de tudo é importante lembrar que você está entrando em uma Área de Preservação Ambiental. Para evitar a proibição da escalada no local (como já ocorreu em vários outros importantes setores de escalada nos arredores de Belo Horizonte) seja consciente em seus atos, siga as regras básicas de conduta, sejam cordiais e pratiquem o mínimo impacto. A natureza e a comunidade escaladora agradece.
 
-        Amigo montanhista, antes de tudo é importante lembrar que você está entrando
-        em uma Área de Preservação Ambiental. Para evitar a proibição da escalada
-        no local (como já ocorreu em vários outros importantes setores de escalada
-        nos arredores de Belo Horizonte) seja consciente em seus atos, siga as regras
-        básicas de conduta, sejam cordiais e pratiquem o mínimo impacto. A natureza
-        e a comunidade escaladora agradece.
-
-
-        - Estacione sempre nos locais apropriados e sem obstruir a passagem (muitos
-        caminhões transitam nesta estrada).
-
-        - Entre em harmonia com a natureza, este é um local de vida selvagem. Respeite
-        e ajude a preservar a fauna e a flora local e tome cuidado com animais peçonhentos.
-
+        - Estacione sempre nos locais apropriados e sem obstruir a passagem (muitos caminhões transitam nesta estrada).
+        - Entre em harmonia com a natureza, este é um local de vida selvagem. Respeite e ajude a preservar a fauna e a flora local e tome cuidado com animais peçonhentos.
         - Evite fazer fogueiras e acampar no local, seja consciente em seus atos.
-
-        - Afaste-se das trilhas e dos boulders para fazer suas necessidades fisiológicas,
-        enterre-as sempre e não deixe papel higiênico no local.
-
-        - Aproveite seu momento com a natureza e evite o uso de qualquer aparelho
-        de som. Caso queira escalar ouvindo suas músicas preferidas, lembre-se de
-        respeitar a liberdade de escolha dos outros e também a fauna local. Uma boa
-        alternativa é o uso dos fones de ouvido.
-
-        - Ajude a conservar e melhorar sempre a base dos boulders e as trilhas de
-        acesso.
-
+        - Afaste-se das trilhas e dos boulders para fazer suas necessidades fisiológicas, enterre-as sempre e não deixe papel higiênico no local.
+        - Aproveite seu momento com a natureza e evite o uso de qualquer aparelho de som. Caso queira escalar ouvindo suas músicas preferidas, lembre-se de respeitar a liberdade de escolha dos outros e também a fauna local. Uma boa alternativa é o uso dos fones de ouvido.
+        - Ajude a conservar e melhorar sempre a base dos boulders e as trilhas de acesso.
         - Caminhe sempre nas trilhas demarcadas evitando danificar a vegetação local.
-
 
         ## Antes de escalar:
 
-
-        - A escalada é um esporte seguro quando praticado com consciência, não se
-        esqueça nunca que você é o responsável por sua segurança e pratique o esporte
-        somente se for capacitado.
-
-        - Atente para a sua segurança e a segurança de seus parceiros, tome cuidado
-        com pedras na base dos boulders, com agarras quebrando e principalmente nas
-        viradas dos boulders.
-
-        - Verifique se não há nenhum animal peçonhento próximo ao boulder ou dentro
-        das agarras.
-
-        - Respeite a paz dos habitantes locais, se houver algum ninho em um boulder,
-        mantenha distância e não escale próximo à ele.
-
-        - Antes de deixar o local, escove o excesso de magnésio das agarras e verifique
-        se não está deixando nenhum lixo para trás.
-
-        - Lixo: você é responsável pelo seu, leve-o de volta (atenção com as guimbas
-        de cigarro e os esparadrapos usados).
-
-        - Aproveite seu dia de escalada e, acima de tudo, tenha bom senso.'
+        - A escalada é um esporte seguro quando praticado com consciência, não se esqueça nunca que você é o responsável por sua segurança e pratique o esporte somente se for capacitado.
+        - Atente para a sua segurança e a segurança de seus parceiros, tome cuidado com pedras na base dos boulders, com agarras quebrando e principalmente nas viradas dos boulders.
+        - Verifique se não há nenhum animal peçonhento próximo ao boulder ou dentro das agarras.
+        - Respeite a paz dos habitantes locais, se houver algum ninho em um boulder, mantenha distância e não escale próximo à ele.
+        - Antes de deixar o local, escove o excesso de magnésio das agarras e verifique se não está deixando nenhum lixo para trás.
+        - Lixo: você é responsável pelo seu, leve-o de volta (atenção com as guimbas de cigarro e os esparadrapos usados).
+        - Aproveite seu dia de escalada e, acima de tudo, tenha bom senso.
 - texto: Como Chegar na Pedra Rachada
   destino:
     secao_textual:
-      conteudo: '# Como Chegar na Pedra Rachada (Mapa)
+      conteudo: |-
+        # Como Chegar na Pedra Rachada (Mapa)
 
-
-        | ![Mapa de Acesso à Pedra Rachada](imagens/como_chegar_pedra_rachada_mapa_acesso.webp)
-        |
-
+        | ![Mapa de Acesso à Pedra Rachada](imagens/como_chegar_pedra_rachada_mapa_acesso.webp) |
         | :--: |
-
-        | *Mapa de Acesso à Pedra Rachada* |'
+        | *Mapa de Acesso à Pedra Rachada* |
 - texto: História
   destino:
     secao_textual:
-      conteudo: '# História
+      conteudo: |-
+        # História
 
+        **1991** – A Pedra Rachada começa a ser explorada por três jovens amigos, de apenas 16 anos de idade, Fabiano Fernandes, Eustáquio e Emerson Azevedo, o Caverna. Eles não tinham carro, subiam a pé de Sabará até o setor e procuravam pelas pedras mais altas, para escalar de Top Rope – eles faziam o acesso ao topo do bloco e montavam o Top com os equipamentos que tinham na época.
 
-        **1991** – A Pedra Rachada começa a ser explorada por três jovens amigos,
-        de apenas 16 anos de idade, Fabiano Fernandes, Eustáquio e Emerson Azevedo,
-        o Caverna. Eles não tinham carro, subiam a pé de Sabará até o setor e procuravam
-        pelas pedras mais altas, para escalar de Top Rope – eles faziam o acesso ao
-        topo do bloco e montavam o Top com os equipamentos que tinham na época.
+        **1992** – Os três amigos começaram a frequentar outros picos de escalada em Minas Gerais, como a Serra do Cipó e a Pedra Branca, e a escalada na Pedra Rachada ficou abandonada por um tempo.
 
+        **1996** – Uma nova turma começou a frequentar o setor. Os meninos Chander Cristian, Dalber Fernandes “Bim”, Francisco Queiroz “Chico” e Gustavo Rocha “Passarinho” não conheciam muito a escalada nem o boulder, mas gostaram da idéia de subir pedra e se aventurar no local! Na época não tinham equipamentos e escalavam com tênis de futsal. Adoravam o esporte, escalavam alguns boulders mais difíceis e arriscavam-se até em alguns highballs.
 
-        **1992** – Os três amigos começaram a frequentar outros picos de escalada
-        em Minas Gerais, como a Serra do Cipó e a Pedra Branca, e a escalada na Pedra
-        Rachada ficou abandonada por um tempo.
+        **1998** – Chander, Bim, Chico e Passarinho fizeram um curso de escalada com Emerson “Caverna”, conseguiram comprar seus primeiros equipamentos e começaram a frequentar picos de escalada esportiva. Novamente a Pedra Rachada ficou abandonada.
 
+        **2000/2001** – Christian Fernandes animou novamente a turma de Chander e Bim, e começaram a explorar a Pedra Rachada. Nesse período foram conquistados pelo menos 20 boulders nos blocos 1 e 2!
 
-        **1996** – Uma nova turma começou a frequentar o setor. Os meninos Chander
-        Cristian, Dalber Fernandes “Bim”, Francisco Queiroz “Chico” e Gustavo Rocha
-        “Passarinho” não conheciam muito a escalada nem o boulder, mas gostaram da
-        idéia de subir pedra e se aventurar no local! Na época não tinham equipamentos
-        e escalavam com tênis de futsal. Adoravam o esporte, escalavam alguns boulders
-        mais difíceis e arriscavam-se até em alguns highballs.
+        **2004** – Em uma madrugada de muita conversa, os escaladores Felipe Álvares, o Cabeção e Gustavinho Fontes decidiram conhecer a Pedra Rachada. Ligaram para Emerson “Caverna” e às 4h da manhã passaram em sua casa para começar a empreitada. Ao nascer do Sol, já tinham escalado muito nos blocos 1 e 2, e logo no início da manhã voltaram para o trabalho. Maravilhados com a beleza e potencial da Pedra Rachada, começaram a fazer divulgação boca a boca do setor e juntar os amigos para escalar no local.
 
+        **2005** – Nesse ano, Belo Horizonte sediou o Campeonato Brasileiro de Escalada em Belo Horizonte. A capital recebeu nomes fortes da escalada brasileira, como Tiago Veloso, Mateus Veloso e Diogo Ratacheski. Felipe “Cabeção” e Gustavinho aproveitaram a oportunidade e levaram a turma para conhecer a Pedra Rachada. Nesse dia foram abertos os boulders “Tosco” v8, “Rollings Stones” v8 e “Gaston a la meson” v6, super clássicos do setor!
 
-        **1998** – Chander, Bim, Chico e Passarinho fizeram um curso de escalada com
-        Emerson “Caverna”, conseguiram comprar seus primeiros equipamentos e começaram
-        a frequentar picos de escalada esportiva. Novamente a Pedra Rachada ficou
-        abandonada.
+        **2005** – Em agosto do mesmo ano, Felipe “Cabeção” e Gustavinho, que estavam bem dedicados ao setor, decidiram realizar o 1º Festival da Pedra Rachada.
 
+        **2007** – Cabeção lança, em parceria com Daniel Mentes, o TioDan, o 1º croqui da Pedra Rachada! O croqui foi lançado no 3º Festival da Pedra Rachada, um evento de grande repercussão que levantou e apresentou o setor para o Brasil!
 
-        **2000/2001** – Christian Fernandes animou novamente a turma de Chander e
-        Bim, e começaram a explorar a Pedra Rachada. Nesse período foram conquistados
-        pelo menos 20 boulders nos blocos 1 e 2!
+        **2009** – O escalador Rafael Passos realiza a primeira ascensão (FA) do “Projeto Sabará” e sugere o grau v12, a linha mais clássica do local! Este é, até hoje, o boulder mais difícil já aberto no setor.
 
+        **2012** – Felipe “Cabeção” e Daniel “TioDan” organizaram a 1ª Ação Pedra Rachada de Cara Nova. A ação consistiu em limpar as trilhas e melhorar as bases dos blocos, com o deslocamento de pedras e criação de contenções no caso de buracos ou descidas íngremes. O objetivo era melhorar o setor e torná-lo mais seguro para a prática da escalada. As ações tornaram-se um evento tradicional no pico.
 
-        **2004** – Em uma madrugada de muita conversa, os escaladores Felipe Álvares,
-        o Cabeção e Gustavinho Fontes decidiram conhecer a Pedra Rachada. Ligaram
-        para Emerson “Caverna” e às 4h da manhã passaram em sua casa para começar
-        a empreitada. Ao nascer do Sol, já tinham escalado muito nos blocos 1 e 2,
-        e logo no início da manhã voltaram para o trabalho. Maravilhados com a beleza
-        e potencial da Pedra Rachada, começaram a fazer divulgação boca a boca do
-        setor e juntar os amigos para escalar no local.
-
-
-        **2005** – Nesse ano, Belo Horizonte sediou o Campeonato Brasileiro de Escalada
-        em Belo Horizonte. A capital recebeu nomes fortes da escalada brasileira,
-        como Tiago Veloso, Mateus Veloso e Diogo Ratacheski. Felipe “Cabeção” e Gustavinho
-        aproveitaram a oportunidade e levaram a turma para conhecer a Pedra Rachada.
-        Nesse dia foram abertos os boulders “Tosco” v8, “Rollings Stones” v8 e “Gaston
-        a la meson” v6, super clássicos do setor!
-
-
-        **2005** – Em agosto do mesmo ano, Felipe “Cabeção” e Gustavinho, que estavam
-        bem dedicados ao setor, decidiram realizar o 1º Festival da Pedra Rachada.
-
-
-        **2007** – Cabeção lança, em parceria com Daniel Mentes, o TioDan, o 1º croqui
-        da Pedra Rachada! O croqui foi lançado no 3º Festival da Pedra Rachada, um
-        evento de grande repercussão que levantou e apresentou o setor para o Brasil!
-
-
-        **2009** – O escalador Rafael Passos realiza a primeira ascensão (FA) do “Projeto
-        Sabará” e sugere o grau v12, a linha mais clássica do local! Este é, até hoje,
-        o boulder mais difícil já aberto no setor.
-
-
-        **2012** – Felipe “Cabeção” e Daniel “TioDan” organizaram a 1ª Ação Pedra
-        Rachada de Cara Nova. A ação consistiu em limpar as trilhas e melhorar as
-        bases dos blocos, com o deslocamento de pedras e criação de contenções no
-        caso de buracos ou descidas íngremes. O objetivo era melhorar o setor e torná-lo
-        mais seguro para a prática da escalada. As ações tornaram-se um evento tradicional
-        no pico.
-
-
-        **2014** – O Guia de Escalada Pedra Rachada Bouldering é lançado no 10º Festival
-        Pedra Rachada Bouldering em homenagem ao aniversário do setor, um presente
-        para os aficionados pela escalada em boulder! Foi o primeiro guia completo
-        de escalada a ser lançado no Brasil! O Festival contou com a presença de grandes
-        escaladores de todo o país!'
+        **2014** – O Guia de Escalada Pedra Rachada Bouldering é lançado no 10º Festival Pedra Rachada Bouldering em homenagem ao aniversário do setor, um presente para os aficionados pela escalada em boulder! Foi o primeiro guia completo de escalada a ser lançado no Brasil! O Festival contou com a presença de grandes escaladores de todo o país!
 - texto: Como Usar este Guia
   destino:
     secao_textual:
-      conteudo: '# Como Usar Este Guia
-
+      conteudo: |-
+        # Como Usar Este Guia
 
         ## Graduação + Legenda
 
-
-        | ![Graduação e Legenda](imagens/como_usar_este_guia_graduacao_legenda.webp)
-        |
-
+        | ![Graduação e Legenda](imagens/como_usar_este_guia_graduacao_legenda.webp) |
         | :--: |
-
-        | *Graduação e Legenda* |'
+        | *Graduação e Legenda* |
 - texto: Sobre os Autores
   destino:
     secao_textual:
-      conteudo: '# Sobre os Autores
+      conteudo: |-
+        # Sobre os Autores
 
-
-        | ![Luca Portilho e Nathalia Daneliczin](imagens/sobre_os_autores_p0_i0.webp)
-        |
-
+        | ![Luca Portilho e Nathalia Daneliczin](imagens/sobre_os_autores_p0_i0.webp) |
         | :--: |
-
         | *Luca Portilho e Nathalia Daneliczin* |
 
+        Luca é esportista desde criança. Nasceu em 21 de março de 1988 na cidade de Uberlândia, Minas Gerais, onde corria para todos os lados. Aos 12 anos, mudou-se para Vila Velha, onde passou sua adolescência e praticou vários esportes, como corrida de aventura, triátlon e surf. Em 2010 conheceu a escalada e apaixonou-se! Veio para Belo Horizonte aos 22 anos, onde mora até hoje. Trabalha como route-setter numa academia de escalada e como rigger – responsável pela montagem e desmontagem da estrutura – no Cirque du Soleil. Nas horas vagas? Assiste a vídeos de escalada e escala. Adora um boulder clássico, mas é apaixonado mesmo pelas vias e paredes. É ávido por desafios e sonha em escalar na França, berço do esporte. Outro sonho é mudar-se para o meio do mato e morar na base de uma montanha cheia de vias clássicas. Está numa nova fase em sua vida profissional, lançou seu primeiro guia de escalada e pretende lançar novos guias em breve, sabendo da importância desse trabalho para a comunidade escaladora do Brasil.
 
-        Luca é esportista desde criança. Nasceu em 21 de março de 1988 na cidade de
-        Uberlândia, Minas Gerais, onde corria para todos os lados. Aos 12 anos, mudou-se
-        para Vila Velha, onde passou sua adolescência e praticou vários esportes,
-        como corrida de aventura, triátlon e surf. Em 2010 conheceu a escalada e apaixonou-se!
-        Veio para Belo Horizonte aos 22 anos, onde mora até hoje. Trabalha como route-setter
-        numa academia de escalada e como rigger – responsável pela montagem e desmontagem
-        da estrutura – no Cirque du Soleil. Nas horas vagas? Assiste a vídeos de escalada
-        e escala. Adora um boulder clássico, mas é apaixonado mesmo pelas vias e paredes.
-        É ávido por desafios e sonha em escalar na França, berço do esporte. Outro
-        sonho é mudar-se para o meio do mato e morar na base de uma montanha cheia
-        de vias clássicas. Está numa nova fase em sua vida profissional, lançou seu
-        primeiro guia de escalada e pretende lançar novos guias em breve, sabendo
-        da importância desse trabalho para a comunidade escaladora do Brasil.
+        É apaixonado pela vida, pela natureza e tem um coração enorme. É o escalador mais apaixonado que eu conheço.
 
-
-        É apaixonado pela vida, pela natureza e tem um coração enorme. É o escalador
-        mais apaixonado que eu conheço.
-
-
-        Sou ex jogadora de vôlei – joguei dos 8 aos 21 anos, servi a Seleção Brasileira
-        de base dos 14 aos 17, joguei seis Superligas e devo a esse esporte lindo
-        tudo que conquistei e aprendi até hoje, e as amizades maravilhosas que tenho
-        – e estudante de administração. Belo Horizontina apaixonada pela cidade, pelas
-        flores e pelo mar, pelo Sol e pela vida. Meu sonho é viajar o mundo e nutrir
-        minha alma, alimentar-me de conhecimento e ser uma pessoa melhor a cada dia.
-        Acredito que a verdade e a sinceridade podem mudar o mundo. Acredito que felicidade
-        é de responsabilidade nossa e devemos abraçá-la todos os dias, vivendo da
-        melhor maneira possível, fazendo o bem e amando muito. Nasci em 26 de agosto
-        de 1991 e me chamo Nathalia Daneliczin. Esse é o meu primeiro livro publicado,
-        ainda espero escrever e publicar algumas idéias por aí.'
+        Sou ex jogadora de vôlei – joguei dos 8 aos 21 anos, servi a Seleção Brasileira de base dos 14 aos 17, joguei seis Superligas e devo a esse esporte lindo tudo que conquistei e aprendi até hoje, e as amizades maravilhosas que tenho – e estudante de administração. Belo Horizontina apaixonada pela cidade, pelas flores e pelo mar, pelo Sol e pela vida. Meu sonho é viajar o mundo e nutrir minha alma, alimentar-me de conhecimento e ser uma pessoa melhor a cada dia. Acredito que a verdade e a sinceridade podem mudar o mundo. Acredito que felicidade é de responsabilidade nossa e devemos abraçá-la todos os dias, vivendo da melhor maneira possível, fazendo o bem e amando muito. Nasci em 26 de agosto de 1991 e me chamo Nathalia Daneliczin. Esse é o meu primeiro livro publicado, ainda espero escrever e publicar algumas idéias por aí.
 ultima_migracao: 4
 arquivos_externos:
 - caminho: imagens/a_cidade_de_sabara_p0_i0.webp

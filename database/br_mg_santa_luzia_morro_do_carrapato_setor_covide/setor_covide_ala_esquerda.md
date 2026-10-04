@@ -114,31 +114,18 @@ escaladas:
     conquistadores:
     - Márcio Macena
     - Helder Coelho
-    descricao: '**Equipamentos:**
-
+    descricao: |-
+      **Equipamentos:**
       - 1x Corda 20m
-
       - 1x costura curta
-
       - 1x parada dupla montada
 
-
       **Observações:**
-
-      - Esta via pode ser utilizada em conjunto com a Astracênica, com proteções na
-      quina da rocha.'
+      - Esta via pode ser utilizada em conjunto com a Astracênica, com proteções na quina da rocha.
   mapas:
   - caminho_imagem_mapa: imagens/setor_covide_ala_esquerda_p2.webp
     largura_mapa: 825
     altura_mapa: 1211
-    pontos_de_interesse:
-    - id: P1
-      label: P1
-      retangulo:
-        x: 616
-        y: 209
-        comprimento: 28
-        largura: 20
 - via_esportiva:
     nome: Exclusão social
     dificuldade: BR_5
@@ -148,25 +135,15 @@ escaladas:
     conquistadores:
     - Alessandro Babado
     - Márcio Macena
-    descricao: '**Equipamentos:**
-
+    descricao: |-
+      **Equipamentos:**
       - 1x Corda 20m
-
       - 3x costuras curtas
-
-      - 1x parada dupla montada'
+      - 1x parada dupla montada
   mapas:
   - caminho_imagem_mapa: imagens/setor_covide_ala_esquerda_p3.webp
     largura_mapa: 825
     altura_mapa: 1211
-    pontos_de_interesse:
-    - id: P1
-      label: P1
-      retangulo:
-        x: 514
-        y: 138
-        comprimento: 28
-        largura: 20
 - via_esportiva:
     nome: Exputinick
     dificuldade: BR_5SUP
@@ -176,30 +153,18 @@ escaladas:
     conquistadores:
     - Alessandro Babado
     - Márcio Macena
-    descricao: '**Equipamentos:**
-
+    descricao: |-
+      **Equipamentos:**
       - 1x Corda 30m
-
       - 5x costuras curtas
-
       - 1x parada dupla montada
 
-
       **Observações:**
-
-      - Para montagem de toprope, utilize a parada da direita, evitando a quina.'
+      - Para montagem de toprope, utilize a parada da direita, evitando a quina.
   mapas:
   - caminho_imagem_mapa: imagens/setor_covide_ala_esquerda_p4.webp
     largura_mapa: 825
     altura_mapa: 1211
-    pontos_de_interesse:
-    - id: P1
-      label: P1
-      retangulo:
-        x: 660
-        y: 80
-        comprimento: 26
-        largura: 18
 - via_esportiva:
     nome: Y de Covide
     dificuldade: BR_6SUP
@@ -209,32 +174,15 @@ escaladas:
     conquistadores:
     - Márcio Macena
     - Samuel Lusane
-    descricao: '**Equipamentos:**
-
+    descricao: |-
+      **Equipamentos:**
       - 1x Corda 30m
-
       - 5x costuras curtas
-
-      - 1x parada dupla montada'
+      - 1x parada dupla montada
   mapas:
   - caminho_imagem_mapa: imagens/setor_covide_ala_esquerda_p5.webp
     largura_mapa: 825
     altura_mapa: 1211
-    pontos_de_interesse:
-    - id: P1 Vsup
-      label: P1 Vsup
-      retangulo:
-        x: 363
-        y: 260
-        comprimento: 78
-        largura: 20
-    - id: P1 VIsup
-      label: P1 VIsup
-      retangulo:
-        x: 526
-        y: 228
-        comprimento: 82
-        largura: 20
 - via_esportiva:
     nome: Vitiligovide
     dificuldade: BR_7B
@@ -244,25 +192,15 @@ escaladas:
     conquistadores:
     - Márcio Macena
     - Samuel Lusane
-    descricao: '**Equipamentos:**
-
+    descricao: |-
+      **Equipamentos:**
       - 1x Corda 30m
-
       - 5x costuras curtas
-
-      - 1x parada dupla montada'
+      - 1x parada dupla montada
   mapas:
   - caminho_imagem_mapa: imagens/setor_covide_ala_esquerda_p6.webp
     largura_mapa: 825
     altura_mapa: 1211
-    pontos_de_interesse:
-    - id: P1
-      label: P1
-      retangulo:
-        x: 559
-        y: 74
-        comprimento: 26
-        largura: 18
 - via_esportiva:
     nome: Fayserchover
     dificuldade: BR_8B
@@ -272,25 +210,15 @@ escaladas:
     conquistadores:
     - Márcio Macena
     - Samuel Lusane
-    descricao: '**Equipamentos:**
-
+    descricao: |-
+      **Equipamentos:**
       - 1x Corda 30m
-
       - 6x costuras curtas
-
-      - 1x parada dupla montada'
+      - 1x parada dupla montada
   mapas:
   - caminho_imagem_mapa: imagens/setor_covide_ala_esquerda_p7.webp
     largura_mapa: 825
     altura_mapa: 1211
-    pontos_de_interesse:
-    - id: P1
-      label: P1
-      retangulo:
-        x: 437
-        y: 134
-        comprimento: 26
-        largura: 18
 - via_esportiva:
     nome: Covid com C maiúsculo
     dificuldade: BR_8C
@@ -300,30 +228,18 @@ escaladas:
     conquistadores:
     - Márcio Macena
     - Samuel Lusane
-    descricao: '**Equipamentos:**
-
+    descricao: |-
+      **Equipamentos:**
       - 1x Corda 40m
-
       - 6x costuras curtas
-
       - 1x parada dupla montada
 
-
       **Observações:**
-
-      - Parada sem visualização ao nível do solo.'
+      - Parada sem visualização ao nível do solo.
   mapas:
   - caminho_imagem_mapa: imagens/setor_covide_ala_esquerda_p8.webp
     largura_mapa: 825
     altura_mapa: 1211
-    pontos_de_interesse:
-    - id: P1
-      label: P1
-      retangulo:
-        x: 565
-        y: 65
-        comprimento: 26
-        largura: 18
 - via_esportiva:
     nome: Ômicronibus
     dificuldade: BR_7C
@@ -333,30 +249,18 @@ escaladas:
     conquistadores:
     - Márcio Macena
     - Samuel Lusane
-    descricao: '**Equipamentos:**
-
+    descricao: |-
+      **Equipamentos:**
       - 1x Corda 40m
-
       - 7x costuras curtas
-
       - 1x parada dupla montada
 
-
       **Observações:**
-
-      - Parada sem visualização ao nível do solo.'
+      - Parada sem visualização ao nível do solo.
   mapas:
   - caminho_imagem_mapa: imagens/setor_covide_ala_esquerda_p9.webp
     largura_mapa: 825
     altura_mapa: 1211
-    pontos_de_interesse:
-    - id: P1
-      label: P1
-      retangulo:
-        x: 560
-        y: 81
-        comprimento: 26
-        largura: 18
 - via_esportiva:
     nome: Ômicron ondas
     dificuldade: BR_8A
@@ -366,25 +270,15 @@ escaladas:
     conquistadores:
     - Márcio Macena
     - Samuel Lusane
-    descricao: '**Equipamentos:**
-
+    descricao: |-
+      **Equipamentos:**
       - 1x Corda 40m
-
       - 6x costuras curtas
-
-      - 1x parada dupla montada'
+      - 1x parada dupla montada
   mapas:
   - caminho_imagem_mapa: imagens/setor_covide_ala_esquerda_p10.webp
     largura_mapa: 825
     altura_mapa: 1211
-    pontos_de_interesse:
-    - id: P1
-      label: P1
-      retangulo:
-        x: 480
-        y: 46
-        comprimento: 26
-        largura: 18
 - via_esportiva:
     nome: Aracnocovid
     dificuldade: BR_7C
@@ -394,25 +288,15 @@ escaladas:
     conquistadores:
     - Márcio Macena
     - Samuel Lusane
-    descricao: '**Equipamentos:**
-
+    descricao: |-
+      **Equipamentos:**
       - 1x Corda 40m
-
       - 6x costuras curtas
-
-      - 1x parada dupla montada'
+      - 1x parada dupla montada
   mapas:
   - caminho_imagem_mapa: imagens/setor_covide_ala_esquerda_p11.webp
     largura_mapa: 825
     altura_mapa: 1211
-    pontos_de_interesse:
-    - id: P1
-      label: P1
-      retangulo:
-        x: 466
-        y: 142
-        comprimento: 26
-        largura: 18
 ---
 
 # Setor Covide (ala esquerda)

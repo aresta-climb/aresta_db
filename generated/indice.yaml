@@ -248,7 +248,7 @@ croquis:
   caminho_relativo: br_mg_lagoa_santa_gruta_da_lapinha/compilado.binarypb
   checksum_sha256_croqui: fe9152cb1bce7b4be5e106ca4082d8cf23265319e244d5e5ffbe217abdd114fa
   checksum_sha256_thumbnail: 76c57c2b9159772355858ad8f40ba79a8584dfdda215379031adc9afff1f1416
-  timestamp_update: '2026-09-30T00:12:26Z'
+  timestamp_update: '2026-10-04T02:15:27Z'
   precomputados:
     total_escaladas: 129
     total_setores: 10
@@ -347,7 +347,7 @@ croquis:
   caminho_relativo: br_mg_pedro_leopoldo_gruta_do_bau/compilado.binarypb
   checksum_sha256_croqui: a9471d2def3ca407a0288bea418b320812bb8cb8d27e302e896923b8c5fadbcd
   checksum_sha256_thumbnail: dd7a58f4b98506504be378b79117fe97b45fcd5fc927d31680d4c20a54b59052
-  timestamp_update: '2026-10-02T18:01:00Z'
+  timestamp_update: '2026-10-04T02:15:27Z'
   precomputados:
     total_escaladas: 339
     total_setores: 13
@@ -358,23 +358,6 @@ croquis:
   localizacao:
     latitude: -195534530
     longitude: -439898860
-- id: br_mg_sabara_pedra_rachada
-  nome: Pedra Rachada Bouldering
-  descricao: Guia de escalada em boulder da Pedra Rachada, localizada em Sabará, Minas
-    Gerais.
-  caminho_relativo: br_mg_sabara_pedra_rachada/compilado.binarypb
-  checksum_sha256_croqui: 1a5805d0ab4af12f05c48adb783e9d06720e1940a07cd85ff9c252e1ba4f043f
-  checksum_sha256_thumbnail: 3fe4cb0f3c23a12632a700158678566ec2c67aa7074ab1bea64efbc17299e9f2
-  timestamp_update: '2026-10-04T01:20:20Z'
-  precomputados:
-    total_escaladas: 463
-    total_setores: 98
-    total_grupos: 12
-    total_boulders: 463
-    tamanho_download_bytes: 40514652
-  localizacao:
-    latitude: -198406220
-    longitude: -437629060
 - id: br_mg_sabara_pedra_rachada_setor_horizonte
   nome: Sabará - Pedra Rachada - Setor Horizonte
   descricao: ''
@@ -411,15 +394,15 @@ croquis:
   nome: Morro do Carrapato - Setor Covide
   descricao: ''
   caminho_relativo: br_mg_santa_luzia_morro_do_carrapato_setor_covide/compilado.binarypb
-  checksum_sha256_croqui: 62649d7b5a1f56cb392d5c7ec2c3dde8e9aad658470f9b3c8c46106be9959589
+  checksum_sha256_croqui: d57fd1637e1e020cec356b909a7a725d23adc3239cd5a94f7117dd65c064a7cc
   checksum_sha256_thumbnail: 0c93f073dc2a415f562f1f237494c4b1f939f50bd050323fc9e073bc69a1d8f1
-  timestamp_update: '2026-09-28T12:47:59Z'
+  timestamp_update: '2026-10-04T02:15:27Z'
   precomputados:
     total_escaladas: 31
     total_setores: 3
     total_grupos: 0
     total_esportivas: 31
-    tamanho_download_bytes: 12913200
+    tamanho_download_bytes: 12912444
   localizacao:
     latitude: -197584200
     longitude: -438851100

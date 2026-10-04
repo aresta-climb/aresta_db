@@ -53,33 +53,15 @@ escaladas:
     conquistadores:
     - Ana
     - Márcio Macena
-    descricao: '**Equipamentos:**
-
+    descricao: |-
+      **Equipamentos:**
       - 1x Corda 60m
-
       - 5x costuras curtas
-
-      - 1x parada dupla montada'
+      - 1x parada dupla montada
   mapas:
   - caminho_imagem_mapa: imagens/setor_covide_ala_aderencia_p2.webp
     largura_mapa: 825
     altura_mapa: 1211
-    pontos_de_interesse:
-    - id: P1
-      label: P1
-      retangulo:
-        x: 659
-        y: 80
-        comprimento: 26
-        largura: 18
-    - id: nome_via_rocha
-      label: VIA BUTANTANA
-      retangulo:
-        x: 353
-        y: 952
-        comprimento: 120
-        largura: 28
-        angulo_graus_x100: 1800
 - via_esportiva:
     nome: Convite 19
     dificuldade: BR_4
@@ -89,31 +71,18 @@ escaladas:
     conquistadores:
     - Alessandro Babado
     - Márcio Macena
-    descricao: '**Equipamentos:**
-
+    descricao: |-
+      **Equipamentos:**
       - 1x Corda 60m
-
       - 5x costuras curtas
-
       - 1x parada dupla montada
 
-
       **Observações:**
-
-      - Está com uma parada simples. Recomendamos assim, utilizar a parada à direita
-      - da Astracênica.'
+      - Está com uma parada simples. Recomendamos assim, utilizar a parada à direita - da Astracênica.
   mapas:
   - caminho_imagem_mapa: imagens/setor_covide_ala_aderencia_p3.webp
     largura_mapa: 825
     altura_mapa: 1211
-    pontos_de_interesse:
-    - id: P1
-      label: P1
-      retangulo:
-        x: 622
-        y: 176
-        comprimento: 26
-        largura: 18
 - via_esportiva:
     nome: Astracênica
     dificuldade: BR_4
@@ -123,25 +92,15 @@ escaladas:
     conquistadores:
     - Alessandro Babado
     - Márcio Macena
-    descricao: '**Equipamentos:**
-
+    descricao: |-
+      **Equipamentos:**
       - 1x Corda 60m
-
       - 6x costuras curtas
-
-      - 1x parada dupla montada'
+      - 1x parada dupla montada
   mapas:
   - caminho_imagem_mapa: imagens/setor_covide_ala_aderencia_p4.webp
     largura_mapa: 825
     altura_mapa: 1211
-    pontos_de_interesse:
-    - id: P1
-      label: P1
-      retangulo:
-        x: 228
-        y: 271
-        comprimento: 26
-        largura: 18
 ---
 
 # Setor Covide (ala aderência)

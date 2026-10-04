@@ -141,25 +141,15 @@ escaladas:
     conquistadores:
     - Márcio Macena
     - Samuel Lusane
-    descricao: '**Equipamentos:**
-
+    descricao: |-
+      **Equipamentos:**
       - 1x Corda 30m
-
       - 4x costuras curtas
-
-      - 1x parada dupla montada'
+      - 1x parada dupla montada
   mapas:
   - caminho_imagem_mapa: imagens/setor_covide_ala_central_e_direita_p2.webp
     largura_mapa: 825
     altura_mapa: 1211
-    pontos_de_interesse:
-    - id: P1
-      label: P1
-      retangulo:
-        x: 469
-        y: 89
-        comprimento: 26
-        largura: 18
 - via_esportiva:
     nome: Cepalangos
     dificuldade: BR_7A
@@ -169,30 +159,18 @@ escaladas:
     conquistadores:
     - Márcio Macena
     - Samuel Lusane
-    descricao: '**Equipamentos:**
-
+    descricao: |-
+      **Equipamentos:**
       - 1x Corda 30m
-
       - 5x costuras curtas
-
       - 1x parada dupla montada
 
-
       **Observações:**
-
-      - Parada sem visualização ao nível do solo.'
+      - Parada sem visualização ao nível do solo.
   mapas:
   - caminho_imagem_mapa: imagens/setor_covide_ala_central_e_direita_p3.webp
     largura_mapa: 825
     altura_mapa: 1211
-    pontos_de_interesse:
-    - id: P1
-      label: P1
-      retangulo:
-        x: 643
-        y: 59
-        comprimento: 26
-        largura: 18
 - via_esportiva:
     nome: Cepacol
     dificuldade: BR_7B
@@ -202,25 +180,15 @@ escaladas:
     conquistadores:
     - Márcio Macena
     - Samuel Lusane
-    descricao: '**Equipamentos:**
-
+    descricao: |-
+      **Equipamentos:**
       - 1x Corda 30m
-
       - 5x costuras curtas
-
-      - 1x parada dupla montada'
+      - 1x parada dupla montada
   mapas:
   - caminho_imagem_mapa: imagens/setor_covide_ala_central_e_direita_p4.webp
     largura_mapa: 825
     altura_mapa: 1211
-    pontos_de_interesse:
-    - id: P1
-      label: P1
-      retangulo:
-        x: 526
-        y: 54
-        comprimento: 26
-        largura: 18
 - via_esportiva:
     nome: Deltazin
     dificuldade: BR_7B
@@ -230,25 +198,15 @@ escaladas:
     conquistadores:
     - Márcio Macena
     - Samuel Lusane
-    descricao: '**Equipamentos:**
-
+    descricao: |-
+      **Equipamentos:**
       - 1x Corda 30m
-
       - 4x costuras curtas
-
-      - 1x parada dupla montada'
+      - 1x parada dupla montada
   mapas:
   - caminho_imagem_mapa: imagens/setor_covide_ala_central_e_direita_p5.webp
     largura_mapa: 825
     altura_mapa: 1211
-    pontos_de_interesse:
-    - id: P1
-      label: P1
-      retangulo:
-        x: 586
-        y: 124
-        comprimento: 26
-        largura: 18
 - via_esportiva:
     nome: Ignorância do Deltacron
     dificuldade: BR_7B
@@ -258,25 +216,15 @@ escaladas:
     conquistadores:
     - Márcio Macena
     - Samuel Lusane
-    descricao: '**Equipamentos:**
-
+    descricao: |-
+      **Equipamentos:**
       - 1x Corda 30m
-
       - 4x costuras curtas
-
-      - 1x parada dupla montada'
+      - 1x parada dupla montada
   mapas:
   - caminho_imagem_mapa: imagens/setor_covide_ala_central_e_direita_p6.webp
     largura_mapa: 825
     altura_mapa: 1211
-    pontos_de_interesse:
-    - id: P1
-      label: P1
-      retangulo:
-        x: 528
-        y: 186
-        comprimento: 26
-        largura: 18
 - via_esportiva:
     nome: Covidenhoca
     dificuldade: BR_7A
@@ -286,25 +234,15 @@ escaladas:
     conquistadores:
     - Márcio Macena
     - Samuel Lusane
-    descricao: '**Equipamentos:**
-
+    descricao: |-
+      **Equipamentos:**
       - 1x Corda 30m
-
       - 4x costuras curtas
-
-      - 1x parada dupla montada'
+      - 1x parada dupla montada
   mapas:
   - caminho_imagem_mapa: imagens/setor_covide_ala_central_e_direita_p7.webp
     largura_mapa: 825
     altura_mapa: 1211
-    pontos_de_interesse:
-    - id: P1
-      label: P1
-      retangulo:
-        x: 530
-        y: 168
-        comprimento: 26
-        largura: 18
 - via_esportiva:
     nome: B1B2
     dificuldade: BR_7C
@@ -314,25 +252,15 @@ escaladas:
     conquistadores:
     - Márcio Macena
     - Samuel Lusane
-    descricao: '**Equipamentos:**
-
+    descricao: |-
+      **Equipamentos:**
       - 1x Corda 30m
-
       - 4x costuras curtas
-
-      - 1x parada dupla montada'
+      - 1x parada dupla montada
   mapas:
   - caminho_imagem_mapa: imagens/setor_covide_ala_central_e_direita_p8.webp
     largura_mapa: 825
     altura_mapa: 1211
-    pontos_de_interesse:
-    - id: P1
-      label: P1
-      retangulo:
-        x: 460
-        y: 226
-        comprimento: 26
-        largura: 18
 - via_esportiva:
     nome: Oxforte
     dificuldade: BR_8A
@@ -342,25 +270,15 @@ escaladas:
     conquistadores:
     - Márcio Macena
     - Samuel Lusane
-    descricao: '**Equipamentos:**
-
+    descricao: |-
+      **Equipamentos:**
       - 1x Corda 30m
-
       - 5x costuras curtas
-
-      - 1x parada dupla montada'
+      - 1x parada dupla montada
   mapas:
   - caminho_imagem_mapa: imagens/setor_covide_ala_central_e_direita_p9.webp
     largura_mapa: 825
     altura_mapa: 1211
-    pontos_de_interesse:
-    - id: P1
-      label: P1
-      retangulo:
-        x: 506
-        y: 120
-        comprimento: 26
-        largura: 18
 - via_esportiva:
     nome: Arco do delta
     dificuldade: BR_7A
@@ -370,25 +288,15 @@ escaladas:
     conquistadores:
     - Márcio Macena
     - Samuel Lusane
-    descricao: '**Equipamentos:**
-
+    descricao: |-
+      **Equipamentos:**
       - 1x Corda 30m
-
       - 5x costuras curtas
-
-      - 1x parada dupla montada'
+      - 1x parada dupla montada
   mapas:
   - caminho_imagem_mapa: imagens/setor_covide_ala_central_e_direita_p10.webp
     largura_mapa: 825
     altura_mapa: 1211
-    pontos_de_interesse:
-    - id: P1
-      label: P1
-      retangulo:
-        x: 488
-        y: 92
-        comprimento: 26
-        largura: 18
 - via_esportiva:
     nome: Sequela virótica
     dificuldade: BR_8B
@@ -398,25 +306,15 @@ escaladas:
     conquistadores:
     - Márcio Macena
     - Samuel Lusane
-    descricao: '**Equipamentos:**
-
+    descricao: |-
+      **Equipamentos:**
       - 1x Corda 30m
-
       - 4x costuras curtas
-
-      - 1x parada dupla montada'
+      - 1x parada dupla montada
   mapas:
   - caminho_imagem_mapa: imagens/setor_covide_ala_central_e_direita_p11.webp
     largura_mapa: 825
     altura_mapa: 1211
-    pontos_de_interesse:
-    - id: P1
-      label: P1
-      retangulo:
-        x: 564
-        y: 58
-        comprimento: 26
-        largura: 18
 - via_esportiva:
     nome: Carga viral
     dificuldade: BR_7B
@@ -426,25 +324,15 @@ escaladas:
     conquistadores:
     - Márcio Macena
     - Samuel Lusane
-    descricao: '**Equipamentos:**
-
+    descricao: |-
+      **Equipamentos:**
       - 1x Corda 30m
-
       - 4x costuras curtas
-
-      - 1x parada dupla montada'
+      - 1x parada dupla montada
   mapas:
   - caminho_imagem_mapa: imagens/setor_covide_ala_central_e_direita_p12.webp
     largura_mapa: 825
     altura_mapa: 1211
-    pontos_de_interesse:
-    - id: P1
-      label: P1
-      retangulo:
-        x: 470
-        y: 74
-        comprimento: 26
-        largura: 18
 - via_esportiva:
     nome: Sou T.I.
     dificuldade: BR_8C
@@ -454,30 +342,18 @@ escaladas:
     conquistadores:
     - Márcio Macena
     - Samuel Lusane
-    descricao: '**Equipamentos:**
-
+    descricao: |-
+      **Equipamentos:**
       - 1x Corda 30m
-
       - 5x costuras curtas
-
       - 1x parada dupla montada
 
-
       **Observações:**
-
-      - Parada sem visualização ao nível do solo.'
+      - Parada sem visualização ao nível do solo.
   mapas:
   - caminho_imagem_mapa: imagens/setor_covide_ala_central_e_direita_p13.webp
     largura_mapa: 825
     altura_mapa: 1211
-    pontos_de_interesse:
-    - id: P1
-      label: P1
-      retangulo:
-        x: 696
-        y: 72
-        comprimento: 26
-        largura: 18
 - via_esportiva:
     nome: Antígeno
     dificuldade: BR_8A
@@ -487,30 +363,18 @@ escaladas:
     conquistadores:
     - Márcio Macena
     - Samuel Lusane
-    descricao: '**Equipamentos:**
-
+    descricao: |-
+      **Equipamentos:**
       - 1x Corda 30m
-
       - 4x costuras curtas
-
       - 1x parada dupla montada
 
-
       **Observações:**
-
-      - Parada sem visualização ao nível do solo.'
+      - Parada sem visualização ao nível do solo.
   mapas:
   - caminho_imagem_mapa: imagens/setor_covide_ala_central_e_direita_p14.webp
     largura_mapa: 825
     altura_mapa: 1211
-    pontos_de_interesse:
-    - id: P1
-      label: P1
-      retangulo:
-        x: 690
-        y: 81
-        comprimento: 28
-        largura: 18
 - via_esportiva:
     nome: Marreta imune
     dificuldade: BR_7B
@@ -520,32 +384,20 @@ escaladas:
     conquistadores:
     - Márcio Macena
     - Samuel Lusane
-    descricao: '**Equipamentos:**
-
+    descricao: |-
+      **Equipamentos:**
       - 1x Corda 40m
-
       - 5x costuras curtas
-
       - 1x parada dupla montada
 
-
       **Observações:**
-
-      - Segue para a via ao lado.'
+      - Segue para a via ao lado.
   mapas:
   - caminho_imagem_mapa: imagens/setor_covide_ala_central_e_direita_p15.webp
     referencias:
     - escalada: Marreta imune
       ids:
       - P1
-    pontos_de_interesse:
-    - id: P1
-      label: P1
-      retangulo:
-        x: 666
-        y: 74
-        comprimento: 26
-        largura: 18
     largura_mapa: 825
     altura_mapa: 1211
 - via_esportiva:
@@ -557,32 +409,20 @@ escaladas:
     conquistadores:
     - Márcio Macena
     - Samuel Lusane
-    descricao: '**Equipamentos:**
-
+    descricao: |-
+      **Equipamentos:**
       - 1x Corda 30m
-
       - 5x costuras curtas
-
       - 1x parada dupla montada
 
-
       **Observações:**
-
-      - Parada sem visualização ao nível do solo.'
+      - Parada sem visualização ao nível do solo.
   mapas:
   - caminho_imagem_mapa: imagens/setor_covide_ala_central_e_direita_p16.webp
     referencias:
     - escalada: Encosto gripal
       ids:
       - P1
-    pontos_de_interesse:
-    - id: P1
-      label: P1
-      retangulo:
-        x: 578
-        y: 235
-        comprimento: 26
-        largura: 18
     largura_mapa: 825
     altura_mapa: 1211
 - via_esportiva:
@@ -594,32 +434,20 @@ escaladas:
     conquistadores:
     - Márcio Macena
     - Samuel Lusane
-    descricao: '**Equipamentos:**
-
+    descricao: |-
+      **Equipamentos:**
       - 1x Corda 30m
-
       - 5x costuras curtas
-
       - 1x parada dupla montada
 
-
       **Observações:**
-
-      - Parada sem visualização ao nível do solo.'
+      - Parada sem visualização ao nível do solo.
   mapas:
   - caminho_imagem_mapa: imagens/setor_covide_ala_central_e_direita_p17.webp
     referencias:
     - escalada: Virose operária
       ids:
       - P1
-    pontos_de_interesse:
-    - id: P1
-      label: P1
-      retangulo:
-        x: 627
-        y: 92
-        comprimento: 26
-        largura: 18
     largura_mapa: 825
     altura_mapa: 1211
 - via_esportiva:
@@ -631,27 +459,17 @@ escaladas:
     conquistadores:
     - Márcio Macena
     - Samuel Lusane
-    descricao: '**Equipamentos:**
-
+    descricao: |-
+      **Equipamentos:**
       - 1x Corda 30m
-
       - 4x costuras curtas
-
-      - 1x parada dupla montada'
+      - 1x parada dupla montada
   mapas:
   - caminho_imagem_mapa: imagens/setor_covide_ala_central_e_direita_p18.webp
     referencias:
     - escalada: Covidinho
       ids:
       - P1
-    pontos_de_interesse:
-    - id: P1
-      label: P1
-      retangulo:
-        x: 653
-        y: 232
-        comprimento: 26
-        largura: 18
     largura_mapa: 825
     altura_mapa: 1211
 - via_esportiva:
@@ -663,27 +481,17 @@ escaladas:
     conquistadores:
     - Márcio Macena
     - Samuel Lusane
-    descricao: '**Equipamentos:**
-
+    descricao: |-
+      **Equipamentos:**
       - 1x Corda 30m
-
       - 4x costuras curtas
-
-      - 1x parada dupla montada'
+      - 1x parada dupla montada
   mapas:
   - caminho_imagem_mapa: imagens/setor_covide_ala_central_e_direita_p19.webp
     referencias:
     - escalada: Covide hepática
       ids:
       - P1
-    pontos_de_interesse:
-    - id: P1
-      label: P1
-      retangulo:
-        x: 578
-        y: 156
-        comprimento: 26
-        largura: 18
     largura_mapa: 825
     altura_mapa: 1211
 ---

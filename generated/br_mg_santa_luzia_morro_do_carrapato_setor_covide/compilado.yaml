@@ -108,22 +108,6 @@ picos:
           - caminho_imagem_mapa: imagens/setor_covide_ala_aderencia_p2.webp
             largura_mapa: 825
             altura_mapa: 1211
-            pontos_de_interesse:
-            - id: P1
-              label: P1
-              retangulo:
-                x: 659
-                y: 80
-                comprimento: 26
-                largura: 18
-            - id: nome_via_rocha
-              label: VIA BUTANTANA
-              retangulo:
-                x: 353
-                y: 952
-                comprimento: 120
-                largura: 28
-                angulo_graus_x100: 1800
         - via_esportiva:
             nome: Convite 19
             dificuldade: BR_4
@@ -145,14 +129,6 @@ picos:
           - caminho_imagem_mapa: imagens/setor_covide_ala_aderencia_p3.webp
             largura_mapa: 825
             altura_mapa: 1211
-            pontos_de_interesse:
-            - id: P1
-              label: P1
-              retangulo:
-                x: 622
-                y: 176
-                comprimento: 26
-                largura: 18
         - via_esportiva:
             nome: Astracênica
             dificuldade: BR_4
@@ -171,14 +147,6 @@ picos:
           - caminho_imagem_mapa: imagens/setor_covide_ala_aderencia_p4.webp
             largura_mapa: 825
             altura_mapa: 1211
-            pontos_de_interesse:
-            - id: P1
-              label: P1
-              retangulo:
-                x: 228
-                y: 271
-                comprimento: 26
-                largura: 18
         descricao: '# Setor Covide (ala aderência)'
         precomputados:
           total_escaladas: 3
@@ -310,14 +278,6 @@ picos:
           - caminho_imagem_mapa: imagens/setor_covide_ala_esquerda_p2.webp
             largura_mapa: 825
             altura_mapa: 1211
-            pontos_de_interesse:
-            - id: P1
-              label: P1
-              retangulo:
-                x: 616
-                y: 209
-                comprimento: 28
-                largura: 20
         - via_esportiva:
             nome: Exclusão social
             dificuldade: BR_5
@@ -336,14 +296,6 @@ picos:
           - caminho_imagem_mapa: imagens/setor_covide_ala_esquerda_p3.webp
             largura_mapa: 825
             altura_mapa: 1211
-            pontos_de_interesse:
-            - id: P1
-              label: P1
-              retangulo:
-                x: 514
-                y: 138
-                comprimento: 28
-                largura: 20
         - via_esportiva:
             nome: Exputinick
             dificuldade: BR_5SUP
@@ -365,14 +317,6 @@ picos:
           - caminho_imagem_mapa: imagens/setor_covide_ala_esquerda_p4.webp
             largura_mapa: 825
             altura_mapa: 1211
-            pontos_de_interesse:
-            - id: P1
-              label: P1
-              retangulo:
-                x: 660
-                y: 80
-                comprimento: 26
-                largura: 18
         - via_esportiva:
             nome: Y de Covide
             dificuldade: BR_6SUP
@@ -391,21 +335,6 @@ picos:
           - caminho_imagem_mapa: imagens/setor_covide_ala_esquerda_p5.webp
             largura_mapa: 825
             altura_mapa: 1211
-            pontos_de_interesse:
-            - id: P1 Vsup
-              label: P1 Vsup
-              retangulo:
-                x: 363
-                y: 260
-                comprimento: 78
-                largura: 20
-            - id: P1 VIsup
-              label: P1 VIsup
-              retangulo:
-                x: 526
-                y: 228
-                comprimento: 82
-                largura: 20
         - via_esportiva:
             nome: Vitiligovide
             dificuldade: BR_7B
@@ -424,14 +353,6 @@ picos:
           - caminho_imagem_mapa: imagens/setor_covide_ala_esquerda_p6.webp
             largura_mapa: 825
             altura_mapa: 1211
-            pontos_de_interesse:
-            - id: P1
-              label: P1
-              retangulo:
-                x: 559
-                y: 74
-                comprimento: 26
-                largura: 18
         - via_esportiva:
             nome: Fayserchover
             dificuldade: BR_8B
@@ -450,14 +371,6 @@ picos:
           - caminho_imagem_mapa: imagens/setor_covide_ala_esquerda_p7.webp
             largura_mapa: 825
             altura_mapa: 1211
-            pontos_de_interesse:
-            - id: P1
-              label: P1
-              retangulo:
-                x: 437
-                y: 134
-                comprimento: 26
-                largura: 18
         - via_esportiva:
             nome: Covid com C maiúsculo
             dificuldade: BR_8C
@@ -479,14 +392,6 @@ picos:
           - caminho_imagem_mapa: imagens/setor_covide_ala_esquerda_p8.webp
             largura_mapa: 825
             altura_mapa: 1211
-            pontos_de_interesse:
-            - id: P1
-              label: P1
-              retangulo:
-                x: 565
-                y: 65
-                comprimento: 26
-                largura: 18
         - via_esportiva:
             nome: Ômicronibus
             dificuldade: BR_7C
@@ -508,14 +413,6 @@ picos:
           - caminho_imagem_mapa: imagens/setor_covide_ala_esquerda_p9.webp
             largura_mapa: 825
             altura_mapa: 1211
-            pontos_de_interesse:
-            - id: P1
-              label: P1
-              retangulo:
-                x: 560
-                y: 81
-                comprimento: 26
-                largura: 18
         - via_esportiva:
             nome: Ômicron ondas
             dificuldade: BR_8A
@@ -534,14 +431,6 @@ picos:
           - caminho_imagem_mapa: imagens/setor_covide_ala_esquerda_p10.webp
             largura_mapa: 825
             altura_mapa: 1211
-            pontos_de_interesse:
-            - id: P1
-              label: P1
-              retangulo:
-                x: 480
-                y: 46
-                comprimento: 26
-                largura: 18
         - via_esportiva:
             nome: Aracnocovid
             dificuldade: BR_7C
@@ -560,14 +449,6 @@ picos:
           - caminho_imagem_mapa: imagens/setor_covide_ala_esquerda_p11.webp
             largura_mapa: 825
             altura_mapa: 1211
-            pontos_de_interesse:
-            - id: P1
-              label: P1
-              retangulo:
-                x: 466
-                y: 142
-                comprimento: 26
-                largura: 18
         descricao: |-
           # Setor Covide (ala esquerda)
 
@@ -737,14 +618,6 @@ picos:
           - caminho_imagem_mapa: imagens/setor_covide_ala_central_e_direita_p2.webp
             largura_mapa: 825
             altura_mapa: 1211
-            pontos_de_interesse:
-            - id: P1
-              label: P1
-              retangulo:
-                x: 469
-                y: 89
-                comprimento: 26
-                largura: 18
         - via_esportiva:
             nome: Cepalangos
             dificuldade: BR_7A
@@ -766,14 +639,6 @@ picos:
           - caminho_imagem_mapa: imagens/setor_covide_ala_central_e_direita_p3.webp
             largura_mapa: 825
             altura_mapa: 1211
-            pontos_de_interesse:
-            - id: P1
-              label: P1
-              retangulo:
-                x: 643
-                y: 59
-                comprimento: 26
-                largura: 18
         - via_esportiva:
             nome: Cepacol
             dificuldade: BR_7B
@@ -792,14 +657,6 @@ picos:
           - caminho_imagem_mapa: imagens/setor_covide_ala_central_e_direita_p4.webp
             largura_mapa: 825
             altura_mapa: 1211
-            pontos_de_interesse:
-            - id: P1
-              label: P1
-              retangulo:
-                x: 526
-                y: 54
-                comprimento: 26
-                largura: 18
         - via_esportiva:
             nome: Deltazin
             dificuldade: BR_7B
@@ -818,14 +675,6 @@ picos:
           - caminho_imagem_mapa: imagens/setor_covide_ala_central_e_direita_p5.webp
             largura_mapa: 825
             altura_mapa: 1211
-            pontos_de_interesse:
-            - id: P1
-              label: P1
-              retangulo:
-                x: 586
-                y: 124
-                comprimento: 26
-                largura: 18
         - via_esportiva:
             nome: Ignorância do Deltacron
             dificuldade: BR_7B
@@ -844,14 +693,6 @@ picos:
           - caminho_imagem_mapa: imagens/setor_covide_ala_central_e_direita_p6.webp
             largura_mapa: 825
             altura_mapa: 1211
-            pontos_de_interesse:
-            - id: P1
-              label: P1
-              retangulo:
-                x: 528
-                y: 186
-                comprimento: 26
-                largura: 18
         - via_esportiva:
             nome: Covidenhoca
             dificuldade: BR_7A
@@ -870,14 +711,6 @@ picos:
           - caminho_imagem_mapa: imagens/setor_covide_ala_central_e_direita_p7.webp
             largura_mapa: 825
             altura_mapa: 1211
-            pontos_de_interesse:
-            - id: P1
-              label: P1
-              retangulo:
-                x: 530
-                y: 168
-                comprimento: 26
-                largura: 18
         - via_esportiva:
             nome: B1B2
             dificuldade: BR_7C
@@ -896,14 +729,6 @@ picos:
           - caminho_imagem_mapa: imagens/setor_covide_ala_central_e_direita_p8.webp
             largura_mapa: 825
             altura_mapa: 1211
-            pontos_de_interesse:
-            - id: P1
-              label: P1
-              retangulo:
-                x: 460
-                y: 226
-                comprimento: 26
-                largura: 18
         - via_esportiva:
             nome: Oxforte
             dificuldade: BR_8A
@@ -922,14 +747,6 @@ picos:
           - caminho_imagem_mapa: imagens/setor_covide_ala_central_e_direita_p9.webp
             largura_mapa: 825
             altura_mapa: 1211
-            pontos_de_interesse:
-            - id: P1
-              label: P1
-              retangulo:
-                x: 506
-                y: 120
-                comprimento: 26
-                largura: 18
         - via_esportiva:
             nome: Arco do delta
             dificuldade: BR_7A
@@ -948,14 +765,6 @@ picos:
           - caminho_imagem_mapa: imagens/setor_covide_ala_central_e_direita_p10.webp
             largura_mapa: 825
             altura_mapa: 1211
-            pontos_de_interesse:
-            - id: P1
-              label: P1
-              retangulo:
-                x: 488
-                y: 92
-                comprimento: 26
-                largura: 18
         - via_esportiva:
             nome: Sequela virótica
             dificuldade: BR_8B
@@ -974,14 +783,6 @@ picos:
           - caminho_imagem_mapa: imagens/setor_covide_ala_central_e_direita_p11.webp
             largura_mapa: 825
             altura_mapa: 1211
-            pontos_de_interesse:
-            - id: P1
-              label: P1
-              retangulo:
-                x: 564
-                y: 58
-                comprimento: 26
-                largura: 18
         - via_esportiva:
             nome: Carga viral
             dificuldade: BR_7B
@@ -1000,14 +801,6 @@ picos:
           - caminho_imagem_mapa: imagens/setor_covide_ala_central_e_direita_p12.webp
             largura_mapa: 825
             altura_mapa: 1211
-            pontos_de_interesse:
-            - id: P1
-              label: P1
-              retangulo:
-                x: 470
-                y: 74
-                comprimento: 26
-                largura: 18
         - via_esportiva:
             nome: Sou T.I.
             dificuldade: BR_8C
@@ -1029,14 +822,6 @@ picos:
           - caminho_imagem_mapa: imagens/setor_covide_ala_central_e_direita_p13.webp
             largura_mapa: 825
             altura_mapa: 1211
-            pontos_de_interesse:
-            - id: P1
-              label: P1
-              retangulo:
-                x: 696
-                y: 72
-                comprimento: 26
-                largura: 18
         - via_esportiva:
             nome: Antígeno
             dificuldade: BR_8A
@@ -1058,14 +843,6 @@ picos:
           - caminho_imagem_mapa: imagens/setor_covide_ala_central_e_direita_p14.webp
             largura_mapa: 825
             altura_mapa: 1211
-            pontos_de_interesse:
-            - id: P1
-              label: P1
-              retangulo:
-                x: 690
-                y: 81
-                comprimento: 28
-                largura: 18
         - via_esportiva:
             nome: Marreta imune
             dificuldade: BR_7B
@@ -1089,14 +866,6 @@ picos:
             - escalada: Marreta imune
               ids:
               - P1
-            pontos_de_interesse:
-            - id: P1
-              label: P1
-              retangulo:
-                x: 666
-                y: 74
-                comprimento: 26
-                largura: 18
             largura_mapa: 825
             altura_mapa: 1211
         - via_esportiva:
@@ -1122,14 +891,6 @@ picos:
             - escalada: Encosto gripal
               ids:
               - P1
-            pontos_de_interesse:
-            - id: P1
-              label: P1
-              retangulo:
-                x: 578
-                y: 235
-                comprimento: 26
-                largura: 18
             largura_mapa: 825
             altura_mapa: 1211
         - via_esportiva:
@@ -1155,14 +916,6 @@ picos:
             - escalada: Virose operária
               ids:
               - P1
-            pontos_de_interesse:
-            - id: P1
-              label: P1
-              retangulo:
-                x: 627
-                y: 92
-                comprimento: 26
-                largura: 18
             largura_mapa: 825
             altura_mapa: 1211
         - via_esportiva:
@@ -1185,14 +938,6 @@ picos:
             - escalada: Covidinho
               ids:
               - P1
-            pontos_de_interesse:
-            - id: P1
-              label: P1
-              retangulo:
-                x: 653
-                y: 232
-                comprimento: 26
-                largura: 18
             largura_mapa: 825
             altura_mapa: 1211
         - via_esportiva:
@@ -1215,14 +960,6 @@ picos:
             - escalada: Covide hepática
               ids:
               - P1
-            pontos_de_interesse:
-            - id: P1
-              label: P1
-              retangulo:
-                x: 578
-                y: 156
-                comprimento: 26
-                largura: 18
             largura_mapa: 825
             altura_mapa: 1211
         descricao: |-
