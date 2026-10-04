@@ -49,13 +49,6 @@ mapas:
       y: 462
       comprimento: 32
       largura: 27
-  - id: Top
-    label: Top
-    retangulo:
-      x: 366
-      y: 491
-      comprimento: 39
-      largura: 28
   - id: Setor_Sentinela
     label: Setor Sentinela
     retangulo:

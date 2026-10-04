@@ -7,13 +7,6 @@ mapas:
   largura_mapa: 510
   altura_mapa: 380
   pontos_de_interesse:
-  - id: '61'
-    label: '61'
-    retangulo:
-      x: 31
-      y: 140
-      comprimento: 14
-      largura: 12
   - id: '62'
     label: '62'
     retangulo:

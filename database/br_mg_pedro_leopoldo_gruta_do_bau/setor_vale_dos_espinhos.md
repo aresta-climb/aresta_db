@@ -305,7 +305,7 @@ mapas:
   - escalada: Eau Rouge
     ids:
     - '10'
-  - escalada: Sem informação
+  - escalada: Via sem informação 3
     ids:
     - '11'
   - escalada: Via inacabada
@@ -320,9 +320,10 @@ mapas:
   - escalada: R770
     ids:
     - '15'
-  - escalada: Sem informação
+  - escalada: Via sem informação 4
     ids:
     - '16'
+    setor: Setor Vale dos Espinhos
   - escalada: Jornada nas Estrelas
     ids:
     - '17'
@@ -344,9 +345,10 @@ mapas:
   - escalada: Comunidade Flebótomo
     ids:
     - '23'
-  - escalada: Sem informação
+  - escalada: Via sem informação 5
     ids:
     - '24'
+    setor: Setor Vale dos Espinhos
   - escalada: Duplo Sentido
     ids:
     - '25'
@@ -481,7 +483,7 @@ escaladas:
     conquistadores:
     - GT Baú 2021
 - via_esportiva:
-    nome: Sem informação
+    nome: Via sem informação 3
     dificuldade: INDEFINIDO
     descricao: Fixa
 - via_esportiva:
@@ -509,7 +511,7 @@ escaladas:
     conquistadores:
     - Roberto Lincoln
 - via_movel:
-    nome: Sem informação
+    nome: Via sem informação 4
     dificuldade: INDEFINIDO
     protecoes_moveis: Mista
 - via_esportiva:
@@ -569,7 +571,7 @@ escaladas:
     conquistadores:
     - GT Baú 2021
 - via_movel:
-    nome: Sem informação
+    nome: Via sem informação 5
     dificuldade: INDEFINIDO
     protecoes_moveis: Mista
     descricao: Via longa – Usar corda de 60 mts

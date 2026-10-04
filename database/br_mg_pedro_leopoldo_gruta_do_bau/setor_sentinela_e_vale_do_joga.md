@@ -268,7 +268,7 @@ mapas:
   - escalada: Muvuca
     ids:
     - '14'
-  - escalada: Candymam
+  - escalada: Candyman
     ids:
     - '15'
   - escalada: Agarras de Mateus
@@ -432,13 +432,14 @@ escaladas:
     - Márcio
     - Joviney
 - via_esportiva:
-    nome: Candymam
+    nome: Candyman
     dificuldade: BR_5SUP
     quantidade_protecoes_intermediarias: 8
     quantidade_protecoes_parada: 2
     conquistadores:
     - Roberto
     - Romulo
+    descricao: Via INTERDITADA devido à ABELHAS.
 - via_esportiva:
     nome: Agarras de Mateus
     dificuldade: BR_6SUP
