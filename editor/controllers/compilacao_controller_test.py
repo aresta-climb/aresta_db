@@ -51,3 +51,19 @@ def test_formatacao_html():
     assert '<span style="color: #333333;">normal</span>' in html
     assert "<br>" in html
     assert "white-space: pre-wrap" in html
+
+
+def test_formatacao_html_com_ferros_sem_erro():
+    model = MagicMock()
+    view = MagicMock()
+    controller = CompilacaoController(model, view)
+    
+    html = controller._formatar_para_html([
+        "[br_mg_ferros_ferros] (1/1)",
+        "  Gerando thumbnail: imagens/capa_p0_i0.webp -> thumbnails\\br_mg_ferros_ferros.webp",
+    ])
+    
+    assert "#D32F2F" not in html
+    assert "#F57C00" not in html
+    assert '<span style="color: #333333;">[br_mg_ferros_ferros] (1/1)</span>' in html
+

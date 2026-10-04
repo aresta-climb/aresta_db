@@ -450,6 +450,19 @@ class TestPublishController(unittest.TestCase):
         self.assertIn("possui erros de compilação", messagebox_mock.critical.call_args[0][2])
 
     @patch("editor.controllers.publish_controller.QMessageBox")
+    def test_validar_compilacao_limpa_com_ferros_sem_erro(self, messagebox_mock):
+        """Valida que menção a 'ferros' em mensagens normais não bloqueia a submissão."""
+        self.controller.workspace.processar_renomeacao_e_compilacao.return_value = (
+            Path("/fake"),
+            ["[br_mg_ferros_ferros] (1/1)", "  Gerando thumbnail: imagens/capa_p0_i0.webp"],
+            False,
+        )
+        self.controller.croqui_data = {"id": "br_mg_ferros_ferros"}
+        self.assertTrue(self.controller._validar_compilacao_limpa())
+        messagebox_mock.critical.assert_not_called()
+
+
+    @patch("editor.controllers.publish_controller.QMessageBox")
     def test_validar_compilacao_limpa_com_retorno_duplo(self, messagebox_mock):
         """Garante compatibilidade retroativa com workspaces que retornam tupla de 2 elementos."""
         self.controller.workspace.processar_renomeacao_e_compilacao.return_value = (

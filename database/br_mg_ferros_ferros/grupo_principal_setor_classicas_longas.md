@@ -1,378 +1,742 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
-nome: Parede Principal – Setor Clássicas Longas
+nome: Setor Clássicas Longas
 mapas:
-  - caminho_imagem_mapa: imagens/grupo_principal_setor_classicas_longas_p1_i1.webp
-    largura_mapa: 1024
-    altura_mapa: 649
-    pontos_de_interesse:
-      - id: '1'
-        label: '1'
-        circulo:
-          x: 495
-          y: 260
-          raio: 12
-      - id: '2'
-        label: '2'
-        circulo:
-          x: 650
-          y: 420
-          raio: 12
-      - id: '3'
-        label: '3'
-        circulo:
-          x: 685
-          y: 510
-          raio: 12
-      - id: '4'
-        label: '4'
-        circulo:
-          x: 725
-          y: 555
-          raio: 12
-      - id: Setor_Central
-        label: Parede Principal Central
-        retangulo:
-          x: 280
-          y: 120
-          comprimento: 150
-          largura: 40
-      - id: Setor_Aderencias
-        label: Parede das Aderências Extrema Direita
-        retangulo:
-          x: 890
-          y: 130
-          comprimento: 160
-          largura: 40
-      - id: Setor_Classicas_Longas
-        label: Parede Principal Clássicas Longas
-        retangulo:
-          x: 550
-          y: 455
-          comprimento: 140
-          largura: 40
-      - id: Estrada
-        label: Estrada
-        retangulo:
-          x: 560
-          y: 75
-          comprimento: 60
-          largura: 20
-      - id: Corrego
-        label: Córrego
-        retangulo:
-          x: 740
-          y: 175
-          comprimento: 70
-          largura: 20
-      - id: Trilha
-        label: Trilha
-        retangulo:
-          x: 695
-          y: 220
-          comprimento: 50
-          largura: 20
-    referencias:
-      - escalada: Quarto 304
-      - escalada: O Nome da Rosa
-      - escalada: O Retorno de Jedi
-      - escalada: Ih, Ferrou!
-      - escalada: Jardim do Éden
-      - escalada: A Dois Passos do Paraíso
-      - escalada: Conquista do Paraíso
-      - escalada: Purgatório
-      - escalada: Arco de Ferros
-      - escalada: Conrado Ferro
-      - escalada: Quem com Ferro Fere
-      - escalada: Tanto Bate Até Que Fura
-      - escalada: Trem de Ferro
-      - escalada: Up Ester
-      - escalada: Até Que a Vida Nos Separe
-      - escalada: Vr. Pilhado
-      - escalada: Pr. CEM
-      - escalada: Vr. SEM
-      - escalada: Engatilhados
-      - escalada: Trio Elétrico
-      - escalada: Eu Não Sou de Ferro
-      - escalada: Rio de Mão Dupla
-      - escalada: Grand Finale
-      - escalada: À Francesa
-      - escalada: Atalho dos Duendes
-  - caminho_imagem_mapa: imagens/grupo_principal_setor_classicas_longas_p2_i0.webp
-    largura_mapa: 1603
-    altura_mapa: 952
-    pontos_de_interesse:
-      - id: '1'
-        label: '1'
-        circulo:
-          x: 40
-          y: 480
-          raio: 12
-      - id: '2'
-        label: '2'
-        circulo:
-          x: 100
-          y: 657
-          raio: 12
-      - id: '3'
-        label: '3'
-        circulo:
-          x: 238
-          y: 646
-          raio: 12
-      - id: '4'
-        label: '4'
-        circulo:
-          x: 325
-          y: 630
-          raio: 12
-      - id: '5'
-        label: '5'
-        circulo:
-          x: 448
-          y: 678
-          raio: 12
-      - id: '6'
-        label: '6'
-        circulo:
-          x: 515
-          y: 650
-          raio: 12
-      - id: '7'
-        label: '7'
-        circulo:
-          x: 550
-          y: 640
-          raio: 12
-      - id: '8'
-        label: '8'
-        circulo:
-          x: 595
-          y: 600
-          raio: 12
-      - id: '9'
-        label: '9'
-        circulo:
-          x: 630
-          y: 590
-          raio: 12
-      - id: '10'
-        label: '10'
-        circulo:
-          x: 660
-          y: 580
-          raio: 12
-      - id: '11'
-        label: '11'
-        circulo:
-          x: 740
-          y: 575
-          raio: 12
-      - id: '12'
-        label: '12'
-        circulo:
-          x: 831
-          y: 361
-          raio: 12
-      - id: '13'
-        label: '13'
-        circulo:
-          x: 785
-          y: 555
-          raio: 12
-      - id: '14'
-        label: '14'
-        circulo:
-          x: 855
-          y: 595
-          raio: 12
-      - id: '15'
-        label: '15'
-        circulo:
-          x: 885
-          y: 630
-          raio: 12
-      - id: '16'
-        label: '16'
-        circulo:
-          x: 914
-          y: 690
-          raio: 12
-      - id: '17'
-        label: '17'
-        circulo:
-          x: 975
-          y: 755
-          raio: 12
-      - id: '18'
-        label: '18'
-        circulo:
-          x: 977
-          y: 235
-          raio: 12
-      - id: '19'
-        label: '19'
-        circulo:
-          x: 990
-          y: 803
-          raio: 12
-      - id: '20'
-        label: '20'
-        circulo:
-          x: 1047
-          y: 834
-          raio: 12
-      - id: '21'
-        label: '21'
-        circulo:
-          x: 1157
-          y: 842
-          raio: 12
-      - id: '22'
-        label: '22'
-        circulo:
-          x: 1312
-          y: 764
-          raio: 12
-      - id: '23'
-        label: '23'
-        circulo:
-          x: 1258
-          y: 354
-          raio: 12
-      - id: '24'
-        label: '24'
-        circulo:
-          x: 1476
-          y: 714
-          raio: 12
-      - id: '25'
-        label: '25'
-        circulo:
-          x: 1351
-          y: 725
-          raio: 12
+- caminho_imagem_mapa: imagens/grupo_principal_setor_classicas_longas_p1_i1.webp
+  largura_mapa: 1617
+  altura_mapa: 1025
+  referencias:
+  - escalada: Eu Não Sou de Ferro
+    ids:
+    - '1'
+  - escalada: Rio de Mão Dupla
+    ids:
+    - '1'
+  - escalada: À Francesa
+    ids:
+    - '1'
+  - escalada: Jardim do Éden
+    ids:
+    - '2'
+  - escalada: A Dois Passos do Paraíso
+    ids:
+    - '2'
+  - escalada: Conquista do Paraíso
+    ids:
+    - '2'
+  - escalada: Purgatório
+    ids:
+    - '2'
+  - escalada: Arco de Ferros
+    ids:
+    - '2'
+  - escalada: Quem com Ferro Fere
+    ids:
+    - '2'
+  - escalada: Tanto Bate Até Que Fura
+    ids:
+    - '2'
+  - escalada: Trem de Ferro
+    ids:
+    - '2'
+  - escalada: Up Ester
+    ids:
+    - '2'
+  - escalada: Até Que a Vida Nos Separe
+    ids:
+    - '2'
+  - escalada: Vr. Pilhado
+    ids:
+    - '2'
+  - escalada: Pr. CEM
+    ids:
+    - '2'
+  - escalada: Vr. SEM
+    ids:
+    - '2'
+  - escalada: Ih, Ferrou!
+    ids:
+    - '3'
+  - escalada: O Retorno de Jedi
+    ids:
+    - '4'
+  - escalada: O Nome da Rosa
+    ids:
+    - '4'
+  - escalada: Quarto 304
+    ids:
+    - '4'
+  pontos_de_interesse:
+  - id: '1'
+    label: '1'
+    circulo:
+      x: 833
+      y: 371
+      raio: 18
+  - id: '2'
+    label: '2'
+    circulo:
+      x: 1036
+      y: 696
+      raio: 18
+  - id: '3'
+    label: '3'
+    circulo:
+      x: 1088
+      y: 777
+      raio: 18
+  - id: '4'
+    label: '4'
+    circulo:
+      x: 1175
+      y: 848
+      raio: 18
+- caminho_imagem_mapa: imagens/grupo_principal_setor_classicas_longas_p2_i0.webp
+  largura_mapa: 2069
+  altura_mapa: 1207
+  referencias:
+  - escalada: Quarto 304
+    ids:
+    - '1'
+  - escalada: O Nome da Rosa
+    ids:
+    - '2'
+  - escalada: O Retorno de Jedi
+    ids:
+    - '3'
+  - escalada: Ih, Ferrou!
+    ids:
+    - '4'
+  - escalada: Jardim do Éden
+    ids:
+    - '5'
+  - escalada: A Dois Passos do Paraíso
+    ids:
+    - '6'
+  - escalada: Conquista do Paraíso
+    ids:
+    - '7'
+  - escalada: Purgatório
+    ids:
+    - '8'
+  - escalada: Arco de Ferros
+    ids:
+    - '9'
+  - escalada: Pr. Conrado Ferro
+    ids:
+    - '10'
+  - escalada: Quem com Ferro Fere
+    ids:
+    - '11'
+  - escalada: Tanto Bate Até Que Fura
+    ids:
+    - '12'
+  - escalada: Trem de Ferro
+    ids:
+    - '13'
+  - escalada: Up Ester
+    ids:
+    - '14'
+  - escalada: Até Que a Vida Nos Separe
+    ids:
+    - '15'
+  - escalada: Vr. Pilhado
+    ids:
+    - '16'
+  - escalada: Pr. CEM
+    ids:
+    - '17'
+  - escalada: Vr. SEM
+    ids:
+    - '18'
+  - escalada: Eu Não Sou de Ferro
+    ids:
+    - '19'
+  - escalada: Rio de Mão Dupla
+    ids:
+    - '20'
+  - escalada: À Francesa
+    ids:
+    - '21'
+  - escalada: Grand Finale
+    ids:
+    - '22'
+  pontos_de_interesse:
+  - id: '1'
+    label: '1'
+    circulo:
+      x: 65
+      y: 602
+      raio: 18
+  - id: '2'
+    label: '2'
+    circulo:
+      x: 115
+      y: 816
+      raio: 18
+  - id: '3'
+    label: '3'
+    circulo:
+      x: 304
+      y: 775
+      raio: 18
+  - id: '4'
+    label: '4'
+    circulo:
+      x: 429
+      y: 740
+      raio: 18
+  - id: '5'
+    label: '5'
+    circulo:
+      x: 574
+      y: 816
+      raio: 18
+  - id: '6'
+    label: '6'
+    circulo:
+      x: 669
+      y: 799
+      raio: 18
+  - id: '7'
+    label: '7'
+    circulo:
+      x: 772
+      y: 764
+      raio: 18
+  - id: '8'
+    label: '8'
+    circulo:
+      x: 821
+      y: 738
+      raio: 18
+  - id: '9'
+    label: '9'
+    circulo:
+      x: 880
+      y: 724
+      raio: 18
+  - id: '10'
+    label: '10'
+    circulo:
+      x: 1055
+      y: 690
+      raio: 18
+  - id: '11'
+    label: '11'
+    circulo:
+      x: 964
+      y: 700
+      raio: 18
+  - id: '12'
+    label: '12'
+    circulo:
+      x: 1047
+      y: 438
+      raio: 18
+  - id: '13'
+    label: '13'
+    circulo:
+      x: 1059
+      y: 700
+      raio: 18
+  - id: '14'
+    label: '14'
+    circulo:
+      x: 1094
+      y: 725
+      raio: 18
+  - id: '15'
+    label: '15'
+    circulo:
+      x: 1119
+      y: 770
+      raio: 18
+  - id: '16'
+    label: '16'
+    circulo:
+      x: 1169
+      y: 850
+      raio: 18
+  - id: '17'
+    label: '17'
+    circulo:
+      x: 1234
+      y: 930
+      raio: 18
+  - id: '18'
+    label: '18'
+    circulo:
+      x: 1233
+      y: 280
+      raio: 18
+  - id: '19'
+    label: '19'
+    circulo:
+      x: 1462
+      y: 1054
+      raio: 18
+  - id: '20'
+    label: '20'
+    circulo:
+      x: 1666
+      y: 954
+      raio: 18
+  - id: '21'
+    label: '21'
+    circulo:
+      x: 1877
+      y: 892
+      raio: 18
+  - id: '22'
+    label: '22'
+    circulo:
+      x: 1594
+      y: 440
+      raio: 18
+- caminho_imagem_mapa: imagens/grupo_principal_setor_classicas_longas_p6_i3.webp
+  largura_mapa: 714
+  altura_mapa: 1071
+- caminho_imagem_mapa: imagens/grupo_principal_setor_classicas_longas_p7.webp
+  largura_mapa: 1188
+  altura_mapa: 841
+- caminho_imagem_mapa: imagens/grupo_principal_setor_classicas_longas_p8_i1.webp
+  largura_mapa: 816
+  altura_mapa: 1224
+- caminho_imagem_mapa: imagens/grupo_principal_setor_classicas_longas_p9_i1.webp
+  largura_mapa: 887
+  altura_mapa: 1127
+- caminho_imagem_mapa: imagens/grupo_principal_setor_classicas_longas_p10_i1.webp
+  largura_mapa: 821
+  altura_mapa: 1217
+- caminho_imagem_mapa: imagens/grupo_principal_setor_classicas_longas_p11_i1.webp
+  largura_mapa: 596
+  altura_mapa: 851
+- caminho_imagem_mapa: imagens/grupo_principal_setor_classicas_longas_p12_i1.webp
+  largura_mapa: 843
+  altura_mapa: 1185
 escaladas:
-  - via_esportiva:
-      nome: Quarto 304
-      dificuldade: BR_2SUP
-      exposicao: E1
-      extensao: 120
-  - via_esportiva:
-      nome: O Nome da Rosa
-      dificuldade: BR_4SUP
-      exposicao: E1
-      extensao: 120
-  - via_esportiva:
-      nome: O Retorno de Jedi
-      dificuldade: BR_4SUP
-      extensao: 150
-  - via_movel:
-      nome: Ih, Ferrou!
-      dificuldade: BR_6
-      exposicao: E2
-      extensao: 185
-  - via_esportiva:
-      nome: Jardim do Éden
-      dificuldade: BR_7A
-      exposicao: E1
-      extensao: 220
-  - via_esportiva:
-      nome: A Dois Passos do Paraíso
-      dificuldade: BR_7C
-      exposicao: E1
-      extensao: 85
-  - via_esportiva:
-      nome: Conquista do Paraíso
-      dificuldade: BR_7A
-      extensao: 165
-  - via_esportiva:
-      nome: Purgatório
-      dificuldade: BR_8B
-      exposicao: E2
-      extensao: 120
-  - via_movel:
-      nome: Arco de Ferros
-      dificuldade: BR_7A
-      exposicao: E2
-      extensao: 50
-  - via_esportiva:
-      nome: Conrado Ferro
-      dificuldade: BR_8C
-      exposicao: E2
-      extensao: 120
-  - via_esportiva:
-      nome: Quem com Ferro Fere
-      dificuldade: BR_5
-      exposicao: E1
-      extensao: 90
-  - via_esportiva:
-      nome: Tanto Bate Até Que Fura
-      dificuldade: BR_7A
-      exposicao: E1
-      extensao: 65
-  - via_esportiva:
-      nome: Trem de Ferro
-      dificuldade: BR_5
-      exposicao: E2
-      extensao: 80
-  - via_esportiva:
-      nome: Up Ester
-      dificuldade: BR_5SUP
-      exposicao: E1
-      extensao: 100
-  - via_esportiva:
-      nome: Até Que a Vida Nos Separe
-      dificuldade: BR_4SUP
-      exposicao: E1
-      extensao: 120
-  - via_movel:
-      nome: Vr. Pilhado
-      dificuldade: BR_5SUP
-      exposicao: E3
-      extensao: 70
-  - via_esportiva:
-      nome: Pr. CEM
-      dificuldade: BR_5
-      exposicao: E1
-      extensao: 165
-  - via_esportiva:
-      nome: Vr. SEM
-      dificuldade: BR_6SUP
-      exposicao: E1
-      extensao: 30
-  - via_esportiva:
-      nome: Engatilhados
-      dificuldade: BR_4
-      exposicao: E1
-      extensao: 150
-  - via_esportiva:
-      nome: Trio Elétrico
-      dificuldade: BR_6
-      exposicao: E2
-      extensao: 160
-  - via_esportiva:
-      nome: Eu Não Sou de Ferro
-      dificuldade: BR_5
-      extensao: 220
-  - via_movel:
-      nome: Rio de Mão Dupla
-      dificuldade: BR_6
-      exposicao: E4
-      extensao: 140
-  - via_esportiva:
-      nome: Grand Finale
-      dificuldade: BR_5SUP
-      extensao: 30
-  - via_esportiva:
-      nome: À Francesa
-      dificuldade: BR_2SUP
-      extensao: 100
-  - via_movel:
-      nome: Atalho dos Duendes
-      dificuldade: BR_3
-      extensao: 70
+- via_multiplas_enfiadas:
+    nome: Quarto 304
+    dificuldade_media: BR_2
+    dificuldade_maxima: BR_2SUP
+    exposicao: E1
+    comprimento_total: 120
+    numero_enfiadas: 3
+    tipo_via_multiplas_enfiadas: TODA_FIXA
+    conquistadores:
+    - Tonico Magalhães
+    - Celso Ferreira Gomes
+    data_abertura: '2014-11-01'
+    descricao: Inicia após a grande barriga que existe neste setor, com um grampo
+      logo no início, para proteger do pequeno abismo que ali existe. Seu trecho inicial,
+      com cerca de 40 metros, segue por platôs de mato e lances de Isup. Após juntar
+      com a parada final da "O Nome da Rosa", a parede ganha verticalidade e segue
+      por mais 80 metros até a vegetação de topo. Nome inspirado no quarto no qual
+      a Hilda Furacão "atendia" seus clientes no Hotel Maravilhoso, de acordo com
+      o romance de Roberto Drummond.
+- via_multiplas_enfiadas:
+    nome: O Nome da Rosa
+    dificuldade_media: BR_4
+    dificuldade_maxima: BR_4SUP
+    exposicao: E1
+    comprimento_total: 120
+    tipo_via_multiplas_enfiadas: TODA_FIXA
+    conquistadores:
+    - Tonico Magalhães
+    - Celso Ferreira Gomes
+    - Glesse Gripp
+    - João Paulo JP
+    data_abertura: '2012-02-04'
+    descricao: Centésima via conquistada na região, sendo a penúltima da extrema esquerda
+      da Parede Principal. Uma opção interessante é seguir, após o final dessa via,
+      pela "Quarto 304", o que confere aos escaladores exatos 200 metros de escalada.
+- via_multiplas_enfiadas:
+    nome: O Retorno de Jedi
+    dificuldade_media: BR_4
+    dificuldade_maxima: BR_4SUP
+    comprimento_total: 150
+    tipo_via_multiplas_enfiadas: TODA_FIXA
+    conquistadores:
+    - Tonico Magalhães
+    - Paulo Bandeira
+    - Júlio César Cardoso
+    data_abertura: '2007-09-07'
+    descricao: Boa via, predominantemente em aderência e agarras, que conta com proteção
+      fixa constante.
+- via_multiplas_enfiadas:
+    nome: Ih, Ferrou!
+    destaque: true
+    dificuldade_media: BR_4
+    dificuldade_maxima: BR_6
+    exposicao: E2
+    duracao: D2
+    comprimento_total: 185
+    numero_enfiadas: 5
+    tipo_via_multiplas_enfiadas: MISTA
+    equipamento_recomendado: 'Camalots #0.75 ao #4. Camalot #3 na P1 e Camalot #0.75
+      na P2.'
+    conquistadores:
+    - Pedro Bugim
+    - Maria Fernanda Patrício
+    data_abertura: '2011-11-13'
+    descricao: 'Via mista, com agarras, aderência, fendas e barrigas interessantes.
+      Proteções constantes nos lances mais complicados e maiores espaçamentos nos
+      lances fáceis. Proteção dupla em todas as paradas, com padrão de 50 metros.
+      Material recomendado: Camalots #0.75 ao #4. Rapel possível com corda única de
+      50m.'
+  mapas:
+  - caminho_imagem_mapa: imagens/grupo_principal_setor_classicas_longas_p6_i1.webp
+    largura_mapa: 540
+    altura_mapa: 381
+- via_multiplas_enfiadas:
+    nome: Jardim do Éden
+    destaque: true
+    dificuldade_media: BR_6
+    dificuldade_maxima: BR_7A
+    exposicao: E1
+    comprimento_total: 220
+    numero_enfiadas: 5
+    tipo_via_multiplas_enfiadas: TODA_FIXA
+    conquistadores:
+    - Juliano Magalhães
+    - Tonico Magalhães
+    - Celso Ferreira Gomes
+    - Gustavo Piancastelli
+    - Igor Murta
+    - André DJ
+    - Luciano Bender
+    - Patrícia Duffles
+    data_abertura: '2011-06-24'
+    descricao: Via maravilhosa iniciada em lances fortes, em sequência bastante vertical,
+      com alguns trechos negativos. Proteção fixa generosa em toda extensão da via.
+      Rapel possível com uma corda de 50m. Dois lances de VIIa obrigatórios.
+- via_multiplas_enfiadas:
+    nome: A Dois Passos do Paraíso
+    destaque: true
+    dificuldade_media: BR_6
+    dificuldade_maxima: BR_7C
+    exposicao: E1
+    comprimento_total: 85
+    numero_enfiadas: 3
+    tipo_via_multiplas_enfiadas: TODA_FIXA
+    conquistadores:
+    - Igor Murta
+    - Aloysio Carvalho
+    - Igor Baldo
+    - Carlim Kamicad
+    data_abertura: '2012-04-08'
+    descricao: Via feita em três enfiadas curtas, seguindo uma exigente sequência
+      buracos, com algumas passagens negativas. Ótima opção no setor, servindo inclusive,
+      como variante da via "Jardim do Éden".
+- via_multiplas_enfiadas:
+    nome: Conquista do Paraíso
+    destaque: true
+    dificuldade_media: BR_6
+    dificuldade_maxima: BR_7A
+    comprimento_total: 165
+    numero_enfiadas: 3
+    tipo_via_multiplas_enfiadas: TODA_FIXA
+    conquistadores:
+    - Tonico Magalhães
+    - Eustáquio Júnior
+    - Gustavo "Xaxá" Carrozzino
+    - Juliano Magalhães
+    - Luciano Bender
+    data_abertura: '2011-09-06'
+    descricao: Via forte e complexa, porém muito bem protegida. Ótima opção neste
+      setor. Rapel com corda única de 60m. Três lances de VIIa obrigatórios. Juntamente
+      com a Jardim do Éden, forma o conjunto atual do pólo que pode ser considerado
+      como tipo esportivas longas.
+- via_multiplas_enfiadas:
+    nome: Purgatório
+    destaque: true
+    dificuldade_media: BR_6
+    dificuldade_maxima: BR_8B
+    exposicao: E2
+    comprimento_total: 120
+    numero_enfiadas: 3
+    tipo_via_multiplas_enfiadas: TODA_FIXA
+    conquistadores:
+    - Juliano Magalhães
+    - Luciano Bender
+    data_abertura: '2013-07-24'
+    descricao: Via iniciada em 2011, que conta com 32 grampos. A primeira enfiada
+      é técnica, com belas agarras e bastante vertical, a segunda é atlética/esportiva
+      e a última em aderências e abaulados. Imperdível!
+- via_movel:
+    nome: Arco de Ferros
+    dificuldade: BR_7A
+    exposicao: E2
+    extensao: 50
+    protecoes_moveis: Peças pequenas e médias.
+    conquistadores:
+    - Gustavo Piancastelli
+    - Eustáquio Júnior
+    - Celso Ferreira Gomes
+    data_abertura: '2012-06-16'
+    descricao: Via com boas passadas em móvel, sempre em diagonal para a esquerda,
+      cruzando a "Purgatório" e juntando na "Conquista do Paraíso". Leve peças pequenas
+      e médias. O nome da via é em alusão ao grande arco negativo formado pela fenda
+      por onde a linha passa.
+- via_multiplas_enfiadas:
+    nome: Pr. Conrado Ferro
+    destaque: true
+    dificuldade_media: BR_7A
+    dificuldade_maxima: BR_8C
+    exposicao: E2
+    comprimento_total: 120
+    numero_enfiadas: 2
+    quantidade_costuras_intermediarias: 18
+    tipo_via_multiplas_enfiadas: TODA_FIXA
+    conquistadores:
+    - Juliano Magalhães
+    - Luciano Bender
+    data_abertura: '2013-07-23'
+    descricao: Via bastante vertical e considerada um raro exemplo de escalada ESPORTIVA
+      LONGA. Trata-se da escalada mais difícil do Vale do Roncador até agora. Necessárias
+      18 costuras, caso se deseje fazer a primeira enfiada completa. O nome da via
+      é uma homenagem pelo quinto aniversário do filho de Luciano Bender, na data
+      da conquista. 31 grampos de ½. Um grande e empolgante desafio aos escaladores
+      esportivos.
+- via_multiplas_enfiadas:
+    nome: Quem com Ferro Fere
+    dificuldade_media: BR_5
+    dificuldade_maxima: BR_5
+    exposicao: E1
+    duracao: D1
+    comprimento_total: 90
+    numero_enfiadas: 2
+    tipo_via_multiplas_enfiadas: TODA_FIXA
+    conquistadores:
+    - Pedro Bugim
+    - Vivianne Sawczuk
+    data_abertura: '2015-09-05'
+    descricao: Via em agarras e aderência, bem constante do início ao fim, com proteção
+      fixa bem justa.
+- via_multiplas_enfiadas:
+    nome: Tanto Bate Até Que Fura
+    dificuldade_media: BR_6
+    dificuldade_maxima: BR_7A
+    exposicao: E1
+    duracao: D1
+    comprimento_total: 65
+    numero_enfiadas: 2
+    tipo_via_multiplas_enfiadas: TODA_FIXA
+    conquistadores:
+    - Pedro Bugim
+    - Vivianne Sawczuk
+    data_abertura: '2015-09-07'
+    descricao: Via muito interessante, bastante técnica, toda protegida em chapeletas
+      (chapeletas com argola estão posicionadas de tempos em tempos para eventual
+      rapel e parada). Sua primeira metade é mais complexa, feita basicamente em micro
+      agarras e aderência. Sua segunda metade, mais vertical, possui lances de domínio
+      e muitos abaulados. Termina na primeira parada da "Trem de Ferro", por onde
+      pode-se rapelar em grampos.
+- via_multiplas_enfiadas:
+    nome: Trem de Ferro
+    dificuldade_media: BR_3
+    dificuldade_maxima: BR_5
+    exposicao: E2
+    duracao: D1
+    comprimento_total: 80
+    numero_enfiadas: 2
+    tipo_via_multiplas_enfiadas: TODA_FIXA
+    conquistadores:
+    - Juliano Magalhães
+    - Luciano Bender
+    - Tonico Magalhães
+    data_abertura: '2012-07-24'
+    descricao: Localiza-se logo à esquerda da Up Ester, no ponto mais alto das bases
+      das vias naquele local. Possui 19 grampos de 1/2". A bela sequência vertical
+      no meio da via é o crux. Não a perca!
+- via_multiplas_enfiadas:
+    nome: Up Ester
+    dificuldade_media: BR_5
+    dificuldade_maxima: BR_5SUP
+    exposicao: E1
+    duracao: D1
+    comprimento_total: 100
+    numero_enfiadas: 2
+    tipo_via_multiplas_enfiadas: TODA_FIXA
+    equipamento_recomendado: 'Camalots #0.5 e #0.75 (friends pequenos opcionais na
+      primeira enfiada).'
+    conquistadores:
+    - Pedro Bugim
+    - Gustavo "Xaxá" Carrozzino
+    - Milson Domingues
+    data_abertura: '2012-06-16'
+    descricao: Via com boa verticalidade, passando por cristaleiras e abaulados incríveis.
+      É possível melhorar a proteção na primeira enfiada com friends pequenos, mas
+      não são obrigatórios. Conquista feita em homenagem à grande escaladora carioca
+      Ester Binstok, falecida precocemente aos 33 anos de idade.
+- via_multiplas_enfiadas:
+    nome: Até Que a Vida Nos Separe
+    destaque: true
+    dificuldade_media: BR_3
+    dificuldade_maxima: BR_4SUP
+    exposicao: E1
+    comprimento_total: 120
+    numero_enfiadas: 2
+    tipo_via_multiplas_enfiadas: TODA_FIXA
+    conquistadores:
+    - Pedro Bugim
+    - Maria Fernanda Patrício
+    data_abertura: '2015-02-15'
+    descricao: Bonita via, que inicia em lances mais tranquilos, ganhando verticalidade
+      na parte superior. Lances em agarras generosas e algumas passadas mais técnicas
+      em aderência. Termina junto com o final da "Vr. SEM". Atualmente, é a via mais
+      acessível da parede, por sua graduação pouco elevada e proteção generosa.
+- via_multiplas_enfiadas:
+    nome: Vr. Pilhado
+    dificuldade_media: BR_3
+    dificuldade_maxima: BR_5SUP
+    exposicao: E3
+    comprimento_total: 70
+    numero_enfiadas: 2
+    tipo_via_multiplas_enfiadas: MISTA
+    equipamento_recomendado: 'Friend médio / Camalot #1 (em um buraco na primeira
+      enfiada).'
+    conquistadores:
+    - Pedro Bugim
+    - Maria Fernanda Patrício
+    data_abertura: '2015-02-15'
+    descricao: Variante da via anterior. Inicia com uma passada em móvel, utilizando
+      um friend médio em um buraco. Continua em lances um pouco expostos, apesar de
+      fáceis, em proteção fixa. Após a primeira parada, existe o lance mais interessante
+      da via, com proteção mais generosa, no qual se vence uma bonita barriga bem
+      vertical e levemente negativa, com ótimas agarras e regletes. Pode-se continuar
+      para a esquerda, juntando na P1 da "Até que a Vida Nos Separe", ou seguir pela
+      direita, na P2 do "Pr. CEM".
+- via_multiplas_enfiadas:
+    nome: Pr. CEM
+    destaque: true
+    dificuldade_media: BR_4
+    dificuldade_maxima: BR_5
+    exposicao: E1
+    comprimento_total: 165
+    numero_enfiadas: 4
+    tipo_via_multiplas_enfiadas: TODA_FIXA
+    conquistadores:
+    - Gustavo "Xaxá" Carrozzino
+    - Pedro Bugim
+    - Tonico Magalhães
+    - Celso Ferreira Gomes
+    - José Roberto "Dagó" Cardoso
+    - Glesse Gripp
+    - Viviane
+    - Maria Fernanda Patrício
+    - Omar Freire
+    - Giba Pascoal
+    - Gresce Melo
+    - Giselle Melo
+    data_abertura: '2014-04-03'
+    descricao: Via conquistada em homenagem ao Centro Excursionista Mineiro (CEM),
+      tendo inclusive a participação de vários sócios e colaboradores. Segue uma bela
+      linha natural que corta um trecho extenso da parede principal, variando entre
+      aderência e agarras bem definidas, com setores de boa verticalidade, apesar
+      do grau mediano. Une-se a isto, uma proteção bastante generosa, conferindo aos
+      montanhistas uma escalada agradável e divertida. Paradas duplas a, no máximo,
+      cada 50 metros. Rapel possível de qualquer ponto da via, com corda única de
+      50m.
+- via_esportiva:
+    nome: Vr. SEM
+    dificuldade: BR_6SUP
+    exposicao: E1
+    extensao: 30
+    conquistadores:
+    - Pedro Bugim
+    - Maria Fernanda Patrício
+    data_abertura: '2014-03-03'
+    descricao: Variante da última enfiada do Paredão CEM, que passa por um grande
+      buraco na parede, seguido de um lance negativo, onde encontra-se o crux da variante.
+      Lance forte, mas bem protegido, que une agarras grandes com bom domínio e equilíbrio.
+      Termina em conjunto com a parada final do Pr. CEM.
+- via_multiplas_enfiadas:
+    nome: Eu Não Sou de Ferro
+    destaque: true
+    dificuldade_media: BR_5
+    dificuldade_maxima: BR_5
+    comprimento_total: 220
+    tipo_via_multiplas_enfiadas: TODA_FIXA
+    conquistadores:
+    - Tonico Magalhães
+    - Gustavo "Xaxá" Carrozzino
+    - Juliano Magalhães
+    - Valdinei Lima
+    data_abertura: '2006-08-26'
+    descricao: Uma das mais longas do Vale do Roncador, conta com belos lances verticais
+      em agarras e aderência. Diversão garantida! Rapel pela própria via, possível
+      com uma corda de 50m. Espetacular!!!
+- via_multiplas_enfiadas:
+    nome: Rio de Mão Dupla
+    destaque: true
+    dificuldade_media: BR_3
+    dificuldade_maxima: BR_6
+    exposicao: E4
+    duracao: D1
+    comprimento_total: 140
+    numero_enfiadas: 3
+    tipo_via_multiplas_enfiadas: TODA_MOVEL
+    equipamento_recomendado: Peças pequenas, sobretudo micro-friends e ballnutz, tricams
+      (#3), micro stoppers.
+    conquistadores:
+    - Pedro Bugim
+    - Maria Fernanda Patrício
+    data_abertura: '2012-06-16'
+    descricao: Via espetacular, de comprometimento, contando com apenas dois grampos
+      (um na segunda parada e outro após o crux), sendo todo o resto em proteção móvel
+      (inclusive a primeira parada). As colocações nem sempre são óbvias, obrigando
+      o escalador a fazer boa leitura da via, "garimpando" fissuras e buracos esporádicos
+      no caminho. O crux é protegido com peças bem pequenas, sobretudo, micro-friends
+      e ballnutz. Termina no meio da enfiada final da "Eu Não Sou de Ferro". É possível
+      evitar a terceira e última enfiada (crux), seguindo pela direita após a P2,
+      entrando na via "À Francesa". Rapel possível apenas com abandono de material!
+      Recomenda-se descer pelas vias laterais.
+- via_multiplas_enfiadas:
+    nome: À Francesa
+    dificuldade_media: BR_2
+    dificuldade_maxima: BR_2SUP
+    comprimento_total: 100
+    tipo_via_multiplas_enfiadas: MISTA
+    conquistadores:
+    - Tonico Magalhães
+    - Gustavo "Xaxá" Carrozzino
+    data_abertura: '2007-10-27'
+    descricao: Via com lances bem fáceis, com proteções bem espaçadas entre si. Inicia-se
+      num diedro fácil protegido em móvel. Termina num grande platô, com saída por
+      caminhada.
+- via_esportiva:
+    nome: Grand Finale
+    dificuldade: BR_5SUP
+    extensao: 30
+    conquistadores:
+    - Tonico Magalhães
+    - Gustavo "Xaxá" Carrozzino
+    data_abertura: '2007-10-27'
+    descricao: Pequena via que se inicia no platô final da via "À Francesa" e segue
+      por uma sequência mais delicada, até encontrar com o final da via "Eu Não Sou
+      de Ferro".
 ---
 
-![Laura Petroni e João Pedro na P1 da “Trio Elétrico”](imagens/grupo_principal_setor_classicas_longas_p0_i1.webp)
+# Parede Principal – Setor Clássicas Longas
+
+![Maria Fernanda na terceira passada em móvel (e crux) do Pr. “Ih, Ferrou!” (Foto: Pedro Bugim)](imagens/grupo_principal_setor_classicas_longas_p0_i1.webp)
+
+Setor da Parede Principal que concentra as maiores vias do Vale do Roncador, com vias de até 220 metros de extensão, como é o caso do Pr. “Eu Não Sou de Ferro”.
+
+Para acessá-lo é necessário seguir a trilha principal do Vale do Roncador por cerca de dois quilômetros, sempre beirando o córrego de mesmo nome. Após cruzar o rio duas vezes, passar por uma tronqueira e contornar um pasto, é necessário pegar uma bifurcação à direita, subindo em diagonal. Em certo ponto, ao encontrar uma laje de pedra com um filete de água escorrendo, vindo da direita, pode-se seguir por ele (cuidado para não escorregar!) ou seguir pelo barranco à esquerda.
+
+Predominância de vias em agarras e buracos, com destaque para o grande negativo existente no meio da parede, que abriga vias longas e de alta graduação, com mais de três enfiadas de corda, contando inclusive com a via mais difícil do polo (Pr. Conrado Ferro). Destaque ao Paredão CEM, via com quatro enfiadas e que segue uma linha natural impressionante.
+
+Outra opção interessante, é a via “Ih, Ferrou!”, por contar com proteção mista, obrigando o escalador a realizar pelo menos três lances protegendo com materiais móveis, em fendas sólidas e buracos perfeitos, ou a via “Rio de Mão Dupla”, que com 140 metros, conta apenas com dois grampos, sendo todo o resto em móvel.
+
+Este setor ainda conta com boas possibilidades de novas vias, sobretudo em sua metade da direita, na qual existem apenas três vias longas (“Eu Não Sou de Ferro”, “Rio de Mão Dupla” e “À Francesa”) e uma terceira, curta (“Grand Finale”).
+
+## Esquema de Trilhas
+
+- **1**: Base das vias “Eu Não Sou de Ferro”, “Rio de Mão Dupla” e “À Francesa”
+- **2**: Base das vias “Jardim do Éden” até “Arco de Ferros”
+- **3**: Base da via “Ih, Ferrou!”
+- **4**: Base das vias “O Retorno de Jedi” e “O Nome da Rosa”

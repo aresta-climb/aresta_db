@@ -1,0 +1,113 @@
+# SPDX-License-Identifier: ODbL-1.0
+# Copyright (C) 2026 Aresta Climb Contributors
+id: br_mg_sabara_pedra_rachada
+nome: Pedra Rachada Bouldering
+descricao: Guia de escalada em boulder da Pedra Rachada, localizada em Sabará, Minas
+  Gerais.
+creditos:
+- Luca Portilho
+- Nathalia Daneliczin
+caminho_thumbnail: imagens/capa_capa.webp
+picos:
+- nome: Pedra Rachada
+  localizacao:
+    latitude: -198406220
+    longitude: -437629060
+  mapas_gerais:
+    caminho: mapas_gerais.md
+  setores_ou_grupos:
+  - grupo:
+      caminho: grupo_estacionamento.md
+  - grupo:
+      caminho: grupo_entrada.md
+  - grupo:
+      caminho: grupo_sono_do_calango.md
+  - grupo:
+      caminho: grupo_deslize.md
+  - grupo:
+      caminho: grupo_yin_yang.md
+  - grupo:
+      caminho: grupo_rolling_stones.md
+  - grupo:
+      caminho: grupo_pena_de_ganso.md
+  - grupo:
+      caminho: grupo_tosco.md
+  - grupo:
+      caminho: grupo_canaleta.md
+  - grupo:
+      caminho: grupo_tubarao.md
+  - grupo:
+      caminho: grupo_daqui_a_20_anos.md
+  - grupo:
+      caminho: grupo_cume.md
+  url_google_maps: https://maps.app.goo.gl/pACGjAF6N4hhSymdA
+botoes:
+- texto: Capa
+  destino:
+    secao_textual:
+      caminho: capa.md
+- texto: Aviso
+  destino:
+    secao_textual:
+      caminho: aviso.md
+- texto: Poema
+  destino:
+    secao_textual:
+      caminho: poema.md
+- texto: Prefácio
+  destino:
+    secao_textual:
+      caminho: prefacio.md
+- texto: Agradecimentos
+  destino:
+    secao_textual:
+      caminho: agradecimentos.md
+- texto: Introdução
+  destino:
+    secao_textual:
+      caminho: introducao.md
+- texto: Como Chegar em Sabará
+  destino:
+    secao_textual:
+      caminho: como_chegar_sabara.md
+- texto: A Cidade de Sabará
+  destino:
+    secao_textual:
+      caminho: a_cidade_de_sabara.md
+- texto: Turismo Histórico e Religioso
+  destino:
+    secao_textual:
+      caminho: turismo_historico_e_religioso.md
+- texto: Ecoturismo
+  destino:
+    secao_textual:
+      caminho: ecoturismo.md
+- texto: Ecossistema
+  destino:
+    secao_textual:
+      caminho: ecossistema.md
+- texto: Onde Ficar
+  destino:
+    secao_textual:
+      caminho: onde_ficar.md
+- texto: Ética Local
+  destino:
+    secao_textual:
+      caminho: etica_local.md
+- texto: Como Chegar na Pedra Rachada
+  destino:
+    secao_textual:
+      caminho: como_chegar_pedra_rachada.md
+- texto: História
+  destino:
+    secao_textual:
+      caminho: historia.md
+- texto: Como Usar este Guia
+  destino:
+    secao_textual:
+      caminho: como_usar_este_guia.md
+- texto: Sobre os Autores
+  destino:
+    secao_textual:
+      caminho: sobre_os_autores.md
+ultima_migracao: 4

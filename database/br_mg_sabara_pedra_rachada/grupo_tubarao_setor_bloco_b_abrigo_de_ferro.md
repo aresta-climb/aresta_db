@@ -1,0 +1,60 @@
+---
+# SPDX-License-Identifier: ODbL-1.0
+# Copyright (C) 2026 Aresta Climb Contributors
+nome: Bloco B - Abrigo de Ferro
+mapas:
+- caminho_imagem_mapa: imagens/setor_tubarao_p2_i1.webp
+  largura_mapa: 1099
+  altura_mapa: 710
+  referencias:
+  - escalada: Abrigo de ferro
+    ids:
+    - '6'
+  - escalada: Medalha de lata
+    ids:
+    - '6'
+  - escalada: Projeto 17
+    ids:
+    - '8'
+  - escalada: Projeto 18
+    ids:
+    - '9'
+  - escalada: Projeto 19
+    ids:
+    - '10'
+escaladas:
+- boulder:
+    nome: Abrigo de ferro
+    dificuldade: V11
+    destaque: true
+    conquistadores:
+    - Rafael Passos
+    data_abertura: '2009'
+    descricao: Sai com as mãos juntas num batente abaulado invertido no teto e faz
+      movimentos surreais pra sair da caverna e dominar esta, que é uma das escaladas
+      mais exigentes da Pedra Rachada! Há também uma saída em pé para este boulder,
+      com a mão esquerda alta, no reglete, e a direita no batente abaulado invertido
+      chamado 7 Medalha de lata v9.
+- boulder:
+    nome: Medalha de lata
+    dificuldade: V9
+    descricao: Saída em pé para o “Abrigo de ferro” (6), com a mão esquerda alta,
+      no reglete, e a direita no batente abaulado invertido.
+- boulder:
+    nome: Projeto 17
+    dificuldade: V13_BARRA_V14
+    descricao: Projeto que sai mais ao fundo da caverna e escala uma sequência dura
+      no teto terminando como o “Abrigo de ferro” (6).
+- boulder:
+    nome: Projeto 18
+    dificuldade: V12
+    descricao: Projeto que sai com as mãos em juntas em um batente bom e atravessa
+      para a esquerda, terminando como o “Abrigo de ferro” (6).
+- boulder:
+    nome: Projeto 19
+    dificuldade: V10_BARRA_V11
+    descricao: Projeto que começa em pé com as mãos em uns regletes pequenos acima
+      do teto e toca reto por uma sequência dura.
+---
+
+# Bloco B - Abrigo de Ferro

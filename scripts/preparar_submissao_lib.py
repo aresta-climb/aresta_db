@@ -314,30 +314,27 @@ def desduplicar_referencias_no_md(md_path: Path, pico_path: Path) -> None:
         return caminho_rel
 
     # 1. Processar Frontmatter (Recursivamente)
-    def percorrer_frontmatter(obj: Any) -> None:
+    def percorrer_frontmatter(obj: Any, ignorar: bool = False) -> None:
         nonlocal modificado
         if isinstance(obj, list):
             for i in range(len(obj)):
                 if isinstance(obj[i], (dict, list)):
-                    percorrer_frontmatter(obj[i])
+                    percorrer_frontmatter(obj[i], ignorar=ignorar)
                 elif isinstance(obj[i], str) and obj[i].startswith("imagens/"):
                     # Não costuma ter string pura com imagens/ na lista, mas por garantia
                     pass
         elif isinstance(obj, dict):
-            # Campos conhecidos que contêm caminhos de imagem
-            campos_imagem = ["caminho_imagem_mapa"]
-            for campo in campos_imagem:
-                if campo in obj:
-                    original = obj[campo]
+            # Recorre em todos os campos, mas ignora escaladas/vias para desduplicação
+            for k, v in obj.items():
+                ignorar_filho = ignorar or k in ("escaladas", "vias")
+                if not ignorar and k == "caminho_imagem_mapa":
+                    original = v
                     novo = processar_caminho(original)
                     if novo != original:
-                        obj[campo] = novo
+                        obj[k] = novo
                         modificado = True
-            
-            # Recorre em todos os campos
-            for k, v in obj.items():
-                if isinstance(v, (dict, list)):
-                    percorrer_frontmatter(v)
+                elif isinstance(v, (dict, list)):
+                    percorrer_frontmatter(v, ignorar=ignorar_filho)
 
     if frontmatter:
         percorrer_frontmatter(frontmatter)
@@ -432,14 +429,16 @@ def corrigir_setores_ou_grupos_recursivo(setores_ou_grupos_raw: List[Any], pico_
                             mapas_lista = via["via_multiplas_enfiadas"].get("mapas")
                         if mapas_lista and isinstance(mapas_lista, list):
                             for mapa in mapas_lista:
-                                if isinstance(mapa, dict) and "caminho_imagem_mapa" in mapa:
-                                    img_original = mapa["caminho_imagem_mapa"]
-                                    if integrar_metadados_mapa(mapa, pico_path):
+                                if isinstance(mapa, dict):
+                                    if "pontos_de_interesse" in mapa:
+                                        del mapa["pontos_de_interesse"]
                                         modificado = True
-                                    novo_caminho_img = processar_caminho_imagem(img_original, pico_path, eh_escalada=True)
-                                    if novo_caminho_img != img_original:
-                                        mapa["caminho_imagem_mapa"] = novo_caminho_img
-                                        modificado = True
+                                    if "caminho_imagem_mapa" in mapa:
+                                        img_original = mapa["caminho_imagem_mapa"]
+                                        novo_caminho_img = processar_caminho_imagem(img_original, pico_path, eh_escalada=True)
+                                        if novo_caminho_img != img_original:
+                                            mapa["caminho_imagem_mapa"] = novo_caminho_img
+                                            modificado = True
 
             # 2.2 Converte coordenadas para E7 no frontmatter
             if converter_coordenadas_e7_recursivo(frontmatter):
@@ -996,13 +995,19 @@ def validar_referencias_mapa(croqui_data: Dict[str, Any]) -> List[str]:
                 via_nome = "Sem Nome"
                 if tipo_via_nome:
                     via = esc[tipo_via_nome]
-                    via_nome = via.get("nome", "Sem Nome")
-                    if tipo_via_nome == "via_multiplas_enfiadas" and "enfiadas" in via:
+                    if isinstance(via, dict):
+                        via_nome = via.get("nome", "Sem Nome")
+                        if tipo_via_nome == "via_multiplas_enfiadas" and "enfiadas" in via:
+                            nomes_escaladas.add(via_nome)
+                            for e in via["enfiadas"]:
+                                tipo_e = [k for k in e.keys() if k not in ("betas", "mapas")] if e else []
+                                if tipo_e and isinstance(e[tipo_e[0]], dict):
+                                    nomes_escaladas.add(e[tipo_e[0]].get("nome", "Sem Nome"))
+                        else:
+                            nomes_escaladas.add(via_nome)
+                    elif tipo_via_nome == "nome":
+                        via_nome = str(via)
                         nomes_escaladas.add(via_nome)
-                        for e in via["enfiadas"]:
-                            tipo_e = [k for k in e.keys() if k not in ("betas", "mapas")] if e else []
-                            if tipo_e:
-                                nomes_escaladas.add(e[tipo_e[0]].get("nome", "Sem Nome"))
                     else:
                         nomes_escaladas.add(via_nome)
                 else:
@@ -1014,7 +1019,7 @@ def validar_referencias_mapa(croqui_data: Dict[str, Any]) -> List[str]:
 
         for obj_sg in pico.get("setores_ou_grupos", []):
             if "grupo" in obj_sg:
-                grupo_conteudo = obj_sg["grupo"].get("conteudo", {})
+                grupo_conteudo = obj_sg["grupo"].get("conteudo") or obj_sg["grupo"]
                 grupo_nome = grupo_conteudo.get("nome", "Grupo Sem Nome")
                 nomes_grupos.add(grupo_nome)
                 
@@ -1022,7 +1027,7 @@ def validar_referencias_mapa(croqui_data: Dict[str, Any]) -> List[str]:
                     mapas_para_validar.append((f"Grupo '{grupo_nome}'", grupo_conteudo["mapas"]))
                     
                 for obj_s in grupo_conteudo.get("setores", []):
-                    setor_conteudo = obj_s.get("conteudo", {})
+                    setor_conteudo = obj_s.get("conteudo") or obj_s
                     setor_nome = setor_conteudo.get("nome", "Setor Sem Nome")
                     nomes_setores.add(setor_nome)
                     
@@ -1032,7 +1037,7 @@ def validar_referencias_mapa(croqui_data: Dict[str, Any]) -> List[str]:
                     registrar_escaladas(setor_conteudo.get("escaladas", []), f"Setor '{setor_nome}' no Grupo '{grupo_nome}'")
                                 
             elif "setor" in obj_sg:
-                setor_conteudo = obj_sg["setor"].get("conteudo", {})
+                setor_conteudo = obj_sg["setor"].get("conteudo") or obj_sg["setor"]
                 setor_nome = setor_conteudo.get("nome", "Setor Sem Nome")
                 nomes_setores.add(setor_nome)
                 
@@ -1040,6 +1045,28 @@ def validar_referencias_mapa(croqui_data: Dict[str, Any]) -> List[str]:
                     mapas_para_validar.append((f"Setor '{setor_nome}'", setor_conteudo["mapas"]))
                     
                 registrar_escaladas(setor_conteudo.get("escaladas", []), f"Setor '{setor_nome}'")
+
+        # Validação de mapas duplicados (mesma imagem de mapa sendo exibida em múltiplos locais)
+        locais_por_imagem_mapa: Dict[str, List[str]] = {}
+        for contexto_nome, mapas in mapas_para_validar:
+            if not isinstance(mapas, list):
+                continue
+            for idx_mapa, mapa in enumerate(mapas):
+                if not isinstance(mapa, dict):
+                    continue
+                caminho_img = mapa.get("caminho_imagem_mapa")
+                if caminho_img and isinstance(caminho_img, str):
+                    if caminho_img not in locais_por_imagem_mapa:
+                        locais_por_imagem_mapa[caminho_img] = []
+                    locais_por_imagem_mapa[caminho_img].append(f"{contexto_nome} (Mapa {idx_mapa+1})")
+
+        for caminho_img, locais in sorted(locais_por_imagem_mapa.items()):
+            if len(locais) > 1:
+                locais_str = ", ".join(locais)
+                erros.append(
+                    f"A imagem de mapa '{caminho_img}' no pico '{pico_nome}' está sendo exibida em mais de um local: {locais_str}. "
+                    f"No geral, se estiver em mais de um lugar indica duplicação indevida de informação."
+                )
 
         # Valida os mapas
         for contexto_nome, mapas in mapas_para_validar:

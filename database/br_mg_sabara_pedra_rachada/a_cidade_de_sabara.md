@@ -1,0 +1,19 @@
+# A Cidade de Sabará
+
+Uma cidade que nasceu como ponto de descanso para os bandeirantes paulistas do Brasil Colônia, hoje atrai outros tipos de desbravadores: turistas de todo o mundo ávidos por viajar através de mais de três séculos de história.
+
+![Casario colonial do Centro Histórico de Sabará](imagens/a_cidade_de_sabara_p0_i0.webp)
+
+Com pouco mais de 126mil habitantes e aproximadamente 700m de altitude, a cidade de Sabará fica a apenas 23km da capital Belo Horizonte e integra sua Região Metropolitana. É a cidade histórica mais próxima da capital.
+
+Sua história tem suas raízes nos primórdios da colonização do Brasil. Às margens do Rio das Velhas, a cidade tem mais de 330 anos de fundação. As primeiras expedições chegaram a Sabará por indicação dos índios. Eles contaram aos bandeirantes paulistas sobre o Sabaraçu (hoje Serra da Piedade), cuja fama era de possuir, em abundância, ouro, prata e outros metais e pedras preciosas. A cidade atraiu inúmeros aventureiros em busca da riqueza das serras. Em 1674, chegou à região a bandeira de Fernão Dias Paes, dando início ao que se tornaria o mais importante arraial fundado pelo bandeirante paulista.
+
+Sabará foi povoada e explorada. Muitos resquícios do período colonial provavelmente ainda esperam por serem descobertos. São 24 quilômetros de estradas e trilhas dentro da extensão da Estrada Real; nelas, 55 marcos indicam o caminho oficial. Toda a história encontra-se à disposição dos turistas.
+
+A cidade é formada por 19 conjuntos arquitetônicos e bens culturais tombados pelo Instituto do Patrimônio Histórico e Artístico Nacional (Iphan), quatro deles protegidos pelo Instituto Estadual do Patrimônio Histórico e Artístico (Iepha), e 23 obras tombadas pelo Governo Municipal.
+
+Sabará conserva muita história em suas ruas, principalmente no centro da cidade. Casarões, igrejas e capelas setecentistas encantam os visitantes pela sua imponência. No Centro Histórico está localizada a maioria dos atrativos históricos e arquitetônicos. Há igrejas que mesclam características artísticas das três diferentes fases do Barroco Mineiro e vários chafarizes. O mais conhecido é o Chafariz do Kaquende (pág xx); segundo a lenda, quem beber de sua água sempre retornará à cidade.
+
+Sabará possui, ainda, diversos festejos culturais. Considerada a capital mineira da jabuticaba, a cidade realiza todos os anos o famoso Festival da Jabuticaba. Entre música, comidas típicas e muita dança, o hospitaleiro povo sabarense acolhe com prazer a todos os seus visitantes. Como todo bom mineiro, o sabarense é caloroso e receptive. O Festival do Ora-Pro-Nobis também é realizado na cidade e atrai turistas interessados na deliciosa e famosa gastronomia mineira. Lá acontece, ainda, o Festival de Inverno, em comemoração ao aniversário da cidade, O Festival acontece durante todo o mês de julho e tem diversas atrações, como oficinas de literatura, mostras de filmes, feira de artes e cultura, festivais de dança, shows e peças teatrais.
+
+A fusão secular das etnias negra, branca e indígena moldou em Sabará uma identidade cultural extremamente rica, com tradições preservadas pelas manifestações populares e cultos que ainda povoam as ruas e templos da cidade. Dentre muitos outros, destacam-se a Folia de Reis, a Abertura do Santo Sepulcro na Semana Santa, a confecção dos tapetes artesanais na festa de Corpus Christi, o encontro das bandas de música no coreto da Praça Santa Rita, as quadrilhas nas festividades juninas, o Carnaval dos blocos caricatos, os grupos de seresta e os corais. A maioria das tradições locais está preservada e podem ser contempladas, principalmente, na ocasião destes eventos tradicionais. Estas manifestações materializam a relação destes diversos grupos com a história da cidade de Sabará.

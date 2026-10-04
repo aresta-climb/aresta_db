@@ -1,6 +1,9 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
+from editor.core.classificador_mensagens import eh_linha_de_aviso_ou_erro
+
+
 class CompilacaoLog:
     """Modelo simples para armazenar o estado das saídas de compilação."""
     
@@ -23,10 +26,6 @@ class CompilacaoLog:
         return self._tem_avisos_ou_erros
 
     def _verificar_erros_ou_avisos(self, mensagens: list[str]) -> bool:
-        """Verifica se as palavras-chave estão presentes em alguma das linhas."""
-        palavras_chave = ["aviso", "erro", "error", "falhou", "failed"]
-        for mensagem in mensagens:
-            msg_low = mensagem.lower()
-            if any(p in msg_low for p in palavras_chave):
-                return True
-        return False
+        """Verifica se alguma das mensagens é categorizada como erro ou aviso."""
+        return any(eh_linha_de_aviso_ou_erro(msg) for msg in mensagens)
+

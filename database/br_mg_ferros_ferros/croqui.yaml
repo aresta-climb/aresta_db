@@ -1,18 +1,18 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
-
 id: br_mg_ferros_ferros
 nome: Ferros
-descricao: 'Guia de escaladas de Ferros, Minas Gerais.
-
-  Um dos maiores polos de escalada em granito do Brasil, com centenas de vias que variam de
-  curtas esportivas a longas paredes de mais de 200 metros.
-
-  '
-status_desenho_extraivel: NAO_TEM_DESENHO
+descricao: Guia de escaladas de Ferros, Minas Gerais. Reúne setores e paredes de escalada
+  tradicional, esportiva e de aderência como a Parede Principal, Parede das Aderências,
+  Pedra do Neri e outras.
+creditos:
+- Pedro Bugim Ruel Vergnano
+- Antonio Carlos Magalhães
+- Celso José Ferreira Gomes
+caminho_thumbnail: imagens/capa_p0_i0.webp
 picos:
 - nome: Ferros
-  url_google_maps: http://zip.net/bnl28l
+  estado: MG
   setores_ou_grupos:
   - setor:
       caminho: setor_cachoeira.md
@@ -27,13 +27,17 @@ picos:
   - grupo:
       caminho: grupo_pedra_do_neri.md
   - setor:
-      caminho: setor_parede_da_agua_limpa.md
-  - setor:
       caminho: setor_parede_da_cenibra.md
+  - setor:
+      caminho: setor_parede_da_agua_limpa.md
   - setor:
       caminho: setor_outras_vias.md
   mapas_gerais:
     caminho: mapas_gerais.md
+  localizacao:
+    latitude: -192905010
+    longitude: -429844990
+  url_google_maps: https://maps.app.goo.gl/hGmJWp5oT1wnXpsG7
 botoes:
 - texto: Capa
   destino:
@@ -55,8 +59,9 @@ botoes:
   destino:
     secao_textual:
       caminho: como_chegar.md
-- texto: Guia na Web
+- texto: Regras
   destino:
     secao_textual:
-      caminho: guia_na_web.md
+      caminho: regras.md
 ultima_migracao: 4
+publicar_croqui: true

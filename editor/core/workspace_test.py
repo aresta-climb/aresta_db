@@ -174,6 +174,8 @@ def test_captura_mensagens(tmp_paths):
         
         def fake_compilar(*args, **kwargs):
             print("Isso é um print normal.")
+            print("[br_mg_ferros_ferros] Compilado com sucesso.")
+            print("  Gerando thumbnail: imagens/capa_p0_i0.webp -> thumbnails/br_mg_ferros_ferros.webp")
             print("Aviso: ID duplicado.")
             print("Erro ao tentar fazer algo.")
             print("  Warning: isso falhou feio")
@@ -187,6 +189,8 @@ def test_captura_mensagens(tmp_paths):
         assert "Erro ao tentar fazer algo." in msgs
         assert "  Warning: isso falhou feio" in msgs
         assert "Isso é um print normal." not in msgs
+        assert "[br_mg_ferros_ferros] Compilado com sucesso." not in msgs
+        assert "  Gerando thumbnail: imagens/capa_p0_i0.webp -> thumbnails/br_mg_ferros_ferros.webp" not in msgs
         assert "tudo certo!" not in msgs
 
 def test_experimental_workspace_diario_consolidacao(tmp_paths):

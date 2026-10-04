@@ -9,31 +9,10 @@ import sys
 import contextlib
 from typing import Protocol
 
+from editor.core.classificador_mensagens import filtrar_mensagens_de_log
+
 def _filtrar_mensagens(saida_str: str) -> list[str]:
-    mensagens = []
-    linhas = saida_str.splitlines()
-    palavras_chave = ["aviso", "erro", "error", "falhou"]
-    
-    em_bloco = False
-    for linha in linhas:
-        linha_low = linha.lower()
-        is_keyword = any(p in linha_low for p in palavras_chave)
-        
-        if is_keyword:
-            em_bloco = True
-            mensagens.append(linha.rstrip())
-        elif em_bloco and (linha.startswith(" ") or linha.startswith("\t")):
-            mensagens.append(linha.rstrip())
-        elif em_bloco and not linha.strip():
-            em_bloco = False
-            mensagens.append("")
-        else:
-            em_bloco = False
-            
-    while mensagens and not mensagens[-1].strip():
-        mensagens.pop()
-        
-    return mensagens
+    return filtrar_mensagens_de_log(saida_str)
 
 from collections.abc import Iterator
 from editor.core.croqui_experimental import GerenciadorCroquiExperimental

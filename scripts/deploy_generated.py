@@ -41,6 +41,7 @@ if sys.stderr is not None and getattr(sys.stderr, 'encoding', None) != 'utf-8':
         sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding='utf-8')
 
 from typing import List, Dict, Any, Tuple, Optional, Union, Set
+from collections import defaultdict
 import hashlib
 import datetime
 import shutil
@@ -377,6 +378,67 @@ def verificar_imagens_inexistentes(croqui_dir: Path, croqui_id: str, compiled_da
             print(f"\nAviso: A imagem '{caminho_rel}' referenciada no croqui '{croqui_id}' não foi encontrada no disco ({caminho_completo}).")
 
 
+def verificar_mapas_duplicados(croqui_id: str, compiled_data: Dict[str, Any]) -> None:
+    """Procura imagens de mapa que estão sendo exibidas em mais de um local e emite um aviso."""
+    locais_por_imagem: Dict[str, List[str]] = defaultdict(list)
+
+    def registrar_mapas(mapas: List[Any], contexto: str) -> None:
+        if not isinstance(mapas, list):
+            return
+        for idx, mapa in enumerate(mapas):
+            if isinstance(mapa, dict):
+                caminho = mapa.get("caminho_imagem_mapa")
+                if caminho and isinstance(caminho, str):
+                    locais_por_imagem[caminho].append(f"{contexto} (Mapa {idx+1})")
+
+    for pico in compiled_data.get("picos", []):
+        pico_nome = pico.get("nome", "Pico Sem Nome")
+        registrar_mapas(pico.get("mapas", []), f"Pico '{pico_nome}'")
+
+        if "mapas_gerais" in pico and isinstance(pico["mapas_gerais"], dict):
+            conteudo_mg = pico["mapas_gerais"].get("conteudo", pico["mapas_gerais"])
+            if isinstance(conteudo_mg, dict):
+                registrar_mapas(conteudo_mg.get("mapas", []), f"Pico '{pico_nome}' (Mapas Gerais)")
+
+        for obj_sg in pico.get("setores_ou_grupos", []):
+            if "grupo" in obj_sg:
+                grupo = obj_sg["grupo"].get("conteudo", obj_sg["grupo"])
+                grupo_nome = grupo.get("nome", "Grupo Sem Nome")
+                registrar_mapas(grupo.get("mapas", []), f"Grupo '{grupo_nome}'")
+                for obj_s in grupo.get("setores", []):
+                    setor = obj_s.get("conteudo", obj_s)
+                    setor_nome = setor.get("nome", "Setor Sem Nome")
+                    registrar_mapas(setor.get("mapas", []), f"Setor '{setor_nome}' (no Grupo '{grupo_nome}')")
+                    for esc in setor.get("escaladas", []):
+                        if isinstance(esc, dict):
+                            nome_esc = "Sem Nome"
+                            for k, v in esc.items():
+                                if isinstance(v, dict) and "nome" in v:
+                                    nome_esc = v["nome"]
+                                    break
+                            registrar_mapas(esc.get("mapas", []), f"Escalada '{nome_esc}' (no Setor '{setor_nome}')")
+            elif "setor" in obj_sg:
+                setor = obj_sg["setor"].get("conteudo", obj_sg["setor"])
+                setor_nome = setor.get("nome", "Setor Sem Nome")
+                registrar_mapas(setor.get("mapas", []), f"Setor '{setor_nome}'")
+                for esc in setor.get("escaladas", []):
+                    if isinstance(esc, dict):
+                        nome_esc = "Sem Nome"
+                        for k, v in esc.items():
+                            if isinstance(v, dict) and "nome" in v:
+                                nome_esc = v["nome"]
+                                break
+                        registrar_mapas(esc.get("mapas", []), f"Escalada '{nome_esc}' (no Setor '{setor_nome}')")
+
+    for caminho, locais in sorted(locais_por_imagem.items()):
+        if len(locais) > 1:
+            locais_str = ", ".join(locais)
+            print(
+                f"\nAviso: O mapa '{caminho}' no croqui '{croqui_id}' está sendo exibido em mais de um local: {locais_str}. "
+                f"No geral, se estiver em mais de um lugar indica duplicação indevida de informação."
+            )
+
+
 
 
 # ---------------------------------------------------------------------------
@@ -561,6 +623,7 @@ def passo_a_compilar_croquis(
                 verificar_nomes_duplicados_de_escalada(croqui_id, compiled_data)
                 verificar_escaladas_sem_mapa(croqui_id, compiled_data)
                 verificar_imagens_inexistentes(croqui_dir, croqui_id, compiled_data)
+                verificar_mapas_duplicados(croqui_id, compiled_data)
                 
             # Gerar também o compilado.md (opcional)
             if gerar_arquivos_de_debug and dest_yaml:

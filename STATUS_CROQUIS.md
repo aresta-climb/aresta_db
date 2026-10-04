@@ -1,8 +1,8 @@
 # Estado de Saúde dos Croquis
 
-Relatório gerado em: 28/09/2026 22:45:10
+Relatório gerado em: 03/10/2026 23:13:14
 
-| Croqui | Publicado (29/50) | Revisado Manual (29/50) | Revisado Circ (27/50) | Desenho Extraível (32/2/16) | Pontos de Interesse (26/50) | Thumbnail (40/50) | Coordenadas Picos (31/50) | URL Google Maps (16/50) | Mapas Gerais (34/50) | Betas Pendentes (50/50) | croqui.yaml (41/50) | Conteúdo PDF (4/50) | partes.json (49/50) | PDF Original (4/50) |
+| Croqui | Publicado (30/51) | Revisado Manual (29/51) | Revisado Circ (27/51) | Desenho Extraível (31/2/18) | Pontos de Interesse (26/51) | Thumbnail (42/51) | Coordenadas Picos (33/51) | URL Google Maps (17/51) | Mapas Gerais (35/51) | Betas Pendentes (51/51) | croqui.yaml (42/51) | Conteúdo PDF (6/51) | partes.json (50/51) | PDF Original (6/51) |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | br_mg_araxa_bocaina_boulders | ✅ | ✅ | ✅ | ✅ | ✅ (12/12) | ✅ | ✅ (1/1) | ✅ (1/1) | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ |
 | br_mg_araxa_bocaina_esportivas | ✅ | ✅ | ✅ | ✅ | ✅ (15/15) | ✅ | ✅ (1/1) | ✅ (1/1) | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ |
@@ -17,7 +17,7 @@ Relatório gerado em: 28/09/2026 22:45:10
 | br_mg_conceicao_do_mato_dentro_festboulder | ✅ | ✅ | ✅ | ✅ | ✅ (36/36) | ✅ | ✅ (1/1) | ✅ (1/1) | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ |
 | br_mg_diamantina_diamaboulder | ✅ | ✅ | ✅ | ✅ | ⚠️ (22/26) | ✅ | ✅ (1/1) | ❌ (0/1) | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ |
 | br_mg_extrema_falesia_da_esfinge | ❌ | ❌ | ❌ | ⚠️ | ❌ (0/3) | ✅ | ❌ (0/1) | ✅ (1/1) | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ |
-| br_mg_ferros_ferros | ❌ | ❌ | ❌ | ✅ (não) | ⚠️ (12/21) | ❌ | ❌ (0/1) | ✅ (1/1) | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ |
+| br_mg_ferros_ferros | ✅ | ❌ | ❌ | ❌ | ⚠️ (18/21) | ✅ | ✅ (1/1) | ✅ (1/1) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | br_mg_igarape_pedra_grande | ✅ | ✅ | ✅ | ✅ (não) | ⚠️ (21/23) | ✅ | ✅ (1/1) | ❌ (0/1) | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ |
 | br_mg_ipatinga_ipaba_vale_verde | ❌ | ✅ | ✅ | ✅ (não) | ✅ (2/2) | ✅ | ❌ (0/1) | ❌ (0/1) | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ |
 | br_mg_januaria_salao_encantado | ✅ | ✅ | ✅ | ✅ (não) | ✅ (7/7) | ✅ | ✅ (1/1) | ✅ (1/1) | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ |
@@ -38,6 +38,7 @@ Relatório gerado em: 28/09/2026 22:45:10
 | br_mg_pocos_de_caldas_pedra_do_dedo | ❌ | ❌ | ❌ | ❌ | N/A | ❌ | N/A | N/A | ❌ | ✅ | ❌ | ❌ | ✅ | ❌ |
 | br_mg_pocos_de_caldas_pilastras_e_pedreira | ❌ | ❌ | ❌ | ❌ | ❌ (0/3) | ✅ | ❌ (0/1) | ❌ (0/1) | ❌ | ✅ | ✅ | ❌ | ✅ | ❌ |
 | br_mg_pocos_de_caldas_veu | ❌ | ❌ | ❌ | ❌ | ❌ (0/7) | ✅ | ✅ (1/1) | ❌ (0/1) | ❌ | ✅ | ✅ | ❌ | ✅ | ❌ |
+| br_mg_sabara_pedra_rachada | ❌ | ❌ | ❌ | ❌ | ❌ (0/110) | ✅ | ✅ (1/1) | ✅ (1/1) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | br_mg_sabara_pedra_rachada_setor_horizonte | ✅ | ✅ | ✅ | ✅ | ✅ (11/11) | ✅ | ✅ (1/1) | ❌ (0/1) | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ |
 | br_mg_sacramento_vo_gusta | ✅ | ✅ | ✅ | ✅ (não) | ✅ (1/1) | ✅ | ✅ (1/1) | ✅ (1/1) | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ |
 | br_mg_santa_luzia_bigorna_ou_lapa_da_zumba | ❌ | ❌ | ❌ | ❌ | ❌ (0/1) | ✅ | ❌ (0/1) | ❌ (0/1) | ❌ | ✅ | ✅ | ❌ | ✅ | ❌ |

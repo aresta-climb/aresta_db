@@ -1,0 +1,136 @@
+---
+# SPDX-License-Identifier: ODbL-1.0
+# Copyright (C) 2026 Aresta Climb Contributors
+nome: Rolling Stones
+mapas:
+- caminho_imagem_mapa: imagens/setor_rolling_stones_p6_i1.webp
+  largura_mapa: 1099
+  altura_mapa: 710
+  referencias:
+  - escalada: Rock it
+    ids:
+    - '16'
+  - escalada: Esquerdinha
+    ids:
+    - '17'
+  - escalada: Cuidado aí
+    ids:
+    - '18'
+  - escalada: Invasorzinho
+    ids:
+    - '19'
+  - escalada: Bob Marley
+    ids:
+    - '19'
+    - '28'
+  - escalada: Já Elvis
+    ids:
+    - '21'
+  - escalada: Projeto 6
+    ids:
+    - '22'
+  - escalada: Janis Joplin
+    ids:
+    - '23'
+  - escalada: Rolling Stones
+    ids:
+    - '24'
+  - escalada: Jimi Hendrix
+    ids:
+    - '24'
+  - escalada: Amanhã vai ser outro dia
+    ids:
+    - '26'
+  - escalada: Woodstock
+    ids:
+    - '26'
+  - escalada: The Doors
+    ids:
+    - '28'
+  - escalada: Open the doors
+    ids:
+    - '28'
+  - escalada: Travessa
+    ids:
+    - '30'
+  - escalada: Eject
+    ids:
+    - '31'
+- caminho_imagem_mapa: imagens/setor_rolling_stones_p13.webp
+  largura_mapa: 1421
+  altura_mapa: 1055
+  referencias:
+  - escalada: Neutrons
+    ids:
+    - '75'
+  - escalada: Prótons
+    ids:
+    - '76'
+  - escalada: Elétrons
+    ids:
+    - '77'
+  - escalada: Aranha albina
+    ids:
+    - '78'
+setores:
+- caminho: grupo_rolling_stones_setor_bloco_a_gaston_a_la_meson.md
+- caminho: grupo_rolling_stones_setor_bloco_b_casulo.md
+- caminho: grupo_rolling_stones_setor_bloco_c_marrento.md
+- caminho: grupo_rolling_stones_setor_bloco_d_rolling_stones.md
+- caminho: grupo_rolling_stones_setor_bloco_e_eject.md
+- caminho: grupo_rolling_stones_setor_bloco_f_universo_paralello.md
+- caminho: grupo_rolling_stones_setor_bloco_g_pantaloneta.md
+- caminho: grupo_rolling_stones_setor_bloco_h_octopus.md
+- caminho: grupo_rolling_stones_setor_bloco_i_protons.md
+- caminho: grupo_rolling_stones_setor_bloco_j_aranha_albina.md
+---
+
+Em 2013, os trabalhos no bloco “Pantaloneta” proporcionaram o surgimento de vários novos boulders que confirmaram este setor como um dos melhores da Pedra Rachada. Os blocos “Rolling Stones” e “Pantaloneta”, que juntos somam a maior concentração de clássicos do local, são obrigatórios a qualquer visitante do local. Aproveite também para conhecer os blocos “Gaston a la meson” e as escaladas do bloco “Universo Paralello”.
+
+![Escaladora dominando o cume da falésia com vista panorâmica dos vales e montanhas](imagens/setor_rolling_stones_p0_i0.webp)
+
+## Acesso (20 min)
+
+Este setor fica logo acima do setor “Deslize”. Para acessá-lo, basta seguir a trilha principal que sobe passando pelo setor Entrada (à esquerda do “Bloco 1”) e pelo setor “Deslize”, contornando o bloco Lua cheia pela direita. Logo após o bloco “Zafar”, a primeira trilha à esquerda dá acesso aos blocos “Gaston a la meson”, “Casulo” e “Marrento”. Continuando reto estará bloco “Rolling Stones” e o bloco “Eject”. Um pouco mais a direita está o bloco “Universo Paralello” e, acima dele, o complexo das aranhas, com os blocos “Pantaloneta”, “Octopus”, “Protons” e “Aranha albina”.
+
+### Blocos
+- **A** – Gastón a la Mesón
+- **B** – Casulo
+- **C** – Marrento
+- **D** – Rolling Stones
+- **E** – Eject
+- **F** – Universo Paralelo
+- **G** – Pantaloneta
+- **H** – Octopus
+- **I** – Protóns
+- **J** – Aranha Albina
+
+## Boulders Clássicos
+
+- **28. The Doors** – V5
+- **7. Gastón a la meson** – V6
+- **24. Rolling Stones** – V8
+- **26. Amanhã vai ser outro dia** – V9
+- **36. Universo Paralello** – V9
+- **47. Pantaloneta** – V7
+- **45. Tapete mágico** – V10
+- **61. Aladim** – V11
+- **64. Vaqueros** – V10
+
+![Escalador executando o movimento duro de gastón no teto do bloco Gastón a la Mesón](imagens/setor_rolling_stones_p3_i0.webp)
+
+> "Quando tudo o que existe entre você e o chão é uma coisa chamada segurança."  
+> — *Alto Estilo*
+
+![Alto Estilo: Apoiando suas aventuras desde 1988](imagens/setor_rolling_stones_p4.webp)
+
+*Alto Estilo. Apoiando suas aventuras desde 1988. Acesse o site altoestilo.com.*
+
+![Escalador no negativo do bloco Rolling Stones cercado pela vegetação nativa](imagens/setor_rolling_stones_p7_i0.webp)
+
+![Escalador em teto horizontal com calcanhar encaixado no bloco Universo Paralelo](imagens/setor_rolling_stones_p9_i0.webp)
+
+![Escalador no teto na saída do boulder Octopus com segurador e crashpads na base](imagens/setor_rolling_stones_p12_i0.webp)
+
+> "Linha Stretch Limits: Alta performance para esportes outdoor."  
+> — *4Climb*

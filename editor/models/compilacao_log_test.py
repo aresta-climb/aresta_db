@@ -44,3 +44,17 @@ def test_compilacao_log_case_insensitive_e_keywords():
     for msg in mensagens:
         log.atualizar([msg])
         assert log.tem_avisos_ou_erros() is True, f"Falhou para: {msg}"
+
+
+def test_compilacao_log_ignora_ferros_sem_erro():
+    log = CompilacaoLog()
+    mensagens = [
+        "Alvos específicos  : [WindowsPath('database/br_mg_ferros_ferros')]",
+        "[br_mg_ferros_ferros] (1/1)",
+        "  Gerando thumbnail: imagens/capa_p0_i0.webp -> thumbnails/br_mg_ferros_ferros.webp",
+        "  Imagens copiadas: generated/br_mg_ferros_ferros/imagens",
+        "  107 imagem(ns) indexada(s) em arquivos_externos",
+    ]
+    log.atualizar(mensagens)
+    assert log.tem_avisos_ou_erros() is False
+

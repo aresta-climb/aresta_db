@@ -70,3 +70,24 @@ def test_integracao_fluxo_sucesso_absoluto():
     
     # E a view deve ter sido ocultada
     assert view.visivel is False
+
+
+def test_integracao_fluxo_sucesso_ferros_sem_falso_positivo():
+    """Verifica que a compilação com sucesso de Ferros oculta o painel e não exibe erros."""
+    model = CompilacaoLog()
+    view = ViewMock()
+    view.visivel = True
+    controller = CompilacaoController(model, view)
+
+    logs_ferros = [
+        "Alvos específicos  : [WindowsPath('database/br_mg_ferros_ferros')]",
+        "[br_mg_ferros_ferros] (1/1)",
+        "  Gerando thumbnail: imagens/capa_p0_i0.webp -> thumbnails/br_mg_ferros_ferros.webp",
+        "  Imagens copiadas: generated/br_mg_ferros_ferros/imagens",
+        "  107 imagem(ns) indexada(s) em arquivos_externos",
+    ]
+    controller.processar_resultado(logs_ferros)
+
+    assert model.tem_avisos_ou_erros() is False
+    assert view.visivel is False
+

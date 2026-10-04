@@ -20,6 +20,6 @@ Dentre suas vias, destacam-se a “Cordeiro de Deus” (V – 60m), “O Psicopa
 
 Este setor é imperdível para aqueles que apreciam a técnica de aderência, bem como aos que estão necessitando de treino na referida. Apesar das poucas agarras, a aderência da pedra é impressionante, conferindo muita confiança ao escalador.
 
-![Tonico, na conquista da “Solamente” - solo integral](imagens/grupo_aderencias_p0_i1.webp)
+![Tonico, na conquista da “Solamente” - solo integral. (Foto: Celso Gomes)](imagens/grupo_aderencias_p0_i0.webp)
 
 Curiosamente, algumas destas vias possuem também proteções mistas, ou seja, intercalando grampos fixos e materiais móveis.

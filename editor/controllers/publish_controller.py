@@ -10,6 +10,7 @@ from editor.core.worker import TarefaPublicacao
 from editor.core.servico_loja import ServicoLoja
 from editor.core.servico_submissao import ServicoSubmissao
 from editor.views.estilo import Icones
+from editor.core.classificador_mensagens import eh_linha_de_erro
 import requests
 
 
@@ -141,7 +142,7 @@ class PublishController:
                 id_atual = self.croqui_data.get("id", "") if self.croqui_data else ""
                 resultado_compilacao = self.workspace.processar_renomeacao_e_compilacao(id_atual, id_atual, self.storage)
                 mensagens = resultado_compilacao[1] if len(resultado_compilacao) > 1 else []
-                erros = [m for m in mensagens if "erro" in m.lower() or "error" in m.lower()]
+                erros = [m for m in mensagens if eh_linha_de_erro(m)]
                 if erros:
                     QMessageBox.critical(
                         self.parent,

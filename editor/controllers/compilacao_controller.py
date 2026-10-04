@@ -4,6 +4,9 @@
 from typing import Any
 
 
+from editor.core.classificador_mensagens import eh_linha_de_erro, eh_linha_de_aviso
+
+
 class CompilacaoController:
     """Controlador que faz a mediação entre a saída da compilação, o modelo de log e a view."""
     
@@ -26,15 +29,13 @@ class CompilacaoController:
     def _formatar_para_html(self, mensagens: list[str]) -> str:
         """Formata as strings em HTML aplicando cores de acordo com erros e avisos."""
         linhas_html = []
-        palavras_erro = ["erro", "error", "falhou", "failed"]
         
         for msg in mensagens:
-            msg_low = msg.lower()
             cor = "#333333"  # Padrão
             
-            if any(p in msg_low for p in palavras_erro):
+            if eh_linha_de_erro(msg):
                 cor = "#D32F2F"  # Vermelho forte (Material)
-            elif "aviso" in msg_low:
+            elif eh_linha_de_aviso(msg):
                 cor = "#F57C00"  # Laranja forte (Material)
                 
             # O escape básico de HTML seria ideal, mas para não abstrair demais, mantemos simples.

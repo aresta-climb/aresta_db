@@ -51,7 +51,10 @@ Sempre verifique o sistema de arquivos antes de começar para deduzir de qual fa
 2. A tarefa do sub-agente é inspecionar o PDF visualmente, criar a pasta do croqui apropriada em `database/`, gerar o `partes.json` e **retornar para você o caminho da pasta criada**.
 4. Copie o PDF original para `database/<croqui>/raw_original_pdf/croqui_original.pdf`.
 5. Execute `python scripts/repartir_pdf.py database/<croqui>` para desmembrar os `.pdf` menores na pasta `raw_pdf_contents` e extrair as imagens. O script detecta automaticamente se as páginas contêm imagens fatiadas em mosaico (decorrentes de transparências do PDF) e renderiza a página completa (`pX.webp`) em alta resolução quando necessário.
-6. **[Checkpoint]** Pause a execução. Inspecione as imagens geradas em `raw_pdf_contents/imagens/` junto com o `partes.json`: confira se as imagens extraídas representam as paredes/croquis de forma íntegra e completa. Pergunte ao usuário: *"As partes e imagens foram geradas corretamente? Posso prosseguir com a Fase 2 (Conversão)?"*
+6. **[Checkpoint - Inspeção e Orientação de Imagens]** Pause a execução. Inspecione as imagens geradas em `raw_pdf_contents/imagens/` junto com o `partes.json`:
+   - Confira se as imagens extraídas representam as paredes/croquis de forma íntegra e completa.
+   - **Orientação das Imagens (Rotação inicial obrigatória):** Se alguma imagem de croqui estiver deitada ou invertida (orientação paisagem quando o croqui é retrato, ou texto na vertical), rotacione a imagem de forma definitiva nesta etapa inicial. Fazer isso logo no início garante que o OCR da Fase 3 e os pontos de interesse (POIs) já sejam extraídos diretamente nas dimensões e orientações corretas, sem necessidade de pós-rotação geométrica de coordenadas.
+   Pergunte ao usuário: *"As partes e imagens foram geradas e orientadas corretamente? Posso prosseguir com a Fase 2 (Conversão)?"*
 
 
 ### Fase 2: Conversão Paralela para Markdown
@@ -61,7 +64,7 @@ Sempre verifique o sistema de arquivos antes de começar para deduzir de qual fa
 3. Aguarde o retorno das mensagens de todos os sub-agentes. Caso algum sub-agente falhe, aplique imediatamente o **Auto-Correção (Auto-heal)** descrito na seção 2.
 4. Após o sucesso de todas as partes, invoque um único sub-agente do tipo `CompiladorCroqui`. A missão dele será gerar o `croqui.yaml`, rodar os scripts de compilação/deploy e validar o protobuf iterativamente até que não existam erros ou warnings.
 5. Aguarde o `CompiladorCroqui` retornar sucesso. Caso ele falhe por não conseguir resolver um erro de compilação antes de morrer ou devolver uma resposta de erro, aplique a lógica de **Auto-Correção** (Auto-heal) recriando o `CompiladorCroqui` com o log de erro.
-6. Quando o `CompiladorCroqui` finalizar garantindo a ausência de erros, **[Checkpoint]** pause a execução. Pergunte ao usuário: *"O compilado foi gerado e validado. Por favor, rode o editor de croquis (`python editor/main.py database/<croqui>`) e confira os dados, principalmente se as imagens do croqui estão corretas na aba de imagens. Posso prosseguir com a Fase 3 (Extração de Mapas)?"*
+6. Quando o `CompiladorCroqui` finalizar garantindo a ausência de erros, **[Checkpoint]** pause a execução. Pergunte ao usuário: *"O compilado foi gerado e validado. Por favor, rode o editor de croquis (`python editor/main.py database/<croqui>`) e confira os dados, principalmente se as imagens do croqui estão corretas na aba de imagens (rotacione qualquer imagem que ainda esteja deitada pelo editor ANTES de iniciarmos a Fase 3). Posso prosseguir com a Fase 3 (Extração de Mapas)?"*
 
 ### Fase 3: Extração de Informações dos Mapas
 

@@ -2275,10 +2275,106 @@ def test_corrigir_mapas_gerais_com_metadados_json_e_coordenadas(tmp_path):
     assert mapa_inline["latitude"] == -210000000
 
 
+def test_desduplicar_referencias_ignora_escaladas(tmp_path: Path):
+    from scripts.preparar_submissao_lib import (
+        desduplicar_referencias_no_md,
+        salvar_md_com_frontmatter,
+        parse_md_com_frontmatter,
+    )
+
+    # Prepara pasta de imagens e imagem fictícia
+    img_dir = tmp_path / "imagens"
+    img_dir.mkdir(parents=True, exist_ok=True)
+    img_file = img_dir / "parede.webp"
+    img_file.write_bytes(b"dummy image")
+
+    md_path = tmp_path / "setor_teste.md"
+    frontmatter = {
+        "nome": "Setor Teste",
+        "mapas": [
+            {"caminho_imagem_mapa": "imagens/parede.webp"}
+        ],
+        "escaladas": [
+            {
+                "nome": "Via 1",
+                "mapas": [{"caminho_imagem_mapa": "imagens/parede.webp"}]
+            },
+            {
+                "nome": "Via 2",
+                "mapas": [{"caminho_imagem_mapa": "imagens/parede.webp"}]
+            }
+        ]
+    }
+    salvar_md_com_frontmatter(md_path, frontmatter, "Texto descritivo")
+
+    desduplicar_referencias_no_md(md_path, tmp_path)
+
+    fm_atualizado, _ = parse_md_com_frontmatter(md_path)
+    # A imagem do mapa geral deve continuar sendo imagens/parede.webp
+    assert fm_atualizado["mapas"][0]["caminho_imagem_mapa"] == "imagens/parede.webp"
+    # As escaladas devem continuar apontando para a mesma imagem original sem criar _2.webp ou _3.webp
+    assert fm_atualizado["escaladas"][0]["mapas"][0]["caminho_imagem_mapa"] == "imagens/parede.webp"
+    assert fm_atualizado["escaladas"][1]["mapas"][0]["caminho_imagem_mapa"] == "imagens/parede.webp"
+    # Nenhuma imagem duplicada deve ter sido criada no disco
+    assert not (img_dir / "parede_2.webp").exists()
+    assert not (img_dir / "parede_3.webp").exists()
 
 
+def test_corrigir_setores_remove_poi_de_escaladas(tmp_path: Path):
+    from scripts.preparar_submissao_lib import (
+        corrigir_setores_ou_grupos_recursivo,
+        salvar_md_com_frontmatter,
+        parse_md_com_frontmatter,
+    )
+
+    md_path = tmp_path / "setor_pois.md"
+    frontmatter = {
+        "nome": "Setor POIs",
+        "escaladas": [
+            {
+                "nome": "Via com POI",
+                "mapas": [
+                    {
+                        "caminho_imagem_mapa": "imagens/parede.webp",
+                        "pontos_de_interesse": [{"id": "1", "circulo": {"x": 10, "y": 10, "raio": 5}}]
+                    }
+                ]
+            }
+        ]
+    }
+    salvar_md_com_frontmatter(md_path, frontmatter, "Texto")
+
+    setores_raw = [{"setor": {"caminho": "setor_pois.md"}}]
+    corrigir_setores_ou_grupos_recursivo(setores_raw, tmp_path)
+
+    fm_atualizado, _ = parse_md_com_frontmatter(md_path)
+    mapa_esc = fm_atualizado["escaladas"][0]["mapas"][0]
+    # Pontos de interesse não devem existir em mapas de escaladas
+    assert "pontos_de_interesse" not in mapa_esc
 
 
+def test_validar_referencias_mapa_aviso_mapa_duplicado():
+    from scripts.preparar_submissao_lib import validar_referencias_mapa
 
-
-
+    croqui = {
+        "picos": [{
+            "nome": "Pico Teste",
+            "setores_ou_grupos": [
+                {
+                    "setor": {
+                        "nome": "Setor 1",
+                        "mapas": [{"caminho_imagem_mapa": "imagens/parede.webp"}],
+                        "escaladas": [
+                            {
+                                "nome": "Via 1",
+                                "mapas": [{"caminho_imagem_mapa": "imagens/parede.webp"}]
+                            }
+                        ]
+                    }
+                }
+            ]
+        }]
+    }
+    erros = validar_referencias_mapa(croqui)
+    assert any("A imagem de mapa 'imagens/parede.webp' no pico 'Pico Teste' está sendo exibida em mais de um local" in e for e in erros)
+    assert any("duplicação indevida de informação" in e for e in erros)

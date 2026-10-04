@@ -7,4 +7,14 @@ setores:
 - caminho: grupo_pedra_do_neri_setor_aderencias.md
 ---
 
-![Pedra do Neri](imagens/grupo_pedra_do_neri_p0_i1.webp)
+# Pedra do Neri
+
+Enorme bloco rolado situado na propriedade do Sr. Neri, próxima do povoado quilombola denominado Mendonça, apresenta duas faces escaláveis, totalizando onze vias implantadas.
+
+Este bloco apresenta dois setores distintos: Esportivas (esquerda) e Aderências (direita).
+
+As seis vias do setor das Esportivas, todas com extensão de 15 metros, foram conquistadas no dia de Natal de 2010 por Juliano Magalhães e Tonico.
+
+A face das Aderências apresenta cinco vias com extensão de 10 a 12 metros e graduação bastante variável, de IIIsup a VIIc.
+
+![Pedra do Neri – À esquerda, vias esportivas; à direita, vias em aderência. (Foto: Celso Ferreira Gomes)](imagens/grupo_pedra_do_neri_p0_i1.webp)

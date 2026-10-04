@@ -17,8 +17,8 @@ PADRAO_COPYRIGHT = re.compile(
     re.MULTILINE,
 )
 
-DIRETORIOS_IGNORADOS = {".git", "generated", "database", ".pytest_cache", "__pycache__", "venv", ".venv"}
-DIRETORIOS_IGNORADOS_GPL = {".git", "generated", "database", ".pytest_cache", "__pycache__", "venv", ".venv", "openspec"}
+DIRETORIOS_IGNORADOS = {".git", "generated", "database", ".pytest_cache", "__pycache__", "venv", ".venv", "scratch"}
+DIRETORIOS_IGNORADOS_GPL = {".git", "generated", "database", ".pytest_cache", "__pycache__", "venv", ".venv", "openspec", "scratch"}
 ARQUIVOS_IGNORADOS_GPL = {"codebase_headers_test.py", "validador_cabecalhos.py", "validador_cabecalhos_test.py"}
 
 

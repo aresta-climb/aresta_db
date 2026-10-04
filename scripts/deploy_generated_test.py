@@ -52,6 +52,39 @@ class DeployGeneratedTest(unittest.TestCase):
         self.assertIn("Aviso: A escalada 'Via Normal' aparece mais de uma vez no croqui 'croqui_teste'", saida)
         self.assertNotIn("Fenda do Desespero", saida)
 
+    def test_aviso_mapa_duplicado(self):
+        compiled_data = {
+            "picos": [
+                {
+                    "nome": "Pico Teste",
+                    "setores_ou_grupos": [
+                        {
+                            "setor": {
+                                "nome": "Setor 1",
+                                "mapas": [{"caminho_imagem_mapa": "imagens/parede.webp"}],
+                                "escaladas": [
+                                    {
+                                        "tradicional": {"nome": "Via 1"},
+                                        "mapas": [{"caminho_imagem_mapa": "imagens/parede.webp"}]
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+        captured_output = StringIO()
+        sys.stdout = captured_output
+        try:
+            deploy_generated.verificar_mapas_duplicados("croqui_teste", compiled_data)
+        finally:
+            sys.stdout = sys.__stdout__
+
+        saida = captured_output.getvalue()
+        self.assertIn("Aviso: O mapa 'imagens/parede.webp' no croqui 'croqui_teste' está sendo exibido em mais de um local", saida)
+        self.assertIn("duplicação indevida de informação", saida)
+
     def test_passo_c_gerar_indice_precomputados(self):
         # Configurar um croqui_data com picos e precomputados
         croqui_data = {
