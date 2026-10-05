@@ -82,3 +82,7 @@ class AdaptadorPlataforma(Protocol):
     def obter_nome_icone_preferencial(self) -> str:
         """Retorna o nome do arquivo de ícone preferencial para a plataforma (ex: logo.ico, logo.icns, logo_app.png)."""
         ...
+
+    def configurar_cofre_credenciais(self) -> None:
+        """Configura e valida o backend seguro do chaveiro (Keyring) para a plataforma."""
+        ...

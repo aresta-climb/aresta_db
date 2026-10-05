@@ -86,3 +86,59 @@ def test_adaptador_linux_obter_nome_icone_preferencial() -> None:
     """Garante que o adaptador Linux retorna logo_app.png como ícone preferencial."""
     adaptador = AdaptadorLinux()
     assert adaptador.obter_nome_icone_preferencial() == "logo_app.png"
+
+
+def test_adaptador_linux_configurar_cofre_credenciais_ja_valido() -> None:
+    """Valida que backend válido já existente não é sobrescrito no Linux."""
+    adaptador = AdaptadorLinux()
+    backend_valido = MagicMock()
+    with patch("keyring.get_keyring", return_value=backend_valido):
+        with patch("keyring.set_keyring") as mock_set:
+            adaptador.configurar_cofre_credenciais()
+            mock_set.assert_not_called()
+
+
+def test_adaptador_linux_configurar_cofre_credenciais_trata_excecao() -> None:
+    """Valida tratamento seguro caso get_keyring lance exceção."""
+    adaptador = AdaptadorLinux()
+    with patch("keyring.get_keyring", side_effect=Exception("D-Bus inacessível")):
+        with patch("keyring.set_keyring") as mock_set:
+            adaptador.configurar_cofre_credenciais()
+            mock_set.assert_not_called()
+
+
+def test_adaptador_linux_configurar_cofre_credenciais_secretservice_sucesso() -> None:
+    """Valida configuração automática de SecretService no Linux."""
+    from keyring.backends.fail import Keyring as FailKeyring
+
+    adaptador = AdaptadorLinux()
+    with patch("keyring.get_keyring", return_value=FailKeyring()):
+        with patch("keyring.set_keyring") as mock_set:
+            adaptador.configurar_cofre_credenciais()
+            mock_set.assert_called_once()
+
+
+def test_adaptador_linux_configurar_cofre_credenciais_secretservice_falha_tenta_kwallet() -> None:
+    """Valida fallback para kwallet caso SecretService lance exceção."""
+    from keyring.backends.fail import Keyring as FailKeyring
+
+    adaptador = AdaptadorLinux()
+    with patch("keyring.get_keyring", return_value=FailKeyring()):
+        with patch("keyring.backends.SecretService.Keyring", side_effect=Exception("SecretService ausente")):
+            with patch("keyring.backends.kwallet.DBusKeyring", return_value=MagicMock()):
+                with patch("keyring.set_keyring") as mock_set:
+                    adaptador.configurar_cofre_credenciais()
+                    mock_set.assert_called_once()
+
+
+def test_adaptador_linux_configurar_cofre_credenciais_ambos_falham() -> None:
+    """Valida que falha em ambos os backends no Linux é tratada silenciosamente."""
+    from keyring.backends.fail import Keyring as FailKeyring
+
+    adaptador = AdaptadorLinux()
+    with patch("keyring.get_keyring", return_value=FailKeyring()):
+        with patch("keyring.backends.SecretService.Keyring", side_effect=Exception("Falha 1")):
+            with patch("keyring.backends.kwallet.DBusKeyring", side_effect=Exception("Falha 2")):
+                with patch("keyring.set_keyring") as mock_set:
+                    adaptador.configurar_cofre_credenciais()
+                    mock_set.assert_not_called()

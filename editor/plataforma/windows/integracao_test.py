@@ -250,3 +250,36 @@ def test_adaptador_windows_obter_nome_icone_preferencial() -> None:
     adaptador = AdaptadorWindows()
     assert adaptador.obter_nome_icone_preferencial() == "logo.ico"
 
+
+def test_adaptador_windows_configurar_cofre_credenciais() -> None:
+    """Valida a configuração do cofre de credenciais no Windows (sucesso, já válido e falha)."""
+    from keyring.backends.fail import Keyring as FailKeyring
+
+    adaptador = AdaptadorWindows()
+
+    # Cenário 1: Já válido
+    with patch("keyring.get_keyring", return_value=MagicMock()):
+        with patch("keyring.set_keyring") as mock_set:
+            adaptador.configurar_cofre_credenciais()
+            mock_set.assert_not_called()
+
+    # Cenário 2: Erro ao consultar backend
+    with patch("keyring.get_keyring", side_effect=Exception("Erro")):
+        with patch("keyring.set_keyring") as mock_set:
+            adaptador.configurar_cofre_credenciais()
+            mock_set.assert_not_called()
+
+    # Cenário 3: Configuração com sucesso
+    with patch("keyring.get_keyring", return_value=FailKeyring()):
+        with patch("keyring.backends.Windows.WinVaultKeyring", return_value=MagicMock()):
+            with patch("keyring.set_keyring") as mock_set:
+                adaptador.configurar_cofre_credenciais()
+                mock_set.assert_called_once()
+
+    # Cenário 4: Falha ao instanciar backend
+    with patch("keyring.get_keyring", return_value=FailKeyring()):
+        with patch("keyring.backends.Windows.WinVaultKeyring", side_effect=Exception("WinVault erro")):
+            with patch("keyring.set_keyring") as mock_set:
+                adaptador.configurar_cofre_credenciais()
+                mock_set.assert_not_called()
+

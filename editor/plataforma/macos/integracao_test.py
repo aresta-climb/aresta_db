@@ -83,3 +83,36 @@ def test_adaptador_macos_obter_nome_icone_preferencial() -> None:
     """Garante que o adaptador macOS retorna logo.icns como ícone preferencial."""
     adaptador = AdaptadorMacOS()
     assert adaptador.obter_nome_icone_preferencial() == "logo.icns"
+
+
+def test_adaptador_macos_configurar_cofre_credenciais() -> None:
+    """Valida a configuração do cofre de credenciais no macOS (sucesso, já válido e falha)."""
+    from keyring.backends.fail import Keyring as FailKeyring
+
+    adaptador = AdaptadorMacOS()
+
+    # Cenário 1: Já válido
+    with patch("keyring.get_keyring", return_value=MagicMock()):
+        with patch("keyring.set_keyring") as mock_set:
+            adaptador.configurar_cofre_credenciais()
+            mock_set.assert_not_called()
+
+    # Cenário 2: Erro ao consultar backend
+    with patch("keyring.get_keyring", side_effect=Exception("Erro")):
+        with patch("keyring.set_keyring") as mock_set:
+            adaptador.configurar_cofre_credenciais()
+            mock_set.assert_not_called()
+
+    # Cenário 3: Configuração com sucesso
+    with patch("keyring.get_keyring", return_value=FailKeyring()):
+        with patch("keyring.backends.macOS.Keyring", return_value=MagicMock()):
+            with patch("keyring.set_keyring") as mock_set:
+                adaptador.configurar_cofre_credenciais()
+                mock_set.assert_called_once()
+
+    # Cenário 4: Falha ao instanciar backend
+    with patch("keyring.get_keyring", return_value=FailKeyring()):
+        with patch("keyring.backends.macOS.Keyring", side_effect=Exception("Keychain erro")):
+            with patch("keyring.set_keyring") as mock_set:
+                adaptador.configurar_cofre_credenciais()
+                mock_set.assert_not_called()

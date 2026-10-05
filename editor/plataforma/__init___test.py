@@ -73,9 +73,12 @@ def test_funcoes_conveniencia_fachada() -> None:
         mock_adaptador.solicitar_instalacao_atualizacao.assert_called_once_with(res)
 
         mock_adaptador.obter_nome_icone_preferencial.return_value = "logo.png"
-        from editor.plataforma import obter_nome_icone_preferencial
+        from editor.plataforma import obter_nome_icone_preferencial, configurar_cofre_credenciais
         assert obter_nome_icone_preferencial() == "logo.png"
         mock_adaptador.obter_nome_icone_preferencial.assert_called_once()
+
+        configurar_cofre_credenciais()
+        mock_adaptador.configurar_cofre_credenciais.assert_called_once()
 
 
 def test_adaptador_padrao_fallback_completo() -> None:
@@ -92,3 +95,4 @@ def test_adaptador_padrao_fallback_completo() -> None:
     assert res.status == StatusAtualizacao.NAO_APLICAVEL
     assert adaptador.solicitar_instalacao_atualizacao() is False
     assert adaptador.obter_nome_icone_preferencial() == "logo_app.png"
+    adaptador.configurar_cofre_credenciais()

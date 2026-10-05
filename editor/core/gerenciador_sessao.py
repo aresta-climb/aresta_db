@@ -2,7 +2,6 @@
 # Copyright (C) 2026 Aresta Climb Contributors
 
 import os
-import sys
 import base64
 from pathlib import Path
 from dataclasses import dataclass, asdict
@@ -12,6 +11,7 @@ import logging
 import keyring
 from cryptography.hazmat.primitives.ciphers.aead import AESGCM
 from editor.core.storage import GerenciadorCaminhos
+from editor.plataforma import configurar_cofre_credenciais
 
 
 def token_jwt_expirado(token: str, margem_segundos: int = 60) -> bool:
@@ -79,50 +79,6 @@ class GerenciadorSessao:
 
     IDENTIFICADOR_CHAVE_CRIPTOGRAFIA = "chave_criptografia_sessao"
 
-    @classmethod
-    def _garantir_backend_keyring(cls) -> None:
-        """Garante a inicialização do backend do keyring para executáveis empacotados (PyInstaller)."""
-        try:
-            from keyring.backends import fail
-
-            backend_atual = keyring.get_keyring()
-            if not isinstance(backend_atual, fail.Keyring):
-                return
-        except Exception:
-            return
-
-        if sys.platform.startswith("linux"):
-            try:
-                from keyring.backends import SecretService
-
-                keyring.set_keyring(SecretService.Keyring())
-                return
-            except Exception:
-                pass
-            try:
-                from keyring.backends import kwallet
-
-                keyring.set_keyring(kwallet.DBusKeyring())
-                return
-            except Exception:
-                pass
-        elif sys.platform == "win32":
-            try:
-                from keyring.backends import Windows
-
-                keyring.set_keyring(Windows.WinVaultKeyring())
-                return
-            except Exception:
-                pass
-        elif sys.platform == "darwin":
-            try:
-                from keyring.backends import macOS
-
-                keyring.set_keyring(macOS.Keyring())
-                return
-            except Exception:
-                pass
-
     def __init__(
         self,
         usar_memoria: bool = False,
@@ -134,7 +90,7 @@ class GerenciadorSessao:
         self.nome_servico: str = nome_servico
         self.identificador_usuario: str = identificador_usuario
         self._sessao_memoria: Optional[str] = None
-        self._garantir_backend_keyring()
+        configurar_cofre_credenciais()
         if caminho_arquivo_sessao:
             self._caminho_arquivo: Path = caminho_arquivo_sessao
         else:
@@ -144,7 +100,7 @@ class GerenciadorSessao:
 
     def _obter_ou_criar_chave_criptografia(self) -> bytes:
         """Obtém a chave AES de 256 bits do Keyring do SO ou gera uma nova de forma segura."""
-        self._garantir_backend_keyring()
+        configurar_cofre_credenciais()
         try:
             chave_b64 = keyring.get_password(
                 self.nome_servico, self.IDENTIFICADOR_CHAVE_CRIPTOGRAFIA
@@ -204,7 +160,7 @@ class GerenciadorSessao:
         if not self._caminho_arquivo.exists():
             return None
 
-        self._garantir_backend_keyring()
+        configurar_cofre_credenciais()
         try:
             chave_b64 = keyring.get_password(
                 self.nome_servico, self.IDENTIFICADOR_CHAVE_CRIPTOGRAFIA
@@ -274,7 +230,7 @@ class GerenciadorSessao:
         """Remove a chave mestra do Keyring e o arquivo criptografado do disco."""
         self._sessao_memoria = None
         if not self.usar_memoria:
-            self._garantir_backend_keyring()
+            configurar_cofre_credenciais()
             try:
                 keyring.delete_password(
                     self.nome_servico, self.IDENTIFICADOR_CHAVE_CRIPTOGRAFIA
