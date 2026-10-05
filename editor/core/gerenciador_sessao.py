@@ -94,27 +94,64 @@ class GerenciadorSessao:
             self._caminho_arquivo = (
                 GerenciadorCaminhos().obter_diretorio_base() / ".sessao_auth.enc"
             )
+        self._caminho_chave_fallback: Path = self._caminho_arquivo.with_name(".sessao_auth.key")
 
+    def _obter_chave_persistida(self) -> Optional[bytes]:
+        """Tenta obter a chave do Keyring do SO, com fallback para arquivo local protegido."""
+        try:
+            chave_b64 = keyring.get_password(
+                self.nome_servico, self.IDENTIFICADOR_CHAVE_CRIPTOGRAFIA
+            )
+            if chave_b64:
+                chave = base64.b64decode(chave_b64.encode("ascii"))
+                if len(chave) == 32:
+                    return chave
+        except Exception:
+            pass
 
-    def _obter_ou_criar_chave_criptografia(self) -> bytes:
-        """Obtém a chave AES de 256 bits do Keyring ou gera uma nova de forma segura."""
-        chave_b64 = keyring.get_password(
-            self.nome_servico, self.IDENTIFICADOR_CHAVE_CRIPTOGRAFIA
-        )
-        if chave_b64:
+        # Fallback para arquivo de chave local
+        if self._caminho_chave_fallback.exists():
             try:
+                chave_b64 = self._caminho_chave_fallback.read_text(encoding="ascii").strip()
                 chave = base64.b64decode(chave_b64.encode("ascii"))
                 if len(chave) == 32:
                     return chave
             except Exception:
                 pass
+        return None
+
+    def _salvar_chave_persistida(self, chave_b64: str) -> None:
+        """Salva a chave no Keyring do SO ou, se indisponível, em arquivo local com permissões restritas."""
+        sucesso_keyring = False
+        try:
+            keyring.set_password(
+                self.nome_servico, self.IDENTIFICADOR_CHAVE_CRIPTOGRAFIA, chave_b64
+            )
+            sucesso_keyring = True
+        except Exception:
+            pass
+
+        if not sucesso_keyring:
+            try:
+                self._caminho_chave_fallback.parent.mkdir(parents=True, exist_ok=True)
+                self._caminho_chave_fallback.write_text(chave_b64, encoding="ascii")
+                try:
+                    os.chmod(self._caminho_chave_fallback, 0o600)
+                except Exception:
+                    pass
+            except Exception:
+                pass
+
+    def _obter_ou_criar_chave_criptografia(self) -> bytes:
+        """Obtém a chave AES de 256 bits persistida ou gera uma nova de forma segura."""
+        chave = self._obter_chave_persistida()
+        if chave:
+            return chave
 
         # Gera nova chave AES-256 (32 bytes)
         chave = AESGCM.generate_key(bit_length=256)
         chave_b64 = base64.b64encode(chave).decode("ascii")
-        keyring.set_password(
-            self.nome_servico, self.IDENTIFICADOR_CHAVE_CRIPTOGRAFIA, chave_b64
-        )
+        self._salvar_chave_persistida(chave_b64)
         return chave
 
     def salvar_sessao(self, sessao: SessaoUsuario) -> None:
@@ -148,15 +185,12 @@ class GerenciadorSessao:
         if not self._caminho_arquivo.exists():
             return None
 
-        chave_b64 = keyring.get_password(
-            self.nome_servico, self.IDENTIFICADOR_CHAVE_CRIPTOGRAFIA
-        )
-        if not chave_b64:
+        chave = self._obter_chave_persistida()
+        if not chave:
             self.limpar_sessao()
             return None
 
         try:
-            chave = base64.b64decode(chave_b64.encode("ascii"))
             dados = self._caminho_arquivo.read_bytes()
             if len(dados) < 28:  # 12 bytes nonce + 16 bytes auth tag mínima
                 self.limpar_sessao()
@@ -207,7 +241,7 @@ class GerenciadorSessao:
         return sessao.jwt_supabase
 
     def limpar_sessao(self) -> None:
-        """Remove a chave mestra do Keyring e o arquivo criptografado do disco."""
+        """Remove a chave mestra do Keyring/arquivo e o arquivo criptografado do disco."""
         if self.usar_memoria:
             self._sessao_memoria = None
         else:
@@ -226,6 +260,12 @@ class GerenciadorSessao:
             ):
                 try:
                     keyring.delete_password(self.nome_servico, chave_legada)
+                except Exception:
+                    pass
+
+            if self._caminho_chave_fallback.exists():
+                try:
+                    self._caminho_chave_fallback.unlink()
                 except Exception:
                     pass
 

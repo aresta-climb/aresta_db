@@ -3,6 +3,7 @@
 
 import pytest
 from unittest.mock import patch, MagicMock
+from pathlib import Path
 
 from editor.core.gerenciador_sessao import SessaoUsuario, GerenciadorSessao
 
@@ -285,3 +286,176 @@ class TesteGerenciadorSessao:
             sessao_atualizada = gerenciador.obter_sessao()
             assert sessao_atualizada.jwt_supabase == "jwt_novo_renovado_456"
             assert sessao_atualizada.token_atualizacao == "refresh_novo_789"
+
+    def teste_keyring_indisponivel_utiliza_fallback_arquivo_chave(self, tmp_path):
+        """Valida se uma falha no Keyring do SO ativa o fallback de arquivo de chave seguro."""
+        from keyring.errors import NoKeyringError
+
+        caminho_arquivo = tmp_path / ".sessao_auth.enc"
+        caminho_chave = tmp_path / ".sessao_auth.key"
+        gerenciador = GerenciadorSessao(
+            usar_memoria=False, caminho_arquivo_sessao=caminho_arquivo
+        )
+
+        sessao = SessaoUsuario(
+            email="fallback@arestaclimb.com",
+            nome_completo="Usuario Sem Keyring",
+            jwt_supabase="jwt.valido.123",
+            token_atualizacao="refresh.valido.456",
+        )
+
+        # Simula ausência total de backend de keyring recomendado (comum em Linux/Flatpak sem daemon)
+        with patch("keyring.get_password", side_effect=NoKeyringError("No recommended backend")):
+            with patch("keyring.set_password", side_effect=NoKeyringError("No recommended backend")):
+                with patch("keyring.delete_password", side_effect=NoKeyringError("No recommended backend")):
+                    gerenciador.salvar_sessao(sessao)
+
+                    assert caminho_arquivo.exists()
+                    assert caminho_chave.exists()
+                    assert b"fallback@arestaclimb.com" not in caminho_arquivo.read_bytes()
+
+                    sessao_recuperada = gerenciador.obter_sessao()
+                    assert sessao_recuperada is not None
+                    assert sessao_recuperada.email == "fallback@arestaclimb.com"
+                    assert sessao_recuperada.jwt_supabase == "jwt.valido.123"
+
+                    gerenciador.limpar_sessao()
+                    assert not caminho_arquivo.exists()
+                    assert not caminho_chave.exists()
+                    assert gerenciador.obter_sessao() is None
+
+    def teste_chave_corrompida_ou_invalida_no_keyring_gera_nova(self, tmp_path):
+        """Valida que uma chave corrompida no Keyring força a regeneração segura."""
+        caminho_arquivo = tmp_path / ".sessao_auth.enc"
+        gerenciador = GerenciadorSessao(
+            usar_memoria=False, caminho_arquivo_sessao=caminho_arquivo
+        )
+
+        cofre = {("editor_aresta", "chave_criptografia_sessao"): "chave_invalida_curta"}
+
+        with patch("keyring.get_password", side_effect=lambda s, u: cofre.get((s, u))):
+            with patch("keyring.set_password", side_effect=lambda s, u, p: cofre.update({(s, u): p})):
+                chave = gerenciador._obter_ou_criar_chave_criptografia()
+                assert len(chave) == 32
+                assert cofre[("editor_aresta", "chave_criptografia_sessao")] != "chave_invalida_curta"
+
+    def teste_sessao_em_memoria_json_invalido_retorna_none(self):
+        """Valida que payload corrompido em memória retorna None graciosamente."""
+        gerenciador = GerenciadorSessao(usar_memoria=True)
+        gerenciador._sessao_memoria = "{json_invalido"
+        assert gerenciador.obter_sessao() is None
+
+    def teste_arquivo_menor_que_tamanho_minimo_limpa_sessao(self, tmp_path):
+        """Valida que arquivo com menos de 28 bytes limpa a sessão."""
+        caminho_arquivo = tmp_path / ".sessao_auth.enc"
+        caminho_arquivo.write_bytes(b"muito_pequeno")
+        gerenciador = GerenciadorSessao(
+            usar_memoria=False, caminho_arquivo_sessao=caminho_arquivo
+        )
+
+        with patch.object(gerenciador, "_obter_chave_persistida", return_value=b"0" * 32):
+            assert gerenciador.obter_sessao() is None
+            assert not caminho_arquivo.exists()
+
+    def teste_renovar_sessao_excecao_retorna_jwt_antigo(self):
+        """Valida que exceção na renovação não quebra a recuperação do token existente."""
+        import time
+        agora = int(time.time())
+        jwt_expirado = "header.payload.sig"
+
+        gerenciador = GerenciadorSessao(usar_memoria=True)
+        sessao = SessaoUsuario(
+            email="teste@arestaclimb.com",
+            nome_completo="Nome",
+            jwt_supabase=jwt_expirado,
+            token_atualizacao="refresh.token",
+        )
+        gerenciador.salvar_sessao(sessao)
+
+        with patch("editor.core.gerenciador_sessao.token_jwt_expirado", return_value=True):
+            with patch("editor.core.cliente_auth_supabase.ClienteAuthSupabase.renovar_sessao", side_effect=Exception("Rede indisponível")):
+                assert gerenciador.recuperar_token(auto_renovar=True) == jwt_expirado
+
+    def teste_fallback_chave_corrompida_retorna_none(self, tmp_path):
+        """Valida que arquivo de chave fallback corrompido retorna None."""
+        caminho_arquivo = tmp_path / ".sessao_auth.enc"
+        caminho_chave = tmp_path / ".sessao_auth.key"
+        caminho_chave.write_text("chave_invalida_corrompida", encoding="ascii")
+
+        gerenciador = GerenciadorSessao(
+            usar_memoria=False, caminho_arquivo_sessao=caminho_arquivo
+        )
+
+        with patch("keyring.get_password", side_effect=Exception("Keyring erro")):
+            assert gerenciador._obter_chave_persistida() is None
+
+    def teste_salvar_chave_fallback_trata_excecoes_de_escrita_e_chmod(self, tmp_path):
+        """Valida que falhas de I/O e chmod no fallback são tratadas sem crash."""
+        caminho_arquivo = tmp_path / ".sessao_auth.enc"
+        gerenciador = GerenciadorSessao(
+            usar_memoria=False, caminho_arquivo_sessao=caminho_arquivo
+        )
+
+        with patch("keyring.set_password", side_effect=Exception("Keyring indisponível")):
+            with patch("os.chmod", side_effect=OSError("chmod falhou")):
+                # Deve gravar sem quebrar mesmo com chmod falhando
+                gerenciador._salvar_chave_persistida("chave_b64_teste")
+                assert gerenciador._caminho_chave_fallback.exists()
+
+            with patch.object(Path, "write_text", side_effect=OSError("Disco somente leitura")):
+                # Não deve levantar exceção não tratada
+                gerenciador._salvar_chave_persistida("chave_b64_teste")
+
+    def teste_limpar_sessao_trata_excecoes_de_unlink_e_keyring(self, tmp_path):
+        """Valida que limpar_sessao trata graciosamente exceções ao deletar chaves e arquivos."""
+        caminho_arquivo = tmp_path / ".sessao_auth.enc"
+        caminho_chave = tmp_path / ".sessao_auth.key"
+        caminho_arquivo.write_bytes(b"dados")
+        caminho_chave.write_text("chave")
+
+        gerenciador = GerenciadorSessao(
+            usar_memoria=False, caminho_arquivo_sessao=caminho_arquivo
+        )
+
+        with patch("keyring.delete_password", side_effect=Exception("Keyring erro")):
+            with patch.object(Path, "unlink", side_effect=OSError("Arquivo em uso")):
+                # Não deve estourar erro
+                gerenciador.limpar_sessao()
+
+    def teste_token_jwt_expirado_trata_excecoes_inesperadas(self):
+        """Valida que token_jwt_expirado trata qualquer erro de decodificação retornando True."""
+        from editor.core.gerenciador_sessao import token_jwt_expirado
+
+        with patch("base64.urlsafe_b64decode", side_effect=ValueError("Decodificação falhou")):
+            assert token_jwt_expirado("a.b.c") is True
+
+    def teste_token_jwt_sem_campo_exp_retorna_false(self):
+        """Valida que token JWT sem campo exp não é considerado expirado."""
+        import base64
+        import json
+        from editor.core.gerenciador_sessao import token_jwt_expirado
+
+        header = base64.urlsafe_b64encode(b'{"alg":"HS256"}').decode().rstrip("=")
+        payload = base64.urlsafe_b64encode(json.dumps({"sub": "12345"}).encode()).decode().rstrip("=")
+        jwt_sem_exp = f"{header}.{payload}.signature"
+        assert token_jwt_expirado(jwt_sem_exp) is False
+
+    def teste_obter_ou_criar_chave_criptografia_reutiliza_existente(self, tmp_path):
+        """Valida que chave persistida existente é reaproveitada na segunda chamada."""
+        caminho_arquivo = tmp_path / ".sessao_auth.enc"
+        gerenciador = GerenciadorSessao(
+            usar_memoria=False, caminho_arquivo_sessao=caminho_arquivo
+        )
+
+        with patch.object(gerenciador, "_obter_chave_persistida", side_effect=[None, b"1" * 32]):
+            with patch.object(gerenciador, "_salvar_chave_persistida") as mock_salvar:
+                chave1 = gerenciador._obter_ou_criar_chave_criptografia()
+                assert len(chave1) == 32
+                mock_salvar.assert_called_once()
+
+                # Segunda chamada encontra chave existente e retorna diretamente
+                chave2 = gerenciador._obter_ou_criar_chave_criptografia()
+                assert chave2 == b"1" * 32
+
+
+

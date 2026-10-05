@@ -1,0 +1,36 @@
+app-id: com.arestaclimb.Editor
+runtime: org.kde.Platform
+runtime-version: '6.7'
+sdk: org.kde.Sdk
+command: EditorAresta
+
+finish-args:
+  - --share=ipc
+  - --socket=fallback-x11
+  - --socket=wayland
+  - --share=network
+  - --filesystem=xdg-documents
+  - --filesystem=home:ro
+  - --talk-name=org.freedesktop.portal.*
+  - --talk-name=org.freedesktop.secrets
+  - --talk-name=org.kde.kwalletd5
+  - --talk-name=org.kde.kwalletd
+
+modules:
+  - name: aresta-editor
+    buildsystem: simple
+    build-commands:
+      - install -D -m755 EditorAresta /app/bin/EditorAresta
+      - cp -r * /app/bin/ || true
+      - install -D -m644 com.arestaclimb.Editor.desktop /app/share/applications/com.arestaclimb.Editor.desktop
+      - install -D -m644 com.arestaclimb.Editor.metainfo.xml /app/share/metainfo/com.arestaclimb.Editor.metainfo.xml
+      - install -D -m644 logo_app.png /app/share/icons/hicolor/512x512/apps/com.arestaclimb.Editor.png
+    sources:
+      - type: dir
+        path: EditorAresta
+      - type: file
+        path: com.arestaclimb.Editor.desktop
+      - type: file
+        path: com.arestaclimb.Editor.metainfo.xml
+      - type: file
+        path: logo_app.png

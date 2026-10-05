@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>com.arestaclimb.Editor</id>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>MPL-2.0</project_license>
+  <name>Editor Aresta</name>
+  <summary>Editor e gerenciador de croquis de escalada Aresta</summary>
+  
+  <description>
+    <p>
+      O Editor Aresta é uma ferramenta profissional para criação, diagramação e manutenção
+      de croquis de escalada em rocha integrados ao ecossistema Aresta Climb.
+    </p>
+    <p>
+      Com suporte a traçados de vias, graduações brasileiras e internacionais, marcação de paradas
+      e proteções, visualização geoespacial de setores e sincronização automatizada com o repositório oficial.
+    </p>
+  </description>
+  
+  <launchable type="desktop-id">com.arestaclimb.Editor.desktop</launchable>
+  
+  <url type="homepage">https://arestaclimb.com</url>
+  <url type="bugtracker">https://github.com/aresta-climb/aresta_db/issues</url>
+  
+  <provides>
+    <id>com.arestaclimb.Editor</id>
+  </provides>
+  
+  <categories>
+    <category>Graphics</category>
+    <category>Geography</category>
+    <category>Sports</category>
+  </categories>
+  
+  <releases>
+    <release version="0.3.14" date="2026-10-04">
+      <description>
+        <p>Lançamento multiplataforma com suporte oficial a Linux (Flatpak) e macOS (Apple Silicon).</p>
+      </description>
+    </release>
+  </releases>
+  
+  <content_rating type="oars-1.1" />
+</component>

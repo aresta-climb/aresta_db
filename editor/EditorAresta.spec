@@ -54,11 +54,18 @@ if eh_beta and (spec_dir / 'recursos_beta').exists():
 binaries = []
 hiddenimports = ['sentry_sdk']
 
-for pacote in ['pygit2', 'keyring', 'qtawesome']:
-    tmp_ret = collect_all(pacote)
-    datas += tmp_ret[0]
-    binaries += tmp_ret[1]
-    hiddenimports += tmp_ret[2]
+pacotes_para_coletar = ['pygit2', 'keyring', 'qtawesome']
+if sys.platform.startswith("linux"):
+    pacotes_para_coletar += ['secretstorage', 'jeepney']
+
+for pacote in pacotes_para_coletar:
+    try:
+        tmp_ret = collect_all(pacote)
+        datas += tmp_ret[0]
+        binaries += tmp_ret[1]
+        hiddenimports += tmp_ret[2]
+    except Exception:
+        pass
 
 # Filtra arquivos de dados não essenciais (ex: famílias de fontes não usadas do QtAwesome)
 datas = filtrar_datas_desnecessarios(datas)

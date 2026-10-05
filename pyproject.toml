@@ -34,6 +34,8 @@ editor = [
     "requests",
     "cryptography",
     "keyring",
+    "secretstorage; sys_platform == 'linux'",
+    "jeepney; sys_platform == 'linux'",
     "qtawesome",
     "qrcode",
     "ruamel.yaml",
