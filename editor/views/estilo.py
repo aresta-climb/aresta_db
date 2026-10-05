@@ -124,6 +124,21 @@ class Icones:
         }
     """
 
+    # Estilo CSS para campos de entrada prevenindo preenchimento escuro no Linux
+    QSS_CAMPOS_ENTRADA: str = """
+        QLineEdit, QTextEdit, QPlainTextEdit {
+            background-color: #ffffff;
+            color: #212529;
+            selection-background-color: #80bdff;
+            selection-color: #212529;
+        }
+        QLineEdit:disabled, QTextEdit:disabled, QPlainTextEdit:disabled {
+            background-color: #e9ecef;
+            color: #6c757d;
+        }
+    """
+
+
     @classmethod
     def obter(cls, nome: str, cor: Optional[str] = None, cor_ativa: Optional[str] = None) -> QIcon:
         """
@@ -209,13 +224,30 @@ def configurar_tema_claro_aplicacao(app: Optional[Any] = None) -> None:
 
     try:
         pal = QPalette()
+        pal.setColor(QPalette.ColorRole.Window, QColor("#ffffff"))
+        pal.setColor(QPalette.ColorRole.WindowText, QColor("#212529"))
+        pal.setColor(QPalette.ColorRole.Base, QColor("#ffffff"))
+        pal.setColor(QPalette.ColorRole.AlternateBase, QColor("#f8f9fa"))
+        pal.setColor(QPalette.ColorRole.Text, QColor("#212529"))
+        pal.setColor(QPalette.ColorRole.PlaceholderText, QColor("#6c757d"))
+        pal.setColor(QPalette.ColorRole.Button, QColor("#f8f9fa"))
+        pal.setColor(QPalette.ColorRole.ButtonText, QColor("#212529"))
         pal.setColor(QPalette.ColorRole.ToolTipBase, QColor("#ffffff"))
         pal.setColor(QPalette.ColorRole.ToolTipText, QColor("#212529"))
+        pal.setColor(QPalette.ColorRole.Highlight, QColor("#2b579a"))
+        pal.setColor(QPalette.ColorRole.HighlightedText, QColor("#ffffff"))
         instancia.setPalette(pal)
     except Exception:
         pass
 
     folha_atual = instancia.styleSheet() or ""
+    trechos_novos = []
     if "QToolTip" not in folha_atual:
-        nova_folha = (folha_atual + "\n" + Icones.QSS_TOOLTIP).strip()
+        trechos_novos.append(Icones.QSS_TOOLTIP)
+    if "QLineEdit" not in folha_atual:
+        trechos_novos.append(Icones.QSS_CAMPOS_ENTRADA)
+
+    if trechos_novos:
+        nova_folha = (folha_atual + "\n" + "\n".join(trechos_novos)).strip()
         instancia.setStyleSheet(nova_folha)
+

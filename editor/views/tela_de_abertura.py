@@ -289,12 +289,17 @@ class TelaDeAbertura(QWidget):
         self.edit_email.setPlaceholderText("seu-email@exemplo.com")
         self.edit_email.setStyleSheet("""
             QLineEdit {
+                background-color: #ffffff;
+                color: #212529;
                 padding: 10px;
                 border: 1px solid #ced4da;
                 border-radius: 6px;
                 font-size: 14px;
             }
-            QLineEdit:focus { border-color: #80bdff; }
+            QLineEdit:focus {
+                border-color: #80bdff;
+                background-color: #ffffff;
+            }
         """)
         self.edit_email.returnPressed.connect(self.solicitar_otp)
         layout_email.addWidget(self.edit_email)
@@ -356,6 +361,8 @@ class TelaDeAbertura(QWidget):
         )
         self.edit_codigo.setStyleSheet("""
             QLineEdit {
+                background-color: #ffffff;
+                color: #212529;
                 padding: 8px;
                 border: 1px solid #ced4da;
                 border-radius: 6px;
@@ -364,7 +371,10 @@ class TelaDeAbertura(QWidget):
                 letter-spacing: 4px;
                 font-weight: bold;
             }
-            QLineEdit:focus { border-color: #80bdff; }
+            QLineEdit:focus {
+                border-color: #80bdff;
+                background-color: #ffffff;
+            }
         """)
         self.edit_codigo.returnPressed.connect(self.validar_otp)
         layout_codigo.addWidget(self.edit_codigo)

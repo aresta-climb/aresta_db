@@ -390,3 +390,20 @@ def test_tela_abertura_define_titulo_e_configura_barra_de_tarefas(qtbot):
         assert abertura.windowTitle() == "Editor Aresta"
         mock_config.assert_called_once_with(int(abertura.winId()))
 
+
+def test_tela_abertura_estilo_campos_entrada_fundo_claro(qtbot):
+    """Garante que os campos de entrada definem fundo claro e cor de texto explícitos prevenindo preenchimento escuro no Linux."""
+    abertura = TelaDeAbertura()
+    qtbot.addWidget(abertura)
+
+    folha_email = abertura.edit_email.styleSheet().lower()
+    assert "background-color" in folha_email
+    assert "#ffffff" in folha_email
+    assert "color:" in folha_email
+
+    folha_codigo = abertura.edit_codigo.styleSheet().lower()
+    assert "background-color" in folha_codigo
+    assert "#ffffff" in folha_codigo
+    assert "color:" in folha_codigo
+
+

@@ -74,6 +74,8 @@ class DialogoPerfilAutor(QDialog):
         self.edit_nome.setText(nome_sugerido)
         self.edit_nome.setStyleSheet("""
             QLineEdit {
+                background-color: #ffffff;
+                color: #212529;
                 padding: 10px;
                 border: 1px solid #ced4da;
                 border-radius: 6px;
@@ -81,6 +83,7 @@ class DialogoPerfilAutor(QDialog):
             }
             QLineEdit:focus {
                 border-color: #80bdff;
+                background-color: #ffffff;
             }
         """)
         layout.addWidget(self.edit_nome)

@@ -124,21 +124,42 @@ def test_configurar_tema_claro_aplicacao_define_color_scheme_light(qtbot):
     app = QApplication.instance()
     assert app is not None
 
-    # Simula paleta com texto branco herdada de um Dark Mode externo
+    # Simula paleta com cores escuras herdadas de um Dark Mode externo no Linux
     pal = app.palette()
     pal.setColor(QPalette.ColorRole.WindowText, QColor("#ffffff"))
     pal.setColor(QPalette.ColorRole.ButtonText, QColor("#ffffff"))
+    pal.setColor(QPalette.ColorRole.Base, QColor("#121212"))
+    pal.setColor(QPalette.ColorRole.Text, QColor("#ffffff"))
     app.setPalette(pal)
     assert app.palette().color(QPalette.ColorRole.WindowText).name() == "#ffffff"
+    assert app.palette().color(QPalette.ColorRole.Base).name() == "#121212"
 
     with patch.object(app.styleHints(), "setColorScheme") as mock_set_scheme:
         configurar_tema_claro_aplicacao(app)
         mock_set_scheme.assert_called_once_with(Qt.ColorScheme.Light)
 
     # A paleta padrão deve ter sido restaurada para texto escuro e fundo claro moderno
-    assert app.palette().color(QPalette.ColorRole.WindowText).name() == "#000000"
-    assert app.palette().color(QPalette.ColorRole.ButtonText).name() == "#000000"
+    assert app.palette().color(QPalette.ColorRole.WindowText).name().lower() in ("#000000", "#212529")
+    assert app.palette().color(QPalette.ColorRole.ButtonText).name().lower() in ("#000000", "#212529")
+    assert app.palette().color(QPalette.ColorRole.Base).name().lower() == "#ffffff"
+    assert app.palette().color(QPalette.ColorRole.Text).name().lower() in ("#000000", "#212529")
     assert app.palette().color(QPalette.ColorRole.Window).name() != "#d4d0c8"
+
+
+def test_configurar_tema_claro_aplicacao_estiliza_campos_entrada(qtbot):
+    """Garante que configurar_tema_claro_aplicacao define estilo explícito para QLineEdit prevenindo renderização preta no Linux."""
+    from PySide6.QtWidgets import QApplication
+    from editor.views.estilo import configurar_tema_claro_aplicacao
+
+    app = QApplication.instance()
+    assert app is not None
+
+    configurar_tema_claro_aplicacao(app)
+
+    folha = app.styleSheet()
+    assert "QLineEdit" in folha
+    assert "background-color:" in folha
+    assert "color:" in folha
 
 
 def test_configurar_tema_claro_aplicacao_estiliza_qtooltip(qtbot):
@@ -162,6 +183,7 @@ def test_configurar_tema_claro_aplicacao_estiliza_qtooltip(qtbot):
     pal = app.palette()
     assert pal.color(QPalette.ColorRole.ToolTipBase).name().lower() == "#ffffff"
     assert pal.color(QPalette.ColorRole.ToolTipText).name().lower() == "#212529"
+
 
 
 def test_configurar_tema_claro_aplicacao_sem_instancia():

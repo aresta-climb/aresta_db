@@ -52,3 +52,14 @@ class TesteDialogoPerfilAutor:
 
         assert not dialogo.windowIcon().isNull()
 
+    def teste_estilo_campo_nome_fundo_claro(self, qtbot):
+        """Garante que o campo de nome possui fundo claro e cor de texto explícitos."""
+        dialogo = DialogoPerfilAutor()
+        qtbot.addWidget(dialogo)
+
+        folha = dialogo.edit_nome.styleSheet().lower()
+        assert "background-color" in folha
+        assert "#ffffff" in folha
+        assert "color:" in folha
+
+
