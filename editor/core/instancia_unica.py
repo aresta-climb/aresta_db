@@ -29,7 +29,7 @@ def ativar_janela_existente() -> bool:
         janela.raise_()
         janela.activateWindow()
         try:
-            from editor.core.integracao_windows import trazer_janela_para_frente
+            from editor.plataforma import trazer_janela_para_frente
             trazer_janela_para_frente(int(janela.winId()))
         except Exception:
             pass

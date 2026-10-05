@@ -1,0 +1,104 @@
+name: Build Editor Linux
+
+on:
+  workflow_call:
+    inputs:
+      tag_name:
+        description: 'Tag do git para checkout'
+        required: true
+        type: string
+      versao:
+        description: 'Versão de lançamento do Editor Aresta'
+        required: true
+        type: string
+
+jobs:
+  build_linux:
+    name: Compilar e Lançar Linux
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Generate Github App Token
+        id: app-token
+        uses: actions/create-github-app-token@v3
+        with:
+          client-id: ${{ secrets.BOT_APP_ID }}
+          private-key: ${{ secrets.BOT_PRIVATE_KEY }}
+          owner: ${{ github.repository_owner }}
+
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ inputs.tag_name }}
+          token: ${{ steps.app-token.outputs.token }}
+          fetch-depth: 1
+          submodules: recursive
+          sparse-checkout: |
+            .
+            .github
+            tests
+            editor
+            scripts
+            serving
+            migracoes
+            aresta_api
+            coleta_de_betas
+            pytest.ini
+            conftest.py
+            pyproject.toml
+            uv.lock
+            .python-version
+
+
+      - name: Setup uv e Python
+        uses: astral-sh/setup-uv@v10.0.1
+        with:
+          version: "latest"
+          python-version: "3.13"
+          enable-cache: true
+          cache-dependency-glob: uv.lock
+
+      - name: Isolar Dependências do Editor
+        run: |
+          uv sync --frozen --only-group editor
+
+      - name: Build PyInstaller no Linux (x86_64)
+        run: |
+          uv run editor/build.py dist
+        env:
+          PYTHONPATH: .
+
+      - name: Empacotar Tarball Linux
+        run: |
+          cd editor/dist
+          tar -czvf ../../EditorAresta-${{ inputs.versao }}-linux-x86_64.tar.gz EditorAresta
+          cd ../..
+
+      - name: Sincronizar Manifesto com Repositório Flathub
+        run: |
+          echo "Sincronizando manifesto Flatpak para a versão ${{ inputs.versao }}..."
+          git config --global user.name "aresta-climb-bot[bot]"
+          git config --global user.email "281080576+aresta-climb-bot[bot]@users.noreply.github.com"
+          
+          # Clona o repositório aresta-editor-flathub usando o app token
+          git clone https://x-access-token:${{ steps.app-token.outputs.token }}@github.com/aresta-climb/aresta-editor-flathub.git /tmp/flathub-repo || true
+          if [ -d "/tmp/flathub-repo" ]; then
+            cd /tmp/flathub-repo
+            cp $GITHUB_WORKSPACE/dist/flatpak/* . || true
+            cp $GITHUB_WORKSPACE/editor/recursos/logo_app.png ./logo_app.png || true
+            git add .
+            git commit -m "Atualizar Editor Aresta para versão ${{ inputs.versao }}" || true
+            git push origin HEAD || true
+          fi
+        env:
+          VERSAO: ${{ inputs.versao }}
+
+      - name: Disponibilizar artefatos Linux no GitHub
+        uses: actions/upload-artifact@v7
+        with:
+          name: EditorAresta-Linux
+          path: |
+            EditorAresta-*-linux-x86_64.tar.gz
+            dist/flatpak/*
+          retention-days: 7

@@ -2,7 +2,7 @@
 
 Veja `proposal.md - Why`. Atualmente, a integração com o sistema operacional no Editor Aresta está dispersa em arquivos no diretório `editor/core/` (`integracao_windows.py`, `servico_loja.py`) e acoplada a chamadas do Windows no `main.py`. Além disso, o pipeline de release em `.github/workflows/release-editor.yml` roda unicamente em runners `windows-latest`.
 
-Recentemente, a arquitetura de empacotamento do editor foi otimizada para o modelo `onedir` (pasta `dist/EditorAresta` gerada via `COLLECT` no PyInstaller) e o arranque do aplicativo foi acelerado para < 1s via carregamento sob demanda (`__getattr__` em `main.py`). Este design capitaliza diretamente essas melhorias recentes.
+Recentemente, a arquitetura de empacotamento do editor foi otimizada para o modelo `onedir` (pasta `dist/EditorAresta` gerada via `COLLECT` no PyInstaller) e o arranque do aplicativo foi acelerado para < 1s via carregamento sob demanda (`__getattr__` em `main.py`). Adicionalmente, as rotinas de integração de janela e identidade do Windows foram expandidas para suporte a pacotes MSIX e ativação de janelas em primeiro plano (`trazer_janela_para_frente`). Este design capitaliza diretamente essas melhorias recentes.
 
 ## Alinhamento com os Princípios de Engenharia Aresta
 
@@ -34,7 +34,7 @@ Esta proposta e design seguem estritamente as diretrizes inegociáveis de `AGENT
 ## Decisions
 
 ### Decisão 1: Biblioteca `editor/plataforma/` com Fachada Agnóstica e Teste AST
-- **Abordagem:** Criar a biblioteca `editor/plataforma/` contendo `__init__.py` (fachada pública declarativa e ultraleve), `contrato.py` (protocolo simples), `windows/`, `linux/` e `macos/`. O código do editor consome apenas funções agnósticas (ex: `configurar_ambiente_plataforma()`, `verificar_atualizacoes_plataforma()`).
+- **Abordagem:** Criar a biblioteca `editor/plataforma/` contendo `__init__.py` (fachada pública declarativa e ultraleve), `contrato.py` (protocolo simples), `windows/`, `linux/` e `macos/`. O código do editor consome apenas funções agnósticas (ex: `configurar_ambiente_plataforma()`, `configurar_identidade_processo()`, `trazer_janela_para_frente()`, `verificar_atualizacoes_plataforma()`).
 - **Preservação de Performance:** A fachada `editor.plataforma` não importa módulos pesados de rede ou UI no topo do arquivo, preservando a inicialização rápida (< 1s) conquistada em `main.py`.
 - **Garantia Arquitetural:** Teste de integração (`tests/fronteiras_plataforma_test.py`) utilizando o módulo `ast` do Python que varre `editor/` e garante que nenhuma importação de `winrt`, `ctypes.windll`, `objc` ou módulos de plataforma ocorra fora de `editor/plataforma/`.
 

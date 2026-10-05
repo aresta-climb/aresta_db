@@ -15,7 +15,7 @@ from editor.core.cliente_auth_supabase import ClienteAuthSupabase
 from editor.core.servico_submissao import ServicoSubmissao
 from editor.core.sync import GerenciadorSincronizacao
 from editor.core.storage import GerenciadorCaminhos
-from editor.core.servico_loja import ServicoLoja
+from editor.plataforma import obter_adaptador_plataforma, AdaptadorPlataforma
 from typing import Optional, Any, Dict
 from collections.abc import Callable
 
@@ -44,7 +44,7 @@ class TarefaInicializacao(QThread):
         self.storage: GerenciadorCaminhos = GerenciadorCaminhos()
         self.gerenciador_sessao: GerenciadorSessao = GerenciadorSessao()
         self.cliente_auth: ClienteAuthSupabase = ClienteAuthSupabase()
-        self.servico_loja: ServicoLoja = ServicoLoja()
+        self.servico_loja: AdaptadorPlataforma = obter_adaptador_plataforma()
         self.sessao_usuario: Optional[SessaoUsuario] = None
         self._evento_autenticacao: threading.Event = threading.Event()
         self._login_cancelado: bool = False

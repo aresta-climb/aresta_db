@@ -45,6 +45,9 @@ datas = [
 if (spec_dir / 'logo.ico').exists():
     datas.append((str(spec_dir / 'logo.ico'), '.'))
     datas.append((str(spec_dir / 'logo.ico'), 'editor'))
+if (spec_dir / 'logo.icns').exists():
+    datas.append((str(spec_dir / 'logo.icns'), '.'))
+    datas.append((str(spec_dir / 'logo.icns'), 'editor'))
 if eh_beta and (spec_dir / 'recursos_beta').exists():
     datas.append((str(spec_dir / 'recursos_beta'), 'recursos_beta'))
     datas.append((str(spec_dir / 'recursos_beta'), 'editor/recursos_beta'))
@@ -79,11 +82,28 @@ a.binaries = filtrar_binarios_desnecessarios(a.binaries)
 
 pyz = PYZ(a.pure)
 
-caminho_icone_exe = (
-    spec_dir / 'recursos_beta' / 'logo.ico'
-    if (eh_beta and (spec_dir / 'recursos_beta' / 'logo.ico').exists())
-    else spec_dir / 'logo.ico'
-)
+if sys.platform == "darwin":
+    caminho_icone_exe = (
+        spec_dir / 'recursos_beta' / 'logo.icns'
+        if (eh_beta and (spec_dir / 'recursos_beta' / 'logo.icns').exists())
+        else spec_dir / 'logo.icns'
+    )
+    if not caminho_icone_exe.exists():
+        caminho_icone_exe = spec_dir / 'recursos' / 'logo.icns'
+    icone_pyinstaller = [str(caminho_icone_exe)]
+elif sys.platform.startswith("win"):
+    caminho_icone_exe = (
+        spec_dir / 'recursos_beta' / 'logo.ico'
+        if (eh_beta and (spec_dir / 'recursos_beta' / 'logo.ico').exists())
+        else spec_dir / 'logo.ico'
+    )
+    if not caminho_icone_exe.exists():
+        caminho_icone_exe = spec_dir / 'recursos' / 'logo.ico'
+    icone_pyinstaller = [str(caminho_icone_exe)]
+else:
+    # No Linux (binários ELF), o executável não possui seção de ícones embutidos.
+    # O ícone da aplicação é provido pelo arquivo .desktop e definido em tempo de execução via Qt.
+    icone_pyinstaller = None
 
 exe = EXE(
     pyz,
@@ -101,7 +121,7 @@ exe = EXE(
     target_arch=None,
     codesign_identity=None,
     entitlements_file=None,
-    icon=[str(caminho_icone_exe)],
+    icon=icone_pyinstaller,
 )
 
 coll = COLLECT(

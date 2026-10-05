@@ -1,0 +1,236 @@
+name: Build Editor macOS (ARM64)
+
+on:
+  workflow_call:
+    inputs:
+      tag_name:
+        description: 'Tag do git para checkout'
+        required: true
+        type: string
+      versao:
+        description: 'Versão de lançamento do Editor Aresta'
+        required: true
+        type: string
+      forcar_atualizacao:
+        description: 'Forçar atualização imediata para todos os usuários?'
+        required: false
+        type: boolean
+        default: true
+
+jobs:
+  build_macos:
+    name: Compilar e Lançar macOS (ARM64)
+    runs-on: macos-14
+    permissions:
+      contents: read
+    steps:
+      - name: Generate Github App Token
+        id: app-token
+        uses: actions/create-github-app-token@v3
+        with:
+          client-id: ${{ secrets.BOT_APP_ID }}
+          private-key: ${{ secrets.BOT_PRIVATE_KEY }}
+          owner: ${{ github.repository_owner }}
+
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ inputs.tag_name }}
+          token: ${{ steps.app-token.outputs.token }}
+          fetch-depth: 1
+          submodules: recursive
+          sparse-checkout: |
+            .
+            .github
+            tests
+            editor
+            scripts
+            serving
+            migracoes
+            aresta_api
+            coleta_de_betas
+            pytest.ini
+            conftest.py
+            pyproject.toml
+            uv.lock
+            .python-version
+
+
+      - name: Setup uv e Python
+        uses: astral-sh/setup-uv@v10.0.1
+        with:
+          version: "latest"
+          python-version: "3.13"
+          enable-cache: true
+          cache-dependency-glob: uv.lock
+
+      - name: Install Dependencies
+        run: |
+          uv sync --frozen
+
+      - name: Executar Testes (TDD & Coverage)
+        timeout-minutes: 10
+        env:
+          PYTHONFAULTHANDLER: "1"
+          PYTHONUNBUFFERED: "1"
+          CI: "true"
+        run: |
+          uv run pytest -n 0 -v -s --durations=10
+
+      - name: Isolar Dependências do Editor
+        run: |
+          uv sync --frozen --only-group editor
+
+      - name: Baixar Sparkle Framework Oficial (Última Versão)
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release download --repo sparkle-project/Sparkle --pattern "Sparkle-*.tar.xz" --dir .
+          tar -xf Sparkle-*.tar.xz Sparkle.framework
+
+      - name: Build PyInstaller no macOS (ARM64)
+        run: |
+          uv run editor/build.py dist
+        env:
+          PYTHONPATH: .
+
+      - name: Configurar Certificado Apple Developer ID
+        if: ${{ secrets.ARESTA_EDITOR_APPLE_CERTIFICATE_P12_BASE64 != '' }}
+        run: |
+          echo "${{ secrets.ARESTA_EDITOR_APPLE_CERTIFICATE_P12_BASE64 }}" | base64 --decode > certificate.p12
+          security create-keychain -p actions build.keychain
+          security default-keychain -s build.keychain
+          security unlock-keychain -p actions build.keychain
+          security import certificate.p12 -k build.keychain -P "${{ secrets.ARESTA_EDITOR_APPLE_CERTIFICATE_PASSWORD }}" -T /usr/bin/codesign
+          security set-key-partition-list -S apple-tool:,apple:,codesign: -s -k actions build.keychain
+
+      - name: Configurar Credenciais de Notarização Apple (App Store Connect API)
+        if: ${{ secrets.ARESTA_EDITOR_APPLE_API_KEY_BASE64 != '' }}
+        run: |
+          echo "${{ secrets.ARESTA_EDITOR_APPLE_API_KEY_BASE64 }}" | base64 --decode > AuthKey.p8
+          xcrun notarytool store-credentials "notary-profile" \
+            --key AuthKey.p8 \
+            --key-id "${{ secrets.ARESTA_EDITOR_APPLE_API_KEY_ID }}" \
+            --issuer "${{ secrets.ARESTA_EDITOR_APPLE_API_ISSUER }}"
+
+      - name: Empacotar e Notarizar DMG
+        env:
+          PYTHONPATH: .
+          TEM_CERTIFICADO: ${{ secrets.ARESTA_EDITOR_APPLE_CERTIFICATE_P12_BASE64 != '' }}
+          TEM_API_KEY: ${{ secrets.ARESTA_EDITOR_APPLE_API_KEY_BASE64 != '' }}
+        run: |
+          python3 -c "
+          from pathlib import Path
+          from editor.release_tools.empacotar_macos_dmg import empacotar_distribuicao_macos
+          import os
+
+          tem_cert = os.environ.get('TEM_CERTIFICADO', '') == 'true'
+          tem_api = os.environ.get('TEM_API_KEY', '') == 'true'
+          identidade = 'Developer ID Application' if tem_cert else None
+          profile = 'notary-profile' if tem_api else None
+          sparkle_fw = Path('Sparkle.framework')
+
+          empacotar_distribuicao_macos(
+              diretorio_onedir=Path('editor/dist/EditorAresta'),
+              diretorio_saida=Path('dist_macos'),
+              versao='${{ inputs.versao }}',
+              identidade_assinatura=identidade,
+              notarizar=bool(profile),
+              profile=profile,
+              caminho_sparkle_framework=sparkle_fw if sparkle_fw.exists() else None,
+              dry_run=not tem_cert,
+          )
+          "
+
+      - name: Gerar Feed Sparkle (appcast.xml)
+        env:
+          PYTHONPATH: .
+          SPARKLE_ED25519_PRIVATE_KEY: ${{ secrets.ARESTA_EDITOR_SPARKLE_PRIVATE_KEY }}
+          FORCAR_ATUALIZACAO: ${{ inputs.forcar_atualizacao }}
+        run: |
+          python3 -c "
+          from pathlib import Path
+          from editor.release_tools.gerador_feed_sparkle import assinar_arquivo_ed25519, gerar_feed_sparkle, salvar_feed_sparkle
+          import os
+
+          caminho_dmg = Path('dist_macos/EditorAresta-${{ inputs.versao }}.dmg')
+          chave_privada = os.environ.get('SPARKLE_ED25519_PRIVATE_KEY', '')
+          forcar = str(os.environ.get('FORCAR_ATUALIZACAO', 'true')).lower() != 'false'
+
+          if chave_privada and caminho_dmg.exists():
+              sig = assinar_arquivo_ed25519(caminho_dmg, chave_privada)
+          else:
+              sig = 'MOCK_SIGNATURE_DRY_RUN'
+
+          tam = caminho_dmg.stat().st_size if caminho_dmg.exists() else 0
+          url = 'https://serving.arestaclimb.com/editor-macos/EditorAresta-${{ inputs.versao }}.dmg'
+
+          xml = gerar_feed_sparkle(
+              versao='${{ inputs.versao }}',
+              url_download=url,
+              tamanho_bytes=tam,
+              assinatura_ed25519=sig,
+              forcar_atualizacao=forcar,
+          )
+          salvar_feed_sparkle(xml, Path('dist_macos/appcast.xml'))
+          "
+
+      - name: Publicar Canal macOS no Cloudflare R2 e Purgar Cache
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.CLOUDFLARE_S3_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.CLOUDFLARE_S3_SECRET_ACCESS_KEY }}
+          CLOUDFLARE_S3_API_URL: ${{ secrets.CLOUDFLARE_S3_API_URL }}
+          CLOUDFLARE_ZONE_ID: ${{ secrets.CLOUDFLARE_ZONE_ID }}
+          CLOUDFLARE_CACHE_PURGE_API_TOKEN: ${{ secrets.CLOUDFLARE_CACHE_PURGE_API_TOKEN }}
+          PYTHONPATH: .
+        run: |
+          python3 -c "
+          import boto3
+          import os
+          from pathlib import Path
+          import requests
+
+          endpoint = os.environ.get('CLOUDFLARE_S3_API_URL')
+          ak = os.environ.get('AWS_ACCESS_KEY_ID')
+          sk = os.environ.get('AWS_SECRET_ACCESS_KEY')
+          if endpoint and ak and sk:
+              s3 = boto3.client(
+                  's3',
+                  endpoint_url=endpoint,
+                  aws_access_key_id=ak,
+                  aws_secret_access_key=sk,
+                  region_name='auto',
+              )
+              bucket = 'aresta-serving'
+              versao = '${{ inputs.versao }}'
+              dmg_path = Path(f'dist_macos/EditorAresta-{versao}.dmg')
+              appcast_path = Path('dist_macos/appcast.xml')
+
+              if dmg_path.exists():
+                  s3.upload_file(str(dmg_path), bucket, f'editor-macos/EditorAresta-{versao}.dmg', ExtraArgs={'ContentType': 'application/octet-stream'})
+                  s3.upload_file(str(dmg_path), bucket, 'editor-macos/EditorAresta-latest.dmg', ExtraArgs={'ContentType': 'application/octet-stream'})
+              if appcast_path.exists():
+                  s3.upload_file(str(appcast_path), bucket, 'editor-macos/appcast.xml', ExtraArgs={'ContentType': 'application/xml', 'CacheControl': 'max-age=60'})
+
+              zone_id = os.environ.get('CLOUDFLARE_ZONE_ID')
+              token = os.environ.get('CLOUDFLARE_CACHE_PURGE_API_TOKEN')
+              if zone_id and token:
+                  requests.post(
+                      f'https://api.cloudflare.com/client/v4/zones/{zone_id}/purge_cache',
+                      headers={'Authorization': f'Bearer {token}', 'Content-Type': 'application/json'},
+                      json={'files': [
+                          f'https://serving.arestaclimb.com/editor-macos/EditorAresta-{versao}.dmg',
+                          'https://serving.arestaclimb.com/editor-macos/EditorAresta-latest.dmg',
+                          'https://serving.arestaclimb.com/editor-macos/appcast.xml',
+                      ]},
+                  )
+          "
+
+      - name: Disponibilizar artefatos macOS no GitHub
+        uses: actions/upload-artifact@v7
+        with:
+          name: EditorAresta-macOS-DMG
+          path: |
+            dist_macos/*.dmg
+            dist_macos/appcast.xml
+          retention-days: 7

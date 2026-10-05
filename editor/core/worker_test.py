@@ -170,10 +170,10 @@ class TestWorker(unittest.TestCase):
         self.assertEqual(kwargs["etapa"], "execucao_tarefa_publicacao")
 
     @patch("editor.core.worker.GerenciadorCaminhos")
-    @patch("editor.core.worker.ServicoLoja")
+    @patch("editor.core.worker.obter_adaptador_plataforma")
     def test_tarefa_inicializacao_detecta_atualizacao_store(self, mock_servico_loja_class, mock_storage_class):
         """Quando a Store tem atualização, TarefaInicializacao deve emitir atualizacao_disponivel e interromper."""
-        from editor.core.servico_loja import ResultadoAtualizacao, StatusAtualizacao
+        from editor.plataforma import ResultadoAtualizacao, StatusAtualizacao
         mock_servico = mock_servico_loja_class.return_value
         res = ResultadoAtualizacao(
             status=StatusAtualizacao.ATUALIZACAO_DISPONIVEL,
@@ -195,10 +195,10 @@ class TestWorker(unittest.TestCase):
 
     @patch("editor.core.worker.GerenciadorSincronizacao")
     @patch("editor.core.worker.GerenciadorCaminhos")
-    @patch("editor.core.worker.ServicoLoja")
+    @patch("editor.core.worker.obter_adaptador_plataforma")
     def test_tarefa_inicializacao_bypass_fora_da_store(self, mock_servico_loja_class, mock_storage_class, mock_sync_class):
         """Quando fora da Store (NAO_APLICAVEL), TarefaInicializacao deve seguir normalmente."""
-        from editor.core.servico_loja import ResultadoAtualizacao, StatusAtualizacao
+        from editor.plataforma import ResultadoAtualizacao, StatusAtualizacao
         from editor.core.gerenciador_sessao import SessaoUsuario
         mock_servico = mock_servico_loja_class.return_value
         res = ResultadoAtualizacao(
@@ -243,12 +243,12 @@ class TestWorker(unittest.TestCase):
 
     @patch("editor.core.worker.GerenciadorSincronizacao")
     @patch("editor.core.worker.GerenciadorCaminhos")
-    @patch("editor.core.worker.ServicoLoja")
+    @patch("editor.core.worker.obter_adaptador_plataforma")
     def test_tarefa_inicializacao_com_sessao_supabase_valida(
         self, mock_servico_loja_class, mock_storage_class, mock_sync_class
     ):
         """Valida que TarefaInicializacao utiliza SessaoUsuario válida do Supabase Auth."""
-        from editor.core.servico_loja import ResultadoAtualizacao, StatusAtualizacao
+        from editor.plataforma import ResultadoAtualizacao, StatusAtualizacao
         from editor.core.gerenciador_sessao import SessaoUsuario
 
         mock_servico = mock_servico_loja_class.return_value
@@ -291,12 +291,12 @@ class TestWorker(unittest.TestCase):
         self.assertEqual(tarefa.sessao_usuario.nome_completo, "Renato Autor")
 
     @patch("editor.core.worker.GerenciadorCaminhos")
-    @patch("editor.core.worker.ServicoLoja")
+    @patch("editor.core.worker.obter_adaptador_plataforma")
     def test_tarefa_inicializacao_bloqueia_e_aborta_quando_login_cancelado(
         self, mock_servico_loja_class, mock_storage_class
     ):
         """Valida que TarefaInicializacao para a execução se o login for cancelado na UI."""
-        from editor.core.servico_loja import ResultadoAtualizacao, StatusAtualizacao
+        from editor.plataforma import ResultadoAtualizacao, StatusAtualizacao
 
         mock_servico = mock_servico_loja_class.return_value
         mock_servico.verificar_atualizacoes_disponiveis.return_value = ResultadoAtualizacao(
@@ -325,12 +325,12 @@ class TestWorker(unittest.TestCase):
 
     @patch("editor.core.worker.GerenciadorSincronizacao")
     @patch("editor.core.worker.GerenciadorCaminhos")
-    @patch("editor.core.worker.ServicoLoja")
+    @patch("editor.core.worker.obter_adaptador_plataforma")
     def test_tarefa_inicializacao_falha_fetch_com_base_existente_continua_offline(
         self, mock_servico_loja_class, mock_storage_class, mock_sync_class
     ):
         """Quando o repositório já existe e o fetch falha, deve emitir aviso e continuar com sucesso em modo offline."""
-        from editor.core.servico_loja import ResultadoAtualizacao, StatusAtualizacao
+        from editor.plataforma import ResultadoAtualizacao, StatusAtualizacao
 
         mock_servico = mock_servico_loja_class.return_value
         mock_servico.verificar_atualizacoes_disponiveis.return_value = ResultadoAtualizacao(
@@ -381,12 +381,12 @@ class TestWorker(unittest.TestCase):
 
     @patch("editor.core.worker.GerenciadorSincronizacao")
     @patch("editor.core.worker.GerenciadorCaminhos")
-    @patch("editor.core.worker.ServicoLoja")
+    @patch("editor.core.worker.obter_adaptador_plataforma")
     def test_tarefa_inicializacao_falha_clone_base_limpa_emite_erro_critico(
         self, mock_servico_loja_class, mock_storage_class, mock_sync_class
     ):
         """Quando o repositório ainda não existe no disco e o clone falha, deve emitir erro crítico."""
-        from editor.core.servico_loja import ResultadoAtualizacao, StatusAtualizacao
+        from editor.plataforma import ResultadoAtualizacao, StatusAtualizacao
 
         mock_servico = mock_servico_loja_class.return_value
         mock_servico.verificar_atualizacoes_disponiveis.return_value = ResultadoAtualizacao(

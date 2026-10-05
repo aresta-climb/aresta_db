@@ -318,7 +318,7 @@ class TestPublishController(unittest.TestCase):
     @patch("editor.controllers.publish_controller.QMessageBox")
     def test_iniciar_publicacao_bloqueia_quando_detectada_atualizacao_na_store(self, messagebox_mock):
         """Se o ServicoLoja detectar nova versão, deve bloquear a publicação e permitir atualizar."""
-        from editor.core.servico_loja import ResultadoAtualizacao, StatusAtualizacao
+        from editor.plataforma import ResultadoAtualizacao, StatusAtualizacao
         
         self.controller.servico_loja = MagicMock()
         res = ResultadoAtualizacao(
@@ -341,7 +341,7 @@ class TestPublishController(unittest.TestCase):
     @patch("editor.controllers.publish_controller.QMessageBox")
     def test_iniciar_publicacao_bloqueia_e_cancela_se_usuario_recusar_atualizar(self, messagebox_mock):
         """Se o usuário cancelar o diálogo de atualização da Store, não chama a instalação."""
-        from editor.core.servico_loja import ResultadoAtualizacao, StatusAtualizacao
+        from editor.plataforma import ResultadoAtualizacao, StatusAtualizacao
         
         self.controller.servico_loja = MagicMock()
         res = ResultadoAtualizacao(
@@ -363,7 +363,7 @@ class TestPublishController(unittest.TestCase):
     @patch("editor.controllers.publish_controller.QMessageBox")
     def test_iniciar_publicacao_bypass_quando_fora_da_store(self, messagebox_mock, mock_prosseguir):
         """Quando fora da Store (NAO_APLICAVEL), deve prosseguir com a verificação de histórico/salvamento."""
-        from editor.core.servico_loja import ResultadoAtualizacao, StatusAtualizacao
+        from editor.plataforma import ResultadoAtualizacao, StatusAtualizacao
         
         self.controller.servico_loja = MagicMock()
         self.controller.servico_loja.verificar_atualizacoes_disponiveis.return_value = ResultadoAtualizacao(
@@ -381,7 +381,7 @@ class TestPublishController(unittest.TestCase):
     @patch("editor.controllers.publish_controller.QMessageBox")
     def test_iniciar_publicacao_bypass_em_erro_de_conexao(self, messagebox_mock, mock_prosseguir):
         """Em caso de falha de conexão na checagem da Store (ERRO_CHECAGEM), concede fallback aberto."""
-        from editor.core.servico_loja import ResultadoAtualizacao, StatusAtualizacao
+        from editor.plataforma import ResultadoAtualizacao, StatusAtualizacao
         
         self.controller.servico_loja = MagicMock()
         self.controller.servico_loja.verificar_atualizacoes_disponiveis.return_value = ResultadoAtualizacao(

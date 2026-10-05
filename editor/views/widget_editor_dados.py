@@ -461,9 +461,27 @@ class WidgetEditorMarkdown(QWidget):
             }
         """)
         self.btn_inserir_imagem.clicked.connect(lambda: self.abrir_dialogo_inserir_imagem())
-        
+        self.btn_small = QPushButton("🔤 Small")
+        self.btn_small.setToolTip("Envolver seleção em <small>...</small> ou inserir tag de texto reduzido")
+        self.btn_small.setStyleSheet("""
+            QPushButton {
+                font-size: 8.5pt;
+                padding: 3px 8px;
+                border: 1px solid #ccc;
+                border-radius: 3px;
+                background-color: #f5f5f5;
+                color: #333;
+            }
+            QPushButton:hover {
+                background-color: #e5e5e5;
+                border-color: #999;
+            }
+        """)
+        self.btn_small.clicked.connect(lambda: self.aplicar_tag_small())
+
         header_layout.addWidget(left_label)
         header_layout.addStretch()
+        header_layout.addWidget(self.btn_small)
         header_layout.addWidget(self.btn_inserir_botao)
         header_layout.addWidget(self.btn_inserir_imagem)
 
@@ -635,6 +653,17 @@ class WidgetEditorMarkdown(QWidget):
                     self.forcar_consolidacao()
 
                 self._atualizar_preview(texto_novo)
+
+    def aplicar_tag_small(self) -> None:
+        cursor = self.editor.textCursor()
+        texto_selecionado = cursor.selectedText()
+        if texto_selecionado:
+            cursor.insertText(f"<small>{texto_selecionado}</small>")
+        else:
+            cursor.insertText("<small></small>")
+            cursor.movePosition(cursor.MoveOperation.Left, cursor.MoveMode.MoveAnchor, 8)
+        self.editor.setTextCursor(cursor)
+        self.editor.setFocus()
 
     def _atualizar_preview(self, text: str) -> None:
         self.preview.setMarkdown(text or "")

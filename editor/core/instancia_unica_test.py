@@ -96,7 +96,7 @@ def test_ativar_janela_existente_com_janela_visivel(qtbot):
 
     with patch.object(QApplication, "activeWindow", return_value=None):
         with patch.object(QApplication, "topLevelWidgets", return_value=[janela]):
-            with patch("editor.core.integracao_windows.trazer_janela_para_frente", return_value=True) as mock_win32:
+            with patch("editor.plataforma.trazer_janela_para_frente", return_value=True) as mock_win32:
                 resultado = ativar_janela_existente()
                 assert resultado is True
                 mock_win32.assert_called_once_with(int(janela.winId()))
@@ -113,7 +113,7 @@ def test_ativar_janela_existente_com_janela_minimizada(qtbot):
 
     with patch.object(QApplication, "activeWindow", return_value=None):
         with patch.object(QApplication, "topLevelWidgets", return_value=[janela]):
-            with patch("editor.core.integracao_windows.trazer_janela_para_frente", return_value=True):
+            with patch("editor.plataforma.trazer_janela_para_frente", return_value=True):
                 resultado = ativar_janela_existente()
                 assert resultado is True
                 assert not janela.isMinimized()
@@ -129,7 +129,7 @@ def test_ativar_janela_existente_com_active_window():
     mock_janela.winId.return_value = 12345
 
     with patch.object(QApplication, "activeWindow", return_value=mock_janela):
-        with patch("editor.core.integracao_windows.trazer_janela_para_frente", return_value=True) as mock_win32:
+        with patch("editor.plataforma.trazer_janela_para_frente", return_value=True) as mock_win32:
             assert ativar_janela_existente() is True
             mock_janela.raise_.assert_called_once()
             mock_janela.activateWindow.assert_called_once()
@@ -146,7 +146,7 @@ def test_ativar_janela_existente_ignora_excecao_win32():
     mock_janela.winId.return_value = 12345
 
     with patch.object(QApplication, "activeWindow", return_value=mock_janela):
-        with patch("editor.core.integracao_windows.trazer_janela_para_frente", side_effect=RuntimeError("Erro win32")):
+        with patch("editor.plataforma.trazer_janela_para_frente", side_effect=RuntimeError("Erro win32")):
             assert ativar_janela_existente() is True
 
 

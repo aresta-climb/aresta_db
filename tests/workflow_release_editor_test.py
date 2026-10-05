@@ -9,15 +9,30 @@ import yaml
 class TestWorkflowReleaseEditor(unittest.TestCase):
     def setUp(self) -> None:
         self.raiz_projeto = Path(__file__).resolve().parent.parent
-        self.workflow_path = self.raiz_projeto / ".github" / "workflows" / "release-editor.yml"
+        self.dir_workflows = self.raiz_projeto / ".github" / "workflows"
+        self.workflow_path = self.dir_workflows / "release-editor.yml"
+        self.windows_path = self.dir_workflows / "build_editor_windows.yml"
+        self.macos_path = self.dir_workflows / "build_editor_macos.yml"
+        self.linux_path = self.dir_workflows / "build_editor_linux.yml"
+
         if not self.workflow_path.exists():
             self.skipTest(f"Workflow {self.workflow_path} não encontrado no checkout.")
+
         with open(self.workflow_path, "r", encoding="utf-8") as f:
             self.conteudo_yaml = yaml.safe_load(f)
 
+        with open(self.windows_path, "r", encoding="utf-8") as f:
+            self.conteudo_windows = yaml.safe_load(f)
+
+        with open(self.macos_path, "r", encoding="utf-8") as f:
+            self.conteudo_macos = yaml.safe_load(f)
+
+        with open(self.linux_path, "r", encoding="utf-8") as f:
+            self.conteudo_linux = yaml.safe_load(f)
+
     def test_workflow_possui_sparse_checkout_com_tests_e_github(self) -> None:
         """Garante que o sparse-checkout do workflow inclui as pastas tests e .github para testes arquiteturais."""
-        passos = self.conteudo_yaml["jobs"]["release"]["steps"]
+        passos = self.conteudo_yaml["jobs"]["prepare_release"]["steps"]
         passo_checkout = next((s for s in passos if "Checkout" in s.get("name", "")), None)
         self.assertIsNotNone(passo_checkout, "Passo com 'Checkout' não encontrado no workflow.")
         assert passo_checkout is not None
@@ -27,8 +42,8 @@ class TestWorkflowReleaseEditor(unittest.TestCase):
         self.assertIn(".github", linhas_sparse, "A pasta '.github' deve constar no sparse-checkout.")
 
     def test_workflow_possui_supressao_werfault(self) -> None:
-        """Garante que o passo de supressão do Windows Error Reporting está configurado."""
-        passos = self.conteudo_yaml["jobs"]["release"]["steps"]
+        """Garante que o passo de supressão do Windows Error Reporting está configurado no build Windows."""
+        passos = self.conteudo_windows["jobs"]["build_windows"]["steps"]
         passo_wer = next(
             (s for s in passos if "WerFault" in s.get("name", "") or "Falhas do Windows" in s.get("name", "")),
             None,
@@ -42,10 +57,10 @@ class TestWorkflowReleaseEditor(unittest.TestCase):
     def test_etapa_testes_executa_sequencialmente_com_saida_imediata(self) -> None:
         """
         Garante que a etapa de testes do workflow de release executa sequencialmente (-n 0)
-        e sem bufferização (-v -s) para identificar imediatamente qualquer teste que travar ou falhar,
+        e sem bufferização (-v -s) no runner Linux de preparação,
         além de definir a variável CI=true para acionar o fast exit limpo.
         """
-        passos = self.conteudo_yaml["jobs"]["release"]["steps"]
+        passos = self.conteudo_yaml["jobs"]["prepare_release"]["steps"]
         passo_testes = next((s for s in passos if "Executar Testes" in s.get("name", "")), None)
         self.assertIsNotNone(passo_testes, "Passo 'Executar Testes' não encontrado no workflow.")
         assert passo_testes is not None
@@ -61,16 +76,15 @@ class TestWorkflowReleaseEditor(unittest.TestCase):
 
     def test_workflow_artefatos_beta_possuem_editor_arestabeta_appinstaller(self) -> None:
         """Garante que o artefato publicado do AppInstaller utiliza o nome EditorArestaBeta.appinstaller."""
-        passos = self.conteudo_yaml["jobs"]["release"]["steps"]
+        passos = self.conteudo_windows["jobs"]["build_windows"]["steps"]
         passo_upload = next(
             (
                 s for s in passos
                 if "upload-artifact" in s.get("uses", "")
-                and "Beta" in s.get("name", "")
             ),
             None,
         )
-        self.assertIsNotNone(passo_upload, "Passo upload-artifact do canal Beta não encontrado no workflow.")
+        self.assertIsNotNone(passo_upload, "Passo upload-artifact do canal Windows não encontrado no workflow.")
         assert passo_upload is not None
         caminhos_artefatos = passo_upload.get("with", {}).get("path", "")
         self.assertIn("EditorArestaBeta.appinstaller", caminhos_artefatos)
@@ -87,7 +101,7 @@ class TestWorkflowReleaseEditor(unittest.TestCase):
 
     def test_passos_microsoft_store_possuem_condicional_e_publicacao_sem_no_commit(self) -> None:
         """Garante que os passos da Microsoft Store possuem condicional do input e não utilizam --noCommit."""
-        passos = self.conteudo_yaml["jobs"]["release"]["steps"]
+        passos = self.conteudo_windows["jobs"]["build_windows"]["steps"]
 
         passos_ms_store = [
             s for s in passos
@@ -95,10 +109,9 @@ class TestWorkflowReleaseEditor(unittest.TestCase):
             or "MS Store" in s.get("name", "")
             or ("Build PyInstaller" in s.get("name", "") and "Beta" not in s.get("name", ""))
             or ("Build MSIX Package" in s.get("name", "") and "Beta" not in s.get("name", ""))
-            or ("Disponibilizar pacote MSIX no GitHub" in s.get("name", "") and "Beta" not in s.get("name", ""))
         ]
 
-        self.assertTrue(len(passos_ms_store) >= 4, "Devem existir passos dedicados à compilação e publicação da MS Store.")
+        self.assertTrue(len(passos_ms_store) >= 3, "Devem existir passos dedicados à compilação e publicação da MS Store.")
 
         for passo in passos_ms_store:
             condicao = str(passo.get("if", ""))
@@ -113,10 +126,11 @@ class TestWorkflowReleaseEditor(unittest.TestCase):
         assert passo_publish is not None
         run_script = passo_publish.get("run", "")
         self.assertNotIn("--noCommit", run_script, "O passo de publicação não deve usar a flag --noCommit.")
+        self.assertIn("EditorAresta.msix", run_script)
 
     def test_ordenacao_etapas_executa_canal_beta_antes_da_microsoft_store(self) -> None:
         """Garante que a compilação e publicação do canal Beta ocorrem antes da compilação de produção e MS Store."""
-        passos = self.conteudo_yaml["jobs"]["release"]["steps"]
+        passos = self.conteudo_windows["jobs"]["build_windows"]["steps"]
         nomes_passos = [s.get("name", "") for s in passos]
 
         idx_beta_build = next(i for i, n in enumerate(nomes_passos) if "Build PyInstaller (Canal Beta)" in n)
@@ -138,7 +152,7 @@ class TestWorkflowReleaseEditor(unittest.TestCase):
 
     def test_passos_versao_executam_uv_lock(self) -> None:
         """Garante que as etapas de injeção de versão oficial e dev executam 'uv lock' para sincronizar o uv.lock."""
-        passos = self.conteudo_yaml["jobs"]["release"]["steps"]
+        passos = self.conteudo_yaml["jobs"]["prepare_release"]["steps"]
         passo_oficial = next((s for s in passos if "Injetar Versão Oficial" in s.get("name", "")), None)
         passo_dev = next((s for s in passos if "Injetar Ciclo de Desenvolvimento" in s.get("name", "")), None)
 
@@ -152,4 +166,50 @@ class TestWorkflowReleaseEditor(unittest.TestCase):
         linhas_dev = [linha.strip() for linha in passo_dev.get("run", "").splitlines()]
         self.assertIn("uv lock", linhas_dev, "O passo 'Injetar Ciclo de Desenvolvimento' deve executar 'uv lock'.")
 
+    def test_workflow_exporta_versao_como_output_do_job_release(self) -> None:
+        """Garante que o job prepare_release exporta a versão e tag_name para consumo das sub-actions dependentes."""
+        outputs = self.conteudo_yaml["jobs"]["prepare_release"].get("outputs", {})
+        self.assertIn("versao", outputs, "O job 'prepare_release' deve declarar 'outputs.versao'.")
+        self.assertIn("tag_name", outputs, "O job 'prepare_release' deve declarar 'outputs.tag_name'.")
 
+    def test_workflow_possui_subactions_paralelas(self) -> None:
+        """Garante que o orquestrador possui os 3 sub-jobs paralelos chamando os workflows reutilizáveis."""
+        jobs = self.conteudo_yaml.get("jobs", {})
+        self.assertIn("prepare_release", jobs)
+        self.assertIn("build_windows", jobs)
+        self.assertIn("build_macos", jobs)
+        self.assertIn("build_linux", jobs)
+
+        for sub_job_name in ["build_windows", "build_macos", "build_linux"]:
+            job = jobs[sub_job_name]
+            self.assertEqual(job.get("needs"), "prepare_release", f"O sub-job {sub_job_name} deve depender de prepare_release.")
+            self.assertIn("uses", job, f"O sub-job {sub_job_name} deve usar workflow reutilizável.")
+
+    def test_subaction_macos_configurada_em_macos_14(self) -> None:
+        """Garante que o sub-workflow build_editor_macos roda em macos-14 com PyInstaller, Sparkle e DMG."""
+        job = self.conteudo_macos["jobs"]["build_macos"]
+        self.assertEqual(job.get("runs-on"), "macos-14")
+        nomes_passos = [p.get("name", "") for p in job.get("steps", [])]
+        self.assertTrue(any("PyInstaller" in n for n in nomes_passos), "Deve haver compilação PyInstaller no macOS.")
+        self.assertTrue(any("Sparkle" in n for n in nomes_passos), "Deve haver download ou configuração do Sparkle.")
+        self.assertTrue(any("DMG" in n for n in nomes_passos), "Deve haver empacotamento DMG no macOS.")
+        self.assertTrue(any("Cloudflare R2" in n for n in nomes_passos), "Deve haver publicação no Cloudflare R2.")
+
+    def test_passo_download_sparkle_obtem_versao_mais_recente_dinamicamente(self) -> None:
+        """Garante que o Sparkle é baixado em sua versão mais recente via gh release download sem versão fixa."""
+        passos = self.conteudo_macos["jobs"]["build_macos"]["steps"]
+        passo_sparkle = next((s for s in passos if "Sparkle" in s.get("name", "")), None)
+        self.assertIsNotNone(passo_sparkle, "Passo de download do Sparkle não encontrado.")
+        assert passo_sparkle is not None
+        run_cmd = passo_sparkle.get("run", "")
+        self.assertIn("gh release download", run_cmd, "Deve utilizar gh release download para obter a versão mais recente.")
+        self.assertIn("sparkle-project/Sparkle", run_cmd, "Deve baixar do repositório oficial sparkle-project/Sparkle.")
+        self.assertIn("Sparkle-*.tar.xz", run_cmd, "Deve usar pattern para pegar o tarball da release mais recente.")
+        self.assertNotIn("2.6.4", run_cmd, "Não deve haver versão fixa/hardcoded no download do Sparkle.")
+
+    def test_subaction_linux_sincroniza_com_flathub(self) -> None:
+        """Garante que o sub-workflow build_editor_linux sincroniza o manifesto do Flatpak com o Flathub."""
+        job = self.conteudo_linux["jobs"]["build_linux"]
+        self.assertEqual(job.get("runs-on"), "ubuntu-latest")
+        nomes_passos = [p.get("name", "") for p in job.get("steps", [])]
+        self.assertTrue(any("Flathub" in n for n in nomes_passos), "Deve haver sincronização com o Flathub.")

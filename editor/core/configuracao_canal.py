@@ -104,15 +104,18 @@ class ConfiguracaoCanal:
     def obter_caminho_icone_aplicacao(self) -> Path:
         """
         Retorna o caminho do ícone da aplicação mais apropriado para o sistema operacional.
-        No Windows, prioriza o arquivo multi-resolução (.ico), realizando fallback
-        transparente para .png caso o arquivo de ícone nativo não esteja presente.
-        Em outras plataformas, retorna o arquivo .png padrão.
+        Delega para a camada de plataforma a resolução do formato nativo prioritário (.ico, .icns ou .png),
+        realizando fallback transparente para logo_app.png caso o ícone específico não exista.
         """
-        import sys
-        if sys.platform == "win32":
-            caminho_ico = self.obter_caminho_recurso("logo.ico")
-            if caminho_ico.exists():
-                return caminho_ico
+        try:
+            from editor.plataforma import obter_nome_icone_preferencial
+
+            nome_icone = obter_nome_icone_preferencial()
+            caminho_icone = self.obter_caminho_recurso(nome_icone)
+            if caminho_icone.exists():
+                return caminho_icone
+        except Exception:
+            pass
         return self.obter_caminho_recurso("logo_app.png")
 
 

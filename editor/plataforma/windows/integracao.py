@@ -2,23 +2,27 @@
 # Copyright (C) 2026 Aresta Climb Contributors
 
 """
-Biblioteca utilitária para integração de janelas com o subsistema Win32 da Shell do Windows.
-Fornece recursos para qualificação de janelas sem bordas (frameless) na barra de tarefas.
+Biblioteca utilitária para integração com o subsistema Win32 e Shell do Windows.
+Implementa o AdaptadorWindows conforme o protocolo AdaptadorPlataforma.
 """
 
 import sys
-from typing import Any
+import os
+from pathlib import Path
+from typing import Any, Optional
+from PySide6.QtCore import QStandardPaths
+from editor.plataforma.contrato import AdaptadorPlataforma, ResultadoAtualizacao
+from editor.plataforma.windows.servico_loja import ServicoLoja
 
 # Constantes da API Win32 para manipulação de estilos de janela
 INDICE_ESTILO_ESTENDIDO: int = -20  # GWL_EXSTYLE
-INDICE_ESTILO_PADRAO: int = -16     # GWL_STYLE
+INDICE_ESTILO_PADRAO: int = -16  # GWL_STYLE
 
 ESTILO_ESTENDIDO_APPWINDOW: int = 0x00040000  # WS_EX_APPWINDOW
-ESTILO_MENU_SISTEMA: int = 0x00080000         # WS_SYSMENU
+ESTILO_MENU_SISTEMA: int = 0x00080000  # WS_SYSMENU
 
 
 def _obter_user32() -> Any:
-
     """Retorna a biblioteca user32 do Win32 configurada com os tipos de chamada."""
     import ctypes
     from ctypes import wintypes
@@ -40,13 +44,6 @@ def configurar_presenca_barra_de_tarefas(identificador_janela: int) -> bool:
     Configura os estilos estendidos de janela no Windows para assegurar que janelas
     sem moldura (frameless) sejam exibidas com ícone na barra de tarefas e no alternador
     de janelas (Alt+Tab).
-
-    Args:
-        identificador_janela: O handle Win32 nativo da janela (HWND).
-
-    Returns:
-        True se os estilos foram aplicados com sucesso (ou em caso de plataforma não-Windows),
-        False caso ocorra uma falha na chamada à API do sistema operacional.
     """
     if sys.platform != "win32":
         return True
@@ -54,8 +51,6 @@ def configurar_presenca_barra_de_tarefas(identificador_janela: int) -> bool:
     try:
         user32 = _obter_user32()
 
-
-        # Lê os estilos atuais da janela
         estilo_estendido_atual: int = int(
             user32.GetWindowLongW(identificador_janela, INDICE_ESTILO_ESTENDIDO)
         )
@@ -63,14 +58,12 @@ def configurar_presenca_barra_de_tarefas(identificador_janela: int) -> bool:
             user32.GetWindowLongW(identificador_janela, INDICE_ESTILO_PADRAO)
         )
 
-        # Adiciona WS_EX_APPWINDOW para forçar aparição na barra de tarefas
         user32.SetWindowLongW(
             identificador_janela,
             INDICE_ESTILO_ESTENDIDO,
             estilo_estendido_atual | ESTILO_ESTENDIDO_APPWINDOW,
         )
 
-        # Adiciona WS_SYSMENU para habilitar menu de contexto na barra de tarefas
         user32.SetWindowLongW(
             identificador_janela,
             INDICE_ESTILO_PADRAO,
@@ -85,7 +78,6 @@ def configurar_presenca_barra_de_tarefas(identificador_janela: int) -> bool:
 def _esta_executando_em_pacote_msix() -> bool:
     """
     Verifica se o processo atual está sendo executado dentro de um pacote MSIX com identidade própria.
-    No Windows, pacotes MSIX gerenciam seu próprio AppUserModelID via manifesto (PackageFamilyName!AppId).
     """
     if sys.platform != "win32":
         return False
@@ -97,7 +89,6 @@ def _esta_executando_em_pacote_msix() -> bool:
         kernel32 = ctypes.windll.kernel32
         comprimento = wintypes.UINT(0)
         resultado = kernel32.GetCurrentPackageFamilyName(ctypes.byref(comprimento), None)
-        # Código 0 indica ERROR_SUCCESS, significando que o processo possui identidade de pacote MSIX
         return bool(resultado == 0)
     except Exception:
         return False
@@ -108,12 +99,6 @@ def configurar_identidade_processo_windows(app_user_model_id: str) -> bool:
     Configura explicitamente o AppUserModelID para processos standalone ou em desenvolvimento local.
     Caso a aplicação esteja rodando dentro de um pacote MSIX, a identidade nativa do pacote é
     preservada para assegurar a correspondência correta com os ícones e atalhos do Windows Shell.
-
-    Args:
-        app_user_model_id: Identificador único da aplicação no formato 'empresa.produto.versao'.
-
-    Returns:
-        True em caso de sucesso ou se estiver fora do Windows / sob pacote MSIX. False em caso de erro.
     """
     if sys.platform != "win32":
         return True
@@ -124,7 +109,9 @@ def configurar_identidade_processo_windows(app_user_model_id: str) -> bool:
 
         import ctypes
 
-        resultado_hresult = ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID(app_user_model_id)
+        resultado_hresult = ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID(
+            app_user_model_id
+        )
         return bool(resultado_hresult == 0)
     except Exception:
         return False
@@ -134,12 +121,6 @@ def trazer_janela_para_frente(identificador_janela: int) -> bool:
     """
     Traz uma janela para o primeiro plano no Windows utilizando a API Win32.
     Restaura a janela caso esteja minimizada e define o foco de primeiro plano.
-
-    Args:
-        identificador_janela: O identificador Win32 nativo da janela (HWND).
-
-    Returns:
-        True em caso de sucesso (ou em plataformas não-Windows), False em caso de falha.
     """
     if sys.platform != "win32":
         return True
@@ -154,4 +135,49 @@ def trazer_janela_para_frente(identificador_janela: int) -> bool:
         return False
 
 
+class AdaptadorWindows(AdaptadorPlataforma):
+    """Adaptador de integração nativa com o sistema operacional Windows."""
 
+    def __init__(self, servico_loja: Optional[ServicoLoja] = None) -> None:
+        self.servico_loja: ServicoLoja = servico_loja or ServicoLoja()
+
+    def configurar_ambiente_plataforma(self) -> None:
+        """Configura variáveis de ambiente do subsistema gráfico antes da inicialização do Qt."""
+        if sys.platform == "win32":
+            os.environ.setdefault("QT_QPA_PLATFORM", "windows:darkmode=0")
+
+    def configurar_presenca_barra_de_tarefas(self, identificador_janela: int) -> bool:
+        """Aplica estilos estendidos WS_EX_APPWINDOW e WS_SYSMENU."""
+        return configurar_presenca_barra_de_tarefas(identificador_janela)
+
+    def configurar_identidade_processo(self, identificador_app: str) -> bool:
+        """Configura o AppUserModelID explícito no Shell do Windows."""
+        return configurar_identidade_processo_windows(identificador_app)
+
+    def trazer_janela_para_frente(self, identificador_janela: int) -> bool:
+        """Restaura e eleva a janela via Win32."""
+        return trazer_janela_para_frente(identificador_janela)
+
+    def obter_diretorio_dados_usuario(self) -> Path:
+        """Retorna o diretório canônico %APPDATA%/EditorAresta."""
+        appdata = QStandardPaths.writableLocation(QStandardPaths.StandardLocation.AppDataLocation)
+        if not appdata:
+            appdata_env = os.environ.get("APPDATA")
+            if appdata_env:
+                return Path(appdata_env) / "EditorAresta"
+            return Path.home() / "AppData" / "Roaming" / "EditorAresta"
+        return Path(appdata)
+
+    def verificar_atualizacoes_disponiveis(self) -> ResultadoAtualizacao:
+        """Consulta a Microsoft Store por atualizações."""
+        return self.servico_loja.verificar_atualizacoes_disponiveis()
+
+    def solicitar_instalacao_atualizacao(
+        self, resultado: Optional[ResultadoAtualizacao] = None
+    ) -> bool:
+        """Dispara a instalação in-app via WinRT ou fallback na loja."""
+        return self.servico_loja.solicitar_instalacao_atualizacao(resultado)
+
+    def obter_nome_icone_preferencial(self) -> str:
+        """Retorna o nome do arquivo de ícone nativo prioritário para o Windows (.ico)."""
+        return "logo.ico"

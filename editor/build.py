@@ -35,6 +35,18 @@ BINARIOS_DISPENSAVEIS = {
     "Qt6Designer.dll",
 }
 
+NOMES_BASE_BINARIOS_DISPENSAVEIS = (
+    "opengl32sw",
+    "qdirect2d",
+    "qt6quick",
+    "qt6qml",
+    "qt6pdf",
+    "qt6shadertools",
+    "qt6quick3druntimerender",
+    "qt63drender",
+    "qt6designer",
+)
+
 # Famílias de fontes de ícones do QtAwesome que não são utilizadas pelo tema do editor
 FONTES_DISPENSAVEIS = (
     "materialdesignicons",
@@ -140,13 +152,20 @@ def filtrar_binarios_desnecessarios(
     binarios: List[Any],
 ) -> List[Any]:
     """
-    Filtra a lista de binários do PyInstaller, removendo DLLs de fallback de hardware
-    e módulos do Qt sabidamente dispensáveis para reduzir o tamanho final do executável.
+    Filtra a lista de binários do PyInstaller, removendo DLLs de fallback de hardware,
+    bibliotecas compartilhadas Unix (.so, .dylib) e módulos do Qt sabidamente dispensáveis
+    para reduzir o tamanho final do executável.
     """
     resultado = []
     for item in binarios:
         nome_binario = item[0] if isinstance(item, (tuple, list)) and len(item) > 0 else ""
-        if not any(dispensavel.lower() in nome_binario.lower() for dispensavel in BINARIOS_DISPENSAVEIS):
+        nome_binario_lower = nome_binario.lower()
+        eh_dispensavel = any(
+            dispensavel.lower() in nome_binario_lower for dispensavel in BINARIOS_DISPENSAVEIS
+        ) or any(
+            nome_base in nome_binario_lower for nome_base in NOMES_BASE_BINARIOS_DISPENSAVEIS
+        )
+        if not eh_dispensavel:
             resultado.append(item)
     return resultado
 
@@ -184,18 +203,32 @@ def obter_argumentos_pyinstaller(caminho_spec: Optional[Path] = None) -> List[st
     return argumentos
 
 
-def obter_caminho_icone_alvo(eh_beta: bool) -> Tuple[Path, Path]:
+def obter_caminho_icone_alvo(eh_beta: bool) -> Tuple[Optional[Path], Path]:
     """
-    Retorna a tupla contendo o caminho do arquivo .ico alvo e o caminho da imagem .png
-    de origem correspondentes ao canal de compilação.
+    Retorna a tupla contendo o caminho do arquivo de ícone alvo (.ico no Windows, .icns no macOS ou None no Linux)
+    e o caminho da imagem .png de origem correspondentes ao canal de compilação.
     """
+    if sys.platform == "darwin":
+        extensao_icone = ".icns"
+    elif sys.platform.startswith("win"):
+        extensao_icone = ".ico"
+    else:
+        # No Linux (binários ELF), o executável não usa arquivo de ícone embutido; o asset principal é o PNG
+        caminho_png_linux = (
+            DIRETORIO_EDITOR / "recursos_beta" / "logo_app.png"
+            if eh_beta
+            else DIRETORIO_EDITOR / "recursos" / "logo_app.png"
+        )
+        return (None, caminho_png_linux)
+
+    nome_icone = f"logo{extensao_icone}"
     if eh_beta:
         return (
-            DIRETORIO_EDITOR / "recursos_beta" / "logo.ico",
+            DIRETORIO_EDITOR / "recursos_beta" / nome_icone,
             DIRETORIO_EDITOR / "recursos_beta" / "logo_app.png",
         )
     return (
-        DIRETORIO_EDITOR / "logo.ico",
+        DIRETORIO_EDITOR / nome_icone,
         DIRETORIO_EDITOR / "recursos" / "logo_app.png",
     )
 
@@ -236,6 +269,42 @@ def gerar_arquivo_icone(
         print(f"Aviso: Não foi possível gerar o arquivo .ico (usando padrão): {e}")
 
 
+def gerar_arquivo_icone_icns(
+    caminho_icns: Path,
+    caminho_png: Optional[Path] = None,
+    force_generation: bool = False,
+) -> None:
+    """
+    Gera o arquivo .icns a partir do logo_app.png caso necessário para empacotamento no macOS.
+    """
+    if not force_generation and caminho_icns.exists():
+        print(f"Ícone .icns existente encontrado em {caminho_icns}. Pulando geração.")
+        return
+
+    try:
+        from PIL import Image
+
+        origem_png = caminho_png or (DIRETORIO_EDITOR / "recursos" / "logo_app.png")
+        tamanhos = [16, 32, 64, 128, 256, 512]
+        imagens_pil = []
+        img_aberta = Image.open(str(origem_png))
+        img_rgba = img_aberta.convert("RGBA") if img_aberta.mode != "RGBA" else img_aberta
+
+        resample_filter = getattr(Image, "Resampling", Image).LANCZOS
+        for tam in tamanhos:
+            img_resized = img_rgba.resize((tam, tam), resample_filter)
+            imagens_pil.append(img_resized)
+
+        imagens_pil[-1].save(
+            str(caminho_icns),
+            format="ICNS",
+            sizes=[(img.width, img.height) for img in imagens_pil],
+        )
+        print(f"Ícone .icns configurado: {caminho_icns}")
+    except Exception as e:
+        print(f"Aviso: Não foi possível gerar o arquivo .icns (usando padrão): {e}")
+
+
 def executar_build(force_icon_generation: bool = False) -> None:
     """
     Executa o empacotamento otimizado do editor utilizando PyInstaller a partir do arquivo .spec.
@@ -246,12 +315,29 @@ def executar_build(force_icon_generation: bool = False) -> None:
 
     eh_beta = os.environ.get("ARESTA_CANAL", "").strip().lower() == "beta"
     caminho_icone, caminho_png = obter_caminho_icone_alvo(eh_beta)
-    gerar_arquivo_icone(caminho_icone, caminho_png=caminho_png, force_generation=force_icon_generation)
-
-    if not eh_beta:
-        # Garante cópia espelhada em editor/recursos/logo.ico para empacotamento no bundle
-        caminho_icone_recursos = DIRETORIO_EDITOR / "recursos" / "logo.ico"
-        gerar_arquivo_icone(caminho_icone_recursos, caminho_png=caminho_png, force_generation=force_icon_generation)
+    if sys.platform == "darwin":
+        if caminho_icone:
+            gerar_arquivo_icone_icns(
+                caminho_icone, caminho_png=caminho_png, force_generation=force_icon_generation
+            )
+        if not eh_beta:
+            caminho_icns_recursos = DIRETORIO_EDITOR / "recursos" / "logo.icns"
+            gerar_arquivo_icone_icns(
+                caminho_icns_recursos, caminho_png=caminho_png, force_generation=force_icon_generation
+            )
+    elif sys.platform.startswith("win"):
+        if caminho_icone:
+            gerar_arquivo_icone(
+                caminho_icone, caminho_png=caminho_png, force_generation=force_icon_generation
+            )
+        if not eh_beta:
+            # Garante cópia espelhada em editor/recursos/logo.ico para empacotamento no bundle
+            caminho_icone_recursos = DIRETORIO_EDITOR / "recursos" / "logo.ico"
+            gerar_arquivo_icone(
+                caminho_icone_recursos, caminho_png=caminho_png, force_generation=force_icon_generation
+            )
+    else:
+        print("Ambiente Linux: o ícone da aplicação é provido via arquivo .desktop e assets PNG.")
 
     argumentos = obter_argumentos_pyinstaller(caminho_spec=ARQUIVO_SPEC)
 

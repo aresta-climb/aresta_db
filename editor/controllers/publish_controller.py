@@ -7,7 +7,7 @@ from PySide6.QtCore import Qt, QUrl, QSize
 from PySide6.QtGui import QDesktopServices
 from editor.views.publish_dialog import PublishDialog
 from editor.core.worker import TarefaPublicacao
-from editor.core.servico_loja import ServicoLoja
+from editor.plataforma import AdaptadorPlataforma, obter_adaptador_plataforma
 from editor.core.servico_submissao import ServicoSubmissao
 from editor.views.estilo import Icones
 from editor.core.classificador_mensagens import eh_linha_de_erro
@@ -75,7 +75,7 @@ class PublishController:
         historico: Any = None,
         storage: Any = None,
         parent: Any = None,
-        servico_loja: Optional[ServicoLoja] = None,
+        servico_loja: Optional[AdaptadorPlataforma] = None,
         servico_submissao: Optional[ServicoSubmissao] = None,
     ) -> None:
         self.workspace: Any = workspace
@@ -86,7 +86,7 @@ class PublishController:
         self.historico: Any = historico
         self.storage: Any = storage
         self.parent: Any = parent
-        self.servico_loja: ServicoLoja = servico_loja or ServicoLoja()
+        self.servico_loja: AdaptadorPlataforma = servico_loja or obter_adaptador_plataforma()
         self.servico_submissao: Optional[ServicoSubmissao] = servico_submissao
         self.croqui_data: Any = getattr(parent, "croqui_data", None)
         self._worker_pr: Optional[TarefaPublicacao] = None

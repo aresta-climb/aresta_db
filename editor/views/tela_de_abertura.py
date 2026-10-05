@@ -41,7 +41,7 @@ from editor.core.cliente_auth_supabase import (
 )
 from editor.core.gerenciador_sessao import SessaoUsuario
 from editor.core.servidor_oauth_callback import ServidorCallbackOAuth
-from editor.core.integracao_windows import configurar_presenca_barra_de_tarefas
+from editor.plataforma import configurar_presenca_barra_de_tarefas
 from editor.views.dialogos.dialogo_perfil_autor import DialogoPerfilAutor
 
 from editor.views.estilo import Icones

@@ -261,3 +261,131 @@ def test_obter_diretorio_distribuicao_onedir():
     assert diretorio == DIRETORIO_EDITOR / "dist" / "EditorAresta"
     assert DIRETORIO_DIST_ONEDIR == DIRETORIO_EDITOR / "dist" / "EditorAresta"
 
+
+def test_filtrar_binarios_desnecessarios_unix_so_e_dylib():
+    """Valida se filtrar_binarios_desnecessarios remove .so e .dylib de QML/Quick/Pdf."""
+    binarios_mock = [
+        ("PySide6/libQt6Quick.so.6", "/fake/libQt6Quick.so.6", "BINARY"),
+        ("PySide6/libQt6Qml.so.6", "/fake/libQt6Qml.so.6", "BINARY"),
+        ("PySide6/libQt6Pdf.dylib", "/fake/libQt6Pdf.dylib", "BINARY"),
+        ("PySide6/libQt6Quick.dylib", "/fake/libQt6Quick.dylib", "BINARY"),
+        ("PySide6/libQt6Core.so.6", "/fake/libQt6Core.so.6", "BINARY"),
+        ("PySide6/libQt6Widgets.dylib", "/fake/libQt6Widgets.dylib", "BINARY"),
+        ("pygit2/_pygit2.so", "/fake/_pygit2.so", "BINARY"),
+    ]
+
+    filtrados = filtrar_binarios_desnecessarios(binarios_mock)
+    nomes_restantes = [b[0] for b in filtrados]
+
+    assert "PySide6/libQt6Quick.so.6" not in nomes_restantes
+    assert "PySide6/libQt6Qml.so.6" not in nomes_restantes
+    assert "PySide6/libQt6Pdf.dylib" not in nomes_restantes
+    assert "PySide6/libQt6Quick.dylib" not in nomes_restantes
+
+    assert "PySide6/libQt6Core.so.6" in nomes_restantes
+    assert "PySide6/libQt6Widgets.dylib" in nomes_restantes
+    assert "pygit2/_pygit2.so" in nomes_restantes
+
+
+def test_gerar_arquivo_icone_icns_sucesso():
+    """Valida se gerar_arquivo_icone_icns converte PNG para ICNS multi-resolução."""
+    from editor.build import gerar_arquivo_icone_icns
+
+    with patch("PIL.Image.open") as mock_open:
+        mock_img = MagicMock()
+        mock_img.mode = "RGBA"
+        mock_img.width = 16
+        mock_img.height = 16
+        mock_img.resize.return_value = mock_img
+        mock_open.return_value = mock_img
+
+        caminho_icns = DIRETORIO_EDITOR / "logo.icns"
+        with patch.object(Path, "exists", return_value=False):
+            gerar_arquivo_icone_icns(caminho_icns, force_generation=True)
+
+        assert mock_img.resize.call_count == 6
+        mock_img.save.assert_called_once()
+        args, kwargs = mock_img.save.call_args
+        assert kwargs.get("format") == "ICNS"
+
+
+def test_gerar_arquivo_icone_icns_pula_se_existir():
+    """Valida se pula a geração de .icns se ele já existir e force_generation for False."""
+    from editor.build import gerar_arquivo_icone_icns
+
+    with patch("PIL.Image.open") as mock_open:
+        with patch.object(Path, "exists", return_value=True):
+            gerar_arquivo_icone_icns(DIRETORIO_EDITOR / "logo.icns", force_generation=False)
+        mock_open.assert_not_called()
+
+
+def test_gerar_arquivo_icone_icns_trata_excecao():
+    """Valida tratamento seguro contra falhas na geração de .icns."""
+    from editor.build import gerar_arquivo_icone_icns
+
+    with patch("PIL.Image.open", side_effect=Exception("Falha PIL")):
+        with patch.object(Path, "exists", return_value=False):
+            gerar_arquivo_icone_icns(DIRETORIO_EDITOR / "logo.icns", force_generation=True)
+
+
+def test_obter_caminho_icone_alvo_macos():
+    """Garante que a resolução de ícone no macOS retorne .icns."""
+    from editor.build import obter_caminho_icone_alvo
+
+    with patch("sys.platform", "darwin"):
+        icns, png = obter_caminho_icone_alvo(eh_beta=False)
+        assert icns == DIRETORIO_EDITOR / "logo.icns"
+        assert png == DIRETORIO_EDITOR / "recursos" / "logo_app.png"
+
+        icns_beta, png_beta = obter_caminho_icone_alvo(eh_beta=True)
+        assert icns_beta == DIRETORIO_EDITOR / "recursos_beta" / "logo.icns"
+        assert png_beta == DIRETORIO_EDITOR / "recursos_beta" / "logo_app.png"
+
+
+def test_executar_build_macos():
+    """Valida a execução de build no macOS acionando gerar_arquivo_icone_icns."""
+    with patch("sys.platform", "darwin"):
+        with patch("PyInstaller.__main__.run"):
+            with patch("editor.build.gerar_arquivo_icone_icns") as mock_icns:
+                with patch("pathlib.Path.exists", return_value=True):
+                    executar_build()
+                    mock_icns.assert_called()
+
+
+def test_obter_caminho_icone_alvo_linux():
+    """Garante que a resolução de ícone no Linux retorne None para arquivo de ícone e aponte para PNG."""
+    from editor.build import obter_caminho_icone_alvo
+
+    with patch("sys.platform", "linux"):
+        icone, png = obter_caminho_icone_alvo(eh_beta=False)
+        assert icone is None
+        assert png == DIRETORIO_EDITOR / "recursos" / "logo_app.png"
+
+        icone_beta, png_beta = obter_caminho_icone_alvo(eh_beta=True)
+        assert icone_beta is None
+        assert png_beta == DIRETORIO_EDITOR / "recursos_beta" / "logo_app.png"
+
+
+def test_executar_build_linux():
+    """Valida a execução de build no Linux sem invocar gerador de ICO nem ICNS."""
+    with patch("sys.platform", "linux"):
+        with patch("PyInstaller.__main__.run") as mock_run:
+            with patch("editor.build.gerar_arquivo_icone") as mock_ico:
+                with patch("editor.build.gerar_arquivo_icone_icns") as mock_icns:
+                    with patch("pathlib.Path.exists", return_value=True):
+                        executar_build()
+                        mock_ico.assert_not_called()
+                        mock_icns.assert_not_called()
+                        mock_run.assert_called_once()
+
+
+def test_spec_trata_icones_por_plataforma():
+    """Valida se o EditorAresta.spec possui tratamento específico para darwin, win e linux."""
+    conteudo_spec = ARQUIVO_SPEC.read_text(encoding="utf-8")
+    assert 'sys.platform == "darwin"' in conteudo_spec
+    assert 'sys.platform.startswith("win")' in conteudo_spec
+    assert "icone_pyinstaller = None" in conteudo_spec
+    assert "icon=icone_pyinstaller" in conteudo_spec
+
+
+

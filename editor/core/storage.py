@@ -8,17 +8,11 @@ import os
 
 def obter_diretorio_base_app() -> Path:
     """
-    Retorna o caminho canônico do diretório de dados do aplicativo.
-    - Windows: %APPDATA%/EditorAresta
-    - Linux/Mac: ~/.local/share/EditorAresta (ou QStandardPaths)
+    Retorna o caminho canônico do diretório de dados do aplicativo para o sistema operacional ativo.
     """
-    appdata = QStandardPaths.writableLocation(QStandardPaths.StandardLocation.AppDataLocation)
-    if not appdata:
-        appdata_env = os.environ.get("APPDATA")
-        if appdata_env:
-            return Path(appdata_env) / "EditorAresta"
-        return Path.home() / ".local" / "share" / "EditorAresta"
-    return Path(appdata)
+    from editor.plataforma import obter_diretorio_dados_usuario
+
+    return obter_diretorio_dados_usuario()
 
 
 class GerenciadorCaminhos:

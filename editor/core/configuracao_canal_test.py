@@ -188,8 +188,8 @@ def test_obter_caminho_icone_aplicacao_windows(tmp_path: Path) -> None:
         assert config_prod.obter_caminho_icone_aplicacao() == png_padrao
 
 
-def test_obter_caminho_icone_aplicacao_nao_windows(tmp_path: Path) -> None:
-    """Garante que em plataformas não-Windows priorize o arquivo de imagem logo_app.png."""
+def test_obter_caminho_icone_aplicacao_plataforma_png(tmp_path: Path) -> None:
+    """Garante que quando a plataforma preferir PNG, priorize o arquivo logo_app.png."""
     dir_editor = tmp_path / "editor"
     dir_recursos_padrao = dir_editor / "recursos"
     dir_recursos_padrao.mkdir(parents=True)
@@ -200,10 +200,59 @@ def test_obter_caminho_icone_aplicacao_nao_windows(tmp_path: Path) -> None:
     ico_padrao = dir_recursos_padrao / "logo.ico"
     ico_padrao.write_bytes(b"ico_padrao")
 
-    import sys
-    with patch.object(sys, "platform", "linux"):
+    with patch("editor.plataforma.obter_nome_icone_preferencial", return_value="logo_app.png"):
         config_prod = ConfiguracaoCanal(CANAL_PRODUCAO, diretorio_base=dir_editor)
         assert config_prod.obter_caminho_icone_aplicacao() == png_padrao
+
+
+def test_obter_caminho_icone_aplicacao_plataforma_icns(tmp_path: Path) -> None:
+    """Valida a resolução do ícone nativo .icns com fallback para .png quando ausente."""
+    dir_editor = tmp_path / "editor"
+    dir_recursos_padrao = dir_editor / "recursos"
+    dir_recursos_beta = dir_editor / "recursos_beta"
+
+    dir_recursos_padrao.mkdir(parents=True)
+    dir_recursos_beta.mkdir(parents=True)
+
+    png_padrao = dir_recursos_padrao / "logo_app.png"
+    png_padrao.write_bytes(b"png_padrao")
+
+    png_beta = dir_recursos_beta / "logo_app.png"
+    png_beta.write_bytes(b"png_beta")
+
+    icns_padrao = dir_recursos_padrao / "logo.icns"
+    icns_padrao.write_bytes(b"icns_padrao")
+
+    icns_beta = dir_recursos_beta / "logo.icns"
+    icns_beta.write_bytes(b"icns_beta")
+
+    with patch("editor.plataforma.obter_nome_icone_preferencial", return_value="logo.icns"):
+        # Canal Produção: encontra logo.icns em recursos
+        config_prod = ConfiguracaoCanal(CANAL_PRODUCAO, diretorio_base=dir_editor)
+        assert config_prod.obter_caminho_icone_aplicacao() == icns_padrao
+
+        # Canal Beta: encontra logo.icns em recursos_beta
+        config_beta = ConfiguracaoCanal(CANAL_BETA, diretorio_base=dir_editor)
+        assert config_beta.obter_caminho_icone_aplicacao() == icns_beta
+
+        # Se o .icns for removido, realiza fallback transparente para logo_app.png
+        icns_padrao.unlink()
+        assert config_prod.obter_caminho_icone_aplicacao() == png_padrao
+
+
+def test_obter_caminho_icone_aplicacao_falha_modulo_plataforma(tmp_path: Path) -> None:
+    """Garante fallback gracioso para logo_app.png caso ocorra falha ao consultar a plataforma."""
+    dir_editor = tmp_path / "editor"
+    dir_recursos_padrao = dir_editor / "recursos"
+    dir_recursos_padrao.mkdir(parents=True)
+
+    png_padrao = dir_recursos_padrao / "logo_app.png"
+    png_padrao.write_bytes(b"png_padrao")
+
+    with patch("editor.plataforma.obter_nome_icone_preferencial", side_effect=RuntimeError("Falha de plataforma")):
+        config_prod = ConfiguracaoCanal(CANAL_PRODUCAO, diretorio_base=dir_editor)
+        assert config_prod.obter_caminho_icone_aplicacao() == png_padrao
+
 
 
 

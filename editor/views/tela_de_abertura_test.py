@@ -7,7 +7,7 @@ from PySide6.QtCore import Qt
 from unittest.mock import MagicMock, patch
 
 from editor.views.tela_de_abertura import TelaDeAbertura
-from editor.core.servico_loja import ResultadoAtualizacao, StatusAtualizacao
+from editor.plataforma import ResultadoAtualizacao, StatusAtualizacao
 from editor.core.gerenciador_sessao import SessaoUsuario
 from editor.core.cliente_auth_supabase import ErroAutenticacaoSupabase
 
