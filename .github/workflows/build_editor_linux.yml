@@ -85,7 +85,7 @@ jobs:
           git clone https://x-access-token:${{ steps.app-token.outputs.token }}@github.com/aresta-climb/aresta-editor-flathub.git /tmp/flathub-repo || true
           if [ -d "/tmp/flathub-repo" ]; then
             cd /tmp/flathub-repo
-            cp $GITHUB_WORKSPACE/dist/flatpak/* . || true
+            cp $GITHUB_WORKSPACE/editor/flatpak/* . || true
             cp $GITHUB_WORKSPACE/editor/recursos/logo_app.png ./logo_app.png || true
             git add .
             git commit -m "Atualizar Editor Aresta para versão ${{ inputs.versao }}" || true

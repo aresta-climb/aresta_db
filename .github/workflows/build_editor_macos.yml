@@ -95,37 +95,50 @@ jobs:
           PYTHONPATH: .
 
       - name: Configurar Certificado Apple Developer ID
-        if: ${{ secrets.ARESTA_EDITOR_APPLE_CERTIFICATE_P12_BASE64 != '' }}
+        env:
+          APPLE_CERT_P12: ${{ secrets.ARESTA_EDITOR_APPLE_CERTIFICATE_P12_BASE64 }}
+          APPLE_CERT_PASSWORD: ${{ secrets.ARESTA_EDITOR_APPLE_CERTIFICATE_PASSWORD }}
         run: |
-          echo "${{ secrets.ARESTA_EDITOR_APPLE_CERTIFICATE_P12_BASE64 }}" | base64 --decode > certificate.p12
-          security create-keychain -p actions build.keychain
-          security default-keychain -s build.keychain
-          security unlock-keychain -p actions build.keychain
-          security import certificate.p12 -k build.keychain -P "${{ secrets.ARESTA_EDITOR_APPLE_CERTIFICATE_PASSWORD }}" -T /usr/bin/codesign
-          security set-key-partition-list -S apple-tool:,apple:,codesign: -s -k actions build.keychain
+          if [ -n "$APPLE_CERT_P12" ]; then
+            echo "$APPLE_CERT_P12" | base64 --decode > certificate.p12
+            security create-keychain -p actions build.keychain
+            security default-keychain -s build.keychain
+            security unlock-keychain -p actions build.keychain
+            security import certificate.p12 -k build.keychain -P "$APPLE_CERT_PASSWORD" -T /usr/bin/codesign
+            security set-key-partition-list -S apple-tool:,apple:,codesign: -s -k actions build.keychain
+          else
+            echo "Certificado Apple Developer ID não configurado, pulando etapa."
+          fi
 
       - name: Configurar Credenciais de Notarização Apple (App Store Connect API)
-        if: ${{ secrets.ARESTA_EDITOR_APPLE_API_KEY_BASE64 != '' }}
+        env:
+          APPLE_API_KEY: ${{ secrets.ARESTA_EDITOR_APPLE_API_KEY_BASE64 }}
+          APPLE_API_KEY_ID: ${{ secrets.ARESTA_EDITOR_APPLE_API_KEY_ID }}
+          APPLE_API_ISSUER: ${{ secrets.ARESTA_EDITOR_APPLE_API_ISSUER }}
         run: |
-          echo "${{ secrets.ARESTA_EDITOR_APPLE_API_KEY_BASE64 }}" | base64 --decode > AuthKey.p8
-          xcrun notarytool store-credentials "notary-profile" \
-            --key AuthKey.p8 \
-            --key-id "${{ secrets.ARESTA_EDITOR_APPLE_API_KEY_ID }}" \
-            --issuer "${{ secrets.ARESTA_EDITOR_APPLE_API_ISSUER }}"
+          if [ -n "$APPLE_API_KEY" ]; then
+            echo "$APPLE_API_KEY" | base64 --decode > AuthKey.p8
+            xcrun notarytool store-credentials "notary-profile" \
+              --key AuthKey.p8 \
+              --key-id "$APPLE_API_KEY_ID" \
+              --issuer "$APPLE_API_ISSUER"
+          else
+            echo "Credenciais de API Apple não configuradas, pulando etapa."
+          fi
 
       - name: Empacotar e Notarizar DMG
         env:
           PYTHONPATH: .
-          TEM_CERTIFICADO: ${{ secrets.ARESTA_EDITOR_APPLE_CERTIFICATE_P12_BASE64 != '' }}
-          TEM_API_KEY: ${{ secrets.ARESTA_EDITOR_APPLE_API_KEY_BASE64 != '' }}
+          APPLE_CERT_P12: ${{ secrets.ARESTA_EDITOR_APPLE_CERTIFICATE_P12_BASE64 }}
+          APPLE_API_KEY: ${{ secrets.ARESTA_EDITOR_APPLE_API_KEY_BASE64 }}
         run: |
           python3 -c "
           from pathlib import Path
           from editor.release_tools.empacotar_macos_dmg import empacotar_distribuicao_macos
           import os
 
-          tem_cert = os.environ.get('TEM_CERTIFICADO', '') == 'true'
-          tem_api = os.environ.get('TEM_API_KEY', '') == 'true'
+          tem_cert = bool(os.environ.get('APPLE_CERT_P12', '').strip())
+          tem_api = bool(os.environ.get('APPLE_API_KEY', '').strip())
           identidade = 'Developer ID Application' if tem_cert else None
           profile = 'notary-profile' if tem_api else None
           sparkle_fw = Path('Sparkle.framework')

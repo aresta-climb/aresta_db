@@ -28,8 +28,7 @@ __pycache__/
 .Python
 build/
 develop-eggs/
-dist/*
-!dist/flatpak/
+dist/
 editor/dist/
 downloads/
 eggs/

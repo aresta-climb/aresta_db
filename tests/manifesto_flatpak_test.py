@@ -11,7 +11,7 @@ import xml.etree.ElementTree as ET
 import yaml
 
 PASTA_RAIZ = Path(__file__).resolve().parent.parent
-PASTA_FLATPAK = PASTA_RAIZ / "dist" / "flatpak"
+PASTA_FLATPAK = PASTA_RAIZ / "editor" / "flatpak"
 ARQUIVO_MANIFESTO = PASTA_FLATPAK / "com.arestaclimb.Editor.yaml"
 ARQUIVO_METAINFO = PASTA_FLATPAK / "com.arestaclimb.Editor.metainfo.xml"
 ARQUIVO_DESKTOP = PASTA_FLATPAK / "com.arestaclimb.Editor.desktop"
