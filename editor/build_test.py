@@ -287,6 +287,42 @@ def test_filtrar_binarios_desnecessarios_unix_so_e_dylib():
     assert "pygit2/_pygit2.so" in nomes_restantes
 
 
+def test_filtrar_binarios_desnecessarios_linux_glib_sistema():
+    """Valida se filtrar_binarios_desnecessarios remove bibliotecas de sistema C do host quando em ambiente Linux."""
+    binarios_mock = [
+        ("libglib-2.0.so.0", "/usr/lib/libglib-2.0.so.0", "BINARY"),
+        ("libgobject-2.0.so.0", "/usr/lib/libgobject-2.0.so.0", "BINARY"),
+        ("libgio-2.0.so.0", "/usr/lib/libgio-2.0.so.0", "BINARY"),
+        ("libstdc++.so.6", "/usr/lib/libstdc++.so.6", "BINARY"),
+        ("libmvec.so.1", "/usr/lib/libmvec.so.1", "BINARY"),
+        ("libX11.so.6", "/usr/lib/libX11.so.6", "BINARY"),
+        ("libssl.so.3", "/usr/lib/libssl.so.3", "BINARY"),
+        ("libcrypto.so.3", "/usr/lib/libcrypto.so.3", "BINARY"),
+        ("PySide6/libQt6Core.so.6", "/fake/libQt6Core.so.6", "BINARY"),
+        ("libgit2-ac99ffd0.so.1.9.6", "/fake/libgit2-ac99ffd0.so.1.9.6", "BINARY"),
+    ]
+
+    with patch("sys.platform", "linux"):
+        filtrados_linux = filtrar_binarios_desnecessarios(binarios_mock)
+        nomes_linux = [b[0] for b in filtrados_linux]
+        assert "libglib-2.0.so.0" not in nomes_linux
+        assert "libgobject-2.0.so.0" not in nomes_linux
+        assert "libgio-2.0.so.0" not in nomes_linux
+        assert "libstdc++.so.6" not in nomes_linux
+        assert "libmvec.so.1" not in nomes_linux
+        assert "libX11.so.6" not in nomes_linux
+        assert "libssl.so.3" not in nomes_linux
+        assert "libcrypto.so.3" not in nomes_linux
+
+        assert "PySide6/libQt6Core.so.6" in nomes_linux
+        assert "libgit2-ac99ffd0.so.1.9.6" in nomes_linux
+
+    with patch("sys.platform", "win32"):
+        filtrados_win = filtrar_binarios_desnecessarios(binarios_mock)
+        nomes_win = [b[0] for b in filtrados_win]
+        assert "libglib-2.0.so.0" in nomes_win
+
+
 def test_gerar_arquivo_icone_icns_sucesso():
     """Valida se gerar_arquivo_icone_icns converte PNG para ICNS multi-resolução."""
     from editor.build import gerar_arquivo_icone_icns

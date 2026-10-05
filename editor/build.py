@@ -47,6 +47,73 @@ NOMES_BASE_BINARIOS_DISPENSAVEIS = (
     "qt6designer",
 )
 
+# Bibliotecas C de sistema que NÃO devem ser empacotadas no Linux para garantir compatibilidade
+# universal com o runtime do Flatpak (org.kde.Platform) e evitar quebras de versão de GLIBC.
+NOMES_BASE_BINARIOS_LINUX_SISTEMA_DISPENSAVEIS = (
+    # GLib / GObject / GNOME
+    "libglib-2.0",
+    "libgobject-2.0",
+    "libgio-2.0",
+    "libgmodule-2.0",
+    "libgthread-2.0",
+    "libjson-glib",
+    "libtinysparql",
+    "libcloudproviders",
+    # Toolchain C/C++ e GLIBC
+    "libmvec",
+    "libstdc++",
+    "libgcc_s",
+    "libsystemd",
+    "libseccomp",
+    "libdbus-1",
+    # GTK stack (dispensável para aplicativo Qt/PySide)
+    "libgtk-3",
+    "libgdk-3",
+    "libgdk_pixbuf",
+    "libcairo",
+    "libpango",
+    "libatk",
+    "libatspi",
+    "libglycin",
+    "libepoxy",
+    # X11 / XCB / XKB de sistema
+    "libx11",
+    "libxcb",
+    "libxkbcommon",
+    "libxcomposite",
+    "libxcursor",
+    "libxdamage",
+    "libxdmcp",
+    "libxext",
+    "libxfixes",
+    "libxinerama",
+    "libxi",
+    "libxrandr",
+    "libxrender",
+    "libxau",
+    # Fontes e renderização de sistema
+    "libfontconfig",
+    "libfribidi",
+    "libgraphite2",
+    "libdatrie",
+    "libthai",
+    "libpixman",
+    # Bibliotecas de sistema básicas
+    "libexpat",
+    "libffi",
+    "libicu",
+    "libmount",
+    "libblkid",
+    "libcom_err",
+    "libk5crypto",
+    "libkeyutils",
+    "libkrb5",
+    "libsqlite3",
+    "libxml2",
+    "libz.so",
+    "libbz2.so",
+)
+
 # Famílias de fontes de ícones do QtAwesome que não são utilizadas pelo tema do editor
 FONTES_DISPENSAVEIS = (
     "materialdesignicons",
@@ -153,13 +220,24 @@ def filtrar_binarios_desnecessarios(
 ) -> List[Any]:
     """
     Filtra a lista de binários do PyInstaller, removendo DLLs de fallback de hardware,
-    bibliotecas compartilhadas Unix (.so, .dylib) e módulos do Qt sabidamente dispensáveis
-    para reduzir o tamanho final do executável.
+    bibliotecas compartilhadas Unix (.so, .dylib), módulos do Qt sabidamente dispensáveis
+    e bibliotecas C de sistema no Linux para compatibilidade universal com runtimes Flatpak.
     """
     resultado = []
+    eh_linux = sys.platform.startswith("linux")
     for item in binarios:
         nome_binario = item[0] if isinstance(item, (tuple, list)) and len(item) > 0 else ""
         nome_binario_lower = nome_binario.lower()
+
+        if eh_linux:
+            if any(
+                nome_sistema in nome_binario_lower
+                for nome_sistema in NOMES_BASE_BINARIOS_LINUX_SISTEMA_DISPENSAVEIS
+            ):
+                continue
+            if nome_binario in ("libssl.so.3", "libcrypto.so.3", "libfreetype.so.6", "libharfbuzz.so.0"):
+                continue
+
         eh_dispensavel = any(
             dispensavel.lower() in nome_binario_lower for dispensavel in BINARIOS_DISPENSAVEIS
         ) or any(
