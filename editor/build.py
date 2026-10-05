@@ -225,9 +225,14 @@ def filtrar_binarios_desnecessarios(
     eh_linux = sys.platform.startswith("linux")
     for item in binarios:
         nome_binario = item[0] if isinstance(item, (tuple, list)) and len(item) > 0 else ""
+        caminho_origem = str(item[1]).lower() if isinstance(item, (tuple, list)) and len(item) > 1 else ""
         nome_binario_lower = nome_binario.lower()
 
-        if eh_linux:
+        # Bibliotecas empacotadas internamente em wheels (.libs como pillow.libs, pygit2.libs)
+        # são dependências compiladas estritamente necessárias e nunca devem ser descartadas.
+        eh_biblioteca_vendored = ".libs" in nome_binario_lower or ".libs" in caminho_origem
+
+        if eh_linux and not eh_biblioteca_vendored:
             if any(
                 nome_sistema in nome_binario_lower
                 for nome_sistema in NOMES_BASE_BINARIOS_LINUX_SISTEMA_DISPENSAVEIS

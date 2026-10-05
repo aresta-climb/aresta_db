@@ -305,6 +305,9 @@ def test_filtrar_binarios_desnecessarios_linux_glib_sistema():
         ("libkeyutils.so.1", "/usr/lib/libkeyutils.so.1", "BINARY"),
         ("PySide6/libQt6Core.so.6", "/fake/libQt6Core.so.6", "BINARY"),
         ("libgit2-ac99ffd0.so.1.9.6", "/fake/libgit2-ac99ffd0.so.1.9.6", "BINARY"),
+        ("libxcb.so.1", "/usr/lib/libxcb.so.1", "BINARY"),
+        ("pillow.libs/libxcb-ad31f5a3.so.1.1.0", "/fake/pillow.libs/libxcb-ad31f5a3.so.1.1.0", "BINARY"),
+        ("libxcb-ad31f5a3.so.1.1.0", "/fake/pillow.libs/libxcb-ad31f5a3.so.1.1.0", "BINARY"),
     ]
 
     with patch("sys.platform", "linux"):
@@ -318,6 +321,7 @@ def test_filtrar_binarios_desnecessarios_linux_glib_sistema():
         assert "libX11.so.6" not in nomes_linux
         assert "libssl.so.3" not in nomes_linux
         assert "libcrypto.so.3" not in nomes_linux
+        assert "libxcb.so.1" not in nomes_linux
 
         # Bibliotecas essenciais e Kerberos (requerido pelo QtNetwork e ausente no Flatpak)
         assert "libkrb5.so.3" in nomes_linux
@@ -327,6 +331,8 @@ def test_filtrar_binarios_desnecessarios_linux_glib_sistema():
         assert "libkeyutils.so.1" in nomes_linux
         assert "PySide6/libQt6Core.so.6" in nomes_linux
         assert "libgit2-ac99ffd0.so.1.9.6" in nomes_linux
+        assert "pillow.libs/libxcb-ad31f5a3.so.1.1.0" in nomes_linux
+        assert "libxcb-ad31f5a3.so.1.1.0" in nomes_linux
 
     with patch("sys.platform", "win32"):
         filtrados_win = filtrar_binarios_desnecessarios(binarios_mock)
