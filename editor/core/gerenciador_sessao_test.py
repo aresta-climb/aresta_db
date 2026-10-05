@@ -287,43 +287,6 @@ class TesteGerenciadorSessao:
             assert sessao_atualizada.jwt_supabase == "jwt_novo_renovado_456"
             assert sessao_atualizada.token_atualizacao == "refresh_novo_789"
 
-    def teste_keyring_indisponivel_utiliza_fallback_arquivo_chave(self, tmp_path):
-        """Valida se uma falha no Keyring do SO ativa o fallback de arquivo de chave seguro."""
-        from keyring.errors import NoKeyringError
-
-        caminho_arquivo = tmp_path / ".sessao_auth.enc"
-        caminho_chave = tmp_path / ".sessao_auth.key"
-        gerenciador = GerenciadorSessao(
-            usar_memoria=False, caminho_arquivo_sessao=caminho_arquivo
-        )
-
-        sessao = SessaoUsuario(
-            email="fallback@arestaclimb.com",
-            nome_completo="Usuario Sem Keyring",
-            jwt_supabase="jwt.valido.123",
-            token_atualizacao="refresh.valido.456",
-        )
-
-        # Simula ausência total de backend de keyring recomendado (comum em Linux/Flatpak sem daemon)
-        with patch("keyring.get_password", side_effect=NoKeyringError("No recommended backend")):
-            with patch("keyring.set_password", side_effect=NoKeyringError("No recommended backend")):
-                with patch("keyring.delete_password", side_effect=NoKeyringError("No recommended backend")):
-                    gerenciador.salvar_sessao(sessao)
-
-                    assert caminho_arquivo.exists()
-                    assert caminho_chave.exists()
-                    assert b"fallback@arestaclimb.com" not in caminho_arquivo.read_bytes()
-
-                    sessao_recuperada = gerenciador.obter_sessao()
-                    assert sessao_recuperada is not None
-                    assert sessao_recuperada.email == "fallback@arestaclimb.com"
-                    assert sessao_recuperada.jwt_supabase == "jwt.valido.123"
-
-                    gerenciador.limpar_sessao()
-                    assert not caminho_arquivo.exists()
-                    assert not caminho_chave.exists()
-                    assert gerenciador.obter_sessao() is None
-
     def teste_chave_corrompida_ou_invalida_no_keyring_gera_nova(self, tmp_path):
         """Valida que uma chave corrompida no Keyring força a regeneração segura."""
         caminho_arquivo = tmp_path / ".sessao_auth.enc"
@@ -339,6 +302,45 @@ class TesteGerenciadorSessao:
                 assert len(chave) == 32
                 assert cofre[("editor_aresta", "chave_criptografia_sessao")] != "chave_invalida_curta"
 
+    def teste_keyring_get_password_lanca_excecao_recupera_chave_ou_cria_nova(self, tmp_path):
+        """Valida que exceção ao ler do Keyring é tratada gerando nova chave e registrando no Keyring."""
+        caminho_arquivo = tmp_path / ".sessao_auth.enc"
+        gerenciador = GerenciadorSessao(
+            usar_memoria=False, caminho_arquivo_sessao=caminho_arquivo
+        )
+
+        with patch("keyring.get_password", side_effect=Exception("Falha D-Bus temporária")):
+            with patch("keyring.set_password") as mock_set:
+                chave = gerenciador._obter_ou_criar_chave_criptografia()
+                assert len(chave) == 32
+                mock_set.assert_called_once()
+
+    def teste_obter_sessao_com_excecao_no_keyring_limpa_sessao(self, tmp_path):
+        """Valida que erro de leitura do Keyring ao carregar sessão limpa dados locais e retorna None."""
+        caminho_arquivo = tmp_path / ".sessao_auth.enc"
+        caminho_arquivo.write_bytes(b"dados_cifrados_minimos_com_tamanho_suficiente_1234567890")
+        gerenciador = GerenciadorSessao(
+            usar_memoria=False, caminho_arquivo_sessao=caminho_arquivo
+        )
+
+        with patch("keyring.get_password", side_effect=Exception("Chaveiro inacessível")):
+            assert gerenciador.obter_sessao() is None
+            assert not caminho_arquivo.exists()
+
+    def teste_obter_sessao_com_chave_comprimento_invalido_limpa_sessao(self, tmp_path):
+        """Valida que chave no Keyring com comprimento inválido limpa a sessão e retorna None."""
+        import base64
+        caminho_arquivo = tmp_path / ".sessao_auth.enc"
+        caminho_arquivo.write_bytes(b"dados_cifrados_minimos_com_tamanho_suficiente_1234567890")
+        gerenciador = GerenciadorSessao(
+            usar_memoria=False, caminho_arquivo_sessao=caminho_arquivo
+        )
+
+        chave_curta_b64 = base64.b64encode(b"chave_invalida").decode("ascii")
+        with patch("keyring.get_password", return_value=chave_curta_b64):
+            assert gerenciador.obter_sessao() is None
+            assert not caminho_arquivo.exists()
+
     def teste_sessao_em_memoria_json_invalido_retorna_none(self):
         """Valida que payload corrompido em memória retorna None graciosamente."""
         gerenciador = GerenciadorSessao(usar_memoria=True)
@@ -347,20 +349,20 @@ class TesteGerenciadorSessao:
 
     def teste_arquivo_menor_que_tamanho_minimo_limpa_sessao(self, tmp_path):
         """Valida que arquivo com menos de 28 bytes limpa a sessão."""
+        import base64
         caminho_arquivo = tmp_path / ".sessao_auth.enc"
         caminho_arquivo.write_bytes(b"muito_pequeno")
         gerenciador = GerenciadorSessao(
             usar_memoria=False, caminho_arquivo_sessao=caminho_arquivo
         )
 
-        with patch.object(gerenciador, "_obter_chave_persistida", return_value=b"0" * 32):
+        chave_falsa_b64 = base64.b64encode(b"0" * 32).decode("ascii")
+        with patch("keyring.get_password", return_value=chave_falsa_b64):
             assert gerenciador.obter_sessao() is None
             assert not caminho_arquivo.exists()
 
     def teste_renovar_sessao_excecao_retorna_jwt_antigo(self):
         """Valida que exceção na renovação não quebra a recuperação do token existente."""
-        import time
-        agora = int(time.time())
         jwt_expirado = "header.payload.sig"
 
         gerenciador = GerenciadorSessao(usar_memoria=True)
@@ -376,42 +378,10 @@ class TesteGerenciadorSessao:
             with patch("editor.core.cliente_auth_supabase.ClienteAuthSupabase.renovar_sessao", side_effect=Exception("Rede indisponível")):
                 assert gerenciador.recuperar_token(auto_renovar=True) == jwt_expirado
 
-    def teste_fallback_chave_corrompida_retorna_none(self, tmp_path):
-        """Valida que arquivo de chave fallback corrompido retorna None."""
-        caminho_arquivo = tmp_path / ".sessao_auth.enc"
-        caminho_chave = tmp_path / ".sessao_auth.key"
-        caminho_chave.write_text("chave_invalida_corrompida", encoding="ascii")
-
-        gerenciador = GerenciadorSessao(
-            usar_memoria=False, caminho_arquivo_sessao=caminho_arquivo
-        )
-
-        with patch("keyring.get_password", side_effect=Exception("Keyring erro")):
-            assert gerenciador._obter_chave_persistida() is None
-
-    def teste_salvar_chave_fallback_trata_excecoes_de_escrita_e_chmod(self, tmp_path):
-        """Valida que falhas de I/O e chmod no fallback são tratadas sem crash."""
-        caminho_arquivo = tmp_path / ".sessao_auth.enc"
-        gerenciador = GerenciadorSessao(
-            usar_memoria=False, caminho_arquivo_sessao=caminho_arquivo
-        )
-
-        with patch("keyring.set_password", side_effect=Exception("Keyring indisponível")):
-            with patch("os.chmod", side_effect=OSError("chmod falhou")):
-                # Deve gravar sem quebrar mesmo com chmod falhando
-                gerenciador._salvar_chave_persistida("chave_b64_teste")
-                assert gerenciador._caminho_chave_fallback.exists()
-
-            with patch.object(Path, "write_text", side_effect=OSError("Disco somente leitura")):
-                # Não deve levantar exceção não tratada
-                gerenciador._salvar_chave_persistida("chave_b64_teste")
-
     def teste_limpar_sessao_trata_excecoes_de_unlink_e_keyring(self, tmp_path):
         """Valida que limpar_sessao trata graciosamente exceções ao deletar chaves e arquivos."""
         caminho_arquivo = tmp_path / ".sessao_auth.enc"
-        caminho_chave = tmp_path / ".sessao_auth.key"
         caminho_arquivo.write_bytes(b"dados")
-        caminho_chave.write_text("chave")
 
         gerenciador = GerenciadorSessao(
             usar_memoria=False, caminho_arquivo_sessao=caminho_arquivo
@@ -441,21 +411,20 @@ class TesteGerenciadorSessao:
         assert token_jwt_expirado(jwt_sem_exp) is False
 
     def teste_obter_ou_criar_chave_criptografia_reutiliza_existente(self, tmp_path):
-        """Valida que chave persistida existente é reaproveitada na segunda chamada."""
+        """Valida que chave persistida existente no Keyring é reaproveitada na segunda chamada."""
+        import base64
         caminho_arquivo = tmp_path / ".sessao_auth.enc"
         gerenciador = GerenciadorSessao(
             usar_memoria=False, caminho_arquivo_sessao=caminho_arquivo
         )
 
-        with patch.object(gerenciador, "_obter_chave_persistida", side_effect=[None, b"1" * 32]):
-            with patch.object(gerenciador, "_salvar_chave_persistida") as mock_salvar:
-                chave1 = gerenciador._obter_ou_criar_chave_criptografia()
-                assert len(chave1) == 32
-                mock_salvar.assert_called_once()
+        chave_b64 = base64.b64encode(b"1" * 32).decode("ascii")
+        with patch("keyring.get_password", return_value=chave_b64):
+            with patch("keyring.set_password") as mock_set:
+                chave = gerenciador._obter_ou_criar_chave_criptografia()
+                assert chave == b"1" * 32
+                mock_set.assert_not_called()
 
-                # Segunda chamada encontra chave existente e retorna diretamente
-                chave2 = gerenciador._obter_ou_criar_chave_criptografia()
-                assert chave2 == b"1" * 32
 
 
 
