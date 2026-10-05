@@ -98,16 +98,14 @@ NOMES_BASE_BINARIOS_LINUX_SISTEMA_DISPENSAVEIS = (
     "libdatrie",
     "libthai",
     "libpixman",
-    # Bibliotecas de sistema básicas
+    # Bibliotecas de sistema básicas (presentes nativamente no runtime Flatpak)
+    # NOTA: Bibliotecas Kerberos (libkrb5, libgssapi_krb5, libk5crypto, libcom_err, libkeyutils)
+    # NÃO devem ser descartadas, pois o QtNetwork depende do GSS-API e o Flatpak runtime não possui Kerberos.
     "libexpat",
     "libffi",
     "libicu",
     "libmount",
     "libblkid",
-    "libcom_err",
-    "libk5crypto",
-    "libkeyutils",
-    "libkrb5",
     "libsqlite3",
     "libxml2",
     "libz.so",

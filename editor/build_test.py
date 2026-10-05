@@ -298,6 +298,11 @@ def test_filtrar_binarios_desnecessarios_linux_glib_sistema():
         ("libX11.so.6", "/usr/lib/libX11.so.6", "BINARY"),
         ("libssl.so.3", "/usr/lib/libssl.so.3", "BINARY"),
         ("libcrypto.so.3", "/usr/lib/libcrypto.so.3", "BINARY"),
+        ("libkrb5.so.3", "/usr/lib/libkrb5.so.3", "BINARY"),
+        ("libgssapi_krb5.so.2", "/usr/lib/libgssapi_krb5.so.2", "BINARY"),
+        ("libk5crypto.so.3", "/usr/lib/libk5crypto.so.3", "BINARY"),
+        ("libcom_err.so.2", "/usr/lib/libcom_err.so.2", "BINARY"),
+        ("libkeyutils.so.1", "/usr/lib/libkeyutils.so.1", "BINARY"),
         ("PySide6/libQt6Core.so.6", "/fake/libQt6Core.so.6", "BINARY"),
         ("libgit2-ac99ffd0.so.1.9.6", "/fake/libgit2-ac99ffd0.so.1.9.6", "BINARY"),
     ]
@@ -314,6 +319,12 @@ def test_filtrar_binarios_desnecessarios_linux_glib_sistema():
         assert "libssl.so.3" not in nomes_linux
         assert "libcrypto.so.3" not in nomes_linux
 
+        # Bibliotecas essenciais e Kerberos (requerido pelo QtNetwork e ausente no Flatpak)
+        assert "libkrb5.so.3" in nomes_linux
+        assert "libgssapi_krb5.so.2" in nomes_linux
+        assert "libk5crypto.so.3" in nomes_linux
+        assert "libcom_err.so.2" in nomes_linux
+        assert "libkeyutils.so.1" in nomes_linux
         assert "PySide6/libQt6Core.so.6" in nomes_linux
         assert "libgit2-ac99ffd0.so.1.9.6" in nomes_linux
 
