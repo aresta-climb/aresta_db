@@ -1,7 +1,6 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
-caminho_imagem_capa: imagens/visao_geral.webp
 nome: Setor principal
 mapas:
 - caminho_imagem_mapa: imagens/setor_capela_externa_p2.webp
@@ -818,7 +817,7 @@ mapas:
     escalada: Projeto Aresta
   - ids:
     - linha_44
-    escalada: Missionárias do Além (projeto)
+    escalada: Missionárias do Além
   - ids:
     - linha_16
     - linha_43
@@ -1339,7 +1338,7 @@ mapas:
     escalada: Chama Jesus
   - ids:
     - linha_37
-    escalada: Missionárias do Além (projeto)
+    escalada: Missionárias do Além
   - ids:
     - linha_40
     - linha_41
@@ -2164,7 +2163,7 @@ escaladas:
     dificuldade: BR_9A
     quantidade_protecoes_parada: 2
     tipo_parede: NEGATIVO
-    quantidade_protecoes_intermediarias: 5
+    quantidade_protecoes_intermediarias: 6
 - via_esportiva:
     nome: Excomungado
     dificuldade: BR_8B
@@ -2193,18 +2192,20 @@ escaladas:
 - via_esportiva:
     nome: Proj
     tipo_parede: NEGATIVO
+    quantidade_protecoes_intermediarias: 3
+    quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Variante Água Ardente
     dificuldade: BR_10A
     tipo_parede: NEGATIVO
-    quantidade_protecoes_intermediarias: 9
+    quantidade_protecoes_intermediarias: 10
     quantidade_protecoes_parada: 2
     descricao: A partir da penúltima proteção da Água Benta sair para a esquerda.
 - via_esportiva:
     nome: Extensão Piedade
     dificuldade: BR_9B
     tipo_parede: NEGATIVO
-    quantidade_protecoes_intermediarias: 10
+    quantidade_protecoes_intermediarias: 11
     quantidade_protecoes_parada: 2
     descricao: A partir da parada da Excomungado seguir nas proteções para a esquerda.
 - via_esportiva:
@@ -2218,18 +2219,19 @@ escaladas:
     nome: Chama Jesus
     dificuldade: BR_8A
     tipo_parede: NEGATIVO
-    quantidade_protecoes_intermediarias: 5
+    quantidade_protecoes_intermediarias: 6
     quantidade_protecoes_parada: 2
     descricao: "### IMPORTANTE \n#### Segurança usar capacete!!!\n\nGrau sugerido\
       \ saindo da segunda proteção."
 - via_esportiva:
-    nome: Missionárias do Além (projeto)
+    nome: Missionárias do Além
     descricao: "### IMPORTANTE \n#### Segurança usar capacete!!!\n\n- Melhor sair\
       \ com segunda proteção clipada.\n- Existe um ponto de ancoragem para o seg na\
       \ pedra que fica na base da via."
     tipo_parede: NEGATIVO
     quantidade_protecoes_intermediarias: 9
     quantidade_protecoes_parada: 2
+    dificuldade: BR_9A
 - via_esportiva:
     nome: Variante Santo do Pau Oco
     descricao: "### IMPORTANTE \n#### Segurança usar capacete!!!\n\n- Melhor sair\
@@ -2237,7 +2239,7 @@ escaladas:
       \ pedra que fica na base da via."
     dificuldade: BR_8A
     tipo_parede: NEGATIVO
-    quantidade_protecoes_intermediarias: 6
+    quantidade_protecoes_intermediarias: 7
     quantidade_protecoes_parada: 2
 - via_esportiva:
     nome: Projeto Aresta
@@ -2245,7 +2247,7 @@ escaladas:
       \ com segunda proteção clipada.\n- Existe um ponto de ancoragem para o seg na\
       \ pedra que fica na base da via."
     tipo_parede: NEGATIVO
-    quantidade_protecoes_intermediarias: 12
+    quantidade_protecoes_intermediarias: 18
 - via_esportiva:
     nome: Variante Santo do Pau Oco (extensão)
     descricao: "### IMPORTANTE \n#### Segurança usar capacete!!!\n\n- Melhor sair\
@@ -2253,7 +2255,7 @@ escaladas:
       \ pedra que fica na base da via."
     dificuldade: BR_8C
     tipo_parede: NEGATIVO
-    quantidade_protecoes_intermediarias: 8
+    quantidade_protecoes_intermediarias: 9
     quantidade_protecoes_parada: 2
 localizacao_estacionamento:
   latitude: -222287030
@@ -2263,4 +2265,4 @@ localizacao_escalada:
   longitude: -424249510
 amigavel_a_criancas: true
 ---
-
+![Visão Geral Capelinha](imagens/visao_geral.webp)
