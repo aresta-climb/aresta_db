@@ -389,6 +389,8 @@ def gerar_manifesto_dependencias_flatpak(
                 "run",
                 "--group",
                 "editor_deploy",
+                "python",
+                "-m",
                 "flatpak_pip_generator",
                 f"--requirements-file={caminho_tmp_req}",
                 f"--output={caminho_sem_ext}",

@@ -80,7 +80,8 @@ dev = [
 # Ferramentas de empacotamento e deploy do Editor
 editor_deploy = [
     { include-group = "editor" },
-    "flatpak-pip-generator; sys_platform == 'linux'",
+    "flatpak-pip-generator",
+    "pip",
 ]
 
 

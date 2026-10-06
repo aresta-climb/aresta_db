@@ -185,7 +185,7 @@ editor = [
 editor-deploy = [
     { name = "cryptography" },
     { name = "fastapi" },
-    { name = "flatpak-pip-generator", marker = "sys_platform == 'linux'" },
+    { name = "flatpak-pip-generator" },
     { name = "grpcio-tools" },
     { name = "httpx" },
     { name = "jeepney", marker = "sys_platform == 'linux'" },
@@ -194,6 +194,7 @@ editor-deploy = [
     { name = "nanoid" },
     { name = "pillow" },
     { name = "pillow-heif" },
+    { name = "pip" },
     { name = "protobuf" },
     { name = "pygit2" },
     { name = "pyinstaller" },
@@ -284,7 +285,7 @@ editor = [
 editor-deploy = [
     { name = "cryptography" },
     { name = "fastapi" },
-    { name = "flatpak-pip-generator", marker = "sys_platform == 'linux'" },
+    { name = "flatpak-pip-generator" },
     { name = "grpcio-tools" },
     { name = "httpx" },
     { name = "jeepney", marker = "sys_platform == 'linux'" },
@@ -293,6 +294,7 @@ editor-deploy = [
     { name = "nanoid", specifier = ">=2.0.0" },
     { name = "pillow" },
     { name = "pillow-heif", specifier = ">=1.7.0" },
+    { name = "pip" },
     { name = "protobuf" },
     { name = "pygit2" },
     { name = "pyinstaller" },
@@ -803,8 +805,8 @@ name = "flatpak-pip-generator"
 version = "2026.5.28"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
-    { name = "pyyaml", marker = "sys_platform != 'darwin' and sys_platform != 'emscripten' and sys_platform != 'win32'" },
-    { name = "requirements-parser", marker = "sys_platform != 'darwin' and sys_platform != 'emscripten' and sys_platform != 'win32'" },
+    { name = "pyyaml" },
+    { name = "requirements-parser" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/98/79/ff278ac14cdf90caa821fffcc369f6313f021fe956ec01864a942d37e6bd/flatpak_pip_generator-2026.5.28.tar.gz", hash = "sha256:aaa7c6150d8b4b288b24e3eed633121b11de4241338a6955d2c3332d35a44bb0", size = 14406, upload-time = "2026-05-28T16:44:53.895Z" }
 wheels = [
@@ -1906,6 +1908,15 @@ wheels = [
 ]
 
 [[package]]
+name = "pip"
+version = "26.2.1"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/ae/15/4500e320e6b101ec3b719ae85b697d9940b6cda672bc555bd6016fc60c6f/pip-26.2.1.tar.gz", hash = "sha256:f6ad667e89a1fe78046c8f13232b247200f5258d7828f3f7883d660878e0813f", size = 1848877, upload-time = "2026-08-04T22:51:14.148Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/f3/6e/1736e5b4ae2b778ef2f81c47d797de9f891d4d8acb047a24ca37a60294dd/pip-26.2.1-py3-none-any.whl", hash = "sha256:71138adf1f4ca900cdb7d289c21b7494329f2332b6d85f0e1c42108c0384ed3e", size = 1816632, upload-time = "2026-08-04T22:51:12.472Z" },
+]
+
+[[package]]
 name = "pluggy"
 version = "1.6.0"
 source = { registry = "https://pypi.org/simple" }
@@ -2513,7 +2524,7 @@ name = "requirements-parser"
 version = "0.13.1"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
-    { name = "packaging", marker = "sys_platform != 'darwin' and sys_platform != 'emscripten' and sys_platform != 'win32'" },
+    { name = "packaging" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/89/1a/5f3c22d38bf1d87d1f4a961489d9eba35c4370a21395562d94410cdd0e73/requirements_parser-0.13.1.tar.gz", hash = "sha256:78811383b2089b6c5197a1431bc2c12ff950245edca39a23eea3460782038dd3", size = 22783, upload-time = "2026-06-18T07:52:25.291Z" }
 wheels = [
