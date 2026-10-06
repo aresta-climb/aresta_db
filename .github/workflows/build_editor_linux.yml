@@ -61,7 +61,7 @@ jobs:
 
       - name: Sincronizar Dependências de Deploy do Editor
         run: |
-          uv sync --frozen --only-group editor_deploy
+          uv sync --frozen --only-group editor_deploy_flatpak
 
       - name: Gerar Manifesto de Dependências Flatpak (pypi-dependencies.json)
         run: |

@@ -182,7 +182,7 @@ editor = [
     { name = "winrt-windows-applicationmodel", marker = "sys_platform == 'win32'" },
     { name = "winrt-windows-services-store", marker = "sys_platform == 'win32'" },
 ]
-editor-deploy = [
+editor-deploy-flatpak = [
     { name = "cryptography" },
     { name = "fastapi" },
     { name = "flatpak-pip-generator" },
@@ -282,7 +282,7 @@ editor = [
     { name = "winrt-windows-applicationmodel", marker = "sys_platform == 'win32'" },
     { name = "winrt-windows-services-store", marker = "sys_platform == 'win32'" },
 ]
-editor-deploy = [
+editor-deploy-flatpak = [
     { name = "cryptography" },
     { name = "fastapi" },
     { name = "flatpak-pip-generator" },

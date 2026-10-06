@@ -388,7 +388,7 @@ def gerar_manifesto_dependencias_flatpak(
                 executavel_uv,
                 "run",
                 "--group",
-                "editor_deploy",
+                "editor_deploy_flatpak",
                 "python",
                 "-m",
                 "flatpak_pip_generator",

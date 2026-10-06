@@ -77,8 +77,8 @@ dev = [
     "types-nanoid>=2.0.0.20260508",
 ]
 
-# Ferramentas de empacotamento e deploy do Editor
-editor_deploy = [
+# Ferramentas de empacotamento e deploy do Editor no Flatpak Linux
+editor_deploy_flatpak = [
     { include-group = "editor" },
     "flatpak-pip-generator",
     "pip",
