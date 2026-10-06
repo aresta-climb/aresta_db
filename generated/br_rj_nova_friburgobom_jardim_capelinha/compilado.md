@@ -50,9 +50,11 @@
 
 ### Setor (Pico: Capelinha)
 
-- **descricao**: 
+- **descricao**:
+    | ![Visão Geral Capelinha](imagens/visao_geral.webp) |
+    | :--: |
+    | *Visão Geral Capelinha* |
 - **nome**: Setor principal
-- **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/visao_geral.webp)
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_capela_externa_p2.webp)
@@ -554,7 +556,7 @@
       - **[12]**:
         - **ids**:
           - linha_44
-        - **escalada**: Missionárias do Além (projeto)
+        - **escalada**: Missionárias do Além
       - **[13]**:
         - **ids**:
           - linha_16
@@ -911,7 +913,7 @@
       - **[2]**:
         - **ids**:
           - linha_37
-        - **escalada**: Missionárias do Além (projeto)
+        - **escalada**: Missionárias do Além
       - **[3]**:
         - **ids**:
           - linha_40
@@ -1412,7 +1414,7 @@
       - **dificuldade**: BR_9A
       - **quantidade_protecoes_parada**: 2
       - **tipo_parede**: NEGATIVO
-      - **quantidade_protecoes_intermediarias**: 5
+      - **quantidade_protecoes_intermediarias**: 6
   - **[2]**:
     - **via_esportiva**:
       - **nome**: Excomungado
@@ -1446,13 +1448,15 @@
     - **via_esportiva**:
       - **nome**: Proj
       - **tipo_parede**: NEGATIVO
+      - **quantidade_protecoes_intermediarias**: 3
+      - **quantidade_protecoes_parada**: 2
   - **[7]**:
     - **via_esportiva**:
       - **descricao**: A partir da penúltima proteção da Água Benta sair para a esquerda.
       - **nome**: Variante Água Ardente
       - **dificuldade**: BR_10A
       - **tipo_parede**: NEGATIVO
-      - **quantidade_protecoes_intermediarias**: 9
+      - **quantidade_protecoes_intermediarias**: 10
       - **quantidade_protecoes_parada**: 2
   - **[8]**:
     - **via_esportiva**:
@@ -1460,7 +1464,7 @@
       - **nome**: Extensão Piedade
       - **dificuldade**: BR_9B
       - **tipo_parede**: NEGATIVO
-      - **quantidade_protecoes_intermediarias**: 10
+      - **quantidade_protecoes_intermediarias**: 11
       - **quantidade_protecoes_parada**: 2
   - **[9]**:
     - **via_esportiva**:
@@ -1480,7 +1484,7 @@
       - **nome**: Chama Jesus
       - **dificuldade**: BR_8A
       - **tipo_parede**: NEGATIVO
-      - **quantidade_protecoes_intermediarias**: 5
+      - **quantidade_protecoes_intermediarias**: 6
       - **quantidade_protecoes_parada**: 2
   - **[11]**:
     - **via_esportiva**:
@@ -1490,10 +1494,11 @@
           
           - Melhor sair com segunda proteção clipada.
           - Existe um ponto de ancoragem para o seg na pedra que fica na base da via.
-      - **nome**: Missionárias do Além (projeto)
+      - **nome**: Missionárias do Além
       - **tipo_parede**: NEGATIVO
       - **quantidade_protecoes_intermediarias**: 9
       - **quantidade_protecoes_parada**: 2
+      - **dificuldade**: BR_9A
   - **[12]**:
     - **via_esportiva**:
       - **descricao**:
@@ -1505,7 +1510,7 @@
       - **nome**: Variante Santo do Pau Oco
       - **dificuldade**: BR_8A
       - **tipo_parede**: NEGATIVO
-      - **quantidade_protecoes_intermediarias**: 6
+      - **quantidade_protecoes_intermediarias**: 7
       - **quantidade_protecoes_parada**: 2
   - **[13]**:
     - **via_esportiva**:
@@ -1517,7 +1522,7 @@
           - Existe um ponto de ancoragem para o seg na pedra que fica na base da via.
       - **nome**: Projeto Aresta
       - **tipo_parede**: NEGATIVO
-      - **quantidade_protecoes_intermediarias**: 12
+      - **quantidade_protecoes_intermediarias**: 18
   - **[14]**:
     - **via_esportiva**:
       - **descricao**:
@@ -1529,7 +1534,7 @@
       - **nome**: Variante Santo do Pau Oco (extensão)
       - **dificuldade**: BR_8C
       - **tipo_parede**: NEGATIVO
-      - **quantidade_protecoes_intermediarias**: 8
+      - **quantidade_protecoes_intermediarias**: 9
       - **quantidade_protecoes_parada**: 2
 - **localizacao_estacionamento**:
   - **latitude**: -222287030
@@ -1566,6 +1571,6 @@
     - **checksum_sha256**: b6dcb92fb3a2fa6421ebbe0dbaf79cf0500c46df183bd35b5874d61fbea714f5
   - **[6]**:
     - **caminho**: ![caminho](imagens/visao_geral.webp)
-    - **checksum_sha256**: 7d50ccbbfec657be6bce6f05ecd94496fef3ff385312e4497b20b97e53099eee
+    - **checksum_sha256**: 267c796b2bf24127596f64720faa4026e4a282a1fa1aa8053f7e902cd5fb3257
 
 
