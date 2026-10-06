@@ -1,7 +1,9 @@
 app-id: com.arestaclimb.Editor
 runtime: org.kde.Platform
-runtime-version: "6.7"
+runtime-version: "6.8"
 sdk: org.kde.Sdk
+base: io.qt.PySide.BaseApp
+base-version: "6.8"
 command: EditorAresta
 
 finish-args:
@@ -17,18 +19,39 @@ finish-args:
   - --talk-name=org.kde.kwalletd
   - --env=XKB_LOG_LEVEL=critical
 
+cleanup-commands:
+  - /app/cleanup-BaseApp.sh
+
 modules:
+  - pypi-dependencies.json
+
   - name: aresta-editor
     buildsystem: simple
     build-commands:
-      - install -D -m755 EditorAresta /app/bin/EditorAresta
-      - cp -r * /app/bin/ || true
+      # Instalação dos arquivos do editor
+      - mkdir -p /app/share/aresta-editor
+      - cp -r editor /app/share/aresta-editor/
+      - cp -r aresta_api /app/share/aresta-editor/ || true
+      - cp uv.lock /app/share/aresta-editor/
+      - echo "producao" > /app/share/aresta-editor/canal.txt
+      # Criação do script lançador nativo
+      - |
+        cat << 'EOF' > /app/bin/EditorAresta
+        #!/bin/sh
+        export PYTHONPATH="/app/lib/python3.11/site-packages:/app/lib/python3.12/site-packages:/app/lib/python3.13/site-packages:/app/share/aresta-editor:$PYTHONPATH"
+        exec python3 -m editor.main "$@"
+        EOF
+      - chmod +x /app/bin/EditorAresta
+      # Instalação dos arquivos de integração do desktop
       - install -D -m644 com.arestaclimb.Editor.desktop /app/share/applications/com.arestaclimb.Editor.desktop
       - install -D -m644 com.arestaclimb.Editor.metainfo.xml /app/share/metainfo/com.arestaclimb.Editor.metainfo.xml
       - install -D -m644 logo_app.png /app/share/icons/hicolor/512x512/apps/com.arestaclimb.Editor.png
     sources:
       - type: dir
-        path: EditorAresta
+        path: ../../editor
+        dest: editor
+      - type: file
+        path: ../../uv.lock
       - type: file
         path: com.arestaclimb.Editor.desktop
       - type: file

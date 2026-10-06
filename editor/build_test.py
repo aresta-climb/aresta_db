@@ -287,57 +287,6 @@ def test_filtrar_binarios_desnecessarios_unix_so_e_dylib():
     assert "pygit2/_pygit2.so" in nomes_restantes
 
 
-def test_filtrar_binarios_desnecessarios_linux_glib_sistema():
-    """Valida se filtrar_binarios_desnecessarios remove bibliotecas de sistema C do host quando em ambiente Linux."""
-    binarios_mock = [
-        ("libglib-2.0.so.0", "/usr/lib/libglib-2.0.so.0", "BINARY"),
-        ("libgobject-2.0.so.0", "/usr/lib/libgobject-2.0.so.0", "BINARY"),
-        ("libgio-2.0.so.0", "/usr/lib/libgio-2.0.so.0", "BINARY"),
-        ("libstdc++.so.6", "/usr/lib/libstdc++.so.6", "BINARY"),
-        ("libmvec.so.1", "/usr/lib/libmvec.so.1", "BINARY"),
-        ("libX11.so.6", "/usr/lib/libX11.so.6", "BINARY"),
-        ("libssl.so.3", "/usr/lib/libssl.so.3", "BINARY"),
-        ("libcrypto.so.3", "/usr/lib/libcrypto.so.3", "BINARY"),
-        ("libkrb5.so.3", "/usr/lib/libkrb5.so.3", "BINARY"),
-        ("libgssapi_krb5.so.2", "/usr/lib/libgssapi_krb5.so.2", "BINARY"),
-        ("libk5crypto.so.3", "/usr/lib/libk5crypto.so.3", "BINARY"),
-        ("libcom_err.so.2", "/usr/lib/libcom_err.so.2", "BINARY"),
-        ("libkeyutils.so.1", "/usr/lib/libkeyutils.so.1", "BINARY"),
-        ("PySide6/libQt6Core.so.6", "/fake/libQt6Core.so.6", "BINARY"),
-        ("libgit2-ac99ffd0.so.1.9.6", "/fake/libgit2-ac99ffd0.so.1.9.6", "BINARY"),
-        ("libxcb.so.1", "/usr/lib/libxcb.so.1", "BINARY"),
-        ("pillow.libs/libxcb-ad31f5a3.so.1.1.0", "/fake/pillow.libs/libxcb-ad31f5a3.so.1.1.0", "BINARY"),
-        ("libxcb-ad31f5a3.so.1.1.0", "/fake/pillow.libs/libxcb-ad31f5a3.so.1.1.0", "BINARY"),
-    ]
-
-    with patch("sys.platform", "linux"):
-        filtrados_linux = filtrar_binarios_desnecessarios(binarios_mock)
-        nomes_linux = [b[0] for b in filtrados_linux]
-        assert "libglib-2.0.so.0" not in nomes_linux
-        assert "libgobject-2.0.so.0" not in nomes_linux
-        assert "libgio-2.0.so.0" not in nomes_linux
-        assert "libstdc++.so.6" not in nomes_linux
-        assert "libmvec.so.1" not in nomes_linux
-        assert "libX11.so.6" not in nomes_linux
-        assert "libssl.so.3" not in nomes_linux
-        assert "libcrypto.so.3" not in nomes_linux
-        assert "libxcb.so.1" not in nomes_linux
-
-        # Bibliotecas essenciais e Kerberos (requerido pelo QtNetwork e ausente no Flatpak)
-        assert "libkrb5.so.3" in nomes_linux
-        assert "libgssapi_krb5.so.2" in nomes_linux
-        assert "libk5crypto.so.3" in nomes_linux
-        assert "libcom_err.so.2" in nomes_linux
-        assert "libkeyutils.so.1" in nomes_linux
-        assert "PySide6/libQt6Core.so.6" in nomes_linux
-        assert "libgit2-ac99ffd0.so.1.9.6" in nomes_linux
-        assert "pillow.libs/libxcb-ad31f5a3.so.1.1.0" in nomes_linux
-        assert "libxcb-ad31f5a3.so.1.1.0" in nomes_linux
-
-    with patch("sys.platform", "win32"):
-        filtrados_win = filtrar_binarios_desnecessarios(binarios_mock)
-        nomes_win = [b[0] for b in filtrados_win]
-        assert "libglib-2.0.so.0" in nomes_win
 
 
 def test_gerar_arquivo_icone_icns_sucesso():
@@ -419,17 +368,45 @@ def test_obter_caminho_icone_alvo_linux():
         assert png_beta == DIRETORIO_EDITOR / "recursos_beta" / "logo_app.png"
 
 
-def test_executar_build_linux():
-    """Valida a execução de build no Linux sem invocar gerador de ICO nem ICNS."""
+def test_orquestrar_build_flatpak_manifesto_inexistente_lanca_erro():
+    """Garante que orquestrar_build_flatpak lance FileNotFoundError se o manifesto não existir."""
+    from editor.build import orquestrar_build_flatpak
+    with patch("pathlib.Path.exists", return_value=False):
+        with pytest.raises(FileNotFoundError, match="Manifesto Flatpak não encontrado"):
+            orquestrar_build_flatpak()
+
+
+def test_orquestrar_build_flatpak_sem_ferramenta_lanca_erro():
+    """Garante que orquestrar_build_flatpak lance RuntimeError claro caso flatpak-builder não esteja no PATH."""
+    from editor.build import orquestrar_build_flatpak
+    with patch("pathlib.Path.exists", return_value=True):
+        with patch("shutil.which", return_value=None):
+            with pytest.raises(RuntimeError, match="flatpak-builder não encontrado no PATH"):
+                orquestrar_build_flatpak()
+
+
+def test_orquestrar_build_flatpak_executa_comandos():
+    """Valida se orquestrar_build_flatpak executa o build e a exportação do bundle com sucesso."""
+    from editor.build import orquestrar_build_flatpak
+    with patch("shutil.which", return_value="/usr/bin/flatpak-builder"):
+        with patch("subprocess.run") as mock_subproc:
+            with patch("pathlib.Path.exists", return_value=True):
+                bundle_gerado = orquestrar_build_flatpak()
+                assert mock_subproc.call_count >= 1
+                cmd = mock_subproc.call_args_list[0][0][0]
+                assert "flatpak-builder" in cmd[0]
+                assert "com.arestaclimb.Editor.yaml" in str(cmd)
+                assert bundle_gerado.name.endswith(".flatpak")
+
+
+def test_executar_build_linux_delega_para_flatpak():
+    """Valida que executar_build no Linux invoca orquestrar_build_flatpak e não executa o PyInstaller."""
     with patch("sys.platform", "linux"):
-        with patch("PyInstaller.__main__.run") as mock_run:
-            with patch("editor.build.gerar_arquivo_icone") as mock_ico:
-                with patch("editor.build.gerar_arquivo_icone_icns") as mock_icns:
-                    with patch("pathlib.Path.exists", return_value=True):
-                        executar_build()
-                        mock_ico.assert_not_called()
-                        mock_icns.assert_not_called()
-                        mock_run.assert_called_once()
+        with patch("editor.build.orquestrar_build_flatpak") as mock_flatpak:
+            with patch("PyInstaller.__main__.run") as mock_pyinstaller:
+                executar_build()
+                mock_flatpak.assert_called_once()
+                mock_pyinstaller.assert_not_called()
 
 
 def test_spec_trata_icones_por_plataforma():
@@ -439,6 +416,123 @@ def test_spec_trata_icones_por_plataforma():
     assert 'sys.platform.startswith("win")' in conteudo_spec
     assert "icone_pyinstaller = None" in conteudo_spec
     assert "icon=icone_pyinstaller" in conteudo_spec
+
+
+def test_obter_versao_projeto_sucesso():
+    """Valida se obter_versao_projeto lê a versão correta do pyproject.toml."""
+    from editor.build import obter_versao_projeto
+    versao = obter_versao_projeto()
+    assert isinstance(versao, str)
+    assert len(versao) > 0
+
+
+def test_obter_versao_projeto_arquivo_inexistente():
+    """Valida se FileNotFoundError é levantado se o arquivo pyproject.toml não existir."""
+    from editor.build import obter_versao_projeto
+    caminho_fake = Path("caminho/falso/para/pyproject.toml")
+    with pytest.raises(FileNotFoundError, match="Arquivo pyproject.toml não encontrado"):
+        obter_versao_projeto(caminho_fake)
+
+
+def test_obter_versao_projeto_campo_invalido(tmp_path):
+    """Valida se ValueError é levantado caso o campo project.version seja ausente ou inválido."""
+    from editor.build import obter_versao_projeto
+    toml_invalido = tmp_path / "pyproject.toml"
+    toml_invalido.write_text("[project]\nname = 'aresta'\n", encoding="utf-8")
+    with pytest.raises(ValueError, match="Campo 'project.version' não encontrado"):
+        obter_versao_projeto(toml_invalido)
+
+
+def test_gerar_manifesto_dependencias_flatpak_lock_inexistente(tmp_path):
+    """Garante que FileNotFoundError é lançado se uv.lock não for encontrado."""
+    from editor.build import gerar_manifesto_dependencias_flatpak
+    with pytest.raises(FileNotFoundError, match="Arquivo uv.lock não encontrado"):
+        gerar_manifesto_dependencias_flatpak(raiz_projeto=tmp_path)
+
+
+def test_gerar_manifesto_dependencias_flatpak_sucesso(tmp_path):
+    """Valida o fluxo completo de exportação e filtragem de dependências Flatpak."""
+    from editor.build import gerar_manifesto_dependencias_flatpak
+    lock_file = tmp_path / "uv.lock"
+    lock_file.write_text("# lock", encoding="utf-8")
+    destino = tmp_path / "pypi-dependencies.json"
+
+    export_mock_stdout = "\n".join([
+        "# comentário inicial",
+        "",
+        "pyside6-essentials==6.8.0",
+        "shiboken6==6.8.0",
+        "pyinstaller==6.10.0",
+        "requests==2.32.3",
+        "qtawesome==1.3.1",
+    ])
+
+    def mock_subprocess(cmd, *args, **kwargs):
+        res = MagicMock()
+        if "export" in cmd:
+            res.stdout = export_mock_stdout
+            return res
+        if "flatpak_pip_generator" in cmd:
+            # Simula a criação do arquivo de saída
+            destino.write_text("{}", encoding="utf-8")
+            return res
+        return res
+
+    with patch("subprocess.run", side_effect=mock_subprocess):
+        caminho_gerado = gerar_manifesto_dependencias_flatpak(
+            caminho_saida=destino,
+            raiz_projeto=tmp_path,
+        )
+        assert caminho_gerado == destino
+        assert destino.exists()
+
+
+def test_gerar_manifesto_dependencias_flatpak_falha_geracao_arquivo(tmp_path):
+    """Garante que FileNotFoundError é lançado se flatpak_pip_generator não gerar o arquivo."""
+    from editor.build import gerar_manifesto_dependencias_flatpak
+    lock_file = tmp_path / "uv.lock"
+    lock_file.write_text("# lock", encoding="utf-8")
+    destino = tmp_path / "pypi-dependencies.json"
+
+    with patch("subprocess.run", return_value=MagicMock(stdout="requests==2.32.3\n")):
+        with pytest.raises(FileNotFoundError, match="Falha ao gerar o manifesto de dependências"):
+            gerar_manifesto_dependencias_flatpak(caminho_saida=destino, raiz_projeto=tmp_path)
+
+
+def test_orquestrar_build_flatpak_gera_deps_efemeras_e_limpa():
+    """Valida se dependências Flatpak são geradas efemeramente e removidas ao término."""
+    from editor.build import orquestrar_build_flatpak
+    with patch("shutil.which", return_value="/usr/bin/flatpak-builder"):
+        with patch("subprocess.run"):
+            deps_criado = False
+
+            def mock_gerar(caminho_saida=None, raiz_projeto=None):
+                nonlocal deps_criado
+                deps_criado = True
+                return caminho_saida
+
+            with patch("editor.build.gerar_manifesto_dependencias_flatpak", side_effect=mock_gerar) as mock_gerar_deps:
+                def mock_exists(self):
+                    if "com.arestaclimb.Editor.yaml" in str(self):
+                        return True
+                    if "pypi-dependencies.json" in str(self):
+                        return deps_criado
+                    return True
+
+                with patch.object(Path, "exists", autospec=True, side_effect=mock_exists):
+                    with patch.object(Path, "unlink") as mock_unlink:
+                        bundle = orquestrar_build_flatpak()
+                        mock_gerar_deps.assert_called_once()
+                        mock_unlink.assert_called_once()
+                        assert bundle.name.endswith(".flatpak")
+
+
+def test_main_cli_dispatch_flatpak_deps():
+    """Valida o despachante CLI para o modo flatpak-deps."""
+    with patch("editor.build.gerar_manifesto_dependencias_flatpak") as mock_gerar:
+        main(["flatpak-deps", "--output", "custom.json"])
+        mock_gerar.assert_called_once_with(caminho_saida=Path("custom.json"))
+
 
 
 

@@ -30,6 +30,7 @@ build/
 develop-eggs/
 dist/
 editor/dist/
+editor/flatpak/pypi-dependencies.json
 downloads/
 eggs/
 .eggs/

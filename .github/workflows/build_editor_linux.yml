@@ -59,21 +59,13 @@ jobs:
           enable-cache: true
           cache-dependency-glob: uv.lock
 
-      - name: Isolar Dependências do Editor
+      - name: Sincronizar Dependências de Deploy do Editor
         run: |
-          uv sync --frozen --only-group editor
+          uv sync --frozen --only-group editor_deploy
 
-      - name: Build PyInstaller no Linux (x86_64)
+      - name: Gerar Manifesto de Dependências Flatpak (pypi-dependencies.json)
         run: |
-          uv run editor/build.py dist
-        env:
-          PYTHONPATH: .
-
-      - name: Empacotar Tarball Linux
-        run: |
-          cd editor/dist
-          tar -czvf ../../EditorAresta-${{ inputs.versao }}-linux-x86_64.tar.gz EditorAresta
-          cd ../..
+          uv run editor/build.py flatpak-deps --output /tmp/pypi-dependencies.json
 
       - name: Sincronizar Manifesto com Repositório Flathub
         run: |
@@ -87,6 +79,11 @@ jobs:
             cd /tmp/flathub-repo
             cp $GITHUB_WORKSPACE/editor/flatpak/* . || true
             cp $GITHUB_WORKSPACE/editor/recursos/logo_app.png ./logo_app.png || true
+            cp $GITHUB_WORKSPACE/uv.lock ./uv.lock || true
+            if [ -f "/tmp/pypi-dependencies.json" ]; then
+              cp /tmp/pypi-dependencies.json ./pypi-dependencies.json
+            fi
+            sed -i 's|\.\./\.\./uv\.lock|uv.lock|' com.arestaclimb.Editor.yaml || true
             git add .
             git commit -m "Atualizar Editor Aresta para versão ${{ inputs.versao }}" || true
             git push origin HEAD || true
@@ -97,8 +94,8 @@ jobs:
       - name: Disponibilizar artefatos Linux no GitHub
         uses: actions/upload-artifact@v7
         with:
-          name: EditorAresta-Linux
+          name: EditorAresta-Linux-Flatpak
           path: |
-            EditorAresta-*-linux-x86_64.tar.gz
-            dist/flatpak/*
+            editor/flatpak/*
+            /tmp/pypi-dependencies.json
           retention-days: 7
