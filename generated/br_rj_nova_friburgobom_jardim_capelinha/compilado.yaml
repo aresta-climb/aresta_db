@@ -7,7 +7,6 @@ picos:
   setores_ou_grupos:
   - setor:
       conteudo:
-        caminho_imagem_capa: imagens/visao_geral.webp
         nome: Setor principal
         mapas:
         - caminho_imagem_mapa: imagens/setor_capela_externa_p2.webp
@@ -549,7 +548,7 @@ picos:
             escalada: Projeto Aresta
           - ids:
             - linha_44
-            escalada: Missionárias do Além (projeto)
+            escalada: Missionárias do Além
           - ids:
             - linha_16
             - linha_43
@@ -924,7 +923,7 @@ picos:
             escalada: Chama Jesus
           - ids:
             - linha_37
-            escalada: Missionárias do Além (projeto)
+            escalada: Missionárias do Além
           - ids:
             - linha_40
             - linha_41
@@ -1462,7 +1461,7 @@ picos:
             dificuldade: BR_9A
             quantidade_protecoes_parada: 2
             tipo_parede: NEGATIVO
-            quantidade_protecoes_intermediarias: 5
+            quantidade_protecoes_intermediarias: 6
         - via_esportiva:
             nome: Excomungado
             dificuldade: BR_8B
@@ -1491,18 +1490,20 @@ picos:
         - via_esportiva:
             nome: Proj
             tipo_parede: NEGATIVO
+            quantidade_protecoes_intermediarias: 3
+            quantidade_protecoes_parada: 2
         - via_esportiva:
             nome: Variante Água Ardente
             dificuldade: BR_10A
             tipo_parede: NEGATIVO
-            quantidade_protecoes_intermediarias: 9
+            quantidade_protecoes_intermediarias: 10
             quantidade_protecoes_parada: 2
             descricao: A partir da penúltima proteção da Água Benta sair para a esquerda.
         - via_esportiva:
             nome: Extensão Piedade
             dificuldade: BR_9B
             tipo_parede: NEGATIVO
-            quantidade_protecoes_intermediarias: 10
+            quantidade_protecoes_intermediarias: 11
             quantidade_protecoes_parada: 2
             descricao: A partir da parada da Excomungado seguir nas proteções para
               a esquerda.
@@ -1518,18 +1519,19 @@ picos:
             nome: Chama Jesus
             dificuldade: BR_8A
             tipo_parede: NEGATIVO
-            quantidade_protecoes_intermediarias: 5
+            quantidade_protecoes_intermediarias: 6
             quantidade_protecoes_parada: 2
             descricao: "### IMPORTANTE \n#### Segurança usar capacete!!!\n\nGrau sugerido\
               \ saindo da segunda proteção."
         - via_esportiva:
-            nome: Missionárias do Além (projeto)
+            nome: Missionárias do Além
             descricao: "### IMPORTANTE \n#### Segurança usar capacete!!!\n\n- Melhor\
               \ sair com segunda proteção clipada.\n- Existe um ponto de ancoragem\
               \ para o seg na pedra que fica na base da via."
             tipo_parede: NEGATIVO
             quantidade_protecoes_intermediarias: 9
             quantidade_protecoes_parada: 2
+            dificuldade: BR_9A
         - via_esportiva:
             nome: Variante Santo do Pau Oco
             descricao: "### IMPORTANTE \n#### Segurança usar capacete!!!\n\n- Melhor\
@@ -1537,7 +1539,7 @@ picos:
               \ para o seg na pedra que fica na base da via."
             dificuldade: BR_8A
             tipo_parede: NEGATIVO
-            quantidade_protecoes_intermediarias: 6
+            quantidade_protecoes_intermediarias: 7
             quantidade_protecoes_parada: 2
         - via_esportiva:
             nome: Projeto Aresta
@@ -1545,7 +1547,7 @@ picos:
               \ sair com segunda proteção clipada.\n- Existe um ponto de ancoragem\
               \ para o seg na pedra que fica na base da via."
             tipo_parede: NEGATIVO
-            quantidade_protecoes_intermediarias: 12
+            quantidade_protecoes_intermediarias: 18
         - via_esportiva:
             nome: Variante Santo do Pau Oco (extensão)
             descricao: "### IMPORTANTE \n#### Segurança usar capacete!!!\n\n- Melhor\
@@ -1553,7 +1555,7 @@ picos:
               \ para o seg na pedra que fica na base da via."
             dificuldade: BR_8C
             tipo_parede: NEGATIVO
-            quantidade_protecoes_intermediarias: 8
+            quantidade_protecoes_intermediarias: 9
             quantidade_protecoes_parada: 2
         localizacao_estacionamento:
           latitude: -222287030
@@ -1562,7 +1564,10 @@ picos:
           latitude: -222285860
           longitude: -424249510
         amigavel_a_criancas: true
-        descricao: ''
+        descricao: |-
+          | ![Visão Geral Capelinha](imagens/visao_geral.webp) |
+          | :--: |
+          | *Visão Geral Capelinha* |
         precomputados:
           total_escaladas: 15
           total_esportivas: 15
@@ -1630,4 +1635,4 @@ arquivos_externos:
 - caminho: imagens/thumbnail.webp
   checksum_sha256: b6dcb92fb3a2fa6421ebbe0dbaf79cf0500c46df183bd35b5874d61fbea714f5
 - caminho: imagens/visao_geral.webp
-  checksum_sha256: 7d50ccbbfec657be6bce6f05ecd94496fef3ff385312e4497b20b97e53099eee
+  checksum_sha256: 267c796b2bf24127596f64720faa4026e4a282a1fa1aa8053f7e902cd5fb3257
