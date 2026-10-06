@@ -2,56 +2,49 @@
 
 ## Purpose
 
-Garante a integridade referencial física e digital permanente através de UIDs descentralizados no banco fonte e tabelas locais de mapeamento para inteiros estáveis e compactos em três níveis hierárquicos: `croqui_id_numerico` (global), `entidade_id_numerico` (local para grupos, setores e escaladas) e `ponto_id_numerico` (local para pontos de interesse e nós de mapa), sem exigir sequencialidade contígua estrita nem contadores de sequência no catálogo, suportando migrações exclusivas de database e validação contratual estrita.
+Garante a integridade referencial física e digital permanente através do modelo **Pure NanoID 14c Universal** atribuído diretamente a todas as entidades no banco fonte (`database/`) e serializado no Protobuf (`compilado.binarypb`), eliminando a necessidade de tabelas intermediárias de mapeamento em YAML e descartando conflitos de merge de IDs no Git, viabilizando placas físicas permanentes em aço inox via `https://aresta.cc/<uid>` com QR Code de alta resiliência (Versão 3, Nível H), suportando migrações exclusivas de database e validação contratual estrita.
 
 ## ADDED Requirements
 
-### Requirement: UIDs Descentralizados no Banco de Dados Fonte
-O sistema SHALL atribuir a toda entidade (`Croqui`, `Grupo`, `Setor`, `Escalada` e `PontoDeInteresse`) um `uid` permanente em formato NanoID Base62 com 12 caracteres agrupados por hífens (`xxxx-xxxx-xxxx`), garantindo colisão nula entre edições assíncronas em forks distintos.
+### Requirement: UIDs Descentralizados Universais no Banco de Dados Fonte e Compilado
+O sistema SHALL atribuir a toda entidade (`Croqui`, `Grupo`, `Setor`, `Escalada` e `PontoDeInteresse`) um `uid` permanente em formato NanoID Base62 contínuo com 14 caracteres (`^[0-9a-zA-Z]{14}$`), garantindo espaço amostral de $1{,}24 \times 10^{25}$ combinações e probabilidade estatística de colisão nula, persistindo o UID tanto nos arquivos-fonte quanto no binário compilado (`compilado.binarypb`).
 
 #### Scenario: Criação de Nova Entidade no Editor
 - **WHEN** o usuário cria uma nova Escalada, Setor, Grupo ou Ponto de Interesse no editor
-- **THEN** o sistema gera automaticamente um `uid` válido no formato `^[0-9a-zA-Z]{4}-[0-9a-zA-Z]{4}-[0-9a-zA-Z]{4}$` e o associa à entidade
+- **THEN** o sistema gera automaticamente um `uid` válido no formato `^[0-9a-zA-Z]{14}$` e o associa à entidade
 
 #### Scenario: Atribuição Automática a Entidades Existentes
-- **WHEN** o compilador processa arquivos do `database/` contendo entidades sem `uid`
-- **THEN** o sistema gera um `uid` determinístico ou único para cada uma e regrava o arquivo fonte
+- **WHEN** o motor de migrações ou compilador processa arquivos do `database/` contendo entidades sem `uid`
+- **THEN** o sistema gera um `uid` único de 14 caracteres para cada uma e regrava o arquivo fonte
 
-### Requirement: Tabelas de Mapeamento em Três Níveis (Snag)
-O sistema SHALL manter tabelas de mapeamento biunívocas em arquivos YAML enxutos estruturadas em três níveis hierárquicos:
-1. **Nível 1 (Global)**: `ids_globais.yaml` para `croqui_id_numerico`
-2. **Nível 2 (Local - Entidades)**: `ids_entidades.yaml` para `entidade_id_numerico` (Grupos, Setores e Escaladas)
-3. **Nível 3 (Local - Pontos)**: `ids_pontos.yaml` para `ponto_id_numerico` (Pontos de Interesse de Mapas)
-contendo estritamente os campos `id` (inteiro positivo) e `uid` (string), sem duplicação de nomes ou slugs. Os IDs não precisam ser estritamente sequenciais contíguos (furos/gaps são válidos e tolerados) e o catálogo não mantém contadores centrais de sequência no Protobuf.
-
-#### Scenario: Separação de Namespaces Locais
-- **WHEN** o sistema aloca IDs numéricos para um croqui
-- **THEN** ele registra Grupos, Setores e Escaladas em `ids_entidades.yaml` (`entidade_id_numerico`), e Pontos de Interesse visuais em `ids_pontos.yaml` (`ponto_id_numerico`), impedindo que POIs inflem a contagem das placas de inox
-
-#### Scenario: Alocação Incremental de Inteiros Livres (Gaps Permitidos)
-- **WHEN** uma entidade possui `uid` que ainda não consta na tabela de mapeamento correspondente
-- **THEN** o sistema aloca o próximo inteiro livre disponível (ex: `max(ids) + 1` ou qualquer ID não utilizado) e anexa a entrada no final do arquivo YAML, sem exigir contiguidade ou renumeração de buracos
-
-### Requirement: Resolução Semântica de Conflitos em Tabelas de IDs
-O sistema SHALL fornecer capacidade autônoma de resolver conflitos de merge nos arquivos de mapeamento de IDs nos três níveis, operando puramente sobre arquivos de texto de forma 100% independente do binário do Git.
-
-#### Scenario: Resolução de Conflitos com Split de Visões
-- **WHEN** o sistema detecta marcadores de conflito do Git (`<<<<<<<` e `>>>>>>>`) em um arquivo de IDs
-- **THEN** ele reconstitui as visões HEAD e Conflitante como documentos YAML válidos, preserva as entradas do HEAD com seus IDs oficiais e reatribui novos inteiros livres apenas para os UIDs novatos
-
-### Requirement: Omissão de UIDs no Compilado para Disciplina de Bytes
-O compilador SHALL omitir os campos `uid` na serialização final de `compilado.binarypb`, gerando o arquivo binário exclusivamente com os inteiros estáveis `croqui_id_numerico`, `id` (`entidade_id_numerico`), `alvo_id` (`entidade_id_numerico`) e `pontos_ids` (`ponto_id_numerico`).
-
-#### Scenario: Minimização de Tamanho de Download
+#### Scenario: Serialização no Binário Compilado
 - **WHEN** o `deploy_generated` compila um croqui para consumo offline
-- **THEN** o arquivo `compilado.binarypb` gerado não contém strings de UID, minimizando o consumo de armazenamento no dispositivo do usuário
+- **THEN** o arquivo `compilado.binarypb` gerado armazena diretamente o `uid` de 14 caracteres em cada entidade, sem descartá-lo e sem depender de tabelas intermediárias de tradução
 
-### Requirement: Resolução O(1) Reativa de Entidades por ID
-O sistema SHALL disponibilizar uma tabela indexada em memória que permita resolver em tempo O(1) qualquer entidade e seus ancestrais pelo seu ID numérico compacto (`entidade_id_numerico`), atualizada reativamente a cada mutação do croqui.
+### Requirement: Eliminação de Tabelas Intermediárias de Mapeamento
+O sistema SHALL operar sem tabelas ou arquivos intermediários de mapeamento em YAML (`ids_globais.yaml`, `ids_entidades.yaml`, `ids_pontos.yaml`), eliminando a sobrecarga de gerenciar arquivos extras no repositório e descartando qualquer risco de conflito de merge de IDs no Git.
 
-#### Scenario: Consulta Direta por ID de Escalada
-- **WHEN** o sistema recebe uma consulta por um ID de escalada válido
-- **THEN** ele retorna instantaneamente o objeto da escalada, seu setor pai e seu grupo pai sem varredura linear
+#### Scenario: Edições Concorrentes sem Conflito de Merge
+- **WHEN** múltiplos colaboradores adicionam novas vias ou setores concorrentemente em forks ou branches distintos
+- **THEN** o Git realiza o merge automático dos arquivos de conteúdo sem gerar conflitos de alocação de IDs, graças à unicidade estocástica universal do NanoID 14c
+
+### Requirement: Placas Físicas e Links Canônicos Encurtados com aresta.cc
+O sistema SHALL padronizar a identificação física permanente e o roteamento digital através do domínio encurtador `https://aresta.cc/<uid>` (totalizando exatamente 32 caracteres), dimensionado para gravação a laser em placas de aço inoxidável com QR Code Versão 3 (29x29) e Nível H de correção de erro (30% de tolerância a danos).
+
+#### Scenario: Geração de Link Canônico Encurtado
+- **WHEN** o sistema gera uma URL de compartilhamento ou prepara dados para gravação de placa física de uma entidade
+- **THEN** a URL produzida segue estritamente o formato `https://aresta.cc/<uid>`, consumindo 32 caracteres
+
+#### Scenario: Resiliência de Leitura Física em Ambiente Hostil
+- **WHEN** um QR Code de placa de aço inox sofre arranhões mecânicos de mosquetão, acúmulo de pó de magnésio ou sujeira cobrindo até 30% da sua superfície
+- **THEN** a leitura do QR Code Versão 3 com correção Nível H é realizada com sucesso devido à margem de recuperação de dados
+
+### Requirement: Biblioteca Pura de Gerenciamento de UIDs
+O sistema SHALL fornecer a biblioteca pura `gerenciar_uids_lib` para geração, validação e formatação de UIDs NanoID 14c Base62 e URLs `aresta.cc/<uid>`, com 100% de cobertura de testes unitários.
+
+#### Scenario: Validação de UIDs no Pipeline
+- **WHEN** o sistema valida um UID de entidade ou referência
+- **THEN** a biblioteca rejeita cadeias que não contenham exatamente 14 caracteres alfanuméricos Base62 ou que contenham hífens, espaços ou caracteres especiais
 
 ### Requirement: Suporte a Migrações Database-Only sem Impacto no Serving
 O sistema SHALL suportar scripts de migração com escopo restrito aos dados fonte e croquis experimentais (`AFETA_VERSAO_SERVING = False`), impedindo que o módulo de atualização do serving (`update_serving.py`) incremente a versão dos dados (`kDataVersion`), mantendo o serving de produção inalterado em `v4`.
@@ -65,15 +58,15 @@ O sistema SHALL fornecer uma suíte de testes de contrato automatizados que gara
 
 #### Scenario: Auditoria Contratual da Pasta Database
 - **WHEN** os testes de contrato inspecionam os arquivos em `database/`
-- **THEN** o teste falha se qualquer arquivo `.md` ou `croqui.yaml` contiver campos `id:` diretos (fora de arquivos de mapeamento `ids_*.yaml`), referências com `escalada:`, `setor:` ou `grupo:`, ou atributos `label:` em pontos de interesse
+- **THEN** o teste falha se qualquer arquivo contiver referências com `escalada:`, `setor:` ou `grupo:`, se pontos de interesse contiverem `label:`, se qualquer entidade não possuir `uid:` de 14 caracteres, ou se existirem arquivos residuais `ids_*.yaml`
 
 #### Scenario: Auditoria Contratual da Serialização do Editor
 - **WHEN** o editor salva ou serializa dados modificados
-- **THEN** a saída gerada não contém `id` direto nas entidades, não contém strings de caminho em referências de mapa, e utiliza exclusivamente `rotulo` para pontos de interesse
+- **THEN** a saída gerada não contém strings de caminho em referências de mapa, utiliza exclusivamente `rotulo` para pontos de interesse e gera UIDs de 14 caracteres válidos
 
 ### Requirement: Migração Automática e Idempotente de Croquis Experimentais
-O sistema SHALL fornecer o script de migração `migracoes/0005_migrar_uids_e_rotulos.py` para converter croquis experimentais e o acervo existente de forma transparente e idempotente para a arquitetura de UIDs, gerando arquivos de mapeamento nos três níveis e preservando comentários originais com `ruamel.yaml`.
+O sistema SHALL fornecer o script de migração `migracoes/0005_migrar_uids_e_rotulos.py` para converter croquis experimentais e o acervo existente de forma transparente e idempotente para a arquitetura Pure NanoID 14c, sem criar arquivos de mapeamento YAML e preservando comentários originais com `ruamel.yaml`.
 
 #### Scenario: Carregamento de Croqui Experimental Antigo
 - **WHEN** um croqui experimental com versão de migração anterior a 5 é aberto no editor ou processado por `migrar_banco.py`
-- **THEN** o motor de migrações aplica a migração 5, gerando UIDs, mapeamentos em `ids_entidades.yaml` (`entidade_id_numerico`) e `ids_pontos.yaml` (`ponto_id_numerico`), convertendo referências para `alvo_uid`/`pontos_uids` e renomeando `label` para `rotulo`
+- **THEN** o motor de migrações aplica a migração 5, gerando UIDs de 14 caracteres, convertendo referências para `alvo_uid`/`pontos_uids`, renomeando `label` para `rotulo` e mantendo a integridade visual dos arquivos
