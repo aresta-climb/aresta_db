@@ -104,11 +104,8 @@ croquis:
     longitude: -456009710
 - id: br_mg_caete_monte_alvao
   nome: Monte Alvão - Caeté
-  descricao: 'O Alto Monte Alvão, localizado em Caeté, MG, é uma das áreas de escalada
-    mais tradicionais e belas da região, oferecendo vias de diversos estilos e dificuldades
-    em quartzito de alta qualidade.
-
-    '
+  descricao: |
+    O Alto Monte Alvão, localizado em Caeté, MG, é uma das áreas de escalada mais tradicionais e belas da região, oferecendo vias de diversos estilos e dificuldades em quartzito de alta qualidade.
   caminho_relativo: br_mg_caete_monte_alvao/compilado.binarypb
   checksum_sha256_croqui: 574b66eb17125a6cd4f003dfdac8bf80abc4d9dc007c6c272d4a5d0ad5f6473f
   checksum_sha256_thumbnail: 03f79ad397717faec98f8288a15d55635b103c61f9b2be5cf92a56b1d804df95
@@ -329,13 +326,9 @@ croquis:
     longitude: -435035650
 - id: br_mg_paraisopolis_pedra_da_divisa
   nome: Pedra da Divisa - Face MG
-  descricao: 'Guia de escalada da face mineira da Pedra da Divisa, em Paraisópolis,
-    MG.
-
-    Contém vias esportivas e móveis em diversos setores como Cangaço, Ditados, Cervejas,
-    Questão de Tempo e Hospício.
-
-    '
+  descricao: |
+    Guia de escalada da face mineira da Pedra da Divisa, em Paraisópolis, MG.
+    Contém vias esportivas e móveis em diversos setores como Cangaço, Ditados, Cervejas, Questão de Tempo e Hospício.
   caminho_relativo: br_mg_paraisopolis_pedra_da_divisa/compilado.binarypb
   checksum_sha256_croqui: c67a9608b579ad414ef11f1c6d58f9e3eb4bb60459231fe633c6a63f811f75f1
   checksum_sha256_thumbnail: be6561976a3ef2c0f957fc3c72cdb7f0572b912d2d1e74ed1aa23fa1a8d0ebbd
@@ -502,15 +495,15 @@ croquis:
   descricao: Setor Capelinha localizado entre os municipios de Nova Friburgo e Bom
     Jardim /RJ
   caminho_relativo: br_rj_nova_friburgobom_jardim_capelinha/compilado.binarypb
-  checksum_sha256_croqui: b44c6e4499a7e9aa9324b743f2b48c5c3135bc6b66783bc3c7869ac2330f549d
+  checksum_sha256_croqui: 6a7015c448f87fa4f2d6cf58a34fb16f1a5144a370462379440dd749f7564626
   checksum_sha256_thumbnail: e188f6665ef5d9916e72701bdfd1677c2cf22f480d626f8d6ac7d9d1fbff1230
-  timestamp_update: '2026-10-04T02:32:23Z'
+  timestamp_update: '2026-10-06T03:41:39Z'
   precomputados:
     total_escaladas: 15
     total_setores: 1
     total_grupos: 0
     total_esportivas: 15
-    tamanho_download_bytes: 8917372
+    tamanho_download_bytes: 9926207
   localizacao:
     latitude: -222285860
     longitude: -424249510
