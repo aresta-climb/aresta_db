@@ -13,11 +13,18 @@ from editor.plataforma.linux.integracao import AdaptadorLinux
 
 
 def test_adaptador_linux_configuracao_ambiente() -> None:
-    """Valida a configuração inicial de ambiente no Linux."""
+    """Valida a configuração inicial de ambiente no Linux definindo XKB_LOG_LEVEL=critical."""
     adaptador = AdaptadorLinux()
-    adaptador.configurar_ambiente_plataforma()
-    # Verifica que não injeta variáveis incompatíveis
-    assert True
+
+    # Caso 1: XKB_LOG_LEVEL ausente, deve definir como critical
+    with patch.dict(os.environ, {}, clear=True):
+        adaptador.configurar_ambiente_plataforma()
+        assert os.environ.get("XKB_LOG_LEVEL") == "critical"
+
+    # Caso 2: XKB_LOG_LEVEL já previamente definido, deve preservar (comportamento de setdefault)
+    with patch.dict(os.environ, {"XKB_LOG_LEVEL": "debug"}, clear=True):
+        adaptador.configurar_ambiente_plataforma()
+        assert os.environ.get("XKB_LOG_LEVEL") == "debug"
 
 
 def test_adaptador_linux_presenca_barra_de_tarefas() -> None:

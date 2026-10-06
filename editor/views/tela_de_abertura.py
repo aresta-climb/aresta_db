@@ -2,6 +2,7 @@
 # Copyright (C) 2026 Aresta Climb Contributors
 
 from pathlib import Path
+import time
 from typing import Optional, Any, Callable, Dict
 
 from PySide6.QtWidgets import (
@@ -76,12 +77,17 @@ class TelaDeAbertura(QWidget):
     login_concluido = Signal(object)
     login_cancelado = Signal()
 
+    LIMITE_ENVIOS_JANELA_OTP: int = 6
+    DURACAO_JANELA_OTP_SEGUNDOS: float = 60.0
+    COOLDOWN_MINIMO_OTP_SEGUNDOS: int = 3
+
     def __init__(self, cliente_auth: Optional[ClienteAuthSupabase] = None) -> None:
         super().__init__()
         self.cliente_auth: ClienteAuthSupabase = cliente_auth or ClienteAuthSupabase()
         self.servidor_oauth: Optional[ServidorCallbackOAuth] = None
         self._email_atual: str = ""
-        self._segundos_reenvio: int = 60
+        self._historico_envios_otp: list[float] = []
+        self._segundos_reenvio: int = 0
         self._timer_reenvio = QTimer(self)
         self._timer_reenvio.timeout.connect(self._atualizar_contador_reenvio)
         self._drag_pos: Optional[Any] = None
@@ -600,7 +606,21 @@ class TelaDeAbertura(QWidget):
         QMessageBox.critical(self, "Falha no Envio", f"Não foi possível enviar o código:\n{str(excecao)}")
 
     def _iniciar_temporizador_reenvio(self) -> None:
-        self._segundos_reenvio = 60
+        agora = time.time()
+        self._historico_envios_otp = [
+            t for t in self._historico_envios_otp
+            if agora - t < self.DURACAO_JANELA_OTP_SEGUNDOS
+        ]
+        self._historico_envios_otp.append(agora)
+
+        if len(self._historico_envios_otp) >= self.LIMITE_ENVIOS_JANELA_OTP:
+            tempo_janela = int(
+                self.DURACAO_JANELA_OTP_SEGUNDOS - (agora - self._historico_envios_otp[0])
+            )
+            self._segundos_reenvio = max(1, tempo_janela)
+        else:
+            self._segundos_reenvio = self.COOLDOWN_MINIMO_OTP_SEGUNDOS
+
         self.btn_reenviar_codigo.setEnabled(False)
         self.btn_reenviar_codigo.setText(f"Reenviar em ({self._segundos_reenvio}s)")
         self._timer_reenvio.start(1000)

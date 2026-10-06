@@ -21,7 +21,8 @@ class AdaptadorLinux(AdaptadorPlataforma):
 
     def configurar_ambiente_plataforma(self) -> None:
         """Configura variáveis de ambiente do subsistema gráfico antes da inicialização do Qt."""
-        pass
+        # Suprime avisos e erros diagnósticos não-críticos de parse de keysyms (ex: dead_hamza) no libxkbcommon
+        os.environ.setdefault("XKB_LOG_LEVEL", "critical")
 
     def configurar_presenca_barra_de_tarefas(self, identificador_janela: int) -> bool:
         """No Linux, a barra de tarefas é gerida nativamente pelo compositor/WM."""
