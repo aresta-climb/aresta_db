@@ -16,8 +16,8 @@
 
 ## 3. Biblioteca Pura de Gerenciamento de UIDs e URLs (Library-First & TDD)
 
-- [ ] 3.1 Criar testes unitários em `scripts/gerenciar_uids_lib_test.py` cobrindo geração de NanoID 14c Base62, validação por regex `^[0-9a-zA-Z]{14}$`, formatação de URLs `https://aresta.cc/<uid>` e extração de UID de URLs
-- [ ] 3.2 Implementar `scripts/gerenciar_uids_lib.py` com funções puras `gerar_uid()`, `validar_uid()`, `formatar_url_aresta()` e `extrair_uid_de_url()`
+- [ ] 3.1 Criar testes unitários em `scripts/gerenciar_uids_lib_test.py` cobrindo geração de NanoID 14c Base62 via biblioteca oficial `nanoid` (`alphabet=ALFABETO_BASE62`, `size=14`), validação por regex `^[0-9a-zA-Z]{14}$`, formatação de URLs `https://aresta.cc/<uid>` e extração de UID de URLs
+- [ ] 3.2 Implementar `scripts/gerenciar_uids_lib.py` encapsulando a chamada `nanoid.generate` e funções puras de validação e formatação
 - [ ] 3.3 Verificar 100% de cobertura de testes unitários em `scripts/gerenciar_uids_lib_test.py`
 
 ## 4. Script de Migração Automática e Migração do Acervo (TDD)
@@ -48,6 +48,7 @@
   - Nenhum ponto de interesse possui o campo `label:` (deve ser estritamente `rotulo:`)
   - Não existem arquivos residuais `ids_*.yaml`
 - [ ] 7.2 Adicionar testes de contrato em `tests/contrato_editor_serializacao_test.py` garantindo que o editor, ao salvar croquis novos ou editados, nunca emite caminhos legados em mapas, sempre gera UIDs válidos e emite `rotulo` em vez de `label`
+- [ ] 7.3 Criar teste de contrato arquitetural em `tests/contrato_importacao_nanoid_test.py` inspecionando a AST de todos os módulos Python da base de código e assertando que a biblioteca externa `nanoid` nunca seja importada fora de `scripts/gerenciar_uids_lib.py`
 
 ## 8. Verificação Geral e 100% Cobertura de Testes
 

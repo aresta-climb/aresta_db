@@ -15,6 +15,7 @@ deploy = [
     "protobuf",
     "grpcio-tools",
     "mypy-protobuf",
+    "nanoid>=2.0.0",
 ]
 
 # Validador de pull requests da database
@@ -73,6 +74,7 @@ dev = [
     "types-PyYAML",
     "types-protobuf",
     "types-qrcode",
+    "types-nanoid>=2.0.0.20260508",
 ]
 
 # Ferramentas de empacotamento e deploy do Editor

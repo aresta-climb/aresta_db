@@ -40,11 +40,15 @@ O sistema SHALL padronizar a identificação física permanente e o roteamento d
 - **THEN** a leitura do QR Code Versão 3 com correção Nível H é realizada com sucesso devido à margem de recuperação de dados
 
 ### Requirement: Biblioteca Pura de Gerenciamento de UIDs
-O sistema SHALL fornecer a biblioteca pura `gerenciar_uids_lib` para geração, validação e formatação de UIDs NanoID 14c Base62 e URLs `aresta.cc/<uid>`, com 100% de cobertura de testes unitários.
+O sistema SHALL fornecer a biblioteca pura `gerenciar_uids_lib` para geração, validação e formatação de UIDs NanoID 14c Base62 e URLs `aresta.cc/<uid>`, com 100% de cobertura de testes unitários, encapsulando integralmente a biblioteca oficial de terceiros `nanoid`.
 
 #### Scenario: Validação de UIDs no Pipeline
 - **WHEN** o sistema valida um UID de entidade ou referência
 - **THEN** a biblioteca rejeita cadeias que não contenham exatamente 14 caracteres alfanuméricos Base62 ou que contenham hífens, espaços ou caracteres especiais
+
+#### Scenario: Encapsulamento Exclusivo da Biblioteca nanoid
+- **WHEN** o sistema gera um UID
+- **THEN** a chamada é realizada através de `gerenciar_uids_lib.gerar_uid()`, utilizando o algoritmo oficial do `nanoid` com o alfabeto Base62 e tamanho 14
 
 ### Requirement: Suporte a Migrações Database-Only sem Impacto no Serving
 O sistema SHALL suportar scripts de migração com escopo restrito aos dados fonte e croquis experimentais (`AFETA_VERSAO_SERVING = False`), impedindo que o módulo de atualização do serving (`update_serving.py`) incremente a versão dos dados (`kDataVersion`), mantendo o serving de produção inalterado em `v4`.
@@ -54,7 +58,7 @@ O sistema SHALL suportar scripts de migração com escopo restrito aos dados fon
 - **THEN** a função `get_db_version()` ignora essa migração no cálculo da versão do serving, mantendo a versão correspondente à última migração estrutural pública
 
 ### Requirement: Testes de Contrato para Banco de Dados Fonte e Editor
-O sistema SHALL fornecer uma suíte de testes de contrato automatizados que garantem a ausência de campos legados na pasta `database/` e atestam que as rotinas de serialização do editor não regridem gravando campos depreciados.
+O sistema SHALL fornecer uma suíte de testes de contrato automatizados que garantem a ausência de campos legados na pasta `database/`, atestam que as rotinas de serialização do editor não regridem gravando campos depreciados e asseguram que a biblioteca externa `nanoid` nunca seja importada diretamente fora de `scripts/gerenciar_uids_lib.py`.
 
 #### Scenario: Auditoria Contratual da Pasta Database
 - **WHEN** os testes de contrato inspecionam os arquivos em `database/`
@@ -63,6 +67,10 @@ O sistema SHALL fornecer uma suíte de testes de contrato automatizados que gara
 #### Scenario: Auditoria Contratual da Serialização do Editor
 - **WHEN** o editor salva ou serializa dados modificados
 - **THEN** a saída gerada não contém strings de caminho em referências de mapa, utiliza exclusivamente `rotulo` para pontos de interesse e gera UIDs de 14 caracteres válidos
+
+#### Scenario: Auditoria Contratual de Importação Exclusiva do nanoid
+- **WHEN** a suíte de testes de contrato analisa a árvore de sintaxe abstrata (AST) de todos os arquivos Python do repositório
+- **THEN** o teste falha se qualquer arquivo fora de `scripts/gerenciar_uids_lib.py` contiver declarações `import nanoid` ou `from nanoid import ...`
 
 ### Requirement: Migração Automática e Idempotente de Croquis Experimentais
 O sistema SHALL fornecer o script de migração `migracoes/0005_migrar_uids_e_rotulos.py` para converter croquis experimentais e o acervo existente de forma transparente e idempotente para a arquitetura Pure NanoID 14c, sem criar arquivos de mapeamento YAML e preservando comentários originais com `ruamel.yaml`.

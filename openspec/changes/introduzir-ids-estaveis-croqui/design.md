@@ -143,11 +143,14 @@ Para garantir que o repositório nunca regrida para referências legadas:
    - Asserta que não existem tabelas residuais `ids_*.yaml`.
 2. **Contrato do Editor** (`tests/contrato_editor_serializacao_test.py`):
    - Testa a serialização de novos croquis e modificações, assegurando que o editor não gera arquivos contendo os campos legados.
+3. **Contrato de Importação Exclusiva do `nanoid`** (`tests/contrato_importacao_nanoid_test.py`):
+   - Analisa a AST de todos os arquivos Python da base de código.
+   - Garante que a biblioteca oficial `nanoid` nunca seja importada diretamente em nenhum módulo fora de `scripts/gerenciar_uids_lib.py`, forçando o desacoplamento e ponto único da verdade.
 
 ### 9. Biblioteca Pura `scripts/gerenciar_uids_lib.py`
 
-Biblioteca independente, pura e autossuficiente:
-1. `gerar_uid() -> str`: Gera NanoID 14c Base62 criptograficamente seguro (`secrets.choice`).
+Biblioteca independente, pura e autossuficiente que encapsula integralmente a biblioteca oficial `nanoid`:
+1. `gerar_uid() -> str`: Gera NanoID 14c Base62 chamando `nanoid.generate(alphabet=ALFABETO_BASE62, size=14)`, com CSPRNG e algoritmo oficial de bitmasking.
 2. `validar_uid(uid: str) -> bool`: Valida se a string atende a `^[0-9a-zA-Z]{14}$`.
 3. `formatar_url_aresta(uid: str) -> str`: Retorna a URL canônica `https://aresta.cc/{uid}`.
 4. `extrair_uid_de_url(url: str) -> str | None`: Faz parse seguro de links escaneados em placas físicas.
@@ -155,7 +158,7 @@ Biblioteca independente, pura e autossuficiente:
 ### 10. Pipeline de Compilação e Retrocompatibilidade (`deploy_generated.py`)
 
 No `deploy_generated.py`:
-1. Audita que todas as entidades e POIs possuem UIDs válidos de 14 caracteres.
+1. Audita que todas as entidades e POIs possuem UIDs válidos de 14 caracteres consumindo `gerenciar_uids_lib`.
 2. Na serialização para `compilado.binarypb`:
    - Armazena diretamente os campos `uid`, `alvo_uid` e `pontos_uids`.
    - Popula em memória os campos legados (`escalada`, `setor`, `grupo` e `label`) para retrocompatibilidade com versões anteriores do `aresta_app`.
