@@ -1,8 +1,6 @@
-## Purpose
+# Spec Delta
 
-Define os requisitos de empacotamento, manifesto Flatpak e metadados AppStream para compilação e distribuição do Editor Aresta na rede comunitária Flathub para distribuições Linux.
-
-## Requirements
+## MODIFIED Requirements
 
 ### Requirement: Manifesto Flatpak Oficial e Identificador de Aplicação
 O repositório DEVE (SHALL) fornecer um manifesto Flatpak determinístico sob o identificador `com.arestaclimb.Editor` e arquivo de metadados AppStream (`com.arestaclimb.Editor.metainfo.xml`), utilizando `io.qt.PySide.BaseApp` e runtime `org.kde.Platform` para compilação nativa no Flathub sem intermediate de executável congelado por PyInstaller.
@@ -12,6 +10,8 @@ O repositório DEVE (SHALL) fornecer um manifesto Flatpak determinístico sob o 
 - **THEN** o arquivo declara `base: io.qt.PySide.BaseApp` e `runtime: org.kde.Platform`
 - **AND** a execução do aplicativo invoca diretamente o interpretador Python (`python3 -m editor.main`) em `/app/bin/EditorAresta`
 - **AND** os metadados AppStream incluem resumo em português, licença e categorias compatíveis com as lojas de aplicativos do Linux
+
+## ADDED Requirements
 
 ### Requirement: Resolução Automática de Dependências Python para Flathub
 O pipeline de distribuição Linux DEVE (SHALL) gerar a lista declarativa de fontes de dependências Python (`pypi-dependencies.json`) a partir do grupo `editor` do `pyproject.toml` exclusivamente durante o processo de exportação/deploy para o repositório Flathub, sem versionar arquivos de dump de pacotes no repositório `aresta_db`.
@@ -29,19 +29,3 @@ O ecossistema Linux DEVE (SHALL) disponibilizar o Editor Aresta exclusivamente v
 - **WHEN** o processo de distribuição para Linux for finalizado
 - **THEN** o artefato de instalação gerado em `editor/dist/` deve ser um bundle `.flatpak`
 - **AND** nenhum tarball contendo binário do PyInstaller deve ser publicado para Linux
-
-### Requirement: Integração com XDG Desktop Portals e Permissões do Sandbox
-A aplicação empacotada em Flatpak DEVE (SHALL) utilizar os Portals do FreeDesktop para acesso nativo a diálogos de arquivos e rede local sem exigir privilégios globais irrestritos.
-
-#### Scenario: Seleção de arquivos fora do sandbox
-- **WHEN** o usuário seleciona um croqui ou diretório local do sistema de arquivos no Linux
-- **THEN** o diálogo de arquivo é intermediado de forma transparente pelo XDG Desktop Portal
-- **AND** a aplicação obtém acesso de leitura e escrita ao caminho selecionado
-
-### Requirement: Configuração de Ambiente do Subsistema Gráfico e Teclado Linux
-A aplicação e o pacote Flatpak DEVEM (SHALL) configurar o ambiente de execução gráfico e de teclado para suprimir avisos não-críticos de parse de tabelas Compose externas do `libxkbcommon`.
-
-#### Scenario: Supressão de Avisos Não-Críticos do libxkbcommon
-- **WHEN** a aplicação for inicializada no Linux nativamente ou sob o Flatpak
-- **THEN** a variável `XKB_LOG_LEVEL` deve estar configurada como `critical` antes da inicialização do contexto gráfico do Qt
-- **AND** mensagens diagnósticas sobre teclas mortas ou símbolos desconhecidos não devem poluir a saída de erro da aplicação

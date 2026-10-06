@@ -78,3 +78,22 @@ class AdaptadorMacOS(AdaptadorPlataforma):
     def obter_nome_icone_preferencial(self) -> str:
         """Retorna o nome do arquivo de ícone nativo prioritário para o macOS (.icns)."""
         return "logo.icns"
+
+    def configurar_cofre_credenciais(self) -> None:
+        """Garante a seleção do Keychain no macOS para contornar limitações do PyInstaller."""
+        try:
+            import keyring
+            from keyring.backends import fail
+
+            backend_atual = keyring.get_keyring()
+            if not isinstance(backend_atual, fail.Keyring):
+                return
+        except Exception:
+            return
+
+        try:
+            from keyring.backends import macOS
+
+            keyring.set_keyring(macOS.Keyring())
+        except Exception:
+            pass

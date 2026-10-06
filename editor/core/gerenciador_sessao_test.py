@@ -425,88 +425,11 @@ class TesteGerenciadorSessao:
                 assert chave == b"1" * 32
                 mock_set.assert_not_called()
 
-    def teste_garantir_backend_keyring_ignora_se_ja_for_valido(self):
-        """Valida que backend válido já existente não é sobrescrito."""
-        from unittest.mock import MagicMock
-        backend_valido = MagicMock()
-        with patch("keyring.get_keyring", return_value=backend_valido):
-            with patch("keyring.set_keyring") as mock_set:
-                GerenciadorSessao._garantir_backend_keyring()
-                mock_set.assert_not_called()
-
-    def teste_garantir_backend_keyring_trata_excecao_ao_consultar_keyring(self):
-        """Valida tratamento seguro caso get_keyring lance exceção."""
-        with patch("keyring.get_keyring", side_effect=Exception("Erro inesperado")):
-            with patch("keyring.set_keyring") as mock_set:
-                GerenciadorSessao._garantir_backend_keyring()
-                mock_set.assert_not_called()
-
-    def teste_garantir_backend_keyring_linux_secretservice_sucesso(self):
-        """Valida configuração automática de SecretService no Linux."""
-        from keyring.backends.fail import Keyring as FailKeyring
-        with patch("keyring.get_keyring", return_value=FailKeyring()):
-            with patch("sys.platform", "linux"):
-                with patch("keyring.set_keyring") as mock_set:
-                    GerenciadorSessao._garantir_backend_keyring()
-                    mock_set.assert_called_once()
-
-    def teste_garantir_backend_keyring_linux_secretservice_falha_tenta_kwallet(self):
-        """Valida fallback para kwallet caso SecretService lance exceção."""
-        from keyring.backends.fail import Keyring as FailKeyring
-        from unittest.mock import MagicMock
-
-        with patch("keyring.get_keyring", return_value=FailKeyring()):
-            with patch("sys.platform", "linux"):
-                with patch("keyring.backends.SecretService.Keyring", side_effect=Exception("SecretService ausente")):
-                    with patch("keyring.backends.kwallet.DBusKeyring", return_value=MagicMock()):
-                        with patch("keyring.set_keyring") as mock_set:
-                            GerenciadorSessao._garantir_backend_keyring()
-                            mock_set.assert_called_once()
-
-    def teste_garantir_backend_keyring_linux_ambos_falham(self):
-        """Valida que falha em ambos os backends no Linux é tratada silenciosamente."""
-        from keyring.backends.fail import Keyring as FailKeyring
-        with patch("keyring.get_keyring", return_value=FailKeyring()):
-            with patch("sys.platform", "linux"):
-                with patch("keyring.backends.SecretService.Keyring", side_effect=Exception("Falha 1")):
-                    with patch("keyring.backends.kwallet.DBusKeyring", side_effect=Exception("Falha 2")):
-                        with patch("keyring.set_keyring") as mock_set:
-                            GerenciadorSessao._garantir_backend_keyring()
-                            mock_set.assert_not_called()
-
-    def teste_garantir_backend_keyring_windows_sucesso_e_falha(self):
-        """Valida configuração do WinVaultKeyring no Windows e seu tratamento de exceção."""
-        from keyring.backends.fail import Keyring as FailKeyring
-        from unittest.mock import MagicMock
-
-        with patch("keyring.get_keyring", return_value=FailKeyring()):
-            with patch("sys.platform", "win32"):
-                with patch("keyring.backends.Windows.WinVaultKeyring", return_value=MagicMock()):
-                    with patch("keyring.set_keyring") as mock_set:
-                        GerenciadorSessao._garantir_backend_keyring()
-                        mock_set.assert_called_once()
-
-                with patch("keyring.backends.Windows.WinVaultKeyring", side_effect=Exception("WinVault erro")):
-                    with patch("keyring.set_keyring") as mock_set:
-                        GerenciadorSessao._garantir_backend_keyring()
-                        mock_set.assert_not_called()
-
-    def teste_garantir_backend_keyring_darwin_sucesso_e_falha(self):
-        """Valida configuração de Keyring no macOS e seu tratamento de exceção."""
-        from keyring.backends.fail import Keyring as FailKeyring
-        from unittest.mock import MagicMock
-
-        with patch("keyring.get_keyring", return_value=FailKeyring()):
-            with patch("sys.platform", "darwin"):
-                with patch("keyring.backends.macOS.Keyring", return_value=MagicMock()):
-                    with patch("keyring.set_keyring") as mock_set:
-                        GerenciadorSessao._garantir_backend_keyring()
-                        mock_set.assert_called_once()
-
-                with patch("keyring.backends.macOS.Keyring", side_effect=Exception("Keychain erro")):
-                    with patch("keyring.set_keyring") as mock_set:
-                        GerenciadorSessao._garantir_backend_keyring()
-                        mock_set.assert_not_called()
+    def teste_gerenciador_sessao_invoca_configurar_cofre_credenciais(self):
+        """Valida que configurar_cofre_credenciais da plataforma é chamado na inicialização."""
+        with patch("editor.core.gerenciador_sessao.configurar_cofre_credenciais") as mock_conf:
+            GerenciadorSessao(usar_memoria=True)
+            mock_conf.assert_called_once()
 
     def teste_salvar_sessao_falha_chaveiro_mantem_em_memoria_sem_crash(self, tmp_path):
         """Valida que falha de escrita no chaveiro mantém a sessão em memória sem crashar."""

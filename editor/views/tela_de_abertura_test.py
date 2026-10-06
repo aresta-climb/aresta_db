@@ -407,3 +407,79 @@ def test_tela_abertura_estilo_campos_entrada_fundo_claro(qtbot):
     assert "color:" in folha_codigo
 
 
+def test_tela_abertura_janela_deslizante_permite_ate_6_envios(qtbot, mock_cliente_auth):
+    """Valida que envios abaixo de 6 por minuto usam apenas cooldown curto (3s), sem bloquear por 60s."""
+    abertura = TelaDeAbertura(cliente_auth=mock_cliente_auth)
+    abertura.show()
+    qtbot.addWidget(abertura)
+
+    abertura.iniciar_fluxo_login()
+    abertura.mostrar_formulario_email()
+    abertura.edit_email.setText("escalador@arestaclimb.com")
+
+    with patch("time.time", return_value=100.0):
+        abertura.solicitar_otp()
+        qtbot.waitUntil(lambda: abertura.container_auth_codigo.isVisible(), timeout=2000)
+
+    # 1º envio: espera deve ser de apenas 3 segundos de cooldown
+    assert abertura._segundos_reenvio == 3
+    assert abertura.btn_reenviar_codigo.text() == "Reenviar em (3s)"
+    assert len(abertura._historico_envios_otp) == 1
+
+    # Simula passagem dos 3s
+    for _ in range(3):
+        abertura._atualizar_contador_reenvio()
+    assert abertura.btn_reenviar_codigo.isEnabled()
+    assert abertura.btn_reenviar_codigo.text() == "Reenviar código"
+
+
+def test_tela_abertura_janela_deslizante_bloqueia_no_sexto_envio(qtbot, mock_cliente_auth):
+    """Valida que ao atingir 6 envios em 60s, o botão bloqueia calculando o tempo até expirar o 1º envio."""
+    abertura = TelaDeAbertura(cliente_auth=mock_cliente_auth)
+    abertura.show()
+    qtbot.addWidget(abertura)
+
+    abertura.iniciar_fluxo_login()
+    abertura.mostrar_formulario_email()
+    abertura.edit_email.setText("escalador@arestaclimb.com")
+
+    # Pré-popula 5 envios anteriores: t=10, 15, 20, 25, 30
+    abertura._historico_envios_otp = [10.0, 15.0, 20.0, 25.0, 30.0]
+
+    # Realiza o 6º envio no instante t=40.0
+    with patch("time.time", return_value=40.0):
+        abertura.solicitar_otp()
+        qtbot.waitUntil(lambda: abertura.container_auth_codigo.isVisible(), timeout=2000)
+
+    # O 1º envio foi aos 10.0s. Janela de 60s expira em: 60 - (40 - 10) = 30 segundos!
+    assert len(abertura._historico_envios_otp) == 6
+    assert abertura._segundos_reenvio == 30
+    assert not abertura.btn_reenviar_codigo.isEnabled()
+    assert abertura.btn_reenviar_codigo.text() == "Reenviar em (30s)"
+
+
+def test_tela_abertura_janela_deslizante_limpeza_expirados(qtbot, mock_cliente_auth):
+    """Valida que envios mais antigos que 60 segundos são descartados da janela deslizante."""
+    abertura = TelaDeAbertura(cliente_auth=mock_cliente_auth)
+    abertura.show()
+    qtbot.addWidget(abertura)
+
+    abertura.iniciar_fluxo_login()
+    abertura.mostrar_formulario_email()
+    abertura.edit_email.setText("escalador@arestaclimb.com")
+
+    # 3 envios velhos (> 60s) e 2 recentes (< 60s)
+    abertura._historico_envios_otp = [10.0, 20.0, 30.0, 80.0, 90.0]
+
+    # Novo envio em t=100.0 (os envios em 10, 20 e 30 devem ser descartados)
+    with patch("time.time", return_value=100.0):
+        abertura.solicitar_otp()
+        qtbot.waitUntil(lambda: abertura.container_auth_codigo.isVisible(), timeout=2000)
+
+    # Sobram: 80.0, 90.0 e o novo 100.0 = 3 envios na janela
+    assert abertura._historico_envios_otp == [80.0, 90.0, 100.0]
+    # Como são 3 (< 6), cooldown padrão de 3s
+    assert abertura._segundos_reenvio == 3
+    assert abertura.btn_reenviar_codigo.text() == "Reenviar em (3s)"
+
+

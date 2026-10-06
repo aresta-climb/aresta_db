@@ -28,6 +28,7 @@ __all__ = [
     "verificar_atualizacoes_disponiveis",
     "solicitar_instalacao_atualizacao",
     "obter_nome_icone_preferencial",
+    "configurar_cofre_credenciais",
 ]
 
 
@@ -59,6 +60,9 @@ class _AdaptadorPadraoFallback:
 
     def obter_nome_icone_preferencial(self) -> str:
         return "logo_app.png"
+
+    def configurar_cofre_credenciais(self) -> None:
+        pass
 
 
 _INSTANCIA_ADAPTADOR: Optional[AdaptadorPlataforma] = None
@@ -136,3 +140,8 @@ def solicitar_instalacao_atualizacao(resultado: Optional[ResultadoAtualizacao] =
 def obter_nome_icone_preferencial() -> str:
     """Retorna o nome do arquivo de ícone nativo prioritário para o sistema operacional corrente."""
     return obter_adaptador_plataforma().obter_nome_icone_preferencial()
+
+
+def configurar_cofre_credenciais() -> None:
+    """Configura o backend seguro do cofre de credenciais delegando ao adaptador ativo."""
+    obter_adaptador_plataforma().configurar_cofre_credenciais()

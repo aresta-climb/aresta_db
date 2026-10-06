@@ -21,7 +21,8 @@ class AdaptadorLinux(AdaptadorPlataforma):
 
     def configurar_ambiente_plataforma(self) -> None:
         """Configura variáveis de ambiente do subsistema gráfico antes da inicialização do Qt."""
-        pass
+        # Suprime avisos e erros diagnósticos não-críticos de parse de keysyms (ex: dead_hamza) no libxkbcommon
+        os.environ.setdefault("XKB_LOG_LEVEL", "critical")
 
     def configurar_presenca_barra_de_tarefas(self, identificador_janela: int) -> bool:
         """No Linux, a barra de tarefas é gerida nativamente pelo compositor/WM."""
@@ -71,3 +72,31 @@ class AdaptadorLinux(AdaptadorPlataforma):
     def obter_nome_icone_preferencial(self) -> str:
         """Retorna o nome do arquivo de ícone nativo prioritário para o Linux (.png)."""
         return "logo_app.png"
+
+    def configurar_cofre_credenciais(self) -> None:
+        """Garante a seleção do SecretService/KWallet no Linux para contornar limitações do PyInstaller."""
+        try:
+            import keyring
+            from keyring.backends import fail
+
+            backend_atual = keyring.get_keyring()
+            if not isinstance(backend_atual, fail.Keyring):
+                return
+        except Exception:
+            return
+
+        try:
+            from keyring.backends import SecretService
+
+            keyring.set_keyring(SecretService.Keyring())
+            return
+        except Exception:
+            pass
+
+        try:
+            from keyring.backends import kwallet
+
+            keyring.set_keyring(kwallet.DBusKeyring())
+            return
+        except Exception:
+            pass

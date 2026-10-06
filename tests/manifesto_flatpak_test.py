@@ -36,6 +36,7 @@ def test_manifesto_flatpak_estrutural() -> None:
     assert "--socket=fallback-x11" in finish_args or "--socket=x11" in finish_args
     assert "--socket=wayland" in finish_args
     assert "--share=ipc" in finish_args
+    assert "--env=XKB_LOG_LEVEL=critical" in finish_args
 
 
 def test_metainfo_appstream_estrutural() -> None:

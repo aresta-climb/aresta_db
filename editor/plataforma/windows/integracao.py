@@ -181,3 +181,22 @@ class AdaptadorWindows(AdaptadorPlataforma):
     def obter_nome_icone_preferencial(self) -> str:
         """Retorna o nome do arquivo de ícone nativo prioritário para o Windows (.ico)."""
         return "logo.ico"
+
+    def configurar_cofre_credenciais(self) -> None:
+        """Garante a seleção do WinVaultKeyring no Windows para contornar limitações do PyInstaller."""
+        try:
+            import keyring
+            from keyring.backends import fail
+
+            backend_atual = keyring.get_keyring()
+            if not isinstance(backend_atual, fail.Keyring):
+                return
+        except Exception:
+            return
+
+        try:
+            from keyring.backends import Windows
+
+            keyring.set_keyring(Windows.WinVaultKeyring())
+        except Exception:
+            pass

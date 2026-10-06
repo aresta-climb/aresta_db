@@ -7,6 +7,10 @@ import os
 import sys
 import argparse
 import pytest
+import shutil
+import subprocess
+import tempfile
+import tomllib
 from pathlib import Path
 
 
@@ -14,8 +18,29 @@ from pathlib import Path
 DIRETORIO_EDITOR = Path(__file__).parent.resolve()
 ARQUIVO_MAIN = DIRETORIO_EDITOR / "main.py"
 ARQUIVO_SPEC = DIRETORIO_EDITOR / "EditorAresta.spec"
-DIRETORIO_DIST_ONEDIR = DIRETORIO_EDITOR / "dist" / "EditorAresta"
+DIRETORIO_DIST = DIRETORIO_EDITOR / "dist"
+DIRETORIO_DIST_ONEDIR = DIRETORIO_DIST / "EditorAresta"
+DIRETORIO_FLATPAK = DIRETORIO_EDITOR / "flatpak"
+ARQUIVO_MANIFESTO_FLATPAK = DIRETORIO_FLATPAK / "com.arestaclimb.Editor.yaml"
 LIMITE_MAXIMO_TAMANHO_EXECUTAVEL_MB = 95.0
+
+
+def obter_versao_projeto(caminho_pyproject: Optional[Path] = None) -> str:
+    """
+    Retorna a versão do projeto lendo diretamente o arquivo pyproject.toml na raiz do repositório.
+    """
+    arquivo_toml = caminho_pyproject or (DIRETORIO_EDITOR.parent / "pyproject.toml")
+    if not arquivo_toml.exists():
+        raise FileNotFoundError(f"Arquivo pyproject.toml não encontrado em: {arquivo_toml}")
+
+    with open(arquivo_toml, "rb") as f:
+        dados = tomllib.load(f)
+
+    versao = dados.get("project", {}).get("version")
+    if not versao or not isinstance(versao, str):
+        raise ValueError(f"Campo 'project.version' não encontrado ou inválido em {arquivo_toml}")
+
+    return versao
 
 
 def obter_diretorio_distribuicao_onedir() -> Path:
@@ -47,70 +72,6 @@ NOMES_BASE_BINARIOS_DISPENSAVEIS = (
     "qt6designer",
 )
 
-# Bibliotecas C de sistema que NÃO devem ser empacotadas no Linux para garantir compatibilidade
-# universal com o runtime do Flatpak (org.kde.Platform) e evitar quebras de versão de GLIBC.
-NOMES_BASE_BINARIOS_LINUX_SISTEMA_DISPENSAVEIS = (
-    # GLib / GObject / GNOME
-    "libglib-2.0",
-    "libgobject-2.0",
-    "libgio-2.0",
-    "libgmodule-2.0",
-    "libgthread-2.0",
-    "libjson-glib",
-    "libtinysparql",
-    "libcloudproviders",
-    # Toolchain C/C++ e GLIBC
-    "libmvec",
-    "libstdc++",
-    "libgcc_s",
-    "libsystemd",
-    "libseccomp",
-    "libdbus-1",
-    # GTK stack (dispensável para aplicativo Qt/PySide)
-    "libgtk-3",
-    "libgdk-3",
-    "libgdk_pixbuf",
-    "libcairo",
-    "libpango",
-    "libatk",
-    "libatspi",
-    "libglycin",
-    "libepoxy",
-    # X11 / XCB / XKB de sistema
-    "libx11",
-    "libxcb",
-    "libxkbcommon",
-    "libxcomposite",
-    "libxcursor",
-    "libxdamage",
-    "libxdmcp",
-    "libxext",
-    "libxfixes",
-    "libxinerama",
-    "libxi",
-    "libxrandr",
-    "libxrender",
-    "libxau",
-    # Fontes e renderização de sistema
-    "libfontconfig",
-    "libfribidi",
-    "libgraphite2",
-    "libdatrie",
-    "libthai",
-    "libpixman",
-    # Bibliotecas de sistema básicas (presentes nativamente no runtime Flatpak)
-    # NOTA: Bibliotecas Kerberos (libkrb5, libgssapi_krb5, libk5crypto, libcom_err, libkeyutils)
-    # NÃO devem ser descartadas, pois o QtNetwork depende do GSS-API e o Flatpak runtime não possui Kerberos.
-    "libexpat",
-    "libffi",
-    "libicu",
-    "libmount",
-    "libblkid",
-    "libsqlite3",
-    "libxml2",
-    "libz.so",
-    "libbz2.so",
-)
 
 # Famílias de fontes de ícones do QtAwesome que não são utilizadas pelo tema do editor
 FONTES_DISPENSAVEIS = (
@@ -217,24 +178,13 @@ def filtrar_binarios_desnecessarios(
     binarios: List[Any],
 ) -> List[Any]:
     """
-    Filtra a lista de binários do PyInstaller, removendo DLLs de fallback de hardware,
-    bibliotecas compartilhadas Unix (.so, .dylib), módulos do Qt sabidamente dispensáveis
-    e bibliotecas C de sistema no Linux para compatibilidade universal com runtimes Flatpak.
+    Filtra a lista de binários do PyInstaller, removendo DLLs de fallback de hardware
+    e submódulos gráficos do Qt sabidamente dispensáveis para Windows e macOS.
     """
     resultado = []
-    eh_linux = sys.platform.startswith("linux")
     for item in binarios:
         nome_binario = item[0] if isinstance(item, (tuple, list)) and len(item) > 0 else ""
         nome_binario_lower = nome_binario.lower()
-
-        if eh_linux:
-            if any(
-                nome_sistema in nome_binario_lower
-                for nome_sistema in NOMES_BASE_BINARIOS_LINUX_SISTEMA_DISPENSAVEIS
-            ):
-                continue
-            if nome_binario in ("libssl.so.3", "libcrypto.so.3", "libfreetype.so.6", "libharfbuzz.so.0"):
-                continue
 
         eh_dispensavel = any(
             dispensavel.lower() in nome_binario_lower for dispensavel in BINARIOS_DISPENSAVEIS
@@ -381,11 +331,158 @@ def gerar_arquivo_icone_icns(
         print(f"Aviso: Não foi possível gerar o arquivo .icns (usando padrão): {e}")
 
 
+def gerar_manifesto_dependencias_flatpak(
+    caminho_saida: Optional[Path] = None,
+    raiz_projeto: Optional[Path] = None,
+) -> Path:
+    """
+    Gera efemeramente o manifesto de fontes de dependências Python (pypi-dependencies.json)
+    a partir do lockfile (uv.lock) via 'uv export' e 'flatpak_pip_generator'.
+    """
+    raiz = raiz_projeto or DIRETORIO_EDITOR.parent
+    arquivo_lock = raiz / "uv.lock"
+    if not arquivo_lock.exists():
+        raise FileNotFoundError(f"Arquivo uv.lock não encontrado em {arquivo_lock}")
+
+    destino = caminho_saida or (DIRETORIO_FLATPAK / "pypi-dependencies.json")
+    destino.parent.mkdir(parents=True, exist_ok=True)
+
+    executavel_uv = shutil.which("uv") or "uv"
+    resultado_export = subprocess.run(
+        [
+            executavel_uv,
+            "export",
+            "--frozen",
+            "--only-group",
+            "editor",
+            "--no-dev",
+            "--no-hashes",
+        ],
+        cwd=str(raiz),
+        capture_output=True,
+        text=True,
+        check=True,
+    )
+
+    # Filtra dependências fornecidas pelo runtime io.qt.PySide.BaseApp ou empacotamento Windows/macOS
+    linhas_filtradas: List[str] = []
+    for linha in resultado_export.stdout.splitlines():
+        linha_limpa = linha.strip()
+        if not linha_limpa or linha_limpa.startswith("#"):
+            continue
+        nome_pkg = linha_limpa.split("==")[0].split(">=")[0].split("<=")[0].strip().lower()
+        if any(disp in nome_pkg for disp in ("pyside6", "shiboken6", "pyinstaller")):
+            continue
+        linhas_filtradas.append(linha_limpa)
+
+    with tempfile.NamedTemporaryFile("w", suffix="-requirements.txt", delete=False, encoding="utf-8") as tmp_req:
+        tmp_req.write("\n".join(linhas_filtradas) + "\n")
+        caminho_tmp_req = Path(tmp_req.name)
+
+    try:
+        nome_base_saida = destino.stem
+        diretorio_saida = destino.parent
+        caminho_sem_ext = diretorio_saida / nome_base_saida
+        subprocess.run(
+            [
+                executavel_uv,
+                "run",
+                "--group",
+                "editor_deploy",
+                "flatpak_pip_generator",
+                f"--requirements-file={caminho_tmp_req}",
+                f"--output={caminho_sem_ext}",
+            ],
+            cwd=str(raiz),
+            check=True,
+        )
+    finally:
+        if caminho_tmp_req.exists():
+            caminho_tmp_req.unlink()
+
+    if not destino.exists():
+        raise FileNotFoundError(f"Falha ao gerar o manifesto de dependências em {destino}")
+
+    return destino
+
+
+def orquestrar_build_flatpak(
+    caminho_manifesto: Optional[Path] = None,
+    diretorio_dist: Optional[Path] = None,
+    versao: Optional[str] = None,
+) -> Path:
+    """
+    Orquestra a compilação do pacote oficial Flatpak no Linux utilizando flatpak-builder.
+    Gera um bundle offline (.flatpak) no diretório de distribuição.
+    """
+    manifesto = caminho_manifesto or ARQUIVO_MANIFESTO_FLATPAK
+    if not manifesto.exists():
+        raise FileNotFoundError(f"Manifesto Flatpak não encontrado: {manifesto}")
+
+    executavel_builder = shutil.which("flatpak-builder")
+    if not executavel_builder:
+        raise RuntimeError(
+            "flatpak-builder não encontrado no PATH. Instale o flatpak-builder em sua distribuição Linux "
+            "(ex: sudo pacman -S flatpak-builder ou sudo apt install flatpak-builder) para gerar o pacote oficial."
+        )
+
+    dist_dir = diretorio_dist or DIRETORIO_DIST
+    dist_dir.mkdir(parents=True, exist_ok=True)
+
+    diretorio_build = dist_dir / "flatpak-build"
+    diretorio_repo = dist_dir / "flatpak-repo"
+    versao_app = versao or obter_versao_projeto()
+    bundle_saida = dist_dir / f"EditorAresta-{versao_app}.flatpak"
+
+    caminho_deps = manifesto.parent / "pypi-dependencies.json"
+    deve_limpar_deps = False
+    if not caminho_deps.exists():
+        gerar_manifesto_dependencias_flatpak(caminho_saida=caminho_deps)
+        deve_limpar_deps = True
+
+    try:
+        print(f"Compilando Flatpak a partir de {manifesto}...")
+        subprocess.run(
+            [
+                executavel_builder,
+                "--force-clean",
+                "--repo=" + str(diretorio_repo),
+                str(diretorio_build),
+                str(manifesto),
+            ],
+            check=True,
+        )
+
+        executavel_flatpak = shutil.which("flatpak") or "flatpak"
+        subprocess.run(
+            [
+                executavel_flatpak,
+                "build-bundle",
+                str(diretorio_repo),
+                str(bundle_saida),
+                "com.arestaclimb.Editor",
+            ],
+            check=True,
+        )
+    finally:
+        if deve_limpar_deps and caminho_deps.exists():
+            caminho_deps.unlink()
+
+    print(f"Bundle Flatpak gerado com sucesso: {bundle_saida}")
+    return bundle_saida
+
+
 def executar_build(force_icon_generation: bool = False) -> None:
     """
-    Executa o empacotamento otimizado do editor utilizando PyInstaller a partir do arquivo .spec.
-    Gera um executável standalone enxuto na pasta dist/.
+    Executa o empacotamento do editor para a plataforma atual.
+    No Linux, delega integralmente ao flatpak-builder gerando um bundle Flatpak oficial.
+    No Windows e macOS, utiliza PyInstaller para gerar o pacote de distribuição.
     """
+    if sys.platform.startswith("linux"):
+        print("Ambiente Linux: delegando empacotamento oficial para o ecossistema Flatpak...")
+        orquestrar_build_flatpak()
+        return
+
     if not ARQUIVO_SPEC.exists():
         raise FileNotFoundError(f"Arquivo de especificação não encontrado: {ARQUIVO_SPEC}")
 
@@ -412,8 +509,6 @@ def executar_build(force_icon_generation: bool = False) -> None:
             gerar_arquivo_icone(
                 caminho_icone_recursos, caminho_png=caminho_png, force_generation=force_icon_generation
             )
-    else:
-        print("Ambiente Linux: o ícone da aplicação é provido via arquivo .desktop e assets PNG.")
 
     argumentos = obter_argumentos_pyinstaller(caminho_spec=ARQUIVO_SPEC)
 
@@ -445,8 +540,8 @@ def main(argv: Optional[List[str]] = None) -> None:
     parser = argparse.ArgumentParser(description="Script de build e testes do Editor Aresta")
     parser.add_argument(
         "modo",
-        choices=["test", "dist"],
-        help="Modo de operação: 'test' para rodar testes, 'dist' para compilar o executável",
+        choices=["test", "dist", "flatpak-deps"],
+        help="Modo de operação: 'test' para rodar testes, 'dist' para compilar o executável, 'flatpak-deps' para gerar pypi-dependencies.json",
     )
 
     parser.add_argument(
@@ -455,12 +550,21 @@ def main(argv: Optional[List[str]] = None) -> None:
         help="Força a geração do arquivo .ico mesmo se ele já existir",
     )
 
+    parser.add_argument(
+        "--output",
+        type=Path,
+        default=None,
+        help="Caminho de saída para o manifesto pypi-dependencies.json (usado com flatpak-deps)",
+    )
+
     args = parser.parse_args(argv)
 
     if args.modo == "test":
         executar_testes()
     elif args.modo == "dist":
         executar_build(force_icon_generation=args.force_icon_generation)
+    elif args.modo == "flatpak-deps":
+        gerar_manifesto_dependencias_flatpak(caminho_saida=args.output)
 
 
 if __name__ == "__main__":
