@@ -489,6 +489,43 @@ def test_gerar_manifesto_dependencias_flatpak_sucesso(tmp_path):
         assert destino.exists()
 
 
+def test_gerar_manifesto_dependencias_flatpak_com_runtime_detectado(tmp_path):
+    """Valida a inclusão automática de --runtime e --prefer-wheels quando Flatpak runtime está instalado."""
+    from editor.build import gerar_manifesto_dependencias_flatpak
+    lock_file = tmp_path / "uv.lock"
+    lock_file.write_text("# lock", encoding="utf-8")
+    destino = tmp_path / "pypi-dependencies.json"
+
+    comandos_executados = []
+
+    def mock_subprocess(cmd, *args, **kwargs):
+        comandos_executados.append(cmd)
+        res = MagicMock()
+        res.returncode = 0
+        if "export" in cmd:
+            res.stdout = "cryptography==50.0.2\n"
+            return res
+        if "info" in cmd:
+            return res
+        if "flatpak_pip_generator" in cmd:
+            destino.write_text("{}", encoding="utf-8")
+            return res
+        return res
+
+    with patch("shutil.which", return_value="/usr/bin/flatpak"):
+        with patch("subprocess.run", side_effect=mock_subprocess):
+            caminho_gerado = gerar_manifesto_dependencias_flatpak(
+                caminho_saida=destino,
+                raiz_projeto=tmp_path,
+            )
+            assert caminho_gerado == destino
+            # Verifica se o comando do gerador recebeu --runtime e --prefer-wheels
+            cmd_gen = [c for c in comandos_executados if "flatpak_pip_generator" in c][0]
+            assert any(arg.startswith("--runtime=") for arg in cmd_gen)
+            assert any(arg.startswith("--prefer-wheels=") for arg in cmd_gen)
+            assert any("cryptography" in arg for arg in cmd_gen)
+
+
 def test_gerar_manifesto_dependencias_flatpak_falha_geracao_arquivo(tmp_path):
     """Garante que FileNotFoundError é lançado se flatpak_pip_generator não gerar o arquivo."""
     from editor.build import gerar_manifesto_dependencias_flatpak
@@ -534,6 +571,14 @@ def test_main_cli_dispatch_flatpak_deps():
     with patch("editor.build.gerar_manifesto_dependencias_flatpak") as mock_gerar:
         main(["flatpak-deps", "--output", "custom.json"])
         mock_gerar.assert_called_once_with(caminho_saida=Path("custom.json"))
+
+
+def test_spec_inclui_diretorio_migracoes():
+    """Valida se o EditorAresta.spec inclui a pasta migracoes nos datas do PyInstaller."""
+    conteudo_spec = ARQUIVO_SPEC.read_text(encoding="utf-8")
+    assert "'migracoes'" in conteudo_spec
+    assert "repo_root / 'migracoes'" in conteudo_spec or "repo_root / \"migracoes\"" in conteudo_spec
+
 
 
 

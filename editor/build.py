@@ -331,6 +331,23 @@ def gerar_arquivo_icone_icns(
         print(f"Aviso: Não foi possível gerar o arquivo .icns (usando padrão): {e}")
 
 
+# Pacotes com extensões nativas (C/Rust) que devem usar binary wheels pré-compilados
+PACOTES_PREFERIR_WHEELS = (
+    "cryptography",
+    "cffi",
+    "pygit2",
+    "pillow",
+    "pillow-heif",
+    "pydantic-core",
+    "grpcio",
+    "grpcio-tools",
+    "pyyaml",
+    "ruamel-yaml",
+    "ruamel.yaml.clib",
+    "protobuf",
+)
+
+
 def gerar_manifesto_dependencias_flatpak(
     caminho_saida: Optional[Path] = None,
     raiz_projeto: Optional[Path] = None,
@@ -379,22 +396,40 @@ def gerar_manifesto_dependencias_flatpak(
         tmp_req.write("\n".join(linhas_filtradas) + "\n")
         caminho_tmp_req = Path(tmp_req.name)
 
+    argumentos_extras: List[str] = []
+    executavel_flatpak = shutil.which("flatpak")
+    if executavel_flatpak:
+        for runtime_candidato in ("org.kde.Sdk//6.11", "org.kde.Platform//6.11"):
+            resultado_info = subprocess.run(
+                [executavel_flatpak, "info", runtime_candidato],
+                capture_output=True,
+            )
+            if resultado_info.returncode == 0:
+                pacotes = ",".join(PACOTES_PREFERIR_WHEELS)
+                argumentos_extras = [
+                    f"--runtime={runtime_candidato}",
+                    f"--prefer-wheels={pacotes}",
+                ]
+                break
+
     try:
         nome_base_saida = destino.stem
         diretorio_saida = destino.parent
         caminho_sem_ext = diretorio_saida / nome_base_saida
+        comando_generator = [
+            executavel_uv,
+            "run",
+            "--group",
+            "editor_deploy_flatpak",
+            "python",
+            "-m",
+            "flatpak_pip_generator",
+            f"--requirements-file={caminho_tmp_req}",
+            f"--output={caminho_sem_ext}",
+        ]
+        comando_generator.extend(argumentos_extras)
         subprocess.run(
-            [
-                executavel_uv,
-                "run",
-                "--group",
-                "editor_deploy_flatpak",
-                "python",
-                "-m",
-                "flatpak_pip_generator",
-                f"--requirements-file={caminho_tmp_req}",
-                f"--output={caminho_sem_ext}",
-            ],
+            comando_generator,
             cwd=str(raiz),
             check=True,
         )
