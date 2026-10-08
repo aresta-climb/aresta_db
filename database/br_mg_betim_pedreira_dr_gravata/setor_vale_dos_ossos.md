@@ -406,3 +406,6 @@ mapas:
     - linha_10
     escalada: GUERRA DE OSSOS
 ---
+![Vale dos Ossos](imagens/capa_pedreira_gravata_gigante_1.webp)
+
+![Mapa](imagens/mapa_aereo_do_setor_vale_dos_ossos.webp)
