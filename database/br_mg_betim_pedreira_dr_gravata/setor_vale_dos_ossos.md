@@ -11,6 +11,7 @@ escaladas:
     conquistadores:
     - Macena
     - Samuel
+    - Maceninha
 - via_esportiva:
     nome: OSSOS DO OFÍCIO
     dificuldade: BR_5
@@ -19,6 +20,7 @@ escaladas:
     conquistadores:
     - Macena
     - Samuel
+    - Maceninha
 - via_esportiva:
     nome: KD O OSSO
     dificuldade: BR_5SUP
@@ -27,6 +29,7 @@ escaladas:
     conquistadores:
     - Macena
     - Samuel
+    - Maceninha
 - via_esportiva:
     nome: CANTEIRO DE OSSOS
     dificuldade: BR_6
@@ -35,6 +38,7 @@ escaladas:
     conquistadores:
     - Macena
     - Samuel
+    - Maceninha
 - via_esportiva:
     nome: SANTUÁRIO DOS OSSOS
     dificuldade: BR_6SUP
@@ -43,6 +47,7 @@ escaladas:
     conquistadores:
     - Macena
     - Samuel
+    - Maceninha
 - via_esportiva:
     nome: QUEBRA OSSOS
     dificuldade: BR_7C
@@ -51,6 +56,7 @@ escaladas:
     conquistadores:
     - Macena
     - Samuel
+    - Maceninha
 - via_esportiva:
     nome: SOZINHO É OSSO
     dificuldade: BR_6
@@ -59,6 +65,7 @@ escaladas:
     conquistadores:
     - Macena
     - Samuel
+    - Maceninha
 - via_esportiva:
     nome: CUTELO DE OSSOS
     dificuldade: BR_6SUP
@@ -67,12 +74,14 @@ escaladas:
     conquistadores:
     - Macena
     - Samuel
+    - Maceninha
 - via_esportiva:
     nome: MARIMB. QUE ME OSSOS
     dificuldade: BR_5
     conquistadores:
     - Macena
     - Samuel
+    - Maceninha
 - via_esportiva:
     nome: GUERRA DE OSSOS
     dificuldade: BR_5_BARRA_5SUP
@@ -81,78 +90,89 @@ escaladas:
     conquistadores:
     - Macena
     - Samuel
+    - Maceninha
 - via_esportiva:
     nome: CULPIM DE OSSOS
     dificuldade: BR_5SUP
     conquistadores:
     - Macena
     - Samuel
+    - Maceninha
 - via_esportiva:
     nome: BALCÃO DE OSSOS
     dificuldade: BR_6SUP
     conquistadores:
     - Macena
     - Samuel
+    - Maceninha
 - via_esportiva:
     nome: OSSO DO CALCANHO
     dificuldade: BR_8A
     conquistadores:
     - Macena
     - Samuel
+    - Maceninha
 - via_esportiva:
     nome: FRATURA OSSEA
     dificuldade: BR_7A
     conquistadores:
     - Macena
     - Samuel
+    - Maceninha
 - via_esportiva:
     nome: HORTOPEDIA OSSEA
     dificuldade: BR_6SUP
     conquistadores:
     - Macena
     - Samuel
+    - Maceninha
 - via_esportiva:
     nome: OSSO DO QUEIXO
     dificuldade: BR_6SUP
     conquistadores:
     - Macena
     - Samuel
+    - Maceninha
 - via_esportiva:
     nome: FISSURA OSSEA
     dificuldade: BR_7B
     conquistadores:
     - Macena
     - Samuel
+    - Maceninha
 - via_esportiva:
     nome: OSSO TORTO
     dificuldade: BR_8A
     conquistadores:
     - Macena
     - Samuel
+    - Maceninha
 - via_esportiva:
     nome: OSSO NA CARNE
     dificuldade: BR_7A
     conquistadores:
     - Macena
     - Samuel
+    - Maceninha
 - via_esportiva:
     nome: CARNE DE PESCOÇO
     dificuldade: BR_7A
     conquistadores:
     - Macena
     - Samuel
+    - Maceninha
 - via_esportiva:
     nome: HOSTOPOROSE
     dificuldade: BR_7B
     conquistadores:
     - Macena
     - Samuel
+    - Maceninha
 - via_esportiva:
     nome: SACO DE OSSO
     dificuldade: BR_8C
     conquistadores:
-    - Macena
-    - Samuel
+    - Macena, Samuel, Maceninha
 mapas:
 - caminho_imagem_mapa: imagens/setor_vale_dos_ossos_p0.webp
   largura_mapa: 1672
