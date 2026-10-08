@@ -26,11 +26,12 @@ validador = [
 
 # Interface gráfica do Editor Aresta 
 editor = [
-    {include-group = "deploy"},
+    "pillow",
+    "pyyaml",
+    "protobuf",
+    "nanoid>=2.0.0",
     "pillow-heif>=1.7.0",
     "pyside6-essentials",
-    "pyinstaller",
-    "pytest-qt",
     "pygit2",
     "requests",
     "cryptography",
@@ -43,9 +44,18 @@ editor = [
     "fastapi",
     "uvicorn",
     "httpx",
+    "websockets",
+    "pyinstaller; sys_platform == 'win32' or sys_platform == 'darwin'",
     "winrt-Windows.Services.Store; sys_platform == 'win32'",
     "winrt-Windows.ApplicationModel; sys_platform == 'win32'",
     "sentry-sdk>=2.68.1",
+]
+
+# Ferramentas de empacotamento e deploy do Editor no Flatpak Linux
+editor_deploy_flatpak = [
+    { include-group = "editor" },
+    "flatpak-pip-generator",
+    "pip",
 ]
 
 # Extração pesada de PDFS, IA e OCR
@@ -66,6 +76,7 @@ dev = [
     "pytest-xdist",
     "pytest-testmon",
     "pytest-mock",
+    "pytest-qt",
     "moto[s3]",
     "moto",
     "mypy>=1.15.0",
@@ -76,14 +87,6 @@ dev = [
     "types-qrcode",
     "types-nanoid>=2.0.0.20260508",
 ]
-
-# Ferramentas de empacotamento e deploy do Editor no Flatpak Linux
-editor_deploy_flatpak = [
-    { include-group = "editor" },
-    "flatpak-pip-generator",
-    "pip",
-]
-
 
 [tool.uv]
 package = false
@@ -103,9 +106,6 @@ no_implicit_optional = true
 warn_return_any = true
 warn_unused_ignores = true
 show_error_codes = true
-
-
-
 
 [[tool.mypy.overrides]]
 module = [

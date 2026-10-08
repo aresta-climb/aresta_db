@@ -19,6 +19,18 @@ finish-args:
   - --talk-name=org.kde.kwalletd
   - --env=XKB_LOG_LEVEL=critical
 
+build-options:
+  env:
+    BASEAPP_REMOVE_WEBENGINE: "1"
+    BASEAPP_DISABLE_NUMPY: "1"
+
+cleanup:
+  - /include
+  - /lib/pkgconfig
+  - /share/man
+  - "*.la"
+  - "*.a"
+
 cleanup-commands:
   - /app/cleanup-BaseApp.sh
 

@@ -339,12 +339,28 @@ PACOTES_PREFERIR_WHEELS = (
     "pillow",
     "pillow-heif",
     "pydantic-core",
-    "grpcio",
-    "grpcio-tools",
     "pyyaml",
     "ruamel-yaml",
     "ruamel.yaml.clib",
     "protobuf",
+    "websockets",
+)
+
+# Dependências que não devem ser empacotadas no Flatpak oficial
+# (fornecidas pelo runtime io.qt.PySide.BaseApp, ferramentas de compilação ou empacotamento Windows)
+PACOTES_DISPENSAVEIS_FLATPAK = (
+    "pyside6",
+    "shiboken6",
+    "pyinstaller",
+    "pyinstaller-hooks-contrib",
+    "altgraph",
+    "macholib",
+    "pefile",
+    "pywin32-ctypes",
+    "grpcio",
+    "grpcio-tools",
+    "mypy-protobuf",
+    "types-protobuf",
 )
 
 
@@ -381,14 +397,14 @@ def gerar_manifesto_dependencias_flatpak(
         check=True,
     )
 
-    # Filtra dependências fornecidas pelo runtime io.qt.PySide.BaseApp ou empacotamento Windows/macOS
+    # Filtra dependências dispensáveis no Linux Flatpak
     linhas_filtradas: List[str] = []
     for linha in resultado_export.stdout.splitlines():
         linha_limpa = linha.strip()
         if not linha_limpa or linha_limpa.startswith("#"):
             continue
         nome_pkg = linha_limpa.split("==")[0].split(">=")[0].split("<=")[0].strip().lower()
-        if any(disp in nome_pkg for disp in ("pyside6", "shiboken6", "pyinstaller")):
+        if any(disp in nome_pkg for disp in PACOTES_DISPENSAVEIS_FLATPAK):
             continue
         linhas_filtradas.append(linha_limpa)
 

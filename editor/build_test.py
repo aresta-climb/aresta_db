@@ -465,6 +465,10 @@ def test_gerar_manifesto_dependencias_flatpak_sucesso(tmp_path):
         "pyside6-essentials==6.8.0",
         "shiboken6==6.8.0",
         "pyinstaller==6.10.0",
+        "pyinstaller-hooks-contrib==2026.8",
+        "grpcio==1.84.0",
+        "grpcio-tools==1.84.0",
+        "mypy-protobuf==5.1.0",
         "requests==2.32.3",
         "qtawesome==1.3.1",
     ])
@@ -475,6 +479,17 @@ def test_gerar_manifesto_dependencias_flatpak_sucesso(tmp_path):
             res.stdout = export_mock_stdout
             return res
         if "flatpak_pip_generator" in cmd:
+            # Verifica se os pacotes dispensáveis foram removidos do arquivo de requirements temporário
+            req_arg = [arg for arg in cmd if arg.startswith("--requirements-file=")][0]
+            req_path = Path(req_arg.split("=", 1)[1])
+            conteudo_req = req_path.read_text(encoding="utf-8")
+            assert "requests==2.32.3" in conteudo_req
+            assert "qtawesome==1.3.1" in conteudo_req
+            assert "pyside6" not in conteudo_req
+            assert "shiboken6" not in conteudo_req
+            assert "pyinstaller" not in conteudo_req
+            assert "grpcio" not in conteudo_req
+            assert "mypy-protobuf" not in conteudo_req
             # Simula a criação do arquivo de saída
             destino.write_text("{}", encoding="utf-8")
             return res
@@ -487,6 +502,22 @@ def test_gerar_manifesto_dependencias_flatpak_sucesso(tmp_path):
         )
         assert caminho_gerado == destino
         assert destino.exists()
+
+
+def test_flatpak_manifest_e_constantes_otimizadas():
+    """Valida se as constantes de otimização de tamanho e o manifesto com.arestaclimb.Editor.yaml contêm os ajustes."""
+    from editor.build import PACOTES_DISPENSAVEIS_FLATPAK, PACOTES_PREFERIR_WHEELS, ARQUIVO_MANIFESTO_FLATPAK
+
+    assert "grpcio" in PACOTES_DISPENSAVEIS_FLATPAK
+    assert "grpcio-tools" in PACOTES_DISPENSAVEIS_FLATPAK
+    assert "pyinstaller" in PACOTES_DISPENSAVEIS_FLATPAK
+    assert "websockets" in PACOTES_PREFERIR_WHEELS
+
+    manifesto_texto = ARQUIVO_MANIFESTO_FLATPAK.read_text(encoding="utf-8")
+    assert "BASEAPP_REMOVE_WEBENGINE" in manifesto_texto
+    assert "BASEAPP_DISABLE_NUMPY" in manifesto_texto
+    assert "cleanup:" in manifesto_texto
+    assert "/app/cleanup-BaseApp.sh" in manifesto_texto
 
 
 def test_gerar_manifesto_dependencias_flatpak_com_runtime_detectado(tmp_path):
