@@ -1,6 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+uid: VeLO20IMW2oWhc
 caminho_imagem_capa: imagens/setor_cume_p0_i0.webp
 nome: Cume
 mapas:
@@ -8,20 +9,20 @@ mapas:
   largura_mapa: 1099
   altura_mapa: 710
   referencias:
-  - escalada: Sabirila
-    ids:
+  - alvo_uid: oIA7VJYDSydyTf
+    pontos_uids:
     - '27'
-  - escalada: Seriema
-    ids:
+  - alvo_uid: 4Jm9GyO72EzNjD
+    pontos_uids:
     - '28'
-  - escalada: Canelinha
-    ids:
+  - alvo_uid: wPZ2kDIVbOvXJr
+    pontos_uids:
     - '29'
-  - escalada: Cerrado
-    ids:
+  - alvo_uid: vFO52j09RcWfMT
+    pontos_uids:
     - '30'
-  - escalada: Canga
-    ids:
+  - alvo_uid: nKJb8UpDlIxoSL
+    pontos_uids:
     - '31'
 setores:
 - caminho: grupo_cume_setor_bloco_a_ulisses.md

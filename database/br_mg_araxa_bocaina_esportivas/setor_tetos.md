@@ -1,6 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+uid: q0gv91KFyAc9AX
 caminho_imagem_capa: imagens/setor_tetos_p0_i0.webp
 nome: Tetos
 mapas:
@@ -8,405 +9,404 @@ mapas:
   largura_mapa: 1280
   altura_mapa: 1707
   pontos_de_interesse:
-  - id: '01'
-    label: '01'
+  - uid: VVmeYDqpqUrzMC
+    rotulo: '01'
     circulo:
       x: 30
       y: 1098
       raio: 26
-  - id: '02'
-    label: '02'
+  - uid: klTvqOpElXFtgd
+    rotulo: '02'
     circulo:
       x: 245
       y: 849
       raio: 26
-  - id: '03'
-    label: '03'
+  - uid: aCgwCXtfdEbGQT
+    rotulo: '03'
     circulo:
       x: 356
       y: 855
       raio: 25
-  - id: '04'
-    label: '04'
+  - uid: Ev61OAHQxfQ3KJ
+    rotulo: '04'
     circulo:
       x: 494
       y: 730
       raio: 26
-  - id: '05'
-    label: '05'
+  - uid: iH5LFhDzwiIzV1
+    rotulo: '05'
     circulo:
       x: 648
       y: 730
       raio: 26
-  - id: '06'
-    label: '06'
+  - uid: yZmZDY7gw9ttxJ
+    rotulo: '06'
     circulo:
       x: 775
       y: 770
       raio: 26
-  - id: '07'
-    label: '07'
+  - uid: 8lIT9GjjTrKPdh
+    rotulo: '07'
     circulo:
       x: 867
       y: 781
       raio: 26
-  - id: '08'
-    label: '08'
+  - uid: Pa68eSDpzyjJfi
+    rotulo: '08'
     circulo:
       x: 959
       y: 780
       raio: 26
   referencias:
-  - escalada: Permissão Concebida
-    ids:
-    - '01'
-  - escalada: Bocaina Aventura
-    ids:
-    - '02'
-  - escalada: O Vento Levou
-    ids:
-    - '03'
-  - escalada: Titan
-    ids:
-    - '04'
-  - escalada: Mirian
-    ids:
-    - '05'
-  - escalada: Hipnose
-    ids:
-    - '06'
-  - escalada: Resta Um
-    ids:
-    - '07'
-  - ids:
-    - '08'
-    setor: Tetos
-    escalada: Medo de quê Aresta
+  - alvo_uid: F7D9fVSvVzF8LF
+    pontos_uids:
+    - VVmeYDqpqUrzMC
+  - alvo_uid: TGxnEnnJtAimRH
+    pontos_uids:
+    - klTvqOpElXFtgd
+  - alvo_uid: Ie9UWepqQRMx6o
+    pontos_uids:
+    - aCgwCXtfdEbGQT
+  - alvo_uid: hKx4cwMfhTYeb6
+    pontos_uids:
+    - Ev61OAHQxfQ3KJ
+  - alvo_uid: SszjnbPwrsf4eq
+    pontos_uids:
+    - iH5LFhDzwiIzV1
+  - alvo_uid: 0lcn0eDNV8CEwv
+    pontos_uids:
+    - yZmZDY7gw9ttxJ
+  - alvo_uid: w85Oym63vWA2qF
+    pontos_uids:
+    - 8lIT9GjjTrKPdh
+  - alvo_uid: wmBgyAkH8bCedi
+    pontos_uids:
+    - Pa68eSDpzyjJfi
 - caminho_imagem_mapa: imagens/setor_tetos_p2.webp
   largura_mapa: 1280
   altura_mapa: 1707
   pontos_de_interesse:
-  - id: '09'
-    label: '09'
+  - uid: TBReM08vDSQoNC
+    rotulo: '09'
     circulo:
       x: 126
       y: 801
       raio: 26
-  - id: '10'
-    label: '10'
+  - uid: Z6NhxYvDiEoqUP
+    rotulo: '10'
     circulo:
       x: 177
       y: 820
       raio: 25
-  - id: '11'
-    label: '11'
+  - uid: 7LXkoKbvttlkeP
+    rotulo: '11'
     circulo:
       x: 248
       y: 837
       raio: 25
-  - id: '12'
-    label: '12'
+  - uid: m9IUzqvFgPqfBG
+    rotulo: '12'
     circulo:
       x: 527
       y: 1033
       raio: 26
-  - id: '13'
-    label: '13'
+  - uid: hINRwGKdOLvPCz
+    rotulo: '13'
     circulo:
       x: 605
       y: 1045
       raio: 26
-  - id: '14'
-    label: '14'
+  - uid: hD0GfEH3ZOcve2
+    rotulo: '14'
     circulo:
       x: 671
       y: 1052
       raio: 26
-  - id: '15'
-    label: '15'
+  - uid: UcJkDe1qScRH9k
+    rotulo: '15'
     circulo:
       x: 732
       y: 1051
       raio: 26
-  - id: '16'
-    label: '16'
+  - uid: 8uZhSl99JsXxW1
+    rotulo: '16'
     circulo:
       x: 782
       y: 1070
       raio: 26
   referencias:
-  - escalada: Zumbi da Bocaina
-    ids:
-    - '10'
-  - escalada: Curta e Grossa
-    ids:
-    - '11'
-  - escalada: Menos Curta e Mais Grossa
-    ids:
-    - '12'
-  - escalada: El Corazon
-    ids:
-    - '13'
-  - escalada: Sombra e Água Fresca
-    ids:
-    - '14'
-  - escalada: Vitamina C
-    ids:
-    - '15'
-  - escalada: Mão de Vaca
-    ids:
-    - '16'
-  - ids:
-    - '09'
-    setor: Tetos
-    escalada: Pressão Psicológica
+  - alvo_uid: DRKloY4ISi99SZ
+    pontos_uids:
+    - Z6NhxYvDiEoqUP
+  - alvo_uid: Y0YqvSUbQarcyO
+    pontos_uids:
+    - 7LXkoKbvttlkeP
+  - alvo_uid: pE81kT7cLImtOA
+    pontos_uids:
+    - m9IUzqvFgPqfBG
+  - alvo_uid: fWW466uDuqrrBy
+    pontos_uids:
+    - hINRwGKdOLvPCz
+  - alvo_uid: J7bXywRiu0PAXt
+    pontos_uids:
+    - hD0GfEH3ZOcve2
+  - alvo_uid: hF0nLRzYrLtFnG
+    pontos_uids:
+    - UcJkDe1qScRH9k
+  - alvo_uid: x8blgb1mpYRvI2
+    pontos_uids:
+    - 8uZhSl99JsXxW1
+  - alvo_uid: apiiCMS0Y3LfGH
+    pontos_uids:
+    - TBReM08vDSQoNC
 - caminho_imagem_mapa: imagens/setor_tetos_p3.webp
   largura_mapa: 1280
   altura_mapa: 1707
   pontos_de_interesse:
-  - id: '17'
-    label: '17'
+  - uid: xGj9tV6IsE76OZ
+    rotulo: '17'
     circulo:
       x: 858
       y: 1081
       raio: 26
-  - id: '18'
-    label: '18'
+  - uid: h0BP1Iv3C8nojt
+    rotulo: '18'
     circulo:
       x: 914
       y: 1062
       raio: 25
-  - id: '19'
-    label: '19'
+  - uid: 5P2vYzXR2JTyC5
+    rotulo: '19'
     circulo:
       x: 955
       y: 1068
       raio: 26
-  - id: '20'
-    label: '20'
+  - uid: 57zwLNC4NB1QgE
+    rotulo: '20'
     circulo:
       x: 1053
       y: 1087
       raio: 26
   referencias:
-  - escalada: Natural Climb
-    ids:
-    - '17'
-  - escalada: Chape
-    ids:
-    - '18'
-  - escalada: Comando Delta
-    ids:
-    - '19'
-  - escalada: Rachando os Bico
-    ids:
-    - '20'
+  - alvo_uid: BsI4k9yPnH5DRR
+    pontos_uids:
+    - xGj9tV6IsE76OZ
+  - alvo_uid: vdWGVzFsYDwaQH
+    pontos_uids:
+    - h0BP1Iv3C8nojt
+  - alvo_uid: 9BvYuLQwFnoDY4
+    pontos_uids:
+    - 5P2vYzXR2JTyC5
+  - alvo_uid: 5tfG8RnUv0Kbby
+    pontos_uids:
+    - 57zwLNC4NB1QgE
 - caminho_imagem_mapa: imagens/setor_tetos_p4.webp
   largura_mapa: 1280
   altura_mapa: 1707
   pontos_de_interesse:
-  - id: '21'
-    label: '21'
+  - uid: XweVblYrpqTYtU
+    rotulo: '21'
     circulo:
       x: 210
       y: 1154
       raio: 25
-  - id: '22'
-    label: '22'
+  - uid: aiUzgymVH79URH
+    rotulo: '22'
     circulo:
       x: 324
       y: 1149
       raio: 25
-  - id: '23'
-    label: '23'
+  - uid: rLOiwo9onNuREd
+    rotulo: '23'
     circulo:
       x: 436
       y: 1138
       raio: 25
-  - id: '24'
-    label: '24'
+  - uid: BZdr830a6PWwSC
+    rotulo: '24'
     circulo:
       x: 666
       y: 1141
       raio: 25
-  - id: '25'
-    label: '25'
+  - uid: Pm9tbpsxXhTxBy
+    rotulo: '25'
     circulo:
       x: 746
       y: 1109
       raio: 24
-  - id: '26'
-    label: '26'
+  - uid: 1QHYZAEvriEn06
+    rotulo: '26'
     circulo:
       x: 810
       y: 1107
       raio: 24
-  - id: '27'
-    label: '27'
+  - uid: nW2u62ZMKkWEgh
+    rotulo: '27'
     circulo:
       x: 897
       y: 1124
       raio: 24
-  - id: '28'
-    label: '28'
+  - uid: owKBZE3xVZYpir
+    rotulo: '28'
     circulo:
       x: 963
       y: 1123
       raio: 25
   referencias:
-  - escalada: Mato Seco
-    ids:
-    - '21'
-  - escalada: De um jeito ou de Outro
-    ids:
-    - '22'
-  - escalada: Arapuá
-    ids:
-    - '23'
-  - escalada: Carcará Uru
-    ids:
-    - '24'
-  - escalada: Rapadura
-    ids:
-    - '25'
-  - escalada: Zé Bunitim
-    ids:
-    - '26'
-  - escalada: Vai ser Fei
-    ids:
-    - '27'
-  - escalada: Estrela Solitária
-    ids:
-    - '28'
+  - alvo_uid: H2qOuKrpEQlu0A
+    pontos_uids:
+    - XweVblYrpqTYtU
+  - alvo_uid: jLN8OHcYm3uybN
+    pontos_uids:
+    - aiUzgymVH79URH
+  - alvo_uid: IDsRjzE5Shsn0i
+    pontos_uids:
+    - rLOiwo9onNuREd
+  - alvo_uid: a8qjjWEmbXbw1g
+    pontos_uids:
+    - BZdr830a6PWwSC
+  - alvo_uid: TCHHRRwnSo0yWJ
+    pontos_uids:
+    - Pm9tbpsxXhTxBy
+  - alvo_uid: QoHpF2tNA5YI8Y
+    pontos_uids:
+    - 1QHYZAEvriEn06
+  - alvo_uid: BrMHU0dJXjsBV8
+    pontos_uids:
+    - nW2u62ZMKkWEgh
+  - alvo_uid: naXlgfjpGm7qed
+    pontos_uids:
+    - owKBZE3xVZYpir
 - caminho_imagem_mapa: imagens/setor_tetos_p5.webp
   largura_mapa: 1280
   altura_mapa: 1707
   pontos_de_interesse:
-  - id: '29'
-    label: '29'
+  - uid: akOsodANt89xcy
+    rotulo: '29'
     circulo:
       x: 104
       y: 1136
       raio: 25
-  - id: '30'
-    label: '30'
+  - uid: mTDNcu4v9nLF71
+    rotulo: '30'
     circulo:
       x: 174
       y: 1140
       raio: 25
-  - id: '31'
-    label: '31'
+  - uid: wz3w3L8BZbA8Ps
+    rotulo: '31'
     circulo:
       x: 261
       y: 1155
       raio: 25
-  - id: '32'
-    label: '32'
+  - uid: DWuZZuNmE9lhMm
+    rotulo: '32'
     circulo:
       x: 316
       y: 1161
       raio: 25
-  - id: '33'
-    label: '33'
+  - uid: ALCNfLwr14TJgb
+    rotulo: '33'
     circulo:
       x: 371
       y: 1160
       raio: 25
-  - id: '34'
-    label: '34'
+  - uid: ba6Q0RjorgFJP7
+    rotulo: '34'
     circulo:
       x: 439
       y: 1161
       raio: 25
-  - id: '35'
-    label: '35'
+  - uid: vmCeTpXHJkG5YU
+    rotulo: '35'
     circulo:
       x: 499
       y: 1161
       raio: 25
-  - id: '36'
-    label: '36'
+  - uid: TZopm3wqMLsNCq
+    rotulo: '36'
     circulo:
       x: 559
       y: 1161
       raio: 25
   referencias:
-  - escalada: Vergateza
-    ids:
-    - '29'
-  - escalada: Chico Curandeiro
-    ids:
-    - '30'
-  - escalada: Reforma Trabalhista
-    ids:
-    - '31'
-  - escalada: Arborigenas
-    ids:
-    - '32'
-  - escalada: Faz sua Parte
-    ids:
-    - '33'
-  - escalada: Delirando
-    ids:
-    - '34'
-  - escalada: Saraiva
-    ids:
-    - '35'
-  - escalada: Rolando Lero
-    ids:
-    - '36'
+  - alvo_uid: uM5ETrXCCnlNpz
+    pontos_uids:
+    - akOsodANt89xcy
+  - alvo_uid: wl0W2dMTksTump
+    pontos_uids:
+    - mTDNcu4v9nLF71
+  - alvo_uid: h9FgimQVw16Llh
+    pontos_uids:
+    - wz3w3L8BZbA8Ps
+  - alvo_uid: kDDmL8pKIyDiFz
+    pontos_uids:
+    - DWuZZuNmE9lhMm
+  - alvo_uid: jJvROrAbIcYEQo
+    pontos_uids:
+    - ALCNfLwr14TJgb
+  - alvo_uid: BmdokcT3buzsCG
+    pontos_uids:
+    - ba6Q0RjorgFJP7
+  - alvo_uid: gi517SFLPmugWw
+    pontos_uids:
+    - vmCeTpXHJkG5YU
+  - alvo_uid: yBXaNEaTkhudiE
+    pontos_uids:
+    - TZopm3wqMLsNCq
 - caminho_imagem_mapa: imagens/setor_tetos_p6.webp
   largura_mapa: 1280
   altura_mapa: 1707
   pontos_de_interesse:
-  - id: '37'
-    label: '37'
+  - uid: dDQ5kKPVTlQ5Cs
+    rotulo: '37'
     circulo:
       x: 619
       y: 1161
       raio: 25
-  - id: '38'
-    label: '38'
+  - uid: 8gwxepUxMglsmu
+    rotulo: '38'
     circulo:
       x: 669
       y: 1173
       raio: 25
-  - id: '39'
-    label: '39'
+  - uid: w81UJxCpYoklGL
+    rotulo: '39'
     circulo:
       x: 715
       y: 1181
       raio: 25
-  - id: '40'
-    label: '40'
+  - uid: 7D7qfyXe6GKMjw
+    rotulo: '40'
     circulo:
       x: 761
       y: 1173
       raio: 25
-  - id: '41'
-    label: '41'
+  - uid: MddszylTmeQ098
+    rotulo: '41'
     circulo:
       x: 815
       y: 1185
       raio: 25
   referencias:
-  - escalada: Jardinagem
-    ids:
-    - '37'
-  - escalada: Soldados do Sol
-    ids:
-    - '38'
-  - escalada: Metamorfose Ambulante
-    ids:
-    - '39'
-  - escalada: Baby Rasta
-    ids:
-    - '40'
-  - escalada: Cara ou Crachá
-    ids:
-    - '41'
+  - alvo_uid: 2Hk2fgJBEqidDo
+    pontos_uids:
+    - dDQ5kKPVTlQ5Cs
+  - alvo_uid: 0FvddY5SgNJfXh
+    pontos_uids:
+    - 8gwxepUxMglsmu
+  - alvo_uid: CCpYiQTAYU4JzL
+    pontos_uids:
+    - w81UJxCpYoklGL
+  - alvo_uid: YPShBCxz1NnuoC
+    pontos_uids:
+    - 7D7qfyXe6GKMjw
+  - alvo_uid: 3mRLgxBhK9EuPn
+    pontos_uids:
+    - MddszylTmeQ098
 escaladas:
-- via_esportiva:
+- uid: F7D9fVSvVzF8LF
+  via_esportiva:
     nome: Permissão Concebida
     dificuldade: BR_8A
     extensao: 8
@@ -416,7 +416,8 @@ escaladas:
     - Diego Leonardo
     - Gustavo Maneira
     data_abertura: '2008'
-- via_esportiva:
+- uid: TGxnEnnJtAimRH
+  via_esportiva:
     nome: Bocaina Aventura
     dificuldade: PROJETO
     extensao: 10
@@ -426,7 +427,8 @@ escaladas:
     - Diego Leonardo
     - Alexandre Fei
     data_abertura: '2017'
-- via_esportiva:
+- uid: Ie9UWepqQRMx6o
+  via_esportiva:
     nome: O Vento Levou
     dificuldade: BR_10A
     extensao: 10
@@ -436,7 +438,8 @@ escaladas:
     - Diego Leonardo
     - Alexandre Fei
     data_abertura: '2017'
-- via_esportiva:
+- uid: hKx4cwMfhTYeb6
+  via_esportiva:
     nome: Titan
     dificuldade: PROJETO
     extensao: 10
@@ -444,7 +447,8 @@ escaladas:
     - Alexandre Fei
     - Diego Leonardo
     data_abertura: '2017'
-- via_esportiva:
+- uid: SszjnbPwrsf4eq
+  via_esportiva:
     nome: Mirian
     dificuldade: BR_8C
     extensao: 15
@@ -456,7 +460,8 @@ escaladas:
     - Alexandre Fei
     - Gustavo Scandiuzzi
     data_abertura: '2008'
-- via_esportiva:
+- uid: 0lcn0eDNV8CEwv
+  via_esportiva:
     nome: Hipnose
     dificuldade: BR_7C
     extensao: 15
@@ -466,7 +471,8 @@ escaladas:
     - Daiex de Almeida
     - Alexandre Fei
     data_abertura: '2008'
-- via_esportiva:
+- uid: w85Oym63vWA2qF
+  via_esportiva:
     nome: Resta Um
     dificuldade: BR_9A
     extensao: 15
@@ -477,7 +483,8 @@ escaladas:
     - Juliano Peter Park
     - Juliano Fernandes
     data_abertura: '2006'
-- via_esportiva:
+- uid: wmBgyAkH8bCedi
+  via_esportiva:
     nome: Medo de quê Aresta
     dificuldade: BR_10A
     extensao: 15
@@ -487,7 +494,8 @@ escaladas:
     - Rafael Furtado
     - Alexandre Fei
     data_abertura: '2008'
-- via_esportiva:
+- uid: apiiCMS0Y3LfGH
+  via_esportiva:
     nome: Pressão Psicológica
     dificuldade: PROJETO
     extensao: 15
@@ -497,7 +505,8 @@ escaladas:
     - Alexandre Fei
     - Felipe Belisario
     data_abertura: '2009'
-- via_esportiva:
+- uid: DRKloY4ISi99SZ
+  via_esportiva:
     nome: Zumbi da Bocaina
     dificuldade: BR_8B
     extensao: 15
@@ -508,7 +517,8 @@ escaladas:
     - Diego Leonardo
     - Ricardo Magrão
     data_abertura: '2008'
-- via_esportiva:
+- uid: Y0YqvSUbQarcyO
+  via_esportiva:
     nome: Curta e Grossa
     dificuldade: BR_7C
     extensao: 15
@@ -519,7 +529,8 @@ escaladas:
     - Diego
     - Alexandre Fei
     data_abertura: '2006'
-- via_esportiva:
+- uid: pE81kT7cLImtOA
+  via_esportiva:
     nome: Menos Curta e Mais Grossa
     dificuldade: BR_8C
     extensao: 15
@@ -530,7 +541,8 @@ escaladas:
     - Lucas Ramos
     - Gabriel Guimarães
     data_abertura: '2009'
-- via_esportiva:
+- uid: fWW466uDuqrrBy
+  via_esportiva:
     nome: El Corazon
     dificuldade: BR_8B
     extensao: 15
@@ -539,7 +551,8 @@ escaladas:
     conquistadores:
     - Alexandre Fei
     data_abertura: '2017'
-- via_esportiva:
+- uid: J7bXywRiu0PAXt
+  via_esportiva:
     nome: Sombra e Água Fresca
     dificuldade: BR_6
     extensao: 5
@@ -548,7 +561,8 @@ escaladas:
     conquistadores:
     - Juliano
     data_abertura: '2006'
-- via_esportiva:
+- uid: hF0nLRzYrLtFnG
+  via_esportiva:
     nome: Vitamina C
     dificuldade: BR_10A
     extensao: 10
@@ -557,14 +571,16 @@ escaladas:
     - Juliano Peter Park
     - Alexandre Fei
     data_abertura: '2006'
-- via_esportiva:
+- uid: x8blgb1mpYRvI2
+  via_esportiva:
     nome: Mão de Vaca
     dificuldade: INDEFINIDO
     quantidade_protecoes_intermediarias: 6
     conquistadores:
     - Juliano
     descricao: Falta topo.
-- via_esportiva:
+- uid: BsI4k9yPnH5DRR
+  via_esportiva:
     nome: Natural Climb
     dificuldade: BR_8B
     extensao: 15
@@ -573,10 +589,12 @@ escaladas:
     conquistadores:
     - Alexandre Fei
     data_abertura: '2017'
-- via_esportiva:
+- uid: vdWGVzFsYDwaQH
+  via_esportiva:
     nome: Chape
     dificuldade: INDEFINIDO
-- via_esportiva:
+- uid: 9BvYuLQwFnoDY4
+  via_esportiva:
     nome: Comando Delta
     dificuldade: BR_6
     extensao: 10
@@ -585,7 +603,8 @@ escaladas:
     conquistadores:
     - Juliano
     data_abertura: '2005'
-- via_esportiva:
+- uid: 5tfG8RnUv0Kbby
+  via_esportiva:
     nome: Rachando os Bico
     dificuldade: BR_5
     extensao: 10
@@ -594,17 +613,21 @@ escaladas:
     conquistadores:
     - Juliano
     data_abertura: '2006'
-- via_esportiva:
+- uid: H2qOuKrpEQlu0A
+  via_esportiva:
     nome: Mato Seco
     dificuldade: PROJETO
     descricao: Inacabada.
-- via_esportiva:
+- uid: jLN8OHcYm3uybN
+  via_esportiva:
     nome: De um jeito ou de Outro
     dificuldade: INDEFINIDO
-- via_esportiva:
+- uid: IDsRjzE5Shsn0i
+  via_esportiva:
     nome: Arapuá
     dificuldade: INDEFINIDO
-- via_esportiva:
+- uid: a8qjjWEmbXbw1g
+  via_esportiva:
     nome: Carcará Uru
     dificuldade: BR_6SUP
     extensao: 10
@@ -614,7 +637,8 @@ escaladas:
     - Daiex de Almeida
     - Geovane
     data_abertura: '2017'
-- via_esportiva:
+- uid: TCHHRRwnSo0yWJ
+  via_esportiva:
     nome: Rapadura
     dificuldade: BR_7A
     extensao: 15
@@ -623,7 +647,8 @@ escaladas:
     conquistadores:
     - Alexandre Fei
     data_abertura: '2017'
-- via_esportiva:
+- uid: QoHpF2tNA5YI8Y
+  via_esportiva:
     nome: Zé Bunitim
     dificuldade: PROJETO
     extensao: 20
@@ -633,7 +658,8 @@ escaladas:
     - Saulo
     - Diego
     data_abertura: '2017'
-- via_esportiva:
+- uid: BrMHU0dJXjsBV8
+  via_esportiva:
     nome: Vai ser Fei
     dificuldade: BR_6SUP
     extensao: 25
@@ -642,7 +668,8 @@ escaladas:
     conquistadores:
     - Diego Leonardo
     data_abertura: '2017'
-- via_esportiva:
+- uid: naXlgfjpGm7qed
+  via_esportiva:
     nome: Estrela Solitária
     dificuldade: BR_6SUP
     extensao: 12
@@ -651,7 +678,8 @@ escaladas:
     conquistadores:
     - Daiex de Almeida
     data_abertura: '2017'
-- via_esportiva:
+- uid: uM5ETrXCCnlNpz
+  via_esportiva:
     nome: Vergateza
     dificuldade: BR_6SUP
     extensao: 12
@@ -660,7 +688,8 @@ escaladas:
     conquistadores:
     - Daiex de Almeida
     data_abertura: '2017'
-- via_esportiva:
+- uid: wl0W2dMTksTump
+  via_esportiva:
     nome: Chico Curandeiro
     dificuldade: BR_6
     extensao: 10
@@ -669,7 +698,8 @@ escaladas:
     conquistadores:
     - Daiex de Almeida
     data_abertura: '2017'
-- via_esportiva:
+- uid: h9FgimQVw16Llh
+  via_esportiva:
     nome: Reforma Trabalhista
     dificuldade: BR_7A
     extensao: 18
@@ -678,7 +708,8 @@ escaladas:
     conquistadores:
     - Daiex de Almeida
     data_abertura: '2017'
-- via_esportiva:
+- uid: kDDmL8pKIyDiFz
+  via_esportiva:
     nome: Arborigenas
     dificuldade: PROJETO
     extensao: 18
@@ -687,7 +718,8 @@ escaladas:
     conquistadores:
     - Daiex de Almeida
     data_abertura: '2017'
-- via_esportiva:
+- uid: jJvROrAbIcYEQo
+  via_esportiva:
     nome: Faz sua Parte
     dificuldade: BR_7A
     extensao: 25
@@ -697,7 +729,8 @@ escaladas:
     - Daiex de Almeida
     - Pedro Andrade
     data_abertura: '2017'
-- via_esportiva:
+- uid: BmdokcT3buzsCG
+  via_esportiva:
     nome: Delirando
     dificuldade: BR_6SUP
     extensao: 18
@@ -706,7 +739,8 @@ escaladas:
     conquistadores:
     - Daiex de Almeida
     data_abertura: '2017'
-- via_esportiva:
+- uid: gi517SFLPmugWw
+  via_esportiva:
     nome: Saraiva
     dificuldade: BR_6SUP
     extensao: 20
@@ -715,7 +749,8 @@ escaladas:
     conquistadores:
     - Daiex de Almeida
     data_abertura: '2017'
-- via_esportiva:
+- uid: yBXaNEaTkhudiE
+  via_esportiva:
     nome: Rolando Lero
     dificuldade: BR_6SUP
     extensao: 20
@@ -724,7 +759,8 @@ escaladas:
     conquistadores:
     - Daiex de Almeida
     data_abertura: '2017'
-- via_esportiva:
+- uid: 2Hk2fgJBEqidDo
+  via_esportiva:
     nome: Jardinagem
     dificuldade: BR_7A
     extensao: 10
@@ -733,7 +769,8 @@ escaladas:
     conquistadores:
     - Daiex de Almeida
     data_abertura: '2017'
-- via_esportiva:
+- uid: 0FvddY5SgNJfXh
+  via_esportiva:
     nome: Soldados do Sol
     dificuldade: BR_7A
     extensao: 15
@@ -742,7 +779,8 @@ escaladas:
     conquistadores:
     - Alexandre Fei
     data_abertura: '2017'
-- via_esportiva:
+- uid: CCpYiQTAYU4JzL
+  via_esportiva:
     nome: Metamorfose Ambulante
     dificuldade: BR_6SUP
     extensao: 8
@@ -751,7 +789,8 @@ escaladas:
     conquistadores:
     - Daiex de Almeida
     data_abertura: '2017'
-- via_esportiva:
+- uid: YPShBCxz1NnuoC
+  via_esportiva:
     nome: Baby Rasta
     dificuldade: BR_6
     extensao: 8
@@ -760,7 +799,8 @@ escaladas:
     conquistadores:
     - Alexandre Fei
     data_abertura: '2017'
-- via_esportiva:
+- uid: 3mRLgxBhK9EuPn
+  via_esportiva:
     nome: Cara ou Crachá
     dificuldade: BR_6
     extensao: 8

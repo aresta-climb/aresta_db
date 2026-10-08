@@ -1,3 +1,4 @@
+uid: hyRUkm1gfZRwSw
 id: br_mg_caete_monte_alvao
 nome: Monte Alvão - Caeté
 descricao: |
@@ -13,125 +14,182 @@ picos:
   setores_ou_grupos:
   - setor:
       conteudo:
+        uid: miGSpygWRq6cb6
         nome: Vale Gaules
         mapas:
         - caminho_imagem_mapa: imagens/setor_vale_gaules_p0.webp
           largura_mapa: 2048
           altura_mapa: 1728
           pontos_de_interesse:
-          - id: '1'
-            label: '1'
+          - uid: 3okZzVngtkY85n
+            rotulo: '1'
             retangulo:
               x: 416
               y: 1324
               comprimento: 34
               largura: 45
-          - id: '2'
-            label: '2'
+            id: 3okZzVngtkY85n
+            label: '1'
+          - uid: pcoowIx00Czbif
+            rotulo: '2'
             retangulo:
               x: 290
               y: 1258
               comprimento: 35
               largura: 44
-          - id: '3'
-            label: '3'
+            id: pcoowIx00Czbif
+            label: '2'
+          - uid: rHfqXsL9Njw1ca
+            rotulo: '3'
             retangulo:
               x: 310
               y: 1106
               comprimento: 28
               largura: 39
-          - id: '4'
-            label: '4'
+            id: rHfqXsL9Njw1ca
+            label: '3'
+          - uid: V0nRpHhwK9mdSc
+            rotulo: '4'
             retangulo:
               x: 318
               y: 988
               comprimento: 29
               largura: 37
-          - id: '5'
-            label: '5'
+            id: V0nRpHhwK9mdSc
+            label: '4'
+          - uid: ecmvyKastDRTQ8
+            rotulo: '5'
             retangulo:
               x: 410
               y: 886
               comprimento: 35
               largura: 42
-          - id: '6'
-            label: '6'
+            id: ecmvyKastDRTQ8
+            label: '5'
+          - uid: AuTkBjcPw4enU1
+            rotulo: '6'
             retangulo:
               x: 524
               y: 788
               comprimento: 31
               largura: 41
-          - id: '7'
-            label: '7'
+            id: AuTkBjcPw4enU1
+            label: '6'
+          - uid: mCTLo35tUbwnDq
+            rotulo: '7'
             retangulo:
               x: 755
               y: 647
               comprimento: 34
               largura: 42
-          - id: '8'
-            label: '8'
+            id: mCTLo35tUbwnDq
+            label: '7'
+          - uid: RE0NyvyZmBu2yc
+            rotulo: '8'
             retangulo:
               x: 894
               y: 579
               comprimento: 29
               largura: 38
-          - id: '9'
-            label: '9'
+            id: RE0NyvyZmBu2yc
+            label: '8'
+          - uid: UUWc5c7jAxRl7F
+            rotulo: '9'
             retangulo:
               x: 862
               y: 482
               comprimento: 29
               largura: 39
-          - id: '10'
-            label: '10'
+            id: UUWc5c7jAxRl7F
+            label: '9'
+          - uid: pjdGXRG05dDq7k
+            rotulo: '10'
             retangulo:
               x: 732
               y: 504
               comprimento: 45
               largura: 41
-          - id: '11'
-            label: '11'
+            id: pjdGXRG05dDq7k
+            label: '10'
+          - uid: tqCmLfNxjeVMxY
+            rotulo: '11'
             retangulo:
               x: 646
               y: 512
               comprimento: 41
               largura: 40
+            id: tqCmLfNxjeVMxY
+            label: '11'
           referencias:
-          - escalada: Beijo Grego
+          - alvo_uid: Ffp8jQExoCB7IZ
+            pontos_uids:
+            - 3okZzVngtkY85n
+            escalada: Beijo Grego
             ids:
-            - '1'
-          - escalada: A surpresa do Cesar
+            - 3okZzVngtkY85n
+          - alvo_uid: yi3NA6H2aF4Eb5
+            pontos_uids:
+            - pcoowIx00Czbif
+            escalada: A surpresa do Cesar
             ids:
-            - '2'
-          - escalada: O sítio dos deuses
+            - pcoowIx00Czbif
+          - alvo_uid: xr0k2dVbn6alQ1
+            pontos_uids:
+            - rHfqXsL9Njw1ca
+            escalada: O sítio dos deuses
             ids:
-            - '3'
-          - escalada: Todos caminhos levam a Roma
+            - rHfqXsL9Njw1ca
+          - alvo_uid: W4NwPfyf9MEhL0
+            pontos_uids:
+            - V0nRpHhwK9mdSc
+            escalada: Todos caminhos levam a Roma
             ids:
-            - '4'
-          - escalada: Love Actually
+            - V0nRpHhwK9mdSc
+          - alvo_uid: 6Gbt0xEgMVOijY
+            pontos_uids:
+            - ecmvyKastDRTQ8
+            escalada: Love Actually
             ids:
-            - '5'
-          - escalada: Mama Gás
+            - ecmvyKastDRTQ8
+          - alvo_uid: MRy9hQtwbJExKB
+            pontos_uids:
+            - AuTkBjcPw4enU1
+            escalada: Mama Gás
             ids:
-            - '6'
-          - escalada: Java Lee
+            - AuTkBjcPw4enU1
+          - alvo_uid: LJA5GenH4hJ3bP
+            pontos_uids:
+            - mCTLo35tUbwnDq
+            escalada: Java Lee
             ids:
-            - '7'
-          - escalada: Java Porco
+            - mCTLo35tUbwnDq
+          - alvo_uid: fFXH7B7pphlHZf
+            pontos_uids:
+            - RE0NyvyZmBu2yc
+            escalada: Java Porco
             ids:
-            - '8'
-          - escalada: Absolut com limão
+            - RE0NyvyZmBu2yc
+          - alvo_uid: U9uW0vl6JjDUmL
+            pontos_uids:
+            - UUWc5c7jAxRl7F
+            escalada: Absolut com limão
             ids:
-            - '9'
-          - escalada: Ribit
+            - UUWc5c7jAxRl7F
+          - alvo_uid: iDOuCBvKulwWxB
+            pontos_uids:
+            - pjdGXRG05dDq7k
+            escalada: Ribit
             ids:
-            - '10'
-          - escalada: Xanax
+            - pjdGXRG05dDq7k
+          - alvo_uid: RdKMHcdsRKS6nf
+            pontos_uids:
+            - tqCmLfNxjeVMxY
+            escalada: Xanax
             ids:
-            - '11'
+            - tqCmLfNxjeVMxY
         escaladas:
-        - via_esportiva:
+        - uid: Ffp8jQExoCB7IZ
+          via_esportiva:
             nome: Beijo Grego
             dificuldade: BR_7C
             extensao: 20
@@ -139,7 +197,8 @@ picos:
             quantidade_protecoes_parada: 2
             conquistadores:
             - Jg
-        - via_esportiva:
+        - uid: yi3NA6H2aF4Eb5
+          via_esportiva:
             nome: A surpresa do Cesar
             dificuldade: BR_6
             extensao: 18
@@ -147,7 +206,8 @@ picos:
             quantidade_protecoes_parada: 2
             conquistadores:
             - Jg
-        - via_esportiva:
+        - uid: xr0k2dVbn6alQ1
+          via_esportiva:
             nome: O sítio dos deuses
             dificuldade: BR_5
             extensao: 18
@@ -155,7 +215,8 @@ picos:
             quantidade_protecoes_parada: 2
             conquistadores:
             - Jg
-        - via_movel:
+        - uid: W4NwPfyf9MEhL0
+          via_movel:
             nome: Todos caminhos levam a Roma
             dificuldade: BR_5SUP
             extensao: 18
@@ -163,7 +224,8 @@ picos:
             conquistadores:
             - Jg
             descricao: Parada fixa
-        - via_esportiva:
+        - uid: 6Gbt0xEgMVOijY
+          via_esportiva:
             nome: Love Actually
             dificuldade: BR_5SUP
             extensao: 18
@@ -171,7 +233,8 @@ picos:
             quantidade_protecoes_parada: 2
             conquistadores:
             - Jg
-        - via_esportiva:
+        - uid: MRy9hQtwbJExKB
+          via_esportiva:
             nome: Mama Gás
             dificuldade: BR_7A
             extensao: 15
@@ -179,7 +242,8 @@ picos:
             quantidade_protecoes_parada: 2
             conquistadores:
             - Jg
-        - via_esportiva:
+        - uid: LJA5GenH4hJ3bP
+          via_esportiva:
             nome: Java Lee
             dificuldade: BR_7A
             extensao: 12
@@ -187,7 +251,8 @@ picos:
             quantidade_protecoes_parada: 2
             conquistadores:
             - Jg
-        - via_esportiva:
+        - uid: fFXH7B7pphlHZf
+          via_esportiva:
             nome: Java Porco
             dificuldade: BR_7A
             extensao: 12
@@ -195,7 +260,8 @@ picos:
             quantidade_protecoes_parada: 2
             conquistadores:
             - Jg
-        - via_esportiva:
+        - uid: U9uW0vl6JjDUmL
+          via_esportiva:
             nome: Absolut com limão
             dificuldade: BR_7B
             extensao: 15
@@ -203,7 +269,8 @@ picos:
             quantidade_protecoes_parada: 2
             conquistadores:
             - Jg
-        - via_esportiva:
+        - uid: iDOuCBvKulwWxB
+          via_esportiva:
             nome: Ribit
             dificuldade: BR_7A
             extensao: 15
@@ -212,7 +279,8 @@ picos:
             conquistadores:
             - Jg
             descricao: Inacabada
-        - via_esportiva:
+        - uid: RdKMHcdsRKS6nf
+          via_esportiva:
             nome: Xanax
             dificuldade: BR_7C
             extensao: 20
@@ -229,258 +297,381 @@ picos:
           total_esportivas: 10
   - grupo:
       conteudo:
+        uid: PYN5lchFdNhSdp
         nome: Caverna, Mirante e Ground Control
         mapas:
         - caminho_imagem_mapa: imagens/setor_caverna_bin_laden_mirante_da_cruz_e_ground_control_p0.webp
           largura_mapa: 2048
           altura_mapa: 1721
           pontos_de_interesse:
-          - id: 1ros
-            label: 1ros
+          - uid: Q2MrikGdwTRjiw
+            rotulo: 1ros
             retangulo:
               x: 948
               y: 184
               comprimento: 30
               largura: 47
-          - id: 2ros
-            label: 2ros
+            id: Q2MrikGdwTRjiw
+            label: 1ros
+          - uid: U1vNmtBWQ7vZCN
+            rotulo: 2ros
             retangulo:
               x: 982
               y: 286
               comprimento: 29
               largura: 46
-          - id: 3ros
-            label: 3ros
+            id: U1vNmtBWQ7vZCN
+            label: 2ros
+          - uid: 6YzF0YM8l1dJta
+            rotulo: 3ros
             retangulo:
               x: 904
               y: 256
               comprimento: 30
               largura: 50
-          - id: 4ros
-            label: 4ros
+            id: 6YzF0YM8l1dJta
+            label: 3ros
+          - uid: QaIhIbNJeDZpTO
+            rotulo: 4ros
             retangulo:
               x: 937
               y: 360
               comprimento: 34
               largura: 44
-          - id: 5ros
-            label: 5ros
+            id: QaIhIbNJeDZpTO
+            label: 4ros
+          - uid: SNW7IHSQIMpw4H
+            rotulo: 5ros
             retangulo:
               x: 816
               y: 248
               comprimento: 35
               largura: 50
-          - id: 6ros
-            label: 6ros
+            id: SNW7IHSQIMpw4H
+            label: 5ros
+          - uid: hmOjtTDaNcdsQc
+            rotulo: 6ros
             retangulo:
               x: 912
               y: 182
               comprimento: 31
               largura: 47
-          - id: 1az
-            label: '1'
+            id: hmOjtTDaNcdsQc
+            label: 6ros
+          - uid: FF4spboC3cQawl
+            rotulo: '1'
             retangulo:
               x: 570
               y: 1194
               comprimento: 27
               largura: 43
-          - id: 2az
-            label: '2'
+            id: FF4spboC3cQawl
+            label: '1'
+          - uid: amw7E3BnbbnoA1
+            rotulo: '2'
             retangulo:
               x: 528
               y: 1362
               comprimento: 38
               largura: 46
-          - id: 3az
-            label: '3'
+            id: amw7E3BnbbnoA1
+            label: '2'
+          - uid: 0kO7u6STXMm3Wy
+            rotulo: '3'
             retangulo:
               x: 590
               y: 1407
               comprimento: 39
               largura: 52
-          - id: 4az
-            label: '4'
+            id: 0kO7u6STXMm3Wy
+            label: '3'
+          - uid: eRstBJ3pYVuXv1
+            rotulo: '4'
             retangulo:
               x: 536
               y: 1508
               comprimento: 28
               largura: 40
-          - id: 5az
-            label: '5'
+            id: eRstBJ3pYVuXv1
+            label: '4'
+          - uid: dXphfAP6F1bU9H
+            rotulo: '5'
             retangulo:
               x: 606
               y: 1494
               comprimento: 37
               largura: 51
-          - id: 6az
-            label: '6'
+            id: dXphfAP6F1bU9H
+            label: '5'
+          - uid: epWrDLZnxNuKa1
+            rotulo: '6'
             retangulo:
               x: 608
               y: 1575
               comprimento: 35
               largura: 50
-          - id: 1rox
-            label: 1rox
+            id: epWrDLZnxNuKa1
+            label: '6'
+          - uid: 8MOjQ3syVUZHTM
+            rotulo: 1rox
             retangulo:
               x: 1052
               y: 163
               comprimento: 29
               largura: 50
-          - id: 2rox
-            label: 2rox
+            id: 8MOjQ3syVUZHTM
+            label: 1rox
+          - uid: mYxk3dpc4YZyjY
+            rotulo: 2rox
             retangulo:
               x: 1116
               y: 194
               comprimento: 32
               largura: 57
-          - id: 3rox
-            label: 3rox
+            id: mYxk3dpc4YZyjY
+            label: 2rox
+          - uid: 5zCjqG5xxuPp8T
+            rotulo: 3rox
             retangulo:
               x: 1172
               y: 196
               comprimento: 37
               largura: 47
-          - id: 4rox
-            label: 4rox
+            id: 5zCjqG5xxuPp8T
+            label: 3rox
+          - uid: jNuKW70ZB9HF2W
+            rotulo: 4rox
             retangulo:
               x: 1252
               y: 210
               comprimento: 35
               largura: 47
-          - id: 5rox
-            label: 5rox
+            id: jNuKW70ZB9HF2W
+            label: 4rox
+          - uid: MAaFMP13lhdRa7
+            rotulo: 5rox
             retangulo:
               x: 1359
               y: 213
               comprimento: 30
               largura: 50
-          - id: 6rox
-            label: 6rox
+            id: MAaFMP13lhdRa7
+            label: 5rox
+          - uid: ZEU7TuDyKMTMF3
+            rotulo: 6rox
             retangulo:
               x: 1456
               y: 218
               comprimento: 34
               largura: 53
-          - id: 7rox
-            label: 7rox
+            id: ZEU7TuDyKMTMF3
+            label: 6rox
+          - uid: 5VnE7CQEIMGgN0
+            rotulo: 7rox
             retangulo:
               x: 1582
               y: 220
               comprimento: 33
               largura: 50
-          - id: 8rox
-            label: 8rox
+            id: 5VnE7CQEIMGgN0
+            label: 7rox
+          - uid: 8e8bEdxfleFpkZ
+            rotulo: 8rox
             retangulo:
               x: 1664
               y: 236
               comprimento: 33
               largura: 50
-          - id: 9rox
-            label: 9rox
+            id: 8e8bEdxfleFpkZ
+            label: 8rox
+          - uid: tY22RWz2rpW76q
+            rotulo: 9rox
             retangulo:
               x: 1730
               y: 303
               comprimento: 32
               largura: 48
-          - id: 10rox
-            label: 10rox
+            id: tY22RWz2rpW76q
+            label: 9rox
+          - uid: KLOfU403U9xFaJ
+            rotulo: 10rox
             retangulo:
               x: 1753
               y: 246
               comprimento: 56
               largura: 46
-          - id: 11rox
-            label: 11rox
+            id: KLOfU403U9xFaJ
+            label: 10rox
+          - uid: AjVzBpB7GXX3U4
+            rotulo: 11rox
             retangulo:
               x: 1634
               y: 436
               comprimento: 45
               largura: 53
-          - id: 12rox
-            label: 12rox
+            id: AjVzBpB7GXX3U4
+            label: 11rox
+          - uid: MslaLZvaFDuhD9
+            rotulo: 12rox
             retangulo:
               x: 1543
               y: 438
               comprimento: 50
               largura: 51
+            id: MslaLZvaFDuhD9
+            label: 12rox
           referencias:
-          - escalada: Capitã Minhoca
+          - alvo_uid: am42vvg5w16ewW
+            pontos_uids:
+            - Q2MrikGdwTRjiw
+            escalada: Capitã Minhoca
             ids:
-            - 1ros
-          - escalada: He Man
+            - Q2MrikGdwTRjiw
+          - alvo_uid: Z03Km8onLRnz0j
+            pontos_uids:
+            - U1vNmtBWQ7vZCN
+            escalada: He Man
             ids:
-            - 2ros
-          - escalada: Esqueleto
+            - U1vNmtBWQ7vZCN
+          - alvo_uid: CNzYlLGBA0X9lG
+            pontos_uids:
+            - 6YzF0YM8l1dJta
+            escalada: Esqueleto
             ids:
-            - 3ros
-          - escalada: Allahu Akbar
+            - 6YzF0YM8l1dJta
+          - alvo_uid: oGyqDP0L1JFcAK
+            pontos_uids:
+            - QaIhIbNJeDZpTO
+            escalada: Allahu Akbar
             ids:
-            - 4ros
-          - escalada: Saída à Francesa
+            - QaIhIbNJeDZpTO
+          - alvo_uid: Uvqb3jaawzyWBH
+            pontos_uids:
+            - SNW7IHSQIMpw4H
+            escalada: Saída à Francesa
             ids:
-            - 5ros
-          - escalada: Paris em Chamas
+            - SNW7IHSQIMpw4H
+          - alvo_uid: EiiTGp6N9Ra8tJ
+            pontos_uids:
+            - hmOjtTDaNcdsQc
+            escalada: Paris em Chamas
             ids:
-            - 6ros
-          - escalada: Urubu tá com raiva do boi
+            - hmOjtTDaNcdsQc
+          - alvo_uid: NnA3VyWBwYic7a
+            pontos_uids:
+            - FF4spboC3cQawl
+            escalada: Urubu tá com raiva do boi
             ids:
-            - 1az
-          - escalada: Maria Teresa
+            - FF4spboC3cQawl
+          - alvo_uid: 4STXHy6ALejKG1
+            pontos_uids:
+            - amw7E3BnbbnoA1
+            escalada: Maria Teresa
             ids:
-            - 2az
-          - escalada: Uma gota de milagre
+            - amw7E3BnbbnoA1
+          - alvo_uid: 1OF9kIT42IkO2I
+            pontos_uids:
+            - 0kO7u6STXMm3Wy
+            escalada: Uma gota de milagre
             ids:
-            - 3az
-          - escalada: Quem não chora não mama
+            - 0kO7u6STXMm3Wy
+          - alvo_uid: M73pbiDkCe3mXG
+            pontos_uids:
+            - eRstBJ3pYVuXv1
+            escalada: Quem não chora não mama
             ids:
-            - 4az
-          - escalada: Chapolin
+            - eRstBJ3pYVuXv1
+          - alvo_uid: Ojgt766iJ0dj4P
+            pontos_uids:
+            - dXphfAP6F1bU9H
+            escalada: Chapolin
             ids:
-            - 5az
-          - escalada: Desvio na pista
+            - dXphfAP6F1bU9H
+          - alvo_uid: QTFzHbgBzFjdjq
+            pontos_uids:
+            - epWrDLZnxNuKa1
+            escalada: Desvio na pista
             ids:
-            - 6az
-          - escalada: Essa via não é minha
+            - epWrDLZnxNuKa1
+          - alvo_uid: SRdjxYR9aFvUic
+            pontos_uids:
+            - 8MOjQ3syVUZHTM
+            escalada: Essa via não é minha
             ids:
-            - 1rox
-          - escalada: Vento da Patagônia
+            - 8MOjQ3syVUZHTM
+          - alvo_uid: VF5tiua5Ys9sP6
+            pontos_uids:
+            - mYxk3dpc4YZyjY
+            escalada: Vento da Patagônia
             ids:
-            - 2rox
-          - escalada: Mr Bean
+            - mYxk3dpc4YZyjY
+          - alvo_uid: VVlVJ1biOKZ3wQ
+            pontos_uids:
+            - 5zCjqG5xxuPp8T
+            escalada: Mr Bean
             ids:
-            - 3rox
-          - escalada: Lagarto de aniversário
+            - 5zCjqG5xxuPp8T
+          - alvo_uid: sfbZA4b37hhjeg
+            pontos_uids:
+            - jNuKW70ZB9HF2W
+            escalada: Lagarto de aniversário
             ids:
-            - 4rox
-          - escalada: Cavuca tatu
+            - jNuKW70ZB9HF2W
+          - alvo_uid: D2EWCm3zSMNjcH
+            pontos_uids:
+            - MAaFMP13lhdRa7
+            escalada: Cavuca tatu
             ids:
-            - 5rox
-          - escalada: Zé colmeia e Dona Flor
+            - MAaFMP13lhdRa7
+          - alvo_uid: uF9Eg3vtz77ZMr
+            pontos_uids:
+            - ZEU7TuDyKMTMF3
+            escalada: Zé colmeia e Dona Flor
             ids:
-            - 6rox
-          - escalada: Tirolês
+            - ZEU7TuDyKMTMF3
+          - alvo_uid: QfPbjTXJrW5Jxs
+            pontos_uids:
+            - 5VnE7CQEIMGgN0
+            escalada: Tirolês
             ids:
-            - 7rox
-          - escalada: 10 c
+            - 5VnE7CQEIMGgN0
+          - alvo_uid: 25TIeXApVrMsVt
+            pontos_uids:
+            - 8e8bEdxfleFpkZ
+            escalada: 10 c
             ids:
-            - 8rox
-          - escalada: Sabor Baunilha
+            - 8e8bEdxfleFpkZ
+          - alvo_uid: kOnhjmWh9NSnJ1
+            pontos_uids:
+            - tY22RWz2rpW76q
+            escalada: Sabor Baunilha
             ids:
-            - 9rox
-          - escalada: O charme da Trad
+            - tY22RWz2rpW76q
+          - alvo_uid: PiNuVbxxXUK2P0
+            pontos_uids:
+            - KLOfU403U9xFaJ
+            escalada: O charme da Trad
             ids:
-            - 10rox
-          - escalada: Café Ole
+            - KLOfU403U9xFaJ
+          - alvo_uid: Dp5B1X2pzFqB1G
+            pontos_uids:
+            - AjVzBpB7GXX3U4
+            escalada: Café Ole
             ids:
-            - 11rox
-          - escalada: Tio Tonton
+            - AjVzBpB7GXX3U4
+          - alvo_uid: 7RbqyoLUwWU6XB
+            pontos_uids:
+            - MslaLZvaFDuhD9
+            escalada: Tio Tonton
             ids:
-            - 12rox
+            - MslaLZvaFDuhD9
         setores:
         - conteudo:
+            uid: f6qhe8I2ffld4p
             nome: Caverna do Bin Laden
             escaladas:
-            - via_esportiva:
+            - uid: am42vvg5w16ewW
+              via_esportiva:
                 nome: Capitã Minhoca
                 dificuldade: BR_5SUP
                 extensao: 22
@@ -488,7 +679,8 @@ picos:
                 quantidade_protecoes_parada: 2
                 conquistadores:
                 - Jg
-            - via_multiplas_enfiadas:
+            - uid: Z03Km8onLRnz0j
+              via_multiplas_enfiadas:
                 nome: He Man
                 dificuldade_media: BR_6SUP
                 dificuldade_maxima: BR_7B
@@ -517,7 +709,8 @@ picos:
                 - Jg
                 quantidade_costuras_intermediarias: 8
                 quantidade_equipamentos_parada: 2
-            - via_multiplas_enfiadas:
+            - uid: CNzYlLGBA0X9lG
+              via_multiplas_enfiadas:
                 nome: Esqueleto
                 dificuldade_media: BR_6
                 dificuldade_maxima: BR_6
@@ -547,7 +740,8 @@ picos:
                 - Jg
                 quantidade_costuras_intermediarias: 8
                 quantidade_equipamentos_parada: 2
-            - via_esportiva:
+            - uid: oGyqDP0L1JFcAK
+              via_esportiva:
                 nome: Allahu Akbar
                 dificuldade: BR_7A
                 extensao: 22
@@ -555,7 +749,8 @@ picos:
                 quantidade_protecoes_parada: 2
                 conquistadores:
                 - Jg
-            - via_esportiva:
+            - uid: Uvqb3jaawzyWBH
+              via_esportiva:
                 nome: Saída à Francesa
                 dificuldade: BR_8B
                 extensao: 24
@@ -564,7 +759,8 @@ picos:
                 conquistadores:
                 - Pablo Gonçalves
                 - Jg
-            - via_esportiva:
+            - uid: EiiTGp6N9Ra8tJ
+              via_esportiva:
                 nome: Paris em Chamas
                 dificuldade: BR_10A
                 extensao: 24
@@ -580,9 +776,11 @@ picos:
               total_esportivas: 4
               total_multiplas_enfiadas: 2
         - conteudo:
+            uid: ORe2ixkg2P8JW0
             nome: Mirante da Cruz
             escaladas:
-            - via_esportiva:
+            - uid: NnA3VyWBwYic7a
+              via_esportiva:
                 nome: Urubu tá com raiva do boi
                 dificuldade: BR_5SUP
                 extensao: 30
@@ -590,7 +788,8 @@ picos:
                 quantidade_protecoes_parada: 2
                 conquistadores:
                 - jg
-            - via_esportiva:
+            - uid: 4STXHy6ALejKG1
+              via_esportiva:
                 nome: Maria Teresa
                 dificuldade: BR_6
                 extensao: 26
@@ -598,7 +797,8 @@ picos:
                 quantidade_protecoes_parada: 2
                 conquistadores:
                 - jg
-            - via_esportiva:
+            - uid: 1OF9kIT42IkO2I
+              via_esportiva:
                 nome: Uma gota de milagre
                 dificuldade: BR_7A
                 extensao: 28
@@ -606,7 +806,8 @@ picos:
                 quantidade_protecoes_parada: 2
                 conquistadores:
                 - jg
-            - via_esportiva:
+            - uid: M73pbiDkCe3mXG
+              via_esportiva:
                 nome: Quem não chora não mama
                 dificuldade: BR_7B
                 extensao: 28
@@ -614,7 +815,8 @@ picos:
                 quantidade_protecoes_parada: 2
                 conquistadores:
                 - jg
-            - via_esportiva:
+            - uid: Ojgt766iJ0dj4P
+              via_esportiva:
                 nome: Chapolin
                 dificuldade: BR_7A
                 extensao: 30
@@ -622,7 +824,8 @@ picos:
                 quantidade_protecoes_parada: 2
                 conquistadores:
                 - jg
-            - via_esportiva:
+            - uid: QTFzHbgBzFjdjq
+              via_esportiva:
                 nome: Desvio na pista
                 dificuldade: BR_7B
                 extensao: 30
@@ -635,15 +838,18 @@ picos:
               total_escaladas: 6
               total_esportivas: 6
         - conteudo:
+            uid: NZGLAfWYiM8NDf
             nome: Ground Control
             escaladas:
-            - via_movel:
+            - uid: SRdjxYR9aFvUic
+              via_movel:
                 nome: Essa via não é minha
                 dificuldade: BR_4SUP
                 extensao: 70
                 conquistadores:
                 - Rander Jr Sidnei
-            - via_esportiva:
+            - uid: VF5tiua5Ys9sP6
+              via_esportiva:
                 nome: Vento da Patagônia
                 dificuldade: BR_5
                 extensao: 30
@@ -651,7 +857,8 @@ picos:
                 quantidade_protecoes_parada: 2
                 conquistadores:
                 - Danilo Steling
-            - via_multiplas_enfiadas:
+            - uid: VVlVJ1biOKZ3wQ
+              via_multiplas_enfiadas:
                 nome: Mr Bean
                 dificuldade_media: BR_6SUP
                 dificuldade_maxima: BR_7A
@@ -677,7 +884,8 @@ picos:
                 - Jg
                 quantidade_costuras_intermediarias: 10
                 quantidade_equipamentos_parada: 2
-            - via_esportiva:
+            - uid: sfbZA4b37hhjeg
+              via_esportiva:
                 nome: Lagarto de aniversário
                 dificuldade: BR_6
                 extensao: 30
@@ -686,7 +894,8 @@ picos:
                 conquistadores:
                 - Jg
                 descricao: Variante Mr Bean
-            - via_esportiva:
+            - uid: D2EWCm3zSMNjcH
+              via_esportiva:
                 nome: Cavuca tatu
                 dificuldade: BR_7A
                 extensao: 30
@@ -694,7 +903,8 @@ picos:
                 quantidade_protecoes_parada: 2
                 conquistadores:
                 - Jg
-            - via_movel:
+            - uid: uF9Eg3vtz77ZMr
+              via_movel:
                 nome: Zé colmeia e Dona Flor
                 dificuldade: BR_4SUP
                 extensao: 30
@@ -702,13 +912,15 @@ picos:
                 - Sidnei
                 - Natita
                 descricao: Parada fixa
-            - via_esportiva:
+            - uid: QfPbjTXJrW5Jxs
+              via_esportiva:
                 nome: Tirolês
                 dificuldade: BR_5
                 extensao: 30
                 quantidade_protecoes_intermediarias: 6
                 quantidade_protecoes_parada: 2
-            - via_esportiva:
+            - uid: 25TIeXApVrMsVt
+              via_esportiva:
                 nome: 10 c
                 dificuldade: BR_6
                 extensao: 30
@@ -717,7 +929,8 @@ picos:
                 conquistadores:
                 - sidnei
                 - Jg
-            - via_multiplas_enfiadas:
+            - uid: kOnhjmWh9NSnJ1
+              via_multiplas_enfiadas:
                 nome: Sabor Baunilha
                 dificuldade_media: BR_7B
                 dificuldade_maxima: BR_7B
@@ -737,7 +950,8 @@ picos:
                 - Jg
                 quantidade_costuras_intermediarias: 10
                 quantidade_equipamentos_parada: 2
-            - via_movel:
+            - uid: PiNuVbxxXUK2P0
+              via_movel:
                 nome: O charme da Trad
                 dificuldade: BR_6
                 extensao: 60
@@ -745,7 +959,8 @@ picos:
                 - Pablo Gonçalves
                 - Jg
                 descricao: Parada fixa
-            - via_multiplas_enfiadas:
+            - uid: Dp5B1X2pzFqB1G
+              via_multiplas_enfiadas:
                 nome: Café Ole
                 dificuldade_media: BR_5
                 dificuldade_maxima: BR_5SUP
@@ -765,7 +980,8 @@ picos:
                 - Ana de Papel
                 quantidade_costuras_intermediarias: 8
                 quantidade_equipamentos_parada: 2
-            - via_multiplas_enfiadas:
+            - uid: 7RbqyoLUwWU6XB
+              via_multiplas_enfiadas:
                 nome: Tio Tonton
                 dificuldade_media: BR_6SUP
                 dificuldade_maxima: BR_7B
@@ -799,148 +1015,216 @@ picos:
           total_multiplas_enfiadas: 6
   - grupo:
       conteudo:
+        uid: 8IUjj0RLhfFcWs
         nome: Parede do Ladrão e Forno da Onça
         mapas:
         - caminho_imagem_mapa: imagens/setor_parede_do_ladrao_e_forno_da_onca_p0.webp
           largura_mapa: 2048
           altura_mapa: 1712
           pontos_de_interesse:
-          - id: 1am
-            label: 1am
+          - uid: tidyYQI45l4M4C
+            rotulo: 1am
             retangulo:
               x: 106
               y: 728
               comprimento: 28
               largura: 41
-          - id: 2am
-            label: 2am
+            id: tidyYQI45l4M4C
+            label: 1am
+          - uid: NZUnotfGBMGf7b
+            rotulo: 2am
             retangulo:
               x: 167
               y: 840
               comprimento: 36
               largura: 47
-          - id: 3am
-            label: 3am
+            id: NZUnotfGBMGf7b
+            label: 2am
+          - uid: zIQURQpzSFH74x
+            rotulo: 3am
             retangulo:
               x: 159
               y: 720
               comprimento: 34
               largura: 43
-          - id: 4am
-            label: 4am
+            id: zIQURQpzSFH74x
+            label: 3am
+          - uid: JfMdZmlBlP4Q4A
+            rotulo: 4am
             retangulo:
               x: 238
               y: 756
               comprimento: 29
               largura: 39
-          - id: 5am
-            label: 5am
+            id: JfMdZmlBlP4Q4A
+            label: 4am
+          - uid: sCaTF1IUacIrw5
+            rotulo: 5am
             retangulo:
               x: 255
               y: 670
               comprimento: 28
               largura: 41
-          - id: 6am
-            label: 6am
+            id: sCaTF1IUacIrw5
+            label: 5am
+          - uid: ZVBZ4goQqPyALm
+            rotulo: 6am
             retangulo:
               x: 678
               y: 711
               comprimento: 35
               largura: 48
-          - id: 1az
-            label: 1az
+            id: ZVBZ4goQqPyALm
+            label: 6am
+          - uid: tW0IJUIvoYNNA5
+            rotulo: 1az
             retangulo:
               x: 852
               y: 728
               comprimento: 26
               largura: 39
-          - id: 2az
-            label: 2az
+            id: tW0IJUIvoYNNA5
+            label: 1az
+          - uid: KUcgfiTFiiASGS
+            rotulo: 2az
             retangulo:
               x: 1000
               y: 684
               comprimento: 29
               largura: 35
-          - id: 3az
-            label: 3az
+            id: KUcgfiTFiiASGS
+            label: 2az
+          - uid: znE8p6bhqC1S4h
+            rotulo: 3az
             retangulo:
               x: 1141
               y: 642
               comprimento: 32
               largura: 42
-          - id: 4az
-            label: 4az
+            id: znE8p6bhqC1S4h
+            label: 3az
+          - uid: MrexSxflKI708E
+            rotulo: 4az
             retangulo:
               x: 1426
               y: 748
               comprimento: 32
               largura: 43
-          - id: 5az
-            label: 5az
+            id: MrexSxflKI708E
+            label: 4az
+          - uid: bij9PzJuilmoNk
+            rotulo: 5az
             retangulo:
               x: 1512
               y: 688
               comprimento: 31
               largura: 44
-          - id: 6az
-            label: 6az
+            id: bij9PzJuilmoNk
+            label: 5az
+          - uid: zc3T3uICTsELQQ
+            rotulo: 6az
             retangulo:
               x: 1614
               y: 572
               comprimento: 33
               largura: 44
-          - id: 7az
-            label: 7az
+            id: zc3T3uICTsELQQ
+            label: 6az
+          - uid: E3QLsYCV0XvvDn
+            rotulo: 7az
             retangulo:
               x: 1752
               y: 558
               comprimento: 32
               largura: 47
+            id: E3QLsYCV0XvvDn
+            label: 7az
           referencias:
-          - escalada: Cuidado Ketely
+          - alvo_uid: dZVBFM4DLQod4l
+            pontos_uids:
+            - tidyYQI45l4M4C
+            escalada: Cuidado Ketely
             ids:
-            - 1am
-          - escalada: You will survive
+            - tidyYQI45l4M4C
+          - alvo_uid: lVrVfzAW6CFKI8
+            pontos_uids:
+            - NZUnotfGBMGf7b
+            escalada: You will survive
             ids:
-            - 2am
-          - escalada: Cara ou Coroa
+            - NZUnotfGBMGf7b
+          - alvo_uid: jQp6QJPSjj35UK
+            pontos_uids:
+            - zIQURQpzSFH74x
+            escalada: Cara ou Coroa
             ids:
-            - 3am
-          - escalada: French CanCan
+            - zIQURQpzSFH74x
+          - alvo_uid: wpKPlfVuQUYZet
+            pontos_uids:
+            - JfMdZmlBlP4Q4A
+            escalada: French CanCan
             ids:
-            - 4am
-          - escalada: On the road again
+            - JfMdZmlBlP4Q4A
+          - alvo_uid: gQSqnHdV2fl65E
+            pontos_uids:
+            - sCaTF1IUacIrw5
+            escalada: On the road again
             ids:
-            - 5am
-          - escalada: Incrível mas verdadeiro
+            - sCaTF1IUacIrw5
+          - alvo_uid: 4jtwL3rfc3s7ZZ
+            pontos_uids:
+            - ZVBZ4goQqPyALm
+            escalada: Incrível mas verdadeiro
             ids:
-            - 6am
-          - escalada: Bouder com leite
+            - ZVBZ4goQqPyALm
+          - alvo_uid: 6brYAuVDrbBvAw
+            pontos_uids:
+            - tW0IJUIvoYNNA5
+            escalada: Bouder com leite
             ids:
-            - 1az
-          - escalada: Chipie chipie
+            - tW0IJUIvoYNNA5
+          - alvo_uid: PVeUNI2z5ZF2Tm
+            pontos_uids:
+            - KUcgfiTFiiASGS
+            escalada: Chipie chipie
             ids:
-            - 2az
-          - escalada: Bambi
+            - KUcgfiTFiiASGS
+          - alvo_uid: QikrFfrr6Uc1dc
+            pontos_uids:
+            - znE8p6bhqC1S4h
+            escalada: Bambi
             ids:
-            - 3az
-          - escalada: Ana Thor
+            - znE8p6bhqC1S4h
+          - alvo_uid: zO8eFwgiznf8jR
+            pontos_uids:
+            - MrexSxflKI708E
+            escalada: Ana Thor
             ids:
-            - 4az
-          - escalada: Au bout des doigts
+            - MrexSxflKI708E
+          - alvo_uid: Ses94ZqiV7Fh5L
+            pontos_uids:
+            - bij9PzJuilmoNk
+            escalada: Au bout des doigts
             ids:
-            - 5az
-          - escalada: Boom Boom
+            - bij9PzJuilmoNk
+          - alvo_uid: 9rDOoj432k34gL
+            pontos_uids:
+            - zc3T3uICTsELQQ
+            escalada: Boom Boom
             ids:
-            - 6az
-          - escalada: Petit Pichou
+            - zc3T3uICTsELQQ
+          - alvo_uid: uePCKiIlb4Tv0K
+            pontos_uids:
+            - E3QLsYCV0XvvDn
+            escalada: Petit Pichou
             ids:
-            - 7az
+            - E3QLsYCV0XvvDn
         setores:
         - conteudo:
+            uid: Qb6WGpJV9QBeJY
             nome: Forno da Onça
             escaladas:
-            - via_esportiva:
+            - uid: dZVBFM4DLQod4l
+              via_esportiva:
                 nome: Cuidado Ketely
                 dificuldade: BR_6
                 extensao: 24
@@ -948,7 +1232,8 @@ picos:
                 quantidade_protecoes_parada: 2
                 conquistadores:
                 - Jg
-            - via_esportiva:
+            - uid: lVrVfzAW6CFKI8
+              via_esportiva:
                 nome: You will survive
                 dificuldade: BR_7A
                 extensao: 20
@@ -956,7 +1241,8 @@ picos:
                 quantidade_protecoes_parada: 2
                 conquistadores:
                 - Jg
-            - via_esportiva:
+            - uid: jQp6QJPSjj35UK
+              via_esportiva:
                 nome: Cara ou Coroa
                 dificuldade: BR_6
                 extensao: 22
@@ -964,7 +1250,8 @@ picos:
                 quantidade_protecoes_parada: 2
                 conquistadores:
                 - Jg
-            - via_esportiva:
+            - uid: wpKPlfVuQUYZet
+              via_esportiva:
                 nome: French CanCan
                 dificuldade: BR_6SUP
                 extensao: 28
@@ -972,7 +1259,8 @@ picos:
                 quantidade_protecoes_parada: 2
                 conquistadores:
                 - Jg
-            - via_esportiva:
+            - uid: gQSqnHdV2fl65E
+              via_esportiva:
                 nome: On the road again
                 dificuldade: BR_6SUP
                 extensao: 18
@@ -980,7 +1268,8 @@ picos:
                 quantidade_protecoes_parada: 2
                 conquistadores:
                 - Jg
-            - via_multiplas_enfiadas:
+            - uid: 4jtwL3rfc3s7ZZ
+              via_multiplas_enfiadas:
                 nome: Incrível mas verdadeiro
                 dificuldade_media: BR_6
                 dificuldade_maxima: BR_6
@@ -1007,33 +1296,39 @@ picos:
               total_esportivas: 5
               total_multiplas_enfiadas: 1
         - conteudo:
+            uid: NPg6eUqYFEWNix
             nome: Parede do Ladrão
             escaladas:
-            - via_esportiva:
+            - uid: 6brYAuVDrbBvAw
+              via_esportiva:
                 nome: Bouder com leite
                 dificuldade: BR_5
                 extensao: 25
                 quantidade_protecoes_intermediarias: 4
                 quantidade_protecoes_parada: 2
-            - via_esportiva:
+            - uid: PVeUNI2z5ZF2Tm
+              via_esportiva:
                 nome: Chipie chipie
                 dificuldade: BR_4SUP
                 extensao: 23
                 quantidade_protecoes_intermediarias: 6
                 quantidade_protecoes_parada: 2
-            - via_esportiva:
+            - uid: QikrFfrr6Uc1dc
+              via_esportiva:
                 nome: Bambi
                 dificuldade: BR_4
                 extensao: 20
                 quantidade_protecoes_intermediarias: 4
                 quantidade_protecoes_parada: 2
-            - via_esportiva:
+            - uid: zO8eFwgiznf8jR
+              via_esportiva:
                 nome: Ana Thor
                 dificuldade: BR_7C
                 extensao: 15
                 quantidade_protecoes_intermediarias: 6
                 quantidade_protecoes_parada: 2
-            - via_esportiva:
+            - uid: Ses94ZqiV7Fh5L
+              via_esportiva:
                 nome: Au bout des doigts
                 dificuldade: BR_7B
                 extensao: 22
@@ -1043,13 +1338,15 @@ picos:
                 - Pablo Gonçalves
                 - Jg
                 descricao: Base no platô superior
-            - via_esportiva:
+            - uid: 9rDOoj432k34gL
+              via_esportiva:
                 nome: Boom Boom
                 dificuldade: BR_6SUP
                 extensao: 28
                 quantidade_protecoes_intermediarias: 8
                 quantidade_protecoes_parada: 2
-            - via_esportiva:
+            - uid: uePCKiIlb4Tv0K
+              via_esportiva:
                 nome: Petit Pichou
                 dificuldade: BR_6SUP
                 extensao: 28
@@ -1069,88 +1366,126 @@ picos:
           total_multiplas_enfiadas: 1
   - grupo:
       conteudo:
+        uid: JI5tVwPnDWIuk7
         nome: Curto e Grosso, Malibu e Terra do Nunca
         mapas:
         - caminho_imagem_mapa: imagens/setor_curto_e_grosso_malibu_e_terra_do_nunca_p0.webp
           largura_mapa: 2048
           altura_mapa: 1716
           pontos_de_interesse:
-          - id: 1az
-            label: 1az
+          - uid: 0JWb3oTHfaUtmQ
+            rotulo: 1az
             retangulo:
               x: 212
               y: 402
               comprimento: 35
               largura: 49
-          - id: 1ve
-            label: 1ve
+            id: 0JWb3oTHfaUtmQ
+            label: 1az
+          - uid: q4GSjBI58kIW30
+            rotulo: 1ve
             retangulo:
               x: 722
               y: 848
               comprimento: 19
               largura: 35
-          - id: 2ve
-            label: 2ve
+            id: q4GSjBI58kIW30
+            label: 1ve
+          - uid: ydC7zIuz9SErQg
+            rotulo: 2ve
             retangulo:
               x: 746
               y: 869
               comprimento: 21
               largura: 40
-          - id: 3ve
-            label: 3ve
+            id: ydC7zIuz9SErQg
+            label: 2ve
+          - uid: 1Bj76ajRO4eoFF
+            rotulo: 3ve
             retangulo:
               x: 719
               y: 944
               comprimento: 32
               largura: 39
-          - id: 4ve
-            label: 4ve
+            id: 1Bj76ajRO4eoFF
+            label: 3ve
+          - uid: zcObHou4vD95jn
+            rotulo: 4ve
             retangulo:
               x: 789
               y: 902
               comprimento: 32
               largura: 41
-          - id: 1ro
-            label: 1ro
+            id: zcObHou4vD95jn
+            label: 4ve
+          - uid: G4tq1RUvtiHgt1
+            rotulo: 1ro
             retangulo:
               x: 1756
               y: 1474
               comprimento: 31
               largura: 45
-          - id: 2ro
-            label: 2ro
+            id: G4tq1RUvtiHgt1
+            label: 1ro
+          - uid: sNQ8WIx4JBasno
+            rotulo: 2ro
             retangulo:
               x: 1686
               y: 1468
               comprimento: 26
               largura: 42
+            id: sNQ8WIx4JBasno
+            label: 2ro
           referencias:
-          - escalada: La Speza
+          - alvo_uid: z3iyGVQLgcfWR8
+            pontos_uids:
+            - 0JWb3oTHfaUtmQ
+            escalada: La Speza
             ids:
-            - 1az
-          - escalada: Gekke Greda
+            - 0JWb3oTHfaUtmQ
+          - alvo_uid: CIZ94V52CuEYwg
+            pontos_uids:
+            - q4GSjBI58kIW30
+            escalada: Gekke Greda
             ids:
-            - 1ve
-          - escalada: O Breizh
+            - q4GSjBI58kIW30
+          - alvo_uid: y1XEoQHBfJpdIK
+            pontos_uids:
+            - ydC7zIuz9SErQg
+            escalada: O Breizh
             ids:
-            - 2ve
-          - escalada: Dedo no C* e Gritaria
+            - ydC7zIuz9SErQg
+          - alvo_uid: lDyymLQnKpZcZ8
+            pontos_uids:
+            - 1Bj76ajRO4eoFF
+            escalada: Dedo no C* e Gritaria
             ids:
-            - 3ve
-          - escalada: Tea Time
+            - 1Bj76ajRO4eoFF
+          - alvo_uid: 6fB8psV1Pl0pQj
+            pontos_uids:
+            - zcObHou4vD95jn
+            escalada: Tea Time
             ids:
-            - 4ve
-          - escalada: Mimi Zokko
+            - zcObHou4vD95jn
+          - alvo_uid: rVUUjHYYMqsyK7
+            pontos_uids:
+            - G4tq1RUvtiHgt1
+            escalada: Mimi Zokko
             ids:
-            - 1ro
-          - escalada: Mariposa
+            - G4tq1RUvtiHgt1
+          - alvo_uid: N1HCQAY4CDiR53
+            pontos_uids:
+            - sNQ8WIx4JBasno
+            escalada: Mariposa
             ids:
-            - 2ro
+            - sNQ8WIx4JBasno
         setores:
         - conteudo:
+            uid: 9nBKJkNFTsLt6U
             nome: Terra do Nunca
             escaladas:
-            - via_esportiva:
+            - uid: z3iyGVQLgcfWR8
+              via_esportiva:
                 nome: La Speza
                 dificuldade: BR_6
                 extensao: 25
@@ -1164,9 +1499,11 @@ picos:
               total_escaladas: 1
               total_esportivas: 1
         - conteudo:
+            uid: BjL9SR8V0cBhuL
             nome: Curto e Grosso
             escaladas:
-            - via_esportiva:
+            - uid: CIZ94V52CuEYwg
+              via_esportiva:
                 nome: Gekke Greda
                 dificuldade: BR_7B
                 extensao: 12
@@ -1175,7 +1512,8 @@ picos:
                 conquistadores:
                 - Jg
                 - Angela Van Dutch
-            - via_esportiva:
+            - uid: y1XEoQHBfJpdIK
+              via_esportiva:
                 nome: O Breizh
                 dificuldade: BR_7A
                 extensao: 12
@@ -1184,7 +1522,8 @@ picos:
                 conquistadores:
                 - Jg
                 - Morgan Hervaut
-            - via_esportiva:
+            - uid: lDyymLQnKpZcZ8
+              via_esportiva:
                 nome: Dedo no C* e Gritaria
                 dificuldade: BR_8A
                 extensao: 12
@@ -1193,7 +1532,8 @@ picos:
                 conquistadores:
                 - Jg
                 - Cristian Charme
-            - via_esportiva:
+            - uid: 6fB8psV1Pl0pQj
+              via_esportiva:
                 nome: Tea Time
                 dificuldade: BR_6
                 extensao: 12
@@ -1207,9 +1547,11 @@ picos:
               total_escaladas: 4
               total_esportivas: 4
         - conteudo:
+            uid: VvpFZdnJEkLma2
             nome: Malibu
             escaladas:
-            - via_esportiva:
+            - uid: rVUUjHYYMqsyK7
+              via_esportiva:
                 nome: Mimi Zokko
                 dificuldade: BR_5SUP
                 extensao: 25
@@ -1217,7 +1559,8 @@ picos:
                 quantidade_protecoes_parada: 2
                 conquistadores:
                 - Jg
-            - via_esportiva:
+            - uid: N1HCQAY4CDiR53
+              via_esportiva:
                 nome: Mariposa
                 dificuldade: BR_6
                 extensao: 25
@@ -1244,8 +1587,8 @@ picos:
         largura_mapa: 2048
         altura_mapa: 1447
         pontos_de_interesse:
-        - id: malibu
-          label: Malibu
+        - uid: pQ5EAC5RrakmqG
+          rotulo: Malibu
           poligono:
             coordenadas:
             - 938
@@ -1258,8 +1601,10 @@ picos:
             - 1099
             - 943
             - 1094
-        - id: terra_do_nunca
-          label: Terra do Nunca
+          id: pQ5EAC5RrakmqG
+          label: Malibu
+        - uid: aWutwoCQRIP9Hd
+          rotulo: Terra do Nunca
           poligono:
             coordenadas:
             - 726
@@ -1278,8 +1623,10 @@ picos:
             - 961
             - 729
             - 929
-        - id: mirante_da_cruz
-          label: Mirante da Cruz
+          id: aWutwoCQRIP9Hd
+          label: Terra do Nunca
+        - uid: LWwENdMSUOpsJH
+          rotulo: Mirante da Cruz
           poligono:
             coordenadas:
             - 677
@@ -1292,8 +1639,10 @@ picos:
             - 887
             - 686
             - 834
-        - id: curto_e_grosso
-          label: Curto e Grosso
+          id: LWwENdMSUOpsJH
+          label: Mirante da Cruz
+        - uid: G9L6yUVPJNwpKW
+          rotulo: Curto e Grosso
           poligono:
             coordenadas:
             - 823
@@ -1314,8 +1663,10 @@ picos:
             - 1039
             - 809
             - 1008
-        - id: ground_control
-          label: Ground Control
+          id: G9L6yUVPJNwpKW
+          label: Curto e Grosso
+        - uid: dWZZ23ph6JxQ4w
+          rotulo: Ground Control
           poligono:
             coordenadas:
             - 733
@@ -1330,8 +1681,10 @@ picos:
             - 765
             - 724
             - 754
-        - id: forno_da_onca
-          label: Forno da Onça
+          id: dWZZ23ph6JxQ4w
+          label: Ground Control
+        - uid: aNbv8RTvEFBSq3
+          rotulo: Forno da Onça
           poligono:
             coordenadas:
             - 808
@@ -1354,16 +1707,20 @@ picos:
             - 778
             - 809
             - 766
-        - id: caverna_do_bin_laden
-          label: Caverna do Bin Laden
+          id: aNbv8RTvEFBSq3
+          label: Forno da Onça
+        - uid: PvRLpRmRrTzMLL
+          rotulo: Caverna do Bin Laden
           retangulo:
             x: 714
             y: 758
             comprimento: 55
             largura: 8
             angulo_graus_x100: -5973
-        - id: parede_do_ladrao
-          label: Parede do Ladrão
+          id: PvRLpRmRrTzMLL
+          label: Caverna do Bin Laden
+        - uid: sFpAb8M5SOrh1g
+          rotulo: Parede do Ladrão
           poligono:
             coordenadas:
             - 857
@@ -1376,8 +1733,10 @@ picos:
             - 737
             - 919
             - 764
-        - id: vale_gaules
-          label: Vale Gaules
+          id: sFpAb8M5SOrh1g
+          label: Parede do Ladrão
+        - uid: r6gwIBm8vPLkW9
+          rotulo: Vale Gaules
           poligono:
             coordenadas:
             - 673
@@ -1388,24 +1747,43 @@ picos:
             - 637
             - 722
             - 659
+          id: r6gwIBm8vPLkW9
+          label: Vale Gaules
         referencias:
-        - setor: Vale Gaules
+        - alvo_uid: miGSpygWRq6cb6
+          pontos_uids:
+          - r6gwIBm8vPLkW9
+          setor: Vale Gaules
           ids:
-          - vale_gaules
-        - ids:
-          - caverna_do_bin_laden
-          - mirante_da_cruz
-          - ground_control
+          - r6gwIBm8vPLkW9
+        - alvo_uid: PYN5lchFdNhSdp
+          pontos_uids:
+          - PvRLpRmRrTzMLL
+          - LWwENdMSUOpsJH
+          - dWZZ23ph6JxQ4w
           grupo: Caverna, Mirante e Ground Control
-        - ids:
-          - parede_do_ladrao
-          - forno_da_onca
+          ids:
+          - PvRLpRmRrTzMLL
+          - LWwENdMSUOpsJH
+          - dWZZ23ph6JxQ4w
+        - alvo_uid: 8IUjj0RLhfFcWs
+          pontos_uids:
+          - sFpAb8M5SOrh1g
+          - aNbv8RTvEFBSq3
           grupo: Parede do Ladrão e Forno da Onça
-        - ids:
-          - terra_do_nunca
-          - curto_e_grosso
-          - malibu
+          ids:
+          - sFpAb8M5SOrh1g
+          - aNbv8RTvEFBSq3
+        - alvo_uid: JI5tVwPnDWIuk7
+          pontos_uids:
+          - aWutwoCQRIP9Hd
+          - G9L6yUVPJNwpKW
+          - pQ5EAC5RrakmqG
           grupo: Curto e Grosso, Malibu e Terra do Nunca
+          ids:
+          - aWutwoCQRIP9Hd
+          - G9L6yUVPJNwpKW
+          - pQ5EAC5RrakmqG
   localizacao:
     latitude: -199102878
     longitude: -435758238
@@ -1415,7 +1793,7 @@ picos:
     total_grupos: 3
     total_esportivas: 44
     total_multiplas_enfiadas: 7
-ultima_migracao: 4
+ultima_migracao: 5
 publicar_croqui: true
 revisado_bounding_circle: true
 botoes: []

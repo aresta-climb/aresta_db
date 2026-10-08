@@ -41,6 +41,7 @@ def test_salvamento_e_compilacao_com_pico_vazio_e_grupo_sem_setores(storage_temp
     arquivo_grupo = caminho_database / "grupo_boulders.md"
     conteudo_grupo = (
         "---\n"
+        "uid: '1234567890abcd'\n"
         "nome: Setores Boulders\n"
         "setores: []\n"
         "---\n"
@@ -53,6 +54,7 @@ def test_salvamento_e_compilacao_com_pico_vazio_e_grupo_sem_setores(storage_temp
     #    - Pico 2 completamente novo e vazio (setores_ou_grupos vazio)
     dados_croqui = {
         "id": "br_mg_teste_vazio",
+        "uid": "1234567890abcd",
         "nome": "Croqui Teste Vazio",
         "descricao": "Croqui com estruturas em progresso para teste de integração",
         "picos": [

@@ -20,13 +20,16 @@ class DialogoBuscaReferenciaTest(unittest.TestCase):
         
         sg_grupo = pico.setores_ou_grupos.add()
         grupo = sg_grupo.grupo.conteudo
+        grupo.uid = "grp_1"
         grupo.nome = "Grupo Teste"
         
         setor_msg = grupo.setores.add()
         setor = setor_msg.conteudo
+        setor.uid = "set_1"
         setor.nome = "Setor Teste"
         
         via = setor.escaladas.add()
+        via.uid = "esc_1"
         via.via_esportiva.nome = "Via Teste"
         
         self.model = CroquiModel(croqui)
@@ -57,10 +60,8 @@ class DialogoBuscaReferenciaTest(unittest.TestCase):
         
         ref = self.dialogo.obter_referencia()
         self.assertIsNotNone(ref)
-        self.assertEqual(ref.grupo, "Grupo Teste")
-        self.assertEqual(ref.setor, "Setor Teste")
-        self.assertEqual(ref.escalada, "Via Teste")
-        self.assertEqual(len(ref.ids), 0) # Sem IDs ainda
+        self.assertEqual(ref.alvo_uid, "esc_1")
+        self.assertEqual(len(ref.pontos_uids), 0) # Sem nós linkados ainda
 
     def test_primeiro_item_selecionado_automaticamente(self):
         # Quando a lista inicial carrega, o primeiro item deve estar selecionado

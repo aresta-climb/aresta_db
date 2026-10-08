@@ -1,6 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+uid: fueKv7mvJ5Mon2
 caminho_imagem_capa: imagens/setor_vale_das_sombras_p2_i0.webp
 nome: Setor Vale das Sombras
 mapas:
@@ -8,255 +9,255 @@ mapas:
   largura_mapa: 745
   altura_mapa: 1078
   pontos_de_interesse:
-  - id: '1'
-    label: '1'
+  - uid: Fy8s1oxrgBwLLh
+    rotulo: '1'
     circulo:
       x: 63
       y: 790
       raio: 12
-  - id: '2'
-    label: '2'
+  - uid: rXHNACJzD3gDEw
+    rotulo: '2'
     circulo:
       x: 118
       y: 802
       raio: 12
-  - id: '3'
-    label: '3'
+  - uid: nn0f6DSAdeDHcZ
+    rotulo: '3'
     circulo:
       x: 188
       y: 816
       raio: 12
-  - id: '4'
-    label: '4'
+  - uid: wy9S1yyp2V5F0k
+    rotulo: '4'
     circulo:
       x: 257
       y: 749
       raio: 12
-  - id: '5'
-    label: '5'
+  - uid: H0fjPMYfVsINci
+    rotulo: '5'
     circulo:
       x: 270
       y: 655
       raio: 13
-  - id: '6'
-    label: '6'
+  - uid: XAjnH8ddLvZS2V
+    rotulo: '6'
     circulo:
       x: 283
       y: 506
       raio: 12
-  - id: '7'
-    label: '7'
+  - uid: DuYphnIUHlPJ4z
+    rotulo: '7'
     circulo:
       x: 299
       y: 469
       raio: 12
-  - id: '8'
-    label: '8'
+  - uid: 7hSvD0NnCmiuBp
+    rotulo: '8'
     circulo:
       x: 314
       y: 356
       raio: 12
-  - id: '9'
-    label: '9'
+  - uid: VlFNIwsenq51Bq
+    rotulo: '9'
     circulo:
       x: 203
       y: 210
       raio: 12
-  - id: '10'
-    label: '10'
+  - uid: fL5qXSOtOB4Jlx
+    rotulo: '10'
     circulo:
       x: 198
       y: 168
       raio: 12
-  - id: '11'
-    label: '11'
+  - uid: 0oW5ZiJWnkvI08
+    rotulo: '11'
     circulo:
       x: 212
       y: 128
       raio: 12
-  - id: '12'
-    label: '12'
+  - uid: gjN5270CpvjjYs
+    rotulo: '12'
     circulo:
       x: 328
       y: 115
       raio: 12
-  - id: '13'
-    label: '13'
+  - uid: RAJxymLXkcHCxL
+    rotulo: '13'
     circulo:
       x: 404
       y: 113
       raio: 12
-  - id: '14'
-    label: '14'
+  - uid: a767R0rUkJB0eY
+    rotulo: '14'
     circulo:
       x: 472
       y: 89
       raio: 12
-  - id: '15'
-    label: '15'
+  - uid: jtr8YSTI408yM1
+    rotulo: '15'
     circulo:
       x: 509
       y: 81
       raio: 12
-  - id: '16'
-    label: '16'
+  - uid: 6UIu9Ld3PWvabm
+    rotulo: '16'
     circulo:
       x: 549
       y: 71
       raio: 12
-  - id: '17'
-    label: '17'
+  - uid: IuSHQAav6fxmzj
+    rotulo: '17'
     circulo:
       x: 592
       y: 51
       raio: 12
   referencias:
-  - escalada: Curta e Grossa
-    ids:
-    - '1'
-  - escalada: Trabalhosa
-    ids:
-    - '2'
-  - escalada: Revolução dos Insetos
-    ids:
-    - '3'
-  - escalada: Frango com Quiabo
-    ids:
-    - '4'
-  - escalada: É Proibido Furar
-    ids:
-    - '5'
-  - escalada: Bafin de Leite
-    ids:
-    - '6'
-  - escalada: '?'
-    ids:
-    - '7'
-  - escalada: Sujismunda
-    ids:
-    - '8'
-  - escalada: Samurai
-    ids:
-    - '9'
-  - escalada: Ninja
-    ids:
-    - '10'
-  - escalada: Fly Monkeys
-    ids:
-    - '11'
-  - escalada: Lado A Lado B
-    ids:
-    - '12'
-  - escalada: Meu Nome Não é Lero
-    ids:
-    - '13'
-  - escalada: Nosso Mestre
-    ids:
-    - '14'
-  - escalada: Segunda Já Tá í
-    ids:
-    - '15'
-  - escalada: Brincadeira de Criança
-    ids:
-    - '16'
-  - escalada: Peripécias do Climb
-    ids:
-    - '17'
-  - escalada: Lelê Café
-    ids:
-    - '17'
+  - alvo_uid: jCGleAfbp7oTIy
+    pontos_uids:
+    - Fy8s1oxrgBwLLh
+  - alvo_uid: B7PNm5PTndXwRY
+    pontos_uids:
+    - rXHNACJzD3gDEw
+  - alvo_uid: qyjblNci9wD6uI
+    pontos_uids:
+    - nn0f6DSAdeDHcZ
+  - alvo_uid: d4zX7shNhr2gtY
+    pontos_uids:
+    - wy9S1yyp2V5F0k
+  - alvo_uid: LoMDotNpLKQzhx
+    pontos_uids:
+    - H0fjPMYfVsINci
+  - alvo_uid: HkYXUalaj3JLcz
+    pontos_uids:
+    - XAjnH8ddLvZS2V
+  - alvo_uid: zqxp5W0FpciE3Z
+    pontos_uids:
+    - DuYphnIUHlPJ4z
+  - alvo_uid: 7pHoINM0yFCJ1V
+    pontos_uids:
+    - 7hSvD0NnCmiuBp
+  - alvo_uid: VyfnuyF70I3L5c
+    pontos_uids:
+    - VlFNIwsenq51Bq
+  - alvo_uid: 1LMmIEI5mXAqqu
+    pontos_uids:
+    - fL5qXSOtOB4Jlx
+  - alvo_uid: 2QEoUWDhIYo1uX
+    pontos_uids:
+    - 0oW5ZiJWnkvI08
+  - alvo_uid: mH6Av5mEfpnmF7
+    pontos_uids:
+    - gjN5270CpvjjYs
+  - alvo_uid: vEpsbrlfDSnjTe
+    pontos_uids:
+    - RAJxymLXkcHCxL
+  - alvo_uid: DTxHZkgZqL57DZ
+    pontos_uids:
+    - a767R0rUkJB0eY
+  - alvo_uid: FIb3dppL3KaKA9
+    pontos_uids:
+    - jtr8YSTI408yM1
+  - alvo_uid: gPBwwpjst9j3th
+    pontos_uids:
+    - 6UIu9Ld3PWvabm
+  - alvo_uid: EVAXPsjYIgrpoP
+    pontos_uids:
+    - IuSHQAav6fxmzj
+  - alvo_uid: yRDiY6TFvD2zvh
+    pontos_uids:
+    - IuSHQAav6fxmzj
 - caminho_imagem_mapa: imagens/setor_vale_das_sombras_p1_i0.webp
   largura_mapa: 729
   altura_mapa: 1311
   pontos_de_interesse:
-  - id: '17'
-    label: '17'
+  - uid: yr75iWdRDTAwQN
+    rotulo: '17'
     circulo:
       x: 342
       y: 1211
       raio: 23
-  - id: '18'
-    label: '18'
+  - uid: dDlsjaE4n92vYU
+    rotulo: '18'
     circulo:
       x: 359
       y: 1146
       raio: 23
-  - id: '19'
-    label: '19'
+  - uid: hTOQZZkoq5d8Mv
+    rotulo: '19'
     circulo:
       x: 399
       y: 1084
       raio: 23
-  - id: '20'
-    label: '20'
+  - uid: l1Mhz8Q65c4mlr
+    rotulo: '20'
     circulo:
       x: 414
       y: 1004
       raio: 24
-  - id: '21'
-    label: '21'
+  - uid: hFRXQOpIZfu7TE
+    rotulo: '21'
     circulo:
       x: 443
       y: 917
       raio: 24
-  - id: '22'
-    label: '22'
+  - uid: WcQFcUHe25B1wT
+    rotulo: '22'
     circulo:
       x: 504
       y: 842
       raio: 23
-  - id: '23'
-    label: '23'
+  - uid: QQf1Hhb5mwimQo
+    rotulo: '23'
     circulo:
       x: 560
       y: 757
       raio: 24
-  - id: '24'
-    label: '24'
+  - uid: F89xHOIC1y3Slq
+    rotulo: '24'
     circulo:
       x: 603
       y: 687
       raio: 24
-  - id: '25'
-    label: '25'
+  - uid: tUGxxinaX0Ux9c
+    rotulo: '25'
     circulo:
       x: 632
       y: 567
       raio: 24
-  - id: '26'
-    label: '26'
+  - uid: AopiFxU1JY3u1z
+    rotulo: '26'
     circulo:
       x: 642
       y: 483
       raio: 24
-  - id: '27'
-    label: '27'
+  - uid: uhdn0DXHQ3EPvK
+    rotulo: '27'
     circulo:
       x: 661
       y: 383
       raio: 24
-  - id: '28'
-    label: '28'
+  - uid: ZKw8SmZghKZn4T
+    rotulo: '28'
     circulo:
       x: 654
       y: 312
       raio: 24
-  - id: '29'
-    label: '29'
+  - uid: tIhEaOQSqDJghO
+    rotulo: '29'
     circulo:
       x: 658
       y: 243
       raio: 23
-  - id: Setor_Gameleira
-    label: ← SETOR GAMELEIRA
+  - uid: 1UcLZwI7VG83Ue
+    rotulo: ← SETOR GAMELEIRA
     retangulo:
       x: 76
       y: 976
       comprimento: 31
       largura: 201
       angulo_graus_x100: -3782
-  - id: Setor_4_Picos
-    label: ← SETOR 4 PICOS
+  - uid: fLvkXNI7YUbuLm
+    rotulo: ← SETOR 4 PICOS
     retangulo:
       x: 100
       y: 1200
@@ -264,170 +265,200 @@ mapas:
       largura: 165
       angulo_graus_x100: 1162
   referencias:
-  - escalada: Peripécias do Climb
-    ids:
-    - '17'
-  - escalada: Lelê Café
-    ids:
-    - '17'
-  - escalada: Tiu Marreteiro
-    ids:
-    - '18'
-  - escalada: Animáquina
-    ids:
-    - '19'
-  - escalada: Moça do Sapo
-    ids:
-    - '20'
-  - escalada: Over Tênis
-    ids:
-    - '21'
-  - escalada: Fita No Calcário
-    ids:
-    - '22'
-  - escalada: Só de 70
-    ids:
-    - '23'
-  - escalada: Black Dog
-    ids:
-    - '24'
-  - escalada: Variante Mum-hhazinha
-    ids:
-    - '25'
-  - escalada: Pedras e Espinhos
-    ids:
-    - '26'
-  - escalada: Pé de Oreia
-    ids:
-    - '27'
-  - escalada: Perdidos
-    ids:
-    - '28'
-  - escalada: Velhos Novatos
-    ids:
-    - '29'
-  - ids:
-    - Setor_4_Picos
-    setor: Setor 4 Picos
-  - ids:
-    - Setor_Gameleira
-    setor: Setor Gameleira
+  - alvo_uid: EVAXPsjYIgrpoP
+    pontos_uids:
+    - yr75iWdRDTAwQN
+  - alvo_uid: yRDiY6TFvD2zvh
+    pontos_uids:
+    - yr75iWdRDTAwQN
+  - alvo_uid: RtVKfqXU4d2O5H
+    pontos_uids:
+    - dDlsjaE4n92vYU
+  - alvo_uid: SfpssMXcaPCDhx
+    pontos_uids:
+    - hTOQZZkoq5d8Mv
+  - alvo_uid: cFe6d8p9VeVR2S
+    pontos_uids:
+    - l1Mhz8Q65c4mlr
+  - alvo_uid: sOiNJJZ6QIc3SN
+    pontos_uids:
+    - hFRXQOpIZfu7TE
+  - alvo_uid: hlXiBaHK9X6edI
+    pontos_uids:
+    - WcQFcUHe25B1wT
+  - alvo_uid: OCS3JhgG0wwJU4
+    pontos_uids:
+    - QQf1Hhb5mwimQo
+  - alvo_uid: Ct2zGJzzBPgpOs
+    pontos_uids:
+    - F89xHOIC1y3Slq
+  - alvo_uid: 4API2aIOMSUsrP
+    pontos_uids:
+    - tUGxxinaX0Ux9c
+  - alvo_uid: 8wskz89uCipecq
+    pontos_uids:
+    - AopiFxU1JY3u1z
+  - alvo_uid: S2tUYBjwIBwoCm
+    pontos_uids:
+    - uhdn0DXHQ3EPvK
+  - alvo_uid: inpIbAmbxswoXb
+    pontos_uids:
+    - ZKw8SmZghKZn4T
+  - alvo_uid: E2P3yMlwW0p8DG
+    pontos_uids:
+    - tIhEaOQSqDJghO
+  - alvo_uid: imSvcK2q24F9DV
+    pontos_uids:
+    - fLvkXNI7YUbuLm
+  - alvo_uid: TU7ksiizSIZqH4
+    pontos_uids:
+    - 1UcLZwI7VG83Ue
 escaladas:
-- via_esportiva:
+- uid: jCGleAfbp7oTIy
+  via_esportiva:
     nome: Curta e Grossa
     dificuldade: BR_7A
     quantidade_protecoes_intermediarias: 6
-- via_esportiva:
+- uid: B7PNm5PTndXwRY
+  via_esportiva:
     nome: Trabalhosa
     dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 7
-- via_esportiva:
+- uid: qyjblNci9wD6uI
+  via_esportiva:
     nome: Revolução dos Insetos
     dificuldade: BR_7A
     quantidade_protecoes_intermediarias: 5
-- via_esportiva:
+- uid: d4zX7shNhr2gtY
+  via_esportiva:
     nome: Frango com Quiabo
     dificuldade: BR_7A
     quantidade_protecoes_intermediarias: 6
-- via_esportiva:
+- uid: LoMDotNpLKQzhx
+  via_esportiva:
     nome: É Proibido Furar
     dificuldade: BR_7C
     quantidade_protecoes_intermediarias: 7
-- via_esportiva:
+- uid: HkYXUalaj3JLcz
+  via_esportiva:
     nome: Bafin de Leite
     descricao: Inacabada.
-- via_esportiva:
+- uid: zqxp5W0FpciE3Z
+  via_esportiva:
     nome: '?'
     descricao: Inacabada.
-- via_esportiva:
+- uid: 7pHoINM0yFCJ1V
+  via_esportiva:
     nome: Sujismunda
     descricao: Inacabada.
-- via_esportiva:
+- uid: VyfnuyF70I3L5c
+  via_esportiva:
     nome: Samurai
     dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 13
-- via_esportiva:
+- uid: 1LMmIEI5mXAqqu
+  via_esportiva:
     nome: Ninja
     dificuldade: BR_7A
     quantidade_protecoes_intermediarias: 16
-- via_esportiva:
+- uid: 2QEoUWDhIYo1uX
+  via_esportiva:
     nome: Fly Monkeys
     dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 10
-- via_esportiva:
+- uid: mH6Av5mEfpnmF7
+  via_esportiva:
     nome: Lado A Lado B
     dificuldade: BR_7A_BARRA_7B
     quantidade_protecoes_intermediarias: 7
-- via_esportiva:
+- uid: vEpsbrlfDSnjTe
+  via_esportiva:
     nome: Meu Nome Não é Lero
     dificuldade: BR_7B
     quantidade_protecoes_intermediarias: 8
-- via_esportiva:
+- uid: DTxHZkgZqL57DZ
+  via_esportiva:
     nome: Nosso Mestre
     dificuldade: BR_5
     quantidade_protecoes_intermediarias: 6
-- via_esportiva:
+- uid: FIb3dppL3KaKA9
+  via_esportiva:
     nome: Segunda Já Tá í
     dificuldade: BR_7A
     quantidade_protecoes_intermediarias: 6
-- via_esportiva:
+- uid: gPBwwpjst9j3th
+  via_esportiva:
     nome: Brincadeira de Criança
     dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 6
-- via_esportiva:
+- uid: EVAXPsjYIgrpoP
+  via_esportiva:
     nome: Peripécias do Climb
     dificuldade: BR_6
     quantidade_protecoes_intermediarias: 4
-- via_esportiva:
+- uid: yRDiY6TFvD2zvh
+  via_esportiva:
     nome: Lelê Café
     dificuldade: BR_7A
     quantidade_protecoes_intermediarias: 10
     descricao: Número 17 no segundo mapa do setor.
-- via_esportiva:
+- uid: RtVKfqXU4d2O5H
+  via_esportiva:
     nome: Tiu Marreteiro
     dificuldade: BR_8A
     quantidade_protecoes_intermediarias: 9
-- via_esportiva:
+- uid: SfpssMXcaPCDhx
+  via_esportiva:
     nome: Animáquina
     dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 10
-- via_esportiva:
+- uid: cFe6d8p9VeVR2S
+  via_esportiva:
     nome: Moça do Sapo
     dificuldade: BR_6
     quantidade_protecoes_intermediarias: 10
-- via_movel:
+- uid: sOiNJJZ6QIc3SN
+  via_movel:
     nome: Over Tênis
     dificuldade: BR_6
     protecoes_moveis: Móvel / Top Duplo.
-- via_movel:
+- uid: hlXiBaHK9X6edI
+  via_movel:
     nome: Fita No Calcário
     dificuldade: BR_6
     protecoes_moveis: Móvel, Top da "Só de 70".
-- via_esportiva:
+- uid: OCS3JhgG0wwJU4
+  via_esportiva:
     nome: Só de 70
     dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 13
-- via_esportiva:
+- uid: Ct2zGJzzBPgpOs
+  via_esportiva:
     nome: Black Dog
     dificuldade: BR_6SUP
     descricao: Mista / 4 Fixas + Top Duplo.
-- via_esportiva:
+- uid: 4API2aIOMSUsrP
+  via_esportiva:
     nome: Variante Mum-hhazinha
     dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 10
-- via_esportiva:
+- uid: 8wskz89uCipecq
+  via_esportiva:
     nome: Pedras e Espinhos
     dificuldade: BR_7A
     quantidade_protecoes_intermediarias: 10
-- via_esportiva:
+- uid: S2tUYBjwIBwoCm
+  via_esportiva:
     nome: Pé de Oreia
     dificuldade: BR_6
     quantidade_protecoes_intermediarias: 5
-- via_esportiva:
+- uid: inpIbAmbxswoXb
+  via_esportiva:
     nome: Perdidos
     dificuldade: BR_6
     quantidade_protecoes_intermediarias: 5
-- via_esportiva:
+- uid: E2P3yMlwW0p8DG
+  via_esportiva:
     nome: Velhos Novatos
     dificuldade: BR_4
     quantidade_protecoes_intermediarias: 5

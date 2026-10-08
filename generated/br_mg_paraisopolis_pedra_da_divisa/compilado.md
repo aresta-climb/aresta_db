@@ -8,6 +8,7 @@
     
 - **id**: br_mg_paraisopolis_pedra_da_divisa
 - **nome**: Pedra da Divisa - Face MG
+- **uid**: qsh4FUA8apmN3B
 - **revisado_manualmente**: True
 - **revisado_bounding_circle**: True
 - **status_desenho_extraivel**: DESENHO_EXTRAIDO
@@ -17,6 +18,7 @@
 - **caminho_thumbnail**: ![caminho_thumbnail](imagens/capa_p0_i0.webp)
 - **botoes**:
   - **[0]**:
+    - **uid**: XULHW4POgRf2ec
     - **texto**: Capa
     - **destino**:
       - **secao_textual**:
@@ -29,6 +31,7 @@
             | :--: |
             | *Pedra da Divisa - Face MG* |
   - **[1]**:
+    - **uid**: v85C7ppp4gd9jt
     - **texto**: Introdução
     - **destino**:
       - **secao_textual**:
@@ -68,6 +71,7 @@
             **Primogênito**, 7a
             Setor Cangaço
   - **[2]**:
+    - **uid**: gAqfBllOohHoSU
     - **texto**: Regras
     - **destino**:
       - **secao_textual**:
@@ -97,6 +101,7 @@
             | :--: |
             | *Rocx e Deuter logos* |
   - **[3]**:
+    - **uid**: kB41f6G4dsKkE1
     - **texto**: Como Chegar e Aproximação
     - **destino**:
       - **secao_textual**:
@@ -133,6 +138,7 @@
             
             No passado já foram avistadas cobras venenosas, mas hoje é bastante raro cruzar com alguma. A Santa Casa de São Bento do Sapucaí possui soro anti-ofídico para tratar eventuais acidentes com animais peçonhentos.
   - **[4]**:
+    - **uid**: L6x6rEH5pGTtxb
     - **texto**: Contracapa
     - **destino**:
       - **secao_textual**:
@@ -140,7 +146,7 @@
             | ![Foto de escalada na contracapa](imagens/contracapa_p0_i0.webp) |
             | :--: |
             | *Foto de escalada na contracapa* |
-- **ultima_migracao**: 4
+- **ultima_migracao**: 5
 - **publicar_croqui**: True
 
 
@@ -156,6 +162,7 @@
     **Equipamentos Necessários:** Corda de 60m é obrigatória para rapelar. Para as vias
     esportivas, você vai precisar de 15 costuras.
 - **nome**: Setor Cangaço
+- **uid**: cPqYtwbejGtFTg
 - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_cangaco_p0_i0.webp)
 - **mapas**:
   - **[0]**:
@@ -164,214 +171,305 @@
     - **altura_mapa**: 717
     - **pontos_de_interesse**:
       - **[0]**:
-        - **id**: titulo
-        - **label**: SETOR CANGAÇO
+        - **id**: 8SmIz5D1bF7zEL
+        - **uid**: 8SmIz5D1bF7zEL
+        - **rotulo**: SETOR CANGAÇO
         - **retangulo**:
           - **x**: 166
           - **y**: 72
           - **comprimento**: 256
           - **largura**: 75
+        - **label**: SETOR CANGAÇO
       - **[1]**:
-        - **id**: 01_bot
-        - **label**: 01
+        - **id**: XqPUCMqPKraZZ3
+        - **uid**: XqPUCMqPKraZZ3
+        - **rotulo**: 01
         - **circulo**:
           - **x**: 56
           - **y**: 587
           - **raio**: 12
+        - **label**: 01
       - **[2]**:
-        - **id**: 02_bot
-        - **label**: 02
+        - **id**: 1daR2AMi0llxXM
+        - **uid**: 1daR2AMi0llxXM
+        - **rotulo**: 02
         - **circulo**:
           - **x**: 139
           - **y**: 596
           - **raio**: 12
+        - **label**: 02
       - **[3]**:
-        - **id**: 03_bot
-        - **label**: 03
+        - **id**: nELtPBrn6kRTHV
+        - **uid**: nELtPBrn6kRTHV
+        - **rotulo**: 03
         - **circulo**:
           - **x**: 265
           - **y**: 607
           - **raio**: 12
+        - **label**: 03
       - **[4]**:
-        - **id**: 02_mid
-        - **label**: 02
+        - **id**: Tu4jPqPdm73xzJ
+        - **uid**: Tu4jPqPdm73xzJ
+        - **rotulo**: 02
         - **circulo**:
           - **x**: 140
           - **y**: 210
           - **raio**: 12
+        - **label**: 02
       - **[5]**:
-        - **id**: 03_mid
-        - **label**: 03
+        - **id**: 2EUf0rxVoCVbtx
+        - **uid**: 2EUf0rxVoCVbtx
+        - **rotulo**: 03
         - **circulo**:
           - **x**: 208
           - **y**: 193
           - **raio**: 12
+        - **label**: 03
       - **[6]**:
-        - **id**: 04_top
-        - **label**: 04
+        - **id**: jHw0iCp1aYwAXc
+        - **uid**: jHw0iCp1aYwAXc
+        - **rotulo**: 04
         - **circulo**:
           - **x**: 500
           - **y**: 207
           - **raio**: 12
+        - **label**: 04
       - **[7]**:
-        - **id**: 05_top
-        - **label**: 05
+        - **id**: EDhQmmQqs2MiAm
+        - **uid**: EDhQmmQqs2MiAm
+        - **rotulo**: 05
         - **circulo**:
           - **x**: 574
           - **y**: 195
           - **raio**: 12
+        - **label**: 05
       - **[8]**:
-        - **id**: 06_mid
-        - **label**: 06
+        - **id**: tSgJ8flfigkDw9
+        - **uid**: tSgJ8flfigkDw9
+        - **rotulo**: 06
         - **circulo**:
           - **x**: 750
           - **y**: 248
           - **raio**: 12
-      - **[9]**:
-        - **id**: 06_bot
         - **label**: 06
+      - **[9]**:
+        - **id**: Aj429rBLa0cJQP
+        - **uid**: Aj429rBLa0cJQP
+        - **rotulo**: 06
         - **circulo**:
           - **x**: 612
           - **y**: 663
           - **raio**: 12
+        - **label**: 06
       - **[10]**:
-        - **id**: 07_bot
-        - **label**: 07
+        - **id**: skV2Y8ldKhXNcz
+        - **uid**: skV2Y8ldKhXNcz
+        - **rotulo**: 07
         - **circulo**:
           - **x**: 769
           - **y**: 661
           - **raio**: 12
+        - **label**: 07
       - **[11]**:
-        - **id**: 08_bot
-        - **label**: 08
+        - **id**: ENBdArbuDIXyM4
+        - **uid**: ENBdArbuDIXyM4
+        - **rotulo**: 08
         - **circulo**:
           - **x**: 945
           - **y**: 672
           - **raio**: 12
+        - **label**: 08
       - **[12]**:
-        - **id**: 09_bot
-        - **label**: 09
+        - **id**: nXPB7hOES5UUVg
+        - **uid**: nXPB7hOES5UUVg
+        - **rotulo**: 09
         - **circulo**:
           - **x**: 1001
           - **y**: 669
           - **raio**: 12
+        - **label**: 09
       - **[13]**:
-        - **id**: 10_bot
-        - **label**: 10
+        - **id**: ODroUrANMC33Xs
+        - **uid**: ODroUrANMC33Xs
+        - **rotulo**: 10
         - **circulo**:
           - **x**: 1072
           - **y**: 663
           - **raio**: 13
+        - **label**: 10
       - **[14]**:
-        - **id**: 09_top
-        - **label**: 09
+        - **id**: Mv59tD0AVmowSW
+        - **uid**: Mv59tD0AVmowSW
+        - **rotulo**: 09
         - **circulo**:
           - **x**: 937
           - **y**: 112
           - **raio**: 12
+        - **label**: 09
       - **[15]**:
-        - **id**: 10_top
-        - **label**: 10
+        - **id**: EQlmsuGnBuW2Ai
+        - **uid**: EQlmsuGnBuW2Ai
+        - **rotulo**: 10
         - **circulo**:
           - **x**: 1072
           - **y**: 178
           - **raio**: 13
+        - **label**: 10
       - **[16]**:
-        - **id**: 11_top
-        - **label**: 11
+        - **id**: avecH1ySNo6RxX
+        - **uid**: avecH1ySNo6RxX
+        - **rotulo**: 11
         - **circulo**:
           - **x**: 1172
           - **y**: 161
           - **raio**: 13
+        - **label**: 11
       - **[17]**:
-        - **id**: 12_top
-        - **label**: 12
+        - **id**: GdOtJtEtk8KK8m
+        - **uid**: GdOtJtEtk8KK8m
+        - **rotulo**: 12
         - **circulo**:
           - **x**: 1257
           - **y**: 145
           - **raio**: 13
+        - **label**: 12
       - **[18]**:
-        - **id**: 13_top
-        - **label**: 13
+        - **id**: kZ6uVGJ5mwgoXT
+        - **uid**: kZ6uVGJ5mwgoXT
+        - **rotulo**: 13
         - **circulo**:
           - **x**: 1348
           - **y**: 134
           - **raio**: 13
+        - **label**: 13
       - **[19]**:
-        - **id**: ditados
-        - **label**: DITADOS
+        - **id**: 9S5irijZ9Dzt9l
+        - **uid**: 9S5irijZ9Dzt9l
+        - **rotulo**: DITADOS
         - **retangulo**:
           - **x**: 1479
           - **y**: 661
           - **comprimento**: 110
           - **largura**: 30
+        - **label**: DITADOS
     - **referencias**:
       - **[0]**:
+        - **alvo_uid**: iZyWEJAptlNjmm
+        - **pontos_uids**:
+          - XqPUCMqPKraZZ3
+          - Tu4jPqPdm73xzJ
         - **escalada**: Fenômeno
         - **ids**:
-          - 01_bot
-          - 02_mid
+          - XqPUCMqPKraZZ3
+          - Tu4jPqPdm73xzJ
       - **[1]**:
+        - **alvo_uid**: E29Rut312gW3HT
+        - **pontos_uids**:
+          - 1daR2AMi0llxXM
+          - Tu4jPqPdm73xzJ
         - **escalada**: Maradona
         - **ids**:
-          - 02_bot
-          - 02_mid
+          - 1daR2AMi0llxXM
+          - Tu4jPqPdm73xzJ
       - **[2]**:
+        - **alvo_uid**: 73ufzuFeXUwQeJ
+        - **pontos_uids**:
+          - nELtPBrn6kRTHV
+          - 2EUf0rxVoCVbtx
         - **escalada**: Primogênito
         - **ids**:
-          - 03_bot
-          - 03_mid
+          - nELtPBrn6kRTHV
+          - 2EUf0rxVoCVbtx
       - **[3]**:
+        - **alvo_uid**: MUjFx1aKjEKwPP
+        - **pontos_uids**:
+          - jHw0iCp1aYwAXc
         - **escalada**: Mil e um nomes de bebês
         - **ids**:
-          - 04_top
+          - jHw0iCp1aYwAXc
       - **[4]**:
+        - **alvo_uid**: sH5AYDzVkgUSER
+        - **pontos_uids**:
+          - EDhQmmQqs2MiAm
         - **escalada**: Diadorim
         - **ids**:
-          - 05_top
+          - EDhQmmQqs2MiAm
       - **[5]**:
+        - **alvo_uid**: 1DedxYA9RFSHtY
+        - **pontos_uids**:
+          - Aj429rBLa0cJQP
+          - tSgJ8flfigkDw9
         - **escalada**: Sem reservas, por favor
         - **ids**:
-          - 06_bot
-          - 06_mid
+          - Aj429rBLa0cJQP
+          - tSgJ8flfigkDw9
       - **[6]**:
+        - **alvo_uid**: GcXaTKynU2WabK
+        - **pontos_uids**:
+          - skV2Y8ldKhXNcz
+          - tSgJ8flfigkDw9
         - **escalada**: Antônio Conselheiro
         - **ids**:
-          - 07_bot
-          - 06_mid
+          - skV2Y8ldKhXNcz
+          - tSgJ8flfigkDw9
       - **[7]**:
+        - **alvo_uid**: jNucseQb5dOByz
+        - **pontos_uids**:
+          - ENBdArbuDIXyM4
+          - Mv59tD0AVmowSW
         - **escalada**: Lampião
         - **ids**:
-          - 08_bot
-          - 09_top
+          - ENBdArbuDIXyM4
+          - Mv59tD0AVmowSW
       - **[8]**:
+        - **alvo_uid**: GzVoyifxG9kYkm
+        - **pontos_uids**:
+          - nXPB7hOES5UUVg
+          - Mv59tD0AVmowSW
         - **escalada**: Maria Bonita
         - **ids**:
-          - 09_bot
-          - 09_top
+          - nXPB7hOES5UUVg
+          - Mv59tD0AVmowSW
       - **[9]**:
+        - **alvo_uid**: n3UNT17lKPCfrw
+        - **pontos_uids**:
+          - ODroUrANMC33Xs
+          - EQlmsuGnBuW2Ai
         - **escalada**: Corisco
         - **ids**:
-          - 10_bot
-          - 10_top
+          - ODroUrANMC33Xs
+          - EQlmsuGnBuW2Ai
       - **[10]**:
+        - **alvo_uid**: 8EAcxGLhclJBot
+        - **pontos_uids**:
+          - avecH1ySNo6RxX
         - **escalada**: Volta Seca
         - **ids**:
-          - 11_top
+          - avecH1ySNo6RxX
       - **[11]**:
+        - **alvo_uid**: AHCs2iAyt6U21h
+        - **pontos_uids**:
+          - GdOtJtEtk8KK8m
         - **escalada**: Ameaça
         - **ids**:
-          - 12_top
+          - GdOtJtEtk8KK8m
       - **[12]**:
+        - **alvo_uid**: dT8caYlBKkWJNy
+        - **pontos_uids**:
+          - kZ6uVGJ5mwgoXT
         - **escalada**: Zé Sereno
         - **ids**:
-          - 13_top
+          - kZ6uVGJ5mwgoXT
       - **[13]**:
-        - **ids**:
-          - ditados
+        - **alvo_uid**: k5H0BvsrjybAhQ
+        - **pontos_uids**:
+          - 9S5irijZ9Dzt9l
         - **setor**: Setor Ditados
+        - **ids**:
+          - 9S5irijZ9Dzt9l
 - **escaladas**:
   - **[0]**:
+    - **uid**: iZyWEJAptlNjmm
     - **via_esportiva**:
       - **nome**: Fenômeno
       - **dificuldade**: BR_7B
@@ -379,6 +477,7 @@
         - Ana Fujita
         - Eliseu Frechou
   - **[1]**:
+    - **uid**: E29Rut312gW3HT
     - **via_esportiva**:
       - **nome**: Maradona
       - **dificuldade**: BR_7C
@@ -386,6 +485,7 @@
         - Ana Fujita
         - Eliseu Frechou
   - **[2]**:
+    - **uid**: 73ufzuFeXUwQeJ
     - **via_esportiva**:
       - **nome**: Primogênito
       - **dificuldade**: BR_7A
@@ -394,6 +494,7 @@
         - Leonard Moreira
       - **data_abertura**: 2021-03
   - **[3]**:
+    - **uid**: MUjFx1aKjEKwPP
     - **via_movel**:
       - **nome**: Mil e um nomes de bebês
       - **dificuldade**: BR_6
@@ -402,6 +503,7 @@
         - Ana Fujita
         - Eliseu Frechou
   - **[4]**:
+    - **uid**: sH5AYDzVkgUSER
     - **via_esportiva**:
       - **nome**: Diadorim
       - **dificuldade**: BR_6SUP
@@ -409,6 +511,7 @@
         - Ana Fujita
         - Eliseu Frechou
   - **[5]**:
+    - **uid**: 1DedxYA9RFSHtY
     - **via_movel**:
       - **nome**: Sem reservas, por favor
       - **dificuldade**: BR_7B
@@ -417,6 +520,7 @@
         - Ana Fujita
         - Eliseu Frechou
   - **[6]**:
+    - **uid**: GcXaTKynU2WabK
     - **via_movel**:
       - **nome**: Antônio Conselheiro
       - **dificuldade**: BR_7B
@@ -425,6 +529,7 @@
         - Ana Fujita
         - Eliseu Frechou
   - **[7]**:
+    - **uid**: jNucseQb5dOByz
     - **via_esportiva**:
       - **nome**: Lampião
       - **dificuldade**: BR_7B
@@ -432,6 +537,7 @@
         - Ana Fujita
         - Eliseu Frechou
   - **[8]**:
+    - **uid**: GzVoyifxG9kYkm
     - **via_movel**:
       - **nome**: Maria Bonita
       - **dificuldade**: BR_7A
@@ -440,6 +546,7 @@
         - Ana Fujita
         - Eliseu Frechou
   - **[9]**:
+    - **uid**: n3UNT17lKPCfrw
     - **via_esportiva**:
       - **nome**: Corisco
       - **dificuldade**: BR_6SUP
@@ -447,6 +554,7 @@
         - Ana Fujita
         - Eliseu Frechou
   - **[10]**:
+    - **uid**: 8EAcxGLhclJBot
     - **via_movel**:
       - **nome**: Volta Seca
       - **dificuldade**: BR_5
@@ -457,6 +565,7 @@
         - Rogério Jorge
       - **data_abertura**: 2018-04
   - **[11]**:
+    - **uid**: AHCs2iAyt6U21h
     - **via_esportiva**:
       - **nome**: Ameaça
       - **dificuldade**: BR_7A
@@ -464,6 +573,7 @@
         - Ana Fujita
         - Eliseu Frechou
   - **[12]**:
+    - **uid**: dT8caYlBKkWJNy
     - **via_esportiva**:
       - **nome**: Zé Sereno
       - **dificuldade**: BR_7B
@@ -488,6 +598,7 @@
     **Equipamentos Necessários:** Corda de 60m é obrigatória para rapelar. Para as vias
     esportivas, você vai precisar de 15 costuras.
 - **nome**: Setor Ditados
+- **uid**: k5H0BvsrjybAhQ
 - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_ditados_p1_i0.webp)
 - **mapas**:
   - **[0]**:
@@ -496,125 +607,177 @@
     - **altura_mapa**: 808
     - **pontos_de_interesse**:
       - **[0]**:
-        - **id**: titulo
-        - **label**: SETOR DITADOS
+        - **id**: M8xQdypqzHJL7a
+        - **uid**: M8xQdypqzHJL7a
+        - **rotulo**: SETOR DITADOS
         - **retangulo**:
           - **x**: 689
           - **y**: 85
           - **comprimento**: 235
           - **largura**: 75
+        - **label**: SETOR DITADOS
       - **[1]**:
-        - **id**: 14
-        - **label**: 14
+        - **id**: Xw6DFgNepva4vw
+        - **uid**: Xw6DFgNepva4vw
+        - **rotulo**: 14
         - **circulo**:
           - **x**: 166
           - **y**: 154
           - **raio**: 14
+        - **label**: 14
       - **[2]**:
-        - **id**: 16
-        - **label**: 16
+        - **id**: u7V3ho0dMhq7Io
+        - **uid**: u7V3ho0dMhq7Io
+        - **rotulo**: 16
         - **circulo**:
           - **x**: 291
           - **y**: 143
           - **raio**: 14
+        - **label**: 16
       - **[3]**:
-        - **id**: 19_top
-        - **label**: 19
+        - **id**: M38jUek9iQOWZ0
+        - **uid**: M38jUek9iQOWZ0
+        - **rotulo**: 19
         - **circulo**:
           - **x**: 431
           - **y**: 131
           - **raio**: 14
+        - **label**: 19
       - **[4]**:
-        - **id**: 20
-        - **label**: 20
+        - **id**: yZl47hRVSuWLC0
+        - **uid**: yZl47hRVSuWLC0
+        - **rotulo**: 20
         - **circulo**:
           - **x**: 653
           - **y**: 348
           - **raio**: 14
+        - **label**: 20
       - **[5]**:
-        - **id**: 21
-        - **label**: 21
+        - **id**: lsCm2mSNtJ8nBg
+        - **uid**: lsCm2mSNtJ8nBg
+        - **rotulo**: 21
         - **circulo**:
           - **x**: 714
           - **y**: 350
           - **raio**: 14
+        - **label**: 21
       - **[6]**:
-        - **id**: 15
-        - **label**: 15
+        - **id**: shqoSegu4UVEME
+        - **uid**: shqoSegu4UVEME
+        - **rotulo**: 15
         - **circulo**:
           - **x**: 218
           - **y**: 735
           - **raio**: 14
+        - **label**: 15
       - **[7]**:
-        - **id**: 17
-        - **label**: 17
+        - **id**: 58XnUSVLka50uN
+        - **uid**: 58XnUSVLka50uN
+        - **rotulo**: 17
         - **circulo**:
           - **x**: 433
           - **y**: 734
           - **raio**: 14
+        - **label**: 17
       - **[8]**:
-        - **id**: 18
-        - **label**: 18
+        - **id**: eFNSO7nvXybKbR
+        - **uid**: eFNSO7nvXybKbR
+        - **rotulo**: 18
         - **circulo**:
           - **x**: 589
           - **y**: 718
           - **raio**: 14
+        - **label**: 18
       - **[9]**:
-        - **id**: 19_bot
-        - **label**: 19
+        - **id**: WVWWsQp9rACdtH
+        - **uid**: WVWWsQp9rACdtH
+        - **rotulo**: 19
         - **circulo**:
           - **x**: 662
           - **y**: 713
           - **raio**: 14
+        - **label**: 19
       - **[10]**:
-        - **id**: cangaco
-        - **label**: CANGAÇO
+        - **id**: iwkSpeuleqBqRG
+        - **uid**: iwkSpeuleqBqRG
+        - **rotulo**: CANGAÇO
         - **retangulo**:
           - **x**: 117
           - **y**: 766
           - **comprimento**: 114
           - **largura**: 29
+        - **label**: CANGAÇO
     - **referencias**:
       - **[0]**:
+        - **alvo_uid**: 9sEkXrrijTvtwt
+        - **pontos_uids**:
+          - Xw6DFgNepva4vw
         - **escalada**: Boa noite Cinderela
         - **ids**:
-          - 14
+          - Xw6DFgNepva4vw
       - **[1]**:
+        - **alvo_uid**: uOM7tqXzdshiX4
+        - **pontos_uids**:
+          - shqoSegu4UVEME
         - **escalada**: Quem dorme com criança...
         - **ids**:
-          - 15
+          - shqoSegu4UVEME
       - **[2]**:
+        - **alvo_uid**: vjPnElrZ74QxXs
+        - **pontos_uids**:
+          - u7V3ho0dMhq7Io
         - **escalada**: Quem planta vento...
         - **ids**:
-          - 16
+          - u7V3ho0dMhq7Io
       - **[3]**:
+        - **alvo_uid**: LqQigOvaj2JdCv
+        - **pontos_uids**:
+          - 58XnUSVLka50uN
         - **escalada**: A vida é dura...
         - **ids**:
-          - 17
+          - 58XnUSVLka50uN
       - **[4]**:
+        - **alvo_uid**: PbXatL9L0c89RQ
+        - **pontos_uids**:
+          - eFNSO7nvXybKbR
+          - M38jUek9iQOWZ0
         - **escalada**: Mais vale um na mão...
         - **ids**:
-          - 18
-          - 19_top
+          - eFNSO7nvXybKbR
+          - M38jUek9iQOWZ0
       - **[5]**:
+        - **alvo_uid**: fu1QqaiuHR2y3m
+        - **pontos_uids**:
+          - WVWWsQp9rACdtH
+          - M38jUek9iQOWZ0
         - **escalada**: Por fora bela viola...
         - **ids**:
-          - 19_bot
-          - 19_top
+          - WVWWsQp9rACdtH
+          - M38jUek9iQOWZ0
       - **[6]**:
+        - **alvo_uid**: kYlCqNzNC7tOdA
+        - **pontos_uids**:
+          - yZl47hRVSuWLC0
         - **escalada**: Em terra de rei...
         - **ids**:
-          - 20
+          - yZl47hRVSuWLC0
       - **[7]**:
+        - **alvo_uid**: YkLrv3vrBgkULh
+        - **pontos_uids**:
+          - lsCm2mSNtJ8nBg
         - **escalada**: Red
         - **ids**:
-          - 21
+          - lsCm2mSNtJ8nBg
       - **[8]**:
-        - **ids**:
-          - cangaco
+        - **alvo_uid**: cPqYtwbejGtFTg
+        - **pontos_uids**:
+          - iwkSpeuleqBqRG
         - **setor**: Setor Cangaço
+        - **ids**:
+          - iwkSpeuleqBqRG
 - **escaladas**:
   - **[0]**:
+    - **uid**: 9sEkXrrijTvtwt
     - **via_esportiva**:
       - **nome**: Boa noite Cinderela
       - **dificuldade**: BR_6SUP
@@ -623,6 +786,7 @@
         - Eliseu Frechou
       - **data_abertura**: 2018
   - **[1]**:
+    - **uid**: uOM7tqXzdshiX4
     - **via_esportiva**:
       - **nome**: Quem dorme com criança...
       - **dificuldade**: BR_7B
@@ -631,6 +795,7 @@
         - Eliseu Frechou
       - **data_abertura**: 2018
   - **[2]**:
+    - **uid**: vjPnElrZ74QxXs
     - **via_esportiva**:
       - **nome**: Quem planta vento...
       - **dificuldade**: BR_8B
@@ -639,6 +804,7 @@
         - Eliseu Frechou
       - **data_abertura**: 2018
   - **[3]**:
+    - **uid**: LqQigOvaj2JdCv
     - **via_esportiva**:
       - **nome**: A vida é dura...
       - **dificuldade**: BR_7B
@@ -647,6 +813,7 @@
         - Eliseu Frechou
       - **data_abertura**: 2018
   - **[4]**:
+    - **uid**: PbXatL9L0c89RQ
     - **via_esportiva**:
       - **nome**: Mais vale um na mão...
       - **dificuldade**: BR_7A
@@ -655,6 +822,7 @@
         - Eliseu Frechou
       - **data_abertura**: 2018
   - **[5]**:
+    - **uid**: fu1QqaiuHR2y3m
     - **via_esportiva**:
       - **nome**: Por fora bela viola...
       - **dificuldade**: BR_6
@@ -663,6 +831,7 @@
         - Eliseu Frechou
       - **data_abertura**: 2018
   - **[6]**:
+    - **uid**: kYlCqNzNC7tOdA
     - **via_movel**:
       - **nome**: Em terra de rei...
       - **dificuldade**: BR_6SUP
@@ -672,6 +841,7 @@
         - Eliseu Frechou
       - **data_abertura**: 2018
   - **[7]**:
+    - **uid**: YkLrv3vrBgkULh
     - **via_movel**:
       - **nome**: Red
       - **dificuldade**: BR_4SUP
@@ -691,6 +861,7 @@
 
 - **descricao**: **Equipamentos Necessários:** Corda de 60m é obrigatória para rapelar. Para as vias esportivas, você vai precisar de 10 costuras.
 - **nome**: Setor Cervejas
+- **uid**: rzoXn31VJ2d0qk
 - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_cervejas_p1_i0.webp)
 - **mapas**:
   - **[0]**:
@@ -699,196 +870,281 @@
     - **altura_mapa**: 857
     - **pontos_de_interesse**:
       - **[0]**:
-        - **id**: titulo
-        - **label**: SETOR CERVEJAS
+        - **id**: dNSscqB1hYzaQK
+        - **uid**: dNSscqB1hYzaQK
+        - **rotulo**: SETOR CERVEJAS
         - **retangulo**:
           - **x**: 187
           - **y**: 87
           - **comprimento**: 250
           - **largura**: 81
+        - **label**: SETOR CERVEJAS
       - **[1]**:
-        - **id**: 20
-        - **label**: 20
+        - **id**: FLvvo8cVb8e14A
+        - **uid**: FLvvo8cVb8e14A
+        - **rotulo**: 20
         - **circulo**:
           - **x**: 85
           - **y**: 319
           - **raio**: 17
+        - **label**: 20
       - **[2]**:
-        - **id**: 21
-        - **label**: 21
+        - **id**: y3B097OshmQTtl
+        - **uid**: y3B097OshmQTtl
+        - **rotulo**: 21
         - **circulo**:
           - **x**: 168
           - **y**: 314
           - **raio**: 17
+        - **label**: 21
       - **[3]**:
-        - **id**: 22
-        - **label**: 22
+        - **id**: A8dCxls17QcSXJ
+        - **uid**: A8dCxls17QcSXJ
+        - **rotulo**: 22
         - **circulo**:
           - **x**: 257
           - **y**: 321
           - **raio**: 17
+        - **label**: 22
       - **[4]**:
-        - **id**: 23
-        - **label**: 23
+        - **id**: pE20dgyct4YC3Z
+        - **uid**: pE20dgyct4YC3Z
+        - **rotulo**: 23
         - **circulo**:
           - **x**: 322
           - **y**: 312
           - **raio**: 17
+        - **label**: 23
       - **[5]**:
-        - **id**: 24
-        - **label**: 24
+        - **id**: RuHqsyXxr4kt4e
+        - **uid**: RuHqsyXxr4kt4e
+        - **rotulo**: 24
         - **circulo**:
           - **x**: 493
           - **y**: 313
           - **raio**: 17
+        - **label**: 24
       - **[6]**:
-        - **id**: 25
-        - **label**: 25
+        - **id**: FXDJB1IfKC7K8M
+        - **uid**: FXDJB1IfKC7K8M
+        - **rotulo**: 25
         - **circulo**:
           - **x**: 577
           - **y**: 271
           - **raio**: 17
+        - **label**: 25
       - **[7]**:
-        - **id**: 26
-        - **label**: 26
+        - **id**: zfqXaEAEFf0LSn
+        - **uid**: zfqXaEAEFf0LSn
+        - **rotulo**: 26
         - **circulo**:
           - **x**: 686
           - **y**: 190
           - **raio**: 17
+        - **label**: 26
       - **[8]**:
-        - **id**: 27
-        - **label**: 27
+        - **id**: KXkabbVAhKiRLR
+        - **uid**: KXkabbVAhKiRLR
+        - **rotulo**: 27
         - **circulo**:
           - **x**: 779
           - **y**: 178
           - **raio**: 17
+        - **label**: 27
       - **[9]**:
-        - **id**: 28
-        - **label**: 28
+        - **id**: LvBamxFlQUNZTF
+        - **uid**: LvBamxFlQUNZTF
+        - **rotulo**: 28
         - **circulo**:
           - **x**: 892
           - **y**: 172
           - **raio**: 17
+        - **label**: 28
       - **[10]**:
-        - **id**: 29
-        - **label**: 29
+        - **id**: Tv8E5ELUjlLr7d
+        - **uid**: Tv8E5ELUjlLr7d
+        - **rotulo**: 29
         - **circulo**:
           - **x**: 1271
           - **y**: 725
           - **raio**: 17
+        - **label**: 29
       - **[11]**:
-        - **id**: 30
-        - **label**: 30
+        - **id**: EDiBby9xwsDO8D
+        - **uid**: EDiBby9xwsDO8D
+        - **rotulo**: 30
         - **circulo**:
           - **x**: 1391
           - **y**: 56
           - **raio**: 17
+        - **label**: 30
       - **[12]**:
-        - **id**: 31
-        - **label**: 31
+        - **id**: VZhrnK5IO3pJSK
+        - **uid**: VZhrnK5IO3pJSK
+        - **rotulo**: 31
         - **circulo**:
           - **x**: 1457
           - **y**: 68
           - **raio**: 17
+        - **label**: 31
       - **[13]**:
-        - **id**: 32
-        - **label**: 32
+        - **id**: eyAN1ij4RQoH29
+        - **uid**: eyAN1ij4RQoH29
+        - **rotulo**: 32
         - **circulo**:
           - **x**: 1430
           - **y**: 602
           - **raio**: 17
+        - **label**: 32
       - **[14]**:
-        - **id**: 33
-        - **label**: 33
+        - **id**: GvyEqdeOD6L6Fr
+        - **uid**: GvyEqdeOD6L6Fr
+        - **rotulo**: 33
         - **circulo**:
           - **x**: 1545
           - **y**: 593
           - **raio**: 17
+        - **label**: 33
       - **[15]**:
-        - **id**: ditados
-        - **label**: DITADOS
+        - **id**: VgDfhZIi0OlWvi
+        - **uid**: VgDfhZIi0OlWvi
+        - **rotulo**: DITADOS
         - **retangulo**:
           - **x**: 118
           - **y**: 768
           - **comprimento**: 105
           - **largura**: 25
+        - **label**: DITADOS
       - **[16]**:
-        - **id**: questao_de_tempo
-        - **label**: QUESTÃO DE TEMPO
+        - **id**: SYWKh0p5PLrqEY
+        - **uid**: SYWKh0p5PLrqEY
+        - **rotulo**: QUESTÃO DE TEMPO
         - **retangulo**:
           - **x**: 1465
           - **y**: 713
           - **comprimento**: 223
           - **largura**: 27
+        - **label**: QUESTÃO DE TEMPO
     - **referencias**:
       - **[0]**:
+        - **alvo_uid**: YPntZiUBjpT7xF
+        - **pontos_uids**:
+          - FLvvo8cVb8e14A
         - **escalada**: Em terra de rei...
         - **ids**:
-          - 20
+          - FLvvo8cVb8e14A
       - **[1]**:
+        - **alvo_uid**: 7L0Jfaao2W4lOk
+        - **pontos_uids**:
+          - y3B097OshmQTtl
         - **escalada**: Red
         - **ids**:
-          - 21
+          - y3B097OshmQTtl
       - **[2]**:
+        - **alvo_uid**: oKD013lw2OPtYD
+        - **pontos_uids**:
+          - A8dCxls17QcSXJ
         - **escalada**: Quadrupel
         - **ids**:
-          - 22
+          - A8dCxls17QcSXJ
       - **[3]**:
+        - **alvo_uid**: kLzM8odvwDHf2G
+        - **pontos_uids**:
+          - pE20dgyct4YC3Z
         - **escalada**: Pilsen
         - **ids**:
-          - 23
+          - pE20dgyct4YC3Z
       - **[4]**:
+        - **alvo_uid**: JEtywaTYqDd6Lw
+        - **pontos_uids**:
+          - RuHqsyXxr4kt4e
         - **escalada**: Black
         - **ids**:
-          - 24
+          - RuHqsyXxr4kt4e
       - **[5]**:
+        - **alvo_uid**: XyvVd04zUKmbAU
+        - **pontos_uids**:
+          - FXDJB1IfKC7K8M
         - **escalada**: Pale
         - **ids**:
-          - 25
+          - FXDJB1IfKC7K8M
       - **[6]**:
+        - **alvo_uid**: I7iKM1xoknKbAI
+        - **pontos_uids**:
+          - zfqXaEAEFf0LSn
         - **escalada**: Witbier
         - **ids**:
-          - 26
+          - zfqXaEAEFf0LSn
       - **[7]**:
+        - **alvo_uid**: dX3g0Bf00qNy8W
+        - **pontos_uids**:
+          - KXkabbVAhKiRLR
         - **escalada**: Blonde
         - **ids**:
-          - 27
+          - KXkabbVAhKiRLR
       - **[8]**:
+        - **alvo_uid**: cwXHooq9svBlk7
+        - **pontos_uids**:
+          - LvBamxFlQUNZTF
         - **escalada**: Dubbel
         - **ids**:
-          - 28
+          - LvBamxFlQUNZTF
       - **[9]**:
+        - **alvo_uid**: Sy4nOS5JbRIcgm
+        - **pontos_uids**:
+          - Tv8E5ELUjlLr7d
         - **escalada**: Primeiro gole
         - **ids**:
-          - 29
+          - Tv8E5ELUjlLr7d
       - **[10]**:
+        - **alvo_uid**: C2lXtemyoE9kvH
+        - **pontos_uids**:
+          - EDiBby9xwsDO8D
         - **escalada**: Saidera
         - **ids**:
-          - 30
+          - EDiBby9xwsDO8D
       - **[11]**:
+        - **alvo_uid**: l883VIu61FoTCm
+        - **pontos_uids**:
+          - VZhrnK5IO3pJSK
         - **escalada**: Porter
         - **ids**:
-          - 31
+          - VZhrnK5IO3pJSK
       - **[12]**:
+        - **alvo_uid**: H0TZIejRCDUDge
+        - **pontos_uids**:
+          - eyAN1ij4RQoH29
+          - VZhrnK5IO3pJSK
         - **escalada**: Bavariante
         - **ids**:
-          - 32
-          - 31
+          - eyAN1ij4RQoH29
+          - VZhrnK5IO3pJSK
       - **[13]**:
+        - **alvo_uid**: VL5HvOrgrln5gF
+        - **pontos_uids**:
+          - GvyEqdeOD6L6Fr
+          - VZhrnK5IO3pJSK
         - **escalada**: Old Ale
         - **ids**:
-          - 33
-          - 31
+          - GvyEqdeOD6L6Fr
+          - VZhrnK5IO3pJSK
       - **[14]**:
-        - **ids**:
-          - ditados
+        - **alvo_uid**: k5H0BvsrjybAhQ
+        - **pontos_uids**:
+          - VgDfhZIi0OlWvi
         - **setor**: Setor Ditados
-      - **[15]**:
         - **ids**:
-          - questao_de_tempo
+          - VgDfhZIi0OlWvi
+      - **[15]**:
+        - **alvo_uid**: fRe6TKTO2xZKMs
+        - **pontos_uids**:
+          - SYWKh0p5PLrqEY
         - **setor**: Setor Questão de Tempo
+        - **ids**:
+          - SYWKh0p5PLrqEY
 - **escaladas**:
   - **[0]**:
+    - **uid**: YPntZiUBjpT7xF
     - **via_movel**:
       - **nome**: Em terra de rei...
       - **dificuldade**: BR_6SUP
@@ -898,6 +1154,7 @@
         - Eliseu Frechou
       - **data_abertura**: 2018
   - **[1]**:
+    - **uid**: 7L0Jfaao2W4lOk
     - **via_movel**:
       - **nome**: Red
       - **dificuldade**: BR_4SUP
@@ -907,6 +1164,7 @@
         - Eliseu Frechou
       - **data_abertura**: 2018
   - **[2]**:
+    - **uid**: oKD013lw2OPtYD
     - **via_esportiva**:
       - **nome**: Quadrupel
       - **dificuldade**: BR_7A
@@ -915,6 +1173,7 @@
         - Lucas Lima
       - **data_abertura**: 2020
   - **[3]**:
+    - **uid**: kLzM8odvwDHf2G
     - **via_movel**:
       - **nome**: Pilsen
       - **dificuldade**: BR_5
@@ -924,6 +1183,7 @@
         - Eliseu Frechou
       - **data_abertura**: 2018
   - **[4]**:
+    - **uid**: JEtywaTYqDd6Lw
     - **via_esportiva**:
       - **nome**: Black
       - **dificuldade**: BR_6SUP
@@ -932,6 +1192,7 @@
         - Eliseu Frechou
       - **data_abertura**: 2018
   - **[5]**:
+    - **uid**: XyvVd04zUKmbAU
     - **via_esportiva**:
       - **nome**: Pale
       - **dificuldade**: BR_7A
@@ -940,6 +1201,7 @@
         - Eliseu Frechou
       - **data_abertura**: 2018
   - **[6]**:
+    - **uid**: I7iKM1xoknKbAI
     - **via_esportiva**:
       - **nome**: Witbier
       - **dificuldade**: BR_7B
@@ -948,6 +1210,7 @@
         - Eliseu Frechou
       - **data_abertura**: 2018
   - **[7]**:
+    - **uid**: dX3g0Bf00qNy8W
     - **via_esportiva**:
       - **nome**: Blonde
       - **dificuldade**: BR_7B
@@ -956,6 +1219,7 @@
         - Eliseu Frechou
       - **data_abertura**: 2018
   - **[8]**:
+    - **uid**: cwXHooq9svBlk7
     - **via_esportiva**:
       - **nome**: Dubbel
       - **dificuldade**: BR_7C
@@ -964,6 +1228,7 @@
         - Eliseu Frechou
       - **data_abertura**: 2018
   - **[9]**:
+    - **uid**: Sy4nOS5JbRIcgm
     - **via_esportiva**:
       - **nome**: Primeiro gole
       - **dificuldade**: BR_4
@@ -971,6 +1236,7 @@
         - Charlie Alves
         - Antônio Calvo
   - **[10]**:
+    - **uid**: C2lXtemyoE9kvH
     - **via_movel**:
       - **nome**: Saidera
       - **dificuldade**: BR_6
@@ -980,6 +1246,7 @@
         - Antônio Calvo
         - Leonard Moreira
   - **[11]**:
+    - **uid**: l883VIu61FoTCm
     - **via_movel**:
       - **nome**: Porter
       - **dificuldade**: BR_7A
@@ -988,6 +1255,7 @@
         - Charlie Alves
         - Antônio Calvo
   - **[12]**:
+    - **uid**: H0TZIejRCDUDge
     - **via_esportiva**:
       - **nome**: Bavariante
       - **dificuldade**: BR_7A
@@ -995,6 +1263,7 @@
         - Charlie Alves
         - Antônio Calvo
   - **[13]**:
+    - **uid**: VL5HvOrgrln5gF
     - **via_movel**:
       - **nome**: Old Ale
       - **dificuldade**: BR_7A
@@ -1018,6 +1287,7 @@
     
     **Equipamentos Necessários:** Corda de 60m é obrigatória para rapelar. Para as vias esportivas, você vai precisar de 10 costuras.
 - **nome**: Setor Questão de Tempo
+- **uid**: fRe6TKTO2xZKMs
 - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_questao_de_tempo_p0_i0_2.webp)
 - **mapas**:
   - **[0]**:
@@ -1026,73 +1296,101 @@
     - **altura_mapa**: 809
     - **pontos_de_interesse**:
       - **[0]**:
-        - **id**: titulo
-        - **label**: SETOR QUESTÃO DE TEMPO
+        - **id**: I6GwqYNFzGz47R
+        - **uid**: I6GwqYNFzGz47R
+        - **rotulo**: SETOR QUESTÃO DE TEMPO
         - **retangulo**:
           - **x**: 303
           - **y**: 121
           - **comprimento**: 506
           - **largura**: 87
+        - **label**: SETOR QUESTÃO DE TEMPO
       - **[1]**:
-        - **id**: 01
-        - **label**: 01
+        - **id**: Nu8UeBEtTPmERx
+        - **uid**: Nu8UeBEtTPmERx
+        - **rotulo**: 01
         - **circulo**:
           - **x**: 459
           - **y**: 251
           - **raio**: 13
+        - **label**: 01
       - **[2]**:
-        - **id**: 02
-        - **label**: 02
+        - **id**: Q6KMwkax3XBt9h
+        - **uid**: Q6KMwkax3XBt9h
+        - **rotulo**: 02
         - **circulo**:
           - **x**: 569
           - **y**: 249
           - **raio**: 13
+        - **label**: 02
       - **[3]**:
-        - **id**: 03
-        - **label**: 03
+        - **id**: WV8ulB58SjKza6
+        - **uid**: WV8ulB58SjKza6
+        - **rotulo**: 03
         - **circulo**:
           - **x**: 746
           - **y**: 231
           - **raio**: 13
+        - **label**: 03
       - **[4]**:
-        - **id**: cervejas
-        - **label**: CERVEJAS
+        - **id**: UGaoeVpGY5KPjk
+        - **uid**: UGaoeVpGY5KPjk
+        - **rotulo**: CERVEJAS
         - **retangulo**:
           - **x**: 358
           - **y**: 645
           - **comprimento**: 110
           - **largura**: 30
+        - **label**: CERVEJAS
       - **[5]**:
-        - **id**: hospicio
-        - **label**: HOSPÍCIO
+        - **id**: 5JiDWhL0cIsKxx
+        - **uid**: 5JiDWhL0cIsKxx
+        - **rotulo**: HOSPÍCIO
         - **retangulo**:
           - **x**: 738
           - **y**: 702
           - **comprimento**: 110
           - **largura**: 30
+        - **label**: HOSPÍCIO
     - **referencias**:
       - **[0]**:
+        - **alvo_uid**: k78fTw2gq4mwgY
+        - **pontos_uids**:
+          - Nu8UeBEtTPmERx
         - **escalada**: C'est la vie
         - **ids**:
-          - 01
+          - Nu8UeBEtTPmERx
       - **[1]**:
+        - **alvo_uid**: rQYRTNi9pP5GsN
+        - **pontos_uids**:
+          - Q6KMwkax3XBt9h
         - **escalada**: Eu prefiro uma cerveja
         - **ids**:
-          - 02
+          - Q6KMwkax3XBt9h
       - **[2]**:
+        - **alvo_uid**: msuH8Zq9OE6Xn2
+        - **pontos_uids**:
+          - WV8ulB58SjKza6
         - **escalada**: Hospício jamais
         - **ids**:
-          - 03
+          - WV8ulB58SjKza6
       - **[3]**:
-        - **ids**:
-          - cervejas
+        - **alvo_uid**: rzoXn31VJ2d0qk
+        - **pontos_uids**:
+          - UGaoeVpGY5KPjk
         - **setor**: Setor Cervejas
-      - **[4]**:
         - **ids**:
-          - hospicio
+          - UGaoeVpGY5KPjk
+      - **[4]**:
+        - **alvo_uid**: qn4eOXGvVozM4A
+        - **pontos_uids**:
+          - 5JiDWhL0cIsKxx
         - **setor**: Setor Hospício
+        - **ids**:
+          - 5JiDWhL0cIsKxx
 - **escaladas**:
   - **[0]**:
+    - **uid**: k78fTw2gq4mwgY
     - **via_esportiva**:
       - **nome**: C'est la vie
       - **dificuldade**: BR_6SUP
@@ -1103,6 +1401,7 @@
         - Samuel Moreira
       - **data_abertura**: 2020
   - **[1]**:
+    - **uid**: rQYRTNi9pP5GsN
     - **via_esportiva**:
       - **nome**: Eu prefiro uma cerveja
       - **dificuldade**: BR_5SUP
@@ -1113,6 +1412,7 @@
         - Samuel Moreira
       - **data_abertura**: 2020
   - **[2]**:
+    - **uid**: msuH8Zq9OE6Xn2
     - **via_movel**:
       - **nome**: Hospício jamais
       - **dificuldade**: BR_6SUP
@@ -1134,6 +1434,7 @@
 
 - **descricao**: **Equipamentos Necessários:** Corda de 60m é obrigatória para rapelar. Para as vias esportivas, você vai precisar de 12 costuras.
 - **nome**: Setor Hospício
+- **uid**: qn4eOXGvVozM4A
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_hospicio_p0_i0.webp)
@@ -1141,84 +1442,117 @@
     - **altura_mapa**: 779
     - **pontos_de_interesse**:
       - **[0]**:
-        - **id**: 01
-        - **label**: 01
+        - **id**: jt2RQVu961GyRx
+        - **uid**: jt2RQVu961GyRx
+        - **rotulo**: 01
         - **circulo**:
           - **x**: 257
           - **y**: 100
           - **raio**: 20
+        - **label**: 01
       - **[1]**:
-        - **id**: 02
-        - **label**: 02
+        - **id**: Nquey2VeKM3Kma
+        - **uid**: Nquey2VeKM3Kma
+        - **rotulo**: 02
         - **circulo**:
           - **x**: 368
           - **y**: 313
           - **raio**: 20
+        - **label**: 02
       - **[2]**:
-        - **id**: 03
-        - **label**: 03
+        - **id**: 8BxFniroCP8kfX
+        - **uid**: 8BxFniroCP8kfX
+        - **rotulo**: 03
         - **circulo**:
           - **x**: 475
           - **y**: 325
           - **raio**: 20
+        - **label**: 03
       - **[3]**:
-        - **id**: 04
-        - **label**: 04
+        - **id**: qVr0TzUuiFtMYV
+        - **uid**: qVr0TzUuiFtMYV
+        - **rotulo**: 04
         - **circulo**:
           - **x**: 676
           - **y**: 333
           - **raio**: 20
+        - **label**: 04
       - **[4]**:
-        - **id**: 05
-        - **label**: 05
+        - **id**: M9jcxYBpQPBhZP
+        - **uid**: M9jcxYBpQPBhZP
+        - **rotulo**: 05
         - **circulo**:
           - **x**: 853
           - **y**: 452
           - **raio**: 20
+        - **label**: 05
       - **[5]**:
-        - **id**: cervejas
-        - **label**: CERVEJAS
+        - **id**: mPMtGFK6vI2oaa
+        - **uid**: mPMtGFK6vI2oaa
+        - **rotulo**: CERVEJAS
         - **retangulo**:
           - **x**: 124
           - **y**: 688
           - **comprimento**: 114
           - **largura**: 24
+        - **label**: CERVEJAS
       - **[6]**:
-        - **id**: blocos_soltos
-        - **label**: Blocos soltos
+        - **id**: nCZkwZi6hQQ5aW
+        - **uid**: nCZkwZi6hQQ5aW
+        - **rotulo**: Blocos soltos
         - **retangulo**:
           - **x**: 1095
           - **y**: 432
           - **comprimento**: 31
           - **largura**: 144
           - **angulo_graus_x100**: 735
+        - **label**: Blocos soltos
     - **referencias**:
       - **[0]**:
+        - **alvo_uid**: P7Ddb0pUNexlSy
+        - **pontos_uids**:
+          - jt2RQVu961GyRx
         - **escalada**: Ócios do hospício
         - **ids**:
-          - 01
+          - jt2RQVu961GyRx
       - **[1]**:
+        - **alvo_uid**: DCcePTd55Z3E9X
+        - **pontos_uids**:
+          - Nquey2VeKM3Kma
         - **escalada**: Psicanálise
         - **ids**:
-          - 02
+          - Nquey2VeKM3Kma
       - **[2]**:
+        - **alvo_uid**: s8QblpSotM8IFY
+        - **pontos_uids**:
+          - 8BxFniroCP8kfX
         - **escalada**: Clínica de recuperação
         - **ids**:
-          - 03
+          - 8BxFniroCP8kfX
       - **[3]**:
+        - **alvo_uid**: 77HKBeTpMUcWCp
+        - **pontos_uids**:
+          - qVr0TzUuiFtMYV
         - **escalada**: Eletrochoque
         - **ids**:
-          - 04
+          - qVr0TzUuiFtMYV
       - **[4]**:
+        - **alvo_uid**: V7gPOZefxhQnze
+        - **pontos_uids**:
+          - M9jcxYBpQPBhZP
         - **escalada**: Camisa de força
         - **ids**:
-          - 05
+          - M9jcxYBpQPBhZP
       - **[5]**:
-        - **ids**:
-          - cervejas
+        - **alvo_uid**: rzoXn31VJ2d0qk
+        - **pontos_uids**:
+          - mPMtGFK6vI2oaa
         - **setor**: Setor Cervejas
+        - **ids**:
+          - mPMtGFK6vI2oaa
 - **escaladas**:
   - **[0]**:
+    - **uid**: P7Ddb0pUNexlSy
     - **via_esportiva**:
       - **nome**: Ócios do hospício
       - **dificuldade**: BR_6
@@ -1229,6 +1563,7 @@
         - Michel Gonçalves
       - **data_abertura**: 2020
   - **[1]**:
+    - **uid**: DCcePTd55Z3E9X
     - **via_esportiva**:
       - **nome**: Psicanálise
       - **dificuldade**: BR_5
@@ -1239,6 +1574,7 @@
         - Michel Gonçalves
       - **data_abertura**: 2020
   - **[2]**:
+    - **uid**: s8QblpSotM8IFY
     - **via_esportiva**:
       - **nome**: Clínica de recuperação
       - **dificuldade**: BR_5
@@ -1249,6 +1585,7 @@
         - Michel Gonçalves
       - **data_abertura**: 2020
   - **[3]**:
+    - **uid**: 77HKBeTpMUcWCp
     - **via_esportiva**:
       - **nome**: Eletrochoque
       - **dificuldade**: BR_5SUP
@@ -1259,6 +1596,7 @@
         - Michel Gonçalves
       - **data_abertura**: 2020
   - **[4]**:
+    - **uid**: V7gPOZefxhQnze
     - **via_esportiva**:
       - **nome**: Camisa de força
       - **dificuldade**: BR_4

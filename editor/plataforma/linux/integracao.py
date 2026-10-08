@@ -88,7 +88,7 @@ class AdaptadorLinux(AdaptadorPlataforma):
         try:
             from keyring.backends import SecretService
 
-            keyring.set_keyring(SecretService.Keyring())
+            keyring.set_keyring(SecretService.Keyring())  # type: ignore[no-untyped-call]
             return
         except Exception:
             pass
@@ -96,7 +96,7 @@ class AdaptadorLinux(AdaptadorPlataforma):
         try:
             from keyring.backends import kwallet
 
-            keyring.set_keyring(kwallet.DBusKeyring())
+            keyring.set_keyring(kwallet.DBusKeyring())  # type: ignore[no-untyped-call]
             return
         except Exception:
             pass

@@ -762,7 +762,44 @@ class DeployGeneratedTest(unittest.TestCase):
                                     args_passados, _ = mock_passo_a.call_args
                                     self.assertEqual(args_passados[0], croquis_esperados)
 
+    def test_passo_c_gerar_indice_com_croqui_uid(self):
+        import tempfile
+        import yaml
+        from scripts.gerenciar_uids_lib import gerar_uid
+
+        croqui_uid_esperado = gerar_uid()
+        croqui_data = {
+            "id": "croqui_com_uid",
+            "uid": croqui_uid_esperado,
+            "nome": "Croqui com UID",
+            "publicar_croqui": True,
+            "picos": []
+        }
+        compilados = [("croqui_com_uid", croqui_data, Path("dummy_pb"))]
+        checksums = {"croqui_com_uid": "dummy_hash"}
+
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            deploy_generated.GENERATED_DIR = Path(tmp_dir)
+            indice = deploy_generated.passo_c_gerar_indice(compilados, checksums, is_producao=False)
+
+            self.assertEqual(len(indice.croquis), 1)
+            resumo = indice.croquis[0]
+            self.assertEqual(resumo.id, "croqui_com_uid")
+            self.assertEqual(resumo.croqui_uid, croqui_uid_esperado)
+
+            indice_yaml = Path(tmp_dir) / "indice.yaml"
+            self.assertTrue(indice_yaml.is_file())
+            with open(indice_yaml, "r", encoding="utf-8") as f:
+                dados_yaml = yaml.safe_load(f)
+            self.assertEqual(dados_yaml["croquis"][0]["croqui_uid"], croqui_uid_esperado)
+
+    def test_serving_versao_permanece_v4_com_migracoes_database_only(self):
+        from serving.update_serving import get_db_version
+        versao = get_db_version()
+        self.assertEqual(versao, "v4")
+
 
 if __name__ == '__main__':
     unittest.main()
+
 

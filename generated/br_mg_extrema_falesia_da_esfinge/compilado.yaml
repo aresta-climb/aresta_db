@@ -1,3 +1,4 @@
+uid: pqipqUpyFjBqM0
 id: br_mg_extrema_falesia_da_esfinge
 nome: Falésia da Esfinge
 descricao: Um belíssimo vale localizado no município de Extrema/MG, com mais de 20
@@ -18,6 +19,7 @@ picos:
   setores_ou_grupos:
   - setor:
       conteudo:
+        uid: thtijyq3ZnLd0A
         caminho_imagem_capa: imagens/setor_headwall_p0_i0_2.webp
         nome: Headwall
         mapas:
@@ -26,7 +28,8 @@ picos:
           altura_mapa: 1240
           pontos_de_interesse: []
         escaladas:
-        - via_movel:
+        - uid: O9VEKasSWFvhyx
+          via_movel:
             nome: Arthropoda
             dificuldade: BR_6SUP
             exposicao: E2
@@ -39,7 +42,8 @@ picos:
             - Juvenil Lino
             protecoes_moveis: Camalot(.4, .5, .75, 1, 2) ou compatíveis
             descricao: 'Obs: Abelhas próximo a via, utilizar costuras longas.'
-        - via_movel:
+        - uid: iFagJSzZeymJwK
+          via_movel:
             nome: Atratus Death
             dificuldade: BR_6SUP
             extensao: 50
@@ -51,7 +55,8 @@ picos:
             - Aline Tavares
             protecoes_moveis: Nut 5 (Início da via) ou compatível.
             descricao: 'Obs: Na ausência de peça móvel utilizar clip stick na saída.'
-        - via_movel:
+        - uid: hLJnjUwVb7DyRJ
+          via_movel:
             nome: Fenda do Café
             dificuldade: BR_6SUP
             extensao: 40
@@ -63,7 +68,8 @@ picos:
             protecoes_moveis: Camalot(1, 2, 2, 3, 4, 5, 6) ou compatíveis
             descricao: 'Obs: Utilizar costuras longas, parada em móvel podendo equalizar
               em três pontos. O rapel pode ser feito na parada da via ao lado.'
-        - via_esportiva:
+        - uid: dPdbm3jr8TbFqI
+          via_esportiva:
             nome: Taj Mahola
             dificuldade: BR_4SUP
             extensao: 25
@@ -72,7 +78,8 @@ picos:
             - André Morales
             - Jorge Lima
             - Tico
-        - via_movel:
+        - uid: ZNwVtfWtcNbVDa
+          via_movel:
             nome: Apertadinha
             dificuldade: BR_6SUP
             extensao: 60
@@ -108,6 +115,7 @@ picos:
           total_esportivas: 1
   - setor:
       conteudo:
+        uid: XvrC2nA83J5iAU
         caminho_imagem_capa: imagens/setor_roca_master_p0_i0_2.webp
         nome: Roca Master
         mapas:
@@ -116,7 +124,8 @@ picos:
           altura_mapa: 144
           pontos_de_interesse: []
         escaladas:
-        - via_esportiva:
+        - uid: i4405GV4Pfh5Z5
+          via_esportiva:
             nome: Cão Castrado
             dificuldade: BR_6SUP
             extensao: 50
@@ -125,7 +134,8 @@ picos:
             - Jorge Lima
             - André Morales
             - Tico
-        - via_esportiva:
+        - uid: gE3XG8AorpBPIP
+          via_esportiva:
             nome: The Nois
             dificuldade: BR_8B
             extensao: 60
@@ -139,7 +149,8 @@ picos:
             - Tácio Philip
             - Jefte Medeiros
             descricao: 'Obs: Importante utilizar costuras longas.'
-        - via_movel:
+        - uid: yNkf2u3SDPi4LY
+          via_movel:
             nome: Alicate
             dificuldade: BR_7B
             extensao: 50
@@ -149,7 +160,8 @@ picos:
             - Jorge Lima
             - Tico
             protecoes_moveis: Nut 5 ou compatível.
-        - via_esportiva:
+        - uid: wJNzFAJRrY11rb
+          via_esportiva:
             nome: Bebezão
             dificuldade: BR_8A
             extensao: 60
@@ -160,7 +172,8 @@ picos:
             - João Cabelo
             - Eduarda Lima
             descricao: 'Obs: Importante utilizar costuras longas.'
-        - via_esportiva:
+        - uid: L83Is8KDIZonCm
+          via_esportiva:
             nome: A mão que balança o B
             dificuldade: BR_6SUP
             extensao: 50
@@ -170,7 +183,8 @@ picos:
             - Tico
             - João Biskui
             descricao: 'Obs: Importante a utilização de algumas costuras longas.'
-        - via_esportiva:
+        - uid: 21YeMbIIt1XnWb
+          via_esportiva:
             nome: Darth Helmet
             dificuldade: BR_6SUP
             extensao: 70
@@ -181,7 +195,8 @@ picos:
             - André Morales
             - Juvenil Lino
             descricao: 'Obs: Utilizar corda de 70m e algumas costuras longas.'
-        - via_movel:
+        - uid: fg7OUlu7wa4j2j
+          via_movel:
             nome: Tico Skywalker
             dificuldade: BR_7A
             extensao: 60
@@ -225,6 +240,7 @@ picos:
           total_esportivas: 5
   - setor:
       conteudo:
+        uid: Jdz9SJrdlOBYw5
         caminho_imagem_capa: imagens/setor_ecumenico_p0_i0_2.webp
         nome: Ecumênico
         mapas:
@@ -233,7 +249,8 @@ picos:
           altura_mapa: 144
           pontos_de_interesse: []
         escaladas:
-        - via_esportiva:
+        - uid: mleMFJvLjFUxqg
+          via_esportiva:
             nome: Dízimo
             dificuldade: BR_4SUP
             extensao: 30
@@ -241,7 +258,8 @@ picos:
             conquistadores:
             - Leandro Schin
             - Aline Tavares
-        - via_movel:
+        - uid: 7sg6VmcZlfidqx
+          via_movel:
             nome: Cura G
             dificuldade: BR_6SUP
             extensao: 60
@@ -251,7 +269,8 @@ picos:
             - Zé Ricardo
             protecoes_moveis: Camalot(.4, .5, .75, 1 a 6) ou compatíveis
             descricao: 'Obs: Atenção no crux (lance próximo à chapeleta)'
-        - via_esportiva:
+        - uid: anfaN3oDA0rrgH
+          via_esportiva:
             nome: Show da Fé
             dificuldade: BR_7A
             extensao: 60
@@ -261,7 +280,8 @@ picos:
             - Tácio Philip
             - João Bisqui
             - Leandro Schin
-        - via_esportiva:
+        - uid: bNJlf45oqYbNOc
+          via_esportiva:
             nome: Ministério do Climb
             dificuldade: BR_7B
             extensao: 60
@@ -271,7 +291,8 @@ picos:
             - André Morales
             - Marcelo Sanches
             - Tico
-        - via_esportiva:
+        - uid: VcBkHwUDsNoBOy
+          via_esportiva:
             nome: Pequenas Igrejas Grandes Negócios
             dificuldade: BR_6SUP
             extensao: 60
@@ -282,7 +303,8 @@ picos:
             - Felipe Pimenta
             descricao: 'Obs: Utilizar clip stick ou rebite no início da via. Importante:
               Fazer uso de algumas costuras longas.'
-        - via_esportiva:
+        - uid: 1oWJouyozyRHqg
+          via_esportiva:
             nome: Meninos de Gesso
             dificuldade: BR_6SUP
             extensao: 50
@@ -326,14 +348,16 @@ picos:
     total_setores: 3
     total_esportivas: 11
 botoes:
-- texto: Capa
+- uid: Yaay510rQfzXso
+  texto: Capa
   destino:
     secao_textual:
       conteudo: |-
         | ![Falesia da Esfinge](imagens/capa_p0_i0.webp) |
         | :--: |
         | *Falesia da Esfinge* |
-- texto: Introdução
+- uid: TewDHbelMGIAZf
+  texto: Introdução
   destino:
     secao_textual:
       conteudo: |-
@@ -375,7 +399,8 @@ botoes:
 
         **CONTATO**
         falesiadaesfinge@gmail.com
-- texto: Segurança
+- uid: y2WlF13w7RYJkG
+  texto: Segurança
   destino:
     secao_textual:
       conteudo: |-
@@ -411,7 +436,8 @@ botoes:
         Pronto socorro municipal: (35) 3435-3374
         Hospital São Lucas: (35) 3100-9550
         Informações turísticas: (35) 3435-3711
-- texto: Localização
+- uid: H6hj2WwUzyHjpN
+  texto: Localização
   destino:
     secao_textual:
       conteudo: |-
@@ -435,7 +461,8 @@ botoes:
         | *Mapa de localização* |
 
         [Waze](https://waze.com/ul/h6gzn0gr6k) | [Google Maps](https://goo.gl/maps/rGeBpLYkDVM2)
-- texto: Código de Conduta
+- uid: eAVNH4zNi1uWb8
+  texto: Código de Conduta
   destino:
     secao_textual:
       conteudo: |-
@@ -461,7 +488,8 @@ botoes:
         | ![Trilha de Acesso](imagens/codigo_conduta_p0_i2.webp) |
         | :--: |
         | *Trilha de Acesso* |
-- texto: Apoio
+- uid: HSFXbptxLlomkt
+  texto: Apoio
   destino:
     secao_textual:
       conteudo: |-
@@ -475,7 +503,7 @@ botoes:
         - Seralts Soluções em Altura
         - JGariglio
         - Prefeitura de Extrema
-ultima_migracao: 4
+ultima_migracao: 5
 arquivos_externos:
 - caminho: imagens/capa_p0_i0.webp
   checksum_sha256: 56daa5170fca8f755403b22fe482288fca9d7d317292ec940dec00a16440bf7f

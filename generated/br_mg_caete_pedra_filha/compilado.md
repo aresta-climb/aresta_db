@@ -5,10 +5,11 @@
 - **descricao**: Croqui da Pedra Filha, localizada em Caeté, MG. Oferece vias esportivas técnicas em dois setores principais.
 - **id**: br_mg_caete_pedra_filha
 - **nome**: Pedra Filha (Pedrinha)
+- **uid**: J7aXhhOuKqgLtF
 - **caminho_thumbnail**: ![caminho_thumbnail](imagens/setor_de_cima_p0.webp)
 - **revisado_manualmente**: True
 - **status_desenho_extraivel**: NAO_TEM_DESENHO
-- **ultima_migracao**: 4
+- **ultima_migracao**: 5
 - **publicar_croqui**: True
 - **revisado_bounding_circle**: True
 - **botoes**: []
@@ -23,6 +24,7 @@
     
     O Setor de Cima da Pedra Filha (Pedrinha) apresenta vias esportivas técnicas em quartzito, com graduações variando do 5º ao 8º grau. A face é predominantemente Sudoeste.
 - **nome**: Setor de Cima
+- **uid**: VBhfxuMtfq7Opr
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_de_cima_p0.webp)
@@ -30,220 +32,300 @@
     - **altura_mapa**: 384
     - **pontos_de_interesse**:
       - **[0]**:
-        - **id**: 1
-        - **label**: 1
+        - **id**: IJMhQ4m8JwLwHH
+        - **uid**: IJMhQ4m8JwLwHH
+        - **rotulo**: 1
         - **retangulo**:
           - **x**: 90
           - **y**: 374
           - **comprimento**: 13
           - **largura**: 15
+        - **label**: 1
       - **[1]**:
-        - **id**: 2
-        - **label**: 2
+        - **id**: RxRAyZPIZWtksW
+        - **uid**: RxRAyZPIZWtksW
+        - **rotulo**: 2
         - **retangulo**:
           - **x**: 107
           - **y**: 373
           - **comprimento**: 14
           - **largura**: 14
+        - **label**: 2
       - **[2]**:
-        - **id**: 3
-        - **label**: 3
+        - **id**: 0SvZxvTFZk1hJ6
+        - **uid**: 0SvZxvTFZk1hJ6
+        - **rotulo**: 3
         - **retangulo**:
           - **x**: 123
           - **y**: 373
           - **comprimento**: 14
           - **largura**: 14
+        - **label**: 3
       - **[3]**:
-        - **id**: 4
-        - **label**: 4
+        - **id**: zKvZqEgGW6DKK0
+        - **uid**: zKvZqEgGW6DKK0
+        - **rotulo**: 4
         - **retangulo**:
           - **x**: 166
           - **y**: 373
           - **comprimento**: 15
           - **largura**: 14
+        - **label**: 4
       - **[4]**:
-        - **id**: 5
-        - **label**: 5
+        - **id**: ZW93l45FCveETe
+        - **uid**: ZW93l45FCveETe
+        - **rotulo**: 5
         - **retangulo**:
           - **x**: 200
           - **y**: 370
           - **comprimento**: 14
           - **largura**: 15
+        - **label**: 5
       - **[5]**:
-        - **id**: 6
-        - **label**: 6
+        - **id**: 9zyFHS8eQ1MsbF
+        - **uid**: 9zyFHS8eQ1MsbF
+        - **rotulo**: 6
         - **retangulo**:
           - **x**: 228
           - **y**: 370
           - **comprimento**: 15
           - **largura**: 15
+        - **label**: 6
       - **[6]**:
-        - **id**: 7
-        - **label**: 7
+        - **id**: bc04IFsT2VMYuY
+        - **uid**: bc04IFsT2VMYuY
+        - **rotulo**: 7
         - **retangulo**:
           - **x**: 258
           - **y**: 368
           - **comprimento**: 15
           - **largura**: 16
+        - **label**: 7
       - **[7]**:
-        - **id**: 8
-        - **label**: 8
+        - **id**: imtAY5VCzp8QKY
+        - **uid**: imtAY5VCzp8QKY
+        - **rotulo**: 8
         - **retangulo**:
           - **x**: 287
           - **y**: 370
           - **comprimento**: 16
           - **largura**: 15
+        - **label**: 8
       - **[8]**:
-        - **id**: 9
-        - **label**: 9
+        - **id**: 6IJbrIuZtdL5US
+        - **uid**: 6IJbrIuZtdL5US
+        - **rotulo**: 9
         - **retangulo**:
           - **x**: 366
           - **y**: 369
           - **comprimento**: 15
           - **largura**: 16
+        - **label**: 9
       - **[9]**:
-        - **id**: 10
-        - **label**: 10
+        - **id**: CXpFsXAV1o04ll
+        - **uid**: CXpFsXAV1o04ll
+        - **rotulo**: 10
         - **retangulo**:
           - **x**: 436
           - **y**: 367
           - **comprimento**: 20
           - **largura**: 18
+        - **label**: 10
       - **[10]**:
-        - **id**: 11
-        - **label**: 11
+        - **id**: oHepiwluJ01bOE
+        - **uid**: oHepiwluJ01bOE
+        - **rotulo**: 11
         - **retangulo**:
           - **x**: 464
           - **y**: 366
           - **comprimento**: 19
           - **largura**: 18
+        - **label**: 11
       - **[11]**:
-        - **id**: 12
-        - **label**: 12
+        - **id**: kbw581929y15Ij
+        - **uid**: kbw581929y15Ij
+        - **rotulo**: 12
         - **retangulo**:
           - **x**: 493
           - **y**: 368
           - **comprimento**: 20
           - **largura**: 19
+        - **label**: 12
       - **[12]**:
-        - **id**: 13
-        - **label**: 13
+        - **id**: IjjGZsiETiCrl4
+        - **uid**: IjjGZsiETiCrl4
+        - **rotulo**: 13
         - **retangulo**:
           - **x**: 530
           - **y**: 368
           - **comprimento**: 20
           - **largura**: 18
+        - **label**: 13
       - **[13]**:
-        - **id**: 14
-        - **label**: 14
+        - **id**: yMjbxCocgS4rxT
+        - **uid**: yMjbxCocgS4rxT
+        - **rotulo**: 14
         - **retangulo**:
           - **x**: 571
           - **y**: 370
           - **comprimento**: 20
           - **largura**: 19
+        - **label**: 14
     - **referencias**:
       - **[0]**:
+        - **alvo_uid**: mpABRjK9Evi84V
+        - **pontos_uids**:
+          - IJMhQ4m8JwLwHH
         - **escalada**: Mico Leão Noiado
         - **ids**:
-          - 1
+          - IJMhQ4m8JwLwHH
       - **[1]**:
+        - **alvo_uid**: Bjyi5AKI0geIui
+        - **pontos_uids**:
+          - RxRAyZPIZWtksW
         - **escalada**: Maridos Alforriados
         - **ids**:
-          - 2
+          - RxRAyZPIZWtksW
       - **[2]**:
+        - **alvo_uid**: k0yx2k8Wb289fJ
+        - **pontos_uids**:
+          - 0SvZxvTFZk1hJ6
         - **escalada**: Sábado de Aleluia
         - **ids**:
-          - 3
+          - 0SvZxvTFZk1hJ6
       - **[3]**:
+        - **alvo_uid**: xJWvgepcSPK1Bz
+        - **pontos_uids**:
+          - zKvZqEgGW6DKK0
         - **escalada**: Sem Nome
         - **ids**:
-          - 4
+          - zKvZqEgGW6DKK0
       - **[4]**:
+        - **alvo_uid**: 8J2ZqvlBs1QyJ3
+        - **pontos_uids**:
+          - 9zyFHS8eQ1MsbF
         - **escalada**: Mancha Amarela
         - **ids**:
-          - 6
+          - 9zyFHS8eQ1MsbF
       - **[5]**:
+        - **alvo_uid**: EfHNaaiaxw0H2N
+        - **pontos_uids**:
+          - bc04IFsT2VMYuY
         - **escalada**: Mancha Preta
         - **ids**:
-          - 7
+          - bc04IFsT2VMYuY
       - **[6]**:
+        - **alvo_uid**: BVHKs7vmO8UpmB
+        - **pontos_uids**:
+          - imtAY5VCzp8QKY
         - **escalada**: DNA Zica Preta
         - **ids**:
-          - 8
+          - imtAY5VCzp8QKY
       - **[7]**:
+        - **alvo_uid**: hTW7CziwIF7md1
+        - **pontos_uids**:
+          - 6IJbrIuZtdL5US
         - **escalada**: Desvio de Conduta
         - **ids**:
-          - 9
+          - 6IJbrIuZtdL5US
       - **[8]**:
+        - **alvo_uid**: Xdwx3KHcf2RWB7
+        - **pontos_uids**:
+          - CXpFsXAV1o04ll
         - **escalada**: O Desgrama
         - **ids**:
-          - 10
+          - CXpFsXAV1o04ll
       - **[9]**:
+        - **alvo_uid**: XR1RGtWLXV3YBi
+        - **pontos_uids**:
+          - oHepiwluJ01bOE
         - **escalada**: Bin Laden
         - **ids**:
-          - 11
+          - oHepiwluJ01bOE
       - **[10]**:
+        - **alvo_uid**: 5KMrvl69iIIMFx
+        - **pontos_uids**:
+          - kbw581929y15Ij
         - **escalada**: Dia após Dia
         - **ids**:
-          - 12
+          - kbw581929y15Ij
       - **[11]**:
+        - **alvo_uid**: 5WCOPJl5kMxcSN
+        - **pontos_uids**:
+          - IjjGZsiETiCrl4
         - **escalada**: Quarta-Feira Cinzas
         - **ids**:
-          - 13
+          - IjjGZsiETiCrl4
       - **[12]**:
+        - **alvo_uid**: imlr4LWVozft3Z
+        - **pontos_uids**:
+          - yMjbxCocgS4rxT
         - **escalada**: Independence Day
         - **ids**:
-          - 14
+          - yMjbxCocgS4rxT
 - **escaladas**:
   - **[0]**:
+    - **uid**: mpABRjK9Evi84V
     - **via_esportiva**:
       - **nome**: Mico Leão Noiado
       - **dificuldade**: BR_7B
   - **[1]**:
+    - **uid**: Bjyi5AKI0geIui
     - **via_esportiva**:
       - **nome**: Maridos Alforriados
       - **dificuldade**: BR_5SUP
   - **[2]**:
+    - **uid**: k0yx2k8Wb289fJ
     - **via_esportiva**:
       - **nome**: Sábado de Aleluia
       - **dificuldade**: BR_6SUP
   - **[3]**:
+    - **uid**: xJWvgepcSPK1Bz
     - **via_esportiva**:
       - **nome**: Sem Nome
       - **dificuldade**: BR_7B
   - **[4]**:
+    - **uid**: 8J2ZqvlBs1QyJ3
     - **via_esportiva**:
       - **nome**: Mancha Amarela
       - **dificuldade**: BR_7B
   - **[5]**:
+    - **uid**: EfHNaaiaxw0H2N
     - **via_esportiva**:
       - **nome**: Mancha Preta
       - **dificuldade**: BR_5
   - **[6]**:
+    - **uid**: BVHKs7vmO8UpmB
     - **via_esportiva**:
       - **nome**: DNA Zica Preta
       - **dificuldade**: BR_5
   - **[7]**:
+    - **uid**: hTW7CziwIF7md1
     - **via_esportiva**:
       - **nome**: Desvio de Conduta
       - **dificuldade**: BR_7B
   - **[8]**:
+    - **uid**: Xdwx3KHcf2RWB7
     - **via_esportiva**:
       - **nome**: O Desgrama
       - **dificuldade**: BR_7C
   - **[9]**:
+    - **uid**: XR1RGtWLXV3YBi
     - **via_esportiva**:
       - **nome**: Bin Laden
       - **dificuldade**: BR_8A
   - **[10]**:
+    - **uid**: 5KMrvl69iIIMFx
     - **via_esportiva**:
       - **nome**: Dia após Dia
       - **dificuldade**: BR_7A
   - **[11]**:
+    - **uid**: 5WCOPJl5kMxcSN
     - **via_esportiva**:
       - **nome**: Quarta-Feira Cinzas
       - **dificuldade**: BR_6
   - **[12]**:
+    - **uid**: imlr4LWVozft3Z
     - **via_esportiva**:
       - **nome**: Independence Day
       - **dificuldade**: BR_5
@@ -261,6 +343,7 @@
     
     O Setor de Baixo da Pedra Filha (Pedrinha) está localizado na Face Norte e conta com vias que desafiam do 5º ao 9º grau, incluindo trechos em artificial (A0).
 - **nome**: Setor de Baixo
+- **uid**: U5P9offw9HoqyT
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_de_baixo_p1.webp)
@@ -268,149 +351,203 @@
     - **altura_mapa**: 636
     - **pontos_de_interesse**:
       - **[0]**:
-        - **id**: 1
-        - **label**: 1
+        - **id**: lu5blKjzx4LjgR
+        - **uid**: lu5blKjzx4LjgR
+        - **rotulo**: 1
         - **retangulo**:
           - **x**: 188
           - **y**: 606
           - **comprimento**: 21
           - **largura**: 24
+        - **label**: 1
       - **[1]**:
-        - **id**: 2
-        - **label**: 2
+        - **id**: 5u9VFjd1M6ck56
+        - **uid**: 5u9VFjd1M6ck56
+        - **rotulo**: 2
         - **retangulo**:
           - **x**: 312
           - **y**: 602
           - **comprimento**: 21
           - **largura**: 22
+        - **label**: 2
       - **[2]**:
-        - **id**: 3
-        - **label**: 3
+        - **id**: BOy7KNF5xiKC8l
+        - **uid**: BOy7KNF5xiKC8l
+        - **rotulo**: 3
         - **retangulo**:
           - **x**: 406
           - **y**: 590
           - **comprimento**: 23
           - **largura**: 22
+        - **label**: 3
       - **[3]**:
-        - **id**: 4
-        - **label**: 4
+        - **id**: 7uKy6PfP6njoN5
+        - **uid**: 7uKy6PfP6njoN5
+        - **rotulo**: 4
         - **retangulo**:
           - **x**: 446
           - **y**: 586
           - **comprimento**: 23
           - **largura**: 23
+        - **label**: 4
       - **[4]**:
-        - **id**: 5
-        - **label**: 5
+        - **id**: mHVz2kW4ck0TXY
+        - **uid**: mHVz2kW4ck0TXY
+        - **rotulo**: 5
         - **retangulo**:
           - **x**: 514
           - **y**: 584
           - **comprimento**: 21
           - **largura**: 21
+        - **label**: 5
       - **[5]**:
-        - **id**: 6
-        - **label**: 6
+        - **id**: nN1nDuO24KVuIN
+        - **uid**: nN1nDuO24KVuIN
+        - **rotulo**: 6
         - **retangulo**:
           - **x**: 574
           - **y**: 587
           - **comprimento**: 21
           - **largura**: 20
+        - **label**: 6
       - **[6]**:
-        - **id**: 7
-        - **label**: 7
+        - **id**: b3rF4I0Xy28YnD
+        - **uid**: b3rF4I0Xy28YnD
+        - **rotulo**: 7
         - **retangulo**:
           - **x**: 830
           - **y**: 580
           - **comprimento**: 21
           - **largura**: 21
+        - **label**: 7
       - **[7]**:
-        - **id**: 8
-        - **label**: 8
+        - **id**: 8otYhVoIP6QtW1
+        - **uid**: 8otYhVoIP6QtW1
+        - **rotulo**: 8
         - **retangulo**:
           - **x**: 941
           - **y**: 576
           - **comprimento**: 22
           - **largura**: 21
+        - **label**: 8
       - **[8]**:
-        - **id**: 9
-        - **label**: 9
+        - **id**: AthHeCrIwNzYnr
+        - **uid**: AthHeCrIwNzYnr
+        - **rotulo**: 9
         - **retangulo**:
           - **x**: 1064
           - **y**: 574
           - **comprimento**: 22
           - **largura**: 21
+        - **label**: 9
     - **referencias**:
       - **[0]**:
+        - **alvo_uid**: pr6w35W9DOIcRx
+        - **pontos_uids**:
+          - lu5blKjzx4LjgR
         - **escalada**: Extremo Norte
         - **ids**:
-          - 1
+          - lu5blKjzx4LjgR
       - **[1]**:
+        - **alvo_uid**: 5Jc8v3vlBU5cg5
+        - **pontos_uids**:
+          - 5u9VFjd1M6ck56
         - **escalada**: Rapa do Tacho
         - **ids**:
-          - 2
+          - 5u9VFjd1M6ck56
       - **[2]**:
+        - **alvo_uid**: hFfWbymslvScCk
+        - **pontos_uids**:
+          - BOy7KNF5xiKC8l
         - **escalada**: Lindona 'Tindoida'
         - **ids**:
-          - 3
+          - BOy7KNF5xiKC8l
       - **[3]**:
+        - **alvo_uid**: JKLqKoqlbCWfRl
+        - **pontos_uids**:
+          - 7uKy6PfP6njoN5
         - **escalada**: Pandora
         - **ids**:
-          - 4
+          - 7uKy6PfP6njoN5
       - **[4]**:
+        - **alvo_uid**: JHs5YhKWNa064A
+        - **pontos_uids**:
+          - mHVz2kW4ck0TXY
         - **escalada**: A Espera de um Milagre
         - **ids**:
-          - 5
+          - mHVz2kW4ck0TXY
       - **[5]**:
+        - **alvo_uid**: g2c3KtctntaXBi
+        - **pontos_uids**:
+          - nN1nDuO24KVuIN
         - **escalada**: Insanidade Mental
         - **ids**:
-          - 6
+          - nN1nDuO24KVuIN
       - **[6]**:
+        - **alvo_uid**: E3WUZpNQ9vGhjX
+        - **pontos_uids**:
+          - b3rF4I0Xy28YnD
         - **escalada**: Sem Bússola
         - **ids**:
-          - 7
+          - b3rF4I0Xy28YnD
       - **[7]**:
+        - **alvo_uid**: nh9GHphkuu5jcw
+        - **pontos_uids**:
+          - 8otYhVoIP6QtW1
         - **escalada**: Casal 20
         - **ids**:
-          - 8
+          - 8otYhVoIP6QtW1
       - **[8]**:
+        - **alvo_uid**: 6zKjei5YkBQqbp
+        - **pontos_uids**:
+          - AthHeCrIwNzYnr
         - **escalada**: Maldita Obsessão
         - **ids**:
-          - 9
+          - AthHeCrIwNzYnr
 - **escaladas**:
   - **[0]**:
+    - **uid**: pr6w35W9DOIcRx
     - **via_esportiva**:
       - **nome**: Extremo Norte
       - **dificuldade**: BR_5
   - **[1]**:
+    - **uid**: 5Jc8v3vlBU5cg5
     - **via_esportiva**:
       - **nome**: Rapa do Tacho
       - **dificuldade**: BR_6
   - **[2]**:
+    - **uid**: hFfWbymslvScCk
     - **via_esportiva**:
       - **nome**: Lindona 'Tindoida'
       - **dificuldade**: BR_7A
   - **[3]**:
+    - **uid**: JKLqKoqlbCWfRl
     - **via_esportiva**:
       - **nome**: Pandora
       - **dificuldade**: BR_8A
   - **[4]**:
+    - **uid**: JHs5YhKWNa064A
     - **via_esportiva**:
       - **nome**: A Espera de um Milagre
       - **dificuldade**: BR_7A
   - **[5]**:
+    - **uid**: g2c3KtctntaXBi
     - **via_esportiva**:
       - **nome**: Insanidade Mental
       - **dificuldade**: BR_9A
       - **dificuldade_artificial**: A0
   - **[6]**:
+    - **uid**: E3WUZpNQ9vGhjX
     - **via_esportiva**:
       - **nome**: Sem Bússola
       - **dificuldade**: BR_6SUP
   - **[7]**:
+    - **uid**: nh9GHphkuu5jcw
     - **via_esportiva**:
       - **nome**: Casal 20
       - **dificuldade**: BR_6SUP
   - **[8]**:
+    - **uid**: 6zKjei5YkBQqbp
     - **via_esportiva**:
       - **nome**: Maldita Obsessão
       - **dificuldade**: BR_7B

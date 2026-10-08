@@ -1,50 +1,53 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+uid: c9S0g5Iak2aLY6
 nome: Flor da Montanha
 mapas:
 - caminho_imagem_mapa: imagens/grupo_regiao_2_setor_flor_da_montanha_p0_i0.webp
   largura_mapa: 1240
   altura_mapa: 991
   pontos_de_interesse:
-  - id: '1'
-    label: '1'
+  - uid: 7fqdxiZOSHSkfr
+    rotulo: '1'
     circulo:
       x: 334
       y: 566
       raio: 15
-  - id: 1_fim
-    label: '1'
+  - uid: kgmPREHasCsBoR
+    rotulo: '1'
     circulo:
       x: 554
       y: 121
       raio: 16
-  - id: '2'
-    label: '2'
+  - uid: wqHmJRnhxGKpj3
+    rotulo: '2'
     circulo:
       x: 333
       y: 602
       raio: 15
-  - id: 2_fim
-    label: '2'
+  - uid: D5rqIZY607W6xh
+    rotulo: '2'
     circulo:
       x: 106
       y: 16
       raio: 16
   referencias:
-  - escalada: Fina Flor
-    ids:
-    - '1'
-    - 1_fim
-  - escalada: Flor da Montanha
-    ids:
-    - '2'
-    - 2_fim
+  - alvo_uid: SD9SEA5nSWTq6j
+    pontos_uids:
+    - 7fqdxiZOSHSkfr
+    - kgmPREHasCsBoR
+  - alvo_uid: 8SxckImBdqAEFa
+    pontos_uids:
+    - wqHmJRnhxGKpj3
+    - D5rqIZY607W6xh
 escaladas:
-- boulder:
+- uid: SD9SEA5nSWTq6j
+  boulder:
     nome: Fina Flor
     dificuldade: V4
-- boulder:
+- uid: 8SxckImBdqAEFa
+  boulder:
     nome: Flor da Montanha
     dificuldade: V6
 ---

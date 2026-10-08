@@ -1,5 +1,6 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+uid: oyCb72FtUENKNi
 id: br_mg_araxa_bocaina_boulders
 nome: Guia de Boulders - Bocaina Park
 descricao: O Bocaina Park é um parque particular de esportes, lazer e bem estar localizado
@@ -41,18 +42,21 @@ picos:
     longitude: -467975110
   url_google_maps: https://maps.app.goo.gl/ph75hb2UY3xD4Y7CA
 botoes:
-- texto: Capa
+- uid: jipETxRq7lw3JK
+  texto: Capa
   destino:
     secao_textual:
       caminho: capa.md
-- texto: Patrocinadores
+- uid: V5bQX9wsAGCEVP
+  texto: Patrocinadores
   destino:
     secao_textual:
       caminho: patrocinadores.md
-- texto: Introdução
+- uid: 6yo0LWv0gVeMFC
+  texto: Introdução
   destino:
     secao_textual:
       caminho: introducao.md
-ultima_migracao: 4
+ultima_migracao: 5
 publicar_croqui: true
 revisado_bounding_circle: true

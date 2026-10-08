@@ -1,6 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+uid: 0swIknUTarrNZN
 caminho_imagem_capa: imagens/grupo_principal_setor_classicas_longas_p0_i1.webp
 nome: Setor Clássicas Longas
 mapas:
@@ -8,119 +9,113 @@ mapas:
   largura_mapa: 1617
   altura_mapa: 1025
   referencias:
-  - escalada: Eu Não Sou de Ferro
-    ids:
-    - '1'
-  - escalada: Rio de Mão Dupla
-    ids:
-    - '1'
-  - escalada: À Francesa
-    ids:
-    - '1'
-  - escalada: Jardim do Éden
-    ids:
-    - '2'
-  - escalada: A Dois Passos do Paraíso
-    ids:
-    - '2'
-  - escalada: Conquista do Paraíso
-    ids:
-    - '2'
-  - escalada: Purgatório
-    ids:
-    - '2'
-  - escalada: Arco de Ferros
-    ids:
-    - '2'
-  - escalada: Quem com Ferro Fere
-    ids:
-    - '2'
-  - escalada: Tanto Bate Até Que Fura
-    ids:
-    - '2'
-  - escalada: Trem de Ferro
-    ids:
-    - '2'
-  - escalada: Up Ester
-    ids:
-    - '2'
-  - escalada: Até Que a Vida Nos Separe
-    ids:
-    - '2'
-  - escalada: Vr. Pilhado
-    ids:
-    - '2'
-  - escalada: Pr. CEM
-    ids:
-    - '2'
-  - escalada: Vr. SEM
-    ids:
-    - '2'
-  - escalada: Ih, Ferrou!
-    ids:
-    - '3'
-  - escalada: O Retorno de Jedi
-    ids:
-    - '4'
-  - escalada: O Nome da Rosa
-    ids:
-    - '4'
-  - escalada: Quarto 304
-    ids:
-    - '4'
-  - ids:
-    - central
-    grupo: Parede Principal (Paredes de Aço)
-    setor: Setor Central
-  - ids:
-    - aderencias_extrema_direita
-    grupo: Parede das Aderências
-    setor: Extrema Direita
-  - ids:
-    - '1'
-    grupo: Parede Principal (Paredes de Aço)
-    setor: Setor Clássicas Longas
-    escalada: Grand Finale
-  - ids:
-    - '2'
-    grupo: Parede Principal (Paredes de Aço)
-    setor: Setor Clássicas Longas
-    escalada: Pr. Conrado Ferro
+  - alvo_uid: TiMvo7taQljnz6
+    pontos_uids:
+    - bGttwYGvawhytZ
+  - alvo_uid: AJSTo7xkzcHxVh
+    pontos_uids:
+    - bGttwYGvawhytZ
+  - alvo_uid: ppRjvPjQbmhQLX
+    pontos_uids:
+    - bGttwYGvawhytZ
+  - alvo_uid: QRzLPeTtQG5uod
+    pontos_uids:
+    - ju2k5aWDVsTIiE
+  - alvo_uid: 1MRTqHhEwibZe5
+    pontos_uids:
+    - ju2k5aWDVsTIiE
+  - alvo_uid: zcxxdwF36C6b2o
+    pontos_uids:
+    - ju2k5aWDVsTIiE
+  - alvo_uid: 6TFkeXcKqIVXD3
+    pontos_uids:
+    - ju2k5aWDVsTIiE
+  - alvo_uid: G1GEUfkb6aFhvG
+    pontos_uids:
+    - ju2k5aWDVsTIiE
+  - alvo_uid: AmnkWTziTCLtlx
+    pontos_uids:
+    - ju2k5aWDVsTIiE
+  - alvo_uid: bU7X6rEsf8DV8G
+    pontos_uids:
+    - ju2k5aWDVsTIiE
+  - alvo_uid: 3qiVVJ4gH98lkU
+    pontos_uids:
+    - ju2k5aWDVsTIiE
+  - alvo_uid: 3rFARDsvpejB1k
+    pontos_uids:
+    - ju2k5aWDVsTIiE
+  - alvo_uid: OdHzDK0d85nJch
+    pontos_uids:
+    - ju2k5aWDVsTIiE
+  - alvo_uid: QGE2HjkgbIBB11
+    pontos_uids:
+    - ju2k5aWDVsTIiE
+  - alvo_uid: qwJkNaUAKwp36y
+    pontos_uids:
+    - ju2k5aWDVsTIiE
+  - alvo_uid: LQO55ySramygmt
+    pontos_uids:
+    - ju2k5aWDVsTIiE
+  - alvo_uid: Yk0v37xjPddpkt
+    pontos_uids:
+    - mtyy0LPuNnWl8f
+  - alvo_uid: 4NlA92f95JiGYq
+    pontos_uids:
+    - olicjdnYP8V23W
+  - alvo_uid: 3RMqt5ApX2IY8X
+    pontos_uids:
+    - olicjdnYP8V23W
+  - alvo_uid: RSE77cm8A5ibY5
+    pontos_uids:
+    - olicjdnYP8V23W
+  - alvo_uid: nJgmAcSxMTe2Xy
+    pontos_uids:
+    - Vqt7hXzzeXmd6S
+  - alvo_uid: sMtcp04stg3wSX
+    pontos_uids:
+    - yMnrBOpRSQ0Iko
+  - alvo_uid: aWWidUPbYI6GzD
+    pontos_uids:
+    - bGttwYGvawhytZ
+  - alvo_uid: uW5HmBfxqXNcx6
+    pontos_uids:
+    - ju2k5aWDVsTIiE
   pontos_de_interesse:
-  - id: '1'
-    label: '1'
+  - uid: bGttwYGvawhytZ
+    rotulo: '1'
     circulo:
       x: 832
       y: 373
       raio: 19
-  - id: '2'
-    label: '2'
+  - uid: ju2k5aWDVsTIiE
+    rotulo: '2'
     circulo:
       x: 1033
       y: 696
       raio: 19
-  - id: '3'
-    label: '3'
+  - uid: mtyy0LPuNnWl8f
+    rotulo: '3'
     circulo:
       x: 1084
       y: 779
       raio: 19
-  - id: '4'
-    label: '4'
+  - uid: olicjdnYP8V23W
+    rotulo: '4'
     circulo:
       x: 1175
       y: 848
       raio: 19
-  - id: central
-    label: Parede Principal Central
+  - uid: Vqt7hXzzeXmd6S
+    rotulo: Parede Principal Central
     retangulo:
       x: 442
       y: 183
       comprimento: 215
       largura: 68
     cor: ''
-  - id: aderencias_extrema_direita
-    label: Aderências Extrema Direita
+  - uid: yMnrBOpRSQ0Iko
+    rotulo: Aderências Extrema Direita
     retangulo:
       x: 1430
       y: 216
@@ -131,204 +126,204 @@ mapas:
   largura_mapa: 2069
   altura_mapa: 1207
   referencias:
-  - escalada: Quarto 304
-    ids:
-    - '1'
-  - escalada: O Nome da Rosa
-    ids:
-    - '2'
-  - escalada: O Retorno de Jedi
-    ids:
-    - '3'
-  - escalada: Ih, Ferrou!
-    ids:
-    - '4'
-  - escalada: Jardim do Éden
-    ids:
-    - '5'
-  - escalada: A Dois Passos do Paraíso
-    ids:
-    - '6'
-  - escalada: Conquista do Paraíso
-    ids:
-    - '7'
-  - escalada: Purgatório
-    ids:
-    - '8'
-  - escalada: Arco de Ferros
-    ids:
-    - '9'
-  - escalada: Pr. Conrado Ferro
-    ids:
-    - '10'
-  - escalada: Quem com Ferro Fere
-    ids:
-    - '11'
-  - escalada: Tanto Bate Até Que Fura
-    ids:
-    - '11'
-    - '12'
-  - escalada: Trem de Ferro
-    ids:
-    - '13'
-  - escalada: Up Ester
-    ids:
-    - '14'
-  - escalada: Até Que a Vida Nos Separe
-    ids:
-    - '15'
-  - escalada: Vr. Pilhado
-    ids:
-    - '16'
-  - escalada: Pr. CEM
-    ids:
-    - '17'
-  - escalada: Vr. SEM
-    ids:
-    - '17'
-    - '18'
-  - escalada: Eu Não Sou de Ferro
-    ids:
-    - '19'
-  - escalada: Rio de Mão Dupla
-    ids:
-    - '20'
-  - escalada: À Francesa
-    ids:
-    - '21'
-  - escalada: Grand Finale
-    ids:
-    - '21'
-    - '22'
+  - alvo_uid: RSE77cm8A5ibY5
+    pontos_uids:
+    - kWobNcqiF42t4D
+  - alvo_uid: 3RMqt5ApX2IY8X
+    pontos_uids:
+    - SrCxhZObQ8YpKc
+  - alvo_uid: 4NlA92f95JiGYq
+    pontos_uids:
+    - dB8erTnLDoIfj0
+  - alvo_uid: Yk0v37xjPddpkt
+    pontos_uids:
+    - yIfeMDFcF3d1xU
+  - alvo_uid: QRzLPeTtQG5uod
+    pontos_uids:
+    - gcxQIZoHddkDua
+  - alvo_uid: 1MRTqHhEwibZe5
+    pontos_uids:
+    - hXBgx8rxDfAuzi
+  - alvo_uid: zcxxdwF36C6b2o
+    pontos_uids:
+    - to3OABIDZnYXgV
+  - alvo_uid: 6TFkeXcKqIVXD3
+    pontos_uids:
+    - yfZo4zbh0LC5Bz
+  - alvo_uid: G1GEUfkb6aFhvG
+    pontos_uids:
+    - GZ41NLWVNc3JlY
+  - alvo_uid: uW5HmBfxqXNcx6
+    pontos_uids:
+    - RIb4OKAtdVRE89
+  - alvo_uid: AmnkWTziTCLtlx
+    pontos_uids:
+    - JdJDbiL6okn3vV
+  - alvo_uid: bU7X6rEsf8DV8G
+    pontos_uids:
+    - JdJDbiL6okn3vV
+    - 5L2p3C5el9zg5T
+  - alvo_uid: 3qiVVJ4gH98lkU
+    pontos_uids:
+    - 173IxY9G5UwPTe
+  - alvo_uid: 3rFARDsvpejB1k
+    pontos_uids:
+    - L8jX93Tp5MVoBT
+  - alvo_uid: OdHzDK0d85nJch
+    pontos_uids:
+    - hws4jVHjOPOYYX
+  - alvo_uid: QGE2HjkgbIBB11
+    pontos_uids:
+    - XN2qte4rb6TMb4
+  - alvo_uid: qwJkNaUAKwp36y
+    pontos_uids:
+    - VGTqiO1hvNs8ic
+  - alvo_uid: LQO55ySramygmt
+    pontos_uids:
+    - VGTqiO1hvNs8ic
+    - DJDibhoScE40h7
+  - alvo_uid: TiMvo7taQljnz6
+    pontos_uids:
+    - NtilXTEX5MabO4
+  - alvo_uid: AJSTo7xkzcHxVh
+    pontos_uids:
+    - sZA03N16Ah91l1
+  - alvo_uid: ppRjvPjQbmhQLX
+    pontos_uids:
+    - v2LvrGR7OFGW19
+  - alvo_uid: aWWidUPbYI6GzD
+    pontos_uids:
+    - v2LvrGR7OFGW19
+    - D5TiLDry5gtAyw
   pontos_de_interesse:
-  - id: '1'
-    label: '1'
+  - uid: kWobNcqiF42t4D
+    rotulo: '1'
     circulo:
       x: 63
       y: 604
       raio: 24
-  - id: '2'
-    label: '2'
+  - uid: SrCxhZObQ8YpKc
+    rotulo: '2'
     circulo:
       x: 115
       y: 816
       raio: 24
-  - id: '3'
-    label: '3'
+  - uid: dB8erTnLDoIfj0
+    rotulo: '3'
     circulo:
       x: 294
       y: 803
       raio: 24
-  - id: '4'
-    label: '4'
+  - uid: yIfeMDFcF3d1xU
+    rotulo: '4'
     circulo:
       x: 404
       y: 779
       raio: 24
-  - id: '5'
-    label: '5'
+  - uid: gcxQIZoHddkDua
+    rotulo: '5'
     circulo:
       x: 563
       y: 843
       raio: 24
-  - id: '6'
-    label: '6'
+  - uid: hXBgx8rxDfAuzi
+    rotulo: '6'
     circulo:
       x: 652
       y: 819
       raio: 24
-  - id: '7'
-    label: '7'
+  - uid: to3OABIDZnYXgV
+    rotulo: '7'
     circulo:
       x: 710
       y: 801
       raio: 24
-  - id: '8'
-    label: '8'
+  - uid: yfZo4zbh0LC5Bz
+    rotulo: '8'
     circulo:
       x: 771
       y: 765
       raio: 24
-  - id: '9'
-    label: '9'
+  - uid: GZ41NLWVNc3JlY
+    rotulo: '9'
     circulo:
       x: 820
       y: 739
       raio: 24
-  - id: '10'
-    label: '10'
+  - uid: RIb4OKAtdVRE89
+    rotulo: '10'
     circulo:
       x: 869
       y: 726
       raio: 28
-  - id: '11'
-    label: '11'
+  - uid: JdJDbiL6okn3vV
+    rotulo: '11'
     circulo:
       x: 962
       y: 705
       raio: 26
-  - id: '12'
-    label: '12'
+  - uid: 5L2p3C5el9zg5T
+    rotulo: '12'
     circulo:
       x: 1044
       y: 438
       raio: 28
-  - id: '13'
-    label: '13'
+  - uid: 173IxY9G5UwPTe
+    rotulo: '13'
     circulo:
       x: 1041
       y: 691
       raio: 28
-  - id: '14'
-    label: '14'
+  - uid: L8jX93Tp5MVoBT
+    rotulo: '14'
     circulo:
       x: 1078
       y: 739
       raio: 27
-  - id: '15'
-    label: '15'
+  - uid: hws4jVHjOPOYYX
+    rotulo: '15'
     circulo:
       x: 1118
       y: 784
       raio: 28
-  - id: '16'
-    label: '16'
+  - uid: XN2qte4rb6TMb4
+    rotulo: '16'
     circulo:
       x: 1154
       y: 858
       raio: 27
-  - id: '17'
-    label: '17'
+  - uid: VGTqiO1hvNs8ic
+    rotulo: '17'
     circulo:
       x: 1218
       y: 944
       raio: 28
-  - id: '18'
-    label: '18'
+  - uid: DJDibhoScE40h7
+    rotulo: '18'
     circulo:
       x: 1233
       y: 280
       raio: 27
-  - id: '19'
-    label: '19'
+  - uid: NtilXTEX5MabO4
+    rotulo: '19'
     circulo:
       x: 1461
       y: 1055
       raio: 26
-  - id: '20'
-    label: '20'
+  - uid: sZA03N16Ah91l1
+    rotulo: '20'
     circulo:
       x: 1664
       y: 956
       raio: 29
-  - id: '21'
-    label: '21'
+  - uid: v2LvrGR7OFGW19
+    rotulo: '21'
     circulo:
       x: 1877
       y: 894
       raio: 28
-  - id: '22'
-    label: '22'
+  - uid: D5TiLDry5gtAyw
+    rotulo: '22'
     circulo:
       x: 1592
       y: 442
@@ -352,7 +347,8 @@ mapas:
   largura_mapa: 843
   altura_mapa: 1185
 escaladas:
-- via_multiplas_enfiadas:
+- uid: RSE77cm8A5ibY5
+  via_multiplas_enfiadas:
     nome: Quarto 304
     dificuldade_media: BR_2
     dificuldade_maxima: BR_2SUP
@@ -364,14 +360,13 @@ escaladas:
     - Tonico Magalhães
     - Celso Ferreira Gomes
     data_abertura: '2014-11-01'
-    descricao: Inicia após a grande barriga que existe neste setor, com um grampo
-      logo no início, para proteger do pequeno abismo que ali existe. Seu trecho inicial,
-      com cerca de 40 metros, segue por platôs de mato e lances de Isup. Após juntar
-      com a parada final da "O Nome da Rosa", a parede ganha verticalidade e segue
-      por mais 80 metros até a vegetação de topo. Nome inspirado no quarto no qual
-      a Hilda Furacão "atendia" seus clientes no Hotel Maravilhoso, de acordo com
-      o romance de Roberto Drummond.
-- via_multiplas_enfiadas:
+    descricao: Inicia após a grande barriga que existe neste setor, com um grampo logo no início, para proteger do 
+      pequeno abismo que ali existe. Seu trecho inicial, com cerca de 40 metros, segue por platôs de mato e lances de 
+      Isup. Após juntar com a parada final da "O Nome da Rosa", a parede ganha verticalidade e segue por mais 80 metros 
+      até a vegetação de topo. Nome inspirado no quarto no qual a Hilda Furacão "atendia" seus clientes no Hotel 
+      Maravilhoso, de acordo com o romance de Roberto Drummond.
+- uid: 3RMqt5ApX2IY8X
+  via_multiplas_enfiadas:
     nome: O Nome da Rosa
     dificuldade_media: BR_4
     dificuldade_maxima: BR_4SUP
@@ -384,10 +379,11 @@ escaladas:
     - Glesse Gripp
     - João Paulo JP
     data_abertura: '2012-02-04'
-    descricao: Centésima via conquistada na região, sendo a penúltima da extrema esquerda
-      da Parede Principal. Uma opção interessante é seguir, após o final dessa via,
-      pela "Quarto 304", o que confere aos escaladores exatos 200 metros de escalada.
-- via_multiplas_enfiadas:
+    descricao: Centésima via conquistada na região, sendo a penúltima da extrema esquerda da Parede Principal. Uma opção
+      interessante é seguir, após o final dessa via, pela "Quarto 304", o que confere aos escaladores exatos 200 metros 
+      de escalada.
+- uid: 4NlA92f95JiGYq
+  via_multiplas_enfiadas:
     nome: O Retorno de Jedi
     dificuldade_media: BR_4
     dificuldade_maxima: BR_4SUP
@@ -398,9 +394,9 @@ escaladas:
     - Paulo Bandeira
     - Júlio César Cardoso
     data_abertura: '2007-09-07'
-    descricao: Boa via, predominantemente em aderência e agarras, que conta com proteção
-      fixa constante.
-- via_multiplas_enfiadas:
+    descricao: Boa via, predominantemente em aderência e agarras, que conta com proteção fixa constante.
+- uid: Yk0v37xjPddpkt
+  via_multiplas_enfiadas:
     nome: Ih, Ferrou!
     destaque: true
     dificuldade_media: BR_4
@@ -410,22 +406,20 @@ escaladas:
     comprimento_total: 185
     numero_enfiadas: 5
     tipo_via_multiplas_enfiadas: MISTA
-    equipamento_recomendado: 'Camalots #0.75 ao #4. Camalot #3 na P1 e Camalot #0.75
-      na P2.'
+    equipamento_recomendado: 'Camalots #0.75 ao #4. Camalot #3 na P1 e Camalot #0.75 na P2.'
     conquistadores:
     - Pedro Bugim
     - Maria Fernanda Patrício
     data_abertura: '2011-11-13'
-    descricao: 'Via mista, com agarras, aderência, fendas e barrigas interessantes.
-      Proteções constantes nos lances mais complicados e maiores espaçamentos nos
-      lances fáceis. Proteção dupla em todas as paradas, com padrão de 50 metros.
-      Material recomendado: Camalots #0.75 ao #4. Rapel possível com corda única de
-      50m.'
+    descricao: 'Via mista, com agarras, aderência, fendas e barrigas interessantes. Proteções constantes nos lances mais complicados
+      e maiores espaçamentos nos lances fáceis. Proteção dupla em todas as paradas, com padrão de 50 metros. Material recomendado:
+      Camalots #0.75 ao #4. Rapel possível com corda única de 50m.'
   mapas:
   - caminho_imagem_mapa: imagens/grupo_principal_setor_classicas_longas_p6_i1.webp
     largura_mapa: 540
     altura_mapa: 381
-- via_multiplas_enfiadas:
+- uid: QRzLPeTtQG5uod
+  via_multiplas_enfiadas:
     nome: Jardim do Éden
     destaque: true
     dificuldade_media: BR_6
@@ -444,14 +438,15 @@ escaladas:
     - Luciano Bender
     - Patrícia Duffles
     data_abertura: '2011-06-24'
-    descricao: Via maravilhosa iniciada em lances fortes, em sequência bastante vertical,
-      com alguns trechos negativos. Proteção fixa generosa em toda extensão da via.
-      Rapel possível com uma corda de 50m. Dois lances de VIIa obrigatórios.
+    descricao: Via maravilhosa iniciada em lances fortes, em sequência bastante vertical, com alguns trechos negativos. 
+      Proteção fixa generosa em toda extensão da via. Rapel possível com uma corda de 50m. Dois lances de VIIa 
+      obrigatórios.
   mapas:
   - caminho_imagem_mapa: imagens/via_jardim_do_eden_p0.webp
     largura_mapa: 765
     altura_mapa: 1071
-- via_multiplas_enfiadas:
+- uid: 1MRTqHhEwibZe5
+  via_multiplas_enfiadas:
     nome: A Dois Passos do Paraíso
     destaque: true
     dificuldade_media: BR_6
@@ -466,10 +461,10 @@ escaladas:
     - Igor Baldo
     - Carlim Kamicad
     data_abertura: '2012-04-08'
-    descricao: Via feita em três enfiadas curtas, seguindo uma exigente sequência
-      buracos, com algumas passagens negativas. Ótima opção no setor, servindo inclusive,
-      como variante da via "Jardim do Éden".
-- via_multiplas_enfiadas:
+    descricao: Via feita em três enfiadas curtas, seguindo uma exigente sequência buracos, com algumas passagens 
+      negativas. Ótima opção no setor, servindo inclusive, como variante da via "Jardim do Éden".
+- uid: zcxxdwF36C6b2o
+  via_multiplas_enfiadas:
     nome: Conquista do Paraíso
     destaque: true
     dificuldade_media: BR_6
@@ -484,15 +479,15 @@ escaladas:
     - Juliano Magalhães
     - Luciano Bender
     data_abertura: '2011-09-06'
-    descricao: Via forte e complexa, porém muito bem protegida. Ótima opção neste
-      setor. Rapel com corda única de 60m. Três lances de VIIa obrigatórios. Juntamente
-      com a Jardim do Éden, forma o conjunto atual do pólo que pode ser considerado
-      como tipo esportivas longas.
+    descricao: Via forte e complexa, porém muito bem protegida. Ótima opção neste setor. Rapel com corda única de 60m. 
+      Três lances de VIIa obrigatórios. Juntamente com a Jardim do Éden, forma o conjunto atual do pólo que pode ser 
+      considerado como tipo esportivas longas.
   mapas:
   - caminho_imagem_mapa: imagens/via_conquista_do_paraiso_p0.webp
     largura_mapa: 736
     altura_mapa: 1068
-- via_multiplas_enfiadas:
+- uid: 6TFkeXcKqIVXD3
+  via_multiplas_enfiadas:
     nome: Purgatório
     destaque: true
     dificuldade_media: BR_6
@@ -505,10 +500,10 @@ escaladas:
     - Juliano Magalhães
     - Luciano Bender
     data_abertura: '2013-07-24'
-    descricao: Via iniciada em 2011, que conta com 32 grampos. A primeira enfiada
-      é técnica, com belas agarras e bastante vertical, a segunda é atlética/esportiva
-      e a última em aderências e abaulados. Imperdível!
-- via_movel:
+    descricao: Via iniciada em 2011, que conta com 32 grampos. A primeira enfiada é técnica, com belas agarras e 
+      bastante vertical, a segunda é atlética/esportiva e a última em aderências e abaulados. Imperdível!
+- uid: G1GEUfkb6aFhvG
+  via_movel:
     nome: Arco de Ferros
     dificuldade: BR_7A
     exposicao: E2
@@ -519,11 +514,11 @@ escaladas:
     - Eustáquio Júnior
     - Celso Ferreira Gomes
     data_abertura: '2012-06-16'
-    descricao: Via com boas passadas em móvel, sempre em diagonal para a esquerda,
-      cruzando a "Purgatório" e juntando na "Conquista do Paraíso". Leve peças pequenas
-      e médias. O nome da via é em alusão ao grande arco negativo formado pela fenda
-      por onde a linha passa.
-- via_multiplas_enfiadas:
+    descricao: Via com boas passadas em móvel, sempre em diagonal para a esquerda, cruzando a "Purgatório" e juntando na
+      "Conquista do Paraíso". Leve peças pequenas e médias. O nome da via é em alusão ao grande arco negativo formado 
+      pela fenda por onde a linha passa.
+- uid: uW5HmBfxqXNcx6
+  via_multiplas_enfiadas:
     nome: Pr. Conrado Ferro
     destaque: true
     dificuldade_media: BR_7A
@@ -537,13 +532,12 @@ escaladas:
     - Juliano Magalhães
     - Luciano Bender
     data_abertura: '2013-07-23'
-    descricao: Via bastante vertical e considerada um raro exemplo de escalada ESPORTIVA
-      LONGA. Trata-se da escalada mais difícil do Vale do Roncador até agora. Necessárias
-      18 costuras, caso se deseje fazer a primeira enfiada completa. O nome da via
-      é uma homenagem pelo quinto aniversário do filho de Luciano Bender, na data
-      da conquista. 31 grampos de ½. Um grande e empolgante desafio aos escaladores
-      esportivos.
-- via_multiplas_enfiadas:
+    descricao: Via bastante vertical e considerada um raro exemplo de escalada ESPORTIVA LONGA. Trata-se da escalada 
+      mais difícil do Vale do Roncador até agora. Necessárias 18 costuras, caso se deseje fazer a primeira enfiada 
+      completa. O nome da via é uma homenagem pelo quinto aniversário do filho de Luciano Bender, na data da conquista. 
+      31 grampos de ½. Um grande e empolgante desafio aos escaladores esportivos.
+- uid: AmnkWTziTCLtlx
+  via_multiplas_enfiadas:
     nome: Quem com Ferro Fere
     dificuldade_media: BR_5
     dificuldade_maxima: BR_5
@@ -556,9 +550,9 @@ escaladas:
     - Pedro Bugim
     - Vivianne Sawczuk
     data_abertura: '2015-09-05'
-    descricao: Via em agarras e aderência, bem constante do início ao fim, com proteção
-      fixa bem justa.
-- via_multiplas_enfiadas:
+    descricao: Via em agarras e aderência, bem constante do início ao fim, com proteção fixa bem justa.
+- uid: bU7X6rEsf8DV8G
+  via_multiplas_enfiadas:
     nome: Tanto Bate Até Que Fura
     dificuldade_media: BR_6
     dificuldade_maxima: BR_7A
@@ -571,13 +565,12 @@ escaladas:
     - Pedro Bugim
     - Vivianne Sawczuk
     data_abertura: '2015-09-07'
-    descricao: Via muito interessante, bastante técnica, toda protegida em chapeletas
-      (chapeletas com argola estão posicionadas de tempos em tempos para eventual
-      rapel e parada). Sua primeira metade é mais complexa, feita basicamente em micro
-      agarras e aderência. Sua segunda metade, mais vertical, possui lances de domínio
-      e muitos abaulados. Termina na primeira parada da "Trem de Ferro", por onde
-      pode-se rapelar em grampos.
-- via_multiplas_enfiadas:
+    descricao: Via muito interessante, bastante técnica, toda protegida em chapeletas (chapeletas com argola estão 
+      posicionadas de tempos em tempos para eventual rapel e parada). Sua primeira metade é mais complexa, feita 
+      basicamente em micro agarras e aderência. Sua segunda metade, mais vertical, possui lances de domínio e muitos 
+      abaulados. Termina na primeira parada da "Trem de Ferro", por onde pode-se rapelar em grampos.
+- uid: 3qiVVJ4gH98lkU
+  via_multiplas_enfiadas:
     nome: Trem de Ferro
     dificuldade_media: BR_3
     dificuldade_maxima: BR_5
@@ -591,10 +584,10 @@ escaladas:
     - Luciano Bender
     - Tonico Magalhães
     data_abertura: '2012-07-24'
-    descricao: Localiza-se logo à esquerda da Up Ester, no ponto mais alto das bases
-      das vias naquele local. Possui 19 grampos de 1/2". A bela sequência vertical
-      no meio da via é o crux. Não a perca!
-- via_multiplas_enfiadas:
+    descricao: Localiza-se logo à esquerda da Up Ester, no ponto mais alto das bases das vias naquele local. Possui 19 
+      grampos de 1/2". A bela sequência vertical no meio da via é o crux. Não a perca!
+- uid: 3rFARDsvpejB1k
+  via_multiplas_enfiadas:
     nome: Up Ester
     dificuldade_media: BR_5
     dificuldade_maxima: BR_5SUP
@@ -603,18 +596,17 @@ escaladas:
     comprimento_total: 100
     numero_enfiadas: 2
     tipo_via_multiplas_enfiadas: TODA_FIXA
-    equipamento_recomendado: 'Camalots #0.5 e #0.75 (friends pequenos opcionais na
-      primeira enfiada).'
+    equipamento_recomendado: 'Camalots #0.5 e #0.75 (friends pequenos opcionais na primeira enfiada).'
     conquistadores:
     - Pedro Bugim
     - Gustavo "Xaxá" Carrozzino
     - Milson Domingues
     data_abertura: '2012-06-16'
-    descricao: Via com boa verticalidade, passando por cristaleiras e abaulados incríveis.
-      É possível melhorar a proteção na primeira enfiada com friends pequenos, mas
-      não são obrigatórios. Conquista feita em homenagem à grande escaladora carioca
-      Ester Binstok, falecida precocemente aos 33 anos de idade.
-- via_multiplas_enfiadas:
+    descricao: Via com boa verticalidade, passando por cristaleiras e abaulados incríveis. É possível melhorar a 
+      proteção na primeira enfiada com friends pequenos, mas não são obrigatórios. Conquista feita em homenagem à grande
+      escaladora carioca Ester Binstok, falecida precocemente aos 33 anos de idade.
+- uid: OdHzDK0d85nJch
+  via_multiplas_enfiadas:
     nome: Até Que a Vida Nos Separe
     destaque: true
     dificuldade_media: BR_3
@@ -627,11 +619,11 @@ escaladas:
     - Pedro Bugim
     - Maria Fernanda Patrício
     data_abertura: '2015-02-15'
-    descricao: Bonita via, que inicia em lances mais tranquilos, ganhando verticalidade
-      na parte superior. Lances em agarras generosas e algumas passadas mais técnicas
-      em aderência. Termina junto com o final da "Vr. SEM". Atualmente, é a via mais
-      acessível da parede, por sua graduação pouco elevada e proteção generosa.
-- via_multiplas_enfiadas:
+    descricao: Bonita via, que inicia em lances mais tranquilos, ganhando verticalidade na parte superior. Lances em 
+      agarras generosas e algumas passadas mais técnicas em aderência. Termina junto com o final da "Vr. SEM". 
+      Atualmente, é a via mais acessível da parede, por sua graduação pouco elevada e proteção generosa.
+- uid: QGE2HjkgbIBB11
+  via_multiplas_enfiadas:
     nome: Vr. Pilhado
     dificuldade_media: BR_3
     dificuldade_maxima: BR_5SUP
@@ -639,20 +631,18 @@ escaladas:
     comprimento_total: 70
     numero_enfiadas: 2
     tipo_via_multiplas_enfiadas: MISTA
-    equipamento_recomendado: 'Friend médio / Camalot #1 (em um buraco na primeira
-      enfiada).'
+    equipamento_recomendado: 'Friend médio / Camalot #1 (em um buraco na primeira enfiada).'
     conquistadores:
     - Pedro Bugim
     - Maria Fernanda Patrício
     data_abertura: '2015-02-15'
-    descricao: Variante da via anterior. Inicia com uma passada em móvel, utilizando
-      um friend médio em um buraco. Continua em lances um pouco expostos, apesar de
-      fáceis, em proteção fixa. Após a primeira parada, existe o lance mais interessante
-      da via, com proteção mais generosa, no qual se vence uma bonita barriga bem
-      vertical e levemente negativa, com ótimas agarras e regletes. Pode-se continuar
-      para a esquerda, juntando na P1 da "Até que a Vida Nos Separe", ou seguir pela
-      direita, na P2 do "Pr. CEM".
-- via_multiplas_enfiadas:
+    descricao: Variante da via anterior. Inicia com uma passada em móvel, utilizando um friend médio em um buraco. 
+      Continua em lances um pouco expostos, apesar de fáceis, em proteção fixa. Após a primeira parada, existe o lance 
+      mais interessante da via, com proteção mais generosa, no qual se vence uma bonita barriga bem vertical e levemente
+      negativa, com ótimas agarras e regletes. Pode-se continuar para a esquerda, juntando na P1 da "Até que a Vida Nos 
+      Separe", ou seguir pela direita, na P2 do "Pr. CEM".
+- uid: qwJkNaUAKwp36y
+  via_multiplas_enfiadas:
     nome: Pr. CEM
     destaque: true
     dificuldade_media: BR_4
@@ -675,15 +665,13 @@ escaladas:
     - Gresce Melo
     - Giselle Melo
     data_abertura: '2014-04-03'
-    descricao: Via conquistada em homenagem ao Centro Excursionista Mineiro (CEM),
-      tendo inclusive a participação de vários sócios e colaboradores. Segue uma bela
-      linha natural que corta um trecho extenso da parede principal, variando entre
-      aderência e agarras bem definidas, com setores de boa verticalidade, apesar
-      do grau mediano. Une-se a isto, uma proteção bastante generosa, conferindo aos
-      montanhistas uma escalada agradável e divertida. Paradas duplas a, no máximo,
-      cada 50 metros. Rapel possível de qualquer ponto da via, com corda única de
-      50m.
-- via_esportiva:
+    descricao: Via conquistada em homenagem ao Centro Excursionista Mineiro (CEM), tendo inclusive a participação de 
+      vários sócios e colaboradores. Segue uma bela linha natural que corta um trecho extenso da parede principal, 
+      variando entre aderência e agarras bem definidas, com setores de boa verticalidade, apesar do grau mediano. Une-se
+      a isto, uma proteção bastante generosa, conferindo aos montanhistas uma escalada agradável e divertida. Paradas 
+      duplas a, no máximo, cada 50 metros. Rapel possível de qualquer ponto da via, com corda única de 50m.
+- uid: LQO55ySramygmt
+  via_esportiva:
     nome: Vr. SEM
     dificuldade: BR_6SUP
     exposicao: E1
@@ -692,11 +680,11 @@ escaladas:
     - Pedro Bugim
     - Maria Fernanda Patrício
     data_abertura: '2014-03-03'
-    descricao: Variante da última enfiada do Paredão CEM, que passa por um grande
-      buraco na parede, seguido de um lance negativo, onde encontra-se o crux da variante.
-      Lance forte, mas bem protegido, que une agarras grandes com bom domínio e equilíbrio.
-      Termina em conjunto com a parada final do Pr. CEM.
-- via_multiplas_enfiadas:
+    descricao: Variante da última enfiada do Paredão CEM, que passa por um grande buraco na parede, seguido de um lance 
+      negativo, onde encontra-se o crux da variante. Lance forte, mas bem protegido, que une agarras grandes com bom 
+      domínio e equilíbrio. Termina em conjunto com a parada final do Pr. CEM.
+- uid: TiMvo7taQljnz6
+  via_multiplas_enfiadas:
     nome: Eu Não Sou de Ferro
     destaque: true
     dificuldade_media: BR_5
@@ -709,10 +697,10 @@ escaladas:
     - Juliano Magalhães
     - Valdinei Lima
     data_abertura: '2006-08-26'
-    descricao: Uma das mais longas do Vale do Roncador, conta com belos lances verticais
-      em agarras e aderência. Diversão garantida! Rapel pela própria via, possível
-      com uma corda de 50m. Espetacular!!!
-- via_multiplas_enfiadas:
+    descricao: Uma das mais longas do Vale do Roncador, conta com belos lances verticais em agarras e aderência. 
+      Diversão garantida! Rapel pela própria via, possível com uma corda de 50m. Espetacular!!!
+- uid: AJSTo7xkzcHxVh
+  via_multiplas_enfiadas:
     nome: Rio de Mão Dupla
     destaque: true
     dificuldade_media: BR_3
@@ -722,22 +710,19 @@ escaladas:
     comprimento_total: 140
     numero_enfiadas: 3
     tipo_via_multiplas_enfiadas: TODA_MOVEL
-    equipamento_recomendado: Peças pequenas, sobretudo micro-friends e ballnutz, tricams
-      (#3), micro stoppers.
+    equipamento_recomendado: Peças pequenas, sobretudo micro-friends e ballnutz, tricams (#3), micro stoppers.
     conquistadores:
     - Pedro Bugim
     - Maria Fernanda Patrício
     data_abertura: '2012-06-16'
-    descricao: Via espetacular, de comprometimento, contando com apenas dois grampos
-      (um na segunda parada e outro após o crux), sendo todo o resto em proteção móvel
-      (inclusive a primeira parada). As colocações nem sempre são óbvias, obrigando
-      o escalador a fazer boa leitura da via, "garimpando" fissuras e buracos esporádicos
-      no caminho. O crux é protegido com peças bem pequenas, sobretudo, micro-friends
-      e ballnutz. Termina no meio da enfiada final da "Eu Não Sou de Ferro". É possível
-      evitar a terceira e última enfiada (crux), seguindo pela direita após a P2,
-      entrando na via "À Francesa". Rapel possível apenas com abandono de material!
-      Recomenda-se descer pelas vias laterais.
-- via_multiplas_enfiadas:
+    descricao: Via espetacular, de comprometimento, contando com apenas dois grampos (um na segunda parada e outro após 
+      o crux), sendo todo o resto em proteção móvel (inclusive a primeira parada). As colocações nem sempre são óbvias, 
+      obrigando o escalador a fazer boa leitura da via, "garimpando" fissuras e buracos esporádicos no caminho. O crux é
+      protegido com peças bem pequenas, sobretudo, micro-friends e ballnutz. Termina no meio da enfiada final da "Eu Não
+      Sou de Ferro". É possível evitar a terceira e última enfiada (crux), seguindo pela direita após a P2, entrando na 
+      via "À Francesa". Rapel possível apenas com abandono de material! Recomenda-se descer pelas vias laterais.
+- uid: ppRjvPjQbmhQLX
+  via_multiplas_enfiadas:
     nome: À Francesa
     dificuldade_media: BR_2
     dificuldade_maxima: BR_2SUP
@@ -747,10 +732,10 @@ escaladas:
     - Tonico Magalhães
     - Gustavo "Xaxá" Carrozzino
     data_abertura: '2007-10-27'
-    descricao: Via com lances bem fáceis, com proteções bem espaçadas entre si. Inicia-se
-      num diedro fácil protegido em móvel. Termina num grande platô, com saída por
-      caminhada.
-- via_esportiva:
+    descricao: Via com lances bem fáceis, com proteções bem espaçadas entre si. Inicia-se num diedro fácil protegido em 
+      móvel. Termina num grande platô, com saída por caminhada.
+- uid: aWWidUPbYI6GzD
+  via_esportiva:
     nome: Grand Finale
     dificuldade: BR_5SUP
     extensao: 30
@@ -758,10 +743,10 @@ escaladas:
     - Tonico Magalhães
     - Gustavo "Xaxá" Carrozzino
     data_abertura: '2007-10-27'
-    descricao: Pequena via que se inicia no platô final da via "À Francesa" e segue
-      por uma sequência mais delicada, até encontrar com o final da via "Eu Não Sou
-      de Ferro".
+    descricao: Pequena via que se inicia no platô final da via "À Francesa" e segue por uma sequência mais delicada, até
+      encontrar com o final da via "Eu Não Sou de Ferro".
 ---
+
 <small>Capa: Maria Fernanda na terceira passada em móvel (e crux) do Pr. "Ih, Ferrou!" (Foto: Pedro Bugim)</small>
 
 Setor da Parede Principal que concentra as maiores vias do Vale do Roncador, com vias de até 220 metros de extensão, como é o caso do Pr. “Eu Não Sou de Ferro”.

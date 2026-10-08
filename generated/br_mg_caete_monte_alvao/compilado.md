@@ -7,12 +7,13 @@
     
 - **id**: br_mg_caete_monte_alvao
 - **nome**: Monte Alvão - Caeté
+- **uid**: hyRUkm1gfZRwSw
 - **creditos**:
   - Gabriel Franco Ferreira
 - **caminho_thumbnail**: ![caminho_thumbnail](imagens/mapas_gerais_p0.webp)
 - **status_desenho_extraivel**: NAO_TEM_DESENHO
 - **revisado_manualmente**: True
-- **ultima_migracao**: 4
+- **ultima_migracao**: 5
 - **publicar_croqui**: True
 - **revisado_bounding_circle**: True
 - **botoes**: []
@@ -27,6 +28,7 @@
     
     O setor Vale Gaules está localizado no Alto Monte Alvão.
 - **nome**: Vale Gaules
+- **uid**: miGSpygWRq6cb6
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_vale_gaules_p0.webp)
@@ -34,140 +36,196 @@
     - **altura_mapa**: 1728
     - **pontos_de_interesse**:
       - **[0]**:
-        - **id**: 1
-        - **label**: 1
+        - **id**: 3okZzVngtkY85n
+        - **uid**: 3okZzVngtkY85n
+        - **rotulo**: 1
         - **retangulo**:
           - **x**: 416
           - **y**: 1324
           - **comprimento**: 34
           - **largura**: 45
+        - **label**: 1
       - **[1]**:
-        - **id**: 2
-        - **label**: 2
+        - **id**: pcoowIx00Czbif
+        - **uid**: pcoowIx00Czbif
+        - **rotulo**: 2
         - **retangulo**:
           - **x**: 290
           - **y**: 1258
           - **comprimento**: 35
           - **largura**: 44
+        - **label**: 2
       - **[2]**:
-        - **id**: 3
-        - **label**: 3
+        - **id**: rHfqXsL9Njw1ca
+        - **uid**: rHfqXsL9Njw1ca
+        - **rotulo**: 3
         - **retangulo**:
           - **x**: 310
           - **y**: 1106
           - **comprimento**: 28
           - **largura**: 39
+        - **label**: 3
       - **[3]**:
-        - **id**: 4
-        - **label**: 4
+        - **id**: V0nRpHhwK9mdSc
+        - **uid**: V0nRpHhwK9mdSc
+        - **rotulo**: 4
         - **retangulo**:
           - **x**: 318
           - **y**: 988
           - **comprimento**: 29
           - **largura**: 37
+        - **label**: 4
       - **[4]**:
-        - **id**: 5
-        - **label**: 5
+        - **id**: ecmvyKastDRTQ8
+        - **uid**: ecmvyKastDRTQ8
+        - **rotulo**: 5
         - **retangulo**:
           - **x**: 410
           - **y**: 886
           - **comprimento**: 35
           - **largura**: 42
+        - **label**: 5
       - **[5]**:
-        - **id**: 6
-        - **label**: 6
+        - **id**: AuTkBjcPw4enU1
+        - **uid**: AuTkBjcPw4enU1
+        - **rotulo**: 6
         - **retangulo**:
           - **x**: 524
           - **y**: 788
           - **comprimento**: 31
           - **largura**: 41
+        - **label**: 6
       - **[6]**:
-        - **id**: 7
-        - **label**: 7
+        - **id**: mCTLo35tUbwnDq
+        - **uid**: mCTLo35tUbwnDq
+        - **rotulo**: 7
         - **retangulo**:
           - **x**: 755
           - **y**: 647
           - **comprimento**: 34
           - **largura**: 42
+        - **label**: 7
       - **[7]**:
-        - **id**: 8
-        - **label**: 8
+        - **id**: RE0NyvyZmBu2yc
+        - **uid**: RE0NyvyZmBu2yc
+        - **rotulo**: 8
         - **retangulo**:
           - **x**: 894
           - **y**: 579
           - **comprimento**: 29
           - **largura**: 38
+        - **label**: 8
       - **[8]**:
-        - **id**: 9
-        - **label**: 9
+        - **id**: UUWc5c7jAxRl7F
+        - **uid**: UUWc5c7jAxRl7F
+        - **rotulo**: 9
         - **retangulo**:
           - **x**: 862
           - **y**: 482
           - **comprimento**: 29
           - **largura**: 39
+        - **label**: 9
       - **[9]**:
-        - **id**: 10
-        - **label**: 10
+        - **id**: pjdGXRG05dDq7k
+        - **uid**: pjdGXRG05dDq7k
+        - **rotulo**: 10
         - **retangulo**:
           - **x**: 732
           - **y**: 504
           - **comprimento**: 45
           - **largura**: 41
+        - **label**: 10
       - **[10]**:
-        - **id**: 11
-        - **label**: 11
+        - **id**: tqCmLfNxjeVMxY
+        - **uid**: tqCmLfNxjeVMxY
+        - **rotulo**: 11
         - **retangulo**:
           - **x**: 646
           - **y**: 512
           - **comprimento**: 41
           - **largura**: 40
+        - **label**: 11
     - **referencias**:
       - **[0]**:
+        - **alvo_uid**: Ffp8jQExoCB7IZ
+        - **pontos_uids**:
+          - 3okZzVngtkY85n
         - **escalada**: Beijo Grego
         - **ids**:
-          - 1
+          - 3okZzVngtkY85n
       - **[1]**:
+        - **alvo_uid**: yi3NA6H2aF4Eb5
+        - **pontos_uids**:
+          - pcoowIx00Czbif
         - **escalada**: A surpresa do Cesar
         - **ids**:
-          - 2
+          - pcoowIx00Czbif
       - **[2]**:
+        - **alvo_uid**: xr0k2dVbn6alQ1
+        - **pontos_uids**:
+          - rHfqXsL9Njw1ca
         - **escalada**: O sítio dos deuses
         - **ids**:
-          - 3
+          - rHfqXsL9Njw1ca
       - **[3]**:
+        - **alvo_uid**: W4NwPfyf9MEhL0
+        - **pontos_uids**:
+          - V0nRpHhwK9mdSc
         - **escalada**: Todos caminhos levam a Roma
         - **ids**:
-          - 4
+          - V0nRpHhwK9mdSc
       - **[4]**:
+        - **alvo_uid**: 6Gbt0xEgMVOijY
+        - **pontos_uids**:
+          - ecmvyKastDRTQ8
         - **escalada**: Love Actually
         - **ids**:
-          - 5
+          - ecmvyKastDRTQ8
       - **[5]**:
+        - **alvo_uid**: MRy9hQtwbJExKB
+        - **pontos_uids**:
+          - AuTkBjcPw4enU1
         - **escalada**: Mama Gás
         - **ids**:
-          - 6
+          - AuTkBjcPw4enU1
       - **[6]**:
+        - **alvo_uid**: LJA5GenH4hJ3bP
+        - **pontos_uids**:
+          - mCTLo35tUbwnDq
         - **escalada**: Java Lee
         - **ids**:
-          - 7
+          - mCTLo35tUbwnDq
       - **[7]**:
+        - **alvo_uid**: fFXH7B7pphlHZf
+        - **pontos_uids**:
+          - RE0NyvyZmBu2yc
         - **escalada**: Java Porco
         - **ids**:
-          - 8
+          - RE0NyvyZmBu2yc
       - **[8]**:
+        - **alvo_uid**: U9uW0vl6JjDUmL
+        - **pontos_uids**:
+          - UUWc5c7jAxRl7F
         - **escalada**: Absolut com limão
         - **ids**:
-          - 9
+          - UUWc5c7jAxRl7F
       - **[9]**:
+        - **alvo_uid**: iDOuCBvKulwWxB
+        - **pontos_uids**:
+          - pjdGXRG05dDq7k
         - **escalada**: Ribit
         - **ids**:
-          - 10
+          - pjdGXRG05dDq7k
       - **[10]**:
+        - **alvo_uid**: RdKMHcdsRKS6nf
+        - **pontos_uids**:
+          - tqCmLfNxjeVMxY
         - **escalada**: Xanax
         - **ids**:
-          - 11
+          - tqCmLfNxjeVMxY
 - **escaladas**:
   - **[0]**:
+    - **uid**: Ffp8jQExoCB7IZ
     - **via_esportiva**:
       - **nome**: Beijo Grego
       - **dificuldade**: BR_7C
@@ -177,6 +235,7 @@
       - **conquistadores**:
         - Jg
   - **[1]**:
+    - **uid**: yi3NA6H2aF4Eb5
     - **via_esportiva**:
       - **nome**: A surpresa do Cesar
       - **dificuldade**: BR_6
@@ -186,6 +245,7 @@
       - **conquistadores**:
         - Jg
   - **[2]**:
+    - **uid**: xr0k2dVbn6alQ1
     - **via_esportiva**:
       - **nome**: O sítio dos deuses
       - **dificuldade**: BR_5
@@ -195,6 +255,7 @@
       - **conquistadores**:
         - Jg
   - **[3]**:
+    - **uid**: W4NwPfyf9MEhL0
     - **via_movel**:
       - **descricao**: Parada fixa
       - **nome**: Todos caminhos levam a Roma
@@ -204,6 +265,7 @@
       - **conquistadores**:
         - Jg
   - **[4]**:
+    - **uid**: 6Gbt0xEgMVOijY
     - **via_esportiva**:
       - **nome**: Love Actually
       - **dificuldade**: BR_5SUP
@@ -213,6 +275,7 @@
       - **conquistadores**:
         - Jg
   - **[5]**:
+    - **uid**: MRy9hQtwbJExKB
     - **via_esportiva**:
       - **nome**: Mama Gás
       - **dificuldade**: BR_7A
@@ -222,6 +285,7 @@
       - **conquistadores**:
         - Jg
   - **[6]**:
+    - **uid**: LJA5GenH4hJ3bP
     - **via_esportiva**:
       - **nome**: Java Lee
       - **dificuldade**: BR_7A
@@ -231,6 +295,7 @@
       - **conquistadores**:
         - Jg
   - **[7]**:
+    - **uid**: fFXH7B7pphlHZf
     - **via_esportiva**:
       - **nome**: Java Porco
       - **dificuldade**: BR_7A
@@ -240,6 +305,7 @@
       - **conquistadores**:
         - Jg
   - **[8]**:
+    - **uid**: U9uW0vl6JjDUmL
     - **via_esportiva**:
       - **nome**: Absolut com limão
       - **dificuldade**: BR_7B
@@ -249,6 +315,7 @@
       - **conquistadores**:
         - Jg
   - **[9]**:
+    - **uid**: iDOuCBvKulwWxB
     - **via_esportiva**:
       - **descricao**: Inacabada
       - **nome**: Ribit
@@ -259,6 +326,7 @@
       - **conquistadores**:
         - Jg
   - **[10]**:
+    - **uid**: RdKMHcdsRKS6nf
     - **via_esportiva**:
       - **nome**: Xanax
       - **dificuldade**: BR_7C
@@ -281,6 +349,7 @@
     
     Estes setores estão localizados lado a lado no Alto Monte Alvão.
 - **nome**: Parede do Ladrão e Forno da Onça
+- **uid**: 8IUjj0RLhfFcWs
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_parede_do_ladrao_e_forno_da_onca_p0.webp)
@@ -288,169 +357,236 @@
     - **altura_mapa**: 1712
     - **pontos_de_interesse**:
       - **[0]**:
-        - **id**: 1am
-        - **label**: 1am
+        - **id**: tidyYQI45l4M4C
+        - **uid**: tidyYQI45l4M4C
+        - **rotulo**: 1am
         - **retangulo**:
           - **x**: 106
           - **y**: 728
           - **comprimento**: 28
           - **largura**: 41
+        - **label**: 1am
       - **[1]**:
-        - **id**: 2am
-        - **label**: 2am
+        - **id**: NZUnotfGBMGf7b
+        - **uid**: NZUnotfGBMGf7b
+        - **rotulo**: 2am
         - **retangulo**:
           - **x**: 167
           - **y**: 840
           - **comprimento**: 36
           - **largura**: 47
+        - **label**: 2am
       - **[2]**:
-        - **id**: 3am
-        - **label**: 3am
+        - **id**: zIQURQpzSFH74x
+        - **uid**: zIQURQpzSFH74x
+        - **rotulo**: 3am
         - **retangulo**:
           - **x**: 159
           - **y**: 720
           - **comprimento**: 34
           - **largura**: 43
+        - **label**: 3am
       - **[3]**:
-        - **id**: 4am
-        - **label**: 4am
+        - **id**: JfMdZmlBlP4Q4A
+        - **uid**: JfMdZmlBlP4Q4A
+        - **rotulo**: 4am
         - **retangulo**:
           - **x**: 238
           - **y**: 756
           - **comprimento**: 29
           - **largura**: 39
+        - **label**: 4am
       - **[4]**:
-        - **id**: 5am
-        - **label**: 5am
+        - **id**: sCaTF1IUacIrw5
+        - **uid**: sCaTF1IUacIrw5
+        - **rotulo**: 5am
         - **retangulo**:
           - **x**: 255
           - **y**: 670
           - **comprimento**: 28
           - **largura**: 41
+        - **label**: 5am
       - **[5]**:
-        - **id**: 6am
-        - **label**: 6am
+        - **id**: ZVBZ4goQqPyALm
+        - **uid**: ZVBZ4goQqPyALm
+        - **rotulo**: 6am
         - **retangulo**:
           - **x**: 678
           - **y**: 711
           - **comprimento**: 35
           - **largura**: 48
+        - **label**: 6am
       - **[6]**:
-        - **id**: 1az
-        - **label**: 1az
+        - **id**: tW0IJUIvoYNNA5
+        - **uid**: tW0IJUIvoYNNA5
+        - **rotulo**: 1az
         - **retangulo**:
           - **x**: 852
           - **y**: 728
           - **comprimento**: 26
           - **largura**: 39
+        - **label**: 1az
       - **[7]**:
-        - **id**: 2az
-        - **label**: 2az
+        - **id**: KUcgfiTFiiASGS
+        - **uid**: KUcgfiTFiiASGS
+        - **rotulo**: 2az
         - **retangulo**:
           - **x**: 1000
           - **y**: 684
           - **comprimento**: 29
           - **largura**: 35
+        - **label**: 2az
       - **[8]**:
-        - **id**: 3az
-        - **label**: 3az
+        - **id**: znE8p6bhqC1S4h
+        - **uid**: znE8p6bhqC1S4h
+        - **rotulo**: 3az
         - **retangulo**:
           - **x**: 1141
           - **y**: 642
           - **comprimento**: 32
           - **largura**: 42
+        - **label**: 3az
       - **[9]**:
-        - **id**: 4az
-        - **label**: 4az
+        - **id**: MrexSxflKI708E
+        - **uid**: MrexSxflKI708E
+        - **rotulo**: 4az
         - **retangulo**:
           - **x**: 1426
           - **y**: 748
           - **comprimento**: 32
           - **largura**: 43
+        - **label**: 4az
       - **[10]**:
-        - **id**: 5az
-        - **label**: 5az
+        - **id**: bij9PzJuilmoNk
+        - **uid**: bij9PzJuilmoNk
+        - **rotulo**: 5az
         - **retangulo**:
           - **x**: 1512
           - **y**: 688
           - **comprimento**: 31
           - **largura**: 44
+        - **label**: 5az
       - **[11]**:
-        - **id**: 6az
-        - **label**: 6az
+        - **id**: zc3T3uICTsELQQ
+        - **uid**: zc3T3uICTsELQQ
+        - **rotulo**: 6az
         - **retangulo**:
           - **x**: 1614
           - **y**: 572
           - **comprimento**: 33
           - **largura**: 44
+        - **label**: 6az
       - **[12]**:
-        - **id**: 7az
-        - **label**: 7az
+        - **id**: E3QLsYCV0XvvDn
+        - **uid**: E3QLsYCV0XvvDn
+        - **rotulo**: 7az
         - **retangulo**:
           - **x**: 1752
           - **y**: 558
           - **comprimento**: 32
           - **largura**: 47
+        - **label**: 7az
     - **referencias**:
       - **[0]**:
+        - **alvo_uid**: dZVBFM4DLQod4l
+        - **pontos_uids**:
+          - tidyYQI45l4M4C
         - **escalada**: Cuidado Ketely
         - **ids**:
-          - 1am
+          - tidyYQI45l4M4C
       - **[1]**:
+        - **alvo_uid**: lVrVfzAW6CFKI8
+        - **pontos_uids**:
+          - NZUnotfGBMGf7b
         - **escalada**: You will survive
         - **ids**:
-          - 2am
+          - NZUnotfGBMGf7b
       - **[2]**:
+        - **alvo_uid**: jQp6QJPSjj35UK
+        - **pontos_uids**:
+          - zIQURQpzSFH74x
         - **escalada**: Cara ou Coroa
         - **ids**:
-          - 3am
+          - zIQURQpzSFH74x
       - **[3]**:
+        - **alvo_uid**: wpKPlfVuQUYZet
+        - **pontos_uids**:
+          - JfMdZmlBlP4Q4A
         - **escalada**: French CanCan
         - **ids**:
-          - 4am
+          - JfMdZmlBlP4Q4A
       - **[4]**:
+        - **alvo_uid**: gQSqnHdV2fl65E
+        - **pontos_uids**:
+          - sCaTF1IUacIrw5
         - **escalada**: On the road again
         - **ids**:
-          - 5am
+          - sCaTF1IUacIrw5
       - **[5]**:
+        - **alvo_uid**: 4jtwL3rfc3s7ZZ
+        - **pontos_uids**:
+          - ZVBZ4goQqPyALm
         - **escalada**: Incrível mas verdadeiro
         - **ids**:
-          - 6am
+          - ZVBZ4goQqPyALm
       - **[6]**:
+        - **alvo_uid**: 6brYAuVDrbBvAw
+        - **pontos_uids**:
+          - tW0IJUIvoYNNA5
         - **escalada**: Bouder com leite
         - **ids**:
-          - 1az
+          - tW0IJUIvoYNNA5
       - **[7]**:
+        - **alvo_uid**: PVeUNI2z5ZF2Tm
+        - **pontos_uids**:
+          - KUcgfiTFiiASGS
         - **escalada**: Chipie chipie
         - **ids**:
-          - 2az
+          - KUcgfiTFiiASGS
       - **[8]**:
+        - **alvo_uid**: QikrFfrr6Uc1dc
+        - **pontos_uids**:
+          - znE8p6bhqC1S4h
         - **escalada**: Bambi
         - **ids**:
-          - 3az
+          - znE8p6bhqC1S4h
       - **[9]**:
+        - **alvo_uid**: zO8eFwgiznf8jR
+        - **pontos_uids**:
+          - MrexSxflKI708E
         - **escalada**: Ana Thor
         - **ids**:
-          - 4az
+          - MrexSxflKI708E
       - **[10]**:
+        - **alvo_uid**: Ses94ZqiV7Fh5L
+        - **pontos_uids**:
+          - bij9PzJuilmoNk
         - **escalada**: Au bout des doigts
         - **ids**:
-          - 5az
+          - bij9PzJuilmoNk
       - **[11]**:
+        - **alvo_uid**: 9rDOoj432k34gL
+        - **pontos_uids**:
+          - zc3T3uICTsELQQ
         - **escalada**: Boom Boom
         - **ids**:
-          - 6az
+          - zc3T3uICTsELQQ
       - **[12]**:
+        - **alvo_uid**: uePCKiIlb4Tv0K
+        - **pontos_uids**:
+          - E3QLsYCV0XvvDn
         - **escalada**: Petit Pichou
         - **ids**:
-          - 7az
+          - E3QLsYCV0XvvDn
 - **setores**:
   - **[0]**:
     - **conteudo**:
       - **descricao**: 
       - **nome**: Forno da Onça
+      - **uid**: Qb6WGpJV9QBeJY
       - **escaladas**:
         - **[0]**:
+          - **uid**: dZVBFM4DLQod4l
           - **via_esportiva**:
             - **nome**: Cuidado Ketely
             - **dificuldade**: BR_6
@@ -460,6 +596,7 @@
             - **conquistadores**:
               - Jg
         - **[1]**:
+          - **uid**: lVrVfzAW6CFKI8
           - **via_esportiva**:
             - **nome**: You will survive
             - **dificuldade**: BR_7A
@@ -469,6 +606,7 @@
             - **conquistadores**:
               - Jg
         - **[2]**:
+          - **uid**: jQp6QJPSjj35UK
           - **via_esportiva**:
             - **nome**: Cara ou Coroa
             - **dificuldade**: BR_6
@@ -478,6 +616,7 @@
             - **conquistadores**:
               - Jg
         - **[3]**:
+          - **uid**: wpKPlfVuQUYZet
           - **via_esportiva**:
             - **nome**: French CanCan
             - **dificuldade**: BR_6SUP
@@ -487,6 +626,7 @@
             - **conquistadores**:
               - Jg
         - **[4]**:
+          - **uid**: gQSqnHdV2fl65E
           - **via_esportiva**:
             - **nome**: On the road again
             - **dificuldade**: BR_6SUP
@@ -496,6 +636,7 @@
             - **conquistadores**:
               - Jg
         - **[5]**:
+          - **uid**: 4jtwL3rfc3s7ZZ
           - **via_multiplas_enfiadas**:
             - **nome**: Incrível mas verdadeiro
             - **dificuldade_media**: BR_6
@@ -527,8 +668,10 @@
     - **conteudo**:
       - **descricao**: 
       - **nome**: Parede do Ladrão
+      - **uid**: NPg6eUqYFEWNix
       - **escaladas**:
         - **[0]**:
+          - **uid**: 6brYAuVDrbBvAw
           - **via_esportiva**:
             - **nome**: Bouder com leite
             - **dificuldade**: BR_5
@@ -536,6 +679,7 @@
             - **quantidade_protecoes_intermediarias**: 4
             - **quantidade_protecoes_parada**: 2
         - **[1]**:
+          - **uid**: PVeUNI2z5ZF2Tm
           - **via_esportiva**:
             - **nome**: Chipie chipie
             - **dificuldade**: BR_4SUP
@@ -543,6 +687,7 @@
             - **quantidade_protecoes_intermediarias**: 6
             - **quantidade_protecoes_parada**: 2
         - **[2]**:
+          - **uid**: QikrFfrr6Uc1dc
           - **via_esportiva**:
             - **nome**: Bambi
             - **dificuldade**: BR_4
@@ -550,6 +695,7 @@
             - **quantidade_protecoes_intermediarias**: 4
             - **quantidade_protecoes_parada**: 2
         - **[3]**:
+          - **uid**: zO8eFwgiznf8jR
           - **via_esportiva**:
             - **nome**: Ana Thor
             - **dificuldade**: BR_7C
@@ -557,6 +703,7 @@
             - **quantidade_protecoes_intermediarias**: 6
             - **quantidade_protecoes_parada**: 2
         - **[4]**:
+          - **uid**: Ses94ZqiV7Fh5L
           - **via_esportiva**:
             - **descricao**: Base no platô superior
             - **nome**: Au bout des doigts
@@ -568,6 +715,7 @@
               - Pablo Gonçalves
               - Jg
         - **[5]**:
+          - **uid**: 9rDOoj432k34gL
           - **via_esportiva**:
             - **nome**: Boom Boom
             - **dificuldade**: BR_6SUP
@@ -575,6 +723,7 @@
             - **quantidade_protecoes_intermediarias**: 8
             - **quantidade_protecoes_parada**: 2
         - **[6]**:
+          - **uid**: uePCKiIlb4Tv0K
           - **via_esportiva**:
             - **nome**: Petit Pichou
             - **dificuldade**: BR_6SUP
@@ -599,6 +748,7 @@
     
     Este grupo engloba os setores localizados na parte central do Alto Monte Alvão.
 - **nome**: Caverna, Mirante e Ground Control
+- **uid**: PYN5lchFdNhSdp
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_caverna_bin_laden_mirante_da_cruz_e_ground_control_p0.webp)
@@ -606,301 +756,423 @@
     - **altura_mapa**: 1721
     - **pontos_de_interesse**:
       - **[0]**:
-        - **id**: 1ros
-        - **label**: 1ros
+        - **id**: Q2MrikGdwTRjiw
+        - **uid**: Q2MrikGdwTRjiw
+        - **rotulo**: 1ros
         - **retangulo**:
           - **x**: 948
           - **y**: 184
           - **comprimento**: 30
           - **largura**: 47
+        - **label**: 1ros
       - **[1]**:
-        - **id**: 2ros
-        - **label**: 2ros
+        - **id**: U1vNmtBWQ7vZCN
+        - **uid**: U1vNmtBWQ7vZCN
+        - **rotulo**: 2ros
         - **retangulo**:
           - **x**: 982
           - **y**: 286
           - **comprimento**: 29
           - **largura**: 46
+        - **label**: 2ros
       - **[2]**:
-        - **id**: 3ros
-        - **label**: 3ros
+        - **id**: 6YzF0YM8l1dJta
+        - **uid**: 6YzF0YM8l1dJta
+        - **rotulo**: 3ros
         - **retangulo**:
           - **x**: 904
           - **y**: 256
           - **comprimento**: 30
           - **largura**: 50
+        - **label**: 3ros
       - **[3]**:
-        - **id**: 4ros
-        - **label**: 4ros
+        - **id**: QaIhIbNJeDZpTO
+        - **uid**: QaIhIbNJeDZpTO
+        - **rotulo**: 4ros
         - **retangulo**:
           - **x**: 937
           - **y**: 360
           - **comprimento**: 34
           - **largura**: 44
+        - **label**: 4ros
       - **[4]**:
-        - **id**: 5ros
-        - **label**: 5ros
+        - **id**: SNW7IHSQIMpw4H
+        - **uid**: SNW7IHSQIMpw4H
+        - **rotulo**: 5ros
         - **retangulo**:
           - **x**: 816
           - **y**: 248
           - **comprimento**: 35
           - **largura**: 50
+        - **label**: 5ros
       - **[5]**:
-        - **id**: 6ros
-        - **label**: 6ros
+        - **id**: hmOjtTDaNcdsQc
+        - **uid**: hmOjtTDaNcdsQc
+        - **rotulo**: 6ros
         - **retangulo**:
           - **x**: 912
           - **y**: 182
           - **comprimento**: 31
           - **largura**: 47
+        - **label**: 6ros
       - **[6]**:
-        - **id**: 1az
-        - **label**: 1
+        - **id**: FF4spboC3cQawl
+        - **uid**: FF4spboC3cQawl
+        - **rotulo**: 1
         - **retangulo**:
           - **x**: 570
           - **y**: 1194
           - **comprimento**: 27
           - **largura**: 43
+        - **label**: 1
       - **[7]**:
-        - **id**: 2az
-        - **label**: 2
+        - **id**: amw7E3BnbbnoA1
+        - **uid**: amw7E3BnbbnoA1
+        - **rotulo**: 2
         - **retangulo**:
           - **x**: 528
           - **y**: 1362
           - **comprimento**: 38
           - **largura**: 46
+        - **label**: 2
       - **[8]**:
-        - **id**: 3az
-        - **label**: 3
+        - **id**: 0kO7u6STXMm3Wy
+        - **uid**: 0kO7u6STXMm3Wy
+        - **rotulo**: 3
         - **retangulo**:
           - **x**: 590
           - **y**: 1407
           - **comprimento**: 39
           - **largura**: 52
+        - **label**: 3
       - **[9]**:
-        - **id**: 4az
-        - **label**: 4
+        - **id**: eRstBJ3pYVuXv1
+        - **uid**: eRstBJ3pYVuXv1
+        - **rotulo**: 4
         - **retangulo**:
           - **x**: 536
           - **y**: 1508
           - **comprimento**: 28
           - **largura**: 40
+        - **label**: 4
       - **[10]**:
-        - **id**: 5az
-        - **label**: 5
+        - **id**: dXphfAP6F1bU9H
+        - **uid**: dXphfAP6F1bU9H
+        - **rotulo**: 5
         - **retangulo**:
           - **x**: 606
           - **y**: 1494
           - **comprimento**: 37
           - **largura**: 51
+        - **label**: 5
       - **[11]**:
-        - **id**: 6az
-        - **label**: 6
+        - **id**: epWrDLZnxNuKa1
+        - **uid**: epWrDLZnxNuKa1
+        - **rotulo**: 6
         - **retangulo**:
           - **x**: 608
           - **y**: 1575
           - **comprimento**: 35
           - **largura**: 50
+        - **label**: 6
       - **[12]**:
-        - **id**: 1rox
-        - **label**: 1rox
+        - **id**: 8MOjQ3syVUZHTM
+        - **uid**: 8MOjQ3syVUZHTM
+        - **rotulo**: 1rox
         - **retangulo**:
           - **x**: 1052
           - **y**: 163
           - **comprimento**: 29
           - **largura**: 50
+        - **label**: 1rox
       - **[13]**:
-        - **id**: 2rox
-        - **label**: 2rox
+        - **id**: mYxk3dpc4YZyjY
+        - **uid**: mYxk3dpc4YZyjY
+        - **rotulo**: 2rox
         - **retangulo**:
           - **x**: 1116
           - **y**: 194
           - **comprimento**: 32
           - **largura**: 57
+        - **label**: 2rox
       - **[14]**:
-        - **id**: 3rox
-        - **label**: 3rox
+        - **id**: 5zCjqG5xxuPp8T
+        - **uid**: 5zCjqG5xxuPp8T
+        - **rotulo**: 3rox
         - **retangulo**:
           - **x**: 1172
           - **y**: 196
           - **comprimento**: 37
           - **largura**: 47
+        - **label**: 3rox
       - **[15]**:
-        - **id**: 4rox
-        - **label**: 4rox
+        - **id**: jNuKW70ZB9HF2W
+        - **uid**: jNuKW70ZB9HF2W
+        - **rotulo**: 4rox
         - **retangulo**:
           - **x**: 1252
           - **y**: 210
           - **comprimento**: 35
           - **largura**: 47
+        - **label**: 4rox
       - **[16]**:
-        - **id**: 5rox
-        - **label**: 5rox
+        - **id**: MAaFMP13lhdRa7
+        - **uid**: MAaFMP13lhdRa7
+        - **rotulo**: 5rox
         - **retangulo**:
           - **x**: 1359
           - **y**: 213
           - **comprimento**: 30
           - **largura**: 50
+        - **label**: 5rox
       - **[17]**:
-        - **id**: 6rox
-        - **label**: 6rox
+        - **id**: ZEU7TuDyKMTMF3
+        - **uid**: ZEU7TuDyKMTMF3
+        - **rotulo**: 6rox
         - **retangulo**:
           - **x**: 1456
           - **y**: 218
           - **comprimento**: 34
           - **largura**: 53
+        - **label**: 6rox
       - **[18]**:
-        - **id**: 7rox
-        - **label**: 7rox
+        - **id**: 5VnE7CQEIMGgN0
+        - **uid**: 5VnE7CQEIMGgN0
+        - **rotulo**: 7rox
         - **retangulo**:
           - **x**: 1582
           - **y**: 220
           - **comprimento**: 33
           - **largura**: 50
+        - **label**: 7rox
       - **[19]**:
-        - **id**: 8rox
-        - **label**: 8rox
+        - **id**: 8e8bEdxfleFpkZ
+        - **uid**: 8e8bEdxfleFpkZ
+        - **rotulo**: 8rox
         - **retangulo**:
           - **x**: 1664
           - **y**: 236
           - **comprimento**: 33
           - **largura**: 50
+        - **label**: 8rox
       - **[20]**:
-        - **id**: 9rox
-        - **label**: 9rox
+        - **id**: tY22RWz2rpW76q
+        - **uid**: tY22RWz2rpW76q
+        - **rotulo**: 9rox
         - **retangulo**:
           - **x**: 1730
           - **y**: 303
           - **comprimento**: 32
           - **largura**: 48
+        - **label**: 9rox
       - **[21]**:
-        - **id**: 10rox
-        - **label**: 10rox
+        - **id**: KLOfU403U9xFaJ
+        - **uid**: KLOfU403U9xFaJ
+        - **rotulo**: 10rox
         - **retangulo**:
           - **x**: 1753
           - **y**: 246
           - **comprimento**: 56
           - **largura**: 46
+        - **label**: 10rox
       - **[22]**:
-        - **id**: 11rox
-        - **label**: 11rox
+        - **id**: AjVzBpB7GXX3U4
+        - **uid**: AjVzBpB7GXX3U4
+        - **rotulo**: 11rox
         - **retangulo**:
           - **x**: 1634
           - **y**: 436
           - **comprimento**: 45
           - **largura**: 53
+        - **label**: 11rox
       - **[23]**:
-        - **id**: 12rox
-        - **label**: 12rox
+        - **id**: MslaLZvaFDuhD9
+        - **uid**: MslaLZvaFDuhD9
+        - **rotulo**: 12rox
         - **retangulo**:
           - **x**: 1543
           - **y**: 438
           - **comprimento**: 50
           - **largura**: 51
+        - **label**: 12rox
     - **referencias**:
       - **[0]**:
+        - **alvo_uid**: am42vvg5w16ewW
+        - **pontos_uids**:
+          - Q2MrikGdwTRjiw
         - **escalada**: Capitã Minhoca
         - **ids**:
-          - 1ros
+          - Q2MrikGdwTRjiw
       - **[1]**:
+        - **alvo_uid**: Z03Km8onLRnz0j
+        - **pontos_uids**:
+          - U1vNmtBWQ7vZCN
         - **escalada**: He Man
         - **ids**:
-          - 2ros
+          - U1vNmtBWQ7vZCN
       - **[2]**:
+        - **alvo_uid**: CNzYlLGBA0X9lG
+        - **pontos_uids**:
+          - 6YzF0YM8l1dJta
         - **escalada**: Esqueleto
         - **ids**:
-          - 3ros
+          - 6YzF0YM8l1dJta
       - **[3]**:
+        - **alvo_uid**: oGyqDP0L1JFcAK
+        - **pontos_uids**:
+          - QaIhIbNJeDZpTO
         - **escalada**: Allahu Akbar
         - **ids**:
-          - 4ros
+          - QaIhIbNJeDZpTO
       - **[4]**:
+        - **alvo_uid**: Uvqb3jaawzyWBH
+        - **pontos_uids**:
+          - SNW7IHSQIMpw4H
         - **escalada**: Saída à Francesa
         - **ids**:
-          - 5ros
+          - SNW7IHSQIMpw4H
       - **[5]**:
+        - **alvo_uid**: EiiTGp6N9Ra8tJ
+        - **pontos_uids**:
+          - hmOjtTDaNcdsQc
         - **escalada**: Paris em Chamas
         - **ids**:
-          - 6ros
+          - hmOjtTDaNcdsQc
       - **[6]**:
+        - **alvo_uid**: NnA3VyWBwYic7a
+        - **pontos_uids**:
+          - FF4spboC3cQawl
         - **escalada**: Urubu tá com raiva do boi
         - **ids**:
-          - 1az
+          - FF4spboC3cQawl
       - **[7]**:
+        - **alvo_uid**: 4STXHy6ALejKG1
+        - **pontos_uids**:
+          - amw7E3BnbbnoA1
         - **escalada**: Maria Teresa
         - **ids**:
-          - 2az
+          - amw7E3BnbbnoA1
       - **[8]**:
+        - **alvo_uid**: 1OF9kIT42IkO2I
+        - **pontos_uids**:
+          - 0kO7u6STXMm3Wy
         - **escalada**: Uma gota de milagre
         - **ids**:
-          - 3az
+          - 0kO7u6STXMm3Wy
       - **[9]**:
+        - **alvo_uid**: M73pbiDkCe3mXG
+        - **pontos_uids**:
+          - eRstBJ3pYVuXv1
         - **escalada**: Quem não chora não mama
         - **ids**:
-          - 4az
+          - eRstBJ3pYVuXv1
       - **[10]**:
+        - **alvo_uid**: Ojgt766iJ0dj4P
+        - **pontos_uids**:
+          - dXphfAP6F1bU9H
         - **escalada**: Chapolin
         - **ids**:
-          - 5az
+          - dXphfAP6F1bU9H
       - **[11]**:
+        - **alvo_uid**: QTFzHbgBzFjdjq
+        - **pontos_uids**:
+          - epWrDLZnxNuKa1
         - **escalada**: Desvio na pista
         - **ids**:
-          - 6az
+          - epWrDLZnxNuKa1
       - **[12]**:
+        - **alvo_uid**: SRdjxYR9aFvUic
+        - **pontos_uids**:
+          - 8MOjQ3syVUZHTM
         - **escalada**: Essa via não é minha
         - **ids**:
-          - 1rox
+          - 8MOjQ3syVUZHTM
       - **[13]**:
+        - **alvo_uid**: VF5tiua5Ys9sP6
+        - **pontos_uids**:
+          - mYxk3dpc4YZyjY
         - **escalada**: Vento da Patagônia
         - **ids**:
-          - 2rox
+          - mYxk3dpc4YZyjY
       - **[14]**:
+        - **alvo_uid**: VVlVJ1biOKZ3wQ
+        - **pontos_uids**:
+          - 5zCjqG5xxuPp8T
         - **escalada**: Mr Bean
         - **ids**:
-          - 3rox
+          - 5zCjqG5xxuPp8T
       - **[15]**:
+        - **alvo_uid**: sfbZA4b37hhjeg
+        - **pontos_uids**:
+          - jNuKW70ZB9HF2W
         - **escalada**: Lagarto de aniversário
         - **ids**:
-          - 4rox
+          - jNuKW70ZB9HF2W
       - **[16]**:
+        - **alvo_uid**: D2EWCm3zSMNjcH
+        - **pontos_uids**:
+          - MAaFMP13lhdRa7
         - **escalada**: Cavuca tatu
         - **ids**:
-          - 5rox
+          - MAaFMP13lhdRa7
       - **[17]**:
+        - **alvo_uid**: uF9Eg3vtz77ZMr
+        - **pontos_uids**:
+          - ZEU7TuDyKMTMF3
         - **escalada**: Zé colmeia e Dona Flor
         - **ids**:
-          - 6rox
+          - ZEU7TuDyKMTMF3
       - **[18]**:
+        - **alvo_uid**: QfPbjTXJrW5Jxs
+        - **pontos_uids**:
+          - 5VnE7CQEIMGgN0
         - **escalada**: Tirolês
         - **ids**:
-          - 7rox
+          - 5VnE7CQEIMGgN0
       - **[19]**:
+        - **alvo_uid**: 25TIeXApVrMsVt
+        - **pontos_uids**:
+          - 8e8bEdxfleFpkZ
         - **escalada**: 10 c
         - **ids**:
-          - 8rox
+          - 8e8bEdxfleFpkZ
       - **[20]**:
+        - **alvo_uid**: kOnhjmWh9NSnJ1
+        - **pontos_uids**:
+          - tY22RWz2rpW76q
         - **escalada**: Sabor Baunilha
         - **ids**:
-          - 9rox
+          - tY22RWz2rpW76q
       - **[21]**:
+        - **alvo_uid**: PiNuVbxxXUK2P0
+        - **pontos_uids**:
+          - KLOfU403U9xFaJ
         - **escalada**: O charme da Trad
         - **ids**:
-          - 10rox
+          - KLOfU403U9xFaJ
       - **[22]**:
+        - **alvo_uid**: Dp5B1X2pzFqB1G
+        - **pontos_uids**:
+          - AjVzBpB7GXX3U4
         - **escalada**: Café Ole
         - **ids**:
-          - 11rox
+          - AjVzBpB7GXX3U4
       - **[23]**:
+        - **alvo_uid**: 7RbqyoLUwWU6XB
+        - **pontos_uids**:
+          - MslaLZvaFDuhD9
         - **escalada**: Tio Tonton
         - **ids**:
-          - 12rox
+          - MslaLZvaFDuhD9
 - **setores**:
   - **[0]**:
     - **conteudo**:
       - **descricao**: 
       - **nome**: Caverna do Bin Laden
+      - **uid**: f6qhe8I2ffld4p
       - **escaladas**:
         - **[0]**:
+          - **uid**: am42vvg5w16ewW
           - **via_esportiva**:
             - **nome**: Capitã Minhoca
             - **dificuldade**: BR_5SUP
@@ -910,6 +1182,7 @@
             - **conquistadores**:
               - Jg
         - **[1]**:
+          - **uid**: Z03Km8onLRnz0j
           - **via_multiplas_enfiadas**:
             - **nome**: He Man
             - **dificuldade_media**: BR_6SUP
@@ -944,6 +1217,7 @@
             - **quantidade_costuras_intermediarias**: 8
             - **quantidade_equipamentos_parada**: 2
         - **[2]**:
+          - **uid**: CNzYlLGBA0X9lG
           - **via_multiplas_enfiadas**:
             - **nome**: Esqueleto
             - **dificuldade_media**: BR_6
@@ -979,6 +1253,7 @@
             - **quantidade_costuras_intermediarias**: 8
             - **quantidade_equipamentos_parada**: 2
         - **[3]**:
+          - **uid**: oGyqDP0L1JFcAK
           - **via_esportiva**:
             - **nome**: Allahu Akbar
             - **dificuldade**: BR_7A
@@ -988,6 +1263,7 @@
             - **conquistadores**:
               - Jg
         - **[4]**:
+          - **uid**: Uvqb3jaawzyWBH
           - **via_esportiva**:
             - **nome**: Saída à Francesa
             - **dificuldade**: BR_8B
@@ -998,6 +1274,7 @@
               - Pablo Gonçalves
               - Jg
         - **[5]**:
+          - **uid**: EiiTGp6N9Ra8tJ
           - **via_esportiva**:
             - **descricao**: 10?
             - **nome**: Paris em Chamas
@@ -1016,8 +1293,10 @@
     - **conteudo**:
       - **descricao**: 
       - **nome**: Mirante da Cruz
+      - **uid**: ORe2ixkg2P8JW0
       - **escaladas**:
         - **[0]**:
+          - **uid**: NnA3VyWBwYic7a
           - **via_esportiva**:
             - **nome**: Urubu tá com raiva do boi
             - **dificuldade**: BR_5SUP
@@ -1027,6 +1306,7 @@
             - **conquistadores**:
               - jg
         - **[1]**:
+          - **uid**: 4STXHy6ALejKG1
           - **via_esportiva**:
             - **nome**: Maria Teresa
             - **dificuldade**: BR_6
@@ -1036,6 +1316,7 @@
             - **conquistadores**:
               - jg
         - **[2]**:
+          - **uid**: 1OF9kIT42IkO2I
           - **via_esportiva**:
             - **nome**: Uma gota de milagre
             - **dificuldade**: BR_7A
@@ -1045,6 +1326,7 @@
             - **conquistadores**:
               - jg
         - **[3]**:
+          - **uid**: M73pbiDkCe3mXG
           - **via_esportiva**:
             - **nome**: Quem não chora não mama
             - **dificuldade**: BR_7B
@@ -1054,6 +1336,7 @@
             - **conquistadores**:
               - jg
         - **[4]**:
+          - **uid**: Ojgt766iJ0dj4P
           - **via_esportiva**:
             - **nome**: Chapolin
             - **dificuldade**: BR_7A
@@ -1063,6 +1346,7 @@
             - **conquistadores**:
               - jg
         - **[5]**:
+          - **uid**: QTFzHbgBzFjdjq
           - **via_esportiva**:
             - **nome**: Desvio na pista
             - **dificuldade**: BR_7B
@@ -1078,8 +1362,10 @@
     - **conteudo**:
       - **descricao**: 
       - **nome**: Ground Control
+      - **uid**: NZGLAfWYiM8NDf
       - **escaladas**:
         - **[0]**:
+          - **uid**: SRdjxYR9aFvUic
           - **via_movel**:
             - **nome**: Essa via não é minha
             - **dificuldade**: BR_4SUP
@@ -1087,6 +1373,7 @@
             - **conquistadores**:
               - Rander Jr Sidnei
         - **[1]**:
+          - **uid**: VF5tiua5Ys9sP6
           - **via_esportiva**:
             - **nome**: Vento da Patagônia
             - **dificuldade**: BR_5
@@ -1096,6 +1383,7 @@
             - **conquistadores**:
               - Danilo Steling
         - **[2]**:
+          - **uid**: VVlVJ1biOKZ3wQ
           - **via_multiplas_enfiadas**:
             - **nome**: Mr Bean
             - **dificuldade_media**: BR_6SUP
@@ -1126,6 +1414,7 @@
             - **quantidade_costuras_intermediarias**: 10
             - **quantidade_equipamentos_parada**: 2
         - **[3]**:
+          - **uid**: sfbZA4b37hhjeg
           - **via_esportiva**:
             - **descricao**: Variante Mr Bean
             - **nome**: Lagarto de aniversário
@@ -1136,6 +1425,7 @@
             - **conquistadores**:
               - Jg
         - **[4]**:
+          - **uid**: D2EWCm3zSMNjcH
           - **via_esportiva**:
             - **nome**: Cavuca tatu
             - **dificuldade**: BR_7A
@@ -1145,6 +1435,7 @@
             - **conquistadores**:
               - Jg
         - **[5]**:
+          - **uid**: uF9Eg3vtz77ZMr
           - **via_movel**:
             - **descricao**: Parada fixa
             - **nome**: Zé colmeia e Dona Flor
@@ -1154,6 +1445,7 @@
               - Sidnei
               - Natita
         - **[6]**:
+          - **uid**: QfPbjTXJrW5Jxs
           - **via_esportiva**:
             - **nome**: Tirolês
             - **dificuldade**: BR_5
@@ -1161,6 +1453,7 @@
             - **quantidade_protecoes_intermediarias**: 6
             - **quantidade_protecoes_parada**: 2
         - **[7]**:
+          - **uid**: 25TIeXApVrMsVt
           - **via_esportiva**:
             - **nome**: 10 c
             - **dificuldade**: BR_6
@@ -1171,6 +1464,7 @@
               - sidnei
               - Jg
         - **[8]**:
+          - **uid**: kOnhjmWh9NSnJ1
           - **via_multiplas_enfiadas**:
             - **nome**: Sabor Baunilha
             - **dificuldade_media**: BR_7B
@@ -1194,6 +1488,7 @@
             - **quantidade_costuras_intermediarias**: 10
             - **quantidade_equipamentos_parada**: 2
         - **[9]**:
+          - **uid**: PiNuVbxxXUK2P0
           - **via_movel**:
             - **descricao**: Parada fixa
             - **nome**: O charme da Trad
@@ -1203,6 +1498,7 @@
               - Pablo Gonçalves
               - Jg
         - **[10]**:
+          - **uid**: Dp5B1X2pzFqB1G
           - **via_multiplas_enfiadas**:
             - **nome**: Café Ole
             - **dificuldade_media**: BR_5
@@ -1226,6 +1522,7 @@
             - **quantidade_costuras_intermediarias**: 8
             - **quantidade_equipamentos_parada**: 2
         - **[11]**:
+          - **uid**: 7RbqyoLUwWU6XB
           - **via_multiplas_enfiadas**:
             - **nome**: Tio Tonton
             - **dificuldade_media**: BR_6SUP
@@ -1266,6 +1563,7 @@
     
     Estes setores estão localizados na parte sul do Alto Monte Alvão.
 - **nome**: Curto e Grosso, Malibu e Terra do Nunca
+- **uid**: JI5tVwPnDWIuk7
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_curto_e_grosso_malibu_e_terra_do_nunca_p0.webp)
@@ -1273,97 +1571,134 @@
     - **altura_mapa**: 1716
     - **pontos_de_interesse**:
       - **[0]**:
-        - **id**: 1az
-        - **label**: 1az
+        - **id**: 0JWb3oTHfaUtmQ
+        - **uid**: 0JWb3oTHfaUtmQ
+        - **rotulo**: 1az
         - **retangulo**:
           - **x**: 212
           - **y**: 402
           - **comprimento**: 35
           - **largura**: 49
+        - **label**: 1az
       - **[1]**:
-        - **id**: 1ve
-        - **label**: 1ve
+        - **id**: q4GSjBI58kIW30
+        - **uid**: q4GSjBI58kIW30
+        - **rotulo**: 1ve
         - **retangulo**:
           - **x**: 722
           - **y**: 848
           - **comprimento**: 19
           - **largura**: 35
+        - **label**: 1ve
       - **[2]**:
-        - **id**: 2ve
-        - **label**: 2ve
+        - **id**: ydC7zIuz9SErQg
+        - **uid**: ydC7zIuz9SErQg
+        - **rotulo**: 2ve
         - **retangulo**:
           - **x**: 746
           - **y**: 869
           - **comprimento**: 21
           - **largura**: 40
+        - **label**: 2ve
       - **[3]**:
-        - **id**: 3ve
-        - **label**: 3ve
+        - **id**: 1Bj76ajRO4eoFF
+        - **uid**: 1Bj76ajRO4eoFF
+        - **rotulo**: 3ve
         - **retangulo**:
           - **x**: 719
           - **y**: 944
           - **comprimento**: 32
           - **largura**: 39
+        - **label**: 3ve
       - **[4]**:
-        - **id**: 4ve
-        - **label**: 4ve
+        - **id**: zcObHou4vD95jn
+        - **uid**: zcObHou4vD95jn
+        - **rotulo**: 4ve
         - **retangulo**:
           - **x**: 789
           - **y**: 902
           - **comprimento**: 32
           - **largura**: 41
+        - **label**: 4ve
       - **[5]**:
-        - **id**: 1ro
-        - **label**: 1ro
+        - **id**: G4tq1RUvtiHgt1
+        - **uid**: G4tq1RUvtiHgt1
+        - **rotulo**: 1ro
         - **retangulo**:
           - **x**: 1756
           - **y**: 1474
           - **comprimento**: 31
           - **largura**: 45
+        - **label**: 1ro
       - **[6]**:
-        - **id**: 2ro
-        - **label**: 2ro
+        - **id**: sNQ8WIx4JBasno
+        - **uid**: sNQ8WIx4JBasno
+        - **rotulo**: 2ro
         - **retangulo**:
           - **x**: 1686
           - **y**: 1468
           - **comprimento**: 26
           - **largura**: 42
+        - **label**: 2ro
     - **referencias**:
       - **[0]**:
+        - **alvo_uid**: z3iyGVQLgcfWR8
+        - **pontos_uids**:
+          - 0JWb3oTHfaUtmQ
         - **escalada**: La Speza
         - **ids**:
-          - 1az
+          - 0JWb3oTHfaUtmQ
       - **[1]**:
+        - **alvo_uid**: CIZ94V52CuEYwg
+        - **pontos_uids**:
+          - q4GSjBI58kIW30
         - **escalada**: Gekke Greda
         - **ids**:
-          - 1ve
+          - q4GSjBI58kIW30
       - **[2]**:
+        - **alvo_uid**: y1XEoQHBfJpdIK
+        - **pontos_uids**:
+          - ydC7zIuz9SErQg
         - **escalada**: O Breizh
         - **ids**:
-          - 2ve
+          - ydC7zIuz9SErQg
       - **[3]**:
+        - **alvo_uid**: lDyymLQnKpZcZ8
+        - **pontos_uids**:
+          - 1Bj76ajRO4eoFF
         - **escalada**: Dedo no C* e Gritaria
         - **ids**:
-          - 3ve
+          - 1Bj76ajRO4eoFF
       - **[4]**:
+        - **alvo_uid**: 6fB8psV1Pl0pQj
+        - **pontos_uids**:
+          - zcObHou4vD95jn
         - **escalada**: Tea Time
         - **ids**:
-          - 4ve
+          - zcObHou4vD95jn
       - **[5]**:
+        - **alvo_uid**: rVUUjHYYMqsyK7
+        - **pontos_uids**:
+          - G4tq1RUvtiHgt1
         - **escalada**: Mimi Zokko
         - **ids**:
-          - 1ro
+          - G4tq1RUvtiHgt1
       - **[6]**:
+        - **alvo_uid**: N1HCQAY4CDiR53
+        - **pontos_uids**:
+          - sNQ8WIx4JBasno
         - **escalada**: Mariposa
         - **ids**:
-          - 2ro
+          - sNQ8WIx4JBasno
 - **setores**:
   - **[0]**:
     - **conteudo**:
       - **descricao**: 
       - **nome**: Terra do Nunca
+      - **uid**: 9nBKJkNFTsLt6U
       - **escaladas**:
         - **[0]**:
+          - **uid**: z3iyGVQLgcfWR8
           - **via_esportiva**:
             - **nome**: La Speza
             - **dificuldade**: BR_6
@@ -1380,8 +1715,10 @@
     - **conteudo**:
       - **descricao**: 
       - **nome**: Curto e Grosso
+      - **uid**: BjL9SR8V0cBhuL
       - **escaladas**:
         - **[0]**:
+          - **uid**: CIZ94V52CuEYwg
           - **via_esportiva**:
             - **nome**: Gekke Greda
             - **dificuldade**: BR_7B
@@ -1392,6 +1729,7 @@
               - Jg
               - Angela Van Dutch
         - **[1]**:
+          - **uid**: y1XEoQHBfJpdIK
           - **via_esportiva**:
             - **nome**: O Breizh
             - **dificuldade**: BR_7A
@@ -1402,6 +1740,7 @@
               - Jg
               - Morgan Hervaut
         - **[2]**:
+          - **uid**: lDyymLQnKpZcZ8
           - **via_esportiva**:
             - **nome**: Dedo no C* e Gritaria
             - **dificuldade**: BR_8A
@@ -1412,6 +1751,7 @@
               - Jg
               - Cristian Charme
         - **[3]**:
+          - **uid**: 6fB8psV1Pl0pQj
           - **via_esportiva**:
             - **nome**: Tea Time
             - **dificuldade**: BR_6
@@ -1428,8 +1768,10 @@
     - **conteudo**:
       - **descricao**: 
       - **nome**: Malibu
+      - **uid**: VvpFZdnJEkLma2
       - **escaladas**:
         - **[0]**:
+          - **uid**: rVUUjHYYMqsyK7
           - **via_esportiva**:
             - **nome**: Mimi Zokko
             - **dificuldade**: BR_5SUP
@@ -1439,6 +1781,7 @@
             - **conquistadores**:
               - Jg
         - **[1]**:
+          - **uid**: N1HCQAY4CDiR53
           - **via_esportiva**:
             - **nome**: Mariposa
             - **dificuldade**: BR_6

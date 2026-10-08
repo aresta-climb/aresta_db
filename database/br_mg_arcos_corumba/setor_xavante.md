@@ -1,6 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+uid: TxDV9kE6vHYvdM
 caminho_imagem_capa: imagens/setor_xavante_p1_i0.webp
 nome: Setor Xavante
 mapas:
@@ -8,98 +9,104 @@ mapas:
   largura_mapa: 841
   altura_mapa: 1129
   pontos_de_interesse:
-  - id: '1'
-    label: '1'
+  - uid: NcrhgAdVHpL7V2
+    rotulo: '1'
     circulo:
       x: 292
       y: 868
       raio: 15
-  - id: '2'
-    label: '2'
+  - uid: mrtduOlFh3i2qV
+    rotulo: '2'
     circulo:
       x: 476
       y: 1112
       raio: 15
-  - id: '3'
-    label: '3'
+  - uid: jmJnojNCKhRmoB
+    rotulo: '3'
     circulo:
       x: 607
       y: 1112
       raio: 15
-  - id: '4'
-    label: '4'
+  - uid: vmumFRsbAc1vMw
+    rotulo: '4'
     circulo:
       x: 714
       y: 1112
       raio: 15
   referencias:
-  - escalada: Curumim
-    ids:
-    - '1'
-  - escalada: Terra à Vista
-    ids:
-    - '2'
-  - escalada: (projeto)
-    ids:
-    - '3'
-  - escalada: (sem nome)
-    ids:
-    - '4'
+  - alvo_uid: 44ByzLsXABeZ5s
+    pontos_uids:
+    - NcrhgAdVHpL7V2
+  - alvo_uid: wd8ATscGxrhD91
+    pontos_uids:
+    - mrtduOlFh3i2qV
+  - alvo_uid: H4SwbadCl0qD5B
+    pontos_uids:
+    - jmJnojNCKhRmoB
+  - alvo_uid: I9MEHiGeAnxGh3
+    pontos_uids:
+    - vmumFRsbAc1vMw
 - caminho_imagem_mapa: imagens/setor_xavante_p0_i1.webp
   largura_mapa: 841
   altura_mapa: 1129
   pontos_de_interesse:
-  - id: '5'
-    label: '5'
+  - uid: KTSxol5XoR7sa4
+    rotulo: '5'
     circulo:
       x: 498
       y: 1097
       raio: 15
-  - id: '6'
-    label: '6'
+  - uid: jCcmwNWqmR4Xda
+    rotulo: '6'
     circulo:
       x: 639
       y: 1084
       raio: 15
   referencias:
-  - escalada: Especiaria
-    ids:
-    - '5'
-  - escalada: Tupi Or Not Tupi
-    ids:
-    - '6'
+  - alvo_uid: FELPompXlbRtUY
+    pontos_uids:
+    - KTSxol5XoR7sa4
+  - alvo_uid: 028yiAokkxtL25
+    pontos_uids:
+    - jCcmwNWqmR4Xda
 escaladas:
-- via_esportiva:
+- uid: 44ByzLsXABeZ5s
+  via_esportiva:
     nome: Curumim
     dificuldade: BR_6SUP
     destaque: true
     data_abertura: '2022-07-25'
     quantidade_protecoes_intermediarias: 6
     quantidade_protecoes_parada: 2
-- via_esportiva:
+- uid: wd8ATscGxrhD91
+  via_esportiva:
     nome: Terra à Vista
     destaque: true
     dificuldade: BR_7B
     data_abertura: '2022-07-25'
     quantidade_protecoes_intermediarias: 7
     quantidade_protecoes_parada: 2
-- via_esportiva:
+- uid: H4SwbadCl0qD5B
+  via_esportiva:
     nome: (projeto)
     dificuldade: PROJETO
-- via_esportiva:
+- uid: I9MEHiGeAnxGh3
+  via_esportiva:
     nome: (sem nome)
     dificuldade: PROJETO
     data_abertura: '2022-07-25'
     quantidade_protecoes_intermediarias: 7
     quantidade_protecoes_parada: 2
-- via_esportiva:
+- uid: FELPompXlbRtUY
+  via_esportiva:
     nome: Especiaria
     dificuldade: PROJETO
     destaque: true
     data_abertura: '2022-07-25'
     quantidade_protecoes_intermediarias: 6
     quantidade_protecoes_parada: 2
-- via_esportiva:
+- uid: 028yiAokkxtL25
+  via_esportiva:
     nome: Tupi Or Not Tupi
     dificuldade: BR_7A
     destaque: true

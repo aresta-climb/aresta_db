@@ -1,13 +1,14 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+uid: qzJk3jLJiw9ibf
 nome: Setor Tramontina
 escaladas:
-- boulder:
+- uid: tQ6mCOffU1yNAJ
+  boulder:
     nome: Sobe e desce
     dificuldade: VB
-    descricao: 'Boulder usado para descer do topo do bloco. Desça de frente para a
-      rocha, desescalando.
+    descricao: 'Boulder usado para descer do topo do bloco. Desça de frente para a rocha, desescalando.
 
 
       ![Agarra de saída do Sobe e desce](imagens/setor_tramontina_sobe_e_desce_p0.webp)'
@@ -18,7 +19,8 @@ escaladas:
     - Camila
     - Lucas
     - Evandro
-- boulder:
+- uid: iH3rfH5c2jJ4lf
+  boulder:
     nome: Questionamentos
     dificuldade: V0
     conquistadores:
@@ -26,7 +28,8 @@ escaladas:
     - Ana
     - Lucas
     - Evandro
-- boulder:
+- uid: WthDQ7VrYwnusI
+  boulder:
     nome: Não vai descalço
     dificuldade: V0
     conquistadores:
@@ -35,12 +38,12 @@ escaladas:
     - Ana
     - Renato Utsch
     - Evandro
-- boulder:
+- uid: vPdU7tcHsAHVup
+  boulder:
     nome: Linhas paralelas
     dificuldade: V1
-    descricao: 'Boulder sai bem aberto, com as duas mãos em barbatanas opostas. A
-      ideia é subir mantendo a oposição em agarras opostas entre as duas linhas até
-      a virada!
+    descricao: 'Boulder sai bem aberto, com as duas mãos em barbatanas opostas. A ideia é subir mantendo a oposição em agarras
+      opostas entre as duas linhas até a virada!
 
 
       ![Agarras de saída](imagens/whatsapp_image_2026_09_20_at_230736.webp)'
@@ -48,7 +51,8 @@ escaladas:
     - Renato Utsch
     - Evandro
     - Ana
-- boulder:
+- uid: 3LJyhlH8K7HUwD
+  boulder:
     nome: Só vejo almas
     dificuldade: V1
     descricao: Virada um pouco mais delicada do que os boulders ao lado desse boulder.
@@ -60,8 +64,8 @@ mapas:
   largura_mapa: 1825
   altura_mapa: 1369
   pontos_de_interesse:
-  - id: linha_1
-    label: ''
+  - uid: K9ehICREvSL3cg
+    rotulo: ''
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -86,8 +90,8 @@ mapas:
           rotulo: A
       espessura: 4
     cor: '#00E5FF'
-  - id: linha_2
-    label: ''
+  - uid: ro0Hl5fiBBIIRb
+    rotulo: ''
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -112,8 +116,8 @@ mapas:
           rotulo: B
       espessura: 4
     cor: '#00E5FF'
-  - id: linha_3
-    label: ''
+  - uid: hViAQGmev4O97T
+    rotulo: ''
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -138,8 +142,8 @@ mapas:
           rotulo: C
       espessura: 4
     cor: '#00E5FF'
-  - id: linha_4
-    label: ''
+  - uid: qBSK7cjr4w6akU
+    rotulo: ''
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -161,8 +165,8 @@ mapas:
           rotulo: D
       espessura: 4
     cor: '#00E5FF'
-  - id: linha_5
-    label: ''
+  - uid: AieY8mTSHCWNZ5
+    rotulo: ''
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -187,44 +191,44 @@ mapas:
           rotulo: E
       espessura: 4
     cor: '#00E5FF'
-  - id: paral1
-    label: ''
+  - uid: yxQI8yhj2Rm44J
+    rotulo: ''
     circulo:
       x: 1232
       y: 562
       raio: 26
     cor: '#FFD600'
-  - id: paral2
-    label: ''
+  - uid: O98g57fVPORYXE
+    rotulo: ''
     circulo:
       x: 1519
       y: 613
       raio: 24
     cor: '#FFD600'
   referencias:
-  - ids:
-    - linha_1
-    escalada: Sobe e desce
-  - ids:
-    - linha_2
-    escalada: Questionamentos
-  - ids:
-    - linha_3
-    escalada: Não vai descalço
-  - ids:
-    - linha_4
-    - paral2
-    - paral1
-    escalada: Linhas paralelas
-  - ids:
-    - linha_5
-    escalada: Só vejo almas
+  - alvo_uid: tQ6mCOffU1yNAJ
+    pontos_uids:
+    - K9ehICREvSL3cg
+  - alvo_uid: iH3rfH5c2jJ4lf
+    pontos_uids:
+    - ro0Hl5fiBBIIRb
+  - alvo_uid: WthDQ7VrYwnusI
+    pontos_uids:
+    - hViAQGmev4O97T
+  - alvo_uid: vPdU7tcHsAHVup
+    pontos_uids:
+    - qBSK7cjr4w6akU
+    - O98g57fVPORYXE
+    - yxQI8yhj2Rm44J
+  - alvo_uid: 3LJyhlH8K7HUwD
+    pontos_uids:
+    - AieY8mTSHCWNZ5
 - caminho_imagem_mapa: imagens/setor_tramontina_p1.webp
   largura_mapa: 1825
   altura_mapa: 1369
   pontos_de_interesse:
-  - id: linha_6
-    label: ''
+  - uid: W1kKMX98Onkp9P
+    rotulo: ''
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -249,8 +253,8 @@ mapas:
           rotulo: A
       espessura: 4
     cor: '#00E5FF'
-  - id: linha_7
-    label: ''
+  - uid: 4BsMYWmatRVbXz
+    rotulo: ''
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -275,35 +279,35 @@ mapas:
           rotulo: B
       espessura: 4
     cor: '#00E5FF'
-  - id: paral1
-    label: ''
+  - uid: aWQoFSsr4ZAzi9
+    rotulo: ''
     circulo:
       x: 207
       y: 642
       raio: 21
     cor: '#FFD600'
-  - id: paral2
-    label: ''
+  - uid: vHjGEFoPBzi5y7
+    rotulo: ''
     circulo:
       x: 437
       y: 660
       raio: 27
     cor: '#FFD600'
   referencias:
-  - ids:
-    - linha_6
-    - paral2
-    - paral1
-    escalada: Linhas paralelas
-  - ids:
-    - linha_7
-    escalada: Só vejo almas
+  - alvo_uid: vPdU7tcHsAHVup
+    pontos_uids:
+    - W1kKMX98Onkp9P
+    - vHjGEFoPBzi5y7
+    - aWQoFSsr4ZAzi9
+  - alvo_uid: 3LJyhlH8K7HUwD
+    pontos_uids:
+    - 4BsMYWmatRVbXz
 - caminho_imagem_mapa: imagens/setor_tramontina_p2.webp
   largura_mapa: 1825
   altura_mapa: 1369
   pontos_de_interesse:
-  - id: linha_8
-    label: ''
+  - uid: MfhaEzPjkVfcUS
+    rotulo: ''
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -332,10 +336,11 @@ mapas:
       espessura: 4
     cor: '#00E5FF'
   referencias:
-  - ids:
-    - linha_8
-    escalada: Sobe e desce
+  - alvo_uid: tQ6mCOffU1yNAJ
+    pontos_uids:
+    - MfhaEzPjkVfcUS
 ---
+
 Descida do topo do bloco Tramontina é feita pelo boulder "Sobe e desce".
 
 Setor com vários boulders dos mais variados graus. Destaque a boulders bem acessíveis para pessoal iniciando no climb.

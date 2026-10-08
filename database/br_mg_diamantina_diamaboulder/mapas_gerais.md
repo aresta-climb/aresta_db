@@ -7,41 +7,41 @@ mapas:
   altura_mapa: 867
 - caminho_imagem_mapa: imagens/mapas_gerais_p1_i0.webp
   pontos_de_interesse:
-  - id: '2'
-    label: '2'
+  - uid: FSlLx4zYRHvn25
+    rotulo: '2'
     circulo:
       x: 504
       y: 566
       raio: 36
-  - id: '1'
-    label: '1'
+  - uid: yCQ1Chm198kaQs
+    rotulo: '1'
     circulo:
       x: 603
       y: 712
       raio: 36
-  - id: '4'
-    label: '4'
+  - uid: Bx5QJWxXYpuJJ8
+    rotulo: '4'
     circulo:
       x: 632
       y: 318
       raio: 33
-  - id: '3'
-    label: '3'
+  - uid: eJjsxzMvpAX9JO
+    rotulo: '3'
     circulo:
       x: 730
       y: 578
       raio: 35
   referencias:
-  - ids:
-    - '1'
-    grupo: Região 1
-  - ids:
-    - '2'
-    grupo: Região 2
-  - ids:
-    - '3'
-    grupo: Região 3
-  - ids:
-    - '4'
-    grupo: Região 4
+  - alvo_uid: 4FDteNJXNyj54v
+    pontos_uids:
+    - yCQ1Chm198kaQs
+  - alvo_uid: x5DYqeNmedsNxv
+    pontos_uids:
+    - FSlLx4zYRHvn25
+  - alvo_uid: 0b1TmSRK0dGE9M
+    pontos_uids:
+    - eJjsxzMvpAX9JO
+  - alvo_uid: 5HcZp5MuQIGxmc
+    pontos_uids:
+    - Bx5QJWxXYpuJJ8
 ---

@@ -1,23 +1,24 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+uid: mTfwQRCospbvFu
 nome: Frigideira
 mapas:
 - caminho_imagem_mapa: imagens/grupo_frigideira_p0_i0.webp
   largura_mapa: 596
   altura_mapa: 839
   pontos_de_interesse:
-  - id: bloco_frigideira
-    label: Bloco Frigideira
+  - uid: bJb7xVraRyvZyx
+    rotulo: Bloco Frigideira
     retangulo:
       x: 281
       y: 793
       comprimento: 189
       largura: 91
   referencias:
-  - setor: Frigideira
-    ids:
-    - bloco_frigideira
+  - alvo_uid: mjhTMRRTRYEupM
+    pontos_uids:
+    - bJb7xVraRyvZyx
 setores:
 - caminho: grupo_frigideira_setor_frigideira.md
 - caminho: grupo_frigideira_setor_barba_ruiva.md

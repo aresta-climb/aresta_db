@@ -1,15 +1,19 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+uid: XzxxlTtKqrsYLl
 nome: Estacionamento - Bloco Virada Brasil
 escaladas:
-- boulder:
+- uid: ps4v5J4jjV7Hfq
+  boulder:
     nome: Virada Brasil
     dificuldade: V0
-- boulder:
+- uid: AKaga5P3UUaAhd
+  boulder:
     nome: Tio peruca
     dificuldade: V1
-- boulder:
+- uid: 7AxyC75DOr49wa
+  boulder:
     nome: Sem nome 24
     dificuldade: V0
 mapas:
@@ -17,8 +21,8 @@ mapas:
   largura_mapa: 1280
   altura_mapa: 960
   pontos_de_interesse:
-  - id: linha_1
-    label: ''
+  - uid: TCqSo3l4scy9Cr
+    rotulo: ''
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -56,7 +60,7 @@ mapas:
           raio: 19
       espessura: 4
     cor: '#FFD600'
-  - id: linha_3
+  - uid: dq3Z8gzMAG78T6
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -108,7 +112,7 @@ mapas:
           rotulo: ''
       espessura: 4
     cor: '#FFD600'
-  - id: linha_4
+  - uid: enl6MWJpNyBsAG
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -132,8 +136,8 @@ mapas:
           raio: 19
       espessura: 4
     cor: '#FFD600'
-  - id: linha_2
-    label: ''
+  - uid: d7TPFX7nth7n3n
+    rotulo: ''
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -168,15 +172,15 @@ mapas:
       espessura: 4
     cor: '#FFD600'
   referencias:
-  - ids:
-    - linha_1
-    escalada: Virada Brasil
-  - ids:
-    - linha_3
-    - linha_4
-    escalada: Tio peruca
-  - ids:
-    - linha_2
-    - linha_4
-    escalada: Sem nome 24
+  - alvo_uid: ps4v5J4jjV7Hfq
+    pontos_uids:
+    - TCqSo3l4scy9Cr
+  - alvo_uid: AKaga5P3UUaAhd
+    pontos_uids:
+    - dq3Z8gzMAG78T6
+    - enl6MWJpNyBsAG
+  - alvo_uid: 7AxyC75DOr49wa
+    pontos_uids:
+    - d7TPFX7nth7n3n
+    - enl6MWJpNyBsAG
 ---

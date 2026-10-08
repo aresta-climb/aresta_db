@@ -7,7 +7,7 @@ Seguindo TDD: Os testes falham inicialmente pois a implementação ainda não ex
 """
 import unittest
 from unittest.mock import MagicMock, patch
-import exportar_para_anchor_ledge
+from scripts import exportar_para_anchor_ledge
 
 class TestExportarParaAnchorLedge(unittest.TestCase):
 

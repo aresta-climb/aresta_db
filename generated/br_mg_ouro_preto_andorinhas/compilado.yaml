@@ -1,3 +1,4 @@
+uid: CiVmE57KaMXmNl
 id: br_mg_ouro_preto_andorinhas
 nome: Parque Natural Municipal das Andorinhas
 creditos:
@@ -10,96 +11,143 @@ picos:
   setores_ou_grupos:
   - setor:
       conteudo:
+        uid: zkSbaQVnPkafaq
         nome: Pedra do Arco
         mapas:
         - caminho_imagem_mapa: imagens/setor_pedra_do_arco_p0.webp
           largura_mapa: 2048
           altura_mapa: 880
           pontos_de_interesse:
-          - id: '1'
-            label: '1'
+          - uid: s1r3kZAliEpkAT
+            rotulo: '1'
             circulo:
               x: 253
               y: 803
               raio: 20
-          - id: '2'
-            label: '2'
+            id: s1r3kZAliEpkAT
+            label: '1'
+          - uid: Mqj2EClYZ4ujtk
+            rotulo: '2'
             circulo:
               x: 409
               y: 799
               raio: 20
-          - id: '3'
-            label: '3'
+            id: Mqj2EClYZ4ujtk
+            label: '2'
+          - uid: magnWwwQCNU7fF
+            rotulo: '3'
             circulo:
               x: 528
               y: 759
               raio: 21
-          - id: '4'
-            label: '4'
+            id: magnWwwQCNU7fF
+            label: '3'
+          - uid: BeXkX3odFKdQz3
+            rotulo: '4'
             circulo:
               x: 805
               y: 674
               raio: 20
-          - id: '5'
-            label: '5'
+            id: BeXkX3odFKdQz3
+            label: '4'
+          - uid: sdiL6ScDymSd01
+            rotulo: '5'
             circulo:
               x: 957
               y: 599
               raio: 20
-          - id: '6'
-            label: '6'
+            id: sdiL6ScDymSd01
+            label: '5'
+          - uid: egxjGifeS1x7kR
+            rotulo: '6'
             circulo:
               x: 1110
               y: 554
               raio: 20
-          - id: '7'
-            label: '7'
+            id: egxjGifeS1x7kR
+            label: '6'
+          - uid: XXp8u1XQbh5ODl
+            rotulo: '7'
             circulo:
               x: 1456
               y: 823
               raio: 20
-          - id: '8'
-            label: '8'
+            id: XXp8u1XQbh5ODl
+            label: '7'
+          - uid: fBtl87Gp8aN5T5
+            rotulo: '8'
             circulo:
               x: 1577
               y: 750
               raio: 20
-          - id: '9'
-            label: '9'
+            id: fBtl87Gp8aN5T5
+            label: '8'
+          - uid: S9Ds7ARE1uQlMQ
+            rotulo: '9'
             circulo:
               x: 1942
               y: 743
               raio: 20
+            id: S9Ds7ARE1uQlMQ
+            label: '9'
           referencias:
-          - escalada: Aresta do Apicultor
+          - alvo_uid: 7ti0xqs5ZYdgI8
+            pontos_uids:
+            - s1r3kZAliEpkAT
+            escalada: Aresta do Apicultor
             ids:
-            - '1'
-          - escalada: Se Segura Malandro
+            - s1r3kZAliEpkAT
+          - alvo_uid: 2s26SZMYbOI0fQ
+            pontos_uids:
+            - Mqj2EClYZ4ujtk
+            escalada: Se Segura Malandro
             ids:
-            - '2'
-          - escalada: Filosofia Lusitana
+            - Mqj2EClYZ4ujtk
+          - alvo_uid: MDblrI3ejId0jF
+            pontos_uids:
+            - magnWwwQCNU7fF
+            escalada: Filosofia Lusitana
             ids:
-            - '3'
-          - escalada: Titanomaquia
+            - magnWwwQCNU7fF
+          - alvo_uid: fvyztQVeT6vS4k
+            pontos_uids:
+            - BeXkX3odFKdQz3
+            escalada: Titanomaquia
             ids:
-            - '4'
-          - escalada: Sika Loca
+            - BeXkX3odFKdQz3
+          - alvo_uid: eYAgd9R8FqvcUs
+            pontos_uids:
+            - sdiL6ScDymSd01
+            escalada: Sika Loca
             ids:
-            - '5'
-          - escalada: Caba Não Mundão
+            - sdiL6ScDymSd01
+          - alvo_uid: DyRbkcQa5clvgn
+            pontos_uids:
+            - egxjGifeS1x7kR
+            escalada: Caba Não Mundão
             ids:
-            - '6'
-          - escalada: Marreta Porreta
+            - egxjGifeS1x7kR
+          - alvo_uid: ObKrAHaISV84Z4
+            pontos_uids:
+            - XXp8u1XQbh5ODl
+            escalada: Marreta Porreta
             ids:
-            - '7'
-          - escalada: Cabron da Peste
+            - XXp8u1XQbh5ODl
+          - alvo_uid: aB43zLdALJYMeU
+            pontos_uids:
+            - fBtl87Gp8aN5T5
+            escalada: Cabron da Peste
             ids:
-            - '8'
-          - escalada: Paralaxologística
+            - fBtl87Gp8aN5T5
+          - alvo_uid: vZbJVBdzjPd6Cs
+            pontos_uids:
+            - S9Ds7ARE1uQlMQ
+            escalada: Paralaxologística
             ids:
-            - '9'
+            - S9Ds7ARE1uQlMQ
         escaladas:
-        - via_esportiva:
+        - uid: 7ti0xqs5ZYdgI8
+          via_esportiva:
             nome: Aresta do Apicultor
             dificuldade: BR_9B
             extensao: 17
@@ -108,7 +156,8 @@ picos:
             conquistadores:
             - Fábio de Melo
             - Rodrigo 'Mussula'
-        - via_esportiva:
+        - uid: 2s26SZMYbOI0fQ
+          via_esportiva:
             nome: Se Segura Malandro
             dificuldade: BR_7B
             extensao: 15
@@ -117,7 +166,8 @@ picos:
             conquistadores:
             - Fábio de Melo
             - Rodrigo 'Mussula'
-        - via_esportiva:
+        - uid: MDblrI3ejId0jF
+          via_esportiva:
             nome: Filosofia Lusitana
             dificuldade: BR_8B
             extensao: 17
@@ -126,7 +176,8 @@ picos:
             conquistadores:
             - Fábio de Melo
             - Rodrigo 'Mussula'
-        - via_esportiva:
+        - uid: fvyztQVeT6vS4k
+          via_esportiva:
             nome: Titanomaquia
             dificuldade: BR_9A
             extensao: 17
@@ -135,7 +186,8 @@ picos:
             conquistadores:
             - Fábio de Melo
             - Rodrigo 'Mussula'
-        - via_esportiva:
+        - uid: eYAgd9R8FqvcUs
+          via_esportiva:
             nome: Sika Loca
             dificuldade: INDEFINIDO
             extensao: 17
@@ -145,7 +197,8 @@ picos:
             - F. de Melo
             - R. 'Mussula'
             - Fred Moreira
-        - via_esportiva:
+        - uid: DyRbkcQa5clvgn
+          via_esportiva:
             nome: Caba Não Mundão
             dificuldade: INDEFINIDO
             extensao: 17
@@ -154,7 +207,8 @@ picos:
             conquistadores:
             - Fábio de Melo
             - Rodrigo 'Mussula'
-        - via_movel:
+        - uid: ObKrAHaISV84Z4
+          via_movel:
             nome: Marreta Porreta
             dificuldade: BR_6SUP
             extensao: 12
@@ -163,7 +217,8 @@ picos:
             conquistadores:
             - Ian Belo
             - Felipe Dias
-        - via_esportiva:
+        - uid: aB43zLdALJYMeU
+          via_esportiva:
             nome: Cabron da Peste
             dificuldade: INDEFINIDO
             extensao: 12
@@ -172,7 +227,8 @@ picos:
             conquistadores:
             - Fábio de Melo
             - Rodrigo 'Mussula'
-        - via_esportiva:
+        - uid: vZbJVBdzjPd6Cs
+          via_esportiva:
             nome: Paralaxologística
             dificuldade: BR_8B
             extensao: 12
@@ -196,87 +252,129 @@ picos:
           total_esportivas: 8
   - setor:
       conteudo:
+        uid: TFb7MHt7YSa4Am
         nome: Campo Escola
         mapas:
         - caminho_imagem_mapa: imagens/setor_campo_escola_p0.webp
           largura_mapa: 2048
           altura_mapa: 1464
           pontos_de_interesse:
-          - id: '1'
-            label: '1'
+          - uid: SL5beigFdmMPpa
+            rotulo: '1'
             circulo:
               x: 299
               y: 923
               raio: 29
-          - id: '2'
-            label: '2'
+            id: SL5beigFdmMPpa
+            label: '1'
+          - uid: 8N0TMzWLsd6kWp
+            rotulo: '2'
             circulo:
               x: 515
               y: 914
               raio: 29
-          - id: '3'
-            label: '3'
+            id: 8N0TMzWLsd6kWp
+            label: '2'
+          - uid: B1B9rVRVjLCiVx
+            rotulo: '3'
             circulo:
               x: 642
               y: 872
               raio: 29
-          - id: '4'
-            label: '4'
+            id: B1B9rVRVjLCiVx
+            label: '3'
+          - uid: ebZtAni3NdfAGN
+            rotulo: '4'
             circulo:
               x: 691
               y: 1002
               raio: 29
-          - id: '5'
-            label: '5'
+            id: ebZtAni3NdfAGN
+            label: '4'
+          - uid: Yu1y8joy7B6YUk
+            rotulo: '5'
             circulo:
               x: 819
               y: 962
               raio: 29
-          - id: '6'
-            label: '6'
+            id: Yu1y8joy7B6YUk
+            label: '5'
+          - uid: DN3nDZ1UuI8UTg
+            rotulo: '6'
             circulo:
               x: 1009
               y: 962
               raio: 29
-          - id: '7'
-            label: '7'
+            id: DN3nDZ1UuI8UTg
+            label: '6'
+          - uid: exWnLXdm6YeHMm
+            rotulo: '7'
             circulo:
               x: 1237
               y: 933
               raio: 29
-          - id: '8'
-            label: '8'
+            id: exWnLXdm6YeHMm
+            label: '7'
+          - uid: klXGpHy9c2z2VH
+            rotulo: '8'
             circulo:
               x: 1480
               y: 835
               raio: 29
+            id: klXGpHy9c2z2VH
+            label: '8'
           referencias:
-          - escalada: Vivi Fernandes
+          - alvo_uid: sY1Zku2jMT7ovP
+            pontos_uids:
+            - SL5beigFdmMPpa
+            escalada: Vivi Fernandes
             ids:
-            - '1'
-          - escalada: Kid Bengala
+            - SL5beigFdmMPpa
+          - alvo_uid: rApTGpneJUxHKh
+            pontos_uids:
+            - 8N0TMzWLsd6kWp
+            escalada: Kid Bengala
             ids:
-            - '2'
-          - escalada: Lolla
+            - 8N0TMzWLsd6kWp
+          - alvo_uid: tARmWmeUlv9QaW
+            pontos_uids:
+            - B1B9rVRVjLCiVx
+            escalada: Lolla
             ids:
-            - '3'
-          - escalada: Emanuelle
+            - B1B9rVRVjLCiVx
+          - alvo_uid: bZknDsQconM5dD
+            pontos_uids:
+            - ebZtAni3NdfAGN
+            escalada: Emanuelle
             ids:
-            - '4'
-          - escalada: Bruna Surfistinha
+            - ebZtAni3NdfAGN
+          - alvo_uid: eZhakU1rJiCqbC
+            pontos_uids:
+            - Yu1y8joy7B6YUk
+            escalada: Bruna Surfistinha
             ids:
-            - '5'
-          - escalada: Hilda Furacão
+            - Yu1y8joy7B6YUk
+          - alvo_uid: hv5CLql5boxvHS
+            pontos_uids:
+            - DN3nDZ1UuI8UTg
+            escalada: Hilda Furacão
             ids:
-            - '6'
-          - escalada: Cicciolina
+            - DN3nDZ1UuI8UTg
+          - alvo_uid: Xs9g67SPKCz8Of
+            pontos_uids:
+            - exWnLXdm6YeHMm
+            escalada: Cicciolina
             ids:
-            - '7'
-          - escalada: Bordel
+            - exWnLXdm6YeHMm
+          - alvo_uid: KGdCAnb0BbRV1C
+            pontos_uids:
+            - klXGpHy9c2z2VH
+            escalada: Bordel
             ids:
-            - '8'
+            - klXGpHy9c2z2VH
         escaladas:
-        - via_esportiva:
+        - uid: sY1Zku2jMT7ovP
+          via_esportiva:
             nome: Vivi Fernandes
             dificuldade: BR_6
             extensao: 10
@@ -285,7 +383,8 @@ picos:
             conquistadores:
             - Fábio de Melo
             - Rodrigo 'Mussula'
-        - via_esportiva:
+        - uid: rApTGpneJUxHKh
+          via_esportiva:
             nome: Kid Bengala
             dificuldade: BR_4
             extensao: 10
@@ -294,7 +393,8 @@ picos:
             conquistadores:
             - Fábio de Melo
             - Rodrigo 'Mussula'
-        - via_esportiva:
+        - uid: tARmWmeUlv9QaW
+          via_esportiva:
             nome: Lolla
             dificuldade: BR_3
             extensao: 10
@@ -303,7 +403,8 @@ picos:
             conquistadores:
             - Fábio de Melo
             - Rodrigo 'Mussula'
-        - via_esportiva:
+        - uid: bZknDsQconM5dD
+          via_esportiva:
             nome: Emanuelle
             dificuldade: BR_3
             extensao: 10
@@ -312,7 +413,8 @@ picos:
             conquistadores:
             - Fábio de Melo
             - Rodrigo 'Mussula'
-        - via_movel:
+        - uid: eZhakU1rJiCqbC
+          via_movel:
             nome: Bruna Surfistinha
             dificuldade: BR_4
             extensao: 10
@@ -321,7 +423,8 @@ picos:
             conquistadores:
             - Ian Belo
             - Felipe Dias
-        - via_esportiva:
+        - uid: hv5CLql5boxvHS
+          via_esportiva:
             nome: Hilda Furacão
             dificuldade: BR_5
             extensao: 10
@@ -329,7 +432,8 @@ picos:
             quantidade_protecoes_parada: 2
             conquistadores:
             - Fábio de Melo
-        - via_movel:
+        - uid: Xs9g67SPKCz8Of
+          via_movel:
             nome: Cicciolina
             dificuldade: BR_4
             extensao: 10
@@ -338,7 +442,8 @@ picos:
             conquistadores:
             - Ian Belo
             - Felipe Dias
-        - via_esportiva:
+        - uid: KGdCAnb0BbRV1C
+          via_esportiva:
             nome: Bordel
             dificuldade: BR_3
             extensao: 8
@@ -361,78 +466,115 @@ picos:
           total_esportivas: 6
   - setor:
       conteudo:
+        uid: wsG4L2MDOjEQyv
         nome: Tchau Querida
         mapas:
         - caminho_imagem_mapa: imagens/setor_tchau_querida_p0.webp
           largura_mapa: 2048
           altura_mapa: 1441
           pontos_de_interesse:
-          - id: '1'
-            label: '1'
+          - uid: OAqwOD0xxV1vPu
+            rotulo: '1'
             circulo:
               x: 553
               y: 1165
               raio: 29
-          - id: '2'
-            label: '2'
+            id: OAqwOD0xxV1vPu
+            label: '1'
+          - uid: MuwmgaCCQZRwWx
+            rotulo: '2'
             circulo:
               x: 673
               y: 1207
               raio: 29
-          - id: '3'
-            label: '3'
+            id: MuwmgaCCQZRwWx
+            label: '2'
+          - uid: K5QKDGoccW19NA
+            rotulo: '3'
             circulo:
               x: 876
               y: 1185
               raio: 29
-          - id: '4'
-            label: '4'
+            id: K5QKDGoccW19NA
+            label: '3'
+          - uid: cdfIXsByranGf7
+            rotulo: '4'
             circulo:
               x: 1367
               y: 1156
               raio: 29
-          - id: '5'
-            label: '5'
+            id: cdfIXsByranGf7
+            label: '4'
+          - uid: AjkqTGkt4Ch8hA
+            rotulo: '5'
             circulo:
               x: 1554
               y: 1156
               raio: 29
-          - id: '6'
-            label: '6'
+            id: AjkqTGkt4Ch8hA
+            label: '5'
+          - uid: RfbWzFwbo770MS
+            rotulo: '6'
             circulo:
               x: 1767
               y: 1095
               raio: 29
-          - id: '7'
-            label: '7'
+            id: RfbWzFwbo770MS
+            label: '6'
+          - uid: teBEMz2j8ndVhN
+            rotulo: '7'
             circulo:
               x: 1918
               y: 1066
               raio: 29
+            id: teBEMz2j8ndVhN
+            label: '7'
           referencias:
-          - escalada: Temer Jamais
+          - alvo_uid: k6oqTOgZAjU9kt
+            pontos_uids:
+            - OAqwOD0xxV1vPu
+            escalada: Temer Jamais
             ids:
-            - '1'
-          - escalada: Escalar sem Temer
+            - OAqwOD0xxV1vPu
+          - alvo_uid: xW0Mkv77JFWs9p
+            pontos_uids:
+            - MuwmgaCCQZRwWx
+            escalada: Escalar sem Temer
             ids:
-            - '2'
-          - escalada: Tchau Querida
+            - MuwmgaCCQZRwWx
+          - alvo_uid: J1pGNoThE1bwfk
+            pontos_uids:
+            - K5QKDGoccW19NA
+            escalada: Tchau Querida
             ids:
-            - '3'
-          - escalada: República do Pó Royal
+            - K5QKDGoccW19NA
+          - alvo_uid: CRBMqp1Q6DVjAx
+            pontos_uids:
+            - cdfIXsByranGf7
+            escalada: República do Pó Royal
             ids:
-            - '4'
-          - escalada: República das Bananas
+            - cdfIXsByranGf7
+          - alvo_uid: R8rkbqPrKLHDxA
+            pontos_uids:
+            - AjkqTGkt4Ch8hA
+            escalada: República das Bananas
             ids:
-            - '5'
-          - escalada: República do Café com Leite
+            - AjkqTGkt4Ch8hA
+          - alvo_uid: aW9uZrzgmc7ttE
+            pontos_uids:
+            - RfbWzFwbo770MS
+            escalada: República do Café com Leite
             ids:
-            - '6'
-          - escalada: Lava Jato
+            - RfbWzFwbo770MS
+          - alvo_uid: VjT3UV27gMKhc0
+            pontos_uids:
+            - teBEMz2j8ndVhN
+            escalada: Lava Jato
             ids:
-            - '7'
+            - teBEMz2j8ndVhN
         escaladas:
-        - via_esportiva:
+        - uid: k6oqTOgZAjU9kt
+          via_esportiva:
             nome: Temer Jamais
             dificuldade: INDEFINIDO
             extensao: 12
@@ -441,7 +583,8 @@ picos:
             conquistadores:
             - Fábio de Melo
             - Rodrigo 'Mussula'
-        - via_esportiva:
+        - uid: xW0Mkv77JFWs9p
+          via_esportiva:
             nome: Escalar sem Temer
             dificuldade: INDEFINIDO
             extensao: 12
@@ -450,7 +593,8 @@ picos:
             conquistadores:
             - Fábio de Melo
             - Rodrigo 'Mussula'
-        - via_esportiva:
+        - uid: J1pGNoThE1bwfk
+          via_esportiva:
             nome: Tchau Querida
             dificuldade: BR_7B_BARRA_7C
             extensao: 12
@@ -459,7 +603,8 @@ picos:
             conquistadores:
             - Fábio de Melo
             - Rodrigo 'Mussula'
-        - via_esportiva:
+        - uid: CRBMqp1Q6DVjAx
+          via_esportiva:
             nome: República do Pó Royal
             dificuldade: BR_8A
             extensao: 12
@@ -468,7 +613,8 @@ picos:
             conquistadores:
             - Fábio de Melo
             - Rodrigo 'Mussula'
-        - via_esportiva:
+        - uid: R8rkbqPrKLHDxA
+          via_esportiva:
             nome: República das Bananas
             dificuldade: BR_7A
             extensao: 11
@@ -477,7 +623,8 @@ picos:
             conquistadores:
             - Fábio de Melo
             - Rodrigo 'Mussula'
-        - via_esportiva:
+        - uid: aW9uZrzgmc7ttE
+          via_esportiva:
             nome: República do Café com Leite
             dificuldade: BR_7A
             extensao: 11
@@ -486,7 +633,8 @@ picos:
             conquistadores:
             - Fábio de Melo
             - Rodrigo 'Mussula'
-        - via_esportiva:
+        - uid: VjT3UV27gMKhc0
+          via_esportiva:
             nome: Lava Jato
             dificuldade: BR_7B
             extensao: 11
@@ -510,159 +658,241 @@ picos:
           total_esportivas: 7
   - setor:
       conteudo:
+        uid: LwsbKpA62X0tMd
         nome: Pedra Branca
         mapas:
         - caminho_imagem_mapa: imagens/setor_pedra_branca_p0.webp
           largura_mapa: 2048
           altura_mapa: 1430
           pontos_de_interesse:
-          - id: '1'
-            label: '1'
+          - uid: Kw2r26BhWKm3HW
+            rotulo: '1'
             circulo:
               x: 271
               y: 1376
               raio: 28
-          - id: '2'
-            label: '2'
+            id: Kw2r26BhWKm3HW
+            label: '1'
+          - uid: S94l8t3Kowypzj
+            rotulo: '2'
             circulo:
               x: 716
               y: 1078
               raio: 28
-          - id: '3'
-            label: '3'
+            id: S94l8t3Kowypzj
+            label: '2'
+          - uid: UQA4cM8WDOTV6g
+            rotulo: '3'
             circulo:
               x: 881
               y: 1000
               raio: 29
-          - id: '4'
-            label: '4'
+            id: UQA4cM8WDOTV6g
+            label: '3'
+          - uid: rrXCVCX315PvDh
+            rotulo: '4'
             circulo:
               x: 998
               y: 982
               raio: 29
-          - id: '5'
-            label: '5'
+            id: rrXCVCX315PvDh
+            label: '4'
+          - uid: 167oZQUL97DvEX
+            rotulo: '5'
             circulo:
               x: 1079
               y: 857
               raio: 29
-          - id: '6'
-            label: '6'
+            id: 167oZQUL97DvEX
+            label: '5'
+          - uid: J2HhYo5NDZ6t4Q
+            rotulo: '6'
             circulo:
               x: 1178
               y: 875
               raio: 29
-          - id: '7'
-            label: '7'
+            id: J2HhYo5NDZ6t4Q
+            label: '6'
+          - uid: Ziwxy16uv4OHif
+            rotulo: '7'
             circulo:
               x: 1235
               y: 767
               raio: 28
-          - id: '8'
-            label: '8'
+            id: Ziwxy16uv4OHif
+            label: '7'
+          - uid: 6TOSSMM6oJLdCA
+            rotulo: '8'
             circulo:
               x: 1341
               y: 726
               raio: 29
-          - id: '9'
-            label: '9'
+            id: 6TOSSMM6oJLdCA
+            label: '8'
+          - uid: 244HBnuym2IWDk
+            rotulo: '9'
             circulo:
               x: 1380
               y: 610
               raio: 29
-          - id: '10'
-            label: '10'
+            id: 244HBnuym2IWDk
+            label: '9'
+          - uid: EcPEuN3CknJ9Ga
+            rotulo: '10'
             circulo:
               x: 1433
               y: 521
               raio: 28
-          - id: '11'
-            label: '11'
+            id: EcPEuN3CknJ9Ga
+            label: '10'
+          - uid: UoEPxqRveqDfjl
+            rotulo: '11'
             circulo:
               x: 1498
               y: 474
               raio: 29
-          - id: '12'
-            label: '12'
+            id: UoEPxqRveqDfjl
+            label: '11'
+          - uid: arqatt4PQTrUTw
+            rotulo: '12'
             circulo:
               x: 1573
               y: 540
               raio: 29
-          - id: '13'
-            label: '13'
+            id: arqatt4PQTrUTw
+            label: '12'
+          - uid: TfkQQLiEb8mFpE
+            rotulo: '13'
             circulo:
               x: 1691
               y: 569
               raio: 29
-          - id: '14'
-            label: '14'
+            id: TfkQQLiEb8mFpE
+            label: '13'
+          - uid: Ydiim87OstKvuh
+            rotulo: '14'
             circulo:
               x: 1806
               y: 550
               raio: 29
-          - id: '15'
-            label: '15'
+            id: Ydiim87OstKvuh
+            label: '14'
+          - uid: Ni8v7sYqnxZo1m
+            rotulo: '15'
             circulo:
               x: 1865
               y: 474
               raio: 29
-          - id: '16'
-            label: '16'
+            id: Ni8v7sYqnxZo1m
+            label: '15'
+          - uid: uVC6RLcQ3zqjlW
+            rotulo: '16'
             circulo:
               x: 1968
               y: 375
               raio: 29
+            id: uVC6RLcQ3zqjlW
+            label: '16'
           referencias:
-          - escalada: Vaca Virgem
+          - alvo_uid: ncix4p5uZLrqy0
+            pontos_uids:
+            - Kw2r26BhWKm3HW
+            escalada: Vaca Virgem
             ids:
-            - '1'
-          - escalada: Route 162
+            - Kw2r26BhWKm3HW
+          - alvo_uid: iov2bA83sPMsij
+            pontos_uids:
+            - S94l8t3Kowypzj
+            escalada: Route 162
             ids:
-            - '2'
-          - escalada: Dia de Protesto
+            - S94l8t3Kowypzj
+          - alvo_uid: LhFUxPxLieUX2g
+            pontos_uids:
+            - UQA4cM8WDOTV6g
+            escalada: Dia de Protesto
             ids:
-            - '3'
-          - escalada: Atestado de Cadena
+            - UQA4cM8WDOTV6g
+          - alvo_uid: PkPBem3YrKiswl
+            pontos_uids:
+            - rrXCVCX315PvDh
+            escalada: Atestado de Cadena
             ids:
-            - '4'
-          - escalada: Janela do Universo
+            - rrXCVCX315PvDh
+          - alvo_uid: GSLSwkP3r8Nv5e
+            pontos_uids:
+            - 167oZQUL97DvEX
+            escalada: Janela do Universo
             ids:
-            - '5'
-          - escalada: Musgonoszói
+            - 167oZQUL97DvEX
+          - alvo_uid: yUMkkSy5pUXvun
+            pontos_uids:
+            - J2HhYo5NDZ6t4Q
+            escalada: Musgonoszói
             ids:
-            - '6'
-          - escalada: Fala meu Justo
+            - J2HhYo5NDZ6t4Q
+          - alvo_uid: HNPFjPzBUYf7Xy
+            pontos_uids:
+            - Ziwxy16uv4OHif
+            escalada: Fala meu Justo
             ids:
-            - '7'
-          - escalada: Regletes Ocultos
+            - Ziwxy16uv4OHif
+          - alvo_uid: vbb51jADyW5oVP
+            pontos_uids:
+            - 6TOSSMM6oJLdCA
+            escalada: Regletes Ocultos
             ids:
-            - '8'
-          - escalada: Batata com Sal
+            - 6TOSSMM6oJLdCA
+          - alvo_uid: na69PGh4fGdXcu
+            pontos_uids:
+            - 244HBnuym2IWDk
+            escalada: Batata com Sal
             ids:
-            - '9'
-          - escalada: Argentina
+            - 244HBnuym2IWDk
+          - alvo_uid: 2KqcKn1JWXZDp3
+            pontos_uids:
+            - EcPEuN3CknJ9Ga
+            escalada: Argentina
             ids:
-            - '10'
-          - escalada: Alemanha
+            - EcPEuN3CknJ9Ga
+          - alvo_uid: 5SbiIbYHODL7kP
+            pontos_uids:
+            - UoEPxqRveqDfjl
+            escalada: Alemanha
             ids:
-            - '11'
-          - escalada: Melodrama
+            - UoEPxqRveqDfjl
+          - alvo_uid: DWWb2P32J9uKJM
+            pontos_uids:
+            - arqatt4PQTrUTw
+            escalada: Melodrama
             ids:
-            - '12'
-          - escalada: Sapiência
+            - arqatt4PQTrUTw
+          - alvo_uid: 1lZVDxj1BfgQ5y
+            pontos_uids:
+            - TfkQQLiEb8mFpE
+            escalada: Sapiência
             ids:
-            - '13'
-          - escalada: Lagartixa de Pedra
+            - TfkQQLiEb8mFpE
+          - alvo_uid: c0Rn16b1e6hv8B
+            pontos_uids:
+            - Ydiim87OstKvuh
+            escalada: Lagartixa de Pedra
             ids:
-            - '14'
-          - escalada: Meu Amigo Friend
+            - Ydiim87OstKvuh
+          - alvo_uid: 5uT1gvvyYGLqm9
+            pontos_uids:
+            - Ni8v7sYqnxZo1m
+            escalada: Meu Amigo Friend
             ids:
-            - '15'
-          - escalada: Meu Amigo Broca
+            - Ni8v7sYqnxZo1m
+          - alvo_uid: TX15wb9KDkB0R7
+            pontos_uids:
+            - uVC6RLcQ3zqjlW
+            escalada: Meu Amigo Broca
             ids:
-            - '16'
+            - uVC6RLcQ3zqjlW
         escaladas:
-        - via_esportiva:
+        - uid: ncix4p5uZLrqy0
+          via_esportiva:
             nome: Vaca Virgem
             dificuldade: BR_6
             extensao: 10
@@ -671,7 +901,8 @@ picos:
             conquistadores:
             - Fábio de Melo
             - Ângela Poleto
-        - via_movel:
+        - uid: iov2bA83sPMsij
+          via_movel:
             nome: Route 162
             dificuldade: BR_5
             extensao: 10
@@ -680,7 +911,8 @@ picos:
             conquistadores:
             - Fábio de Melo
             - Marcelo Henriques
-        - via_esportiva:
+        - uid: LhFUxPxLieUX2g
+          via_esportiva:
             nome: Dia de Protesto
             dificuldade: BR_6
             extensao: 9
@@ -688,7 +920,8 @@ picos:
             quantidade_protecoes_parada: 1
             conquistadores:
             - Fábio de Melo
-        - via_esportiva:
+        - uid: PkPBem3YrKiswl
+          via_esportiva:
             nome: Atestado de Cadena
             dificuldade: BR_7C
             extensao: 12
@@ -697,7 +930,8 @@ picos:
             conquistadores:
             - Fábio de Melo
             - Marcelo Henriques
-        - via_esportiva:
+        - uid: GSLSwkP3r8Nv5e
+          via_esportiva:
             nome: Janela do Universo
             dificuldade: BR_7A
             extensao: 12
@@ -706,7 +940,8 @@ picos:
             conquistadores:
             - Fábio de Melo
             - Marcelo Henriques
-        - via_esportiva:
+        - uid: yUMkkSy5pUXvun
+          via_esportiva:
             nome: Musgonoszói
             dificuldade: BR_6
             extensao: 12
@@ -715,7 +950,8 @@ picos:
             conquistadores:
             - Fábio de Melo
             - Marcelo Henriques
-        - via_esportiva:
+        - uid: HNPFjPzBUYf7Xy
+          via_esportiva:
             nome: Fala meu Justo
             dificuldade: BR_7B
             extensao: 10
@@ -724,7 +960,8 @@ picos:
             conquistadores:
             - Fábio de Melo
             - Marcelo Henriques
-        - via_esportiva:
+        - uid: vbb51jADyW5oVP
+          via_esportiva:
             nome: Regletes Ocultos
             dificuldade: BR_6
             extensao: 10
@@ -733,7 +970,8 @@ picos:
             conquistadores:
             - Fábio de Melo
             - Marcelo Henriques
-        - via_movel:
+        - uid: na69PGh4fGdXcu
+          via_movel:
             nome: Batata com Sal
             dificuldade: BR_5
             extensao: 10
@@ -742,7 +980,8 @@ picos:
             conquistadores:
             - Igor Murta
             - Natália Simone
-        - via_esportiva:
+        - uid: 2KqcKn1JWXZDp3
+          via_esportiva:
             nome: Argentina
             dificuldade: BR_5
             extensao: 10
@@ -751,7 +990,8 @@ picos:
             conquistadores:
             - Rodrigo 'Mussula'
             - Marcelo Henriques
-        - via_esportiva:
+        - uid: 5SbiIbYHODL7kP
+          via_esportiva:
             nome: Alemanha
             dificuldade: BR_7A
             extensao: 10
@@ -760,7 +1000,8 @@ picos:
             conquistadores:
             - Rodrigo 'Mussula'
             - Marcelo Henriques
-        - via_esportiva:
+        - uid: DWWb2P32J9uKJM
+          via_esportiva:
             nome: Melodrama
             dificuldade: BR_7A
             extensao: 12
@@ -770,7 +1011,8 @@ picos:
             - F. de Melo
             - R. 'Mussula'
             - Pablo Brito
-        - via_movel:
+        - uid: 1lZVDxj1BfgQ5y
+          via_movel:
             nome: Sapiência
             dificuldade: BR_7B
             extensao: 12
@@ -778,7 +1020,8 @@ picos:
             quantidade_protecoes_parada: 2
             conquistadores:
             - Fábio de Melo
-        - via_esportiva:
+        - uid: c0Rn16b1e6hv8B
+          via_esportiva:
             nome: Lagartixa de Pedra
             dificuldade: BR_7A
             extensao: 12
@@ -787,7 +1030,8 @@ picos:
             conquistadores:
             - Fábio de Melo
             - Marcelo Henriques
-        - via_movel:
+        - uid: 5uT1gvvyYGLqm9
+          via_movel:
             nome: Meu Amigo Friend
             dificuldade: BR_6
             extensao: 10
@@ -796,7 +1040,8 @@ picos:
             conquistadores:
             - Fábio de Melo
             - Marcelo Henriques
-        - via_esportiva:
+        - uid: TX15wb9KDkB0R7
+          via_esportiva:
             nome: Meu Amigo Broca
             dificuldade: BR_6
             extensao: 10
@@ -805,7 +1050,8 @@ picos:
             conquistadores:
             - Fábio de Melo
             - Rodrigo 'Mussula'
-        - via_esportiva:
+        - uid: QlW0BrRmcEJElE
+          via_esportiva:
             nome: Babilon Go Up
             dificuldade: BR_8C
             extensao: 10
@@ -815,7 +1061,8 @@ picos:
             - F. de Melo
             - R. 'Mussula'
             - L. 'Minicraque'
-        - via_esportiva:
+        - uid: vbTRakNEkn8ZAR
+          via_esportiva:
             nome: Sem Dúvida Nem Piedade
             dificuldade: BR_8B
             extensao: 12
@@ -825,7 +1072,8 @@ picos:
             - Leonardo 'Thunder'
             - F. Melo
             - Mussula
-        - via_movel:
+        - uid: ktG44eqbGzTWqt
+          via_movel:
             nome: Chanasclý
             dificuldade: BR_5
             extensao: 12
@@ -833,7 +1081,8 @@ picos:
             quantidade_protecoes_parada: 2
             conquistadores:
             - Leonardo 'Thunder'
-        - via_esportiva:
+        - uid: BXVyyqvrZdQRgh
+          via_esportiva:
             nome: Segredo da Cadena
             dificuldade: BR_7A
             extensao: 12
@@ -862,94 +1111,126 @@ picos:
         largura_mapa: 2048
         altura_mapa: 493
         pontos_de_interesse:
-        - id: Campo_Escola
-          label: Campo Escola
+        - uid: hRGhatp3gidWDz
+          rotulo: Campo Escola
           retangulo:
             x: 814
             y: 54
             comprimento: 231
             largura: 42
-        - id: Pedra_do_Arco
-          label: Pedra do Arco
+          id: hRGhatp3gidWDz
+          label: Campo Escola
+        - uid: DDwBiT88WqRP02
+          rotulo: Pedra do Arco
           retangulo:
             x: 548
             y: 104
             comprimento: 227
             largura: 43
-        - id: Mirante_Pedra_do_Jacare
-          label: Mirante Pedra do Jacaré
+          id: DDwBiT88WqRP02
+          label: Pedra do Arco
+        - uid: LGTTmmIRIXuc4a
+          rotulo: Mirante Pedra do Jacaré
           retangulo:
             x: 1172
             y: 96
             comprimento: 387
             largura: 45
-        - id: Cachoeira_das_Andorinhas
-          label: Cachoeira das Andorinhas
+          id: LGTTmmIRIXuc4a
+          label: Mirante Pedra do Jacaré
+        - uid: wNQOtqpzmQxrVS
+          rotulo: Cachoeira das Andorinhas
           retangulo:
             x: 1636
             y: 94
             comprimento: 417
             largura: 45
-        - id: Sede_do_Parque
-          label: Sede do Parque
+          id: wNQOtqpzmQxrVS
+          label: Cachoeira das Andorinhas
+        - uid: ZZShkw89Tghjiy
+          rotulo: Sede do Parque
           retangulo:
             x: 1357
             y: 463
             comprimento: 250
             largura: 42
+          id: ZZShkw89Tghjiy
+          label: Sede do Parque
         referencias:
-        - setor: Campo Escola
+        - alvo_uid: TFb7MHt7YSa4Am
+          pontos_uids:
+          - hRGhatp3gidWDz
+          setor: Campo Escola
           ids:
-          - Campo_Escola
-        - setor: Pedra do Arco
+          - hRGhatp3gidWDz
+        - alvo_uid: zkSbaQVnPkafaq
+          pontos_uids:
+          - DDwBiT88WqRP02
+          setor: Pedra do Arco
           ids:
-          - Pedra_do_Arco
+          - DDwBiT88WqRP02
       - caminho_imagem_mapa: imagens/mapas_gerais_p1.webp
         largura_mapa: 2048
         altura_mapa: 496
         pontos_de_interesse:
-        - id: Tchau_Querida
-          label: Tchau Querida
+        - uid: jQjve7eR9J6A2f
+          rotulo: Tchau Querida
           retangulo:
             x: 846
             y: 128
             comprimento: 231
             largura: 40
-        - id: Pedra_Branca
-          label: Pedra Branca
+          id: jQjve7eR9J6A2f
+          label: Tchau Querida
+        - uid: p1tOlIrTUvKK67
+          rotulo: Pedra Branca
           retangulo:
             x: 601
             y: 226
             comprimento: 214
             largura: 45
-        - id: Mirante_Pedra_do_Jacare
-          label: Mirante Pedra do Jacaré
+          id: p1tOlIrTUvKK67
+          label: Pedra Branca
+        - uid: D0bPOATmvMHRoB
+          rotulo: Mirante Pedra do Jacaré
           retangulo:
             x: 1166
             y: 94
             comprimento: 389
             largura: 41
-        - id: Cachoeira_das_Andorinhas
-          label: Cachoeira das Andorinhas
+          id: D0bPOATmvMHRoB
+          label: Mirante Pedra do Jacaré
+        - uid: ei2nf6aTh5tquR
+          rotulo: Cachoeira das Andorinhas
           retangulo:
             x: 1638
             y: 93
             comprimento: 411
             largura: 44
-        - id: Sede_do_Parque
-          label: Sede do Parque
+          id: ei2nf6aTh5tquR
+          label: Cachoeira das Andorinhas
+        - uid: ssIHgZgCPyKmhj
+          rotulo: Sede do Parque
           retangulo:
             x: 1352
             y: 462
             comprimento: 251
             largura: 37
+          id: ssIHgZgCPyKmhj
+          label: Sede do Parque
         referencias:
-        - setor: Tchau Querida
+        - alvo_uid: wsG4L2MDOjEQyv
+          pontos_uids:
+          - jQjve7eR9J6A2f
+          setor: Tchau Querida
           ids:
-          - Tchau_Querida
-        - setor: Pedra Branca
+          - jQjve7eR9J6A2f
+        - alvo_uid: LwsbKpA62X0tMd
+          pontos_uids:
+          - p1tOlIrTUvKK67
+          setor: Pedra Branca
           ids:
-          - Pedra_Branca
+          - p1tOlIrTUvKK67
   localizacao:
     latitude: -203703540
     longitude: -434619586
@@ -957,7 +1238,7 @@ picos:
     total_escaladas: 44
     total_setores: 4
     total_esportivas: 36
-ultima_migracao: 4
+ultima_migracao: 5
 publicar_croqui: true
 revisado_bounding_circle: true
 botoes: []

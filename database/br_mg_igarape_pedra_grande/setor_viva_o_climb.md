@@ -1,38 +1,48 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+uid: xNOT4evG3tUx7A
 nome: Bloco Viva o Climb
 escaladas:
-- boulder:
+- uid: 127Y7Onh5dlHIa
+  boulder:
     nome: Viva o climb
     dificuldade: V6
-- boulder:
+- uid: 9FOTxju26napvJ
+  boulder:
     nome: Pérola negra
     dificuldade: V11
     descricao: Saindo em pé com as mãos abertas
-- boulder:
+- uid: FWKMVo2XPTCgfu
+  boulder:
     nome: Pérola negra SDS
     dificuldade: INDEFINIDO
     descricao: Projeto, sem FA, talvez V12.
-- boulder:
+- uid: KCXMeslMlcq19N
+  boulder:
     nome: Sem nome 19
     dificuldade: V3
-- boulder:
+- uid: uGvMvqInmren8X
+  boulder:
     nome: Malandro não para
     dificuldade: V10
     descricao: Crux duro e toca pra esquerda
-- boulder:
+- uid: yl2Y3f1sAKWJTm
+  boulder:
     nome: Malandragem
     descricao: Mesma saída do Malandro não para, mas toca reto
     dificuldade: V8_BARRA_V9
-- boulder:
+- uid: JMLOmX3AdUsyoc
+  boulder:
     nome: Abraca
     dificuldade: V5
     descricao: Sai com as mãos bem abertas na esquerda e direita
-- boulder:
+- uid: 6SDz8FjKJeVrFC
+  boulder:
     nome: Pica fumo
     dificuldade: V5
-- boulder:
+- uid: fBgahsaPkfJt64
+  boulder:
     nome: Mad max
     dificuldade: V8
 mapas:
@@ -40,8 +50,8 @@ mapas:
   largura_mapa: 1773
   altura_mapa: 2364
   pontos_de_interesse:
-  - id: linha_1
-    label: ''
+  - uid: 26iFohS5VSQkiP
+    rotulo: ''
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -73,15 +83,15 @@ mapas:
       espessura: 5
     cor: '#FFD600'
   referencias:
-  - ids:
-    - linha_1
-    escalada: Viva o climb
+  - alvo_uid: 127Y7Onh5dlHIa
+    pontos_uids:
+    - 26iFohS5VSQkiP
 - caminho_imagem_mapa: imagens/setor_viva_o_climb_p1.webp
   largura_mapa: 1773
   altura_mapa: 2364
   pontos_de_interesse:
-  - id: linha_2
-    label: ''
+  - uid: UvGNl07TSBGzV1
+    rotulo: ''
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -101,8 +111,8 @@ mapas:
           raio: 24
       espessura: 5
     cor: '#FFD600'
-  - id: linha_3
-    label: ''
+  - uid: ZCYntgQ6VMC1FS
+    rotulo: ''
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -120,8 +130,8 @@ mapas:
           tipo: PASSAGEM
       espessura: 5
     cor: '#FFD600'
-  - id: linha_4
-    label: ''
+  - uid: Lwogd7HmsT36NC
+    rotulo: ''
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -147,7 +157,7 @@ mapas:
           raio: 24
       espessura: 5
     cor: '#FFD600'
-  - id: linha_6
+  - uid: CsBsRmPha9utR8
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -163,7 +173,7 @@ mapas:
           rotulo: ''
       espessura: 5
     cor: '#FFD600'
-  - id: linha_7
+  - uid: SxNPSahI02iZag
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -195,8 +205,8 @@ mapas:
           raio: 24
       espessura: 5
     cor: '#FFD600'
-  - id: linha_5
-    label: ''
+  - uid: aLiU7BOMR2xyly
+    rotulo: ''
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -222,30 +232,30 @@ mapas:
       espessura: 5
     cor: '#FFD600'
   referencias:
-  - ids:
-    - linha_2
-    escalada: Pérola negra
-  - ids:
-    - linha_3
-    - linha_2
-    escalada: Pérola negra SDS
-  - ids:
-    - linha_4
-    escalada: Sem nome 19
-  - ids:
-    - linha_6
-    - linha_7
-    escalada: Malandro não para
-  - ids:
-    - linha_6
-    - linha_5
-    escalada: Malandragem
+  - alvo_uid: 9FOTxju26napvJ
+    pontos_uids:
+    - UvGNl07TSBGzV1
+  - alvo_uid: FWKMVo2XPTCgfu
+    pontos_uids:
+    - ZCYntgQ6VMC1FS
+    - UvGNl07TSBGzV1
+  - alvo_uid: KCXMeslMlcq19N
+    pontos_uids:
+    - Lwogd7HmsT36NC
+  - alvo_uid: uGvMvqInmren8X
+    pontos_uids:
+    - CsBsRmPha9utR8
+    - SxNPSahI02iZag
+  - alvo_uid: yl2Y3f1sAKWJTm
+    pontos_uids:
+    - CsBsRmPha9utR8
+    - aLiU7BOMR2xyly
 - caminho_imagem_mapa: imagens/setor_viva_o_climb_p2.webp
   largura_mapa: 1773
   altura_mapa: 2364
   pontos_de_interesse:
-  - id: linha_10
-    label: ''
+  - uid: wlS4znO71NbnJU
+    rotulo: ''
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -283,16 +293,15 @@ mapas:
       espessura: 5
     cor: '#FFD600'
   referencias:
-  - ids:
-    - linha_10
-    escalada: Mad max
-    setor: Bloco Viva o Climb
+  - alvo_uid: fBgahsaPkfJt64
+    pontos_uids:
+    - wlS4znO71NbnJU
 - caminho_imagem_mapa: imagens/setor_viva_o_climb_p3.webp
   largura_mapa: 960
   altura_mapa: 1280
   pontos_de_interesse:
-  - id: linha_8
-    label: ''
+  - uid: mElKIE2yRagjoF
+    rotulo: ''
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -314,32 +323,32 @@ mapas:
           rotulo: ''
       espessura: 3
     cor: '#FFD600'
-  - id: sai1
-    label: ''
+  - uid: 4asD6mDT2oKDy1
+    rotulo: ''
     circulo:
       x: 532
       y: 849
       raio: 34
     cor: '#FFD600'
-  - id: sai2
-    label: ''
+  - uid: AhwnZFJqgSfXtQ
+    rotulo: ''
     circulo:
       x: 790
       y: 759
       raio: 31
     cor: '#FFD600'
   referencias:
-  - ids:
-    - linha_8
-    - sai2
-    - sai1
-    escalada: Abraca
+  - alvo_uid: JMLOmX3AdUsyoc
+    pontos_uids:
+    - mElKIE2yRagjoF
+    - AhwnZFJqgSfXtQ
+    - 4asD6mDT2oKDy1
 - caminho_imagem_mapa: imagens/setor_viva_o_climb_p4.webp
   largura_mapa: 960
   altura_mapa: 1280
   pontos_de_interesse:
-  - id: linha_9
-    label: ''
+  - uid: dyxaEUtJO3gkFp
+    rotulo: ''
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -383,10 +392,11 @@ mapas:
       espessura: 3
     cor: '#FFD600'
   referencias:
-  - ids:
-    - linha_9
-    escalada: Pica fumo
+  - alvo_uid: 6SDz8FjKJeVrFC
+    pontos_uids:
+    - dyxaEUtJO3gkFp
 ---
+
 Veja a trilha para chegar ao setor no Wikiloc: https://loc.wiki/t/169742661?wa=sc
 
 O bloco Viva o Climb fica entre os blocos Fugitivos I e Fugitivos II.

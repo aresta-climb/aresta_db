@@ -1,51 +1,55 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+uid: oPnH4R0z6pGdpP
 nome: Troféu
 mapas:
 - caminho_imagem_mapa: imagens/grupo_salao_de_pedras_setor_trofeu_p0.webp
   largura_mapa: 758
   altura_mapa: 365
   pontos_de_interesse:
-  - id: '1'
-    label: '1'
+  - uid: rpviF7a30p5PTK
+    rotulo: '1'
     retangulo:
       x: 139
       y: 292
       comprimento: 36
       largura: 25
-  - id: '2'
-    label: '2'
+  - uid: c70Tf6vxRTIrEJ
+    rotulo: '2'
     retangulo:
       x: 284
       y: 320
       comprimento: 36
       largura: 24
-  - id: '3'
-    label: '3'
+  - uid: 5rWOYtJ1on0GzU
+    rotulo: '3'
     retangulo:
       x: 409
       y: 321
       comprimento: 34
       largura: 24
   referencias:
-  - escalada: Trofeuzinho
-    ids:
-    - '1'
-  - escalada: Troféu
-    ids:
-    - '2'
-  - escalada: Dreads de Goiás
-    ids:
-    - '3'
+  - alvo_uid: D5nAazPH4GqYPG
+    pontos_uids:
+    - rpviF7a30p5PTK
+  - alvo_uid: WhCXR2mpkS6a7x
+    pontos_uids:
+    - c70Tf6vxRTIrEJ
+  - alvo_uid: uPqgqUInvZ69fY
+    pontos_uids:
+    - 5rWOYtJ1on0GzU
 escaladas:
-- boulder:
+- uid: D5nAazPH4GqYPG
+  boulder:
     nome: Trofeuzinho
     dificuldade: V7
-- boulder:
+- uid: WhCXR2mpkS6a7x
+  boulder:
     nome: Troféu
     dificuldade: V10
-- boulder:
+- uid: uPqgqUInvZ69fY
+  boulder:
     nome: Dreads de Goiás
     dificuldade: V7
 ---

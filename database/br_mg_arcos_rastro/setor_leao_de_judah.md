@@ -1,373 +1,394 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+uid: 1TCXLdk6niZmLH
 nome: Setor Leão de Judah
 mapas:
 - caminho_imagem_mapa: imagens/setor_leao_de_judah_p0_i0.webp
   largura_mapa: 1600
   altura_mapa: 1000
   pontos_de_interesse:
-  - id: Setor_Antigo_Camping
-    label: Setor Antigo Camping
+  - uid: e4WaEPwevRFg5H
+    rotulo: Setor Antigo Camping
     retangulo:
       x: 808
       y: 52
       comprimento: 46
       largura: 39
-  - id: Totem_Pedra
-    label: TOTEM PEDRA
+  - uid: z7xEfar9O9iziv
+    rotulo: TOTEM PEDRA
     retangulo:
       x: 457
       y: 1054
       comprimento: 56
       largura: 32
-  - id: Setor_Vale_das_Sombras
-    label: Setor Vale das Sombras
+  - uid: ia1MMoIQjyc5rK
+    rotulo: Setor Vale das Sombras
     retangulo:
       x: 72
       y: 1090
       comprimento: 59
       largura: 47
-  - id: '01'
-    label: '01'
+  - uid: e3Li4ZCJy1AcK9
+    rotulo: '01'
     retangulo:
       x: 201
       y: 823
       comprimento: 16
       largura: 14
-  - id: '02'
-    label: '02'
+  - uid: lPGSkYikZ2jovc
+    rotulo: '02'
     retangulo:
       x: 216
       y: 830
       comprimento: 16
       largura: 14
-  - id: '03'
-    label: '03'
+  - uid: K2tcYoKARS56CN
+    rotulo: '03'
     retangulo:
       x: 246
       y: 847
       comprimento: 16
       largura: 14
-  - id: '04'
-    label: '04'
+  - uid: CjOhfpy04xTd4o
+    rotulo: '04'
     retangulo:
       x: 285
       y: 864
       comprimento: 16
       largura: 14
-  - id: '05'
-    label: '05'
+  - uid: Nh1X6GSmyAPniL
+    rotulo: '05'
     retangulo:
       x: 317
       y: 876
       comprimento: 16
       largura: 14
-  - id: '06'
-    label: '06'
+  - uid: RPWoRhz7Cdr405
+    rotulo: '06'
     retangulo:
       x: 334
       y: 903
       comprimento: 13
       largura: 14
-  - id: '07'
-    label: '07'
+  - uid: YdWcVj57NVldEu
+    rotulo: '07'
     retangulo:
       x: 348
       y: 891
       comprimento: 14
       largura: 14
-  - id: '08'
-    label: '08'
+  - uid: Kll48ATvGZaBkg
+    rotulo: '08'
     retangulo:
       x: 344
       y: 824
       comprimento: 13
       largura: 13
-  - id: '09'
-    label: '9'
+  - uid: 1Z0cysgbSXBvwk
+    rotulo: '9'
     retangulo:
       x: 336
       y: 781
       comprimento: 13
       largura: 14
-  - id: '10'
-    label: '10'
+  - uid: oysl5Ldeh7oMZp
+    rotulo: '10'
     retangulo:
       x: 331
       y: 760
       comprimento: 18
       largura: 17
-  - id: '11'
-    label: '11'
+  - uid: hJvLICn0qU38C9
+    rotulo: '11'
     retangulo:
       x: 334
       y: 720
       comprimento: 16
       largura: 15
-  - id: '12'
-    label: '12'
+  - uid: v6Fg3nFSJUHKVj
+    rotulo: '12'
     retangulo:
       x: 362
       y: 658
       comprimento: 19
       largura: 17
-  - id: '13'
-    label: '13'
+  - uid: 2A1mECBlEPewzq
+    rotulo: '13'
     retangulo:
       x: 418
       y: 656
       comprimento: 18
       largura: 17
-  - id: '14'
-    label: '14'
+  - uid: sN9NSdaD7qnzgp
+    rotulo: '14'
     retangulo:
       x: 440
       y: 684
       comprimento: 19
       largura: 19
-  - id: '15'
-    label: '15'
+  - uid: bgqsYrnspq489B
+    rotulo: '15'
     retangulo:
       x: 462
       y: 660
       comprimento: 19
       largura: 18
-  - id: '16'
-    label: '16'
+  - uid: cbzRuzH4Nj38Vi
+    rotulo: '16'
     retangulo:
       x: 502
       y: 642
       comprimento: 17
       largura: 17
-  - id: '18'
-    label: '18'
+  - uid: 3BGZP7qfKvGYO1
+    rotulo: '18'
     retangulo:
       x: 621
       y: 468
       comprimento: 20
       largura: 17
-  - id: '19'
-    label: '19'
+  - uid: 2yKcF4LrqinUXe
+    rotulo: '19'
     retangulo:
       x: 644
       y: 392
       comprimento: 17
       largura: 15
-  - id: '20'
-    label: '20'
+  - uid: baM0zEc3zhEhsp
+    rotulo: '20'
     retangulo:
       x: 653
       y: 368
       comprimento: 24
       largura: 27
-  - id: '21'
-    label: '21'
+  - uid: 97YB1jR21fNCWB
+    rotulo: '21'
     retangulo:
       x: 638
       y: 348
       comprimento: 19
       largura: 15
-  - id: '22'
-    label: '22'
+  - uid: wDbyWCheIgym1O
+    rotulo: '22'
     retangulo:
       x: 615
       y: 324
       comprimento: 18
       largura: 13
   referencias:
-  - escalada: Aline no País das Maravilhas
-    ids:
-    - '01'
-  - escalada: Ziriguidum te dá Asas
-    ids:
-    - '02'
-  - escalada: Michael Jordan
-    ids:
-    - '03'
-  - escalada: Homens de Pedra
-    ids:
-    - '04'
-  - escalada: Privilégio da Ignorância
-    ids:
-    - '05'
-  - escalada: Rastro de São Pedro
-    ids:
-    - '06'
-  - escalada: Leão de Judah
-    ids:
-    - '07'
-  - escalada: Duelo de Titãs
-    ids:
-    - '10'
-  - escalada: Don Corleone
-    ids:
-    - '11'
-  - escalada: Confusão Mental
-    ids:
-    - '12'
-  - escalada: Extraordinária
-    ids:
-    - '13'
-  - escalada: Entre o Sol e a Sombra
-    ids:
-    - '14'
-  - escalada: Sacafraga
-    ids:
-    - '15'
-  - escalada: Cogumelo de Óreon
-    ids:
-    - '16'
-  - escalada: Lei da Selva
-    ids:
+  - alvo_uid: zUOHf0ZbkJzVn5
+    pontos_uids:
+    - e3Li4ZCJy1AcK9
+  - alvo_uid: DH2klIDcgGryZK
+    pontos_uids:
+    - lPGSkYikZ2jovc
+  - alvo_uid: S4wgFmhItLFo8W
+    pontos_uids:
+    - K2tcYoKARS56CN
+  - alvo_uid: qQzPnO5fD4r38t
+    pontos_uids:
+    - CjOhfpy04xTd4o
+  - alvo_uid: Q1ZBdLwADVk5X8
+    pontos_uids:
+    - Nh1X6GSmyAPniL
+  - alvo_uid: fij03J8tp1dffC
+    pontos_uids:
+    - RPWoRhz7Cdr405
+  - alvo_uid: ddMBbITlNGhsxC
+    pontos_uids:
+    - YdWcVj57NVldEu
+  - alvo_uid: tXIo4pVaYfOnDt
+    pontos_uids:
+    - oysl5Ldeh7oMZp
+  - alvo_uid: T21ZoKohnZnsa1
+    pontos_uids:
+    - hJvLICn0qU38C9
+  - alvo_uid: 2FUbLbC5UXlyj4
+    pontos_uids:
+    - v6Fg3nFSJUHKVj
+  - alvo_uid: 9Jm9p2lVHs298H
+    pontos_uids:
+    - 2A1mECBlEPewzq
+  - alvo_uid: hsdjRilqfjmoD3
+    pontos_uids:
+    - sN9NSdaD7qnzgp
+  - alvo_uid: VhTwTCc5kuqeNd
+    pontos_uids:
+    - bgqsYrnspq489B
+  - alvo_uid: AOai0GuRC07x5x
+    pontos_uids:
+    - cbzRuzH4Nj38Vi
+  - alvo_uid: EJnuLJ4HSgxj1m
+    pontos_uids:
     - '17'
-  - escalada: Fanfarrão
-    ids:
-    - '18'
-  - escalada: Presepagem
-    ids:
-    - '19'
-  - escalada: Tudo Nosso
-    ids:
-    - '20'
-  - escalada: Tetinho*
-    ids:
-    - '21'
-  - escalada: Ce ki Sabe
-    ids:
-    - '22'
-  - ids:
-    - '08'
-    setor: Setor Leão de Judah
-    escalada: Efeito Moral
-  - ids:
-    - '09'
-    setor: Setor Leão de Judah
-    escalada: Risco de Discórdia
-  - ids:
-    - Setor_Vale_das_Sombras
-    setor: Setor Vale das Sombras
-  - ids:
-    - Setor_Antigo_Camping
-    setor: Setor Antigo Camping
+  - alvo_uid: FN7q220lASKu3z
+    pontos_uids:
+    - 3BGZP7qfKvGYO1
+  - alvo_uid: 8i2GCcC360z8af
+    pontos_uids:
+    - 2yKcF4LrqinUXe
+  - alvo_uid: 5Xy972qiZJU921
+    pontos_uids:
+    - baM0zEc3zhEhsp
+  - alvo_uid: frO9Qvys9hvxPg
+    pontos_uids:
+    - 97YB1jR21fNCWB
+  - alvo_uid: lsHmCW7c1mXouE
+    pontos_uids:
+    - wDbyWCheIgym1O
+  - alvo_uid: UsoU21zfny7CtA
+    pontos_uids:
+    - Kll48ATvGZaBkg
+  - alvo_uid: 1pPkIyiaWP8AeJ
+    pontos_uids:
+    - 1Z0cysgbSXBvwk
+  - alvo_uid: I8731IVGqI3fpV
+    pontos_uids:
+    - ia1MMoIQjyc5rK
+  - alvo_uid: iP9J82iDvZhZKf
+    pontos_uids:
+    - e4WaEPwevRFg5H
 escaladas:
-- via_esportiva:
+- uid: zUOHf0ZbkJzVn5
+  via_esportiva:
     nome: Aline no País das Maravilhas
     dificuldade: BR_5SUP
     destaque: true
     quantidade_protecoes_intermediarias: 4
     quantidade_protecoes_parada: 2
-- via_esportiva:
+- uid: DH2klIDcgGryZK
+  via_esportiva:
     nome: Ziriguidum te dá Asas
     dificuldade: BR_7B
     destaque: true
     quantidade_protecoes_intermediarias: 5
     quantidade_protecoes_parada: 2
-- via_esportiva:
+- uid: S4wgFmhItLFo8W
+  via_esportiva:
     nome: Michael Jordan
     dificuldade: BR_7C
     destaque: true
     quantidade_protecoes_intermediarias: 4
     quantidade_protecoes_parada: 2
-- via_esportiva:
+- uid: qQzPnO5fD4r38t
+  via_esportiva:
     nome: Homens de Pedra
     dificuldade: BR_7B
     destaque: true
     quantidade_protecoes_intermediarias: 5
     quantidade_protecoes_parada: 2
-- via_esportiva:
+- uid: Q1ZBdLwADVk5X8
+  via_esportiva:
     nome: Privilégio da Ignorância
     dificuldade: BR_8A
     destaque: true
     quantidade_protecoes_intermediarias: 7
     quantidade_protecoes_parada: 2
-- via_esportiva:
+- uid: fij03J8tp1dffC
+  via_esportiva:
     nome: Rastro de São Pedro
     dificuldade: BR_9A
     destaque: true
     quantidade_protecoes_intermediarias: 8
     quantidade_protecoes_parada: 2
-- via_esportiva:
+- uid: ddMBbITlNGhsxC
+  via_esportiva:
     nome: Leão de Judah
     dificuldade: BR_7B
     destaque: true
     quantidade_protecoes_intermediarias: 8
     quantidade_protecoes_parada: 2
-- via_esportiva:
+- uid: UsoU21zfny7CtA
+  via_esportiva:
     nome: Efeito Moral
     dificuldade: BR_7C_BARRA_8A
     quantidade_protecoes_intermediarias: 7
     quantidade_protecoes_parada: 2
-- via_esportiva:
+- uid: 1pPkIyiaWP8AeJ
+  via_esportiva:
     nome: Risco de Discórdia
     dificuldade: BR_8A
     quantidade_protecoes_intermediarias: 10
     quantidade_protecoes_parada: 2
-- via_esportiva:
+- uid: tXIo4pVaYfOnDt
+  via_esportiva:
     nome: Duelo de Titãs
     dificuldade: BR_8C
     destaque: true
     quantidade_protecoes_intermediarias: 9
     quantidade_protecoes_parada: 2
-- via_esportiva:
+- uid: T21ZoKohnZnsa1
+  via_esportiva:
     nome: Don Corleone
     dificuldade: PROJETO
     destaque: true
     quantidade_protecoes_intermediarias: 7
     quantidade_protecoes_parada: 2
-- via_esportiva:
+- uid: 2FUbLbC5UXlyj4
+  via_esportiva:
     nome: Confusão Mental
     dificuldade: BR_8C
     destaque: true
     quantidade_protecoes_intermediarias: 9
     quantidade_protecoes_parada: 2
-- via_esportiva:
+- uid: 9Jm9p2lVHs298H
+  via_esportiva:
     nome: Extraordinária
     dificuldade: BR_7A
     destaque: true
     quantidade_protecoes_intermediarias: 10
     quantidade_protecoes_parada: 2
-- via_esportiva:
+- uid: hsdjRilqfjmoD3
+  via_esportiva:
     nome: Entre o Sol e a Sombra
     dificuldade: BR_7A
     destaque: true
     quantidade_protecoes_intermediarias: 10
     quantidade_protecoes_parada: 2
-- via_esportiva:
+- uid: VhTwTCc5kuqeNd
+  via_esportiva:
     nome: Sacafraga
     dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 7
     quantidade_protecoes_parada: 2
-- via_esportiva:
+- uid: AOai0GuRC07x5x
+  via_esportiva:
     nome: Cogumelo de Óreon
     dificuldade: BR_7A
     quantidade_protecoes_intermediarias: 7
     quantidade_protecoes_parada: 2
-- via_esportiva:
+- uid: EJnuLJ4HSgxj1m
+  via_esportiva:
     nome: Lei da Selva
     dificuldade: BR_8A
-- via_esportiva:
+- uid: FN7q220lASKu3z
+  via_esportiva:
     nome: Fanfarrão
     dificuldade: BR_7A
     quantidade_protecoes_intermediarias: 6
     quantidade_protecoes_parada: 2
-- via_esportiva:
+- uid: 8i2GCcC360z8af
+  via_esportiva:
     nome: Presepagem
     dificuldade: BR_7B
     quantidade_protecoes_intermediarias: 5
     quantidade_protecoes_parada: 2
-- via_esportiva:
+- uid: 5Xy972qiZJU921
+  via_esportiva:
     nome: Tudo Nosso
     dificuldade: BR_7B
     destaque: true
     quantidade_protecoes_intermediarias: 6
     quantidade_protecoes_parada: 2
-- via_esportiva:
+- uid: frO9Qvys9hvxPg
+  via_esportiva:
     nome: Tetinho*
     dificuldade: BR_7A
     quantidade_protecoes_intermediarias: 5
     quantidade_protecoes_parada: 2
-- via_esportiva:
+- uid: lsHmCW7c1mXouE
+  via_esportiva:
     nome: Ce ki Sabe
     dificuldade: BR_6SUP
     destaque: true

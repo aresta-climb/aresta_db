@@ -1,233 +1,244 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+uid: Y0QxY20SyM5soE
 nome: Setor Parede dos Conflitos
 mapas:
 - caminho_imagem_mapa: imagens/setor_parede_dos_conflitos_p0_i0.webp
   largura_mapa: 1600
   altura_mapa: 1000
   pontos_de_interesse:
-  - id: Setor_Antigo_Camping
-    label: Setor Antigo Camping
+  - uid: TtdpovV9ahSHmn
+    rotulo: Setor Antigo Camping
     retangulo:
       x: 896
       y: 297
       comprimento: 51
       largura: 42
-  - id: Setor_Leao_de_Judah
-    label: Setor Leão de Judah
+  - uid: 19mmtU2gSl0r49
+    rotulo: Setor Leão de Judah
     retangulo:
       x: 652
       y: 542
       comprimento: 79
       largura: 38
-  - id: Totem_Pedra
-    label: TOTEM PEDRA
+  - uid: xav6fpfRz5lGUI
+    rotulo: TOTEM PEDRA
     retangulo:
       x: 836
       y: 860
       comprimento: 64
       largura: 43
-  - id: Setor_Vale_das_Sombras
-    label: Setor Vale das Sombras
+  - uid: RlmXXl2l6yBhSD
+    rotulo: Setor Vale das Sombras
     retangulo:
       x: 198
       y: 1130
       comprimento: 51
       largura: 38
-  - id: '01'
-    label: '01'
+  - uid: Dqrc2WbqaPCFld
+    rotulo: '01'
     retangulo:
       x: 140
       y: 938
       comprimento: 19
       largura: 23
-  - id: '02'
-    label: '2'
+  - uid: euDxe4F3Klq9Wo
+    rotulo: '2'
     retangulo:
       x: 140
       y: 897
       comprimento: 19
       largura: 22
-  - id: '03'
-    label: '3'
+  - uid: q9zA7n6Ebzdwi1
+    rotulo: '3'
     retangulo:
       x: 141
       y: 859
       comprimento: 18
       largura: 22
-  - id: '04'
-    label: '4'
+  - uid: 5I4jPHB92CQPfH
+    rotulo: '4'
     retangulo:
       x: 146
       y: 817
       comprimento: 21
       largura: 24
-  - id: '05'
-    label: '5'
+  - uid: eearlfxOTkTOaF
+    rotulo: '5'
     retangulo:
       x: 150
       y: 762
       comprimento: 20
       largura: 22
-  - id: '06'
-    label: '6'
+  - uid: TnZsQwDsNBlqRv
+    rotulo: '6'
     retangulo:
       x: 166
       y: 628
       comprimento: 20
       largura: 25
-  - id: '07'
-    label: '7'
+  - uid: unb6BXpVI1JgSc
+    rotulo: '7'
     retangulo:
       x: 192
       y: 563
       comprimento: 19
       largura: 24
-  - id: '08'
-    label: '8'
+  - uid: FwB58AoHTgZBNI
+    rotulo: '8'
     retangulo:
       x: 277
       y: 530
       comprimento: 20
       largura: 22
-  - id: '09'
-    label: '9'
+  - uid: NhEC6qA9YJ0RAG
+    rotulo: '9'
     retangulo:
       x: 279
       y: 473
       comprimento: 20
       largura: 24
-  - id: '10'
-    label: '10'
+  - uid: iwdRb3Xg4hgjO9
+    rotulo: '10'
     retangulo:
       x: 280
       y: 445
       comprimento: 27
       largura: 22
-  - id: '11'
-    label: '11'
+  - uid: FyIgyHpBkcViQF
+    rotulo: '11'
     retangulo:
       x: 275
       y: 417
       comprimento: 26
       largura: 24
-  - id: '12'
-    label: '12'
+  - uid: Ue0VaSdCZWmtGt
+    rotulo: '12'
     retangulo:
       x: 276
       y: 370
       comprimento: 27
       largura: 25
   referencias:
-  - escalada: Ubuntu
-    ids:
-    - '01'
-  - escalada: Plexo Solar
-    ids:
-    - '02'
-  - escalada: Du neném
-    ids:
-    - '03'
-  - escalada: Hora Mágica
-    ids:
-    - '04'
-  - escalada: Mestres do Sistema
-    ids:
-    - '05'
-  - escalada: Parede dos Conflitos
-    ids:
-    - '06'
-  - escalada: Tio Toninho*
-    ids:
-    - '07'
-  - escalada: Canudos
-    ids:
-    - '10'
-  - escalada: Paizeps
-    ids:
-    - '11'
-  - escalada: Antônio Conselheiro
-    ids:
-    - '12'
-  - ids:
-    - '08'
-    setor: Setor Parede dos Conflitos
-    escalada: Guerra dos Côcos
-  - ids:
-    - '09'
-    setor: Setor Parede dos Conflitos
-    escalada: Guerrilha do Araguaia
-  - ids:
-    - Setor_Antigo_Camping
-    setor: Setor Antigo Camping
-  - ids:
-    - Setor_Leao_de_Judah
-    setor: Setor Leão de Judah
-  - ids:
-    - Setor_Vale_das_Sombras
-    setor: Setor Vale das Sombras
+  - alvo_uid: HrUanpJSakz4w0
+    pontos_uids:
+    - Dqrc2WbqaPCFld
+  - alvo_uid: HB3HHEdSN6kyV0
+    pontos_uids:
+    - euDxe4F3Klq9Wo
+  - alvo_uid: yr4EYFgZWCWGU7
+    pontos_uids:
+    - q9zA7n6Ebzdwi1
+  - alvo_uid: PxjhCfPQ4W1GaE
+    pontos_uids:
+    - 5I4jPHB92CQPfH
+  - alvo_uid: qfkStV1dQg8Uqn
+    pontos_uids:
+    - eearlfxOTkTOaF
+  - alvo_uid: J8nfbOv80lrBF6
+    pontos_uids:
+    - TnZsQwDsNBlqRv
+  - alvo_uid: C9yA4E76yaBlSX
+    pontos_uids:
+    - unb6BXpVI1JgSc
+  - alvo_uid: 3ECgPXQmAxZb0e
+    pontos_uids:
+    - iwdRb3Xg4hgjO9
+  - alvo_uid: wM5eP4JmrOMUoO
+    pontos_uids:
+    - FyIgyHpBkcViQF
+  - alvo_uid: jmuokKoNyRi4Bx
+    pontos_uids:
+    - Ue0VaSdCZWmtGt
+  - alvo_uid: C88AgRI6zAKHwL
+    pontos_uids:
+    - FwB58AoHTgZBNI
+  - alvo_uid: ZAUdHH8wJg3Czx
+    pontos_uids:
+    - NhEC6qA9YJ0RAG
+  - alvo_uid: iP9J82iDvZhZKf
+    pontos_uids:
+    - TtdpovV9ahSHmn
+  - alvo_uid: 1TCXLdk6niZmLH
+    pontos_uids:
+    - 19mmtU2gSl0r49
+  - alvo_uid: I8731IVGqI3fpV
+    pontos_uids:
+    - RlmXXl2l6yBhSD
 escaladas:
-- via_esportiva:
+- uid: HrUanpJSakz4w0
+  via_esportiva:
     nome: Ubuntu
     dificuldade: BR_7A
-- via_esportiva:
+- uid: HB3HHEdSN6kyV0
+  via_esportiva:
     nome: Plexo Solar
     dificuldade: BR_7A
     quantidade_protecoes_intermediarias: 7
     quantidade_protecoes_parada: 2
-- via_esportiva:
+- uid: yr4EYFgZWCWGU7
+  via_esportiva:
     nome: Du neném
     dificuldade: BR_6SUP
     destaque: true
     quantidade_protecoes_intermediarias: 6
     quantidade_protecoes_parada: 2
-- via_esportiva:
+- uid: PxjhCfPQ4W1GaE
+  via_esportiva:
     nome: Hora Mágica
     dificuldade: BR_7A
     destaque: true
     quantidade_protecoes_intermediarias: 6
     quantidade_protecoes_parada: 2
-- via_esportiva:
+- uid: qfkStV1dQg8Uqn
+  via_esportiva:
     nome: Mestres do Sistema
     dificuldade: BR_7A
     destaque: true
     quantidade_protecoes_intermediarias: 8
     quantidade_protecoes_parada: 2
-- via_esportiva:
+- uid: J8nfbOv80lrBF6
+  via_esportiva:
     nome: Parede dos Conflitos
     dificuldade: BR_7A
     quantidade_protecoes_intermediarias: 6
     quantidade_protecoes_parada: 2
-- via_esportiva:
+- uid: C9yA4E76yaBlSX
+  via_esportiva:
     nome: Tio Toninho*
     dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 4
     quantidade_protecoes_parada: 2
-- via_esportiva:
+- uid: C88AgRI6zAKHwL
+  via_esportiva:
     nome: Guerra dos Côcos
     dificuldade: BR_6
     destaque: true
     quantidade_protecoes_intermediarias: 6
     quantidade_protecoes_parada: 2
-- via_esportiva:
+- uid: ZAUdHH8wJg3Czx
+  via_esportiva:
     nome: Guerrilha do Araguaia
     dificuldade: BR_5SUP
     destaque: true
     quantidade_protecoes_intermediarias: 6
     quantidade_protecoes_parada: 2
-- via_esportiva:
+- uid: 3ECgPXQmAxZb0e
+  via_esportiva:
     nome: Canudos
     dificuldade: BR_6SUP
     destaque: true
     quantidade_protecoes_intermediarias: 10
     quantidade_protecoes_parada: 2
-- via_esportiva:
+- uid: wM5eP4JmrOMUoO
+  via_esportiva:
     nome: Paizeps
     dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 8
     quantidade_protecoes_parada: 2
-- via_esportiva:
+- uid: jmuokKoNyRi4Bx
+  via_esportiva:
     nome: Antônio Conselheiro
     dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 8

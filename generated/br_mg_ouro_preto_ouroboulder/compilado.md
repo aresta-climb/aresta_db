@@ -4,10 +4,12 @@
 
 - **id**: br_mg_ouro_preto_ouroboulder
 - **nome**: Ouroboulder
+- **uid**: 6d55ble314H5Q1
 - **caminho_thumbnail**: ![caminho_thumbnail](imagens/capa_p0_i0.webp)
 - **status_desenho_extraivel**: DESENHO_EXTRAIDO
 - **botoes**:
   - **[0]**:
+    - **uid**: iffvcFsDiafgLT
     - **texto**: Capa
     - **destino**:
       - **secao_textual**:
@@ -18,6 +20,7 @@
             | :--: |
             | *SIME MINAS GERAIS - BRASIL* |
   - **[1]**:
+    - **uid**: nLdWlOHmCpCaS2
     - **texto**: Apoio
     - **destino**:
       - **secao_textual**:
@@ -28,6 +31,7 @@
             | :--: |
             | *Logos de apoiadores* |
   - **[2]**:
+    - **uid**: v0gRBOvfwCOHLw
     - **texto**: Introdução
     - **destino**:
       - **secao_textual**:
@@ -42,6 +46,7 @@
             
             A edição comemorativa de 2026 serve para homenagear todos aqueles que ajudaram a construir essa história.
   - **[3]**:
+    - **uid**: rklvsHWw4vHkHd
     - **texto**: Sobre Ouro Preto
     - **destino**:
       - **secao_textual**:
@@ -72,6 +77,7 @@
             
             Além de sua importância natural, o Parque das Andorinhas também se destaca por seu potencial para o geoturismo, com elementos abióticos que contam a história geológica local. A paisagem de campos rupestres quartzíticos e cursos d'água oferece um cenário único para estudos e apreciação da natureza.
   - **[4]**:
+    - **uid**: J06LujAbhZbcXN
     - **texto**: Parque Municipal das Andorinhas
     - **destino**:
       - **secao_textual**:
@@ -88,6 +94,7 @@
             
             Além de sua importância natural, o Parque das Andorinhas também se destaca por seu potencial para o geoturismo, com elementos abióticos que contam a história geológica local. A paisagem de campos rupestres quartzíticos e cursos d'água oferece um cenário único para estudos e apreciação da natureza.
   - **[5]**:
+    - **uid**: PP4tm5IVd53toE
     - **texto**: Regras e Boa Convivência
     - **destino**:
       - **secao_textual**:
@@ -118,6 +125,7 @@
             
             > "As montanhas estão chamando, e eu preciso ir." — John Muir
   - **[6]**:
+    - **uid**: IGVTaj2bBBeW4C
     - **texto**: Geologia e História
     - **destino**:
       - **secao_textual**:
@@ -162,6 +170,7 @@
             
             **Viva a escalada ouropretana!**
   - **[7]**:
+    - **uid**: q2lbnCpN6AFs1e
     - **texto**: Agradecimentos
     - **destino**:
       - **secao_textual**:
@@ -185,6 +194,7 @@
             Diretoria da SIME  
             Gestão 2026-27
   - **[8]**:
+    - **uid**: YHUNjCcXQFDInl
     - **texto**: A Artista e a Arte
     - **destino**:
       - **secao_textual**:
@@ -203,6 +213,7 @@
             
             Transita entre pintura, murais, fotografia, xilogravura, design e tatuagem, desenvolvendo projetos que unem arte, identidade visual e território. É autora da arte comemorativa dos 20 anos do evento Ouro Boulder, aplicada também na camisa oficial, com uma paleta inspirada em sua pesquisa com tintas de terra e na paisagem do Parque das Andorinhas. Moradora do bairro São Sebastião, onde o evento acontece, estabelece em seu trabalho uma relação direta entre criação, pertencimento e memória local.
   - **[9]**:
+    - **uid**: YSUOSbUzASExPt
     - **texto**: Créditos
     - **destino**:
       - **secao_textual**:
@@ -241,6 +252,7 @@
             Ana Carla Favero
             Lucas Dorini
   - **[10]**:
+    - **uid**: 65NMfBDwSfnQPI
     - **texto**: Telefones Úteis
     - **destino**:
       - **secao_textual**:
@@ -258,6 +270,7 @@
             *   **Hospital Santa Casa Misericórdia - 24 horas**
                 Rua José Moringa, 620 - Bauxita, Ouro Preto - MG
   - **[11]**:
+    - **uid**: 0YtXO4ialEj82m
     - **texto**: Contatos
     - **destino**:
       - **secao_textual**:
@@ -273,7 +286,7 @@
             
             - **Instagram:** [@ouroboulder](https://www.instagram.com/ouroboulder/)
             - **Email:** sime.ouroboulder@gmail.com
-- **ultima_migracao**: 4
+- **ultima_migracao**: 5
 - **publicar_croqui**: True
 - **revisado_manualmente**: True
 - **revisado_bounding_circle**: True
@@ -285,6 +298,7 @@
 
 - **descricao**: 
 - **nome**: Pedreira
+- **uid**: njKRa4SMSWh1aK
 - **localizacao_estacionamento**:
   - **latitude**: -203677334
   - **longitude**: -435075136
@@ -298,371 +312,481 @@
     - **altura_mapa**: 1135
     - **pontos_de_interesse**:
       - **[0]**:
-        - **id**: travessia
-        - **label**: Travessia
+        - **id**: SrodlxFzWycRNv
+        - **uid**: SrodlxFzWycRNv
+        - **rotulo**: Travessia
         - **retangulo**:
           - **x**: 240
           - **y**: 450
           - **comprimento**: 73
           - **largura**: 16
+        - **label**: Travessia
       - **[1]**:
-        - **id**: jah
-        - **label**: Jah
+        - **id**: XnPaUDgbHTSQQF
+        - **uid**: XnPaUDgbHTSQQF
+        - **rotulo**: Jah
         - **retangulo**:
           - **x**: 298
           - **y**: 428
           - **comprimento**: 29
           - **largura**: 16
+        - **label**: Jah
       - **[2]**:
-        - **id**: sauna
-        - **label**: Sauna
+        - **id**: cdCfyg0KAxxftc
+        - **uid**: cdCfyg0KAxxftc
+        - **rotulo**: Sauna
         - **retangulo**:
           - **x**: 395
           - **y**: 466
           - **comprimento**: 48
           - **largura**: 15
+        - **label**: Sauna
       - **[3]**:
-        - **id**: joao_de_barro
-        - **label**: João de Barro
+        - **id**: GFxUo38yhltsmc
+        - **uid**: GFxUo38yhltsmc
+        - **rotulo**: João de Barro
         - **retangulo**:
           - **x**: 427
           - **y**: 414
           - **comprimento**: 108
           - **largura**: 19
+        - **label**: João de Barro
       - **[4]**:
-        - **id**: mata_mata
-        - **label**: Mata Mata
+        - **id**: ASPAif99kT41D7
+        - **uid**: ASPAif99kT41D7
+        - **rotulo**: Mata Mata
         - **retangulo**:
           - **x**: 378
           - **y**: 347
           - **comprimento**: 84
           - **largura**: 18
+        - **label**: Mata Mata
       - **[5]**:
-        - **id**: red_bull
-        - **label**: Red Bull
+        - **id**: qzrysJlkloj8yq
+        - **uid**: qzrysJlkloj8yq
+        - **rotulo**: Red Bull
         - **retangulo**:
           - **x**: 420
           - **y**: 266
           - **comprimento**: 64
           - **largura**: 19
+        - **label**: Red Bull
       - **[6]**:
-        - **id**: bob
-        - **label**: Bob
+        - **id**: XO8SvAeEAxW08W
+        - **uid**: XO8SvAeEAxW08W
+        - **rotulo**: Bob
         - **retangulo**:
           - **x**: 347
           - **y**: 276
           - **comprimento**: 30
           - **largura**: 15
+        - **label**: Bob
       - **[7]**:
-        - **id**: lagartixa
-        - **label**: Lagartixa
+        - **id**: f8UgIIIcVqVib0
+        - **uid**: f8UgIIIcVqVib0
+        - **rotulo**: Lagartixa
         - **retangulo**:
           - **x**: 490
           - **y**: 516
           - **comprimento**: 71
           - **largura**: 17
+        - **label**: Lagartixa
       - **[8]**:
-        - **id**: entretidos
-        - **label**: Entretidos
+        - **id**: QVFyH0SZUQ77YE
+        - **uid**: QVFyH0SZUQ77YE
+        - **rotulo**: Entretidos
         - **retangulo**:
           - **x**: 633
           - **y**: 398
           - **comprimento**: 76
           - **largura**: 16
+        - **label**: Entretidos
       - **[9]**:
-        - **id**: fiat_lux
-        - **label**: Fiat Lux
+        - **id**: KhjenZwe3YBpgr
+        - **uid**: KhjenZwe3YBpgr
+        - **rotulo**: Fiat Lux
         - **retangulo**:
           - **x**: 532
           - **y**: 365
           - **comprimento**: 61
           - **largura**: 16
+        - **label**: Fiat Lux
       - **[10]**:
-        - **id**: teto_de_vidro
-        - **label**: Teto de Vidro
+        - **id**: HD5kaVfzPRMrB8
+        - **uid**: HD5kaVfzPRMrB8
+        - **rotulo**: Teto de Vidro
         - **retangulo**:
           - **x**: 722
           - **y**: 556
           - **comprimento**: 105
           - **largura**: 18
+        - **label**: Teto de Vidro
       - **[11]**:
-        - **id**: to_de_boa
-        - **label**: Tô de Boa
+        - **id**: EQbXCGN5bYQ6bn
+        - **uid**: EQbXCGN5bYQ6bn
+        - **rotulo**: Tô de Boa
         - **retangulo**:
           - **x**: 699
           - **y**: 426
           - **comprimento**: 78
           - **largura**: 18
+        - **label**: Tô de Boa
       - **[12]**:
-        - **id**: pedra_queimada
-        - **label**: Pedra Queimada
+        - **id**: Aiisv2McTHGSqf
+        - **uid**: Aiisv2McTHGSqf
+        - **rotulo**: Pedra Queimada
         - **retangulo**:
           - **x**: 892
           - **y**: 519
           - **comprimento**: 128
           - **largura**: 20
+        - **label**: Pedra Queimada
       - **[13]**:
-        - **id**: hora_da_janta
-        - **label**: Hora da Janta
+        - **id**: ggTYALSjRHHHij
+        - **uid**: ggTYALSjRHHHij
+        - **rotulo**: Hora da Janta
         - **retangulo**:
           - **x**: 664
           - **y**: 770
           - **comprimento**: 107
           - **largura**: 17
+        - **label**: Hora da Janta
       - **[14]**:
-        - **id**: mezanino
-        - **label**: Mezanino
+        - **id**: bpx1wMBqM0euDV
+        - **uid**: bpx1wMBqM0euDV
+        - **rotulo**: Mezanino
         - **retangulo**:
           - **x**: 802
           - **y**: 761
           - **comprimento**: 79
           - **largura**: 18
+        - **label**: Mezanino
       - **[15]**:
-        - **id**: chicletes
-        - **label**: Chicletes
+        - **id**: DzEov7sE2h2NWI
+        - **uid**: DzEov7sE2h2NWI
+        - **rotulo**: Chicletes
         - **retangulo**:
           - **x**: 719
           - **y**: 828
           - **comprimento**: 74
           - **largura**: 17
+        - **label**: Chicletes
       - **[16]**:
-        - **id**: longevidade
-        - **label**: Longevidade
+        - **id**: CykDFU0u6jPNXC
+        - **uid**: CykDFU0u6jPNXC
+        - **rotulo**: Longevidade
         - **retangulo**:
           - **x**: 507
           - **y**: 925
           - **comprimento**: 92
           - **largura**: 20
+        - **label**: Longevidade
       - **[17]**:
-        - **id**: sossega_leao
-        - **label**: Sossega Leão
+        - **id**: 2gJdOvbar8dr44
+        - **uid**: 2gJdOvbar8dr44
+        - **rotulo**: Sossega Leão
         - **retangulo**:
           - **x**: 1019
           - **y**: 790
           - **comprimento**: 106
           - **largura**: 19
+        - **label**: Sossega Leão
       - **[18]**:
-        - **id**: sonar
-        - **label**: Sonar
+        - **id**: QuwRzmTfTdNPZW
+        - **uid**: QuwRzmTfTdNPZW
+        - **rotulo**: Sonar
         - **retangulo**:
           - **x**: 884
           - **y**: 972
           - **comprimento**: 46
           - **largura**: 17
+        - **label**: Sonar
       - **[19]**:
-        - **id**: meia_parede
-        - **label**: Meia-Parede
+        - **id**: pH0ehrMFSAfdbF
+        - **uid**: pH0ehrMFSAfdbF
+        - **rotulo**: Meia-Parede
         - **retangulo**:
           - **x**: 933
           - **y**: 841
           - **comprimento**: 96
           - **largura**: 18
+        - **label**: Meia-Parede
       - **[20]**:
-        - **id**: nave_mae
-        - **label**: Nave Mãe
+        - **id**: 2i0xDOIO7pZzqj
+        - **uid**: 2i0xDOIO7pZzqj
+        - **rotulo**: Nave Mãe
         - **retangulo**:
           - **x**: 974
           - **y**: 588
           - **comprimento**: 78
           - **largura**: 18
+        - **label**: Nave Mãe
       - **[21]**:
-        - **id**: abaulados
-        - **label**: Abaulados
+        - **id**: 3Ij9wUnFgCMUkJ
+        - **uid**: 3Ij9wUnFgCMUkJ
+        - **rotulo**: Abaulados
         - **retangulo**:
           - **x**: 1120
           - **y**: 458
           - **comprimento**: 81
           - **largura**: 19
+        - **label**: Abaulados
       - **[22]**:
-        - **id**: deep_inside
-        - **label**: Deep Inside
+        - **id**: KooxkWLfoqTxSS
+        - **uid**: KooxkWLfoqTxSS
+        - **rotulo**: Deep Inside
         - **retangulo**:
           - **x**: 1144
           - **y**: 628
           - **comprimento**: 89
           - **largura**: 19
+        - **label**: Deep Inside
       - **[23]**:
-        - **id**: complexo
-        - **label**: Complexo
+        - **id**: NQaPXQ61gC8Cb4
+        - **uid**: NQaPXQ61gC8Cb4
+        - **rotulo**: Complexo
         - **retangulo**:
           - **x**: 1194
           - **y**: 662
           - **comprimento**: 81
           - **largura**: 19
+        - **label**: Complexo
       - **[24]**:
-        - **id**: conhaque
-        - **label**: Conhaque
+        - **id**: l0vFmrbWwZVIYC
+        - **uid**: l0vFmrbWwZVIYC
+        - **rotulo**: Conhaque
         - **retangulo**:
           - **x**: 1344
           - **y**: 638
           - **comprimento**: 83
           - **largura**: 18
+        - **label**: Conhaque
       - **[25]**:
-        - **id**: eletron
-        - **label**: Elétron/Positron
+        - **id**: hWIpAs5jBT7kNW
+        - **uid**: hWIpAs5jBT7kNW
+        - **rotulo**: Elétron/Positron
         - **retangulo**:
           - **x**: 1440
           - **y**: 714
           - **comprimento**: 123
           - **largura**: 21
+        - **label**: Elétron/Positron
       - **[26]**:
-        - **id**: ianque
-        - **label**: Ianque
+        - **id**: Bq5Lr10QlDSA5k
+        - **uid**: Bq5Lr10QlDSA5k
+        - **rotulo**: Ianque
         - **retangulo**:
           - **x**: 564
           - **y**: 409
           - **comprimento**: 53
           - **largura**: 16
+        - **label**: Ianque
       - **[27]**:
-        - **id**: nat_geo
-        - **label**: Nat Geo
+        - **id**: JKLft2MFxn2i9l
+        - **uid**: JKLft2MFxn2i9l
+        - **rotulo**: Nat Geo
         - **retangulo**:
           - **x**: 789
           - **y**: 244
           - **comprimento**: 64
           - **largura**: 21
+        - **label**: Nat Geo
     - **referencias**:
       - **[0]**:
-        - **ids**:
-          - bob
-        - **grupo**: Pedreira
+        - **alvo_uid**: LzzE8JkjUAUuZT
+        - **pontos_uids**:
+          - XO8SvAeEAxW08W
         - **setor**: Bloco: Bob
+        - **ids**:
+          - XO8SvAeEAxW08W
       - **[1]**:
-        - **ids**:
-          - red_bull
-        - **grupo**: Pedreira
+        - **alvo_uid**: rrVPaOcjQ56Hj1
+        - **pontos_uids**:
+          - qzrysJlkloj8yq
         - **setor**: Bloco: Red Bull
+        - **ids**:
+          - qzrysJlkloj8yq
       - **[2]**:
-        - **ids**:
-          - mata_mata
-        - **grupo**: Pedreira
+        - **alvo_uid**: hx1sKO5WXcRaCh
+        - **pontos_uids**:
+          - ASPAif99kT41D7
         - **setor**: Bloco: Mata-Mata
+        - **ids**:
+          - ASPAif99kT41D7
       - **[3]**:
-        - **ids**:
-          - travessia
-        - **grupo**: Pedreira
+        - **alvo_uid**: UjCcyV0WXvofY6
+        - **pontos_uids**:
+          - SrodlxFzWycRNv
         - **setor**: Bloco: Travessia
+        - **ids**:
+          - SrodlxFzWycRNv
       - **[4]**:
-        - **ids**:
-          - jah
-        - **grupo**: Pedreira
+        - **alvo_uid**: TcyDbEuEYt75wU
+        - **pontos_uids**:
+          - XnPaUDgbHTSQQF
         - **setor**: Bloco: Jah
+        - **ids**:
+          - XnPaUDgbHTSQQF
       - **[5]**:
-        - **ids**:
-          - sauna
-        - **grupo**: Pedreira
+        - **alvo_uid**: 4rqHCeJjg5oS60
+        - **pontos_uids**:
+          - cdCfyg0KAxxftc
         - **setor**: Bloco: Sauna
+        - **ids**:
+          - cdCfyg0KAxxftc
       - **[6]**:
-        - **ids**:
-          - joao_de_barro
-        - **grupo**: Pedreira
+        - **alvo_uid**: jBNPDMi5TIeAZ7
+        - **pontos_uids**:
+          - GFxUo38yhltsmc
         - **setor**: Bloco: João de Barro
+        - **ids**:
+          - GFxUo38yhltsmc
       - **[7]**:
-        - **ids**:
-          - fiat_lux
-        - **grupo**: Pedreira
+        - **alvo_uid**: K4x0wtbQQInu43
+        - **pontos_uids**:
+          - KhjenZwe3YBpgr
         - **setor**: Bloco: Fiat Lux
+        - **ids**:
+          - KhjenZwe3YBpgr
       - **[8]**:
-        - **ids**:
-          - ianque
-        - **grupo**: Pedreira
-        - **setor**: Bloco: Entretidos
+        - **alvo_uid**: EMYCxTJIBZ3Dcm
+        - **pontos_uids**:
+          - Bq5Lr10QlDSA5k
         - **escalada**: Ianque
+        - **ids**:
+          - Bq5Lr10QlDSA5k
       - **[9]**:
-        - **ids**:
-          - entretidos
-        - **grupo**: Pedreira
+        - **alvo_uid**: VIh2SjBR5kXfig
+        - **pontos_uids**:
+          - QVFyH0SZUQ77YE
         - **setor**: Bloco: Entretidos
+        - **ids**:
+          - QVFyH0SZUQ77YE
       - **[10]**:
-        - **ids**:
-          - lagartixa
-        - **grupo**: Pedreira
+        - **alvo_uid**: OtOutua1Xh2AuI
+        - **pontos_uids**:
+          - f8UgIIIcVqVib0
         - **setor**: Bloco: Lagartixa
+        - **ids**:
+          - f8UgIIIcVqVib0
       - **[11]**:
-        - **ids**:
-          - to_de_boa
-        - **grupo**: Pedreira
+        - **alvo_uid**: K1nxqIQUlAj9s2
+        - **pontos_uids**:
+          - EQbXCGN5bYQ6bn
         - **setor**: Bloco: Tô de Boa
+        - **ids**:
+          - EQbXCGN5bYQ6bn
       - **[12]**:
-        - **ids**:
-          - teto_de_vidro
-        - **grupo**: Pedreira
+        - **alvo_uid**: szhFTxC1PLd0dP
+        - **pontos_uids**:
+          - HD5kaVfzPRMrB8
         - **setor**: Bloco: Teto de Vidro
+        - **ids**:
+          - HD5kaVfzPRMrB8
       - **[13]**:
-        - **ids**:
-          - pedra_queimada
-        - **grupo**: Pedreira
+        - **alvo_uid**: KMgvZxpGaKri2z
+        - **pontos_uids**:
+          - Aiisv2McTHGSqf
         - **setor**: Bloco: Pedra Queimada
+        - **ids**:
+          - Aiisv2McTHGSqf
       - **[14]**:
-        - **ids**:
-          - nave_mae
-        - **grupo**: Pedreira
+        - **alvo_uid**: skAZrDygCrcu3g
+        - **pontos_uids**:
+          - 2i0xDOIO7pZzqj
         - **setor**: Bloco: Nave-Mãe
+        - **ids**:
+          - 2i0xDOIO7pZzqj
       - **[15]**:
-        - **ids**:
-          - abaulados
-        - **grupo**: Pedreira
+        - **alvo_uid**: 3Uw8HtSki5ZE57
+        - **pontos_uids**:
+          - 3Ij9wUnFgCMUkJ
         - **setor**: Bloco: Abaulados
+        - **ids**:
+          - 3Ij9wUnFgCMUkJ
       - **[16]**:
-        - **ids**:
-          - longevidade
-        - **grupo**: Pedreira
+        - **alvo_uid**: YFVMcRLMGxb9Tr
+        - **pontos_uids**:
+          - CykDFU0u6jPNXC
         - **setor**: Bloco: Longevidade
+        - **ids**:
+          - CykDFU0u6jPNXC
       - **[17]**:
-        - **ids**:
-          - hora_da_janta
-        - **grupo**: Pedreira
+        - **alvo_uid**: 6uiUlaIemsIKR1
+        - **pontos_uids**:
+          - ggTYALSjRHHHij
         - **setor**: Bloco: Hora da Janta
+        - **ids**:
+          - ggTYALSjRHHHij
       - **[18]**:
-        - **ids**:
-          - chicletes
-        - **grupo**: Pedreira
+        - **alvo_uid**: 7RfNsbD2lIpnKG
+        - **pontos_uids**:
+          - DzEov7sE2h2NWI
         - **setor**: Bloco: Chicletes
+        - **ids**:
+          - DzEov7sE2h2NWI
       - **[19]**:
-        - **ids**:
-          - mezanino
-        - **grupo**: Pedreira
+        - **alvo_uid**: wEISHXN8e9nWM3
+        - **pontos_uids**:
+          - bpx1wMBqM0euDV
         - **setor**: Bloco: Mezanino
+        - **ids**:
+          - bpx1wMBqM0euDV
       - **[20]**:
-        - **ids**:
-          - meia_parede
-        - **grupo**: Pedreira
+        - **alvo_uid**: YNCeAFBEFQJbNm
+        - **pontos_uids**:
+          - pH0ehrMFSAfdbF
         - **setor**: Bloco: Meia-Parede
+        - **ids**:
+          - pH0ehrMFSAfdbF
       - **[21]**:
-        - **ids**:
-          - sonar
-        - **grupo**: Pedreira
+        - **alvo_uid**: PNLVN5yl680Wbv
+        - **pontos_uids**:
+          - QuwRzmTfTdNPZW
         - **setor**: Bloco: Sonar
+        - **ids**:
+          - QuwRzmTfTdNPZW
       - **[22]**:
-        - **ids**:
-          - deep_inside
-        - **grupo**: Pedreira
+        - **alvo_uid**: NWLsTOFnn1cQbN
+        - **pontos_uids**:
+          - KooxkWLfoqTxSS
         - **setor**: Bloco: Deep Inside
+        - **ids**:
+          - KooxkWLfoqTxSS
       - **[23]**:
-        - **ids**:
-          - complexo
-        - **grupo**: Pedreira
+        - **alvo_uid**: pDA23Gjf4c95Ek
+        - **pontos_uids**:
+          - NQaPXQ61gC8Cb4
         - **setor**: Bloco: Complexo
+        - **ids**:
+          - NQaPXQ61gC8Cb4
       - **[24]**:
-        - **ids**:
-          - conhaque
-        - **grupo**: Pedreira
+        - **alvo_uid**: R0RK7LEXxz5JfS
+        - **pontos_uids**:
+          - l0vFmrbWwZVIYC
         - **setor**: Bloco: Conhaque
+        - **ids**:
+          - l0vFmrbWwZVIYC
       - **[25]**:
-        - **ids**:
-          - eletron
-        - **grupo**: Pedreira
+        - **alvo_uid**: Bk5xx6SIISCIDN
+        - **pontos_uids**:
+          - hWIpAs5jBT7kNW
         - **setor**: Bloco: Eléctron
-      - **[26]**:
         - **ids**:
-          - nat_geo
-        - **grupo**: Pedreira
+          - hWIpAs5jBT7kNW
+      - **[26]**:
+        - **alvo_uid**: yZ6TvCV4MLKTEj
+        - **pontos_uids**:
+          - JKLft2MFxn2i9l
         - **setor**: Bloco: Nat Geo
+        - **ids**:
+          - JKLft2MFxn2i9l
 - **setores**:
   - **[0]**:
     - **conteudo**:
       - **descricao**: 
       - **nome**: Bloco: Abaulados
+      - **uid**: 3Uw8HtSki5ZE57
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_abaulados_p0.webp)
@@ -670,101 +794,136 @@
           - **altura_mapa**: 1773
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 1
-              - **label**: 1
+              - **id**: 7yKSXhIJKleGY7
+              - **uid**: 7yKSXhIJKleGY7
+              - **rotulo**: 1
               - **circulo**:
                 - **x**: 1244
                 - **y**: 1279
                 - **raio**: 20
+              - **label**: 1
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: l2nrLeOFQfqiJw
+              - **pontos_uids**:
+                - 7yKSXhIJKleGY7
               - **escalada**: Abaulados
               - **ids**:
-                - 1
+                - 7yKSXhIJKleGY7
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_abaulados_p1.webp)
           - **largura_mapa**: 2364
           - **altura_mapa**: 1773
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 1
-              - **label**: 1
+              - **id**: C7Q8VjXc2Caa8E
+              - **uid**: C7Q8VjXc2Caa8E
+              - **rotulo**: 1
               - **circulo**:
                 - **x**: 862
                 - **y**: 1238
                 - **raio**: 20
+              - **label**: 1
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: Qcf64UxXI1HkCw
+              - **pontos_uids**:
+                - C7Q8VjXc2Caa8E
               - **escalada**: 004
               - **ids**:
-                - 1
+                - C7Q8VjXc2Caa8E
         - **[2]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_abaulados_p2.webp)
           - **largura_mapa**: 2364
           - **altura_mapa**: 1773
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: A
-              - **label**: A
+              - **id**: bTA8ynqQsrg5at
+              - **uid**: bTA8ynqQsrg5at
+              - **rotulo**: A
               - **circulo**:
                 - **x**: 305
                 - **y**: 500
                 - **raio**: 20
+              - **label**: A
             - **[1]**:
-              - **id**: B
-              - **label**: B
+              - **id**: H29xrwWNREg1xJ
+              - **uid**: H29xrwWNREg1xJ
+              - **rotulo**: B
               - **circulo**:
                 - **x**: 1424
                 - **y**: 164
                 - **raio**: 20
+              - **label**: B
             - **[2]**:
-              - **id**: 1
-              - **label**: 1
+              - **id**: ddlNSY06N6jNIS
+              - **uid**: ddlNSY06N6jNIS
+              - **rotulo**: 1
               - **circulo**:
                 - **x**: 1236
                 - **y**: 1184
                 - **raio**: 20
+              - **label**: 1
             - **[3]**:
-              - **id**: 2
-              - **label**: 2
+              - **id**: t736gSfk9bYGPp
+              - **uid**: t736gSfk9bYGPp
+              - **rotulo**: 2
               - **circulo**:
                 - **x**: 1084
                 - **y**: 1478
                 - **raio**: 20
+              - **label**: 2
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: K4Bw1TsBCiEo3Y
+              - **pontos_uids**:
+                - ddlNSY06N6jNIS
+                - bTA8ynqQsrg5at
               - **escalada**: Jardim Secreto
               - **ids**:
-                - 1
-                - A
+                - ddlNSY06N6jNIS
+                - bTA8ynqQsrg5at
             - **[1]**:
+              - **alvo_uid**: umPoMUWjcEHbyJ
+              - **pontos_uids**:
+                - ddlNSY06N6jNIS
+                - H29xrwWNREg1xJ
               - **escalada**: Papo Reto
               - **ids**:
-                - 1
-                - B
+                - ddlNSY06N6jNIS
+                - H29xrwWNREg1xJ
             - **[2]**:
+              - **alvo_uid**: LR4DzckIyTBgqo
+              - **pontos_uids**:
+                - t736gSfk9bYGPp
+                - H29xrwWNREg1xJ
               - **escalada**: Papo Reto sds
               - **ids**:
-                - 2
-                - B
+                - t736gSfk9bYGPp
+                - H29xrwWNREg1xJ
       - **escaladas**:
         - **[0]**:
+          - **uid**: l2nrLeOFQfqiJw
           - **boulder**:
             - **nome**: Abaulados
             - **dificuldade**: V3
         - **[1]**:
+          - **uid**: Qcf64UxXI1HkCw
           - **boulder**:
             - **nome**: 004
             - **dificuldade**: V4
         - **[2]**:
+          - **uid**: K4Bw1TsBCiEo3Y
           - **boulder**:
             - **nome**: Jardim Secreto
             - **dificuldade**: V11
         - **[3]**:
+          - **uid**: umPoMUWjcEHbyJ
           - **boulder**:
             - **nome**: Papo Reto
             - **dificuldade**: V11
         - **[4]**:
+          - **uid**: LR4DzckIyTBgqo
           - **boulder**:
             - **nome**: Papo Reto sds
             - **dificuldade**: V12
@@ -775,68 +934,93 @@
     - **conteudo**:
       - **descricao**: 
       - **nome**: Bloco: Altinho
+      - **uid**: qOUPKWR6GufZoB
       - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/grupo_pedreira_setor_bloco_altinho_p1_i0.webp)
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_altinho_p0_i0.webp)
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: o1f74ICKPJTGL5
+              - **pontos_uids**:
+                - 1A
+                - P0ZmPcXgjCNANg
+                - EqY5XCn7i5Cw5B
               - **escalada**: Cadena
               - **ids**:
                 - 1A
-                - 1
-                - A
+                - P0ZmPcXgjCNANg
+                - EqY5XCn7i5Cw5B
             - **[1]**:
+              - **alvo_uid**: wvMzuTIbBgWhKt
+              - **pontos_uids**:
+                - 1B
+                - P0ZmPcXgjCNANg
+                - 22ARKWqbNX43y6
               - **escalada**: Atento
               - **ids**:
                 - 1B
-                - 1
-                - B
+                - P0ZmPcXgjCNANg
+                - 22ARKWqbNX43y6
             - **[2]**:
+              - **alvo_uid**: 5PaObgvZcIbcag
+              - **pontos_uids**:
+                - I7qbpuL4Gb0Sxl
               - **escalada**: Altinho
               - **ids**:
-                - 2
+                - I7qbpuL4Gb0Sxl
           - **largura_mapa**: 2364
           - **altura_mapa**: 1773
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: A
-              - **label**: A
+              - **id**: EqY5XCn7i5Cw5B
+              - **uid**: EqY5XCn7i5Cw5B
+              - **rotulo**: A
               - **circulo**:
                 - **x**: 464
                 - **y**: 558
                 - **raio**: 18
+              - **label**: A
             - **[1]**:
-              - **id**: B
-              - **label**: B
+              - **id**: 22ARKWqbNX43y6
+              - **uid**: 22ARKWqbNX43y6
+              - **rotulo**: B
               - **circulo**:
                 - **x**: 825
                 - **y**: 573
                 - **raio**: 18
+              - **label**: B
             - **[2]**:
-              - **id**: 1
-              - **label**: 1
+              - **id**: P0ZmPcXgjCNANg
+              - **uid**: P0ZmPcXgjCNANg
+              - **rotulo**: 1
               - **circulo**:
                 - **x**: 1283
                 - **y**: 1330
                 - **raio**: 18
+              - **label**: 1
             - **[3]**:
-              - **id**: 2
-              - **label**: 2
+              - **id**: I7qbpuL4Gb0Sxl
+              - **uid**: I7qbpuL4Gb0Sxl
+              - **rotulo**: 2
               - **circulo**:
                 - **x**: 1775
                 - **y**: 1076
                 - **raio**: 18
+              - **label**: 2
       - **escaladas**:
         - **[0]**:
+          - **uid**: o1f74ICKPJTGL5
           - **boulder**:
             - **nome**: Cadena
             - **dificuldade**: V5
         - **[1]**:
+          - **uid**: wvMzuTIbBgWhKt
           - **boulder**:
             - **nome**: Atento
             - **dificuldade**: V2
         - **[2]**:
+          - **uid**: 5PaObgvZcIbcag
           - **boulder**:
             - **nome**: Altinho
             - **dificuldade**: V0
@@ -847,6 +1031,7 @@
     - **conteudo**:
       - **descricao**: 
       - **nome**: Bloco: Bob
+      - **uid**: LzzE8JkjUAUuZT
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_bob_p0.webp)
@@ -854,134 +1039,186 @@
           - **altura_mapa**: 1773
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: A
-              - **label**: A
+              - **id**: 1rjINUF0YaoVd5
+              - **uid**: 1rjINUF0YaoVd5
+              - **rotulo**: A
               - **circulo**:
                 - **x**: 600
                 - **y**: 286
                 - **raio**: 20
+              - **label**: A
             - **[1]**:
-              - **id**: B
-              - **label**: B
+              - **id**: E219VDHLgez46k
+              - **uid**: E219VDHLgez46k
+              - **rotulo**: B
               - **circulo**:
                 - **x**: 898
                 - **y**: 297
                 - **raio**: 20
+              - **label**: B
             - **[2]**:
-              - **id**: 1
-              - **label**: 1
+              - **id**: BzzXlLNCKwF859
+              - **uid**: BzzXlLNCKwF859
+              - **rotulo**: 1
               - **circulo**:
                 - **x**: 1167
                 - **y**: 1198
                 - **raio**: 20
+              - **label**: 1
             - **[3]**:
-              - **id**: 2
-              - **label**: 2
+              - **id**: spJsInMa4yrMJW
+              - **uid**: spJsInMa4yrMJW
+              - **rotulo**: 2
               - **circulo**:
                 - **x**: 1494
                 - **y**: 1097
                 - **raio**: 20
+              - **label**: 2
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: PFj0IEAKg3TURZ
+              - **pontos_uids**:
+                - BzzXlLNCKwF859
+                - 1rjINUF0YaoVd5
               - **escalada**: Albino
               - **ids**:
-                - 1
-                - A
+                - BzzXlLNCKwF859
+                - 1rjINUF0YaoVd5
             - **[1]**:
+              - **alvo_uid**: oai4Vq7LjB9kDX
+              - **pontos_uids**:
+                - BzzXlLNCKwF859
+                - E219VDHLgez46k
               - **escalada**: Encardido
               - **ids**:
-                - 1
-                - B
+                - BzzXlLNCKwF859
+                - E219VDHLgez46k
             - **[2]**:
+              - **alvo_uid**: keVVa2XDtSi4HF
+              - **pontos_uids**:
+                - spJsInMa4yrMJW
               - **escalada**: Bob
               - **ids**:
-                - 2
+                - spJsInMa4yrMJW
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_bob_p1.webp)
           - **largura_mapa**: 2364
           - **altura_mapa**: 1773
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: A
-              - **label**: A
+              - **id**: zY0u5X3vn2z9No
+              - **uid**: zY0u5X3vn2z9No
+              - **rotulo**: A
               - **circulo**:
                 - **x**: 902
                 - **y**: 219
                 - **raio**: 20
+              - **label**: A
             - **[1]**:
-              - **id**: B
-              - **label**: B
+              - **id**: GtitNSc17dq5ta
+              - **uid**: GtitNSc17dq5ta
+              - **rotulo**: B
               - **circulo**:
                 - **x**: 1354
                 - **y**: 164
                 - **raio**: 20
+              - **label**: B
             - **[2]**:
-              - **id**: C
-              - **label**: C
+              - **id**: Fr4iwl5FtgHNp4
+              - **uid**: Fr4iwl5FtgHNp4
+              - **rotulo**: C
               - **circulo**:
                 - **x**: 1633
                 - **y**: 270
                 - **raio**: 20
+              - **label**: C
             - **[3]**:
-              - **id**: D
-              - **label**: D
+              - **id**: 4CwQ6m5e5iIUdr
+              - **uid**: 4CwQ6m5e5iIUdr
+              - **rotulo**: D
               - **circulo**:
                 - **x**: 1848
                 - **y**: 478
                 - **raio**: 20
+              - **label**: D
             - **[4]**:
-              - **id**: 1
-              - **label**: 1
+              - **id**: xdN4h0WInqNDKL
+              - **uid**: xdN4h0WInqNDKL
+              - **rotulo**: 1
               - **circulo**:
                 - **x**: 1052
                 - **y**: 1510
                 - **raio**: 20
+              - **label**: 1
             - **[5]**:
-              - **id**: 2
-              - **label**: 2
+              - **id**: VL1p55xIvbscMc
+              - **uid**: VL1p55xIvbscMc
+              - **rotulo**: 2
               - **circulo**:
                 - **x**: 1597
                 - **y**: 1164
                 - **raio**: 20
+              - **label**: 2
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: PFj0IEAKg3TURZ
+              - **pontos_uids**:
+                - VL1p55xIvbscMc
+                - Fr4iwl5FtgHNp4
               - **escalada**: Albino
               - **ids**:
-                - 2
-                - C
+                - VL1p55xIvbscMc
+                - Fr4iwl5FtgHNp4
             - **[1]**:
+              - **alvo_uid**: oai4Vq7LjB9kDX
+              - **pontos_uids**:
+                - VL1p55xIvbscMc
+                - 4CwQ6m5e5iIUdr
               - **escalada**: Encardido
               - **ids**:
-                - 2
-                - D
+                - VL1p55xIvbscMc
+                - 4CwQ6m5e5iIUdr
             - **[2]**:
+              - **alvo_uid**: 139tOdPVfSB1wp
+              - **pontos_uids**:
+                - xdN4h0WInqNDKL
+                - zY0u5X3vn2z9No
               - **escalada**: Reto
               - **ids**:
-                - 1
-                - A
+                - xdN4h0WInqNDKL
+                - zY0u5X3vn2z9No
             - **[3]**:
+              - **alvo_uid**: WeMtHFZYG0xxTh
+              - **pontos_uids**:
+                - xdN4h0WInqNDKL
+                - GtitNSc17dq5ta
               - **escalada**: Dor nas Costas
               - **ids**:
-                - 1
-                - B
+                - xdN4h0WInqNDKL
+                - GtitNSc17dq5ta
       - **escaladas**:
         - **[0]**:
+          - **uid**: PFj0IEAKg3TURZ
           - **boulder**:
             - **nome**: Albino
             - **dificuldade**: V4
         - **[1]**:
+          - **uid**: oai4Vq7LjB9kDX
           - **boulder**:
             - **nome**: Encardido
             - **dificuldade**: V4
         - **[2]**:
+          - **uid**: keVVa2XDtSi4HF
           - **boulder**:
             - **nome**: Bob
             - **dificuldade**: V1
         - **[3]**:
+          - **uid**: 139tOdPVfSB1wp
           - **boulder**:
             - **nome**: Reto
             - **dificuldade**: V2
         - **[4]**:
+          - **uid**: WeMtHFZYG0xxTh
           - **boulder**:
             - **nome**: Dor nas Costas
             - **dificuldade**: V3
@@ -992,6 +1229,7 @@
     - **conteudo**:
       - **descricao**: 
       - **nome**: Bloco: Chicletes
+      - **uid**: 7RfNsbD2lIpnKG
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_chicletes_p0.webp)
@@ -999,92 +1237,123 @@
           - **altura_mapa**: 1773
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 1
-              - **label**: 1
+              - **id**: lsaAoE2BPiMHVI
+              - **uid**: lsaAoE2BPiMHVI
+              - **rotulo**: 1
               - **circulo**:
                 - **x**: 836
                 - **y**: 1176
                 - **raio**: 20
+              - **label**: 1
             - **[1]**:
-              - **id**: 2
-              - **label**: 2
+              - **id**: ybp2bzg7qHMri7
+              - **uid**: ybp2bzg7qHMri7
+              - **rotulo**: 2
               - **circulo**:
                 - **x**: 939
                 - **y**: 1226
                 - **raio**: 20
+              - **label**: 2
             - **[2]**:
-              - **id**: 3/1A
-              - **label**: 3
+              - **id**: 8riABqsXcA1jQ9
+              - **uid**: 8riABqsXcA1jQ9
+              - **rotulo**: 3
               - **circulo**:
                 - **x**: 1437
                 - **y**: 1420
                 - **raio**: 20
+              - **label**: 3
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: kfb4tIe2Pedrb9
+              - **pontos_uids**:
+                - lsaAoE2BPiMHVI
               - **escalada**: Trident
               - **ids**:
-                - 1
+                - lsaAoE2BPiMHVI
             - **[1]**:
+              - **alvo_uid**: yACkUisr7sYOol
+              - **pontos_uids**:
+                - ybp2bzg7qHMri7
               - **escalada**: Big-Big
               - **ids**:
-                - 2
+                - ybp2bzg7qHMri7
             - **[2]**:
-              - **ids**:
-                - 3/1A
-              - **grupo**: Pedreira
-              - **setor**: Bloco: Chicletes
+              - **alvo_uid**: aDSPlQUVyhC9GM
+              - **pontos_uids**:
+                - 8riABqsXcA1jQ9
               - **escalada**: Babaloo
+              - **ids**:
+                - 8riABqsXcA1jQ9
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_chicletes_p1.webp)
           - **largura_mapa**: 2364
           - **altura_mapa**: 1773
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: A
-              - **label**: A
+              - **id**: 56P2fhQnQqsnXF
+              - **uid**: 56P2fhQnQqsnXF
+              - **rotulo**: A
               - **circulo**:
                 - **x**: 854
                 - **y**: 298
                 - **raio**: 20
+              - **label**: A
             - **[1]**:
-              - **id**: B
-              - **label**: B
+              - **id**: saRcFFdltSi3av
+              - **uid**: saRcFFdltSi3av
+              - **rotulo**: B
               - **circulo**:
                 - **x**: 2344
                 - **y**: 960
                 - **raio**: 20
+              - **label**: B
             - **[2]**:
-              - **id**: 1
-              - **label**: 1
+              - **id**: cU300KQnP6LF7m
+              - **uid**: cU300KQnP6LF7m
+              - **rotulo**: 1
               - **circulo**:
                 - **x**: 920
                 - **y**: 1511
                 - **raio**: 20
+              - **label**: 1
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: aDSPlQUVyhC9GM
+              - **pontos_uids**:
+                - cU300KQnP6LF7m
+                - 56P2fhQnQqsnXF
               - **escalada**: Babaloo
               - **ids**:
-                - 1
-                - A
+                - cU300KQnP6LF7m
+                - 56P2fhQnQqsnXF
             - **[1]**:
+              - **alvo_uid**: bOrP36rxSM6TMr
+              - **pontos_uids**:
+                - cU300KQnP6LF7m
+                - saRcFFdltSi3av
               - **escalada**: Chicletes
               - **ids**:
-                - 1
-                - B
+                - cU300KQnP6LF7m
+                - saRcFFdltSi3av
       - **escaladas**:
         - **[0]**:
+          - **uid**: kfb4tIe2Pedrb9
           - **boulder**:
             - **nome**: Trident
             - **dificuldade**: V10
         - **[1]**:
+          - **uid**: yACkUisr7sYOol
           - **boulder**:
             - **nome**: Big-Big
             - **dificuldade**: V9
         - **[2]**:
+          - **uid**: aDSPlQUVyhC9GM
           - **boulder**:
             - **nome**: Babaloo
             - **dificuldade**: V7
         - **[3]**:
+          - **uid**: bOrP36rxSM6TMr
           - **boulder**:
             - **nome**: Chicletes
             - **dificuldade**: V11
@@ -1095,6 +1364,7 @@
     - **conteudo**:
       - **descricao**: 
       - **nome**: Bloco: Complexo
+      - **uid**: pDA23Gjf4c95Ek
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_complexo_p0.webp)
@@ -1102,253 +1372,345 @@
           - **altura_mapa**: 1773
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 1
-              - **label**: 1
+              - **id**: Ps71RyTRxAmZ38
+              - **uid**: Ps71RyTRxAmZ38
+              - **rotulo**: 1
               - **circulo**:
                 - **x**: 132
                 - **y**: 1561
                 - **raio**: 18
+              - **label**: 1
             - **[1]**:
-              - **id**: 2
-              - **label**: 2
+              - **id**: 2MJl8jlqWJpkW4
+              - **uid**: 2MJl8jlqWJpkW4
+              - **rotulo**: 2
               - **circulo**:
                 - **x**: 597
                 - **y**: 1514
                 - **raio**: 18
+              - **label**: 2
             - **[2]**:
-              - **id**: 3
-              - **label**: 3
+              - **id**: MpccQVQGdSgnPp
+              - **uid**: MpccQVQGdSgnPp
+              - **rotulo**: 3
               - **circulo**:
                 - **x**: 1372
                 - **y**: 1577
                 - **raio**: 18
+              - **label**: 3
             - **[3]**:
-              - **id**: A
-              - **label**: A
+              - **id**: NO0J16L3sXk3Gh
+              - **uid**: NO0J16L3sXk3Gh
+              - **rotulo**: A
               - **circulo**:
                 - **x**: 1196
                 - **y**: 44
                 - **raio**: 18
+              - **label**: A
             - **[4]**:
-              - **id**: B
-              - **label**: B
+              - **id**: mePZKI5IABgaMv
+              - **uid**: mePZKI5IABgaMv
+              - **rotulo**: B
               - **circulo**:
                 - **x**: 1787
                 - **y**: 175
                 - **raio**: 20
+              - **label**: B
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: nnYFOByNZW2Kv3
+              - **pontos_uids**:
+                - Ps71RyTRxAmZ38
               - **escalada**: Talhadeira
               - **ids**:
-                - 1
+                - Ps71RyTRxAmZ38
             - **[1]**:
+              - **alvo_uid**: l5q37CcrQU4qJI
+              - **pontos_uids**:
+                - 2MJl8jlqWJpkW4
+                - NO0J16L3sXk3Gh
               - **escalada**: Complexo
               - **ids**:
-                - 2
-                - A
+                - 2MJl8jlqWJpkW4
+                - NO0J16L3sXk3Gh
             - **[2]**:
+              - **alvo_uid**: N4JcdxwOwkbGmj
+              - **pontos_uids**:
+                - 2MJl8jlqWJpkW4
+                - mePZKI5IABgaMv
               - **escalada**: Ajoelhou, Tem que Rezar
               - **ids**:
-                - 2
-                - B
+                - 2MJl8jlqWJpkW4
+                - mePZKI5IABgaMv
             - **[3]**:
+              - **alvo_uid**: fi0dueZw32BRuI
+              - **pontos_uids**:
+                - MpccQVQGdSgnPp
+                - mePZKI5IABgaMv
               - **escalada**: Descomplicado
               - **ids**:
-                - 3
-                - B
+                - MpccQVQGdSgnPp
+                - mePZKI5IABgaMv
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_complexo_p1.webp)
           - **largura_mapa**: 2364
           - **altura_mapa**: 1773
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: A
-              - **label**: A
+              - **id**: rW0atQAPZiCPh9
+              - **uid**: rW0atQAPZiCPh9
+              - **rotulo**: A
               - **circulo**:
                 - **x**: 983
                 - **y**: 350
                 - **raio**: 20
+              - **label**: A
             - **[1]**:
-              - **id**: B
-              - **label**: B
+              - **id**: z3ui6AGdvFm9aF
+              - **uid**: z3ui6AGdvFm9aF
+              - **rotulo**: B
               - **circulo**:
                 - **x**: 1331
                 - **y**: 164
                 - **raio**: 20
+              - **label**: B
             - **[2]**:
-              - **id**: 1
-              - **label**: 1
+              - **id**: c5CPMYyJiNhbsv
+              - **uid**: c5CPMYyJiNhbsv
+              - **rotulo**: 1
               - **circulo**:
                 - **x**: 1448
                 - **y**: 1397
                 - **raio**: 20
+              - **label**: 1
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: nnYFOByNZW2Kv3
+              - **pontos_uids**:
+                - c5CPMYyJiNhbsv
+                - z3ui6AGdvFm9aF
               - **escalada**: Talhadeira
               - **ids**:
-                - 1
-                - B
+                - c5CPMYyJiNhbsv
+                - z3ui6AGdvFm9aF
             - **[1]**:
+              - **alvo_uid**: OyQjIsQKIPU6Y2
+              - **pontos_uids**:
+                - c5CPMYyJiNhbsv
+                - rW0atQAPZiCPh9
               - **escalada**: Sofá
               - **ids**:
-                - 1
-                - A
+                - c5CPMYyJiNhbsv
+                - rW0atQAPZiCPh9
         - **[2]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_complexo_p2.webp)
           - **largura_mapa**: 2364
           - **altura_mapa**: 1773
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 1
-              - **label**: 1
+              - **id**: EW07d9e4QqFxjv
+              - **uid**: EW07d9e4QqFxjv
+              - **rotulo**: 1
               - **circulo**:
                 - **x**: 737
                 - **y**: 1302
                 - **raio**: 21
+              - **label**: 1
             - **[1]**:
-              - **id**: 2
-              - **label**: 2
+              - **id**: BLKPoAjWzcYYLl
+              - **uid**: BLKPoAjWzcYYLl
+              - **rotulo**: 2
               - **circulo**:
                 - **x**: 1055
                 - **y**: 1317
                 - **raio**: 21
+              - **label**: 2
             - **[2]**:
-              - **id**: 3
-              - **label**: 3
+              - **id**: fNAMZjQfYW8Rqq
+              - **uid**: fNAMZjQfYW8Rqq
+              - **rotulo**: 3
               - **circulo**:
                 - **x**: 1451
                 - **y**: 1300
                 - **raio**: 21
+              - **label**: 3
             - **[3]**:
-              - **id**: 4
-              - **label**: 4
+              - **id**: lOUy7ugwcuayul
+              - **uid**: lOUy7ugwcuayul
+              - **rotulo**: 4
               - **circulo**:
                 - **x**: 1581
                 - **y**: 1269
                 - **raio**: 21
+              - **label**: 4
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: zNpxQBg2uZcHaa
+              - **pontos_uids**:
+                - EW07d9e4QqFxjv
               - **escalada**: Porosíssimo
               - **ids**:
-                - 1
+                - EW07d9e4QqFxjv
             - **[1]**:
+              - **alvo_uid**: qxpo59PeH6YSkp
+              - **pontos_uids**:
+                - BLKPoAjWzcYYLl
               - **escalada**: Poroso
               - **ids**:
-                - 2
+                - BLKPoAjWzcYYLl
             - **[2]**:
+              - **alvo_uid**: Pp4D0QzwKizUMT
+              - **pontos_uids**:
+                - fNAMZjQfYW8Rqq
               - **escalada**: Não Poroso
               - **ids**:
-                - 3
+                - fNAMZjQfYW8Rqq
             - **[3]**:
+              - **alvo_uid**: gL32IneUp3xGi2
+              - **pontos_uids**:
+                - lOUy7ugwcuayul
               - **escalada**: Triangular
               - **ids**:
-                - 4
+                - lOUy7ugwcuayul
         - **[3]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_complexo_p3.webp)
           - **largura_mapa**: 2364
           - **altura_mapa**: 1773
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 1
-              - **label**: 1
+              - **id**: RVL2rP8fNCFY8G
+              - **uid**: RVL2rP8fNCFY8G
+              - **rotulo**: 1
               - **circulo**:
                 - **x**: 639
                 - **y**: 1104
                 - **raio**: 20
+              - **label**: 1
             - **[1]**:
-              - **id**: 2
-              - **label**: 2
+              - **id**: xMoiAvRec1dbB2
+              - **uid**: xMoiAvRec1dbB2
+              - **rotulo**: 2
               - **circulo**:
                 - **x**: 2164
                 - **y**: 1402
                 - **raio**: 20
+              - **label**: 2
             - **[2]**:
-              - **id**: 3
-              - **label**: 3
+              - **id**: 6BRwWdWFaHGFip
+              - **uid**: 6BRwWdWFaHGFip
+              - **rotulo**: 3
               - **circulo**:
                 - **x**: 1812
                 - **y**: 1215
                 - **raio**: 20
+              - **label**: 3
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: uRGbPYR41aZrqO
+              - **pontos_uids**:
+                - RVL2rP8fNCFY8G
               - **escalada**: Boulder de Raiz
               - **ids**:
-                - 1
+                - RVL2rP8fNCFY8G
             - **[1]**:
+              - **alvo_uid**: gx5WYjL66sbtVD
+              - **pontos_uids**:
+                - xMoiAvRec1dbB2
               - **escalada**: Travessia Ouro Preto-Bocaina
               - **ids**:
-                - 2
+                - xMoiAvRec1dbB2
             - **[2]**:
+              - **alvo_uid**: pZ8PU0QRp0vhnA
+              - **pontos_uids**:
+                - 6BRwWdWFaHGFip
               - **escalada**: Perereca
               - **ids**:
-                - 3
+                - 6BRwWdWFaHGFip
         - **[4]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_complexo_p4.webp)
           - **largura_mapa**: 2364
           - **altura_mapa**: 1773
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 1
-              - **label**: 1
+              - **id**: NKIMuZNcLRFNVq
+              - **uid**: NKIMuZNcLRFNVq
+              - **rotulo**: 1
               - **circulo**:
                 - **x**: 619
                 - **y**: 1434
                 - **raio**: 20
+              - **label**: 1
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: ShPehd9lTU5u9L
+              - **pontos_uids**:
+                - NKIMuZNcLRFNVq
               - **escalada**: Respira
               - **ids**:
-                - 1
+                - NKIMuZNcLRFNVq
       - **escaladas**:
         - **[0]**:
+          - **uid**: nnYFOByNZW2Kv3
           - **boulder**:
             - **nome**: Talhadeira
             - **dificuldade**: V4
         - **[1]**:
+          - **uid**: l5q37CcrQU4qJI
           - **boulder**:
             - **nome**: Complexo
             - **dificuldade**: V5
         - **[2]**:
+          - **uid**: N4JcdxwOwkbGmj
           - **boulder**:
             - **nome**: Ajoelhou, Tem que Rezar
             - **dificuldade**: V5
         - **[3]**:
+          - **uid**: fi0dueZw32BRuI
           - **boulder**:
             - **nome**: Descomplicado
             - **dificuldade**: V3
         - **[4]**:
+          - **uid**: OyQjIsQKIPU6Y2
           - **boulder**:
             - **nome**: Sofá
             - **dificuldade**: V3
         - **[5]**:
+          - **uid**: zNpxQBg2uZcHaa
           - **boulder**:
             - **nome**: Porosíssimo
             - **dificuldade**: V3
         - **[6]**:
+          - **uid**: qxpo59PeH6YSkp
           - **boulder**:
             - **nome**: Poroso
             - **dificuldade**: V2
         - **[7]**:
+          - **uid**: Pp4D0QzwKizUMT
           - **boulder**:
             - **nome**: Não Poroso
             - **dificuldade**: V3
         - **[8]**:
+          - **uid**: gL32IneUp3xGi2
           - **boulder**:
             - **nome**: Triangular
             - **dificuldade**: V5
         - **[9]**:
+          - **uid**: uRGbPYR41aZrqO
           - **boulder**:
             - **nome**: Boulder de Raiz
             - **dificuldade**: V2
         - **[10]**:
+          - **uid**: gx5WYjL66sbtVD
           - **boulder**:
             - **nome**: Travessia Ouro Preto-Bocaina
             - **dificuldade**: V4
         - **[11]**:
+          - **uid**: pZ8PU0QRp0vhnA
           - **boulder**:
             - **nome**: Perereca
             - **dificuldade**: V4
         - **[12]**:
+          - **uid**: ShPehd9lTU5u9L
           - **boulder**:
             - **nome**: Respira
             - **dificuldade**: V6
@@ -1359,194 +1721,269 @@
     - **conteudo**:
       - **descricao**: 
       - **nome**: Bloco: Conhaque
+      - **uid**: R0RK7LEXxz5JfS
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_conhaque_p0_i0.webp)
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: pHUCfb3vJ9LflT
+              - **pontos_uids**:
+                - WSXhPPwtZZpahQ
+                - dtvlcLkBkkBNXH
+                - 5UP87O9KaPtywf
               - **escalada**: 005
               - **ids**:
-                - 1
-                - A
-                - ★_A
+                - WSXhPPwtZZpahQ
+                - dtvlcLkBkkBNXH
+                - 5UP87O9KaPtywf
             - **[1]**:
+              - **alvo_uid**: AOr9ujkI0P4OX0
+              - **pontos_uids**:
+                - WSXhPPwtZZpahQ
+                - dtvlcLkBkkBNXH
+                - KuyyG6pLbtsA8L
               - **escalada**: 006
               - **ids**:
-                - 1
-                - A
-                - ▲_A
+                - WSXhPPwtZZpahQ
+                - dtvlcLkBkkBNXH
+                - KuyyG6pLbtsA8L
             - **[2]**:
+              - **alvo_uid**: LCXWVN8XmGVa50
+              - **pontos_uids**:
+                - WSXhPPwtZZpahQ
+                - mBd2oN5QIsgy7a
+                - q1sgMxHASTAgN1
               - **escalada**: 007
               - **ids**:
-                - 1
-                - B
-                - ★_B
+                - WSXhPPwtZZpahQ
+                - mBd2oN5QIsgy7a
+                - q1sgMxHASTAgN1
             - **[3]**:
+              - **alvo_uid**: ybib9mdTt8soKN
+              - **pontos_uids**:
+                - WSXhPPwtZZpahQ
+                - C
+                - vh1idVQI2G0aFz
               - **escalada**: 008
               - **ids**:
-                - 1
+                - WSXhPPwtZZpahQ
                 - C
-                - ▲_B
+                - vh1idVQI2G0aFz
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 1
-              - **label**: 1
+              - **id**: WSXhPPwtZZpahQ
+              - **uid**: WSXhPPwtZZpahQ
+              - **rotulo**: 1
               - **circulo**:
                 - **x**: 866
                 - **y**: 1505
                 - **raio**: 20
+              - **label**: 1
             - **[1]**:
-              - **id**: ★_A
-              - **label**: ★
+              - **id**: 5UP87O9KaPtywf
+              - **uid**: 5UP87O9KaPtywf
+              - **rotulo**: ★
               - **circulo**:
                 - **x**: 554
                 - **y**: 721
                 - **raio**: 20
-            - **[2]**:
-              - **id**: ★_B
               - **label**: ★
+            - **[2]**:
+              - **id**: q1sgMxHASTAgN1
+              - **uid**: q1sgMxHASTAgN1
+              - **rotulo**: ★
               - **circulo**:
                 - **x**: 1266
                 - **y**: 824
                 - **raio**: 20
+              - **label**: ★
             - **[3]**:
-              - **id**: ▲_A
-              - **label**: ▲
+              - **id**: KuyyG6pLbtsA8L
+              - **uid**: KuyyG6pLbtsA8L
+              - **rotulo**: ▲
               - **circulo**:
                 - **x**: 961
                 - **y**: 658
                 - **raio**: 20
-            - **[4]**:
-              - **id**: ▲_B
               - **label**: ▲
+            - **[4]**:
+              - **id**: vh1idVQI2G0aFz
+              - **uid**: vh1idVQI2G0aFz
+              - **rotulo**: ▲
               - **circulo**:
                 - **x**: 1256
                 - **y**: 1118
                 - **raio**: 20
+              - **label**: ▲
             - **[5]**:
-              - **id**: A
-              - **label**: A
+              - **id**: dtvlcLkBkkBNXH
+              - **uid**: dtvlcLkBkkBNXH
+              - **rotulo**: A
               - **circulo**:
                 - **x**: 787
                 - **y**: 127
                 - **raio**: 20
+              - **label**: A
             - **[6]**:
-              - **id**: B
-              - **label**: B
+              - **id**: mBd2oN5QIsgy7a
+              - **uid**: mBd2oN5QIsgy7a
+              - **rotulo**: B
               - **circulo**:
                 - **x**: 1606
                 - **y**: 308
                 - **raio**: 20
+              - **label**: B
           - **largura_mapa**: 2364
           - **altura_mapa**: 1773
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_conhaque_p1_i0.webp)
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 1
-              - **label**: 1
+              - **id**: 8w05ggfu2nRKhf
+              - **uid**: 8w05ggfu2nRKhf
+              - **rotulo**: 1
               - **circulo**:
                 - **x**: 30
                 - **y**: 1538
                 - **raio**: 19
+              - **label**: 1
             - **[1]**:
-              - **id**: 2
-              - **label**: 2
+              - **id**: nVZRFRajZw40M2
+              - **uid**: nVZRFRajZw40M2
+              - **rotulo**: 2
               - **circulo**:
                 - **x**: 786
                 - **y**: 1554
                 - **raio**: 19
+              - **label**: 2
             - **[2]**:
-              - **id**: 3
-              - **label**: 3
+              - **id**: 2eyX4k5oh3fqnS
+              - **uid**: 2eyX4k5oh3fqnS
+              - **rotulo**: 3
               - **circulo**:
                 - **x**: 1040
                 - **y**: 1505
                 - **raio**: 19
+              - **label**: 3
             - **[3]**:
-              - **id**: 4
-              - **label**: 4
+              - **id**: hAiQJFGRKqshy5
+              - **uid**: hAiQJFGRKqshy5
+              - **rotulo**: 4
               - **circulo**:
                 - **x**: 1926
                 - **y**: 1461
                 - **raio**: 19
+              - **label**: 4
             - **[4]**:
-              - **id**: A
-              - **label**: A
+              - **id**: qZYSix5AmxBxOb
+              - **uid**: qZYSix5AmxBxOb
+              - **rotulo**: A
               - **circulo**:
                 - **x**: 539
                 - **y**: 277
                 - **raio**: 19
+              - **label**: A
             - **[5]**:
-              - **id**: B
-              - **label**: B
+              - **id**: s82JehqMylqQ2B
+              - **uid**: s82JehqMylqQ2B
+              - **rotulo**: B
               - **circulo**:
                 - **x**: 1552
                 - **y**: 39
                 - **raio**: 19
+              - **label**: B
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: L6VRdaV9P8swtf
+              - **pontos_uids**:
+                - 8w05ggfu2nRKhf
+                - qZYSix5AmxBxOb
               - **escalada**: Aderência
               - **ids**:
-                - 1
-                - A
+                - 8w05ggfu2nRKhf
+                - qZYSix5AmxBxOb
             - **[1]**:
+              - **alvo_uid**: G4pkLUXok0TuIu
+              - **pontos_uids**:
+                - nVZRFRajZw40M2
+                - qZYSix5AmxBxOb
               - **escalada**: Dreher
               - **ids**:
-                - 2
-                - A
+                - nVZRFRajZw40M2
+                - qZYSix5AmxBxOb
             - **[2]**:
+              - **alvo_uid**: VqPCGOhogs1xII
+              - **pontos_uids**:
+                - 2eyX4k5oh3fqnS
+                - qZYSix5AmxBxOb
               - **escalada**: Yoga
               - **ids**:
-                - 3
-                - A
+                - 2eyX4k5oh3fqnS
+                - qZYSix5AmxBxOb
             - **[3]**:
+              - **alvo_uid**: CJhL8WoyH82eSX
+              - **pontos_uids**:
+                - 2eyX4k5oh3fqnS
+                - s82JehqMylqQ2B
               - **escalada**: Conhaque
               - **ids**:
-                - 3
-                - B
+                - 2eyX4k5oh3fqnS
+                - s82JehqMylqQ2B
             - **[4]**:
+              - **alvo_uid**: 291gcEuK7oH5U8
+              - **pontos_uids**:
+                - hAiQJFGRKqshy5
               - **escalada**: Conhaque Presidente
               - **ids**:
-                - 4
+                - hAiQJFGRKqshy5
           - **largura_mapa**: 2364
           - **altura_mapa**: 1773
       - **escaladas**:
         - **[0]**:
+          - **uid**: pHUCfb3vJ9LflT
           - **boulder**:
             - **nome**: 005
             - **dificuldade**: V1
             - **destaque**: True
         - **[1]**:
+          - **uid**: AOr9ujkI0P4OX0
           - **boulder**:
             - **nome**: 006
             - **dificuldade**: V2
         - **[2]**:
+          - **uid**: LCXWVN8XmGVa50
           - **boulder**:
             - **nome**: 007
             - **dificuldade**: V3
             - **destaque**: True
         - **[3]**:
+          - **uid**: ybib9mdTt8soKN
           - **boulder**:
             - **nome**: 008
             - **dificuldade**: V4
         - **[4]**:
+          - **uid**: L6VRdaV9P8swtf
           - **boulder**:
             - **nome**: Aderência
             - **dificuldade**: VB
         - **[5]**:
+          - **uid**: G4pkLUXok0TuIu
           - **boulder**:
             - **nome**: Dreher
             - **dificuldade**: V3
         - **[6]**:
+          - **uid**: VqPCGOhogs1xII
           - **boulder**:
             - **nome**: Yoga
             - **dificuldade**: V4
         - **[7]**:
+          - **uid**: CJhL8WoyH82eSX
           - **boulder**:
             - **nome**: Conhaque
             - **dificuldade**: V4_BARRA_V5
         - **[8]**:
+          - **uid**: 291gcEuK7oH5U8
           - **boulder**:
             - **nome**: Conhaque Presidente
             - **dificuldade**: V6
@@ -1557,6 +1994,7 @@
     - **conteudo**:
       - **descricao**: 
       - **nome**: Bloco: Deep Inside
+      - **uid**: NWLsTOFnn1cQbN
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_deep_inside_p0.webp)
@@ -1564,411 +2002,557 @@
           - **altura_mapa**: 1773
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 1
-              - **label**: 1
+              - **id**: WLqis7lSTY0xcv
+              - **uid**: WLqis7lSTY0xcv
+              - **rotulo**: 1
               - **circulo**:
                 - **x**: 345
                 - **y**: 1274
                 - **raio**: 20
+              - **label**: 1
             - **[1]**:
-              - **id**: 2
-              - **label**: 2
+              - **id**: jcF8uYqZKoCOij
+              - **uid**: jcF8uYqZKoCOij
+              - **rotulo**: 2
               - **circulo**:
                 - **x**: 1576
                 - **y**: 1254
                 - **raio**: 20
+              - **label**: 2
             - **[2]**:
-              - **id**: 3
-              - **label**: 3
+              - **id**: wDvNsPJCeOAgeI
+              - **uid**: wDvNsPJCeOAgeI
+              - **rotulo**: 3
               - **circulo**:
                 - **x**: 1513
                 - **y**: 1367
                 - **raio**: 20
+              - **label**: 3
             - **[3]**:
-              - **id**: A
-              - **label**: A
+              - **id**: VcDDmlKQwcLzE9
+              - **uid**: VcDDmlKQwcLzE9
+              - **rotulo**: A
               - **circulo**:
                 - **x**: 1079
                 - **y**: 426
                 - **raio**: 20
+              - **label**: A
             - **[4]**:
-              - **id**: B
-              - **label**: B
+              - **id**: kBED2F82l4nKW7
+              - **uid**: kBED2F82l4nKW7
+              - **rotulo**: B
               - **circulo**:
                 - **x**: 2100
                 - **y**: 357
                 - **raio**: 20
+              - **label**: B
             - **[5]**:
-              - **id**: C
-              - **label**: C
+              - **id**: LcjnrI4eSKKuSK
+              - **uid**: LcjnrI4eSKKuSK
+              - **rotulo**: C
               - **circulo**:
                 - **x**: 2270
                 - **y**: 943
                 - **raio**: 20
+              - **label**: C
             - **[6]**:
-              - **id**: triangulo
-              - **label**: ▲
+              - **id**: ymP3chPBGB0aOS
+              - **uid**: ymP3chPBGB0aOS
+              - **rotulo**: ▲
               - **circulo**:
                 - **x**: 1609
                 - **y**: 1104
                 - **raio**: 20
+              - **label**: ▲
             - **[7]**:
-              - **id**: estrela
-              - **label**: ★
+              - **id**: 9qeAPt0Desc97z
+              - **uid**: 9qeAPt0Desc97z
+              - **rotulo**: ★
               - **circulo**:
                 - **x**: 1998
                 - **y**: 1169
                 - **raio**: 20
+              - **label**: ★
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: uaoxlDFUBS5Zea
+              - **pontos_uids**:
+                - WLqis7lSTY0xcv
+                - VcDDmlKQwcLzE9
               - **escalada**: Buda
               - **ids**:
-                - 1
-                - A
+                - WLqis7lSTY0xcv
+                - VcDDmlKQwcLzE9
             - **[1]**:
+              - **alvo_uid**: lDuEB2wS2RjHMk
+              - **pontos_uids**:
+                - WLqis7lSTY0xcv
+                - kBED2F82l4nKW7
               - **escalada**: Arestides
               - **ids**:
-                - 1
-                - B
+                - WLqis7lSTY0xcv
+                - kBED2F82l4nKW7
             - **[2]**:
+              - **alvo_uid**: lLfjQkQHcLiZfC
+              - **pontos_uids**:
+                - WLqis7lSTY0xcv
+                - LcjnrI4eSKKuSK
               - **escalada**: Arestides ext
               - **ids**:
-                - 1
-                - C
+                - WLqis7lSTY0xcv
+                - LcjnrI4eSKKuSK
             - **[3]**:
+              - **alvo_uid**: Ce83rF3gsozE5x
+              - **pontos_uids**:
+                - jcF8uYqZKoCOij
+                - ymP3chPBGB0aOS
+                - kBED2F82l4nKW7
               - **escalada**: Nataraja
               - **ids**:
-                - 2
-                - triangulo
-                - B
-              - **grupo**: Pedreira
-              - **setor**: Bloco: Deep Inside
+                - jcF8uYqZKoCOij
+                - ymP3chPBGB0aOS
+                - kBED2F82l4nKW7
             - **[4]**:
+              - **alvo_uid**: wcBf8JywEG1he3
+              - **pontos_uids**:
+                - jcF8uYqZKoCOij
+                - 9qeAPt0Desc97z
+                - kBED2F82l4nKW7
               - **escalada**: Sidarta
               - **ids**:
-                - 2
-                - estrela
-                - B
-              - **grupo**: Pedreira
-              - **setor**: Bloco: Deep Inside
+                - jcF8uYqZKoCOij
+                - 9qeAPt0Desc97z
+                - kBED2F82l4nKW7
             - **[5]**:
-              - **ids**:
-                - 3
-                - estrela
-                - B
-              - **grupo**: Pedreira
-              - **setor**: Bloco: Deep Inside
+              - **alvo_uid**: b9tTRBDOAJsjmf
+              - **pontos_uids**:
+                - wDvNsPJCeOAgeI
+                - 9qeAPt0Desc97z
+                - kBED2F82l4nKW7
               - **escalada**: Sidarta sds
+              - **ids**:
+                - wDvNsPJCeOAgeI
+                - 9qeAPt0Desc97z
+                - kBED2F82l4nKW7
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_deep_inside_p1.webp)
           - **largura_mapa**: 2364
           - **altura_mapa**: 1773
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: A
-              - **label**: A
+              - **id**: xlFMErTXpk64pH
+              - **uid**: xlFMErTXpk64pH
+              - **rotulo**: A
               - **circulo**:
                 - **x**: 375
                 - **y**: 610
                 - **raio**: 20
+              - **label**: A
             - **[1]**:
-              - **id**: B
-              - **label**: B
+              - **id**: jOBeXQSeQw4hVO
+              - **uid**: jOBeXQSeQw4hVO
+              - **rotulo**: B
               - **circulo**:
                 - **x**: 848
                 - **y**: 338
                 - **raio**: 20
+              - **label**: B
             - **[2]**:
-              - **id**: C
-              - **label**: C
+              - **id**: b2XBke5sUtmtcp
+              - **uid**: b2XBke5sUtmtcp
+              - **rotulo**: C
               - **circulo**:
                 - **x**: 1312
                 - **y**: 296
                 - **raio**: 20
+              - **label**: C
             - **[3]**:
-              - **id**: D
-              - **label**: D
+              - **id**: ToSzRWBaYguTDG
+              - **uid**: ToSzRWBaYguTDG
+              - **rotulo**: D
               - **circulo**:
                 - **x**: 1819
                 - **y**: 461
                 - **raio**: 20
+              - **label**: D
             - **[4]**:
-              - **id**: 1
-              - **label**: 1
+              - **id**: 53Mq12gooErVwi
+              - **uid**: 53Mq12gooErVwi
+              - **rotulo**: 1
               - **circulo**:
                 - **x**: 101
                 - **y**: 1171
                 - **raio**: 20
+              - **label**: 1
             - **[5]**:
-              - **id**: triangulo
-              - **label**: ▲
+              - **id**: VQD3nVXmEOLVl2
+              - **uid**: VQD3nVXmEOLVl2
+              - **rotulo**: ▲
               - **circulo**:
                 - **x**: 492
                 - **y**: 1038
                 - **raio**: 20
+              - **label**: ▲
             - **[6]**:
-              - **id**: estrela
-              - **label**: ★
+              - **id**: EB2OtdIX6KJXOy
+              - **uid**: EB2OtdIX6KJXOy
+              - **rotulo**: ★
               - **circulo**:
                 - **x**: 779
                 - **y**: 986
                 - **raio**: 20
+              - **label**: ★
             - **[7]**:
-              - **id**: 2
-              - **label**: 2
+              - **id**: 1ovcHLcB9Urd36
+              - **uid**: 1ovcHLcB9Urd36
+              - **rotulo**: 2
               - **circulo**:
                 - **x**: 712
                 - **y**: 1123
                 - **raio**: 20
+              - **label**: 2
             - **[8]**:
-              - **id**: 3
-              - **label**: 3
+              - **id**: PYPjgx756DQYV4
+              - **uid**: PYPjgx756DQYV4
+              - **rotulo**: 3
               - **circulo**:
                 - **x**: 712
                 - **y**: 1184
                 - **raio**: 20
+              - **label**: 3
             - **[9]**:
-              - **id**: 4
-              - **label**: 4
+              - **id**: QwkpCOXjTZ8hHT
+              - **uid**: QwkpCOXjTZ8hHT
+              - **rotulo**: 4
               - **circulo**:
                 - **x**: 994
                 - **y**: 1168
                 - **raio**: 20
+              - **label**: 4
             - **[10]**:
-              - **id**: 5
-              - **label**: 5
+              - **id**: 5P6KcY4BSM5dQh
+              - **uid**: 5P6KcY4BSM5dQh
+              - **rotulo**: 5
               - **circulo**:
                 - **x**: 1053
                 - **y**: 1130
                 - **raio**: 20
+              - **label**: 5
             - **[11]**:
-              - **id**: 6
-              - **label**: 6
+              - **id**: ZKVjICEphNar4W
+              - **uid**: ZKVjICEphNar4W
+              - **rotulo**: 6
               - **circulo**:
                 - **x**: 1147
                 - **y**: 908
                 - **raio**: 20
+              - **label**: 6
             - **[12]**:
-              - **id**: 7
-              - **label**: 7
+              - **id**: JeeqWM3Obcn5kg
+              - **uid**: JeeqWM3Obcn5kg
+              - **rotulo**: 7
               - **circulo**:
                 - **x**: 1803
                 - **y**: 1041
                 - **raio**: 20
+              - **label**: 7
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: lDuEB2wS2RjHMk
+              - **pontos_uids**:
+                - 53Mq12gooErVwi
+                - jOBeXQSeQw4hVO
               - **escalada**: Arestides
               - **ids**:
-                - 1
-                - B
+                - 53Mq12gooErVwi
+                - jOBeXQSeQw4hVO
             - **[1]**:
+              - **alvo_uid**: NAULSQ4PsWms9m
+              - **pontos_uids**:
+                - QwkpCOXjTZ8hHT
+                - b2XBke5sUtmtcp
               - **escalada**: Canindé
               - **ids**:
-                - 4
-                - C
+                - QwkpCOXjTZ8hHT
+                - b2XBke5sUtmtcp
             - **[2]**:
+              - **alvo_uid**: KvUmXUCcaoQ3HB
+              - **pontos_uids**:
+                - 5P6KcY4BSM5dQh
+                - b2XBke5sUtmtcp
               - **escalada**: Canindé de Cima
               - **ids**:
-                - 5
-                - C
+                - 5P6KcY4BSM5dQh
+                - b2XBke5sUtmtcp
             - **[3]**:
+              - **alvo_uid**: 7aXYfPXOfYbZlD
+              - **pontos_uids**:
+                - ZKVjICEphNar4W
+                - jOBeXQSeQw4hVO
               - **escalada**: Cara de Boi
               - **ids**:
-                - 6
-                - B
+                - ZKVjICEphNar4W
+                - jOBeXQSeQw4hVO
             - **[4]**:
+              - **alvo_uid**: 9ZrZS9IMzAx4eh
+              - **pontos_uids**:
+                - ZKVjICEphNar4W
+                - b2XBke5sUtmtcp
               - **escalada**: Cara de Vaca
               - **ids**:
-                - 6
-                - C
+                - ZKVjICEphNar4W
+                - b2XBke5sUtmtcp
             - **[5]**:
+              - **alvo_uid**: iLqxmcVYwx5Z0s
+              - **pontos_uids**:
+                - JeeqWM3Obcn5kg
+                - ToSzRWBaYguTDG
               - **escalada**: Promoção
               - **ids**:
-                - 7
-                - D
+                - JeeqWM3Obcn5kg
+                - ToSzRWBaYguTDG
             - **[6]**:
+              - **alvo_uid**: MMePvK3uJayXzs
+              - **pontos_uids**:
+                - JeeqWM3Obcn5kg
+                - xlFMErTXpk64pH
+                - VQD3nVXmEOLVl2
               - **escalada**: Invertides
               - **ids**:
-                - 7
-                - A
-                - triangulo
-              - **grupo**: Pedreira
-              - **setor**: Bloco: Deep Inside
+                - JeeqWM3Obcn5kg
+                - xlFMErTXpk64pH
+                - VQD3nVXmEOLVl2
             - **[7]**:
+              - **alvo_uid**: lLfjQkQHcLiZfC
+              - **pontos_uids**:
+                - 53Mq12gooErVwi
+                - VQD3nVXmEOLVl2
+                - ToSzRWBaYguTDG
               - **escalada**: Arestides ext
               - **ids**:
-                - 1
-                - triangulo
-                - D
-              - **grupo**: Pedreira
-              - **setor**: Bloco: Deep Inside
+                - 53Mq12gooErVwi
+                - VQD3nVXmEOLVl2
+                - ToSzRWBaYguTDG
             - **[8]**:
+              - **alvo_uid**: Ce83rF3gsozE5x
+              - **pontos_uids**:
+                - 1ovcHLcB9Urd36
+                - VQD3nVXmEOLVl2
+                - xlFMErTXpk64pH
               - **escalada**: Nataraja
               - **ids**:
-                - 2
-                - triangulo
-                - A
-              - **grupo**: Pedreira
-              - **setor**: Bloco: Deep Inside
+                - 1ovcHLcB9Urd36
+                - VQD3nVXmEOLVl2
+                - xlFMErTXpk64pH
             - **[9]**:
-              - **ids**:
-                - 2
-                - estrela
-                - B
-              - **grupo**: Pedreira
-              - **setor**: Bloco: Deep Inside
+              - **alvo_uid**: wcBf8JywEG1he3
+              - **pontos_uids**:
+                - 1ovcHLcB9Urd36
+                - EB2OtdIX6KJXOy
+                - jOBeXQSeQw4hVO
               - **escalada**: Sidarta
+              - **ids**:
+                - 1ovcHLcB9Urd36
+                - EB2OtdIX6KJXOy
+                - jOBeXQSeQw4hVO
             - **[10]**:
-              - **ids**:
-                - 3
-                - estrela
-                - B
-              - **grupo**: Pedreira
-              - **setor**: Bloco: Deep Inside
+              - **alvo_uid**: b9tTRBDOAJsjmf
+              - **pontos_uids**:
+                - PYPjgx756DQYV4
+                - EB2OtdIX6KJXOy
+                - jOBeXQSeQw4hVO
               - **escalada**: Sidarta sds
+              - **ids**:
+                - PYPjgx756DQYV4
+                - EB2OtdIX6KJXOy
+                - jOBeXQSeQw4hVO
             - **[11]**:
-              - **ids**:
-                - 4
-                - triangulo
-                - A
-              - **grupo**: Pedreira
-              - **setor**: Bloco: Deep Inside
+              - **alvo_uid**: LPYHM9ny9JBaki
+              - **pontos_uids**:
+                - QwkpCOXjTZ8hHT
+                - VQD3nVXmEOLVl2
+                - xlFMErTXpk64pH
               - **escalada**: Deep Inside ext
-            - **[12]**:
               - **ids**:
-                - 4
-                - estrela
-                - B
-              - **grupo**: Pedreira
-              - **setor**: Bloco: Deep Inside
+                - QwkpCOXjTZ8hHT
+                - VQD3nVXmEOLVl2
+                - xlFMErTXpk64pH
+            - **[12]**:
+              - **alvo_uid**: tV2bazjmpz5LqH
+              - **pontos_uids**:
+                - QwkpCOXjTZ8hHT
+                - EB2OtdIX6KJXOy
+                - jOBeXQSeQw4hVO
               - **escalada**: Deep Inside
+              - **ids**:
+                - QwkpCOXjTZ8hHT
+                - EB2OtdIX6KJXOy
+                - jOBeXQSeQw4hVO
         - **[2]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_deep_inside_p2.webp)
           - **largura_mapa**: 2364
           - **altura_mapa**: 1773
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 1
-              - **label**: 1
+              - **id**: ywZCNUzjAMbf2w
+              - **uid**: ywZCNUzjAMbf2w
+              - **rotulo**: 1
               - **circulo**:
                 - **x**: 768
                 - **y**: 1166
                 - **raio**: 21
+              - **label**: 1
             - **[1]**:
-              - **id**: 2
-              - **label**: 2
+              - **id**: NZ3TrxAlCw2ujq
+              - **uid**: NZ3TrxAlCw2ujq
+              - **rotulo**: 2
               - **circulo**:
                 - **x**: 918
                 - **y**: 1187
                 - **raio**: 20
+              - **label**: 2
             - **[2]**:
-              - **id**: 3
-              - **label**: 3
+              - **id**: ZvrZDSAMHSJzXn
+              - **uid**: ZvrZDSAMHSJzXn
+              - **rotulo**: 3
               - **circulo**:
                 - **x**: 1824
                 - **y**: 1118
                 - **raio**: 20
+              - **label**: 3
             - **[3]**:
-              - **id**: B
-              - **label**: B
+              - **id**: 7RPpe7NX7XTVQ7
+              - **uid**: 7RPpe7NX7XTVQ7
+              - **rotulo**: B
               - **circulo**:
                 - **x**: 833
                 - **y**: 395
                 - **raio**: 20
+              - **label**: B
             - **[4]**:
-              - **id**: A
-              - **label**: A
+              - **id**: bIkZCFC5LMZntc
+              - **uid**: bIkZCFC5LMZntc
+              - **rotulo**: A
               - **circulo**:
                 - **x**: 1054
                 - **y**: 245
                 - **raio**: 20
+              - **label**: A
             - **[5]**:
-              - **id**: C
-              - **label**: C
+              - **id**: A64hDEoZ1pBcmA
+              - **uid**: A64hDEoZ1pBcmA
+              - **rotulo**: C
               - **circulo**:
                 - **x**: 1275
                 - **y**: 149
                 - **raio**: 20
+              - **label**: C
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: hX5yA4UvUp9657
+              - **pontos_uids**:
+                - ywZCNUzjAMbf2w
+                - bIkZCFC5LMZntc
               - **escalada**: Promocinha
               - **ids**:
-                - 1
-                - A
+                - ywZCNUzjAMbf2w
+                - bIkZCFC5LMZntc
             - **[1]**:
+              - **alvo_uid**: fyczdQgCDp1h38
+              - **pontos_uids**:
+                - ZvrZDSAMHSJzXn
+                - A64hDEoZ1pBcmA
               - **escalada**: Bolinho de Chuva
               - **ids**:
-                - 3
-                - C
+                - ZvrZDSAMHSJzXn
+                - A64hDEoZ1pBcmA
             - **[2]**:
+              - **alvo_uid**: iLqxmcVYwx5Z0s
+              - **pontos_uids**:
+                - NZ3TrxAlCw2ujq
+                - 7RPpe7NX7XTVQ7
               - **escalada**: Promoção
               - **ids**:
-                - 2
-                - B
-              - **grupo**: Pedreira
-              - **setor**: Bloco: Deep Inside
+                - NZ3TrxAlCw2ujq
+                - 7RPpe7NX7XTVQ7
       - **escaladas**:
         - **[0]**:
+          - **uid**: uaoxlDFUBS5Zea
           - **boulder**:
             - **nome**: Buda
             - **dificuldade**: V3
         - **[1]**:
+          - **uid**: lDuEB2wS2RjHMk
           - **boulder**:
             - **nome**: Arestides
             - **dificuldade**: V5
         - **[2]**:
+          - **uid**: lLfjQkQHcLiZfC
           - **boulder**:
             - **nome**: Arestides ext
             - **dificuldade**: V7
         - **[3]**:
+          - **uid**: Ce83rF3gsozE5x
           - **boulder**:
             - **nome**: Nataraja
             - **dificuldade**: V6
         - **[4]**:
+          - **uid**: wcBf8JywEG1he3
           - **boulder**:
             - **nome**: Sidarta
             - **dificuldade**: V5
         - **[5]**:
+          - **uid**: b9tTRBDOAJsjmf
           - **boulder**:
             - **nome**: Sidarta sds
             - **dificuldade**: V9
         - **[6]**:
+          - **uid**: LPYHM9ny9JBaki
           - **boulder**:
             - **nome**: Deep Inside ext
             - **dificuldade**: V11
         - **[7]**:
+          - **uid**: tV2bazjmpz5LqH
           - **boulder**:
             - **nome**: Deep Inside
             - **dificuldade**: V10
         - **[8]**:
+          - **uid**: NAULSQ4PsWms9m
           - **boulder**:
             - **nome**: Canindé
             - **dificuldade**: V10
         - **[9]**:
+          - **uid**: KvUmXUCcaoQ3HB
           - **boulder**:
             - **nome**: Canindé de Cima
             - **dificuldade**: V9
         - **[10]**:
+          - **uid**: 7aXYfPXOfYbZlD
           - **boulder**:
             - **nome**: Cara de Boi
             - **dificuldade**: V2
         - **[11]**:
+          - **uid**: 9ZrZS9IMzAx4eh
           - **boulder**:
             - **nome**: Cara de Vaca
             - **dificuldade**: V1
         - **[12]**:
+          - **uid**: MMePvK3uJayXzs
           - **boulder**:
             - **nome**: Invertides
             - **dificuldade**: V8
         - **[13]**:
+          - **uid**: iLqxmcVYwx5Z0s
           - **boulder**:
             - **nome**: Promoção
             - **dificuldade**: V4
         - **[14]**:
+          - **uid**: hX5yA4UvUp9657
           - **boulder**:
             - **nome**: Promocinha
             - **dificuldade**: V7
         - **[15]**:
+          - **uid**: fyczdQgCDp1h38
           - **boulder**:
             - **nome**: Bolinho de Chuva
             - **dificuldade**: VB
@@ -1979,119 +2563,163 @@
     - **conteudo**:
       - **descricao**: 
       - **nome**: Bloco: Eléctron
+      - **uid**: Bk5xx6SIISCIDN
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_electron_p0_i0.webp)
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: gHvKFRncvebtA8
+              - **pontos_uids**:
+                - JEcg0TlzYLS6hQ
               - **escalada**: Quark
               - **ids**:
-                - 1
+                - JEcg0TlzYLS6hQ
           - **largura_mapa**: 2364
           - **altura_mapa**: 1773
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 1
-              - **label**: 1
+              - **id**: JEcg0TlzYLS6hQ
+              - **uid**: JEcg0TlzYLS6hQ
+              - **rotulo**: 1
               - **circulo**:
                 - **x**: 1189
                 - **y**: 1362
                 - **raio**: 19
+              - **label**: 1
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_electron_p1_i0.webp)
           - **largura_mapa**: 2364
           - **altura_mapa**: 1773
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 1
-              - **label**: 1
+              - **id**: Cvr0kSgNPU2kfX
+              - **uid**: Cvr0kSgNPU2kfX
+              - **rotulo**: 1
               - **circulo**:
                 - **x**: 45
                 - **y**: 859
                 - **raio**: 20
+              - **label**: 1
             - **[1]**:
-              - **id**: 2
-              - **label**: 2
+              - **id**: LO0KouBM7Ir89b
+              - **uid**: LO0KouBM7Ir89b
+              - **rotulo**: 2
               - **circulo**:
                 - **x**: 1662
                 - **y**: 1303
                 - **raio**: 20
+              - **label**: 2
             - **[2]**:
-              - **id**: 3
-              - **label**: 3
+              - **id**: breHek3NBflexP
+              - **uid**: breHek3NBflexP
+              - **rotulo**: 3
               - **circulo**:
                 - **x**: 2282
                 - **y**: 1269
                 - **raio**: 19
+              - **label**: 3
             - **[3]**:
-              - **id**: A
-              - **label**: A
+              - **id**: nVpdEssQmbvbpT
+              - **uid**: nVpdEssQmbvbpT
+              - **rotulo**: A
               - **circulo**:
                 - **x**: 79
                 - **y**: 135
                 - **raio**: 20
+              - **label**: A
             - **[4]**:
-              - **id**: B
-              - **label**: B
+              - **id**: vbdrUE35K5FP0o
+              - **uid**: vbdrUE35K5FP0o
+              - **rotulo**: B
               - **circulo**:
                 - **x**: 1409
                 - **y**: 260
                 - **raio**: 20
+              - **label**: B
             - **[5]**:
-              - **id**: C
-              - **label**: C
+              - **id**: uJph7WvwOoScA5
+              - **uid**: uJph7WvwOoScA5
+              - **rotulo**: C
               - **circulo**:
                 - **x**: 2117
                 - **y**: 249
                 - **raio**: 20
+              - **label**: C
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: NIhv58491m957W
+              - **pontos_uids**:
+                - Cvr0kSgNPU2kfX
+                - vbdrUE35K5FP0o
               - **escalada**: Neutron (1B)
               - **ids**:
-                - 1
-                - B
+                - Cvr0kSgNPU2kfX
+                - vbdrUE35K5FP0o
             - **[1]**:
+              - **alvo_uid**: CPYuI5Xd8SWruM
+              - **pontos_uids**:
+                - LO0KouBM7Ir89b
+                - vbdrUE35K5FP0o
               - **escalada**: Elétron
               - **ids**:
-                - 2
-                - B
+                - LO0KouBM7Ir89b
+                - vbdrUE35K5FP0o
             - **[2]**:
+              - **alvo_uid**: gqzuvn3r5t0wKr
+              - **pontos_uids**:
+                - breHek3NBflexP
+                - nVpdEssQmbvbpT
               - **escalada**: Via Láctea
               - **ids**:
-                - 3
-                - A
+                - breHek3NBflexP
+                - nVpdEssQmbvbpT
             - **[3]**:
+              - **alvo_uid**: VnqQXs2KepPNhp
+              - **pontos_uids**:
+                - breHek3NBflexP
+                - vbdrUE35K5FP0o
               - **escalada**: Neutron (3B)
               - **ids**:
-                - 3
-                - B
+                - breHek3NBflexP
+                - vbdrUE35K5FP0o
             - **[4]**:
+              - **alvo_uid**: 6vpYejKdifv575
+              - **pontos_uids**:
+                - breHek3NBflexP
+                - uJph7WvwOoScA5
               - **escalada**: Positron
               - **ids**:
-                - 3
-                - C
+                - breHek3NBflexP
+                - uJph7WvwOoScA5
       - **escaladas**:
         - **[0]**:
+          - **uid**: gHvKFRncvebtA8
           - **boulder**:
             - **nome**: Quark
             - **dificuldade**: V1
         - **[1]**:
+          - **uid**: NIhv58491m957W
           - **boulder**:
             - **nome**: Neutron (1B)
             - **dificuldade**: V3_BARRA_V4
         - **[2]**:
+          - **uid**: CPYuI5Xd8SWruM
           - **boulder**:
             - **nome**: Elétron
             - **dificuldade**: V3
         - **[3]**:
+          - **uid**: gqzuvn3r5t0wKr
           - **boulder**:
             - **nome**: Via Láctea
             - **dificuldade**: V6
         - **[4]**:
+          - **uid**: VnqQXs2KepPNhp
           - **boulder**:
             - **nome**: Neutron (3B)
             - **dificuldade**: V4
         - **[5]**:
+          - **uid**: 6vpYejKdifv575
           - **boulder**:
             - **nome**: Positron
             - **dificuldade**: V3
@@ -2102,6 +2730,7 @@
     - **conteudo**:
       - **descricao**: 
       - **nome**: Bloco: Entretidos
+      - **uid**: VIh2SjBR5kXfig
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_entretidos_p0.webp)
@@ -2109,188 +2738,254 @@
           - **altura_mapa**: 1773
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 1
-              - **label**: 1
+              - **id**: 39lUJlHU7sR3wa
+              - **uid**: 39lUJlHU7sR3wa
+              - **rotulo**: 1
               - **circulo**:
                 - **x**: 1057
                 - **y**: 1072
                 - **raio**: 19
+              - **label**: 1
             - **[1]**:
-              - **id**: 2
-              - **label**: 2
+              - **id**: PLuHqrmtd03XdR
+              - **uid**: PLuHqrmtd03XdR
+              - **rotulo**: 2
               - **circulo**:
                 - **x**: 1757
                 - **y**: 1182
                 - **raio**: 19
+              - **label**: 2
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: EMYCxTJIBZ3Dcm
+              - **pontos_uids**:
+                - 39lUJlHU7sR3wa
               - **escalada**: Ianque
               - **ids**:
-                - 1
+                - 39lUJlHU7sR3wa
             - **[1]**:
+              - **alvo_uid**: 2kxPUtC29eHaJA
+              - **pontos_uids**:
+                - PLuHqrmtd03XdR
               - **escalada**: Apache
               - **ids**:
-                - 2
+                - PLuHqrmtd03XdR
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_entretidos_p1.webp)
           - **largura_mapa**: 2364
           - **altura_mapa**: 1773
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 1
-              - **label**: 1
+              - **id**: ACPjpKarku7aHC
+              - **uid**: ACPjpKarku7aHC
+              - **rotulo**: 1
               - **circulo**:
                 - **x**: 1656
                 - **y**: 897
                 - **raio**: 20
+              - **label**: 1
             - **[1]**:
-              - **id**: 2
-              - **label**: 2
+              - **id**: Nltu8rDBw5Kcqa
+              - **uid**: Nltu8rDBw5Kcqa
+              - **rotulo**: 2
               - **circulo**:
                 - **x**: 707
                 - **y**: 1058
                 - **raio**: 20
+              - **label**: 2
             - **[2]**:
-              - **id**: 3
-              - **label**: 3
+              - **id**: m7OcsDLQklwypG
+              - **uid**: m7OcsDLQklwypG
+              - **rotulo**: 3
               - **circulo**:
                 - **x**: 227
                 - **y**: 1107
                 - **raio**: 20
+              - **label**: 3
             - **[3]**:
-              - **id**: 4
-              - **label**: 4
+              - **id**: iOjpKIWu3x1TUX
+              - **uid**: iOjpKIWu3x1TUX
+              - **rotulo**: 4
               - **circulo**:
                 - **x**: 1069
                 - **y**: 1088
                 - **raio**: 20
+              - **label**: 4
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: csDenJwys8oNNJ
+              - **pontos_uids**:
+                - ACPjpKarku7aHC
               - **escalada**: Garoto Andrada
               - **ids**:
-                - 1
+                - ACPjpKarku7aHC
             - **[1]**:
+              - **alvo_uid**: a1W8x1I01gqufA
+              - **pontos_uids**:
+                - Nltu8rDBw5Kcqa
               - **escalada**: Embalados pelo Vovô
               - **ids**:
-                - 2
+                - Nltu8rDBw5Kcqa
             - **[2]**:
+              - **alvo_uid**: Nne9Tms4ucGSnA
+              - **pontos_uids**:
+                - m7OcsDLQklwypG
               - **escalada**: Pressão no Vovô
               - **ids**:
-                - 3
+                - m7OcsDLQklwypG
             - **[3]**:
+              - **alvo_uid**: X5ZoRmpf7l6tC1
+              - **pontos_uids**:
+                - iOjpKIWu3x1TUX
               - **escalada**: Pressão dos Barbosa
               - **ids**:
-                - 4
+                - iOjpKIWu3x1TUX
         - **[2]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_entretidos_p2.webp)
           - **largura_mapa**: 2364
           - **altura_mapa**: 1773
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 1
-              - **label**: 1
+              - **id**: I2rNmRFCFaXfDK
+              - **uid**: I2rNmRFCFaXfDK
+              - **rotulo**: 1
               - **circulo**:
                 - **x**: 285
                 - **y**: 1528
                 - **raio**: 20
+              - **label**: 1
             - **[1]**:
-              - **id**: 2
-              - **label**: 2
+              - **id**: zJ3sCmLDl7XTU4
+              - **uid**: zJ3sCmLDl7XTU4
+              - **rotulo**: 2
               - **circulo**:
                 - **x**: 1316
                 - **y**: 1221
                 - **raio**: 20
+              - **label**: 2
             - **[2]**:
-              - **id**: 3
-              - **label**: 3
+              - **id**: PkkAORmT1upJ2g
+              - **uid**: PkkAORmT1upJ2g
+              - **rotulo**: 3
               - **circulo**:
                 - **x**: 771
                 - **y**: 1412
                 - **raio**: 20
+              - **label**: 3
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: E03QJWrmRinejt
+              - **pontos_uids**:
+                - I2rNmRFCFaXfDK
               - **escalada**: Helicoidal
               - **ids**:
-                - 1
+                - I2rNmRFCFaXfDK
             - **[1]**:
+              - **alvo_uid**: gJEMTZzrKCDDfx
+              - **pontos_uids**:
+                - zJ3sCmLDl7XTU4
               - **escalada**: Em Busca do Equilíbrio
               - **ids**:
-                - 2
+                - zJ3sCmLDl7XTU4
             - **[2]**:
+              - **alvo_uid**: EA4GOV9uKTroHC
+              - **pontos_uids**:
+                - PkkAORmT1upJ2g
               - **escalada**: Em Busca do Equilíbrio sds
               - **ids**:
-                - 3
+                - PkkAORmT1upJ2g
         - **[3]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_entretidos_p3.webp)
           - **largura_mapa**: 2364
           - **altura_mapa**: 1773
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 1
-              - **label**: 1
+              - **id**: 6pD8Lc3FeIsVz3
+              - **uid**: 6pD8Lc3FeIsVz3
+              - **rotulo**: 1
               - **circulo**:
                 - **x**: 534
                 - **y**: 1417
                 - **raio**: 20
+              - **label**: 1
             - **[1]**:
-              - **id**: 2
-              - **label**: 2
+              - **id**: ntkCvicPvDVCTm
+              - **uid**: ntkCvicPvDVCTm
+              - **rotulo**: 2
               - **circulo**:
                 - **x**: 1149
                 - **y**: 1334
                 - **raio**: 20
+              - **label**: 2
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: WS60IlFHjOIn2r
+              - **pontos_uids**:
+                - 6pD8Lc3FeIsVz3
               - **escalada**: Brígida
               - **ids**:
-                - 1
+                - 6pD8Lc3FeIsVz3
             - **[1]**:
+              - **alvo_uid**: 8uyw8VCTXje3Ix
+              - **pontos_uids**:
+                - ntkCvicPvDVCTm
               - **escalada**: Carranca
               - **ids**:
-                - 2
+                - ntkCvicPvDVCTm
       - **escaladas**:
         - **[0]**:
+          - **uid**: EMYCxTJIBZ3Dcm
           - **boulder**:
             - **nome**: Ianque
             - **dificuldade**: V2
         - **[1]**:
+          - **uid**: 2kxPUtC29eHaJA
           - **boulder**:
             - **nome**: Apache
             - **dificuldade**: V2
         - **[2]**:
+          - **uid**: csDenJwys8oNNJ
           - **boulder**:
             - **nome**: Garoto Andrada
             - **dificuldade**: V3
         - **[3]**:
+          - **uid**: a1W8x1I01gqufA
           - **boulder**:
             - **nome**: Embalados pelo Vovô
             - **dificuldade**: V7
         - **[4]**:
+          - **uid**: Nne9Tms4ucGSnA
           - **boulder**:
             - **nome**: Pressão no Vovô
             - **dificuldade**: V9
         - **[5]**:
+          - **uid**: X5ZoRmpf7l6tC1
           - **boulder**:
             - **nome**: Pressão dos Barbosa
             - **dificuldade**: V6_BARRA_V7
         - **[6]**:
+          - **uid**: E03QJWrmRinejt
           - **boulder**:
             - **nome**: Helicoidal
             - **dificuldade**: V6
         - **[7]**:
+          - **uid**: gJEMTZzrKCDDfx
           - **boulder**:
             - **nome**: Em Busca do Equilíbrio
             - **dificuldade**: V7
         - **[8]**:
+          - **uid**: EA4GOV9uKTroHC
           - **boulder**:
             - **descricao**: (sai nas agarras do Pressão no Vovô)
             - **nome**: Em Busca do Equilíbrio sds
             - **dificuldade**: V10
         - **[9]**:
+          - **uid**: WS60IlFHjOIn2r
           - **boulder**:
             - **nome**: Brígida
             - **dificuldade**: V6
         - **[10]**:
+          - **uid**: 8uyw8VCTXje3Ix
           - **boulder**:
             - **nome**: Carranca
             - **dificuldade**: V3
@@ -2301,6 +2996,7 @@
     - **conteudo**:
       - **descricao**: 
       - **nome**: Bloco: Fiat Lux
+      - **uid**: K4x0wtbQQInu43
       - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/grupo_pedreira_setor_bloco_fiat_lux_p1_i0.webp)
       - **mapas**:
         - **[0]**:
@@ -2309,34 +3005,46 @@
           - **altura_mapa**: 1773
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 1
-              - **label**: 1
+              - **id**: ZtlztjFHUSR0I6
+              - **uid**: ZtlztjFHUSR0I6
+              - **rotulo**: 1
               - **circulo**:
                 - **x**: 1368
                 - **y**: 1229
                 - **raio**: 20
+              - **label**: 1
             - **[1]**:
-              - **id**: 2
-              - **label**: 2
+              - **id**: 8iaYwxrPe6gFfZ
+              - **uid**: 8iaYwxrPe6gFfZ
+              - **rotulo**: 2
               - **circulo**:
                 - **x**: 1176
                 - **y**: 1229
                 - **raio**: 20
+              - **label**: 2
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: d2MdU7pd0M9cDH
+              - **pontos_uids**:
+                - ZtlztjFHUSR0I6
               - **escalada**: Fiat Lux
               - **ids**:
-                - 1
+                - ZtlztjFHUSR0I6
             - **[1]**:
+              - **alvo_uid**: TOSIZMjDkvkpys
+              - **pontos_uids**:
+                - 8iaYwxrPe6gFfZ
               - **escalada**: Frita Crux
               - **ids**:
-                - 2
+                - 8iaYwxrPe6gFfZ
       - **escaladas**:
         - **[0]**:
+          - **uid**: d2MdU7pd0M9cDH
           - **boulder**:
             - **nome**: Fiat Lux
             - **dificuldade**: V11
         - **[1]**:
+          - **uid**: TOSIZMjDkvkpys
           - **boulder**:
             - **descricao**: (vira pela aresta atrás do bloco)
             - **nome**: Frita Crux
@@ -2348,6 +3056,7 @@
     - **conteudo**:
       - **descricao**: 
       - **nome**: Bloco: Hora da Janta
+      - **uid**: 6uiUlaIemsIKR1
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_hora_da_janta_p0.webp)
@@ -2355,173 +3064,238 @@
           - **altura_mapa**: 1773
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 1
-              - **label**: 1
+              - **id**: YLTfGQI7Qkqb4M
+              - **uid**: YLTfGQI7Qkqb4M
+              - **rotulo**: 1
               - **circulo**:
                 - **x**: 615
                 - **y**: 1572
                 - **raio**: 20
+              - **label**: 1
             - **[1]**:
-              - **id**: 2
-              - **label**: 2
+              - **id**: rJ6Zfp3CRbr3yU
+              - **uid**: rJ6Zfp3CRbr3yU
+              - **rotulo**: 2
               - **circulo**:
                 - **x**: 761
                 - **y**: 1608
                 - **raio**: 20
+              - **label**: 2
             - **[2]**:
-              - **id**: 3
-              - **label**: 3
+              - **id**: lzB8EfV1b2OrDn
+              - **uid**: lzB8EfV1b2OrDn
+              - **rotulo**: 3
               - **circulo**:
                 - **x**: 1126
                 - **y**: 1137
                 - **raio**: 20
+              - **label**: 3
             - **[3]**:
-              - **id**: 4
-              - **label**: 4
+              - **id**: JZMao3vRHQRQkJ
+              - **uid**: JZMao3vRHQRQkJ
+              - **rotulo**: 4
               - **circulo**:
                 - **x**: 1550
                 - **y**: 1176
                 - **raio**: 20
+              - **label**: 4
             - **[4]**:
-              - **id**: 5
-              - **label**: 5
+              - **id**: zgeF9PoXW5vl0F
+              - **uid**: zgeF9PoXW5vl0F
+              - **rotulo**: 5
               - **circulo**:
                 - **x**: 2013
                 - **y**: 1319
                 - **raio**: 20
+              - **label**: 5
             - **[5]**:
-              - **id**: A
-              - **label**: A
+              - **id**: ydlXB5oCxATwQi
+              - **uid**: ydlXB5oCxATwQi
+              - **rotulo**: A
               - **circulo**:
                 - **x**: 434
                 - **y**: 674
                 - **raio**: 20
+              - **label**: A
             - **[6]**:
-              - **id**: B
-              - **label**: B
+              - **id**: 0lNRqPUxsGEhW6
+              - **uid**: 0lNRqPUxsGEhW6
+              - **rotulo**: B
               - **circulo**:
                 - **x**: 665
                 - **y**: 416
                 - **raio**: 20
+              - **label**: B
             - **[7]**:
-              - **id**: C
-              - **label**: C
+              - **id**: s1Zi11DFPVQlNq
+              - **uid**: s1Zi11DFPVQlNq
+              - **rotulo**: C
               - **circulo**:
                 - **x**: 1184
                 - **y**: 34
                 - **raio**: 20
+              - **label**: C
             - **[8]**:
-              - **id**: D
-              - **label**: D
+              - **id**: jfRYS2Kwk4vNj2
+              - **uid**: jfRYS2Kwk4vNj2
+              - **rotulo**: D
               - **circulo**:
                 - **x**: 1367
                 - **y**: 63
                 - **raio**: 20
+              - **label**: D
             - **[9]**:
-              - **id**: E
-              - **label**: E
+              - **id**: KzfA2400IY8UbN
+              - **uid**: KzfA2400IY8UbN
+              - **rotulo**: E
               - **circulo**:
                 - **x**: 1744
                 - **y**: 207
                 - **raio**: 20
+              - **label**: E
             - **[10]**:
-              - **id**: triangulo
-              - **label**: ▲
+              - **id**: 4pzNYYvQdMo7Fo
+              - **uid**: 4pzNYYvQdMo7Fo
+              - **rotulo**: ▲
               - **circulo**:
                 - **x**: 934
                 - **y**: 564
                 - **raio**: 20
+              - **label**: ▲
             - **[11]**:
-              - **id**: estrela
-              - **label**: ★
+              - **id**: OlQvBaO28LXWXz
+              - **uid**: OlQvBaO28LXWXz
+              - **rotulo**: ★
               - **circulo**:
                 - **x**: 1070
                 - **y**: 816
                 - **raio**: 20
+              - **label**: ★
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: sDTRBZzDBx3lzU
+              - **pontos_uids**:
+                - YLTfGQI7Qkqb4M
               - **escalada**: Aranha
               - **ids**:
-                - 1
+                - YLTfGQI7Qkqb4M
             - **[1]**:
+              - **alvo_uid**: XrhgFQQmFGdybF
+              - **pontos_uids**:
+                - rJ6Zfp3CRbr3yU
+                - ydlXB5oCxATwQi
               - **escalada**: Desafio do Superman
               - **ids**:
-                - 2
-                - A
+                - rJ6Zfp3CRbr3yU
+                - ydlXB5oCxATwQi
             - **[2]**:
+              - **alvo_uid**: fGrYJX9EEXbNLo
+              - **pontos_uids**:
+                - rJ6Zfp3CRbr3yU
+                - 0lNRqPUxsGEhW6
               - **escalada**: Hora da Janta
               - **ids**:
-                - 2
-                - B
+                - rJ6Zfp3CRbr3yU
+                - 0lNRqPUxsGEhW6
             - **[3]**:
+              - **alvo_uid**: 1JeWCcc9HDwdv0
+              - **pontos_uids**:
+                - lzB8EfV1b2OrDn
+                - s1Zi11DFPVQlNq
               - **escalada**: Voo do Superman
               - **ids**:
-                - 3
-                - C
+                - lzB8EfV1b2OrDn
+                - s1Zi11DFPVQlNq
             - **[4]**:
+              - **alvo_uid**: 5F6p52OuZfk2mN
+              - **pontos_uids**:
+                - JZMao3vRHQRQkJ
+                - jfRYS2Kwk4vNj2
               - **escalada**: Conha Conha
               - **ids**:
-                - 4
-                - D
+                - JZMao3vRHQRQkJ
+                - jfRYS2Kwk4vNj2
             - **[5]**:
+              - **alvo_uid**: 0G6532coufGEbT
+              - **pontos_uids**:
+                - JZMao3vRHQRQkJ
+                - KzfA2400IY8UbN
               - **escalada**: Maconhaque
               - **ids**:
-                - 4
-                - E
+                - JZMao3vRHQRQkJ
+                - KzfA2400IY8UbN
             - **[6]**:
+              - **alvo_uid**: izhJxu0CahN83O
+              - **pontos_uids**:
+                - zgeF9PoXW5vl0F
               - **escalada**: Tapa na Pantera
               - **ids**:
-                - 5
+                - zgeF9PoXW5vl0F
             - **[7]**:
-              - **ids**:
-                - 2
-                - C
-                - triangulo
-              - **grupo**: Pedreira
-              - **setor**: Bloco: Hora da Janta
+              - **alvo_uid**: jMwSTQe0owro27
+              - **pontos_uids**:
+                - rJ6Zfp3CRbr3yU
+                - s1Zi11DFPVQlNq
+                - 4pzNYYvQdMo7Fo
               - **escalada**: Larica
-            - **[8]**:
               - **ids**:
-                - 2
-                - estrela
-                - C
-              - **grupo**: Pedreira
-              - **setor**: Bloco: Hora da Janta
+                - rJ6Zfp3CRbr3yU
+                - s1Zi11DFPVQlNq
+                - 4pzNYYvQdMo7Fo
+            - **[8]**:
+              - **alvo_uid**: jO40B9uBHKOWTE
+              - **pontos_uids**:
+                - rJ6Zfp3CRbr3yU
+                - OlQvBaO28LXWXz
+                - s1Zi11DFPVQlNq
               - **escalada**: Sobremesa
+              - **ids**:
+                - rJ6Zfp3CRbr3yU
+                - OlQvBaO28LXWXz
+                - s1Zi11DFPVQlNq
       - **escaladas**:
         - **[0]**:
+          - **uid**: sDTRBZzDBx3lzU
           - **boulder**:
             - **nome**: Aranha
             - **dificuldade**: V2
         - **[1]**:
+          - **uid**: XrhgFQQmFGdybF
           - **boulder**:
             - **nome**: Desafio do Superman
             - **dificuldade**: V3
         - **[2]**:
+          - **uid**: fGrYJX9EEXbNLo
           - **boulder**:
             - **nome**: Hora da Janta
             - **dificuldade**: V3
         - **[3]**:
+          - **uid**: jMwSTQe0owro27
           - **boulder**:
             - **nome**: Larica
             - **dificuldade**: V3
         - **[4]**:
+          - **uid**: jO40B9uBHKOWTE
           - **boulder**:
             - **nome**: Sobremesa
             - **dificuldade**: V6
         - **[5]**:
+          - **uid**: 1JeWCcc9HDwdv0
           - **boulder**:
             - **nome**: Voo do Superman
             - **dificuldade**: INDEFINIDO
         - **[6]**:
+          - **uid**: 5F6p52OuZfk2mN
           - **boulder**:
             - **nome**: Conha Conha
             - **dificuldade**: V5
         - **[7]**:
+          - **uid**: 0G6532coufGEbT
           - **boulder**:
             - **nome**: Maconhaque
             - **dificuldade**: V5
         - **[8]**:
+          - **uid**: izhJxu0CahN83O
           - **boulder**:
             - **nome**: Tapa na Pantera
             - **dificuldade**: V1
@@ -2532,6 +3306,7 @@
     - **conteudo**:
       - **descricao**: 
       - **nome**: Bloco: Jah
+      - **uid**: TcyDbEuEYt75wU
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_jah_p0.webp)
@@ -2539,59 +3314,82 @@
           - **altura_mapa**: 1773
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: A
-              - **label**: A
+              - **id**: l5unQSdbtoFCxY
+              - **uid**: l5unQSdbtoFCxY
+              - **rotulo**: A
               - **circulo**:
                 - **x**: 867
                 - **y**: 505
                 - **raio**: 19
+              - **label**: A
             - **[1]**:
-              - **id**: B
-              - **label**: B
+              - **id**: sUoGw8vse74wnU
+              - **uid**: sUoGw8vse74wnU
+              - **rotulo**: B
               - **circulo**:
                 - **x**: 1520
                 - **y**: 466
                 - **raio**: 19
+              - **label**: B
             - **[2]**:
-              - **id**: 1
-              - **label**: 1
+              - **id**: bdaDWJtpL5dZql
+              - **uid**: bdaDWJtpL5dZql
+              - **rotulo**: 1
               - **circulo**:
                 - **x**: 971
                 - **y**: 1135
                 - **raio**: 19
+              - **label**: 1
             - **[3]**:
-              - **id**: 2
-              - **label**: 2
+              - **id**: mJBXh2RnVwYTLd
+              - **uid**: mJBXh2RnVwYTLd
+              - **rotulo**: 2
               - **circulo**:
                 - **x**: 1606
                 - **y**: 1169
                 - **raio**: 19
+              - **label**: 2
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: v8W8ZGULrJ3MdC
+              - **pontos_uids**:
+                - bdaDWJtpL5dZql
+                - l5unQSdbtoFCxY
               - **escalada**: De Jah
               - **ids**:
-                - 1
-                - A
+                - bdaDWJtpL5dZql
+                - l5unQSdbtoFCxY
             - **[1]**:
+              - **alvo_uid**: RHyFAxkoGkGerf
+              - **pontos_uids**:
+                - bdaDWJtpL5dZql
+                - sUoGw8vse74wnU
               - **escalada**: Jah
               - **ids**:
-                - 1
-                - B
+                - bdaDWJtpL5dZql
+                - sUoGw8vse74wnU
             - **[2]**:
+              - **alvo_uid**: tByES8ctww3gO6
+              - **pontos_uids**:
+                - mJBXh2RnVwYTLd
+                - sUoGw8vse74wnU
               - **escalada**: Invertido
               - **ids**:
-                - 2
-                - B
+                - mJBXh2RnVwYTLd
+                - sUoGw8vse74wnU
       - **escaladas**:
         - **[0]**:
+          - **uid**: v8W8ZGULrJ3MdC
           - **boulder**:
             - **nome**: De Jah
             - **dificuldade**: V0_BARRA_V1
         - **[1]**:
+          - **uid**: RHyFAxkoGkGerf
           - **boulder**:
             - **nome**: Jah
             - **dificuldade**: V1
         - **[2]**:
+          - **uid**: tByES8ctww3gO6
           - **boulder**:
             - **nome**: Invertido
             - **dificuldade**: V2
@@ -2602,6 +3400,7 @@
     - **conteudo**:
       - **descricao**: 
       - **nome**: Bloco: João de Barro
+      - **uid**: jBNPDMi5TIeAZ7
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_joao_de_barro_p0.webp)
@@ -2609,180 +3408,238 @@
           - **altura_mapa**: 1773
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: A
-              - **label**: A
+              - **id**: tWo2Kyb1dgzQhR
+              - **uid**: tWo2Kyb1dgzQhR
+              - **rotulo**: A
               - **circulo**:
                 - **x**: 126
                 - **y**: 386
                 - **raio**: 20
+              - **label**: A
             - **[1]**:
-              - **id**: B
-              - **label**: B
+              - **id**: dfmAYZEaoSOrUq
+              - **uid**: dfmAYZEaoSOrUq
+              - **rotulo**: B
               - **circulo**:
                 - **x**: 1077
                 - **y**: 399
                 - **raio**: 20
+              - **label**: B
             - **[2]**:
-              - **id**: 1
-              - **label**: 1
+              - **id**: lrSj6rAgjtyzyi
+              - **uid**: lrSj6rAgjtyzyi
+              - **rotulo**: 1
               - **circulo**:
                 - **x**: 1839
                 - **y**: 1551
                 - **raio**: 20
+              - **label**: 1
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: 2QpNcYMCJMesi8
+              - **pontos_uids**:
+                - lrSj6rAgjtyzyi
+                - tWo2Kyb1dgzQhR
               - **escalada**: Porra Nenhuma
               - **ids**:
-                - 1
-                - A
+                - lrSj6rAgjtyzyi
+                - tWo2Kyb1dgzQhR
             - **[1]**:
+              - **alvo_uid**: 2ZGgy4eB8GX5nM
+              - **pontos_uids**:
+                - lrSj6rAgjtyzyi
+                - dfmAYZEaoSOrUq
               - **escalada**: Ringue
               - **ids**:
-                - 1
-                - B
+                - lrSj6rAgjtyzyi
+                - dfmAYZEaoSOrUq
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_joao_de_barro_p1.webp)
           - **largura_mapa**: 2364
           - **altura_mapa**: 1773
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 1
-              - **label**: 1
+              - **id**: QlviXaanU9YpHg
+              - **uid**: QlviXaanU9YpHg
+              - **rotulo**: 1
               - **circulo**:
                 - **x**: 1946
                 - **y**: 1385
                 - **raio**: 19
+              - **label**: 1
             - **[1]**:
-              - **id**: C
-              - **label**: C
+              - **id**: rJoIGrtmJ7b5mo
+              - **uid**: rJoIGrtmJ7b5mo
+              - **rotulo**: C
               - **circulo**:
                 - **x**: 566
                 - **y**: 122
                 - **raio**: 19
+              - **label**: C
             - **[2]**:
-              - **id**: 2
-              - **label**: 2
+              - **id**: 0pZGt5nTYH3AqX
+              - **uid**: 0pZGt5nTYH3AqX
+              - **rotulo**: 2
               - **circulo**:
                 - **x**: 813
                 - **y**: 953
                 - **raio**: 19
+              - **label**: 2
             - **[3]**:
-              - **id**: B
-              - **label**: B
+              - **id**: mUD9Cdnf8ZlRSU
+              - **uid**: mUD9Cdnf8ZlRSU
+              - **rotulo**: B
               - **circulo**:
                 - **x**: 390
                 - **y**: 995
                 - **raio**: 19
+              - **label**: B
             - **[4]**:
-              - **id**: A
-              - **label**: A
+              - **id**: XZShii47pzhark
+              - **uid**: XZShii47pzhark
+              - **rotulo**: A
               - **circulo**:
                 - **x**: 262
                 - **y**: 911
                 - **raio**: 20
+              - **label**: A
           - **referencias**:
             - **[0]**:
-              - **ids**:
-                - 1
-                - A
-              - **grupo**: Pedreira
-              - **setor**: Bloco: João de Barro
+              - **alvo_uid**: b9LBwPakqj50iA
+              - **pontos_uids**:
+                - QlviXaanU9YpHg
+                - XZShii47pzhark
               - **escalada**: Arco Magmático
+              - **ids**:
+                - QlviXaanU9YpHg
+                - XZShii47pzhark
             - **[1]**:
-              - **ids**:
-                - 1
-                - B
-              - **grupo**: Pedreira
-              - **setor**: Bloco: João de Barro
+              - **alvo_uid**: 5FIzj8lwV78ECf
+              - **pontos_uids**:
+                - QlviXaanU9YpHg
+                - mUD9Cdnf8ZlRSU
               - **escalada**: Du Mussula
-            - **[2]**:
               - **ids**:
-                - 2
-                - C
-              - **grupo**: Pedreira
-              - **setor**: Bloco: João de Barro
+                - QlviXaanU9YpHg
+                - mUD9Cdnf8ZlRSU
+            - **[2]**:
+              - **alvo_uid**: rrZkI3jLZwWJF6
+              - **pontos_uids**:
+                - 0pZGt5nTYH3AqX
+                - rJoIGrtmJ7b5mo
               - **escalada**: No Montê
+              - **ids**:
+                - 0pZGt5nTYH3AqX
+                - rJoIGrtmJ7b5mo
         - **[2]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_joao_de_barro_p2.webp)
           - **largura_mapa**: 2364
           - **altura_mapa**: 1773
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 1
-              - **label**: 1
+              - **id**: UVFd3gPhPLV9Il
+              - **uid**: UVFd3gPhPLV9Il
+              - **rotulo**: 1
               - **circulo**:
                 - **x**: 694
                 - **y**: 1324
                 - **raio**: 20
+              - **label**: 1
             - **[1]**:
-              - **id**: 2
-              - **label**: 2
+              - **id**: HmncabzPnN3ixA
+              - **uid**: HmncabzPnN3ixA
+              - **rotulo**: 2
               - **circulo**:
                 - **x**: 755
                 - **y**: 1324
                 - **raio**: 20
+              - **label**: 2
             - **[2]**:
-              - **id**: A
-              - **label**: A
+              - **id**: SMiRAVxNehVUqg
+              - **uid**: SMiRAVxNehVUqg
+              - **rotulo**: A
               - **circulo**:
                 - **x**: 948
                 - **y**: 191
                 - **raio**: 20
+              - **label**: A
             - **[3]**:
-              - **id**: B
-              - **label**: B
+              - **id**: hb4HpEK99HPDZ4
+              - **uid**: hb4HpEK99HPDZ4
+              - **rotulo**: B
               - **circulo**:
                 - **x**: 2033
                 - **y**: 146
                 - **raio**: 20
+              - **label**: B
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: CLN82VCJpSeHYS
+              - **pontos_uids**:
+                - UVFd3gPhPLV9Il
+                - SMiRAVxNehVUqg
               - **escalada**: Bola 7
               - **ids**:
-                - 1
-                - A
+                - UVFd3gPhPLV9Il
+                - SMiRAVxNehVUqg
             - **[1]**:
+              - **alvo_uid**: HGCiVhUrmPSq1q
+              - **pontos_uids**:
+                - HmncabzPnN3ixA
+                - SMiRAVxNehVUqg
               - **escalada**: Morcegão
               - **ids**:
-                - 2
-                - A
+                - HmncabzPnN3ixA
+                - SMiRAVxNehVUqg
             - **[2]**:
+              - **alvo_uid**: PnJVzpiFxKdlAU
+              - **pontos_uids**:
+                - HmncabzPnN3ixA
+                - hb4HpEK99HPDZ4
               - **escalada**: João de Barro
               - **ids**:
-                - 2
-                - B
+                - HmncabzPnN3ixA
+                - hb4HpEK99HPDZ4
       - **escaladas**:
         - **[0]**:
+          - **uid**: 2QpNcYMCJMesi8
           - **boulder**:
             - **nome**: Porra Nenhuma
             - **dificuldade**: V4
         - **[1]**:
+          - **uid**: 2ZGgy4eB8GX5nM
           - **boulder**:
             - **nome**: Ringue
             - **dificuldade**: V3
         - **[2]**:
+          - **uid**: b9LBwPakqj50iA
           - **boulder**:
             - **descricao**: (saída pelo Morcegão)
             - **nome**: Arco Magmático
             - **dificuldade**: V8
         - **[3]**:
+          - **uid**: 5FIzj8lwV78ECf
           - **boulder**:
             - **descricao**: (saída pelo Bola 7)
             - **nome**: Du Mussula
             - **dificuldade**: V10
         - **[4]**:
+          - **uid**: rrZkI3jLZwWJF6
           - **boulder**:
             - **nome**: No Montê
             - **dificuldade**: V6
         - **[5]**:
+          - **uid**: CLN82VCJpSeHYS
           - **boulder**:
             - **nome**: Bola 7
             - **dificuldade**: V4
         - **[6]**:
+          - **uid**: HGCiVhUrmPSq1q
           - **boulder**:
             - **nome**: Morcegão
             - **dificuldade**: V5
         - **[7]**:
+          - **uid**: PnJVzpiFxKdlAU
           - **boulder**:
             - **nome**: João de Barro
             - **dificuldade**: V4
@@ -2796,6 +3653,7 @@
           | :--: |
           | *Escalada 2* |
       - **nome**: Bloco: Lagartixa
+      - **uid**: OtOutua1Xh2AuI
       - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/grupo_pedreira_setor_bloco_lagartixa_p2_i0.webp)
       - **mapas**:
         - **[0]**:
@@ -2804,469 +3662,673 @@
           - **altura_mapa**: 1773
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 1
-              - **label**: 1
+              - **id**: OIMjbTNweN3uvw
+              - **uid**: OIMjbTNweN3uvw
+              - **rotulo**: 1
               - **circulo**:
                 - **x**: 1042
                 - **y**: 1334
                 - **raio**: 19
+              - **label**: 1
             - **[1]**:
-              - **id**: 2
-              - **label**: 2
+              - **id**: YNAwwk5oXXREpi
+              - **uid**: YNAwwk5oXXREpi
+              - **rotulo**: 2
               - **circulo**:
                 - **x**: 1049
                 - **y**: 1132
                 - **raio**: 19
+              - **label**: 2
             - **[2]**:
-              - **id**: 3
-              - **label**: 3
+              - **id**: atMYutwGA62ZEk
+              - **uid**: atMYutwGA62ZEk
+              - **rotulo**: 3
               - **circulo**:
                 - **x**: 1339
                 - **y**: 1072
                 - **raio**: 19
+              - **label**: 3
             - **[3]**:
-              - **id**: 4
-              - **label**: 4
+              - **id**: uXLPIBpaVQ49KP
+              - **uid**: uXLPIBpaVQ49KP
+              - **rotulo**: 4
               - **circulo**:
                 - **x**: 1365
                 - **y**: 1241
                 - **raio**: 19
+              - **label**: 4
             - **[4]**:
-              - **id**: 5
-              - **label**: 5
+              - **id**: se2ARSBtYmUtkx
+              - **uid**: se2ARSBtYmUtkx
+              - **rotulo**: 5
               - **circulo**:
                 - **x**: 1664
                 - **y**: 1184
                 - **raio**: 19
+              - **label**: 5
             - **[5]**:
-              - **id**: 6
-              - **label**: 6
+              - **id**: NPk6NKAknsYzQg
+              - **uid**: NPk6NKAknsYzQg
+              - **rotulo**: 6
               - **circulo**:
                 - **x**: 1775
                 - **y**: 1223
                 - **raio**: 19
+              - **label**: 6
             - **[6]**:
-              - **id**: A
-              - **label**: A
+              - **id**: RYL4qldNXegC2S
+              - **uid**: RYL4qldNXegC2S
+              - **rotulo**: A
               - **circulo**:
                 - **x**: 1275
                 - **y**: 465
                 - **raio**: 19
+              - **label**: A
             - **[7]**:
-              - **id**: B
-              - **label**: B
+              - **id**: anFygudYQKyYfX
+              - **uid**: anFygudYQKyYfX
+              - **rotulo**: B
               - **circulo**:
                 - **x**: 2198
                 - **y**: 228
                 - **raio**: 19
+              - **label**: B
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: 1OBG9Zmp2sWdmJ
+              - **pontos_uids**:
+                - OIMjbTNweN3uvw
               - **escalada**: Last Samurai
               - **ids**:
-                - 1
+                - OIMjbTNweN3uvw
             - **[1]**:
+              - **alvo_uid**: xsbEWS3M0XvhdL
+              - **pontos_uids**:
+                - YNAwwk5oXXREpi
               - **escalada**: Samurai
               - **ids**:
-                - 2
+                - YNAwwk5oXXREpi
             - **[2]**:
+              - **alvo_uid**: e1RxIJFKtUXo6J
+              - **pontos_uids**:
+                - atMYutwGA62ZEk
+                - anFygudYQKyYfX
               - **escalada**: Doce de Leite
               - **ids**:
-                - 3
-                - B
+                - atMYutwGA62ZEk
+                - anFygudYQKyYfX
             - **[3]**:
+              - **alvo_uid**: OvcfulQ2iFW0v2
+              - **pontos_uids**:
+                - uXLPIBpaVQ49KP
+                - RYL4qldNXegC2S
               - **escalada**: Panamá
               - **ids**:
-                - 4
-                - A
+                - uXLPIBpaVQ49KP
+                - RYL4qldNXegC2S
             - **[4]**:
+              - **alvo_uid**: 7tLVLG0DZgoFua
+              - **pontos_uids**:
+                - uXLPIBpaVQ49KP
+                - anFygudYQKyYfX
               - **escalada**: Doce de Leite sds
               - **ids**:
-                - 4
-                - B
+                - uXLPIBpaVQ49KP
+                - anFygudYQKyYfX
             - **[5]**:
+              - **alvo_uid**: FggDyQ1Jk0EJrb
+              - **pontos_uids**:
+                - se2ARSBtYmUtkx
+                - anFygudYQKyYfX
               - **escalada**: Rocambole
               - **ids**:
-                - 5
-                - B
+                - se2ARSBtYmUtkx
+                - anFygudYQKyYfX
             - **[6]**:
+              - **alvo_uid**: OWjd6pcV8SanGm
+              - **pontos_uids**:
+                - NPk6NKAknsYzQg
+                - anFygudYQKyYfX
               - **escalada**: Falha Humana
               - **ids**:
-                - 6
-                - B
+                - NPk6NKAknsYzQg
+                - anFygudYQKyYfX
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_lagartixa_p1.webp)
           - **largura_mapa**: 2364
           - **altura_mapa**: 1773
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: A
-              - **label**: A
+              - **id**: T3ZXXyUW5BxbE7
+              - **uid**: T3ZXXyUW5BxbE7
+              - **rotulo**: A
               - **circulo**:
                 - **x**: 44
                 - **y**: 474
                 - **raio**: 20
+              - **label**: A
             - **[1]**:
-              - **id**: B
-              - **label**: B
+              - **id**: vtRG1Z7S6YjF6O
+              - **uid**: vtRG1Z7S6YjF6O
+              - **rotulo**: B
               - **circulo**:
                 - **x**: 868
                 - **y**: 369
                 - **raio**: 20
+              - **label**: B
             - **[2]**:
-              - **id**: C
-              - **label**: C
+              - **id**: jvkc7NY6gDYO4D
+              - **uid**: jvkc7NY6gDYO4D
+              - **rotulo**: C
               - **circulo**:
                 - **x**: 2254
                 - **y**: 598
                 - **raio**: 20
+              - **label**: C
             - **[3]**:
-              - **id**: 1
-              - **label**: 1
+              - **id**: FpdWxlpqvy9xq8
+              - **uid**: FpdWxlpqvy9xq8
+              - **rotulo**: 1
               - **circulo**:
                 - **x**: 422
                 - **y**: 1323
                 - **raio**: 20
+              - **label**: 1
             - **[4]**:
-              - **id**: 2
-              - **label**: 2
+              - **id**: UYFQdCGvLa9zvA
+              - **uid**: UYFQdCGvLa9zvA
+              - **rotulo**: 2
               - **circulo**:
                 - **x**: 359
                 - **y**: 1154
                 - **raio**: 20
+              - **label**: 2
             - **[5]**:
-              - **id**: 3
-              - **label**: 3
+              - **id**: m8tvlQw6RQRMov
+              - **uid**: m8tvlQw6RQRMov
+              - **rotulo**: 3
               - **circulo**:
                 - **x**: 797
                 - **y**: 1269
                 - **raio**: 20
+              - **label**: 3
             - **[6]**:
-              - **id**: 4
-              - **label**: 4
+              - **id**: UwA1rUF1WUmGaw
+              - **uid**: UwA1rUF1WUmGaw
+              - **rotulo**: 4
               - **circulo**:
                 - **x**: 980
                 - **y**: 1296
                 - **raio**: 20
+              - **label**: 4
             - **[7]**:
-              - **id**: 5
-              - **label**: 5
+              - **id**: wp9oikLNacNp4S
+              - **uid**: wp9oikLNacNp4S
+              - **rotulo**: 5
               - **circulo**:
                 - **x**: 1469
                 - **y**: 1080
                 - **raio**: 20
+              - **label**: 5
             - **[8]**:
-              - **id**: 6
-              - **label**: 6
+              - **id**: UQta5sI32mShCb
+              - **uid**: UQta5sI32mShCb
+              - **rotulo**: 6
               - **circulo**:
                 - **x**: 1451
                 - **y**: 1310
                 - **raio**: 20
+              - **label**: 6
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: e1RxIJFKtUXo6J
+              - **pontos_uids**:
+                - UYFQdCGvLa9zvA
+                - vtRG1Z7S6YjF6O
               - **escalada**: Doce de Leite
               - **ids**:
-                - 2
-                - B
+                - UYFQdCGvLa9zvA
+                - vtRG1Z7S6YjF6O
             - **[1]**:
+              - **alvo_uid**: OvcfulQ2iFW0v2
+              - **pontos_uids**:
+                - FpdWxlpqvy9xq8
+                - T3ZXXyUW5BxbE7
               - **escalada**: Panamá
               - **ids**:
-                - 1
-                - A
+                - FpdWxlpqvy9xq8
+                - T3ZXXyUW5BxbE7
             - **[2]**:
+              - **alvo_uid**: 7tLVLG0DZgoFua
+              - **pontos_uids**:
+                - FpdWxlpqvy9xq8
+                - vtRG1Z7S6YjF6O
               - **escalada**: Doce de Leite sds
               - **ids**:
-                - 1
-                - B
+                - FpdWxlpqvy9xq8
+                - vtRG1Z7S6YjF6O
             - **[3]**:
+              - **alvo_uid**: FggDyQ1Jk0EJrb
+              - **pontos_uids**:
+                - m8tvlQw6RQRMov
+                - vtRG1Z7S6YjF6O
               - **escalada**: Rocambole
               - **ids**:
-                - 3
-                - B
+                - m8tvlQw6RQRMov
+                - vtRG1Z7S6YjF6O
             - **[4]**:
+              - **alvo_uid**: OWjd6pcV8SanGm
+              - **pontos_uids**:
+                - UwA1rUF1WUmGaw
+                - vtRG1Z7S6YjF6O
               - **escalada**: Falha Humana
               - **ids**:
-                - 4
-                - B
+                - UwA1rUF1WUmGaw
+                - vtRG1Z7S6YjF6O
             - **[5]**:
+              - **alvo_uid**: ln91DbtQ62IGbZ
+              - **pontos_uids**:
+                - FpdWxlpqvy9xq8
+                - jvkc7NY6gDYO4D
               - **escalada**: Teiú
               - **ids**:
-                - 1
-                - C
+                - FpdWxlpqvy9xq8
+                - jvkc7NY6gDYO4D
             - **[6]**:
+              - **alvo_uid**: xALzdgwDF8xq0k
+              - **pontos_uids**:
+                - UwA1rUF1WUmGaw
+                - jvkc7NY6gDYO4D
               - **escalada**: Rabo de Lagartixa
               - **ids**:
-                - 4
-                - C
+                - UwA1rUF1WUmGaw
+                - jvkc7NY6gDYO4D
             - **[7]**:
+              - **alvo_uid**: 6Y8dKcx5tJM381
+              - **pontos_uids**:
+                - wp9oikLNacNp4S
+                - vtRG1Z7S6YjF6O
               - **escalada**: Camaleão
               - **ids**:
-                - 5
-                - B
+                - wp9oikLNacNp4S
+                - vtRG1Z7S6YjF6O
             - **[8]**:
+              - **alvo_uid**: srt1JwUqYYuhDg
+              - **pontos_uids**:
+                - wp9oikLNacNp4S
+                - jvkc7NY6gDYO4D
               - **escalada**: Lagartixa
               - **ids**:
-                - 5
-                - C
+                - wp9oikLNacNp4S
+                - jvkc7NY6gDYO4D
             - **[9]**:
+              - **alvo_uid**: WIy549JHQQDDko
+              - **pontos_uids**:
+                - UQta5sI32mShCb
+                - vtRG1Z7S6YjF6O
               - **escalada**: Rabo de Camaleão
               - **ids**:
-                - 6
-                - B
+                - UQta5sI32mShCb
+                - vtRG1Z7S6YjF6O
             - **[10]**:
+              - **alvo_uid**: teZRSRQ70qL2BO
+              - **pontos_uids**:
+                - UQta5sI32mShCb
+                - jvkc7NY6gDYO4D
               - **escalada**: Lagartixa sem Rabo
               - **ids**:
-                - 6
-                - C
+                - UQta5sI32mShCb
+                - jvkc7NY6gDYO4D
         - **[2]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_lagartixa_p2.webp)
           - **largura_mapa**: 2364
           - **altura_mapa**: 1773
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: A
-              - **label**: A
+              - **id**: VsKWEMg0lZ2NYg
+              - **uid**: VsKWEMg0lZ2NYg
+              - **rotulo**: A
               - **circulo**:
                 - **x**: 50
                 - **y**: 363
                 - **raio**: 19
+              - **label**: A
             - **[1]**:
-              - **id**: B
-              - **label**: B
+              - **id**: 2httylkaaIN5Qr
+              - **uid**: 2httylkaaIN5Qr
+              - **rotulo**: B
               - **circulo**:
                 - **x**: 912
                 - **y**: 302
                 - **raio**: 19
+              - **label**: B
             - **[2]**:
-              - **id**: C
-              - **label**: C
+              - **id**: axlblItPxsIDJn
+              - **uid**: axlblItPxsIDJn
+              - **rotulo**: C
               - **circulo**:
                 - **x**: 2323
                 - **y**: 589
                 - **raio**: 19
+              - **label**: C
             - **[3]**:
-              - **id**: D
-              - **label**: D
+              - **id**: xtiNQSSkWNTXbC
+              - **uid**: xtiNQSSkWNTXbC
+              - **rotulo**: D
               - **circulo**:
                 - **x**: 2108
                 - **y**: 1209
                 - **raio**: 19
+              - **label**: D
             - **[4]**:
-              - **id**: 1
-              - **label**: 1
+              - **id**: OhNIazyq74dUWM
+              - **uid**: OhNIazyq74dUWM
+              - **rotulo**: 1
               - **circulo**:
                 - **x**: 538
                 - **y**: 1156
                 - **raio**: 19
+              - **label**: 1
             - **[5]**:
-              - **id**: 2
-              - **label**: 2
+              - **id**: PLiYVorL6MlSC2
+              - **uid**: PLiYVorL6MlSC2
+              - **rotulo**: 2
               - **circulo**:
                 - **x**: 593
                 - **y**: 1466
                 - **raio**: 19
+              - **label**: 2
             - **[6]**:
-              - **id**: 3
-              - **label**: 3
+              - **id**: oECZXcIqBxan60
+              - **uid**: oECZXcIqBxan60
+              - **rotulo**: 3
               - **circulo**:
                 - **x**: 1157
                 - **y**: 972
                 - **raio**: 19
+              - **label**: 3
             - **[7]**:
-              - **id**: 4
-              - **label**: 4
+              - **id**: icdNm6GYVUWhAz
+              - **uid**: icdNm6GYVUWhAz
+              - **rotulo**: 4
               - **circulo**:
                 - **x**: 1186
                 - **y**: 1431
                 - **raio**: 19
+              - **label**: 4
             - **[8]**:
-              - **id**: 5
-              - **label**: 5
+              - **id**: WfKTekrpKQCxvy
+              - **uid**: WfKTekrpKQCxvy
+              - **rotulo**: 5
               - **circulo**:
                 - **x**: 1268
                 - **y**: 1398
                 - **raio**: 19
+              - **label**: 5
             - **[9]**:
-              - **id**: 6
-              - **label**: 6
+              - **id**: ujBI1bgZoOQWhW
+              - **uid**: ujBI1bgZoOQWhW
+              - **rotulo**: 6
               - **circulo**:
                 - **x**: 1460
                 - **y**: 1324
                 - **raio**: 19
+              - **label**: 6
             - **[10]**:
-              - **id**: 7
-              - **label**: 7
+              - **id**: r9QOUkHDtJL2B9
+              - **uid**: r9QOUkHDtJL2B9
+              - **rotulo**: 7
               - **circulo**:
                 - **x**: 1764
                 - **y**: 1244
                 - **raio**: 19
+              - **label**: 7
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: 0cUwdNtqvEcKoh
+              - **pontos_uids**:
+                - OhNIazyq74dUWM
+                - VsKWEMg0lZ2NYg
               - **escalada**: Guerreiro
               - **ids**:
-                - 1
-                - A
+                - OhNIazyq74dUWM
+                - VsKWEMg0lZ2NYg
             - **[1]**:
+              - **alvo_uid**: Nf2533m5zrrFG2
+              - **pontos_uids**:
+                - PLiYVorL6MlSC2
+                - VsKWEMg0lZ2NYg
               - **escalada**: Major
               - **ids**:
-                - 2
-                - A
+                - PLiYVorL6MlSC2
+                - VsKWEMg0lZ2NYg
             - **[2]**:
+              - **alvo_uid**: toxcelInFFWAq1
+              - **pontos_uids**:
+                - PLiYVorL6MlSC2
+                - xtiNQSSkWNTXbC
               - **escalada**: Geoterapia
               - **ids**:
-                - 2
-                - D
+                - PLiYVorL6MlSC2
+                - xtiNQSSkWNTXbC
             - **[3]**:
+              - **alvo_uid**: 9tZfKoZdpP3fpS
+              - **pontos_uids**:
+                - oECZXcIqBxan60
+                - 2httylkaaIN5Qr
               - **escalada**: Nativo
               - **ids**:
-                - 3
-                - B
+                - oECZXcIqBxan60
+                - 2httylkaaIN5Qr
             - **[4]**:
+              - **alvo_uid**: pcftvMSlINg9Hf
+              - **pontos_uids**:
+                - icdNm6GYVUWhAz
+                - VsKWEMg0lZ2NYg
               - **escalada**: Protesto
               - **ids**:
-                - 4
-                - A
+                - icdNm6GYVUWhAz
+                - VsKWEMg0lZ2NYg
             - **[5]**:
+              - **alvo_uid**: AWjjM6YkI9dyGO
+              - **pontos_uids**:
+                - icdNm6GYVUWhAz
+                - xtiNQSSkWNTXbC
               - **escalada**: Cadena Imaginária
               - **ids**:
-                - 4
-                - D
+                - icdNm6GYVUWhAz
+                - xtiNQSSkWNTXbC
             - **[6]**:
+              - **alvo_uid**: fQ3vCdyp1n0HMg
+              - **pontos_uids**:
+                - WfKTekrpKQCxvy
+                - VsKWEMg0lZ2NYg
               - **escalada**: Golpe Militar
               - **ids**:
-                - 5
-                - A
+                - WfKTekrpKQCxvy
+                - VsKWEMg0lZ2NYg
             - **[7]**:
+              - **alvo_uid**: 82pHfoKYsvWEwk
+              - **pontos_uids**:
+                - WfKTekrpKQCxvy
+                - 2httylkaaIN5Qr
               - **escalada**: Aurora Explosion
               - **ids**:
-                - 5
-                - B
+                - WfKTekrpKQCxvy
+                - 2httylkaaIN5Qr
             - **[8]**:
+              - **alvo_uid**: LUFL8kDL9K6eG7
+              - **pontos_uids**:
+                - WfKTekrpKQCxvy
+                - xtiNQSSkWNTXbC
               - **escalada**: Escravos da Pedra
               - **ids**:
-                - 5
-                - D
+                - WfKTekrpKQCxvy
+                - xtiNQSSkWNTXbC
             - **[9]**:
+              - **alvo_uid**: g7iaofpXHfKRlx
+              - **pontos_uids**:
+                - ujBI1bgZoOQWhW
+                - VsKWEMg0lZ2NYg
               - **escalada**: Ditadvor
               - **ids**:
-                - 6
-                - A
+                - ujBI1bgZoOQWhW
+                - VsKWEMg0lZ2NYg
             - **[10]**:
+              - **alvo_uid**: SgF3g35rVyuJcE
+              - **pontos_uids**:
+                - ujBI1bgZoOQWhW
+                - xtiNQSSkWNTXbC
               - **escalada**: Lobo Mau
               - **ids**:
-                - 6
-                - D
+                - ujBI1bgZoOQWhW
+                - xtiNQSSkWNTXbC
             - **[11]**:
+              - **alvo_uid**: kF2TBaBhwwuWWH
+              - **pontos_uids**:
+                - r9QOUkHDtJL2B9
+                - VsKWEMg0lZ2NYg
               - **escalada**: Coronel
               - **ids**:
-                - 7
-                - A
+                - r9QOUkHDtJL2B9
+                - VsKWEMg0lZ2NYg
             - **[12]**:
+              - **alvo_uid**: EsbNvU6nXSg2b8
+              - **pontos_uids**:
+                - r9QOUkHDtJL2B9
+                - axlblItPxsIDJn
               - **escalada**: Chapeuzinho Vermelho
               - **ids**:
-                - 7
-                - C
+                - r9QOUkHDtJL2B9
+                - axlblItPxsIDJn
       - **escaladas**:
         - **[0]**:
+          - **uid**: 1OBG9Zmp2sWdmJ
           - **boulder**:
             - **nome**: Last Samurai
             - **dificuldade**: V14
         - **[1]**:
+          - **uid**: xsbEWS3M0XvhdL
           - **boulder**:
             - **nome**: Samurai
             - **dificuldade**: V12
         - **[2]**:
+          - **uid**: e1RxIJFKtUXo6J
           - **boulder**:
             - **nome**: Doce de Leite
             - **dificuldade**: V3
         - **[3]**:
+          - **uid**: OvcfulQ2iFW0v2
           - **boulder**:
             - **nome**: Panamá
             - **dificuldade**: V10
         - **[4]**:
+          - **uid**: 7tLVLG0DZgoFua
           - **boulder**:
             - **nome**: Doce de Leite sds
             - **dificuldade**: V5
         - **[5]**:
+          - **uid**: FggDyQ1Jk0EJrb
           - **boulder**:
             - **nome**: Rocambole
             - **dificuldade**: V5
         - **[6]**:
+          - **uid**: OWjd6pcV8SanGm
           - **boulder**:
             - **nome**: Falha Humana
             - **dificuldade**: V4
         - **[7]**:
+          - **uid**: ln91DbtQ62IGbZ
           - **boulder**:
             - **nome**: Teiú
             - **dificuldade**: V11
         - **[8]**:
+          - **uid**: xALzdgwDF8xq0k
           - **boulder**:
             - **nome**: Rabo de Lagartixa
             - **dificuldade**: V10
         - **[9]**:
+          - **uid**: 6Y8dKcx5tJM381
           - **boulder**:
             - **nome**: Camaleão
             - **dificuldade**: V8
         - **[10]**:
+          - **uid**: srt1JwUqYYuhDg
           - **boulder**:
             - **nome**: Lagartixa
             - **dificuldade**: V7
         - **[11]**:
+          - **uid**: WIy549JHQQDDko
           - **boulder**:
             - **nome**: Rabo de Camaleão
             - **dificuldade**: V9
         - **[12]**:
+          - **uid**: teZRSRQ70qL2BO
           - **boulder**:
             - **nome**: Lagartixa sem Rabo
             - **dificuldade**: V9
         - **[13]**:
+          - **uid**: 0cUwdNtqvEcKoh
           - **boulder**:
             - **nome**: Guerreiro
             - **dificuldade**: V8_BARRA_V9
         - **[14]**:
+          - **uid**: Nf2533m5zrrFG2
           - **boulder**:
             - **nome**: Major
             - **dificuldade**: V11
         - **[15]**:
+          - **uid**: toxcelInFFWAq1
           - **boulder**:
             - **nome**: Geoterapia
             - **dificuldade**: V9
         - **[16]**:
+          - **uid**: 9tZfKoZdpP3fpS
           - **boulder**:
             - **nome**: Nativo
             - **dificuldade**: V12
         - **[17]**:
+          - **uid**: pcftvMSlINg9Hf
           - **boulder**:
             - **nome**: Protesto
             - **dificuldade**: V10
         - **[18]**:
+          - **uid**: AWjjM6YkI9dyGO
           - **boulder**:
             - **nome**: Cadena Imaginária
             - **dificuldade**: V8
         - **[19]**:
+          - **uid**: fQ3vCdyp1n0HMg
           - **boulder**:
             - **nome**: Golpe Militar
             - **dificuldade**: V13
         - **[20]**:
+          - **uid**: 82pHfoKYsvWEwk
           - **boulder**:
             - **nome**: Aurora Explosion
             - **dificuldade**: V13
         - **[21]**:
+          - **uid**: LUFL8kDL9K6eG7
           - **boulder**:
             - **nome**: Escravos da Pedra
             - **dificuldade**: V9
         - **[22]**:
+          - **uid**: g7iaofpXHfKRlx
           - **boulder**:
             - **nome**: Ditadvor
             - **dificuldade**: V12
         - **[23]**:
+          - **uid**: SgF3g35rVyuJcE
           - **boulder**:
             - **nome**: Lobo Mau
             - **dificuldade**: V5
         - **[24]**:
+          - **uid**: kF2TBaBhwwuWWH
           - **boulder**:
             - **nome**: Coronel
             - **dificuldade**: V12
         - **[25]**:
+          - **uid**: EsbNvU6nXSg2b8
           - **boulder**:
             - **nome**: Chapeuzinho Vermelho
             - **dificuldade**: V13
@@ -3277,6 +4339,7 @@
     - **conteudo**:
       - **descricao**: 
       - **nome**: Bloco: Longevidade
+      - **uid**: YFVMcRLMGxb9Tr
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_longevidade_p0_i0.webp)
@@ -3284,248 +4347,349 @@
           - **altura_mapa**: 1773
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 1
-              - **label**: 1
+              - **id**: 8ENnDIgQ7AgUGt
+              - **uid**: 8ENnDIgQ7AgUGt
+              - **rotulo**: 1
               - **circulo**:
                 - **x**: 241
                 - **y**: 1128
                 - **raio**: 19
+              - **label**: 1
             - **[1]**:
-              - **id**: 2
-              - **label**: 2
+              - **id**: QnjxUtHvoZeQzL
+              - **uid**: QnjxUtHvoZeQzL
+              - **rotulo**: 2
               - **circulo**:
                 - **x**: 28
                 - **y**: 1299
                 - **raio**: 19
+              - **label**: 2
             - **[2]**:
-              - **id**: 3
-              - **label**: 3
+              - **id**: ikn20aN6z8f4T7
+              - **uid**: ikn20aN6z8f4T7
+              - **rotulo**: 3
               - **circulo**:
                 - **x**: 1661
                 - **y**: 1210
                 - **raio**: 19
+              - **label**: 3
             - **[3]**:
-              - **id**: A
-              - **label**: A
+              - **id**: gLsI2FXL4ox1OT
+              - **uid**: gLsI2FXL4ox1OT
+              - **rotulo**: A
               - **circulo**:
                 - **x**: 2166
                 - **y**: 450
                 - **raio**: 19
+              - **label**: A
             - **[4]**:
-              - **id**: B
-              - **label**: B
+              - **id**: nQFB3uR40wwnV7
+              - **uid**: nQFB3uR40wwnV7
+              - **rotulo**: B
               - **circulo**:
                 - **x**: 932
                 - **y**: 560
                 - **raio**: 19
+              - **label**: B
             - **[5]**:
-              - **id**: C
-              - **label**: C
+              - **id**: zxkWwG5R32lL6G
+              - **uid**: zxkWwG5R32lL6G
+              - **rotulo**: C
               - **circulo**:
                 - **x**: 479
                 - **y**: 935
                 - **raio**: 19
+              - **label**: C
             - **[6]**:
-              - **id**: 4
-              - **label**: 4
+              - **id**: r4jlYamVBMQ4fS
+              - **uid**: r4jlYamVBMQ4fS
+              - **rotulo**: 4
               - **circulo**:
                 - **x**: 1474
                 - **y**: 1037
                 - **raio**: 19
+              - **label**: 4
             - **[7]**:
-              - **id**: ★
-              - **label**: ★
+              - **id**: fNEd2QZ1GerD5Y
+              - **uid**: fNEd2QZ1GerD5Y
+              - **rotulo**: ★
               - **circulo**:
                 - **x**: 1725
                 - **y**: 1065
                 - **raio**: 20
+              - **label**: ★
             - **[8]**:
-              - **id**: ▲
-              - **label**: ▲
+              - **id**: QuDFkr1JOWjknj
+              - **uid**: QuDFkr1JOWjknj
+              - **rotulo**: ▲
               - **circulo**:
                 - **x**: 2297
                 - **y**: 818
                 - **raio**: 19
+              - **label**: ▲
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: 7JZNyAbzQzBsaR
+              - **pontos_uids**:
+                - 8ENnDIgQ7AgUGt
+                - gLsI2FXL4ox1OT
               - **escalada**: Areia nos Olhos
               - **ids**:
-                - 1
-                - A
+                - 8ENnDIgQ7AgUGt
+                - gLsI2FXL4ox1OT
             - **[1]**:
+              - **alvo_uid**: zFNj9y59i8t23v
+              - **pontos_uids**:
+                - QnjxUtHvoZeQzL
+                - gLsI2FXL4ox1OT
               - **escalada**: Areia nos Olhos ext
               - **ids**:
-                - 2
-                - A
+                - QnjxUtHvoZeQzL
+                - gLsI2FXL4ox1OT
             - **[2]**:
+              - **alvo_uid**: wb9MoxIDysm5R3
+              - **pontos_uids**:
+                - ikn20aN6z8f4T7
+                - nQFB3uR40wwnV7
+                - fNEd2QZ1GerD5Y
               - **escalada**: Fala Você
               - **ids**:
-                - 3
-                - B
-                - ★
+                - ikn20aN6z8f4T7
+                - nQFB3uR40wwnV7
+                - fNEd2QZ1GerD5Y
             - **[3]**:
+              - **alvo_uid**: yTV2lI9CxvQD9H
+              - **pontos_uids**:
+                - ikn20aN6z8f4T7
+                - zxkWwG5R32lL6G
+                - QuDFkr1JOWjknj
               - **escalada**: De Olho na Vida
               - **ids**:
-                - 3
-                - C
-                - ▲
+                - ikn20aN6z8f4T7
+                - zxkWwG5R32lL6G
+                - QuDFkr1JOWjknj
             - **[4]**:
+              - **alvo_uid**: sZOvNXCq39pNjy
+              - **pontos_uids**:
+                - r4jlYamVBMQ4fS
+                - gLsI2FXL4ox1OT
               - **escalada**: A Vaca e o Frango
               - **ids**:
-                - 4
-                - A
+                - r4jlYamVBMQ4fS
+                - gLsI2FXL4ox1OT
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_longevidade_p1.webp)
           - **largura_mapa**: 2364
           - **altura_mapa**: 1773
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: A
-              - **label**: A
+              - **id**: R1k2i0PzCMF0D9
+              - **uid**: R1k2i0PzCMF0D9
+              - **rotulo**: A
               - **circulo**:
                 - **x**: 83
                 - **y**: 423
                 - **raio**: 19
+              - **label**: A
             - **[1]**:
-              - **id**: B
-              - **label**: B
+              - **id**: Ko9Ob97e5kNLNO
+              - **uid**: Ko9Ob97e5kNLNO
+              - **rotulo**: B
               - **circulo**:
                 - **x**: 773
                 - **y**: 341
                 - **raio**: 19
+              - **label**: B
             - **[2]**:
-              - **id**: C
-              - **label**: C
+              - **id**: ECTws2AHXskFiM
+              - **uid**: ECTws2AHXskFiM
+              - **rotulo**: C
               - **circulo**:
                 - **x**: 1283
                 - **y**: 423
                 - **raio**: 19
+              - **label**: C
             - **[3]**:
-              - **id**: D
-              - **label**: D
+              - **id**: jEhhfNuuguJtw7
+              - **uid**: jEhhfNuuguJtw7
+              - **rotulo**: D
               - **circulo**:
                 - **x**: 2346
                 - **y**: 1153
                 - **raio**: 19
+              - **label**: D
             - **[4]**:
-              - **id**: 1
-              - **label**: 1
+              - **id**: j7a49QhVtl6kxM
+              - **uid**: j7a49QhVtl6kxM
+              - **rotulo**: 1
               - **circulo**:
                 - **x**: 794
                 - **y**: 1092
                 - **raio**: 19
+              - **label**: 1
             - **[5]**:
-              - **id**: 2
-              - **label**: 2
+              - **id**: i5QH4qodH1AUva
+              - **uid**: i5QH4qodH1AUva
+              - **rotulo**: 2
               - **circulo**:
                 - **x**: 1570
                 - **y**: 1260
                 - **raio**: 19
+              - **label**: 2
             - **[6]**:
-              - **id**: 3
-              - **label**: 3
+              - **id**: wdWUISkD23k41f
+              - **uid**: wdWUISkD23k41f
+              - **rotulo**: 3
               - **circulo**:
                 - **x**: 1847
                 - **y**: 1394
                 - **raio**: 19
+              - **label**: 3
             - **[7]**:
-              - **id**: 4
-              - **label**: 4
+              - **id**: xkbKQVsI6kmefV
+              - **uid**: xkbKQVsI6kmefV
+              - **rotulo**: 4
               - **circulo**:
                 - **x**: 2073
                 - **y**: 1271
                 - **raio**: 19
+              - **label**: 4
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: eQG3dwtyyX5Nx5
+              - **pontos_uids**:
+                - j7a49QhVtl6kxM
+                - R1k2i0PzCMF0D9
               - **escalada**: Fala Vida
               - **ids**:
-                - 1
-                - A
+                - j7a49QhVtl6kxM
+                - R1k2i0PzCMF0D9
             - **[1]**:
+              - **alvo_uid**: eUfZ67v5JMxACV
+              - **pontos_uids**:
+                - j7a49QhVtl6kxM
+                - Ko9Ob97e5kNLNO
               - **escalada**: Vida Curta
               - **ids**:
-                - 1
-                - B
+                - j7a49QhVtl6kxM
+                - Ko9Ob97e5kNLNO
             - **[2]**:
+              - **alvo_uid**: ocCYSL5tQUETwF
+              - **pontos_uids**:
+                - j7a49QhVtl6kxM
+                - ECTws2AHXskFiM
               - **escalada**: Sem Vida
               - **ids**:
-                - 1
-                - C
+                - j7a49QhVtl6kxM
+                - ECTws2AHXskFiM
             - **[3]**:
+              - **alvo_uid**: Wd0CsnZWL4w89c
+              - **pontos_uids**:
+                - i5QH4qodH1AUva
+                - ECTws2AHXskFiM
               - **escalada**: Arenito
               - **ids**:
-                - 2
-                - C
+                - i5QH4qodH1AUva
+                - ECTws2AHXskFiM
             - **[4]**:
+              - **alvo_uid**: MQGzuppAj5aELc
+              - **pontos_uids**:
+                - wdWUISkD23k41f
+                - R1k2i0PzCMF0D9
               - **escalada**: Vida Longa
               - **ids**:
-                - 3
-                - A
+                - wdWUISkD23k41f
+                - R1k2i0PzCMF0D9
             - **[5]**:
+              - **alvo_uid**: 1wc56E1PNIsLNK
+              - **pontos_uids**:
+                - wdWUISkD23k41f
+                - ECTws2AHXskFiM
               - **escalada**: Longevidade
               - **ids**:
-                - 3
-                - C
+                - wdWUISkD23k41f
+                - ECTws2AHXskFiM
             - **[6]**:
+              - **alvo_uid**: J9OUjwIJRaPvFB
+              - **pontos_uids**:
+                - wdWUISkD23k41f
+                - jEhhfNuuguJtw7
               - **escalada**: Guerreiro Jedi
               - **ids**:
-                - 3
-                - D
+                - wdWUISkD23k41f
+                - jEhhfNuuguJtw7
             - **[7]**:
+              - **alvo_uid**: iPuWx1mEGyaYwD
+              - **pontos_uids**:
+                - xkbKQVsI6kmefV
+                - jEhhfNuuguJtw7
               - **escalada**: Jedi
               - **ids**:
-                - 4
-                - D
+                - xkbKQVsI6kmefV
+                - jEhhfNuuguJtw7
       - **escaladas**:
         - **[0]**:
+          - **uid**: 7JZNyAbzQzBsaR
           - **boulder**:
             - **nome**: Areia nos Olhos
             - **dificuldade**: V4
         - **[1]**:
+          - **uid**: zFNj9y59i8t23v
           - **boulder**:
             - **nome**: Areia nos Olhos ext
             - **dificuldade**: V6
         - **[2]**:
+          - **uid**: wb9MoxIDysm5R3
           - **boulder**:
             - **nome**: Fala Você
             - **dificuldade**: V11
         - **[3]**:
+          - **uid**: yTV2lI9CxvQD9H
           - **boulder**:
             - **nome**: De Olho na Vida
             - **dificuldade**: V5
         - **[4]**:
+          - **uid**: sZOvNXCq39pNjy
           - **boulder**:
             - **nome**: A Vaca e o Frango
             - **dificuldade**: V2
         - **[5]**:
+          - **uid**: eQG3dwtyyX5Nx5
           - **boulder**:
             - **nome**: Fala Vida
             - **dificuldade**: V3
         - **[6]**:
+          - **uid**: eUfZ67v5JMxACV
           - **boulder**:
             - **nome**: Vida Curta
             - **dificuldade**: V2
         - **[7]**:
+          - **uid**: ocCYSL5tQUETwF
           - **boulder**:
             - **nome**: Sem Vida
             - **dificuldade**: V3
         - **[8]**:
+          - **uid**: Wd0CsnZWL4w89c
           - **boulder**:
             - **nome**: Arenito
             - **dificuldade**: V5
         - **[9]**:
+          - **uid**: MQGzuppAj5aELc
           - **boulder**:
             - **nome**: Vida Longa
             - **dificuldade**: V8
         - **[10]**:
+          - **uid**: 1wc56E1PNIsLNK
           - **boulder**:
             - **nome**: Longevidade
             - **dificuldade**: V7
         - **[11]**:
+          - **uid**: J9OUjwIJRaPvFB
           - **boulder**:
             - **nome**: Guerreiro Jedi
             - **dificuldade**: V11
         - **[12]**:
+          - **uid**: iPuWx1mEGyaYwD
           - **boulder**:
             - **nome**: Jedi
             - **dificuldade**: V10
@@ -3536,6 +4700,7 @@
     - **conteudo**:
       - **descricao**: 
       - **nome**: Bloco: Mata-Mata
+      - **uid**: hx1sKO5WXcRaCh
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_mata_mata_p0.webp)
@@ -3543,191 +4708,260 @@
           - **altura_mapa**: 1773
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: A
-              - **label**: A
+              - **id**: H6ayc5y5tajDSz
+              - **uid**: H6ayc5y5tajDSz
+              - **rotulo**: A
               - **circulo**:
                 - **x**: 552
                 - **y**: 616
                 - **raio**: 20
+              - **label**: A
             - **[1]**:
-              - **id**: ★
-              - **label**: ★
+              - **id**: v13dwIyP7OmGQM
+              - **uid**: v13dwIyP7OmGQM
+              - **rotulo**: ★
               - **circulo**:
                 - **x**: 1034
                 - **y**: 920
                 - **raio**: 20
+              - **label**: ★
             - **[2]**:
-              - **id**: ▲
-              - **label**: ▲
+              - **id**: vextmRrq2sNZmJ
+              - **uid**: vextmRrq2sNZmJ
+              - **rotulo**: ▲
               - **circulo**:
                 - **x**: 1151
                 - **y**: 1204
                 - **raio**: 20
+              - **label**: ▲
             - **[3]**:
-              - **id**: 1
-              - **label**: 1
+              - **id**: kPwwB0YPUoW31g
+              - **uid**: kPwwB0YPUoW31g
+              - **rotulo**: 1
               - **circulo**:
                 - **x**: 901
                 - **y**: 1438
                 - **raio**: 20
+              - **label**: 1
             - **[4]**:
-              - **id**: 2
-              - **label**: 2
+              - **id**: wF7SzgTCRi1ZyW
+              - **uid**: wF7SzgTCRi1ZyW
+              - **rotulo**: 2
               - **circulo**:
                 - **x**: 1563
                 - **y**: 1295
                 - **raio**: 20
+              - **label**: 2
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: JiGDDnlCdHopeP
+              - **pontos_uids**:
+                - kPwwB0YPUoW31g
+                - H6ayc5y5tajDSz
               - **escalada**: Mata-Mata
               - **ids**:
-                - 1
-                - A
+                - kPwwB0YPUoW31g
+                - H6ayc5y5tajDSz
             - **[1]**:
+              - **alvo_uid**: tc4ePOWYgjIpyI
+              - **pontos_uids**:
+                - wF7SzgTCRi1ZyW
+                - H6ayc5y5tajDSz
+                - vextmRrq2sNZmJ
               - **escalada**: Mata-Mata ext
               - **ids**:
-                - 2
-                - A
-                - ▲
+                - wF7SzgTCRi1ZyW
+                - H6ayc5y5tajDSz
+                - vextmRrq2sNZmJ
             - **[2]**:
+              - **alvo_uid**: lgQ5rQ13EENvwT
+              - **pontos_uids**:
+                - wF7SzgTCRi1ZyW
+                - H6ayc5y5tajDSz
+                - v13dwIyP7OmGQM
               - **escalada**: 001
               - **ids**:
-                - 2
-                - A
-                - ★
+                - wF7SzgTCRi1ZyW
+                - H6ayc5y5tajDSz
+                - v13dwIyP7OmGQM
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_mata_mata_p1.webp)
           - **largura_mapa**: 2364
           - **altura_mapa**: 1773
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 1
-              - **label**: 1
+              - **id**: vz6MVtsaWmxwLZ
+              - **uid**: vz6MVtsaWmxwLZ
+              - **rotulo**: 1
               - **circulo**:
                 - **x**: 752
                 - **y**: 1223
                 - **raio**: 20
+              - **label**: 1
             - **[1]**:
-              - **id**: 2
-              - **label**: 2
+              - **id**: JsF6TgprLm0KYw
+              - **uid**: JsF6TgprLm0KYw
+              - **rotulo**: 2
               - **circulo**:
                 - **x**: 1406
                 - **y**: 1111
                 - **raio**: 20
+              - **label**: 2
             - **[2]**:
-              - **id**: 3
-              - **label**: 3
+              - **id**: qX5FKKydUcdiz6
+              - **uid**: qX5FKKydUcdiz6
+              - **rotulo**: 3
               - **circulo**:
                 - **x**: 1863
                 - **y**: 1392
                 - **raio**: 20
+              - **label**: 3
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: xGq4JafMbakUMI
+              - **pontos_uids**:
+                - vz6MVtsaWmxwLZ
               - **escalada**: Sem as Mãos
               - **ids**:
-                - 1
+                - vz6MVtsaWmxwLZ
             - **[1]**:
+              - **alvo_uid**: F7uUCNTTQqX7Rz
+              - **pontos_uids**:
+                - JsF6TgprLm0KYw
               - **escalada**: Ética
               - **ids**:
-                - 2
+                - JsF6TgprLm0KYw
             - **[2]**:
+              - **alvo_uid**: AJNfb2W2znCYdG
+              - **pontos_uids**:
+                - qX5FKKydUcdiz6
               - **escalada**: Risada
               - **ids**:
-                - 3
+                - qX5FKKydUcdiz6
         - **[2]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_mata_mata_p2.webp)
           - **largura_mapa**: 2364
           - **altura_mapa**: 1773
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 1
-              - **label**: 1
+              - **id**: jpFJgvicZcxjrP
+              - **uid**: jpFJgvicZcxjrP
+              - **rotulo**: 1
               - **circulo**:
                 - **x**: 1666
                 - **y**: 1113
                 - **raio**: 20
+              - **label**: 1
             - **[1]**:
-              - **id**: 2
-              - **label**: 2
+              - **id**: xIyXtbaHz7Qutb
+              - **uid**: xIyXtbaHz7Qutb
+              - **rotulo**: 2
               - **circulo**:
                 - **x**: 2080
                 - **y**: 1084
                 - **raio**: 20
+              - **label**: 2
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: YWJzeOyY9Ze0q7
+              - **pontos_uids**:
+                - jpFJgvicZcxjrP
               - **escalada**: Batentes
               - **ids**:
-                - 1
+                - jpFJgvicZcxjrP
             - **[1]**:
+              - **alvo_uid**: q2d07DWRBLFgw7
+              - **pontos_uids**:
+                - xIyXtbaHz7Qutb
               - **escalada**: Regletes
               - **ids**:
-                - 2
+                - xIyXtbaHz7Qutb
         - **[3]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_mata_mata_p3.webp)
           - **largura_mapa**: 2364
           - **altura_mapa**: 1773
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 1
-              - **label**: 1
+              - **id**: DR3WqWHX6SNeiM
+              - **uid**: DR3WqWHX6SNeiM
+              - **rotulo**: 1
               - **circulo**:
                 - **x**: 663
                 - **y**: 1185
                 - **raio**: 20
+              - **label**: 1
             - **[1]**:
-              - **id**: 2
-              - **label**: 2
+              - **id**: rQXbrg9IbfeITD
+              - **uid**: rQXbrg9IbfeITD
+              - **rotulo**: 2
               - **circulo**:
                 - **x**: 1446
                 - **y**: 1339
                 - **raio**: 20
+              - **label**: 2
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: 9D4ILLINQzR4ha
+              - **pontos_uids**:
+                - DR3WqWHX6SNeiM
               - **escalada**: Cocal é Gueto
               - **ids**:
-                - 1
+                - DR3WqWHX6SNeiM
             - **[1]**:
+              - **alvo_uid**: CDmL59O7X81Wu4
+              - **pontos_uids**:
+                - rQXbrg9IbfeITD
               - **escalada**: 002
               - **ids**:
-                - 2
+                - rQXbrg9IbfeITD
       - **escaladas**:
         - **[0]**:
+          - **uid**: JiGDDnlCdHopeP
           - **boulder**:
             - **nome**: Mata-Mata
             - **dificuldade**: V2
         - **[1]**:
+          - **uid**: tc4ePOWYgjIpyI
           - **boulder**:
             - **nome**: Mata-Mata ext
             - **dificuldade**: V3
         - **[2]**:
+          - **uid**: lgQ5rQ13EENvwT
           - **boulder**:
             - **nome**: 001
             - **dificuldade**: V3
         - **[3]**:
+          - **uid**: xGq4JafMbakUMI
           - **boulder**:
             - **nome**: Sem as Mãos
             - **dificuldade**: V0
         - **[4]**:
+          - **uid**: F7uUCNTTQqX7Rz
           - **boulder**:
             - **nome**: Ética
             - **dificuldade**: V0
         - **[5]**:
+          - **uid**: AJNfb2W2znCYdG
           - **boulder**:
             - **nome**: Risada
             - **dificuldade**: V0
         - **[6]**:
+          - **uid**: YWJzeOyY9Ze0q7
           - **boulder**:
             - **nome**: Batentes
             - **dificuldade**: V1
         - **[7]**:
+          - **uid**: q2d07DWRBLFgw7
           - **boulder**:
             - **nome**: Regletes
             - **dificuldade**: V2
         - **[8]**:
+          - **uid**: 9D4ILLINQzR4ha
           - **boulder**:
             - **nome**: Cocal é Gueto
             - **dificuldade**: V3
         - **[9]**:
+          - **uid**: CDmL59O7X81Wu4
           - **boulder**:
             - **nome**: 002
             - **dificuldade**: V2
@@ -3738,6 +4972,7 @@
     - **conteudo**:
       - **descricao**: 
       - **nome**: Bloco: Meia-Parede
+      - **uid**: YNCeAFBEFQJbNm
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_meia_parede_p0.webp)
@@ -3745,147 +4980,195 @@
           - **altura_mapa**: 1773
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 1
-              - **label**: 1
+              - **id**: zXvZkOsbEZkciI
+              - **uid**: zXvZkOsbEZkciI
+              - **rotulo**: 1
               - **circulo**:
                 - **x**: 1229
                 - **y**: 1212
                 - **raio**: 20
+              - **label**: 1
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: j9bYZHdppTm9GB
+              - **pontos_uids**:
+                - zXvZkOsbEZkciI
               - **escalada**: Tatuagens do Ofício
               - **ids**:
-                - 1
+                - zXvZkOsbEZkciI
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_meia_parede_p1.webp)
           - **largura_mapa**: 2364
           - **altura_mapa**: 1773
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 1
-              - **label**: 1
+              - **id**: zJNVBIRs7bQvEW
+              - **uid**: zJNVBIRs7bQvEW
+              - **rotulo**: 1
               - **circulo**:
                 - **x**: 1249
                 - **y**: 1456
                 - **raio**: 20
+              - **label**: 1
             - **[1]**:
-              - **id**: 1A
-              - **label**: A
+              - **id**: Q5XKQ3Nu1r6B4a
+              - **uid**: Q5XKQ3Nu1r6B4a
+              - **rotulo**: A
               - **circulo**:
                 - **x**: 282
                 - **y**: 671
                 - **raio**: 20
+              - **label**: A
             - **[2]**:
-              - **id**: 1B
-              - **label**: B
+              - **id**: ZRNXOylYxhhnEq
+              - **uid**: ZRNXOylYxhhnEq
+              - **rotulo**: B
               - **circulo**:
                 - **x**: 1744
                 - **y**: 671
                 - **raio**: 20
+              - **label**: B
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: wlzpJ6Alg7rNq9
+              - **pontos_uids**:
+                - Q5XKQ3Nu1r6B4a
+                - zJNVBIRs7bQvEW
               - **escalada**: Rastaman
               - **ids**:
-                - 1A
-                - 1
+                - Q5XKQ3Nu1r6B4a
+                - zJNVBIRs7bQvEW
             - **[1]**:
+              - **alvo_uid**: L7FGfK2KXczfvg
+              - **pontos_uids**:
+                - ZRNXOylYxhhnEq
+                - zJNVBIRs7bQvEW
               - **escalada**: Meia Parede
               - **ids**:
-                - 1B
-                - 1
+                - ZRNXOylYxhhnEq
+                - zJNVBIRs7bQvEW
         - **[2]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_meia_parede_p2.webp)
           - **largura_mapa**: 2364
           - **altura_mapa**: 1773
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 1
-              - **label**: 1
+              - **id**: fYMK2FjzsSDInT
+              - **uid**: fYMK2FjzsSDInT
+              - **rotulo**: 1
               - **circulo**:
                 - **x**: 469
                 - **y**: 1589
                 - **raio**: 20
+              - **label**: 1
             - **[1]**:
-              - **id**: A
-              - **label**: A
+              - **id**: 8muJAOtyk0xBso
+              - **uid**: 8muJAOtyk0xBso
+              - **rotulo**: A
               - **circulo**:
                 - **x**: 1045
                 - **y**: 357
                 - **raio**: 20
+              - **label**: A
             - **[2]**:
-              - **id**: B
-              - **label**: B
+              - **id**: a5HN7dPmQIv57B
+              - **uid**: a5HN7dPmQIv57B
+              - **rotulo**: B
               - **circulo**:
                 - **x**: 1425
                 - **y**: 168
                 - **raio**: 20
+              - **label**: B
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: DtiEzq2Xxk6i7B
+              - **pontos_uids**:
+                - fYMK2FjzsSDInT
+                - a5HN7dPmQIv57B
               - **escalada**: Aresta do Lenine
               - **ids**:
-                - 1
-                - B
+                - fYMK2FjzsSDInT
+                - a5HN7dPmQIv57B
             - **[1]**:
+              - **alvo_uid**: AdXhWkJg9o0u31
+              - **pontos_uids**:
+                - fYMK2FjzsSDInT
+                - 8muJAOtyk0xBso
               - **escalada**: Slab
               - **ids**:
-                - 1
-                - A
-              - **grupo**: Pedreira
-              - **setor**: Bloco: Meia-Parede
+                - fYMK2FjzsSDInT
+                - 8muJAOtyk0xBso
         - **[3]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_meia_parede_p3.webp)
           - **largura_mapa**: 2364
           - **altura_mapa**: 1773
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 1
-              - **label**: 1
+              - **id**: lytFrwcizQoxDS
+              - **uid**: lytFrwcizQoxDS
+              - **rotulo**: 1
               - **circulo**:
                 - **x**: 1577
                 - **y**: 1393
                 - **raio**: 20
+              - **label**: 1
             - **[1]**:
-              - **id**: 2
-              - **label**: 2
+              - **id**: GOPBsUhShupFPw
+              - **uid**: GOPBsUhShupFPw
+              - **rotulo**: 2
               - **circulo**:
                 - **x**: 1811
                 - **y**: 1326
                 - **raio**: 20
+              - **label**: 2
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: aibgHT6y1rwtrf
+              - **pontos_uids**:
+                - lytFrwcizQoxDS
               - **escalada**: Jardim de Orquídeas
               - **ids**:
-                - 1
+                - lytFrwcizQoxDS
             - **[1]**:
+              - **alvo_uid**: ezVswlVM7ZbIV5
+              - **pontos_uids**:
+                - GOPBsUhShupFPw
               - **escalada**: Jardim Suspenso
               - **ids**:
-                - 2
+                - GOPBsUhShupFPw
       - **escaladas**:
         - **[0]**:
+          - **uid**: j9bYZHdppTm9GB
           - **boulder**:
             - **nome**: Tatuagens do Ofício
             - **dificuldade**: V2
         - **[1]**:
+          - **uid**: wlzpJ6Alg7rNq9
           - **boulder**:
             - **nome**: Rastaman
             - **dificuldade**: V6
         - **[2]**:
+          - **uid**: L7FGfK2KXczfvg
           - **boulder**:
             - **nome**: Meia Parede
             - **dificuldade**: V4
         - **[3]**:
+          - **uid**: AdXhWkJg9o0u31
           - **boulder**:
             - **nome**: Slab
             - **dificuldade**: V4
         - **[4]**:
+          - **uid**: DtiEzq2Xxk6i7B
           - **boulder**:
             - **nome**: Aresta do Lenine
             - **dificuldade**: V5
         - **[5]**:
+          - **uid**: aibgHT6y1rwtrf
           - **boulder**:
             - **nome**: Jardim de Orquídeas
             - **dificuldade**: V5
         - **[6]**:
+          - **uid**: ezVswlVM7ZbIV5
           - **boulder**:
             - **nome**: Jardim Suspenso
             - **dificuldade**: V6
@@ -3896,6 +5179,7 @@
     - **conteudo**:
       - **descricao**: 
       - **nome**: Bloco: Mezanino
+      - **uid**: wEISHXN8e9nWM3
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_mezanino_p0.webp)
@@ -3903,51 +5187,68 @@
           - **altura_mapa**: 1773
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 1
-              - **label**: 1
+              - **id**: 8ISQbz4mTbKZ9f
+              - **uid**: 8ISQbz4mTbKZ9f
+              - **rotulo**: 1
               - **circulo**:
                 - **x**: 546
                 - **y**: 1237
                 - **raio**: 20
+              - **label**: 1
             - **[1]**:
-              - **id**: 2
-              - **label**: 2
+              - **id**: CqdOd3Qfv7Mgvj
+              - **uid**: CqdOd3Qfv7Mgvj
+              - **rotulo**: 2
               - **circulo**:
                 - **x**: 1538
                 - **y**: 1488
                 - **raio**: 20
+              - **label**: 2
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: O4ZT9qXPV0EYub
+              - **pontos_uids**:
+                - 8ISQbz4mTbKZ9f
               - **escalada**: Mezanino
               - **ids**:
-                - 1
+                - 8ISQbz4mTbKZ9f
             - **[1]**:
+              - **alvo_uid**: sBVXRpr71VrV5j
+              - **pontos_uids**:
+                - CqdOd3Qfv7Mgvj
               - **escalada**: Mesa
               - **ids**:
-                - 2
+                - CqdOd3Qfv7Mgvj
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_mezanino_p1.webp)
           - **largura_mapa**: 2364
           - **altura_mapa**: 1773
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 1
-              - **label**: 1
+              - **id**: BzWZgjIJkQ783a
+              - **uid**: BzWZgjIJkQ783a
+              - **rotulo**: 1
               - **circulo**:
                 - **x**: 987
                 - **y**: 1435
                 - **raio**: 20
+              - **label**: 1
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: sBVXRpr71VrV5j
+              - **pontos_uids**:
+                - BzWZgjIJkQ783a
               - **escalada**: Mesa
               - **ids**:
-                - 1
+                - BzWZgjIJkQ783a
       - **escaladas**:
         - **[0]**:
+          - **uid**: O4ZT9qXPV0EYub
           - **boulder**:
             - **nome**: Mezanino
             - **dificuldade**: V7
         - **[1]**:
+          - **uid**: sBVXRpr71VrV5j
           - **boulder**:
             - **nome**: Mesa
             - **dificuldade**: V5
@@ -3958,42 +5259,55 @@
     - **conteudo**:
       - **descricao**: 
       - **nome**: Bloco: Nat Geo
+      - **uid**: yZ6TvCV4MLKTEj
       - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/grupo_pedreira_setor_bloco_nat_geo_p1_i0.webp)
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_nat_geo_p0_i0.webp)
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: fKldQ5d6KjUsBC
+              - **pontos_uids**:
+                - MWyPdhR9M1tTRz
               - **escalada**: Nat Geo
               - **ids**:
-                - 1
+                - MWyPdhR9M1tTRz
             - **[1]**:
+              - **alvo_uid**: LL5kNoDBLZqexT
+              - **pontos_uids**:
+                - rliKualNmyIrvH
               - **escalada**: Discovery Kids
               - **ids**:
-                - 2
+                - rliKualNmyIrvH
           - **largura_mapa**: 2364
           - **altura_mapa**: 1773
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 1
-              - **label**: 1
+              - **id**: MWyPdhR9M1tTRz
+              - **uid**: MWyPdhR9M1tTRz
+              - **rotulo**: 1
               - **circulo**:
                 - **x**: 479
                 - **y**: 1530
                 - **raio**: 19
+              - **label**: 1
             - **[1]**:
-              - **id**: 2
-              - **label**: 2
+              - **id**: rliKualNmyIrvH
+              - **uid**: rliKualNmyIrvH
+              - **rotulo**: 2
               - **circulo**:
                 - **x**: 2225
                 - **y**: 1275
                 - **raio**: 19
+              - **label**: 2
       - **escaladas**:
         - **[0]**:
+          - **uid**: fKldQ5d6KjUsBC
           - **boulder**:
             - **nome**: Nat Geo
             - **dificuldade**: V7
         - **[1]**:
+          - **uid**: LL5kNoDBLZqexT
           - **boulder**:
             - **nome**: Discovery Kids
             - **dificuldade**: V3
@@ -4004,6 +5318,7 @@
     - **conteudo**:
       - **descricao**: 
       - **nome**: Bloco: Nave-Mãe
+      - **uid**: skAZrDygCrcu3g
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_nave_mae_p0.webp)
@@ -4011,708 +5326,965 @@
           - **altura_mapa**: 1773
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: A
-              - **label**: A
+              - **id**: xw2WrNccpZp0ZP
+              - **uid**: xw2WrNccpZp0ZP
+              - **rotulo**: A
               - **circulo**:
                 - **x**: 640
                 - **y**: 685
                 - **raio**: 19
+              - **label**: A
             - **[1]**:
-              - **id**: B
-              - **label**: B
+              - **id**: M2UBmFajwkeEa2
+              - **uid**: M2UBmFajwkeEa2
+              - **rotulo**: B
               - **circulo**:
                 - **x**: 902
                 - **y**: 736
                 - **raio**: 19
+              - **label**: B
             - **[2]**:
-              - **id**: C
-              - **label**: C
+              - **id**: NRCwUGTDPI4I45
+              - **uid**: NRCwUGTDPI4I45
+              - **rotulo**: C
               - **circulo**:
                 - **x**: 1367
                 - **y**: 660
                 - **raio**: 19
+              - **label**: C
             - **[3]**:
-              - **id**: D
-              - **label**: D
+              - **id**: fymC3Y7GvEu64M
+              - **uid**: fymC3Y7GvEu64M
+              - **rotulo**: D
               - **circulo**:
                 - **x**: 2066
                 - **y**: 607
                 - **raio**: 19
+              - **label**: D
             - **[4]**:
-              - **id**: E
-              - **label**: E
+              - **id**: zwtvLfGHdpL9hK
+              - **uid**: zwtvLfGHdpL9hK
+              - **rotulo**: E
               - **circulo**:
                 - **x**: 2282
                 - **y**: 639
                 - **raio**: 20
+              - **label**: E
             - **[5]**:
-              - **id**: F
-              - **label**: F
+              - **id**: Qw4t5HIjhSOeaF
+              - **uid**: Qw4t5HIjhSOeaF
+              - **rotulo**: F
               - **circulo**:
                 - **x**: 2193
                 - **y**: 974
                 - **raio**: 19
+              - **label**: F
             - **[6]**:
-              - **id**: 1
-              - **label**: 1
+              - **id**: vCckg7HrzHWiVj
+              - **uid**: vCckg7HrzHWiVj
+              - **rotulo**: 1
               - **circulo**:
                 - **x**: 354
                 - **y**: 1114
                 - **raio**: 19
+              - **label**: 1
             - **[7]**:
-              - **id**: 2
-              - **label**: 2
+              - **id**: sMBmPocdXVL7EF
+              - **uid**: sMBmPocdXVL7EF
+              - **rotulo**: 2
               - **circulo**:
                 - **x**: 1086
                 - **y**: 1191
                 - **raio**: 19
+              - **label**: 2
             - **[8]**:
-              - **id**: 4
-              - **label**: 4
+              - **id**: qFW3jmTfYqoait
+              - **uid**: qFW3jmTfYqoait
+              - **rotulo**: 4
               - **circulo**:
                 - **x**: 1310
                 - **y**: 1181
                 - **raio**: 19
+              - **label**: 4
             - **[9]**:
-              - **id**: 5
-              - **label**: 5
+              - **id**: xmKASdg6MNs1Pl
+              - **uid**: xmKASdg6MNs1Pl
+              - **rotulo**: 5
               - **circulo**:
                 - **x**: 1350
                 - **y**: 1181
                 - **raio**: 19
+              - **label**: 5
             - **[10]**:
-              - **id**: 6
-              - **label**: 6
+              - **id**: 25NDTLC9zJIwF4
+              - **uid**: 25NDTLC9zJIwF4
+              - **rotulo**: 6
               - **circulo**:
                 - **x**: 1601
                 - **y**: 1209
                 - **raio**: 19
+              - **label**: 6
             - **[11]**:
-              - **id**: 9
-              - **label**: 9
+              - **id**: 1j4xqwWadpNys6
+              - **uid**: 1j4xqwWadpNys6
+              - **rotulo**: 9
               - **circulo**:
                 - **x**: 1622
                 - **y**: 1244
                 - **raio**: 19
+              - **label**: 9
             - **[12]**:
-              - **id**: 7
-              - **label**: 7
+              - **id**: rsBdetu5BnYj9x
+              - **uid**: rsBdetu5BnYj9x
+              - **rotulo**: 7
               - **circulo**:
                 - **x**: 1956
                 - **y**: 1058
                 - **raio**: 19
+              - **label**: 7
             - **[13]**:
-              - **id**: 10
-              - **label**: 10
+              - **id**: WEtbTvtycmFP7N
+              - **uid**: WEtbTvtycmFP7N
+              - **rotulo**: 10
               - **circulo**:
                 - **x**: 2014
                 - **y**: 1065
                 - **raio**: 23
+              - **label**: 10
             - **[14]**:
-              - **id**: 8
-              - **label**: 8
+              - **id**: ZkX53td8f3ORSy
+              - **uid**: ZkX53td8f3ORSy
+              - **rotulo**: 8
               - **circulo**:
                 - **x**: 2177
                 - **y**: 918
                 - **raio**: 19
+              - **label**: 8
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: NhxZTj9giBFCyP
+              - **pontos_uids**:
+                - vCckg7HrzHWiVj
+                - xw2WrNccpZp0ZP
               - **escalada**: Monte Mor
               - **ids**:
-                - 1
-                - A
+                - vCckg7HrzHWiVj
+                - xw2WrNccpZp0ZP
             - **[1]**:
+              - **alvo_uid**: yrmqjQkWzgc2F8
+              - **pontos_uids**:
+                - vCckg7HrzHWiVj
+                - M2UBmFajwkeEa2
               - **escalada**: Irmãos Coragem
               - **ids**:
-                - 1
-                - B
+                - vCckg7HrzHWiVj
+                - M2UBmFajwkeEa2
             - **[2]**:
+              - **alvo_uid**: LFASLEsrPebwQW
+              - **pontos_uids**:
+                - sMBmPocdXVL7EF
+                - M2UBmFajwkeEa2
               - **escalada**: Irmãos na Vibe
               - **ids**:
-                - 2
-                - B
+                - sMBmPocdXVL7EF
+                - M2UBmFajwkeEa2
             - **[3]**:
+              - **alvo_uid**: MaIF4mfMkWZ34L
+              - **pontos_uids**:
+                - qFW3jmTfYqoait
+                - NRCwUGTDPI4I45
               - **escalada**: Ora-Por-Todos
               - **ids**:
-                - 4
-                - C
+                - qFW3jmTfYqoait
+                - NRCwUGTDPI4I45
             - **[4]**:
+              - **alvo_uid**: MCUL9v1evEYdHd
+              - **pontos_uids**:
+                - xmKASdg6MNs1Pl
+                - NRCwUGTDPI4I45
               - **escalada**: Orai-Por-Noix
               - **ids**:
-                - 5
-                - C
+                - xmKASdg6MNs1Pl
+                - NRCwUGTDPI4I45
             - **[5]**:
+              - **alvo_uid**: m7gk4wtsCyFp1i
+              - **pontos_uids**:
+                - xmKASdg6MNs1Pl
+                - fymC3Y7GvEu64M
               - **escalada**: Ora-Pra-Jah
               - **ids**:
-                - 5
-                - D
+                - xmKASdg6MNs1Pl
+                - fymC3Y7GvEu64M
             - **[6]**:
+              - **alvo_uid**: 5pTWXLMlqls565
+              - **pontos_uids**:
+                - xmKASdg6MNs1Pl
+                - zwtvLfGHdpL9hK
               - **escalada**: Ouroboulder
               - **ids**:
-                - 5
-                - E
+                - xmKASdg6MNs1Pl
+                - zwtvLfGHdpL9hK
             - **[7]**:
+              - **alvo_uid**: 18NHtGJEgPAW9B
+              - **pontos_uids**:
+                - 25NDTLC9zJIwF4
+                - fymC3Y7GvEu64M
               - **escalada**: Ora-Pro-Nóbis
               - **ids**:
-                - 6
-                - D
+                - 25NDTLC9zJIwF4
+                - fymC3Y7GvEu64M
             - **[8]**:
+              - **alvo_uid**: blpENBkvARWOXN
+              - **pontos_uids**:
+                - 25NDTLC9zJIwF4
+                - zwtvLfGHdpL9hK
               - **escalada**: Ora-Pros-Crash
               - **ids**:
-                - 6
-                - E
+                - 25NDTLC9zJIwF4
+                - zwtvLfGHdpL9hK
             - **[9]**:
+              - **alvo_uid**: DGRsLWRpr4Fe9e
+              - **pontos_uids**:
+                - rsBdetu5BnYj9x
+                - zwtvLfGHdpL9hK
               - **escalada**: Oratório
               - **ids**:
-                - 7
-                - E
+                - rsBdetu5BnYj9x
+                - zwtvLfGHdpL9hK
             - **[10]**:
+              - **alvo_uid**: BxsLsGXWDzJ5eF
+              - **pontos_uids**:
+                - ZkX53td8f3ORSy
+                - zwtvLfGHdpL9hK
               - **escalada**: Quebra Galho
               - **ids**:
-                - 8
-                - E
+                - ZkX53td8f3ORSy
+                - zwtvLfGHdpL9hK
             - **[11]**:
+              - **alvo_uid**: hxVPscZihPx3r1
+              - **pontos_uids**:
+                - 1j4xqwWadpNys6
+                - Qw4t5HIjhSOeaF
               - **escalada**: Libertadores
               - **ids**:
-                - 9
-                - F
+                - 1j4xqwWadpNys6
+                - Qw4t5HIjhSOeaF
             - **[12]**:
+              - **alvo_uid**: 4LUhmyqHPJIvhN
+              - **pontos_uids**:
+                - WEtbTvtycmFP7N
+                - Qw4t5HIjhSOeaF
               - **escalada**: Eu Acredito
               - **ids**:
-                - 10
-                - F
+                - WEtbTvtycmFP7N
+                - Qw4t5HIjhSOeaF
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_nave_mae_p1.webp)
           - **largura_mapa**: 2364
           - **altura_mapa**: 1773
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: B
-              - **label**: B
+              - **id**: WiKk0Phg2tkuDq
+              - **uid**: WiKk0Phg2tkuDq
+              - **rotulo**: B
               - **circulo**:
                 - **x**: 236
                 - **y**: 558
                 - **raio**: 19
+              - **label**: B
             - **[1]**:
-              - **id**: A
-              - **label**: A
+              - **id**: gvG3ixgVMxrjO4
+              - **uid**: gvG3ixgVMxrjO4
+              - **rotulo**: A
               - **circulo**:
                 - **x**: 130
                 - **y**: 876
                 - **raio**: 19
+              - **label**: A
             - **[2]**:
-              - **id**: C
-              - **label**: C
+              - **id**: DB9bDOvLdYq2hY
+              - **uid**: DB9bDOvLdYq2hY
+              - **rotulo**: C
               - **circulo**:
                 - **x**: 874
                 - **y**: 178
                 - **raio**: 19
+              - **label**: C
             - **[3]**:
-              - **id**: D
-              - **label**: D
+              - **id**: FUhmF0YsJHMCJf
+              - **uid**: FUhmF0YsJHMCJf
+              - **rotulo**: D
               - **circulo**:
                 - **x**: 1904
                 - **y**: 492
                 - **raio**: 19
+              - **label**: D
             - **[4]**:
-              - **id**: ▲
-              - **label**: ▲
+              - **id**: EP7kIXeDvzcLu3
+              - **uid**: EP7kIXeDvzcLu3
+              - **rotulo**: ▲
               - **circulo**:
                 - **x**: 452
                 - **y**: 1095
                 - **raio**: 19
+              - **label**: ▲
             - **[5]**:
-              - **id**: ★
-              - **label**: ★
+              - **id**: 4k7BFASp7bnFMc
+              - **uid**: 4k7BFASp7bnFMc
+              - **rotulo**: ★
               - **circulo**:
                 - **x**: 427
                 - **y**: 1231
                 - **raio**: 19
+              - **label**: ★
             - **[6]**:
-              - **id**: 1
-              - **label**: 1
+              - **id**: XZwFSxlPVi0vNs
+              - **uid**: XZwFSxlPVi0vNs
+              - **rotulo**: 1
               - **circulo**:
                 - **x**: 576
                 - **y**: 1408
                 - **raio**: 19
+              - **label**: 1
             - **[7]**:
-              - **id**: 2
-              - **label**: 2
+              - **id**: FWGP7Agj4MeoJ3
+              - **uid**: FWGP7Agj4MeoJ3
+              - **rotulo**: 2
               - **circulo**:
                 - **x**: 1087
                 - **y**: 1426
                 - **raio**: 19
+              - **label**: 2
             - **[8]**:
-              - **id**: 3
-              - **label**: 3
+              - **id**: TzmdsQE1sUmlep
+              - **uid**: TzmdsQE1sUmlep
+              - **rotulo**: 3
               - **circulo**:
                 - **x**: 944
                 - **y**: 771
                 - **raio**: 19
+              - **label**: 3
             - **[9]**:
-              - **id**: 4
-              - **label**: 4
+              - **id**: X7KWESevYJGD79
+              - **uid**: X7KWESevYJGD79
+              - **rotulo**: 4
               - **circulo**:
                 - **x**: 1473
                 - **y**: 1070
                 - **raio**: 19
+              - **label**: 4
             - **[10]**:
-              - **id**: 5
-              - **label**: 5
+              - **id**: vmlD5gDcQlBqBb
+              - **uid**: vmlD5gDcQlBqBb
+              - **rotulo**: 5
               - **circulo**:
                 - **x**: 1224
                 - **y**: 1155
                 - **raio**: 19
+              - **label**: 5
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: MaIF4mfMkWZ34L
+              - **pontos_uids**:
+                - XZwFSxlPVi0vNs
+                - gvG3ixgVMxrjO4
+                - 4k7BFASp7bnFMc
               - **escalada**: Ora-Por-Todos
               - **ids**:
-                - 1
-                - A
-                - ★
+                - XZwFSxlPVi0vNs
+                - gvG3ixgVMxrjO4
+                - 4k7BFASp7bnFMc
             - **[1]**:
+              - **alvo_uid**: MCUL9v1evEYdHd
+              - **pontos_uids**:
+                - XZwFSxlPVi0vNs
+                - gvG3ixgVMxrjO4
+                - EP7kIXeDvzcLu3
               - **escalada**: Orai-Por-Noix
               - **ids**:
-                - 1
-                - A
-                - ▲
+                - XZwFSxlPVi0vNs
+                - gvG3ixgVMxrjO4
+                - EP7kIXeDvzcLu3
             - **[2]**:
+              - **alvo_uid**: m7gk4wtsCyFp1i
+              - **pontos_uids**:
+                - XZwFSxlPVi0vNs
+                - WiKk0Phg2tkuDq
               - **escalada**: Ora-Pra-Jah
               - **ids**:
-                - 1
-                - B
+                - XZwFSxlPVi0vNs
+                - WiKk0Phg2tkuDq
             - **[3]**:
+              - **alvo_uid**: 5pTWXLMlqls565
+              - **pontos_uids**:
+                - XZwFSxlPVi0vNs
+                - DB9bDOvLdYq2hY
               - **escalada**: Ouroboulder
               - **ids**:
-                - 1
-                - C
+                - XZwFSxlPVi0vNs
+                - DB9bDOvLdYq2hY
             - **[4]**:
+              - **alvo_uid**: 18NHtGJEgPAW9B
+              - **pontos_uids**:
+                - FWGP7Agj4MeoJ3
+                - WiKk0Phg2tkuDq
               - **escalada**: Ora-Pro-Nóbis
               - **ids**:
-                - 2
-                - B
+                - FWGP7Agj4MeoJ3
+                - WiKk0Phg2tkuDq
             - **[5]**:
+              - **alvo_uid**: blpENBkvARWOXN
+              - **pontos_uids**:
+                - FWGP7Agj4MeoJ3
+                - DB9bDOvLdYq2hY
               - **escalada**: Ora-Pros-Crash
               - **ids**:
-                - 2
-                - C
+                - FWGP7Agj4MeoJ3
+                - DB9bDOvLdYq2hY
             - **[6]**:
+              - **alvo_uid**: DGRsLWRpr4Fe9e
+              - **pontos_uids**:
+                - vmlD5gDcQlBqBb
+                - DB9bDOvLdYq2hY
               - **escalada**: Oratório
               - **ids**:
-                - 5
-                - C
+                - vmlD5gDcQlBqBb
+                - DB9bDOvLdYq2hY
             - **[7]**:
+              - **alvo_uid**: BxsLsGXWDzJ5eF
+              - **pontos_uids**:
+                - TzmdsQE1sUmlep
+                - DB9bDOvLdYq2hY
               - **escalada**: Quebra Galho
               - **ids**:
-                - 3
-                - C
+                - TzmdsQE1sUmlep
+                - DB9bDOvLdYq2hY
             - **[8]**:
+              - **alvo_uid**: hxVPscZihPx3r1
+              - **pontos_uids**:
+                - FWGP7Agj4MeoJ3
+                - FUhmF0YsJHMCJf
               - **escalada**: Libertadores
               - **ids**:
-                - 2
-                - D
+                - FWGP7Agj4MeoJ3
+                - FUhmF0YsJHMCJf
             - **[9]**:
+              - **alvo_uid**: 4LUhmyqHPJIvhN
+              - **pontos_uids**:
+                - X7KWESevYJGD79
+                - FUhmF0YsJHMCJf
               - **escalada**: Eu Acredito
               - **ids**:
-                - 4
-                - D
+                - X7KWESevYJGD79
+                - FUhmF0YsJHMCJf
         - **[2]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_nave_mae_p2.webp)
           - **largura_mapa**: 2364
           - **altura_mapa**: 1773
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 1
-              - **label**: 1
+              - **id**: uwcvDogJf5sqyO
+              - **uid**: uwcvDogJf5sqyO
+              - **rotulo**: 1
               - **circulo**:
                 - **x**: 233
                 - **y**: 1042
                 - **raio**: 19
+              - **label**: 1
             - **[1]**:
-              - **id**: 2
-              - **label**: 2
+              - **id**: sEPgNXchWVUMUM
+              - **uid**: sEPgNXchWVUMUM
+              - **rotulo**: 2
               - **circulo**:
                 - **x**: 1217
                 - **y**: 1227
                 - **raio**: 19
+              - **label**: 2
             - **[2]**:
-              - **id**: 3
-              - **label**: 3
+              - **id**: BmXibCqGGnl02j
+              - **uid**: BmXibCqGGnl02j
+              - **rotulo**: 3
               - **circulo**:
                 - **x**: 1257
                 - **y**: 1236
                 - **raio**: 19
+              - **label**: 3
             - **[3]**:
-              - **id**: ▲_esquerda
-              - **label**: ▲
+              - **id**: 0fl4BCzCbiAl3p
+              - **uid**: 0fl4BCzCbiAl3p
+              - **rotulo**: ▲
               - **circulo**:
                 - **x**: 1173
                 - **y**: 1072
                 - **raio**: 19
+              - **label**: ▲
             - **[4]**:
-              - **id**: ★_esquerda
-              - **label**: ★
+              - **id**: Y9ZEr9Tk9z1xPy
+              - **uid**: Y9ZEr9Tk9z1xPy
+              - **rotulo**: ★
               - **circulo**:
                 - **x**: 1267
                 - **y**: 1098
                 - **raio**: 19
+              - **label**: ★
             - **[5]**:
-              - **id**: ▲_direita
-              - **label**: ▲
+              - **id**: wt7aIijsTpstP3
+              - **uid**: wt7aIijsTpstP3
+              - **rotulo**: ▲
               - **circulo**:
                 - **x**: 1456
                 - **y**: 1062
                 - **raio**: 19
+              - **label**: ▲
             - **[6]**:
-              - **id**: ★_direita
-              - **label**: ★
+              - **id**: ee9iX9Dvy5u5kT
+              - **uid**: ee9iX9Dvy5u5kT
+              - **rotulo**: ★
               - **circulo**:
                 - **x**: 1550
                 - **y**: 1164
                 - **raio**: 19
+              - **label**: ★
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: 9s8Nm9OPEymGt6
+              - **pontos_uids**:
+                - uwcvDogJf5sqyO
               - **escalada**: Umbriacone
               - **ids**:
-                - 1
+                - uwcvDogJf5sqyO
             - **[1]**:
+              - **alvo_uid**: IPoFMh7oAmqESL
+              - **pontos_uids**:
+                - sEPgNXchWVUMUM
+                - 0fl4BCzCbiAl3p
               - **escalada**: Mortal Kombat
               - **ids**:
-                - 2
-                - ▲_esquerda
-              - **grupo**: Pedreira
-              - **setor**: Bloco: Nave-Mãe
+                - sEPgNXchWVUMUM
+                - 0fl4BCzCbiAl3p
             - **[2]**:
-              - **ids**:
-                - 2
-                - ★_esquerda
-              - **grupo**: Pedreira
-              - **setor**: Bloco: Nave-Mãe
+              - **alvo_uid**: bytVqz2d6aTQtE
+              - **pontos_uids**:
+                - sEPgNXchWVUMUM
+                - Y9ZEr9Tk9z1xPy
               - **escalada**: Sub-Zero
+              - **ids**:
+                - sEPgNXchWVUMUM
+                - Y9ZEr9Tk9z1xPy
             - **[3]**:
-              - **ids**:
-                - 3
-                - ▲_direita
-              - **grupo**: Pedreira
-              - **setor**: Bloco: Nave-Mãe
+              - **alvo_uid**: GNGf04oKhScqxn
+              - **pontos_uids**:
+                - BmXibCqGGnl02j
+                - wt7aIijsTpstP3
               - **escalada**: Raiden
-            - **[4]**:
               - **ids**:
-                - 3
-                - ★_direita
-              - **grupo**: Pedreira
-              - **setor**: Bloco: Nave-Mãe
+                - BmXibCqGGnl02j
+                - wt7aIijsTpstP3
+            - **[4]**:
+              - **alvo_uid**: fUbTu07KRCSQd7
+              - **pontos_uids**:
+                - BmXibCqGGnl02j
+                - ee9iX9Dvy5u5kT
               - **escalada**: Carcomendo
+              - **ids**:
+                - BmXibCqGGnl02j
+                - ee9iX9Dvy5u5kT
         - **[3]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_nave_mae_p3.webp)
           - **largura_mapa**: 2364
           - **altura_mapa**: 1773
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 1
-              - **label**: 1
+              - **id**: C5XgoSQ4SjRhSJ
+              - **uid**: C5XgoSQ4SjRhSJ
+              - **rotulo**: 1
               - **circulo**:
                 - **x**: 515
                 - **y**: 1578
                 - **raio**: 20
+              - **label**: 1
             - **[1]**:
-              - **id**: 2
-              - **label**: 2
+              - **id**: J5AjOsOKIXa5lV
+              - **uid**: J5AjOsOKIXa5lV
+              - **rotulo**: 2
               - **circulo**:
                 - **x**: 626
                 - **y**: 1578
                 - **raio**: 20
+              - **label**: 2
             - **[2]**:
-              - **id**: ▲_esquerda
-              - **label**: ▲
+              - **id**: 3ubPXYDk1YDhOo
+              - **uid**: 3ubPXYDk1YDhOo
+              - **rotulo**: ▲
               - **circulo**:
                 - **x**: 346
                 - **y**: 1100
                 - **raio**: 20
+              - **label**: ▲
             - **[3]**:
-              - **id**: ★_esquerda
-              - **label**: ★
+              - **id**: vvA8LdxrXwrMLO
+              - **uid**: vvA8LdxrXwrMLO
+              - **rotulo**: ★
               - **circulo**:
                 - **x**: 557
                 - **y**: 917
                 - **raio**: 20
+              - **label**: ★
             - **[4]**:
-              - **id**: ▲_direita
-              - **label**: ▲
+              - **id**: TVbPqHOxkN0pY4
+              - **uid**: TVbPqHOxkN0pY4
+              - **rotulo**: ▲
               - **circulo**:
                 - **x**: 864
                 - **y**: 1027
                 - **raio**: 20
+              - **label**: ▲
             - **[5]**:
-              - **id**: ★_direita
-              - **label**: ★
+              - **id**: k5wArRPNW1ZWD9
+              - **uid**: k5wArRPNW1ZWD9
+              - **rotulo**: ★
               - **circulo**:
                 - **x**: 1346
                 - **y**: 1245
                 - **raio**: 20
+              - **label**: ★
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: IPoFMh7oAmqESL
+              - **pontos_uids**:
+                - C5XgoSQ4SjRhSJ
+                - 3ubPXYDk1YDhOo
               - **escalada**: Mortal Kombat
               - **ids**:
-                - 1
-                - ▲_esquerda
-              - **grupo**: Pedreira
-              - **setor**: Bloco: Nave-Mãe
+                - C5XgoSQ4SjRhSJ
+                - 3ubPXYDk1YDhOo
             - **[1]**:
+              - **alvo_uid**: bytVqz2d6aTQtE
+              - **pontos_uids**:
+                - C5XgoSQ4SjRhSJ
+                - vvA8LdxrXwrMLO
               - **escalada**: Sub-Zero
               - **ids**:
-                - 1
-                - ★_esquerda
-              - **grupo**: Pedreira
-              - **setor**: Bloco: Nave-Mãe
+                - C5XgoSQ4SjRhSJ
+                - vvA8LdxrXwrMLO
             - **[2]**:
-              - **ids**:
-                - 2
-                - ▲_direita
-              - **grupo**: Pedreira
-              - **setor**: Bloco: Nave-Mãe
+              - **alvo_uid**: GNGf04oKhScqxn
+              - **pontos_uids**:
+                - J5AjOsOKIXa5lV
+                - TVbPqHOxkN0pY4
               - **escalada**: Raiden
-            - **[3]**:
               - **ids**:
-                - 2
-                - ★_direita
-              - **grupo**: Pedreira
-              - **setor**: Bloco: Nave-Mãe
+                - J5AjOsOKIXa5lV
+                - TVbPqHOxkN0pY4
+            - **[3]**:
+              - **alvo_uid**: fUbTu07KRCSQd7
+              - **pontos_uids**:
+                - J5AjOsOKIXa5lV
+                - k5wArRPNW1ZWD9
               - **escalada**: Carcomendo
+              - **ids**:
+                - J5AjOsOKIXa5lV
+                - k5wArRPNW1ZWD9
         - **[4]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_nave_mae_p4.webp)
           - **largura_mapa**: 2364
           - **altura_mapa**: 1773
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 1
-              - **label**: 1
+              - **id**: Xsi5RDrcJ46IQv
+              - **uid**: Xsi5RDrcJ46IQv
+              - **rotulo**: 1
               - **circulo**:
                 - **x**: 346
                 - **y**: 704
                 - **raio**: 20
+              - **label**: 1
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: p5Kd6jSdIFnRdA
+              - **pontos_uids**:
+                - Xsi5RDrcJ46IQv
               - **escalada**: 003
               - **ids**:
-                - 1
+                - Xsi5RDrcJ46IQv
         - **[5]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_nave_mae_p5.webp)
           - **largura_mapa**: 2364
           - **altura_mapa**: 1773
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: A
-              - **label**: A
+              - **id**: 2PPELBJ2dzMx90
+              - **uid**: 2PPELBJ2dzMx90
+              - **rotulo**: A
               - **circulo**:
                 - **x**: 517
                 - **y**: 756
                 - **raio**: 19
+              - **label**: A
             - **[1]**:
-              - **id**: B
-              - **label**: B
+              - **id**: QO7d8Kg4pwrpWA
+              - **uid**: QO7d8Kg4pwrpWA
+              - **rotulo**: B
               - **circulo**:
                 - **x**: 1286
                 - **y**: 565
                 - **raio**: 19
+              - **label**: B
             - **[2]**:
-              - **id**: C
-              - **label**: C
+              - **id**: drTHnfSDL3TiUE
+              - **uid**: drTHnfSDL3TiUE
+              - **rotulo**: C
               - **circulo**:
                 - **x**: 1352
                 - **y**: 1040
                 - **raio**: 18
+              - **label**: C
             - **[3]**:
-              - **id**: triangulo
-              - **label**: ▲
+              - **id**: mTetANUTRrUzU1
+              - **uid**: mTetANUTRrUzU1
+              - **rotulo**: ▲
               - **circulo**:
                 - **x**: 1651
                 - **y**: 1188
                 - **raio**: 19
+              - **label**: ▲
             - **[4]**:
-              - **id**: estrela
-              - **label**: ★
+              - **id**: jEOzZMCoLiWH5C
+              - **uid**: jEOzZMCoLiWH5C
+              - **rotulo**: ★
               - **circulo**:
                 - **x**: 1437
                 - **y**: 1314
                 - **raio**: 19
+              - **label**: ★
             - **[5]**:
-              - **id**: 2
-              - **label**: 2
+              - **id**: 7TR0ApHxx9bWOS
+              - **uid**: 7TR0ApHxx9bWOS
+              - **rotulo**: 2
               - **circulo**:
                 - **x**: 1102
                 - **y**: 1308
                 - **raio**: 19
+              - **label**: 2
             - **[6]**:
-              - **id**: 1
-              - **label**: 1
+              - **id**: aH38cbYIMhibw7
+              - **uid**: aH38cbYIMhibw7
+              - **rotulo**: 1
               - **circulo**:
                 - **x**: 1607
                 - **y**: 1417
                 - **raio**: 19
+              - **label**: 1
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: Ahbhee1OlW69Ga
+              - **pontos_uids**:
+                - 2PPELBJ2dzMx90
+                - aH38cbYIMhibw7
+                - jEOzZMCoLiWH5C
               - **escalada**: Pico do Baiano
               - **ids**:
-                - A
-                - 1
-                - estrela
-              - **grupo**: Pedreira
-              - **setor**: Bloco: Nave-Mãe
+                - 2PPELBJ2dzMx90
+                - aH38cbYIMhibw7
+                - jEOzZMCoLiWH5C
             - **[1]**:
+              - **alvo_uid**: MlhIBqYsf7n2Fp
+              - **pontos_uids**:
+                - aH38cbYIMhibw7
+                - QO7d8Kg4pwrpWA
+                - jEOzZMCoLiWH5C
               - **escalada**: De Inverno
               - **ids**:
-                - 1
-                - B
-                - estrela
-              - **grupo**: Pedreira
-              - **setor**: Bloco: Nave-Mãe
+                - aH38cbYIMhibw7
+                - QO7d8Kg4pwrpWA
+                - jEOzZMCoLiWH5C
             - **[2]**:
+              - **alvo_uid**: chYHZr2YNq8Xf0
+              - **pontos_uids**:
+                - aH38cbYIMhibw7
+                - jEOzZMCoLiWH5C
+                - drTHnfSDL3TiUE
               - **escalada**: De Verão
               - **ids**:
-                - 1
-                - estrela
-                - C
-              - **grupo**: Pedreira
-              - **setor**: Bloco: Nave-Mãe
+                - aH38cbYIMhibw7
+                - jEOzZMCoLiWH5C
+                - drTHnfSDL3TiUE
             - **[3]**:
+              - **alvo_uid**: YAhKmGbZFYKZDd
+              - **pontos_uids**:
+                - aH38cbYIMhibw7
+                - mTetANUTRrUzU1
+                - QO7d8Kg4pwrpWA
               - **escalada**: Maverick
               - **ids**:
-                - 1
-                - triangulo
-                - B
-              - **grupo**: Pedreira
-              - **setor**: Bloco: Nave-Mãe
+                - aH38cbYIMhibw7
+                - mTetANUTRrUzU1
+                - QO7d8Kg4pwrpWA
             - **[4]**:
+              - **alvo_uid**: p6GJ35FDjCU1PV
+              - **pontos_uids**:
+                - 7TR0ApHxx9bWOS
+                - QO7d8Kg4pwrpWA
               - **escalada**: Vem Verão
               - **ids**:
-                - 2
-                - B
-              - **grupo**: Pedreira
-              - **setor**: Bloco: Nave-Mãe
+                - 7TR0ApHxx9bWOS
+                - QO7d8Kg4pwrpWA
         - **[6]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_nave_mae_p6.webp)
           - **largura_mapa**: 2364
           - **altura_mapa**: 1773
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: A
-              - **label**: A
+              - **id**: Qx5KiftdufZy8x
+              - **uid**: Qx5KiftdufZy8x
+              - **rotulo**: A
               - **circulo**:
                 - **x**: 1508
                 - **y**: 342
                 - **raio**: 20
+              - **label**: A
             - **[1]**:
-              - **id**: 1
-              - **label**: 1
+              - **id**: JQ4ZtSqlFKDmmo
+              - **uid**: JQ4ZtSqlFKDmmo
+              - **rotulo**: 1
               - **circulo**:
                 - **x**: 1645
                 - **y**: 1147
                 - **raio**: 20
+              - **label**: 1
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: GtmyTIaOUFRz3J
+              - **pontos_uids**:
+                - JQ4ZtSqlFKDmmo
+                - Qx5KiftdufZy8x
               - **escalada**: Passível
               - **ids**:
-                - 1
-                - A
+                - JQ4ZtSqlFKDmmo
+                - Qx5KiftdufZy8x
       - **escaladas**:
         - **[0]**:
+          - **uid**: NhxZTj9giBFCyP
           - **boulder**:
             - **nome**: Monte Mor
             - **dificuldade**: V3
         - **[1]**:
+          - **uid**: yrmqjQkWzgc2F8
           - **boulder**:
             - **nome**: Irmãos Coragem
             - **dificuldade**: V8
         - **[2]**:
+          - **uid**: LFASLEsrPebwQW
           - **boulder**:
             - **nome**: Irmãos na Vibe
             - **dificuldade**: V8
         - **[3]**:
+          - **uid**: MaIF4mfMkWZ34L
           - **boulder**:
             - **nome**: Ora-Por-Todos
             - **dificuldade**: V3
         - **[4]**:
+          - **uid**: MCUL9v1evEYdHd
           - **boulder**:
             - **nome**: Orai-Por-Noix
             - **dificuldade**: V5
         - **[5]**:
+          - **uid**: m7gk4wtsCyFp1i
           - **boulder**:
             - **nome**: Ora-Pra-Jah
             - **dificuldade**: V9
         - **[6]**:
+          - **uid**: 5pTWXLMlqls565
           - **boulder**:
             - **nome**: Ouroboulder
             - **dificuldade**: V11
         - **[7]**:
+          - **uid**: 18NHtGJEgPAW9B
           - **boulder**:
             - **nome**: Ora-Pro-Nóbis
             - **dificuldade**: V7
         - **[8]**:
+          - **uid**: blpENBkvARWOXN
           - **boulder**:
             - **nome**: Ora-Pros-Crash
             - **dificuldade**: V10
         - **[9]**:
+          - **uid**: DGRsLWRpr4Fe9e
           - **boulder**:
             - **nome**: Oratório
             - **dificuldade**: V10
         - **[10]**:
+          - **uid**: BxsLsGXWDzJ5eF
           - **boulder**:
             - **nome**: Quebra Galho
             - **dificuldade**: V6
         - **[11]**:
+          - **uid**: hxVPscZihPx3r1
           - **boulder**:
             - **nome**: Libertadores
             - **dificuldade**: V14
         - **[12]**:
+          - **uid**: 4LUhmyqHPJIvhN
           - **boulder**:
             - **nome**: Eu Acredito
             - **dificuldade**: V11
         - **[13]**:
+          - **uid**: 9s8Nm9OPEymGt6
           - **boulder**:
             - **nome**: Umbriacone
             - **dificuldade**: V8
         - **[14]**:
+          - **uid**: IPoFMh7oAmqESL
           - **boulder**:
             - **nome**: Mortal Kombat
             - **dificuldade**: V8
         - **[15]**:
+          - **uid**: bytVqz2d6aTQtE
           - **boulder**:
             - **nome**: Sub-Zero
             - **dificuldade**: V6
         - **[16]**:
+          - **uid**: GNGf04oKhScqxn
           - **boulder**:
             - **nome**: Raiden
             - **dificuldade**: V4
         - **[17]**:
+          - **uid**: fUbTu07KRCSQd7
           - **boulder**:
             - **nome**: Carcomendo
             - **dificuldade**: V7
         - **[18]**:
+          - **uid**: p5Kd6jSdIFnRdA
           - **boulder**:
             - **nome**: 003
             - **dificuldade**: V5
         - **[19]**:
+          - **uid**: Ahbhee1OlW69Ga
           - **boulder**:
             - **nome**: Pico do Baiano
             - **dificuldade**: V11
         - **[20]**:
+          - **uid**: MlhIBqYsf7n2Fp
           - **boulder**:
             - **nome**: De Inverno
             - **dificuldade**: V10
         - **[21]**:
+          - **uid**: chYHZr2YNq8Xf0
           - **boulder**:
             - **nome**: De Verão
             - **dificuldade**: V10
         - **[22]**:
+          - **uid**: YAhKmGbZFYKZDd
           - **boulder**:
             - **nome**: Maverick
             - **dificuldade**: V9
         - **[23]**:
+          - **uid**: p6GJ35FDjCU1PV
           - **boulder**:
             - **nome**: Vem Verão
             - **dificuldade**: V9
         - **[24]**:
+          - **uid**: GtmyTIaOUFRz3J
           - **boulder**:
             - **nome**: Passível
             - **dificuldade**: V2
@@ -4723,6 +6295,7 @@
     - **conteudo**:
       - **descricao**: 
       - **nome**: Bloco: Pedra Queimada
+      - **uid**: KMgvZxpGaKri2z
       - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/grupo_pedreira_setor_bloco_pedra_queimada_p1_i0.webp)
       - **mapas**:
         - **[0]**:
@@ -4731,83 +6304,117 @@
           - **altura_mapa**: 1773
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: A
-              - **label**: A
+              - **id**: EJvD8fxrfVOqi0
+              - **uid**: EJvD8fxrfVOqi0
+              - **rotulo**: A
               - **circulo**:
                 - **x**: 2265
                 - **y**: 421
                 - **raio**: 20
+              - **label**: A
             - **[1]**:
-              - **id**: B
-              - **label**: B
+              - **id**: QGUW0ci1xi4mUQ
+              - **uid**: QGUW0ci1xi4mUQ
+              - **rotulo**: B
               - **circulo**:
                 - **x**: 1027
                 - **y**: 462
                 - **raio**: 20
+              - **label**: B
             - **[2]**:
-              - **id**: 1
-              - **label**: 1
+              - **id**: VXcVDy8quHipHs
+              - **uid**: VXcVDy8quHipHs
+              - **rotulo**: 1
               - **circulo**:
                 - **x**: 772
                 - **y**: 1171
                 - **raio**: 20
+              - **label**: 1
             - **[3]**:
-              - **id**: 2
-              - **label**: 2
+              - **id**: nXtkg4Z4FwLpUU
+              - **uid**: nXtkg4Z4FwLpUU
+              - **rotulo**: 2
               - **circulo**:
                 - **x**: 1662
                 - **y**: 907
                 - **raio**: 20
+              - **label**: 2
             - **[4]**:
-              - **id**: 3
-              - **label**: 3
+              - **id**: PCh1E0YaaDTNuq
+              - **uid**: PCh1E0YaaDTNuq
+              - **rotulo**: 3
               - **circulo**:
                 - **x**: 1971
                 - **y**: 1142
                 - **raio**: 20
+              - **label**: 3
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: LG8kAWuA8BhFcZ
+              - **pontos_uids**:
+                - VXcVDy8quHipHs
               - **escalada**: México
               - **ids**:
-                - 1
+                - VXcVDy8quHipHs
             - **[1]**:
+              - **alvo_uid**: dIVl3zJfPRK1JB
+              - **pontos_uids**:
+                - nXtkg4Z4FwLpUU
+                - EJvD8fxrfVOqi0
               - **escalada**: Dinamite
               - **ids**:
-                - 2
-                - A
+                - nXtkg4Z4FwLpUU
+                - EJvD8fxrfVOqi0
             - **[2]**:
+              - **alvo_uid**: 2Z1wL1iUT61CWL
+              - **pontos_uids**:
+                - nXtkg4Z4FwLpUU
+                - QGUW0ci1xi4mUQ
               - **escalada**: Pedra Queimada
               - **ids**:
-                - 2
-                - B
+                - nXtkg4Z4FwLpUU
+                - QGUW0ci1xi4mUQ
             - **[3]**:
+              - **alvo_uid**: 4ufRkG6ve9B7Ks
+              - **pontos_uids**:
+                - PCh1E0YaaDTNuq
+                - EJvD8fxrfVOqi0
               - **escalada**: Dinamite sds
               - **ids**:
-                - 3
-                - A
+                - PCh1E0YaaDTNuq
+                - EJvD8fxrfVOqi0
             - **[4]**:
+              - **alvo_uid**: SBP4lCwy215ZFx
+              - **pontos_uids**:
+                - PCh1E0YaaDTNuq
+                - QGUW0ci1xi4mUQ
               - **escalada**: Pedra Queimada sds
               - **ids**:
-                - 3
-                - B
+                - PCh1E0YaaDTNuq
+                - QGUW0ci1xi4mUQ
       - **escaladas**:
         - **[0]**:
+          - **uid**: LG8kAWuA8BhFcZ
           - **boulder**:
             - **nome**: México
             - **dificuldade**: V9
         - **[1]**:
+          - **uid**: dIVl3zJfPRK1JB
           - **boulder**:
             - **nome**: Dinamite
             - **dificuldade**: V2
         - **[2]**:
+          - **uid**: 2Z1wL1iUT61CWL
           - **boulder**:
             - **nome**: Pedra Queimada
             - **dificuldade**: V8
         - **[3]**:
+          - **uid**: 4ufRkG6ve9B7Ks
           - **boulder**:
             - **nome**: Dinamite sds
             - **dificuldade**: V5_BARRA_V6
         - **[4]**:
+          - **uid**: SBP4lCwy215ZFx
           - **boulder**:
             - **nome**: Pedra Queimada sds
             - **dificuldade**: V9
@@ -4818,6 +6425,7 @@
     - **conteudo**:
       - **descricao**: 
       - **nome**: Bloco: Red Bull
+      - **uid**: rrVPaOcjQ56Hj1
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_red_bull_p0.webp)
@@ -4825,104 +6433,150 @@
           - **altura_mapa**: 1773
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: A
-              - **label**: A
+              - **id**: N1k3NSvwTcc1T5
+              - **uid**: N1k3NSvwTcc1T5
+              - **rotulo**: A
               - **circulo**:
                 - **x**: 1264
                 - **y**: 117
                 - **raio**: 20
+              - **label**: A
             - **[1]**:
-              - **id**: B
-              - **label**: B
+              - **id**: fsLrX4NXQs90cE
+              - **uid**: fsLrX4NXQs90cE
+              - **rotulo**: B
               - **circulo**:
                 - **x**: 1706
                 - **y**: 769
                 - **raio**: 20
+              - **label**: B
             - **[2]**:
-              - **id**: 1
-              - **label**: 1
+              - **id**: bcdgefmsxMsJLJ
+              - **uid**: bcdgefmsxMsJLJ
+              - **rotulo**: 1
               - **circulo**:
                 - **x**: 754
                 - **y**: 1407
                 - **raio**: 20
+              - **label**: 1
             - **[3]**:
-              - **id**: 2
-              - **label**: 2
+              - **id**: xBjLKqD5XYZwfS
+              - **uid**: xBjLKqD5XYZwfS
+              - **rotulo**: 2
               - **circulo**:
                 - **x**: 1557
                 - **y**: 1252
                 - **raio**: 20
+              - **label**: 2
             - **[4]**:
-              - **id**: ▲
-              - **label**: ▲
+              - **id**: Qe8IpRyVyV1YtM
+              - **uid**: Qe8IpRyVyV1YtM
+              - **rotulo**: ▲
               - **circulo**:
                 - **x**: 519
                 - **y**: 672
                 - **raio**: 20
+              - **label**: ▲
             - **[5]**:
-              - **id**: ★
-              - **label**: ★
+              - **id**: I5jZ7XmeQWzkby
+              - **uid**: I5jZ7XmeQWzkby
+              - **rotulo**: ★
               - **circulo**:
                 - **x**: 1106
                 - **y**: 570
                 - **raio**: 20
+              - **label**: ★
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: iD4KRe0gKxpt8n
+              - **pontos_uids**:
+                - bcdgefmsxMsJLJ
+                - N1k3NSvwTcc1T5
+                - Qe8IpRyVyV1YtM
               - **escalada**: Flying Horse
               - **ids**:
-                - 1
-                - A
-                - ▲
+                - bcdgefmsxMsJLJ
+                - N1k3NSvwTcc1T5
+                - Qe8IpRyVyV1YtM
             - **[1]**:
+              - **alvo_uid**: r5aXNKMfSAkxrn
+              - **pontos_uids**:
+                - bcdgefmsxMsJLJ
+                - N1k3NSvwTcc1T5
+                - I5jZ7XmeQWzkby
               - **escalada**: Pingado
               - **ids**:
-                - 1
-                - A
-                - ★
+                - bcdgefmsxMsJLJ
+                - N1k3NSvwTcc1T5
+                - I5jZ7XmeQWzkby
             - **[2]**:
+              - **alvo_uid**: K2gwZEgw8Z0wkN
+              - **pontos_uids**:
+                - bcdgefmsxMsJLJ
+                - fsLrX4NXQs90cE
               - **escalada**: Expresso
               - **ids**:
-                - 1
-                - B
+                - bcdgefmsxMsJLJ
+                - fsLrX4NXQs90cE
             - **[3]**:
+              - **alvo_uid**: j3iAn0tMUEIXZ4
+              - **pontos_uids**:
+                - xBjLKqD5XYZwfS
+                - N1k3NSvwTcc1T5
+                - Qe8IpRyVyV1YtM
               - **escalada**: Macchiato
               - **ids**:
-                - 2
-                - A
-                - ▲
+                - xBjLKqD5XYZwfS
+                - N1k3NSvwTcc1T5
+                - Qe8IpRyVyV1YtM
             - **[4]**:
+              - **alvo_uid**: HCkXRiPIIC6Ix7
+              - **pontos_uids**:
+                - xBjLKqD5XYZwfS
+                - N1k3NSvwTcc1T5
+                - I5jZ7XmeQWzkby
               - **escalada**: Red Bull
               - **ids**:
-                - 2
-                - A
-                - ★
+                - xBjLKqD5XYZwfS
+                - N1k3NSvwTcc1T5
+                - I5jZ7XmeQWzkby
             - **[5]**:
+              - **alvo_uid**: XO7WLzyP5Zts9n
+              - **pontos_uids**:
+                - xBjLKqD5XYZwfS
+                - fsLrX4NXQs90cE
               - **escalada**: Mad Dog
               - **ids**:
-                - 2
-                - B
+                - xBjLKqD5XYZwfS
+                - fsLrX4NXQs90cE
       - **escaladas**:
         - **[0]**:
+          - **uid**: iD4KRe0gKxpt8n
           - **boulder**:
             - **nome**: Flying Horse
             - **dificuldade**: V2
         - **[1]**:
+          - **uid**: r5aXNKMfSAkxrn
           - **boulder**:
             - **nome**: Pingado
             - **dificuldade**: V3
         - **[2]**:
+          - **uid**: K2gwZEgw8Z0wkN
           - **boulder**:
             - **nome**: Expresso
             - **dificuldade**: V7
         - **[3]**:
+          - **uid**: j3iAn0tMUEIXZ4
           - **boulder**:
             - **nome**: Macchiato
             - **dificuldade**: V6
         - **[4]**:
+          - **uid**: HCkXRiPIIC6Ix7
           - **boulder**:
             - **nome**: Red Bull
             - **dificuldade**: V6
         - **[5]**:
+          - **uid**: XO7WLzyP5Zts9n
           - **boulder**:
             - **nome**: Mad Dog
             - **dificuldade**: V1
@@ -4933,6 +6587,7 @@
     - **conteudo**:
       - **descricao**: 
       - **nome**: Bloco: Sauna
+      - **uid**: 4rqHCeJjg5oS60
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_sauna_p0.webp)
@@ -4940,82 +6595,114 @@
           - **altura_mapa**: 1773
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: A
-              - **label**: A
+              - **id**: yAFSlml0SapFjm
+              - **uid**: yAFSlml0SapFjm
+              - **rotulo**: A
               - **circulo**:
                 - **x**: 922
                 - **y**: 192
                 - **raio**: 20
+              - **label**: A
             - **[1]**:
-              - **id**: B
-              - **label**: B
+              - **id**: dkEsYaookEbWC6
+              - **uid**: dkEsYaookEbWC6
+              - **rotulo**: B
               - **circulo**:
                 - **x**: 1608
                 - **y**: 342
                 - **raio**: 20
+              - **label**: B
             - **[2]**:
-              - **id**: C
-              - **label**: C
+              - **id**: PE0I4U8nsuji9D
+              - **uid**: PE0I4U8nsuji9D
+              - **rotulo**: C
               - **circulo**:
                 - **x**: 1885
                 - **y**: 391
                 - **raio**: 20
+              - **label**: C
             - **[3]**:
-              - **id**: 1
-              - **label**: 1
+              - **id**: uPFv6wCBhddzGe
+              - **uid**: uPFv6wCBhddzGe
+              - **rotulo**: 1
               - **circulo**:
                 - **x**: 1306
                 - **y**: 1377
                 - **raio**: 20
+              - **label**: 1
             - **[4]**:
-              - **id**: 2
-              - **label**: 2
+              - **id**: 9JIY9OCcLh422g
+              - **uid**: 9JIY9OCcLh422g
+              - **rotulo**: 2
               - **circulo**:
                 - **x**: 1431
                 - **y**: 1354
                 - **raio**: 20
+              - **label**: 2
             - **[5]**:
-              - **id**: 3
-              - **label**: 3
+              - **id**: A0WwaYH8S4uROW
+              - **uid**: A0WwaYH8S4uROW
+              - **rotulo**: 3
               - **circulo**:
                 - **x**: 1606
                 - **y**: 1262
                 - **raio**: 20
+              - **label**: 3
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: N0YceOhNwq45DN
+              - **pontos_uids**:
+                - uPFv6wCBhddzGe
+                - yAFSlml0SapFjm
               - **escalada**: Sauna Seca
               - **ids**:
-                - 1
-                - A
+                - uPFv6wCBhddzGe
+                - yAFSlml0SapFjm
             - **[1]**:
+              - **alvo_uid**: pLyTMS3Fi2Tc9y
+              - **pontos_uids**:
+                - 9JIY9OCcLh422g
+                - dkEsYaookEbWC6
               - **escalada**: Sauna Úmida
               - **ids**:
-                - 2
-                - B
+                - 9JIY9OCcLh422g
+                - dkEsYaookEbWC6
             - **[2]**:
+              - **alvo_uid**: RjFtnqol3rLFW4
+              - **pontos_uids**:
+                - A0WwaYH8S4uROW
+                - yAFSlml0SapFjm
               - **escalada**: Sauna Mista
               - **ids**:
-                - 3
-                - A
+                - A0WwaYH8S4uROW
+                - yAFSlml0SapFjm
             - **[3]**:
+              - **alvo_uid**: 5NPmBrPrKOWnSt
+              - **pontos_uids**:
+                - A0WwaYH8S4uROW
+                - PE0I4U8nsuji9D
               - **escalada**: Sauna a Vapor
               - **ids**:
-                - 3
-                - C
+                - A0WwaYH8S4uROW
+                - PE0I4U8nsuji9D
       - **escaladas**:
         - **[0]**:
+          - **uid**: N0YceOhNwq45DN
           - **boulder**:
             - **nome**: Sauna Seca
             - **dificuldade**: V4
         - **[1]**:
+          - **uid**: pLyTMS3Fi2Tc9y
           - **boulder**:
             - **nome**: Sauna Úmida
             - **dificuldade**: V4
         - **[2]**:
+          - **uid**: RjFtnqol3rLFW4
           - **boulder**:
             - **nome**: Sauna Mista
             - **dificuldade**: V5
         - **[3]**:
+          - **uid**: 5NPmBrPrKOWnSt
           - **boulder**:
             - **descricao**: (não usa a face direita da linha)
             - **nome**: Sauna a Vapor
@@ -5027,6 +6714,7 @@
     - **conteudo**:
       - **descricao**: 
       - **nome**: Bloco: Sonar
+      - **uid**: PNLVN5yl680Wbv
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_sonar_p0.webp)
@@ -5034,59 +6722,82 @@
           - **altura_mapa**: 1773
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: A
-              - **label**: A
+              - **id**: iZ5SjheABHJXHV
+              - **uid**: iZ5SjheABHJXHV
+              - **rotulo**: A
               - **circulo**:
                 - **x**: 962
                 - **y**: 366
                 - **raio**: 19
+              - **label**: A
             - **[1]**:
-              - **id**: B
-              - **label**: B
+              - **id**: Zuuoo9f6HMtSFX
+              - **uid**: Zuuoo9f6HMtSFX
+              - **rotulo**: B
               - **circulo**:
                 - **x**: 1425
                 - **y**: 517
                 - **raio**: 19
+              - **label**: B
             - **[2]**:
-              - **id**: C
-              - **label**: C
+              - **id**: cvIzIbrCQSTvoN
+              - **uid**: cvIzIbrCQSTvoN
+              - **rotulo**: C
               - **circulo**:
                 - **x**: 2193
                 - **y**: 1001
                 - **raio**: 19
+              - **label**: C
             - **[3]**:
-              - **id**: 1
-              - **label**: 1
+              - **id**: KrnzDowj5O23d1
+              - **uid**: KrnzDowj5O23d1
+              - **rotulo**: 1
               - **circulo**:
                 - **x**: 828
                 - **y**: 1411
                 - **raio**: 19
+              - **label**: 1
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: knn4yEnmGveY8u
+              - **pontos_uids**:
+                - KrnzDowj5O23d1
+                - iZ5SjheABHJXHV
               - **escalada**: Braúna
               - **ids**:
-                - 1
-                - A
+                - KrnzDowj5O23d1
+                - iZ5SjheABHJXHV
             - **[1]**:
+              - **alvo_uid**: VZecRgHlfYHAKx
+              - **pontos_uids**:
+                - KrnzDowj5O23d1
+                - Zuuoo9f6HMtSFX
               - **escalada**: Sonar
               - **ids**:
-                - 1
-                - B
+                - KrnzDowj5O23d1
+                - Zuuoo9f6HMtSFX
             - **[2]**:
+              - **alvo_uid**: qibofmLFHUuK38
+              - **pontos_uids**:
+                - KrnzDowj5O23d1
+                - cvIzIbrCQSTvoN
               - **escalada**: Periscópio
               - **ids**:
-                - 1
-                - C
+                - KrnzDowj5O23d1
+                - cvIzIbrCQSTvoN
       - **escaladas**:
         - **[0]**:
+          - **uid**: knn4yEnmGveY8u
           - **boulder**:
             - **nome**: Braúna
             - **dificuldade**: V7
         - **[1]**:
+          - **uid**: VZecRgHlfYHAKx
           - **boulder**:
             - **nome**: Sonar
             - **dificuldade**: V4
         - **[2]**:
+          - **uid**: qibofmLFHUuK38
           - **boulder**:
             - **nome**: Periscópio
             - **dificuldade**: V5
@@ -5097,6 +6808,7 @@
     - **conteudo**:
       - **descricao**: 
       - **nome**: Bloco: Teto de Vidro
+      - **uid**: szhFTxC1PLd0dP
       - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/grupo_pedreira_setor_bloco_teto_de_vidro_p1_i0.webp)
       - **mapas**:
         - **[0]**:
@@ -5105,186 +6817,262 @@
           - **altura_mapa**: 1773
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: A
-              - **label**: A
+              - **id**: 7YWkZbtDg7AXL1
+              - **uid**: 7YWkZbtDg7AXL1
+              - **rotulo**: A
               - **circulo**:
                 - **x**: 1037
                 - **y**: 468
                 - **raio**: 19
+              - **label**: A
             - **[1]**:
-              - **id**: B
-              - **label**: B
+              - **id**: L0Ix6cDuk5GMDW
+              - **uid**: L0Ix6cDuk5GMDW
+              - **rotulo**: B
               - **circulo**:
                 - **x**: 1637
                 - **y**: 1111
                 - **raio**: 19
+              - **label**: B
             - **[2]**:
-              - **id**: 1
-              - **label**: 1
+              - **id**: EdDNqxEUV1mWAx
+              - **uid**: EdDNqxEUV1mWAx
+              - **rotulo**: 1
               - **circulo**:
                 - **x**: 651
                 - **y**: 1262
                 - **raio**: 19
+              - **label**: 1
             - **[3]**:
-              - **id**: 2
-              - **label**: 2
+              - **id**: DGcBpiNNT86tTj
+              - **uid**: DGcBpiNNT86tTj
+              - **rotulo**: 2
               - **circulo**:
                 - **x**: 1532
                 - **y**: 1090
                 - **raio**: 19
+              - **label**: 2
             - **[4]**:
-              - **id**: 3
-              - **label**: 3
+              - **id**: BqYMnbfOEWx4xH
+              - **uid**: BqYMnbfOEWx4xH
+              - **rotulo**: 3
               - **circulo**:
                 - **x**: 1377
                 - **y**: 1033
                 - **raio**: 19
+              - **label**: 3
             - **[5]**:
-              - **id**: ▲
-              - **label**: ▲
+              - **id**: kLJmjHHjhbAkYp
+              - **uid**: kLJmjHHjhbAkYp
+              - **rotulo**: ▲
               - **circulo**:
                 - **x**: 1436
                 - **y**: 1106
                 - **raio**: 19
+              - **label**: ▲
             - **[6]**:
-              - **id**: ★
-              - **label**: ★
+              - **id**: 57DikQUBmtQiR8
+              - **uid**: 57DikQUBmtQiR8
+              - **rotulo**: ★
               - **circulo**:
                 - **x**: 1494
                 - **y**: 995
                 - **raio**: 19
+              - **label**: ★
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: YEvifZ2w2zHs4U
+              - **pontos_uids**:
+                - EdDNqxEUV1mWAx
+                - 7YWkZbtDg7AXL1
               - **escalada**: Buena Onda
               - **ids**:
-                - 1
-                - A
+                - EdDNqxEUV1mWAx
+                - 7YWkZbtDg7AXL1
             - **[1]**:
+              - **alvo_uid**: WWwpgpRbdBXjWy
+              - **pontos_uids**:
+                - EdDNqxEUV1mWAx
+                - L0Ix6cDuk5GMDW
+                - kLJmjHHjhbAkYp
               - **escalada**: Teto de Vidro
               - **ids**:
-                - 1
-                - B
-                - ▲
+                - EdDNqxEUV1mWAx
+                - L0Ix6cDuk5GMDW
+                - kLJmjHHjhbAkYp
             - **[2]**:
+              - **alvo_uid**: 0dxocBw3UTvEbi
+              - **pontos_uids**:
+                - EdDNqxEUV1mWAx
+                - L0Ix6cDuk5GMDW
+                - 57DikQUBmtQiR8
               - **escalada**: Gringo de Vidro
               - **ids**:
-                - 1
-                - B
-                - ★
+                - EdDNqxEUV1mWAx
+                - L0Ix6cDuk5GMDW
+                - 57DikQUBmtQiR8
             - **[3]**:
+              - **alvo_uid**: RRUnjQahwOi7LW
+              - **pontos_uids**:
+                - DGcBpiNNT86tTj
+                - L0Ix6cDuk5GMDW
               - **escalada**: Teto Quebrado
               - **ids**:
-                - 2
-                - B
+                - DGcBpiNNT86tTj
+                - L0Ix6cDuk5GMDW
             - **[4]**:
+              - **alvo_uid**: GiR3oU1tjYEobE
+              - **pontos_uids**:
+                - BqYMnbfOEWx4xH
+                - 7YWkZbtDg7AXL1
               - **escalada**: Gringo
               - **ids**:
-                - 3
-                - A
+                - BqYMnbfOEWx4xH
+                - 7YWkZbtDg7AXL1
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_teto_de_vidro_p1.webp)
           - **largura_mapa**: 2364
           - **altura_mapa**: 1773
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: A
-              - **label**: A
+              - **id**: XDkg7Y8rXthgIR
+              - **uid**: XDkg7Y8rXthgIR
+              - **rotulo**: A
               - **circulo**:
                 - **x**: 1502
                 - **y**: 446
                 - **raio**: 20
+              - **label**: A
             - **[1]**:
-              - **id**: B
-              - **label**: B
+              - **id**: v846xLxySV3lHd
+              - **uid**: v846xLxySV3lHd
+              - **rotulo**: B
               - **circulo**:
                 - **x**: 1759
                 - **y**: 602
                 - **raio**: 20
+              - **label**: B
             - **[2]**:
-              - **id**: 1
-              - **label**: 1
+              - **id**: YbuBQANXt6t1xo
+              - **uid**: YbuBQANXt6t1xo
+              - **rotulo**: 1
               - **circulo**:
                 - **x**: 799
                 - **y**: 1339
                 - **raio**: 20
+              - **label**: 1
             - **[3]**:
-              - **id**: 2
-              - **label**: 2
+              - **id**: Ak7uUO9lodIKgB
+              - **uid**: Ak7uUO9lodIKgB
+              - **rotulo**: 2
               - **circulo**:
                 - **x**: 705
                 - **y**: 1125
                 - **raio**: 20
+              - **label**: 2
             - **[4]**:
-              - **id**: 3
-              - **label**: 3
+              - **id**: kkIbXSksmoHa9q
+              - **uid**: kkIbXSksmoHa9q
+              - **rotulo**: 3
               - **circulo**:
                 - **x**: 1275
                 - **y**: 1339
                 - **raio**: 20
+              - **label**: 3
             - **[5]**:
-              - **id**: 4
-              - **label**: 4
+              - **id**: DoYqsbeKw5gO5G
+              - **uid**: DoYqsbeKw5gO5G
+              - **rotulo**: 4
               - **circulo**:
                 - **x**: 1881
                 - **y**: 1476
                 - **raio**: 20
+              - **label**: 4
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: WWwpgpRbdBXjWy
+              - **pontos_uids**:
+                - YbuBQANXt6t1xo
+                - XDkg7Y8rXthgIR
               - **escalada**: Teto de Vidro
               - **ids**:
-                - 1
-                - A
+                - YbuBQANXt6t1xo
+                - XDkg7Y8rXthgIR
             - **[1]**:
+              - **alvo_uid**: RRUnjQahwOi7LW
+              - **pontos_uids**:
+                - Ak7uUO9lodIKgB
+                - XDkg7Y8rXthgIR
               - **escalada**: Teto Quebrado
               - **ids**:
-                - 2
-                - A
+                - Ak7uUO9lodIKgB
+                - XDkg7Y8rXthgIR
             - **[2]**:
+              - **alvo_uid**: SKGjb25vOdLqD2
+              - **pontos_uids**:
+                - kkIbXSksmoHa9q
+                - XDkg7Y8rXthgIR
               - **escalada**: Manobra
               - **ids**:
-                - 3
-                - A
+                - kkIbXSksmoHa9q
+                - XDkg7Y8rXthgIR
             - **[3]**:
+              - **alvo_uid**: bQbhO9cakYAixh
+              - **pontos_uids**:
+                - DoYqsbeKw5gO5G
+                - XDkg7Y8rXthgIR
               - **escalada**: Casquinha
               - **ids**:
-                - 4
-                - A
+                - DoYqsbeKw5gO5G
+                - XDkg7Y8rXthgIR
             - **[4]**:
+              - **alvo_uid**: 9edBfBXyjVjIPH
+              - **pontos_uids**:
+                - DoYqsbeKw5gO5G
+                - v846xLxySV3lHd
               - **escalada**: Wafer
               - **ids**:
-                - 4
-                - B
+                - DoYqsbeKw5gO5G
+                - v846xLxySV3lHd
       - **escaladas**:
         - **[0]**:
+          - **uid**: YEvifZ2w2zHs4U
           - **boulder**:
             - **nome**: Buena Onda
             - **dificuldade**: V11
         - **[1]**:
+          - **uid**: WWwpgpRbdBXjWy
           - **boulder**:
             - **nome**: Teto de Vidro
             - **dificuldade**: V9
         - **[2]**:
+          - **uid**: 0dxocBw3UTvEbi
           - **boulder**:
             - **nome**: Gringo de Vidro
             - **dificuldade**: V7
         - **[3]**:
+          - **uid**: RRUnjQahwOi7LW
           - **boulder**:
             - **nome**: Teto Quebrado
             - **dificuldade**: V4
         - **[4]**:
+          - **uid**: GiR3oU1tjYEobE
           - **boulder**:
             - **nome**: Gringo
             - **dificuldade**: V10
         - **[5]**:
+          - **uid**: SKGjb25vOdLqD2
           - **boulder**:
             - **descricao**: (dinâmico para a agarra indicada)
             - **nome**: Manobra
             - **dificuldade**: V5
         - **[6]**:
+          - **uid**: bQbhO9cakYAixh
           - **boulder**:
             - **nome**: Casquinha
             - **dificuldade**: V2
         - **[7]**:
+          - **uid**: 9edBfBXyjVjIPH
           - **boulder**:
             - **nome**: Wafer
             - **dificuldade**: V1
@@ -5295,6 +7083,7 @@
     - **conteudo**:
       - **descricao**: 
       - **nome**: Bloco: Tô de Boa
+      - **uid**: K1nxqIQUlAj9s2
       - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/grupo_pedreira_setor_bloco_to_de_boa_p2_i0.webp)
       - **mapas**:
         - **[0]**:
@@ -5303,150 +7092,207 @@
           - **altura_mapa**: 1773
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 1
-              - **label**: 1
+              - **id**: XtzwcYAWA5Avfe
+              - **uid**: XtzwcYAWA5Avfe
+              - **rotulo**: 1
               - **circulo**:
                 - **x**: 826
                 - **y**: 1088
                 - **raio**: 20
+              - **label**: 1
             - **[1]**:
-              - **id**: 2
-              - **label**: 2
+              - **id**: HemjSh6cKeuicJ
+              - **uid**: HemjSh6cKeuicJ
+              - **rotulo**: 2
               - **circulo**:
                 - **x**: 1358
                 - **y**: 1410
                 - **raio**: 20
+              - **label**: 2
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: QFO5zV8Vj60acY
+              - **pontos_uids**:
+                - XtzwcYAWA5Avfe
               - **escalada**: NBA
               - **ids**:
-                - 1
+                - XtzwcYAWA5Avfe
             - **[1]**:
+              - **alvo_uid**: c7Jx7HkHhlFEJN
+              - **pontos_uids**:
+                - HemjSh6cKeuicJ
               - **escalada**: Pedra Única
               - **ids**:
-                - 2
+                - HemjSh6cKeuicJ
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_to_de_boa_p1.webp)
           - **largura_mapa**: 2364
           - **altura_mapa**: 1773
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: A
-              - **label**: A
+              - **id**: VoN7W1OuMWsJpv
+              - **uid**: VoN7W1OuMWsJpv
+              - **rotulo**: A
               - **circulo**:
                 - **x**: 221
                 - **y**: 651
                 - **raio**: 20
+              - **label**: A
             - **[1]**:
-              - **id**: B
-              - **label**: B
+              - **id**: Py4n8Lxh2JCCQ4
+              - **uid**: Py4n8Lxh2JCCQ4
+              - **rotulo**: B
               - **circulo**:
                 - **x**: 520
                 - **y**: 498
                 - **raio**: 20
+              - **label**: B
             - **[2]**:
-              - **id**: C
-              - **label**: C
+              - **id**: 2q2yQ4nvWb0XYy
+              - **uid**: 2q2yQ4nvWb0XYy
+              - **rotulo**: C
               - **circulo**:
                 - **x**: 966
                 - **y**: 451
                 - **raio**: 20
+              - **label**: C
             - **[3]**:
-              - **id**: D
-              - **label**: D
+              - **id**: fpj8H6ZJ3EnGMo
+              - **uid**: fpj8H6ZJ3EnGMo
+              - **rotulo**: D
               - **circulo**:
                 - **x**: 1511
                 - **y**: 565
                 - **raio**: 20
+              - **label**: D
             - **[4]**:
-              - **id**: E
-              - **label**: E
+              - **id**: 0WhRYWdQTsmZrM
+              - **uid**: 0WhRYWdQTsmZrM
+              - **rotulo**: E
               - **circulo**:
                 - **x**: 1819
                 - **y**: 672
                 - **raio**: 20
+              - **label**: E
             - **[5]**:
-              - **id**: 1
-              - **label**: 1
+              - **id**: YdbiBefPaPg7hX
+              - **uid**: YdbiBefPaPg7hX
+              - **rotulo**: 1
               - **circulo**:
                 - **x**: 896
                 - **y**: 1161
                 - **raio**: 20
+              - **label**: 1
             - **[6]**:
-              - **id**: 2
-              - **label**: 2
+              - **id**: UQi4ziTKpkWOgq
+              - **uid**: UQi4ziTKpkWOgq
+              - **rotulo**: 2
               - **circulo**:
                 - **x**: 965
                 - **y**: 1145
                 - **raio**: 20
+              - **label**: 2
             - **[7]**:
-              - **id**: 3
-              - **label**: 3
+              - **id**: JAF7vjKLydXQRs
+              - **uid**: JAF7vjKLydXQRs
+              - **rotulo**: 3
               - **circulo**:
                 - **x**: 2004
                 - **y**: 976
                 - **raio**: 20
+              - **label**: 3
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: Xa6aHaxm9EavYQ
+              - **pontos_uids**:
+                - YdbiBefPaPg7hX
+                - VoN7W1OuMWsJpv
               - **escalada**: Tô na Esquiva
               - **ids**:
-                - 1
-                - A
+                - YdbiBefPaPg7hX
+                - VoN7W1OuMWsJpv
             - **[1]**:
+              - **alvo_uid**: cGcNjljQijDcdm
+              - **pontos_uids**:
+                - YdbiBefPaPg7hX
+                - Py4n8Lxh2JCCQ4
               - **escalada**: Tô Legal
               - **ids**:
-                - 1
-                - B
+                - YdbiBefPaPg7hX
+                - Py4n8Lxh2JCCQ4
             - **[2]**:
+              - **alvo_uid**: CqUzVkd2IQyvgW
+              - **pontos_uids**:
+                - UQi4ziTKpkWOgq
+                - 2q2yQ4nvWb0XYy
               - **escalada**: Tô Calmo
               - **ids**:
-                - 2
-                - C
+                - UQi4ziTKpkWOgq
+                - 2q2yQ4nvWb0XYy
             - **[3]**:
+              - **alvo_uid**: CS1E6YnOmSsSpJ
+              - **pontos_uids**:
+                - UQi4ziTKpkWOgq
+                - fpj8H6ZJ3EnGMo
               - **escalada**: Tô de Boa
               - **ids**:
-                - 2
-                - D
+                - UQi4ziTKpkWOgq
+                - fpj8H6ZJ3EnGMo
             - **[4]**:
+              - **alvo_uid**: fpuOel6tZdkuiw
+              - **pontos_uids**:
+                - UQi4ziTKpkWOgq
+                - 0WhRYWdQTsmZrM
               - **escalada**: Jaguatirica
               - **ids**:
-                - 2
-                - E
+                - UQi4ziTKpkWOgq
+                - 0WhRYWdQTsmZrM
             - **[5]**:
+              - **alvo_uid**: DoCybi2Yn1ujWM
+              - **pontos_uids**:
+                - JAF7vjKLydXQRs
               - **escalada**: Tô Suave
               - **ids**:
-                - 3
+                - JAF7vjKLydXQRs
       - **escaladas**:
         - **[0]**:
+          - **uid**: QFO5zV8Vj60acY
           - **boulder**:
             - **descricao**: (dinâmico de 2 regletes para a borda)
             - **nome**: NBA
             - **dificuldade**: V6
         - **[1]**:
+          - **uid**: c7Jx7HkHhlFEJN
           - **boulder**:
             - **nome**: Pedra Única
             - **dificuldade**: V4
         - **[2]**:
+          - **uid**: Xa6aHaxm9EavYQ
           - **boulder**:
             - **nome**: Tô na Esquiva
             - **dificuldade**: V6
         - **[3]**:
+          - **uid**: cGcNjljQijDcdm
           - **boulder**:
             - **nome**: Tô Legal
             - **dificuldade**: V3
         - **[4]**:
+          - **uid**: CqUzVkd2IQyvgW
           - **boulder**:
             - **nome**: Tô Calmo
             - **dificuldade**: V5
         - **[5]**:
+          - **uid**: CS1E6YnOmSsSpJ
           - **boulder**:
             - **nome**: Tô de Boa
             - **dificuldade**: V5
         - **[6]**:
+          - **uid**: fpuOel6tZdkuiw
           - **boulder**:
             - **nome**: Jaguatirica
             - **dificuldade**: V6
         - **[7]**:
+          - **uid**: DoCybi2Yn1ujWM
           - **boulder**:
             - **nome**: Tô Suave
             - **dificuldade**: V4_BARRA_V5
@@ -5457,6 +7303,7 @@
     - **conteudo**:
       - **descricao**: 
       - **nome**: Bloco: Travessia
+      - **uid**: UjCcyV0WXvofY6
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_travessia_p0.webp)
@@ -5464,239 +7311,336 @@
           - **altura_mapa**: 1773
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: A
-              - **label**: A
+              - **id**: quzUQmVSrlpYTL
+              - **uid**: quzUQmVSrlpYTL
+              - **rotulo**: A
               - **circulo**:
                 - **x**: 733
                 - **y**: 509
                 - **raio**: 20
+              - **label**: A
             - **[1]**:
-              - **id**: B
-              - **label**: B
+              - **id**: Ab23FMRcQRSW7S
+              - **uid**: Ab23FMRcQRSW7S
+              - **rotulo**: B
               - **circulo**:
                 - **x**: 1036
                 - **y**: 208
                 - **raio**: 20
+              - **label**: B
             - **[2]**:
-              - **id**: C
-              - **label**: C
+              - **id**: Mar7pxdQjxCPw3
+              - **uid**: Mar7pxdQjxCPw3
+              - **rotulo**: C
               - **circulo**:
                 - **x**: 1922
                 - **y**: 132
                 - **raio**: 20
+              - **label**: C
             - **[3]**:
-              - **id**: 1
-              - **label**: 1
+              - **id**: YWN5IkMSkeZsRW
+              - **uid**: YWN5IkMSkeZsRW
+              - **rotulo**: 1
               - **circulo**:
                 - **x**: 173
                 - **y**: 989
                 - **raio**: 20
+              - **label**: 1
             - **[4]**:
-              - **id**: 2
-              - **label**: 2
+              - **id**: c2b86M5bD7vIRW
+              - **uid**: c2b86M5bD7vIRW
+              - **rotulo**: 2
               - **circulo**:
                 - **x**: 269
                 - **y**: 1115
                 - **raio**: 20
+              - **label**: 2
             - **[5]**:
-              - **id**: 3
-              - **label**: 3
+              - **id**: i0FCFCwDw12wTu
+              - **uid**: i0FCFCwDw12wTu
+              - **rotulo**: 3
               - **circulo**:
                 - **x**: 621
                 - **y**: 1261
                 - **raio**: 20
+              - **label**: 3
             - **[6]**:
-              - **id**: 4
-              - **label**: 4
+              - **id**: Hap2vmeTY5JDty
+              - **uid**: Hap2vmeTY5JDty
+              - **rotulo**: 4
               - **circulo**:
                 - **x**: 1067
                 - **y**: 1218
                 - **raio**: 20
+              - **label**: 4
             - **[7]**:
-              - **id**: 5
-              - **label**: 5
+              - **id**: rIAIQwYt9x20Fs
+              - **uid**: rIAIQwYt9x20Fs
+              - **rotulo**: 5
               - **circulo**:
                 - **x**: 1775
                 - **y**: 1261
                 - **raio**: 20
+              - **label**: 5
             - **[8]**:
-              - **id**: 6
-              - **label**: 6
+              - **id**: Vt1yHUmzeJB0SS
+              - **uid**: Vt1yHUmzeJB0SS
+              - **rotulo**: 6
               - **circulo**:
                 - **x**: 2043
                 - **y**: 1130
                 - **raio**: 20
+              - **label**: 6
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: pcyCmtjr9v4kzY
+              - **pontos_uids**:
+                - YWN5IkMSkeZsRW
+                - Mar7pxdQjxCPw3
               - **escalada**: Travessia ext
               - **ids**:
-                - 1
-                - C
+                - YWN5IkMSkeZsRW
+                - Mar7pxdQjxCPw3
             - **[1]**:
+              - **alvo_uid**: vTGk8NEg8PUPn7
+              - **pontos_uids**:
+                - c2b86M5bD7vIRW
+                - Mar7pxdQjxCPw3
               - **escalada**: Travessia
               - **ids**:
-                - 2
-                - C
+                - c2b86M5bD7vIRW
+                - Mar7pxdQjxCPw3
             - **[2]**:
+              - **alvo_uid**: EDirwiq9GgBt1R
+              - **pontos_uids**:
+                - i0FCFCwDw12wTu
+                - quzUQmVSrlpYTL
               - **escalada**: Enjambrado
               - **ids**:
-                - 3
-                - A
+                - i0FCFCwDw12wTu
+                - quzUQmVSrlpYTL
             - **[3]**:
+              - **alvo_uid**: QzdY0co6Cwx0vF
+              - **pontos_uids**:
+                - Hap2vmeTY5JDty
+                - Ab23FMRcQRSW7S
               - **escalada**: Face Vertical
               - **ids**:
-                - 4
-                - B
+                - Hap2vmeTY5JDty
+                - Ab23FMRcQRSW7S
             - **[4]**:
+              - **alvo_uid**: lapfndpzYs9ajq
+              - **pontos_uids**:
+                - rIAIQwYt9x20Fs
+                - Mar7pxdQjxCPw3
               - **escalada**: Será
               - **ids**:
-                - 5
-                - C
+                - rIAIQwYt9x20Fs
+                - Mar7pxdQjxCPw3
             - **[5]**:
+              - **alvo_uid**: hD9a4gUGcuvsgJ
+              - **pontos_uids**:
+                - Vt1yHUmzeJB0SS
               - **escalada**: Bem-vindo ao Climb
               - **ids**:
-                - 6
+                - Vt1yHUmzeJB0SS
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_travessia_p1.webp)
           - **largura_mapa**: 2364
           - **altura_mapa**: 1773
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: A
-              - **label**: A
+              - **id**: zFrBtO72do1TPZ
+              - **uid**: zFrBtO72do1TPZ
+              - **rotulo**: A
               - **circulo**:
                 - **x**: 13
                 - **y**: 429
                 - **raio**: 20
+              - **label**: A
             - **[1]**:
-              - **id**: B
-              - **label**: B
+              - **id**: x79n5Rn9dstTjr
+              - **uid**: x79n5Rn9dstTjr
+              - **rotulo**: B
               - **circulo**:
                 - **x**: 831
                 - **y**: 362
                 - **raio**: 20
+              - **label**: B
             - **[2]**:
-              - **id**: C
-              - **label**: C
+              - **id**: rbSgbyRSovMZ90
+              - **uid**: rbSgbyRSovMZ90
+              - **rotulo**: C
               - **circulo**:
                 - **x**: 1812
                 - **y**: 488
                 - **raio**: 20
+              - **label**: C
             - **[3]**:
-              - **id**: D
-              - **label**: D
+              - **id**: T74sQDVVsrPo4Q
+              - **uid**: T74sQDVVsrPo4Q
+              - **rotulo**: D
               - **circulo**:
                 - **x**: 2098
                 - **y**: 449
                 - **raio**: 19
+              - **label**: D
             - **[4]**:
-              - **id**: E
-              - **label**: E
+              - **id**: 19NNef4ApP3pAr
+              - **uid**: 19NNef4ApP3pAr
+              - **rotulo**: E
               - **circulo**:
                 - **x**: 2283
                 - **y**: 647
                 - **raio**: 20
+              - **label**: E
             - **[5]**:
-              - **id**: 1
-              - **label**: 1
+              - **id**: Xb43krrjLpIWXu
+              - **uid**: Xb43krrjLpIWXu
+              - **rotulo**: 1
               - **circulo**:
                 - **x**: 61
                 - **y**: 865
                 - **raio**: 20
+              - **label**: 1
             - **[6]**:
-              - **id**: 2
-              - **label**: 2
+              - **id**: 8Wxo4WfVrbv9bR
+              - **uid**: 8Wxo4WfVrbv9bR
+              - **rotulo**: 2
               - **circulo**:
                 - **x**: 883
                 - **y**: 1288
                 - **raio**: 20
+              - **label**: 2
             - **[7]**:
-              - **id**: 3
-              - **label**: 3
+              - **id**: 26KFrG2WK6mhnB
+              - **uid**: 26KFrG2WK6mhnB
+              - **rotulo**: 3
               - **circulo**:
                 - **x**: 1923
                 - **y**: 1254
                 - **raio**: 19
+              - **label**: 3
             - **[8]**:
-              - **id**: 4
-              - **label**: 4
+              - **id**: 4U3sJtXR0ji5Yd
+              - **uid**: 4U3sJtXR0ji5Yd
+              - **rotulo**: 4
               - **circulo**:
                 - **x**: 2085
                 - **y**: 1150
                 - **raio**: 20
+              - **label**: 4
             - **[9]**:
-              - **id**: 5
-              - **label**: 5
+              - **id**: KeOQCuNTtmt0N3
+              - **uid**: KeOQCuNTtmt0N3
+              - **rotulo**: 5
               - **circulo**:
                 - **x**: 2240
                 - **y**: 1128
                 - **raio**: 19
+              - **label**: 5
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: pcyCmtjr9v4kzY
+              - **pontos_uids**:
+                - Xb43krrjLpIWXu
+                - 19NNef4ApP3pAr
               - **escalada**: Travessia ext
               - **ids**:
-                - 1
-                - E
+                - Xb43krrjLpIWXu
+                - 19NNef4ApP3pAr
             - **[1]**:
+              - **alvo_uid**: vTGk8NEg8PUPn7
+              - **pontos_uids**:
+                - 8Wxo4WfVrbv9bR
+                - 19NNef4ApP3pAr
               - **escalada**: Travessia
               - **ids**:
-                - 2
-                - E
+                - 8Wxo4WfVrbv9bR
+                - 19NNef4ApP3pAr
             - **[2]**:
+              - **alvo_uid**: EDirwiq9GgBt1R
+              - **pontos_uids**:
+                - 26KFrG2WK6mhnB
+                - rbSgbyRSovMZ90
               - **escalada**: Enjambrado
               - **ids**:
-                - 3
-                - C
+                - 26KFrG2WK6mhnB
+                - rbSgbyRSovMZ90
             - **[3]**:
+              - **alvo_uid**: QzdY0co6Cwx0vF
+              - **pontos_uids**:
+                - 4U3sJtXR0ji5Yd
+                - T74sQDVVsrPo4Q
               - **escalada**: Face Vertical
               - **ids**:
-                - 4
-                - D
+                - 4U3sJtXR0ji5Yd
+                - T74sQDVVsrPo4Q
             - **[4]**:
+              - **alvo_uid**: lapfndpzYs9ajq
+              - **pontos_uids**:
+                - KeOQCuNTtmt0N3
+                - 19NNef4ApP3pAr
               - **escalada**: Será
               - **ids**:
-                - 5
-                - E
+                - KeOQCuNTtmt0N3
+                - 19NNef4ApP3pAr
             - **[5]**:
+              - **alvo_uid**: BGG35KucWj5dvM
+              - **pontos_uids**:
+                - 8Wxo4WfVrbv9bR
+                - zFrBtO72do1TPZ
               - **escalada**: Monodedo
               - **ids**:
-                - 2
-                - A
+                - 8Wxo4WfVrbv9bR
+                - zFrBtO72do1TPZ
             - **[6]**:
+              - **alvo_uid**: qTZt0Fhbko675Z
+              - **pontos_uids**:
+                - 8Wxo4WfVrbv9bR
+                - x79n5Rn9dstTjr
               - **escalada**: Movimentos Eróticos
               - **ids**:
-                - 2
-                - B
+                - 8Wxo4WfVrbv9bR
+                - x79n5Rn9dstTjr
       - **escaladas**:
         - **[0]**:
+          - **uid**: pcyCmtjr9v4kzY
           - **boulder**:
             - **nome**: Travessia ext
             - **dificuldade**: V2
         - **[1]**:
+          - **uid**: vTGk8NEg8PUPn7
           - **boulder**:
             - **nome**: Travessia
             - **dificuldade**: V1
         - **[2]**:
+          - **uid**: EDirwiq9GgBt1R
           - **boulder**:
             - **nome**: Enjambrado
             - **dificuldade**: V3
         - **[3]**:
+          - **uid**: QzdY0co6Cwx0vF
           - **boulder**:
             - **nome**: Face Vertical
             - **dificuldade**: V1
         - **[4]**:
+          - **uid**: lapfndpzYs9ajq
           - **boulder**:
             - **nome**: Será
             - **dificuldade**: V1
         - **[5]**:
+          - **uid**: hD9a4gUGcuvsgJ
           - **boulder**:
             - **nome**: Bem-vindo ao Climb
             - **dificuldade**: V0
         - **[6]**:
+          - **uid**: BGG35KucWj5dvM
           - **boulder**:
             - **nome**: Monodedo
             - **dificuldade**: V1
         - **[7]**:
+          - **uid**: qTZt0Fhbko675Z
           - **boulder**:
             - **nome**: Movimentos Eróticos
             - **dificuldade**: V1
@@ -5707,6 +7651,7 @@
     - **conteudo**:
       - **descricao**: 
       - **nome**: Bloco: Véia Doida
+      - **uid**: kgtdjfbk5ACj10
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_veia_doida_p0_i0.webp)
@@ -5714,19 +7659,25 @@
           - **altura_mapa**: 1773
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 1
-              - **label**: 1
+              - **id**: n1m5SO9etQaAtv
+              - **uid**: n1m5SO9etQaAtv
+              - **rotulo**: 1
               - **circulo**:
                 - **x**: 1435
                 - **y**: 1370
                 - **raio**: 19
+              - **label**: 1
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: G2mJ4k1ZaGgXc2
+              - **pontos_uids**:
+                - n1m5SO9etQaAtv
               - **escalada**: Véia Doida
               - **ids**:
-                - 1
+                - n1m5SO9etQaAtv
       - **escaladas**:
         - **[0]**:
+          - **uid**: G2mJ4k1ZaGgXc2
           - **boulder**:
             - **nome**: Véia Doida
             - **dificuldade**: V4
@@ -5737,56 +7688,75 @@
     - **conteudo**:
       - **descricao**: 
       - **nome**: Bloco: Vitamina Jungle
+      - **uid**: 7mDnFwq43CjOWP
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedreira_setor_bloco_vitamina_jungle_p0_i0.webp)
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: UBwALl6BBva9h6
+              - **pontos_uids**:
+                - OKIXHvtiTpHt1c
               - **escalada**: 009
               - **ids**:
-                - 1
+                - OKIXHvtiTpHt1c
             - **[1]**:
+              - **alvo_uid**: ayF1HWH1778CLV
+              - **pontos_uids**:
+                - FPJNN7pKQhHt1v
               - **escalada**: Vitamina Jungle
               - **ids**:
-                - 2
+                - FPJNN7pKQhHt1v
             - **[2]**:
+              - **alvo_uid**: wPFkMDhFBCo6S1
+              - **pontos_uids**:
+                - zoTD2iLwuJoivh
               - **escalada**: 010
               - **ids**:
-                - 3
+                - zoTD2iLwuJoivh
           - **largura_mapa**: 2364
           - **altura_mapa**: 1773
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 1
-              - **label**: 1
+              - **id**: OKIXHvtiTpHt1c
+              - **uid**: OKIXHvtiTpHt1c
+              - **rotulo**: 1
               - **circulo**:
                 - **x**: 146
                 - **y**: 1158
                 - **raio**: 19
+              - **label**: 1
             - **[1]**:
-              - **id**: 2
-              - **label**: 2
+              - **id**: FPJNN7pKQhHt1v
+              - **uid**: FPJNN7pKQhHt1v
+              - **rotulo**: 2
               - **circulo**:
                 - **x**: 1015
                 - **y**: 1270
                 - **raio**: 18
+              - **label**: 2
             - **[2]**:
-              - **id**: 3
-              - **label**: 3
+              - **id**: zoTD2iLwuJoivh
+              - **uid**: zoTD2iLwuJoivh
+              - **rotulo**: 3
               - **circulo**:
                 - **x**: 1641
                 - **y**: 1267
                 - **raio**: 18
+              - **label**: 3
       - **escaladas**:
         - **[0]**:
+          - **uid**: UBwALl6BBva9h6
           - **boulder**:
             - **nome**: 009
             - **dificuldade**: V3
         - **[1]**:
+          - **uid**: ayF1HWH1778CLV
           - **boulder**:
             - **nome**: Vitamina Jungle
             - **dificuldade**: V7
         - **[2]**:
+          - **uid**: wPFkMDhFBCo6S1
           - **boulder**:
             - **nome**: 010
             - **dificuldade**: V3
@@ -5804,6 +7774,7 @@
 
 - **descricao**: 
 - **nome**: Mont Blanc
+- **uid**: XfBdBMDd0eH2Ii
 - **localizacao_estacionamento**:
   - **latitude**: -203677334
   - **longitude**: -435075136
@@ -5817,111 +7788,143 @@
     - **altura_mapa**: 1134
     - **pontos_de_interesse**:
       - **[0]**:
-        - **id**: mont_blanc
-        - **label**: Mont Blanc
+        - **id**: FG7fb95O5nYBb5
+        - **uid**: FG7fb95O5nYBb5
+        - **rotulo**: Mont Blanc
         - **retangulo**:
           - **x**: 610
           - **y**: 239
           - **comprimento**: 128
           - **largura**: 24
+        - **label**: Mont Blanc
       - **[1]**:
-        - **id**: o_pequeno
-        - **label**: O Pequeno
+        - **id**: 8ge4pkya9aSD5a
+        - **uid**: 8ge4pkya9aSD5a
+        - **rotulo**: O Pequeno
         - **retangulo**:
           - **x**: 591
           - **y**: 480
           - **comprimento**: 120
           - **largura**: 25
+        - **label**: O Pequeno
       - **[2]**:
-        - **id**: salao_dos_ossos
-        - **label**: Salão dos Ossos
+        - **id**: OL4IGr0iVF18CY
+        - **uid**: OL4IGr0iVF18CY
+        - **rotulo**: Salão dos Ossos
         - **retangulo**:
           - **x**: 616
           - **y**: 518
           - **comprimento**: 183
           - **largura**: 23
+        - **label**: Salão dos Ossos
       - **[3]**:
-        - **id**: parada_obrigatoria
-        - **label**: Parada Obrigatória
+        - **id**: vALageLc2YwT4M
+        - **uid**: vALageLc2YwT4M
+        - **rotulo**: Parada Obrigatória
         - **retangulo**:
           - **x**: 557
           - **y**: 654
           - **comprimento**: 206
           - **largura**: 24
+        - **label**: Parada Obrigatória
       - **[4]**:
-        - **id**: cabocla_da_mata
-        - **label**: Caboclo da Mata
+        - **id**: 580sgjs024ezil
+        - **uid**: 580sgjs024ezil
+        - **rotulo**: Caboclo da Mata
         - **retangulo**:
           - **x**: 465
           - **y**: 718
           - **comprimento**: 188
           - **largura**: 23
+        - **label**: Caboclo da Mata
       - **[5]**:
-        - **id**: silencio_da_mutuca
-        - **label**: Silêncio da Mutuca
+        - **id**: AJncL6IJbXqbdS
+        - **uid**: AJncL6IJbXqbdS
+        - **rotulo**: Silêncio da Mutuca
         - **retangulo**:
           - **x**: 1004
           - **y**: 837
           - **comprimento**: 211
           - **largura**: 24
+        - **label**: Silêncio da Mutuca
       - **[6]**:
-        - **id**: espreguicadeira
-        - **label**: Espreguiçadeira
+        - **id**: coHhza0VmZJ1Sp
+        - **uid**: coHhza0VmZJ1Sp
+        - **rotulo**: Espreguiçadeira
         - **retangulo**:
           - **x**: 1261
           - **y**: 988
           - **comprimento**: 176
           - **largura**: 25
-      - **[7]**:
-        - **id**: espreguicadeira_2
         - **label**: Espreguiçadeira
+      - **[7]**:
+        - **id**: OjVPhDEP26CQrW
+        - **uid**: OjVPhDEP26CQrW
+        - **rotulo**: Espreguiçadeira
         - **retangulo**:
           - **x**: 1166
           - **y**: 1022
           - **comprimento**: 169
           - **largura**: 28
+        - **label**: Espreguiçadeira
     - **referencias**:
       - **[0]**:
-        - **ids**:
-          - mont_blanc
-        - **grupo**: Mont Blanc
+        - **alvo_uid**: fgmvBg43tS98cN
+        - **pontos_uids**:
+          - FG7fb95O5nYBb5
         - **setor**: Bloco: Mont Blanc
+        - **ids**:
+          - FG7fb95O5nYBb5
       - **[1]**:
-        - **ids**:
-          - o_pequeno
-        - **grupo**: Mont Blanc
+        - **alvo_uid**: ZJVQc9suLiF4NT
+        - **pontos_uids**:
+          - 8ge4pkya9aSD5a
         - **setor**: Bloco: O Pequeno
+        - **ids**:
+          - 8ge4pkya9aSD5a
       - **[2]**:
-        - **ids**:
-          - salao_dos_ossos
-        - **grupo**: Mont Blanc
+        - **alvo_uid**: 24qEZNrzLWzCh7
+        - **pontos_uids**:
+          - OL4IGr0iVF18CY
         - **setor**: Bloco: Salão dos Ossos
+        - **ids**:
+          - OL4IGr0iVF18CY
       - **[3]**:
-        - **ids**:
-          - parada_obrigatoria
-        - **grupo**: Mont Blanc
+        - **alvo_uid**: Yxr8Ifci5wj175
+        - **pontos_uids**:
+          - vALageLc2YwT4M
         - **setor**: Bloco: Parada Obrigatória
+        - **ids**:
+          - vALageLc2YwT4M
       - **[4]**:
-        - **ids**:
-          - cabocla_da_mata
-        - **grupo**: Mont Blanc
+        - **alvo_uid**: ka0xDrNaPASN32
+        - **pontos_uids**:
+          - 580sgjs024ezil
         - **setor**: Bloco: Cabocla da Mata
+        - **ids**:
+          - 580sgjs024ezil
       - **[5]**:
-        - **ids**:
-          - silencio_da_mutuca
-        - **grupo**: Mont Blanc
+        - **alvo_uid**: 6yBaMVkS6Qr1uz
+        - **pontos_uids**:
+          - AJncL6IJbXqbdS
         - **setor**: Bloco: Silêncio da Mutuca
-      - **[6]**:
         - **ids**:
-          - espreguicadeira
-          - espreguicadeira_2
-        - **grupo**: Mont Blanc
+          - AJncL6IJbXqbdS
+      - **[6]**:
+        - **alvo_uid**: S1KezKyo1wzcRj
+        - **pontos_uids**:
+          - coHhza0VmZJ1Sp
+          - OjVPhDEP26CQrW
         - **setor**: Bloco: Espreguiçadeira
+        - **ids**:
+          - coHhza0VmZJ1Sp
+          - OjVPhDEP26CQrW
 - **setores**:
   - **[0]**:
     - **conteudo**:
       - **descricao**: 
       - **nome**: Bloco: Mont Blanc
+      - **uid**: fgmvBg43tS98cN
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_mont_blanc_setor_bloco_mont_blanc_p0.webp)
@@ -5929,275 +7932,379 @@
           - **altura_mapa**: 1773
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: A
-              - **label**: A
+              - **id**: MgI961ArsmoseJ
+              - **uid**: MgI961ArsmoseJ
+              - **rotulo**: A
               - **circulo**:
                 - **x**: 716
                 - **y**: 662
                 - **raio**: 20
+              - **label**: A
             - **[1]**:
-              - **id**: B
-              - **label**: B
+              - **id**: NSJEWm5l152LeX
+              - **uid**: NSJEWm5l152LeX
+              - **rotulo**: B
               - **circulo**:
                 - **x**: 1431
                 - **y**: 601
                 - **raio**: 20
+              - **label**: B
             - **[2]**:
-              - **id**: C
-              - **label**: C
+              - **id**: RkCuLA5gHiIHEb
+              - **uid**: RkCuLA5gHiIHEb
+              - **rotulo**: C
               - **circulo**:
                 - **x**: 1631
                 - **y**: 640
                 - **raio**: 20
+              - **label**: C
             - **[3]**:
-              - **id**: 1
-              - **label**: 1
+              - **id**: YPcp0YPv580Whc
+              - **uid**: YPcp0YPv580Whc
+              - **rotulo**: 1
               - **circulo**:
                 - **x**: 305
                 - **y**: 1387
                 - **raio**: 20
+              - **label**: 1
             - **[4]**:
-              - **id**: 2
-              - **label**: 2
+              - **id**: 6AWseOSLUkgPK8
+              - **uid**: 6AWseOSLUkgPK8
+              - **rotulo**: 2
               - **circulo**:
                 - **x**: 889
                 - **y**: 1397
                 - **raio**: 20
+              - **label**: 2
             - **[5]**:
-              - **id**: 3
-              - **label**: 3
+              - **id**: TSalA4rxoxE3vj
+              - **uid**: TSalA4rxoxE3vj
+              - **rotulo**: 3
               - **circulo**:
                 - **x**: 1208
                 - **y**: 1282
                 - **raio**: 20
+              - **label**: 3
             - **[6]**:
-              - **id**: 4
-              - **label**: 4
+              - **id**: PVIdxUlmaO4qKj
+              - **uid**: PVIdxUlmaO4qKj
+              - **rotulo**: 4
               - **circulo**:
                 - **x**: 1409
                 - **y**: 1228
                 - **raio**: 20
+              - **label**: 4
             - **[7]**:
-              - **id**: 5
-              - **label**: 5
+              - **id**: 6JvgIjni2IrcpY
+              - **uid**: 6JvgIjni2IrcpY
+              - **rotulo**: 5
               - **circulo**:
                 - **x**: 1473
                 - **y**: 1397
                 - **raio**: 20
+              - **label**: 5
             - **[8]**:
-              - **id**: 6
-              - **label**: 6
+              - **id**: mcykqIBH26Ck8Q
+              - **uid**: mcykqIBH26Ck8Q
+              - **rotulo**: 6
               - **circulo**:
                 - **x**: 1821
                 - **y**: 1472
                 - **raio**: 20
+              - **label**: 6
             - **[9]**:
-              - **id**: 7
-              - **label**: 7
+              - **id**: mmifEVOuE1eovt
+              - **uid**: mmifEVOuE1eovt
+              - **rotulo**: 7
               - **circulo**:
                 - **x**: 1776
                 - **y**: 1183
                 - **raio**: 20
+              - **label**: 7
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: HxvqK4w4aJuvQ6
+              - **pontos_uids**:
+                - YPcp0YPv580Whc
+                - MgI961ArsmoseJ
               - **escalada**: Pico da Neblina ext
               - **ids**:
-                - 1
-                - A
+                - YPcp0YPv580Whc
+                - MgI961ArsmoseJ
             - **[1]**:
+              - **alvo_uid**: obciegyHD2L2k0
+              - **pontos_uids**:
+                - YPcp0YPv580Whc
+                - RkCuLA5gHiIHEb
               - **escalada**: Inquilinismo Frenético ext
               - **ids**:
-                - 1
-                - C
+                - YPcp0YPv580Whc
+                - RkCuLA5gHiIHEb
             - **[2]**:
+              - **alvo_uid**: HG5YWkKCFKQhje
+              - **pontos_uids**:
+                - 6AWseOSLUkgPK8
+                - MgI961ArsmoseJ
               - **escalada**: Pico da Neblina
               - **ids**:
-                - 2
-                - A
+                - 6AWseOSLUkgPK8
+                - MgI961ArsmoseJ
             - **[3]**:
+              - **alvo_uid**: DLdVVQSqkRGt72
+              - **pontos_uids**:
+                - 6AWseOSLUkgPK8
+                - RkCuLA5gHiIHEb
               - **escalada**: Inquilinismo Frenético
               - **ids**:
-                - 2
-                - C
+                - 6AWseOSLUkgPK8
+                - RkCuLA5gHiIHEb
             - **[4]**:
+              - **alvo_uid**: KpSQnFIXTEPD2k
+              - **pontos_uids**:
+                - TSalA4rxoxE3vj
+                - NSJEWm5l152LeX
               - **escalada**: Bife do Mário
               - **ids**:
-                - 3
-                - B
+                - TSalA4rxoxE3vj
+                - NSJEWm5l152LeX
             - **[5]**:
+              - **alvo_uid**: hzm9vuQX67C1Wc
+              - **pontos_uids**:
+                - PVIdxUlmaO4qKj
+                - RkCuLA5gHiIHEb
               - **escalada**: Painel
               - **ids**:
-                - 4
-                - C
+                - PVIdxUlmaO4qKj
+                - RkCuLA5gHiIHEb
             - **[6]**:
+              - **alvo_uid**: AJf18flQDH3I0x
+              - **pontos_uids**:
+                - 6JvgIjni2IrcpY
+                - RkCuLA5gHiIHEb
               - **escalada**: Mont Blanc
               - **ids**:
-                - 5
-                - C
+                - 6JvgIjni2IrcpY
+                - RkCuLA5gHiIHEb
             - **[7]**:
+              - **alvo_uid**: GCgUYKVZhloIHw
+              - **pontos_uids**:
+                - mcykqIBH26Ck8Q
+                - RkCuLA5gHiIHEb
               - **escalada**: Mont Blanc do Oeste
               - **ids**:
-                - 6
-                - C
+                - mcykqIBH26Ck8Q
+                - RkCuLA5gHiIHEb
             - **[8]**:
+              - **alvo_uid**: Kvo1CxiDkGbOaU
+              - **pontos_uids**:
+                - mmifEVOuE1eovt
               - **escalada**: Deja Ir
               - **ids**:
-                - 7
+                - mmifEVOuE1eovt
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_mont_blanc_setor_bloco_mont_blanc_p1.webp)
           - **largura_mapa**: 2364
           - **altura_mapa**: 1773
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 1
-              - **label**: 1
+              - **id**: hwjFloVQJNPvzA
+              - **uid**: hwjFloVQJNPvzA
+              - **rotulo**: 1
               - **circulo**:
                 - **x**: 722
                 - **y**: 1193
                 - **raio**: 20
+              - **label**: 1
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: 8OsuQIZfom43zc
+              - **pontos_uids**:
+                - hwjFloVQJNPvzA
               - **escalada**: Colibri
               - **ids**:
-                - 1
+                - hwjFloVQJNPvzA
         - **[2]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_mont_blanc_setor_bloco_mont_blanc_p2.webp)
           - **largura_mapa**: 2364
           - **altura_mapa**: 1773
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 1
-              - **label**: 1
+              - **id**: o9kifzUkZpAbpV
+              - **uid**: o9kifzUkZpAbpV
+              - **rotulo**: 1
               - **circulo**:
                 - **x**: 621
                 - **y**: 1432
                 - **raio**: 20
+              - **label**: 1
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: pzd2TA0RieVhod
+              - **pontos_uids**:
+                - o9kifzUkZpAbpV
               - **escalada**: 011
               - **ids**:
-                - 1
+                - o9kifzUkZpAbpV
         - **[3]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_mont_blanc_setor_bloco_mont_blanc_p3.webp)
           - **largura_mapa**: 2364
           - **altura_mapa**: 1773
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 1
-              - **label**: 1
+              - **id**: QItOyfVn5aBd7w
+              - **uid**: QItOyfVn5aBd7w
+              - **rotulo**: 1
               - **circulo**:
                 - **x**: 213
                 - **y**: 1454
                 - **raio**: 19
+              - **label**: 1
             - **[1]**:
-              - **id**: 2
-              - **label**: 2
+              - **id**: NpREQQ1xHmvTTK
+              - **uid**: NpREQQ1xHmvTTK
+              - **rotulo**: 2
               - **circulo**:
                 - **x**: 768
                 - **y**: 1434
                 - **raio**: 19
+              - **label**: 2
             - **[2]**:
-              - **id**: 3
-              - **label**: 3
+              - **id**: iHulBl47wvUsPt
+              - **uid**: iHulBl47wvUsPt
+              - **rotulo**: 3
               - **circulo**:
                 - **x**: 1361
                 - **y**: 1423
                 - **raio**: 19
+              - **label**: 3
             - **[3]**:
-              - **id**: A
-              - **label**: A
+              - **id**: IjQowFLvchErDe
+              - **uid**: IjQowFLvchErDe
+              - **rotulo**: A
               - **circulo**:
                 - **x**: 741
                 - **y**: 344
                 - **raio**: 19
+              - **label**: A
             - **[4]**:
-              - **id**: B
-              - **label**: B
+              - **id**: PrJLXRnuMdWN81
+              - **uid**: PrJLXRnuMdWN81
+              - **rotulo**: B
               - **circulo**:
                 - **x**: 2052
                 - **y**: 187
                 - **raio**: 19
+              - **label**: B
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: i4p4NwcUZatCSY
+              - **pontos_uids**:
+                - QItOyfVn5aBd7w
+                - IjQowFLvchErDe
               - **escalada**: Raízes do Brasil
               - **ids**:
-                - 1
-                - A
+                - QItOyfVn5aBd7w
+                - IjQowFLvchErDe
             - **[1]**:
+              - **alvo_uid**: KKYpO4NPL92GCF
+              - **pontos_uids**:
+                - NpREQQ1xHmvTTK
+                - IjQowFLvchErDe
               - **escalada**: Raízes do Cerrado
               - **ids**:
-                - 2
-                - A
+                - NpREQQ1xHmvTTK
+                - IjQowFLvchErDe
             - **[2]**:
+              - **alvo_uid**: GFagObO00xjOIA
+              - **pontos_uids**:
+                - iHulBl47wvUsPt
+                - PrJLXRnuMdWN81
               - **escalada**: Super Bonder
               - **ids**:
-                - 3
-                - B
+                - iHulBl47wvUsPt
+                - PrJLXRnuMdWN81
             - **[3]**:
+              - **alvo_uid**: WUD3ZHG02732ZR
+              - **pontos_uids**:
+                - NpREQQ1xHmvTTK
+                - PrJLXRnuMdWN81
               - **escalada**: Tec Bond
               - **ids**:
-                - 2
-                - B
-              - **grupo**: Mont Blanc
-              - **setor**: Bloco: Mont Blanc
+                - NpREQQ1xHmvTTK
+                - PrJLXRnuMdWN81
       - **escaladas**:
         - **[0]**:
+          - **uid**: HxvqK4w4aJuvQ6
           - **boulder**:
             - **nome**: Pico da Neblina ext
             - **dificuldade**: V8
         - **[1]**:
+          - **uid**: obciegyHD2L2k0
           - **boulder**:
             - **nome**: Inquilinismo Frenético ext
             - **dificuldade**: V11
         - **[2]**:
+          - **uid**: HG5YWkKCFKQhje
           - **boulder**:
             - **nome**: Pico da Neblina
             - **dificuldade**: V7
         - **[3]**:
+          - **uid**: DLdVVQSqkRGt72
           - **boulder**:
             - **nome**: Inquilinismo Frenético
             - **dificuldade**: V10
         - **[4]**:
+          - **uid**: KpSQnFIXTEPD2k
           - **boulder**:
             - **nome**: Bife do Mário
             - **dificuldade**: V9
         - **[5]**:
+          - **uid**: hzm9vuQX67C1Wc
           - **boulder**:
             - **nome**: Painel
             - **dificuldade**: V7
         - **[6]**:
+          - **uid**: AJf18flQDH3I0x
           - **boulder**:
             - **nome**: Mont Blanc
             - **dificuldade**: V10
         - **[7]**:
+          - **uid**: GCgUYKVZhloIHw
           - **boulder**:
             - **nome**: Mont Blanc do Oeste
             - **dificuldade**: V11
         - **[8]**:
+          - **uid**: Kvo1CxiDkGbOaU
           - **boulder**:
             - **nome**: Deja Ir
             - **dificuldade**: V12
         - **[9]**:
+          - **uid**: 8OsuQIZfom43zc
           - **boulder**:
             - **nome**: Colibri
             - **dificuldade**: V10
         - **[10]**:
+          - **uid**: pzd2TA0RieVhod
           - **boulder**:
             - **nome**: 011
             - **dificuldade**: V2
         - **[11]**:
+          - **uid**: i4p4NwcUZatCSY
           - **boulder**:
             - **nome**: Raízes do Brasil
             - **dificuldade**: V4
         - **[12]**:
+          - **uid**: KKYpO4NPL92GCF
           - **boulder**:
             - **nome**: Raízes do Cerrado
             - **dificuldade**: V3
         - **[13]**:
+          - **uid**: WUD3ZHG02732ZR
           - **boulder**:
             - **nome**: Tec Bond
             - **dificuldade**: V5
         - **[14]**:
+          - **uid**: GFagObO00xjOIA
           - **boulder**:
             - **nome**: Super Bonder
             - **dificuldade**: V6
@@ -6208,6 +8315,7 @@
     - **conteudo**:
       - **descricao**: 
       - **nome**: Bloco: Parada Obrigatória
+      - **uid**: Yxr8Ifci5wj175
       - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/grupo_mont_blanc_setor_bloco_parada_obrigatoria_p1_i0.webp)
       - **mapas**:
         - **[0]**:
@@ -6216,126 +8324,174 @@
           - **altura_mapa**: 1773
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: A
-              - **label**: A
+              - **id**: 8FivKRD2b2uyR9
+              - **uid**: 8FivKRD2b2uyR9
+              - **rotulo**: A
               - **circulo**:
                 - **x**: 236
                 - **y**: 904
                 - **raio**: 19
+              - **label**: A
             - **[1]**:
-              - **id**: B
-              - **label**: B
+              - **id**: fmgUnNB9iLw6sp
+              - **uid**: fmgUnNB9iLw6sp
+              - **rotulo**: B
               - **circulo**:
                 - **x**: 341
                 - **y**: 738
                 - **raio**: 19
+              - **label**: B
             - **[2]**:
-              - **id**: C
-              - **label**: C
+              - **id**: LIHRJtfgQRPJER
+              - **uid**: LIHRJtfgQRPJER
+              - **rotulo**: C
               - **circulo**:
                 - **x**: 1480
                 - **y**: 402
                 - **raio**: 19
+              - **label**: C
             - **[3]**:
-              - **id**: 1
-              - **label**: 1
+              - **id**: Yv9QyDEhXlVIw2
+              - **uid**: Yv9QyDEhXlVIw2
+              - **rotulo**: 1
               - **circulo**:
                 - **x**: 895
                 - **y**: 1371
                 - **raio**: 19
+              - **label**: 1
             - **[4]**:
-              - **id**: 2
-              - **label**: 2
+              - **id**: Gl7F6RahQnCRwL
+              - **uid**: Gl7F6RahQnCRwL
+              - **rotulo**: 2
               - **circulo**:
                 - **x**: 1519
                 - **y**: 1252
                 - **raio**: 19
+              - **label**: 2
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: Gs0fPWNas9pHR4
+              - **pontos_uids**:
+                - Yv9QyDEhXlVIw2
+                - 8FivKRD2b2uyR9
               - **escalada**: Parada Obrigatória
               - **ids**:
-                - 1
-                - A
+                - Yv9QyDEhXlVIw2
+                - 8FivKRD2b2uyR9
             - **[1]**:
+              - **alvo_uid**: YQEWfuJCKqYaN0
+              - **pontos_uids**:
+                - Yv9QyDEhXlVIw2
+                - fmgUnNB9iLw6sp
               - **escalada**: Rio Doce
               - **ids**:
-                - 1
-                - B
+                - Yv9QyDEhXlVIw2
+                - fmgUnNB9iLw6sp
             - **[2]**:
+              - **alvo_uid**: oIkPMXqSrbjtCn
+              - **pontos_uids**:
+                - Yv9QyDEhXlVIw2
+                - LIHRJtfgQRPJER
               - **escalada**: Rio das Velhas
               - **ids**:
-                - 1
-                - C
+                - Yv9QyDEhXlVIw2
+                - LIHRJtfgQRPJER
             - **[3]**:
+              - **alvo_uid**: mUTr10pmaWeSi5
+              - **pontos_uids**:
+                - Gl7F6RahQnCRwL
+                - LIHRJtfgQRPJER
               - **escalada**: Igarapé
               - **ids**:
-                - 2
-                - C
+                - Gl7F6RahQnCRwL
+                - LIHRJtfgQRPJER
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_mont_blanc_setor_bloco_parada_obrigatoria_p2.webp)
           - **largura_mapa**: 2364
           - **altura_mapa**: 1773
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 1
-              - **label**: 1
+              - **id**: pQmgDQVRc5lTIi
+              - **uid**: pQmgDQVRc5lTIi
+              - **rotulo**: 1
               - **circulo**:
                 - **x**: 459
                 - **y**: 1164
                 - **raio**: 19
+              - **label**: 1
             - **[1]**:
-              - **id**: 2
-              - **label**: 2
+              - **id**: zV4qD2JlV2XjVt
+              - **uid**: zV4qD2JlV2XjVt
+              - **rotulo**: 2
               - **circulo**:
                 - **x**: 972
                 - **y**: 1187
                 - **raio**: 19
+              - **label**: 2
             - **[2]**:
-              - **id**: 3
-              - **label**: 3
+              - **id**: bvoxRdNNUAyNG5
+              - **uid**: bvoxRdNNUAyNG5
+              - **rotulo**: 3
               - **circulo**:
                 - **x**: 1558
                 - **y**: 1222
                 - **raio**: 19
+              - **label**: 3
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: LQeDGzN0CRGPg7
+              - **pontos_uids**:
+                - pQmgDQVRc5lTIi
               - **escalada**: Frasco
               - **ids**:
-                - 1
+                - pQmgDQVRc5lTIi
             - **[1]**:
+              - **alvo_uid**: RPXGcVsvnjcDrK
+              - **pontos_uids**:
+                - zV4qD2JlV2XjVt
               - **escalada**: Frisco
               - **ids**:
-                - 2
+                - zV4qD2JlV2XjVt
             - **[2]**:
+              - **alvo_uid**: Y3t9wt580u8CHp
+              - **pontos_uids**:
+                - bvoxRdNNUAyNG5
               - **escalada**: Fulano
               - **ids**:
-                - 3
+                - bvoxRdNNUAyNG5
       - **escaladas**:
         - **[0]**:
+          - **uid**: Gs0fPWNas9pHR4
           - **boulder**:
             - **nome**: Parada Obrigatória
             - **dificuldade**: V3
         - **[1]**:
+          - **uid**: YQEWfuJCKqYaN0
           - **boulder**:
             - **nome**: Rio Doce
             - **dificuldade**: V4
         - **[2]**:
+          - **uid**: oIkPMXqSrbjtCn
           - **boulder**:
             - **nome**: Rio das Velhas
             - **dificuldade**: V8
         - **[3]**:
+          - **uid**: mUTr10pmaWeSi5
           - **boulder**:
             - **nome**: Igarapé
             - **dificuldade**: V7
         - **[4]**:
+          - **uid**: LQeDGzN0CRGPg7
           - **boulder**:
             - **nome**: Frasco
             - **dificuldade**: V2
         - **[5]**:
+          - **uid**: RPXGcVsvnjcDrK
           - **boulder**:
             - **nome**: Frisco
             - **dificuldade**: V2
         - **[6]**:
+          - **uid**: Y3t9wt580u8CHp
           - **boulder**:
             - **nome**: Fulano
             - **dificuldade**: V1
@@ -6346,6 +8502,7 @@
     - **conteudo**:
       - **descricao**: 
       - **nome**: Bloco: Salão dos Ossos
+      - **uid**: 24qEZNrzLWzCh7
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_mont_blanc_setor_bloco_salao_dos_ossos_p0.webp)
@@ -6353,123 +8510,174 @@
           - **altura_mapa**: 1773
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 1
-              - **label**: 1
+              - **id**: iy1FEogziPepyS
+              - **uid**: iy1FEogziPepyS
+              - **rotulo**: 1
               - **circulo**:
                 - **x**: 561
                 - **y**: 1185
                 - **raio**: 19
+              - **label**: 1
             - **[1]**:
-              - **id**: 2
-              - **label**: 2
+              - **id**: embankF29SyGbK
+              - **uid**: embankF29SyGbK
+              - **rotulo**: 2
               - **circulo**:
                 - **x**: 497
                 - **y**: 990
                 - **raio**: 19
+              - **label**: 2
             - **[2]**:
-              - **id**: 3
-              - **label**: 3
+              - **id**: NXvzcxkuj4puZq
+              - **uid**: NXvzcxkuj4puZq
+              - **rotulo**: 3
               - **circulo**:
                 - **x**: 916
                 - **y**: 1272
                 - **raio**: 19
+              - **label**: 3
             - **[3]**:
-              - **id**: 4
-              - **label**: 4
+              - **id**: 8SLRBV9uUW6imY
+              - **uid**: 8SLRBV9uUW6imY
+              - **rotulo**: 4
               - **circulo**:
                 - **x**: 1095
                 - **y**: 1090
                 - **raio**: 19
+              - **label**: 4
             - **[4]**:
-              - **id**: 5
-              - **label**: 5
+              - **id**: bs2JHxB6lPRPIW
+              - **uid**: bs2JHxB6lPRPIW
+              - **rotulo**: 5
               - **circulo**:
                 - **x**: 1256
                 - **y**: 1229
                 - **raio**: 19
+              - **label**: 5
             - **[5]**:
-              - **id**: A
-              - **label**: A
+              - **id**: c594kRFZ2Z2Ifb
+              - **uid**: c594kRFZ2Z2Ifb
+              - **rotulo**: A
               - **circulo**:
                 - **x**: 389
                 - **y**: 408
                 - **raio**: 19
+              - **label**: A
             - **[6]**:
-              - **id**: B
-              - **label**: B
+              - **id**: YyFlc2QYp36NXy
+              - **uid**: YyFlc2QYp36NXy
+              - **rotulo**: B
               - **circulo**:
                 - **x**: 606
                 - **y**: 198
                 - **raio**: 19
+              - **label**: B
             - **[7]**:
-              - **id**: C
-              - **label**: C
+              - **id**: r6KBHc6qeU9eth
+              - **uid**: r6KBHc6qeU9eth
+              - **rotulo**: C
               - **circulo**:
                 - **x**: 2282
                 - **y**: 550
                 - **raio**: 19
+              - **label**: C
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: IcXryiUdm4USMB
+              - **pontos_uids**:
+                - iy1FEogziPepyS
+                - YyFlc2QYp36NXy
               - **escalada**: Dolinha
               - **ids**:
-                - 1
-                - B
+                - iy1FEogziPepyS
+                - YyFlc2QYp36NXy
             - **[1]**:
+              - **alvo_uid**: qb8LZgJjZP7G99
+              - **pontos_uids**:
+                - embankF29SyGbK
+                - c594kRFZ2Z2Ifb
               - **escalada**: 012
               - **ids**:
-                - 2
-                - A
+                - embankF29SyGbK
+                - c594kRFZ2Z2Ifb
             - **[2]**:
+              - **alvo_uid**: bbK3JZ6oM3qTEe
+              - **pontos_uids**:
+                - NXvzcxkuj4puZq
+                - c594kRFZ2Z2Ifb
               - **escalada**: 013
               - **ids**:
-                - 3
-                - A
+                - NXvzcxkuj4puZq
+                - c594kRFZ2Z2Ifb
             - **[3]**:
+              - **alvo_uid**: JdG4AuswcT0TBQ
+              - **pontos_uids**:
+                - NXvzcxkuj4puZq
+                - YyFlc2QYp36NXy
               - **escalada**: Salão dos Ossos
               - **ids**:
-                - 3
-                - B
+                - NXvzcxkuj4puZq
+                - YyFlc2QYp36NXy
             - **[4]**:
+              - **alvo_uid**: K37CwoiYrVJ7ch
+              - **pontos_uids**:
+                - 8SLRBV9uUW6imY
+                - YyFlc2QYp36NXy
               - **escalada**: Osso
               - **ids**:
-                - 4
-                - B
+                - 8SLRBV9uUW6imY
+                - YyFlc2QYp36NXy
             - **[5]**:
+              - **alvo_uid**: 7QQKD1w2UWTtvu
+              - **pontos_uids**:
+                - bs2JHxB6lPRPIW
+                - YyFlc2QYp36NXy
               - **escalada**: Osso Duro de Roer
               - **ids**:
-                - 5
-                - B
+                - bs2JHxB6lPRPIW
+                - YyFlc2QYp36NXy
             - **[6]**:
+              - **alvo_uid**: UFPCV6xyVWZYzO
+              - **pontos_uids**:
+                - bs2JHxB6lPRPIW
+                - r6KBHc6qeU9eth
               - **escalada**: Tutano
               - **ids**:
-                - 5
-                - C
+                - bs2JHxB6lPRPIW
+                - r6KBHc6qeU9eth
       - **escaladas**:
         - **[0]**:
+          - **uid**: IcXryiUdm4USMB
           - **boulder**:
             - **nome**: Dolinha
             - **dificuldade**: V8
         - **[1]**:
+          - **uid**: qb8LZgJjZP7G99
           - **boulder**:
             - **nome**: 012
             - **dificuldade**: V1
         - **[2]**:
+          - **uid**: bbK3JZ6oM3qTEe
           - **boulder**:
             - **nome**: 013
             - **dificuldade**: V3
         - **[3]**:
+          - **uid**: JdG4AuswcT0TBQ
           - **boulder**:
             - **nome**: Salão dos Ossos
             - **dificuldade**: V5
         - **[4]**:
+          - **uid**: K37CwoiYrVJ7ch
           - **boulder**:
             - **nome**: Osso
             - **dificuldade**: V7
         - **[5]**:
+          - **uid**: 7QQKD1w2UWTtvu
           - **boulder**:
             - **nome**: Osso Duro de Roer
             - **dificuldade**: V10
         - **[6]**:
+          - **uid**: UFPCV6xyVWZYzO
           - **boulder**:
             - **nome**: Tutano
             - **dificuldade**: V10
@@ -6480,6 +8688,7 @@
     - **conteudo**:
       - **descricao**: 
       - **nome**: Bloco: O Pequeno
+      - **uid**: ZJVQc9suLiF4NT
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_mont_blanc_setor_bloco_o_pequeno_p0.webp)
@@ -6487,99 +8696,130 @@
           - **altura_mapa**: 1773
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: A
-              - **label**: A
+              - **id**: fvY2ZpJM2UwKQ5
+              - **uid**: fvY2ZpJM2UwKQ5
+              - **rotulo**: A
               - **circulo**:
                 - **x**: 1069
                 - **y**: 99
                 - **raio**: 20
+              - **label**: A
             - **[1]**:
-              - **id**: 2
-              - **label**: 2
+              - **id**: MkDRSzdvQ5toKx
+              - **uid**: MkDRSzdvQ5toKx
+              - **rotulo**: 2
               - **circulo**:
                 - **x**: 688
                 - **y**: 1073
                 - **raio**: 20
+              - **label**: 2
             - **[2]**:
-              - **id**: 1
-              - **label**: 1
+              - **id**: cGh2akFNlCQQlG
+              - **uid**: cGh2akFNlCQQlG
+              - **rotulo**: 1
               - **circulo**:
                 - **x**: 1576
                 - **y**: 1470
                 - **raio**: 20
+              - **label**: 1
             - **[3]**:
-              - **id**: B
-              - **label**: B
+              - **id**: 5G5znfvdHlcHev
+              - **uid**: 5G5znfvdHlcHev
+              - **rotulo**: B
               - **circulo**:
                 - **x**: 447
                 - **y**: 117
                 - **raio**: 20
+              - **label**: B
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: 5ybh2vVi771XMg
+              - **pontos_uids**:
+                - cGh2akFNlCQQlG
+                - fvY2ZpJM2UwKQ5
               - **escalada**: Toe de Ouro
               - **ids**:
-                - 1
-                - A
+                - cGh2akFNlCQQlG
+                - fvY2ZpJM2UwKQ5
             - **[1]**:
+              - **alvo_uid**: QjSYV7rtdyahQ9
+              - **pontos_uids**:
+                - cGh2akFNlCQQlG
+                - 5G5znfvdHlcHev
               - **escalada**: Toebogã
               - **ids**:
-                - 1
-                - B
-              - **grupo**: Mont Blanc
-              - **setor**: Bloco: O Pequeno
+                - cGh2akFNlCQQlG
+                - 5G5znfvdHlcHev
             - **[2]**:
+              - **alvo_uid**: 1oSJzWf3Lqtury
+              - **pontos_uids**:
+                - MkDRSzdvQ5toKx
+                - 5G5znfvdHlcHev
               - **escalada**: Tobocrash
               - **ids**:
-                - 2
-                - B
-              - **grupo**: Mont Blanc
-              - **setor**: Bloco: O Pequeno
+                - MkDRSzdvQ5toKx
+                - 5G5znfvdHlcHev
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_mont_blanc_setor_bloco_o_pequeno_p1.webp)
           - **largura_mapa**: 2364
           - **altura_mapa**: 1773
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 1
-              - **label**: 1
+              - **id**: tY1nTcL3ZIeNPj
+              - **uid**: tY1nTcL3ZIeNPj
+              - **rotulo**: 1
               - **circulo**:
                 - **x**: 785
                 - **y**: 1540
                 - **raio**: 19
+              - **label**: 1
             - **[1]**:
-              - **id**: 2
-              - **label**: 2
+              - **id**: HuwkDIFVQorXoB
+              - **uid**: HuwkDIFVQorXoB
+              - **rotulo**: 2
               - **circulo**:
                 - **x**: 1533
                 - **y**: 1386
                 - **raio**: 19
+              - **label**: 2
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: Yt2lGsDhehDRqU
+              - **pontos_uids**:
+                - tY1nTcL3ZIeNPj
               - **escalada**: Jardim de Inverno
               - **ids**:
-                - 1
+                - tY1nTcL3ZIeNPj
             - **[1]**:
+              - **alvo_uid**: h2aInynYP5hOsr
+              - **pontos_uids**:
+                - HuwkDIFVQorXoB
               - **escalada**: O Pequeno
               - **ids**:
-                - 2
+                - HuwkDIFVQorXoB
       - **escaladas**:
         - **[0]**:
+          - **uid**: 5ybh2vVi771XMg
           - **boulder**:
             - **nome**: Toe de Ouro
             - **dificuldade**: V9
         - **[1]**:
+          - **uid**: QjSYV7rtdyahQ9
           - **boulder**:
             - **nome**: Toebogã
             - **dificuldade**: V9
         - **[2]**:
+          - **uid**: 1oSJzWf3Lqtury
           - **boulder**:
             - **nome**: Tobocrash
             - **dificuldade**: V4
         - **[3]**:
+          - **uid**: Yt2lGsDhehDRqU
           - **boulder**:
             - **nome**: Jardim de Inverno
             - **dificuldade**: V3
         - **[4]**:
+          - **uid**: h2aInynYP5hOsr
           - **boulder**:
             - **nome**: O Pequeno
             - **dificuldade**: V8
@@ -6590,6 +8830,7 @@
     - **conteudo**:
       - **descricao**: 
       - **nome**: Bloco: Cabocla da Mata
+      - **uid**: ka0xDrNaPASN32
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_mont_blanc_setor_bloco_cabocla_da_mata_p0.webp)
@@ -6597,50 +8838,68 @@
           - **altura_mapa**: 1773
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: A
-              - **label**: A
+              - **id**: Lte8XncHgaNmFd
+              - **uid**: Lte8XncHgaNmFd
+              - **rotulo**: A
               - **circulo**:
                 - **x**: 584
                 - **y**: 861
                 - **raio**: 19
+              - **label**: A
             - **[1]**:
-              - **id**: B
-              - **label**: B
+              - **id**: TSoH4i8gPYTm6v
+              - **uid**: TSoH4i8gPYTm6v
+              - **rotulo**: B
               - **circulo**:
                 - **x**: 1953
                 - **y**: 887
                 - **raio**: 18
+              - **label**: B
             - **[2]**:
-              - **id**: 1
-              - **label**: 1
+              - **id**: mQdcLk7qlWjp2d
+              - **uid**: mQdcLk7qlWjp2d
+              - **rotulo**: 1
               - **circulo**:
                 - **x**: 1732
                 - **y**: 1449
                 - **raio**: 18
+              - **label**: 1
             - **[3]**:
-              - **id**: 2
-              - **label**: 2
+              - **id**: WEqk1aIQXSbAkW
+              - **uid**: WEqk1aIQXSbAkW
+              - **rotulo**: 2
               - **circulo**:
                 - **x**: 1477
                 - **y**: 1433
                 - **raio**: 18
+              - **label**: 2
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: Yeuc5wbOD2CdCt
+              - **pontos_uids**:
+                - mQdcLk7qlWjp2d
+                - Lte8XncHgaNmFd
               - **escalada**: Cabocla da Mata
               - **ids**:
-                - 1
-                - A
+                - mQdcLk7qlWjp2d
+                - Lte8XncHgaNmFd
             - **[1]**:
+              - **alvo_uid**: X1LWxlJ2QtbU6J
+              - **pontos_uids**:
+                - WEqk1aIQXSbAkW
+                - TSoH4i8gPYTm6v
               - **escalada**: Caboclo das Sete Encruzilhadas
               - **ids**:
-                - 2
-                - B
+                - WEqk1aIQXSbAkW
+                - TSoH4i8gPYTm6v
       - **escaladas**:
         - **[0]**:
+          - **uid**: Yeuc5wbOD2CdCt
           - **boulder**:
             - **nome**: Cabocla da Mata
             - **dificuldade**: V4
         - **[1]**:
+          - **uid**: X1LWxlJ2QtbU6J
           - **boulder**:
             - **nome**: Caboclo das Sete Encruzilhadas
             - **dificuldade**: V5
@@ -6651,6 +8910,7 @@
     - **conteudo**:
       - **descricao**: 
       - **nome**: Bloco: Silêncio da Mutuca
+      - **uid**: 6yBaMVkS6Qr1uz
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_mont_blanc_setor_bloco_silencio_da_mutuca_p0.webp)
@@ -6658,58 +8918,80 @@
           - **altura_mapa**: 1773
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 1
-              - **label**: 1
+              - **id**: MvSHoJbv6C9xyh
+              - **uid**: MvSHoJbv6C9xyh
+              - **rotulo**: 1
               - **circulo**:
                 - **x**: 1042
                 - **y**: 1665
                 - **raio**: 20
+              - **label**: 1
             - **[1]**:
-              - **id**: 2
-              - **label**: 2
+              - **id**: Gi7yVR5bMxWjYz
+              - **uid**: Gi7yVR5bMxWjYz
+              - **rotulo**: 2
               - **circulo**:
                 - **x**: 1222
                 - **y**: 1650
                 - **raio**: 20
+              - **label**: 2
             - **[2]**:
-              - **id**: A
-              - **label**: A
+              - **id**: Ne63tQjsWUb2c5
+              - **uid**: Ne63tQjsWUb2c5
+              - **rotulo**: A
               - **circulo**:
                 - **x**: 300
                 - **y**: 558
                 - **raio**: 20
+              - **label**: A
             - **[3]**:
-              - **id**: B
-              - **label**: B
+              - **id**: TeZY5RBos2Wetp
+              - **uid**: TeZY5RBos2Wetp
+              - **rotulo**: B
               - **circulo**:
                 - **x**: 539
                 - **y**: 154
                 - **raio**: 20
+              - **label**: B
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: WYeoBQrpSRWfpw
+              - **pontos_uids**:
+                - MvSHoJbv6C9xyh
+                - Ne63tQjsWUb2c5
               - **escalada**: Transição
               - **ids**:
-                - 1
-                - A
+                - MvSHoJbv6C9xyh
+                - Ne63tQjsWUb2c5
             - **[1]**:
+              - **alvo_uid**: onAR6O3zuf1k5W
+              - **pontos_uids**:
+                - MvSHoJbv6C9xyh
+                - TeZY5RBos2Wetp
               - **escalada**: Silêncio da Mutuca
               - **ids**:
-                - 1
-                - B
+                - MvSHoJbv6C9xyh
+                - TeZY5RBos2Wetp
             - **[2]**:
+              - **alvo_uid**: zcRQkcUd7sMIM2
+              - **pontos_uids**:
+                - Gi7yVR5bMxWjYz
               - **escalada**: Íngreme
               - **ids**:
-                - 2
+                - Gi7yVR5bMxWjYz
       - **escaladas**:
         - **[0]**:
+          - **uid**: WYeoBQrpSRWfpw
           - **boulder**:
             - **nome**: Transição
             - **dificuldade**: V5
         - **[1]**:
+          - **uid**: onAR6O3zuf1k5W
           - **boulder**:
             - **nome**: Silêncio da Mutuca
             - **dificuldade**: V3
         - **[2]**:
+          - **uid**: zcRQkcUd7sMIM2
           - **boulder**:
             - **nome**: Íngreme
             - **dificuldade**: V3
@@ -6720,6 +9002,7 @@
     - **conteudo**:
       - **descricao**: 
       - **nome**: Bloco: Espreguiçadeira
+      - **uid**: S1KezKyo1wzcRj
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_mont_blanc_setor_bloco_espreguicadeira_p0.webp)
@@ -6727,58 +9010,80 @@
           - **altura_mapa**: 1773
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 1
-              - **label**: 1
+              - **id**: AL4p6NTF4jYqgi
+              - **uid**: AL4p6NTF4jYqgi
+              - **rotulo**: 1
               - **circulo**:
                 - **x**: 763
                 - **y**: 1169
                 - **raio**: 19
+              - **label**: 1
             - **[1]**:
-              - **id**: 2
-              - **label**: 2
+              - **id**: PQEVM9a5Rtz4PU
+              - **uid**: PQEVM9a5Rtz4PU
+              - **rotulo**: 2
               - **circulo**:
                 - **x**: 1557
                 - **y**: 1331
                 - **raio**: 19
+              - **label**: 2
             - **[2]**:
-              - **id**: A
-              - **label**: A
+              - **id**: rcAJzlsLeMsdXf
+              - **uid**: rcAJzlsLeMsdXf
+              - **rotulo**: A
               - **circulo**:
                 - **x**: 568
                 - **y**: 592
                 - **raio**: 19
+              - **label**: A
             - **[3]**:
-              - **id**: B
-              - **label**: B
+              - **id**: ZQigMQVlnrV0CG
+              - **uid**: ZQigMQVlnrV0CG
+              - **rotulo**: B
               - **circulo**:
                 - **x**: 1295
                 - **y**: 269
                 - **raio**: 19
+              - **label**: B
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: BVS9vNwXZmTOOD
+              - **pontos_uids**:
+                - AL4p6NTF4jYqgi
               - **escalada**: Heavy Metal
               - **ids**:
-                - 1
+                - AL4p6NTF4jYqgi
             - **[1]**:
+              - **alvo_uid**: Cd9g9Z3lzABbe2
+              - **pontos_uids**:
+                - PQEVM9a5Rtz4PU
+                - rcAJzlsLeMsdXf
               - **escalada**: Rock n Roll
               - **ids**:
-                - 2
-                - A
+                - PQEVM9a5Rtz4PU
+                - rcAJzlsLeMsdXf
             - **[2]**:
+              - **alvo_uid**: dmxQliBl75AFif
+              - **pontos_uids**:
+                - PQEVM9a5Rtz4PU
+                - ZQigMQVlnrV0CG
               - **escalada**: Hard Core
               - **ids**:
-                - 2
-                - B
+                - PQEVM9a5Rtz4PU
+                - ZQigMQVlnrV0CG
       - **escaladas**:
         - **[0]**:
+          - **uid**: BVS9vNwXZmTOOD
           - **boulder**:
             - **nome**: Heavy Metal
             - **dificuldade**: V2
         - **[1]**:
+          - **uid**: Cd9g9Z3lzABbe2
           - **boulder**:
             - **nome**: Rock n Roll
             - **dificuldade**: V1_BARRA_V2
         - **[2]**:
+          - **uid**: dmxQliBl75AFif
           - **boulder**:
             - **nome**: Hard Core
             - **dificuldade**: V6_BARRA_V7
@@ -6796,6 +9101,7 @@
 
 - **descricao**: 
 - **nome**: Bonsai
+- **uid**: t59PHz1Ca8jRr3
 - **localizacao_estacionamento**:
   - **latitude**: -203732472
   - **longitude**: -435016976
@@ -6809,89 +9115,114 @@
     - **altura_mapa**: 1134
     - **pontos_de_interesse**:
       - **[0]**:
-        - **id**: bonsai
-        - **label**: Bonsai
+        - **id**: Tftzc71XEppuC7
+        - **uid**: Tftzc71XEppuC7
+        - **rotulo**: Bonsai
         - **retangulo**:
           - **x**: 422
           - **y**: 393
           - **comprimento**: 74
           - **largura**: 26
+        - **label**: Bonsai
       - **[1]**:
-        - **id**: crocancia
-        - **label**: Crocância
+        - **id**: kpoEkNgtz0DRpJ
+        - **uid**: kpoEkNgtz0DRpJ
+        - **rotulo**: Crocância
         - **retangulo**:
           - **x**: 557
           - **y**: 378
           - **comprimento**: 108
           - **largura**: 24
+        - **label**: Crocância
       - **[2]**:
-        - **id**: mantra
-        - **label**: Mantra
+        - **id**: 1Xrb7MJpEQYNBs
+        - **uid**: 1Xrb7MJpEQYNBs
+        - **rotulo**: Mantra
         - **retangulo**:
           - **x**: 764
           - **y**: 383
           - **comprimento**: 76
           - **largura**: 24
+        - **label**: Mantra
       - **[3]**:
-        - **id**: dali_goiabada
-        - **label**: Dali Goiabada
+        - **id**: 9Bednxz56U3UQp
+        - **uid**: 9Bednxz56U3UQp
+        - **rotulo**: Dali Goiabada
         - **retangulo**:
           - **x**: 906
           - **y**: 387
           - **comprimento**: 144
           - **largura**: 24
+        - **label**: Dali Goiabada
       - **[4]**:
-        - **id**: pedra
-        - **label**: Pedra
+        - **id**: iykOwP7yoplP9B
+        - **uid**: iykOwP7yoplP9B
+        - **rotulo**: Pedra
         - **retangulo**:
           - **x**: 1334
           - **y**: 664
           - **comprimento**: 66
           - **largura**: 25
+        - **label**: Pedra
       - **[5]**:
-        - **id**: seg_samambaia
-        - **label**: Seg-Samambaia
+        - **id**: XbWxQ39tPOYta3
+        - **uid**: XbWxQ39tPOYta3
+        - **rotulo**: Seg-Samambaia
         - **retangulo**:
           - **x**: 1148
           - **y**: 1062
           - **comprimento**: 175
           - **largura**: 27
+        - **label**: Seg-Samambaia
     - **referencias**:
       - **[0]**:
-        - **ids**:
-          - bonsai
-        - **grupo**: Bonsai
+        - **alvo_uid**: iOsJDN3Gqit8fp
+        - **pontos_uids**:
+          - Tftzc71XEppuC7
         - **setor**: Bloco: Bonsai
+        - **ids**:
+          - Tftzc71XEppuC7
       - **[1]**:
-        - **ids**:
-          - crocancia
-        - **grupo**: Bonsai
+        - **alvo_uid**: TPRjWnwThDobZV
+        - **pontos_uids**:
+          - kpoEkNgtz0DRpJ
         - **setor**: Bloco: Crocância
+        - **ids**:
+          - kpoEkNgtz0DRpJ
       - **[2]**:
-        - **ids**:
-          - mantra
-        - **grupo**: Bonsai
+        - **alvo_uid**: KcZsQ5PEhlLpvR
+        - **pontos_uids**:
+          - 1Xrb7MJpEQYNBs
         - **setor**: Bloco: Mantra
+        - **ids**:
+          - 1Xrb7MJpEQYNBs
       - **[3]**:
-        - **ids**:
-          - dali_goiabada
-        - **grupo**: Bonsai
+        - **alvo_uid**: 8L4I7wHhCDxSbL
+        - **pontos_uids**:
+          - 9Bednxz56U3UQp
         - **setor**: Bloco: Dali Goiabada
+        - **ids**:
+          - 9Bednxz56U3UQp
       - **[4]**:
-        - **ids**:
-          - seg_samambaia
-        - **grupo**: Bonsai
+        - **alvo_uid**: fpzJyfVqzqymGz
+        - **pontos_uids**:
+          - XbWxQ39tPOYta3
         - **setor**: Bloco: Seg-Samambaia
-      - **[5]**:
         - **ids**:
-          - pedra
-        - **grupo**: Bonsai
+          - XbWxQ39tPOYta3
+      - **[5]**:
+        - **alvo_uid**: MP7vYlyWnMk3fm
+        - **pontos_uids**:
+          - iykOwP7yoplP9B
         - **setor**: Bloco: Pedra
+        - **ids**:
+          - iykOwP7yoplP9B
 - **setores**:
   - **[0]**:
     - **conteudo**:
       - **descricao**: 
       - **nome**: Bloco: Bonsai
+      - **uid**: iOsJDN3Gqit8fp
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_bonsai_setor_bloco_bonsai_p0.webp)
@@ -6899,75 +9230,105 @@
           - **altura_mapa**: 1773
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: A
-              - **label**: A
+              - **id**: Sh0MdJuJbf04RK
+              - **uid**: Sh0MdJuJbf04RK
+              - **rotulo**: A
               - **circulo**:
                 - **x**: 374
                 - **y**: 776
                 - **raio**: 19
+              - **label**: A
             - **[1]**:
-              - **id**: B
-              - **label**: B
+              - **id**: VFwLSz5o8UBNYB
+              - **uid**: VFwLSz5o8UBNYB
+              - **rotulo**: B
               - **circulo**:
                 - **x**: 749
                 - **y**: 622
                 - **raio**: 19
+              - **label**: B
             - **[2]**:
-              - **id**: C
-              - **label**: C
+              - **id**: OtNZqk58rCH23s
+              - **uid**: OtNZqk58rCH23s
+              - **rotulo**: C
               - **circulo**:
                 - **x**: 2094
                 - **y**: 473
                 - **raio**: 18
+              - **label**: C
             - **[3]**:
-              - **id**: 1
-              - **label**: 1
+              - **id**: eYmwLmRNLpxFIW
+              - **uid**: eYmwLmRNLpxFIW
+              - **rotulo**: 1
               - **circulo**:
                 - **x**: 685
                 - **y**: 1415
                 - **raio**: 18
+              - **label**: 1
             - **[4]**:
-              - **id**: 2
-              - **label**: 2
+              - **id**: UCxFNcOISIcCsI
+              - **uid**: UCxFNcOISIcCsI
+              - **rotulo**: 2
               - **circulo**:
                 - **x**: 2091
                 - **y**: 1269
                 - **raio**: 18
+              - **label**: 2
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: UiHdsiOkgqiuQo
+              - **pontos_uids**:
+                - eYmwLmRNLpxFIW
+                - Sh0MdJuJbf04RK
               - **escalada**: Possível
               - **ids**:
-                - 1
-                - A
+                - eYmwLmRNLpxFIW
+                - Sh0MdJuJbf04RK
             - **[1]**:
+              - **alvo_uid**: TOhw8uZJ3tF20O
+              - **pontos_uids**:
+                - eYmwLmRNLpxFIW
+                - VFwLSz5o8UBNYB
               - **escalada**: Bonsai
               - **ids**:
-                - 1
-                - B
+                - eYmwLmRNLpxFIW
+                - VFwLSz5o8UBNYB
             - **[2]**:
+              - **alvo_uid**: ztKfWJTPdp4mOd
+              - **pontos_uids**:
+                - eYmwLmRNLpxFIW
+                - OtNZqk58rCH23s
               - **escalada**: Bonsai do Cerrado
               - **ids**:
-                - 1
-                - C
+                - eYmwLmRNLpxFIW
+                - OtNZqk58rCH23s
             - **[3]**:
+              - **alvo_uid**: s4CbVF6hWbo9NU
+              - **pontos_uids**:
+                - UCxFNcOISIcCsI
+                - OtNZqk58rCH23s
               - **escalada**: Mancada
               - **ids**:
-                - 2
-                - C
+                - UCxFNcOISIcCsI
+                - OtNZqk58rCH23s
       - **escaladas**:
         - **[0]**:
+          - **uid**: UiHdsiOkgqiuQo
           - **boulder**:
             - **nome**: Possível
             - **dificuldade**: V3
         - **[1]**:
+          - **uid**: TOhw8uZJ3tF20O
           - **boulder**:
             - **nome**: Bonsai
             - **dificuldade**: V5
         - **[2]**:
+          - **uid**: ztKfWJTPdp4mOd
           - **boulder**:
             - **nome**: Bonsai do Cerrado
             - **dificuldade**: V3
         - **[3]**:
+          - **uid**: s4CbVF6hWbo9NU
           - **boulder**:
             - **nome**: Mancada
             - **dificuldade**: V3
@@ -6978,6 +9339,7 @@
     - **conteudo**:
       - **descricao**: 
       - **nome**: Bloco: Crocância
+      - **uid**: TPRjWnwThDobZV
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_bonsai_setor_bloco_crocancia_p0.webp)
@@ -6985,218 +9347,296 @@
           - **altura_mapa**: 1773
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 1
-              - **label**: 1
+              - **id**: 5V4CGtuGeI17Dp
+              - **uid**: 5V4CGtuGeI17Dp
+              - **rotulo**: 1
               - **circulo**:
                 - **x**: 2077
                 - **y**: 1209
                 - **raio**: 20
+              - **label**: 1
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: lgFzebgsiJwJxJ
+              - **pontos_uids**:
+                - 5V4CGtuGeI17Dp
               - **escalada**: Beija-Flor
               - **ids**:
-                - 1
+                - 5V4CGtuGeI17Dp
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_bonsai_setor_bloco_crocancia_p1.webp)
           - **largura_mapa**: 2364
           - **altura_mapa**: 1773
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 1
-              - **label**: 1
+              - **id**: skhIwVhk35YLWm
+              - **uid**: skhIwVhk35YLWm
+              - **rotulo**: 1
               - **circulo**:
                 - **x**: 1849
                 - **y**: 1125
                 - **raio**: 19
+              - **label**: 1
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: w0otGQNZxDdJ4f
+              - **pontos_uids**:
+                - skhIwVhk35YLWm
               - **escalada**: Tarântula
               - **ids**:
-                - 1
+                - skhIwVhk35YLWm
         - **[2]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_bonsai_setor_bloco_crocancia_p2.webp)
           - **largura_mapa**: 2364
           - **altura_mapa**: 1773
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: A
-              - **label**: A
+              - **id**: DyHx4RqjGYGAqz
+              - **uid**: DyHx4RqjGYGAqz
+              - **rotulo**: A
               - **circulo**:
                 - **x**: 2343
                 - **y**: 650
                 - **raio**: 19
+              - **label**: A
             - **[1]**:
-              - **id**: B
-              - **label**: B
+              - **id**: ikfr7CYqGetXgD
+              - **uid**: ikfr7CYqGetXgD
+              - **rotulo**: B
               - **circulo**:
                 - **x**: 972
                 - **y**: 549
                 - **raio**: 19
+              - **label**: B
             - **[2]**:
-              - **id**: 1
-              - **label**: 1
+              - **id**: XHHGcCyIy6q9Zj
+              - **uid**: XHHGcCyIy6q9Zj
+              - **rotulo**: 1
               - **circulo**:
                 - **x**: 1941
                 - **y**: 837
                 - **raio**: 19
+              - **label**: 1
             - **[3]**:
-              - **id**: 2
-              - **label**: 2
+              - **id**: VkIzm4jA49p7PR
+              - **uid**: VkIzm4jA49p7PR
+              - **rotulo**: 2
               - **circulo**:
                 - **x**: 655
                 - **y**: 1081
                 - **raio**: 19
+              - **label**: 2
             - **[4]**:
-              - **id**: 3
-              - **label**: 3
+              - **id**: 6UyGI7SsYplQiE
+              - **uid**: 6UyGI7SsYplQiE
+              - **rotulo**: 3
               - **circulo**:
                 - **x**: 171
                 - **y**: 1136
                 - **raio**: 19
+              - **label**: 3
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: hRprYfQgJG0jrB
+              - **pontos_uids**:
+                - XHHGcCyIy6q9Zj
+                - DyHx4RqjGYGAqz
               - **escalada**: Porém
               - **ids**:
-                - 1
-                - A
+                - XHHGcCyIy6q9Zj
+                - DyHx4RqjGYGAqz
             - **[1]**:
+              - **alvo_uid**: n5Krcf8FHcy3kc
+              - **pontos_uids**:
+                - XHHGcCyIy6q9Zj
+                - ikfr7CYqGetXgD
               - **escalada**: Xaxado
               - **ids**:
-                - 1
-                - B
+                - XHHGcCyIy6q9Zj
+                - ikfr7CYqGetXgD
             - **[2]**:
+              - **alvo_uid**: v41UeMSQ2Ws81X
+              - **pontos_uids**:
+                - 6UyGI7SsYplQiE
+                - DyHx4RqjGYGAqz
               - **escalada**: Crocância do Além
               - **ids**:
-                - 3
-                - A
+                - 6UyGI7SsYplQiE
+                - DyHx4RqjGYGAqz
             - **[3]**:
+              - **alvo_uid**: bDRUB6NuVTKvlW
+              - **pontos_uids**:
+                - VkIzm4jA49p7PR
+                - ikfr7CYqGetXgD
               - **escalada**: Rouba Monte
               - **ids**:
-                - 2
-                - B
-              - **grupo**: Bonsai
-              - **setor**: Bloco: Crocância
+                - VkIzm4jA49p7PR
+                - ikfr7CYqGetXgD
         - **[3]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_bonsai_setor_bloco_crocancia_p3.webp)
           - **largura_mapa**: 2364
           - **altura_mapa**: 1773
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 1
-              - **label**: 1
+              - **id**: MvuR0YL1GkW4vS
+              - **uid**: MvuR0YL1GkW4vS
+              - **rotulo**: 1
               - **circulo**:
                 - **x**: 808
                 - **y**: 1058
                 - **raio**: 19
+              - **label**: 1
             - **[1]**:
-              - **id**: 2
-              - **label**: 2
+              - **id**: wxte9kCW3QjnTo
+              - **uid**: wxte9kCW3QjnTo
+              - **rotulo**: 2
               - **circulo**:
                 - **x**: 1471
                 - **y**: 1174
                 - **raio**: 19
+              - **label**: 2
             - **[2]**:
-              - **id**: 3
-              - **label**: 3
+              - **id**: xTlsrNV6Kxyj7L
+              - **uid**: xTlsrNV6Kxyj7L
+              - **rotulo**: 3
               - **circulo**:
                 - **x**: 1659
                 - **y**: 1282
                 - **raio**: 19
+              - **label**: 3
             - **[3]**:
-              - **id**: 4
-              - **label**: 4
+              - **id**: EfagVwc1dZPULv
+              - **uid**: EfagVwc1dZPULv
+              - **rotulo**: 4
               - **circulo**:
                 - **x**: 2127
                 - **y**: 1048
                 - **raio**: 19
+              - **label**: 4
             - **[4]**:
-              - **id**: A
-              - **label**: A
+              - **id**: moSXTONeTttaDi
+              - **uid**: moSXTONeTttaDi
+              - **rotulo**: A
               - **circulo**:
                 - **x**: 1199
                 - **y**: 266
                 - **raio**: 19
+              - **label**: A
             - **[5]**:
-              - **id**: B
-              - **label**: B
+              - **id**: 9mHT4IGAaNu9P2
+              - **uid**: 9mHT4IGAaNu9P2
+              - **rotulo**: B
               - **circulo**:
                 - **x**: 2020
                 - **y**: 184
                 - **raio**: 19
+              - **label**: B
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: hgfIRqD9quInCG
+              - **pontos_uids**:
+                - MvuR0YL1GkW4vS
               - **escalada**: Lodo
               - **ids**:
-                - 1
+                - MvuR0YL1GkW4vS
             - **[1]**:
+              - **alvo_uid**: iMQg9MWgbnHMIt
+              - **pontos_uids**:
+                - wxte9kCW3QjnTo
+                - moSXTONeTttaDi
               - **escalada**: Crocância
               - **ids**:
-                - 2
-                - A
+                - wxte9kCW3QjnTo
+                - moSXTONeTttaDi
             - **[2]**:
+              - **alvo_uid**: X0EZ4SPnRj8Ht3
+              - **pontos_uids**:
+                - wxte9kCW3QjnTo
+                - 9mHT4IGAaNu9P2
               - **escalada**: Crocância Rouba Monte
               - **ids**:
-                - 2
-                - B
+                - wxte9kCW3QjnTo
+                - 9mHT4IGAaNu9P2
             - **[3]**:
+              - **alvo_uid**: eY4TDkxuioAB4k
+              - **pontos_uids**:
+                - xTlsrNV6Kxyj7L
+                - moSXTONeTttaDi
               - **escalada**: Crocância sds
               - **ids**:
-                - 3
-                - A
+                - xTlsrNV6Kxyj7L
+                - moSXTONeTttaDi
             - **[4]**:
+              - **alvo_uid**: Kj0gf6yqWWfYZK
+              - **pontos_uids**:
+                - xTlsrNV6Kxyj7L
+                - 9mHT4IGAaNu9P2
               - **escalada**: Crocância Rouba Monte sds
               - **ids**:
-                - 3
-                - B
+                - xTlsrNV6Kxyj7L
+                - 9mHT4IGAaNu9P2
             - **[5]**:
+              - **alvo_uid**: bDRUB6NuVTKvlW
+              - **pontos_uids**:
+                - EfagVwc1dZPULv
+                - 9mHT4IGAaNu9P2
               - **escalada**: Rouba Monte
               - **ids**:
-                - 4
-                - B
-              - **grupo**: Bonsai
-              - **setor**: Bloco: Crocância
+                - EfagVwc1dZPULv
+                - 9mHT4IGAaNu9P2
       - **escaladas**:
         - **[0]**:
+          - **uid**: lgFzebgsiJwJxJ
           - **boulder**:
             - **nome**: Beija-Flor
             - **dificuldade**: V5
         - **[1]**:
+          - **uid**: w0otGQNZxDdJ4f
           - **boulder**:
             - **nome**: Tarântula
             - **dificuldade**: V7
         - **[2]**:
+          - **uid**: hRprYfQgJG0jrB
           - **boulder**:
             - **nome**: Porém
             - **dificuldade**: V1
         - **[3]**:
+          - **uid**: n5Krcf8FHcy3kc
           - **boulder**:
             - **nome**: Xaxado
             - **dificuldade**: V5
         - **[4]**:
+          - **uid**: bDRUB6NuVTKvlW
           - **boulder**:
             - **nome**: Rouba Monte
             - **dificuldade**: V4
         - **[5]**:
+          - **uid**: v41UeMSQ2Ws81X
           - **boulder**:
             - **nome**: Crocância do Além
             - **dificuldade**: V11
         - **[6]**:
+          - **uid**: hgfIRqD9quInCG
           - **boulder**:
             - **nome**: Lodo
             - **dificuldade**: V8
         - **[7]**:
+          - **uid**: iMQg9MWgbnHMIt
           - **boulder**:
             - **nome**: Crocância
             - **dificuldade**: V9
         - **[8]**:
+          - **uid**: X0EZ4SPnRj8Ht3
           - **boulder**:
             - **nome**: Crocância Rouba Monte
             - **dificuldade**: V10
         - **[9]**:
+          - **uid**: eY4TDkxuioAB4k
           - **boulder**:
             - **nome**: Crocância sds
             - **dificuldade**: V10
         - **[10]**:
+          - **uid**: Kj0gf6yqWWfYZK
           - **boulder**:
             - **nome**: Crocância Rouba Monte sds
             - **dificuldade**: V11
@@ -7207,6 +9647,7 @@
     - **conteudo**:
       - **descricao**: 
       - **nome**: Bloco: Mantra
+      - **uid**: KcZsQ5PEhlLpvR
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_bonsai_setor_bloco_mantra_p1.webp)
@@ -7214,177 +9655,243 @@
           - **altura_mapa**: 1773
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 1
-              - **label**: 1
+              - **id**: swivpWDUiF2hUv
+              - **uid**: swivpWDUiF2hUv
+              - **rotulo**: 1
               - **circulo**:
                 - **x**: 1062
                 - **y**: 1520
                 - **raio**: 20
+              - **label**: 1
             - **[1]**:
-              - **id**: 2
-              - **label**: 2
+              - **id**: 6HzIbrqrhUKjK7
+              - **uid**: 6HzIbrqrhUKjK7
+              - **rotulo**: 2
               - **circulo**:
                 - **x**: 1461
                 - **y**: 1342
                 - **raio**: 20
+              - **label**: 2
             - **[2]**:
-              - **id**: 3
-              - **label**: 3
+              - **id**: sOEFH2OXl4CpnE
+              - **uid**: sOEFH2OXl4CpnE
+              - **rotulo**: 3
               - **circulo**:
                 - **x**: 2116
                 - **y**: 1702
                 - **raio**: 20
+              - **label**: 3
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: dn6IRx0DewmHdq
+              - **pontos_uids**:
+                - swivpWDUiF2hUv
               - **escalada**: Briga de Galo
               - **ids**:
-                - 1
+                - swivpWDUiF2hUv
             - **[1]**:
+              - **alvo_uid**: yBKegKW3DlOf9N
+              - **pontos_uids**:
+                - 6HzIbrqrhUKjK7
               - **escalada**: Oráculo
               - **ids**:
-                - 2
+                - 6HzIbrqrhUKjK7
             - **[2]**:
+              - **alvo_uid**: ujNhKcKG5Lcmqv
+              - **pontos_uids**:
+                - sOEFH2OXl4CpnE
               - **escalada**: 014
               - **ids**:
-                - 3
+                - sOEFH2OXl4CpnE
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_bonsai_setor_bloco_mantra_p2.webp)
           - **largura_mapa**: 2364
           - **altura_mapa**: 1773
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: A
-              - **label**: A
+              - **id**: oYwWnXIqDL8bcX
+              - **uid**: oYwWnXIqDL8bcX
+              - **rotulo**: A
               - **circulo**:
                 - **x**: 121
                 - **y**: 602
                 - **raio**: 19
+              - **label**: A
             - **[1]**:
-              - **id**: B
-              - **label**: B
+              - **id**: R617rmY3DBebRB
+              - **uid**: R617rmY3DBebRB
+              - **rotulo**: B
               - **circulo**:
                 - **x**: 623
                 - **y**: 519
                 - **raio**: 19
+              - **label**: B
             - **[2]**:
-              - **id**: C
-              - **label**: C
+              - **id**: 4UrdhduRFIkabx
+              - **uid**: 4UrdhduRFIkabx
+              - **rotulo**: C
               - **circulo**:
                 - **x**: 1608
                 - **y**: 510
                 - **raio**: 19
+              - **label**: C
             - **[3]**:
-              - **id**: 1
-              - **label**: 1
+              - **id**: MTqnvw9GP0vc4k
+              - **uid**: MTqnvw9GP0vc4k
+              - **rotulo**: 1
               - **circulo**:
                 - **x**: 303
                 - **y**: 1251
                 - **raio**: 19
+              - **label**: 1
             - **[4]**:
-              - **id**: 2
-              - **label**: 2
+              - **id**: Nwid5rKY8lJ3Z4
+              - **uid**: Nwid5rKY8lJ3Z4
+              - **rotulo**: 2
               - **circulo**:
                 - **x**: 1084
                 - **y**: 1412
                 - **raio**: 19
+              - **label**: 2
             - **[5]**:
-              - **id**: 3
-              - **label**: 3
+              - **id**: 4Q7RJGV3mTAoyv
+              - **uid**: 4Q7RJGV3mTAoyv
+              - **rotulo**: 3
               - **circulo**:
                 - **x**: 923
                 - **y**: 1196
                 - **raio**: 19
+              - **label**: 3
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: faZNgdRlRXZXj1
+              - **pontos_uids**:
+                - MTqnvw9GP0vc4k
               - **escalada**: Afrodisíaco
               - **ids**:
-                - 1
+                - MTqnvw9GP0vc4k
             - **[1]**:
+              - **alvo_uid**: tRdwJW2nKKPjja
+              - **pontos_uids**:
+                - Nwid5rKY8lJ3Z4
+                - oYwWnXIqDL8bcX
               - **escalada**: Lava Pés
               - **ids**:
-                - 2
-                - A
+                - Nwid5rKY8lJ3Z4
+                - oYwWnXIqDL8bcX
             - **[2]**:
+              - **alvo_uid**: oiDeE3060h5Rtq
+              - **pontos_uids**:
+                - Nwid5rKY8lJ3Z4
+                - R617rmY3DBebRB
               - **escalada**: Mantra
               - **ids**:
-                - 2
-                - B
+                - Nwid5rKY8lJ3Z4
+                - R617rmY3DBebRB
             - **[3]**:
+              - **alvo_uid**: QHn99gpfzj3HEw
+              - **pontos_uids**:
+                - Nwid5rKY8lJ3Z4
+                - 4UrdhduRFIkabx
               - **escalada**: Samadhi
               - **ids**:
-                - 2
-                - C
+                - Nwid5rKY8lJ3Z4
+                - 4UrdhduRFIkabx
             - **[4]**:
+              - **alvo_uid**: NZ2nfbf6H5wwm8
+              - **pontos_uids**:
+                - 4Q7RJGV3mTAoyv
+                - 4UrdhduRFIkabx
               - **escalada**: Tantra
               - **ids**:
-                - 3
-                - C
+                - 4Q7RJGV3mTAoyv
+                - 4UrdhduRFIkabx
         - **[2]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_bonsai_setor_bloco_mantra_p3.webp)
           - **largura_mapa**: 2364
           - **altura_mapa**: 1773
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 1
-              - **label**: 1
+              - **id**: Hd8ZYqXFVBySqn
+              - **uid**: Hd8ZYqXFVBySqn
+              - **rotulo**: 1
               - **circulo**:
                 - **x**: 591
                 - **y**: 1168
                 - **raio**: 20
+              - **label**: 1
             - **[1]**:
-              - **id**: 2
-              - **label**: 2
+              - **id**: mPTWTqHwHYo3JX
+              - **uid**: mPTWTqHwHYo3JX
+              - **rotulo**: 2
               - **circulo**:
                 - **x**: 1434
                 - **y**: 1227
                 - **raio**: 20
+              - **label**: 2
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: A6q51yDtKOK64v
+              - **pontos_uids**:
+                - Hd8ZYqXFVBySqn
               - **escalada**: Psicótico
               - **ids**:
-                - 1
+                - Hd8ZYqXFVBySqn
             - **[1]**:
+              - **alvo_uid**: x9TNdNsYT4YCS1
+              - **pontos_uids**:
+                - mPTWTqHwHYo3JX
               - **escalada**: Popeye
               - **ids**:
-                - 2
+                - mPTWTqHwHYo3JX
       - **escaladas**:
         - **[0]**:
+          - **uid**: dn6IRx0DewmHdq
           - **boulder**:
             - **nome**: Briga de Galo
             - **dificuldade**: V6
         - **[1]**:
+          - **uid**: yBKegKW3DlOf9N
           - **boulder**:
             - **nome**: Oráculo
             - **dificuldade**: V9
         - **[2]**:
+          - **uid**: ujNhKcKG5Lcmqv
           - **boulder**:
             - **nome**: 014
             - **dificuldade**: V5
         - **[3]**:
+          - **uid**: faZNgdRlRXZXj1
           - **boulder**:
             - **nome**: Afrodisíaco
             - **dificuldade**: V9
         - **[4]**:
+          - **uid**: tRdwJW2nKKPjja
           - **boulder**:
             - **nome**: Lava Pés
             - **dificuldade**: V7
         - **[5]**:
+          - **uid**: oiDeE3060h5Rtq
           - **boulder**:
             - **nome**: Mantra
             - **dificuldade**: V8
         - **[6]**:
+          - **uid**: QHn99gpfzj3HEw
           - **boulder**:
             - **nome**: Samadhi
             - **dificuldade**: V10
         - **[7]**:
+          - **uid**: NZ2nfbf6H5wwm8
           - **boulder**:
             - **nome**: Tantra
             - **dificuldade**: V7
         - **[8]**:
+          - **uid**: A6q51yDtKOK64v
           - **boulder**:
             - **nome**: Psicótico
             - **dificuldade**: V3
         - **[9]**:
+          - **uid**: x9TNdNsYT4YCS1
           - **boulder**:
             - **nome**: Popeye
             - **dificuldade**: V2
@@ -7395,6 +9902,7 @@
     - **conteudo**:
       - **descricao**: 
       - **nome**: Bloco: Dali Goiabada
+      - **uid**: 8L4I7wHhCDxSbL
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_bonsai_setor_bloco_dali_goiabada_p0.webp)
@@ -7402,19 +9910,25 @@
           - **altura_mapa**: 1773
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 1
-              - **label**: 1
+              - **id**: BA24VNJ0VmjBfv
+              - **uid**: BA24VNJ0VmjBfv
+              - **rotulo**: 1
               - **circulo**:
                 - **x**: 1216
                 - **y**: 1438
                 - **raio**: 20
+              - **label**: 1
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: FKMaao2BmvsDKy
+              - **pontos_uids**:
+                - BA24VNJ0VmjBfv
               - **escalada**: Dali Goiabada
               - **ids**:
-                - 1
+                - BA24VNJ0VmjBfv
       - **escaladas**:
         - **[0]**:
+          - **uid**: FKMaao2BmvsDKy
           - **boulder**:
             - **nome**: Dali Goiabada
             - **dificuldade**: V9
@@ -7425,6 +9939,7 @@
     - **conteudo**:
       - **descricao**: 
       - **nome**: Bloco: Seg-Samambaia
+      - **uid**: fpzJyfVqzqymGz
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_bonsai_setor_bloco_seg_samambaia_p0.webp)
@@ -7432,75 +9947,105 @@
           - **altura_mapa**: 1773
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 1A
-              - **label**: A
+              - **id**: eQpc6VdG3XOvjl
+              - **uid**: eQpc6VdG3XOvjl
+              - **rotulo**: A
               - **circulo**:
                 - **x**: 295
                 - **y**: 685
                 - **raio**: 20
+              - **label**: A
             - **[1]**:
-              - **id**: 1B
-              - **label**: B
+              - **id**: faJjyMn6lUXKC5
+              - **uid**: faJjyMn6lUXKC5
+              - **rotulo**: B
               - **circulo**:
                 - **x**: 552
                 - **y**: 449
                 - **raio**: 20
+              - **label**: B
             - **[2]**:
-              - **id**: 1C
-              - **label**: C
+              - **id**: oGrDWnYBXuaYa6
+              - **uid**: oGrDWnYBXuaYa6
+              - **rotulo**: C
               - **circulo**:
                 - **x**: 1151
                 - **y**: 321
                 - **raio**: 20
+              - **label**: C
             - **[3]**:
-              - **id**: 1D
-              - **label**: D
+              - **id**: LbZZscRzpKlkma
+              - **uid**: LbZZscRzpKlkma
+              - **rotulo**: D
               - **circulo**:
                 - **x**: 1438
                 - **y**: 205
                 - **raio**: 20
+              - **label**: D
             - **[4]**:
-              - **id**: 1
-              - **label**: 1
+              - **id**: c8uBBzY6TrT4cp
+              - **uid**: c8uBBzY6TrT4cp
+              - **rotulo**: 1
               - **circulo**:
                 - **x**: 669
                 - **y**: 1469
                 - **raio**: 20
+              - **label**: 1
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: bXG38UbhImD9Zy
+              - **pontos_uids**:
+                - eQpc6VdG3XOvjl
+                - c8uBBzY6TrT4cp
               - **escalada**: Seg da Árvore
               - **ids**:
-                - 1A
-                - 1
+                - eQpc6VdG3XOvjl
+                - c8uBBzY6TrT4cp
             - **[1]**:
+              - **alvo_uid**: QGUdICUDrTgFwH
+              - **pontos_uids**:
+                - faJjyMn6lUXKC5
+                - c8uBBzY6TrT4cp
               - **escalada**: Seg-Samambaia
               - **ids**:
-                - 1B
-                - 1
+                - faJjyMn6lUXKC5
+                - c8uBBzY6TrT4cp
             - **[2]**:
+              - **alvo_uid**: LKdsUdeVDThXbw
+              - **pontos_uids**:
+                - oGrDWnYBXuaYa6
+                - c8uBBzY6TrT4cp
               - **escalada**: Seg dos Inferno
               - **ids**:
-                - 1C
-                - 1
+                - oGrDWnYBXuaYa6
+                - c8uBBzY6TrT4cp
             - **[3]**:
+              - **alvo_uid**: z7cZnsQr9ktRSy
+              - **pontos_uids**:
+                - LbZZscRzpKlkma
+                - c8uBBzY6TrT4cp
               - **escalada**: Toca Toca
               - **ids**:
-                - 1D
-                - 1
+                - LbZZscRzpKlkma
+                - c8uBBzY6TrT4cp
       - **escaladas**:
         - **[0]**:
+          - **uid**: bXG38UbhImD9Zy
           - **boulder**:
             - **nome**: Seg da Árvore
             - **dificuldade**: V2
         - **[1]**:
+          - **uid**: QGUdICUDrTgFwH
           - **boulder**:
             - **nome**: Seg-Samambaia
             - **dificuldade**: V4
         - **[2]**:
+          - **uid**: LKdsUdeVDThXbw
           - **boulder**:
             - **nome**: Seg dos Inferno
             - **dificuldade**: V6
         - **[3]**:
+          - **uid**: z7cZnsQr9ktRSy
           - **boulder**:
             - **nome**: Toca Toca
             - **dificuldade**: V4
@@ -7511,6 +10056,7 @@
     - **conteudo**:
       - **descricao**: 
       - **nome**: Bloco: Pedra
+      - **uid**: MP7vYlyWnMk3fm
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_bonsai_setor_bloco_pedra_p0.webp)
@@ -7518,74 +10064,103 @@
           - **altura_mapa**: 1773
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 1
-              - **label**: 1
+              - **id**: iT2pftH9RJqP2v
+              - **uid**: iT2pftH9RJqP2v
+              - **rotulo**: 1
               - **circulo**:
                 - **x**: 616
                 - **y**: 1335
                 - **raio**: 20
+              - **label**: 1
             - **[1]**:
-              - **id**: 2
-              - **label**: 2
+              - **id**: x97Dv8i4d7CeMn
+              - **uid**: x97Dv8i4d7CeMn
+              - **rotulo**: 2
               - **circulo**:
                 - **x**: 1713
                 - **y**: 1421
                 - **raio**: 20
+              - **label**: 2
             - **[2]**:
-              - **id**: A
-              - **label**: A
+              - **id**: XsJiogzBuYvaYm
+              - **uid**: XsJiogzBuYvaYm
+              - **rotulo**: A
               - **circulo**:
                 - **x**: 224
                 - **y**: 638
                 - **raio**: 20
+              - **label**: A
             - **[3]**:
-              - **id**: B
-              - **label**: B
+              - **id**: KeOcPkJyh6wVDk
+              - **uid**: KeOcPkJyh6wVDk
+              - **rotulo**: B
               - **circulo**:
                 - **x**: 617
                 - **y**: 448
                 - **raio**: 20
+              - **label**: B
             - **[4]**:
-              - **id**: C
-              - **label**: C
+              - **id**: am7kDpFZNKlVwN
+              - **uid**: am7kDpFZNKlVwN
+              - **rotulo**: C
               - **circulo**:
                 - **x**: 1694
                 - **y**: 379
                 - **raio**: 20
+              - **label**: C
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: kgcRgph8dYmc75
+              - **pontos_uids**:
+                - iT2pftH9RJqP2v
+                - XsJiogzBuYvaYm
               - **escalada**: Billy The Kid
               - **ids**:
-                - 1
-                - A
+                - iT2pftH9RJqP2v
+                - XsJiogzBuYvaYm
             - **[1]**:
+              - **alvo_uid**: Pya0IrYfhPalMr
+              - **pontos_uids**:
+                - iT2pftH9RJqP2v
+                - KeOcPkJyh6wVDk
               - **escalada**: Durango Kid
               - **ids**:
-                - 1
-                - B
+                - iT2pftH9RJqP2v
+                - KeOcPkJyh6wVDk
             - **[2]**:
+              - **alvo_uid**: UH3evCbCXYN7KW
+              - **pontos_uids**:
+                - iT2pftH9RJqP2v
+                - am7kDpFZNKlVwN
               - **escalada**: Pedra
               - **ids**:
-                - 1
-                - C
+                - iT2pftH9RJqP2v
+                - am7kDpFZNKlVwN
             - **[3]**:
+              - **alvo_uid**: wYQgp2m7I7c9Qo
+              - **pontos_uids**:
+                - x97Dv8i4d7CeMn
               - **escalada**: Semiárido
               - **ids**:
-                - 2
+                - x97Dv8i4d7CeMn
       - **escaladas**:
         - **[0]**:
+          - **uid**: kgcRgph8dYmc75
           - **boulder**:
             - **nome**: Billy The Kid
             - **dificuldade**: V1
         - **[1]**:
+          - **uid**: Pya0IrYfhPalMr
           - **boulder**:
             - **nome**: Durango Kid
             - **dificuldade**: V3
         - **[2]**:
+          - **uid**: UH3evCbCXYN7KW
           - **boulder**:
             - **nome**: Pedra
             - **dificuldade**: V7
         - **[3]**:
+          - **uid**: wYQgp2m7I7c9Qo
           - **boulder**:
             - **nome**: Semiárido
             - **dificuldade**: V5
@@ -7596,8 +10171,10 @@
     - **conteudo**:
       - **descricao**: 
       - **nome**: Prodígio
+      - **uid**: m0uYdNThoV6XvM
       - **escaladas**:
         - **[0]**:
+          - **uid**: k1fyrJmOefrOal
           - **boulder**:
             - **nome**: Prodígio
             - **dificuldade**: V5
@@ -7608,17 +10185,22 @@
           - **altura_mapa**: 1773
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 1
-              - **label**: 1
+              - **id**: LziTsR3J4eKcpb
+              - **uid**: LziTsR3J4eKcpb
+              - **rotulo**: 1
               - **circulo**:
                 - **x**: 1437
                 - **y**: 1560
                 - **raio**: 20
+              - **label**: 1
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: k1fyrJmOefrOal
+              - **pontos_uids**:
+                - LziTsR3J4eKcpb
               - **escalada**: Prodígio
               - **ids**:
-                - 1
+                - LziTsR3J4eKcpb
       - **precomputados**:
         - **total_escaladas**: 1
         - **total_boulders**: 1

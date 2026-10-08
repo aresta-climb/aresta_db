@@ -1,56 +1,69 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+uid: jPzv6byW0dO0Gj
 nome: Bloco Fugitivos II
 escaladas:
-- boulder:
+- uid: 8r0NgWYmApDTKh
+  boulder:
     nome: Olha a Jaca
     dificuldade: V7
     descricao: Escala a face fendilhada
-- boulder:
+- uid: TT5jscP5lXr9jv
+  boulder:
     nome: Olha o Rider
     dificuldade: V6_BARRA_V7
     descricao: Olha a Jaca no Low rider
-- boulder:
+- uid: GtV1xXFHyjL2e1
+  boulder:
     nome: Low Rider
     dificuldade: V7_BARRA_V8
     descricao: Sai da invertida e escala a diagonal para a esquerda
-- boulder:
+- uid: 86nFPbmZHTbTYz
+  boulder:
     nome: Easy Rider
     dificuldade: V8
     descricao: Low Rider finalizando no Fugitivos
-- boulder:
+- uid: dLvFTaSbTEvo1x
+  boulder:
     nome: Big Rider
     dificuldade: V9_BARRA_V10
     descricao: Fugitivos finalizando no Low Rider
-- boulder:
+- uid: 8bY2zKcMz4Rkl6
+  boulder:
     nome: Fugitivos
     dificuldade: V7
-    descricao: Saída sentada abaixo da pedra e escala para a esquerda, dominando em
-      cima da pedra
-- boulder:
+    descricao: Saída sentada abaixo da pedra e escala para a esquerda, dominando em cima da pedra
+- uid: ILJ785LLhC7IEo
+  boulder:
     nome: Igarapedra
     dificuldade: V10_BARRA_V11
     descricao: Escala a face negativa à direita do bloco, iniciando igual ao Fugitivos
-- boulder:
+- uid: iLwqTfjvxeqmQK
+  boulder:
     nome: Trombose
     dificuldade: V8_BARRA_V9
     descricao: Travessia pelas agarras baixas virando na extrema direita do bloco
-- boulder:
+- uid: woERfweaFycFQA
+  boulder:
     nome: Corrida do Ouro
     dificuldade: V6
     descricao: Sai do Olha a Jaca e vira no Audácia, travessia por cima
-- boulder:
+- uid: tS7TrVU7B8E10y
+  boulder:
     nome: Audácia
     dificuldade: V8_BARRA_V9
     descricao: Saída em pé em regletes e escala reto
-- boulder:
+- uid: ptCJXNPHvhWLqO
+  boulder:
     nome: Tandrilax
     dificuldade: V7
-- boulder:
+- uid: 1KyNGmo1hKDps6
+  boulder:
     nome: Curandeiros
     dificuldade: V5
-- boulder:
+- uid: 9dZGN3If4u7irB
+  boulder:
     nome: Sem nome 20
     dificuldade: V2
 mapas:
@@ -58,7 +71,7 @@ mapas:
   largura_mapa: 3331
   altura_mapa: 1259
   pontos_de_interesse:
-  - id: linha_2
+  - uid: ihoIqsysq4uYJd
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -77,7 +90,7 @@ mapas:
           rotulo: ''
       espessura: 5
     cor: '#FFD600'
-  - id: linha_5
+  - uid: vtUAS6DvoJEf0x
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -112,7 +125,7 @@ mapas:
           rotulo: ''
       espessura: 5
     cor: '#FFD600'
-  - id: linha_6
+  - uid: ITwa1RryXsUEwD
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -128,7 +141,7 @@ mapas:
           raio: 24
       espessura: 5
     cor: '#FFD600'
-  - id: linha_1
+  - uid: umRf96kV1lxQHD
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -147,7 +160,7 @@ mapas:
           rotulo: ''
       espessura: 5
     cor: '#FFD600'
-  - id: linha_9
+  - uid: 9Rfa8YgUGe4Mt8
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -166,7 +179,7 @@ mapas:
           rotulo: ''
       espessura: 5
     cor: '#FFD600'
-  - id: linha_10
+  - uid: VwZXDPxczxcu3b
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -193,8 +206,8 @@ mapas:
           rotulo: ''
       espessura: 5
     cor: '#FFD600'
-  - id: linha_7
-    label: ''
+  - uid: LlDQFuYH5B74CX
+    rotulo: ''
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -216,7 +229,7 @@ mapas:
           y: 393
       espessura: 5
     cor: '#FFD600'
-  - id: linha_12
+  - uid: RP9XdRnYHi3H2x
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -243,7 +256,7 @@ mapas:
           rotulo: ''
       espessura: 5
     cor: '#FFD600'
-  - id: linha_8
+  - uid: Te7HQwNDEfG81J
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -278,7 +291,7 @@ mapas:
           rotulo: ''
       espessura: 5
     cor: '#FFD600'
-  - id: linha_13
+  - uid: oiJNBR0gaOIOTu
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -302,7 +315,7 @@ mapas:
           raio: 24
       espessura: 5
     cor: '#FFD600'
-  - id: linha_14
+  - uid: StAN7GLKiJyF92
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -325,7 +338,7 @@ mapas:
           rotulo: ''
       espessura: 5
     cor: '#FFD600'
-  - id: linha_15
+  - uid: 4JpovgbGvXcRSy
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -357,7 +370,7 @@ mapas:
           rotulo: ''
       espessura: 5
     cor: '#FFD600'
-  - id: linha_16
+  - uid: N8eV2qZTa52bb3
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -389,7 +402,7 @@ mapas:
           raio: 24
       espessura: 5
     cor: '#FFD600'
-  - id: linha_11
+  - uid: qdC43Gvz0L0P0G
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -405,7 +418,7 @@ mapas:
           rotulo: ''
       espessura: 5
     cor: '#FFD600'
-  - id: linha_17
+  - uid: Cs5pbHTNWRtoXm
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -420,8 +433,8 @@ mapas:
           rotulo: ''
       espessura: 5
     cor: '#FFD600'
-  - id: linha_4
-    label: ''
+  - uid: vYBkJi6sUeryqP
+    rotulo: ''
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -452,7 +465,7 @@ mapas:
           rotulo: E
       espessura: 5
     cor: '#FFD600'
-  - id: linha_19
+  - uid: ymzZz1cPWO9C7s
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -467,7 +480,7 @@ mapas:
           rotulo: ''
       espessura: 5
     cor: '#FFD600'
-  - id: linha_20
+  - uid: tiShTDYIgu9k0A
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -491,7 +504,7 @@ mapas:
           raio: 24
       espessura: 5
     cor: '#FFD600'
-  - id: linha_3
+  - uid: SDXdXU9ZyL8mGT
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -522,7 +535,7 @@ mapas:
           rotulo: ''
       espessura: 5
     cor: '#FFD600'
-  - id: linha_21
+  - uid: GdABU1fWF6h7H7
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -546,8 +559,8 @@ mapas:
           raio: 24
       espessura: 5
     cor: '#FFD600'
-  - id: linha_18
-    label: ''
+  - uid: aldE8nfEzfEwES
+    rotulo: ''
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -570,68 +583,68 @@ mapas:
       espessura: 5
     cor: '#FFD600'
   referencias:
-  - ids:
-    - linha_2
-    - linha_19
-    - linha_20
-    escalada: Olha a Jaca
-  - ids:
-    - linha_2
-    - linha_5
-    - linha_6
-    escalada: Olha o Rider
-  - ids:
-    - linha_1
-    - linha_9
-    - linha_10
-    - linha_6
-    escalada: Low Rider
-  - ids:
-    - linha_1
-    - linha_8
-    - linha_13
-    escalada: Easy Rider
-  - ids:
-    - linha_11
-    - linha_17
-    - linha_14
-    - linha_12
-    - linha_10
-    - linha_6
-    escalada: Big Rider
-  - ids:
-    - linha_11
-    - linha_17
-    - linha_14
-    - linha_7
-    - linha_13
-    escalada: Fugitivos
-  - ids:
-    - linha_11
-    - linha_17
-    - linha_15
-    - linha_16
-    escalada: Igarapedra
-  - ids:
-    - linha_11
-    - linha_4
-    - linha_16
-    escalada: Trombose
-  - ids:
-    - linha_2
-    - linha_19
-    - linha_3
-    - linha_21
-    escalada: Corrida do Ouro
-  - ids:
-    - linha_18
-    - linha_21
-    escalada: Audácia
+  - alvo_uid: 8r0NgWYmApDTKh
+    pontos_uids:
+    - ihoIqsysq4uYJd
+    - ymzZz1cPWO9C7s
+    - tiShTDYIgu9k0A
+  - alvo_uid: TT5jscP5lXr9jv
+    pontos_uids:
+    - ihoIqsysq4uYJd
+    - vtUAS6DvoJEf0x
+    - ITwa1RryXsUEwD
+  - alvo_uid: GtV1xXFHyjL2e1
+    pontos_uids:
+    - umRf96kV1lxQHD
+    - 9Rfa8YgUGe4Mt8
+    - VwZXDPxczxcu3b
+    - ITwa1RryXsUEwD
+  - alvo_uid: 86nFPbmZHTbTYz
+    pontos_uids:
+    - umRf96kV1lxQHD
+    - Te7HQwNDEfG81J
+    - oiJNBR0gaOIOTu
+  - alvo_uid: dLvFTaSbTEvo1x
+    pontos_uids:
+    - qdC43Gvz0L0P0G
+    - Cs5pbHTNWRtoXm
+    - StAN7GLKiJyF92
+    - RP9XdRnYHi3H2x
+    - VwZXDPxczxcu3b
+    - ITwa1RryXsUEwD
+  - alvo_uid: 8bY2zKcMz4Rkl6
+    pontos_uids:
+    - qdC43Gvz0L0P0G
+    - Cs5pbHTNWRtoXm
+    - StAN7GLKiJyF92
+    - LlDQFuYH5B74CX
+    - oiJNBR0gaOIOTu
+  - alvo_uid: ILJ785LLhC7IEo
+    pontos_uids:
+    - qdC43Gvz0L0P0G
+    - Cs5pbHTNWRtoXm
+    - 4JpovgbGvXcRSy
+    - N8eV2qZTa52bb3
+  - alvo_uid: iLwqTfjvxeqmQK
+    pontos_uids:
+    - qdC43Gvz0L0P0G
+    - vYBkJi6sUeryqP
+    - N8eV2qZTa52bb3
+  - alvo_uid: woERfweaFycFQA
+    pontos_uids:
+    - ihoIqsysq4uYJd
+    - ymzZz1cPWO9C7s
+    - SDXdXU9ZyL8mGT
+    - GdABU1fWF6h7H7
+  - alvo_uid: tS7TrVU7B8E10y
+    pontos_uids:
+    - aldE8nfEzfEwES
+    - GdABU1fWF6h7H7
 - caminho_imagem_mapa: imagens/setor_bloco_fugitivos_ii_p2.webp
   largura_mapa: 1773
   altura_mapa: 2364
   pontos_de_interesse:
-  - id: linha_24
+  - uid: 8mgH7klWCHeynf
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -647,7 +660,7 @@ mapas:
           rotulo: ''
       espessura: 5
     cor: '#FFD600'
-  - id: linha_25
+  - uid: p9cK1ZztG5P96S
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -699,8 +712,8 @@ mapas:
           raio: 24
       espessura: 5
     cor: '#FFD600'
-  - id: linha_23
-    label: ''
+  - uid: SxhynjM7dmmrkO
+    rotulo: ''
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -730,7 +743,7 @@ mapas:
           rotulo: C
       espessura: 5
     cor: '#FFD600'
-  - id: linha_26
+  - uid: BlYabbjunYAlwJ
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -782,7 +795,7 @@ mapas:
           rotulo: ''
       espessura: 5
     cor: '#FFD600'
-  - id: linha_27
+  - uid: 1I2bSGk2aU2aIj
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -799,18 +812,19 @@ mapas:
       espessura: 5
     cor: '#FFD600'
   referencias:
-  - ids:
-    - linha_26
-    - linha_27
-    escalada: Tandrilax
-  - ids:
-    - linha_24
-    - linha_25
-    escalada: Curandeiros
-  - ids:
-    - linha_23
-    - linha_24
-    - linha_27
-    escalada: Sem nome 20
+  - alvo_uid: ptCJXNPHvhWLqO
+    pontos_uids:
+    - BlYabbjunYAlwJ
+    - 1I2bSGk2aU2aIj
+  - alvo_uid: 1KyNGmo1hKDps6
+    pontos_uids:
+    - 8mgH7klWCHeynf
+    - p9cK1ZztG5P96S
+  - alvo_uid: 9dZGN3If4u7irB
+    pontos_uids:
+    - SxhynjM7dmmrkO
+    - 8mgH7klWCHeynf
+    - 1I2bSGk2aU2aIj
 ---
+
 Veja a trilha para chegar ao setor no Wikiloc: https://loc.wiki/t/169742661?wa=sc

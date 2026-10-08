@@ -1,6 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+uid: hv7YWgTBQGyWOX
 nome: Setor Estacionamento
 setores:
 - caminho: grupo_estacionamento_esportivas.md

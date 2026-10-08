@@ -6,8 +6,8 @@ mapas:
   largura_mapa: 2048
   altura_mapa: 1536
   pontos_de_interesse:
-  - id: pedreira
-    label: Grupo Pedreira
+  - uid: Nh6xJJFt4EMvs9
+    rotulo: Grupo Pedreira
     poligono:
       coordenadas:
       - 285
@@ -30,8 +30,8 @@ mapas:
       - 592
       - 327
       - 467
-  - id: mont_blanc
-    label: Mont Blanc
+  - uid: TpR2PSB0Y3ks3c
+    rotulo: Mont Blanc
     poligono:
       coordenadas:
       - 973
@@ -74,8 +74,8 @@ mapas:
       - 847
       - 904
       - 825
-  - id: bonsai
-    label: Bonsai
+  - uid: SIz5xHohuFl5LE
+    rotulo: Bonsai
     poligono:
       coordenadas:
       - 1665
@@ -101,13 +101,13 @@ mapas:
       - 1461
       - 1182
   referencias:
-  - ids:
-    - pedreira
-    grupo: Pedreira
-  - ids:
-    - mont_blanc
-    grupo: Mont Blanc
-  - ids:
-    - bonsai
-    grupo: Bonsai
+  - alvo_uid: njKRa4SMSWh1aK
+    pontos_uids:
+    - Nh6xJJFt4EMvs9
+  - alvo_uid: XfBdBMDd0eH2Ii
+    pontos_uids:
+    - TpR2PSB0Y3ks3c
+  - alvo_uid: t59PHz1Ca8jRr3
+    pontos_uids:
+    - SIz5xHohuFl5LE
 ---

@@ -9,57 +9,57 @@ mapas:
   largura_mapa: 1688
   altura_mapa: 1127
   pontos_de_interesse:
-  - id: Ponte_rodoviaria
-    label: Ponte rodoviária
+  - uid: XKvSwwNu5maj6a
+    rotulo: Ponte rodoviária
     retangulo:
       x: 350
       y: 180
       comprimento: 460
       largura: 50
-  - id: Sobre_o_Ribeirao
-    label: sobre o Ribeirão Cana Brava
+  - uid: S9N2jsmEly0pXc
+    rotulo: sobre o Ribeirão Cana Brava
     retangulo:
       x: 350
       y: 240
       comprimento: 720
       largura: 50
-  - id: Coord_Ponte_S
-    label: 19°59'50"S
+  - uid: NIrl6bmFFhc3dv
+    rotulo: 19°59'50"S
     retangulo:
       x: 350
       y: 300
       comprimento: 260
       largura: 50
-  - id: Coord_Ponte_W
-    label: 47°24'13"W
+  - uid: UBuKNjwO6XPBCU
+    rotulo: 47°24'13"W
     retangulo:
       x: 350
       y: 360
       comprimento: 290
       largura: 50
-  - id: Setor_Quintal
-    label: Setor Quintal
+  - uid: rMuZic5IjxNSZp
+    rotulo: Setor Quintal
     retangulo:
       x: 1330
       y: 418
       comprimento: 331
       largura: 55
-  - id: MG428_Rod
-    label: MG428 Rod. Francisco Rodrigues Duarte,
+  - uid: lkpxKNg6lwvoRj
+    rotulo: MG428 Rod. Francisco Rodrigues Duarte,
     retangulo:
       x: 260
       y: 735
       comprimento: 950
       largura: 60
-  - id: Sacramento_MG
-    label: Sacramento - MG, 9Km de Rifaina
+  - uid: WspsfPPae1mtdc
+    rotulo: Sacramento - MG, 9Km de Rifaina
     retangulo:
       x: 260
       y: 795
       comprimento: 750
       largura: 60
   referencias:
-  - setor: Setor Quintal
-    ids:
-    - Setor_Quintal
+  - alvo_uid: OrUXZcQg0RiAcU
+    pontos_uids:
+    - rMuZic5IjxNSZp
 ---

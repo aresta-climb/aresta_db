@@ -5,6 +5,7 @@
 - **descricao**: Croqui de boulders no Setor Véu das Noivas em Poços de Caldas, MG.
 - **id**: br_mg_pocos_de_caldas_veu
 - **nome**: Setor Véu das Noivas
+- **uid**: bsTneBZTQn8VUF
 - **creditos**:
   - ACEC-MG
   - Serras Montanhismo
@@ -13,6 +14,7 @@
 - **revisado_bounding_circle**: False
 - **botoes**:
   - **[0]**:
+    - **uid**: tLIokoWkvHP7qf
     - **texto**: Informações
     - **destino**:
       - **secao_textual**:
@@ -27,6 +29,7 @@
             
             SERRAS MONTANHISMO
   - **[1]**:
+    - **uid**: KOxDHyVAot199V
     - **texto**: Informações
     - **destino**:
       - **secao_textual**:
@@ -44,7 +47,7 @@
             Após entrar na mata siga a trilha por aproximadamente 80/100 metros. Fique atento para a primeira bifurcação a direita, que pode passar desapercebida, pegue a direita e continue até atravessar uma cerca cortada e logo a frente um pequeno riacho, passe por ele e logo encontrará o setor a poucos metros.
             
             **Coordenadas do Setor:** 21°46'31.5"S 46°37'06.5"W (-21.775417, -46.618472)
-- **ultima_migracao**: 4
+- **ultima_migracao**: 5
 
 
 ## Parte: setor_bloco_casamento
@@ -53,6 +56,7 @@
 
 - **descricao**: 
 - **nome**: Bloco Casamento
+- **uid**: TpVfELgyMAj5fC
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_bloco_casamento_p0_i0.webp)
@@ -64,50 +68,62 @@
     - **altura_mapa**: 1123
 - **escaladas**:
   - **[0]**:
+    - **uid**: CrDCwua227QAEd
     - **boulder**:
       - **nome**: Namoro
       - **dificuldade**: V1
   - **[1]**:
+    - **uid**: dhl9RmkadL1MU9
     - **boulder**:
       - **nome**: Amizade
       - **dificuldade**: V1
   - **[2]**:
+    - **uid**: gBiih14yYjc2x4
     - **boulder**:
       - **nome**: Primeiro beijo
       - **dificuldade**: V1
   - **[3]**:
+    - **uid**: u7sksKaxKQNMUT
     - **boulder**:
       - **nome**: Nó de gravata
       - **dificuldade**: V2
   - **[4]**:
+    - **uid**: lv3rAty3bWqbdc
     - **boulder**:
       - **nome**: Lapela
       - **dificuldade**: V2
   - **[5]**:
+    - **uid**: PB5tvRQ4lgGokz
     - **boulder**:
       - **nome**: Bodas de ouro
       - **dificuldade**: V3
   - **[6]**:
+    - **uid**: qFAmzNBYaD6raZ
     - **boulder**:
       - **nome**: Dois corações
       - **dificuldade**: V3_BARRA_V4
   - **[7]**:
+    - **uid**: ixZfgVC0Am4waO
     - **boulder**:
       - **nome**: Coração de pedra
       - **dificuldade**: V4
   - **[8]**:
+    - **uid**: lkHRbCX7b3bN2h
     - **boulder**:
       - **nome**: Coração de pedra ext
       - **dificuldade**: V6
   - **[9]**:
+    - **uid**: VwzaHgDJ6eTtcX
     - **boulder**:
       - **nome**: Despedida de solteiro
       - **dificuldade**: V5
   - **[10]**:
+    - **uid**: wJpQ145YB6mk0T
     - **boulder**:
       - **nome**: Casamento
       - **dificuldade**: V7
   - **[11]**:
+    - **uid**: JynHIlja39NZ2B
     - **boulder**:
       - **nome**: Dia dos namorados
       - **dificuldade**: V1
@@ -122,6 +138,7 @@
 
 - **descricao**: 
 - **nome**: Bloco da Pressão
+- **uid**: ort0OsLJp5CRs6
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_bloco_da_pressao_p0_i0.webp)
@@ -129,33 +146,40 @@
     - **altura_mapa**: 1123
 - **escaladas**:
   - **[0]**:
+    - **uid**: rAyckQC9zp8F4f
     - **boulder**:
       - **nome**: Ponte de safena
       - **dificuldade**: V2
   - **[1]**:
+    - **uid**: SWWOmDSaIraFGb
     - **boulder**:
       - **nome**: Pressão baixa
       - **dificuldade**: V1
   - **[2]**:
+    - **uid**: BrZhXzl7s5nRiI
     - **boulder**:
       - **descricao**: Travessia.
       - **nome**: Hipertensão
       - **dificuldade**: V6
   - **[3]**:
+    - **uid**: Bf3ITg8Dr9gQlJ
     - **boulder**:
       - **nome**: Pulsar
       - **dificuldade**: V0_BARRA_V1
   - **[4]**:
+    - **uid**: 1XTA3hfkiHBQTb
     - **boulder**:
       - **descricao**: SDS V3/4.
       - **nome**: 13\9
       - **dificuldade**: V3
   - **[5]**:
+    - **uid**: p2v9AXtfcDU729
     - **boulder**:
       - **descricao**: SDS V3.
       - **nome**: 12\8
       - **dificuldade**: V2
   - **[6]**:
+    - **uid**: jq7jrSgPJdoNMf
     - **boulder**:
       - **nome**: Pressão alta
       - **dificuldade**: V4
@@ -170,6 +194,7 @@
 
 - **descricao**: 
 - **nome**: Bloco Gaveta
+- **uid**: QJKBJBPwoRjQxS
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_bloco_gaveta_p0_i0.webp)
@@ -177,22 +202,27 @@
     - **altura_mapa**: 1123
 - **escaladas**:
   - **[0]**:
+    - **uid**: LUWgBzi8lVOqWo
     - **boulder**:
       - **nome**: Giovana
       - **dificuldade**: V0
   - **[1]**:
+    - **uid**: SmD6TlIv0CoBHm
     - **boulder**:
       - **nome**: Gavetinha
       - **dificuldade**: V0
   - **[2]**:
+    - **uid**: JuMvKeSzwWe1NG
     - **boulder**:
       - **nome**: Gaveta
       - **dificuldade**: V1
   - **[3]**:
+    - **uid**: jvB9Vmc00y0fmy
     - **boulder**:
       - **nome**: Gavetão
       - **dificuldade**: V1
   - **[4]**:
+    - **uid**: ekb34MAcamrvKr
     - **boulder**:
       - **nome**: Da gaveta ao Tumulto
       - **dificuldade**: V6
@@ -207,6 +237,7 @@
 
 - **descricao**: 
 - **nome**: Bloco Ditinho
+- **uid**: JeZcIGyc0FVpq9
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_bloco_ditinho_p0_i0.webp)
@@ -214,30 +245,37 @@
     - **altura_mapa**: 1123
 - **escaladas**:
   - **[0]**:
+    - **uid**: rjoaURKzqCgFUQ
     - **boulder**:
       - **nome**: Vezerin
       - **dificuldade**: V0
   - **[1]**:
+    - **uid**: 0ywq9nemd2KRE8
     - **boulder**:
       - **nome**: Ditinho
       - **dificuldade**: V4
   - **[2]**:
+    - **uid**: 89XFN1rJO4JLrz
     - **boulder**:
       - **nome**: 11 de Maio
       - **dificuldade**: V3_BARRA_V4
   - **[3]**:
+    - **uid**: WbqrkfD9mcLAhc
     - **boulder**:
       - **nome**: Balbúrdia
       - **dificuldade**: V5
   - **[4]**:
+    - **uid**: 12WKO4EQE6a4Kk
     - **boulder**:
       - **nome**: Da gaveta ao tumulto
       - **dificuldade**: V6
   - **[5]**:
+    - **uid**: Ae719mmEeAsKRh
     - **boulder**:
       - **nome**: Mais forte que o três
       - **dificuldade**: V2
   - **[6]**:
+    - **uid**: G2nIyvWxHkULgA
     - **boulder**:
       - **nome**: 11 de Maio Direct
       - **dificuldade**: V4
@@ -252,6 +290,7 @@
 
 - **descricao**: 
 - **nome**: Bloco Angular
+- **uid**: cs4L6atNsPeasV
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_bloco_angular_p0_i0.webp)
@@ -259,35 +298,43 @@
     - **altura_mapa**: 1123
 - **escaladas**:
   - **[0]**:
+    - **uid**: Hv7wN0o3RZ1hzk
     - **boulder**:
       - **nome**: Modular
       - **dificuldade**: V0
   - **[1]**:
+    - **uid**: REkyJSTZqA9g5t
     - **boulder**:
       - **nome**: Seta
       - **dificuldade**: V4
   - **[2]**:
+    - **uid**: owJOKIC6vEBdHH
     - **boulder**:
       - **descricao**: Direct (Bote para borda) V4.
       - **nome**: Piramidal
       - **dificuldade**: V3
   - **[3]**:
+    - **uid**: FAxcL5cEiNzb5c
     - **boulder**:
       - **nome**: Diagonal
       - **dificuldade**: V4
   - **[4]**:
+    - **uid**: y5c6EsGLDveUVi
     - **boulder**:
       - **nome**: Perpendicular
       - **dificuldade**: V5
   - **[5]**:
+    - **uid**: Zn7Xa6QwMOlQdX
     - **boulder**:
       - **nome**: Angular
       - **dificuldade**: V3
   - **[6]**:
+    - **uid**: uewd1V74tZBBBe
     - **boulder**:
       - **nome**: Singular
       - **dificuldade**: V3
   - **[7]**:
+    - **uid**: r2cKgaI7BaJ6Ef
     - **boulder**:
       - **nome**: Estrangular
       - **dificuldade**: V3_BARRA_V4
@@ -302,6 +349,7 @@
 
 - **descricao**: 
 - **nome**: Bloco High
+- **uid**: EQr0yNCW02acgt
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_bloco_high_p0_i0.webp)
@@ -309,22 +357,27 @@
     - **altura_mapa**: 1123
 - **escaladas**:
   - **[0]**:
+    - **uid**: zUjxJVnK9XBPFp
     - **boulder**:
       - **nome**: Raiz lateral
       - **dificuldade**: V1_BARRA_V2
   - **[1]**:
+    - **uid**: TUwlHlSgkAS98z
     - **boulder**:
       - **nome**: High Perrengue
       - **dificuldade**: V1
   - **[2]**:
+    - **uid**: wwHV7R0zTV3mh3
     - **boulder**:
       - **nome**: Mundunga
       - **dificuldade**: V1
   - **[3]**:
+    - **uid**: J6VQdEVQtXq1zl
     - **boulder**:
       - **nome**: ???
       - **dificuldade**: V2
   - **[4]**:
+    - **uid**: ZPUylzx96K4fLf
     - **boulder**:
       - **nome**: HighBolinha
       - **dificuldade**: V2_BARRA_V3
@@ -339,6 +392,7 @@
 
 - **descricao**: 
 - **nome**: Bloco Sala de Estar
+- **uid**: oQEwzCqN8kAVEx
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_bloco_sala_de_estar_p0_i0.webp)
@@ -346,10 +400,12 @@
     - **altura_mapa**: 562
 - **escaladas**:
   - **[0]**:
+    - **uid**: 201ox3HOOQkwin
     - **boulder**:
       - **nome**: Pegando passagem
       - **dificuldade**: V1
   - **[1]**:
+    - **uid**: cPxFJtZClj4rIl
     - **boulder**:
       - **nome**: Chá das cinco
       - **dificuldade**: V1

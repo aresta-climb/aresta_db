@@ -1,6 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+uid: vcNPgYS6LWY92G
 caminho_imagem_capa: imagens/setor_tsunami_p0_i0.webp
 nome: Tsunami
 mapas:
@@ -8,237 +9,236 @@ mapas:
   largura_mapa: 1280
   altura_mapa: 1707
   pontos_de_interesse:
-  - id: '01'
-    label: '01'
+  - uid: lYkbXINI3M14TB
+    rotulo: '01'
     circulo:
       x: 204
       y: 1090
       raio: 22
-  - id: '02'
-    label: '02'
+  - uid: YcYhv6YVK4LPRG
+    rotulo: '02'
     circulo:
       x: 249
       y: 1037
       raio: 22
-  - id: '03'
-    label: '03'
+  - uid: YnA2uiL5jEroBp
+    rotulo: '03'
     circulo:
       x: 303
       y: 1077
       raio: 22
-  - id: '04'
-    label: '04'
+  - uid: B1UU2CPU5zAAhE
+    rotulo: '04'
     circulo:
       x: 378
       y: 1059
       raio: 22
-  - id: '05'
-    label: '05'
+  - uid: M8VcpfdKpUeSa2
+    rotulo: '05'
     circulo:
       x: 430
       y: 1037
       raio: 22
-  - id: '06'
-    label: '06'
+  - uid: pFUAV3JrAEtnlQ
+    rotulo: '06'
     circulo:
       x: 547
       y: 1005
       raio: 23
-  - id: '07'
-    label: '07'
+  - uid: emrEyULDP85MIr
+    rotulo: '07'
     circulo:
       x: 610
       y: 992
       raio: 22
-  - id: '08'
-    label: '08'
+  - uid: DZqmdaStIME3ny
+    rotulo: '08'
     circulo:
       x: 675
       y: 977
       raio: 22
   referencias:
-  - escalada: ET de Varginha
-    ids:
-    - '01'
-  - escalada: Jardim das Arestas
-    ids:
-    - '02'
-  - escalada: Sunshine
-    ids:
-    - '03'
-  - escalada: Sexta-feira 13
-    ids:
-    - '04'
-  - escalada: Vida Louca
-    ids:
-    - '05'
-  - escalada: Miranda Mirandinha
-    ids:
-    - '06'
-  - escalada: Foi sem Querer
-    ids:
-    - '07'
-  - ids:
-    - '08'
-    setor: Tsunami
-    escalada: Cabeleira
+  - alvo_uid: z9GEdWyiDyH85l
+    pontos_uids:
+    - lYkbXINI3M14TB
+  - alvo_uid: FhbdAulroX3sOx
+    pontos_uids:
+    - YcYhv6YVK4LPRG
+  - alvo_uid: XlzbaVqz31HzAI
+    pontos_uids:
+    - YnA2uiL5jEroBp
+  - alvo_uid: squlv4JbPpvISd
+    pontos_uids:
+    - B1UU2CPU5zAAhE
+  - alvo_uid: Ie5UVGcmGjmRIv
+    pontos_uids:
+    - M8VcpfdKpUeSa2
+  - alvo_uid: nEJapi2vtrLQji
+    pontos_uids:
+    - pFUAV3JrAEtnlQ
+  - alvo_uid: ghZWpbhT1X7HYg
+    pontos_uids:
+    - emrEyULDP85MIr
+  - alvo_uid: FgNUfl6XtN7E9x
+    pontos_uids:
+    - DZqmdaStIME3ny
 - caminho_imagem_mapa: imagens/setor_tsunami_p2.webp
   largura_mapa: 1280
   altura_mapa: 1707
   pontos_de_interesse:
-  - id: '09'
-    label: '09'
+  - uid: gmlZ1pUF6PQPfN
+    rotulo: '09'
     circulo:
       x: 97
       y: 928
       raio: 23
-  - id: '10'
-    label: '10'
+  - uid: CyQ79dfMenOufn
+    rotulo: '10'
     circulo:
       x: 143
       y: 930
       raio: 24
-  - id: '11'
-    label: '11'
+  - uid: HN3eiUTMCVD5Oy
+    rotulo: '11'
     circulo:
       x: 192
       y: 932
       raio: 23
-  - id: '12'
-    label: '12'
+  - uid: KiRAkLRYYODPEo
+    rotulo: '12'
     circulo:
       x: 235
       y: 945
       raio: 22
-  - id: '13'
-    label: '13'
+  - uid: uwlWKp8phsqkb5
+    rotulo: '13'
     circulo:
       x: 274
       y: 930
       raio: 22
-  - id: '14'
-    label: '14'
+  - uid: 54dAZhAsgqm5tL
+    rotulo: '14'
     circulo:
       x: 311
       y: 915
       raio: 22
-  - id: '15'
-    label: '15'
+  - uid: TXr5chtQICieKg
+    rotulo: '15'
     circulo:
       x: 340
       y: 1018
       raio: 23
-  - id: '16'
-    label: '16'
+  - uid: Fzqd64oQe0TXO2
+    rotulo: '16'
     circulo:
       x: 407
       y: 1026
       raio: 23
   referencias:
-  - escalada: Muy Hermosa
-    ids:
-    - '10'
-  - escalada: Medicina Chilena
-    ids:
-    - '11'
-  - escalada: As Aparências Enganam
-    ids:
-    - '12'
-  - escalada: Raios e Trovões
-    ids:
-    - '13'
-  - escalada: Quem vê Cara não vê Graduação
-    ids:
-    - '14'
-  - escalada: Sete Chaves
-    ids:
-    - '15'
-  - escalada: Buena Onda
-    ids:
-    - '16'
-  - ids:
-    - '09'
-    setor: Tsunami
-    escalada: Muchas Gracias
+  - alvo_uid: 9pQfcCFX6W0JG6
+    pontos_uids:
+    - CyQ79dfMenOufn
+  - alvo_uid: doRXQ5JnPNvY9S
+    pontos_uids:
+    - HN3eiUTMCVD5Oy
+  - alvo_uid: kyO4GY6naAQ13J
+    pontos_uids:
+    - KiRAkLRYYODPEo
+  - alvo_uid: DSmjmboNbSJJQt
+    pontos_uids:
+    - uwlWKp8phsqkb5
+  - alvo_uid: RLrXPn1DBcTeec
+    pontos_uids:
+    - 54dAZhAsgqm5tL
+  - alvo_uid: awnOgWojth5XtQ
+    pontos_uids:
+    - TXr5chtQICieKg
+  - alvo_uid: P5ZW8my4itY6wF
+    pontos_uids:
+    - Fzqd64oQe0TXO2
+  - alvo_uid: RTfkifSaI26xyl
+    pontos_uids:
+    - gmlZ1pUF6PQPfN
 - caminho_imagem_mapa: imagens/setor_tsunami_p3.webp
   largura_mapa: 1280
   altura_mapa: 1707
   pontos_de_interesse:
-  - id: '17'
-    label: '17'
+  - uid: mztaNYC4v4wyuV
+    rotulo: '17'
     circulo:
       x: 457
       y: 1041
       raio: 23
-  - id: '18'
-    label: '18'
+  - uid: eVE2J2t1pO6NNG
+    rotulo: '18'
     circulo:
       x: 563
       y: 1052
       raio: 23
-  - id: '19'
-    label: '19'
+  - uid: Y31iw3YALVBsPP
+    rotulo: '19'
     circulo:
       x: 644
       y: 1075
       raio: 23
-  - id: '20'
-    label: '20'
+  - uid: 6RphrBHxhLYOOe
+    rotulo: '20'
     circulo:
       x: 699
       y: 1083
       raio: 23
-  - id: '21'
-    label: '21'
+  - uid: lMSZbQB5AsRkeS
+    rotulo: '21'
     circulo:
       x: 749
       y: 1090
       raio: 23
-  - id: '22'
-    label: '22'
+  - uid: 2H3WSsernK1OZg
+    rotulo: '22'
     circulo:
       x: 801
       y: 1125
       raio: 23
-  - id: '23'
-    label: '23'
+  - uid: nuyyh8rMrPpjtL
+    rotulo: '23'
     circulo:
       x: 850
       y: 1131
       raio: 23
-  - id: '24'
-    label: '24'
+  - uid: nowAvzKSjB15xC
+    rotulo: '24'
     circulo:
       x: 917
       y: 1121
       raio: 23
   referencias:
-  - escalada: Marola
-    ids:
-    - '17'
-  - escalada: Filha de Todos
-    ids:
-    - '18'
-  - escalada: Neblina Baixa
-    ids:
-    - '19'
-  - escalada: Círculo de Fogo
-    ids:
-    - '20'
-  - escalada: Fissura de Cristal
-    ids:
-    - '21'
-  - escalada: Mandruva Assassino
-    ids:
-    - '22'
-  - escalada: Namoro Antigo
-    ids:
-    - '23'
-  - escalada: Chora Nenêm
-    ids:
-    - '24'
+  - alvo_uid: siZbSx5OyH7E19
+    pontos_uids:
+    - mztaNYC4v4wyuV
+  - alvo_uid: pKqodFmgdgpNbT
+    pontos_uids:
+    - eVE2J2t1pO6NNG
+  - alvo_uid: toPSJZjNhi90L3
+    pontos_uids:
+    - Y31iw3YALVBsPP
+  - alvo_uid: 7UIHzha8XXLNns
+    pontos_uids:
+    - 6RphrBHxhLYOOe
+  - alvo_uid: nkycpqeiTdGciT
+    pontos_uids:
+    - lMSZbQB5AsRkeS
+  - alvo_uid: Kh56Kgs45O6V0N
+    pontos_uids:
+    - 2H3WSsernK1OZg
+  - alvo_uid: dKLdImwy9OcnDx
+    pontos_uids:
+    - nuyyh8rMrPpjtL
+  - alvo_uid: 3lXAFmsAZ4D3Xg
+    pontos_uids:
+    - nowAvzKSjB15xC
 escaladas:
-- via_esportiva:
+- uid: z9GEdWyiDyH85l
+  via_esportiva:
     nome: ET de Varginha
     dificuldade: BR_6SUP
     extensao: 10
@@ -247,7 +247,8 @@ escaladas:
     conquistadores:
     - Gustavo Maneira
     data_abertura: '2014'
-- via_esportiva:
+- uid: FhbdAulroX3sOx
+  via_esportiva:
     nome: Jardim das Arestas
     dificuldade: BR_6SUP
     extensao: 10
@@ -257,7 +258,8 @@ escaladas:
     - Diego Leonardo
     - Gustavo Maneira
     data_abertura: '2014'
-- via_esportiva:
+- uid: XlzbaVqz31HzAI
+  via_esportiva:
     nome: Sunshine
     dificuldade: BR_7A
     extensao: 10
@@ -267,7 +269,8 @@ escaladas:
     - Diego Leonardo
     - Gustavo Maneira
     data_abertura: '2014'
-- via_esportiva:
+- uid: squlv4JbPpvISd
+  via_esportiva:
     nome: Sexta-feira 13
     dificuldade: BR_7C
     extensao: 10
@@ -277,7 +280,8 @@ escaladas:
     - Diego Leonardo
     - Rafael Furtado
     data_abertura: '2014'
-- via_esportiva:
+- uid: Ie5UVGcmGjmRIv
+  via_esportiva:
     nome: Vida Louca
     dificuldade: BR_7A
     extensao: 10
@@ -287,7 +291,8 @@ escaladas:
     - Diego Leonardo
     - Gustavo Maneira
     data_abertura: '2014'
-- via_esportiva:
+- uid: nEJapi2vtrLQji
+  via_esportiva:
     nome: Miranda Mirandinha
     dificuldade: BR_7C
     extensao: 8
@@ -297,7 +302,8 @@ escaladas:
     - Rafael Furtado
     - Argos Pena
     data_abertura: '2014'
-- via_esportiva:
+- uid: ghZWpbhT1X7HYg
+  via_esportiva:
     nome: Foi sem Querer
     dificuldade: BR_6SUP
     extensao: 8
@@ -307,7 +313,8 @@ escaladas:
     - Rafael Furtado
     - Diego Leonardo
     data_abertura: '2014'
-- via_esportiva:
+- uid: FgNUfl6XtN7E9x
+  via_esportiva:
     nome: Cabeleira
     dificuldade: BR_6SUP
     extensao: 8
@@ -317,7 +324,8 @@ escaladas:
     - Rafael Furtado
     - Diego Leonardo
     data_abertura: '2014'
-- via_esportiva:
+- uid: RTfkifSaI26xyl
+  via_esportiva:
     nome: Muchas Gracias
     dificuldade: BR_8A
     extensao: 12
@@ -326,7 +334,8 @@ escaladas:
     conquistadores:
     - Alexandre Fei
     data_abertura: '2013'
-- via_esportiva:
+- uid: 9pQfcCFX6W0JG6
+  via_esportiva:
     nome: Muy Hermosa
     dificuldade: BR_8B
     extensao: 12
@@ -335,7 +344,8 @@ escaladas:
     conquistadores:
     - Alexandre Fei
     data_abertura: '2013'
-- via_esportiva:
+- uid: doRXQ5JnPNvY9S
+  via_esportiva:
     nome: Medicina Chilena
     dificuldade: BR_9B
     extensao: 15
@@ -344,7 +354,8 @@ escaladas:
     conquistadores:
     - Alexandre Fei
     data_abertura: '2013'
-- via_esportiva:
+- uid: kyO4GY6naAQ13J
+  via_esportiva:
     nome: As Aparências Enganam
     dificuldade: BR_10B
     extensao: 15
@@ -353,7 +364,8 @@ escaladas:
     conquistadores:
     - Rafael Passos
     data_abertura: '2013'
-- via_esportiva:
+- uid: DSmjmboNbSJJQt
+  via_esportiva:
     nome: Raios e Trovões
     dificuldade: BR_8C
     extensao: 15
@@ -362,7 +374,8 @@ escaladas:
     conquistadores:
     - Alexandre Fei
     data_abertura: '2013'
-- via_esportiva:
+- uid: RLrXPn1DBcTeec
+  via_esportiva:
     nome: Quem vê Cara não vê Graduação
     dificuldade: BR_7A
     extensao: 15
@@ -371,7 +384,8 @@ escaladas:
     conquistadores:
     - Alexandre Fei
     data_abertura: '2014'
-- via_esportiva:
+- uid: awnOgWojth5XtQ
+  via_esportiva:
     nome: Sete Chaves
     dificuldade: PROJETO
     extensao: 20
@@ -380,7 +394,8 @@ escaladas:
     conquistadores:
     - Rafael Passos
     data_abertura: '2015'
-- via_esportiva:
+- uid: P5ZW8my4itY6wF
+  via_esportiva:
     nome: Buena Onda
     dificuldade: PROJETO
     extensao: 20
@@ -390,7 +405,8 @@ escaladas:
     - Alexandre Fei
     - Gustavo Scandiuzzi
     data_abertura: '2015'
-- via_esportiva:
+- uid: siZbSx5OyH7E19
+  via_esportiva:
     nome: Marola
     dificuldade: PROJETO
     extensao: 25
@@ -400,7 +416,8 @@ escaladas:
     - Diego Leonardo
     - Rafael Furtado
     data_abertura: '2015'
-- via_esportiva:
+- uid: pKqodFmgdgpNbT
+  via_esportiva:
     nome: Filha de Todos
     dificuldade: BR_10A
     extensao: 30
@@ -410,7 +427,8 @@ escaladas:
     - Alexandre Fei
     - Lucas Francês
     data_abertura: '2008'
-- via_esportiva:
+- uid: toPSJZjNhi90L3
+  via_esportiva:
     nome: Neblina Baixa
     dificuldade: BR_8B
     extensao: 30
@@ -420,7 +438,8 @@ escaladas:
     - Diego Leonardo
     - Lucas Francês
     data_abertura: '2008'
-- via_esportiva:
+- uid: 7UIHzha8XXLNns
+  via_esportiva:
     nome: Círculo de Fogo
     dificuldade: BR_10A
     extensao: 30
@@ -429,7 +448,8 @@ escaladas:
     conquistadores:
     - Alexandre Fei
     data_abertura: '2013'
-- via_esportiva:
+- uid: nkycpqeiTdGciT
+  via_esportiva:
     nome: Fissura de Cristal
     dificuldade: BR_8A
     extensao: 25
@@ -438,7 +458,8 @@ escaladas:
     conquistadores:
     - Alexandre Fei
     data_abertura: '2013'
-- via_esportiva:
+- uid: Kh56Kgs45O6V0N
+  via_esportiva:
     nome: Mandruva Assassino
     dificuldade: BR_7A
     extensao: 15
@@ -448,7 +469,8 @@ escaladas:
     - Diego Leonardo
     - Lucas Francês
     data_abertura: '2008'
-- via_esportiva:
+- uid: dKLdImwy9OcnDx
+  via_esportiva:
     nome: Namoro Antigo
     dificuldade: BR_9C
     extensao: 12
@@ -458,7 +480,8 @@ escaladas:
     - Ze Roberto
     - Felipe Belisario
     data_abertura: '2007'
-- via_esportiva:
+- uid: 3lXAFmsAZ4D3Xg
+  via_esportiva:
     nome: Chora Nenêm
     dificuldade: BR_7C
     extensao: 15

@@ -1,5 +1,6 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+uid: Snfxx6EhH9zy7o
 id: br_mg_caete_pedra_branca
 nome: Pedra Branca
 creditos:
@@ -20,10 +21,11 @@ picos:
     latitude: -198897720
     longitude: -436539390
 botoes:
-- texto: Capa
+- uid: zI805XHO4ZG1hR
+  texto: Capa
   destino:
     secao_textual:
       caminho: capa.md
-ultima_migracao: 4
+ultima_migracao: 5
 publicar_croqui: true
 revisado_bounding_circle: true

@@ -1,6 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+uid: ASLKnxeEws2kaG
 caminho_imagem_capa: imagens/setor_panelinha_p0_i1.webp
 nome: Setor Panelinha
 mapas:
@@ -8,32 +9,32 @@ mapas:
   largura_mapa: 806
   altura_mapa: 757
   pontos_de_interesse:
-  - id: '1'
-    label: '1'
+  - uid: gC4PbuJ2abf2W7
+    rotulo: '1'
     circulo:
       x: 528
       y: 397
       raio: 24
-  - id: '2'
-    label: '2'
+  - uid: iXkA3ttdNvKkCb
+    rotulo: '2'
     circulo:
       x: 579
       y: 317
       raio: 23
-  - id: '3'
-    label: '3'
+  - uid: z6oYOQS2froavx
+    rotulo: '3'
     circulo:
       x: 609
       y: 397
       raio: 23
-  - id: '4'
-    label: '4'
+  - uid: CbapBCQQQIR78T
+    rotulo: '4'
     circulo:
       x: 235
       y: 477
       raio: 24
-  - id: Setor_de_Esquerda
-    label: ↑ SETOR DE ESQUERDA
+  - uid: SNzc7krLLXThHX
+    rotulo: ↑ SETOR DE ESQUERDA
     retangulo:
       x: 560
       y: 597
@@ -41,35 +42,39 @@ mapas:
       largura: 248
       angulo_graus_x100: 666
   referencias:
-  - escalada: Caipora
-    ids:
-    - '1'
-  - escalada: Tap-Flap
-    ids:
-    - '2'
-  - escalada: Rá-Tim-Bum
-    ids:
-    - '3'
-  - escalada: Corda de Violão
-    ids:
-    - '4'
-  - ids:
-    - Setor_de_Esquerda
-    setor: Setor de Esquerda
+  - alvo_uid: 2HGAOAOpgsjyKb
+    pontos_uids:
+    - gC4PbuJ2abf2W7
+  - alvo_uid: tCgWqjavzFU2ic
+    pontos_uids:
+    - iXkA3ttdNvKkCb
+  - alvo_uid: FJCKmwye0bWz5d
+    pontos_uids:
+    - z6oYOQS2froavx
+  - alvo_uid: b0d7VtmDXqs5X8
+    pontos_uids:
+    - CbapBCQQQIR78T
+  - alvo_uid: V04iCo3Npy8O8F
+    pontos_uids:
+    - SNzc7krLLXThHX
 escaladas:
-- via_esportiva:
+- uid: 2HGAOAOpgsjyKb
+  via_esportiva:
     nome: Caipora
     dificuldade: BR_5
     quantidade_protecoes_intermediarias: 4
-- via_movel:
+- uid: tCgWqjavzFU2ic
+  via_movel:
     nome: Tap-Flap
     dificuldade: BR_4
     descricao: Via em móvel.
-- via_esportiva:
+- uid: FJCKmwye0bWz5d
+  via_esportiva:
     nome: Rá-Tim-Bum
     dificuldade: BR_5
     quantidade_protecoes_intermediarias: 5
-- via_esportiva:
+- uid: b0d7VtmDXqs5X8
+  via_esportiva:
     nome: Corda de Violão
     dificuldade: BR_5
     quantidade_protecoes_intermediarias: 4

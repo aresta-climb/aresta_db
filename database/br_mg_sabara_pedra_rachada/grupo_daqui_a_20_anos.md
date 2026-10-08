@@ -1,6 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+uid: 1FEa0SXhF5iG30
 caminho_imagem_capa: imagens/setor_daqui_a_20_anos_p0_i0.webp
 nome: Daqui a 20 Anos
 mapas:
@@ -8,11 +9,11 @@ mapas:
   largura_mapa: 1099
   altura_mapa: 710
   referencias:
-  - escalada: Daqui a 20 anos
-    ids:
+  - alvo_uid: Ast0EufLPzelsS
+    pontos_uids:
     - '2'
-  - escalada: Surpresa
-    ids:
+  - alvo_uid: PGYw60JTsOBSHJ
+    pontos_uids:
     - '4'
 setores:
 - caminho: grupo_daqui_a_20_anos_setor_bloco_a_analise_critica.md

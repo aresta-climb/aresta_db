@@ -38,6 +38,7 @@ sys.path.append(str(Path(__file__).resolve().parent.parent))
 
 import build
 from aresta_api.proto.generated import croqui_pb2
+from scripts.gerenciar_uids_lib import validar_uid
 from editor.core.processamento_imagem_campo import (
     AREA_MAXIMA_ESCALADA,
     AREA_MAXIMA_PADRAO,
@@ -687,6 +688,133 @@ def _obter_snapshot_arquivos_croqui(pico_path: Path) -> Dict[str, Tuple[int, int
     return snapshot
 
 
+def _extrair_nome_escalada(escalada: Dict[str, Any]) -> str:
+    """Extrai o nome de uma escalada suportando modelo plano ou polimórfico."""
+    if not isinstance(escalada, dict):
+        return ""
+    if "nome" in escalada and isinstance(escalada["nome"], str):
+        return escalada["nome"].strip()
+    for subtipo in (
+        "via_esportiva",
+        "via_movel",
+        "via_tradicional",
+        "boulder",
+        "via_psicobloc",
+        "via_artificial",
+        "highline",
+        "via_multiplas_enfiadas",
+    ):
+        conteudo_sub = escalada.get(subtipo)
+        if isinstance(conteudo_sub, dict) and "nome" in conteudo_sub:
+            return str(conteudo_sub.get("nome", "")).strip()
+    for k, v in escalada.items():
+        if k not in ("uid", "betas", "mapas") and isinstance(v, dict) and "nome" in v:
+            return str(v.get("nome", "")).strip()
+    return ""
+
+
+def auditar_uids_database(pico_path: Path, croqui_data: Dict[str, Any]) -> None:
+    """
+    Audita e valida que todas as entidades do banco de dados (Croqui, Picos/Grupos/Setores,
+    Escaladas e Pontos de Interesse) possuem UIDs válidos de 14 caracteres Base62.
+    Lança ValueError caso qualquer entidade possua UID ausente ou inválido.
+    """
+    croqui_uid = croqui_data.get("uid")
+    if not validar_uid(croqui_uid):
+        raise ValueError(
+            f"Croqui em {pico_path.name} possui UID ausente ou inválido: '{croqui_uid}'. "
+            f"Esperado NanoID de 14 caracteres Base62."
+        )
+
+    for botao in croqui_data.get("botoes", []):
+        if isinstance(botao, dict):
+            b_uid = botao.get("uid")
+            if not validar_uid(b_uid):
+                texto_btn = botao.get("texto", "Sem Texto")
+                raise ValueError(
+                    f"Botão '{texto_btn}' no croqui '{pico_path.name}' possui UID ausente ou inválido: '{b_uid}'"
+                )
+
+    for pico in croqui_data.get("picos", []):
+        pico_nome = pico.get("nome", "Pico Sem Nome")
+        mapas_pico: List[Dict[str, Any]] = []
+        if "mapas" in pico and isinstance(pico["mapas"], list):
+            mapas_pico.extend(pico["mapas"])
+        if "mapas_gerais" in pico:
+            mg = pico["mapas_gerais"]
+            if isinstance(mg, dict):
+                conteudo = mg.get("conteudo") if "conteudo" in mg else mg
+                if isinstance(conteudo, dict) and "mapas" in conteudo and isinstance(conteudo["mapas"], list):
+                    mapas_pico.extend(conteudo["mapas"])
+
+        for mapa in mapas_pico:
+            if isinstance(mapa, dict):
+                for poi in mapa.get("pontos_de_interesse", []):
+                    if isinstance(poi, dict):
+                        p_uid = poi.get("uid")
+                        if not validar_uid(p_uid):
+                            raise ValueError(
+                                f"Ponto de interesse '{poi.get('id')}' no pico '{pico_nome}' possui UID ausente ou inválido: '{p_uid}'"
+                            )
+
+        def _auditar_entidade(obj_ref: Dict[str, Any], tipo: str) -> None:
+            dados = None
+            origem = ""
+            if "caminho" in obj_ref and isinstance(obj_ref["caminho"], str):
+                md_path = pico_path / obj_ref["caminho"]
+                origem = md_path.name
+                if md_path.exists():
+                    fm, _ = parse_md_com_frontmatter(md_path)
+                    dados = fm or {}
+            elif "conteudo" in obj_ref:
+                dados = obj_ref["conteudo"]
+                origem = f"conteudo inline ({tipo})"
+            elif isinstance(obj_ref, dict):
+                dados = obj_ref
+                origem = f"objeto inline ({tipo})"
+
+            if not dados or not isinstance(dados, dict):
+                return
+
+            ent_uid = dados.get("uid")
+            if not validar_uid(ent_uid):
+                nome_ent = dados.get("nome", "Sem Nome")
+                raise ValueError(
+                    f"Entidade '{nome_ent}' em {origem} possui UID ausente ou inválido: '{ent_uid}'"
+                )
+
+            for esc in dados.get("escaladas", []):
+                if isinstance(esc, dict):
+                    esc_uid = esc.get("uid")
+                    if not validar_uid(esc_uid):
+                        nome_esc = _extrair_nome_escalada(esc) or "Sem Nome"
+                        raise ValueError(
+                            f"Escalada '{nome_esc}' em {origem} possui UID ausente ou inválido: '{esc_uid}'"
+                        )
+
+            for mapa in dados.get("mapas", []):
+                if isinstance(mapa, dict):
+                    for poi in mapa.get("pontos_de_interesse", []):
+                        if isinstance(poi, dict):
+                            poi_uid = poi.get("uid")
+                            if not validar_uid(poi_uid):
+                                raise ValueError(
+                                    f"Ponto de interesse '{poi.get('id')}' em {origem} possui UID ausente ou inválido: '{poi_uid}'"
+                                )
+
+            filhos = dados.get("setores") or dados.get("sub_setores") or []
+            for f in filhos:
+                f_ref = {"caminho": f} if isinstance(f, str) else f
+                _auditar_entidade(f_ref, "setor")
+
+        for sg in pico.get("setores_ou_grupos", []):
+            if not isinstance(sg, dict):
+                continue
+            tipo = "setor" if "setor" in sg else "grupo"
+            obj = sg.get(tipo, {})
+            _auditar_entidade(obj, tipo)
+
+
 def corrigir_database(pico_path: Path) -> bool:
     """
     Função principal que coordena o processamento do database para garantir
@@ -756,6 +884,9 @@ def corrigir_database(pico_path: Path) -> bool:
     for file_path in pico_path.rglob("*"):
         if file_path.is_file() and file_path.suffix in [".yaml", ".md"]:
             garantir_comentarios_licenca(file_path)
+
+    # 6. Audita e valida integridade de UIDs em todas as entidades
+    auditar_uids_database(pico_path, croqui_data)
 
     snapshot_depois = _obter_snapshot_arquivos_croqui(pico_path)
     return snapshot_antes != snapshot_depois
@@ -902,11 +1033,11 @@ def validar_pontos_de_interesse_recursivo(obj: Any, path: str = "") -> None:
         if "pontos_de_interesse" in obj and isinstance(obj["pontos_de_interesse"], list):
             for i, pt in enumerate(obj["pontos_de_interesse"]):
                 poi_path = f"{path}.pontos_de_interesse[{i}]"
-                poi_id = str(pt.get("id", "") or "").strip()
+                poi_id = str(pt.get("uid") or pt.get("id") or "").strip()
                 if not poi_id:
-                    raise ValueError(f"Ponto de interesse em {poi_path}: campo obrigatório 'id' não informado ou vazio")
+                    raise ValueError(f"Ponto de interesse em {poi_path}: campo obrigatório 'uid' (ou 'id') não informado ou vazio")
 
-                label = pt.get('label', poi_id)
+                label = pt.get('rotulo') or pt.get('label') or poi_id
                 
                 if 'circulo' in pt:
                     circ = pt['circulo']
@@ -959,6 +1090,127 @@ def validar_pontos_de_interesse_recursivo(obj: Any, path: str = "") -> None:
         for k, v in obj.items():
             if isinstance(v, (dict, list)):
                 validar_pontos_de_interesse_recursivo(v, f"{path}.{k}")
+
+
+def preencher_compatibilidade_legada_em_memoria(croqui_data: Dict[str, Any]) -> None:
+    """
+    Percorre croqui_data preenchendo em memória:
+    1. Campos legados em referências de mapa (escalada, setor, grupo, ids) a partir de alvo_uid e pontos_uids.
+    2. Campo legado label em pontos de interesse a partir de rotulo (e vice-versa).
+    3. alvo_uid e pontos_uids em referências caso venham de fontes legadas com escalada/setor/grupo/ids.
+    """
+    catalogo_uids: Dict[str, Tuple[str, str, Optional[str]]] = {}
+    catalogo_escaladas_nome: Dict[Tuple[str, str], str] = {}
+    catalogo_escaladas_simples: Dict[str, str] = {}
+    catalogo_setores_nome: Dict[str, str] = {}
+    catalogo_grupos_nome: Dict[str, str] = {}
+
+    def _catalogar_escaladas(escaladas: List[Any], setor_nome: str) -> None:
+        for esc in escaladas:
+            if not isinstance(esc, dict):
+                continue
+            esc_uid = esc.get("uid", "")
+            nome_esc = _extrair_nome_escalada(esc)
+            if esc_uid:
+                catalogo_uids[esc_uid] = ("escalada", nome_esc, setor_nome)
+            if nome_esc:
+                if setor_nome:
+                    catalogo_escaladas_nome[(setor_nome, nome_esc)] = esc_uid
+                catalogo_escaladas_simples[nome_esc] = esc_uid
+
+    def _catalogar_setor(setor_conteudo: Dict[str, Any]) -> None:
+        setor_uid = setor_conteudo.get("uid", "")
+        setor_nome = setor_conteudo.get("nome", "")
+        if setor_uid:
+            catalogo_uids[setor_uid] = ("setor", setor_nome, None)
+        if setor_nome and setor_uid:
+            catalogo_setores_nome[setor_nome] = setor_uid
+        _catalogar_escaladas(setor_conteudo.get("escaladas", []), setor_nome)
+
+    for pico in croqui_data.get("picos", []):
+        for sg in pico.get("setores_ou_grupos", []):
+            if not isinstance(sg, dict):
+                continue
+            if "grupo" in sg:
+                grupo_conteudo = sg["grupo"].get("conteudo") or sg["grupo"]
+                grupo_uid = grupo_conteudo.get("uid", "")
+                grupo_nome = grupo_conteudo.get("nome", "")
+                if grupo_uid:
+                    catalogo_uids[grupo_uid] = ("grupo", grupo_nome, None)
+                if grupo_nome and grupo_uid:
+                    catalogo_grupos_nome[grupo_nome] = grupo_uid
+                for s in grupo_conteudo.get("setores", []):
+                    setor_conteudo = s.get("conteudo") or s
+                    _catalogar_setor(setor_conteudo)
+            elif "setor" in sg:
+                setor_conteudo = sg["setor"].get("conteudo") or sg["setor"]
+                _catalogar_setor(setor_conteudo)
+
+    def _processar_mapas(obj: Any) -> None:
+        if isinstance(obj, list):
+            for item in obj:
+                _processar_mapas(item)
+        elif isinstance(obj, dict):
+            if "mapas" in obj and isinstance(obj["mapas"], list):
+                for mapa in obj["mapas"]:
+                    if not isinstance(mapa, dict):
+                        continue
+                    poi_uid_para_id: Dict[str, str] = {}
+                    poi_id_para_uid: Dict[str, str] = {}
+                    for poi in mapa.get("pontos_de_interesse", []):
+                        if not isinstance(poi, dict):
+                            continue
+                        p_uid = str(poi.get("uid", "") or "").strip()
+                        p_id = str(poi.get("id", "") or "").strip()
+                        if p_uid and not p_id:
+                            poi["id"] = p_uid
+                            p_id = p_uid
+                        elif p_id and not p_uid:
+                            poi["uid"] = p_id
+                            p_uid = p_id
+
+                        if p_uid and p_id:
+                            poi_uid_para_id[p_uid] = p_id
+                            poi_id_para_uid[p_id] = p_uid
+
+                        # Retrocompatibilidade rotulo <-> label
+                        if "rotulo" in poi and "label" not in poi:
+                            poi["label"] = str(poi["rotulo"])
+                        elif "label" in poi and "rotulo" not in poi:
+                            poi["rotulo"] = str(poi["label"])
+
+                    for ref in mapa.get("referencias", []):
+                        if not isinstance(ref, dict):
+                            continue
+                        alvo_uid = ref.get("alvo_uid")
+                        if alvo_uid and alvo_uid in catalogo_uids:
+                            tipo_ent, nome_ent, _ = catalogo_uids[alvo_uid]
+                            if tipo_ent == "escalada" and "escalada" not in ref:
+                                ref["escalada"] = nome_ent
+                            elif tipo_ent == "setor" and "setor" not in ref:
+                                ref["setor"] = nome_ent
+                            elif tipo_ent == "grupo" and "grupo" not in ref:
+                                ref["grupo"] = nome_ent
+                        elif not alvo_uid:
+                            if "escalada" in ref:
+                                ref["alvo_uid"] = catalogo_escaladas_simples.get(ref["escalada"], "")
+                            elif "setor" in ref:
+                                ref["alvo_uid"] = catalogo_setores_nome.get(ref["setor"], "")
+                            elif "grupo" in ref:
+                                ref["alvo_uid"] = catalogo_grupos_nome.get(ref["grupo"], "")
+
+                        # Preenche retrocompatibilidade ids <-> pontos_uids
+                        if "pontos_uids" in ref and ("ids" not in ref or not ref["ids"]):
+                            ref["ids"] = [poi_uid_para_id.get(puid, puid) for puid in ref["pontos_uids"]]
+                        elif "ids" in ref and ("pontos_uids" not in ref or not ref["pontos_uids"]):
+                            ref["pontos_uids"] = [poi_id_para_uid.get(str(pid), str(pid)) for pid in ref["ids"]]
+
+            for v in obj.values():
+                if isinstance(v, (dict, list)):
+                    _processar_mapas(v)
+
+    _processar_mapas(croqui_data)
+
 
 def validar_referencias_mapa(croqui_data: Dict[str, Any]) -> List[str]:
     """
@@ -1372,6 +1624,7 @@ def compilar_croqui(
     botoes_processados: List[Dict[str, Any]] = []
     for botao in croqui_data.get("botoes", []):
         if isinstance(botao, dict):
+            b_uid = botao.get("uid", "")
             destino = botao.get("destino", {})
             if "secao_textual" in destino:
                 secao = destino["secao_textual"]
@@ -1380,6 +1633,7 @@ def compilar_croqui(
                     _, corpo = parse_md_com_frontmatter(md_path)
                     
                     novo_botao = {
+                        "uid": b_uid,
                         "texto": botao.get("texto", ""),
                         "destino": {
                             "secao_textual": {
@@ -1413,6 +1667,8 @@ def compilar_croqui(
                         mg["conteudo"] = {"mapas": frontmatter["mapas"]}
                         del mg["caminho"]
 
+    # 2.6 Preenche em memória campos legados para retrocompatibilidade
+    preencher_compatibilidade_legada_em_memoria(croqui_data)
 
     # 3. Atualiza dimensões de mapas automaticamente
     atualizar_dimensoes_mapas(croqui_data, pico_path)

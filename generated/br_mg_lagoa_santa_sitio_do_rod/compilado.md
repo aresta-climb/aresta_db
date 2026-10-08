@@ -4,6 +4,7 @@
 
 - **id**: br_mg_lagoa_santa_sitio_do_rod
 - **nome**: Sítio do Rod
+- **uid**: GrHAA4JNn9WUhF
 - **creditos**:
   - Marcus Vinicius de Souza
 - **caminho_thumbnail**: ![caminho_thumbnail](imagens/capa_p0.webp)
@@ -11,6 +12,7 @@
 - **status_desenho_extraivel**: NAO_TEM_DESENHO
 - **botoes**:
   - **[0]**:
+    - **uid**: 9PYh4zwGeZAl7M
     - **texto**: Capa
     - **destino**:
       - **secao_textual**:
@@ -26,6 +28,7 @@
             Foto: Diego Lara
             Marcus Rufino
   - **[1]**:
+    - **uid**: En6hH15FE6DPWX
     - **texto**: Aviso
     - **destino**:
       - **secao_textual**:
@@ -48,6 +51,7 @@
             | :--: |
             | *blogdeescalada.com* |
   - **[2]**:
+    - **uid**: X9fM5E9OoSKQgA
     - **texto**: Créditos
     - **destino**:
       - **secao_textual**:
@@ -74,6 +78,7 @@
             | :--: |
             | *O escalador Francês **Louis Gerald** escalando a clássica **"Atretas do climb"**. Foto **Portugal Braga*** |
   - **[3]**:
+    - **uid**: 9wSCMa5V5bcx4V
     - **texto**: Agradecimentos
     - **destino**:
       - **secao_textual**:
@@ -99,6 +104,7 @@
             * Rodrigo "Tinoco"
             * Tiago "Vá"
   - **[4]**:
+    - **uid**: LVNkAWuN1OlOp0
     - **texto**: A Escalada
     - **destino**:
       - **secao_textual**:
@@ -121,6 +127,7 @@
             
             Marcus Vinicius
   - **[5]**:
+    - **uid**: x7kOUotY0RpBOE
     - **texto**: Regras e Código de Conduta
     - **destino**:
       - **secao_textual**:
@@ -149,6 +156,7 @@
             * Use os banheiros do camping
             * É necessário autorização para entrar nas Cavernas
   - **[6]**:
+    - **uid**: iOeGFNkYEKjVST
     - **texto**: O Sítio do Rod e Hospedagem
     - **destino**:
       - **secao_textual**:
@@ -180,6 +188,7 @@
             * Fogão a lenha
             * Banheiros
   - **[7]**:
+    - **uid**: 7nybNF05xQYbRX
     - **texto**: Parque Estadual do Sumidouro
     - **destino**:
       - **secao_textual**:
@@ -201,6 +210,7 @@
             Mais informações: www.pesumidouro.blogspot.com
             Telefone: (31) 3689 8592
   - **[8]**:
+    - **uid**: xrYOAKjIwocFrx
     - **texto**: APA Carste Lagoa Santa
     - **destino**:
       - **secao_textual**:
@@ -217,6 +227,7 @@
             | :--: |
             | *Setor G1, tem ótimas vias e boulder. Porem é necessário manter o silêncio e prestar muita atenção quanto a presença de abelhas. Foto: Jean Carlos* |
   - **[9]**:
+    - **uid**: Ls5enbN1v5jD5v
     - **texto**: Comércio Local
     - **destino**:
       - **secao_textual**:
@@ -251,6 +262,7 @@
             | :--: |
             | *Escaladora **Luciana dos Anjos** na via **"Cactos Talidomida"**, esta é uma ótima opção para crianças e iniciantes. Foto: **Jean Carlos*** |
   - **[10]**:
+    - **uid**: UQIevlK7ZL0xkM
     - **texto**: Telefones Úteis
     - **destino**:
       - **secao_textual**:
@@ -288,6 +300,7 @@
             marcusbemmaisvertical@yahoo.com.br
             refugiodosalto.com.br
   - **[11]**:
+    - **uid**: dJbYISnaFEJIfM
     - **texto**: Como Chegar
     - **destino**:
       - **secao_textual**:
@@ -312,6 +325,7 @@
             | :--: |
             | *Mapa Como Chegar* |
   - **[12]**:
+    - **uid**: tIkjbHplijPzVA
     - **texto**: Como usar este guia
     - **destino**:
       - **secao_textual**:
@@ -339,6 +353,7 @@
             | :--: |
             | *Como usar guia* |
   - **[13]**:
+    - **uid**: Y0NrTIFiRzfWyv
     - **texto**: Contra Capa
     - **destino**:
       - **secao_textual**:
@@ -346,7 +361,7 @@
             | ![Contra capa](imagens/contra_capa_p0.webp) |
             | :--: |
             | *Contra capa* |
-- **ultima_migracao**: 4
+- **ultima_migracao**: 5
 - **publicar_croqui**: True
 - **revisado_bounding_circle**: True
 
@@ -363,6 +378,7 @@
     **Boulders:**
     Boulders clássicos entre V0 e V4.
 - **nome**: G1
+- **uid**: JQThCUNwxqH4AX
 - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/pagina_16_imagem_0.webp)
 - **mapas**:
   - **[0]**:
@@ -371,162 +387,233 @@
     - **altura_mapa**: 1191
     - **pontos_de_interesse**:
       - **[0]**:
-        - **id**: 1
-        - **label**: 1
+        - **id**: ptykxW7a7qg7XB
+        - **uid**: ptykxW7a7qg7XB
+        - **rotulo**: 1
         - **circulo**:
           - **x**: 524
           - **y**: 1149
           - **raio**: 13
+        - **label**: 1
       - **[1]**:
-        - **id**: 2
-        - **label**: 2
+        - **id**: RFEInGUBytnDeJ
+        - **uid**: RFEInGUBytnDeJ
+        - **rotulo**: 2
         - **circulo**:
           - **x**: 500
           - **y**: 1114
           - **raio**: 13
+        - **label**: 2
       - **[2]**:
-        - **id**: 3
-        - **label**: 3
+        - **id**: GVYZaSqUqYMVRP
+        - **uid**: GVYZaSqUqYMVRP
+        - **rotulo**: 3
         - **circulo**:
           - **x**: 545
           - **y**: 1043
           - **raio**: 13
+        - **label**: 3
       - **[3]**:
-        - **id**: 4
-        - **label**: 4
+        - **id**: X7Kli74r586piS
+        - **uid**: X7Kli74r586piS
+        - **rotulo**: 4
         - **circulo**:
           - **x**: 572
           - **y**: 992
           - **raio**: 13
+        - **label**: 4
       - **[4]**:
-        - **id**: 5
-        - **label**: 5
+        - **id**: hb1SmYJbgpROte
+        - **uid**: hb1SmYJbgpROte
+        - **rotulo**: 5
         - **circulo**:
           - **x**: 478
           - **y**: 902
           - **raio**: 13
+        - **label**: 5
       - **[5]**:
-        - **id**: 6
-        - **label**: 6
+        - **id**: u7tkti4nkLASRN
+        - **uid**: u7tkti4nkLASRN
+        - **rotulo**: 6
         - **circulo**:
           - **x**: 321
           - **y**: 770
           - **raio**: 13
+        - **label**: 6
       - **[6]**:
-        - **id**: 7
-        - **label**: 7
+        - **id**: 6iCACRtJczbBle
+        - **uid**: 6iCACRtJczbBle
+        - **rotulo**: 7
         - **circulo**:
           - **x**: 236
           - **y**: 427
           - **raio**: 13
+        - **label**: 7
       - **[7]**:
-        - **id**: 8
-        - **label**: 8
+        - **id**: 1p216I6L7WsfXk
+        - **uid**: 1p216I6L7WsfXk
+        - **rotulo**: 8
         - **circulo**:
           - **x**: 271
           - **y**: 394
           - **raio**: 13
+        - **label**: 8
       - **[8]**:
-        - **id**: 9
-        - **label**: 9
+        - **id**: bW7WbSqBrTKvv8
+        - **uid**: bW7WbSqBrTKvv8
+        - **rotulo**: 9
         - **circulo**:
           - **x**: 322
           - **y**: 421
           - **raio**: 13
+        - **label**: 9
       - **[9]**:
-        - **id**: 10
-        - **label**: 10
+        - **id**: JYVKRaYOaxLEDp
+        - **uid**: JYVKRaYOaxLEDp
+        - **rotulo**: 10
         - **circulo**:
           - **x**: 379
           - **y**: 359
           - **raio**: 13
+        - **label**: 10
       - **[10]**:
-        - **id**: 11
-        - **label**: 11
+        - **id**: 0ZJ9KagIP3J9R7
+        - **uid**: 0ZJ9KagIP3J9R7
+        - **rotulo**: 11
         - **circulo**:
           - **x**: 394
           - **y**: 309
           - **raio**: 13
+        - **label**: 11
       - **[11]**:
-        - **id**: 12
-        - **label**: 12
+        - **id**: qIXawlHb62HYSh
+        - **uid**: qIXawlHb62HYSh
+        - **rotulo**: 12
         - **circulo**:
           - **x**: 415
           - **y**: 262
           - **raio**: 13
+        - **label**: 12
       - **[12]**:
-        - **id**: 13
-        - **label**: 13
+        - **id**: BtXwhI1YbFtuv9
+        - **uid**: BtXwhI1YbFtuv9
+        - **rotulo**: 13
         - **circulo**:
           - **x**: 426
           - **y**: 216
           - **raio**: 13
+        - **label**: 13
       - **[13]**:
-        - **id**: 14
-        - **label**: 14
+        - **id**: nHVXxBbUU6IRKo
+        - **uid**: nHVXxBbUU6IRKo
+        - **rotulo**: 14
         - **circulo**:
           - **x**: 475
           - **y**: 135
           - **raio**: 13
+        - **label**: 14
     - **referencias**:
       - **[0]**:
+        - **alvo_uid**: OCTKiJdy4PEOYW
+        - **pontos_uids**:
+          - ptykxW7a7qg7XB
         - **escalada**: Mão de martelo
         - **ids**:
-          - 1
+          - ptykxW7a7qg7XB
       - **[1]**:
+        - **alvo_uid**: FjMCRvAXU0U6oZ
+        - **pontos_uids**:
+          - RFEInGUBytnDeJ
         - **escalada**: Calibre 44
         - **ids**:
-          - 2
+          - RFEInGUBytnDeJ
       - **[2]**:
+        - **alvo_uid**: AAWIwSYiPEJ1wI
+        - **pontos_uids**:
+          - GVYZaSqUqYMVRP
         - **escalada**: Antro dos mosquitos
         - **ids**:
-          - 3
+          - GVYZaSqUqYMVRP
       - **[3]**:
+        - **alvo_uid**: s6VUrdB017oKsO
+        - **pontos_uids**:
+          - X7Kli74r586piS
         - **escalada**: Poder do silêncio
         - **ids**:
-          - 4
+          - X7Kli74r586piS
       - **[4]**:
+        - **alvo_uid**: Stl18z42g4jTzV
+        - **pontos_uids**:
+          - hb1SmYJbgpROte
         - **escalada**: Não contavam com minha astucia
         - **ids**:
-          - 5
+          - hb1SmYJbgpROte
       - **[5]**:
+        - **alvo_uid**: pKMhsAzTkKgith
+        - **pontos_uids**:
+          - u7tkti4nkLASRN
         - **escalada**: Terra do nunca
         - **ids**:
-          - 6
+          - u7tkti4nkLASRN
       - **[6]**:
+        - **alvo_uid**: 7fT9qRaUP4zohz
+        - **pontos_uids**:
+          - 6iCACRtJczbBle
         - **escalada**: Voz apocalíptica
         - **ids**:
-          - 7
+          - 6iCACRtJczbBle
       - **[7]**:
+        - **alvo_uid**: RPrekvCkw957V7
+        - **pontos_uids**:
+          - 1p216I6L7WsfXk
         - **escalada**: Vivendo no crux da larica
         - **ids**:
-          - 8
+          - 1p216I6L7WsfXk
       - **[8]**:
+        - **alvo_uid**: f96bqEmXGp4ICK
+        - **pontos_uids**:
+          - bW7WbSqBrTKvv8
         - **escalada**: Capitão caverna
         - **ids**:
-          - 9
+          - bW7WbSqBrTKvv8
       - **[9]**:
+        - **alvo_uid**: FCv3yDH8sLbk7K
+        - **pontos_uids**:
+          - JYVKRaYOaxLEDp
         - **escalada**: Sai do chão
         - **ids**:
-          - 10
+          - JYVKRaYOaxLEDp
       - **[10]**:
+        - **alvo_uid**: Abt28MEhC51Byp
+        - **pontos_uids**:
+          - 0ZJ9KagIP3J9R7
         - **escalada**: Os pica pedra
         - **ids**:
-          - 11
+          - 0ZJ9KagIP3J9R7
       - **[11]**:
+        - **alvo_uid**: vGhIO5NFcVnq8G
+        - **pontos_uids**:
+          - qIXawlHb62HYSh
         - **escalada**: O resgate dos barbarás no meio do corredor polonês
         - **ids**:
-          - 12
+          - qIXawlHb62HYSh
       - **[12]**:
+        - **alvo_uid**: ABd6krn0uFe433
+        - **pontos_uids**:
+          - BtXwhI1YbFtuv9
         - **escalada**: ?
         - **ids**:
-          - 13
+          - BtXwhI1YbFtuv9
       - **[13]**:
+        - **alvo_uid**: ABd6krn0uFe433
+        - **pontos_uids**:
+          - nHVXxBbUU6IRKo
         - **escalada**: ?
         - **ids**:
-          - 14
+          - nHVXxBbUU6IRKo
 - **escaladas**:
   - **[0]**:
+    - **uid**: OCTKiJdy4PEOYW
     - **via_movel**:
       - **descricao**: Friends médios e tricam #5. Crux depois do platô. 1 grampo no topo.
       - **nome**: Mão de martelo
@@ -536,6 +623,7 @@
         - Felipe Belisario
         - Marcus "Rufino"
   - **[1]**:
+    - **uid**: FjMCRvAXU0U6oZ
     - **via_esportiva**:
       - **descricao**: Boa opção, **atenção** com o platô.
       - **nome**: Calibre 44
@@ -544,6 +632,7 @@
         - Grots
         - Marcio Macena
   - **[2]**:
+    - **uid**: AAWIwSYiPEJ1wI
     - **via_esportiva**:
       - **descricao**: Via curta, porem de muita movimentação.
       - **nome**: Antro dos mosquitos
@@ -552,6 +641,7 @@
         - Ivo Ferreira
         - Márcio Macena
   - **[3]**:
+    - **uid**: s6VUrdB017oKsO
     - **via_esportiva**:
       - **descricao**: Boa via, bom usar stiq-clip nas 2 primeiras. **Atenção se tem abelhas por perto!**
       - **nome**: Poder do silêncio
@@ -560,6 +650,7 @@
         - Grots
         - Marcus "Rufino"
   - **[4]**:
+    - **uid**: Stl18z42g4jTzV
     - **via_esportiva**:
       - **descricao**: Curta, porem atraente. **Atenção se tem abelhas por perto!**
       - **nome**: Não contavam com minha astucia
@@ -569,6 +660,7 @@
         - Felipe Belisario
         - Marcus "Rufino"
   - **[5]**:
+    - **uid**: pKMhsAzTkKgith
     - **via_esportiva**:
       - **descricao**: Ótima via, muito boa movimentação. **Atenção se tem abelhas por perto!**
       - **nome**: Terra do nunca
@@ -577,6 +669,7 @@
         - Grots
         - Marcus "Rufino"
   - **[6]**:
+    - **uid**: 7fT9qRaUP4zohz
     - **via_esportiva**:
       - **descricao**: Via interditada. Abelhas!
       - **nome**: Voz apocalíptica
@@ -585,6 +678,7 @@
         - Leonardo Hoffman
         - Rod
   - **[7]**:
+    - **uid**: RPrekvCkw957V7
     - **via_esportiva**:
       - **descricao**: Via interditada. Abelhas!
       - **nome**: Vivendo no crux da larica
@@ -593,6 +687,7 @@
         - Gabriel
         - Silvio
   - **[8]**:
+    - **uid**: f96bqEmXGp4ICK
     - **via_movel**:
       - **descricao**: Ótima via, Peças pequenas e médias, camalot 4, top duplo P.
       - **nome**: Capitão caverna
@@ -602,6 +697,7 @@
         - "Marcelinho" Terra Zoni
         - Marcus "Rufino"
   - **[9]**:
+    - **uid**: FCv3yDH8sLbk7K
     - **via_esportiva**:
       - **descricao**: Via curtinha de boa escalada, podendo fazer a saida de boulder.
       - **nome**: Sai do chão
@@ -610,6 +706,7 @@
         - Ágata
         - Gilberto
   - **[10]**:
+    - **uid**: Abt28MEhC51Byp
     - **via_esportiva**:
       - **descricao**: Boa opção.
       - **nome**: Os pica pedra
@@ -618,6 +715,7 @@
         - Ágata
         - Gilberto
   - **[11]**:
+    - **uid**: vGhIO5NFcVnq8G
     - **via_esportiva**:
       - **descricao**: Via interditada. Abelhas!
       - **nome**: O resgate dos barbarás no meio do corredor polonês
@@ -626,11 +724,13 @@
         - Grots
         - Marcio Macena
   - **[12]**:
+    - **uid**: 2UGL7D8xOXoEC3
     - **via_esportiva**:
       - **descricao**: **Atenção se tem abelhas por perto!**
       - **nome**: ?
       - **dificuldade**: BR_9B
   - **[13]**:
+    - **uid**: ABd6krn0uFe433
     - **via_esportiva**:
       - **descricao**: Via inacabada. Cuidado abelhas!
       - **nome**: ?
@@ -651,6 +751,7 @@
     * C: Boas opções de travessias, muito legais.
     * D: Boas opções de travessias, muito legais.
 - **nome**: G2
+- **uid**: lge5uD507M5WRB
 - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/pagina_18_imagem_0.webp)
 - **mapas**:
   - **[0]**:
@@ -659,239 +760,345 @@
     - **altura_mapa**: 1191
     - **pontos_de_interesse**:
       - **[0]**:
-        - **id**: 1
-        - **label**: 1
+        - **id**: QmIdPfjbs80Gw3
+        - **uid**: QmIdPfjbs80Gw3
+        - **rotulo**: 1
         - **circulo**:
           - **x**: 211
           - **y**: 825
           - **raio**: 13
+        - **label**: 1
       - **[1]**:
-        - **id**: 2
-        - **label**: 2
+        - **id**: niU8HKFFGU2Jd0
+        - **uid**: niU8HKFFGU2Jd0
+        - **rotulo**: 2
         - **circulo**:
           - **x**: 213
           - **y**: 786
           - **raio**: 13
+        - **label**: 2
       - **[2]**:
-        - **id**: 3
-        - **label**: 3
+        - **id**: fn9nzknaqT7vLU
+        - **uid**: fn9nzknaqT7vLU
+        - **rotulo**: 3
         - **circulo**:
           - **x**: 202
           - **y**: 753
           - **raio**: 13
+        - **label**: 3
       - **[3]**:
-        - **id**: 4
-        - **label**: 4
+        - **id**: XZwd7cNMcWYXt7
+        - **uid**: XZwd7cNMcWYXt7
+        - **rotulo**: 4
         - **circulo**:
           - **x**: 198
           - **y**: 726
           - **raio**: 13
+        - **label**: 4
       - **[4]**:
-        - **id**: 5
-        - **label**: 5
+        - **id**: Bo3sfhkHBnn0uG
+        - **uid**: Bo3sfhkHBnn0uG
+        - **rotulo**: 5
         - **circulo**:
           - **x**: 372
           - **y**: 560
           - **raio**: 13
+        - **label**: 5
       - **[5]**:
-        - **id**: 6
-        - **label**: 6
+        - **id**: klKJDaUTtxRAK2
+        - **uid**: klKJDaUTtxRAK2
+        - **rotulo**: 6
         - **circulo**:
           - **x**: 431
           - **y**: 568
           - **raio**: 13
+        - **label**: 6
       - **[6]**:
-        - **id**: 7
-        - **label**: 7
+        - **id**: SmQDRc1qTG0m6j
+        - **uid**: SmQDRc1qTG0m6j
+        - **rotulo**: 7
         - **circulo**:
           - **x**: 456
           - **y**: 551
           - **raio**: 13
+        - **label**: 7
       - **[7]**:
-        - **id**: 8
-        - **label**: 8
+        - **id**: ppdabD6q7qUqUi
+        - **uid**: ppdabD6q7qUqUi
+        - **rotulo**: 8
         - **circulo**:
           - **x**: 483
           - **y**: 560
           - **raio**: 13
+        - **label**: 8
       - **[8]**:
-        - **id**: 9
-        - **label**: 9
+        - **id**: F1aJtvPTCNAP4G
+        - **uid**: F1aJtvPTCNAP4G
+        - **rotulo**: 9
         - **circulo**:
           - **x**: 505
           - **y**: 581
           - **raio**: 13
+        - **label**: 9
       - **[9]**:
-        - **id**: 10
-        - **label**: 10
+        - **id**: 4EW6c7G9TqeqTJ
+        - **uid**: 4EW6c7G9TqeqTJ
+        - **rotulo**: 10
         - **circulo**:
           - **x**: 526
           - **y**: 618
           - **raio**: 13
+        - **label**: 10
       - **[10]**:
-        - **id**: 11
-        - **label**: 11
+        - **id**: y8CDoFya2D8FcH
+        - **uid**: y8CDoFya2D8FcH
+        - **rotulo**: 11
         - **circulo**:
           - **x**: 555
           - **y**: 656
           - **raio**: 14
+        - **label**: 11
       - **[11]**:
-        - **id**: 12
-        - **label**: 12
+        - **id**: JJSFntgO9G11u6
+        - **uid**: JJSFntgO9G11u6
+        - **rotulo**: 12
         - **circulo**:
           - **x**: 686
           - **y**: 580
           - **raio**: 13
+        - **label**: 12
       - **[12]**:
-        - **id**: 13
-        - **label**: 13
+        - **id**: eFuwQbP4EKX1U1
+        - **uid**: eFuwQbP4EKX1U1
+        - **rotulo**: 13
         - **circulo**:
           - **x**: 730
           - **y**: 499
           - **raio**: 13
+        - **label**: 13
       - **[13]**:
-        - **id**: 14
-        - **label**: 14
+        - **id**: cKQKzxfwWeBQUw
+        - **uid**: cKQKzxfwWeBQUw
+        - **rotulo**: 14
         - **circulo**:
           - **x**: 732
           - **y**: 387
           - **raio**: 13
+        - **label**: 14
       - **[14]**:
-        - **id**: 15
-        - **label**: 15
+        - **id**: XNFf2WsehBu90T
+        - **uid**: XNFf2WsehBu90T
+        - **rotulo**: 15
         - **circulo**:
           - **x**: 704
           - **y**: 305
           - **raio**: 13
+        - **label**: 15
       - **[15]**:
-        - **id**: 16
-        - **label**: 16
+        - **id**: sG0WdUKWENdUZ2
+        - **uid**: sG0WdUKWENdUZ2
+        - **rotulo**: 16
         - **circulo**:
           - **x**: 704
           - **y**: 258
           - **raio**: 14
+        - **label**: 16
       - **[16]**:
-        - **id**: 17
-        - **label**: 17
+        - **id**: osYPsTWEb6K1NR
+        - **uid**: osYPsTWEb6K1NR
+        - **rotulo**: 17
         - **circulo**:
           - **x**: 732
           - **y**: 249
           - **raio**: 13
+        - **label**: 17
       - **[17]**:
-        - **id**: 18
-        - **label**: 18
+        - **id**: NohN364QNufezn
+        - **uid**: NohN364QNufezn
+        - **rotulo**: 18
         - **circulo**:
           - **x**: 787
           - **y**: 190
           - **raio**: 13
+        - **label**: 18
       - **[18]**:
-        - **id**: 19
-        - **label**: 19
+        - **id**: OQOpSlkXZHS3bo
+        - **uid**: OQOpSlkXZHS3bo
+        - **rotulo**: 19
         - **circulo**:
           - **x**: 792
           - **y**: 160
           - **raio**: 13
+        - **label**: 19
       - **[19]**:
-        - **id**: 20
-        - **label**: 20
+        - **id**: OufBWNYmKzr7uW
+        - **uid**: OufBWNYmKzr7uW
+        - **rotulo**: 20
         - **circulo**:
           - **x**: 776
           - **y**: 79
           - **raio**: 13
+        - **label**: 20
       - **[20]**:
-        - **id**: 21
-        - **label**: 21
+        - **id**: yhbp8mIxDZDwbA
+        - **uid**: yhbp8mIxDZDwbA
+        - **rotulo**: 21
         - **circulo**:
           - **x**: 773
           - **y**: 30
           - **raio**: 13
+        - **label**: 21
     - **referencias**:
       - **[0]**:
+        - **alvo_uid**: OfEMsjmlqyCUcS
+        - **pontos_uids**:
+          - QmIdPfjbs80Gw3
         - **escalada**: Pé da Gameleira
         - **ids**:
-          - 1
+          - QmIdPfjbs80Gw3
       - **[1]**:
+        - **alvo_uid**: DDulHh7vXareS0
+        - **pontos_uids**:
+          - niU8HKFFGU2Jd0
         - **escalada**: Sangue bão
         - **ids**:
-          - 2
+          - niU8HKFFGU2Jd0
       - **[2]**:
+        - **alvo_uid**: sVthQOrPafxnRM
+        - **pontos_uids**:
+          - fn9nzknaqT7vLU
         - **escalada**: Sedativa
         - **ids**:
-          - 3
+          - fn9nzknaqT7vLU
       - **[3]**:
+        - **alvo_uid**: ioDz0EILNSXgu1
+        - **pontos_uids**:
+          - XZwd7cNMcWYXt7
         - **escalada**: Pressão da abelha (variante)
         - **ids**:
-          - 4
+          - XZwd7cNMcWYXt7
       - **[4]**:
+        - **alvo_uid**: KLsuh8RZ3FUONx
+        - **pontos_uids**:
+          - Bo3sfhkHBnn0uG
         - **escalada**: Prezinho
         - **ids**:
-          - 5
+          - Bo3sfhkHBnn0uG
       - **[5]**:
+        - **alvo_uid**: OqcTCdARZIIrVo
+        - **pontos_uids**:
+          - klKJDaUTtxRAK2
         - **escalada**: Super canaleta
         - **ids**:
-          - 6
+          - klKJDaUTtxRAK2
       - **[6]**:
+        - **alvo_uid**: 49EHkJKF4z5uZY
+        - **pontos_uids**:
+          - SmQDRc1qTG0m6j
         - **escalada**: Cactos talidomida
         - **ids**:
-          - 7
+          - SmQDRc1qTG0m6j
       - **[7]**:
+        - **alvo_uid**: qhv0kKI6eiFiFs
+        - **pontos_uids**:
+          - ppdabD6q7qUqUi
         - **escalada**: Logo sai
         - **ids**:
-          - 8
+          - ppdabD6q7qUqUi
       - **[8]**:
+        - **alvo_uid**: anxdB46ZVIXlQM
+        - **pontos_uids**:
+          - F1aJtvPTCNAP4G
         - **escalada**: Cariocas
         - **ids**:
-          - 9
+          - F1aJtvPTCNAP4G
       - **[9]**:
+        - **alvo_uid**: wz3fi67AzYyAXK
+        - **pontos_uids**:
+          - 4EW6c7G9TqeqTJ
         - **escalada**: Tapa na aranha
         - **ids**:
-          - 10
+          - 4EW6c7G9TqeqTJ
       - **[10]**:
+        - **alvo_uid**: wuIOHvNQg40cXT
+        - **pontos_uids**:
+          - y8CDoFya2D8FcH
         - **escalada**: Titãs atônitos
         - **ids**:
-          - 11
+          - y8CDoFya2D8FcH
       - **[11]**:
+        - **alvo_uid**: kQYoMdRcHTt86X
+        - **pontos_uids**:
+          - JJSFntgO9G11u6
         - **escalada**: Enganaram o cabo
         - **ids**:
-          - 12
+          - JJSFntgO9G11u6
       - **[12]**:
+        - **alvo_uid**: KlKw3sXIXE8qll
+        - **pontos_uids**:
+          - eFuwQbP4EKX1U1
         - **escalada**: Urtigas
         - **ids**:
-          - 13
+          - eFuwQbP4EKX1U1
       - **[13]**:
+        - **alvo_uid**: sYAcnxiMbBA7RT
+        - **pontos_uids**:
+          - cKQKzxfwWeBQUw
         - **escalada**: Atretas do climb (mapa do Brasil)
         - **ids**:
-          - 14
+          - cKQKzxfwWeBQUw
       - **[14]**:
+        - **alvo_uid**: DpDFCaGAYmeIm5
+        - **pontos_uids**:
+          - XNFf2WsehBu90T
         - **escalada**: Ossos do orifício
         - **ids**:
-          - 15
+          - XNFf2WsehBu90T
       - **[15]**:
+        - **alvo_uid**: O6CLvjL2vx3MiH
+        - **pontos_uids**:
+          - sG0WdUKWENdUZ2
         - **escalada**: Baião de dois
         - **ids**:
-          - 16
+          - sG0WdUKWENdUZ2
       - **[16]**:
+        - **alvo_uid**: Nl7xKy2GD1O6p6
+        - **pontos_uids**:
+          - osYPsTWEb6K1NR
         - **escalada**: Entre linhas
         - **ids**:
-          - 17
+          - osYPsTWEb6K1NR
       - **[17]**:
+        - **alvo_uid**: cUBWjKVDKP0SWw
+        - **pontos_uids**:
+          - NohN364QNufezn
         - **escalada**: SOS mandacaru
         - **ids**:
-          - 18
+          - NohN364QNufezn
       - **[18]**:
+        - **alvo_uid**: KHljwh9Bno85vs
+        - **pontos_uids**:
+          - OQOpSlkXZHS3bo
         - **escalada**: Socorro vem de baixo
         - **ids**:
-          - 19
+          - OQOpSlkXZHS3bo
       - **[19]**:
+        - **alvo_uid**: I5yOBuXwMObxQL
+        - **pontos_uids**:
+          - OufBWNYmKzr7uW
         - **escalada**: Mato queimado
         - **ids**:
-          - 20
+          - OufBWNYmKzr7uW
       - **[20]**:
+        - **alvo_uid**: N6hvfKwGBDHbG3
+        - **pontos_uids**:
+          - yhbp8mIxDZDwbA
         - **escalada**: De Mariah
         - **ids**:
-          - 21
+          - yhbp8mIxDZDwbA
 - **escaladas**:
   - **[0]**:
+    - **uid**: OfEMsjmlqyCUcS
     - **via_esportiva**:
       - **descricao**: Atenção no Platô
       - **nome**: Pé da Gameleira
@@ -902,6 +1109,7 @@
         - Rodrigo "Baiano"
         - Pedro Alves
   - **[1]**:
+    - **uid**: DDulHh7vXareS0
     - **via_esportiva**:
       - **descricao**: Interessante Via, com uma movimentação muito incomum.
       - **nome**: Sangue bão
@@ -910,6 +1118,7 @@
         - Fabio Munis
         - Helmut Becker
   - **[2]**:
+    - **uid**: sVthQOrPafxnRM
     - **via_esportiva**:
       - **descricao**: Clássica, bem frequentada.
       - **nome**: Sedativa
@@ -918,6 +1127,7 @@
         - Eduardo Viana
         - Rodrigo "Tinoco"
   - **[3]**:
+    - **uid**: ioDz0EILNSXgu1
     - **via_esportiva**:
       - **descricao**: Divide a primeira chapa com a Sedativa
       - **nome**: Pressão da abelha (variante)
@@ -928,6 +1138,7 @@
         - Robson Lins
         - Pedro Alves
   - **[4]**:
+    - **uid**: KLsuh8RZ3FUONx
     - **via_movel**:
       - **descricao**: Fenda em diagonal, peças medias, rapel na árvore.
       - **nome**: Prezinho
@@ -936,6 +1147,7 @@
         - Grots
         - Marcus "Rufino"
   - **[5]**:
+    - **uid**: OqcTCdARZIIrVo
     - **via_movel**:
       - **descricao**: Boa pra iniciantes, Segue ligeiramente a direita da Cactos, peças pequenas e medias, top duplo no final da canaleta.
       - **nome**: Super canaleta
@@ -944,6 +1156,7 @@
         - Grots
         - Marcus "Rufino"
   - **[6]**:
+    - **uid**: 49EHkJKF4z5uZY
     - **via_esportiva**:
       - **descricao**: Muito frequentada, boa para iniciantes e crianças.
       - **nome**: Cactos talidomida
@@ -953,11 +1166,13 @@
         - Leonardo Hoffman
         - Rod
   - **[7]**:
+    - **uid**: qhv0kKI6eiFiFs
     - **via_esportiva**:
       - **descricao**: Via curta de boa movimentação.
       - **nome**: Logo sai
       - **dificuldade**: BR_5
   - **[8]**:
+    - **uid**: anxdB46ZVIXlQM
     - **via_esportiva**:
       - **descricao**: Pode ser escalada tanto pela direita ou esquerda das proteções.
       - **nome**: Cariocas
@@ -965,6 +1180,7 @@
       - **conquistadores**:
         - Escaladores Gaúchos
   - **[9]**:
+    - **uid**: wz3fi67AzYyAXK
     - **via_esportiva**:
       - **descricao**: Clássica, bem frequentada. Extensão por Felipe Belisario.
       - **nome**: Tapa na aranha
@@ -975,6 +1191,7 @@
         - Gustavo Piancastelli
         - Felipe Belisario
   - **[10]**:
+    - **uid**: wuIOHvNQg40cXT
     - **via_esportiva**:
       - **descricao**: Meio exposta.
       - **nome**: Titãs atônitos
@@ -983,6 +1200,7 @@
         - Gustavo Piancastelli
         - Pedro Leite
   - **[11]**:
+    - **uid**: kQYoMdRcHTt86X
     - **via_esportiva**:
       - **descricao**: Boa opção.
       - **nome**: Enganaram o cabo
@@ -991,6 +1209,7 @@
         - Márcio Macena
         - Ivo Ferreira
   - **[12]**:
+    - **uid**: KlKw3sXIXE8qll
     - **via_esportiva**:
       - **descricao**: Clássica, de boa movimentação.
       - **nome**: Urtigas
@@ -1000,6 +1219,7 @@
         - Waguer
         - Rod
   - **[13]**:
+    - **uid**: sYAcnxiMbBA7RT
     - **via_esportiva**:
       - **descricao**: Muito frequentada, com ótima movimentação.
       - **nome**: Atretas do climb (mapa do Brasil)
@@ -1008,11 +1228,13 @@
         - Eustáquio Macedo
         - Rod
   - **[14]**:
+    - **uid**: DpDFCaGAYmeIm5
     - **via_movel**:
       - **descricao**: Linda fenda que corta a parte superior da parede. Peças pequenas e médias. Termina no top da "mapa". Ótima opção!
       - **nome**: Ossos do orifício
       - **dificuldade**: BR_5
   - **[15]**:
+    - **uid**: O6CLvjL2vx3MiH
     - **via_esportiva**:
       - **descricao**: Muito frequentada, com ótima movimentação, boa para iniciante.
       - **nome**: Baião de dois
@@ -1021,6 +1243,7 @@
         - Chico
         - Rod
   - **[16]**:
+    - **uid**: Nl7xKy2GD1O6p6
     - **via_movel**:
       - **descricao**: Termina no top da SOS mandacaru. Peças pequenas e médias. Boa opção para iniciantes em móvel.
       - **nome**: Entre linhas
@@ -1029,6 +1252,7 @@
         - Gustavo Vianna
         - Marcus "Rufino"
   - **[17]**:
+    - **uid**: cUBWjKVDKP0SWw
     - **via_esportiva**:
       - **descricao**: Muito frequentada, com ótima movimentação, boa para iniciante.
       - **nome**: SOS mandacaru
@@ -1037,6 +1261,7 @@
         - Chico
         - Rod
   - **[18]**:
+    - **uid**: KHljwh9Bno85vs
     - **via_esportiva**:
       - **descricao**: Boa opção para iniciantes
       - **nome**: Socorro vem de baixo
@@ -1045,6 +1270,7 @@
         - Thiago "Vá"
         - Thiago "Tato"
   - **[19]**:
+    - **uid**: I5yOBuXwMObxQL
     - **via_esportiva**:
       - **descricao**: Via curta
       - **nome**: Mato queimado
@@ -1053,6 +1279,7 @@
         - Alexandre Queiroz
         - Rod
   - **[20]**:
+    - **uid**: N6hvfKwGBDHbG3
     - **via_esportiva**:
       - **descricao**: Via de equilibrio
       - **nome**: De Mariah
@@ -1078,6 +1305,7 @@
     * Boulders e travessias nas colunas desse setor.
     * Boulder tetinho: V3 a V8.
 - **nome**: G3
+- **uid**: eHmTU7FgrKO1h2
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/pagina_19.webp)
@@ -1085,541 +1313,782 @@
     - **altura_mapa**: 1191
     - **pontos_de_interesse**:
       - **[0]**:
-        - **id**: 1
-        - **label**: 1
+        - **id**: 6AngR9VUXYkLUx
+        - **uid**: 6AngR9VUXYkLUx
+        - **rotulo**: 1
         - **circulo**:
           - **x**: 827
           - **y**: 1013
           - **raio**: 14
+        - **label**: 1
       - **[1]**:
-        - **id**: 2
-        - **label**: 2
+        - **id**: vJN7Lu62t0B4EF
+        - **uid**: vJN7Lu62t0B4EF
+        - **rotulo**: 2
         - **circulo**:
           - **x**: 652
           - **y**: 936
           - **raio**: 14
+        - **label**: 2
       - **[2]**:
-        - **id**: 3
-        - **label**: 3
+        - **id**: B4WQ9i4bVAp1bC
+        - **uid**: B4WQ9i4bVAp1bC
+        - **rotulo**: 3
         - **circulo**:
           - **x**: 662
           - **y**: 907
           - **raio**: 13
+        - **label**: 3
       - **[3]**:
-        - **id**: 4
-        - **label**: 4
+        - **id**: 0XlAFLS5LcwrxY
+        - **uid**: 0XlAFLS5LcwrxY
+        - **rotulo**: 4
         - **circulo**:
           - **x**: 587
           - **y**: 878
           - **raio**: 13
+        - **label**: 4
       - **[4]**:
-        - **id**: 5
-        - **label**: 5
+        - **id**: PqodMvKGk6LkEZ
+        - **uid**: PqodMvKGk6LkEZ
+        - **rotulo**: 5
         - **circulo**:
           - **x**: 591
           - **y**: 812
           - **raio**: 14
+        - **label**: 5
       - **[5]**:
-        - **id**: 6
-        - **label**: 6
+        - **id**: dh9wqqQCmppGFp
+        - **uid**: dh9wqqQCmppGFp
+        - **rotulo**: 6
         - **circulo**:
           - **x**: 503
           - **y**: 1023
           - **raio**: 13
+        - **label**: 6
       - **[6]**:
-        - **id**: 7
-        - **label**: 7
+        - **id**: uhdaQB6PCW5ZKd
+        - **uid**: uhdaQB6PCW5ZKd
+        - **rotulo**: 7
         - **circulo**:
           - **x**: 498
           - **y**: 983
           - **raio**: 13
+        - **label**: 7
       - **[7]**:
-        - **id**: 8
-        - **label**: 8
+        - **id**: Jp4cebHIGLqJQ9
+        - **uid**: Jp4cebHIGLqJQ9
+        - **rotulo**: 8
         - **circulo**:
           - **x**: 404
           - **y**: 955
           - **raio**: 17
+        - **label**: 8
       - **[8]**:
-        - **id**: 9
-        - **label**: 9
+        - **id**: 8JIrvUbKMJPr0o
+        - **uid**: 8JIrvUbKMJPr0o
+        - **rotulo**: 9
         - **circulo**:
           - **x**: 450
           - **y**: 936
           - **raio**: 17
+        - **label**: 9
       - **[9]**:
-        - **id**: 10
-        - **label**: 10
+        - **id**: WUqzMehsjx6uEZ
+        - **uid**: WUqzMehsjx6uEZ
+        - **rotulo**: 10
         - **circulo**:
           - **x**: 265
           - **y**: 600
           - **raio**: 13
+        - **label**: 10
       - **[10]**:
-        - **id**: 11
-        - **label**: 11
+        - **id**: t37WizPLDXn3v2
+        - **uid**: t37WizPLDXn3v2
+        - **rotulo**: 11
         - **circulo**:
           - **x**: 271
           - **y**: 638
           - **raio**: 13
+        - **label**: 11
       - **[11]**:
-        - **id**: 12
-        - **label**: 12
+        - **id**: evShYwPR2ozz3F
+        - **uid**: evShYwPR2ozz3F
+        - **rotulo**: 12
         - **circulo**:
           - **x**: 220
           - **y**: 643
           - **raio**: 13
+        - **label**: 12
       - **[12]**:
-        - **id**: 13
-        - **label**: 13
+        - **id**: O2CMfKUrMBHLnD
+        - **uid**: O2CMfKUrMBHLnD
+        - **rotulo**: 13
         - **circulo**:
           - **x**: 273
           - **y**: 667
           - **raio**: 13
+        - **label**: 13
       - **[13]**:
-        - **id**: 14
-        - **label**: 14
+        - **id**: fAofVJomgC6Jri
+        - **uid**: fAofVJomgC6Jri
+        - **rotulo**: 14
         - **circulo**:
           - **x**: 300
           - **y**: 684
           - **raio**: 13
+        - **label**: 14
       - **[14]**:
-        - **id**: 15
-        - **label**: 15
+        - **id**: vNlWx6j7q8cQIv
+        - **uid**: vNlWx6j7q8cQIv
+        - **rotulo**: 15
         - **circulo**:
           - **x**: 265
           - **y**: 542
           - **raio**: 13
+        - **label**: 15
       - **[15]**:
-        - **id**: 16
-        - **label**: 16
+        - **id**: IGd26RWxn26k6O
+        - **uid**: IGd26RWxn26k6O
+        - **rotulo**: 16
         - **circulo**:
           - **x**: 229
           - **y**: 545
           - **raio**: 13
+        - **label**: 16
       - **[16]**:
-        - **id**: 17
-        - **label**: 17
+        - **id**: 5ROs2IfsBDcItT
+        - **uid**: 5ROs2IfsBDcItT
+        - **rotulo**: 17
         - **circulo**:
           - **x**: 208
           - **y**: 579
           - **raio**: 13
+        - **label**: 17
       - **[17]**:
-        - **id**: 18
-        - **label**: 18
+        - **id**: vtUGJfqXbXnpNU
+        - **uid**: vtUGJfqXbXnpNU
+        - **rotulo**: 18
         - **circulo**:
           - **x**: 182
           - **y**: 557
           - **raio**: 13
+        - **label**: 18
       - **[18]**:
-        - **id**: 19
-        - **label**: 19
+        - **id**: QyqYpXuHZ1lY1o
+        - **uid**: QyqYpXuHZ1lY1o
+        - **rotulo**: 19
         - **circulo**:
           - **x**: 190
           - **y**: 523
           - **raio**: 13
+        - **label**: 19
       - **[19]**:
-        - **id**: 20
-        - **label**: 20
+        - **id**: ehgeFvx16JkxOo
+        - **uid**: ehgeFvx16JkxOo
+        - **rotulo**: 20
         - **circulo**:
           - **x**: 113
           - **y**: 417
           - **raio**: 13
+        - **label**: 20
       - **[20]**:
-        - **id**: 21
-        - **label**: 21
+        - **id**: 78c5y2KRdqisXe
+        - **uid**: 78c5y2KRdqisXe
+        - **rotulo**: 21
         - **circulo**:
           - **x**: 86
           - **y**: 426
           - **raio**: 13
+        - **label**: 21
       - **[21]**:
-        - **id**: 22
-        - **label**: 22
+        - **id**: mzsuNyAneBkv3F
+        - **uid**: mzsuNyAneBkv3F
+        - **rotulo**: 22
         - **circulo**:
           - **x**: 260
           - **y**: 475
           - **raio**: 13
+        - **label**: 22
       - **[22]**:
-        - **id**: 23
-        - **label**: 23
+        - **id**: 6ftfCW2idzFWrc
+        - **uid**: 6ftfCW2idzFWrc
+        - **rotulo**: 23
         - **circulo**:
           - **x**: 188
           - **y**: 348
           - **raio**: 13
+        - **label**: 23
       - **[23]**:
-        - **id**: 24
-        - **label**: 24
+        - **id**: lrJrCDpgaJsVFu
+        - **uid**: lrJrCDpgaJsVFu
+        - **rotulo**: 24
         - **circulo**:
           - **x**: 146
           - **y**: 343
           - **raio**: 13
+        - **label**: 24
       - **[24]**:
-        - **id**: 25
-        - **label**: 25
+        - **id**: eLFYB4uYP2G6kX
+        - **uid**: eLFYB4uYP2G6kX
+        - **rotulo**: 25
         - **circulo**:
           - **x**: 440
           - **y**: 566
           - **raio**: 13
+        - **label**: 25
       - **[25]**:
-        - **id**: 26
-        - **label**: 26
+        - **id**: WzdmLp1qmF0mHg
+        - **uid**: WzdmLp1qmF0mHg
+        - **rotulo**: 26
         - **circulo**:
           - **x**: 409
           - **y**: 550
           - **raio**: 13
+        - **label**: 26
       - **[26]**:
-        - **id**: 27
-        - **label**: 27
+        - **id**: g7H93BolFVwtHo
+        - **uid**: g7H93BolFVwtHo
+        - **rotulo**: 27
         - **circulo**:
           - **x**: 377
           - **y**: 526
           - **raio**: 13
+        - **label**: 27
       - **[27]**:
-        - **id**: 28
-        - **label**: 28
+        - **id**: j6VtForjbcvmDU
+        - **uid**: j6VtForjbcvmDU
+        - **rotulo**: 28
         - **circulo**:
           - **x**: 412
           - **y**: 479
           - **raio**: 13
+        - **label**: 28
       - **[28]**:
-        - **id**: 29
-        - **label**: 29
+        - **id**: rxdJC09j0C1r9E
+        - **uid**: rxdJC09j0C1r9E
+        - **rotulo**: 29
         - **circulo**:
           - **x**: 404
           - **y**: 447
           - **raio**: 13
+        - **label**: 29
       - **[29]**:
-        - **id**: 30
-        - **label**: 30
+        - **id**: bhD549s0ezfREs
+        - **uid**: bhD549s0ezfREs
+        - **rotulo**: 30
         - **circulo**:
           - **x**: 432
           - **y**: 425
           - **raio**: 13
+        - **label**: 30
       - **[30]**:
-        - **id**: 31
-        - **label**: 31
+        - **id**: nQbRlg6mnEXoZL
+        - **uid**: nQbRlg6mnEXoZL
+        - **rotulo**: 31
         - **circulo**:
           - **x**: 414
           - **y**: 392
           - **raio**: 13
+        - **label**: 31
       - **[31]**:
-        - **id**: 32
-        - **label**: 32
+        - **id**: H7QI5X3hGDHGJz
+        - **uid**: H7QI5X3hGDHGJz
+        - **rotulo**: 32
         - **circulo**:
           - **x**: 452
           - **y**: 385
           - **raio**: 13
+        - **label**: 32
       - **[32]**:
-        - **id**: 33
-        - **label**: 33
+        - **id**: S0w9pd3ygFZTGb
+        - **uid**: S0w9pd3ygFZTGb
+        - **rotulo**: 33
         - **circulo**:
           - **x**: 450
           - **y**: 357
           - **raio**: 13
+        - **label**: 33
       - **[33]**:
-        - **id**: 34
-        - **label**: 34
+        - **id**: C6is4p5FVWkIA8
+        - **uid**: C6is4p5FVWkIA8
+        - **rotulo**: 34
         - **circulo**:
           - **x**: 417
           - **y**: 324
           - **raio**: 13
+        - **label**: 34
       - **[34]**:
-        - **id**: 35
-        - **label**: 35
+        - **id**: hMDB4QMV0XKfBz
+        - **uid**: hMDB4QMV0XKfBz
+        - **rotulo**: 35
         - **circulo**:
           - **x**: 304
           - **y**: 226
           - **raio**: 13
+        - **label**: 35
       - **[35]**:
-        - **id**: 36
-        - **label**: 36
+        - **id**: FAVkvA1rHkIba8
+        - **uid**: FAVkvA1rHkIba8
+        - **rotulo**: 36
         - **circulo**:
           - **x**: 304
           - **y**: 174
           - **raio**: 13
+        - **label**: 36
       - **[36]**:
-        - **id**: 37
-        - **label**: 37
+        - **id**: LWpDGtz4qazvpg
+        - **uid**: LWpDGtz4qazvpg
+        - **rotulo**: 37
         - **circulo**:
           - **x**: 275
           - **y**: 180
           - **raio**: 13
+        - **label**: 37
       - **[37]**:
-        - **id**: 38
-        - **label**: 38
+        - **id**: PmpQM2NKQ6Xrc6
+        - **uid**: PmpQM2NKQ6Xrc6
+        - **rotulo**: 38
         - **circulo**:
           - **x**: 49
           - **y**: 129
           - **raio**: 13
+        - **label**: 38
       - **[38]**:
-        - **id**: 39
-        - **label**: 39
+        - **id**: 3l3CwX0h18qJBm
+        - **uid**: 3l3CwX0h18qJBm
+        - **rotulo**: 39
         - **circulo**:
           - **x**: 81
           - **y**: 130
           - **raio**: 13
+        - **label**: 39
       - **[39]**:
-        - **id**: 40
-        - **label**: 40
+        - **id**: vSsRIr3ZfQ4U65
+        - **uid**: vSsRIr3ZfQ4U65
+        - **rotulo**: 40
         - **circulo**:
           - **x**: 86
           - **y**: 87
           - **raio**: 13
+        - **label**: 40
       - **[40]**:
-        - **id**: 41
-        - **label**: 41
+        - **id**: dE9KFbJWJqeOMh
+        - **uid**: dE9KFbJWJqeOMh
+        - **rotulo**: 41
         - **circulo**:
           - **x**: 85
           - **y**: 57
           - **raio**: 13
+        - **label**: 41
       - **[41]**:
-        - **id**: 42
-        - **label**: 42
+        - **id**: 69AOa1swYqQk7R
+        - **uid**: 69AOa1swYqQk7R
+        - **rotulo**: 42
         - **circulo**:
           - **x**: 154
           - **y**: 61
           - **raio**: 13
+        - **label**: 42
       - **[42]**:
-        - **id**: 43
-        - **label**: 43
+        - **id**: XCag8d52J1B5Fj
+        - **uid**: XCag8d52J1B5Fj
+        - **rotulo**: 43
         - **circulo**:
           - **x**: 324
           - **y**: 113
           - **raio**: 13
+        - **label**: 43
       - **[43]**:
-        - **id**: 44
-        - **label**: 44
+        - **id**: QZgsd1iCWd1kPw
+        - **uid**: QZgsd1iCWd1kPw
+        - **rotulo**: 44
         - **circulo**:
           - **x**: 505
           - **y**: 74
           - **raio**: 13
+        - **label**: 44
       - **[44]**:
-        - **id**: 45
-        - **label**: 45
+        - **id**: 3Ad0FgyZ7ZBz7x
+        - **uid**: 3Ad0FgyZ7ZBz7x
+        - **rotulo**: 45
         - **circulo**:
           - **x**: 651
           - **y**: 203
           - **raio**: 13
+        - **label**: 45
       - **[45]**:
-        - **id**: 46
-        - **label**: 46
+        - **id**: VgKF7wCRln5I8r
+        - **uid**: VgKF7wCRln5I8r
+        - **rotulo**: 46
         - **circulo**:
           - **x**: 668
           - **y**: 58
           - **raio**: 13
+        - **label**: 46
       - **[46]**:
-        - **id**: 47
-        - **label**: 47
+        - **id**: dPFVZVC8Bxq6CU
+        - **uid**: dPFVZVC8Bxq6CU
+        - **rotulo**: 47
         - **circulo**:
           - **x**: 705
           - **y**: 58
           - **raio**: 13
+        - **label**: 47
     - **referencias**:
       - **[0]**:
+        - **alvo_uid**: kCmvzGsc9vclWr
+        - **pontos_uids**:
+          - 6AngR9VUXYkLUx
         - **escalada**: Quem manda aqui sou Eu "Eterosapiens"
         - **ids**:
-          - 1
+          - 6AngR9VUXYkLUx
       - **[1]**:
+        - **alvo_uid**: jcTf8bMTQSzdRI
+        - **pontos_uids**:
+          - vJN7Lu62t0B4EF
         - **escalada**: Poder paralelos
         - **ids**:
-          - 2
+          - vJN7Lu62t0B4EF
       - **[2]**:
+        - **alvo_uid**: oPR3AQpEM2qAtk
+        - **pontos_uids**:
+          - B4WQ9i4bVAp1bC
         - **escalada**: Pra você
         - **ids**:
-          - 3
+          - B4WQ9i4bVAp1bC
       - **[3]**:
+        - **alvo_uid**: 8nz9fG1i2lvlHl
+        - **pontos_uids**:
+          - 0XlAFLS5LcwrxY
         - **escalada**: 100 limites
         - **ids**:
-          - 4
+          - 0XlAFLS5LcwrxY
       - **[4]**:
+        - **alvo_uid**: pb0AZAzfCwQL0S
+        - **pontos_uids**:
+          - PqodMvKGk6LkEZ
         - **escalada**: Mentira não faz
         - **ids**:
-          - 5
+          - PqodMvKGk6LkEZ
       - **[5]**:
+        - **alvo_uid**: hlYDTl2RiGslzC
+        - **pontos_uids**:
+          - dh9wqqQCmppGFp
         - **escalada**: Elvira a rainha das trevas
         - **ids**:
-          - 6
+          - dh9wqqQCmppGFp
       - **[6]**:
+        - **alvo_uid**: a9sOswMwnTVNXu
+        - **pontos_uids**:
+          - uhdaQB6PCW5ZKd
         - **escalada**: Pescoço de peixe
         - **ids**:
-          - 7
+          - uhdaQB6PCW5ZKd
       - **[7]**:
+        - **alvo_uid**: TASmZRqlj39ndT
+        - **pontos_uids**:
+          - Jp4cebHIGLqJQ9
         - **escalada**: Lá fora chove, aqui dentro só pinga
         - **ids**:
-          - 8
+          - Jp4cebHIGLqJQ9
       - **[8]**:
+        - **alvo_uid**: kQiXMWkmVpgdrB
+        - **pontos_uids**:
+          - 8JIrvUbKMJPr0o
         - **escalada**: Climb in the rain
         - **ids**:
-          - 9
+          - 8JIrvUbKMJPr0o
       - **[9]**:
+        - **alvo_uid**: riZGNVTlHJpLyg
+        - **pontos_uids**:
+          - WUqzMehsjx6uEZ
         - **escalada**: Invasão de privacidade
         - **ids**:
-          - 10
+          - WUqzMehsjx6uEZ
       - **[10]**:
+        - **alvo_uid**: 4UVLL2SGgFmJ0A
+        - **pontos_uids**:
+          - t37WizPLDXn3v2
         - **escalada**: El paseo
         - **ids**:
-          - 11
+          - t37WizPLDXn3v2
       - **[11]**:
+        - **alvo_uid**: VHpfhs8NHBGw1v
+        - **pontos_uids**:
+          - evShYwPR2ozz3F
         - **escalada**: Dinamicuzão
         - **ids**:
-          - 12
+          - evShYwPR2ozz3F
       - **[12]**:
+        - **alvo_uid**: TwXskHCUe8KvMm
+        - **pontos_uids**:
+          - O2CMfKUrMBHLnD
         - **escalada**: Catapulta
         - **ids**:
-          - 13
+          - O2CMfKUrMBHLnD
       - **[13]**:
+        - **alvo_uid**: mvch2fD1K5KCmf
+        - **pontos_uids**:
+          - fAofVJomgC6Jri
         - **escalada**: Rodilar
         - **ids**:
-          - 14
+          - fAofVJomgC6Jri
       - **[14]**:
+        - **alvo_uid**: zDk3xEIjB9snXQ
+        - **pontos_uids**:
+          - vNlWx6j7q8cQIv
         - **escalada**: Fósseis do velho mundo
         - **ids**:
-          - 15
+          - vNlWx6j7q8cQIv
       - **[15]**:
+        - **alvo_uid**: gpZmZWq400vUe2
+        - **pontos_uids**:
+          - IGd26RWxn26k6O
         - **escalada**: Querendo velho mundo
         - **ids**:
-          - 16
+          - IGd26RWxn26k6O
       - **[16]**:
+        - **alvo_uid**: 3jAC5cfhd35TRz
+        - **pontos_uids**:
+          - 5ROs2IfsBDcItT
         - **escalada**: Sem querer querendo
         - **ids**:
-          - 17
+          - 5ROs2IfsBDcItT
       - **[17]**:
+        - **alvo_uid**: Y24nN8xmfRIdyk
+        - **pontos_uids**:
+          - vtUGJfqXbXnpNU
         - **escalada**: Segunda sem lei
         - **ids**:
-          - 18
+          - vtUGJfqXbXnpNU
       - **[18]**:
+        - **alvo_uid**: Ul4jHQNWsBbTOS
+        - **pontos_uids**:
+          - QyqYpXuHZ1lY1o
         - **escalada**: Quinta desordeira
         - **ids**:
-          - 19
+          - QyqYpXuHZ1lY1o
       - **[19]**:
+        - **alvo_uid**: ZfLVIc0yOQIlox
+        - **pontos_uids**:
+          - ehgeFvx16JkxOo
         - **escalada**: Decapitados
         - **ids**:
-          - 20
+          - ehgeFvx16JkxOo
       - **[20]**:
+        - **alvo_uid**: wXaHsI7pxZ2nsF
+        - **pontos_uids**:
+          - 78c5y2KRdqisXe
         - **escalada**: Já tá lá
         - **ids**:
-          - 21
+          - 78c5y2KRdqisXe
       - **[21]**:
+        - **alvo_uid**: hIsCTCc8nlGpG6
+        - **pontos_uids**:
+          - mzsuNyAneBkv3F
         - **escalada**: Tente outra vez
         - **ids**:
-          - 22
+          - mzsuNyAneBkv3F
       - **[22]**:
+        - **alvo_uid**: UNirvrxDGNXKaF
+        - **pontos_uids**:
+          - 6ftfCW2idzFWrc
         - **escalada**: A troca
         - **ids**:
-          - 23
+          - 6ftfCW2idzFWrc
       - **[23]**:
+        - **alvo_uid**: aWoDk4WJmMfOGQ
+        - **pontos_uids**:
+          - lrJrCDpgaJsVFu
         - **escalada**: No mato com os cachorros
         - **ids**:
-          - 24
+          - lrJrCDpgaJsVFu
       - **[24]**:
+        - **alvo_uid**: mXLdsMtoJaNGgM
+        - **pontos_uids**:
+          - eLFYB4uYP2G6kX
         - **escalada**: Secuzinho
         - **ids**:
-          - 25
+          - eLFYB4uYP2G6kX
       - **[25]**:
+        - **alvo_uid**: QfxHLbP8enlmjP
+        - **pontos_uids**:
+          - WzdmLp1qmF0mHg
         - **escalada**: Sublime obsessão
         - **ids**:
-          - 26
+          - WzdmLp1qmF0mHg
       - **[26]**:
+        - **alvo_uid**: Y7ogpbrEfN5SDZ
+        - **pontos_uids**:
+          - g7H93BolFVwtHo
         - **escalada**: Não guenta senta
         - **ids**:
-          - 27
+          - g7H93BolFVwtHo
       - **[27]**:
+        - **alvo_uid**: Jrk4GhgmwbHxph
+        - **pontos_uids**:
+          - j6VtForjbcvmDU
         - **escalada**: Despertar da curriola
         - **ids**:
-          - 28
+          - j6VtForjbcvmDU
       - **[28]**:
+        - **alvo_uid**: igt0m7ZsV6rRh3
+        - **pontos_uids**:
+          - rxdJC09j0C1r9E
         - **escalada**: Variante
         - **ids**:
-          - 29
+          - rxdJC09j0C1r9E
       - **[29]**:
+        - **alvo_uid**: phZGZQ88jJIPU3
+        - **pontos_uids**:
+          - bhD549s0ezfREs
         - **escalada**: Um dia depois de amanhã
         - **ids**:
-          - 30
+          - bhD549s0ezfREs
       - **[30]**:
+        - **alvo_uid**: m28nBrsBUK99aP
+        - **pontos_uids**:
+          - nQbRlg6mnEXoZL
         - **escalada**: Prakaramba
         - **ids**:
-          - 31
+          - nQbRlg6mnEXoZL
       - **[31]**:
+        - **alvo_uid**: 7gTRexxZCkE7NV
+        - **pontos_uids**:
+          - H7QI5X3hGDHGJz
         - **escalada**: Estilo junkie
         - **ids**:
-          - 32
+          - H7QI5X3hGDHGJz
       - **[32]**:
+        - **alvo_uid**: rJMPyYaNb5xKlc
+        - **pontos_uids**:
+          - S0w9pd3ygFZTGb
         - **escalada**: Escalão Hilário
         - **ids**:
-          - 33
+          - S0w9pd3ygFZTGb
       - **[33]**:
+        - **alvo_uid**: nP301ZzemueFY4
+        - **pontos_uids**:
+          - C6is4p5FVWkIA8
         - **escalada**: Missão impossível
         - **ids**:
-          - 34
+          - C6is4p5FVWkIA8
       - **[34]**:
+        - **alvo_uid**: IFcwEEy1ZZuKS3
+        - **pontos_uids**:
+          - hMDB4QMV0XKfBz
         - **escalada**: Bode negro
         - **ids**:
-          - 35
+          - hMDB4QMV0XKfBz
       - **[35]**:
+        - **alvo_uid**: tUnoeSk1oPFe02
+        - **pontos_uids**:
+          - FAVkvA1rHkIba8
         - **escalada**: V da via
         - **ids**:
-          - 36
+          - FAVkvA1rHkIba8
       - **[36]**:
+        - **alvo_uid**: IEAibl84wLzVJB
+        - **pontos_uids**:
+          - LWpDGtz4qazvpg
         - **escalada**: Até que enfim
         - **ids**:
-          - 37
+          - LWpDGtz4qazvpg
       - **[37]**:
+        - **alvo_uid**: aaO9oUr9Rro5Zh
+        - **pontos_uids**:
+          - PmpQM2NKQ6Xrc6
         - **escalada**: Noiados do maguina
         - **ids**:
-          - 38
+          - PmpQM2NKQ6Xrc6
       - **[38]**:
+        - **alvo_uid**: EEpet2HVBn69jA
+        - **pontos_uids**:
+          - 3l3CwX0h18qJBm
         - **escalada**: Da Cuca Lelé (variante)
         - **ids**:
-          - 39
+          - 3l3CwX0h18qJBm
       - **[39]**:
+        - **alvo_uid**: TaZQFKayl8mAeP
+        - **pontos_uids**:
+          - vSsRIr3ZfQ4U65
         - **escalada**: Deus dos quatro anos
         - **ids**:
-          - 40
+          - vSsRIr3ZfQ4U65
       - **[40]**:
+        - **alvo_uid**: HllGw2msTGMj1N
+        - **pontos_uids**:
+          - dE9KFbJWJqeOMh
         - **escalada**: Gaibous in the laibous
         - **ids**:
-          - 41
+          - dE9KFbJWJqeOMh
       - **[41]**:
+        - **alvo_uid**: lRkli5XRyIMCGk
+        - **pontos_uids**:
+          - 69AOa1swYqQk7R
         - **escalada**: Power katronca
         - **ids**:
-          - 42
+          - 69AOa1swYqQk7R
       - **[42]**:
+        - **alvo_uid**: TlRQFwUmzTUKk4
+        - **pontos_uids**:
+          - XCag8d52J1B5Fj
         - **escalada**: Muito punk
         - **ids**:
-          - 43
+          - XCag8d52J1B5Fj
       - **[43]**:
+        - **alvo_uid**: KihNxnY9ICSBIi
+        - **pontos_uids**:
+          - QZgsd1iCWd1kPw
         - **escalada**: Demolição
         - **ids**:
-          - 44
+          - QZgsd1iCWd1kPw
       - **[44]**:
+        - **alvo_uid**: mEOGgFtzxODOuN
+        - **pontos_uids**:
+          - 3Ad0FgyZ7ZBz7x
         - **escalada**: Big Wall do Salim
         - **ids**:
-          - 45
+          - 3Ad0FgyZ7ZBz7x
       - **[45]**:
+        - **alvo_uid**: VPpf4y493PsUF3
+        - **pontos_uids**:
+          - VgKF7wCRln5I8r
         - **escalada**: Patati Patata
         - **ids**:
-          - 46
+          - VgKF7wCRln5I8r
       - **[46]**:
-        - **ids**:
-          - 14
-        - **setor**: G3
+        - **alvo_uid**: V7jBsQsEgKctEy
+        - **pontos_uids**:
+          - fAofVJomgC6Jri
         - **escalada**: Dinamicuzão em Rodlá
+        - **ids**:
+          - fAofVJomgC6Jri
       - **[47]**:
-        - **ids**:
-          - 13
-        - **setor**: G3
+        - **alvo_uid**: H3QghtOqkjRIfh
+        - **pontos_uids**:
+          - O2CMfKUrMBHLnD
         - **escalada**: Dinamicuzão em catapulta
+        - **ids**:
+          - O2CMfKUrMBHLnD
       - **[48]**:
-        - **ids**:
-          - 12
-        - **setor**: G3
+        - **alvo_uid**: G2a7URYoDebtVu
+        - **pontos_uids**:
+          - evShYwPR2ozz3F
         - **escalada**: Dinamicuzão em El paseo
-      - **[49]**:
         - **ids**:
-          - 11
-        - **setor**: G3
+          - evShYwPR2ozz3F
+      - **[49]**:
+        - **alvo_uid**: Dpr13udQb9RUxa
+        - **pontos_uids**:
+          - t37WizPLDXn3v2
         - **escalada**: El paseo em Dinamicuzão
+        - **ids**:
+          - t37WizPLDXn3v2
 - **escaladas**:
   - **[0]**:
+    - **uid**: kCmvzGsc9vclWr
     - **via_esportiva**:
       - **descricao**: Uma das mais duras
       - **nome**: Quem manda aqui sou Eu "Eterosapiens"
@@ -1630,6 +2099,7 @@
         - Gustavo Veiga
         - Felipe Belisário
   - **[1]**:
+    - **uid**: jcTf8bMTQSzdRI
     - **via_esportiva**:
       - **descricao**: Em uma linha magnifica que corta a parte mais negativa da parede é a mais bonita e também a mais difícil do Sítio.
       - **nome**: Poder paralelos
@@ -1638,6 +2108,7 @@
         - Felipe Belisário
         - Marcela Romanelli
   - **[2]**:
+    - **uid**: oPR3AQpEM2qAtk
     - **via_esportiva**:
       - **descricao**: Via curta porem de muita movimentação com um boulder na saída.
       - **nome**: Pra você
@@ -1646,6 +2117,7 @@
         - Luiz Munrhá
         - Michael
   - **[3]**:
+    - **uid**: 8nz9fG1i2lvlHl
     - **via_esportiva**:
       - **descricao**: Via curta porem de muita movimentação.
       - **nome**: 100 limites
@@ -1654,6 +2126,7 @@
         - Igor
         - Natália
   - **[4]**:
+    - **uid**: pb0AZAzfCwQL0S
     - **via_esportiva**:
       - **descricao**: Chaminé no teto. Via bem diferente e necessário que um segundo escale limpando as costuras.
       - **nome**: Mentira não faz
@@ -1662,6 +2135,7 @@
         - Marius Bagnati
         - escaladores do Sul
   - **[5]**:
+    - **uid**: hlYDTl2RiGslzC
     - **via_esportiva**:
       - **descricao**: Via curtinha, quase um boulder.
       - **nome**: Elvira a rainha das trevas
@@ -1670,6 +2144,7 @@
         - Emerson Corradi
         - Gustavo Piancastelli
   - **[6]**:
+    - **uid**: a9sOswMwnTVNXu
     - **via_esportiva**:
       - **descricao**: Via curtinha que mistura força e técnica de encaixe.
       - **nome**: Pescoço de peixe
@@ -1678,6 +2153,7 @@
         - Wilson Novaes
         - Ivo
   - **[7]**:
+    - **uid**: TASmZRqlj39ndT
     - **via_esportiva**:
       - **descricao**: Atenção com as abelhas
       - **nome**: Lá fora chove, aqui dentro só pinga
@@ -1688,6 +2164,7 @@
         - Thiago "Tato"
         - Adraiano "Beckler"
   - **[8]**:
+    - **uid**: kQiXMWkmVpgdrB
     - **via_esportiva**:
       - **descricao**: Até o mosquetão.
       - **nome**: Climb in the rain
@@ -1695,6 +2172,7 @@
       - **conquistadores**:
         - Gustavo Piancastelli
   - **[9]**:
+    - **uid**: riZGNVTlHJpLyg
     - **via_esportiva**:
       - **descricao**: Boulder na saída.
       - **nome**: Invasão de privacidade
@@ -1704,6 +2182,7 @@
         - Marcus "Rufino"
         - Paulo "Exu"
   - **[10]**:
+    - **uid**: 4UVLL2SGgFmJ0A
     - **via_esportiva**:
       - **descricao**: Clássica !!! dos sétimos o mais bonito...
       - **nome**: El paseo
@@ -1712,11 +2191,13 @@
         - André Viana
         - Cláudia Ferreira
   - **[11]**:
+    - **uid**: VHpfhs8NHBGw1v
     - **via_esportiva**:
       - **descricao**: Clássica, muito técnica e equilíbrio, linda via.
       - **nome**: Dinamicuzão
       - **dificuldade**: BR_8B
   - **[12]**:
+    - **uid**: TwXskHCUe8KvMm
     - **via_esportiva**:
       - **descricao**: Via muito incrível, com um super Bote e um boulder no teto final.
       - **nome**: Catapulta
@@ -1726,6 +2207,7 @@
         - Felipe Belisario
         - Marcus "Rufino"
   - **[13]**:
+    - **uid**: mvch2fD1K5KCmf
     - **via_esportiva**:
       - **descricao**: Linda via, saída pela Catapulta, vai pra direita e depois pra cima.
       - **nome**: Rodilar
@@ -1735,6 +2217,7 @@
         - Felipe Belisario
         - Marcus "Rufino"
   - **[14]**:
+    - **uid**: V7jBsQsEgKctEy
     - **via_esportiva**:
       - **descricao**: Variante muito bacana, para desmontar e preciso desescalar até uma parada abaixo ou o segundo subir limpando.
       - **nome**: Dinamicuzão em Rodlá
@@ -1743,6 +2226,7 @@
         - Felipe Belisario
         - Marcus "Rufino"
   - **[15]**:
+    - **uid**: H3QghtOqkjRIfh
     - **via_esportiva**:
       - **descricao**: A Partir da quarta proteção, entra da Catapulta.
       - **nome**: Dinamicuzão em catapulta
@@ -1751,6 +2235,7 @@
         - Felipe Belisario
         - Marcus "Rufino"
   - **[16]**:
+    - **uid**: G2a7URYoDebtVu
     - **via_esportiva**:
       - **descricao**: A partir da quarta proteção, entra na El paseo.
       - **nome**: Dinamicuzão em El paseo
@@ -1759,6 +2244,7 @@
         - Felipe Belisario
         - Marcus "Rufino"
   - **[17]**:
+    - **uid**: Dpr13udQb9RUxa
     - **via_esportiva**:
       - **descricao**: A partir da quarta proteção, entra na Dinamicuzão.
       - **nome**: El paseo em Dinamicuzão
@@ -1767,6 +2253,7 @@
         - Felipe Belisario
         - Marcus "Rufino"
   - **[18]**:
+    - **uid**: zDk3xEIjB9snXQ
     - **via_movel**:
       - **descricao**: Linda via em fenda. Um jogo completo de friends Ótima opção!
       - **nome**: Fósseis do velho mundo
@@ -1775,6 +2262,7 @@
         - Andre Coutinho
         - Eduardo Viana
   - **[19]**:
+    - **uid**: gpZmZWq400vUe2
     - **via_esportiva**:
       - **descricao**: Boa via, com passadas de equilíbrio e muita movimentação.
       - **nome**: Querendo velho mundo
@@ -1782,6 +2270,7 @@
       - **conquistadores**:
         - Aloizio Carvalho
   - **[20]**:
+    - **uid**: 3jAC5cfhd35TRz
     - **via_esportiva**:
       - **descricao**: Clássica, bem completa com um boulder na saida, lances técnicos e de equilíbrio.
       - **nome**: Sem querer querendo
@@ -1791,6 +2280,7 @@
         - Pedro Assis
         - Yan Ouriques
   - **[21]**:
+    - **uid**: Y24nN8xmfRIdyk
     - **via_esportiva**:
       - **nome**: Segunda sem lei
       - **dificuldade**: BR_7C
@@ -1798,6 +2288,7 @@
         - Thiago "Vá"
         - GROTS
   - **[22]**:
+    - **uid**: Ul4jHQNWsBbTOS
     - **via_movel**:
       - **descricao**: 1ª e 3ª proteções feitas com fitas em pontes de pedra, com um crux muito bacana.
       - **nome**: Quinta desordeira
@@ -1807,6 +2298,7 @@
         - Vinicius de Assis
         - Daniel Mariano
   - **[23]**:
+    - **uid**: ZfLVIc0yOQIlox
     - **via_esportiva**:
       - **descricao**: Boa via, saída boulderistica com um crux depois meio esticado.
       - **nome**: Decapitados
@@ -1816,6 +2308,7 @@
         - Gustavo Piancastelli
         - Neuber Tadeu
   - **[24]**:
+    - **uid**: wXaHsI7pxZ2nsF
     - **via_esportiva**:
       - **descricao**: Boa pedida, via curta levemente negativa com boas agarrras.
       - **nome**: Já tá lá
@@ -1824,6 +2317,7 @@
         - Anderson Barbosa
         - André Coutinho
   - **[25]**:
+    - **uid**: hIsCTCc8nlGpG6
     - **via_esportiva**:
       - **descricao**: Muito frequentada.
       - **nome**: Tente outra vez
@@ -1833,6 +2327,7 @@
         - Juliano Profeta
         - Ricardo Leal
   - **[26]**:
+    - **uid**: UNirvrxDGNXKaF
     - **via_esportiva**:
       - **descricao**: Clássica, de ótima movimentação.
       - **nome**: A troca
@@ -1840,11 +2335,13 @@
       - **conquistadores**:
         - Vinicios Barbosa
   - **[27]**:
+    - **uid**: aWoDk4WJmMfOGQ
     - **via_esportiva**:
       - **descricao**: Via bem legal, escorregadia...
       - **nome**: No mato com os cachorros
       - **dificuldade**: BR_6SUP
   - **[28]**:
+    - **uid**: mXLdsMtoJaNGgM
     - **via_esportiva**:
       - **descricao**: Boa opção
       - **nome**: Secuzinho
@@ -1853,6 +2350,7 @@
         - Rod
         - Maximos
   - **[29]**:
+    - **uid**: QfxHLbP8enlmjP
     - **via_esportiva**:
       - **descricao**: Via bem boulderistica curta e grossa.
       - **nome**: Sublime obsessão
@@ -1860,6 +2358,7 @@
       - **conquistadores**:
         - Marcelo Braga
   - **[30]**:
+    - **uid**: Y7ogpbrEfN5SDZ
     - **via_esportiva**:
       - **descricao**: Boa opção!
       - **nome**: Não guenta senta
@@ -1867,6 +2366,7 @@
       - **conquistadores**:
         - Aloísio Carvalho
   - **[31]**:
+    - **uid**: Jrk4GhgmwbHxph
     - **via_esportiva**:
       - **descricao**: Bem frequentada. Boa para iniciantes!
       - **nome**: Despertar da curriola
@@ -1875,11 +2375,13 @@
         - Leonardo Hoffman
         - Rod
   - **[32]**:
+    - **uid**: igt0m7ZsV6rRh3
     - **via_movel**:
       - **descricao**: Peças médias. Top na Despertar da curriola.
       - **nome**: Variante
       - **dificuldade**: BR_6
   - **[33]**:
+    - **uid**: phZGZQ88jJIPU3
     - **via_movel**:
       - **descricao**: Peças medias, proteções de fitas. Boa opção para o fim do dia. Top em árvore no cume. Melhor o segundo subir de top limpando.
       - **nome**: Um dia depois de amanhã
@@ -1888,6 +2390,7 @@
         - "Marcelinho" Terra Zoni
         - Marcus "Rufino"
   - **[34]**:
+    - **uid**: m28nBrsBUK99aP
     - **via_esportiva**:
       - **descricao**: Via bem bacana de boa movimentação. Nota: escalador abrindo o pé na parede do lado o grau cai para 6sup.
       - **nome**: Prakaramba
@@ -1896,6 +2399,7 @@
         - Grots
         - Marcus "Rufino"
   - **[35]**:
+    - **uid**: 7gTRexxZCkE7NV
     - **via_movel**:
       - **descricao**: Via interessante, porem pouco frequentada, atenção top desconfortável.
       - **nome**: Estilo junkie
@@ -1904,6 +2408,7 @@
         - Gustavo Piancastelli
         - Vinicius
   - **[36]**:
+    - **uid**: rJMPyYaNb5xKlc
     - **via_esportiva**:
       - **descricao**: Boa opção para iniciantes
       - **nome**: Escalão Hilário
@@ -1911,6 +2416,7 @@
       - **conquistadores**:
         - Chico
   - **[37]**:
+    - **uid**: nP301ZzemueFY4
     - **via_esportiva**:
       - **descricao**: Crux com uma agarra que machuca!
       - **nome**: Missão impossível
@@ -1918,6 +2424,7 @@
       - **conquistadores**:
         - Alexandre Fonseca
   - **[38]**:
+    - **uid**: IFcwEEy1ZZuKS3
     - **via_esportiva**:
       - **descricao**: Bem frequentada, curtinha, negativa de boas agarrras.
       - **nome**: Bode negro
@@ -1926,6 +2433,7 @@
         - Leonardo Hoffman
         - Rod
   - **[39]**:
+    - **uid**: tUnoeSk1oPFe02
     - **via_esportiva**:
       - **descricao**: Tem duas opções de escalada, subir até terceira proteção em chaminé (5sup), ou pela parede (7c). Neste caso fica exposto, tenha atenção com um bloco inseguro perto da saída.
       - **nome**: V da via
@@ -1936,6 +2444,7 @@
         - Geraldo "Araxá"
         - Marcus "Rufino"
   - **[40]**:
+    - **uid**: IEAibl84wLzVJB
     - **via_esportiva**:
       - **descricao**: Boa opção
       - **nome**: Até que enfim
@@ -1945,6 +2454,7 @@
         - Thiago "Tato"
         - Joviney Medeiros
   - **[41]**:
+    - **uid**: aaO9oUr9Rro5Zh
     - **via_esportiva**:
       - **descricao**: Boa opção
       - **nome**: Noiados do maguina
@@ -1954,6 +2464,7 @@
         - Thiago "Tato"
         - Antonio
   - **[42]**:
+    - **uid**: EEpet2HVBn69jA
     - **via_esportiva**:
       - **descricao**: Começa na 3º proteção da "Noiados do Maguina"
       - **nome**: Da Cuca Lelé (variante)
@@ -1961,6 +2472,7 @@
       - **conquistadores**:
         - Arthur Garcia
   - **[43]**:
+    - **uid**: TaZQFKayl8mAeP
     - **via_esportiva**:
       - **descricao**: Boa opção, fica meio escondida, a saída a direita da Gaibous.
       - **nome**: Deus dos quatro anos
@@ -1968,6 +2480,7 @@
       - **conquistadores**:
         - Vinicius Barbosa
   - **[44]**:
+    - **uid**: HllGw2msTGMj1N
     - **via_esportiva**:
       - **descricao**: Clássica, negativa com boas agarrras.
       - **nome**: Gaibous in the laibous
@@ -1975,6 +2488,7 @@
       - **conquistadores**:
         - Escaladores gauchos
   - **[45]**:
+    - **uid**: lRkli5XRyIMCGk
     - **via_esportiva**:
       - **descricao**: Boulderistica!
       - **nome**: Power katronca
@@ -1982,6 +2496,7 @@
       - **conquistadores**:
         - Marius Bagnati
   - **[46]**:
+    - **uid**: TlRQFwUmzTUKk4
     - **via_esportiva**:
       - **descricao**: Curta e grossa!
       - **nome**: Muito punk
@@ -1990,6 +2505,7 @@
         - Gilberto
         - Agata
   - **[47]**:
+    - **uid**: KihNxnY9ICSBIi
     - **via_esportiva**:
       - **descricao**: Fica pouco escondida mas é muito boa opção.
       - **nome**: Demolição
@@ -1999,6 +2515,7 @@
         - Galbi
         - Felipe Belisario
   - **[48]**:
+    - **uid**: mEOGgFtzxODOuN
     - **via_esportiva**:
       - **descricao**: Via de curso.
       - **nome**: Big Wall do Salim
@@ -2006,6 +2523,7 @@
       - **conquistadores**:
         - Daniel "Salim"
   - **[49]**:
+    - **uid**: VPpf4y493PsUF3
     - **via_esportiva**:
       - **descricao**: Boa para iniciantes
       - **nome**: Patati Patata

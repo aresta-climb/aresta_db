@@ -4,10 +4,12 @@
 
 - **id**: br_mg_montes_claros_zuculim
 - **nome**: Fazenda Zuculin
+- **uid**: GBEfUpXFpg5463
 - **status_desenho_extraivel**: NAO_TEM_DESENHO
 - **caminho_thumbnail**: ![caminho_thumbnail](imagens/capa_p0.webp)
 - **botoes**:
   - **[0]**:
+    - **uid**: 3OMrYebvZii3Zz
     - **texto**: Capa
     - **destino**:
       - **secao_textual**:
@@ -34,6 +36,7 @@
             Site: www.aenmg.com.br
             E-mail: aenmg@hotmail.com
   - **[1]**:
+    - **uid**: AWSBKz21uEb40D
     - **texto**: Regras Importantes
     - **destino**:
       - **secao_textual**:
@@ -55,7 +58,7 @@
             AENMG – Associação de Escaladores do Norte de Minas Gerais
             Site: www.aenmg.com.br
             E-mail: aenmg@hotmail.com
-- **ultima_migracao**: 4
+- **ultima_migracao**: 5
 
 
 ## Parte: setor_1
@@ -64,6 +67,7 @@
 
 - **descricao**: 
 - **nome**: Setor 1 - ZUCULIN
+- **uid**: eYRbBaO7VB5d0v
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_1_p0_i0.webp)
@@ -71,26 +75,32 @@
     - **altura_mapa**: 1155
 - **escaladas**:
   - **[0]**:
+    - **uid**: 62i7Z8y45xRnvf
     - **via_esportiva**:
       - **nome**: Escada de Macaco
       - **dificuldade**: PROJETO
   - **[1]**:
+    - **uid**: evV1rdd0V51EYc
     - **via_esportiva**:
       - **nome**: Chuva de Medo
       - **dificuldade**: BR_8A
   - **[2]**:
+    - **uid**: sD0K7DgUxRM4bp
     - **via_esportiva**:
       - **nome**: Usuário de Crock
       - **dificuldade**: BR_7A
   - **[3]**:
+    - **uid**: MBr4ugSyG08f3y
     - **via_esportiva**:
       - **nome**: Detenção sem Muro
       - **dificuldade**: BR_7A
   - **[4]**:
+    - **uid**: iyBj3e7uPTwvn6
     - **via_esportiva**:
       - **nome**: Chave Reserva
       - **dificuldade**: BR_7B
   - **[5]**:
+    - **uid**: MziFfmWvgmwwFU
     - **via_esportiva**:
       - **nome**: Mamba Negra
       - **dificuldade**: BR_8A
@@ -105,6 +115,7 @@
 
 - **descricao**: 
 - **nome**: Setor 2 - Setor do Buraco
+- **uid**: QzYPcwLtGofCF7
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_2_do_buraco_p0_i0.webp)
@@ -112,38 +123,47 @@
     - **altura_mapa**: 1228
 - **escaladas**:
   - **[0]**:
+    - **uid**: 1grjM8jaSWyaSY
     - **via_esportiva**:
       - **nome**: Aureura Boreal
       - **dificuldade**: BR_6SUP
   - **[1]**:
+    - **uid**: AJTb49y0YNGBX5
     - **via_esportiva**:
       - **nome**: Zuculin
       - **dificuldade**: BR_7C
   - **[2]**:
+    - **uid**: OERpHRnk37KX9m
     - **via_esportiva**:
       - **nome**: Morador Verde
       - **dificuldade**: BR_7B
   - **[3]**:
+    - **uid**: YRZUMfAuNWY0Cw
     - **via_esportiva**:
       - **nome**: Prisão de Bolt
       - **dificuldade**: BR_7C_BARRA_8A
   - **[4]**:
+    - **uid**: MRpRjxlSK8sMP3
     - **via_esportiva**:
       - **nome**: Nova Era
       - **dificuldade**: BR_7B
   - **[5]**:
+    - **uid**: BIqleCnVngHDuY
     - **via_esportiva**:
       - **nome**: Dinastia Ming
       - **dificuldade**: INDEFINIDO
   - **[6]**:
+    - **uid**: kJ2Pn29G9elWkq
     - **via_esportiva**:
       - **nome**: Aprendiz de Conquisteiro
       - **dificuldade**: PROJETO
   - **[7]**:
+    - **uid**: yH9vnHOdFcBxMk
     - **via_esportiva**:
       - **nome**: Totem
       - **dificuldade**: PROJETO
   - **[8]**:
+    - **uid**: fgnMuIhUxSSszD
     - **via_esportiva**:
       - **nome**: Tempestade de Calcário
       - **dificuldade**: PROJETO
@@ -158,6 +178,7 @@
 
 - **descricao**: 
 - **nome**: Setor 3 - ZUCULIN
+- **uid**: UdEjq4igKqTTsV
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_3_p0_i0.webp)
@@ -165,23 +186,28 @@
     - **altura_mapa**: 727
 - **escaladas**:
   - **[0]**:
+    - **uid**: veFpFAeWzoK9Uu
     - **via_esportiva**:
       - **nome**: Tempestade de Calcário
       - **dificuldade**: PROJETO
   - **[1]**:
+    - **uid**: MJTvrlLkHU196M
     - **via_esportiva**:
       - **descricao**: Falta Top Duplo
       - **nome**: Lombra
       - **dificuldade**: BR_6
   - **[2]**:
+    - **uid**: WAeiAET5UNkwdV
     - **via_esportiva**:
       - **nome**: Água Fresca
       - **dificuldade**: BR_6
   - **[3]**:
+    - **uid**: XWvdAjYsNaXqMg
     - **via_esportiva**:
       - **nome**: Navegantes da Ilusão
       - **dificuldade**: BR_7B
   - **[4]**:
+    - **uid**: SPju51hMw2jpQp
     - **via_esportiva**:
       - **nome**: Pérola Negra
       - **dificuldade**: PROJETO
@@ -196,6 +222,7 @@
 
 - **descricao**: 
 - **nome**: Setor 4 - Setor da Caverna
+- **uid**: m7KIHP0rQHkttZ
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_4_da_caverna_p0_i0.webp)
@@ -203,30 +230,37 @@
     - **altura_mapa**: 1044
 - **escaladas**:
   - **[0]**:
+    - **uid**: OCTtVAxrCAYHOv
     - **via_esportiva**:
       - **nome**: Pérola Negra
       - **dificuldade**: PROJETO
   - **[1]**:
+    - **uid**: aK3C3tQ13CfACh
     - **via_esportiva**:
       - **nome**: Calabouço
       - **dificuldade**: BR_8B
   - **[2]**:
+    - **uid**: jswczqh6pyhuPA
     - **via_esportiva**:
       - **nome**: Iluminado
       - **dificuldade**: BR_9C
   - **[3]**:
+    - **uid**: 9hwaD23x7sk4eI
     - **via_esportiva**:
       - **nome**: Zuzu Dreams
       - **dificuldade**: BR_9A_BARRA_9B
   - **[4]**:
+    - **uid**: qTjCja63Sm7dSZ
     - **via_esportiva**:
       - **nome**: Zuzutime
       - **dificuldade**: BR_8C
   - **[5]**:
+    - **uid**: tDtYB3dZMU5549
     - **via_esportiva**:
       - **nome**: Zuzulin
       - **dificuldade**: BR_8A
   - **[6]**:
+    - **uid**: 4nk4oX9Zc5ZGtU
     - **via_esportiva**:
       - **nome**: Epinefrina 05
       - **dificuldade**: PROJETO

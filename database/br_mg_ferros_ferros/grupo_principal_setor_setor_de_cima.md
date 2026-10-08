@@ -1,6 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+uid: E0ZwbLrlRUznG0
 caminho_imagem_capa: imagens/grupo_principal_setor_setor_de_cima_p1_i0_0.webp
 nome: Setor de Cima
 mapas:
@@ -8,43 +9,41 @@ mapas:
   largura_mapa: 2009
   altura_mapa: 1243
   referencias:
-  - escalada: Noite de São João
-    ids:
-    - '1'
-  - escalada: Um Momento no Tempo
-    ids:
-    - '2'
-  - ids:
-    - parede_principal_central
-    grupo: Parede Principal (Paredes de Aço)
-    setor: Setor Central
-  - ids:
-    - parede_principal_classicas_longas
-    grupo: Parede Principal (Paredes de Aço)
-    setor: Setor Clássicas Longas
+  - alvo_uid: N55UoPSK5yscyM
+    pontos_uids:
+    - FC4KMKwMInqZCU
+  - alvo_uid: A85zzdlHkxR4KZ
+    pontos_uids:
+    - shp5bk9wAk3NGk
+  - alvo_uid: nJgmAcSxMTe2Xy
+    pontos_uids:
+    - Mskk0UiTXTj0wT
+  - alvo_uid: 0swIknUTarrNZN
+    pontos_uids:
+    - jr9EjzpW6AvKFk
   pontos_de_interesse:
-  - id: '1'
-    label: '1'
+  - uid: FC4KMKwMInqZCU
+    rotulo: '1'
     circulo:
       x: 857
       y: 699
       raio: 24
-  - id: '2'
-    label: '2'
+  - uid: shp5bk9wAk3NGk
+    rotulo: '2'
     circulo:
       x: 898
       y: 796
       raio: 24
-  - id: parede_principal_central
-    label: Parede Principal Central
+  - uid: Mskk0UiTXTj0wT
+    rotulo: Parede Principal Central
     retangulo:
       x: 356
       y: 380
       comprimento: 394
       largura: 77
     cor: ''
-  - id: parede_principal_classicas_longas
-    label: Parede Principal Clássicas Longas
+  - uid: jr9EjzpW6AvKFk
+    rotulo: Parede Principal Clássicas Longas
     retangulo:
       x: 1355
       y: 1152
@@ -55,65 +54,61 @@ mapas:
   largura_mapa: 2015
   altura_mapa: 1240
   referencias:
-  - escalada: Um Momento no Tempo
-    ids:
-    - '1'
-  - escalada: Noite de São João
-    ids:
-    - '2'
-  - ids:
-    - Setor Central
-    setor: Setor Central
-  - ids:
-    - Clássicas Longas
-    setor: Setor Clássicas Longas
-  - ids:
-    - a_francesa
-    grupo: Parede Principal (Paredes de Aço)
-    setor: Setor Clássicas Longas
-    escalada: À Francesa
-  - ids:
-    - ferro_no_judas
-    grupo: Parede Principal (Paredes de Aço)
-    setor: Setor Central
-    escalada: Ferro no Judas
+  - alvo_uid: A85zzdlHkxR4KZ
+    pontos_uids:
+    - LxIFAscKVZV01P
+  - alvo_uid: N55UoPSK5yscyM
+    pontos_uids:
+    - 8VoG6X525pntxE
+  - alvo_uid: nJgmAcSxMTe2Xy
+    pontos_uids:
+    - uCpy6z8NF8bNal
+  - alvo_uid: 0swIknUTarrNZN
+    pontos_uids:
+    - XH25rlEJKrkooj
+  - alvo_uid: ppRjvPjQbmhQLX
+    pontos_uids:
+    - ZfJTTEQafkPoav
+  - alvo_uid: RhsrAWstcYoX5K
+    pontos_uids:
+    - k7fYr0a91HRlJd
   pontos_de_interesse:
-  - id: '1'
-    label: '1'
+  - uid: LxIFAscKVZV01P
+    rotulo: '1'
     circulo:
       x: 900
       y: 1053
       raio: 36
-  - id: '2'
-    label: '2'
+  - uid: 8VoG6X525pntxE
+    rotulo: '2'
     circulo:
       x: 866
       y: 1195
       raio: 36
-  - id: Setor Central
-    label: Setor Central
+  - uid: uCpy6z8NF8bNal
+    rotulo: Setor Central
     retangulo:
       x: 1798
       y: 1126
       comprimento: 219
       largura: 134
-  - id: Clássicas Longas
-    label: Clássicas Longas
+  - uid: XH25rlEJKrkooj
+    rotulo: Clássicas Longas
     retangulo:
       x: 162
       y: 830
       comprimento: 281
       largura: 153
-  - id: a_francesa
-    label: À Francesa
+  - uid: ZfJTTEQafkPoav
+    rotulo: À Francesa
     retangulo:
       x: 528
       y: 930
       comprimento: 278
       largura: 77
     cor: ''
-  - id: ferro_no_judas
-    label: Ferro no Judas
+  - uid: k7fYr0a91HRlJd
+    rotulo: Ferro no Judas
     retangulo:
       x: 1484
       y: 1158
@@ -121,7 +116,8 @@ mapas:
       largura: 104
     cor: ''
 escaladas:
-- via_multiplas_enfiadas:
+- uid: A85zzdlHkxR4KZ
+  via_multiplas_enfiadas:
     nome: Um Momento no Tempo
     dificuldade_media: BR_4
     dificuldade_maxima: BR_6
@@ -136,11 +132,10 @@ escaladas:
     - Pedro Bugim
     - Maria Fernanda Patrício
     data_abertura: '2015-02-17'
-    descricao: Ótima via, que inicia em um fácil costão, para então ganhar uma bonita
-      canaleta e finalmente, uma barriga feita em aderência, onde encontra-se o crux
-      (primeira metade da via). A primeira enfiada (e mais bonita) possui proteção
-      generosa, enquanto que a segunda enfiada, bem mais fácil, possui proteções mais
-      espaçadas até atingir o topo da parede.
+    descricao: Ótima via, que inicia em um fácil costão, para então ganhar uma bonita canaleta e finalmente, uma barriga
+      feita em aderência, onde encontra-se o crux (primeira metade da via). A primeira enfiada (e mais bonita) possui 
+      proteção generosa, enquanto que a segunda enfiada, bem mais fácil, possui proteções mais espaçadas até atingir o 
+      topo da parede.
     enfiadas:
     - via_esportiva:
         nome: 1ª Enfiada (P1)
@@ -158,7 +153,8 @@ escaladas:
   - caminho_imagem_mapa: imagens/grupo_principal_setor_setor_de_cima_p3_i1.webp
     largura_mapa: 1086
     altura_mapa: 741
-- via_multiplas_enfiadas:
+- uid: N55UoPSK5yscyM
+  via_multiplas_enfiadas:
     nome: Noite de São João
     dificuldade_media: BR_3
     dificuldade_maxima: BR_3SUP
@@ -194,6 +190,7 @@ escaladas:
     largura_mapa: 518
     altura_mapa: 331
 ---
+
 <small>Capa: Vista da Parede Principal - Setor de Cima, durante o rapel da "Um Momento no Tempo". Todo este setor encontra-se ainda sem vias (Foto: Pedro Bugim)</small>
 
 ## Esquema de Trilhas e Acesso

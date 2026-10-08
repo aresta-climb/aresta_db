@@ -1,6 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+uid: hLETQNgAujWKqB
 caminho_imagem_capa: imagens/setor_entrada_p0_i0.webp
 nome: Entrada
 setores:

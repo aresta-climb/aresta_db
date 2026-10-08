@@ -1,14 +1,15 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+uid: KI4NlW8NWOaIIW
 nome: Setor principal
 mapas:
 - caminho_imagem_mapa: imagens/setor_capela_externa_p2.webp
   largura_mapa: 1773
   altura_mapa: 2364
   pontos_de_interesse:
-  - id: linha_17
-    label: ''
+  - uid: HKcTTfSfCuBwAD
+    rotulo: ''
     linha:
       estilo: SOLIDO
       conteudo:
@@ -80,8 +81,8 @@ mapas:
           rotulo: A
       espessura: 6
     cor: '#FF1744'
-  - id: linha_18
-    label: ''
+  - uid: Haj68bmHLqo9sE
+    rotulo: ''
     linha:
       estilo: SOLIDO
       conteudo:
@@ -138,8 +139,8 @@ mapas:
           rotulo: B
       espessura: 6
     cor: '#FF1744'
-  - id: linha_19
-    label: ''
+  - uid: uDg1BD2NjpOCNh
+    rotulo: ''
     linha:
       estilo: SOLIDO
       conteudo:
@@ -196,8 +197,8 @@ mapas:
           rotulo: C
       espessura: 6
     cor: '#FF1744'
-  - id: linha_20
-    label: ''
+  - uid: PH0TqGX93p27do
+    rotulo: ''
     linha:
       estilo: SOLIDO
       conteudo:
@@ -239,8 +240,8 @@ mapas:
           rotulo: D
       espessura: 6
     cor: '#FF1744'
-  - id: linha_21
-    label: ''
+  - uid: hzVQ3SKhonh9ZI
+    rotulo: ''
     linha:
       estilo: SOLIDO
       conteudo:
@@ -276,8 +277,8 @@ mapas:
           rotulo: E
       espessura: 6
     cor: '#FF1744'
-  - id: linha_22
-    label: ''
+  - uid: uqj1txFAToioS9
+    rotulo: ''
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -313,8 +314,8 @@ mapas:
           rotulo: F
       espessura: 6
     cor: '#00E676'
-  - id: linha_23
-    label: ''
+  - uid: rVhvWUkENcaLp8
+    rotulo: ''
     linha:
       estilo: SOLIDO
       conteudo:
@@ -353,8 +354,8 @@ mapas:
           rotulo: G
       espessura: 6
     cor: '#D500F9'
-  - id: linha_24
-    label: ''
+  - uid: HKuNUmArh9pqBR
+    rotulo: ''
     linha:
       estilo: SOLIDO
       conteudo:
@@ -399,8 +400,8 @@ mapas:
           rotulo: H
       espessura: 6
     cor: '#D500F9'
-  - id: linha_25
-    label: ''
+  - uid: vSvd4vNFxHDE8D
+    rotulo: ''
     linha:
       estilo: SOLIDO
       conteudo:
@@ -436,8 +437,8 @@ mapas:
           rotulo: H
       espessura: 6
     cor: '#FF1744'
-  - id: linha_28
-    label: ''
+  - uid: 5SVp53Mya7NpUL
+    rotulo: ''
     linha:
       estilo: SOLIDO
       conteudo:
@@ -461,7 +462,7 @@ mapas:
           rotulo: H
       espessura: 6
     cor: '#D500F9'
-  - id: linha_26
+  - uid: X54GH7M5dUNPTF
     linha:
       estilo: SOLIDO
       conteudo:
@@ -496,7 +497,7 @@ mapas:
           rotulo: J
       espessura: 6
     cor: '#FF1744'
-  - id: linha_29
+  - uid: 1WRkXw11vm5M4a
     linha:
       estilo: SOLIDO
       conteudo:
@@ -519,8 +520,8 @@ mapas:
           rotulo: I
       espessura: 6
     cor: '#FF1744'
-  - id: linha_27
-    label: ''
+  - uid: k4NGrnNmipXysx
+    rotulo: ''
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -565,8 +566,8 @@ mapas:
           rotulo: J
       espessura: 6
     cor: '#00E676'
-  - id: linha_44
-    label: ''
+  - uid: GAoMOukSPLmz4L
+    rotulo: ''
     linha:
       estilo: SOLIDO
       conteudo:
@@ -614,7 +615,7 @@ mapas:
           rotulo: K
       espessura: 6
     cor: '#FF1744'
-  - id: linha_16
+  - uid: JsEzcfIYcwbNJB
     linha:
       estilo: SOLIDO
       conteudo:
@@ -713,7 +714,7 @@ mapas:
           rotulo: ''
       espessura: 6
     cor: '#FF1744'
-  - id: linha_43
+  - uid: PXOqVuGcWNuXKk
     linha:
       estilo: SOLIDO
       conteudo:
@@ -732,8 +733,8 @@ mapas:
           rotulo: A
       espessura: 6
     cor: '#FF1744'
-  - id: linha_15
-    label: ''
+  - uid: 3Ft0gIajOpwd6G
+    rotulo: ''
     linha:
       estilo: SOLIDO
       conteudo:
@@ -773,65 +774,65 @@ mapas:
       espessura: 6
     cor: '#D500F9'
   referencias:
-  - escalada: Misericórdia
-    ids:
-    - linha_17
-  - ids:
-    - linha_18
-    escalada: Excomungado
-  - ids:
-    - linha_19
-    escalada: Crisma
-  - ids:
-    - linha_20
-    escalada: Primeira Comunhão
-  - ids:
-    - linha_21
-    escalada: Tribunal da inquisição
-  - ids:
-    - linha_22
-    escalada: Proj
-  - ids:
-    - linha_18
-    - linha_23
-    escalada: Extensão Piedade
-  - ids:
-    - linha_24
-    - linha_18
-    escalada: Extensão Penitência
-  - ids:
-    - linha_25
-    escalada: Chama Jesus
-  - ids:
-    - linha_26
-    - linha_29
-    escalada: Variante Santo do Pau Oco
-  - ids:
-    - linha_28
-    - linha_26
-    - linha_29
-    escalada: Variante Santo do Pau Oco (extensão)
-  - ids:
-    - linha_27
-    - linha_26
-    escalada: Projeto Aresta
-  - ids:
-    - linha_44
-    escalada: Missionárias do Além
-  - ids:
-    - linha_16
-    - linha_43
-    escalada: Água Benta
-  - ids:
-    - linha_15
-    - linha_16
-    escalada: Variante Água Ardente
+  - alvo_uid: cR9vug3lhKEZ1s
+    pontos_uids:
+    - HKcTTfSfCuBwAD
+  - alvo_uid: EGBbnsf5w525IM
+    pontos_uids:
+    - Haj68bmHLqo9sE
+  - alvo_uid: o1EX8168cyvAmv
+    pontos_uids:
+    - uDg1BD2NjpOCNh
+  - alvo_uid: MOxqASBLS8QHbK
+    pontos_uids:
+    - PH0TqGX93p27do
+  - alvo_uid: hdecePrG3R8YaC
+    pontos_uids:
+    - hzVQ3SKhonh9ZI
+  - alvo_uid: FnHzOhpeTEn2sT
+    pontos_uids:
+    - uqj1txFAToioS9
+  - alvo_uid: GRVzMUDrcZ39wf
+    pontos_uids:
+    - Haj68bmHLqo9sE
+    - rVhvWUkENcaLp8
+  - alvo_uid: hLsVIdZKQ9VeUJ
+    pontos_uids:
+    - HKuNUmArh9pqBR
+    - Haj68bmHLqo9sE
+  - alvo_uid: cHn90YpbxXqQRF
+    pontos_uids:
+    - vSvd4vNFxHDE8D
+  - alvo_uid: wodKaOmLPIbirQ
+    pontos_uids:
+    - X54GH7M5dUNPTF
+    - 1WRkXw11vm5M4a
+  - alvo_uid: nhC5JJljtzD0LB
+    pontos_uids:
+    - 5SVp53Mya7NpUL
+    - X54GH7M5dUNPTF
+    - 1WRkXw11vm5M4a
+  - alvo_uid: 8iXm4ulWkfmMAq
+    pontos_uids:
+    - k4NGrnNmipXysx
+    - X54GH7M5dUNPTF
+  - alvo_uid: ORxLpEqaVr3jtN
+    pontos_uids:
+    - GAoMOukSPLmz4L
+  - alvo_uid: B6jTijHVv9N5CR
+    pontos_uids:
+    - JsEzcfIYcwbNJB
+    - PXOqVuGcWNuXKk
+  - alvo_uid: hEAxAy5uZ9BnoK
+    pontos_uids:
+    - 3Ft0gIajOpwd6G
+    - JsEzcfIYcwbNJB
 - caminho_imagem_mapa: imagens/setor_capelinha_visaoexterna_p3.webp
   largura_mapa: 1773
   altura_mapa: 2364
   pontos_de_interesse:
-  - id: linha_32
-    label: ''
+  - uid: B45PhzG03QuJXF
+    rotulo: ''
     linha:
       estilo: SOLIDO
       conteudo:
@@ -855,8 +856,8 @@ mapas:
           rotulo: A
       espessura: 6
     cor: '#FF1744'
-  - id: linha_36
-    label: ''
+  - uid: XlnITQxCQgLjDv
+    rotulo: ''
     linha:
       estilo: SOLIDO
       conteudo:
@@ -901,8 +902,8 @@ mapas:
           rotulo: B
       espessura: 6
     cor: '#FF1744'
-  - id: linha_37
-    label: ''
+  - uid: G6mRccML2Z73nu
+    rotulo: ''
     linha:
       estilo: SOLIDO
       conteudo:
@@ -962,8 +963,8 @@ mapas:
           rotulo: C
       espessura: 6
     cor: '#FF1744'
-  - id: linha_39
-    label: ''
+  - uid: NX6DKHm096RWBd
+    rotulo: ''
     linha:
       estilo: SOLIDO
       conteudo:
@@ -987,7 +988,7 @@ mapas:
           rotulo: H
       espessura: 6
     cor: '#FF1744'
-  - id: linha_40
+  - uid: kzcqTarOsXPxzo
     linha:
       estilo: SOLIDO
       conteudo:
@@ -1042,7 +1043,7 @@ mapas:
           rotulo: E
       espessura: 6
     cor: '#FF1744'
-  - id: linha_41
+  - uid: UQHpleJDF5CDwC
     linha:
       estilo: SOLIDO
       conteudo:
@@ -1065,8 +1066,8 @@ mapas:
           rotulo: D
       espessura: 6
     cor: '#FF1744'
-  - id: linha_38
-    label: ''
+  - uid: wWLCQvWCblD9dh
+    rotulo: ''
     linha:
       estilo: SOLIDO
       conteudo:
@@ -1111,8 +1112,8 @@ mapas:
           rotulo: J
       espessura: 6
     cor: '#00E676'
-  - id: linha_34
-    label: ''
+  - uid: 4Q8xvk1w6CLgo3
+    rotulo: ''
     linha:
       estilo: SOLIDO
       conteudo:
@@ -1151,8 +1152,8 @@ mapas:
           rotulo: F
       espessura: 6
     cor: '#D500F9'
-  - id: linha_35
-    label: ''
+  - uid: mb9U43cT2tDl9a
+    rotulo: ''
     linha:
       estilo: SOLIDO
       conteudo:
@@ -1197,8 +1198,8 @@ mapas:
           rotulo: G
       espessura: 6
     cor: '#D500F9'
-  - id: linha_31
-    label: ''
+  - uid: 850d9gyea4InJj
+    rotulo: ''
     linha:
       estilo: SOLIDO
       conteudo:
@@ -1234,7 +1235,7 @@ mapas:
           rotulo: H
       espessura: 6
     cor: '#FF1744'
-  - id: linha_33
+  - uid: plxP2gxYJeqgU7
     linha:
       estilo: SOLIDO
       conteudo:
@@ -1269,7 +1270,7 @@ mapas:
           rotulo: ''
       espessura: 6
     cor: '#FF1744'
-  - id: linha_42
+  - uid: KLljRokkU6g4fO
     linha:
       estilo: SOLIDO
       conteudo:
@@ -1292,8 +1293,8 @@ mapas:
           rotulo: H
       espessura: 6
     cor: '#FF1744'
-  - id: linha_30
-    label: ''
+  - uid: HVxNzRp5mAUbbp
+    rotulo: ''
     linha:
       estilo: SOLIDO
       conteudo:
@@ -1330,51 +1331,51 @@ mapas:
       espessura: 6
     cor: '#D500F9'
   referencias:
-  - ids:
-    - linha_32
-    escalada: Excomungado
-  - ids:
-    - linha_36
-    escalada: Chama Jesus
-  - ids:
-    - linha_37
-    escalada: Missionárias do Além
-  - ids:
-    - linha_40
-    - linha_41
-    escalada: Variante Santo do Pau Oco
-  - ids:
-    - linha_39
-    - linha_40
-    - linha_41
-    escalada: Variante Santo do Pau Oco (extensão)
-  - ids:
-    - linha_38
-    - linha_40
-    escalada: Projeto Aresta
-  - ids:
-    - linha_34
-    escalada: Extensão Penitência
-  - ids:
-    - linha_35
-    escalada: Extensão Piedade
-  - ids:
-    - linha_33
-    - linha_42
-    escalada: Água Benta
-  - ids:
-    - linha_31
-    escalada: Misericórdia
-  - ids:
-    - linha_30
-    - linha_33
-    escalada: Variante Água Ardente
+  - alvo_uid: EGBbnsf5w525IM
+    pontos_uids:
+    - B45PhzG03QuJXF
+  - alvo_uid: cHn90YpbxXqQRF
+    pontos_uids:
+    - XlnITQxCQgLjDv
+  - alvo_uid: ORxLpEqaVr3jtN
+    pontos_uids:
+    - G6mRccML2Z73nu
+  - alvo_uid: wodKaOmLPIbirQ
+    pontos_uids:
+    - kzcqTarOsXPxzo
+    - UQHpleJDF5CDwC
+  - alvo_uid: nhC5JJljtzD0LB
+    pontos_uids:
+    - NX6DKHm096RWBd
+    - kzcqTarOsXPxzo
+    - UQHpleJDF5CDwC
+  - alvo_uid: 8iXm4ulWkfmMAq
+    pontos_uids:
+    - wWLCQvWCblD9dh
+    - kzcqTarOsXPxzo
+  - alvo_uid: hLsVIdZKQ9VeUJ
+    pontos_uids:
+    - 4Q8xvk1w6CLgo3
+  - alvo_uid: GRVzMUDrcZ39wf
+    pontos_uids:
+    - mb9U43cT2tDl9a
+  - alvo_uid: B6jTijHVv9N5CR
+    pontos_uids:
+    - plxP2gxYJeqgU7
+    - KLljRokkU6g4fO
+  - alvo_uid: cR9vug3lhKEZ1s
+    pontos_uids:
+    - 850d9gyea4InJj
+  - alvo_uid: hEAxAy5uZ9BnoK
+    pontos_uids:
+    - HVxNzRp5mAUbbp
+    - plxP2gxYJeqgU7
 - caminho_imagem_mapa: imagens/setor_baixo_visao_externa_p0.webp
   largura_mapa: 1773
   altura_mapa: 2364
   pontos_de_interesse:
-  - id: linha_1
-    label: ''
+  - uid: NiIsHRRPKiYuzj
+    rotulo: ''
     linha:
       estilo: SOLIDO
       conteudo:
@@ -1443,8 +1444,8 @@ mapas:
           rotulo: A
       espessura: 6
     cor: '#FF1744'
-  - id: linha_2
-    label: ''
+  - uid: T3u9i5FeZQBJ4F
+    rotulo: ''
     linha:
       estilo: SOLIDO
       conteudo:
@@ -1504,8 +1505,8 @@ mapas:
           rotulo: A
       espessura: 6
     cor: '#FF1744'
-  - id: linha_3
-    label: ''
+  - uid: xd5CMVY4Y4VO9D
+    rotulo: ''
     linha:
       estilo: SOLIDO
       conteudo:
@@ -1556,8 +1557,8 @@ mapas:
           rotulo: B
       espessura: 6
     cor: '#FF1744'
-  - id: linha_4
-    label: ''
+  - uid: 5w7VrWdqJXmPjz
+    rotulo: ''
     linha:
       estilo: SOLIDO
       conteudo:
@@ -1623,8 +1624,8 @@ mapas:
           rotulo: C
       espessura: 6
     cor: '#FF1744'
-  - id: linha_5
-    label: ''
+  - uid: RxNpEP6K79R4H4
+    rotulo: ''
     linha:
       estilo: SOLIDO
       conteudo:
@@ -1669,8 +1670,8 @@ mapas:
           rotulo: D
       espessura: 6
     cor: '#FF1744'
-  - id: linha_6
-    label: ''
+  - uid: ncR8xmuvwRxMm6
+    rotulo: ''
     linha:
       estilo: SOLIDO
       conteudo:
@@ -1715,8 +1716,8 @@ mapas:
           rotulo: E
       espessura: 6
     cor: '#FF1744'
-  - id: linha_7
-    label: ''
+  - uid: 8R1VaFw2Slbge6
+    rotulo: ''
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -1750,33 +1751,33 @@ mapas:
       espessura: 6
     cor: '#00E676'
   referencias:
-  - ids:
-    - linha_1
-    escalada: Água Benta
-  - ids:
-    - linha_2
-    escalada: Misericórdia
-  - ids:
-    - linha_3
-    escalada: Excomungado
-  - ids:
-    - linha_4
-    escalada: Crisma
-  - ids:
-    - linha_5
-    escalada: Primeira Comunhão
-  - ids:
-    - linha_6
-    escalada: Tribunal da inquisição
-  - ids:
-    - linha_7
-    escalada: Proj
+  - alvo_uid: B6jTijHVv9N5CR
+    pontos_uids:
+    - NiIsHRRPKiYuzj
+  - alvo_uid: cR9vug3lhKEZ1s
+    pontos_uids:
+    - T3u9i5FeZQBJ4F
+  - alvo_uid: EGBbnsf5w525IM
+    pontos_uids:
+    - xd5CMVY4Y4VO9D
+  - alvo_uid: o1EX8168cyvAmv
+    pontos_uids:
+    - 5w7VrWdqJXmPjz
+  - alvo_uid: MOxqASBLS8QHbK
+    pontos_uids:
+    - RxNpEP6K79R4H4
+  - alvo_uid: hdecePrG3R8YaC
+    pontos_uids:
+    - ncR8xmuvwRxMm6
+  - alvo_uid: FnHzOhpeTEn2sT
+    pontos_uids:
+    - 8R1VaFw2Slbge6
 - caminho_imagem_mapa: imagens/setor_capela_interna_p1.webp
   largura_mapa: 2364
   altura_mapa: 1773
   pontos_de_interesse:
-  - id: linha_8
-    label: ''
+  - uid: kP03Bpe6KoiD9b
+    rotulo: ''
     linha:
       estilo: SOLIDO
       conteudo:
@@ -1821,8 +1822,8 @@ mapas:
           rotulo: A
       espessura: 6
     cor: '#FF1744'
-  - id: linha_9
-    label: ''
+  - uid: 80JRNB4qw0K3aR
+    rotulo: ''
     linha:
       estilo: SOLIDO
       conteudo:
@@ -1879,8 +1880,8 @@ mapas:
           rotulo: B
       espessura: 6
     cor: '#FF1744'
-  - id: linha_10
-    label: ''
+  - uid: NECWHfHXmMLoyq
+    rotulo: ''
     linha:
       estilo: SOLIDO
       conteudo:
@@ -1928,8 +1929,8 @@ mapas:
           rotulo: C
       espessura: 6
     cor: '#FF1744'
-  - id: linha_11
-    label: ''
+  - uid: HtzmNCKPNc4Vzc
+    rotulo: ''
     linha:
       estilo: SOLIDO
       conteudo:
@@ -1992,7 +1993,8 @@ mapas:
           rotulo: D
       espessura: 6
     cor: '#FF1744'
-  - id: linha_12
+  - uid: VkgAULn9wfezPW
+    rotulo: ''
     linha:
       estilo: SOLIDO
       conteudo:
@@ -2040,8 +2042,8 @@ mapas:
           rotulo: E
       espessura: 6
     cor: '#FF1744'
-    label: ''
-  - id: linha_13
+  - uid: zEd2TPMuHBRPzV
+    rotulo: ''
     linha:
       estilo: SOLIDO
       conteudo:
@@ -2089,9 +2091,8 @@ mapas:
           rotulo: F
       espessura: 6
     cor: '#FF1744'
-    label: ''
-  - id: linha_14
-    label: ''
+  - uid: JhsoqmZMDlGfra
+    rotulo: ''
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -2128,29 +2129,30 @@ mapas:
       espessura: 6
     cor: '#00E676'
   referencias:
-  - ids:
-    - linha_8
-    escalada: Água Benta
-  - ids:
-    - linha_9
-    escalada: Misericórdia
-  - ids:
-    - linha_10
-    escalada: Excomungado
-  - ids:
-    - linha_11
-    escalada: Crisma
-  - ids:
-    - linha_12
-    escalada: Primeira Comunhão
-  - ids:
-    - linha_13
-    escalada: Tribunal da inquisição
-  - ids:
-    - linha_14
-    escalada: Proj
+  - alvo_uid: B6jTijHVv9N5CR
+    pontos_uids:
+    - kP03Bpe6KoiD9b
+  - alvo_uid: cR9vug3lhKEZ1s
+    pontos_uids:
+    - 80JRNB4qw0K3aR
+  - alvo_uid: EGBbnsf5w525IM
+    pontos_uids:
+    - NECWHfHXmMLoyq
+  - alvo_uid: o1EX8168cyvAmv
+    pontos_uids:
+    - HtzmNCKPNc4Vzc
+  - alvo_uid: MOxqASBLS8QHbK
+    pontos_uids:
+    - VkgAULn9wfezPW
+  - alvo_uid: hdecePrG3R8YaC
+    pontos_uids:
+    - zEd2TPMuHBRPzV
+  - alvo_uid: FnHzOhpeTEn2sT
+    pontos_uids:
+    - JhsoqmZMDlGfra
 escaladas:
-- via_esportiva:
+- uid: B6jTijHVv9N5CR
+  via_esportiva:
     nome: Água Benta
     dificuldade: BR_8B
     tipo_parede: NEGATIVO
@@ -2158,101 +2160,110 @@ escaladas:
     quantidade_protecoes_parada: 2
     extensao: 0
     descricao: Saindo de cima da mureta, a via é graduada como 8a
-- via_esportiva:
+- uid: cR9vug3lhKEZ1s
+  via_esportiva:
     nome: Misericórdia
     dificuldade: BR_9A
     quantidade_protecoes_parada: 2
     tipo_parede: NEGATIVO
     quantidade_protecoes_intermediarias: 6
-- via_esportiva:
+- uid: EGBbnsf5w525IM
+  via_esportiva:
     nome: Excomungado
     dificuldade: BR_8B
     quantidade_protecoes_intermediarias: 6
     quantidade_protecoes_parada: 2
     tipo_parede: NEGATIVO
-- via_esportiva:
+- uid: o1EX8168cyvAmv
+  via_esportiva:
     nome: Crisma
     dificuldade: BR_7A
     tipo_parede: NEGATIVO
     extensao: 0
     quantidade_protecoes_intermediarias: 3
     quantidade_protecoes_parada: 2
-- via_esportiva:
+- uid: MOxqASBLS8QHbK
+  via_esportiva:
     nome: Primeira Comunhão
     dificuldade: BR_7A
     tipo_parede: NEGATIVO
     quantidade_protecoes_intermediarias: 4
     quantidade_protecoes_parada: 2
-- via_esportiva:
+- uid: hdecePrG3R8YaC
+  via_esportiva:
     nome: Tribunal da inquisição
     dificuldade: BR_8A_BARRA_8B
     quantidade_protecoes_intermediarias: 3
     quantidade_protecoes_parada: 2
     tipo_parede: NEGATIVO
-- via_esportiva:
+- uid: FnHzOhpeTEn2sT
+  via_esportiva:
     nome: Proj
     tipo_parede: NEGATIVO
     quantidade_protecoes_intermediarias: 3
     quantidade_protecoes_parada: 2
-- via_esportiva:
+- uid: hEAxAy5uZ9BnoK
+  via_esportiva:
     nome: Variante Água Ardente
     dificuldade: BR_10A
     tipo_parede: NEGATIVO
     quantidade_protecoes_intermediarias: 10
     quantidade_protecoes_parada: 2
     descricao: A partir da penúltima proteção da Água Benta sair para a esquerda.
-- via_esportiva:
+- uid: GRVzMUDrcZ39wf
+  via_esportiva:
     nome: Extensão Piedade
     dificuldade: BR_9B
     tipo_parede: NEGATIVO
     quantidade_protecoes_intermediarias: 11
     quantidade_protecoes_parada: 2
     descricao: A partir da parada da Excomungado seguir nas proteções para a esquerda.
-- via_esportiva:
+- uid: hLsVIdZKQ9VeUJ
+  via_esportiva:
     nome: Extensão Penitência
     dificuldade: BR_9B
     tipo_parede: NEGATIVO
     quantidade_protecoes_intermediarias: 12
     quantidade_protecoes_parada: 2
     descricao: A partir da parada da Excomungado seguir nas proteções para a direita.
-- via_esportiva:
+- uid: cHn90YpbxXqQRF
+  via_esportiva:
     nome: Chama Jesus
     dificuldade: BR_8A
     tipo_parede: NEGATIVO
     quantidade_protecoes_intermediarias: 6
     quantidade_protecoes_parada: 2
-    descricao: "### IMPORTANTE \n#### Segurança usar capacete!!!\n\nGrau sugerido\
-      \ saindo da segunda proteção."
-- via_esportiva:
+    descricao: "### IMPORTANTE \n#### Segurança usar capacete!!!\n\nGrau sugerido saindo da segunda proteção."
+- uid: ORxLpEqaVr3jtN
+  via_esportiva:
     nome: Missionárias do Além
-    descricao: "### IMPORTANTE \n#### Segurança usar capacete!!!\n\n- Melhor sair\
-      \ com segunda proteção clipada.\n- Existe um ponto de ancoragem para o seg na\
-      \ pedra que fica na base da via."
+    descricao: "### IMPORTANTE \n#### Segurança usar capacete!!!\n\n- Melhor sair com segunda proteção clipada.\n- Existe
+      um ponto de ancoragem para o seg na pedra que fica na base da via."
     tipo_parede: NEGATIVO
     quantidade_protecoes_intermediarias: 9
     quantidade_protecoes_parada: 2
     dificuldade: BR_9A
-- via_esportiva:
+- uid: wodKaOmLPIbirQ
+  via_esportiva:
     nome: Variante Santo do Pau Oco
-    descricao: "### IMPORTANTE \n#### Segurança usar capacete!!!\n\n- Melhor sair\
-      \ com segunda proteção clipada.\n- Existe um ponto de ancoragem para o seg na\
-      \ pedra que fica na base da via."
+    descricao: "### IMPORTANTE \n#### Segurança usar capacete!!!\n\n- Melhor sair com segunda proteção clipada.\n- Existe
+      um ponto de ancoragem para o seg na pedra que fica na base da via."
     dificuldade: BR_8A
     tipo_parede: NEGATIVO
     quantidade_protecoes_intermediarias: 7
     quantidade_protecoes_parada: 2
-- via_esportiva:
+- uid: 8iXm4ulWkfmMAq
+  via_esportiva:
     nome: Projeto Aresta
-    descricao: "### IMPORTANTE \n#### Segurança usar capacete!!!\n\n- Melhor sair\
-      \ com segunda proteção clipada.\n- Existe um ponto de ancoragem para o seg na\
-      \ pedra que fica na base da via."
+    descricao: "### IMPORTANTE \n#### Segurança usar capacete!!!\n\n- Melhor sair com segunda proteção clipada.\n- Existe
+      um ponto de ancoragem para o seg na pedra que fica na base da via."
     tipo_parede: NEGATIVO
     quantidade_protecoes_intermediarias: 18
-- via_esportiva:
+- uid: nhC5JJljtzD0LB
+  via_esportiva:
     nome: Variante Santo do Pau Oco (extensão)
-    descricao: "### IMPORTANTE \n#### Segurança usar capacete!!!\n\n- Melhor sair\
-      \ com segunda proteção clipada.\n- Existe um ponto de ancoragem para o seg na\
-      \ pedra que fica na base da via."
+    descricao: "### IMPORTANTE \n#### Segurança usar capacete!!!\n\n- Melhor sair com segunda proteção clipada.\n- Existe
+      um ponto de ancoragem para o seg na pedra que fica na base da via."
     dificuldade: BR_8C
     tipo_parede: NEGATIVO
     quantidade_protecoes_intermediarias: 9
@@ -2265,4 +2276,5 @@ localizacao_escalada:
   longitude: -424249510
 amigavel_a_criancas: true
 ---
+
 ![Visão Geral Capelinha](imagens/visao_geral.webp)

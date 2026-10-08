@@ -1,9 +1,10 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+uid: lK5vPq7hG9LKIk
 id: br_mg_arcos_novo_mundo
 nome: Afloramento Novo Mundo
-descricao: Um belo afloramento de calcário localizado entre Arcos e Pains, com vias
-  que variam do 5º ao 9º grau.
+descricao: Um belo afloramento de calcário localizado entre Arcos e Pains, com vias que 
+  variam do 5º ao 9º grau.
 creditos:
 - alexsandro martins
 - Grupo de Trabalho
@@ -30,18 +31,21 @@ picos:
     latitude: -203449420
     longitude: -455770310
 botoes:
-- texto: Capa
+- uid: hHVvMfTWi09mCB
+  texto: Capa
   destino:
     secao_textual:
       caminho: capa.md
-- texto: Observações Importantes
+- uid: OEeCUqkFvVxFfV
+  texto: Observações Importantes
   destino:
     secao_textual:
       caminho: observacoes_importantes.md
-- texto: Parcerias
+- uid: UDV8TEtryl2lxI
+  texto: Parcerias
   destino:
     secao_textual:
       caminho: parcerias.md
-ultima_migracao: 4
+ultima_migracao: 5
 publicar_croqui: true
 revisado_bounding_circle: true

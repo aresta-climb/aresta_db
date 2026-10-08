@@ -1,9 +1,11 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+uid: f6qhe8I2ffld4p
 nome: Caverna do Bin Laden
 escaladas:
-- via_esportiva:
+- uid: am42vvg5w16ewW
+  via_esportiva:
     nome: Capitã Minhoca
     dificuldade: BR_5SUP
     extensao: 22
@@ -11,7 +13,8 @@ escaladas:
     quantidade_protecoes_parada: 2
     conquistadores:
     - Jg
-- via_multiplas_enfiadas:
+- uid: Z03Km8onLRnz0j
+  via_multiplas_enfiadas:
     nome: He Man
     dificuldade_media: BR_6SUP
     dificuldade_maxima: BR_7B
@@ -40,7 +43,8 @@ escaladas:
     - Jg
     quantidade_costuras_intermediarias: 8
     quantidade_equipamentos_parada: 2
-- via_multiplas_enfiadas:
+- uid: CNzYlLGBA0X9lG
+  via_multiplas_enfiadas:
     nome: Esqueleto
     dificuldade_media: BR_6
     dificuldade_maxima: BR_6
@@ -70,7 +74,8 @@ escaladas:
     - Jg
     quantidade_costuras_intermediarias: 8
     quantidade_equipamentos_parada: 2
-- via_esportiva:
+- uid: oGyqDP0L1JFcAK
+  via_esportiva:
     nome: Allahu Akbar
     dificuldade: BR_7A
     extensao: 22
@@ -78,7 +83,8 @@ escaladas:
     quantidade_protecoes_parada: 2
     conquistadores:
     - Jg
-- via_esportiva:
+- uid: Uvqb3jaawzyWBH
+  via_esportiva:
     nome: Saída à Francesa
     dificuldade: BR_8B
     extensao: 24
@@ -87,7 +93,8 @@ escaladas:
     conquistadores:
     - Pablo Gonçalves
     - Jg
-- via_esportiva:
+- uid: EiiTGp6N9Ra8tJ
+  via_esportiva:
     nome: Paris em Chamas
     dificuldade: BR_10A
     extensao: 24

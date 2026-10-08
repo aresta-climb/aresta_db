@@ -1,24 +1,26 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+uid: 4digHEeV3xxXiv
 nome: Rosquinha da Sogra
 mapas:
 - caminho_imagem_mapa: imagens/grupo_frigideira_setor_rosquinha_da_sogra_p0_i1.webp
   largura_mapa: 736
   altura_mapa: 562
   pontos_de_interesse:
-  - id: '1'
-    label: '1'
+  - uid: giMcFIJN7voj9J
+    rotulo: '1'
     circulo:
       x: 339
       y: 361
       raio: 28
   referencias:
-  - escalada: Rosquinha da Sogra
-    ids:
-    - '1'
+  - alvo_uid: lDz2OK0FaXYXNi
+    pontos_uids:
+    - giMcFIJN7voj9J
 escaladas:
-- boulder:
+- uid: lDz2OK0FaXYXNi
+  boulder:
     nome: Rosquinha da Sogra
     dificuldade: V2
 ---

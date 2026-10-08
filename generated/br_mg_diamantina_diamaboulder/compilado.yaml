@@ -1,3 +1,4 @@
+uid: rULBV89pXI7Ibg
 id: br_mg_diamantina_diamaboulder
 nome: Diamaboulder (Cerrado Groove)
 descricao: O Cerrado Groove é um setor de boulder localizado em Diamantina, MG, com
@@ -10,34 +11,45 @@ picos:
   setores_ou_grupos:
   - grupo:
       conteudo:
+        uid: 4FDteNJXNyj54v
         nome: Região 1
         setores:
         - conteudo:
+            uid: bApNhQfhG9Jsu0
             nome: Diamante de Sangue
             mapas:
             - caminho_imagem_mapa: imagens/grupo_regiao_1_setor_diamante_de_sangue_p0_i0.webp
               largura_mapa: 1231
               altura_mapa: 1107
               pontos_de_interesse:
-              - id: '1'
-                label: '1'
+              - uid: 8nSOTSWWDi03eK
+                rotulo: '1'
                 circulo:
                   x: 606
                   y: 1045
                   raio: 15
-              - id: 1_fim
+                id: 8nSOTSWWDi03eK
                 label: '1'
+              - uid: kzXWZRz4gD01ND
+                rotulo: '1'
                 circulo:
                   x: 990
                   y: 111
                   raio: 16
+                id: kzXWZRz4gD01ND
+                label: '1'
               referencias:
-              - escalada: Diamante de Sangue
+              - alvo_uid: EC1gSGkmp4fh8s
+                pontos_uids:
+                - 8nSOTSWWDi03eK
+                - kzXWZRz4gD01ND
+                escalada: Diamante de Sangue
                 ids:
-                - '1'
-                - 1_fim
+                - 8nSOTSWWDi03eK
+                - kzXWZRz4gD01ND
             escaladas:
-            - boulder:
+            - uid: EC1gSGkmp4fh8s
+              boulder:
                 nome: Diamante de Sangue
                 dificuldade: V6_BARRA_V7
                 tipo_parede: NEGATIVO
@@ -50,144 +62,206 @@ picos:
               total_escaladas: 1
               total_boulders: 1
         - conteudo:
+            uid: YKfvHBUrmFmoKZ
             nome: Chiqueirinho
             mapas:
             - caminho_imagem_mapa: imagens/grupo_regiao_1_setor_chiqueirinho_p0_i0.webp
               largura_mapa: 1229
               altura_mapa: 1073
               pontos_de_interesse:
-              - id: '01'
-                label: '1'
+              - uid: lZ7CbNHvJCeYii
+                rotulo: '1'
                 circulo:
                   x: 200
                   y: 745
                   raio: 15
-              - id: 01_fim
+                id: lZ7CbNHvJCeYii
                 label: '1'
+              - uid: vdjl7xadYWmrcL
+                rotulo: '1'
                 circulo:
                   x: 419
                   y: 288
                   raio: 16
-              - id: '02'
-                label: '2'
+                id: vdjl7xadYWmrcL
+                label: '1'
+              - uid: WHqed13XSe4EfB
+                rotulo: '2'
                 circulo:
                   x: 550
                   y: 812
                   raio: 15
-              - id: 02_fim
+                id: WHqed13XSe4EfB
                 label: '2'
+              - uid: m2ziU9UZl258zi
+                rotulo: '2'
                 circulo:
                   x: 419
                   y: 249
                   raio: 16
-              - id: '03'
-                label: '3'
+                id: m2ziU9UZl258zi
+                label: '2'
+              - uid: nQ4MSVe11jFsRI
+                rotulo: '3'
                 circulo:
                   x: 685
                   y: 755
                   raio: 15
-              - id: 03_fim
+                id: nQ4MSVe11jFsRI
                 label: '3'
+              - uid: Lp3HsVyY36hRbi
+                rotulo: '3'
                 circulo:
                   x: 718
                   y: 277
                   raio: 16
+                id: Lp3HsVyY36hRbi
+                label: '3'
               referencias:
-              - escalada: Menos Porco Mais Aranha
+              - alvo_uid: tYfR1xbua7QSHa
+                pontos_uids:
+                - lZ7CbNHvJCeYii
+                - vdjl7xadYWmrcL
+                escalada: Menos Porco Mais Aranha
                 ids:
-                - '01'
-                - 01_fim
-              - escalada: Javaporco
+                - lZ7CbNHvJCeYii
+                - vdjl7xadYWmrcL
+              - alvo_uid: twQYQnOlOYFyEl
+                pontos_uids:
+                - WHqed13XSe4EfB
+                - m2ziU9UZl258zi
+                escalada: Javaporco
                 ids:
-                - '02'
-                - 02_fim
-              - escalada: Chiqueirinho
+                - WHqed13XSe4EfB
+                - m2ziU9UZl258zi
+              - alvo_uid: ol24e9QnCY4nI5
+                pontos_uids:
+                - nQ4MSVe11jFsRI
+                - Lp3HsVyY36hRbi
+                escalada: Chiqueirinho
                 ids:
-                - '03'
-                - 03_fim
+                - nQ4MSVe11jFsRI
+                - Lp3HsVyY36hRbi
             - caminho_imagem_mapa: imagens/grupo_regiao_1_setor_chiqueirinho_p1_i0.webp
               largura_mapa: 1240
               altura_mapa: 1055
               pontos_de_interesse:
-              - id: '01'
-                label: '1'
+              - uid: CS1ZaXIanubG8L
+                rotulo: '1'
                 circulo:
                   x: 440
                   y: 669
                   raio: 14
-              - id: 01_fim
+                id: CS1ZaXIanubG8L
                 label: '1'
+              - uid: HSgJVCGhUFLFHd
+                rotulo: '1'
                 circulo:
                   x: 432
                   y: 160
                   raio: 15
-              - id: '02'
-                label: '2'
+                id: HSgJVCGhUFLFHd
+                label: '1'
+              - uid: GGY74xQjhW4lmY
+                rotulo: '2'
                 circulo:
                   x: 708
                   y: 801
                   raio: 15
-              - id: 02_fim
+                id: GGY74xQjhW4lmY
                 label: '2'
+              - uid: OPgcOGpDLWCL7Q
+                rotulo: '2'
                 circulo:
                   x: 668
                   y: 75
                   raio: 15
-              - id: '03'
-                label: '3'
+                id: OPgcOGpDLWCL7Q
+                label: '2'
+              - uid: TjxwwpXZdDQTnp
+                rotulo: '3'
                 circulo:
                   x: 779
                   y: 840
                   raio: 16
-              - id: 03_fim
+                id: TjxwwpXZdDQTnp
                 label: '3'
+              - uid: lp3jtG17LpNSzv
+                rotulo: '3'
                 circulo:
                   x: 1006
                   y: 353
                   raio: 16
-              - id: '04'
-                label: '4'
+                id: lp3jtG17LpNSzv
+                label: '3'
+              - uid: kP8FZYb1bfpeZy
+                rotulo: '4'
                 circulo:
                   x: 1138
                   y: 832
                   raio: 15
-              - id: 04_fim
+                id: kP8FZYb1bfpeZy
                 label: '4'
+              - uid: TbWSwnYINsPDzH
+                rotulo: '4'
                 circulo:
                   x: 1004
                   y: 316
                   raio: 16
+                id: TbWSwnYINsPDzH
+                label: '4'
               referencias:
-              - escalada: Menos Porco Mais Aranha
+              - alvo_uid: tYfR1xbua7QSHa
+                pontos_uids:
+                - TjxwwpXZdDQTnp
+                - lp3jtG17LpNSzv
+                escalada: Menos Porco Mais Aranha
                 ids:
-                - '03'
-                - 03_fim
-              - escalada: Javaporco
+                - TjxwwpXZdDQTnp
+                - lp3jtG17LpNSzv
+              - alvo_uid: twQYQnOlOYFyEl
+                pontos_uids:
+                - kP8FZYb1bfpeZy
+                - TbWSwnYINsPDzH
+                escalada: Javaporco
                 ids:
-                - '04'
-                - 04_fim
-              - escalada: Pocilga
+                - kP8FZYb1bfpeZy
+                - TbWSwnYINsPDzH
+              - alvo_uid: dISFB7F5UJc22A
+                pontos_uids:
+                - CS1ZaXIanubG8L
+                - HSgJVCGhUFLFHd
+                escalada: Pocilga
                 ids:
-                - '01'
-                - 01_fim
-              - escalada: Porco Aranha
+                - CS1ZaXIanubG8L
+                - HSgJVCGhUFLFHd
+              - alvo_uid: iAycRp4y0pxPbN
+                pontos_uids:
+                - GGY74xQjhW4lmY
+                - OPgcOGpDLWCL7Q
+                escalada: Porco Aranha
                 ids:
-                - '02'
-                - 02_fim
+                - GGY74xQjhW4lmY
+                - OPgcOGpDLWCL7Q
             escaladas:
-            - boulder:
+            - uid: tYfR1xbua7QSHa
+              boulder:
                 nome: Menos Porco Mais Aranha
                 dificuldade: V4_BARRA_V5
-            - boulder:
+            - uid: twQYQnOlOYFyEl
+              boulder:
                 nome: Javaporco
                 dificuldade: V3
-            - boulder:
+            - uid: ol24e9QnCY4nI5
+              boulder:
                 nome: Chiqueirinho
                 dificuldade: V2_BARRA_V3
-            - boulder:
+            - uid: dISFB7F5UJc22A
+              boulder:
                 nome: Pocilga
                 dificuldade: V2
-            - boulder:
+            - uid: iAycRp4y0pxPbN
+              boulder:
                 nome: Porco Aranha
                 dificuldade: V2
             descricao: |-
@@ -199,50 +273,69 @@ picos:
               total_escaladas: 5
               total_boulders: 5
         - conteudo:
+            uid: IvlrAKdN2PKnQY
             nome: Bloco do Kbeca
             mapas:
             - caminho_imagem_mapa: imagens/grupo_regiao_1_setor_bloco_do_kbeca_p0_i0.webp
               largura_mapa: 1240
               altura_mapa: 1062
               pontos_de_interesse:
-              - id: '1'
-                label: '1'
+              - uid: RKUuRDhpONwNVc
+                rotulo: '1'
                 circulo:
                   x: 667
                   y: 730
                   raio: 15
-              - id: 1_fim
+                id: RKUuRDhpONwNVc
                 label: '1'
+              - uid: plrkfNzkdGj3pt
+                rotulo: '1'
                 circulo:
                   x: 887
                   y: 337
                   raio: 15
-              - id: '2'
-                label: '2'
+                id: plrkfNzkdGj3pt
+                label: '1'
+              - uid: unJgRc6gWjla8c
+                rotulo: '2'
                 circulo:
                   x: 572
                   y: 745
                   raio: 15
-              - id: 2_fim
+                id: unJgRc6gWjla8c
                 label: '2'
+              - uid: dmtAugV6VXu243
+                rotulo: '2'
                 circulo:
                   x: 560
                   y: 237
                   raio: 15
+                id: dmtAugV6VXu243
+                label: '2'
               referencias:
-              - escalada: Boulder do Kbeca
+              - alvo_uid: aiq28rMbksMrBQ
+                pontos_uids:
+                - RKUuRDhpONwNVc
+                - plrkfNzkdGj3pt
+                escalada: Boulder do Kbeca
                 ids:
-                - '1'
-                - 1_fim
-              - escalada: Projeto
+                - RKUuRDhpONwNVc
+                - plrkfNzkdGj3pt
+              - alvo_uid: l5oHRNFLSszMC7
+                pontos_uids:
+                - unJgRc6gWjla8c
+                - dmtAugV6VXu243
+                escalada: Projeto
                 ids:
-                - '2'
-                - 2_fim
+                - unJgRc6gWjla8c
+                - dmtAugV6VXu243
             escaladas:
-            - boulder:
+            - uid: aiq28rMbksMrBQ
+              boulder:
                 nome: Boulder do Kbeca
                 dificuldade: V7
-            - boulder:
+            - uid: l5oHRNFLSszMC7
+              boulder:
                 nome: Projeto
                 dificuldade: INDEFINIDO
             descricao: |-
@@ -252,31 +345,41 @@ picos:
               total_escaladas: 2
               total_boulders: 2
         - conteudo:
+            uid: wywacGfloYJBuk
             nome: Flor do Cerrado
             mapas:
             - caminho_imagem_mapa: imagens/grupo_regiao_1_setor_flor_do_cerrado_p0_i0.webp
               largura_mapa: 1234
               altura_mapa: 1155
               pontos_de_interesse:
-              - id: '1'
-                label: '1'
+              - uid: v6Of2eVLy7M9hf
+                rotulo: '1'
                 circulo:
                   x: 426
                   y: 861
                   raio: 15
-              - id: 1_fim
+                id: v6Of2eVLy7M9hf
                 label: '1'
+              - uid: Q9XUyvYn5PYQOo
+                rotulo: '1'
                 circulo:
                   x: 701
                   y: 177
                   raio: 16
+                id: Q9XUyvYn5PYQOo
+                label: '1'
               referencias:
-              - escalada: Flor do Cerrado
+              - alvo_uid: 5LHXpACfRtbu7o
+                pontos_uids:
+                - v6Of2eVLy7M9hf
+                - Q9XUyvYn5PYQOo
+                escalada: Flor do Cerrado
                 ids:
-                - '1'
-                - 1_fim
+                - v6Of2eVLy7M9hf
+                - Q9XUyvYn5PYQOo
             escaladas:
-            - boulder:
+            - uid: 5LHXpACfRtbu7o
+              boulder:
                 nome: Flor do Cerrado
                 dificuldade: V5
             descricao: |-
@@ -286,51 +389,70 @@ picos:
               total_escaladas: 1
               total_boulders: 1
         - conteudo:
+            uid: NQyqOjn0nMXiem
             nome: Joelho Sem Freio
             mapas:
             - caminho_imagem_mapa: imagens/grupo_regiao_1_setor_joelho_sem_freio_p0_i0.webp
               largura_mapa: 1234
               altura_mapa: 1105
               pontos_de_interesse:
-              - id: '1'
-                label: '1'
+              - uid: FDl9gduzf8WGtX
+                rotulo: '1'
                 circulo:
                   x: 545
                   y: 840
                   raio: 15
-              - id: 1_fim
+                id: FDl9gduzf8WGtX
                 label: '1'
+              - uid: 0cZcrtAhbQy8Fc
+                rotulo: '1'
                 circulo:
                   x: 766
                   y: 204
                   raio: 15
-              - id: '2'
-                label: '2'
+                id: 0cZcrtAhbQy8Fc
+                label: '1'
+              - uid: Kl2RkbjjDAPsGv
+                rotulo: '2'
                 circulo:
                   x: 584
                   y: 672
                   raio: 15
-              - id: 2_fim
+                id: Kl2RkbjjDAPsGv
                 label: '2'
+              - uid: RpHRuY3u912YYe
+                rotulo: '2'
                 circulo:
                   x: 766
                   y: 166
                   raio: 15
+                id: RpHRuY3u912YYe
+                label: '2'
               referencias:
-              - escalada: Desenfreado
+              - alvo_uid: 8sA86TDCIsDdNe
+                pontos_uids:
+                - FDl9gduzf8WGtX
+                - 0cZcrtAhbQy8Fc
+                escalada: Desenfreado
                 ids:
-                - '1'
-                - 1_fim
-              - escalada: Joelho Sem Freio
+                - FDl9gduzf8WGtX
+                - 0cZcrtAhbQy8Fc
+              - alvo_uid: 1RfngRUaUVmKwk
+                pontos_uids:
+                - Kl2RkbjjDAPsGv
+                - RpHRuY3u912YYe
+                escalada: Joelho Sem Freio
                 ids:
-                - '2'
-                - 2_fim
+                - Kl2RkbjjDAPsGv
+                - RpHRuY3u912YYe
             escaladas:
-            - boulder:
+            - uid: 8sA86TDCIsDdNe
+              boulder:
                 nome: Desenfreado
                 dificuldade: V6
                 descricao: Saída com as mãos juntas no batente escorrido.
-            - boulder:
+            - uid: 1RfngRUaUVmKwk
+              boulder:
                 nome: Joelho Sem Freio
                 dificuldade: V3
                 descricao: Saída com a mão direita na aresta em meia altura e a mão
@@ -350,170 +472,239 @@ picos:
           total_boulders: 11
   - grupo:
       conteudo:
+        uid: x5DYqeNmedsNxv
         nome: Região 2
         setores:
         - conteudo:
+            uid: eYmBFxup8j7TU9
             nome: Panela do Diabo
             mapas:
             - caminho_imagem_mapa: imagens/grupo_regiao_2_setor_panela_do_diabo_p0_i0.webp
               largura_mapa: 1240
               altura_mapa: 922
               pontos_de_interesse:
-              - id: '1'
-                label: '1'
+              - uid: wnjJEkDVgeCqTD
+                rotulo: '1'
                 circulo:
                   x: 137
                   y: 721
                   raio: 15
-              - id: 1_fim
+                id: wnjJEkDVgeCqTD
                 label: '1'
+              - uid: OA29cxlU9x057K
+                rotulo: '1'
                 circulo:
                   x: 761
                   y: 23
                   raio: 16
-              - id: '2'
-                label: '2'
+                id: OA29cxlU9x057K
+                label: '1'
+              - uid: HUYYy5OaHnXsIJ
+                rotulo: '2'
                 circulo:
                   x: 136
                   y: 760
                   raio: 15
-              - id: 2_fim
+                id: HUYYy5OaHnXsIJ
                 label: '2'
+              - uid: ROaetcQ2HERj0m
+                rotulo: '2'
                 circulo:
                   x: 208
                   y: 21
                   raio: 16
-              - id: '3'
-                label: '3'
+                id: ROaetcQ2HERj0m
+                label: '2'
+              - uid: E1DiSeOmaHt4dE
+                rotulo: '3'
                 circulo:
                   x: 1212
                   y: 586
                   raio: 16
-              - id: 3_fim
+                id: E1DiSeOmaHt4dE
                 label: '3'
+              - uid: iqyfjsqn0B0wTI
+                rotulo: '3'
                 circulo:
                   x: 800
                   y: 23
                   raio: 16
-              - id: '4'
-                label: '4'
+                id: iqyfjsqn0B0wTI
+                label: '3'
+              - uid: MjWOyi81AuiffO
+                rotulo: '4'
                 circulo:
                   x: 828
                   y: 674
                   raio: 15
-              - id: 4_fim
+                id: MjWOyi81AuiffO
                 label: '4'
+              - uid: aafAWaRYKq3HrO
+                rotulo: '4'
                 circulo:
                   x: 838
                   y: 23
                   raio: 16
-              - id: '5'
-                label: '5'
+                id: aafAWaRYKq3HrO
+                label: '4'
+              - uid: Gk8phVNO6SHaW9
+                rotulo: '5'
                 circulo:
                   x: 986
                   y: 678
                   raio: 15
-              - id: 5_fim
+                id: Gk8phVNO6SHaW9
                 label: '5'
+              - uid: HaZlvvBUpXfQ3t
+                rotulo: '5'
                 circulo:
                   x: 878
                   y: 23
                   raio: 15
-              - id: '6'
-                label: '6'
+                id: HaZlvvBUpXfQ3t
+                label: '5'
+              - uid: LDnhSNWsQXITCO
+                rotulo: '6'
                 circulo:
                   x: 135
                   y: 797
                   raio: 15
-              - id: 6_fim
+                id: LDnhSNWsQXITCO
                 label: '6'
+              - uid: JuWIduXO3PQgD2
+                rotulo: '6'
                 circulo:
                   x: 1212
                   y: 623
                   raio: 16
-              - id: '7'
-                label: '7'
+                id: JuWIduXO3PQgD2
+                label: '6'
+              - uid: qXf5sGO039CgNW
+                rotulo: '7'
                 circulo:
                   x: 1213
                   y: 660
                   raio: 16
-              - id: 7_fim
+                id: qXf5sGO039CgNW
                 label: '7'
+              - uid: HF6mGM5mQAhikm
+                rotulo: '7'
                 circulo:
                   x: 246
                   y: 21
                   raio: 16
-              - id: '8'
-                label: '8'
+                id: HF6mGM5mQAhikm
+                label: '7'
+              - uid: nCFyUPEQH74Fi3
+                rotulo: '8'
                 circulo:
                   x: 1213
                   y: 698
                   raio: 16
-              - id: 8_fim
+                id: nCFyUPEQH74Fi3
                 label: '8'
+              - uid: k2edwZ0frmAdqW
+                rotulo: '8'
                 circulo:
                   x: 699
                   y: 606
                   raio: 15
+                id: k2edwZ0frmAdqW
+                label: '8'
               referencias:
-              - escalada: Consciência
+              - alvo_uid: 9MT3UbIG2Qtb3Q
+                pontos_uids:
+                - wnjJEkDVgeCqTD
+                - OA29cxlU9x057K
+                escalada: Consciência
                 ids:
-                - '1'
-                - 1_fim
-              - escalada: Groove
+                - wnjJEkDVgeCqTD
+                - OA29cxlU9x057K
+              - alvo_uid: 0ddfwYkJen4fIl
+                pontos_uids:
+                - HUYYy5OaHnXsIJ
+                - ROaetcQ2HERj0m
+                escalada: Groove
                 ids:
-                - '2'
-                - 2_fim
-              - escalada: Caldeirão
+                - HUYYy5OaHnXsIJ
+                - ROaetcQ2HERj0m
+              - alvo_uid: SD5GEHWGtSrIBX
+                pontos_uids:
+                - E1DiSeOmaHt4dE
+                - iqyfjsqn0B0wTI
+                escalada: Caldeirão
                 ids:
-                - '3'
-                - 3_fim
-              - escalada: Panela do Diabo
+                - E1DiSeOmaHt4dE
+                - iqyfjsqn0B0wTI
+              - alvo_uid: XLNo08IQYW9weU
+                pontos_uids:
+                - Gk8phVNO6SHaW9
+                - HaZlvvBUpXfQ3t
+                escalada: Panela do Diabo
                 ids:
-                - '5'
-                - 5_fim
-              - escalada: Consciência para ter Coragem
+                - Gk8phVNO6SHaW9
+                - HaZlvvBUpXfQ3t
+              - alvo_uid: 9e9fIFUN4jCMSn
+                pontos_uids:
+                - LDnhSNWsQXITCO
+                - JuWIduXO3PQgD2
+                escalada: Consciência para ter Coragem
                 ids:
-                - '6'
-                - 6_fim
-              - escalada: Caldeirão do Groove
+                - LDnhSNWsQXITCO
+                - JuWIduXO3PQgD2
+              - alvo_uid: k0eTbbOl6kCTx1
+                pontos_uids:
+                - qXf5sGO039CgNW
+                - HF6mGM5mQAhikm
+                escalada: Caldeirão do Groove
                 ids:
-                - '7'
-                - 7_fim
-              - escalada: Coragem
+                - qXf5sGO039CgNW
+                - HF6mGM5mQAhikm
+              - alvo_uid: aW3e9unCboFUDL
+                pontos_uids:
+                - nCFyUPEQH74Fi3
+                - k2edwZ0frmAdqW
+                escalada: Coragem
                 ids:
-                - '8'
-                - 8_fim
+                - nCFyUPEQH74Fi3
+                - k2edwZ0frmAdqW
             escaladas:
-            - boulder:
+            - uid: 9MT3UbIG2Qtb3Q
+              boulder:
                 nome: Consciência
                 dificuldade: V4
                 descricao: Saída baixa em dois regletes pequenos logo à direita do
                   balcão arredondado, seguindo em travessia para a direita até dominar
                   como o panelaço.
-            - boulder:
+            - uid: 0ddfwYkJen4fIl
+              boulder:
                 nome: Groove
                 dificuldade: V3
                 descricao: Mesma saída do consciência, dominando na face positiva
                   logo acima do balcão.
-            - boulder:
+            - uid: SD5GEHWGtSrIBX
+              boulder:
                 nome: Caldeirão
                 dificuldade: V6
                 descricao: Saída nos agarrões da borda de fora do bloco e segue pelo
                   teto até finalizar como o panelaço (sem a utilização do "jorge"/bloco
                   de sustentação).
-            - boulder:
+            - uid: XLNo08IQYW9weU
+              boulder:
                 nome: Panela do Diabo
                 dificuldade: V4
-            - boulder:
+            - uid: 9e9fIFUN4jCMSn
+              boulder:
                 nome: Consciência para ter Coragem
                 dificuldade: V7
                 descricao: Saída similar ao consciência, seguindo em travessia até
                   ligar no boulder coragem.
-            - boulder:
+            - uid: k0eTbbOl6kCTx1
+              boulder:
                 nome: Caldeirão do Groove
                 dificuldade: V7
-            - boulder:
+            - uid: aW3e9unCboFUDL
+              boulder:
                 nome: Coragem
                 dificuldade: V5
                 descricao: Saída com as duas mãos no buraco do teto e segue pelo caminho
@@ -526,88 +717,125 @@ picos:
               total_escaladas: 7
               total_boulders: 7
         - conteudo:
+            uid: ozcB2TQFJRqm4f
             nome: Faca de Pedra
             mapas:
             - caminho_imagem_mapa: imagens/grupo_regiao_2_setor_faca_de_pedra_p0_i0.webp
               largura_mapa: 1240
               altura_mapa: 1110
               pontos_de_interesse:
-              - id: '1'
-                label: '1'
+              - uid: 8WJZ2izduMc604
+                rotulo: '1'
                 circulo:
                   x: 361
                   y: 753
                   raio: 16
-              - id: 1_fim
+                id: 8WJZ2izduMc604
                 label: '1'
+              - uid: 7ySGKvyXygosae
+                rotulo: '1'
                 circulo:
                   x: 540
                   y: 202
                   raio: 16
-              - id: '2'
-                label: '2'
+                id: 7ySGKvyXygosae
+                label: '1'
+              - uid: JYSiPpLmKlWoBo
+                rotulo: '2'
                 circulo:
                   x: 489
                   y: 854
                   raio: 16
-              - id: 2_fim
+                id: JYSiPpLmKlWoBo
                 label: '2'
+              - uid: I4artlULAedVw8
+                rotulo: '2'
                 circulo:
                   x: 540
                   y: 163
                   raio: 16
-              - id: '3'
-                label: '3'
+                id: I4artlULAedVw8
+                label: '2'
+              - uid: vti0Bk98ZHJoRA
+                rotulo: '3'
                 circulo:
                   x: 784
                   y: 962
                   raio: 16
-              - id: 3_fim
+                id: vti0Bk98ZHJoRA
                 label: '3'
+              - uid: WHXE5ylBh3vYRH
+                rotulo: '3'
                 circulo:
                   x: 540
                   y: 122
                   raio: 16
-              - id: '4'
-                label: '4'
+                id: WHXE5ylBh3vYRH
+                label: '3'
+              - uid: bMLq2ElLDpxR2q
+                rotulo: '4'
                 circulo:
                   x: 996
                   y: 905
                   raio: 15
-              - id: 4_fim
+                id: bMLq2ElLDpxR2q
                 label: '4'
+              - uid: P1uyoQWlaSJYV4
+                rotulo: '4'
                 circulo:
                   x: 540
                   y: 81
                   raio: 16
+                id: P1uyoQWlaSJYV4
+                label: '4'
               referencias:
-              - escalada: Colher de Pedra
+              - alvo_uid: 3Cd7FHC0iYasTx
+                pontos_uids:
+                - 8WJZ2izduMc604
+                - 7ySGKvyXygosae
+                escalada: Colher de Pedra
                 ids:
-                - '1'
-                - 1_fim
-              - escalada: Colher de Pau
+                - 8WJZ2izduMc604
+                - 7ySGKvyXygosae
+              - alvo_uid: cKeEBNnSODwpek
+                pontos_uids:
+                - JYSiPpLmKlWoBo
+                - I4artlULAedVw8
+                escalada: Colher de Pau
                 ids:
-                - '2'
-                - 2_fim
-              - escalada: Chaira de Pedra
+                - JYSiPpLmKlWoBo
+                - I4artlULAedVw8
+              - alvo_uid: KLE5Y9BUGVDuSh
+                pontos_uids:
+                - vti0Bk98ZHJoRA
+                - WHXE5ylBh3vYRH
+                escalada: Chaira de Pedra
                 ids:
-                - '3'
-                - 3_fim
-              - escalada: Faca de Pedra
+                - vti0Bk98ZHJoRA
+                - WHXE5ylBh3vYRH
+              - alvo_uid: WmGSTOr3raLqij
+                pontos_uids:
+                - bMLq2ElLDpxR2q
+                - P1uyoQWlaSJYV4
+                escalada: Faca de Pedra
                 ids:
-                - '4'
-                - 4_fim
+                - bMLq2ElLDpxR2q
+                - P1uyoQWlaSJYV4
             escaladas:
-            - boulder:
+            - uid: 3Cd7FHC0iYasTx
+              boulder:
                 nome: Colher de Pedra
                 dificuldade: V2
-            - boulder:
+            - uid: cKeEBNnSODwpek
+              boulder:
                 nome: Colher de Pau
                 dificuldade: V5
-            - boulder:
+            - uid: KLE5Y9BUGVDuSh
+              boulder:
                 nome: Chaira de Pedra
                 dificuldade: V8
-            - boulder:
+            - uid: WmGSTOr3raLqij
+              boulder:
                 nome: Faca de Pedra
                 dificuldade: V7
             descricao: |-
@@ -617,31 +845,41 @@ picos:
               total_escaladas: 4
               total_boulders: 4
         - conteudo:
+            uid: XDclQaHK6DtyMb
             nome: Serra do Groove
             mapas:
             - caminho_imagem_mapa: imagens/grupo_regiao_2_setor_serra_do_groove_p0_i0.webp
               largura_mapa: 1240
               altura_mapa: 996
               pontos_de_interesse:
-              - id: '1'
-                label: '1'
+              - uid: w2bIQo5ne7iD0Q
+                rotulo: '1'
                 circulo:
                   x: 944
                   y: 801
                   raio: 15
-              - id: 1_fim
+                id: w2bIQo5ne7iD0Q
                 label: '1'
+              - uid: 3q3A8a6AivIEg5
+                rotulo: '1'
                 circulo:
                   x: 852
                   y: 193
                   raio: 16
+                id: 3q3A8a6AivIEg5
+                label: '1'
               referencias:
-              - escalada: Serra do Groove
+              - alvo_uid: Ktl1gHhpCO3B0f
+                pontos_uids:
+                - w2bIQo5ne7iD0Q
+                - 3q3A8a6AivIEg5
+                escalada: Serra do Groove
                 ids:
-                - '1'
-                - 1_fim
+                - w2bIQo5ne7iD0Q
+                - 3q3A8a6AivIEg5
             escaladas:
-            - boulder:
+            - uid: Ktl1gHhpCO3B0f
+              boulder:
                 nome: Serra do Groove
                 dificuldade: V3
             descricao: |-
@@ -651,219 +889,294 @@ picos:
               total_escaladas: 1
               total_boulders: 1
         - conteudo:
+            uid: 3eKPXspykrgC71
             nome: Primavera nos Dentes
             mapas:
             - caminho_imagem_mapa: imagens/grupo_regiao_2_setor_primavera_nos_dentes_p0_i0.webp
               largura_mapa: 1240
               altura_mapa: 1006
               pontos_de_interesse:
-              - id: 1 (P0)
-                label: '1'
+              - uid: at7KfXw39RqgWs
+                rotulo: '1'
                 circulo:
                   x: 451
                   y: 651
                   raio: 15
-              - id: 1 (P0)_fim
+                id: at7KfXw39RqgWs
                 label: '1'
+              - uid: kxH3a5qF9jqLLM
+                rotulo: '1'
                 circulo:
                   x: 240
                   y: 365
                   raio: 15
-              - id: 2 (P0)
-                label: '2'
+                id: kxH3a5qF9jqLLM
+                label: '1'
+              - uid: OF2f8XGXZhSZhf
+                rotulo: '2'
                 circulo:
                   x: 854
                   y: 604
                   raio: 15
-              - id: 2 (P0)_fim
+                id: OF2f8XGXZhSZhf
                 label: '2'
+              - uid: 82RnsDo3Cdp1bX
+                rotulo: '2'
                 circulo:
                   x: 732
                   y: 301
                   raio: 15
-              - id: 3 (P0)
-                label: '3'
+                id: 82RnsDo3Cdp1bX
+                label: '2'
+              - uid: QGv9QIztbUTbjb
+                rotulo: '3'
                 circulo:
                   x: 853
                   y: 644
                   raio: 14
-              - id: 3 (P0)_fim
+                id: QGv9QIztbUTbjb
                 label: '3'
+              - uid: jiljDWvBVj8cvH
+                rotulo: '3'
                 circulo:
                   x: 931
                   y: 276
                   raio: 15
+                id: jiljDWvBVj8cvH
+                label: '3'
               referencias:
-              - escalada: Monobloco
+              - alvo_uid: ssY3HiAbaLDLFZ
+                pontos_uids:
+                - at7KfXw39RqgWs
+                - kxH3a5qF9jqLLM
+                escalada: Monobloco
                 ids:
-                - 1 (P0)
-                - 1 (P0)_fim
-              - escalada: Canela Queimada
+                - at7KfXw39RqgWs
+                - kxH3a5qF9jqLLM
+              - alvo_uid: MnhtFm97fVQKP5
+                pontos_uids:
+                - OF2f8XGXZhSZhf
+                - 82RnsDo3Cdp1bX
+                escalada: Canela Queimada
                 ids:
-                - 2 (P0)
-                - 2 (P0)_fim
-              - escalada: Canela de Ema
+                - OF2f8XGXZhSZhf
+                - 82RnsDo3Cdp1bX
+              - alvo_uid: aYDNJqy2N05qHt
+                pontos_uids:
+                - QGv9QIztbUTbjb
+                - jiljDWvBVj8cvH
+                escalada: Canela de Ema
                 ids:
-                - 3 (P0)
-                - 3 (P0)_fim
+                - QGv9QIztbUTbjb
+                - jiljDWvBVj8cvH
             - caminho_imagem_mapa: imagens/grupo_regiao_2_setor_primavera_nos_dentes_p1_i0.webp
               largura_mapa: 1240
               altura_mapa: 941
               pontos_de_interesse:
-              - id: 1 (P1)
-                label: '1'
+              - uid: yxBcM0qh38nXnk
+                rotulo: '1'
                 circulo:
                   x: 595
                   y: 608
                   raio: 14
-              - id: 1 (P1)_fim
+                id: yxBcM0qh38nXnk
                 label: '1'
+              - uid: l5cikSSCJKflq7
+                rotulo: '1'
                 circulo:
                   x: 892
                   y: 182
                   raio: 14
-              - id: 2 (P1)
-                label: '2'
+                id: l5cikSSCJKflq7
+                label: '1'
+              - uid: Rwuon1QA2kGMVv
+                rotulo: '2'
                 circulo:
                   x: 650
                   y: 583
                   raio: 14
-              - id: 2 (P1)_fim
+                id: Rwuon1QA2kGMVv
                 label: '2'
+              - uid: VC5zOoWVxh9EhI
+                rotulo: '2'
                 circulo:
                   x: 892
                   y: 145
                   raio: 15
-              - id: 3 (P1)
-                label: '3'
+                id: VC5zOoWVxh9EhI
+                label: '2'
+              - uid: Ay9fDGmRymVe7y
+                rotulo: '3'
                 circulo:
                   x: 911
                   y: 535
                   raio: 14
-              - id: 3 (P1)_fim
+                id: Ay9fDGmRymVe7y
                 label: '3'
+              - uid: HvPC4X2XvNyCea
+                rotulo: '3'
                 circulo:
                   x: 892
                   y: 110
                   raio: 15
-              - id: 4 (P1/P2)
-                label: '4'
+                id: HvPC4X2XvNyCea
+                label: '3'
+              - uid: XQ5A43fmhojXsa
+                rotulo: '4'
                 circulo:
                   x: 595
                   y: 643
                   raio: 14
-              - id: 5 (P1/P2)
-                label: '5'
+                id: XQ5A43fmhojXsa
+                label: '4'
+              - uid: 7c55IrV7HwzjaC
+                rotulo: '5'
                 circulo:
                   x: 910
                   y: 570
                   raio: 14
+                id: 7c55IrV7HwzjaC
+                label: '5'
               referencias:
-              - escalada: Primavera nos Dentes
+              - alvo_uid: 2SUIqfx23pnL2I
+                pontos_uids:
+                - yxBcM0qh38nXnk
+                - l5cikSSCJKflq7
+                escalada: Primavera nos Dentes
                 ids:
-                - 1 (P1)
-                - 1 (P1)_fim
-              - escalada: Suave Coisa Nenhuma
+                - yxBcM0qh38nXnk
+                - l5cikSSCJKflq7
+              - alvo_uid: oItaT1GZzNsN0l
+                pontos_uids:
+                - Rwuon1QA2kGMVv
+                - VC5zOoWVxh9EhI
+                escalada: Suave Coisa Nenhuma
                 ids:
-                - 2 (P1)
-                - 2 (P1)_fim
-              - escalada: Primavera Latina
+                - Rwuon1QA2kGMVv
+                - VC5zOoWVxh9EhI
+              - alvo_uid: W1ziTvsVxnWYXk
+                pontos_uids:
+                - Ay9fDGmRymVe7y
+                - HvPC4X2XvNyCea
+                escalada: Primavera Latina
                 ids:
-                - 3 (P1)
-                - 3 (P1)_fim
-              - ids:
-                - 4 (P1/P2)
-                grupo: Região 2
-                setor: Primavera nos Dentes
+                - Ay9fDGmRymVe7y
+                - HvPC4X2XvNyCea
+              - alvo_uid: UHSDVGFiOl9o35
+                pontos_uids:
+                - XQ5A43fmhojXsa
                 escalada: Sangue Latino
-              - ids:
-                - 5 (P1/P2)
-                grupo: Região 2
-                setor: Primavera nos Dentes
+                ids:
+                - XQ5A43fmhojXsa
+              - alvo_uid: cFBIt3RonJvkqf
+                pontos_uids:
+                - 7c55IrV7HwzjaC
                 escalada: Joelho de Porco
+                ids:
+                - 7c55IrV7HwzjaC
             - caminho_imagem_mapa: imagens/grupo_regiao_2_setor_primavera_nos_dentes_p2_i0.webp
               largura_mapa: 1240
               altura_mapa: 1030
               pontos_de_interesse:
-              - id: 4 (P1/P2)
-                label: '4'
+              - uid: bhVJqtOqKYVEhI
+                rotulo: '4'
                 circulo:
                   x: 420
                   y: 735
                   raio: 15
-              - id: 4 (P1/P2)_fim
+                id: bhVJqtOqKYVEhI
                 label: '4'
+              - uid: 9BOha1q7gr6a9H
+                rotulo: '4'
                 circulo:
                   x: 561
                   y: 106
                   raio: 15
-              - id: 5 (P1/P2)
-                label: '5'
+                id: 9BOha1q7gr6a9H
+                label: '4'
+              - uid: 6K5JejzNDts5dM
+                rotulo: '5'
                 circulo:
                   x: 465
                   y: 649
                   raio: 15
-              - id: 5 (P1/P2)_fim
+                id: 6K5JejzNDts5dM
                 label: '5'
+              - uid: TtHlKaoXWkd6l9
+                rotulo: '5'
                 circulo:
                   x: 561
                   y: 68
                   raio: 16
+                id: TtHlKaoXWkd6l9
+                label: '5'
               referencias:
-              - ids:
-                - 4 (P1/P2)
-                - 4 (P1/P2)_fim
-                grupo: Região 2
-                setor: Primavera nos Dentes
+              - alvo_uid: UHSDVGFiOl9o35
+                pontos_uids:
+                - bhVJqtOqKYVEhI
+                - 9BOha1q7gr6a9H
                 escalada: Sangue Latino
-              - ids:
-                - 5 (P1/P2)
-                - 5 (P1/P2)_fim
-                grupo: Região 2
-                setor: Primavera nos Dentes
+                ids:
+                - bhVJqtOqKYVEhI
+                - 9BOha1q7gr6a9H
+              - alvo_uid: cFBIt3RonJvkqf
+                pontos_uids:
+                - 6K5JejzNDts5dM
+                - TtHlKaoXWkd6l9
                 escalada: Joelho de Porco
+                ids:
+                - 6K5JejzNDts5dM
+                - TtHlKaoXWkd6l9
             escaladas:
-            - boulder:
+            - uid: ssY3HiAbaLDLFZ
+              boulder:
                 nome: Monobloco
                 dificuldade: V3
                 descricao: Saída com as mãos e pés no bloco menor que sustenta o bloco
                   principal, finalizando logo acima.
-            - boulder:
+            - uid: MnhtFm97fVQKP5
+              boulder:
                 nome: Canela Queimada
                 dificuldade: V2
                 descricao: Saída em batentes bem marcados e segue para a esquerda
                   (sem utilizar os pés no bloco de sustentação).
-            - boulder:
+            - uid: aYDNJqy2N05qHt
+              boulder:
                 nome: Canela de Ema
                 dificuldade: V3
                 descricao: Mesma saída do canela queimada mas segue a linha de agarras
                   da direita.
-            - boulder:
+            - uid: 2SUIqfx23pnL2I
+              boulder:
                 nome: Primavera nos Dentes
                 dificuldade: V7
                 descricao: Saída com as mãos juntas na agarra protuberante (sem utilizar
                   o bloco de sustentação como apoio de pés), seguindo pelos pequenos
                   regletes escorridos e pockets.
-            - boulder:
+            - uid: oItaT1GZzNsN0l
+              boulder:
                 nome: Suave Coisa Nenhuma
                 dificuldade: V6
                 descricao: Saída com a mão esquerda na agarra protuberante e mão direita
                   no batente abaulado, seguido de dinâmico no pocket estreito, finalizando
                   como o primavera nos dentes (utiliza-se livremente o(s) pé(s) no
                   bloco de sustentação).
-            - boulder:
+            - uid: W1ziTvsVxnWYXk
+              boulder:
                 nome: Primavera Latina
                 dificuldade: V10_BARRA_V11
                 descricao: Saída nas agarras da quina do bloco (logo à direita da
                   saída do joelho de porco) e segue em travessia para a esquerda até
                   finalizar como o primavera nos dentes.
-            - boulder:
+            - uid: UHSDVGFiOl9o35
+              boulder:
                 nome: Sangue Latino
                 dificuldade: V9
                 descricao: Mesma saída do primavera nos dentes, mas segue em diagonal
                   para a direita por abaulados e invertidas até finalizar como o joelho
                   de porco.
-            - boulder:
+            - uid: cFBIt3RonJvkqf
+              boulder:
                 nome: Joelho de Porco
                 dificuldade: V3
                 descricao: Saída com as mãos em copos idênticos quase ao final do
@@ -878,50 +1191,69 @@ picos:
               total_escaladas: 8
               total_boulders: 8
         - conteudo:
+            uid: c9S0g5Iak2aLY6
             nome: Flor da Montanha
             mapas:
             - caminho_imagem_mapa: imagens/grupo_regiao_2_setor_flor_da_montanha_p0_i0.webp
               largura_mapa: 1240
               altura_mapa: 991
               pontos_de_interesse:
-              - id: '1'
-                label: '1'
+              - uid: 7fqdxiZOSHSkfr
+                rotulo: '1'
                 circulo:
                   x: 334
                   y: 566
                   raio: 15
-              - id: 1_fim
+                id: 7fqdxiZOSHSkfr
                 label: '1'
+              - uid: kgmPREHasCsBoR
+                rotulo: '1'
                 circulo:
                   x: 554
                   y: 121
                   raio: 16
-              - id: '2'
-                label: '2'
+                id: kgmPREHasCsBoR
+                label: '1'
+              - uid: wqHmJRnhxGKpj3
+                rotulo: '2'
                 circulo:
                   x: 333
                   y: 602
                   raio: 15
-              - id: 2_fim
+                id: wqHmJRnhxGKpj3
                 label: '2'
+              - uid: D5rqIZY607W6xh
+                rotulo: '2'
                 circulo:
                   x: 106
                   y: 16
                   raio: 16
+                id: D5rqIZY607W6xh
+                label: '2'
               referencias:
-              - escalada: Fina Flor
+              - alvo_uid: SD9SEA5nSWTq6j
+                pontos_uids:
+                - 7fqdxiZOSHSkfr
+                - kgmPREHasCsBoR
+                escalada: Fina Flor
                 ids:
-                - '1'
-                - 1_fim
-              - escalada: Flor da Montanha
+                - 7fqdxiZOSHSkfr
+                - kgmPREHasCsBoR
+              - alvo_uid: 8SxckImBdqAEFa
+                pontos_uids:
+                - wqHmJRnhxGKpj3
+                - D5rqIZY607W6xh
+                escalada: Flor da Montanha
                 ids:
-                - '2'
-                - 2_fim
+                - wqHmJRnhxGKpj3
+                - D5rqIZY607W6xh
             escaladas:
-            - boulder:
+            - uid: SD9SEA5nSWTq6j
+              boulder:
                 nome: Fina Flor
                 dificuldade: V4
-            - boulder:
+            - uid: 8SxckImBdqAEFa
+              boulder:
                 nome: Flor da Montanha
                 dificuldade: V6
             descricao: |-
@@ -931,69 +1263,97 @@ picos:
               total_escaladas: 2
               total_boulders: 2
         - conteudo:
+            uid: mQ1nG9yhF09BxM
             nome: Velho Chico
             mapas:
             - caminho_imagem_mapa: imagens/grupo_regiao_2_setor_velho_chico_p0_i0.webp
               largura_mapa: 1240
               altura_mapa: 1090
               pontos_de_interesse:
-              - id: '1'
-                label: '1'
+              - uid: Qf19RpekoY4ceb
+                rotulo: '1'
                 circulo:
                   x: 297
                   y: 1053
                   raio: 16
-              - id: 1_fim
+                id: Qf19RpekoY4ceb
                 label: '1'
+              - uid: eUTeAIB0t6g691
+                rotulo: '1'
                 circulo:
                   x: 331
                   y: 251
                   raio: 16
-              - id: '2'
-                label: '2'
+                id: eUTeAIB0t6g691
+                label: '1'
+              - uid: QBiA7EAWzenl2D
+                rotulo: '2'
                 circulo:
                   x: 636
                   y: 945
                   raio: 16
-              - id: 2_fim
+                id: QBiA7EAWzenl2D
                 label: '2'
+              - uid: AWRPlw9TPi1MV1
+                rotulo: '2'
                 circulo:
                   x: 457
                   y: 272
                   raio: 16
-              - id: '3'
-                label: '3'
+                id: AWRPlw9TPi1MV1
+                label: '2'
+              - uid: 4ld2wQHIUSwIw2
+                rotulo: '3'
                 circulo:
                   x: 905
                   y: 805
                   raio: 15
-              - id: 3_fim
+                id: 4ld2wQHIUSwIw2
                 label: '3'
+              - uid: qXTdvrZgs0aWXz
+                rotulo: '3'
                 circulo:
                   x: 703
                   y: 315
                   raio: 16
+                id: qXTdvrZgs0aWXz
+                label: '3'
               referencias:
-              - escalada: Velho Chico
+              - alvo_uid: S6vDHCzzh21Hnc
+                pontos_uids:
+                - Qf19RpekoY4ceb
+                - eUTeAIB0t6g691
+                escalada: Velho Chico
                 ids:
-                - '1'
-                - 1_fim
-              - escalada: Minduim
+                - Qf19RpekoY4ceb
+                - eUTeAIB0t6g691
+              - alvo_uid: i2b9hKdjz4DFvX
+                pontos_uids:
+                - QBiA7EAWzenl2D
+                - AWRPlw9TPi1MV1
+                escalada: Minduim
                 ids:
-                - '2'
-                - 2_fim
-              - escalada: Frango D'Água
+                - QBiA7EAWzenl2D
+                - AWRPlw9TPi1MV1
+              - alvo_uid: vJnFlijy4hCh6A
+                pontos_uids:
+                - 4ld2wQHIUSwIw2
+                - qXTdvrZgs0aWXz
+                escalada: Frango D'Água
                 ids:
-                - '3'
-                - 3_fim
+                - 4ld2wQHIUSwIw2
+                - qXTdvrZgs0aWXz
             escaladas:
-            - boulder:
+            - uid: S6vDHCzzh21Hnc
+              boulder:
                 nome: Velho Chico
                 dificuldade: V4
-            - boulder:
+            - uid: i2b9hKdjz4DFvX
+              boulder:
                 nome: Minduim
                 dificuldade: V3
-            - boulder:
+            - uid: vJnFlijy4hCh6A
+              boulder:
                 nome: Frango D'Água
                 dificuldade: V3
             descricao: |-
@@ -1011,53 +1371,73 @@ picos:
           total_boulders: 25
   - grupo:
       conteudo:
+        uid: 0b1TmSRK0dGE9M
         nome: Região 3
         setores:
         - conteudo:
+            uid: vx3tbAOUHIAcGi
             nome: Cenas Fortes
             mapas:
             - caminho_imagem_mapa: imagens/grupo_regiao_3_setor_cenas_fortes_p0_i0.webp
               largura_mapa: 1240
               altura_mapa: 923
               pontos_de_interesse:
-              - id: '1'
-                label: '1'
+              - uid: YYzTKrL5JUqjaG
+                rotulo: '1'
                 circulo:
                   x: 404
                   y: 796
                   raio: 15
-              - id: 1_fim
+                id: YYzTKrL5JUqjaG
                 label: '1'
+              - uid: uH4A9vbSBNanf1
+                rotulo: '1'
                 circulo:
                   x: 700
                   y: 256
                   raio: 16
-              - id: '2'
-                label: '2'
+                id: uH4A9vbSBNanf1
+                label: '1'
+              - uid: kjaCbnnKQnS7kg
+                rotulo: '2'
                 circulo:
                   x: 645
                   y: 726
                   raio: 15
-              - id: 2_fim
+                id: kjaCbnnKQnS7kg
                 label: '2'
+              - uid: Cviogu7k6YP9RM
+                rotulo: '2'
                 circulo:
                   x: 701
                   y: 218
                   raio: 16
+                id: Cviogu7k6YP9RM
+                label: '2'
               referencias:
-              - escalada: Cenas Fortes
+              - alvo_uid: aQm6V8xoBqREa3
+                pontos_uids:
+                - YYzTKrL5JUqjaG
+                - uH4A9vbSBNanf1
+                escalada: Cenas Fortes
                 ids:
-                - '1'
-                - 1_fim
-              - escalada: Tela Quente
+                - YYzTKrL5JUqjaG
+                - uH4A9vbSBNanf1
+              - alvo_uid: JHDKLFkfkGAKqQ
+                pontos_uids:
+                - kjaCbnnKQnS7kg
+                - Cviogu7k6YP9RM
+                escalada: Tela Quente
                 ids:
-                - '2'
-                - 2_fim
+                - kjaCbnnKQnS7kg
+                - Cviogu7k6YP9RM
             escaladas:
-            - boulder:
+            - uid: aQm6V8xoBqREa3
+              boulder:
                 nome: Cenas Fortes
                 dificuldade: V5
-            - boulder:
+            - uid: JHDKLFkfkGAKqQ
+              boulder:
                 nome: Tela Quente
                 dificuldade: V3
             descricao: |-
@@ -1067,455 +1447,629 @@ picos:
               total_escaladas: 2
               total_boulders: 2
         - conteudo:
+            uid: pEbY6CRJHCyQhI
             nome: Sessão da Tarde
             mapas:
             - caminho_imagem_mapa: imagens/grupo_regiao_3_setor_sessao_da_tarde_p0_i0.webp
               largura_mapa: 1240
               altura_mapa: 948
               pontos_de_interesse:
-              - id: 1 (P1)
-                label: '1'
+              - uid: CCo4OgfoU3vmWR
+                rotulo: '1'
                 circulo:
                   x: 633
                   y: 621
                   raio: 15
-              - id: 1 (P1)_fim
+                id: CCo4OgfoU3vmWR
                 label: '1'
+              - uid: Akca1HdYlbCkZl
+                rotulo: '1'
                 circulo:
                   x: 763
                   y: 243
                   raio: 16
-              - id: 2 (P1) / 5 (P2)
-                label: '2'
+                id: Akca1HdYlbCkZl
+                label: '1'
+              - uid: Kk9ZNF0HPkdGFX
+                rotulo: '2'
                 circulo:
                   x: 889
                   y: 602
                   raio: 15
-              - id: 2 (P1) / 5 (P2)_fim
+                id: Kk9ZNF0HPkdGFX
                 label: '2'
+              - uid: culiwzu3QNN4pH
+                rotulo: '2'
                 circulo:
                   x: 973
                   y: 410
                   raio: 15
-              - id: 3 (P1)
-                label: '3'
+                id: culiwzu3QNN4pH
+                label: '2'
+              - uid: VHp04OzYtVx9nX
+                rotulo: '3'
                 circulo:
                   x: 793
                   y: 704
                   raio: 15
-              - id: 3 (P1)_fim
+                id: VHp04OzYtVx9nX
                 label: '3'
+              - uid: Uqx1p73YNGNkLM
+                rotulo: '3'
                 circulo:
                   x: 457
                   y: 266
                   raio: 16
-              - id: 4 (P1)
-                label: '4'
+                id: Uqx1p73YNGNkLM
+                label: '3'
+              - uid: RU0hSFJk6C0zC3
+                rotulo: '4'
                 circulo:
                   x: 632
                   y: 661
                   raio: 16
-              - id: 4 (P1)_fim
+                id: RU0hSFJk6C0zC3
                 label: '4'
+              - uid: Q4csKZNJ0hFVtD
+                rotulo: '4'
                 circulo:
                   x: 457
                   y: 228
                   raio: 16
-              - id: 5 (P1) / 4 (P2)
-                label: '5'
+                id: Q4csKZNJ0hFVtD
+                label: '4'
+              - uid: KJrZgv0mJTRRg0
+                rotulo: '5'
                 circulo:
                   x: 792
                   y: 743
                   raio: 15
-              - id: 5 (P1) / 4 (P2)_fim
+                id: KJrZgv0mJTRRg0
                 label: '5'
+              - uid: lfUh9U2PlSO39s
+                rotulo: '5'
                 circulo:
                   x: 972
                   y: 373
                   raio: 16
-              - id: 6 (P1)
-                label: '6'
+                id: lfUh9U2PlSO39s
+                label: '5'
+              - uid: wvLWWdIm3lNOnJ
+                rotulo: '6'
                 circulo:
                   x: 793
                   y: 781
                   raio: 16
-              - id: 6 (P1)_fim
+                id: wvLWWdIm3lNOnJ
                 label: '6'
+              - uid: 2Z3S5sDqcGiW7Q
+                rotulo: '6'
                 circulo:
                   x: 304
                   y: 349
                   raio: 16
-              - id: 7 (P1) / 3 (P2)
-                label: '7'
+                id: 2Z3S5sDqcGiW7Q
+                label: '6'
+              - uid: gEyv7D8VZejF3Z
+                rotulo: '7'
                 circulo:
                   x: 916
                   y: 706
                   raio: 15
-              - id: 7 (P1) / 3 (P2)_fim
+                id: gEyv7D8VZejF3Z
                 label: '7'
+              - uid: uEapXa5ct3DXmG
+                rotulo: '7'
                 circulo:
                   x: 920
                   y: 348
                   raio: 16
-              - id: 8 (P1) / 1 (P2)
-                label: '8'
+                id: uEapXa5ct3DXmG
+                label: '7'
+              - uid: P4fOotfScSWjOh
+                rotulo: '8'
                 circulo:
                   x: 791
                   y: 821
                   raio: 15
-              - id: 8 (P1) / 1 (P2)_fim
+                id: P4fOotfScSWjOh
                 label: '8'
+              - uid: uCAeRYmTr5ZZvL
+                rotulo: '8'
                 circulo:
                   x: 919
                   y: 310
                   raio: 16
-              - id: 9 (P1) / 2 (P2)
-                label: '9'
+                id: uCAeRYmTr5ZZvL
+                label: '8'
+              - uid: HZuo0rxGlGCT8B
+                rotulo: '9'
                 circulo:
                   x: 856
                   y: 583
                   raio: 15
-              - id: 9 (P1) / 2 (P2)_fim
+                id: HZuo0rxGlGCT8B
                 label: '9'
+              - uid: XdKpeVtB6U5YxZ
+                rotulo: '9'
                 circulo:
                   x: 919
                   y: 271
                   raio: 16
-              - id: 10 (P1)
-                label: '10'
+                id: XdKpeVtB6U5YxZ
+                label: '9'
+              - uid: RLlPWwNNicoQvF
+                rotulo: '10'
                 circulo:
                   x: 791
                   y: 858
                   raio: 16
-              - id: 10 (P1)_fim
+                id: RLlPWwNNicoQvF
                 label: '10'
+              - uid: gYCj4uI5pW2Hgk
+                rotulo: '10'
                 circulo:
                   x: 763
                   y: 204
                   raio: 15
-              - id: 11 (P1)
-                label: '11'
+                id: gYCj4uI5pW2Hgk
+                label: '10'
+              - uid: NZwxZhrZeRB8jc
+                rotulo: '11'
                 circulo:
                   x: 631
                   y: 700
                   raio: 16
-              - id: 11 (P1)_fim
+                id: NZwxZhrZeRB8jc
                 label: '11'
+              - uid: RTNCgtacFGnFtM
+                rotulo: '11'
                 circulo:
                   x: 304
                   y: 311
                   raio: 16
+                id: RTNCgtacFGnFtM
+                label: '11'
               referencias:
-              - escalada: Super Cine
+              - alvo_uid: WKNlsakHnhHdDv
+                pontos_uids:
+                - CCo4OgfoU3vmWR
+                - Akca1HdYlbCkZl
+                escalada: Super Cine
                 ids:
-                - 1 (P1)
-                - 1 (P1)_fim
-              - escalada: Extra
+                - CCo4OgfoU3vmWR
+                - Akca1HdYlbCkZl
+              - alvo_uid: N70nFLcNm5gg4u
+                pontos_uids:
+                - VHp04OzYtVx9nX
+                - Uqx1p73YNGNkLM
+                escalada: Extra
                 ids:
-                - 3 (P1)
-                - 3 (P1)_fim
-              - escalada: Manchete
+                - VHp04OzYtVx9nX
+                - Uqx1p73YNGNkLM
+              - alvo_uid: H5Ggm2Qvt5aJ4n
+                pontos_uids:
+                - RU0hSFJk6C0zC3
+                - Q4csKZNJ0hFVtD
+                escalada: Manchete
                 ids:
-                - 4 (P1)
-                - 4 (P1)_fim
-              - escalada: Fantástico Mundo dos Diamantes
+                - RU0hSFJk6C0zC3
+                - Q4csKZNJ0hFVtD
+              - alvo_uid: dZV2EeKuTYq8ab
+                pontos_uids:
+                - wvLWWdIm3lNOnJ
+                - 2Z3S5sDqcGiW7Q
+                escalada: Fantástico Mundo dos Diamantes
                 ids:
-                - 6 (P1)
-                - 6 (P1)_fim
-              - escalada: Super Sinistro
+                - wvLWWdIm3lNOnJ
+                - 2Z3S5sDqcGiW7Q
+              - alvo_uid: zJzRFzwztzV9gZ
+                pontos_uids:
+                - RLlPWwNNicoQvF
+                - gYCj4uI5pW2Hgk
+                escalada: Super Sinistro
                 ids:
-                - 10 (P1)
-                - 10 (P1)_fim
-              - escalada: Fantástico
+                - RLlPWwNNicoQvF
+                - gYCj4uI5pW2Hgk
+              - alvo_uid: F4vaXwWRnpveuC
+                pontos_uids:
+                - NZwxZhrZeRB8jc
+                - RTNCgtacFGnFtM
+                escalada: Fantástico
                 ids:
-                - 11 (P1)
-                - 11 (P1)_fim
-              - ids:
-                - 2 (P1) / 5 (P2)
-                - 2 (P1) / 5 (P2)_fim
-                grupo: Região 3
-                setor: Sessão da Tarde
+                - NZwxZhrZeRB8jc
+                - RTNCgtacFGnFtM
+              - alvo_uid: QFezsyxdlQ9xCF
+                pontos_uids:
+                - Kk9ZNF0HPkdGFX
+                - culiwzu3QNN4pH
                 escalada: Espetacular
-              - ids:
-                - 5 (P1) / 4 (P2)
-                - 5 (P1) / 4 (P2)_fim
-                grupo: Região 3
-                setor: Sessão da Tarde
+                ids:
+                - Kk9ZNF0HPkdGFX
+                - culiwzu3QNN4pH
+              - alvo_uid: hVshsl6bGvwqj8
+                pontos_uids:
+                - KJrZgv0mJTRRg0
+                - lfUh9U2PlSO39s
                 escalada: Esporte Espetacular
-              - ids:
-                - 7 (P1) / 3 (P2)_fim
-                - 7 (P1) / 3 (P2)
-                grupo: Região 3
-                setor: Sessão da Tarde
+                ids:
+                - KJrZgv0mJTRRg0
+                - lfUh9U2PlSO39s
+              - alvo_uid: AFItAEGK5rP83P
+                pontos_uids:
+                - uEapXa5ct3DXmG
+                - gEyv7D8VZejF3Z
                 escalada: Globo Curral
-              - ids:
-                - 8 (P1) / 1 (P2)
-                - 8 (P1) / 1 (P2)_fim
-                grupo: Região 3
-                setor: Sessão da Tarde
+                ids:
+                - uEapXa5ct3DXmG
+                - gEyv7D8VZejF3Z
+              - alvo_uid: n9PNiJKi8gFIB2
+                pontos_uids:
+                - P4fOotfScSWjOh
+                - uCAeRYmTr5ZZvL
                 escalada: Manual
-              - ids:
-                - 9 (P1) / 2 (P2)
-                - 9 (P1) / 2 (P2)_fim
-                grupo: Região 3
-                setor: Sessão da Tarde
+                ids:
+                - P4fOotfScSWjOh
+                - uCAeRYmTr5ZZvL
+              - alvo_uid: CdyNOL9Nn5yk6C
+                pontos_uids:
+                - HZuo0rxGlGCT8B
+                - XdKpeVtB6U5YxZ
                 escalada: Altas Horas
+                ids:
+                - HZuo0rxGlGCT8B
+                - XdKpeVtB6U5YxZ
             - caminho_imagem_mapa: imagens/grupo_regiao_3_setor_sessao_da_tarde_p1_i0.webp
               largura_mapa: 1240
               altura_mapa: 964
               pontos_de_interesse:
-              - id: 8 (P1) / 1 (P2)
-                label: '1'
+              - uid: 4uHwlKzmMU9Ems
+                rotulo: '1'
                 circulo:
                   x: 266
                   y: 759
                   raio: 15
-              - id: 8 (P1) / 1 (P2)_fim
+                id: 4uHwlKzmMU9Ems
                 label: '1'
+              - uid: 2iH1RKsC5t6RcP
+                rotulo: '1'
                 circulo:
                   x: 208
                   y: 278
                   raio: 16
-              - id: 9 (P1) / 2 (P2)
-                label: '2'
+                id: 2iH1RKsC5t6RcP
+                label: '1'
+              - uid: jSwg4YtfkZRL0F
+                rotulo: '2'
                 circulo:
                   x: 247
                   y: 642
                   raio: 15
-              - id: 9 (P1) / 2 (P2)_fim
+                id: jSwg4YtfkZRL0F
                 label: '2'
+              - uid: gP5oLEExIkfheV
+                rotulo: '2'
                 circulo:
                   x: 207
                   y: 239
                   raio: 16
-              - id: 7 (P1) / 3 (P2)
-                label: '3'
+                id: gP5oLEExIkfheV
+                label: '2'
+              - uid: DzueAxgmcLkbPl
+                rotulo: '3'
                 circulo:
                   x: 420
                   y: 778
                   raio: 16
-              - id: 7 (P1) / 3 (P2)_fim
+                id: DzueAxgmcLkbPl
                 label: '3'
+              - uid: ttX6jjwtNhGACG
+                rotulo: '3'
                 circulo:
                   x: 206
                   y: 200
                   raio: 16
-              - id: 5 (P1) / 4 (P2)
-                label: '4'
+                id: ttX6jjwtNhGACG
+                label: '3'
+              - uid: L0UOFvbJw81fzu
+                rotulo: '4'
                 circulo:
                   x: 266
                   y: 797
                   raio: 16
-              - id: 5 (P1) / 4 (P2)_fim
+                id: L0UOFvbJw81fzu
                 label: '4'
+              - uid: Si1R9VQWGy6wIq
+                rotulo: '4'
                 circulo:
                   x: 432
                   y: 249
                   raio: 16
-              - id: 2 (P1) / 5 (P2)
-                label: '5'
+                id: Si1R9VQWGy6wIq
+                label: '4'
+              - uid: dUlNsjALyMGbkR
+                rotulo: '5'
                 circulo:
                   x: 207
                   y: 645
                   raio: 16
-              - id: 2 (P1) / 5 (P2)_fim
+                id: dUlNsjALyMGbkR
                 label: '5'
+              - uid: dVMWNueO2p4tm5
+                rotulo: '5'
                 circulo:
                   x: 431
                   y: 209
                   raio: 15
-              - id: 6 (P2)
-                label: '6'
+                id: dVMWNueO2p4tm5
+                label: '5'
+              - uid: yXMJRnQWQpxIUc
+                rotulo: '6'
                 circulo:
                   x: 545
                   y: 730
                   raio: 15
-              - id: 6 (P2)_fim
+                id: yXMJRnQWQpxIUc
                 label: '6'
+              - uid: fqauTgXfjBNlzt
+                rotulo: '6'
                 circulo:
                   x: 431
                   y: 170
                   raio: 16
-              - id: 7 (P2)
-                label: '7'
+                id: fqauTgXfjBNlzt
+                label: '6'
+              - uid: 1rnDQg1nVuDKu0
+                rotulo: '7'
                 circulo:
                   x: 546
                   y: 768
                   raio: 16
-              - id: 7 (P2)_fim
+                id: 1rnDQg1nVuDKu0
                 label: '7'
+              - uid: sa9sjaN9xtOuIH
+                rotulo: '7'
                 circulo:
                   x: 848
                   y: 183
                   raio: 15
-              - id: 8 (P2)
-                label: '8'
+                id: sa9sjaN9xtOuIH
+                label: '7'
+              - uid: M8duzFhwCbKuVK
+                rotulo: '8'
                 circulo:
                   x: 421
                   y: 815
                   raio: 15
-              - id: 8 (P2)_fim
+                id: M8duzFhwCbKuVK
                 label: '8'
+              - uid: RnkPtRcEGCtRPR
+                rotulo: '8'
                 circulo:
                   x: 848
                   y: 145
                   raio: 16
-              - id: 9 (P2)
-                label: '9'
+                id: RnkPtRcEGCtRPR
+                label: '8'
+              - uid: uXV5XAgHpiT7Kr
+                rotulo: '9'
                 circulo:
                   x: 421
                   y: 853
                   raio: 15
-              - id: 9 (P2)_fim
+                id: uXV5XAgHpiT7Kr
                 label: '9'
+              - uid: 1NnE9VV5Hm3iuo
+                rotulo: '9'
                 circulo:
                   x: 430
                   y: 131
                   raio: 15
-              - id: 10 (P2)
-                label: '10'
+                id: 1NnE9VV5Hm3iuo
+                label: '9'
+              - uid: KGwVFyPhSPrFBZ
+                rotulo: '10'
                 circulo:
                   x: 546
                   y: 806
                   raio: 16
-              - id: 10 (P2)_fim
+                id: KGwVFyPhSPrFBZ
                 label: '10'
+              - uid: mnXGvpVVSxiD1C
+                rotulo: '10'
                 circulo:
                   x: 206
                   y: 162
                   raio: 16
-              - id: 11 (P2)
-                label: '11'
+                id: mnXGvpVVSxiD1C
+                label: '10'
+              - uid: zud2pDc8F8hRbE
+                rotulo: '11'
                 circulo:
                   x: 421
                   y: 891
                   raio: 16
-              - id: 11 (P2)_fim
+                id: zud2pDc8F8hRbE
                 label: '11'
+              - uid: KP1FSRU3KtMGeS
+                rotulo: '11'
                 circulo:
                   x: 204
                   y: 124
                   raio: 16
+                id: KP1FSRU3KtMGeS
+                label: '11'
               referencias:
-              - escalada: Sessão da Tarde
+              - alvo_uid: fl7eowElB7hLF1
+                pontos_uids:
+                - yXMJRnQWQpxIUc
+                - fqauTgXfjBNlzt
+                escalada: Sessão da Tarde
                 ids:
-                - 6 (P2)
-                - 6 (P2)_fim
-              - escalada: Vale a Pena Ver de Novo
+                - yXMJRnQWQpxIUc
+                - fqauTgXfjBNlzt
+              - alvo_uid: 4ujH3wnbjh0RRk
+                pontos_uids:
+                - 1rnDQg1nVuDKu0
+                - sa9sjaN9xtOuIH
+                escalada: Vale a Pena Ver de Novo
                 ids:
-                - 7 (P2)
-                - 7 (P2)_fim
-              - escalada: Vale a Pena Vir de Baixo
+                - 1rnDQg1nVuDKu0
+                - sa9sjaN9xtOuIH
+              - alvo_uid: NAVK7W0avZox4Y
+                pontos_uids:
+                - M8duzFhwCbKuVK
+                - RnkPtRcEGCtRPR
+                escalada: Vale a Pena Vir de Baixo
                 ids:
-                - 8 (P2)
-                - 8 (P2)_fim
-              - escalada: Chá da Tarde
+                - M8duzFhwCbKuVK
+                - RnkPtRcEGCtRPR
+              - alvo_uid: c4UKXDwTzKmGhb
+                pontos_uids:
+                - uXV5XAgHpiT7Kr
+                - 1NnE9VV5Hm3iuo
+                escalada: Chá da Tarde
                 ids:
-                - 9 (P2)
-                - 9 (P2)_fim
-              - escalada: Analógico
+                - uXV5XAgHpiT7Kr
+                - 1NnE9VV5Hm3iuo
+              - alvo_uid: MfZXzjT9Ty3s0U
+                pontos_uids:
+                - KGwVFyPhSPrFBZ
+                - mnXGvpVVSxiD1C
+                escalada: Analógico
                 ids:
-                - 10 (P2)
-                - 10 (P2)_fim
-              - escalada: Digital
+                - KGwVFyPhSPrFBZ
+                - mnXGvpVVSxiD1C
+              - alvo_uid: f5LAJ8Z4FVs2ni
+                pontos_uids:
+                - zud2pDc8F8hRbE
+                - KP1FSRU3KtMGeS
+                escalada: Digital
                 ids:
-                - 11 (P2)
-                - 11 (P2)_fim
-              - ids:
-                - 8 (P1) / 1 (P2)_fim
-                - 8 (P1) / 1 (P2)
-                grupo: Região 3
-                setor: Sessão da Tarde
+                - zud2pDc8F8hRbE
+                - KP1FSRU3KtMGeS
+              - alvo_uid: n9PNiJKi8gFIB2
+                pontos_uids:
+                - 2iH1RKsC5t6RcP
+                - 4uHwlKzmMU9Ems
                 escalada: Manual
-              - ids:
-                - 9 (P1) / 2 (P2)
-                - 9 (P1) / 2 (P2)_fim
-                grupo: Região 3
-                setor: Sessão da Tarde
+                ids:
+                - 2iH1RKsC5t6RcP
+                - 4uHwlKzmMU9Ems
+              - alvo_uid: CdyNOL9Nn5yk6C
+                pontos_uids:
+                - jSwg4YtfkZRL0F
+                - gP5oLEExIkfheV
                 escalada: Altas Horas
-              - ids:
-                - 7 (P1) / 3 (P2)
-                - 7 (P1) / 3 (P2)_fim
-                grupo: Região 3
-                setor: Sessão da Tarde
+                ids:
+                - jSwg4YtfkZRL0F
+                - gP5oLEExIkfheV
+              - alvo_uid: AFItAEGK5rP83P
+                pontos_uids:
+                - DzueAxgmcLkbPl
+                - ttX6jjwtNhGACG
                 escalada: Globo Curral
-              - ids:
-                - 5 (P1) / 4 (P2)
-                - 5 (P1) / 4 (P2)_fim
-                grupo: Região 3
-                setor: Sessão da Tarde
+                ids:
+                - DzueAxgmcLkbPl
+                - ttX6jjwtNhGACG
+              - alvo_uid: hVshsl6bGvwqj8
+                pontos_uids:
+                - L0UOFvbJw81fzu
+                - Si1R9VQWGy6wIq
                 escalada: Esporte Espetacular
-              - ids:
-                - 2 (P1) / 5 (P2)
-                - 2 (P1) / 5 (P2)_fim
-                grupo: Região 3
-                setor: Sessão da Tarde
+                ids:
+                - L0UOFvbJw81fzu
+                - Si1R9VQWGy6wIq
+              - alvo_uid: QFezsyxdlQ9xCF
+                pontos_uids:
+                - dUlNsjALyMGbkR
+                - dVMWNueO2p4tm5
                 escalada: Espetacular
+                ids:
+                - dUlNsjALyMGbkR
+                - dVMWNueO2p4tm5
             escaladas:
-            - boulder:
+            - uid: WKNlsakHnhHdDv
+              boulder:
                 nome: Super Cine
                 dificuldade: V7
-            - boulder:
+            - uid: QFezsyxdlQ9xCF
+              boulder:
                 nome: Espetacular
                 dificuldade: V8_BARRA_V9
-            - boulder:
+            - uid: N70nFLcNm5gg4u
+              boulder:
                 nome: Extra
                 dificuldade: V10
-            - boulder:
+            - uid: H5Ggm2Qvt5aJ4n
+              boulder:
                 nome: Manchete
                 dificuldade: V9
-            - boulder:
+            - uid: hVshsl6bGvwqj8
+              boulder:
                 nome: Esporte Espetacular
                 dificuldade: V10_BARRA_V11
-            - boulder:
+            - uid: dZV2EeKuTYq8ab
+              boulder:
                 nome: Fantástico Mundo dos Diamantes
                 dificuldade: V11
-            - boulder:
+            - uid: AFItAEGK5rP83P
+              boulder:
                 nome: Globo Curral
                 dificuldade: V5
                 descricao: Saída em uma pequena pinça de mão esquerda e um reglete
                   raso de mão direita (assim como o Chá da Tarde) e escala pelo teto
                   até entrar no Altas Horas.
-            - boulder:
+            - uid: n9PNiJKi8gFIB2
+              boulder:
                 nome: Manual
                 dificuldade: V8
-            - boulder:
+            - uid: CdyNOL9Nn5yk6C
+              boulder:
                 nome: Altas Horas
                 dificuldade: V3
-            - boulder:
+            - uid: zJzRFzwztzV9gZ
+              boulder:
                 nome: Super Sinistro
                 dificuldade: V8_BARRA_V9
-            - boulder:
+            - uid: F4vaXwWRnpveuC
+              boulder:
                 nome: Fantástico
                 dificuldade: V10
-            - boulder:
+            - uid: fl7eowElB7hLF1
+              boulder:
                 nome: Sessão da Tarde
                 dificuldade: V5
                 descricao: Mão esquerda no batente central dessa face do bloco e mão
                   direita em outro batente mais à direita, seguindo em linha reta
                   pelo sistema de agarras logo acima.
-            - boulder:
+            - uid: 4ujH3wnbjh0RRk
+              boulder:
                 nome: Vale a Pena Ver de Novo
                 dificuldade: V4_BARRA_V5
                 descricao: Mesma saída do Sessão da Tarde, mudando a trajetória para
                   a direita após dominar a pinça. A parte final do boulder segue para
                   a direita por "cracas" na face positiva, cuidado com agarras frágeis.
-            - boulder:
+            - uid: NAVK7W0avZox4Y
+              boulder:
                 nome: Vale a Pena Vir de Baixo
                 dificuldade: V6_BARRA_V7
                 descricao: Extensão do Vale a Pena Ver de Novo. Mesma saída do Chá
                   da Tarde.
-            - boulder:
+            - uid: c4UKXDwTzKmGhb
+              boulder:
                 nome: Chá da Tarde
                 dificuldade: V7
                 descricao: Extensão do Sessão da Tarde. Saída em uma pequena pinça
                   de mão esquerda e um reglete raso de mão direita.
-            - boulder:
+            - uid: MfZXzjT9Ty3s0U
+              boulder:
                 nome: Analógico
                 dificuldade: V8_BARRA_V9
                 descricao: Extensão do Vale a Pena Ver de Novo. Mesma saída do Chá
                   da Tarde.
-            - boulder:
+            - uid: f5LAJ8Z4FVs2ni
+              boulder:
                 nome: Digital
                 dificuldade: V9_BARRA_V10
                 descricao: Extensão do Analógico.
@@ -1528,50 +2082,69 @@ picos:
               total_escaladas: 17
               total_boulders: 17
         - conteudo:
+            uid: kocXBrYzeYHO7c
             nome: Que Raio de Reglete
             mapas:
             - caminho_imagem_mapa: imagens/grupo_regiao_3_setor_que_raio_de_reglete_p0_i0.webp
               largura_mapa: 1240
               altura_mapa: 1120
               pontos_de_interesse:
-              - id: '1'
-                label: '1'
+              - uid: HbJKfIbnZw0ypO
+                rotulo: '1'
                 circulo:
                   x: 561
                   y: 626
                   raio: 15
-              - id: 1_fim
+                id: HbJKfIbnZw0ypO
                 label: '1'
+              - uid: pbTdQPqzYIFYRp
+                rotulo: '1'
                 circulo:
                   x: 513
                   y: 15
                   raio: 16
-              - id: '2'
-                label: '2'
+                id: pbTdQPqzYIFYRp
+                label: '1'
+              - uid: CqsnabI1AgjAX0
+                rotulo: '2'
                 circulo:
                   x: 945
                   y: 749
                   raio: 16
-              - id: 2_fim
+                id: CqsnabI1AgjAX0
                 label: '2'
+              - uid: KYyvlUUgxXRMBE
+                rotulo: '2'
                 circulo:
                   x: 850
                   y: 368
                   raio: 16
+                id: KYyvlUUgxXRMBE
+                label: '2'
               referencias:
-              - escalada: Calça Nova
+              - alvo_uid: GNuxkMQR6wF5Cs
+                pontos_uids:
+                - HbJKfIbnZw0ypO
+                - pbTdQPqzYIFYRp
+                escalada: Calça Nova
                 ids:
-                - '1'
-                - 1_fim
-              - escalada: Que Raio de Reglete
+                - HbJKfIbnZw0ypO
+                - pbTdQPqzYIFYRp
+              - alvo_uid: 9EZmaxfjdE6Kaw
+                pontos_uids:
+                - CqsnabI1AgjAX0
+                - KYyvlUUgxXRMBE
+                escalada: Que Raio de Reglete
                 ids:
-                - '2'
-                - 2_fim
+                - CqsnabI1AgjAX0
+                - KYyvlUUgxXRMBE
             escaladas:
-            - boulder:
+            - uid: GNuxkMQR6wF5Cs
+              boulder:
                 nome: Calça Nova
                 dificuldade: V2
-            - boulder:
+            - uid: 9EZmaxfjdE6Kaw
+              boulder:
                 nome: Que Raio de Reglete
                 dificuldade: V3
             descricao: |-
@@ -1581,52 +2154,71 @@ picos:
               total_escaladas: 2
               total_boulders: 2
         - conteudo:
+            uid: yNhPe35ksda8iX
             nome: Iceberg
             mapas:
             - caminho_imagem_mapa: imagens/grupo_regiao_3_setor_iceberg_p0_i0.webp
               largura_mapa: 1240
               altura_mapa: 1183
               pontos_de_interesse:
-              - id: '1'
-                label: '1'
+              - uid: aTxzRj0I7AyF3o
+                rotulo: '1'
                 circulo:
                   x: 719
                   y: 960
                   raio: 16
-              - id: 1_fim
+                id: aTxzRj0I7AyF3o
                 label: '1'
+              - uid: l2Ioa7iPBtcpzn
+                rotulo: '1'
                 circulo:
                   x: 722
                   y: 265
                   raio: 15
-              - id: '2'
-                label: '2'
+                id: l2Ioa7iPBtcpzn
+                label: '1'
+              - uid: 0tAFnSPXnQS08g
+                rotulo: '2'
                 circulo:
                   x: 690
                   y: 565
                   raio: 16
-              - id: 2_fim
+                id: 0tAFnSPXnQS08g
                 label: '2'
+              - uid: nlvU6pDEosgXXv
+                rotulo: '2'
                 circulo:
                   x: 723
                   y: 226
                   raio: 15
+                id: nlvU6pDEosgXXv
+                label: '2'
               referencias:
-              - escalada: Iceberg
+              - alvo_uid: 0ZJHKqXRbUlOjc
+                pontos_uids:
+                - aTxzRj0I7AyF3o
+                - l2Ioa7iPBtcpzn
+                escalada: Iceberg
                 ids:
-                - '1'
-                - 1_fim
-              - escalada: Frigobar
+                - aTxzRj0I7AyF3o
+                - l2Ioa7iPBtcpzn
+              - alvo_uid: oykcpaunaVXwVW
+                pontos_uids:
+                - 0tAFnSPXnQS08g
+                - nlvU6pDEosgXXv
+                escalada: Frigobar
                 ids:
-                - '2'
-                - 2_fim
+                - 0tAFnSPXnQS08g
+                - nlvU6pDEosgXXv
             escaladas:
-            - boulder:
+            - uid: 0ZJHKqXRbUlOjc
+              boulder:
                 nome: Iceberg
                 dificuldade: V11
                 descricao: Saída baixa na extrema direita do bloco e segue por movimentos
                   exigentes de compressão (morfo).
-            - boulder:
+            - uid: oykcpaunaVXwVW
+              boulder:
                 nome: Frigobar
                 dificuldade: V5
                 descricao: Saída em pé do iceberg, utilizando mão esquerda na aresta
@@ -1638,50 +2230,69 @@ picos:
               total_escaladas: 2
               total_boulders: 2
         - conteudo:
+            uid: ba9j4ZNGXk0wIe
             nome: Silicose
             mapas:
             - caminho_imagem_mapa: imagens/grupo_regiao_3_setor_silicose_p0_i0.webp
               largura_mapa: 1240
               altura_mapa: 1168
               pontos_de_interesse:
-              - id: '1'
-                label: '1'
+              - uid: 3HEFVpk8SyHFzl
+                rotulo: '1'
                 circulo:
                   x: 109
                   y: 932
                   raio: 16
-              - id: 1_fim
+                id: 3HEFVpk8SyHFzl
                 label: '1'
+              - uid: WXH9d1HRxrk4hz
+                rotulo: '1'
                 circulo:
                   x: 400
                   y: 16
                   raio: 16
-              - id: '2'
-                label: '2'
+                id: WXH9d1HRxrk4hz
+                label: '1'
+              - uid: 0ei8UjG7OnCiH0
+                rotulo: '2'
                 circulo:
                   x: 972
                   y: 995
                   raio: 16
-              - id: 2_fim
+                id: 0ei8UjG7OnCiH0
                 label: '2'
+              - uid: 8eSdYUQzq7cWWt
+                rotulo: '2'
                 circulo:
                   x: 524
                   y: 33
                   raio: 16
+                id: 8eSdYUQzq7cWWt
+                label: '2'
               referencias:
-              - escalada: Silicato
+              - alvo_uid: xFaEkzp5CRrfy7
+                pontos_uids:
+                - 3HEFVpk8SyHFzl
+                - WXH9d1HRxrk4hz
+                escalada: Silicato
                 ids:
-                - '1'
-                - 1_fim
-              - escalada: Silicose
+                - 3HEFVpk8SyHFzl
+                - WXH9d1HRxrk4hz
+              - alvo_uid: 2ssOqtmabcVQ3z
+                pontos_uids:
+                - 0ei8UjG7OnCiH0
+                - 8eSdYUQzq7cWWt
+                escalada: Silicose
                 ids:
-                - '2'
-                - 2_fim
+                - 0ei8UjG7OnCiH0
+                - 8eSdYUQzq7cWWt
             escaladas:
-            - boulder:
+            - uid: xFaEkzp5CRrfy7
+              boulder:
                 nome: Silicato
                 dificuldade: V2
-            - boulder:
+            - uid: 2ssOqtmabcVQ3z
+              boulder:
                 nome: Silicose
                 dificuldade: V7
             descricao: |-
@@ -1699,196 +2310,279 @@ picos:
           total_boulders: 25
   - grupo:
       conteudo:
+        uid: 5HcZp5MuQIGxmc
         nome: Região 4
         setores:
         - conteudo:
+            uid: 5ydIQT3aRXRDbx
             nome: Navio Pirata
             mapas:
             - caminho_imagem_mapa: imagens/grupo_regiao_4_setor_navio_pirata_p0_i0.webp
               largura_mapa: 1240
               altura_mapa: 1097
               pontos_de_interesse:
-              - id: 1 (P0)
-                label: '1'
+              - uid: MOtPR1yrBK5bJ3
+                rotulo: '1'
                 circulo:
                   x: 540
                   y: 703
                   raio: 15
-              - id: 1 (P0)_fim
+                id: MOtPR1yrBK5bJ3
                 label: '1'
+              - uid: 5fhyYVebBpOzrE
+                rotulo: '1'
                 circulo:
                   x: 600
                   y: 174
                   raio: 15
-              - id: 2 (P0)
-                label: '2'
+                id: 5fhyYVebBpOzrE
+                label: '1'
+              - uid: UWXUQ6AEeow7wF
+                rotulo: '2'
                 circulo:
                   x: 842
                   y: 858
                   raio: 15
-              - id: 2 (P0)_fim
+                id: UWXUQ6AEeow7wF
                 label: '2'
+              - uid: USiYEGAtnD7j4V
+                rotulo: '2'
                 circulo:
                   x: 600
                   y: 136
                   raio: 15
-              - id: 3 (P0)
-                label: '3'
+                id: USiYEGAtnD7j4V
+                label: '2'
+              - uid: ggmN9DRFXgqBw8
+                rotulo: '3'
                 circulo:
                   x: 842
                   y: 894
                   raio: 15
-              - id: 3 (P0)_fim
+                id: ggmN9DRFXgqBw8
                 label: '3'
+              - uid: su3SWcwm21EDFt
+                rotulo: '3'
                 circulo:
                   x: 854
                   y: 342
                   raio: 15
+                id: su3SWcwm21EDFt
+                label: '3'
               referencias:
-              - escalada: Navio Pirata
+              - alvo_uid: Zrdafq2MWx4mLr
+                pontos_uids:
+                - MOtPR1yrBK5bJ3
+                - 5fhyYVebBpOzrE
+                escalada: Navio Pirata
                 ids:
-                - 1 (P0)
-                - 1 (P0)_fim
-              - escalada: Invasão do Navio Pirata
+                - MOtPR1yrBK5bJ3
+                - 5fhyYVebBpOzrE
+              - alvo_uid: AsJv46fRHeEiOw
+                pontos_uids:
+                - UWXUQ6AEeow7wF
+                - USiYEGAtnD7j4V
+                escalada: Invasão do Navio Pirata
                 ids:
-                - 2 (P0)
-                - 2 (P0)_fim
-              - escalada: Capitão Gancho
+                - UWXUQ6AEeow7wF
+                - USiYEGAtnD7j4V
+              - alvo_uid: 0kfZmDOpFIsqLt
+                pontos_uids:
+                - ggmN9DRFXgqBw8
+                - su3SWcwm21EDFt
+                escalada: Capitão Gancho
                 ids:
-                - 3 (P0)
-                - 3 (P0)_fim
+                - ggmN9DRFXgqBw8
+                - su3SWcwm21EDFt
             - caminho_imagem_mapa: imagens/grupo_regiao_4_setor_navio_pirata_p1_i0.webp
               largura_mapa: 1240
               altura_mapa: 1080
               pontos_de_interesse:
-              - id: 1 (P1)
-                label: '1'
+              - uid: rodJMDToY2B45f
+                rotulo: '1'
                 circulo:
                   x: 321
                   y: 849
                   raio: 15
-              - id: 1 (P1)_fim
+                id: rodJMDToY2B45f
                 label: '1'
+              - uid: kCH6HvlSXTeB1j
+                rotulo: '1'
                 circulo:
                   x: 266
                   y: 633
                   raio: 15
-              - id: 2 (P1)
-                label: '2'
+                id: kCH6HvlSXTeB1j
+                label: '1'
+              - uid: 5YNfIyEnxmV0u5
+                rotulo: '2'
                 circulo:
                   x: 320
                   y: 887
                   raio: 15
-              - id: 2 (P1)_fim
+                id: 5YNfIyEnxmV0u5
                 label: '2'
+              - uid: Lgp6Bs7lpiluka
+                rotulo: '2'
                 circulo:
                   x: 387
                   y: 450
                   raio: 15
-              - id: 3 (P1)
-                label: '3'
+                id: Lgp6Bs7lpiluka
+                label: '2'
+              - uid: ZOGUfTD8CED01f
+                rotulo: '3'
                 circulo:
                   x: 320
                   y: 925
                   raio: 15
-              - id: 3 (P1)_fim
+                id: ZOGUfTD8CED01f
                 label: '3'
+              - uid: WbiUPCEfOuUneC
+                rotulo: '3'
                 circulo:
                   x: 636
                   y: 218
                   raio: 15
-              - id: 4 (P1)
-                label: '4'
+                id: WbiUPCEfOuUneC
+                label: '3'
+              - uid: VyJU2shyIzdTHQ
+                rotulo: '4'
                 circulo:
                   x: 923
                   y: 902
                   raio: 15
-              - id: 4 (P1)_fim
+                id: VyJU2shyIzdTHQ
                 label: '4'
+              - uid: o3jzUFrU6bSiUd
+                rotulo: '4'
                 circulo:
                   x: 1011
                   y: 268
                   raio: 15
+                id: o3jzUFrU6bSiUd
+                label: '4'
               referencias:
-              - escalada: Serra a Vista
+              - alvo_uid: tos0NQrLMGzBI5
+                pontos_uids:
+                - rodJMDToY2B45f
+                - kCH6HvlSXTeB1j
+                escalada: Serra a Vista
                 ids:
-                - 1 (P1)
-                - 1 (P1)_fim
-              - escalada: Tapa Olho
+                - rodJMDToY2B45f
+                - kCH6HvlSXTeB1j
+              - alvo_uid: ifuNPgrIWqT201
+                pontos_uids:
+                - 5YNfIyEnxmV0u5
+                - Lgp6Bs7lpiluka
+                escalada: Tapa Olho
                 ids:
-                - 2 (P1)
-                - 2 (P1)_fim
-              - escalada: A Estibordo
+                - 5YNfIyEnxmV0u5
+                - Lgp6Bs7lpiluka
+              - alvo_uid: QbPlUqsgxNarKC
+                pontos_uids:
+                - ZOGUfTD8CED01f
+                - WbiUPCEfOuUneC
+                escalada: A Estibordo
                 ids:
-                - 3 (P1)
-                - 3 (P1)_fim
-              - escalada: Proa
+                - ZOGUfTD8CED01f
+                - WbiUPCEfOuUneC
+              - alvo_uid: ir5OtnNkOyaKSD
+                pontos_uids:
+                - VyJU2shyIzdTHQ
+                - o3jzUFrU6bSiUd
+                escalada: Proa
                 ids:
-                - 4 (P1)
-                - 4 (P1)_fim
+                - VyJU2shyIzdTHQ
+                - o3jzUFrU6bSiUd
             - caminho_imagem_mapa: imagens/grupo_regiao_4_setor_navio_pirata_p2_i0.webp
               largura_mapa: 1240
               altura_mapa: 1155
               pontos_de_interesse:
-              - id: 1 (P2)
-                label: '1'
+              - uid: vbzeRpXjtvrnsZ
+                rotulo: '1'
                 circulo:
                   x: 756
                   y: 995
                   raio: 16
-              - id: 1 (P2)_fim
+                id: vbzeRpXjtvrnsZ
                 label: '1'
+              - uid: 1xaRyOGXoRKRa5
+                rotulo: '1'
                 circulo:
                   x: 569
                   y: 282
                   raio: 16
-              - id: 2 (P2)
-                label: '2'
+                id: 1xaRyOGXoRKRa5
+                label: '1'
+              - uid: iKvfh7BHTMKRUS
+                rotulo: '2'
                 circulo:
                   x: 142
                   y: 810
                   raio: 16
-              - id: 2 (P2)_fim
+                id: iKvfh7BHTMKRUS
                 label: '2'
+              - uid: f25l1XnjsK9Re0
+                rotulo: '2'
                 circulo:
                   x: 349
                   y: 609
                   raio: 16
+                id: f25l1XnjsK9Re0
+                label: '2'
               referencias:
-              - escalada: Papagaio de Pirata
+              - alvo_uid: gQyllL3QUJ5Xmw
+                pontos_uids:
+                - vbzeRpXjtvrnsZ
+                - 1xaRyOGXoRKRa5
+                escalada: Papagaio de Pirata
                 ids:
-                - 1 (P2)
-                - 1 (P2)_fim
-              - escalada: Desce a Serra
+                - vbzeRpXjtvrnsZ
+                - 1xaRyOGXoRKRa5
+              - alvo_uid: v7scNKK9FwtoOQ
+                pontos_uids:
+                - iKvfh7BHTMKRUS
+                - f25l1XnjsK9Re0
+                escalada: Desce a Serra
                 ids:
-                - 2 (P2)
-                - 2 (P2)_fim
+                - iKvfh7BHTMKRUS
+                - f25l1XnjsK9Re0
             escaladas:
-            - boulder:
+            - uid: Zrdafq2MWx4mLr
+              boulder:
                 nome: Navio Pirata
                 dificuldade: V0_BARRA_V1
-            - boulder:
+            - uid: AsJv46fRHeEiOw
+              boulder:
                 nome: Invasão do Navio Pirata
                 dificuldade: V1_BARRA_V2
-            - boulder:
+            - uid: 0kfZmDOpFIsqLt
+              boulder:
                 nome: Capitão Gancho
                 dificuldade: V2
-            - boulder:
+            - uid: tos0NQrLMGzBI5
+              boulder:
                 nome: Serra a Vista
                 dificuldade: V1_BARRA_V2
-            - boulder:
+            - uid: ifuNPgrIWqT201
+              boulder:
                 nome: Tapa Olho
                 dificuldade: V2_BARRA_V3
-            - boulder:
+            - uid: QbPlUqsgxNarKC
+              boulder:
                 nome: A Estibordo
                 dificuldade: V3_BARRA_V4
-            - boulder:
+            - uid: ir5OtnNkOyaKSD
+              boulder:
                 nome: Proa
                 dificuldade: V1
-            - boulder:
+            - uid: gQyllL3QUJ5Xmw
+              boulder:
                 nome: Papagaio de Pirata
                 dificuldade: V2
-            - boulder:
+            - uid: v7scNKK9FwtoOQ
+              boulder:
                 nome: Desce a Serra
                 dificuldade: V3
             descricao: |-
@@ -1900,69 +2594,97 @@ picos:
               total_escaladas: 9
               total_boulders: 9
         - conteudo:
+            uid: IAHAxZrL76iUE6
             nome: Pfizer
             mapas:
             - caminho_imagem_mapa: imagens/grupo_regiao_4_setor_pfizer_p0_i0.webp
               largura_mapa: 1240
               altura_mapa: 931
               pontos_de_interesse:
-              - id: '1'
-                label: '1'
+              - uid: apNSMIgishCvMq
+                rotulo: '1'
                 circulo:
                   x: 326
                   y: 594
                   raio: 15
-              - id: 1_fim
+                id: apNSMIgishCvMq
                 label: '1'
+              - uid: 5gQj5KhOYHaSBF
+                rotulo: '1'
                 circulo:
                   x: 275
                   y: 278
                   raio: 15
-              - id: '2'
-                label: '2'
+                id: 5gQj5KhOYHaSBF
+                label: '1'
+              - uid: CsABZulQmaQRpe
+                rotulo: '2'
                 circulo:
                   x: 547
                   y: 603
                   raio: 15
-              - id: 2_fim
+                id: CsABZulQmaQRpe
                 label: '2'
+              - uid: l4ykhFIaWNX54F
+                rotulo: '2'
                 circulo:
                   x: 552
                   y: 292
                   raio: 15
-              - id: '3'
-                label: '3'
+                id: l4ykhFIaWNX54F
+                label: '2'
+              - uid: QSWAmHvy0qHThf
+                rotulo: '3'
                 circulo:
                   x: 889
                   y: 624
                   raio: 15
-              - id: 3_fim
+                id: QSWAmHvy0qHThf
                 label: '3'
+              - uid: dmYu0AMgtk1BAx
+                rotulo: '3'
                 circulo:
                   x: 872
                   y: 218
                   raio: 15
+                id: dmYu0AMgtk1BAx
+                label: '3'
               referencias:
-              - escalada: Pfizer
+              - alvo_uid: Q6EsorjUeI753p
+                pontos_uids:
+                - apNSMIgishCvMq
+                - 5gQj5KhOYHaSBF
+                escalada: Pfizer
                 ids:
-                - '1'
-                - 1_fim
-              - escalada: Barriga Branca
+                - apNSMIgishCvMq
+                - 5gQj5KhOYHaSBF
+              - alvo_uid: HYYJC6Mu8XFxbg
+                pontos_uids:
+                - CsABZulQmaQRpe
+                - l4ykhFIaWNX54F
+                escalada: Barriga Branca
                 ids:
-                - '2'
-                - 2_fim
-              - escalada: Rosa
+                - CsABZulQmaQRpe
+                - l4ykhFIaWNX54F
+              - alvo_uid: ZqpDDGeu7k74Sm
+                pontos_uids:
+                - QSWAmHvy0qHThf
+                - dmYu0AMgtk1BAx
+                escalada: Rosa
                 ids:
-                - '3'
-                - 3_fim
+                - QSWAmHvy0qHThf
+                - dmYu0AMgtk1BAx
             escaladas:
-            - boulder:
+            - uid: Q6EsorjUeI753p
+              boulder:
                 nome: Pfizer
                 dificuldade: V4
-            - boulder:
+            - uid: HYYJC6Mu8XFxbg
+              boulder:
                 nome: Barriga Branca
                 dificuldade: V1
-            - boulder:
+            - uid: ZqpDDGeu7k74Sm
+              boulder:
                 nome: Rosa
                 dificuldade: V0
             descricao: |-
@@ -1972,107 +2694,153 @@ picos:
               total_escaladas: 3
               total_boulders: 3
         - conteudo:
+            uid: ZvxbNlHWswULYG
             nome: Pedra na Canela
             mapas:
             - caminho_imagem_mapa: imagens/grupo_regiao_4_setor_pedra_na_canela_p0_i0.webp
               largura_mapa: 1240
               altura_mapa: 1014
               pontos_de_interesse:
-              - id: '1'
-                label: '1'
+              - uid: 7GB7sxRMoo6296
+                rotulo: '1'
                 circulo:
                   x: 211
                   y: 824
                   raio: 15
-              - id: 1_fim
+                id: 7GB7sxRMoo6296
                 label: '1'
+              - uid: IIPPq7axJlZGcK
+                rotulo: '1'
                 circulo:
                   x: 560
                   y: 861
                   raio: 15
-              - id: '2'
-                label: '2'
+                id: IIPPq7axJlZGcK
+                label: '1'
+              - uid: cLU6nOsC5K7jQt
+                rotulo: '2'
                 circulo:
                   x: 77
                   y: 712
                   raio: 15
-              - id: 2_fim
+                id: cLU6nOsC5K7jQt
                 label: '2'
+              - uid: w9JlkWo6gmhile
+                rotulo: '2'
                 circulo:
                   x: 559
                   y: 899
                   raio: 15
-              - id: '3'
-                label: '3'
+                id: w9JlkWo6gmhile
+                label: '2'
+              - uid: ucshAPjqiuwza4
+                rotulo: '3'
                 circulo:
                   x: 173
                   y: 819
                   raio: 15
-              - id: 3_fim
+                id: ucshAPjqiuwza4
                 label: '3'
+              - uid: iTUstOCKe4dXpP
+                rotulo: '3'
                 circulo:
                   x: 714
                   y: 846
                   raio: 15
-              - id: '4'
-                label: '4'
+                id: iTUstOCKe4dXpP
+                label: '3'
+              - uid: aZYXQgUgNNWrGq
+                rotulo: '4'
                 circulo:
                   x: 77
                   y: 674
                   raio: 15
-              - id: 4_fim
+                id: aZYXQgUgNNWrGq
                 label: '4'
+              - uid: nz8IjTQUrSe2gj
+                rotulo: '4'
                 circulo:
                   x: 715
                   y: 886
                   raio: 15
-              - id: '5'
-                label: '5'
+                id: nz8IjTQUrSe2gj
+                label: '4'
+              - uid: Gia1TCQHxIpvIe
+                rotulo: '5'
                 circulo:
                   x: 805
                   y: 805
                   raio: 15
-              - id: 5_fim
+                id: Gia1TCQHxIpvIe
                 label: '5'
+              - uid: OqNaNMAsEYfd56
+                rotulo: '5'
                 circulo:
                   x: 1005
                   y: 187
                   raio: 16
+                id: OqNaNMAsEYfd56
+                label: '5'
               referencias:
-              - escalada: Pedra na Canela
+              - alvo_uid: 8WUoNKOBJXM8mu
+                pontos_uids:
+                - 7GB7sxRMoo6296
+                - IIPPq7axJlZGcK
+                escalada: Pedra na Canela
                 ids:
-                - '1'
-                - 1_fim
-              - escalada: Sobe a Serra
+                - 7GB7sxRMoo6296
+                - IIPPq7axJlZGcK
+              - alvo_uid: V2ymkQzSZw77se
+                pontos_uids:
+                - cLU6nOsC5K7jQt
+                - w9JlkWo6gmhile
+                escalada: Sobe a Serra
                 ids:
-                - '2'
-                - 2_fim
-              - escalada: Pedra na Canela Ext
+                - cLU6nOsC5K7jQt
+                - w9JlkWo6gmhile
+              - alvo_uid: aFLz4Xz6W0UJcn
+                pontos_uids:
+                - ucshAPjqiuwza4
+                - iTUstOCKe4dXpP
+                escalada: Pedra na Canela Ext
                 ids:
-                - '3'
-                - 3_fim
-              - escalada: Sobe a Serra Ext
+                - ucshAPjqiuwza4
+                - iTUstOCKe4dXpP
+              - alvo_uid: wZ4UCXXIN3lfaD
+                pontos_uids:
+                - aZYXQgUgNNWrGq
+                - nz8IjTQUrSe2gj
+                escalada: Sobe a Serra Ext
                 ids:
-                - '4'
-                - 4_fim
-              - escalada: Ofurô
+                - aZYXQgUgNNWrGq
+                - nz8IjTQUrSe2gj
+              - alvo_uid: NpqSSLTZjkrxIs
+                pontos_uids:
+                - Gia1TCQHxIpvIe
+                - OqNaNMAsEYfd56
+                escalada: Ofurô
                 ids:
-                - '5'
-                - 5_fim
+                - Gia1TCQHxIpvIe
+                - OqNaNMAsEYfd56
             escaladas:
-            - boulder:
+            - uid: 8WUoNKOBJXM8mu
+              boulder:
                 nome: Pedra na Canela
                 dificuldade: V4
-            - boulder:
+            - uid: V2ymkQzSZw77se
+              boulder:
                 nome: Sobe a Serra
                 dificuldade: V5
-            - boulder:
+            - uid: aFLz4Xz6W0UJcn
+              boulder:
                 nome: Pedra na Canela Ext
                 dificuldade: V5
-            - boulder:
+            - uid: wZ4UCXXIN3lfaD
+              boulder:
                 nome: Sobe a Serra Ext
                 dificuldade: V5_BARRA_V6
-            - boulder:
+            - uid: NpqSSLTZjkrxIs
+              boulder:
                 nome: Ofurô
                 dificuldade: V7_BARRA_V8
             descricao: |-
@@ -2082,69 +2850,97 @@ picos:
               total_escaladas: 5
               total_boulders: 5
         - conteudo:
+            uid: QosMO7Nv63wvuo
             nome: Piseiro
             mapas:
             - caminho_imagem_mapa: imagens/grupo_regiao_4_setor_piseiro_p0_i0.webp
               largura_mapa: 1240
               altura_mapa: 1082
               pontos_de_interesse:
-              - id: '1'
-                label: '1'
+              - uid: vhp72vIYVpVvZc
+                rotulo: '1'
                 circulo:
                   x: 555
                   y: 726
                   raio: 15
-              - id: 1_fim
+                id: vhp72vIYVpVvZc
                 label: '1'
+              - uid: JdpV5y6tSph8rA
+                rotulo: '1'
                 circulo:
                   x: 602
                   y: 246
                   raio: 16
-              - id: '2'
-                label: '2'
+                id: JdpV5y6tSph8rA
+                label: '1'
+              - uid: xoHMHkCuLJFSLX
+                rotulo: '2'
                 circulo:
                   x: 553
                   y: 762
                   raio: 16
-              - id: 2_fim
+                id: xoHMHkCuLJFSLX
                 label: '2'
+              - uid: 2jox6l5PEgUHPF
+                rotulo: '2'
                 circulo:
                   x: 725
                   y: 315
                   raio: 15
-              - id: '3'
-                label: '3'
+                id: 2jox6l5PEgUHPF
+                label: '2'
+              - uid: h5Xxh1ZaqekkOR
+                rotulo: '3'
                 circulo:
                   x: 863
                   y: 909
                   raio: 15
-              - id: 3_fim
+                id: h5Xxh1ZaqekkOR
                 label: '3'
+              - uid: zJAcH5bbmKuJBa
+                rotulo: '3'
                 circulo:
                   x: 725
                   y: 277
                   raio: 15
+                id: zJAcH5bbmKuJBa
+                label: '3'
               referencias:
-              - escalada: Maozeiro
+              - alvo_uid: SajkhpSFBYayr8
+                pontos_uids:
+                - vhp72vIYVpVvZc
+                - JdpV5y6tSph8rA
+                escalada: Maozeiro
                 ids:
-                - '1'
-                - 1_fim
-              - escalada: Piseiro
+                - vhp72vIYVpVvZc
+                - JdpV5y6tSph8rA
+              - alvo_uid: y3ZtuNKJdPoDP8
+                pontos_uids:
+                - xoHMHkCuLJFSLX
+                - 2jox6l5PEgUHPF
+                escalada: Piseiro
                 ids:
-                - '2'
-                - 2_fim
-              - escalada: Expresso 22
+                - xoHMHkCuLJFSLX
+                - 2jox6l5PEgUHPF
+              - alvo_uid: 3biEqLOb4DyBMU
+                pontos_uids:
+                - h5Xxh1ZaqekkOR
+                - zJAcH5bbmKuJBa
+                escalada: Expresso 22
                 ids:
-                - '3'
-                - 3_fim
+                - h5Xxh1ZaqekkOR
+                - zJAcH5bbmKuJBa
             escaladas:
-            - boulder:
+            - uid: SajkhpSFBYayr8
+              boulder:
                 nome: Maozeiro
                 dificuldade: V7
-            - boulder:
+            - uid: y3ZtuNKJdPoDP8
+              boulder:
                 nome: Piseiro
                 dificuldade: V4
-            - boulder:
+            - uid: 3biEqLOb4DyBMU
+              boulder:
                 nome: Expresso 22
                 dificuldade: V0
             descricao: |-
@@ -2154,88 +2950,125 @@ picos:
               total_escaladas: 3
               total_boulders: 3
         - conteudo:
+            uid: QPwyD0n8ZTjbOT
             nome: Raizeiro
             mapas:
             - caminho_imagem_mapa: imagens/grupo_regiao_4_setor_raizeiro_p0_i0.webp
               largura_mapa: 1240
               altura_mapa: 1098
               pontos_de_interesse:
-              - id: '1'
-                label: '1'
+              - uid: uGfyAL8x9W7YMy
+                rotulo: '1'
                 circulo:
                   x: 50
                   y: 514
                   raio: 16
-              - id: 1_fim
+                id: uGfyAL8x9W7YMy
                 label: '1'
+              - uid: 8GpiOq6bttOpAO
+                rotulo: '1'
                 circulo:
                   x: 149
                   y: 184
                   raio: 15
-              - id: '2'
-                label: '2'
+                id: 8GpiOq6bttOpAO
+                label: '1'
+              - uid: piBL3JatwKAjAa
+                rotulo: '2'
                 circulo:
                   x: 867
                   y: 975
                   raio: 15
-              - id: 2_fim
+                id: piBL3JatwKAjAa
                 label: '2'
+              - uid: GbM4gArhNiRBct
+                rotulo: '2'
                 circulo:
                   x: 149
                   y: 145
                   raio: 15
-              - id: '3'
-                label: '3'
+                id: GbM4gArhNiRBct
+                label: '2'
+              - uid: 9Df0RHkYiY0g6p
+                rotulo: '3'
                 circulo:
                   x: 867
                   y: 1012
                   raio: 15
-              - id: 3_fim
+                id: 9Df0RHkYiY0g6p
                 label: '3'
+              - uid: EnhjZ7XHnTa0zi
+                rotulo: '3'
                 circulo:
                   x: 844
                   y: 300
                   raio: 16
-              - id: '4'
-                label: '4'
+                id: EnhjZ7XHnTa0zi
+                label: '3'
+              - uid: y1w0Hib7yrWOYN
+                rotulo: '4'
                 circulo:
                   x: 866
                   y: 1048
                   raio: 15
-              - id: 4_fim
+                id: y1w0Hib7yrWOYN
                 label: '4'
+              - uid: GeIthj8OfY1YfY
+                rotulo: '4'
                 circulo:
                   x: 1072
                   y: 468
                   raio: 15
+                id: GeIthj8OfY1YfY
+                label: '4'
               referencias:
-              - escalada: Parteira
+              - alvo_uid: 6KQGsiZ70565Iu
+                pontos_uids:
+                - uGfyAL8x9W7YMy
+                - 8GpiOq6bttOpAO
+                escalada: Parteira
                 ids:
-                - '1'
-                - 1_fim
-              - escalada: Curandeira
+                - uGfyAL8x9W7YMy
+                - 8GpiOq6bttOpAO
+              - alvo_uid: LMPYtDByz0ZOwL
+                pontos_uids:
+                - piBL3JatwKAjAa
+                - GbM4gArhNiRBct
+                escalada: Curandeira
                 ids:
-                - '2'
-                - 2_fim
-              - escalada: Raizeiro
+                - piBL3JatwKAjAa
+                - GbM4gArhNiRBct
+              - alvo_uid: ryJqk3tXuc71vB
+                pontos_uids:
+                - 9Df0RHkYiY0g6p
+                - EnhjZ7XHnTa0zi
+                escalada: Raizeiro
                 ids:
-                - '3'
-                - 3_fim
-              - escalada: Garrafada
+                - 9Df0RHkYiY0g6p
+                - EnhjZ7XHnTa0zi
+              - alvo_uid: TUL1O3mMYHJfzm
+                pontos_uids:
+                - y1w0Hib7yrWOYN
+                - GeIthj8OfY1YfY
+                escalada: Garrafada
                 ids:
-                - '4'
-                - 4_fim
+                - y1w0Hib7yrWOYN
+                - GeIthj8OfY1YfY
             escaladas:
-            - boulder:
+            - uid: 6KQGsiZ70565Iu
+              boulder:
                 nome: Parteira
                 dificuldade: V3_BARRA_V4
-            - boulder:
+            - uid: LMPYtDByz0ZOwL
+              boulder:
                 nome: Curandeira
                 dificuldade: V6_BARRA_V7
-            - boulder:
+            - uid: ryJqk3tXuc71vB
+              boulder:
                 nome: Raizeiro
                 dificuldade: V4
-            - boulder:
+            - uid: TUL1O3mMYHJfzm
+              boulder:
                 nome: Garrafada
                 dificuldade: V3
             descricao: |-
@@ -2245,88 +3078,125 @@ picos:
               total_escaladas: 4
               total_boulders: 4
         - conteudo:
+            uid: QqZiA2ythU83BC
             nome: Tijuco Preto
             mapas:
             - caminho_imagem_mapa: imagens/grupo_regiao_4_setor_tijuco_preto_p0_i0.webp
               largura_mapa: 1240
               altura_mapa: 921
               pontos_de_interesse:
-              - id: '1'
-                label: '1'
+              - uid: gKzGP2jdd9cZaC
+                rotulo: '1'
                 circulo:
                   x: 962
                   y: 722
                   raio: 17
-              - id: 1_fim
+                id: gKzGP2jdd9cZaC
                 label: '1'
+              - uid: ybdwiQ4BJx9Pfw
+                rotulo: '1'
                 circulo:
                   x: 931
                   y: 439
                   raio: 17
-              - id: '2'
-                label: '2'
+                id: ybdwiQ4BJx9Pfw
+                label: '1'
+              - uid: IYmsKivphX8pnM
+                rotulo: '2'
                 circulo:
                   x: 705
                   y: 746
                   raio: 17
-              - id: 2_fim
+                id: IYmsKivphX8pnM
                 label: '2'
+              - uid: s77DGXL0GoMvec
+                rotulo: '2'
                 circulo:
                   x: 931
                   y: 397
                   raio: 17
-              - id: '3'
-                label: '3'
+                id: s77DGXL0GoMvec
+                label: '2'
+              - uid: tiCuRqTZs1YhFs
+                rotulo: '3'
                 circulo:
                   x: 705
                   y: 786
                   raio: 18
-              - id: 3_fim
+                id: tiCuRqTZs1YhFs
                 label: '3'
+              - uid: PvcBDpmNzl5j97
+                rotulo: '3'
                 circulo:
                   x: 685
                   y: 203
                   raio: 17
-              - id: '4'
-                label: '4'
+                id: PvcBDpmNzl5j97
+                label: '3'
+              - uid: CKBfPZeVv8LtZD
+                rotulo: '4'
                 circulo:
                   x: 227
                   y: 864
                   raio: 17
-              - id: 4_fim
+                id: CKBfPZeVv8LtZD
                 label: '4'
+              - uid: 420IrvUnKWyDA6
+                rotulo: '4'
                 circulo:
                   x: 414
                   y: 115
                   raio: 17
+                id: 420IrvUnKWyDA6
+                label: '4'
               referencias:
-              - escalada: Tijuco Preto
+              - alvo_uid: DkZiFLYJSYJACi
+                pontos_uids:
+                - gKzGP2jdd9cZaC
+                - ybdwiQ4BJx9Pfw
+                escalada: Tijuco Preto
                 ids:
-                - '1'
-                - 1_fim
-              - escalada: Pé na Lapeira
+                - gKzGP2jdd9cZaC
+                - ybdwiQ4BJx9Pfw
+              - alvo_uid: RhXIXfEwUM059N
+                pontos_uids:
+                - IYmsKivphX8pnM
+                - s77DGXL0GoMvec
+                escalada: Pé na Lapeira
                 ids:
-                - '2'
-                - 2_fim
-              - escalada: Sol a Fora
+                - IYmsKivphX8pnM
+                - s77DGXL0GoMvec
+              - alvo_uid: E2Xh64TNQ6Kw2X
+                pontos_uids:
+                - tiCuRqTZs1YhFs
+                - PvcBDpmNzl5j97
+                escalada: Sol a Fora
                 ids:
-                - '3'
-                - 3_fim
-              - escalada: Toque no Curralinho
+                - tiCuRqTZs1YhFs
+                - PvcBDpmNzl5j97
+              - alvo_uid: mz8RAqSEhuoFcf
+                pontos_uids:
+                - CKBfPZeVv8LtZD
+                - 420IrvUnKWyDA6
+                escalada: Toque no Curralinho
                 ids:
-                - '4'
-                - 4_fim
+                - CKBfPZeVv8LtZD
+                - 420IrvUnKWyDA6
             escaladas:
-            - boulder:
+            - uid: DkZiFLYJSYJACi
+              boulder:
                 nome: Tijuco Preto
                 dificuldade: V6
-            - boulder:
+            - uid: RhXIXfEwUM059N
+              boulder:
                 nome: Pé na Lapeira
                 dificuldade: V4
-            - boulder:
+            - uid: E2Xh64TNQ6Kw2X
+              boulder:
                 nome: Sol a Fora
                 dificuldade: V3
-            - boulder:
+            - uid: mz8RAqSEhuoFcf
+              boulder:
                 nome: Toque no Curralinho
                 dificuldade: V3
             descricao: |-
@@ -2350,43 +3220,63 @@ picos:
         altura_mapa: 867
       - caminho_imagem_mapa: imagens/mapas_gerais_p1_i0.webp
         pontos_de_interesse:
-        - id: '2'
-          label: '2'
+        - uid: FSlLx4zYRHvn25
+          rotulo: '2'
           circulo:
             x: 504
             y: 566
             raio: 36
-        - id: '1'
-          label: '1'
+          id: FSlLx4zYRHvn25
+          label: '2'
+        - uid: yCQ1Chm198kaQs
+          rotulo: '1'
           circulo:
             x: 603
             y: 712
             raio: 36
-        - id: '4'
-          label: '4'
+          id: yCQ1Chm198kaQs
+          label: '1'
+        - uid: Bx5QJWxXYpuJJ8
+          rotulo: '4'
           circulo:
             x: 632
             y: 318
             raio: 33
-        - id: '3'
-          label: '3'
+          id: Bx5QJWxXYpuJJ8
+          label: '4'
+        - uid: eJjsxzMvpAX9JO
+          rotulo: '3'
           circulo:
             x: 730
             y: 578
             raio: 35
+          id: eJjsxzMvpAX9JO
+          label: '3'
         referencias:
-        - ids:
-          - '1'
+        - alvo_uid: 4FDteNJXNyj54v
+          pontos_uids:
+          - yCQ1Chm198kaQs
           grupo: Região 1
-        - ids:
-          - '2'
+          ids:
+          - yCQ1Chm198kaQs
+        - alvo_uid: x5DYqeNmedsNxv
+          pontos_uids:
+          - FSlLx4zYRHvn25
           grupo: Região 2
-        - ids:
-          - '3'
+          ids:
+          - FSlLx4zYRHvn25
+        - alvo_uid: 0b1TmSRK0dGE9M
+          pontos_uids:
+          - eJjsxzMvpAX9JO
           grupo: Região 3
-        - ids:
-          - '4'
+          ids:
+          - eJjsxzMvpAX9JO
+        - alvo_uid: 5HcZp5MuQIGxmc
+          pontos_uids:
+          - Bx5QJWxXYpuJJ8
           grupo: Região 4
+          ids:
+          - Bx5QJWxXYpuJJ8
         largura_mapa: 1223
         altura_mapa: 1251
   localizacao:
@@ -2399,7 +3289,8 @@ picos:
     total_boulders: 89
 caminho_thumbnail: imagens/capa_p0_i0.webp
 botoes:
-- texto: Informações
+- uid: BZdwK5E7FVI7Gx
+  texto: Informações
   destino:
     secao_textual:
       conteudo: |-
@@ -2409,7 +3300,7 @@ botoes:
         | ![Diamaboulder - Cerrado Groove](imagens/capa_p0_i0.webp) |
         | :--: |
         | *Diamaboulder - Cerrado Groove* |
-ultima_migracao: 4
+ultima_migracao: 5
 revisado_manualmente: true
 revisado_bounding_circle: true
 publicar_croqui: true

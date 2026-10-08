@@ -2,25 +2,29 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
+uid: EQr0yNCW02acgt
 nome: Bloco High
 mapas:
 - caminho_imagem_mapa: imagens/setor_bloco_high_p0_i0.webp
 escaladas:
-- boulder:
+- uid: zUjxJVnK9XBPFp
+  boulder:
     nome: Raiz lateral
     dificuldade: V1_BARRA_V2
-- boulder:
+- uid: TUwlHlSgkAS98z
+  boulder:
     nome: High Perrengue
     dificuldade: V1
-- boulder:
+- uid: wwHV7R0zTV3mh3
+  boulder:
     nome: Mundunga
     dificuldade: V1
-- boulder:
+- uid: J6VQdEVQtXq1zl
+  boulder:
     nome: ???
     dificuldade: V2
-- boulder:
+- uid: ZPUylzx96K4fLf
+  boulder:
     nome: HighBolinha
     dificuldade: V2_BARRA_V3
 ---
-
-

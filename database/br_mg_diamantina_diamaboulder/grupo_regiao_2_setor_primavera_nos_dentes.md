@@ -1,220 +1,217 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+uid: 3eKPXspykrgC71
 nome: Primavera nos Dentes
 mapas:
 - caminho_imagem_mapa: imagens/grupo_regiao_2_setor_primavera_nos_dentes_p0_i0.webp
   largura_mapa: 1240
   altura_mapa: 1006
   pontos_de_interesse:
-  - id: 1 (P0)
-    label: '1'
+  - uid: at7KfXw39RqgWs
+    rotulo: '1'
     circulo:
       x: 451
       y: 651
       raio: 15
-  - id: 1 (P0)_fim
-    label: '1'
+  - uid: kxH3a5qF9jqLLM
+    rotulo: '1'
     circulo:
       x: 240
       y: 365
       raio: 15
-  - id: 2 (P0)
-    label: '2'
+  - uid: OF2f8XGXZhSZhf
+    rotulo: '2'
     circulo:
       x: 854
       y: 604
       raio: 15
-  - id: 2 (P0)_fim
-    label: '2'
+  - uid: 82RnsDo3Cdp1bX
+    rotulo: '2'
     circulo:
       x: 732
       y: 301
       raio: 15
-  - id: 3 (P0)
-    label: '3'
+  - uid: QGv9QIztbUTbjb
+    rotulo: '3'
     circulo:
       x: 853
       y: 644
       raio: 14
-  - id: 3 (P0)_fim
-    label: '3'
+  - uid: jiljDWvBVj8cvH
+    rotulo: '3'
     circulo:
       x: 931
       y: 276
       raio: 15
   referencias:
-  - escalada: Monobloco
-    ids:
-    - 1 (P0)
-    - 1 (P0)_fim
-  - escalada: Canela Queimada
-    ids:
-    - 2 (P0)
-    - 2 (P0)_fim
-  - escalada: Canela de Ema
-    ids:
-    - 3 (P0)
-    - 3 (P0)_fim
+  - alvo_uid: ssY3HiAbaLDLFZ
+    pontos_uids:
+    - at7KfXw39RqgWs
+    - kxH3a5qF9jqLLM
+  - alvo_uid: MnhtFm97fVQKP5
+    pontos_uids:
+    - OF2f8XGXZhSZhf
+    - 82RnsDo3Cdp1bX
+  - alvo_uid: aYDNJqy2N05qHt
+    pontos_uids:
+    - QGv9QIztbUTbjb
+    - jiljDWvBVj8cvH
 - caminho_imagem_mapa: imagens/grupo_regiao_2_setor_primavera_nos_dentes_p1_i0.webp
   largura_mapa: 1240
   altura_mapa: 941
   pontos_de_interesse:
-  - id: 1 (P1)
-    label: '1'
+  - uid: yxBcM0qh38nXnk
+    rotulo: '1'
     circulo:
       x: 595
       y: 608
       raio: 14
-  - id: 1 (P1)_fim
-    label: '1'
+  - uid: l5cikSSCJKflq7
+    rotulo: '1'
     circulo:
       x: 892
       y: 182
       raio: 14
-  - id: 2 (P1)
-    label: '2'
+  - uid: Rwuon1QA2kGMVv
+    rotulo: '2'
     circulo:
       x: 650
       y: 583
       raio: 14
-  - id: 2 (P1)_fim
-    label: '2'
+  - uid: VC5zOoWVxh9EhI
+    rotulo: '2'
     circulo:
       x: 892
       y: 145
       raio: 15
-  - id: 3 (P1)
-    label: '3'
+  - uid: Ay9fDGmRymVe7y
+    rotulo: '3'
     circulo:
       x: 911
       y: 535
       raio: 14
-  - id: 3 (P1)_fim
-    label: '3'
+  - uid: HvPC4X2XvNyCea
+    rotulo: '3'
     circulo:
       x: 892
       y: 110
       raio: 15
-  - id: 4 (P1/P2)
-    label: '4'
+  - uid: XQ5A43fmhojXsa
+    rotulo: '4'
     circulo:
       x: 595
       y: 643
       raio: 14
-  - id: 5 (P1/P2)
-    label: '5'
+  - uid: 7c55IrV7HwzjaC
+    rotulo: '5'
     circulo:
       x: 910
       y: 570
       raio: 14
   referencias:
-  - escalada: Primavera nos Dentes
-    ids:
-    - 1 (P1)
-    - 1 (P1)_fim
-  - escalada: Suave Coisa Nenhuma
-    ids:
-    - 2 (P1)
-    - 2 (P1)_fim
-  - escalada: Primavera Latina
-    ids:
-    - 3 (P1)
-    - 3 (P1)_fim
-  - ids:
-    - 4 (P1/P2)
-    grupo: Região 2
-    setor: Primavera nos Dentes
-    escalada: Sangue Latino
-  - ids:
-    - 5 (P1/P2)
-    grupo: Região 2
-    setor: Primavera nos Dentes
-    escalada: Joelho de Porco
+  - alvo_uid: 2SUIqfx23pnL2I
+    pontos_uids:
+    - yxBcM0qh38nXnk
+    - l5cikSSCJKflq7
+  - alvo_uid: oItaT1GZzNsN0l
+    pontos_uids:
+    - Rwuon1QA2kGMVv
+    - VC5zOoWVxh9EhI
+  - alvo_uid: W1ziTvsVxnWYXk
+    pontos_uids:
+    - Ay9fDGmRymVe7y
+    - HvPC4X2XvNyCea
+  - alvo_uid: UHSDVGFiOl9o35
+    pontos_uids:
+    - XQ5A43fmhojXsa
+  - alvo_uid: cFBIt3RonJvkqf
+    pontos_uids:
+    - 7c55IrV7HwzjaC
 - caminho_imagem_mapa: imagens/grupo_regiao_2_setor_primavera_nos_dentes_p2_i0.webp
   largura_mapa: 1240
   altura_mapa: 1030
   pontos_de_interesse:
-  - id: 4 (P1/P2)
-    label: '4'
+  - uid: bhVJqtOqKYVEhI
+    rotulo: '4'
     circulo:
       x: 420
       y: 735
       raio: 15
-  - id: 4 (P1/P2)_fim
-    label: '4'
+  - uid: 9BOha1q7gr6a9H
+    rotulo: '4'
     circulo:
       x: 561
       y: 106
       raio: 15
-  - id: 5 (P1/P2)
-    label: '5'
+  - uid: 6K5JejzNDts5dM
+    rotulo: '5'
     circulo:
       x: 465
       y: 649
       raio: 15
-  - id: 5 (P1/P2)_fim
-    label: '5'
+  - uid: TtHlKaoXWkd6l9
+    rotulo: '5'
     circulo:
       x: 561
       y: 68
       raio: 16
   referencias:
-  - ids:
-    - 4 (P1/P2)
-    - 4 (P1/P2)_fim
-    grupo: Região 2
-    setor: Primavera nos Dentes
-    escalada: Sangue Latino
-  - ids:
-    - 5 (P1/P2)
-    - 5 (P1/P2)_fim
-    grupo: Região 2
-    setor: Primavera nos Dentes
-    escalada: Joelho de Porco
+  - alvo_uid: UHSDVGFiOl9o35
+    pontos_uids:
+    - bhVJqtOqKYVEhI
+    - 9BOha1q7gr6a9H
+  - alvo_uid: cFBIt3RonJvkqf
+    pontos_uids:
+    - 6K5JejzNDts5dM
+    - TtHlKaoXWkd6l9
 escaladas:
-- boulder:
+- uid: ssY3HiAbaLDLFZ
+  boulder:
     nome: Monobloco
     dificuldade: V3
-    descricao: Saída com as mãos e pés no bloco menor que sustenta o bloco principal,
-      finalizando logo acima.
-- boulder:
+    descricao: Saída com as mãos e pés no bloco menor que sustenta o bloco principal, finalizando logo acima.
+- uid: MnhtFm97fVQKP5
+  boulder:
     nome: Canela Queimada
     dificuldade: V2
-    descricao: Saída em batentes bem marcados e segue para a esquerda (sem utilizar
-      os pés no bloco de sustentação).
-- boulder:
+    descricao: Saída em batentes bem marcados e segue para a esquerda (sem utilizar os pés no bloco de sustentação).
+- uid: aYDNJqy2N05qHt
+  boulder:
     nome: Canela de Ema
     dificuldade: V3
     descricao: Mesma saída do canela queimada mas segue a linha de agarras da direita.
-- boulder:
+- uid: 2SUIqfx23pnL2I
+  boulder:
     nome: Primavera nos Dentes
     dificuldade: V7
-    descricao: Saída com as mãos juntas na agarra protuberante (sem utilizar o bloco
-      de sustentação como apoio de pés), seguindo pelos pequenos regletes escorridos
-      e pockets.
-- boulder:
+    descricao: Saída com as mãos juntas na agarra protuberante (sem utilizar o bloco de sustentação como apoio de pés), 
+      seguindo pelos pequenos regletes escorridos e pockets.
+- uid: oItaT1GZzNsN0l
+  boulder:
     nome: Suave Coisa Nenhuma
     dificuldade: V6
-    descricao: Saída com a mão esquerda na agarra protuberante e mão direita no batente
-      abaulado, seguido de dinâmico no pocket estreito, finalizando como o primavera
-      nos dentes (utiliza-se livremente o(s) pé(s) no bloco de sustentação).
-- boulder:
+    descricao: Saída com a mão esquerda na agarra protuberante e mão direita no batente abaulado, seguido de dinâmico no
+      pocket estreito, finalizando como o primavera nos dentes (utiliza-se livremente o(s) pé(s) no bloco de 
+      sustentação).
+- uid: W1ziTvsVxnWYXk
+  boulder:
     nome: Primavera Latina
     dificuldade: V10_BARRA_V11
-    descricao: Saída nas agarras da quina do bloco (logo à direita da saída do joelho
-      de porco) e segue em travessia para a esquerda até finalizar como o primavera
-      nos dentes.
-- boulder:
+    descricao: Saída nas agarras da quina do bloco (logo à direita da saída do joelho de porco) e segue em travessia 
+      para a esquerda até finalizar como o primavera nos dentes.
+- uid: UHSDVGFiOl9o35
+  boulder:
     nome: Sangue Latino
     dificuldade: V9
-    descricao: Mesma saída do primavera nos dentes, mas segue em diagonal para a direita
-      por abaulados e invertidas até finalizar como o joelho de porco.
-- boulder:
+    descricao: Mesma saída do primavera nos dentes, mas segue em diagonal para a direita por abaulados e invertidas até 
+      finalizar como o joelho de porco.
+- uid: cFBIt3RonJvkqf
+  boulder:
     nome: Joelho de Porco
     dificuldade: V3
-    descricao: Saída com as mãos em copos idênticos quase ao final do abrigo, seguindo
-      por movimentos espremidos rumo à face externa do bloco.
+    descricao: Saída com as mãos em copos idênticos quase ao final do abrigo, seguindo por movimentos espremidos rumo à 
+      face externa do bloco.
 ---
 
 # Bloco: Primavera nos Dentes

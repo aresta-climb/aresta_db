@@ -12,147 +12,147 @@ mapas:
   largura_mapa: 1773
   altura_mapa: 1575
   pontos_de_interesse:
-  - id: Setor_Panelinha
-    label: Setor Panelinha
+  - uid: sq5lSLsP6yRoha
+    rotulo: Setor Panelinha
     retangulo:
       x: 186
       y: 447
       comprimento: 111
       largura: 48
-  - id: Setor_De_Esquerda
-    label: Setor De Esquerda
+  - uid: AuhEW8uexQDSYW
+    rotulo: Setor De Esquerda
     retangulo:
       x: 184
       y: 566
       comprimento: 151
       largura: 53
-  - id: Setor_Vale_Zela
-    label: Setor Vale Zela
+  - uid: 4AIaT3RTteJKlR
+    rotulo: Setor Vale Zela
     retangulo:
       x: 1256
       y: 428
       comprimento: 110
       largura: 51
-  - id: Setor_Sentinela
-    label: Setor Sentinela
+  - uid: hMaDTsJJjXg1qK
+    rotulo: Setor Sentinela
     retangulo:
       x: 802
       y: 471
       comprimento: 196
       largura: 28
-  - id: Setor_Vale_das_Sombras_Top
-    label: Setor Vale das Sombras
+  - uid: xTOfFGu0XTIKF2
+    rotulo: Setor Vale das Sombras
     retangulo:
       x: 1433
       y: 546
       comprimento: 210
       largura: 53
-  - id: Setor_Janelas_Pro_Abismo
-    label: Setor Janelas Pro Abismo
+  - uid: nJ3Bf1JpAGyu0n
+    rotulo: Setor Janelas Pro Abismo
     retangulo:
       x: 840
       y: 652
       comprimento: 180
       largura: 45
-  - id: Boulder_Marley
-    label: Boulder Marley
+  - uid: FtulAnLb0xGMMB
+    rotulo: Boulder Marley
     retangulo:
       x: 450
       y: 692
       comprimento: 105
       largura: 55
-  - id: Setor_Imigrantes
-    label: Setor Imigrantes
+  - uid: Ykvsznkr4lHQox
+    rotulo: Setor Imigrantes
     retangulo:
       x: 1013
       y: 758
       comprimento: 130
       largura: 50
-  - id: Setor_Gameleira
-    label: Setor Gameleira
+  - uid: HJ8JRkX8KZQZqG
+    rotulo: Setor Gameleira
     retangulo:
       x: 798
       y: 874
       comprimento: 125
       largura: 50
-  - id: Setor_Vale_das_Sombras_Bottom
-    label: Setor Vale das Sombras
+  - uid: XONeVs0hLpOUAB
+    rotulo: Setor Vale das Sombras
     retangulo:
       x: 1182
       y: 894
       comprimento: 213
       largura: 50
-  - id: Setor_Macaubas
-    label: Setor Macaúbas
+  - uid: MgS22ODuWim7im
+    rotulo: Setor Macaúbas
     retangulo:
       x: 1586
       y: 921
       comprimento: 125
       largura: 50
-  - id: Setor_7_Paralelo
-    label: Setor 7 Paralelo
+  - uid: cSc3HaPBZDGjJn
+    rotulo: Setor 7 Paralelo
     retangulo:
       x: 418
       y: 939
       comprimento: 126
       largura: 56
-  - id: Setor_Death_Horse
-    label: Setor Death Horse
+  - uid: JkuBpIn2c4BMB6
+    rotulo: Setor Death Horse
     retangulo:
       x: 726
       y: 1015
       comprimento: 145
       largura: 50
-  - id: Setor_4_Picos
-    label: Setor 4 Picos
+  - uid: w5jV8TgzcRDpFm
+    rotulo: Setor 4 Picos
     retangulo:
       x: 1400
       y: 1009
       comprimento: 95
       largura: 50
-  - id: Setor_Primordios
-    label: Setor Primórdios
+  - uid: vyvBpe76KlXyT1
+    rotulo: Setor Primórdios
     retangulo:
       x: 1626
       y: 1034
       comprimento: 135
       largura: 50
   referencias:
-  - setor: Setor Panelinha
-    ids:
-    - Setor_Panelinha
-  - setor: Setor de Esquerda
-    ids:
-    - Setor_De_Esquerda
-  - setor: Setor Vale Zela
-    ids:
-    - Setor_Vale_Zela
-  - setor: Setor Sentinela
-    ids:
-    - Setor_Sentinela
-  - setor: Setor Vale das Sombras
-    ids:
-    - Setor_Vale_das_Sombras_Bottom
-    - Setor_Vale_das_Sombras_Top
-  - setor: Setor Imigrantes
-    ids:
-    - Setor_Imigrantes
-  - setor: Setor Gameleira
-    ids:
-    - Setor_Gameleira
-  - setor: Setor Macaúbas
-    ids:
-    - Setor_Macaubas
-  - setor: Setor 7 Paralelo
-    ids:
-    - Setor_7_Paralelo
-  - setor: Setor Death Horse
-    ids:
-    - Setor_Death_Horse
-  - setor: Setor 4 Picos
-    ids:
-    - Setor_4_Picos
-  - setor: Setor Primórdios
-    ids:
-    - Setor_Primordios
+  - alvo_uid: ASLKnxeEws2kaG
+    pontos_uids:
+    - sq5lSLsP6yRoha
+  - alvo_uid: V04iCo3Npy8O8F
+    pontos_uids:
+    - AuhEW8uexQDSYW
+  - alvo_uid: MWoo8hRjlRntGq
+    pontos_uids:
+    - 4AIaT3RTteJKlR
+  - alvo_uid: EaM54aq9IJD36r
+    pontos_uids:
+    - hMaDTsJJjXg1qK
+  - alvo_uid: fueKv7mvJ5Mon2
+    pontos_uids:
+    - XONeVs0hLpOUAB
+    - xTOfFGu0XTIKF2
+  - alvo_uid: GjARqXDXyIGp2W
+    pontos_uids:
+    - Ykvsznkr4lHQox
+  - alvo_uid: TU7ksiizSIZqH4
+    pontos_uids:
+    - HJ8JRkX8KZQZqG
+  - alvo_uid: IOfSlf58GTdE9g
+    pontos_uids:
+    - MgS22ODuWim7im
+  - alvo_uid: Ac3qdS73pE0QaJ
+    pontos_uids:
+    - cSc3HaPBZDGjJn
+  - alvo_uid: YDntm65nIZs31H
+    pontos_uids:
+    - JkuBpIn2c4BMB6
+  - alvo_uid: imSvcK2q24F9DV
+    pontos_uids:
+    - w5jV8TgzcRDpFm
+  - alvo_uid: qey8xcqcLCOOwp
+    pontos_uids:
+    - vyvBpe76KlXyT1
 ---

@@ -4,12 +4,14 @@
 
 - **id**: br_mg_santa_luzia_morro_do_carrapato_setor_covide
 - **nome**: Morro do Carrapato - Setor Covide
+- **uid**: 3YtzNWTuqBidGi
 - **creditos**:
   - Rubens Weil
 - **caminho_thumbnail**: ![caminho_thumbnail](imagens/capa_p0.webp)
-- **ultima_migracao**: 4
+- **ultima_migracao**: 5
 - **botoes**:
   - **[0]**:
+    - **uid**: PGkLMz5OaOmuCl
     - **texto**: Capa
     - **destino**:
       - **secao_textual**:
@@ -24,6 +26,7 @@
             | :--: |
             | *Capa* |
   - **[1]**:
+    - **uid**: VpZOS8iIsleXDY
     - **texto**: Introdução
     - **destino**:
       - **secao_textual**:
@@ -70,6 +73,7 @@
             - Márcio Macena
             - Igor Baldo
   - **[2]**:
+    - **uid**: urABKQijot49Lk
     - **texto**: Acesso
     - **destino**:
       - **secao_textual**:
@@ -93,6 +97,7 @@
             | :--: |
             | *Mapa de localização do Morro do Carrapato* |
   - **[3]**:
+    - **uid**: Y5qcFSoeRPrKwE
     - **texto**: Referências
     - **destino**:
       - **secao_textual**:
@@ -125,6 +130,7 @@
 
 - **descricao**: # Setor Covide (ala aderência)
 - **nome**: Setor Covide (ala aderência)
+- **uid**: BCV6smMUbf9DZM
 - **localizacao_estacionamento**:
   - **latitude**: -197584200
   - **longitude**: -438851100
@@ -138,43 +144,58 @@
     - **altura_mapa**: 1209
     - **pontos_de_interesse**:
       - **[0]**:
-        - **id**: 1
-        - **label**: 1
+        - **id**: 5q0AedNUEeV1GJ
+        - **uid**: 5q0AedNUEeV1GJ
+        - **rotulo**: 1
         - **circulo**:
           - **x**: 196
           - **y**: 484
           - **raio**: 23
+        - **label**: 1
       - **[1]**:
-        - **id**: 2
-        - **label**: 2
+        - **id**: KOwCY6cMM0IH99
+        - **uid**: KOwCY6cMM0IH99
+        - **rotulo**: 2
         - **circulo**:
           - **x**: 690
           - **y**: 682
           - **raio**: 23
+        - **label**: 2
       - **[2]**:
-        - **id**: 3
-        - **label**: 3
+        - **id**: 7pN6DVwdYe8dGL
+        - **uid**: 7pN6DVwdYe8dGL
+        - **rotulo**: 3
         - **circulo**:
           - **x**: 1787
           - **y**: 771
           - **raio**: 23
         - **cor**: 
+        - **label**: 3
     - **referencias**:
       - **[0]**:
+        - **alvo_uid**: PlVKHlZbgKz0mt
+        - **pontos_uids**:
+          - 5q0AedNUEeV1GJ
         - **escalada**: Butantana
         - **ids**:
-          - 1
+          - 5q0AedNUEeV1GJ
       - **[1]**:
+        - **alvo_uid**: MmKZYOJSYCjO7g
+        - **pontos_uids**:
+          - KOwCY6cMM0IH99
         - **escalada**: Convite 19
         - **ids**:
-          - 2
+          - KOwCY6cMM0IH99
       - **[2]**:
-        - **ids**:
-          - 3
-        - **setor**: Setor Covide (ala aderência)
+        - **alvo_uid**: zE7myiPldtvlKi
+        - **pontos_uids**:
+          - 7pN6DVwdYe8dGL
         - **escalada**: Astracênica
+        - **ids**:
+          - 7pN6DVwdYe8dGL
 - **escaladas**:
   - **[0]**:
+    - **uid**: PlVKHlZbgKz0mt
     - **via_esportiva**:
       - **descricao**:
           **Equipamentos:**
@@ -195,6 +216,7 @@
         - **largura_mapa**: 825
         - **altura_mapa**: 1211
   - **[1]**:
+    - **uid**: MmKZYOJSYCjO7g
     - **via_esportiva**:
       - **descricao**:
           **Equipamentos:**
@@ -218,6 +240,7 @@
         - **largura_mapa**: 825
         - **altura_mapa**: 1211
   - **[2]**:
+    - **uid**: zE7myiPldtvlKi
     - **via_esportiva**:
       - **descricao**:
           **Equipamentos:**
@@ -262,6 +285,7 @@
     | 12 | Omicon Ôndas | VIIIa (6+2) |
     | 13 | Aracnocovide | VIIc (6+2) |
 - **nome**: Setor Covide (ala esquerda)
+- **uid**: 6w8zkp69MctGlM
 - **localizacao_estacionamento**:
   - **latitude**: -197584200
   - **longitude**: -438851100
@@ -275,118 +299,169 @@
     - **altura_mapa**: 1203
     - **pontos_de_interesse**:
       - **[0]**:
-        - **id**: 4
-        - **label**: 4
+        - **id**: Z8cUeKRnCJXDJY
+        - **uid**: Z8cUeKRnCJXDJY
+        - **rotulo**: 4
         - **circulo**:
           - **x**: 106
           - **y**: 725
           - **raio**: 29
+        - **label**: 4
       - **[1]**:
-        - **id**: 5
-        - **label**: 5
+        - **id**: uakLllXDBVS2qa
+        - **uid**: uakLllXDBVS2qa
+        - **rotulo**: 5
         - **circulo**:
           - **x**: 273
           - **y**: 733
           - **raio**: 29
+        - **label**: 5
       - **[2]**:
-        - **id**: 6
-        - **label**: 6
+        - **id**: u5cMYTTgqUADPK
+        - **uid**: u5cMYTTgqUADPK
+        - **rotulo**: 6
         - **circulo**:
           - **x**: 368
           - **y**: 763
           - **raio**: 29
+        - **label**: 6
       - **[3]**:
-        - **id**: 7
-        - **label**: 7
+        - **id**: Czyi8HERIOYHD6
+        - **uid**: Czyi8HERIOYHD6
+        - **rotulo**: 7
         - **circulo**:
           - **x**: 397
           - **y**: 803
           - **raio**: 29
+        - **label**: 7
       - **[4]**:
-        - **id**: 8
-        - **label**: 8
+        - **id**: fbOUxltOhsLGTl
+        - **uid**: fbOUxltOhsLGTl
+        - **rotulo**: 8
         - **circulo**:
           - **x**: 436
           - **y**: 733
           - **raio**: 29
+        - **label**: 8
       - **[5]**:
-        - **id**: 9
-        - **label**: 9
+        - **id**: x22tIrWvBEmzut
+        - **uid**: x22tIrWvBEmzut
+        - **rotulo**: 9
         - **circulo**:
           - **x**: 516
           - **y**: 696
           - **raio**: 29
+        - **label**: 9
       - **[6]**:
-        - **id**: 10
-        - **label**: 10
+        - **id**: qPpdyyeRywi1B3
+        - **uid**: qPpdyyeRywi1B3
+        - **rotulo**: 10
         - **circulo**:
           - **x**: 487
           - **y**: 803
           - **raio**: 29
+        - **label**: 10
       - **[7]**:
-        - **id**: 11
-        - **label**: 11
+        - **id**: m3lcXi1Ro2NnpB
+        - **uid**: m3lcXi1Ro2NnpB
+        - **rotulo**: 11
         - **circulo**:
           - **x**: 621
           - **y**: 779
           - **raio**: 29
+        - **label**: 11
       - **[8]**:
-        - **id**: 12
-        - **label**: 12
+        - **id**: dwZvbHJdgZqOWH
+        - **uid**: dwZvbHJdgZqOWH
+        - **rotulo**: 12
         - **circulo**:
           - **x**: 710
           - **y**: 821
           - **raio**: 29
+        - **label**: 12
       - **[9]**:
-        - **id**: 13
-        - **label**: 13
+        - **id**: OLMu1e2akUT46Z
+        - **uid**: OLMu1e2akUT46Z
+        - **rotulo**: 13
         - **circulo**:
           - **x**: 883
           - **y**: 891
           - **raio**: 29
+        - **label**: 13
     - **referencias**:
       - **[0]**:
+        - **alvo_uid**: 907rN8s2gDHlN6
+        - **pontos_uids**:
+          - Z8cUeKRnCJXDJY
         - **escalada**: Coronavaco
         - **ids**:
-          - 4
+          - Z8cUeKRnCJXDJY
       - **[1]**:
+        - **alvo_uid**: MnILT3c0qTgDqb
+        - **pontos_uids**:
+          - uakLllXDBVS2qa
         - **escalada**: Exclusão social
         - **ids**:
-          - 5
+          - uakLllXDBVS2qa
       - **[2]**:
+        - **alvo_uid**: AtuWGN7mpbOfye
+        - **pontos_uids**:
+          - u5cMYTTgqUADPK
         - **escalada**: Exputinick
         - **ids**:
-          - 6
+          - u5cMYTTgqUADPK
       - **[3]**:
+        - **alvo_uid**: 91AMT03TYHK0Y9
+        - **pontos_uids**:
+          - Czyi8HERIOYHD6
         - **escalada**: Y de Covide
         - **ids**:
-          - 7
+          - Czyi8HERIOYHD6
       - **[4]**:
+        - **alvo_uid**: B7FzJ1PHuMEy4S
+        - **pontos_uids**:
+          - fbOUxltOhsLGTl
         - **escalada**: Vitiligovide
         - **ids**:
-          - 8
+          - fbOUxltOhsLGTl
       - **[5]**:
+        - **alvo_uid**: 1dhPraNFUq8viA
+        - **pontos_uids**:
+          - x22tIrWvBEmzut
         - **escalada**: Fayserchover
         - **ids**:
-          - 9
+          - x22tIrWvBEmzut
       - **[6]**:
+        - **alvo_uid**: iGjIBfmFpnnHTA
+        - **pontos_uids**:
+          - qPpdyyeRywi1B3
         - **escalada**: Covid com C maiúsculo
         - **ids**:
-          - 10
+          - qPpdyyeRywi1B3
       - **[7]**:
+        - **alvo_uid**: fZhZb8aXNKf6C0
+        - **pontos_uids**:
+          - m3lcXi1Ro2NnpB
         - **escalada**: Ômicronibus
         - **ids**:
-          - 11
+          - m3lcXi1Ro2NnpB
       - **[8]**:
+        - **alvo_uid**: GUb1n2EBklftzl
+        - **pontos_uids**:
+          - dwZvbHJdgZqOWH
         - **escalada**: Ômicron ondas
         - **ids**:
-          - 12
+          - dwZvbHJdgZqOWH
       - **[9]**:
+        - **alvo_uid**: 8wHmWAFw0v3Dc7
+        - **pontos_uids**:
+          - OLMu1e2akUT46Z
         - **escalada**: Aracnocovid
         - **ids**:
-          - 13
+          - OLMu1e2akUT46Z
 - **escaladas**:
   - **[0]**:
+    - **uid**: 907rN8s2gDHlN6
     - **via_esportiva**:
       - **descricao**:
           **Equipamentos:**
@@ -410,6 +485,7 @@
         - **largura_mapa**: 825
         - **altura_mapa**: 1211
   - **[1]**:
+    - **uid**: MnILT3c0qTgDqb
     - **via_esportiva**:
       - **descricao**:
           **Equipamentos:**
@@ -430,6 +506,7 @@
         - **largura_mapa**: 825
         - **altura_mapa**: 1211
   - **[2]**:
+    - **uid**: AtuWGN7mpbOfye
     - **via_esportiva**:
       - **descricao**:
           **Equipamentos:**
@@ -453,6 +530,7 @@
         - **largura_mapa**: 825
         - **altura_mapa**: 1211
   - **[3]**:
+    - **uid**: 91AMT03TYHK0Y9
     - **via_esportiva**:
       - **descricao**:
           **Equipamentos:**
@@ -473,6 +551,7 @@
         - **largura_mapa**: 825
         - **altura_mapa**: 1211
   - **[4]**:
+    - **uid**: B7FzJ1PHuMEy4S
     - **via_esportiva**:
       - **descricao**:
           **Equipamentos:**
@@ -493,6 +572,7 @@
         - **largura_mapa**: 825
         - **altura_mapa**: 1211
   - **[5]**:
+    - **uid**: 1dhPraNFUq8viA
     - **via_esportiva**:
       - **descricao**:
           **Equipamentos:**
@@ -513,6 +593,7 @@
         - **largura_mapa**: 825
         - **altura_mapa**: 1211
   - **[6]**:
+    - **uid**: iGjIBfmFpnnHTA
     - **via_esportiva**:
       - **descricao**:
           **Equipamentos:**
@@ -536,6 +617,7 @@
         - **largura_mapa**: 825
         - **altura_mapa**: 1211
   - **[7]**:
+    - **uid**: fZhZb8aXNKf6C0
     - **via_esportiva**:
       - **descricao**:
           **Equipamentos:**
@@ -559,6 +641,7 @@
         - **largura_mapa**: 825
         - **altura_mapa**: 1211
   - **[8]**:
+    - **uid**: GUb1n2EBklftzl
     - **via_esportiva**:
       - **descricao**:
           **Equipamentos:**
@@ -579,6 +662,7 @@
         - **largura_mapa**: 825
         - **altura_mapa**: 1211
   - **[9]**:
+    - **uid**: 8wHmWAFw0v3Dc7
     - **via_esportiva**:
       - **descricao**:
           **Equipamentos:**
@@ -631,6 +715,7 @@
     | - | Covidinho | VIIb (4+2) |
     | - | Covide hepática | VIIa (4+2) |
 - **nome**: Setor Covide (ala central e direita)
+- **uid**: GtpoqLoMt4oDFF
 - **localizacao_estacionamento**:
   - **latitude**: -197584200
   - **longitude**: -438851100
@@ -644,151 +729,217 @@
     - **altura_mapa**: 862
     - **pontos_de_interesse**:
       - **[0]**:
-        - **id**: 14
-        - **label**: 14
+        - **id**: kDbpBcb35XUyTm
+        - **uid**: kDbpBcb35XUyTm
+        - **rotulo**: 14
         - **circulo**:
           - **x**: 654
           - **y**: 609
           - **raio**: 30
+        - **label**: 14
       - **[1]**:
-        - **id**: 15
-        - **label**: 15
+        - **id**: i5HVfzCZFwnT7H
+        - **uid**: i5HVfzCZFwnT7H
+        - **rotulo**: 15
         - **circulo**:
           - **x**: 793
           - **y**: 566
           - **raio**: 30
+        - **label**: 15
       - **[2]**:
-        - **id**: 16
-        - **label**: 16
+        - **id**: Ye7H0aTKrXNmp1
+        - **uid**: Ye7H0aTKrXNmp1
+        - **rotulo**: 16
         - **circulo**:
           - **x**: 901
           - **y**: 573
           - **raio**: 30
+        - **label**: 16
       - **[3]**:
-        - **id**: 17
-        - **label**: 17
+        - **id**: BtOV3htU9YI64Q
+        - **uid**: BtOV3htU9YI64Q
+        - **rotulo**: 17
         - **circulo**:
           - **x**: 1004
           - **y**: 581
           - **raio**: 30
+        - **label**: 17
       - **[4]**:
-        - **id**: 18
-        - **label**: 18
+        - **id**: NiLoRq4Oa6qDso
+        - **uid**: NiLoRq4Oa6qDso
+        - **rotulo**: 18
         - **circulo**:
           - **x**: 1116
           - **y**: 477
           - **raio**: 29
+        - **label**: 18
       - **[5]**:
-        - **id**: 19
-        - **label**: 19
+        - **id**: Up0vEx1DoJr7fR
+        - **uid**: Up0vEx1DoJr7fR
+        - **rotulo**: 19
         - **circulo**:
           - **x**: 1216
           - **y**: 550
           - **raio**: 29
+        - **label**: 19
       - **[6]**:
-        - **id**: 20
-        - **label**: 20
+        - **id**: R5ThNGazanrRGU
+        - **uid**: R5ThNGazanrRGU
+        - **rotulo**: 20
         - **circulo**:
           - **x**: 1280
           - **y**: 562
           - **raio**: 29
+        - **label**: 20
       - **[7]**:
-        - **id**: 21
-        - **label**: 21
+        - **id**: 5D97bmKsNttJXR
+        - **uid**: 5D97bmKsNttJXR
+        - **rotulo**: 21
         - **circulo**:
           - **x**: 1332
           - **y**: 595
           - **raio**: 29
+        - **label**: 21
       - **[8]**:
-        - **id**: 22
-        - **label**: 22
+        - **id**: CAQMwEWch7OrFy
+        - **uid**: CAQMwEWch7OrFy
+        - **rotulo**: 22
         - **circulo**:
           - **x**: 1418
           - **y**: 551
           - **raio**: 29
+        - **label**: 22
       - **[9]**:
-        - **id**: 23
-        - **label**: 23
+        - **id**: FrA0UcVil8KttF
+        - **uid**: FrA0UcVil8KttF
+        - **rotulo**: 23
         - **circulo**:
           - **x**: 1490
           - **y**: 552
           - **raio**: 29
+        - **label**: 23
       - **[10]**:
-        - **id**: 24
-        - **label**: 24
+        - **id**: CKT1Ggx6t4y3VI
+        - **uid**: CKT1Ggx6t4y3VI
+        - **rotulo**: 24
         - **circulo**:
           - **x**: 1548
           - **y**: 549
           - **raio**: 29
+        - **label**: 24
       - **[11]**:
-        - **id**: 25
-        - **label**: 25
+        - **id**: 7bDY5NmGif4KOy
+        - **uid**: 7bDY5NmGif4KOy
+        - **rotulo**: 25
         - **circulo**:
           - **x**: 1606
           - **y**: 562
           - **raio**: 29
+        - **label**: 25
       - **[12]**:
-        - **id**: 26
-        - **label**: 26
+        - **id**: Po13CwMKqTLo35
+        - **uid**: Po13CwMKqTLo35
+        - **rotulo**: 26
         - **circulo**:
           - **x**: 1665
           - **y**: 569
           - **raio**: 29
+        - **label**: 26
     - **referencias**:
       - **[0]**:
+        - **alvo_uid**: sZ3Bp7wmJUZY1y
+        - **pontos_uids**:
+          - kDbpBcb35XUyTm
         - **escalada**: Cepadedos
         - **ids**:
-          - 14
+          - kDbpBcb35XUyTm
       - **[1]**:
+        - **alvo_uid**: vaJhlFed8TUyAw
+        - **pontos_uids**:
+          - i5HVfzCZFwnT7H
         - **escalada**: Cepalangos
         - **ids**:
-          - 15
+          - i5HVfzCZFwnT7H
       - **[2]**:
+        - **alvo_uid**: E7OPzgL63pG512
+        - **pontos_uids**:
+          - Ye7H0aTKrXNmp1
         - **escalada**: Cepacol
         - **ids**:
-          - 16
+          - Ye7H0aTKrXNmp1
       - **[3]**:
+        - **alvo_uid**: hNPRfDitG1UTj0
+        - **pontos_uids**:
+          - BtOV3htU9YI64Q
         - **escalada**: Deltazin
         - **ids**:
-          - 17
+          - BtOV3htU9YI64Q
       - **[4]**:
+        - **alvo_uid**: di95uVia0Iwhqh
+        - **pontos_uids**:
+          - NiLoRq4Oa6qDso
         - **escalada**: Ignorância do Deltacron
         - **ids**:
-          - 18
+          - NiLoRq4Oa6qDso
       - **[5]**:
+        - **alvo_uid**: exaLkZFUN0Lsd8
+        - **pontos_uids**:
+          - Up0vEx1DoJr7fR
         - **escalada**: Covidenhoca
         - **ids**:
-          - 19
+          - Up0vEx1DoJr7fR
       - **[6]**:
+        - **alvo_uid**: HLfsMtPSZOeInR
+        - **pontos_uids**:
+          - R5ThNGazanrRGU
         - **escalada**: B1B2
         - **ids**:
-          - 20
+          - R5ThNGazanrRGU
       - **[7]**:
+        - **alvo_uid**: F2CxOUwmyooHLV
+        - **pontos_uids**:
+          - 5D97bmKsNttJXR
         - **escalada**: Oxforte
         - **ids**:
-          - 21
+          - 5D97bmKsNttJXR
       - **[8]**:
+        - **alvo_uid**: 7IJ57Hzf0hDyWZ
+        - **pontos_uids**:
+          - CAQMwEWch7OrFy
         - **escalada**: Arco do delta
         - **ids**:
-          - 22
+          - CAQMwEWch7OrFy
       - **[9]**:
+        - **alvo_uid**: KPp695ud4QtKZc
+        - **pontos_uids**:
+          - FrA0UcVil8KttF
         - **escalada**: Sequela virótica
         - **ids**:
-          - 23
+          - FrA0UcVil8KttF
       - **[10]**:
+        - **alvo_uid**: Uh5mq46IClk0f3
+        - **pontos_uids**:
+          - CKT1Ggx6t4y3VI
         - **escalada**: Carga viral
         - **ids**:
-          - 24
+          - CKT1Ggx6t4y3VI
       - **[11]**:
+        - **alvo_uid**: RZ0TO1rrIaNvey
+        - **pontos_uids**:
+          - 7bDY5NmGif4KOy
         - **escalada**: Sou T.I.
         - **ids**:
-          - 25
+          - 7bDY5NmGif4KOy
       - **[12]**:
+        - **alvo_uid**: b7rAolDIaWVZkg
+        - **pontos_uids**:
+          - Po13CwMKqTLo35
         - **escalada**: Antígeno
         - **ids**:
-          - 26
+          - Po13CwMKqTLo35
 - **escaladas**:
   - **[0]**:
+    - **uid**: sZ3Bp7wmJUZY1y
     - **via_esportiva**:
       - **descricao**:
           **Equipamentos:**
@@ -809,6 +960,7 @@
         - **largura_mapa**: 825
         - **altura_mapa**: 1211
   - **[1]**:
+    - **uid**: vaJhlFed8TUyAw
     - **via_esportiva**:
       - **descricao**:
           **Equipamentos:**
@@ -832,6 +984,7 @@
         - **largura_mapa**: 825
         - **altura_mapa**: 1211
   - **[2]**:
+    - **uid**: E7OPzgL63pG512
     - **via_esportiva**:
       - **descricao**:
           **Equipamentos:**
@@ -852,6 +1005,7 @@
         - **largura_mapa**: 825
         - **altura_mapa**: 1211
   - **[3]**:
+    - **uid**: hNPRfDitG1UTj0
     - **via_esportiva**:
       - **descricao**:
           **Equipamentos:**
@@ -872,6 +1026,7 @@
         - **largura_mapa**: 825
         - **altura_mapa**: 1211
   - **[4]**:
+    - **uid**: di95uVia0Iwhqh
     - **via_esportiva**:
       - **descricao**:
           **Equipamentos:**
@@ -892,6 +1047,7 @@
         - **largura_mapa**: 825
         - **altura_mapa**: 1211
   - **[5]**:
+    - **uid**: exaLkZFUN0Lsd8
     - **via_esportiva**:
       - **descricao**:
           **Equipamentos:**
@@ -912,6 +1068,7 @@
         - **largura_mapa**: 825
         - **altura_mapa**: 1211
   - **[6]**:
+    - **uid**: HLfsMtPSZOeInR
     - **via_esportiva**:
       - **descricao**:
           **Equipamentos:**
@@ -932,6 +1089,7 @@
         - **largura_mapa**: 825
         - **altura_mapa**: 1211
   - **[7]**:
+    - **uid**: F2CxOUwmyooHLV
     - **via_esportiva**:
       - **descricao**:
           **Equipamentos:**
@@ -952,6 +1110,7 @@
         - **largura_mapa**: 825
         - **altura_mapa**: 1211
   - **[8]**:
+    - **uid**: 7IJ57Hzf0hDyWZ
     - **via_esportiva**:
       - **descricao**:
           **Equipamentos:**
@@ -972,6 +1131,7 @@
         - **largura_mapa**: 825
         - **altura_mapa**: 1211
   - **[9]**:
+    - **uid**: KPp695ud4QtKZc
     - **via_esportiva**:
       - **descricao**:
           **Equipamentos:**
@@ -992,6 +1152,7 @@
         - **largura_mapa**: 825
         - **altura_mapa**: 1211
   - **[10]**:
+    - **uid**: Uh5mq46IClk0f3
     - **via_esportiva**:
       - **descricao**:
           **Equipamentos:**
@@ -1012,6 +1173,7 @@
         - **largura_mapa**: 825
         - **altura_mapa**: 1211
   - **[11]**:
+    - **uid**: RZ0TO1rrIaNvey
     - **via_esportiva**:
       - **descricao**:
           **Equipamentos:**
@@ -1035,6 +1197,7 @@
         - **largura_mapa**: 825
         - **altura_mapa**: 1211
   - **[12]**:
+    - **uid**: b7rAolDIaWVZkg
     - **via_esportiva**:
       - **descricao**:
           **Equipamentos:**
@@ -1058,6 +1221,7 @@
         - **largura_mapa**: 825
         - **altura_mapa**: 1211
   - **[13]**:
+    - **uid**: jUJEpQg2XFRwjK
     - **via_esportiva**:
       - **descricao**:
           **Equipamentos:**
@@ -1083,9 +1247,13 @@
             - **escalada**: Marreta imune
             - **ids**:
               - P1
+            - **alvo_uid**: jUJEpQg2XFRwjK
+            - **pontos_uids**:
+              - P1
         - **largura_mapa**: 825
         - **altura_mapa**: 1211
   - **[14]**:
+    - **uid**: MdfhNHH4iLVhUA
     - **via_esportiva**:
       - **descricao**:
           **Equipamentos:**
@@ -1111,9 +1279,13 @@
             - **escalada**: Encosto gripal
             - **ids**:
               - P1
+            - **alvo_uid**: MdfhNHH4iLVhUA
+            - **pontos_uids**:
+              - P1
         - **largura_mapa**: 825
         - **altura_mapa**: 1211
   - **[15]**:
+    - **uid**: XZKdVJITkU9hgS
     - **via_esportiva**:
       - **descricao**:
           **Equipamentos:**
@@ -1139,9 +1311,13 @@
             - **escalada**: Virose operária
             - **ids**:
               - P1
+            - **alvo_uid**: XZKdVJITkU9hgS
+            - **pontos_uids**:
+              - P1
         - **largura_mapa**: 825
         - **altura_mapa**: 1211
   - **[16]**:
+    - **uid**: 5VVIT3Mm8ARBeK
     - **via_esportiva**:
       - **descricao**:
           **Equipamentos:**
@@ -1164,9 +1340,13 @@
             - **escalada**: Covidinho
             - **ids**:
               - P1
+            - **alvo_uid**: 5VVIT3Mm8ARBeK
+            - **pontos_uids**:
+              - P1
         - **largura_mapa**: 825
         - **altura_mapa**: 1211
   - **[17]**:
+    - **uid**: jAqGAi58Y0q0gt
     - **via_esportiva**:
       - **descricao**:
           **Equipamentos:**
@@ -1188,6 +1368,9 @@
           - **[0]**:
             - **escalada**: Covide hepática
             - **ids**:
+              - P1
+            - **alvo_uid**: jAqGAi58Y0q0gt
+            - **pontos_uids**:
               - P1
         - **largura_mapa**: 825
         - **altura_mapa**: 1211

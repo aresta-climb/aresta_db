@@ -5,6 +5,7 @@
 - **descricao**: O Vale Verde é uma falésia de Tonalito localizada no Vale do Aço, Minas Gerais, com vias técnicas em regletes.
 - **id**: br_mg_ipatinga_ipaba_vale_verde
 - **nome**: Vale Verde
+- **uid**: yKMLLtA07tG8RO
 - **creditos**:
   - Renato Miranda (Toba)
   - Gustavo Soares (Poul)
@@ -14,6 +15,7 @@
 - **status_desenho_extraivel**: NAO_TEM_DESENHO
 - **botoes**:
   - **[0]**:
+    - **uid**: CbDHL3NEvF1xjL
     - **texto**: Capa
     - **destino**:
       - **secao_textual**:
@@ -29,6 +31,7 @@
             **2ª Edição**
             **1.0 - 2024**
   - **[1]**:
+    - **uid**: 35mrJPL74dK83o
     - **texto**: Betas
     - **destino**:
       - **secao_textual**:
@@ -47,6 +50,7 @@
             | :--: |
             | *Apoios* |
   - **[2]**:
+    - **uid**: l4dUCKAyuM0OvG
     - **texto**: Localização
     - **destino**:
       - **secao_textual**:
@@ -73,6 +77,7 @@
             | :--: |
             | *Local do Estacionamento* |
   - **[3]**:
+    - **uid**: beY4vQ4BFIyrhP
     - **texto**: História
     - **destino**:
       - **secao_textual**:
@@ -91,6 +96,7 @@
             
             Durante esse período foram conquistadas as vias de entrada no setor 1° Andar e depois foi realizado um evento de inauguração da falésia, onde vieram diversos escaladores a falésia e também foi encadenado o primeiro 9° do setor. Logo após veio a trágica pandemia e o setor ficou um bom tempo sendo muito pouco frequentado. Em 2022 restauramos os acessos ao setor e agora continuamos escrevendo essa história com a abertura da ATM 2024 e atualização do croqui.
   - **[4]**:
+    - **uid**: 5CFe0PQq1onWRd
     - **texto**: Geologia
     - **destino**:
       - **secao_textual**:
@@ -129,6 +135,7 @@
             
             As vias são majoritariamente verticais ou levemente negativas, com bastante regletes potentes, abaulados e oposições clássicas. Devido a abrasão da rocha os pés funcionam até mesmo nos pequenos cristais, tornando a escalada no Vale Verde bastante técnica e exigente em relação ao equilíbrio e força de regletes.
   - **[5]**:
+    - **uid**: GwmsOSig8BQx2v
     - **texto**: Os Betas de Ouro
     - **destino**:
       - **secao_textual**:
@@ -150,7 +157,7 @@
             
             **IPATINGA**
             Hospital Márcio Cunha - Av. Engº Kiyoshi Tsunawaki, s/nº - Das Águas - TEL: (31) 3829-9000
-- **ultima_migracao**: 4
+- **ultima_migracao**: 5
 - **revisado_bounding_circle**: True
 
 
@@ -175,6 +182,7 @@
     | :--: |
     | *João TG nos trabalhos de conquista* |
 - **nome**: 1° Andar
+- **uid**: YuUHXU1tMi1Ar8
 - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_1_andar_p1_i2.webp)
 - **mapas**:
   - **[0]**:
@@ -183,292 +191,420 @@
     - **altura_mapa**: 1653
     - **pontos_de_interesse**:
       - **[0]**:
-        - **id**: 01
-        - **label**: 1
+        - **id**: LiuGQJiSJCig1f
+        - **uid**: LiuGQJiSJCig1f
+        - **rotulo**: 1
         - **circulo**:
           - **x**: 395
           - **y**: 1620
           - **raio**: 15
+        - **label**: 1
       - **[1]**:
-        - **id**: 02
-        - **label**: 2
+        - **id**: 3PVUbJVYWcEkFL
+        - **uid**: 3PVUbJVYWcEkFL
+        - **rotulo**: 2
         - **circulo**:
           - **x**: 373
           - **y**: 1571
           - **raio**: 14
+        - **label**: 2
       - **[2]**:
-        - **id**: 03
-        - **label**: 3
+        - **id**: I1EKe4Q0uCIm1x
+        - **uid**: I1EKe4Q0uCIm1x
+        - **rotulo**: 3
         - **circulo**:
           - **x**: 357
           - **y**: 1527
           - **raio**: 14
+        - **label**: 3
       - **[3]**:
-        - **id**: 04
-        - **label**: 4
+        - **id**: 6ET9p8WE81ACHG
+        - **uid**: 6ET9p8WE81ACHG
+        - **rotulo**: 4
         - **circulo**:
           - **x**: 352
           - **y**: 1482
           - **raio**: 14
+        - **label**: 4
       - **[4]**:
-        - **id**: 05
-        - **label**: 5
+        - **id**: CkdJGRuzsl9wLN
+        - **uid**: CkdJGRuzsl9wLN
+        - **rotulo**: 5
         - **circulo**:
           - **x**: 341
           - **y**: 1435
           - **raio**: 14
+        - **label**: 5
       - **[5]**:
-        - **id**: 06
-        - **label**: 6
+        - **id**: uCw0rXV6VjBxGu
+        - **uid**: uCw0rXV6VjBxGu
+        - **rotulo**: 6
         - **circulo**:
           - **x**: 332
           - **y**: 1369
           - **raio**: 13
+        - **label**: 6
       - **[6]**:
-        - **id**: 07
-        - **label**: 7
+        - **id**: 8QBf3AALlMwVEV
+        - **uid**: 8QBf3AALlMwVEV
+        - **rotulo**: 7
         - **circulo**:
           - **x**: 320
           - **y**: 1305
           - **raio**: 14
+        - **label**: 7
       - **[7]**:
-        - **id**: 08
-        - **label**: 8
+        - **id**: z4lvFQj3UHKjzz
+        - **uid**: z4lvFQj3UHKjzz
+        - **rotulo**: 8
         - **circulo**:
           - **x**: 316
           - **y**: 1264
           - **raio**: 14
+        - **label**: 8
       - **[8]**:
-        - **id**: 09
-        - **label**: 9
+        - **id**: ZgqWxyc7Hfz5fA
+        - **uid**: ZgqWxyc7Hfz5fA
+        - **rotulo**: 9
         - **circulo**:
           - **x**: 319
           - **y**: 1213
           - **raio**: 14
+        - **label**: 9
       - **[9]**:
-        - **id**: 10
-        - **label**: 10
+        - **id**: wnObJMuBgQ7dCq
+        - **uid**: wnObJMuBgQ7dCq
+        - **rotulo**: 10
         - **circulo**:
           - **x**: 321
           - **y**: 1120
           - **raio**: 15
+        - **label**: 10
       - **[10]**:
-        - **id**: 11
-        - **label**: 11
+        - **id**: cGhFeW9D4SMdIP
+        - **uid**: cGhFeW9D4SMdIP
+        - **rotulo**: 11
         - **circulo**:
           - **x**: 312
           - **y**: 1070
           - **raio**: 15
+        - **label**: 11
       - **[11]**:
-        - **id**: 12
-        - **label**: 12
+        - **id**: HKBpRS5cAJSkU4
+        - **uid**: HKBpRS5cAJSkU4
+        - **rotulo**: 12
         - **circulo**:
           - **x**: 319
           - **y**: 808
           - **raio**: 15
+        - **label**: 12
       - **[12]**:
-        - **id**: 13
-        - **label**: 13
+        - **id**: FDPtM2BjKlHhrv
+        - **uid**: FDPtM2BjKlHhrv
+        - **rotulo**: 13
         - **circulo**:
           - **x**: 316
           - **y**: 768
           - **raio**: 15
+        - **label**: 13
       - **[13]**:
-        - **id**: 14
-        - **label**: 14
+        - **id**: WM2tVshtdIm84p
+        - **uid**: WM2tVshtdIm84p
+        - **rotulo**: 14
         - **circulo**:
           - **x**: 309
           - **y**: 702
           - **raio**: 15
+        - **label**: 14
       - **[14]**:
-        - **id**: 15
-        - **label**: 15
+        - **id**: DdxqBUbAJiYDOv
+        - **uid**: DdxqBUbAJiYDOv
+        - **rotulo**: 15
         - **circulo**:
           - **x**: 306
           - **y**: 592
           - **raio**: 16
+        - **label**: 15
       - **[15]**:
-        - **id**: 16
-        - **label**: 16
+        - **id**: GAT8ni0I4HIeQ6
+        - **uid**: GAT8ni0I4HIeQ6
+        - **rotulo**: 16
         - **circulo**:
           - **x**: 312
           - **y**: 541
           - **raio**: 16
+        - **label**: 16
       - **[16]**:
-        - **id**: 17
-        - **label**: 17
+        - **id**: uGXF0pSFyvSsZQ
+        - **uid**: uGXF0pSFyvSsZQ
+        - **rotulo**: 17
         - **circulo**:
           - **x**: 318
           - **y**: 471
           - **raio**: 15
+        - **label**: 17
       - **[17]**:
-        - **id**: 18
-        - **label**: 18
+        - **id**: hjoEeN35hwTAA0
+        - **uid**: hjoEeN35hwTAA0
+        - **rotulo**: 18
         - **circulo**:
           - **x**: 317
           - **y**: 436
           - **raio**: 15
+        - **label**: 18
       - **[18]**:
-        - **id**: 19
-        - **label**: 19
+        - **id**: gQo3GRTlZawhfH
+        - **uid**: gQo3GRTlZawhfH
+        - **rotulo**: 19
         - **circulo**:
           - **x**: 318
           - **y**: 396
           - **raio**: 16
+        - **label**: 19
       - **[19]**:
-        - **id**: 20
-        - **label**: 20
+        - **id**: by7JDkdXYaqSDT
+        - **uid**: by7JDkdXYaqSDT
+        - **rotulo**: 20
         - **circulo**:
           - **x**: 324
           - **y**: 310
           - **raio**: 15
+        - **label**: 20
       - **[20]**:
-        - **id**: 21
-        - **label**: 21
+        - **id**: COId3pTDcNl5Rm
+        - **uid**: COId3pTDcNl5Rm
+        - **rotulo**: 21
         - **circulo**:
           - **x**: 331
           - **y**: 262
           - **raio**: 15
+        - **label**: 21
       - **[21]**:
-        - **id**: 22
-        - **label**: 22
+        - **id**: sS7brl762s9rkN
+        - **uid**: sS7brl762s9rkN
+        - **rotulo**: 22
         - **circulo**:
           - **x**: 338
           - **y**: 203
           - **raio**: 16
+        - **label**: 22
       - **[22]**:
-        - **id**: 23
-        - **label**: 23
+        - **id**: VqAMY7eTtBa5XR
+        - **uid**: VqAMY7eTtBa5XR
+        - **rotulo**: 23
         - **circulo**:
           - **x**: 343
           - **y**: 158
           - **raio**: 15
+        - **label**: 23
       - **[23]**:
-        - **id**: 24
-        - **label**: 24
+        - **id**: 1YP7Z6xY2NrGEI
+        - **uid**: 1YP7Z6xY2NrGEI
+        - **rotulo**: 24
         - **circulo**:
           - **x**: 345
           - **y**: 95
           - **raio**: 15
+        - **label**: 24
       - **[24]**:
-        - **id**: Trilha_Jurassico
-        - **label**: Trilha para o Setor Jurássico (Muito Fechada)
+        - **id**: K6QJohI0aGTfq7
+        - **uid**: K6QJohI0aGTfq7
+        - **rotulo**: Trilha para o Setor Jurássico (Muito Fechada)
         - **retangulo**:
           - **x**: 196
           - **y**: 78
           - **comprimento**: 115
           - **largura**: 157
+        - **label**: Trilha para o Setor Jurássico (Muito Fechada)
       - **[25]**:
-        - **id**: Trilha_Boulders_2nd
-        - **label**: Trilha Boulders e 2º Andar
+        - **id**: Hj5jHxlPfqz8N8
+        - **uid**: Hj5jHxlPfqz8N8
+        - **rotulo**: Trilha Boulders e 2º Andar
         - **retangulo**:
           - **x**: 110
           - **y**: 565
           - **comprimento**: 134
           - **largura**: 82
+        - **label**: Trilha Boulders e 2º Andar
     - **referencias**:
       - **[0]**:
+        - **alvo_uid**: OM9w6Jz1j5cFqc
+        - **pontos_uids**:
+          - LiuGQJiSJCig1f
         - **escalada**: Jardineiro
         - **ids**:
-          - 01
+          - LiuGQJiSJCig1f
       - **[1]**:
+        - **alvo_uid**: sjCVwFrPQpXN2S
+        - **pontos_uids**:
+          - 3PVUbJVYWcEkFL
         - **escalada**: Somelier Canábico
         - **ids**:
-          - 02
+          - 3PVUbJVYWcEkFL
       - **[2]**:
+        - **alvo_uid**: u3kS6RVmH0bA10
+        - **pontos_uids**:
+          - I1EKe4Q0uCIm1x
         - **escalada**: Jovens Dinâmicos
         - **ids**:
-          - 03
+          - I1EKe4Q0uCIm1x
       - **[3]**:
+        - **alvo_uid**: PK8JoXeMuTLn3L
+        - **pontos_uids**:
+          - 6ET9p8WE81ACHG
         - **escalada**: Anunnaki
         - **ids**:
-          - 04
+          - 6ET9p8WE81ACHG
       - **[4]**:
+        - **alvo_uid**: YSGtgGBTuVfrM5
+        - **pontos_uids**:
+          - CkdJGRuzsl9wLN
         - **escalada**: Peyote Sativo
         - **ids**:
-          - 05
+          - CkdJGRuzsl9wLN
       - **[5]**:
+        - **alvo_uid**: Ko1y4zIW07l3qq
+        - **pontos_uids**:
+          - uCw0rXV6VjBxGu
         - **escalada**: Fake News
         - **ids**:
-          - 06
+          - uCw0rXV6VjBxGu
       - **[6]**:
+        - **alvo_uid**: it0b0JHm4SQCex
+        - **pontos_uids**:
+          - 8QBf3AALlMwVEV
         - **escalada**: Bruxa
         - **ids**:
-          - 07
+          - 8QBf3AALlMwVEV
       - **[7]**:
+        - **alvo_uid**: KwmbDkvOBV5f4J
+        - **pontos_uids**:
+          - z4lvFQj3UHKjzz
         - **escalada**: Fundão
         - **ids**:
-          - 08
+          - z4lvFQj3UHKjzz
       - **[8]**:
+        - **alvo_uid**: 6jXegpq9U6E5az
+        - **pontos_uids**:
+          - ZgqWxyc7Hfz5fA
         - **escalada**: Caminho da Luz
         - **ids**:
-          - 09
+          - ZgqWxyc7Hfz5fA
       - **[9]**:
+        - **alvo_uid**: v1pcng1nFFTllQ
+        - **pontos_uids**:
+          - wnObJMuBgQ7dCq
         - **escalada**: Eu quero é ver o oco
         - **ids**:
-          - 10
+          - wnObJMuBgQ7dCq
       - **[10]**:
+        - **alvo_uid**: glmlZx26hSccoj
+        - **pontos_uids**:
+          - cGhFeW9D4SMdIP
         - **escalada**: Mister Amaral
         - **ids**:
-          - 11
+          - cGhFeW9D4SMdIP
       - **[11]**:
+        - **alvo_uid**: evCj5oEwB5t5TU
+        - **pontos_uids**:
+          - HKBpRS5cAJSkU4
         - **escalada**: Loki
         - **ids**:
-          - 12
+          - HKBpRS5cAJSkU4
       - **[12]**:
+        - **alvo_uid**: arwVm1AhS9ficy
+        - **pontos_uids**:
+          - FDPtM2BjKlHhrv
         - **escalada**: Thor
         - **ids**:
-          - 13
+          - FDPtM2BjKlHhrv
       - **[13]**:
+        - **alvo_uid**: a5igIKPlpvcfDP
+        - **pontos_uids**:
+          - WM2tVshtdIm84p
         - **escalada**: A Flor da Vida
         - **ids**:
-          - 14
+          - WM2tVshtdIm84p
       - **[14]**:
+        - **alvo_uid**: BZWZX8qQ061Nex
+        - **pontos_uids**:
+          - DdxqBUbAJiYDOv
         - **escalada**: Vale do Verde
         - **ids**:
-          - 15
+          - DdxqBUbAJiYDOv
       - **[15]**:
+        - **alvo_uid**: 72wzyhgdKMtWYl
+        - **pontos_uids**:
+          - GAT8ni0I4HIeQ6
         - **escalada**: Ragnarok
         - **ids**:
-          - 16
+          - GAT8ni0I4HIeQ6
       - **[16]**:
+        - **alvo_uid**: uwJ2cIyyfg4Nwg
+        - **pontos_uids**:
+          - uGXF0pSFyvSsZQ
         - **escalada**: Filho de Odin
         - **ids**:
-          - 17
+          - uGXF0pSFyvSsZQ
       - **[17]**:
+        - **alvo_uid**: OOOdxRbS9BoBsK
+        - **pontos_uids**:
+          - hjoEeN35hwTAA0
         - **escalada**: Vahala
         - **ids**:
-          - 18
+          - hjoEeN35hwTAA0
       - **[18]**:
+        - **alvo_uid**: R5NdIrHcdHwMT3
+        - **pontos_uids**:
+          - gQo3GRTlZawhfH
         - **escalada**: Pedra no Saco
         - **ids**:
-          - 19
+          - gQo3GRTlZawhfH
       - **[19]**:
+        - **alvo_uid**: Yp0gCKBhmnWbYR
+        - **pontos_uids**:
+          - by7JDkdXYaqSDT
         - **escalada**: Endorfina
         - **ids**:
-          - 20
+          - by7JDkdXYaqSDT
       - **[20]**:
+        - **alvo_uid**: e2kZxaPgJzz0Oo
+        - **pontos_uids**:
+          - COId3pTDcNl5Rm
         - **escalada**: Isaurinha
         - **ids**:
-          - 21
+          - COId3pTDcNl5Rm
       - **[21]**:
+        - **alvo_uid**: 9K4eDM9LNIRSSR
+        - **pontos_uids**:
+          - sS7brl762s9rkN
         - **escalada**: Presentim
         - **ids**:
-          - 22
+          - sS7brl762s9rkN
       - **[22]**:
+        - **alvo_uid**: wMRTxZdc5Z2xUz
+        - **pontos_uids**:
+          - VqAMY7eTtBa5XR
         - **escalada**: Antes tarde do que nunca
         - **ids**:
-          - 23
+          - VqAMY7eTtBa5XR
       - **[23]**:
+        - **alvo_uid**: xoECr0XaohA22D
+        - **pontos_uids**:
+          - 1YP7Z6xY2NrGEI
         - **escalada**: Ho Ho Ho
         - **ids**:
-          - 24
+          - 1YP7Z6xY2NrGEI
       - **[24]**:
-        - **ids**:
-          - Trilha_Boulders_2nd
+        - **alvo_uid**: Ly4gwN209FrZnL
+        - **pontos_uids**:
+          - Hj5jHxlPfqz8N8
         - **setor**: 2° Andar
+        - **ids**:
+          - Hj5jHxlPfqz8N8
 - **escaladas**:
   - **[0]**:
+    - **uid**: OM9w6Jz1j5cFqc
     - **via_esportiva**:
       - **nome**: Jardineiro
       - **dificuldade**: BR_8A
@@ -477,6 +613,7 @@
       - **extensao**: 15
       - **destaque**: True
   - **[1]**:
+    - **uid**: sjCVwFrPQpXN2S
     - **via_esportiva**:
       - **nome**: Somelier Canábico
       - **dificuldade**: BR_7A
@@ -485,6 +622,7 @@
       - **extensao**: 15
       - **destaque**: True
   - **[2]**:
+    - **uid**: u3kS6RVmH0bA10
     - **via_esportiva**:
       - **nome**: Jovens Dinâmicos
       - **dificuldade**: BR_7A
@@ -493,6 +631,7 @@
       - **extensao**: 15
       - **destaque**: True
   - **[3]**:
+    - **uid**: PK8JoXeMuTLn3L
     - **via_esportiva**:
       - **nome**: Anunnaki
       - **dificuldade**: BR_7C
@@ -501,6 +640,7 @@
       - **extensao**: 15
       - **destaque**: True
   - **[4]**:
+    - **uid**: YSGtgGBTuVfrM5
     - **via_esportiva**:
       - **nome**: Peyote Sativo
       - **dificuldade**: BR_7A
@@ -509,6 +649,7 @@
       - **extensao**: 13
       - **destaque**: True
   - **[5]**:
+    - **uid**: Ko1y4zIW07l3qq
     - **via_esportiva**:
       - **nome**: Fake News
       - **dificuldade**: BR_7B
@@ -517,6 +658,7 @@
       - **extensao**: 12
       - **destaque**: True
   - **[6]**:
+    - **uid**: it0b0JHm4SQCex
     - **via_esportiva**:
       - **nome**: Bruxa
       - **dificuldade**: BR_5
@@ -524,6 +666,7 @@
       - **quantidade_protecoes_parada**: 2
       - **extensao**: 8
   - **[7]**:
+    - **uid**: KwmbDkvOBV5f4J
     - **via_esportiva**:
       - **descricao**: Extensão Projeto (6+2).
       - **nome**: Fundão
@@ -532,6 +675,7 @@
       - **quantidade_protecoes_parada**: 2
       - **extensao**: 8
   - **[8]**:
+    - **uid**: 6jXegpq9U6E5az
     - **via_esportiva**:
       - **nome**: Caminho da Luz
       - **dificuldade**: BR_7B
@@ -540,6 +684,7 @@
       - **extensao**: 20
       - **destaque**: True
   - **[9]**:
+    - **uid**: v1pcng1nFFTllQ
     - **via_esportiva**:
       - **nome**: Eu quero é ver o oco
       - **dificuldade**: BR_8B
@@ -548,6 +693,7 @@
       - **extensao**: 20
       - **destaque**: True
   - **[10]**:
+    - **uid**: glmlZx26hSccoj
     - **via_esportiva**:
       - **nome**: Mister Amaral
       - **dificuldade**: BR_8B
@@ -556,12 +702,14 @@
       - **extensao**: 20
       - **destaque**: True
   - **[11]**:
+    - **uid**: evCj5oEwB5t5TU
     - **via_esportiva**:
       - **nome**: Loki
       - **dificuldade**: PROJETO
       - **quantidade_protecoes_intermediarias**: 11
       - **quantidade_protecoes_parada**: 2
   - **[12]**:
+    - **uid**: arwVm1AhS9ficy
     - **via_esportiva**:
       - **nome**: Thor
       - **dificuldade**: BR_8B
@@ -569,6 +717,7 @@
       - **quantidade_protecoes_parada**: 2
       - **destaque**: True
   - **[13]**:
+    - **uid**: a5igIKPlpvcfDP
     - **via_esportiva**:
       - **descricao**: Possui Extensão Projeto (7+2).
       - **nome**: A Flor da Vida
@@ -578,6 +727,7 @@
       - **extensao**: 12
       - **destaque**: True
   - **[14]**:
+    - **uid**: BZWZX8qQ061Nex
     - **via_esportiva**:
       - **descricao**: Possui Extensão 8c (10+2).
       - **nome**: Vale do Verde
@@ -587,6 +737,7 @@
       - **extensao**: 10
       - **destaque**: True
   - **[15]**:
+    - **uid**: 72wzyhgdKMtWYl
     - **via_esportiva**:
       - **nome**: Ragnarok
       - **dificuldade**: BR_9A
@@ -595,6 +746,7 @@
       - **extensao**: 25
       - **destaque**: True
   - **[16]**:
+    - **uid**: uwJ2cIyyfg4Nwg
     - **via_esportiva**:
       - **descricao**: Possui Extensão Proj. (5+2).
       - **nome**: Filho de Odin
@@ -604,6 +756,7 @@
       - **extensao**: 15
       - **destaque**: True
   - **[17]**:
+    - **uid**: OOOdxRbS9BoBsK
     - **via_esportiva**:
       - **nome**: Vahala
       - **dificuldade**: PROJETO
@@ -611,6 +764,7 @@
       - **quantidade_protecoes_parada**: 2
       - **extensao**: 20
   - **[18]**:
+    - **uid**: R5NdIrHcdHwMT3
     - **via_esportiva**:
       - **nome**: Pedra no Saco
       - **dificuldade**: BR_7A
@@ -618,6 +772,7 @@
       - **quantidade_protecoes_parada**: 2
       - **extensao**: 20
   - **[19]**:
+    - **uid**: Yp0gCKBhmnWbYR
     - **via_esportiva**:
       - **nome**: Endorfina
       - **dificuldade**: BR_7A
@@ -626,6 +781,7 @@
       - **extensao**: 22
       - **destaque**: True
   - **[20]**:
+    - **uid**: e2kZxaPgJzz0Oo
     - **via_esportiva**:
       - **nome**: Isaurinha
       - **dificuldade**: BR_7A
@@ -634,6 +790,7 @@
       - **extensao**: 18
       - **destaque**: True
   - **[21]**:
+    - **uid**: 9K4eDM9LNIRSSR
     - **via_esportiva**:
       - **nome**: Presentim
       - **dificuldade**: BR_7A
@@ -641,6 +798,7 @@
       - **quantidade_protecoes_parada**: 2
       - **extensao**: 18
   - **[22]**:
+    - **uid**: wMRTxZdc5Z2xUz
     - **via_esportiva**:
       - **nome**: Antes tarde do que nunca
       - **dificuldade**: BR_6
@@ -648,6 +806,7 @@
       - **quantidade_protecoes_parada**: 2
       - **extensao**: 15
   - **[23]**:
+    - **uid**: xoECr0XaohA22D
     - **via_esportiva**:
       - **nome**: Ho Ho Ho
       - **dificuldade**: BR_5
@@ -668,6 +827,7 @@
     
     O 2° Andar é um setor mais tranquilo com vias de graduação moderada e muitos projetos aguardando a primeira ascensão.
 - **nome**: 2° Andar
+- **uid**: Ly4gwN209FrZnL
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_2_andar_p0.webp)
@@ -675,103 +835,146 @@
     - **altura_mapa**: 1671
     - **pontos_de_interesse**:
       - **[0]**:
-        - **id**: 27
-        - **label**: 27
+        - **id**: BGCGU9h7rGHWyI
+        - **uid**: BGCGU9h7rGHWyI
+        - **rotulo**: 27
         - **circulo**:
           - **x**: 430
           - **y**: 1612
           - **raio**: 20
+        - **label**: 27
       - **[1]**:
-        - **id**: 28
-        - **label**: 28
+        - **id**: QVsIK5SG9pNvl3
+        - **uid**: QVsIK5SG9pNvl3
+        - **rotulo**: 28
         - **circulo**:
           - **x**: 439
           - **y**: 1554
           - **raio**: 20
+        - **label**: 28
       - **[2]**:
-        - **id**: 29
-        - **label**: 29
+        - **id**: PfyXfnh38HslcR
+        - **uid**: PfyXfnh38HslcR
+        - **rotulo**: 29
         - **circulo**:
           - **x**: 432
           - **y**: 1404
           - **raio**: 19
+        - **label**: 29
       - **[3]**:
-        - **id**: 30
-        - **label**: 30
+        - **id**: mP0LIikmzyn07C
+        - **uid**: mP0LIikmzyn07C
+        - **rotulo**: 30
         - **circulo**:
           - **x**: 410
           - **y**: 1326
           - **raio**: 20
+        - **label**: 30
       - **[4]**:
-        - **id**: 31
-        - **label**: 31
+        - **id**: kM1VzohMDYdLlP
+        - **uid**: kM1VzohMDYdLlP
+        - **rotulo**: 31
         - **circulo**:
           - **x**: 313
           - **y**: 1073
           - **raio**: 19
+        - **label**: 31
       - **[5]**:
-        - **id**: 32
-        - **label**: 32
+        - **id**: uhw4taPvR9Nemi
+        - **uid**: uhw4taPvR9Nemi
+        - **rotulo**: 32
         - **circulo**:
           - **x**: 356
           - **y**: 545
           - **raio**: 20
+        - **label**: 32
       - **[6]**:
-        - **id**: 33
-        - **label**: 33
+        - **id**: q3hcIykHs8bFf3
+        - **uid**: q3hcIykHs8bFf3
+        - **rotulo**: 33
         - **circulo**:
           - **x**: 345
           - **y**: 489
           - **raio**: 20
+        - **label**: 33
       - **[7]**:
-        - **id**: 34
-        - **label**: 34
+        - **id**: p6LAwOOB0y1GEl
+        - **uid**: p6LAwOOB0y1GEl
+        - **rotulo**: 34
         - **circulo**:
           - **x**: 289
           - **y**: 425
           - **raio**: 20
+        - **label**: 34
       - **[8]**:
-        - **id**: 35
-        - **label**: 35
+        - **id**: csmNbVr0yUHxuY
+        - **uid**: csmNbVr0yUHxuY
+        - **rotulo**: 35
         - **circulo**:
           - **x**: 280
           - **y**: 365
           - **raio**: 20
+        - **label**: 35
     - **referencias**:
       - **[0]**:
+        - **alvo_uid**: vmcYzEHaQ1fHQy
+        - **pontos_uids**:
+          - BGCGU9h7rGHWyI
         - **escalada**: CrossFit
         - **ids**:
-          - 27
+          - BGCGU9h7rGHWyI
       - **[1]**:
+        - **alvo_uid**: JAGldbs1xQbJnA
+        - **pontos_uids**:
+          - QVsIK5SG9pNvl3
         - **escalada**: Bromeliacea
         - **ids**:
-          - 28
+          - QVsIK5SG9pNvl3
       - **[2]**:
+        - **alvo_uid**: rjxafKVUHNx0nW
+        - **pontos_uids**:
+          - PfyXfnh38HslcR
         - **escalada**: Amnésia
         - **ids**:
-          - 29
+          - PfyXfnh38HslcR
       - **[3]**:
+        - **alvo_uid**: fUnbjUcWgIy01r
+        - **pontos_uids**:
+          - mP0LIikmzyn07C
         - **escalada**: A espera de Yam
         - **ids**:
-          - 30
+          - mP0LIikmzyn07C
       - **[4]**:
+        - **alvo_uid**: pCgib6iVTlBKxm
+        - **pontos_uids**:
+          - kM1VzohMDYdLlP
         - **escalada**: Caixa Alta
         - **ids**:
-          - 31
+          - kM1VzohMDYdLlP
       - **[5]**:
+        - **alvo_uid**: 0wInjsHzdCqWje
+        - **pontos_uids**:
+          - uhw4taPvR9Nemi
         - **escalada**: Sexta - Feira 13
         - **ids**:
-          - 32
+          - uhw4taPvR9Nemi
       - **[6]**:
+        - **alvo_uid**: BmYf6VhdIvErjn
+        - **pontos_uids**:
+          - q3hcIykHs8bFf3
         - **escalada**: Hora do Pesadelo
         - **ids**:
-          - 33
+          - q3hcIykHs8bFf3
       - **[7]**:
+        - **alvo_uid**: OLaZfyFaYp0cf3
+        - **pontos_uids**:
+          - p6LAwOOB0y1GEl
         - **escalada**: O silêncio dos Inoscentes
         - **ids**:
-          - 34
+          - p6LAwOOB0y1GEl
 - **escaladas**:
   - **[0]**:
+    - **uid**: vmcYzEHaQ1fHQy
     - **via_esportiva**:
       - **nome**: CrossFit
       - **dificuldade**: BR_5SUP
@@ -779,6 +982,7 @@
       - **quantidade_protecoes_parada**: 2
       - **extensao**: 15
   - **[1]**:
+    - **uid**: JAGldbs1xQbJnA
     - **via_esportiva**:
       - **nome**: Bromeliacea
       - **dificuldade**: BR_5SUP
@@ -786,6 +990,7 @@
       - **quantidade_protecoes_parada**: 2
       - **extensao**: 15
   - **[2]**:
+    - **uid**: rjxafKVUHNx0nW
     - **via_esportiva**:
       - **nome**: Amnésia
       - **dificuldade**: BR_6SUP
@@ -793,6 +998,7 @@
       - **quantidade_protecoes_parada**: 2
       - **extensao**: 18
   - **[3]**:
+    - **uid**: fUnbjUcWgIy01r
     - **via_esportiva**:
       - **nome**: A espera de Yam
       - **dificuldade**: PROJETO
@@ -800,6 +1006,7 @@
       - **quantidade_protecoes_parada**: 2
       - **extensao**: 22
   - **[4]**:
+    - **uid**: pCgib6iVTlBKxm
     - **via_esportiva**:
       - **nome**: Caixa Alta
       - **dificuldade**: BR_6SUP
@@ -807,6 +1014,7 @@
       - **quantidade_protecoes_parada**: 2
       - **extensao**: 13
   - **[5]**:
+    - **uid**: 0wInjsHzdCqWje
     - **via_esportiva**:
       - **nome**: Sexta - Feira 13
       - **dificuldade**: PROJETO
@@ -814,6 +1022,7 @@
       - **quantidade_protecoes_parada**: 2
       - **extensao**: 12
   - **[6]**:
+    - **uid**: BmYf6VhdIvErjn
     - **via_esportiva**:
       - **nome**: Hora do Pesadelo
       - **dificuldade**: PROJETO
@@ -821,6 +1030,7 @@
       - **quantidade_protecoes_parada**: 2
       - **extensao**: 12
   - **[7]**:
+    - **uid**: OLaZfyFaYp0cf3
     - **via_esportiva**:
       - **nome**: O silêncio dos Inoscentes
       - **dificuldade**: PROJETO

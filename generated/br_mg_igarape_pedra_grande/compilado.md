@@ -5,6 +5,7 @@
 - **descricao**: Este croqui documenta e divulga a prática da escalada no Complexo da Pedra Grande em Igarapé/MG, reunindo informações sobre diversos setores e vias.
 - **id**: br_mg_igarape_pedra_grande
 - **nome**: Igarameca - Complexo Pedra Grande
+- **uid**: nxZd44LfKUlR1H
 - **creditos**:
   - Equipe Igarameca
   - Alexsandro
@@ -13,6 +14,7 @@
 - **status_desenho_extraivel**: NAO_TEM_DESENHO
 - **botoes**:
   - **[0]**:
+    - **uid**: axpnQInJsigqZt
     - **texto**: Capa
     - **destino**:
       - **secao_textual**:
@@ -27,6 +29,7 @@
             
             Alexsandro
   - **[1]**:
+    - **uid**: 6hlPaF0ggRKKsj
     - **texto**: Introdução
     - **destino**:
       - **secao_textual**:
@@ -64,6 +67,7 @@
             > arte/desenhos/produção: **alexsandro**
             > 1ª versão - Junho/2024 (vias esportivas) 24 páginas
   - **[2]**:
+    - **uid**: vwBbHXq9wO2MXn
     - **texto**: Recomendações e Regras
     - **destino**:
       - **secao_textual**:
@@ -83,6 +87,7 @@
             
             [@igarameca](https://www.instagram.com/igarameca)
   - **[3]**:
+    - **uid**: rrXbjlSk8nFJGB
     - **texto**: História de Igarapé
     - **destino**:
       - **secao_textual**:
@@ -101,6 +106,7 @@
             
             [@igarameca](https://www.instagram.com/igarameca)
   - **[4]**:
+    - **uid**: WtedtNvmgS6M60
     - **texto**: Sobre o Complexo Pedra Grande
     - **destino**:
       - **secao_textual**:
@@ -117,6 +123,7 @@
             
             [@igarameca](https://www.instagram.com/igarameca)
   - **[5]**:
+    - **uid**: WGEft5sbQ0xBVt
     - **texto**: Sobre o Igarameca
     - **destino**:
       - **secao_textual**:
@@ -135,6 +142,7 @@
             
             [@igarameca](https://www.instagram.com/igarameca)
   - **[6]**:
+    - **uid**: 8pNS03RiiaTjUa
     - **texto**: Patrocinadores
     - **destino**:
       - **secao_textual**:
@@ -165,7 +173,7 @@
             - Igarameca Climb
             
             [@igarameca](https://www.instagram.com/igarameca)
-- **ultima_migracao**: 4
+- **ultima_migracao**: 5
 - **publicar_croqui**: True
 - **revisado_bounding_circle**: True
 
@@ -181,6 +189,7 @@
     
     Veja a trilha para chegar ao setor no Wikiloc: https://loc.wiki/t/169745893?wa=sc
 - **nome**: Setor Família I
+- **uid**: ZTPu3KeCXIJisV
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_familia_i_p0.webp)
@@ -188,436 +197,623 @@
     - **altura_mapa**: 1300
     - **pontos_de_interesse**:
       - **[0]**:
-        - **id**: 01
-        - **label**: 01
+        - **id**: qlXn6FUKL7METH
+        - **uid**: qlXn6FUKL7METH
+        - **rotulo**: 01
         - **circulo**:
           - **x**: 794
           - **y**: 257
           - **raio**: 17
+        - **label**: 01
       - **[1]**:
-        - **id**: 02
-        - **label**: 02
+        - **id**: o2K5QjirIxNwwK
+        - **uid**: o2K5QjirIxNwwK
+        - **rotulo**: 02
         - **circulo**:
           - **x**: 731
           - **y**: 281
           - **raio**: 17
+        - **label**: 02
       - **[2]**:
-        - **id**: 03
-        - **label**: 03
+        - **id**: yz2AQIQG6ehbBv
+        - **uid**: yz2AQIQG6ehbBv
+        - **rotulo**: 03
         - **circulo**:
           - **x**: 661
           - **y**: 328
           - **raio**: 17
+        - **label**: 03
       - **[3]**:
-        - **id**: 04
-        - **label**: 04
+        - **id**: kcJbFThHUX5Bn2
+        - **uid**: kcJbFThHUX5Bn2
+        - **rotulo**: 04
         - **circulo**:
           - **x**: 611
           - **y**: 387
           - **raio**: 17
+        - **label**: 04
       - **[4]**:
-        - **id**: 05
-        - **label**: 05
+        - **id**: 0CerCMNwS5f2ed
+        - **uid**: 0CerCMNwS5f2ed
+        - **rotulo**: 05
         - **circulo**:
           - **x**: 562
           - **y**: 437
           - **raio**: 17
+        - **label**: 05
       - **[5]**:
-        - **id**: 06
-        - **label**: 06
+        - **id**: DNdDtH7tKvhkUH
+        - **uid**: DNdDtH7tKvhkUH
+        - **rotulo**: 06
         - **circulo**:
           - **x**: 526
           - **y**: 503
           - **raio**: 17
+        - **label**: 06
       - **[6]**:
-        - **id**: 07
-        - **label**: 07
+        - **id**: dLDPZenBZsHYVc
+        - **uid**: dLDPZenBZsHYVc
+        - **rotulo**: 07
         - **circulo**:
           - **x**: 578
           - **y**: 619
           - **raio**: 17
+        - **label**: 07
       - **[7]**:
-        - **id**: 08
-        - **label**: 08
+        - **id**: 6VfeYwe88YdjGO
+        - **uid**: 6VfeYwe88YdjGO
+        - **rotulo**: 08
         - **circulo**:
           - **x**: 614
           - **y**: 729
           - **raio**: 17
+        - **label**: 08
       - **[8]**:
-        - **id**: 09
-        - **label**: 09
+        - **id**: m5bWWBFMK7z2L4
+        - **uid**: m5bWWBFMK7z2L4
+        - **rotulo**: 09
         - **circulo**:
           - **x**: 929
           - **y**: 1212
           - **raio**: 17
+        - **label**: 09
       - **[9]**:
-        - **id**: 10
-        - **label**: 10
+        - **id**: mknuFc1BB80CDd
+        - **uid**: mknuFc1BB80CDd
+        - **rotulo**: 10
         - **circulo**:
           - **x**: 1030
           - **y**: 1236
           - **raio**: 18
+        - **label**: 10
       - **[10]**:
-        - **id**: 11
-        - **label**: 11
+        - **id**: OBnTLDJJvr0D8f
+        - **uid**: OBnTLDJJvr0D8f
+        - **rotulo**: 11
         - **circulo**:
           - **x**: 1119
           - **y**: 1245
           - **raio**: 18
+        - **label**: 11
       - **[11]**:
-        - **id**: 12
-        - **label**: 12
+        - **id**: ac9b06xwq95HML
+        - **uid**: ac9b06xwq95HML
+        - **rotulo**: 12
         - **circulo**:
           - **x**: 1245
           - **y**: 1244
           - **raio**: 19
+        - **label**: 12
       - **[12]**:
-        - **id**: 13
-        - **label**: 13
+        - **id**: E4cmZiMlB03FuM
+        - **uid**: E4cmZiMlB03FuM
+        - **rotulo**: 13
         - **circulo**:
           - **x**: 1347
           - **y**: 1269
           - **raio**: 18
+        - **label**: 13
       - **[13]**:
-        - **id**: 14
-        - **label**: 14
+        - **id**: zkdM1zdskgPkVO
+        - **uid**: zkdM1zdskgPkVO
+        - **rotulo**: 14
         - **circulo**:
           - **x**: 1527
           - **y**: 1227
           - **raio**: 19
+        - **label**: 14
       - **[14]**:
-        - **id**: 15
-        - **label**: 15
+        - **id**: Dbd16PihzEk3aM
+        - **uid**: Dbd16PihzEk3aM
+        - **rotulo**: 15
         - **circulo**:
           - **x**: 1613
           - **y**: 1170
           - **raio**: 19
+        - **label**: 15
       - **[15]**:
-        - **id**: 16
-        - **label**: 16
+        - **id**: m1cHE7LKd5teZF
+        - **uid**: m1cHE7LKd5teZF
+        - **rotulo**: 16
         - **circulo**:
           - **x**: 1787
           - **y**: 915
           - **raio**: 19
+        - **label**: 16
       - **[16]**:
-        - **id**: 17
-        - **label**: 17
+        - **id**: HodDVHPtqeELsn
+        - **uid**: HodDVHPtqeELsn
+        - **rotulo**: 17
         - **circulo**:
           - **x**: 1866
           - **y**: 820
           - **raio**: 19
+        - **label**: 17
       - **[17]**:
-        - **id**: 18
-        - **label**: 18
+        - **id**: tozyDLtdRIKngk
+        - **uid**: tozyDLtdRIKngk
+        - **rotulo**: 18
         - **circulo**:
           - **x**: 1927
           - **y**: 768
           - **raio**: 18
+        - **label**: 18
       - **[18]**:
-        - **id**: 19
-        - **label**: 19
+        - **id**: H5hJTC0A8qXnA9
+        - **uid**: H5hJTC0A8qXnA9
+        - **rotulo**: 19
         - **circulo**:
           - **x**: 1967
           - **y**: 707
           - **raio**: 18
+        - **label**: 19
     - **referencias**:
       - **[0]**:
+        - **alvo_uid**: FLoTnCFVLni9Pb
+        - **pontos_uids**:
+          - qlXn6FUKL7METH
         - **escalada**: Florestinha
         - **ids**:
-          - 01
+          - qlXn6FUKL7METH
       - **[1]**:
+        - **alvo_uid**: Tlhx6eoXoQUziK
+        - **pontos_uids**:
+          - o2K5QjirIxNwwK
         - **escalada**: Ação Total
         - **ids**:
-          - 02
+          - o2K5QjirIxNwwK
       - **[2]**:
+        - **alvo_uid**: OupOVdyw9uVkcl
+        - **pontos_uids**:
+          - yz2AQIQG6ehbBv
         - **escalada**: Escravos da Pedra
         - **ids**:
-          - 03
+          - yz2AQIQG6ehbBv
       - **[3]**:
+        - **alvo_uid**: qlHWtFXgXqhPcC
+        - **pontos_uids**:
+          - kcJbFThHUX5Bn2
         - **escalada**: Esquerdinha Caviar
         - **ids**:
-          - 04
+          - kcJbFThHUX5Bn2
       - **[4]**:
+        - **alvo_uid**: gKHvpeEKWrYjfZ
+        - **pontos_uids**:
+          - 0CerCMNwS5f2ed
         - **escalada**: Mônica
         - **ids**:
-          - 05
+          - 0CerCMNwS5f2ed
       - **[5]**:
+        - **alvo_uid**: zG2c0gEGEcy7Ir
+        - **pontos_uids**:
+          - DNdDtH7tKvhkUH
         - **escalada**: Queijo Suíço
         - **ids**:
-          - 06
+          - DNdDtH7tKvhkUH
       - **[6]**:
+        - **alvo_uid**: yuiS5Mtx9m1Wb3
+        - **pontos_uids**:
+          - dLDPZenBZsHYVc
         - **escalada**: Aranha Gato
         - **ids**:
-          - 07
+          - dLDPZenBZsHYVc
       - **[7]**:
+        - **alvo_uid**: JuAN9QaLjO1jwZ
+        - **pontos_uids**:
+          - mknuFc1BB80CDd
         - **escalada**: Totalflex
         - **ids**:
-          - 10
+          - mknuFc1BB80CDd
       - **[8]**:
+        - **alvo_uid**: rmw1FR9aRvSYJ4
+        - **pontos_uids**:
+          - OBnTLDJJvr0D8f
         - **escalada**: Haja Broca
         - **ids**:
-          - 11
+          - OBnTLDJJvr0D8f
       - **[9]**:
+        - **alvo_uid**: tPIqRns6HRbmmk
+        - **pontos_uids**:
+          - ac9b06xwq95HML
         - **escalada**: Juliana
         - **ids**:
-          - 12
+          - ac9b06xwq95HML
       - **[10]**:
+        - **alvo_uid**: EgdS4xxfulupK0
+        - **pontos_uids**:
+          - E4cmZiMlB03FuM
         - **escalada**: Lisebra
         - **ids**:
-          - 13
+          - E4cmZiMlB03FuM
       - **[11]**:
+        - **alvo_uid**: to5ABN7omIJ37i
+        - **pontos_uids**:
+          - zkdM1zdskgPkVO
         - **escalada**: Croque Monsieur
         - **ids**:
-          - 14
+          - zkdM1zdskgPkVO
       - **[12]**:
+        - **alvo_uid**: eBV9ImpSW6WA1a
+        - **pontos_uids**:
+          - Dbd16PihzEk3aM
         - **escalada**: Playground
         - **ids**:
-          - 15
+          - Dbd16PihzEk3aM
       - **[13]**:
+        - **alvo_uid**: Pp9quWTMtrDNcq
+        - **pontos_uids**:
+          - m1cHE7LKd5teZF
         - **escalada**: Depressão Pós Reforma
         - **ids**:
-          - 16
+          - m1cHE7LKd5teZF
       - **[14]**:
+        - **alvo_uid**: NHIJ7jGaMUKTbj
+        - **pontos_uids**:
+          - HodDVHPtqeELsn
         - **escalada**: Chuvasca
         - **ids**:
-          - 17
+          - HodDVHPtqeELsn
       - **[15]**:
+        - **alvo_uid**: NGFJC7ykiPLGB5
+        - **pontos_uids**:
+          - tozyDLtdRIKngk
         - **escalada**: Pau Oco
         - **ids**:
-          - 18
+          - tozyDLtdRIKngk
       - **[16]**:
+        - **alvo_uid**: Qqxx0DB6T4r3t3
+        - **pontos_uids**:
+          - H5hJTC0A8qXnA9
         - **escalada**: Franzinha
         - **ids**:
-          - 19
+          - H5hJTC0A8qXnA9
       - **[17]**:
-        - **ids**:
-          - 08
-        - **setor**: Setor Família I
+        - **alvo_uid**: PUdsJLmWSHjxEt
+        - **pontos_uids**:
+          - 6VfeYwe88YdjGO
         - **escalada**: Chapas Onorixicas
-      - **[18]**:
         - **ids**:
-          - 09
-        - **setor**: Setor Família I
+          - 6VfeYwe88YdjGO
+      - **[18]**:
+        - **alvo_uid**: HOwsUPLqGlJMvX
+        - **pontos_uids**:
+          - m5bWWBFMK7z2L4
         - **escalada**: Tora Flex
+        - **ids**:
+          - m5bWWBFMK7z2L4
   - **[1]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_familia_i_p1.webp)
     - **largura_mapa**: 1121
     - **altura_mapa**: 1440
     - **pontos_de_interesse**:
       - **[0]**:
-        - **id**: 19
-        - **label**: 19
+        - **id**: Kidqg1yeT9ur0h
+        - **uid**: Kidqg1yeT9ur0h
+        - **rotulo**: 19
         - **circulo**:
           - **x**: 523
           - **y**: 133
           - **raio**: 19
+        - **label**: 19
       - **[1]**:
-        - **id**: 18
-        - **label**: 18
+        - **id**: s6Zs89BCKrp0CI
+        - **uid**: s6Zs89BCKrp0CI
+        - **rotulo**: 18
         - **circulo**:
           - **x**: 562
           - **y**: 177
           - **raio**: 19
+        - **label**: 18
       - **[2]**:
-        - **id**: 17
-        - **label**: 17
+        - **id**: tVsR50LUA2ZDrC
+        - **uid**: tVsR50LUA2ZDrC
+        - **rotulo**: 17
         - **circulo**:
           - **x**: 638
           - **y**: 257
           - **raio**: 19
+        - **label**: 17
       - **[3]**:
-        - **id**: 16
-        - **label**: 16
+        - **id**: EP4rcx2InNNQzK
+        - **uid**: EP4rcx2InNNQzK
+        - **rotulo**: 16
         - **circulo**:
           - **x**: 771
           - **y**: 414
           - **raio**: 19
+        - **label**: 16
       - **[4]**:
-        - **id**: 15
-        - **label**: 15
+        - **id**: uF6aHByLscOpdd
+        - **uid**: uF6aHByLscOpdd
+        - **rotulo**: 15
         - **circulo**:
           - **x**: 830
           - **y**: 505
           - **raio**: 19
+        - **label**: 15
       - **[5]**:
-        - **id**: 14
-        - **label**: 14
+        - **id**: 2pRZiwtRv1fLFg
+        - **uid**: 2pRZiwtRv1fLFg
+        - **rotulo**: 14
         - **circulo**:
           - **x**: 920
           - **y**: 620
           - **raio**: 19
+        - **label**: 14
       - **[6]**:
-        - **id**: 13
-        - **label**: 13
+        - **id**: P01p9Cal7LnRam
+        - **uid**: P01p9Cal7LnRam
+        - **rotulo**: 13
         - **circulo**:
           - **x**: 937
           - **y**: 770
           - **raio**: 19
+        - **label**: 13
       - **[7]**:
-        - **id**: 12
-        - **label**: 12
+        - **id**: Ud8ho50Tuv9nMA
+        - **uid**: Ud8ho50Tuv9nMA
+        - **rotulo**: 12
         - **circulo**:
           - **x**: 940
           - **y**: 904
           - **raio**: 19
+        - **label**: 12
       - **[8]**:
-        - **id**: 11
-        - **label**: 11
+        - **id**: KQyiBdcw2mqzO5
+        - **uid**: KQyiBdcw2mqzO5
+        - **rotulo**: 11
         - **circulo**:
           - **x**: 914
           - **y**: 986
           - **raio**: 19
+        - **label**: 11
       - **[9]**:
-        - **id**: 10
-        - **label**: 10
+        - **id**: ynaXcUbxwHB9Mg
+        - **uid**: ynaXcUbxwHB9Mg
+        - **rotulo**: 10
         - **circulo**:
           - **x**: 855
           - **y**: 1071
           - **raio**: 18
+        - **label**: 10
       - **[10]**:
-        - **id**: 01
-        - **label**: 01
+        - **id**: ejYBUskluteW5A
+        - **uid**: ejYBUskluteW5A
+        - **rotulo**: 01
         - **circulo**:
           - **x**: 241
           - **y**: 1138
           - **raio**: 18
+        - **label**: 01
       - **[11]**:
-        - **id**: 09
-        - **label**: 09
+        - **id**: OSw3Yut8UJNQTV
+        - **uid**: OSw3Yut8UJNQTV
+        - **rotulo**: 09
         - **circulo**:
           - **x**: 823
           - **y**: 1132
           - **raio**: 19
+        - **label**: 09
       - **[12]**:
-        - **id**: 02
-        - **label**: 02
+        - **id**: Dwa5jRMxNSbOtj
+        - **uid**: Dwa5jRMxNSbOtj
+        - **rotulo**: 02
         - **circulo**:
           - **x**: 287
           - **y**: 1162
           - **raio**: 19
+        - **label**: 02
       - **[13]**:
-        - **id**: 03
-        - **label**: 03
+        - **id**: o5pAHGiVi1N8yW
+        - **uid**: o5pAHGiVi1N8yW
+        - **rotulo**: 03
         - **circulo**:
           - **x**: 330
           - **y**: 1195
           - **raio**: 19
+        - **label**: 03
       - **[14]**:
-        - **id**: 04
-        - **label**: 04
+        - **id**: e1UwaKn8XDaiTt
+        - **uid**: e1UwaKn8XDaiTt
+        - **rotulo**: 04
         - **circulo**:
           - **x**: 412
           - **y**: 1231
           - **raio**: 19
+        - **label**: 04
       - **[15]**:
-        - **id**: 05
-        - **label**: 05
+        - **id**: APU5ghbENEu31q
+        - **uid**: APU5ghbENEu31q
+        - **rotulo**: 05
         - **circulo**:
           - **x**: 436
           - **y**: 1277
           - **raio**: 19
+        - **label**: 05
       - **[16]**:
-        - **id**: 08
-        - **label**: 08
+        - **id**: QRr7USrPyHUd5Z
+        - **uid**: QRr7USrPyHUd5Z
+        - **rotulo**: 08
         - **circulo**:
           - **x**: 637
           - **y**: 1268
           - **raio**: 19
+        - **label**: 08
       - **[17]**:
-        - **id**: 06
-        - **label**: 06
+        - **id**: 4EK3SYCcRpHWqT
+        - **uid**: 4EK3SYCcRpHWqT
+        - **rotulo**: 06
         - **circulo**:
           - **x**: 477
           - **y**: 1304
           - **raio**: 19
+        - **label**: 06
       - **[18]**:
-        - **id**: 07
-        - **label**: 07
+        - **id**: 7cLnLDXpgAzOid
+        - **uid**: 7cLnLDXpgAzOid
+        - **rotulo**: 07
         - **circulo**:
           - **x**: 587
           - **y**: 1299
           - **raio**: 19
+        - **label**: 07
     - **referencias**:
       - **[0]**:
+        - **alvo_uid**: FLoTnCFVLni9Pb
+        - **pontos_uids**:
+          - ejYBUskluteW5A
         - **escalada**: Florestinha
         - **ids**:
-          - 01
+          - ejYBUskluteW5A
       - **[1]**:
+        - **alvo_uid**: Tlhx6eoXoQUziK
+        - **pontos_uids**:
+          - Dwa5jRMxNSbOtj
         - **escalada**: Ação Total
         - **ids**:
-          - 02
+          - Dwa5jRMxNSbOtj
       - **[2]**:
+        - **alvo_uid**: OupOVdyw9uVkcl
+        - **pontos_uids**:
+          - o5pAHGiVi1N8yW
         - **escalada**: Escravos da Pedra
         - **ids**:
-          - 03
+          - o5pAHGiVi1N8yW
       - **[3]**:
+        - **alvo_uid**: qlHWtFXgXqhPcC
+        - **pontos_uids**:
+          - e1UwaKn8XDaiTt
         - **escalada**: Esquerdinha Caviar
         - **ids**:
-          - 04
+          - e1UwaKn8XDaiTt
       - **[4]**:
+        - **alvo_uid**: gKHvpeEKWrYjfZ
+        - **pontos_uids**:
+          - APU5ghbENEu31q
         - **escalada**: Mônica
         - **ids**:
-          - 05
+          - APU5ghbENEu31q
       - **[5]**:
+        - **alvo_uid**: zG2c0gEGEcy7Ir
+        - **pontos_uids**:
+          - 4EK3SYCcRpHWqT
         - **escalada**: Queijo Suíço
         - **ids**:
-          - 06
+          - 4EK3SYCcRpHWqT
       - **[6]**:
+        - **alvo_uid**: yuiS5Mtx9m1Wb3
+        - **pontos_uids**:
+          - 7cLnLDXpgAzOid
         - **escalada**: Aranha Gato
         - **ids**:
-          - 07
+          - 7cLnLDXpgAzOid
       - **[7]**:
+        - **alvo_uid**: JuAN9QaLjO1jwZ
+        - **pontos_uids**:
+          - ynaXcUbxwHB9Mg
         - **escalada**: Totalflex
         - **ids**:
-          - 10
+          - ynaXcUbxwHB9Mg
       - **[8]**:
+        - **alvo_uid**: rmw1FR9aRvSYJ4
+        - **pontos_uids**:
+          - KQyiBdcw2mqzO5
         - **escalada**: Haja Broca
         - **ids**:
-          - 11
+          - KQyiBdcw2mqzO5
       - **[9]**:
+        - **alvo_uid**: tPIqRns6HRbmmk
+        - **pontos_uids**:
+          - Ud8ho50Tuv9nMA
         - **escalada**: Juliana
         - **ids**:
-          - 12
+          - Ud8ho50Tuv9nMA
       - **[10]**:
+        - **alvo_uid**: EgdS4xxfulupK0
+        - **pontos_uids**:
+          - P01p9Cal7LnRam
         - **escalada**: Lisebra
         - **ids**:
-          - 13
+          - P01p9Cal7LnRam
       - **[11]**:
+        - **alvo_uid**: to5ABN7omIJ37i
+        - **pontos_uids**:
+          - 2pRZiwtRv1fLFg
         - **escalada**: Croque Monsieur
         - **ids**:
-          - 14
+          - 2pRZiwtRv1fLFg
       - **[12]**:
+        - **alvo_uid**: eBV9ImpSW6WA1a
+        - **pontos_uids**:
+          - uF6aHByLscOpdd
         - **escalada**: Playground
         - **ids**:
-          - 15
+          - uF6aHByLscOpdd
       - **[13]**:
+        - **alvo_uid**: Pp9quWTMtrDNcq
+        - **pontos_uids**:
+          - EP4rcx2InNNQzK
         - **escalada**: Depressão Pós Reforma
         - **ids**:
-          - 16
+          - EP4rcx2InNNQzK
       - **[14]**:
+        - **alvo_uid**: NHIJ7jGaMUKTbj
+        - **pontos_uids**:
+          - tVsR50LUA2ZDrC
         - **escalada**: Chuvasca
         - **ids**:
-          - 17
+          - tVsR50LUA2ZDrC
       - **[15]**:
+        - **alvo_uid**: NGFJC7ykiPLGB5
+        - **pontos_uids**:
+          - s6Zs89BCKrp0CI
         - **escalada**: Pau Oco
         - **ids**:
-          - 18
+          - s6Zs89BCKrp0CI
       - **[16]**:
+        - **alvo_uid**: Qqxx0DB6T4r3t3
+        - **pontos_uids**:
+          - Kidqg1yeT9ur0h
         - **escalada**: Franzinha
         - **ids**:
-          - 19
+          - Kidqg1yeT9ur0h
       - **[17]**:
-        - **ids**:
-          - 08
-        - **setor**: Setor Família I
+        - **alvo_uid**: PUdsJLmWSHjxEt
+        - **pontos_uids**:
+          - QRr7USrPyHUd5Z
         - **escalada**: Chapas Onorixicas
-      - **[18]**:
         - **ids**:
-          - 09
-        - **setor**: Setor Família I
+          - QRr7USrPyHUd5Z
+      - **[18]**:
+        - **alvo_uid**: HOwsUPLqGlJMvX
+        - **pontos_uids**:
+          - OSw3Yut8UJNQTV
         - **escalada**: Tora Flex
+        - **ids**:
+          - OSw3Yut8UJNQTV
 - **escaladas**:
   - **[0]**:
+    - **uid**: FLoTnCFVLni9Pb
     - **via_esportiva**:
       - **nome**: Florestinha
       - **dificuldade**: BR_6SUP
@@ -626,6 +822,7 @@
         - Ró
       - **data_abertura**: 2011
   - **[1]**:
+    - **uid**: Tlhx6eoXoQUziK
     - **via_esportiva**:
       - **nome**: Ação Total
       - **dificuldade**: BR_7A
@@ -638,6 +835,7 @@
         - Rômulo
       - **data_abertura**: 2011
   - **[2]**:
+    - **uid**: OupOVdyw9uVkcl
     - **via_esportiva**:
       - **nome**: Escravos da Pedra
       - **dificuldade**: BR_8C
@@ -650,6 +848,7 @@
         - Chinha
       - **data_abertura**: 2011
   - **[3]**:
+    - **uid**: qlHWtFXgXqhPcC
     - **via_esportiva**:
       - **nome**: Esquerdinha Caviar
       - **dificuldade**: BR_7C
@@ -662,6 +861,7 @@
         - Rômulo
       - **data_abertura**: 2011
   - **[4]**:
+    - **uid**: gKHvpeEKWrYjfZ
     - **via_esportiva**:
       - **nome**: Mônica
       - **dificuldade**: BR_8B
@@ -673,6 +873,7 @@
         - Ró
       - **data_abertura**: 2011
   - **[5]**:
+    - **uid**: zG2c0gEGEcy7Ir
     - **via_esportiva**:
       - **nome**: Queijo Suíço
       - **dificuldade**: BR_7A_BARRA_7B
@@ -684,6 +885,7 @@
         - Ró
       - **data_abertura**: 2011
   - **[6]**:
+    - **uid**: yuiS5Mtx9m1Wb3
     - **via_esportiva**:
       - **nome**: Aranha Gato
       - **dificuldade**: BR_6_BARRA_6SUP
@@ -696,6 +898,7 @@
         - Chinha
       - **data_abertura**: 2011
   - **[7]**:
+    - **uid**: PUdsJLmWSHjxEt
     - **via_esportiva**:
       - **nome**: Chapas Onorixicas
       - **dificuldade**: BR_6SUP
@@ -707,6 +910,7 @@
         - Ivo
       - **data_abertura**: 2011
   - **[8]**:
+    - **uid**: HOwsUPLqGlJMvX
     - **via_esportiva**:
       - **nome**: Tora Flex
       - **dificuldade**: BR_6SUP
@@ -719,6 +923,7 @@
         - Chinha
       - **data_abertura**: 2011
   - **[9]**:
+    - **uid**: JuAN9QaLjO1jwZ
     - **via_esportiva**:
       - **nome**: Totalflex
       - **dificuldade**: BR_6SUP
@@ -731,6 +936,7 @@
         - Chinha
       - **data_abertura**: 2011
   - **[10]**:
+    - **uid**: rmw1FR9aRvSYJ4
     - **via_esportiva**:
       - **nome**: Haja Broca
       - **dificuldade**: BR_6SUP
@@ -742,6 +948,7 @@
         - Ró
       - **data_abertura**: 2011
   - **[11]**:
+    - **uid**: tPIqRns6HRbmmk
     - **via_esportiva**:
       - **nome**: Juliana
       - **dificuldade**: BR_5
@@ -753,6 +960,7 @@
         - Ró
       - **data_abertura**: 2011
   - **[12]**:
+    - **uid**: EgdS4xxfulupK0
     - **via_esportiva**:
       - **nome**: Lisebra
       - **dificuldade**: BR_4
@@ -764,6 +972,7 @@
         - Ivo
       - **data_abertura**: 2011
   - **[13]**:
+    - **uid**: to5ABN7omIJ37i
     - **via_esportiva**:
       - **nome**: Croque Monsieur
       - **dificuldade**: BR_5
@@ -775,6 +984,7 @@
         - Ró
       - **data_abertura**: 2011
   - **[14]**:
+    - **uid**: eBV9ImpSW6WA1a
     - **via_esportiva**:
       - **nome**: Playground
       - **dificuldade**: BR_4
@@ -785,6 +995,7 @@
         - Macena
       - **data_abertura**: 2013
   - **[15]**:
+    - **uid**: Pp9quWTMtrDNcq
     - **via_esportiva**:
       - **nome**: Depressão Pós Reforma
       - **dificuldade**: BR_4
@@ -795,6 +1006,7 @@
         - Macena
       - **data_abertura**: 2013
   - **[16]**:
+    - **uid**: NHIJ7jGaMUKTbj
     - **via_esportiva**:
       - **nome**: Chuvasca
       - **dificuldade**: BR_4
@@ -805,6 +1017,7 @@
         - Macena
       - **data_abertura**: 2013
   - **[17]**:
+    - **uid**: NGFJC7ykiPLGB5
     - **via_esportiva**:
       - **descricao**: Termina no mesmo tope que a via Franzinha.
       - **nome**: Pau Oco
@@ -817,6 +1030,7 @@
         - Fran
       - **data_abertura**: 2013
   - **[18]**:
+    - **uid**: Qqxx0DB6T4r3t3
     - **via_esportiva**:
       - **descricao**: Termina no mesmo tope que a via Pau Oco.
       - **nome**: Franzinha
@@ -844,6 +1058,7 @@
     
     Veja a trilha para chegar ao Família II no WikiLoc (começando a partir do Família I): https://loc.wiki/t/157623201?wa=sc
 - **nome**: Setor Família II
+- **uid**: 4GJDAcwWEJb4Ca
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_familia_ii_p0.webp)
@@ -851,266 +1066,367 @@
     - **altura_mapa**: 1271
     - **pontos_de_interesse**:
       - **[0]**:
-        - **id**: 01
-        - **label**: 01
+        - **id**: wQ4UdyjQnD4D1t
+        - **uid**: wQ4UdyjQnD4D1t
+        - **rotulo**: 01
         - **circulo**:
           - **x**: 154
           - **y**: 323
           - **raio**: 17
+        - **label**: 01
       - **[1]**:
-        - **id**: 02
-        - **label**: 02
+        - **id**: HkNiaV48SWEzjf
+        - **uid**: HkNiaV48SWEzjf
+        - **rotulo**: 02
         - **circulo**:
           - **x**: 228
           - **y**: 350
           - **raio**: 17
+        - **label**: 02
       - **[2]**:
-        - **id**: 03
-        - **label**: 03
+        - **id**: PsDi20MGgjYmob
+        - **uid**: PsDi20MGgjYmob
+        - **rotulo**: 03
         - **circulo**:
           - **x**: 368
           - **y**: 557
           - **raio**: 17
+        - **label**: 03
       - **[3]**:
-        - **id**: 04
-        - **label**: 04
+        - **id**: j8Sy1uzEKRX5yc
+        - **uid**: j8Sy1uzEKRX5yc
+        - **rotulo**: 04
         - **circulo**:
           - **x**: 476
           - **y**: 584
           - **raio**: 17
+        - **label**: 04
       - **[4]**:
-        - **id**: 05
-        - **label**: 05
+        - **id**: tzUyUN8HgmkIxz
+        - **uid**: tzUyUN8HgmkIxz
+        - **rotulo**: 05
         - **circulo**:
           - **x**: 558
           - **y**: 589
           - **raio**: 17
+        - **label**: 05
       - **[5]**:
-        - **id**: 06
-        - **label**: 06
+        - **id**: ecLJl29N0Qzuvy
+        - **uid**: ecLJl29N0Qzuvy
+        - **rotulo**: 06
         - **circulo**:
           - **x**: 634
           - **y**: 581
           - **raio**: 17
+        - **label**: 06
       - **[6]**:
-        - **id**: 07
-        - **label**: 07
+        - **id**: BfFM9UvLBpOGLB
+        - **uid**: BfFM9UvLBpOGLB
+        - **rotulo**: 07
         - **circulo**:
           - **x**: 749
           - **y**: 609
           - **raio**: 17
+        - **label**: 07
       - **[7]**:
-        - **id**: 08
-        - **label**: 08
+        - **id**: 2B9XZZgE4mXMHK
+        - **uid**: 2B9XZZgE4mXMHK
+        - **rotulo**: 08
         - **circulo**:
           - **x**: 903
           - **y**: 565
           - **raio**: 17
+        - **label**: 08
       - **[8]**:
-        - **id**: 11
-        - **label**: 11
+        - **id**: 7PTuZiJ0mVR9DJ
+        - **uid**: 7PTuZiJ0mVR9DJ
+        - **rotulo**: 11
         - **circulo**:
           - **x**: 1113
           - **y**: 812
           - **raio**: 17
+        - **label**: 11
       - **[9]**:
-        - **id**: 10
-        - **label**: 10
+        - **id**: OTbT7e7Is6sKDC
+        - **uid**: OTbT7e7Is6sKDC
+        - **rotulo**: 10
         - **circulo**:
           - **x**: 1141
           - **y**: 878
           - **raio**: 17
+        - **label**: 10
       - **[10]**:
-        - **id**: 09
-        - **label**: 09
+        - **id**: G5WL3H7fVvauXp
+        - **uid**: G5WL3H7fVvauXp
+        - **rotulo**: 09
         - **circulo**:
           - **x**: 1166
           - **y**: 951
           - **raio**: 17
+        - **label**: 09
     - **referencias**:
       - **[0]**:
+        - **alvo_uid**: O2j0FWWfqfCIgS
+        - **pontos_uids**:
+          - wQ4UdyjQnD4D1t
         - **escalada**: Filhos da Revolução
         - **ids**:
-          - 01
+          - wQ4UdyjQnD4D1t
       - **[1]**:
+        - **alvo_uid**: 7hfAbFgvJJtqvX
+        - **pontos_uids**:
+          - HkNiaV48SWEzjf
         - **escalada**: Pedra Vermelha
         - **ids**:
-          - 02
+          - HkNiaV48SWEzjf
       - **[2]**:
+        - **alvo_uid**: 80zrL5t68QLmQl
+        - **pontos_uids**:
+          - PsDi20MGgjYmob
         - **escalada**: Projeto 1
         - **ids**:
-          - 03
-        - **setor**: Setor Família II
+          - PsDi20MGgjYmob
       - **[3]**:
+        - **alvo_uid**: XMe232LH75CqCF
+        - **pontos_uids**:
+          - j8Sy1uzEKRX5yc
         - **escalada**: Projeto 2
         - **ids**:
-          - 04
-        - **setor**: Setor Família II
+          - j8Sy1uzEKRX5yc
       - **[4]**:
+        - **alvo_uid**: ZH9kYUV3w8aHap
+        - **pontos_uids**:
+          - tzUyUN8HgmkIxz
         - **escalada**: Via inacabada 1
         - **ids**:
-          - 05
-        - **setor**: Setor Família II
+          - tzUyUN8HgmkIxz
       - **[5]**:
+        - **alvo_uid**: rPofbf9N83AHHj
+        - **pontos_uids**:
+          - ecLJl29N0Qzuvy
         - **escalada**: Trinca Ferro
         - **ids**:
-          - 06
+          - ecLJl29N0Qzuvy
       - **[6]**:
+        - **alvo_uid**: 7mKfEm9aTXPyLR
+        - **pontos_uids**:
+          - BfFM9UvLBpOGLB
         - **escalada**: Marimbondes me Mordam
         - **ids**:
-          - 07
+          - BfFM9UvLBpOGLB
       - **[7]**:
+        - **alvo_uid**: dpJ3AQRgKjl3Q3
+        - **pontos_uids**:
+          - OTbT7e7Is6sKDC
         - **escalada**: Pula Um
         - **ids**:
-          - 10
+          - OTbT7e7Is6sKDC
       - **[8]**:
+        - **alvo_uid**: R371v4tIOASOF5
+        - **pontos_uids**:
+          - 7PTuZiJ0mVR9DJ
         - **escalada**: Cerro Azul
         - **ids**:
-          - 11
+          - 7PTuZiJ0mVR9DJ
       - **[9]**:
-        - **ids**:
-          - 08
-        - **setor**: Setor Família II
+        - **alvo_uid**: ce13FYzMSa3nsT
+        - **pontos_uids**:
+          - 2B9XZZgE4mXMHK
         - **escalada**: Sumchine
-      - **[10]**:
         - **ids**:
-          - 09
-        - **setor**: Setor Família II
+          - 2B9XZZgE4mXMHK
+      - **[10]**:
+        - **alvo_uid**: 6sqgXRmLbld8lN
+        - **pontos_uids**:
+          - G5WL3H7fVvauXp
         - **escalada**: Cater Pillar
+        - **ids**:
+          - G5WL3H7fVvauXp
   - **[1]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_familia_ii_p1.webp)
     - **largura_mapa**: 1032
     - **altura_mapa**: 1442
     - **pontos_de_interesse**:
       - **[0]**:
-        - **id**: 01
-        - **label**: 01
+        - **id**: nsknW6k04Ykjj6
+        - **uid**: nsknW6k04Ykjj6
+        - **rotulo**: 01
         - **circulo**:
           - **x**: 270
           - **y**: 467
           - **raio**: 17
+        - **label**: 01
       - **[1]**:
-        - **id**: 02
-        - **label**: 02
+        - **id**: OKGoVn4nBjUwaO
+        - **uid**: OKGoVn4nBjUwaO
+        - **rotulo**: 02
         - **circulo**:
           - **x**: 278
           - **y**: 557
           - **raio**: 17
+        - **label**: 02
       - **[2]**:
-        - **id**: 03
-        - **label**: 03
+        - **id**: apMoQAvLWvmz3M
+        - **uid**: apMoQAvLWvmz3M
+        - **rotulo**: 03
         - **circulo**:
           - **x**: 285
           - **y**: 687
           - **raio**: 17
+        - **label**: 03
       - **[3]**:
-        - **id**: 04
-        - **label**: 04
+        - **id**: 2N3fmtKJoM6Vs3
+        - **uid**: 2N3fmtKJoM6Vs3
+        - **rotulo**: 04
         - **circulo**:
           - **x**: 277
           - **y**: 860
           - **raio**: 17
+        - **label**: 04
       - **[4]**:
-        - **id**: 05
-        - **label**: 05
+        - **id**: EkKbJ7sYl8rzkj
+        - **uid**: EkKbJ7sYl8rzkj
+        - **rotulo**: 05
         - **circulo**:
           - **x**: 298
           - **y**: 935
           - **raio**: 18
+        - **label**: 05
       - **[5]**:
-        - **id**: 06
-        - **label**: 06
+        - **id**: cBCcIa6kuqCpZq
+        - **uid**: cBCcIa6kuqCpZq
+        - **rotulo**: 06
         - **circulo**:
           - **x**: 314
           - **y**: 1037
           - **raio**: 17
+        - **label**: 06
       - **[6]**:
-        - **id**: 07
-        - **label**: 07
+        - **id**: xO6RFxufhGq6rQ
+        - **uid**: xO6RFxufhGq6rQ
+        - **rotulo**: 07
         - **circulo**:
           - **x**: 335
           - **y**: 1119
           - **raio**: 17
+        - **label**: 07
       - **[7]**:
-        - **id**: 08
-        - **label**: 08
+        - **id**: MvlxD3hdq8hJn7
+        - **uid**: MvlxD3hdq8hJn7
+        - **rotulo**: 08
         - **circulo**:
           - **x**: 415
           - **y**: 1149
           - **raio**: 17
+        - **label**: 08
       - **[8]**:
-        - **id**: 11
-        - **label**: 11
+        - **id**: khhmOwQZQuZeDx
+        - **uid**: khhmOwQZQuZeDx
+        - **rotulo**: 11
         - **circulo**:
           - **x**: 547
           - **y**: 1152
           - **raio**: 17
+        - **label**: 11
       - **[9]**:
-        - **id**: 10
-        - **label**: 10
+        - **id**: FJh39bFVJ8QJ4M
+        - **uid**: FJh39bFVJ8QJ4M
+        - **rotulo**: 10
         - **circulo**:
           - **x**: 518
           - **y**: 1187
           - **raio**: 17
+        - **label**: 10
       - **[10]**:
-        - **id**: 09
-        - **label**: 09
+        - **id**: 2W8ncFY2D3lOAt
+        - **uid**: 2W8ncFY2D3lOAt
+        - **rotulo**: 09
         - **circulo**:
           - **x**: 491
           - **y**: 1224
           - **raio**: 17
+        - **label**: 09
     - **referencias**:
       - **[0]**:
+        - **alvo_uid**: O2j0FWWfqfCIgS
+        - **pontos_uids**:
+          - nsknW6k04Ykjj6
         - **escalada**: Filhos da Revolução
         - **ids**:
-          - 01
+          - nsknW6k04Ykjj6
       - **[1]**:
+        - **alvo_uid**: 7hfAbFgvJJtqvX
+        - **pontos_uids**:
+          - OKGoVn4nBjUwaO
         - **escalada**: Pedra Vermelha
         - **ids**:
-          - 02
+          - OKGoVn4nBjUwaO
       - **[2]**:
+        - **alvo_uid**: 80zrL5t68QLmQl
+        - **pontos_uids**:
+          - apMoQAvLWvmz3M
         - **escalada**: Projeto 1
         - **ids**:
-          - 03
-        - **setor**: Setor Família II
+          - apMoQAvLWvmz3M
       - **[3]**:
+        - **alvo_uid**: XMe232LH75CqCF
+        - **pontos_uids**:
+          - 2N3fmtKJoM6Vs3
         - **escalada**: Projeto 2
         - **ids**:
-          - 04
-        - **setor**: Setor Família II
+          - 2N3fmtKJoM6Vs3
       - **[4]**:
+        - **alvo_uid**: ZH9kYUV3w8aHap
+        - **pontos_uids**:
+          - EkKbJ7sYl8rzkj
         - **escalada**: Via inacabada 1
         - **ids**:
-          - 05
-        - **setor**: Setor Família II
+          - EkKbJ7sYl8rzkj
       - **[5]**:
+        - **alvo_uid**: rPofbf9N83AHHj
+        - **pontos_uids**:
+          - cBCcIa6kuqCpZq
         - **escalada**: Trinca Ferro
         - **ids**:
-          - 06
+          - cBCcIa6kuqCpZq
       - **[6]**:
+        - **alvo_uid**: 7mKfEm9aTXPyLR
+        - **pontos_uids**:
+          - xO6RFxufhGq6rQ
         - **escalada**: Marimbondes me Mordam
         - **ids**:
-          - 07
+          - xO6RFxufhGq6rQ
       - **[7]**:
+        - **alvo_uid**: dpJ3AQRgKjl3Q3
+        - **pontos_uids**:
+          - FJh39bFVJ8QJ4M
         - **escalada**: Pula Um
         - **ids**:
-          - 10
+          - FJh39bFVJ8QJ4M
       - **[8]**:
+        - **alvo_uid**: R371v4tIOASOF5
+        - **pontos_uids**:
+          - khhmOwQZQuZeDx
         - **escalada**: Cerro Azul
         - **ids**:
-          - 11
+          - khhmOwQZQuZeDx
       - **[9]**:
-        - **ids**:
-          - 08
-        - **setor**: Setor Família II
+        - **alvo_uid**: ce13FYzMSa3nsT
+        - **pontos_uids**:
+          - MvlxD3hdq8hJn7
         - **escalada**: Sumchine
-      - **[10]**:
         - **ids**:
-          - 09
-        - **setor**: Setor Família II
+          - MvlxD3hdq8hJn7
+      - **[10]**:
+        - **alvo_uid**: 6sqgXRmLbld8lN
+        - **pontos_uids**:
+          - 2W8ncFY2D3lOAt
         - **escalada**: Cater Pillar
+        - **ids**:
+          - 2W8ncFY2D3lOAt
 - **escaladas**:
   - **[0]**:
+    - **uid**: O2j0FWWfqfCIgS
     - **via_esportiva**:
       - **nome**: Filhos da Revolução
       - **dificuldade**: BR_7A
@@ -1123,6 +1439,7 @@
         - Toninho
       - **data_abertura**: 2012
   - **[1]**:
+    - **uid**: 7hfAbFgvJJtqvX
     - **via_esportiva**:
       - **nome**: Pedra Vermelha
       - **dificuldade**: BR_7C
@@ -1131,6 +1448,7 @@
         - Ró
       - **data_abertura**: 2012
   - **[2]**:
+    - **uid**: 80zrL5t68QLmQl
     - **via_esportiva**:
       - **nome**: Projeto 1
       - **dificuldade**: PROJETO
@@ -1141,6 +1459,7 @@
         - Berbari
       - **data_abertura**: 2012
   - **[3]**:
+    - **uid**: XMe232LH75CqCF
     - **via_esportiva**:
       - **nome**: Projeto 2
       - **dificuldade**: PROJETO
@@ -1152,6 +1471,7 @@
         - Alex
       - **data_abertura**: 2012
   - **[4]**:
+    - **uid**: ZH9kYUV3w8aHap
     - **via_esportiva**:
       - **nome**: Via inacabada 1
       - **dificuldade**: INDEFINIDO
@@ -1163,6 +1483,7 @@
         - Alex
       - **data_abertura**: 2012
   - **[5]**:
+    - **uid**: rPofbf9N83AHHj
     - **via_esportiva**:
       - **nome**: Trinca Ferro
       - **dificuldade**: BR_8B
@@ -1173,6 +1494,7 @@
         - Berbari
       - **data_abertura**: 2013
   - **[6]**:
+    - **uid**: 7mKfEm9aTXPyLR
     - **via_esportiva**:
       - **nome**: Marimbondes me Mordam
       - **dificuldade**: BR_7C
@@ -1184,6 +1506,7 @@
         - Ró
       - **data_abertura**: 2009
   - **[7]**:
+    - **uid**: ce13FYzMSa3nsT
     - **via_esportiva**:
       - **nome**: Sumchine
       - **dificuldade**: BR_6SUP_BARRA_7A
@@ -1195,6 +1518,7 @@
         - Ró
       - **data_abertura**: 2009
   - **[8]**:
+    - **uid**: 6sqgXRmLbld8lN
     - **via_esportiva**:
       - **nome**: Cater Pillar
       - **dificuldade**: BR_6
@@ -1207,6 +1531,7 @@
         - Cater
       - **data_abertura**: 2009
   - **[9]**:
+    - **uid**: dpJ3AQRgKjl3Q3
     - **via_esportiva**:
       - **nome**: Pula Um
       - **dificuldade**: BR_5
@@ -1218,6 +1543,7 @@
         - Ró
       - **data_abertura**: 2009
   - **[10]**:
+    - **uid**: R371v4tIOASOF5
     - **via_esportiva**:
       - **nome**: Cerro Azul
       - **dificuldade**: BR_6_BARRA_6SUP
@@ -1247,6 +1573,7 @@
     
     Veja a trilha para chegar ao setor no WikiLoc: https://loc.wiki/t/157666336?wa=sc
 - **nome**: Setor Micos
+- **uid**: 8CUeyL0A3dX1EL
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_micos_p0.webp)
@@ -1254,176 +1581,245 @@
     - **altura_mapa**: 1246
     - **pontos_de_interesse**:
       - **[0]**:
-        - **id**: 01
-        - **label**: 01
+        - **id**: AerH38FdL0Sn2T
+        - **uid**: AerH38FdL0Sn2T
+        - **rotulo**: 01
         - **circulo**:
           - **x**: 667
           - **y**: 711
           - **raio**: 17
+        - **label**: 01
       - **[1]**:
-        - **id**: 02
-        - **label**: 02
+        - **id**: KZ0Ef4D4YsdGoY
+        - **uid**: KZ0Ef4D4YsdGoY
+        - **rotulo**: 02
         - **circulo**:
           - **x**: 696
           - **y**: 755
           - **raio**: 17
+        - **label**: 02
     - **referencias**:
       - **[0]**:
+        - **alvo_uid**: 7CzUWE07k46dcT
+        - **pontos_uids**:
+          - AerH38FdL0Sn2T
         - **escalada**: Eu Também Vou
         - **ids**:
-          - 01
+          - AerH38FdL0Sn2T
       - **[1]**:
+        - **alvo_uid**: UtD230MoDpfz6N
+        - **pontos_uids**:
+          - KZ0Ef4D4YsdGoY
         - **escalada**: Lambe Lambe
         - **ids**:
-          - 02
+          - KZ0Ef4D4YsdGoY
   - **[1]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_micos_p1.webp)
     - **largura_mapa**: 1101
     - **altura_mapa**: 1234
     - **pontos_de_interesse**:
       - **[0]**:
-        - **id**: 01
-        - **label**: 01
+        - **id**: d6vOugTD64B6Oj
+        - **uid**: d6vOugTD64B6Oj
+        - **rotulo**: 01
         - **circulo**:
           - **x**: 343
           - **y**: 699
           - **raio**: 17
+        - **label**: 01
       - **[1]**:
-        - **id**: 07
-        - **label**: 07
+        - **id**: 58UDKEdWFIl3Qx
+        - **uid**: 58UDKEdWFIl3Qx
+        - **rotulo**: 07
         - **circulo**:
           - **x**: 968
           - **y**: 727
           - **raio**: 17
+        - **label**: 07
       - **[2]**:
-        - **id**: 06
-        - **label**: 06
+        - **id**: WhVNfbav4zur71
+        - **uid**: WhVNfbav4zur71
+        - **rotulo**: 06
         - **circulo**:
           - **x**: 874
           - **y**: 748
           - **raio**: 17
+        - **label**: 06
       - **[3]**:
-        - **id**: 05
-        - **label**: 05
+        - **id**: dKMqRTaDiSiptS
+        - **uid**: dKMqRTaDiSiptS
+        - **rotulo**: 05
         - **circulo**:
           - **x**: 862
           - **y**: 804
           - **raio**: 17
+        - **label**: 05
       - **[4]**:
-        - **id**: 02
-        - **label**: 02
+        - **id**: YwnKnh6Vl5Pmar
+        - **uid**: YwnKnh6Vl5Pmar
+        - **rotulo**: 02
         - **circulo**:
           - **x**: 368
           - **y**: 838
           - **raio**: 17
+        - **label**: 02
       - **[5]**:
-        - **id**: 04
-        - **label**: 04
+        - **id**: ngQ9yFbFEKHE7j
+        - **uid**: ngQ9yFbFEKHE7j
+        - **rotulo**: 04
         - **circulo**:
           - **x**: 839
           - **y**: 906
           - **raio**: 17
+        - **label**: 04
       - **[6]**:
-        - **id**: 03
-        - **label**: 03
+        - **id**: FCI2BShJEIP9eS
+        - **uid**: FCI2BShJEIP9eS
+        - **rotulo**: 03
         - **circulo**:
           - **x**: 821
           - **y**: 1015
           - **raio**: 17
+        - **label**: 03
     - **referencias**:
       - **[0]**:
+        - **alvo_uid**: 7CzUWE07k46dcT
+        - **pontos_uids**:
+          - d6vOugTD64B6Oj
         - **escalada**: Eu Também Vou
         - **ids**:
-          - 01
+          - d6vOugTD64B6Oj
       - **[1]**:
+        - **alvo_uid**: UtD230MoDpfz6N
+        - **pontos_uids**:
+          - YwnKnh6Vl5Pmar
         - **escalada**: Lambe Lambe
         - **ids**:
-          - 02
+          - YwnKnh6Vl5Pmar
       - **[2]**:
+        - **alvo_uid**: 9AhZOjV0L4M7Xt
+        - **pontos_uids**:
+          - FCI2BShJEIP9eS
         - **escalada**: TNT
         - **ids**:
-          - 03
+          - FCI2BShJEIP9eS
       - **[3]**:
+        - **alvo_uid**: y1AzRCvyqUVehW
+        - **pontos_uids**:
+          - ngQ9yFbFEKHE7j
         - **escalada**: For My Brother
         - **ids**:
-          - 04
+          - ngQ9yFbFEKHE7j
       - **[4]**:
+        - **alvo_uid**: BHATLw3EnYHNSG
+        - **pontos_uids**:
+          - dKMqRTaDiSiptS
         - **escalada**: Diamante Negro
         - **ids**:
-          - 05
+          - dKMqRTaDiSiptS
       - **[5]**:
+        - **alvo_uid**: 1IcwhemeeMae5w
+        - **pontos_uids**:
+          - WhVNfbav4zur71
         - **escalada**: Chapa Quente
         - **ids**:
-          - 06
+          - WhVNfbav4zur71
       - **[6]**:
+        - **alvo_uid**: OeSOzZNj4q7chm
+        - **pontos_uids**:
+          - 58UDKEdWFIl3Qx
         - **escalada**: Via inacabada 2
         - **ids**:
-          - 07
-        - **setor**: Setor Micos
+          - 58UDKEdWFIl3Qx
   - **[2]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_micos_p2.webp)
     - **largura_mapa**: 1119
     - **altura_mapa**: 840
     - **pontos_de_interesse**:
       - **[0]**:
-        - **id**: 03
-        - **label**: 03
+        - **id**: beRQP7zASHZYc9
+        - **uid**: beRQP7zASHZYc9
+        - **rotulo**: 03
         - **circulo**:
           - **x**: 295
           - **y**: 782
           - **raio**: 17
+        - **label**: 03
       - **[1]**:
-        - **id**: 04
-        - **label**: 04
+        - **id**: zOMjIP6ZMLSd3x
+        - **uid**: zOMjIP6ZMLSd3x
+        - **rotulo**: 04
         - **circulo**:
           - **x**: 376
           - **y**: 803
           - **raio**: 17
+        - **label**: 04
       - **[2]**:
-        - **id**: 05
-        - **label**: 05
+        - **id**: SEckjU4BA2oYue
+        - **uid**: SEckjU4BA2oYue
+        - **rotulo**: 05
         - **circulo**:
           - **x**: 480
           - **y**: 821
           - **raio**: 17
+        - **label**: 05
       - **[3]**:
-        - **id**: 06
-        - **label**: 06
+        - **id**: QmIH1pc6RGobZd
+        - **uid**: QmIH1pc6RGobZd
+        - **rotulo**: 06
         - **circulo**:
           - **x**: 590
           - **y**: 821
           - **raio**: 17
+        - **label**: 06
       - **[4]**:
-        - **id**: 07
-        - **label**: 07
+        - **id**: Ax2AP0QoyCS1yt
+        - **uid**: Ax2AP0QoyCS1yt
+        - **rotulo**: 07
         - **circulo**:
           - **x**: 681
           - **y**: 811
           - **raio**: 17
+        - **label**: 07
     - **referencias**:
       - **[0]**:
+        - **alvo_uid**: 9AhZOjV0L4M7Xt
+        - **pontos_uids**:
+          - beRQP7zASHZYc9
         - **escalada**: TNT
         - **ids**:
-          - 03
+          - beRQP7zASHZYc9
       - **[1]**:
+        - **alvo_uid**: y1AzRCvyqUVehW
+        - **pontos_uids**:
+          - zOMjIP6ZMLSd3x
         - **escalada**: For My Brother
         - **ids**:
-          - 04
+          - zOMjIP6ZMLSd3x
       - **[2]**:
+        - **alvo_uid**: BHATLw3EnYHNSG
+        - **pontos_uids**:
+          - SEckjU4BA2oYue
         - **escalada**: Diamante Negro
         - **ids**:
-          - 05
+          - SEckjU4BA2oYue
       - **[3]**:
+        - **alvo_uid**: 1IcwhemeeMae5w
+        - **pontos_uids**:
+          - QmIH1pc6RGobZd
         - **escalada**: Chapa Quente
         - **ids**:
-          - 06
+          - QmIH1pc6RGobZd
       - **[4]**:
+        - **alvo_uid**: OeSOzZNj4q7chm
+        - **pontos_uids**:
+          - Ax2AP0QoyCS1yt
         - **escalada**: Via inacabada 2
         - **ids**:
-          - 07
-        - **setor**: Setor Micos
+          - Ax2AP0QoyCS1yt
 - **escaladas**:
   - **[0]**:
+    - **uid**: 7CzUWE07k46dcT
     - **via_esportiva**:
       - **nome**: Eu Também Vou
       - **dificuldade**: BR_7A
@@ -1435,6 +1831,7 @@
         - Ró
       - **data_abertura**: 2011
   - **[1]**:
+    - **uid**: UtD230MoDpfz6N
     - **via_esportiva**:
       - **nome**: Lambe Lambe
       - **dificuldade**: BR_7A
@@ -1446,6 +1843,7 @@
         - Toninho
       - **data_abertura**: 2011
   - **[2]**:
+    - **uid**: 9AhZOjV0L4M7Xt
     - **via_esportiva**:
       - **nome**: TNT
       - **dificuldade**: BR_9B
@@ -1457,6 +1855,7 @@
         - Ró
       - **data_abertura**: 2011
   - **[3]**:
+    - **uid**: y1AzRCvyqUVehW
     - **via_esportiva**:
       - **nome**: For My Brother
       - **dificuldade**: BR_8A
@@ -1468,6 +1867,7 @@
         - Ró
       - **data_abertura**: 2011
   - **[4]**:
+    - **uid**: BHATLw3EnYHNSG
     - **via_esportiva**:
       - **nome**: Diamante Negro
       - **dificuldade**: BR_8B
@@ -1481,6 +1881,7 @@
         - Rômulo
       - **data_abertura**: 2011
   - **[5]**:
+    - **uid**: 1IcwhemeeMae5w
     - **via_esportiva**:
       - **nome**: Chapa Quente
       - **dificuldade**: BR_7C
@@ -1494,6 +1895,7 @@
         - Rômulo
       - **data_abertura**: 2011
   - **[6]**:
+    - **uid**: OeSOzZNj4q7chm
     - **via_esportiva**:
       - **nome**: Via inacabada 2
       - **dificuldade**: INDEFINIDO
@@ -1520,6 +1922,7 @@
     
     Veja a trilha para chegar ao setor no WikiLoc: https://loc.wiki/t/160199352?wa=sc
 - **nome**: Setor Totem
+- **uid**: BVZ1UjMtLg5NQp
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_totem_p0.webp)
@@ -1527,102 +1930,143 @@
     - **altura_mapa**: 1418
     - **pontos_de_interesse**:
       - **[0]**:
-        - **id**: 01
-        - **label**: 01
+        - **id**: 56Lspd7LBQ2E1O
+        - **uid**: 56Lspd7LBQ2E1O
+        - **rotulo**: 01
         - **circulo**:
           - **x**: 216
           - **y**: 1397
           - **raio**: 17
+        - **label**: 01
       - **[1]**:
-        - **id**: 02
-        - **label**: 02
+        - **id**: nn8ryaXpOPShk6
+        - **uid**: nn8ryaXpOPShk6
+        - **rotulo**: 02
         - **circulo**:
           - **x**: 561
           - **y**: 1206
           - **raio**: 17
+        - **label**: 02
       - **[2]**:
-        - **id**: 03
-        - **label**: 03
+        - **id**: lzEL4v4y1F4RAk
+        - **uid**: lzEL4v4y1F4RAk
+        - **rotulo**: 03
         - **circulo**:
           - **x**: 806
           - **y**: 1040
           - **raio**: 17
+        - **label**: 03
       - **[3]**:
-        - **id**: 04
-        - **label**: 04
+        - **id**: vqrMtWNlacSfco
+        - **uid**: vqrMtWNlacSfco
+        - **rotulo**: 04
         - **circulo**:
           - **x**: 917
           - **y**: 972
           - **raio**: 17
+        - **label**: 04
     - **referencias**:
       - **[0]**:
+        - **alvo_uid**: vFTU5spDu48Ta1
+        - **pontos_uids**:
+          - 56Lspd7LBQ2E1O
         - **escalada**: Takeyeasy
         - **ids**:
-          - 01
+          - 56Lspd7LBQ2E1O
       - **[1]**:
+        - **alvo_uid**: UMBlT3ScLVyPS0
+        - **pontos_uids**:
+          - nn8ryaXpOPShk6
         - **escalada**: Pâncepis
         - **ids**:
-          - 02
+          - nn8ryaXpOPShk6
       - **[2]**:
+        - **alvo_uid**: zxD2SJXyaSoi7S
+        - **pontos_uids**:
+          - lzEL4v4y1F4RAk
         - **escalada**: Totem
         - **ids**:
-          - 03
+          - lzEL4v4y1F4RAk
       - **[3]**:
+        - **alvo_uid**: tp0z2QexOT3ufH
+        - **pontos_uids**:
+          - vqrMtWNlacSfco
         - **escalada**: 69
         - **ids**:
-          - 04
+          - vqrMtWNlacSfco
   - **[1]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_totem_p1.webp)
     - **largura_mapa**: 1114
     - **altura_mapa**: 917
     - **pontos_de_interesse**:
       - **[0]**:
-        - **id**: 01
-        - **label**: 01
+        - **id**: f2Vlst8RiQPZmp
+        - **uid**: f2Vlst8RiQPZmp
+        - **rotulo**: 01
         - **circulo**:
           - **x**: 394
           - **y**: 644
           - **raio**: 17
+        - **label**: 01
       - **[1]**:
-        - **id**: 02
-        - **label**: 02
+        - **id**: s3lkBW6RUqo3Hk
+        - **uid**: s3lkBW6RUqo3Hk
+        - **rotulo**: 02
         - **circulo**:
           - **x**: 628
           - **y**: 715
           - **raio**: 17
+        - **label**: 02
       - **[2]**:
-        - **id**: 03
-        - **label**: 03
+        - **id**: 4IfzW5nVpMy5Rk
+        - **uid**: 4IfzW5nVpMy5Rk
+        - **rotulo**: 03
         - **circulo**:
           - **x**: 826
           - **y**: 750
           - **raio**: 17
+        - **label**: 03
       - **[3]**:
-        - **id**: 04
-        - **label**: 04
+        - **id**: iMZtQSR54twKix
+        - **uid**: iMZtQSR54twKix
+        - **rotulo**: 04
         - **circulo**:
           - **x**: 892
           - **y**: 788
           - **raio**: 17
+        - **label**: 04
     - **referencias**:
       - **[0]**:
+        - **alvo_uid**: vFTU5spDu48Ta1
+        - **pontos_uids**:
+          - f2Vlst8RiQPZmp
         - **escalada**: Takeyeasy
         - **ids**:
-          - 01
+          - f2Vlst8RiQPZmp
       - **[1]**:
+        - **alvo_uid**: UMBlT3ScLVyPS0
+        - **pontos_uids**:
+          - s3lkBW6RUqo3Hk
         - **escalada**: Pâncepis
         - **ids**:
-          - 02
+          - s3lkBW6RUqo3Hk
       - **[2]**:
+        - **alvo_uid**: zxD2SJXyaSoi7S
+        - **pontos_uids**:
+          - 4IfzW5nVpMy5Rk
         - **escalada**: Totem
         - **ids**:
-          - 03
+          - 4IfzW5nVpMy5Rk
       - **[3]**:
+        - **alvo_uid**: tp0z2QexOT3ufH
+        - **pontos_uids**:
+          - iMZtQSR54twKix
         - **escalada**: 69
         - **ids**:
-          - 04
+          - iMZtQSR54twKix
 - **escaladas**:
   - **[0]**:
+    - **uid**: vFTU5spDu48Ta1
     - **via_esportiva**:
       - **descricao**: INTERDITADA: TOPS FORAM ROUBADOS
       - **nome**: Takeyeasy
@@ -1637,6 +2081,7 @@
         - Alexandre
       - **data_abertura**: 2005
   - **[1]**:
+    - **uid**: UMBlT3ScLVyPS0
     - **via_esportiva**:
       - **descricao**: INTERDITADA: TOPS FORAM ROUBADOS
       - **nome**: Pâncepis
@@ -1651,6 +2096,7 @@
         - Alexandre
       - **data_abertura**: 2005
   - **[2]**:
+    - **uid**: zxD2SJXyaSoi7S
     - **via_esportiva**:
       - **nome**: Totem
       - **dificuldade**: BR_8A
@@ -1665,6 +2111,7 @@
         - Ruy
       - **data_abertura**: 2005
   - **[3]**:
+    - **uid**: tp0z2QexOT3ufH
     - **via_esportiva**:
       - **nome**: 69
       - **dificuldade**: BR_8B
@@ -1694,6 +2141,7 @@
     
     Veja a trilha para chegar ao setor no WikiLoc: https://loc.wiki/t/160199352?wa=sc
 - **nome**: Setor Igarameca
+- **uid**: sIe5O02lheR33Z
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_igarameca_p0.webp)
@@ -1701,519 +2149,741 @@
     - **altura_mapa**: 1232
     - **pontos_de_interesse**:
       - **[0]**:
-        - **id**: 01
-        - **label**: 01
+        - **id**: bs3SCfR6OMHFw1
+        - **uid**: bs3SCfR6OMHFw1
+        - **rotulo**: 01
         - **circulo**:
           - **x**: 317
           - **y**: 1001
           - **raio**: 15
+        - **label**: 01
       - **[1]**:
-        - **id**: 02
-        - **label**: 02
+        - **id**: 7Iv4DkBH6qB87w
+        - **uid**: 7Iv4DkBH6qB87w
+        - **rotulo**: 02
         - **circulo**:
           - **x**: 341
           - **y**: 956
           - **raio**: 15
+        - **label**: 02
       - **[2]**:
-        - **id**: 03
-        - **label**: 03
+        - **id**: 8WFrCK5v8BFOpZ
+        - **uid**: 8WFrCK5v8BFOpZ
+        - **rotulo**: 03
         - **circulo**:
           - **x**: 329
           - **y**: 656
           - **raio**: 15
+        - **label**: 03
       - **[3]**:
-        - **id**: 04
-        - **label**: 04
+        - **id**: 1ZcqYKFAKWov9Y
+        - **uid**: 1ZcqYKFAKWov9Y
+        - **rotulo**: 04
         - **circulo**:
           - **x**: 327
           - **y**: 622
           - **raio**: 15
+        - **label**: 04
       - **[4]**:
-        - **id**: 05
-        - **label**: 05
+        - **id**: Ml4sb9e9UzxSSr
+        - **uid**: Ml4sb9e9UzxSSr
+        - **rotulo**: 05
         - **circulo**:
           - **x**: 521
           - **y**: 699
           - **raio**: 15
+        - **label**: 05
       - **[5]**:
-        - **id**: 06
-        - **label**: 06
+        - **id**: Eug8KBl35uMl0H
+        - **uid**: Eug8KBl35uMl0H
+        - **rotulo**: 06
         - **circulo**:
           - **x**: 612
           - **y**: 711
           - **raio**: 15
+        - **label**: 06
       - **[6]**:
-        - **id**: 07
-        - **label**: 07
+        - **id**: 8oi1Ldq067ZTZc
+        - **uid**: 8oi1Ldq067ZTZc
+        - **rotulo**: 07
         - **circulo**:
           - **x**: 643
           - **y**: 428
           - **raio**: 15
+        - **label**: 07
       - **[7]**:
-        - **id**: 08
-        - **label**: 08
+        - **id**: UUVOHe44fNoBt9
+        - **uid**: UUVOHe44fNoBt9
+        - **rotulo**: 08
         - **circulo**:
           - **x**: 649
           - **y**: 772
           - **raio**: 15
+        - **label**: 08
       - **[8]**:
-        - **id**: 09
-        - **label**: 09
+        - **id**: uwyHPEidm2qWvo
+        - **uid**: uwyHPEidm2qWvo
+        - **rotulo**: 09
         - **circulo**:
           - **x**: 707
           - **y**: 815
           - **raio**: 15
+        - **label**: 09
       - **[9]**:
-        - **id**: 10
-        - **label**: 10
+        - **id**: imZa7LK7TMBdjL
+        - **uid**: imZa7LK7TMBdjL
+        - **rotulo**: 10
         - **circulo**:
           - **x**: 797
           - **y**: 897
           - **raio**: 15
+        - **label**: 10
       - **[10]**:
-        - **id**: 11
-        - **label**: 11
+        - **id**: FMdNiatzbMt1QG
+        - **uid**: FMdNiatzbMt1QG
+        - **rotulo**: 11
         - **circulo**:
           - **x**: 878
           - **y**: 941
           - **raio**: 15
+        - **label**: 11
       - **[11]**:
-        - **id**: 12
-        - **label**: 12
+        - **id**: i3eBiG9o359nm6
+        - **uid**: i3eBiG9o359nm6
+        - **rotulo**: 12
         - **circulo**:
           - **x**: 940
           - **y**: 968
           - **raio**: 15
+        - **label**: 12
       - **[12]**:
-        - **id**: 13
-        - **label**: 13
+        - **id**: T7jg7Wli3whpku
+        - **uid**: T7jg7Wli3whpku
+        - **rotulo**: 13
         - **circulo**:
           - **x**: 1065
           - **y**: 1002
           - **raio**: 15
+        - **label**: 13
       - **[13]**:
-        - **id**: 14
-        - **label**: 14
+        - **id**: OgkqTq1CUtiFW1
+        - **uid**: OgkqTq1CUtiFW1
+        - **rotulo**: 14
         - **circulo**:
           - **x**: 1120
           - **y**: 1015
           - **raio**: 15
+        - **label**: 14
       - **[14]**:
-        - **id**: 15
-        - **label**: 15
+        - **id**: JUQIzwRuO0kofR
+        - **uid**: JUQIzwRuO0kofR
+        - **rotulo**: 15
         - **circulo**:
           - **x**: 1186
           - **y**: 1084
           - **raio**: 15
+        - **label**: 15
       - **[15]**:
-        - **id**: 16
-        - **label**: 16
+        - **id**: J7zLToXG1RfgFD
+        - **uid**: J7zLToXG1RfgFD
+        - **rotulo**: 16
         - **circulo**:
           - **x**: 1239
           - **y**: 1103
           - **raio**: 15
+        - **label**: 16
       - **[16]**:
-        - **id**: 17
-        - **label**: 17
+        - **id**: XHwwbe1fL0kgz7
+        - **uid**: XHwwbe1fL0kgz7
+        - **rotulo**: 17
         - **circulo**:
           - **x**: 1277
           - **y**: 1162
           - **raio**: 16
+        - **label**: 17
       - **[17]**:
-        - **id**: 18
-        - **label**: 18
+        - **id**: ZHL4EWZCO4jxtG
+        - **uid**: ZHL4EWZCO4jxtG
+        - **rotulo**: 18
         - **circulo**:
           - **x**: 1345
           - **y**: 1216
           - **raio**: 15
+        - **label**: 18
       - **[18]**:
-        - **id**: 19
-        - **label**: 19
+        - **id**: 3Wf9AtaYCDEXPd
+        - **uid**: 3Wf9AtaYCDEXPd
+        - **rotulo**: 19
         - **circulo**:
           - **x**: 1395
           - **y**: 1218
           - **raio**: 15
+        - **label**: 19
       - **[19]**:
-        - **id**: 20
-        - **label**: 20
+        - **id**: 09BQTAEDf7a3pY
+        - **uid**: 09BQTAEDf7a3pY
+        - **rotulo**: 20
         - **circulo**:
           - **x**: 1413
           - **y**: 1193
           - **raio**: 15
+        - **label**: 20
       - **[20]**:
-        - **id**: 21
-        - **label**: 21
+        - **id**: ot1QFUtM9Ftwzm
+        - **uid**: ot1QFUtM9Ftwzm
+        - **rotulo**: 21
         - **circulo**:
           - **x**: 1438
           - **y**: 1173
           - **raio**: 15
+        - **label**: 21
     - **referencias**:
       - **[0]**:
+        - **alvo_uid**: prwge1ANOjgvOz
+        - **pontos_uids**:
+          - bs3SCfR6OMHFw1
         - **escalada**: Beatrix
         - **ids**:
-          - 01
+          - bs3SCfR6OMHFw1
       - **[1]**:
+        - **alvo_uid**: 5tVLaB1cMSyvyR
+        - **pontos_uids**:
+          - 7Iv4DkBH6qB87w
         - **escalada**: Na Boca da Gruta Tem Dente
         - **ids**:
-          - 02
+          - 7Iv4DkBH6qB87w
       - **[2]**:
+        - **alvo_uid**: 0YlP0rmJycJM4L
+        - **pontos_uids**:
+          - 8WFrCK5v8BFOpZ
         - **escalada**: Sunday Bloody Sunday
         - **ids**:
-          - 03
+          - 8WFrCK5v8BFOpZ
       - **[3]**:
+        - **alvo_uid**: OOwYQAaNVR21jG
+        - **pontos_uids**:
+          - 1ZcqYKFAKWov9Y
         - **escalada**: People Let's Stop The War
         - **ids**:
-          - 04
+          - 1ZcqYKFAKWov9Y
       - **[4]**:
+        - **alvo_uid**: 8RFhDjMBbFyjTa
+        - **pontos_uids**:
+          - Ml4sb9e9UzxSSr
         - **escalada**: Apolo 13
         - **ids**:
-          - 05
+          - Ml4sb9e9UzxSSr
       - **[5]**:
+        - **alvo_uid**: RqRjF82FyuRmE6
+        - **pontos_uids**:
+          - Eug8KBl35uMl0H
         - **escalada**: Liga Extraordinária
         - **ids**:
-          - 06
+          - Eug8KBl35uMl0H
       - **[6]**:
+        - **alvo_uid**: PmAcd4OV0p4JEz
+        - **pontos_uids**:
+          - 8oi1Ldq067ZTZc
         - **escalada**: Poneis Malditos
         - **ids**:
-          - 07
+          - 8oi1Ldq067ZTZc
       - **[7]**:
+        - **alvo_uid**: cK2TZlyCxV1bVg
+        - **pontos_uids**:
+          - imZa7LK7TMBdjL
         - **escalada**: U.F.O
         - **ids**:
-          - 10
+          - imZa7LK7TMBdjL
       - **[8]**:
+        - **alvo_uid**: q3qP0GQamt5TxF
+        - **pontos_uids**:
+          - FMdNiatzbMt1QG
         - **escalada**: 127 Horas
         - **ids**:
-          - 11
+          - FMdNiatzbMt1QG
       - **[9]**:
+        - **alvo_uid**: ImxnLXRSuVMATC
+        - **pontos_uids**:
+          - i3eBiG9o359nm6
         - **escalada**: Lero Lero é Mato
         - **ids**:
-          - 12
+          - i3eBiG9o359nm6
       - **[10]**:
+        - **alvo_uid**: IZUMF6ldESlbyG
+        - **pontos_uids**:
+          - T7jg7Wli3whpku
         - **escalada**: Renegados de Igarapé
         - **ids**:
-          - 13
+          - T7jg7Wli3whpku
       - **[11]**:
+        - **alvo_uid**: dz4pPsUjgtrfuL
+        - **pontos_uids**:
+          - OgkqTq1CUtiFW1
         - **escalada**: Coisa Linda
         - **ids**:
-          - 14
+          - OgkqTq1CUtiFW1
       - **[12]**:
+        - **alvo_uid**: KfulcSJCsVH6BY
+        - **pontos_uids**:
+          - JUQIzwRuO0kofR
         - **escalada**: Doce Veneno
         - **ids**:
-          - 15
+          - JUQIzwRuO0kofR
       - **[13]**:
+        - **alvo_uid**: MEALJtEHeEtZoe
+        - **pontos_uids**:
+          - J7zLToXG1RfgFD
         - **escalada**: Alguém Tem Que Ceder
         - **ids**:
-          - 16
+          - J7zLToXG1RfgFD
       - **[14]**:
+        - **alvo_uid**: KVKh5ob4socgZS
+        - **pontos_uids**:
+          - XHwwbe1fL0kgz7
         - **escalada**: Napa
         - **ids**:
-          - 17
+          - XHwwbe1fL0kgz7
       - **[15]**:
+        - **alvo_uid**: 02kQAYs3kXod8O
+        - **pontos_uids**:
+          - ZHL4EWZCO4jxtG
         - **escalada**: Alpes Suínos*
         - **ids**:
-          - 18
+          - ZHL4EWZCO4jxtG
       - **[16]**:
+        - **alvo_uid**: pTpTF5vrtHvKVX
+        - **pontos_uids**:
+          - 3Wf9AtaYCDEXPd
         - **escalada**: Viagem ao Centro da Terra
         - **ids**:
-          - 19
+          - 3Wf9AtaYCDEXPd
       - **[17]**:
+        - **alvo_uid**: n1e6iVt9d4ovzb
+        - **pontos_uids**:
+          - 09BQTAEDf7a3pY
         - **escalada**: Rolitos
         - **ids**:
-          - 20
+          - 09BQTAEDf7a3pY
       - **[18]**:
+        - **alvo_uid**: SXdNmD9n12tauu
+        - **pontos_uids**:
+          - ot1QFUtM9Ftwzm
         - **escalada**: Balança Mas Não Cai
         - **ids**:
-          - 21
+          - ot1QFUtM9Ftwzm
       - **[19]**:
-        - **ids**:
-          - 08
-        - **setor**: Setor Igarameca
+        - **alvo_uid**: kGM0034v2495s9
+        - **pontos_uids**:
+          - UUVOHe44fNoBt9
         - **escalada**: I Like This
-      - **[20]**:
         - **ids**:
-          - 09
-        - **setor**: Setor Igarameca
+          - UUVOHe44fNoBt9
+      - **[20]**:
+        - **alvo_uid**: Ljyw9KglAKkKFb
+        - **pontos_uids**:
+          - uwyHPEidm2qWvo
         - **escalada**: Igarameca
+        - **ids**:
+          - uwyHPEidm2qWvo
   - **[1]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_igarameca_p1.webp)
     - **largura_mapa**: 1022
     - **altura_mapa**: 1450
     - **pontos_de_interesse**:
       - **[0]**:
-        - **id**: 01
-        - **label**: 01
+        - **id**: 2OadTAgvrjK843
+        - **uid**: 2OadTAgvrjK843
+        - **rotulo**: 01
         - **circulo**:
           - **x**: 215
           - **y**: 534
           - **raio**: 17
+        - **label**: 01
       - **[1]**:
-        - **id**: 02
-        - **label**: 02
+        - **id**: gFi7sTsv1gm7ZB
+        - **uid**: gFi7sTsv1gm7ZB
+        - **rotulo**: 02
         - **circulo**:
           - **x**: 328
           - **y**: 520
           - **raio**: 17
+        - **label**: 02
       - **[2]**:
-        - **id**: 03
-        - **label**: 03
+        - **id**: WOlrWzsaZhmOvx
+        - **uid**: WOlrWzsaZhmOvx
+        - **rotulo**: 03
         - **circulo**:
           - **x**: 396
           - **y**: 509
           - **raio**: 17
+        - **label**: 03
       - **[3]**:
-        - **id**: 04
-        - **label**: 04
+        - **id**: ywsLvawSp5eV3T
+        - **uid**: ywsLvawSp5eV3T
+        - **rotulo**: 04
         - **circulo**:
           - **x**: 433
           - **y**: 502
           - **raio**: 17
+        - **label**: 04
       - **[4]**:
-        - **id**: 05
-        - **label**: 05
+        - **id**: 3LnQXgTnM68SAo
+        - **uid**: 3LnQXgTnM68SAo
+        - **rotulo**: 05
         - **circulo**:
           - **x**: 450
           - **y**: 572
           - **raio**: 17
+        - **label**: 05
       - **[5]**:
-        - **id**: 06
-        - **label**: 06
+        - **id**: jDroLUDU2U5jlC
+        - **uid**: jDroLUDU2U5jlC
+        - **rotulo**: 06
         - **circulo**:
           - **x**: 477
           - **y**: 626
           - **raio**: 17
+        - **label**: 06
       - **[6]**:
-        - **id**: 07
-        - **label**: 07
+        - **id**: Moy27xMRgx6nZX
+        - **uid**: Moy27xMRgx6nZX
+        - **rotulo**: 07
         - **circulo**:
           - **x**: 529
           - **y**: 648
           - **raio**: 17
+        - **label**: 07
       - **[7]**:
-        - **id**: 08
-        - **label**: 08
+        - **id**: EJgyBKNBUAbErg
+        - **uid**: EJgyBKNBUAbErg
+        - **rotulo**: 08
         - **circulo**:
           - **x**: 486
           - **y**: 680
           - **raio**: 17
+        - **label**: 08
       - **[8]**:
-        - **id**: 09
-        - **label**: 09
+        - **id**: DTtETvJqpoKXYI
+        - **uid**: DTtETvJqpoKXYI
+        - **rotulo**: 09
         - **circulo**:
           - **x**: 460
           - **y**: 744
           - **raio**: 17
+        - **label**: 09
       - **[9]**:
-        - **id**: 10
-        - **label**: 10
+        - **id**: K2gyCfDlRSztqS
+        - **uid**: K2gyCfDlRSztqS
+        - **rotulo**: 10
         - **circulo**:
           - **x**: 436
           - **y**: 784
           - **raio**: 17
+        - **label**: 10
       - **[10]**:
-        - **id**: 11
-        - **label**: 11
+        - **id**: JJZ141BTFnIs6t
+        - **uid**: JJZ141BTFnIs6t
+        - **rotulo**: 11
         - **circulo**:
           - **x**: 412
           - **y**: 823
           - **raio**: 17
+        - **label**: 11
       - **[11]**:
-        - **id**: 12
-        - **label**: 12
+        - **id**: 09OPBYCyTrVtOy
+        - **uid**: 09OPBYCyTrVtOy
+        - **rotulo**: 12
         - **circulo**:
           - **x**: 397
           - **y**: 887
           - **raio**: 17
+        - **label**: 12
       - **[12]**:
-        - **id**: 13
-        - **label**: 13
+        - **id**: zmN1O4yaocMx2v
+        - **uid**: zmN1O4yaocMx2v
+        - **rotulo**: 13
         - **circulo**:
           - **x**: 402
           - **y**: 938
           - **raio**: 17
+        - **label**: 13
       - **[13]**:
-        - **id**: 14
-        - **label**: 14
+        - **id**: kqR0BajgQg3b8B
+        - **uid**: kqR0BajgQg3b8B
+        - **rotulo**: 14
         - **circulo**:
           - **x**: 393
           - **y**: 975
           - **raio**: 17
+        - **label**: 14
       - **[14]**:
-        - **id**: 15
-        - **label**: 15
+        - **id**: DBcErid9fxVHj7
+        - **uid**: DBcErid9fxVHj7
+        - **rotulo**: 15
         - **circulo**:
           - **x**: 381
           - **y**: 1037
           - **raio**: 17
+        - **label**: 15
       - **[15]**:
-        - **id**: 16
-        - **label**: 16
+        - **id**: ZgKLgPSYpwpueR
+        - **uid**: ZgKLgPSYpwpueR
+        - **rotulo**: 16
         - **circulo**:
           - **x**: 363
           - **y**: 1074
           - **raio**: 17
+        - **label**: 16
       - **[16]**:
-        - **id**: 17
-        - **label**: 17
+        - **id**: QGRBmOxfs6Mkx0
+        - **uid**: QGRBmOxfs6Mkx0
+        - **rotulo**: 17
         - **circulo**:
           - **x**: 337
           - **y**: 1104
           - **raio**: 17
+        - **label**: 17
       - **[17]**:
-        - **id**: 18
-        - **label**: 18
+        - **id**: CKcQ3eY2xqoAbv
+        - **uid**: CKcQ3eY2xqoAbv
+        - **rotulo**: 18
         - **circulo**:
           - **x**: 296
           - **y**: 1142
           - **raio**: 17
+        - **label**: 18
       - **[18]**:
-        - **id**: 19
-        - **label**: 19
+        - **id**: QjdDzXTgUzP9qt
+        - **uid**: QjdDzXTgUzP9qt
+        - **rotulo**: 19
         - **circulo**:
           - **x**: 319
           - **y**: 1216
           - **raio**: 17
+        - **label**: 19
       - **[19]**:
-        - **id**: 20
-        - **label**: 20
+        - **id**: X2LvKrgUH20ZzD
+        - **uid**: X2LvKrgUH20ZzD
+        - **rotulo**: 20
         - **circulo**:
           - **x**: 367
           - **y**: 1274
           - **raio**: 18
+        - **label**: 20
     - **referencias**:
       - **[0]**:
+        - **alvo_uid**: prwge1ANOjgvOz
+        - **pontos_uids**:
+          - 2OadTAgvrjK843
         - **escalada**: Beatrix
         - **ids**:
-          - 01
+          - 2OadTAgvrjK843
       - **[1]**:
+        - **alvo_uid**: 5tVLaB1cMSyvyR
+        - **pontos_uids**:
+          - gFi7sTsv1gm7ZB
         - **escalada**: Na Boca da Gruta Tem Dente
         - **ids**:
-          - 02
+          - gFi7sTsv1gm7ZB
       - **[2]**:
+        - **alvo_uid**: 0YlP0rmJycJM4L
+        - **pontos_uids**:
+          - WOlrWzsaZhmOvx
         - **escalada**: Sunday Bloody Sunday
         - **ids**:
-          - 03
+          - WOlrWzsaZhmOvx
       - **[3]**:
+        - **alvo_uid**: OOwYQAaNVR21jG
+        - **pontos_uids**:
+          - ywsLvawSp5eV3T
         - **escalada**: People Let's Stop The War
         - **ids**:
-          - 04
+          - ywsLvawSp5eV3T
       - **[4]**:
+        - **alvo_uid**: 8RFhDjMBbFyjTa
+        - **pontos_uids**:
+          - 3LnQXgTnM68SAo
         - **escalada**: Apolo 13
         - **ids**:
-          - 05
+          - 3LnQXgTnM68SAo
       - **[5]**:
+        - **alvo_uid**: RqRjF82FyuRmE6
+        - **pontos_uids**:
+          - jDroLUDU2U5jlC
         - **escalada**: Liga Extraordinária
         - **ids**:
-          - 06
+          - jDroLUDU2U5jlC
       - **[6]**:
+        - **alvo_uid**: PmAcd4OV0p4JEz
+        - **pontos_uids**:
+          - Moy27xMRgx6nZX
         - **escalada**: Poneis Malditos
         - **ids**:
-          - 07
+          - Moy27xMRgx6nZX
       - **[7]**:
+        - **alvo_uid**: cK2TZlyCxV1bVg
+        - **pontos_uids**:
+          - K2gyCfDlRSztqS
         - **escalada**: U.F.O
         - **ids**:
-          - 10
+          - K2gyCfDlRSztqS
       - **[8]**:
+        - **alvo_uid**: q3qP0GQamt5TxF
+        - **pontos_uids**:
+          - JJZ141BTFnIs6t
         - **escalada**: 127 Horas
         - **ids**:
-          - 11
+          - JJZ141BTFnIs6t
       - **[9]**:
+        - **alvo_uid**: ImxnLXRSuVMATC
+        - **pontos_uids**:
+          - 09OPBYCyTrVtOy
         - **escalada**: Lero Lero é Mato
         - **ids**:
-          - 12
+          - 09OPBYCyTrVtOy
       - **[10]**:
+        - **alvo_uid**: IZUMF6ldESlbyG
+        - **pontos_uids**:
+          - zmN1O4yaocMx2v
         - **escalada**: Renegados de Igarapé
         - **ids**:
-          - 13
+          - zmN1O4yaocMx2v
       - **[11]**:
+        - **alvo_uid**: dz4pPsUjgtrfuL
+        - **pontos_uids**:
+          - kqR0BajgQg3b8B
         - **escalada**: Coisa Linda
         - **ids**:
-          - 14
+          - kqR0BajgQg3b8B
       - **[12]**:
+        - **alvo_uid**: KfulcSJCsVH6BY
+        - **pontos_uids**:
+          - DBcErid9fxVHj7
         - **escalada**: Doce Veneno
         - **ids**:
-          - 15
+          - DBcErid9fxVHj7
       - **[13]**:
+        - **alvo_uid**: MEALJtEHeEtZoe
+        - **pontos_uids**:
+          - ZgKLgPSYpwpueR
         - **escalada**: Alguém Tem Que Ceder
         - **ids**:
-          - 16
+          - ZgKLgPSYpwpueR
       - **[14]**:
+        - **alvo_uid**: KVKh5ob4socgZS
+        - **pontos_uids**:
+          - QGRBmOxfs6Mkx0
         - **escalada**: Napa
         - **ids**:
-          - 17
+          - QGRBmOxfs6Mkx0
       - **[15]**:
+        - **alvo_uid**: 02kQAYs3kXod8O
+        - **pontos_uids**:
+          - CKcQ3eY2xqoAbv
         - **escalada**: Alpes Suínos*
         - **ids**:
-          - 18
+          - CKcQ3eY2xqoAbv
       - **[16]**:
+        - **alvo_uid**: pTpTF5vrtHvKVX
+        - **pontos_uids**:
+          - QjdDzXTgUzP9qt
         - **escalada**: Viagem ao Centro da Terra
         - **ids**:
-          - 19
+          - QjdDzXTgUzP9qt
       - **[17]**:
+        - **alvo_uid**: n1e6iVt9d4ovzb
+        - **pontos_uids**:
+          - X2LvKrgUH20ZzD
         - **escalada**: Rolitos
         - **ids**:
-          - 20
+          - X2LvKrgUH20ZzD
       - **[18]**:
-        - **ids**:
-          - 08
-        - **setor**: Setor Igarameca
+        - **alvo_uid**: kGM0034v2495s9
+        - **pontos_uids**:
+          - EJgyBKNBUAbErg
         - **escalada**: I Like This
-      - **[19]**:
         - **ids**:
-          - 09
-        - **setor**: Setor Igarameca
+          - EJgyBKNBUAbErg
+      - **[19]**:
+        - **alvo_uid**: Ljyw9KglAKkKFb
+        - **pontos_uids**:
+          - DTtETvJqpoKXYI
         - **escalada**: Igarameca
+        - **ids**:
+          - DTtETvJqpoKXYI
   - **[2]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_igarameca_p2.webp)
     - **largura_mapa**: 938
     - **altura_mapa**: 530
     - **pontos_de_interesse**:
       - **[0]**:
-        - **id**: 04
-        - **label**: 04
+        - **id**: dUmQnFazoQm2jV
+        - **uid**: dUmQnFazoQm2jV
+        - **rotulo**: 04
         - **circulo**:
           - **x**: 515
           - **y**: 326
           - **raio**: 17
+        - **label**: 04
       - **[1]**:
-        - **id**: 03
-        - **label**: 03
+        - **id**: 4E0sbpTom54PqV
+        - **uid**: 4E0sbpTom54PqV
+        - **rotulo**: 03
         - **circulo**:
           - **x**: 484
           - **y**: 369
           - **raio**: 17
+        - **label**: 03
       - **[2]**:
-        - **id**: 02
-        - **label**: 02
+        - **id**: qdMD1fVV6sEcDL
+        - **uid**: qdMD1fVV6sEcDL
+        - **rotulo**: 02
         - **circulo**:
           - **x**: 389
           - **y**: 490
           - **raio**: 17
+        - **label**: 02
       - **[3]**:
-        - **id**: 01
-        - **label**: 01
+        - **id**: wOGVh7WNKpJXDk
+        - **uid**: wOGVh7WNKpJXDk
+        - **rotulo**: 01
         - **circulo**:
           - **x**: 218
           - **y**: 508
           - **raio**: 17
+        - **label**: 01
     - **referencias**:
       - **[0]**:
+        - **alvo_uid**: prwge1ANOjgvOz
+        - **pontos_uids**:
+          - wOGVh7WNKpJXDk
         - **escalada**: Beatrix
         - **ids**:
-          - 01
+          - wOGVh7WNKpJXDk
       - **[1]**:
+        - **alvo_uid**: 5tVLaB1cMSyvyR
+        - **pontos_uids**:
+          - qdMD1fVV6sEcDL
         - **escalada**: Na Boca da Gruta Tem Dente
         - **ids**:
-          - 02
+          - qdMD1fVV6sEcDL
       - **[2]**:
+        - **alvo_uid**: 0YlP0rmJycJM4L
+        - **pontos_uids**:
+          - 4E0sbpTom54PqV
         - **escalada**: Sunday Bloody Sunday
         - **ids**:
-          - 03
+          - 4E0sbpTom54PqV
       - **[3]**:
+        - **alvo_uid**: OOwYQAaNVR21jG
+        - **pontos_uids**:
+          - dUmQnFazoQm2jV
         - **escalada**: People Let's Stop The War
         - **ids**:
-          - 04
+          - dUmQnFazoQm2jV
 - **escaladas**:
   - **[0]**:
+    - **uid**: prwge1ANOjgvOz
     - **via_esportiva**:
       - **nome**: Beatrix
       - **dificuldade**: BR_5
@@ -2225,6 +2895,7 @@
         - Toninho
       - **data_abertura**: 2023
   - **[1]**:
+    - **uid**: 5tVLaB1cMSyvyR
     - **via_esportiva**:
       - **nome**: Na Boca da Gruta Tem Dente
       - **dificuldade**: BR_7B
@@ -2237,6 +2908,7 @@
         - Alex
       - **data_abertura**: 2004
   - **[2]**:
+    - **uid**: 0YlP0rmJycJM4L
     - **via_esportiva**:
       - **nome**: Sunday Bloody Sunday
       - **dificuldade**: BR_8C
@@ -2249,6 +2921,7 @@
         - Ruy
       - **data_abertura**: 2006
   - **[3]**:
+    - **uid**: OOwYQAaNVR21jG
     - **via_esportiva**:
       - **nome**: People Let's Stop The War
       - **dificuldade**: BR_8B
@@ -2261,6 +2934,7 @@
         - Toninho
       - **data_abertura**: 2006
   - **[4]**:
+    - **uid**: 8RFhDjMBbFyjTa
     - **via_esportiva**:
       - **nome**: Apolo 13
       - **dificuldade**: BR_10B
@@ -2274,6 +2948,7 @@
         - Chinha
       - **data_abertura**: 2012
   - **[5]**:
+    - **uid**: RqRjF82FyuRmE6
     - **via_esportiva**:
       - **nome**: Liga Extraordinária
       - **dificuldade**: BR_9C
@@ -2286,6 +2961,7 @@
         - Alex
       - **data_abertura**: 2012
   - **[6]**:
+    - **uid**: PmAcd4OV0p4JEz
     - **via_esportiva**:
       - **nome**: Poneis Malditos
       - **dificuldade**: BR_9B
@@ -2298,6 +2974,7 @@
         - Alex
       - **data_abertura**: 2011
   - **[7]**:
+    - **uid**: kGM0034v2495s9
     - **via_esportiva**:
       - **descricao**: Variante da Boneis Malditos.
       - **nome**: I Like This
@@ -2311,6 +2988,7 @@
         - Toninho
       - **data_abertura**: 2010
   - **[8]**:
+    - **uid**: Ljyw9KglAKkKFb
     - **via_multiplas_enfiadas**:
       - **nome**: Igarameca
       - **dificuldade_media**: BR_7B
@@ -2336,6 +3014,7 @@
             - **quantidade_protecoes_intermediarias**: 5
             - **quantidade_protecoes_parada**: 2
   - **[9]**:
+    - **uid**: cK2TZlyCxV1bVg
     - **via_esportiva**:
       - **nome**: U.F.O
       - **dificuldade**: BR_7B
@@ -2349,6 +3028,7 @@
         - Toninho
       - **data_abertura**: 2022
   - **[10]**:
+    - **uid**: q3qP0GQamt5TxF
     - **via_esportiva**:
       - **nome**: 127 Horas
       - **dificuldade**: BR_7C
@@ -2361,6 +3041,7 @@
         - Chinha
       - **data_abertura**: 2022
   - **[11]**:
+    - **uid**: ImxnLXRSuVMATC
     - **via_esportiva**:
       - **nome**: Lero Lero é Mato
       - **dificuldade**: INDEFINIDO
@@ -2373,6 +3054,7 @@
         - Chinha
       - **data_abertura**: 2022
   - **[12]**:
+    - **uid**: IZUMF6ldESlbyG
     - **via_esportiva**:
       - **nome**: Renegados de Igarapé
       - **dificuldade**: BR_7B
@@ -2386,6 +3068,7 @@
         - Bolinha
       - **data_abertura**: 2022
   - **[13]**:
+    - **uid**: dz4pPsUjgtrfuL
     - **via_esportiva**:
       - **nome**: Coisa Linda
       - **dificuldade**: BR_8B
@@ -2397,6 +3080,7 @@
         - Bolinha
       - **data_abertura**: 2022
   - **[14]**:
+    - **uid**: KfulcSJCsVH6BY
     - **via_esportiva**:
       - **nome**: Doce Veneno
       - **dificuldade**: BR_7A
@@ -2409,6 +3093,7 @@
         - Chinha
       - **data_abertura**: 2022
   - **[15]**:
+    - **uid**: MEALJtEHeEtZoe
     - **via_esportiva**:
       - **nome**: Alguém Tem Que Ceder
       - **dificuldade**: BR_7C
@@ -2421,6 +3106,7 @@
         - Chinha
       - **data_abertura**: 2022
   - **[16]**:
+    - **uid**: KVKh5ob4socgZS
     - **via_esportiva**:
       - **nome**: Napa
       - **dificuldade**: BR_7B
@@ -2432,6 +3118,7 @@
         - Toninho
       - **data_abertura**: 2022
   - **[17]**:
+    - **uid**: 02kQAYs3kXod8O
     - **via_esportiva**:
       - **nome**: Alpes Suínos*
       - **dificuldade**: BR_6SUP
@@ -2443,6 +3130,7 @@
         - Toninho
       - **data_abertura**: 2022
   - **[18]**:
+    - **uid**: pTpTF5vrtHvKVX
     - **via_esportiva**:
       - **nome**: Viagem ao Centro da Terra
       - **dificuldade**: BR_6
@@ -2454,6 +3142,7 @@
         - Toninho
       - **data_abertura**: 2022
   - **[19]**:
+    - **uid**: n1e6iVt9d4ovzb
     - **via_esportiva**:
       - **descricao**: Via inacabada.
       - **nome**: Rolitos
@@ -2463,6 +3152,7 @@
       - **conquistadores**:
         - Bunitin
   - **[20]**:
+    - **uid**: SXdNmD9n12tauu
     - **via_esportiva**:
       - **nome**: Balança Mas Não Cai
       - **dificuldade**: BR_6
@@ -2488,6 +3178,7 @@
     
     Sombra o dia todo (varia de acordo com a estação).
 - **nome**: Setor Pracinha
+- **uid**: 1g1CrSzJzHeyrv
 - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_pracinha_p1.webp)
 - **mapas**:
   - **[0]**:
@@ -2496,230 +3187,320 @@
     - **altura_mapa**: 1413
     - **pontos_de_interesse**:
       - **[0]**:
-        - **id**: 01
-        - **label**: 01
+        - **id**: Xhsz1Wtp4s2ULs
+        - **uid**: Xhsz1Wtp4s2ULs
+        - **rotulo**: 01
         - **circulo**:
           - **x**: 761
           - **y**: 782
           - **raio**: 17
+        - **label**: 01
       - **[1]**:
-        - **id**: 02
-        - **label**: 02
+        - **id**: yUMuADA01pyFbP
+        - **uid**: yUMuADA01pyFbP
+        - **rotulo**: 02
         - **circulo**:
           - **x**: 732
           - **y**: 757
           - **raio**: 17
+        - **label**: 02
       - **[2]**:
-        - **id**: 03
-        - **label**: 03
+        - **id**: nYGYGhVBIkjy28
+        - **uid**: nYGYGhVBIkjy28
+        - **rotulo**: 03
         - **circulo**:
           - **x**: 697
           - **y**: 746
           - **raio**: 17
+        - **label**: 03
       - **[3]**:
-        - **id**: 04
-        - **label**: 04
+        - **id**: Rj6RP5lDxZ9kUk
+        - **uid**: Rj6RP5lDxZ9kUk
+        - **rotulo**: 04
         - **circulo**:
           - **x**: 668
           - **y**: 717
           - **raio**: 17
+        - **label**: 04
       - **[4]**:
-        - **id**: 05
-        - **label**: 05
+        - **id**: w9xngGToGrJqf6
+        - **uid**: w9xngGToGrJqf6
+        - **rotulo**: 05
         - **circulo**:
           - **x**: 697
           - **y**: 641
           - **raio**: 17
+        - **label**: 05
       - **[5]**:
-        - **id**: 06
-        - **label**: 06
+        - **id**: AsDs9blGiwVd8m
+        - **uid**: AsDs9blGiwVd8m
+        - **rotulo**: 06
         - **circulo**:
           - **x**: 734
           - **y**: 649
           - **raio**: 17
+        - **label**: 06
       - **[6]**:
-        - **id**: 07
-        - **label**: 07
+        - **id**: XKqdU1C14Y0Whc
+        - **uid**: XKqdU1C14Y0Whc
+        - **rotulo**: 07
         - **circulo**:
           - **x**: 768
           - **y**: 663
           - **raio**: 17
+        - **label**: 07
       - **[7]**:
-        - **id**: 08
-        - **label**: 08
+        - **id**: g8wsUkaZ9tjAov
+        - **uid**: g8wsUkaZ9tjAov
+        - **rotulo**: 08
         - **circulo**:
           - **x**: 805
           - **y**: 663
           - **raio**: 17
+        - **label**: 08
       - **[8]**:
-        - **id**: 09
-        - **label**: 09
+        - **id**: mQJf4urE1dSo1Y
+        - **uid**: mQJf4urE1dSo1Y
+        - **rotulo**: 09
         - **circulo**:
           - **x**: 962
           - **y**: 526
           - **raio**: 17
+        - **label**: 09
     - **referencias**:
       - **[0]**:
+        - **alvo_uid**: XrBXrtqP2wt0we
+        - **pontos_uids**:
+          - Xhsz1Wtp4s2ULs
         - **escalada**: Conflito sensual
         - **ids**:
-          - 01
+          - Xhsz1Wtp4s2ULs
       - **[1]**:
+        - **alvo_uid**: loqFlZSEj2AvjM
+        - **pontos_uids**:
+          - yUMuADA01pyFbP
         - **escalada**: Duracell
         - **ids**:
-          - 02
+          - yUMuADA01pyFbP
       - **[2]**:
+        - **alvo_uid**: WOnWuf7KQFxy4R
+        - **pontos_uids**:
+          - nYGYGhVBIkjy28
         - **escalada**: Djavú
         - **ids**:
-          - 03
+          - nYGYGhVBIkjy28
       - **[3]**:
+        - **alvo_uid**: i6tD6IoexGPduC
+        - **pontos_uids**:
+          - Rj6RP5lDxZ9kUk
         - **escalada**: Muita coisa envolvida
         - **ids**:
-          - 04
+          - Rj6RP5lDxZ9kUk
       - **[4]**:
+        - **alvo_uid**: gT6feZ5pEHYVwR
+        - **pontos_uids**:
+          - w9xngGToGrJqf6
         - **escalada**: Netfrix
         - **ids**:
-          - 05
+          - w9xngGToGrJqf6
       - **[5]**:
+        - **alvo_uid**: kUqcdOIbVmZwIy
+        - **pontos_uids**:
+          - AsDs9blGiwVd8m
         - **escalada**: Pouca prática
         - **ids**:
-          - 06
+          - AsDs9blGiwVd8m
       - **[6]**:
+        - **alvo_uid**: 1pS7HXbpuOnmDz
+        - **pontos_uids**:
+          - XKqdU1C14Y0Whc
         - **escalada**: Vainafé
         - **ids**:
-          - 07
+          - XKqdU1C14Y0Whc
       - **[7]**:
-        - **ids**:
-          - 08
-        - **setor**: Setor Pracinha
+        - **alvo_uid**: G25vdSyMTkyCNa
+        - **pontos_uids**:
+          - g8wsUkaZ9tjAov
         - **escalada**: People crazy
-      - **[8]**:
         - **ids**:
-          - 09
-        - **setor**: Setor Trad
+          - g8wsUkaZ9tjAov
+      - **[8]**:
+        - **alvo_uid**: cJzFnD4vy9LxJP
+        - **pontos_uids**:
+          - mQJf4urE1dSo1Y
         - **escalada**: Aresta Daniel
+        - **ids**:
+          - mQJf4urE1dSo1Y
   - **[1]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_pracinha_p2.webp)
     - **largura_mapa**: 1109
     - **altura_mapa**: 1413
     - **pontos_de_interesse**:
       - **[0]**:
-        - **id**: 01
-        - **label**: 01
+        - **id**: B0p8hl3AvHe0d5
+        - **uid**: B0p8hl3AvHe0d5
+        - **rotulo**: 01
         - **circulo**:
           - **x**: 349
           - **y**: 855
           - **raio**: 17
+        - **label**: 01
       - **[1]**:
-        - **id**: 02
-        - **label**: 02
+        - **id**: o5bq4YT33Vr7oL
+        - **uid**: o5bq4YT33Vr7oL
+        - **rotulo**: 02
         - **circulo**:
           - **x**: 606
           - **y**: 876
           - **raio**: 17
+        - **label**: 02
       - **[2]**:
-        - **id**: 03
-        - **label**: 03
+        - **id**: TkVjLe0nZcJ1EG
+        - **uid**: TkVjLe0nZcJ1EG
+        - **rotulo**: 03
         - **circulo**:
           - **x**: 646
           - **y**: 870
           - **raio**: 17
+        - **label**: 03
       - **[3]**:
-        - **id**: 04
-        - **label**: 04
+        - **id**: XX2L0p85lzkV9C
+        - **uid**: XX2L0p85lzkV9C
+        - **rotulo**: 04
         - **circulo**:
           - **x**: 725
           - **y**: 867
           - **raio**: 17
+        - **label**: 04
     - **referencias**:
       - **[0]**:
+        - **alvo_uid**: XrBXrtqP2wt0we
+        - **pontos_uids**:
+          - B0p8hl3AvHe0d5
         - **escalada**: Conflito sensual
         - **ids**:
-          - 01
+          - B0p8hl3AvHe0d5
       - **[1]**:
+        - **alvo_uid**: loqFlZSEj2AvjM
+        - **pontos_uids**:
+          - o5bq4YT33Vr7oL
         - **escalada**: Duracell
         - **ids**:
-          - 02
+          - o5bq4YT33Vr7oL
       - **[2]**:
+        - **alvo_uid**: WOnWuf7KQFxy4R
+        - **pontos_uids**:
+          - TkVjLe0nZcJ1EG
         - **escalada**: Djavú
         - **ids**:
-          - 03
+          - TkVjLe0nZcJ1EG
       - **[3]**:
+        - **alvo_uid**: i6tD6IoexGPduC
+        - **pontos_uids**:
+          - XX2L0p85lzkV9C
         - **escalada**: Muita coisa envolvida
         - **ids**:
-          - 04
+          - XX2L0p85lzkV9C
   - **[2]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_pracinha_p3.webp)
     - **largura_mapa**: 1109
     - **altura_mapa**: 1391
     - **pontos_de_interesse**:
       - **[0]**:
-        - **id**: P1
-        - **label**: P1
+        - **id**: vZhcHQiXnW3LXc
+        - **uid**: vZhcHQiXnW3LXc
+        - **rotulo**: P1
         - **circulo**:
           - **x**: 764
           - **y**: 151
           - **raio**: 18
+        - **label**: P1
       - **[1]**:
-        - **id**: 05
-        - **label**: 05
+        - **id**: GAiRdvunkolu2J
+        - **uid**: GAiRdvunkolu2J
+        - **rotulo**: 05
         - **circulo**:
           - **x**: 199
           - **y**: 665
           - **raio**: 17
+        - **label**: 05
       - **[2]**:
-        - **id**: 06
-        - **label**: 06
+        - **id**: Cge74BY2zSTbVJ
+        - **uid**: Cge74BY2zSTbVJ
+        - **rotulo**: 06
         - **circulo**:
           - **x**: 285
           - **y**: 731
           - **raio**: 17
+        - **label**: 06
       - **[3]**:
-        - **id**: 07
-        - **label**: 07
+        - **id**: OvKgHwrmIil4MQ
+        - **uid**: OvKgHwrmIil4MQ
+        - **rotulo**: 07
         - **circulo**:
           - **x**: 409
           - **y**: 915
           - **raio**: 17
+        - **label**: 07
       - **[4]**:
-        - **id**: 08
-        - **label**: 08
+        - **id**: nSSYVwEOAFIRya
+        - **uid**: nSSYVwEOAFIRya
+        - **rotulo**: 08
         - **circulo**:
           - **x**: 481
           - **y**: 1037
           - **raio**: 17
+        - **label**: 08
       - **[5]**:
-        - **id**: 09
-        - **label**: 09
+        - **id**: FWfLgjyAhy69Rh
+        - **uid**: FWfLgjyAhy69Rh
+        - **rotulo**: 09
         - **circulo**:
           - **x**: 1007
           - **y**: 1164
           - **raio**: 17
+        - **label**: 09
     - **referencias**:
       - **[0]**:
+        - **alvo_uid**: gT6feZ5pEHYVwR
+        - **pontos_uids**:
+          - GAiRdvunkolu2J
         - **escalada**: Netfrix
         - **ids**:
-          - 05
+          - GAiRdvunkolu2J
       - **[1]**:
+        - **alvo_uid**: kUqcdOIbVmZwIy
+        - **pontos_uids**:
+          - Cge74BY2zSTbVJ
         - **escalada**: Pouca prática
         - **ids**:
-          - 06
+          - Cge74BY2zSTbVJ
       - **[2]**:
+        - **alvo_uid**: 1pS7HXbpuOnmDz
+        - **pontos_uids**:
+          - OvKgHwrmIil4MQ
         - **escalada**: Vainafé
         - **ids**:
-          - 07
+          - OvKgHwrmIil4MQ
       - **[3]**:
-        - **ids**:
-          - 08
-        - **setor**: Setor Pracinha
+        - **alvo_uid**: G25vdSyMTkyCNa
+        - **pontos_uids**:
+          - nSSYVwEOAFIRya
         - **escalada**: People crazy
-      - **[4]**:
         - **ids**:
-          - 09
-          - P1
-        - **setor**: Setor Trad
+          - nSSYVwEOAFIRya
+      - **[4]**:
+        - **alvo_uid**: cJzFnD4vy9LxJP
+        - **pontos_uids**:
+          - FWfLgjyAhy69Rh
+          - vZhcHQiXnW3LXc
         - **escalada**: Aresta Daniel
+        - **ids**:
+          - FWfLgjyAhy69Rh
+          - vZhcHQiXnW3LXc
 - **escaladas**:
   - **[0]**:
+    - **uid**: XrBXrtqP2wt0we
     - **via_esportiva**:
       - **nome**: Conflito sensual
       - **dificuldade**: PROJETO
@@ -2731,6 +3512,7 @@
         - Bunitin
       - **data_abertura**: 2022
   - **[1]**:
+    - **uid**: loqFlZSEj2AvjM
     - **via_esportiva**:
       - **nome**: Duracell
       - **dificuldade**: BR_8C
@@ -2742,6 +3524,7 @@
         - Marcão
       - **data_abertura**: 2022
   - **[2]**:
+    - **uid**: WOnWuf7KQFxy4R
     - **via_esportiva**:
       - **nome**: Djavú
       - **dificuldade**: BR_8B
@@ -2754,6 +3537,7 @@
         - Tonin
       - **data_abertura**: 2022
   - **[3]**:
+    - **uid**: i6tD6IoexGPduC
     - **via_esportiva**:
       - **nome**: Muita coisa envolvida
       - **dificuldade**: BR_8A
@@ -2765,6 +3549,7 @@
         - Tonin
       - **data_abertura**: 2022
   - **[4]**:
+    - **uid**: gT6feZ5pEHYVwR
     - **via_esportiva**:
       - **nome**: Netfrix
       - **dificuldade**: BR_7A
@@ -2776,6 +3561,7 @@
         - Tonin
       - **data_abertura**: 2022
   - **[5]**:
+    - **uid**: kUqcdOIbVmZwIy
     - **via_esportiva**:
       - **nome**: Pouca prática
       - **dificuldade**: BR_6SUP
@@ -2787,6 +3573,7 @@
         - Tonin
       - **data_abertura**: 2022
   - **[6]**:
+    - **uid**: 1pS7HXbpuOnmDz
     - **via_esportiva**:
       - **nome**: Vainafé
       - **dificuldade**: BR_7A
@@ -2798,6 +3585,7 @@
         - Tonin
       - **data_abertura**: 2022
   - **[7]**:
+    - **uid**: G25vdSyMTkyCNa
     - **via_esportiva**:
       - **nome**: People crazy
       - **dificuldade**: BR_6SUP
@@ -2822,6 +3610,7 @@
     
     Sombra após 14h.
 - **nome**: Setor dos Tetos
+- **uid**: WVQC6bQetKztOL
 - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_tetos_p1.webp)
 - **mapas**:
   - **[0]**:
@@ -2830,123 +3619,169 @@
     - **altura_mapa**: 1413
     - **pontos_de_interesse**:
       - **[0]**:
-        - **id**: 01
-        - **label**: 01
+        - **id**: 4xqiWVLDRLMeoZ
+        - **uid**: 4xqiWVLDRLMeoZ
+        - **rotulo**: 01
         - **circulo**:
           - **x**: 21
           - **y**: 1383
           - **raio**: 17
+        - **label**: 01
       - **[1]**:
-        - **id**: 02
-        - **label**: 02
+        - **id**: QXDLFztcin6tw1
+        - **uid**: QXDLFztcin6tw1
+        - **rotulo**: 02
         - **circulo**:
           - **x**: 472
           - **y**: 1389
           - **raio**: 17
+        - **label**: 02
       - **[2]**:
-        - **id**: 03
-        - **label**: 03
+        - **id**: uXQs6ERJ9FTChT
+        - **uid**: uXQs6ERJ9FTChT
+        - **rotulo**: 03
         - **circulo**:
           - **x**: 753
           - **y**: 1300
           - **raio**: 17
+        - **label**: 03
       - **[3]**:
-        - **id**: 04
-        - **label**: 04
+        - **id**: ixtWjc7eu4G649
+        - **uid**: ixtWjc7eu4G649
+        - **rotulo**: 04
         - **circulo**:
           - **x**: 823
           - **y**: 1252
           - **raio**: 17
+        - **label**: 04
       - **[4]**:
-        - **id**: 05
-        - **label**: 05
+        - **id**: KydQu2zET9QhOX
+        - **uid**: KydQu2zET9QhOX
+        - **rotulo**: 05
         - **circulo**:
           - **x**: 849
           - **y**: 1157
           - **raio**: 17
+        - **label**: 05
       - **[5]**:
-        - **id**: 06
-        - **label**: 06
+        - **id**: LSsiz9ZDLo7K73
+        - **uid**: LSsiz9ZDLo7K73
+        - **rotulo**: 06
         - **circulo**:
           - **x**: 1063
           - **y**: 1193
           - **raio**: 17
+        - **label**: 06
       - **[6]**:
-        - **id**: 07
-        - **label**: 07
+        - **id**: VRlRiEZrLRbPk6
+        - **uid**: VRlRiEZrLRbPk6
+        - **rotulo**: 07
         - **circulo**:
           - **x**: 1091
           - **y**: 1228
           - **raio**: 17
+        - **label**: 07
       - **[7]**:
-        - **id**: 08
-        - **label**: 08
+        - **id**: PNeJh70DqfH5Hu
+        - **uid**: PNeJh70DqfH5Hu
+        - **rotulo**: 08
         - **circulo**:
           - **x**: 1112
           - **y**: 1266
           - **raio**: 17
+        - **label**: 08
       - **[8]**:
-        - **id**: 09
-        - **label**: 09
+        - **id**: GFCrmTiI3qRbV6
+        - **uid**: GFCrmTiI3qRbV6
+        - **rotulo**: 09
         - **circulo**:
           - **x**: 1140
           - **y**: 1313
           - **raio**: 17
+        - **label**: 09
       - **[9]**:
-        - **id**: 10
-        - **label**: 10
+        - **id**: sXwXvg2Qc8uuNk
+        - **uid**: sXwXvg2Qc8uuNk
+        - **rotulo**: 10
         - **circulo**:
           - **x**: 1178
           - **y**: 1324
           - **raio**: 17
+        - **label**: 10
     - **referencias**:
       - **[0]**:
+        - **alvo_uid**: IJzJWjgcEnN4P3
+        - **pontos_uids**:
+          - QXDLFztcin6tw1
         - **escalada**: A Quina
         - **ids**:
-          - 02
-        - **setor**: Setor Trad
+          - QXDLFztcin6tw1
       - **[1]**:
+        - **alvo_uid**: LGdkbkKaNxAOvn
+        - **pontos_uids**:
+          - uXQs6ERJ9FTChT
         - **escalada**: Pachamama
         - **ids**:
-          - 03
-        - **setor**: Setor Trad
+          - uXQs6ERJ9FTChT
       - **[2]**:
+        - **alvo_uid**: znMosS9QDi4vTK
+        - **pontos_uids**:
+          - ixtWjc7eu4G649
         - **escalada**: Baba Yaga
         - **ids**:
-          - 04
+          - ixtWjc7eu4G649
       - **[3]**:
+        - **alvo_uid**: TlEHvI4lIqZraa
+        - **pontos_uids**:
+          - KydQu2zET9QhOX
         - **escalada**: Soy Loco Por Ti América
         - **ids**:
-          - 05
+          - KydQu2zET9QhOX
       - **[4]**:
+        - **alvo_uid**: I0ZBhEX3IR2sus
+        - **pontos_uids**:
+          - LSsiz9ZDLo7K73
         - **escalada**: Afrodite
         - **ids**:
-          - 06
+          - LSsiz9ZDLo7K73
       - **[5]**:
+        - **alvo_uid**: YqmTq54R5XIqn1
+        - **pontos_uids**:
+          - VRlRiEZrLRbPk6
         - **escalada**: Ponto de Equilíbrio
         - **ids**:
-          - 07
+          - VRlRiEZrLRbPk6
       - **[6]**:
+        - **alvo_uid**: JAsfjB7rBTIrHr
+        - **pontos_uids**:
+          - sXwXvg2Qc8uuNk
         - **escalada**: Deu Nois
         - **ids**:
-          - 10
+          - sXwXvg2Qc8uuNk
       - **[7]**:
+        - **alvo_uid**: cJzFnD4vy9LxJP
+        - **pontos_uids**:
+          - 4xqiWVLDRLMeoZ
         - **escalada**: Aresta Daniel
         - **ids**:
-          - 01
-        - **setor**: Setor Trad
+          - 4xqiWVLDRLMeoZ
       - **[8]**:
-        - **ids**:
-          - 08
-        - **setor**: Setor dos Tetos
+        - **alvo_uid**: r0pWLG8DX3cuvD
+        - **pontos_uids**:
+          - PNeJh70DqfH5Hu
         - **escalada**: Lilith
-      - **[9]**:
         - **ids**:
-          - 09
-        - **setor**: Setor dos Tetos
+          - PNeJh70DqfH5Hu
+      - **[9]**:
+        - **alvo_uid**: 60DjIAnZ9Bz0G5
+        - **pontos_uids**:
+          - GFCrmTiI3qRbV6
         - **escalada**: Deu Brasil
+        - **ids**:
+          - GFCrmTiI3qRbV6
 - **escaladas**:
   - **[0]**:
+    - **uid**: znMosS9QDi4vTK
     - **via_esportiva**:
       - **descricao**: Via inacabada.
       - **nome**: Baba Yaga
@@ -2958,6 +3793,7 @@
         - Ana
       - **data_abertura**: 2024
   - **[1]**:
+    - **uid**: TlEHvI4lIqZraa
     - **via_esportiva**:
       - **nome**: Soy Loco Por Ti América
       - **dificuldade**: BR_9C_BARRA_10A
@@ -2969,6 +3805,7 @@
         - Chinha
       - **data_abertura**: 2016
   - **[2]**:
+    - **uid**: I0ZBhEX3IR2sus
     - **via_esportiva**:
       - **nome**: Afrodite
       - **dificuldade**: BR_7B
@@ -2980,6 +3817,7 @@
       - **quantidade_protecoes_intermediarias**: 11
       - **quantidade_protecoes_parada**: 2
   - **[3]**:
+    - **uid**: YqmTq54R5XIqn1
     - **via_esportiva**:
       - **nome**: Ponto de Equilíbrio
       - **dificuldade**: BR_8B_BARRA_8C
@@ -2991,6 +3829,7 @@
       - **quantidade_protecoes_intermediarias**: 11
       - **quantidade_protecoes_parada**: 2
   - **[4]**:
+    - **uid**: r0pWLG8DX3cuvD
     - **via_esportiva**:
       - **nome**: Lilith
       - **dificuldade**: BR_7A
@@ -3003,6 +3842,7 @@
         - Bunitinho
       - **data_abertura**: 2024
   - **[5]**:
+    - **uid**: 60DjIAnZ9Bz0G5
     - **via_esportiva**:
       - **nome**: Deu Brasil
       - **dificuldade**: BR_7B
@@ -3015,6 +3855,7 @@
         - Bolinha
       - **data_abertura**: 2019
   - **[6]**:
+    - **uid**: JAsfjB7rBTIrHr
     - **via_esportiva**:
       - **nome**: Deu Nois
       - **dificuldade**: BR_6SUP
@@ -3042,6 +3883,7 @@
     
     Catálogo provisório das vias tradicionais e/ou em proteção móvel do Complexo Pedra Grande.
 - **nome**: Setor Trad
+- **uid**: nTt7CckR83PXNl
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_trad_p0.webp)
@@ -3049,525 +3891,721 @@
     - **altura_mapa**: 1414
     - **pontos_de_interesse**:
       - **[0]**:
-        - **id**: 01
-        - **label**: 01
+        - **id**: Bz1aVrdrsZEr6z
+        - **uid**: Bz1aVrdrsZEr6z
+        - **rotulo**: 01
         - **circulo**:
           - **x**: 88
           - **y**: 1153
           - **raio**: 14
+        - **label**: 01
       - **[1]**:
-        - **id**: a
-        - **label**: a
+        - **id**: 9NontZmdSc7wIz
+        - **uid**: 9NontZmdSc7wIz
+        - **rotulo**: a
         - **circulo**:
           - **x**: 130
           - **y**: 1144
           - **raio**: 14
+        - **label**: a
       - **[2]**:
-        - **id**: b
-        - **label**: b
+        - **id**: pK4rYNfDfVD4WG
+        - **uid**: pK4rYNfDfVD4WG
+        - **rotulo**: b
         - **circulo**:
           - **x**: 160
           - **y**: 1141
           - **raio**: 14
+        - **label**: b
       - **[3]**:
-        - **id**: 02
-        - **label**: 02
+        - **id**: 4F2cpOjkJHNtW5
+        - **uid**: 4F2cpOjkJHNtW5
+        - **rotulo**: 02
         - **circulo**:
           - **x**: 110
           - **y**: 1173
           - **raio**: 14
+        - **label**: 02
       - **[4]**:
-        - **id**: 03
-        - **label**: 03
+        - **id**: 0s59blOISy7jkJ
+        - **uid**: 0s59blOISy7jkJ
+        - **rotulo**: 03
         - **circulo**:
           - **x**: 169
           - **y**: 1173
           - **raio**: 15
+        - **label**: 03
       - **[5]**:
-        - **id**: 04
-        - **label**: 04
+        - **id**: wnqVy1nU7Hv30v
+        - **uid**: wnqVy1nU7Hv30v
+        - **rotulo**: 04
         - **circulo**:
           - **x**: 202
           - **y**: 1172
           - **raio**: 15
+        - **label**: 04
       - **[6]**:
-        - **id**: 05
-        - **label**: 05
+        - **id**: qWQLMjeZotg8qd
+        - **uid**: qWQLMjeZotg8qd
+        - **rotulo**: 05
         - **circulo**:
           - **x**: 231
           - **y**: 1183
           - **raio**: 14
+        - **label**: 05
       - **[7]**:
-        - **id**: c
-        - **label**: c
+        - **id**: uDPDBfEJD5pGih
+        - **uid**: uDPDBfEJD5pGih
+        - **rotulo**: c
         - **circulo**:
           - **x**: 263
           - **y**: 1184
           - **raio**: 14
+        - **label**: c
       - **[8]**:
-        - **id**: 06
-        - **label**: 06
+        - **id**: 82F2jTmBiGkWgp
+        - **uid**: 82F2jTmBiGkWgp
+        - **rotulo**: 06
         - **circulo**:
           - **x**: 289
           - **y**: 1158
           - **raio**: 14
+        - **label**: 06
       - **[9]**:
-        - **id**: d
-        - **label**: d
+        - **id**: 4U3XJkuhQJzJVk
+        - **uid**: 4U3XJkuhQJzJVk
+        - **rotulo**: d
         - **circulo**:
           - **x**: 366
           - **y**: 1151
           - **raio**: 14
+        - **label**: d
       - **[10]**:
-        - **id**: 07
-        - **label**: 07
+        - **id**: rfIbPxwvjByzyF
+        - **uid**: rfIbPxwvjByzyF
+        - **rotulo**: 07
         - **circulo**:
           - **x**: 395
           - **y**: 1142
           - **raio**: 14
+        - **label**: 07
       - **[11]**:
-        - **id**: e
-        - **label**: e
+        - **id**: NqmUX4Qzw8UWNK
+        - **uid**: NqmUX4Qzw8UWNK
+        - **rotulo**: e
         - **circulo**:
           - **x**: 404
           - **y**: 1096
           - **raio**: 14
+        - **label**: e
       - **[12]**:
-        - **id**: 08
-        - **label**: 08
+        - **id**: 81EjpfLcQlnDK3
+        - **uid**: 81EjpfLcQlnDK3
+        - **rotulo**: 08
         - **circulo**:
           - **x**: 448
           - **y**: 1157
           - **raio**: 14
+        - **label**: 08
       - **[13]**:
-        - **id**: f
-        - **label**: f
+        - **id**: qo8FXb752Yvepo
+        - **uid**: qo8FXb752Yvepo
+        - **rotulo**: f
         - **circulo**:
           - **x**: 487
           - **y**: 1157
           - **raio**: 14
+        - **label**: f
       - **[14]**:
-        - **id**: 10
-        - **label**: 10
+        - **id**: qdDQxPSP0ewUuM
+        - **uid**: qdDQxPSP0ewUuM
+        - **rotulo**: 10
         - **circulo**:
           - **x**: 473
           - **y**: 1131
           - **raio**: 14
+        - **label**: 10
       - **[15]**:
-        - **id**: g
-        - **label**: g
+        - **id**: wCgmWeIBgwhiZx
+        - **uid**: wCgmWeIBgwhiZx
+        - **rotulo**: g
         - **circulo**:
           - **x**: 536
           - **y**: 1081
           - **raio**: 14
+        - **label**: g
       - **[16]**:
-        - **id**: 11
-        - **label**: 11
+        - **id**: PgvQorRgXEMSV5
+        - **uid**: PgvQorRgXEMSV5
+        - **rotulo**: 11
         - **circulo**:
           - **x**: 592
           - **y**: 569
           - **raio**: 15
+        - **label**: 11
       - **[17]**:
-        - **id**: 16
-        - **label**: 16
+        - **id**: 9LYo75MzeKZJRZ
+        - **uid**: 9LYo75MzeKZJRZ
+        - **rotulo**: 16
         - **circulo**:
           - **x**: 1110
           - **y**: 628
           - **raio**: 15
+        - **label**: 16
       - **[18]**:
-        - **id**: 09
-        - **label**: 09
+        - **id**: wLQBmqGgaihdHy
+        - **uid**: wLQBmqGgaihdHy
+        - **rotulo**: 09
         - **circulo**:
           - **x**: 468
           - **y**: 730
           - **raio**: 14
+        - **label**: 09
       - **[19]**:
-        - **id**: 12
-        - **label**: 12
+        - **id**: IBrMdBTVkBUnbX
+        - **uid**: IBrMdBTVkBUnbX
+        - **rotulo**: 12
         - **circulo**:
           - **x**: 631
           - **y**: 1269
           - **raio**: 15
+        - **label**: 12
       - **[20]**:
-        - **id**: h
-        - **label**: h
+        - **id**: ctl8mSQl5rEKjz
+        - **uid**: ctl8mSQl5rEKjz
+        - **rotulo**: h
         - **circulo**:
           - **x**: 813
           - **y**: 1268
           - **raio**: 14
+        - **label**: h
       - **[21]**:
-        - **id**: 13
-        - **label**: 13
+        - **id**: YmwMcV09GTOZrD
+        - **uid**: YmwMcV09GTOZrD
+        - **rotulo**: 13
         - **circulo**:
           - **x**: 844
           - **y**: 1265
           - **raio**: 14
+        - **label**: 13
       - **[22]**:
-        - **id**: i
-        - **label**: i
+        - **id**: CiC4AlK9jAz1E1
+        - **uid**: CiC4AlK9jAz1E1
+        - **rotulo**: i
         - **circulo**:
           - **x**: 886
           - **y**: 1246
           - **raio**: 14
+        - **label**: i
       - **[23]**:
-        - **id**: 14
-        - **label**: 14
+        - **id**: absBrsztlqf9Ac
+        - **uid**: absBrsztlqf9Ac
+        - **rotulo**: 14
         - **circulo**:
           - **x**: 934
           - **y**: 1237
           - **raio**: 14
+        - **label**: 14
       - **[24]**:
-        - **id**: 15
-        - **label**: 15
+        - **id**: ltOn3VI0eIV98c
+        - **uid**: ltOn3VI0eIV98c
+        - **rotulo**: 15
         - **circulo**:
           - **x**: 965
           - **y**: 1239
           - **raio**: 15
+        - **label**: 15
       - **[25]**:
-        - **id**: j
-        - **label**: j
+        - **id**: rClv484uQDXQFm
+        - **uid**: rClv484uQDXQFm
+        - **rotulo**: j
         - **circulo**:
           - **x**: 1138
           - **y**: 1251
           - **raio**: 14
+        - **label**: j
       - **[26]**:
-        - **id**: k
-        - **label**: k
+        - **id**: YLACwBnZBkgFdm
+        - **uid**: YLACwBnZBkgFdm
+        - **rotulo**: k
         - **circulo**:
           - **x**: 1214
           - **y**: 1249
           - **raio**: 14
+        - **label**: k
       - **[27]**:
-        - **id**: 17
-        - **label**: 17
+        - **id**: tYVEgzI7qWcGYg
+        - **uid**: tYVEgzI7qWcGYg
+        - **rotulo**: 17
         - **circulo**:
           - **x**: 1481
           - **y**: 1216
           - **raio**: 14
+        - **label**: 17
       - **[28]**:
-        - **id**: m
-        - **label**: m
+        - **id**: sAW420qjj2pJ1l
+        - **uid**: sAW420qjj2pJ1l
+        - **rotulo**: m
         - **circulo**:
           - **x**: 1452
           - **y**: 1226
           - **raio**: 14
+        - **label**: m
       - **[29]**:
-        - **id**: n
-        - **label**: n
+        - **id**: Q3VFJiQRNy3uuv
+        - **uid**: Q3VFJiQRNy3uuv
+        - **rotulo**: n
         - **circulo**:
           - **x**: 1575
           - **y**: 1198
           - **raio**: 14
+        - **label**: n
       - **[30]**:
-        - **id**: 18
-        - **label**: 18
+        - **id**: 9EX1sSKxHuoeZt
+        - **uid**: 9EX1sSKxHuoeZt
+        - **rotulo**: 18
         - **circulo**:
           - **x**: 1606
           - **y**: 1195
           - **raio**: 14
+        - **label**: 18
       - **[31]**:
-        - **id**: 19
-        - **label**: 19
+        - **id**: hFAEicgfEwcDIw
+        - **uid**: hFAEicgfEwcDIw
+        - **rotulo**: 19
         - **circulo**:
           - **x**: 1641
           - **y**: 1164
           - **raio**: 14
+        - **label**: 19
       - **[32]**:
-        - **id**: 20
-        - **label**: 20
+        - **id**: v9Cqs4dusCQIcf
+        - **uid**: v9Cqs4dusCQIcf
+        - **rotulo**: 20
         - **circulo**:
           - **x**: 1717
           - **y**: 1098
           - **raio**: 14
+        - **label**: 20
       - **[33]**:
-        - **id**: 21
-        - **label**: 21
+        - **id**: iLM37GBpLxf7Yf
+        - **uid**: iLM37GBpLxf7Yf
+        - **rotulo**: 21
         - **circulo**:
           - **x**: 1744
           - **y**: 1084
           - **raio**: 14
+        - **label**: 21
       - **[34]**:
-        - **id**: 22
-        - **label**: 22
+        - **id**: UoyESJoyl2hJsz
+        - **uid**: UoyESJoyl2hJsz
+        - **rotulo**: 22
         - **circulo**:
           - **x**: 1771
           - **y**: 1069
           - **raio**: 15
+        - **label**: 22
       - **[35]**:
-        - **id**: 23
-        - **label**: 23
+        - **id**: 21Y6TcY8TkOlhC
+        - **uid**: 21Y6TcY8TkOlhC
+        - **rotulo**: 23
         - **circulo**:
           - **x**: 1833
           - **y**: 1051
           - **raio**: 15
+        - **label**: 23
       - **[36]**:
-        - **id**: 24
-        - **label**: 24
+        - **id**: M2SfNCILjk46Kg
+        - **uid**: M2SfNCILjk46Kg
+        - **rotulo**: 24
         - **circulo**:
           - **x**: 1895
           - **y**: 1045
           - **raio**: 15
+        - **label**: 24
       - **[37]**:
-        - **id**: L
-        - **label**: L
+        - **id**: N7fN7YJ6ifrwDe
+        - **uid**: N7fN7YJ6ifrwDe
+        - **rotulo**: L
         - **circulo**:
           - **x**: 1362
           - **y**: 1213
           - **raio**: 14
+        - **label**: L
       - **[38]**:
-        - **id**: crayzy
-        - **label**: ?
+        - **id**: IJHhc6fb1XYD6K
+        - **uid**: IJHhc6fb1XYD6K
+        - **rotulo**: ?
         - **circulo**:
           - **x**: 247
           - **y**: 1211
           - **raio**: 14
         - **cor**: 
-      - **[39]**:
-        - **id**: formigao
         - **label**: ?
+      - **[39]**:
+        - **id**: FsqNbMoWXP7NUD
+        - **uid**: FsqNbMoWXP7NUD
+        - **rotulo**: ?
         - **circulo**:
           - **x**: 289
           - **y**: 1202
           - **raio**: 14
         - **cor**: 
-      - **[40]**:
-        - **id**: palestra
         - **label**: ?
+      - **[40]**:
+        - **id**: JB75yuXtHNnG3p
+        - **uid**: JB75yuXtHNnG3p
+        - **rotulo**: ?
         - **retangulo**:
           - **x**: 1410
           - **y**: 211
           - **comprimento**: 223
           - **largura**: 30
         - **cor**: 
+        - **label**: ?
     - **referencias**:
       - **[0]**:
+        - **alvo_uid**: cJzFnD4vy9LxJP
+        - **pontos_uids**:
+          - Bz1aVrdrsZEr6z
         - **escalada**: Aresta Daniel
         - **ids**:
-          - 01
+          - Bz1aVrdrsZEr6z
       - **[1]**:
+        - **alvo_uid**: V5xoVSIHfWoEl8
+        - **pontos_uids**:
+          - 4F2cpOjkJHNtW5
         - **escalada**: Barriga Verde
         - **ids**:
-          - 02
+          - 4F2cpOjkJHNtW5
       - **[2]**:
+        - **alvo_uid**: 4S6JIEdOIBCpJq
+        - **pontos_uids**:
+          - 9NontZmdSc7wIz
         - **escalada**: Sem nome 1
         - **ids**:
-          - a
-        - **setor**: Setor Trad
+          - 9NontZmdSc7wIz
       - **[3]**:
+        - **alvo_uid**: C9yxTcMLdjxJsH
+        - **pontos_uids**:
+          - pK4rYNfDfVD4WG
         - **escalada**: Sem nome 2
         - **ids**:
-          - b
-        - **setor**: Setor Trad
+          - pK4rYNfDfVD4WG
       - **[4]**:
+        - **alvo_uid**: jEHP8PsRwzcu2U
+        - **pontos_uids**:
+          - 0s59blOISy7jkJ
         - **escalada**: Tosco Climb
         - **ids**:
-          - 03
+          - 0s59blOISy7jkJ
       - **[5]**:
+        - **alvo_uid**: LgVLPG8oOVAo4e
+        - **pontos_uids**:
+          - wnqVy1nU7Hv30v
         - **escalada**: Curió Não Se Cria
         - **ids**:
-          - 04
+          - wnqVy1nU7Hv30v
       - **[6]**:
+        - **alvo_uid**: IJzJWjgcEnN4P3
+        - **pontos_uids**:
+          - qWQLMjeZotg8qd
         - **escalada**: A Quina
         - **ids**:
-          - 05
+          - qWQLMjeZotg8qd
       - **[7]**:
+        - **alvo_uid**: 4Ub7yySD8FglcR
+        - **pontos_uids**:
+          - uDPDBfEJD5pGih
         - **escalada**: Sem nome 3
         - **ids**:
-          - c
-        - **setor**: Setor Trad
+          - uDPDBfEJD5pGih
       - **[8]**:
+        - **alvo_uid**: wPn9DzZAWC1rr2
+        - **pontos_uids**:
+          - 82F2jTmBiGkWgp
         - **escalada**: Igarapé Cascão
         - **ids**:
-          - 06
+          - 82F2jTmBiGkWgp
       - **[9]**:
+        - **alvo_uid**: fEB2sh15G6486N
+        - **pontos_uids**:
+          - 4U3XJkuhQJzJVk
         - **escalada**: Outra saída da Igarapé Cascão
         - **ids**:
-          - d
+          - 4U3XJkuhQJzJVk
       - **[10]**:
+        - **alvo_uid**: LGdkbkKaNxAOvn
+        - **pontos_uids**:
+          - rfIbPxwvjByzyF
         - **escalada**: Pachamama
         - **ids**:
-          - 07
+          - rfIbPxwvjByzyF
       - **[11]**:
+        - **alvo_uid**: ptfuJ7GIDc9z9L
+        - **pontos_uids**:
+          - NqmUX4Qzw8UWNK
         - **escalada**: Sem nome 4
         - **ids**:
-          - e
-        - **setor**: Setor Trad
+          - NqmUX4Qzw8UWNK
       - **[12]**:
+        - **alvo_uid**: j5QN4QLvXRrZvZ
+        - **pontos_uids**:
+          - 81EjpfLcQlnDK3
         - **escalada**: Absoluta Inconsequência
         - **ids**:
-          - 08
+          - 81EjpfLcQlnDK3
       - **[13]**:
+        - **alvo_uid**: Z21mfAnWOTghPr
+        - **pontos_uids**:
+          - wLQBmqGgaihdHy
         - **escalada**: Inconsequência Moderada
         - **ids**:
-          - 09
+          - wLQBmqGgaihdHy
       - **[14]**:
+        - **alvo_uid**: urfzODjSBDwHyW
+        - **pontos_uids**:
+          - qdDQxPSP0ewUuM
         - **escalada**: Mentiras Sinceras
         - **ids**:
-          - 10
+          - qdDQxPSP0ewUuM
       - **[15]**:
+        - **alvo_uid**: l86Ex4CUGc4xcd
+        - **pontos_uids**:
+          - qo8FXb752Yvepo
         - **escalada**: Sem nome 5
         - **ids**:
-          - f
-        - **setor**: Setor Trad
+          - qo8FXb752Yvepo
       - **[16]**:
+        - **alvo_uid**: iuG0WV0DtLrDHz
+        - **pontos_uids**:
+          - wCgmWeIBgwhiZx
         - **escalada**: Sem nome 6
         - **ids**:
-          - g
-        - **setor**: Setor Trad
+          - wCgmWeIBgwhiZx
       - **[17]**:
+        - **alvo_uid**: 5Fo4KkUOgEv7bd
+        - **pontos_uids**:
+          - PgvQorRgXEMSV5
         - **escalada**: Sem nome 7
         - **ids**:
-          - 11
-        - **setor**: Setor Trad
+          - PgvQorRgXEMSV5
       - **[18]**:
+        - **alvo_uid**: TaPw2ZU5wBy5fO
+        - **pontos_uids**:
+          - IBrMdBTVkBUnbX
         - **escalada**: Bituca
         - **ids**:
-          - 12
+          - IBrMdBTVkBUnbX
       - **[19]**:
+        - **alvo_uid**: y16FognxgkQaL3
+        - **pontos_uids**:
+          - ctl8mSQl5rEKjz
         - **escalada**: Sem nome 8
         - **ids**:
-          - h
-        - **setor**: Setor Trad
+          - ctl8mSQl5rEKjz
       - **[20]**:
+        - **alvo_uid**: YsJjNkcVBL4zWh
+        - **pontos_uids**:
+          - CiC4AlK9jAz1E1
         - **escalada**: Sem nome 9
         - **ids**:
-          - i
-        - **setor**: Setor Trad
+          - CiC4AlK9jAz1E1
       - **[21]**:
+        - **alvo_uid**: 4e42aZhkaZZRtX
+        - **pontos_uids**:
+          - YmwMcV09GTOZrD
         - **escalada**: Último Dente
         - **ids**:
-          - 13
+          - YmwMcV09GTOZrD
       - **[22]**:
+        - **alvo_uid**: 4ktVVgbiyGRs2C
+        - **pontos_uids**:
+          - absBrsztlqf9Ac
         - **escalada**: Sem nome 10
         - **ids**:
-          - 14
-        - **setor**: Setor Trad
+          - absBrsztlqf9Ac
       - **[23]**:
+        - **alvo_uid**: APDpEygya3aOma
+        - **pontos_uids**:
+          - ltOn3VI0eIV98c
         - **escalada**: Inanição
         - **ids**:
-          - 15
+          - ltOn3VI0eIV98c
       - **[24]**:
+        - **alvo_uid**: p9UV2v115WdSxh
+        - **pontos_uids**:
+          - 9LYo75MzeKZJRZ
         - **escalada**: Lembranças da Vovó
         - **ids**:
-          - 16
+          - 9LYo75MzeKZJRZ
       - **[25]**:
+        - **alvo_uid**: IGGT1l93XFJXUt
+        - **pontos_uids**:
+          - rClv484uQDXQFm
         - **escalada**: Sem nome 11
         - **ids**:
-          - j
-        - **setor**: Setor Trad
+          - rClv484uQDXQFm
       - **[26]**:
+        - **alvo_uid**: sRZa1RAD2ESRfw
+        - **pontos_uids**:
+          - YLACwBnZBkgFdm
         - **escalada**: Sem nome 12
         - **ids**:
-          - k
-        - **setor**: Setor Trad
+          - YLACwBnZBkgFdm
       - **[27]**:
+        - **alvo_uid**: QJwA8nIF4Ya1FW
+        - **pontos_uids**:
+          - N7fN7YJ6ifrwDe
         - **escalada**: Sem nome 13
         - **ids**:
-          - L
-        - **setor**: Setor Trad
+          - N7fN7YJ6ifrwDe
       - **[28]**:
+        - **alvo_uid**: u12s6Vd53HFw2q
+        - **pontos_uids**:
+          - sAW420qjj2pJ1l
         - **escalada**: Sem nome 14
         - **ids**:
-          - m
-        - **setor**: Setor Trad
+          - sAW420qjj2pJ1l
       - **[29]**:
+        - **alvo_uid**: SOlYrlZ3Qpi2EX
+        - **pontos_uids**:
+          - tYVEgzI7qWcGYg
         - **escalada**: Netflix
         - **ids**:
-          - 17
+          - tYVEgzI7qWcGYg
       - **[30]**:
+        - **alvo_uid**: N1bYEhgUkAC9NZ
+        - **pontos_uids**:
+          - Q3VFJiQRNy3uuv
         - **escalada**: Sem nome 15
         - **ids**:
-          - n
-        - **setor**: Setor Trad
+          - Q3VFJiQRNy3uuv
       - **[31]**:
+        - **alvo_uid**: SStGB0zibsanRA
+        - **pontos_uids**:
+          - 9EX1sSKxHuoeZt
         - **escalada**: Que Nem Mendigo
         - **ids**:
-          - 18
+          - 9EX1sSKxHuoeZt
       - **[32]**:
+        - **alvo_uid**: MgOVsfrA1xXDIv
+        - **pontos_uids**:
+          - hFAEicgfEwcDIw
         - **escalada**: Wally Caolho
         - **ids**:
-          - 19
+          - hFAEicgfEwcDIw
       - **[33]**:
+        - **alvo_uid**: sQBuyJX4kDFb7M
+        - **pontos_uids**:
+          - v9Cqs4dusCQIcf
         - **escalada**: Me Leve ao Cume
         - **ids**:
-          - 20
+          - v9Cqs4dusCQIcf
       - **[34]**:
+        - **alvo_uid**: X0RRGSUeNEDYD9
+        - **pontos_uids**:
+          - iLM37GBpLxf7Yf
         - **escalada**: Sem nome 16
         - **ids**:
-          - 21
-        - **setor**: Setor Trad
+          - iLM37GBpLxf7Yf
       - **[35]**:
+        - **alvo_uid**: MZkOXZeQpUaFHU
+        - **pontos_uids**:
+          - UoyESJoyl2hJsz
         - **escalada**: Vale Tudo
         - **ids**:
-          - 22
+          - UoyESJoyl2hJsz
       - **[36]**:
+        - **alvo_uid**: NlRdWMP6DPXWWe
+        - **pontos_uids**:
+          - 21Y6TcY8TkOlhC
         - **escalada**: Sem nome 17
         - **ids**:
-          - 23
-        - **setor**: Setor Trad
+          - 21Y6TcY8TkOlhC
       - **[37]**:
+        - **alvo_uid**: ZJmlFH2ogAUj2F
+        - **pontos_uids**:
+          - M2SfNCILjk46Kg
         - **escalada**: Mulher do Fim do Mundo
         - **ids**:
-          - 24
+          - M2SfNCILjk46Kg
       - **[38]**:
-        - **ids**:
-          - crayzy
-        - **setor**: Setor Trad
+        - **alvo_uid**: iPXTXlrkPYDkC5
+        - **pontos_uids**:
+          - IJHhc6fb1XYD6K
         - **escalada**: Crayzy
+        - **ids**:
+          - IJHhc6fb1XYD6K
       - **[39]**:
-        - **ids**:
-          - formigao
-        - **setor**: Setor Trad
+        - **alvo_uid**: uwJWBAzBFzYiDs
+        - **pontos_uids**:
+          - FsqNbMoWXP7NUD
         - **escalada**: Formigão Iannotta
-      - **[40]**:
         - **ids**:
-          - palestra
-        - **setor**: Setor Trad
+          - FsqNbMoWXP7NUD
+      - **[40]**:
+        - **alvo_uid**: UfUYeNCCgevN1k
+        - **pontos_uids**:
+          - JB75yuXtHNnG3p
         - **escalada**: Palestra Botânica
+        - **ids**:
+          - JB75yuXtHNnG3p
 - **escaladas**:
   - **[0]**:
+    - **uid**: cJzFnD4vy9LxJP
     - **via_movel**:
       - **descricao**: Via com marimbondos!!! INTERDITADA.
       - **nome**: Aresta Daniel
       - **dificuldade**: BR_6SUP
       - **exposicao**: E1
   - **[1]**:
+    - **uid**: V5xoVSIHfWoEl8
     - **via_movel**:
       - **nome**: Barriga Verde
       - **dificuldade**: INDEFINIDO
   - **[2]**:
+    - **uid**: 4S6JIEdOIBCpJq
     - **via_movel**:
       - **nome**: Sem nome 1
       - **dificuldade**: INDEFINIDO
   - **[3]**:
+    - **uid**: C9yxTcMLdjxJsH
     - **via_movel**:
       - **nome**: Sem nome 2
       - **dificuldade**: INDEFINIDO
   - **[4]**:
+    - **uid**: jEHP8PsRwzcu2U
     - **via_movel**:
       - **nome**: Tosco Climb
       - **dificuldade**: INDEFINIDO
   - **[5]**:
+    - **uid**: LgVLPG8oOVAo4e
     - **via_movel**:
       - **nome**: Curió Não Se Cria
       - **dificuldade**: INDEFINIDO
   - **[6]**:
+    - **uid**: IJzJWjgcEnN4P3
     - **via_movel**:
       - **nome**: A Quina
       - **dificuldade**: INDEFINIDO
   - **[7]**:
+    - **uid**: 4Ub7yySD8FglcR
     - **via_movel**:
       - **nome**: Sem nome 3
       - **dificuldade**: INDEFINIDO
   - **[8]**:
+    - **uid**: uwJWBAzBFzYiDs
     - **via_movel**:
       - **nome**: Formigão Iannotta
       - **dificuldade**: INDEFINIDO
   - **[9]**:
+    - **uid**: iPXTXlrkPYDkC5
     - **via_movel**:
       - **nome**: Crayzy
       - **dificuldade**: INDEFINIDO
   - **[10]**:
+    - **uid**: wPn9DzZAWC1rr2
     - **via_movel**:
       - **descricao**:
           Via com caminhada de volta do cume, não é necessário fazer rapel.
@@ -3576,6 +4614,7 @@
       - **nome**: Igarapé Cascão
       - **dificuldade**: INDEFINIDO
   - **[11]**:
+    - **uid**: fEB2sh15G6486N
     - **via_movel**:
       - **descricao**:
           Via com caminhada de volta do cume, não é necessário fazer rapel.
@@ -3584,6 +4623,7 @@
       - **nome**: Outra saída da Igarapé Cascão
       - **dificuldade**: INDEFINIDO
   - **[12]**:
+    - **uid**: LGdkbkKaNxAOvn
     - **via_movel**:
       - **descricao**:
           Via com caminhada de volta do cume, não é necessário fazer rapel.
@@ -3592,98 +4632,122 @@
       - **nome**: Pachamama
       - **dificuldade**: INDEFINIDO
   - **[13]**:
+    - **uid**: ptfuJ7GIDc9z9L
     - **via_movel**:
       - **nome**: Sem nome 4
       - **dificuldade**: INDEFINIDO
   - **[14]**:
+    - **uid**: j5QN4QLvXRrZvZ
     - **via_movel**:
       - **nome**: Absoluta Inconsequência
       - **dificuldade**: INDEFINIDO
   - **[15]**:
+    - **uid**: Z21mfAnWOTghPr
     - **via_movel**:
       - **nome**: Inconsequência Moderada
       - **dificuldade**: INDEFINIDO
   - **[16]**:
+    - **uid**: urfzODjSBDwHyW
     - **via_movel**:
       - **nome**: Mentiras Sinceras
       - **dificuldade**: INDEFINIDO
   - **[17]**:
+    - **uid**: l86Ex4CUGc4xcd
     - **via_movel**:
       - **nome**: Sem nome 5
       - **dificuldade**: INDEFINIDO
   - **[18]**:
+    - **uid**: iuG0WV0DtLrDHz
     - **via_movel**:
       - **nome**: Sem nome 6
       - **dificuldade**: INDEFINIDO
   - **[19]**:
+    - **uid**: 5Fo4KkUOgEv7bd
     - **via_movel**:
       - **nome**: Sem nome 7
       - **dificuldade**: INDEFINIDO
   - **[20]**:
+    - **uid**: TaPw2ZU5wBy5fO
     - **via_movel**:
       - **nome**: Bituca
       - **dificuldade**: INDEFINIDO
   - **[21]**:
+    - **uid**: y16FognxgkQaL3
     - **via_movel**:
       - **nome**: Sem nome 8
       - **dificuldade**: INDEFINIDO
   - **[22]**:
+    - **uid**: YsJjNkcVBL4zWh
     - **via_movel**:
       - **nome**: Sem nome 9
       - **dificuldade**: INDEFINIDO
   - **[23]**:
+    - **uid**: 4e42aZhkaZZRtX
     - **via_movel**:
       - **nome**: Último Dente
       - **dificuldade**: INDEFINIDO
   - **[24]**:
+    - **uid**: 4ktVVgbiyGRs2C
     - **via_movel**:
       - **nome**: Sem nome 10
       - **dificuldade**: INDEFINIDO
   - **[25]**:
+    - **uid**: APDpEygya3aOma
     - **via_movel**:
       - **nome**: Inanição
       - **dificuldade**: INDEFINIDO
   - **[26]**:
+    - **uid**: p9UV2v115WdSxh
     - **via_movel**:
       - **nome**: Lembranças da Vovó
       - **dificuldade**: INDEFINIDO
   - **[27]**:
+    - **uid**: IGGT1l93XFJXUt
     - **via_movel**:
       - **nome**: Sem nome 11
       - **dificuldade**: INDEFINIDO
   - **[28]**:
+    - **uid**: sRZa1RAD2ESRfw
     - **via_movel**:
       - **nome**: Sem nome 12
       - **dificuldade**: INDEFINIDO
   - **[29]**:
+    - **uid**: UfUYeNCCgevN1k
     - **via_movel**:
       - **nome**: Palestra Botânica
       - **dificuldade**: INDEFINIDO
   - **[30]**:
+    - **uid**: QJwA8nIF4Ya1FW
     - **via_movel**:
       - **nome**: Sem nome 13
       - **dificuldade**: INDEFINIDO
   - **[31]**:
+    - **uid**: u12s6Vd53HFw2q
     - **via_movel**:
       - **nome**: Sem nome 14
       - **dificuldade**: INDEFINIDO
   - **[32]**:
+    - **uid**: SOlYrlZ3Qpi2EX
     - **via_movel**:
       - **nome**: Netflix
       - **dificuldade**: INDEFINIDO
   - **[33]**:
+    - **uid**: N1bYEhgUkAC9NZ
     - **via_movel**:
       - **nome**: Sem nome 15
       - **dificuldade**: INDEFINIDO
   - **[34]**:
+    - **uid**: SStGB0zibsanRA
     - **via_movel**:
       - **nome**: Que Nem Mendigo
       - **dificuldade**: INDEFINIDO
   - **[35]**:
+    - **uid**: MgOVsfrA1xXDIv
     - **via_movel**:
       - **nome**: Wally Caolho
       - **dificuldade**: INDEFINIDO
   - **[36]**:
+    - **uid**: sQBuyJX4kDFb7M
     - **via_movel**:
       - **descricao**:
           Trilha principal para a via no WikiLoc: https://loc.wiki/t/142136363?wa=sc
@@ -3692,18 +4756,22 @@
       - **nome**: Me Leve ao Cume
       - **dificuldade**: BR_6
   - **[37]**:
+    - **uid**: X0RRGSUeNEDYD9
     - **via_movel**:
       - **nome**: Sem nome 16
       - **dificuldade**: INDEFINIDO
   - **[38]**:
+    - **uid**: MZkOXZeQpUaFHU
     - **via_movel**:
       - **nome**: Vale Tudo
       - **dificuldade**: INDEFINIDO
   - **[39]**:
+    - **uid**: NlRdWMP6DPXWWe
     - **via_movel**:
       - **nome**: Sem nome 17
       - **dificuldade**: INDEFINIDO
   - **[40]**:
+    - **uid**: ZJmlFH2ogAUj2F
     - **via_movel**:
       - **nome**: Mulher do Fim do Mundo
       - **dificuldade**: INDEFINIDO
@@ -3717,6 +4785,7 @@
 
 - **descricao**: 
 - **nome**: Setor Estacionamento
+- **uid**: hv7YWgTBQGyWOX
 - **setores**:
   - **[0]**:
     - **conteudo**:
@@ -3725,6 +4794,7 @@
           
           O setor fica na lateral da estrada, ao lado do estacionamento da trilha para a Pedra Grande. A via "Route Setter" e a via "Teto Preto" compartilham as primeiras chapas na saída. Lado esquerdo setor tem sombra após 11h, e o lado direito sombra até 10h.
       - **nome**: Estacionamento - Esportivas
+      - **uid**: SS5kn15JBXfnej
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_estacionamento_p0.webp)
@@ -3732,432 +4802,623 @@
           - **altura_mapa**: 1222
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 01
-              - **label**: 01
+              - **id**: gqZzpAlWcDpqnw
+              - **uid**: gqZzpAlWcDpqnw
+              - **rotulo**: 01
               - **circulo**:
                 - **x**: 533
                 - **y**: 527
                 - **raio**: 17
+              - **label**: 01
             - **[1]**:
-              - **id**: 02
-              - **label**: 02
+              - **id**: UJvvcOUffSyc5O
+              - **uid**: UJvvcOUffSyc5O
+              - **rotulo**: 02
               - **circulo**:
                 - **x**: 590
                 - **y**: 561
                 - **raio**: 17
+              - **label**: 02
             - **[2]**:
-              - **id**: 03
-              - **label**: 03
+              - **id**: 1nwE8ZBQFTVwbu
+              - **uid**: 1nwE8ZBQFTVwbu
+              - **rotulo**: 03
               - **circulo**:
                 - **x**: 617
                 - **y**: 601
                 - **raio**: 17
+              - **label**: 03
             - **[3]**:
-              - **id**: 04
-              - **label**: 04
+              - **id**: 6CsxjMVDNWLvmF
+              - **uid**: 6CsxjMVDNWLvmF
+              - **rotulo**: 04
               - **circulo**:
                 - **x**: 651
                 - **y**: 623
                 - **raio**: 17
+              - **label**: 04
             - **[4]**:
-              - **id**: 05
-              - **label**: 05
+              - **id**: 9RaQoPJNVuWYlv
+              - **uid**: 9RaQoPJNVuWYlv
+              - **rotulo**: 05
               - **circulo**:
                 - **x**: 778
                 - **y**: 706
                 - **raio**: 17
+              - **label**: 05
             - **[5]**:
-              - **id**: 08
-              - **label**: 08
+              - **id**: lB3dIwg2CLaFMS
+              - **uid**: lB3dIwg2CLaFMS
+              - **rotulo**: 08
               - **circulo**:
                 - **x**: 905
                 - **y**: 377
                 - **raio**: 18
+              - **label**: 08
             - **[6]**:
-              - **id**: 06
-              - **label**: 06
+              - **id**: 7HQfAUrXFcisN2
+              - **uid**: 7HQfAUrXFcisN2
+              - **rotulo**: 06
               - **circulo**:
                 - **x**: 913
                 - **y**: 774
                 - **raio**: 18
+              - **label**: 06
             - **[7]**:
-              - **id**: 07
-              - **label**: 07
+              - **id**: 3RzWrlTq9BOxI3
+              - **uid**: 3RzWrlTq9BOxI3
+              - **rotulo**: 07
               - **circulo**:
                 - **x**: 980
                 - **y**: 809
                 - **raio**: 17
+              - **label**: 07
             - **[8]**:
-              - **id**: 09
-              - **label**: 09
+              - **id**: 1E9kN0aLlSPuYy
+              - **uid**: 1E9kN0aLlSPuYy
+              - **rotulo**: 09
               - **circulo**:
                 - **x**: 1043
                 - **y**: 849
                 - **raio**: 17
+              - **label**: 09
             - **[9]**:
-              - **id**: 10
-              - **label**: 10
+              - **id**: YAZiYat2DlsVLU
+              - **uid**: YAZiYat2DlsVLU
+              - **rotulo**: 10
               - **circulo**:
                 - **x**: 1111
                 - **y**: 888
                 - **raio**: 17
+              - **label**: 10
             - **[10]**:
-              - **id**: 11
-              - **label**: 11
+              - **id**: WJim9kSnegxcUM
+              - **uid**: WJim9kSnegxcUM
+              - **rotulo**: 11
               - **circulo**:
                 - **x**: 1195
                 - **y**: 918
                 - **raio**: 17
+              - **label**: 11
             - **[11]**:
-              - **id**: 12
-              - **label**: 12
+              - **id**: UG3G73VSH9Y8t7
+              - **uid**: UG3G73VSH9Y8t7
+              - **rotulo**: 12
               - **circulo**:
                 - **x**: 1349
                 - **y**: 1037
                 - **raio**: 17
+              - **label**: 12
             - **[12]**:
-              - **id**: 13
-              - **label**: 13
+              - **id**: WPQtEVTT4862Ig
+              - **uid**: WPQtEVTT4862Ig
+              - **rotulo**: 13
               - **circulo**:
                 - **x**: 1684
                 - **y**: 1071
                 - **raio**: 17
+              - **label**: 13
             - **[13]**:
-              - **id**: 14
-              - **label**: 14
+              - **id**: WMrxDw8byqJF44
+              - **uid**: WMrxDw8byqJF44
+              - **rotulo**: 14
               - **circulo**:
                 - **x**: 1729
                 - **y**: 1024
                 - **raio**: 17
+              - **label**: 14
             - **[14]**:
-              - **id**: 15
-              - **label**: 15
+              - **id**: 13vkXOg8Hhimo8
+              - **uid**: 13vkXOg8Hhimo8
+              - **rotulo**: 15
               - **circulo**:
                 - **x**: 1765
                 - **y**: 963
                 - **raio**: 17
+              - **label**: 15
             - **[15]**:
-              - **id**: 16
-              - **label**: 16
+              - **id**: OQU7FBYJHlxY3b
+              - **uid**: OQU7FBYJHlxY3b
+              - **rotulo**: 16
               - **circulo**:
                 - **x**: 1804
                 - **y**: 923
                 - **raio**: 17
+              - **label**: 16
             - **[16]**:
-              - **id**: 18
-              - **label**: 18
+              - **id**: uBntOlGwCBNlMR
+              - **uid**: uBntOlGwCBNlMR
+              - **rotulo**: 18
               - **circulo**:
                 - **x**: 1840
                 - **y**: 476
                 - **raio**: 17
+              - **label**: 18
             - **[17]**:
-              - **id**: 19
-              - **label**: 19
+              - **id**: lmQ5HSsmuAAMT4
+              - **uid**: lmQ5HSsmuAAMT4
+              - **rotulo**: 19
               - **circulo**:
                 - **x**: 1877
                 - **y**: 367
                 - **raio**: 17
+              - **label**: 19
             - **[18]**:
-              - **id**: 17
-              - **label**: 17
+              - **id**: Sj3poHldXM1kBA
+              - **uid**: Sj3poHldXM1kBA
+              - **rotulo**: 17
               - **circulo**:
                 - **x**: 1901
                 - **y**: 519
                 - **raio**: 17
+              - **label**: 17
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: SvpYGaIypqXVaJ
+              - **pontos_uids**:
+                - gqZzpAlWcDpqnw
               - **escalada**: Bacon com Linguiça
               - **ids**:
-                - 01
+                - gqZzpAlWcDpqnw
             - **[1]**:
+              - **alvo_uid**: u3SqsRBblkUIBQ
+              - **pontos_uids**:
+                - UJvvcOUffSyc5O
               - **escalada**: Quatchú
               - **ids**:
-                - 02
+                - UJvvcOUffSyc5O
             - **[2]**:
+              - **alvo_uid**: J0WtO3cd9ir4t6
+              - **pontos_uids**:
+                - 1nwE8ZBQFTVwbu
               - **escalada**: Xoquito
               - **ids**:
-                - 03
+                - 1nwE8ZBQFTVwbu
             - **[3]**:
+              - **alvo_uid**: rgYplkzcRHID1A
+              - **pontos_uids**:
+                - 6CsxjMVDNWLvmF
               - **escalada**: Slow Motion
               - **ids**:
-                - 04
+                - 6CsxjMVDNWLvmF
             - **[4]**:
+              - **alvo_uid**: Q9233O9pjDa0nG
+              - **pontos_uids**:
+                - 9RaQoPJNVuWYlv
               - **escalada**: Berbaridade Máxima
               - **ids**:
-                - 05
+                - 9RaQoPJNVuWYlv
             - **[5]**:
+              - **alvo_uid**: MzyNYgbtGPyAxz
+              - **pontos_uids**:
+                - 7HQfAUrXFcisN2
               - **escalada**: Cirque du Soleil
               - **ids**:
-                - 06
+                - 7HQfAUrXFcisN2
             - **[6]**:
+              - **alvo_uid**: CAU2HdknKsAFjY
+              - **pontos_uids**:
+                - 3RzWrlTq9BOxI3
               - **escalada**: Route Setter
               - **ids**:
-                - 07
+                - 3RzWrlTq9BOxI3
             - **[7]**:
+              - **alvo_uid**: OD3hodezGpb6tL
+              - **pontos_uids**:
+                - YAZiYat2DlsVLU
               - **escalada**: Fúria de Titãs
               - **ids**:
-                - 10
+                - YAZiYat2DlsVLU
             - **[8]**:
+              - **alvo_uid**: NcnwXSx5hJxEpA
+              - **pontos_uids**:
+                - WJim9kSnegxcUM
               - **escalada**: Prima Donna
               - **ids**:
-                - 11
+                - WJim9kSnegxcUM
             - **[9]**:
+              - **alvo_uid**: erUMGs5lTxpW6m
+              - **pontos_uids**:
+                - UG3G73VSH9Y8t7
               - **escalada**: Dama de Ferro
               - **ids**:
-                - 12
+                - UG3G73VSH9Y8t7
             - **[10]**:
+              - **alvo_uid**: qJgBRFSjkInmIw
+              - **pontos_uids**:
+                - WPQtEVTT4862Ig
               - **escalada**: Primeira de Todas
               - **ids**:
-                - 13
+                - WPQtEVTT4862Ig
             - **[11]**:
+              - **alvo_uid**: yCEONmu5NJpeLH
+              - **pontos_uids**:
+                - WMrxDw8byqJF44
               - **escalada**: Brinco de Odalisca
               - **ids**:
-                - 14
+                - WMrxDw8byqJF44
             - **[12]**:
+              - **alvo_uid**: CiDBGkwAx09rVo
+              - **pontos_uids**:
+                - 13vkXOg8Hhimo8
               - **escalada**: 10%
               - **ids**:
-                - 15
+                - 13vkXOg8Hhimo8
             - **[13]**:
+              - **alvo_uid**: SIM0d3tPnCRovg
+              - **pontos_uids**:
+                - OQU7FBYJHlxY3b
               - **escalada**: Quebra Tudo
               - **ids**:
-                - 16
+                - OQU7FBYJHlxY3b
             - **[14]**:
+              - **alvo_uid**: po16Yv24rTyjjE
+              - **pontos_uids**:
+                - Sj3poHldXM1kBA
               - **escalada**: Acorrentado
               - **ids**:
-                - 17
+                - Sj3poHldXM1kBA
             - **[15]**:
+              - **alvo_uid**: 71bGb40IDDqCqL
+              - **pontos_uids**:
+                - uBntOlGwCBNlMR
               - **escalada**: Fidefenda
               - **ids**:
-                - 18
+                - uBntOlGwCBNlMR
             - **[16]**:
+              - **alvo_uid**: GaMGRAJtWpO9tq
+              - **pontos_uids**:
+                - lmQ5HSsmuAAMT4
               - **escalada**: Cochyna Blue
               - **ids**:
-                - 19
+                - lmQ5HSsmuAAMT4
             - **[17]**:
-              - **ids**:
-                - 08
+              - **alvo_uid**: 07pscabGabeyhu
+              - **pontos_uids**:
+                - lB3dIwg2CLaFMS
               - **escalada**: Teto Preto
-            - **[18]**:
               - **ids**:
-                - 09
+                - lB3dIwg2CLaFMS
+            - **[18]**:
+              - **alvo_uid**: aRYxrZmlUwG61o
+              - **pontos_uids**:
+                - 1E9kN0aLlSPuYy
               - **escalada**: 101 Dalmatas
+              - **ids**:
+                - 1E9kN0aLlSPuYy
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_estacionamento_p1.webp)
           - **largura_mapa**: 1067
           - **altura_mapa**: 1440
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 17
-              - **label**: 17
+              - **id**: 0wEF0XnFS9ERUt
+              - **uid**: 0wEF0XnFS9ERUt
+              - **rotulo**: 17
               - **circulo**:
                 - **x**: 346
                 - **y**: 189
                 - **raio**: 17
+              - **label**: 17
             - **[1]**:
-              - **id**: 16
-              - **label**: 16
+              - **id**: 46eqULlOCvT6D5
+              - **uid**: 46eqULlOCvT6D5
+              - **rotulo**: 16
               - **circulo**:
                 - **x**: 406
                 - **y**: 185
                 - **raio**: 18
+              - **label**: 16
             - **[2]**:
-              - **id**: 15
-              - **label**: 15
+              - **id**: jp513vCbGzwtTd
+              - **uid**: jp513vCbGzwtTd
+              - **rotulo**: 15
               - **circulo**:
                 - **x**: 475
                 - **y**: 216
                 - **raio**: 18
+              - **label**: 15
             - **[3]**:
-              - **id**: 19
-              - **label**: 19
+              - **id**: xGtMm2uQzyH8bW
+              - **uid**: xGtMm2uQzyH8bW
+              - **rotulo**: 19
               - **circulo**:
                 - **x**: 269
                 - **y**: 235
                 - **raio**: 17
+              - **label**: 19
             - **[4]**:
-              - **id**: 18
-              - **label**: 18
+              - **id**: jubPKv97I4hY0r
+              - **uid**: jubPKv97I4hY0r
+              - **rotulo**: 18
               - **circulo**:
                 - **x**: 314
                 - **y**: 233
                 - **raio**: 17
+              - **label**: 18
             - **[5]**:
-              - **id**: 14
-              - **label**: 14
+              - **id**: pcy04Q9g9rk4xR
+              - **uid**: pcy04Q9g9rk4xR
+              - **rotulo**: 14
               - **circulo**:
                 - **x**: 516
                 - **y**: 240
                 - **raio**: 17
+              - **label**: 14
             - **[6]**:
-              - **id**: 13
-              - **label**: 13
+              - **id**: R7HxClQ8VPvZFS
+              - **uid**: R7HxClQ8VPvZFS
+              - **rotulo**: 13
               - **circulo**:
                 - **x**: 560
                 - **y**: 236
                 - **raio**: 18
+              - **label**: 13
             - **[7]**:
-              - **id**: 12
-              - **label**: 12
+              - **id**: pq5OcwhTIWgNaS
+              - **uid**: pq5OcwhTIWgNaS
+              - **rotulo**: 12
               - **circulo**:
                 - **x**: 644
                 - **y**: 429
                 - **raio**: 17
+              - **label**: 12
             - **[8]**:
-              - **id**: 11
-              - **label**: 11
+              - **id**: fK6nH6d0QUFmlx
+              - **uid**: fK6nH6d0QUFmlx
+              - **rotulo**: 11
               - **circulo**:
                 - **x**: 636
                 - **y**: 505
                 - **raio**: 17
+              - **label**: 11
             - **[9]**:
-              - **id**: 10
-              - **label**: 10
+              - **id**: UcOZ88YLladJpN
+              - **uid**: UcOZ88YLladJpN
+              - **rotulo**: 10
               - **circulo**:
                 - **x**: 625
                 - **y**: 558
                 - **raio**: 17
+              - **label**: 10
             - **[10]**:
-              - **id**: 09
-              - **label**: 09
+              - **id**: tm0n9STQuvFdut
+              - **uid**: tm0n9STQuvFdut
+              - **rotulo**: 09
               - **circulo**:
                 - **x**: 614
                 - **y**: 610
                 - **raio**: 17
+              - **label**: 09
             - **[11]**:
-              - **id**: 08
-              - **label**: 08
+              - **id**: 5pQUowxSiO0u71
+              - **uid**: 5pQUowxSiO0u71
+              - **rotulo**: 08
               - **circulo**:
                 - **x**: 606
                 - **y**: 671
                 - **raio**: 17
+              - **label**: 08
             - **[12]**:
-              - **id**: 07
-              - **label**: 07
+              - **id**: jcz6DQ5tDMrzLk
+              - **uid**: jcz6DQ5tDMrzLk
+              - **rotulo**: 07
               - **circulo**:
                 - **x**: 606
                 - **y**: 707
                 - **raio**: 17
+              - **label**: 07
             - **[13]**:
-              - **id**: 06
-              - **label**: 06
+              - **id**: bMQ3kd7ptbSOKC
+              - **uid**: bMQ3kd7ptbSOKC
+              - **rotulo**: 06
               - **circulo**:
                 - **x**: 604
                 - **y**: 768
                 - **raio**: 17
+              - **label**: 06
             - **[14]**:
-              - **id**: 05
-              - **label**: 05
+              - **id**: jU6IhYTaz9HSYN
+              - **uid**: jU6IhYTaz9HSYN
+              - **rotulo**: 05
               - **circulo**:
                 - **x**: 595
                 - **y**: 868
                 - **raio**: 17
+              - **label**: 05
             - **[15]**:
-              - **id**: 04
-              - **label**: 04
+              - **id**: OEjQyz7DVHdCvl
+              - **uid**: OEjQyz7DVHdCvl
+              - **rotulo**: 04
               - **circulo**:
                 - **x**: 584
                 - **y**: 915
                 - **raio**: 17
+              - **label**: 04
             - **[16]**:
-              - **id**: 03
-              - **label**: 03
+              - **id**: yKPRjByuvZAADK
+              - **uid**: yKPRjByuvZAADK
+              - **rotulo**: 03
               - **circulo**:
                 - **x**: 569
                 - **y**: 961
                 - **raio**: 17
+              - **label**: 03
             - **[17]**:
-              - **id**: 02
-              - **label**: 02
+              - **id**: 7wZMeEUihWJyKj
+              - **uid**: 7wZMeEUihWJyKj
+              - **rotulo**: 02
               - **circulo**:
                 - **x**: 553
                 - **y**: 1024
                 - **raio**: 17
+              - **label**: 02
             - **[18]**:
-              - **id**: 01
-              - **label**: 01
+              - **id**: qOOsqb6VB9YPVo
+              - **uid**: qOOsqb6VB9YPVo
+              - **rotulo**: 01
               - **circulo**:
                 - **x**: 541
                 - **y**: 1077
                 - **raio**: 17
+              - **label**: 01
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: SvpYGaIypqXVaJ
+              - **pontos_uids**:
+                - qOOsqb6VB9YPVo
               - **escalada**: Bacon com Linguiça
               - **ids**:
-                - 01
+                - qOOsqb6VB9YPVo
             - **[1]**:
+              - **alvo_uid**: u3SqsRBblkUIBQ
+              - **pontos_uids**:
+                - 7wZMeEUihWJyKj
               - **escalada**: Quatchú
               - **ids**:
-                - 02
+                - 7wZMeEUihWJyKj
             - **[2]**:
+              - **alvo_uid**: J0WtO3cd9ir4t6
+              - **pontos_uids**:
+                - yKPRjByuvZAADK
               - **escalada**: Xoquito
               - **ids**:
-                - 03
+                - yKPRjByuvZAADK
             - **[3]**:
+              - **alvo_uid**: rgYplkzcRHID1A
+              - **pontos_uids**:
+                - OEjQyz7DVHdCvl
               - **escalada**: Slow Motion
               - **ids**:
-                - 04
+                - OEjQyz7DVHdCvl
             - **[4]**:
+              - **alvo_uid**: Q9233O9pjDa0nG
+              - **pontos_uids**:
+                - jU6IhYTaz9HSYN
               - **escalada**: Berbaridade Máxima
               - **ids**:
-                - 05
+                - jU6IhYTaz9HSYN
             - **[5]**:
+              - **alvo_uid**: MzyNYgbtGPyAxz
+              - **pontos_uids**:
+                - bMQ3kd7ptbSOKC
               - **escalada**: Cirque du Soleil
               - **ids**:
-                - 06
+                - bMQ3kd7ptbSOKC
             - **[6]**:
+              - **alvo_uid**: CAU2HdknKsAFjY
+              - **pontos_uids**:
+                - jcz6DQ5tDMrzLk
               - **escalada**: Route Setter
               - **ids**:
-                - 07
+                - jcz6DQ5tDMrzLk
             - **[7]**:
+              - **alvo_uid**: OD3hodezGpb6tL
+              - **pontos_uids**:
+                - UcOZ88YLladJpN
               - **escalada**: Fúria de Titãs
               - **ids**:
-                - 10
+                - UcOZ88YLladJpN
             - **[8]**:
+              - **alvo_uid**: NcnwXSx5hJxEpA
+              - **pontos_uids**:
+                - fK6nH6d0QUFmlx
               - **escalada**: Prima Donna
               - **ids**:
-                - 11
+                - fK6nH6d0QUFmlx
             - **[9]**:
+              - **alvo_uid**: erUMGs5lTxpW6m
+              - **pontos_uids**:
+                - pq5OcwhTIWgNaS
               - **escalada**: Dama de Ferro
               - **ids**:
-                - 12
+                - pq5OcwhTIWgNaS
             - **[10]**:
+              - **alvo_uid**: qJgBRFSjkInmIw
+              - **pontos_uids**:
+                - R7HxClQ8VPvZFS
               - **escalada**: Primeira de Todas
               - **ids**:
-                - 13
+                - R7HxClQ8VPvZFS
             - **[11]**:
+              - **alvo_uid**: yCEONmu5NJpeLH
+              - **pontos_uids**:
+                - pcy04Q9g9rk4xR
               - **escalada**: Brinco de Odalisca
               - **ids**:
-                - 14
+                - pcy04Q9g9rk4xR
             - **[12]**:
+              - **alvo_uid**: CiDBGkwAx09rVo
+              - **pontos_uids**:
+                - jp513vCbGzwtTd
               - **escalada**: 10%
               - **ids**:
-                - 15
+                - jp513vCbGzwtTd
             - **[13]**:
+              - **alvo_uid**: SIM0d3tPnCRovg
+              - **pontos_uids**:
+                - 46eqULlOCvT6D5
               - **escalada**: Quebra Tudo
               - **ids**:
-                - 16
+                - 46eqULlOCvT6D5
             - **[14]**:
+              - **alvo_uid**: po16Yv24rTyjjE
+              - **pontos_uids**:
+                - 0wEF0XnFS9ERUt
               - **escalada**: Acorrentado
               - **ids**:
-                - 17
+                - 0wEF0XnFS9ERUt
             - **[15]**:
+              - **alvo_uid**: 71bGb40IDDqCqL
+              - **pontos_uids**:
+                - jubPKv97I4hY0r
               - **escalada**: Fidefenda
               - **ids**:
-                - 18
+                - jubPKv97I4hY0r
             - **[16]**:
+              - **alvo_uid**: GaMGRAJtWpO9tq
+              - **pontos_uids**:
+                - xGtMm2uQzyH8bW
               - **escalada**: Cochyna Blue
               - **ids**:
-                - 19
+                - xGtMm2uQzyH8bW
             - **[17]**:
-              - **ids**:
-                - 08
+              - **alvo_uid**: 07pscabGabeyhu
+              - **pontos_uids**:
+                - 5pQUowxSiO0u71
               - **escalada**: Teto Preto
-            - **[18]**:
               - **ids**:
-                - 09
+                - 5pQUowxSiO0u71
+            - **[18]**:
+              - **alvo_uid**: aRYxrZmlUwG61o
+              - **pontos_uids**:
+                - tm0n9STQuvFdut
               - **escalada**: 101 Dalmatas
+              - **ids**:
+                - tm0n9STQuvFdut
       - **escaladas**:
         - **[0]**:
+          - **uid**: SvpYGaIypqXVaJ
           - **via_esportiva**:
             - **nome**: Bacon com Linguiça
             - **dificuldade**: BR_6SUP
@@ -4170,6 +5431,7 @@
               - Pauleti
             - **data_abertura**: 2006
         - **[1]**:
+          - **uid**: u3SqsRBblkUIBQ
           - **via_esportiva**:
             - **nome**: Quatchú
             - **dificuldade**: BR_8A
@@ -4182,6 +5444,7 @@
               - Chinha
             - **data_abertura**: 2006
         - **[2]**:
+          - **uid**: J0WtO3cd9ir4t6
           - **via_esportiva**:
             - **nome**: Xoquito
             - **dificuldade**: BR_8B
@@ -4194,6 +5457,7 @@
               - Ró
             - **data_abertura**: 2006
         - **[3]**:
+          - **uid**: rgYplkzcRHID1A
           - **via_esportiva**:
             - **nome**: Slow Motion
             - **dificuldade**: BR_8B
@@ -4207,6 +5471,7 @@
               - Toninho
             - **data_abertura**: 2023
         - **[4]**:
+          - **uid**: Q9233O9pjDa0nG
           - **via_esportiva**:
             - **nome**: Berbaridade Máxima
             - **dificuldade**: BR_8C
@@ -4219,6 +5484,7 @@
               - Chinha
             - **data_abertura**: 2023
         - **[5]**:
+          - **uid**: MzyNYgbtGPyAxz
           - **via_esportiva**:
             - **nome**: Cirque du Soleil
             - **dificuldade**: BR_9B
@@ -4232,6 +5498,7 @@
               - Moleza
             - **data_abertura**: 2010
         - **[6]**:
+          - **uid**: CAU2HdknKsAFjY
           - **via_esportiva**:
             - **descricao**: Finaliza na via 06 (Cirque du Soleil).
             - **nome**: Route Setter
@@ -4244,6 +5511,7 @@
               - Ró
             - **data_abertura**: 2010
         - **[7]**:
+          - **uid**: 07pscabGabeyhu
           - **via_esportiva**:
             - **descricao**: Saída na via 07 (Route Setter).
             - **nome**: Teto Preto
@@ -4256,6 +5524,7 @@
               - Chinha
             - **data_abertura**: 2023
         - **[8]**:
+          - **uid**: aRYxrZmlUwG61o
           - **via_esportiva**:
             - **nome**: 101 Dalmatas
             - **dificuldade**: BR_8A
@@ -4267,6 +5536,7 @@
               - Chinha
             - **data_abertura**: 2023
         - **[9]**:
+          - **uid**: OD3hodezGpb6tL
           - **via_esportiva**:
             - **nome**: Fúria de Titãs
             - **dificuldade**: BR_10A
@@ -4280,6 +5550,7 @@
               - Ró
             - **data_abertura**: 2010
         - **[10]**:
+          - **uid**: NcnwXSx5hJxEpA
           - **via_esportiva**:
             - **nome**: Prima Donna
             - **dificuldade**: BR_10A
@@ -4293,6 +5564,7 @@
               - Bunitin
             - **data_abertura**: 2023
         - **[11]**:
+          - **uid**: erUMGs5lTxpW6m
           - **via_esportiva**:
             - **nome**: Dama de Ferro
             - **dificuldade**: BR_10C
@@ -4304,6 +5576,7 @@
               - Moleza
             - **data_abertura**: 2010
         - **[12]**:
+          - **uid**: qJgBRFSjkInmIw
           - **via_esportiva**:
             - **nome**: Primeira de Todas
             - **dificuldade**: BR_7A
@@ -4315,6 +5588,7 @@
               - Ró
             - **data_abertura**: 2006
         - **[13]**:
+          - **uid**: yCEONmu5NJpeLH
           - **via_esportiva**:
             - **nome**: Brinco de Odalisca
             - **dificuldade**: BR_6
@@ -4326,6 +5600,7 @@
               - Jovinei
             - **data_abertura**: 2023
         - **[14]**:
+          - **uid**: CiDBGkwAx09rVo
           - **via_esportiva**:
             - **nome**: 10%
             - **dificuldade**: BR_6_BARRA_6SUP
@@ -4337,6 +5612,7 @@
               - Ró
             - **data_abertura**: 2006
         - **[15]**:
+          - **uid**: SIM0d3tPnCRovg
           - **via_esportiva**:
             - **nome**: Quebra Tudo
             - **dificuldade**: BR_6_BARRA_6SUP
@@ -4348,6 +5624,7 @@
               - Ró
             - **data_abertura**: 2006
         - **[16]**:
+          - **uid**: po16Yv24rTyjjE
           - **via_esportiva**:
             - **nome**: Acorrentado
             - **dificuldade**: BR_6SUP
@@ -4359,6 +5636,7 @@
               - Ró
             - **data_abertura**: 2006
         - **[17]**:
+          - **uid**: 71bGb40IDDqCqL
           - **via_esportiva**:
             - **nome**: Fidefenda
             - **dificuldade**: BR_5SUP
@@ -4371,6 +5649,7 @@
               - Chinha
             - **data_abertura**: 2006
         - **[18]**:
+          - **uid**: GaMGRAJtWpO9tq
           - **via_esportiva**:
             - **nome**: Cochyna Blue
             - **dificuldade**: BR_6
@@ -4388,12 +5667,15 @@
     - **conteudo**:
       - **descricao**: Boulders no bloco principal do estacionamento, onde estão as vias esportivas.
       - **nome**: Estacionamento - Boulders
+      - **uid**: rdMF3EdVWbCT4B
       - **escaladas**:
         - **[0]**:
+          - **uid**: y6AZSly8Hpuq5y
           - **boulder**:
             - **nome**: Raio
             - **dificuldade**: V4
         - **[1]**:
+          - **uid**: 6YHQgzP3OTY9eP
           - **boulder**:
             - **nome**: Dama de ferro (boulder)
             - **dificuldade**: V6
@@ -4404,8 +5686,9 @@
           - **altura_mapa**: 2364
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: linha_1
-              - **label**: 
+              - **id**: c5jKPTaPO5TQmO
+              - **uid**: c5jKPTaPO5TQmO
+              - **rotulo**: 
               - **linha**:
                 - **estilo**: TRACEJADO
                 - **espessura**: 5
@@ -4425,19 +5708,24 @@
                       - **rotulo**: 1
                       - **raio**: 24
               - **cor**: #00E5FF
+              - **label**: 
           - **referencias**:
             - **[0]**:
-              - **ids**:
-                - linha_1
+              - **alvo_uid**: y6AZSly8Hpuq5y
+              - **pontos_uids**:
+                - c5jKPTaPO5TQmO
               - **escalada**: Raio
+              - **ids**:
+                - c5jKPTaPO5TQmO
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_estacionamento_boulders_p1.webp)
           - **largura_mapa**: 1376
           - **altura_mapa**: 1824
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: linha_2
-              - **label**: 
+              - **id**: D8roTsgyrTkubQ
+              - **uid**: D8roTsgyrTkubQ
+              - **rotulo**: 
               - **linha**:
                 - **estilo**: TRACEJADO
                 - **espessura**: 5
@@ -4457,11 +5745,15 @@
                       - **rotulo**: 2
                       - **raio**: 24
               - **cor**: #00E5FF
+              - **label**: 
           - **referencias**:
             - **[0]**:
-              - **ids**:
-                - linha_2
+              - **alvo_uid**: 6YHQgzP3OTY9eP
+              - **pontos_uids**:
+                - D8roTsgyrTkubQ
               - **escalada**: Dama de ferro (boulder)
+              - **ids**:
+                - D8roTsgyrTkubQ
       - **precomputados**:
         - **total_escaladas**: 2
         - **total_boulders**: 2
@@ -4469,20 +5761,25 @@
     - **conteudo**:
       - **descricao**: 
       - **nome**: Estacionamento - Bloco Pega negativo
+      - **uid**: GCTYEYl7veyIXo
       - **escaladas**:
         - **[0]**:
+          - **uid**: VVu7xhtrjKPIO4
           - **boulder**:
             - **nome**: Pega negativo
             - **dificuldade**: V7
         - **[1]**:
+          - **uid**: KtHmfhs8lqZhU0
           - **boulder**:
             - **nome**: Serrado
             - **dificuldade**: V1
         - **[2]**:
+          - **uid**: lvM5aiWcsrkiuo
           - **boulder**:
             - **nome**: Coruja
             - **dificuldade**: V1
         - **[3]**:
+          - **uid**: b5gtS6LrXSTpZW
           - **boulder**:
             - **nome**: Projeto 3
       - **mapas**:
@@ -4492,8 +5789,9 @@
           - **altura_mapa**: 1376
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: linha_2
-              - **label**: 
+              - **id**: bcjWAfP34ZV42J
+              - **uid**: bcjWAfP34ZV42J
+              - **rotulo**: 
               - **linha**:
                 - **estilo**: TRACEJADO
                 - **espessura**: 4
@@ -4512,8 +5810,10 @@
                       - **angulo_graus_x100**: -10138
                       - **rotulo**: B
               - **cor**: #00E5FF
+              - **label**: 
             - **[1]**:
-              - **id**: linha_3
+              - **id**: KqPjEVpsxVqrkJ
+              - **uid**: KqPjEVpsxVqrkJ
               - **linha**:
                 - **estilo**: TRACEJADO
                 - **espessura**: 4
@@ -4533,7 +5833,8 @@
                       - **rotulo**: 1
               - **cor**: #FFD600
             - **[2]**:
-              - **id**: linha_4
+              - **id**: Hwpweh0VHvvO8H
+              - **uid**: Hwpweh0VHvvO8H
               - **linha**:
                 - **estilo**: TRACEJADO
                 - **espessura**: 4
@@ -4553,8 +5854,9 @@
                       - **rotulo**: A
               - **cor**: #00E5FF
             - **[3]**:
-              - **id**: linha_1
-              - **label**: 
+              - **id**: oWWr3YB0LJByaH
+              - **uid**: oWWr3YB0LJByaH
+              - **rotulo**: 
               - **linha**:
                 - **estilo**: TRACEJADO
                 - **espessura**: 3
@@ -4579,9 +5881,11 @@
                       - **angulo_graus_x100**: -13188
                       - **rotulo**: C
               - **cor**: #00E5FF
-            - **[4]**:
-              - **id**: linha_5
               - **label**: 
+            - **[4]**:
+              - **id**: sxdlHr9M6WoZNQ
+              - **uid**: sxdlHr9M6WoZNQ
+              - **rotulo**: 
               - **linha**:
                 - **estilo**: TRACEJADO
                 - **espessura**: 3
@@ -4606,25 +5910,40 @@
                       - **angulo_graus_x100**: -12390
                       - **rotulo**: D
               - **cor**: #00E5FF
+              - **label**: 
           - **referencias**:
             - **[0]**:
-              - **ids**:
-                - linha_3
-                - linha_4
+              - **alvo_uid**: VVu7xhtrjKPIO4
+              - **pontos_uids**:
+                - KqPjEVpsxVqrkJ
+                - Hwpweh0VHvvO8H
               - **escalada**: Pega negativo
+              - **ids**:
+                - KqPjEVpsxVqrkJ
+                - Hwpweh0VHvvO8H
             - **[1]**:
-              - **ids**:
-                - linha_3
-                - linha_2
+              - **alvo_uid**: KtHmfhs8lqZhU0
+              - **pontos_uids**:
+                - KqPjEVpsxVqrkJ
+                - bcjWAfP34ZV42J
               - **escalada**: Serrado
+              - **ids**:
+                - KqPjEVpsxVqrkJ
+                - bcjWAfP34ZV42J
             - **[2]**:
-              - **ids**:
-                - linha_1
+              - **alvo_uid**: lvM5aiWcsrkiuo
+              - **pontos_uids**:
+                - oWWr3YB0LJByaH
               - **escalada**: Coruja
-            - **[3]**:
               - **ids**:
-                - linha_5
+                - oWWr3YB0LJByaH
+            - **[3]**:
+              - **alvo_uid**: b5gtS6LrXSTpZW
+              - **pontos_uids**:
+                - sxdlHr9M6WoZNQ
               - **escalada**: Projeto 3
+              - **ids**:
+                - sxdlHr9M6WoZNQ
       - **precomputados**:
         - **total_escaladas**: 4
         - **total_boulders**: 4
@@ -4632,24 +5951,30 @@
     - **conteudo**:
       - **descricao**: 
       - **nome**: Estacionamento - Bloco Solaris
+      - **uid**: Qk0h1mdjo20Ebg
       - **escaladas**:
         - **[0]**:
+          - **uid**: GKiRIJblwHNW6U
           - **boulder**:
             - **nome**: Solaris
             - **dificuldade**: V4
         - **[1]**:
+          - **uid**: JHLvsJu4kpoON0
           - **boulder**:
             - **nome**: Pump
             - **dificuldade**: V3
         - **[2]**:
+          - **uid**: sY8xWcg71pO29X
           - **boulder**:
             - **nome**: Lítio
             - **dificuldade**: V2
         - **[3]**:
+          - **uid**: avryK8CUi2fKkK
           - **boulder**:
             - **nome**: Tório
             - **dificuldade**: V0
         - **[4]**:
+          - **uid**: o5BIftKa38x04o
           - **boulder**:
             - **nome**: Irídio
             - **dificuldade**: V0
@@ -4660,7 +5985,8 @@
           - **altura_mapa**: 2364
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: linha_2
+              - **id**: QmahXN7YGx5qnn
+              - **uid**: QmahXN7YGx5qnn
               - **linha**:
                 - **estilo**: TRACEJADO
                 - **espessura**: 4
@@ -4680,7 +6006,8 @@
                       - **rotulo**: 1
               - **cor**: #00E5FF
             - **[1]**:
-              - **id**: linha_3
+              - **id**: 1QRa2eTvzsq8M5
+              - **uid**: 1QRa2eTvzsq8M5
               - **linha**:
                 - **estilo**: TRACEJADO
                 - **espessura**: 4
@@ -4700,7 +6027,8 @@
                       - **rotulo**: A
               - **cor**: #00E5FF
             - **[2]**:
-              - **id**: linha_5
+              - **id**: 4qwbkzxFtp77YL
+              - **uid**: 4qwbkzxFtp77YL
               - **linha**:
                 - **estilo**: TRACEJADO
                 - **espessura**: 4
@@ -4720,7 +6048,8 @@
                       - **rotulo**: 2
               - **cor**: #FFD600
             - **[3]**:
-              - **id**: linha_6
+              - **id**: 1gfxPrZK4NbB4K
+              - **uid**: 1gfxPrZK4NbB4K
               - **linha**:
                 - **estilo**: TRACEJADO
                 - **espessura**: 4
@@ -4734,7 +6063,8 @@
                   - **marcadores**: []
               - **cor**: #00E5FF
             - **[4]**:
-              - **id**: linha_7
+              - **id**: I6Q9kgngRiO1YX
+              - **uid**: I6Q9kgngRiO1YX
               - **linha**:
                 - **estilo**: TRACEJADO
                 - **espessura**: 4
@@ -4755,29 +6085,43 @@
               - **cor**: #00E5FF
           - **referencias**:
             - **[0]**:
-              - **ids**:
-                - linha_2
-                - linha_3
+              - **alvo_uid**: GKiRIJblwHNW6U
+              - **pontos_uids**:
+                - QmahXN7YGx5qnn
+                - 1QRa2eTvzsq8M5
               - **escalada**: Solaris
+              - **ids**:
+                - QmahXN7YGx5qnn
+                - 1QRa2eTvzsq8M5
             - **[1]**:
-              - **ids**:
-                - linha_5
-                - linha_6
-                - linha_3
+              - **alvo_uid**: JHLvsJu4kpoON0
+              - **pontos_uids**:
+                - 4qwbkzxFtp77YL
+                - 1gfxPrZK4NbB4K
+                - 1QRa2eTvzsq8M5
               - **escalada**: Pump
-            - **[2]**:
               - **ids**:
-                - linha_5
-                - linha_7
+                - 4qwbkzxFtp77YL
+                - 1gfxPrZK4NbB4K
+                - 1QRa2eTvzsq8M5
+            - **[2]**:
+              - **alvo_uid**: sY8xWcg71pO29X
+              - **pontos_uids**:
+                - 4qwbkzxFtp77YL
+                - I6Q9kgngRiO1YX
               - **escalada**: Lítio
+              - **ids**:
+                - 4qwbkzxFtp77YL
+                - I6Q9kgngRiO1YX
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_estacionamento_bloco_solaris_p1.webp)
           - **largura_mapa**: 2364
           - **altura_mapa**: 1773
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: linha_1
-              - **label**: 
+              - **id**: 6F8xEKAjDezlkF
+              - **uid**: 6F8xEKAjDezlkF
+              - **rotulo**: 
               - **linha**:
                 - **estilo**: TRACEJADO
                 - **espessura**: 4
@@ -4796,9 +6140,11 @@
                       - **angulo_graus_x100**: -12950
                       - **rotulo**: 3
               - **cor**: #00E5FF
-            - **[1]**:
-              - **id**: linha_4
               - **label**: 
+            - **[1]**:
+              - **id**: 5z0xDzAl5rd8JW
+              - **uid**: 5z0xDzAl5rd8JW
+              - **rotulo**: 
               - **linha**:
                 - **estilo**: TRACEJADO
                 - **espessura**: 4
@@ -4817,15 +6163,22 @@
                       - **angulo_graus_x100**: -10371
                       - **rotulo**: 4
               - **cor**: #00E5FF
+              - **label**: 
           - **referencias**:
             - **[0]**:
-              - **ids**:
-                - linha_1
+              - **alvo_uid**: avryK8CUi2fKkK
+              - **pontos_uids**:
+                - 6F8xEKAjDezlkF
               - **escalada**: Tório
-            - **[1]**:
               - **ids**:
-                - linha_4
+                - 6F8xEKAjDezlkF
+            - **[1]**:
+              - **alvo_uid**: o5BIftKa38x04o
+              - **pontos_uids**:
+                - 5z0xDzAl5rd8JW
               - **escalada**: Irídio
+              - **ids**:
+                - 5z0xDzAl5rd8JW
       - **precomputados**:
         - **total_escaladas**: 5
         - **total_boulders**: 5
@@ -4833,6 +6186,7 @@
     - **conteudo**:
       - **descricao**: 
       - **nome**: Estacionamento - Bloco Dengoso
+      - **uid**: 3UrbFi1RskxEbz
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_estacionamento_bloco_dengoso_p0.webp)
@@ -4840,7 +6194,8 @@
           - **altura_mapa**: 1773
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: linha_2
+              - **id**: U9sK5P09Prqoch
+              - **uid**: U9sK5P09Prqoch
               - **linha**:
                 - **estilo**: TRACEJADO
                 - **espessura**: 5
@@ -4861,8 +6216,9 @@
                       - **raio**: 24
               - **cor**: #FFD600
             - **[1]**:
-              - **id**: linha_1
-              - **label**: 
+              - **id**: mRwEsWs51g076b
+              - **uid**: mRwEsWs51g076b
+              - **rotulo**: 
               - **linha**:
                 - **estilo**: TRACEJADO
                 - **espessura**: 5
@@ -4882,8 +6238,10 @@
                       - **rotulo**: B
                       - **raio**: 24
               - **cor**: #FFD600
+              - **label**: 
             - **[2]**:
-              - **id**: linha_5
+              - **id**: LRibEzdYZH0Iot
+              - **uid**: LRibEzdYZH0Iot
               - **linha**:
                 - **estilo**: TRACEJADO
                 - **espessura**: 5
@@ -4897,7 +6255,8 @@
                   - **marcadores**: []
               - **cor**: #FFD600
             - **[3]**:
-              - **id**: linha_9
+              - **id**: uyFTqk25UWAbgM
+              - **uid**: uyFTqk25UWAbgM
               - **linha**:
                 - **estilo**: TRACEJADO
                 - **espessura**: 5
@@ -4918,8 +6277,9 @@
                       - **raio**: 24
               - **cor**: #FFD600
             - **[4]**:
-              - **id**: linha_3
-              - **label**: 
+              - **id**: pfDg5P1AonAAi9
+              - **uid**: pfDg5P1AonAAi9
+              - **rotulo**: 
               - **linha**:
                 - **estilo**: TRACEJADO
                 - **espessura**: 5
@@ -4939,30 +6299,45 @@
                       - **rotulo**: 1
                       - **raio**: 24
               - **cor**: #FFD600
+              - **label**: 
           - **referencias**:
             - **[0]**:
-              - **ids**:
-                - linha_2
-                - linha_5
-                - linha_9
+              - **alvo_uid**: vo6nadNzA5cVa3
+              - **pontos_uids**:
+                - U9sK5P09Prqoch
+                - LRibEzdYZH0Iot
+                - uyFTqk25UWAbgM
               - **escalada**: Dengoso
+              - **ids**:
+                - U9sK5P09Prqoch
+                - LRibEzdYZH0Iot
+                - uyFTqk25UWAbgM
             - **[1]**:
-              - **ids**:
-                - linha_2
-                - linha_1
+              - **alvo_uid**: D4F2u8Lg2XgoBZ
+              - **pontos_uids**:
+                - U9sK5P09Prqoch
+                - mRwEsWs51g076b
               - **escalada**: Fênix
-            - **[2]**:
               - **ids**:
-                - linha_3
-                - linha_9
+                - U9sK5P09Prqoch
+                - mRwEsWs51g076b
+            - **[2]**:
+              - **alvo_uid**: Iypt5SbOECadzL
+              - **pontos_uids**:
+                - pfDg5P1AonAAi9
+                - uyFTqk25UWAbgM
               - **escalada**: V5 do Bull
+              - **ids**:
+                - pfDg5P1AonAAi9
+                - uyFTqk25UWAbgM
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_estacionamento_bloco_dengoso_p1.webp)
           - **largura_mapa**: 2364
           - **altura_mapa**: 1773
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: linha_6
+              - **id**: sjVcuFmrsATb6E
+              - **uid**: sjVcuFmrsATb6E
               - **linha**:
                 - **estilo**: TRACEJADO
                 - **espessura**: 5
@@ -4983,7 +6358,8 @@
                       - **raio**: 24
               - **cor**: #FFD600
             - **[1]**:
-              - **id**: linha_7
+              - **id**: mxtFc6aXmNZM62
+              - **uid**: mxtFc6aXmNZM62
               - **linha**:
                 - **estilo**: TRACEJADO
                 - **espessura**: 5
@@ -5004,7 +6380,8 @@
                       - **raio**: 24
               - **cor**: #FFD600
             - **[2]**:
-              - **id**: linha_4
+              - **id**: oACEazp9fJuY7y
+              - **uid**: oACEazp9fJuY7y
               - **linha**:
                 - **estilo**: TRACEJADO
                 - **espessura**: 5
@@ -5025,7 +6402,8 @@
                       - **raio**: 24
               - **cor**: #FFD600
             - **[3]**:
-              - **id**: linha_8
+              - **id**: RjXJpiC3GesNMr
+              - **uid**: RjXJpiC3GesNMr
               - **linha**:
                 - **estilo**: TRACEJADO
                 - **espessura**: 5
@@ -5039,8 +6417,9 @@
                   - **marcadores**: []
               - **cor**: #FFD600
             - **[4]**:
-              - **id**: linha_10
-              - **label**: 
+              - **id**: MLPLzokXjMmRMG
+              - **uid**: MLPLzokXjMmRMG
+              - **rotulo**: 
               - **linha**:
                 - **estilo**: TRACEJADO
                 - **espessura**: 5
@@ -5060,31 +6439,46 @@
                       - **rotulo**: B
                       - **raio**: 24
               - **cor**: #FFD600
+              - **label**: 
           - **referencias**:
             - **[0]**:
-              - **ids**:
-                - linha_6
-                - linha_7
+              - **alvo_uid**: Iypt5SbOECadzL
+              - **pontos_uids**:
+                - sjVcuFmrsATb6E
+                - mxtFc6aXmNZM62
               - **escalada**: V5 do Bull
+              - **ids**:
+                - sjVcuFmrsATb6E
+                - mxtFc6aXmNZM62
             - **[1]**:
-              - **ids**:
-                - linha_4
-                - linha_8
-                - linha_7
+              - **alvo_uid**: vo6nadNzA5cVa3
+              - **pontos_uids**:
+                - oACEazp9fJuY7y
+                - RjXJpiC3GesNMr
+                - mxtFc6aXmNZM62
               - **escalada**: Dengoso
-            - **[2]**:
               - **ids**:
-                - linha_4
-                - linha_10
+                - oACEazp9fJuY7y
+                - RjXJpiC3GesNMr
+                - mxtFc6aXmNZM62
+            - **[2]**:
+              - **alvo_uid**: D4F2u8Lg2XgoBZ
+              - **pontos_uids**:
+                - oACEazp9fJuY7y
+                - MLPLzokXjMmRMG
               - **escalada**: Fênix
+              - **ids**:
+                - oACEazp9fJuY7y
+                - MLPLzokXjMmRMG
         - **[2]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_estacionamento_bloco_dengoso_p2.webp)
           - **largura_mapa**: 2364
           - **altura_mapa**: 1773
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: linha_11
-              - **label**: 
+              - **id**: JasR2A0QHoDT13
+              - **uid**: JasR2A0QHoDT13
+              - **rotulo**: 
               - **linha**:
                 - **estilo**: TRACEJADO
                 - **espessura**: 5
@@ -5111,9 +6505,11 @@
                       - **rotulo**: G
                       - **raio**: 24
               - **cor**: #FFD600
-            - **[1]**:
-              - **id**: linha_12
               - **label**: 
+            - **[1]**:
+              - **id**: 3PYTnEbgnp4ZPb
+              - **uid**: 3PYTnEbgnp4ZPb
+              - **rotulo**: 
               - **linha**:
                 - **estilo**: TRACEJADO
                 - **espessura**: 5
@@ -5140,9 +6536,11 @@
                       - **rotulo**: F
                       - **raio**: 24
               - **cor**: #FFD600
-            - **[2]**:
-              - **id**: linha_13
               - **label**: 
+            - **[2]**:
+              - **id**: FgQM0hUvaAHlhx
+              - **uid**: FgQM0hUvaAHlhx
+              - **rotulo**: 
               - **linha**:
                 - **estilo**: TRACEJADO
                 - **espessura**: 5
@@ -5169,9 +6567,11 @@
                       - **rotulo**: E
                       - **raio**: 24
               - **cor**: #FFD600
-            - **[3]**:
-              - **id**: linha_14
               - **label**: 
+            - **[3]**:
+              - **id**: HWMVxMmL9vu4Rb
+              - **uid**: HWMVxMmL9vu4Rb
+              - **rotulo**: 
               - **linha**:
                 - **estilo**: TRACEJADO
                 - **espessura**: 5
@@ -5198,9 +6598,11 @@
                       - **rotulo**: D
                       - **raio**: 24
               - **cor**: #FFD600
-            - **[4]**:
-              - **id**: linha_15
               - **label**: 
+            - **[4]**:
+              - **id**: 3nbowXWnLqVbnb
+              - **uid**: 3nbowXWnLqVbnb
+              - **rotulo**: 
               - **linha**:
                 - **estilo**: TRACEJADO
                 - **espessura**: 5
@@ -5227,34 +6629,51 @@
                       - **rotulo**: C
                       - **raio**: 24
               - **cor**: #FFD600
+              - **label**: 
           - **referencias**:
             - **[0]**:
-              - **ids**:
-                - linha_11
+              - **alvo_uid**: tkXSRSpNWY5yL3
+              - **pontos_uids**:
+                - JasR2A0QHoDT13
               - **escalada**: Só o pó
+              - **ids**:
+                - JasR2A0QHoDT13
             - **[1]**:
-              - **ids**:
-                - linha_12
+              - **alvo_uid**: 1E48e1PlohVfeJ
+              - **pontos_uids**:
+                - 3PYTnEbgnp4ZPb
               - **escalada**: Só poeira
+              - **ids**:
+                - 3PYTnEbgnp4ZPb
             - **[2]**:
-              - **ids**:
-                - linha_13
+              - **alvo_uid**: bNsbFE3U6jby2Q
+              - **pontos_uids**:
+                - FgQM0hUvaAHlhx
               - **escalada**: Poeirando
+              - **ids**:
+                - FgQM0hUvaAHlhx
             - **[3]**:
-              - **ids**:
-                - linha_14
+              - **alvo_uid**: wqMD6zlHac7ZXq
+              - **pontos_uids**:
+                - HWMVxMmL9vu4Rb
               - **escalada**: Barla Pé
-            - **[4]**:
               - **ids**:
-                - linha_15
+                - HWMVxMmL9vu4Rb
+            - **[4]**:
+              - **alvo_uid**: w44WoxqtaM6ZhW
+              - **pontos_uids**:
+                - 3nbowXWnLqVbnb
               - **escalada**: Saara
+              - **ids**:
+                - 3nbowXWnLqVbnb
         - **[3]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_estacionamento_bloco_dengoso_p3.webp)
           - **largura_mapa**: 2364
           - **altura_mapa**: 1773
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: linha_17
+              - **id**: tJ7FfEoJdlIf6V
+              - **uid**: tJ7FfEoJdlIf6V
               - **linha**:
                 - **estilo**: TRACEJADO
                 - **espessura**: 5
@@ -5274,7 +6693,8 @@
                       - **rotulo**: 8
               - **cor**: #FFD600
             - **[1]**:
-              - **id**: linha_18
+              - **id**: QMPGG3MYfcmGwp
+              - **uid**: QMPGG3MYfcmGwp
               - **linha**:
                 - **estilo**: TRACEJADO
                 - **espessura**: 5
@@ -5294,8 +6714,9 @@
                       - **rotulo**: H
               - **cor**: #FFD600
             - **[2]**:
-              - **id**: linha_16
-              - **label**: 
+              - **id**: dmDcYG804HYCiM
+              - **uid**: dmDcYG804HYCiM
+              - **rotulo**: 
               - **linha**:
                 - **estilo**: TRACEJADO
                 - **espessura**: 5
@@ -5314,9 +6735,11 @@
                       - **angulo_graus_x100**: -10001
                       - **rotulo**: I
               - **cor**: #FFD600
-            - **[3]**:
-              - **id**: linha_19
               - **label**: 
+            - **[3]**:
+              - **id**: L6BdT85blb9sKI
+              - **uid**: L6BdT85blb9sKI
+              - **rotulo**: 
               - **linha**:
                 - **estilo**: TRACEJADO
                 - **espessura**: 5
@@ -5341,49 +6764,70 @@
                       - **angulo_graus_x100**: -9802
                       - **rotulo**: J
               - **cor**: #FFD600
-            - **[4]**:
-              - **id**: st1
               - **label**: 
+            - **[4]**:
+              - **id**: emNdipEI4O45NQ
+              - **uid**: emNdipEI4O45NQ
+              - **rotulo**: 
               - **circulo**:
                 - **x**: 859
                 - **y**: 1717
                 - **raio**: 40
               - **cor**: #FF6D00
-            - **[5]**:
-              - **id**: st2
               - **label**: 
+            - **[5]**:
+              - **id**: C5naCsBOw3oCcf
+              - **uid**: C5naCsBOw3oCcf
+              - **rotulo**: 
               - **circulo**:
                 - **x**: 1080
                 - **y**: 1672
                 - **raio**: 40
               - **cor**: #FF6D00
+              - **label**: 
           - **referencias**:
             - **[0]**:
-              - **ids**:
-                - linha_17
-                - linha_18
-                - st1
-                - st2
+              - **alvo_uid**: j8jNzNVmSPwRCU
+              - **pontos_uids**:
+                - tJ7FfEoJdlIf6V
+                - QMPGG3MYfcmGwp
+                - emNdipEI4O45NQ
+                - C5naCsBOw3oCcf
               - **escalada**: Sem nome 21
+              - **ids**:
+                - tJ7FfEoJdlIf6V
+                - QMPGG3MYfcmGwp
+                - emNdipEI4O45NQ
+                - C5naCsBOw3oCcf
             - **[1]**:
-              - **ids**:
-                - st1
-                - st2
-                - linha_17
-                - linha_16
+              - **alvo_uid**: FxFvwakoPrIZpQ
+              - **pontos_uids**:
+                - emNdipEI4O45NQ
+                - C5naCsBOw3oCcf
+                - tJ7FfEoJdlIf6V
+                - dmDcYG804HYCiM
               - **escalada**: Só poeirinha
-            - **[2]**:
               - **ids**:
-                - linha_19
+                - emNdipEI4O45NQ
+                - C5naCsBOw3oCcf
+                - tJ7FfEoJdlIf6V
+                - dmDcYG804HYCiM
+            - **[2]**:
+              - **alvo_uid**: KxvXtpyF8myGW9
+              - **pontos_uids**:
+                - L6BdT85blb9sKI
               - **escalada**: Sem nome 23
+              - **ids**:
+                - L6BdT85blb9sKI
         - **[4]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_estacionamento_bloco_dengoso_p4.webp)
           - **largura_mapa**: 2364
           - **altura_mapa**: 1773
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: linha_20
-              - **label**: 
+              - **id**: cN98a82t2JCMQP
+              - **uid**: cN98a82t2JCMQP
+              - **rotulo**: 
               - **linha**:
                 - **estilo**: TRACEJADO
                 - **espessura**: 5
@@ -5403,9 +6847,11 @@
                       - **rotulo**: 10
                       - **raio**: 24
               - **cor**: #FFD600
-            - **[1]**:
-              - **id**: linha_21
               - **label**: 
+            - **[1]**:
+              - **id**: Qck4hKYZBivTQo
+              - **uid**: Qck4hKYZBivTQo
+              - **rotulo**: 
               - **linha**:
                 - **estilo**: TRACEJADO
                 - **espessura**: 5
@@ -5425,65 +6871,85 @@
                       - **rotulo**: 11
                       - **raio**: 24
               - **cor**: #FFD600
+              - **label**: 
           - **referencias**:
             - **[0]**:
-              - **ids**:
-                - linha_20
+              - **alvo_uid**: ifePMiw1H74Dti
+              - **pontos_uids**:
+                - cN98a82t2JCMQP
               - **escalada**: Auto seg
-            - **[1]**:
               - **ids**:
-                - linha_21
+                - cN98a82t2JCMQP
+            - **[1]**:
+              - **alvo_uid**: PHUYBVvWm9rvAZ
+              - **pontos_uids**:
+                - Qck4hKYZBivTQo
               - **escalada**: Arla
+              - **ids**:
+                - Qck4hKYZBivTQo
       - **escaladas**:
         - **[0]**:
+          - **uid**: vo6nadNzA5cVa3
           - **boulder**:
             - **nome**: Dengoso
             - **dificuldade**: V7
         - **[1]**:
+          - **uid**: D4F2u8Lg2XgoBZ
           - **boulder**:
             - **nome**: Fênix
             - **dificuldade**: V5
         - **[2]**:
+          - **uid**: Iypt5SbOECadzL
           - **boulder**:
             - **nome**: V5 do Bull
             - **dificuldade**: V5
         - **[3]**:
+          - **uid**: tkXSRSpNWY5yL3
           - **boulder**:
             - **nome**: Só o pó
             - **dificuldade**: V1
         - **[4]**:
+          - **uid**: 1E48e1PlohVfeJ
           - **boulder**:
             - **nome**: Só poeira
             - **dificuldade**: V1
         - **[5]**:
+          - **uid**: bNsbFE3U6jby2Q
           - **boulder**:
             - **nome**: Poeirando
             - **dificuldade**: V1
         - **[6]**:
+          - **uid**: wqMD6zlHac7ZXq
           - **boulder**:
             - **nome**: Barla Pé
             - **dificuldade**: V2
         - **[7]**:
+          - **uid**: w44WoxqtaM6ZhW
           - **boulder**:
             - **nome**: Saara
             - **dificuldade**: V4
         - **[8]**:
+          - **uid**: j8jNzNVmSPwRCU
           - **boulder**:
             - **nome**: Sem nome 21
             - **dificuldade**: V2
         - **[9]**:
+          - **uid**: FxFvwakoPrIZpQ
           - **boulder**:
             - **nome**: Só poeirinha
             - **dificuldade**: V3
         - **[10]**:
+          - **uid**: KxvXtpyF8myGW9
           - **boulder**:
             - **nome**: Sem nome 23
             - **dificuldade**: V1
         - **[11]**:
+          - **uid**: ifePMiw1H74Dti
           - **boulder**:
             - **nome**: Auto seg
             - **dificuldade**: V0
         - **[12]**:
+          - **uid**: PHUYBVvWm9rvAZ
           - **boulder**:
             - **nome**: Arla
             - **dificuldade**: V3
@@ -5494,16 +6960,20 @@
     - **conteudo**:
       - **descricao**: 
       - **nome**: Estacionamento - Bloco Virada Brasil
+      - **uid**: XzxxlTtKqrsYLl
       - **escaladas**:
         - **[0]**:
+          - **uid**: ps4v5J4jjV7Hfq
           - **boulder**:
             - **nome**: Virada Brasil
             - **dificuldade**: V0
         - **[1]**:
+          - **uid**: AKaga5P3UUaAhd
           - **boulder**:
             - **nome**: Tio peruca
             - **dificuldade**: V1
         - **[2]**:
+          - **uid**: 7AxyC75DOr49wa
           - **boulder**:
             - **nome**: Sem nome 24
             - **dificuldade**: V0
@@ -5514,8 +6984,9 @@
           - **altura_mapa**: 1773
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: linha_1
-              - **label**: 
+              - **id**: TCqSo3l4scy9Cr
+              - **uid**: TCqSo3l4scy9Cr
+              - **rotulo**: 
               - **linha**:
                 - **estilo**: TRACEJADO
                 - **espessura**: 4
@@ -5542,8 +7013,10 @@
                       - **rotulo**: B
                       - **raio**: 19
               - **cor**: #FFD600
+              - **label**: 
             - **[1]**:
-              - **id**: linha_3
+              - **id**: dq3Z8gzMAG78T6
+              - **uid**: dq3Z8gzMAG78T6
               - **linha**:
                 - **estilo**: TRACEJADO
                 - **espessura**: 4
@@ -5564,7 +7037,8 @@
                       - **raio**: 19
               - **cor**: #FFD600
             - **[2]**:
-              - **id**: linha_4
+              - **id**: enl6MWJpNyBsAG
+              - **uid**: enl6MWJpNyBsAG
               - **linha**:
                 - **estilo**: TRACEJADO
                 - **espessura**: 4
@@ -5585,8 +7059,9 @@
                       - **raio**: 19
               - **cor**: #FFD600
             - **[3]**:
-              - **id**: linha_2
-              - **label**: 
+              - **id**: d7TPFX7nth7n3n
+              - **uid**: d7TPFX7nth7n3n
+              - **rotulo**: 
               - **linha**:
                 - **estilo**: TRACEJADO
                 - **espessura**: 4
@@ -5606,21 +7081,33 @@
                       - **rotulo**: 1
                       - **raio**: 19
               - **cor**: #FFD600
+              - **label**: 
           - **referencias**:
             - **[0]**:
-              - **ids**:
-                - linha_1
+              - **alvo_uid**: ps4v5J4jjV7Hfq
+              - **pontos_uids**:
+                - TCqSo3l4scy9Cr
               - **escalada**: Virada Brasil
+              - **ids**:
+                - TCqSo3l4scy9Cr
             - **[1]**:
-              - **ids**:
-                - linha_3
-                - linha_4
+              - **alvo_uid**: AKaga5P3UUaAhd
+              - **pontos_uids**:
+                - dq3Z8gzMAG78T6
+                - enl6MWJpNyBsAG
               - **escalada**: Tio peruca
-            - **[2]**:
               - **ids**:
-                - linha_2
-                - linha_4
+                - dq3Z8gzMAG78T6
+                - enl6MWJpNyBsAG
+            - **[2]**:
+              - **alvo_uid**: 7AxyC75DOr49wa
+              - **pontos_uids**:
+                - d7TPFX7nth7n3n
+                - enl6MWJpNyBsAG
               - **escalada**: Sem nome 24
+              - **ids**:
+                - d7TPFX7nth7n3n
+                - enl6MWJpNyBsAG
       - **precomputados**:
         - **total_escaladas**: 3
         - **total_boulders**: 3
@@ -5628,26 +7115,32 @@
     - **conteudo**:
       - **descricao**: 
       - **nome**: Estacionamento - Bloco Mega drive
+      - **uid**: BHZYeEEiafGcj0
       - **escaladas**:
         - **[0]**:
+          - **uid**: xL63RFAFiH1cCt
           - **boulder**:
             - **nome**: Atari
             - **dificuldade**: V5
         - **[1]**:
+          - **uid**: eeGIOqgQCtVtqW
           - **boulder**:
             - **nome**: Projeto Igarapé
             - **dificuldade**: INDEFINIDO
         - **[2]**:
+          - **uid**: baJERd9KO4QDMT
           - **boulder**:
             - **nome**: Sem Nome 25
             - **dificuldade**: V2
         - **[3]**:
+          - **uid**: h4PnFTagpsHZpB
           - **boulder**:
             - **nome**: Master System
             - **dificuldade**: V10_BARRA_V11
             - **conquistadores**:
               - Drosa
         - **[4]**:
+          - **uid**: 95yqksfZ3WIflC
           - **boulder**:
             - **nome**: Mega drive
             - **dificuldade**: V7
@@ -5658,7 +7151,8 @@
           - **altura_mapa**: 2364
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: linha_2
+              - **id**: 3U1xMV1hDr2FtN
+              - **uid**: 3U1xMV1hDr2FtN
               - **linha**:
                 - **estilo**: TRACEJADO
                 - **espessura**: 5
@@ -5678,7 +7172,9 @@
                       - **rotulo**: 2
               - **cor**: #00E5FF
             - **[1]**:
-              - **id**: linha_5
+              - **id**: Q8apI2RjUAnula
+              - **uid**: Q8apI2RjUAnula
+              - **rotulo**: 
               - **linha**:
                 - **estilo**: TRACEJADO
                 - **espessura**: 5
@@ -5699,7 +7195,8 @@
               - **cor**: #00E5FF
               - **label**: 
             - **[2]**:
-              - **id**: linha_7
+              - **id**: ULYhKCswkt7tOz
+              - **uid**: ULYhKCswkt7tOz
               - **linha**:
                 - **estilo**: TRACEJADO
                 - **espessura**: 5
@@ -5713,7 +7210,8 @@
                   - **marcadores**: []
               - **cor**: #00E5FF
             - **[3]**:
-              - **id**: linha_8
+              - **id**: nZw977PekLEm59
+              - **uid**: nZw977PekLEm59
               - **linha**:
                 - **estilo**: TRACEJADO
                 - **espessura**: 5
@@ -5733,16 +7231,19 @@
                       - **rotulo**: A
               - **cor**: #00E5FF
             - **[4]**:
-              - **id**: master2
-              - **label**: 
+              - **id**: 6A5nPuW5RHYy6h
+              - **uid**: 6A5nPuW5RHYy6h
+              - **rotulo**: 
               - **circulo**:
                 - **x**: 380
                 - **y**: 1183
                 - **raio**: 26
               - **cor**: #FFD600
-            - **[5]**:
-              - **id**: linha_1
               - **label**: 
+            - **[5]**:
+              - **id**: 7nFSCoZsYda0nZ
+              - **uid**: 7nFSCoZsYda0nZ
+              - **rotulo**: 
               - **linha**:
                 - **estilo**: TRACEJADO
                 - **espessura**: 5
@@ -5761,8 +7262,10 @@
                       - **angulo_graus_x100**: -13933
                       - **rotulo**: B
               - **cor**: #00E5FF
+              - **label**: 
             - **[6]**:
-              - **id**: linha_9
+              - **id**: 3lLONxHYDVabzD
+              - **uid**: 3lLONxHYDVabzD
               - **linha**:
                 - **estilo**: TRACEJADO
                 - **espessura**: 5
@@ -5776,7 +7279,8 @@
                   - **marcadores**: []
               - **cor**: #00E5FF
             - **[7]**:
-              - **id**: linha_10
+              - **id**: 8kvZVJW2QzC2n3
+              - **uid**: 8kvZVJW2QzC2n3
               - **linha**:
                 - **estilo**: TRACEJADO
                 - **espessura**: 5
@@ -5796,47 +7300,71 @@
                       - **rotulo**: C
               - **cor**: #00E5FF
             - **[8]**:
-              - **id**: master1
-              - **label**: 
+              - **id**: Iqacn5BbIeHWk9
+              - **uid**: Iqacn5BbIeHWk9
+              - **rotulo**: 
               - **circulo**:
                 - **x**: 284
                 - **y**: 1248
                 - **raio**: 27
               - **cor**: #FFD600
+              - **label**: 
           - **referencias**:
             - **[0]**:
-              - **ids**:
-                - linha_2
-                - linha_9
-                - linha_10
+              - **alvo_uid**: xL63RFAFiH1cCt
+              - **pontos_uids**:
+                - 3U1xMV1hDr2FtN
+                - 3lLONxHYDVabzD
+                - 8kvZVJW2QzC2n3
               - **escalada**: Atari
+              - **ids**:
+                - 3U1xMV1hDr2FtN
+                - 3lLONxHYDVabzD
+                - 8kvZVJW2QzC2n3
             - **[1]**:
-              - **ids**:
-                - linha_2
-                - linha_7
-                - linha_8
+              - **alvo_uid**: eeGIOqgQCtVtqW
+              - **pontos_uids**:
+                - 3U1xMV1hDr2FtN
+                - ULYhKCswkt7tOz
+                - nZw977PekLEm59
               - **escalada**: Projeto Igarapé
+              - **ids**:
+                - 3U1xMV1hDr2FtN
+                - ULYhKCswkt7tOz
+                - nZw977PekLEm59
             - **[2]**:
-              - **ids**:
-                - linha_5
-                - linha_8
-                - master2
-                - master1
+              - **alvo_uid**: h4PnFTagpsHZpB
+              - **pontos_uids**:
+                - Q8apI2RjUAnula
+                - nZw977PekLEm59
+                - 6A5nPuW5RHYy6h
+                - Iqacn5BbIeHWk9
               - **escalada**: Master System
-            - **[3]**:
               - **ids**:
-                - linha_2
-                - linha_9
-                - linha_1
+                - Q8apI2RjUAnula
+                - nZw977PekLEm59
+                - 6A5nPuW5RHYy6h
+                - Iqacn5BbIeHWk9
+            - **[3]**:
+              - **alvo_uid**: 95yqksfZ3WIflC
+              - **pontos_uids**:
+                - 3U1xMV1hDr2FtN
+                - 3lLONxHYDVabzD
+                - 7nFSCoZsYda0nZ
               - **escalada**: Mega drive
+              - **ids**:
+                - 3U1xMV1hDr2FtN
+                - 3lLONxHYDVabzD
+                - 7nFSCoZsYda0nZ
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_estacionamento_bloco_mega_drive_p1.webp)
           - **largura_mapa**: 1773
           - **altura_mapa**: 2364
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: linha_4
-              - **label**: 
+              - **id**: Ak8gIju2Ss3zzz
+              - **uid**: Ak8gIju2Ss3zzz
+              - **rotulo**: 
               - **linha**:
                 - **estilo**: TRACEJADO
                 - **espessura**: 5
@@ -5856,9 +7384,11 @@
                       - **rotulo**: 3
                       - **raio**: 24
               - **cor**: #00E5FF
-            - **[1]**:
-              - **id**: linha_6
               - **label**: 
+            - **[1]**:
+              - **id**: o1JJil8lMGPbIY
+              - **uid**: o1JJil8lMGPbIY
+              - **rotulo**: 
               - **linha**:
                 - **estilo**: TRACEJADO
                 - **espessura**: 5
@@ -5877,33 +7407,46 @@
                       - **angulo_graus_x100**: -10079
                       - **rotulo**: 1
               - **cor**: #00E5FF
-            - **[2]**:
-              - **id**: master1
               - **label**: 
+            - **[2]**:
+              - **id**: FPyqUxmgtaGlod
+              - **uid**: FPyqUxmgtaGlod
+              - **rotulo**: 
               - **circulo**:
                 - **x**: 696
                 - **y**: 1206
                 - **raio**: 28
               - **cor**: #FFD600
-            - **[3]**:
-              - **id**: master2
               - **label**: 
+            - **[3]**:
+              - **id**: ttaawpem2ChoyF
+              - **uid**: ttaawpem2ChoyF
+              - **rotulo**: 
               - **circulo**:
                 - **x**: 836
                 - **y**: 1142
                 - **raio**: 27
               - **cor**: #FFD600
+              - **label**: 
           - **referencias**:
             - **[0]**:
-              - **ids**:
-                - linha_4
+              - **alvo_uid**: baJERd9KO4QDMT
+              - **pontos_uids**:
+                - Ak8gIju2Ss3zzz
               - **escalada**: Sem Nome 25
-            - **[1]**:
               - **ids**:
-                - linha_6
-                - master2
-                - master1
+                - Ak8gIju2Ss3zzz
+            - **[1]**:
+              - **alvo_uid**: h4PnFTagpsHZpB
+              - **pontos_uids**:
+                - o1JJil8lMGPbIY
+                - ttaawpem2ChoyF
+                - FPyqUxmgtaGlod
               - **escalada**: Master System
+              - **ids**:
+                - o1JJil8lMGPbIY
+                - ttaawpem2ChoyF
+                - FPyqUxmgtaGlod
       - **precomputados**:
         - **total_escaladas**: 5
         - **total_boulders**: 5
@@ -5919,52 +7462,65 @@
 
 - **descricao**: Veja a trilha para chegar ao setor no Wikiloc: https://loc.wiki/t/169742661?wa=sc
 - **nome**: Bloco Fugitivos I
+- **uid**: 7TPrkAyBIkfebu
 - **escaladas**:
   - **[0]**:
+    - **uid**: ylP5dyJeN3B2O3
     - **boulder**:
       - **nome**: Polydance
       - **dificuldade**: V4
   - **[1]**:
+    - **uid**: 4Fg4D2G7fatIQu
     - **boulder**:
       - **nome**: Bigdance
       - **dificuldade**: V5_BARRA_V6
   - **[2]**:
+    - **uid**: 5UWi9FU93v9Wn7
     - **boulder**:
       - **nome**: Boulder do Bola
       - **dificuldade**: V5
   - **[3]**:
+    - **uid**: f21zxSYALzzqd4
     - **boulder**:
       - **nome**: Trolls
       - **dificuldade**: V1
   - **[4]**:
+    - **uid**: JRWNVEWv9PW7cT
     - **boulder**:
       - **nome**: Calcinha Larga
       - **dificuldade**: V2_BARRA_V3
   - **[5]**:
+    - **uid**: DR9Kr2iM95wsLA
     - **boulder**:
       - **nome**: Tanga Frouxa
       - **dificuldade**: V2
   - **[6]**:
+    - **uid**: dVJ3EOevp6RUsJ
     - **boulder**:
       - **nome**: Barriga de Aluguel
       - **dificuldade**: V5
   - **[7]**:
+    - **uid**: OM7GKqux35ulMX
     - **boulder**:
       - **nome**: Primeiro de todos
       - **dificuldade**: V1
   - **[8]**:
+    - **uid**: pWxY9RRKmbZAD1
     - **boulder**:
       - **nome**: Sem nome 18
       - **dificuldade**: V0
   - **[9]**:
+    - **uid**: 4BYQJGarCXVMZm
     - **boulder**:
       - **nome**: Bananinha
       - **dificuldade**: V1
   - **[10]**:
+    - **uid**: xeGaxvtdw12rIT
     - **boulder**:
       - **nome**: Cactos kid
       - **dificuldade**: V2
   - **[11]**:
+    - **uid**: lwQFVyVhn6goph
     - **boulder**:
       - **nome**: Quem vai primeiro
       - **dificuldade**: V1
@@ -5975,8 +7531,9 @@
     - **altura_mapa**: 1577
     - **pontos_de_interesse**:
       - **[0]**:
-        - **id**: 2
-        - **label**: 2
+        - **id**: 29CR0yWUubJgsh
+        - **uid**: 29CR0yWUubJgsh
+        - **rotulo**: 2
         - **linha**:
           - **estilo**: TRACEJADO
           - **espessura**: 3
@@ -6001,9 +7558,11 @@
                 - **angulo_graus_x100**: -8663
                 - **rotulo**: B
         - **cor**: #FFD600
+        - **label**: 2
       - **[1]**:
-        - **id**: 3
-        - **label**: 3
+        - **id**: 889TBw74ifLuxF
+        - **uid**: 889TBw74ifLuxF
+        - **rotulo**: 3
         - **linha**:
           - **estilo**: TRACEJADO
           - **espessura**: 3
@@ -6022,9 +7581,11 @@
                 - **angulo_graus_x100**: -6210
                 - **rotulo**: 3
         - **cor**: #FFD600
+        - **label**: 3
       - **[2]**:
-        - **id**: 4
-        - **label**: 4
+        - **id**: THBRLUul62myxD
+        - **uid**: THBRLUul62myxD
+        - **rotulo**: 4
         - **linha**:
           - **estilo**: TRACEJADO
           - **espessura**: 3
@@ -6043,9 +7604,11 @@
                 - **angulo_graus_x100**: -6673
                 - **rotulo**: 4
         - **cor**: #FFD600
+        - **label**: 4
       - **[3]**:
-        - **id**: 5
-        - **label**: 5
+        - **id**: Dj12Nq8fQktwyt
+        - **uid**: Dj12Nq8fQktwyt
+        - **rotulo**: 5
         - **linha**:
           - **estilo**: TRACEJADO
           - **espessura**: 3
@@ -6064,9 +7627,11 @@
                 - **angulo_graus_x100**: 15543
                 - **rotulo**: 5
         - **cor**: #FFD600
+        - **label**: 5
       - **[4]**:
-        - **id**: X
-        - **label**: X
+        - **id**: c6VFijpXyPqMOR
+        - **uid**: c6VFijpXyPqMOR
+        - **rotulo**: X
         - **linha**:
           - **estilo**: TRACEJADO
           - **espessura**: 3
@@ -6079,9 +7644,11 @@
               - **largura**: 126
             - **marcadores**: []
         - **cor**: #FFD600
+        - **label**: X
       - **[5]**:
-        - **id**: ▲
-        - **label**: ▲
+        - **id**: IpevDPdsnVHfkx
+        - **uid**: IpevDPdsnVHfkx
+        - **rotulo**: ▲
         - **linha**:
           - **estilo**: TRACEJADO
           - **espessura**: 3
@@ -6101,9 +7668,11 @@
                 - **rotulo**: ▲
                 - **raio**: 14
         - **cor**: #FFD600
+        - **label**: ▲
       - **[6]**:
-        - **id**: D
-        - **label**: D
+        - **id**: kp1FBa7XztavAz
+        - **uid**: kp1FBa7XztavAz
+        - **rotulo**: D
         - **linha**:
           - **estilo**: TRACEJADO
           - **espessura**: 3
@@ -6122,9 +7691,11 @@
                 - **angulo_graus_x100**: -12317
                 - **rotulo**: C
         - **cor**: #FFD600
+        - **label**: D
       - **[7]**:
-        - **id**: linha_1
-        - **label**: 
+        - **id**: eyMQLEIXumeXrC
+        - **uid**: eyMQLEIXumeXrC
+        - **rotulo**: 
         - **linha**:
           - **estilo**: TRACEJADO
           - **espessura**: 3
@@ -6143,9 +7714,11 @@
                 - **angulo_graus_x100**: 1759
                 - **rotulo**: 1
         - **cor**: #FFD600
-      - **[8]**:
-        - **id**: linha_10
         - **label**: 
+      - **[8]**:
+        - **id**: Jfeu3ieoYdblPv
+        - **uid**: Jfeu3ieoYdblPv
+        - **rotulo**: 
         - **linha**:
           - **estilo**: TRACEJADO
           - **espessura**: 3
@@ -6164,9 +7737,11 @@
                 - **angulo_graus_x100**: -9310
                 - **rotulo**: A
         - **cor**: #FFD600
+        - **label**: 
       - **[9]**:
-        - **id**: linha_7
-        - **label**: d
+        - **id**: 2S8qvQRGUah2OE
+        - **uid**: 2S8qvQRGUah2OE
+        - **rotulo**: d
         - **linha**:
           - **estilo**: TRACEJADO
           - **espessura**: 3
@@ -6179,9 +7754,11 @@
               - **largura**: 322
             - **marcadores**: []
         - **cor**: #FFD600
-      - **[10]**:
-        - **id**: linha_14
         - **label**: d
+      - **[10]**:
+        - **id**: 3rqfVJ0dJgmYpW
+        - **uid**: 3rqfVJ0dJgmYpW
+        - **rotulo**: d
         - **linha**:
           - **estilo**: TRACEJADO
           - **espessura**: 3
@@ -6200,53 +7777,86 @@
                 - **angulo_graus_x100**: -7439
                 - **rotulo**: D
         - **cor**: #FFD600
+        - **label**: d
     - **referencias**:
       - **[0]**:
-        - **ids**:
-          - 5
-          - ▲
-          - D
+        - **alvo_uid**: ylP5dyJeN3B2O3
+        - **pontos_uids**:
+          - Dj12Nq8fQktwyt
+          - IpevDPdsnVHfkx
+          - kp1FBa7XztavAz
         - **escalada**: Polydance
+        - **ids**:
+          - Dj12Nq8fQktwyt
+          - IpevDPdsnVHfkx
+          - kp1FBa7XztavAz
       - **[1]**:
-        - **ids**:
-          - 5
-          - linha_10
-          - X
+        - **alvo_uid**: 4Fg4D2G7fatIQu
+        - **pontos_uids**:
+          - Dj12Nq8fQktwyt
+          - Jfeu3ieoYdblPv
+          - c6VFijpXyPqMOR
         - **escalada**: Bigdance
+        - **ids**:
+          - Dj12Nq8fQktwyt
+          - Jfeu3ieoYdblPv
+          - c6VFijpXyPqMOR
       - **[2]**:
-        - **ids**:
-          - 3
-          - ▲
-          - linha_7
-          - linha_14
+        - **alvo_uid**: 5UWi9FU93v9Wn7
+        - **pontos_uids**:
+          - 889TBw74ifLuxF
+          - IpevDPdsnVHfkx
+          - 2S8qvQRGUah2OE
+          - 3rqfVJ0dJgmYpW
         - **escalada**: Boulder do Bola
+        - **ids**:
+          - 889TBw74ifLuxF
+          - IpevDPdsnVHfkx
+          - 2S8qvQRGUah2OE
+          - 3rqfVJ0dJgmYpW
       - **[3]**:
-        - **ids**:
-          - 4
-          - linha_14
+        - **alvo_uid**: f21zxSYALzzqd4
+        - **pontos_uids**:
+          - THBRLUul62myxD
+          - 3rqfVJ0dJgmYpW
         - **escalada**: Trolls
+        - **ids**:
+          - THBRLUul62myxD
+          - 3rqfVJ0dJgmYpW
       - **[4]**:
-        - **ids**:
-          - 3
-          - D
+        - **alvo_uid**: JRWNVEWv9PW7cT
+        - **pontos_uids**:
+          - 889TBw74ifLuxF
+          - kp1FBa7XztavAz
         - **escalada**: Calcinha Larga
+        - **ids**:
+          - 889TBw74ifLuxF
+          - kp1FBa7XztavAz
       - **[5]**:
-        - **ids**:
-          - 2
+        - **alvo_uid**: DR9Kr2iM95wsLA
+        - **pontos_uids**:
+          - 29CR0yWUubJgsh
         - **escalada**: Tanga Frouxa
-      - **[6]**:
         - **ids**:
-          - linha_1
-          - linha_10
+          - 29CR0yWUubJgsh
+      - **[6]**:
+        - **alvo_uid**: dVJ3EOevp6RUsJ
+        - **pontos_uids**:
+          - eyMQLEIXumeXrC
+          - Jfeu3ieoYdblPv
         - **escalada**: Barriga de Aluguel
+        - **ids**:
+          - eyMQLEIXumeXrC
+          - Jfeu3ieoYdblPv
   - **[1]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_fugitivos_i_p1.webp)
     - **largura_mapa**: 1280
     - **altura_mapa**: 960
     - **pontos_de_interesse**:
       - **[0]**:
-        - **id**: linha_3
-        - **label**: 
+        - **id**: Qg3SyAyd6Yylso
+        - **uid**: Qg3SyAyd6Yylso
+        - **rotulo**: 
         - **linha**:
           - **estilo**: TRACEJADO
           - **espessura**: 3
@@ -6273,9 +7883,11 @@
                 - **rotulo**: E
                 - **raio**: 14
         - **cor**: #FFD600
-      - **[1]**:
-        - **id**: linha_4
         - **label**: 
+      - **[1]**:
+        - **id**: r1RWbYxbGxNh4q
+        - **uid**: r1RWbYxbGxNh4q
+        - **rotulo**: 
         - **linha**:
           - **estilo**: TRACEJADO
           - **espessura**: 3
@@ -6302,8 +7914,10 @@
                 - **rotulo**: F
                 - **raio**: 14
         - **cor**: #FFD600
+        - **label**: 
       - **[2]**:
-        - **id**: linha_8
+        - **id**: cxHVpp0pV2HDdc
+        - **uid**: cxHVpp0pV2HDdc
         - **linha**:
           - **estilo**: TRACEJADO
           - **espessura**: 3
@@ -6324,7 +7938,9 @@
                 - **raio**: 14
         - **cor**: #FFD600
       - **[3]**:
-        - **id**: linha_11
+        - **id**: 6AXDXEHiYZDc39
+        - **uid**: 6AXDXEHiYZDc39
+        - **rotulo**: 
         - **linha**:
           - **estilo**: TRACEJADO
           - **espessura**: 3
@@ -6346,7 +7962,8 @@
         - **cor**: #FFD600
         - **label**: 
       - **[4]**:
-        - **id**: linha_13
+        - **id**: UqW5Vdic5cdh5s
+        - **uid**: UqW5Vdic5cdh5s
         - **linha**:
           - **estilo**: TRACEJADO
           - **espessura**: 3
@@ -6367,7 +7984,8 @@
                 - **raio**: 14
         - **cor**: #FFD600
       - **[5]**:
-        - **id**: linha_15
+        - **id**: Cm7tY17wrZK3Wp
+        - **uid**: Cm7tY17wrZK3Wp
         - **linha**:
           - **estilo**: TRACEJADO
           - **espessura**: 3
@@ -6381,7 +7999,8 @@
             - **marcadores**: []
         - **cor**: #FFD600
       - **[6]**:
-        - **id**: linha_16
+        - **id**: o2IkqfXURRXDw3
+        - **uid**: o2IkqfXURRXDw3
         - **linha**:
           - **estilo**: TRACEJADO
           - **espessura**: 3
@@ -6395,7 +8014,8 @@
             - **marcadores**: []
         - **cor**: #FFD600
       - **[7]**:
-        - **id**: linha_17
+        - **id**: OTcUfRsFOnjDk0
+        - **uid**: OTcUfRsFOnjDk0
         - **linha**:
           - **estilo**: TRACEJADO
           - **espessura**: 3
@@ -6409,8 +8029,9 @@
             - **marcadores**: []
         - **cor**: #FFD600
       - **[8]**:
-        - **id**: linha_12
-        - **label**: 
+        - **id**: ZnUSwyudUfVn2U
+        - **uid**: ZnUSwyudUfVn2U
+        - **rotulo**: 
         - **linha**:
           - **estilo**: TRACEJADO
           - **espessura**: 3
@@ -6430,8 +8051,10 @@
                 - **rotulo**: 5
                 - **raio**: 14
         - **cor**: #FFD600
+        - **label**: 
       - **[9]**:
-        - **id**: linha_19
+        - **id**: d0kTCKro3sfCw0
+        - **uid**: d0kTCKro3sfCw0
         - **linha**:
           - **estilo**: TRACEJADO
           - **espessura**: 3
@@ -6445,8 +8068,9 @@
             - **marcadores**: []
         - **cor**: #FFD600
       - **[10]**:
-        - **id**: linha_9
-        - **label**: 
+        - **id**: 2gzP6aTpHqJ8KN
+        - **uid**: 2gzP6aTpHqJ8KN
+        - **rotulo**: 
         - **linha**:
           - **estilo**: TRACEJADO
           - **espessura**: 3
@@ -6459,9 +8083,11 @@
               - **largura**: 7
             - **marcadores**: []
         - **cor**: #FFD600
-      - **[11]**:
-        - **id**: linha_50
         - **label**: 
+      - **[11]**:
+        - **id**: O4g3rMMzncA2s1
+        - **uid**: O4g3rMMzncA2s1
+        - **rotulo**: 
         - **linha**:
           - **estilo**: TRACEJADO
           - **espessura**: 3
@@ -6481,8 +8107,10 @@
                 - **rotulo**: A
                 - **raio**: 14
         - **cor**: #FFD600
+        - **label**: 
       - **[12]**:
-        - **id**: linha_18
+        - **id**: 87JwkW3LS5NWd2
+        - **uid**: 87JwkW3LS5NWd2
         - **linha**:
           - **estilo**: TRACEJADO
           - **espessura**: 3
@@ -6496,7 +8124,8 @@
             - **marcadores**: []
         - **cor**: #FFD600
       - **[13]**:
-        - **id**: linha_21
+        - **id**: UUTTGa1l6VaHjj
+        - **uid**: UUTTGa1l6VaHjj
         - **linha**:
           - **estilo**: TRACEJADO
           - **espessura**: 3
@@ -6518,57 +8147,95 @@
         - **cor**: #FFD600
     - **referencias**:
       - **[0]**:
-        - **ids**:
-          - linha_3
+        - **alvo_uid**: OM7GKqux35ulMX
+        - **pontos_uids**:
+          - Qg3SyAyd6Yylso
         - **escalada**: Primeiro de todos
+        - **ids**:
+          - Qg3SyAyd6Yylso
       - **[1]**:
-        - **ids**:
-          - linha_4
+        - **alvo_uid**: pWxY9RRKmbZAD1
+        - **pontos_uids**:
+          - r1RWbYxbGxNh4q
         - **escalada**: Sem nome 18
+        - **ids**:
+          - r1RWbYxbGxNh4q
       - **[2]**:
-        - **ids**:
-          - linha_8
-          - linha_19
-          - linha_18
-          - linha_21
+        - **alvo_uid**: JRWNVEWv9PW7cT
+        - **pontos_uids**:
+          - cxHVpp0pV2HDdc
+          - d0kTCKro3sfCw0
+          - 87JwkW3LS5NWd2
+          - UUTTGa1l6VaHjj
         - **escalada**: Calcinha Larga
+        - **ids**:
+          - cxHVpp0pV2HDdc
+          - d0kTCKro3sfCw0
+          - 87JwkW3LS5NWd2
+          - UUTTGa1l6VaHjj
       - **[3]**:
-        - **ids**:
-          - linha_8
-          - linha_15
-          - linha_16
-          - linha_17
-          - linha_13
+        - **alvo_uid**: 5UWi9FU93v9Wn7
+        - **pontos_uids**:
+          - cxHVpp0pV2HDdc
+          - Cm7tY17wrZK3Wp
+          - o2IkqfXURRXDw3
+          - OTcUfRsFOnjDk0
+          - UqW5Vdic5cdh5s
         - **escalada**: Boulder do Bola
+        - **ids**:
+          - cxHVpp0pV2HDdc
+          - Cm7tY17wrZK3Wp
+          - o2IkqfXURRXDw3
+          - OTcUfRsFOnjDk0
+          - UqW5Vdic5cdh5s
       - **[4]**:
-        - **ids**:
-          - linha_11
-          - linha_13
+        - **alvo_uid**: f21zxSYALzzqd4
+        - **pontos_uids**:
+          - 6AXDXEHiYZDc39
+          - UqW5Vdic5cdh5s
         - **escalada**: Trolls
+        - **ids**:
+          - 6AXDXEHiYZDc39
+          - UqW5Vdic5cdh5s
       - **[5]**:
-        - **ids**:
-          - linha_12
-          - linha_16
-          - linha_9
-          - linha_18
-          - linha_21
+        - **alvo_uid**: ylP5dyJeN3B2O3
+        - **pontos_uids**:
+          - ZnUSwyudUfVn2U
+          - o2IkqfXURRXDw3
+          - 2gzP6aTpHqJ8KN
+          - 87JwkW3LS5NWd2
+          - UUTTGa1l6VaHjj
         - **escalada**: Polydance
-      - **[6]**:
         - **ids**:
-          - linha_12
-          - linha_16
-          - linha_9
-          - linha_50
-          - linha_18
+          - ZnUSwyudUfVn2U
+          - o2IkqfXURRXDw3
+          - 2gzP6aTpHqJ8KN
+          - 87JwkW3LS5NWd2
+          - UUTTGa1l6VaHjj
+      - **[6]**:
+        - **alvo_uid**: 4Fg4D2G7fatIQu
+        - **pontos_uids**:
+          - ZnUSwyudUfVn2U
+          - o2IkqfXURRXDw3
+          - 2gzP6aTpHqJ8KN
+          - O4g3rMMzncA2s1
+          - 87JwkW3LS5NWd2
         - **escalada**: Bigdance
+        - **ids**:
+          - ZnUSwyudUfVn2U
+          - o2IkqfXURRXDw3
+          - 2gzP6aTpHqJ8KN
+          - O4g3rMMzncA2s1
+          - 87JwkW3LS5NWd2
   - **[2]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_fugitivos_i_p2.webp)
     - **largura_mapa**: 1280
     - **altura_mapa**: 960
     - **pontos_de_interesse**:
       - **[0]**:
-        - **id**: linha_2
-        - **label**: 
+        - **id**: TDHfBQNHVuOQU5
+        - **uid**: TDHfBQNHVuOQU5
+        - **rotulo**: 
         - **linha**:
           - **estilo**: TRACEJADO
           - **espessura**: 3
@@ -6595,19 +8262,24 @@
                 - **rotulo**: A
                 - **raio**: 14
         - **cor**: #FFD600
+        - **label**: 
     - **referencias**:
       - **[0]**:
-        - **ids**:
-          - linha_2
+        - **alvo_uid**: dVJ3EOevp6RUsJ
+        - **pontos_uids**:
+          - TDHfBQNHVuOQU5
         - **escalada**: Barriga de Aluguel
+        - **ids**:
+          - TDHfBQNHVuOQU5
   - **[3]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_fugitivos_i_p3.webp)
     - **largura_mapa**: 960
     - **altura_mapa**: 1280
     - **pontos_de_interesse**:
       - **[0]**:
-        - **id**: linha_5
-        - **label**: 
+        - **id**: GP83pY4VtyA1QX
+        - **uid**: GP83pY4VtyA1QX
+        - **rotulo**: 
         - **linha**:
           - **estilo**: TRACEJADO
           - **espessura**: 3
@@ -6626,9 +8298,11 @@
                 - **angulo_graus_x100**: -10777
                 - **rotulo**: 7
         - **cor**: #FFD600
-      - **[1]**:
-        - **id**: linha_6
         - **label**: 
+      - **[1]**:
+        - **id**: r6ErvxZMGWC1bX
+        - **uid**: r6ErvxZMGWC1bX
+        - **rotulo**: 
         - **linha**:
           - **estilo**: TRACEJADO
           - **espessura**: 3
@@ -6647,23 +8321,31 @@
                 - **angulo_graus_x100**: -7794
                 - **rotulo**: 8
         - **cor**: #FFD600
+        - **label**: 
     - **referencias**:
       - **[0]**:
-        - **ids**:
-          - linha_5
+        - **alvo_uid**: 4BYQJGarCXVMZm
+        - **pontos_uids**:
+          - GP83pY4VtyA1QX
         - **escalada**: Bananinha
-      - **[1]**:
         - **ids**:
-          - linha_6
+          - GP83pY4VtyA1QX
+      - **[1]**:
+        - **alvo_uid**: xeGaxvtdw12rIT
+        - **pontos_uids**:
+          - r6ErvxZMGWC1bX
         - **escalada**: Cactos kid
+        - **ids**:
+          - r6ErvxZMGWC1bX
   - **[4]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_bloco_fugitivos_i_p4.webp)
     - **largura_mapa**: 1824
     - **altura_mapa**: 1376
     - **pontos_de_interesse**:
       - **[0]**:
-        - **id**: linha_20
-        - **label**: 
+        - **id**: BYw7OkD4pwJDY0
+        - **uid**: BYw7OkD4pwJDY0
+        - **rotulo**: 
         - **linha**:
           - **estilo**: TRACEJADO
           - **espessura**: 4
@@ -6683,11 +8365,15 @@
                 - **rotulo**: 9
                 - **raio**: 21
         - **cor**: #FFD600
+        - **label**: 
     - **referencias**:
       - **[0]**:
-        - **ids**:
-          - linha_20
+        - **alvo_uid**: lwQFVyVhn6goph
+        - **pontos_uids**:
+          - BYw7OkD4pwJDY0
         - **escalada**: Quem vai primeiro
+        - **ids**:
+          - BYw7OkD4pwJDY0
 - **precomputados**:
   - **total_escaladas**: 12
   - **total_boulders**: 12
@@ -6702,45 +8388,55 @@
     
     O bloco Viva o Climb fica entre os blocos Fugitivos I e Fugitivos II.
 - **nome**: Bloco Viva o Climb
+- **uid**: xNOT4evG3tUx7A
 - **escaladas**:
   - **[0]**:
+    - **uid**: 127Y7Onh5dlHIa
     - **boulder**:
       - **nome**: Viva o climb
       - **dificuldade**: V6
   - **[1]**:
+    - **uid**: 9FOTxju26napvJ
     - **boulder**:
       - **descricao**: Saindo em pé com as mãos abertas
       - **nome**: Pérola negra
       - **dificuldade**: V11
   - **[2]**:
+    - **uid**: FWKMVo2XPTCgfu
     - **boulder**:
       - **descricao**: Projeto, sem FA, talvez V12.
       - **nome**: Pérola negra SDS
       - **dificuldade**: INDEFINIDO
   - **[3]**:
+    - **uid**: KCXMeslMlcq19N
     - **boulder**:
       - **nome**: Sem nome 19
       - **dificuldade**: V3
   - **[4]**:
+    - **uid**: uGvMvqInmren8X
     - **boulder**:
       - **descricao**: Crux duro e toca pra esquerda
       - **nome**: Malandro não para
       - **dificuldade**: V10
   - **[5]**:
+    - **uid**: yl2Y3f1sAKWJTm
     - **boulder**:
       - **descricao**: Mesma saída do Malandro não para, mas toca reto
       - **nome**: Malandragem
       - **dificuldade**: V8_BARRA_V9
   - **[6]**:
+    - **uid**: JMLOmX3AdUsyoc
     - **boulder**:
       - **descricao**: Sai com as mãos bem abertas na esquerda e direita
       - **nome**: Abraca
       - **dificuldade**: V5
   - **[7]**:
+    - **uid**: 6SDz8FjKJeVrFC
     - **boulder**:
       - **nome**: Pica fumo
       - **dificuldade**: V5
   - **[8]**:
+    - **uid**: fBgahsaPkfJt64
     - **boulder**:
       - **nome**: Mad max
       - **dificuldade**: V8
@@ -6751,8 +8447,9 @@
     - **altura_mapa**: 2364
     - **pontos_de_interesse**:
       - **[0]**:
-        - **id**: linha_1
-        - **label**: 
+        - **id**: 26iFohS5VSQkiP
+        - **uid**: 26iFohS5VSQkiP
+        - **rotulo**: 
         - **linha**:
           - **estilo**: TRACEJADO
           - **espessura**: 5
@@ -6772,19 +8469,24 @@
                 - **rotulo**: 1
                 - **raio**: 26
         - **cor**: #FFD600
+        - **label**: 
     - **referencias**:
       - **[0]**:
-        - **ids**:
-          - linha_1
+        - **alvo_uid**: 127Y7Onh5dlHIa
+        - **pontos_uids**:
+          - 26iFohS5VSQkiP
         - **escalada**: Viva o climb
+        - **ids**:
+          - 26iFohS5VSQkiP
   - **[1]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_viva_o_climb_p1.webp)
     - **largura_mapa**: 1773
     - **altura_mapa**: 2364
     - **pontos_de_interesse**:
       - **[0]**:
-        - **id**: linha_2
-        - **label**: 
+        - **id**: UvGNl07TSBGzV1
+        - **uid**: UvGNl07TSBGzV1
+        - **rotulo**: 
         - **linha**:
           - **estilo**: TRACEJADO
           - **espessura**: 5
@@ -6811,9 +8513,11 @@
                 - **rotulo**: A
                 - **raio**: 24
         - **cor**: #FFD600
-      - **[1]**:
-        - **id**: linha_3
         - **label**: 
+      - **[1]**:
+        - **id**: ZCYntgQ6VMC1FS
+        - **uid**: ZCYntgQ6VMC1FS
+        - **rotulo**: 
         - **linha**:
           - **estilo**: TRACEJADO
           - **espessura**: 5
@@ -6833,9 +8537,11 @@
                 - **rotulo**: 3
                 - **raio**: 24
         - **cor**: #FFD600
-      - **[2]**:
-        - **id**: linha_4
         - **label**: 
+      - **[2]**:
+        - **id**: Lwogd7HmsT36NC
+        - **uid**: Lwogd7HmsT36NC
+        - **rotulo**: 
         - **linha**:
           - **estilo**: TRACEJADO
           - **espessura**: 5
@@ -6862,8 +8568,10 @@
                 - **rotulo**: B
                 - **raio**: 24
         - **cor**: #FFD600
+        - **label**: 
       - **[3]**:
-        - **id**: linha_6
+        - **id**: CsBsRmPha9utR8
+        - **uid**: CsBsRmPha9utR8
         - **linha**:
           - **estilo**: TRACEJADO
           - **espessura**: 5
@@ -6884,7 +8592,8 @@
                 - **raio**: 24
         - **cor**: #FFD600
       - **[4]**:
-        - **id**: linha_7
+        - **id**: SxNPSahI02iZag
+        - **uid**: SxNPSahI02iZag
         - **linha**:
           - **estilo**: TRACEJADO
           - **espessura**: 5
@@ -6905,8 +8614,9 @@
                 - **raio**: 24
         - **cor**: #FFD600
       - **[5]**:
-        - **id**: linha_5
-        - **label**: 
+        - **id**: aLiU7BOMR2xyly
+        - **uid**: aLiU7BOMR2xyly
+        - **rotulo**: 
         - **linha**:
           - **estilo**: TRACEJADO
           - **espessura**: 5
@@ -6926,38 +8636,58 @@
                 - **rotulo**: D
                 - **raio**: 24
         - **cor**: #FFD600
+        - **label**: 
     - **referencias**:
       - **[0]**:
-        - **ids**:
-          - linha_2
+        - **alvo_uid**: 9FOTxju26napvJ
+        - **pontos_uids**:
+          - UvGNl07TSBGzV1
         - **escalada**: Pérola negra
+        - **ids**:
+          - UvGNl07TSBGzV1
       - **[1]**:
-        - **ids**:
-          - linha_3
-          - linha_2
+        - **alvo_uid**: FWKMVo2XPTCgfu
+        - **pontos_uids**:
+          - ZCYntgQ6VMC1FS
+          - UvGNl07TSBGzV1
         - **escalada**: Pérola negra SDS
+        - **ids**:
+          - ZCYntgQ6VMC1FS
+          - UvGNl07TSBGzV1
       - **[2]**:
-        - **ids**:
-          - linha_4
+        - **alvo_uid**: KCXMeslMlcq19N
+        - **pontos_uids**:
+          - Lwogd7HmsT36NC
         - **escalada**: Sem nome 19
+        - **ids**:
+          - Lwogd7HmsT36NC
       - **[3]**:
-        - **ids**:
-          - linha_6
-          - linha_7
+        - **alvo_uid**: uGvMvqInmren8X
+        - **pontos_uids**:
+          - CsBsRmPha9utR8
+          - SxNPSahI02iZag
         - **escalada**: Malandro não para
-      - **[4]**:
         - **ids**:
-          - linha_6
-          - linha_5
+          - CsBsRmPha9utR8
+          - SxNPSahI02iZag
+      - **[4]**:
+        - **alvo_uid**: yl2Y3f1sAKWJTm
+        - **pontos_uids**:
+          - CsBsRmPha9utR8
+          - aLiU7BOMR2xyly
         - **escalada**: Malandragem
+        - **ids**:
+          - CsBsRmPha9utR8
+          - aLiU7BOMR2xyly
   - **[2]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_viva_o_climb_p2.webp)
     - **largura_mapa**: 1773
     - **altura_mapa**: 2364
     - **pontos_de_interesse**:
       - **[0]**:
-        - **id**: linha_10
-        - **label**: 
+        - **id**: wlS4znO71NbnJU
+        - **uid**: wlS4znO71NbnJU
+        - **rotulo**: 
         - **linha**:
           - **estilo**: TRACEJADO
           - **espessura**: 5
@@ -6977,20 +8707,24 @@
                 - **rotulo**: 6
                 - **raio**: 24
         - **cor**: #FFD600
+        - **label**: 
     - **referencias**:
       - **[0]**:
-        - **ids**:
-          - linha_10
+        - **alvo_uid**: fBgahsaPkfJt64
+        - **pontos_uids**:
+          - wlS4znO71NbnJU
         - **escalada**: Mad max
-        - **setor**: Bloco Viva o Climb
+        - **ids**:
+          - wlS4znO71NbnJU
   - **[3]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_viva_o_climb_p3.webp)
     - **largura_mapa**: 960
     - **altura_mapa**: 1280
     - **pontos_de_interesse**:
       - **[0]**:
-        - **id**: linha_8
-        - **label**: 
+        - **id**: mElKIE2yRagjoF
+        - **uid**: mElKIE2yRagjoF
+        - **rotulo**: 
         - **linha**:
           - **estilo**: TRACEJADO
           - **espessura**: 3
@@ -7010,37 +8744,48 @@
                 - **rotulo**: 7
                 - **raio**: 17
         - **cor**: #FFD600
-      - **[1]**:
-        - **id**: sai1
         - **label**: 
+      - **[1]**:
+        - **id**: 4asD6mDT2oKDy1
+        - **uid**: 4asD6mDT2oKDy1
+        - **rotulo**: 
         - **circulo**:
           - **x**: 532
           - **y**: 849
           - **raio**: 34
         - **cor**: #FFD600
-      - **[2]**:
-        - **id**: sai2
         - **label**: 
+      - **[2]**:
+        - **id**: AhwnZFJqgSfXtQ
+        - **uid**: AhwnZFJqgSfXtQ
+        - **rotulo**: 
         - **circulo**:
           - **x**: 790
           - **y**: 759
           - **raio**: 31
         - **cor**: #FFD600
+        - **label**: 
     - **referencias**:
       - **[0]**:
-        - **ids**:
-          - linha_8
-          - sai2
-          - sai1
+        - **alvo_uid**: JMLOmX3AdUsyoc
+        - **pontos_uids**:
+          - mElKIE2yRagjoF
+          - AhwnZFJqgSfXtQ
+          - 4asD6mDT2oKDy1
         - **escalada**: Abraca
+        - **ids**:
+          - mElKIE2yRagjoF
+          - AhwnZFJqgSfXtQ
+          - 4asD6mDT2oKDy1
   - **[4]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_viva_o_climb_p4.webp)
     - **largura_mapa**: 960
     - **altura_mapa**: 1280
     - **pontos_de_interesse**:
       - **[0]**:
-        - **id**: linha_9
-        - **label**: 
+        - **id**: dyxaEUtJO3gkFp
+        - **uid**: dyxaEUtJO3gkFp
+        - **rotulo**: 
         - **linha**:
           - **estilo**: TRACEJADO
           - **espessura**: 3
@@ -7060,11 +8805,15 @@
                 - **rotulo**: 8
                 - **raio**: 17
         - **cor**: #FFD600
+        - **label**: 
     - **referencias**:
       - **[0]**:
-        - **ids**:
-          - linha_9
+        - **alvo_uid**: 6SDz8FjKJeVrFC
+        - **pontos_uids**:
+          - dyxaEUtJO3gkFp
         - **escalada**: Pica fumo
+        - **ids**:
+          - dyxaEUtJO3gkFp
 - **precomputados**:
   - **total_escaladas**: 9
   - **total_boulders**: 9
@@ -7076,66 +8825,80 @@
 
 - **descricao**: Veja a trilha para chegar ao setor no Wikiloc: https://loc.wiki/t/169742661?wa=sc
 - **nome**: Bloco Fugitivos II
+- **uid**: jPzv6byW0dO0Gj
 - **escaladas**:
   - **[0]**:
+    - **uid**: 8r0NgWYmApDTKh
     - **boulder**:
       - **descricao**: Escala a face fendilhada
       - **nome**: Olha a Jaca
       - **dificuldade**: V7
   - **[1]**:
+    - **uid**: TT5jscP5lXr9jv
     - **boulder**:
       - **descricao**: Olha a Jaca no Low rider
       - **nome**: Olha o Rider
       - **dificuldade**: V6_BARRA_V7
   - **[2]**:
+    - **uid**: GtV1xXFHyjL2e1
     - **boulder**:
       - **descricao**: Sai da invertida e escala a diagonal para a esquerda
       - **nome**: Low Rider
       - **dificuldade**: V7_BARRA_V8
   - **[3]**:
+    - **uid**: 86nFPbmZHTbTYz
     - **boulder**:
       - **descricao**: Low Rider finalizando no Fugitivos
       - **nome**: Easy Rider
       - **dificuldade**: V8
   - **[4]**:
+    - **uid**: dLvFTaSbTEvo1x
     - **boulder**:
       - **descricao**: Fugitivos finalizando no Low Rider
       - **nome**: Big Rider
       - **dificuldade**: V9_BARRA_V10
   - **[5]**:
+    - **uid**: 8bY2zKcMz4Rkl6
     - **boulder**:
       - **descricao**: Saída sentada abaixo da pedra e escala para a esquerda, dominando em cima da pedra
       - **nome**: Fugitivos
       - **dificuldade**: V7
   - **[6]**:
+    - **uid**: ILJ785LLhC7IEo
     - **boulder**:
       - **descricao**: Escala a face negativa à direita do bloco, iniciando igual ao Fugitivos
       - **nome**: Igarapedra
       - **dificuldade**: V10_BARRA_V11
   - **[7]**:
+    - **uid**: iLwqTfjvxeqmQK
     - **boulder**:
       - **descricao**: Travessia pelas agarras baixas virando na extrema direita do bloco
       - **nome**: Trombose
       - **dificuldade**: V8_BARRA_V9
   - **[8]**:
+    - **uid**: woERfweaFycFQA
     - **boulder**:
       - **descricao**: Sai do Olha a Jaca e vira no Audácia, travessia por cima
       - **nome**: Corrida do Ouro
       - **dificuldade**: V6
   - **[9]**:
+    - **uid**: tS7TrVU7B8E10y
     - **boulder**:
       - **descricao**: Saída em pé em regletes e escala reto
       - **nome**: Audácia
       - **dificuldade**: V8_BARRA_V9
   - **[10]**:
+    - **uid**: ptCJXNPHvhWLqO
     - **boulder**:
       - **nome**: Tandrilax
       - **dificuldade**: V7
   - **[11]**:
+    - **uid**: 1KyNGmo1hKDps6
     - **boulder**:
       - **nome**: Curandeiros
       - **dificuldade**: V5
   - **[12]**:
+    - **uid**: 9dZGN3If4u7irB
     - **boulder**:
       - **nome**: Sem nome 20
       - **dificuldade**: V2
@@ -7146,7 +8909,8 @@
     - **altura_mapa**: 1259
     - **pontos_de_interesse**:
       - **[0]**:
-        - **id**: linha_2
+        - **id**: ihoIqsysq4uYJd
+        - **uid**: ihoIqsysq4uYJd
         - **linha**:
           - **estilo**: TRACEJADO
           - **espessura**: 5
@@ -7167,7 +8931,8 @@
                 - **raio**: 24
         - **cor**: #FFD600
       - **[1]**:
-        - **id**: linha_5
+        - **id**: vtUAS6DvoJEf0x
+        - **uid**: vtUAS6DvoJEf0x
         - **linha**:
           - **estilo**: TRACEJADO
           - **espessura**: 5
@@ -7181,7 +8946,8 @@
             - **marcadores**: []
         - **cor**: #FFD600
       - **[2]**:
-        - **id**: linha_6
+        - **id**: ITwa1RryXsUEwD
+        - **uid**: ITwa1RryXsUEwD
         - **linha**:
           - **estilo**: TRACEJADO
           - **espessura**: 5
@@ -7202,7 +8968,8 @@
                 - **raio**: 24
         - **cor**: #FFD600
       - **[3]**:
-        - **id**: linha_1
+        - **id**: umRf96kV1lxQHD
+        - **uid**: umRf96kV1lxQHD
         - **linha**:
           - **estilo**: TRACEJADO
           - **espessura**: 5
@@ -7223,7 +8990,8 @@
                 - **raio**: 24
         - **cor**: #FFD600
       - **[4]**:
-        - **id**: linha_9
+        - **id**: 9Rfa8YgUGe4Mt8
+        - **uid**: 9Rfa8YgUGe4Mt8
         - **linha**:
           - **estilo**: TRACEJADO
           - **espessura**: 5
@@ -7237,7 +9005,8 @@
             - **marcadores**: []
         - **cor**: #FFD600
       - **[5]**:
-        - **id**: linha_10
+        - **id**: VwZXDPxczxcu3b
+        - **uid**: VwZXDPxczxcu3b
         - **linha**:
           - **estilo**: TRACEJADO
           - **espessura**: 5
@@ -7251,8 +9020,9 @@
             - **marcadores**: []
         - **cor**: #FFD600
       - **[6]**:
-        - **id**: linha_7
-        - **label**: 
+        - **id**: LlDQFuYH5B74CX
+        - **uid**: LlDQFuYH5B74CX
+        - **rotulo**: 
         - **linha**:
           - **estilo**: TRACEJADO
           - **espessura**: 5
@@ -7265,8 +9035,10 @@
               - **largura**: 373
             - **marcadores**: []
         - **cor**: #FFD600
+        - **label**: 
       - **[7]**:
-        - **id**: linha_12
+        - **id**: RP9XdRnYHi3H2x
+        - **uid**: RP9XdRnYHi3H2x
         - **linha**:
           - **estilo**: TRACEJADO
           - **espessura**: 5
@@ -7280,7 +9052,8 @@
             - **marcadores**: []
         - **cor**: #FFD600
       - **[8]**:
-        - **id**: linha_8
+        - **id**: Te7HQwNDEfG81J
+        - **uid**: Te7HQwNDEfG81J
         - **linha**:
           - **estilo**: TRACEJADO
           - **espessura**: 5
@@ -7294,7 +9067,8 @@
             - **marcadores**: []
         - **cor**: #FFD600
       - **[9]**:
-        - **id**: linha_13
+        - **id**: oiJNBR0gaOIOTu
+        - **uid**: oiJNBR0gaOIOTu
         - **linha**:
           - **estilo**: TRACEJADO
           - **espessura**: 5
@@ -7315,7 +9089,8 @@
                 - **raio**: 24
         - **cor**: #FFD600
       - **[10]**:
-        - **id**: linha_14
+        - **id**: StAN7GLKiJyF92
+        - **uid**: StAN7GLKiJyF92
         - **linha**:
           - **estilo**: TRACEJADO
           - **espessura**: 5
@@ -7329,7 +9104,8 @@
             - **marcadores**: []
         - **cor**: #FFD600
       - **[11]**:
-        - **id**: linha_15
+        - **id**: 4JpovgbGvXcRSy
+        - **uid**: 4JpovgbGvXcRSy
         - **linha**:
           - **estilo**: TRACEJADO
           - **espessura**: 5
@@ -7350,7 +9126,8 @@
                 - **raio**: 24
         - **cor**: #FFD600
       - **[12]**:
-        - **id**: linha_16
+        - **id**: N8eV2qZTa52bb3
+        - **uid**: N8eV2qZTa52bb3
         - **linha**:
           - **estilo**: TRACEJADO
           - **espessura**: 5
@@ -7371,7 +9148,8 @@
                 - **raio**: 24
         - **cor**: #FFD600
       - **[13]**:
-        - **id**: linha_11
+        - **id**: qdC43Gvz0L0P0G
+        - **uid**: qdC43Gvz0L0P0G
         - **linha**:
           - **estilo**: TRACEJADO
           - **espessura**: 5
@@ -7392,7 +9170,8 @@
                 - **raio**: 24
         - **cor**: #FFD600
       - **[14]**:
-        - **id**: linha_17
+        - **id**: Cs5pbHTNWRtoXm
+        - **uid**: Cs5pbHTNWRtoXm
         - **linha**:
           - **estilo**: TRACEJADO
           - **espessura**: 5
@@ -7406,8 +9185,9 @@
             - **marcadores**: []
         - **cor**: #FFD600
       - **[15]**:
-        - **id**: linha_4
-        - **label**: 
+        - **id**: vYBkJi6sUeryqP
+        - **uid**: vYBkJi6sUeryqP
+        - **rotulo**: 
         - **linha**:
           - **estilo**: TRACEJADO
           - **espessura**: 5
@@ -7427,8 +9207,10 @@
                 - **rotulo**: ★
                 - **raio**: 24
         - **cor**: #FFD600
+        - **label**: 
       - **[16]**:
-        - **id**: linha_19
+        - **id**: ymzZz1cPWO9C7s
+        - **uid**: ymzZz1cPWO9C7s
         - **linha**:
           - **estilo**: TRACEJADO
           - **espessura**: 5
@@ -7442,7 +9224,8 @@
             - **marcadores**: []
         - **cor**: #FFD600
       - **[17]**:
-        - **id**: linha_20
+        - **id**: tiShTDYIgu9k0A
+        - **uid**: tiShTDYIgu9k0A
         - **linha**:
           - **estilo**: TRACEJADO
           - **espessura**: 5
@@ -7463,7 +9246,8 @@
                 - **raio**: 24
         - **cor**: #FFD600
       - **[18]**:
-        - **id**: linha_3
+        - **id**: SDXdXU9ZyL8mGT
+        - **uid**: SDXdXU9ZyL8mGT
         - **linha**:
           - **estilo**: TRACEJADO
           - **espessura**: 5
@@ -7477,7 +9261,8 @@
             - **marcadores**: []
         - **cor**: #FFD600
       - **[19]**:
-        - **id**: linha_21
+        - **id**: GdABU1fWF6h7H7
+        - **uid**: GdABU1fWF6h7H7
         - **linha**:
           - **estilo**: TRACEJADO
           - **espessura**: 5
@@ -7498,8 +9283,9 @@
                 - **raio**: 24
         - **cor**: #FFD600
       - **[20]**:
-        - **id**: linha_18
-        - **label**: 
+        - **id**: aldE8nfEzfEwES
+        - **uid**: aldE8nfEzfEwES
+        - **rotulo**: 
         - **linha**:
           - **estilo**: TRACEJADO
           - **espessura**: 5
@@ -7519,81 +9305,140 @@
                 - **rotulo**: 1
                 - **raio**: 24
         - **cor**: #FFD600
+        - **label**: 
     - **referencias**:
       - **[0]**:
-        - **ids**:
-          - linha_2
-          - linha_19
-          - linha_20
+        - **alvo_uid**: 8r0NgWYmApDTKh
+        - **pontos_uids**:
+          - ihoIqsysq4uYJd
+          - ymzZz1cPWO9C7s
+          - tiShTDYIgu9k0A
         - **escalada**: Olha a Jaca
+        - **ids**:
+          - ihoIqsysq4uYJd
+          - ymzZz1cPWO9C7s
+          - tiShTDYIgu9k0A
       - **[1]**:
-        - **ids**:
-          - linha_2
-          - linha_5
-          - linha_6
+        - **alvo_uid**: TT5jscP5lXr9jv
+        - **pontos_uids**:
+          - ihoIqsysq4uYJd
+          - vtUAS6DvoJEf0x
+          - ITwa1RryXsUEwD
         - **escalada**: Olha o Rider
+        - **ids**:
+          - ihoIqsysq4uYJd
+          - vtUAS6DvoJEf0x
+          - ITwa1RryXsUEwD
       - **[2]**:
-        - **ids**:
-          - linha_1
-          - linha_9
-          - linha_10
-          - linha_6
+        - **alvo_uid**: GtV1xXFHyjL2e1
+        - **pontos_uids**:
+          - umRf96kV1lxQHD
+          - 9Rfa8YgUGe4Mt8
+          - VwZXDPxczxcu3b
+          - ITwa1RryXsUEwD
         - **escalada**: Low Rider
+        - **ids**:
+          - umRf96kV1lxQHD
+          - 9Rfa8YgUGe4Mt8
+          - VwZXDPxczxcu3b
+          - ITwa1RryXsUEwD
       - **[3]**:
-        - **ids**:
-          - linha_1
-          - linha_8
-          - linha_13
+        - **alvo_uid**: 86nFPbmZHTbTYz
+        - **pontos_uids**:
+          - umRf96kV1lxQHD
+          - Te7HQwNDEfG81J
+          - oiJNBR0gaOIOTu
         - **escalada**: Easy Rider
+        - **ids**:
+          - umRf96kV1lxQHD
+          - Te7HQwNDEfG81J
+          - oiJNBR0gaOIOTu
       - **[4]**:
-        - **ids**:
-          - linha_11
-          - linha_17
-          - linha_14
-          - linha_12
-          - linha_10
-          - linha_6
+        - **alvo_uid**: dLvFTaSbTEvo1x
+        - **pontos_uids**:
+          - qdC43Gvz0L0P0G
+          - Cs5pbHTNWRtoXm
+          - StAN7GLKiJyF92
+          - RP9XdRnYHi3H2x
+          - VwZXDPxczxcu3b
+          - ITwa1RryXsUEwD
         - **escalada**: Big Rider
+        - **ids**:
+          - qdC43Gvz0L0P0G
+          - Cs5pbHTNWRtoXm
+          - StAN7GLKiJyF92
+          - RP9XdRnYHi3H2x
+          - VwZXDPxczxcu3b
+          - ITwa1RryXsUEwD
       - **[5]**:
-        - **ids**:
-          - linha_11
-          - linha_17
-          - linha_14
-          - linha_7
-          - linha_13
+        - **alvo_uid**: 8bY2zKcMz4Rkl6
+        - **pontos_uids**:
+          - qdC43Gvz0L0P0G
+          - Cs5pbHTNWRtoXm
+          - StAN7GLKiJyF92
+          - LlDQFuYH5B74CX
+          - oiJNBR0gaOIOTu
         - **escalada**: Fugitivos
+        - **ids**:
+          - qdC43Gvz0L0P0G
+          - Cs5pbHTNWRtoXm
+          - StAN7GLKiJyF92
+          - LlDQFuYH5B74CX
+          - oiJNBR0gaOIOTu
       - **[6]**:
-        - **ids**:
-          - linha_11
-          - linha_17
-          - linha_15
-          - linha_16
+        - **alvo_uid**: ILJ785LLhC7IEo
+        - **pontos_uids**:
+          - qdC43Gvz0L0P0G
+          - Cs5pbHTNWRtoXm
+          - 4JpovgbGvXcRSy
+          - N8eV2qZTa52bb3
         - **escalada**: Igarapedra
+        - **ids**:
+          - qdC43Gvz0L0P0G
+          - Cs5pbHTNWRtoXm
+          - 4JpovgbGvXcRSy
+          - N8eV2qZTa52bb3
       - **[7]**:
-        - **ids**:
-          - linha_11
-          - linha_4
-          - linha_16
+        - **alvo_uid**: iLwqTfjvxeqmQK
+        - **pontos_uids**:
+          - qdC43Gvz0L0P0G
+          - vYBkJi6sUeryqP
+          - N8eV2qZTa52bb3
         - **escalada**: Trombose
+        - **ids**:
+          - qdC43Gvz0L0P0G
+          - vYBkJi6sUeryqP
+          - N8eV2qZTa52bb3
       - **[8]**:
-        - **ids**:
-          - linha_2
-          - linha_19
-          - linha_3
-          - linha_21
+        - **alvo_uid**: woERfweaFycFQA
+        - **pontos_uids**:
+          - ihoIqsysq4uYJd
+          - ymzZz1cPWO9C7s
+          - SDXdXU9ZyL8mGT
+          - GdABU1fWF6h7H7
         - **escalada**: Corrida do Ouro
-      - **[9]**:
         - **ids**:
-          - linha_18
-          - linha_21
+          - ihoIqsysq4uYJd
+          - ymzZz1cPWO9C7s
+          - SDXdXU9ZyL8mGT
+          - GdABU1fWF6h7H7
+      - **[9]**:
+        - **alvo_uid**: tS7TrVU7B8E10y
+        - **pontos_uids**:
+          - aldE8nfEzfEwES
+          - GdABU1fWF6h7H7
         - **escalada**: Audácia
+        - **ids**:
+          - aldE8nfEzfEwES
+          - GdABU1fWF6h7H7
   - **[1]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_bloco_fugitivos_ii_p2.webp)
     - **largura_mapa**: 1773
     - **altura_mapa**: 2364
     - **pontos_de_interesse**:
       - **[0]**:
-        - **id**: linha_24
+        - **id**: 8mgH7klWCHeynf
+        - **uid**: 8mgH7klWCHeynf
         - **linha**:
           - **estilo**: TRACEJADO
           - **espessura**: 5
@@ -7614,7 +9459,8 @@
                 - **raio**: 24
         - **cor**: #FFD600
       - **[1]**:
-        - **id**: linha_25
+        - **id**: p9cK1ZztG5P96S
+        - **uid**: p9cK1ZztG5P96S
         - **linha**:
           - **estilo**: TRACEJADO
           - **espessura**: 5
@@ -7635,8 +9481,9 @@
                 - **raio**: 24
         - **cor**: #FFD600
       - **[2]**:
-        - **id**: linha_23
-        - **label**: 
+        - **id**: SxhynjM7dmmrkO
+        - **uid**: SxhynjM7dmmrkO
+        - **rotulo**: 
         - **linha**:
           - **estilo**: TRACEJADO
           - **espessura**: 5
@@ -7649,8 +9496,10 @@
               - **largura**: 1006
             - **marcadores**: []
         - **cor**: #FFD600
+        - **label**: 
       - **[3]**:
-        - **id**: linha_26
+        - **id**: BlYabbjunYAlwJ
+        - **uid**: BlYabbjunYAlwJ
         - **linha**:
           - **estilo**: TRACEJADO
           - **espessura**: 5
@@ -7671,7 +9520,8 @@
                 - **raio**: 24
         - **cor**: #FFD600
       - **[4]**:
-        - **id**: linha_27
+        - **id**: 1I2bSGk2aU2aIj
+        - **uid**: 1I2bSGk2aU2aIj
         - **linha**:
           - **estilo**: TRACEJADO
           - **espessura**: 5
@@ -7693,21 +9543,34 @@
         - **cor**: #FFD600
     - **referencias**:
       - **[0]**:
-        - **ids**:
-          - linha_26
-          - linha_27
+        - **alvo_uid**: ptCJXNPHvhWLqO
+        - **pontos_uids**:
+          - BlYabbjunYAlwJ
+          - 1I2bSGk2aU2aIj
         - **escalada**: Tandrilax
+        - **ids**:
+          - BlYabbjunYAlwJ
+          - 1I2bSGk2aU2aIj
       - **[1]**:
-        - **ids**:
-          - linha_24
-          - linha_25
+        - **alvo_uid**: 1KyNGmo1hKDps6
+        - **pontos_uids**:
+          - 8mgH7klWCHeynf
+          - p9cK1ZztG5P96S
         - **escalada**: Curandeiros
-      - **[2]**:
         - **ids**:
-          - linha_23
-          - linha_24
-          - linha_27
+          - 8mgH7klWCHeynf
+          - p9cK1ZztG5P96S
+      - **[2]**:
+        - **alvo_uid**: 9dZGN3If4u7irB
+        - **pontos_uids**:
+          - SxhynjM7dmmrkO
+          - 8mgH7klWCHeynf
+          - 1I2bSGk2aU2aIj
         - **escalada**: Sem nome 20
+        - **ids**:
+          - SxhynjM7dmmrkO
+          - 8mgH7klWCHeynf
+          - 1I2bSGk2aU2aIj
 - **precomputados**:
   - **total_escaladas**: 13
   - **total_boulders**: 13
@@ -7724,8 +9587,10 @@
     
     Trilha para o setor começa no setor Fugitivos II, cerca de 2 minutos de caminhada do boulder Olha a Jaca no Fugitivos II. Link para a trilha: https://loc.wiki/t/287028747?wa=sc
 - **nome**: Setor Tramontina
+- **uid**: qzJk3jLJiw9ibf
 - **escaladas**:
   - **[0]**:
+    - **uid**: tQ6mCOffU1yNAJ
     - **boulder**:
       - **descricao**:
           Boulder usado para descer do topo do bloco. Desça de frente para a rocha, desescalando.
@@ -7741,6 +9606,7 @@
         - Lucas
         - Evandro
   - **[1]**:
+    - **uid**: iH3rfH5c2jJ4lf
     - **boulder**:
       - **nome**: Questionamentos
       - **dificuldade**: V0
@@ -7750,6 +9616,7 @@
         - Lucas
         - Evandro
   - **[2]**:
+    - **uid**: WthDQ7VrYwnusI
     - **boulder**:
       - **nome**: Não vai descalço
       - **dificuldade**: V0
@@ -7760,6 +9627,7 @@
         - Renato Utsch
         - Evandro
   - **[3]**:
+    - **uid**: vPdU7tcHsAHVup
     - **boulder**:
       - **descricao**:
           Boulder sai bem aberto, com as duas mãos em barbatanas opostas. A ideia é subir mantendo a oposição em agarras opostas entre as duas linhas até a virada!
@@ -7772,6 +9640,7 @@
         - Evandro
         - Ana
   - **[4]**:
+    - **uid**: 3LJyhlH8K7HUwD
     - **boulder**:
       - **descricao**: Virada um pouco mais delicada do que os boulders ao lado desse boulder.
       - **nome**: Só vejo almas
@@ -7786,8 +9655,9 @@
     - **altura_mapa**: 1369
     - **pontos_de_interesse**:
       - **[0]**:
-        - **id**: linha_1
-        - **label**: 
+        - **id**: K9ehICREvSL3cg
+        - **uid**: K9ehICREvSL3cg
+        - **rotulo**: 
         - **linha**:
           - **estilo**: TRACEJADO
           - **espessura**: 4
@@ -7807,9 +9677,11 @@
                 - **rotulo**: 1
                 - **raio**: 21
         - **cor**: #00E5FF
-      - **[1]**:
-        - **id**: linha_2
         - **label**: 
+      - **[1]**:
+        - **id**: ro0Hl5fiBBIIRb
+        - **uid**: ro0Hl5fiBBIIRb
+        - **rotulo**: 
         - **linha**:
           - **estilo**: TRACEJADO
           - **espessura**: 4
@@ -7829,9 +9701,11 @@
                 - **rotulo**: 2
                 - **raio**: 21
         - **cor**: #00E5FF
-      - **[2]**:
-        - **id**: linha_3
         - **label**: 
+      - **[2]**:
+        - **id**: hViAQGmev4O97T
+        - **uid**: hViAQGmev4O97T
+        - **rotulo**: 
         - **linha**:
           - **estilo**: TRACEJADO
           - **espessura**: 4
@@ -7851,9 +9725,11 @@
                 - **rotulo**: 3
                 - **raio**: 21
         - **cor**: #00E5FF
-      - **[3]**:
-        - **id**: linha_4
         - **label**: 
+      - **[3]**:
+        - **id**: qBSK7cjr4w6akU
+        - **uid**: qBSK7cjr4w6akU
+        - **rotulo**: 
         - **linha**:
           - **estilo**: TRACEJADO
           - **espessura**: 4
@@ -7873,9 +9749,11 @@
                 - **rotulo**: 4
                 - **raio**: 21
         - **cor**: #00E5FF
-      - **[4]**:
-        - **id**: linha_5
         - **label**: 
+      - **[4]**:
+        - **id**: AieY8mTSHCWNZ5
+        - **uid**: AieY8mTSHCWNZ5
+        - **rotulo**: 
         - **linha**:
           - **estilo**: TRACEJADO
           - **espessura**: 4
@@ -7895,53 +9773,76 @@
                 - **rotulo**: 5
                 - **raio**: 21
         - **cor**: #00E5FF
-      - **[5]**:
-        - **id**: paral1
         - **label**: 
+      - **[5]**:
+        - **id**: yxQI8yhj2Rm44J
+        - **uid**: yxQI8yhj2Rm44J
+        - **rotulo**: 
         - **circulo**:
           - **x**: 1232
           - **y**: 562
           - **raio**: 26
         - **cor**: #FFD600
-      - **[6]**:
-        - **id**: paral2
         - **label**: 
+      - **[6]**:
+        - **id**: O98g57fVPORYXE
+        - **uid**: O98g57fVPORYXE
+        - **rotulo**: 
         - **circulo**:
           - **x**: 1519
           - **y**: 613
           - **raio**: 24
         - **cor**: #FFD600
+        - **label**: 
     - **referencias**:
       - **[0]**:
-        - **ids**:
-          - linha_1
+        - **alvo_uid**: tQ6mCOffU1yNAJ
+        - **pontos_uids**:
+          - K9ehICREvSL3cg
         - **escalada**: Sobe e desce
+        - **ids**:
+          - K9ehICREvSL3cg
       - **[1]**:
-        - **ids**:
-          - linha_2
+        - **alvo_uid**: iH3rfH5c2jJ4lf
+        - **pontos_uids**:
+          - ro0Hl5fiBBIIRb
         - **escalada**: Questionamentos
+        - **ids**:
+          - ro0Hl5fiBBIIRb
       - **[2]**:
-        - **ids**:
-          - linha_3
+        - **alvo_uid**: WthDQ7VrYwnusI
+        - **pontos_uids**:
+          - hViAQGmev4O97T
         - **escalada**: Não vai descalço
+        - **ids**:
+          - hViAQGmev4O97T
       - **[3]**:
-        - **ids**:
-          - linha_4
-          - paral2
-          - paral1
+        - **alvo_uid**: vPdU7tcHsAHVup
+        - **pontos_uids**:
+          - qBSK7cjr4w6akU
+          - O98g57fVPORYXE
+          - yxQI8yhj2Rm44J
         - **escalada**: Linhas paralelas
-      - **[4]**:
         - **ids**:
-          - linha_5
+          - qBSK7cjr4w6akU
+          - O98g57fVPORYXE
+          - yxQI8yhj2Rm44J
+      - **[4]**:
+        - **alvo_uid**: 3LJyhlH8K7HUwD
+        - **pontos_uids**:
+          - AieY8mTSHCWNZ5
         - **escalada**: Só vejo almas
+        - **ids**:
+          - AieY8mTSHCWNZ5
   - **[1]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_tramontina_p1.webp)
     - **largura_mapa**: 1825
     - **altura_mapa**: 1369
     - **pontos_de_interesse**:
       - **[0]**:
-        - **id**: linha_6
-        - **label**: 
+        - **id**: W1kKMX98Onkp9P
+        - **uid**: W1kKMX98Onkp9P
+        - **rotulo**: 
         - **linha**:
           - **estilo**: TRACEJADO
           - **espessura**: 4
@@ -7961,9 +9862,11 @@
                 - **rotulo**: 4
                 - **raio**: 21
         - **cor**: #00E5FF
-      - **[1]**:
-        - **id**: linha_7
         - **label**: 
+      - **[1]**:
+        - **id**: 4BsMYWmatRVbXz
+        - **uid**: 4BsMYWmatRVbXz
+        - **rotulo**: 
         - **linha**:
           - **estilo**: TRACEJADO
           - **espessura**: 4
@@ -7983,41 +9886,55 @@
                 - **rotulo**: 5
                 - **raio**: 21
         - **cor**: #00E5FF
-      - **[2]**:
-        - **id**: paral1
         - **label**: 
+      - **[2]**:
+        - **id**: aWQoFSsr4ZAzi9
+        - **uid**: aWQoFSsr4ZAzi9
+        - **rotulo**: 
         - **circulo**:
           - **x**: 207
           - **y**: 642
           - **raio**: 21
         - **cor**: #FFD600
-      - **[3]**:
-        - **id**: paral2
         - **label**: 
+      - **[3]**:
+        - **id**: vHjGEFoPBzi5y7
+        - **uid**: vHjGEFoPBzi5y7
+        - **rotulo**: 
         - **circulo**:
           - **x**: 437
           - **y**: 660
           - **raio**: 27
         - **cor**: #FFD600
+        - **label**: 
     - **referencias**:
       - **[0]**:
-        - **ids**:
-          - linha_6
-          - paral2
-          - paral1
+        - **alvo_uid**: vPdU7tcHsAHVup
+        - **pontos_uids**:
+          - W1kKMX98Onkp9P
+          - vHjGEFoPBzi5y7
+          - aWQoFSsr4ZAzi9
         - **escalada**: Linhas paralelas
-      - **[1]**:
         - **ids**:
-          - linha_7
+          - W1kKMX98Onkp9P
+          - vHjGEFoPBzi5y7
+          - aWQoFSsr4ZAzi9
+      - **[1]**:
+        - **alvo_uid**: 3LJyhlH8K7HUwD
+        - **pontos_uids**:
+          - 4BsMYWmatRVbXz
         - **escalada**: Só vejo almas
+        - **ids**:
+          - 4BsMYWmatRVbXz
   - **[2]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_tramontina_p2.webp)
     - **largura_mapa**: 1825
     - **altura_mapa**: 1369
     - **pontos_de_interesse**:
       - **[0]**:
-        - **id**: linha_8
-        - **label**: 
+        - **id**: MfhaEzPjkVfcUS
+        - **uid**: MfhaEzPjkVfcUS
+        - **rotulo**: 
         - **linha**:
           - **estilo**: TRACEJADO
           - **espessura**: 4
@@ -8037,11 +9954,15 @@
                 - **rotulo**: 1
                 - **raio**: 21
         - **cor**: #00E5FF
+        - **label**: 
     - **referencias**:
       - **[0]**:
-        - **ids**:
-          - linha_8
+        - **alvo_uid**: tQ6mCOffU1yNAJ
+        - **pontos_uids**:
+          - MfhaEzPjkVfcUS
         - **escalada**: Sobe e desce
+        - **ids**:
+          - MfhaEzPjkVfcUS
 - **precomputados**:
   - **total_escaladas**: 5
   - **total_boulders**: 5
@@ -8053,99 +9974,123 @@
 
 - **descricao**: Trilha para chegar ao setor: https://loc.wiki/t/169745893?wa=sc
 - **nome**: Bloco Democracia
+- **uid**: sQ7YgEG6ONsPXt
 - **escaladas**:
   - **[0]**:
+    - **uid**: JeenN3HpFf1fWM
     - **boulder**:
       - **nome**: Escalda pé
       - **dificuldade**: V3
   - **[1]**:
+    - **uid**: jGt3wUqr2UdYcj
     - **boulder**:
       - **descricao**: Sai sentado segurando no batente.
       - **nome**: Sai sentado
       - **dificuldade**: V1
   - **[2]**:
+    - **uid**: BFD04ZpI8eEHTN
     - **boulder**:
       - **nome**: Titi terremoto
       - **dificuldade**: V4
   - **[3]**:
+    - **uid**: AGstgVoht7LBwf
     - **boulder**:
       - **nome**: Faixa preta
       - **dificuldade**: V2
   - **[4]**:
+    - **uid**: 16GQnrumERO86h
     - **boulder**:
       - **nome**: Portátil
       - **dificuldade**: V6
   - **[5]**:
+    - **uid**: tpZlh2cdAgBqAq
     - **boulder**:
       - **nome**: Democracia
       - **dificuldade**: V4
   - **[6]**:
+    - **uid**: 9z8dS2eDjBrLkU
     - **boulder**:
       - **nome**: 127 horas (boulder)
       - **dificuldade**: V5
   - **[7]**:
+    - **uid**: lEDeoMRWQIsyvt
     - **boulder**:
       - **nome**: Perda de memória recente
       - **dificuldade**: V6
   - **[8]**:
+    - **uid**: Nj1FTueB1enlTt
     - **boulder**:
       - **descricao**: Começa na parede da direita e muda pra parede da esquerda no meio do boulder.
       - **nome**: Utopia
       - **dificuldade**: V6
   - **[9]**:
+    - **uid**: fVhTfbikhEidfi
     - **boulder**:
       - **nome**: Dejavu
       - **dificuldade**: V5
   - **[10]**:
+    - **uid**: 93e0jZbep0Me2K
     - **boulder**:
       - **nome**: Maquiavel
       - **dificuldade**: V8
   - **[11]**:
+    - **uid**: YcNowMFY5WnIqB
     - **boulder**:
       - **nome**: Dejavu SDS
       - **dificuldade**: V6
   - **[12]**:
+    - **uid**: MjbF0c0oN3HNGe
     - **boulder**:
       - **nome**: Sem nome 26
       - **dificuldade**: V6
   - **[13]**:
+    - **uid**: E7MTuSCnwN9m2r
     - **boulder**:
       - **nome**: Vai mas não cai
       - **dificuldade**: V4
   - **[14]**:
+    - **uid**: GdhGbnKKRc2vE2
     - **boulder**:
       - **nome**: Direita que me resta
       - **dificuldade**: V3
   - **[15]**:
+    - **uid**: WVn9cRbuoJKTJe
     - **boulder**:
       - **descricao**: Mesma saída do Utopia.
       - **nome**: Distopia
       - **dificuldade**: V10
   - **[16]**:
+    - **uid**: ysYI1TVvJS1kyy
     - **boulder**:
       - **nome**: Sem nome 27
       - **dificuldade**: V1
   - **[17]**:
+    - **uid**: njS3Txwlt4gGPg
     - **boulder**:
       - **nome**: Engana bobo
       - **dificuldade**: V2
   - **[18]**:
+    - **uid**: wqbq8WmwGdnfLw
     - **boulder**:
       - **nome**: Sem nome 29
       - **dificuldade**: V2
   - **[19]**:
+    - **uid**: Ux0VzrqpFMAebD
     - **boulder**:
       - **nome**: Sem nome 30
       - **dificuldade**: V4
   - **[20]**:
+    - **uid**: HfH0Q9Q86GoM6f
     - **boulder**:
       - **nome**: Pequeno desafio
       - **dificuldade**: V1
   - **[21]**:
+    - **uid**: qSVuKvprARRGaM
     - **boulder**:
       - **nome**: Porco espinho
       - **dificuldade**: V2
   - **[22]**:
+    - **uid**: bzxfCNiVVFBEnp
     - **boulder**:
       - **nome**: Passa um
       - **dificuldade**: V1
@@ -8156,7 +10101,8 @@
     - **altura_mapa**: 1369
     - **pontos_de_interesse**:
       - **[0]**:
-        - **id**: linha_2
+        - **id**: xgcJQ7IfL2MsEo
+        - **uid**: xgcJQ7IfL2MsEo
         - **linha**:
           - **estilo**: TRACEJADO
           - **espessura**: 3
@@ -8177,7 +10123,8 @@
                 - **raio**: 17
         - **cor**: #FFD600
       - **[1]**:
-        - **id**: linha_3
+        - **id**: Rz6FEtYQ3eIWZv
+        - **uid**: Rz6FEtYQ3eIWZv
         - **linha**:
           - **estilo**: TRACEJADO
           - **espessura**: 3
@@ -8198,8 +10145,9 @@
                 - **raio**: 17
         - **cor**: #FFD600
       - **[2]**:
-        - **id**: linha_1
-        - **label**: 
+        - **id**: yrBoCO3F14z3ea
+        - **uid**: yrBoCO3F14z3ea
+        - **rotulo**: 
         - **linha**:
           - **estilo**: TRACEJADO
           - **espessura**: 3
@@ -8226,8 +10174,10 @@
                 - **rotulo**: A
                 - **raio**: 17
         - **cor**: #FFD600
+        - **label**: 
       - **[3]**:
-        - **id**: linha_5
+        - **id**: juE1R9MVCEtmxr
+        - **uid**: juE1R9MVCEtmxr
         - **linha**:
           - **estilo**: TRACEJADO
           - **espessura**: 3
@@ -8241,7 +10191,8 @@
             - **marcadores**: []
         - **cor**: #FFD600
       - **[4]**:
-        - **id**: linha_6
+        - **id**: FoAMrUf6AwBUCB
+        - **uid**: FoAMrUf6AwBUCB
         - **linha**:
           - **estilo**: TRACEJADO
           - **espessura**: 3
@@ -8262,8 +10213,9 @@
                 - **raio**: 17
         - **cor**: #FFD600
       - **[5]**:
-        - **id**: linha_4
-        - **label**: 
+        - **id**: jyFvAsGlGqFMM5
+        - **uid**: jyFvAsGlGqFMM5
+        - **rotulo**: 
         - **linha**:
           - **estilo**: TRACEJADO
           - **espessura**: 3
@@ -8283,9 +10235,11 @@
                 - **rotulo**: 3
                 - **raio**: 17
         - **cor**: #FFD600
-      - **[6]**:
-        - **id**: linha_7
         - **label**: 
+      - **[6]**:
+        - **id**: a4k5Nb9INw1YLO
+        - **uid**: a4k5Nb9INw1YLO
+        - **rotulo**: 
         - **linha**:
           - **estilo**: TRACEJADO
           - **espessura**: 3
@@ -8312,57 +10266,84 @@
                 - **rotulo**: D
                 - **raio**: 17
         - **cor**: #FFD600
-      - **[7]**:
-        - **id**: 3ini2
         - **label**: 
+      - **[7]**:
+        - **id**: Sq5Lrg1w93d0JW
+        - **uid**: Sq5Lrg1w93d0JW
+        - **rotulo**: 
         - **circulo**:
           - **x**: 1027
           - **y**: 967
           - **raio**: 19
         - **cor**: 
-      - **[8]**:
-        - **id**: circ3p1
         - **label**: 
+      - **[8]**:
+        - **id**: KJn5rHYYg43lmm
+        - **uid**: KJn5rHYYg43lmm
+        - **rotulo**: 
         - **circulo**:
           - **x**: 927
           - **y**: 875
           - **raio**: 20
         - **cor**: 
+        - **label**: 
     - **referencias**:
       - **[0]**:
-        - **ids**:
-          - linha_2
-          - linha_3
+        - **alvo_uid**: JeenN3HpFf1fWM
+        - **pontos_uids**:
+          - xgcJQ7IfL2MsEo
+          - Rz6FEtYQ3eIWZv
         - **escalada**: Escalda pé
+        - **ids**:
+          - xgcJQ7IfL2MsEo
+          - Rz6FEtYQ3eIWZv
       - **[1]**:
-        - **ids**:
-          - linha_1
+        - **alvo_uid**: jGt3wUqr2UdYcj
+        - **pontos_uids**:
+          - yrBoCO3F14z3ea
         - **escalada**: Sai sentado
+        - **ids**:
+          - yrBoCO3F14z3ea
       - **[2]**:
-        - **ids**:
-          - linha_2
-          - linha_5
-          - linha_6
+        - **alvo_uid**: BFD04ZpI8eEHTN
+        - **pontos_uids**:
+          - xgcJQ7IfL2MsEo
+          - juE1R9MVCEtmxr
+          - FoAMrUf6AwBUCB
         - **escalada**: Titi terremoto
+        - **ids**:
+          - xgcJQ7IfL2MsEo
+          - juE1R9MVCEtmxr
+          - FoAMrUf6AwBUCB
       - **[3]**:
-        - **ids**:
-          - linha_4
-          - linha_6
-          - 3ini2
-          - circ3p1
+        - **alvo_uid**: AGstgVoht7LBwf
+        - **pontos_uids**:
+          - jyFvAsGlGqFMM5
+          - FoAMrUf6AwBUCB
+          - Sq5Lrg1w93d0JW
+          - KJn5rHYYg43lmm
         - **escalada**: Faixa preta
-      - **[4]**:
         - **ids**:
-          - linha_7
+          - jyFvAsGlGqFMM5
+          - FoAMrUf6AwBUCB
+          - Sq5Lrg1w93d0JW
+          - KJn5rHYYg43lmm
+      - **[4]**:
+        - **alvo_uid**: 16GQnrumERO86h
+        - **pontos_uids**:
+          - a4k5Nb9INw1YLO
         - **escalada**: Portátil
+        - **ids**:
+          - a4k5Nb9INw1YLO
   - **[1]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_bloco_democracia_p1.webp)
     - **largura_mapa**: 1825
     - **altura_mapa**: 1369
     - **pontos_de_interesse**:
       - **[0]**:
-        - **id**: linha_9
-        - **label**: 
+        - **id**: 4xFsLZKWl4AdtM
+        - **uid**: 4xFsLZKWl4AdtM
+        - **rotulo**: 
         - **linha**:
           - **estilo**: TRACEJADO
           - **espessura**: 3
@@ -8381,8 +10362,10 @@
                 - **angulo_graus_x100**: -9643
                 - **rotulo**: 7
         - **cor**: #FFD600
+        - **label**: 
       - **[1]**:
-        - **id**: linha_10
+        - **id**: HUwTLvTBBGjsnz
+        - **uid**: HUwTLvTBBGjsnz
         - **linha**:
           - **estilo**: TRACEJADO
           - **espessura**: 3
@@ -8402,8 +10385,9 @@
                 - **rotulo**: 6
         - **cor**: #FFD600
       - **[2]**:
-        - **id**: linha_8
-        - **label**: 
+        - **id**: d1hYpyX2npuSmv
+        - **uid**: d1hYpyX2npuSmv
+        - **rotulo**: 
         - **linha**:
           - **estilo**: TRACEJADO
           - **espessura**: 3
@@ -8422,8 +10406,10 @@
                 - **angulo_graus_x100**: -5497
                 - **rotulo**: 5
         - **cor**: #FFD600
+        - **label**: 
       - **[3]**:
-        - **id**: linha_12
+        - **id**: N4Wu08VRRMLamh
+        - **uid**: N4Wu08VRRMLamh
         - **linha**:
           - **estilo**: TRACEJADO
           - **espessura**: 3
@@ -8437,7 +10423,8 @@
             - **marcadores**: []
         - **cor**: #FFD600
       - **[4]**:
-        - **id**: linha_13
+        - **id**: Kz0YuBGAhccOB5
+        - **uid**: Kz0YuBGAhccOB5
         - **linha**:
           - **estilo**: TRACEJADO
           - **espessura**: 3
@@ -8458,30 +10445,45 @@
         - **cor**: #FFD600
     - **referencias**:
       - **[0]**:
-        - **ids**:
-          - linha_10
-          - linha_12
-          - linha_13
+        - **alvo_uid**: tpZlh2cdAgBqAq
+        - **pontos_uids**:
+          - HUwTLvTBBGjsnz
+          - N4Wu08VRRMLamh
+          - Kz0YuBGAhccOB5
         - **escalada**: Democracia
+        - **ids**:
+          - HUwTLvTBBGjsnz
+          - N4Wu08VRRMLamh
+          - Kz0YuBGAhccOB5
       - **[1]**:
-        - **ids**:
-          - linha_9
-          - linha_12
-          - linha_13
+        - **alvo_uid**: 9z8dS2eDjBrLkU
+        - **pontos_uids**:
+          - 4xFsLZKWl4AdtM
+          - N4Wu08VRRMLamh
+          - Kz0YuBGAhccOB5
         - **escalada**: 127 horas (boulder)
-      - **[2]**:
         - **ids**:
-          - linha_8
-          - linha_13
+          - 4xFsLZKWl4AdtM
+          - N4Wu08VRRMLamh
+          - Kz0YuBGAhccOB5
+      - **[2]**:
+        - **alvo_uid**: lEDeoMRWQIsyvt
+        - **pontos_uids**:
+          - d1hYpyX2npuSmv
+          - Kz0YuBGAhccOB5
         - **escalada**: Perda de memória recente
+        - **ids**:
+          - d1hYpyX2npuSmv
+          - Kz0YuBGAhccOB5
   - **[2]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_bloco_democracia_p2.webp)
     - **largura_mapa**: 1825
     - **altura_mapa**: 1369
     - **pontos_de_interesse**:
       - **[0]**:
-        - **id**: linha_11
-        - **label**: 
+        - **id**: jnQoVwmwnQ2H0k
+        - **uid**: jnQoVwmwnQ2H0k
+        - **rotulo**: 
         - **linha**:
           - **estilo**: TRACEJADO
           - **espessura**: 3
@@ -8506,18 +10508,23 @@
                 - **angulo_graus_x100**: -9759
                 - **rotulo**: E
         - **cor**: #FFD600
+        - **label**: 
     - **referencias**:
       - **[0]**:
-        - **ids**:
-          - linha_11
+        - **alvo_uid**: Nj1FTueB1enlTt
+        - **pontos_uids**:
+          - jnQoVwmwnQ2H0k
         - **escalada**: Utopia
+        - **ids**:
+          - jnQoVwmwnQ2H0k
   - **[3]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_bloco_democracia_p3.webp)
     - **largura_mapa**: 1825
     - **altura_mapa**: 1369
     - **pontos_de_interesse**:
       - **[0]**:
-        - **id**: linha_16
+        - **id**: n27STFDby4rocC
+        - **uid**: n27STFDby4rocC
         - **linha**:
           - **estilo**: TRACEJADO
           - **espessura**: 3
@@ -8537,7 +10544,8 @@
                 - **rotulo**: 11
         - **cor**: #FFD600
       - **[1]**:
-        - **id**: linha_17
+        - **id**: n1ql6PZ4p49sVz
+        - **uid**: n1ql6PZ4p49sVz
         - **linha**:
           - **estilo**: TRACEJADO
           - **espessura**: 3
@@ -8557,8 +10565,9 @@
                 - **rotulo**: A
         - **cor**: #FFD600
       - **[2]**:
-        - **id**: linha_22
-        - **label**: 
+        - **id**: DkBnfCPwRA9ZPY
+        - **uid**: DkBnfCPwRA9ZPY
+        - **rotulo**: 
         - **linha**:
           - **estilo**: TRACEJADO
           - **espessura**: 3
@@ -8577,8 +10586,10 @@
                 - **angulo_graus_x100**: 2180
                 - **rotulo**: 9
         - **cor**: #FFD600
+        - **label**: 
       - **[3]**:
-        - **id**: linha_23
+        - **id**: GkGoOZC3WJhbAL
+        - **uid**: GkGoOZC3WJhbAL
         - **linha**:
           - **estilo**: TRACEJADO
           - **espessura**: 3
@@ -8598,7 +10609,8 @@
                 - **rotulo**: 10
         - **cor**: #FFD600
       - **[4]**:
-        - **id**: linha_24
+        - **id**: pzCZCit4gVZvId
+        - **uid**: pzCZCit4gVZvId
         - **linha**:
           - **estilo**: TRACEJADO
           - **espessura**: 3
@@ -8613,29 +10625,44 @@
         - **cor**: #FFD600
     - **referencias**:
       - **[0]**:
-        - **ids**:
-          - linha_16
-          - linha_17
+        - **alvo_uid**: fVhTfbikhEidfi
+        - **pontos_uids**:
+          - n27STFDby4rocC
+          - n1ql6PZ4p49sVz
         - **escalada**: Dejavu
+        - **ids**:
+          - n27STFDby4rocC
+          - n1ql6PZ4p49sVz
       - **[1]**:
-        - **ids**:
-          - linha_23
-          - linha_24
-          - linha_17
+        - **alvo_uid**: 93e0jZbep0Me2K
+        - **pontos_uids**:
+          - GkGoOZC3WJhbAL
+          - pzCZCit4gVZvId
+          - n1ql6PZ4p49sVz
         - **escalada**: Maquiavel
-      - **[2]**:
         - **ids**:
-          - linha_22
-          - linha_24
-          - linha_17
+          - GkGoOZC3WJhbAL
+          - pzCZCit4gVZvId
+          - n1ql6PZ4p49sVz
+      - **[2]**:
+        - **alvo_uid**: WVn9cRbuoJKTJe
+        - **pontos_uids**:
+          - DkBnfCPwRA9ZPY
+          - pzCZCit4gVZvId
+          - n1ql6PZ4p49sVz
         - **escalada**: Distopia
+        - **ids**:
+          - DkBnfCPwRA9ZPY
+          - pzCZCit4gVZvId
+          - n1ql6PZ4p49sVz
   - **[4]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_bloco_democracia_p4.webp)
     - **largura_mapa**: 1369
     - **altura_mapa**: 1825
     - **pontos_de_interesse**:
       - **[0]**:
-        - **id**: linha_18
+        - **id**: SHCOhsdHYBae5A
+        - **uid**: SHCOhsdHYBae5A
         - **linha**:
           - **estilo**: TRACEJADO
           - **espessura**: 3
@@ -8655,7 +10682,8 @@
                 - **rotulo**: 13
         - **cor**: #FFD600
       - **[1]**:
-        - **id**: linha_19
+        - **id**: 6TPsswIRL43wbg
+        - **uid**: 6TPsswIRL43wbg
         - **linha**:
           - **estilo**: TRACEJADO
           - **espessura**: 3
@@ -8675,8 +10703,9 @@
                 - **rotulo**: F
         - **cor**: #FFD600
       - **[2]**:
-        - **id**: linha_14
-        - **label**: 
+        - **id**: GA9j8Ik294SeTh
+        - **uid**: GA9j8Ik294SeTh
+        - **rotulo**: 
         - **linha**:
           - **estilo**: TRACEJADO
           - **espessura**: 3
@@ -8695,9 +10724,11 @@
                 - **angulo_graus_x100**: -11231
                 - **rotulo**: H
         - **cor**: #FFD600
-      - **[3]**:
-        - **id**: linha_20
         - **label**: 
+      - **[3]**:
+        - **id**: q3xH3oo4YeOuGX
+        - **uid**: q3xH3oo4YeOuGX
+        - **rotulo**: 
         - **linha**:
           - **estilo**: TRACEJADO
           - **espessura**: 3
@@ -8722,9 +10753,11 @@
                 - **angulo_graus_x100**: -10149
                 - **rotulo**: G
         - **cor**: #FFD600
-      - **[4]**:
-        - **id**: linha_21
         - **label**: 
+      - **[4]**:
+        - **id**: 9DLFJCbuMQKSI2
+        - **uid**: 9DLFJCbuMQKSI2
+        - **rotulo**: 
         - **linha**:
           - **estilo**: TRACEJADO
           - **espessura**: 3
@@ -8749,33 +10782,49 @@
                 - **angulo_graus_x100**: -13645
                 - **rotulo**: I
         - **cor**: #FFD600
+        - **label**: 
     - **referencias**:
       - **[0]**:
-        - **ids**:
-          - linha_18
-          - linha_19
+        - **alvo_uid**: YcNowMFY5WnIqB
+        - **pontos_uids**:
+          - SHCOhsdHYBae5A
+          - 6TPsswIRL43wbg
         - **escalada**: Dejavu SDS
+        - **ids**:
+          - SHCOhsdHYBae5A
+          - 6TPsswIRL43wbg
       - **[1]**:
-        - **ids**:
-          - linha_18
-          - linha_14
+        - **alvo_uid**: MjbF0c0oN3HNGe
+        - **pontos_uids**:
+          - SHCOhsdHYBae5A
+          - GA9j8Ik294SeTh
         - **escalada**: Sem nome 26
+        - **ids**:
+          - SHCOhsdHYBae5A
+          - GA9j8Ik294SeTh
       - **[2]**:
-        - **ids**:
-          - linha_20
+        - **alvo_uid**: E7MTuSCnwN9m2r
+        - **pontos_uids**:
+          - q3xH3oo4YeOuGX
         - **escalada**: Vai mas não cai
-      - **[3]**:
         - **ids**:
-          - linha_21
+          - q3xH3oo4YeOuGX
+      - **[3]**:
+        - **alvo_uid**: GdhGbnKKRc2vE2
+        - **pontos_uids**:
+          - 9DLFJCbuMQKSI2
         - **escalada**: Direita que me resta
+        - **ids**:
+          - 9DLFJCbuMQKSI2
   - **[5]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_bloco_democracia_p5.webp)
     - **largura_mapa**: 1825
     - **altura_mapa**: 1369
     - **pontos_de_interesse**:
       - **[0]**:
-        - **id**: linha_26
-        - **label**: 
+        - **id**: h02BCusv8ZjmXc
+        - **uid**: h02BCusv8ZjmXc
+        - **rotulo**: 
         - **linha**:
           - **estilo**: TRACEJADO
           - **espessura**: 3
@@ -8795,9 +10844,11 @@
                 - **rotulo**: 20
                 - **raio**: 17
         - **cor**: #FFD600
-      - **[1]**:
-        - **id**: linha_27
         - **label**: 
+      - **[1]**:
+        - **id**: Xzyhq0GSNfF517
+        - **uid**: Xzyhq0GSNfF517
+        - **rotulo**: 
         - **linha**:
           - **estilo**: TRACEJADO
           - **espessura**: 3
@@ -8817,9 +10868,11 @@
                 - **rotulo**: 21
                 - **raio**: 17
         - **cor**: #FFD600
-      - **[2]**:
-        - **id**: linha_28
         - **label**: 
+      - **[2]**:
+        - **id**: 2rLr793Ak1FDdh
+        - **uid**: 2rLr793Ak1FDdh
+        - **rotulo**: 
         - **linha**:
           - **estilo**: TRACEJADO
           - **espessura**: 3
@@ -8839,9 +10892,11 @@
                 - **rotulo**: 19
                 - **raio**: 17
         - **cor**: #FFD600
-      - **[3]**:
-        - **id**: linha_29
         - **label**: 
+      - **[3]**:
+        - **id**: xcdwg1f9RHrPlV
+        - **uid**: xcdwg1f9RHrPlV
+        - **rotulo**: 
         - **linha**:
           - **estilo**: TRACEJADO
           - **espessura**: 3
@@ -8861,9 +10916,11 @@
                 - **rotulo**: 18
                 - **raio**: 17
         - **cor**: #FFD600
-      - **[4]**:
-        - **id**: linha_30
         - **label**: 
+      - **[4]**:
+        - **id**: A2BbCF9f9xQgU8
+        - **uid**: A2BbCF9f9xQgU8
+        - **rotulo**: 
         - **linha**:
           - **estilo**: TRACEJADO
           - **espessura**: 3
@@ -8883,9 +10940,11 @@
                 - **rotulo**: 17
                 - **raio**: 17
         - **cor**: #FFD600
-      - **[5]**:
-        - **id**: linha_31
         - **label**: 
+      - **[5]**:
+        - **id**: zQ0GQzbQWKTXAM
+        - **uid**: zQ0GQzbQWKTXAM
+        - **rotulo**: 
         - **linha**:
           - **estilo**: TRACEJADO
           - **espessura**: 3
@@ -8905,9 +10964,11 @@
                 - **rotulo**: 16
                 - **raio**: 17
         - **cor**: #FFD600
-      - **[6]**:
-        - **id**: linha_32
         - **label**: 
+      - **[6]**:
+        - **id**: jxMv2oQ52G1U3o
+        - **uid**: jxMv2oQ52G1U3o
+        - **rotulo**: 
         - **linha**:
           - **estilo**: TRACEJADO
           - **espessura**: 3
@@ -8927,44 +10988,66 @@
                 - **rotulo**: 15
                 - **raio**: 17
         - **cor**: #FFD600
+        - **label**: 
     - **referencias**:
       - **[0]**:
-        - **ids**:
-          - linha_26
+        - **alvo_uid**: HfH0Q9Q86GoM6f
+        - **pontos_uids**:
+          - h02BCusv8ZjmXc
         - **escalada**: Pequeno desafio
+        - **ids**:
+          - h02BCusv8ZjmXc
       - **[1]**:
-        - **ids**:
-          - linha_30
+        - **alvo_uid**: njS3Txwlt4gGPg
+        - **pontos_uids**:
+          - A2BbCF9f9xQgU8
         - **escalada**: Engana bobo
+        - **ids**:
+          - A2BbCF9f9xQgU8
       - **[2]**:
-        - **ids**:
-          - linha_28
+        - **alvo_uid**: Ux0VzrqpFMAebD
+        - **pontos_uids**:
+          - 2rLr793Ak1FDdh
         - **escalada**: Sem nome 30
+        - **ids**:
+          - 2rLr793Ak1FDdh
       - **[3]**:
-        - **ids**:
-          - linha_29
+        - **alvo_uid**: wqbq8WmwGdnfLw
+        - **pontos_uids**:
+          - xcdwg1f9RHrPlV
         - **escalada**: Sem nome 29
+        - **ids**:
+          - xcdwg1f9RHrPlV
       - **[4]**:
-        - **ids**:
-          - linha_31
+        - **alvo_uid**: ysYI1TVvJS1kyy
+        - **pontos_uids**:
+          - zQ0GQzbQWKTXAM
         - **escalada**: Sem nome 27
+        - **ids**:
+          - zQ0GQzbQWKTXAM
       - **[5]**:
-        - **ids**:
-          - linha_27
+        - **alvo_uid**: qSVuKvprARRGaM
+        - **pontos_uids**:
+          - Xzyhq0GSNfF517
         - **escalada**: Porco espinho
-        - **setor**: Bloco Democracia
-      - **[6]**:
         - **ids**:
-          - linha_32
+          - Xzyhq0GSNfF517
+      - **[6]**:
+        - **alvo_uid**: bzxfCNiVVFBEnp
+        - **pontos_uids**:
+          - jxMv2oQ52G1U3o
         - **escalada**: Passa um
+        - **ids**:
+          - jxMv2oQ52G1U3o
   - **[6]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_bloco_democracia_p6.webp)
     - **largura_mapa**: 1825
     - **altura_mapa**: 1369
     - **pontos_de_interesse**:
       - **[0]**:
-        - **id**: linha_15
-        - **label**: 
+        - **id**: FgUzqh9xM3pM1t
+        - **uid**: FgUzqh9xM3pM1t
+        - **rotulo**: 
         - **linha**:
           - **estilo**: TRACEJADO
           - **espessura**: 3
@@ -8984,9 +11067,11 @@
                 - **rotulo**: 20
                 - **raio**: 17
         - **cor**: #FFD600
-      - **[1]**:
-        - **id**: linha_25
         - **label**: 
+      - **[1]**:
+        - **id**: CDYYbmZlLuSROd
+        - **uid**: CDYYbmZlLuSROd
+        - **rotulo**: 
         - **linha**:
           - **estilo**: TRACEJADO
           - **espessura**: 3
@@ -9006,16 +11091,22 @@
                 - **rotulo**: 21
                 - **raio**: 19
         - **cor**: #FFD600
+        - **label**: 
     - **referencias**:
       - **[0]**:
-        - **ids**:
-          - linha_15
+        - **alvo_uid**: HfH0Q9Q86GoM6f
+        - **pontos_uids**:
+          - FgUzqh9xM3pM1t
         - **escalada**: Pequeno desafio
-      - **[1]**:
         - **ids**:
-          - linha_25
+          - FgUzqh9xM3pM1t
+      - **[1]**:
+        - **alvo_uid**: qSVuKvprARRGaM
+        - **pontos_uids**:
+          - CDYYbmZlLuSROd
         - **escalada**: Porco espinho
-        - **setor**: Bloco Democracia
+        - **ids**:
+          - CDYYbmZlLuSROd
 - **precomputados**:
   - **total_escaladas**: 23
   - **total_boulders**: 23
@@ -9027,44 +11118,55 @@
 
 - **descricao**: Trilha para os blocos: https://loc.wiki/t/283472918?wa=share&og=4EnP4vijgDE
 - **nome**: Setor Sherpa
+- **uid**: cqT5nqQ4pvPub7
 - **setores**:
   - **[0]**:
     - **conteudo**:
       - **descricao**: Trilha para os blocos: https://loc.wiki/t/283472918?wa=share&og=4EnP4vijgDE
       - **nome**: Setor Sherpa - Boulders
+      - **uid**: B70in7mhtc7bin
       - **escaladas**:
         - **[0]**:
+          - **uid**: sJTr3wt4x20WVI
           - **boulder**:
             - **nome**: Jetinho Brasileiro
             - **dificuldade**: V4
         - **[1]**:
+          - **uid**: XyCdEhjXvwDBrA
           - **boulder**:
             - **nome**: Fenda do Bikini
             - **dificuldade**: V4
         - **[2]**:
+          - **uid**: PPcjTRF5GhIwY8
           - **boulder**:
             - **nome**: Força G
             - **dificuldade**: V2
         - **[3]**:
+          - **uid**: 5v4P18ITqGjtRQ
           - **boulder**:
             - **nome**: Francês
         - **[4]**:
+          - **uid**: DmaPRWS9ztpavr
           - **boulder**:
             - **nome**: Glorioso
             - **dificuldade**: V2
         - **[5]**:
+          - **uid**: QW990go8L7eTCV
           - **boulder**:
             - **nome**: Itália
             - **dificuldade**: V4
         - **[6]**:
+          - **uid**: KHczOH5F3LH2DG
           - **boulder**:
             - **nome**: Garganta
             - **dificuldade**: V5
         - **[7]**:
+          - **uid**: sbGqDQhqpW9lLX
           - **boulder**:
             - **nome**: Guela
             - **dificuldade**: V5
         - **[8]**:
+          - **uid**: YqsJ6HPMFyKrLo
           - **boulder**:
             - **nome**: Nectar
             - **dificuldade**: V9
@@ -9075,8 +11177,9 @@
           - **altura_mapa**: 1844
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: linha_1
-              - **label**: 
+              - **id**: g2qJ1wEmGyf3cG
+              - **uid**: g2qJ1wEmGyf3cG
+              - **rotulo**: 
               - **linha**:
                 - **estilo**: TRACEJADO
                 - **espessura**: 3
@@ -9101,9 +11204,11 @@
                       - **angulo_graus_x100**: -10724
                       - **rotulo**: A
               - **cor**: #FFD600
-            - **[1]**:
-              - **id**: linha_2
               - **label**: 
+            - **[1]**:
+              - **id**: ik3qO5ASjPb4xa
+              - **uid**: ik3qO5ASjPb4xa
+              - **rotulo**: 
               - **linha**:
                 - **estilo**: TRACEJADO
                 - **espessura**: 3
@@ -9128,9 +11233,11 @@
                       - **angulo_graus_x100**: -5882
                       - **rotulo**: B
               - **cor**: #FFD600
-            - **[2]**:
-              - **id**: linha_3
               - **label**: 
+            - **[2]**:
+              - **id**: WQEZogAPCVZCVe
+              - **uid**: WQEZogAPCVZCVe
+              - **rotulo**: 
               - **linha**:
                 - **estilo**: TRACEJADO
                 - **espessura**: 3
@@ -9149,9 +11256,11 @@
                       - **angulo_graus_x100**: -10573
                       - **rotulo**: 3
               - **cor**: #FFD600
-            - **[3]**:
-              - **id**: linha_4
               - **label**: 
+            - **[3]**:
+              - **id**: lprOfHt44C6VGf
+              - **uid**: lprOfHt44C6VGf
+              - **rotulo**: 
               - **linha**:
                 - **estilo**: TRACEJADO
                 - **espessura**: 3
@@ -9170,30 +11279,44 @@
                       - **angulo_graus_x100**: -6707
                       - **rotulo**: 4
               - **cor**: #FFD600
+              - **label**: 
           - **referencias**:
             - **[0]**:
-              - **ids**:
-                - linha_1
+              - **alvo_uid**: sJTr3wt4x20WVI
+              - **pontos_uids**:
+                - g2qJ1wEmGyf3cG
               - **escalada**: Jetinho Brasileiro
+              - **ids**:
+                - g2qJ1wEmGyf3cG
             - **[1]**:
-              - **ids**:
-                - linha_2
+              - **alvo_uid**: XyCdEhjXvwDBrA
+              - **pontos_uids**:
+                - ik3qO5ASjPb4xa
               - **escalada**: Fenda do Bikini
+              - **ids**:
+                - ik3qO5ASjPb4xa
             - **[2]**:
-              - **ids**:
-                - linha_3
+              - **alvo_uid**: PPcjTRF5GhIwY8
+              - **pontos_uids**:
+                - WQEZogAPCVZCVe
               - **escalada**: Força G
-            - **[3]**:
               - **ids**:
-                - linha_4
+                - WQEZogAPCVZCVe
+            - **[3]**:
+              - **alvo_uid**: 5v4P18ITqGjtRQ
+              - **pontos_uids**:
+                - lprOfHt44C6VGf
               - **escalada**: Francês
+              - **ids**:
+                - lprOfHt44C6VGf
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_sherpa_boulders_p2.webp)
           - **largura_mapa**: 893
           - **altura_mapa**: 700
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: linha_9
+              - **id**: aOdPqWNRnf2uqz
+              - **uid**: aOdPqWNRnf2uqz
               - **linha**:
                 - **estilo**: TRACEJADO
                 - **espessura**: 3
@@ -9213,7 +11336,8 @@
                       - **rotulo**: 1
               - **cor**: #FFD600
             - **[1]**:
-              - **id**: linha_10
+              - **id**: cBoyDvIZHtIX4l
+              - **uid**: cBoyDvIZHtIX4l
               - **linha**:
                 - **estilo**: TRACEJADO
                 - **espessura**: 3
@@ -9233,7 +11357,8 @@
                       - **rotulo**: 2
               - **cor**: #FFD600
             - **[2]**:
-              - **id**: linha_11
+              - **id**: 0NNFRTfCbUwUuN
+              - **uid**: 0NNFRTfCbUwUuN
               - **linha**:
                 - **estilo**: TRACEJADO
                 - **espessura**: 3
@@ -9253,8 +11378,9 @@
                       - **rotulo**: A
               - **cor**: #FFD600
             - **[3]**:
-              - **id**: linha_8
-              - **label**: 
+              - **id**: LNwf2jrszO1ytd
+              - **uid**: LNwf2jrszO1ytd
+              - **rotulo**: 
               - **linha**:
                 - **estilo**: TRACEJADO
                 - **espessura**: 3
@@ -9273,26 +11399,37 @@
                       - **angulo_graus_x100**: 0
                       - **rotulo**: A
               - **cor**: #FFD600
+              - **label**: 
           - **referencias**:
             - **[0]**:
-              - **ids**:
-                - linha_9
-                - linha_10
-                - linha_11
+              - **alvo_uid**: PPcjTRF5GhIwY8
+              - **pontos_uids**:
+                - aOdPqWNRnf2uqz
+                - cBoyDvIZHtIX4l
+                - 0NNFRTfCbUwUuN
               - **escalada**: Força G
-            - **[1]**:
               - **ids**:
-                - linha_10
-                - linha_8
+                - aOdPqWNRnf2uqz
+                - cBoyDvIZHtIX4l
+                - 0NNFRTfCbUwUuN
+            - **[1]**:
+              - **alvo_uid**: 5v4P18ITqGjtRQ
+              - **pontos_uids**:
+                - cBoyDvIZHtIX4l
+                - LNwf2jrszO1ytd
               - **escalada**: Francês
+              - **ids**:
+                - cBoyDvIZHtIX4l
+                - LNwf2jrszO1ytd
         - **[2]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_sherpa_boulders_p3.webp)
           - **largura_mapa**: 940
           - **altura_mapa**: 910
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: linha_12
-              - **label**: 
+              - **id**: OfgDeurgL8xjXZ
+              - **uid**: OfgDeurgL8xjXZ
+              - **rotulo**: 
               - **linha**:
                 - **estilo**: TRACEJADO
                 - **espessura**: 3
@@ -9317,9 +11454,11 @@
                       - **angulo_graus_x100**: -10954
                       - **rotulo**: A
               - **cor**: #FFD600
-            - **[1]**:
-              - **id**: linha_13
               - **label**: 
+            - **[1]**:
+              - **id**: pnqFRZh57P4cXM
+              - **uid**: pnqFRZh57P4cXM
+              - **rotulo**: 
               - **linha**:
                 - **estilo**: TRACEJADO
                 - **espessura**: 3
@@ -9344,23 +11483,31 @@
                       - **angulo_graus_x100**: 0
                       - **rotulo**: A
               - **cor**: #FFD600
+              - **label**: 
           - **referencias**:
             - **[0]**:
-              - **ids**:
-                - linha_12
+              - **alvo_uid**: DmaPRWS9ztpavr
+              - **pontos_uids**:
+                - OfgDeurgL8xjXZ
               - **escalada**: Glorioso
-            - **[1]**:
               - **ids**:
-                - linha_13
+                - OfgDeurgL8xjXZ
+            - **[1]**:
+              - **alvo_uid**: QW990go8L7eTCV
+              - **pontos_uids**:
+                - pnqFRZh57P4cXM
               - **escalada**: Itália
+              - **ids**:
+                - pnqFRZh57P4cXM
         - **[3]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_sherpa_boulders_p4.webp)
           - **largura_mapa**: 1392
           - **altura_mapa**: 3013
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: linha_14
-              - **label**: 
+              - **id**: gIdTXNgfyNjlSe
+              - **uid**: gIdTXNgfyNjlSe
+              - **rotulo**: 
               - **linha**:
                 - **estilo**: TRACEJADO
                 - **espessura**: 3
@@ -9385,19 +11532,24 @@
                       - **angulo_graus_x100**: -9000
                       - **rotulo**: A
               - **cor**: #FFD600
+              - **label**: 
           - **referencias**:
             - **[0]**:
-              - **ids**:
-                - linha_14
+              - **alvo_uid**: KHczOH5F3LH2DG
+              - **pontos_uids**:
+                - gIdTXNgfyNjlSe
               - **escalada**: Garganta
+              - **ids**:
+                - gIdTXNgfyNjlSe
         - **[4]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_sherpa_boulders_p5.webp)
           - **largura_mapa**: 1392
           - **altura_mapa**: 3013
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: linha_15
-              - **label**: 
+              - **id**: 0pCL0UqpGYto5v
+              - **uid**: 0pCL0UqpGYto5v
+              - **rotulo**: 
               - **linha**:
                 - **estilo**: TRACEJADO
                 - **espessura**: 3
@@ -9425,9 +11577,11 @@
                       - **raio**: 25
                       - **tamanho_fonte**: 28
               - **cor**: #FFD600
-            - **[1]**:
-              - **id**: linha_16
               - **label**: 
+            - **[1]**:
+              - **id**: On9tYHVMCsuFKE
+              - **uid**: On9tYHVMCsuFKE
+              - **rotulo**: 
               - **linha**:
                 - **estilo**: TRACEJADO
                 - **espessura**: 3
@@ -9453,9 +11607,11 @@
                       - **angulo_graus_x100**: 0
                       - **rotulo**: B
               - **cor**: #FFD600
-            - **[2]**:
-              - **id**: linha_17
               - **label**: 
+            - **[2]**:
+              - **id**: DN7m1qc736k5mX
+              - **uid**: DN7m1qc736k5mX
+              - **rotulo**: 
               - **linha**:
                 - **estilo**: TRACEJADO
                 - **espessura**: 3
@@ -9480,27 +11636,38 @@
                       - **angulo_graus_x100**: -10307
                       - **rotulo**: C
               - **cor**: #FFD600
+              - **label**: 
           - **referencias**:
             - **[0]**:
-              - **ids**:
-                - linha_15
+              - **alvo_uid**: sbGqDQhqpW9lLX
+              - **pontos_uids**:
+                - 0pCL0UqpGYto5v
               - **escalada**: Guela
+              - **ids**:
+                - 0pCL0UqpGYto5v
             - **[1]**:
-              - **ids**:
-                - linha_16
+              - **alvo_uid**: YqsJ6HPMFyKrLo
+              - **pontos_uids**:
+                - On9tYHVMCsuFKE
               - **escalada**: Nectar
-            - **[2]**:
               - **ids**:
-                - linha_17
+                - On9tYHVMCsuFKE
+            - **[2]**:
+              - **alvo_uid**: KHczOH5F3LH2DG
+              - **pontos_uids**:
+                - DN7m1qc736k5mX
               - **escalada**: Garganta
+              - **ids**:
+                - DN7m1qc736k5mX
         - **[5]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_sherpa_boulders_p6.webp)
           - **largura_mapa**: 1057
           - **altura_mapa**: 1697
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: linha_18
-              - **label**: 
+              - **id**: jQ9GhuTtWSfP6I
+              - **uid**: jQ9GhuTtWSfP6I
+              - **rotulo**: 
               - **linha**:
                 - **estilo**: TRACEJADO
                 - **espessura**: 3
@@ -9525,11 +11692,15 @@
                       - **angulo_graus_x100**: 0
                       - **rotulo**: A
               - **cor**: #FFD600
+              - **label**: 
           - **referencias**:
             - **[0]**:
-              - **ids**:
-                - linha_18
+              - **alvo_uid**: YqsJ6HPMFyKrLo
+              - **pontos_uids**:
+                - jQ9GhuTtWSfP6I
               - **escalada**: Nectar
+              - **ids**:
+                - jQ9GhuTtWSfP6I
       - **precomputados**:
         - **total_escaladas**: 9
         - **total_boulders**: 9

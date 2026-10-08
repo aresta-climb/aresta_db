@@ -92,12 +92,14 @@ class DialogoBuscaReferencia(QDialog):
             return
 
         self.referencia_selecionada = croqui_pb2.Mapa.Referencia()
-        if dados.get("grupo"):
-            self.referencia_selecionada.grupo = str(dados["grupo"])
-        if dados.get("setor"):
-            self.referencia_selecionada.setor = str(dados["setor"])
-        if dados.get("escalada"):
-            self.referencia_selecionada.escalada = str(dados["escalada"])
+        alvo_uid = dados.get("uid") or ""
+        if not alvo_uid:
+            obj = dados.get("escalada_obj") or dados.get("setor_obj") or dados.get("grupo_obj")
+            if obj and hasattr(obj, "uid"):
+                alvo_uid = str(obj.uid)
+
+        if alvo_uid:
+            self.referencia_selecionada.alvo_uid = str(alvo_uid)
 
         super().accept()
 

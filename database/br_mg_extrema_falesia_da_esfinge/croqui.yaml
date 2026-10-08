@@ -1,6 +1,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
+uid: pqipqUpyFjBqM0
 id: br_mg_extrema_falesia_da_esfinge
 nome: Falésia da Esfinge
 descricao: Um belíssimo vale localizado no município de Extrema/MG, com mais de 20 vias em
@@ -21,28 +22,34 @@ picos:
   - setor:
       caminho: setor_ecumenico.md
 botoes:
-- texto: Capa
+- uid: Yaay510rQfzXso
+  texto: Capa
   destino:
     secao_textual:
       caminho: capa.md
-- texto: Introdução
+- uid: TewDHbelMGIAZf
+  texto: Introdução
   destino:
     secao_textual:
       caminho: introducao.md
-- texto: Segurança
+- uid: y2WlF13w7RYJkG
+  texto: Segurança
   destino:
     secao_textual:
       caminho: seguranca.md
-- texto: Localização
+- uid: H6hj2WwUzyHjpN
+  texto: Localização
   destino:
     secao_textual:
       caminho: localizacao.md
-- texto: Código de Conduta
+- uid: eAVNH4zNi1uWb8
+  texto: Código de Conduta
   destino:
     secao_textual:
       caminho: codigo_conduta.md
-- texto: Apoio 
+- uid: HSFXbptxLlomkt
+  texto: Apoio
   destino:
     secao_textual:
       caminho: apoio.md
-ultima_migracao: 4
+ultima_migracao: 5

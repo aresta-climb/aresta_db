@@ -6,35 +6,35 @@ mapas:
   largura_mapa: 1332
   altura_mapa: 810
   pontos_de_interesse:
-  - id: Sub-setor_Beija_Flor
-    label: Sub-setor Beija Flor
+  - uid: Nz5DEBPd7WJScf
+    rotulo: Sub-setor Beija Flor
     retangulo:
       x: 724
       y: 364
       comprimento: 212
       largura: 29
-  - id: Conjunto_por-do-sol
-    label: Conjunto pôr-do-sol
+  - uid: ffU3CRVOte1Fda
+    rotulo: Conjunto pôr-do-sol
     retangulo:
       x: 771
       y: 460
       comprimento: 216
       largura: 29
-  - id: Sub-setor_Moctezuma
-    label: Sub-setor Moctezuma
+  - uid: jWueDmG3nXmbgC
+    rotulo: Sub-setor Moctezuma
     retangulo:
       x: 851
       y: 529
       comprimento: 248
       largura: 30
   referencias:
-  - setor: Beija Flor
-    ids:
-    - Sub-setor_Beija_Flor
-  - grupo: Conjunto pôr-do-sol
-    ids:
-    - Conjunto_por-do-sol
-  - setor: Moctezuma
-    ids:
-    - Sub-setor_Moctezuma
+  - alvo_uid: SEgxtzL4pAgclV
+    pontos_uids:
+    - Nz5DEBPd7WJScf
+  - alvo_uid: cgYhOqCxY7U7Gx
+    pontos_uids:
+    - ffU3CRVOte1Fda
+  - alvo_uid: nnYIlTwIYD9Wlp
+    pontos_uids:
+    - jWueDmG3nXmbgC
 ---

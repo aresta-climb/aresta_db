@@ -4,6 +4,7 @@
 
 - **id**: br_mg_caete_pedra_branca
 - **nome**: Pedra Branca
+- **uid**: Snfxx6EhH9zy7o
 - **creditos**:
   - Mauricio Juntolli
   - Danilo Stehling
@@ -12,6 +13,7 @@
 - **status_desenho_extraivel**: NAO_TEM_DESENHO
 - **botoes**:
   - **[0]**:
+    - **uid**: zI805XHO4ZG1hR
     - **texto**: Capa
     - **destino**:
       - **secao_textual**:
@@ -30,7 +32,7 @@
             Danilo Stehling
             
             Atualizado em: 2010
-- **ultima_migracao**: 4
+- **ultima_migracao**: 5
 - **publicar_croqui**: True
 - **revisado_bounding_circle**: True
 
@@ -48,6 +50,7 @@
     **Atualizado em:** 2010.
     **Fonte:** http://www.escaladacaete.eu5.org
 - **nome**: Croqui 01 da Pedra Branca
+- **uid**: K6KeUBG5FGqpRY
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/pagina_1_imagem_0.webp)
@@ -55,449 +58,613 @@
     - **altura_mapa**: 461
     - **pontos_de_interesse**:
       - **[0]**:
-        - **id**: 13
-        - **label**: 13
+        - **id**: xoelL0qsX5lvQ1
+        - **uid**: xoelL0qsX5lvQ1
+        - **rotulo**: 13
         - **retangulo**:
           - **x**: 89
           - **y**: 244
           - **comprimento**: 22
           - **largura**: 20
+        - **label**: 13
       - **[1]**:
-        - **id**: 14
-        - **label**: 14
+        - **id**: S9ulPKQHMtZexV
+        - **uid**: S9ulPKQHMtZexV
+        - **rotulo**: 14
         - **retangulo**:
           - **x**: 70
           - **y**: 280
           - **comprimento**: 21
           - **largura**: 19
+        - **label**: 14
       - **[2]**:
-        - **id**: 15
-        - **label**: 15
+        - **id**: 1a3dQAOIyY0zSD
+        - **uid**: 1a3dQAOIyY0zSD
+        - **rotulo**: 15
         - **retangulo**:
           - **x**: 42
           - **y**: 339
           - **comprimento**: 20
           - **largura**: 20
+        - **label**: 15
       - **[3]**:
-        - **id**: 16
-        - **label**: 16
+        - **id**: Non1VFvneGG1tc
+        - **uid**: Non1VFvneGG1tc
+        - **rotulo**: 16
         - **retangulo**:
           - **x**: 12
           - **y**: 401
           - **comprimento**: 23
           - **largura**: 20
+        - **label**: 16
       - **[4]**:
-        - **id**: 17
-        - **label**: 17
+        - **id**: v6DRuRsdubauXm
+        - **uid**: v6DRuRsdubauXm
+        - **rotulo**: 17
         - **retangulo**:
           - **x**: 139
           - **y**: 449
           - **comprimento**: 20
           - **largura**: 18
+        - **label**: 17
       - **[5]**:
-        - **id**: 18
-        - **label**: 18
+        - **id**: fFTvG4Y5GrNdk2
+        - **uid**: fFTvG4Y5GrNdk2
+        - **rotulo**: 18
         - **retangulo**:
           - **x**: 218
           - **y**: 449
           - **comprimento**: 20
           - **largura**: 20
+        - **label**: 18
       - **[6]**:
-        - **id**: 19
-        - **label**: 19
+        - **id**: iYF3Rb9xYPogbA
+        - **uid**: iYF3Rb9xYPogbA
+        - **rotulo**: 19
         - **retangulo**:
           - **x**: 272
           - **y**: 450
           - **comprimento**: 21
           - **largura**: 21
+        - **label**: 19
       - **[7]**:
-        - **id**: 20
-        - **label**: 20
+        - **id**: Y43j7YvTkGaYOQ
+        - **uid**: Y43j7YvTkGaYOQ
+        - **rotulo**: 20
         - **retangulo**:
           - **x**: 310
           - **y**: 449
           - **comprimento**: 21
           - **largura**: 20
+        - **label**: 20
       - **[8]**:
-        - **id**: 21
-        - **label**: 21
+        - **id**: WE6PYnvPPqV7YS
+        - **uid**: WE6PYnvPPqV7YS
+        - **rotulo**: 21
         - **retangulo**:
           - **x**: 372
           - **y**: 450
           - **comprimento**: 21
           - **largura**: 19
+        - **label**: 21
       - **[9]**:
-        - **id**: 22
-        - **label**: 22
+        - **id**: bxnxrQvXUEfey7
+        - **uid**: bxnxrQvXUEfey7
+        - **rotulo**: 22
         - **retangulo**:
           - **x**: 418
           - **y**: 449
           - **comprimento**: 22
           - **largura**: 18
+        - **label**: 22
       - **[10]**:
-        - **id**: 23
-        - **label**: 23
+        - **id**: TqQ7j0awfKOQe7
+        - **uid**: TqQ7j0awfKOQe7
+        - **rotulo**: 23
         - **retangulo**:
           - **x**: 529
           - **y**: 450
           - **comprimento**: 22
           - **largura**: 19
+        - **label**: 23
       - **[11]**:
-        - **id**: 24
-        - **label**: 24
+        - **id**: nuG9LB9Agaq6G3
+        - **uid**: nuG9LB9Agaq6G3
+        - **rotulo**: 24
         - **retangulo**:
           - **x**: 563
           - **y**: 390
           - **comprimento**: 20
           - **largura**: 19
+        - **label**: 24
       - **[12]**:
-        - **id**: 25
-        - **label**: 25
+        - **id**: 07Bk4BneOy2EVB
+        - **uid**: 07Bk4BneOy2EVB
+        - **rotulo**: 25
         - **retangulo**:
           - **x**: 600
           - **y**: 449
           - **comprimento**: 21
           - **largura**: 18
+        - **label**: 25
       - **[13]**:
-        - **id**: 26
-        - **label**: 26
+        - **id**: QIF0uJoBiCXFar
+        - **uid**: QIF0uJoBiCXFar
+        - **rotulo**: 26
         - **retangulo**:
           - **x**: 620
           - **y**: 388
           - **comprimento**: 21
           - **largura**: 20
+        - **label**: 26
       - **[14]**:
-        - **id**: 27
-        - **label**: 27
+        - **id**: ViWy1gHEOfiPR1
+        - **uid**: ViWy1gHEOfiPR1
+        - **rotulo**: 27
         - **retangulo**:
           - **x**: 691
           - **y**: 449
           - **comprimento**: 22
           - **largura**: 20
+        - **label**: 27
       - **[15]**:
-        - **id**: 28
-        - **label**: 28
+        - **id**: ukxbibKTTRV3Hz
+        - **uid**: ukxbibKTTRV3Hz
+        - **rotulo**: 28
         - **retangulo**:
           - **x**: 898
           - **y**: 430
           - **comprimento**: 21
           - **largura**: 19
+        - **label**: 28
       - **[16]**:
-        - **id**: 29
-        - **label**: 29
+        - **id**: 12IGBn5WHXGOsJ
+        - **uid**: 12IGBn5WHXGOsJ
+        - **rotulo**: 29
         - **retangulo**:
           - **x**: 794
           - **y**: 313
           - **comprimento**: 21
           - **largura**: 18
+        - **label**: 29
       - **[17]**:
-        - **id**: 30
-        - **label**: 30
+        - **id**: gYrS8JSxYycrNG
+        - **uid**: gYrS8JSxYycrNG
+        - **rotulo**: 30
         - **retangulo**:
           - **x**: 768
           - **y**: 318
           - **comprimento**: 19
           - **largura**: 18
+        - **label**: 30
       - **[18]**:
-        - **id**: 31
-        - **label**: 31
+        - **id**: RV1xvZSTYRzkVM
+        - **uid**: RV1xvZSTYRzkVM
+        - **rotulo**: 31
         - **retangulo**:
           - **x**: 742
           - **y**: 326
           - **comprimento**: 20
           - **largura**: 19
+        - **label**: 31
       - **[19]**:
-        - **id**: 32
-        - **label**: 32
+        - **id**: FUiTvXFHM3e905
+        - **uid**: FUiTvXFHM3e905
+        - **rotulo**: 32
         - **retangulo**:
           - **x**: 679
           - **y**: 306
           - **comprimento**: 22
           - **largura**: 20
+        - **label**: 32
       - **[20]**:
-        - **id**: 33
-        - **label**: 33
+        - **id**: NRnGgmxLfM99K7
+        - **uid**: NRnGgmxLfM99K7
+        - **rotulo**: 33
         - **retangulo**:
           - **x**: 632
           - **y**: 264
           - **comprimento**: 19
           - **largura**: 21
+        - **label**: 33
       - **[21]**:
-        - **id**: 34
-        - **label**: 34
+        - **id**: IDP1dsWrYiZFHs
+        - **uid**: IDP1dsWrYiZFHs
+        - **rotulo**: 34
         - **retangulo**:
           - **x**: 580
           - **y**: 234
           - **comprimento**: 21
           - **largura**: 21
+        - **label**: 34
       - **[22]**:
-        - **id**: 35
-        - **label**: 35
+        - **id**: CRmbnKH8QCO7Zc
+        - **uid**: CRmbnKH8QCO7Zc
+        - **rotulo**: 35
         - **retangulo**:
           - **x**: 536
           - **y**: 232
           - **comprimento**: 21
           - **largura**: 19
+        - **label**: 35
       - **[23]**:
-        - **id**: A
-        - **label**: A
+        - **id**: 11oZlL6GJO1jb9
+        - **uid**: 11oZlL6GJO1jb9
+        - **rotulo**: A
         - **retangulo**:
           - **x**: 101
           - **y**: 449
           - **comprimento**: 22
           - **largura**: 20
+        - **label**: A
       - **[24]**:
-        - **id**: B
-        - **label**: B
+        - **id**: AWgSDlEJUMDlVt
+        - **uid**: AWgSDlEJUMDlVt
+        - **rotulo**: B
         - **retangulo**:
           - **x**: 289
           - **y**: 154
           - **comprimento**: 16
           - **largura**: 17
+        - **label**: B
       - **[25]**:
-        - **id**: C
-        - **label**: C
+        - **id**: 5b6g1Wma74LHoT
+        - **uid**: 5b6g1Wma74LHoT
+        - **rotulo**: C
         - **retangulo**:
           - **x**: 302
           - **y**: 129
           - **comprimento**: 17
           - **largura**: 18
+        - **label**: C
       - **[26]**:
-        - **id**: D
-        - **label**: D
+        - **id**: 3ORGCLSTfMoDjO
+        - **uid**: 3ORGCLSTfMoDjO
+        - **rotulo**: D
         - **retangulo**:
           - **x**: 380
           - **y**: 68
           - **comprimento**: 19
           - **largura**: 19
+        - **label**: D
       - **[27]**:
-        - **id**: Negativo
-        - **label**: Negativo
+        - **id**: wblD1I5XbrVqcw
+        - **uid**: wblD1I5XbrVqcw
+        - **rotulo**: Negativo
         - **retangulo**:
           - **x**: 485
           - **y**: 384
           - **comprimento**: 70
           - **largura**: 14
+        - **label**: Negativo
     - **referencias**:
       - **[0]**:
+        - **alvo_uid**: w6bhkSps2nBsAj
+        - **pontos_uids**:
+          - xoelL0qsX5lvQ1
         - **escalada**: Parede Preta
         - **ids**:
-          - 13
+          - xoelL0qsX5lvQ1
       - **[1]**:
+        - **alvo_uid**: Z7E4isQLEWnJvF
+        - **pontos_uids**:
+          - S9ulPKQHMtZexV
         - **escalada**: Leão da Montanha
         - **ids**:
-          - 14
+          - S9ulPKQHMtZexV
       - **[2]**:
+        - **alvo_uid**: t1LH4Kgo8pqxYq
+        - **pontos_uids**:
+          - 1a3dQAOIyY0zSD
         - **escalada**: Face Norte
         - **ids**:
-          - 15
+          - 1a3dQAOIyY0zSD
       - **[3]**:
+        - **alvo_uid**: 5St8EZU9AsqzyC
+        - **pontos_uids**:
+          - Non1VFvneGG1tc
         - **escalada**: Criaturas da Noite
         - **ids**:
-          - 16
+          - Non1VFvneGG1tc
       - **[4]**:
+        - **alvo_uid**: vhVTLROksokcO8
+        - **pontos_uids**:
+          - v6DRuRsdubauXm
         - **escalada**: Tendência Suicida
         - **ids**:
-          - 17
+          - v6DRuRsdubauXm
       - **[5]**:
+        - **alvo_uid**: yuESoB7orWFgdw
+        - **pontos_uids**:
+          - fFTvG4Y5GrNdk2
         - **escalada**: Thor
         - **ids**:
-          - 18
+          - fFTvG4Y5GrNdk2
       - **[6]**:
+        - **alvo_uid**: H7jmxJEfjCmuFx
+        - **pontos_uids**:
+          - iYF3Rb9xYPogbA
         - **escalada**: Todinha pra Mim
         - **ids**:
-          - 19
+          - iYF3Rb9xYPogbA
       - **[7]**:
+        - **alvo_uid**: 1VYdDcSRCTxiXy
+        - **pontos_uids**:
+          - Y43j7YvTkGaYOQ
         - **escalada**: Sombra do Gigante
         - **ids**:
-          - 20
+          - Y43j7YvTkGaYOQ
       - **[8]**:
+        - **alvo_uid**: kPOaRkGEbylO4I
+        - **pontos_uids**:
+          - WE6PYnvPPqV7YS
         - **escalada**: Firinha Rinda
         - **ids**:
-          - 21
+          - WE6PYnvPPqV7YS
       - **[9]**:
+        - **alvo_uid**: Jd5eAQLMqT8Wt5
+        - **pontos_uids**:
+          - bxnxrQvXUEfey7
         - **escalada**: Piolhos Entorpecidos
         - **ids**:
-          - 22
+          - bxnxrQvXUEfey7
       - **[10]**:
+        - **alvo_uid**: nJ8B8M5AhtlMjt
+        - **pontos_uids**:
+          - TqQ7j0awfKOQe7
         - **escalada**: Monstros
         - **ids**:
-          - 23
+          - TqQ7j0awfKOQe7
       - **[11]**:
+        - **alvo_uid**: 1le7xDonTZK5mf
+        - **pontos_uids**:
+          - nuG9LB9Agaq6G3
         - **escalada**: Princesa Escalafabeltica
         - **ids**:
-          - 24
+          - nuG9LB9Agaq6G3
       - **[12]**:
+        - **alvo_uid**: ncggfPGHNCJr9w
+        - **pontos_uids**:
+          - 07Bk4BneOy2EVB
         - **escalada**: Restos de Woodstock
         - **ids**:
-          - 25
+          - 07Bk4BneOy2EVB
       - **[13]**:
+        - **alvo_uid**: 95iNgpIjAF4FSn
+        - **pontos_uids**:
+          - QIF0uJoBiCXFar
         - **escalada**: ??
         - **ids**:
-          - 26
+          - QIF0uJoBiCXFar
       - **[14]**:
+        - **alvo_uid**: xwmQnZBlgz9aXE
+        - **pontos_uids**:
+          - ViWy1gHEOfiPR1
         - **escalada**: Via da Coruja
         - **ids**:
-          - 27
+          - ViWy1gHEOfiPR1
       - **[15]**:
+        - **alvo_uid**: nHDQfAqXJT2rti
+        - **pontos_uids**:
+          - ukxbibKTTRV3Hz
         - **escalada**: Dona Onça
         - **ids**:
-          - 28
+          - ukxbibKTTRV3Hz
       - **[16]**:
+        - **alvo_uid**: 9aVbetL0pnsA9g
+        - **pontos_uids**:
+          - 12IGBn5WHXGOsJ
         - **escalada**: Solidão das Idéias
         - **ids**:
-          - 29
+          - 12IGBn5WHXGOsJ
       - **[17]**:
+        - **alvo_uid**: cCWVhevCSl52QU
+        - **pontos_uids**:
+          - gYrS8JSxYycrNG
         - **escalada**: A Espera dos Urubus
         - **ids**:
-          - 30
+          - gYrS8JSxYycrNG
       - **[18]**:
+        - **alvo_uid**: MPXCFwqNaExXao
+        - **pontos_uids**:
+          - RV1xvZSTYRzkVM
         - **escalada**: Gaviões
         - **ids**:
-          - 31
+          - RV1xvZSTYRzkVM
       - **[19]**:
+        - **alvo_uid**: iJ7CflfTw4UNK6
+        - **pontos_uids**:
+          - FUiTvXFHM3e905
         - **escalada**: Azimut Vertical
         - **ids**:
-          - 32
+          - FUiTvXFHM3e905
       - **[20]**:
+        - **alvo_uid**: 9ZKnvv9gBNQqeB
+        - **pontos_uids**:
+          - NRnGgmxLfM99K7
         - **escalada**: Zique Zira da Raca Rouca
         - **ids**:
-          - 33
+          - NRnGgmxLfM99K7
       - **[21]**:
+        - **alvo_uid**: xbsm4iM48HSfWw
+        - **pontos_uids**:
+          - IDP1dsWrYiZFHs
         - **escalada**: Mistérios da Fé
         - **ids**:
-          - 34
+          - IDP1dsWrYiZFHs
       - **[22]**:
+        - **alvo_uid**: RcMqnfxh4fboJE
+        - **pontos_uids**:
+          - CRmbnKH8QCO7Zc
         - **escalada**: Nem Karaca Caia
         - **ids**:
-          - 35
+          - CRmbnKH8QCO7Zc
       - **[23]**:
+        - **alvo_uid**: a8bqY9jVskgRSM
+        - **pontos_uids**:
+          - 11oZlL6GJO1jb9
         - **escalada**: Variante Culpa do Elninho
         - **ids**:
-          - A
+          - 11oZlL6GJO1jb9
       - **[24]**:
+        - **alvo_uid**: DBUb0jXNVbcP9L
+        - **pontos_uids**:
+          - AWgSDlEJUMDlVt
         - **escalada**: Variante do Mergulho
         - **ids**:
-          - B
+          - AWgSDlEJUMDlVt
       - **[25]**:
+        - **alvo_uid**: UfNFfrpYfCrVuk
+        - **pontos_uids**:
+          - 5b6g1Wma74LHoT
         - **escalada**: Variante por Aqui
         - **ids**:
-          - C
+          - 5b6g1Wma74LHoT
       - **[26]**:
+        - **alvo_uid**: 1P5NBqCKCd9iKw
+        - **pontos_uids**:
+          - 3ORGCLSTfMoDjO
         - **escalada**: Variante do Judas
         - **ids**:
-          - D
+          - 3ORGCLSTfMoDjO
 - **escaladas**:
   - **[0]**:
+    - **uid**: w6bhkSps2nBsAj
     - **via_esportiva**:
       - **nome**: Parede Preta
       - **dificuldade**: BR_6
       - **quantidade_protecoes_intermediarias**: 4
   - **[1]**:
+    - **uid**: Z7E4isQLEWnJvF
     - **via_esportiva**:
       - **nome**: Leão da Montanha
       - **dificuldade**: BR_6
       - **quantidade_protecoes_intermediarias**: 5
   - **[2]**:
+    - **uid**: t1LH4Kgo8pqxYq
     - **via_esportiva**:
       - **nome**: Face Norte
       - **dificuldade**: BR_5
       - **quantidade_protecoes_intermediarias**: 3
   - **[3]**:
+    - **uid**: 5St8EZU9AsqzyC
     - **via_esportiva**:
       - **nome**: Criaturas da Noite
       - **dificuldade**: BR_6
       - **quantidade_protecoes_intermediarias**: 3
   - **[4]**:
+    - **uid**: vhVTLROksokcO8
     - **via_esportiva**:
       - **nome**: Tendência Suicida
       - **dificuldade**: BR_6
       - **quantidade_protecoes_intermediarias**: 5
   - **[5]**:
+    - **uid**: yuESoB7orWFgdw
     - **via_esportiva**:
       - **nome**: Thor
       - **dificuldade**: BR_7A
   - **[6]**:
+    - **uid**: H7jmxJEfjCmuFx
     - **via_esportiva**:
       - **nome**: Todinha pra Mim
       - **dificuldade**: BR_7B
   - **[7]**:
+    - **uid**: 1VYdDcSRCTxiXy
     - **via_esportiva**:
       - **nome**: Sombra do Gigante
       - **dificuldade**: BR_7B
   - **[8]**:
+    - **uid**: kPOaRkGEbylO4I
     - **via_esportiva**:
       - **nome**: Firinha Rinda
       - **dificuldade**: BR_7B
   - **[9]**:
+    - **uid**: Jd5eAQLMqT8Wt5
     - **via_esportiva**:
       - **nome**: Piolhos Entorpecidos
       - **dificuldade**: BR_8B
   - **[10]**:
+    - **uid**: nJ8B8M5AhtlMjt
     - **via_esportiva**:
       - **nome**: Monstros
       - **dificuldade**: BR_9C
   - **[11]**:
+    - **uid**: 1le7xDonTZK5mf
     - **via_esportiva**:
       - **nome**: Princesa Escalafabeltica
       - **dificuldade**: BR_8B
   - **[12]**:
+    - **uid**: ncggfPGHNCJr9w
     - **via_esportiva**:
       - **nome**: Restos de Woodstock
       - **dificuldade**: BR_8C
   - **[13]**:
+    - **uid**: 95iNgpIjAF4FSn
     - **via_esportiva**:
       - **nome**: ??
   - **[14]**:
+    - **uid**: xwmQnZBlgz9aXE
     - **via_esportiva**:
       - **nome**: Via da Coruja
       - **dificuldade**: BR_3
   - **[15]**:
+    - **uid**: nHDQfAqXJT2rti
     - **via_esportiva**:
       - **nome**: Dona Onça
       - **dificuldade**: BR_6SUP
   - **[16]**:
+    - **uid**: 9aVbetL0pnsA9g
     - **via_esportiva**:
       - **nome**: Solidão das Idéias
       - **dificuldade**: BR_8C
   - **[17]**:
+    - **uid**: cCWVhevCSl52QU
     - **via_esportiva**:
       - **nome**: A Espera dos Urubus
       - **dificuldade**: BR_8B
   - **[18]**:
+    - **uid**: MPXCFwqNaExXao
     - **via_esportiva**:
       - **nome**: Gaviões
       - **dificuldade**: BR_9B
   - **[19]**:
+    - **uid**: iJ7CflfTw4UNK6
     - **via_esportiva**:
       - **nome**: Azimut Vertical
       - **dificuldade**: BR_9A
   - **[20]**:
+    - **uid**: 9ZKnvv9gBNQqeB
     - **via_esportiva**:
       - **nome**: Zique Zira da Raca Rouca
       - **dificuldade**: BR_8B
   - **[21]**:
+    - **uid**: xbsm4iM48HSfWw
     - **via_esportiva**:
       - **nome**: Mistérios da Fé
       - **dificuldade**: BR_6
       - **dificuldade_artificial**: A2_MAIS
   - **[22]**:
+    - **uid**: RcMqnfxh4fboJE
     - **via_esportiva**:
       - **nome**: Nem Karaca Caia
       - **dificuldade**: BR_8B
   - **[23]**:
+    - **uid**: a8bqY9jVskgRSM
     - **via_esportiva**:
       - **nome**: Variante Culpa do Elninho
       - **dificuldade**: BR_5
   - **[24]**:
+    - **uid**: DBUb0jXNVbcP9L
     - **via_esportiva**:
       - **nome**: Variante do Mergulho
       - **dificuldade**: BR_6SUP
   - **[25]**:
+    - **uid**: UfNFfrpYfCrVuk
     - **via_esportiva**:
       - **nome**: Variante por Aqui
       - **dificuldade**: BR_3
   - **[26]**:
+    - **uid**: 1P5NBqCKCd9iKw
     - **via_esportiva**:
       - **nome**: Variante do Judas
       - **dificuldade**: BR_4
@@ -521,6 +688,7 @@
     **Atualizado em:** 2010.
     **Fonte:** http://www.escaladacaete.eu5.org
 - **nome**: Croqui 02 da Pedra Branca
+- **uid**: RkZb5D4ZH9ZuYD
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/pagina_2_imagem_0.webp)
@@ -528,214 +696,290 @@
     - **altura_mapa**: 484
     - **pontos_de_interesse**:
       - **[0]**:
-        - **id**: 01
-        - **label**: 01
+        - **id**: fx8W0n0PcDgd1t
+        - **uid**: fx8W0n0PcDgd1t
+        - **rotulo**: 01
         - **retangulo**:
           - **x**: 154
           - **y**: 465
           - **comprimento**: 27
           - **largura**: 26
+        - **label**: 01
       - **[1]**:
-        - **id**: 02
-        - **label**: 02
+        - **id**: NPLv8kV0OgTM3i
+        - **uid**: NPLv8kV0OgTM3i
+        - **rotulo**: 02
         - **retangulo**:
           - **x**: 212
           - **y**: 465
           - **comprimento**: 26
           - **largura**: 26
+        - **label**: 02
       - **[2]**:
-        - **id**: 03
-        - **label**: 03
+        - **id**: Gvaxu7p71BHW4I
+        - **uid**: Gvaxu7p71BHW4I
+        - **rotulo**: 03
         - **retangulo**:
           - **x**: 248
           - **y**: 464
           - **comprimento**: 25
           - **largura**: 25
+        - **label**: 03
       - **[3]**:
-        - **id**: 04
-        - **label**: 04
+        - **id**: YZv97lLdfarPGp
+        - **uid**: YZv97lLdfarPGp
+        - **rotulo**: 04
         - **retangulo**:
           - **x**: 295
           - **y**: 466
           - **comprimento**: 26
           - **largura**: 23
+        - **label**: 04
       - **[4]**:
-        - **id**: 05
-        - **label**: 05
+        - **id**: OYdXgXjX18iGeJ
+        - **uid**: OYdXgXjX18iGeJ
+        - **rotulo**: 05
         - **retangulo**:
           - **x**: 357
           - **y**: 465
           - **comprimento**: 26
           - **largura**: 24
+        - **label**: 05
       - **[5]**:
-        - **id**: 06
-        - **label**: 06
+        - **id**: J2WxmpWWKxcF8G
+        - **uid**: J2WxmpWWKxcF8G
+        - **rotulo**: 06
         - **retangulo**:
           - **x**: 400
           - **y**: 465
           - **comprimento**: 25
           - **largura**: 24
+        - **label**: 06
       - **[6]**:
-        - **id**: 07
-        - **label**: 07
+        - **id**: 3AD2NhABmLv92z
+        - **uid**: 3AD2NhABmLv92z
+        - **rotulo**: 07
         - **retangulo**:
           - **x**: 437
           - **y**: 464
           - **comprimento**: 24
           - **largura**: 23
+        - **label**: 07
       - **[7]**:
-        - **id**: 08
-        - **label**: 08
+        - **id**: xvgDYzOGTkZsgo
+        - **uid**: xvgDYzOGTkZsgo
+        - **rotulo**: 08
         - **retangulo**:
           - **x**: 471
           - **y**: 465
           - **comprimento**: 26
           - **largura**: 24
+        - **label**: 08
       - **[8]**:
-        - **id**: 09
-        - **label**: 09
+        - **id**: 8vrBaXkhgc1MBj
+        - **uid**: 8vrBaXkhgc1MBj
+        - **rotulo**: 09
         - **retangulo**:
           - **x**: 514
           - **y**: 465
           - **comprimento**: 25
           - **largura**: 24
+        - **label**: 09
       - **[9]**:
-        - **id**: 10
-        - **label**: 10
+        - **id**: G1BBJYZpnyoggF
+        - **uid**: G1BBJYZpnyoggF
+        - **rotulo**: 10
         - **retangulo**:
           - **x**: 592
           - **y**: 465
           - **comprimento**: 23
           - **largura**: 22
+        - **label**: 10
       - **[10]**:
-        - **id**: 11
-        - **label**: 11
+        - **id**: v1uDV3U4l0bQD0
+        - **uid**: v1uDV3U4l0bQD0
+        - **rotulo**: 11
         - **retangulo**:
           - **x**: 656
           - **y**: 464
           - **comprimento**: 25
           - **largura**: 23
+        - **label**: 11
       - **[11]**:
-        - **id**: 12
-        - **label**: 12
+        - **id**: r9XseGKZxeH9ck
+        - **uid**: r9XseGKZxeH9ck
+        - **rotulo**: 12
         - **retangulo**:
           - **x**: 747
           - **y**: 464
           - **comprimento**: 24
           - **largura**: 21
+        - **label**: 12
       - **[12]**:
-        - **id**: 13
-        - **label**: 13
+        - **id**: ILvn7ANoslivNo
+        - **uid**: ILvn7ANoslivNo
+        - **rotulo**: 13
         - **retangulo**:
           - **x**: 868
           - **y**: 464
           - **comprimento**: 25
           - **largura**: 21
+        - **label**: 13
     - **referencias**:
       - **[0]**:
+        - **alvo_uid**: rHWXnIBpAXNbzT
+        - **pontos_uids**:
+          - fx8W0n0PcDgd1t
         - **escalada**: Festival dos Lagartos
         - **ids**:
-          - 01
+          - fx8W0n0PcDgd1t
       - **[1]**:
+        - **alvo_uid**: 9rbCp0bZbW9atZ
+        - **pontos_uids**:
+          - NPLv8kV0OgTM3i
         - **escalada**: Melhor Impossível
         - **ids**:
-          - 02
+          - NPLv8kV0OgTM3i
       - **[2]**:
+        - **alvo_uid**: k97mw1wqwm4jmf
+        - **pontos_uids**:
+          - Gvaxu7p71BHW4I
         - **escalada**: Lombra Etílica
         - **ids**:
-          - 03
+          - Gvaxu7p71BHW4I
       - **[3]**:
+        - **alvo_uid**: NvvAP0RgvJx3NI
+        - **pontos_uids**:
+          - YZv97lLdfarPGp
         - **escalada**: Paredão SLU
         - **ids**:
-          - 04
+          - YZv97lLdfarPGp
       - **[4]**:
+        - **alvo_uid**: 5Yz82EWnn0uwRF
+        - **pontos_uids**:
+          - OYdXgXjX18iGeJ
         - **escalada**: Libertas
         - **ids**:
-          - 05
+          - OYdXgXjX18iGeJ
       - **[5]**:
+        - **alvo_uid**: BR0ueVA4eO80eb
+        - **pontos_uids**:
+          - J2WxmpWWKxcF8G
         - **escalada**: Micos
         - **ids**:
-          - 06
+          - J2WxmpWWKxcF8G
       - **[6]**:
+        - **alvo_uid**: nUUfFV4csw7MFb
+        - **pontos_uids**:
+          - 3AD2NhABmLv92z
         - **escalada**: Via da Perereca
         - **ids**:
-          - 07
+          - 3AD2NhABmLv92z
       - **[7]**:
+        - **alvo_uid**: QXykZIB5lJjZpk
+        - **pontos_uids**:
+          - G1BBJYZpnyoggF
         - **escalada**: Abominável Morcego Amestrado
         - **ids**:
-          - 10
+          - G1BBJYZpnyoggF
       - **[8]**:
+        - **alvo_uid**: 3RGZqurZ4yj4J9
+        - **pontos_uids**:
+          - v1uDV3U4l0bQD0
         - **escalada**: Os Quatro Macacos
         - **ids**:
-          - 11
+          - v1uDV3U4l0bQD0
       - **[9]**:
+        - **alvo_uid**: EOiG3wbd58PY6U
+        - **pontos_uids**:
+          - r9XseGKZxeH9ck
         - **escalada**: Produção Independente
         - **ids**:
-          - 12
+          - r9XseGKZxeH9ck
       - **[10]**:
+        - **alvo_uid**: cWSNa7fdj9MZV4
+        - **pontos_uids**:
+          - ILvn7ANoslivNo
         - **escalada**: Parede Preta
         - **ids**:
-          - 13
+          - ILvn7ANoslivNo
       - **[11]**:
-        - **ids**:
-          - 08
-        - **setor**: Croqui 02 da Pedra Branca
+        - **alvo_uid**: 0P5TOpHGoR9yDd
+        - **pontos_uids**:
+          - xvgDYzOGTkZsgo
         - **escalada**: Barbarela
-      - **[12]**:
         - **ids**:
-          - 09
-        - **setor**: Croqui 02 da Pedra Branca
+          - xvgDYzOGTkZsgo
+      - **[12]**:
+        - **alvo_uid**: FnGiPHhckpWFob
+        - **pontos_uids**:
+          - 8vrBaXkhgc1MBj
         - **escalada**: Ciganos Molhados
+        - **ids**:
+          - 8vrBaXkhgc1MBj
 - **escaladas**:
   - **[0]**:
+    - **uid**: rHWXnIBpAXNbzT
     - **via_esportiva**:
       - **nome**: Festival dos Lagartos
       - **dificuldade**: BR_3SUP
   - **[1]**:
+    - **uid**: 9rbCp0bZbW9atZ
     - **via_esportiva**:
       - **nome**: Melhor Impossível
       - **dificuldade**: BR_4
   - **[2]**:
+    - **uid**: k97mw1wqwm4jmf
     - **via_esportiva**:
       - **nome**: Lombra Etílica
       - **dificuldade**: BR_6SUP
   - **[3]**:
+    - **uid**: NvvAP0RgvJx3NI
     - **via_esportiva**:
       - **nome**: Paredão SLU
       - **dificuldade**: BR_5
   - **[4]**:
+    - **uid**: 5Yz82EWnn0uwRF
     - **via_esportiva**:
       - **nome**: Libertas
       - **dificuldade**: BR_6SUP
   - **[5]**:
+    - **uid**: BR0ueVA4eO80eb
     - **via_esportiva**:
       - **nome**: Micos
       - **dificuldade**: BR_5
   - **[6]**:
+    - **uid**: nUUfFV4csw7MFb
     - **via_esportiva**:
       - **nome**: Via da Perereca
       - **dificuldade**: BR_7B
   - **[7]**:
+    - **uid**: 0P5TOpHGoR9yDd
     - **via_esportiva**:
       - **nome**: Barbarela
       - **dificuldade**: BR_7A
   - **[8]**:
+    - **uid**: FnGiPHhckpWFob
     - **via_esportiva**:
       - **nome**: Ciganos Molhados
       - **dificuldade**: BR_5
   - **[9]**:
+    - **uid**: QXykZIB5lJjZpk
     - **via_esportiva**:
       - **nome**: Abominável Morcego Amestrado
       - **dificuldade**: BR_7B
   - **[10]**:
+    - **uid**: 3RGZqurZ4yj4J9
     - **via_esportiva**:
       - **nome**: Os Quatro Macacos
       - **dificuldade**: BR_7A
   - **[11]**:
+    - **uid**: EOiG3wbd58PY6U
     - **via_esportiva**:
       - **nome**: Produção Independente
       - **dificuldade**: BR_6SUP
   - **[12]**:
+    - **uid**: cWSNa7fdj9MZV4
     - **via_esportiva**:
       - **nome**: Parede Preta
       - **dificuldade**: BR_6

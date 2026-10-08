@@ -6,178 +6,175 @@ mapas:
   largura_mapa: 523
   altura_mapa: 454
   pontos_de_interesse:
-  - id: Mapa_1
-    label: Mapa 1
+  - uid: G9UkCk5eoim2vZ
+    rotulo: Mapa 1
     retangulo:
       x: 63
       y: 219
       comprimento: 56
       largura: 20
-  - id: Mapa_2
-    label: Mapa 2
+  - uid: poXDZQtdyCA8tz
+    rotulo: Mapa 2
     retangulo:
       x: 195
       y: 328
       comprimento: 58
       largura: 18
-  - id: Mapa_3
-    label: Mapa 3
+  - uid: 0eR7N0id49KCp5
+    rotulo: Mapa 3
     retangulo:
       x: 248
       y: 255
       comprimento: 54
       largura: 16
-  - id: Mapa_4
-    label: Mapa 4
+  - uid: JUGHY3XSRn1k4q
+    rotulo: Mapa 4
     retangulo:
       x: 246
       y: 200
       comprimento: 47
       largura: 13
-  - id: Mapa_5
-    label: Mapa 5
+  - uid: pScUqDV6w68f9t
+    rotulo: Mapa 5
     retangulo:
       x: 309
       y: 266
       comprimento: 54
       largura: 20
-  - id: Mapa_6
-    label: Mapa 6
+  - uid: aDOtmpbJLB0OKx
+    rotulo: Mapa 6
     retangulo:
       x: 259
       y: 106
       comprimento: 52
       largura: 15
-  - id: Mapa_7
-    label: Mapa 7
+  - uid: a8l7Eq0OJAvdyc
+    rotulo: Mapa 7
     retangulo:
       x: 350
       y: 91
       comprimento: 56
       largura: 20
-  - id: Mapa_8
-    label: Mapa 8
+  - uid: Ypw5ge0OoSlfFH
+    rotulo: Mapa 8
     retangulo:
       x: 428
       y: 148
       comprimento: 43
       largura: 14
-  - id: Mapa_9
-    label: Mapa 9
+  - uid: 936Ry3B1BohHMy
+    rotulo: Mapa 9
     retangulo:
       x: 444
       y: 100
       comprimento: 44
       largura: 13
-  - id: Mapa_10
-    label: Mapa 10
+  - uid: qLgSHjtmLMstkl
+    rotulo: Mapa 10
     retangulo:
       x: 442
       y: 36
       comprimento: 46
       largura: 15
-  - id: Vale_Verde
-    label: '''Vale Verde'' (fora de escala)'
+  - uid: AnmtvJom6goBgb
+    rotulo: '''Vale Verde'' (fora de escala)'
     retangulo:
       x: 185
       y: 69
       comprimento: 76
       largura: 30
-  - id: Base_Rosa_dos_Ventos
-    label: Base da via 'Rosa dos Ventos'
+  - uid: TSErhv84UogfXj
+    rotulo: Base da via 'Rosa dos Ventos'
     retangulo:
       x: 270
       y: 62
       comprimento: 43
       largura: 68
-  - id: Savassinha
-    label: Savassinha
+  - uid: D4dqM0x06neIDK
+    rotulo: Savassinha
     retangulo:
       x: 355
       y: 50
       comprimento: 70
       largura: 17
-  - id: Bloco_Romano
-    label: '''Bloco Romano'''
+  - uid: vcRYbvif9PQ6C4
+    rotulo: '''Bloco Romano'''
     retangulo:
       x: 490
       y: 49
       comprimento: 43
       largura: 24
-  - id: Sala_de_aula
-    label: '''Sala de aula'''
+  - uid: ElQc2ntimf8esV
+    rotulo: '''Sala de aula'''
     retangulo:
       x: 156
       y: 173
       comprimento: 41
       largura: 28
-  - id: Via_90
-    label: Via nº 90 'Ecos do Além'
+  - uid: ynLJwKmsTRHcZK
+    rotulo: Via nº 90 'Ecos do Além'
     retangulo:
       x: 432
       y: 227
       comprimento: 50
       largura: 40
-  - id: Via_Compromisso_sexual
-    label: Via 'Compromisso sexual'
+  - uid: SfNUv092hGjsKa
+    rotulo: Via 'Compromisso sexual'
     retangulo:
       x: 399
       y: 278
       comprimento: 82
       largura: 47
-  - id: entrada_da_gruta
-    label: Entrada da gruta
+  - uid: XbHlH0SItulchK
+    rotulo: Entrada da gruta
     retangulo:
       x: 182
       y: 232
       comprimento: 45
       largura: 28
   referencias:
-  - setor: Bloco Romano (Mapa 10)
-    ids:
-    - Mapa_10
-    - Bloco_Romano
-  - setor: Setor Mapa 2
-    ids:
-    - Mapa_2
-    - entrada_da_gruta
-  - setor: Setor Gruta - Mapa 3
-    ids:
-    - Mapa_3
-  - setor: Setor Gruta - Mapa 4 (Sala de Aula)
-    ids:
-    - Mapa_4
-    - Sala_de_aula
-  - setor: Setor Mapa 5
-    ids:
-    - Mapa_5
-  - setor: Vale Verde (Mapa 6)
-    ids:
-    - Mapa_6
-    - Vale_Verde
-  - setor: Setor Mapa 7
-    ids:
-    - Mapa_7
-  - setor: Setor Túnel de Pedra (Mapa 8)
-    ids:
-    - Mapa_8
-  - setor: Savassinha (Mapa 9)
-    ids:
-    - Mapa_9
-    - Savassinha
-  - setor: Castelinho
-    ids:
-    - Mapa_1
-  - ids:
-    - Via_Compromisso_sexual
-    setor: Setor Mapa 5
-    escalada: Compromisso Sexual
-  - ids:
-    - Via_90
-    setor: Setor Túnel de Pedra (Mapa 8)
-    escalada: Ecos do Além
-  - ids:
-    - Base_Rosa_dos_Ventos
-    setor: Setor Mapa 7
-    escalada: Rosa dos Ventos
+  - alvo_uid: UOqpFYTCHoAXZp
+    pontos_uids:
+    - qLgSHjtmLMstkl
+    - vcRYbvif9PQ6C4
+  - alvo_uid: k6xxkL2askccdr
+    pontos_uids:
+    - poXDZQtdyCA8tz
+    - XbHlH0SItulchK
+  - alvo_uid: ZxeynNWtcoJYj9
+    pontos_uids:
+    - 0eR7N0id49KCp5
+  - alvo_uid: UsSUW7apVi41SD
+    pontos_uids:
+    - JUGHY3XSRn1k4q
+    - ElQc2ntimf8esV
+  - alvo_uid: WACdTSW0GaT2WF
+    pontos_uids:
+    - pScUqDV6w68f9t
+  - alvo_uid: DzpVy5IyHcY19t
+    pontos_uids:
+    - aDOtmpbJLB0OKx
+    - AnmtvJom6goBgb
+  - alvo_uid: n7TZtwIPFNeMNy
+    pontos_uids:
+    - a8l7Eq0OJAvdyc
+  - alvo_uid: R4T6GZbgabQodt
+    pontos_uids:
+    - Ypw5ge0OoSlfFH
+  - alvo_uid: UlccfwkdM6gnf0
+    pontos_uids:
+    - 936Ry3B1BohHMy
+    - D4dqM0x06neIDK
+  - alvo_uid: pcQfnDIAUZk99g
+    pontos_uids:
+    - G9UkCk5eoim2vZ
+  - alvo_uid: RnZKGhZfGOypo1
+    pontos_uids:
+    - SfNUv092hGjsKa
+  - alvo_uid: UxgAsYgQCFlueX
+    pontos_uids:
+    - ynLJwKmsTRHcZK
+  - alvo_uid: OXAvr0Rdr0rU5G
+    pontos_uids:
+    - TSErhv84UogfXj
 ---

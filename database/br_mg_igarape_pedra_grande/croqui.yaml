@@ -1,8 +1,9 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+uid: nxZd44LfKUlR1H
 id: br_mg_igarape_pedra_grande
 nome: Igarameca - Complexo Pedra Grande
-descricao: Este croqui documenta e divulga a prática da escalada no Complexo da Pedra
+descricao: Este croqui documenta e divulga a prática da escalada no Complexo da Pedra 
   Grande em Igarapé/MG, reunindo informações sobre diversos setores e vias.
 creditos:
 - Equipe Igarameca
@@ -50,34 +51,41 @@ picos:
     latitude: -201176660
     longitude: -443593480
 botoes:
-- texto: Capa
+- uid: axpnQInJsigqZt
+  texto: Capa
   destino:
     secao_textual:
       caminho: capa.md
-- texto: Introdução
+- uid: 6hlPaF0ggRKKsj
+  texto: Introdução
   destino:
     secao_textual:
       caminho: introducao.md
-- texto: Recomendações e Regras
+- uid: vwBbHXq9wO2MXn
+  texto: Recomendações e Regras
   destino:
     secao_textual:
       caminho: regras.md
-- texto: História de Igarapé
+- uid: rrXbjlSk8nFJGB
+  texto: História de Igarapé
   destino:
     secao_textual:
       caminho: historia.md
-- texto: Sobre o Complexo Pedra Grande
+- uid: WtedtNvmgS6M60
+  texto: Sobre o Complexo Pedra Grande
   destino:
     secao_textual:
       caminho: complexo_pedra_grande.md
-- texto: Sobre o Igarameca
+- uid: WGEft5sbQ0xBVt
+  texto: Sobre o Igarameca
   destino:
     secao_textual:
       caminho: igarameca_info.md
-- texto: Patrocinadores
+- uid: 8pNS03RiiaTjUa
+  texto: Patrocinadores
   destino:
     secao_textual:
       caminho: patrocinadores.md
-ultima_migracao: 4
+ultima_migracao: 5
 publicar_croqui: true
 revisado_bounding_circle: true

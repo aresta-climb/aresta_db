@@ -1,5 +1,6 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+uid: 4onIN9Ga05O9Kr
 id: br_mg_sabara_pedra_rachada_setor_horizonte
 nome: Sabará - Pedra Rachada - Setor Horizonte
 picos:
@@ -31,21 +32,25 @@ revisado_manualmente: true
 revisado_bounding_circle: true
 status_desenho_extraivel: DESENHO_EXTRAIDO
 botoes:
-- texto: Capa
+- uid: hy6gQDrMk9hCKZ
+  texto: Capa
   destino:
     secao_textual:
       caminho: capa.md
-- texto: Introdução
+- uid: oVYpBeff2FDcNn
+  texto: Introdução
   destino:
     secao_textual:
       caminho: introducao.md
-- texto: Aviso
+- uid: rMSZAii4s4VMaY
+  texto: Aviso
   destino:
     secao_textual:
       caminho: aviso.md
-- texto: Como chegar
+- uid: AuajRB5vjKPVvb
+  texto: Como chegar
   destino:
     secao_textual:
       caminho: como_chegar.md
-ultima_migracao: 4
+ultima_migracao: 5
 publicar_croqui: true

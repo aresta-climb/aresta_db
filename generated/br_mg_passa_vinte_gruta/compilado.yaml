@@ -1,3 +1,4 @@
+uid: UKXEzopieL0Muf
 id: br_mg_passa_vinte_gruta
 nome: Gruta de Passa Vinte
 descricao: Guia de Escalada da Gruta de Passa Vinte - MG
@@ -19,303 +20,435 @@ picos:
   setores_ou_grupos:
   - setor:
       conteudo:
+        uid: AiO7NbhclPX3uu
         nome: Chegada
         mapas:
         - caminho_imagem_mapa: imagens/setor_chegada_p0.webp
           largura_mapa: 1725
           altura_mapa: 964
           pontos_de_interesse:
-          - id: '01'
-            label: '1'
+          - uid: DYqMe3Gnbh2cyS
+            rotulo: '1'
             retangulo:
               x: 15
               y: 760
               comprimento: 30
               largura: 30
-          - id: '02'
-            label: '2'
+            id: DYqMe3Gnbh2cyS
+            label: '1'
+          - uid: H9c4Uuv7nXdvD7
+            rotulo: '2'
             retangulo:
               x: 60
               y: 760
               comprimento: 30
               largura: 30
-          - id: '03'
-            label: '3'
+            id: H9c4Uuv7nXdvD7
+            label: '2'
+          - uid: vLObFO9rgkHY0q
+            rotulo: '3'
             retangulo:
               x: 95
               y: 760
               comprimento: 30
               largura: 30
-          - id: '04'
-            label: '4'
+            id: vLObFO9rgkHY0q
+            label: '3'
+          - uid: 6tWgwC9YJhLqit
+            rotulo: '4'
             retangulo:
               x: 125
               y: 760
               comprimento: 30
               largura: 30
-          - id: '05'
-            label: '5'
+            id: 6tWgwC9YJhLqit
+            label: '4'
+          - uid: Ideo1pDL7ymDLs
+            rotulo: '5'
             retangulo:
               x: 160
               y: 760
               comprimento: 30
               largura: 30
-          - id: '06'
-            label: '6'
+            id: Ideo1pDL7ymDLs
+            label: '5'
+          - uid: 38RBx5eEyiR8d6
+            rotulo: '6'
             retangulo:
               x: 220
               y: 760
               comprimento: 30
               largura: 30
-          - id: '07'
-            label: '7'
+            id: 38RBx5eEyiR8d6
+            label: '6'
+          - uid: aEAEbwdmZysYlJ
+            rotulo: '7'
             retangulo:
               x: 315
               y: 760
               comprimento: 30
               largura: 30
-          - id: '08'
-            label: '8'
+            id: aEAEbwdmZysYlJ
+            label: '7'
+          - uid: 9yNCSHdTuDSodb
+            rotulo: '8'
             retangulo:
               x: 260
               y: 265
               comprimento: 30
               largura: 30
-          - id: '09'
-            label: '9'
+            id: 9yNCSHdTuDSodb
+            label: '8'
+          - uid: BjV8UC2wbatO7W
+            rotulo: '9'
             retangulo:
               x: 345
               y: 760
               comprimento: 30
               largura: 30
-          - id: '10'
-            label: '10'
+            id: BjV8UC2wbatO7W
+            label: '9'
+          - uid: tk1uYaGhfEAHpe
+            rotulo: '10'
             retangulo:
               x: 490
               y: 695
               comprimento: 30
               largura: 30
-          - id: '11'
-            label: '11'
+            id: tk1uYaGhfEAHpe
+            label: '10'
+          - uid: UKX4QK26Jqps4V
+            rotulo: '11'
             retangulo:
               x: 505
               y: 310
               comprimento: 30
               largura: 30
-          - id: 12_topo
-            label: '12'
+            id: UKX4QK26Jqps4V
+            label: '11'
+          - uid: hxYzYkUrU6IgPD
+            rotulo: '12'
             retangulo:
               x: 565
               y: 315
               comprimento: 30
               largura: 30
-          - id: 12_base
+            id: hxYzYkUrU6IgPD
             label: '12'
+          - uid: 2cuCqwerHCGM2I
+            rotulo: '12'
             retangulo:
               x: 575
               y: 805
               comprimento: 30
               largura: 30
-          - id: '13'
-            label: '13'
+            id: 2cuCqwerHCGM2I
+            label: '12'
+          - uid: z8MZSSknZqL58v
+            rotulo: '13'
             retangulo:
               x: 605
               y: 610
               comprimento: 30
               largura: 30
-          - id: '14'
-            label: '14'
+            id: z8MZSSknZqL58v
+            label: '13'
+          - uid: zMwKoyXQLbSTKl
+            rotulo: '14'
             retangulo:
               x: 695
               y: 785
               comprimento: 30
               largura: 30
-          - id: '15'
-            label: '15'
+            id: zMwKoyXQLbSTKl
+            label: '14'
+          - uid: A4wGd8hFu2uUKt
+            rotulo: '15'
             retangulo:
               x: 695
               y: 215
               comprimento: 30
               largura: 30
-          - id: '16'
-            label: '16'
+            id: A4wGd8hFu2uUKt
+            label: '15'
+          - uid: P2ddfFaRJn5yyV
+            rotulo: '16'
             retangulo:
               x: 755
               y: 640
               comprimento: 30
               largura: 30
-          - id: '17'
-            label: '17'
+            id: P2ddfFaRJn5yyV
+            label: '16'
+          - uid: 9hIUMXn4hO78pv
+            rotulo: '17'
             retangulo:
               x: 835
               y: 570
               comprimento: 30
               largura: 30
-          - id: 18_topo
-            label: '18'
+            id: 9hIUMXn4hO78pv
+            label: '17'
+          - uid: YmaavivWB5caJH
+            rotulo: '18'
             retangulo:
               x: 865
               y: 485
               comprimento: 30
               largura: 30
-          - id: 18_base
+            id: YmaavivWB5caJH
             label: '18'
+          - uid: N8Anok5ApSewzF
+            rotulo: '18'
             retangulo:
               x: 805
               y: 875
               comprimento: 30
               largura: 30
-          - id: '19'
-            label: '19'
+            id: N8Anok5ApSewzF
+            label: '18'
+          - uid: Mvr819hkGOe46I
+            rotulo: '19'
             retangulo:
               x: 905
               y: 865
               comprimento: 30
               largura: 30
-          - id: '20'
-            label: '20'
+            id: Mvr819hkGOe46I
+            label: '19'
+          - uid: Hav9EZSFOT9Koh
+            rotulo: '20'
             retangulo:
               x: 935
               y: 530
               comprimento: 30
               largura: 30
-          - id: Setores_Vizinhos
-            label: Setores Central, Acampamento, Arquibancada e Gênesis
+            id: Hav9EZSFOT9Koh
+            label: '20'
+          - uid: Wp1aFwR6jXt3Sl
+            rotulo: Setores Central, Acampamento, Arquibancada e Gênesis
             retangulo:
               x: 350
               y: 930
               comprimento: 500
               largura: 30
-          - id: Setor_Teto_Preto
-            label: Setor Teto Preto
+            id: Wp1aFwR6jXt3Sl
+            label: Setores Central, Acampamento, Arquibancada e Gênesis
+          - uid: ggfQ5ieTfRmlAM
+            rotulo: Setor Teto Preto
             retangulo:
               x: 1050
               y: 900
               comprimento: 150
               largura: 30
+            id: ggfQ5ieTfRmlAM
+            label: Setor Teto Preto
           referencias:
-          - escalada: Fake News
+          - alvo_uid: n5J8CSTT4kKRmC
+            pontos_uids:
+            - DYqMe3Gnbh2cyS
+            escalada: Fake News
             ids:
-            - '01'
-          - escalada: Caliba
+            - DYqMe3Gnbh2cyS
+          - alvo_uid: AjjYid5oyOZwLc
+            pontos_uids:
+            - H9c4Uuv7nXdvD7
+            escalada: Caliba
             ids:
-            - '02'
-          - escalada: Jack Sparrow
+            - H9c4Uuv7nXdvD7
+          - alvo_uid: qfmr7AMTq2VLlF
+            pontos_uids:
+            - vLObFO9rgkHY0q
+            escalada: Jack Sparrow
             ids:
-            - '03'
-          - escalada: Monty Python
+            - vLObFO9rgkHY0q
+          - alvo_uid: NxqyPlwADOl0tE
+            pontos_uids:
+            - 6tWgwC9YJhLqit
+            escalada: Monty Python
             ids:
-            - '04'
-          - escalada: Dengoso
+            - 6tWgwC9YJhLqit
+          - alvo_uid: YVgM9k3lj8gp7z
+            pontos_uids:
+            - Ideo1pDL7ymDLs
+            escalada: Dengoso
             ids:
-            - '05'
-          - escalada: Livre Arbítrio
+            - Ideo1pDL7ymDLs
+          - alvo_uid: 6zyvag0J0Ti6AH
+            pontos_uids:
+            - 38RBx5eEyiR8d6
+            escalada: Livre Arbítrio
             ids:
-            - '06'
-          - escalada: Mad Max P1
+            - 38RBx5eEyiR8d6
+          - alvo_uid: dooRKTkjg1TWL2
+            pontos_uids:
+            - aEAEbwdmZysYlJ
+            escalada: Mad Max P1
             ids:
-            - '07'
-          - escalada: Mad Max P2
+            - aEAEbwdmZysYlJ
+          - alvo_uid: J5dsUvYGs9dIfW
+            pontos_uids:
+            - 9yNCSHdTuDSodb
+            - 9yNCSHdTuDSodb
+            escalada: Mad Max P2
             ids:
-            - '08'
-            - '08'
-          - escalada: Além da Cúpula do Trovão
+            - 9yNCSHdTuDSodb
+            - 9yNCSHdTuDSodb
+          - alvo_uid: W2Cjw929xclZIA
+            pontos_uids:
+            - BjV8UC2wbatO7W
+            escalada: Além da Cúpula do Trovão
             ids:
-            - '09'
-          - escalada: Perestroika P1
+            - BjV8UC2wbatO7W
+          - alvo_uid: xd3m6rNzZF1jit
+            pontos_uids:
+            - tk1uYaGhfEAHpe
+            escalada: Perestroika P1
             ids:
-            - '10'
-          - escalada: Perestroika P2
+            - tk1uYaGhfEAHpe
+          - alvo_uid: IdDHMEl2A1HbYd
+            pontos_uids:
+            - UKX4QK26Jqps4V
+            - UKX4QK26Jqps4V
+            escalada: Perestroika P2
             ids:
-            - '11'
-            - '11'
-          - escalada: Guliver
+            - UKX4QK26Jqps4V
+            - UKX4QK26Jqps4V
+          - alvo_uid: uEpJuGA5SWaQ62
+            pontos_uids:
+            - 2cuCqwerHCGM2I
+            escalada: Guliver
             ids:
-            - 12_base
-          - escalada: Ben Hur
+            - 2cuCqwerHCGM2I
+          - alvo_uid: B7x2ZptW0afIRK
+            pontos_uids:
+            - z8MZSSknZqL58v
+            escalada: Ben Hur
             ids:
-            - '13'
-          - escalada: Carmina Burana P1
+            - z8MZSSknZqL58v
+          - alvo_uid: JVOTXndrnTvvrQ
+            pontos_uids:
+            - zMwKoyXQLbSTKl
+            escalada: Carmina Burana P1
             ids:
-            - '14'
-          - escalada: Carmina Burana P2
+            - zMwKoyXQLbSTKl
+          - alvo_uid: V4tRFak3meniUk
+            pontos_uids:
+            - A4wGd8hFu2uUKt
+            - A4wGd8hFu2uUKt
+            escalada: Carmina Burana P2
             ids:
-            - '15'
-            - '15'
-          - escalada: 17 Quedas
+            - A4wGd8hFu2uUKt
+            - A4wGd8hFu2uUKt
+          - alvo_uid: uJN6KZdNNRnEAk
+            pontos_uids:
+            - P2ddfFaRJn5yyV
+            escalada: 17 Quedas
             ids:
-            - '16'
-          - escalada: 8d
+            - P2ddfFaRJn5yyV
+          - alvo_uid: Vnl7ieN4CjKIuD
+            pontos_uids:
+            - 9hIUMXn4hO78pv
+            escalada: 8d
             ids:
-            - '17'
-          - escalada: Cápsula do Tempo
+            - 9hIUMXn4hO78pv
+          - alvo_uid: RHIR6wEjMYRqih
+            pontos_uids:
+            - N8Anok5ApSewzF
+            escalada: Cápsula do Tempo
             ids:
-            - 18_base
-          - escalada: Buraco Negro
+            - N8Anok5ApSewzF
+          - alvo_uid: O8OTvfEFUAChky
+            pontos_uids:
+            - Mvr819hkGOe46I
+            escalada: Buraco Negro
             ids:
-            - '19'
-          - escalada: Macunaína
+            - Mvr819hkGOe46I
+          - alvo_uid: T9fg7GxDpsjlgp
+            pontos_uids:
+            - Hav9EZSFOT9Koh
+            escalada: Macunaína
             ids:
-            - '20'
+            - Hav9EZSFOT9Koh
         escaladas:
-        - via_esportiva:
+        - uid: n5J8CSTT4kKRmC
+          via_esportiva:
             nome: Fake News
             dificuldade: BR_9C
-        - via_esportiva:
+        - uid: AjjYid5oyOZwLc
+          via_esportiva:
             nome: Caliba
             dificuldade: BR_9B_BARRA_9C
-        - via_esportiva:
+        - uid: qfmr7AMTq2VLlF
+          via_esportiva:
             nome: Jack Sparrow
             dificuldade: BR_9B
-        - via_esportiva:
+        - uid: NxqyPlwADOl0tE
+          via_esportiva:
             nome: Monty Python
             dificuldade: BR_9A
-        - via_esportiva:
+        - uid: YVgM9k3lj8gp7z
+          via_esportiva:
             nome: Dengoso
             dificuldade: BR_6
-        - via_esportiva:
+        - uid: 6zyvag0J0Ti6AH
+          via_esportiva:
             nome: Livre Arbítrio
             dificuldade: BR_8B
-        - via_esportiva:
+        - uid: dooRKTkjg1TWL2
+          via_esportiva:
             nome: Mad Max P1
             dificuldade: BR_8C
-        - via_esportiva:
+        - uid: J5dsUvYGs9dIfW
+          via_esportiva:
             nome: Mad Max P2
             dificuldade: BR_9C
-        - via_esportiva:
+        - uid: W2Cjw929xclZIA
+          via_esportiva:
             nome: Além da Cúpula do Trovão
             dificuldade: BR_9A
-        - via_esportiva:
+        - uid: xd3m6rNzZF1jit
+          via_esportiva:
             nome: Perestroika P1
             dificuldade: BR_9B
-        - via_esportiva:
+        - uid: IdDHMEl2A1HbYd
+          via_esportiva:
             nome: Perestroika P2
             dificuldade: BR_9C
-        - via_esportiva:
+        - uid: uEpJuGA5SWaQ62
+          via_esportiva:
             nome: Guliver
             dificuldade: BR_10A
-        - via_esportiva:
+        - uid: B7x2ZptW0afIRK
+          via_esportiva:
             nome: Ben Hur
             dificuldade: BR_9C
-        - via_esportiva:
+        - uid: JVOTXndrnTvvrQ
+          via_esportiva:
             nome: Carmina Burana P1
             dificuldade: BR_9B
-        - via_esportiva:
+        - uid: V4tRFak3meniUk
+          via_esportiva:
             nome: Carmina Burana P2
             dificuldade: BR_10A
-        - via_esportiva:
+        - uid: uJN6KZdNNRnEAk
+          via_esportiva:
             nome: 17 Quedas
             dificuldade: BR_9C
-        - via_esportiva:
+        - uid: Vnl7ieN4CjKIuD
+          via_esportiva:
             nome: 8d
             dificuldade: BR_8C
-        - via_esportiva:
+        - uid: RHIR6wEjMYRqih
+          via_esportiva:
             nome: Cápsula do Tempo
             dificuldade: BR_8C_BARRA_9A
-        - via_esportiva:
+        - uid: O8OTvfEFUAChky
+          via_esportiva:
             nome: Buraco Negro
             dificuldade: BR_9B
-        - via_esportiva:
+        - uid: T9fg7GxDpsjlgp
+          via_esportiva:
             nome: Macunaína
             dificuldade: BR_9B
         descricao: ''
@@ -324,276 +457,397 @@ picos:
           total_esportivas: 20
   - setor:
       conteudo:
+        uid: viX8aQd4Az2cTe
         nome: Sunshine & Teto Preto
         mapas:
         - caminho_imagem_mapa: imagens/setor_sunshine_e_teto_preto_p0.webp
           largura_mapa: 1718
           altura_mapa: 962
           pontos_de_interesse:
-          - id: '01'
-            label: '1'
+          - uid: o6PavNJXse8hVj
+            rotulo: '1'
             retangulo:
               x: 130
               y: 315
               comprimento: 30
               largura: 30
-          - id: '02'
-            label: '2'
+            id: o6PavNJXse8hVj
+            label: '1'
+          - uid: oamV3V5zztNcwK
+            rotulo: '2'
             retangulo:
               x: 215
               y: 510
               comprimento: 30
               largura: 30
-          - id: '03'
-            label: '3'
+            id: oamV3V5zztNcwK
+            label: '2'
+          - uid: 9rN2lgEBetVgUu
+            rotulo: '3'
             retangulo:
               x: 218
               y: 108
               comprimento: 30
               largura: 30
-          - id: '04'
-            label: '4'
+            id: 9rN2lgEBetVgUu
+            label: '3'
+          - uid: s3eyMLkPiaNQiK
+            rotulo: '4'
             retangulo:
               x: 275
               y: 510
               comprimento: 30
               largura: 30
-          - id: '05'
-            label: '5'
+            id: s3eyMLkPiaNQiK
+            label: '4'
+          - uid: 82tmvVzkcbpJEP
+            rotulo: '5'
             retangulo:
               x: 335
               y: 510
               comprimento: 30
               largura: 30
-          - id: '06'
-            label: '6'
+            id: 82tmvVzkcbpJEP
+            label: '5'
+          - uid: ZlQQD3HCWuPU0R
+            rotulo: '6'
             retangulo:
               x: 375
               y: 650
               comprimento: 30
               largura: 30
-          - id: '07'
-            label: '7'
+            id: ZlQQD3HCWuPU0R
+            label: '6'
+          - uid: Ii9EXbUqu8txKw
+            rotulo: '7'
             retangulo:
               x: 465
               y: 675
               comprimento: 30
               largura: 30
-          - id: '08'
-            label: '8'
+            id: Ii9EXbUqu8txKw
+            label: '7'
+          - uid: HLu1g4vKD9MvDN
+            rotulo: '8'
             retangulo:
               x: 600
               y: 740
               comprimento: 30
               largura: 30
-          - id: '09'
-            label: '9'
+            id: HLu1g4vKD9MvDN
+            label: '8'
+          - uid: BIBkZ5HceM0b3V
+            rotulo: '9'
             retangulo:
               x: 665
               y: 740
               comprimento: 30
               largura: 30
-          - id: '10'
-            label: '10'
+            id: BIBkZ5HceM0b3V
+            label: '9'
+          - uid: 9w2VDFcxGUFBC0
+            rotulo: '10'
             retangulo:
               x: 720
               y: 740
               comprimento: 30
               largura: 30
-          - id: '11'
-            label: '11'
+            id: 9w2VDFcxGUFBC0
+            label: '10'
+          - uid: 6IpwmSyM7NXSWw
+            rotulo: '11'
             retangulo:
               x: 795
               y: 740
               comprimento: 30
               largura: 30
-          - id: '12'
-            label: '12'
+            id: 6IpwmSyM7NXSWw
+            label: '11'
+          - uid: 1a66SSuUOASzRS
+            rotulo: '12'
             retangulo:
               x: 870
               y: 740
               comprimento: 30
               largura: 30
-          - id: '13'
-            label: '13'
+            id: 1a66SSuUOASzRS
+            label: '12'
+          - uid: z47Cj26bAi3Tsj
+            rotulo: '13'
             retangulo:
               x: 945
               y: 740
               comprimento: 30
               largura: 30
-          - id: '14'
-            label: '14'
+            id: z47Cj26bAi3Tsj
+            label: '13'
+          - uid: lDsU35NStAINCc
+            rotulo: '14'
             retangulo:
               x: 1040
               y: 785
               comprimento: 30
               largura: 30
-          - id: '15'
-            label: '15'
+            id: lDsU35NStAINCc
+            label: '14'
+          - uid: sXC1f39hbG8frR
+            rotulo: '15'
             retangulo:
               x: 1090
               y: 785
               comprimento: 30
               largura: 30
-          - id: '16'
-            label: '16'
+            id: sXC1f39hbG8frR
+            label: '15'
+          - uid: frvR1YD8fob2zA
+            rotulo: '16'
             retangulo:
               x: 1145
               y: 785
               comprimento: 30
               largura: 30
-          - id: '17'
-            label: '17'
+            id: frvR1YD8fob2zA
+            label: '16'
+          - uid: OY8Lnl9aimjZVR
+            rotulo: '17'
             retangulo:
               x: 1250
               y: 775
               comprimento: 30
               largura: 30
-          - id: '18'
-            label: '18'
+            id: OY8Lnl9aimjZVR
+            label: '17'
+          - uid: UeuQtX6iqTR1RG
+            rotulo: '18'
             retangulo:
               x: 1230
               y: 122
               comprimento: 30
               largura: 30
-          - id: '19'
-            label: '19'
+            id: UeuQtX6iqTR1RG
+            label: '18'
+          - uid: zuwOkLPZiyrtS0
+            rotulo: '19'
             retangulo:
               x: 682
               y: 487
               comprimento: 30
               largura: 30
-          - id: Setor_Chegada
-            label: Setor Chegada
+            id: zuwOkLPZiyrtS0
+            label: '19'
+          - uid: TIrivuogFugDp8
+            rotulo: Setor Chegada
             retangulo:
               x: 10
               y: 800
               comprimento: 200
               largura: 30
-          - id: Setor_Tradicionais
-            label: Setor Tradicionais
+            id: TIrivuogFugDp8
+            label: Setor Chegada
+          - uid: liXjFXUpLKSziG
+            rotulo: Setor Tradicionais
             retangulo:
               x: 1500
               y: 940
               comprimento: 250
               largura: 30
+            id: liXjFXUpLKSziG
+            label: Setor Tradicionais
           referencias:
-          - escalada: Ementhal
+          - alvo_uid: hqI11rJ8W5yk2U
+            pontos_uids:
+            - o6PavNJXse8hVj
+            escalada: Ementhal
             ids:
-            - '01'
-          - escalada: Sunshine
+            - o6PavNJXse8hVj
+          - alvo_uid: YCK6C1EjvM4VAP
+            pontos_uids:
+            - oamV3V5zztNcwK
+            escalada: Sunshine
             ids:
-            - '02'
-          - escalada: Ext. Sunshine (Projeto)
+            - oamV3V5zztNcwK
+          - alvo_uid: HA8vivFsWqUYQW
+            pontos_uids:
+            - 9rN2lgEBetVgUu
+            - 9rN2lgEBetVgUu
+            escalada: Ext. Sunshine (Projeto)
             ids:
-            - '03'
-            - '03'
-          - escalada: Luna
+            - 9rN2lgEBetVgUu
+            - 9rN2lgEBetVgUu
+          - alvo_uid: ehDLgKwOEaDv2b
+            pontos_uids:
+            - s3eyMLkPiaNQiK
+            escalada: Luna
             ids:
-            - '04'
-          - escalada: Freddie Mercury
+            - s3eyMLkPiaNQiK
+          - alvo_uid: 9GR57GrnWJneVa
+            pontos_uids:
+            - 82tmvVzkcbpJEP
+            escalada: Freddie Mercury
             ids:
-            - '05'
-          - escalada: Ariete
+            - 82tmvVzkcbpJEP
+          - alvo_uid: GRoxKK3QvmQ5Ca
+            pontos_uids:
+            - ZlQQD3HCWuPU0R
+            escalada: Ariete
             ids:
-            - '06'
-          - escalada: Eunuco (Projeto)
+            - ZlQQD3HCWuPU0R
+          - alvo_uid: QJzgDDKnnpNldv
+            pontos_uids:
+            - Ii9EXbUqu8txKw
+            escalada: Eunuco (Projeto)
             ids:
-            - '07'
-          - escalada: Pau Mandado
+            - Ii9EXbUqu8txKw
+          - alvo_uid: ouAZnfed0sSFKB
+            pontos_uids:
+            - HLu1g4vKD9MvDN
+            escalada: Pau Mandado
             ids:
-            - '08'
-          - escalada: Imperatriz
+            - HLu1g4vKD9MvDN
+          - alvo_uid: 6IHqW7Id3VjC18
+            pontos_uids:
+            - BIBkZ5HceM0b3V
+            escalada: Imperatriz
             ids:
-            - '09'
-          - escalada: Casamento de Viúva
+            - BIBkZ5HceM0b3V
+          - alvo_uid: CaGnhl3tMnwEEz
+            pontos_uids:
+            - 9w2VDFcxGUFBC0
+            escalada: Casamento de Viúva
             ids:
-            - '10'
-          - escalada: Manda Chuva (Projeto)
+            - 9w2VDFcxGUFBC0
+          - alvo_uid: PPpLej1m8Rs15A
+            pontos_uids:
+            - 6IpwmSyM7NXSWw
+            escalada: Manda Chuva (Projeto)
             ids:
-            - '11'
-          - escalada: Celibato
+            - 6IpwmSyM7NXSWw
+          - alvo_uid: CC1FfHwmwI3Z87
+            pontos_uids:
+            - 1a66SSuUOASzRS
+            escalada: Celibato
             ids:
-            - '12'
-          - escalada: Manicaca
+            - 1a66SSuUOASzRS
+          - alvo_uid: mmgm4pdEg0wvAU
+            pontos_uids:
+            - z47Cj26bAi3Tsj
+            escalada: Manicaca
             ids:
-            - '13'
-          - escalada: Ghidorah
+            - z47Cj26bAi3Tsj
+          - alvo_uid: WtPMFGj2mQSzjc
+            pontos_uids:
+            - lDsU35NStAINCc
+            escalada: Ghidorah
             ids:
-            - '14'
-          - escalada: Hidra
+            - lDsU35NStAINCc
+          - alvo_uid: YGzuoVFDvNOEYK
+            pontos_uids:
+            - sXC1f39hbG8frR
+            escalada: Hidra
             ids:
-            - '15'
-          - escalada: Medusa
+            - sXC1f39hbG8frR
+          - alvo_uid: 7I5EF0lDFIhZzg
+            pontos_uids:
+            - frvR1YD8fob2zA
+            escalada: Medusa
             ids:
-            - '16'
-          - escalada: Kátia Flávia
+            - frvR1YD8fob2zA
+          - alvo_uid: xlhUzNq1Av9HMQ
+            pontos_uids:
+            - OY8Lnl9aimjZVR
+            escalada: Kátia Flávia
             ids:
-            - '17'
-          - escalada: Ext. Kátia Flávia
+            - OY8Lnl9aimjZVR
+          - alvo_uid: WQww3YSUlXmTpd
+            pontos_uids:
+            - UeuQtX6iqTR1RG
+            - UeuQtX6iqTR1RG
+            escalada: Ext. Kátia Flávia
             ids:
-            - '18'
-            - '18'
-          - escalada: Casamento da Imperatriz (Projeto)
+            - UeuQtX6iqTR1RG
+            - UeuQtX6iqTR1RG
+          - alvo_uid: sfPbzqDW7cKUKi
+            pontos_uids:
+            - zuwOkLPZiyrtS0
+            escalada: Casamento da Imperatriz (Projeto)
             ids:
-            - '19'
+            - zuwOkLPZiyrtS0
         escaladas:
-        - via_esportiva:
+        - uid: hqI11rJ8W5yk2U
+          via_esportiva:
             nome: Ementhal
             dificuldade: BR_7C
-        - via_esportiva:
+        - uid: YCK6C1EjvM4VAP
+          via_esportiva:
             nome: Sunshine
             dificuldade: BR_7C
-        - via_esportiva:
+        - uid: HA8vivFsWqUYQW
+          via_esportiva:
             nome: Ext. Sunshine (Projeto)
             dificuldade: PROJETO
-        - via_esportiva:
+        - uid: ehDLgKwOEaDv2b
+          via_esportiva:
             nome: Luna
             dificuldade: BR_8A_BARRA_8B
-        - via_esportiva:
+        - uid: 9GR57GrnWJneVa
+          via_esportiva:
             nome: Freddie Mercury
             dificuldade: BR_9A
-        - via_esportiva:
+        - uid: GRoxKK3QvmQ5Ca
+          via_esportiva:
             nome: Ariete
             dificuldade: BR_7C
-        - via_esportiva:
+        - uid: QJzgDDKnnpNldv
+          via_esportiva:
             nome: Eunuco (Projeto)
             dificuldade: PROJETO
-        - via_esportiva:
+        - uid: ouAZnfed0sSFKB
+          via_esportiva:
             nome: Pau Mandado
             dificuldade: BR_9C_BARRA_10A
             destaque: true
-        - via_esportiva:
+        - uid: 6IHqW7Id3VjC18
+          via_esportiva:
             nome: Imperatriz
             dificuldade: BR_9B
-        - via_esportiva:
+        - uid: CaGnhl3tMnwEEz
+          via_esportiva:
             nome: Casamento de Viúva
             dificuldade: BR_8A
-        - via_esportiva:
+        - uid: PPpLej1m8Rs15A
+          via_esportiva:
             nome: Manda Chuva (Projeto)
             dificuldade: PROJETO
-        - via_esportiva:
+        - uid: CC1FfHwmwI3Z87
+          via_esportiva:
             nome: Celibato
             dificuldade: BR_8C
-        - via_esportiva:
+        - uid: mmgm4pdEg0wvAU
+          via_esportiva:
             nome: Manicaca
             dificuldade: BR_7C_BARRA_8A
-        - via_esportiva:
+        - uid: WtPMFGj2mQSzjc
+          via_esportiva:
             nome: Ghidorah
             dificuldade: BR_6
-        - via_esportiva:
+        - uid: YGzuoVFDvNOEYK
+          via_esportiva:
             nome: Hidra
             dificuldade: BR_5
-        - via_esportiva:
+        - uid: 7I5EF0lDFIhZzg
+          via_esportiva:
             nome: Medusa
             dificuldade: BR_5
-        - via_esportiva:
+        - uid: xlhUzNq1Av9HMQ
+          via_esportiva:
             nome: Kátia Flávia
             dificuldade: BR_7A
-        - via_esportiva:
+        - uid: WQww3YSUlXmTpd
+          via_esportiva:
             nome: Ext. Kátia Flávia
             dificuldade: BR_7A
-        - via_esportiva:
+        - uid: sfPbzqDW7cKUKi
+          via_esportiva:
             nome: Casamento da Imperatriz (Projeto)
             dificuldade: PROJETO
         descricao: ''
@@ -602,253 +856,364 @@ picos:
           total_esportivas: 19
   - setor:
       conteudo:
+        uid: oQDOpSrgvgbJR2
         nome: ”Positivo” Central
         mapas:
         - caminho_imagem_mapa: imagens/setor_positivo_central_p0.webp
           largura_mapa: 1487
           altura_mapa: 960
           pontos_de_interesse:
-          - id: '01'
-            label: '1'
+          - uid: HqOnp0bd5u31ah
+            rotulo: '1'
             retangulo:
               x: 130
               y: 740
               comprimento: 30
               largura: 30
-          - id: '02'
-            label: '2'
+            id: HqOnp0bd5u31ah
+            label: '1'
+          - uid: B94OmDyrhvOZ0N
+            rotulo: '2'
             retangulo:
               x: 275
               y: 740
               comprimento: 30
               largura: 30
-          - id: '03'
-            label: '3'
+            id: B94OmDyrhvOZ0N
+            label: '2'
+          - uid: TUp7905rAqT2b0
+            rotulo: '3'
             retangulo:
               x: 375
               y: 700
               comprimento: 30
               largura: 30
-          - id: '04'
-            label: '4'
+            id: TUp7905rAqT2b0
+            label: '3'
+          - uid: Px3NIywwO41Bii
+            rotulo: '4'
             retangulo:
               x: 410
               y: 740
               comprimento: 30
               largura: 30
-          - id: '05'
-            label: '5'
+            id: Px3NIywwO41Bii
+            label: '4'
+          - uid: gJrktiXqkI6yiv
+            rotulo: '5'
             retangulo:
               x: 620
               y: 730
               comprimento: 30
               largura: 30
-          - id: '06'
-            label: '6'
+            id: gJrktiXqkI6yiv
+            label: '5'
+          - uid: pFpgMzYMdqtvtn
+            rotulo: '6'
             retangulo:
               x: 740
               y: 505
               comprimento: 30
               largura: 30
-          - id: '07'
-            label: '7'
+            id: pFpgMzYMdqtvtn
+            label: '6'
+          - uid: sJRZolZXKv7RqD
+            rotulo: '7'
             retangulo:
               x: 825
               y: 610
               comprimento: 30
               largura: 30
-          - id: '08'
-            label: '8'
+            id: sJRZolZXKv7RqD
+            label: '7'
+          - uid: WUe1G7jPc1tvB8
+            rotulo: '8'
             retangulo:
               x: 910
               y: 615
               comprimento: 30
               largura: 30
-          - id: '09'
-            label: '9'
+            id: WUe1G7jPc1tvB8
+            label: '8'
+          - uid: 92y8nso219wVxp
+            rotulo: '9'
             retangulo:
               x: 875
               y: 520
               comprimento: 30
               largura: 30
-          - id: '10'
-            label: '10'
+            id: 92y8nso219wVxp
+            label: '9'
+          - uid: 0beOHOVLTV7YBk
+            rotulo: '10'
             retangulo:
               x: 1080
               y: 520
               comprimento: 30
               largura: 30
-          - id: '11'
-            label: '11'
+            id: 0beOHOVLTV7YBk
+            label: '10'
+          - uid: oZMqv2aaWcxEim
+            rotulo: '11'
             retangulo:
               x: 925
               y: 785
               comprimento: 30
               largura: 30
-          - id: '12'
-            label: '12'
+            id: oZMqv2aaWcxEim
+            label: '11'
+          - uid: JCyzOuoPQYalgZ
+            rotulo: '12'
             retangulo:
               x: 1075
               y: 710
               comprimento: 30
               largura: 30
-          - id: '13'
-            label: '13'
+            id: JCyzOuoPQYalgZ
+            label: '12'
+          - uid: nMUOdM21P80q3S
+            rotulo: '13'
             retangulo:
               x: 1120
               y: 830
               comprimento: 30
               largura: 30
-          - id: '14'
-            label: '14'
+            id: nMUOdM21P80q3S
+            label: '13'
+          - uid: QV7FaGXVQO5SaE
+            rotulo: '14'
             retangulo:
               x: 1175
               y: 820
               comprimento: 30
               largura: 30
-          - id: '15'
-            label: '15'
+            id: QV7FaGXVQO5SaE
+            label: '14'
+          - uid: 0Rwpv7a52bx3Ut
+            rotulo: '15'
             retangulo:
               x: 1179
               y: 528
               comprimento: 30
               largura: 30
-          - id: '16'
-            label: '16'
+            id: 0Rwpv7a52bx3Ut
+            label: '15'
+          - uid: cuUXjXU2ml8WPP
+            rotulo: '16'
             retangulo:
               x: 1350
               y: 860
               comprimento: 30
               largura: 30
-          - id: '17'
-            label: '17'
+            id: cuUXjXU2ml8WPP
+            label: '16'
+          - uid: EQauhBg7Fc0bFW
+            rotulo: '17'
             retangulo:
               x: 1420
               y: 860
               comprimento: 30
               largura: 30
-          - id: '18'
-            label: '18'
+            id: EQauhBg7Fc0bFW
+            label: '17'
+          - uid: iRZRfAdwzw72WI
+            rotulo: '18'
             retangulo:
               x: 565
               y: 730
               comprimento: 30
               largura: 30
-          - id: Setores_Vizinhos
-            label: Setores Arquibancada, Acampamento e Gênesis
+            id: iRZRfAdwzw72WI
+            label: '18'
+          - uid: ZZHpD0xn5xwp7I
+            rotulo: Setores Arquibancada, Acampamento e Gênesis
             retangulo:
               x: 326
               y: 921
               comprimento: 700
               largura: 30
+            id: ZZHpD0xn5xwp7I
+            label: Setores Arquibancada, Acampamento e Gênesis
           referencias:
-          - escalada: Ayrton Senna
+          - alvo_uid: acckyvlG8fvRyh
+            pontos_uids:
+            - HqOnp0bd5u31ah
+            escalada: Ayrton Senna
             ids:
-            - '01'
-          - escalada: Fernão Dias
+            - HqOnp0bd5u31ah
+          - alvo_uid: ltn6JTIcWiHa35
+            pontos_uids:
+            - B94OmDyrhvOZ0N
+            escalada: Fernão Dias
             ids:
-            - '02'
-          - escalada: Via Dutra
+            - B94OmDyrhvOZ0N
+          - alvo_uid: gSZsatsGyahfEW
+            pontos_uids:
+            - TUp7905rAqT2b0
+            escalada: Via Dutra
             ids:
-            - '03'
-          - escalada: Rua Teresa
+            - TUp7905rAqT2b0
+          - alvo_uid: sKTTvpT33WPdMP
+            pontos_uids:
+            - Px3NIywwO41Bii
+            escalada: Rua Teresa
             ids:
-            - '04'
-          - escalada: Chico
+            - Px3NIywwO41Bii
+          - alvo_uid: nm3oo9X8j3PEqk
+            pontos_uids:
+            - gJrktiXqkI6yiv
+            escalada: Chico
             ids:
-            - '05'
-          - escalada: Juca Birita
+            - gJrktiXqkI6yiv
+          - alvo_uid: CtdAz2kpDFoGiP
+            pontos_uids:
+            - pFpgMzYMdqtvtn
+            escalada: Juca Birita
             ids:
-            - '06'
-          - escalada: Jeca Tatu
+            - pFpgMzYMdqtvtn
+          - alvo_uid: FdZBbhR7UyhiXv
+            pontos_uids:
+            - sJRZolZXKv7RqD
+            escalada: Jeca Tatu
             ids:
-            - '07'
-          - escalada: Kira
+            - sJRZolZXKv7RqD
+          - alvo_uid: qPJ5B7wdgq5hBN
+            pontos_uids:
+            - WUe1G7jPc1tvB8
+            escalada: Kira
             ids:
-            - '08'
-          - escalada: JucaTatuKira
+            - WUe1G7jPc1tvB8
+          - alvo_uid: kRjEH0ShYK0fpF
+            pontos_uids:
+            - 92y8nso219wVxp
+            escalada: JucaTatuKira
             ids:
-            - '09'
-          - escalada: Free Willy
+            - 92y8nso219wVxp
+          - alvo_uid: WaQ4IZgG9NLgL2
+            pontos_uids:
+            - 0beOHOVLTV7YBk
+            escalada: Free Willy
             ids:
-            - '10'
-          - escalada: Homer Simpson
+            - 0beOHOVLTV7YBk
+          - alvo_uid: y05LryMt0fO0DG
+            pontos_uids:
+            - oZMqv2aaWcxEim
+            escalada: Homer Simpson
             ids:
-            - '11'
-          - escalada: Velho do Saco
+            - oZMqv2aaWcxEim
+          - alvo_uid: dRsMSJUioAr522
+            pontos_uids:
+            - JCyzOuoPQYalgZ
+            escalada: Velho do Saco
             ids:
-            - '12'
-          - escalada: Incontinência
+            - JCyzOuoPQYalgZ
+          - alvo_uid: 5ptUc3sw0fQFLu
+            pontos_uids:
+            - nMUOdM21P80q3S
+            escalada: Incontinência
             ids:
-            - '13'
-          - escalada: Vovó Mafalda
+            - nMUOdM21P80q3S
+          - alvo_uid: htyFjun8swSmAw
+            pontos_uids:
+            - QV7FaGXVQO5SaE
+            escalada: Vovó Mafalda
             ids:
-            - '14'
-          - escalada: Chaminé Só para Tiozinhos
+            - QV7FaGXVQO5SaE
+          - alvo_uid: xr4VvQkSHMijpQ
+            pontos_uids:
+            - 0Rwpv7a52bx3Ut
+            escalada: Chaminé Só para Tiozinhos
             ids:
-            - '15'
-          - escalada: TriJeferson
+            - 0Rwpv7a52bx3Ut
+          - alvo_uid: 5xgFT8w5sSTKcm
+            pontos_uids:
+            - cuUXjXU2ml8WPP
+            escalada: TriJeferson
             ids:
-            - '16'
-          - escalada: Dunga
+            - cuUXjXU2ml8WPP
+          - alvo_uid: BSVoucm4cG6GZW
+            pontos_uids:
+            - EQauhBg7Fc0bFW
+            escalada: Dunga
             ids:
-            - '17'
-          - escalada: Sub-Zero
+            - EQauhBg7Fc0bFW
+          - alvo_uid: bgOvpINuWbKpeE
+            pontos_uids:
+            - iRZRfAdwzw72WI
+            escalada: Sub-Zero
             ids:
-            - '18'
+            - iRZRfAdwzw72WI
         escaladas:
-        - via_esportiva:
+        - uid: acckyvlG8fvRyh
+          via_esportiva:
             nome: Ayrton Senna
             dificuldade: BR_7C
-        - via_esportiva:
+        - uid: ltn6JTIcWiHa35
+          via_esportiva:
             nome: Fernão Dias
             dificuldade: BR_7A
-        - via_esportiva:
+        - uid: gSZsatsGyahfEW
+          via_esportiva:
             nome: Via Dutra
             dificuldade: BR_7A
-        - via_esportiva:
+        - uid: sKTTvpT33WPdMP
+          via_esportiva:
             nome: Rua Teresa
             dificuldade: BR_7A
-        - via_esportiva:
+        - uid: nm3oo9X8j3PEqk
+          via_esportiva:
             nome: Chico
             dificuldade: BR_8B_BARRA_8C
-        - via_esportiva:
+        - uid: CtdAz2kpDFoGiP
+          via_esportiva:
             nome: Juca Birita
             dificuldade: BR_8A
-        - via_esportiva:
+        - uid: FdZBbhR7UyhiXv
+          via_esportiva:
             nome: Jeca Tatu
             dificuldade: BR_8C
-        - via_esportiva:
+        - uid: qPJ5B7wdgq5hBN
+          via_esportiva:
             nome: Kira
             dificuldade: BR_9A
-        - via_esportiva:
+        - uid: kRjEH0ShYK0fpF
+          via_esportiva:
             nome: JucaTatuKira
             dificuldade: BR_8B
-        - via_esportiva:
+        - uid: WaQ4IZgG9NLgL2
+          via_esportiva:
             nome: Free Willy
             dificuldade: BR_8C
-        - via_esportiva:
+        - uid: y05LryMt0fO0DG
+          via_esportiva:
             nome: Homer Simpson
             dificuldade: BR_6
-        - via_esportiva:
+        - uid: dRsMSJUioAr522
+          via_esportiva:
             nome: Velho do Saco
             dificuldade: BR_7A
-        - via_esportiva:
+        - uid: 5ptUc3sw0fQFLu
+          via_esportiva:
             nome: Incontinência
             dificuldade: BR_8B
-        - via_esportiva:
+        - uid: htyFjun8swSmAw
+          via_esportiva:
             nome: Vovó Mafalda
             dificuldade: BR_7A
-        - via_esportiva:
+        - uid: xr4VvQkSHMijpQ
+          via_esportiva:
             nome: Chaminé Só para Tiozinhos
             dificuldade: BR_7A
-        - via_esportiva:
+        - uid: 5xgFT8w5sSTKcm
+          via_esportiva:
             nome: TriJeferson
             dificuldade: BR_9B
-        - via_esportiva:
+        - uid: BSVoucm4cG6GZW
+          via_esportiva:
             nome: Dunga
             dificuldade: BR_9A
-        - via_esportiva:
+        - uid: bgOvpINuWbKpeE
+          via_esportiva:
             nome: Sub-Zero
             dificuldade: BR_8C
         descricao: ''
@@ -857,488 +1222,701 @@ picos:
           total_esportivas: 18
   - setor:
       conteudo:
+        uid: XFRy9L107I7q0B
         nome: ”Negativo” Central
         mapas:
         - caminho_imagem_mapa: imagens/setor_negativo_central_p0.webp
           largura_mapa: 1487
           altura_mapa: 962
           pontos_de_interesse:
-          - id: '01'
-            label: '1'
+          - uid: XVloNcOzV9YVVo
+            rotulo: '1'
             retangulo:
               x: 110
               y: 745
               comprimento: 30
               largura: 30
-          - id: '02'
-            label: '2'
+            id: XVloNcOzV9YVVo
+            label: '1'
+          - uid: EYLC8BhU9O5ZZP
+            rotulo: '2'
             retangulo:
               x: 71
               y: 478
               comprimento: 30
               largura: 30
-          - id: '03'
-            label: '3'
+            id: EYLC8BhU9O5ZZP
+            label: '2'
+          - uid: 0wfStBE4Bvz5WN
+            rotulo: '3'
             retangulo:
               x: 135
               y: 585
               comprimento: 30
               largura: 30
-          - id: '04'
-            label: '4'
+            id: 0wfStBE4Bvz5WN
+            label: '3'
+          - uid: mKQkoMfXv6IeNI
+            rotulo: '4'
             retangulo:
               x: 150
               y: 405
               comprimento: 30
               largura: 30
-          - id: '05'
-            label: '5'
+            id: mKQkoMfXv6IeNI
+            label: '4'
+          - uid: Cq3VlZw2lah4tF
+            rotulo: '5'
             retangulo:
               x: 810
               y: 484
               comprimento: 30
               largura: 30
-          - id: '06'
-            label: '6'
+            id: Cq3VlZw2lah4tF
+            label: '5'
+          - uid: XlDgJ6cnW11hcj
+            rotulo: '6'
             retangulo:
               x: 160
               y: 135
               comprimento: 30
               largura: 30
-          - id: '07'
-            label: '7'
+            id: XlDgJ6cnW11hcj
+            label: '6'
+          - uid: BV8tlE3arUhGxA
+            rotulo: '7'
             retangulo:
               x: 285
               y: 725
               comprimento: 30
               largura: 30
-          - id: '08'
-            label: '8'
+            id: BV8tlE3arUhGxA
+            label: '7'
+          - uid: kzdAIHfjqG0nHf
+            rotulo: '8'
             retangulo:
               x: 375
               y: 725
               comprimento: 30
               largura: 30
-          - id: '09'
-            label: '9'
+            id: kzdAIHfjqG0nHf
+            label: '8'
+          - uid: cpIkjR8h5AoNkR
+            rotulo: '9'
             retangulo:
               x: 230
               y: 235
               comprimento: 30
               largura: 30
-          - id: '10'
-            label: '10'
+            id: cpIkjR8h5AoNkR
+            label: '9'
+          - uid: suJhQc3oESqNuu
+            rotulo: '10'
             retangulo:
               x: 260
               y: 340
               comprimento: 30
               largura: 30
-          - id: 11_topo
-            label: '11'
+            id: suJhQc3oESqNuu
+            label: '10'
+          - uid: z2zHAgvSrEjl13
+            rotulo: '11'
             retangulo:
               x: 325
               y: 295
               comprimento: 30
               largura: 30
-          - id: 11_base
+            id: z2zHAgvSrEjl13
             label: '11'
+          - uid: GGcNU9r7fjTJqG
+            rotulo: '11'
             retangulo:
               x: 315
               y: 430
               comprimento: 30
               largura: 30
-          - id: 12_base
-            label: '12'
+            id: GGcNU9r7fjTJqG
+            label: '11'
+          - uid: ue7MRqZoS6xVD4
+            rotulo: '12'
             retangulo:
               x: 305
               y: 585
               comprimento: 30
               largura: 30
-          - id: 13_topo
-            label: '13'
+            id: ue7MRqZoS6xVD4
+            label: '12'
+          - uid: sIjKe2beRnlLfS
+            rotulo: '13'
             retangulo:
               x: 465
               y: 385
               comprimento: 30
               largura: 30
-          - id: 13_base
+            id: sIjKe2beRnlLfS
             label: '13'
+          - uid: bbNbJq4NQ7NkzC
+            rotulo: '13'
             retangulo:
               x: 450
               y: 515
               comprimento: 30
               largura: 30
-          - id: '14'
-            label: '14'
+            id: bbNbJq4NQ7NkzC
+            label: '13'
+          - uid: x9AUS2B16WnTQC
+            rotulo: '14'
             retangulo:
               x: 418
               y: 712
               comprimento: 30
               largura: 30
-          - id: 15_topo
-            label: '15'
+            id: x9AUS2B16WnTQC
+            label: '14'
+          - uid: qChc2hK536akdh
+            rotulo: '15'
             retangulo:
               x: 433
               y: 198
               comprimento: 30
               largura: 30
-          - id: 15_meio
+            id: qChc2hK536akdh
             label: '15'
+          - uid: cDW25Wdw32o5mU
+            rotulo: '15'
             retangulo:
               x: 505
               y: 345
               comprimento: 30
               largura: 30
-          - id: 15_base
+            id: cDW25Wdw32o5mU
             label: '15'
+          - uid: duX5eFV9U7bf1X
+            rotulo: '15'
             retangulo:
               x: 505
               y: 515
               comprimento: 30
               largura: 30
-          - id: '16'
-            label: '16'
+            id: duX5eFV9U7bf1X
+            label: '15'
+          - uid: z5fKHKiFr80VK9
+            rotulo: '16'
             retangulo:
               x: 536
               y: 262
               comprimento: 30
               largura: 30
-          - id: 17_topo
-            label: '17'
+            id: z5fKHKiFr80VK9
+            label: '16'
+          - uid: eFRh40g009bfiX
+            rotulo: '17'
             retangulo:
               x: 570
               y: 135
               comprimento: 30
               largura: 30
-          - id: 17_base
+            id: eFRh40g009bfiX
             label: '17'
+          - uid: dAztHOScSHi3XE
+            rotulo: '17'
             retangulo:
               x: 655
               y: 365
               comprimento: 30
               largura: 30
-          - id: 18_topo
-            label: '18'
+            id: dAztHOScSHi3XE
+            label: '17'
+          - uid: 6oTZHyCg5OldRv
+            rotulo: '18'
             retangulo:
               x: 594
               y: 288
               comprimento: 30
               largura: 30
-          - id: 18_base
+            id: 6oTZHyCg5OldRv
             label: '18'
+          - uid: PZ0e11Pyrbetyb
+            rotulo: '18'
             retangulo:
               x: 655
               y: 295
               comprimento: 30
               largura: 30
-          - id: 19_topo
-            label: '19'
+            id: PZ0e11Pyrbetyb
+            label: '18'
+          - uid: InSXlFxfXTf6lQ
+            rotulo: '19'
             retangulo:
               x: 580
               y: 226
               comprimento: 30
               largura: 30
-          - id: 19_base
+            id: InSXlFxfXTf6lQ
             label: '19'
+          - uid: 7RMRhhX4zgZulM
+            rotulo: '19'
             retangulo:
               x: 645
               y: 225
               comprimento: 30
               largura: 30
-          - id: '20'
-            label: '20'
+            id: 7RMRhhX4zgZulM
+            label: '19'
+          - uid: xSFJJS45bdZVKq
+            rotulo: '20'
             retangulo:
               x: 628
               y: 552
               comprimento: 30
               largura: 30
-          - id: '21'
-            label: '21'
+            id: xSFJJS45bdZVKq
+            label: '20'
+          - uid: NdkzPCFEg26f77
+            rotulo: '21'
             retangulo:
               x: 682
               y: 420
               comprimento: 30
               largura: 30
-          - id: '22'
-            label: '22'
+            id: NdkzPCFEg26f77
+            label: '21'
+          - uid: HHtdZW4Ab1ceTW
+            rotulo: '22'
             retangulo:
               x: 835
               y: 425
               comprimento: 30
               largura: 30
-          - id: '23'
-            label: '23'
+            id: HHtdZW4Ab1ceTW
+            label: '22'
+          - uid: KhrD8JHTOq6vOl
+            rotulo: '23'
             retangulo:
               x: 743
               y: 372
               comprimento: 30
               largura: 30
-          - id: '24'
-            label: '24'
+            id: KhrD8JHTOq6vOl
+            label: '23'
+          - uid: HQMhYtJkm12oT9
+            rotulo: '24'
             retangulo:
               x: 762
               y: 134
               comprimento: 30
               largura: 30
-          - id: '25'
-            label: '25'
+            id: HQMhYtJkm12oT9
+            label: '24'
+          - uid: qrX73FrkTzbJsk
+            rotulo: '25'
             retangulo:
               x: 880
               y: 485
               comprimento: 30
               largura: 30
-          - id: '26'
-            label: '26'
+            id: qrX73FrkTzbJsk
+            label: '25'
+          - uid: QjFFft9Y9DkOf9
+            rotulo: '26'
             retangulo:
               x: 960
               y: 450
               comprimento: 30
               largura: 30
-          - id: '27'
-            label: '27'
+            id: QjFFft9Y9DkOf9
+            label: '26'
+          - uid: 18HW9Jof2fQjAY
+            rotulo: '27'
             retangulo:
               x: 1068
               y: 542
               comprimento: 30
               largura: 30
-          - id: '28'
-            label: '28'
+            id: 18HW9Jof2fQjAY
+            label: '27'
+          - uid: DGbuMR0pY6u0zR
+            rotulo: '28'
             retangulo:
               x: 1068
               y: 338
               comprimento: 30
               largura: 30
-          - id: '29'
-            label: '29'
+            id: DGbuMR0pY6u0zR
+            label: '28'
+          - uid: YoAH7aO1bsvyhJ
+            rotulo: '29'
             retangulo:
               x: 1072
               y: 126
               comprimento: 30
               largura: 30
-          - id: '30'
-            label: '30'
+            id: YoAH7aO1bsvyhJ
+            label: '29'
+          - uid: PPF5dlAMBjfSUj
+            rotulo: '30'
             retangulo:
               x: 1158
               y: 336
               comprimento: 30
               largura: 30
-          - id: '31'
-            label: '31'
+            id: PPF5dlAMBjfSUj
+            label: '30'
+          - uid: o47lITPpuqocOz
+            rotulo: '31'
             retangulo:
               x: 478
               y: 718
               comprimento: 30
               largura: 30
-          - id: '32'
-            label: '32'
+            id: o47lITPpuqocOz
+            label: '31'
+          - uid: JZaMcMkH8j2Lai
+            rotulo: '32'
             retangulo:
               x: 74
               y: 778
               comprimento: 30
               largura: 30
-          - id: Setores_Vizinhos
-            label: Setores Arquibancada, Acampamento e Gênesis
+            id: JZaMcMkH8j2Lai
+            label: '32'
+          - uid: Ud9IqMwOMMiC2G
+            rotulo: Setores Arquibancada, Acampamento e Gênesis
             retangulo:
               x: 328
               y: 923
               comprimento: 700
               largura: 30
+            id: Ud9IqMwOMMiC2G
+            label: Setores Arquibancada, Acampamento e Gênesis
           referencias:
-          - escalada: Palo Santo P1
+          - alvo_uid: fZd7ZOjhXb0kXL
+            pontos_uids:
+            - XVloNcOzV9YVVo
+            escalada: Palo Santo P1
             ids:
-            - '01'
-          - escalada: Palo Santo P2
+            - XVloNcOzV9YVVo
+          - alvo_uid: Ppdu08Q2dSg3bM
+            pontos_uids:
+            - EYLC8BhU9O5ZZP
+            - EYLC8BhU9O5ZZP
+            escalada: Palo Santo P2
             ids:
-            - '02'
-            - '02'
-          - escalada: Left or Right
+            - EYLC8BhU9O5ZZP
+            - EYLC8BhU9O5ZZP
+          - alvo_uid: Y5h46Al9gqiADg
+            pontos_uids:
+            - 0wfStBE4Bvz5WN
+            escalada: Left or Right
             ids:
-            - '03'
-          - escalada: Right na Caveira
+            - 0wfStBE4Bvz5WN
+          - alvo_uid: QFmVr8f6t2j2nK
+            pontos_uids:
+            - mKQkoMfXv6IeNI
+            escalada: Right na Caveira
             ids:
-            - '04'
-          - escalada: Piercing de Caveira
+            - mKQkoMfXv6IeNI
+          - alvo_uid: AvHvOiemZRPUP2
+            pontos_uids:
+            - Cq3VlZw2lah4tF
+            escalada: Piercing de Caveira
             ids:
-            - '05'
-          - escalada: Ext. Piercing
+            - Cq3VlZw2lah4tF
+          - alvo_uid: 03FAh2tz89kDDq
+            pontos_uids:
+            - XlDgJ6cnW11hcj
+            - XlDgJ6cnW11hcj
+            escalada: Ext. Piercing
             ids:
-            - '06'
-            - '06'
-          - escalada: Mythos
+            - XlDgJ6cnW11hcj
+            - XlDgJ6cnW11hcj
+          - alvo_uid: b1ZJFdrIxpwkkj
+            pontos_uids:
+            - BV8tlE3arUhGxA
+            escalada: Mythos
             ids:
-            - '07'
-          - escalada: Esqueleto
+            - BV8tlE3arUhGxA
+          - alvo_uid: hqk4oB1NDFSqPI
+            pontos_uids:
+            - kzdAIHfjqG0nHf
+            escalada: Esqueleto
             ids:
-            - '08'
-          - escalada: Brinco de Caveira
+            - kzdAIHfjqG0nHf
+          - alvo_uid: XTmUB4HU4gAhoT
+            pontos_uids:
+            - cpIkjR8h5AoNkR
+            escalada: Brinco de Caveira
             ids:
-            - '09'
-          - escalada: Bruce Lee (Projeto)
+            - cpIkjR8h5AoNkR
+          - alvo_uid: GPoLGzF6hcdZXp
+            pontos_uids:
+            - suJhQc3oESqNuu
+            escalada: Bruce Lee (Projeto)
             ids:
-            - '10'
-          - escalada: Bradock
+            - suJhQc3oESqNuu
+          - alvo_uid: gZqvVC5zkXIMAA
+            pontos_uids:
+            - GGcNU9r7fjTJqG
+            escalada: Bradock
             ids:
-            - 11_base
-          - escalada: Bozo
+            - GGcNU9r7fjTJqG
+          - alvo_uid: 6OMMcn0elBJinD
+            pontos_uids:
+            - ue7MRqZoS6xVD4
+            escalada: Bozo
             ids:
-            - 12_base
-          - escalada: Fonte da Juventude
+            - ue7MRqZoS6xVD4
+          - alvo_uid: vFtwOfBs2tNSZU
+            pontos_uids:
+            - bbNbJq4NQ7NkzC
+            escalada: Fonte da Juventude
             ids:
-            - 13_base
-          - escalada: Cocoon P1
+            - bbNbJq4NQ7NkzC
+          - alvo_uid: wvfvSt7juTnwBD
+            pontos_uids:
+            - x9AUS2B16WnTQC
+            escalada: Cocoon P1
             ids:
-            - '14'
-          - escalada: Cocoon P2
+            - x9AUS2B16WnTQC
+          - alvo_uid: iLrpaeqaAXtObc
+            pontos_uids:
+            - duX5eFV9U7bf1X
+            - duX5eFV9U7bf1X
+            escalada: Cocoon P2
             ids:
-            - 15_base
-            - 15_base
-          - escalada: Coconut
+            - duX5eFV9U7bf1X
+            - duX5eFV9U7bf1X
+          - alvo_uid: 2zSyjaWTRrvIst
+            pontos_uids:
+            - z5fKHKiFr80VK9
+            escalada: Coconut
             ids:
-            - '16'
-          - escalada: Apocalipse
+            - z5fKHKiFr80VK9
+          - alvo_uid: hRrD4vyGlkl2rw
+            pontos_uids:
+            - dAztHOScSHi3XE
+            escalada: Apocalipse
             ids:
-            - 17_base
-          - escalada: Homem de Pedra
+            - dAztHOScSHi3XE
+          - alvo_uid: AnU47bTOnTTnEC
+            pontos_uids:
+            - PZ0e11Pyrbetyb
+            escalada: Homem de Pedra
             ids:
-            - 18_base
-          - escalada: Inferno de Dante
+            - PZ0e11Pyrbetyb
+          - alvo_uid: gJtEaP6ZI2IhBR
+            pontos_uids:
+            - 7RMRhhX4zgZulM
+            escalada: Inferno de Dante
             ids:
-            - 19_base
-          - escalada: Golias
+            - 7RMRhhX4zgZulM
+          - alvo_uid: GnZyZjoku5fqjh
+            pontos_uids:
+            - xSFJJS45bdZVKq
+            escalada: Golias
             ids:
-            - '20'
-          - escalada: Cova dos Leões
+            - xSFJJS45bdZVKq
+          - alvo_uid: C3YcFEK2cgX3RN
+            pontos_uids:
+            - NdkzPCFEg26f77
+            escalada: Cova dos Leões
             ids:
-            - '21'
-          - escalada: Verbo Divino (Projeto)
+            - NdkzPCFEg26f77
+          - alvo_uid: 6RaqLBzthXio0X
+            pontos_uids:
+            - HHtdZW4Ab1ceTW
+            escalada: Verbo Divino (Projeto)
             ids:
-            - '22'
-          - escalada: Dust in the Wind
+            - HHtdZW4Ab1ceTW
+          - alvo_uid: zqLVHHzDtWbrYo
+            pontos_uids:
+            - KhrD8JHTOq6vOl
+            escalada: Dust in the Wind
             ids:
-            - '23'
-          - escalada: Ext. Dust (Projeto)
+            - KhrD8JHTOq6vOl
+          - alvo_uid: byQEAjiWNIXduI
+            pontos_uids:
+            - HQMhYtJkm12oT9
+            - HQMhYtJkm12oT9
+            escalada: Ext. Dust (Projeto)
             ids:
-            - '24'
-            - '24'
-          - escalada: Doce de Amendoim
+            - HQMhYtJkm12oT9
+            - HQMhYtJkm12oT9
+          - alvo_uid: I6kF6lRA7SiGaE
+            pontos_uids:
+            - qrX73FrkTzbJsk
+            escalada: Doce de Amendoim
             ids:
-            - '25'
-          - escalada: Gengis Khan
+            - qrX73FrkTzbJsk
+          - alvo_uid: GsTSdsyuXY9iPp
+            pontos_uids:
+            - QjFFft9Y9DkOf9
+            escalada: Gengis Khan
             ids:
-            - '26'
-          - escalada: Gringos & Troianos
+            - QjFFft9Y9DkOf9
+          - alvo_uid: cpZmootjSN4wte
+            pontos_uids:
+            - 18HW9Jof2fQjAY
+            escalada: Gringos & Troianos
             ids:
-            - '27'
-          - escalada: Gringos & Troianos
+            - 18HW9Jof2fQjAY
+          - alvo_uid: cpZmootjSN4wte
+            pontos_uids:
+            - DGbuMR0pY6u0zR
+            escalada: Gringos & Troianos
             ids:
-            - '28'
-          - escalada: Cavalo de Tróia
+            - DGbuMR0pY6u0zR
+          - alvo_uid: LC4n5xjhqw4Oa0
+            pontos_uids:
+            - YoAH7aO1bsvyhJ
+            escalada: Cavalo de Tróia
             ids:
-            - '29'
-          - escalada: Jacuzzi (Projeto)
+            - YoAH7aO1bsvyhJ
+          - alvo_uid: 74YjXKRj3YJDi7
+            pontos_uids:
+            - PPF5dlAMBjfSUj
+            escalada: Jacuzzi (Projeto)
             ids:
-            - '30'
-          - escalada: Centauro
+            - PPF5dlAMBjfSUj
+          - alvo_uid: ittlusPUutbDL8
+            pontos_uids:
+            - o47lITPpuqocOz
+            escalada: Centauro
             ids:
-            - '31'
-          - escalada: Ceci
+            - o47lITPpuqocOz
+          - alvo_uid: zlpDTPFuhk7BEn
+            pontos_uids:
+            - JZaMcMkH8j2Lai
+            escalada: Ceci
             ids:
-            - '32'
+            - JZaMcMkH8j2Lai
         escaladas:
-        - via_esportiva:
+        - uid: fZd7ZOjhXb0kXL
+          via_esportiva:
             nome: Palo Santo P1
             dificuldade: BR_5
-        - via_esportiva:
+        - uid: Ppdu08Q2dSg3bM
+          via_esportiva:
             nome: Palo Santo P2
             dificuldade: BR_10A
-        - via_esportiva:
+        - uid: Y5h46Al9gqiADg
+          via_esportiva:
             nome: Left or Right
             dificuldade: BR_9A
-        - via_esportiva:
+        - uid: QFmVr8f6t2j2nK
+          via_esportiva:
             nome: Right na Caveira
             dificuldade: BR_9B_BARRA_9C
-        - via_esportiva:
+        - uid: AvHvOiemZRPUP2
+          via_esportiva:
             nome: Piercing de Caveira
             dificuldade: BR_9B
-        - via_esportiva:
+        - uid: 03FAh2tz89kDDq
+          via_esportiva:
             nome: Ext. Piercing
             dificuldade: BR_10B
-        - via_esportiva:
+        - uid: b1ZJFdrIxpwkkj
+          via_esportiva:
             nome: Mythos
             dificuldade: BR_6
-        - via_esportiva:
+        - uid: hqk4oB1NDFSqPI
+          via_esportiva:
             nome: Esqueleto
             dificuldade: BR_7A
-        - via_esportiva:
+        - uid: XTmUB4HU4gAhoT
+          via_esportiva:
             nome: Brinco de Caveira
             dificuldade: BR_10C
-        - via_esportiva:
+        - uid: GPoLGzF6hcdZXp
+          via_esportiva:
             nome: Bruce Lee (Projeto)
             dificuldade: PROJETO
-        - via_esportiva:
+        - uid: gZqvVC5zkXIMAA
+          via_esportiva:
             nome: Bradock
             dificuldade: BR_10A
-        - via_esportiva:
+        - uid: 6OMMcn0elBJinD
+          via_esportiva:
             nome: Bozo
             dificuldade: BR_9C
-        - via_esportiva:
+        - uid: vFtwOfBs2tNSZU
+          via_esportiva:
             nome: Fonte da Juventude
             dificuldade: BR_9B_BARRA_9C
-        - via_esportiva:
+        - uid: wvfvSt7juTnwBD
+          via_esportiva:
             nome: Cocoon P1
             dificuldade: BR_7A
-        - via_esportiva:
+        - uid: iLrpaeqaAXtObc
+          via_esportiva:
             nome: Cocoon P2
             dificuldade: BR_10A
-        - via_esportiva:
+        - uid: 2zSyjaWTRrvIst
+          via_esportiva:
             nome: Coconut
             dificuldade: BR_10B_BARRA_10C
-        - via_esportiva:
+        - uid: hRrD4vyGlkl2rw
+          via_esportiva:
             nome: Apocalipse
             dificuldade: BR_10B
-        - via_esportiva:
+        - uid: AnU47bTOnTTnEC
+          via_esportiva:
             nome: Homem de Pedra
             dificuldade: BR_10C
-        - via_esportiva:
+        - uid: gJtEaP6ZI2IhBR
+          via_esportiva:
             nome: Inferno de Dante
             dificuldade: BR_10B
-        - via_esportiva:
+        - uid: GnZyZjoku5fqjh
+          via_esportiva:
             nome: Golias
             dificuldade: BR_10C
-        - via_esportiva:
+        - uid: C3YcFEK2cgX3RN
+          via_esportiva:
             nome: Cova dos Leões
             dificuldade: BR_10B
-        - via_esportiva:
+        - uid: 6RaqLBzthXio0X
+          via_esportiva:
             nome: Verbo Divino (Projeto)
             dificuldade: PROJETO
-        - via_esportiva:
+        - uid: zqLVHHzDtWbrYo
+          via_esportiva:
             nome: Dust in the Wind
             dificuldade: BR_10C
-        - via_esportiva:
+        - uid: byQEAjiWNIXduI
+          via_esportiva:
             nome: Ext. Dust (Projeto)
             dificuldade: PROJETO
-        - via_esportiva:
+        - uid: I6kF6lRA7SiGaE
+          via_esportiva:
             nome: Doce de Amendoim
             dificuldade: BR_10C
-        - via_esportiva:
+        - uid: GsTSdsyuXY9iPp
+          via_esportiva:
             nome: Gengis Khan
             dificuldade: BR_9C
-        - via_esportiva:
+        - uid: foNMsdT5c4txrF
+          via_esportiva:
             nome: Gringos & Troianos
             dificuldade: BR_9A
-        - via_esportiva:
+        - uid: cpZmootjSN4wte
+          via_esportiva:
             nome: Gringos & Troianos
             dificuldade: BR_11A_BARRA_11B
-        - via_esportiva:
+        - uid: LC4n5xjhqw4Oa0
+          via_esportiva:
             nome: Cavalo de Tróia
             dificuldade: BR_11C
-        - via_esportiva:
+        - uid: 74YjXKRj3YJDi7
+          via_esportiva:
             nome: Jacuzzi (Projeto)
             dificuldade: PROJETO
-        - via_esportiva:
+        - uid: ittlusPUutbDL8
+          via_esportiva:
             nome: Centauro
             dificuldade: BR_6SUP
-        - via_esportiva:
+        - uid: zlpDTPFuhk7BEn
+          via_esportiva:
             nome: Ceci
             dificuldade: BR_6SUP
         descricao: ''
@@ -1347,422 +1925,604 @@ picos:
           total_esportivas: 32
   - setor:
       conteudo:
+        uid: lt12GNvnJUOG87
         nome: Arquibancada
         mapas:
         - caminho_imagem_mapa: imagens/setor_arquibancada_p0.webp
           largura_mapa: 1415
           altura_mapa: 907
           pontos_de_interesse:
-          - id: 01_topo
-            label: '1'
+          - uid: 0dEURqeahqnLb2
+            rotulo: '1'
             retangulo:
               x: 1150
               y: 525
               comprimento: 30
               largura: 30
-          - id: 01_base
+            id: 0dEURqeahqnLb2
             label: '1'
+          - uid: mLsB8nOplCsDRB
+            rotulo: '1'
             retangulo:
               x: 1210
               y: 775
               comprimento: 30
               largura: 30
-          - id: '02'
-            label: '2'
+            id: mLsB8nOplCsDRB
+            label: '1'
+          - uid: srfMp22KdsZy2Y
+            rotulo: '2'
             retangulo:
               x: 1165
               y: 385
               comprimento: 30
               largura: 30
-          - id: '03'
-            label: '3'
+            id: srfMp22KdsZy2Y
+            label: '2'
+          - uid: x57PLbZanlUquZ
+            rotulo: '3'
             retangulo:
               x: 1160
               y: 235
               comprimento: 30
               largura: 30
-          - id: 04_topo
-            label: '4'
+            id: x57PLbZanlUquZ
+            label: '3'
+          - uid: xb7HCQE8qJBhhT
+            rotulo: '4'
             retangulo:
               x: 670
               y: 261
               comprimento: 40
               largura: 40
-          - id: 04_base
+            id: xb7HCQE8qJBhhT
             label: '4'
+          - uid: l1h4xEXVeDw19F
+            rotulo: '4'
             retangulo:
               x: 1055
               y: 505
               comprimento: 30
               largura: 30
-          - id: 05_topo
-            label: '5'
+            id: l1h4xEXVeDw19F
+            label: '4'
+          - uid: B3KyuUlrUzrf8z
+            rotulo: '5'
             retangulo:
               x: 977
               y: 492
               comprimento: 30
               largura: 30
-          - id: 05_base
+            id: B3KyuUlrUzrf8z
             label: '5'
+          - uid: gMv1vxlUyjDOca
+            rotulo: '5'
             retangulo:
               x: 1090
               y: 870
               comprimento: 30
               largura: 30
-          - id: 06_topo
-            label: '6'
+            id: gMv1vxlUyjDOca
+            label: '5'
+          - uid: JKgdhIsemJdzXu
+            rotulo: '6'
             retangulo:
               x: 995
               y: 605
               comprimento: 30
               largura: 30
-          - id: 06_base
+            id: JKgdhIsemJdzXu
             label: '6'
+          - uid: gvFvIf07rFLFRc
+            rotulo: '6'
             retangulo:
               x: 995
               y: 635
               comprimento: 30
               largura: 30
-          - id: 07_topo
-            label: '7'
+            id: gvFvIf07rFLFRc
+            label: '6'
+          - uid: yWQ3qAdM0uWhGP
+            rotulo: '7'
             retangulo:
               x: 962
               y: 552
               comprimento: 30
               largura: 30
-          - id: 07_base
+            id: yWQ3qAdM0uWhGP
             label: '7'
+          - uid: s9TQxG4mVXOxiw
+            rotulo: '7'
             retangulo:
               x: 961
               y: 705
               comprimento: 30
               largura: 30
-          - id: 08_topo
-            label: '8'
+            id: s9TQxG4mVXOxiw
+            label: '7'
+          - uid: AowmGPIbARUqdE
+            rotulo: '8'
             retangulo:
               x: 877
               y: 771
               comprimento: 30
               largura: 30
-          - id: 08_base
+            id: AowmGPIbARUqdE
             label: '8'
+          - uid: 4MFwG2IC6W6u5S
+            rotulo: '8'
             retangulo:
               x: 880
               y: 815
               comprimento: 30
               largura: 30
-          - id: '09'
-            label: '9'
+            id: 4MFwG2IC6W6u5S
+            label: '8'
+          - uid: idoSwXlB1fdgZ6
+            rotulo: '9'
             retangulo:
               x: 920
               y: 330
               comprimento: 30
               largura: 30
-          - id: '10'
-            label: '10'
+            id: idoSwXlB1fdgZ6
+            label: '9'
+          - uid: HIAhDuMzm7p8IS
+            rotulo: '10'
             retangulo:
               x: 923
               y: 193
               comprimento: 30
               largura: 30
-          - id: '11'
-            label: '11'
+            id: HIAhDuMzm7p8IS
+            label: '10'
+          - uid: d9PPQZKgY5VGJN
+            rotulo: '11'
             retangulo:
               x: 795
               y: 675
               comprimento: 30
               largura: 30
-          - id: '12'
-            label: '12'
+            id: d9PPQZKgY5VGJN
+            label: '11'
+          - uid: 2VjkpkXljcf03n
+            rotulo: '12'
             retangulo:
               x: 525
               y: 380
               comprimento: 30
               largura: 30
-          - id: '14'
-            label: '14'
+            id: 2VjkpkXljcf03n
+            label: '12'
+          - uid: j6mwcGN4Obj8P6
+            rotulo: '14'
             retangulo:
               x: 670
               y: 290
               comprimento: 30
               largura: 30
-          - id: '15'
-            label: '15'
+            id: j6mwcGN4Obj8P6
+            label: '14'
+          - uid: 0FdvAdgahgEwYr
+            rotulo: '15'
             retangulo:
               x: 1026
               y: 196
               comprimento: 30
               largura: 30
-          - id: '16'
-            label: '16'
+            id: 0FdvAdgahgEwYr
+            label: '15'
+          - uid: iqBYNgoUndbdKP
+            rotulo: '16'
             retangulo:
               x: 675
               y: 599
               comprimento: 30
               largura: 30
-          - id: '17'
-            label: '17'
+            id: iqBYNgoUndbdKP
+            label: '16'
+          - uid: Wro8texVPMorxV
+            rotulo: '17'
             retangulo:
               x: 585
               y: 621
               comprimento: 30
               largura: 30
-          - id: '18'
-            label: '18'
+            id: Wro8texVPMorxV
+            label: '17'
+          - uid: TxGQfnfB4BD2qm
+            rotulo: '18'
             retangulo:
               x: 434
               y: 496
               comprimento: 30
               largura: 30
-          - id: 19_topo
-            label: '19'
+            id: TxGQfnfB4BD2qm
+            label: '18'
+          - uid: C9zGyOgXnVI8g6
+            rotulo: '19'
             retangulo:
               x: 373
               y: 275
               comprimento: 30
               largura: 30
-          - id: 19_meio
+            id: C9zGyOgXnVI8g6
             label: '19'
+          - uid: L7RSw4H5pFRpSE
+            rotulo: '19'
             retangulo:
               x: 183
               y: 531
               comprimento: 30
               largura: 30
-          - id: 19_base
+            id: L7RSw4H5pFRpSE
             label: '19'
+          - uid: uvPPdL22mgpgqW
+            rotulo: '19'
             retangulo:
               x: 90
               y: 760
               comprimento: 30
               largura: 30
-          - id: '20'
-            label: '20'
+            id: uvPPdL22mgpgqW
+            label: '19'
+          - uid: 6ci1eO8KWTF9A1
+            rotulo: '20'
             retangulo:
               x: 277
               y: 255
               comprimento: 30
               largura: 30
-          - id: 21_topo
-            label: '21'
+            id: 6ci1eO8KWTF9A1
+            label: '20'
+          - uid: LbdDCq0nm0j7zW
+            rotulo: '21'
             retangulo:
               x: 123
               y: 375
               comprimento: 30
               largura: 30
-          - id: 21_base
+            id: LbdDCq0nm0j7zW
             label: '21'
+          - uid: hRxaA3LMJUx5K0
+            rotulo: '21'
             retangulo:
               x: 60
               y: 700
               comprimento: 30
               largura: 30
-          - id: '22'
-            label: '22'
+            id: hRxaA3LMJUx5K0
+            label: '21'
+          - uid: 0QIphhX3ZyQ1nK
+            rotulo: '22'
             retangulo:
               x: 470
               y: 200
               comprimento: 30
               largura: 30
-          - id: '23'
-            label: '23'
+            id: 0QIphhX3ZyQ1nK
+            label: '22'
+          - uid: nqodqjtN6L9AdG
+            rotulo: '23'
             retangulo:
               x: 1019
               y: 379
               comprimento: 30
               largura: 30
-          - id: '24'
-            label: '24'
+            id: nqodqjtN6L9AdG
+            label: '23'
+          - uid: ncCAA4oHVFdxzE
+            rotulo: '24'
             retangulo:
               x: 281
               y: 426
               comprimento: 30
               largura: 30
-          - id: '25'
-            label: '25'
+            id: ncCAA4oHVFdxzE
+            label: '24'
+          - uid: wbXhHndD5HmIHH
+            rotulo: '25'
             retangulo:
               x: 205
               y: 175
               comprimento: 30
               largura: 30
-          - id: '26'
-            label: '26'
+            id: wbXhHndD5HmIHH
+            label: '25'
+          - uid: wOgJol2XFOBbWz
+            rotulo: '26'
             retangulo:
               x: 260
               y: 95
               comprimento: 30
               largura: 30
-          - id: '27'
-            label: '27'
+            id: wOgJol2XFOBbWz
+            label: '26'
+          - uid: hBPLtAm3PUMqyK
+            rotulo: '27'
             retangulo:
               x: 634
               y: 107
               comprimento: 30
               largura: 30
+            id: hBPLtAm3PUMqyK
+            label: '27'
           referencias:
-          - escalada: Fela
+          - alvo_uid: hQvszgqHr1K5BV
+            pontos_uids:
+            - mLsB8nOplCsDRB
+            escalada: Fela
             ids:
-            - 01_base
-          - escalada: Ext. P1 Fela
+            - mLsB8nOplCsDRB
+          - alvo_uid: szO8i00GQKHsUg
+            pontos_uids:
+            - srfMp22KdsZy2Y
+            - srfMp22KdsZy2Y
+            escalada: Ext. P1 Fela
             ids:
-            - '02'
-            - '02'
-          - escalada: Ext. P2 Fela
+            - srfMp22KdsZy2Y
+            - srfMp22KdsZy2Y
+          - alvo_uid: LK9inqXL0hxiG2
+            pontos_uids:
+            - x57PLbZanlUquZ
+            - x57PLbZanlUquZ
+            escalada: Ext. P2 Fela
             ids:
-            - '03'
-            - '03'
-          - escalada: Arco do Triumfo
+            - x57PLbZanlUquZ
+            - x57PLbZanlUquZ
+          - alvo_uid: ThUiNJBV2XFPQh
+            pontos_uids:
+            - l1h4xEXVeDw19F
+            escalada: Arco do Triumfo
             ids:
-            - 04_base
-          - escalada: Remédio Amargo
+            - l1h4xEXVeDw19F
+          - alvo_uid: SRcMbjcB51MloB
+            pontos_uids:
+            - gMv1vxlUyjDOca
+            escalada: Remédio Amargo
             ids:
-            - 05_base
-          - escalada: Shoryuken
+            - gMv1vxlUyjDOca
+          - alvo_uid: sqUozj85wBmTZ5
+            pontos_uids:
+            - gvFvIf07rFLFRc
+            escalada: Shoryuken
             ids:
-            - 06_base
-          - escalada: Jab
+            - gvFvIf07rFLFRc
+          - alvo_uid: nNCDWBQ5GgxCXB
+            pontos_uids:
+            - s9TQxG4mVXOxiw
+            escalada: Jab
             ids:
-            - 07_base
-          - escalada: Soco Inglês
+            - s9TQxG4mVXOxiw
+          - alvo_uid: CYGRwQR9aHOi2r
+            pontos_uids:
+            - 4MFwG2IC6W6u5S
+            escalada: Soco Inglês
             ids:
-            - 08_base
-          - escalada: Ext. Soco Inglês P1
+            - 4MFwG2IC6W6u5S
+          - alvo_uid: 6HM70hyIXaEIXX
+            pontos_uids:
+            - idoSwXlB1fdgZ6
+            - idoSwXlB1fdgZ6
+            escalada: Ext. Soco Inglês P1
             ids:
-            - '09'
-            - '09'
-          - escalada: Ex. Soco Inglês P2 (Projeto)
+            - idoSwXlB1fdgZ6
+            - idoSwXlB1fdgZ6
+          - alvo_uid: Tju0PnjoeNDQQG
+            pontos_uids:
+            - HIAhDuMzm7p8IS
+            - HIAhDuMzm7p8IS
+            escalada: Ex. Soco Inglês P2 (Projeto)
             ids:
-            - '10'
-            - '10'
-          - escalada: Tapa na Cara
+            - HIAhDuMzm7p8IS
+            - HIAhDuMzm7p8IS
+          - alvo_uid: KoPvzt0dzWfSwp
+            pontos_uids:
+            - d9PPQZKgY5VGJN
+            escalada: Tapa na Cara
             ids:
-            - '11'
-          - escalada: Tapa na Sombra
+            - d9PPQZKgY5VGJN
+          - alvo_uid: TZ5FhqCuhVArvp
+            pontos_uids:
+            - 2VjkpkXljcf03n
+            escalada: Tapa na Sombra
             ids:
-            - '12'
-          - escalada: A Outra Face
+            - 2VjkpkXljcf03n
+          - alvo_uid: pc50UrYIbmnAZx
+            pontos_uids:
+            - j6mwcGN4Obj8P6
+            escalada: A Outra Face
             ids:
-            - '14'
-          - escalada: Mary Lou
+            - j6mwcGN4Obj8P6
+          - alvo_uid: T2H4pqeTiZQEsR
+            pontos_uids:
+            - 0FdvAdgahgEwYr
+            escalada: Mary Lou
             ids:
-            - '15'
-          - escalada: Superman
+            - 0FdvAdgahgEwYr
+          - alvo_uid: po2dImRFTB1Neg
+            pontos_uids:
+            - iqBYNgoUndbdKP
+            escalada: Superman
             ids:
-            - '16'
-          - escalada: Oia u Trem
+            - iqBYNgoUndbdKP
+          - alvo_uid: H32hudlcrxmsaj
+            pontos_uids:
+            - Wro8texVPMorxV
+            escalada: Oia u Trem
             ids:
-            - '17'
-          - escalada: Mistério da Meia Noite
+            - Wro8texVPMorxV
+          - alvo_uid: Z0km6Car3rnS03
+            pontos_uids:
+            - TxGQfnfB4BD2qm
+            escalada: Mistério da Meia Noite
             ids:
-            - '18'
-          - escalada: Entre a Sombra e a Escuridão P1
+            - TxGQfnfB4BD2qm
+          - alvo_uid: 0YjkElsgAWWKwj
+            pontos_uids:
+            - uvPPdL22mgpgqW
+            escalada: Entre a Sombra e a Escuridão P1
             ids:
-            - 19_base
-          - escalada: Entre a Sombra e a Escuridão P2
+            - uvPPdL22mgpgqW
+          - alvo_uid: bTKKPsntpuyi1X
+            pontos_uids:
+            - 6ci1eO8KWTF9A1
+            - 6ci1eO8KWTF9A1
+            escalada: Entre a Sombra e a Escuridão P2
             ids:
-            - '20'
-            - '20'
-          - escalada: Calabouço
+            - 6ci1eO8KWTF9A1
+            - 6ci1eO8KWTF9A1
+          - alvo_uid: Pl5NFYLOZypymI
+            pontos_uids:
+            - hRxaA3LMJUx5K0
+            escalada: Calabouço
             ids:
-            - 21_base
-          - escalada: Thanos (Projeto)
+            - hRxaA3LMJUx5K0
+          - alvo_uid: GLFACkrQzZhO0b
+            pontos_uids:
+            - 0QIphhX3ZyQ1nK
+            escalada: Thanos (Projeto)
             ids:
-            - '22'
-          - escalada: Ext. Arco do Triumfo (Projeto)
+            - 0QIphhX3ZyQ1nK
+          - alvo_uid: RAFvEtwCu1u2SU
+            pontos_uids:
+            - nqodqjtN6L9AdG
+            - nqodqjtN6L9AdG
+            escalada: Ext. Arco do Triumfo (Projeto)
             ids:
-            - '23'
-            - '23'
-          - escalada: Sombrinha
+            - nqodqjtN6L9AdG
+            - nqodqjtN6L9AdG
+          - alvo_uid: 5N4flaMu3zlgWG
+            pontos_uids:
+            - ncCAA4oHVFdxzE
+            escalada: Sombrinha
             ids:
-            - '24'
-          - escalada: Projeto
+            - ncCAA4oHVFdxzE
+          - alvo_uid: WZGpJEh21dJJrk
+            pontos_uids:
+            - wbXhHndD5HmIHH
+            escalada: Projeto
             ids:
-            - '25'
-          - escalada: Alcatraz
+            - wbXhHndD5HmIHH
+          - alvo_uid: 7TaXfwxlgQnHFy
+            pontos_uids:
+            - wOgJol2XFOBbWz
+            escalada: Alcatraz
             ids:
-            - '26'
-          - escalada: Face Oculta (Projeto)
+            - wOgJol2XFOBbWz
+          - alvo_uid: z0kG9DMaxzjPZP
+            pontos_uids:
+            - hBPLtAm3PUMqyK
+            escalada: Face Oculta (Projeto)
             ids:
-            - '27'
+            - hBPLtAm3PUMqyK
         escaladas:
-        - via_esportiva:
+        - uid: hQvszgqHr1K5BV
+          via_esportiva:
             nome: Fela
             dificuldade: BR_9A
-        - via_esportiva:
+        - uid: szO8i00GQKHsUg
+          via_esportiva:
             nome: Ext. P1 Fela
             dificuldade: BR_10A
-        - via_esportiva:
+        - uid: LK9inqXL0hxiG2
+          via_esportiva:
             nome: Ext. P2 Fela
             dificuldade: BR_10B_BARRA_10C
-        - via_esportiva:
+        - uid: ThUiNJBV2XFPQh
+          via_esportiva:
             nome: Arco do Triumfo
             dificuldade: BR_9B
-        - via_esportiva:
+        - uid: SRcMbjcB51MloB
+          via_esportiva:
             nome: Remédio Amargo
             dificuldade: BR_8B
-        - via_esportiva:
+        - uid: sqUozj85wBmTZ5
+          via_esportiva:
             nome: Shoryuken
             dificuldade: BR_8C
-        - via_esportiva:
+        - uid: nNCDWBQ5GgxCXB
+          via_esportiva:
             nome: Jab
             dificuldade: BR_8C
-        - via_esportiva:
+        - uid: CYGRwQR9aHOi2r
+          via_esportiva:
             nome: Soco Inglês
             dificuldade: BR_7C
-        - via_esportiva:
+        - uid: 6HM70hyIXaEIXX
+          via_esportiva:
             nome: Ext. Soco Inglês P1
             dificuldade: BR_10B
-        - via_esportiva:
+        - uid: Tju0PnjoeNDQQG
+          via_esportiva:
             nome: Ex. Soco Inglês P2 (Projeto)
             dificuldade: PROJETO
-        - via_esportiva:
+        - uid: KoPvzt0dzWfSwp
+          via_esportiva:
             nome: Tapa na Cara
             dificuldade: BR_8A
-        - via_esportiva:
+        - uid: TZ5FhqCuhVArvp
+          via_esportiva:
             nome: Tapa na Sombra
             dificuldade: BR_9A
-        - via_esportiva:
+        - uid: GsAGFgfsbV0gdq
+          via_esportiva:
             nome: Ext. Tapa na Sombra P2
             dificuldade: BR_10A
-        - via_esportiva:
+        - uid: pc50UrYIbmnAZx
+          via_esportiva:
             nome: A Outra Face
             dificuldade: BR_10A
-        - via_esportiva:
+        - uid: T2H4pqeTiZQEsR
+          via_esportiva:
             nome: Mary Lou
             dificuldade: BR_10A
-        - via_esportiva:
+        - uid: po2dImRFTB1Neg
+          via_esportiva:
             nome: Superman
             dificuldade: BR_8C
-        - via_esportiva:
+        - uid: H32hudlcrxmsaj
+          via_esportiva:
             nome: Oia u Trem
             dificuldade: BR_10A
-        - via_esportiva:
+        - uid: Z0km6Car3rnS03
+          via_esportiva:
             nome: Mistério da Meia Noite
             dificuldade: BR_9A_BARRA_9B
-        - via_esportiva:
+        - uid: 0YjkElsgAWWKwj
+          via_esportiva:
             nome: Entre a Sombra e a Escuridão P1
             dificuldade: BR_9C
-        - via_esportiva:
+        - uid: bTKKPsntpuyi1X
+          via_esportiva:
             nome: Entre a Sombra e a Escuridão P2
             dificuldade: BR_10A
-        - via_esportiva:
+        - uid: Pl5NFYLOZypymI
+          via_esportiva:
             nome: Calabouço
             dificuldade: BR_9B
-        - via_esportiva:
+        - uid: GLFACkrQzZhO0b
+          via_esportiva:
             nome: Thanos (Projeto)
             dificuldade: PROJETO
-        - via_esportiva:
+        - uid: RAFvEtwCu1u2SU
+          via_esportiva:
             nome: Ext. Arco do Triumfo (Projeto)
             dificuldade: PROJETO
-        - via_esportiva:
+        - uid: 5N4flaMu3zlgWG
+          via_esportiva:
             nome: Sombrinha
             dificuldade: BR_8A
-        - via_esportiva:
+        - uid: WZGpJEh21dJJrk
+          via_esportiva:
             nome: Projeto
             dificuldade: PROJETO
-        - via_esportiva:
+        - uid: 7TaXfwxlgQnHFy
+          via_esportiva:
             nome: Alcatraz
             dificuldade: BR_10A
-        - via_esportiva:
+        - uid: z0kG9DMaxzjPZP
+          via_esportiva:
             nome: Face Oculta (Projeto)
             dificuldade: PROJETO
         descricao: ''
@@ -1771,345 +2531,498 @@ picos:
           total_esportivas: 27
   - setor:
       conteudo:
+        uid: q9AKDKOS430ey8
         nome: Gênesis
         mapas:
         - caminho_imagem_mapa: imagens/setor_genesis_p0.webp
           largura_mapa: 1727
           altura_mapa: 876
           pontos_de_interesse:
-          - id: '01'
-            label: '1'
+          - uid: abD69ST45Onc4b
+            rotulo: '1'
             retangulo:
               x: 135
               y: 695
               comprimento: 30
               largura: 30
-          - id: '02'
-            label: '2'
+            id: abD69ST45Onc4b
+            label: '1'
+          - uid: S85ixaWgWBYbh7
+            rotulo: '2'
             retangulo:
               x: 225
               y: 695
               comprimento: 30
               largura: 30
-          - id: '03'
-            label: '3'
+            id: S85ixaWgWBYbh7
+            label: '2'
+          - uid: WeNDq0tCjtungN
+            rotulo: '3'
             retangulo:
               x: 285
               y: 695
               comprimento: 30
               largura: 30
-          - id: 04_topo
-            label: '4'
+            id: WeNDq0tCjtungN
+            label: '3'
+          - uid: NRcwyR85Rm7ww5
+            rotulo: '4'
             retangulo:
               x: 300
               y: 355
               comprimento: 30
               largura: 30
-          - id: '05'
-            label: '5'
+            id: NRcwyR85Rm7ww5
+            label: '4'
+          - uid: IHhKeW64AbOYJq
+            rotulo: '5'
             retangulo:
               x: 365
               y: 695
               comprimento: 30
               largura: 30
-          - id: '06'
-            label: '6'
+            id: IHhKeW64AbOYJq
+            label: '5'
+          - uid: Y3e0ZVWfBCbY8S
+            rotulo: '6'
             retangulo:
               x: 375
               y: 270
               comprimento: 30
               largura: 30
-          - id: '07'
-            label: '7'
+            id: Y3e0ZVWfBCbY8S
+            label: '6'
+          - uid: sgf9JZtZ7RvDyq
+            rotulo: '7'
             retangulo:
               x: 430
               y: 695
               comprimento: 30
               largura: 30
-          - id: 08_topo
-            label: '8'
+            id: sgf9JZtZ7RvDyq
+            label: '7'
+          - uid: FZbKOq11mX5UuY
+            rotulo: '8'
             retangulo:
               x: 625
               y: 295
               comprimento: 30
               largura: 30
-          - id: 08_base
+            id: FZbKOq11mX5UuY
             label: '8'
+          - uid: xP2YPo3HyE7RgI
+            rotulo: '8'
             retangulo:
               x: 530
               y: 695
               comprimento: 30
               largura: 30
-          - id: '09'
-            label: '9'
+            id: xP2YPo3HyE7RgI
+            label: '8'
+          - uid: cPrLfnE2xqDCzL
+            rotulo: '9'
             retangulo:
               x: 810
               y: 355
               comprimento: 30
               largura: 30
-          - id: 10_topo
-            label: '10'
+            id: cPrLfnE2xqDCzL
+            label: '9'
+          - uid: rkGNXCm20aXZXX
+            rotulo: '10'
             retangulo:
               x: 945
               y: 465
               comprimento: 30
               largura: 30
-          - id: 10_base
+            id: rkGNXCm20aXZXX
             label: '10'
+          - uid: xwqQWadIyKSCLW
+            rotulo: '10'
             retangulo:
               x: 570
               y: 620
               comprimento: 30
               largura: 30
-          - id: 10_extra
+            id: xwqQWadIyKSCLW
             label: '10'
+          - uid: rmi0phxTGk7eoh
+            rotulo: '10'
             retangulo:
               x: 1145
               y: 455
               comprimento: 30
               largura: 30
-          - id: '11'
-            label: '11'
+            id: rmi0phxTGk7eoh
+            label: '10'
+          - uid: cZ8fLDJx8QN3iK
+            rotulo: '11'
             retangulo:
               x: 835
               y: 610
               comprimento: 30
               largura: 30
-          - id: '12'
-            label: '12'
+            id: cZ8fLDJx8QN3iK
+            label: '11'
+          - uid: zy0vMHNNMjrEh7
+            rotulo: '12'
             retangulo:
               x: 955
               y: 555
               comprimento: 30
               largura: 30
-          - id: '13'
-            label: '13'
+            id: zy0vMHNNMjrEh7
+            label: '12'
+          - uid: 3MDo2Vv9wwJ4dt
+            rotulo: '13'
             retangulo:
               x: 1000
               y: 615
               comprimento: 30
               largura: 30
-          - id: '14'
-            label: '14'
+            id: 3MDo2Vv9wwJ4dt
+            label: '13'
+          - uid: dfR2PZgHdClS9G
+            rotulo: '14'
             retangulo:
               x: 1040
               y: 175
               comprimento: 30
               largura: 30
-          - id: '15'
-            label: '15'
+            id: dfR2PZgHdClS9G
+            label: '14'
+          - uid: Jqcg5Gra2ViLVW
+            rotulo: '15'
             retangulo:
               x: 1315
               y: 335
               comprimento: 30
               largura: 30
-          - id: '16'
-            label: '16'
+            id: Jqcg5Gra2ViLVW
+            label: '15'
+          - uid: f4ArbT8Qt1vsLp
+            rotulo: '16'
             retangulo:
               x: 1240
               y: 505
               comprimento: 30
               largura: 30
-          - id: '17'
-            label: '17'
+            id: f4ArbT8Qt1vsLp
+            label: '16'
+          - uid: Z2UqScP5v7YPiz
+            rotulo: '17'
             retangulo:
               x: 1085
               y: 490
               comprimento: 30
               largura: 30
-          - id: '18'
-            label: '18'
+            id: Z2UqScP5v7YPiz
+            label: '17'
+          - uid: CBjdLQGzvXBcah
+            rotulo: '18'
             retangulo:
               x: 1120
               y: 345
               comprimento: 30
               largura: 30
-          - id: '19'
-            label: '19'
+            id: CBjdLQGzvXBcah
+            label: '18'
+          - uid: AsprhWkvA9UMHG
+            rotulo: '19'
             retangulo:
               x: 1405
               y: 435
               comprimento: 30
               largura: 30
-          - id: '20'
-            label: '20'
+            id: AsprhWkvA9UMHG
+            label: '19'
+          - uid: ARFNbhkgMOOWTY
+            rotulo: '20'
             retangulo:
               x: 1385
               y: 650
               comprimento: 30
               largura: 30
-          - id: '21'
-            label: '21'
+            id: ARFNbhkgMOOWTY
+            label: '20'
+          - uid: P7lNVTQ25m7HFu
+            rotulo: '21'
             retangulo:
               x: 1475
               y: 495
               comprimento: 30
               largura: 30
-          - id: '22'
-            label: '22'
+            id: P7lNVTQ25m7HFu
+            label: '21'
+          - uid: kiwXIzHnIRd1XW
+            rotulo: '22'
             retangulo:
               x: 1405
               y: 285
               comprimento: 30
               largura: 30
-          - id: '23'
-            label: '23'
+            id: kiwXIzHnIRd1XW
+            label: '22'
+          - uid: pIO9bHRDT0YkPU
+            rotulo: '23'
             retangulo:
               x: 1210
               y: 75
               comprimento: 30
               largura: 30
-          - id: Setores_Vizinhos
-            label: Setores Arquibancada e Acampamento
+            id: pIO9bHRDT0YkPU
+            label: '23'
+          - uid: b1klHtbxBEX3qP
+            rotulo: Setores Arquibancada e Acampamento
             retangulo:
               x: 1400
               y: 787
               comprimento: 500
               largura: 30
+            id: b1klHtbxBEX3qP
+            label: Setores Arquibancada e Acampamento
           referencias:
-          - escalada: Tow Plac Two Plow
+          - alvo_uid: U2RgFzLpkjsj6d
+            pontos_uids:
+            - abD69ST45Onc4b
+            escalada: Tow Plac Two Plow
             ids:
-            - '01'
-          - escalada: Periguete
+            - abD69ST45Onc4b
+          - alvo_uid: JbDORv0exPis89
+            pontos_uids:
+            - S85ixaWgWBYbh7
+            escalada: Periguete
             ids:
-            - '02'
-          - escalada: The Glands
+            - S85ixaWgWBYbh7
+          - alvo_uid: Ih24h0HxGJscUD
+            pontos_uids:
+            - WeNDq0tCjtungN
+            escalada: The Glands
             ids:
-            - '03'
-          - escalada: Ext. The Glands
+            - WeNDq0tCjtungN
+          - alvo_uid: EtM7k8d5FJpcg9
+            pontos_uids:
+            - NRcwyR85Rm7ww5
+            - NRcwyR85Rm7ww5
+            escalada: Ext. The Glands
             ids:
-            - 04_topo
-            - 04_topo
-          - escalada: Quartzolit
+            - NRcwyR85Rm7ww5
+            - NRcwyR85Rm7ww5
+          - alvo_uid: 9DeD8fWMZrokes
+            pontos_uids:
+            - IHhKeW64AbOYJq
+            escalada: Quartzolit
             ids:
-            - '05'
-          - escalada: Ext. Quartzolit (Projeto)
+            - IHhKeW64AbOYJq
+          - alvo_uid: 9EXk83LoPKleSE
+            pontos_uids:
+            - Y3e0ZVWfBCbY8S
+            - Y3e0ZVWfBCbY8S
+            escalada: Ext. Quartzolit (Projeto)
             ids:
-            - '06'
-            - '06'
-          - escalada: Jorginho
+            - Y3e0ZVWfBCbY8S
+            - Y3e0ZVWfBCbY8S
+          - alvo_uid: IMbf288YNXO8pz
+            pontos_uids:
+            - sgf9JZtZ7RvDyq
+            escalada: Jorginho
             ids:
-            - '07'
-          - escalada: Toca do Sadu
+            - sgf9JZtZ7RvDyq
+          - alvo_uid: aOs5j5OnfoB5P0
+            pontos_uids:
+            - xP2YPo3HyE7RgI
+            escalada: Toca do Sadu
             ids:
-            - 08_base
-          - escalada: Triplo X
+            - xP2YPo3HyE7RgI
+          - alvo_uid: jUshQrfq36QhkG
+            pontos_uids:
+            - cPrLfnE2xqDCzL
+            escalada: Triplo X
             ids:
-            - '09'
-          - escalada: Além do Horizonte
+            - cPrLfnE2xqDCzL
+          - alvo_uid: 0kBLXM7iOsDOow
+            pontos_uids:
+            - xwqQWadIyKSCLW
+            escalada: Além do Horizonte
             ids:
-            - 10_base
-          - escalada: Salto para Infinito
+            - xwqQWadIyKSCLW
+          - alvo_uid: oY7wO3AIfUnLRZ
+            pontos_uids:
+            - cZ8fLDJx8QN3iK
+            escalada: Salto para Infinito
             ids:
-            - '11'
-          - escalada: Êxodo
+            - cZ8fLDJx8QN3iK
+          - alvo_uid: XHEsx8icNsy6HX
+            pontos_uids:
+            - zy0vMHNNMjrEh7
+            escalada: Êxodo
             ids:
-            - '12'
-          - escalada: Gênesis
+            - zy0vMHNNMjrEh7
+          - alvo_uid: RyK3GN79xW609H
+            pontos_uids:
+            - 3MDo2Vv9wwJ4dt
+            escalada: Gênesis
             ids:
-            - '13'
-          - escalada: Ext. Gênesis
+            - 3MDo2Vv9wwJ4dt
+          - alvo_uid: CL0tHS0fhrYw39
+            pontos_uids:
+            - dfR2PZgHdClS9G
+            - dfR2PZgHdClS9G
+            escalada: Ext. Gênesis
             ids:
-            - '14'
-            - '14'
-          - escalada: Cronos
+            - dfR2PZgHdClS9G
+            - dfR2PZgHdClS9G
+          - alvo_uid: P3lsa4hvXLv6Sw
+            pontos_uids:
+            - Jqcg5Gra2ViLVW
+            escalada: Cronos
             ids:
-            - '15'
-          - escalada: Goela Seca
+            - Jqcg5Gra2ViLVW
+          - alvo_uid: ju3TutR9YALkry
+            pontos_uids:
+            - f4ArbT8Qt1vsLp
+            escalada: Goela Seca
             ids:
-            - '16'
-          - escalada: Gogó
+            - f4ArbT8Qt1vsLp
+          - alvo_uid: ojyhY9tsubkxPw
+            pontos_uids:
+            - Z2UqScP5v7YPiz
+            escalada: Gogó
             ids:
-            - '17'
-          - escalada: Ext. Gogó
+            - Z2UqScP5v7YPiz
+          - alvo_uid: 2Gf2EmA9JYiZAS
+            pontos_uids:
+            - CBjdLQGzvXBcah
+            - CBjdLQGzvXBcah
+            escalada: Ext. Gogó
             ids:
-            - '18'
-            - '18'
-          - escalada: 3.6 Turbo
+            - CBjdLQGzvXBcah
+            - CBjdLQGzvXBcah
+          - alvo_uid: 7piC42F0A4hHi4
+            pontos_uids:
+            - AsprhWkvA9UMHG
+            escalada: 3.6 Turbo
             ids:
-            - '19'
-          - escalada: Brown & Brow
+            - AsprhWkvA9UMHG
+          - alvo_uid: kLM58Hn6C4F23i
+            pontos_uids:
+            - ARFNbhkgMOOWTY
+            escalada: Brown & Brow
             ids:
-            - '20'
-          - escalada: Sinairo P1
+            - ARFNbhkgMOOWTY
+          - alvo_uid: TT3mEkvKvf6zDf
+            pontos_uids:
+            - P7lNVTQ25m7HFu
+            escalada: Sinairo P1
             ids:
-            - '21'
-          - escalada: Sinario P2
+            - P7lNVTQ25m7HFu
+          - alvo_uid: 002yNZxgpIrqot
+            pontos_uids:
+            - kiwXIzHnIRd1XW
+            - kiwXIzHnIRd1XW
+            escalada: Sinario P2
             ids:
-            - '22'
-            - '22'
-          - escalada: Sinairo P3
+            - kiwXIzHnIRd1XW
+            - kiwXIzHnIRd1XW
+          - alvo_uid: aLEde7q0gpybmY
+            pontos_uids:
+            - pIO9bHRDT0YkPU
+            - pIO9bHRDT0YkPU
+            escalada: Sinairo P3
             ids:
-            - '23'
-            - '23'
+            - pIO9bHRDT0YkPU
+            - pIO9bHRDT0YkPU
         escaladas:
-        - via_esportiva:
+        - uid: U2RgFzLpkjsj6d
+          via_esportiva:
             nome: Tow Plac Two Plow
             dificuldade: BR_9C
-        - via_esportiva:
+        - uid: JbDORv0exPis89
+          via_esportiva:
             nome: Periguete
             dificuldade: BR_9C
-        - via_esportiva:
+        - uid: Ih24h0HxGJscUD
+          via_esportiva:
             nome: The Glands
             dificuldade: BR_9A
-        - via_esportiva:
+        - uid: EtM7k8d5FJpcg9
+          via_esportiva:
             nome: Ext. The Glands
             dificuldade: BR_9C
-        - via_esportiva:
+        - uid: 9DeD8fWMZrokes
+          via_esportiva:
             nome: Quartzolit
             dificuldade: BR_10A
-        - via_esportiva:
+        - uid: 9EXk83LoPKleSE
+          via_esportiva:
             nome: Ext. Quartzolit (Projeto)
             dificuldade: PROJETO
-        - via_esportiva:
+        - uid: IMbf288YNXO8pz
+          via_esportiva:
             nome: Jorginho
             dificuldade: BR_8B
-        - via_esportiva:
+        - uid: aOs5j5OnfoB5P0
+          via_esportiva:
             nome: Toca do Sadu
             dificuldade: BR_11A
-        - via_esportiva:
+        - uid: jUshQrfq36QhkG
+          via_esportiva:
             nome: Triplo X
             dificuldade: BR_9C
-        - via_esportiva:
+        - uid: 0kBLXM7iOsDOow
+          via_esportiva:
             nome: Além do Horizonte
             dificuldade: BR_8B
-        - via_esportiva:
+        - uid: oY7wO3AIfUnLRZ
+          via_esportiva:
             nome: Salto para Infinito
             dificuldade: BR_10B
-        - via_esportiva:
+        - uid: XHEsx8icNsy6HX
+          via_esportiva:
             nome: Êxodo
             dificuldade: BR_8B
-        - via_esportiva:
+        - uid: RyK3GN79xW609H
+          via_esportiva:
             nome: Gênesis
             dificuldade: BR_8C
-        - via_esportiva:
+        - uid: CL0tHS0fhrYw39
+          via_esportiva:
             nome: Ext. Gênesis
             dificuldade: BR_10C
-        - via_esportiva:
+        - uid: P3lsa4hvXLv6Sw
+          via_esportiva:
             nome: Cronos
             dificuldade: BR_9C
-        - via_esportiva:
+        - uid: ju3TutR9YALkry
+          via_esportiva:
             nome: Goela Seca
             dificuldade: BR_8C
-        - via_esportiva:
+        - uid: ojyhY9tsubkxPw
+          via_esportiva:
             nome: Gogó
             dificuldade: BR_9A
-        - via_esportiva:
+        - uid: 2Gf2EmA9JYiZAS
+          via_esportiva:
             nome: Ext. Gogó
             dificuldade: BR_10C
-        - via_esportiva:
+        - uid: 7piC42F0A4hHi4
+          via_esportiva:
             nome: 3.6 Turbo
             dificuldade: BR_9C
-        - via_esportiva:
+        - uid: kLM58Hn6C4F23i
+          via_esportiva:
             nome: Brown & Brow
             dificuldade: BR_10B
-        - via_esportiva:
+        - uid: TT3mEkvKvf6zDf
+          via_esportiva:
             nome: Sinairo P1
             dificuldade: BR_10C
-        - via_esportiva:
+        - uid: 002yNZxgpIrqot
+          via_esportiva:
             nome: Sinario P2
             dificuldade: BR_11B
-        - via_esportiva:
+        - uid: aLEde7q0gpybmY
+          via_esportiva:
             nome: Sinairo P3
             dificuldade: PROJETO
         descricao: ''
@@ -2118,270 +3031,379 @@ picos:
           total_esportivas: 23
   - setor:
       conteudo:
+        uid: o45FjTNWXmwkwp
         nome: Acampamento
         mapas:
         - caminho_imagem_mapa: imagens/setor_acampamento_p0.webp
           largura_mapa: 1458
           altura_mapa: 892
           pontos_de_interesse:
-          - id: 01_topo
-            label: '1'
+          - uid: HzhYKwBfzJ0rcq
+            rotulo: '1'
             retangulo:
               x: 1178
               y: 195
               comprimento: 30
               largura: 30
-          - id: 01_meio
+            id: HzhYKwBfzJ0rcq
             label: '1'
+          - uid: JiYA5a0aW0x1nG
+            rotulo: '1'
             retangulo:
               x: 1160
               y: 360
               comprimento: 30
               largura: 30
-          - id: 01_base
+            id: JiYA5a0aW0x1nG
             label: '1'
+          - uid: bxFcJSWZIMJeVy
+            rotulo: '1'
             retangulo:
               x: 1215
               y: 625
               comprimento: 30
               largura: 30
-          - id: 02_topo
-            label: '2'
+            id: bxFcJSWZIMJeVy
+            label: '1'
+          - uid: gO33ESOpAScROz
+            rotulo: '2'
             retangulo:
               x: 1085
               y: 210
               comprimento: 30
               largura: 30
-          - id: 02_base
+            id: gO33ESOpAScROz
             label: '2'
+          - uid: j1VTVPq7ngV1p1
+            rotulo: '2'
             retangulo:
               x: 1145
               y: 590
               comprimento: 30
               largura: 30
-          - id: 03_topo
-            label: '3'
+            id: j1VTVPq7ngV1p1
+            label: '2'
+          - uid: croc8wGJFZdEOr
+            rotulo: '3'
             retangulo:
               x: 1000
               y: 245
               comprimento: 30
               largura: 30
-          - id: 03_base
+            id: croc8wGJFZdEOr
             label: '3'
+          - uid: Tog39o7HPbhR7i
+            rotulo: '3'
             retangulo:
               x: 990
               y: 655
               comprimento: 30
               largura: 30
-          - id: 04_topo
-            label: '4'
+            id: Tog39o7HPbhR7i
+            label: '3'
+          - uid: lLmJOyMDMT2iZx
+            rotulo: '4'
             retangulo:
               x: 910
               y: 255
               comprimento: 30
               largura: 30
-          - id: 04_base
+            id: lLmJOyMDMT2iZx
             label: '4'
+          - uid: M6WaRcoPoL8VQ0
+            rotulo: '4'
             retangulo:
               x: 855
               y: 645
               comprimento: 30
               largura: 30
-          - id: 05_topo
-            label: '5'
+            id: M6WaRcoPoL8VQ0
+            label: '4'
+          - uid: F4b4J95eMgeaCx
+            rotulo: '5'
             retangulo:
               x: 825
               y: 245
               comprimento: 30
               largura: 30
-          - id: 05_base
+            id: F4b4J95eMgeaCx
             label: '5'
+          - uid: PIPUMkdo2H6xm5
+            rotulo: '5'
             retangulo:
               x: 770
               y: 635
               comprimento: 30
               largura: 30
-          - id: 06_topo
-            label: '6'
+            id: PIPUMkdo2H6xm5
+            label: '5'
+          - uid: nf252a8MsrYkE0
+            rotulo: '6'
             retangulo:
               x: 740
               y: 240
               comprimento: 30
               largura: 30
-          - id: 06_base
+            id: nf252a8MsrYkE0
             label: '6'
+          - uid: tn7IUT8fwe3jd4
+            rotulo: '6'
             retangulo:
               x: 665
               y: 610
               comprimento: 30
               largura: 30
-          - id: 07_topo
-            label: '7'
+            id: tn7IUT8fwe3jd4
+            label: '6'
+          - uid: 2s2Sq3t07lPmnp
+            rotulo: '7'
             retangulo:
               x: 690
               y: 235
               comprimento: 30
               largura: 30
-          - id: 07_base
+            id: 2s2Sq3t07lPmnp
             label: '7'
+          - uid: HzqOAFnhEaH6QU
+            rotulo: '7'
             retangulo:
               x: 515
               y: 550
               comprimento: 30
               largura: 30
-          - id: '08'
-            label: '8'
+            id: HzqOAFnhEaH6QU
+            label: '7'
+          - uid: ZbVTusLCZA9Vsq
+            rotulo: '8'
             retangulo:
               x: 405
               y: 395
               comprimento: 30
               largura: 30
-          - id: '09'
-            label: '9'
+            id: ZbVTusLCZA9Vsq
+            label: '8'
+          - uid: pfcVQJlZCxppxf
+            rotulo: '9'
             retangulo:
               x: 255
               y: 380
               comprimento: 30
               largura: 30
-          - id: '10'
-            label: '10'
+            id: pfcVQJlZCxppxf
+            label: '9'
+          - uid: Fuu06QR9jjaAFV
+            rotulo: '10'
             retangulo:
               x: 190
               y: 380
               comprimento: 30
               largura: 30
-          - id: '11'
-            label: '11'
+            id: Fuu06QR9jjaAFV
+            label: '10'
+          - uid: HE1fauI2YWsmu2
+            rotulo: '11'
             retangulo:
               x: 125
               y: 375
               comprimento: 30
               largura: 30
-          - id: '12'
-            label: '12'
+            id: HE1fauI2YWsmu2
+            label: '11'
+          - uid: 3Ny9dDH6fVre2s
+            rotulo: '12'
             retangulo:
               x: 65
               y: 370
               comprimento: 30
               largura: 30
-          - id: '13'
-            label: '13'
+            id: 3Ny9dDH6fVre2s
+            label: '12'
+          - uid: u1u2q3hHaKx2OZ
+            rotulo: '13'
             retangulo:
               x: 935
               y: 650
               comprimento: 30
               largura: 30
-          - id: '14'
-            label: '14'
+            id: u1u2q3hHaKx2OZ
+            label: '13'
+          - uid: 6fjkUqGhm2pEPT
+            rotulo: '14'
             retangulo:
               x: 945
               y: 340
               comprimento: 30
               largura: 30
-          - id: '15'
-            label: '15'
+            id: 6fjkUqGhm2pEPT
+            label: '14'
+          - uid: TiXrwHbTAIg6Ey
+            rotulo: '15'
             retangulo:
               x: 305
               y: 385
               comprimento: 30
               largura: 30
-          - id: Acampamento
-            label: Acampamento
+            id: TiXrwHbTAIg6Ey
+            label: '15'
+          - uid: JIeSVlNXb5dZaB
+            rotulo: Acampamento
             retangulo:
               x: 702
               y: 795
               comprimento: 250
               largura: 40
+            id: JIeSVlNXb5dZaB
+            label: Acampamento
           referencias:
-          - escalada: Faraó
+          - alvo_uid: SHHifSZ5NIEA4X
+            pontos_uids:
+            - bxFcJSWZIMJeVy
+            escalada: Faraó
             ids:
-            - 01_base
-          - escalada: Esfinge
+            - bxFcJSWZIMJeVy
+          - alvo_uid: 0A1yQsimyMtjFp
+            pontos_uids:
+            - j1VTVPq7ngV1p1
+            escalada: Esfinge
             ids:
-            - 02_base
-          - escalada: Camel
+            - j1VTVPq7ngV1p1
+          - alvo_uid: fagJSAw7O4pa9b
+            pontos_uids:
+            - Tog39o7HPbhR7i
+            escalada: Camel
             ids:
-            - 03_base
-          - escalada: Bulimia
+            - Tog39o7HPbhR7i
+          - alvo_uid: qSpKGogkg3CQ1b
+            pontos_uids:
+            - M6WaRcoPoL8VQ0
+            escalada: Bulimia
             ids:
-            - 04_base
-          - escalada: Venetica
+            - M6WaRcoPoL8VQ0
+          - alvo_uid: MlV6bL66vEhmtF
+            pontos_uids:
+            - PIPUMkdo2H6xm5
+            escalada: Venetica
             ids:
-            - 05_base
-          - escalada: Resigente
+            - PIPUMkdo2H6xm5
+          - alvo_uid: rnX6PoXbvNbzF8
+            pontos_uids:
+            - tn7IUT8fwe3jd4
+            escalada: Resigente
             ids:
-            - 06_base
-          - escalada: Bammalves
+            - tn7IUT8fwe3jd4
+          - alvo_uid: w7BcvT9HFkaQsA
+            pontos_uids:
+            - HzqOAFnhEaH6QU
+            escalada: Bammalves
             ids:
-            - 07_base
-          - escalada: Tomahawk
+            - HzqOAFnhEaH6QU
+          - alvo_uid: S31QbLSrbTP2yq
+            pontos_uids:
+            - ZbVTusLCZA9Vsq
+            escalada: Tomahawk
             ids:
-            - '08'
-          - escalada: Souza Paiol
+            - ZbVTusLCZA9Vsq
+          - alvo_uid: wqT3CmglXFPuHD
+            pontos_uids:
+            - pfcVQJlZCxppxf
+            escalada: Souza Paiol
             ids:
-            - '09'
-          - escalada: Marlboro
+            - pfcVQJlZCxppxf
+          - alvo_uid: F0rMpV7KZ4TAJ6
+            pontos_uids:
+            - Fuu06QR9jjaAFV
+            escalada: Marlboro
             ids:
-            - '10'
-          - escalada: Hollywood
+            - Fuu06QR9jjaAFV
+          - alvo_uid: qZHGeQ8a33ls26
+            pontos_uids:
+            - HE1fauI2YWsmu2
+            escalada: Hollywood
             ids:
-            - '11'
-          - escalada: Derby Azul
+            - HE1fauI2YWsmu2
+          - alvo_uid: VDnU8QQ8ZkqLiZ
+            pontos_uids:
+            - 3Ny9dDH6fVre2s
+            escalada: Derby Azul
             ids:
-            - '12'
-          - escalada: Adelaide
+            - 3Ny9dDH6fVre2s
+          - alvo_uid: dFC4Rs75ZMf7kY
+            pontos_uids:
+            - u1u2q3hHaKx2OZ
+            escalada: Adelaide
             ids:
-            - '13'
-          - escalada: Bulica
+            - u1u2q3hHaKx2OZ
+          - alvo_uid: UgMFUy9M4gC3uQ
+            pontos_uids:
+            - 6fjkUqGhm2pEPT
+            escalada: Bulica
             ids:
-            - '14'
-          - escalada: Stinger
+            - 6fjkUqGhm2pEPT
+          - alvo_uid: F9y4DWJ7C06cLC
+            pontos_uids:
+            - TiXrwHbTAIg6Ey
+            escalada: Stinger
             ids:
-            - '15'
+            - TiXrwHbTAIg6Ey
         escaladas:
-        - via_esportiva:
+        - uid: SHHifSZ5NIEA4X
+          via_esportiva:
             nome: Faraó
             dificuldade: BR_6
-        - via_esportiva:
+        - uid: 0A1yQsimyMtjFp
+          via_esportiva:
             nome: Esfinge
             dificuldade: BR_7A
-        - via_esportiva:
+        - uid: fagJSAw7O4pa9b
+          via_esportiva:
             nome: Camel
             dificuldade: BR_7C
-        - via_esportiva:
+        - uid: qSpKGogkg3CQ1b
+          via_esportiva:
             nome: Bulimia
             dificuldade: BR_6SUP
-        - via_esportiva:
+        - uid: MlV6bL66vEhmtF
+          via_esportiva:
             nome: Venetica
             dificuldade: BR_7A
-        - via_esportiva:
+        - uid: rnX6PoXbvNbzF8
+          via_esportiva:
             nome: Resigente
             dificuldade: BR_8A
-        - via_esportiva:
+        - uid: w7BcvT9HFkaQsA
+          via_esportiva:
             nome: Bammalves
             dificuldade: BR_8A
-        - via_esportiva:
+        - uid: S31QbLSrbTP2yq
+          via_esportiva:
             nome: Tomahawk
             dificuldade: BR_6SUP
-        - via_esportiva:
+        - uid: wqT3CmglXFPuHD
+          via_esportiva:
             nome: Souza Paiol
             dificuldade: BR_7B
-        - via_esportiva:
+        - uid: F0rMpV7KZ4TAJ6
+          via_esportiva:
             nome: Marlboro
             dificuldade: BR_7A
-        - via_esportiva:
+        - uid: qZHGeQ8a33ls26
+          via_esportiva:
             nome: Hollywood
             dificuldade: BR_7B
-        - via_esportiva:
+        - uid: VDnU8QQ8ZkqLiZ
+          via_esportiva:
             nome: Derby Azul
             dificuldade: BR_5
-        - via_esportiva:
+        - uid: dFC4Rs75ZMf7kY
+          via_esportiva:
             nome: Adelaide
             dificuldade: BR_8C
-        - via_esportiva:
+        - uid: UgMFUy9M4gC3uQ
+          via_esportiva:
             nome: Bulica
             dificuldade: BR_7B_BARRA_7C
-        - via_esportiva:
+        - uid: F9y4DWJ7C06cLC
+          via_esportiva:
             nome: Stinger
             dificuldade: BR_6SUP
         descricao: ''
@@ -2395,161 +3417,209 @@ picos:
         largura_mapa: 1194
         altura_mapa: 958
         pontos_de_interesse:
-        - id: Camping_do_Angeus
-          label: Camping do Angeus
+        - uid: jqNfKsf8AoNrU5
+          rotulo: Camping do Angeus
           retangulo:
             x: 155
             y: 80
             comprimento: 280
             largura: 30
-        - id: C
-          label: C
+          id: jqNfKsf8AoNrU5
+          label: Camping do Angeus
+        - uid: 8Z578m02BfOwvE
+          rotulo: C
           retangulo:
             x: 345
             y: 130
             comprimento: 24
             largura: 24
-        - id: B
-          label: B
+          id: 8Z578m02BfOwvE
+          label: C
+        - uid: vVkE6AHhVAoXSx
+          rotulo: B
           retangulo:
             x: 462
             y: 155
             comprimento: 24
             largura: 24
-        - id: A
-          label: A
+          id: vVkE6AHhVAoXSx
+          label: B
+        - uid: uwTUkt3iXoSuBK
+          rotulo: A
           retangulo:
             x: 600
             y: 185
             comprimento: 24
             largura: 24
-        - id: '1'
-          label: '1'
+          id: uwTUkt3iXoSuBK
+          label: A
+        - uid: hc0OATeBppIgLO
+          rotulo: '1'
           retangulo:
             x: 410
             y: 255
             comprimento: 24
             largura: 24
-        - id: '2'
-          label: '2'
+          id: hc0OATeBppIgLO
+          label: '1'
+        - uid: m8s2rQwuSXonMj
+          rotulo: '2'
           retangulo:
             x: 475
             y: 500
             comprimento: 24
             largura: 24
-        - id: '3'
-          label: '3'
+          id: m8s2rQwuSXonMj
+          label: '2'
+        - uid: PP87iLmMEwhILM
+          rotulo: '3'
           retangulo:
             x: 490
             y: 515
             comprimento: 24
             largura: 24
-        - id: '5'
-          label: '5'
+          id: PP87iLmMEwhILM
+          label: '3'
+        - uid: iPWZty4ZHodrEI
+          rotulo: '5'
           retangulo:
             x: 545
             y: 605
             comprimento: 24
             largura: 24
-        - id: '7'
-          label: '7'
+          id: iPWZty4ZHodrEI
+          label: '5'
+        - uid: aCotQ6y3bXTVGp
+          rotulo: '7'
           retangulo:
             x: 580
             y: 660
             comprimento: 24
             largura: 24
-        - id: '8'
-          label: '8'
+          id: aCotQ6y3bXTVGp
+          label: '7'
+        - uid: X8vOYx0bkcuhOy
+          rotulo: '8'
           retangulo:
             x: 570
             y: 700
             comprimento: 24
             largura: 24
-        - id: Seta_BR_267
-          label: Seta
+          id: X8vOYx0bkcuhOy
+          label: '8'
+        - uid: h3hdkUbSCJe3Ch
+          rotulo: Seta
           retangulo:
             x: 1010
             y: 220
             comprimento: 30
             largura: 120
             angulo_graus_x100: -2500
-        - id: BR-267
-          label: BR-267
+          id: h3hdkUbSCJe3Ch
+          label: Seta
+        - uid: vqrGTUZurZaFie
+          rotulo: BR-267
           retangulo:
             x: 1045
             y: 175
             comprimento: 60
             largura: 20
-        - id: Juiz_de_Fora
-          label: Juiz de Fora
+          id: vqrGTUZurZaFie
+          label: BR-267
+        - uid: rOY2d7tSUrS6Fd
+          rotulo: Juiz de Fora
           retangulo:
             x: 1055
             y: 195
             comprimento: 90
             largura: 20
-        - id: Circulo_Acesso
-          label: Acesso
+          id: rOY2d7tSUrS6Fd
+          label: Juiz de Fora
+        - uid: P7hEy8TTuQz0RB
+          rotulo: Acesso
           circulo:
             x: 1140
             y: 320
             raio: 25
-        - id: Acesso
+          id: P7hEy8TTuQz0RB
           label: Acesso
+        - uid: bT2dJFXnx19oym
+          rotulo: Acesso
           retangulo:
             x: 1075
             y: 360
             comprimento: 50
             largura: 20
-        - id: Estrada_para_Gruta
-          label: Estrada para Gruta
+          id: bT2dJFXnx19oym
+          label: Acesso
+        - uid: ItD9QSeN8HyRZz
+          rotulo: Estrada para Gruta
           retangulo:
             x: 1055
             y: 380
             comprimento: 130
             largura: 20
-        - id: Seta_Via_Dutra
-          label: Seta
+          id: ItD9QSeN8HyRZz
+          label: Estrada para Gruta
+        - uid: UuWENw4BDnVHuj
+          rotulo: Seta
           retangulo:
             x: 1115
             y: 860
             comprimento: 40
             largura: 120
             angulo_graus_x100: 6000
-        - id: Passa_Vinte
-          label: Passa Vinte
+          id: UuWENw4BDnVHuj
+          label: Seta
+        - uid: q9VJThARgXGBUc
+          rotulo: Passa Vinte
           retangulo:
             x: 975
             y: 875
             comprimento: 90
             largura: 20
-        - id: RJ_SP
-          label: RJ - SP
+          id: q9VJThARgXGBUc
+          label: Passa Vinte
+        - uid: NN8RijkGafIRmC
+          rotulo: RJ - SP
           retangulo:
             x: 985
             y: 895
             comprimento: 60
             largura: 20
-        - id: Via_Dutra
-          label: Via Dutra
+          id: NN8RijkGafIRmC
+          label: RJ - SP
+        - uid: JiVpswKnFK1SWj
+          rotulo: Via Dutra
           retangulo:
             x: 985
             y: 915
             comprimento: 70
             largura: 20
+          id: JiVpswKnFK1SWj
+          label: Via Dutra
         referencias:
-        - setor: Acampamento
+        - alvo_uid: o45FjTNWXmwkwp
+          pontos_uids:
+          - uwTUkt3iXoSuBK
+          - 8Z578m02BfOwvE
+          setor: Acampamento
           ids:
-          - A
-          - C
-        - setor: Arquibancada
+          - uwTUkt3iXoSuBK
+          - 8Z578m02BfOwvE
+        - alvo_uid: lt12GNvnJUOG87
+          pontos_uids:
+          - vVkE6AHhVAoXSx
+          setor: Arquibancada
           ids:
-          - B
+          - vVkE6AHhVAoXSx
   precomputados:
     total_escaladas: 154
     total_setores: 7
     total_esportivas: 154
 botoes:
-- texto: Capa
+- uid: H3jXZ6DqLBjwAC
+  texto: Capa
   destino:
     secao_textual:
       conteudo: |-
@@ -2561,7 +3631,8 @@ botoes:
 
         Jobson Pereira & Juliano Magalhães
         Março 2023
-- texto: Advertência
+- uid: LDReczQyUAkHI0
+  texto: Advertência
   destino:
     secao_textual:
       conteudo: |-
@@ -2575,7 +3646,8 @@ botoes:
         - Proteja e respeite a natureza. Não retire nada, leve todo seu lixo de volta e não faça fogueira.
         - Respeite o silêncio. Evite levar equipamentos sonoros para os locais de escalada.
         - O acesso aos setores de escalada é feito através de propriedade particular. Dessa forma, tenha cuidado com os animais no pasto, feche todas as porteiras que abrir e cuidado ao estacionar seu veículo para não fechar o trânsito.
-- texto: Apresentação
+- uid: 3K5RAqqILNw0k2
+  texto: Apresentação
   destino:
     secao_textual:
       conteudo: |-
@@ -2590,7 +3662,8 @@ botoes:
         Atualmente, o setor possui aproximadamente 150 vias, com graduações que vão do IV a 11c, além de vários projetos de alto grau de dificuldade. Dentre essas rotas, há uma diversidade de estilos de escalada que tornam o local completo com vias verticais, negativas, positivas e tetos. A rocha predominante é o gnaisse que proporcionada uma diversidade de formações de agarras.
 
         No inverno o sol demora um pouco mais para sair da parede, ficando no positivo central até por volta de 11h e no setor vertical da chegada até 13h. Já no verão, o sol sai do positivo central por volta das 9h e no vertical da chegada por volta das 11h. Assim, planeje os horários e setores da sua escalada se quer fugir do sol.
-- texto: Como Chegar
+- uid: TkMCJs4HxzXsq5
+  texto: Como Chegar
   destino:
     secao_textual:
       conteudo: |-
@@ -2603,7 +3676,8 @@ botoes:
         [https://goo.gl/maps/GV6WQ7tfJhWc2RxP7](https://goo.gl/maps/GV6WQ7tfJhWc2RxP7)
 
         Ao chegar nesse ponto do link acima seguir por aproximadamente 1 km na estrada de terra até a placa indicativa de acesso a trilha da Gruta de Passa Vinte.
-- texto: Contatos
+- uid: W2Rva54M0yb1Ca
+  texto: Contatos
   destino:
     secao_textual:
       conteudo: |-
@@ -2617,7 +3691,7 @@ botoes:
         - Juliano Magalhães - Instagram: [@jzmagalhaes](https://www.instagram.com/jzmagalhaes)
         - Instagram: [@escalada_itatiaia](https://www.instagram.com/escalada_itatiaia)
         - Instagram: [@gruta_de_p20_climbing](https://www.instagram.com/gruta_de_p20_climbing)
-ultima_migracao: 4
+ultima_migracao: 5
 arquivos_externos:
 - caminho: imagens/capa_p0.webp
   checksum_sha256: a5d17d21899e0994509c7ed1870b6f545375da5a2a92addd31a819cdd628ed8e

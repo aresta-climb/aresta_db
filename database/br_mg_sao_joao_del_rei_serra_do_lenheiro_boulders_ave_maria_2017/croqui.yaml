@@ -1,16 +1,17 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+uid: AIgxBVTTkHODSK
 id: br_mg_sao_joao_del_rei_serra_do_lenheiro_boulders_ave_maria_2017
 nome: Boulders da Ave Maria - Serra do Lenheiro
-descricao: Guia de escalada em boulder do setor Ave Maria, na Serra do Lenheiro em
-  São João del Rei - MG (1ª Edição, 2017).
+descricao: Guia de escalada em boulder do setor Ave Maria, na Serra do Lenheiro em São 
+  João del Rei - MG (1ª Edição, 2017).
 creditos:
 - Flora Kesselring Zugaib
 - Klauss Castanheira
 - Thomás Alexandre Kämpf (Tomi)
 - Webert Resende (Beto)
 caminho_thumbnail: imagens/capa_p0_i0.webp
-ultima_migracao: 4
+ultima_migracao: 5
 picos:
 - nome: Serra do Lenheiro
   estado: MG
@@ -32,23 +33,28 @@ picos:
   mapas_gerais:
     caminho: mapas_gerais.md
 botoes:
-- texto: Capa
+- uid: U7HtTUr1omr1JC
+  texto: Capa
   destino:
     secao_textual:
       caminho: capa.md
-- texto: Apresentação
+- uid: E4523NeHY2Doqh
+  texto: Apresentação
   destino:
     secao_textual:
       caminho: apresentacao.md
-- texto: Ética e Regras
+- uid: Z7o5R9q53NarqA
+  texto: Ética e Regras
   destino:
     secao_textual:
       caminho: etica_e_regras.md
-- texto: Como Chegar
+- uid: VoKkrjwISahAVx
+  texto: Como Chegar
   destino:
     secao_textual:
       caminho: como_chegar.md
-- texto: Apoiadores
+- uid: hfW2o15CJtyT99
+  texto: Apoiadores
   destino:
     secao_textual:
       caminho: apoiadores.md

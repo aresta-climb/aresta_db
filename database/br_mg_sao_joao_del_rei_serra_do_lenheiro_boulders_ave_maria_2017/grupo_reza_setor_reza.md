@@ -1,84 +1,91 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+uid: WawtekZcKgAb5I
 nome: Reza
 mapas:
 - caminho_imagem_mapa: imagens/grupo_reza_setor_reza_p0_i0.webp
   largura_mapa: 1513
   altura_mapa: 712
   pontos_de_interesse:
-  - id: '1'
-    label: '1'
+  - uid: 3Fec0nII1QMcHC
+    rotulo: '1'
     circulo:
       x: 254
       y: 545
       raio: 20
-  - id: '2'
-    label: '2'
+  - uid: P8UbIqr28Pwcvu
+    rotulo: '2'
     circulo:
       x: 466
       y: 597
       raio: 20
-  - id: '3'
-    label: '3'
+  - uid: Y5Kwg2PZ3Nwv8o
+    rotulo: '3'
     circulo:
       x: 554
       y: 596
       raio: 20
-  - id: '4'
-    label: '4'
+  - uid: KkOG6H7BHylSwO
+    rotulo: '4'
     circulo:
       x: 634
       y: 589
       raio: 19
-  - id: '5'
-    label: '5'
+  - uid: KelirNRIglgX1p
+    rotulo: '5'
     circulo:
       x: 1104
       y: 631
       raio: 26
-  - id: '6'
-    label: '6'
+  - uid: 1gPOGG2kLtp0vb
+    rotulo: '6'
     circulo:
       x: 1138
       y: 581
       raio: 25
   referencias:
-  - escalada: Rezando pra São Longuinho
-    ids:
-    - '1'
-  - escalada: Reza Forte
-    ids:
-    - '2'
-  - escalada: Reza Braba
-    ids:
-    - '3'
-  - escalada: Padre Nosso
-    ids:
-    - '4'
-  - escalada: Reza Fria
-    ids:
-    - '5'
-  - escalada: Ave Maria
-    ids:
-    - '6'
+  - alvo_uid: sejRQoz9QyermH
+    pontos_uids:
+    - 3Fec0nII1QMcHC
+  - alvo_uid: Co8rg9lkhJJhLq
+    pontos_uids:
+    - P8UbIqr28Pwcvu
+  - alvo_uid: jsFal6nx7F9zYB
+    pontos_uids:
+    - Y5Kwg2PZ3Nwv8o
+  - alvo_uid: 0kZigjb4mDm1IX
+    pontos_uids:
+    - KkOG6H7BHylSwO
+  - alvo_uid: 692YObRDBb4TN3
+    pontos_uids:
+    - KelirNRIglgX1p
+  - alvo_uid: QXHLiDW0ZiGagb
+    pontos_uids:
+    - 1gPOGG2kLtp0vb
 escaladas:
-- boulder:
+- uid: sejRQoz9QyermH
+  boulder:
     nome: Rezando pra São Longuinho
     dificuldade: V2
-- boulder:
+- uid: Co8rg9lkhJJhLq
+  boulder:
     nome: Reza Forte
     dificuldade: V7
-- boulder:
+- uid: jsFal6nx7F9zYB
+  boulder:
     nome: Reza Braba
     dificuldade: V9
-- boulder:
+- uid: 0kZigjb4mDm1IX
+  boulder:
     nome: Padre Nosso
     dificuldade: V1
-- boulder:
+- uid: 692YObRDBb4TN3
+  boulder:
     nome: Reza Fria
     dificuldade: V6
-- boulder:
+- uid: QXHLiDW0ZiGagb
+  boulder:
     nome: Ave Maria
     dificuldade: V7
 ---

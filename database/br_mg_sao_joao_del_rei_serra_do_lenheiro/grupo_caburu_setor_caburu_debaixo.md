@@ -1,90 +1,91 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+uid: YjBKPMikSzkipy
 nome: Caburu Debaixo
 mapas:
 - caminho_imagem_mapa: imagens/grupo_caburu_setor_caburu_debaixo_p1_i2.webp
   largura_mapa: 1253
   altura_mapa: 940
   referencias:
-  - escalada: Trio Canabis
-    ids:
-    - '1'
-  - escalada: Quem Tem Ovos Tem Medo
-    ids:
-    - '2'
-  - escalada: Bela da Tarde
-    ids:
-    - '3'
-  - escalada: Ironia do Destino
-    ids:
-    - '4'
-  - escalada: Diedrim
-    ids:
-    - '12'
-  - escalada: Indecisão
-    ids:
-    - '13'
-  - escalada: A Ajuda Vem de Cima
-    ids:
-    - '14'
-  - escalada: Rolling Stones
-    ids:
-    - '15'
-  - escalada: Via do Felipin
-    ids:
-    - '16'
+  - alvo_uid: f6IO2FmwJxMaBj
+    pontos_uids:
+    - WEoIvw3EAeKoYF
+  - alvo_uid: hygQ0dLTh4zJoo
+    pontos_uids:
+    - hXC7JaYh6JZx4w
+  - alvo_uid: FJXIJjn7V6Z6Ir
+    pontos_uids:
+    - ICuuq9VupSvQNs
+  - alvo_uid: 4KSvELdgaRmHdG
+    pontos_uids:
+    - DP9gr9SXQBydCr
+  - alvo_uid: cYIUCgfllUOf0j
+    pontos_uids:
+    - DiDsvd06NeLzZP
+  - alvo_uid: jpBkHvmdrR1mUK
+    pontos_uids:
+    - CU9INbWY27TKoH
+  - alvo_uid: RsEIGi7dZ2Keee
+    pontos_uids:
+    - B8cTrhCkdbcvwf
+  - alvo_uid: rUIWUEgjJXk84w
+    pontos_uids:
+    - LZcYBbM1mA6Ypd
+  - alvo_uid: 8xhvrpt4MSnAPx
+    pontos_uids:
+    - Oa5SARfuoPCfZh
   pontos_de_interesse:
-  - id: '1'
-    label: '1'
+  - uid: WEoIvw3EAeKoYF
+    rotulo: '1'
     circulo:
       x: 1102
       y: 652
       raio: 24
-  - id: '2'
-    label: '2'
+  - uid: hXC7JaYh6JZx4w
+    rotulo: '2'
     circulo:
       x: 364
       y: 890
       raio: 24
-  - id: '3'
-    label: '3'
+  - uid: ICuuq9VupSvQNs
+    rotulo: '3'
     circulo:
       x: 265
       y: 908
       raio: 24
-  - id: '4'
-    label: '4'
+  - uid: DP9gr9SXQBydCr
+    rotulo: '4'
     circulo:
       x: 34
       y: 920
       raio: 24
-  - id: '12'
-    label: '12'
+  - uid: DiDsvd06NeLzZP
+    rotulo: '12'
     circulo:
       x: 825
       y: 810
       raio: 31
-  - id: '13'
-    label: '13'
+  - uid: CU9INbWY27TKoH
+    rotulo: '13'
     circulo:
       x: 147
       y: 922
       raio: 31
-  - id: '14'
-    label: '14'
+  - uid: B8cTrhCkdbcvwf
+    rotulo: '14'
     circulo:
       x: 580
       y: 820
       raio: 31
-  - id: '15'
-    label: '15'
+  - uid: LZcYBbM1mA6Ypd
+    rotulo: '15'
     circulo:
       x: 203
       y: 906
       raio: 31
-  - id: '16'
-    label: '16'
+  - uid: Oa5SARfuoPCfZh
+    rotulo: '16'
     circulo:
       x: 146
       y: 556
@@ -93,66 +94,66 @@ mapas:
   largura_mapa: 1144
   altura_mapa: 740
   referencias:
-  - escalada: Amigo Oculto
-    ids:
-    - '5'
-  - escalada: Verdinho Cabuloso
-    ids:
-    - '6'
-  - escalada: Maluco Beleza
-    ids:
-    - '7'
-  - escalada: Solimões
-    ids:
-    - '8'
-  - escalada: Rio Negro
-    ids:
-    - '9'
-  - escalada: Eliseu Frechou
-    ids:
-    - '10'
-  - escalada: Patacas Me Mordam
-    ids:
-    - '11'
+  - alvo_uid: HGwOMDT91gDLi9
+    pontos_uids:
+    - 9uoyWORBTG71Ry
+  - alvo_uid: WcNlBIzG2ccmt4
+    pontos_uids:
+    - b4R7dM79TcifOI
+  - alvo_uid: 7So6yyPCmZbnWC
+    pontos_uids:
+    - SAlkGyvd66O7Qh
+  - alvo_uid: cDQRVg5N9SUn7h
+    pontos_uids:
+    - QyN2k1wPXSdMBg
+  - alvo_uid: 3jiGJ5sObqpVsh
+    pontos_uids:
+    - k8tY7LfQe673ce
+  - alvo_uid: mSZyf6qiO0swYz
+    pontos_uids:
+    - hnqKHc19NZz6zu
+  - alvo_uid: MMRrcm4VVEZUrU
+    pontos_uids:
+    - ALDQMnw8MN21PW
   pontos_de_interesse:
-  - id: '5'
-    label: '5'
+  - uid: 9uoyWORBTG71Ry
+    rotulo: '5'
     circulo:
       x: 419
       y: 559
       raio: 21
-  - id: '6'
-    label: '6'
+  - uid: b4R7dM79TcifOI
+    rotulo: '6'
     circulo:
       x: 464
       y: 595
       raio: 24
-  - id: '7'
-    label: '7'
+  - uid: SAlkGyvd66O7Qh
+    rotulo: '7'
     circulo:
       x: 678
       y: 584
       raio: 21
-  - id: '8'
-    label: '8'
+  - uid: QyN2k1wPXSdMBg
+    rotulo: '8'
     circulo:
       x: 812
       y: 532
       raio: 24
-  - id: '9'
-    label: '9'
+  - uid: k8tY7LfQe673ce
+    rotulo: '9'
     circulo:
       x: 874
       y: 553
       raio: 24
-  - id: '10'
-    label: '10'
+  - uid: hnqKHc19NZz6zu
+    rotulo: '10'
     circulo:
       x: 930
       y: 539
       raio: 26
-  - id: '11'
-    label: '11'
+  - uid: ALDQMnw8MN21PW
+    rotulo: '11'
     circulo:
       x: 976
       y: 520
@@ -161,153 +162,154 @@ mapas:
   largura_mapa: 820
   altura_mapa: 460
   referencias:
-  - escalada: Trio Canabis
-    ids:
-    - '1'
-  - escalada: Quem Tem Ovos Tem Medo
-    ids:
-    - '2'
-  - escalada: Bela da Tarde
-    ids:
-    - '3'
-  - escalada: Ironia do Destino
-    ids:
-    - '4'
-  - escalada: Amigo Oculto
-    ids:
-    - '5'
-  - escalada: Verdinho Cabuloso
-    ids:
-    - '6'
-  - escalada: Maluco Beleza
-    ids:
-    - '7'
-  - escalada: Solimões
-    ids:
-    - '8'
-  - escalada: Rio Negro
-    ids:
-    - '9'
-  - escalada: Eliseu Frechou
-    ids:
-    - '10'
-  - escalada: Patacas Me Mordam
-    ids:
-    - '11'
-  - escalada: Diedrim
-    ids:
-    - '12'
-  - escalada: Indecisão
-    ids:
-    - '13'
-  - escalada: A Ajuda Vem de Cima
-    ids:
-    - '14'
-  - escalada: Rolling Stones
-    ids:
-    - '15'
-  - escalada: Via do Felipin
-    ids:
-    - '16'
+  - alvo_uid: f6IO2FmwJxMaBj
+    pontos_uids:
+    - MCO7Id2ofTfSUq
+  - alvo_uid: hygQ0dLTh4zJoo
+    pontos_uids:
+    - S2nweYdvHZZrZZ
+  - alvo_uid: FJXIJjn7V6Z6Ir
+    pontos_uids:
+    - uVYExpz6Ty7TBT
+  - alvo_uid: 4KSvELdgaRmHdG
+    pontos_uids:
+    - GzFq3zAXsOgrmK
+  - alvo_uid: HGwOMDT91gDLi9
+    pontos_uids:
+    - LXRlVAPX3vmL1e
+  - alvo_uid: WcNlBIzG2ccmt4
+    pontos_uids:
+    - il0HFrrcZRqUKV
+  - alvo_uid: 7So6yyPCmZbnWC
+    pontos_uids:
+    - C0MoDur2pK3ZdD
+  - alvo_uid: cDQRVg5N9SUn7h
+    pontos_uids:
+    - 9a36bVUhQAeqxE
+  - alvo_uid: 3jiGJ5sObqpVsh
+    pontos_uids:
+    - NZmIuVaSIWSuxP
+  - alvo_uid: mSZyf6qiO0swYz
+    pontos_uids:
+    - Yud85p2XNLLJME
+  - alvo_uid: MMRrcm4VVEZUrU
+    pontos_uids:
+    - mWebq5TATSQBP5
+  - alvo_uid: cYIUCgfllUOf0j
+    pontos_uids:
+    - N0taLp60pPsYLP
+  - alvo_uid: jpBkHvmdrR1mUK
+    pontos_uids:
+    - o4t7urGxZM62Jc
+  - alvo_uid: RsEIGi7dZ2Keee
+    pontos_uids:
+    - v1EBSjQhZtoud4
+  - alvo_uid: rUIWUEgjJXk84w
+    pontos_uids:
+    - U5L0aWdzQWXPlF
+  - alvo_uid: 8xhvrpt4MSnAPx
+    pontos_uids:
+    - gLgy19Z4RnBcOr
   pontos_de_interesse:
-  - id: '1'
-    label: '1'
+  - uid: MCO7Id2ofTfSUq
+    rotulo: '1'
     circulo:
       x: 240
       y: 29
       raio: 10
-  - id: '2'
-    label: '2'
+  - uid: S2nweYdvHZZrZZ
+    rotulo: '2'
     circulo:
       x: 240
       y: 120
       raio: 10
-  - id: '3'
-    label: '3'
+  - uid: uVYExpz6Ty7TBT
+    rotulo: '3'
     circulo:
       x: 238
       y: 154
       raio: 10
-  - id: '4'
-    label: '4'
+  - uid: GzFq3zAXsOgrmK
+    rotulo: '4'
     circulo:
       x: 240
       y: 256
       raio: 10
-  - id: '5'
-    label: '5'
+  - uid: LXRlVAPX3vmL1e
+    rotulo: '5'
     circulo:
       x: 225
       y: 270
       raio: 10
-  - id: '6'
-    label: '6'
+  - uid: il0HFrrcZRqUKV
+    rotulo: '6'
     circulo:
       x: 307
       y: 318
       raio: 10
-  - id: '7'
-    label: '7'
+  - uid: C0MoDur2pK3ZdD
+    rotulo: '7'
     circulo:
       x: 520
       y: 319
       raio: 10
-  - id: '8'
-    label: '8'
+  - uid: 9a36bVUhQAeqxE
+    rotulo: '8'
     circulo:
       x: 614
       y: 301
       raio: 10
-  - id: '9'
-    label: '9'
+  - uid: NZmIuVaSIWSuxP
+    rotulo: '9'
     circulo:
       x: 614
       y: 269
       raio: 10
-  - id: '10'
-    label: '10'
+  - uid: Yud85p2XNLLJME
+    rotulo: '10'
     circulo:
       x: 608
       y: 234
       raio: 13
-  - id: '11'
-    label: '11'
+  - uid: mWebq5TATSQBP5
+    rotulo: '11'
     circulo:
       x: 608
       y: 199
       raio: 13
-  - id: '12'
-    label: '12'
+  - uid: N0taLp60pPsYLP
+    rotulo: '12'
     circulo:
       x: 235
       y: 60
       raio: 13
-  - id: '13'
-    label: '13'
+  - uid: o4t7urGxZM62Jc
+    rotulo: '13'
     circulo:
       x: 236
       y: 206
       raio: 12
-  - id: '14'
-    label: '14'
+  - uid: v1EBSjQhZtoud4
+    rotulo: '14'
     circulo:
       x: 235
       y: 100
       raio: 12
-  - id: '15'
-    label: '15'
+  - uid: U5L0aWdzQWXPlF
+    rotulo: '15'
     circulo:
       x: 235
       y: 176
       raio: 12
-  - id: '16'
-    label: '16'
+  - uid: gLgy19Z4RnBcOr
+    rotulo: '16'
     circulo:
       x: 235
       y: 230
       raio: 12
 escaladas:
-- via_esportiva:
+- uid: f6IO2FmwJxMaBj
+  via_esportiva:
     nome: Trio Canabis
     dificuldade: BR_7B
     extensao: 12
@@ -316,7 +318,8 @@ escaladas:
     - Fabio Bernardes
     - Fabiola Miranda
     data_abertura: '2018-06-16'
-- via_esportiva:
+- uid: hygQ0dLTh4zJoo
+  via_esportiva:
     nome: Quem Tem Ovos Tem Medo
     dificuldade: BR_4
     extensao: 20
@@ -328,7 +331,8 @@ escaladas:
     - Daniel Baiano
     - Faclei
     descricao: 6 grampos e mais parada dupla no top.
-- via_esportiva:
+- uid: FJXIJjn7V6Z6Ir
+  via_esportiva:
     nome: Bela da Tarde
     dificuldade: BR_5SUP
     extensao: 20
@@ -341,7 +345,8 @@ escaladas:
     - Heider Ribeiro (Tio Nem)
     data_abertura: '2018-06-16'
     descricao: 7 chapeletas e mais duas argolas no top.
-- via_esportiva:
+- uid: 4KSvELdgaRmHdG
+  via_esportiva:
     nome: Ironia do Destino
     dificuldade: BR_6
     quantidade_protecoes_intermediarias: 6
@@ -351,7 +356,8 @@ escaladas:
     - Mariana Fiche
     data_abertura: '2018-09-08'
     descricao: 6 + 2 chapas.
-- via_esportiva:
+- uid: HGwOMDT91gDLi9
+  via_esportiva:
     nome: Amigo Oculto
     dificuldade: BR_6SUP
     extensao: 18
@@ -362,7 +368,8 @@ escaladas:
     - Heider Ribeiro (Tio Nem)
     data_abertura: '2018-12-23'
     descricao: 6 chapas + duas no top.
-- via_esportiva:
+- uid: WcNlBIzG2ccmt4
+  via_esportiva:
     nome: Verdinho Cabuloso
     destaque: true
     dificuldade: BR_7C
@@ -374,11 +381,11 @@ escaladas:
     - Heider Ribeiro (Tio Nem)
     - Pedro Naves
     data_abertura: '2018-07-14'
-    descricao: Via mais alta e mais clássica da área. Saída em uma bela sequência
-      negativa no melhor estilo boulder, depois segue por uma linda aresta até o final
-      em um forte negativo. São 11 chapeletas mais 2 argolas no top. Costuras mais
-      longas (30 e 60) são aconselháveis.
-- via_esportiva:
+    descricao: Via mais alta e mais clássica da área. Saída em uma bela sequência negativa no melhor estilo boulder, 
+      depois segue por uma linda aresta até o final em um forte negativo. São 11 chapeletas mais 2 argolas no top. 
+      Costuras mais longas (30 e 60) são aconselháveis.
+- uid: 7So6yyPCmZbnWC
+  via_esportiva:
     nome: Maluco Beleza
     dificuldade: PROJETO
     extensao: 15
@@ -389,13 +396,15 @@ escaladas:
     - Fabiola Miranda
     data_abertura: '2018'
     descricao: Sem FA (sem primeira ascensão).
-- via_esportiva:
+- uid: cDQRVg5N9SUn7h
+  via_esportiva:
     nome: Solimões
     dificuldade: BR_6
     extensao: 15
     conquistadores:
     - Eliseu Frechou e amigos
-- via_esportiva:
+- uid: 3jiGJ5sObqpVsh
+  via_esportiva:
     nome: Rio Negro
     dificuldade: BR_6
     extensao: 17
@@ -406,9 +415,9 @@ escaladas:
     - Heider Ribeiro (Tio Nem)
     - Pedro Naves
     data_abertura: '2019-02-15'
-    descricao: Variante da via anterior (Solimões), tornou a linha mais reta. São
-      6 chapas mais duas argolas no top.
-- via_esportiva:
+    descricao: Variante da via anterior (Solimões), tornou a linha mais reta. São 6 chapas mais duas argolas no top.
+- uid: mSZyf6qiO0swYz
+  via_esportiva:
     nome: Eliseu Frechou
     dificuldade: BR_7A
     extensao: 17
@@ -416,14 +425,16 @@ escaladas:
     - Eliseu Frechou
     - Luiz Cláudio
     - Vitor Frechou
-- via_esportiva:
+- uid: MMRrcm4VVEZUrU
+  via_esportiva:
     nome: Patacas Me Mordam
     dificuldade: BR_6SUP
     conquistadores:
     - Jonatas Lima
     - Fabio Rufino
     data_abertura: '2018'
-- via_movel:
+- uid: cYIUCgfllUOf0j
+  via_movel:
     nome: Diedrim
     dificuldade: BR_5
     quantidade_protecoes_parada: 1
@@ -432,10 +443,10 @@ escaladas:
     conquistadores:
     - Luiz Cláudio
     - Leonardo Rodrigues
-    descricao: Via em um belo diedro fendado. Ao final do diedro passa para dentro
-      da grande cavidade na rocha e chega no cume por entre os blocos de rocha onde
-      há um grampo. Um jogo de friends (BD 5 ou 6 protege melhor).
-- via_esportiva:
+    descricao: Via em um belo diedro fendado. Ao final do diedro passa para dentro da grande cavidade na rocha e chega 
+      no cume por entre os blocos de rocha onde há um grampo. Um jogo de friends (BD 5 ou 6 protege melhor).
+- uid: jpBkHvmdrR1mUK
+  via_esportiva:
     nome: Indecisão
     dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 6
@@ -445,13 +456,15 @@ escaladas:
     - Bruno Bastos
     data_abertura: '2019'
     descricao: Crux técnico na saída. 6 + 2 chapas.
-- via_movel:
+- uid: RsEIGi7dZ2Keee
+  via_movel:
     nome: A Ajuda Vem de Cima
     dificuldade: BR_7A
     conquistadores:
     - Luiz Cláudio
     - Leonardo Rodrigues
-- via_movel:
+- uid: rUIWUEgjJXk84w
+  via_movel:
     nome: Rolling Stones
     dificuldade: BR_5SUP
     extensao: 20
@@ -461,9 +474,10 @@ escaladas:
     conquistadores:
     - Leonardo Rodrigues
     - João Felipin
-    descricao: Via interessante, saída com proteções escassas em buracos e depois
-      com boas fendas. Top com a via Bela da Tarde (via 3).
-- via_movel:
+    descricao: Via interessante, saída com proteções escassas em buracos e depois com boas fendas. Top com a via Bela da
+      Tarde (via 3).
+- uid: 8xhvrpt4MSnAPx
+  via_movel:
     nome: Via do Felipin
     dificuldade: PROJETO
     conquistadores:

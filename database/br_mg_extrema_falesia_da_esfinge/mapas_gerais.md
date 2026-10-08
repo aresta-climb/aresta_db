@@ -8,4 +8,3 @@ mapas:
   altura_mapa: 1240
   pontos_de_interesse: []
 ---
-

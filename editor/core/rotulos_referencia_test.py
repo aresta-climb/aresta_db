@@ -8,7 +8,7 @@ from editor.core.rotulos_referencia import extrair_rotulo_referencia
 
 
 def test_extrair_rotulo_referencia_sem_ids():
-    """Retorna string vazia quando a referência não possui IDs ou é nula."""
+    """Retorna string vazia quando a referência não possui UIDs ou é nula."""
     mapa = croqui_pb2.Mapa()
     ref = croqui_pb2.Mapa.Referencia()
     assert extrair_rotulo_referencia(mapa, ref) == ""
@@ -17,27 +17,27 @@ def test_extrair_rotulo_referencia_sem_ids():
 
 
 def test_extrair_rotulo_referencia_poi_convencional_com_label():
-    """Retorna o rótulo de um POI convencional que possui label."""
+    """Retorna o rótulo de um POI convencional que possui rótulo."""
     mapa = croqui_pb2.Mapa()
     poi = mapa.pontos_de_interesse.add()
-    poi.id = "poi_1"
-    poi.label = "P1"
+    poi.uid = "poi_1"
+    poi.rotulo = "P1"
 
     ref = croqui_pb2.Mapa.Referencia()
-    ref.ids.append("poi_1")
+    ref.pontos_uids.append("poi_1")
 
     assert extrair_rotulo_referencia(mapa, ref) == "P1"
 
 
 def test_extrair_rotulo_referencia_poi_convencional_sem_label():
-    """Retorna vazio se o POI convencional tem label vazio (sem fallback para id)."""
+    """Retorna vazio se o POI convencional tem rótulo vazio (sem fallback para uid)."""
     mapa = croqui_pb2.Mapa()
     poi = mapa.pontos_de_interesse.add()
-    poi.id = "poi_sem_label"
-    poi.label = ""
+    poi.uid = "poi_sem_label"
+    poi.rotulo = ""
 
     ref = croqui_pb2.Mapa.Referencia()
-    ref.ids.append("poi_sem_label")
+    ref.pontos_uids.append("poi_sem_label")
 
     assert extrair_rotulo_referencia(mapa, ref) == ""
 
@@ -48,27 +48,27 @@ def test_extrair_rotulo_referencia_caminho_vetorial_multiplos_segmentos():
 
     # Segmento 1: início com círculo identificador "5"
     p1 = mapa.pontos_de_interesse.add()
-    p1.id = "linha_12"
+    p1.uid = "linha_12"
     m1 = p1.linha.compilado.marcadores.add()
     m1.tipo = croqui_pb2.NoTrajeto.TipoNo.CIRCULO_IDENTIFICADOR
     m1.rotulo = "5"
 
     # Segmento 2: passagem intermediária (sem círculo)
     p2 = mapa.pontos_de_interesse.add()
-    p2.id = "linha_16"
+    p2.uid = "linha_16"
     m2 = p2.linha.compilado.marcadores.add()
     m2.tipo = croqui_pb2.NoTrajeto.TipoNo.PASSAGEM
     m2.rotulo = ""
 
     # Segmento 3: final com top "C"
     p3 = mapa.pontos_de_interesse.add()
-    p3.id = "linha_21"
+    p3.uid = "linha_21"
     m3 = p3.linha.compilado.marcadores.add()
     m3.tipo = croqui_pb2.NoTrajeto.TipoNo.FIM_TOP
     m3.rotulo = "C"
 
     ref = croqui_pb2.Mapa.Referencia()
-    ref.ids.extend(["linha_12", "linha_16", "linha_21"])
+    ref.pontos_uids.extend(["linha_12", "linha_16", "linha_21"])
 
     assert extrair_rotulo_referencia(mapa, ref) == "5-C"
 
@@ -78,7 +78,7 @@ def test_extrair_rotulo_referencia_multiplos_circulos_identificadores():
     mapa = croqui_pb2.Mapa()
 
     p = mapa.pontos_de_interesse.add()
-    p.id = "linha_complexa"
+    p.uid = "linha_complexa"
 
     m1 = p.linha.compilado.marcadores.add()
     m1.tipo = croqui_pb2.NoTrajeto.TipoNo.INICIO_AGACHADO
@@ -93,7 +93,7 @@ def test_extrair_rotulo_referencia_multiplos_circulos_identificadores():
     m3.rotulo = "TOP"
 
     ref = croqui_pb2.Mapa.Referencia()
-    ref.ids.append("linha_complexa")
+    ref.pontos_uids.append("linha_complexa")
 
     assert extrair_rotulo_referencia(mapa, ref) == "SS-1-TOP"
 
@@ -103,7 +103,7 @@ def test_extrair_rotulo_referencia_modo_edicao_conteudo_nos():
     mapa = croqui_pb2.Mapa()
 
     p = mapa.pontos_de_interesse.add()
-    p.id = "linha_edicao"
+    p.uid = "linha_edicao"
 
     n1 = p.linha.conteudo.nos.add()
     n1.tipo = croqui_pb2.NoTrajeto.TipoNo.CIRCULO_IDENTIFICADOR
@@ -114,7 +114,7 @@ def test_extrair_rotulo_referencia_modo_edicao_conteudo_nos():
     n2.rotulo = "X"
 
     ref = croqui_pb2.Mapa.Referencia()
-    ref.ids.append("linha_edicao")
+    ref.pontos_uids.append("linha_edicao")
 
     # Testa com ReadOnlyProxy também
     proxy_mapa = ReadOnlyProxy(mapa)
@@ -126,13 +126,13 @@ def test_extrair_rotulo_referencia_deduplicacao_consecutiva():
     mapa = croqui_pb2.Mapa()
 
     p1 = mapa.pontos_de_interesse.add()
-    p1.id = "seg_1"
+    p1.uid = "seg_1"
     n1 = p1.linha.conteudo.nos.add()
     n1.tipo = croqui_pb2.NoTrajeto.TipoNo.CIRCULO_IDENTIFICADOR
     n1.rotulo = "5"
 
     p2 = mapa.pontos_de_interesse.add()
-    p2.id = "seg_2"
+    p2.uid = "seg_2"
     # Ambos os segmentos têm o nó compartilhado "5"
     n2a = p2.linha.conteudo.nos.add()
     n2a.tipo = croqui_pb2.NoTrajeto.TipoNo.CIRCULO_IDENTIFICADOR
@@ -142,7 +142,7 @@ def test_extrair_rotulo_referencia_deduplicacao_consecutiva():
     n2b.rotulo = "C"
 
     ref = croqui_pb2.Mapa.Referencia()
-    ref.ids.extend(["seg_1", "seg_2"])
+    ref.pontos_uids.extend(["seg_1", "seg_2"])
 
     assert extrair_rotulo_referencia(mapa, ref) == "5-C"
 
@@ -152,13 +152,13 @@ def test_extrair_rotulo_referencia_sem_circulos_retorna_vazio():
     mapa = croqui_pb2.Mapa()
 
     p = mapa.pontos_de_interesse.add()
-    p.id = "linha_pura"
+    p.uid = "linha_pura"
     n = p.linha.conteudo.nos.add()
     n.tipo = croqui_pb2.NoTrajeto.TipoNo.PASSAGEM
     n.rotulo = ""
 
     ref = croqui_pb2.Mapa.Referencia()
-    ref.ids.append("linha_pura")
+    ref.pontos_uids.append("linha_pura")
 
     assert extrair_rotulo_referencia(mapa, ref) == ""
 
@@ -168,7 +168,7 @@ def test_extrair_rotulo_referencia_com_dicionarios():
     mapa_dict = {
         "pontos_de_interesse": [
             {
-                "id": "p_dict_1",
+                "uid": "p_dict_1",
                 "linha": {
                     "conteudo": {
                         "nos": [
@@ -181,7 +181,7 @@ def test_extrair_rotulo_referencia_com_dicionarios():
         ]
     }
     ref_dict = {
-        "ids": ["p_dict_1", "id_inexistente"]
+        "pontos_uids": ["p_dict_1", "id_inexistente"]
     }
     assert extrair_rotulo_referencia(mapa_dict, ref_dict) == "A-B"
 

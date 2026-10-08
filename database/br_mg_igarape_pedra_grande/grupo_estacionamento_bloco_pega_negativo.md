@@ -1,26 +1,31 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+uid: GCTYEYl7veyIXo
 nome: Estacionamento - Bloco Pega negativo
 escaladas:
-- boulder:
+- uid: VVu7xhtrjKPIO4
+  boulder:
     nome: Pega negativo
     dificuldade: V7
-- boulder:
+- uid: KtHmfhs8lqZhU0
+  boulder:
     nome: Serrado
     dificuldade: V1
-- boulder:
+- uid: lvM5aiWcsrkiuo
+  boulder:
     nome: Coruja
     dificuldade: V1
-- boulder:
+- uid: b5gtS6LrXSTpZW
+  boulder:
     nome: Projeto 3
 mapas:
 - caminho_imagem_mapa: imagens/grupo_estacionamento_bloco_pega_negativo_p0.webp
   largura_mapa: 1824
   altura_mapa: 1376
   pontos_de_interesse:
-  - id: linha_2
-    label: ''
+  - uid: bcjWAfP34ZV42J
+    rotulo: ''
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -40,7 +45,7 @@ mapas:
           rotulo: B
       espessura: 4
     cor: '#00E5FF'
-  - id: linha_3
+  - uid: KqPjEVpsxVqrkJ
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -55,7 +60,7 @@ mapas:
           rotulo: ''
       espessura: 4
     cor: '#FFD600'
-  - id: linha_4
+  - uid: Hwpweh0VHvvO8H
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -134,8 +139,8 @@ mapas:
           rotulo: A
       espessura: 4
     cor: '#00E5FF'
-  - id: linha_1
-    label: ''
+  - uid: oWWr3YB0LJByaH
+    rotulo: ''
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -165,8 +170,8 @@ mapas:
           rotulo: C
       espessura: 3
     cor: '#00E5FF'
-  - id: linha_5
-    label: ''
+  - uid: sxdlHr9M6WoZNQ
+    rotulo: ''
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -197,18 +202,18 @@ mapas:
       espessura: 3
     cor: '#00E5FF'
   referencias:
-  - ids:
-    - linha_3
-    - linha_4
-    escalada: Pega negativo
-  - ids:
-    - linha_3
-    - linha_2
-    escalada: Serrado
-  - ids:
-    - linha_1
-    escalada: Coruja
-  - ids:
-    - linha_5
-    escalada: Projeto 3
+  - alvo_uid: VVu7xhtrjKPIO4
+    pontos_uids:
+    - KqPjEVpsxVqrkJ
+    - Hwpweh0VHvvO8H
+  - alvo_uid: KtHmfhs8lqZhU0
+    pontos_uids:
+    - KqPjEVpsxVqrkJ
+    - bcjWAfP34ZV42J
+  - alvo_uid: lvM5aiWcsrkiuo
+    pontos_uids:
+    - oWWr3YB0LJByaH
+  - alvo_uid: b5gtS6LrXSTpZW
+    pontos_uids:
+    - sxdlHr9M6WoZNQ
 ---

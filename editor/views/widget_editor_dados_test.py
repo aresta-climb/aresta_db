@@ -1768,10 +1768,10 @@ def test_widget_colapsavel_heuristica_titulo(qapp):
     pico = Pico(nome="Pico Especial")
     assert _extrair_titulo_heuristico(pico) == "Pico Especial"
     
-    # Fake obj com id
+    # Fake obj com rotulo
     ponto = Mock()
-    ponto.HasField.side_effect = lambda f: f == "id"
-    ponto.id = "P01"
+    ponto.HasField.side_effect = lambda f: f == "rotulo"
+    ponto.rotulo = "P01"
     assert _extrair_titulo_heuristico(ponto) == "P01"
     
     # Sem nada

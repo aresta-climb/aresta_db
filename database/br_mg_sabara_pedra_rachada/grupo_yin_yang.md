@@ -1,6 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+uid: cmS7FR9WNzcmF1
 caminho_imagem_capa: imagens/setor_yin_yang_p0_i0.webp
 nome: Yin Yang
 setores:

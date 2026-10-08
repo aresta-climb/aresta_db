@@ -127,7 +127,7 @@ def test_inicializacao_com_setor_avulso_sem_model(qapp):
 def test_mapa_filtro_marca_escaladas_ja_mapeadas_como_greyed_out(qapp):
     croqui, setor1, _ = _criar_croqui_teste()
     mapa = setor1.mapas.add()
-    mapa.referencias.add(escalada="Bacon com Linguiça", ids=["linha_1"])
+    mapa.referencias.add(alvo_uid="Bacon com Linguiça", pontos_uids=["linha_1"])
 
     model = CroquiModel(croqui)
     widget = WidgetBuscaEntidades(
@@ -292,7 +292,7 @@ def test_setor_avulso_com_escalada_vazia_e_mapeada_e_sem_caminho(qapp):
     e3 = setor.escaladas.add()
     e3.boulder.nome = "Bloco Mapeado"
     mapa = setor.mapas.add()
-    mapa.referencias.add(escalada="Bloco Mapeado")
+    mapa.referencias.add(alvo_uid="Bloco Mapeado")
 
     widget = WidgetBuscaEntidades(setor=setor, mapa_filtro=mapa, tipos_permitidos={"Escalada"})
     assert widget.lista_resultados.count() == 2

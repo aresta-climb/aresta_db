@@ -1,14 +1,15 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+uid: av1HS7SXs2NGyy
 nome: Reza
 mapas:
 - caminho_imagem_mapa: imagens/grupo_reza_p0_i0.webp
   largura_mapa: 595
   altura_mapa: 839
   pontos_de_interesse:
-  - id: grupo_reza
-    label: Reza
+  - uid: GOiz0aXeybkq4u
+    rotulo: Reza
     retangulo:
       x: 340
       y: 296

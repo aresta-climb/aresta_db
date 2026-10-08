@@ -1,6 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+uid: 7EqmzEyqPqt31Z
 caminho_imagem_capa: imagens/setor_tosco_p0_i0.webp
 nome: Tosco
 mapas:
@@ -8,49 +9,49 @@ mapas:
   largura_mapa: 1099
   altura_mapa: 710
   referencias:
-  - escalada: Boliche
-    ids:
+  - alvo_uid: zShGRCExk0eQSH
+    pontos_uids:
     - '1'
-  - escalada: Projeto 10
-    ids:
+  - alvo_uid: cVyqOSGghaA5Rh
+    pontos_uids:
     - '2'
-  - escalada: Strike
-    ids:
+  - alvo_uid: oqgqj8KsgyyVbf
+    pontos_uids:
     - '3'
-  - escalada: Amarelão
-    ids:
+  - alvo_uid: kZYUwpDIYjOTdd
+    pontos_uids:
     - '4'
-  - escalada: Amarelinha
-    ids:
+  - alvo_uid: aesG73VkIAQPEb
+    pontos_uids:
     - '5'
 - caminho_imagem_mapa: imagens/setor_tosco_p4_i3.webp
   largura_mapa: 1099
   altura_mapa: 710
   referencias:
-  - escalada: Viradinha nacional
-    ids:
+  - alvo_uid: u3GH2EF68VFGaY
+    pontos_uids:
     - '14'
-  - escalada: Frita pé
-    ids:
+  - alvo_uid: 9n8GMoJqxIGEZg
+    pontos_uids:
     - '15'
-  - escalada: Tô legal
-    ids:
+  - alvo_uid: ifkPVO6Ogjt8Qn
+    pontos_uids:
     - '16'
 - caminho_imagem_mapa: imagens/setor_tosco_p4_i4.webp
   largura_mapa: 1099
   altura_mapa: 710
   referencias:
-  - escalada: Os malaco
-    ids:
+  - alvo_uid: h1XjAJx3SprebY
+    pontos_uids:
     - '17'
-  - escalada: Rolezinho
-    ids:
+  - alvo_uid: QufF7tXMeGSBZH
+    pontos_uids:
     - '18'
-  - escalada: Cor do bicho
-    ids:
+  - alvo_uid: TpH0gDFHVVIHB6
+    pontos_uids:
     - '19'
-  - escalada: Colorau
-    ids:
+  - alvo_uid: 4bIt8vF8RWlffk
+    pontos_uids:
     - '20'
 setores:
 - caminho: grupo_tosco_setor_bloco_a_boliche.md

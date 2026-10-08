@@ -396,6 +396,8 @@ def test_orquestrar_build_flatpak_executa_comandos():
                 cmd = mock_subproc.call_args_list[0][0][0]
                 assert "flatpak-builder" in cmd[0]
                 assert "com.arestaclimb.Editor.yaml" in str(cmd)
+                assert "--install-deps-from=flathub" in cmd
+                assert "--user" in cmd
                 assert bundle_gerado.name.endswith(".flatpak")
 
 

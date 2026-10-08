@@ -1,6 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+uid: RDvWM1pC3cmOAz
 caminho_imagem_capa: imagens/setor_udao_p0_i0.webp
 nome: Udão
 mapas:
@@ -8,133 +9,132 @@ mapas:
   largura_mapa: 1280
   altura_mapa: 1707
   pontos_de_interesse:
-  - id: '01'
-    label: '01'
+  - uid: AHeyOArgvGM8P9
+    rotulo: '01'
     circulo:
       x: 224
       y: 1090
       raio: 23
-  - id: '02'
-    label: '02'
+  - uid: DnzcoRdhU1hFcr
+    rotulo: '02'
     circulo:
       x: 274
       y: 1086
       raio: 23
-  - id: '03'
-    label: '03'
+  - uid: dnEVA0bIfq3FBi
+    rotulo: '03'
     circulo:
       x: 342
       y: 1086
       raio: 23
-  - id: '04'
-    label: '04'
+  - uid: nlVYVc9EODbL6M
+    rotulo: '04'
     circulo:
       x: 570
       y: 950
       raio: 23
-  - id: '05'
-    label: '05'
+  - uid: 3mPEvyaas7dWHx
+    rotulo: '05'
     circulo:
       x: 623
       y: 899
       raio: 23
-  - id: '06'
-    label: '06'
+  - uid: 4INVlIPpmgU0qV
+    rotulo: '06'
     circulo:
       x: 668
       y: 853
       raio: 23
   referencias:
-  - escalada: Pulando a cerca
-    ids:
-    - '01'
-  - escalada: Cerca Elétrica
-    ids:
-    - '02'
-  - escalada: Clube da Esquina
-    ids:
-    - '03'
-  - escalada: Chuva de Meteoros
-    ids:
-    - '04'
-  - escalada: Pit Bitoca
-    ids:
-    - '05'
-  - escalada: Jovem Ganso
-    ids:
-    - '06'
+  - alvo_uid: TBfeLKMqq9j217
+    pontos_uids:
+    - AHeyOArgvGM8P9
+  - alvo_uid: E7dGmVTn0GA73f
+    pontos_uids:
+    - DnzcoRdhU1hFcr
+  - alvo_uid: A2DJJlGzRxTnH9
+    pontos_uids:
+    - dnEVA0bIfq3FBi
+  - alvo_uid: BD8xtor1M8TTfy
+    pontos_uids:
+    - nlVYVc9EODbL6M
+  - alvo_uid: COJFiz7EbK2YQc
+    pontos_uids:
+    - 3mPEvyaas7dWHx
+  - alvo_uid: R4wt2wZYZIhOcv
+    pontos_uids:
+    - 4INVlIPpmgU0qV
 - caminho_imagem_mapa: imagens/setor_udao_p2.webp
   largura_mapa: 1280
   altura_mapa: 1707
   pontos_de_interesse:
-  - id: '07'
-    label: '07'
+  - uid: AG9ezkMldrsn60
+    rotulo: '07'
     circulo:
       x: 700
       y: 808
       raio: 23
-  - id: '08'
-    label: '08'
+  - uid: LGS8CPiTaAOzDL
+    rotulo: '08'
     circulo:
       x: 747
       y: 784
       raio: 23
-  - id: '09'
-    label: '09'
+  - uid: z7JuoTTUWsL2F6
+    rotulo: '09'
     circulo:
       x: 788
       y: 815
       raio: 23
-  - id: '10'
-    label: '10'
+  - uid: i5lZR5PSYwfwE8
+    rotulo: '10'
     circulo:
       x: 833
       y: 798
       raio: 23
-  - id: '11'
-    label: '11'
+  - uid: UeYdT2rFbWeIO2
+    rotulo: '11'
     circulo:
       x: 885
       y: 771
       raio: 23
-  - id: '12'
-    label: '12'
+  - uid: v2Wp4Z7p5EzuAj
+    rotulo: '12'
     circulo:
       x: 947
       y: 739
       raio: 23
-  - id: '13'
-    label: '13'
+  - uid: gzGHt5BlEYXU4l
+    rotulo: '13'
     circulo:
       x: 1001
       y: 714
       raio: 23
   referencias:
-  - escalada: Filho de Vó
-    ids:
-    - '07'
-  - escalada: Chuva de Verão
-    ids:
-    - '10'
-  - escalada: Pole Dance
-    ids:
-    - '11'
-  - escalada: Brusqueta do Cerrado
-    ids:
-    - '12'
-  - escalada: Rota Aérea
-    ids:
-    - '13'
-  - ids:
-    - '08'
-    setor: Udão
-    escalada: Loucura Alheia
-  - ids:
-    - '09'
-    setor: Udão
-    escalada: Mistério de Ramadã
+  - alvo_uid: 2eFUtu9YUB5x0J
+    pontos_uids:
+    - AG9ezkMldrsn60
+  - alvo_uid: puImKmmFRbKT9L
+    pontos_uids:
+    - i5lZR5PSYwfwE8
+  - alvo_uid: FRNqGKfCDTM51k
+    pontos_uids:
+    - UeYdT2rFbWeIO2
+  - alvo_uid: ltLnaMRsm9MAoL
+    pontos_uids:
+    - v2Wp4Z7p5EzuAj
+  - alvo_uid: uSCoBfaUxcl0c9
+    pontos_uids:
+    - gzGHt5BlEYXU4l
+  - alvo_uid: zIVJzPjPBZIJZF
+    pontos_uids:
+    - LGS8CPiTaAOzDL
+  - alvo_uid: lfDrIvS2jG18ep
+    pontos_uids:
+    - z7JuoTTUWsL2F6
 escaladas:
-- via_esportiva:
+- uid: TBfeLKMqq9j217
+  via_esportiva:
     nome: Pulando a cerca
     dificuldade: BR_6SUP
     extensao: 12
@@ -144,7 +144,8 @@ escaladas:
     - Alexandre Fei
     - Daiex
     data_abertura: '2014'
-- via_esportiva:
+- uid: E7dGmVTn0GA73f
+  via_esportiva:
     nome: Cerca Elétrica
     dificuldade: BR_7A
     extensao: 15
@@ -153,7 +154,8 @@ escaladas:
     conquistadores:
     - Alexandre Fei
     data_abertura: '2013'
-- via_esportiva:
+- uid: A2DJJlGzRxTnH9
+  via_esportiva:
     nome: Clube da Esquina
     dificuldade: BR_5
     extensao: 8
@@ -163,7 +165,8 @@ escaladas:
     - Gustavo Maneira
     - Daiex de Almeida
     data_abertura: '2013'
-- via_esportiva:
+- uid: BD8xtor1M8TTfy
+  via_esportiva:
     nome: Chuva de Meteoros
     dificuldade: BR_6
     extensao: 25
@@ -172,7 +175,8 @@ escaladas:
     conquistadores:
     - Daiex de Almeida
     data_abertura: '2013'
-- via_esportiva:
+- uid: COJFiz7EbK2YQc
+  via_esportiva:
     nome: Pit Bitoca
     dificuldade: BR_6SUP
     extensao: 18
@@ -181,7 +185,8 @@ escaladas:
     conquistadores:
     - Alexandre Fei
     data_abertura: '2013'
-- via_esportiva:
+- uid: R4wt2wZYZIhOcv
+  via_esportiva:
     nome: Jovem Ganso
     dificuldade: BR_6SUP
     extensao: 15
@@ -191,7 +196,8 @@ escaladas:
     - Daiex de Almeida
     - Gustavo Maneira
     data_abertura: '2013'
-- via_esportiva:
+- uid: 2eFUtu9YUB5x0J
+  via_esportiva:
     nome: Filho de Vó
     dificuldade: BR_6SUP
     extensao: 12
@@ -201,7 +207,8 @@ escaladas:
     - Daiex de Almeida
     - Gustavo Maneira
     data_abertura: '2013'
-- via_esportiva:
+- uid: zIVJzPjPBZIJZF
+  via_esportiva:
     nome: Loucura Alheia
     dificuldade: BR_6SUP
     extensao: 12
@@ -211,7 +218,8 @@ escaladas:
     - Daiex de Almeida
     - Gustavo Maneira
     data_abertura: '2013'
-- via_esportiva:
+- uid: lfDrIvS2jG18ep
+  via_esportiva:
     nome: Mistério de Ramadã
     dificuldade: BR_7A
     extensao: 15
@@ -221,7 +229,8 @@ escaladas:
     - Alexandre Fei
     - Gustavo Maneira
     data_abertura: '2013'
-- via_esportiva:
+- uid: puImKmmFRbKT9L
+  via_esportiva:
     nome: Chuva de Verão
     dificuldade: BR_7A
     extensao: 12
@@ -230,7 +239,8 @@ escaladas:
     conquistadores:
     - Alexandre Fei
     data_abertura: '2013'
-- via_esportiva:
+- uid: FRNqGKfCDTM51k
+  via_esportiva:
     nome: Pole Dance
     dificuldade: BR_6SUP
     extensao: 12
@@ -239,7 +249,8 @@ escaladas:
     conquistadores:
     - Alexandre Fei
     data_abertura: '2013'
-- via_esportiva:
+- uid: ltLnaMRsm9MAoL
+  via_esportiva:
     nome: Brusqueta do Cerrado
     dificuldade: BR_6
     extensao: 8
@@ -248,7 +259,8 @@ escaladas:
     conquistadores:
     - Daiex de Almeida
     data_abertura: '2016'
-- via_esportiva:
+- uid: uSCoBfaUxcl0c9
+  via_esportiva:
     nome: Rota Aérea
     dificuldade: BR_6
     extensao: 8

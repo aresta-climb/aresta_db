@@ -5,6 +5,8 @@ import pytest
 import sys
 from pathlib import Path
 from unittest.mock import patch, MagicMock
+import yaml
+from aresta_api.proto.generated import croqui_pb2
 
 ROOT_PATH = Path(__file__).resolve().parent.parent
 if str(ROOT_PATH) not in sys.path:
@@ -18,6 +20,7 @@ from scripts.preparar_submissao_lib import (
     expandir_arquivo_generico,
     expandir_setores_ou_grupos_recursivo
 )
+from scripts.gerenciar_uids_lib import gerar_uid, validar_uid
 
 def test_validar_poi_sem_id_lanca_erro():
     obj = {
@@ -25,7 +28,7 @@ def test_validar_poi_sem_id_lanca_erro():
             {"circulo": {"x": 10, "y": 20, "raio": 5}}
         ]
     }
-    with pytest.raises(ValueError, match="campo obrigatório 'id'"):
+    with pytest.raises(ValueError, match="campo obrigatório 'uid'"):
         validar_pontos_de_interesse_recursivo(obj)
 
 
@@ -35,7 +38,7 @@ def test_validar_poi_com_id_em_branco_lanca_erro():
             {"id": "   ", "circulo": {"x": 10, "y": 20, "raio": 5}}
         ]
     }
-    with pytest.raises(ValueError, match="campo obrigatório 'id'"):
+    with pytest.raises(ValueError, match="campo obrigatório 'uid'"):
         validar_pontos_de_interesse_recursivo(obj)
 
 
@@ -43,6 +46,16 @@ def test_validar_circulo_valido():
     obj = {
         "pontos_de_interesse": [
             {"id": "1", "circulo": {"x": 10, "y": 20, "raio": 5}}
+        ]
+    }
+    # Não deve subir exceção
+    validar_pontos_de_interesse_recursivo(obj)
+
+
+def test_validar_circulo_valido_com_apenas_uid():
+    obj = {
+        "pontos_de_interesse": [
+            {"uid": "a1b2c3d4e5f6g7", "rotulo": "10", "circulo": {"x": 10, "y": 20, "raio": 5}}
         ]
     }
     # Não deve subir exceção
@@ -427,6 +440,7 @@ from scripts.helpers_migracao import configurar_croqui_teste
 def test_corrigir_database_chama_aplicar_migracoes(mock_aplicar, tmp_path):
     yaml_content = """
     id: test_corrigir
+    uid: '1234567890abcd'
     nome: Teste Corrigir
     """
     croqui_dir = configurar_croqui_teste(tmp_path, yaml_content=yaml_content)
@@ -443,6 +457,7 @@ def test_corrigir_database_retorna_false_quando_nada_modificado(mock_aplicar, tm
     yaml_content = """# SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 id: test_sem_modificacao
+uid: '1234567890abcd'
 nome: Teste Sem Modificacao
 """
     croqui_dir = configurar_croqui_teste(tmp_path, yaml_content=yaml_content)
@@ -457,6 +472,7 @@ def test_corrigir_database_retorna_true_quando_limpa_orfaos(mock_aplicar, tmp_pa
     yaml_content = """# SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 id: test_com_modificacao
+uid: '1234567890abcd'
 nome: Teste Com Modificacao
 """
     croqui_dir = configurar_croqui_teste(tmp_path, yaml_content=yaml_content)
@@ -2033,20 +2049,20 @@ def test_compilar_croqui_com_mapas_gerais_e_mapas_de_escaladas(tmp_path):
         "        largura_mapa: 800\n"
         "        altura_mapa: 1200\n"
         "        pontos_de_interesse:\n"
-        "          - id: start\n"
-        "            label: Start\n"
+        "          - uid: start\n"
+        "            rotulo: Start\n"
         "            circulo:\n"
         "              x: 400\n"
         "              y: 1100\n"
         "              raio: 20\n"
-        "          - id: crux\n"
-        "            label: Crux\n"
+        "          - uid: crux\n"
+        "            rotulo: Crux\n"
         "            circulo:\n"
         "              x: 420\n"
         "              y: 600\n"
         "              raio: 15\n"
-        "          - id: top\n"
-        "            label: Top\n"
+        "          - uid: top\n"
+        "            rotulo: Top\n"
         "            quadrado:\n"
         "              x: 410\n"
         "              y: 100\n"
@@ -2110,10 +2126,10 @@ def test_compilar_croqui_com_mapas_gerais_e_mapas_de_escaladas(tmp_path):
     assert mapa_esc.largura_mapa == 800
     assert mapa_esc.altura_mapa == 1200
     assert len(mapa_esc.pontos_de_interesse) == 3
-    ids_pois = [poi.id for poi in mapa_esc.pontos_de_interesse]
-    assert "start" in ids_pois
-    assert "crux" in ids_pois
-    assert "top" in ids_pois
+    uids_pois = [poi.uid for poi in mapa_esc.pontos_de_interesse]
+    assert "start" in uids_pois
+    assert "crux" in uids_pois
+    assert "top" in uids_pois
 
 
 def test_corrigir_database_migra_mapas_gerais_de_raw_pdf_contents(tmp_path):
@@ -2411,3 +2427,409 @@ def test_validar_referencias_mapa_aviso_mapa_duplicado():
     erros = validar_referencias_mapa(croqui)
     assert any("A imagem de mapa 'imagens/parede.webp' no pico 'Pico Teste' está sendo exibida em mais de um local" in e for e in erros)
     assert any("duplicação indevida de informação" in e for e in erros)
+
+
+def test_corrigir_database_audita_uids_sucesso(tmp_path: Path):
+    from scripts.preparar_submissao_lib import corrigir_database
+    from scripts.gerenciar_uids_lib import gerar_uid
+    import yaml
+
+    croqui_uid = gerar_uid()
+    setor_uid = gerar_uid()
+    esc_uid = gerar_uid()
+    poi_uid = gerar_uid()
+
+    md_content = f"""---
+uid: '{setor_uid}'
+nome: Setor Teste
+mapas:
+  - caminho_imagem_mapa: imagens/mapa.webp
+    pontos_de_interesse:
+      - uid: '{poi_uid}'
+        id: '1'
+        rotulo: '1'
+        circulo:
+          x: 10
+          y: 20
+          raio: 5
+    referencias:
+      - alvo_uid: '{esc_uid}'
+        pontos_uids:
+          - '{poi_uid}'
+escaladas:
+  - uid: '{esc_uid}'
+    via_esportiva:
+      nome: Via Teste
+---
+Descrição do setor
+"""
+    (tmp_path / "setor.md").write_text(md_content, encoding="utf-8")
+    (tmp_path / "imagens").mkdir(exist_ok=True)
+    (tmp_path / "imagens" / "mapa.webp").write_bytes(b"dummy")
+
+    croqui_yaml = {
+        "id": "croqui_teste",
+        "uid": croqui_uid,
+        "nome": "Croqui Teste",
+        "ultima_migracao": 5,
+        "botoes": [
+            {
+                "texto": "Capa",
+                "uid": gerar_uid(),
+                "destino": {"secao_textual": {"caminho": "capa.md"}}
+            }
+        ],
+        "picos": [
+            {
+                "nome": "Pico 1",
+                "setores_ou_grupos": [
+                    {"setor": {"caminho": "setor.md"}}
+                ]
+            }
+        ]
+    }
+    (tmp_path / "capa.md").write_text("# Capa", encoding="utf-8")
+    with open(tmp_path / "croqui.yaml", "w", encoding="utf-8") as f:
+        yaml.dump(croqui_yaml, f)
+
+    # Não deve lançar erro
+    corrigir_database(tmp_path)
+
+
+def test_corrigir_database_botao_com_uid_invalido_lanca_erro(tmp_path: Path):
+    from scripts.preparar_submissao_lib import corrigir_database
+    from scripts.gerenciar_uids_lib import gerar_uid
+    import yaml
+
+    croqui_yaml = {
+        "id": "croqui_teste",
+        "uid": gerar_uid(),
+        "nome": "Croqui Teste",
+        "ultima_migracao": 5,
+        "botoes": [
+            {
+                "texto": "Avisos",
+                "uid": "invalido",
+                "destino": {"secao_textual": {"caminho": "avisos.md"}}
+            }
+        ],
+        "picos": []
+    }
+    with open(tmp_path / "croqui.yaml", "w", encoding="utf-8") as f:
+        yaml.dump(croqui_yaml, f)
+
+    with pytest.raises(ValueError, match="Botão 'Avisos' no croqui .* possui UID ausente ou inválido"):
+        corrigir_database(tmp_path)
+
+
+def test_corrigir_database_croqui_com_uid_invalido_lanca_erro(tmp_path: Path):
+    from scripts.preparar_submissao_lib import corrigir_database
+    import yaml
+
+    croqui_yaml = {
+        "id": "croqui_teste",
+        "uid": "uid_invalido_curto",
+        "nome": "Croqui Teste",
+        "ultima_migracao": 5,
+        "picos": []
+    }
+    with open(tmp_path / "croqui.yaml", "w", encoding="utf-8") as f:
+        yaml.dump(croqui_yaml, f)
+
+    with pytest.raises(ValueError, match="UID ausente ou inválido"):
+        corrigir_database(tmp_path)
+
+
+def test_corrigir_database_setor_com_uid_invalido_lanca_erro(tmp_path: Path):
+    from scripts.preparar_submissao_lib import corrigir_database
+    from scripts.gerenciar_uids_lib import gerar_uid
+    import yaml
+
+    md_content = """---
+uid: 'invalido'
+nome: Setor Teste
+---
+Desc
+"""
+    (tmp_path / "setor.md").write_text(md_content, encoding="utf-8")
+
+    croqui_yaml = {
+        "id": "croqui_teste",
+        "uid": gerar_uid(),
+        "nome": "Croqui Teste",
+        "ultima_migracao": 5,
+        "picos": [
+            {
+                "nome": "Pico 1",
+                "setores_ou_grupos": [
+                    {"setor": {"caminho": "setor.md"}}
+                ]
+            }
+        ]
+    }
+    with open(tmp_path / "croqui.yaml", "w", encoding="utf-8") as f:
+        yaml.dump(croqui_yaml, f)
+
+    with pytest.raises(ValueError, match="UID ausente ou inválido"):
+        corrigir_database(tmp_path)
+
+
+def test_corrigir_database_escalada_com_uid_invalido_lanca_erro(tmp_path: Path):
+    from scripts.preparar_submissao_lib import corrigir_database
+    from scripts.gerenciar_uids_lib import gerar_uid
+    import yaml
+
+    md_content = """---
+uid: '1234567890abcd'
+nome: Setor Teste
+escaladas:
+  - uid: 'invalido'
+    via_esportiva:
+      nome: Via 1
+---
+Desc
+"""
+    (tmp_path / "setor.md").write_text(md_content, encoding="utf-8")
+
+    croqui_yaml = {
+        "id": "croqui_teste",
+        "uid": gerar_uid(),
+        "nome": "Croqui Teste",
+        "ultima_migracao": 5,
+        "picos": [
+            {
+                "nome": "Pico 1",
+                "setores_ou_grupos": [
+                    {"setor": {"caminho": "setor.md"}}
+                ]
+            }
+        ]
+    }
+    with open(tmp_path / "croqui.yaml", "w", encoding="utf-8") as f:
+        yaml.dump(croqui_yaml, f)
+
+    with pytest.raises(ValueError, match="UID ausente ou inválido"):
+        corrigir_database(tmp_path)
+
+
+def test_corrigir_database_poi_com_uid_invalido_lanca_erro(tmp_path: Path):
+    from scripts.preparar_submissao_lib import corrigir_database
+    from scripts.gerenciar_uids_lib import gerar_uid
+    import yaml
+
+    md_content = """---
+uid: '1234567890abcd'
+nome: Setor Teste
+mapas:
+  - caminho_imagem_mapa: imagens/mapa.webp
+    pontos_de_interesse:
+      - uid: 'curto'
+        id: '1'
+        rotulo: '1'
+        circulo:
+          x: 10
+          y: 20
+          raio: 5
+---
+Desc
+"""
+    (tmp_path / "setor.md").write_text(md_content, encoding="utf-8")
+    (tmp_path / "imagens").mkdir(exist_ok=True)
+    (tmp_path / "imagens" / "mapa.webp").write_bytes(b"dummy")
+
+    croqui_yaml = {
+        "id": "croqui_teste",
+        "uid": gerar_uid(),
+        "nome": "Croqui Teste",
+        "ultima_migracao": 5,
+        "picos": [
+            {
+                "nome": "Pico 1",
+                "setores_ou_grupos": [
+                    {"setor": {"caminho": "setor.md"}}
+                ]
+            }
+        ]
+    }
+    with open(tmp_path / "croqui.yaml", "w", encoding="utf-8") as f:
+        yaml.dump(croqui_yaml, f)
+
+    with pytest.raises(ValueError, match="UID ausente ou inválido"):
+        corrigir_database(tmp_path)
+
+
+def test_compilar_croqui_injeta_uids_e_preenche_retrocompatibilidade(tmp_path: Path):
+    from scripts.preparar_submissao_lib import compilar_croqui
+    from scripts.gerenciar_uids_lib import gerar_uid
+    from aresta_api.proto.generated import croqui_pb2
+    from PIL import Image
+    import yaml
+
+    croqui_uid = gerar_uid()
+    botao_uid = gerar_uid()
+    setor_uid = gerar_uid()
+    esc_uid = gerar_uid()
+    poi_uid = gerar_uid()
+
+    # Cria imagem de mapa válida
+    (tmp_path / "imagens").mkdir(exist_ok=True)
+    img_mapa = tmp_path / "imagens" / "mapa.webp"
+    Image.new("RGB", (100, 100), color="blue").save(img_mapa, "WEBP")
+
+    md_content = f"""---
+uid: '{setor_uid}'
+nome: Setor Central
+mapas:
+  - caminho_imagem_mapa: imagens/mapa.webp
+    pontos_de_interesse:
+      - uid: '{poi_uid}'
+        id: '1'
+        rotulo: '12A'
+        circulo:
+          x: 10
+          y: 20
+          raio: 5
+    referencias:
+      - alvo_uid: '{esc_uid}'
+        pontos_uids:
+          - '{poi_uid}'
+escaladas:
+  - uid: '{esc_uid}'
+    via_esportiva:
+      nome: Fissura de Teste
+---
+Descrição do setor
+"""
+    (tmp_path / "setor.md").write_text(md_content, encoding="utf-8")
+    (tmp_path / "capa.md").write_text("# Capa de Teste", encoding="utf-8")
+
+    croqui_yaml = {
+        "id": "croqui_teste",
+        "uid": croqui_uid,
+        "nome": "Croqui Teste",
+        "ultima_migracao": 5,
+        "botoes": [
+            {
+                "texto": "Capa",
+                "uid": botao_uid,
+                "destino": {"secao_textual": {"caminho": "capa.md"}}
+            }
+        ],
+        "picos": [
+            {
+                "nome": "Pico 1",
+                "setores_ou_grupos": [
+                    {"setor": {"caminho": "setor.md"}}
+                ]
+            }
+        ]
+    }
+    with open(tmp_path / "croqui.yaml", "w", encoding="utf-8") as f:
+        yaml.dump(croqui_yaml, f)
+
+    destino_yaml = tmp_path / "compilado.yaml"
+    destino_pb = tmp_path / "compilado.binarypb"
+
+    compilar_croqui(tmp_path, destino_yaml, destino_pb)
+
+    # Lê o proto compilado
+    croqui_proto = croqui_pb2.Croqui()
+    croqui_proto.ParseFromString(destino_pb.read_bytes())
+
+    # Validações dos novos UIDs
+    assert croqui_proto.uid == croqui_uid
+    assert len(croqui_proto.botoes) == 1
+    assert croqui_proto.botoes[0].uid == botao_uid
+    assert croqui_proto.botoes[0].texto == "Capa"
+    setor_conteudo = croqui_proto.picos[0].setores_ou_grupos[0].setor.conteudo
+    assert setor_conteudo.uid == setor_uid
+    assert setor_conteudo.escaladas[0].uid == esc_uid
+
+    poi = setor_conteudo.mapas[0].pontos_de_interesse[0]
+    assert poi.uid == poi_uid
+    assert poi.rotulo == "12A"
+    # Retrocompatibilidade com label
+    assert getattr(poi, "label") == "12A"
+
+    ref = setor_conteudo.mapas[0].referencias[0]
+    assert ref.alvo_uid == esc_uid
+    assert list(ref.pontos_uids) == [poi_uid]
+    # Retrocompatibilidade com campos legados
+    assert getattr(ref, "escalada") == "Fissura de Teste"
+    assert list(getattr(ref, "ids")) == ["1"]
+
+
+def test_compilar_croqui_retrocompatibilidade_em_memoria_sem_id_e_sem_ids(tmp_path: Path):
+    """Garante que um croqui sem 'id' em POIs e sem 'ids' em Referências tem esses campos preenchidos no compilado."""
+    croqui_uid = gerar_uid()
+    setor_uid = gerar_uid()
+    esc_uid = gerar_uid()
+    poi_uid = gerar_uid()
+
+    md_content = f"""\
+---
+uid: {setor_uid}
+nome: Setor Puro NanoID
+mapas:
+  - caminho_imagem_mapa: mapa.webp
+    pontos_de_interesse:
+      - uid: {poi_uid}
+        rotulo: "1"
+        circulo:
+          x: 10
+          y: 20
+          raio: 5
+    referencias:
+      - alvo_uid: {esc_uid}
+        pontos_uids:
+          - {poi_uid}
+escaladas:
+  - uid: {esc_uid}
+    via_esportiva:
+      nome: Via dos Sonhos
+---
+Descrição do setor
+"""
+    (tmp_path / "setor.md").write_text(md_content, encoding="utf-8")
+
+    croqui_yaml = {
+        "id": "croqui_puro",
+        "uid": croqui_uid,
+        "nome": "Croqui Puro",
+        "ultima_migracao": 5,
+        "picos": [
+            {
+                "nome": "Pico 1",
+                "setores_ou_grupos": [
+                    {"setor": {"caminho": "setor.md"}}
+                ]
+            }
+        ]
+    }
+    with open(tmp_path / "croqui.yaml", "w", encoding="utf-8") as f:
+        yaml.dump(croqui_yaml, f)
+
+    destino_yaml = tmp_path / "compilado.yaml"
+    destino_pb = tmp_path / "compilado.binarypb"
+
+    compilar_croqui(tmp_path, destino_yaml, destino_pb)
+
+    croqui_proto = croqui_pb2.Croqui()
+    croqui_proto.ParseFromString(destino_pb.read_bytes())
+
+    setor_conteudo = croqui_proto.picos[0].setores_ou_grupos[0].setor.conteudo
+    poi = setor_conteudo.mapas[0].pontos_de_interesse[0]
+    assert poi.uid == poi_uid
+    assert poi.rotulo == "1"
+    # Preenchimento em memória para retrocompatibilidade
+    assert getattr(poi, "id") == poi_uid
+    assert getattr(poi, "label") == "1"
+
+    ref = setor_conteudo.mapas[0].referencias[0]
+    assert ref.alvo_uid == esc_uid
+    assert list(ref.pontos_uids) == [poi_uid]
+    # Preenchimento em memória para retrocompatibilidade
+    assert getattr(ref, "escalada") == "Via dos Sonhos"
+    assert list(getattr(ref, "ids")) == [poi_uid]
+
+

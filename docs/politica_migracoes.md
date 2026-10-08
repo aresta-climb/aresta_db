@@ -35,3 +35,18 @@ Os arquivos YAML do projeto muitas vezes contêm anotações ou comentários dei
 ## 5. Abordagem "Library-First"
 
 A lógica de manipulação e transformação de dados DEVE ser desacoplada da rotina de iteração do CLI. O script deve expor funções puras (ex: `transformar_yaml_setor(yaml_dict)`) que recebem os dados carregados em memória e retornam os dados alterados. Isso simplifica o TDD, viabilizando testar a migração passando dicionários diretos, sem a necessidade constante de fazer Mocks custosos do `FileSystem`. Apenas os testes de integração deverão testar os fluxos de leitura e gravação em disco.
+
+## 6. Migrações de Escopo "Database-Only" (`AFETA_VERSAO_SERVING = False`)
+
+Por padrão, a versão do catálogo de serving consumida pelo aplicativo móvel (`kDataVersion`) é calculada dinamicamente pelo maior prefixo numérico dos scripts em `aresta_db/migracoes/` (ex: `0004` &rarr; `v4`).
+
+No entanto, quando uma migração afeta exclusivamente a estrutura de dados interna do repositório Git (arquivos `.md` e `croqui.yaml` na pasta `database/` ou formato de croquis experimentais) e o compilador `deploy_generated.py` preserva 100% de compatibilidade binária com os clientes móveis legados em produção, a migração **DEVE declarar explicitamente**:
+
+```python
+AFETA_VERSAO_SERVING: bool = False
+```
+
+### Regras para Migrações Database-Only:
+1. **Isolamento de Serving**: O script `serving/update_serving.py` inspeciona a constante `AFETA_VERSAO_SERVING` via AST e ignora a migração no cálculo de `get_db_version()`. A versão pública de serving permanece inalterada (ex: `v4`), impedindo que usuários em áreas remotas tenham seus dados locais invalidados ou bloqueados.
+2. **Registro de Execução**: O motor de migração (`aplicar_migracoes()`) executa a migração normalmente e atualiza `ultima_migracao: N` no cabeçalho de cada `croqui.yaml`.
+3. **Retrocompatibilidade Obrigatória**: Migrações marcadas com `AFETA_VERSAO_SERVING = False` só são permitidas se o compilador `deploy_generated.py` mantiver o preenchimento de todos os campos legados esperados pela versão atual de serving do aplicativo móvel.

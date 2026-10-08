@@ -1,6 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+uid: 6w8zkp69MctGlM
 nome: Setor Covide (ala esquerda)
 localizacao_estacionamento:
   latitude: -197584200
@@ -13,99 +14,100 @@ mapas:
   largura_mapa: 1046
   altura_mapa: 1536
   pontos_de_interesse:
-  - id: '4'
-    label: '4'
+  - uid: Z8cUeKRnCJXDJY
+    rotulo: '4'
     circulo:
       x: 106
       y: 725
       raio: 29
-  - id: '5'
-    label: '5'
+  - uid: uakLllXDBVS2qa
+    rotulo: '5'
     circulo:
       x: 273
       y: 733
       raio: 29
-  - id: '6'
-    label: '6'
+  - uid: u5cMYTTgqUADPK
+    rotulo: '6'
     circulo:
       x: 368
       y: 763
       raio: 29
-  - id: '7'
-    label: '7'
+  - uid: Czyi8HERIOYHD6
+    rotulo: '7'
     circulo:
       x: 397
       y: 803
       raio: 29
-  - id: '8'
-    label: '8'
+  - uid: fbOUxltOhsLGTl
+    rotulo: '8'
     circulo:
       x: 436
       y: 733
       raio: 29
-  - id: '9'
-    label: '9'
+  - uid: x22tIrWvBEmzut
+    rotulo: '9'
     circulo:
       x: 516
       y: 696
       raio: 29
-  - id: '10'
-    label: '10'
+  - uid: qPpdyyeRywi1B3
+    rotulo: '10'
     circulo:
       x: 487
       y: 803
       raio: 29
-  - id: '11'
-    label: '11'
+  - uid: m3lcXi1Ro2NnpB
+    rotulo: '11'
     circulo:
       x: 621
       y: 779
       raio: 29
-  - id: '12'
-    label: '12'
+  - uid: dwZvbHJdgZqOWH
+    rotulo: '12'
     circulo:
       x: 710
       y: 821
       raio: 29
-  - id: '13'
-    label: '13'
+  - uid: OLMu1e2akUT46Z
+    rotulo: '13'
     circulo:
       x: 883
       y: 891
       raio: 29
   referencias:
-  - escalada: Coronavaco
-    ids:
-    - '4'
-  - escalada: Exclusão social
-    ids:
-    - '5'
-  - escalada: Exputinick
-    ids:
-    - '6'
-  - escalada: Y de Covide
-    ids:
-    - '7'
-  - escalada: Vitiligovide
-    ids:
-    - '8'
-  - escalada: Fayserchover
-    ids:
-    - '9'
-  - escalada: Covid com C maiúsculo
-    ids:
-    - '10'
-  - escalada: Ômicronibus
-    ids:
-    - '11'
-  - escalada: Ômicron ondas
-    ids:
-    - '12'
-  - escalada: Aracnocovid
-    ids:
-    - '13'
+  - alvo_uid: 907rN8s2gDHlN6
+    pontos_uids:
+    - Z8cUeKRnCJXDJY
+  - alvo_uid: MnILT3c0qTgDqb
+    pontos_uids:
+    - uakLllXDBVS2qa
+  - alvo_uid: AtuWGN7mpbOfye
+    pontos_uids:
+    - u5cMYTTgqUADPK
+  - alvo_uid: 91AMT03TYHK0Y9
+    pontos_uids:
+    - Czyi8HERIOYHD6
+  - alvo_uid: B7FzJ1PHuMEy4S
+    pontos_uids:
+    - fbOUxltOhsLGTl
+  - alvo_uid: 1dhPraNFUq8viA
+    pontos_uids:
+    - x22tIrWvBEmzut
+  - alvo_uid: iGjIBfmFpnnHTA
+    pontos_uids:
+    - qPpdyyeRywi1B3
+  - alvo_uid: fZhZb8aXNKf6C0
+    pontos_uids:
+    - m3lcXi1Ro2NnpB
+  - alvo_uid: GUb1n2EBklftzl
+    pontos_uids:
+    - dwZvbHJdgZqOWH
+  - alvo_uid: 8wHmWAFw0v3Dc7
+    pontos_uids:
+    - OLMu1e2akUT46Z
 escaladas:
-- via_esportiva:
+- uid: 907rN8s2gDHlN6
+  via_esportiva:
     nome: Coronavaco
     dificuldade: BR_4
     extensao: 8
@@ -126,7 +128,8 @@ escaladas:
   - caminho_imagem_mapa: imagens/setor_covide_ala_esquerda_p2.webp
     largura_mapa: 825
     altura_mapa: 1211
-- via_esportiva:
+- uid: MnILT3c0qTgDqb
+  via_esportiva:
     nome: Exclusão social
     dificuldade: BR_5
     extensao: 8
@@ -144,7 +147,8 @@ escaladas:
   - caminho_imagem_mapa: imagens/setor_covide_ala_esquerda_p3.webp
     largura_mapa: 825
     altura_mapa: 1211
-- via_esportiva:
+- uid: AtuWGN7mpbOfye
+  via_esportiva:
     nome: Exputinick
     dificuldade: BR_5SUP
     extensao: 10
@@ -165,7 +169,8 @@ escaladas:
   - caminho_imagem_mapa: imagens/setor_covide_ala_esquerda_p4.webp
     largura_mapa: 825
     altura_mapa: 1211
-- via_esportiva:
+- uid: 91AMT03TYHK0Y9
+  via_esportiva:
     nome: Y de Covide
     dificuldade: BR_6SUP
     extensao: 10
@@ -183,7 +188,8 @@ escaladas:
   - caminho_imagem_mapa: imagens/setor_covide_ala_esquerda_p5.webp
     largura_mapa: 825
     altura_mapa: 1211
-- via_esportiva:
+- uid: B7FzJ1PHuMEy4S
+  via_esportiva:
     nome: Vitiligovide
     dificuldade: BR_7B
     extensao: 10
@@ -201,7 +207,8 @@ escaladas:
   - caminho_imagem_mapa: imagens/setor_covide_ala_esquerda_p6.webp
     largura_mapa: 825
     altura_mapa: 1211
-- via_esportiva:
+- uid: 1dhPraNFUq8viA
+  via_esportiva:
     nome: Fayserchover
     dificuldade: BR_8B
     extensao: 12
@@ -219,7 +226,8 @@ escaladas:
   - caminho_imagem_mapa: imagens/setor_covide_ala_esquerda_p7.webp
     largura_mapa: 825
     altura_mapa: 1211
-- via_esportiva:
+- uid: iGjIBfmFpnnHTA
+  via_esportiva:
     nome: Covid com C maiúsculo
     dificuldade: BR_8C
     extensao: 14
@@ -240,7 +248,8 @@ escaladas:
   - caminho_imagem_mapa: imagens/setor_covide_ala_esquerda_p8.webp
     largura_mapa: 825
     altura_mapa: 1211
-- via_esportiva:
+- uid: fZhZb8aXNKf6C0
+  via_esportiva:
     nome: Ômicronibus
     dificuldade: BR_7C
     extensao: 12
@@ -261,7 +270,8 @@ escaladas:
   - caminho_imagem_mapa: imagens/setor_covide_ala_esquerda_p9.webp
     largura_mapa: 825
     altura_mapa: 1211
-- via_esportiva:
+- uid: GUb1n2EBklftzl
+  via_esportiva:
     nome: Ômicron ondas
     dificuldade: BR_8A
     extensao: 12
@@ -279,7 +289,8 @@ escaladas:
   - caminho_imagem_mapa: imagens/setor_covide_ala_esquerda_p10.webp
     largura_mapa: 825
     altura_mapa: 1211
-- via_esportiva:
+- uid: 8wHmWAFw0v3Dc7
+  via_esportiva:
     nome: Aracnocovid
     dificuldade: BR_7C
     extensao: 12

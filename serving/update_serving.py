@@ -12,6 +12,32 @@ from botocore.exceptions import ClientError
 from botocore.config import Config
 from pathlib import Path
 from concurrent.futures import ThreadPoolExecutor
+import ast
+
+def _migracao_afeta_serving(arquivo: Any) -> bool:
+    """Verifica se o script de migração afeta a versão pública do serving de produção.
+
+    Por padrão, toda migração afeta o serving, a menos que declare explicitamente
+    AFETA_VERSAO_SERVING = False (para migrações exclusivas do banco de dados/croquis).
+    """
+    if not hasattr(arquivo, "read_text"):
+        return True
+    try:
+        conteudo = arquivo.read_text(encoding="utf-8")
+        arvore = ast.parse(conteudo)
+        for nodo in arvore.body:
+            if isinstance(nodo, ast.Assign):
+                for alvo in nodo.targets:
+                    if isinstance(alvo, ast.Name) and alvo.id == "AFETA_VERSAO_SERVING":
+                        if isinstance(nodo.value, ast.Constant):
+                            return bool(nodo.value.value)
+            elif isinstance(nodo, ast.AnnAssign):
+                if isinstance(nodo.target, ast.Name) and nodo.target.id == "AFETA_VERSAO_SERVING":
+                    if nodo.value and isinstance(nodo.value, ast.Constant):
+                        return bool(nodo.value.value)
+    except Exception:
+        pass
+    return True
 
 def get_db_version() -> str:
     base_dir = Path(__file__).resolve().parent.parent / "migracoes"
@@ -19,6 +45,7 @@ def get_db_version() -> str:
     if base_dir.exists():
         for m in base_dir.glob("*.py"):
             if m.name.endswith("_test.py"): continue
+            if not _migracao_afeta_serving(m): continue
             num_str = "".join(filter(str.isdigit, m.name.split("_")[0]))
             if num_str:
                 num = int(num_str)

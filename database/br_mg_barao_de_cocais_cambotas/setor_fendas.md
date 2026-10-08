@@ -2,11 +2,13 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
+uid: VoZcuSQ0d3Phq9
 nome: Fendas
 mapas:
 - caminho_imagem_mapa: imagens/setor_fendas_p0_i0.webp
 escaladas:
-- via_multiplas_enfiadas:
+- uid: tl2CPmdD1uTutl
+  via_multiplas_enfiadas:
     nome: Noites equatoriais
     dificuldade_maxima: BR_7A
     exposicao: E3
@@ -19,7 +21,8 @@ escaladas:
     - Gustavo Piancastelli
     descricao: Segue sistema de fendas principal da parede. Exige boa leitura de via.
     comprimento_total: 200
-- via_esportiva:
+- uid: Ky8DyINGvg3ULq
+  via_esportiva:
     nome: Vomitão no reglete
     dificuldade: BR_7B
     extensao: 30
@@ -27,31 +30,33 @@ escaladas:
     - Fabiano Fernandes
     - Wagner
     descricao: Via vertical e pequenos regletes. Boa opção, mas molha no verão.
-- via_esportiva:
+- uid: 7ifhnA9B1PaljX
+  via_esportiva:
     nome: Soul rebel
     dificuldade: BR_7B
     extensao: 30
     conquistadores:
     - Gustavo Piancastelli
-- via_movel:
+- uid: hYU6hu6eD8yvW9
+  via_movel:
     nome: Positive vibration
     dificuldade: BR_7A
     extensao: 40
     conquistadores:
     - Gustavo Piancastelli
-    descricao: 'Boa via com fenda no final que pode ser protegida com cam #2 ou similar. Atenção
-      com abelhas próximo da via, à esquerda.'
-- via_multiplas_enfiadas:
+    descricao: 'Boa via com fenda no final que pode ser protegida com cam #2 ou similar. Atenção com abelhas próximo da via,
+      à esquerda.'
+- uid: gWC4QzVF0P6SKn
+  via_multiplas_enfiadas:
     nome: Princesa Kel
     dificuldade_maxima: INDEFINIDO
     tipo_via_multiplas_enfiadas: TODA_MOVEL
     conquistadores:
     - Gustavo Piancastelli
     - Leonardo Tangari
-    descricao: Começa no final da 'Positive vibration'. Faz o cume isolado à direita da 
-      parede principal. Grampos somente nas paradas.
+    descricao: Começa no final da 'Positive vibration'. Faz o cume isolado à direita da parede principal. Grampos 
+      somente nas paradas.
     comprimento_total: 120
 ---
-
 
 # Setor Fendas

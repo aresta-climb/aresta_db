@@ -20,6 +20,7 @@ from dataclasses import dataclass
 from typing import List, Tuple, Optional, Any, Sequence, Set, Union, Dict
 
 from aresta_api.proto.generated import croqui_pb2
+from scripts.gerenciar_uids_lib import gerar_uid, validar_uid
 from editor.core.spline_catmull_rom import Ponto2D as Ponto2D
 
 
@@ -89,7 +90,7 @@ def detectar_snap_nos(
         if not hasattr(linha, "linha") or not linha.HasField("linha"):
             continue
         nos = linha.linha.conteudo.nos
-        id_linha = str(linha.id)
+        id_linha = str(getattr(linha, "uid", "") or getattr(linha, "id", ""))
         for idx, no in enumerate(nos):
             p_no = Ponto2D(float(no.x), float(no.y))
             dist = ponto.distancia_ate(p_no)
@@ -124,7 +125,7 @@ def detectar_snap_curva(
         nos = linha.linha.conteudo.nos
         if len(nos) < 2:
             continue
-        id_linha = str(linha.id)
+        id_linha = str(getattr(linha, "uid", "") or getattr(linha, "id", ""))
         for i in range(len(nos) - 1):
             p_a = Ponto2D(float(nos[i].x), float(nos[i].y))
             p_b = Ponto2D(float(nos[i + 1].x), float(nos[i + 1].y))
@@ -164,13 +165,14 @@ def calcular_snap(
     return ResultadoSnap(tipo=TipoSnap.LIVRE, coordenada=ponto)
 
 
-def _copiar_poi_linha_base(linha_proto: Any, novo_id: str) -> Any:
-    """Cria uma cópia limpa do POI do tipo linha com novo ID."""
-    poi = croqui_pb2.Mapa.PontoDeInteresse(id=novo_id)
+def _copiar_poi_linha_base(linha_proto: Any, novo_id: str = "") -> Any:
+    """Cria uma cópia limpa do POI do tipo linha com novo UID."""
+    uid_final = novo_id if (novo_id and validar_uid(novo_id)) else (novo_id or gerar_uid())
+    poi = croqui_pb2.Mapa.PontoDeInteresse(uid=uid_final)
     if hasattr(linha_proto, "cor") and linha_proto.cor:
         poi.cor = str(linha_proto.cor)
-    if hasattr(linha_proto, "label") and linha_proto.label:
-        poi.label = str(linha_proto.label)
+    if hasattr(linha_proto, "rotulo") and linha_proto.rotulo:
+        poi.rotulo = str(linha_proto.rotulo)
     if hasattr(linha_proto, "linha"):
         if hasattr(linha_proto.linha, "estilo"):
             poi.linha.estilo = linha_proto.linha.estilo
@@ -307,13 +309,12 @@ def atualizar_referencias_apos_fatiamento(
     em todas as referências do mapa que apontavam para a linha fatiada.
     """
     for ref in referencias:
-        if id_linha_antiga in ref.ids:
-            lista_ids = list(ref.ids)
+        if id_linha_antiga in ref.pontos_uids:
+            lista_ids = list(ref.pontos_uids)
             idx = lista_ids.index(id_linha_antiga)
             nova_lista = lista_ids[:idx] + novos_ids_ordenados + lista_ids[idx + 1:]
-            ref.ClearField("ids")
-            for nid in nova_lista:
-                ref.ids.append(nid)
+            del ref.pontos_uids[:]
+            ref.pontos_uids.extend(nova_lista)
 
 
 def formatar_rotulo_inicio(numeros: Sequence[Union[int, str]]) -> str:
@@ -387,13 +388,13 @@ def desambiguar_topos(
     - Rotas que compartilham traçados e se bifurcam recebem letras sequenciais ('A', 'B'...).
     - Rotas que convergem no mesmo topo compartilham o mesmo rótulo de topo.
     """
-    linhas_por_id = {str(linha.id): linha for linha in linhas if hasattr(linha, "id")}
+    linhas_por_id = {str(getattr(linha, "uid", "")): linha for linha in linhas if getattr(linha, "uid", "")}
 
     info_rotas: List[Dict[str, Any]] = []
     for ref in referencias:
-        if not ref.ids:
+        if not ref.pontos_uids:
             continue
-        ids_rota = [str(i) for i in ref.ids]
+        ids_rota = [str(i) for i in ref.pontos_uids]
         nos_rota = []
         for lid in ids_rota:
             if lid in linhas_por_id:
@@ -411,7 +412,7 @@ def desambiguar_topos(
 
         info_rotas.append({
             "ref": ref,
-            "escalada": getattr(ref, "escalada", ""),
+            "escalada": getattr(ref, "alvo_uid", ""),
             "ids": set(ids_rota),
             "no_inicio": no_inicio,
             "no_fim": no_fim,
@@ -490,7 +491,11 @@ def desambiguar_topos(
             no_fim.rotulo = letra
 
 
-def obter_rotulo_escalada_no_setor(setor_msg: Any, nome_escalada: str) -> Optional[str]:
+def obter_rotulo_escalada_no_setor(
+    setor_msg: Any,
+    nome_escalada: str,
+    alvo_uid: str = ""
+) -> Optional[str]:
     """
     Verifica se a escalada já possui traçado em outro mapa do mesmo setor e
     retorna o rótulo numérico do seu ponto inicial, mantendo a coerência.
@@ -498,11 +503,34 @@ def obter_rotulo_escalada_no_setor(setor_msg: Any, nome_escalada: str) -> Option
     setor = desembrulhar_setor(setor_msg)
     if not setor or not hasattr(setor, "mapas"):
         return None
+
+    if not alvo_uid:
+        if hasattr(setor, "escaladas"):
+            for esc in setor.escaladas:
+                if getattr(esc, "uid", "") == nome_escalada:
+                    alvo_uid = esc.uid
+                    break
+                t = esc.WhichOneof("tipo") if hasattr(esc, "WhichOneof") else None
+                sub_msg = getattr(esc, t, None) if t else None
+                nome_sub = getattr(sub_msg, "nome", "") if sub_msg else getattr(esc, "nome", "")
+                if nome_sub == nome_escalada:
+                    alvo_uid = getattr(esc, "uid", "")
+                    break
+        if not alvo_uid:
+            alvo_uid = nome_escalada
+
     for mapa in setor.mapas:
-        linhas_mapa = {str(p.id): p for p in mapa.pontos_de_interesse if hasattr(p, "HasField") and p.HasField("linha")}
+        linhas_mapa = {
+            str(getattr(p, "uid", "")): p
+            for p in mapa.pontos_de_interesse
+            if hasattr(p, "HasField") and p.HasField("linha") and getattr(p, "uid", "")
+        }
         for ref in mapa.referencias:
-            if getattr(ref, "escalada", "") == nome_escalada and ref.ids:
-                primeiro_id = str(ref.ids[0])
+            match = False
+            if alvo_uid and getattr(ref, "alvo_uid", "") == alvo_uid:
+                match = True
+            if match and ref.pontos_uids:
+                primeiro_id = str(ref.pontos_uids[0])
                 if primeiro_id in linhas_mapa:
                     linha = linhas_mapa[primeiro_id]
                     nos = linha.linha.conteudo.nos
@@ -551,26 +579,28 @@ def gerar_id_poi_disjunto_setor(
     mapa_ativo: Optional[Any] = None
 ) -> str:
     """
-    Gera um novo identificador de POI garantindo que seja estritamente disjunto
-    em relação a todos os IDs do mapa ativo, de todos os mapas do setor e ao conjunto de IDs reservados.
+    Gera um novo identificador único de POI (NanoID 14c) garantindo que seja estritamente
+    disjunto em relação a todos os UIDs do mapa ativo, de todos os mapas do setor e aos reservados.
     """
     ids_existentes: Set[str] = set(ids_reservados or [])
 
     if mapa_ativo is not None and hasattr(mapa_ativo, "pontos_de_interesse"):
         for p in mapa_ativo.pontos_de_interesse:
-            if getattr(p, "id", None):
-                ids_existentes.add(str(p.id))
+            uid = getattr(p, "uid", None) or getattr(p, "id", None)
+            if uid:
+                ids_existentes.add(str(uid))
 
     setor = desembrulhar_setor(setor_msg)
     if setor and hasattr(setor, "mapas"):
         for mapa in setor.mapas:
             for p in mapa.pontos_de_interesse:
-                if getattr(p, "id", None):
-                    ids_existentes.add(str(p.id))
+                uid = getattr(p, "uid", None) or getattr(p, "id", None)
+                if uid:
+                    ids_existentes.add(str(uid))
 
-    indice = 1
-    while f"{prefixo}_{indice}" in ids_existentes:
-        indice += 1
+    novo_uid = gerar_uid()
+    while novo_uid in ids_existentes:
+        novo_uid = gerar_uid()
 
-    return f"{prefixo}_{indice}"
+    return novo_uid
 

@@ -41,7 +41,7 @@ def _criar_setor_e_mapa_teste():
 
     # Mapa atual referenciando a Escalada 1
     mapa = setor.mapas.add()
-    mapa.referencias.add(escalada="Boulder Mapeado", ids=["linha_1"])
+    mapa.referencias.add(alvo_uid="Boulder Mapeado", pontos_uids=["linha_1"])
 
     return setor, mapa
 

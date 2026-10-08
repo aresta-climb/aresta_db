@@ -1,6 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+uid: OtOutua1Xh2AuI
 caminho_imagem_capa: imagens/grupo_pedreira_setor_bloco_lagartixa_p2_i0.webp
 nome: 'Bloco: Lagartixa'
 mapas:
@@ -8,384 +9,410 @@ mapas:
   largura_mapa: 2364
   altura_mapa: 1773
   pontos_de_interesse:
-  - id: '1'
-    label: '1'
+  - uid: OIMjbTNweN3uvw
+    rotulo: '1'
     circulo:
       x: 1042
       y: 1334
       raio: 19
-  - id: '2'
-    label: '2'
+  - uid: YNAwwk5oXXREpi
+    rotulo: '2'
     circulo:
       x: 1049
       y: 1132
       raio: 19
-  - id: '3'
-    label: '3'
+  - uid: atMYutwGA62ZEk
+    rotulo: '3'
     circulo:
       x: 1339
       y: 1072
       raio: 19
-  - id: '4'
-    label: '4'
+  - uid: uXLPIBpaVQ49KP
+    rotulo: '4'
     circulo:
       x: 1365
       y: 1241
       raio: 19
-  - id: '5'
-    label: '5'
+  - uid: se2ARSBtYmUtkx
+    rotulo: '5'
     circulo:
       x: 1664
       y: 1184
       raio: 19
-  - id: '6'
-    label: '6'
+  - uid: NPk6NKAknsYzQg
+    rotulo: '6'
     circulo:
       x: 1775
       y: 1223
       raio: 19
-  - id: A
-    label: A
+  - uid: RYL4qldNXegC2S
+    rotulo: A
     circulo:
       x: 1275
       y: 465
       raio: 19
-  - id: B
-    label: B
+  - uid: anFygudYQKyYfX
+    rotulo: B
     circulo:
       x: 2198
       y: 228
       raio: 19
   referencias:
-  - escalada: Last Samurai
-    ids:
-    - '1'
-  - escalada: Samurai
-    ids:
-    - '2'
-  - escalada: Doce de Leite
-    ids:
-    - '3'
-    - B
-  - escalada: Panamá
-    ids:
-    - '4'
-    - A
-  - escalada: Doce de Leite sds
-    ids:
-    - '4'
-    - B
-  - escalada: Rocambole
-    ids:
-    - '5'
-    - B
-  - escalada: Falha Humana
-    ids:
-    - '6'
-    - B
+  - alvo_uid: 1OBG9Zmp2sWdmJ
+    pontos_uids:
+    - OIMjbTNweN3uvw
+  - alvo_uid: xsbEWS3M0XvhdL
+    pontos_uids:
+    - YNAwwk5oXXREpi
+  - alvo_uid: e1RxIJFKtUXo6J
+    pontos_uids:
+    - atMYutwGA62ZEk
+    - anFygudYQKyYfX
+  - alvo_uid: OvcfulQ2iFW0v2
+    pontos_uids:
+    - uXLPIBpaVQ49KP
+    - RYL4qldNXegC2S
+  - alvo_uid: 7tLVLG0DZgoFua
+    pontos_uids:
+    - uXLPIBpaVQ49KP
+    - anFygudYQKyYfX
+  - alvo_uid: FggDyQ1Jk0EJrb
+    pontos_uids:
+    - se2ARSBtYmUtkx
+    - anFygudYQKyYfX
+  - alvo_uid: OWjd6pcV8SanGm
+    pontos_uids:
+    - NPk6NKAknsYzQg
+    - anFygudYQKyYfX
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_lagartixa_p1.webp
   largura_mapa: 2364
   altura_mapa: 1773
   pontos_de_interesse:
-  - id: A
-    label: A
+  - uid: T3ZXXyUW5BxbE7
+    rotulo: A
     circulo:
       x: 44
       y: 474
       raio: 20
-  - id: B
-    label: B
+  - uid: vtRG1Z7S6YjF6O
+    rotulo: B
     circulo:
       x: 868
       y: 369
       raio: 20
-  - id: C
-    label: C
+  - uid: jvkc7NY6gDYO4D
+    rotulo: C
     circulo:
       x: 2254
       y: 598
       raio: 20
-  - id: '1'
-    label: '1'
+  - uid: FpdWxlpqvy9xq8
+    rotulo: '1'
     circulo:
       x: 422
       y: 1323
       raio: 20
-  - id: '2'
-    label: '2'
+  - uid: UYFQdCGvLa9zvA
+    rotulo: '2'
     circulo:
       x: 359
       y: 1154
       raio: 20
-  - id: '3'
-    label: '3'
+  - uid: m8tvlQw6RQRMov
+    rotulo: '3'
     circulo:
       x: 797
       y: 1269
       raio: 20
-  - id: '4'
-    label: '4'
+  - uid: UwA1rUF1WUmGaw
+    rotulo: '4'
     circulo:
       x: 980
       y: 1296
       raio: 20
-  - id: '5'
-    label: '5'
+  - uid: wp9oikLNacNp4S
+    rotulo: '5'
     circulo:
       x: 1469
       y: 1080
       raio: 20
-  - id: '6'
-    label: '6'
+  - uid: UQta5sI32mShCb
+    rotulo: '6'
     circulo:
       x: 1451
       y: 1310
       raio: 20
   referencias:
-  - escalada: Doce de Leite
-    ids:
-    - '2'
-    - B
-  - escalada: Panamá
-    ids:
-    - '1'
-    - A
-  - escalada: Doce de Leite sds
-    ids:
-    - '1'
-    - B
-  - escalada: Rocambole
-    ids:
-    - '3'
-    - B
-  - escalada: Falha Humana
-    ids:
-    - '4'
-    - B
-  - escalada: Teiú
-    ids:
-    - '1'
-    - C
-  - escalada: Rabo de Lagartixa
-    ids:
-    - '4'
-    - C
-  - escalada: Camaleão
-    ids:
-    - '5'
-    - B
-  - escalada: Lagartixa
-    ids:
-    - '5'
-    - C
-  - escalada: Rabo de Camaleão
-    ids:
-    - '6'
-    - B
-  - escalada: Lagartixa sem Rabo
-    ids:
-    - '6'
-    - C
+  - alvo_uid: e1RxIJFKtUXo6J
+    pontos_uids:
+    - UYFQdCGvLa9zvA
+    - vtRG1Z7S6YjF6O
+  - alvo_uid: OvcfulQ2iFW0v2
+    pontos_uids:
+    - FpdWxlpqvy9xq8
+    - T3ZXXyUW5BxbE7
+  - alvo_uid: 7tLVLG0DZgoFua
+    pontos_uids:
+    - FpdWxlpqvy9xq8
+    - vtRG1Z7S6YjF6O
+  - alvo_uid: FggDyQ1Jk0EJrb
+    pontos_uids:
+    - m8tvlQw6RQRMov
+    - vtRG1Z7S6YjF6O
+  - alvo_uid: OWjd6pcV8SanGm
+    pontos_uids:
+    - UwA1rUF1WUmGaw
+    - vtRG1Z7S6YjF6O
+  - alvo_uid: ln91DbtQ62IGbZ
+    pontos_uids:
+    - FpdWxlpqvy9xq8
+    - jvkc7NY6gDYO4D
+  - alvo_uid: xALzdgwDF8xq0k
+    pontos_uids:
+    - UwA1rUF1WUmGaw
+    - jvkc7NY6gDYO4D
+  - alvo_uid: 6Y8dKcx5tJM381
+    pontos_uids:
+    - wp9oikLNacNp4S
+    - vtRG1Z7S6YjF6O
+  - alvo_uid: srt1JwUqYYuhDg
+    pontos_uids:
+    - wp9oikLNacNp4S
+    - jvkc7NY6gDYO4D
+  - alvo_uid: WIy549JHQQDDko
+    pontos_uids:
+    - UQta5sI32mShCb
+    - vtRG1Z7S6YjF6O
+  - alvo_uid: teZRSRQ70qL2BO
+    pontos_uids:
+    - UQta5sI32mShCb
+    - jvkc7NY6gDYO4D
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_lagartixa_p2.webp
   largura_mapa: 2364
   altura_mapa: 1773
   pontos_de_interesse:
-  - id: A
-    label: A
+  - uid: VsKWEMg0lZ2NYg
+    rotulo: A
     circulo:
       x: 50
       y: 363
       raio: 19
-  - id: B
-    label: B
+  - uid: 2httylkaaIN5Qr
+    rotulo: B
     circulo:
       x: 912
       y: 302
       raio: 19
-  - id: C
-    label: C
+  - uid: axlblItPxsIDJn
+    rotulo: C
     circulo:
       x: 2323
       y: 589
       raio: 19
-  - id: D
-    label: D
+  - uid: xtiNQSSkWNTXbC
+    rotulo: D
     circulo:
       x: 2108
       y: 1209
       raio: 19
-  - id: '1'
-    label: '1'
+  - uid: OhNIazyq74dUWM
+    rotulo: '1'
     circulo:
       x: 538
       y: 1156
       raio: 19
-  - id: '2'
-    label: '2'
+  - uid: PLiYVorL6MlSC2
+    rotulo: '2'
     circulo:
       x: 593
       y: 1466
       raio: 19
-  - id: '3'
-    label: '3'
+  - uid: oECZXcIqBxan60
+    rotulo: '3'
     circulo:
       x: 1157
       y: 972
       raio: 19
-  - id: '4'
-    label: '4'
+  - uid: icdNm6GYVUWhAz
+    rotulo: '4'
     circulo:
       x: 1186
       y: 1431
       raio: 19
-  - id: '5'
-    label: '5'
+  - uid: WfKTekrpKQCxvy
+    rotulo: '5'
     circulo:
       x: 1268
       y: 1398
       raio: 19
-  - id: '6'
-    label: '6'
+  - uid: ujBI1bgZoOQWhW
+    rotulo: '6'
     circulo:
       x: 1460
       y: 1324
       raio: 19
-  - id: '7'
-    label: '7'
+  - uid: r9QOUkHDtJL2B9
+    rotulo: '7'
     circulo:
       x: 1764
       y: 1244
       raio: 19
   referencias:
-  - escalada: Guerreiro
-    ids:
-    - '1'
-    - A
-  - escalada: Major
-    ids:
-    - '2'
-    - A
-  - escalada: Geoterapia
-    ids:
-    - '2'
-    - D
-  - escalada: Nativo
-    ids:
-    - '3'
-    - B
-  - escalada: Protesto
-    ids:
-    - '4'
-    - A
-  - escalada: Cadena Imaginária
-    ids:
-    - '4'
-    - D
-  - escalada: Golpe Militar
-    ids:
-    - '5'
-    - A
-  - escalada: Aurora Explosion
-    ids:
-    - '5'
-    - B
-  - escalada: Escravos da Pedra
-    ids:
-    - '5'
-    - D
-  - escalada: Ditadvor
-    ids:
-    - '6'
-    - A
-  - escalada: Lobo Mau
-    ids:
-    - '6'
-    - D
-  - escalada: Coronel
-    ids:
-    - '7'
-    - A
-  - escalada: Chapeuzinho Vermelho
-    ids:
-    - '7'
-    - C
+  - alvo_uid: 0cUwdNtqvEcKoh
+    pontos_uids:
+    - OhNIazyq74dUWM
+    - VsKWEMg0lZ2NYg
+  - alvo_uid: Nf2533m5zrrFG2
+    pontos_uids:
+    - PLiYVorL6MlSC2
+    - VsKWEMg0lZ2NYg
+  - alvo_uid: toxcelInFFWAq1
+    pontos_uids:
+    - PLiYVorL6MlSC2
+    - xtiNQSSkWNTXbC
+  - alvo_uid: 9tZfKoZdpP3fpS
+    pontos_uids:
+    - oECZXcIqBxan60
+    - 2httylkaaIN5Qr
+  - alvo_uid: pcftvMSlINg9Hf
+    pontos_uids:
+    - icdNm6GYVUWhAz
+    - VsKWEMg0lZ2NYg
+  - alvo_uid: AWjjM6YkI9dyGO
+    pontos_uids:
+    - icdNm6GYVUWhAz
+    - xtiNQSSkWNTXbC
+  - alvo_uid: fQ3vCdyp1n0HMg
+    pontos_uids:
+    - WfKTekrpKQCxvy
+    - VsKWEMg0lZ2NYg
+  - alvo_uid: 82pHfoKYsvWEwk
+    pontos_uids:
+    - WfKTekrpKQCxvy
+    - 2httylkaaIN5Qr
+  - alvo_uid: LUFL8kDL9K6eG7
+    pontos_uids:
+    - WfKTekrpKQCxvy
+    - xtiNQSSkWNTXbC
+  - alvo_uid: g7iaofpXHfKRlx
+    pontos_uids:
+    - ujBI1bgZoOQWhW
+    - VsKWEMg0lZ2NYg
+  - alvo_uid: SgF3g35rVyuJcE
+    pontos_uids:
+    - ujBI1bgZoOQWhW
+    - xtiNQSSkWNTXbC
+  - alvo_uid: kF2TBaBhwwuWWH
+    pontos_uids:
+    - r9QOUkHDtJL2B9
+    - VsKWEMg0lZ2NYg
+  - alvo_uid: EsbNvU6nXSg2b8
+    pontos_uids:
+    - r9QOUkHDtJL2B9
+    - axlblItPxsIDJn
 escaladas:
-- boulder:
+- uid: 1OBG9Zmp2sWdmJ
+  boulder:
     nome: Last Samurai
     dificuldade: V14
-- boulder:
+- uid: xsbEWS3M0XvhdL
+  boulder:
     nome: Samurai
     dificuldade: V12
-- boulder:
+- uid: e1RxIJFKtUXo6J
+  boulder:
     nome: Doce de Leite
     dificuldade: V3
-- boulder:
+- uid: OvcfulQ2iFW0v2
+  boulder:
     nome: Panamá
     dificuldade: V10
-- boulder:
+- uid: 7tLVLG0DZgoFua
+  boulder:
     nome: Doce de Leite sds
     dificuldade: V5
-- boulder:
+- uid: FggDyQ1Jk0EJrb
+  boulder:
     nome: Rocambole
     dificuldade: V5
-- boulder:
+- uid: OWjd6pcV8SanGm
+  boulder:
     nome: Falha Humana
     dificuldade: V4
-- boulder:
+- uid: ln91DbtQ62IGbZ
+  boulder:
     nome: Teiú
     dificuldade: V11
-- boulder:
+- uid: xALzdgwDF8xq0k
+  boulder:
     nome: Rabo de Lagartixa
     dificuldade: V10
-- boulder:
+- uid: 6Y8dKcx5tJM381
+  boulder:
     nome: Camaleão
     dificuldade: V8
-- boulder:
+- uid: srt1JwUqYYuhDg
+  boulder:
     nome: Lagartixa
     dificuldade: V7
-- boulder:
+- uid: WIy549JHQQDDko
+  boulder:
     nome: Rabo de Camaleão
     dificuldade: V9
-- boulder:
+- uid: teZRSRQ70qL2BO
+  boulder:
     nome: Lagartixa sem Rabo
     dificuldade: V9
-- boulder:
+- uid: 0cUwdNtqvEcKoh
+  boulder:
     nome: Guerreiro
     dificuldade: V8_BARRA_V9
-- boulder:
+- uid: Nf2533m5zrrFG2
+  boulder:
     nome: Major
     dificuldade: V11
-- boulder:
+- uid: toxcelInFFWAq1
+  boulder:
     nome: Geoterapia
     dificuldade: V9
-- boulder:
+- uid: 9tZfKoZdpP3fpS
+  boulder:
     nome: Nativo
     dificuldade: V12
-- boulder:
+- uid: pcftvMSlINg9Hf
+  boulder:
     nome: Protesto
     dificuldade: V10
-- boulder:
+- uid: AWjjM6YkI9dyGO
+  boulder:
     nome: Cadena Imaginária
     dificuldade: V8
-- boulder:
+- uid: fQ3vCdyp1n0HMg
+  boulder:
     nome: Golpe Militar
     dificuldade: V13
-- boulder:
+- uid: 82pHfoKYsvWEwk
+  boulder:
     nome: Aurora Explosion
     dificuldade: V13
-- boulder:
+- uid: LUFL8kDL9K6eG7
+  boulder:
     nome: Escravos da Pedra
     dificuldade: V9
-- boulder:
+- uid: g7iaofpXHfKRlx
+  boulder:
     nome: Ditadvor
     dificuldade: V12
-- boulder:
+- uid: SgF3g35rVyuJcE
+  boulder:
     nome: Lobo Mau
     dificuldade: V5
-- boulder:
+- uid: kF2TBaBhwwuWWH
+  boulder:
     nome: Coronel
     dificuldade: V12
-- boulder:
+- uid: EsbNvU6nXSg2b8
+  boulder:
     nome: Chapeuzinho Vermelho
     dificuldade: V13
 ---

@@ -1,5 +1,6 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+uid: GrHAA4JNn9WUhF
 id: br_mg_lagoa_santa_sitio_do_rod
 nome: Sítio do Rod
 creditos:
@@ -9,9 +10,9 @@ revisado_manualmente: true
 status_desenho_extraivel: NAO_TEM_DESENHO
 picos:
 - nome: Sítio do Rod
-  descricao: O Sítio do Rod é um importante campo escola de escalada localizado em
-    Lagoa Santa, MG.  Com cerca de 70 vias, oferece opções para iniciantes e veteranos,
-    com acesso fácil e rápido.
+  descricao: O Sítio do Rod é um importante campo escola de escalada localizado em Lagoa 
+    Santa, MG.  Com cerca de 70 vias, oferece opções para iniciantes e veteranos, com 
+    acesso fácil e rápido.
   setores_ou_grupos:
   - setor:
       caminho: setor_g1.md
@@ -25,62 +26,76 @@ picos:
     latitude: -195686709
     longitude: -439561783
 botoes:
-- texto: Capa
+- uid: 9PYh4zwGeZAl7M
+  texto: Capa
   destino:
     secao_textual:
       caminho: capa.md
-- texto: Aviso
+- uid: En6hH15FE6DPWX
+  texto: Aviso
   destino:
     secao_textual:
       caminho: aviso.md
-- texto: Créditos
+- uid: X9fM5E9OoSKQgA
+  texto: Créditos
   destino:
     secao_textual:
       caminho: creditos.md
-- texto: Agradecimentos
+- uid: 9wSCMa5V5bcx4V
+  texto: Agradecimentos
   destino:
     secao_textual:
       caminho: agradecimentos.md
-- texto: A Escalada
+- uid: LVNkAWuN1OlOp0
+  texto: A Escalada
   destino:
     secao_textual:
       caminho: a_escalada.md
-- texto: Regras e Código de Conduta
+- uid: x7kOUotY0RpBOE
+  texto: Regras e Código de Conduta
   destino:
     secao_textual:
       caminho: regras_e_conduta.md
-- texto: O Sítio do Rod e Hospedagem
+- uid: iOeGFNkYEKjVST
+  texto: O Sítio do Rod e Hospedagem
   destino:
     secao_textual:
       caminho: sitio_do_rod_e_hospedagem.md
-- texto: Parque Estadual do Sumidouro
+- uid: 7nybNF05xQYbRX
+  texto: Parque Estadual do Sumidouro
   destino:
     secao_textual:
       caminho: parque_sumidouro.md
-- texto: APA Carste Lagoa Santa
+- uid: xrYOAKjIwocFrx
+  texto: APA Carste Lagoa Santa
   destino:
     secao_textual:
       caminho: apa_carste.md
-- texto: Comércio Local
+- uid: Ls5enbN1v5jD5v
+  texto: Comércio Local
   destino:
     secao_textual:
       caminho: comercio_local.md
-- texto: Telefones Úteis
+- uid: UQIevlK7ZL0xkM
+  texto: Telefones Úteis
   destino:
     secao_textual:
       caminho: telefones_uteis.md
-- texto: Como Chegar
+- uid: dJbYISnaFEJIfM
+  texto: Como Chegar
   destino:
     secao_textual:
       caminho: como_chegar.md
-- texto: Como usar este guia
+- uid: tIkjbHplijPzVA
+  texto: Como usar este guia
   destino:
     secao_textual:
       caminho: como_usar_guia.md
-- texto: Contra Capa
+- uid: Y0NrTIFiRzfWyv
+  texto: Contra Capa
   destino:
     secao_textual:
       caminho: contra_capa.md
-ultima_migracao: 4
+ultima_migracao: 5
 publicar_croqui: true
 revisado_bounding_circle: true

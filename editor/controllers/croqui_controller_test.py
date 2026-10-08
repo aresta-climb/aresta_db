@@ -6,6 +6,7 @@ from PySide6.QtGui import QUndoStack
 from aresta_api.proto.generated.croqui_pb2 import Croqui, Pico
 from editor.models.croqui_model import CroquiModel
 from editor.controllers.croqui_controller import CroquiController
+from editor.models.referencias_util import resolver_caminho_referencia
 
 def test_croqui_controller_alterar_primitivo(qapp):
     croqui = Croqui(nome="Antigo")
@@ -351,10 +352,11 @@ def test_croqui_controller_alterar_primitivo_escalada_cria_cmd_renomear_escalada
     setor.nome = "Setor 1"
 
     esc = setor.escaladas.add()
+    esc.uid = "via_1"
     esc.via_esportiva.nome = "Via Inicial"
 
     mapa = setor.mapas.add()
-    ref = mapa.referencias.add(escalada="Via Inicial", ids=["linha_1"])
+    ref = mapa.referencias.add(alvo_uid="via_1", pontos_uids=["linha_1"])
 
     model = CroquiModel(croqui)
     undo_stack = QUndoStack()
@@ -371,12 +373,14 @@ def test_croqui_controller_alterar_primitivo_escalada_cria_cmd_renomear_escalada
     assert isinstance(cmd, CmdRenomearEscalada)
     assert cmd.session_id == 42
     assert proxy_via.nome == "Via Renomeada"
-    assert proxy_ref.escalada == "Via Renomeada"
+    assert proxy_ref.alvo_uid == "via_1"
+    assert resolver_caminho_referencia(model.obter_croqui_readonly(), proxy_ref) == "Setor 1 > Via Renomeada"
 
     # Undo
     undo_stack.undo()
     assert proxy_via.nome == "Via Inicial"
-    assert proxy_ref.escalada == "Via Inicial"
+    assert proxy_ref.alvo_uid == "via_1"
+    assert resolver_caminho_referencia(model.obter_croqui_readonly(), proxy_ref) == "Setor 1 > Via Inicial"
 
 
 def test_croqui_controller_renomear_escalada_direto(qapp):
@@ -390,10 +394,11 @@ def test_croqui_controller_renomear_escalada_direto(qapp):
     setor.nome = "Setor 1"
 
     esc = setor.escaladas.add()
+    esc.uid = "boulder_1"
     esc.boulder.nome = "Boulder 1"
 
     mapa = setor.mapas.add()
-    ref = mapa.referencias.add(escalada="Boulder 1", ids=["linha_b"])
+    ref = mapa.referencias.add(alvo_uid="boulder_1", pontos_uids=["linha_b"])
 
     model = CroquiModel(croqui)
     undo_stack = QUndoStack()
@@ -408,7 +413,8 @@ def test_croqui_controller_renomear_escalada_direto(qapp):
     assert isinstance(cmd, CmdRenomearEscalada)
     assert cmd.session_id == 10
     assert proxy_boulder.nome == "Boulder Novo"
-    assert proxy_ref.escalada == "Boulder Novo"
+    assert proxy_ref.alvo_uid == "boulder_1"
+    assert resolver_caminho_referencia(model.obter_croqui_readonly(), proxy_ref) == "Setor 1 > Boulder Novo"
 
 
 def test_croqui_controller_inserir_imagem_markdown(qapp):
@@ -453,10 +459,11 @@ def test_croqui_controller_alterar_primitivo_escalada_reutiliza_referencias_do_t
     setor.nome = "Setor 1"
 
     esc = setor.escaladas.add()
+    esc.uid = "via_1"
     esc.via_esportiva.nome = "Via Inicial"
 
     mapa = setor.mapas.add()
-    ref = mapa.referencias.add(escalada="Via Inicial", ids=["linha_1"])
+    ref = mapa.referencias.add(alvo_uid="via_1", pontos_uids=["linha_1"])
 
     model = CroquiModel(croqui)
     undo_stack = QUndoStack()
@@ -471,27 +478,30 @@ def test_croqui_controller_alterar_primitivo_escalada_reutiliza_referencias_do_t
     # 1ª digitação: Inicializa sessão com session_id=99
     controller.alterar_primitivo(proxy_via, "nome", "Via Inicial", "Via A", pode_mesclar=True, session_id=99)
     assert spy_buscar.call_count == 1
-    assert spy_contexto.call_count == 2
+    assert spy_contexto.call_count == 1
     assert undo_stack.count() == 1
     assert proxy_via.nome == "Via A"
-    assert proxy_ref.escalada == "Via A"
+    assert proxy_ref.alvo_uid == "via_1"
+    assert resolver_caminho_referencia(model.obter_croqui_readonly(), proxy_ref) == "Setor 1 > Via A"
 
     # 2ª digitação consecutiva: mesmo session_id e mesma via
     controller.alterar_primitivo(proxy_via, "nome", "Via A", "Via AB", pode_mesclar=True, session_id=99)
     # Não deve refazer busca nem obter contexto
     assert spy_buscar.call_count == 1
-    assert spy_contexto.call_count == 2
+    assert spy_contexto.call_count == 1
     assert undo_stack.count() == 1
     assert proxy_via.nome == "Via AB"
-    assert proxy_ref.escalada == "Via AB"
+    assert proxy_ref.alvo_uid == "via_1"
+    assert resolver_caminho_referencia(model.obter_croqui_readonly(), proxy_ref) == "Setor 1 > Via AB"
 
     # 3ª digitação: nova sessão (ex: mudou de campo ou perdeu foco e voltou)
     controller.alterar_primitivo(proxy_via, "nome", "Via AB", "Via ABC", pode_mesclar=True, session_id=100)
     assert spy_buscar.call_count == 2
-    assert spy_contexto.call_count == 4
+    assert spy_contexto.call_count == 2
     assert undo_stack.count() == 2
     assert proxy_via.nome == "Via ABC"
-    assert proxy_ref.escalada == "Via ABC"
+    assert proxy_ref.alvo_uid == "via_1"
+    assert resolver_caminho_referencia(model.obter_croqui_readonly(), proxy_ref) == "Setor 1 > Via ABC"
 
 
 def test_croqui_controller_migrar_setor(qapp):

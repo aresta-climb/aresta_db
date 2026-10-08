@@ -1,6 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+uid: urgscxU5OKv7Bx
 caminho_imagem_capa: imagens/setor_deslize_p0_i0.webp
 nome: Deslize
 mapas:
@@ -8,14 +9,14 @@ mapas:
   largura_mapa: 1099
   altura_mapa: 710
   referencias:
-  - escalada: Rei Leão
-    ids:
+  - alvo_uid: 5MvjSmhdvuNGLA
+    pontos_uids:
     - '36'
-  - escalada: Projeto Grifon
-    ids:
+  - alvo_uid: wZJ977AVAc4ADg
+    pontos_uids:
     - '37'
-  - escalada: Musgo centenário
-    ids:
+  - alvo_uid: icm1VwJD6wEswr
+    pontos_uids:
     - '42'
 setores:
 - caminho: grupo_deslize_setor_bloco_a_lua_cheia.md

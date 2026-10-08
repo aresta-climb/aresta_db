@@ -718,6 +718,7 @@ def passo_c_gerar_indice(
                     print(f"  {croqui_id}: novo croqui, timestamp_update={ts_str}")
 
         resumo.id             = croqui_id
+        resumo.croqui_uid     = croqui_data.get("uid", "")
         resumo.nome           = croqui_data.get("nome", croqui_id)
         resumo.descricao      = extrair_descricao(croqui_data)
         resumo.caminho_relativo = f"{croqui_id}/compilado.binarypb"
@@ -813,6 +814,7 @@ def passo_c_gerar_indice(
     for resumo in indice.croquis:
         item_yaml: Dict[str, Any] = {
             "id":             resumo.id,
+            "croqui_uid":      resumo.croqui_uid,
             "nome":           resumo.nome,
             "descricao":      resumo.descricao,
             "caminho_relativo": resumo.caminho_relativo,

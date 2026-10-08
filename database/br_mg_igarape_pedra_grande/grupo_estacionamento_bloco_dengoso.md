@@ -1,13 +1,14 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+uid: 3UrbFi1RskxEbz
 nome: Estacionamento - Bloco Dengoso
 mapas:
 - caminho_imagem_mapa: imagens/grupo_estacionamento_bloco_dengoso_p0.webp
   largura_mapa: 2364
   altura_mapa: 1773
   pontos_de_interesse:
-  - id: linha_2
+  - uid: U9sK5P09Prqoch
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -23,8 +24,8 @@ mapas:
           rotulo: ''
       espessura: 5
     cor: '#FFD600'
-  - id: linha_1
-    label: ''
+  - uid: mRwEsWs51g076b
+    rotulo: ''
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -61,7 +62,7 @@ mapas:
           raio: 24
       espessura: 5
     cor: '#FFD600'
-  - id: linha_5
+  - uid: LRibEzdYZH0Iot
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -107,7 +108,7 @@ mapas:
           rotulo: ''
       espessura: 5
     cor: '#FFD600'
-  - id: linha_9
+  - uid: uyFTqk25UWAbgM
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -127,8 +128,8 @@ mapas:
           raio: 24
       espessura: 5
     cor: '#FFD600'
-  - id: linha_3
-    label: ''
+  - uid: pfDg5P1AonAAi9
+    rotulo: ''
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -151,24 +152,24 @@ mapas:
       espessura: 5
     cor: '#FFD600'
   referencias:
-  - ids:
-    - linha_2
-    - linha_5
-    - linha_9
-    escalada: Dengoso
-  - ids:
-    - linha_2
-    - linha_1
-    escalada: Fênix
-  - ids:
-    - linha_3
-    - linha_9
-    escalada: V5 do Bull
+  - alvo_uid: vo6nadNzA5cVa3
+    pontos_uids:
+    - U9sK5P09Prqoch
+    - LRibEzdYZH0Iot
+    - uyFTqk25UWAbgM
+  - alvo_uid: D4F2u8Lg2XgoBZ
+    pontos_uids:
+    - U9sK5P09Prqoch
+    - mRwEsWs51g076b
+  - alvo_uid: Iypt5SbOECadzL
+    pontos_uids:
+    - pfDg5P1AonAAi9
+    - uyFTqk25UWAbgM
 - caminho_imagem_mapa: imagens/grupo_estacionamento_bloco_dengoso_p1.webp
   largura_mapa: 2364
   altura_mapa: 1773
   pontos_de_interesse:
-  - id: linha_6
+  - uid: sjVcuFmrsATb6E
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -188,7 +189,7 @@ mapas:
           rotulo: ''
       espessura: 5
     cor: '#FFD600'
-  - id: linha_7
+  - uid: mxtFc6aXmNZM62
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -216,7 +217,7 @@ mapas:
           raio: 24
       espessura: 5
     cor: '#FFD600'
-  - id: linha_4
+  - uid: oACEazp9fJuY7y
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -236,7 +237,7 @@ mapas:
           rotulo: ''
       espessura: 5
     cor: '#FFD600'
-  - id: linha_8
+  - uid: RjXJpiC3GesNMr
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -287,8 +288,8 @@ mapas:
           rotulo: B
       espessura: 5
     cor: '#FFD600'
-  - id: linha_10
-    label: ''
+  - uid: MLPLzokXjMmRMG
+    rotulo: ''
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -338,25 +339,25 @@ mapas:
       espessura: 5
     cor: '#FFD600'
   referencias:
-  - ids:
-    - linha_6
-    - linha_7
-    escalada: V5 do Bull
-  - ids:
-    - linha_4
-    - linha_8
-    - linha_7
-    escalada: Dengoso
-  - ids:
-    - linha_4
-    - linha_10
-    escalada: Fênix
+  - alvo_uid: Iypt5SbOECadzL
+    pontos_uids:
+    - sjVcuFmrsATb6E
+    - mxtFc6aXmNZM62
+  - alvo_uid: vo6nadNzA5cVa3
+    pontos_uids:
+    - oACEazp9fJuY7y
+    - RjXJpiC3GesNMr
+    - mxtFc6aXmNZM62
+  - alvo_uid: D4F2u8Lg2XgoBZ
+    pontos_uids:
+    - oACEazp9fJuY7y
+    - MLPLzokXjMmRMG
 - caminho_imagem_mapa: imagens/grupo_estacionamento_bloco_dengoso_p2.webp
   largura_mapa: 2364
   altura_mapa: 1773
   pontos_de_interesse:
-  - id: linha_11
-    label: ''
+  - uid: JasR2A0QHoDT13
+    rotulo: ''
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -391,8 +392,8 @@ mapas:
           raio: 24
       espessura: 5
     cor: '#FFD600'
-  - id: linha_12
-    label: ''
+  - uid: 3PYTnEbgnp4ZPb
+    rotulo: ''
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -427,8 +428,8 @@ mapas:
           raio: 24
       espessura: 5
     cor: '#FFD600'
-  - id: linha_13
-    label: ''
+  - uid: FgQM0hUvaAHlhx
+    rotulo: ''
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -463,8 +464,8 @@ mapas:
           raio: 24
       espessura: 5
     cor: '#FFD600'
-  - id: linha_14
-    label: ''
+  - uid: HWMVxMmL9vu4Rb
+    rotulo: ''
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -502,8 +503,8 @@ mapas:
           raio: 24
       espessura: 5
     cor: '#FFD600'
-  - id: linha_15
-    label: ''
+  - uid: 3nbowXWnLqVbnb
+    rotulo: ''
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -557,26 +558,26 @@ mapas:
       espessura: 5
     cor: '#FFD600'
   referencias:
-  - ids:
-    - linha_11
-    escalada: Só o pó
-  - ids:
-    - linha_12
-    escalada: Só poeira
-  - ids:
-    - linha_13
-    escalada: Poeirando
-  - ids:
-    - linha_14
-    escalada: Barla Pé
-  - ids:
-    - linha_15
-    escalada: Saara
+  - alvo_uid: tkXSRSpNWY5yL3
+    pontos_uids:
+    - JasR2A0QHoDT13
+  - alvo_uid: 1E48e1PlohVfeJ
+    pontos_uids:
+    - 3PYTnEbgnp4ZPb
+  - alvo_uid: bNsbFE3U6jby2Q
+    pontos_uids:
+    - FgQM0hUvaAHlhx
+  - alvo_uid: wqMD6zlHac7ZXq
+    pontos_uids:
+    - HWMVxMmL9vu4Rb
+  - alvo_uid: w44WoxqtaM6ZhW
+    pontos_uids:
+    - 3nbowXWnLqVbnb
 - caminho_imagem_mapa: imagens/grupo_estacionamento_bloco_dengoso_p3.webp
   largura_mapa: 2364
   altura_mapa: 1773
   pontos_de_interesse:
-  - id: linha_17
+  - uid: tJ7FfEoJdlIf6V
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -594,7 +595,7 @@ mapas:
           rotulo: ''
       espessura: 5
     cor: '#FFD600'
-  - id: linha_18
+  - uid: QMPGG3MYfcmGwp
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -645,8 +646,8 @@ mapas:
           rotulo: H
       espessura: 5
     cor: '#FFD600'
-  - id: linha_16
-    label: ''
+  - uid: dmDcYG804HYCiM
+    rotulo: ''
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -694,8 +695,8 @@ mapas:
           rotulo: I
       espessura: 5
     cor: '#FFD600'
-  - id: linha_19
-    label: ''
+  - uid: L6BdT85blb9sKI
+    rotulo: ''
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -731,42 +732,42 @@ mapas:
           rotulo: J
       espessura: 5
     cor: '#FFD600'
-  - id: st1
-    label: ''
+  - uid: emNdipEI4O45NQ
+    rotulo: ''
     circulo:
       x: 859
       y: 1717
       raio: 40
     cor: '#FF6D00'
-  - id: st2
-    label: ''
+  - uid: C5naCsBOw3oCcf
+    rotulo: ''
     circulo:
       x: 1080
       y: 1672
       raio: 40
     cor: '#FF6D00'
   referencias:
-  - ids:
-    - linha_17
-    - linha_18
-    - st1
-    - st2
-    escalada: Sem nome 21
-  - ids:
-    - st1
-    - st2
-    - linha_17
-    - linha_16
-    escalada: Só poeirinha
-  - ids:
-    - linha_19
-    escalada: Sem nome 23
+  - alvo_uid: j8jNzNVmSPwRCU
+    pontos_uids:
+    - tJ7FfEoJdlIf6V
+    - QMPGG3MYfcmGwp
+    - emNdipEI4O45NQ
+    - C5naCsBOw3oCcf
+  - alvo_uid: FxFvwakoPrIZpQ
+    pontos_uids:
+    - emNdipEI4O45NQ
+    - C5naCsBOw3oCcf
+    - tJ7FfEoJdlIf6V
+    - dmDcYG804HYCiM
+  - alvo_uid: KxvXtpyF8myGW9
+    pontos_uids:
+    - L6BdT85blb9sKI
 - caminho_imagem_mapa: imagens/grupo_estacionamento_bloco_dengoso_p4.webp
   largura_mapa: 2364
   altura_mapa: 1773
   pontos_de_interesse:
-  - id: linha_20
-    label: ''
+  - uid: cN98a82t2JCMQP
+    rotulo: ''
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -801,8 +802,8 @@ mapas:
           raio: 24
       espessura: 5
     cor: '#FFD600'
-  - id: linha_21
-    label: ''
+  - uid: Qck4hKYZBivTQo
+    rotulo: ''
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -841,50 +842,63 @@ mapas:
       espessura: 5
     cor: '#FFD600'
   referencias:
-  - ids:
-    - linha_20
-    escalada: Auto seg
-  - ids:
-    - linha_21
-    escalada: Arla
+  - alvo_uid: ifePMiw1H74Dti
+    pontos_uids:
+    - cN98a82t2JCMQP
+  - alvo_uid: PHUYBVvWm9rvAZ
+    pontos_uids:
+    - Qck4hKYZBivTQo
 escaladas:
-- boulder:
+- uid: vo6nadNzA5cVa3
+  boulder:
     nome: Dengoso
     dificuldade: V7
-- boulder:
+- uid: D4F2u8Lg2XgoBZ
+  boulder:
     nome: Fênix
     dificuldade: V5
-- boulder:
+- uid: Iypt5SbOECadzL
+  boulder:
     nome: V5 do Bull
     dificuldade: V5
-- boulder:
+- uid: tkXSRSpNWY5yL3
+  boulder:
     nome: Só o pó
     dificuldade: V1
-- boulder:
+- uid: 1E48e1PlohVfeJ
+  boulder:
     nome: Só poeira
     dificuldade: V1
-- boulder:
+- uid: bNsbFE3U6jby2Q
+  boulder:
     nome: Poeirando
     dificuldade: V1
-- boulder:
+- uid: wqMD6zlHac7ZXq
+  boulder:
     nome: Barla Pé
     dificuldade: V2
-- boulder:
+- uid: w44WoxqtaM6ZhW
+  boulder:
     nome: Saara
     dificuldade: V4
-- boulder:
+- uid: j8jNzNVmSPwRCU
+  boulder:
     nome: Sem nome 21
     dificuldade: V2
-- boulder:
+- uid: FxFvwakoPrIZpQ
+  boulder:
     nome: Só poeirinha
     dificuldade: V3
-- boulder:
+- uid: KxvXtpyF8myGW9
+  boulder:
     nome: Sem nome 23
     dificuldade: V1
-- boulder:
+- uid: ifePMiw1H74Dti
+  boulder:
     nome: Auto seg
     dificuldade: V0
-- boulder:
+- uid: PHUYBVvWm9rvAZ
+  boulder:
     nome: Arla
     dificuldade: V3
 ---

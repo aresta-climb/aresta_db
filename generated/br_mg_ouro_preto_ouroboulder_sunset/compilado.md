@@ -4,6 +4,7 @@
 
 - **id**: br_mg_ouro_preto_ouroboulder_sunset
 - **nome**: OuroBoulder Sunset
+- **uid**: 37b8pZznCQRql0
 - **creditos**:
   - OuroBoulder 2020
 - **caminho_thumbnail**: ![caminho_thumbnail](imagens/capa_p0.webp)
@@ -11,6 +12,7 @@
 - **status_desenho_extraivel**: DESENHO_EXTRAIDO
 - **botoes**:
   - **[0]**:
+    - **uid**: hknS4iyr6zfaaA
     - **texto**: Capa
     - **destino**:
       - **secao_textual**:
@@ -34,6 +36,7 @@
             - 4Climb
             - Sano Agarras
   - **[1]**:
+    - **uid**: MkJKETmN5GU4XB
     - **texto**: Introdução
     - **destino**:
       - **secao_textual**:
@@ -60,6 +63,7 @@
             
             *Registro durante a confraternização do Ouroboulder de 2013. Foto: Estúdio Buena Onda.*
   - **[2]**:
+    - **uid**: 9FWTCuttvdwK7w
     - **texto**: Conversão e Legenda
     - **destino**:
       - **secao_textual**:
@@ -108,6 +112,7 @@
             - **Muito Forte**: V10 e V11 (Vermelho)
             - **Extremo**: Acima de V11 (Preto)
   - **[3]**:
+    - **uid**: xzaxZUnjyyl4hT
     - **texto**: Responsabilidade e Orientações
     - **destino**:
       - **secao_textual**:
@@ -137,7 +142,7 @@
             Antes de praticar qualquer atividade, atente-se aos gestores:
             - **Parque Municipal das Andorinhas**
             - **Parque Estadual do Itacolomi**
-- **ultima_migracao**: 4
+- **ultima_migracao**: 5
 - **publicar_croqui**: True
 - **revisado_bounding_circle**: True
 
@@ -153,6 +158,7 @@
     
     Os boulders deste setor oferecem uma característica mais técnica e menos negativa. Os acessos entre os blocos são mais íngremes e requerem maior atenção no deslocamento. As trilhas estão sinalizadas com fita reflexiva e totens.
 - **nome**: Sunset
+- **uid**: Eud9CvpwldFcd2
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_sunset_p0.webp)
@@ -160,125 +166,161 @@
     - **altura_mapa**: 825
     - **pontos_de_interesse**:
       - **[0]**:
-        - **id**: Sunset
-        - **label**: Sunset
+        - **id**: cKe0q7xwUWzZuq
+        - **uid**: cKe0q7xwUWzZuq
+        - **rotulo**: Sunset
         - **retangulo**:
           - **x**: 768
           - **y**: 45
           - **comprimento**: 75
           - **largura**: 30
+        - **label**: Sunset
       - **[1]**:
-        - **id**: Camaroa
-        - **label**: Camaroa
+        - **id**: FCZWeLPC0vA91e
+        - **uid**: FCZWeLPC0vA91e
+        - **rotulo**: Camaroa
         - **retangulo**:
           - **x**: 102
           - **y**: 86
           - **comprimento**: 92
           - **largura**: 31
+        - **label**: Camaroa
       - **[2]**:
-        - **id**: Aresta_Punk
-        - **label**: Aresta Punk
+        - **id**: 0rZx5rVyx5I7MM
+        - **uid**: 0rZx5rVyx5I7MM
+        - **rotulo**: Aresta Punk
         - **retangulo**:
           - **x**: 252
           - **y**: 114
           - **comprimento**: 65
           - **largura**: 46
+        - **label**: Aresta Punk
       - **[3]**:
-        - **id**: Planetario
-        - **label**: Planetario
+        - **id**: MRXQpJtofQGGDD
+        - **uid**: MRXQpJtofQGGDD
+        - **rotulo**: Planetario
         - **retangulo**:
           - **x**: 381
           - **y**: 161
           - **comprimento**: 102
           - **largura**: 30
+        - **label**: Planetario
       - **[4]**:
-        - **id**: Free_Solo
-        - **label**: Free Solo
+        - **id**: CgWESKR6t2XYc1
+        - **uid**: CgWESKR6t2XYc1
+        - **rotulo**: Free Solo
         - **retangulo**:
           - **x**: 487
           - **y**: 128
           - **comprimento**: 56
           - **largura**: 55
+        - **label**: Free Solo
       - **[5]**:
-        - **id**: Carrapicho
-        - **label**: Carrapicho
+        - **id**: O2PwAnGVQ7xqJy
+        - **uid**: O2PwAnGVQ7xqJy
+        - **rotulo**: Carrapicho
         - **retangulo**:
           - **x**: 578
           - **y**: 185
           - **comprimento**: 110
           - **largura**: 30
+        - **label**: Carrapicho
       - **[6]**:
-        - **id**: Jahngada
-        - **label**: Jahngada
+        - **id**: cDZTeCrzxcErS6
+        - **uid**: cDZTeCrzxcErS6
+        - **rotulo**: Jahngada
         - **retangulo**:
           - **x**: 454
           - **y**: 298
           - **comprimento**: 104
           - **largura**: 36
+        - **label**: Jahngada
       - **[7]**:
-        - **id**: Capitão_Jack
-        - **label**: Capitão Jack
+        - **id**: mtFNeX5ImnsqX5
+        - **uid**: mtFNeX5ImnsqX5
+        - **rotulo**: Capitão Jack
         - **retangulo**:
           - **x**: 243
           - **y**: 372
           - **comprimento**: 78
           - **largura**: 53
+        - **label**: Capitão Jack
       - **[8]**:
-        - **id**: Aleijadinho
-        - **label**: Aleijadinho
+        - **id**: iEOTJY7v5TaLXx
+        - **uid**: iEOTJY7v5TaLXx
+        - **rotulo**: Aleijadinho
         - **retangulo**:
           - **x**: 343
           - **y**: 488
           - **comprimento**: 118
           - **largura**: 33
+        - **label**: Aleijadinho
     - **referencias**:
       - **[0]**:
-        - **ids**:
-          - Aleijadinho
-        - **grupo**: Sunset
+        - **alvo_uid**: 8ByzIvimI8JjlP
+        - **pontos_uids**:
+          - iEOTJY7v5TaLXx
         - **setor**: Aleijadinho
+        - **ids**:
+          - iEOTJY7v5TaLXx
       - **[1]**:
-        - **ids**:
-          - Capitão_Jack
-        - **grupo**: Sunset
+        - **alvo_uid**: WbGHKuEY0c29Qu
+        - **pontos_uids**:
+          - mtFNeX5ImnsqX5
         - **setor**: Capitão Jack
+        - **ids**:
+          - mtFNeX5ImnsqX5
       - **[2]**:
-        - **ids**:
-          - Jahngada
-        - **grupo**: Sunset
+        - **alvo_uid**: n9RzqdO3IwqBxO
+        - **pontos_uids**:
+          - cDZTeCrzxcErS6
         - **setor**: Jahngada
+        - **ids**:
+          - cDZTeCrzxcErS6
       - **[3]**:
-        - **ids**:
-          - Planetario
-        - **grupo**: Sunset
+        - **alvo_uid**: saaNQTQBg9DF7a
+        - **pontos_uids**:
+          - MRXQpJtofQGGDD
         - **setor**: Planetário
+        - **ids**:
+          - MRXQpJtofQGGDD
       - **[4]**:
-        - **ids**:
-          - Free_Solo
-        - **grupo**: Sunset
+        - **alvo_uid**: hvbt8d3J7iRNJ4
+        - **pontos_uids**:
+          - CgWESKR6t2XYc1
         - **setor**: Free Solo
+        - **ids**:
+          - CgWESKR6t2XYc1
       - **[5]**:
-        - **ids**:
-          - Carrapicho
-        - **grupo**: Sunset
+        - **alvo_uid**: jsAkOxynMs1Q1y
+        - **pontos_uids**:
+          - O2PwAnGVQ7xqJy
         - **setor**: Carrapicho
+        - **ids**:
+          - O2PwAnGVQ7xqJy
       - **[6]**:
-        - **ids**:
-          - Sunset
-        - **grupo**: Sunset
+        - **alvo_uid**: Kvnf8ufa5QUEaC
+        - **pontos_uids**:
+          - cKe0q7xwUWzZuq
         - **setor**: Sunset
-      - **[7]**:
         - **ids**:
-          - Camaroa
-        - **grupo**: Sunset
+          - cKe0q7xwUWzZuq
+      - **[7]**:
+        - **alvo_uid**: rsyrhOCEGQJFIs
+        - **pontos_uids**:
+          - FCZWeLPC0vA91e
         - **setor**: Camaroa
+        - **ids**:
+          - FCZWeLPC0vA91e
 - **setores**:
   - **[0]**:
     - **conteudo**:
       - **descricao**: # Bloco Aleijadinho
       - **nome**: Aleijadinho
+      - **uid**: 8ByzIvimI8JjlP
       - **escaladas**:
         - **[0]**:
+          - **uid**: gLUBc0gxHnWRFG
           - **boulder**:
             - **nome**: Aleijadinho
             - **dificuldade**: V5
@@ -290,17 +332,22 @@
           - **altura_mapa**: 960
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 1
-              - **label**: 1
+              - **id**: BepwayUIkwvQgw
+              - **uid**: BepwayUIkwvQgw
+              - **rotulo**: 1
               - **circulo**:
                 - **x**: 419
                 - **y**: 589
                 - **raio**: 11
+              - **label**: 1
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: gLUBc0gxHnWRFG
+              - **pontos_uids**:
+                - BepwayUIkwvQgw
               - **escalada**: Aleijadinho
               - **ids**:
-                - 1
+                - BepwayUIkwvQgw
       - **precomputados**:
         - **total_escaladas**: 1
         - **total_boulders**: 1
@@ -308,24 +355,29 @@
     - **conteudo**:
       - **descricao**: # Bloco Capitão Jack
       - **nome**: Capitão Jack
+      - **uid**: WbGHKuEY0c29Qu
       - **escaladas**:
         - **[0]**:
+          - **uid**: r4kmo4hFKS1LUc
           - **boulder**:
             - **nome**: Amnesia
             - **destaque**: True
             - **dificuldade**: V3
         - **[1]**:
+          - **uid**: teYWWb74iHNuTM
           - **boulder**:
             - **descricao**: Virada exposta, atenção na segurança!
             - **nome**: Capitão Jack
             - **destaque**: True
             - **dificuldade**: V6
         - **[2]**:
+          - **uid**: 0luuM6N2Oo1RVa
           - **boulder**:
             - **descricao**: Começa em uma fenda bem a esquerda, faz a travessia e vira no Amnésia
             - **nome**: Purple Rase
             - **dificuldade**: V5
         - **[3]**:
+          - **uid**: uzP7ISfjzOd1ec
           - **boulder**:
             - **descricao**: Começa perto do chão de areia bem a direita e vira no Amnésia
             - **nome**: Sunshine
@@ -337,81 +389,111 @@
           - **altura_mapa**: 344
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 1
-              - **label**: 1
+              - **id**: 9zBgTGalp61NWO
+              - **uid**: 9zBgTGalp61NWO
+              - **rotulo**: 1
               - **circulo**:
                 - **x**: 251
                 - **y**: 307
                 - **raio**: 9
+              - **label**: 1
             - **[1]**:
-              - **id**: x
-              - **label**: x
+              - **id**: BMqKeFxbgsxDrR
+              - **uid**: BMqKeFxbgsxDrR
+              - **rotulo**: x
               - **circulo**:
                 - **x**: 12
                 - **y**: 12
                 - **raio**: 9
+              - **label**: x
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: uzP7ISfjzOd1ec
+              - **pontos_uids**:
+                - 9zBgTGalp61NWO
+                - BMqKeFxbgsxDrR
               - **escalada**: Sunshine
               - **ids**:
-                - 1
-                - x
+                - 9zBgTGalp61NWO
+                - BMqKeFxbgsxDrR
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_sunset_setor_capitao_jack_p1.webp)
           - **largura_mapa**: 847
           - **altura_mapa**: 814
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 1_b
-              - **label**: 1
+              - **id**: THvR6FkgIcMxJz
+              - **uid**: THvR6FkgIcMxJz
+              - **rotulo**: 1
               - **circulo**:
                 - **x**: 805
                 - **y**: 704
                 - **raio**: 9
+              - **label**: 1
             - **[1]**:
-              - **id**: 2
-              - **label**: 2
+              - **id**: uhA69wc4u9QWzp
+              - **uid**: uhA69wc4u9QWzp
+              - **rotulo**: 2
               - **circulo**:
                 - **x**: 379
                 - **y**: 666
                 - **raio**: 10
+              - **label**: 2
             - **[2]**:
-              - **id**: 3
-              - **label**: 3
+              - **id**: 8yWZVDkH0adIXC
+              - **uid**: 8yWZVDkH0adIXC
+              - **rotulo**: 3
               - **circulo**:
                 - **x**: 294
                 - **y**: 734
                 - **raio**: 9
+              - **label**: 3
             - **[3]**:
-              - **id**: y
-              - **label**: y
+              - **id**: kfdlNDWbgbqSvn
+              - **uid**: kfdlNDWbgbqSvn
+              - **rotulo**: y
               - **circulo**:
                 - **x**: 256
                 - **y**: 13
                 - **raio**: 10
+              - **label**: y
             - **[4]**:
-              - **id**: x_b
-              - **label**: x
+              - **id**: BQuEV7gKbWT3yU
+              - **uid**: BQuEV7gKbWT3yU
+              - **rotulo**: x
               - **circulo**:
                 - **x**: 562
                 - **y**: 15
                 - **raio**: 9
+              - **label**: x
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: r4kmo4hFKS1LUc
+              - **pontos_uids**:
+                - THvR6FkgIcMxJz
+                - BQuEV7gKbWT3yU
               - **escalada**: Amnesia
               - **ids**:
-                - 1_b
-                - x_b
+                - THvR6FkgIcMxJz
+                - BQuEV7gKbWT3yU
             - **[1]**:
+              - **alvo_uid**: teYWWb74iHNuTM
+              - **pontos_uids**:
+                - uhA69wc4u9QWzp
+                - kfdlNDWbgbqSvn
               - **escalada**: Capitão Jack
               - **ids**:
-                - 2
-                - y
+                - uhA69wc4u9QWzp
+                - kfdlNDWbgbqSvn
             - **[2]**:
+              - **alvo_uid**: 0luuM6N2Oo1RVa
+              - **pontos_uids**:
+                - 8yWZVDkH0adIXC
+                - BQuEV7gKbWT3yU
               - **escalada**: Purple Rase
               - **ids**:
-                - 3
-                - x_b
+                - 8yWZVDkH0adIXC
+                - BQuEV7gKbWT3yU
       - **precomputados**:
         - **total_escaladas**: 4
         - **total_boulders**: 4
@@ -419,23 +501,28 @@
     - **conteudo**:
       - **descricao**: # Bloco Jahngada
       - **nome**: Jahngada
+      - **uid**: n9RzqdO3IwqBxO
       - **escaladas**:
         - **[0]**:
+          - **uid**: z53F6vTUHsg8Sy
           - **boulder**:
             - **descricao**: Base alta, recomenda-se o uso de pelo menos 6 Crash Pads
             - **nome**: Jahngada
             - **dificuldade**: V9
             - **destaque**: True
         - **[1]**:
+          - **uid**: osEqMSD9mX9qwn
           - **boulder**:
             - **nome**: Jahngada SDS
             - **dificuldade**: V10
             - **destaque**: True
         - **[2]**:
+          - **uid**: xfvrVLAr2QVq5e
           - **boulder**:
             - **nome**: Guaicuí
             - **dificuldade**: V5
         - **[3]**:
+          - **uid**: 8k0ldDKlkUnBVj
           - **boulder**:
             - **nome**: Camundongo
             - **dificuldade**: V7
@@ -446,81 +533,111 @@
           - **altura_mapa**: 680
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 1
-              - **label**: 1
+              - **id**: QN04uXCFxHdBaF
+              - **uid**: QN04uXCFxHdBaF
+              - **rotulo**: 1
               - **circulo**:
                 - **x**: 499
                 - **y**: 470
                 - **raio**: 9
+              - **label**: 1
             - **[1]**:
-              - **id**: 2
-              - **label**: 2
+              - **id**: dT6nG5TTFQY3fk
+              - **uid**: dT6nG5TTFQY3fk
+              - **rotulo**: 2
               - **circulo**:
                 - **x**: 365
                 - **y**: 542
                 - **raio**: 8
+              - **label**: 2
             - **[2]**:
-              - **id**: 3
-              - **label**: 3
+              - **id**: O4ULaZgMYUYK2H
+              - **uid**: O4ULaZgMYUYK2H
+              - **rotulo**: 3
               - **circulo**:
                 - **x**: 43
                 - **y**: 501
                 - **raio**: 8
+              - **label**: 3
             - **[3]**:
-              - **id**: x
-              - **label**: x
+              - **id**: jcgscx35vflRYl
+              - **uid**: jcgscx35vflRYl
+              - **rotulo**: x
               - **circulo**:
                 - **x**: 425
                 - **y**: 61
                 - **raio**: 10
+              - **label**: x
             - **[4]**:
-              - **id**: y
-              - **label**: y
+              - **id**: EwncURUcLaWZIz
+              - **uid**: EwncURUcLaWZIz
+              - **rotulo**: y
               - **circulo**:
                 - **x**: 97
                 - **y**: 164
                 - **raio**: 10
+              - **label**: y
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: z53F6vTUHsg8Sy
+              - **pontos_uids**:
+                - QN04uXCFxHdBaF
+                - jcgscx35vflRYl
               - **escalada**: Jahngada
               - **ids**:
-                - 1
-                - x
+                - QN04uXCFxHdBaF
+                - jcgscx35vflRYl
             - **[1]**:
+              - **alvo_uid**: osEqMSD9mX9qwn
+              - **pontos_uids**:
+                - dT6nG5TTFQY3fk
+                - jcgscx35vflRYl
               - **escalada**: Jahngada SDS
               - **ids**:
-                - 2
-                - x
+                - dT6nG5TTFQY3fk
+                - jcgscx35vflRYl
             - **[2]**:
+              - **alvo_uid**: xfvrVLAr2QVq5e
+              - **pontos_uids**:
+                - O4ULaZgMYUYK2H
+                - EwncURUcLaWZIz
               - **escalada**: Guaicuí
               - **ids**:
-                - 3
-                - y
+                - O4ULaZgMYUYK2H
+                - EwncURUcLaWZIz
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_sunset_setor_jahngada_p1.webp)
           - **largura_mapa**: 445
           - **altura_mapa**: 399
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 4
-              - **label**: 4
+              - **id**: v1kffiw28KKZDA
+              - **uid**: v1kffiw28KKZDA
+              - **rotulo**: 4
               - **circulo**:
                 - **x**: 245
                 - **y**: 284
                 - **raio**: 9
+              - **label**: 4
             - **[1]**:
-              - **id**: z
-              - **label**: z
+              - **id**: uenysVUibsZ6he
+              - **uid**: uenysVUibsZ6he
+              - **rotulo**: z
               - **circulo**:
                 - **x**: 214
                 - **y**: 111
                 - **raio**: 9
+              - **label**: z
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: 8k0ldDKlkUnBVj
+              - **pontos_uids**:
+                - v1kffiw28KKZDA
+                - uenysVUibsZ6he
               - **escalada**: Camundongo
               - **ids**:
-                - 4
-                - z
+                - v1kffiw28KKZDA
+                - uenysVUibsZ6he
       - **precomputados**:
         - **total_escaladas**: 4
         - **total_boulders**: 4
@@ -528,31 +645,38 @@
     - **conteudo**:
       - **descricao**: # Bloco Planetário
       - **nome**: Planetário
+      - **uid**: saaNQTQBg9DF7a
       - **escaladas**:
         - **[0]**:
+          - **uid**: sWepsfzqCoKmIf
           - **boulder**:
             - **nome**: Planetário
             - **destaque**: True
             - **dificuldade**: V11
         - **[1]**:
+          - **uid**: 0aiqIzp2eyeH0J
           - **boulder**:
             - **nome**: Náufrago
             - **destaque**: True
             - **dificuldade**: V7
         - **[2]**:
+          - **uid**: wPSobwcfqp7dud
           - **boulder**:
             - **nome**: Golfinho
             - **dificuldade**: V4
         - **[3]**:
+          - **uid**: LXPLykpm0q6F9t
           - **boulder**:
             - **nome**: Clarete
             - **dificuldade**: V3
         - **[4]**:
+          - **uid**: urMRlcvDBDKi0E
           - **boulder**:
             - **nome**: Odisséia na Babilônia
             - **dificuldade**: V6
             - **destaque**: True
         - **[5]**:
+          - **uid**: KBle49fGYwOvue
           - **boulder**:
             - **nome**: Canais da Babilônia
             - **dificuldade**: V5
@@ -563,125 +687,171 @@
           - **altura_mapa**: 536
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 1
-              - **label**: 1
+              - **id**: KOqtBFIO4n372p
+              - **uid**: KOqtBFIO4n372p
+              - **rotulo**: 1
               - **circulo**:
                 - **x**: 532
                 - **y**: 520
                 - **raio**: 9
+              - **label**: 1
             - **[1]**:
-              - **id**: x
-              - **label**: x
+              - **id**: y4ucFSkOg1cove
+              - **uid**: y4ucFSkOg1cove
+              - **rotulo**: x
               - **circulo**:
                 - **x**: 445
                 - **y**: 31
                 - **raio**: 9
+              - **label**: x
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: sWepsfzqCoKmIf
+              - **pontos_uids**:
+                - KOqtBFIO4n372p
+                - y4ucFSkOg1cove
               - **escalada**: Planetário
               - **ids**:
-                - 1
-                - x
+                - KOqtBFIO4n372p
+                - y4ucFSkOg1cove
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_sunset_setor_planetario_p2.webp)
           - **largura_mapa**: 829
           - **altura_mapa**: 486
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 2
-              - **label**: 2
+              - **id**: PDCZ2azVdamApL
+              - **uid**: PDCZ2azVdamApL
+              - **rotulo**: 2
               - **circulo**:
                 - **x**: 346
                 - **y**: 454
                 - **raio**: 9
+              - **label**: 2
             - **[1]**:
-              - **id**: 3
-              - **label**: 3
+              - **id**: SsadBRferzHqoo
+              - **uid**: SsadBRferzHqoo
+              - **rotulo**: 3
               - **circulo**:
                 - **x**: 468
                 - **y**: 409
                 - **raio**: 9
+              - **label**: 3
             - **[2]**:
-              - **id**: 4
-              - **label**: 4
+              - **id**: iVZcXLeU4F23AL
+              - **uid**: iVZcXLeU4F23AL
+              - **rotulo**: 4
               - **circulo**:
                 - **x**: 632
                 - **y**: 338
                 - **raio**: 9
+              - **label**: 4
             - **[3]**:
-              - **id**: y
-              - **label**: y
+              - **id**: IpIpAQLLUX8ACB
+              - **uid**: IpIpAQLLUX8ACB
+              - **rotulo**: y
               - **circulo**:
                 - **x**: 248
                 - **y**: 106
                 - **raio**: 11
+              - **label**: y
             - **[4]**:
-              - **id**: z
-              - **label**: z
+              - **id**: 95pV12jykprucg
+              - **uid**: 95pV12jykprucg
+              - **rotulo**: z
               - **circulo**:
                 - **x**: 495
                 - **y**: 47
                 - **raio**: 9
+              - **label**: z
             - **[5]**:
-              - **id**: w
-              - **label**: w
+              - **id**: MtrgRvCRP7oSkw
+              - **uid**: MtrgRvCRP7oSkw
+              - **rotulo**: w
               - **circulo**:
                 - **x**: 614
                 - **y**: 42
                 - **raio**: 10
+              - **label**: w
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: 0aiqIzp2eyeH0J
+              - **pontos_uids**:
+                - PDCZ2azVdamApL
+                - IpIpAQLLUX8ACB
               - **escalada**: Náufrago
               - **ids**:
-                - 2
-                - y
+                - PDCZ2azVdamApL
+                - IpIpAQLLUX8ACB
             - **[1]**:
+              - **alvo_uid**: wPSobwcfqp7dud
+              - **pontos_uids**:
+                - SsadBRferzHqoo
+                - 95pV12jykprucg
               - **escalada**: Golfinho
               - **ids**:
-                - 3
-                - z
+                - SsadBRferzHqoo
+                - 95pV12jykprucg
             - **[2]**:
+              - **alvo_uid**: LXPLykpm0q6F9t
+              - **pontos_uids**:
+                - iVZcXLeU4F23AL
+                - MtrgRvCRP7oSkw
               - **escalada**: Clarete
               - **ids**:
-                - 4
-                - w
+                - iVZcXLeU4F23AL
+                - MtrgRvCRP7oSkw
         - **[2]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_sunset_setor_planetario_p1.webp)
           - **largura_mapa**: 850
           - **altura_mapa**: 522
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 1_b
-              - **label**: 1
+              - **id**: xe8rGeTEqeOzNz
+              - **uid**: xe8rGeTEqeOzNz
+              - **rotulo**: 1
               - **circulo**:
                 - **x**: 191
                 - **y**: 499
                 - **raio**: 9
+              - **label**: 1
             - **[1]**:
-              - **id**: y_b
-              - **label**: y
+              - **id**: TcKj8RRsR58cmk
+              - **uid**: TcKj8RRsR58cmk
+              - **rotulo**: y
               - **circulo**:
                 - **x**: 118
                 - **y**: 10
                 - **raio**: 9
+              - **label**: y
             - **[2]**:
-              - **id**: x_b
-              - **label**: x
+              - **id**: 3FUDgbW8pu3cPC
+              - **uid**: 3FUDgbW8pu3cPC
+              - **rotulo**: x
               - **circulo**:
                 - **x**: 585
                 - **y**: 6
                 - **raio**: 8
+              - **label**: x
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: urMRlcvDBDKi0E
+              - **pontos_uids**:
+                - xe8rGeTEqeOzNz
+                - 3FUDgbW8pu3cPC
               - **escalada**: Odisséia na Babilônia
               - **ids**:
-                - 1_b
-                - x_b
+                - xe8rGeTEqeOzNz
+                - 3FUDgbW8pu3cPC
             - **[1]**:
+              - **alvo_uid**: KBle49fGYwOvue
+              - **pontos_uids**:
+                - xe8rGeTEqeOzNz
+                - TcKj8RRsR58cmk
               - **escalada**: Canais da Babilônia
               - **ids**:
-                - 1_b
-                - y_b
+                - xe8rGeTEqeOzNz
+                - TcKj8RRsR58cmk
       - **precomputados**:
         - **total_escaladas**: 6
         - **total_boulders**: 6
@@ -689,30 +859,37 @@
     - **conteudo**:
       - **descricao**: # Bloco Free Solo
       - **nome**: Free Solo
+      - **uid**: hvbt8d3J7iRNJ4
       - **escaladas**:
         - **[0]**:
+          - **uid**: YfMW47oCbmPzNq
           - **boulder**:
             - **nome**: Fomiagem
             - **dificuldade**: V4
         - **[1]**:
+          - **uid**: 2YG4P2AcR84cJu
           - **boulder**:
             - **nome**: Projeto
             - **destaque**: True
         - **[2]**:
+          - **uid**: 9tB0ICDkkEkIQV
           - **boulder**:
             - **nome**: Free Solo
             - **destaque**: True
             - **dificuldade**: V5
         - **[3]**:
+          - **uid**: FgU9rkbPSl70LL
           - **boulder**:
             - **descricao**: Apenas desafio de virar o bloco
             - **nome**: Tartaruga
             - **dificuldade**: V3
         - **[4]**:
+          - **uid**: rzxtfME7nU2goW
           - **boulder**:
             - **nome**: Mobilete
             - **dificuldade**: V3
         - **[5]**:
+          - **uid**: Wybze4GIPVfugE
           - **boulder**:
             - **nome**: Walkmachine
             - **dificuldade**: V6
@@ -723,94 +900,130 @@
           - **altura_mapa**: 489
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 2
-              - **label**: 2
+              - **id**: ekNX8LgSqtXQOO
+              - **uid**: ekNX8LgSqtXQOO
+              - **rotulo**: 2
               - **circulo**:
                 - **x**: 671
                 - **y**: 463
                 - **raio**: 9
+              - **label**: 2
             - **[1]**:
-              - **id**: 3
-              - **label**: 3
+              - **id**: mjzpwVBL7KcDPO
+              - **uid**: mjzpwVBL7KcDPO
+              - **rotulo**: 3
               - **circulo**:
                 - **x**: 500
                 - **y**: 448
                 - **raio**: 9
+              - **label**: 3
             - **[2]**:
-              - **id**: Z
-              - **label**: Z
+              - **id**: zK3EBk5Od0f72e
+              - **uid**: zK3EBk5Od0f72e
+              - **rotulo**: Z
               - **circulo**:
                 - **x**: 662
                 - **y**: 12
                 - **raio**: 9
+              - **label**: Z
             - **[3]**:
-              - **id**: W
-              - **label**: W
+              - **id**: tvf9U4OeraSIqE
+              - **uid**: tvf9U4OeraSIqE
+              - **rotulo**: W
               - **circulo**:
                 - **x**: 772
                 - **y**: 9
                 - **raio**: 10
+              - **label**: W
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: YfMW47oCbmPzNq
+              - **pontos_uids**:
+                - ekNX8LgSqtXQOO
+                - tvf9U4OeraSIqE
               - **escalada**: Fomiagem
               - **ids**:
-                - 2
-                - W
+                - ekNX8LgSqtXQOO
+                - tvf9U4OeraSIqE
             - **[1]**:
+              - **alvo_uid**: 2YG4P2AcR84cJu
+              - **pontos_uids**:
+                - mjzpwVBL7KcDPO
+                - zK3EBk5Od0f72e
               - **escalada**: Projeto
               - **ids**:
-                - 3
-                - Z
+                - mjzpwVBL7KcDPO
+                - zK3EBk5Od0f72e
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_sunset_setor_free_solo_p1.webp)
           - **largura_mapa**: 839
           - **altura_mapa**: 460
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 1
-              - **label**: 1
+              - **id**: E1NVEWLoAmokHV
+              - **uid**: E1NVEWLoAmokHV
+              - **rotulo**: 1
               - **circulo**:
                 - **x**: 354
                 - **y**: 396
                 - **raio**: 9
+              - **label**: 1
             - **[1]**:
-              - **id**: 3_b
-              - **label**: 3
+              - **id**: 0maguSKGOpbhyN
+              - **uid**: 0maguSKGOpbhyN
+              - **rotulo**: 3
               - **circulo**:
                 - **x**: 516
                 - **y**: 358
                 - **raio**: 9
+              - **label**: 3
             - **[2]**:
-              - **id**: 4
-              - **label**: 4
+              - **id**: wrQHbOl8h8h1Gs
+              - **uid**: wrQHbOl8h8h1Gs
+              - **rotulo**: 4
               - **circulo**:
                 - **x**: 698
                 - **y**: 360
                 - **raio**: 9
+              - **label**: 4
             - **[3]**:
-              - **id**: 2_b
-              - **label**: 2
+              - **id**: fZvY3GzXmNwaXu
+              - **uid**: fZvY3GzXmNwaXu
+              - **rotulo**: 2
               - **circulo**:
                 - **x**: 743
                 - **y**: 356
                 - **raio**: 9
+              - **label**: 2
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: 9tB0ICDkkEkIQV
+              - **pontos_uids**:
+                - E1NVEWLoAmokHV
               - **escalada**: Free Solo
               - **ids**:
-                - 1
+                - E1NVEWLoAmokHV
             - **[1]**:
+              - **alvo_uid**: FgU9rkbPSl70LL
+              - **pontos_uids**:
+                - fZvY3GzXmNwaXu
               - **escalada**: Tartaruga
               - **ids**:
-                - 2_b
+                - fZvY3GzXmNwaXu
             - **[2]**:
+              - **alvo_uid**: rzxtfME7nU2goW
+              - **pontos_uids**:
+                - 0maguSKGOpbhyN
               - **escalada**: Mobilete
               - **ids**:
-                - 3_b
+                - 0maguSKGOpbhyN
             - **[3]**:
+              - **alvo_uid**: Wybze4GIPVfugE
+              - **pontos_uids**:
+                - wrQHbOl8h8h1Gs
               - **escalada**: Walkmachine
               - **ids**:
-                - 4
+                - wrQHbOl8h8h1Gs
       - **precomputados**:
         - **total_escaladas**: 6
         - **total_boulders**: 6
@@ -818,24 +1031,30 @@
     - **conteudo**:
       - **descricao**: # Bloco Carrapicho
       - **nome**: Carrapicho
+      - **uid**: jsAkOxynMs1Q1y
       - **escaladas**:
         - **[0]**:
+          - **uid**: yYu9f7Q8LNizSu
           - **boulder**:
             - **nome**: Carrapato
             - **dificuldade**: V5
         - **[1]**:
+          - **uid**: mg4HItbc9NLNOZ
           - **boulder**:
             - **nome**: Carrapicho
             - **dificuldade**: V6
         - **[2]**:
+          - **uid**: wPlI5DCRYzKr7I
           - **boulder**:
             - **nome**: Oratório
             - **dificuldade**: V7
         - **[3]**:
+          - **uid**: 5twZm2EkJubxMM
           - **boulder**:
             - **nome**: Pistol
             - **dificuldade**: V2
         - **[4]**:
+          - **uid**: tXhx0XaxaPmKhr
           - **boulder**:
             - **nome**: Dart Vader
             - **dificuldade**: V4
@@ -846,67 +1065,92 @@
           - **altura_mapa**: 564
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 1
-              - **label**: 1
+              - **id**: iqURLjxf3ToeKN
+              - **uid**: iqURLjxf3ToeKN
+              - **rotulo**: 1
               - **circulo**:
                 - **x**: 294
                 - **y**: 507
                 - **raio**: 9
+              - **label**: 1
             - **[1]**:
-              - **id**: 2
-              - **label**: 2
+              - **id**: mWtyKK9qKNOjZB
+              - **uid**: mWtyKK9qKNOjZB
+              - **rotulo**: 2
               - **circulo**:
                 - **x**: 160
                 - **y**: 545
                 - **raio**: 9
+              - **label**: 2
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: yYu9f7Q8LNizSu
+              - **pontos_uids**:
+                - iqURLjxf3ToeKN
               - **escalada**: Carrapato
               - **ids**:
-                - 1
+                - iqURLjxf3ToeKN
             - **[1]**:
+              - **alvo_uid**: mg4HItbc9NLNOZ
+              - **pontos_uids**:
+                - mWtyKK9qKNOjZB
               - **escalada**: Carrapicho
               - **ids**:
-                - 2
+                - mWtyKK9qKNOjZB
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_sunset_setor_carrapicho_p1.webp)
           - **largura_mapa**: 399
           - **altura_mapa**: 309
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 3
-              - **label**: 3
+              - **id**: 7KS2cy7iL8JJhm
+              - **uid**: 7KS2cy7iL8JJhm
+              - **rotulo**: 3
               - **circulo**:
                 - **x**: 152
                 - **y**: 189
                 - **raio**: 9
+              - **label**: 3
             - **[1]**:
-              - **id**: 4
-              - **label**: 4
+              - **id**: zN0PuLRpVV9foz
+              - **uid**: zN0PuLRpVV9foz
+              - **rotulo**: 4
               - **circulo**:
                 - **x**: 348
                 - **y**: 221
                 - **raio**: 9
+              - **label**: 4
             - **[2]**:
-              - **id**: 5
-              - **label**: 5
+              - **id**: sUAgvK1NQUZxg9
+              - **uid**: sUAgvK1NQUZxg9
+              - **rotulo**: 5
               - **circulo**:
                 - **x**: 54
                 - **y**: 194
                 - **raio**: 9
+              - **label**: 5
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: wPlI5DCRYzKr7I
+              - **pontos_uids**:
+                - 7KS2cy7iL8JJhm
               - **escalada**: Oratório
               - **ids**:
-                - 3
+                - 7KS2cy7iL8JJhm
             - **[1]**:
+              - **alvo_uid**: 5twZm2EkJubxMM
+              - **pontos_uids**:
+                - zN0PuLRpVV9foz
               - **escalada**: Pistol
               - **ids**:
-                - 4
+                - zN0PuLRpVV9foz
             - **[2]**:
+              - **alvo_uid**: tXhx0XaxaPmKhr
+              - **pontos_uids**:
+                - sUAgvK1NQUZxg9
               - **escalada**: Dart Vader
               - **ids**:
-                - 5
+                - sUAgvK1NQUZxg9
       - **precomputados**:
         - **total_escaladas**: 5
         - **total_boulders**: 5
@@ -914,25 +1158,31 @@
     - **conteudo**:
       - **descricao**: # Bloco Sunset
       - **nome**: Sunset
+      - **uid**: Kvnf8ufa5QUEaC
       - **escaladas**:
         - **[0]**:
+          - **uid**: D9xTKWVJ6iApT9
           - **boulder**:
             - **nome**: Sucrilhos
             - **dificuldade**: V5
             - **destaque**: True
         - **[1]**:
+          - **uid**: 83JWrElU1YdAe6
           - **boulder**:
             - **nome**: Faxineiro do Universo
             - **dificuldade**: V5
         - **[2]**:
+          - **uid**: P4cfrwrdqTgvFN
           - **boulder**:
             - **nome**: Arestinha Vibration
             - **dificuldade**: V1
         - **[3]**:
+          - **uid**: xpUGKp9VR90ZQk
           - **boulder**:
             - **nome**: Sujeirinha
             - **dificuldade**: V3
         - **[4]**:
+          - **uid**: 4JoWpllHEYv7Zx
           - **boulder**:
             - **nome**: Projeto Sunset
             - **dificuldade**: V3
@@ -944,73 +1194,98 @@
           - **altura_mapa**: 459
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 1
-              - **label**: 1
+              - **id**: dfnrvEE9nK1bG4
+              - **uid**: dfnrvEE9nK1bG4
+              - **rotulo**: 1
               - **circulo**:
                 - **x**: 329
                 - **y**: 409
                 - **raio**: 9
+              - **label**: 1
             - **[1]**:
-              - **id**: 4
-              - **label**: 4
+              - **id**: cibPAkZbM3lhvi
+              - **uid**: cibPAkZbM3lhvi
+              - **rotulo**: 4
               - **circulo**:
                 - **x**: 514
                 - **y**: 357
                 - **raio**: 9
+              - **label**: 4
             - **[2]**:
-              - **id**: 2
-              - **label**: 2
+              - **id**: s66gmROJRbrof7
+              - **uid**: s66gmROJRbrof7
+              - **rotulo**: 2
               - **circulo**:
                 - **x**: 658
                 - **y**: 294
                 - **raio**: 9
+              - **label**: 2
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: D9xTKWVJ6iApT9
+              - **pontos_uids**:
+                - dfnrvEE9nK1bG4
               - **escalada**: Sucrilhos
               - **ids**:
-                - 1
+                - dfnrvEE9nK1bG4
             - **[1]**:
+              - **alvo_uid**: 83JWrElU1YdAe6
+              - **pontos_uids**:
+                - s66gmROJRbrof7
               - **escalada**: Faxineiro do Universo
               - **ids**:
-                - 2
+                - s66gmROJRbrof7
             - **[2]**:
+              - **alvo_uid**: xpUGKp9VR90ZQk
+              - **pontos_uids**:
+                - cibPAkZbM3lhvi
               - **escalada**: Sujeirinha
               - **ids**:
-                - 4
+                - cibPAkZbM3lhvi
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_sunset_setor_sunset_p1.webp)
           - **largura_mapa**: 488
           - **altura_mapa**: 648
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 3
-              - **label**: 3
+              - **id**: GSHWSrlZq7SIN6
+              - **uid**: GSHWSrlZq7SIN6
+              - **rotulo**: 3
               - **circulo**:
                 - **x**: 195
                 - **y**: 554
                 - **raio**: 9
+              - **label**: 3
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: P4cfrwrdqTgvFN
+              - **pontos_uids**:
+                - GSHWSrlZq7SIN6
               - **escalada**: Arestinha Vibration
               - **ids**:
-                - 3
+                - GSHWSrlZq7SIN6
         - **[2]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_sunset_setor_sunset_p2.webp)
           - **largura_mapa**: 338
           - **altura_mapa**: 456
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 5
-              - **label**: 5
+              - **id**: l4RLkaslCoVuyS
+              - **uid**: l4RLkaslCoVuyS
+              - **rotulo**: 5
               - **circulo**:
                 - **x**: 246
                 - **y**: 386
                 - **raio**: 9
+              - **label**: 5
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: 4JoWpllHEYv7Zx
+              - **pontos_uids**:
+                - l4RLkaslCoVuyS
               - **escalada**: Projeto Sunset
               - **ids**:
-                - 5
+                - l4RLkaslCoVuyS
       - **precomputados**:
         - **total_escaladas**: 5
         - **total_boulders**: 5
@@ -1018,28 +1293,34 @@
     - **conteudo**:
       - **descricao**: # Bloco Camaroa
       - **nome**: Camaroa
+      - **uid**: rsyrhOCEGQJFIs
       - **escaladas**:
         - **[0]**:
+          - **uid**: Whht0JTY2jYPhj
           - **boulder**:
             - **nome**: Fissura
             - **dificuldade**: V8
             - **destaque**: True
         - **[1]**:
+          - **uid**: IUZVhkD7BGnGMe
           - **boulder**:
             - **nome**: Pure
             - **dificuldade**: V6
             - **destaque**: True
         - **[2]**:
+          - **uid**: 9IGADLX3hshhPA
           - **boulder**:
             - **nome**: Lpita
             - **dificuldade**: V7
             - **destaque**: True
         - **[3]**:
+          - **uid**: XF6QJOxiGiZOoK
           - **boulder**:
             - **nome**: Nave
             - **dificuldade**: V3
             - **destaque**: True
         - **[4]**:
+          - **uid**: VQbQSYRYendquh
           - **boulder**:
             - **nome**: Camaroa
             - **dificuldade**: V10
@@ -1051,67 +1332,92 @@
           - **altura_mapa**: 384
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 1
-              - **label**: 1
+              - **id**: V6J2JJOLaI812R
+              - **uid**: V6J2JJOLaI812R
+              - **rotulo**: 1
               - **circulo**:
                 - **x**: 222
                 - **y**: 234
                 - **raio**: 8
+              - **label**: 1
             - **[1]**:
-              - **id**: 2
-              - **label**: 2
+              - **id**: 6o8msTDADzMBC8
+              - **uid**: 6o8msTDADzMBC8
+              - **rotulo**: 2
               - **circulo**:
                 - **x**: 490
                 - **y**: 339
                 - **raio**: 9
+              - **label**: 2
             - **[2]**:
-              - **id**: 4
-              - **label**: 4
+              - **id**: MtX6i55W63JJcr
+              - **uid**: MtX6i55W63JJcr
+              - **rotulo**: 4
               - **circulo**:
                 - **x**: 605
                 - **y**: 361
                 - **raio**: 9
+              - **label**: 4
             - **[3]**:
-              - **id**: 3
-              - **label**: 3
+              - **id**: 9kIrzI6zIFd1dO
+              - **uid**: 9kIrzI6zIFd1dO
+              - **rotulo**: 3
               - **circulo**:
                 - **x**: 682
                 - **y**: 361
                 - **raio**: 8
+              - **label**: 3
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: Whht0JTY2jYPhj
+              - **pontos_uids**:
+                - V6J2JJOLaI812R
               - **escalada**: Fissura
               - **ids**:
-                - 1
+                - V6J2JJOLaI812R
             - **[1]**:
+              - **alvo_uid**: IUZVhkD7BGnGMe
+              - **pontos_uids**:
+                - 6o8msTDADzMBC8
               - **escalada**: Pure
               - **ids**:
-                - 2
+                - 6o8msTDADzMBC8
             - **[2]**:
+              - **alvo_uid**: 9IGADLX3hshhPA
+              - **pontos_uids**:
+                - 9kIrzI6zIFd1dO
               - **escalada**: Lpita
               - **ids**:
-                - 3
+                - 9kIrzI6zIFd1dO
             - **[3]**:
+              - **alvo_uid**: XF6QJOxiGiZOoK
+              - **pontos_uids**:
+                - MtX6i55W63JJcr
               - **escalada**: Nave
               - **ids**:
-                - 4
+                - MtX6i55W63JJcr
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_sunset_setor_camaroa_p1.webp)
           - **largura_mapa**: 835
           - **altura_mapa**: 606
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 5
-              - **label**: 5
+              - **id**: RXU7I5LtWkNP1C
+              - **uid**: RXU7I5LtWkNP1C
+              - **rotulo**: 5
               - **circulo**:
                 - **x**: 462
                 - **y**: 480
                 - **raio**: 10
+              - **label**: 5
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: VQbQSYRYendquh
+              - **pontos_uids**:
+                - RXU7I5LtWkNP1C
               - **escalada**: Camaroa
               - **ids**:
-                - 5
+                - RXU7I5LtWkNP1C
       - **precomputados**:
         - **total_escaladas**: 5
         - **total_boulders**: 5

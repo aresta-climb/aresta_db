@@ -867,9 +867,10 @@ def test_croqui_model_preserva_ordem_dos_campos(tmp_path):
     frontmatter = yaml.safe_load(parts[1])
 
     chaves = list(frontmatter.keys())
-    # Os originais mantém a ordem. O novo campo vai pro fim.
-    assert chaves[:3] == ["sinal_de_celular", "nome", "amigavel_a_bebes"]
-    assert "amigavel_a_criancas" in chaves[3:]
+    # UID obrigatório no topo, e os originais mantém a ordem. O novo campo vai pro fim.
+    assert chaves[0] == "uid"
+    assert chaves[1:4] == ["sinal_de_celular", "nome", "amigavel_a_bebes"]
+    assert "amigavel_a_criancas" in chaves[4:]
     
     # A ordem aninhada das chaves de boulder deve ter sido mantida recursivamente
     boulder_keys = list(frontmatter["escaladas"][0]["boulder"].keys())
@@ -944,10 +945,12 @@ def test_croqui_model_preserva_ordem_croqui_raiz(tmp_path):
     resultado = model.extrair_arquivos_e_serializar(db_path)
     
     chaves_raiz = list(resultado.keys())
-    assert chaves_raiz[:4] == ["id", "nome", "botoes", "picos"]
+    assert chaves_raiz[0] == "uid"
+    assert chaves_raiz[1:5] == ["id", "nome", "botoes", "picos"]
     
     chaves_botao = list(resultado["botoes"][0].keys())
-    assert chaves_botao == ["destino", "texto"]
+    assert chaves_botao[0] == "uid"
+    assert chaves_botao[1:] == ["destino", "texto"]
     
     chaves_pico = list(resultado["picos"][0].keys())
     assert chaves_pico[:2] == ["url_google_maps", "nome"]
@@ -989,8 +992,9 @@ def test_croqui_model_preserva_ordem_grupo(tmp_path):
     frontmatter = yaml.safe_load(texto_salvo.split("---", 2)[1])
 
     chaves_grupo = list(frontmatter.keys())
-    assert chaves_grupo[:2] == ["nome", "mapas"]
-    assert "localizacao_escalada" in chaves_grupo[2:]
+    assert chaves_grupo[0] == "uid"
+    assert chaves_grupo[1:3] == ["nome", "mapas"]
+    assert "localizacao_escalada" in chaves_grupo[3:]
     
     chaves_mapa = list(frontmatter["mapas"][0].keys())
     assert chaves_mapa == ["largura_mapa", "caminho_imagem_mapa"]
@@ -1099,8 +1103,8 @@ def test_salvar_croqui_quotes_string_digits(tmp_path):
     sg = pico.setores_ou_grupos.add()
     mapa = sg.setor.conteudo.mapas.add(caminho_imagem_mapa="mapa.webp")
     poi = mapa.pontos_de_interesse.add()
-    poi.id = "09"
-    poi.label = "10"
+    poi.uid = "poi_1"
+    poi.rotulo = "10"
     
     model = CroquiModel(croqui)
     model.extrair_arquivos_e_serializar(tmp_path)
@@ -1108,8 +1112,12 @@ def test_salvar_croqui_quotes_string_digits(tmp_path):
     caminho_yaml = tmp_path / "setor_.md"
     with open(caminho_yaml, "r", encoding="utf-8") as f:
         conteudo = f.read()
-        assert "id: '09'" in conteudo, "ID composto apenas por digitos deve ter aspas"
-        assert "label: '10'" in conteudo, "Label composto apenas por digitos deve ter aspas"
+        assert "rotulo: '10'" in conteudo, "Rótulo composto apenas por digitos deve ter aspas"
+        assert "label" not in conteudo, "O campo obsoleto label não deve ser emitido na serialização"
+        from scripts.preparar_submissao_lib import parse_md_com_frontmatter
+        fm, _ = parse_md_com_frontmatter(caminho_yaml)
+        assert fm is not None
+        assert "id" not in fm["mapas"][0]["pontos_de_interesse"][0], "O campo depreciado id não deve ser emitido na serialização"
 
 
 def test_buffer_imagens_em_memoria_emite_sinal_imagem_alterada(tmp_path):
@@ -1326,3 +1334,108 @@ def test_carregar_e_serializar_botao_sem_frontmatter_preserva_sem_frontmatter(tm
     conteudo_salvo = (dest_dir / "sobre.md").read_text(encoding="utf-8")
     assert not conteudo_salvo.startswith("---")
     assert conteudo_salvo == "# Sobre o Local\n\nApenas texto puro sem frontmatter.\n"
+
+
+def test_extrair_arquivos_e_serializar_garante_uids_e_rotulos(tmp_path):
+    from scripts.gerenciar_uids_lib import validar_uid
+    from scripts.preparar_submissao_lib import parse_md_com_frontmatter
+
+    croqui = Croqui(nome="Croqui Teste UIDs")
+    pico = croqui.picos.add(nome="Pico 1")
+    sg = pico.setores_ou_grupos.add()
+    setor_arq = sg.setor
+    setor_arq.caminho = "setor_1.md"
+    from aresta_api.proto.generated.croqui_pb2 import ArquivoSetor
+    setor_arq.Extensions[ArquivoSetor.ext_metadados_arquivo].caminho_original = "setor_1.md"
+    conteudo = setor_arq.conteudo
+    conteudo.nome = "Setor Um"
+
+    # Adiciona escalada sem uid
+    esc = conteudo.escaladas.add()
+    esc.via_esportiva.nome = "Via Fantástica"
+
+    # Adiciona mapa com POI contendo label (ou sem uid)
+    mapa = conteudo.mapas.add(caminho_imagem_mapa="mapa.webp")
+    poi = mapa.pontos_de_interesse.add(id="poi1", label="12")
+    poi.circulo.x = 10
+    poi.circulo.y = 20
+    poi.circulo.raio = 5
+
+    ref = mapa.referencias.add(escalada="Via Fantástica", ids=["poi1"])
+
+    model = CroquiModel(croqui)
+    dest_dir = tmp_path / "salvo_uids"
+    dest_dir.mkdir()
+
+    dados_yaml = model.extrair_arquivos_e_serializar(dest_dir)
+
+    # Valida croqui.yaml dict retornado
+    assert "uid" in dados_yaml
+    assert validar_uid(dados_yaml["uid"]) is True
+
+    # Valida setor_1.md
+    arquivo_md = dest_dir / "setor_1.md"
+    assert arquivo_md.exists()
+
+    fm, _ = parse_md_com_frontmatter(arquivo_md)
+    assert fm is not None
+    assert "uid" in fm
+    assert validar_uid(fm["uid"]) is True
+
+    # Valida escaladas no frontmatter
+    escaladas = fm.get("escaladas", [])
+    assert len(escaladas) == 1
+    assert "uid" in escaladas[0]
+    assert validar_uid(escaladas[0]["uid"]) is True
+    via_uid = escaladas[0]["uid"]
+
+    # Valida POI no frontmatter: rotulo presente, label ausente, uid presente
+    pois = fm["mapas"][0]["pontos_de_interesse"]
+    assert len(pois) == 1
+    assert pois[0]["rotulo"] == "12"
+    assert "label" not in pois[0]
+    assert "uid" in pois[0]
+    assert validar_uid(pois[0]["uid"]) is True
+    poi_uid = pois[0]["uid"]
+
+    # Valida referências no frontmatter: alvo_uid e pontos_uids presentes, escalada ausente
+    refs = fm["mapas"][0]["referencias"]
+    assert len(refs) == 1
+    assert refs[0]["alvo_uid"] == via_uid
+    assert refs[0]["pontos_uids"] == [poi_uid]
+    assert "escalada" not in refs[0]
+
+
+def test_carregar_arquivos_externos_atualiza_indice_uids(tmp_path, qapp):
+    """Garante que carregar_arquivos_externos reindexa o indice_uids com as entidades externas carregadas."""
+    caminho_db = tmp_path / "croqui_teste"
+    caminho_db.mkdir()
+
+    md_conteudo = """---
+nome: Setor Externo
+uid: setr_externo123
+escaladas:
+  - uid: esca_externa123
+    via_esportiva:
+      nome: Via de Fora
+---
+# Descricao do Setor Externo
+"""
+    (caminho_db / "setor_ext.md").write_text(md_conteudo, encoding="utf-8")
+
+    croqui = Croqui(uid="croq_1234567890")
+    pico = croqui.picos.add(nome="Pico 1")
+    sg = pico.setores_ou_grupos.add()
+    sg.setor.caminho = "setor_ext.md"
+
+    model = CroquiModel(croqui)
+    assert not model.indice_uids.existe("setr_externo123")
+    assert not model.indice_uids.existe("esca_externa123")
+
+    model.carregar_arquivos_externos(caminho_db)
+
+    assert model.indice_uids.existe("setr_externo123")
+    assert model.indice_uids.existe("esca_externa123")
+    assert model.indice_uids.obter_caminho("esca_externa123") == "Setor Externo > Via de Fora"
+
+

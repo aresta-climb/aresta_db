@@ -1,232 +1,270 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+uid: 0e5JJodO43rA4q
 caminho_imagem_capa: imagens/setor_bigorna_ou_lapa_da_zumba_p0_i0_2.webp
 escaladas:
-- via_esportiva:
+- uid: njU3YfjpN9Bn16
+  via_esportiva:
     nome: Xeque Mate
     dificuldade: BR_6_BARRA_6SUP
-- via_esportiva:
+- uid: OieNeFY6FhkDg5
+  via_esportiva:
     nome: Caminho das Formigas
     dificuldade: BR_5
-- via_esportiva:
+- uid: dkkjbbEw0f4167
+  via_esportiva:
     nome: Camelos Hidrofóbicos
     dificuldade: BR_4
-- via_esportiva:
+- uid: xxzURwWfKLxb4M
+  via_esportiva:
     nome: Urtigas Assassinas
     dificuldade: BR_4
-- via_esportiva:
+- uid: oDqkkCuyEbxjfT
+  via_esportiva:
     nome: Só as Cachorras
     dificuldade: BR_7B
-- via_esportiva:
+- uid: usyVcA5pgx0iyA
+  via_esportiva:
     nome: Lança Chamas
     dificuldade: BR_8A
-- via_esportiva:
+- uid: QpfslWknndTsgs
+  via_esportiva:
     nome: Ataque das Cachorras
     dificuldade: BR_6SUP
-- via_esportiva:
+- uid: CZW6AgsVVKDOhx
+  via_esportiva:
     nome: Wilham Thor
     dificuldade: BR_6
-- via_esportiva:
+- uid: YnaCGA72r24J34
+  via_esportiva:
     nome: Linha do Tempo
     dificuldade: BR_7A
-- via_esportiva:
+- uid: 17egT9OVKzxHLG
+  via_esportiva:
     nome: Ilusão de Ótica
     dificuldade: BR_6SUP
-- via_movel:
+- uid: HR1PS6xwiHBF6C
+  via_movel:
     nome: Fendazinha
     dificuldade: BR_7A
-- via_esportiva:
+- uid: n1FbAiIho7PZVU
+  via_esportiva:
     nome: Complicada e Perfeitinha
     dificuldade: BR_7A
-- via_esportiva:
+- uid: yIps6sLF7ZJXji
+  via_esportiva:
     nome: Cabana do Pai Tomaz
     dificuldade: BR_6
-- via_esportiva:
+- uid: eiN2xtfw3l0aZp
+  via_esportiva:
     nome: Davi e Golias
     dificuldade: BR_5
-- via_esportiva:
+- uid: lhWnqvv02BHpRg
+  via_esportiva:
     nome: De Olho no Buraco
     dificuldade: BR_5
-- via_esportiva:
+- uid: FaBUfjPugIi7q2
+  via_esportiva:
     nome: Meu Casamento é um Perrengue
     dificuldade: BR_7A
-- via_esportiva:
+- uid: wLLtAGZNYp4owT
+  via_esportiva:
     nome: Canaleta Mãe Diná
     dificuldade: BR_6
-- via_movel:
+- uid: fBXd55MQtdwHPM
+  via_movel:
     nome: Só o Zói
     dificuldade: BR_4
-- via_esportiva:
+- uid: f2ovtdoB1rHJ8H
+  via_esportiva:
     nome: O Susto
     dificuldade: BR_7A
-- via_esportiva:
+- uid: dWl2adIoYi2fb1
+  via_esportiva:
     nome: Tortuosa Sempre
     dificuldade: BR_7A
-- via_esportiva:
+- uid: 0eyRtNbHvctnvx
+  via_esportiva:
     nome: Tensão do Cliff
     dificuldade: BR_6SUP
-- via_esportiva:
+- uid: 6Z6uONxsrrF7pI
+  via_esportiva:
     nome: Tira o Pé Daí
     dificuldade: BR_7A
-- via_esportiva:
+- uid: ARY5GHcDyHGXlD
+  via_esportiva:
     nome: A Procura de Pai Mei
     dificuldade: BR_6SUP
-- via_esportiva:
+- uid: Ak2PumqxEaTfZE
+  via_esportiva:
     nome: Encontro com Pai Mei
     dificuldade: BR_6
-- via_movel:
+- uid: aS1BJrhqthzx7x
+  via_movel:
     nome: Movimentos Fluidos
     dificuldade: BR_5SUP
-- via_movel:
+- uid: 7eehvBP4QUgQcQ
+  via_movel:
     nome: Lechimeiafobia
     dificuldade: BR_5
-- via_esportiva:
+- uid: xDM5MMidcPfAig
+  via_esportiva:
     nome: Taxidermia Hipofágica
     dificuldade: BR_6
-- via_esportiva:
+- uid: RbK22SSeuv3vhJ
+  via_esportiva:
     nome: Amarra a Gaia
     dificuldade: BR_5SUP
-- via_esportiva:
+- uid: TS6DfP6kxAefbD
+  via_esportiva:
     nome: Disova Bernéstica
     dificuldade: BR_5SUP
-- via_esportiva:
+- uid: JOjcCDcs3Me7X1
+  via_esportiva:
     nome: Diga não ao Braz
     dificuldade: BR_5
-- via_esportiva:
+- uid: K0iAe8tmgkGNaf
+  via_esportiva:
     nome: 21 Tec Tec
     dificuldade: BR_5
-- via_esportiva:
+- uid: IKMjffVikI67FI
+  via_esportiva:
     nome: Kill Bill
     dificuldade: BR_6SUP
-- via_esportiva:
+- uid: 0qoZhhAVuuVma8
+  via_esportiva:
     nome: É Assim que se Faz
     dificuldade: BR_5
-- via_esportiva:
+- uid: l4DKJ78AvKUyzm
+  via_esportiva:
     nome: Despedida de um Amigo
     dificuldade: BR_6_BARRA_6SUP
-- via_esportiva:
+- uid: 5DjUql4JJdVxq9
+  via_esportiva:
     nome: Tricam é o Cara
     dificuldade: BR_7A
-- via_esportiva:
+- uid: F0JhPjJ1PPLsEa
+  via_esportiva:
     nome: Não Puxa Não
     dificuldade: BR_5
-- via_movel:
+- uid: iq18pu1OI70n0h
+  via_movel:
     nome: HellBoy
     dificuldade: BR_6_BARRA_6SUP
 mapas:
 - caminho_imagem_mapa: imagens/setor_bigorna_ou_lapa_da_zumba_p0_i0.webp
   referencias:
-  - escalada: Xeque Mate
-    ids:
+  - alvo_uid: njU3YfjpN9Bn16
+    pontos_uids:
     - '1'
-  - escalada: Caminho das Formigas
-    ids:
+  - alvo_uid: OieNeFY6FhkDg5
+    pontos_uids:
     - '2'
-  - escalada: Camelos Hidrofóbicos
-    ids:
+  - alvo_uid: dkkjbbEw0f4167
+    pontos_uids:
     - '3'
-  - escalada: Urtigas Assassinas
-    ids:
+  - alvo_uid: xxzURwWfKLxb4M
+    pontos_uids:
     - '4'
-  - escalada: Só as Cachorras
-    ids:
+  - alvo_uid: oDqkkCuyEbxjfT
+    pontos_uids:
     - '5'
-  - escalada: Lança Chamas
-    ids:
+  - alvo_uid: usyVcA5pgx0iyA
+    pontos_uids:
     - '6'
-  - escalada: Ataque das Cachorras
-    ids:
+  - alvo_uid: QpfslWknndTsgs
+    pontos_uids:
     - '7'
-  - escalada: Wilham Thor
-    ids:
+  - alvo_uid: CZW6AgsVVKDOhx
+    pontos_uids:
     - '8'
-  - escalada: Linha do Tempo
-    ids:
+  - alvo_uid: YnaCGA72r24J34
+    pontos_uids:
     - '9'
-  - escalada: Ilusão de Ótica
-    ids:
+  - alvo_uid: 17egT9OVKzxHLG
+    pontos_uids:
     - '10'
-  - escalada: Fendazinha
-    ids:
+  - alvo_uid: HR1PS6xwiHBF6C
+    pontos_uids:
     - '11'
-  - escalada: Complicada e Perfeitinha
-    ids:
+  - alvo_uid: n1FbAiIho7PZVU
+    pontos_uids:
     - '12'
-  - escalada: Cabana do Pai Tomaz
-    ids:
+  - alvo_uid: yIps6sLF7ZJXji
+    pontos_uids:
     - '13'
-  - escalada: Davi e Golias
-    ids:
+  - alvo_uid: eiN2xtfw3l0aZp
+    pontos_uids:
     - '14'
-  - escalada: De Olho no Buraco
-    ids:
+  - alvo_uid: lhWnqvv02BHpRg
+    pontos_uids:
     - '15'
-  - escalada: Meu Casamento é um Perrengue
-    ids:
+  - alvo_uid: FaBUfjPugIi7q2
+    pontos_uids:
     - '16'
-  - escalada: Canaleta Mãe Diná
-    ids:
+  - alvo_uid: wLLtAGZNYp4owT
+    pontos_uids:
     - '17'
-  - escalada: Só o Zói
-    ids:
+  - alvo_uid: fBXd55MQtdwHPM
+    pontos_uids:
     - '18'
-  - escalada: O Susto
-    ids:
+  - alvo_uid: f2ovtdoB1rHJ8H
+    pontos_uids:
     - '19'
-  - escalada: Tortuosa Sempre
-    ids:
+  - alvo_uid: dWl2adIoYi2fb1
+    pontos_uids:
     - '20'
-  - escalada: Tensão do Cliff
-    ids:
+  - alvo_uid: 0eyRtNbHvctnvx
+    pontos_uids:
     - '21'
-  - escalada: Tira o Pé Daí
-    ids:
+  - alvo_uid: 6Z6uONxsrrF7pI
+    pontos_uids:
     - '22'
-  - escalada: A Procura de Pai Mei
-    ids:
+  - alvo_uid: ARY5GHcDyHGXlD
+    pontos_uids:
     - '23'
-  - escalada: Encontro com Pai Mei
-    ids:
+  - alvo_uid: Ak2PumqxEaTfZE
+    pontos_uids:
     - '24'
-  - escalada: Movimentos Fluidos
-    ids:
+  - alvo_uid: aS1BJrhqthzx7x
+    pontos_uids:
     - '25'
-  - escalada: Lechimeiafobia
-    ids:
+  - alvo_uid: 7eehvBP4QUgQcQ
+    pontos_uids:
     - '26'
-  - escalada: Taxidermia Hipofágica
-    ids:
+  - alvo_uid: xDM5MMidcPfAig
+    pontos_uids:
     - '27'
-  - escalada: Amarra a Gaia
-    ids:
+  - alvo_uid: RbK22SSeuv3vhJ
+    pontos_uids:
     - '28'
-  - escalada: Disova Bernéstica
-    ids:
+  - alvo_uid: TS6DfP6kxAefbD
+    pontos_uids:
     - '29'
-  - escalada: Diga não ao Braz
-    ids:
+  - alvo_uid: JOjcCDcs3Me7X1
+    pontos_uids:
     - '30'
-  - escalada: 21 Tec Tec
-    ids:
+  - alvo_uid: K0iAe8tmgkGNaf
+    pontos_uids:
     - '31'
-  - escalada: Kill Bill
-    ids:
+  - alvo_uid: IKMjffVikI67FI
+    pontos_uids:
     - '32'
-  - escalada: É Assim que se Faz
-    ids:
+  - alvo_uid: 0qoZhhAVuuVma8
+    pontos_uids:
     - '33'
-  - escalada: Despedida de um Amigo
-    ids:
+  - alvo_uid: l4DKJ78AvKUyzm
+    pontos_uids:
     - '34'
-  - escalada: Tricam é o Cara
-    ids:
+  - alvo_uid: 5DjUql4JJdVxq9
+    pontos_uids:
     - '35'
-  - escalada: Não Puxa Não
-    ids:
+  - alvo_uid: F0JhPjJ1PPLsEa
+    pontos_uids:
     - '36'
-  - escalada: HellBoy
-    ids:
+  - alvo_uid: iq18pu1OI70n0h
+    pontos_uids:
     - '37'
 ---
 

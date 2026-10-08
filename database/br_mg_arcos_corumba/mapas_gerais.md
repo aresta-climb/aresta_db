@@ -9,53 +9,53 @@ mapas:
   largura_mapa: 1059
   altura_mapa: 618
   pontos_de_interesse:
-  - id: Setor_Tupi
-    label: Setor Tupi (boulders)
+  - uid: kUNmWHcTidwBwy
+    rotulo: Setor Tupi (boulders)
     retangulo:
       x: 422
       y: 236
       comprimento: 89
       largura: 53
-  - id: Setor_Cataguas
-    label: Setor Cataguás
+  - uid: hLrNEe5uAax73P
+    rotulo: Setor Cataguás
     retangulo:
       x: 522
       y: 226
       comprimento: 91
       largura: 56
-  - id: Setor_Xavante
-    label: Setor Xavante
+  - uid: 68iPigflB96fnG
+    rotulo: Setor Xavante
     retangulo:
       x: 814
       y: 302
       comprimento: 95
       largura: 79
-  - id: Setor_Pataxos
-    label: Setor Pataxós
+  - uid: dWreoB2AJKV6G5
+    rotulo: Setor Pataxós
     retangulo:
       x: 126
       y: 352
       comprimento: 144
       largura: 39
       angulo_graus_x100: 30489
-  - id: Setor_Yanomami
-    label: Setor Yanomami
+  - uid: ZDgxTpeyy1QOMW
+    rotulo: Setor Yanomami
     retangulo:
       x: 582
       y: 434
       comprimento: 115
       largura: 81
   referencias:
-  - setor: Setor Cataguás
-    ids:
-    - Setor_Cataguas
-  - setor: Setor Xavante
-    ids:
-    - Setor_Xavante
-  - setor: Setor Pataxós
-    ids:
-    - Setor_Pataxos
-  - setor: Setor Yanomami
-    ids:
-    - Setor_Yanomami
+  - alvo_uid: P6WZGH1oFBzJaG
+    pontos_uids:
+    - hLrNEe5uAax73P
+  - alvo_uid: TxDV9kE6vHYvdM
+    pontos_uids:
+    - 68iPigflB96fnG
+  - alvo_uid: iCjYHssizqSvcD
+    pontos_uids:
+    - dWreoB2AJKV6G5
+  - alvo_uid: NDSstaoHwE6j5z
+    pontos_uids:
+    - ZDgxTpeyy1QOMW
 ---

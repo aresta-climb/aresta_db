@@ -1,6 +1,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
+uid: Jtg5MoeUOy5z93
 id: br_mg_sacramento_vo_gusta
 nome: Pico da Vó Gusta
 descricao: Pico da Vó Gusta em Sacramento, MG. Próximo a Rifaina.
@@ -23,9 +24,10 @@ picos:
   mapas_gerais:
     caminho: mapas_gerais.md
 botoes:
-- texto: Capa
+- uid: ZVDkuWLhO7Il6d
+  texto: Capa
   destino:
     secao_textual:
       caminho: capa.md
-ultima_migracao: 4
+ultima_migracao: 5
 publicar_croqui: true

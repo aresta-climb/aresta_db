@@ -484,6 +484,10 @@ class CmdRemoverRepeated(ComandoEditor):
             self.caminho_msg = validar_pertence_ao_croqui(self.model, msg, self.campo_nome, nome_comando="CmdRemoverRepeated")
             self._msg_cache = msg
         self.index: int = index
+        if valor_removido is None and msg is not None:
+            container = getattr(msg, self.campo_nome, None)
+            if container is not None and 0 <= index < len(container):
+                valor_removido = container[index]
         self.valor_removido: Any = _copia_segura(valor_removido)
         self.context_path: Optional[str] = context_path
 
@@ -1523,7 +1527,7 @@ class CmdRenomearEscalada(ComandoEditor):
             self.caminhos_referencias = []
             self._referencias_cache = list(referencias) if referencias else []
             for ref in self._referencias_cache:
-                caminho_ref = validar_pertence_ao_croqui(self.model, ref, "escalada", nome_comando="CmdRenomearEscalada")
+                caminho_ref = validar_pertence_ao_croqui(self.model, ref, nome_comando="CmdRenomearEscalada")
                 self.caminhos_referencias.append(caminho_ref)
 
         self.context_path: Optional[str] = context_path
@@ -1575,8 +1579,6 @@ class CmdRenomearEscalada(ComandoEditor):
             self.context_path = outro.context_path
 
         self.model._set_primitivo(msg, self.campo_nome, self.nome_novo)
-        for ref in self.referencias:
-            self.model._set_primitivo(ref, "escalada", self.nome_novo)
         return True
 
     def undo(self) -> None:
@@ -1584,8 +1586,6 @@ class CmdRenomearEscalada(ComandoEditor):
         if msg is None:
             return
         self.model._set_primitivo(msg, self.campo_nome, self.nome_antigo)
-        for ref in self.referencias:
-            self.model._set_primitivo(ref, "escalada", self.nome_antigo)
         if hasattr(self, 'context_path') and self.context_path:
             self.model.notificar_foco_requisitado(self.context_path)
 
@@ -1594,8 +1594,6 @@ class CmdRenomearEscalada(ComandoEditor):
         if msg is None:
             return
         self.model._set_primitivo(msg, self.campo_nome, self.nome_novo)
-        for ref in self.referencias:
-            self.model._set_primitivo(ref, "escalada", self.nome_novo)
         if hasattr(self, 'context_path') and self.context_path:
             self.model.notificar_foco_requisitado(self.context_path)
 

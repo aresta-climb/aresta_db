@@ -1,101 +1,109 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+uid: msOVbYnmbHbFNG
 nome: Barba Ruiva
 mapas:
 - caminho_imagem_mapa: imagens/grupo_frigideira_setor_barba_ruiva_p0_i0.webp
   largura_mapa: 966
   altura_mapa: 850
   pontos_de_interesse:
-  - id: '1'
-    label: '1'
+  - uid: cXrbUyStnz6mPb
+    rotulo: '1'
     circulo:
       x: 858
       y: 687
       raio: 29
-  - id: '2'
-    label: '2'
+  - uid: DZ4CApDj9zo9bV
+    rotulo: '2'
     circulo:
       x: 567
       y: 548
       raio: 26
-  - id: '3'
-    label: '3'
+  - uid: lcaCvH4Eh5zSsS
+    rotulo: '3'
     circulo:
       x: 359
       y: 783
       raio: 29
   referencias:
-  - escalada: Barba Ruiva SDS
-    ids:
-    - '1'
-  - escalada: Barba Ruiva
-    ids:
-    - '2'
-  - escalada: Barba Aresta
-    ids:
-    - '3'
+  - alvo_uid: vIvxLYfrcfsst9
+    pontos_uids:
+    - cXrbUyStnz6mPb
+  - alvo_uid: KD20dM1RQ3qYOZ
+    pontos_uids:
+    - DZ4CApDj9zo9bV
+  - alvo_uid: YsJqgIkeNBjeBz
+    pontos_uids:
+    - lcaCvH4Eh5zSsS
 - caminho_imagem_mapa: imagens/grupo_frigideira_setor_barba_ruiva_p0_i1.webp
   largura_mapa: 618
   altura_mapa: 550
   pontos_de_interesse:
-  - id: '4'
-    label: '4'
+  - uid: 1lPfn9SUaXlVGg
+    rotulo: '4'
     circulo:
       x: 234
       y: 424
       raio: 18
-  - id: '5'
-    label: '5'
+  - uid: 6lb1yo9kdmWOAh
+    rotulo: '5'
     circulo:
       x: 279
       y: 353
       raio: 18
-  - id: '6'
-    label: '6'
+  - uid: LJQhK9oGgHVCpJ
+    rotulo: '6'
     circulo:
       x: 438
       y: 419
       raio: 18
-  - id: '7'
-    label: '7'
+  - uid: LHokKOgwiy90ON
+    rotulo: '7'
     circulo:
       x: 463
       y: 373
       raio: 18
   referencias:
-  - escalada: Vira Folha
-    ids:
-    - '4'
-  - escalada: Indecisão
-    ids:
-    - '5'
-  - escalada: Revolução Feminina
-    ids:
-    - '6'
-  - escalada: Direitos Iguais
-    ids:
-    - '7'
+  - alvo_uid: GCWOOFXptfrBac
+    pontos_uids:
+    - 1lPfn9SUaXlVGg
+  - alvo_uid: awPdr8vatFACua
+    pontos_uids:
+    - 6lb1yo9kdmWOAh
+  - alvo_uid: A72B02F6R7qXtw
+    pontos_uids:
+    - LJQhK9oGgHVCpJ
+  - alvo_uid: hJw872ZCvz42WC
+    pontos_uids:
+    - LHokKOgwiy90ON
 escaladas:
-- boulder:
+- uid: vIvxLYfrcfsst9
+  boulder:
     nome: Barba Ruiva SDS
     dificuldade: V6
-- boulder:
+- uid: KD20dM1RQ3qYOZ
+  boulder:
     nome: Barba Ruiva
     dificuldade: V2
-- boulder:
+- uid: YsJqgIkeNBjeBz
+  boulder:
     nome: Barba Aresta
     dificuldade: V3
-- boulder:
+- uid: GCWOOFXptfrBac
+  boulder:
     nome: Vira Folha
     dificuldade: V2
-- boulder:
+- uid: awPdr8vatFACua
+  boulder:
     nome: Indecisão
     dificuldade: V2
-- boulder:
+- uid: A72B02F6R7qXtw
+  boulder:
     nome: Revolução Feminina
     dificuldade: V5
-- boulder:
+- uid: hJw872ZCvz42WC
+  boulder:
     nome: Direitos Iguais
     dificuldade: V6
 ---

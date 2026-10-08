@@ -1,69 +1,73 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+uid: QosMO7Nv63wvuo
 nome: Piseiro
 mapas:
 - caminho_imagem_mapa: imagens/grupo_regiao_4_setor_piseiro_p0_i0.webp
   largura_mapa: 1240
   altura_mapa: 1082
   pontos_de_interesse:
-  - id: '1'
-    label: '1'
+  - uid: vhp72vIYVpVvZc
+    rotulo: '1'
     circulo:
       x: 555
       y: 726
       raio: 15
-  - id: 1_fim
-    label: '1'
+  - uid: JdpV5y6tSph8rA
+    rotulo: '1'
     circulo:
       x: 602
       y: 246
       raio: 16
-  - id: '2'
-    label: '2'
+  - uid: xoHMHkCuLJFSLX
+    rotulo: '2'
     circulo:
       x: 553
       y: 762
       raio: 16
-  - id: 2_fim
-    label: '2'
+  - uid: 2jox6l5PEgUHPF
+    rotulo: '2'
     circulo:
       x: 725
       y: 315
       raio: 15
-  - id: '3'
-    label: '3'
+  - uid: h5Xxh1ZaqekkOR
+    rotulo: '3'
     circulo:
       x: 863
       y: 909
       raio: 15
-  - id: 3_fim
-    label: '3'
+  - uid: zJAcH5bbmKuJBa
+    rotulo: '3'
     circulo:
       x: 725
       y: 277
       raio: 15
   referencias:
-  - escalada: Maozeiro
-    ids:
-    - '1'
-    - 1_fim
-  - escalada: Piseiro
-    ids:
-    - '2'
-    - 2_fim
-  - escalada: Expresso 22
-    ids:
-    - '3'
-    - 3_fim
+  - alvo_uid: SajkhpSFBYayr8
+    pontos_uids:
+    - vhp72vIYVpVvZc
+    - JdpV5y6tSph8rA
+  - alvo_uid: y3ZtuNKJdPoDP8
+    pontos_uids:
+    - xoHMHkCuLJFSLX
+    - 2jox6l5PEgUHPF
+  - alvo_uid: 3biEqLOb4DyBMU
+    pontos_uids:
+    - h5Xxh1ZaqekkOR
+    - zJAcH5bbmKuJBa
 escaladas:
-- boulder:
+- uid: SajkhpSFBYayr8
+  boulder:
     nome: Maozeiro
     dificuldade: V7
-- boulder:
+- uid: y3ZtuNKJdPoDP8
+  boulder:
     nome: Piseiro
     dificuldade: V4
-- boulder:
+- uid: 3biEqLOb4DyBMU
+  boulder:
     nome: Expresso 22
     dificuldade: V0
 ---

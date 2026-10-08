@@ -6,50 +6,50 @@ mapas:
   largura_mapa: 2048
   altura_mapa: 1414
   pontos_de_interesse:
-  - id: Familia_I
-    label: Setor Familia I
+  - uid: 4e0xGtHoV6DiYx
+    rotulo: Setor Familia I
     retangulo:
       x: 1434
       y: 287
       comprimento: 196
       largura: 96
-  - id: Familia_II
-    label: Setor Familia II
+  - uid: lt5mQUcCLRXN4s
+    rotulo: Setor Familia II
     retangulo:
       x: 1232
       y: 330
       comprimento: 165
       largura: 119
-  - id: Me_Leve
-    label: Setor Me Leve ao Cume
+  - uid: cC6oPhIBXIR3KM
+    rotulo: Setor Me Leve ao Cume
     retangulo:
       x: 610
       y: 486
       comprimento: 198
       largura: 131
-  - id: Estacionamento
-    label: Setor Estacionamento
+  - uid: bJKs3S0afhrKex
+    rotulo: Setor Estacionamento
     retangulo:
       x: 1628
       y: 561
       comprimento: 266
       largura: 156
-  - id: Tetos
-    label: Setor Tetos
+  - uid: JJZOlG94kS0eIn
+    rotulo: Setor Tetos
     retangulo:
       x: 607
       y: 826
       comprimento: 150
       largura: 102
-  - id: Vale_Perdido
-    label: Vale Perdido, BR 381 e Igarapé - MG
+  - uid: xgxIykWcRlQY7E
+    rotulo: Vale Perdido, BR 381 e Igarapé - MG
     retangulo:
       x: 1566
       y: 1279
       comprimento: 400
       largura: 25
-  - id: micos
-    label: Micos
+  - uid: MTyPvCNnpvGzaD
+    rotulo: Micos
     poligono:
       coordenadas:
       - 1092
@@ -64,8 +64,8 @@ mapas:
       - 714
       - 1128
       - 796
-  - id: pracinha
-    label: Setor Pracinha
+  - uid: P4H1RsrOwhcm2s
+    rotulo: Setor Pracinha
     poligono:
       coordenadas:
       - 524
@@ -78,8 +78,8 @@ mapas:
       - 967
       - 717
       - 880
-  - id: igarameca
-    label: Setor Igarameca
+  - uid: ZsH6hQ3KX3A1oV
+    rotulo: Setor Igarameca
     poligono:
       coordenadas:
       - 493
@@ -100,8 +100,8 @@ mapas:
       - 960
       - 535
       - 929
-  - id: totem
-    label: Setor Totem
+  - uid: VmjHY9fvbj5IdE
+    rotulo: Setor Totem
     poligono:
       coordenadas:
       - 559
@@ -118,16 +118,16 @@ mapas:
       - 1064
       - 609
       - 990
-  - id: fug12
-    label: Fugitivos I e II
+  - uid: wKRZECrWnXm11r
+    rotulo: Fugitivos I e II
     retangulo:
       x: 1860
       y: 430
       comprimento: 232
       largura: 101
     cor: ''
-  - id: democracia
-    label: Democracia
+  - uid: Ia7HkACeRq53xJ
+    rotulo: Democracia
     retangulo:
       x: 1016
       y: 264
@@ -135,100 +135,98 @@ mapas:
       largura: 121
     cor: ''
   referencias:
-  - grupo: Setor Estacionamento
-    ids:
-    - Estacionamento
-  - setor: Setor Família I
-    ids:
-    - Familia_I
-  - setor: Setor Família II
-    ids:
-    - Familia_II
-  - setor: Setor Igarameca
-    ids:
-    - igarameca
-  - setor: Setor Totem
-    ids:
-    - totem
-  - ids:
-    - pracinha
-    setor: Setor Pracinha
-  - ids:
-    - Tetos
-    setor: Setor dos Tetos
-  - ids:
-    - Me_Leve
-    setor: Setor Trad
-    escalada: Me Leve ao Cume
-  - ids:
-    - micos
-    setor: Setor Micos
-  - ids:
-    - fug12
-    setor: Bloco Fugitivos I
-  - ids:
-    - fug12
-    setor: Bloco Fugitivos II
-  - ids:
-    - fug12
-    setor: Bloco Viva o Climb
-  - ids:
-    - democracia
-    setor: Bloco Democracia
+  - alvo_uid: hv7YWgTBQGyWOX
+    pontos_uids:
+    - bJKs3S0afhrKex
+  - alvo_uid: ZTPu3KeCXIJisV
+    pontos_uids:
+    - 4e0xGtHoV6DiYx
+  - alvo_uid: 4GJDAcwWEJb4Ca
+    pontos_uids:
+    - lt5mQUcCLRXN4s
+  - alvo_uid: sIe5O02lheR33Z
+    pontos_uids:
+    - ZsH6hQ3KX3A1oV
+  - alvo_uid: BVZ1UjMtLg5NQp
+    pontos_uids:
+    - VmjHY9fvbj5IdE
+  - alvo_uid: 1g1CrSzJzHeyrv
+    pontos_uids:
+    - P4H1RsrOwhcm2s
+  - alvo_uid: WVQC6bQetKztOL
+    pontos_uids:
+    - JJZOlG94kS0eIn
+  - alvo_uid: sQBuyJX4kDFb7M
+    pontos_uids:
+    - cC6oPhIBXIR3KM
+  - alvo_uid: 8CUeyL0A3dX1EL
+    pontos_uids:
+    - MTyPvCNnpvGzaD
+  - alvo_uid: 7TPrkAyBIkfebu
+    pontos_uids:
+    - wKRZECrWnXm11r
+  - alvo_uid: jPzv6byW0dO0Gj
+    pontos_uids:
+    - wKRZECrWnXm11r
+  - alvo_uid: xNOT4evG3tUx7A
+    pontos_uids:
+    - wKRZECrWnXm11r
+  - alvo_uid: sQ7YgEG6ONsPXt
+    pontos_uids:
+    - Ia7HkACeRq53xJ
 - caminho_imagem_mapa: imagens/mapas_gerais_p1.webp
   largura_mapa: 2048
   altura_mapa: 1157
   pontos_de_interesse:
-  - id: Totem
-    label: Setor Toten
+  - uid: ALCtT82nRBlfZk
+    rotulo: Setor Toten
     retangulo:
       x: 249
       y: 524
       comprimento: 102
       largura: 81
-  - id: Igarameca
-    label: Setor Igarameca
+  - uid: 8boJPpTFtRnvKI
+    rotulo: Setor Igarameca
     retangulo:
       x: 702
       y: 853
       comprimento: 185
       largura: 86
-  - id: Pracinha
-    label: Setor Pracinha
+  - uid: GLCxSXaOhwHVVb
+    rotulo: Setor Pracinha
     retangulo:
       x: 1048
       y: 908
       comprimento: 165
       largura: 84
-  - id: Tetos
-    label: Setor Tetos
+  - uid: FsfHAU9sF9UxEA
+    rotulo: Setor Tetos
     retangulo:
       x: 1394
       y: 938
       comprimento: 103
       largura: 83
-  - id: Me_Leve
-    label: Setor Me Leve ao Cume
+  - uid: YkMeqNYbatJ4aT
+    rotulo: Setor Me Leve ao Cume
     retangulo:
       x: 1728
       y: 894
       comprimento: 164
       largura: 145
   referencias:
-  - setor: Setor Igarameca
-    ids:
-    - Igarameca
-  - setor: Setor Pracinha
-    ids:
-    - Pracinha
-  - ids:
-    - Totem
-    setor: Setor Totem
-  - ids:
-    - Tetos
-    setor: Setor dos Tetos
-  - ids:
-    - Me_Leve
-    setor: Setor Trad
-    escalada: Me Leve ao Cume
+  - alvo_uid: sIe5O02lheR33Z
+    pontos_uids:
+    - 8boJPpTFtRnvKI
+  - alvo_uid: 1g1CrSzJzHeyrv
+    pontos_uids:
+    - GLCxSXaOhwHVVb
+  - alvo_uid: BVZ1UjMtLg5NQp
+    pontos_uids:
+    - ALCtT82nRBlfZk
+  - alvo_uid: WVQC6bQetKztOL
+    pontos_uids:
+    - FsfHAU9sF9UxEA
+  - alvo_uid: sQBuyJX4kDFb7M
+    pontos_uids:
+    - YkMeqNYbatJ4aT
 ---

@@ -1,12 +1,15 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+uid: rdMF3EdVWbCT4B
 nome: Estacionamento - Boulders
 escaladas:
-- boulder:
+- uid: y6AZSly8Hpuq5y
+  boulder:
     nome: Raio
     dificuldade: V4
-- boulder:
+- uid: 6YHQgzP3OTY9eP
+  boulder:
     nome: Dama de ferro (boulder)
     dificuldade: V6
 mapas:
@@ -14,8 +17,8 @@ mapas:
   largura_mapa: 1773
   altura_mapa: 2364
   pontos_de_interesse:
-  - id: linha_1
-    label: ''
+  - uid: c5jKPTaPO5TQmO
+    rotulo: ''
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -68,15 +71,15 @@ mapas:
       espessura: 5
     cor: '#00E5FF'
   referencias:
-  - ids:
-    - linha_1
-    escalada: Raio
+  - alvo_uid: y6AZSly8Hpuq5y
+    pontos_uids:
+    - c5jKPTaPO5TQmO
 - caminho_imagem_mapa: imagens/grupo_estacionamento_boulders_p1.webp
   largura_mapa: 2364
   altura_mapa: 1773
   pontos_de_interesse:
-  - id: linha_2
-    label: ''
+  - uid: D8roTsgyrTkubQ
+    rotulo: ''
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -114,8 +117,9 @@ mapas:
       espessura: 5
     cor: '#00E5FF'
   referencias:
-  - ids:
-    - linha_2
-    escalada: Dama de ferro (boulder)
+  - alvo_uid: 6YHQgzP3OTY9eP
+    pontos_uids:
+    - D8roTsgyrTkubQ
 ---
+
 Boulders no bloco principal do estacionamento, onde estão as vias esportivas.

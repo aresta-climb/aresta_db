@@ -1,25 +1,27 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+uid: NyRs6pI4NoexjO
 nome: Mergulho em Copo d'Água
 mapas:
 - caminho_imagem_mapa: imagens/grupo_colina_setor_mergulho_em_copo_dagua_p0.webp
   largura_mapa: 758
   altura_mapa: 529
   pontos_de_interesse:
-  - id: '1'
-    label: '1'
+  - uid: eDyAljCFEDPGmP
+    rotulo: '1'
     retangulo:
       x: 203
       y: 462
       comprimento: 34
       largura: 24
   referencias:
-  - escalada: Mergulho em Copo d'Água
-    ids:
-    - '1'
+  - alvo_uid: Ybxadj0PXMFNsg
+    pontos_uids:
+    - eDyAljCFEDPGmP
 escaladas:
-- boulder:
+- uid: Ybxadj0PXMFNsg
+  boulder:
     nome: Mergulho em Copo d'Água
     dificuldade: V4
 ---

@@ -1,6 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+uid: 0b1TmSRK0dGE9M
 nome: Região 3
 setores:
 - caminho: grupo_regiao_3_setor_cenas_fortes.md

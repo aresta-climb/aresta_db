@@ -1,3 +1,4 @@
+uid: m9esZhpM9rhbCf
 id: br_mg_montes_claros_tia_tina
 nome: Setor Tia Tina (Montes Claros)
 descricao: Guia de escalada do Setor Tia Tina em Montes Claros, MG.
@@ -10,34 +11,43 @@ picos:
   setores_ou_grupos:
   - setor:
       conteudo:
+        uid: XOrXzE2PMerfgh
         nome: Setor Saara
         mapas:
         - caminho_imagem_mapa: imagens/setor_saara_p0_i0.webp
           largura_mapa: 2048
           altura_mapa: 998
         escaladas:
-        - via_esportiva:
+        - uid: gSjU20GZ9QDinR
+          via_esportiva:
             nome: 48 °C
             dificuldade: BR_7A
-        - via_esportiva:
+        - uid: tC587jdaU2E9yZ
+          via_esportiva:
             nome: Mutação
             dificuldade: PROJETO
-        - via_esportiva:
+        - uid: rwb8DC3STVE2TW
+          via_esportiva:
             nome: Abibá Pretá
             dificuldade: BR_8A
-        - via_esportiva:
+        - uid: tqKZG95438Cb3v
+          via_esportiva:
             nome: Aiatolá Khomeiniinguem
             dificuldade: BR_7A_BARRA_7B
-        - via_esportiva:
+        - uid: eL3bKau6ua4DOa
+          via_esportiva:
             nome: Mulher Feia
             dificuldade: PROJETO
-        - via_esportiva:
+        - uid: XkeTo4ow4Uju3b
+          via_esportiva:
             nome: Terere
             dificuldade: BR_8C
-        - via_esportiva:
+        - uid: OB5j4aTeYkXp9r
+          via_esportiva:
             nome: Vai Quem Quer Sobe Pode
             dificuldade: BR_7C
-        - via_esportiva:
+        - uid: QIlGUTW3p9qox1
+          via_esportiva:
             nome: Pica Pau
             dificuldade: BR_7B
         descricao: ATENÇÃO COM OS BURACOS NESTE SETOR!!! CUIDADO!!!
@@ -46,19 +56,23 @@ picos:
           total_esportivas: 8
   - setor:
       conteudo:
+        uid: 8X36q6hBkc4VW8
         nome: Setor Fenda
         mapas:
         - caminho_imagem_mapa: imagens/setor_fenda_p0_i0.webp
           largura_mapa: 2048
           altura_mapa: 797
         escaladas:
-        - via_esportiva:
+        - uid: tawkB1EQARbdDn
+          via_esportiva:
             nome: Chuva de Verão
             dificuldade: BR_8A
-        - via_esportiva:
+        - uid: u4Xj1oZQGHeV5l
+          via_esportiva:
             nome: Na Crista da Onda
             dificuldade: BR_8B
-        - via_esportiva:
+        - uid: dDprv8qDxnDC28
+          via_esportiva:
             nome: Produto da Parceria
             dificuldade: PROJETO
         descricao: ''
@@ -67,34 +81,43 @@ picos:
           total_esportivas: 3
   - setor:
       conteudo:
+        uid: 4VN8VKp1nfx0Pl
         nome: Setor do Buraco
         mapas:
         - caminho_imagem_mapa: imagens/setor_do_buraco_p0_i0.webp
           largura_mapa: 2048
           altura_mapa: 1100
         escaladas:
-        - via_esportiva:
+        - uid: FRkmtEDoCXWfsh
+          via_esportiva:
             nome: Caverna do Dragão
             dificuldade: BR_6SUP
-        - via_esportiva:
+        - uid: NckXoWKtSpJuBn
+          via_esportiva:
             nome: Cactus Solitário
             dificuldade: BR_6SUP_BARRA_7A
-        - via_esportiva:
+        - uid: u8Dn1XugW5KFBY
+          via_esportiva:
             nome: Rala Coco
             dificuldade: BR_7A
-        - via_esportiva:
+        - uid: bmWw5crqjAfhN5
+          via_esportiva:
             nome: Sakaia
             dificuldade: BR_7B
-        - via_esportiva:
+        - uid: zOV1QLPZC90Md1
+          via_esportiva:
             nome: Tiza
             dificuldade: BR_6SUP_BARRA_7A
-        - via_esportiva:
+        - uid: npczMMc7kxHkE6
+          via_esportiva:
             nome: Esporão
             dificuldade: BR_7C
-        - via_esportiva:
+        - uid: 3h2XLIUpErdoII
+          via_esportiva:
             nome: Espanha
             dificuldade: BR_8B
-        - via_esportiva:
+        - uid: LaWmoqQxaRSmvy
+          via_esportiva:
             nome: Furadinha
             dificuldade: BR_7A
         descricao: ''
@@ -103,35 +126,44 @@ picos:
           total_esportivas: 8
   - setor:
       conteudo:
+        uid: JqY0W1wGxzihQ4
         nome: Setor da Frente
         mapas:
         - caminho_imagem_mapa: imagens/setor_da_frente_p0_i0.webp
           largura_mapa: 2048
           altura_mapa: 1122
         escaladas:
-        - via_esportiva:
+        - uid: tp2kyzC4JmcKoe
+          via_esportiva:
             nome: Via Yughes
             dificuldade: PROJETO
-        - via_esportiva:
+        - uid: exlcGMoro7zAc8
+          via_esportiva:
             nome: Proteção Viva
             dificuldade: BR_8B_BARRA_8C
-        - via_esportiva:
+        - uid: N9SoDTNJVYk8HA
+          via_esportiva:
             nome: Ganja Real
             dificuldade: BR_7B
-        - via_esportiva:
+        - uid: 4EmJq3MbugMXY4
+          via_esportiva:
             nome: Barão Abençoado
             dificuldade: BR_9C
-        - via_esportiva:
+        - uid: XipbKhxzlEopf4
+          via_esportiva:
             nome: 6 de Dezembro
             dificuldade: BR_9B
             descricao: ATENÇÃO!!! ESTÁ INTERDITADA - CASA DE ABELHA CACHORRO
-        - via_esportiva:
+        - uid: s8kwFo3l0uSl8L
+          via_esportiva:
             nome: Lado Grone
             dificuldade: BR_8C
-        - via_esportiva:
+        - uid: BNYQECKgsXKVxl
+          via_esportiva:
             nome: Aparição
             dificuldade: BR_7B
-        - via_esportiva:
+        - uid: G79en15uCtOyZj
+          via_esportiva:
             nome: Cascavel
             dificuldade: BR_7B
         descricao: ''
@@ -140,13 +172,15 @@ picos:
           total_esportivas: 8
   - setor:
       conteudo:
+        uid: eNceaiVBDSO2JM
         nome: Setor Passagem
         mapas:
         - caminho_imagem_mapa: imagens/setor_passagem_p0_i0.webp
           largura_mapa: 2048
           altura_mapa: 1100
         escaladas:
-        - via_esportiva:
+        - uid: KgU4J7YitY1oQa
+          via_esportiva:
             nome: Via Só na Aresta
             dificuldade: PROJETO
         descricao: ''
@@ -155,6 +189,7 @@ picos:
           total_esportivas: 1
   - setor:
       conteudo:
+        uid: NY4UBwvaNXetKK
         nome: Setor Árvore da Vida
         mapas:
         - caminho_imagem_mapa: imagens/setor_arvore_da_vida_p0_i0.webp
@@ -165,28 +200,35 @@ picos:
         precomputados: {}
   - setor:
       conteudo:
+        uid: OkCP3KYAvNBQ7d
         nome: Setor Planeta dos Macacos
         mapas:
         - caminho_imagem_mapa: imagens/setor_planeta_dos_macacos_p0_i0.webp
           largura_mapa: 2048
           altura_mapa: 1100
         escaladas:
-        - via_esportiva:
+        - uid: Kz26CMkwCMbG5n
+          via_esportiva:
             nome: Chimpanzé
             dificuldade: BR_7C
-        - via_esportiva:
+        - uid: oTvY3n8662xyGI
+          via_esportiva:
             nome: Los Macacos
             dificuldade: BR_7C
-        - via_esportiva:
+        - uid: 8T3EsEg0lLdryw
+          via_esportiva:
             nome: Macaco Loco
             dificuldade: BR_8C
-        - via_esportiva:
+        - uid: JhBx5q788vi6YV
+          via_esportiva:
             nome: Macaco Prego
             dificuldade: PROJETO
-        - via_esportiva:
+        - uid: h9l4zgOm8LyaIO
+          via_esportiva:
             nome: Chita
             dificuldade: BR_8A
-        - via_esportiva:
+        - uid: EKRnnrxAjXrTtL
+          via_esportiva:
             nome: Monga
             dificuldade: BR_6SUP_BARRA_7A
         descricao: ''
@@ -207,7 +249,8 @@ picos:
     total_setores: 7
     total_esportivas: 34
 botoes:
-- texto: Capa
+- uid: DKZDgB8FG7TXOj
+  texto: Capa
   destino:
     secao_textual:
       conteudo: |-
@@ -221,7 +264,7 @@ botoes:
         **Montes Claros - MG**
 
         AENMG - ASSOCIAÇÃO DE ESCALADORES DO NORTE DE MINAS GERAIS
-ultima_migracao: 4
+ultima_migracao: 5
 arquivos_externos:
 - caminho: imagens/capa_p0_i0.webp
   checksum_sha256: fd9dad9574cb6806a22df45be2404f16a7063c7547f83e299242a64da0dd706d

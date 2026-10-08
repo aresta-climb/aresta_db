@@ -1,6 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+uid: YDntm65nIZs31H
 caminho_imagem_capa: imagens/setor_death_horse_p0_i1.webp
 nome: Setor Death Horse
 mapas:
@@ -8,149 +9,158 @@ mapas:
   largura_mapa: 1066
   altura_mapa: 642
   pontos_de_interesse:
-  - id: '1'
-    label: '1'
+  - uid: y4ApcVMHMiYlht
+    rotulo: '1'
     circulo:
       x: 66
       y: 255
       raio: 13
-  - id: '2'
-    label: '2'
+  - uid: 4cu6BCpZfDFxPG
+    rotulo: '2'
     circulo:
       x: 94
       y: 286
       raio: 13
-  - id: '3'
-    label: '3'
+  - uid: IdGbo7P0ctPlqc
+    rotulo: '3'
     circulo:
       x: 131
       y: 291
       raio: 14
-  - id: '4'
-    label: '4'
+  - uid: 6DGo7re5kZzCIN
+    rotulo: '4'
     circulo:
       x: 174
       y: 270
       raio: 14
-  - id: '5'
-    label: '5'
+  - uid: Q2L0A3Lq1ZIsMl
+    rotulo: '5'
     circulo:
       x: 238
       y: 252
       raio: 14
-  - id: '6'
-    label: '6'
+  - uid: mOoWcdLmuwxPLL
+    rotulo: '6'
     circulo:
       x: 425
       y: 279
       raio: 14
-  - id: '7'
-    label: '7'
+  - uid: zvt7dlNEtz5C6J
+    rotulo: '7'
     circulo:
       x: 480
       y: 189
       raio: 14
-  - id: '8'
-    label: '8'
+  - uid: U9WLbiA7AC06CT
+    rotulo: '8'
     circulo:
       x: 529
       y: 187
       raio: 14
-  - id: '9'
-    label: '9'
+  - uid: 39lU4TjrNJLuFz
+    rotulo: '9'
     circulo:
       x: 1008
       y: 347
       raio: 14
-  - id: Setor_7_Paralelo
-    label: ↑ SETOR 7 PARALELO
+  - uid: 5hm1ZRkPZ8qWdz
+    rotulo: ↑ SETOR 7 PARALELO
     retangulo:
       x: 20
       y: 254
       comprimento: 26
       largura: 211
-  - id: Entrada_Sinuosa
-    label: ENTRADA SINUOSA ↑
+  - uid: Oge0fm7uumdZ2J
+    rotulo: ENTRADA SINUOSA ↑
     retangulo:
       x: 592
       y: 526
       comprimento: 30
       largura: 207
       angulo_graus_x100: -215
-  - id: Setor_Gameleira
-    label: SETOR GAMELEIRA →
+  - uid: EGnoWLV0KliMsx
+    rotulo: SETOR GAMELEIRA →
     retangulo:
       x: 968
       y: 450
       comprimento: 193
       largura: 28
   referencias:
-  - escalada: Mary Jane
-    ids:
-    - '1'
-  - escalada: Nhen-hen-hen
-    ids:
-    - '2'
-  - escalada: Oleoduto
-    ids:
-    - '3'
-  - escalada: Território Demarcado
-    ids:
-    - '4'
-  - escalada: Abaeta
-    ids:
-    - '5'
-  - escalada: Sinuosa
-    ids:
-    - '6'
-  - escalada: Sabbath Blood Sabbath/Carrapatos
-    ids:
-    - '7'
-  - escalada: Secos e Molhados
-    ids:
-    - '8'
-  - escalada: Araticum
-    ids:
-    - '9'
-  - ids:
-    - Setor_7_Paralelo
-    setor: Setor 7 Paralelo
-  - ids:
-    - Setor_Gameleira
-    setor: Setor Gameleira
+  - alvo_uid: YP56Axu8MBB4GS
+    pontos_uids:
+    - y4ApcVMHMiYlht
+  - alvo_uid: gCrlm3Dqm6L4x3
+    pontos_uids:
+    - 4cu6BCpZfDFxPG
+  - alvo_uid: G7LbzfLMVLPoyk
+    pontos_uids:
+    - IdGbo7P0ctPlqc
+  - alvo_uid: dH4LXtWZx6qini
+    pontos_uids:
+    - 6DGo7re5kZzCIN
+  - alvo_uid: sBwvh9i7PSOnXZ
+    pontos_uids:
+    - Q2L0A3Lq1ZIsMl
+  - alvo_uid: EuvGinSxRRc3MY
+    pontos_uids:
+    - mOoWcdLmuwxPLL
+  - alvo_uid: ue6GuOQj38yrRg
+    pontos_uids:
+    - zvt7dlNEtz5C6J
+  - alvo_uid: 2yZzlcjhvMC3ZH
+    pontos_uids:
+    - U9WLbiA7AC06CT
+  - alvo_uid: UAZlMeVtpCroSZ
+    pontos_uids:
+    - 39lU4TjrNJLuFz
+  - alvo_uid: Ac3qdS73pE0QaJ
+    pontos_uids:
+    - 5hm1ZRkPZ8qWdz
+  - alvo_uid: TU7ksiizSIZqH4
+    pontos_uids:
+    - EGnoWLV0KliMsx
 escaladas:
-- via_esportiva:
+- uid: YP56Axu8MBB4GS
+  via_esportiva:
     nome: Mary Jane
     dificuldade: BR_7A
     quantidade_protecoes_intermediarias: 7
-- via_esportiva:
+- uid: gCrlm3Dqm6L4x3
+  via_esportiva:
     nome: Nhen-hen-hen
     dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 6
-- via_esportiva:
+- uid: G7LbzfLMVLPoyk
+  via_esportiva:
     nome: Oleoduto
     dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 5
-- via_esportiva:
+- uid: dH4LXtWZx6qini
+  via_esportiva:
     nome: Território Demarcado
     dificuldade: BR_7B
     quantidade_protecoes_intermediarias: 7
-- via_esportiva:
+- uid: sBwvh9i7PSOnXZ
+  via_esportiva:
     nome: Abaeta
     descricao: Projeto.
-- via_esportiva:
+- uid: EuvGinSxRRc3MY
+  via_esportiva:
     nome: Sinuosa
     quantidade_protecoes_intermediarias: 20
     descricao: Projeto (Sem F/A).
-- via_esportiva:
+- uid: ue6GuOQj38yrRg
+  via_esportiva:
     nome: Sabbath Blood Sabbath/Carrapatos
     dificuldade: BR_9A
     quantidade_protecoes_intermediarias: 16
-- via_esportiva:
+- uid: 2yZzlcjhvMC3ZH
+  via_esportiva:
     nome: Secos e Molhados
     dificuldade: BR_7B
     quantidade_protecoes_intermediarias: 6
-- via_esportiva:
+- uid: UAZlMeVtpCroSZ
+  via_esportiva:
     nome: Araticum
     quantidade_protecoes_intermediarias: 14
     descricao: Projeto (Sem F/A).

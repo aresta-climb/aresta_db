@@ -1,6 +1,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
+uid: wm4fz1NgPkbZEM
 id: br_mg_pocos_de_caldas_pilastras_e_pedreira
 nome: Pilastras + Pedreira
 descricao: Croqui das Pilastras e Pedreira em Poços de Caldas, MG.
@@ -15,16 +16,19 @@ picos:
       caminho: setor_a_pedreira.md
 caminho_thumbnail: imagens/capa_p0_i1.webp
 botoes:
-- texto: Capa
+- uid: aOp66ZCk1cqH94
+  texto: Capa
   destino:
     secao_textual:
       caminho: capa.md
-- texto: Avisos
+- uid: qU2C62AZ2WLOJ1
+  texto: Avisos
   destino:
     secao_textual:
       caminho: avisos.md
-- texto: Como chegar
+- uid: OrRYW6sD2zPU8s
+  texto: Como chegar
   destino:
     secao_textual:
       caminho: como_chegar.md
-ultima_migracao: 4
+ultima_migracao: 5

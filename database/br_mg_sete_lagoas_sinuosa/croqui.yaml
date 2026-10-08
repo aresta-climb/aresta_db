@@ -1,5 +1,6 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+uid: X6OTknRVmaiSvG
 id: br_mg_sete_lagoas_sinuosa
 nome: Sinuosa
 creditos:
@@ -51,30 +52,36 @@ picos:
     latitude: -194618320
     longitude: -442793680
 botoes:
-- texto: Capa
+- uid: lgmqCXFyiCB9CF
+  texto: Capa
   destino:
     secao_textual:
       caminho: capa.md
-- texto: Regras e Segurança
+- uid: 2T3JPY6L85n0k0
+  texto: Regras e Segurança
   destino:
     secao_textual:
       caminho: regras_e_seguranca.md
-- texto: Turismo e Equipamentos
+- uid: gx7Ewcn5YCbgCs
+  texto: Turismo e Equipamentos
   destino:
     secao_textual:
       caminho: turismo_e_equipamentos.md
-- texto: Curiosidades
+- uid: o4WxaBe8QFiyJ4
+  texto: Curiosidades
   destino:
     secao_textual:
       caminho: curiosidades.md
-- texto: Considerações Finais
+- uid: y5spqBYWeiVQxh
+  texto: Considerações Finais
   destino:
     secao_textual:
       caminho: consideracoes_finais.md
-- texto: Ficha Técnica
+- uid: rOYRb92wSEHenV
+  texto: Ficha Técnica
   destino:
     secao_textual:
       caminho: ficha_tecnica.md
-ultima_migracao: 4
+ultima_migracao: 5
 publicar_croqui: true
 revisado_bounding_circle: true

@@ -1,100 +1,146 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+uid: 0Ve2jHKApwYn6z
 caminho_imagem_capa: imagens/setor_principais_vias_2_p0.webp
 nome: Principais Vias II
 mapas:
 - caminho_imagem_mapa: raw_pdf_contents/imagens/setor_principais_vias_2/p0.webp
 escaladas:
-- via_esportiva:
+- uid: PzwI02HTSzeXvL
+  via_esportiva:
     nome: Aresta Eletrizante
-- via_esportiva:
+- uid: 1TdaPzxK8r4WHm
+  via_esportiva:
     nome: Clandestino
-- via_esportiva:
+- uid: bFoBPoFB0HvHZo
+  via_esportiva:
     nome: Ecdemomania
-- via_esportiva:
+- uid: 02uS0dtvF37bHr
+  via_esportiva:
     nome: Remédio Forte
-- via_esportiva:
+- uid: NEZ3kldMGCGFGf
+  via_esportiva:
     nome: Totalmente Demais
-- via_esportiva:
+- uid: 9n7lHimJ3fXJMO
+  via_esportiva:
     nome: Pantera
-- via_esportiva:
+- uid: HEJXaxupnyyelE
+  via_esportiva:
     nome: Só Para Loucos
-- via_esportiva:
+- uid: G8XX9M5WNlsXHL
+  via_esportiva:
     nome: Imagem e Ação
-- via_esportiva:
+- uid: vMBU74yfr8OoX9
+  via_esportiva:
     nome: Mineiroca
-- via_esportiva:
+- uid: SSCjQVa7NLmkFp
+  via_esportiva:
     nome: Bilis-liquen
-- via_esportiva:
+- uid: xNPFS1xN8TbRHT
+  via_esportiva:
     nome: O Doce e o Amargo
-- via_esportiva:
+- uid: Pr0V2ljbkA1C0P
+  via_esportiva:
     nome: Sonho Patagônico
-- via_esportiva:
+- uid: IDoOEUBajIQmYe
+  via_esportiva:
     nome: Princesa Leia
-- via_esportiva:
+- uid: uo3qbVSfJqNnHb
+  via_esportiva:
     nome: Suçuarana
-- via_esportiva:
+- uid: NK6u0lpyiJSiuJ
+  via_esportiva:
     nome: Princesa Kel
-- via_esportiva:
+- uid: mVOzJr5pNh3Rwf
+  via_esportiva:
     nome: Vomitão no Reglet
-- via_esportiva:
+- uid: QUEeQuSmnCQxtY
+  via_esportiva:
     nome: Taxi Lunar
-- via_esportiva:
+- uid: 3PSI6fYT4uyd1h
+  via_esportiva:
     nome: Macadami/Pt.Mutação
-- via_esportiva:
+- uid: WgtmWiZoeN8bJM
+  via_esportiva:
     nome: Jogo da Vida
-- via_esportiva:
+- uid: 6JeIypxAOtBnm3
+  via_esportiva:
     nome: O Tigre, a Dama e o Fanfarrão
-- via_esportiva:
+- uid: 3qYG2OT6selVMA
+  via_esportiva:
     nome: Al-Qaeda
-- via_esportiva:
+- uid: iVX5lmO4yTdkEo
+  via_esportiva:
     nome: Supurados
-- via_esportiva:
+- uid: 8sbyyidNm1GWtp
+  via_esportiva:
     nome: Davi e Golias
-- via_esportiva:
+- uid: ATjde9Ce2Oc15I
+  via_esportiva:
     nome: Tigresa Triteto
-- via_esportiva:
+- uid: YLLwU9bZ67ZI25
+  via_esportiva:
     nome: Marvarda Onça
-- via_esportiva:
+- uid: qxGPVNWdt68R1m
+  via_esportiva:
     nome: Gata Borralheira
-- via_esportiva:
+- uid: vpLw6BlnQLYzQ2
+  via_esportiva:
     nome: Pó Branco
-- via_esportiva:
+- uid: FW7pUjxhuDLmHV
+  via_esportiva:
     nome: Teoria da Evolução
-- via_esportiva:
+- uid: 3Cn9qbzKcRJDtE
+  via_esportiva:
     nome: Noites Equatoriais
-- via_esportiva:
+- uid: 1rL29RolZUlpSv
+  via_esportiva:
     nome: Horizonte dos Eventos
-- via_esportiva:
+- uid: LYaDfTpMT6UEKV
+  via_esportiva:
     nome: Aresta Eletrizante (dup)
-- via_esportiva:
+- uid: GmG94Jvt4FeP3J
+  via_esportiva:
     nome: Directa na Aresta
-- via_esportiva:
+- uid: qsNcDuyOHLNQVs
+  via_esportiva:
     nome: Abracadabra
-- via_esportiva:
+- uid: kIIJmsfD0Hjgrq
+  via_esportiva:
     nome: Canino Lascado
-- via_esportiva:
+- uid: O82CqMSLU8u5Nn
+  via_esportiva:
     nome: Senhor dos Anéis
-- via_esportiva:
+- uid: ra3kLzIeCClXkC
+  via_esportiva:
     nome: Limite da Ousadia
-- via_esportiva:
+- uid: KsXUSzFFO7Herf
+  via_esportiva:
     nome: Baraka
-- via_esportiva:
+- uid: pN8PcqMcmBuZmp
+  via_esportiva:
     nome: Corredor Polonês
-- via_esportiva:
+- uid: HMpslh962CSffI
+  via_esportiva:
     nome: Uni-duni-tê
-- via_esportiva:
+- uid: mMLNSAfHhVF2Dp
+  via_esportiva:
     nome: Hoje não
-- via_esportiva:
+- uid: BL1vg5NChvbs4W
+  via_esportiva:
     nome: Amarelinha
-- via_esportiva:
+- uid: Gd3wgCpxl4EDYl
+  via_esportiva:
     nome: Arco da Santa Vitamina
-- via_esportiva:
+- uid: Pipx1TtQA1X27X
+  via_esportiva:
     nome: Onde os Fracos Não Tem Vez
-- via_esportiva:
+- uid: 1qKFwrxLxAAe7Y
+  via_esportiva:
     nome: Bin Laden
-- via_esportiva:
+- uid: 6dtUMsGcBPWqka
+  via_esportiva:
     nome: Double Trouble
 ---
 

@@ -1,6 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+uid: rKxz4SSg8tyORQ
 caminho_imagem_capa: imagens/grupo_principal_setor_classicas_curtas_p0_i1.webp
 nome: Setor Clássicas Curtas
 mapas:
@@ -8,142 +9,103 @@ mapas:
   largura_mapa: 1681
   altura_mapa: 1025
   referencias:
-  - ids:
-    - Subsetor Cachoeira
-    setor: Cachoeira
-  - ids:
-    - Aderências - Extrema Esquerda
-    grupo: Parede das Aderências
-    setor: Extrema Esquerda
-  - escalada: Deu Tilt
-    ids:
-    - '1'
-    grupo: Parede Principal (Paredes de Aço)
-    setor: Setor Clássicas Curtas
-  - escalada: Ferroada
-    ids:
-    - '1'
-    grupo: Parede Principal (Paredes de Aço)
-    setor: Setor Clássicas Curtas
-  - escalada: Scarface
-    ids:
-    - '1'
-    grupo: Parede Principal (Paredes de Aço)
-    setor: Setor Clássicas Curtas
-  - escalada: Se Meu Fusca Falasse
-    ids:
-    - '1'
-    grupo: Parede Principal (Paredes de Aço)
-    setor: Setor Clássicas Curtas
-  - escalada: Couro de Lobisomem
-    ids:
-    - '1'
-    grupo: Parede Principal (Paredes de Aço)
-    setor: Setor Clássicas Curtas
-  - escalada: Enferrujados
-    ids:
-    - '1'
-    grupo: Parede Principal (Paredes de Aço)
-    setor: Setor Clássicas Curtas
-  - escalada: Rastro de Cobra
-    ids:
-    - '1'
-    grupo: Parede Principal (Paredes de Aço)
-    setor: Setor Clássicas Curtas
-  - escalada: Entrando no Ferro
-    ids:
-    - '1'
-    grupo: Parede Principal (Paredes de Aço)
-    setor: Setor Clássicas Curtas
-  - escalada: Cambal a Quatro
-    ids:
-    - '2'
-    grupo: Parede Principal (Paredes de Aço)
-    setor: Setor Clássicas Curtas
-  - escalada: El Bigodón
-    ids:
-    - '2'
-    grupo: Parede Principal (Paredes de Aço)
-    setor: Setor Clássicas Curtas
-  - escalada: Testa de Aço
-    ids:
-    - '2'
-    grupo: Parede Principal (Paredes de Aço)
-    setor: Setor Clássicas Curtas
-  - escalada: Me Ferrei
-    ids:
-    - '2'
-    grupo: Parede Principal (Paredes de Aço)
-    setor: Setor Clássicas Curtas
-  - escalada: Amor Profano
-    ids:
-    - '2'
-    grupo: Parede Principal (Paredes de Aço)
-    setor: Setor Clássicas Curtas
-  - escalada: Ferrolho
-    ids:
-    - '3'
-    grupo: Parede Principal (Paredes de Aço)
-    setor: Setor Clássicas Curtas
-  - escalada: Ferradura
-    ids:
-    - '3'
-    grupo: Parede Principal (Paredes de Aço)
-    setor: Setor Clássicas Curtas
-  - escalada: A Medalha de Lúcia
-    ids:
-    - '4'
-    grupo: Parede Principal (Paredes de Aço)
-    setor: Setor Clássicas Curtas
-  - escalada: Águas de Março
-    ids:
-    - '4'
-    grupo: Parede Principal (Paredes de Aço)
-    setor: Setor Clássicas Curtas
-  - ids:
-    - '4'
-    grupo: Parede Principal (Paredes de Aço)
-    setor: Setor Clássicas Curtas
-    escalada: Vou Dançar o Xaxaxá
-  - ids:
-    - '4'
-    grupo: Parede Principal (Paredes de Aço)
-    setor: Setor Clássicas Curtas
-    escalada: Casas da Banha
+  - alvo_uid: lTi8TIXxTU6KF0
+    pontos_uids:
+    - v6xgcdbhiBfzEX
+  - alvo_uid: FO3KvzGBfKKpB4
+    pontos_uids:
+    - S8U8czODCDed99
+  - alvo_uid: 2CKnFR9GnX0RVk
+    pontos_uids:
+    - E9n2HG3zu2IagC
+  - alvo_uid: PBqIWUa3s7CbW1
+    pontos_uids:
+    - E9n2HG3zu2IagC
+  - alvo_uid: oOHg0sGfjZa8qL
+    pontos_uids:
+    - E9n2HG3zu2IagC
+  - alvo_uid: kmjy7dMR7EM87p
+    pontos_uids:
+    - E9n2HG3zu2IagC
+  - alvo_uid: P0dH1zFOhsNWKI
+    pontos_uids:
+    - E9n2HG3zu2IagC
+  - alvo_uid: u9Za0cGFtd4buF
+    pontos_uids:
+    - E9n2HG3zu2IagC
+  - alvo_uid: Ck0BH6ArfYc4Mi
+    pontos_uids:
+    - E9n2HG3zu2IagC
+  - alvo_uid: GzzOvXVhZnnCJj
+    pontos_uids:
+    - E9n2HG3zu2IagC
+  - alvo_uid: vrXUR5016GuvUn
+    pontos_uids:
+    - UKgfefT8UX0JNh
+  - alvo_uid: 3H2P63eUJtSmda
+    pontos_uids:
+    - UKgfefT8UX0JNh
+  - alvo_uid: heSEhw8bk6CUMi
+    pontos_uids:
+    - UKgfefT8UX0JNh
+  - alvo_uid: BBtRCBwAzyQLg5
+    pontos_uids:
+    - UKgfefT8UX0JNh
+  - alvo_uid: y77FqGi7nfe7tx
+    pontos_uids:
+    - UKgfefT8UX0JNh
+  - alvo_uid: lHhszDUlwi5Y7i
+    pontos_uids:
+    - Avi0MzvGRBCd6a
+  - alvo_uid: hWD9UQJTfeeLtJ
+    pontos_uids:
+    - Avi0MzvGRBCd6a
+  - alvo_uid: ukPpMbgAIGda42
+    pontos_uids:
+    - eKifQ10jUYEtSi
+  - alvo_uid: Lt9slg01AcQrYh
+    pontos_uids:
+    - eKifQ10jUYEtSi
+  - alvo_uid: XbeZZSZvbb3PGN
+    pontos_uids:
+    - eKifQ10jUYEtSi
+  - alvo_uid: Ia7EcXmdlpe2iI
+    pontos_uids:
+    - eKifQ10jUYEtSi
   pontos_de_interesse:
-  - id: '1'
-    label: '1'
+  - uid: E9n2HG3zu2IagC
+    rotulo: '1'
     circulo:
       x: 903
       y: 628
       raio: 22
-  - id: '2'
-    label: '2'
+  - uid: UKgfefT8UX0JNh
+    rotulo: '2'
     circulo:
       x: 1010
       y: 711
       raio: 22
-  - id: '3'
-    label: '3'
+  - uid: Avi0MzvGRBCd6a
+    rotulo: '3'
     circulo:
       x: 1099
       y: 792
       raio: 22
-  - id: '4'
-    label: '4'
+  - uid: eKifQ10jUYEtSi
+    rotulo: '4'
     circulo:
       x: 1183
       y: 914
       raio: 22
-  - id: Subsetor Cachoeira
-    label: Subsetor Cachoeira
+  - uid: v6xgcdbhiBfzEX
+    rotulo: Subsetor Cachoeira
     retangulo:
       x: 372
       y: 847
       comprimento: 317
       largura: 68
-  - id: Aderências - Extrema Esquerda
-    label: Aderências - Extrema Esquerda
+  - uid: S8U8czODCDed99
+    rotulo: Aderências - Extrema Esquerda
     retangulo:
       x: 1283
       y: 370
@@ -153,174 +115,174 @@ mapas:
   largura_mapa: 2041
   altura_mapa: 1224
   referencias:
-  - escalada: A Medalha de Lúcia
-    ids:
-    - '1'
-  - escalada: Águas de Março
-    ids:
-    - '2'
-  - escalada: Vou Dançar o Xaxaxá
-    ids:
-    - '3'
-  - escalada: Casas da Banha
-    ids:
-    - '4'
-  - ids:
-    - '5'
-    escalada: Ferradura
-  - ids:
-    - '6'
-    escalada: Ferrolho
-  - ids:
-    - '7'
-    escalada: Cambal a Quatro
-  - ids:
-    - '8'
-    escalada: El Bigodón
-  - ids:
-    - '9'
-    escalada: Testa de Aço
-  - ids:
-    - '10'
-    escalada: Me Ferrei
-  - ids:
-    - '11'
-    escalada: Amor Profano
-  - ids:
-    - '12'
-    escalada: Deu Tilt
-  - ids:
-    - '13'
-    escalada: Ferroada
-  - ids:
-    - '14'
-    escalada: Scarface
-  - ids:
-    - '15'
-    escalada: Se Meu Fusca Falasse
-  - ids:
-    - '16'
-    escalada: Couro de Lobisomem
-  - ids:
-    - '17'
-    escalada: Enferrujados
-  - ids:
-    - '18'
-    escalada: Rastro de Cobra
-  - ids:
-    - '19'
-    escalada: Entrando no Ferro
+  - alvo_uid: ukPpMbgAIGda42
+    pontos_uids:
+    - GQnIW94j2rrtcp
+  - alvo_uid: Lt9slg01AcQrYh
+    pontos_uids:
+    - 0xMmDYCxGVoYoo
+  - alvo_uid: XbeZZSZvbb3PGN
+    pontos_uids:
+    - 7cowcqSW0nMD7T
+  - alvo_uid: Ia7EcXmdlpe2iI
+    pontos_uids:
+    - gRegEzD3lkl5Me
+  - alvo_uid: hWD9UQJTfeeLtJ
+    pontos_uids:
+    - MWSFm5mvj9RDGk
+  - alvo_uid: lHhszDUlwi5Y7i
+    pontos_uids:
+    - hXMQBJACP1EvAL
+  - alvo_uid: vrXUR5016GuvUn
+    pontos_uids:
+    - hToqo60B1NkflS
+  - alvo_uid: 3H2P63eUJtSmda
+    pontos_uids:
+    - puUWeyK91RnFEI
+  - alvo_uid: heSEhw8bk6CUMi
+    pontos_uids:
+    - BphH3VqFa9g2Yx
+  - alvo_uid: BBtRCBwAzyQLg5
+    pontos_uids:
+    - Z6KbGXW7jUdXzN
+  - alvo_uid: y77FqGi7nfe7tx
+    pontos_uids:
+    - TQWiot4Tucgzw2
+  - alvo_uid: 2CKnFR9GnX0RVk
+    pontos_uids:
+    - 2cqwyIY7hs7y3S
+  - alvo_uid: PBqIWUa3s7CbW1
+    pontos_uids:
+    - naV6GkqhyZOpru
+  - alvo_uid: oOHg0sGfjZa8qL
+    pontos_uids:
+    - phloToIRDUZpIw
+  - alvo_uid: kmjy7dMR7EM87p
+    pontos_uids:
+    - uMGBV7cseji2Ls
+  - alvo_uid: P0dH1zFOhsNWKI
+    pontos_uids:
+    - JtofS84ut0KGpL
+  - alvo_uid: u9Za0cGFtd4buF
+    pontos_uids:
+    - wtvYfviHusUIiH
+  - alvo_uid: Ck0BH6ArfYc4Mi
+    pontos_uids:
+    - Hf6SmebhAVVl3C
+  - alvo_uid: GzzOvXVhZnnCJj
+    pontos_uids:
+    - T4BulKEF65UlwH
   pontos_de_interesse:
-  - id: '1'
-    label: '1'
+  - uid: GQnIW94j2rrtcp
+    rotulo: '1'
     circulo:
       x: 63
       y: 693
       raio: 23
-  - id: '2'
-    label: '2'
+  - uid: 0xMmDYCxGVoYoo
+    rotulo: '2'
     circulo:
       x: 116
       y: 719
       raio: 23
-  - id: '3'
-    label: '3'
+  - uid: 7cowcqSW0nMD7T
+    rotulo: '3'
     circulo:
       x: 169
       y: 761
       raio: 23
-  - id: '4'
-    label: '4'
+  - uid: gRegEzD3lkl5Me
+    rotulo: '4'
     circulo:
       x: 339
       y: 816
       raio: 23
-  - id: '5'
-    label: '5'
+  - uid: MWSFm5mvj9RDGk
+    rotulo: '5'
     circulo:
       x: 644
       y: 943
       raio: 23
-  - id: '6'
-    label: '6'
+  - uid: hXMQBJACP1EvAL
+    rotulo: '6'
     circulo:
       x: 768
       y: 929
       raio: 23
-  - id: '7'
-    label: '7'
+  - uid: hToqo60B1NkflS
+    rotulo: '7'
     circulo:
       x: 983
       y: 1031
       raio: 23
-  - id: '8'
-    label: '8'
+  - uid: puUWeyK91RnFEI
+    rotulo: '8'
     circulo:
       x: 1141
       y: 1049
       raio: 23
-  - id: '9'
-    label: '9'
+  - uid: BphH3VqFa9g2Yx
+    rotulo: '9'
     circulo:
       x: 1226
       y: 1051
       raio: 23
-  - id: '10'
-    label: '10'
+  - uid: Z6KbGXW7jUdXzN
+    rotulo: '10'
     circulo:
       x: 1272
       y: 1052
       raio: 25
-  - id: '11'
-    label: '11'
+  - uid: TQWiot4Tucgzw2
+    rotulo: '11'
     circulo:
       x: 1337
       y: 1041
       raio: 25
-  - id: '12'
-    label: '12'
+  - uid: 2cqwyIY7hs7y3S
+    rotulo: '12'
     circulo:
       x: 1508
       y: 1016
       raio: 27
-  - id: '13'
-    label: '13'
+  - uid: naV6GkqhyZOpru
+    rotulo: '13'
     circulo:
       x: 1612
       y: 1011
       raio: 27
-  - id: '14'
-    label: '14'
+  - uid: phloToIRDUZpIw
+    rotulo: '14'
     circulo:
       x: 1669
       y: 1018
       raio: 27
-  - id: '15'
-    label: '15'
+  - uid: uMGBV7cseji2Ls
+    rotulo: '15'
     circulo:
       x: 1733
       y: 1040
       raio: 27
-  - id: '16'
-    label: '16'
+  - uid: JtofS84ut0KGpL
+    rotulo: '16'
     circulo:
       x: 1791
       y: 1038
       raio: 27
-  - id: '17'
-    label: '17'
+  - uid: wtvYfviHusUIiH
+    rotulo: '17'
     circulo:
       x: 1843
       y: 1029
       raio: 27
-  - id: '18'
-    label: '18'
+  - uid: Hf6SmebhAVVl3C
+    rotulo: '18'
     circulo:
       x: 1940
       y: 1033
       raio: 27
-  - id: '19'
-    label: '19'
+  - uid: T4BulKEF65UlwH
+    rotulo: '19'
     circulo:
       x: 2011
       y: 1021
@@ -329,85 +291,86 @@ mapas:
   largura_mapa: 870
   altura_mapa: 1211
   referencias:
-  - ids:
-    - '1'
-    - p1_1
-    escalada: A Medalha de Lúcia
-  - ids:
-    - '2'
-    - p1_2
-    - p2_2
-    escalada: Águas de Março
-  - ids:
-    - '3'
-    - p1_3
-    escalada: Vou Dançar o Xaxaxá
-  - ids:
-    - '4'
-    - p1_4
-    escalada: Casas da Banha
+  - alvo_uid: ukPpMbgAIGda42
+    pontos_uids:
+    - jmIdpVKjEj9umD
+    - lwvgP0fbxtzcPA
+  - alvo_uid: Lt9slg01AcQrYh
+    pontos_uids:
+    - VmMcMoHhEGE69F
+    - YXQjZm0LyLJBUB
+    - MVnIAGasum737W
+  - alvo_uid: XbeZZSZvbb3PGN
+    pontos_uids:
+    - qXBKbnbupblZzW
+    - tIlp2U8p34POOY
+  - alvo_uid: Ia7EcXmdlpe2iI
+    pontos_uids:
+    - TV9OEkxNpiKJ5i
+    - sNsVWhcf4ieRAy
   pontos_de_interesse:
-  - id: '1'
-    label: '1'
+  - uid: jmIdpVKjEj9umD
+    rotulo: '1'
     circulo:
       x: 98
       y: 1077
       raio: 22
-  - id: '2'
-    label: '2'
+  - uid: VmMcMoHhEGE69F
+    rotulo: '2'
     circulo:
       x: 195
       y: 1091
       raio: 22
-  - id: '3'
-    label: '3'
+  - uid: qXBKbnbupblZzW
+    rotulo: '3'
     circulo:
       x: 478
       y: 1125
       raio: 22
-  - id: '4'
-    label: '4'
+  - uid: TV9OEkxNpiKJ5i
+    rotulo: '4'
     circulo:
       x: 789
       y: 1169
       raio: 22
-  - id: p1_1
-    label: ''
+  - uid: lwvgP0fbxtzcPA
+    rotulo: ''
     circulo:
       x: 196
       y: 625
       raio: 15
     cor: ''
-  - id: p1_2
-    label: ''
+  - uid: YXQjZm0LyLJBUB
+    rotulo: ''
     circulo:
       x: 377
       y: 647
       raio: 15
     cor: ''
-  - id: p2_2
-    label: ''
+  - uid: MVnIAGasum737W
+    rotulo: ''
     circulo:
       x: 397
       y: 346
       raio: 15
     cor: ''
-  - id: p1_4
-    label: ''
+  - uid: sNsVWhcf4ieRAy
+    rotulo: ''
     circulo:
       x: 704
       y: 688
       raio: 14
     cor: ''
-  - id: p1_3
-    label: ''
+  - uid: tIlp2U8p34POOY
+    rotulo: ''
     circulo:
       x: 638
       y: 371
       raio: 17
     cor: ''
 escaladas:
-- via_esportiva:
+- uid: ukPpMbgAIGda42
+  via_esportiva:
     nome: A Medalha de Lúcia
     dificuldade: BR_3SUP
     exposicao: E1
@@ -419,9 +382,10 @@ escaladas:
     - Tonico Magalhães
     - Celso Ferreira Gomes
     data_abertura: '2015-09-18'
-    descricao: Segue por uma óbvia cristaleira até seu final, quando faz uma horizontal
-      à direita – e crux da via – até sua parada dupla de topo.
-- via_multiplas_enfiadas:
+    descricao: Segue por uma óbvia cristaleira até seu final, quando faz uma horizontal à direita – e crux da via – até 
+      sua parada dupla de topo.
+- uid: Lt9slg01AcQrYh
+  via_multiplas_enfiadas:
     nome: Águas de Março
     dificuldade_media: BR_4
     dificuldade_maxima: BR_4SUP
@@ -436,8 +400,8 @@ escaladas:
     - Pedro Bugim
     - Maria Fernanda Patricio
     data_abertura: '2013-03-31'
-    descricao: Interessante via que inicia em um lance levemente atlético e evolui
-      para abaulados e aderência, sempre bem protegida.
+    descricao: Interessante via que inicia em um lance levemente atlético e evolui para abaulados e aderência, sempre 
+      bem protegida.
     enfiadas:
     - via_esportiva:
         nome: 1ª Enfiada (P1)
@@ -453,7 +417,8 @@ escaladas:
         quantidade_protecoes_intermediarias: 4
         quantidade_protecoes_parada: 2
         tipo_ancoragem: Parada dupla
-- via_esportiva:
+- uid: XbeZZSZvbb3PGN
+  via_esportiva:
     nome: Vou Dançar o Xaxaxá
     dificuldade: BR_4
     exposicao: E1
@@ -465,11 +430,11 @@ escaladas:
     - Tonico Magalhães
     - Celso Ferreira Gomes
     data_abertura: '2010-11-28'
-    descricao: 'Via bem protegida e agradável. O nome homenageia o Gustavo “Xaxá”,
-      fundador do CEM (Centro Excursionista Mineiro) e se inspira num antigo comercial
-      de TV das Casas da Banha. (Nota: indicada com 65m no croqui detalhado e 90m
-      na introdução e visão geral da parede).'
-- via_esportiva:
+    descricao: 'Via bem protegida e agradável. O nome homenageia o Gustavo “Xaxá”, fundador do CEM (Centro Excursionista Mineiro)
+      e se inspira num antigo comercial de TV das Casas da Banha. (Nota: indicada com 65m no croqui detalhado e 90m na introdução
+      e visão geral da parede).'
+- uid: Ia7EcXmdlpe2iI
+  via_esportiva:
     nome: Casas da Banha
     dificuldade: BR_5SUP
     exposicao: E1
@@ -483,10 +448,10 @@ escaladas:
     - Tonico Magalhães
     - Celso Ferreira Gomes
     data_abertura: '2011-04-21'
-    descricao: Começa com uma enfiada atlética seguida de lances em buracos. Apresenta
-      parada dupla (P1) aos 40 metros e conexão de 5 metros até a via Vou Dançar o
-      Xaxaxá.
-- via_esportiva:
+    descricao: Começa com uma enfiada atlética seguida de lances em buracos. Apresenta parada dupla (P1) aos 40 metros e
+      conexão de 5 metros até a via Vou Dançar o Xaxaxá.
+- uid: hWD9UQJTfeeLtJ
+  via_esportiva:
     nome: Ferradura
     dificuldade: BR_6SUP
     extensao: 10
@@ -494,10 +459,10 @@ escaladas:
     - Tonico Magalhães
     - Júlio César Cardoso
     data_abertura: '2007-06-03'
-    descricao: 'Via portadora de um lance difícil. Um verdadeiro bote em um buraco.
-      É variante da Ferrolho e conta com boa proteção. (Nota: indicada com 25m na
-      visão geral da parede).'
-- via_esportiva:
+    descricao: 'Via portadora de um lance difícil. Um verdadeiro bote em um buraco. É variante da Ferrolho e conta com boa
+      proteção. (Nota: indicada com 25m na visão geral da parede).'
+- uid: lHhszDUlwi5Y7i
+  via_esportiva:
     nome: Ferrolho
     dificuldade: BR_4
     extensao: 25
@@ -505,9 +470,10 @@ escaladas:
     - Tonico Magalhães
     - Júlio César Cardoso
     data_abertura: '2007-06-03'
-    descricao: A via segue uma linda sequência de buracos em forma de olhos. Daí o
-      nome da via. O crux é o primeiro lance.
-- via_esportiva:
+    descricao: A via segue uma linda sequência de buracos em forma de olhos. Daí o nome da via. O crux é o primeiro 
+      lance.
+- uid: vrXUR5016GuvUn
+  via_esportiva:
     nome: Cambal a Quatro
     dificuldade: BR_5SUP
     extensao: 30
@@ -516,9 +482,9 @@ escaladas:
     - Juliano Magalhães
     - Valdinei
     data_abertura: '2008-02-03'
-    descricao: Via portadora de uma difícil barriga em seu final. (Graduada como V
-      na visão geral e Vsup na descrição).
-- via_movel:
+    descricao: Via portadora de uma difícil barriga em seu final. (Graduada como V na visão geral e Vsup na descrição).
+- uid: 3H2P63eUJtSmda
+  via_movel:
     nome: El Bigodón
     destaque: true
     dificuldade: BR_5
@@ -528,9 +494,9 @@ escaladas:
     - Gustavo "Xaxá" Carrozzino
     - Nádia Moreira
     data_abertura: '2006-08-27'
-    descricao: Espetacular via do setor, sendo considerada como imperdível. Via mista
-      com grampos e proteções móveis.
-- via_movel:
+    descricao: Espetacular via do setor, sendo considerada como imperdível. Via mista com grampos e proteções móveis.
+- uid: heSEhw8bk6CUMi
+  via_movel:
     nome: Testa de Aço
     dificuldade: BR_5SUP
     extensao: 30
@@ -538,9 +504,9 @@ escaladas:
     - Tonico Magalhães
     - Gustavo "Xaxá" Carrozzino
     data_abertura: '2007-10-28'
-    descricao: Via mista, com grampos e utilização de materiais móveis. Rapel com
-      corda simples de 50m.
-- via_movel:
+    descricao: Via mista, com grampos e utilização de materiais móveis. Rapel com corda simples de 50m.
+- uid: BBtRCBwAzyQLg5
+  via_movel:
     nome: Me Ferrei
     dificuldade: BR_6
     extensao: 18
@@ -548,9 +514,9 @@ escaladas:
     - Luciano Bender
     - Tonico Magalhães
     data_abertura: '2011-06-22'
-    descricao: Via atlética com grampos e utilização de materiais móveis. Rapel com
-      corda simples de 50m.
-- via_movel:
+    descricao: Via atlética com grampos e utilização de materiais móveis. Rapel com corda simples de 50m.
+- uid: y77FqGi7nfe7tx
+  via_movel:
     nome: Amor Profano
     destaque: true
     dificuldade: BR_5
@@ -560,10 +526,10 @@ escaladas:
     - Tonico Magalhães
     - Nádia Moreira
     data_abertura: '2007-08-13'
-    descricao: Via atlética em seu início e em aderência em seu final. O primeiro
-      lance (crux) pode ter sua proteção melhorada com um friend médio. Imperdível
-      também.
-- via_esportiva:
+    descricao: Via atlética em seu início e em aderência em seu final. O primeiro lance (crux) pode ter sua proteção 
+      melhorada com um friend médio. Imperdível também.
+- uid: 2CKnFR9GnX0RVk
+  via_esportiva:
     nome: Deu Tilt
     dificuldade: BR_4SUP
     extensao: 15
@@ -572,7 +538,8 @@ escaladas:
     - Daniel Maia
     data_abertura: '2008-03-22'
     descricao: Boa via em grampos. O crux é logo no início.
-- via_esportiva:
+- uid: PBqIWUa3s7CbW1
+  via_esportiva:
     nome: Ferroada
     dificuldade: BR_3
     extensao: 20
@@ -581,7 +548,8 @@ escaladas:
     - Nádia Moreira
     data_abertura: '2007-04-23'
     descricao: Boa para iniciantes e bem protegida.
-- via_esportiva:
+- uid: oOHg0sGfjZa8qL
+  via_esportiva:
     nome: Scarface
     dificuldade: BR_4SUP
     extensao: 20
@@ -590,10 +558,10 @@ escaladas:
     - Tonico Magalhães
     - Celso Ferreira Gomes
     data_abertura: '2013-05-30'
-    descricao: Via protegida por 6 grampos, tendo seu crux na passada final. (Graduada
-      como IVsup na visão geral e IV na descrição; extensão de 15m na visão geral
-      e 20m na descrição).
-- via_esportiva:
+    descricao: Via protegida por 6 grampos, tendo seu crux na passada final. (Graduada como IVsup na visão geral e IV na
+      descrição; extensão de 15m na visão geral e 20m na descrição).
+- uid: kmjy7dMR7EM87p
+  via_esportiva:
     nome: Se Meu Fusca Falasse
     dificuldade: BR_4
     extensao: 15
@@ -602,7 +570,8 @@ escaladas:
     - Tonico Magalhães
     data_abertura: '2010-02-16'
     descricao: Via com movimentos interessantes e crux ao final.
-- via_esportiva:
+- uid: P0dH1zFOhsNWKI
+  via_esportiva:
     nome: Couro de Lobisomem
     dificuldade: BR_6SUP
     extensao: 18
@@ -612,7 +581,8 @@ escaladas:
     - Celso Ferreira Gomes
     data_abertura: '2011-07-17'
     descricao: Via técnica em agarras e bem protegida.
-- via_esportiva:
+- uid: u9Za0cGFtd4buF
+  via_esportiva:
     nome: Enferrujados
     dificuldade: BR_4
     extensao: 15
@@ -622,7 +592,8 @@ escaladas:
     - Nádia Moreira
     data_abertura: '2007-06-17'
     descricao: A barriga crux da via vale uma repetição.
-- via_esportiva:
+- uid: Ck0BH6ArfYc4Mi
+  via_esportiva:
     nome: Rastro de Cobra
     dificuldade: BR_5SUP
     extensao: 18
@@ -631,7 +602,8 @@ escaladas:
     - Celso Ferreira Gomes
     data_abertura: '2011-07-17'
     descricao: Via técnica e bem protegida.
-- via_esportiva:
+- uid: GzzOvXVhZnnCJj
+  via_esportiva:
     nome: Entrando no Ferro
     dificuldade: BR_5SUP
     extensao: 25
@@ -639,9 +611,9 @@ escaladas:
     - Tonico Magalhães
     - Luciano Bender
     data_abertura: '2011-06-22'
-    descricao: Primeira via na extrema direita deste setor, seguindo a linha de vegetação.
-      O crux é o primeiro lance.
+    descricao: Primeira via na extrema direita deste setor, seguindo a linha de vegetação. O crux é o primeiro lance.
 ---
+
 <small>Capa: Rodrigo Magalhães guiando a "Couro de Lobisomem" (Foto: Tamires Lima)</small>
 
 Ao entrar no vale, o excursionista terá à sua direita o Setor das Clássicas Curtas, que se estende do início da Parede Principal até uma língua de mato que o separa do núcleo da parede. Este setor concentra vias curtas, variando de 10 a 45 metros.

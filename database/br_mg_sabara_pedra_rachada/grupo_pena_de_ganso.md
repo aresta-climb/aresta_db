@@ -1,6 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+uid: I0dDogAbSmJ8gY
 caminho_imagem_capa: imagens/setor_pena_de_ganso_p0_i0.webp
 nome: Pena de Ganso
 setores:

@@ -197,6 +197,6 @@ class AdaptadorWindows(AdaptadorPlataforma):
         try:
             from keyring.backends import Windows
 
-            keyring.set_keyring(Windows.WinVaultKeyring())
+            keyring.set_keyring(Windows.WinVaultKeyring())  # type: ignore[no-untyped-call]
         except Exception:
             pass

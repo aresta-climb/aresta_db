@@ -1,6 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+uid: thtijyq3ZnLd0A
 caminho_imagem_capa: imagens/setor_headwall_p0_i0_2.webp
 nome: Headwall
 mapas:
@@ -9,7 +10,8 @@ mapas:
   altura_mapa: 144
   pontos_de_interesse: []
 escaladas:
-- via_movel:
+- uid: O9VEKasSWFvhyx
+  via_movel:
     nome: Arthropoda
     dificuldade: BR_6SUP
     exposicao: E2
@@ -22,7 +24,8 @@ escaladas:
     - Juvenil Lino
     protecoes_moveis: Camalot(.4, .5, .75, 1, 2) ou compatíveis
     descricao: 'Obs: Abelhas próximo a via, utilizar costuras longas.'
-- via_movel:
+- uid: iFagJSzZeymJwK
+  via_movel:
     nome: Atratus Death
     dificuldade: BR_6SUP
     extensao: 50
@@ -34,7 +37,8 @@ escaladas:
     - Aline Tavares
     protecoes_moveis: Nut 5 (Início da via) ou compatível.
     descricao: 'Obs: Na ausência de peça móvel utilizar clip stick na saída.'
-- via_movel:
+- uid: hLJnjUwVb7DyRJ
+  via_movel:
     nome: Fenda do Café
     dificuldade: BR_6SUP
     extensao: 40
@@ -44,9 +48,10 @@ escaladas:
     - Anthony Hirata
     - Bruno Tebet
     protecoes_moveis: Camalot(1, 2, 2, 3, 4, 5, 6) ou compatíveis
-    descricao: 'Obs: Utilizar costuras longas, parada em móvel podendo equalizar em
-      três pontos. O rapel pode ser feito na parada da via ao lado.'
-- via_esportiva:
+    descricao: 'Obs: Utilizar costuras longas, parada em móvel podendo equalizar em três pontos. O rapel pode ser feito na
+      parada da via ao lado.'
+- uid: dPdbm3jr8TbFqI
+  via_esportiva:
     nome: Taj Mahola
     dificuldade: BR_4SUP
     extensao: 25
@@ -55,7 +60,8 @@ escaladas:
     - André Morales
     - Jorge Lima
     - Tico
-- via_movel:
+- uid: ZNwVtfWtcNbVDa
+  via_movel:
     nome: Apertadinha
     dificuldade: BR_6SUP
     extensao: 60
@@ -63,8 +69,7 @@ escaladas:
     conquistadores:
     - Zé Ricardo
     - Jorge Lima
-    protecoes_moveis: Camalot(.4, .5, .75, 1, 2, 3, 4, 5) ou compatíveis; Nuts (1
-      a 5, 10) ou compatíveis
+    protecoes_moveis: Camalot(.4, .5, .75, 1, 2, 3, 4, 5) ou compatíveis; Nuts (1 a 5, 10) ou compatíveis
     descricao: 'OBSERVAÇÕES: Atenção com esticão do final da fenda até a parada.'
 ---
 

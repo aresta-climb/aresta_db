@@ -4,6 +4,7 @@
 from typing import Optional, Any, List, Dict, Tuple, Set
 from pathlib import Path
 from editor.models.croqui_model import CroquiModel
+from scripts.gerenciar_uids_lib import gerar_uid, validar_uid
 from editor.commands.comandos_protobuf import (
     CmdAdicionarRepeated,
     CmdRemoverRepeated,
@@ -137,7 +138,10 @@ class MapasController:
             self._executar_comando(cmd)
 
     def adicionar_poi(self, msg_mapa_proxy: Any, poi_novo: Any) -> None:
-        """Adiciona um POI ao mapa."""
+        """Adiciona um POI ao mapa garantindo uid e rotulo."""
+        if not getattr(poi_novo, "uid", ""):
+            poi_novo.uid = gerar_uid()
+
         index = len(msg_mapa_proxy.pontos_de_interesse)
         cmd = CmdAdicionarRepeated(
             model=self.model,
@@ -166,12 +170,12 @@ class MapasController:
         """Altera um POI (posição, nome, etc) e propaga alterações de ID para referências em cascata."""
         from editor.models.readonly_proxy import _copia_segura
 
-        id_antigo = str(getattr(poi_antigo, "id", "") or "")
-        id_novo = str(getattr(poi_novo, "id", "") or "")
-        precisa_cascata = bool(id_antigo and id_novo and id_antigo != id_novo)
+        uid_antigo = str(getattr(poi_antigo, "uid", "") or "")
+        uid_novo = str(getattr(poi_novo, "uid", "") or "")
+        precisa_cascata = bool(uid_antigo and uid_novo and uid_antigo != uid_novo)
 
         if precisa_cascata:
-            self.iniciar_grupo_undo(f"Renomear POI {id_antigo} para {id_novo}")
+            self.iniciar_grupo_undo(f"Renomear UID de POI {uid_antigo} para {uid_novo}")
         try:
             cmd = CmdAlterarRepeatedItem(
                 model=self.model,
@@ -186,12 +190,12 @@ class MapasController:
 
             if precisa_cascata:
                 for i_ref, ref in list(enumerate(msg_mapa_proxy.referencias)):
-                    if id_antigo in ref.ids:
+                    if uid_antigo in ref.pontos_uids:
                         ref_antiga = _copia_segura(ref)
                         ref_nova = _copia_segura(ref)
-                        novos_ids = [id_novo if _id == id_antigo else _id for _id in ref.ids]
-                        del ref_nova.ids[:]
-                        ref_nova.ids.extend(novos_ids)
+                        novos_uids = [uid_novo if _uid == uid_antigo else _uid for _uid in ref.pontos_uids]
+                        del ref_nova.pontos_uids[:]
+                        ref_nova.pontos_uids.extend(novos_uids)
                         self.alterar_referencia(msg_mapa_proxy, i_ref, ref_antiga, ref_nova)
         finally:
             if precisa_cascata:
@@ -221,7 +225,12 @@ class MapasController:
         from aresta_api.proto.generated import croqui_pb2
 
         cor_final = cor if cor else "#FFD600"
-        poi_novo = croqui_pb2.Mapa.PontoDeInteresse(id=id_linha, label=label, cor=cor_final)
+        uid_final = id_linha if id_linha else gerar_uid()
+        poi_novo = croqui_pb2.Mapa.PontoDeInteresse(
+            uid=uid_final,
+            rotulo=label,
+            cor=cor_final,
+        )
         if texto_visivel:
             poi_novo.texto_visivel = texto_visivel
         if estilo is not None:
@@ -406,7 +415,7 @@ class MapasController:
                     if t:
                         nomes_existentes.append(getattr(esc, t).nome)
                 if nome_rota not in nomes_existentes:
-                    nova_esc = croqui_pb2.Escalada()
+                    nova_esc = croqui_pb2.Escalada(uid=gerar_uid())
                     tipo_str = dados_rota.get("tipo", "boulder")
                     grau_str = dados_rota.get("grau", "")
 
@@ -448,6 +457,15 @@ class MapasController:
             if not rotulo_inicio:
                 rotulo_inicio = str(calcular_proximo_numero_inicio_setor(msg_setor_proxy, mapa_ativo=msg_mapa_proxy))
 
+            # Resolução de alvo_uid da escalada
+            alvo_uid = ""
+            if msg_setor_proxy is not None:
+                for esc in msg_setor_proxy.escaladas:
+                    t = esc.WhichOneof("tipo")
+                    if t and getattr(esc, t).nome == nome_rota:
+                        alvo_uid = str(getattr(esc, "uid", ""))
+                        break
+
             # 3. Análise topológica de traçados existentes
             linhas_existentes = [p for p in msg_mapa_proxy.pontos_de_interesse if p.HasField("linha")]
             
@@ -462,7 +480,7 @@ class MapasController:
 
                 # Cenário Travessia: entra no meio de uma linha, compartilha trecho intermediário e sai
                 for linha_cand in linhas_existentes:
-                    id_cand = str(linha_cand.id)
+                    id_cand = str(linha_cand.uid)
                     indices_no_cand = [
                         m.indice_no for m in matches_nos if m is not None and m.id_linha == id_cand and m.indice_no is not None
                     ]
@@ -495,7 +513,7 @@ class MapasController:
 
                                 # Atualiza referências que apontavam para linha_cand
                                 for i_ref, ref in enumerate(msg_mapa_proxy.referencias):
-                                    if id_cand in ref.ids:
+                                    if id_cand in ref.pontos_uids:
                                         ref_antiga = _copia_segura(ref)
                                         ref_nova = _copia_segura(ref)
                                         atualizar_referencias_apos_fatiamento([ref_nova], id_cand, [id_sub1, id_sub2, id_sub3])
@@ -521,7 +539,7 @@ class MapasController:
                                     ids_travessia.append(id_sai)
 
                                 # Cria referência da travessia
-                                ref_trav = croqui_pb2.Mapa.Referencia(escalada=nome_rota, ids=ids_travessia)
+                                ref_trav = croqui_pb2.Mapa.Referencia(alvo_uid=alvo_uid, pontos_uids=ids_travessia)
                                 self.adicionar_referencia(msg_mapa_proxy, ref_trav)
                                 fatiou = True
                                 break
@@ -535,7 +553,7 @@ class MapasController:
                 if not fatiou:
                     # Cenário Bifurcação: compartilha o início e fatiamento em nó ou curva
                     for linha_cand in linhas_existentes:
-                        id_cand = str(linha_cand.id)
+                        id_cand = str(linha_cand.uid)
                         p_primeiro = Ponto2D(pontos_trajeto[0][0], pontos_trajeto[0][1])
                         snap_inicio = detectar_snap_nos(p_primeiro, [linha_cand], raio_snap=5.0)
 
@@ -594,7 +612,7 @@ class MapasController:
 
                                 # Atualiza referências existentes de linha_cand
                                 for i_ref, ref in enumerate(msg_mapa_proxy.referencias):
-                                    if id_cand in ref.ids:
+                                    if id_cand in ref.pontos_uids:
                                         ref_antiga = _copia_segura(ref)
                                         ref_nova = _copia_segura(ref)
                                         atualizar_referencias_apos_fatiamento([ref_nova], id_cand, [id_sub1, id_sub2])
@@ -607,7 +625,7 @@ class MapasController:
                                 self.adicionar_linha(msg_mapa_proxy, id_linha=id_novo, nos=pts_exclusivos)
 
                                 # Referência da nova rota
-                                ref_nova = croqui_pb2.Mapa.Referencia(escalada=nome_rota, ids=[id_sub1, id_novo])
+                                ref_nova = croqui_pb2.Mapa.Referencia(alvo_uid=alvo_uid, pontos_uids=[id_sub1, id_novo])
                                 self.adicionar_referencia(msg_mapa_proxy, ref_nova)
                                 fatiou = True
                                 break
@@ -630,7 +648,7 @@ class MapasController:
                     })
 
                 self.adicionar_linha(msg_mapa_proxy, id_linha=id_nova_linha, nos=nos_dicts)
-                nova_ref = croqui_pb2.Mapa.Referencia(escalada=nome_rota, ids=[id_nova_linha])
+                nova_ref = croqui_pb2.Mapa.Referencia(alvo_uid=alvo_uid, pontos_uids=[id_nova_linha])
                 self.adicionar_referencia(msg_mapa_proxy, nova_ref)
 
             # 5. Desambiguação de topos sob demanda
@@ -672,7 +690,7 @@ class MapasController:
         idx_linha = -1
         linha_alvo = None
         for idx, p in enumerate(msg_mapa_proxy.pontos_de_interesse):
-            if str(p.id) == id_linha and p.HasField("linha"):
+            if str(getattr(p, "uid", "")) == id_linha and p.HasField("linha"):
                 idx_linha = idx
                 linha_alvo = p
                 break
@@ -710,7 +728,7 @@ class MapasController:
 
             # 2. Atualiza referências existentes de id_linha
             for i_ref, ref in enumerate(msg_mapa_proxy.referencias):
-                if id_linha in ref.ids:
+                if id_linha in ref.pontos_uids:
                     ref_antiga = _copia_segura(ref)
                     ref_nova = _copia_segura(ref)
                     atualizar_referencias_apos_fatiamento([ref_nova], id_linha, [id_sub1, id_sub2])

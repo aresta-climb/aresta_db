@@ -1,6 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+uid: bIzbj97ftcBIWw
 caminho_imagem_capa: imagens/setor_terceiro_andar_p0_i0.webp
 nome: Terceiro Andar
 mapas:
@@ -8,218 +9,214 @@ mapas:
   largura_mapa: 1280
   altura_mapa: 1707
   pontos_de_interesse:
-  - id: '01'
-    label: '01'
+  - uid: oMU5Wwu9cqkvML
+    rotulo: '01'
     circulo:
       x: 365
       y: 547
       raio: 26
-  - id: '02'
-    label: '02'
+  - uid: wc1cq7Wnf6KsAc
+    rotulo: '02'
     circulo:
       x: 459
       y: 623
       raio: 26
-  - id: '03'
-    label: '03'
+  - uid: qdec7NGGUuqcLL
+    rotulo: '03'
     circulo:
       x: 524
       y: 692
       raio: 26
-  - id: '04'
-    label: '04'
+  - uid: G6Itp1lJNnBI47
+    rotulo: '04'
     circulo:
       x: 597
       y: 749
       raio: 26
-  - id: '05'
-    label: '05'
+  - uid: m2ALz09ZzVMsRf
+    rotulo: '05'
     circulo:
       x: 654
       y: 838
       raio: 26
-  - id: '06'
-    label: '06'
+  - uid: O9dQ0QtlDnX7zp
+    rotulo: '06'
     circulo:
       x: 701
       y: 838
       raio: 26
   referencias:
-  - escalada: Pêro no Mucho
-    ids:
-    - '01'
-  - escalada: Meia Hora
-    ids:
-    - '02'
-  - escalada: Falta de Educação
-    ids:
-    - '03'
-  - escalada: De Mão Beijada
-    ids:
-    - '04'
-  - escalada: Efeito Cascata
-    ids:
-    - '05'
-  - escalada: Efeito Colateral
-    ids:
-    - '06'
+  - alvo_uid: 8zeHKHtgkbIHEP
+    pontos_uids:
+    - oMU5Wwu9cqkvML
+  - alvo_uid: WKL29Y4R3HGPWE
+    pontos_uids:
+    - wc1cq7Wnf6KsAc
+  - alvo_uid: x24Bxs1Za3Ipkh
+    pontos_uids:
+    - qdec7NGGUuqcLL
+  - alvo_uid: lMIJftJKh2tQZW
+    pontos_uids:
+    - G6Itp1lJNnBI47
+  - alvo_uid: 8I5EZreTIOhFyd
+    pontos_uids:
+    - m2ALz09ZzVMsRf
+  - alvo_uid: YSdMMLY5O3o0Dh
+    pontos_uids:
+    - O9dQ0QtlDnX7zp
 - caminho_imagem_mapa: imagens/setor_terceiro_andar_p2.webp
   largura_mapa: 1280
   altura_mapa: 1707
   pontos_de_interesse:
-  - id: '05'
-    label: '05'
+  - uid: G0M0PbtSsy8HSa
+    rotulo: '05'
     circulo:
       x: 191
       y: 1022
       raio: 22
-  - id: '06'
-    label: '06'
+  - uid: T4g4bC6J909S9T
+    rotulo: '06'
     circulo:
       x: 230
       y: 1028
       raio: 22
-  - id: '07'
-    label: '07'
+  - uid: 5BZjrR7ZOFnjIh
+    rotulo: '07'
     circulo:
       x: 292
       y: 1041
       raio: 22
-  - id: '08'
-    label: '08'
+  - uid: Ota8xOi2gq9Kaa
+    rotulo: '08'
     circulo:
       x: 358
       y: 1037
       raio: 22
-  - id: '09'
-    label: '09'
+  - uid: pZfCIskHdR0Gin
+    rotulo: '09'
     circulo:
       x: 413
       y: 1038
       raio: 22
   referencias:
-  - escalada: Efeito Cascata
-    ids:
-    - '05'
-  - escalada: Efeito Colateral
-    ids:
-    - '06'
-  - escalada: Só pra Variar
-    ids:
-    - '07'
-  - escalada: Rock Supimpa
-    ids:
-    - '08'
-  - escalada: Você Decide
-    ids:
-    - '09'
+  - alvo_uid: 8I5EZreTIOhFyd
+    pontos_uids:
+    - G0M0PbtSsy8HSa
+  - alvo_uid: YSdMMLY5O3o0Dh
+    pontos_uids:
+    - T4g4bC6J909S9T
+  - alvo_uid: iQdxWwg2mIyUcM
+    pontos_uids:
+    - 5BZjrR7ZOFnjIh
+  - alvo_uid: 9g5t6d0Hq1t6eQ
+    pontos_uids:
+    - Ota8xOi2gq9Kaa
+  - alvo_uid: xVWScK5FYpgqQy
+    pontos_uids:
+    - pZfCIskHdR0Gin
 - caminho_imagem_mapa: imagens/setor_terceiro_andar_p3.webp
   largura_mapa: 1280
   altura_mapa: 1707
   pontos_de_interesse:
-  - id: '10'
-    label: '10'
+  - uid: 29tVY3b9Mgy4v4
+    rotulo: '10'
     circulo:
       x: 479
       y: 1026
       raio: 22
-  - id: '11'
-    label: '11'
+  - uid: QghijXjvRmqKFV
+    rotulo: '11'
     circulo:
       x: 542
       y: 1000
       raio: 22
-  - id: '12'
-    label: '12'
+  - uid: kgV2dNHXXefVTl
+    rotulo: '12'
     circulo:
       x: 632
       y: 949
       raio: 22
-  - id: '13'
-    label: '13'
+  - uid: c1Li6WEMrI4ito
+    rotulo: '13'
     circulo:
       x: 670
       y: 947
       raio: 22
-  - id: '14'
-    label: '14'
+  - uid: QqBq3ZguacLg81
+    rotulo: '14'
     circulo:
       x: 747
       y: 979
       raio: 22
   referencias:
-  - escalada: Grande Hotel
-    ids:
-    - '10'
-  - escalada: Cura Trimura
-    ids:
-    - '11'
-  - escalada: Próprio Veneno
-    ids:
-    - '12'
-  - escalada: Própria Loucura
-    ids:
-    - '13'
-  - escalada: Honney Money
-    ids:
-    - '14'
+  - alvo_uid: fym9kYv9Jn2PUT
+    pontos_uids:
+    - 29tVY3b9Mgy4v4
+  - alvo_uid: ToJzvJZ4g2QF1v
+    pontos_uids:
+    - QghijXjvRmqKFV
+  - alvo_uid: gw1vn1qlIUsbg7
+    pontos_uids:
+    - kgV2dNHXXefVTl
+  - alvo_uid: eXK1iNTAqd3QtC
+    pontos_uids:
+    - c1Li6WEMrI4ito
+  - alvo_uid: hUw8t3L6g7y34K
+    pontos_uids:
+    - QqBq3ZguacLg81
 - caminho_imagem_mapa: imagens/setor_terceiro_andar_p4.webp
   largura_mapa: 1280
   altura_mapa: 1707
   pontos_de_interesse:
-  - id: '01'
-    label: '01'
+  - uid: IqSYGhdzyuj3lR
+    rotulo: '01'
     circulo:
       x: 192
       y: 1032
       raio: 22
-  - id: '02'
-    label: '02'
+  - uid: YFAtqkAMDBp73b
+    rotulo: '02'
     circulo:
       x: 278
       y: 1031
       raio: 22
-  - id: '03'
-    label: '03'
+  - uid: j16r3CdbNAkHic
+    rotulo: '03'
     circulo:
       x: 448
       y: 1009
       raio: 22
-  - id: '04'
-    label: '04'
+  - uid: 3uaXpRvqiAPcZo
+    rotulo: '04'
     circulo:
       x: 527
       y: 949
       raio: 22
-  - id: '05'
-    label: '05'
+  - uid: u9bSuW2bbIYmMu
+    rotulo: '05'
     circulo:
       x: 646
       y: 927
       raio: 22
   referencias:
-  - escalada: Efeito Variado
-    ids:
-    - '01'
-    setor: Terceiro Andar
-  - escalada: Só paracolateral
-    ids:
-    - '02'
-    setor: Terceiro Andar
-  - escalada: Grande Hotel
-    ids:
-    - '03'
-    setor: Terceiro Andar
-  - escalada: Trimura do Hotel
-    ids:
-    - '04'
-    setor: Terceiro Andar
-  - escalada: Própria Loucura
-    ids:
-    - '05'
-    setor: Terceiro Andar
+  - alvo_uid: Ap4exzEtVm2GOt
+    pontos_uids:
+    - IqSYGhdzyuj3lR
+  - alvo_uid: HeP33UtMx9NyRt
+    pontos_uids:
+    - YFAtqkAMDBp73b
+  - alvo_uid: fym9kYv9Jn2PUT
+    pontos_uids:
+    - j16r3CdbNAkHic
+  - alvo_uid: QHLMUlvIn5LlWi
+    pontos_uids:
+    - 3uaXpRvqiAPcZo
+  - alvo_uid: eXK1iNTAqd3QtC
+    pontos_uids:
+    - u9bSuW2bbIYmMu
 escaladas:
-- via_esportiva:
+- uid: 8zeHKHtgkbIHEP
+  via_esportiva:
     nome: Pêro no Mucho
     dificuldade: BR_5
     extensao: 10
@@ -229,7 +226,8 @@ escaladas:
     - Diego Leonardo
     - Jéssica Basso
     data_abertura: '2014'
-- via_esportiva:
+- uid: WKL29Y4R3HGPWE
+  via_esportiva:
     nome: Meia Hora
     dificuldade: BR_6
     extensao: 15
@@ -239,7 +237,8 @@ escaladas:
     - Diego Leonardo
     - Daiex de Almeida
     data_abertura: '2012'
-- via_esportiva:
+- uid: x24Bxs1Za3Ipkh
+  via_esportiva:
     nome: Falta de Educação
     dificuldade: BR_6SUP
     extensao: 20
@@ -249,7 +248,8 @@ escaladas:
     - Diego Leonardo
     - Daiex de Almeida
     data_abertura: '2012'
-- via_esportiva:
+- uid: lMIJftJKh2tQZW
+  via_esportiva:
     nome: De Mão Beijada
     dificuldade: BR_7A
     extensao: 20
@@ -259,7 +259,8 @@ escaladas:
     - Laurêncio Jr
     - Diego Leonardo
     data_abertura: '2012'
-- via_esportiva:
+- uid: 8I5EZreTIOhFyd
+  via_esportiva:
     nome: Efeito Cascata
     dificuldade: BR_7C
     extensao: 20
@@ -269,7 +270,8 @@ escaladas:
     - Mara Imbeloni
     data_abertura: '2013'
     descricao: Falta topo.
-- via_esportiva:
+- uid: YSdMMLY5O3o0Dh
+  via_esportiva:
     nome: Efeito Colateral
     dificuldade: BR_9A
     extensao: 25
@@ -280,7 +282,8 @@ escaladas:
     - Difora
     - Chorão
     data_abertura: '2008'
-- via_esportiva:
+- uid: iQdxWwg2mIyUcM
+  via_esportiva:
     nome: Só pra Variar
     dificuldade: BR_9C
     extensao: 25
@@ -290,7 +293,8 @@ escaladas:
     - Diego Leonardo
     - Gustavo Maneira
     data_abertura: '2011'
-- via_esportiva:
+- uid: 9g5t6d0Hq1t6eQ
+  via_esportiva:
     nome: Rock Supimpa
     dificuldade: BR_9B
     extensao: 25
@@ -300,7 +304,8 @@ escaladas:
     - Diego Leonardo
     - Gustavo Maneira
     data_abertura: '2012'
-- via_esportiva:
+- uid: xVWScK5FYpgqQy
+  via_esportiva:
     nome: Você Decide
     dificuldade: BR_8A
     extensao: 10
@@ -310,7 +315,8 @@ escaladas:
     - Diego Leonardo
     - Pedro Andrade
     data_abertura: '2014'
-- via_esportiva:
+- uid: fym9kYv9Jn2PUT
+  via_esportiva:
     nome: Grande Hotel
     dificuldade: BR_9A
     extensao: 25
@@ -320,7 +326,8 @@ escaladas:
     - Alexandre FEI
     - Diego Leonardo
     data_abertura: '2013'
-- via_esportiva:
+- uid: ToJzvJZ4g2QF1v
+  via_esportiva:
     nome: Cura Trimura
     dificuldade: BR_8B
     extensao: 25
@@ -329,7 +336,8 @@ escaladas:
     conquistadores:
     - Laurêncio Jr.
     data_abertura: '2013'
-- via_esportiva:
+- uid: gw1vn1qlIUsbg7
+  via_esportiva:
     nome: Próprio Veneno
     dificuldade: BR_7C
     extensao: 20
@@ -339,7 +347,8 @@ escaladas:
     - Laurêncio Jr
     - Rafael Furtado
     data_abertura: '2013'
-- via_esportiva:
+- uid: eXK1iNTAqd3QtC
+  via_esportiva:
     nome: Própria Loucura
     dificuldade: BR_9A
     extensao: 20
@@ -349,7 +358,8 @@ escaladas:
     - Diego Leonardo
     - Rafael Furtado
     data_abertura: '2016'
-- via_esportiva:
+- uid: hUw8t3L6g7y34K
+  via_esportiva:
     nome: Honney Money
     dificuldade: BR_6SUP
     extensao: 10
@@ -360,16 +370,18 @@ escaladas:
     - Gustavinho
     - Rafinha
     data_abertura: '2016'
-- via_esportiva:
+- uid: Ap4exzEtVm2GOt
+  via_esportiva:
     nome: Efeito Variado
     dificuldade: BR_9A
-    descricao: Faz o primeiro crux da Efeito Colateral e o segundo crux da Só Pra
-      Variar.
-- via_esportiva:
+    descricao: Faz o primeiro crux da Efeito Colateral e o segundo crux da Só Pra Variar.
+- uid: HeP33UtMx9NyRt
+  via_esportiva:
     nome: Só paracolateral
     dificuldade: BR_9A
     descricao: Primeiro crux da via Só pra Variar com segundo crux da Efeito Colateral.
-- via_esportiva:
+- uid: QHLMUlvIn5LlWi
+  via_esportiva:
     nome: Trimura do Hotel
     dificuldade: PROJETO
     descricao: Primeiro crux da Cura Trimura com Crux da Grande Hotel.

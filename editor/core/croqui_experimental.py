@@ -21,6 +21,7 @@ if str(ROOT_DIR) not in sys.path:
 
 from scripts.deploy_generated import deploy
 from scripts.migrador import obter_ultima_versao_migracao
+from scripts.gerenciar_uids_lib import gerar_uid
 
 from typing import Any
 
@@ -116,6 +117,7 @@ class GerenciadorCroquiExperimental:
             # 2. Cria o arquivo database/croqui.yaml seguindo a estrutura do proto
             croqui_data = {
                 "id": id_croqui,
+                "uid": gerar_uid(),
                 "nome": pico,
                 "ultima_migracao": obter_ultima_versao_migracao(),
                 "picos": [

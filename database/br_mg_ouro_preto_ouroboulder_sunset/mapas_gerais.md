@@ -6,15 +6,15 @@ mapas:
   largura_mapa: 840
   altura_mapa: 493
   pontos_de_interesse:
-  - id: Setor_Sunset
-    label: SETOR SUNSET
+  - uid: 2ClOnhagZUHqC3
+    rotulo: SETOR SUNSET
     retangulo:
       x: 396
       y: 5
       comprimento: 108
       largura: 12
   referencias:
-  - grupo: Sunset
-    ids:
-    - Setor_Sunset
+  - alvo_uid: Eud9CvpwldFcd2
+    pontos_uids:
+    - 2ClOnhagZUHqC3
 ---

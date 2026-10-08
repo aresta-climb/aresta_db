@@ -448,6 +448,8 @@ def orquestrar_build_flatpak(
             [
                 executavel_builder,
                 "--force-clean",
+                "--user",
+                "--install-deps-from=flathub",
                 "--repo=" + str(diretorio_repo),
                 str(diretorio_build),
                 str(manifesto),

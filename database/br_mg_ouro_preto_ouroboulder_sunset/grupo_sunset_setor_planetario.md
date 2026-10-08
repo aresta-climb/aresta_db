@@ -1,27 +1,34 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+uid: saaNQTQBg9DF7a
 nome: Planetário
 escaladas:
-- boulder:
+- uid: sWepsfzqCoKmIf
+  boulder:
     nome: Planetário
     destaque: true
     dificuldade: V11
-- boulder:
+- uid: 0aiqIzp2eyeH0J
+  boulder:
     nome: Náufrago
     destaque: true
     dificuldade: V7
-- boulder:
+- uid: wPSobwcfqp7dud
+  boulder:
     nome: Golfinho
     dificuldade: V4
-- boulder:
+- uid: LXPLykpm0q6F9t
+  boulder:
     nome: Clarete
     dificuldade: V3
-- boulder:
+- uid: urMRlcvDBDKi0E
+  boulder:
     nome: Odisséia na Babilônia
     dificuldade: V6
     destaque: true
-- boulder:
+- uid: KBle49fGYwOvue
+  boulder:
     nome: Canais da Babilônia
     dificuldade: V5
 mapas:
@@ -29,107 +36,107 @@ mapas:
   largura_mapa: 832
   altura_mapa: 536
   pontos_de_interesse:
-  - id: '1'
-    label: '1'
+  - uid: KOqtBFIO4n372p
+    rotulo: '1'
     circulo:
       x: 532
       y: 520
       raio: 9
-  - id: x
-    label: x
+  - uid: y4ucFSkOg1cove
+    rotulo: x
     circulo:
       x: 445
       y: 31
       raio: 9
   referencias:
-  - escalada: Planetário
-    ids:
-    - '1'
-    - x
+  - alvo_uid: sWepsfzqCoKmIf
+    pontos_uids:
+    - KOqtBFIO4n372p
+    - y4ucFSkOg1cove
 - caminho_imagem_mapa: imagens/grupo_sunset_setor_planetario_p2.webp
   largura_mapa: 829
   altura_mapa: 486
   pontos_de_interesse:
-  - id: '2'
-    label: '2'
+  - uid: PDCZ2azVdamApL
+    rotulo: '2'
     circulo:
       x: 346
       y: 454
       raio: 9
-  - id: '3'
-    label: '3'
+  - uid: SsadBRferzHqoo
+    rotulo: '3'
     circulo:
       x: 468
       y: 409
       raio: 9
-  - id: '4'
-    label: '4'
+  - uid: iVZcXLeU4F23AL
+    rotulo: '4'
     circulo:
       x: 632
       y: 338
       raio: 9
-  - id: y
-    label: y
+  - uid: IpIpAQLLUX8ACB
+    rotulo: y
     circulo:
       x: 248
       y: 106
       raio: 11
-  - id: z
-    label: z
+  - uid: 95pV12jykprucg
+    rotulo: z
     circulo:
       x: 495
       y: 47
       raio: 9
-  - id: w
-    label: w
+  - uid: MtrgRvCRP7oSkw
+    rotulo: w
     circulo:
       x: 614
       y: 42
       raio: 10
   referencias:
-  - escalada: Náufrago
-    ids:
-    - '2'
-    - y
-  - escalada: Golfinho
-    ids:
-    - '3'
-    - z
-  - escalada: Clarete
-    ids:
-    - '4'
-    - w
+  - alvo_uid: 0aiqIzp2eyeH0J
+    pontos_uids:
+    - PDCZ2azVdamApL
+    - IpIpAQLLUX8ACB
+  - alvo_uid: wPSobwcfqp7dud
+    pontos_uids:
+    - SsadBRferzHqoo
+    - 95pV12jykprucg
+  - alvo_uid: LXPLykpm0q6F9t
+    pontos_uids:
+    - iVZcXLeU4F23AL
+    - MtrgRvCRP7oSkw
 - caminho_imagem_mapa: imagens/grupo_sunset_setor_planetario_p1.webp
   largura_mapa: 850
   altura_mapa: 522
   pontos_de_interesse:
-  - id: 1_b
-    label: '1'
+  - uid: xe8rGeTEqeOzNz
+    rotulo: '1'
     circulo:
       x: 191
       y: 499
       raio: 9
-  - id: y_b
-    label: y
+  - uid: TcKj8RRsR58cmk
+    rotulo: y
     circulo:
       x: 118
       y: 10
       raio: 9
-  - id: x_b
-    label: x
+  - uid: 3FUDgbW8pu3cPC
+    rotulo: x
     circulo:
       x: 585
       y: 6
       raio: 8
   referencias:
-  - escalada: Odisséia na Babilônia
-    ids:
-    - 1_b
-    - x_b
-  - escalada: Canais da Babilônia
-    ids:
-    - 1_b
-    - y_b
+  - alvo_uid: urMRlcvDBDKi0E
+    pontos_uids:
+    - xe8rGeTEqeOzNz
+    - 3FUDgbW8pu3cPC
+  - alvo_uid: KBle49fGYwOvue
+    pontos_uids:
+    - xe8rGeTEqeOzNz
+    - TcKj8RRsR58cmk
 ---
 
 # Bloco Planetário

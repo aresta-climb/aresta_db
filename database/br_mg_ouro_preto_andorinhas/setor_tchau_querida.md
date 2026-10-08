@@ -1,78 +1,80 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+uid: wsG4L2MDOjEQyv
 nome: Tchau Querida
 mapas:
 - caminho_imagem_mapa: imagens/setor_tchau_querida_p0.webp
   largura_mapa: 2048
   altura_mapa: 1441
   pontos_de_interesse:
-  - id: '1'
-    label: '1'
+  - uid: OAqwOD0xxV1vPu
+    rotulo: '1'
     circulo:
       x: 553
       y: 1165
       raio: 29
-  - id: '2'
-    label: '2'
+  - uid: MuwmgaCCQZRwWx
+    rotulo: '2'
     circulo:
       x: 673
       y: 1207
       raio: 29
-  - id: '3'
-    label: '3'
+  - uid: K5QKDGoccW19NA
+    rotulo: '3'
     circulo:
       x: 876
       y: 1185
       raio: 29
-  - id: '4'
-    label: '4'
+  - uid: cdfIXsByranGf7
+    rotulo: '4'
     circulo:
       x: 1367
       y: 1156
       raio: 29
-  - id: '5'
-    label: '5'
+  - uid: AjkqTGkt4Ch8hA
+    rotulo: '5'
     circulo:
       x: 1554
       y: 1156
       raio: 29
-  - id: '6'
-    label: '6'
+  - uid: RfbWzFwbo770MS
+    rotulo: '6'
     circulo:
       x: 1767
       y: 1095
       raio: 29
-  - id: '7'
-    label: '7'
+  - uid: teBEMz2j8ndVhN
+    rotulo: '7'
     circulo:
       x: 1918
       y: 1066
       raio: 29
   referencias:
-  - escalada: Temer Jamais
-    ids:
-    - '1'
-  - escalada: Escalar sem Temer
-    ids:
-    - '2'
-  - escalada: Tchau Querida
-    ids:
-    - '3'
-  - escalada: República do Pó Royal
-    ids:
-    - '4'
-  - escalada: República das Bananas
-    ids:
-    - '5'
-  - escalada: República do Café com Leite
-    ids:
-    - '6'
-  - escalada: Lava Jato
-    ids:
-    - '7'
+  - alvo_uid: k6oqTOgZAjU9kt
+    pontos_uids:
+    - OAqwOD0xxV1vPu
+  - alvo_uid: xW0Mkv77JFWs9p
+    pontos_uids:
+    - MuwmgaCCQZRwWx
+  - alvo_uid: J1pGNoThE1bwfk
+    pontos_uids:
+    - K5QKDGoccW19NA
+  - alvo_uid: CRBMqp1Q6DVjAx
+    pontos_uids:
+    - cdfIXsByranGf7
+  - alvo_uid: R8rkbqPrKLHDxA
+    pontos_uids:
+    - AjkqTGkt4Ch8hA
+  - alvo_uid: aW9uZrzgmc7ttE
+    pontos_uids:
+    - RfbWzFwbo770MS
+  - alvo_uid: VjT3UV27gMKhc0
+    pontos_uids:
+    - teBEMz2j8ndVhN
 escaladas:
-- via_esportiva:
+- uid: k6oqTOgZAjU9kt
+  via_esportiva:
     nome: Temer Jamais
     dificuldade: INDEFINIDO
     extensao: 12
@@ -81,7 +83,8 @@ escaladas:
     conquistadores:
     - Fábio de Melo
     - Rodrigo 'Mussula'
-- via_esportiva:
+- uid: xW0Mkv77JFWs9p
+  via_esportiva:
     nome: Escalar sem Temer
     dificuldade: INDEFINIDO
     extensao: 12
@@ -90,7 +93,8 @@ escaladas:
     conquistadores:
     - Fábio de Melo
     - Rodrigo 'Mussula'
-- via_esportiva:
+- uid: J1pGNoThE1bwfk
+  via_esportiva:
     nome: Tchau Querida
     dificuldade: BR_7B_BARRA_7C
     extensao: 12
@@ -99,7 +103,8 @@ escaladas:
     conquistadores:
     - Fábio de Melo
     - Rodrigo 'Mussula'
-- via_esportiva:
+- uid: CRBMqp1Q6DVjAx
+  via_esportiva:
     nome: República do Pó Royal
     dificuldade: BR_8A
     extensao: 12
@@ -108,7 +113,8 @@ escaladas:
     conquistadores:
     - Fábio de Melo
     - Rodrigo 'Mussula'
-- via_esportiva:
+- uid: R8rkbqPrKLHDxA
+  via_esportiva:
     nome: República das Bananas
     dificuldade: BR_7A
     extensao: 11
@@ -117,7 +123,8 @@ escaladas:
     conquistadores:
     - Fábio de Melo
     - Rodrigo 'Mussula'
-- via_esportiva:
+- uid: aW9uZrzgmc7ttE
+  via_esportiva:
     nome: República do Café com Leite
     dificuldade: BR_7A
     extensao: 11
@@ -126,7 +133,8 @@ escaladas:
     conquistadores:
     - Fábio de Melo
     - Rodrigo 'Mussula'
-- via_esportiva:
+- uid: VjT3UV27gMKhc0
+  via_esportiva:
     nome: Lava Jato
     dificuldade: BR_7B
     extensao: 11

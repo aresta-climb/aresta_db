@@ -1,6 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+uid: yct6sz1JSOdJNh
 caminho_imagem_capa: imagens/setor_ensolarado_p0_i0.webp
 nome: Ensolarado
 mapas:
@@ -8,242 +9,241 @@ mapas:
   largura_mapa: 1280
   altura_mapa: 1280
   pontos_de_interesse:
-  - id: '01'
-    label: '01'
+  - uid: OdHP2xjGnE6wPV
+    rotulo: '01'
     circulo:
       x: 219
       y: 914
       raio: 23
-  - id: '02'
-    label: '02'
+  - uid: phxam2BROIoKzL
+    rotulo: '02'
     circulo:
       x: 269
       y: 913
       raio: 23
-  - id: '03'
-    label: '03'
+  - uid: v1mrluCkDb3aQ7
+    rotulo: '03'
     circulo:
       x: 314
       y: 931
       raio: 23
-  - id: '04'
-    label: '04'
+  - uid: XBPLekeYYCfTem
+    rotulo: '04'
     circulo:
       x: 382
       y: 920
       raio: 23
-  - id: '05'
-    label: '05'
+  - uid: zyiwqXC5Q40XYf
+    rotulo: '05'
     circulo:
       x: 459
       y: 914
       raio: 24
-  - id: '06'
-    label: '06'
+  - uid: ExLJBNwbFvuw6b
+    rotulo: '06'
     circulo:
       x: 531
       y: 800
       raio: 23
-  - id: '07'
-    label: '07'
+  - uid: Y9OBNRuCmmINk6
+    rotulo: '07'
     circulo:
       x: 584
       y: 786
       raio: 24
   referencias:
-  - escalada: Índios
-    ids:
-    - '01'
-  - escalada: Virando a Esquina
-    ids:
-    - '02'
-  - escalada: Feinomenal
-    ids:
-    - '03'
-  - escalada: Mirandinha fFlou
-    ids:
-    - '04'
-  - escalada: Quatro e Vinte
-    ids:
-    - '05'
-  - escalada: Yngyang
-    ids:
-    - '06'
-  - escalada: Sucuri
-    ids:
-    - '07'
+  - alvo_uid: HGWtnLyLht3KbQ
+    pontos_uids:
+    - OdHP2xjGnE6wPV
+  - alvo_uid: qUXHJPqJaKfQZw
+    pontos_uids:
+    - phxam2BROIoKzL
+  - alvo_uid: bxtat1Udlp39GA
+    pontos_uids:
+    - v1mrluCkDb3aQ7
+  - alvo_uid: eY01sFDFiq6xak
+    pontos_uids:
+    - XBPLekeYYCfTem
+  - alvo_uid: aTVauEM6xDvs5g
+    pontos_uids:
+    - zyiwqXC5Q40XYf
+  - alvo_uid: l0jexMQ2GVX76H
+    pontos_uids:
+    - ExLJBNwbFvuw6b
+  - alvo_uid: JYkRW0Cc8Gfqxj
+    pontos_uids:
+    - Y9OBNRuCmmINk6
 - caminho_imagem_mapa: imagens/setor_ensolarado_p2.webp
   largura_mapa: 1280
   altura_mapa: 1280
   pontos_de_interesse:
-  - id: '08'
-    label: '08'
+  - uid: OIOKU6vPgVnAOl
+    rotulo: '08'
     circulo:
       x: 171
       y: 793
       raio: 23
-  - id: '09'
-    label: '09'
+  - uid: juduvWR6Jt50o9
+    rotulo: '09'
     circulo:
       x: 245
       y: 788
       raio: 23
-  - id: '10'
-    label: '10'
+  - uid: KDEXErkVBzadtE
+    rotulo: '10'
     circulo:
       x: 343
       y: 761
       raio: 23
-  - id: '11'
-    label: '11'
+  - uid: BvTF6ZpkAakOFl
+    rotulo: '11'
     circulo:
       x: 414
       y: 748
       raio: 24
-  - id: '12'
-    label: '12'
+  - uid: LDetB3GBTxxBKV
+    rotulo: '12'
     circulo:
       x: 656
       y: 881
       raio: 23
-  - id: '13'
-    label: '13'
+  - uid: hmqSfIkyLMKoRE
+    rotulo: '13'
     circulo:
       x: 724
       y: 871
       raio: 23
-  - id: '14'
-    label: '14'
+  - uid: ENWZPOOluQrJXU
+    rotulo: '14'
     circulo:
       x: 777
       y: 926
       raio: 23
   referencias:
-  - escalada: Família Martins
-    ids:
-    - '10'
-  - escalada: Zuzuquinha Mimada
-    ids:
-    - '11'
-  - escalada: De volta as Origens
-    ids:
-    - '12'
-  - escalada: Autista do Bando
-    ids:
-    - '13'
-  - escalada: Último Suspiro
-    ids:
-    - '14'
-  - ids:
-    - '08'
-    setor: Ensolarado
-    escalada: Mundo Mágico dos Abacates
-  - ids:
-    - '09'
-    setor: Ensolarado
-    escalada: Ariba Cabron
+  - alvo_uid: IAK1aBk8ZqPygN
+    pontos_uids:
+    - KDEXErkVBzadtE
+  - alvo_uid: ojXDmDH4lIyu5m
+    pontos_uids:
+    - BvTF6ZpkAakOFl
+  - alvo_uid: XouQhAkM1nLCXa
+    pontos_uids:
+    - LDetB3GBTxxBKV
+  - alvo_uid: maS7Rm09eKBd7I
+    pontos_uids:
+    - hmqSfIkyLMKoRE
+  - alvo_uid: F59fHqfUNyR1os
+    pontos_uids:
+    - ENWZPOOluQrJXU
+  - alvo_uid: odqJSRMlFytS5l
+    pontos_uids:
+    - OIOKU6vPgVnAOl
+  - alvo_uid: QzmvuNyLhZPuSI
+    pontos_uids:
+    - juduvWR6Jt50o9
 - caminho_imagem_mapa: imagens/setor_ensolarado_p3.webp
   largura_mapa: 1280
   altura_mapa: 1280
   pontos_de_interesse:
-  - id: '15'
-    label: '15'
+  - uid: 0oZel6NpfOGh5R
+    rotulo: '15'
     circulo:
       x: 477
       y: 912
       raio: 23
-  - id: '16'
-    label: '16'
+  - uid: qNDB2s8nYdLDs5
+    rotulo: '16'
     circulo:
       x: 548
       y: 935
       raio: 23
-  - id: '17'
-    label: '17'
+  - uid: fVz98Nfwbn28cs
+    rotulo: '17'
     circulo:
       x: 624
       y: 934
       raio: 23
-  - id: '18'
-    label: '18'
+  - uid: zHjL6dmj8az4BP
+    rotulo: '18'
     circulo:
       x: 703
       y: 991
       raio: 23
-  - id: '19'
-    label: '19'
+  - uid: DT57854Vw1iOxl
+    rotulo: '19'
     circulo:
       x: 909
       y: 1080
       raio: 23
-  - id: '20'
-    label: '20'
+  - uid: xHuCfmzEm9sfom
+    rotulo: '20'
     circulo:
       x: 970
       y: 1097
       raio: 23
-  - id: '21'
-    label: '21'
+  - uid: AgrFFuyXMOIMiM
+    rotulo: '21'
     circulo:
       x: 1011
       y: 1126
       raio: 23
   referencias:
-  - escalada: Barba Negra
-    ids:
-    - '15'
-  - escalada: Capitão Gancho
-    ids:
-    - '16'
-  - escalada: Peter Pan do Cerrado
-    ids:
-    - '17'
-  - escalada: Indio Rastafari
-    ids:
-    - '18'
-  - escalada: Todo Cuidado e Pouco
-    ids:
-    - '19'
-  - escalada: Raul com Certeza
-    ids:
-    - '20'
-  - escalada: Raimundo Nonato
-    ids:
-    - '21'
+  - alvo_uid: ktZ5fnnC0kpNJM
+    pontos_uids:
+    - 0oZel6NpfOGh5R
+  - alvo_uid: BNGBXrcRrk6pHG
+    pontos_uids:
+    - qNDB2s8nYdLDs5
+  - alvo_uid: xWTHEo97dfcpR3
+    pontos_uids:
+    - fVz98Nfwbn28cs
+  - alvo_uid: Lc65yFsxm4hZD5
+    pontos_uids:
+    - zHjL6dmj8az4BP
+  - alvo_uid: iX5of2hnmiKcua
+    pontos_uids:
+    - DT57854Vw1iOxl
+  - alvo_uid: TiBHVpJkVJqxfx
+    pontos_uids:
+    - xHuCfmzEm9sfom
+  - alvo_uid: mpcMR2qBgMORqZ
+    pontos_uids:
+    - AgrFFuyXMOIMiM
 - caminho_imagem_mapa: imagens/setor_ensolarado_p4.webp
   largura_mapa: 1280
   altura_mapa: 1707
   pontos_de_interesse:
-  - id: '19'
-    label: '19'
+  - uid: OYYmmEE85dnVjn
+    rotulo: '19'
     circulo:
       x: 280
       y: 1226
       raio: 20
-  - id: '20'
-    label: '20'
+  - uid: cZ7Lqnk8NpiLm8
+    rotulo: '20'
     circulo:
       x: 637
       y: 1119
       raio: 20
-  - id: '21'
-    label: '21'
+  - uid: aDObPIePw1bJYU
+    rotulo: '21'
     circulo:
       x: 829
       y: 1022
       raio: 20
   referencias:
-  - escalada: Todo Cuidado e Pouco
-    ids:
-    - '19'
-  - escalada: Raul com Certeza
-    ids:
-    - '20'
-  - escalada: Raimundo Nonato
-    ids:
-    - '21'
+  - alvo_uid: iX5of2hnmiKcua
+    pontos_uids:
+    - OYYmmEE85dnVjn
+  - alvo_uid: TiBHVpJkVJqxfx
+    pontos_uids:
+    - cZ7Lqnk8NpiLm8
+  - alvo_uid: mpcMR2qBgMORqZ
+    pontos_uids:
+    - aDObPIePw1bJYU
 escaladas:
-- via_esportiva:
+- uid: HGWtnLyLht3KbQ
+  via_esportiva:
     nome: Índios
     dificuldade: BR_7B
     extensao: 20
@@ -252,7 +252,8 @@ escaladas:
     conquistadores:
     - Felipe Tavares
     data_abertura: '2016'
-- via_esportiva:
+- uid: qUXHJPqJaKfQZw
+  via_esportiva:
     nome: Virando a Esquina
     dificuldade: BR_5
     extensao: 8
@@ -261,7 +262,8 @@ escaladas:
     conquistadores:
     - Diego Leonardo
     data_abertura: '2014'
-- via_esportiva:
+- uid: bxtat1Udlp39GA
+  via_esportiva:
     nome: Feinomenal
     dificuldade: BR_7A
     extensao: 10
@@ -271,7 +273,8 @@ escaladas:
     - Fei
     - Luca Potilho
     data_abertura: '2016'
-- via_esportiva:
+- uid: eY01sFDFiq6xak
+  via_esportiva:
     nome: Mirandinha fFlou
     dificuldade: BR_7A
     extensao: 12
@@ -281,7 +284,8 @@ escaladas:
     - Rafael Furtado
     - Diego Leonardo
     data_abertura: '2016'
-- via_esportiva:
+- uid: aTVauEM6xDvs5g
+  via_esportiva:
     nome: Quatro e Vinte
     dificuldade: BR_6SUP
     extensao: 20
@@ -290,7 +294,8 @@ escaladas:
     conquistadores:
     - Diego Leonardo
     data_abertura: '2013'
-- via_esportiva:
+- uid: l0jexMQ2GVX76H
+  via_esportiva:
     nome: Yngyang
     dificuldade: BR_6SUP
     extensao: 20
@@ -299,7 +304,8 @@ escaladas:
     conquistadores:
     - Diego Leonardo
     data_abertura: '2013'
-- via_esportiva:
+- uid: JYkRW0Cc8Gfqxj
+  via_esportiva:
     nome: Sucuri
     dificuldade: BR_7C
     extensao: 15
@@ -309,7 +315,8 @@ escaladas:
     - Felipe Tavares
     - Felipe Alves
     data_abertura: '2017'
-- via_esportiva:
+- uid: odqJSRMlFytS5l
+  via_esportiva:
     nome: Mundo Mágico dos Abacates
     dificuldade: BR_7B
     extensao: 15
@@ -319,7 +326,8 @@ escaladas:
     - Lucas B. Marques
     - Diego Leonardo
     data_abertura: '2013'
-- via_esportiva:
+- uid: QzmvuNyLhZPuSI
+  via_esportiva:
     nome: Ariba Cabron
     dificuldade: BR_7A
     extensao: 15
@@ -329,7 +337,8 @@ escaladas:
     - Diego Leonardo
     - Rafael Furtado
     data_abertura: '2013'
-- via_esportiva:
+- uid: IAK1aBk8ZqPygN
+  via_esportiva:
     nome: Família Martins
     dificuldade: BR_6SUP
     extensao: 10
@@ -338,7 +347,8 @@ escaladas:
     conquistadores:
     - Diego Leonardo
     data_abertura: '2014'
-- via_esportiva:
+- uid: ojXDmDH4lIyu5m
+  via_esportiva:
     nome: Zuzuquinha Mimada
     dificuldade: BR_6
     extensao: 10
@@ -348,7 +358,8 @@ escaladas:
     - Mateus Martins
     - Arhtur Martins
     data_abertura: '2014'
-- via_esportiva:
+- uid: XouQhAkM1nLCXa
+  via_esportiva:
     nome: De volta as Origens
     dificuldade: BR_7B
     extensao: 15
@@ -358,7 +369,8 @@ escaladas:
     - Rafael Furtado
     - Diego Leonardo
     data_abertura: '2013'
-- via_esportiva:
+- uid: maS7Rm09eKBd7I
+  via_esportiva:
     nome: Autista do Bando
     dificuldade: BR_9B
     extensao: 15
@@ -368,7 +380,8 @@ escaladas:
     - Diego Leonardo
     - Rafael Furtado
     data_abertura: '2014'
-- via_esportiva:
+- uid: F59fHqfUNyR1os
+  via_esportiva:
     nome: Último Suspiro
     dificuldade: BR_8B
     extensao: 15
@@ -378,7 +391,8 @@ escaladas:
     - Rafael Furtado
     - Diego Leonardo
     data_abertura: '2013'
-- via_esportiva:
+- uid: ktZ5fnnC0kpNJM
+  via_esportiva:
     nome: Barba Negra
     dificuldade: BR_8B
     extensao: 15
@@ -387,7 +401,8 @@ escaladas:
     conquistadores:
     - Alexandre FEI
     data_abertura: '2013'
-- via_esportiva:
+- uid: BNGBXrcRrk6pHG
+  via_esportiva:
     nome: Capitão Gancho
     dificuldade: BR_7B
     extensao: 15
@@ -397,7 +412,8 @@ escaladas:
     - Alexandre FEI
     - Daiex
     data_abertura: '2013'
-- via_esportiva:
+- uid: xWTHEo97dfcpR3
+  via_esportiva:
     nome: Peter Pan do Cerrado
     dificuldade: BR_7B
     extensao: 20
@@ -406,7 +422,8 @@ escaladas:
     conquistadores:
     - Alexandre FEI
     data_abertura: '2015'
-- via_esportiva:
+- uid: Lc65yFsxm4hZD5
+  via_esportiva:
     nome: Indio Rastafari
     dificuldade: BR_7C
     extensao: 10
@@ -415,7 +432,8 @@ escaladas:
     conquistadores:
     - Alexandre FEI
     data_abertura: '2015'
-- via_esportiva:
+- uid: iX5of2hnmiKcua
+  via_esportiva:
     nome: Todo Cuidado e Pouco
     dificuldade: BR_6SUP
     extensao: 10
@@ -425,7 +443,8 @@ escaladas:
     - Gustavo Maneira
     - Daiex
     data_abertura: '2013'
-- via_esportiva:
+- uid: TiBHVpJkVJqxfx
+  via_esportiva:
     nome: Raul com Certeza
     dificuldade: BR_7B
     extensao: 10
@@ -434,7 +453,8 @@ escaladas:
     conquistadores:
     - Alexandre FEI
     data_abertura: '2013'
-- via_esportiva:
+- uid: mpcMR2qBgMORqZ
+  via_esportiva:
     nome: Raimundo Nonato
     dificuldade: BR_7C
     extensao: 10

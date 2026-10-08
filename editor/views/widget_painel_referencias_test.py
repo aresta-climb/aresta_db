@@ -11,7 +11,7 @@ def test_painel_referencias_sem_controller(qapp):
     
     mapa = croqui_pb2.Mapa()
     ref = mapa.referencias.add()
-    ref.grupo = "Grupo Teste"
+    ref.alvo_uid = "Grupo Teste"
     
     painel.carregar_mapa(mapa)
     
@@ -36,7 +36,7 @@ def test_emit_iniciar_modo_linkagem_com_readonly_proxy(qapp):
     from editor.models.readonly_proxy import ReadOnlyProxy
     mapa = croqui_pb2.Mapa()
     ref = mapa.referencias.add()
-    ref.grupo = "Grupo Teste"
+    ref.alvo_uid = "Grupo Teste"
     
     proxy_mapa = ReadOnlyProxy(mapa)
     painel.carregar_mapa(proxy_mapa)
@@ -49,7 +49,7 @@ def test_emit_iniciar_modo_linkagem_com_readonly_proxy(qapp):
     
     assert len(sinais) == 1
     assert sinais[0][0] == 0
-    assert sinais[0][1].grupo == "Grupo Teste"
+    assert sinais[0][1].alvo_uid == "Grupo Teste"
 
 def test_card_texto_dinamico_e_botao_remover(qapp):
     """[TDD] Verifica se botões de câmera mudam de estado se existe ajuste de câmera."""
@@ -85,7 +85,7 @@ def test_hover_in_envia_referencia(qapp):
     painel = PainelReferencias(None)
     mapa = croqui_pb2.Mapa()
     ref = mapa.referencias.add()
-    ref.grupo = "Hover Test"
+    ref.alvo_uid = "Hover Test"
     
     painel.carregar_mapa(ReadOnlyProxy(mapa))
     card = painel.layout_cards.itemAt(0).widget()
@@ -96,8 +96,8 @@ def test_hover_in_envia_referencia(qapp):
     card.enterEvent(None)
     
     assert len(sinais) == 1
-    # O sinal recebido deve ser o proxy da referência, que tem .grupo
-    assert sinais[0].grupo == "Hover Test"
+    # O sinal recebido deve ser o proxy da referência, que tem .alvo_uid
+    assert sinais[0].alvo_uid == "Hover Test"
 
 def test_botoes_layout(qapp):
     """[TDD] Verifica se o botão de remover referência tem o texto correto."""
@@ -145,12 +145,16 @@ def test_card_referencia_nao_tem_texto_referencia_x_e_tem_botao_lapis(qapp):
     """[TDD] Verifica se o card não exibe Referência X e se tem o botão de lápis para editar o alvo."""
     from editor.views.widget_painel_referencias import CardReferencia
     from aresta_api.proto.generated import croqui_pb2
-    ref = croqui_pb2.Mapa.Referencia()
-    ref.grupo = "meu_mapa"
-    card = CardReferencia(ref, 0)
+    croqui = croqui_pb2.Croqui()
+    pico = croqui.picos.add()
+    sg = pico.setores_ou_grupos.add()
+    sg.grupo.conteudo.nome = "meu_mapa"
+    sg.grupo.conteudo.uid = "uid_meu_mapa"
+    ref = croqui_pb2.Mapa.Referencia(alvo_uid="uid_meu_mapa")
+    card = CardReferencia(ref, 0, root_croqui=croqui)
     
-    # Não deve ter 'Referência' no label, só o nome do alvo (ou grupo se houver, mas grupo aqui é vazio)
-    # Na verdade, a UI vai ter apenas <b>meu_mapa</b> e o botão.
+    # Não deve ter 'Referência' no label, só o nome do alvo
+    # A UI vai ter apenas <b>meu_mapa</b> e o botão.
     assert "Referência" not in card.label_titulo.text()
     assert getattr(card, 'btn_editar_alvo', None) is not None
     assert card.btn_editar_alvo.toolTip() == "Editar Referência"
@@ -164,7 +168,7 @@ def test_adicionar_referencia_recusa_duplicada(qapp):
     
     mapa = croqui_pb2.Mapa()
     ref_existente = mapa.referencias.add()
-    ref_existente.grupo = "meu_alvo"
+    ref_existente.alvo_uid = "uid_meu_alvo"
     
     controller = MagicMock()
     painel = PainelReferencias(controller)
@@ -172,7 +176,7 @@ def test_adicionar_referencia_recusa_duplicada(qapp):
     
     # Mock do dialogo para retornar o mesmo alvo
     ref_nova = croqui_pb2.Mapa.Referencia()
-    ref_nova.grupo = "meu_alvo"
+    ref_nova.alvo_uid = "uid_meu_alvo"
     
     with patch('editor.views.widget_painel_referencias.DialogoBuscaReferencia') as MockDialogo, \
          patch('PySide6.QtWidgets.QMessageBox.warning') as MockWarning:
@@ -194,9 +198,9 @@ def test_editar_referencia_altera_alvo_e_recusa_duplicada(qapp):
     
     mapa = croqui_pb2.Mapa()
     ref1 = mapa.referencias.add()
-    ref1.grupo = "alvo1"
+    ref1.alvo_uid = "uid_alvo1"
     ref2 = mapa.referencias.add()
-    ref2.grupo = "alvo2"
+    ref2.alvo_uid = "uid_alvo2"
     
     controller = MagicMock()
     painel = PainelReferencias(controller)
@@ -205,7 +209,7 @@ def test_editar_referencia_altera_alvo_e_recusa_duplicada(qapp):
     
     # 1. Tentar editar alvo1 para alvo2 (duplicada)
     ref_tentativa = croqui_pb2.Mapa.Referencia()
-    ref_tentativa.grupo = "alvo2"
+    ref_tentativa.alvo_uid = "uid_alvo2"
     
     with patch('editor.views.widget_painel_referencias.DialogoBuscaReferencia') as MockDialogo, \
          patch('PySide6.QtWidgets.QMessageBox.warning') as MockWarning:
@@ -219,7 +223,7 @@ def test_editar_referencia_altera_alvo_e_recusa_duplicada(qapp):
         controller.alterar_referencia.assert_not_called()
         
     # 2. Tentar editar alvo1 para alvo3 (sucesso)
-    ref_tentativa.grupo = "alvo3"
+    ref_tentativa.alvo_uid = "uid_alvo3"
     with patch('editor.views.widget_painel_referencias.DialogoBuscaReferencia') as MockDialogo, \
          patch('PySide6.QtWidgets.QMessageBox.warning') as MockWarning:
         mock_dlg_instance = MockDialogo.return_value
@@ -233,8 +237,8 @@ def test_editar_referencia_altera_alvo_e_recusa_duplicada(qapp):
         ref_antiga_passada = controller.alterar_referencia.call_args[0][2]
         ref_nova_passada = controller.alterar_referencia.call_args[0][3]
         
-        assert ref_antiga_passada.grupo == "alvo1"
-        assert ref_nova_passada.grupo == "alvo3"
+        assert ref_antiga_passada.alvo_uid == "uid_alvo1"
+        assert ref_nova_passada.alvo_uid == "uid_alvo3"
 
 
 def test_card_referencia_exibe_preview_codenome_valido(qapp):
@@ -244,20 +248,20 @@ def test_card_referencia_exibe_preview_codenome_valido(qapp):
 
     mapa = croqui_pb2.Mapa()
     p1 = mapa.pontos_de_interesse.add()
-    p1.id = "linha_1"
+    p1.uid = "linha_1"
     m1 = p1.linha.compilado.marcadores.add()
     m1.tipo = croqui_pb2.NoTrajeto.TipoNo.CIRCULO_IDENTIFICADOR
     m1.rotulo = "5"
 
     p2 = mapa.pontos_de_interesse.add()
-    p2.id = "linha_2"
+    p2.uid = "linha_2"
     m2 = p2.linha.compilado.marcadores.add()
     m2.tipo = croqui_pb2.NoTrajeto.TipoNo.FIM_TOP
     m2.rotulo = "C"
 
     ref = mapa.referencias.add()
-    ref.escalada = "Via Teste"
-    ref.ids.extend(["linha_1", "linha_2"])
+    ref.alvo_uid = "Via Teste"
+    ref.pontos_uids.extend(["linha_1", "linha_2"])
 
     painel = PainelReferencias(None)
     painel.carregar_mapa(ReadOnlyProxy(mapa))
@@ -274,13 +278,13 @@ def test_card_referencia_exibe_aviso_sem_rotulo(qapp):
 
     mapa = croqui_pb2.Mapa()
     p = mapa.pontos_de_interesse.add()
-    p.id = "linha_sem_no"
+    p.uid = "linha_sem_no"
     n = p.linha.conteudo.nos.add()
     n.tipo = croqui_pb2.NoTrajeto.TipoNo.PASSAGEM
 
     ref = mapa.referencias.add()
-    ref.escalada = "Via Sem Rotulo"
-    ref.ids.append("linha_sem_no")
+    ref.alvo_uid = "Via Sem Rotulo"
+    ref.pontos_uids.append("linha_sem_no")
 
     painel = PainelReferencias(None)
     painel.carregar_mapa(ReadOnlyProxy(mapa))
@@ -298,8 +302,8 @@ def test_card_referencia_botao_inverter_chama_alterar_referencia(qapp):
 
     mapa = croqui_pb2.Mapa()
     ref = mapa.referencias.add()
-    ref.escalada = "Via Teste"
-    ref.ids.extend(["linha_21", "linha_18", "linha_9", "linha_16", "linha_12"])
+    ref.alvo_uid = "Via Teste"
+    ref.pontos_uids.extend(["linha_21", "linha_18", "linha_9", "linha_16", "linha_12"])
 
     controller = MagicMock()
     painel = PainelReferencias(controller)
@@ -315,7 +319,7 @@ def test_card_referencia_botao_inverter_chama_alterar_referencia(qapp):
     args = controller.alterar_referencia.call_args[0]
     msg_mapa, idx, ref_antiga, ref_nova = args
     assert idx == 0
-    assert list(ref_nova.ids) == ["linha_12", "linha_16", "linha_9", "linha_18", "linha_21"]
+    assert list(ref_nova.pontos_uids) == ["linha_12", "linha_16", "linha_9", "linha_18", "linha_21"]
 
 
 def test_inversao_ids_reversibilidade_undo_redo(qapp):
@@ -331,20 +335,20 @@ def test_inversao_ids_reversibilidade_undo_redo(qapp):
     mapa = sg.setor.conteudo.mapas.add()
 
     p1 = mapa.pontos_de_interesse.add()
-    p1.id = "seg_a"
+    p1.uid = "seg_a"
     m1 = p1.linha.compilado.marcadores.add()
     m1.tipo = croqui_pb2.NoTrajeto.TipoNo.CIRCULO_IDENTIFICADOR
     m1.rotulo = "1"
 
     p2 = mapa.pontos_de_interesse.add()
-    p2.id = "seg_b"
+    p2.uid = "seg_b"
     m2 = p2.linha.compilado.marcadores.add()
     m2.tipo = croqui_pb2.NoTrajeto.TipoNo.FIM_TOP
     m2.rotulo = "TOP"
 
     ref = mapa.referencias.add()
-    ref.escalada = "Via Reversivel"
-    ref.ids.extend(["seg_a", "seg_b"])
+    ref.alvo_uid = "Via Reversivel"
+    ref.pontos_uids.extend(["seg_a", "seg_b"])
 
     model = CroquiModel(croqui)
     undo_stack = QUndoStack()
@@ -364,7 +368,7 @@ def test_inversao_ids_reversibilidade_undo_redo(qapp):
     proxy_mapa = model.obter_croqui_readonly().picos[0].setores_ou_grupos[0].setor.conteudo.mapas[0]
     painel.carregar_mapa(proxy_mapa)
     card = painel.layout_cards.itemAt(0).widget()
-    assert list(proxy_mapa.referencias[0].ids) == ["seg_b", "seg_a"]
+    assert list(proxy_mapa.referencias[0].pontos_uids) == ["seg_b", "seg_a"]
     assert "TOP-1" in card.lbl_preview.text()
 
     # 2. Desfazer (Undo)
@@ -372,7 +376,7 @@ def test_inversao_ids_reversibilidade_undo_redo(qapp):
     proxy_mapa = model.obter_croqui_readonly().picos[0].setores_ou_grupos[0].setor.conteudo.mapas[0]
     painel.carregar_mapa(proxy_mapa)
     card = painel.layout_cards.itemAt(0).widget()
-    assert list(proxy_mapa.referencias[0].ids) == ["seg_a", "seg_b"]
+    assert list(proxy_mapa.referencias[0].pontos_uids) == ["seg_a", "seg_b"]
     assert "1-TOP" in card.lbl_preview.text()
 
     # 3. Refazer (Redo)
@@ -380,7 +384,7 @@ def test_inversao_ids_reversibilidade_undo_redo(qapp):
     proxy_mapa = model.obter_croqui_readonly().picos[0].setores_ou_grupos[0].setor.conteudo.mapas[0]
     painel.carregar_mapa(proxy_mapa)
     card = painel.layout_cards.itemAt(0).widget()
-    assert list(proxy_mapa.referencias[0].ids) == ["seg_b", "seg_a"]
+    assert list(proxy_mapa.referencias[0].pontos_uids) == ["seg_b", "seg_a"]
     assert "TOP-1" in card.lbl_preview.text()
 
 
@@ -390,7 +394,7 @@ def test_ao_clicar_inverter_ids_sem_controller(qapp):
 
     painel = PainelReferencias(None)
     ref = croqui_pb2.Mapa.Referencia()
-    ref.ids.append("seg_1")
+    ref.pontos_uids.append("seg_1")
     # Não deve lançar exceção
     painel._ao_clicar_inverter_ids(0, ref)
 
@@ -412,15 +416,15 @@ def test_atualizar_previews_atualiza_cards(qapp):
 
     mapa = croqui_pb2.Mapa()
     p1 = mapa.pontos_de_interesse.add()
-    p1.id = "p1"
-    p1.label = "1"
+    p1.uid = "p1"
+    p1.rotulo = "1"
     p1.circulo.x = 100
     p1.circulo.y = 100
     p1.circulo.raio = 10
 
     ref = mapa.referencias.add()
-    ref.escalada = "Via Teste"
-    ref.ids.append("p1")
+    ref.alvo_uid = "Via Teste"
+    ref.pontos_uids.append("p1")
 
     painel = PainelReferencias(None)
     painel.carregar_mapa(mapa)
@@ -429,12 +433,12 @@ def test_atualizar_previews_atualiza_cards(qapp):
     assert "Codenome: <b>[ 1 ]</b>" in card.lbl_preview.text()
 
     # Altera label do POI
-    p1.label = "2"
+    p1.rotulo = "2"
     painel.atualizar_previews()
     assert "Codenome: <b>[ 2 ]</b>" in card.lbl_preview.text()
 
     # Remove rótulo
-    p1.ClearField("label")
+    p1.ClearField("rotulo")
     painel.atualizar_previews()
     assert "⚠️ Sem rótulo" in card.lbl_preview.text()
 
@@ -448,9 +452,9 @@ def test_card_referencia_clique_define_selecionado_e_emite_sinais(qapp):
     painel = PainelReferencias(None)
     mapa = croqui_pb2.Mapa()
     ref1 = mapa.referencias.add()
-    ref1.grupo = "Grupo 1"
+    ref1.alvo_uid = "Grupo 1"
     ref2 = mapa.referencias.add()
-    ref2.grupo = "Grupo 2"
+    ref2.alvo_uid = "Grupo 2"
 
     painel.carregar_mapa(mapa)
 
@@ -473,7 +477,7 @@ def test_card_referencia_clique_define_selecionado_e_emite_sinais(qapp):
     assert not card2.selecionado
     assert len(sinais_selecao) == 1
     assert sinais_selecao[0][0] == 0
-    assert sinais_selecao[0][1].grupo == "Grupo 1"
+    assert sinais_selecao[0][1].alvo_uid == "Grupo 1"
     assert len(sinais_desmarcacao) == 0
 
     # 2. Clique no Card 2 desmarca Card 1 e seleciona Card 2
@@ -484,7 +488,7 @@ def test_card_referencia_clique_define_selecionado_e_emite_sinais(qapp):
     assert card2.selecionado
     assert len(sinais_selecao) == 2
     assert sinais_selecao[1][0] == 1
-    assert sinais_selecao[1][1].grupo == "Grupo 2"
+    assert sinais_selecao[1][1].alvo_uid == "Grupo 2"
 
     # 3. Toggle: Clicar novamente no Card 2 selecionado desmarca
     card2.mousePressEvent(ev_press2)
@@ -521,9 +525,9 @@ def test_selecionar_referencia_com_rolagem_e_preservacao_ao_atualizar(qapp):
     painel = PainelReferencias(None)
     mapa = croqui_pb2.Mapa()
     ref1 = mapa.referencias.add()
-    ref1.grupo = "Grupo 1"
+    ref1.alvo_uid = "Grupo 1"
     ref2 = mapa.referencias.add()
-    ref2.grupo = "Grupo 2"
+    ref2.alvo_uid = "Grupo 2"
 
     painel.carregar_mapa(mapa)
 
@@ -563,7 +567,7 @@ def test_mouse_press_botao_direito_nao_seleciona(qapp):
     painel = PainelReferencias(None)
     mapa = croqui_pb2.Mapa()
     ref = mapa.referencias.add()
-    ref.grupo = "Grupo Teste"
+    ref.alvo_uid = "Grupo Teste"
     painel.carregar_mapa(mapa)
 
     card = painel.layout_cards.itemAt(0).widget()
@@ -584,7 +588,7 @@ def test_confirmar_remover_ajusta_indice_selecionado(qapp):
     mapa = croqui_pb2.Mapa()
     for i in range(3):
         r = mapa.referencias.add()
-        r.grupo = f"Grupo {i}"
+        r.alvo_uid = f"Grupo {i}"
     painel.carregar_mapa(mapa)
 
     # Seleciona o card 2
@@ -618,7 +622,7 @@ def test_card_referencia_botao_vincular_toggle_texto_e_selecao_automatica(qapp):
     painel = PainelReferencias(None)
     mapa = croqui_pb2.Mapa()
     ref = mapa.referencias.add()
-    ref.grupo = "Grupo Teste"
+    ref.alvo_uid = "Grupo Teste"
     painel.carregar_mapa(mapa)
 
     card = painel.layout_cards.itemAt(0).widget()
@@ -641,9 +645,9 @@ def test_alternar_vinculacao_entre_cards_sincroniza_selecao_e_desativa_anterior(
     painel = PainelReferencias(None)
     mapa = croqui_pb2.Mapa()
     ref0 = mapa.referencias.add()
-    ref0.grupo = "Grupo 0"
+    ref0.alvo_uid = "Grupo 0"
     ref1 = mapa.referencias.add()
-    ref1.grupo = "Grupo 1"
+    ref1.alvo_uid = "Grupo 1"
     painel.carregar_mapa(mapa)
 
     card0 = painel.layout_cards.itemAt(0).widget()
@@ -666,9 +670,9 @@ def test_selecionar_referencia_desativa_vinculacao_de_card_anterior(qapp):
     painel = PainelReferencias(None)
     mapa = croqui_pb2.Mapa()
     ref0 = mapa.referencias.add()
-    ref0.grupo = "Grupo 0"
+    ref0.alvo_uid = "Grupo 0"
     ref1 = mapa.referencias.add()
-    ref1.grupo = "Grupo 1"
+    ref1.alvo_uid = "Grupo 1"
     painel.carregar_mapa(mapa)
 
     card0 = painel.layout_cards.itemAt(0).widget()
@@ -688,7 +692,7 @@ def test_atualizar_cards_preserva_modo_vinculacao_ativo(qapp):
     painel = PainelReferencias(None)
     mapa = croqui_pb2.Mapa()
     ref0 = mapa.referencias.add()
-    ref0.grupo = "Grupo 0"
+    ref0.alvo_uid = "Grupo 0"
     painel.carregar_mapa(mapa)
 
     card0 = painel.layout_cards.itemAt(0).widget()
@@ -700,4 +704,71 @@ def test_atualizar_cards_preserva_modo_vinculacao_ativo(qapp):
     novo_card0 = painel.layout_cards.itemAt(0).widget()
     assert novo_card0.btn_vincular.isChecked() is True
     assert "Vinculando..." in novo_card0.btn_vincular.text()
+
+
+def test_painel_referencias_reatividade_controller_e_model(qapp):
+    """Verifica se definir mapas_controller ou croqui_model atualiza os nomes nos cards."""
+    from editor.models.croqui_model import CroquiModel
+    from unittest.mock import MagicMock
+
+    croqui = croqui_pb2.Croqui()
+    pico = croqui.picos.add(nome="Pico dos Sonhos")
+    sg = pico.setores_ou_grupos.add()
+    setor = sg.setor.conteudo
+    setor.nome = "Setor Sul"
+    setor.uid = "uid_setor_sul"
+    esc = setor.escaladas.add()
+    esc.uid = "uid_esc1"
+    esc.via_esportiva.nome = "Fenda Infinita"
+
+    mapa = croqui_pb2.Mapa()
+    ref = mapa.referencias.add()
+    ref.alvo_uid = "uid_esc1"
+
+    painel = PainelReferencias(None)
+    painel.carregar_mapa(mapa)
+
+    card = painel.layout_cards.itemAt(0).widget()
+    assert "Referência Inválida" in card.label_titulo.text()
+
+    # Agora define o croqui_model
+    model = CroquiModel(croqui)
+    painel.croqui_model = model
+
+    card_atualizado = painel.layout_cards.itemAt(0).widget()
+    assert "Fenda Infinita" in card_atualizado.label_titulo.text()
+    assert "Setor Sul > Fenda Infinita" in card_atualizado.label_titulo.text()
+
+    # Testa também via mapas_controller com mock
+    painel_com_ctrl = PainelReferencias(None)
+    painel_com_ctrl.carregar_mapa(mapa)
+    controller_mock = MagicMock()
+    controller_mock.model = model
+    painel_com_ctrl.mapas_controller = controller_mock
+    card_ctrl = painel_com_ctrl.layout_cards.itemAt(0).widget()
+    assert "Setor Sul > Fenda Infinita" in card_ctrl.label_titulo.text()
+
+
+def test_widget_editor_mapas_propaga_controller_ao_painel(qapp):
+    """Verifica que definir mapas_controller ou croqui_model no WidgetEditorMapas propaga para painel_referencias."""
+    from editor.views.widget_editor_mapas import WidgetEditorMapas
+    from editor.models.croqui_model import CroquiModel
+    from unittest.mock import MagicMock
+
+    croqui = croqui_pb2.Croqui()
+    model = CroquiModel(croqui)
+    widget = WidgetEditorMapas(standalone=True)
+
+    ctrl_mock = MagicMock()
+    ctrl_mock.model = model
+    widget.mapas_controller = ctrl_mock
+
+    assert widget.painel_referencias.mapas_controller is ctrl_mock
+    assert widget.painel_referencias.croqui_model is model
+
+    widget.croqui_model = model
+    assert widget.painel_referencias.croqui_model is model
+
+    widget.croqui_controller = ctrl_mock
+    assert widget.croqui_controller is ctrl_mock
 

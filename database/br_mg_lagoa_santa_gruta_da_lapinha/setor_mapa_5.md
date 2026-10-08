@@ -1,105 +1,107 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+uid: WACdTSW0GaT2WF
 nome: Setor Mapa 5
 mapas:
 - caminho_imagem_mapa: imagens/setor_mapa_5_p0_i0.webp
   largura_mapa: 438
   altura_mapa: 323
   pontos_de_interesse:
-  - id: '52'
-    label: '52'
+  - uid: mwcrIssn7Fbu7K
+    rotulo: '52'
     retangulo:
       x: 379
       y: 20
       comprimento: 14
       largura: 9
-  - id: '53'
-    label: '53'
+  - uid: YUblEqH5pfshO9
+    rotulo: '53'
     retangulo:
       x: 370
       y: 36
       comprimento: 13
       largura: 10
-  - id: '54'
-    label: '54'
+  - uid: 37wN9SXE44Of5s
+    rotulo: '54'
     retangulo:
       x: 370
       y: 54
       comprimento: 14
       largura: 12
-  - id: '55'
-    label: '55'
+  - uid: vuYjNb3dRUZhdn
+    rotulo: '55'
     retangulo:
       x: 364
       y: 71
       comprimento: 14
       largura: 12
-  - id: '56'
-    label: '56'
+  - uid: zNpqRoysKs59g9
+    rotulo: '56'
     retangulo:
       x: 185
       y: 137
       comprimento: 14
       largura: 12
-  - id: '57'
-    label: '57'
+  - uid: Rlf1iauiC1twwi
+    rotulo: '57'
     retangulo:
       x: 178
       y: 152
       comprimento: 14
       largura: 12
-  - id: '58'
-    label: '58'
+  - uid: peXLU6yqiBgVaf
+    rotulo: '58'
     retangulo:
       x: 162
       y: 155
       comprimento: 13
       largura: 10
-  - id: '59'
-    label: '59'
+  - uid: 4KXPOHRpCXHQzF
+    rotulo: '59'
     retangulo:
       x: 148
       y: 158
       comprimento: 13
       largura: 11
-  - id: '60'
-    label: '60'
+  - uid: 7BYlpEkL6jr0Uy
+    rotulo: '60'
     retangulo:
       x: 49
       y: 141
       comprimento: 14
       largura: 12
   referencias:
-  - escalada: Ben Moon
-    ids:
-    - '52'
-  - escalada: Come Quieto
-    ids:
-    - '53'
-  - escalada: O Perigo que Veio do Céu
-    ids:
-    - '54'
-  - escalada: Arranca Couro
-    ids:
-    - '55'
-  - escalada: Ônibus Inglês
-    ids:
-    - '56'
-  - escalada: Gigante de Bronze
-    ids:
-    - '57'
-  - escalada: Karrenglass
-    ids:
-    - '58'
-  - escalada: Retorno dos Anões
-    ids:
-    - '59'
-  - escalada: Compromisso Sexual
-    ids:
-    - '60'
+  - alvo_uid: Ugy016aDHDPI6Y
+    pontos_uids:
+    - mwcrIssn7Fbu7K
+  - alvo_uid: ntptButHFotLLK
+    pontos_uids:
+    - YUblEqH5pfshO9
+  - alvo_uid: LlhTp0HQEPx14C
+    pontos_uids:
+    - 37wN9SXE44Of5s
+  - alvo_uid: 0ea9JvzzJRmTMc
+    pontos_uids:
+    - vuYjNb3dRUZhdn
+  - alvo_uid: Y3VMbBAjE0gzDE
+    pontos_uids:
+    - zNpqRoysKs59g9
+  - alvo_uid: 8BmdmUZ3J2Ioaf
+    pontos_uids:
+    - Rlf1iauiC1twwi
+  - alvo_uid: gIzPvcOt3tcfaW
+    pontos_uids:
+    - peXLU6yqiBgVaf
+  - alvo_uid: lieFJxvgjD0T4C
+    pontos_uids:
+    - 4KXPOHRpCXHQzF
+  - alvo_uid: RnZKGhZfGOypo1
+    pontos_uids:
+    - 7BYlpEkL6jr0Uy
 escaladas:
-- via_esportiva:
+- uid: Ugy016aDHDPI6Y
+  via_esportiva:
     nome: Ben Moon
     dificuldade: BR_7C
     quantidade_protecoes_intermediarias: 0
@@ -109,7 +111,8 @@ escaladas:
     - Emerson Alves Azeredo
     descricao: Via em Top Rope (sem proteções fixas na linha).
     data_abertura: '1994'
-- via_esportiva:
+- uid: ntptButHFotLLK
+  via_esportiva:
     nome: Come Quieto
     dificuldade: BR_8B
     quantidade_protecoes_intermediarias: 3
@@ -119,7 +122,8 @@ escaladas:
     - Glauco
     - Fabinho de Petrópolis
     data_abertura: '1995'
-- via_esportiva:
+- uid: LlhTp0HQEPx14C
+  via_esportiva:
     nome: O Perigo que Veio do Céu
     dificuldade: BR_7A
     quantidade_protecoes_intermediarias: 5
@@ -128,7 +132,8 @@ escaladas:
     - Fabiano da Silva Fernandes
     - Charles Costa Marinho
     data_abertura: '1993'
-- via_esportiva:
+- uid: 0ea9JvzzJRmTMc
+  via_esportiva:
     nome: Arranca Couro
     dificuldade: BR_7A
     quantidade_protecoes_intermediarias: 3
@@ -138,21 +143,24 @@ escaladas:
     - Emerson A. Azeredo
     - Fabiano Fernandes
     data_abertura: '1993'
-- via_esportiva:
+- uid: Y3VMbBAjE0gzDE
+  via_esportiva:
     nome: Ônibus Inglês
     dificuldade: BR_6
     conquistadores:
     - Daniel Fernandes "Salim"
     - Leonardo Hoffmann
     data_abertura: '1993'
-- via_esportiva:
+- uid: 8BmdmUZ3J2Ioaf
+  via_esportiva:
     nome: Gigante de Bronze
     dificuldade: BR_6
     conquistadores:
     - André C. B. "Andrezão"
     - Anderson B. Felisário
     data_abertura: '1994'
-- via_esportiva:
+- uid: gIzPvcOt3tcfaW
+  via_esportiva:
     nome: Karrenglass
     dificuldade: BR_5SUP
     conquistadores:
@@ -160,7 +168,8 @@ escaladas:
     - Ricardo Leal
     - Rodrigo Tinoco
     data_abertura: '1993'
-- via_esportiva:
+- uid: lieFJxvgjD0T4C
+  via_esportiva:
     nome: Retorno dos Anões
     dificuldade: BR_6SUP
     conquistadores:
@@ -168,7 +177,8 @@ escaladas:
     - Míriam Morato Duarte
     - Denise
     data_abertura: '1996'
-- via_esportiva:
+- uid: RnZKGhZfGOypo1
+  via_esportiva:
     nome: Compromisso Sexual
     dificuldade: BR_7C
     conquistadores:

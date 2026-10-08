@@ -94,6 +94,6 @@ class AdaptadorMacOS(AdaptadorPlataforma):
         try:
             from keyring.backends import macOS
 
-            keyring.set_keyring(macOS.Keyring())
+            keyring.set_keyring(macOS.Keyring())  # type: ignore[no-untyped-call]
         except Exception:
             pass

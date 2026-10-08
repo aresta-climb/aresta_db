@@ -1,50 +1,53 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+uid: X68boIjYE41BNm
 nome: Bloco F - Geladeira
 mapas:
 - caminho_imagem_mapa: imagens/setor_yin_yang_p6_i2.webp
   largura_mapa: 1099
   altura_mapa: 710
   referencias:
-  - escalada: Congelador
-    ids:
+  - alvo_uid: Ns9Hn56OTIkreO
+    pontos_uids:
     - '17'
-  - escalada: Geladeira
-    ids:
+  - alvo_uid: yg43IPyhVNA5kU
+    pontos_uids:
     - '18'
-  - escalada: Fenda Cega
-    ids:
+  - alvo_uid: 6qmeJYKY3v1V1w
+    pontos_uids:
     - '19'
-  - escalada: Diagonal (Geladeira)
-    ids:
+  - alvo_uid: xgOg32KmOIqnRt
+    pontos_uids:
     - '20'
-  - escalada: Avesso
-    ids:
+  - alvo_uid: Zx8yus4jhgQVQW
+    pontos_uids:
     - '21'
 escaladas:
-- boulder:
+- uid: Ns9Hn56OTIkreO
+  boulder:
     nome: Congelador
     dificuldade: V3
-    descricao: Sai sentado com as mãos juntas em um batente e escala em direção à
-      aresta.
-- boulder:
+    descricao: Sai sentado com as mãos juntas em um batente e escala em direção à aresta.
+- uid: yg43IPyhVNA5kU
+  boulder:
     nome: Geladeira
     dificuldade: V3
-    descricao: Começa como o “Congelador” (17) e toca reto sem usar a pedra à direita
-      da fenda.
-- boulder:
+    descricao: Começa como o “Congelador” (17) e toca reto sem usar a pedra à direita da fenda.
+- uid: 6qmeJYKY3v1V1w
+  boulder:
     nome: Fenda Cega
     dificuldade: V0
     destaque: true
     descricao: Sai sentado com as mãos juntas em uma laca e toca reto pela fenda.
-- boulder:
+- uid: xgOg32KmOIqnRt
+  boulder:
     nome: Diagonal (Geladeira)
     dificuldade: V0
     destaque: true
-    descricao: Começa como o “Fenda cega” (19), passa pela fenda e segue em diagonal
-      pra direita.
-- boulder:
+    descricao: Começa como o “Fenda cega” (19), passa pela fenda e segue em diagonal pra direita.
+- uid: Zx8yus4jhgQVQW
+  boulder:
     nome: Avesso
     dificuldade: VB
     descricao: Sai em pé com as mãos juntas em uma agarra boa invertida e escala reto.

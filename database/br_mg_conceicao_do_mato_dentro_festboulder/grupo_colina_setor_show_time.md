@@ -1,138 +1,146 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+uid: QPq69lj2cQaMam
 nome: Show Time
 mapas:
 - caminho_imagem_mapa: imagens/grupo_colina_setor_show_time_p0.webp
   largura_mapa: 755
   altura_mapa: 531
   pontos_de_interesse:
-  - id: '1'
-    label: '1'
+  - uid: bhM4fq18aYdKd3
+    rotulo: '1'
     retangulo:
       x: 282
       y: 351
       comprimento: 33
       largura: 24
-  - id: '2'
-    label: '2'
+  - uid: oFUR9yAjsXOUJF
+    rotulo: '2'
     retangulo:
       x: 378
       y: 392
       comprimento: 36
       largura: 25
-  - id: '3'
-    label: '3'
+  - uid: zxIrMGtnIs2oBw
+    rotulo: '3'
     retangulo:
       x: 438
       y: 398
       comprimento: 33
       largura: 25
-  - id: '4'
-    label: '4'
+  - uid: FOVW6vJ4vYuRj2
+    rotulo: '4'
     retangulo:
       x: 498
       y: 342
       comprimento: 32
       largura: 25
   referencias:
-  - escalada: ET Teimoso
-    ids:
-    - '1'
-  - escalada: Show Time
-    ids:
-    - '2'
-  - escalada: Zela Time
-    ids:
-    - '3'
-  - escalada: (sem nome 4)
-    ids:
-    - '4'
+  - alvo_uid: nfjDujl1duF0WR
+    pontos_uids:
+    - bhM4fq18aYdKd3
+  - alvo_uid: GoNMZvdc2V5UWZ
+    pontos_uids:
+    - oFUR9yAjsXOUJF
+  - alvo_uid: 98wWWrOFE3WykX
+    pontos_uids:
+    - zxIrMGtnIs2oBw
+  - alvo_uid: uOsPRChK5xum0k
+    pontos_uids:
+    - FOVW6vJ4vYuRj2
 - caminho_imagem_mapa: imagens/grupo_colina_setor_show_time_p1.webp
   largura_mapa: 753
   altura_mapa: 528
   pontos_de_interesse:
-  - id: '1'
-    label: '1'
+  - uid: S32hCtiHxSy1im
+    rotulo: '1'
     retangulo:
       x: 410
       y: 336
       comprimento: 35
       largura: 23
-  - id: '2'
-    label: '2'
+  - uid: 5LFAfctie3moD8
+    rotulo: '2'
     retangulo:
       x: 314
       y: 338
       comprimento: 34
       largura: 24
-  - id: '3'
-    label: '3'
+  - uid: JJJb94cBrCB2Fk
+    rotulo: '3'
     retangulo:
       x: 264
       y: 338
       comprimento: 35
       largura: 24
-  - id: '4'
-    label: '4'
+  - uid: Ki065F0a77GbDt
+    rotulo: '4'
     retangulo:
       x: 182
       y: 284
       comprimento: 33
       largura: 24
-  - id: '5'
-    label: '5'
+  - uid: LjOHSYfwzJDs9s
+    rotulo: '5'
     retangulo:
       x: 154
       y: 222
       comprimento: 35
       largura: 25
-  - id: '6'
-    label: '6'
+  - uid: 75St8wEmK9hr0y
+    rotulo: '6'
     retangulo:
       x: 93
       y: 268
       comprimento: 36
       largura: 24
   referencias:
-  - escalada: (sem nome 4)
-    ids:
-    - '1'
-  - escalada: (sem nome 5)
-    ids:
-    - '2'
-  - escalada: Meia Lua
-    ids:
-    - '3'
-  - escalada: (sem nome 6)
-    ids:
-    - '4'
-  - escalada: Zela Time
-    ids:
-    - '5'
-  - escalada: Show Time
-    ids:
-    - '6'
+  - alvo_uid: uOsPRChK5xum0k
+    pontos_uids:
+    - S32hCtiHxSy1im
+  - alvo_uid: ITjF6IUmFsJfyN
+    pontos_uids:
+    - 5LFAfctie3moD8
+  - alvo_uid: RU44lq4DV3bvid
+    pontos_uids:
+    - JJJb94cBrCB2Fk
+  - alvo_uid: 72o8TovFlDzu7K
+    pontos_uids:
+    - Ki065F0a77GbDt
+  - alvo_uid: 98wWWrOFE3WykX
+    pontos_uids:
+    - LjOHSYfwzJDs9s
+  - alvo_uid: GoNMZvdc2V5UWZ
+    pontos_uids:
+    - 75St8wEmK9hr0y
 escaladas:
-- boulder:
+- uid: nfjDujl1duF0WR
+  boulder:
     nome: ET Teimoso
     dificuldade: V0
-- boulder:
+- uid: GoNMZvdc2V5UWZ
+  boulder:
     nome: Show Time
     dificuldade: V5
-- boulder:
+- uid: 98wWWrOFE3WykX
+  boulder:
     nome: Zela Time
     dificuldade: V1
-- boulder:
+- uid: uOsPRChK5xum0k
+  boulder:
     nome: (sem nome 4)
     dificuldade: V5
-- boulder:
+- uid: ITjF6IUmFsJfyN
+  boulder:
     nome: (sem nome 5)
     dificuldade: V0
-- boulder:
+- uid: 72o8TovFlDzu7K
+  boulder:
     nome: (sem nome 6)
     dificuldade: V2
-- boulder:
+- uid: RU44lq4DV3bvid
+  boulder:
     nome: Meia Lua
     dificuldade: V3
 ---

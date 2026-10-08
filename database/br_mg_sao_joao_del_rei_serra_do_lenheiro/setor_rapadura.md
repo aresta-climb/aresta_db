@@ -1,69 +1,74 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+uid: KzHTNv5gusto5Y
 nome: Rapadura
 mapas:
 - caminho_imagem_mapa: imagens/setor_rapadura_p0_i2.webp
   largura_mapa: 1118
   altura_mapa: 745
   pontos_de_interesse:
-  - id: '1'
-    label: '1'
+  - uid: 2ClqAzEUkVSrpU
+    rotulo: '1'
     circulo:
       x: 370
       y: 535
       raio: 16
-  - id: '2'
-    label: '2'
+  - uid: NRNg0uBCGm3MW3
+    rotulo: '2'
     circulo:
       x: 445
       y: 530
       raio: 16
-  - id: '3'
-    label: '3'
+  - uid: R76oN84EVc9Jjr
+    rotulo: '3'
     circulo:
       x: 535
       y: 560
       raio: 16
-  - id: '4'
-    label: '4'
+  - uid: dQX9pYJ0Qyd8wB
+    rotulo: '4'
     circulo:
       x: 790
       y: 620
       raio: 16
   referencias:
-  - escalada: Os Hereges
-    ids:
-    - '1'
-  - escalada: Doce de Leite
-    ids:
-    - '2'
-  - escalada: Ainda Bem Que o André Não Viu
-    ids:
-    - '3'
-  - escalada: O Doce da Rapadura
-    ids:
-    - '4'
+  - alvo_uid: 2wLQ79EUuqDLcp
+    pontos_uids:
+    - 2ClqAzEUkVSrpU
+  - alvo_uid: JuQRTaCM2aVyOX
+    pontos_uids:
+    - NRNg0uBCGm3MW3
+  - alvo_uid: A9OXXkTuuyf0RY
+    pontos_uids:
+    - R76oN84EVc9Jjr
+  - alvo_uid: gYRY185MSs2B4e
+    pontos_uids:
+    - dQX9pYJ0Qyd8wB
 escaladas:
-- via_movel:
+- uid: 2wLQ79EUuqDLcp
+  via_movel:
     nome: Os Hereges
     dificuldade: BR_7A
     conquistadores:
     - Leonardo Rodrigues
     - Luiz Cláudio
-- via_movel:
+- uid: JuQRTaCM2aVyOX
+  via_movel:
     nome: Doce de Leite
     dificuldade: PROJETO
     conquistadores:
     - Leonardo Rodrigues
     - Luiz Cláudio
-- via_movel:
+- uid: A9OXXkTuuyf0RY
+  via_movel:
     nome: Ainda Bem Que o André Não Viu
     dificuldade: BR_4SUP
     conquistadores:
     - Leonardo Rodrigues
     - Luiz Cláudio
-- via_movel:
+- uid: gYRY185MSs2B4e
+  via_movel:
     nome: O Doce da Rapadura
     dificuldade: BR_4
     conquistadores:

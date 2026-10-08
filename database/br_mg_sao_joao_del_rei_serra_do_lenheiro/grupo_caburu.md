@@ -1,6 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+uid: oj5r0Mx9hCsctM
 nome: Caburu
 setores:
 - caminho: grupo_caburu_setor_caburu_debaixo.md

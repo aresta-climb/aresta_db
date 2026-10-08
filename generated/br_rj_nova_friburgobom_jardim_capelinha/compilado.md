@@ -5,10 +5,12 @@
 - **descricao**: Setor Capelinha localizado entre os municipios de Nova Friburgo e Bom Jardim /RJ
 - **id**: br_rj_nova_friburgobom_jardim_capelinha
 - **nome**: Capelinha
-- **ultima_migracao**: 4
+- **uid**: VJpkI8Di29N8aZ
+- **ultima_migracao**: 5
 - **caminho_thumbnail**: ![caminho_thumbnail](imagens/thumbnail.webp)
 - **botoes**:
   - **[0]**:
+    - **uid**: Z4VnEWSooZWKq6
     - **texto**: Recomendações
     - **destino**:
       - **secao_textual**:
@@ -23,11 +25,13 @@
             
             - A trilha para a entrada do setor fica em uma porteira de arame, ao passar por baixo da porteira, pegue a trilha para a direita junto a cerca.
   - **[1]**:
+    - **uid**: CIgnz3LJQNYA5u
     - **texto**: Como chegar
     - **destino**:
       - **secao_textual**:
         - **conteudo**: [Localização Google Maps](https://www.google.com/maps/place/22%C2%B013'43.3%22S+42%C2%B025'26.0%22W/@-22.228703,-42.423876,807m/data=!3m2!1e3!4b1!4m4!3m3!8m2!3d-22.228703!4d-42.423876!18m1!1e1?entry=ttu&g_ep=EgoyMDI2MDkyMC4wIKXMDSoASAFQAw%3D%3D)
   - **[2]**:
+    - **uid**: 5ce5v8OCqIbJFo
     - **texto**: Informações úteis
     - **destino**:
       - **secao_textual**:
@@ -38,6 +42,7 @@
             Em dias de chuva fraca da para escalar sem problemas, só molha quando chove bem forte.
             As vias secam bem rápido também após chuvas.
   - **[3]**:
+    - **uid**: A99FtoPDDEpd1l
     - **texto**: Comunidade
     - **destino**:
       - **secao_textual**:
@@ -55,6 +60,7 @@
     | :--: |
     | *Visão Geral Capelinha* |
 - **nome**: Setor principal
+- **uid**: KI4NlW8NWOaIIW
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_capela_externa_p2.webp)
@@ -62,8 +68,9 @@
     - **altura_mapa**: 2364
     - **pontos_de_interesse**:
       - **[0]**:
-        - **id**: linha_17
-        - **label**: 
+        - **id**: HKcTTfSfCuBwAD
+        - **uid**: HKcTTfSfCuBwAD
+        - **rotulo**: 
         - **linha**:
           - **estilo**: SOLIDO
           - **espessura**: 6
@@ -88,9 +95,11 @@
                 - **angulo_graus_x100**: -7631
                 - **rotulo**: A
         - **cor**: #FF1744
-      - **[1]**:
-        - **id**: linha_18
         - **label**: 
+      - **[1]**:
+        - **id**: Haj68bmHLqo9sE
+        - **uid**: Haj68bmHLqo9sE
+        - **rotulo**: 
         - **linha**:
           - **estilo**: SOLIDO
           - **espessura**: 6
@@ -115,9 +124,11 @@
                 - **angulo_graus_x100**: -6680
                 - **rotulo**: B
         - **cor**: #FF1744
-      - **[2]**:
-        - **id**: linha_19
         - **label**: 
+      - **[2]**:
+        - **id**: uDg1BD2NjpOCNh
+        - **uid**: uDg1BD2NjpOCNh
+        - **rotulo**: 
         - **linha**:
           - **estilo**: SOLIDO
           - **espessura**: 6
@@ -142,9 +153,11 @@
                 - **angulo_graus_x100**: -9000
                 - **rotulo**: C
         - **cor**: #FF1744
-      - **[3]**:
-        - **id**: linha_20
         - **label**: 
+      - **[3]**:
+        - **id**: PH0TqGX93p27do
+        - **uid**: PH0TqGX93p27do
+        - **rotulo**: 
         - **linha**:
           - **estilo**: SOLIDO
           - **espessura**: 6
@@ -169,9 +182,11 @@
                 - **angulo_graus_x100**: -10843
                 - **rotulo**: D
         - **cor**: #FF1744
-      - **[4]**:
-        - **id**: linha_21
         - **label**: 
+      - **[4]**:
+        - **id**: hzVQ3SKhonh9ZI
+        - **uid**: hzVQ3SKhonh9ZI
+        - **rotulo**: 
         - **linha**:
           - **estilo**: SOLIDO
           - **espessura**: 6
@@ -196,9 +211,11 @@
                 - **angulo_graus_x100**: -6908
                 - **rotulo**: E
         - **cor**: #FF1744
-      - **[5]**:
-        - **id**: linha_22
         - **label**: 
+      - **[5]**:
+        - **id**: uqj1txFAToioS9
+        - **uid**: uqj1txFAToioS9
+        - **rotulo**: 
         - **linha**:
           - **estilo**: TRACEJADO
           - **espessura**: 6
@@ -223,9 +240,11 @@
                 - **angulo_graus_x100**: 18000
                 - **rotulo**: F
         - **cor**: #00E676
-      - **[6]**:
-        - **id**: linha_23
         - **label**: 
+      - **[6]**:
+        - **id**: rVhvWUkENcaLp8
+        - **uid**: rVhvWUkENcaLp8
+        - **rotulo**: 
         - **linha**:
           - **estilo**: SOLIDO
           - **espessura**: 6
@@ -250,9 +269,11 @@
                 - **angulo_graus_x100**: -10404
                 - **rotulo**: G
         - **cor**: #D500F9
-      - **[7]**:
-        - **id**: linha_24
         - **label**: 
+      - **[7]**:
+        - **id**: HKuNUmArh9pqBR
+        - **uid**: HKuNUmArh9pqBR
+        - **rotulo**: 
         - **linha**:
           - **estilo**: SOLIDO
           - **espessura**: 6
@@ -277,9 +298,11 @@
                 - **angulo_graus_x100**: -13500
                 - **rotulo**: H
         - **cor**: #D500F9
-      - **[8]**:
-        - **id**: linha_25
         - **label**: 
+      - **[8]**:
+        - **id**: vSvd4vNFxHDE8D
+        - **uid**: vSvd4vNFxHDE8D
+        - **rotulo**: 
         - **linha**:
           - **estilo**: SOLIDO
           - **espessura**: 6
@@ -304,9 +327,11 @@
                 - **angulo_graus_x100**: -7799
                 - **rotulo**: H
         - **cor**: #FF1744
-      - **[9]**:
-        - **id**: linha_28
         - **label**: 
+      - **[9]**:
+        - **id**: 5SVp53Mya7NpUL
+        - **uid**: 5SVp53Mya7NpUL
+        - **rotulo**: 
         - **linha**:
           - **estilo**: SOLIDO
           - **espessura**: 6
@@ -331,8 +356,10 @@
                 - **angulo_graus_x100**: 0
                 - **rotulo**: H
         - **cor**: #D500F9
+        - **label**: 
       - **[10]**:
-        - **id**: linha_26
+        - **id**: X54GH7M5dUNPTF
+        - **uid**: X54GH7M5dUNPTF
         - **linha**:
           - **estilo**: SOLIDO
           - **espessura**: 6
@@ -358,7 +385,8 @@
                 - **rotulo**: J
         - **cor**: #FF1744
       - **[11]**:
-        - **id**: linha_29
+        - **id**: 1WRkXw11vm5M4a
+        - **uid**: 1WRkXw11vm5M4a
         - **linha**:
           - **estilo**: SOLIDO
           - **espessura**: 6
@@ -378,8 +406,9 @@
                 - **rotulo**: I
         - **cor**: #FF1744
       - **[12]**:
-        - **id**: linha_27
-        - **label**: 
+        - **id**: k4NGrnNmipXysx
+        - **uid**: k4NGrnNmipXysx
+        - **rotulo**: 
         - **linha**:
           - **estilo**: TRACEJADO
           - **espessura**: 6
@@ -404,9 +433,11 @@
                 - **angulo_graus_x100**: 0
                 - **rotulo**: J
         - **cor**: #00E676
-      - **[13]**:
-        - **id**: linha_44
         - **label**: 
+      - **[13]**:
+        - **id**: GAoMOukSPLmz4L
+        - **uid**: GAoMOukSPLmz4L
+        - **rotulo**: 
         - **linha**:
           - **estilo**: SOLIDO
           - **espessura**: 6
@@ -431,8 +462,10 @@
                 - **angulo_graus_x100**: -8543
                 - **rotulo**: K
         - **cor**: #FF1744
+        - **label**: 
       - **[14]**:
-        - **id**: linha_16
+        - **id**: JsEzcfIYcwbNJB
+        - **uid**: JsEzcfIYcwbNJB
         - **linha**:
           - **estilo**: SOLIDO
           - **espessura**: 6
@@ -452,7 +485,8 @@
                 - **rotulo**: 1
         - **cor**: #FF1744
       - **[15]**:
-        - **id**: linha_43
+        - **id**: PXOqVuGcWNuXKk
+        - **uid**: PXOqVuGcWNuXKk
         - **linha**:
           - **estilo**: SOLIDO
           - **espessura**: 6
@@ -472,8 +506,9 @@
                 - **rotulo**: A
         - **cor**: #FF1744
       - **[16]**:
-        - **id**: linha_15
-        - **label**: 
+        - **id**: 3Ft0gIajOpwd6G
+        - **uid**: 3Ft0gIajOpwd6G
+        - **rotulo**: 
         - **linha**:
           - **estilo**: SOLIDO
           - **espessura**: 6
@@ -498,83 +533,138 @@
                 - **angulo_graus_x100**: -5938
                 - **rotulo**: G
         - **cor**: #D500F9
+        - **label**: 
     - **referencias**:
       - **[0]**:
+        - **alvo_uid**: cR9vug3lhKEZ1s
+        - **pontos_uids**:
+          - HKcTTfSfCuBwAD
         - **escalada**: Misericórdia
         - **ids**:
-          - linha_17
+          - HKcTTfSfCuBwAD
       - **[1]**:
-        - **ids**:
-          - linha_18
+        - **alvo_uid**: EGBbnsf5w525IM
+        - **pontos_uids**:
+          - Haj68bmHLqo9sE
         - **escalada**: Excomungado
+        - **ids**:
+          - Haj68bmHLqo9sE
       - **[2]**:
-        - **ids**:
-          - linha_19
+        - **alvo_uid**: o1EX8168cyvAmv
+        - **pontos_uids**:
+          - uDg1BD2NjpOCNh
         - **escalada**: Crisma
+        - **ids**:
+          - uDg1BD2NjpOCNh
       - **[3]**:
-        - **ids**:
-          - linha_20
+        - **alvo_uid**: MOxqASBLS8QHbK
+        - **pontos_uids**:
+          - PH0TqGX93p27do
         - **escalada**: Primeira Comunhão
+        - **ids**:
+          - PH0TqGX93p27do
       - **[4]**:
-        - **ids**:
-          - linha_21
+        - **alvo_uid**: hdecePrG3R8YaC
+        - **pontos_uids**:
+          - hzVQ3SKhonh9ZI
         - **escalada**: Tribunal da inquisição
+        - **ids**:
+          - hzVQ3SKhonh9ZI
       - **[5]**:
-        - **ids**:
-          - linha_22
+        - **alvo_uid**: FnHzOhpeTEn2sT
+        - **pontos_uids**:
+          - uqj1txFAToioS9
         - **escalada**: Proj
+        - **ids**:
+          - uqj1txFAToioS9
       - **[6]**:
-        - **ids**:
-          - linha_18
-          - linha_23
+        - **alvo_uid**: GRVzMUDrcZ39wf
+        - **pontos_uids**:
+          - Haj68bmHLqo9sE
+          - rVhvWUkENcaLp8
         - **escalada**: Extensão Piedade
+        - **ids**:
+          - Haj68bmHLqo9sE
+          - rVhvWUkENcaLp8
       - **[7]**:
-        - **ids**:
-          - linha_24
-          - linha_18
+        - **alvo_uid**: hLsVIdZKQ9VeUJ
+        - **pontos_uids**:
+          - HKuNUmArh9pqBR
+          - Haj68bmHLqo9sE
         - **escalada**: Extensão Penitência
+        - **ids**:
+          - HKuNUmArh9pqBR
+          - Haj68bmHLqo9sE
       - **[8]**:
-        - **ids**:
-          - linha_25
+        - **alvo_uid**: cHn90YpbxXqQRF
+        - **pontos_uids**:
+          - vSvd4vNFxHDE8D
         - **escalada**: Chama Jesus
+        - **ids**:
+          - vSvd4vNFxHDE8D
       - **[9]**:
-        - **ids**:
-          - linha_26
-          - linha_29
+        - **alvo_uid**: wodKaOmLPIbirQ
+        - **pontos_uids**:
+          - X54GH7M5dUNPTF
+          - 1WRkXw11vm5M4a
         - **escalada**: Variante Santo do Pau Oco
+        - **ids**:
+          - X54GH7M5dUNPTF
+          - 1WRkXw11vm5M4a
       - **[10]**:
-        - **ids**:
-          - linha_28
-          - linha_26
-          - linha_29
+        - **alvo_uid**: nhC5JJljtzD0LB
+        - **pontos_uids**:
+          - 5SVp53Mya7NpUL
+          - X54GH7M5dUNPTF
+          - 1WRkXw11vm5M4a
         - **escalada**: Variante Santo do Pau Oco (extensão)
+        - **ids**:
+          - 5SVp53Mya7NpUL
+          - X54GH7M5dUNPTF
+          - 1WRkXw11vm5M4a
       - **[11]**:
-        - **ids**:
-          - linha_27
-          - linha_26
+        - **alvo_uid**: 8iXm4ulWkfmMAq
+        - **pontos_uids**:
+          - k4NGrnNmipXysx
+          - X54GH7M5dUNPTF
         - **escalada**: Projeto Aresta
+        - **ids**:
+          - k4NGrnNmipXysx
+          - X54GH7M5dUNPTF
       - **[12]**:
-        - **ids**:
-          - linha_44
+        - **alvo_uid**: ORxLpEqaVr3jtN
+        - **pontos_uids**:
+          - GAoMOukSPLmz4L
         - **escalada**: Missionárias do Além
+        - **ids**:
+          - GAoMOukSPLmz4L
       - **[13]**:
-        - **ids**:
-          - linha_16
-          - linha_43
+        - **alvo_uid**: B6jTijHVv9N5CR
+        - **pontos_uids**:
+          - JsEzcfIYcwbNJB
+          - PXOqVuGcWNuXKk
         - **escalada**: Água Benta
-      - **[14]**:
         - **ids**:
-          - linha_15
-          - linha_16
+          - JsEzcfIYcwbNJB
+          - PXOqVuGcWNuXKk
+      - **[14]**:
+        - **alvo_uid**: hEAxAy5uZ9BnoK
+        - **pontos_uids**:
+          - 3Ft0gIajOpwd6G
+          - JsEzcfIYcwbNJB
         - **escalada**: Variante Água Ardente
+        - **ids**:
+          - 3Ft0gIajOpwd6G
+          - JsEzcfIYcwbNJB
   - **[1]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_capelinha_visaoexterna_p3.webp)
     - **largura_mapa**: 1773
     - **altura_mapa**: 2364
     - **pontos_de_interesse**:
       - **[0]**:
-        - **id**: linha_32
-        - **label**: 
+        - **id**: B45PhzG03QuJXF
+        - **uid**: B45PhzG03QuJXF
+        - **rotulo**: 
         - **linha**:
           - **estilo**: SOLIDO
           - **espessura**: 6
@@ -599,9 +689,11 @@
                 - **angulo_graus_x100**: -8138
                 - **rotulo**: A
         - **cor**: #FF1744
-      - **[1]**:
-        - **id**: linha_36
         - **label**: 
+      - **[1]**:
+        - **id**: XlnITQxCQgLjDv
+        - **uid**: XlnITQxCQgLjDv
+        - **rotulo**: 
         - **linha**:
           - **estilo**: SOLIDO
           - **espessura**: 6
@@ -626,9 +718,11 @@
                 - **angulo_graus_x100**: -9427
                 - **rotulo**: B
         - **cor**: #FF1744
-      - **[2]**:
-        - **id**: linha_37
         - **label**: 
+      - **[2]**:
+        - **id**: G6mRccML2Z73nu
+        - **uid**: G6mRccML2Z73nu
+        - **rotulo**: 
         - **linha**:
           - **estilo**: SOLIDO
           - **espessura**: 6
@@ -653,9 +747,11 @@
                 - **angulo_graus_x100**: -9813
                 - **rotulo**: C
         - **cor**: #FF1744
-      - **[3]**:
-        - **id**: linha_39
         - **label**: 
+      - **[3]**:
+        - **id**: NX6DKHm096RWBd
+        - **uid**: NX6DKHm096RWBd
+        - **rotulo**: 
         - **linha**:
           - **estilo**: SOLIDO
           - **espessura**: 6
@@ -680,8 +776,10 @@
                 - **angulo_graus_x100**: 0
                 - **rotulo**: H
         - **cor**: #FF1744
+        - **label**: 
       - **[4]**:
-        - **id**: linha_40
+        - **id**: kzcqTarOsXPxzo
+        - **uid**: kzcqTarOsXPxzo
         - **linha**:
           - **estilo**: SOLIDO
           - **espessura**: 6
@@ -707,7 +805,8 @@
                 - **rotulo**: E
         - **cor**: #FF1744
       - **[5]**:
-        - **id**: linha_41
+        - **id**: UQHpleJDF5CDwC
+        - **uid**: UQHpleJDF5CDwC
         - **linha**:
           - **estilo**: SOLIDO
           - **espessura**: 6
@@ -727,8 +826,9 @@
                 - **rotulo**: D
         - **cor**: #FF1744
       - **[6]**:
-        - **id**: linha_38
-        - **label**: 
+        - **id**: wWLCQvWCblD9dh
+        - **uid**: wWLCQvWCblD9dh
+        - **rotulo**: 
         - **linha**:
           - **estilo**: SOLIDO
           - **espessura**: 6
@@ -753,9 +853,11 @@
                 - **angulo_graus_x100**: -12488
                 - **rotulo**: J
         - **cor**: #00E676
-      - **[7]**:
-        - **id**: linha_34
         - **label**: 
+      - **[7]**:
+        - **id**: 4Q8xvk1w6CLgo3
+        - **uid**: 4Q8xvk1w6CLgo3
+        - **rotulo**: 
         - **linha**:
           - **estilo**: SOLIDO
           - **espessura**: 6
@@ -780,9 +882,11 @@
                 - **angulo_graus_x100**: -7443
                 - **rotulo**: F
         - **cor**: #D500F9
-      - **[8]**:
-        - **id**: linha_35
         - **label**: 
+      - **[8]**:
+        - **id**: mb9U43cT2tDl9a
+        - **uid**: mb9U43cT2tDl9a
+        - **rotulo**: 
         - **linha**:
           - **estilo**: SOLIDO
           - **espessura**: 6
@@ -807,9 +911,11 @@
                 - **angulo_graus_x100**: 0
                 - **rotulo**: G
         - **cor**: #D500F9
-      - **[9]**:
-        - **id**: linha_31
         - **label**: 
+      - **[9]**:
+        - **id**: 850d9gyea4InJj
+        - **uid**: 850d9gyea4InJj
+        - **rotulo**: 
         - **linha**:
           - **estilo**: SOLIDO
           - **espessura**: 6
@@ -834,8 +940,10 @@
                 - **angulo_graus_x100**: -10102
                 - **rotulo**: H
         - **cor**: #FF1744
+        - **label**: 
       - **[10]**:
-        - **id**: linha_33
+        - **id**: plxP2gxYJeqgU7
+        - **uid**: plxP2gxYJeqgU7
         - **linha**:
           - **estilo**: SOLIDO
           - **espessura**: 6
@@ -855,7 +963,8 @@
                 - **rotulo**: 1
         - **cor**: #FF1744
       - **[11]**:
-        - **id**: linha_42
+        - **id**: KLljRokkU6g4fO
+        - **uid**: KLljRokkU6g4fO
         - **linha**:
           - **estilo**: SOLIDO
           - **espessura**: 6
@@ -875,8 +984,9 @@
                 - **rotulo**: H
         - **cor**: #FF1744
       - **[12]**:
-        - **id**: linha_30
-        - **label**: 
+        - **id**: HVxNzRp5mAUbbp
+        - **uid**: HVxNzRp5mAUbbp
+        - **rotulo**: 
         - **linha**:
           - **estilo**: SOLIDO
           - **espessura**: 6
@@ -901,65 +1011,106 @@
                 - **angulo_graus_x100**: -4347
                 - **rotulo**: G
         - **cor**: #D500F9
+        - **label**: 
     - **referencias**:
       - **[0]**:
-        - **ids**:
-          - linha_32
+        - **alvo_uid**: EGBbnsf5w525IM
+        - **pontos_uids**:
+          - B45PhzG03QuJXF
         - **escalada**: Excomungado
+        - **ids**:
+          - B45PhzG03QuJXF
       - **[1]**:
-        - **ids**:
-          - linha_36
+        - **alvo_uid**: cHn90YpbxXqQRF
+        - **pontos_uids**:
+          - XlnITQxCQgLjDv
         - **escalada**: Chama Jesus
+        - **ids**:
+          - XlnITQxCQgLjDv
       - **[2]**:
-        - **ids**:
-          - linha_37
+        - **alvo_uid**: ORxLpEqaVr3jtN
+        - **pontos_uids**:
+          - G6mRccML2Z73nu
         - **escalada**: Missionárias do Além
+        - **ids**:
+          - G6mRccML2Z73nu
       - **[3]**:
-        - **ids**:
-          - linha_40
-          - linha_41
+        - **alvo_uid**: wodKaOmLPIbirQ
+        - **pontos_uids**:
+          - kzcqTarOsXPxzo
+          - UQHpleJDF5CDwC
         - **escalada**: Variante Santo do Pau Oco
+        - **ids**:
+          - kzcqTarOsXPxzo
+          - UQHpleJDF5CDwC
       - **[4]**:
-        - **ids**:
-          - linha_39
-          - linha_40
-          - linha_41
+        - **alvo_uid**: nhC5JJljtzD0LB
+        - **pontos_uids**:
+          - NX6DKHm096RWBd
+          - kzcqTarOsXPxzo
+          - UQHpleJDF5CDwC
         - **escalada**: Variante Santo do Pau Oco (extensão)
+        - **ids**:
+          - NX6DKHm096RWBd
+          - kzcqTarOsXPxzo
+          - UQHpleJDF5CDwC
       - **[5]**:
-        - **ids**:
-          - linha_38
-          - linha_40
+        - **alvo_uid**: 8iXm4ulWkfmMAq
+        - **pontos_uids**:
+          - wWLCQvWCblD9dh
+          - kzcqTarOsXPxzo
         - **escalada**: Projeto Aresta
+        - **ids**:
+          - wWLCQvWCblD9dh
+          - kzcqTarOsXPxzo
       - **[6]**:
-        - **ids**:
-          - linha_34
+        - **alvo_uid**: hLsVIdZKQ9VeUJ
+        - **pontos_uids**:
+          - 4Q8xvk1w6CLgo3
         - **escalada**: Extensão Penitência
+        - **ids**:
+          - 4Q8xvk1w6CLgo3
       - **[7]**:
-        - **ids**:
-          - linha_35
+        - **alvo_uid**: GRVzMUDrcZ39wf
+        - **pontos_uids**:
+          - mb9U43cT2tDl9a
         - **escalada**: Extensão Piedade
+        - **ids**:
+          - mb9U43cT2tDl9a
       - **[8]**:
-        - **ids**:
-          - linha_33
-          - linha_42
+        - **alvo_uid**: B6jTijHVv9N5CR
+        - **pontos_uids**:
+          - plxP2gxYJeqgU7
+          - KLljRokkU6g4fO
         - **escalada**: Água Benta
+        - **ids**:
+          - plxP2gxYJeqgU7
+          - KLljRokkU6g4fO
       - **[9]**:
-        - **ids**:
-          - linha_31
+        - **alvo_uid**: cR9vug3lhKEZ1s
+        - **pontos_uids**:
+          - 850d9gyea4InJj
         - **escalada**: Misericórdia
-      - **[10]**:
         - **ids**:
-          - linha_30
-          - linha_33
+          - 850d9gyea4InJj
+      - **[10]**:
+        - **alvo_uid**: hEAxAy5uZ9BnoK
+        - **pontos_uids**:
+          - HVxNzRp5mAUbbp
+          - plxP2gxYJeqgU7
         - **escalada**: Variante Água Ardente
+        - **ids**:
+          - HVxNzRp5mAUbbp
+          - plxP2gxYJeqgU7
   - **[2]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_baixo_visao_externa_p0.webp)
     - **largura_mapa**: 1773
     - **altura_mapa**: 2364
     - **pontos_de_interesse**:
       - **[0]**:
-        - **id**: linha_1
-        - **label**: 
+        - **id**: NiIsHRRPKiYuzj
+        - **uid**: NiIsHRRPKiYuzj
+        - **rotulo**: 
         - **linha**:
           - **estilo**: SOLIDO
           - **espessura**: 6
@@ -984,9 +1135,11 @@
                 - **angulo_graus_x100**: -4921
                 - **rotulo**: A
         - **cor**: #FF1744
-      - **[1]**:
-        - **id**: linha_2
         - **label**: 
+      - **[1]**:
+        - **id**: T3u9i5FeZQBJ4F
+        - **uid**: T3u9i5FeZQBJ4F
+        - **rotulo**: 
         - **linha**:
           - **estilo**: SOLIDO
           - **espessura**: 6
@@ -1011,9 +1164,11 @@
                 - **angulo_graus_x100**: -7157
                 - **rotulo**: A
         - **cor**: #FF1744
-      - **[2]**:
-        - **id**: linha_3
         - **label**: 
+      - **[2]**:
+        - **id**: xd5CMVY4Y4VO9D
+        - **uid**: xd5CMVY4Y4VO9D
+        - **rotulo**: 
         - **linha**:
           - **estilo**: SOLIDO
           - **espessura**: 6
@@ -1038,9 +1193,11 @@
                 - **angulo_graus_x100**: -7094
                 - **rotulo**: B
         - **cor**: #FF1744
-      - **[3]**:
-        - **id**: linha_4
         - **label**: 
+      - **[3]**:
+        - **id**: 5w7VrWdqJXmPjz
+        - **uid**: 5w7VrWdqJXmPjz
+        - **rotulo**: 
         - **linha**:
           - **estilo**: SOLIDO
           - **espessura**: 6
@@ -1065,9 +1222,11 @@
                 - **angulo_graus_x100**: -7038
                 - **rotulo**: C
         - **cor**: #FF1744
-      - **[4]**:
-        - **id**: linha_5
         - **label**: 
+      - **[4]**:
+        - **id**: RxNpEP6K79R4H4
+        - **uid**: RxNpEP6K79R4H4
+        - **rotulo**: 
         - **linha**:
           - **estilo**: SOLIDO
           - **espessura**: 6
@@ -1092,9 +1251,11 @@
                 - **angulo_graus_x100**: -4538
                 - **rotulo**: D
         - **cor**: #FF1744
-      - **[5]**:
-        - **id**: linha_6
         - **label**: 
+      - **[5]**:
+        - **id**: ncR8xmuvwRxMm6
+        - **uid**: ncR8xmuvwRxMm6
+        - **rotulo**: 
         - **linha**:
           - **estilo**: SOLIDO
           - **espessura**: 6
@@ -1119,9 +1280,11 @@
                 - **angulo_graus_x100**: -9000
                 - **rotulo**: E
         - **cor**: #FF1744
-      - **[6]**:
-        - **id**: linha_7
         - **label**: 
+      - **[6]**:
+        - **id**: 8R1VaFw2Slbge6
+        - **uid**: 8R1VaFw2Slbge6
+        - **rotulo**: 
         - **linha**:
           - **estilo**: TRACEJADO
           - **espessura**: 6
@@ -1146,43 +1309,66 @@
                 - **angulo_graus_x100**: -7265
                 - **rotulo**: F
         - **cor**: #00E676
+        - **label**: 
     - **referencias**:
       - **[0]**:
-        - **ids**:
-          - linha_1
+        - **alvo_uid**: B6jTijHVv9N5CR
+        - **pontos_uids**:
+          - NiIsHRRPKiYuzj
         - **escalada**: Água Benta
+        - **ids**:
+          - NiIsHRRPKiYuzj
       - **[1]**:
-        - **ids**:
-          - linha_2
+        - **alvo_uid**: cR9vug3lhKEZ1s
+        - **pontos_uids**:
+          - T3u9i5FeZQBJ4F
         - **escalada**: Misericórdia
+        - **ids**:
+          - T3u9i5FeZQBJ4F
       - **[2]**:
-        - **ids**:
-          - linha_3
+        - **alvo_uid**: EGBbnsf5w525IM
+        - **pontos_uids**:
+          - xd5CMVY4Y4VO9D
         - **escalada**: Excomungado
+        - **ids**:
+          - xd5CMVY4Y4VO9D
       - **[3]**:
-        - **ids**:
-          - linha_4
+        - **alvo_uid**: o1EX8168cyvAmv
+        - **pontos_uids**:
+          - 5w7VrWdqJXmPjz
         - **escalada**: Crisma
+        - **ids**:
+          - 5w7VrWdqJXmPjz
       - **[4]**:
-        - **ids**:
-          - linha_5
+        - **alvo_uid**: MOxqASBLS8QHbK
+        - **pontos_uids**:
+          - RxNpEP6K79R4H4
         - **escalada**: Primeira Comunhão
+        - **ids**:
+          - RxNpEP6K79R4H4
       - **[5]**:
-        - **ids**:
-          - linha_6
+        - **alvo_uid**: hdecePrG3R8YaC
+        - **pontos_uids**:
+          - ncR8xmuvwRxMm6
         - **escalada**: Tribunal da inquisição
-      - **[6]**:
         - **ids**:
-          - linha_7
+          - ncR8xmuvwRxMm6
+      - **[6]**:
+        - **alvo_uid**: FnHzOhpeTEn2sT
+        - **pontos_uids**:
+          - 8R1VaFw2Slbge6
         - **escalada**: Proj
+        - **ids**:
+          - 8R1VaFw2Slbge6
   - **[3]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_capela_interna_p1.webp)
     - **largura_mapa**: 2364
     - **altura_mapa**: 1773
     - **pontos_de_interesse**:
       - **[0]**:
-        - **id**: linha_8
-        - **label**: 
+        - **id**: kP03Bpe6KoiD9b
+        - **uid**: kP03Bpe6KoiD9b
+        - **rotulo**: 
         - **linha**:
           - **estilo**: SOLIDO
           - **espessura**: 6
@@ -1207,9 +1393,11 @@
                 - **angulo_graus_x100**: -9000
                 - **rotulo**: A
         - **cor**: #FF1744
-      - **[1]**:
-        - **id**: linha_9
         - **label**: 
+      - **[1]**:
+        - **id**: 80JRNB4qw0K3aR
+        - **uid**: 80JRNB4qw0K3aR
+        - **rotulo**: 
         - **linha**:
           - **estilo**: SOLIDO
           - **espessura**: 6
@@ -1234,9 +1422,11 @@
                 - **angulo_graus_x100**: -4500
                 - **rotulo**: B
         - **cor**: #FF1744
-      - **[2]**:
-        - **id**: linha_10
         - **label**: 
+      - **[2]**:
+        - **id**: NECWHfHXmMLoyq
+        - **uid**: NECWHfHXmMLoyq
+        - **rotulo**: 
         - **linha**:
           - **estilo**: SOLIDO
           - **espessura**: 6
@@ -1261,9 +1451,11 @@
                 - **angulo_graus_x100**: -9000
                 - **rotulo**: C
         - **cor**: #FF1744
-      - **[3]**:
-        - **id**: linha_11
         - **label**: 
+      - **[3]**:
+        - **id**: HtzmNCKPNc4Vzc
+        - **uid**: HtzmNCKPNc4Vzc
+        - **rotulo**: 
         - **linha**:
           - **estilo**: SOLIDO
           - **espessura**: 6
@@ -1288,8 +1480,11 @@
                 - **angulo_graus_x100**: 0
                 - **rotulo**: D
         - **cor**: #FF1744
+        - **label**: 
       - **[4]**:
-        - **id**: linha_12
+        - **id**: VkgAULn9wfezPW
+        - **uid**: VkgAULn9wfezPW
+        - **rotulo**: 
         - **linha**:
           - **estilo**: SOLIDO
           - **espessura**: 6
@@ -1316,7 +1511,9 @@
         - **cor**: #FF1744
         - **label**: 
       - **[5]**:
-        - **id**: linha_13
+        - **id**: zEd2TPMuHBRPzV
+        - **uid**: zEd2TPMuHBRPzV
+        - **rotulo**: 
         - **linha**:
           - **estilo**: SOLIDO
           - **espessura**: 6
@@ -1343,8 +1540,9 @@
         - **cor**: #FF1744
         - **label**: 
       - **[6]**:
-        - **id**: linha_14
-        - **label**: 
+        - **id**: JhsoqmZMDlGfra
+        - **uid**: JhsoqmZMDlGfra
+        - **rotulo**: 
         - **linha**:
           - **estilo**: TRACEJADO
           - **espessura**: 6
@@ -1369,37 +1567,60 @@
                 - **angulo_graus_x100**: -13500
                 - **rotulo**: G
         - **cor**: #00E676
+        - **label**: 
     - **referencias**:
       - **[0]**:
-        - **ids**:
-          - linha_8
+        - **alvo_uid**: B6jTijHVv9N5CR
+        - **pontos_uids**:
+          - kP03Bpe6KoiD9b
         - **escalada**: Água Benta
+        - **ids**:
+          - kP03Bpe6KoiD9b
       - **[1]**:
-        - **ids**:
-          - linha_9
+        - **alvo_uid**: cR9vug3lhKEZ1s
+        - **pontos_uids**:
+          - 80JRNB4qw0K3aR
         - **escalada**: Misericórdia
+        - **ids**:
+          - 80JRNB4qw0K3aR
       - **[2]**:
-        - **ids**:
-          - linha_10
+        - **alvo_uid**: EGBbnsf5w525IM
+        - **pontos_uids**:
+          - NECWHfHXmMLoyq
         - **escalada**: Excomungado
+        - **ids**:
+          - NECWHfHXmMLoyq
       - **[3]**:
-        - **ids**:
-          - linha_11
+        - **alvo_uid**: o1EX8168cyvAmv
+        - **pontos_uids**:
+          - HtzmNCKPNc4Vzc
         - **escalada**: Crisma
+        - **ids**:
+          - HtzmNCKPNc4Vzc
       - **[4]**:
-        - **ids**:
-          - linha_12
+        - **alvo_uid**: MOxqASBLS8QHbK
+        - **pontos_uids**:
+          - VkgAULn9wfezPW
         - **escalada**: Primeira Comunhão
+        - **ids**:
+          - VkgAULn9wfezPW
       - **[5]**:
-        - **ids**:
-          - linha_13
+        - **alvo_uid**: hdecePrG3R8YaC
+        - **pontos_uids**:
+          - zEd2TPMuHBRPzV
         - **escalada**: Tribunal da inquisição
-      - **[6]**:
         - **ids**:
-          - linha_14
+          - zEd2TPMuHBRPzV
+      - **[6]**:
+        - **alvo_uid**: FnHzOhpeTEn2sT
+        - **pontos_uids**:
+          - JhsoqmZMDlGfra
         - **escalada**: Proj
+        - **ids**:
+          - JhsoqmZMDlGfra
 - **escaladas**:
   - **[0]**:
+    - **uid**: B6jTijHVv9N5CR
     - **via_esportiva**:
       - **descricao**: Saindo de cima da mureta, a via é graduada como 8a
       - **nome**: Água Benta
@@ -1409,6 +1630,7 @@
       - **quantidade_protecoes_parada**: 2
       - **extensao**: 0
   - **[1]**:
+    - **uid**: cR9vug3lhKEZ1s
     - **via_esportiva**:
       - **nome**: Misericórdia
       - **dificuldade**: BR_9A
@@ -1416,6 +1638,7 @@
       - **tipo_parede**: NEGATIVO
       - **quantidade_protecoes_intermediarias**: 6
   - **[2]**:
+    - **uid**: EGBbnsf5w525IM
     - **via_esportiva**:
       - **nome**: Excomungado
       - **dificuldade**: BR_8B
@@ -1423,6 +1646,7 @@
       - **quantidade_protecoes_parada**: 2
       - **tipo_parede**: NEGATIVO
   - **[3]**:
+    - **uid**: o1EX8168cyvAmv
     - **via_esportiva**:
       - **nome**: Crisma
       - **dificuldade**: BR_7A
@@ -1431,6 +1655,7 @@
       - **quantidade_protecoes_intermediarias**: 3
       - **quantidade_protecoes_parada**: 2
   - **[4]**:
+    - **uid**: MOxqASBLS8QHbK
     - **via_esportiva**:
       - **nome**: Primeira Comunhão
       - **dificuldade**: BR_7A
@@ -1438,6 +1663,7 @@
       - **quantidade_protecoes_intermediarias**: 4
       - **quantidade_protecoes_parada**: 2
   - **[5]**:
+    - **uid**: hdecePrG3R8YaC
     - **via_esportiva**:
       - **nome**: Tribunal da inquisição
       - **dificuldade**: BR_8A_BARRA_8B
@@ -1445,12 +1671,14 @@
       - **quantidade_protecoes_parada**: 2
       - **tipo_parede**: NEGATIVO
   - **[6]**:
+    - **uid**: FnHzOhpeTEn2sT
     - **via_esportiva**:
       - **nome**: Proj
       - **tipo_parede**: NEGATIVO
       - **quantidade_protecoes_intermediarias**: 3
       - **quantidade_protecoes_parada**: 2
   - **[7]**:
+    - **uid**: hEAxAy5uZ9BnoK
     - **via_esportiva**:
       - **descricao**: A partir da penúltima proteção da Água Benta sair para a esquerda.
       - **nome**: Variante Água Ardente
@@ -1459,6 +1687,7 @@
       - **quantidade_protecoes_intermediarias**: 10
       - **quantidade_protecoes_parada**: 2
   - **[8]**:
+    - **uid**: GRVzMUDrcZ39wf
     - **via_esportiva**:
       - **descricao**: A partir da parada da Excomungado seguir nas proteções para a esquerda.
       - **nome**: Extensão Piedade
@@ -1467,6 +1696,7 @@
       - **quantidade_protecoes_intermediarias**: 11
       - **quantidade_protecoes_parada**: 2
   - **[9]**:
+    - **uid**: hLsVIdZKQ9VeUJ
     - **via_esportiva**:
       - **descricao**: A partir da parada da Excomungado seguir nas proteções para a direita.
       - **nome**: Extensão Penitência
@@ -1475,6 +1705,7 @@
       - **quantidade_protecoes_intermediarias**: 12
       - **quantidade_protecoes_parada**: 2
   - **[10]**:
+    - **uid**: cHn90YpbxXqQRF
     - **via_esportiva**:
       - **descricao**:
           ### IMPORTANTE 
@@ -1487,6 +1718,7 @@
       - **quantidade_protecoes_intermediarias**: 6
       - **quantidade_protecoes_parada**: 2
   - **[11]**:
+    - **uid**: ORxLpEqaVr3jtN
     - **via_esportiva**:
       - **descricao**:
           ### IMPORTANTE 
@@ -1500,6 +1732,7 @@
       - **quantidade_protecoes_parada**: 2
       - **dificuldade**: BR_9A
   - **[12]**:
+    - **uid**: wodKaOmLPIbirQ
     - **via_esportiva**:
       - **descricao**:
           ### IMPORTANTE 
@@ -1513,6 +1746,7 @@
       - **quantidade_protecoes_intermediarias**: 7
       - **quantidade_protecoes_parada**: 2
   - **[13]**:
+    - **uid**: 8iXm4ulWkfmMAq
     - **via_esportiva**:
       - **descricao**:
           ### IMPORTANTE 
@@ -1524,6 +1758,7 @@
       - **tipo_parede**: NEGATIVO
       - **quantidade_protecoes_intermediarias**: 18
   - **[14]**:
+    - **uid**: nhC5JJljtzD0LB
     - **via_esportiva**:
       - **descricao**:
           ### IMPORTANTE 

@@ -90,6 +90,7 @@ def test_integracao_renomear_escalada_com_sincronizacao_mapas_e_sessao_foco(qtbo
     from editor.models.croqui_model import CroquiModel
     from editor.controllers.croqui_controller import CroquiController
     from editor.views.widget_editor_dados import WidgetFormularioPadrao
+    from editor.models.referencias_util import resolver_caminho_referencia
     from PySide6.QtGui import QUndoStack, QFocusEvent
     from PySide6.QtCore import QEvent
     from PySide6.QtWidgets import QLineEdit
@@ -100,15 +101,17 @@ def test_integracao_renomear_escalada_com_sincronizacao_mapas_e_sessao_foco(qtbo
     sg = pico.setores_ou_grupos.add()
     setor = sg.setor.conteudo
     setor.nome = "Bauzinho"
+    setor.uid = "setor_bauzinho_uid"
 
     via = setor.escaladas.add()
+    via.uid = "via_normal_uid"
     via.via_esportiva.nome = "Via Normal"
 
     mapa_setor = setor.mapas.add()
-    ref_setor = mapa_setor.referencias.add(escalada="Via Normal", ids=["linha_1"])
+    ref_setor = mapa_setor.referencias.add(alvo_uid="via_normal_uid", pontos_uids=["linha_1"])
 
     mapa_geral = pico.mapas_gerais.conteudo.mapas.add()
-    ref_geral = mapa_geral.referencias.add(setor="Bauzinho", escalada="Via Normal", ids=["poi_geral"])
+    ref_geral = mapa_geral.referencias.add(alvo_uid="via_normal_uid", pontos_uids=["poi_geral"])
 
     model = CroquiModel(croqui)
     undo_stack = QUndoStack()
@@ -143,22 +146,22 @@ def test_integracao_renomear_escalada_com_sincronizacao_mapas_e_sessao_foco(qtbo
     # Verifica mesclagem em 1 único comando no histórico
     assert undo_stack.count() == 1
     assert proxy_via.nome == "Via Normal Direta"
-    assert proxy_ref_setor.escalada == "Via Normal Direta"
-    assert proxy_ref_geral.escalada == "Via Normal Direta"
+    assert resolver_caminho_referencia(model.obter_croqui_readonly(), proxy_ref_setor) == "Bauzinho > Via Normal Direta"
+    assert resolver_caminho_referencia(model.obter_croqui_readonly(), proxy_ref_geral) == "Bauzinho > Via Normal Direta"
 
     # 4. Undo único reverte tudo ao estado original
     undo_stack.undo()
     assert undo_stack.index() == 0
     assert proxy_via.nome == "Via Normal"
-    assert proxy_ref_setor.escalada == "Via Normal"
-    assert proxy_ref_geral.escalada == "Via Normal"
+    assert resolver_caminho_referencia(model.obter_croqui_readonly(), proxy_ref_setor) == "Bauzinho > Via Normal"
+    assert resolver_caminho_referencia(model.obter_croqui_readonly(), proxy_ref_geral) == "Bauzinho > Via Normal"
 
     # 5. Redo reaplica a edição consolidada
     undo_stack.redo()
     assert undo_stack.index() == 1
     assert proxy_via.nome == "Via Normal Direta"
-    assert proxy_ref_setor.escalada == "Via Normal Direta"
-    assert proxy_ref_geral.escalada == "Via Normal Direta"
+    assert resolver_caminho_referencia(model.obter_croqui_readonly(), proxy_ref_setor) == "Bauzinho > Via Normal Direta"
+    assert resolver_caminho_referencia(model.obter_croqui_readonly(), proxy_ref_geral) == "Bauzinho > Via Normal Direta"
 
     # 6. Simula perda e retomada de foco (início de nova sessão de foco)
     evento_focus_out = QFocusEvent(QEvent.Type.FocusOut)
@@ -169,7 +172,7 @@ def test_integracao_renomear_escalada_com_sincronizacao_mapas_e_sessao_foco(qtbo
 
     # 7. Usuário cria uma nova referência em outro mapa apontando para "Via Normal Direta"
     mapa_novo = setor.mapas.add()
-    ref_nova = mapa_novo.referencias.add(escalada="Via Normal Direta", ids=["linha_nova"])
+    ref_nova = mapa_novo.referencias.add(alvo_uid="via_normal_uid", pontos_uids=["linha_nova"])
     proxy_ref_nova = model.obter_croqui_readonly().picos[0].setores_ou_grupos[0].setor.conteudo.mapas[1].referencias[0]
 
     # 8. Digita nova alteração no campo com nova sessão de foco
@@ -179,24 +182,24 @@ def test_integracao_renomear_escalada_com_sincronizacao_mapas_e_sessao_foco(qtbo
     assert undo_stack.count() == 2
     assert undo_stack.index() == 2
     assert proxy_via.nome == "Via Normal Direta Variante"
-    assert proxy_ref_setor.escalada == "Via Normal Direta Variante"
-    assert proxy_ref_geral.escalada == "Via Normal Direta Variante"
+    assert resolver_caminho_referencia(model.obter_croqui_readonly(), proxy_ref_setor) == "Bauzinho > Via Normal Direta Variante"
+    assert resolver_caminho_referencia(model.obter_croqui_readonly(), proxy_ref_geral) == "Bauzinho > Via Normal Direta Variante"
     # A nova referência descoberta na nova busca também foi atualizada!
-    assert proxy_ref_nova.escalada == "Via Normal Direta Variante"
+    assert resolver_caminho_referencia(model.obter_croqui_readonly(), proxy_ref_nova) == "Bauzinho > Via Normal Direta Variante"
 
     # 9. Primeiro Undo desfaz a segunda sessão (volta para "Via Normal Direta")
     undo_stack.undo()
     assert undo_stack.index() == 1
     assert proxy_via.nome == "Via Normal Direta"
-    assert proxy_ref_setor.escalada == "Via Normal Direta"
-    assert proxy_ref_geral.escalada == "Via Normal Direta"
-    assert proxy_ref_nova.escalada == "Via Normal Direta"
+    assert resolver_caminho_referencia(model.obter_croqui_readonly(), proxy_ref_setor) == "Bauzinho > Via Normal Direta"
+    assert resolver_caminho_referencia(model.obter_croqui_readonly(), proxy_ref_geral) == "Bauzinho > Via Normal Direta"
+    assert resolver_caminho_referencia(model.obter_croqui_readonly(), proxy_ref_nova) == "Bauzinho > Via Normal Direta"
 
     # 10. Segundo Undo desfaz a primeira sessão (volta para "Via Normal")
     undo_stack.undo()
     assert undo_stack.index() == 0
     assert proxy_via.nome == "Via Normal"
-    assert proxy_ref_setor.escalada == "Via Normal"
-    assert proxy_ref_geral.escalada == "Via Normal"
+    assert resolver_caminho_referencia(model.obter_croqui_readonly(), proxy_ref_setor) == "Bauzinho > Via Normal"
+    assert resolver_caminho_referencia(model.obter_croqui_readonly(), proxy_ref_geral) == "Bauzinho > Via Normal"
 
             

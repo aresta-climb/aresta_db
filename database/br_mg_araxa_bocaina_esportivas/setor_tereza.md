@@ -1,6 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+uid: sKwnDft8hBVYxs
 caminho_imagem_capa: imagens/setor_tereza_p0_i0.webp
 nome: Tereza
 mapas:
@@ -8,77 +9,78 @@ mapas:
   largura_mapa: 1280
   altura_mapa: 1707
   pontos_de_interesse:
-  - id: '01'
-    label: '01'
+  - uid: jsnhRlqh8PYw4C
+    rotulo: '01'
     circulo:
       x: 281
       y: 1011
       raio: 26
-  - id: '02'
-    label: '02'
+  - uid: Q9scflgF5tKf7Q
+    rotulo: '02'
     circulo:
       x: 507
       y: 1012
       raio: 26
-  - id: '03'
-    label: '03'
+  - uid: ZNBxU5Np5v3rBX
+    rotulo: '03'
     circulo:
       x: 588
       y: 1027
       raio: 26
-  - id: '04'
-    label: '04'
+  - uid: xts4vHnP8tqmht
+    rotulo: '04'
     circulo:
       x: 662
       y: 1028
       raio: 26
-  - id: '05'
-    label: '05'
+  - uid: eWwQT4zVzTXSrT
+    rotulo: '05'
     circulo:
       x: 751
       y: 1068
       raio: 26
-  - id: '06'
-    label: '06'
+  - uid: 8Xvl9JGHXDkANZ
+    rotulo: '06'
     circulo:
       x: 802
       y: 873
       raio: 26
   referencias:
-  - escalada: Jaratataca
-    ids:
-    - '01'
-  - escalada: Grito da Aranha
-    ids:
-    - '02'
-  - escalada: Melhor Opção
-    ids:
-    - '03'
-  - escalada: Rapa do Tacho
-    ids:
-    - '04'
-  - escalada: Carrapato não tem Pai
-    ids:
-    - '05'
-  - escalada: Barriga Verde
-    ids:
-    - '06'
+  - alvo_uid: OSe0oEbXXvgMLR
+    pontos_uids:
+    - jsnhRlqh8PYw4C
+  - alvo_uid: kzMCrmf8x464pr
+    pontos_uids:
+    - Q9scflgF5tKf7Q
+  - alvo_uid: p0tguxulhRW0Fl
+    pontos_uids:
+    - ZNBxU5Np5v3rBX
+  - alvo_uid: W6y5fFECWC6ItX
+    pontos_uids:
+    - xts4vHnP8tqmht
+  - alvo_uid: zOAjGMBAH0R4DB
+    pontos_uids:
+    - eWwQT4zVzTXSrT
+  - alvo_uid: itw9iTSwUlj6of
+    pontos_uids:
+    - 8Xvl9JGHXDkANZ
 - caminho_imagem_mapa: imagens/setor_tereza_p2.webp
   largura_mapa: 1280
   altura_mapa: 1707
   pontos_de_interesse:
-  - id: '06'
-    label: '06'
+  - uid: ciUqgfQcb73IcX
+    rotulo: '06'
     circulo:
       x: 235
       y: 927
       raio: 24
   referencias:
-  - escalada: Barriga Verde
-    ids:
-    - '06'
+  - alvo_uid: itw9iTSwUlj6of
+    pontos_uids:
+    - ciUqgfQcb73IcX
 escaladas:
-- via_esportiva:
+- uid: OSe0oEbXXvgMLR
+  via_esportiva:
     nome: Jaratataca
     dificuldade: BR_6SUP
     extensao: 10
@@ -88,7 +90,8 @@ escaladas:
     - Diego Leonardo
     - Laurêncio
     data_abertura: '2009'
-- via_esportiva:
+- uid: kzMCrmf8x464pr
+  via_esportiva:
     nome: Grito da Aranha
     dificuldade: BR_7C
     extensao: 15
@@ -98,7 +101,8 @@ escaladas:
     - Laurêncio
     - Diego Leonardo
     data_abertura: '2009'
-- via_esportiva:
+- uid: p0tguxulhRW0Fl
+  via_esportiva:
     nome: Melhor Opção
     dificuldade: BR_7A
     extensao: 20
@@ -108,7 +112,8 @@ escaladas:
     - Laurêncio
     - Diego Leonardo
     data_abertura: '2009'
-- via_esportiva:
+- uid: W6y5fFECWC6ItX
+  via_esportiva:
     nome: Rapa do Tacho
     dificuldade: BR_6SUP
     extensao: 20
@@ -117,7 +122,8 @@ escaladas:
     conquistadores:
     - Daiex de Almeida
     data_abertura: '2016'
-- via_esportiva:
+- uid: zOAjGMBAH0R4DB
+  via_esportiva:
     nome: Carrapato não tem Pai
     dificuldade: BR_5
     extensao: 20
@@ -127,7 +133,8 @@ escaladas:
     - Diego Leonardo
     - Felipe Siqueira
     data_abertura: '2009'
-- via_esportiva:
+- uid: itw9iTSwUlj6of
+  via_esportiva:
     nome: Barriga Verde
     dificuldade: BR_5
     extensao: 15

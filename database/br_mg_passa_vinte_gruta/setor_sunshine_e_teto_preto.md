@@ -1,277 +1,296 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+uid: viX8aQd4Az2cTe
 nome: Sunshine & Teto Preto
 mapas:
 - caminho_imagem_mapa: imagens/setor_sunshine_e_teto_preto_p0.webp
   largura_mapa: 1718
   altura_mapa: 962
   pontos_de_interesse:
-  - id: '01'
-    label: '1'
+  - uid: o6PavNJXse8hVj
+    rotulo: '1'
     retangulo:
       x: 130
       y: 315
       comprimento: 30
       largura: 30
-  - id: '02'
-    label: '2'
+  - uid: oamV3V5zztNcwK
+    rotulo: '2'
     retangulo:
       x: 215
       y: 510
       comprimento: 30
       largura: 30
-  - id: '03'
-    label: '3'
+  - uid: 9rN2lgEBetVgUu
+    rotulo: '3'
     retangulo:
       x: 218
       y: 108
       comprimento: 30
       largura: 30
-  - id: '04'
-    label: '4'
+  - uid: s3eyMLkPiaNQiK
+    rotulo: '4'
     retangulo:
       x: 275
       y: 510
       comprimento: 30
       largura: 30
-  - id: '05'
-    label: '5'
+  - uid: 82tmvVzkcbpJEP
+    rotulo: '5'
     retangulo:
       x: 335
       y: 510
       comprimento: 30
       largura: 30
-  - id: '06'
-    label: '6'
+  - uid: ZlQQD3HCWuPU0R
+    rotulo: '6'
     retangulo:
       x: 375
       y: 650
       comprimento: 30
       largura: 30
-  - id: '07'
-    label: '7'
+  - uid: Ii9EXbUqu8txKw
+    rotulo: '7'
     retangulo:
       x: 465
       y: 675
       comprimento: 30
       largura: 30
-  - id: 08
-    label: '8'
+  - uid: HLu1g4vKD9MvDN
+    rotulo: '8'
     retangulo:
       x: 600
       y: 740
       comprimento: 30
       largura: 30
-  - id: 09
-    label: '9'
+  - uid: BIBkZ5HceM0b3V
+    rotulo: '9'
     retangulo:
       x: 665
       y: 740
       comprimento: 30
       largura: 30
-  - id: '10'
-    label: '10'
+  - uid: 9w2VDFcxGUFBC0
+    rotulo: '10'
     retangulo:
       x: 720
       y: 740
       comprimento: 30
       largura: 30
-  - id: '11'
-    label: '11'
+  - uid: 6IpwmSyM7NXSWw
+    rotulo: '11'
     retangulo:
       x: 795
       y: 740
       comprimento: 30
       largura: 30
-  - id: '12'
-    label: '12'
+  - uid: 1a66SSuUOASzRS
+    rotulo: '12'
     retangulo:
       x: 870
       y: 740
       comprimento: 30
       largura: 30
-  - id: '13'
-    label: '13'
+  - uid: z47Cj26bAi3Tsj
+    rotulo: '13'
     retangulo:
       x: 945
       y: 740
       comprimento: 30
       largura: 30
-  - id: '14'
-    label: '14'
+  - uid: lDsU35NStAINCc
+    rotulo: '14'
     retangulo:
       x: 1040
       y: 785
       comprimento: 30
       largura: 30
-  - id: '15'
-    label: '15'
+  - uid: sXC1f39hbG8frR
+    rotulo: '15'
     retangulo:
       x: 1090
       y: 785
       comprimento: 30
       largura: 30
-  - id: '16'
-    label: '16'
+  - uid: frvR1YD8fob2zA
+    rotulo: '16'
     retangulo:
       x: 1145
       y: 785
       comprimento: 30
       largura: 30
-  - id: '17'
-    label: '17'
+  - uid: OY8Lnl9aimjZVR
+    rotulo: '17'
     retangulo:
       x: 1250
       y: 775
       comprimento: 30
       largura: 30
-  - id: '18'
-    label: '18'
+  - uid: UeuQtX6iqTR1RG
+    rotulo: '18'
     retangulo:
       x: 1230
       y: 122
       comprimento: 30
       largura: 30
-  - id: '19'
-    label: '19'
+  - uid: zuwOkLPZiyrtS0
+    rotulo: '19'
     retangulo:
       x: 682
       y: 487
       comprimento: 30
       largura: 30
-  - id: Setor_Chegada
-    label: Setor Chegada
+  - uid: TIrivuogFugDp8
+    rotulo: Setor Chegada
     retangulo:
       x: 10
       y: 800
       comprimento: 200
       largura: 30
-  - id: Setor_Tradicionais
-    label: Setor Tradicionais
+  - uid: liXjFXUpLKSziG
+    rotulo: Setor Tradicionais
     retangulo:
       x: 1500
       y: 940
       comprimento: 250
       largura: 30
   referencias:
-  - escalada: Ementhal
-    ids:
-    - '01'
-  - escalada: Sunshine
-    ids:
-    - '02'
-  - escalada: Ext. Sunshine (Projeto)
-    ids:
-    - '03'
-    - '03'
-  - escalada: Luna
-    ids:
-    - '04'
-  - escalada: Freddie Mercury
-    ids:
-    - '05'
-  - escalada: Ariete
-    ids:
-    - '06'
-  - escalada: Eunuco (Projeto)
-    ids:
-    - '07'
-  - escalada: Pau Mandado
-    ids:
-    - 08
-  - escalada: Imperatriz
-    ids:
-    - 09
-  - escalada: Casamento de Viúva
-    ids:
-    - '10'
-  - escalada: Manda Chuva (Projeto)
-    ids:
-    - '11'
-  - escalada: Celibato
-    ids:
-    - '12'
-  - escalada: Manicaca
-    ids:
-    - '13'
-  - escalada: Ghidorah
-    ids:
-    - '14'
-  - escalada: Hidra
-    ids:
-    - '15'
-  - escalada: Medusa
-    ids:
-    - '16'
-  - escalada: Kátia Flávia
-    ids:
-    - '17'
-  - escalada: Ext. Kátia Flávia
-    ids:
-    - '18'
-    - '18'
-  - escalada: Casamento da Imperatriz (Projeto)
-    ids:
-    - '19'
+  - alvo_uid: hqI11rJ8W5yk2U
+    pontos_uids:
+    - o6PavNJXse8hVj
+  - alvo_uid: YCK6C1EjvM4VAP
+    pontos_uids:
+    - oamV3V5zztNcwK
+  - alvo_uid: HA8vivFsWqUYQW
+    pontos_uids:
+    - 9rN2lgEBetVgUu
+    - 9rN2lgEBetVgUu
+  - alvo_uid: ehDLgKwOEaDv2b
+    pontos_uids:
+    - s3eyMLkPiaNQiK
+  - alvo_uid: 9GR57GrnWJneVa
+    pontos_uids:
+    - 82tmvVzkcbpJEP
+  - alvo_uid: GRoxKK3QvmQ5Ca
+    pontos_uids:
+    - ZlQQD3HCWuPU0R
+  - alvo_uid: QJzgDDKnnpNldv
+    pontos_uids:
+    - Ii9EXbUqu8txKw
+  - alvo_uid: ouAZnfed0sSFKB
+    pontos_uids:
+    - HLu1g4vKD9MvDN
+  - alvo_uid: 6IHqW7Id3VjC18
+    pontos_uids:
+    - BIBkZ5HceM0b3V
+  - alvo_uid: CaGnhl3tMnwEEz
+    pontos_uids:
+    - 9w2VDFcxGUFBC0
+  - alvo_uid: PPpLej1m8Rs15A
+    pontos_uids:
+    - 6IpwmSyM7NXSWw
+  - alvo_uid: CC1FfHwmwI3Z87
+    pontos_uids:
+    - 1a66SSuUOASzRS
+  - alvo_uid: mmgm4pdEg0wvAU
+    pontos_uids:
+    - z47Cj26bAi3Tsj
+  - alvo_uid: WtPMFGj2mQSzjc
+    pontos_uids:
+    - lDsU35NStAINCc
+  - alvo_uid: YGzuoVFDvNOEYK
+    pontos_uids:
+    - sXC1f39hbG8frR
+  - alvo_uid: 7I5EF0lDFIhZzg
+    pontos_uids:
+    - frvR1YD8fob2zA
+  - alvo_uid: xlhUzNq1Av9HMQ
+    pontos_uids:
+    - OY8Lnl9aimjZVR
+  - alvo_uid: WQww3YSUlXmTpd
+    pontos_uids:
+    - UeuQtX6iqTR1RG
+    - UeuQtX6iqTR1RG
+  - alvo_uid: sfPbzqDW7cKUKi
+    pontos_uids:
+    - zuwOkLPZiyrtS0
 escaladas:
-- via_esportiva:
+- uid: hqI11rJ8W5yk2U
+  via_esportiva:
     nome: Ementhal
     dificuldade: BR_7C
-- via_esportiva:
+- uid: YCK6C1EjvM4VAP
+  via_esportiva:
     nome: Sunshine
     dificuldade: BR_7C
-- via_esportiva:
+- uid: HA8vivFsWqUYQW
+  via_esportiva:
     nome: Ext. Sunshine (Projeto)
     dificuldade: PROJETO
-- via_esportiva:
+- uid: ehDLgKwOEaDv2b
+  via_esportiva:
     nome: Luna
     dificuldade: BR_8A_BARRA_8B
-- via_esportiva:
+- uid: 9GR57GrnWJneVa
+  via_esportiva:
     nome: Freddie Mercury
     dificuldade: BR_9A
-- via_esportiva:
+- uid: GRoxKK3QvmQ5Ca
+  via_esportiva:
     nome: Ariete
     dificuldade: BR_7C
-- via_esportiva:
+- uid: QJzgDDKnnpNldv
+  via_esportiva:
     nome: Eunuco (Projeto)
     dificuldade: PROJETO
-- via_esportiva:
+- uid: ouAZnfed0sSFKB
+  via_esportiva:
     nome: Pau Mandado
     dificuldade: BR_9C_BARRA_10A
     destaque: true
-- via_esportiva:
+- uid: 6IHqW7Id3VjC18
+  via_esportiva:
     nome: Imperatriz
     dificuldade: BR_9B
-- via_esportiva:
+- uid: CaGnhl3tMnwEEz
+  via_esportiva:
     nome: Casamento de Viúva
     dificuldade: BR_8A
-- via_esportiva:
+- uid: PPpLej1m8Rs15A
+  via_esportiva:
     nome: Manda Chuva (Projeto)
     dificuldade: PROJETO
-- via_esportiva:
+- uid: CC1FfHwmwI3Z87
+  via_esportiva:
     nome: Celibato
     dificuldade: BR_8C
-- via_esportiva:
+- uid: mmgm4pdEg0wvAU
+  via_esportiva:
     nome: Manicaca
     dificuldade: BR_7C_BARRA_8A
-- via_esportiva:
+- uid: WtPMFGj2mQSzjc
+  via_esportiva:
     nome: Ghidorah
     dificuldade: BR_6
-- via_esportiva:
+- uid: YGzuoVFDvNOEYK
+  via_esportiva:
     nome: Hidra
     dificuldade: BR_5
-- via_esportiva:
+- uid: 7I5EF0lDFIhZzg
+  via_esportiva:
     nome: Medusa
     dificuldade: BR_5
-- via_esportiva:
+- uid: xlhUzNq1Av9HMQ
+  via_esportiva:
     nome: Kátia Flávia
     dificuldade: BR_7A
-- via_esportiva:
+- uid: WQww3YSUlXmTpd
+  via_esportiva:
     nome: Ext. Kátia Flávia
     dificuldade: BR_7A
-- via_esportiva:
+- uid: sfPbzqDW7cKUKi
+  via_esportiva:
     nome: Casamento da Imperatriz (Projeto)
     dificuldade: PROJETO
 ---
-

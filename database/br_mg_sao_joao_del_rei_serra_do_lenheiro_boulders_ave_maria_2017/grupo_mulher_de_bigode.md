@@ -1,14 +1,15 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+uid: iDCGYkAp0pUbMY
 nome: Mulher de Bigode
 mapas:
 - caminho_imagem_mapa: imagens/grupo_mulher_de_bigode_p0_i0.webp
   largura_mapa: 596
   altura_mapa: 839
   pontos_de_interesse:
-  - id: grupo_mulher_de_bigode
-    label: Mulher de Bigode
+  - uid: pQiH1jLUYu7ZP1
+    rotulo: Mulher de Bigode
     retangulo:
       x: 166
       y: 491

@@ -1,6 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+uid: WVQC6bQetKztOL
 caminho_imagem_capa: imagens/setor_tetos_p1.webp
 nome: Setor dos Tetos
 mapas:
@@ -8,104 +9,100 @@ mapas:
   largura_mapa: 1201
   altura_mapa: 1413
   pontos_de_interesse:
-  - id: '01'
-    label: '01'
+  - uid: 4xqiWVLDRLMeoZ
+    rotulo: '01'
     circulo:
       x: 21
       y: 1383
       raio: 17
-  - id: '02'
-    label: '02'
+  - uid: QXDLFztcin6tw1
+    rotulo: '02'
     circulo:
       x: 472
       y: 1389
       raio: 17
-  - id: '03'
-    label: '03'
+  - uid: uXQs6ERJ9FTChT
+    rotulo: '03'
     circulo:
       x: 753
       y: 1300
       raio: 17
-  - id: '04'
-    label: '04'
+  - uid: ixtWjc7eu4G649
+    rotulo: '04'
     circulo:
       x: 823
       y: 1252
       raio: 17
-  - id: '05'
-    label: '05'
+  - uid: KydQu2zET9QhOX
+    rotulo: '05'
     circulo:
       x: 849
       y: 1157
       raio: 17
-  - id: '06'
-    label: '06'
+  - uid: LSsiz9ZDLo7K73
+    rotulo: '06'
     circulo:
       x: 1063
       y: 1193
       raio: 17
-  - id: '07'
-    label: '07'
+  - uid: VRlRiEZrLRbPk6
+    rotulo: '07'
     circulo:
       x: 1091
       y: 1228
       raio: 17
-  - id: '08'
-    label: '08'
+  - uid: PNeJh70DqfH5Hu
+    rotulo: '08'
     circulo:
       x: 1112
       y: 1266
       raio: 17
-  - id: '09'
-    label: '09'
+  - uid: GFCrmTiI3qRbV6
+    rotulo: '09'
     circulo:
       x: 1140
       y: 1313
       raio: 17
-  - id: '10'
-    label: '10'
+  - uid: sXwXvg2Qc8uuNk
+    rotulo: '10'
     circulo:
       x: 1178
       y: 1324
       raio: 17
   referencias:
-  - escalada: A Quina
-    ids:
-    - '02'
-    setor: Setor Trad
-  - escalada: Pachamama
-    ids:
-    - '03'
-    setor: Setor Trad
-  - escalada: Baba Yaga
-    ids:
-    - '04'
-  - escalada: Soy Loco Por Ti América
-    ids:
-    - '05'
-  - escalada: Afrodite
-    ids:
-    - '06'
-  - escalada: Ponto de Equilíbrio
-    ids:
-    - '07'
-  - escalada: Deu Nois
-    ids:
-    - '10'
-  - escalada: Aresta Daniel
-    ids:
-    - '01'
-    setor: Setor Trad
-  - ids:
-    - '08'
-    setor: Setor dos Tetos
-    escalada: Lilith
-  - ids:
-    - '09'
-    setor: Setor dos Tetos
-    escalada: Deu Brasil
+  - alvo_uid: IJzJWjgcEnN4P3
+    pontos_uids:
+    - QXDLFztcin6tw1
+  - alvo_uid: LGdkbkKaNxAOvn
+    pontos_uids:
+    - uXQs6ERJ9FTChT
+  - alvo_uid: znMosS9QDi4vTK
+    pontos_uids:
+    - ixtWjc7eu4G649
+  - alvo_uid: TlEHvI4lIqZraa
+    pontos_uids:
+    - KydQu2zET9QhOX
+  - alvo_uid: I0ZBhEX3IR2sus
+    pontos_uids:
+    - LSsiz9ZDLo7K73
+  - alvo_uid: YqmTq54R5XIqn1
+    pontos_uids:
+    - VRlRiEZrLRbPk6
+  - alvo_uid: JAsfjB7rBTIrHr
+    pontos_uids:
+    - sXwXvg2Qc8uuNk
+  - alvo_uid: cJzFnD4vy9LxJP
+    pontos_uids:
+    - 4xqiWVLDRLMeoZ
+  - alvo_uid: r0pWLG8DX3cuvD
+    pontos_uids:
+    - PNeJh70DqfH5Hu
+  - alvo_uid: 60DjIAnZ9Bz0G5
+    pontos_uids:
+    - GFCrmTiI3qRbV6
 escaladas:
-- via_esportiva:
+- uid: znMosS9QDi4vTK
+  via_esportiva:
     nome: Baba Yaga
     dificuldade: BR_5
     conquistadores:
@@ -115,7 +112,8 @@ escaladas:
     - Ana
     data_abertura: '2024'
     descricao: Via inacabada.
-- via_esportiva:
+- uid: TlEHvI4lIqZraa
+  via_esportiva:
     nome: Soy Loco Por Ti América
     dificuldade: BR_9C_BARRA_10A
     extensao: 30
@@ -125,7 +123,8 @@ escaladas:
     - Berbari
     - Chinha
     data_abertura: '2016'
-- via_esportiva:
+- uid: I0ZBhEX3IR2sus
+  via_esportiva:
     nome: Afrodite
     dificuldade: BR_7B
     conquistadores:
@@ -135,7 +134,8 @@ escaladas:
     extensao: 30
     quantidade_protecoes_intermediarias: 11
     quantidade_protecoes_parada: 2
-- via_esportiva:
+- uid: YqmTq54R5XIqn1
+  via_esportiva:
     nome: Ponto de Equilíbrio
     dificuldade: BR_8B_BARRA_8C
     conquistadores:
@@ -145,7 +145,8 @@ escaladas:
     extensao: 30
     quantidade_protecoes_intermediarias: 11
     quantidade_protecoes_parada: 2
-- via_esportiva:
+- uid: r0pWLG8DX3cuvD
+  via_esportiva:
     nome: Lilith
     dificuldade: BR_7A
     quantidade_protecoes_intermediarias: 11
@@ -156,7 +157,8 @@ escaladas:
     - Chinha
     - Bunitinho
     data_abertura: '2024'
-- via_esportiva:
+- uid: 60DjIAnZ9Bz0G5
+  via_esportiva:
     nome: Deu Brasil
     dificuldade: BR_7B
     quantidade_protecoes_intermediarias: 7
@@ -167,7 +169,8 @@ escaladas:
     - Chinha
     - Bolinha
     data_abertura: '2019'
-- via_esportiva:
+- uid: JAsfjB7rBTIrHr
+  via_esportiva:
     nome: Deu Nois
     dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 7
