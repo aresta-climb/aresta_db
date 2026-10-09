@@ -36,7 +36,6 @@ from collections import Counter
 # Adiciona o diretório raiz do projeto ao sys.path.
 sys.path.append(str(Path(__file__).resolve().parent.parent))
 
-import build
 from aresta_api.proto.generated import croqui_pb2
 from scripts.gerenciar_uids_lib import validar_uid
 from editor.core.processamento_imagem_campo import (

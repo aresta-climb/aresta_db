@@ -9,7 +9,6 @@ from pathlib import Path
 sys.path.append(str(Path(__file__).resolve().parent.parent))
 
 from typing import Union
-import build
 from aresta_api.proto.generated import croqui_pb2
 
 def verify_pb(pb_file: Union[str, Path]) -> None:
