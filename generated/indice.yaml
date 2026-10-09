@@ -108,14 +108,26 @@ croquis:
   localizacao:
     latitude: -202953470
     longitude: -456009710
+- id: br_mg_betim_pedreira_dr_gravata
+  croqui_uid: IxUXYbyuIFiKVM
+  nome: Pedreira Dr. Gravatá - "VALE DOS OSSOS"
+  descricao: |
+    A **Pedreira Dr. Gravatá**, em Betim/MG, reúne **mais de 50 vias de escalada esportiva**, linhas de rapel e setores em desenvolvimento. O pico é conduzido por **Marcio Macena e Samuel Lucas**. Este registro organiza acesso, setores, vias, autoria e história de uma paisagem ligada às antigas pedreiras, à ferrovia e à Usina Hidrelétrica Dr. Gravatá, inaugurada em 1914. Um croqui para escalar hoje e preservar conhecimento para quem vier depois.
+  caminho_relativo: br_mg_betim_pedreira_dr_gravata/compilado.binarypb
+  checksum_sha256_croqui: 818d9d536b4d43b8468a3b5d2ef24f32d329bfe44153c6809f588bb84b53be46
+  checksum_sha256_thumbnail: 4e80464b26764e6d96408614ce015d40358956c95eedf4fa73e906bfcb258ebe
+  timestamp_update: '2026-10-09T02:38:51Z'
+  precomputados:
+    total_escaladas: 31
+    total_setores: 2
+    total_grupos: 1
+    total_esportivas: 31
+    tamanho_download_bytes: 3850506
 - id: br_mg_caete_monte_alvao
   croqui_uid: hyRUkm1gfZRwSw
   nome: Monte Alvão - Caeté
-  descricao: 'O Alto Monte Alvão, localizado em Caeté, MG, é uma das áreas de escalada
-    mais tradicionais e belas da região, oferecendo vias de diversos estilos e dificuldades
-    em quartzito de alta qualidade.
-
-    '
+  descricao: |
+    O Alto Monte Alvão, localizado em Caeté, MG, é uma das áreas de escalada mais tradicionais e belas da região, oferecendo vias de diversos estilos e dificuldades em quartzito de alta qualidade.
   caminho_relativo: br_mg_caete_monte_alvao/compilado.binarypb
   checksum_sha256_croqui: 537650e3c2624b7ea477423d4e2f56ebac50535c7164ffa2cb0b24769434f2be
   checksum_sha256_thumbnail: 03f79ad397717faec98f8288a15d55635b103c61f9b2be5cf92a56b1d804df95
@@ -349,13 +361,9 @@ croquis:
 - id: br_mg_paraisopolis_pedra_da_divisa
   croqui_uid: qsh4FUA8apmN3B
   nome: Pedra da Divisa - Face MG
-  descricao: 'Guia de escalada da face mineira da Pedra da Divisa, em Paraisópolis,
-    MG.
-
-    Contém vias esportivas e móveis em diversos setores como Cangaço, Ditados, Cervejas,
-    Questão de Tempo e Hospício.
-
-    '
+  descricao: |
+    Guia de escalada da face mineira da Pedra da Divisa, em Paraisópolis, MG.
+    Contém vias esportivas e móveis em diversos setores como Cangaço, Ditados, Cervejas, Questão de Tempo e Hospício.
   caminho_relativo: br_mg_paraisopolis_pedra_da_divisa/compilado.binarypb
   checksum_sha256_croqui: 7d242d53f98284cfe8054d7d97f81ab84a943685d322055d3728d34577a101a3
   checksum_sha256_thumbnail: be6561976a3ef2c0f957fc3c72cdb7f0572b912d2d1e74ed1aa23fa1a8d0ebbd
