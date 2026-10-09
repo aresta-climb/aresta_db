@@ -23,6 +23,11 @@ on:
         required: true
         type: boolean
         default: true
+      publicar_microsoft_store:
+        description: 'Lançar também na Microsoft Store? (compila produção e submete direto para revisão)'
+        required: true
+        type: boolean
+        default: true
       deploy_macos:
         description: 'Deploy para macOS?'
         required: true
@@ -33,13 +38,8 @@ on:
         required: true
         type: boolean
         default: true
-      publicar_microsoft_store:
-        description: 'Lançar também na Microsoft Store? (compila produção e submete direto para revisão)'
-        required: true
-        type: boolean
-        default: false
       forcar_atualizacao:
-        description: 'Forçar atualização imediata para todos os usuários? (Habilitado por padrão)'
+        description: 'Forçar atualização imediata para todos os usuários?'
         required: true
         type: boolean
         default: true
