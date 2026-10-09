@@ -242,3 +242,49 @@ def test_local_repo_workspace_diario_consolidacao(tmp_path):
     assert len(diario.ler_diario_salvo()) == 0
     assert not diario.caminho_salvo.exists()
     assert not (croqui_dir / "diario_salvo.bin").exists()
+
+
+def test_experimental_workspace_compilacao_com_erro_retorna_mensagens(tmp_paths):
+    ws = ExperimentalWorkspace(tmp_paths)
+    mock_storage = MagicMock()
+    
+    with patch("editor.core.workspace.GerenciadorCroquiExperimental") as mock_cls:
+        mock_gerenciador = mock_cls.return_value
+        def fake_compilar_com_falha(*args, **kwargs):
+            print("Erro de compilação: falta campo obrigatório nome.")
+            raise RuntimeError("Ocorreram 1 erros durante o deploy: falta campo obrigatório nome.")
+            
+        mock_gerenciador.compilar_croqui.side_effect = fake_compilar_com_falha
+        
+        caminho, msgs, database_modificado = ws.processar_renomeacao_e_compilacao("id", "id", mock_storage)
+        
+        assert caminho == tmp_paths
+        assert any("falta campo obrigatório" in m or "Erro" in m for m in msgs)
+        assert database_modificado is False
+        assert not ws.diario.tem_alteracoes_pendentes()
+
+
+def test_local_repo_workspace_compilacao_com_erro_retorna_mensagens(tmp_path):
+    repo_dir = tmp_path / "repo"
+    croqui_dir = repo_dir / "database" / "croqui_teste"
+    croqui_dir.mkdir(parents=True)
+
+    mock_storage = MagicMock()
+    pasta_diarios = tmp_path / "appdata" / "diarios_locais"
+    mock_storage.obter_caminho_diarios_locais.return_value = pasta_diarios
+
+    ws = LocalRepoWorkspace(croqui_dir, storage=mock_storage)
+    
+    with patch("editor.core.workspace.deploy") as mock_deploy:
+        def fake_deploy(*args, **kwargs):
+            print("Erro de compilação local: sintaxe inválida no croqui.yaml.")
+            raise RuntimeError("Ocorreram 1 erros durante o deploy: sintaxe inválida.")
+        mock_deploy.side_effect = fake_deploy
+        
+        caminho, msgs, database_modificado = ws.processar_renomeacao_e_compilacao("croqui_teste", "croqui_teste", mock_storage)
+        
+        assert caminho == croqui_dir
+        assert any("Erro de compilação" in m or "sintaxe inválida" in m for m in msgs)
+        assert database_modificado is False
+        assert not ws.diario.tem_alteracoes_pendentes()
+

@@ -375,6 +375,12 @@ def processar_croqui_yaml(croqui_data: Dict[str, Any], pico_path: Path, croqui_y
     if converter_coordenadas_e7_recursivo(croqui_data):
         modificado_yaml = True
 
+    from scripts.migrador import obter_ultima_versao_migracao
+    versao_maxima = obter_ultima_versao_migracao()
+    if versao_maxima > 0 and croqui_data.get("ultima_migracao", 0) < versao_maxima:
+        croqui_data["ultima_migracao"] = versao_maxima
+        modificado_yaml = True
+
     if modificado_yaml:
         with open(croqui_yaml_path, "w", encoding="utf-8") as f:
             yaml.dump(croqui_data, f, allow_unicode=True, sort_keys=False)
@@ -815,6 +821,18 @@ def auditar_uids_database(pico_path: Path, croqui_data: Dict[str, Any]) -> None:
             _auditar_entidade(obj, tipo)
 
 
+def sanear_uids_database(pico_path: Path) -> None:
+    """Executa o saneamento contínuo e idempotente de UIDs e referências de mapas.
+
+    Garante que todas as entidades (Croqui, Grupo, Setor, Escalada, PontoDeInteresse e Botao)
+    possuam NanoIDs 14c Base62 válidos, que labels legados sejam convertidos para rotulo,
+    e que referências semânticas textuais (escalada/setor/grupo) sejam convertidas para alvo_uid/pontos_uids,
+    preservando integralmente os UIDs pré-existentes.
+    """
+    from scripts.gerenciar_uids_lib import sanear_uids_croqui
+    sanear_uids_croqui(pico_path)
+
+
 def corrigir_database(pico_path: Path) -> bool:
     """
     Função principal que coordena o processamento do database para garantir
@@ -827,6 +845,9 @@ def corrigir_database(pico_path: Path) -> bool:
     # Executa o motor de migrações no início da rotina de correção
     from scripts.migrador import aplicar_migracoes
     aplicar_migracoes(pico_path)
+
+    # Saneamento contínuo e idempotente de UIDs e referências para novos rascunhos e entidades
+    sanear_uids_database(pico_path)
 
     croqui_yaml_path = pico_path / "croqui.yaml"
     with open(croqui_yaml_path, "r", encoding="utf-8") as f:

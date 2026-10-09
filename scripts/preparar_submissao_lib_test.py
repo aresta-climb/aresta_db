@@ -12,13 +12,16 @@ ROOT_PATH = Path(__file__).resolve().parent.parent
 if str(ROOT_PATH) not in sys.path:
     sys.path.append(str(ROOT_PATH))
 
+from PIL import Image
 from scripts.preparar_submissao_lib import (
     validar_pontos_de_interesse_recursivo,
     validar_referencias_mapa,
     compilar_croqui,
     precompilar_linhas_mapas_recursivo,
     expandir_arquivo_generico,
-    expandir_setores_ou_grupos_recursivo
+    expandir_setores_ou_grupos_recursivo,
+    corrigir_database,
+    parse_md_com_frontmatter,
 )
 from scripts.gerenciar_uids_lib import gerar_uid, validar_uid
 
@@ -454,11 +457,14 @@ def test_corrigir_database_chama_aplicar_migracoes(mock_aplicar, tmp_path):
 
 @patch("scripts.migrador.aplicar_migracoes")
 def test_corrigir_database_retorna_false_quando_nada_modificado(mock_aplicar, tmp_path):
-    yaml_content = """# SPDX-License-Identifier: ODbL-1.0
+    from scripts.migrador import obter_ultima_versao_migracao
+    versao_atual = obter_ultima_versao_migracao()
+    yaml_content = f"""# SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 id: test_sem_modificacao
 uid: '1234567890abcd'
 nome: Teste Sem Modificacao
+ultima_migracao: {versao_atual}
 """
     croqui_dir = configurar_croqui_teste(tmp_path, yaml_content=yaml_content)
     (croqui_dir / "imagens").mkdir(exist_ok=True)
@@ -482,6 +488,47 @@ nome: Teste Com Modificacao
     
     modificou = corrigir_database(croqui_dir)
     assert modificou is True
+
+
+def test_corrigir_database_atualiza_ultima_migracao_quando_zerada_ou_ausente(tmp_path):
+    """Garante que corrigir_database define ultima_migracao como versao maxima se for menor ou ausente."""
+    yaml_content = """# SPDX-License-Identifier: ODbL-1.0
+# Copyright (C) 2026 Aresta Climb Contributors
+id: test_migracao_desatualizada
+uid: '1234567890abcd'
+nome: Teste Migracao
+ultima_migracao: 0
+"""
+    croqui_dir = configurar_croqui_teste(tmp_path, yaml_content=yaml_content)
+    (croqui_dir / "imagens").mkdir(exist_ok=True)
+    
+    with patch("scripts.migrador.aplicar_migracoes"):
+        with patch("scripts.migrador.obter_ultima_versao_migracao", return_value=5):
+            modificou = corrigir_database(croqui_dir)
+            assert modificou is True
+            
+            with open(croqui_dir / "croqui.yaml", "r", encoding="utf-8") as f:
+                dados = yaml.safe_load(f)
+            assert dados.get("ultima_migracao") == 5
+
+
+def test_corrigir_database_preserva_ultima_migracao_quando_ja_atualizada(tmp_path):
+    """Garante que se ultima_migracao ja estiver na versao maxima, nao marca modificacao por isso."""
+    yaml_content = """# SPDX-License-Identifier: ODbL-1.0
+# Copyright (C) 2026 Aresta Climb Contributors
+id: test_migracao_atualizada
+uid: '1234567890abcd'
+nome: Teste Migracao
+ultima_migracao: 5
+"""
+    croqui_dir = configurar_croqui_teste(tmp_path, yaml_content=yaml_content)
+    (croqui_dir / "imagens").mkdir(exist_ok=True)
+    
+    with patch("scripts.migrador.aplicar_migracoes"):
+        with patch("scripts.migrador.obter_ultima_versao_migracao", return_value=5):
+            modificou = corrigir_database(croqui_dir)
+            assert modificou is False
+
 
 
 
@@ -2831,5 +2878,189 @@ Descrição do setor
     # Preenchimento em memória para retrocompatibilidade
     assert getattr(ref, "escalada") == "Via dos Sonhos"
     assert list(getattr(ref, "ids")) == [poi_uid]
+
+
+def test_corrigir_database_saneia_uids_em_novo_croqui(tmp_path: Path):
+    """Garante que corrigir_database saneia e injeta UIDs automaticamente em croquis novos rascunhados sem UIDs."""
+    md_content = """\
+---
+nome: Setor Rascunho
+mapas:
+  - caminho_imagem_mapa: imagens/mapa.webp
+    pontos_de_interesse:
+      - id: "01"
+        label: "01"
+        circulo:
+          x: 100
+          y: 200
+          raio: 15
+    referencias:
+      - escalada: Via Rascunho
+        ids:
+          - "01"
+escaladas:
+  - via_esportiva:
+      nome: Via Rascunho
+      dificuldade: BR_6SUP
+---
+Descrição do setor rascunho
+"""
+    (tmp_path / "setor_rascunho.md").write_text(md_content, encoding="utf-8")
+    pasta_imagens = tmp_path / "imagens"
+    pasta_imagens.mkdir(parents=True, exist_ok=True)
+    # Cria uma imagem webp dummy mínima para o mapa
+    img = Image.new("RGB", (300, 300), color="blue")
+    img.save(pasta_imagens / "mapa.webp", "WEBP")
+
+    croqui_yaml = {
+        "id": "croqui_novo_rascunho",
+        "nome": "Croqui Novo Rascunho",
+        "ultima_migracao": 5,
+        "picos": [
+            {
+                "nome": "Pico 1",
+                "setores_ou_grupos": [
+                    {"setor": {"caminho": "setor_rascunho.md"}}
+                ]
+            }
+        ]
+    }
+    with open(tmp_path / "croqui.yaml", "w", encoding="utf-8") as f:
+        yaml.dump(croqui_yaml, f)
+
+    modificado = corrigir_database(tmp_path)
+    assert modificado is True
+
+    # Verifica se croqui.yaml ganhou UID
+    with open(tmp_path / "croqui.yaml", "r", encoding="utf-8") as f:
+        croqui_atualizado = yaml.safe_load(f)
+    assert validar_uid(croqui_atualizado.get("uid"))
+
+    # Verifica se setor_rascunho.md ganhou UIDs e converteu referências
+    fm_setor, _ = parse_md_com_frontmatter(tmp_path / "setor_rascunho.md")
+    assert fm_setor is not None
+    assert validar_uid(fm_setor.get("uid"))
+
+    escaladas = fm_setor.get("escaladas", [])
+    assert len(escaladas) == 1
+    esc_uid = escaladas[0].get("uid")
+    assert validar_uid(esc_uid)
+
+    mapas = fm_setor.get("mapas", [])
+    assert len(mapas) == 1
+    pois = mapas[0].get("pontos_de_interesse", [])
+    assert len(pois) == 1
+    poi_uid = pois[0].get("uid")
+    assert validar_uid(poi_uid)
+    assert pois[0].get("rotulo") == "01"
+    assert "label" not in pois[0]
+
+    refs = mapas[0].get("referencias", [])
+    assert len(refs) == 1
+    assert refs[0].get("alvo_uid") == esc_uid
+    assert refs[0].get("pontos_uids") == [poi_uid]
+    assert "escalada" not in refs[0]
+    assert "ids" not in refs[0]
+
+
+def test_corrigir_database_saneamento_preserva_uids_existentes(tmp_path: Path):
+    """Garante que o saneamento preserva UIDs existentes e só injeta nas entidades novas."""
+    uid_croqui = gerar_uid()
+    uid_setor = gerar_uid()
+    uid_esc1 = gerar_uid()
+    uid_poi1 = gerar_uid()
+
+    md_content = f"""\
+---
+uid: {uid_setor}
+nome: Setor Parcial
+mapas:
+  - caminho_imagem_mapa: imagens/mapa.webp
+    pontos_de_interesse:
+      - uid: {uid_poi1}
+        rotulo: "01"
+        circulo:
+          x: 50
+          y: 60
+          raio: 10
+      - id: "02"
+        label: "02"
+        circulo:
+          x: 150
+          y: 160
+          raio: 10
+    referencias:
+      - alvo_uid: {uid_esc1}
+        pontos_uids:
+          - {uid_poi1}
+      - escalada: Nova Via Adicionada
+        ids:
+          - "02"
+escaladas:
+  - uid: {uid_esc1}
+    via_esportiva:
+      nome: Via Antiga Existente
+  - via_esportiva:
+      nome: Nova Via Adicionada
+---
+Descrição do setor parcial
+"""
+    (tmp_path / "setor_parcial.md").write_text(md_content, encoding="utf-8")
+    pasta_imagens = tmp_path / "imagens"
+    pasta_imagens.mkdir(parents=True, exist_ok=True)
+    img = Image.new("RGB", (300, 300), color="red")
+    img.save(pasta_imagens / "mapa.webp", "WEBP")
+
+    croqui_yaml = {
+        "id": "croqui_parcial",
+        "uid": uid_croqui,
+        "nome": "Croqui Parcial",
+        "ultima_migracao": 5,
+        "picos": [
+            {
+                "nome": "Pico 1",
+                "setores_ou_grupos": [
+                    {"setor": {"caminho": "setor_parcial.md"}}
+                ]
+            }
+        ]
+    }
+    with open(tmp_path / "croqui.yaml", "w", encoding="utf-8") as f:
+        yaml.dump(croqui_yaml, f)
+
+    corrigir_database(tmp_path)
+
+    # Verifica se UID do croqui se manteve
+    with open(tmp_path / "croqui.yaml", "r", encoding="utf-8") as f:
+        croqui_pos = yaml.safe_load(f)
+    assert croqui_pos.get("uid") == uid_croqui
+
+    # Verifica preservação e novas adições no markdown
+    fm_setor, _ = parse_md_com_frontmatter(tmp_path / "setor_parcial.md")
+    assert fm_setor is not None
+    assert fm_setor.get("uid") == uid_setor
+
+    escaladas = fm_setor.get("escaladas", [])
+    assert len(escaladas) == 2
+    assert escaladas[0].get("uid") == uid_esc1
+    nova_esc_uid = escaladas[1].get("uid")
+    assert validar_uid(nova_esc_uid)
+    assert nova_esc_uid != uid_esc1
+
+    pois = fm_setor.get("mapas", [])[0].get("pontos_de_interesse", [])
+    assert len(pois) == 2
+    assert pois[0].get("uid") == uid_poi1
+    novo_poi_uid = pois[1].get("uid")
+    assert validar_uid(novo_poi_uid)
+    assert novo_poi_uid != uid_poi1
+    assert pois[1].get("rotulo") == "02"
+
+    refs = fm_setor.get("mapas", [])[0].get("referencias", [])
+    assert len(refs) == 2
+    assert refs[0].get("alvo_uid") == uid_esc1
+    assert refs[0].get("pontos_uids") == [uid_poi1]
+    assert refs[1].get("alvo_uid") == nova_esc_uid
+    assert refs[1].get("pontos_uids") == [novo_poi_uid]
+
 
 

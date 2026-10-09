@@ -300,3 +300,32 @@ def test_criar_croqui_a_partir_de_oficial_com_commit_base_sha(gerenciador, stora
         
     assert dados.get("commit_base_sha") == commit_sha
 
+
+def test_criar_novo_croqui_grava_ultima_migracao_versao_maxima(gerenciador, storage_temp):
+    """Verifica se o novo croqui criado grava a versão máxima de migração no croqui.yaml."""
+    from scripts.migrador import obter_ultima_versao_migracao
+    versao_esperada = obter_ultima_versao_migracao()
+    assert versao_esperada >= 5
+
+    with patch("editor.core.croqui_experimental.deploy"):
+        caminho_exp = gerenciador.criar_novo_croqui("br_mg_migracao", "Pico Migrado", "MG", "Usuario")
+
+    croqui_yaml = caminho_exp / "database" / "croqui.yaml"
+    with open(croqui_yaml, "r", encoding="utf-8") as f:
+        dados = yaml.safe_load(f)
+
+    assert dados.get("ultima_migracao") == versao_esperada
+
+
+def test_criar_novo_croqui_com_mock_ultima_versao(gerenciador, storage_temp):
+    """Garante que criar_novo_croqui consome dinamicamente o valor de obter_ultima_versao_migracao."""
+    with patch("editor.core.croqui_experimental.obter_ultima_versao_migracao", return_value=42):
+        with patch("editor.core.croqui_experimental.deploy"):
+            caminho_exp = gerenciador.criar_novo_croqui("br_mg_mock", "Pico Mock", "MG", "Usuario")
+
+    croqui_yaml = caminho_exp / "database" / "croqui.yaml"
+    with open(croqui_yaml, "r", encoding="utf-8") as f:
+        dados = yaml.safe_load(f)
+
+    assert dados.get("ultima_migracao") == 42
+

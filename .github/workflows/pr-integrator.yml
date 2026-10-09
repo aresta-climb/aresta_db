@@ -88,7 +88,42 @@ jobs:
           git add generated/
           git commit -s -m "chore: compilação automática para deploy [skip ci]" || echo "Nenhuma alteração para commitar"
           git push
-          
+
+      - name: Aguardar e Verificar Check do DCO
+        env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+        run: |
+          PR_ID="${{ steps.pr-info.outputs.pr_number }}"
+          echo "Verificando o status check do DCO para o PR #$PR_ID..."
+          sleep 3
+
+          DCO_APROVADO=false
+          for i in {1..15}; do
+            DCO_STATUS=$(gh pr checks "$PR_ID" --repo ${{ github.repository }} --json name,bucket,state -q '.[] | select(.name == "DCO") | "\(.bucket)|\(.state)"' 2>/dev/null || echo "")
+            echo "Tentativa $i de 15 - Status DCO: '$DCO_STATUS'"
+
+            if [ -n "$DCO_STATUS" ]; then
+              IFS='|' read -r DCO_BUCKET DCO_STATE <<< "$DCO_STATUS"
+
+              if [ "$DCO_BUCKET" = "pass" ] || [ "$DCO_STATE" = "SUCCESS" ]; then
+                echo "✅ Check do DCO aprovado com sucesso!"
+                DCO_APROVADO=true
+                break
+              elif [ "$DCO_BUCKET" = "fail" ] || [ "$DCO_BUCKET" = "cancel" ] || [ "$DCO_STATE" = "FAILURE" ] || [ "$DCO_STATE" = "ACTION_REQUIRED" ]; then
+                echo "❌ ERRO: O status check do DCO falhou para o PR #$PR_ID. Merge bloqueado."
+                exit 1
+              fi
+            fi
+
+            echo "Aguardando o processamento do check DCO..."
+            sleep 3
+          done
+
+          if [ "$DCO_APROVADO" != "true" ]; then
+            echo "❌ ERRO: Tempo limite esgotado aguardando aprovação do check DCO para o PR #$PR_ID."
+            exit 1
+          fi
+
       - name: Realizar Merge do PR
         env:
           GH_TOKEN: ${{ steps.app-token.outputs.token }}

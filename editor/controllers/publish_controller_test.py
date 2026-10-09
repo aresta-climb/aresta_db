@@ -396,8 +396,12 @@ class TestPublishController(unittest.TestCase):
         mock_prosseguir.assert_called_once()
 
     @patch("editor.controllers.publish_controller.QMessageBox")
-    def test_iniciar_publicacao_bloqueia_se_houver_erro_de_compilacao(self, messagebox_mock):
-        """Se a compilação do croqui falhar com erro, deve exibir critical e não prosseguir."""
+    def test_iniciar_publicacao_bloqueia_se_houver_erro_de_compilacao_e_usuario_recusar(self, messagebox_mock):
+        """Se a compilação do croqui falhar com erro e o usuário recusar envio, não deve prosseguir."""
+        from PySide6.QtWidgets import QMessageBox
+        messagebox_mock.StandardButton = QMessageBox.StandardButton
+        messagebox_mock.question.return_value = QMessageBox.StandardButton.No
+
         self.controller.workspace.processar_renomeacao_e_compilacao.return_value = (
             Path("/fake"),
             ["[ERRO] Campo obrigatório ausente no croqui.yaml"]
@@ -407,21 +411,44 @@ class TestPublishController(unittest.TestCase):
         with patch.object(self.controller, "_prosseguir_publicacao") as mock_prosseguir:
             self.controller.iniciar_publicacao()
 
-            messagebox_mock.critical.assert_called_once()
-            self.assertIn("possui erros de compilação", messagebox_mock.critical.call_args[0][2])
+            messagebox_mock.question.assert_called_once()
+            self.assertIn("possui erros de compilação", messagebox_mock.question.call_args[0][2])
             mock_prosseguir.assert_not_called()
 
     @patch("editor.controllers.publish_controller.QMessageBox")
-    def test_iniciar_publicacao_bloqueia_se_compilacao_lancar_excecao(self, messagebox_mock):
-        """Se a compilação lançar exceção, deve exibir critical e bloquear."""
+    def test_iniciar_publicacao_prossegue_se_houver_erro_mas_usuario_confirmar(self, messagebox_mock):
+        """Se a compilação do croqui falhar com erro mas o usuário confirmar envio, deve prosseguir."""
+        from PySide6.QtWidgets import QMessageBox
+        messagebox_mock.StandardButton = QMessageBox.StandardButton
+        messagebox_mock.question.return_value = QMessageBox.StandardButton.Yes
+
+        self.controller.workspace.processar_renomeacao_e_compilacao.return_value = (
+            Path("/fake"),
+            ["[ERRO] Campo obrigatório ausente no croqui.yaml"]
+        )
+        self.controller.croqui_data = {"id": "meu_croqui"}
+
+        with patch.object(self.controller, "_prosseguir_publicacao") as mock_prosseguir:
+            self.controller.iniciar_publicacao()
+
+            messagebox_mock.question.assert_called_once()
+            mock_prosseguir.assert_called_once()
+
+    @patch("editor.controllers.publish_controller.QMessageBox")
+    def test_iniciar_publicacao_bloqueia_se_compilacao_lancar_excecao_e_usuario_recusar(self, messagebox_mock):
+        """Se a compilação lançar exceção e o usuário recusar, deve exibir question e bloquear."""
+        from PySide6.QtWidgets import QMessageBox
+        messagebox_mock.StandardButton = QMessageBox.StandardButton
+        messagebox_mock.question.return_value = QMessageBox.StandardButton.No
+
         self.controller.workspace.processar_renomeacao_e_compilacao.side_effect = Exception("Falha grave de parser")
         self.controller.croqui_data = {"id": "meu_croqui"}
 
         with patch.object(self.controller, "_prosseguir_publicacao") as mock_prosseguir:
             self.controller.iniciar_publicacao()
 
-            messagebox_mock.critical.assert_called_once()
-            self.assertIn("Falha ao validar compilação", messagebox_mock.critical.call_args[0][2])
+            messagebox_mock.question.assert_called_once()
+            self.assertIn("Ocorreu um erro ao validar a compilação", messagebox_mock.question.call_args[0][2])
             mock_prosseguir.assert_not_called()
 
     @patch("editor.controllers.publish_controller.QMessageBox")
@@ -438,7 +465,11 @@ class TestPublishController(unittest.TestCase):
 
     @patch("editor.controllers.publish_controller.QMessageBox")
     def test_validar_compilacao_limpa_com_retorno_triplo_com_erros(self, messagebox_mock):
-        """Valida que erros na lista do retorno de 3 elementos bloqueiam a compilação."""
+        """Valida que erros na lista solicitam confirmação e retornam False se o usuário cancelar."""
+        from PySide6.QtWidgets import QMessageBox
+        messagebox_mock.StandardButton = QMessageBox.StandardButton
+        messagebox_mock.question.return_value = QMessageBox.StandardButton.No
+
         self.controller.workspace.processar_renomeacao_e_compilacao.return_value = (
             Path("/fake"),
             ["[ERRO] Falha de validação"],
@@ -446,8 +477,24 @@ class TestPublishController(unittest.TestCase):
         )
         self.controller.croqui_data = {"id": "meu_croqui"}
         self.assertFalse(self.controller._validar_compilacao_limpa())
-        messagebox_mock.critical.assert_called_once()
-        self.assertIn("possui erros de compilação", messagebox_mock.critical.call_args[0][2])
+        messagebox_mock.question.assert_called_once()
+        self.assertIn("possui erros de compilação", messagebox_mock.question.call_args[0][2])
+
+    @patch("editor.controllers.publish_controller.QMessageBox")
+    def test_validar_compilacao_limpa_com_erros_usuario_confirma_envio(self, messagebox_mock):
+        """Valida que se o usuário confirmar o envio com erros de compilação, o método retorna True."""
+        from PySide6.QtWidgets import QMessageBox
+        messagebox_mock.StandardButton = QMessageBox.StandardButton
+        messagebox_mock.question.return_value = QMessageBox.StandardButton.Yes
+
+        self.controller.workspace.processar_renomeacao_e_compilacao.return_value = (
+            Path("/fake"),
+            ["[ERRO] Falha de validação"],
+            False,
+        )
+        self.controller.croqui_data = {"id": "meu_croqui"}
+        self.assertTrue(self.controller._validar_compilacao_limpa())
+        messagebox_mock.question.assert_called_once()
 
     @patch("editor.controllers.publish_controller.QMessageBox")
     def test_validar_compilacao_limpa_com_ferros_sem_erro(self, messagebox_mock):
@@ -657,6 +704,120 @@ class TestPublishController(unittest.TestCase):
         self.controller.progresso_pr = mock_progresso
         self.controller._on_sucesso("https://github.com/fake/pr/1", "branch_teste", "usuario_teste")
         mock_progresso.close.assert_called_once()
+
+    def test_sincronizar_pre_publicacao_sem_id_croqui_retorna_true(self):
+        self.controller.croqui_data = {}
+        self.controller.workspace = MagicMock()
+        self.controller.workspace.caminho_raiz = None
+        self.assertTrue(self.controller._sincronizar_pre_publicacao("edicao-bau-1234"))
+
+    def test_sincronizar_pre_publicacao_sem_servico_ou_database_retorna_true(self):
+        self.controller.croqui_data = {"id": "bau"}
+        self.controller.servico_submissao = None
+        self.controller.storage = None
+        self.assertTrue(self.controller._sincronizar_pre_publicacao("edicao-bau-1234"))
+
+    def test_sincronizar_pre_publicacao_sem_conflito_prossegue(self):
+        from editor.core.servico_submissao import ResultadoSincronizacao, StatusSincronizacao
+        self.controller.croqui_data = {"id": "bau"}
+        self.controller.servico_submissao = MagicMock()
+        self.controller.servico_submissao.sincronizar_pr_remota.return_value = ResultadoSincronizacao(
+            status=StatusSincronizacao.ATUALIZADO
+        )
+        self.controller.workspace = MagicMock()
+        self.controller.workspace.obter_caminho_database.return_value = Path("/fake/db")
+        self.assertTrue(self.controller._sincronizar_pre_publicacao("edicao-bau-1234"))
+
+    @patch("editor.views.dialogos.dialogo_conflito_sincronizacao.DialogoConflitoSincronizacao")
+    def test_sincronizar_pre_publicacao_com_conflito_resolvido_manter_local(self, mock_dlg_cls):
+        from editor.core.servico_submissao import ResultadoSincronizacao, StatusSincronizacao
+        from editor.views.dialogos.dialogo_conflito_sincronizacao import DecisaoConflito
+        from PySide6.QtWidgets import QDialog
+
+        self.controller.croqui_data = {"id": "bau"}
+        self.controller.servico_submissao = MagicMock()
+        self.controller.servico_submissao.sincronizar_pr_remota.return_value = ResultadoSincronizacao(
+            status=StatusSincronizacao.CONFLITO,
+            arquivos_conflito=["database/bau/croqui.yaml"]
+        )
+        self.controller.workspace = MagicMock()
+        self.controller.workspace.obter_caminho_database.return_value = Path("/fake/db")
+        self.controller.auth.obter_sessao.return_value = None
+
+        mock_dlg = MagicMock()
+        mock_dlg.exec.return_value = QDialog.DialogCode.Accepted
+        mock_dlg.obter_decisao.return_value = DecisaoConflito.MANTER_LOCAL
+        mock_dlg_cls.return_value = mock_dlg
+
+        self.assertTrue(self.controller._sincronizar_pre_publicacao("edicao-bau-1234"))
+        self.controller.servico_submissao.resolver_conflito_pr.assert_called_once_with(
+            id_croqui="bau",
+            nome_branch="edicao-bau-1234",
+            caminho_database_croqui=Path("/fake/db"),
+            manter_local=True,
+            sessao=None,
+        )
+
+    @patch("editor.views.dialogos.dialogo_conflito_sincronizacao.DialogoConflitoSincronizacao")
+    def test_sincronizar_pre_publicacao_com_conflito_cancelado(self, mock_dlg_cls):
+        from editor.core.servico_submissao import ResultadoSincronizacao, StatusSincronizacao
+        from PySide6.QtWidgets import QDialog
+
+        self.controller.croqui_data = {"id": "bau"}
+        self.controller.servico_submissao = MagicMock()
+        self.controller.servico_submissao.sincronizar_pr_remota.return_value = ResultadoSincronizacao(
+            status=StatusSincronizacao.CONFLITO,
+            arquivos_conflito=["database/bau/croqui.yaml"]
+        )
+        self.controller.workspace = MagicMock()
+        self.controller.workspace.obter_caminho_database.return_value = Path("/fake/db")
+
+        mock_dlg = MagicMock()
+        mock_dlg.exec.return_value = QDialog.DialogCode.Rejected
+        mock_dlg_cls.return_value = mock_dlg
+
+        self.assertFalse(self.controller._sincronizar_pre_publicacao("edicao-bau-1234"))
+        self.controller.servico_submissao.resolver_conflito_pr.assert_not_called()
+
+    def test_sincronizar_pre_publicacao_com_excecao_rede_retorna_true(self):
+        self.controller.croqui_data = {"id": "bau"}
+        self.controller.servico_submissao = MagicMock()
+        self.controller.servico_submissao.sincronizar_pr_remota.side_effect = RuntimeError("Offline")
+        self.controller.workspace = MagicMock()
+        self.controller.workspace.obter_caminho_database.return_value = Path("/fake/db")
+        self.assertTrue(self.controller._sincronizar_pre_publicacao("edicao-bau-1234"))
+
+    @patch.object(PublishController, "_sincronizar_pre_publicacao", return_value=False)
+    @patch.object(PublishController, "_ler_meta_experimental")
+    @patch.object(PublishController, "_iniciar_worker")
+    def test_prosseguir_publicacao_cancela_se_sincronizacao_previa_retornar_false(self, mock_worker, mock_meta, mock_sync):
+        mock_meta.return_value = {"pull_request_branch": "branch1", "pull_request_url": "url1"}
+        self.controller._prosseguir_publicacao()
+        mock_sync.assert_called_once_with("branch1")
+        mock_worker.assert_not_called()
+
+    @patch("editor.controllers.publish_controller.ServicoSubmissao")
+    def test_sincronizar_pre_publicacao_instancia_servico_submissao_se_ausente(self, mock_servico_cls):
+        self.controller.croqui_data = {"id": "bau"}
+        self.controller.servico_submissao = None
+        self.controller.storage = MagicMock()
+        self.controller.storage.obter_caminho_base_repo.return_value = Path("/fake/repo")
+        self.controller.workspace = MagicMock()
+        self.controller.workspace.obter_caminho_database.return_value = Path("/fake/db")
+
+        instancia_servico = mock_servico_cls.return_value
+        instancia_servico.sincronizar_pr_remota.return_value = MagicMock(status=MagicMock())
+
+        self.assertTrue(self.controller._sincronizar_pre_publicacao("edicao-bau-1234"))
+        mock_servico_cls.assert_called_once_with(caminho_repo_base=Path("/fake/repo"))
+
+    def test_sincronizar_pre_publicacao_sem_caminho_database_retorna_true(self):
+        self.controller.croqui_data = {"id": "bau"}
+        self.controller.servico_submissao = MagicMock()
+        self.controller.workspace = MagicMock()
+        self.controller.workspace.obter_caminho_database.return_value = None
+        self.assertTrue(self.controller._sincronizar_pre_publicacao("edicao-bau-1234"))
+
 
 if __name__ == "__main__":
     unittest.main()

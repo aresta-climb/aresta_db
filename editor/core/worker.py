@@ -12,7 +12,11 @@ import pygit2
 
 from editor.core.gerenciador_sessao import GerenciadorSessao, SessaoUsuario
 from editor.core.cliente_auth_supabase import ClienteAuthSupabase
-from editor.core.servico_submissao import ServicoSubmissao
+from editor.core.servico_submissao import (
+    ServicoSubmissao,
+    ResultadoSincronizacao,
+    StatusSincronizacao,
+)
 from editor.core.sync import GerenciadorSincronizacao
 from editor.core.storage import GerenciadorCaminhos
 from editor.plataforma import obter_adaptador_plataforma, AdaptadorPlataforma
@@ -346,11 +350,16 @@ class TarefaSalvamento(QThread):
             if self.novo_id and self.id_atual and self.novo_id != self.id_atual:
                 houve_renomeacao = True
                 
-            resultado_proc = self.workspace.processar_renomeacao_e_compilacao(self.novo_id, self.id_atual, self.storage)
-            if len(resultado_proc) == 3:
-                caminho_retornado, erros, database_modificado = resultado_proc
-            else:
-                caminho_retornado, erros = resultado_proc
+            try:
+                resultado_proc = self.workspace.processar_renomeacao_e_compilacao(self.novo_id, self.id_atual, self.storage)
+                if len(resultado_proc) == 3:
+                    caminho_retornado, erros, database_modificado = resultado_proc
+                else:
+                    caminho_retornado, erros = resultado_proc
+                    database_modificado = False
+            except Exception as e:
+                caminho_retornado = self.caminho_db.parent if self.caminho_db.name == "database" else self.caminho_db
+                erros = [f"Erro na compilação: {e}"]
                 database_modificado = False
             
             self.sucesso.emit(caminho_retornado, erros, houve_renomeacao, self.undo_index, database_modificado)
@@ -367,4 +376,52 @@ class TarefaSalvamento(QThread):
                 contexto_extra={"novo_id": self.novo_id, "id_atual": self.id_atual, "caminho_db": str(self.caminho_db)},
             )
             self.erro.emit(str(e), tb_str)
+
+
+class TarefaSincronizacaoPR(QThread):
+    """
+    Thread responsável por coordenar a sincronização assíncrona com a branch remota da PR.
+    """
+    progresso: Signal = Signal(str)
+    sucesso: Signal = Signal(object) # ResultadoSincronizacao
+    conflito: Signal = Signal(object) # ResultadoSincronizacao
+    aviso: Signal = Signal(str)
+    erro: Signal = Signal(str)
+
+    def __init__(
+        self,
+        servico_submissao: ServicoSubmissao,
+        id_croqui: str,
+        nome_branch: str,
+        caminho_database_croqui: Path,
+        sessao: Optional[SessaoUsuario] = None,
+        nome_remote: str = "origin",
+    ) -> None:
+        super().__init__()
+        self.servico_submissao: ServicoSubmissao = servico_submissao
+        self.id_croqui: str = id_croqui
+        self.nome_branch: str = nome_branch
+        self.caminho_database_croqui: Path = Path(caminho_database_croqui)
+        self.sessao: Optional[SessaoUsuario] = sessao
+        self.nome_remote: str = nome_remote
+
+    def run(self) -> None:
+        try:
+            self.progresso.emit("Buscando atualizações remotas...")
+            resultado = self.servico_submissao.sincronizar_pr_remota(
+                id_croqui=self.id_croqui,
+                nome_branch=self.nome_branch,
+                caminho_database_croqui=self.caminho_database_croqui,
+                nome_remote=self.nome_remote,
+                sessao=self.sessao,
+            )
+            if resultado.status == StatusSincronizacao.CONFLITO:
+                self.conflito.emit(resultado)
+            elif resultado.status == StatusSincronizacao.ATUALIZADO:
+                self.aviso.emit(resultado.mensagem)
+            else:
+                self.sucesso.emit(resultado)
+        except Exception as e:
+            self.erro.emit(str(e))
+
 

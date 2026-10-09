@@ -499,10 +499,9 @@ class TestWorker(unittest.TestCase):
 
     @patch("editor.core.telemetria.capturar_excecao")
     def test_tarefa_salvamento_erro_envia_sentry_e_emite_sinal(self, mock_capturar_excecao):
-        """Valida que falhas em TarefaSalvamento são enviadas ao Sentry e emitem erro sem derrubar o processo."""
+        """Valida que falhas reais de I/O em TarefaSalvamento são enviadas ao Sentry e emitem erro."""
         from editor.core.worker import TarefaSalvamento
         mock_ws = MagicMock()
-        mock_ws.processar_renomeacao_e_compilacao.side_effect = ValueError("Falha na compilação protobuf")
         
         tarefa = TarefaSalvamento(
             workspace=mock_ws,
@@ -516,18 +515,76 @@ class TestWorker(unittest.TestCase):
         tarefa.sucesso = MagicMock()
         tarefa.erro = MagicMock()
         
-        with patch("builtins.open", MagicMock()):
-            with patch("yaml.dump"):
-                tarefa.run()
+        with patch("builtins.open", side_effect=IOError("Permissão negada")):
+            tarefa.run()
                 
         tarefa.sucesso.emit.assert_not_called()
         tarefa.erro.emit.assert_called_once()
         args_emit, _ = tarefa.erro.emit.call_args
-        assert args_emit[0] == "Falha na compilação protobuf"
-        assert "ValueError: Falha na compilação protobuf" in args_emit[1]
+        assert args_emit[0] == "Permissão negada"
+        assert "Permissão negada" in args_emit[1]
         mock_capturar_excecao.assert_called_once()
         args, kwargs = mock_capturar_excecao.call_args
-        assert isinstance(kwargs.get("erro") or args[0], ValueError)
+        assert isinstance(kwargs.get("erro") or args[0], IOError)
+
+    def test_tarefa_salvamento_com_erros_de_compilacao_emite_sucesso(self):
+        """Valida que TarefaSalvamento emite sucesso com a lista de erros quando a compilação retorna erros."""
+        from editor.core.worker import TarefaSalvamento
+        mock_ws = MagicMock()
+        erros_compilacao = ["Erro: campo nome obrigatório", "Aviso: ID duplicado"]
+        mock_ws.processar_renomeacao_e_compilacao.return_value = (Path("/fake/compilado"), erros_compilacao, False)
+        
+        tarefa = TarefaSalvamento(
+            workspace=mock_ws,
+            storage=None,
+            caminho_db=Path("/fake/db"),
+            croqui_data={"id": "teste", "nome": "Teste"},
+            novo_id="teste",
+            id_atual="teste",
+            undo_index=3,
+        )
+        tarefa.sucesso = MagicMock()
+        tarefa.erro = MagicMock()
+        
+        with patch("builtins.open", unittest.mock.mock_open()):
+            with patch("yaml.dump"):
+                tarefa.run()
+            
+        tarefa.sucesso.emit.assert_called_once_with(
+            Path("/fake/compilado"),
+            erros_compilacao,
+            False,
+            3,
+            False
+        )
+        tarefa.erro.emit.assert_not_called()
+
+    def test_tarefa_salvamento_excecao_compilacao_emite_sucesso_com_mensagem_erro(self):
+        """Valida que se a compilação levantar exceção inesperada, o salvamento físico é preservado e emite sucesso com erro."""
+        from editor.core.worker import TarefaSalvamento
+        mock_ws = MagicMock()
+        mock_ws.processar_renomeacao_e_compilacao.side_effect = RuntimeError("Falha inesperada no deploy")
+        
+        tarefa = TarefaSalvamento(
+            workspace=mock_ws,
+            storage=None,
+            caminho_db=Path("/fake/db"),
+            croqui_data={"id": "teste", "nome": "Teste"},
+            novo_id="teste",
+            id_atual="teste",
+            undo_index=5,
+        )
+        tarefa.sucesso = MagicMock()
+        tarefa.erro = MagicMock()
+        
+        with patch("builtins.open", unittest.mock.mock_open()):
+            with patch("yaml.dump"):
+                tarefa.run()
+            
+        tarefa.sucesso.emit.assert_called_once()
+        args = tarefa.sucesso.emit.call_args[0]
+        self.assertTrue(any("Falha inesperada no deploy" in str(msg) for msg in args[1]))
+        tarefa.erro.emit.assert_not_called()
 
     @patch("editor.core.telemetria.capturar_excecao")
     def test_tarefa_salvamento_protege_contra_base_exception(self, mock_capturar_excecao):
@@ -593,6 +650,131 @@ class TestWorker(unittest.TestCase):
             assert "id: teste" in yaml_salvo.read_text(encoding="utf-8")
         finally:
             shutil.rmtree(tmp_dir, ignore_errors=True)
+
+    def test_tarefa_sincronizacao_pr_sucesso(self):
+        """Testa que TarefaSincronizacaoPR emite sucesso ao mesclar alterações remotas."""
+        from editor.core.worker import TarefaSincronizacaoPR
+        from editor.core.servico_submissao import ResultadoSincronizacao, StatusSincronizacao
+
+        mock_servico = MagicMock()
+        res = ResultadoSincronizacao(
+            status=StatusSincronizacao.MESCLADO,
+            mensagem="Alterações remotas mescladas.",
+            commit_merge="sha_merge_123",
+        )
+        mock_servico.sincronizar_pr_remota.return_value = res
+
+        tarefa = TarefaSincronizacaoPR(
+            servico_submissao=mock_servico,
+            id_croqui="bau",
+            nome_branch="edicao-bau-1234",
+            caminho_database_croqui=Path("/fake/croqui"),
+        )
+        tarefa.sucesso = MagicMock()
+        tarefa.conflito = MagicMock()
+        tarefa.aviso = MagicMock()
+        tarefa.erro = MagicMock()
+        tarefa.progresso = MagicMock()
+
+        tarefa.run()
+
+        mock_servico.sincronizar_pr_remota.assert_called_once_with(
+            id_croqui="bau",
+            nome_branch="edicao-bau-1234",
+            caminho_database_croqui=Path("/fake/croqui"),
+            nome_remote="origin",
+            sessao=None,
+        )
+        tarefa.sucesso.emit.assert_called_once_with(res)
+        tarefa.conflito.emit.assert_not_called()
+        tarefa.aviso.emit.assert_not_called()
+        tarefa.erro.emit.assert_not_called()
+
+    def test_tarefa_sincronizacao_pr_aviso_quando_atualizado(self):
+        """Testa que TarefaSincronizacaoPR emite aviso se já estiver atualizado."""
+        from editor.core.worker import TarefaSincronizacaoPR
+        from editor.core.servico_submissao import ResultadoSincronizacao, StatusSincronizacao
+
+        mock_servico = MagicMock()
+        res = ResultadoSincronizacao(
+            status=StatusSincronizacao.ATUALIZADO,
+            mensagem="Já está atualizado.",
+        )
+        mock_servico.sincronizar_pr_remota.return_value = res
+
+        tarefa = TarefaSincronizacaoPR(
+            servico_submissao=mock_servico,
+            id_croqui="bau",
+            nome_branch="edicao-bau-1234",
+            caminho_database_croqui=Path("/fake/croqui"),
+        )
+        tarefa.sucesso = MagicMock()
+        tarefa.conflito = MagicMock()
+        tarefa.aviso = MagicMock()
+        tarefa.erro = MagicMock()
+
+        tarefa.run()
+
+        tarefa.aviso.emit.assert_called_once_with("Já está atualizado.")
+        tarefa.sucesso.emit.assert_not_called()
+        tarefa.conflito.emit.assert_not_called()
+        tarefa.erro.emit.assert_not_called()
+
+    def test_tarefa_sincronizacao_pr_conflito(self):
+        """Testa que TarefaSincronizacaoPR emite conflito com os arquivos conflitantes."""
+        from editor.core.worker import TarefaSincronizacaoPR
+        from editor.core.servico_submissao import ResultadoSincronizacao, StatusSincronizacao
+
+        mock_servico = MagicMock()
+        res = ResultadoSincronizacao(
+            status=StatusSincronizacao.CONFLITO,
+            mensagem="Conflito detectado.",
+            arquivos_conflito=["database/bau/croqui.yaml"],
+        )
+        mock_servico.sincronizar_pr_remota.return_value = res
+
+        tarefa = TarefaSincronizacaoPR(
+            servico_submissao=mock_servico,
+            id_croqui="bau",
+            nome_branch="edicao-bau-1234",
+            caminho_database_croqui=Path("/fake/croqui"),
+        )
+        tarefa.sucesso = MagicMock()
+        tarefa.conflito = MagicMock()
+        tarefa.aviso = MagicMock()
+        tarefa.erro = MagicMock()
+
+        tarefa.run()
+
+        tarefa.conflito.emit.assert_called_once_with(res)
+        tarefa.sucesso.emit.assert_not_called()
+        tarefa.aviso.emit.assert_not_called()
+        tarefa.erro.emit.assert_not_called()
+
+    def test_tarefa_sincronizacao_pr_erro_excecao(self):
+        """Testa que TarefaSincronizacaoPR captura exceções e emite erro."""
+        from editor.core.worker import TarefaSincronizacaoPR
+
+        mock_servico = MagicMock()
+        mock_servico.sincronizar_pr_remota.side_effect = RuntimeError("Erro de conexão de rede")
+
+        tarefa = TarefaSincronizacaoPR(
+            servico_submissao=mock_servico,
+            id_croqui="bau",
+            nome_branch="edicao-bau-1234",
+            caminho_database_croqui=Path("/fake/croqui"),
+        )
+        tarefa.sucesso = MagicMock()
+        tarefa.conflito = MagicMock()
+        tarefa.aviso = MagicMock()
+        tarefa.erro = MagicMock()
+
+        tarefa.run()
+
+        tarefa.erro.emit.assert_called_once()
+        self.assertIn("Erro de conexão de rede", tarefa.erro.emit.call_args[0][0])
+        tarefa.sucesso.emit.assert_not_called()
+        tarefa.conflito.emit.assert_not_called()
 
 
 if __name__ == "__main__":

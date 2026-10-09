@@ -56,8 +56,8 @@ Após a conclusão bem-sucedida do push para o `git-proxy`, o sistema MUST invoc
 O editor MUST validar a consistência técnica das alterações antes de disparar operações de rede e apresentar um resumo claro dos arquivos afetados no diálogo de publicação.
 
 #### Scenario: Bloqueio de Envio com Erros de Compilação
-- **WHEN** o croqui experimental contiver erros de compilação ou validação no `croqui.yaml`
-- **THEN** o sistema MUST bloquear a abertura do diálogo de publicação e orientar a correção
+- **WHEN** o croqui experimental contiver erros de compilação ou validação no `croqui.yaml` e o usuário acionar o envio de proposta
+- **THEN** o sistema MUST solicitar confirmação explícita do usuário para enviar a proposta com erros para revisão colaborativa; caso cancelado, o envio é bloqueado, mas caso confirmado, o fluxo prossegue
 
 #### Scenario: Detecção de Ausência de Modificações
 - **WHEN** o estado do croqui experimental for idêntico à versão `upstream/main`

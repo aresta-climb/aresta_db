@@ -122,3 +122,61 @@ def test_extrair_uid_de_url_invalidas() -> None:
 
     # URL sintaticamente malformada levantando exceção no urlparse
     assert extrair_uid_de_url("http://[") is None
+
+
+def test_sanear_uids_croqui_completo(tmp_path) -> None:
+    """Testa sanear_uids_croqui gerando UIDs para entidades e resolvendo referências."""
+    from scripts.gerenciar_uids_lib import sanear_uids_croqui
+
+    pico = tmp_path / "croqui_teste"
+    pico.mkdir()
+
+    yaml_conteudo = """\
+id: "br_mg_teste"
+nome: "Pico de Teste"
+botoes:
+  - texto: "Capa"
+    destino:
+      secao_textual:
+        caminho: "capa.md"
+"""
+    (pico / "croqui.yaml").write_text(yaml_conteudo, encoding="utf-8")
+
+    setor_conteudo = """\
+---
+nome: "Setor Inicial"
+escaladas:
+  - via_esportiva:
+      nome: "Via do Sol"
+mapas:
+  - caminho_imagem_mapa: "mapas/m1.webp"
+    pontos_de_interesse:
+      - id: "p1"
+        label: "01"
+        circulo: {x: 10, y: 10, raio: 5}
+    referencias:
+      - escalada: "Via do Sol"
+        ids: ["p1"]
+---
+Texto do setor.
+"""
+    (pico / "setor1.md").write_text(setor_conteudo, encoding="utf-8")
+
+    # 1. Executa saneamento
+    modificado = sanear_uids_croqui(pico)
+    assert modificado is True
+
+    # 2. Verifica se UIDs foram gerados e referências migradas
+    texto_yaml = (pico / "croqui.yaml").read_text(encoding="utf-8")
+    assert "uid:" in texto_yaml
+
+    texto_md = (pico / "setor1.md").read_text(encoding="utf-8")
+    assert "uid:" in texto_md
+    assert "rotulo: '01'" in texto_md or 'rotulo: "01"' in texto_md or 'rotulo: 01' in texto_md
+    assert "alvo_uid:" in texto_md
+    assert "pontos_uids:" in texto_md
+
+    # 3. Idempotência: rodar novamente não deve modificar o disco
+    modificado_novamente = sanear_uids_croqui(pico)
+    assert modificado_novamente is False
+

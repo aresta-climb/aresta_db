@@ -569,8 +569,8 @@ def test_gerar_manifesto_dependencias_flatpak_falha_geracao_arquivo(tmp_path):
             gerar_manifesto_dependencias_flatpak(caminho_saida=destino, raiz_projeto=tmp_path)
 
 
-def test_orquestrar_build_flatpak_gera_deps_efemeras_e_limpa():
-    """Valida se dependências Flatpak são geradas efemeramente e removidas ao término."""
+def test_orquestrar_build_flatpak_preserva_deps_para_cache():
+    """Valida se dependências Flatpak são geradas quando ausentes e preservadas em disco para reuso de cache."""
     from editor.build import orquestrar_build_flatpak
     with patch("shutil.which", return_value="/usr/bin/flatpak-builder"):
         with patch("subprocess.run"):
@@ -593,8 +593,9 @@ def test_orquestrar_build_flatpak_gera_deps_efemeras_e_limpa():
                     with patch.object(Path, "unlink") as mock_unlink:
                         bundle = orquestrar_build_flatpak()
                         mock_gerar_deps.assert_called_once()
-                        mock_unlink.assert_called_once()
+                        mock_unlink.assert_not_called()
                         assert bundle.name.endswith(".flatpak")
+
 
 
 def test_main_cli_dispatch_flatpak_deps():

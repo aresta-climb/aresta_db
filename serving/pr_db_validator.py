@@ -14,7 +14,9 @@ _RAIZ_REPOSITORIO = Path(__file__).resolve().parent.parent
 if str(_RAIZ_REPOSITORIO) not in sys.path:  # pragma: no cover
     sys.path.insert(0, str(_RAIZ_REPOSITORIO))
 
+import yaml
 from scripts.deploy_generated import deploy
+from scripts.migrador import obter_ultima_versao_migracao
 from scripts.validador_cabecalhos import validar_todos_cabecalhos_e_licencas
 
 
@@ -31,12 +33,50 @@ def validar_cabecalhos_e_licencas() -> list[str]:
     return erros
 
 
+def validar_versoes_migracao(pastas: list[Path]) -> list[str]:
+    """
+    Valida se todos os croquis contidos nas pastas modificadas possuem
+    o campo 'ultima_migracao' atualizado com a versão mais recente das migrações.
+    """
+    erros: list[str] = []
+    versao_esperada = obter_ultima_versao_migracao()
+    if versao_esperada == 0:
+        return erros
+
+    for pasta in pastas:
+        caminho_yaml = pasta / "croqui.yaml"
+        if not caminho_yaml.is_file():
+            continue
+
+        try:
+            with open(caminho_yaml, "r", encoding="utf-8") as f:
+                dados = yaml.safe_load(f)
+            if not isinstance(dados, dict):
+                continue
+            versao_croqui = dados.get("ultima_migracao", 0)
+            if versao_croqui < versao_esperada:
+                msg = (
+                    f"[{pasta.name}] O croqui está com a versão de migração desatualizada: {versao_croqui}. "
+                    f"A versão mais recente esperada é {versao_esperada}. "
+                    f"Execute a rotina de migração/correção do database antes de submeter o PR."
+                )
+                print(f"ERRO: {msg}")
+                erros.append(msg)
+        except Exception as e:
+            msg = f"[{pasta.name}] Erro ao verificar versão de migração em {caminho_yaml}: {e}"
+            print(f"ERRO: {msg}")
+            erros.append(msg)
+
+    return erros
+
+
 def validar_pull_request(pastas_modificadas: list[str], diretorio_saida: str | None = None) -> list[str]:
     """
     Valida um pull request:
     1. Executa a validação de conformidade de cabeçalhos e licenças.
     2. Valida se os caminhos existem.
-    3. Executa a rotina de deploy em modo verificação (sem salvar artefatos definitivos).
+    3. Valida se a versão de migração dos croquis está na versão mais recente.
+    4. Executa a rotina de deploy em modo verificação (sem salvar artefatos definitivos).
     
     Args:
         pastas_modificadas: Lista de caminhos relativos para pastas dentro de database/.
@@ -64,6 +104,11 @@ def validar_pull_request(pastas_modificadas: list[str], diretorio_saida: str | N
             db_paths.append(caminho)
             
     if erros or not db_paths:
+        return erros
+
+    # 2. Validação da versão de migração dos croquis
+    erros.extend(validar_versoes_migracao(db_paths))
+    if erros:
         return erros
 
     def _executar_validacao(out_dir: Path) -> None:

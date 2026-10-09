@@ -25,8 +25,13 @@ Primeiro, verifique se o arquivo `croqui.yaml` já existe na pasta
     `aresta_api/proto/croqui.proto`) para apenas listar os caminhos relativos
     dos arquivos `.md`, sem incluir o conteúdo deles diretamente no YAML.
   - **Defina obrigatoriamente** o campo `ultima_migracao` com o ID numérico da
-    migração mais recente presente no diretório `migracoes/` (por exemplo, `1`).
+    migração mais recente presente no diretório `migracoes/` (atualmente `5`).
     Você pode checar o diretório usando tools se não tiver certeza.
+  - **Identificadores Estáveis (UIDs):** Não é necessário gerar UIDs manualmente
+    para o croqui, botões ou setores ao criá-los do zero; a execução do comando
+    de compilação (`deploy_generated.py`) executará o saneamento automático e
+    injetará NanoIDs 14c Base62 determinísticos em todas as entidades e arquivos.
+    Caso o arquivo já possua `uid`, PRESERVE-O intacto.
   - Sempre preencha o `caminho_thumbnail` com a mesma imagem que está
     referenciada na capa, se houver. Alternativamente, escolha uma imagem
     representativa para o croqui dentre as imagens disponíveis.

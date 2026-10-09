@@ -41,8 +41,9 @@ Normalmente os pontos de interesse estão marcados no mapa com um símbolo (como
 
 Sua tarefa é extrair **todos** os pontos de interesse do mapa. Para isso, examine a imagem com cuidado e extraia as seguintes informações para cada ponto:
 
-* **Id marcado no mapa** (um identificador único).
-* **Label textual que está escrita na imagem**. Não deduza labels de outros arquivos; baseie-se apenas na imagem, no OCR, e nos pontos que porventura já existam no `<imagem>.json` (estes são extremamente confiáveis).
+* **Id marcado no mapa** (um identificador único local).
+* **Rótulo textual que está escrito na imagem** (`rotulo`). Não deduza rótulos de outros arquivos; baseie-se apenas na imagem, no OCR, e nos pontos que porventura já existam no `<imagem>.json` (estes são extremamente confiáveis).
+* **UID estável** (`uid`): Se o arquivo `<imagem>.json` já contiver um campo `uid` para um ponto, **PRESERVE-O RIGOROSAMENTE**. Se for um ponto novo sem UID, omita o campo (ele será gerado deterministicamente no deploy).
 * **Geometria delimitadora**. Cada ponto deve ser delimitado pela geometria que melhor descreve sua forma no mapa.
 
 > **Prioridade de Geometrias (Regra de Ouro):** 
@@ -67,18 +68,18 @@ Sua tarefa é extrair **todos** os pontos de interesse do mapa. Para isso, exami
 **Regras Finais de Extração:**
 * Não invente pontos de interesse que não existem.
 * Não crie pontos de interesse para desenhos soltos (como traços). Todo ponto extraído precisa ter um significado (via, boulder, setor, etc).
-* Se um mesmo texto (ex: "2") aparecer repetido no mapa em locais distintos (o que acontece em continuações), extraia todos, diferenciando seus IDs lógicos no JSON (ex: "02_abaixo" e "02_acima"), mas mantendo o `label` idêntico ("2").
+* Se um mesmo texto (ex: "2") aparecer repetido no mapa em locais distintos (o que acontece em continuações), extraia todos, diferenciando seus IDs lógicos no JSON (ex: "02_abaixo" e "02_acima"), mas mantendo o `rotulo` idêntico ("2").
 
 Exemplo de pontos de interesse para mapa geral de setor:
 
 ```json
 {
   "pontos_de_interesse": [
-    { "id": "01", "label": "01", "circulo": { "x": 684, "y": 824, "raio": 16 } },
-    { "id": "02", "label": "02", "quadrado": { "x": 732, "y": 882, "lado": 35 } },
-    { "id": "Mesa", "label": "Mesa", "retangulo": { "x": 876, "y": 547, "comprimento": 48, "largura": 25 } },
-    { "id": "Setor_Savassinha", "label": "Setor Savassinha", "retangulo": { "x": 1167, "y": 637, "comprimento": 265, "largura": 25, "angulo_graus_x100": 4500 } },
-    { "id": "Livre", "label": "Livre", "poligono": { "coordenadas": [0, 0, 10, 0, 10, 10] } }
+    { "id": "01", "rotulo": "01", "circulo": { "x": 684, "y": 824, "raio": 16 } },
+    { "id": "02", "rotulo": "02", "quadrado": { "x": 732, "y": 882, "lado": 35 } },
+    { "id": "Mesa", "rotulo": "Mesa", "retangulo": { "x": 876, "y": 547, "comprimento": 48, "largura": 25 } },
+    { "id": "Setor_Savassinha", "rotulo": "Setor Savassinha", "retangulo": { "x": 1167, "y": 637, "comprimento": 265, "largura": 25, "angulo_graus_x100": 4500 } },
+    { "id": "Livre", "rotulo": "Livre", "poligono": { "coordenadas": [0, 0, 10, 0, 10, 10] } }
   ]
 }
 ```
@@ -88,9 +89,9 @@ Exemplo de pontos de interesse para mapa específico de escalada (`pertence_a_es
 ```json
 {
   "pontos_de_interesse": [
-    { "id": "start", "label": "Start", "circulo": { "x": 320, "y": 910, "raio": 22 } },
-    { "id": "crux", "label": "Crux", "circulo": { "x": 350, "y": 480, "raio": 18 } },
-    { "id": "top", "label": "Top", "quadrado": { "x": 310, "y": 140, "lado": 30 } }
+    { "id": "start", "rotulo": "Start", "circulo": { "x": 320, "y": 910, "raio": 22 } },
+    { "id": "crux", "rotulo": "Crux", "circulo": { "x": 350, "y": 480, "raio": 18 } },
+    { "id": "top", "rotulo": "Top", "quadrado": { "x": 310, "y": 140, "lado": 30 } }
   ]
 }
 ```

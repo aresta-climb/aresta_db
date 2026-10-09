@@ -61,9 +61,17 @@ Para setores (começando com o prefixo `setor_`), siga RIGOROSAMENTE o formato d
   - Outros campos que fazem parte da mensagem e sub-mensagens de `Escalada` em `croqui.proto`.
   - Escolha as imagens em `raw_pdf_contents/imagens/` que representam os mapas do setor ou escalada.
   - **Diferenciação e Mapeamento de Mapas e Imagens:**
-    - **Mapas Gerais do Setor (`Setor.mapas`)**: Imagens que apresentam a visão ampla da parede, do bloco como um todo, ou a vista panorâmica com o traçado de múltiplas vias/boulders e seus respectivos números/IDs.
       - Adicione o caminho de cada mapa geral em um item da lista `mapas` na raiz do Setor com o campo `caminho_imagem_mapa`.
-      - Preencha a lista `referencias` dentro do mapa correspondente vinculando cada escalada aos seus identificadores numéricos ou textuais na imagem: `referencias: [{escalada: 'Nome da Via', ids: ['01']}]`. NUNCA coloque IDs de mapa dentro da mensagem da escalada em si.
+      - **Referências de Mapa (Sintaxe Canônica vs Rascunho Inicial):**
+        - **Ao editar arquivo existente**: NUNCA remova ou altere os identificadores estáveis (`alvo_uid` e `pontos_uids`). Mantenha o formato canônico:
+          ```yaml
+          referencias:
+            - alvo_uid: "abc123def456gh"
+              pontos_uids:
+                - "poi123poi456gh"
+          ```
+        - **Ao transcrever novo croqui do zero**: Como os UIDs ainda não foram gerados, você pode utilizar o rascunho semântico vinculando cada escalada pelo seu nome exato e IDs numéricos da imagem: `referencias: [{escalada: 'Nome da Via', ids: ['01']}]`. O script compilador (`deploy_generated.py`) resolverá os nomes e converterá automaticamente para `alvo_uid` e `pontos_uids` no primeiro deploy. NUNCA coloque IDs de mapa dentro da mensagem da escalada em si.
+      - **Preservação de UIDs:** Ao editar arquivos `.md` existentes, **JAMAIS** altere ou delete os campos `uid`, `alvo_uid` ou `pontos_uids`. Para novas escaladas adicionadas, o campo `uid` pode ser omitido (o compilador o gerará deterministicamente).
     - **Mapas Específicos de Escaladas (`escaladas[].mapas`)**: Imagens dedicadas exclusivamente a uma única escalada ou detalhe restrito a ela, tais como:
       - Close-ups de blocos de boulder destacando agarras específicas, linha de saída sentada (*sit-start*), ou sequência detalhada de pegas;
       - Croquis verticais ou topos detalhados de vias (especialmente vias de múltiplas enfiadas com divisão de enfiadas, paradas e proteções);

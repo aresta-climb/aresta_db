@@ -14,6 +14,8 @@ from editor.core.servico_submissao import (
     ResultadoSubmissao,
     ErroSubmissao,
     gerar_nome_branch,
+    StatusSincronizacao,
+    ResultadoSincronizacao,
 )
 
 
@@ -988,6 +990,414 @@ class TesteTelemetriaSubmissaoIntegracao:
                     descricao="Desc",
                     sessao=sessao,
                 )
+
+
+class TesteSincronizacaoPRServico:
+    """Testes unitários para sincronização bidirecional e resolução de conflitos via pygit2."""
+
+    def teste_verificar_atualizacoes_remotas_pr_sem_remote_lanca_erro(self, tmp_path):
+        repo_dir = tmp_path / "repo"
+        inicializar_repo_local(repo_dir)
+        servico = ServicoSubmissao(caminho_repo_base=repo_dir)
+
+        with pytest.raises(ErroSubmissao, match="Remote 'origin' não configurado"):
+            servico.verificar_atualizacoes_remotas_pr(
+                id_croqui="bau",
+                nome_branch="edicao-bau-1234",
+                nome_remote="origin",
+            )
+
+    def teste_verificar_atualizacoes_remotas_pr_falha_fetch_lanca_erro(self, tmp_path):
+        repo_dir = tmp_path / "repo"
+        repo = inicializar_repo_local(repo_dir)
+        repo.remotes.create("origin", "https://github.com/exemplo/repo.git")
+        servico = ServicoSubmissao(caminho_repo_base=repo_dir)
+
+        with patch.object(pygit2.Remote, "fetch", side_effect=Exception("Timeout de rede")):
+            with pytest.raises(ErroSubmissao, match="Falha ao buscar atualizações remotas"):
+                servico.verificar_atualizacoes_remotas_pr(
+                    id_croqui="bau",
+                    nome_branch="edicao-bau-1234",
+                    nome_remote="origin",
+                )
+
+    def teste_verificar_atualizacoes_remotas_pr_branch_remota_inexistente(self, tmp_path):
+        repo_dir = tmp_path / "repo"
+        repo = inicializar_repo_local(repo_dir)
+        repo.remotes.create("origin", "https://github.com/exemplo/repo.git")
+        servico = ServicoSubmissao(caminho_repo_base=repo_dir)
+
+        with patch.object(pygit2.Remote, "fetch"):
+            tem_novidades, sha = servico.verificar_atualizacoes_remotas_pr(
+                id_croqui="bau",
+                nome_branch="edicao-bau-inexistente",
+                nome_remote="origin",
+            )
+            assert tem_novidades is False
+            assert sha is None
+
+    def teste_verificar_atualizacoes_remotas_pr_local_inexistente_retorna_novidades(self, tmp_path):
+        repo_dir = tmp_path / "repo"
+        repo = inicializar_repo_local(repo_dir)
+        repo.remotes.create("origin", "https://github.com/exemplo/repo.git")
+        commit_base = repo.lookup_reference("refs/remotes/upstream/main").peel()
+        repo.create_reference("refs/remotes/origin/edicao-bau-nova", commit_base.id)
+
+        servico = ServicoSubmissao(caminho_repo_base=repo_dir)
+        with patch.object(pygit2.Remote, "fetch"):
+            tem_novidades, sha = servico.verificar_atualizacoes_remotas_pr(
+                id_croqui="bau",
+                nome_branch="edicao-bau-nova",
+                nome_remote="origin",
+            )
+            assert tem_novidades is True
+            assert sha == str(commit_base.id)
+
+    def teste_verificar_atualizacoes_remotas_pr_mesmo_commit_retorna_sem_novidades(self, tmp_path):
+        repo_dir = tmp_path / "repo"
+        repo = inicializar_repo_local(repo_dir)
+        repo.remotes.create("origin", "https://github.com/exemplo/repo.git")
+        commit_base = repo.lookup_reference("refs/remotes/upstream/main").peel()
+        repo.create_branch("edicao-bau-igual", commit_base)
+        repo.create_reference("refs/remotes/origin/edicao-bau-igual", commit_base.id)
+
+        servico = ServicoSubmissao(caminho_repo_base=repo_dir)
+        with patch.object(pygit2.Remote, "fetch"):
+            tem_novidades, sha = servico.verificar_atualizacoes_remotas_pr(
+                id_croqui="bau",
+                nome_branch="edicao-bau-igual",
+                nome_remote="origin",
+            )
+            assert tem_novidades is False
+            assert sha == str(commit_base.id)
+
+    def teste_verificar_atualizacoes_remotas_pr_local_a_frente_retorna_sem_novidades(self, tmp_path):
+        repo_dir = tmp_path / "repo"
+        repo = inicializar_repo_local(repo_dir)
+        repo.remotes.create("origin", "https://github.com/exemplo/repo.git")
+        commit_base = repo.lookup_reference("refs/remotes/upstream/main").peel()
+        repo.create_reference("refs/remotes/origin/edicao-bau-ahead", commit_base.id)
+
+        branch = repo.create_branch("edicao-bau-ahead", commit_base)
+        repo.checkout(branch)
+        (repo_dir / "database" / "bau").mkdir(parents=True, exist_ok=True)
+        (repo_dir / "database" / "bau" / "novo.txt").write_text("conteudo local\n", encoding="utf-8")
+        repo.index.add_all()
+        repo.index.write()
+        tree = repo.index.write_tree()
+        autor = pygit2.Signature("Autor", "autor@aresta.local")
+        repo.create_commit("refs/heads/edicao-bau-ahead", autor, autor, "local ahead", tree, [commit_base.id])
+
+        servico = ServicoSubmissao(caminho_repo_base=repo_dir)
+        with patch.object(pygit2.Remote, "fetch"):
+            tem_novidades, sha = servico.verificar_atualizacoes_remotas_pr(
+                id_croqui="bau",
+                nome_branch="edicao-bau-ahead",
+                nome_remote="origin",
+            )
+            assert tem_novidades is False
+
+    def teste_verificar_atualizacoes_remotas_pr_remoto_a_frente_retorna_novidades(self, tmp_path):
+        repo_dir = tmp_path / "repo"
+        repo = inicializar_repo_local(repo_dir)
+        repo.remotes.create("origin", "https://github.com/exemplo/repo.git")
+        commit_base = repo.lookup_reference("refs/remotes/upstream/main").peel()
+        repo.create_branch("edicao-bau-behind", commit_base)
+
+        (repo_dir / "database" / "bau").mkdir(parents=True, exist_ok=True)
+        (repo_dir / "database" / "bau" / "remoto.txt").write_text("conteudo remoto\n", encoding="utf-8")
+        repo.index.add_all()
+        repo.index.write()
+        tree = repo.index.write_tree()
+        autor = pygit2.Signature("Remoto", "remoto@aresta.local")
+        commit_remoto_oid = repo.create_commit("refs/remotes/origin/edicao-bau-behind", autor, autor, "remoto ahead", tree, [commit_base.id])
+
+        servico = ServicoSubmissao(caminho_repo_base=repo_dir)
+        with patch.object(pygit2.Remote, "fetch"):
+            tem_novidades, sha = servico.verificar_atualizacoes_remotas_pr(
+                id_croqui="bau",
+                nome_branch="edicao-bau-behind",
+                nome_remote="origin",
+            )
+            assert tem_novidades is True
+            assert sha == str(commit_remoto_oid)
+
+    def teste_sincronizar_pr_remota_sem_novidades_retorna_atualizado(self, tmp_path):
+        repo_dir = tmp_path / "repo"
+        repo = inicializar_repo_local(repo_dir)
+        servico = ServicoSubmissao(caminho_repo_base=repo_dir)
+
+        pasta_croqui = tmp_path / "croqui_local"
+        pasta_croqui.mkdir()
+
+        with patch.object(servico, "verificar_atualizacoes_remotas_pr", return_value=(False, "sha123")):
+            resultado = servico.sincronizar_pr_remota(
+                id_croqui="bau",
+                nome_branch="edicao-bau-semnovidades",
+                caminho_database_croqui=pasta_croqui,
+            )
+            assert resultado.status == StatusSincronizacao.ATUALIZADO
+            assert "atualizado" in resultado.mensagem.lower()
+
+    def teste_sincronizar_pr_remota_fast_forward_atualiza_pasta_croqui(self, tmp_path):
+        repo_dir = tmp_path / "repo"
+        repo = inicializar_repo_local(repo_dir)
+        repo.remotes.create("origin", "https://github.com/exemplo/repo.git")
+        commit_base = repo.lookup_reference("refs/remotes/upstream/main").peel()
+        repo.create_branch("edicao-bau-ff", commit_base)
+
+        f = repo_dir / "database" / "bau" / "croqui.yaml"
+        f.parent.mkdir(parents=True, exist_ok=True)
+        f.write_text("nome: Bau Remoto\n", encoding="utf-8")
+        repo.index.add_all()
+        repo.index.write()
+        tree_rem = repo.index.write_tree()
+        autor = pygit2.Signature("Remoto", "remoto@aresta.local")
+        commit_remoto_oid = repo.create_commit("refs/remotes/origin/edicao-bau-ff", autor, autor, "remoto ff", tree_rem, [commit_base.id])
+
+        pasta_croqui = tmp_path / "croqui_local"
+        pasta_croqui.mkdir()
+        (pasta_croqui / "croqui.yaml").write_text("nome: Bau Inicial\n", encoding="utf-8")
+
+        servico = ServicoSubmissao(caminho_repo_base=repo_dir)
+        with patch.object(pygit2.Remote, "fetch"):
+            resultado = servico.sincronizar_pr_remota(
+                id_croqui="bau",
+                nome_branch="edicao-bau-ff",
+                caminho_database_croqui=pasta_croqui,
+            )
+            assert resultado.status == StatusSincronizacao.MESCLADO
+            assert (pasta_croqui / "croqui.yaml").read_text(encoding="utf-8") == "nome: Bau Remoto\n"
+            assert repo.lookup_reference("refs/heads/edicao-bau-ff").target == commit_remoto_oid
+
+    def teste_sincronizar_pr_remota_branch_local_inexistente(self, tmp_path):
+        repo_dir = tmp_path / "repo"
+        repo = inicializar_repo_local(repo_dir)
+        repo.remotes.create("origin", "https://github.com/exemplo/repo.git")
+        commit_base = repo.lookup_reference("refs/remotes/upstream/main").peel()
+
+        f = repo_dir / "database" / "bau" / "croqui.yaml"
+        f.parent.mkdir(parents=True, exist_ok=True)
+        f.write_text("nome: Bau Remoto Novo\n", encoding="utf-8")
+        repo.index.add_all()
+        repo.index.write()
+        tree_rem = repo.index.write_tree()
+        autor = pygit2.Signature("Remoto", "remoto@aresta.local")
+        commit_remoto_oid = repo.create_commit("refs/remotes/origin/edicao-bau-nova", autor, autor, "remoto nova", tree_rem, [commit_base.id])
+
+        pasta_croqui = tmp_path / "croqui_local"
+        pasta_croqui.mkdir()
+
+        servico = ServicoSubmissao(caminho_repo_base=repo_dir)
+        with patch.object(pygit2.Remote, "fetch"):
+            resultado = servico.sincronizar_pr_remota(
+                id_croqui="bau",
+                nome_branch="edicao-bau-nova",
+                caminho_database_croqui=pasta_croqui,
+            )
+            assert resultado.status == StatusSincronizacao.MESCLADO
+            assert (pasta_croqui / "croqui.yaml").read_text(encoding="utf-8") == "nome: Bau Remoto Novo\n"
+            assert repo.lookup_reference("refs/heads/edicao-bau-nova").target == commit_remoto_oid
+
+    def teste_sincronizar_pr_remota_3way_merge_limpo(self, tmp_path):
+        repo_dir = tmp_path / "repo"
+        repo = inicializar_repo_local(repo_dir)
+        repo.remotes.create("origin", "https://github.com/exemplo/repo.git")
+        commit_base = repo.lookup_reference("refs/remotes/upstream/main").peel()
+
+        branch_local = repo.create_branch("edicao-bau-limpo", commit_base)
+        repo.checkout(branch_local)
+        dir_croqui = repo_dir / "database" / "bau"
+        dir_croqui.mkdir(parents=True, exist_ok=True)
+        (dir_croqui / "local.txt").write_text("texto local\n", encoding="utf-8")
+        repo.index.add_all()
+        repo.index.write()
+        t_loc = repo.index.write_tree()
+        autor = pygit2.Signature("Local", "local@aresta.local")
+        c_loc_oid = repo.create_commit("refs/heads/edicao-bau-limpo", autor, autor, "commit local", t_loc, [commit_base.id])
+
+        (dir_croqui / "local.txt").unlink()
+        (dir_croqui / "remoto.txt").write_text("texto remoto\n", encoding="utf-8")
+        repo.index.add_all()
+        repo.index.write()
+        t_rem = repo.index.write_tree()
+        c_rem_oid = repo.create_commit("refs/remotes/origin/edicao-bau-limpo", autor, autor, "commit remoto", t_rem, [commit_base.id])
+
+        repo.checkout(branch_local, strategy=pygit2.enums.CheckoutStrategy.FORCE)
+
+        pasta_croqui = tmp_path / "croqui_local"
+        pasta_croqui.mkdir()
+        (pasta_croqui / "local.txt").write_text("texto local\n", encoding="utf-8")
+
+        servico = ServicoSubmissao(caminho_repo_base=repo_dir)
+        with patch.object(pygit2.Remote, "fetch"):
+            resultado = servico.sincronizar_pr_remota(
+                id_croqui="bau",
+                nome_branch="edicao-bau-limpo",
+                caminho_database_croqui=pasta_croqui,
+            )
+            assert resultado.status == StatusSincronizacao.MESCLADO
+            commit_merge = repo.lookup_reference("refs/heads/edicao-bau-limpo").peel(pygit2.Commit)
+            assert len(commit_merge.parent_ids) == 2
+            assert commit_merge.parent_ids[0] == c_loc_oid
+            assert commit_merge.parent_ids[1] == c_rem_oid
+            assert (pasta_croqui / "local.txt").read_text(encoding="utf-8") == "texto local\n"
+            assert (pasta_croqui / "remoto.txt").read_text(encoding="utf-8") == "texto remoto\n"
+
+    def teste_sincronizar_pr_remota_conflito_nao_altera_pasta_trabalho(self, tmp_path):
+        repo_dir = tmp_path / "repo"
+        repo = inicializar_repo_local(repo_dir)
+        repo.remotes.create("origin", "https://github.com/exemplo/repo.git")
+        commit_base = repo.lookup_reference("refs/remotes/upstream/main").peel()
+
+        branch_local = repo.create_branch("edicao-bau-conflito", commit_base)
+        repo.checkout(branch_local)
+        dir_croqui = repo_dir / "database" / "bau"
+        dir_croqui.mkdir(parents=True, exist_ok=True)
+        (dir_croqui / "croqui.yaml").write_text("nome: Versao Local\n", encoding="utf-8")
+        repo.index.add_all()
+        repo.index.write()
+        t_loc = repo.index.write_tree()
+        autor = pygit2.Signature("Local", "local@aresta.local")
+        c_loc_oid = repo.create_commit("refs/heads/edicao-bau-conflito", autor, autor, "commit local", t_loc, [commit_base.id])
+
+        (dir_croqui / "croqui.yaml").write_text("nome: Versao Remota\n", encoding="utf-8")
+        repo.index.add_all()
+        repo.index.write()
+        t_rem = repo.index.write_tree()
+        repo.create_commit("refs/remotes/origin/edicao-bau-conflito", autor, autor, "commit remoto", t_rem, [commit_base.id])
+
+        repo.checkout(branch_local, strategy=pygit2.enums.CheckoutStrategy.FORCE)
+
+        pasta_croqui = tmp_path / "croqui_local"
+        pasta_croqui.mkdir()
+        (pasta_croqui / "croqui.yaml").write_text("nome: Versao Local\n", encoding="utf-8")
+
+        servico = ServicoSubmissao(caminho_repo_base=repo_dir)
+        with patch.object(pygit2.Remote, "fetch"):
+            resultado = servico.sincronizar_pr_remota(
+                id_croqui="bau",
+                nome_branch="edicao-bau-conflito",
+                caminho_database_croqui=pasta_croqui,
+            )
+            assert resultado.status == StatusSincronizacao.CONFLITO
+            assert any("croqui.yaml" in a for a in resultado.arquivos_conflito)
+            assert (pasta_croqui / "croqui.yaml").read_text(encoding="utf-8") == "nome: Versao Local\n"
+            assert repo.lookup_reference("refs/heads/edicao-bau-conflito").target == c_loc_oid
+
+    def teste_resolver_conflito_pr_manter_local(self, tmp_path):
+        repo_dir = tmp_path / "repo"
+        repo = inicializar_repo_local(repo_dir)
+        repo.remotes.create("origin", "https://github.com/exemplo/repo.git")
+        commit_base = repo.lookup_reference("refs/remotes/upstream/main").peel()
+
+        branch_local = repo.create_branch("edicao-bau-res-local", commit_base)
+        repo.checkout(branch_local)
+        dir_croqui = repo_dir / "database" / "bau"
+        dir_croqui.mkdir(parents=True, exist_ok=True)
+        (dir_croqui / "croqui.yaml").write_text("nome: Versao Local\n", encoding="utf-8")
+        repo.index.add_all()
+        repo.index.write()
+        t_loc = repo.index.write_tree()
+        autor = pygit2.Signature("Local", "local@aresta.local")
+        c_loc_oid = repo.create_commit("refs/heads/edicao-bau-res-local", autor, autor, "local", t_loc, [commit_base.id])
+
+        (dir_croqui / "croqui.yaml").write_text("nome: Versao Remota\n", encoding="utf-8")
+        repo.index.add_all()
+        repo.index.write()
+        t_rem = repo.index.write_tree()
+        c_rem_oid = repo.create_commit("refs/remotes/origin/edicao-bau-res-local", autor, autor, "remoto", t_rem, [commit_base.id])
+
+        repo.checkout(branch_local, strategy=pygit2.enums.CheckoutStrategy.FORCE)
+
+        pasta_croqui = tmp_path / "croqui_local"
+        pasta_croqui.mkdir()
+        (pasta_croqui / "croqui.yaml").write_text("nome: Versao Local\n", encoding="utf-8")
+
+        servico = ServicoSubmissao(caminho_repo_base=repo_dir)
+        resultado = servico.resolver_conflito_pr(
+            id_croqui="bau",
+            nome_branch="edicao-bau-res-local",
+            caminho_database_croqui=pasta_croqui,
+            manter_local=True,
+        )
+        assert resultado.status == StatusSincronizacao.MESCLADO
+        commit_merge = repo.lookup_reference("refs/heads/edicao-bau-res-local").peel(pygit2.Commit)
+        assert len(commit_merge.parent_ids) == 2
+        assert commit_merge.parent_ids[0] == c_loc_oid
+        assert commit_merge.parent_ids[1] == c_rem_oid
+        assert (pasta_croqui / "croqui.yaml").read_text(encoding="utf-8") == "nome: Versao Local\n"
+
+    def teste_resolver_conflito_pr_adotar_remoto(self, tmp_path):
+        repo_dir = tmp_path / "repo"
+        repo = inicializar_repo_local(repo_dir)
+        repo.remotes.create("origin", "https://github.com/exemplo/repo.git")
+        commit_base = repo.lookup_reference("refs/remotes/upstream/main").peel()
+
+        branch_local = repo.create_branch("edicao-bau-res-remoto", commit_base)
+        repo.checkout(branch_local)
+        dir_croqui = repo_dir / "database" / "bau"
+        dir_croqui.mkdir(parents=True, exist_ok=True)
+        (dir_croqui / "croqui.yaml").write_text("nome: Versao Local\n", encoding="utf-8")
+        repo.index.add_all()
+        repo.index.write()
+        t_loc = repo.index.write_tree()
+        autor = pygit2.Signature("Local", "local@aresta.local")
+        c_loc_oid = repo.create_commit("refs/heads/edicao-bau-res-remoto", autor, autor, "local", t_loc, [commit_base.id])
+
+        (dir_croqui / "croqui.yaml").write_text("nome: Versao Remota\n", encoding="utf-8")
+        repo.index.add_all()
+        repo.index.write()
+        t_rem = repo.index.write_tree()
+        c_rem_oid = repo.create_commit("refs/remotes/origin/edicao-bau-res-remoto", autor, autor, "remoto", t_rem, [commit_base.id])
+
+        repo.checkout(branch_local, strategy=pygit2.enums.CheckoutStrategy.FORCE)
+
+        pasta_croqui = tmp_path / "croqui_local"
+        pasta_croqui.mkdir()
+        (pasta_croqui / "croqui.yaml").write_text("nome: Versao Local\n", encoding="utf-8")
+
+        servico = ServicoSubmissao(caminho_repo_base=repo_dir)
+        resultado = servico.resolver_conflito_pr(
+            id_croqui="bau",
+            nome_branch="edicao-bau-res-remoto",
+            caminho_database_croqui=pasta_croqui,
+            manter_local=False,
+        )
+        assert resultado.status == StatusSincronizacao.MESCLADO
+        commit_merge = repo.lookup_reference("refs/heads/edicao-bau-res-remoto").peel(pygit2.Commit)
+        assert len(commit_merge.parent_ids) == 2
+        assert commit_merge.parent_ids[0] == c_loc_oid
+        assert commit_merge.parent_ids[1] == c_rem_oid
+        assert (pasta_croqui / "croqui.yaml").read_text(encoding="utf-8") == "nome: Versao Remota\n"
+
+    def teste_obter_autor_assinatura_com_sessao(self, tmp_path):
+        repo_dir = tmp_path / "repo"
+        repo = inicializar_repo_local(repo_dir)
+        servico = ServicoSubmissao(caminho_repo_base=repo_dir)
+
+        sessao = SessaoUsuario(
+            email="escalador@teste.local",
+            nome_completo="Escalador da Montanha",
+            jwt_supabase="jwt",
+            token_atualizacao="ref",
+        )
+        autor = servico._obter_autor_assinatura(repo, sessao)
+        assert autor.name == "Escalador da Montanha"
+        assert autor.email == "escalador@teste.local"
+
+    def teste_obter_autor_assinatura_sem_config_git(self, tmp_path):
+        repo_dir = tmp_path / "repo_vazio"
+        repo = pygit2.init_repository(str(repo_dir), False)
+        servico = ServicoSubmissao(caminho_repo_base=repo_dir)
+
+        mock_config = MagicMock()
+        mock_config.__getitem__.side_effect = KeyError("user.name")
+        with patch.object(pygit2.Repository, "config", property(lambda s: mock_config)):
+            autor = servico._obter_autor_assinatura(repo, None)
+            assert autor.name == "Aresta Editor"
+            assert autor.email == "editor@aresta.local"
+
 
 
 

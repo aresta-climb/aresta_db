@@ -6,7 +6,8 @@ import uuid
 import shutil
 import filecmp
 from pathlib import Path
-from dataclasses import dataclass
+from enum import Enum
+from dataclasses import dataclass, field
 from typing import Optional, Callable, Dict, Any, cast
 
 import requests
@@ -38,6 +39,23 @@ _TEMPO_LIMITE_PR_PADRAO: int = 60
 class ErroSubmissao(Exception):
     """Exceção levantada em falhas no processo de submissão de sugestões."""
     pass
+
+
+class StatusSincronizacao(Enum):
+    """Representa os possíveis estados do processo de sincronização remota."""
+    ATUALIZADO = "atualizado"
+    MESCLADO = "mesclado"
+    CONFLITO = "conflito"
+    ERRO = "erro"
+
+
+@dataclass
+class ResultadoSincronizacao:
+    """Representa o resultado da operação de sincronização remota de uma PR."""
+    status: StatusSincronizacao
+    mensagem: str = ""
+    arquivos_conflito: list[str] = field(default_factory=list)
+    commit_merge: Optional[str] = None
 
 
 @dataclass
@@ -557,5 +575,221 @@ class ServicoSubmissao:
             pr_url=dados_pr.get("pr_url"),
             nome_branch=nome_branch,
             mensagem="Proposta de mudança publicada com sucesso!",
+        )
+
+    def verificar_atualizacoes_remotas_pr(
+        self,
+        id_croqui: str,
+        nome_branch: str,
+        nome_remote: str = "origin",
+        callbacks: Optional[pygit2.RemoteCallbacks] = None,
+    ) -> tuple[bool, Optional[str]]:
+        """
+        Executa fetch da branch remota e compara com a referência local.
+        Retorna (tem_atualizacoes, id_commit_remoto).
+        """
+        repo = pygit2.Repository(str(self.caminho_repo_base))
+        try:
+            remote = repo.remotes[nome_remote]
+        except (KeyError, ValueError):
+            raise ErroSubmissao(f"Remote '{nome_remote}' não configurado no repositório base.")
+
+        refspec = f"+refs/heads/{nome_branch}:refs/remotes/{nome_remote}/{nome_branch}"
+        try:
+            remote.fetch([refspec], callbacks=callbacks)
+        except Exception as e:
+            raise ErroSubmissao(
+                f"Falha ao buscar atualizações remotas para a branch {nome_branch}:\n{e}"
+            )
+
+        ref_remota_nome = f"refs/remotes/{nome_remote}/{nome_branch}"
+        try:
+            ref_remota = repo.lookup_reference(ref_remota_nome)
+        except (KeyError, ValueError):
+            return False, None
+
+        commit_remoto = cast(pygit2.Commit, ref_remota.peel(pygit2.Commit))
+        ref_local_nome = f"refs/heads/{nome_branch}"
+
+        try:
+            ref_local = repo.lookup_reference(ref_local_nome)
+            commit_local = cast(pygit2.Commit, ref_local.peel(pygit2.Commit))
+        except (KeyError, ValueError):
+            return True, str(commit_remoto.id)
+
+        if commit_local.id == commit_remoto.id:
+            return False, str(commit_remoto.id)
+
+        if repo.descendant_of(commit_local.id, commit_remoto.id):
+            return False, str(commit_remoto.id)
+
+        return True, str(commit_remoto.id)
+
+    def sincronizar_pr_remota(
+        self,
+        id_croqui: str,
+        nome_branch: str,
+        caminho_database_croqui: Path,
+        nome_remote: str = "origin",
+        sessao: Optional[SessaoUsuario] = None,
+        callbacks: Optional[pygit2.RemoteCallbacks] = None,
+    ) -> ResultadoSincronizacao:
+        """
+        Verifica novidades remotas na branch da PR e aplica mesclagem automática
+        (fast-forward ou 3-way merge sem conflitos) na árvore de trabalho local.
+        """
+        tem_novidades, commit_remoto_sha = self.verificar_atualizacoes_remotas_pr(
+            id_croqui=id_croqui,
+            nome_branch=nome_branch,
+            nome_remote=nome_remote,
+            callbacks=callbacks,
+        )
+
+        if not tem_novidades:
+            return ResultadoSincronizacao(
+                status=StatusSincronizacao.ATUALIZADO,
+                mensagem="O croqui já está atualizado com a versão remota.",
+                commit_merge=commit_remoto_sha,
+            )
+
+        repo = pygit2.Repository(str(self.caminho_repo_base))
+        ref_remota_nome = f"refs/remotes/{nome_remote}/{nome_branch}"
+        commit_remoto = cast(pygit2.Commit, repo.lookup_reference(ref_remota_nome).peel(pygit2.Commit))
+
+        ref_local_nome = f"refs/heads/{nome_branch}"
+        caminho_db_repo = self.caminho_repo_base / "database" / id_croqui
+
+        try:
+            ref_local = repo.lookup_reference(ref_local_nome)
+            commit_local = cast(pygit2.Commit, ref_local.peel(pygit2.Commit))
+        except (KeyError, ValueError):
+            branch_local = repo.create_branch(nome_branch, commit_remoto)
+            repo.checkout(branch_local, strategy=pygit2.enums.CheckoutStrategy.FORCE)
+            if caminho_db_repo.is_dir():
+                self._espelhar_diretorio(caminho_db_repo, caminho_database_croqui)
+            return ResultadoSincronizacao(
+                status=StatusSincronizacao.MESCLADO,
+                mensagem="Branch remota sincronizada com sucesso.",
+                commit_merge=str(commit_remoto.id),
+            )
+
+        if repo.descendant_of(commit_remoto.id, commit_local.id):
+            ref_local.set_target(commit_remoto.id)
+            repo.checkout(ref_local, strategy=pygit2.enums.CheckoutStrategy.FORCE)
+            if caminho_db_repo.is_dir():
+                self._espelhar_diretorio(caminho_db_repo, caminho_database_croqui)
+            return ResultadoSincronizacao(
+                status=StatusSincronizacao.MESCLADO,
+                mensagem="Atualizações remotas aplicadas com sucesso (fast-forward).",
+                commit_merge=str(commit_remoto.id),
+            )
+
+        idx = repo.merge_commits(commit_local, commit_remoto, favor=pygit2.enums.MergeFavor.NORMAL)
+        if idx.conflicts is not None:
+            arquivos_conflito: list[str] = []
+            for tupla in idx.conflicts:
+                for entry in tupla:
+                    if entry is not None and getattr(entry, "path", None):
+                        if entry.path not in arquivos_conflito:
+                            arquivos_conflito.append(entry.path)
+            return ResultadoSincronizacao(
+                status=StatusSincronizacao.CONFLITO,
+                mensagem="Conflitos detectados entre as alterações locais e remotas.",
+                arquivos_conflito=arquivos_conflito,
+            )
+
+        tree_merge = idx.write_tree(repo)
+        autor = self._obter_autor_assinatura(repo, sessao)
+        mensagem_commit = (
+            f"merge({id_croqui}): sincronizacao com branch remota {nome_branch}\n\n"
+            f"Signed-off-by: {autor.name} <{autor.email}>"
+        )
+        commit_merge_oid = repo.create_commit(
+            f"refs/heads/{nome_branch}",
+            autor,
+            autor,
+            mensagem_commit,
+            tree_merge,
+            [commit_local.id, commit_remoto.id],
+        )
+        repo.checkout(f"refs/heads/{nome_branch}", strategy=pygit2.enums.CheckoutStrategy.FORCE)
+        if caminho_db_repo.is_dir():
+            self._espelhar_diretorio(caminho_db_repo, caminho_database_croqui)
+        return ResultadoSincronizacao(
+            status=StatusSincronizacao.MESCLADO,
+            mensagem="Alterações remotas mescladas com sucesso.",
+            commit_merge=str(commit_merge_oid),
+        )
+
+    def _obter_autor_assinatura(
+        self, repo: pygit2.Repository, sessao: Optional[SessaoUsuario]
+    ) -> pygit2.Signature:
+        """Obtém a assinatura do autor a partir da sessão ativa ou da configuração local do Git."""
+        if sessao and sessao.nome_completo and sessao.email:
+            return pygit2.Signature(sessao.nome_completo, sessao.email)
+
+        nome = "Aresta Editor"
+        email = "editor@aresta.local"
+        try:
+            nome = repo.config["user.name"]
+        except (KeyError, ValueError):
+            pass
+        try:
+            email = repo.config["user.email"]
+        except (KeyError, ValueError):
+            pass
+        return pygit2.Signature(nome, email)
+
+    def resolver_conflito_pr(
+        self,
+        id_croqui: str,
+        nome_branch: str,
+        caminho_database_croqui: Path,
+        manter_local: bool,
+        nome_remote: str = "origin",
+        sessao: Optional[SessaoUsuario] = None,
+    ) -> ResultadoSincronizacao:
+        """
+        Resolve conflito de sincronização criando commit de merge com 2 pais,
+        escolhendo explicitamente a versão local ou remota (favor=OURS vs THEIRS).
+        """
+        repo = pygit2.Repository(str(self.caminho_repo_base))
+        ref_local = repo.lookup_reference(f"refs/heads/{nome_branch}")
+        commit_local = cast(pygit2.Commit, ref_local.peel(pygit2.Commit))
+
+        ref_remota = repo.lookup_reference(f"refs/remotes/{nome_remote}/{nome_branch}")
+        commit_remoto = cast(pygit2.Commit, ref_remota.peel(pygit2.Commit))
+
+        favor = (
+            pygit2.enums.MergeFavor.OURS
+            if manter_local
+            else pygit2.enums.MergeFavor.THEIRS
+        )
+        idx = repo.merge_commits(commit_local, commit_remoto, favor=favor)
+        tree_merge = idx.write_tree(repo)
+
+        autor = self._obter_autor_assinatura(repo, sessao)
+        resolucao = "mantendo versao local" if manter_local else "adotando versao remota"
+        mensagem_commit = (
+            f"merge({id_croqui}): resolucao de conflito {resolucao}\n\n"
+            f"Signed-off-by: {autor.name} <{autor.email}>"
+        )
+        commit_merge_oid = repo.create_commit(
+            f"refs/heads/{nome_branch}",
+            autor,
+            autor,
+            mensagem_commit,
+            tree_merge,
+            [commit_local.id, commit_remoto.id],
+        )
+        repo.checkout(f"refs/heads/{nome_branch}", strategy=pygit2.enums.CheckoutStrategy.FORCE)
+        caminho_db_repo = self.caminho_repo_base / "database" / id_croqui
+        if caminho_db_repo.is_dir():
+            self._espelhar_diretorio(caminho_db_repo, caminho_database_croqui)
+
+        return ResultadoSincronizacao(
+            status=StatusSincronizacao.MESCLADO,
+            mensagem=f"Conflito resolvido ({resolucao}).",
+            commit_merge=str(commit_merge_oid),
         )
 

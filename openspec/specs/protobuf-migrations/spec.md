@@ -1,10 +1,10 @@
 # protobuf-migrations Specification
 
 ## Purpose
-TBD - created by archiving change protobuf-migrations-botoes. Update Purpose after archive.
+Define o mecanismo de versionamento sequencial e execução de migrações determinísticas offline para os dados do croqui.
 ## Requirements
 ### Requirement: Motor de Migração Sequencial
-O sistema SHALL disponibilizar um motor de migração offline que identifica, ordena e executa scripts de migração de forma sequencial em cada croqui desatualizado. A execução deve ocorrer automaticamente em duas situações: no deploy/compilação e ao abrir um croqui no Editor.
+O sistema SHALL disponibilizar um motor de migração offline que identifica, ordena e executa scripts de migração de forma sequencial em cada croqui desatualizado. A execução deve ocorrer automaticamente em duas situações: no deploy/compilação e ao abrir um croqui no Editor. A localização dos scripts de migração e a consulta de versão máxima SHALL funcionar de maneira resiliente tanto em ambiente de desenvolvimento quanto em distribuições compiladas/empacotadas (PyInstaller).
 
 #### Scenario: Execução de migrações pendentes
 - **WHEN** um croqui com `ultima_migracao` antiga é processado
@@ -14,6 +14,11 @@ O sistema SHALL disponibilizar um motor de migração offline que identifica, or
 #### Scenario: Ignorar migrações já aplicadas
 - **WHEN** todos os scripts em `/migracoes/` têm números menores ou iguais à `ultima_migracao` registrada no croqui
 - **THEN** o motor SHALL ignorar a execução desses scripts e prosseguir com o fluxo normal
+
+#### Scenario: Resolução de scripts em ambiente empacotado
+- **WHEN** o motor de migração ou a consulta de versão máxima for invocada dentro de um aplicativo empacotado
+- **THEN** o sistema SHALL localizar os scripts embutidos no pacote ou realizar fallback seguro para o diretório de migrações do repositório base sincronizado localmente
+- **AND** retornar a versão correta da última migração sem retornar 0 indevidamente
 
 ### Requirement: Versionamento por Números Sequenciais
 Toda migração SHALL ser identificada unicamente por um número sequencial de 4 dígitos prefixado no nome do seu arquivo script (ex: `0001_descricao.py`).

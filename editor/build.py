@@ -488,40 +488,34 @@ def orquestrar_build_flatpak(
     bundle_saida = dist_dir / f"EditorAresta-{versao_app}.flatpak"
 
     caminho_deps = manifesto.parent / "pypi-dependencies.json"
-    deve_limpar_deps = False
     if not caminho_deps.exists():
         gerar_manifesto_dependencias_flatpak(caminho_saida=caminho_deps)
-        deve_limpar_deps = True
 
-    try:
-        print(f"Compilando Flatpak a partir de {manifesto}...")
-        subprocess.run(
-            [
-                executavel_builder,
-                "--force-clean",
-                "--user",
-                "--install-deps-from=flathub",
-                "--repo=" + str(diretorio_repo),
-                str(diretorio_build),
-                str(manifesto),
-            ],
-            check=True,
-        )
+    print(f"Compilando Flatpak a partir de {manifesto}...")
+    subprocess.run(
+        [
+            executavel_builder,
+            "--force-clean",
+            "--user",
+            "--install-deps-from=flathub",
+            "--repo=" + str(diretorio_repo),
+            str(diretorio_build),
+            str(manifesto),
+        ],
+        check=True,
+    )
 
-        executavel_flatpak = shutil.which("flatpak") or "flatpak"
-        subprocess.run(
-            [
-                executavel_flatpak,
-                "build-bundle",
-                str(diretorio_repo),
-                str(bundle_saida),
-                "com.arestaclimb.Editor",
-            ],
-            check=True,
-        )
-    finally:
-        if deve_limpar_deps and caminho_deps.exists():
-            caminho_deps.unlink()
+    executavel_flatpak = shutil.which("flatpak") or "flatpak"
+    subprocess.run(
+        [
+            executavel_flatpak,
+            "build-bundle",
+            str(diretorio_repo),
+            str(bundle_saida),
+            "com.arestaclimb.Editor",
+        ],
+        check=True,
+    )
 
     print(f"Bundle Flatpak gerado com sucesso: {bundle_saida}")
     return bundle_saida

@@ -39,7 +39,8 @@ class Icones:
         "lixeira": "fa5s.trash-alt",
         "check": "fa5s.check",
         "lapis": "fa5s.pencil-alt",
-        "inverter": "fa5s.exchange-alt"
+        "inverter": "fa5s.exchange-alt",
+        "sincronizar": "fa5s.sync-alt"
     }
 
     # Estilo CSS para botão de remoção discreto (ghost icon)
