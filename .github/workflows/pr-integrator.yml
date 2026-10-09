@@ -37,6 +37,55 @@ jobs:
           echo "base_branch=$BASE_BRANCH" >> $GITHUB_OUTPUT
           echo "pr_number=$PR_NUMBER" >> $GITHUB_OUTPUT
 
+      - name: Aguardar e Validar Checagens do Pull Request
+        env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+        run: |
+          PR_ID="${{ steps.pr-info.outputs.pr_number }}"
+          echo "Aguardando e validando todas as checagens ativas do PR #$PR_ID..."
+
+          CHECAGENS_APROVADAS=false
+          for i in {1..72}; do
+            CHECKS_JSON=$(gh pr checks "$PR_ID" --repo "${{ github.repository }}" --json name,bucket,state 2>/dev/null || echo "[]")
+            TOTAL=$(echo "$CHECKS_JSON" | jq 'length' 2>/dev/null || echo 0)
+
+            if [ "$TOTAL" -eq 0 ]; then
+              echo "Tentativa $i/72: Nenhuma checagem encontrada ainda. Aguardando 10s..."
+              sleep 10
+              continue
+            fi
+
+            # Inspeciona falhas ou cancelamentos (fail-fast)
+            FALHAS=$(echo "$CHECKS_JSON" | jq -r '.[] | select(.bucket == "fail" or .bucket == "cancel") | "\(.name) (bucket=\(.bucket), state=\(.state))"')
+            if [ -n "$FALHAS" ]; then
+              echo "❌ ERRO: Checagens com falha ou canceladas detectadas no PR #$PR_ID:"
+              echo "$FALHAS"
+              echo "Abortando execução do integrador (fail-fast)."
+              exit 1
+            fi
+
+            # Inspeciona se ainda há checagens pendentes
+            PENDENTES=$(echo "$CHECKS_JSON" | jq -r '.[] | select(.bucket == "pending") | "\(.name)"')
+            if [ -z "$PENDENTES" ]; then
+              echo "✅ Todas as checagens ativas ($TOTAL) foram concluídas com sucesso!"
+              echo "$CHECKS_JSON" | jq -r '.[] | " - \(.name): \(.bucket) (\(.state))"'
+              CHECAGENS_APROVADAS=true
+              break
+            fi
+
+            echo "Tentativa $i/72: Aguardando checagens pendentes no PR #$PR_ID:"
+            echo "$PENDENTES" | while read -r nome; do
+              [ -n "$nome" ] && echo "  - $nome (pendente)"
+            done
+
+            sleep 10
+          done
+
+          if [ "$CHECAGENS_APROVADAS" != "true" ]; then
+            echo "❌ ERRO: Tempo limite esgotado (12 minutos) aguardando checagens do PR #$PR_ID."
+            exit 1
+          fi
+
       - name: Checkout do Repositório
         uses: actions/checkout@v7
         with:
@@ -85,7 +134,7 @@ jobs:
           fi
           git config user.name "$BOT_NAME"
           git config user.email "$BOT_EMAIL"
-          git add generated/
+          git add generated/ database/
           git commit -s -m "chore: compilação automática para deploy [skip ci]" || echo "Nenhuma alteração para commitar"
           git push
 

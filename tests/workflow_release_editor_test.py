@@ -312,5 +312,19 @@ class TestWorkflowReleaseEditor(unittest.TestCase):
         run_cmd = passo_tarball.get("run", "")
         self.assertIn("--versao", run_cmd)
 
+    def test_subactions_usam_inputs_versao_em_vez_de_steps_versao(self) -> None:
+        """
+        Garante que os sub-workflows reutilizáveis (Windows, macOS, Linux)
+        referenciam inputs.versao e não o inexistente steps.versao.outputs.versao,
+        prevenindo geração de manifesto AppxManifest com Version vazia.
+        """
+        for caminho in [self.windows_path, self.macos_path, self.linux_path]:
+            texto = caminho.read_text(encoding="utf-8")
+            self.assertNotIn(
+                "steps.versao",
+                texto,
+                f"O sub-workflow {caminho.name} referencia 'steps.versao' inexistente. Deve usar 'inputs.versao'.",
+            )
+
 
 

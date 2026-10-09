@@ -103,7 +103,11 @@ jobs:
           Copy-Item "editor\msix_beta\AppxManifest.xml" -Destination $msixBetaDir
           Copy-Item "editor\msix_beta\Assets" -Destination "$msixBetaDir\Assets" -Recurse
 
-          $version = "${{ steps.versao.outputs.versao }}"
+          $version = "${{ inputs.versao }}"
+          if (-not $version) {
+              Write-Error "A versão de lançamento não foi informada ou está vazia."
+              exit 1
+          }
           if ($version -match "^\d+\.\d+\.\d+$") {
               $version = "$version.0"
           }
@@ -160,7 +164,7 @@ jobs:
           CLOUDFLARE_CACHE_PURGE_API_TOKEN: ${{ secrets.CLOUDFLARE_CACHE_PURGE_API_TOKEN }}
           PYTHONPATH: .
         run: |
-          $cliArgs = @("--versao", "${{ steps.versao.outputs.versao }}", "--msix", "EditorArestaBeta.msix")
+          $cliArgs = @("--versao", "${{ inputs.versao }}", "--msix", "EditorArestaBeta.msix")
           if (Test-Path "cert_beta.cer") {
               $cliArgs += @("--cer", "cert_beta.cer")
           }
@@ -194,7 +198,11 @@ jobs:
           Copy-Item "editor\msix\AppxManifest.xml" -Destination $msixDir
           Copy-Item "editor\msix\Assets" -Destination "$msixDir\Assets" -Recurse
           
-          $version = "${{ steps.versao.outputs.versao }}"
+          $version = "${{ inputs.versao }}"
+          if (-not $version) {
+              Write-Error "A versão de lançamento não foi informada ou está vazia."
+              exit 1
+          }
           if ($version -match "^\d+\.\d+\.\d+$") {
               $version = "$version.0"
           }
