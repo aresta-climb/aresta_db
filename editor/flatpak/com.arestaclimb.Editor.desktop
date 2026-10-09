@@ -2,10 +2,10 @@
 Type=Application
 Name=Editor Aresta
 GenericName=Editor de Croquis de Escalada
-Comment=Editor e gerenciador de croquis de escalada Aresta
+Comment=Editor e gerenciador de croquis de escalada publicados no Aresta Climb
 Exec=EditorAresta
 Icon=com.arestaclimb.Editor
 Terminal=false
 Categories=Graphics;Geography;Sports;
 StartupWMClass=com.arestaclimb.Editor
-Keywords=escalada;croquis;aresta;climbing;topo;
+Keywords=escalada;croquis;aresta;climb;climbing;topo;
