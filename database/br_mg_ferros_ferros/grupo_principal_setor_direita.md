@@ -394,8 +394,8 @@ escaladas:
     - Gustavo "Xaxá" Carrozzino
     - Carlos Alberto Carrozzino
     data_abertura: '2008-05-31'
-    descricao: Ótima via que representou a primeira conquista conjunta entre pai e filho, em Ferros, no caso Carlos e 
-      Gustavo.
+    descricao: Ótima via que representou a primeira conquista conjunta entre pai e
+      filho, em Ferros, no caso Carlos e Gustavo.
 - uid: os0n0Km0vjVzkm
   via_multiplas_enfiadas:
     nome: Pente Frio
@@ -409,8 +409,8 @@ escaladas:
     - Tonico Magalhães
     - Jeferson Costa
     data_abertura: '2015-04-05'
-    descricao: Via com 13 grampos de ½, conquistada em homenagem ao amigo Tchassa, que até a data da conquista, ainda 
-      não havia conseguido conhecer o polo.
+    descricao: Via com 13 grampos de ½, conquistada em homenagem ao amigo Tchassa,
+      que até a data da conquista, ainda não havia conseguido conhecer o polo.
 - uid: rI8Obcal0VokZO
   via_esportiva:
     nome: El Barrigón
@@ -435,7 +435,8 @@ escaladas:
     - Júlio Diamantino
     - '"Thunder"'
     data_abertura: '2006-10-29'
-    descricao: Via que se caracteriza por ter sido conquistada inteiramente na mão, sem o uso de furadeira.
+    descricao: Via que se caracteriza por ter sido conquistada inteiramente na mão,
+      sem o uso de furadeira.
 - uid: 29LV4nwRx1EFcY
   via_multiplas_enfiadas:
     nome: O Tempo e o Vento
@@ -450,9 +451,10 @@ escaladas:
     - Pedro Bugim
     - Maria Fernanda Patrício
     data_abertura: '2014-03-01'
-    descricao: Segue uma parede relativamente vertical em sua primeira metade, sempre em boas agarras e com boa 
-      proteção. Após a primeira parada, a inclinação diminui, assim como as proteções. Utiliza o último grampo da “Lobos
-      do Caraça”, antes da fácil sequência final.
+    descricao: Segue uma parede relativamente vertical em sua primeira metade, sempre
+      em boas agarras e com boa proteção. Após a primeira parada, a inclinação diminui,
+      assim como as proteções. Utiliza o último grampo da “Lobos do Caraça”, antes
+      da fácil sequência final.
     enfiadas:
     - via_esportiva:
         nome: 1ª Enfiada (P1)
@@ -482,9 +484,10 @@ escaladas:
     - Glesse Gripp
     - Celso Ferreira Gomes
     data_abertura: '2011-05-15'
-    descricao: Última das vias "longas" neste setor, antes das vias com apenas uma enfiada ou menos. Em sua base existe 
-      o esqueleto de um burro que caiu do topo da parede, originando assim, parte do nome da via. O capacete da Glesse 
-      teve o mesmo destino do burro.
+    descricao: Última das vias "longas" neste setor, antes das vias com apenas uma
+      enfiada ou menos. Em sua base existe o esqueleto de um burro que caiu do topo
+      da parede, originando assim, parte do nome da via. O capacete da Glesse teve
+      o mesmo destino do burro.
 - uid: qDFuqX1AiaHpM8
   via_esportiva:
     nome: Tá Bão
@@ -495,8 +498,9 @@ escaladas:
     - Pedro Bugim
     - Maria Fernanda Patrício
     data_abertura: '2012-02-19'
-    descricao: Conta com algumas passadas delicadas em sua metade superior, com um lance espetacular em pequenos 
-      buracos, pouco antes de juntar com a via "Amor, Meu Grande Amor".
+    descricao: Conta com algumas passadas delicadas em sua metade superior, com um
+      lance espetacular em pequenos buracos, pouco antes de juntar com a via "Amor,
+      Meu Grande Amor".
 - uid: K05yKYTFzBgHr2
   via_movel:
     nome: Amor, Meu Grande Amor
@@ -511,8 +515,8 @@ escaladas:
     - Tássia Carrozzino
     - Maria Fernanda Patrício
     data_abertura: '2012-01-21'
-    descricao: Via iniciada em um belo diedro em móvel, com peças pequenas e médias. Evolui para lances constantes em 
-      agarras, protegidos por grampos de ½.
+    descricao: Via iniciada em um belo diedro em móvel, com peças pequenas e médias.
+      Evolui para lances constantes em agarras, protegidos por grampos de ½.
 - uid: dv58WrzcTNBVTB
   via_movel:
     nome: Rapidinha no Escurinho
@@ -527,9 +531,10 @@ escaladas:
     - Gustavo "Xaxá" Carrozzino
     - Tássia Carrozzino
     data_abertura: '2012-01-21'
-    descricao: Via conquistada em pouco mais de 10 minutos, já à noite! Possui passadas constantes de 4º grau, com 
-      grampeação justa e uma passada em móvel, com peças pequenas. A passada em móvel não é obrigatória, por estar já 
-      bem alta, sem risco de queda na base, contudo, uma queda neste ponto pode dar um bom susto.
+    descricao: Via conquistada em pouco mais de 10 minutos, já à noite! Possui passadas
+      constantes de 4º grau, com grampeação justa e uma passada em móvel, com peças
+      pequenas. A passada em móvel não é obrigatória, por estar já bem alta, sem risco
+      de queda na base, contudo, uma queda neste ponto pode dar um bom susto.
 - uid: 3RkCzXVVt7h3yt
   via_esportiva:
     nome: Pelanca
@@ -541,8 +546,8 @@ escaladas:
     - Pedro Bugim
     - Maria Fernanda Patrício
     data_abertura: '2012-02-19'
-    descricao: Possui saída bem delicada, principalmente pelas agarras que ainda estão por quebrar. Segue por alguns 
-      poucos cristais e lances de aderência até o topo.
+    descricao: Possui saída bem delicada, principalmente pelas agarras que ainda estão
+      por quebrar. Segue por alguns poucos cristais e lances de aderência até o topo.
 - uid: YEuAYl4yn7OAZ0
   via_esportiva:
     nome: Flor da Pele
@@ -579,8 +584,8 @@ escaladas:
     - Celso Ferreira Gomes
     - Glesse Gripp
     data_abertura: '2011-12-09'
-    descricao: Inicia em lances mais fáceis, evoluindo para passadas em aderência mais delicada. Termina abaixo de um 
-      grande teto, coberto por vegetação.
+    descricao: Inicia em lances mais fáceis, evoluindo para passadas em aderência
+      mais delicada. Termina abaixo de um grande teto, coberto por vegetação.
 - uid: QxAbpnm7atdfcm
   via_esportiva:
     nome: Pelinha
@@ -591,8 +596,9 @@ escaladas:
     - Maria Fernanda Patrício
     - Pedro Bugim
     data_abertura: '2012-02-20'
-    descricao: Apesar de tecnicamente fácil, esta via possui grampeação longa, conferindo ao escalador uma boa dose de 
-      adrenalina caso não esteja acostumado com proteções distantes.
+    descricao: Apesar de tecnicamente fácil, esta via possui grampeação longa, conferindo
+      ao escalador uma boa dose de adrenalina caso não esteja acostumado com proteções
+      distantes.
 - uid: Z3YMtD43WuhcKt
   via_esportiva:
     nome: Cutícula
@@ -603,7 +609,8 @@ escaladas:
     - Pedro Bugim
     - Maria Fernanda Patrício
     data_abertura: '2012-02-20'
-    descricao: Semelhante à via anterior possui grampeação longa e lances simplórios, porém, um pouco mais curta.
+    descricao: Semelhante à via anterior possui grampeação longa e lances simplórios,
+      porém, um pouco mais curta.
 caminho_imagem_capa: imagens/grupo_principal_setor_direita_p0_i1.webp
 ---
 

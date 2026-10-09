@@ -134,8 +134,9 @@ escaladas:
     - Celso Ferreira Gomes
     - Glesse Gripp
     data_abertura: '2011-06-25'
-    descricao: Conta com uma enfiada cheia, possuindo sua primeira e única parada dupla pouco acima da P1 da via “São 
-      Lourenço”, sendo possível prosseguir pela mesma até o topo da parede.
+    descricao: Conta com uma enfiada cheia, possuindo sua primeira e única parada
+      dupla pouco acima da P1 da via “São Lourenço”, sendo possível prosseguir pela
+      mesma até o topo da parede.
   mapas:
   - caminho_imagem_mapa: imagens/grupo_aderencias_setor_de_cima_p4_i2.webp
     largura_mapa: 1037
@@ -152,8 +153,8 @@ escaladas:
     - Gustavo "Xaxá" Carrozzino
     - Carlos Carrozzino
     data_abertura: '2007-12-09'
-    descricao: Via conquistada em homenagem ao grande escalador carioca Jair Lourenço, por coincidência, no dia de seu 
-      falecimento.
+    descricao: Via conquistada em homenagem ao grande escalador carioca Jair Lourenço,
+      por coincidência, no dia de seu falecimento.
 - uid: QD0PgLPU3Tnj2j
   via_esportiva:
     nome: Carnaferros
@@ -167,9 +168,11 @@ escaladas:
     - Pedro Bugim
     - Maria Fernanda Patrício
     data_abertura: '2015-02-16'
-    descricao: Inicia imediatamente à direita da base da “São Lourenço”. Via com boas passadas em aderência e regletes, 
-      contando com um crux bem definido, em aderência. Sua parada final fica quase na mesma altura da P1 do "Pr. São 
-      Lourenço", por onde pode-se tocar até a vegetação final da parede. Atenção às lacas soltas chegando na P1!
+    descricao: Inicia imediatamente à direita da base da “São Lourenço”. Via com boas
+      passadas em aderência e regletes, contando com um crux bem definido, em aderência.
+      Sua parada final fica quase na mesma altura da P1 do "Pr. São Lourenço", por
+      onde pode-se tocar até a vegetação final da parede. Atenção às lacas soltas
+      chegando na P1!
   mapas:
   - caminho_imagem_mapa: imagens/grupo_aderencias_setor_de_cima_p4_i1.webp
     largura_mapa: 1078

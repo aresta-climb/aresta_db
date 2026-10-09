@@ -74,7 +74,8 @@ escaladas:
     - Juliano Magalhães
     - Tonico Magalhães
     data_abertura: '2010-12-25'
-    descricao: Via totalmente protegida em materiais móveis, com grampo no topo para rapel / top-rope.
+    descricao: Via totalmente protegida em materiais móveis, com grampo no topo para
+      rapel / top-rope.
 - uid: wS3X9tphp19KxX
   via_movel:
     nome: Fissura Sopa de Pedra
@@ -85,7 +86,8 @@ escaladas:
     - Juliano Magalhães
     - Tonico Magalhães
     data_abertura: '2010-12-25'
-    descricao: Via totalmente protegida em materiais móveis, com grampo no topo para rapel / top-rope.
+    descricao: Via totalmente protegida em materiais móveis, com grampo no topo para
+      rapel / top-rope.
 - uid: RNSq6XYNdaMDiv
   via_esportiva:
     nome: Até o Osso
@@ -97,7 +99,8 @@ escaladas:
     - Juliano Magalhães
     - Tonico Magalhães
     data_abertura: '2010-12-25'
-    descricao: Via bem protegida em grampos, com grampo no topo para rapel / top-rope. Inicia-se pela árvore da base.
+    descricao: Via bem protegida em grampos, com grampo no topo para rapel / top-rope.
+      Inicia-se pela árvore da base.
 - uid: oW6naaQvbbjQhH
   via_movel:
     nome: Diedro Caboclo D'Água
@@ -109,7 +112,8 @@ escaladas:
     - Juliano Magalhães
     - Tonico Magalhães
     data_abertura: '2010-12-25'
-    descricao: Via mista, iniciada em móvel no diedro, progredindo para os lances mais fortes, protegidos em grampos.
+    descricao: Via mista, iniciada em móvel no diedro, progredindo para os lances
+      mais fortes, protegidos em grampos.
 - uid: jt5LdLeOzZgwem
   via_esportiva:
     nome: Balangandã
@@ -121,7 +125,8 @@ escaladas:
     - Juliano Magalhães
     - Tonico Magalhães
     data_abertura: '2010-12-25'
-    descricao: Via totalmente protegida em grampos, com grampo no topo, para rapel / top-rope.
+    descricao: Via totalmente protegida em grampos, com grampo no topo, para rapel
+      / top-rope.
 - uid: 0S56NGBaCMVH7P
   via_esportiva:
     nome: Pé de Chinelo
@@ -133,7 +138,8 @@ escaladas:
     - Juliano Magalhães
     - Tonico Magalhães
     data_abertura: '2010-12-25'
-    descricao: Via totalmente protegida em grampos, com grampo no topo, para rapel / top-rope.
+    descricao: Via totalmente protegida em grampos, com grampo no topo, para rapel
+      / top-rope.
 caminho_imagem_capa: imagens/grupo_pedra_do_neri_setor_aderencias_p1_i1.webp
 ---
 

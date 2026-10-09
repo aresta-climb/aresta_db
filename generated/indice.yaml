@@ -111,8 +111,11 @@ croquis:
 - id: br_mg_caete_monte_alvao
   croqui_uid: hyRUkm1gfZRwSw
   nome: Monte Alvão - Caeté
-  descricao: |
-    O Alto Monte Alvão, localizado em Caeté, MG, é uma das áreas de escalada mais tradicionais e belas da região, oferecendo vias de diversos estilos e dificuldades em quartzito de alta qualidade.
+  descricao: 'O Alto Monte Alvão, localizado em Caeté, MG, é uma das áreas de escalada
+    mais tradicionais e belas da região, oferecendo vias de diversos estilos e dificuldades
+    em quartzito de alta qualidade.
+
+    '
   caminho_relativo: br_mg_caete_monte_alvao/compilado.binarypb
   checksum_sha256_croqui: 537650e3c2624b7ea477423d4e2f56ebac50535c7164ffa2cb0b24769434f2be
   checksum_sha256_thumbnail: 03f79ad397717faec98f8288a15d55635b103c61f9b2be5cf92a56b1d804df95
@@ -346,9 +349,13 @@ croquis:
 - id: br_mg_paraisopolis_pedra_da_divisa
   croqui_uid: qsh4FUA8apmN3B
   nome: Pedra da Divisa - Face MG
-  descricao: |
-    Guia de escalada da face mineira da Pedra da Divisa, em Paraisópolis, MG.
-    Contém vias esportivas e móveis em diversos setores como Cangaço, Ditados, Cervejas, Questão de Tempo e Hospício.
+  descricao: 'Guia de escalada da face mineira da Pedra da Divisa, em Paraisópolis,
+    MG.
+
+    Contém vias esportivas e móveis em diversos setores como Cangaço, Ditados, Cervejas,
+    Questão de Tempo e Hospício.
+
+    '
   caminho_relativo: br_mg_paraisopolis_pedra_da_divisa/compilado.binarypb
   checksum_sha256_croqui: 7d242d53f98284cfe8054d7d97f81ab84a943685d322055d3728d34577a101a3
   checksum_sha256_thumbnail: be6561976a3ef2c0f957fc3c72cdb7f0572b912d2d1e74ed1aa23fa1a8d0ebbd

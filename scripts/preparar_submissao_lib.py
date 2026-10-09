@@ -1247,6 +1247,9 @@ def validar_referencias_mapa(croqui_data: Dict[str, Any]) -> List[str]:
         nomes_escaladas: Set[str] = set()
         nomes_setores: Set[str] = set()
         nomes_grupos: Set[str] = set()
+        uids_escaladas: Set[str] = set()
+        uids_setores: Set[str] = set()
+        uids_grupos: Set[str] = set()
         
         mapas_para_validar: List[Tuple[str, List[Any]]] = []
         
@@ -1263,28 +1266,31 @@ def validar_referencias_mapa(croqui_data: Dict[str, Any]) -> List[str]:
             for esc in escaladas_lista:
                 if not esc or not isinstance(esc, dict):
                     continue
-                tipo_via = [k for k in esc.keys() if k not in ("betas", "mapas")]
-                tipo_via_nome = tipo_via[0] if tipo_via else None
-                via_nome = "Sem Nome"
-                if tipo_via_nome:
-                    via = esc[tipo_via_nome]
-                    if isinstance(via, dict):
-                        via_nome = via.get("nome", "Sem Nome")
-                        if tipo_via_nome == "via_multiplas_enfiadas" and "enfiadas" in via:
-                            nomes_escaladas.add(via_nome)
-                            for e in via["enfiadas"]:
-                                tipo_e = [k for k in e.keys() if k not in ("betas", "mapas")] if e else []
-                                if tipo_e and isinstance(e[tipo_e[0]], dict):
-                                    nomes_escaladas.add(e[tipo_e[0]].get("nome", "Sem Nome"))
-                        else:
-                            nomes_escaladas.add(via_nome)
+                if esc.get("uid"):
+                    uids_escaladas.add(str(esc["uid"]).strip())
+
+                via_nome = _extrair_nome_escalada(esc)
+                if not via_nome:
+                    tipo_via = [k for k in esc.keys() if k not in ("uid", "betas", "mapas")]
+                    tipo_via_nome = tipo_via[0] if tipo_via else None
+                    if tipo_via_nome and isinstance(esc[tipo_via_nome], dict):
+                        via_nome = esc[tipo_via_nome].get("nome", "Sem Nome")
                     elif tipo_via_nome == "nome":
-                        via_nome = str(via)
-                        nomes_escaladas.add(via_nome)
+                        via_nome = str(esc[tipo_via_nome])
                     else:
-                        nomes_escaladas.add(via_nome)
-                else:
-                    nomes_escaladas.add(via_nome)
+                        via_nome = "Sem Nome"
+
+                nomes_escaladas.add(via_nome)
+
+                if "via_multiplas_enfiadas" in esc and isinstance(esc["via_multiplas_enfiadas"], dict):
+                    enfiadas = esc["via_multiplas_enfiadas"].get("enfiadas", [])
+                    for e in enfiadas:
+                        if isinstance(e, dict):
+                            if e.get("uid"):
+                                uids_escaladas.add(str(e["uid"]).strip())
+                            nome_enf = _extrair_nome_escalada(e)
+                            if nome_enf:
+                                nomes_escaladas.add(nome_enf)
 
                 # Inclui mapas da escalada na validação
                 if "mapas" in esc and isinstance(esc["mapas"], list):
@@ -1295,6 +1301,8 @@ def validar_referencias_mapa(croqui_data: Dict[str, Any]) -> List[str]:
                 grupo_conteudo = obj_sg["grupo"].get("conteudo") or obj_sg["grupo"]
                 grupo_nome = grupo_conteudo.get("nome", "Grupo Sem Nome")
                 nomes_grupos.add(grupo_nome)
+                if grupo_conteudo.get("uid"):
+                    uids_grupos.add(str(grupo_conteudo["uid"]).strip())
                 
                 if "mapas" in grupo_conteudo:
                     mapas_para_validar.append((f"Grupo '{grupo_nome}'", grupo_conteudo["mapas"]))
@@ -1303,6 +1311,8 @@ def validar_referencias_mapa(croqui_data: Dict[str, Any]) -> List[str]:
                     setor_conteudo = obj_s.get("conteudo") or obj_s
                     setor_nome = setor_conteudo.get("nome", "Setor Sem Nome")
                     nomes_setores.add(setor_nome)
+                    if setor_conteudo.get("uid"):
+                        uids_setores.add(str(setor_conteudo["uid"]).strip())
                     
                     if "mapas" in setor_conteudo:
                         mapas_para_validar.append((f"Setor '{setor_nome}' (no Grupo '{grupo_nome}')", setor_conteudo["mapas"]))
@@ -1313,6 +1323,8 @@ def validar_referencias_mapa(croqui_data: Dict[str, Any]) -> List[str]:
                 setor_conteudo = obj_sg["setor"].get("conteudo") or obj_sg["setor"]
                 setor_nome = setor_conteudo.get("nome", "Setor Sem Nome")
                 nomes_setores.add(setor_nome)
+                if setor_conteudo.get("uid"):
+                    uids_setores.add(str(setor_conteudo["uid"]).strip())
                 
                 if "mapas" in setor_conteudo:
                     mapas_para_validar.append((f"Setor '{setor_nome}'", setor_conteudo["mapas"]))
@@ -1360,18 +1372,24 @@ def validar_referencias_mapa(croqui_data: Dict[str, Any]) -> List[str]:
                         ids_nas_referencias.add(ref_id_str)
                         
                     # Validação de existência da entidade
-                    if "escalada" in ref:
-                        nome = ref["escalada"]
-                        if nome not in nomes_escaladas:
-                            erros.append(f"Referência à escalada '{nome}' não encontrada no pico '{pico_nome}' (Mapa {idx_mapa+1} em {contexto_nome}).")
-                    if "setor" in ref:
-                        nome = ref["setor"]
-                        if nome not in nomes_setores:
-                            erros.append(f"Referência ao setor '{nome}' não encontrada no pico '{pico_nome}' (Mapa {idx_mapa+1} em {contexto_nome}).")
-                    if "grupo" in ref:
-                        nome = ref["grupo"]
-                        if nome not in nomes_grupos:
-                            erros.append(f"Referência ao grupo '{nome}' não encontrada no pico '{pico_nome}' (Mapa {idx_mapa+1} em {contexto_nome}).")
+                    alvo_uid = str(ref.get("alvo_uid", "") or "").strip()
+                    if alvo_uid:
+                        if alvo_uid not in uids_escaladas and alvo_uid not in uids_setores and alvo_uid not in uids_grupos:
+                            nome_ref = ref.get("escalada") or ref.get("setor") or ref.get("grupo") or alvo_uid
+                            erros.append(f"Referência com alvo_uid '{alvo_uid}' ('{nome_ref}') não encontrada no pico '{pico_nome}' (Mapa {idx_mapa+1} em {contexto_nome}).")
+                    else:
+                        if "escalada" in ref:
+                            nome = ref["escalada"]
+                            if nome not in nomes_escaladas:
+                                erros.append(f"Referência à escalada '{nome}' não encontrada no pico '{pico_nome}' (Mapa {idx_mapa+1} em {contexto_nome}).")
+                        if "setor" in ref:
+                            nome = ref["setor"]
+                            if nome not in nomes_setores:
+                                erros.append(f"Referência ao setor '{nome}' não encontrada no pico '{pico_nome}' (Mapa {idx_mapa+1} em {contexto_nome}).")
+                        if "grupo" in ref:
+                            nome = ref["grupo"]
+                            if nome not in nomes_grupos:
+                                erros.append(f"Referência ao grupo '{nome}' não encontrada no pico '{pico_nome}' (Mapa {idx_mapa+1} em {contexto_nome}).")
 
                 # Se houver POIs e referências cadastradas no mapa, valida se há POIs órfãos ou referências quebradas
                 if pois and referencias:

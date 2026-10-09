@@ -171,6 +171,73 @@ def test_validar_referencias_mapa_valido():
     erros = validar_referencias_mapa(croqui)
     assert not erros
 
+def test_validar_referencias_mapa_com_uids_e_alvo_uid():
+    """Garante que escaladas contendo UID na primeira posição e referências com alvo_uid são validadas sem falsos erros."""
+    croqui = {
+        "picos": [{
+            "nome": "Pico Ferros",
+            "setores_ou_grupos": [{
+                "setor": {
+                    "conteudo": {
+                        "uid": "setor_12345678",
+                        "nome": "Cachoeira",
+                        "mapas": [{
+                            "referencias": [
+                                {
+                                    "alvo_uid": "via_1234567890",
+                                    "escalada": "Pé na Chapa",
+                                    "ids": ["p1"]
+                                }
+                            ]
+                        }],
+                        "escaladas": [
+                            {
+                                "uid": "via_1234567890",
+                                "via_esportiva": {"nome": "Pé na Chapa"}
+                            }
+                        ]
+                    }
+                }
+            }]
+        }]
+    }
+    erros = validar_referencias_mapa(croqui)
+    assert not erros
+
+def test_validar_referencias_mapa_alvo_uid_inexistente():
+    """Garante que alvo_uid inexistente gera erro claro de validação."""
+    croqui = {
+        "picos": [{
+            "nome": "Pico Ferros",
+            "setores_ou_grupos": [{
+                "setor": {
+                    "conteudo": {
+                        "nome": "Cachoeira",
+                        "mapas": [{
+                            "referencias": [
+                                {
+                                    "alvo_uid": "via_fantasma_12",
+                                    "escalada": "Via Fantasma",
+                                    "ids": ["p1"]
+                                }
+                            ]
+                        }],
+                        "escaladas": [
+                            {
+                                "uid": "via_real_1234567",
+                                "via_esportiva": {"nome": "Pé na Chapa"}
+                            }
+                        ]
+                    }
+                }
+            }]
+        }]
+    }
+    erros = validar_referencias_mapa(croqui)
+    assert len(erros) == 1
+    assert "via_fantasma_12" in erros[0]
+
+
 def test_validar_referencias_mapa_entidade_inexistente():
     croqui = {
         "picos": [{

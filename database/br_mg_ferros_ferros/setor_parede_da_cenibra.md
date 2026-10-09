@@ -28,9 +28,10 @@ escaladas:
     - Gustavo "Xaxá" Carrozzino
     - Tonico Magalhães
     data_abertura: '2008-09-15'
-    descricao: Via que se inicia em um diedro em móvel e segue até o final em aderências protegidas por grampos. 
-      Situa-se em área isolada em relação aos outros conjuntos de vias. A conquista homenageou o veterano escalador 
-      Giuseppe Pellegrini, por ocasião de seu aniversário de 70 anos.
+    descricao: Via que se inicia em um diedro em móvel e segue até o final em aderências
+      protegidas por grampos. Situa-se em área isolada em relação aos outros conjuntos
+      de vias. A conquista homenageou o veterano escalador Giuseppe Pellegrini, por
+      ocasião de seu aniversário de 70 anos.
 ---
 
 Também conhecida como fazenda Baião, esta área é propriedade da CENIBRA (Celulose Nipo-Brasileira) e só possui uma via de escalada.

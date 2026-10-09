@@ -360,11 +360,13 @@ escaladas:
     - Tonico Magalhães
     - Celso Ferreira Gomes
     data_abertura: '2014-11-01'
-    descricao: Inicia após a grande barriga que existe neste setor, com um grampo logo no início, para proteger do 
-      pequeno abismo que ali existe. Seu trecho inicial, com cerca de 40 metros, segue por platôs de mato e lances de 
-      Isup. Após juntar com a parada final da "O Nome da Rosa", a parede ganha verticalidade e segue por mais 80 metros 
-      até a vegetação de topo. Nome inspirado no quarto no qual a Hilda Furacão "atendia" seus clientes no Hotel 
-      Maravilhoso, de acordo com o romance de Roberto Drummond.
+    descricao: Inicia após a grande barriga que existe neste setor, com um grampo
+      logo no início, para proteger do pequeno abismo que ali existe. Seu trecho inicial,
+      com cerca de 40 metros, segue por platôs de mato e lances de Isup. Após juntar
+      com a parada final da "O Nome da Rosa", a parede ganha verticalidade e segue
+      por mais 80 metros até a vegetação de topo. Nome inspirado no quarto no qual
+      a Hilda Furacão "atendia" seus clientes no Hotel Maravilhoso, de acordo com
+      o romance de Roberto Drummond.
 - uid: 3RMqt5ApX2IY8X
   via_multiplas_enfiadas:
     nome: O Nome da Rosa
@@ -379,9 +381,9 @@ escaladas:
     - Glesse Gripp
     - João Paulo JP
     data_abertura: '2012-02-04'
-    descricao: Centésima via conquistada na região, sendo a penúltima da extrema esquerda da Parede Principal. Uma opção
-      interessante é seguir, após o final dessa via, pela "Quarto 304", o que confere aos escaladores exatos 200 metros 
-      de escalada.
+    descricao: Centésima via conquistada na região, sendo a penúltima da extrema esquerda
+      da Parede Principal. Uma opção interessante é seguir, após o final dessa via,
+      pela "Quarto 304", o que confere aos escaladores exatos 200 metros de escalada.
 - uid: 4NlA92f95JiGYq
   via_multiplas_enfiadas:
     nome: O Retorno de Jedi
@@ -394,7 +396,8 @@ escaladas:
     - Paulo Bandeira
     - Júlio César Cardoso
     data_abertura: '2007-09-07'
-    descricao: Boa via, predominantemente em aderência e agarras, que conta com proteção fixa constante.
+    descricao: Boa via, predominantemente em aderência e agarras, que conta com proteção
+      fixa constante.
 - uid: Yk0v37xjPddpkt
   via_multiplas_enfiadas:
     nome: Ih, Ferrou!
@@ -406,14 +409,17 @@ escaladas:
     comprimento_total: 185
     numero_enfiadas: 5
     tipo_via_multiplas_enfiadas: MISTA
-    equipamento_recomendado: 'Camalots #0.75 ao #4. Camalot #3 na P1 e Camalot #0.75 na P2.'
+    equipamento_recomendado: 'Camalots #0.75 ao #4. Camalot #3 na P1 e Camalot #0.75
+      na P2.'
     conquistadores:
     - Pedro Bugim
     - Maria Fernanda Patrício
     data_abertura: '2011-11-13'
-    descricao: 'Via mista, com agarras, aderência, fendas e barrigas interessantes. Proteções constantes nos lances mais complicados
-      e maiores espaçamentos nos lances fáceis. Proteção dupla em todas as paradas, com padrão de 50 metros. Material recomendado:
-      Camalots #0.75 ao #4. Rapel possível com corda única de 50m.'
+    descricao: 'Via mista, com agarras, aderência, fendas e barrigas interessantes.
+      Proteções constantes nos lances mais complicados e maiores espaçamentos nos
+      lances fáceis. Proteção dupla em todas as paradas, com padrão de 50 metros.
+      Material recomendado: Camalots #0.75 ao #4. Rapel possível com corda única de
+      50m.'
   mapas:
   - caminho_imagem_mapa: imagens/grupo_principal_setor_classicas_longas_p6_i1.webp
     largura_mapa: 540
@@ -438,9 +444,9 @@ escaladas:
     - Luciano Bender
     - Patrícia Duffles
     data_abertura: '2011-06-24'
-    descricao: Via maravilhosa iniciada em lances fortes, em sequência bastante vertical, com alguns trechos negativos. 
-      Proteção fixa generosa em toda extensão da via. Rapel possível com uma corda de 50m. Dois lances de VIIa 
-      obrigatórios.
+    descricao: Via maravilhosa iniciada em lances fortes, em sequência bastante vertical,
+      com alguns trechos negativos. Proteção fixa generosa em toda extensão da via.
+      Rapel possível com uma corda de 50m. Dois lances de VIIa obrigatórios.
   mapas:
   - caminho_imagem_mapa: imagens/via_jardim_do_eden_p0.webp
     largura_mapa: 765
@@ -461,8 +467,9 @@ escaladas:
     - Igor Baldo
     - Carlim Kamicad
     data_abertura: '2012-04-08'
-    descricao: Via feita em três enfiadas curtas, seguindo uma exigente sequência buracos, com algumas passagens 
-      negativas. Ótima opção no setor, servindo inclusive, como variante da via "Jardim do Éden".
+    descricao: Via feita em três enfiadas curtas, seguindo uma exigente sequência
+      buracos, com algumas passagens negativas. Ótima opção no setor, servindo inclusive,
+      como variante da via "Jardim do Éden".
 - uid: zcxxdwF36C6b2o
   via_multiplas_enfiadas:
     nome: Conquista do Paraíso
@@ -479,9 +486,10 @@ escaladas:
     - Juliano Magalhães
     - Luciano Bender
     data_abertura: '2011-09-06'
-    descricao: Via forte e complexa, porém muito bem protegida. Ótima opção neste setor. Rapel com corda única de 60m. 
-      Três lances de VIIa obrigatórios. Juntamente com a Jardim do Éden, forma o conjunto atual do pólo que pode ser 
-      considerado como tipo esportivas longas.
+    descricao: Via forte e complexa, porém muito bem protegida. Ótima opção neste
+      setor. Rapel com corda única de 60m. Três lances de VIIa obrigatórios. Juntamente
+      com a Jardim do Éden, forma o conjunto atual do pólo que pode ser considerado
+      como tipo esportivas longas.
   mapas:
   - caminho_imagem_mapa: imagens/via_conquista_do_paraiso_p0.webp
     largura_mapa: 736
@@ -500,8 +508,9 @@ escaladas:
     - Juliano Magalhães
     - Luciano Bender
     data_abertura: '2013-07-24'
-    descricao: Via iniciada em 2011, que conta com 32 grampos. A primeira enfiada é técnica, com belas agarras e 
-      bastante vertical, a segunda é atlética/esportiva e a última em aderências e abaulados. Imperdível!
+    descricao: Via iniciada em 2011, que conta com 32 grampos. A primeira enfiada
+      é técnica, com belas agarras e bastante vertical, a segunda é atlética/esportiva
+      e a última em aderências e abaulados. Imperdível!
 - uid: G1GEUfkb6aFhvG
   via_movel:
     nome: Arco de Ferros
@@ -514,9 +523,10 @@ escaladas:
     - Eustáquio Júnior
     - Celso Ferreira Gomes
     data_abertura: '2012-06-16'
-    descricao: Via com boas passadas em móvel, sempre em diagonal para a esquerda, cruzando a "Purgatório" e juntando na
-      "Conquista do Paraíso". Leve peças pequenas e médias. O nome da via é em alusão ao grande arco negativo formado 
-      pela fenda por onde a linha passa.
+    descricao: Via com boas passadas em móvel, sempre em diagonal para a esquerda,
+      cruzando a "Purgatório" e juntando na "Conquista do Paraíso". Leve peças pequenas
+      e médias. O nome da via é em alusão ao grande arco negativo formado pela fenda
+      por onde a linha passa.
 - uid: uW5HmBfxqXNcx6
   via_multiplas_enfiadas:
     nome: Pr. Conrado Ferro
@@ -532,10 +542,12 @@ escaladas:
     - Juliano Magalhães
     - Luciano Bender
     data_abertura: '2013-07-23'
-    descricao: Via bastante vertical e considerada um raro exemplo de escalada ESPORTIVA LONGA. Trata-se da escalada 
-      mais difícil do Vale do Roncador até agora. Necessárias 18 costuras, caso se deseje fazer a primeira enfiada 
-      completa. O nome da via é uma homenagem pelo quinto aniversário do filho de Luciano Bender, na data da conquista. 
-      31 grampos de ½. Um grande e empolgante desafio aos escaladores esportivos.
+    descricao: Via bastante vertical e considerada um raro exemplo de escalada ESPORTIVA
+      LONGA. Trata-se da escalada mais difícil do Vale do Roncador até agora. Necessárias
+      18 costuras, caso se deseje fazer a primeira enfiada completa. O nome da via
+      é uma homenagem pelo quinto aniversário do filho de Luciano Bender, na data
+      da conquista. 31 grampos de ½. Um grande e empolgante desafio aos escaladores
+      esportivos.
 - uid: AmnkWTziTCLtlx
   via_multiplas_enfiadas:
     nome: Quem com Ferro Fere
@@ -550,7 +562,8 @@ escaladas:
     - Pedro Bugim
     - Vivianne Sawczuk
     data_abertura: '2015-09-05'
-    descricao: Via em agarras e aderência, bem constante do início ao fim, com proteção fixa bem justa.
+    descricao: Via em agarras e aderência, bem constante do início ao fim, com proteção
+      fixa bem justa.
 - uid: bU7X6rEsf8DV8G
   via_multiplas_enfiadas:
     nome: Tanto Bate Até Que Fura
@@ -565,10 +578,12 @@ escaladas:
     - Pedro Bugim
     - Vivianne Sawczuk
     data_abertura: '2015-09-07'
-    descricao: Via muito interessante, bastante técnica, toda protegida em chapeletas (chapeletas com argola estão 
-      posicionadas de tempos em tempos para eventual rapel e parada). Sua primeira metade é mais complexa, feita 
-      basicamente em micro agarras e aderência. Sua segunda metade, mais vertical, possui lances de domínio e muitos 
-      abaulados. Termina na primeira parada da "Trem de Ferro", por onde pode-se rapelar em grampos.
+    descricao: Via muito interessante, bastante técnica, toda protegida em chapeletas
+      (chapeletas com argola estão posicionadas de tempos em tempos para eventual
+      rapel e parada). Sua primeira metade é mais complexa, feita basicamente em micro
+      agarras e aderência. Sua segunda metade, mais vertical, possui lances de domínio
+      e muitos abaulados. Termina na primeira parada da "Trem de Ferro", por onde
+      pode-se rapelar em grampos.
 - uid: 3qiVVJ4gH98lkU
   via_multiplas_enfiadas:
     nome: Trem de Ferro
@@ -584,8 +599,9 @@ escaladas:
     - Luciano Bender
     - Tonico Magalhães
     data_abertura: '2012-07-24'
-    descricao: Localiza-se logo à esquerda da Up Ester, no ponto mais alto das bases das vias naquele local. Possui 19 
-      grampos de 1/2". A bela sequência vertical no meio da via é o crux. Não a perca!
+    descricao: Localiza-se logo à esquerda da Up Ester, no ponto mais alto das bases
+      das vias naquele local. Possui 19 grampos de 1/2". A bela sequência vertical
+      no meio da via é o crux. Não a perca!
 - uid: 3rFARDsvpejB1k
   via_multiplas_enfiadas:
     nome: Up Ester
@@ -596,15 +612,17 @@ escaladas:
     comprimento_total: 100
     numero_enfiadas: 2
     tipo_via_multiplas_enfiadas: TODA_FIXA
-    equipamento_recomendado: 'Camalots #0.5 e #0.75 (friends pequenos opcionais na primeira enfiada).'
+    equipamento_recomendado: 'Camalots #0.5 e #0.75 (friends pequenos opcionais na
+      primeira enfiada).'
     conquistadores:
     - Pedro Bugim
     - Gustavo "Xaxá" Carrozzino
     - Milson Domingues
     data_abertura: '2012-06-16'
-    descricao: Via com boa verticalidade, passando por cristaleiras e abaulados incríveis. É possível melhorar a 
-      proteção na primeira enfiada com friends pequenos, mas não são obrigatórios. Conquista feita em homenagem à grande
-      escaladora carioca Ester Binstok, falecida precocemente aos 33 anos de idade.
+    descricao: Via com boa verticalidade, passando por cristaleiras e abaulados incríveis.
+      É possível melhorar a proteção na primeira enfiada com friends pequenos, mas
+      não são obrigatórios. Conquista feita em homenagem à grande escaladora carioca
+      Ester Binstok, falecida precocemente aos 33 anos de idade.
 - uid: OdHzDK0d85nJch
   via_multiplas_enfiadas:
     nome: Até Que a Vida Nos Separe
@@ -619,9 +637,10 @@ escaladas:
     - Pedro Bugim
     - Maria Fernanda Patrício
     data_abertura: '2015-02-15'
-    descricao: Bonita via, que inicia em lances mais tranquilos, ganhando verticalidade na parte superior. Lances em 
-      agarras generosas e algumas passadas mais técnicas em aderência. Termina junto com o final da "Vr. SEM". 
-      Atualmente, é a via mais acessível da parede, por sua graduação pouco elevada e proteção generosa.
+    descricao: Bonita via, que inicia em lances mais tranquilos, ganhando verticalidade
+      na parte superior. Lances em agarras generosas e algumas passadas mais técnicas
+      em aderência. Termina junto com o final da "Vr. SEM". Atualmente, é a via mais
+      acessível da parede, por sua graduação pouco elevada e proteção generosa.
 - uid: QGE2HjkgbIBB11
   via_multiplas_enfiadas:
     nome: Vr. Pilhado
@@ -631,16 +650,19 @@ escaladas:
     comprimento_total: 70
     numero_enfiadas: 2
     tipo_via_multiplas_enfiadas: MISTA
-    equipamento_recomendado: 'Friend médio / Camalot #1 (em um buraco na primeira enfiada).'
+    equipamento_recomendado: 'Friend médio / Camalot #1 (em um buraco na primeira
+      enfiada).'
     conquistadores:
     - Pedro Bugim
     - Maria Fernanda Patrício
     data_abertura: '2015-02-15'
-    descricao: Variante da via anterior. Inicia com uma passada em móvel, utilizando um friend médio em um buraco. 
-      Continua em lances um pouco expostos, apesar de fáceis, em proteção fixa. Após a primeira parada, existe o lance 
-      mais interessante da via, com proteção mais generosa, no qual se vence uma bonita barriga bem vertical e levemente
-      negativa, com ótimas agarras e regletes. Pode-se continuar para a esquerda, juntando na P1 da "Até que a Vida Nos 
-      Separe", ou seguir pela direita, na P2 do "Pr. CEM".
+    descricao: Variante da via anterior. Inicia com uma passada em móvel, utilizando
+      um friend médio em um buraco. Continua em lances um pouco expostos, apesar de
+      fáceis, em proteção fixa. Após a primeira parada, existe o lance mais interessante
+      da via, com proteção mais generosa, no qual se vence uma bonita barriga bem
+      vertical e levemente negativa, com ótimas agarras e regletes. Pode-se continuar
+      para a esquerda, juntando na P1 da "Até que a Vida Nos Separe", ou seguir pela
+      direita, na P2 do "Pr. CEM".
 - uid: qwJkNaUAKwp36y
   via_multiplas_enfiadas:
     nome: Pr. CEM
@@ -665,11 +687,14 @@ escaladas:
     - Gresce Melo
     - Giselle Melo
     data_abertura: '2014-04-03'
-    descricao: Via conquistada em homenagem ao Centro Excursionista Mineiro (CEM), tendo inclusive a participação de 
-      vários sócios e colaboradores. Segue uma bela linha natural que corta um trecho extenso da parede principal, 
-      variando entre aderência e agarras bem definidas, com setores de boa verticalidade, apesar do grau mediano. Une-se
-      a isto, uma proteção bastante generosa, conferindo aos montanhistas uma escalada agradável e divertida. Paradas 
-      duplas a, no máximo, cada 50 metros. Rapel possível de qualquer ponto da via, com corda única de 50m.
+    descricao: Via conquistada em homenagem ao Centro Excursionista Mineiro (CEM),
+      tendo inclusive a participação de vários sócios e colaboradores. Segue uma bela
+      linha natural que corta um trecho extenso da parede principal, variando entre
+      aderência e agarras bem definidas, com setores de boa verticalidade, apesar
+      do grau mediano. Une-se a isto, uma proteção bastante generosa, conferindo aos
+      montanhistas uma escalada agradável e divertida. Paradas duplas a, no máximo,
+      cada 50 metros. Rapel possível de qualquer ponto da via, com corda única de
+      50m.
 - uid: LQO55ySramygmt
   via_esportiva:
     nome: Vr. SEM
@@ -680,9 +705,10 @@ escaladas:
     - Pedro Bugim
     - Maria Fernanda Patrício
     data_abertura: '2014-03-03'
-    descricao: Variante da última enfiada do Paredão CEM, que passa por um grande buraco na parede, seguido de um lance 
-      negativo, onde encontra-se o crux da variante. Lance forte, mas bem protegido, que une agarras grandes com bom 
-      domínio e equilíbrio. Termina em conjunto com a parada final do Pr. CEM.
+    descricao: Variante da última enfiada do Paredão CEM, que passa por um grande
+      buraco na parede, seguido de um lance negativo, onde encontra-se o crux da variante.
+      Lance forte, mas bem protegido, que une agarras grandes com bom domínio e equilíbrio.
+      Termina em conjunto com a parada final do Pr. CEM.
 - uid: TiMvo7taQljnz6
   via_multiplas_enfiadas:
     nome: Eu Não Sou de Ferro
@@ -697,8 +723,9 @@ escaladas:
     - Juliano Magalhães
     - Valdinei Lima
     data_abertura: '2006-08-26'
-    descricao: Uma das mais longas do Vale do Roncador, conta com belos lances verticais em agarras e aderência. 
-      Diversão garantida! Rapel pela própria via, possível com uma corda de 50m. Espetacular!!!
+    descricao: Uma das mais longas do Vale do Roncador, conta com belos lances verticais
+      em agarras e aderência. Diversão garantida! Rapel pela própria via, possível
+      com uma corda de 50m. Espetacular!!!
 - uid: AJSTo7xkzcHxVh
   via_multiplas_enfiadas:
     nome: Rio de Mão Dupla
@@ -710,17 +737,21 @@ escaladas:
     comprimento_total: 140
     numero_enfiadas: 3
     tipo_via_multiplas_enfiadas: TODA_MOVEL
-    equipamento_recomendado: Peças pequenas, sobretudo micro-friends e ballnutz, tricams (#3), micro stoppers.
+    equipamento_recomendado: Peças pequenas, sobretudo micro-friends e ballnutz, tricams
+      (#3), micro stoppers.
     conquistadores:
     - Pedro Bugim
     - Maria Fernanda Patrício
     data_abertura: '2012-06-16'
-    descricao: Via espetacular, de comprometimento, contando com apenas dois grampos (um na segunda parada e outro após 
-      o crux), sendo todo o resto em proteção móvel (inclusive a primeira parada). As colocações nem sempre são óbvias, 
-      obrigando o escalador a fazer boa leitura da via, "garimpando" fissuras e buracos esporádicos no caminho. O crux é
-      protegido com peças bem pequenas, sobretudo, micro-friends e ballnutz. Termina no meio da enfiada final da "Eu Não
-      Sou de Ferro". É possível evitar a terceira e última enfiada (crux), seguindo pela direita após a P2, entrando na 
-      via "À Francesa". Rapel possível apenas com abandono de material! Recomenda-se descer pelas vias laterais.
+    descricao: Via espetacular, de comprometimento, contando com apenas dois grampos
+      (um na segunda parada e outro após o crux), sendo todo o resto em proteção móvel
+      (inclusive a primeira parada). As colocações nem sempre são óbvias, obrigando
+      o escalador a fazer boa leitura da via, "garimpando" fissuras e buracos esporádicos
+      no caminho. O crux é protegido com peças bem pequenas, sobretudo, micro-friends
+      e ballnutz. Termina no meio da enfiada final da "Eu Não Sou de Ferro". É possível
+      evitar a terceira e última enfiada (crux), seguindo pela direita após a P2,
+      entrando na via "À Francesa". Rapel possível apenas com abandono de material!
+      Recomenda-se descer pelas vias laterais.
 - uid: ppRjvPjQbmhQLX
   via_multiplas_enfiadas:
     nome: À Francesa
@@ -732,8 +763,9 @@ escaladas:
     - Tonico Magalhães
     - Gustavo "Xaxá" Carrozzino
     data_abertura: '2007-10-27'
-    descricao: Via com lances bem fáceis, com proteções bem espaçadas entre si. Inicia-se num diedro fácil protegido em 
-      móvel. Termina num grande platô, com saída por caminhada.
+    descricao: Via com lances bem fáceis, com proteções bem espaçadas entre si. Inicia-se
+      num diedro fácil protegido em móvel. Termina num grande platô, com saída por
+      caminhada.
 - uid: aWWidUPbYI6GzD
   via_esportiva:
     nome: Grand Finale
@@ -743,8 +775,9 @@ escaladas:
     - Tonico Magalhães
     - Gustavo "Xaxá" Carrozzino
     data_abertura: '2007-10-27'
-    descricao: Pequena via que se inicia no platô final da via "À Francesa" e segue por uma sequência mais delicada, até
-      encontrar com o final da via "Eu Não Sou de Ferro".
+    descricao: Pequena via que se inicia no platô final da via "À Francesa" e segue
+      por uma sequência mais delicada, até encontrar com o final da via "Eu Não Sou
+      de Ferro".
 ---
 
 <small>Capa: Maria Fernanda na terceira passada em móvel (e crux) do Pr. "Ih, Ferrou!" (Foto: Pedro Bugim)</small>

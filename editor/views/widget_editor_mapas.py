@@ -2433,6 +2433,22 @@ class WidgetEditorMapas(QWidget):
         caminho = resolver_caminho_mensagem(croqui_real, self.msg_mapa_proxy)
         return bool(caminho)
 
+    def _item_grafico_valido(self, item: Any, cena_esperada: Optional[Any] = None) -> bool:
+        """Verifica se um QGraphicsItem possui ponteiro C++ válido e pertence à cena esperada."""
+        if item is None:
+            return False
+        try:
+            if shiboken6 is not None and hasattr(shiboken6, "isValid"):
+                if not shiboken6.isValid(item):
+                    return False
+            if cena_esperada is not None and hasattr(item, "scene"):
+                cena_item = item.scene()
+                if cena_item is not None and cena_item != cena_esperada:
+                    return False
+            return True
+        except Exception:
+            return False
+
     def _remover_item_seguro(self, item: Any, cena: Optional[Any] = None) -> None:
         """Remove um QGraphicsItem da cena com segurança, garantindo que seu objeto C++ subjacente não foi deletado."""
         if item is None:
@@ -2464,10 +2480,18 @@ class WidgetEditorMapas(QWidget):
             self.parar_modo_camera()
         if getattr(self, "modo_linkagem", False):
             self.parar_modo_linkagem()
+        if hasattr(self, "item_hover_camera_overlay") and self.item_hover_camera_overlay:
+            self._remover_item_seguro(self.item_hover_camera_overlay)
+            self.item_hover_camera_overlay = None
+        if hasattr(self, "item_camera_overlay") and self.item_camera_overlay:
+            self._remover_item_seguro(self.item_camera_overlay)
+            self.item_camera_overlay = None
 
     def descarregar_mapa(self) -> None:
         """Descarrega o mapa atual, limpando a cena, itens e referências."""
         self.cancelar_modos_interativos()
+        self.item_hover_camera_overlay = None
+        self.item_camera_overlay = None
         self.msg_mapa_proxy = None
         self.pico_idx = -1
         self.sg_idx = -1
@@ -2724,6 +2748,8 @@ class WidgetEditorMapas(QWidget):
     def set_mapa_atual(self, msg_mapa_proxy: Any, pico_idx: Optional[int] = -1, grupo_idx: Optional[int] = -1, mapa_idx: Optional[int] = -1, s_idx: Optional[int] = -1, e_idx: Optional[int] = -1, tipo: str = 'setor') -> None:
         """Define o mapa atual para exibição na view, limpando a cena."""
         self.cancelar_modos_interativos()
+        self.item_hover_camera_overlay = None
+        self.item_camera_overlay = None
         self.msg_mapa_proxy = msg_mapa_proxy
         self.pico_idx = pico_idx
         self.sg_idx = grupo_idx
@@ -3815,11 +3841,12 @@ class WidgetEditorMapas(QWidget):
                     gui_item.setPen(QPen(QColor(0, 255, 255), 2))
                 
         # Draw static camera if exists
+        cena_atual = self.visualizador.scene()
         if not is_camera and hasattr(referencia, 'ajuste_de_camera') and referencia.HasField('ajuste_de_camera') and referencia.ajuste_de_camera.zoom > 0:
-            if not hasattr(self, 'item_hover_camera_overlay') or not self.item_hover_camera_overlay:
+            if not self._item_grafico_valido(getattr(self, 'item_hover_camera_overlay', None), cena_atual):
                 self.item_hover_camera_overlay = ItemCameraOverlay()
-                if self.visualizador.scene():
-                    self.visualizador.scene().addItem(self.item_hover_camera_overlay)
+                if cena_atual:
+                    cena_atual.addItem(self.item_hover_camera_overlay)
             self.item_hover_camera_overlay.setVisible(True)
             from PySide6.QtGui import QPen, QColor
             from PySide6.QtCore import Qt
@@ -3849,7 +3876,10 @@ class WidgetEditorMapas(QWidget):
             self.item_hover_camera_overlay.setPos(x, y)
         else:
             if hasattr(self, 'item_hover_camera_overlay') and self.item_hover_camera_overlay:
-                self.item_hover_camera_overlay.setVisible(False)
+                if self._item_grafico_valido(self.item_hover_camera_overlay):
+                    self.item_hover_camera_overlay.setVisible(False)
+                else:
+                    self.item_hover_camera_overlay = None
 
     def remover_destaque_pois(self, force: bool = False) -> None:
         for idx_poi, gui_item in self.itens_poi.items():
@@ -3898,10 +3928,11 @@ class WidgetEditorMapas(QWidget):
         self.label_modo.setStyleSheet("color: white; background-color: #6f42c1; font-weight: bold; padding: 8px; border-radius: 4px;")
         self.label_modo.setVisible(True)
         
-        if not hasattr(self, 'item_camera_overlay') or not self.item_camera_overlay:
+        cena_atual = self.visualizador.scene()
+        if not self._item_grafico_valido(getattr(self, 'item_camera_overlay', None), cena_atual):
             self.item_camera_overlay = ItemCameraOverlay()
-            if self.visualizador.scene():
-                self.visualizador.scene().addItem(self.item_camera_overlay)
+            if cena_atual:
+                cena_atual.addItem(self.item_camera_overlay)
         else:
             self.item_camera_overlay.setVisible(True)
 
@@ -3968,7 +3999,7 @@ class WidgetEditorMapas(QWidget):
         
         if idx == -1: return
         
-        if not hasattr(self, 'item_camera_overlay') or not self.item_camera_overlay:
+        if not self._item_grafico_valido(getattr(self, 'item_camera_overlay', None)):
             return
             
         scene_rect = self.visualizador.sceneRect()

@@ -826,7 +826,7 @@ arquivos:
 - caminho_relativo: br_mg_ferros_ferros/imagens/via_jardim_do_eden_p0.webp
   checksum_sha256: 1c76570fd31ae3ea325b8a3c84fc045dcf325ffe0f38df4a95c57e2a8ae939eb
 - caminho_relativo: br_mg_ferros_ferros/compilado.yaml
-  checksum_sha256: 6dfc550420c31d96f53c6a92dd71c4486d41f9c6c2ffe559cdeea3bb65146a5f
+  checksum_sha256: dcf0186392c16edd9082c478b69f3724221a69eaf754a4557074f5976c6092ac
 - caminho_relativo: br_mg_ferros_ferros/compilado.md
   checksum_sha256: 498e5bcff26b0e8991271f3c43c24b22e75a3efc199db8330513a43b67925da1
 - caminho_relativo: br_mg_igarape_pedra_grande/compilado.binarypb
@@ -2240,4 +2240,4 @@ arquivos:
 - caminho_relativo: indice.binarypb
   checksum_sha256: 9fa44ff065a91434a9e23cef3bf59535a4d7950316555d1e23845eb75792ba5a
 - caminho_relativo: indice.yaml
-  checksum_sha256: f83b615ec79367d21b05a044cbd137c2ea14e7d3a844969e6b3b4ee8065d1189
+  checksum_sha256: 50cc774d4c78b5fa3935aad3eee480af7b553b50c2f66d2e889c98c5a8caecc6

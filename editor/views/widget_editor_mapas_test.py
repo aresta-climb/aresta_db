@@ -5644,3 +5644,165 @@ def test_tratar_clique_poi_linkagem_fora_do_modo_linkagem(qtbot):
     widget.modo_linkagem = False
     assert widget.tratar_clique_poi_linkagem("p0") is False
 
+
+def test_destacar_pois_temporariamente_apos_limpeza_de_cena_com_camera(qtbot):
+    """[TDD 1.1] Verifica que destacar POIs com câmera após cena.clear() recria o overlay sem erro Shiboken."""
+    from editor.views.widget_editor_mapas import WidgetEditorMapas
+    from aresta_api.proto.generated import croqui_pb2
+    from editor.models.readonly_proxy import ReadOnlyProxy
+
+    widget = WidgetEditorMapas()
+    qtbot.addWidget(widget)
+    widget._mapa_ativo_valido = lambda: True
+
+    mapa = croqui_pb2.Mapa()
+    ref = mapa.referencias.add()
+    ref.ajuste_de_camera.zoom = 1.5
+    ref.ajuste_de_camera.posicao_horizontal = 50
+    ref.ajuste_de_camera.posicao_vertical = 50
+
+    widget.carregar_mapa(mapa)
+    widget.destacar_pois_temporariamente(ReadOnlyProxy(ref))
+
+    item_antigo = widget.item_hover_camera_overlay
+    assert item_antigo is not None
+
+    # Simula recarga ou limpeza da cena gráfica
+    widget.dados_atuais['cena'].clear()
+
+    # O novo destaque não deve lançar RuntimeError do Shiboken
+    widget.destacar_pois_temporariamente(ReadOnlyProxy(ref))
+    assert widget.item_hover_camera_overlay is not None
+    assert widget.item_hover_camera_overlay != item_antigo
+    assert widget.item_hover_camera_overlay.scene() == widget.dados_atuais['cena']
+
+
+def test_destacar_pois_temporariamente_apos_limpeza_de_cena_sem_camera(qtbot):
+    """[TDD 1.1] Verifica que destacar POI sem câmera após cena.clear() esconde/anula overlay sem erro Shiboken."""
+    from editor.views.widget_editor_mapas import WidgetEditorMapas
+    from aresta_api.proto.generated import croqui_pb2
+    from editor.models.readonly_proxy import ReadOnlyProxy
+
+    widget = WidgetEditorMapas()
+    qtbot.addWidget(widget)
+    widget._mapa_ativo_valido = lambda: True
+
+    mapa = croqui_pb2.Mapa()
+    ref1 = mapa.referencias.add()
+    ref1.ajuste_de_camera.zoom = 1.5
+    ref2 = mapa.referencias.add()  # sem câmera
+
+    widget.carregar_mapa(mapa)
+    widget.destacar_pois_temporariamente(ReadOnlyProxy(ref1))
+    assert widget.item_hover_camera_overlay is not None
+
+    widget.dados_atuais['cena'].clear()
+
+    # Destacar ref2 não deve tentar chamar setVisible(False) no item C++ deletado
+    widget.destacar_pois_temporariamente(ReadOnlyProxy(ref2))
+    assert widget.item_hover_camera_overlay is None or not widget.item_hover_camera_overlay.isVisible()
+
+
+def test_iniciar_modo_camera_apos_limpeza_de_cena(qtbot):
+    """[TDD 1.2] Verifica que iniciar_modo_camera após cena.clear() recria item_camera_overlay com segurança."""
+    from editor.views.widget_editor_mapas import WidgetEditorMapas
+    from aresta_api.proto.generated import croqui_pb2
+    from editor.models.readonly_proxy import ReadOnlyProxy
+
+    widget = WidgetEditorMapas()
+    qtbot.addWidget(widget)
+    widget._mapa_ativo_valido = lambda: True
+
+    mapa = croqui_pb2.Mapa()
+    ref = mapa.referencias.add()
+    ref.ajuste_de_camera.zoom = 1.2
+
+    widget.carregar_mapa(mapa)
+    widget.iniciar_modo_camera(0, ReadOnlyProxy(ref))
+    item_camera_antigo = widget.item_camera_overlay
+    assert item_camera_antigo is not None
+
+    widget.dados_atuais['cena'].clear()
+
+    # Iniciar novamente o modo câmera não deve lançar RuntimeError ao chamar setVisible(True)
+    widget.iniciar_modo_camera(0, ReadOnlyProxy(ref))
+    assert widget.item_camera_overlay is not None
+    assert widget.item_camera_overlay != item_camera_antigo
+    assert widget.item_camera_overlay.scene() == widget.dados_atuais['cena']
+
+
+def test_transicoes_de_cena_limpam_overlays_de_camera(qtbot):
+    """[TDD 1.2] Verifica que transições de cena cancelam e anulam overlays de câmera."""
+    from editor.views.widget_editor_mapas import WidgetEditorMapas, ItemCameraOverlay
+    from aresta_api.proto.generated import croqui_pb2
+    from editor.models.readonly_proxy import ReadOnlyProxy
+
+    widget = WidgetEditorMapas()
+    qtbot.addWidget(widget)
+    widget._mapa_ativo_valido = lambda: True
+
+    mapa1 = croqui_pb2.Mapa()
+    ref = mapa1.referencias.add()
+    ref.ajuste_de_camera.zoom = 1.5
+
+    widget.carregar_mapa(mapa1)
+    widget.destacar_pois_temporariamente(ReadOnlyProxy(ref))
+    assert widget.item_hover_camera_overlay is not None
+
+    # 1. cancelar_modos_interativos anula item_hover_camera_overlay e item_camera_overlay
+    widget.cancelar_modos_interativos()
+    assert widget.item_hover_camera_overlay is None
+
+    # 2. descarregar_mapa anula overlays
+    widget.destacar_pois_temporariamente(ReadOnlyProxy(ref))
+    widget.descarregar_mapa()
+    assert widget.item_hover_camera_overlay is None
+    assert widget.item_camera_overlay is None
+
+    # 3. set_mapa_atual limpa overlays da cena anterior
+    widget.carregar_mapa(mapa1)
+    widget.destacar_pois_temporariamente(ReadOnlyProxy(ref))
+    mapa2 = croqui_pb2.Mapa()
+    widget.set_mapa_atual(ReadOnlyProxy(mapa2))
+    assert widget.item_hover_camera_overlay is None
+    assert widget.item_camera_overlay is None
+
+
+def test_item_grafico_valido_cobertura_defensiva(qtbot):
+    """Garante 100% de cobertura nos ramos defensivos de _item_grafico_valido e salvar_ajuste_camera."""
+    from editor.views.widget_editor_mapas import WidgetEditorMapas
+    from PySide6.QtWidgets import QGraphicsScene, QGraphicsRectItem
+    from unittest.mock import MagicMock
+
+    widget = WidgetEditorMapas()
+    qtbot.addWidget(widget)
+
+    # 1. Item None
+    assert widget._item_grafico_valido(None) is False
+
+    # 2. Item com cena divergente da esperada
+    cena1 = QGraphicsScene()
+    cena2 = QGraphicsScene()
+    item = QGraphicsRectItem()
+    cena1.addItem(item)
+    assert widget._item_grafico_valido(item, cena_esperada=cena2) is False
+    assert widget._item_grafico_valido(item, cena_esperada=cena1) is True
+
+    # 3. Exceção simulada ao acessar atributos do item
+    mock_item = MagicMock()
+    mock_item.scene.side_effect = RuntimeError("Erro de ponteiro")
+    assert widget._item_grafico_valido(mock_item, cena_esperada=cena1) is False
+
+    # 4. salvar_ajuste_camera com overlay inválido ou inexistente
+    widget._mapa_ativo_valido = lambda: True
+    widget.referencia_camera_ativa = MagicMock()
+    mock_mapa = MagicMock()
+    mock_mapa.referencias = [widget.referencia_camera_ativa]
+    widget.msg_mapa_proxy = mock_mapa
+    widget.camera_ref_idx = 0
+    widget.item_camera_overlay = None
+    # Deve retornar sem erro e sem mutações
+    assert widget.salvar_ajuste_camera() is None
+
+
+

@@ -382,8 +382,8 @@ escaladas:
     - Tonico Magalhães
     - Celso Ferreira Gomes
     data_abertura: '2015-09-18'
-    descricao: Segue por uma óbvia cristaleira até seu final, quando faz uma horizontal à direita – e crux da via – até 
-      sua parada dupla de topo.
+    descricao: Segue por uma óbvia cristaleira até seu final, quando faz uma horizontal
+      à direita – e crux da via – até sua parada dupla de topo.
 - uid: Lt9slg01AcQrYh
   via_multiplas_enfiadas:
     nome: Águas de Março
@@ -400,8 +400,8 @@ escaladas:
     - Pedro Bugim
     - Maria Fernanda Patricio
     data_abertura: '2013-03-31'
-    descricao: Interessante via que inicia em um lance levemente atlético e evolui para abaulados e aderência, sempre 
-      bem protegida.
+    descricao: Interessante via que inicia em um lance levemente atlético e evolui
+      para abaulados e aderência, sempre bem protegida.
     enfiadas:
     - via_esportiva:
         nome: 1ª Enfiada (P1)
@@ -430,9 +430,10 @@ escaladas:
     - Tonico Magalhães
     - Celso Ferreira Gomes
     data_abertura: '2010-11-28'
-    descricao: 'Via bem protegida e agradável. O nome homenageia o Gustavo “Xaxá”, fundador do CEM (Centro Excursionista Mineiro)
-      e se inspira num antigo comercial de TV das Casas da Banha. (Nota: indicada com 65m no croqui detalhado e 90m na introdução
-      e visão geral da parede).'
+    descricao: 'Via bem protegida e agradável. O nome homenageia o Gustavo “Xaxá”,
+      fundador do CEM (Centro Excursionista Mineiro) e se inspira num antigo comercial
+      de TV das Casas da Banha. (Nota: indicada com 65m no croqui detalhado e 90m
+      na introdução e visão geral da parede).'
 - uid: Ia7EcXmdlpe2iI
   via_esportiva:
     nome: Casas da Banha
@@ -448,8 +449,9 @@ escaladas:
     - Tonico Magalhães
     - Celso Ferreira Gomes
     data_abertura: '2011-04-21'
-    descricao: Começa com uma enfiada atlética seguida de lances em buracos. Apresenta parada dupla (P1) aos 40 metros e
-      conexão de 5 metros até a via Vou Dançar o Xaxaxá.
+    descricao: Começa com uma enfiada atlética seguida de lances em buracos. Apresenta
+      parada dupla (P1) aos 40 metros e conexão de 5 metros até a via Vou Dançar o
+      Xaxaxá.
 - uid: hWD9UQJTfeeLtJ
   via_esportiva:
     nome: Ferradura
@@ -459,8 +461,9 @@ escaladas:
     - Tonico Magalhães
     - Júlio César Cardoso
     data_abertura: '2007-06-03'
-    descricao: 'Via portadora de um lance difícil. Um verdadeiro bote em um buraco. É variante da Ferrolho e conta com boa
-      proteção. (Nota: indicada com 25m na visão geral da parede).'
+    descricao: 'Via portadora de um lance difícil. Um verdadeiro bote em um buraco.
+      É variante da Ferrolho e conta com boa proteção. (Nota: indicada com 25m na
+      visão geral da parede).'
 - uid: lHhszDUlwi5Y7i
   via_esportiva:
     nome: Ferrolho
@@ -470,8 +473,8 @@ escaladas:
     - Tonico Magalhães
     - Júlio César Cardoso
     data_abertura: '2007-06-03'
-    descricao: A via segue uma linda sequência de buracos em forma de olhos. Daí o nome da via. O crux é o primeiro 
-      lance.
+    descricao: A via segue uma linda sequência de buracos em forma de olhos. Daí o
+      nome da via. O crux é o primeiro lance.
 - uid: vrXUR5016GuvUn
   via_esportiva:
     nome: Cambal a Quatro
@@ -482,7 +485,8 @@ escaladas:
     - Juliano Magalhães
     - Valdinei
     data_abertura: '2008-02-03'
-    descricao: Via portadora de uma difícil barriga em seu final. (Graduada como V na visão geral e Vsup na descrição).
+    descricao: Via portadora de uma difícil barriga em seu final. (Graduada como V
+      na visão geral e Vsup na descrição).
 - uid: 3H2P63eUJtSmda
   via_movel:
     nome: El Bigodón
@@ -494,7 +498,8 @@ escaladas:
     - Gustavo "Xaxá" Carrozzino
     - Nádia Moreira
     data_abertura: '2006-08-27'
-    descricao: Espetacular via do setor, sendo considerada como imperdível. Via mista com grampos e proteções móveis.
+    descricao: Espetacular via do setor, sendo considerada como imperdível. Via mista
+      com grampos e proteções móveis.
 - uid: heSEhw8bk6CUMi
   via_movel:
     nome: Testa de Aço
@@ -504,7 +509,8 @@ escaladas:
     - Tonico Magalhães
     - Gustavo "Xaxá" Carrozzino
     data_abertura: '2007-10-28'
-    descricao: Via mista, com grampos e utilização de materiais móveis. Rapel com corda simples de 50m.
+    descricao: Via mista, com grampos e utilização de materiais móveis. Rapel com
+      corda simples de 50m.
 - uid: BBtRCBwAzyQLg5
   via_movel:
     nome: Me Ferrei
@@ -514,7 +520,8 @@ escaladas:
     - Luciano Bender
     - Tonico Magalhães
     data_abertura: '2011-06-22'
-    descricao: Via atlética com grampos e utilização de materiais móveis. Rapel com corda simples de 50m.
+    descricao: Via atlética com grampos e utilização de materiais móveis. Rapel com
+      corda simples de 50m.
 - uid: y77FqGi7nfe7tx
   via_movel:
     nome: Amor Profano
@@ -526,8 +533,9 @@ escaladas:
     - Tonico Magalhães
     - Nádia Moreira
     data_abertura: '2007-08-13'
-    descricao: Via atlética em seu início e em aderência em seu final. O primeiro lance (crux) pode ter sua proteção 
-      melhorada com um friend médio. Imperdível também.
+    descricao: Via atlética em seu início e em aderência em seu final. O primeiro
+      lance (crux) pode ter sua proteção melhorada com um friend médio. Imperdível
+      também.
 - uid: 2CKnFR9GnX0RVk
   via_esportiva:
     nome: Deu Tilt
@@ -558,8 +566,9 @@ escaladas:
     - Tonico Magalhães
     - Celso Ferreira Gomes
     data_abertura: '2013-05-30'
-    descricao: Via protegida por 6 grampos, tendo seu crux na passada final. (Graduada como IVsup na visão geral e IV na
-      descrição; extensão de 15m na visão geral e 20m na descrição).
+    descricao: Via protegida por 6 grampos, tendo seu crux na passada final. (Graduada
+      como IVsup na visão geral e IV na descrição; extensão de 15m na visão geral
+      e 20m na descrição).
 - uid: kmjy7dMR7EM87p
   via_esportiva:
     nome: Se Meu Fusca Falasse
@@ -611,7 +620,8 @@ escaladas:
     - Tonico Magalhães
     - Luciano Bender
     data_abertura: '2011-06-22'
-    descricao: Primeira via na extrema direita deste setor, seguindo a linha de vegetação. O crux é o primeiro lance.
+    descricao: Primeira via na extrema direita deste setor, seguindo a linha de vegetação.
+      O crux é o primeiro lance.
 ---
 
 <small>Capa: Rodrigo Magalhães guiando a "Couro de Lobisomem" (Foto: Tamires Lima)</small>

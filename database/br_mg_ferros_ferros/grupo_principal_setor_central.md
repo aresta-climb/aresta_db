@@ -569,7 +569,8 @@ escaladas:
     - Tonico Magalhães
     - Celso Ferreira Gomes
     data_abertura: '2011-04-23'
-    descricao: Excelente e imperdível via. Os lances mais difíceis estão na primeira enfiada.
+    descricao: Excelente e imperdível via. Os lances mais difíceis estão na primeira
+      enfiada.
   mapas:
   - caminho_imagem_mapa: imagens/via_ferro_no_judas_p0.webp
     largura_mapa: 689
@@ -587,8 +588,9 @@ escaladas:
     - Frederico Vasconcelos
     - Juan Kempen
     data_abertura: '2006-05-15'
-    descricao: Uma das vias mais indicadas do local, pela beleza de seus lances e por permitir um bom conhecimento do 
-      trecho central da parede. Rapel com corda única de 50m.
+    descricao: Uma das vias mais indicadas do local, pela beleza de seus lances e
+      por permitir um bom conhecimento do trecho central da parede. Rapel com corda
+      única de 50m.
 - uid: lWOsQxs7jU5YLt
   via_multiplas_enfiadas:
     nome: Rolam as Pedras
@@ -604,10 +606,11 @@ escaladas:
     - Maria Fernanda Patrício
     - Glesse Gripp
     data_abertura: '2012-09-08'
-    descricao: Linha que segue por buracos e cristaleiras muito estéticos, sempre com proteção próxima. As paradas são 
-      duplas e o rapel, possível com corda única de 50m. O nome se dá por conta de um enorme bloco que se desprendeu na 
-      primeira investida e cortou a corda do Tonico. Na última investida, o capacete da Maria Fernanda também foi 
-      alvejado por uma pedra que rolou durante o rapel.
+    descricao: Linha que segue por buracos e cristaleiras muito estéticos, sempre
+      com proteção próxima. As paradas são duplas e o rapel, possível com corda única
+      de 50m. O nome se dá por conta de um enorme bloco que se desprendeu na primeira
+      investida e cortou a corda do Tonico. Na última investida, o capacete da Maria
+      Fernanda também foi alvejado por uma pedra que rolou durante o rapel.
 - uid: JiNuS1HncRy9hd
   via_multiplas_enfiadas:
     nome: Tromba D’Água
@@ -622,9 +625,10 @@ escaladas:
     - Fernando "Velho" Fajardo
     - Maria Fernanda Patrício
     data_abertura: '2014-03-02'
-    descricao: Inicia com uma enfiada constante, protegida por grampos de ½. As três enfiadas sequentes, possuem 
-      inúmeras passadas em móvel, em fendas sólidas, porém esporádicas, exigindo do guia uma boa leitura da linha. Todas
-      as paradas são fixas e duplas. Rapel possível com corda única de 60 metros ou maior.
+    descricao: Inicia com uma enfiada constante, protegida por grampos de ½. As três
+      enfiadas sequentes, possuem inúmeras passadas em móvel, em fendas sólidas, porém
+      esporádicas, exigindo do guia uma boa leitura da linha. Todas as paradas são
+      fixas e duplas. Rapel possível com corda única de 60 metros ou maior.
 - uid: tl0YE1HHijDc5f
   via_multiplas_enfiadas:
     nome: Ferro Velho
@@ -638,10 +642,11 @@ escaladas:
     - Fernando "Velho" Fajardo
     - Pedro Bugim
     data_abertura: '2012-09-09'
-    descricao: Ótima linha para quem está começando a guiar em móvel, pois possui uma fenda perfeita em sua segunda 
-      enfiada, bastante sólida, feita em oposição e protegida inteiramente em friends médios. Apesar de mais fácil, sua 
-      terceira enfiada possui lances mais longos, com proteções fixas espaçadas e possibilidade de proteções móveis 
-      esporádicas.
+    descricao: Ótima linha para quem está começando a guiar em móvel, pois possui
+      uma fenda perfeita em sua segunda enfiada, bastante sólida, feita em oposição
+      e protegida inteiramente em friends médios. Apesar de mais fácil, sua terceira
+      enfiada possui lances mais longos, com proteções fixas espaçadas e possibilidade
+      de proteções móveis esporádicas.
 - uid: 0zm9vw74S090Qb
   via_multiplas_enfiadas:
     nome: Pum Medonho
@@ -656,8 +661,9 @@ escaladas:
     - Maurinho
     - JP
     data_abertura: '2007-12-08'
-    descricao: Via bonita e fácil. No meio do traçado ocorre um grande platô formado por uma enorme pedra. O autor da 
-      emanação intestinal foi um sócio do CEM, bastante conhecido...
+    descricao: Via bonita e fácil. No meio do traçado ocorre um grande platô formado
+      por uma enorme pedra. O autor da emanação intestinal foi um sócio do CEM, bastante
+      conhecido...
 - uid: OMn5RoUmsVxGMx
   via_multiplas_enfiadas:
     nome: Dona Flor e Suas Duas Marretas
@@ -671,10 +677,11 @@ escaladas:
     - Diogo Cruz
     - Alessandra da Silva Gomes
     data_abertura: '2012-09-09'
-    descricao: Via predominantemente em agarras e aderência, toda em grampos, com proteções um pouco mais espaçadas que 
-      o restante da parede. Segue sempre em paralelo ao “Pr. Chapado”, ficando bem próximo ao vizinho no final. Durante 
-      a conquista, duas marretas se quebraram, por isso, alguns grampos não foram cravados até o final. Solicita-se que 
-      o trabalho seja feito em sua repetição.
+    descricao: Via predominantemente em agarras e aderência, toda em grampos, com
+      proteções um pouco mais espaçadas que o restante da parede. Segue sempre em
+      paralelo ao “Pr. Chapado”, ficando bem próximo ao vizinho no final. Durante
+      a conquista, duas marretas se quebraram, por isso, alguns grampos não foram
+      cravados até o final. Solicita-se que o trabalho seja feito em sua repetição.
 - uid: cpkdZ1zPnyBPvH
   via_multiplas_enfiadas:
     nome: Pr. Chapado
@@ -689,11 +696,13 @@ escaladas:
     - Pedro Bugim
     - Maria Fernanda Patrício
     data_abertura: '2012-09-08'
-    descricao: Primeira via de Ferros protegida em chapeletas. A cada 30 metros, possui uma chapeleta com argola para 
-      rapel com corda simples de 60 metros. Nas paradas, possui proteção dupla, com uma chapeleta simples e outra com 
-      argola. Esta via passa por lances simplórios, porém interessantes, quase sempre em agarras. Cuidado com os blocos 
-      de pedra soltos na metade da segunda enfiada durante o rapel! Seu crux é bem definido e fica na saída da segunda 
-      parada, podendo ser evitado, se feito mais pela direita.
+    descricao: Primeira via de Ferros protegida em chapeletas. A cada 30 metros, possui
+      uma chapeleta com argola para rapel com corda simples de 60 metros. Nas paradas,
+      possui proteção dupla, com uma chapeleta simples e outra com argola. Esta via
+      passa por lances simplórios, porém interessantes, quase sempre em agarras. Cuidado
+      com os blocos de pedra soltos na metade da segunda enfiada durante o rapel!
+      Seu crux é bem definido e fica na saída da segunda parada, podendo ser evitado,
+      se feito mais pela direita.
   mapas:
   - caminho_imagem_mapa: imagens/grupo_principal_setor_central_p7_i1.webp
     largura_mapa: 606
@@ -713,9 +722,10 @@ escaladas:
     - Pedro Bugim
     - Maria Fernanda Patrício
     data_abertura: '2012-04-08'
-    descricao: Via com muitos lances bem verticais, mas sempre com ótimas agarras e cristaleiras. Uma das vias mais 
-      protegidas da parede, possibilitando bom conhecimento do estilo deste setor, sem sobrecarregar o psicológico. 
-      Paradas duplas e rapel com corda simples de 50 metros.
+    descricao: Via com muitos lances bem verticais, mas sempre com ótimas agarras
+      e cristaleiras. Uma das vias mais protegidas da parede, possibilitando bom conhecimento
+      do estilo deste setor, sem sobrecarregar o psicológico. Paradas duplas e rapel
+      com corda simples de 50 metros.
   mapas:
   - caminho_imagem_mapa: imagens/grupo_principal_setor_central_p7_i3.webp
     largura_mapa: 641
@@ -733,7 +743,8 @@ escaladas:
     - Gustavo "Xaxá" Carrozzino
     - Fabiano Fernandes
     data_abertura: '2007-06-04'
-    descricao: Via mista que possui uma fenda inicial em móvel (crux). Os demais lances são muito bonitos.
+    descricao: Via mista que possui uma fenda inicial em móvel (crux). Os demais lances
+      são muito bonitos.
 - uid: oJgVXI1kQAJQ4V
   via_multiplas_enfiadas:
     nome: Eu Sei o Que Vocês Fizeram no Blackout Passado
@@ -750,9 +761,10 @@ escaladas:
     - Ricardo "Draga" Daher
     - Gisele Melo
     data_abertura: '2014-03-04'
-    descricao: O crux fica logo no delicado lance inicial, bem protegido. Evolui para lances verticais com “corcovas” e 
-      agarras incríveis, até a P1. A segunda enfiada possui lances com predominância em aderência, contando com um 
-      segundo crux antes da P2.
+    descricao: O crux fica logo no delicado lance inicial, bem protegido. Evolui para
+      lances verticais com “corcovas” e agarras incríveis, até a P1. A segunda enfiada
+      possui lances com predominância em aderência, contando com um segundo crux antes
+      da P2.
   mapas:
   - caminho_imagem_mapa: imagens/grupo_principal_setor_central_p8_i1.webp
     largura_mapa: 840
@@ -772,8 +784,9 @@ escaladas:
     - Eustáquio Júnior
     - Gustavo "Xaxá" Carrozzino
     data_abertura: '2010-08-21'
-    descricao: Uma das mais clássicas das vias da região. Apresenta três esticões de 55m cada, grampeação muito segura e
-      paradas duplicadas. Costura móvel opcional no segundo esticão (friend). Rapel com corda única de 50m.
+    descricao: Uma das mais clássicas das vias da região. Apresenta três esticões
+      de 55m cada, grampeação muito segura e paradas duplicadas. Costura móvel opcional
+      no segundo esticão (friend). Rapel com corda única de 50m.
 - uid: HVIBIlLPDu82FN
   via_multiplas_enfiadas:
     nome: Iron Men
@@ -787,8 +800,9 @@ escaladas:
     - Juliano Magalhães
     - Marcos Leiras
     data_abertura: '2006-02-26'
-    descricao: Primeira via conquistada na localidade, dando início ao novo (e excelente!) polo deste esporte. O 
-      primeiro lance (crux) pode ter sua proteção melhorada com um nut de cabo pequeno.
+    descricao: Primeira via conquistada na localidade, dando início ao novo (e excelente!)
+      polo deste esporte. O primeiro lance (crux) pode ter sua proteção melhorada
+      com um nut de cabo pequeno.
 - uid: UQvP1LioTvp83J
   via_multiplas_enfiadas:
     nome: Cordão do Bola Preta
@@ -804,11 +818,13 @@ escaladas:
     - Pedro Bugim
     - Maria Fernanda Patrício
     data_abertura: '2012-02-18'
-    descricao: Via espetacular! A primeira enfiada segue uma sequência impressionante de agarras, buracos e cristais, 
-      sempre com boa proteção fixa em grampos de ½. A segunda enfiada é feita quase toda em móvel, com friends de todos 
-      os tamanhos, dos menores aos bem grandes, sempre em fendas perfeitas e sólidas. O crux está na virada do diedro no
-      final da segunda enfiada, sendo protegido por um grampo. A terceira enfiada segue por cristais e aderência até o 
-      final da via. Foi a 101ª conquista da região.
+    descricao: Via espetacular! A primeira enfiada segue uma sequência impressionante
+      de agarras, buracos e cristais, sempre com boa proteção fixa em grampos de ½.
+      A segunda enfiada é feita quase toda em móvel, com friends de todos os tamanhos,
+      dos menores aos bem grandes, sempre em fendas perfeitas e sólidas. O crux está
+      na virada do diedro no final da segunda enfiada, sendo protegido por um grampo.
+      A terceira enfiada segue por cristais e aderência até o final da via. Foi a
+      101ª conquista da região.
 - uid: 4wSO4KLI3b8c1D
   via_multiplas_enfiadas:
     nome: A Ferro e Fogo
@@ -821,8 +837,8 @@ escaladas:
     - Frederico Vasconcelos
     - Juan Kempen
     data_abertura: '2006-04-14'
-    descricao: Excelente via de escalada, sendo uma das primeiras do pólo. Bem protegida, com lances verticais em 
-      agarras e cristaleiras.
+    descricao: Excelente via de escalada, sendo uma das primeiras do pólo. Bem protegida,
+      com lances verticais em agarras e cristaleiras.
 - uid: 0on14wnJabheri
   via_multiplas_enfiadas:
     nome: Chuva Ácida
@@ -836,9 +852,10 @@ escaladas:
     - Pedro Bugim
     - Maria Fernanda Patrício
     data_abertura: '2013-03-30'
-    descricao: Apesar de relativamente curta, trata-se de uma via com lances bastante interessantes, em cristaleiras, 
-      abaulados e boas agarras em lances verticais, e com graduação bem tranquila. Bem protegida por grampos. Pode 
-      seguir até o topo, após a parada dupla, por qualquer uma de suas vias vizinhas.
+    descricao: Apesar de relativamente curta, trata-se de uma via com lances bastante
+      interessantes, em cristaleiras, abaulados e boas agarras em lances verticais,
+      e com graduação bem tranquila. Bem protegida por grampos. Pode seguir até o
+      topo, após a parada dupla, por qualquer uma de suas vias vizinhas.
 - uid: KjagFJ12xAjL7y
   via_multiplas_enfiadas:
     nome: A Decadência da Bufa
@@ -854,8 +871,9 @@ escaladas:
     - Maria Fernanda Patrício
     - Gustavo "Xaxá" Carrozzino
     data_abertura: '2012-01-22'
-    descricao: Boa via, com boa proteção fixa em grampos de ½ polegada, seguindo uma linha óbvia de cristais, regletes e
-      buracos, desde a base até o cume. Rapel possível com corda única de 50m. 99ª via conquistada na região.
+    descricao: Boa via, com boa proteção fixa em grampos de ½ polegada, seguindo uma
+      linha óbvia de cristais, regletes e buracos, desde a base até o cume. Rapel
+      possível com corda única de 50m. 99ª via conquistada na região.
 - uid: Aqvhry9pjfJsJw
   via_multiplas_enfiadas:
     nome: Jeca Tatu

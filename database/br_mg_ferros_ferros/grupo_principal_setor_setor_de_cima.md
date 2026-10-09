@@ -132,10 +132,11 @@ escaladas:
     - Pedro Bugim
     - Maria Fernanda Patrício
     data_abertura: '2015-02-17'
-    descricao: Ótima via, que inicia em um fácil costão, para então ganhar uma bonita canaleta e finalmente, uma barriga
-      feita em aderência, onde encontra-se o crux (primeira metade da via). A primeira enfiada (e mais bonita) possui 
-      proteção generosa, enquanto que a segunda enfiada, bem mais fácil, possui proteções mais espaçadas até atingir o 
-      topo da parede.
+    descricao: Ótima via, que inicia em um fácil costão, para então ganhar uma bonita
+      canaleta e finalmente, uma barriga feita em aderência, onde encontra-se o crux
+      (primeira metade da via). A primeira enfiada (e mais bonita) possui proteção
+      generosa, enquanto que a segunda enfiada, bem mais fácil, possui proteções mais
+      espaçadas até atingir o topo da parede.
     enfiadas:
     - via_esportiva:
         nome: 1ª Enfiada (P1)

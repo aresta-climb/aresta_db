@@ -126,9 +126,11 @@ escaladas:
     - Francisco Caetano
     - Ernane "Tufo" Wermelinger
     data_abertura: '2012-01-21'
-    descricao: 'A primeira enfiada passa por um extenso costão de 60 metros, com apenas três grampos. Depois deste ponto,
-      a parede ganha inclinação, aumentando a graduação, pouco a pouco, culminando no crux da via, já nos metros finais da
-      parede. Possui duas passadas em móvel, nos quais se recomenda a utilização de stoppers grandes de camalot #2.
+    descricao: 'A primeira enfiada passa por um extenso costão de 60 metros, com apenas
+      três grampos. Depois deste ponto, a parede ganha inclinação, aumentando a graduação,
+      pouco a pouco, culminando no crux da via, já nos metros finais da parede. Possui
+      duas passadas em móvel, nos quais se recomenda a utilização de stoppers grandes
+      de camalot #2.
 
       '
   mapas:
@@ -146,8 +148,9 @@ escaladas:
     - Tonico Magalhães
     - Celso Ferreira Gomes
     data_abertura: '2010-02-14'
-    descricao: 'A primeira via conquistada na extrema direita da Parede das Aderências, com lances predominantemente em aderência,
-      protegida em grampos de ½ polegada. O crux é uma barriga lisa no final da via.
+    descricao: 'A primeira via conquistada na extrema direita da Parede das Aderências,
+      com lances predominantemente em aderência, protegida em grampos de ½ polegada.
+      O crux é uma barriga lisa no final da via.
 
       '
 - uid: LBIEfNwhK7tjIU
@@ -166,11 +169,13 @@ escaladas:
     - Francisco Caetano
     - Ricardo Barros
     data_abertura: '2012-01-22'
-    descricao: 'A via é predominante em aderência, com fendas que ajudam a melhorar a proteção. Seu início é mais inclinado
-      e, logo após a primeira proteção, cai bastante até a P1. Dessa proteção em diante, a inclinação aumenta gradativamente,
-      com uma passada entre um pequeno teto rodeado de mato e grandes blocos soltos, que não aguentariam uma queda. Recomenda-se
-      um jogo de camalots do #0.5 a #3. Os últimos grampos da via estão intercalados entre a vegetação e espaços onde a rocha
-      aflora.
+    descricao: 'A via é predominante em aderência, com fendas que ajudam a melhorar
+      a proteção. Seu início é mais inclinado e, logo após a primeira proteção, cai
+      bastante até a P1. Dessa proteção em diante, a inclinação aumenta gradativamente,
+      com uma passada entre um pequeno teto rodeado de mato e grandes blocos soltos,
+      que não aguentariam uma queda. Recomenda-se um jogo de camalots do #0.5 a #3.
+      Os últimos grampos da via estão intercalados entre a vegetação e espaços onde
+      a rocha aflora.
 
       '
   mapas:
@@ -191,10 +196,11 @@ escaladas:
     - Diogo Cruz
     - Alessandra da Silva Gomes
     data_abertura: '2012-09-08'
-    descricao: Via com lances muito tranquilos, mesclando grampos e proteções móveis esporádicas, seguindo uma linha 
-      sinuosa (daí seu tamanho extenso) até o topo da extrema direita da parede. Apesar das proteções relativamente 
-      longas, é uma ótima via para quem está aprendendo a guiar, sobretudo, para treinar como “garimpar” as proteções 
-      móveis (peças pequenas e médias).
+    descricao: Via com lances muito tranquilos, mesclando grampos e proteções móveis
+      esporádicas, seguindo uma linha sinuosa (daí seu tamanho extenso) até o topo
+      da extrema direita da parede. Apesar das proteções relativamente longas, é uma
+      ótima via para quem está aprendendo a guiar, sobretudo, para treinar como “garimpar”
+      as proteções móveis (peças pequenas e médias).
 caminho_imagem_capa: imagens/grupo_aderencias_setor_extrema_direita_p3_i0.webp
 ---
 

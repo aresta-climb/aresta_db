@@ -520,7 +520,8 @@ escaladas:
     - Pedro Bugim
     - Maria Fernanda Patrício
     data_abertura: '2012-09-08'
-    descricao: Variante da Pr. Aerolitos, com uma passada chave na terceira chapeleta, em aderência.
+    descricao: Variante da Pr. Aerolitos, com uma passada chave na terceira chapeleta,
+      em aderência.
 - uid: csAOpWzD3bsuiz
   via_multiplas_enfiadas:
     nome: Pr. Aerolitos
@@ -534,8 +535,8 @@ escaladas:
     - Pedro Bugim
     - Maria Fernanda Patrício
     data_abertura: '2012-09-08'
-    descricao: Via protegida com chapeletas, contando com chapeletas com argola nas paradas, para o rapel. P1 aos 55m 
-      (3° IIIsup) e P2 aos 25m (IIIsup/II).
+    descricao: Via protegida com chapeletas, contando com chapeletas com argola nas
+      paradas, para o rapel. P1 aos 55m (3° IIIsup) e P2 aos 25m (IIIsup/II).
 - uid: ybGBKOoZNgJCpG
   via_movel:
     nome: Facão Foi-se
@@ -548,10 +549,12 @@ escaladas:
     - Pedro Bugim
     - Maria Fernanda Patrício
     data_abertura: '2014-03-04'
-    descricao: Inicia em uma bonita fenda, feita em oposição e depois na vertical, para atingir o primeiro grampo da 
-      via. Esta sequência inicial pode ser protegida com friends pequenos e médios, mas também é possível fazer a via 
-      sem proteções móveis, aumentando o grau de exposição de E1 para E2 (o primeiro grampo fica alto). Depois, segue em
-      agarras e aderência até seu final, com boa regularidade na graduação.
+    descricao: Inicia em uma bonita fenda, feita em oposição e depois na vertical,
+      para atingir o primeiro grampo da via. Esta sequência inicial pode ser protegida
+      com friends pequenos e médios, mas também é possível fazer a via sem proteções
+      móveis, aumentando o grau de exposição de E1 para E2 (o primeiro grampo fica
+      alto). Depois, segue em agarras e aderência até seu final, com boa regularidade
+      na graduação.
   mapas:
   - caminho_imagem_mapa: imagens/grupo_aderencias_setor_face_central_p6_i1.webp
     largura_mapa: 1105
@@ -567,9 +570,10 @@ escaladas:
     conquistadores:
     - Pedro Bugim
     data_abertura: '2015-02-14'
-    descricao: Via conquistada em solitário, porém com boa proteção. Possui duas enfiadas relativamente curtas, com 
-      lances inicialmente em agarras e regletes, evoluindo para aderência na metade superior. P1 aos 45m e P2 aos 40m, 
-      ambas com parada dupla.
+    descricao: Via conquistada em solitário, porém com boa proteção. Possui duas enfiadas
+      relativamente curtas, com lances inicialmente em agarras e regletes, evoluindo
+      para aderência na metade superior. P1 aos 45m e P2 aos 40m, ambas com parada
+      dupla.
   mapas:
   - caminho_imagem_mapa: imagens/grupo_aderencias_setor_face_central_p7_i3.webp
     largura_mapa: 1130
@@ -615,9 +619,10 @@ escaladas:
     - Tonico Magalhães
     - Celso Ferreira Gomes
     data_abertura: '2012-02-18'
-    descricao: Via que se inicia em um diedro cego com proteção fixa, que pode ser melhorada com proteções precárias em 
-      móvel (peças pequenas), mas nada obrigatório. Sua segunda enfiada junta com a via “Balzac”. Rapel possível com 
-      corda simples de 50m.
+    descricao: Via que se inicia em um diedro cego com proteção fixa, que pode ser
+      melhorada com proteções precárias em móvel (peças pequenas), mas nada obrigatório.
+      Sua segunda enfiada junta com a via “Balzac”. Rapel possível com corda simples
+      de 50m.
 - uid: ozdIvXqV39O4hQ
   via_multiplas_enfiadas:
     nome: Balzac
@@ -630,8 +635,9 @@ escaladas:
     - Tonico Magalhães
     - Júlio César Cardoso
     data_abertura: '2007-03-04'
-    descricao: Via que possui passadas relativamente mais delicadas que as suas vizinhas, contando com duas enfiadas. 
-      Rapel possível com corda simples de 50m. Trata-se de via mestra do local.
+    descricao: Via que possui passadas relativamente mais delicadas que as suas vizinhas,
+      contando com duas enfiadas. Rapel possível com corda simples de 50m. Trata-se
+      de via mestra do local.
 - uid: FuC48kY6wrQaIy
   via_esportiva:
     nome: Dez Fora
@@ -642,7 +648,8 @@ escaladas:
     - Igor Murta
     - Carlim Kamicad
     data_abertura: '2012-04-08'
-    descricao: Via equipada com corda de cima, a partir da “Cordeiro de Deus”. Falta o primeiro grampo.
+    descricao: Via equipada com corda de cima, a partir da “Cordeiro de Deus”. Falta
+      o primeiro grampo.
 - uid: Wy4AZC0YXu6GAs
   via_multiplas_enfiadas:
     nome: Cordeiro de Deus
@@ -654,7 +661,8 @@ escaladas:
     - Tonico Magalhães
     - Paulo Bandeira
     data_abertura: '2007-09-08'
-    descricao: Bonita e técnica via em aderência com 12 grampos. Rapel com corda simples de 50m. Termina na Balzac.
+    descricao: Bonita e técnica via em aderência com 12 grampos. Rapel com corda simples
+      de 50m. Termina na Balzac.
 - uid: uKEKgStDTNazju
   via_esportiva:
     nome: Cinquentona de Ferros
@@ -664,8 +672,8 @@ escaladas:
     - Tonico Magalhães
     - Daniel Maia
     data_abertura: '2009-08-02'
-    descricao: Quinquagésima conquista da região. Inicia em um diedro em oposição seguindo em aderência até o final. 
-      Rapel com corda simples de 50m.
+    descricao: Quinquagésima conquista da região. Inicia em um diedro em oposição
+      seguindo em aderência até o final. Rapel com corda simples de 50m.
 - uid: 3I50paZMH7yne8
   via_multiplas_enfiadas:
     nome: Coração Valente
@@ -679,9 +687,10 @@ escaladas:
     - Pedro Bugim
     - Maria Fernanda Patrício
     data_abertura: '2012-04-06'
-    descricao: Boa via em aderência, sempre constante, mas sem lances complicados e com proteção regular. Termina no 
-      penúltimo grampo da “Expo CERJ!”. Via em homenagem ao pequeno Arthur Taveira, que aos dois meses de idade, venceu 
-      uma dura batalha após ser diagnosticado com sério problema cardíaco.
+    descricao: Boa via em aderência, sempre constante, mas sem lances complicados
+      e com proteção regular. Termina no penúltimo grampo da “Expo CERJ!”. Via em
+      homenagem ao pequeno Arthur Taveira, que aos dois meses de idade, venceu uma
+      dura batalha após ser diagnosticado com sério problema cardíaco.
 - uid: aNLsrhZbdKaVwZ
   via_multiplas_enfiadas:
     nome: Expo CERJ!
@@ -696,10 +705,12 @@ escaladas:
     - Gustavo "Xaxá" Carrozzino
     - Maria Fernanda Patrício
     data_abertura: '2012-01-21'
-    descricao: Via com passadas muito interessantes em aderência, com grampeação longa. Ótima para treinamento de 
-      psicológico. Rapel possível com uma corda de 60m (de grampo em grampo) ou duas cordas de 50m ou maiores. O rapel 
-      pode ser feito também pela via “Coração Valente”, com corda única de 50m. Via em homenagem aos 73 anos do Centro 
-      Excursionista Rio de Janeiro (CERJ), completados no dia anterior à conquista.
+    descricao: Via com passadas muito interessantes em aderência, com grampeação longa.
+      Ótima para treinamento de psicológico. Rapel possível com uma corda de 60m (de
+      grampo em grampo) ou duas cordas de 50m ou maiores. O rapel pode ser feito também
+      pela via “Coração Valente”, com corda única de 50m. Via em homenagem aos 73
+      anos do Centro Excursionista Rio de Janeiro (CERJ), completados no dia anterior
+      à conquista.
 - uid: 9aBkEGGdm0Uwj1
   via_multiplas_enfiadas:
     nome: Social Club
@@ -713,9 +724,10 @@ escaladas:
     - Rodrigo Magalhães
     - Nádia Moreira
     data_abertura: '2006-06-11'
-    descricao: Uma das vias mais recomendadas da região! São 200 metros em aderência com dificuldade moderada, porém 
-      constante, tendo raros lances abaixo do 3° grau. O fato da via não diminuir sua dificuldade ao longo de sua 
-      extensão, confere um justo mérito ao escalador. Via boa para ver o pôr do sol em seu final.
+    descricao: Uma das vias mais recomendadas da região! São 200 metros em aderência
+      com dificuldade moderada, porém constante, tendo raros lances abaixo do 3° grau.
+      O fato da via não diminuir sua dificuldade ao longo de sua extensão, confere
+      um justo mérito ao escalador. Via boa para ver o pôr do sol em seu final.
 - uid: 4IbUftnrAJSYBT
   via_multiplas_enfiadas:
     nome: Pr. Tonico Magalhães
@@ -729,10 +741,11 @@ escaladas:
     - Celso Ferreira Gomes
     - Maria Fernanda Patrício
     data_abertura: '2012-06-17'
-    descricao: Via bastante interessante, com lances predominantemente em aderência, porém com algumas cristaleiras e 
-      abaulados que marcam o caminho natural da linha. Seu crux encontra-se na primeira metade da via, logo na barriga 
-      inicial, sempre com boa proteção fixa. Para efeito de curiosidade, foi a centésima conquista do Celso, companheiro
-      do Tonico quando da conquista de sua centésima via.
+    descricao: Via bastante interessante, com lances predominantemente em aderência,
+      porém com algumas cristaleiras e abaulados que marcam o caminho natural da linha.
+      Seu crux encontra-se na primeira metade da via, logo na barriga inicial, sempre
+      com boa proteção fixa. Para efeito de curiosidade, foi a centésima conquista
+      do Celso, companheiro do Tonico quando da conquista de sua centésima via.
 - uid: rWMLkzsMZiRO3H
   via_multiplas_enfiadas:
     nome: E o Rio Levou
@@ -746,11 +759,12 @@ escaladas:
     - Pedro Bugim
     - Maria Fernanda Patrício
     data_abertura: '2014-03-02'
-    descricao: Inicia imediatamente à direita da base da “Tonico Magalhães”, dando uma guinada à direita após o segundo 
-      grampo, onde cruza com uma sequência de lacas que podem ser protegidas opcionalmente por friends médios. Deste 
-      ponto em diante, segue o bonito crux da via, em uma parede com boa verticalidade e regletes bem definidos, até a 
-      P1. Da P1 em diante, a via segue por incríveis “corcovas” na pedra, até sua segunda parada. A enfiada final é 
-      feita em aderência.
+    descricao: Inicia imediatamente à direita da base da “Tonico Magalhães”, dando
+      uma guinada à direita após o segundo grampo, onde cruza com uma sequência de
+      lacas que podem ser protegidas opcionalmente por friends médios. Deste ponto
+      em diante, segue o bonito crux da via, em uma parede com boa verticalidade e
+      regletes bem definidos, até a P1. Da P1 em diante, a via segue por incríveis
+      “corcovas” na pedra, até sua segunda parada. A enfiada final é feita em aderência.
 caminho_imagem_capa: imagens/grupo_aderencias_setor_face_central_p0_i1.webp
 ---
 

@@ -245,8 +245,8 @@ escaladas:
     data_abertura: '2008-02-05'
     quantidade_protecoes_intermediarias: 7
     quantidade_protecoes_parada: 2
-    descricao: Via bastante difícil que acompanha o teto pela sua borda. Ela se inicia no meio da Via Iron Slow. Possui 
-      um grampo ainda não evitado.
+    descricao: Via bastante difícil que acompanha o teto pela sua borda. Ela se inicia
+      no meio da Via Iron Slow. Possui um grampo ainda não evitado.
 - uid: NsC79ZW2RFzB05
   via_esportiva:
     nome: Jabá com Jerimum
@@ -270,7 +270,8 @@ escaladas:
     - Glesse Gripp
     - Celso Ferreira Gomes
     data_abertura: '2010-10-02'
-    descricao: Via atlética e levemente negativa. “Homenageia” a mentora intelectual do fechamento da Lapinha em 2002.
+    descricao: Via atlética e levemente negativa. “Homenageia” a mentora intelectual
+      do fechamento da Lapinha em 2002.
 - uid: UE6IfxO3DuOBKB
   via_esportiva:
     nome: Vomitão em Ferros
@@ -344,7 +345,8 @@ escaladas:
     - Tonico Magalhães
     - Valdinei Lima
     data_abertura: '2008-02-06'
-    descricao: Ótima via em agarras grandes, que começa no primeiro grampo da via “Falcatrua”.
+    descricao: Ótima via em agarras grandes, que começa no primeiro grampo da via
+      “Falcatrua”.
 - uid: BbSxfAEA85prkv
   via_esportiva:
     nome: Falcatrua

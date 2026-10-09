@@ -119,8 +119,9 @@ escaladas:
     - Pedro Bugim
     - Maria Fernanda Patrício
     data_abertura: '2012-02-21'
-    descricao: Via protegida por três grampos de ½ (incluindo o grampo de topo), muito boa para treinamento de guiadas e
-      top-ropes com iniciantes. Rapel / top-rope com corda única de 50m.
+    descricao: Via protegida por três grampos de ½ (incluindo o grampo de topo), muito
+      boa para treinamento de guiadas e top-ropes com iniciantes. Rapel / top-rope
+      com corda única de 50m.
 - uid: e1HwVxMeue9Vtm
   via_esportiva:
     nome: Desenferrujando
@@ -146,10 +147,11 @@ escaladas:
     - Tonico Magalhães
     - Nádia Moreira
     data_abertura: '2007-04-08'
-    descricao: Via com boa grampeação, até atingir o topo da falésia, onde existe uma parada dupla. Ótima opção para o 
-      primeiro contato com o esporte, ou para quem está começando a guiar, perfeita para ensinar técnicas de 
-      posicionamento, equalização e costuras, sem preocupação com a parte técnica em si. Rapel / top-rope em corda única
-      de 60m.
+    descricao: Via com boa grampeação, até atingir o topo da falésia, onde existe
+      uma parada dupla. Ótima opção para o primeiro contato com o esporte, ou para
+      quem está começando a guiar, perfeita para ensinar técnicas de posicionamento,
+      equalização e costuras, sem preocupação com a parte técnica em si. Rapel / top-rope
+      em corda única de 60m.
 - uid: jA0qwfNckiQGVc
   via_movel:
     nome: A Ferro Quente
@@ -160,9 +162,10 @@ escaladas:
     - Tonico Magalhães
     - Celso Ferreira Gomes
     data_abertura: '2010-02-16'
-    descricao: Via conquistada em solo integral, não possuindo proteções fixas. A descida é feita por trilha ao lado 
-      direito da falésia, ou pela via “Ferrugem”, à esquerda. Inicia em uma fissura óbvia e segue a linha natural da 
-      pedra até o topo.
+    descricao: Via conquistada em solo integral, não possuindo proteções fixas. A
+      descida é feita por trilha ao lado direito da falésia, ou pela via “Ferrugem”,
+      à esquerda. Inicia em uma fissura óbvia e segue a linha natural da pedra até
+      o topo.
 caminho_imagem_capa: imagens/setor_cachoeira_p2_i0.webp
 ---
 
