@@ -17,7 +17,7 @@ jobs:
     name: Compilar e Lançar Linux
     runs-on: ubuntu-latest
     permissions:
-      contents: write
+      contents: read
     steps:
       - name: Generate Github App Token
         id: app-token

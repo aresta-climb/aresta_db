@@ -290,10 +290,20 @@ class TestWorkflowReleaseEditor(unittest.TestCase):
         self.assertIn("gh release create", run_release)
         self.assertIn("source.tar.gz", run_release)
 
-    def test_subaction_linux_possui_permissao_escrita_e_especifica_versao_tarball(self) -> None:
-        """Garante que o job build_linux tem permissão de escrita de contents e passa --versao para source-tarball."""
+    def test_subactions_possuem_permissao_contents_read_e_especifica_versao_tarball(self) -> None:
+        """
+        Garante que os sub-workflows reutilizáveis possuem permissão restrita 'contents: read'
+        para compatibilidade com a invocação pelo orquestrador (autenticando escritas via app-token),
+        e que o build_linux passa --versao para source-tarball.
+        """
         job_linux = self.conteudo_linux["jobs"]["build_linux"]
-        self.assertEqual(job_linux.get("permissions", {}).get("contents"), "write")
+        self.assertEqual(job_linux.get("permissions", {}).get("contents"), "read")
+
+        job_windows = self.conteudo_windows["jobs"]["build_windows"]
+        self.assertEqual(job_windows.get("permissions", {}).get("contents"), "read")
+
+        job_macos = self.conteudo_macos["jobs"]["build_macos"]
+        self.assertEqual(job_macos.get("permissions", {}).get("contents"), "read")
 
         passos = job_linux["steps"]
         passo_tarball = next((s for s in passos if "Source Tarball" in s.get("name", "")), None)
@@ -301,5 +311,6 @@ class TestWorkflowReleaseEditor(unittest.TestCase):
         assert passo_tarball is not None
         run_cmd = passo_tarball.get("run", "")
         self.assertIn("--versao", run_cmd)
+
 
 
