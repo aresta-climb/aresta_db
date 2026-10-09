@@ -11,9 +11,6 @@ finish-args:
   - --socket=fallback-x11
   - --socket=wayland
   - --share=network
-  - --filesystem=xdg-documents
-  - --filesystem=home:ro
-  - --talk-name=org.freedesktop.portal.*
   - --talk-name=org.freedesktop.secrets
   - --talk-name=org.kde.kwalletd5
   - --talk-name=org.kde.kwalletd

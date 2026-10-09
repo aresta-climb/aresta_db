@@ -132,6 +132,7 @@ jobs:
                             'type': 'archive',
                             'url': url_tarball,
                             'sha256': sha256,
+                            'strip-components': 0,
                         },
                         {'type': 'file', 'path': 'com.arestaclimb.Editor.desktop'},
                         {'type': 'file', 'path': 'com.arestaclimb.Editor.metainfo.xml'},
