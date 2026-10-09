@@ -524,7 +524,8 @@ def test_flatpak_manifest_e_constantes_otimizadas():
     assert "skip:" in manifesto_texto
     assert "- dist" in manifesto_texto
     assert "- build" in manifesto_texto
-    assert "rm -rf editor/dist" in manifesto_texto
+    assert "- flatpak" in manifesto_texto
+    assert "- .flatpak-builder" in manifesto_texto
 
 
 def test_gerar_manifesto_dependencias_flatpak_com_runtime_detectado(tmp_path):
