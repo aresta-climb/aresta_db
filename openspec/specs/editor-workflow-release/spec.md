@@ -15,7 +15,7 @@ O workflow de lançamento do Editor Aresta DEVE (SHALL) publicar automaticamente
 - **AND** o sistema pula integralmente as etapas de compilação, empacotamento e upload para a Microsoft Store.
 
 ### Requirement: Lançamento e Submissão Direta na Microsoft Store
-O workflow de lançamento do Editor Aresta DEVE (SHALL) disponibilizar o parâmetro booleano `publicar_microsoft_store` (com valor padrão `false`) que, quando habilitado, aciona a compilação do executável de produção, empacotamento MSIX e submissão direta para certificação na Microsoft Store sem a flag `--noCommit`.
+O workflow de lançamento do Editor Aresta DEVE (SHALL) disponibilizar o parâmetro booleano `publicar_microsoft_store` (com valor padrão `true`) que, quando habilitado, aciona a compilação do executável de produção, empacotamento MSIX e submissão direta para certificação na Microsoft Store sem a flag `--noCommit`.
 
 #### Scenario: Execução com lançamento na Microsoft Store ativado
 - **WHEN** o workflow de lançamento for disparado com o parâmetro `publicar_microsoft_store` preenchido como `true`

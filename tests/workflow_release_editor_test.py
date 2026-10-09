@@ -107,13 +107,13 @@ class TestWorkflowReleaseEditor(unittest.TestCase):
         self.assertNotIn("EditorAresta.appinstaller", caminhos_artefatos)
 
     def test_inputs_workflow_possui_publicar_microsoft_store_e_remove_should_publish(self) -> None:
-        """Garante que o input publicar_microsoft_store existe como booleano default false e should_publish foi removido."""
+        """Garante que o input publicar_microsoft_store existe como booleano default true e should_publish foi removido."""
         on_block = self.conteudo_yaml.get("on", self.conteudo_yaml.get(True, {}))
         inputs = on_block.get("workflow_dispatch", {}).get("inputs", {})
         self.assertIn("publicar_microsoft_store", inputs, "O input 'publicar_microsoft_store' deve existir.")
         self.assertNotIn("should_publish", inputs, "O input legado 'should_publish' deve ser removido.")
         self.assertEqual(inputs["publicar_microsoft_store"].get("type"), "boolean")
-        self.assertFalse(inputs["publicar_microsoft_store"].get("default"))
+        self.assertTrue(inputs["publicar_microsoft_store"].get("default"))
 
     def test_passos_microsoft_store_possuem_condicional_e_publicacao_sem_no_commit(self) -> None:
         """Garante que os passos da Microsoft Store possuem condicional do input e não utilizam --noCommit."""
