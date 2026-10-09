@@ -2,7 +2,13 @@
 # Copyright (C) 2026 Aresta Climb Contributors
 
 from typing import Optional, List, Tuple, Any
-import PyInstaller.__main__  # type: ignore[import-untyped]
+
+try:
+    import PyInstaller.__main__  # type: ignore[import-untyped]
+except ImportError:
+    pass
+
+
 import os
 import sys
 import argparse
@@ -572,8 +578,18 @@ def executar_build(force_icon_generation: bool = False) -> None:
 
     argumentos = obter_argumentos_pyinstaller(caminho_spec=ARQUIVO_SPEC)
 
-    print(f"Iniciando build do Editor Aresta a partir de {ARQUIVO_SPEC}...")
-    PyInstaller.__main__.run(argumentos)
+    mod_pyinstaller: Any = sys.modules.get("PyInstaller.__main__")
+    if mod_pyinstaller is None:
+        try:
+            import PyInstaller.__main__
+            mod_pyinstaller = PyInstaller.__main__
+        except ImportError:
+            raise RuntimeError(
+                "PyInstaller não está disponível neste ambiente. Ele é necessário para empacotamento em Windows e macOS."
+            )
+    assert mod_pyinstaller is not None
+    mod_pyinstaller.run(argumentos)
+
     print("Build concluído com sucesso!")
 
 
@@ -621,9 +637,11 @@ def gerar_tarball_codigo_fonte(
         "scripts",
         "coleta_de_betas",
         "migracoes",
+        "serving",
         "uv.lock",
         "pyproject.toml",
     ]
+
 
 
     def filtro_exclusao(tarinfo: tarfile.TarInfo) -> Optional[tarfile.TarInfo]:

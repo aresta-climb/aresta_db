@@ -6,6 +6,15 @@ import os
 import sys
 from unittest.mock import patch, MagicMock
 from pathlib import Path
+# Garante stubs em sys.modules para ambientes onde PyInstaller não é instalado (ex: Linux no CI)
+if "PyInstaller" not in sys.modules:
+    try:
+        import PyInstaller.__main__  # type: ignore[import-untyped]
+    except ImportError:
+        _mock_pyinstaller = MagicMock()
+        sys.modules["PyInstaller"] = _mock_pyinstaller
+        sys.modules["PyInstaller.__main__"] = _mock_pyinstaller.__main__
+
 from editor.build import (
     executar_build,
     DIRETORIO_EDITOR,
@@ -121,52 +130,56 @@ def test_obter_argumentos_pyinstaller_usa_arquivo_spec():
 
 def test_executar_build_executa_pyinstaller_com_spec():
     """Valida se executar_build gera o ícone e executa o PyInstaller apontando para o spec."""
-    with patch("PyInstaller.__main__.run") as mock_run:
-        with patch("PIL.Image.open") as mock_image_open:
-            with patch("pathlib.Path.exists", return_value=True):
-                mock_img = MagicMock()
-                mock_img.mode = "RGBA"
-                mock_img.width = 16
-                mock_img.height = 16
-                mock_img.resize.return_value = mock_img
-                mock_image_open.return_value = mock_img
-                executar_build(force_icon_generation=True)
+    with patch("sys.platform", "win32"):
+        with patch("PyInstaller.__main__.run") as mock_run:
+            with patch("PIL.Image.open") as mock_image_open:
+                with patch("pathlib.Path.exists", return_value=True):
+                    mock_img = MagicMock()
+                    mock_img.mode = "RGBA"
+                    mock_img.width = 16
+                    mock_img.height = 16
+                    mock_img.resize.return_value = mock_img
+                    mock_image_open.return_value = mock_img
+                    executar_build(force_icon_generation=True)
 
-            # 6 tamanhos redimensionados para editor/logo.ico e 6 para editor/recursos/logo.ico
-            assert mock_img.resize.call_count == 12
-            assert mock_img.save.call_count == 2
+                # 6 tamanhos redimensionados para editor/logo.ico e 6 para editor/recursos/logo.ico
+                assert mock_img.resize.call_count == 12
+                assert mock_img.save.call_count == 2
 
-            argumentos_passados = mock_run.call_args[0][0]
-            assert str(ARQUIVO_SPEC) in argumentos_passados
-            assert "--clean" in argumentos_passados
-            assert "--noconfirm" in argumentos_passados
+                argumentos_passados = mock_run.call_args[0][0]
+                assert str(ARQUIVO_SPEC) in argumentos_passados
+                assert "--clean" in argumentos_passados
+                assert "--noconfirm" in argumentos_passados
 
 
 def test_executar_build_falha_se_spec_nao_existe():
     """Valida se o build interrompe se o EditorAresta.spec sumir."""
-    with patch("pathlib.Path.exists", return_value=False):
-        with pytest.raises(FileNotFoundError):
-            executar_build()
+    with patch("sys.platform", "win32"):
+        with patch("pathlib.Path.exists", return_value=False):
+            with pytest.raises(FileNotFoundError):
+                executar_build()
 
 
 def test_executar_build_pula_geracao_se_icone_existe():
     """Valida se pula a geração de imagem se o logo.ico já existir."""
-    with patch("PyInstaller.__main__.run"):
-        with patch("PIL.Image.open") as mock_image_open:
-            with patch("pathlib.Path.exists", return_value=True):
-                executar_build(force_icon_generation=False)
+    with patch("sys.platform", "win32"):
+        with patch("PyInstaller.__main__.run"):
+            with patch("PIL.Image.open") as mock_image_open:
+                with patch("pathlib.Path.exists", return_value=True):
+                    executar_build(force_icon_generation=False)
 
-            mock_image_open.assert_not_called()
+                mock_image_open.assert_not_called()
 
 
 def test_executar_build_trata_excecao_na_geracao_de_icone():
     """Valida o tratamento gracioso caso a geração do ícone lance exceção."""
-    with patch("PyInstaller.__main__.run"):
-        with patch("pathlib.Path.exists", side_effect=lambda: True):
-            # Simula erro ao abrir a imagem
-            with patch("PIL.Image.open", side_effect=Exception("Erro de leitura")):
-                # Não deve levantar exceção não tratada
-                executar_build(force_icon_generation=True)
+    with patch("sys.platform", "win32"):
+        with patch("PyInstaller.__main__.run"):
+            with patch("pathlib.Path.exists", side_effect=lambda: True):
+                # Simula erro ao abrir a imagem
+                with patch("PIL.Image.open", side_effect=Exception("Erro de leitura")):
+                    # Não deve levantar exceção não tratada
+                    executar_build(force_icon_generation=True)
 
 
 def test_executar_testes_sucesso():
@@ -233,16 +246,37 @@ def test_obter_caminho_icone_alvo_beta():
 
 def test_executar_build_canal_beta():
     """Valida se executar_build em canal beta aciona o caminho correto de ícone beta."""
-    with patch.dict(os.environ, {"ARESTA_CANAL": "beta"}):
-        with patch("PyInstaller.__main__.run"):
-            with patch("editor.build.gerar_arquivo_icone") as mock_gerar_ico:
-                with patch("pathlib.Path.exists", return_value=True):
-                    executar_build()
-                    mock_gerar_ico.assert_called_once_with(
-                        DIRETORIO_EDITOR / "recursos_beta" / "logo.ico",
-                        caminho_png=DIRETORIO_EDITOR / "recursos_beta" / "logo_app.png",
-                        force_generation=False,
-                    )
+    with patch("sys.platform", "win32"):
+        with patch.dict(os.environ, {"ARESTA_CANAL": "beta"}):
+            with patch("PyInstaller.__main__.run"):
+                with patch("editor.build.gerar_arquivo_icone") as mock_gerar_ico:
+                    with patch("pathlib.Path.exists", return_value=True):
+                        executar_build()
+                        mock_gerar_ico.assert_called_once_with(
+                            DIRETORIO_EDITOR / "recursos_beta" / "logo.ico",
+                            caminho_png=DIRETORIO_EDITOR / "recursos_beta" / "logo_app.png",
+                            force_generation=False,
+                        )
+
+
+def test_executar_build_sem_pyinstaller_lanca_excecao():
+    """Valida que executar_build no Windows sem PyInstaller disponível lança RuntimeError."""
+    with patch("sys.platform", "win32"):
+        with patch("pathlib.Path.exists", return_value=True):
+            with patch.dict(sys.modules):
+                sys.modules.pop("PyInstaller.__main__", None)
+                sys.modules.pop("PyInstaller", None)
+                import builtins
+                orig_import = builtins.__import__
+
+                def fake_import(name, *args, **kwargs):
+                    if "PyInstaller" in name:
+                        raise ImportError(f"No module named '{name}'")
+                    return orig_import(name, *args, **kwargs)
+
+                with patch("builtins.__import__", side_effect=fake_import):
+                    with pytest.raises(RuntimeError, match="PyInstaller não está disponível neste ambiente"):
+                        executar_build()
 
 
 def test_spec_configura_modo_onedir_com_collect_e_sem_upx():
@@ -530,11 +564,14 @@ def test_flatpak_manifest_e_constantes_otimizadas():
     assert "dest: scripts" in manifesto_texto
     assert "dest: coleta_de_betas" in manifesto_texto
     assert "dest: migracoes" in manifesto_texto
+    assert "dest: serving" in manifesto_texto
     assert "cp -r aresta_api" in manifesto_texto
     assert "cp -r scripts" in manifesto_texto
     assert "cp -r coleta_de_betas" in manifesto_texto
     assert "cp -r migracoes" in manifesto_texto
+    assert "cp -r serving" in manifesto_texto
     assert "|| true" not in manifesto_texto
+
 
 
 
@@ -655,6 +692,8 @@ def test_gerar_tarball_codigo_fonte_sucesso(tmp_path):
     (raiz / "coleta_de_betas" / "extrator.py").write_text("# extrator", encoding="utf-8")
     (raiz / "migracoes").mkdir()
     (raiz / "migracoes" / "0001_init.py").write_text("# mig", encoding="utf-8")
+    (raiz / "serving").mkdir()
+    (raiz / "serving" / "update_serving.py").write_text("# serving", encoding="utf-8")
 
     caminho_tarball, hash_sha256 = gerar_tarball_codigo_fonte(
         diretorio_saida=tmp_path / "saida",
@@ -674,6 +713,8 @@ def test_gerar_tarball_codigo_fonte_sucesso(tmp_path):
         assert "scripts/migrador.py" in nomes
         assert "coleta_de_betas/extrator.py" in nomes
         assert "migracoes/0001_init.py" in nomes
+        assert "serving/update_serving.py" in nomes
+
         assert "uv.lock" in nomes
         assert "pyproject.toml" in nomes
         # Garante que database, dist e arquivos de teste foram excluídos

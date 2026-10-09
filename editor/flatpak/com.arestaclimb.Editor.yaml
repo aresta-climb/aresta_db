@@ -40,24 +40,25 @@ modules:
   - name: aresta-editor
     buildsystem: simple
     build-commands:
-      # Instalação dos arquivos do editor
+      # Editor's Python scripts
       - mkdir -p /app/share/aresta-editor
       - cp -r editor /app/share/aresta-editor/
       - cp -r aresta_api /app/share/aresta-editor/
       - cp -r scripts /app/share/aresta-editor/
       - cp -r coleta_de_betas /app/share/aresta-editor/
       - cp -r migracoes /app/share/aresta-editor/
+      - cp -r serving /app/share/aresta-editor/
       - cp uv.lock /app/share/aresta-editor/
       - echo "producao" > /app/share/aresta-editor/canal.txt
-      # Criação do script lançador nativo
+      # Native launcher
       - |
-        cat << 'EOF' > /app/bin/EditorAresta
-        #!/bin/sh
-        export PYTHONPATH="/app/lib/python3.11/site-packages:/app/lib/python3.12/site-packages:/app/lib/python3.13/site-packages:/app/share/aresta-editor:$PYTHONPATH"
-        exec python3 -m editor.main "$@"
-        EOF
+          cat << 'EOF' > /app/bin/EditorAresta
+          #!/bin/sh
+          export PYTHONPATH="/app/lib/python3.11/site-packages:/app/lib/python3.12/site-packages:/app/lib/python3.13/site-packages:/app/share/aresta-editor:$PYTHONPATH"
+          exec python3 -m editor.main "$@"
+          EOF
       - chmod +x /app/bin/EditorAresta
-      # Instalação dos arquivos de integração do desktop
+      # Desktop integration
       - install -D -m644 com.arestaclimb.Editor.desktop /app/share/applications/com.arestaclimb.Editor.desktop
       - install -D -m644 com.arestaclimb.Editor.metainfo.xml /app/share/metainfo/com.arestaclimb.Editor.metainfo.xml
       - install -D -m644 logo_app.png /app/share/icons/hicolor/512x512/apps/com.arestaclimb.Editor.png
@@ -98,6 +99,13 @@ modules:
       - type: dir
         path: ../../migracoes
         dest: migracoes
+        skip:
+          - __pycache__
+          - "*.pyc"
+          - "*_test.py"
+      - type: dir
+        path: ../../serving
+        dest: serving
         skip:
           - __pycache__
           - "*.pyc"
