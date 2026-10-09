@@ -16,13 +16,15 @@
   </description>
   
   <launchable type="desktop-id">com.arestaclimb.Editor.desktop</launchable>
+
+  <screenshots>
+    <screenshot type="default">
+      <caption>Editor Aresta</caption>
+      <image>https://serving.arestaclimb.com/editor-linux/editor_linux1.webp</image>
+  </screenshots>
   
-  <url type="homepage">https://arestaclimb.com</url>
+  <url type="homepage">https://arestaclimb.com/editor</url>
   <url type="bugtracker">https://github.com/aresta-climb/aresta_db/issues</url>
-  
-  <provides>
-    <id>com.arestaclimb.Editor</id>
-  </provides>
   
   <categories>
     <category>Graphics</category>
@@ -31,12 +33,15 @@
   </categories>
   
   <releases>
-    <release version="0.3.14" date="2026-10-08">
+    <release version="0.4.3" date="2026-10-08">
       <description>
-        <p>Lançamento oficial multiplataforma com suporte nativo a Linux (Flatpak), Windows e macOS.</p>
+        <p>Lançamento oficial multiplataforma com suporte nativo a Linux (Flatpak) e Windows.</p>
       </description>
     </release>
   </releases>
   
-  <content_rating type="oars-1.1" />
+  <content_rating type="oars-1.0">
+    <content_attribute id="social-chat">intense</content_attribute>
+    <content_attribute id="social-info">moderate</content_attribute>
+  </content_rating>
 </component>
