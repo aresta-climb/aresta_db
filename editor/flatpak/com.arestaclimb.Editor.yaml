@@ -62,6 +62,14 @@ modules:
       - type: dir
         path: ../../editor
         dest: editor
+        skip:
+          - dist
+          - build
+          - flatpak
+          - .flatpak-builder
+          - __pycache__
+          - "*.pyc"
+          - "*_test.py"
       - type: file
         path: ../../uv.lock
       - type: file

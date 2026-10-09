@@ -488,8 +488,19 @@ def orquestrar_build_flatpak(
     bundle_saida = dist_dir / f"EditorAresta-{versao_app}.flatpak"
 
     caminho_deps = manifesto.parent / "pypi-dependencies.json"
-    if not caminho_deps.exists():
+    arquivo_lock = DIRETORIO_EDITOR.parent / "uv.lock"
+    deve_gerar_deps = not caminho_deps.exists()
+    if not deve_gerar_deps and arquivo_lock.exists():
+        try:
+            deve_gerar_deps = arquivo_lock.stat().st_mtime > caminho_deps.stat().st_mtime
+        except OSError:
+            deve_gerar_deps = True
+
+    if deve_gerar_deps:
         gerar_manifesto_dependencias_flatpak(caminho_saida=caminho_deps)
+
+    if bundle_saida.exists():
+        bundle_saida.unlink(missing_ok=True)
 
     print(f"Compilando Flatpak a partir de {manifesto}...")
     subprocess.run(

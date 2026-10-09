@@ -391,14 +391,17 @@ def test_orquestrar_build_flatpak_executa_comandos():
     with patch("shutil.which", return_value="/usr/bin/flatpak-builder"):
         with patch("subprocess.run") as mock_subproc:
             with patch("pathlib.Path.exists", return_value=True):
-                bundle_gerado = orquestrar_build_flatpak()
-                assert mock_subproc.call_count >= 1
-                cmd = mock_subproc.call_args_list[0][0][0]
-                assert "flatpak-builder" in cmd[0]
-                assert "com.arestaclimb.Editor.yaml" in str(cmd)
-                assert "--install-deps-from=flathub" in cmd
-                assert "--user" in cmd
-                assert bundle_gerado.name.endswith(".flatpak")
+                with patch("pathlib.Path.unlink") as mock_unlink:
+                    with patch("editor.build.gerar_manifesto_dependencias_flatpak"):
+                        bundle_gerado = orquestrar_build_flatpak()
+                        assert mock_subproc.call_count >= 1
+                        cmd = mock_subproc.call_args_list[0][0][0]
+                        assert "flatpak-builder" in cmd[0]
+                        assert "com.arestaclimb.Editor.yaml" in str(cmd)
+                        assert "--install-deps-from=flathub" in cmd
+                        assert "--user" in cmd
+                        assert bundle_gerado.name.endswith(".flatpak")
+                        mock_unlink.assert_called_once()
 
 
 def test_executar_build_linux_delega_para_flatpak():
@@ -518,6 +521,10 @@ def test_flatpak_manifest_e_constantes_otimizadas():
     assert "BASEAPP_DISABLE_NUMPY" in manifesto_texto
     assert "cleanup:" in manifesto_texto
     assert "/app/cleanup-BaseApp.sh" in manifesto_texto
+    assert "skip:" in manifesto_texto
+    assert "- dist" in manifesto_texto
+    assert "- build" in manifesto_texto
+    assert "rm -rf editor/dist" in manifesto_texto
 
 
 def test_gerar_manifesto_dependencias_flatpak_com_runtime_detectado(tmp_path):
@@ -593,7 +600,7 @@ def test_orquestrar_build_flatpak_preserva_deps_para_cache():
                     with patch.object(Path, "unlink") as mock_unlink:
                         bundle = orquestrar_build_flatpak()
                         mock_gerar_deps.assert_called_once()
-                        mock_unlink.assert_not_called()
+                        mock_unlink.assert_called_once()
                         assert bundle.name.endswith(".flatpak")
 
 
