@@ -4,6 +4,7 @@
 import pytest
 import os
 import sys
+import types
 from unittest.mock import patch, MagicMock
 from pathlib import Path
 # Garante stubs em sys.modules para ambientes onde PyInstaller não é instalado (ex: Linux no CI)
@@ -11,9 +12,12 @@ if "PyInstaller" not in sys.modules:
     try:
         import PyInstaller.__main__  # type: ignore[import-untyped]
     except ImportError:
-        _mock_pyinstaller = MagicMock()
+        _mock_pyinstaller = types.ModuleType("PyInstaller")
+        _mock_pyinstaller_main = types.ModuleType("PyInstaller.__main__")
+        _mock_pyinstaller_main.run = MagicMock()  # type: ignore[attr-defined]
+        _mock_pyinstaller.__main__ = _mock_pyinstaller_main  # type: ignore[attr-defined]
         sys.modules["PyInstaller"] = _mock_pyinstaller
-        sys.modules["PyInstaller.__main__"] = _mock_pyinstaller.__main__
+        sys.modules["PyInstaller.__main__"] = _mock_pyinstaller_main
 
 from editor.build import (
     executar_build,
