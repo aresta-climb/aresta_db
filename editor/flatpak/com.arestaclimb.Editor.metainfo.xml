@@ -21,6 +21,7 @@
     <screenshot type="default">
       <caption>Editor Aresta</caption>
       <image>https://serving.arestaclimb.com/editor-linux/editor_linux1.webp</image>
+    </screenshot>
   </screenshots>
   
   <url type="homepage">https://arestaclimb.com/editor</url>
@@ -33,7 +34,7 @@
   </categories>
   
   <releases>
-    <release version="0.4.3" date="2026-10-08">
+    <release version="0.3.14" date="2026-10-08">
       <description>
         <p>Lançamento oficial multiplataforma com suporte nativo a Linux (Flatpak) e Windows.</p>
       </description>

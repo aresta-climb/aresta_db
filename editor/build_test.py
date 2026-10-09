@@ -580,6 +580,27 @@ def test_flatpak_manifest_e_constantes_otimizadas():
 
 
 
+def test_metainfo_xml_valido_e_bem_formado():
+    """Valida se o arquivo com.arestaclimb.Editor.metainfo.xml é um XML válido e possui os nós essenciais do AppStream."""
+    import xml.etree.ElementTree as ET
+    from editor.build import DIRETORIO_FLATPAK
+
+    caminho_metainfo = DIRETORIO_FLATPAK / "com.arestaclimb.Editor.metainfo.xml"
+    assert caminho_metainfo.exists()
+
+    tree = ET.parse(caminho_metainfo)
+    raiz = tree.getroot()
+
+    assert raiz.tag == "component"
+    assert raiz.find("id").text == "com.arestaclimb.Editor"
+    assert raiz.find("name").text == "Editor Aresta"
+    assert raiz.find("screenshots") is not None
+    assert raiz.find("screenshots").find("screenshot") is not None
+    assert raiz.find("releases") is not None
+
+
+
+
 
 def test_gerar_manifesto_dependencias_flatpak_com_runtime_detectado(tmp_path):
     """Valida a inclusão automática de --runtime e --prefer-wheels quando Flatpak runtime está instalado."""
