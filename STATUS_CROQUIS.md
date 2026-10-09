@@ -1,8 +1,8 @@
 # Estado de Saúde dos Croquis
 
-Relatório gerado em: 08/10/2026 21:29:00
+Relatório gerado em: 08/10/2026 23:40:36
 
-| Croqui | Publicado (30/51) | Revisado Manual (29/51) | Revisado Circ (27/51) | Desenho Extraível (32/2/17) | Pontos de Interesse (26/51) | Thumbnail (42/51) | Coordenadas Picos (33/51) | URL Google Maps (17/51) | Mapas Gerais (35/51) | Betas Pendentes (51/51) | croqui.yaml (42/51) | Conteúdo PDF (6/51) | partes.json (50/51) | PDF Original (6/51) |
+| Croqui | Publicado (31/52) | Revisado Manual (29/52) | Revisado Circ (27/52) | Desenho Extraível (32/2/18) | Pontos de Interesse (26/52) | Thumbnail (43/52) | Coordenadas Picos (33/52) | URL Google Maps (17/52) | Mapas Gerais (35/52) | Betas Pendentes (52/52) | croqui.yaml (43/52) | Conteúdo PDF (6/52) | partes.json (50/52) | PDF Original (6/52) |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | br_mg_araxa_bocaina_boulders | ✅ | ✅ | ✅ | ✅ | ✅ (12/12) | ✅ | ✅ (1/1) | ✅ (1/1) | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ |
 | br_mg_araxa_bocaina_esportivas | ✅ | ✅ | ✅ | ✅ | ✅ (15/15) | ✅ | ✅ (1/1) | ✅ (1/1) | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ |
@@ -11,6 +11,7 @@ Relatório gerado em: 08/10/2026 21:29:00
 | br_mg_arcos_novo_mundo | ✅ | ✅ | ✅ | ✅ (não) | ✅ (4/4) | ✅ | ✅ (1/1) | ✅ (1/1) | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ |
 | br_mg_arcos_rastro | ✅ | ✅ | ✅ | ✅ (não) | ✅ (17/17) | ✅ | ✅ (1/1) | ❌ (0/1) | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ |
 | br_mg_barao_de_cocais_cambotas | ❌ | ❌ | ❌ | ✅ (não) | ❌ (0/11) | ✅ | ✅ (1/1) | ❌ (0/1) | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ |
+| br_mg_betim_pedreira_dr_gravata | ✅ | ❌ | ❌ | ❌ | ⚠️ (2/3) | ✅ | ❌ (0/1) | ❌ (0/1) | ❌ | ✅ | ✅ | ❌ | ❌ | ❌ |
 | br_mg_caete_monte_alvao | ✅ | ✅ | ✅ | ✅ (não) | ⚠️ (4/12) | ✅ | ✅ (1/1) | ❌ (0/1) | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ |
 | br_mg_caete_pedra_branca | ✅ | ✅ | ✅ | ✅ (não) | ✅ (2/2) | ✅ | ✅ (1/1) | ❌ (0/1) | ❌ | ✅ | ✅ | ❌ | ✅ | ❌ |
 | br_mg_caete_pedra_filha | ✅ | ✅ | ✅ | ✅ (não) | ✅ (2/2) | ✅ | ✅ (1/1) | ❌ (0/1) | ❌ | ✅ | ✅ | ❌ | ✅ | ❌ |

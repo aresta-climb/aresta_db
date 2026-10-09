@@ -109,14 +109,14 @@ croquis:
     latitude: -202953470
     longitude: -456009710
 - id: br_mg_betim_pedreira_dr_gravata
-  croqui_uid: IxUXYbyuIFiKVM
+  croqui_uid: IueFHQqpIFT4cY
   nome: Pedreira Dr. Gravatá - "VALE DOS OSSOS"
   descricao: |
     A **Pedreira Dr. Gravatá**, em Betim/MG, reúne **mais de 50 vias de escalada esportiva**, linhas de rapel e setores em desenvolvimento. O pico é conduzido por **Marcio Macena e Samuel Lucas**. Este registro organiza acesso, setores, vias, autoria e história de uma paisagem ligada às antigas pedreiras, à ferrovia e à Usina Hidrelétrica Dr. Gravatá, inaugurada em 1914. Um croqui para escalar hoje e preservar conhecimento para quem vier depois.
   caminho_relativo: br_mg_betim_pedreira_dr_gravata/compilado.binarypb
-  checksum_sha256_croqui: 818d9d536b4d43b8468a3b5d2ef24f32d329bfe44153c6809f588bb84b53be46
+  checksum_sha256_croqui: 839ff44db317ef48175b243cdd2d7bbcb3dd95a75b47434c19f6d3aeb056f4cc
   checksum_sha256_thumbnail: 4e80464b26764e6d96408614ce015d40358956c95eedf4fa73e906bfcb258ebe
-  timestamp_update: '2026-10-09T02:38:51Z'
+  timestamp_update: '2026-10-09T02:40:32Z'
   precomputados:
     total_escaladas: 31
     total_setores: 2

@@ -3847,33 +3847,34 @@ class WidgetEditorMapas(QWidget):
                 self.item_hover_camera_overlay = ItemCameraOverlay()
                 if cena_atual:
                     cena_atual.addItem(self.item_hover_camera_overlay)
-            self.item_hover_camera_overlay.setVisible(True)
-            from PySide6.QtGui import QPen, QColor
-            from PySide6.QtCore import Qt
-            self.item_hover_camera_overlay.setPen(QPen(QColor("#6f42c1"), 3, Qt.PenStyle.DashLine))
-            
-            scene_rect = self.visualizador.sceneRect()
-            if scene_rect.isEmpty():
-                scene_rect = self.visualizador.mapToScene(self.visualizador.viewport().rect()).boundingRect()
-            
-            w_scene = scene_rect.width()
-            h_scene = scene_rect.height()
-            
-            zoom = referencia.ajuste_de_camera.zoom
-            pos_h = referencia.ajuste_de_camera.posicao_horizontal / 100.0
-            pos_v = referencia.ajuste_de_camera.posicao_vertical / 100.0
-            
-            w = w_scene / zoom
-            h = w * (16.0 / 9.0)
-            
-            center_x = pos_h * w_scene
-            center_y = pos_v * h_scene
-            
-            x = scene_rect.x() + center_x - w/2
-            y = scene_rect.y() + center_y - h/2
-            
-            self.item_hover_camera_overlay.setRect(0, 0, w, h)
-            self.item_hover_camera_overlay.setPos(x, y)
+            if self.item_hover_camera_overlay:
+                self.item_hover_camera_overlay.setVisible(True)
+                from PySide6.QtGui import QPen, QColor
+                from PySide6.QtCore import Qt
+                self.item_hover_camera_overlay.setPen(QPen(QColor("#6f42c1"), 3, Qt.PenStyle.DashLine))
+                
+                scene_rect = self.visualizador.sceneRect()
+                if scene_rect.isEmpty():
+                    scene_rect = self.visualizador.mapToScene(self.visualizador.viewport().rect()).boundingRect()
+                
+                w_scene = scene_rect.width()
+                h_scene = scene_rect.height()
+                
+                zoom = referencia.ajuste_de_camera.zoom
+                pos_h = referencia.ajuste_de_camera.posicao_horizontal / 100.0
+                pos_v = referencia.ajuste_de_camera.posicao_vertical / 100.0
+                
+                w = w_scene / zoom
+                h = w * (16.0 / 9.0)
+                
+                center_x = pos_h * w_scene
+                center_y = pos_v * h_scene
+                
+                x = scene_rect.x() + center_x - w/2
+                y = scene_rect.y() + center_y - h/2
+                
+                self.item_hover_camera_overlay.setRect(0, 0, w, h)
+                self.item_hover_camera_overlay.setPos(x, y)
         else:
             if hasattr(self, 'item_hover_camera_overlay') and self.item_hover_camera_overlay:
                 if self._item_grafico_valido(self.item_hover_camera_overlay):
@@ -3933,7 +3934,7 @@ class WidgetEditorMapas(QWidget):
             self.item_camera_overlay = ItemCameraOverlay()
             if cena_atual:
                 cena_atual.addItem(self.item_camera_overlay)
-        else:
+        elif self.item_camera_overlay:
             self.item_camera_overlay.setVisible(True)
 
         self.destacar_pois_temporariamente(referencia)
@@ -3963,17 +3964,15 @@ class WidgetEditorMapas(QWidget):
             
             x = scene_rect.x() + center_x - w/2
             y = scene_rect.y() + center_y - h/2
-            
-            self.item_camera_overlay.setRect(0, 0, w, h)
-            self.item_camera_overlay.setPos(x, y)
         else:
             w = min(w_scene * 0.8, h_scene * 0.8 * (9.0 / 16.0))
             h = w * (16.0 / 9.0)
             x = scene_rect.x() + (w_scene - w) / 2
             y = scene_rect.y() + (h_scene - h) / 2
             
-        self.item_camera_overlay.setRect(0, 0, w, h)
-        self.item_camera_overlay.setPos(x, y)
+        if self.item_camera_overlay:
+            self.item_camera_overlay.setRect(0, 0, w, h)
+            self.item_camera_overlay.setPos(x, y)
         
     def parar_modo_camera(self) -> None:
         self.referencia_camera_ativa = None
@@ -3999,7 +3998,7 @@ class WidgetEditorMapas(QWidget):
         
         if idx == -1: return
         
-        if not self._item_grafico_valido(getattr(self, 'item_camera_overlay', None)):
+        if not self._item_grafico_valido(getattr(self, 'item_camera_overlay', None)) or not self.item_camera_overlay:
             return
             
         scene_rect = self.visualizador.sceneRect()

@@ -32,7 +32,7 @@ def gerar_uid() -> str:
     Utiliza o algoritmo oficial do nanoid com CSPRNG do sistema operacional
     e o alfabeto Base62 [0-9a-zA-Z].
     """
-    return nanoid.generate(alphabet=ALFABETO_BASE62, size=TAMANHO_UID)
+    return str(nanoid.generate(alphabet=ALFABETO_BASE62, size=TAMANHO_UID))
 
 
 def validar_uid(uid: Optional[str]) -> bool:

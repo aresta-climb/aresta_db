@@ -1,14 +1,15 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+uid: QtxIGEyTkA9Q5c
 nome: Setores
 mapas:
 - caminho_imagem_mapa: imagens/grupo_setores_p0.webp
   largura_mapa: 1672
   altura_mapa: 941
   pontos_de_interesse:
-  - id: Setor Vale dos Ossos
-    label: Setor Vale dos Ossos
+  - uid: 9Td3ZxJ26rlJqM
+    rotulo: Setor Vale dos Ossos
     poligono:
       coordenadas:
       - 559
@@ -97,10 +98,9 @@ mapas:
       - 405
     cor: '#FF1744'
   referencias:
-  - ids:
-    - Setor Vale dos Ossos
-    grupo: Setores
-    setor: Vale dos Ossos
+  - alvo_uid: 9nI88j1Fmvv9NU
+    pontos_uids:
+    - 9Td3ZxJ26rlJqM
 setores:
 - caminho: setor_vale_dos_ossos.md
 - caminho: setor_das_treze.md

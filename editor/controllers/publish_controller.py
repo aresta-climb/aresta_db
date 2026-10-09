@@ -238,7 +238,7 @@ class PublishController:
                 except Exception as e:
                     print(f"[AVISO] Erro ao verificar status do PR: {e}")
         
-        if pr_aberto:
+        if pr_aberto and isinstance(pr_branch, str):
             if not self._sincronizar_pre_publicacao(pr_branch):
                 return
             # Fluxo Silencioso de Atualização

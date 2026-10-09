@@ -74,6 +74,22 @@ class TestWorkflowReleaseEditor(unittest.TestCase):
         self.assertEqual(str(env_vars.get("CI", "")).lower(), "true", "A variável CI=true deve estar configurada no step.")
         self.assertEqual(str(env_vars.get("PYTHONUNBUFFERED", "")), "1", "PYTHONUNBUFFERED=1 deve estar configurado.")
 
+    def test_job_prepare_release_instala_dependencias_graficas_qt_no_ubuntu(self) -> None:
+        """
+        Garante que o job prepare_release instala as dependências gráficas necessárias (libegl1, libgl1, etc.)
+        no Ubuntu antes da execução dos testes com PySide6 / pytest-qt.
+        """
+        passos = self.conteudo_yaml["jobs"]["prepare_release"]["steps"]
+        passo_deps_qt = next(
+            (s for s in passos if "dependências gráficas" in s.get("name", "").lower() or "qt" in s.get("name", "").lower()),
+            None,
+        )
+        self.assertIsNotNone(passo_deps_qt, "Passo de instalação de dependências do Qt não encontrado em prepare_release.")
+        assert passo_deps_qt is not None
+        run_cmd = passo_deps_qt.get("run", "")
+        self.assertIn("libegl1", run_cmd)
+        self.assertIn("libgl1", run_cmd)
+
     def test_workflow_artefatos_beta_possuem_editor_arestabeta_appinstaller(self) -> None:
         """Garante que o artefato publicado do AppInstaller utiliza o nome EditorArestaBeta.appinstaller."""
         passos = self.conteudo_windows["jobs"]["build_windows"]["steps"]
@@ -246,4 +262,44 @@ class TestWorkflowReleaseEditor(unittest.TestCase):
         run_cmd = passo_tarball.get("run", "")
         self.assertIn("editor/build.py source-tarball", run_cmd)
         self.assertIn("gh release upload", run_cmd)
+
+    def test_passo_calcular_versao_exporta_versao_e_tag_name(self) -> None:
+        """Garante que o passo 'Calcular Versão de Release' grava versao e tag_name no $GITHUB_OUTPUT."""
+        passos = self.conteudo_yaml["jobs"]["prepare_release"]["steps"]
+        passo_versao = next((s for s in passos if "Calcular Versão" in s.get("name", "")), None)
+        self.assertIsNotNone(passo_versao)
+        assert passo_versao is not None
+        run_script = passo_versao.get("run", "")
+        self.assertIn('echo "versao=$RELEASE_VER" >> $GITHUB_OUTPUT', run_script)
+        self.assertIn('echo "tag_name=editor-v$RELEASE_VER" >> $GITHUB_OUTPUT', run_script)
+
+    def test_prepare_release_gera_e_anexa_source_tarball(self) -> None:
+        """Garante que o orquestrador prepare_release gera o source tarball e o anexa na criação da release oficial."""
+        passos = self.conteudo_yaml["jobs"]["prepare_release"]["steps"]
+        passo_tarball = next((s for s in passos if "Source Tarball" in s.get("name", "")), None)
+        self.assertIsNotNone(passo_tarball, "Passo de gerar source tarball deve existir em prepare_release.")
+        assert passo_tarball is not None
+        run_tarball = passo_tarball.get("run", "")
+        self.assertIn("editor/build.py source-tarball", run_tarball)
+        self.assertIn("--versao", run_tarball)
+
+        passo_release = next((s for s in passos if "Criar GitHub Release" in s.get("name", "")), None)
+        self.assertIsNotNone(passo_release)
+        assert passo_release is not None
+        run_release = passo_release.get("run", "")
+        self.assertIn("gh release create", run_release)
+        self.assertIn("source.tar.gz", run_release)
+
+    def test_subaction_linux_possui_permissao_escrita_e_especifica_versao_tarball(self) -> None:
+        """Garante que o job build_linux tem permissão de escrita de contents e passa --versao para source-tarball."""
+        job_linux = self.conteudo_linux["jobs"]["build_linux"]
+        self.assertEqual(job_linux.get("permissions", {}).get("contents"), "write")
+
+        passos = job_linux["steps"]
+        passo_tarball = next((s for s in passos if "Source Tarball" in s.get("name", "")), None)
+        self.assertIsNotNone(passo_tarball)
+        assert passo_tarball is not None
+        run_cmd = passo_tarball.get("run", "")
+        self.assertIn("--versao", run_cmd)
+
 

@@ -409,8 +409,9 @@ def test_finalizar_mapas_main_cli(tmp_path, monkeypatch, capsys):
     raw_dir = pico / "imagens" / "raw_mapas"
     raw_dir.mkdir(parents=True)
 
+    caminho_script = Path(__file__).resolve().parent / "finalizar_mapas.py"
     monkeypatch.setattr("sys.argv", ["finalizar_mapas.py", str(pico)])
-    runpy.run_module("scripts.finalizar_mapas", run_name="__main__")
+    runpy.run_path(str(caminho_script), run_name="__main__")
     out = capsys.readouterr().out
     assert "Nenhum arquivo JSON para processar" in out
 

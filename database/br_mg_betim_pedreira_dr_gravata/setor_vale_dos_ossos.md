@@ -1,9 +1,11 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+uid: 9nI88j1Fmvv9NU
 nome: Vale dos Ossos
 escaladas:
-- via_esportiva:
+- uid: iNvEIBgysLCBWZ
+  via_esportiva:
     nome: OSSO EM PÓ
     dificuldade: BR_3
     quantidade_protecoes_intermediarias: 3
@@ -12,7 +14,8 @@ escaladas:
     - Macena
     - Samuel
     - Maceninha
-- via_esportiva:
+- uid: pI7euhDVGKKVgp
+  via_esportiva:
     nome: OSSOS DO OFÍCIO
     dificuldade: BR_5
     quantidade_protecoes_intermediarias: 2
@@ -21,7 +24,8 @@ escaladas:
     - Macena
     - Samuel
     - Maceninha
-- via_esportiva:
+- uid: jygeHw3zluCbtt
+  via_esportiva:
     nome: KD O OSSO
     dificuldade: BR_5SUP
     quantidade_protecoes_intermediarias: 3
@@ -30,7 +34,8 @@ escaladas:
     - Macena
     - Samuel
     - Maceninha
-- via_esportiva:
+- uid: uKA71SZOkiNW7L
+  via_esportiva:
     nome: CANTEIRO DE OSSOS
     dificuldade: BR_6
     quantidade_protecoes_intermediarias: 3
@@ -39,7 +44,8 @@ escaladas:
     - Macena
     - Samuel
     - Maceninha
-- via_esportiva:
+- uid: aFvfcxKoDJEPbu
+  via_esportiva:
     nome: SANTUÁRIO DOS OSSOS
     dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 3
@@ -48,7 +54,8 @@ escaladas:
     - Macena
     - Samuel
     - Maceninha
-- via_esportiva:
+- uid: iCscmWf1RmRGF4
+  via_esportiva:
     nome: QUEBRA OSSOS
     dificuldade: BR_7C
     quantidade_protecoes_intermediarias: 3
@@ -57,7 +64,8 @@ escaladas:
     - Macena
     - Samuel
     - Maceninha
-- via_esportiva:
+- uid: mQZvFrd8NRmOdF
+  via_esportiva:
     nome: SOZINHO É OSSO
     dificuldade: BR_6
     quantidade_protecoes_intermediarias: 3
@@ -66,7 +74,8 @@ escaladas:
     - Macena
     - Samuel
     - Maceninha
-- via_esportiva:
+- uid: I49C4KIdZzOR2c
+  via_esportiva:
     nome: CUTELO DE OSSOS
     dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 3
@@ -75,14 +84,16 @@ escaladas:
     - Macena
     - Samuel
     - Maceninha
-- via_esportiva:
+- uid: kInh77zzwMzZ1F
+  via_esportiva:
     nome: MARIMB. QUE ME OSSOS
     dificuldade: BR_5
     conquistadores:
     - Macena
     - Samuel
     - Maceninha
-- via_esportiva:
+- uid: 2xIhkZclnRHItz
+  via_esportiva:
     nome: GUERRA DE OSSOS
     dificuldade: BR_5_BARRA_5SUP
     quantidade_protecoes_intermediarias: 4
@@ -91,84 +102,96 @@ escaladas:
     - Macena
     - Samuel
     - Maceninha
-- via_esportiva:
+- uid: 7mnppYgRbARCyU
+  via_esportiva:
     nome: CULPIM DE OSSOS
     dificuldade: BR_5SUP
     conquistadores:
     - Macena
     - Samuel
     - Maceninha
-- via_esportiva:
+- uid: FRglyNfxrqsqO0
+  via_esportiva:
     nome: BALCÃO DE OSSOS
     dificuldade: BR_6SUP
     conquistadores:
     - Macena
     - Samuel
     - Maceninha
-- via_esportiva:
+- uid: 8nsNXmotuNtuXF
+  via_esportiva:
     nome: OSSO DO CALCANHO
     dificuldade: BR_8A
     conquistadores:
     - Macena
     - Samuel
     - Maceninha
-- via_esportiva:
+- uid: 8ZWDkuPUArszHU
+  via_esportiva:
     nome: FRATURA OSSEA
     dificuldade: BR_7A
     conquistadores:
     - Macena
     - Samuel
     - Maceninha
-- via_esportiva:
+- uid: Fs8YWZXolXCaur
+  via_esportiva:
     nome: HORTOPEDIA OSSEA
     dificuldade: BR_6SUP
     conquistadores:
     - Macena
     - Samuel
     - Maceninha
-- via_esportiva:
+- uid: LZRjyaXglCr7Ze
+  via_esportiva:
     nome: OSSO DO QUEIXO
     dificuldade: BR_6SUP
     conquistadores:
     - Macena
     - Samuel
     - Maceninha
-- via_esportiva:
+- uid: OkBKXjebvs7kG7
+  via_esportiva:
     nome: FISSURA OSSEA
     dificuldade: BR_7B
     conquistadores:
     - Macena
     - Samuel
     - Maceninha
-- via_esportiva:
+- uid: oQfooLQROWav7W
+  via_esportiva:
     nome: OSSO TORTO
     dificuldade: BR_8A
     conquistadores:
     - Macena
     - Samuel
     - Maceninha
-- via_esportiva:
+- uid: VAot6xoj2ZYTwH
+  via_esportiva:
     nome: OSSO NA CARNE
     dificuldade: BR_7A
     conquistadores:
     - Macena
     - Samuel
     - Maceninha
-- via_esportiva:
+- uid: fQWW0OyfrS224w
+  via_esportiva:
     nome: CARNE DE PESCOÇO
     dificuldade: BR_7A
     conquistadores:
     - Macena
     - Samuel
     - Maceninha
-- via_esportiva:
+- uid: UL8IXMAl2pJwZl
+  via_esportiva:
     nome: HOSTOPOROSE
     dificuldade: BR_7B
     conquistadores:
     - Macena
     - Samuel
     - Maceninha
-- via_esportiva:
+- uid: ncYIOSoKSl5ylu
+  via_esportiva:
     nome: SACO DE OSSO
     dificuldade: BR_8C
     conquistadores:
@@ -178,8 +201,8 @@ mapas:
   largura_mapa: 1672
   altura_mapa: 941
   pontos_de_interesse:
-  - id: linha_1
-    label: ''
+  - uid: neAhOQq1GzdtiB
+    rotulo: ''
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -197,8 +220,8 @@ mapas:
           rotulo: A
       espessura: 3
     cor: '#FFD600'
-  - id: linha_2
-    label: ''
+  - uid: 9Q9QLY5PHzrF9n
+    rotulo: ''
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -216,8 +239,8 @@ mapas:
           rotulo: B
       espessura: 3
     cor: '#FFD600'
-  - id: linha_3
-    label: ''
+  - uid: enaLArnJWawZZz
+    rotulo: ''
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -232,8 +255,8 @@ mapas:
           rotulo: C
       espessura: 3
     cor: '#FFD600'
-  - id: linha_4
-    label: ''
+  - uid: qY0MYFL0eumTMK
+    rotulo: ''
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -251,8 +274,8 @@ mapas:
           rotulo: D
       espessura: 3
     cor: '#FFD600'
-  - id: linha_5
-    label: ''
+  - uid: v0BbHt18MWept2
+    rotulo: ''
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -270,8 +293,8 @@ mapas:
           rotulo: E
       espessura: 3
     cor: '#FFD600'
-  - id: linha_6
-    label: ''
+  - uid: ZMQupuuoecmUrN
+    rotulo: ''
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -289,8 +312,8 @@ mapas:
           rotulo: F
       espessura: 3
     cor: '#FFD600'
-  - id: linha_7
-    label: ''
+  - uid: 8WNlzQWEc61vPm
+    rotulo: ''
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -308,8 +331,8 @@ mapas:
           rotulo: G
       espessura: 3
     cor: '#FFD600'
-  - id: linha_8
-    label: ''
+  - uid: dOh1TE4Biq1ZY7
+    rotulo: ''
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -327,8 +350,8 @@ mapas:
           rotulo: H
       espessura: 3
     cor: '#FFD600'
-  - id: linha_9
-    label: ''
+  - uid: fjSleROf283ZCe
+    rotulo: ''
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -352,8 +375,8 @@ mapas:
           rotulo: I
       espessura: 3
     cor: '#FFD600'
-  - id: linha_10
-    label: ''
+  - uid: vT7mUV6E8LewAv
+    rotulo: ''
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -375,37 +398,38 @@ mapas:
       espessura: 3
     cor: '#FFD600'
   referencias:
-  - ids:
-    - linha_1
-    escalada: OSSO EM PÓ
-  - ids:
-    - linha_2
-    escalada: OSSOS DO OFÍCIO
-  - ids:
-    - linha_3
-    escalada: KD O OSSO
-  - ids:
-    - linha_4
-    escalada: CANTEIRO DE OSSOS
-  - ids:
-    - linha_5
-    escalada: SANTUÁRIO DOS OSSOS
-  - ids:
-    - linha_6
-    escalada: QUEBRA OSSOS
-  - ids:
-    - linha_7
-    escalada: SOZINHO É OSSO
-  - ids:
-    - linha_8
-    escalada: CUTELO DE OSSOS
-  - ids:
-    - linha_9
-    escalada: MARIMB. QUE ME OSSOS
-  - ids:
-    - linha_10
-    escalada: GUERRA DE OSSOS
+  - alvo_uid: iNvEIBgysLCBWZ
+    pontos_uids:
+    - neAhOQq1GzdtiB
+  - alvo_uid: pI7euhDVGKKVgp
+    pontos_uids:
+    - 9Q9QLY5PHzrF9n
+  - alvo_uid: jygeHw3zluCbtt
+    pontos_uids:
+    - enaLArnJWawZZz
+  - alvo_uid: uKA71SZOkiNW7L
+    pontos_uids:
+    - qY0MYFL0eumTMK
+  - alvo_uid: aFvfcxKoDJEPbu
+    pontos_uids:
+    - v0BbHt18MWept2
+  - alvo_uid: iCscmWf1RmRGF4
+    pontos_uids:
+    - ZMQupuuoecmUrN
+  - alvo_uid: mQZvFrd8NRmOdF
+    pontos_uids:
+    - 8WNlzQWEc61vPm
+  - alvo_uid: I49C4KIdZzOR2c
+    pontos_uids:
+    - dOh1TE4Biq1ZY7
+  - alvo_uid: kInh77zzwMzZ1F
+    pontos_uids:
+    - fjSleROf283ZCe
+  - alvo_uid: 2xIhkZclnRHItz
+    pontos_uids:
+    - vT7mUV6E8LewAv
 ---
+
 ![Vale dos Ossos](imagens/capa_pedreira_gravata_gigante_1.webp)
 
 ![Mapa](imagens/mapa_aereo_do_setor_vale_dos_ossos.webp)

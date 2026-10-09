@@ -689,6 +689,13 @@ def main(argv: Optional[List[str]] = None) -> None:
         help="Diretório de saída para o tarball de código-fonte (usado com source-tarball)",
     )
 
+    parser.add_argument(
+        "--versao",
+        type=str,
+        default=None,
+        help="Versão para o tarball de código-fonte (usado com source-tarball)",
+    )
+
     args = parser.parse_args(argv)
 
     if args.modo == "test":
@@ -698,7 +705,10 @@ def main(argv: Optional[List[str]] = None) -> None:
     elif args.modo == "flatpak-deps":
         gerar_manifesto_dependencias_flatpak(caminho_saida=args.output)
     elif args.modo == "source-tarball":
-        tarball, sha256_hash = gerar_tarball_codigo_fonte(diretorio_saida=args.output_dir)
+        tarball, sha256_hash = gerar_tarball_codigo_fonte(
+            diretorio_saida=args.output_dir,
+            versao=args.versao,
+        )
         print(f"Tarball de código-fonte gerado em: {tarball}")
         print(f"SHA-256: {sha256_hash}")
 

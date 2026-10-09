@@ -143,3 +143,23 @@ class TestConftestTeardown(unittest.TestCase):
             conftest.pytest_unconfigure(mock_config)
             mock_tp.assert_not_called()
             mock_exit.assert_not_called()
+
+    def test_pytest_unconfigure_falha_com_codigo_erro_se_sessionfinish_nao_executou(self) -> None:
+        """
+        Valida que se o teardown ocorrer sem que pytest_sessionfinish tenha sido chamado
+        (ex: exceção em pytest_configure ou erro interno do pytest), o unconfigure NÃO
+        mascara o erro com status 0, repassando o código de erro interno (3).
+        """
+        mock_config = MagicMock(spec=[])  # Não possui o atributo _aresta_exitstatus
+
+        with patch.dict(os.environ, {"CI": "true"}), \
+             patch("faulthandler.disable"), \
+             patch("sys.stdout.flush"), \
+             patch("sys.stderr.flush"), \
+             patch("ctypes.windll.kernel32.TerminateProcess", create=True) as mock_tp, \
+             patch("os._exit") as mock_exit:
+            conftest.pytest_unconfigure(mock_config)
+            if sys.platform == "win32":
+                mock_tp.assert_called_once()
+            mock_exit.assert_called_once_with(3)
+

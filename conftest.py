@@ -74,7 +74,14 @@ def pytest_unconfigure(config: Any) -> None:
 
         sys.stdout.flush()
         sys.stderr.flush()
-        status = int(getattr(config, "_aresta_exitstatus", 0))
+        status_armazenado = getattr(config, "_aresta_exitstatus", None)
+        if status_armazenado is None:
+            # Se _aresta_exitstatus não foi definido, pytest_sessionfinish não executou
+            # (provavelmente devido a erro interno ou exceção durante pytest_configure).
+            # Jamais mascarar o erro retornando 0; repassar ExitCode.INTERNAL_ERROR (3).
+            status = 3
+        else:
+            status = int(status_armazenado)
 
         if sys.platform == "win32":
             try:

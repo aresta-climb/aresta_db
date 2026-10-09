@@ -1,4 +1,4 @@
-uid: IxUXYbyuIFiKVM
+uid: IueFHQqpIFT4cY
 id: br_mg_betim_pedreira_dr_gravata
 nome: Pedreira Dr. Gravatá - "VALE DOS OSSOS"
 ultima_migracao: 5
@@ -43,14 +43,14 @@ picos:
   setores_ou_grupos:
   - grupo:
       conteudo:
-        uid: 1kdWDqtPUNB3f3
+        uid: QtxIGEyTkA9Q5c
         nome: Setores
         mapas:
         - caminho_imagem_mapa: imagens/grupo_setores_p0.webp
           largura_mapa: 1672
           altura_mapa: 941
           pontos_de_interesse:
-          - uid: bVvyzpC1nmyAWb
+          - uid: 9Td3ZxJ26rlJqM
             rotulo: Setor Vale dos Ossos
             poligono:
               coordenadas:
@@ -139,21 +139,21 @@ picos:
               - 617
               - 405
             cor: '#FF1744'
-            id: bVvyzpC1nmyAWb
+            id: 9Td3ZxJ26rlJqM
             label: Setor Vale dos Ossos
           referencias:
-          - alvo_uid: OlIgwinddv8ILl
+          - alvo_uid: 9nI88j1Fmvv9NU
             pontos_uids:
-            - bVvyzpC1nmyAWb
+            - 9Td3ZxJ26rlJqM
             setor: Vale dos Ossos
             ids:
-            - bVvyzpC1nmyAWb
+            - 9Td3ZxJ26rlJqM
         setores:
         - conteudo:
-            uid: OlIgwinddv8ILl
+            uid: 9nI88j1Fmvv9NU
             nome: Vale dos Ossos
             escaladas:
-            - uid: GCXksLfSG4nxgt
+            - uid: iNvEIBgysLCBWZ
               via_esportiva:
                 nome: OSSO EM PÓ
                 dificuldade: BR_3
@@ -163,7 +163,7 @@ picos:
                 - Macena
                 - Samuel
                 - Maceninha
-            - uid: sTYkPxab4O7Qs4
+            - uid: pI7euhDVGKKVgp
               via_esportiva:
                 nome: OSSOS DO OFÍCIO
                 dificuldade: BR_5
@@ -173,7 +173,7 @@ picos:
                 - Macena
                 - Samuel
                 - Maceninha
-            - uid: LLdv2dPx4kh8ss
+            - uid: jygeHw3zluCbtt
               via_esportiva:
                 nome: KD O OSSO
                 dificuldade: BR_5SUP
@@ -183,7 +183,7 @@ picos:
                 - Macena
                 - Samuel
                 - Maceninha
-            - uid: HX8xSlCDwxueeV
+            - uid: uKA71SZOkiNW7L
               via_esportiva:
                 nome: CANTEIRO DE OSSOS
                 dificuldade: BR_6
@@ -193,7 +193,7 @@ picos:
                 - Macena
                 - Samuel
                 - Maceninha
-            - uid: PvobdIJtlmPzTF
+            - uid: aFvfcxKoDJEPbu
               via_esportiva:
                 nome: SANTUÁRIO DOS OSSOS
                 dificuldade: BR_6SUP
@@ -203,7 +203,7 @@ picos:
                 - Macena
                 - Samuel
                 - Maceninha
-            - uid: gdRNgv12poL52Z
+            - uid: iCscmWf1RmRGF4
               via_esportiva:
                 nome: QUEBRA OSSOS
                 dificuldade: BR_7C
@@ -213,7 +213,7 @@ picos:
                 - Macena
                 - Samuel
                 - Maceninha
-            - uid: RReuOVIU4FHX0X
+            - uid: mQZvFrd8NRmOdF
               via_esportiva:
                 nome: SOZINHO É OSSO
                 dificuldade: BR_6
@@ -223,7 +223,7 @@ picos:
                 - Macena
                 - Samuel
                 - Maceninha
-            - uid: V32GiPIvEBRYgY
+            - uid: I49C4KIdZzOR2c
               via_esportiva:
                 nome: CUTELO DE OSSOS
                 dificuldade: BR_6SUP
@@ -233,7 +233,7 @@ picos:
                 - Macena
                 - Samuel
                 - Maceninha
-            - uid: 7CWBl1fANpHYIT
+            - uid: kInh77zzwMzZ1F
               via_esportiva:
                 nome: MARIMB. QUE ME OSSOS
                 dificuldade: BR_5
@@ -241,7 +241,7 @@ picos:
                 - Macena
                 - Samuel
                 - Maceninha
-            - uid: UVYGyiIDxev7nR
+            - uid: 2xIhkZclnRHItz
               via_esportiva:
                 nome: GUERRA DE OSSOS
                 dificuldade: BR_5_BARRA_5SUP
@@ -251,7 +251,7 @@ picos:
                 - Macena
                 - Samuel
                 - Maceninha
-            - uid: H1Vpx2BvjqxMB8
+            - uid: 7mnppYgRbARCyU
               via_esportiva:
                 nome: CULPIM DE OSSOS
                 dificuldade: BR_5SUP
@@ -259,7 +259,7 @@ picos:
                 - Macena
                 - Samuel
                 - Maceninha
-            - uid: Vr7t0L8doKlsZM
+            - uid: FRglyNfxrqsqO0
               via_esportiva:
                 nome: BALCÃO DE OSSOS
                 dificuldade: BR_6SUP
@@ -267,7 +267,7 @@ picos:
                 - Macena
                 - Samuel
                 - Maceninha
-            - uid: 3oWaaJjyDVSIgX
+            - uid: 8nsNXmotuNtuXF
               via_esportiva:
                 nome: OSSO DO CALCANHO
                 dificuldade: BR_8A
@@ -275,7 +275,7 @@ picos:
                 - Macena
                 - Samuel
                 - Maceninha
-            - uid: pyutSY2fGbrYxh
+            - uid: 8ZWDkuPUArszHU
               via_esportiva:
                 nome: FRATURA OSSEA
                 dificuldade: BR_7A
@@ -283,7 +283,7 @@ picos:
                 - Macena
                 - Samuel
                 - Maceninha
-            - uid: QwdaSE1WmocGO0
+            - uid: Fs8YWZXolXCaur
               via_esportiva:
                 nome: HORTOPEDIA OSSEA
                 dificuldade: BR_6SUP
@@ -291,7 +291,7 @@ picos:
                 - Macena
                 - Samuel
                 - Maceninha
-            - uid: gjAf3WcO3jbJWX
+            - uid: LZRjyaXglCr7Ze
               via_esportiva:
                 nome: OSSO DO QUEIXO
                 dificuldade: BR_6SUP
@@ -299,7 +299,7 @@ picos:
                 - Macena
                 - Samuel
                 - Maceninha
-            - uid: xqfQaxwsAjzGpr
+            - uid: OkBKXjebvs7kG7
               via_esportiva:
                 nome: FISSURA OSSEA
                 dificuldade: BR_7B
@@ -307,7 +307,7 @@ picos:
                 - Macena
                 - Samuel
                 - Maceninha
-            - uid: REywx52tN5CZcR
+            - uid: oQfooLQROWav7W
               via_esportiva:
                 nome: OSSO TORTO
                 dificuldade: BR_8A
@@ -315,7 +315,7 @@ picos:
                 - Macena
                 - Samuel
                 - Maceninha
-            - uid: nKy9ldjFeuDEDm
+            - uid: VAot6xoj2ZYTwH
               via_esportiva:
                 nome: OSSO NA CARNE
                 dificuldade: BR_7A
@@ -323,7 +323,7 @@ picos:
                 - Macena
                 - Samuel
                 - Maceninha
-            - uid: rorqzQ5WxTfx4T
+            - uid: fQWW0OyfrS224w
               via_esportiva:
                 nome: CARNE DE PESCOÇO
                 dificuldade: BR_7A
@@ -331,7 +331,7 @@ picos:
                 - Macena
                 - Samuel
                 - Maceninha
-            - uid: hz7FIHNelWTo7K
+            - uid: UL8IXMAl2pJwZl
               via_esportiva:
                 nome: HOSTOPOROSE
                 dificuldade: BR_7B
@@ -339,7 +339,7 @@ picos:
                 - Macena
                 - Samuel
                 - Maceninha
-            - uid: zJKs0gcw77cQmo
+            - uid: ncYIOSoKSl5ylu
               via_esportiva:
                 nome: SACO DE OSSO
                 dificuldade: BR_8C
@@ -350,7 +350,7 @@ picos:
               largura_mapa: 1672
               altura_mapa: 941
               pontos_de_interesse:
-              - uid: OGw2qj24dq7QBc
+              - uid: neAhOQq1GzdtiB
                 rotulo: ''
                 linha:
                   estilo: TRACEJADO
@@ -375,9 +375,9 @@ picos:
                       angulo_graus_x100: -9946
                       rotulo: A
                 cor: '#FFD600'
-                id: OGw2qj24dq7QBc
+                id: neAhOQq1GzdtiB
                 label: ''
-              - uid: yy4dT4EFAwTpCA
+              - uid: 9Q9QLY5PHzrF9n
                 rotulo: ''
                 linha:
                   estilo: TRACEJADO
@@ -402,9 +402,9 @@ picos:
                       angulo_graus_x100: -10313
                       rotulo: B
                 cor: '#FFD600'
-                id: yy4dT4EFAwTpCA
+                id: 9Q9QLY5PHzrF9n
                 label: ''
-              - uid: VfrRNHIcLKB0uG
+              - uid: enaLArnJWawZZz
                 rotulo: ''
                 linha:
                   estilo: TRACEJADO
@@ -428,9 +428,9 @@ picos:
                       angulo_graus_x100: -10105
                       rotulo: C
                 cor: '#FFD600'
-                id: VfrRNHIcLKB0uG
+                id: enaLArnJWawZZz
                 label: ''
-              - uid: xojJvzy2G0DCaW
+              - uid: qY0MYFL0eumTMK
                 rotulo: ''
                 linha:
                   estilo: TRACEJADO
@@ -455,9 +455,9 @@ picos:
                       angulo_graus_x100: -10339
                       rotulo: D
                 cor: '#FFD600'
-                id: xojJvzy2G0DCaW
+                id: qY0MYFL0eumTMK
                 label: ''
-              - uid: jxB2ICN2LOIydw
+              - uid: v0BbHt18MWept2
                 rotulo: ''
                 linha:
                   estilo: TRACEJADO
@@ -482,9 +482,9 @@ picos:
                       angulo_graus_x100: -10087
                       rotulo: E
                 cor: '#FFD600'
-                id: jxB2ICN2LOIydw
+                id: v0BbHt18MWept2
                 label: ''
-              - uid: nm6gkkSTpaOIEZ
+              - uid: ZMQupuuoecmUrN
                 rotulo: ''
                 linha:
                   estilo: TRACEJADO
@@ -509,9 +509,9 @@ picos:
                       angulo_graus_x100: -8960
                       rotulo: F
                 cor: '#FFD600'
-                id: nm6gkkSTpaOIEZ
+                id: ZMQupuuoecmUrN
                 label: ''
-              - uid: AVUdX5pwvvkpYR
+              - uid: 8WNlzQWEc61vPm
                 rotulo: ''
                 linha:
                   estilo: TRACEJADO
@@ -536,9 +536,9 @@ picos:
                       angulo_graus_x100: -8881
                       rotulo: G
                 cor: '#FFD600'
-                id: AVUdX5pwvvkpYR
+                id: 8WNlzQWEc61vPm
                 label: ''
-              - uid: z8136Laz4qtWVI
+              - uid: dOh1TE4Biq1ZY7
                 rotulo: ''
                 linha:
                   estilo: TRACEJADO
@@ -563,9 +563,9 @@ picos:
                       angulo_graus_x100: -9256
                       rotulo: H
                 cor: '#FFD600'
-                id: z8136Laz4qtWVI
+                id: dOh1TE4Biq1ZY7
                 label: ''
-              - uid: meX1AOeWPbfqkF
+              - uid: fjSleROf283ZCe
                 rotulo: ''
                 linha:
                   estilo: TRACEJADO
@@ -591,9 +591,9 @@ picos:
                       angulo_graus_x100: -8614
                       rotulo: I
                 cor: '#FFD600'
-                id: meX1AOeWPbfqkF
+                id: fjSleROf283ZCe
                 label: ''
-              - uid: NIGxHOA2M4fo2j
+              - uid: vT7mUV6E8LewAv
                 rotulo: ''
                 linha:
                   estilo: TRACEJADO
@@ -619,69 +619,69 @@ picos:
                       angulo_graus_x100: -8616
                       rotulo: J
                 cor: '#FFD600'
-                id: NIGxHOA2M4fo2j
+                id: vT7mUV6E8LewAv
                 label: ''
               referencias:
-              - alvo_uid: GCXksLfSG4nxgt
+              - alvo_uid: iNvEIBgysLCBWZ
                 pontos_uids:
-                - OGw2qj24dq7QBc
+                - neAhOQq1GzdtiB
                 escalada: OSSO EM PÓ
                 ids:
-                - OGw2qj24dq7QBc
-              - alvo_uid: sTYkPxab4O7Qs4
+                - neAhOQq1GzdtiB
+              - alvo_uid: pI7euhDVGKKVgp
                 pontos_uids:
-                - yy4dT4EFAwTpCA
+                - 9Q9QLY5PHzrF9n
                 escalada: OSSOS DO OFÍCIO
                 ids:
-                - yy4dT4EFAwTpCA
-              - alvo_uid: LLdv2dPx4kh8ss
+                - 9Q9QLY5PHzrF9n
+              - alvo_uid: jygeHw3zluCbtt
                 pontos_uids:
-                - VfrRNHIcLKB0uG
+                - enaLArnJWawZZz
                 escalada: KD O OSSO
                 ids:
-                - VfrRNHIcLKB0uG
-              - alvo_uid: HX8xSlCDwxueeV
+                - enaLArnJWawZZz
+              - alvo_uid: uKA71SZOkiNW7L
                 pontos_uids:
-                - xojJvzy2G0DCaW
+                - qY0MYFL0eumTMK
                 escalada: CANTEIRO DE OSSOS
                 ids:
-                - xojJvzy2G0DCaW
-              - alvo_uid: PvobdIJtlmPzTF
+                - qY0MYFL0eumTMK
+              - alvo_uid: aFvfcxKoDJEPbu
                 pontos_uids:
-                - jxB2ICN2LOIydw
+                - v0BbHt18MWept2
                 escalada: SANTUÁRIO DOS OSSOS
                 ids:
-                - jxB2ICN2LOIydw
-              - alvo_uid: gdRNgv12poL52Z
+                - v0BbHt18MWept2
+              - alvo_uid: iCscmWf1RmRGF4
                 pontos_uids:
-                - nm6gkkSTpaOIEZ
+                - ZMQupuuoecmUrN
                 escalada: QUEBRA OSSOS
                 ids:
-                - nm6gkkSTpaOIEZ
-              - alvo_uid: RReuOVIU4FHX0X
+                - ZMQupuuoecmUrN
+              - alvo_uid: mQZvFrd8NRmOdF
                 pontos_uids:
-                - AVUdX5pwvvkpYR
+                - 8WNlzQWEc61vPm
                 escalada: SOZINHO É OSSO
                 ids:
-                - AVUdX5pwvvkpYR
-              - alvo_uid: V32GiPIvEBRYgY
+                - 8WNlzQWEc61vPm
+              - alvo_uid: I49C4KIdZzOR2c
                 pontos_uids:
-                - z8136Laz4qtWVI
+                - dOh1TE4Biq1ZY7
                 escalada: CUTELO DE OSSOS
                 ids:
-                - z8136Laz4qtWVI
-              - alvo_uid: 7CWBl1fANpHYIT
+                - dOh1TE4Biq1ZY7
+              - alvo_uid: kInh77zzwMzZ1F
                 pontos_uids:
-                - meX1AOeWPbfqkF
+                - fjSleROf283ZCe
                 escalada: MARIMB. QUE ME OSSOS
                 ids:
-                - meX1AOeWPbfqkF
-              - alvo_uid: UVYGyiIDxev7nR
+                - fjSleROf283ZCe
+              - alvo_uid: 2xIhkZclnRHItz
                 pontos_uids:
-                - NIGxHOA2M4fo2j
+                - vT7mUV6E8LewAv
                 escalada: GUERRA DE OSSOS
                 ids:
-                - NIGxHOA2M4fo2j
+                - vT7mUV6E8LewAv
             descricao: |-
               | ![Vale dos Ossos](imagens/capa_pedreira_gravata_gigante_1.webp) |
               | :--: |
@@ -694,56 +694,56 @@ picos:
               total_escaladas: 22
               total_esportivas: 22
         - conteudo:
-            uid: 0mdQacpHsHHypM
+            uid: 8SUSM2sgVKSevu
             nome: Setor das Treze
             escaladas:
-            - uid: DcfDYTMq11Cam0
+            - uid: b3vo1qYPGndTMI
               via_esportiva:
                 nome: PRIMEIRINHA
                 dificuldade: BR_6SUP
                 conquistadores:
                 - Macena, Samuel, Maceninha
-            - uid: 6R2kj3HJAkNTea
+            - uid: 6JYjcdXtHnXlqK
               via_esportiva:
                 nome: CHUVA DE CRISTAL
                 dificuldade: BR_6
                 conquistadores:
                 - Macena, Samuel, Maceninha
-            - uid: nY6CVtCNEYtf4A
+            - uid: 46Kx1SeggvMjxQ
               via_esportiva:
                 nome: PÉ DE CHORUME
                 dificuldade: BR_7C
                 conquistadores:
                 - Macena, Samuel, Maceninha
-            - uid: bnPm8davuNl4Cm
+            - uid: ZtWAYPeBMIEXRb
               via_esportiva:
                 nome: S.O.S MORCEGO
                 dificuldade: BR_6SUP
                 conquistadores:
                 - Macena, Samuel, Maceninha
-            - uid: jLuU3Q1k82TYTi
+            - uid: 6hRLEAcFlUs3R0
               via_esportiva:
                 nome: PEQUENA, MAS APERTADA
                 dificuldade: BR_7C
                 conquistadores:
                 - Macena, Samuel, Maceninha
-            - uid: UbodlkQiI0gG3a
+            - uid: jwmO62cBE3tEel
               via_esportiva:
                 nome: TOPOGRÁFO PERDIDO
                 dificuldade: BR_6SUP
-            - uid: 6zdARPf1wSsl88
+            - uid: nErCqCytEQD43p
               via_esportiva:
                 nome: MOVI TECTÔNICOS
                 dificuldade: BR_7B
                 conquistadores:
                 - Macena, Samuel, Maceninha
-            - uid: SBmK5nI2CAJb89
+            - uid: sQsm7pQMj1n0ZP
               via_esportiva:
                 nome: PSICOSE
                 dificuldade: BR_7B
                 conquistadores:
                 - Macena, Samuel, Maceninha
-            - uid: puGzLAPUhJwqmG
+            - uid: TC8Wd0pa4YopiM
               via_esportiva:
                 nome: CONFUSAO MENTAL
                 dificuldade: BR_7A
@@ -772,7 +772,7 @@ descricao: |
   A **Pedreira Dr. Gravatá**, em Betim/MG, reúne **mais de 50 vias de escalada esportiva**, linhas de rapel e setores em desenvolvimento. O pico é conduzido por **Marcio Macena e Samuel Lucas**. Este registro organiza acesso, setores, vias, autoria e história de uma paisagem ligada às antigas pedreiras, à ferrovia e à Usina Hidrelétrica Dr. Gravatá, inaugurada em 1914. Um croqui para escalar hoje e preservar conhecimento para quem vier depois.
 caminho_thumbnail: imagens/thumbnail.webp
 botoes:
-- uid: 7Z6Ph44s7GruyF
+- uid: TPwpXHpSFVkDEy
   texto: Como Chegar
   destino:
     secao_textual:
@@ -794,7 +794,7 @@ botoes:
         \nSAMU: **192**  \nCorpo de Bombeiros: **193**\n\nAo pedir socorro, informe\
         \ o endereço de referência, as coordenadas disponíveis e as condições de acesso\
         \ até a pessoa acidentada."
-- uid: 8wYXuUUHrGhGRI
+- uid: cZMJKmq2xfDotq
   texto: A escalada na Pedreira
   destino:
     secao_textual:
@@ -835,7 +835,7 @@ botoes:
         \n*Um croqui ajuda a encontrar uma via. Um bom registro ajuda a compreender\
         \ o lugar inteiro.*\n\n**Pedreira Dr. Gravatá — Betim, Minas Gerais.**  \n\
         **Mais de 50 vias e uma história que começou muito antes da primeira conquista.**"
-- uid: qxypM2X6B0YGe1
+- uid: jv0X4dVg1IZYuq
   texto: Conduta, segurança e mínimo impacto
   destino:
     secao_textual:
@@ -879,7 +879,7 @@ botoes:
         \ vítima**\n\n## Regra simples\n\n**Não deixe o lugar pior do que encontrou.**\n\
         \nEscalar também é cuidar.\n\n**Preserve a rocha. Preserve a vegetação. Respeite\
         \ a fauna. Respeite quem vive ao redor.**"
-- uid: zHAUN2IJfRIc95
+- uid: M7wyGM0Zj2ATwz
   texto: Linha do Tempo
   destino:
     secao_textual:
@@ -915,7 +915,7 @@ botoes:
         **2026** — Fase pública atual de documentação da escalada: **mais de 50 vias**, setores em desenvolvimento e registros individualizados de **Vale dos Ossos** e **Palanque**.
 
         _A linha do tempo deve continuar sendo ampliada conforme novas fontes, entrevistas e registros de campo forem incorporados._
-- uid: xdexoCU6d1rgcV
+- uid: X5O8WBMCtflzBq
   texto: Fontes e referências
   destino:
     secao_textual:

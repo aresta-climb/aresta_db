@@ -687,7 +687,14 @@ def test_main_cli_dispatch_source_tarball():
     """Valida o despachante CLI para o modo source-tarball."""
     with patch("editor.build.gerar_tarball_codigo_fonte", return_value=(Path("tarball.tar.gz"), "hash123")) as mock_tar:
         main(["source-tarball", "--output-dir", "custom_dir"])
-        mock_tar.assert_called_once_with(diretorio_saida=Path("custom_dir"))
+        mock_tar.assert_called_once_with(diretorio_saida=Path("custom_dir"), versao=None)
+
+
+def test_main_cli_dispatch_source_tarball_com_versao():
+    """Valida o despachante CLI para o modo source-tarball com versão explícita."""
+    with patch("editor.build.gerar_tarball_codigo_fonte", return_value=(Path("tarball.tar.gz"), "hash123")) as mock_tar:
+        main(["source-tarball", "--output-dir", "custom_dir", "--versao", "0.4.0"])
+        mock_tar.assert_called_once_with(diretorio_saida=Path("custom_dir"), versao="0.4.0")
 
 
 

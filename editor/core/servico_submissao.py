@@ -608,12 +608,12 @@ class ServicoSubmissao:
         except (KeyError, ValueError):
             return False, None
 
-        commit_remoto = cast(pygit2.Commit, ref_remota.peel(pygit2.Commit))
+        commit_remoto = ref_remota.peel(pygit2.Commit)
         ref_local_nome = f"refs/heads/{nome_branch}"
 
         try:
             ref_local = repo.lookup_reference(ref_local_nome)
-            commit_local = cast(pygit2.Commit, ref_local.peel(pygit2.Commit))
+            commit_local = ref_local.peel(pygit2.Commit)
         except (KeyError, ValueError):
             return True, str(commit_remoto.id)
 
@@ -654,14 +654,14 @@ class ServicoSubmissao:
 
         repo = pygit2.Repository(str(self.caminho_repo_base))
         ref_remota_nome = f"refs/remotes/{nome_remote}/{nome_branch}"
-        commit_remoto = cast(pygit2.Commit, repo.lookup_reference(ref_remota_nome).peel(pygit2.Commit))
+        commit_remoto = repo.lookup_reference(ref_remota_nome).peel(pygit2.Commit)
 
         ref_local_nome = f"refs/heads/{nome_branch}"
         caminho_db_repo = self.caminho_repo_base / "database" / id_croqui
 
         try:
             ref_local = repo.lookup_reference(ref_local_nome)
-            commit_local = cast(pygit2.Commit, ref_local.peel(pygit2.Commit))
+            commit_local = ref_local.peel(pygit2.Commit)
         except (KeyError, ValueError):
             branch_local = repo.create_branch(nome_branch, commit_remoto)
             repo.checkout(branch_local, strategy=pygit2.enums.CheckoutStrategy.FORCE)
@@ -731,11 +731,15 @@ class ServicoSubmissao:
         nome = "Aresta Editor"
         email = "editor@aresta.local"
         try:
-            nome = repo.config["user.name"]
+            cfg_nome = repo.config["user.name"]
+            if cfg_nome:
+                nome = str(cfg_nome)
         except (KeyError, ValueError):
             pass
         try:
-            email = repo.config["user.email"]
+            cfg_email = repo.config["user.email"]
+            if cfg_email:
+                email = str(cfg_email)
         except (KeyError, ValueError):
             pass
         return pygit2.Signature(nome, email)
@@ -755,10 +759,10 @@ class ServicoSubmissao:
         """
         repo = pygit2.Repository(str(self.caminho_repo_base))
         ref_local = repo.lookup_reference(f"refs/heads/{nome_branch}")
-        commit_local = cast(pygit2.Commit, ref_local.peel(pygit2.Commit))
+        commit_local = ref_local.peel(pygit2.Commit)
 
         ref_remota = repo.lookup_reference(f"refs/remotes/{nome_remote}/{nome_branch}")
-        commit_remoto = cast(pygit2.Commit, ref_remota.peel(pygit2.Commit))
+        commit_remoto = ref_remota.peel(pygit2.Commit)
 
         favor = (
             pygit2.enums.MergeFavor.OURS

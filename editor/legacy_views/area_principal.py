@@ -1006,11 +1006,15 @@ class JanelaPrincipal(QMainWindow):
 
         caminho_db = self.workspace.obter_caminho_database()
         from editor.core.servico_submissao import ServicoSubmissao
-        caminho_repo = self.storage.obter_caminho_base_repo() if hasattr(self.storage, "obter_caminho_base_repo") else None
+        caminho_repo = (
+            self.storage.obter_caminho_base_repo()
+            if self.storage is not None and hasattr(self.storage, "obter_caminho_base_repo")
+            else None
+        )
         servico = ServicoSubmissao(caminho_repo_base=caminho_repo)
 
         sessao = None
-        if hasattr(self.auth, "obter_sessao"):
+        if self.auth is not None and hasattr(self.auth, "obter_sessao"):
             sessao = self.auth.obter_sessao()
 
         from editor.core.worker import TarefaSincronizacaoPR

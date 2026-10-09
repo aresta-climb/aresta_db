@@ -7,12 +7,12 @@
     
 - **id**: br_mg_betim_pedreira_dr_gravata
 - **nome**: Pedreira Dr. Gravatá - "VALE DOS OSSOS"
-- **uid**: IxUXYbyuIFiKVM
+- **uid**: IueFHQqpIFT4cY
 - **ultima_migracao**: 5
 - **caminho_thumbnail**: ![caminho_thumbnail](imagens/thumbnail.webp)
 - **botoes**:
   - **[0]**:
-    - **uid**: 7Z6Ph44s7GruyF
+    - **uid**: TPwpXHpSFVkDEy
     - **texto**: Como Chegar
     - **destino**:
       - **secao_textual**:
@@ -49,7 +49,7 @@
             
             Ao pedir socorro, informe o endereço de referência, as coordenadas disponíveis e as condições de acesso até a pessoa acidentada.
   - **[1]**:
-    - **uid**: 8wYXuUUHrGhGRI
+    - **uid**: cZMJKmq2xfDotq
     - **texto**: A escalada na Pedreira
     - **destino**:
       - **secao_textual**:
@@ -97,7 +97,7 @@
             **Pedreira Dr. Gravatá — Betim, Minas Gerais.**  
             **Mais de 50 vias e uma história que começou muito antes da primeira conquista.**
   - **[2]**:
-    - **uid**: qxypM2X6B0YGe1
+    - **uid**: jv0X4dVg1IZYuq
     - **texto**: Conduta, segurança e mínimo impacto
     - **destino**:
       - **secao_textual**:
@@ -192,7 +192,7 @@
             
             **Preserve a rocha. Preserve a vegetação. Respeite a fauna. Respeite quem vive ao redor.**
   - **[3]**:
-    - **uid**: zHAUN2IJfRIc95
+    - **uid**: M7wyGM0Zj2ATwz
     - **texto**: Linha do Tempo
     - **destino**:
       - **secao_textual**:
@@ -229,7 +229,7 @@
             
             _A linha do tempo deve continuar sendo ampliada conforme novas fontes, entrevistas e registros de campo forem incorporados._
   - **[4]**:
-    - **uid**: xdexoCU6d1rgcV
+    - **uid**: X5O8WBMCtflzBq
     - **texto**: Fontes e referências
     - **destino**:
       - **secao_textual**:
@@ -284,7 +284,7 @@
 
 - **descricao**: 
 - **nome**: Setores
-- **uid**: 1kdWDqtPUNB3f3
+- **uid**: QtxIGEyTkA9Q5c
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_setores_p0.webp)
@@ -292,8 +292,8 @@
     - **altura_mapa**: 941
     - **pontos_de_interesse**:
       - **[0]**:
-        - **id**: bVvyzpC1nmyAWb
-        - **uid**: bVvyzpC1nmyAWb
+        - **id**: 9Td3ZxJ26rlJqM
+        - **uid**: 9Td3ZxJ26rlJqM
         - **rotulo**: Setor Vale dos Ossos
         - **poligono**:
           - **coordenadas**:
@@ -385,12 +385,12 @@
         - **label**: Setor Vale dos Ossos
     - **referencias**:
       - **[0]**:
-        - **alvo_uid**: OlIgwinddv8ILl
+        - **alvo_uid**: 9nI88j1Fmvv9NU
         - **pontos_uids**:
-          - bVvyzpC1nmyAWb
+          - 9Td3ZxJ26rlJqM
         - **setor**: Vale dos Ossos
         - **ids**:
-          - bVvyzpC1nmyAWb
+          - 9Td3ZxJ26rlJqM
 - **setores**:
   - **[0]**:
     - **conteudo**:
@@ -403,10 +403,10 @@
           | :--: |
           | *Mapa* |
       - **nome**: Vale dos Ossos
-      - **uid**: OlIgwinddv8ILl
+      - **uid**: 9nI88j1Fmvv9NU
       - **escaladas**:
         - **[0]**:
-          - **uid**: GCXksLfSG4nxgt
+          - **uid**: iNvEIBgysLCBWZ
           - **via_esportiva**:
             - **nome**: OSSO EM PÓ
             - **dificuldade**: BR_3
@@ -417,7 +417,7 @@
               - Samuel
               - Maceninha
         - **[1]**:
-          - **uid**: sTYkPxab4O7Qs4
+          - **uid**: pI7euhDVGKKVgp
           - **via_esportiva**:
             - **nome**: OSSOS DO OFÍCIO
             - **dificuldade**: BR_5
@@ -428,7 +428,7 @@
               - Samuel
               - Maceninha
         - **[2]**:
-          - **uid**: LLdv2dPx4kh8ss
+          - **uid**: jygeHw3zluCbtt
           - **via_esportiva**:
             - **nome**: KD O OSSO
             - **dificuldade**: BR_5SUP
@@ -439,7 +439,7 @@
               - Samuel
               - Maceninha
         - **[3]**:
-          - **uid**: HX8xSlCDwxueeV
+          - **uid**: uKA71SZOkiNW7L
           - **via_esportiva**:
             - **nome**: CANTEIRO DE OSSOS
             - **dificuldade**: BR_6
@@ -450,7 +450,7 @@
               - Samuel
               - Maceninha
         - **[4]**:
-          - **uid**: PvobdIJtlmPzTF
+          - **uid**: aFvfcxKoDJEPbu
           - **via_esportiva**:
             - **nome**: SANTUÁRIO DOS OSSOS
             - **dificuldade**: BR_6SUP
@@ -461,7 +461,7 @@
               - Samuel
               - Maceninha
         - **[5]**:
-          - **uid**: gdRNgv12poL52Z
+          - **uid**: iCscmWf1RmRGF4
           - **via_esportiva**:
             - **nome**: QUEBRA OSSOS
             - **dificuldade**: BR_7C
@@ -472,7 +472,7 @@
               - Samuel
               - Maceninha
         - **[6]**:
-          - **uid**: RReuOVIU4FHX0X
+          - **uid**: mQZvFrd8NRmOdF
           - **via_esportiva**:
             - **nome**: SOZINHO É OSSO
             - **dificuldade**: BR_6
@@ -483,7 +483,7 @@
               - Samuel
               - Maceninha
         - **[7]**:
-          - **uid**: V32GiPIvEBRYgY
+          - **uid**: I49C4KIdZzOR2c
           - **via_esportiva**:
             - **nome**: CUTELO DE OSSOS
             - **dificuldade**: BR_6SUP
@@ -494,7 +494,7 @@
               - Samuel
               - Maceninha
         - **[8]**:
-          - **uid**: 7CWBl1fANpHYIT
+          - **uid**: kInh77zzwMzZ1F
           - **via_esportiva**:
             - **nome**: MARIMB. QUE ME OSSOS
             - **dificuldade**: BR_5
@@ -503,7 +503,7 @@
               - Samuel
               - Maceninha
         - **[9]**:
-          - **uid**: UVYGyiIDxev7nR
+          - **uid**: 2xIhkZclnRHItz
           - **via_esportiva**:
             - **nome**: GUERRA DE OSSOS
             - **dificuldade**: BR_5_BARRA_5SUP
@@ -514,7 +514,7 @@
               - Samuel
               - Maceninha
         - **[10]**:
-          - **uid**: H1Vpx2BvjqxMB8
+          - **uid**: 7mnppYgRbARCyU
           - **via_esportiva**:
             - **nome**: CULPIM DE OSSOS
             - **dificuldade**: BR_5SUP
@@ -523,7 +523,7 @@
               - Samuel
               - Maceninha
         - **[11]**:
-          - **uid**: Vr7t0L8doKlsZM
+          - **uid**: FRglyNfxrqsqO0
           - **via_esportiva**:
             - **nome**: BALCÃO DE OSSOS
             - **dificuldade**: BR_6SUP
@@ -532,7 +532,7 @@
               - Samuel
               - Maceninha
         - **[12]**:
-          - **uid**: 3oWaaJjyDVSIgX
+          - **uid**: 8nsNXmotuNtuXF
           - **via_esportiva**:
             - **nome**: OSSO DO CALCANHO
             - **dificuldade**: BR_8A
@@ -541,7 +541,7 @@
               - Samuel
               - Maceninha
         - **[13]**:
-          - **uid**: pyutSY2fGbrYxh
+          - **uid**: 8ZWDkuPUArszHU
           - **via_esportiva**:
             - **nome**: FRATURA OSSEA
             - **dificuldade**: BR_7A
@@ -550,7 +550,7 @@
               - Samuel
               - Maceninha
         - **[14]**:
-          - **uid**: QwdaSE1WmocGO0
+          - **uid**: Fs8YWZXolXCaur
           - **via_esportiva**:
             - **nome**: HORTOPEDIA OSSEA
             - **dificuldade**: BR_6SUP
@@ -559,7 +559,7 @@
               - Samuel
               - Maceninha
         - **[15]**:
-          - **uid**: gjAf3WcO3jbJWX
+          - **uid**: LZRjyaXglCr7Ze
           - **via_esportiva**:
             - **nome**: OSSO DO QUEIXO
             - **dificuldade**: BR_6SUP
@@ -568,7 +568,7 @@
               - Samuel
               - Maceninha
         - **[16]**:
-          - **uid**: xqfQaxwsAjzGpr
+          - **uid**: OkBKXjebvs7kG7
           - **via_esportiva**:
             - **nome**: FISSURA OSSEA
             - **dificuldade**: BR_7B
@@ -577,7 +577,7 @@
               - Samuel
               - Maceninha
         - **[17]**:
-          - **uid**: REywx52tN5CZcR
+          - **uid**: oQfooLQROWav7W
           - **via_esportiva**:
             - **nome**: OSSO TORTO
             - **dificuldade**: BR_8A
@@ -586,7 +586,7 @@
               - Samuel
               - Maceninha
         - **[18]**:
-          - **uid**: nKy9ldjFeuDEDm
+          - **uid**: VAot6xoj2ZYTwH
           - **via_esportiva**:
             - **nome**: OSSO NA CARNE
             - **dificuldade**: BR_7A
@@ -595,7 +595,7 @@
               - Samuel
               - Maceninha
         - **[19]**:
-          - **uid**: rorqzQ5WxTfx4T
+          - **uid**: fQWW0OyfrS224w
           - **via_esportiva**:
             - **nome**: CARNE DE PESCOÇO
             - **dificuldade**: BR_7A
@@ -604,7 +604,7 @@
               - Samuel
               - Maceninha
         - **[20]**:
-          - **uid**: hz7FIHNelWTo7K
+          - **uid**: UL8IXMAl2pJwZl
           - **via_esportiva**:
             - **nome**: HOSTOPOROSE
             - **dificuldade**: BR_7B
@@ -613,7 +613,7 @@
               - Samuel
               - Maceninha
         - **[21]**:
-          - **uid**: zJKs0gcw77cQmo
+          - **uid**: ncYIOSoKSl5ylu
           - **via_esportiva**:
             - **nome**: SACO DE OSSO
             - **dificuldade**: BR_8C
@@ -626,8 +626,8 @@
           - **altura_mapa**: 941
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: OGw2qj24dq7QBc
-              - **uid**: OGw2qj24dq7QBc
+              - **id**: neAhOQq1GzdtiB
+              - **uid**: neAhOQq1GzdtiB
               - **rotulo**: 
               - **linha**:
                 - **estilo**: TRACEJADO
@@ -655,8 +655,8 @@
               - **cor**: #FFD600
               - **label**: 
             - **[1]**:
-              - **id**: yy4dT4EFAwTpCA
-              - **uid**: yy4dT4EFAwTpCA
+              - **id**: 9Q9QLY5PHzrF9n
+              - **uid**: 9Q9QLY5PHzrF9n
               - **rotulo**: 
               - **linha**:
                 - **estilo**: TRACEJADO
@@ -684,8 +684,8 @@
               - **cor**: #FFD600
               - **label**: 
             - **[2]**:
-              - **id**: VfrRNHIcLKB0uG
-              - **uid**: VfrRNHIcLKB0uG
+              - **id**: enaLArnJWawZZz
+              - **uid**: enaLArnJWawZZz
               - **rotulo**: 
               - **linha**:
                 - **estilo**: TRACEJADO
@@ -713,8 +713,8 @@
               - **cor**: #FFD600
               - **label**: 
             - **[3]**:
-              - **id**: xojJvzy2G0DCaW
-              - **uid**: xojJvzy2G0DCaW
+              - **id**: qY0MYFL0eumTMK
+              - **uid**: qY0MYFL0eumTMK
               - **rotulo**: 
               - **linha**:
                 - **estilo**: TRACEJADO
@@ -742,8 +742,8 @@
               - **cor**: #FFD600
               - **label**: 
             - **[4]**:
-              - **id**: jxB2ICN2LOIydw
-              - **uid**: jxB2ICN2LOIydw
+              - **id**: v0BbHt18MWept2
+              - **uid**: v0BbHt18MWept2
               - **rotulo**: 
               - **linha**:
                 - **estilo**: TRACEJADO
@@ -771,8 +771,8 @@
               - **cor**: #FFD600
               - **label**: 
             - **[5]**:
-              - **id**: nm6gkkSTpaOIEZ
-              - **uid**: nm6gkkSTpaOIEZ
+              - **id**: ZMQupuuoecmUrN
+              - **uid**: ZMQupuuoecmUrN
               - **rotulo**: 
               - **linha**:
                 - **estilo**: TRACEJADO
@@ -800,8 +800,8 @@
               - **cor**: #FFD600
               - **label**: 
             - **[6]**:
-              - **id**: AVUdX5pwvvkpYR
-              - **uid**: AVUdX5pwvvkpYR
+              - **id**: 8WNlzQWEc61vPm
+              - **uid**: 8WNlzQWEc61vPm
               - **rotulo**: 
               - **linha**:
                 - **estilo**: TRACEJADO
@@ -829,8 +829,8 @@
               - **cor**: #FFD600
               - **label**: 
             - **[7]**:
-              - **id**: z8136Laz4qtWVI
-              - **uid**: z8136Laz4qtWVI
+              - **id**: dOh1TE4Biq1ZY7
+              - **uid**: dOh1TE4Biq1ZY7
               - **rotulo**: 
               - **linha**:
                 - **estilo**: TRACEJADO
@@ -858,8 +858,8 @@
               - **cor**: #FFD600
               - **label**: 
             - **[8]**:
-              - **id**: meX1AOeWPbfqkF
-              - **uid**: meX1AOeWPbfqkF
+              - **id**: fjSleROf283ZCe
+              - **uid**: fjSleROf283ZCe
               - **rotulo**: 
               - **linha**:
                 - **estilo**: TRACEJADO
@@ -887,8 +887,8 @@
               - **cor**: #FFD600
               - **label**: 
             - **[9]**:
-              - **id**: NIGxHOA2M4fo2j
-              - **uid**: NIGxHOA2M4fo2j
+              - **id**: vT7mUV6E8LewAv
+              - **uid**: vT7mUV6E8LewAv
               - **rotulo**: 
               - **linha**:
                 - **estilo**: TRACEJADO
@@ -917,75 +917,75 @@
               - **label**: 
           - **referencias**:
             - **[0]**:
-              - **alvo_uid**: GCXksLfSG4nxgt
+              - **alvo_uid**: iNvEIBgysLCBWZ
               - **pontos_uids**:
-                - OGw2qj24dq7QBc
+                - neAhOQq1GzdtiB
               - **escalada**: OSSO EM PÓ
               - **ids**:
-                - OGw2qj24dq7QBc
+                - neAhOQq1GzdtiB
             - **[1]**:
-              - **alvo_uid**: sTYkPxab4O7Qs4
+              - **alvo_uid**: pI7euhDVGKKVgp
               - **pontos_uids**:
-                - yy4dT4EFAwTpCA
+                - 9Q9QLY5PHzrF9n
               - **escalada**: OSSOS DO OFÍCIO
               - **ids**:
-                - yy4dT4EFAwTpCA
+                - 9Q9QLY5PHzrF9n
             - **[2]**:
-              - **alvo_uid**: LLdv2dPx4kh8ss
+              - **alvo_uid**: jygeHw3zluCbtt
               - **pontos_uids**:
-                - VfrRNHIcLKB0uG
+                - enaLArnJWawZZz
               - **escalada**: KD O OSSO
               - **ids**:
-                - VfrRNHIcLKB0uG
+                - enaLArnJWawZZz
             - **[3]**:
-              - **alvo_uid**: HX8xSlCDwxueeV
+              - **alvo_uid**: uKA71SZOkiNW7L
               - **pontos_uids**:
-                - xojJvzy2G0DCaW
+                - qY0MYFL0eumTMK
               - **escalada**: CANTEIRO DE OSSOS
               - **ids**:
-                - xojJvzy2G0DCaW
+                - qY0MYFL0eumTMK
             - **[4]**:
-              - **alvo_uid**: PvobdIJtlmPzTF
+              - **alvo_uid**: aFvfcxKoDJEPbu
               - **pontos_uids**:
-                - jxB2ICN2LOIydw
+                - v0BbHt18MWept2
               - **escalada**: SANTUÁRIO DOS OSSOS
               - **ids**:
-                - jxB2ICN2LOIydw
+                - v0BbHt18MWept2
             - **[5]**:
-              - **alvo_uid**: gdRNgv12poL52Z
+              - **alvo_uid**: iCscmWf1RmRGF4
               - **pontos_uids**:
-                - nm6gkkSTpaOIEZ
+                - ZMQupuuoecmUrN
               - **escalada**: QUEBRA OSSOS
               - **ids**:
-                - nm6gkkSTpaOIEZ
+                - ZMQupuuoecmUrN
             - **[6]**:
-              - **alvo_uid**: RReuOVIU4FHX0X
+              - **alvo_uid**: mQZvFrd8NRmOdF
               - **pontos_uids**:
-                - AVUdX5pwvvkpYR
+                - 8WNlzQWEc61vPm
               - **escalada**: SOZINHO É OSSO
               - **ids**:
-                - AVUdX5pwvvkpYR
+                - 8WNlzQWEc61vPm
             - **[7]**:
-              - **alvo_uid**: V32GiPIvEBRYgY
+              - **alvo_uid**: I49C4KIdZzOR2c
               - **pontos_uids**:
-                - z8136Laz4qtWVI
+                - dOh1TE4Biq1ZY7
               - **escalada**: CUTELO DE OSSOS
               - **ids**:
-                - z8136Laz4qtWVI
+                - dOh1TE4Biq1ZY7
             - **[8]**:
-              - **alvo_uid**: 7CWBl1fANpHYIT
+              - **alvo_uid**: kInh77zzwMzZ1F
               - **pontos_uids**:
-                - meX1AOeWPbfqkF
+                - fjSleROf283ZCe
               - **escalada**: MARIMB. QUE ME OSSOS
               - **ids**:
-                - meX1AOeWPbfqkF
+                - fjSleROf283ZCe
             - **[9]**:
-              - **alvo_uid**: UVYGyiIDxev7nR
+              - **alvo_uid**: 2xIhkZclnRHItz
               - **pontos_uids**:
-                - NIGxHOA2M4fo2j
+                - vT7mUV6E8LewAv
               - **escalada**: GUERRA DE OSSOS
               - **ids**:
-                - NIGxHOA2M4fo2j
+                - vT7mUV6E8LewAv
       - **precomputados**:
         - **total_escaladas**: 22
         - **total_esportivas**: 22
@@ -993,64 +993,64 @@
     - **conteudo**:
       - **descricao**: 
       - **nome**: Setor das Treze
-      - **uid**: 0mdQacpHsHHypM
+      - **uid**: 8SUSM2sgVKSevu
       - **escaladas**:
         - **[0]**:
-          - **uid**: DcfDYTMq11Cam0
+          - **uid**: b3vo1qYPGndTMI
           - **via_esportiva**:
             - **nome**: PRIMEIRINHA
             - **dificuldade**: BR_6SUP
             - **conquistadores**:
               - Macena, Samuel, Maceninha
         - **[1]**:
-          - **uid**: 6R2kj3HJAkNTea
+          - **uid**: 6JYjcdXtHnXlqK
           - **via_esportiva**:
             - **nome**: CHUVA DE CRISTAL
             - **dificuldade**: BR_6
             - **conquistadores**:
               - Macena, Samuel, Maceninha
         - **[2]**:
-          - **uid**: nY6CVtCNEYtf4A
+          - **uid**: 46Kx1SeggvMjxQ
           - **via_esportiva**:
             - **nome**: PÉ DE CHORUME
             - **dificuldade**: BR_7C
             - **conquistadores**:
               - Macena, Samuel, Maceninha
         - **[3]**:
-          - **uid**: bnPm8davuNl4Cm
+          - **uid**: ZtWAYPeBMIEXRb
           - **via_esportiva**:
             - **nome**: S.O.S MORCEGO
             - **dificuldade**: BR_6SUP
             - **conquistadores**:
               - Macena, Samuel, Maceninha
         - **[4]**:
-          - **uid**: jLuU3Q1k82TYTi
+          - **uid**: 6hRLEAcFlUs3R0
           - **via_esportiva**:
             - **nome**: PEQUENA, MAS APERTADA
             - **dificuldade**: BR_7C
             - **conquistadores**:
               - Macena, Samuel, Maceninha
         - **[5]**:
-          - **uid**: UbodlkQiI0gG3a
+          - **uid**: jwmO62cBE3tEel
           - **via_esportiva**:
             - **nome**: TOPOGRÁFO PERDIDO
             - **dificuldade**: BR_6SUP
         - **[6]**:
-          - **uid**: 6zdARPf1wSsl88
+          - **uid**: nErCqCytEQD43p
           - **via_esportiva**:
             - **nome**: MOVI TECTÔNICOS
             - **dificuldade**: BR_7B
             - **conquistadores**:
               - Macena, Samuel, Maceninha
         - **[7]**:
-          - **uid**: SBmK5nI2CAJb89
+          - **uid**: sQsm7pQMj1n0ZP
           - **via_esportiva**:
             - **nome**: PSICOSE
             - **dificuldade**: BR_7B
             - **conquistadores**:
               - Macena, Samuel, Maceninha
         - **[8]**:
-          - **uid**: puGzLAPUhJwqmG
+          - **uid**: TC8Wd0pa4YopiM
           - **via_esportiva**:
             - **nome**: CONFUSAO MENTAL
             - **dificuldade**: BR_7A
