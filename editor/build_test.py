@@ -234,18 +234,20 @@ def test_obter_caminho_icone_alvo_producao():
     """Garante que a resolução de ícone no canal de produção aponte para recursos padrão."""
     from editor.build import obter_caminho_icone_alvo
 
-    ico, png = obter_caminho_icone_alvo(eh_beta=False)
-    assert ico == DIRETORIO_EDITOR / "logo.ico"
-    assert png == DIRETORIO_EDITOR / "recursos" / "logo_app.png"
+    with patch("sys.platform", "win32"):
+        ico, png = obter_caminho_icone_alvo(eh_beta=False)
+        assert ico == DIRETORIO_EDITOR / "logo.ico"
+        assert png == DIRETORIO_EDITOR / "recursos" / "logo_app.png"
 
 
 def test_obter_caminho_icone_alvo_beta():
     """Garante que a resolução de ícone no canal Beta aponte para recursos_beta."""
     from editor.build import obter_caminho_icone_alvo
 
-    ico, png = obter_caminho_icone_alvo(eh_beta=True)
-    assert ico == DIRETORIO_EDITOR / "recursos_beta" / "logo.ico"
-    assert png == DIRETORIO_EDITOR / "recursos_beta" / "logo_app.png"
+    with patch("sys.platform", "win32"):
+        ico, png = obter_caminho_icone_alvo(eh_beta=True)
+        assert ico == DIRETORIO_EDITOR / "recursos_beta" / "logo.ico"
+        assert png == DIRETORIO_EDITOR / "recursos_beta" / "logo_app.png"
 
 
 def test_executar_build_canal_beta():

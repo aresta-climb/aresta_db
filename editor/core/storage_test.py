@@ -7,6 +7,13 @@ from pathlib import Path
 from editor.core.storage import GerenciadorCaminhos, obter_diretorio_base_app
 
 class TestStorage(unittest.TestCase):
+    def setUp(self) -> None:
+        self._patcher_plataforma = patch("sys.platform", "win32")
+        self._patcher_plataforma.start()
+
+    def tearDown(self) -> None:
+        self._patcher_plataforma.stop()
+
     @patch("PySide6.QtCore.QStandardPaths.writableLocation")
     def test_obter_diretorio_base_app_via_qstandardpaths(self, mock_writable_location):
         mock_writable_location.return_value = "C:/fake/appdata/EditorAresta"

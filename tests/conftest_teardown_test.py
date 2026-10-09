@@ -5,8 +5,12 @@ import unittest
 from unittest.mock import MagicMock, patch
 import os
 import sys
+import ctypes
 from typing import Any
 import conftest
+
+if not hasattr(ctypes, "windll"):
+    ctypes.windll = MagicMock()
 
 
 class TestConftestTeardown(unittest.TestCase):

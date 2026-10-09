@@ -8,6 +8,7 @@ import json
 import base64
 import hashlib
 import mimetypes
+import re
 from pathlib import Path
 from typing import Optional, Dict, Any, Callable, cast
 import websockets
@@ -264,10 +265,36 @@ class ClienteTunelRetransmissor:
         """Lê um arquivo da pasta compilada e formata a resposta base64 com suporte a ETag e isolamento total de diretório."""
         try:
             pasta_base = self.pasta_compilado.resolve()
-            
-            # Sanitiza caracteres nulos e barras iniciais para evitar escape de caminho absoluto
-            caminho_limpo = str(caminho_relativo).replace("\x00", "").lstrip("/\\")
-            caminho_alvo = (pasta_base / caminho_limpo).resolve()
+
+            # Sanitiza caracteres nulos e rejeita imediatamente tentativas de caminho absoluto (segurança contra path traversal)
+            caminho_str = str(caminho_relativo).replace("\x00", "").strip()
+            if not caminho_str:
+                return {
+                    "id": req_id,
+                    "status": 404,
+                    "cabecalhos": {"content-type": "application/json"},
+                    "corpoBase64": base64.b64encode(
+                        json.dumps({"erro": "Caminho não especificado."}).encode()
+                    ).decode(),
+                }
+
+            caminho_p = Path(caminho_str)
+            if (
+                caminho_p.is_absolute()
+                or caminho_str.startswith("/")
+                or caminho_str.startswith("\\")
+                or bool(re.match(r"^[a-zA-Z]:", caminho_str))
+            ):
+                return {
+                    "id": req_id,
+                    "status": 403,
+                    "cabecalhos": {"content-type": "application/json"},
+                    "corpoBase64": base64.b64encode(
+                        json.dumps({"erro": "Acesso negado: caminho fora do escopo permitido."}).encode()
+                    ).decode(),
+                }
+
+            caminho_alvo = (pasta_base / caminho_str).resolve()
 
             # Prevenção rigorosa contra Directory Traversal e Path Escaping
             if not caminho_alvo.is_relative_to(pasta_base):

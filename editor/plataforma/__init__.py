@@ -71,7 +71,7 @@ class _AdaptadorPadraoFallback:
         return str(Path(caminho).resolve())
 
 
-_INSTANCIA_ADAPTADOR: Optional[AdaptadorPlataforma] = None
+_ADAPTADORES_POR_PLATAFORMA: dict[str, AdaptadorPlataforma] = {}
 
 
 def obter_adaptador_plataforma() -> AdaptadorPlataforma:
@@ -79,33 +79,46 @@ def obter_adaptador_plataforma() -> AdaptadorPlataforma:
     Retorna o adaptador concreto correspondente ao sistema operacional em execução.
     Carrega sob demanda o módulo correspondente preservando o arranque rápido.
     """
-    global _INSTANCIA_ADAPTADOR
-    if _INSTANCIA_ADAPTADOR is not None:
-        return _INSTANCIA_ADAPTADOR
+    plataforma = sys.platform
+    if plataforma.startswith("win"):
+        chave = "win32"
+    elif plataforma.startswith("linux"):
+        chave = "linux"
+    elif plataforma == "darwin":
+        chave = "darwin"
+    else:
+        chave = "padrao"
 
-    if sys.platform == "win32":
+    if chave in _ADAPTADORES_POR_PLATAFORMA:
+        return _ADAPTADORES_POR_PLATAFORMA[chave]
+
+    adaptador: AdaptadorPlataforma
+    if chave == "win32":
         try:
             from editor.plataforma.windows.integracao import AdaptadorWindows
-            _INSTANCIA_ADAPTADOR = AdaptadorWindows()
-            return _INSTANCIA_ADAPTADOR
+
+            adaptador = AdaptadorWindows()
         except ImportError:
-            pass
-    elif sys.platform == "linux":
+            adaptador = _AdaptadorPadraoFallback()
+    elif chave == "linux":
         try:
             from editor.plataforma.linux.integracao import AdaptadorLinux
-            _INSTANCIA_ADAPTADOR = AdaptadorLinux()
-            return _INSTANCIA_ADAPTADOR
+
+            adaptador = AdaptadorLinux()
         except ImportError:
-            pass
-    elif sys.platform == "darwin":
+            adaptador = _AdaptadorPadraoFallback()
+    elif chave == "darwin":
         try:
             from editor.plataforma.macos.integracao import AdaptadorMacOS
-            _INSTANCIA_ADAPTADOR = AdaptadorMacOS()
-            return _INSTANCIA_ADAPTADOR
-        except ImportError:
-            pass
 
-    return _AdaptadorPadraoFallback()
+            adaptador = AdaptadorMacOS()
+        except ImportError:
+            adaptador = _AdaptadorPadraoFallback()
+    else:
+        adaptador = _AdaptadorPadraoFallback()
+
+    _ADAPTADORES_POR_PLATAFORMA[chave] = adaptador
+    return adaptador
 
 
 def configurar_ambiente_plataforma() -> None:

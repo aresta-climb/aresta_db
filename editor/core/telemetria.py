@@ -26,7 +26,12 @@ def registrar_caminho_repo_local(caminho_repo: Path | str) -> None:
     """
     if not caminho_repo:
         return
-    caminho_str = str(Path(caminho_repo).resolve())
+    caminho_str = str(caminho_repo)
+    if not (os.name != "nt" and re.match(r"^[a-zA-Z]:", caminho_str)):
+        try:
+            caminho_str = str(Path(caminho_repo).resolve())
+        except Exception:
+            pass
     if (caminho_str, "<aresta_db>") not in _caminhos_extras_sanitizacao:
         _caminhos_extras_sanitizacao.append((caminho_str, "<aresta_db>"))
 

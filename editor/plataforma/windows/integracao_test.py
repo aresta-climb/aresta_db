@@ -9,7 +9,11 @@ import sys
 import os
 from pathlib import Path
 import pytest
+import ctypes
 from unittest.mock import MagicMock, patch
+
+if not hasattr(ctypes, "windll"):
+    ctypes.windll = MagicMock()
 
 from editor.plataforma.windows.integracao import (
     configurar_presenca_barra_de_tarefas,

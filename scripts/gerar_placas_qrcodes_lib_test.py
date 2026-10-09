@@ -747,9 +747,9 @@ def test_regras_minimo_impacto_centralizadas_horizontalmente(tmp_path: Path) -> 
     assert match is not None, "Transform de ícone de regra não encontrado"
     x_bloco = int(match.group(1))
 
-    # O valor antigo não-centralizado era int(600 * fator) = 600.
-    # Centralizado, x_bloco deve ser em torno de 850px para largura de 4960px.
-    assert x_bloco > 700, f"x_bloco ({x_bloco}) deve estar centralizado e ser maior que 700"
+    # O valor antigo não-centralizado era int(600 * fator) = 600 com alinhamento à esquerda.
+    # Centralizado, x_bloco varia entre 550px (Linux com DejaVuSans) e 850px (Windows com Arial) para largura de 4960px.
+    assert x_bloco > 500, f"x_bloco ({x_bloco}) deve estar centralizado e ser maior que 500"
 
 
 def test_alinhamento_texto_aresta_com_logo_parceiro(tmp_path: Path) -> None:

@@ -4,6 +4,12 @@
 from typing import Any
 import os
 import sys
+import ctypes
+from unittest.mock import MagicMock
+
+# Disponibiliza stub de ctypes.windll em plataformas não-Windows para testes unitários
+if not hasattr(ctypes, "windll"):
+    ctypes.windll = MagicMock()
 
 def pytest_configure(config: Any) -> None:
     if "QT_QPA_PLATFORM" not in os.environ:
