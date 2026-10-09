@@ -1,79 +1,102 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+uid: sQ7YgEG6ONsPXt
 nome: Bloco Democracia
 escaladas:
-- boulder:
+- uid: JeenN3HpFf1fWM
+  boulder:
     nome: Escalda pé
     dificuldade: V3
-- boulder:
+- uid: jGt3wUqr2UdYcj
+  boulder:
     nome: Sai sentado
     dificuldade: V1
     descricao: Sai sentado segurando no batente.
-- boulder:
+- uid: BFD04ZpI8eEHTN
+  boulder:
     nome: Titi terremoto
     dificuldade: V4
-- boulder:
+- uid: AGstgVoht7LBwf
+  boulder:
     nome: Faixa preta
     dificuldade: V2
-- boulder:
+- uid: 16GQnrumERO86h
+  boulder:
     nome: Portátil
     dificuldade: V6
-- boulder:
+- uid: tpZlh2cdAgBqAq
+  boulder:
     nome: Democracia
     dificuldade: V4
-- boulder:
+- uid: 9z8dS2eDjBrLkU
+  boulder:
     nome: 127 horas (boulder)
     dificuldade: V5
-- boulder:
+- uid: lEDeoMRWQIsyvt
+  boulder:
     nome: Perda de memória recente
     dificuldade: V6
-- boulder:
+- uid: Nj1FTueB1enlTt
+  boulder:
     nome: Utopia
     dificuldade: V6
-    descricao: Começa na parede da direita e muda pra parede da esquerda no meio do
-      boulder.
-- boulder:
+    descricao: Começa na parede da direita e muda pra parede da esquerda no meio do boulder.
+- uid: fVhTfbikhEidfi
+  boulder:
     nome: Dejavu
     dificuldade: V5
-- boulder:
+- uid: 93e0jZbep0Me2K
+  boulder:
     nome: Maquiavel
     dificuldade: V8
-- boulder:
+- uid: YcNowMFY5WnIqB
+  boulder:
     nome: Dejavu SDS
     dificuldade: V6
-- boulder:
+- uid: MjbF0c0oN3HNGe
+  boulder:
     nome: Sem nome 26
     dificuldade: V6
-- boulder:
+- uid: E7MTuSCnwN9m2r
+  boulder:
     nome: Vai mas não cai
     dificuldade: V4
-- boulder:
+- uid: GdhGbnKKRc2vE2
+  boulder:
     nome: Direita que me resta
     dificuldade: V3
-- boulder:
+- uid: WVn9cRbuoJKTJe
+  boulder:
     nome: Distopia
     dificuldade: V10
     descricao: Mesma saída do Utopia.
-- boulder:
+- uid: ysYI1TVvJS1kyy
+  boulder:
     nome: Sem nome 27
     dificuldade: V1
-- boulder:
+- uid: njS3Txwlt4gGPg
+  boulder:
     nome: Engana bobo
     dificuldade: V2
-- boulder:
+- uid: wqbq8WmwGdnfLw
+  boulder:
     nome: Sem nome 29
     dificuldade: V2
-- boulder:
+- uid: Ux0VzrqpFMAebD
+  boulder:
     nome: Sem nome 30
     dificuldade: V4
-- boulder:
+- uid: HfH0Q9Q86GoM6f
+  boulder:
     nome: Pequeno desafio
     dificuldade: V1
-- boulder:
+- uid: qSVuKvprARRGaM
+  boulder:
     nome: Porco espinho
     dificuldade: V2
-- boulder:
+- uid: bzxfCNiVVFBEnp
+  boulder:
     nome: Passa um
     dificuldade: V1
 mapas:
@@ -81,7 +104,7 @@ mapas:
   largura_mapa: 1825
   altura_mapa: 1369
   pontos_de_interesse:
-  - id: linha_2
+  - uid: xgcJQ7IfL2MsEo
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -97,7 +120,7 @@ mapas:
           rotulo: ''
       espessura: 3
     cor: '#FFD600'
-  - id: linha_3
+  - uid: Rz6FEtYQ3eIWZv
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -141,8 +164,8 @@ mapas:
           raio: 17
       espessura: 3
     cor: '#FFD600'
-  - id: linha_1
-    label: ''
+  - uid: yrBoCO3F14z3ea
+    rotulo: ''
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -177,7 +200,7 @@ mapas:
           raio: 17
       espessura: 3
     cor: '#FFD600'
-  - id: linha_5
+  - uid: juE1R9MVCEtmxr
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -232,7 +255,7 @@ mapas:
           rotulo: ''
       espessura: 3
     cor: '#FFD600'
-  - id: linha_6
+  - uid: FoAMrUf6AwBUCB
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -260,8 +283,8 @@ mapas:
           raio: 17
       espessura: 3
     cor: '#FFD600'
-  - id: linha_4
-    label: ''
+  - uid: jyFvAsGlGqFMM5
+    rotulo: ''
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -286,8 +309,8 @@ mapas:
           rotulo: D
       espessura: 3
     cor: '#FFD600'
-  - id: linha_7
-    label: ''
+  - uid: a4k5Nb9INw1YLO
+    rotulo: ''
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -316,48 +339,48 @@ mapas:
           raio: 17
       espessura: 3
     cor: '#FFD600'
-  - id: 3ini2
-    label: ''
+  - uid: Sq5Lrg1w93d0JW
+    rotulo: ''
     circulo:
       x: 1027
       y: 967
       raio: 19
     cor: ''
-  - id: circ3p1
-    label: ''
+  - uid: KJn5rHYYg43lmm
+    rotulo: ''
     circulo:
       x: 927
       y: 875
       raio: 20
     cor: ''
   referencias:
-  - ids:
-    - linha_2
-    - linha_3
-    escalada: Escalda pé
-  - ids:
-    - linha_1
-    escalada: Sai sentado
-  - ids:
-    - linha_2
-    - linha_5
-    - linha_6
-    escalada: Titi terremoto
-  - ids:
-    - linha_4
-    - linha_6
-    - 3ini2
-    - circ3p1
-    escalada: Faixa preta
-  - ids:
-    - linha_7
-    escalada: Portátil
+  - alvo_uid: JeenN3HpFf1fWM
+    pontos_uids:
+    - xgcJQ7IfL2MsEo
+    - Rz6FEtYQ3eIWZv
+  - alvo_uid: jGt3wUqr2UdYcj
+    pontos_uids:
+    - yrBoCO3F14z3ea
+  - alvo_uid: BFD04ZpI8eEHTN
+    pontos_uids:
+    - xgcJQ7IfL2MsEo
+    - juE1R9MVCEtmxr
+    - FoAMrUf6AwBUCB
+  - alvo_uid: AGstgVoht7LBwf
+    pontos_uids:
+    - jyFvAsGlGqFMM5
+    - FoAMrUf6AwBUCB
+    - Sq5Lrg1w93d0JW
+    - KJn5rHYYg43lmm
+  - alvo_uid: 16GQnrumERO86h
+    pontos_uids:
+    - a4k5Nb9INw1YLO
 - caminho_imagem_mapa: imagens/setor_bloco_democracia_p1.webp
   largura_mapa: 1825
   altura_mapa: 1369
   pontos_de_interesse:
-  - id: linha_9
-    label: ''
+  - uid: 4xFsLZKWl4AdtM
+    rotulo: ''
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -387,7 +410,7 @@ mapas:
           rotulo: B
       espessura: 3
     cor: '#FFD600'
-  - id: linha_10
+  - uid: HUwTLvTBBGjsnz
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -414,8 +437,8 @@ mapas:
           rotulo: ''
       espessura: 3
     cor: '#FFD600'
-  - id: linha_8
-    label: ''
+  - uid: d1hYpyX2npuSmv
+    rotulo: ''
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -451,7 +474,7 @@ mapas:
           rotulo: B
       espessura: 3
     cor: '#FFD600'
-  - id: linha_12
+  - uid: N4Wu08VRRMLamh
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -474,7 +497,7 @@ mapas:
           rotulo: ''
       espessura: 3
     cor: '#FFD600'
-  - id: linha_13
+  - uid: Kz0YuBGAhccOB5
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -498,26 +521,26 @@ mapas:
       espessura: 3
     cor: '#FFD600'
   referencias:
-  - ids:
-    - linha_10
-    - linha_12
-    - linha_13
-    escalada: Democracia
-  - ids:
-    - linha_9
-    - linha_12
-    - linha_13
-    escalada: 127 horas (boulder)
-  - ids:
-    - linha_8
-    - linha_13
-    escalada: Perda de memória recente
+  - alvo_uid: tpZlh2cdAgBqAq
+    pontos_uids:
+    - HUwTLvTBBGjsnz
+    - N4Wu08VRRMLamh
+    - Kz0YuBGAhccOB5
+  - alvo_uid: 9z8dS2eDjBrLkU
+    pontos_uids:
+    - 4xFsLZKWl4AdtM
+    - N4Wu08VRRMLamh
+    - Kz0YuBGAhccOB5
+  - alvo_uid: lEDeoMRWQIsyvt
+    pontos_uids:
+    - d1hYpyX2npuSmv
+    - Kz0YuBGAhccOB5
 - caminho_imagem_mapa: imagens/setor_bloco_democracia_p2.webp
   largura_mapa: 1825
   altura_mapa: 1369
   pontos_de_interesse:
-  - id: linha_11
-    label: ''
+  - uid: jnQoVwmwnQ2H0k
+    rotulo: ''
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -572,14 +595,14 @@ mapas:
       espessura: 3
     cor: '#FFD600'
   referencias:
-  - ids:
-    - linha_11
-    escalada: Utopia
+  - alvo_uid: Nj1FTueB1enlTt
+    pontos_uids:
+    - jnQoVwmwnQ2H0k
 - caminho_imagem_mapa: imagens/setor_bloco_democracia_p3.webp
   largura_mapa: 1825
   altura_mapa: 1369
   pontos_de_interesse:
-  - id: linha_16
+  - uid: n27STFDby4rocC
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -665,7 +688,7 @@ mapas:
           rotulo: ''
       espessura: 3
     cor: '#FFD600'
-  - id: linha_17
+  - uid: n1ql6PZ4p49sVz
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -692,8 +715,8 @@ mapas:
           rotulo: A
       espessura: 3
     cor: '#FFD600'
-  - id: linha_22
-    label: ''
+  - uid: DkBnfCPwRA9ZPY
+    rotulo: ''
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -720,7 +743,7 @@ mapas:
           rotulo: B
       espessura: 3
     cor: '#FFD600'
-  - id: linha_23
+  - uid: GkGoOZC3WJhbAL
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -763,7 +786,7 @@ mapas:
           rotulo: ''
       espessura: 3
     cor: '#FFD600'
-  - id: linha_24
+  - uid: pzCZCit4gVZvId
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -791,25 +814,25 @@ mapas:
       espessura: 3
     cor: '#FFD600'
   referencias:
-  - ids:
-    - linha_16
-    - linha_17
-    escalada: Dejavu
-  - ids:
-    - linha_23
-    - linha_24
-    - linha_17
-    escalada: Maquiavel
-  - ids:
-    - linha_22
-    - linha_24
-    - linha_17
-    escalada: Distopia
+  - alvo_uid: fVhTfbikhEidfi
+    pontos_uids:
+    - n27STFDby4rocC
+    - n1ql6PZ4p49sVz
+  - alvo_uid: 93e0jZbep0Me2K
+    pontos_uids:
+    - GkGoOZC3WJhbAL
+    - pzCZCit4gVZvId
+    - n1ql6PZ4p49sVz
+  - alvo_uid: WVn9cRbuoJKTJe
+    pontos_uids:
+    - DkBnfCPwRA9ZPY
+    - pzCZCit4gVZvId
+    - n1ql6PZ4p49sVz
 - caminho_imagem_mapa: imagens/setor_bloco_democracia_p4.webp
   largura_mapa: 1369
   altura_mapa: 1825
   pontos_de_interesse:
-  - id: linha_18
+  - uid: SHCOhsdHYBae5A
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -824,7 +847,7 @@ mapas:
           rotulo: ''
       espessura: 3
     cor: '#FFD600'
-  - id: linha_19
+  - uid: 6TPsswIRL43wbg
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -915,8 +938,8 @@ mapas:
           rotulo: F
       espessura: 3
     cor: '#FFD600'
-  - id: linha_14
-    label: ''
+  - uid: GA9j8Ik294SeTh
+    rotulo: ''
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -973,8 +996,8 @@ mapas:
           rotulo: H
       espessura: 3
     cor: '#FFD600'
-  - id: linha_20
-    label: ''
+  - uid: q3xH3oo4YeOuGX
+    rotulo: ''
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -1016,8 +1039,8 @@ mapas:
           rotulo: G
       espessura: 3
     cor: '#FFD600'
-  - id: linha_21
-    label: ''
+  - uid: 9DLFJCbuMQKSI2
+    rotulo: ''
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -1054,26 +1077,26 @@ mapas:
       espessura: 3
     cor: '#FFD600'
   referencias:
-  - ids:
-    - linha_18
-    - linha_19
-    escalada: Dejavu SDS
-  - ids:
-    - linha_18
-    - linha_14
-    escalada: Sem nome 26
-  - ids:
-    - linha_20
-    escalada: Vai mas não cai
-  - ids:
-    - linha_21
-    escalada: Direita que me resta
+  - alvo_uid: YcNowMFY5WnIqB
+    pontos_uids:
+    - SHCOhsdHYBae5A
+    - 6TPsswIRL43wbg
+  - alvo_uid: MjbF0c0oN3HNGe
+    pontos_uids:
+    - SHCOhsdHYBae5A
+    - GA9j8Ik294SeTh
+  - alvo_uid: E7MTuSCnwN9m2r
+    pontos_uids:
+    - q3xH3oo4YeOuGX
+  - alvo_uid: GdhGbnKKRc2vE2
+    pontos_uids:
+    - 9DLFJCbuMQKSI2
 - caminho_imagem_mapa: imagens/setor_bloco_democracia_p5.webp
   largura_mapa: 1825
   altura_mapa: 1369
   pontos_de_interesse:
-  - id: linha_26
-    label: ''
+  - uid: h02BCusv8ZjmXc
+    rotulo: ''
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -1101,8 +1124,8 @@ mapas:
           rotulo: A
       espessura: 3
     cor: '#FFD600'
-  - id: linha_27
-    label: ''
+  - uid: Xzyhq0GSNfF517
+    rotulo: ''
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -1130,8 +1153,8 @@ mapas:
           rotulo: F
       espessura: 3
     cor: '#FFD600'
-  - id: linha_28
-    label: ''
+  - uid: 2rLr793Ak1FDdh
+    rotulo: ''
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -1162,8 +1185,8 @@ mapas:
           rotulo: C
       espessura: 3
     cor: '#FFD600'
-  - id: linha_29
-    label: ''
+  - uid: xcdwg1f9RHrPlV
+    rotulo: ''
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -1200,8 +1223,8 @@ mapas:
           rotulo: D
       espessura: 3
     cor: '#FFD600'
-  - id: linha_30
-    label: ''
+  - uid: A2BbCF9f9xQgU8
+    rotulo: ''
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -1229,8 +1252,8 @@ mapas:
           rotulo: B
       espessura: 3
     cor: '#FFD600'
-  - id: linha_31
-    label: ''
+  - uid: zQ0GQzbQWKTXAM
+    rotulo: ''
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -1261,8 +1284,8 @@ mapas:
           rotulo: E
       espessura: 3
     cor: '#FFD600'
-  - id: linha_32
-    label: ''
+  - uid: jxMv2oQ52G1U3o
+    rotulo: ''
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -1297,34 +1320,33 @@ mapas:
       espessura: 3
     cor: '#FFD600'
   referencias:
-  - ids:
-    - linha_26
-    escalada: Pequeno desafio
-  - ids:
-    - linha_30
-    escalada: Engana bobo
-  - ids:
-    - linha_28
-    escalada: Sem nome 30
-  - ids:
-    - linha_29
-    escalada: Sem nome 29
-  - ids:
-    - linha_31
-    escalada: Sem nome 27
-  - ids:
-    - linha_27
-    escalada: Porco espinho
-    setor: Bloco Democracia
-  - ids:
-    - linha_32
-    escalada: Passa um
+  - alvo_uid: HfH0Q9Q86GoM6f
+    pontos_uids:
+    - h02BCusv8ZjmXc
+  - alvo_uid: njS3Txwlt4gGPg
+    pontos_uids:
+    - A2BbCF9f9xQgU8
+  - alvo_uid: Ux0VzrqpFMAebD
+    pontos_uids:
+    - 2rLr793Ak1FDdh
+  - alvo_uid: wqbq8WmwGdnfLw
+    pontos_uids:
+    - xcdwg1f9RHrPlV
+  - alvo_uid: ysYI1TVvJS1kyy
+    pontos_uids:
+    - zQ0GQzbQWKTXAM
+  - alvo_uid: qSVuKvprARRGaM
+    pontos_uids:
+    - Xzyhq0GSNfF517
+  - alvo_uid: bzxfCNiVVFBEnp
+    pontos_uids:
+    - jxMv2oQ52G1U3o
 - caminho_imagem_mapa: imagens/setor_bloco_democracia_p6.webp
   largura_mapa: 1825
   altura_mapa: 1369
   pontos_de_interesse:
-  - id: linha_15
-    label: ''
+  - uid: FgUzqh9xM3pM1t
+    rotulo: ''
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -1355,8 +1377,8 @@ mapas:
           rotulo: A
       espessura: 3
     cor: '#FFD600'
-  - id: linha_25
-    label: ''
+  - uid: CDYYbmZlLuSROd
+    rotulo: ''
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -1394,12 +1416,12 @@ mapas:
       espessura: 3
     cor: '#FFD600'
   referencias:
-  - ids:
-    - linha_15
-    escalada: Pequeno desafio
-  - ids:
-    - linha_25
-    escalada: Porco espinho
-    setor: Bloco Democracia
+  - alvo_uid: HfH0Q9Q86GoM6f
+    pontos_uids:
+    - FgUzqh9xM3pM1t
+  - alvo_uid: qSVuKvprARRGaM
+    pontos_uids:
+    - CDYYbmZlLuSROd
 ---
+
 Trilha para chegar ao setor: https://loc.wiki/t/169745893?wa=sc

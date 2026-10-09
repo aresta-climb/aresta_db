@@ -1,6 +1,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
+uid: 3M6IgZsc17xH17
 id: br_mg_luminosa_pedra_do_ze
 nome: Pedra do Zé
 creditos:
@@ -14,24 +15,29 @@ picos:
   mapas_gerais:
     caminho: mapas_gerais.md
 botoes:
-- texto: Capa
+- uid: fuS5tRYSn7nHMS
+  texto: Capa
   destino:
     secao_textual:
       caminho: capa.md
-- texto: Agradecimentos
+- uid: 5TRykzQ8XG8LU8
+  texto: Agradecimentos
   destino:
     secao_textual:
       caminho: agradecimentos.md
-- texto: Orientações aos Escaladores
+- uid: ol9dU8La9F6Bo7
+  texto: Orientações aos Escaladores
   destino:
     secao_textual:
       caminho: orientacoes_aos_escaladores.md
-- texto: Localização & Acesso
+- uid: Qd1JNW6aH0R2Na
+  texto: Localização & Acesso
   destino:
     secao_textual:
       caminho: estacionamento_e_acesso.md
-- texto: Créditos
+- uid: SQPqMKcqQz34R7
+  texto: Créditos
   destino:
     secao_textual:
       caminho: creditos.md
-ultima_migracao: 4
+ultima_migracao: 5

@@ -137,8 +137,8 @@ def test_01_criacao_direta_nova_rota(qtbot, tmp_path):
     # 4. Referência linkada
     assert len(mapa_ro.referencias) == 1
     ref = mapa_ro.referencias[0]
-    assert ref.escalada == "Via Central"
-    assert list(ref.ids) == [poi_linha.id]
+    assert ref.alvo_uid != ""
+    assert list(ref.pontos_uids) == [poi_linha.uid]
 
 
 def test_02_variante_fatiamento_meio_curva_e_desambiguacao_top(qtbot, tmp_path):
@@ -190,7 +190,8 @@ def test_02_variante_fatiamento_meio_curva_e_desambiguacao_top(qtbot, tmp_path):
     assert "Variante Direita" in nomes_escaladas
 
     # Referências
-    refs = {r.escalada: list(r.ids) for r in mapa_ro.referencias}
+    uids_escaladas = {e.uid: getattr(e, e.WhichOneof("tipo")).nome for e in setor_ro.escaladas if e.WhichOneof("tipo")}
+    refs = {uids_escaladas.get(r.alvo_uid, r.alvo_uid): list(r.pontos_uids) for r in mapa_ro.referencias}
     assert "Via Central" in refs
     assert "Variante Direita" in refs
 
@@ -204,7 +205,7 @@ def test_02_variante_fatiamento_meio_curva_e_desambiguacao_top(qtbot, tmp_path):
     assert ids_central[1] != ids_variante[1], "Os segmentos finais devem ser exclusivos"
 
     # Verificação de nós e rótulos
-    pois_por_id = {p.id: p for p in mapa_ro.pontos_de_interesse}
+    pois_por_id = {p.uid: p for p in mapa_ro.pontos_de_interesse}
     seg_comum = pois_por_id[ids_central[0]]
     nos_comuns = seg_comum.linha.conteudo.nos
 
@@ -248,10 +249,12 @@ def test_03_convergencia_mesmo_top_compartilhado(qtbot, tmp_path):
     widget.finalizar_modo_nova_rota()
 
     croqui_ro = env["model"].obter_croqui_readonly()
-    mapa_ro = croqui_ro.picos[0].setores_ou_grupos[0].setor.conteudo.mapas[0]
+    setor_ro = croqui_ro.picos[0].setores_ou_grupos[0].setor.conteudo
+    mapa_ro = setor_ro.mapas[0]
 
-    refs = {r.escalada: list(r.ids) for r in mapa_ro.referencias}
-    pois_por_id = {p.id: p for p in mapa_ro.pontos_de_interesse}
+    uids_escaladas = {e.uid: getattr(e, e.WhichOneof("tipo")).nome for e in setor_ro.escaladas if e.WhichOneof("tipo")}
+    refs = {uids_escaladas.get(r.alvo_uid, r.alvo_uid): list(r.pontos_uids) for r in mapa_ro.referencias}
+    pois_por_id = {p.uid: p for p in mapa_ro.pontos_de_interesse}
 
     linha_central = pois_por_id[refs["Via Central"][0]]
     linha_esq = pois_por_id[refs["Entrada Esquerda"][0]]
@@ -298,9 +301,11 @@ def test_04_travessia_fatiamento_triplo_intermediario(qtbot, tmp_path):
     widget.finalizar_modo_nova_rota()
 
     croqui_ro = env["model"].obter_croqui_readonly()
-    mapa_ro = croqui_ro.picos[0].setores_ou_grupos[0].setor.conteudo.mapas[0]
+    setor_ro = croqui_ro.picos[0].setores_ou_grupos[0].setor.conteudo
+    mapa_ro = setor_ro.mapas[0]
 
-    refs = {r.escalada: list(r.ids) for r in mapa_ro.referencias}
+    uids_escaladas = {e.uid: getattr(e, e.WhichOneof("tipo")).nome for e in setor_ro.escaladas if e.WhichOneof("tipo")}
+    refs = {uids_escaladas.get(r.alvo_uid, r.alvo_uid): list(r.pontos_uids) for r in mapa_ro.referencias}
     ids_base = refs["Linha Base"]
     ids_trav = refs["Travessia"]
 
@@ -336,8 +341,8 @@ def test_05_reversao_total_undo_redo_atomico(qtbot, tmp_path):
         widget.adicionar_ponto_nova_rota(p)
     widget.finalizar_modo_nova_rota()
 
-    # Guarda ID original da linha
-    id_original = env["model"].obter_croqui_readonly().picos[0].setores_ou_grupos[0].setor.conteudo.mapas[0].pontos_de_interesse[0].id
+    # Guarda UID original da linha
+    id_original = env["model"].obter_croqui_readonly().picos[0].setores_ou_grupos[0].setor.conteudo.mapas[0].pontos_de_interesse[0].uid
 
     # 2. Cria Variante
     widget.iniciar_modo_nova_rota({"nome": "Variante", "tipo": "boulder", "grau": "V5", "nova": True})
@@ -359,12 +364,12 @@ def test_05_reversao_total_undo_redo_atomico(qtbot, tmp_path):
     assert len(setor_pos_undo.escaladas) == 1
     assert setor_pos_undo.escaladas[0].boulder.nome == "Via Base"
     assert len(mapa_pos_undo.referencias) == 1
-    assert mapa_pos_undo.referencias[0].escalada == "Via Base"
+    assert mapa_pos_undo.referencias[0].alvo_uid == setor_pos_undo.escaladas[0].uid
 
     # Linha original íntegra restaurada
     assert len(mapa_pos_undo.pontos_de_interesse) == 1
     linha_restaurada = mapa_pos_undo.pontos_de_interesse[0]
-    assert linha_restaurada.id == id_original
+    assert linha_restaurada.uid == id_original
     assert linha_restaurada.linha.conteudo.nos[0].rotulo == "1"
     assert linha_restaurada.linha.conteudo.nos[-1].tipo == croqui_pb2.NoTrajeto.TipoNo.PASSAGEM
     assert linha_restaurada.linha.conteudo.nos[-1].rotulo == ""
@@ -428,9 +433,9 @@ def test_06_multiplos_mapas_setor_consistencia_e_ids_disjuntos(qtbot, tmp_path):
     linha_m2_lateral = m2.pontos_de_interesse[1]
     assert linha_m2_lateral.linha.conteudo.nos[0].rotulo == "2"
 
-    # IDs de POIs do Mapa 1 e Mapa 2 devem ser estritamente disjuntos
-    ids_m1 = {p.id for p in m1.pontos_de_interesse}
-    ids_m2 = {p.id for p in m2.pontos_de_interesse}
+    # UIDs de POIs do Mapa 1 e Mapa 2 devem ser estritamente disjuntos
+    ids_m1 = {p.uid for p in m1.pontos_de_interesse}
+    ids_m2 = {p.uid for p in m2.pontos_de_interesse}
     assert ids_m1.isdisjoint(ids_m2), f"Colisão detectada entre mapas: {ids_m1 & ids_m2}"
 
 
@@ -526,7 +531,7 @@ def test_08_busca_escalada_preexistente_sem_duplicacao(qtbot, tmp_path):
     assert len(setor_final.escaladas) == 1
     # Referência criada
     assert len(setor_final.mapas[0].referencias) == 1
-    assert setor_final.mapas[0].referencias[0].escalada == "Boulder Antigo"
+    assert setor_final.mapas[0].referencias[0].alvo_uid == setor_final.escaladas[0].uid
 
 
 def test_09_cancelamento_gracioso_sem_efeitos_colaterais(qtbot, tmp_path):
@@ -621,8 +626,8 @@ def test_11_separar_traco_em_no_e_desfazer(qtbot, tmp_path):
     croqui_ro = env["model"].obter_croqui_readonly()
     mapa_ro = croqui_ro.picos[0].setores_ou_grupos[0].setor.conteudo.mapas[0]
     assert len(mapa_ro.pontos_de_interesse) == 1
-    id_orig = str(mapa_ro.pontos_de_interesse[0].id)
-    assert list(mapa_ro.referencias[0].ids) == [id_orig]
+    id_orig = str(mapa_ro.pontos_de_interesse[0].uid)
+    assert list(mapa_ro.referencias[0].pontos_uids) == [id_orig]
 
     # 2. Executa a separação no nó intermediário 1
     widget.separar_traco_no(id_orig, 1)
@@ -633,7 +638,7 @@ def test_11_separar_traco_em_no_e_desfazer(qtbot, tmp_path):
     assert len(mapa_pos_split.pontos_de_interesse) == 2
     sub1 = mapa_pos_split.pontos_de_interesse[0]
     sub2 = mapa_pos_split.pontos_de_interesse[1]
-    assert sub1.id != id_orig and sub2.id != id_orig
+    assert sub1.uid != id_orig and sub2.uid != id_orig
     assert len(sub1.linha.conteudo.nos) == 2
     assert len(sub2.linha.conteudo.nos) == 2
     # Ponto de junção coincide
@@ -641,20 +646,20 @@ def test_11_separar_traco_em_no_e_desfazer(qtbot, tmp_path):
     assert (sub2.linha.conteudo.nos[0].x, sub2.linha.conteudo.nos[0].y) == (120, 300)
 
     # Referência contém os dois novos IDs
-    assert list(mapa_pos_split.referencias[0].ids) == [str(sub1.id), str(sub2.id)]
+    assert list(mapa_pos_split.referencias[0].pontos_uids) == [str(sub1.uid), str(sub2.uid)]
 
     # 3. Testa Undo
     undo_stack.undo()
     mapa_undo = env["model"].obter_croqui_readonly().picos[0].setores_ou_grupos[0].setor.conteudo.mapas[0]
     assert len(mapa_undo.pontos_de_interesse) == 1
-    assert str(mapa_undo.pontos_de_interesse[0].id) == id_orig
-    assert list(mapa_undo.referencias[0].ids) == [id_orig]
+    assert str(mapa_undo.pontos_de_interesse[0].uid) == id_orig
+    assert list(mapa_undo.referencias[0].pontos_uids) == [id_orig]
 
     # 4. Testa Redo
     undo_stack.redo()
     mapa_redo = env["model"].obter_croqui_readonly().picos[0].setores_ou_grupos[0].setor.conteudo.mapas[0]
     assert len(mapa_redo.pontos_de_interesse) == 2
-    assert list(mapa_redo.referencias[0].ids) == [str(sub1.id), str(sub2.id)]
+    assert list(mapa_redo.referencias[0].pontos_uids) == [str(sub1.uid), str(sub2.uid)]
 
 
 def test_12_adicionar_nova_linha_avulsa_a_partir_de_ponto_final(qtbot, tmp_path):

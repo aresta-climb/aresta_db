@@ -292,6 +292,34 @@ Texto da capa do croqui.
     assert dados_yaml["ultima_migracao"] >= 1
 
 
+def test_carregar_croqui_experimental_aplica_migracao_5(tmp_path, qapp):
+    """Garante que JanelaPrincipal.carregar_croqui roda a migração 5 gerando UIDs e rotulos."""
+    from editor.core.workspace import ExperimentalWorkspace
+    from scripts.gerenciar_uids_lib import validar_uid
+
+    db_path = tmp_path / "database"
+    db_path.mkdir(parents=True)
+
+    croqui_yaml = {
+        "id": "croqui_legado",
+        "nome": "Croqui Legado",
+        "ultima_migracao": 4,
+    }
+    with open(db_path / "croqui.yaml", "w", encoding="utf-8") as f:
+        yaml.dump(croqui_yaml, f)
+
+    janela = JanelaPrincipal(workspace=ExperimentalWorkspace(tmp_path))
+    janela.carregar_croqui()
+
+    with open(db_path / "croqui.yaml", "r", encoding="utf-8") as f:
+        dados_salvos = yaml.safe_load(f)
+
+    assert dados_salvos.get("ultima_migracao") == 5
+    assert "uid" in dados_salvos
+    assert validar_uid(dados_salvos["uid"]) is True
+
+
+
 
 
 def test_e2e_selecao_mapa_por_node_path(tmp_path, qapp):

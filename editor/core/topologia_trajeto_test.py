@@ -9,6 +9,7 @@ Princípios II (Library-First) e IV (TDD) de AGENTS.md.
 
 import pytest
 from aresta_api.proto.generated import croqui_pb2
+from scripts.gerenciar_uids_lib import validar_uid
 from editor.core.spline_catmull_rom import Ponto2D
 from editor.core.topologia_trajeto import (
     ResultadoSnap,
@@ -34,7 +35,7 @@ from editor.core.topologia_trajeto import (
 
 def _criar_linha_pb(id_linha: str, pontos: list, rotulo_inicio: str = "", rotulo_fim: str = ""):
     """Função auxiliar para criar um PontoDeInteresse do tipo linha para testes."""
-    poi = croqui_pb2.Mapa.PontoDeInteresse(id=id_linha)
+    poi = croqui_pb2.Mapa.PontoDeInteresse(uid=id_linha)
     poi.linha.estilo = croqui_pb2.LinhaTrajeto.EstiloTraco.TRACEJADO
     for i, (x, y) in enumerate(pontos):
         no = poi.linha.conteudo.nos.add(x=int(x), y=int(y))
@@ -131,7 +132,7 @@ class TestSnapGeometrico:
         assert snap.coordenada.y == pytest.approx(300)
 
     def test_snap_ignora_poi_sem_linha_e_linha_com_menos_de_dois_nos(self):
-        poi_circulo = croqui_pb2.Mapa.PontoDeInteresse(id="circ_1")
+        poi_circulo = croqui_pb2.Mapa.PontoDeInteresse(uid="circ_1")
         poi_circulo.circulo.x = 100
         poi_linha_1_no = _criar_linha_pb("linha_curta", [(50, 50)])
 
@@ -159,7 +160,7 @@ class TestFatiamentoTrajeto:
         assert len(nos1) == 3
         assert (nos1[0].x, nos1[0].y) == (100, 500)
         assert (nos1[2].x, nos1[2].y) == (140, 200)
-        assert sub1.id == "seg_1"
+        assert sub1.uid == "seg_1"
         assert nos1[0].rotulo == "1"
 
         # Sub2: nós 2..3
@@ -167,7 +168,7 @@ class TestFatiamentoTrajeto:
         assert len(nos2) == 2
         assert (nos2[0].x, nos2[0].y) == (140, 200)
         assert (nos2[1].x, nos2[1].y) == (150, 100)
-        assert sub2.id == "seg_2"
+        assert sub2.uid == "seg_2"
 
     def test_fatiar_linha_em_no_extremos_levanta_erro(self):
         linha = _criar_linha_pb("linha_original", [(100, 500), (120, 350), (140, 200)])
@@ -239,13 +240,13 @@ class TestFatiamentoTrajeto:
 
     def test_atualizar_referencias_apos_fatiamento(self):
         mapa = croqui_pb2.Mapa()
-        ref1 = mapa.referencias.add(escalada="Via 1", ids=["linha_outra", "linha_velha", "linha_fim"])
-        ref2 = mapa.referencias.add(escalada="Via 2", ids=["linha_velha"])
+        ref1 = mapa.referencias.add(alvo_uid="Via 1", pontos_uids=["linha_outra", "linha_velha", "linha_fim"])
+        ref2 = mapa.referencias.add(alvo_uid="Via 2", pontos_uids=["linha_velha"])
         
         atualizar_referencias_apos_fatiamento(mapa.referencias, "linha_velha", ["seg_1", "seg_2"])
         
-        assert list(ref1.ids) == ["linha_outra", "seg_1", "seg_2", "linha_fim"]
-        assert list(ref2.ids) == ["seg_1", "seg_2"]
+        assert list(ref1.pontos_uids) == ["linha_outra", "seg_1", "seg_2", "linha_fim"]
+        assert list(ref2.pontos_uids) == ["seg_1", "seg_2"]
 
 
 class TestConvencaoSemanticaOuroboulder:
@@ -280,15 +281,15 @@ class TestConvencaoSemanticaOuroboulder:
 
     def test_desambiguar_topos_com_referencias_vazias_ou_inexistentes(self):
         linha = _criar_linha_pb("linha_1", [(100, 500), (100, 100)])
-        ref_vazia = croqui_pb2.Mapa.Referencia(escalada="Vazia")
-        ref_inexistente = croqui_pb2.Mapa.Referencia(escalada="NaoExiste", ids=["linha_fantasma"])
+        ref_vazia = croqui_pb2.Mapa.Referencia(alvo_uid="Vazia")
+        ref_inexistente = croqui_pb2.Mapa.Referencia(alvo_uid="NaoExiste", pontos_uids=["linha_fantasma"])
         
         # Não deve lançar exceção
         desambiguar_topos([linha], [ref_vazia, ref_inexistente])
 
     def test_desambiguar_topos_rota_isolada_sem_circulo(self):
         linha = _criar_linha_pb("linha_1", [(100, 500), (100, 100)], rotulo_inicio="1")
-        ref = croqui_pb2.Mapa.Referencia(escalada="Via 1", ids=["linha_1"])
+        ref = croqui_pb2.Mapa.Referencia(alvo_uid="Via 1", pontos_uids=["linha_1"])
         
         desambiguar_topos([linha], [ref])
         
@@ -300,8 +301,8 @@ class TestConvencaoSemanticaOuroboulder:
         seg_v1 = _criar_linha_pb("v1", [(100, 300), (80, 100)])
         seg_v2 = _criar_linha_pb("v2", [(100, 300), (120, 100)])
 
-        ref1 = croqui_pb2.Mapa.Referencia(escalada="Via 1", ids=["comum", "v1"])
-        ref2 = croqui_pb2.Mapa.Referencia(escalada="Via 2", ids=["comum", "v2"])
+        ref1 = croqui_pb2.Mapa.Referencia(alvo_uid="Via 1", pontos_uids=["comum", "v1"])
+        ref2 = croqui_pb2.Mapa.Referencia(alvo_uid="Via 2", pontos_uids=["comum", "v2"])
 
         desambiguar_topos([seg_comum, seg_v1, seg_v2], [ref1, ref2])
 
@@ -314,8 +315,8 @@ class TestConvencaoSemanticaOuroboulder:
         linha1 = _criar_linha_pb("v1", [(50, 500), (100, 100)], rotulo_inicio="1")
         linha2 = _criar_linha_pb("v2", [(150, 500), (100, 100)], rotulo_inicio="2")
 
-        ref1 = croqui_pb2.Mapa.Referencia(escalada="Via 1", ids=["v1"])
-        ref2 = croqui_pb2.Mapa.Referencia(escalada="Via 2", ids=["v2"])
+        ref1 = croqui_pb2.Mapa.Referencia(alvo_uid="Via 1", pontos_uids=["v1"])
+        ref2 = croqui_pb2.Mapa.Referencia(alvo_uid="Via 2", pontos_uids=["v2"])
 
         desambiguar_topos([linha1, linha2], [ref1, ref2])
 
@@ -329,9 +330,9 @@ class TestConvencaoSemanticaOuroboulder:
         linha2 = _criar_linha_pb("v2", [(150, 500), (150, 100)], rotulo_inicio="2")
         linha3 = _criar_linha_pb("v3", [(250, 500), (250, 100)], rotulo_inicio="3")
 
-        ref1 = croqui_pb2.Mapa.Referencia(escalada="Via 1", ids=["v1"])
-        ref2 = croqui_pb2.Mapa.Referencia(escalada="Via 2", ids=["v2"])
-        ref3 = croqui_pb2.Mapa.Referencia(escalada="Via 3", ids=["v3"])
+        ref1 = croqui_pb2.Mapa.Referencia(alvo_uid="Via 1", pontos_uids=["v1"])
+        ref2 = croqui_pb2.Mapa.Referencia(alvo_uid="Via 2", pontos_uids=["v2"])
+        ref3 = croqui_pb2.Mapa.Referencia(alvo_uid="Via 3", pontos_uids=["v3"])
 
         desambiguar_topos([linha1, linha2, linha3], [ref1, ref2, ref3])
 
@@ -345,9 +346,9 @@ class TestConvencaoSemanticaOuroboulder:
         seg_v2 = _criar_linha_pb("v2", [(100, 300), (120, 100)])
         linha_isolada = _criar_linha_pb("isolada", [(300, 500), (300, 100)], rotulo_inicio="3")
 
-        ref1 = croqui_pb2.Mapa.Referencia(escalada="Via 1", ids=["comum", "v1"])
-        ref2 = croqui_pb2.Mapa.Referencia(escalada="Via 2", ids=["comum", "v2"])
-        ref3 = croqui_pb2.Mapa.Referencia(escalada="Via 3 Isolada", ids=["isolada"])
+        ref1 = croqui_pb2.Mapa.Referencia(alvo_uid="Via 1", pontos_uids=["comum", "v1"])
+        ref2 = croqui_pb2.Mapa.Referencia(alvo_uid="Via 2", pontos_uids=["comum", "v2"])
+        ref3 = croqui_pb2.Mapa.Referencia(alvo_uid="Via 3 Isolada", pontos_uids=["isolada"])
 
         desambiguar_topos([seg_comum, seg_v1, seg_v2, linha_isolada], [ref1, ref2, ref3])
 
@@ -367,7 +368,7 @@ class TestConvencaoSemanticaOuroboulder:
         linha.linha.conteudo.nos[-1].tipo = croqui_pb2.NoTrajeto.TipoNo.FIM_TOP
         linha.linha.conteudo.nos[-1].rotulo = "A"
 
-        ref = croqui_pb2.Mapa.Referencia(escalada="Via 1", ids=["v1"])
+        ref = croqui_pb2.Mapa.Referencia(alvo_uid="Via 1", pontos_uids=["v1"])
         desambiguar_topos([linha], [ref])
 
         assert linha.linha.conteudo.nos[-1].tipo == croqui_pb2.NoTrajeto.TipoNo.PASSAGEM
@@ -385,8 +386,8 @@ class TestConvencaoSemanticaOuroboulder:
     def test_desambiguar_topos_inicio_compartilhado_sem_id_comum(self):
         linha1 = _criar_linha_pb("v1", [(100, 500), (80, 100)], rotulo_inicio="1")
         linha2 = _criar_linha_pb("v2", [(100, 500), (120, 100)], rotulo_inicio="2")
-        ref1 = croqui_pb2.Mapa.Referencia(escalada="Via 1", ids=["v1"])
-        ref2 = croqui_pb2.Mapa.Referencia(escalada="Via 2", ids=["v2"])
+        ref1 = croqui_pb2.Mapa.Referencia(alvo_uid="Via 1", pontos_uids=["v1"])
+        ref2 = croqui_pb2.Mapa.Referencia(alvo_uid="Via 2", pontos_uids=["v2"])
 
         desambiguar_topos([linha1, linha2], [ref1, ref2])
         assert linha1.linha.conteudo.nos[-1].tipo == croqui_pb2.NoTrajeto.TipoNo.FIM_TOP
@@ -397,8 +398,12 @@ class TestConvencaoSemanticaOuroboulder:
     def test_desambiguar_topos_no_intermediario_compartilhado(self):
         linha1 = _criar_linha_pb("v1", [(50, 500), (100, 300), (50, 100)], rotulo_inicio="1")
         linha2 = _criar_linha_pb("v2", [(150, 500), (100, 300), (150, 100)], rotulo_inicio="2")
-        ref1 = croqui_pb2.Mapa.Referencia(escalada="Via 1", ids=["v1"])
-        ref2 = croqui_pb2.Mapa.Referencia(escalada="Via 2", ids=["v2"])
+        ref1 = croqui_pb2.Mapa.Referencia(alvo_uid="Via 1", pontos_uids=["v1"])
+        ref2 = croqui_pb2.Mapa.Referencia(alvo_uid="Via 2", pontos_uids=["v2"])
+
+        desambiguar_topos([linha1, linha2], [ref1, ref2])
+        assert linha1.linha.conteudo.nos[-1].tipo == croqui_pb2.NoTrajeto.TipoNo.FIM_TOP
+        assert linha2.linha.conteudo.nos[-1].tipo == croqui_pb2.NoTrajeto.TipoNo.FIM_TOP
 
         desambiguar_topos([linha1, linha2], [ref1, ref2])
         assert linha1.linha.conteudo.nos[-1].tipo == croqui_pb2.NoTrajeto.TipoNo.FIM_TOP
@@ -412,14 +417,14 @@ class TestEscopoSetor:
         m1 = setor.mapas.add()
         l1 = _criar_linha_pb("l1", [(100, 500), (100, 100)], rotulo_inicio="1")
         m1.pontos_de_interesse.append(l1)
-        m1.referencias.add(escalada="Via Central", ids=["l1"])
+        m1.referencias.add(alvo_uid="uid_via_central", pontos_uids=["l1"])
 
         m2 = setor.mapas.add()
 
-        rotulo = obter_rotulo_escalada_no_setor(setor, "Via Central")
+        rotulo = obter_rotulo_escalada_no_setor(setor, "uid_via_central")
         assert rotulo == "1"
 
-        rotulo_inexistente = obter_rotulo_escalada_no_setor(setor, "Via Fantasma")
+        rotulo_inexistente = obter_rotulo_escalada_no_setor(setor, "uid_via_fantasma")
         assert rotulo_inexistente is None
 
     def test_calcular_proximo_numero_inicio_setor(self):
@@ -442,14 +447,14 @@ class TestEscopoSetor:
     def test_gerar_id_poi_disjunto_setor(self):
         setor = croqui_pb2.Setor(nome="Setor Teste")
         m1 = setor.mapas.add()
-        m1.pontos_de_interesse.add(id="linha_1")
-        m1.pontos_de_interesse.add(id="linha_2")
+        m1.pontos_de_interesse.add(uid="linha_1")
+        m1.pontos_de_interesse.add(uid="linha_2")
 
         m2 = setor.mapas.add()
-        m2.pontos_de_interesse.add(id="linha_3")
+        m2.pontos_de_interesse.add(uid="linha_3")
 
         novo_id = gerar_id_poi_disjunto_setor(setor, prefixo="linha")
-        assert novo_id == "linha_4"
+        assert validar_uid(novo_id)
         assert novo_id not in ["linha_1", "linha_2", "linha_3"]
 
     def test_desembrulhar_setor_formatos(self):
@@ -474,9 +479,9 @@ class TestEscopoSetor:
         assert desembrulhar_setor(None) is None
 
     def test_obter_rotulo_escalada_no_setor_invalido_ou_vazio(self):
-        assert obter_rotulo_escalada_no_setor(None, "Via") is None
+        assert obter_rotulo_escalada_no_setor(None, "uid_via") is None
         setor_vazio = croqui_pb2.Setor()
-        assert obter_rotulo_escalada_no_setor(setor_vazio, "Via") is None
+        assert obter_rotulo_escalada_no_setor(setor_vazio, "uid_via") is None
 
     def test_calcular_proximo_numero_inicio_setor_mapa_sem_pontos(self):
         mapa_vazio = croqui_pb2.Mapa()
@@ -486,21 +491,23 @@ class TestEscopoSetor:
     def test_gerar_id_poi_disjunto_setor_com_arquivo_setor(self):
         setor = croqui_pb2.Setor(nome="Setor Interno")
         m = setor.mapas.add()
-        m.pontos_de_interesse.add(id="linha_1")
+        m.pontos_de_interesse.add(uid="linha_1")
         arq = croqui_pb2.ArquivoSetor(conteudo=setor)
 
         novo_id = gerar_id_poi_disjunto_setor(arq, prefixo="linha")
-        assert novo_id == "linha_2"
+        assert validar_uid(novo_id)
+        assert novo_id != "linha_1"
 
     def test_gerar_id_poi_disjunto_setor_com_mapa_ativo_prioritario(self):
         mapa_ativo = croqui_pb2.Mapa()
-        mapa_ativo.pontos_de_interesse.add(id="linha_1")
-        mapa_ativo.pontos_de_interesse.add(id="sai1")
-        mapa_ativo.pontos_de_interesse.add(id="linha_2")
+        mapa_ativo.pontos_de_interesse.add(uid="linha_1")
+        mapa_ativo.pontos_de_interesse.add(uid="sai1")
+        mapa_ativo.pontos_de_interesse.add(uid="linha_2")
 
         # Setor vazio ou None: deve inspecionar mapa_ativo
         novo_id = gerar_id_poi_disjunto_setor(None, prefixo="linha", mapa_ativo=mapa_ativo)
-        assert novo_id == "linha_3"
+        assert validar_uid(novo_id)
+        assert novo_id not in ["linha_1", "sai1", "linha_2"]
 
     def test_calcular_proximo_numero_inicio_setor_com_arquivo_setor_e_mapa_ativo(self):
         setor = croqui_pb2.Setor(nome="Setor")
@@ -523,12 +530,12 @@ class TestEscopoSetor:
     def test_fatiar_linha_preserva_cor_e_label(self):
         linha = _criar_linha_pb("l_custom", [(0, 0), (50, 50), (100, 100)])
         linha.cor = "#FF0055"
-        linha.label = "Super Via"
+        linha.rotulo = "Super Via"
         sub1, sub2 = fatiar_linha_em_no(linha, 1, "sub1", "sub2")
         assert sub1.cor == "#FF0055"
-        assert sub1.label == "Super Via"
+        assert sub1.rotulo == "Super Via"
         assert sub2.cor == "#FF0055"
-        assert sub2.label == "Super Via"
+        assert sub2.rotulo == "Super Via"
 
     def test_fatiar_linha_triplo_com_nos_intermediarios(self):
         linha = _criar_linha_pb("l_longa", [(0, 0), (10, 10), (20, 20), (30, 30), (40, 40)])

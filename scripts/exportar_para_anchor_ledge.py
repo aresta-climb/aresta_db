@@ -164,30 +164,40 @@ def processar_croqui(croqui_id: str, database_dir: str = 'generated') -> None:
     routes = []
     
     # 1. Pré-processar os IDs dos mapas
-    map_ids_por_escalada = {}
+    map_ids_por_alvo_uid = {}
     for pico in croqui.picos:
         if pico.HasField('mapas_gerais') and pico.mapas_gerais.HasField('conteudo'):
             for mapa in pico.mapas_gerais.conteudo.mapas:
                 for ref in mapa.referencias:
-                    if getattr(ref, 'escalada', '') and getattr(ref, 'ids', []):
-                        map_ids_por_escalada[ref.escalada] = ref.ids[0]
+                    if getattr(ref, 'alvo_uid', '') and getattr(ref, 'pontos_uids', []):
+                        map_ids_por_alvo_uid[ref.alvo_uid] = ref.pontos_uids[0]
                         
         for setor_grupo in pico.setores_ou_grupos:
+            setores = []
             if setor_grupo.HasField('setor'):
-                setor_arq = setor_grupo.setor
+                setores.append(setor_grupo.setor)
+            elif setor_grupo.HasField('grupo') and setor_grupo.grupo.HasField('conteudo'):
+                setores.extend(setor_grupo.grupo.conteudo.setores)
+
+            for setor_arq in setores:
                 if not setor_arq.HasField('conteudo'):
                     continue
                 setor = setor_arq.conteudo
                 for mapa in setor.mapas:
                     for ref in mapa.referencias:
-                        if getattr(ref, 'escalada', '') and getattr(ref, 'ids', []):
-                            map_ids_por_escalada[ref.escalada] = ref.ids[0]
+                        if getattr(ref, 'alvo_uid', '') and getattr(ref, 'pontos_uids', []):
+                            map_ids_por_alvo_uid[ref.alvo_uid] = ref.pontos_uids[0]
                             
     # 2. Processar vias
     for pico in croqui.picos:
         for setor_grupo in pico.setores_ou_grupos:
+            setores = []
             if setor_grupo.HasField('setor'):
-                setor_arq = setor_grupo.setor
+                setores.append(setor_grupo.setor)
+            elif setor_grupo.HasField('grupo') and setor_grupo.grupo.HasField('conteudo'):
+                setores.extend(setor_grupo.grupo.conteudo.setores)
+
+            for setor_arq in setores:
                 if not setor_arq.HasField('conteudo'):
                     continue
                 setor = setor_arq.conteudo
@@ -201,7 +211,7 @@ def processar_croqui(croqui_id: str, database_dir: str = 'generated') -> None:
                     dados_via = getattr(escalada, tipo_via)
                     
                     name = dados_via.nome
-                    route_id = map_ids_por_escalada.get(name, '')
+                    route_id = map_ids_por_alvo_uid.get(getattr(escalada, 'uid', ''), '')
                     
                     # Graduação
                     grade = ''

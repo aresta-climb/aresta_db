@@ -1,6 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+uid: Jdz9SJrdlOBYw5
 caminho_imagem_capa: imagens/setor_ecumenico_p0_i0_2.webp
 nome: Ecumênico
 mapas:
@@ -9,7 +10,8 @@ mapas:
   altura_mapa: 144
   pontos_de_interesse: []
 escaladas:
-- via_esportiva:
+- uid: mleMFJvLjFUxqg
+  via_esportiva:
     nome: Dízimo
     dificuldade: BR_4SUP
     extensao: 30
@@ -17,7 +19,8 @@ escaladas:
     conquistadores:
     - Leandro Schin
     - Aline Tavares
-- via_movel:
+- uid: 7sg6VmcZlfidqx
+  via_movel:
     nome: Cura G
     dificuldade: BR_6SUP
     extensao: 60
@@ -27,7 +30,8 @@ escaladas:
     - Zé Ricardo
     protecoes_moveis: Camalot(.4, .5, .75, 1 a 6) ou compatíveis
     descricao: 'Obs: Atenção no crux (lance próximo à chapeleta)'
-- via_esportiva:
+- uid: anfaN3oDA0rrgH
+  via_esportiva:
     nome: Show da Fé
     dificuldade: BR_7A
     extensao: 60
@@ -37,7 +41,8 @@ escaladas:
     - Tácio Philip
     - João Bisqui
     - Leandro Schin
-- via_esportiva:
+- uid: bNJlf45oqYbNOc
+  via_esportiva:
     nome: Ministério do Climb
     dificuldade: BR_7B
     extensao: 60
@@ -47,7 +52,8 @@ escaladas:
     - André Morales
     - Marcelo Sanches
     - Tico
-- via_esportiva:
+- uid: VcBkHwUDsNoBOy
+  via_esportiva:
     nome: Pequenas Igrejas Grandes Negócios
     dificuldade: BR_6SUP
     extensao: 60
@@ -56,9 +62,9 @@ escaladas:
     - Jorge Lima
     - André Morales
     - Felipe Pimenta
-    descricao: 'Obs: Utilizar clip stick ou rebite no início da via. Importante: Fazer
-      uso de algumas costuras longas.'
-- via_esportiva:
+    descricao: 'Obs: Utilizar clip stick ou rebite no início da via. Importante: Fazer uso de algumas costuras longas.'
+- uid: 1oWJouyozyRHqg
+  via_esportiva:
     nome: Meninos de Gesso
     dificuldade: BR_6SUP
     extensao: 50

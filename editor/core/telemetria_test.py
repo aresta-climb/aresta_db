@@ -30,6 +30,28 @@ def test_sanitizar_texto_caminhos():
     assert "%appdata%" in sanitizado or "%userprofile%" in sanitizado
 
 
+def test_sanitizar_texto_caminhos_barras_duplas_escapadas():
+    user_dir = str(Path.home())
+    localappdata_dir = os.environ.get("LOCALAPPDATA", user_dir)
+    appdata_dir = os.environ.get("APPDATA", user_dir)
+
+    # Simula repr() de tuplas de erro como em exceções shutil.Error
+    localappdata_escapado = localappdata_dir.replace("\\", "\\\\")
+    appdata_escapado = appdata_dir.replace("\\", "\\\\")
+
+    texto_repr = (
+        f"[('{localappdata_escapado}\\\\Packages\\\\App\\\\imagem.webp', "
+        f"'{appdata_escapado}\\\\Editor Aresta\\\\croquis\\\\compilado\\\\imagem.webp')]"
+    )
+
+    sanitizado = sanitizar_texto_caminhos(texto_repr)
+
+    assert localappdata_escapado not in sanitizado
+    assert appdata_escapado not in sanitizado
+    assert "%localappdata%" in sanitizado or "%userprofile%" in sanitizado
+    assert "%appdata%" in sanitizado or "%userprofile%" in sanitizado
+
+
 def test_sanitizar_caminho_repo_local():
     limpar_caminhos_extras_sanitizacao()
     repo_ficticio = r"D:\Projetos\EmpresaX\aresta_db"

@@ -11,6 +11,7 @@ from aresta_api.proto.generated import croqui_pb2
 from editor.views.dialogos.dialogo_busca_referencia import DialogoBuscaReferencia
 from editor.views.estilo import Icones
 from editor.core.rotulos_referencia import extrair_rotulo_referencia
+from editor.models.referencias_util import resolver_caminho_referencia
 
 ESTILO_CARD_PADRAO = """
     CardReferencia {
@@ -61,11 +62,19 @@ class CardReferencia(QFrame):
     hover_out = Signal()
     clicado = Signal(int)
     
-    def __init__(self, referencia: croqui_pb2.Mapa.Referencia, index: int, parent: Optional[QWidget] = None, mapa: Optional[Any] = None) -> None:
+    def __init__(
+        self,
+        referencia: croqui_pb2.Mapa.Referencia,
+        index: int,
+        parent: Optional[QWidget] = None,
+        mapa: Optional[Any] = None,
+        root_croqui: Optional[Any] = None,
+    ) -> None:
         super().__init__(parent)
         self.referencia: croqui_pb2.Mapa.Referencia = referencia
         self.index: int = index
         self.mapa: Optional[Any] = mapa
+        self.root_croqui: Optional[Any] = root_croqui
         self.selecionado: bool = False
         self.setFrameShape(QFrame.Shape.StyledPanel)
         self.setCursor(Qt.CursorShape.PointingHandCursor)
@@ -74,15 +83,12 @@ class CardReferencia(QFrame):
         layout = QVBoxLayout(self)
         layout.setContentsMargins(10, 10, 10, 10)
         
-        # Título (Caminho da entidade)
-        caminho = []
-        if referencia.grupo: caminho.append(referencia.grupo)
-        if referencia.setor: caminho.append(referencia.setor)
-        if referencia.escalada: caminho.append(referencia.escalada)
+        # Título (Caminho da entidade resolvido por UID)
+        titulo = resolver_caminho_referencia(root_croqui, referencia) if root_croqui else ""
+        if not titulo:
+            titulo = "Referência Inválida"
         
-        titulo = " > ".join(caminho) if caminho else "Referência Inválida"
-        
-        # Cabeçalho: Título e Grupo
+        # Cabeçalho: Título
         header_layout = QHBoxLayout()
         header_layout.setContentsMargins(0, 0, 0, 0)
         
@@ -106,11 +112,6 @@ class CardReferencia(QFrame):
         h_title.addStretch()
         
         v_titles.addLayout(h_title)
-        
-        if referencia.grupo:
-            lbl_grupo = QLabel(referencia.grupo)
-            lbl_grupo.setStyleSheet("font-weight: bold; font-size: 13px;")
-            v_titles.addWidget(lbl_grupo)
         
         h_ids = QHBoxLayout()
         h_ids.setContentsMargins(0, 0, 0, 0)
@@ -208,15 +209,30 @@ class CardReferencia(QFrame):
         self.btn_salvar_camera.setVisible(False)
         layout.addWidget(self.btn_salvar_camera)
 
-    def atualizar_preview(self, mapa: Optional[Any] = None) -> None:
-        """Atualiza a exibição do codenome e a contagem de IDs linkados na referência."""
+    def atualizar_preview(self, mapa: Optional[Any] = None, root_croqui: Optional[Any] = None) -> None:
+        """Atualiza a exibição do codenome e a contagem de nós linkados na referência."""
         if mapa is not None:
             self.mapa = mapa
             if hasattr(self.mapa, 'referencias') and 0 <= self.index < len(self.mapa.referencias):
                 self.referencia = self.mapa.referencias[self.index]
+        if root_croqui is not None:
+            self.root_croqui = root_croqui
+        elif not self.root_croqui:
+            p = self.parent()
+            while p:
+                if hasattr(p, "_obter_root_croqui"):
+                    self.root_croqui = p._obter_root_croqui()
+                    break
+                p = p.parent()
 
-        self.lbl_ids.setText(f"IDs linkados: {len(self.referencia.ids)}")
-        self.btn_inverter.setEnabled(len(self.referencia.ids) > 1)
+        if self.root_croqui:
+            titulo = resolver_caminho_referencia(self.root_croqui, self.referencia)
+            if titulo:
+                self.label_titulo.setText(f"<b>{titulo}</b>")
+
+        total_links = len(self.referencia.pontos_uids)
+        self.lbl_ids.setText(f"IDs linkados: {total_links}")
+        self.btn_inverter.setEnabled(total_links > 1)
 
         codenome = extrair_rotulo_referencia(self.mapa, self.referencia) if self.mapa else ""
         if codenome:
@@ -289,7 +305,8 @@ class PainelReferencias(QWidget):
 
     def __init__(self, mapas_controller: Optional[Any] = None, parent: Optional[QWidget] = None) -> None:
         super().__init__(parent)
-        self.mapas_controller: Optional[Any] = mapas_controller
+        self._mapas_controller: Optional[Any] = mapas_controller
+        self._croqui_model: Optional[Any] = getattr(mapas_controller, "model", None) if mapas_controller else None
         self.msg_mapa_proxy: Optional[Any] = None
         
         self.setMinimumWidth(280)
@@ -330,18 +347,71 @@ class PainelReferencias(QWidget):
         self.card_camera_ativo: Optional[CardReferencia] = None
         self.idx_card_selecionado: Optional[int] = None
 
+    @property
+    def mapas_controller(self) -> Optional[Any]:
+        return self._mapas_controller
+
+    @mapas_controller.setter
+    def mapas_controller(self, valor: Optional[Any]) -> None:
+        self._mapas_controller = valor
+        if valor and getattr(valor, "model", None):
+            self.croqui_model = valor.model
+        elif self.msg_mapa_proxy:
+            self.atualizar_cards()
+
+    @property
+    def croqui_model(self) -> Optional[Any]:
+        return self._croqui_model
+
+    @croqui_model.setter
+    def croqui_model(self, valor: Optional[Any]) -> None:
+        self._croqui_model = valor
+        if valor and hasattr(valor, "indice_uids") and valor.indice_uids:
+            try:
+                valor.indice_uids.indice_alterado.connect(self.atualizar_previews)
+            except Exception:
+                pass
+        if self.msg_mapa_proxy:
+            self.atualizar_cards()
+
+    def _obter_root_croqui(self) -> Optional[Any]:
+        model = self._croqui_model
+        if not model and self._mapas_controller and getattr(self._mapas_controller, "model", None):
+            model = self._mapas_controller.model
+        if not model:
+            parent = self.parent()
+            while parent:
+                parent_model = getattr(parent, "croqui_model", None)
+                if parent_model:
+                    model = parent_model
+                    break
+                parent_ctrl = getattr(parent, "mapas_controller", None)
+                if parent_ctrl and getattr(parent_ctrl, "model", None):
+                    model = parent_ctrl.model
+                    break
+                parent = parent.parent()
+        if model:
+            indice = getattr(model, "indice_uids", None)
+            if indice is not None:
+                return indice
+            if hasattr(model, "obter_croqui_readonly"):
+                return model.obter_croqui_readonly()
+            return getattr(model, "croqui", getattr(model, "_croqui", None))
+        return None
+
     def carregar_mapa(self, msg_mapa_proxy: Any) -> None:
         self.msg_mapa_proxy = msg_mapa_proxy
         self.atualizar_cards()
 
     def atualizar_previews(self) -> None:
-        """Atualiza os badges de codenome e contagem de IDs de todos os cards de referência."""
+        """Atualiza os badges de codenome e contagem de nós de todos os cards de referência."""
+        root_croqui = self._obter_root_croqui()
         for i in range(self.layout_cards.count()):
             item = self.layout_cards.itemAt(i)
             if item:
                 card = item.widget()
                 if card and isinstance(card, CardReferencia):
-                    card.atualizar_preview(self.msg_mapa_proxy)
+                    card.atualizar_preview(self.msg_mapa_proxy, root_croqui)
 
     def atualizar_cards(self) -> None:
         modo_link_index = None
@@ -373,8 +443,15 @@ class PainelReferencias(QWidget):
             self.idx_card_selecionado = None
             return
             
+        root_croqui = self._obter_root_croqui()
         for i, ref in enumerate(self.msg_mapa_proxy.referencias):
-            card = CardReferencia(ref, i, parent=self.container_cards, mapa=self.msg_mapa_proxy)
+            card = CardReferencia(
+                ref,
+                i,
+                parent=self.container_cards,
+                mapa=self.msg_mapa_proxy,
+                root_croqui=root_croqui,
+            )
             
             # Conecta hover e clique
             card.hover_in.connect(self.destacar_pois.emit)
@@ -458,15 +535,11 @@ class PainelReferencias(QWidget):
                     self.referencia_selecionada.emit(index, card.referencia)
 
     def _referencias_iguais(self, ref1: Any, ref2: Any) -> bool:
-        if ref1.HasField('grupo') != ref2.HasField('grupo') or (ref1.HasField('grupo') and ref1.grupo != ref2.grupo):
-            return False
-        if ref1.HasField('setor') != ref2.HasField('setor') or (ref1.HasField('setor') and ref1.setor != ref2.setor):
-            return False
-        if ref1.HasField('escalada') != ref2.HasField('escalada') or (ref1.HasField('escalada') and ref1.escalada != ref2.escalada):
-            return False
-        if ref1.HasField('indice_mapa_alvo') != ref2.HasField('indice_mapa_alvo') or (ref1.HasField('indice_mapa_alvo') and ref1.indice_mapa_alvo != ref2.indice_mapa_alvo):
-            return False
-        return True
+        alvo1 = getattr(ref1, "alvo_uid", "")
+        alvo2 = getattr(ref2, "alvo_uid", "")
+        if alvo1 and alvo2:
+            return bool(alvo1 == alvo2)
+        return False
 
     def _referencia_ja_existe(self, ref_nova: Any) -> bool:
         if not self.msg_mapa_proxy: return False
@@ -507,40 +580,24 @@ class PainelReferencias(QWidget):
                 obj_original = ref_antiga._obj if hasattr(ref_antiga, '_obj') else ref_antiga
                 ref_editada.CopyFrom(obj_original)
                 
-                if ref_nova.HasField('grupo'):
-                    ref_editada.grupo = ref_nova.grupo
-                else:
-                    ref_editada.ClearField('grupo')
-                    
-                if ref_nova.HasField('setor'):
-                    ref_editada.setor = ref_nova.setor
-                else:
-                    ref_editada.ClearField('setor')
-                    
-                if ref_nova.HasField('escalada'):
-                    ref_editada.escalada = ref_nova.escalada
-                else:
-                    ref_editada.ClearField('escalada')
-                    
-                if ref_nova.HasField('indice_mapa_alvo'):
-                    ref_editada.indice_mapa_alvo = ref_nova.indice_mapa_alvo
-                else:
-                    ref_editada.ClearField('indice_mapa_alvo')
+                if getattr(ref_nova, "alvo_uid", ""):
+                    ref_editada.alvo_uid = ref_nova.alvo_uid
                     
                 self.mapas_controller.alterar_referencia(
                     self.msg_mapa_proxy, index, ref_antiga, ref_editada
                 )
 
     def _ao_clicar_inverter_ids(self, index: int, ref_antiga: Any) -> None:
-        """Inverte a ordem dos IDs linkados na referência e registra a alteração no histórico."""
+        """Inverte a ordem dos nós linkados na referência e registra a alteração no histórico."""
         if not self.mapas_controller or not self.msg_mapa_proxy:
             return
         from editor.models.readonly_proxy import _copia_segura
 
         ref_nova = _copia_segura(ref_antiga)
-        ids_invertidos = list(reversed(ref_antiga.ids))
-        del ref_nova.ids[:]
-        ref_nova.ids.extend(ids_invertidos)
+        if ref_antiga.pontos_uids:
+            pontos_invertidos = list(reversed(ref_antiga.pontos_uids))
+            del ref_nova.pontos_uids[:]
+            ref_nova.pontos_uids.extend(pontos_invertidos)
 
         self.mapas_controller.alterar_referencia(
             self.msg_mapa_proxy, index, ref_antiga, ref_nova

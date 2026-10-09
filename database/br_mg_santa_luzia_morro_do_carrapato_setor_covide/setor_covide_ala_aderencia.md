@@ -1,6 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+uid: BCV6smMUbf9DZM
 nome: Setor Covide (ala aderência)
 localizacao_estacionamento:
   latitude: -197584200
@@ -13,38 +14,38 @@ mapas:
   largura_mapa: 1046
   altura_mapa: 1536
   pontos_de_interesse:
-  - id: '1'
-    label: '1'
+  - uid: 5q0AedNUEeV1GJ
+    rotulo: '1'
     circulo:
       x: 196
       y: 484
       raio: 23
-  - id: '2'
-    label: '2'
+  - uid: KOwCY6cMM0IH99
+    rotulo: '2'
     circulo:
       x: 690
       y: 682
       raio: 23
-  - id: '3'
-    label: '3'
+  - uid: 7pN6DVwdYe8dGL
+    rotulo: '3'
     circulo:
       x: 1787
       y: 771
       raio: 23
     cor: ''
   referencias:
-  - escalada: Butantana
-    ids:
-    - '1'
-  - escalada: Convite 19
-    ids:
-    - '2'
-  - ids:
-    - '3'
-    setor: Setor Covide (ala aderência)
-    escalada: Astracênica
+  - alvo_uid: PlVKHlZbgKz0mt
+    pontos_uids:
+    - 5q0AedNUEeV1GJ
+  - alvo_uid: MmKZYOJSYCjO7g
+    pontos_uids:
+    - KOwCY6cMM0IH99
+  - alvo_uid: zE7myiPldtvlKi
+    pontos_uids:
+    - 7pN6DVwdYe8dGL
 escaladas:
-- via_esportiva:
+- uid: PlVKHlZbgKz0mt
+  via_esportiva:
     nome: Butantana
     dificuldade: BR_3
     extensao: 30
@@ -62,7 +63,8 @@ escaladas:
   - caminho_imagem_mapa: imagens/setor_covide_ala_aderencia_p2.webp
     largura_mapa: 825
     altura_mapa: 1211
-- via_esportiva:
+- uid: MmKZYOJSYCjO7g
+  via_esportiva:
     nome: Convite 19
     dificuldade: BR_4
     extensao: 27
@@ -83,7 +85,8 @@ escaladas:
   - caminho_imagem_mapa: imagens/setor_covide_ala_aderencia_p3.webp
     largura_mapa: 825
     altura_mapa: 1211
-- via_esportiva:
+- uid: zE7myiPldtvlKi
+  via_esportiva:
     nome: Astracênica
     dificuldade: BR_4
     extensao: 27

@@ -1,6 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+uid: lvQcTGzk238Jom
 caminho_imagem_capa: imagens/setor_democracia_p0_i0.webp
 nome: Setor Democracia
 mapas:
@@ -8,144 +9,145 @@ mapas:
   largura_mapa: 1758
   altura_mapa: 2048
   pontos_de_interesse:
-  - id: '01'
-    label: '01'
+  - uid: nm6TBbxUZ8KgMh
+    rotulo: '01'
     circulo:
       x: 272
       y: 252
       raio: 28
-  - id: '02'
-    label: '02'
+  - uid: pXsGhgMUUUnsxn
+    rotulo: '02'
     circulo:
       x: 429
       y: 322
       raio: 29
-  - id: '03'
-    label: '03'
+  - uid: lQ8KDCxKokAwwe
+    rotulo: '03'
     circulo:
       x: 555
       y: 392
       raio: 29
-  - id: '04'
-    label: '04'
+  - uid: yUzpfjRHkL3nLg
+    rotulo: '04'
     circulo:
       x: 726
       y: 421
       raio: 29
-  - id: '05'
-    label: '05'
+  - uid: l4CvcKRjeynHc4
+    rotulo: '05'
     circulo:
       x: 880
       y: 485
       raio: 29
-  - id: '06'
-    label: '06'
+  - uid: 2t2iBzu9fIKqDw
+    rotulo: '06'
     circulo:
       x: 1020
       y: 585
       raio: 29
-  - id: '07'
-    label: '07'
+  - uid: KvnyQJzAUvfFwb
+    rotulo: '07'
     circulo:
       x: 1134
       y: 696
       raio: 29
-  - id: '08'
-    label: '08'
+  - uid: gwCcj000hmEUyh
+    rotulo: '08'
     circulo:
       x: 1191
       y: 823
       raio: 29
-  - id: '09'
-    label: '09'
+  - uid: 6SrUY3w7ulJgwn
+    rotulo: '09'
     circulo:
       x: 1238
       y: 945
       raio: 29
-  - id: '10'
-    label: '10'
+  - uid: 2m5FIZkLxoM0Pz
+    rotulo: '10'
     circulo:
       x: 1266
       y: 1070
       raio: 29
-  - id: '11'
-    label: '11'
+  - uid: zXALRypeurB5ZM
+    rotulo: '11'
     circulo:
       x: 1313
       y: 1190
       raio: 29
-  - id: '12'
-    label: '12'
+  - uid: reMellebzTv9BZ
+    rotulo: '12'
     circulo:
       x: 1371
       y: 1307
       raio: 29
-  - id: '13'
-    label: '13'
+  - uid: jSdHeIsNr6KE7V
+    rotulo: '13'
     circulo:
       x: 1476
       y: 1634
       raio: 29
-  - id: '14'
-    label: '14'
+  - uid: YHQIELl2lCHaqQ
+    rotulo: '14'
     circulo:
       x: 1535
       y: 1759
       raio: 29
-  - id: '15'
-    label: '15'
+  - uid: 5Cd1JMTs505tWg
+    rotulo: '15'
     circulo:
       x: 1561
       y: 1886
       raio: 29
   referencias:
-  - escalada: O PODER DO ROCAMBOLE
-    ids:
-    - '01'
-  - escalada: TETO DE VIDRO
-    ids:
-    - '02'
-  - escalada: PECADO CAPITAL
-    ids:
-    - '03'
-  - escalada: GÊNESIS
-    ids:
-    - '04'
-  - escalada: VIA INACABADA 1
-    ids:
-    - '05'
-  - escalada: RIBEIRÃO DA MATA
-    ids:
-    - '06'
-  - escalada: SEU JOÃOZITO
-    ids:
-    - '07'
-  - escalada: BUFFALO BILL
-    ids:
-    - '08'
-  - escalada: HANIBALL
-    ids:
-    - '09'
-  - escalada: DEMOCRACIA
-    ids:
-    - '10'
-  - escalada: DIA DE REIS
-    ids:
-    - '11'
-  - escalada: JOANA D'ARC
-    ids:
-    - '12'
-  - escalada: ARTE SACRA
-    ids:
-    - '13'
-  - escalada: SANTA FÉ
-    ids:
-    - '14'
-  - escalada: VIA INACABADA 2
-    ids:
-    - '15'
+  - alvo_uid: 4CGdzyCDROpBgb
+    pontos_uids:
+    - nm6TBbxUZ8KgMh
+  - alvo_uid: W18n7Ow1KIsRVh
+    pontos_uids:
+    - pXsGhgMUUUnsxn
+  - alvo_uid: tIuNInbHaHDXI8
+    pontos_uids:
+    - lQ8KDCxKokAwwe
+  - alvo_uid: AnhDRwiGlVY9dJ
+    pontos_uids:
+    - yUzpfjRHkL3nLg
+  - alvo_uid: ezz59UKAO6FfFu
+    pontos_uids:
+    - l4CvcKRjeynHc4
+  - alvo_uid: lSKVK5WAqpI53q
+    pontos_uids:
+    - 2t2iBzu9fIKqDw
+  - alvo_uid: lNi4dqe08Vmvnt
+    pontos_uids:
+    - KvnyQJzAUvfFwb
+  - alvo_uid: CbuTJ6vmNC2Pq5
+    pontos_uids:
+    - gwCcj000hmEUyh
+  - alvo_uid: gOH21l7Miy0t42
+    pontos_uids:
+    - 6SrUY3w7ulJgwn
+  - alvo_uid: cN0nIbp3fXQLMC
+    pontos_uids:
+    - 2m5FIZkLxoM0Pz
+  - alvo_uid: YlWtchVcWaq3Ok
+    pontos_uids:
+    - zXALRypeurB5ZM
+  - alvo_uid: t0coRpDPRfYxoq
+    pontos_uids:
+    - reMellebzTv9BZ
+  - alvo_uid: k9R2FthEIOK4bG
+    pontos_uids:
+    - jSdHeIsNr6KE7V
+  - alvo_uid: 3UQwsNneDR7Oog
+    pontos_uids:
+    - YHQIELl2lCHaqQ
+  - alvo_uid: mQeQkGR44hEDrz
+    pontos_uids:
+    - 5Cd1JMTs505tWg
 escaladas:
-- via_multiplas_enfiadas:
+- uid: 4CGdzyCDROpBgb
+  via_multiplas_enfiadas:
     nome: O PODER DO ROCAMBOLE
     dificuldade_maxima: BR_10A
     enfiadas:
@@ -158,24 +160,31 @@ escaladas:
     - via_esportiva:
         nome: P3
         dificuldade: PROJETO
-- via_esportiva:
+- uid: W18n7Ow1KIsRVh
+  via_esportiva:
     nome: TETO DE VIDRO
     dificuldade: BR_9A
-- via_esportiva:
+- uid: tIuNInbHaHDXI8
+  via_esportiva:
     nome: PECADO CAPITAL
     dificuldade: BR_8C
-- via_esportiva:
+- uid: AnhDRwiGlVY9dJ
+  via_esportiva:
     nome: GÊNESIS
     dificuldade: BR_8B
-- via_esportiva:
+- uid: ezz59UKAO6FfFu
+  via_esportiva:
     nome: VIA INACABADA 1
-- via_esportiva:
+- uid: lSKVK5WAqpI53q
+  via_esportiva:
     nome: RIBEIRÃO DA MATA
     dificuldade: BR_7B
-- via_esportiva:
+- uid: lNi4dqe08Vmvnt
+  via_esportiva:
     nome: SEU JOÃOZITO
     dificuldade: BR_6SUP
-- via_multiplas_enfiadas:
+- uid: CbuTJ6vmNC2Pq5
+  via_multiplas_enfiadas:
     nome: BUFFALO BILL
     dificuldade_maxima: BR_9A
     enfiadas:
@@ -188,7 +197,8 @@ escaladas:
     - via_esportiva:
         nome: P3
         dificuldade: PROJETO
-- via_multiplas_enfiadas:
+- uid: gOH21l7Miy0t42
+  via_multiplas_enfiadas:
     nome: HANIBALL
     dificuldade_maxima: BR_9B
     enfiadas:
@@ -198,7 +208,8 @@ escaladas:
     - via_esportiva:
         nome: P2
         dificuldade: BR_9B
-- via_multiplas_enfiadas:
+- uid: cN0nIbp3fXQLMC
+  via_multiplas_enfiadas:
     nome: DEMOCRACIA
     dificuldade_maxima: BR_9C
     enfiadas:
@@ -214,7 +225,8 @@ escaladas:
     - via_esportiva:
         nome: P4
         dificuldade: BR_9C
-- via_multiplas_enfiadas:
+- uid: YlWtchVcWaq3Ok
+  via_multiplas_enfiadas:
     nome: DIA DE REIS
     dificuldade_maxima: BR_8B
     enfiadas:
@@ -224,7 +236,8 @@ escaladas:
     - via_esportiva:
         nome: P2
         dificuldade: BR_8B
-- via_multiplas_enfiadas:
+- uid: t0coRpDPRfYxoq
+  via_multiplas_enfiadas:
     nome: JOANA D'ARC
     dificuldade_maxima: BR_8C
     enfiadas:
@@ -234,10 +247,12 @@ escaladas:
     - via_esportiva:
         nome: P2
         dificuldade: BR_8C
-- via_esportiva:
+- uid: k9R2FthEIOK4bG
+  via_esportiva:
     nome: ARTE SACRA
     dificuldade: BR_8A
-- via_multiplas_enfiadas:
+- uid: 3UQwsNneDR7Oog
+  via_multiplas_enfiadas:
     nome: SANTA FÉ
     dificuldade_maxima: BR_8B
     enfiadas:
@@ -247,7 +262,8 @@ escaladas:
     - via_esportiva:
         nome: P2
         dificuldade: BR_8B
-- via_esportiva:
+- uid: mQeQkGR44hEDrz
+  via_esportiva:
     nome: VIA INACABADA 2
 ---
 

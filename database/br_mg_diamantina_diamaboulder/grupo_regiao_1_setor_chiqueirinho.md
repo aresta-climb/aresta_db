@@ -1,144 +1,150 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+uid: YKfvHBUrmFmoKZ
 nome: Chiqueirinho
 mapas:
 - caminho_imagem_mapa: imagens/grupo_regiao_1_setor_chiqueirinho_p0_i0.webp
   largura_mapa: 1229
   altura_mapa: 1073
   pontos_de_interesse:
-  - id: '01'
-    label: '1'
+  - uid: lZ7CbNHvJCeYii
+    rotulo: '1'
     circulo:
       x: 200
       y: 745
       raio: 15
-  - id: 01_fim
-    label: '1'
+  - uid: vdjl7xadYWmrcL
+    rotulo: '1'
     circulo:
       x: 419
       y: 288
       raio: 16
-  - id: '02'
-    label: '2'
+  - uid: WHqed13XSe4EfB
+    rotulo: '2'
     circulo:
       x: 550
       y: 812
       raio: 15
-  - id: 02_fim
-    label: '2'
+  - uid: m2ziU9UZl258zi
+    rotulo: '2'
     circulo:
       x: 419
       y: 249
       raio: 16
-  - id: '03'
-    label: '3'
+  - uid: nQ4MSVe11jFsRI
+    rotulo: '3'
     circulo:
       x: 685
       y: 755
       raio: 15
-  - id: 03_fim
-    label: '3'
+  - uid: Lp3HsVyY36hRbi
+    rotulo: '3'
     circulo:
       x: 718
       y: 277
       raio: 16
   referencias:
-  - escalada: Menos Porco Mais Aranha
-    ids:
-    - '01'
-    - 01_fim
-  - escalada: Javaporco
-    ids:
-    - '02'
-    - 02_fim
-  - escalada: Chiqueirinho
-    ids:
-    - '03'
-    - 03_fim
+  - alvo_uid: tYfR1xbua7QSHa
+    pontos_uids:
+    - lZ7CbNHvJCeYii
+    - vdjl7xadYWmrcL
+  - alvo_uid: twQYQnOlOYFyEl
+    pontos_uids:
+    - WHqed13XSe4EfB
+    - m2ziU9UZl258zi
+  - alvo_uid: ol24e9QnCY4nI5
+    pontos_uids:
+    - nQ4MSVe11jFsRI
+    - Lp3HsVyY36hRbi
 - caminho_imagem_mapa: imagens/grupo_regiao_1_setor_chiqueirinho_p1_i0.webp
   largura_mapa: 1240
   altura_mapa: 1055
   pontos_de_interesse:
-  - id: '01'
-    label: '1'
+  - uid: CS1ZaXIanubG8L
+    rotulo: '1'
     circulo:
       x: 440
       y: 669
       raio: 14
-  - id: 01_fim
-    label: '1'
+  - uid: HSgJVCGhUFLFHd
+    rotulo: '1'
     circulo:
       x: 432
       y: 160
       raio: 15
-  - id: '02'
-    label: '2'
+  - uid: GGY74xQjhW4lmY
+    rotulo: '2'
     circulo:
       x: 708
       y: 801
       raio: 15
-  - id: 02_fim
-    label: '2'
+  - uid: OPgcOGpDLWCL7Q
+    rotulo: '2'
     circulo:
       x: 668
       y: 75
       raio: 15
-  - id: '03'
-    label: '3'
+  - uid: TjxwwpXZdDQTnp
+    rotulo: '3'
     circulo:
       x: 779
       y: 840
       raio: 16
-  - id: 03_fim
-    label: '3'
+  - uid: lp3jtG17LpNSzv
+    rotulo: '3'
     circulo:
       x: 1006
       y: 353
       raio: 16
-  - id: '04'
-    label: '4'
+  - uid: kP8FZYb1bfpeZy
+    rotulo: '4'
     circulo:
       x: 1138
       y: 832
       raio: 15
-  - id: 04_fim
-    label: '4'
+  - uid: TbWSwnYINsPDzH
+    rotulo: '4'
     circulo:
       x: 1004
       y: 316
       raio: 16
   referencias:
-  - escalada: Menos Porco Mais Aranha
-    ids:
-    - '03'
-    - 03_fim
-  - escalada: Javaporco
-    ids:
-    - '04'
-    - 04_fim
-  - escalada: Pocilga
-    ids:
-    - '01'
-    - 01_fim
-  - escalada: Porco Aranha
-    ids:
-    - '02'
-    - 02_fim
+  - alvo_uid: tYfR1xbua7QSHa
+    pontos_uids:
+    - TjxwwpXZdDQTnp
+    - lp3jtG17LpNSzv
+  - alvo_uid: twQYQnOlOYFyEl
+    pontos_uids:
+    - kP8FZYb1bfpeZy
+    - TbWSwnYINsPDzH
+  - alvo_uid: dISFB7F5UJc22A
+    pontos_uids:
+    - CS1ZaXIanubG8L
+    - HSgJVCGhUFLFHd
+  - alvo_uid: iAycRp4y0pxPbN
+    pontos_uids:
+    - GGY74xQjhW4lmY
+    - OPgcOGpDLWCL7Q
 escaladas:
-- boulder:
+- uid: tYfR1xbua7QSHa
+  boulder:
     nome: Menos Porco Mais Aranha
     dificuldade: V4_BARRA_V5
-- boulder:
+- uid: twQYQnOlOYFyEl
+  boulder:
     nome: Javaporco
     dificuldade: V3
-- boulder:
+- uid: ol24e9QnCY4nI5
+  boulder:
     nome: Chiqueirinho
     dificuldade: V2_BARRA_V3
-- boulder:
+- uid: dISFB7F5UJc22A
+  boulder:
     nome: Pocilga
     dificuldade: V2
-- boulder:
+- uid: iAycRp4y0pxPbN
+  boulder:
     nome: Porco Aranha
     dificuldade: V2
 ---

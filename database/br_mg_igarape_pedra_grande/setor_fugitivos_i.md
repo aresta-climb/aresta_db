@@ -1,42 +1,55 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+uid: 7TPrkAyBIkfebu
 nome: Bloco Fugitivos I
 escaladas:
-- boulder:
+- uid: ylP5dyJeN3B2O3
+  boulder:
     nome: Polydance
     dificuldade: V4
-- boulder:
+- uid: 4Fg4D2G7fatIQu
+  boulder:
     nome: Bigdance
     dificuldade: V5_BARRA_V6
-- boulder:
+- uid: 5UWi9FU93v9Wn7
+  boulder:
     nome: Boulder do Bola
     dificuldade: V5
-- boulder:
+- uid: f21zxSYALzzqd4
+  boulder:
     nome: Trolls
     dificuldade: V1
-- boulder:
+- uid: JRWNVEWv9PW7cT
+  boulder:
     nome: Calcinha Larga
     dificuldade: V2_BARRA_V3
-- boulder:
+- uid: DR9Kr2iM95wsLA
+  boulder:
     nome: Tanga Frouxa
     dificuldade: V2
-- boulder:
+- uid: dVJ3EOevp6RUsJ
+  boulder:
     nome: Barriga de Aluguel
     dificuldade: V5
-- boulder:
+- uid: OM7GKqux35ulMX
+  boulder:
     nome: Primeiro de todos
     dificuldade: V1
-- boulder:
+- uid: pWxY9RRKmbZAD1
+  boulder:
     nome: Sem nome 18
     dificuldade: V0
-- boulder:
+- uid: 4BYQJGarCXVMZm
+  boulder:
     nome: Bananinha
     dificuldade: V1
-- boulder:
+- uid: xeGaxvtdw12rIT
+  boulder:
     nome: Cactos kid
     dificuldade: V2
-- boulder:
+- uid: lwQFVyVhn6goph
+  boulder:
     nome: Quem vai primeiro
     dificuldade: V1
 mapas:
@@ -44,8 +57,8 @@ mapas:
   largura_mapa: 2155
   altura_mapa: 1945
   pontos_de_interesse:
-  - id: '2'
-    label: '2'
+  - uid: 29CR0yWUubJgsh
+    rotulo: '2'
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -66,8 +79,8 @@ mapas:
           rotulo: B
       espessura: 3
     cor: '#FFD600'
-  - id: '3'
-    label: '3'
+  - uid: 889TBw74ifLuxF
+    rotulo: '3'
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -82,8 +95,8 @@ mapas:
           rotulo: D
       espessura: 3
     cor: '#FFD600'
-  - id: '4'
-    label: '4'
+  - uid: THBRLUul62myxD
+    rotulo: '4'
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -100,8 +113,8 @@ mapas:
           tipo: PASSAGEM
       espessura: 3
     cor: '#FFD600'
-  - id: '5'
-    label: '5'
+  - uid: Dj12Nq8fQktwyt
+    rotulo: '5'
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -122,8 +135,8 @@ mapas:
           rotulo: A
       espessura: 3
     cor: '#FFD600'
-  - id: X
-    label: X
+  - uid: c6VFijpXyPqMOR
+    rotulo: X
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -145,8 +158,8 @@ mapas:
           tipo: PASSAGEM
       espessura: 3
     cor: '#FFD600'
-  - id: ▲
-    label: ▲
+  - uid: IpevDPdsnVHfkx
+    rotulo: ▲
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -168,8 +181,8 @@ mapas:
           rotulo: A
       espessura: 3
     cor: '#FFD600'
-  - id: D
-    label: D
+  - uid: kp1FBa7XztavAz
+    rotulo: D
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -186,8 +199,8 @@ mapas:
           rotulo: C
       espessura: 3
     cor: '#FFD600'
-  - id: linha_1
-    label: ''
+  - uid: eyMQLEIXumeXrC
+    rotulo: ''
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -207,8 +220,8 @@ mapas:
           tipo: PASSAGEM
       espessura: 3
     cor: '#FFD600'
-  - id: linha_10
-    label: ''
+  - uid: Jfeu3ieoYdblPv
+    rotulo: ''
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -227,8 +240,8 @@ mapas:
           rotulo: A
       espessura: 3
     cor: '#FFD600'
-  - id: linha_7
-    label: d
+  - uid: 2S8qvQRGUah2OE
+    rotulo: d
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -243,8 +256,8 @@ mapas:
           rotulo: ''
       espessura: 3
     cor: '#FFD600'
-  - id: linha_14
-    label: d
+  - uid: 3rqfVJ0dJgmYpW
+    rotulo: d
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -260,43 +273,43 @@ mapas:
       espessura: 3
     cor: '#FFD600'
   referencias:
-  - ids:
-    - '5'
-    - ▲
-    - D
-    escalada: Polydance
-  - ids:
-    - '5'
-    - linha_10
-    - X
-    escalada: Bigdance
-  - ids:
-    - '3'
-    - ▲
-    - linha_7
-    - linha_14
-    escalada: Boulder do Bola
-  - ids:
-    - '4'
-    - linha_14
-    escalada: Trolls
-  - ids:
-    - '3'
-    - D
-    escalada: Calcinha Larga
-  - ids:
-    - '2'
-    escalada: Tanga Frouxa
-  - ids:
-    - linha_1
-    - linha_10
-    escalada: Barriga de Aluguel
+  - alvo_uid: ylP5dyJeN3B2O3
+    pontos_uids:
+    - Dj12Nq8fQktwyt
+    - IpevDPdsnVHfkx
+    - kp1FBa7XztavAz
+  - alvo_uid: 4Fg4D2G7fatIQu
+    pontos_uids:
+    - Dj12Nq8fQktwyt
+    - Jfeu3ieoYdblPv
+    - c6VFijpXyPqMOR
+  - alvo_uid: 5UWi9FU93v9Wn7
+    pontos_uids:
+    - 889TBw74ifLuxF
+    - IpevDPdsnVHfkx
+    - 2S8qvQRGUah2OE
+    - 3rqfVJ0dJgmYpW
+  - alvo_uid: f21zxSYALzzqd4
+    pontos_uids:
+    - THBRLUul62myxD
+    - 3rqfVJ0dJgmYpW
+  - alvo_uid: JRWNVEWv9PW7cT
+    pontos_uids:
+    - 889TBw74ifLuxF
+    - kp1FBa7XztavAz
+  - alvo_uid: DR9Kr2iM95wsLA
+    pontos_uids:
+    - 29CR0yWUubJgsh
+  - alvo_uid: dVJ3EOevp6RUsJ
+    pontos_uids:
+    - eyMQLEIXumeXrC
+    - Jfeu3ieoYdblPv
 - caminho_imagem_mapa: imagens/setor_fugitivos_i_p1.webp
   largura_mapa: 1280
   altura_mapa: 960
   pontos_de_interesse:
-  - id: linha_3
-    label: ''
+  - uid: Qg3SyAyd6Yylso
+    rotulo: ''
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -319,8 +332,8 @@ mapas:
           raio: 14
       espessura: 3
     cor: '#FFD600'
-  - id: linha_4
-    label: ''
+  - uid: r1RWbYxbGxNh4q
+    rotulo: ''
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -340,7 +353,7 @@ mapas:
           raio: 14
       espessura: 3
     cor: '#FFD600'
-  - id: linha_8
+  - uid: cxHVpp0pV2HDdc
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -356,7 +369,8 @@ mapas:
           rotulo: ''
       espessura: 3
     cor: '#FFD600'
-  - id: linha_11
+  - uid: 6AXDXEHiYZDc39
+    rotulo: ''
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -375,8 +389,7 @@ mapas:
           rotulo: E
       espessura: 3
     cor: '#FFD600'
-    label: ''
-  - id: linha_13
+  - uid: UqW5Vdic5cdh5s
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -392,7 +405,7 @@ mapas:
           raio: 14
       espessura: 3
     cor: '#FFD600'
-  - id: linha_15
+  - uid: Cm7tY17wrZK3Wp
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -407,7 +420,7 @@ mapas:
           rotulo: ''
       espessura: 3
     cor: '#FFD600'
-  - id: linha_16
+  - uid: o2IkqfXURRXDw3
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -422,7 +435,7 @@ mapas:
           rotulo: ''
       espessura: 3
     cor: '#FFD600'
-  - id: linha_17
+  - uid: OTcUfRsFOnjDk0
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -445,8 +458,8 @@ mapas:
           rotulo: ''
       espessura: 3
     cor: '#FFD600'
-  - id: linha_12
-    label: ''
+  - uid: ZnUSwyudUfVn2U
+    rotulo: ''
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -468,7 +481,7 @@ mapas:
           y: 515
       espessura: 3
     cor: '#FFD600'
-  - id: linha_19
+  - uid: d0kTCKro3sfCw0
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -486,8 +499,8 @@ mapas:
           rotulo: ''
       espessura: 3
     cor: '#FFD600'
-  - id: linha_9
-    label: ''
+  - uid: 2gzP6aTpHqJ8KN
+    rotulo: ''
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -498,8 +511,8 @@ mapas:
           y: 495
       espessura: 3
     cor: '#FFD600'
-  - id: linha_50
-    label: ''
+  - uid: O4g3rMMzncA2s1
+    rotulo: ''
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -527,7 +540,7 @@ mapas:
           raio: 14
       espessura: 3
     cor: '#FFD600'
-  - id: linha_18
+  - uid: 87JwkW3LS5NWd2
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -546,7 +559,7 @@ mapas:
           rotulo: ''
       espessura: 3
     cor: '#FFD600'
-  - id: linha_21
+  - uid: UUTTGa1l6VaHjj
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -571,49 +584,49 @@ mapas:
       espessura: 3
     cor: '#FFD600'
   referencias:
-  - ids:
-    - linha_3
-    escalada: Primeiro de todos
-  - ids:
-    - linha_4
-    escalada: Sem nome 18
-  - ids:
-    - linha_8
-    - linha_19
-    - linha_18
-    - linha_21
-    escalada: Calcinha Larga
-  - ids:
-    - linha_8
-    - linha_15
-    - linha_16
-    - linha_17
-    - linha_13
-    escalada: Boulder do Bola
-  - ids:
-    - linha_11
-    - linha_13
-    escalada: Trolls
-  - ids:
-    - linha_12
-    - linha_16
-    - linha_9
-    - linha_18
-    - linha_21
-    escalada: Polydance
-  - ids:
-    - linha_12
-    - linha_16
-    - linha_9
-    - linha_50
-    - linha_18
-    escalada: Bigdance
+  - alvo_uid: OM7GKqux35ulMX
+    pontos_uids:
+    - Qg3SyAyd6Yylso
+  - alvo_uid: pWxY9RRKmbZAD1
+    pontos_uids:
+    - r1RWbYxbGxNh4q
+  - alvo_uid: JRWNVEWv9PW7cT
+    pontos_uids:
+    - cxHVpp0pV2HDdc
+    - d0kTCKro3sfCw0
+    - 87JwkW3LS5NWd2
+    - UUTTGa1l6VaHjj
+  - alvo_uid: 5UWi9FU93v9Wn7
+    pontos_uids:
+    - cxHVpp0pV2HDdc
+    - Cm7tY17wrZK3Wp
+    - o2IkqfXURRXDw3
+    - OTcUfRsFOnjDk0
+    - UqW5Vdic5cdh5s
+  - alvo_uid: f21zxSYALzzqd4
+    pontos_uids:
+    - 6AXDXEHiYZDc39
+    - UqW5Vdic5cdh5s
+  - alvo_uid: ylP5dyJeN3B2O3
+    pontos_uids:
+    - ZnUSwyudUfVn2U
+    - o2IkqfXURRXDw3
+    - 2gzP6aTpHqJ8KN
+    - 87JwkW3LS5NWd2
+    - UUTTGa1l6VaHjj
+  - alvo_uid: 4Fg4D2G7fatIQu
+    pontos_uids:
+    - ZnUSwyudUfVn2U
+    - o2IkqfXURRXDw3
+    - 2gzP6aTpHqJ8KN
+    - O4g3rMMzncA2s1
+    - 87JwkW3LS5NWd2
 - caminho_imagem_mapa: imagens/setor_fugitivos_i_p2.webp
   largura_mapa: 1280
   altura_mapa: 960
   pontos_de_interesse:
-  - id: linha_2
-    label: ''
+  - uid: TDHfBQNHVuOQU5
+    rotulo: ''
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -646,15 +659,15 @@ mapas:
       espessura: 3
     cor: '#FFD600'
   referencias:
-  - ids:
-    - linha_2
-    escalada: Barriga de Aluguel
+  - alvo_uid: dVJ3EOevp6RUsJ
+    pontos_uids:
+    - TDHfBQNHVuOQU5
 - caminho_imagem_mapa: imagens/setor_fugitivos_i_p3.webp
   largura_mapa: 960
   altura_mapa: 1280
   pontos_de_interesse:
-  - id: linha_5
-    label: ''
+  - uid: GP83pY4VtyA1QX
+    rotulo: ''
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -675,8 +688,8 @@ mapas:
           rotulo: A
       espessura: 3
     cor: '#FFD600'
-  - id: linha_6
-    label: ''
+  - uid: r6ErvxZMGWC1bX
+    rotulo: ''
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -698,18 +711,18 @@ mapas:
       espessura: 3
     cor: '#FFD600'
   referencias:
-  - ids:
-    - linha_5
-    escalada: Bananinha
-  - ids:
-    - linha_6
-    escalada: Cactos kid
+  - alvo_uid: 4BYQJGarCXVMZm
+    pontos_uids:
+    - GP83pY4VtyA1QX
+  - alvo_uid: xeGaxvtdw12rIT
+    pontos_uids:
+    - r6ErvxZMGWC1bX
 - caminho_imagem_mapa: imagens/setor_bloco_fugitivos_i_p4.webp
   largura_mapa: 1824
   altura_mapa: 1376
   pontos_de_interesse:
-  - id: linha_20
-    label: ''
+  - uid: BYw7OkD4pwJDY0
+    rotulo: ''
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -732,8 +745,9 @@ mapas:
       espessura: 4
     cor: '#FFD600'
   referencias:
-  - ids:
-    - linha_20
-    escalada: Quem vai primeiro
+  - alvo_uid: lwQFVyVhn6goph
+    pontos_uids:
+    - BYw7OkD4pwJDY0
 ---
+
 Veja a trilha para chegar ao setor no Wikiloc: https://loc.wiki/t/169742661?wa=sc

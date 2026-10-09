@@ -1,6 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+uid: YuUHXU1tMi1Ar8
 caminho_imagem_capa: imagens/setor_1_andar_p1_i2.webp
 nome: 1° Andar
 mapas:
@@ -8,329 +9,343 @@ mapas:
   largura_mapa: 442
   altura_mapa: 1653
   pontos_de_interesse:
-  - id: '01'
-    label: '1'
+  - uid: LiuGQJiSJCig1f
+    rotulo: '1'
     circulo:
       x: 395
       y: 1620
       raio: 15
-  - id: '02'
-    label: '2'
+  - uid: 3PVUbJVYWcEkFL
+    rotulo: '2'
     circulo:
       x: 373
       y: 1571
       raio: 14
-  - id: '03'
-    label: '3'
+  - uid: I1EKe4Q0uCIm1x
+    rotulo: '3'
     circulo:
       x: 357
       y: 1527
       raio: 14
-  - id: '04'
-    label: '4'
+  - uid: 6ET9p8WE81ACHG
+    rotulo: '4'
     circulo:
       x: 352
       y: 1482
       raio: 14
-  - id: '05'
-    label: '5'
+  - uid: CkdJGRuzsl9wLN
+    rotulo: '5'
     circulo:
       x: 341
       y: 1435
       raio: 14
-  - id: '06'
-    label: '6'
+  - uid: uCw0rXV6VjBxGu
+    rotulo: '6'
     circulo:
       x: 332
       y: 1369
       raio: 13
-  - id: '07'
-    label: '7'
+  - uid: 8QBf3AALlMwVEV
+    rotulo: '7'
     circulo:
       x: 320
       y: 1305
       raio: 14
-  - id: '08'
-    label: '8'
+  - uid: z4lvFQj3UHKjzz
+    rotulo: '8'
     circulo:
       x: 316
       y: 1264
       raio: 14
-  - id: '09'
-    label: '9'
+  - uid: ZgqWxyc7Hfz5fA
+    rotulo: '9'
     circulo:
       x: 319
       y: 1213
       raio: 14
-  - id: '10'
-    label: '10'
+  - uid: wnObJMuBgQ7dCq
+    rotulo: '10'
     circulo:
       x: 321
       y: 1120
       raio: 15
-  - id: '11'
-    label: '11'
+  - uid: cGhFeW9D4SMdIP
+    rotulo: '11'
     circulo:
       x: 312
       y: 1070
       raio: 15
-  - id: '12'
-    label: '12'
+  - uid: HKBpRS5cAJSkU4
+    rotulo: '12'
     circulo:
       x: 319
       y: 808
       raio: 15
-  - id: '13'
-    label: '13'
+  - uid: FDPtM2BjKlHhrv
+    rotulo: '13'
     circulo:
       x: 316
       y: 768
       raio: 15
-  - id: '14'
-    label: '14'
+  - uid: WM2tVshtdIm84p
+    rotulo: '14'
     circulo:
       x: 309
       y: 702
       raio: 15
-  - id: '15'
-    label: '15'
+  - uid: DdxqBUbAJiYDOv
+    rotulo: '15'
     circulo:
       x: 306
       y: 592
       raio: 16
-  - id: '16'
-    label: '16'
+  - uid: GAT8ni0I4HIeQ6
+    rotulo: '16'
     circulo:
       x: 312
       y: 541
       raio: 16
-  - id: '17'
-    label: '17'
+  - uid: uGXF0pSFyvSsZQ
+    rotulo: '17'
     circulo:
       x: 318
       y: 471
       raio: 15
-  - id: '18'
-    label: '18'
+  - uid: hjoEeN35hwTAA0
+    rotulo: '18'
     circulo:
       x: 317
       y: 436
       raio: 15
-  - id: '19'
-    label: '19'
+  - uid: gQo3GRTlZawhfH
+    rotulo: '19'
     circulo:
       x: 318
       y: 396
       raio: 16
-  - id: '20'
-    label: '20'
+  - uid: by7JDkdXYaqSDT
+    rotulo: '20'
     circulo:
       x: 324
       y: 310
       raio: 15
-  - id: '21'
-    label: '21'
+  - uid: COId3pTDcNl5Rm
+    rotulo: '21'
     circulo:
       x: 331
       y: 262
       raio: 15
-  - id: '22'
-    label: '22'
+  - uid: sS7brl762s9rkN
+    rotulo: '22'
     circulo:
       x: 338
       y: 203
       raio: 16
-  - id: '23'
-    label: '23'
+  - uid: VqAMY7eTtBa5XR
+    rotulo: '23'
     circulo:
       x: 343
       y: 158
       raio: 15
-  - id: '24'
-    label: '24'
+  - uid: 1YP7Z6xY2NrGEI
+    rotulo: '24'
     circulo:
       x: 345
       y: 95
       raio: 15
-  - id: Trilha_Jurassico
-    label: Trilha para o Setor Jurássico (Muito Fechada)
+  - uid: K6QJohI0aGTfq7
+    rotulo: Trilha para o Setor Jurássico (Muito Fechada)
     retangulo:
       x: 196
       y: 78
       comprimento: 115
       largura: 157
-  - id: Trilha_Boulders_2nd
-    label: Trilha Boulders e 2º Andar
+  - uid: Hj5jHxlPfqz8N8
+    rotulo: Trilha Boulders e 2º Andar
     retangulo:
       x: 110
       y: 565
       comprimento: 134
       largura: 82
   referencias:
-  - escalada: Jardineiro
-    ids:
-    - '01'
-  - escalada: Somelier Canábico
-    ids:
-    - '02'
-  - escalada: Jovens Dinâmicos
-    ids:
-    - '03'
-  - escalada: Anunnaki
-    ids:
-    - '04'
-  - escalada: Peyote Sativo
-    ids:
-    - '05'
-  - escalada: Fake News
-    ids:
-    - '06'
-  - escalada: Bruxa
-    ids:
-    - '07'
-  - escalada: Fundão
-    ids:
-    - '08'
-  - escalada: Caminho da Luz
-    ids:
-    - '09'
-  - escalada: Eu quero é ver o oco
-    ids:
-    - '10'
-  - escalada: Mister Amaral
-    ids:
-    - '11'
-  - escalada: Loki
-    ids:
-    - '12'
-  - escalada: Thor
-    ids:
-    - '13'
-  - escalada: A Flor da Vida
-    ids:
-    - '14'
-  - escalada: Vale do Verde
-    ids:
-    - '15'
-  - escalada: Ragnarok
-    ids:
-    - '16'
-  - escalada: Filho de Odin
-    ids:
-    - '17'
-  - escalada: Vahala
-    ids:
-    - '18'
-  - escalada: Pedra no Saco
-    ids:
-    - '19'
-  - escalada: Endorfina
-    ids:
-    - '20'
-  - escalada: Isaurinha
-    ids:
-    - '21'
-  - escalada: Presentim
-    ids:
-    - '22'
-  - escalada: Antes tarde do que nunca
-    ids:
-    - '23'
-  - escalada: Ho Ho Ho
-    ids:
-    - '24'
-  - ids:
-    - Trilha_Boulders_2nd
-    setor: 2° Andar
+  - alvo_uid: OM9w6Jz1j5cFqc
+    pontos_uids:
+    - LiuGQJiSJCig1f
+  - alvo_uid: sjCVwFrPQpXN2S
+    pontos_uids:
+    - 3PVUbJVYWcEkFL
+  - alvo_uid: u3kS6RVmH0bA10
+    pontos_uids:
+    - I1EKe4Q0uCIm1x
+  - alvo_uid: PK8JoXeMuTLn3L
+    pontos_uids:
+    - 6ET9p8WE81ACHG
+  - alvo_uid: YSGtgGBTuVfrM5
+    pontos_uids:
+    - CkdJGRuzsl9wLN
+  - alvo_uid: Ko1y4zIW07l3qq
+    pontos_uids:
+    - uCw0rXV6VjBxGu
+  - alvo_uid: it0b0JHm4SQCex
+    pontos_uids:
+    - 8QBf3AALlMwVEV
+  - alvo_uid: KwmbDkvOBV5f4J
+    pontos_uids:
+    - z4lvFQj3UHKjzz
+  - alvo_uid: 6jXegpq9U6E5az
+    pontos_uids:
+    - ZgqWxyc7Hfz5fA
+  - alvo_uid: v1pcng1nFFTllQ
+    pontos_uids:
+    - wnObJMuBgQ7dCq
+  - alvo_uid: glmlZx26hSccoj
+    pontos_uids:
+    - cGhFeW9D4SMdIP
+  - alvo_uid: evCj5oEwB5t5TU
+    pontos_uids:
+    - HKBpRS5cAJSkU4
+  - alvo_uid: arwVm1AhS9ficy
+    pontos_uids:
+    - FDPtM2BjKlHhrv
+  - alvo_uid: a5igIKPlpvcfDP
+    pontos_uids:
+    - WM2tVshtdIm84p
+  - alvo_uid: BZWZX8qQ061Nex
+    pontos_uids:
+    - DdxqBUbAJiYDOv
+  - alvo_uid: 72wzyhgdKMtWYl
+    pontos_uids:
+    - GAT8ni0I4HIeQ6
+  - alvo_uid: uwJ2cIyyfg4Nwg
+    pontos_uids:
+    - uGXF0pSFyvSsZQ
+  - alvo_uid: OOOdxRbS9BoBsK
+    pontos_uids:
+    - hjoEeN35hwTAA0
+  - alvo_uid: R5NdIrHcdHwMT3
+    pontos_uids:
+    - gQo3GRTlZawhfH
+  - alvo_uid: Yp0gCKBhmnWbYR
+    pontos_uids:
+    - by7JDkdXYaqSDT
+  - alvo_uid: e2kZxaPgJzz0Oo
+    pontos_uids:
+    - COId3pTDcNl5Rm
+  - alvo_uid: 9K4eDM9LNIRSSR
+    pontos_uids:
+    - sS7brl762s9rkN
+  - alvo_uid: wMRTxZdc5Z2xUz
+    pontos_uids:
+    - VqAMY7eTtBa5XR
+  - alvo_uid: xoECr0XaohA22D
+    pontos_uids:
+    - 1YP7Z6xY2NrGEI
+  - alvo_uid: Ly4gwN209FrZnL
+    pontos_uids:
+    - Hj5jHxlPfqz8N8
 escaladas:
-- via_esportiva:
+- uid: OM9w6Jz1j5cFqc
+  via_esportiva:
     nome: Jardineiro
     dificuldade: BR_8A
     quantidade_protecoes_intermediarias: 8
     quantidade_protecoes_parada: 2
     extensao: 15
     destaque: true
-- via_esportiva:
+- uid: sjCVwFrPQpXN2S
+  via_esportiva:
     nome: Somelier Canábico
     dificuldade: BR_7A
     quantidade_protecoes_intermediarias: 8
     quantidade_protecoes_parada: 2
     extensao: 15
     destaque: true
-- via_esportiva:
+- uid: u3kS6RVmH0bA10
+  via_esportiva:
     nome: Jovens Dinâmicos
     dificuldade: BR_7A
     quantidade_protecoes_intermediarias: 8
     quantidade_protecoes_parada: 2
     extensao: 15
     destaque: true
-- via_esportiva:
+- uid: PK8JoXeMuTLn3L
+  via_esportiva:
     nome: Anunnaki
     dificuldade: BR_7C
     quantidade_protecoes_intermediarias: 8
     quantidade_protecoes_parada: 2
     extensao: 15
     destaque: true
-- via_esportiva:
+- uid: YSGtgGBTuVfrM5
+  via_esportiva:
     nome: Peyote Sativo
     dificuldade: BR_7A
     quantidade_protecoes_intermediarias: 8
     quantidade_protecoes_parada: 2
     extensao: 13
     destaque: true
-- via_esportiva:
+- uid: Ko1y4zIW07l3qq
+  via_esportiva:
     nome: Fake News
     dificuldade: BR_7B
     quantidade_protecoes_intermediarias: 7
     quantidade_protecoes_parada: 2
     extensao: 12
     destaque: true
-- via_esportiva:
+- uid: it0b0JHm4SQCex
+  via_esportiva:
     nome: Bruxa
     dificuldade: BR_5
     quantidade_protecoes_intermediarias: 4
     quantidade_protecoes_parada: 2
     extensao: 8
-- via_esportiva:
+- uid: KwmbDkvOBV5f4J
+  via_esportiva:
     nome: Fundão
     dificuldade: BR_6
     quantidade_protecoes_intermediarias: 4
     quantidade_protecoes_parada: 2
     extensao: 8
     descricao: Extensão Projeto (6+2).
-- via_esportiva:
+- uid: 6jXegpq9U6E5az
+  via_esportiva:
     nome: Caminho da Luz
     dificuldade: BR_7B
     quantidade_protecoes_intermediarias: 8
     quantidade_protecoes_parada: 2
     extensao: 20
     destaque: true
-- via_esportiva:
+- uid: v1pcng1nFFTllQ
+  via_esportiva:
     nome: Eu quero é ver o oco
     dificuldade: BR_8B
     quantidade_protecoes_intermediarias: 8
     quantidade_protecoes_parada: 2
     extensao: 20
     destaque: true
-- via_esportiva:
+- uid: glmlZx26hSccoj
+  via_esportiva:
     nome: Mister Amaral
     dificuldade: BR_8B
     quantidade_protecoes_intermediarias: 11
     quantidade_protecoes_parada: 2
     extensao: 20
     destaque: true
-- via_esportiva:
+- uid: evCj5oEwB5t5TU
+  via_esportiva:
     nome: Loki
     dificuldade: PROJETO
     quantidade_protecoes_intermediarias: 11
     quantidade_protecoes_parada: 2
-- via_esportiva:
+- uid: arwVm1AhS9ficy
+  via_esportiva:
     nome: Thor
     dificuldade: BR_8B
     quantidade_protecoes_intermediarias: 8
     quantidade_protecoes_parada: 2
     destaque: true
-- via_esportiva:
+- uid: a5igIKPlpvcfDP
+  via_esportiva:
     nome: A Flor da Vida
     dificuldade: BR_7A
     quantidade_protecoes_intermediarias: 5
@@ -338,7 +353,8 @@ escaladas:
     extensao: 12
     destaque: true
     descricao: Possui Extensão Projeto (7+2).
-- via_esportiva:
+- uid: BZWZX8qQ061Nex
+  via_esportiva:
     nome: Vale do Verde
     dificuldade: BR_7C
     quantidade_protecoes_intermediarias: 4
@@ -346,14 +362,16 @@ escaladas:
     extensao: 10
     destaque: true
     descricao: Possui Extensão 8c (10+2).
-- via_esportiva:
+- uid: 72wzyhgdKMtWYl
+  via_esportiva:
     nome: Ragnarok
     dificuldade: BR_9A
     quantidade_protecoes_intermediarias: 11
     quantidade_protecoes_parada: 2
     extensao: 25
     destaque: true
-- via_esportiva:
+- uid: uwJ2cIyyfg4Nwg
+  via_esportiva:
     nome: Filho de Odin
     dificuldade: BR_8B
     quantidade_protecoes_intermediarias: 5
@@ -361,45 +379,52 @@ escaladas:
     extensao: 15
     destaque: true
     descricao: Possui Extensão Proj. (5+2).
-- via_esportiva:
+- uid: OOOdxRbS9BoBsK
+  via_esportiva:
     nome: Vahala
     dificuldade: PROJETO
     quantidade_protecoes_intermediarias: 12
     quantidade_protecoes_parada: 2
     extensao: 20
-- via_esportiva:
+- uid: R5NdIrHcdHwMT3
+  via_esportiva:
     nome: Pedra no Saco
     dificuldade: BR_7A
     quantidade_protecoes_intermediarias: 10
     quantidade_protecoes_parada: 2
     extensao: 20
-- via_esportiva:
+- uid: Yp0gCKBhmnWbYR
+  via_esportiva:
     nome: Endorfina
     dificuldade: BR_7A
     quantidade_protecoes_intermediarias: 11
     quantidade_protecoes_parada: 2
     extensao: 22
     destaque: true
-- via_esportiva:
+- uid: e2kZxaPgJzz0Oo
+  via_esportiva:
     nome: Isaurinha
     dificuldade: BR_7A
     quantidade_protecoes_intermediarias: 10
     quantidade_protecoes_parada: 2
     extensao: 18
     destaque: true
-- via_esportiva:
+- uid: 9K4eDM9LNIRSSR
+  via_esportiva:
     nome: Presentim
     dificuldade: BR_7A
     quantidade_protecoes_intermediarias: 8
     quantidade_protecoes_parada: 2
     extensao: 18
-- via_esportiva:
+- uid: wMRTxZdc5Z2xUz
+  via_esportiva:
     nome: Antes tarde do que nunca
     dificuldade: BR_6
     quantidade_protecoes_intermediarias: 9
     quantidade_protecoes_parada: 2
     extensao: 15
-- via_esportiva:
+- uid: xoECr0XaohA22D
+  via_esportiva:
     nome: Ho Ho Ho
     dificuldade: BR_5
     quantidade_protecoes_intermediarias: 9

@@ -1,18 +1,19 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+uid: IgnhOcrKCV3Y1z
 nome: Jardim da Fantasia
 mapas:
 - caminho_imagem_mapa: imagens/setor_jardim_da_fantasia_p0.webp
 escaladas:
-- via_multiplas_enfiadas:
+- uid: fYstxxQqp95Vg3
+  via_multiplas_enfiadas:
     nome: Jardim da Fantasia
     dificuldade_maxima: BR_6
     exposicao: E2
     numero_enfiadas: 5
     tipo_via_multiplas_enfiadas: MISTA
-    equipamento_recomendado: 'Jogo de camalot até #3/#4, 15 costuras, 1 corda de 60m.
-      Rapel 20m, subir a canaleta até o final.'
+    equipamento_recomendado: 'Jogo de camalot até #3/#4, 15 costuras, 1 corda de 60m. Rapel 20m, subir a canaleta até o final.'
     conquistadores:
     - André Dedão
     - Tigrão

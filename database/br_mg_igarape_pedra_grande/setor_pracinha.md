@@ -1,6 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+uid: 1g1CrSzJzHeyrv
 caminho_imagem_capa: imagens/setor_pracinha_p1.webp
 nome: Setor Pracinha
 mapas:
@@ -8,192 +9,189 @@ mapas:
   largura_mapa: 1107
   altura_mapa: 1413
   pontos_de_interesse:
-  - id: '01'
-    label: '01'
+  - uid: Xhsz1Wtp4s2ULs
+    rotulo: '01'
     circulo:
       x: 761
       y: 782
       raio: 17
-  - id: '02'
-    label: '02'
+  - uid: yUMuADA01pyFbP
+    rotulo: '02'
     circulo:
       x: 732
       y: 757
       raio: 17
-  - id: '03'
-    label: '03'
+  - uid: nYGYGhVBIkjy28
+    rotulo: '03'
     circulo:
       x: 697
       y: 746
       raio: 17
-  - id: '04'
-    label: '04'
+  - uid: Rj6RP5lDxZ9kUk
+    rotulo: '04'
     circulo:
       x: 668
       y: 717
       raio: 17
-  - id: '05'
-    label: '05'
+  - uid: w9xngGToGrJqf6
+    rotulo: '05'
     circulo:
       x: 697
       y: 641
       raio: 17
-  - id: '06'
-    label: '06'
+  - uid: AsDs9blGiwVd8m
+    rotulo: '06'
     circulo:
       x: 734
       y: 649
       raio: 17
-  - id: '07'
-    label: '07'
+  - uid: XKqdU1C14Y0Whc
+    rotulo: '07'
     circulo:
       x: 768
       y: 663
       raio: 17
-  - id: '08'
-    label: '08'
+  - uid: g8wsUkaZ9tjAov
+    rotulo: '08'
     circulo:
       x: 805
       y: 663
       raio: 17
-  - id: '09'
-    label: '09'
+  - uid: mQJf4urE1dSo1Y
+    rotulo: '09'
     circulo:
       x: 962
       y: 526
       raio: 17
   referencias:
-  - escalada: Conflito sensual
-    ids:
-    - '01'
-  - escalada: Duracell
-    ids:
-    - '02'
-  - escalada: Djavú
-    ids:
-    - '03'
-  - escalada: Muita coisa envolvida
-    ids:
-    - '04'
-  - escalada: Netfrix
-    ids:
-    - '05'
-  - escalada: Pouca prática
-    ids:
-    - '06'
-  - escalada: Vainafé
-    ids:
-    - '07'
-  - ids:
-    - '08'
-    setor: Setor Pracinha
-    escalada: People crazy
-  - ids:
-    - '09'
-    setor: Setor Trad
-    escalada: Aresta Daniel
+  - alvo_uid: XrBXrtqP2wt0we
+    pontos_uids:
+    - Xhsz1Wtp4s2ULs
+  - alvo_uid: loqFlZSEj2AvjM
+    pontos_uids:
+    - yUMuADA01pyFbP
+  - alvo_uid: WOnWuf7KQFxy4R
+    pontos_uids:
+    - nYGYGhVBIkjy28
+  - alvo_uid: i6tD6IoexGPduC
+    pontos_uids:
+    - Rj6RP5lDxZ9kUk
+  - alvo_uid: gT6feZ5pEHYVwR
+    pontos_uids:
+    - w9xngGToGrJqf6
+  - alvo_uid: kUqcdOIbVmZwIy
+    pontos_uids:
+    - AsDs9blGiwVd8m
+  - alvo_uid: 1pS7HXbpuOnmDz
+    pontos_uids:
+    - XKqdU1C14Y0Whc
+  - alvo_uid: G25vdSyMTkyCNa
+    pontos_uids:
+    - g8wsUkaZ9tjAov
+  - alvo_uid: cJzFnD4vy9LxJP
+    pontos_uids:
+    - mQJf4urE1dSo1Y
 - caminho_imagem_mapa: imagens/setor_pracinha_p2.webp
   largura_mapa: 1109
   altura_mapa: 1413
   pontos_de_interesse:
-  - id: '01'
-    label: '01'
+  - uid: B0p8hl3AvHe0d5
+    rotulo: '01'
     circulo:
       x: 349
       y: 855
       raio: 17
-  - id: '02'
-    label: '02'
+  - uid: o5bq4YT33Vr7oL
+    rotulo: '02'
     circulo:
       x: 606
       y: 876
       raio: 17
-  - id: '03'
-    label: '03'
+  - uid: TkVjLe0nZcJ1EG
+    rotulo: '03'
     circulo:
       x: 646
       y: 870
       raio: 17
-  - id: '04'
-    label: '04'
+  - uid: XX2L0p85lzkV9C
+    rotulo: '04'
     circulo:
       x: 725
       y: 867
       raio: 17
   referencias:
-  - escalada: Conflito sensual
-    ids:
-    - '01'
-  - escalada: Duracell
-    ids:
-    - '02'
-  - escalada: Djavú
-    ids:
-    - '03'
-  - escalada: Muita coisa envolvida
-    ids:
-    - '04'
+  - alvo_uid: XrBXrtqP2wt0we
+    pontos_uids:
+    - B0p8hl3AvHe0d5
+  - alvo_uid: loqFlZSEj2AvjM
+    pontos_uids:
+    - o5bq4YT33Vr7oL
+  - alvo_uid: WOnWuf7KQFxy4R
+    pontos_uids:
+    - TkVjLe0nZcJ1EG
+  - alvo_uid: i6tD6IoexGPduC
+    pontos_uids:
+    - XX2L0p85lzkV9C
 - caminho_imagem_mapa: imagens/setor_pracinha_p3.webp
   largura_mapa: 1109
   altura_mapa: 1391
   pontos_de_interesse:
-  - id: P1
-    label: P1
+  - uid: vZhcHQiXnW3LXc
+    rotulo: P1
     circulo:
       x: 764
       y: 151
       raio: 18
-  - id: '05'
-    label: '05'
+  - uid: GAiRdvunkolu2J
+    rotulo: '05'
     circulo:
       x: 199
       y: 665
       raio: 17
-  - id: '06'
-    label: '06'
+  - uid: Cge74BY2zSTbVJ
+    rotulo: '06'
     circulo:
       x: 285
       y: 731
       raio: 17
-  - id: '07'
-    label: '07'
+  - uid: OvKgHwrmIil4MQ
+    rotulo: '07'
     circulo:
       x: 409
       y: 915
       raio: 17
-  - id: '08'
-    label: '08'
+  - uid: nSSYVwEOAFIRya
+    rotulo: '08'
     circulo:
       x: 481
       y: 1037
       raio: 17
-  - id: '09'
-    label: '09'
+  - uid: FWfLgjyAhy69Rh
+    rotulo: '09'
     circulo:
       x: 1007
       y: 1164
       raio: 17
   referencias:
-  - escalada: Netfrix
-    ids:
-    - '05'
-  - escalada: Pouca prática
-    ids:
-    - '06'
-  - escalada: Vainafé
-    ids:
-    - '07'
-  - ids:
-    - '08'
-    setor: Setor Pracinha
-    escalada: People crazy
-  - ids:
-    - '09'
-    - P1
-    setor: Setor Trad
-    escalada: Aresta Daniel
+  - alvo_uid: gT6feZ5pEHYVwR
+    pontos_uids:
+    - GAiRdvunkolu2J
+  - alvo_uid: kUqcdOIbVmZwIy
+    pontos_uids:
+    - Cge74BY2zSTbVJ
+  - alvo_uid: 1pS7HXbpuOnmDz
+    pontos_uids:
+    - OvKgHwrmIil4MQ
+  - alvo_uid: G25vdSyMTkyCNa
+    pontos_uids:
+    - nSSYVwEOAFIRya
+  - alvo_uid: cJzFnD4vy9LxJP
+    pontos_uids:
+    - FWfLgjyAhy69Rh
+    - vZhcHQiXnW3LXc
 escaladas:
-- via_esportiva:
+- uid: XrBXrtqP2wt0we
+  via_esportiva:
     nome: Conflito sensual
     dificuldade: PROJETO
     quantidade_protecoes_intermediarias: 10
@@ -203,7 +201,8 @@ escaladas:
     - Berbari
     - Bunitin
     data_abertura: '2022'
-- via_esportiva:
+- uid: loqFlZSEj2AvjM
+  via_esportiva:
     nome: Duracell
     dificuldade: BR_8C
     quantidade_protecoes_intermediarias: 9
@@ -213,7 +212,8 @@ escaladas:
     - Bunitin
     - Marcão
     data_abertura: '2022'
-- via_esportiva:
+- uid: WOnWuf7KQFxy4R
+  via_esportiva:
     nome: Djavú
     dificuldade: BR_8B
     quantidade_protecoes_intermediarias: 9
@@ -224,7 +224,8 @@ escaladas:
     - Chinha
     - Tonin
     data_abertura: '2022'
-- via_esportiva:
+- uid: i6tD6IoexGPduC
+  via_esportiva:
     nome: Muita coisa envolvida
     dificuldade: BR_8A
     quantidade_protecoes_intermediarias: 10
@@ -234,7 +235,8 @@ escaladas:
     - Berbari
     - Tonin
     data_abertura: '2022'
-- via_esportiva:
+- uid: gT6feZ5pEHYVwR
+  via_esportiva:
     nome: Netfrix
     dificuldade: BR_7A
     quantidade_protecoes_intermediarias: 6
@@ -244,7 +246,8 @@ escaladas:
     - Berbari
     - Tonin
     data_abertura: '2022'
-- via_esportiva:
+- uid: kUqcdOIbVmZwIy
+  via_esportiva:
     nome: Pouca prática
     dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 7
@@ -254,7 +257,8 @@ escaladas:
     - Berbari
     - Tonin
     data_abertura: '2022'
-- via_esportiva:
+- uid: 1pS7HXbpuOnmDz
+  via_esportiva:
     nome: Vainafé
     dificuldade: BR_7A
     quantidade_protecoes_intermediarias: 8
@@ -264,7 +268,8 @@ escaladas:
     - Berbari
     - Tonin
     data_abertura: '2022'
-- via_esportiva:
+- uid: G25vdSyMTkyCNa
+  via_esportiva:
     nome: People crazy
     dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 9

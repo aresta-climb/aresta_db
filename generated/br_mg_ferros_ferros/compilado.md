@@ -5,6 +5,7 @@
 - **descricao**: Guia de escaladas de Ferros, Minas Gerais. Reúne setores e paredes de escalada tradicional, esportiva e de aderência como a Parede Principal, Parede das Aderências, Pedra do Neri e outras.
 - **id**: br_mg_ferros_ferros
 - **nome**: Ferros
+- **uid**: Qk5OzgPaESC9GX
 - **creditos**:
   - Pedro Bugim Ruel Vergnano
   - Antonio Carlos Magalhães
@@ -12,6 +13,7 @@
 - **caminho_thumbnail**: ![caminho_thumbnail](imagens/capa_p0_i0.webp)
 - **botoes**:
   - **[0]**:
+    - **uid**: rgFDDgvz6fIzQY
     - **texto**: Capa
     - **destino**:
       - **secao_textual**:
@@ -31,6 +33,7 @@
             
             **Ano:** 2015
   - **[1]**:
+    - **uid**: XYeErJUnmdVfIH
     - **texto**: Apresentação
     - **destino**:
       - **secao_textual**:
@@ -73,6 +76,7 @@
             
             *Os autores, fevereiro de 2015*
   - **[2]**:
+    - **uid**: EQU85C4O073sdq
     - **texto**: Sobre Ferros e História
     - **destino**:
       - **secao_textual**:
@@ -99,6 +103,7 @@
             
             Ferros se notabiliza em diversas personalidades importantes. Podemos destacar o romancista Roberto Drummond, da mesma família do famoso poeta modernista Carlos Drummond de Andrade. As principais obras do Roberto, Hilda Furacão e Inês é Morta, dão nome a duas vias maravilhosas e emblemáticas do local.
   - **[3]**:
+    - **uid**: wjQZUwNbLdHIKq
     - **texto**: Geografia e Logística
     - **destino**:
       - **secao_textual**:
@@ -145,6 +150,7 @@
             
             Água potável é encontrada em abundância, notadamente ao longo de todo o vale do Roncador, que é cortado pelo córrego de mesmo nome, suprindo os excursionistas de água fresca bem próximo às bases.
   - **[4]**:
+    - **uid**: CvBK4aGJk7ZOeu
     - **texto**: Como Chegar
     - **destino**:
       - **secao_textual**:
@@ -175,6 +181,7 @@
             | :--: |
             | *Mapa de satélite de Ferros à Fazenda Retiro das Águas* |
   - **[5]**:
+    - **uid**: P1V4VAzoebpbVB
     - **texto**: Regras
     - **destino**:
       - **secao_textual**:
@@ -199,7 +206,7 @@
             - ACE (Associação Capixaba de Escalada): http://www.ace-es.org.br/
             - FGM (Federação Gaúcha de Montanhismo): http://www.fgm.org.br
             - FEMECE (Federação de Montanhismo e Escalada do Estado do Ceará): http://www.femece.org.br
-- **ultima_migracao**: 4
+- **ultima_migracao**: 5
 - **publicar_croqui**: True
 - **revisado_manualmente**: False
 - **revisado_bounding_circle**: False
@@ -219,6 +226,7 @@
     
     Este setor, apesar de curto e com lances simples, por ficar no sol o dia quase todo, apresenta uma parede bastante quente (como indica o nome de duas das vias), sendo ideal para escaladas pela parte inicial da manhã, ou ao final da tarde.
 - **nome**: Cachoeira
+- **uid**: lTi8TIXxTU6KF0
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_cachoeira_p0_i1.webp)
@@ -226,125 +234,173 @@
     - **altura_mapa**: 625
     - **referencias**:
       - **[0]**:
+        - **alvo_uid**: 9bvmNLfBk358Qm
+        - **pontos_uids**:
+          - wybZHx1zpWJpxh
         - **escalada**: Pé na Chapa
         - **ids**:
-          - 1
+          - wybZHx1zpWJpxh
       - **[1]**:
+        - **alvo_uid**: e1HwVxMeue9Vtm
+        - **pontos_uids**:
+          - fDfykPnCezFnNQ
+          - olQf9DI5paOBQb
         - **escalada**: Desenferrujando
         - **ids**:
-          - 2
-          - P1_15m
+          - fDfykPnCezFnNQ
+          - olQf9DI5paOBQb
       - **[2]**:
+        - **alvo_uid**: 4r5pVAMzOr08Tp
+        - **pontos_uids**:
+          - YeHwoPGRiOaT1J
+          - B4RXXcqvHMiEJa
         - **escalada**: Ferrugem
         - **ids**:
-          - 3
-          - P1_30m
+          - YeHwoPGRiOaT1J
+          - B4RXXcqvHMiEJa
       - **[3]**:
+        - **alvo_uid**: jA0qwfNckiQGVc
+        - **pontos_uids**:
+          - CXCHdB6ZFi9gLx
+          - B4RXXcqvHMiEJa
         - **escalada**: A Ferro Quente
         - **ids**:
-          - 4
-          - P1_30m
+          - CXCHdB6ZFi9gLx
+          - B4RXXcqvHMiEJa
     - **pontos_de_interesse**:
       - **[0]**:
-        - **id**: 1
-        - **label**: 1
+        - **id**: wybZHx1zpWJpxh
+        - **uid**: wybZHx1zpWJpxh
+        - **rotulo**: 1
         - **circulo**:
           - **x**: 297
           - **y**: 338
           - **raio**: 16
+        - **label**: 1
       - **[1]**:
-        - **id**: 2
-        - **label**: 2
+        - **id**: fDfykPnCezFnNQ
+        - **uid**: fDfykPnCezFnNQ
+        - **rotulo**: 2
         - **circulo**:
           - **x**: 392
           - **y**: 365
           - **raio**: 16
+        - **label**: 2
       - **[2]**:
-        - **id**: 3
-        - **label**: 3
+        - **id**: YeHwoPGRiOaT1J
+        - **uid**: YeHwoPGRiOaT1J
+        - **rotulo**: 3
         - **circulo**:
           - **x**: 615
           - **y**: 403
           - **raio**: 15
+        - **label**: 3
       - **[3]**:
-        - **id**: 4
-        - **label**: 4
+        - **id**: CXCHdB6ZFi9gLx
+        - **uid**: CXCHdB6ZFi9gLx
+        - **rotulo**: 4
         - **circulo**:
           - **x**: 754
           - **y**: 375
           - **raio**: 14
+        - **label**: 4
       - **[4]**:
-        - **id**: P1_15m
-        - **label**: 
+        - **id**: olQf9DI5paOBQb
+        - **uid**: olQf9DI5paOBQb
+        - **rotulo**: 
         - **circulo**:
           - **x**: 375
           - **y**: 166
           - **raio**: 16
-      - **[5]**:
-        - **id**: P1_30m
         - **label**: 
+      - **[5]**:
+        - **id**: B4RXXcqvHMiEJa
+        - **uid**: B4RXXcqvHMiEJa
+        - **rotulo**: 
         - **circulo**:
           - **x**: 642
           - **y**: 163
           - **raio**: 16
+        - **label**: 
   - **[1]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_cachoeira_p1_i3.webp)
     - **largura_mapa**: 1401
     - **altura_mapa**: 873
     - **referencias**:
       - **[0]**:
+        - **alvo_uid**: 9bvmNLfBk358Qm
+        - **pontos_uids**:
+          - 3zzyCGUWbDMX21
         - **escalada**: Pé na Chapa
         - **ids**:
-          - 1
+          - 3zzyCGUWbDMX21
       - **[1]**:
+        - **alvo_uid**: e1HwVxMeue9Vtm
+        - **pontos_uids**:
+          - vENb3h4E8V3mBc
         - **escalada**: Desenferrujando
         - **ids**:
-          - 2
+          - vENb3h4E8V3mBc
     - **pontos_de_interesse**:
       - **[0]**:
-        - **id**: 1
-        - **label**: 1
+        - **id**: 3zzyCGUWbDMX21
+        - **uid**: 3zzyCGUWbDMX21
+        - **rotulo**: 1
         - **circulo**:
           - **x**: 581
           - **y**: 828
           - **raio**: 33
+        - **label**: 1
       - **[1]**:
-        - **id**: 2
-        - **label**: 2
+        - **id**: vENb3h4E8V3mBc
+        - **uid**: vENb3h4E8V3mBc
+        - **rotulo**: 2
         - **circulo**:
           - **x**: 1044
           - **y**: 815
           - **raio**: 34
+        - **label**: 2
   - **[2]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_cachoeira_p1_i1.webp)
     - **largura_mapa**: 1559
     - **altura_mapa**: 990
     - **referencias**:
       - **[0]**:
+        - **alvo_uid**: 4r5pVAMzOr08Tp
+        - **pontos_uids**:
+          - 7RdFv6jARPJ1Ys
         - **escalada**: Ferrugem
         - **ids**:
-          - 3
+          - 7RdFv6jARPJ1Ys
       - **[1]**:
+        - **alvo_uid**: jA0qwfNckiQGVc
+        - **pontos_uids**:
+          - 7Ca4D31T3Cocp2
         - **escalada**: A Ferro Quente
         - **ids**:
-          - 4
+          - 7Ca4D31T3Cocp2
     - **pontos_de_interesse**:
       - **[0]**:
-        - **id**: 3
-        - **label**: 3
+        - **id**: 7RdFv6jARPJ1Ys
+        - **uid**: 7RdFv6jARPJ1Ys
+        - **rotulo**: 3
         - **circulo**:
           - **x**: 385
           - **y**: 854
           - **raio**: 33
+        - **label**: 3
       - **[1]**:
-        - **id**: 4
-        - **label**: 4
+        - **id**: 7Ca4D31T3Cocp2
+        - **uid**: 7Ca4D31T3Cocp2
+        - **rotulo**: 4
         - **circulo**:
           - **x**: 1290
           - **y**: 908
           - **raio**: 33
+        - **label**: 4
 - **escaladas**:
   - **[0]**:
+    - **uid**: 9bvmNLfBk358Qm
     - **via_esportiva**:
       - **descricao**: Via protegida por três grampos de ½ (incluindo o grampo de topo), muito boa para treinamento de guiadas e top-ropes com iniciantes. Rapel / top-rope com corda única de 50m.
       - **nome**: Pé na Chapa
@@ -358,6 +414,7 @@
         - Maria Fernanda Patrício
       - **data_abertura**: 2012-02-21
   - **[1]**:
+    - **uid**: e1HwVxMeue9Vtm
     - **via_esportiva**:
       - **descricao**: Via semelhante à anterior, contando com três grampos, sendo um de top-rope.
       - **nome**: Desenferrujando
@@ -371,6 +428,7 @@
         - Pedro Bugim
       - **data_abertura**: 2014-03-03
   - **[2]**:
+    - **uid**: 4r5pVAMzOr08Tp
     - **via_esportiva**:
       - **descricao**: Via com boa grampeação, até atingir o topo da falésia, onde existe uma parada dupla. Ótima opção para o primeiro contato com o esporte, ou para quem está começando a guiar, perfeita para ensinar técnicas de posicionamento, equalização e costuras, sem preocupação com a parte técnica em si. Rapel / top-rope em corda única de 60m.
       - **nome**: Ferrugem
@@ -384,6 +442,7 @@
         - Nádia Moreira
       - **data_abertura**: 2007-04-08
   - **[3]**:
+    - **uid**: jA0qwfNckiQGVc
     - **via_movel**:
       - **descricao**: Via conquistada em solo integral, não possuindo proteções fixas. A descida é feita por trilha ao lado direito da falésia, ou pela via “Ferrugem”, à esquerda. Inicia em uma fissura óbvia e segue a linha natural da pedra até o topo.
       - **nome**: A Ferro Quente
@@ -417,6 +476,7 @@
     
     Curiosamente, algumas destas vias possuem também proteções mistas, ou seja, intercalando grampos fixos e materiais móveis.
 - **nome**: Parede das Aderências
+- **uid**: PqYRfjjRvGBylQ
 - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/grupo_aderencias_p0_i0.webp)
 - **setores**:
   - **[0]**:
@@ -434,219 +494,307 @@
           
           Em geral, são vias de baixa graduação, boas para treinar o psicológico gradualmente, uma vez que as vias variam seu grau de exposição, possuindo vias de E1, E2, E3 e E5, sem possuir lances muito técnicos. A exceção é a via “Dez Mil e Uma Noites”, que apesar da boa grampeação, possui lances de VI grau, exigindo maior atenção e habilidade por parte do escalador.
       - **nome**: Extrema Esquerda
+      - **uid**: FO3KvzGBfKKpB4
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_aderencias_setor_extrema_esquerda_p1_i1.webp)
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: BjdVFboIjLfJAe
+              - **pontos_uids**:
+                - fUIm60MnMZV7ic
               - **escalada**: Solamente
               - **ids**:
-                - 1
+                - fUIm60MnMZV7ic
             - **[1]**:
+              - **alvo_uid**: MC5QTN1yACnZiF
+              - **pontos_uids**:
+                - A6pYn12lDeQmbm
               - **escalada**: Nesse Mato Tem Cachorro
               - **ids**:
-                - 2
+                - A6pYn12lDeQmbm
             - **[2]**:
+              - **alvo_uid**: ukq3RXW85UCX93
+              - **pontos_uids**:
+                - A6pYn12lDeQmbm
               - **escalada**: Vr. Cachorro Louco
               - **ids**:
-                - 2
+                - A6pYn12lDeQmbm
             - **[3]**:
+              - **alvo_uid**: kVWUUsOKsyV3bN
+              - **pontos_uids**:
+                - eSQN892CbENGez
               - **escalada**: Libera Liberou
               - **ids**:
-                - 3
+                - eSQN892CbENGez
           - **largura_mapa**: 1607
           - **altura_mapa**: 1025
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 1
-              - **label**: 1
+              - **id**: fUIm60MnMZV7ic
+              - **uid**: fUIm60MnMZV7ic
+              - **rotulo**: 1
               - **circulo**:
                 - **x**: 934
                 - **y**: 340
                 - **raio**: 25
+              - **label**: 1
             - **[1]**:
-              - **id**: 2
-              - **label**: 2
+              - **id**: A6pYn12lDeQmbm
+              - **uid**: A6pYn12lDeQmbm
+              - **rotulo**: 2
               - **circulo**:
                 - **x**: 1043
                 - **y**: 522
                 - **raio**: 26
+              - **label**: 2
             - **[2]**:
-              - **id**: 3
-              - **label**: 3
+              - **id**: eSQN892CbENGez
+              - **uid**: eSQN892CbENGez
+              - **rotulo**: 3
               - **circulo**:
                 - **x**: 1095
                 - **y**: 585
                 - **raio**: 25
+              - **label**: 3
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_aderencias_setor_extrema_esquerda_p2_i1.webp)
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: BjdVFboIjLfJAe
+              - **pontos_uids**:
+                - yaikNvdOOibkDP
               - **escalada**: Solamente
               - **ids**:
-                - 1
+                - yaikNvdOOibkDP
             - **[1]**:
+              - **alvo_uid**: MC5QTN1yACnZiF
+              - **pontos_uids**:
+                - thxu8vUqiU6MC8
+                - r7IlihsYlixOjN
               - **escalada**: Nesse Mato Tem Cachorro
               - **ids**:
-                - 2
-                - 2_vaz
+                - thxu8vUqiU6MC8
+                - r7IlihsYlixOjN
             - **[2]**:
+              - **alvo_uid**: ukq3RXW85UCX93
+              - **pontos_uids**:
+                - thxu8vUqiU6MC8
+                - QpffSZWj6rlZAl
               - **escalada**: Vr. Cachorro Louco
               - **ids**:
-                - 2
-                - 3
+                - thxu8vUqiU6MC8
+                - QpffSZWj6rlZAl
             - **[3]**:
+              - **alvo_uid**: kVWUUsOKsyV3bN
+              - **pontos_uids**:
+                - v5Uzl674I55uxY
               - **escalada**: Libera Liberou
               - **ids**:
-                - 4
+                - v5Uzl674I55uxY
             - **[4]**:
+              - **alvo_uid**: U3t6ITS1Q0A1rh
+              - **pontos_uids**:
+                - ExmFEcrHEWv0Om
               - **escalada**: Dez Mil e Uma Noites
               - **ids**:
-                - 5
+                - ExmFEcrHEWv0Om
           - **largura_mapa**: 2041
           - **altura_mapa**: 1224
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 1
-              - **label**: 1
+              - **id**: yaikNvdOOibkDP
+              - **uid**: yaikNvdOOibkDP
+              - **rotulo**: 1
               - **circulo**:
                 - **x**: 662
                 - **y**: 1146
                 - **raio**: 33
+              - **label**: 1
             - **[1]**:
-              - **id**: 2
-              - **label**: 2
+              - **id**: thxu8vUqiU6MC8
+              - **uid**: thxu8vUqiU6MC8
+              - **rotulo**: 2
               - **circulo**:
                 - **x**: 1408
                 - **y**: 1148
                 - **raio**: 33
+              - **label**: 2
             - **[2]**:
-              - **id**: 3
-              - **label**: 3
+              - **id**: QpffSZWj6rlZAl
+              - **uid**: QpffSZWj6rlZAl
+              - **rotulo**: 3
               - **circulo**:
                 - **x**: 1351
                 - **y**: 765
                 - **raio**: 33
+              - **label**: 3
             - **[3]**:
-              - **id**: 4
-              - **label**: 4
+              - **id**: v5Uzl674I55uxY
+              - **uid**: v5Uzl674I55uxY
+              - **rotulo**: 4
               - **circulo**:
                 - **x**: 1628
                 - **y**: 1115
                 - **raio**: 33
+              - **label**: 4
             - **[4]**:
-              - **id**: 5
-              - **label**: 5
+              - **id**: ExmFEcrHEWv0Om
+              - **uid**: ExmFEcrHEWv0Om
+              - **rotulo**: 5
               - **circulo**:
                 - **x**: 1969
                 - **y**: 1054
                 - **raio**: 33
+              - **label**: 5
             - **[5]**:
-              - **id**: 2_vaz
-              - **label**: 
+              - **id**: r7IlihsYlixOjN
+              - **uid**: r7IlihsYlixOjN
+              - **rotulo**: 
               - **circulo**:
                 - **x**: 1501
                 - **y**: 702
                 - **raio**: 34
               - **cor**: 
+              - **label**: 
         - **[2]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_aderencias_setor_extrema_esquerda_p4_i1.webp)
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: BjdVFboIjLfJAe
+              - **pontos_uids**:
+                - Rf3j1KQCsvKVKx
               - **escalada**: Solamente
               - **ids**:
-                - 1
+                - Rf3j1KQCsvKVKx
             - **[1]**:
+              - **alvo_uid**: MC5QTN1yACnZiF
+              - **pontos_uids**:
+                - kkjKzEFbrzMDlT
+                - VZYFu3qvMqdwD8
+                - PREINJnSnsztpU
               - **escalada**: Nesse Mato Tem Cachorro
               - **ids**:
-                - 2
-                - p1_1
-                - 2_vaz
+                - kkjKzEFbrzMDlT
+                - VZYFu3qvMqdwD8
+                - PREINJnSnsztpU
             - **[2]**:
+              - **alvo_uid**: ukq3RXW85UCX93
+              - **pontos_uids**:
+                - kkjKzEFbrzMDlT
+                - VZYFu3qvMqdwD8
+                - u278p4vZ4wjS8w
               - **escalada**: Vr. Cachorro Louco
               - **ids**:
-                - 2
-                - p1_1
-                - 3
+                - kkjKzEFbrzMDlT
+                - VZYFu3qvMqdwD8
+                - u278p4vZ4wjS8w
             - **[3]**:
+              - **alvo_uid**: kVWUUsOKsyV3bN
+              - **pontos_uids**:
+                - y5ilCysbDfWY8n
+                - FAa3E8Jqu1YtSl
               - **escalada**: Libera Liberou
               - **ids**:
-                - 4
-                - p1_2
+                - y5ilCysbDfWY8n
+                - FAa3E8Jqu1YtSl
             - **[4]**:
-              - **ids**:
-                - 5
-                - P1_3
+              - **alvo_uid**: U3t6ITS1Q0A1rh
+              - **pontos_uids**:
+                - Nln1Eqee2f3ILS
+                - 8AmzcZTZpxpTYE
               - **escalada**: Dez Mil e Uma Noites
+              - **ids**:
+                - Nln1Eqee2f3ILS
+                - 8AmzcZTZpxpTYE
           - **largura_mapa**: 2041
           - **altura_mapa**: 1224
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 1
-              - **label**: 1
+              - **id**: Rf3j1KQCsvKVKx
+              - **uid**: Rf3j1KQCsvKVKx
+              - **rotulo**: 1
               - **circulo**:
                 - **x**: 573
                 - **y**: 1166
                 - **raio**: 35
+              - **label**: 1
             - **[1]**:
-              - **id**: 2
-              - **label**: 2
+              - **id**: kkjKzEFbrzMDlT
+              - **uid**: kkjKzEFbrzMDlT
+              - **rotulo**: 2
               - **circulo**:
                 - **x**: 1322
                 - **y**: 1165
                 - **raio**: 34
+              - **label**: 2
             - **[2]**:
-              - **id**: 3
-              - **label**: 3
+              - **id**: u278p4vZ4wjS8w
+              - **uid**: u278p4vZ4wjS8w
+              - **rotulo**: 3
               - **circulo**:
                 - **x**: 1256
                 - **y**: 782
                 - **raio**: 34
+              - **label**: 3
             - **[3]**:
-              - **id**: 4
-              - **label**: 4
+              - **id**: y5ilCysbDfWY8n
+              - **uid**: y5ilCysbDfWY8n
+              - **rotulo**: 4
               - **circulo**:
                 - **x**: 1537
                 - **y**: 1126
                 - **raio**: 34
+              - **label**: 4
             - **[4]**:
-              - **id**: 5
-              - **label**: 5
+              - **id**: Nln1Eqee2f3ILS
+              - **uid**: Nln1Eqee2f3ILS
+              - **rotulo**: 5
               - **circulo**:
                 - **x**: 1902
                 - **y**: 1095
                 - **raio**: 34
+              - **label**: 5
             - **[5]**:
-              - **id**: p1_1
-              - **label**: 
+              - **id**: VZYFu3qvMqdwD8
+              - **uid**: VZYFu3qvMqdwD8
+              - **rotulo**: 
               - **circulo**:
                 - **x**: 1352
                 - **y**: 437
                 - **raio**: 32
-            - **[6]**:
-              - **id**: p1_2
               - **label**: 
+            - **[6]**:
+              - **id**: FAa3E8Jqu1YtSl
+              - **uid**: FAa3E8Jqu1YtSl
+              - **rotulo**: 
               - **circulo**:
                 - **x**: 1542
                 - **y**: 530
                 - **raio**: 32
-            - **[7]**:
-              - **id**: P1_3
               - **label**: 
+            - **[7]**:
+              - **id**: 8AmzcZTZpxpTYE
+              - **uid**: 8AmzcZTZpxpTYE
+              - **rotulo**: 
               - **circulo**:
                 - **x**: 1833
                 - **y**: 436
                 - **raio**: 31
-            - **[8]**:
-              - **id**: 2_vaz
               - **label**: 
+            - **[8]**:
+              - **id**: PREINJnSnsztpU
+              - **uid**: PREINJnSnsztpU
+              - **rotulo**: 
               - **circulo**:
                 - **x**: 1438
                 - **y**: 753
                 - **raio**: 46
               - **cor**: 
+              - **label**: 
       - **escaladas**:
         - **[0]**:
+          - **uid**: BjdVFboIjLfJAe
           - **via_movel**:
             - **descricao**: Via conquistada em solo integral, sem grampos. A descida deve ser feita desescalando-se a própria linha ou caminhando-se pelo mato do lado esquerdo.
             - **nome**: Solamente
@@ -657,6 +805,7 @@
               - Tonico Magalhães
             - **data_abertura**: 2010-11-27
         - **[1]**:
+          - **uid**: MC5QTN1yACnZiF
           - **via_esportiva**:
             - **descricao**: Via que começa passando por uma sequência de platôs com vegetação, até chegar ao primeiro grampo, na parede já limpa. Após a segunda proteção, segue em diagonal para a direita, tornando a subir logo após, na direção do final do óbvio diedro. Após a virada do diedro, com um grampo no lance, segue-se em leve diagonal para a esquerda, até a última proteção da via.
             - **nome**: Nesse Mato Tem Cachorro
@@ -670,6 +819,7 @@
               - Maria Fernanda Patrício
             - **data_abertura**: 2012-02-22
         - **[2]**:
+          - **uid**: ukq3RXW85UCX93
           - **via_esportiva**:
             - **descricao**: Variante da via anterior, segue reta após a segunda proteção da via principal, passando por um pouco de mato, até fazer a virada do diedro, com um grampo logo acima do mesmo para proteção. Depois da virada, segue por uma linha branca na pedra, com mais um grampo intermediário, até chegar à parada final da “Nesse Mato Tem Cachorro”. Por possuir apenas duas proteções em 30 metros, apesar de fácil, esta via deve ser abordada com cautela.
             - **nome**: Vr. Cachorro Louco
@@ -683,6 +833,7 @@
               - Maria Fernanda Patrício
             - **data_abertura**: 2012-02-22
         - **[3]**:
+          - **uid**: kVWUUsOKsyV3bN
           - **via_esportiva**:
             - **descricao**: Via predominantemente em aderência e agarras, com boa grampeação até a parada final. Segue desde a base até o final em linha praticamente reta, terminando na barreira de vegetação.
             - **nome**: Libera Liberou
@@ -696,6 +847,7 @@
               - Nádia Moreira
             - **data_abertura**: 2009-08-01
         - **[4]**:
+          - **uid**: U3t6ITS1Q0A1rh
           - **via_esportiva**:
             - **descricao**: Saída fácil em dois lances com boas agarras e bom posicionamento para os pés. Após o segundo grampo, seguem-se quatro lances bem íngremes de VI grau, com notável escassez de agarras e posicionamento delicado e instável para os pés, especialmente porque, nesse trecho, a rocha mostra-se mais friável. Após a parada dupla, seguem-se mais três lances fáceis até o final da via. A parada dupla é uma boa opção para o top-rope envolvendo a sequência de lances de VI. O acesso à base não foi feito pelo mesmo caminho que leva às outras vias do setor, passando sob a cerca ao lado do córrego. Sobe-se a trilha mais uns 20 metros após o córrego e toma-se à esquerda nesse ponto.
             - **nome**: Dez Mil e Uma Noites
@@ -749,6 +901,7 @@
           | :--: |
           | *Eustáquio Júnior na trilha a frente da via “Pescoço de Minhoca”, fotografando os escaladores. (Foto: Pedro Bugim)* |
       - **nome**: Esquerda
+      - **uid**: avRkW8fzw3OF22
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_aderencias_setor_esquerda_p1_i1.webp)
@@ -756,655 +909,911 @@
           - **altura_mapa**: 1025
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: OooYcOKRLhMoqQ
+              - **pontos_uids**:
+                - FRXWe44uDgPrEU
               - **escalada**: Cordada 171
               - **ids**:
-                - 1
+                - FRXWe44uDgPrEU
             - **[1]**:
+              - **alvo_uid**: syMm9HdckIoPMR
+              - **pontos_uids**:
+                - FRXWe44uDgPrEU
               - **escalada**: Inês é Morta
               - **ids**:
-                - 1
+                - FRXWe44uDgPrEU
             - **[2]**:
+              - **alvo_uid**: BMS3wqQ0kWHk78
+              - **pontos_uids**:
+                - FRXWe44uDgPrEU
               - **escalada**: Sempre Viva
               - **ids**:
-                - 1
+                - FRXWe44uDgPrEU
             - **[3]**:
+              - **alvo_uid**: jyOjeBWP26lIao
+              - **pontos_uids**:
+                - HcGiPFmzkfOHHL
               - **escalada**: Fissurim
               - **ids**:
-                - 2
+                - HcGiPFmzkfOHHL
             - **[4]**:
+              - **alvo_uid**: ULTyZgOtMxNFom
+              - **pontos_uids**:
+                - HcGiPFmzkfOHHL
               - **escalada**: Zé Marta
               - **ids**:
-                - 2
+                - HcGiPFmzkfOHHL
             - **[5]**:
+              - **alvo_uid**: NvnbmTWxZwAeaC
+              - **pontos_uids**:
+                - HcGiPFmzkfOHHL
               - **escalada**: Bolinha
               - **ids**:
-                - 2
+                - HcGiPFmzkfOHHL
             - **[6]**:
+              - **alvo_uid**: aGn3kLxDWXmL7l
+              - **pontos_uids**:
+                - HcGiPFmzkfOHHL
               - **escalada**: Testa de Ferro
               - **ids**:
-                - 2
+                - HcGiPFmzkfOHHL
             - **[7]**:
+              - **alvo_uid**: Q0gA9cLX0i5EvP
+              - **pontos_uids**:
+                - HcGiPFmzkfOHHL
               - **escalada**: Ferro na Boneca
               - **ids**:
-                - 2
+                - HcGiPFmzkfOHHL
             - **[8]**:
+              - **alvo_uid**: KareRpi4XssXAb
+              - **pontos_uids**:
+                - HcGiPFmzkfOHHL
               - **escalada**: Maria Diz Graça
               - **ids**:
-                - 2
+                - HcGiPFmzkfOHHL
             - **[9]**:
+              - **alvo_uid**: dGowTTpgXqxB0G
+              - **pontos_uids**:
+                - HcGiPFmzkfOHHL
               - **escalada**: Zé Mangueira
               - **ids**:
-                - 2
+                - HcGiPFmzkfOHHL
             - **[10]**:
+              - **alvo_uid**: yLiR02mEPVqHkY
+              - **pontos_uids**:
+                - HcGiPFmzkfOHHL
               - **escalada**: Sherlock Holmes
               - **ids**:
-                - 2
+                - HcGiPFmzkfOHHL
             - **[11]**:
+              - **alvo_uid**: zAer5lfKHjLRrt
+              - **pontos_uids**:
+                - CIvUeulzkgRmVR
               - **escalada**: Professor Moriarty
               - **ids**:
-                - 3
+                - CIvUeulzkgRmVR
             - **[12]**:
+              - **alvo_uid**: 54QYbrLKmkogRb
+              - **pontos_uids**:
+                - CIvUeulzkgRmVR
               - **escalada**: Que Qui Ocê Foi Fazê Nu Mato?
               - **ids**:
-                - 3
+                - CIvUeulzkgRmVR
             - **[13]**:
+              - **alvo_uid**: KZRNauwDZ1oZM8
+              - **pontos_uids**:
+                - CIvUeulzkgRmVR
               - **escalada**: O Psicopata de Ferros
               - **ids**:
-                - 3
+                - CIvUeulzkgRmVR
             - **[14]**:
+              - **alvo_uid**: Lh2c78thHdoOQf
+              - **pontos_uids**:
+                - CIvUeulzkgRmVR
+                - Su8H6GLSvjtjPo
               - **escalada**: Vr. Caçadora de Micuim
               - **ids**:
-                - 3
-                - 4
+                - CIvUeulzkgRmVR
+                - Su8H6GLSvjtjPo
             - **[15]**:
+              - **alvo_uid**: pWBcHr8rhwyCCi
+              - **pontos_uids**:
+                - Su8H6GLSvjtjPo
               - **escalada**: Frio na Barriga
               - **ids**:
-                - 4
+                - Su8H6GLSvjtjPo
             - **[16]**:
+              - **alvo_uid**: 4n1dwoOH75Lr9B
+              - **pontos_uids**:
+                - Su8H6GLSvjtjPo
               - **escalada**: Pescoço de Minhoca
               - **ids**:
-                - 4
+                - Su8H6GLSvjtjPo
             - **[17]**:
+              - **alvo_uid**: FfXctqsX9cyPNm
+              - **pontos_uids**:
+                - zGhr3oLczUPzqN
               - **escalada**: Grampos de Ferros
               - **ids**:
-                - 5
+                - zGhr3oLczUPzqN
             - **[18]**:
+              - **alvo_uid**: 23GOgjFLTcBrv1
+              - **pontos_uids**:
+                - zGhr3oLczUPzqN
               - **escalada**: Prateado
               - **ids**:
-                - 5
+                - zGhr3oLczUPzqN
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 1
-              - **label**: 1
+              - **id**: FRXWe44uDgPrEU
+              - **uid**: FRXWe44uDgPrEU
+              - **rotulo**: 1
               - **circulo**:
                 - **x**: 921
                 - **y**: 511
                 - **raio**: 19
+              - **label**: 1
             - **[1]**:
-              - **id**: 2
-              - **label**: 2
+              - **id**: HcGiPFmzkfOHHL
+              - **uid**: HcGiPFmzkfOHHL
+              - **rotulo**: 2
               - **circulo**:
                 - **x**: 963
                 - **y**: 578
                 - **raio**: 19
+              - **label**: 2
             - **[2]**:
-              - **id**: 3
-              - **label**: 3
+              - **id**: CIvUeulzkgRmVR
+              - **uid**: CIvUeulzkgRmVR
+              - **rotulo**: 3
               - **circulo**:
                 - **x**: 1125
                 - **y**: 703
                 - **raio**: 19
+              - **label**: 3
             - **[3]**:
-              - **id**: 4
-              - **label**: 4
+              - **id**: Su8H6GLSvjtjPo
+              - **uid**: Su8H6GLSvjtjPo
+              - **rotulo**: 4
               - **circulo**:
                 - **x**: 1172
                 - **y**: 731
                 - **raio**: 19
+              - **label**: 4
             - **[4]**:
-              - **id**: 5
-              - **label**: 5
+              - **id**: zGhr3oLczUPzqN
+              - **uid**: zGhr3oLczUPzqN
+              - **rotulo**: 5
               - **circulo**:
                 - **x**: 1256
                 - **y**: 770
                 - **raio**: 19
+              - **label**: 5
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_aderencias_setor_esquerda_p2_i0.webp)
           - **largura_mapa**: 1958
           - **altura_mapa**: 1276
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: OooYcOKRLhMoqQ
+              - **pontos_uids**:
+                - LHvkkeNWrINNJR
               - **escalada**: Cordada 171
               - **ids**:
-                - 1
+                - LHvkkeNWrINNJR
             - **[1]**:
+              - **alvo_uid**: syMm9HdckIoPMR
+              - **pontos_uids**:
+                - Eqb4fEwnB5tQu9
               - **escalada**: Inês é Morta
               - **ids**:
-                - 2
+                - Eqb4fEwnB5tQu9
             - **[2]**:
+              - **alvo_uid**: BMS3wqQ0kWHk78
+              - **pontos_uids**:
+                - SSEaynHeYJBSBn
               - **escalada**: Sempre Viva
               - **ids**:
-                - 3
+                - SSEaynHeYJBSBn
             - **[3]**:
+              - **alvo_uid**: jyOjeBWP26lIao
+              - **pontos_uids**:
+                - mtQwjMQSTk95oE
               - **escalada**: Fissurim
               - **ids**:
-                - 4
+                - mtQwjMQSTk95oE
             - **[4]**:
+              - **alvo_uid**: ULTyZgOtMxNFom
+              - **pontos_uids**:
+                - QF2Fobbc5HQJHg
               - **escalada**: Zé Marta
               - **ids**:
-                - 5
+                - QF2Fobbc5HQJHg
             - **[5]**:
+              - **alvo_uid**: NvnbmTWxZwAeaC
+              - **pontos_uids**:
+                - B09ceRYDYxMhtP
               - **escalada**: Bolinha
               - **ids**:
-                - 6
+                - B09ceRYDYxMhtP
             - **[6]**:
+              - **alvo_uid**: aGn3kLxDWXmL7l
+              - **pontos_uids**:
+                - viZ3r8IMAfUBxo
               - **escalada**: Testa de Ferro
               - **ids**:
-                - 7
+                - viZ3r8IMAfUBxo
             - **[7]**:
+              - **alvo_uid**: Q0gA9cLX0i5EvP
+              - **pontos_uids**:
+                - VkQaxlXoYibadr
               - **escalada**: Ferro na Boneca
               - **ids**:
-                - 8
+                - VkQaxlXoYibadr
             - **[8]**:
+              - **alvo_uid**: KareRpi4XssXAb
+              - **pontos_uids**:
+                - RBNIiBsc6uiCpZ
               - **escalada**: Maria Diz Graça
               - **ids**:
-                - 9
+                - RBNIiBsc6uiCpZ
             - **[9]**:
+              - **alvo_uid**: dGowTTpgXqxB0G
+              - **pontos_uids**:
+                - Bdt2ojUbrw8Upd
               - **escalada**: Zé Mangueira
               - **ids**:
-                - 10
+                - Bdt2ojUbrw8Upd
             - **[10]**:
+              - **alvo_uid**: yLiR02mEPVqHkY
+              - **pontos_uids**:
+                - FtC1gvmZvywuRE
               - **escalada**: Sherlock Holmes
               - **ids**:
-                - 11
+                - FtC1gvmZvywuRE
             - **[11]**:
+              - **alvo_uid**: zAer5lfKHjLRrt
+              - **pontos_uids**:
+                - 5nppHrLrXPi35b
               - **escalada**: Professor Moriarty
               - **ids**:
-                - 12
+                - 5nppHrLrXPi35b
             - **[12]**:
-              - **ids**:
-                - que_qui_oce
-              - **grupo**: Parede das Aderências
-              - **setor**: Esquerda
+              - **alvo_uid**: 54QYbrLKmkogRb
+              - **pontos_uids**:
+                - P8BowOheubLsHx
               - **escalada**: Que Qui Ocê Foi Fazê Nu Mato?
+              - **ids**:
+                - P8BowOheubLsHx
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 1
-              - **label**: 1
+              - **id**: LHvkkeNWrINNJR
+              - **uid**: LHvkkeNWrINNJR
+              - **rotulo**: 1
               - **circulo**:
                 - **x**: 256
                 - **y**: 1031
                 - **raio**: 29
+              - **label**: 1
             - **[1]**:
-              - **id**: 2
-              - **label**: 2
+              - **id**: Eqb4fEwnB5tQu9
+              - **uid**: Eqb4fEwnB5tQu9
+              - **rotulo**: 2
               - **circulo**:
                 - **x**: 290
                 - **y**: 1097
                 - **raio**: 27
+              - **label**: 2
             - **[2]**:
-              - **id**: 3
-              - **label**: 3
+              - **id**: SSEaynHeYJBSBn
+              - **uid**: SSEaynHeYJBSBn
+              - **rotulo**: 3
               - **circulo**:
                 - **x**: 342
                 - **y**: 1051
                 - **raio**: 29
+              - **label**: 3
             - **[3]**:
-              - **id**: 4
-              - **label**: 4
+              - **id**: mtQwjMQSTk95oE
+              - **uid**: mtQwjMQSTk95oE
+              - **rotulo**: 4
               - **circulo**:
                 - **x**: 355
                 - **y**: 1118
                 - **raio**: 29
+              - **label**: 4
             - **[4]**:
-              - **id**: 5
-              - **label**: 5
+              - **id**: QF2Fobbc5HQJHg
+              - **uid**: QF2Fobbc5HQJHg
+              - **rotulo**: 5
               - **circulo**:
                 - **x**: 406
                 - **y**: 1181
                 - **raio**: 29
+              - **label**: 5
             - **[5]**:
-              - **id**: 6
-              - **label**: 6
+              - **id**: B09ceRYDYxMhtP
+              - **uid**: B09ceRYDYxMhtP
+              - **rotulo**: 6
               - **circulo**:
                 - **x**: 455
                 - **y**: 1207
                 - **raio**: 29
+              - **label**: 6
             - **[6]**:
-              - **id**: 7
-              - **label**: 7
+              - **id**: viZ3r8IMAfUBxo
+              - **uid**: viZ3r8IMAfUBxo
+              - **rotulo**: 7
               - **circulo**:
                 - **x**: 523
                 - **y**: 1181
                 - **raio**: 29
+              - **label**: 7
             - **[7]**:
-              - **id**: 8
-              - **label**: 8
+              - **id**: VkQaxlXoYibadr
+              - **uid**: VkQaxlXoYibadr
+              - **rotulo**: 8
               - **circulo**:
                 - **x**: 591
                 - **y**: 1181
                 - **raio**: 29
+              - **label**: 8
             - **[8]**:
-              - **id**: 9
-              - **label**: 9
+              - **id**: RBNIiBsc6uiCpZ
+              - **uid**: RBNIiBsc6uiCpZ
+              - **rotulo**: 9
               - **circulo**:
                 - **x**: 670
                 - **y**: 1181
                 - **raio**: 29
+              - **label**: 9
             - **[9]**:
-              - **id**: 10
-              - **label**: 10
+              - **id**: Bdt2ojUbrw8Upd
+              - **uid**: Bdt2ojUbrw8Upd
+              - **rotulo**: 10
               - **circulo**:
                 - **x**: 749
                 - **y**: 1193
                 - **raio**: 39
+              - **label**: 10
             - **[10]**:
-              - **id**: 11
-              - **label**: 11
+              - **id**: FtC1gvmZvywuRE
+              - **uid**: FtC1gvmZvywuRE
+              - **rotulo**: 11
               - **circulo**:
                 - **x**: 934
                 - **y**: 1070
                 - **raio**: 43
+              - **label**: 11
             - **[11]**:
-              - **id**: 12
-              - **label**: 12
+              - **id**: 5nppHrLrXPi35b
+              - **uid**: 5nppHrLrXPi35b
+              - **rotulo**: 12
               - **circulo**:
                 - **x**: 1225
                 - **y**: 1037
                 - **raio**: 43
+              - **label**: 12
             - **[12]**:
-              - **id**: que_qui_oce
-              - **label**: 13
+              - **id**: P8BowOheubLsHx
+              - **uid**: P8BowOheubLsHx
+              - **rotulo**: 13
               - **retangulo**:
                 - **x**: 1506
                 - **y**: 930
                 - **comprimento**: 363
                 - **largura**: 106
+              - **label**: 13
         - **[2]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_aderencias_setor_esquerda_p3_i0.webp)
           - **largura_mapa**: 1952
           - **altura_mapa**: 1280
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: 54QYbrLKmkogRb
+              - **pontos_uids**:
+                - E7CzEKrIBQhHRo
+                - xAZXuVMxdNNhRQ
               - **escalada**: Que Qui Ocê Foi Fazê Nu Mato?
               - **ids**:
-                - 13
-                - 13_f
+                - E7CzEKrIBQhHRo
+                - xAZXuVMxdNNhRQ
             - **[1]**:
+              - **alvo_uid**: KZRNauwDZ1oZM8
+              - **pontos_uids**:
+                - sqCFs3ViqesHgQ
+                - IFeQAauIOYC9bw
+                - 2jEqLoc2EiBcX0
               - **escalada**: O Psicopata de Ferros
               - **ids**:
-                - 14
-                - 14_m
-                - 14_f
+                - sqCFs3ViqesHgQ
+                - IFeQAauIOYC9bw
+                - 2jEqLoc2EiBcX0
             - **[2]**:
+              - **alvo_uid**: Lh2c78thHdoOQf
+              - **pontos_uids**:
+                - sqCFs3ViqesHgQ
+                - qSD4bkNKmphePO
+                - 2jEqLoc2EiBcX0
               - **escalada**: Vr. Caçadora de Micuim
               - **ids**:
-                - 14
-                - 15
-                - 14_f
+                - sqCFs3ViqesHgQ
+                - qSD4bkNKmphePO
+                - 2jEqLoc2EiBcX0
             - **[3]**:
+              - **alvo_uid**: pWBcHr8rhwyCCi
+              - **pontos_uids**:
+                - TcjVCFAP1Oqzml
+                - 2jEqLoc2EiBcX0
               - **escalada**: Frio na Barriga
               - **ids**:
-                - 16
-                - 14_f
+                - TcjVCFAP1Oqzml
+                - 2jEqLoc2EiBcX0
             - **[4]**:
+              - **alvo_uid**: 4n1dwoOH75Lr9B
+              - **pontos_uids**:
+                - cwKa9SvfDHbb84
               - **escalada**: Pescoço de Minhoca
               - **ids**:
-                - 17
+                - cwKa9SvfDHbb84
             - **[5]**:
+              - **alvo_uid**: FfXctqsX9cyPNm
+              - **pontos_uids**:
+                - JY4TyzBZhdIVGk
               - **escalada**: Grampos de Ferros
               - **ids**:
-                - 18
+                - JY4TyzBZhdIVGk
             - **[6]**:
+              - **alvo_uid**: 23GOgjFLTcBrv1
+              - **pontos_uids**:
+                - bM8zlEhULdhD2G
               - **escalada**: Prateado
               - **ids**:
-                - 19
+                - bM8zlEhULdhD2G
             - **[7]**:
-              - **ids**:
-                - professor_moriarty
-              - **grupo**: Parede das Aderências
-              - **setor**: Esquerda
+              - **alvo_uid**: zAer5lfKHjLRrt
+              - **pontos_uids**:
+                - 8Exxc2OBtOTVyP
               - **escalada**: Professor Moriarty
+              - **ids**:
+                - 8Exxc2OBtOTVyP
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 13
-              - **label**: 13
+              - **id**: E7CzEKrIBQhHRo
+              - **uid**: E7CzEKrIBQhHRo
+              - **rotulo**: 13
               - **circulo**:
                 - **x**: 684
                 - **y**: 1245
                 - **raio**: 35
+              - **label**: 13
             - **[1]**:
-              - **id**: 14
-              - **label**: 14
+              - **id**: sqCFs3ViqesHgQ
+              - **uid**: sqCFs3ViqesHgQ
+              - **rotulo**: 14
               - **circulo**:
                 - **x**: 785
                 - **y**: 1221
                 - **raio**: 35
+              - **label**: 14
             - **[2]**:
-              - **id**: 15
-              - **label**: 15
+              - **id**: qSD4bkNKmphePO
+              - **uid**: qSD4bkNKmphePO
+              - **rotulo**: 15
               - **circulo**:
                 - **x**: 852
                 - **y**: 835
                 - **raio**: 35
+              - **label**: 15
             - **[3]**:
-              - **id**: 16
-              - **label**: 16
+              - **id**: TcjVCFAP1Oqzml
+              - **uid**: TcjVCFAP1Oqzml
+              - **rotulo**: 16
               - **circulo**:
                 - **x**: 997
                 - **y**: 1186
                 - **raio**: 35
+              - **label**: 16
             - **[4]**:
-              - **id**: 17
-              - **label**: 17
+              - **id**: cwKa9SvfDHbb84
+              - **uid**: cwKa9SvfDHbb84
+              - **rotulo**: 17
               - **circulo**:
                 - **x**: 1086
                 - **y**: 1180
                 - **raio**: 35
+              - **label**: 17
             - **[5]**:
-              - **id**: 18
-              - **label**: 18
+              - **id**: JY4TyzBZhdIVGk
+              - **uid**: JY4TyzBZhdIVGk
+              - **rotulo**: 18
               - **circulo**:
                 - **x**: 1300
                 - **y**: 975
                 - **raio**: 35
+              - **label**: 18
             - **[6]**:
-              - **id**: 19
-              - **label**: 19
+              - **id**: bM8zlEhULdhD2G
+              - **uid**: bM8zlEhULdhD2G
+              - **rotulo**: 19
               - **circulo**:
                 - **x**: 1574
                 - **y**: 928
                 - **raio**: 35
+              - **label**: 19
             - **[7]**:
-              - **id**: professor_moriarty
-              - **label**: 12
+              - **id**: 8Exxc2OBtOTVyP
+              - **uid**: 8Exxc2OBtOTVyP
+              - **rotulo**: 12
               - **retangulo**:
                 - **x**: 426
                 - **y**: 1016
                 - **comprimento**: 379
                 - **largura**: 57
+              - **label**: 12
             - **[8]**:
-              - **id**: 14_f
-              - **label**: 
+              - **id**: 2jEqLoc2EiBcX0
+              - **uid**: 2jEqLoc2EiBcX0
+              - **rotulo**: 
               - **circulo**:
                 - **x**: 1236
                 - **y**: 215
                 - **raio**: 30
               - **cor**: 
-            - **[9]**:
-              - **id**: 14_m
               - **label**: 
+            - **[9]**:
+              - **id**: IFeQAauIOYC9bw
+              - **uid**: IFeQAauIOYC9bw
+              - **rotulo**: 
               - **circulo**:
                 - **x**: 929
                 - **y**: 630
                 - **raio**: 31
-            - **[10]**:
-              - **id**: 13_f
               - **label**: 
+            - **[10]**:
+              - **id**: xAZXuVMxdNNhRQ
+              - **uid**: xAZXuVMxdNNhRQ
+              - **rotulo**: 
               - **circulo**:
                 - **x**: 1172
                 - **y**: 152
                 - **raio**: 29
               - **cor**: 
+              - **label**: 
         - **[3]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_aderencias_setor_esquerda_p7_i1.webp)
           - **largura_mapa**: 1194
           - **altura_mapa**: 836
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 11
-              - **label**: 11
+              - **id**: OYiaQmp3nIjv6i
+              - **uid**: OYiaQmp3nIjv6i
+              - **rotulo**: 11
               - **circulo**:
                 - **x**: 121
                 - **y**: 812
                 - **raio**: 17
               - **cor**: 
+              - **label**: 11
             - **[1]**:
-              - **id**: 12
-              - **label**: 12
+              - **id**: Rk2CXyLjeRMYBQ
+              - **uid**: Rk2CXyLjeRMYBQ
+              - **rotulo**: 12
               - **circulo**:
                 - **x**: 283
                 - **y**: 805
                 - **raio**: 17
               - **cor**: 
+              - **label**: 12
             - **[2]**:
-              - **id**: 13
-              - **label**: 13
+              - **id**: KKRRlP5KABfxTM
+              - **uid**: KKRRlP5KABfxTM
+              - **rotulo**: 13
               - **circulo**:
                 - **x**: 344
                 - **y**: 788
                 - **raio**: 17
               - **cor**: 
+              - **label**: 13
             - **[3]**:
-              - **id**: 14
-              - **label**: 14
+              - **id**: FS7RbMaMDzEdG1
+              - **uid**: FS7RbMaMDzEdG1
+              - **rotulo**: 14
               - **circulo**:
                 - **x**: 377
                 - **y**: 551
                 - **raio**: 17
               - **cor**: 
+              - **label**: 14
             - **[4]**:
-              - **id**: 15
-              - **label**: 15
+              - **id**: anMtzBqmQpnaQB
+              - **uid**: anMtzBqmQpnaQB
+              - **rotulo**: 15
               - **circulo**:
                 - **x**: 518
                 - **y**: 767
                 - **raio**: 17
               - **cor**: 
+              - **label**: 15
             - **[5]**:
-              - **id**: 16
-              - **label**: 16
+              - **id**: oPZz9xFsspOxYM
+              - **uid**: oPZz9xFsspOxYM
+              - **rotulo**: 16
               - **circulo**:
                 - **x**: 629
                 - **y**: 734
                 - **raio**: 17
               - **cor**: 
+              - **label**: 16
             - **[6]**:
-              - **id**: 17
-              - **label**: 17
+              - **id**: 2jqNfK3CJlVtSF
+              - **uid**: 2jqNfK3CJlVtSF
+              - **rotulo**: 17
               - **circulo**:
                 - **x**: 792
                 - **y**: 645
                 - **raio**: 17
               - **cor**: 
+              - **label**: 17
             - **[7]**:
-              - **id**: 18
-              - **label**: 18
+              - **id**: m6nJ9TB2gui4WM
+              - **uid**: m6nJ9TB2gui4WM
+              - **rotulo**: 18
               - **circulo**:
                 - **x**: 965
                 - **y**: 622
                 - **raio**: 17
               - **cor**: 
+              - **label**: 18
             - **[8]**:
-              - **id**: p1_1
-              - **label**: 
+              - **id**: WSp4mqPB5UKdHw
+              - **uid**: WSp4mqPB5UKdHw
+              - **rotulo**: 
               - **circulo**:
                 - **x**: 168
                 - **y**: 559
                 - **raio**: 14
               - **cor**: 
-            - **[9]**:
-              - **id**: p1_2
               - **label**: 
+            - **[9]**:
+              - **id**: hZUphK8SXtdC08
+              - **uid**: hZUphK8SXtdC08
+              - **rotulo**: 
               - **circulo**:
                 - **x**: 314
                 - **y**: 503
                 - **raio**: 14
               - **cor**: 
-            - **[10]**:
-              - **id**: p2_2
               - **label**: 
+            - **[10]**:
+              - **id**: ULo0QFGhoWbVWr
+              - **uid**: ULo0QFGhoWbVWr
+              - **rotulo**: 
               - **circulo**:
                 - **x**: 480
                 - **y**: 231
                 - **raio**: 14
               - **cor**: 
-            - **[11]**:
-              - **id**: p3_2
               - **label**: 
+            - **[11]**:
+              - **id**: DL27zgV3EsAaIt
+              - **uid**: DL27zgV3EsAaIt
+              - **rotulo**: 
               - **circulo**:
                 - **x**: 552
                 - **y**: 122
                 - **raio**: 15
               - **cor**: 
-            - **[12]**:
-              - **id**: p1_13
               - **label**: 
+            - **[12]**:
+              - **id**: SELzETdojxt5zg
+              - **uid**: SELzETdojxt5zg
+              - **rotulo**: 
               - **circulo**:
                 - **x**: 435
                 - **y**: 451
                 - **raio**: 14
               - **cor**: 
-            - **[13]**:
-              - **id**: p2_13
               - **label**: 
+            - **[13]**:
+              - **id**: 02kcipIXqEvbIv
+              - **uid**: 02kcipIXqEvbIv
+              - **rotulo**: 
               - **circulo**:
                 - **x**: 538
                 - **y**: 345
                 - **raio**: 14
               - **cor**: 
-            - **[14]**:
-              - **id**: p1_16
               - **label**: 
+            - **[14]**:
+              - **id**: OZckFWak6YbkUa
+              - **uid**: OZckFWak6YbkUa
+              - **rotulo**: 
               - **circulo**:
                 - **x**: 685
                 - **y**: 488
                 - **raio**: 14
-            - **[15]**:
-              - **id**: p2_16
               - **label**: 
+            - **[15]**:
+              - **id**: 459Ihi85cBP7Ld
+              - **uid**: 459Ihi85cBP7Ld
+              - **rotulo**: 
               - **circulo**:
                 - **x**: 706
                 - **y**: 293
                 - **raio**: 14
               - **cor**: 
-            - **[16]**:
-              - **id**: p3_16
               - **label**: 
+            - **[16]**:
+              - **id**: NGbRPCY1OH3GVM
+              - **uid**: NGbRPCY1OH3GVM
+              - **rotulo**: 
               - **circulo**:
                 - **x**: 726
                 - **y**: 76
                 - **raio**: 13
               - **cor**: 
-            - **[17]**:
-              - **id**: p1_17
               - **label**: 
+            - **[17]**:
+              - **id**: sGXBFeH4cVXXNf
+              - **uid**: sGXBFeH4cVXXNf
+              - **rotulo**: 
               - **circulo**:
                 - **x**: 869
                 - **y**: 418
                 - **raio**: 15
               - **cor**: 
-            - **[18]**:
-              - **id**: p2_17
               - **label**: 
+            - **[18]**:
+              - **id**: SNf1ov65lDYKpd
+              - **uid**: SNf1ov65lDYKpd
+              - **rotulo**: 
               - **circulo**:
                 - **x**: 859
                 - **y**: 183
                 - **raio**: 14
               - **cor**: 
-            - **[19]**:
-              - **id**: p1_18
               - **label**: 
+            - **[19]**:
+              - **id**: EwgSzhyCX1GzhZ
+              - **uid**: EwgSzhyCX1GzhZ
+              - **rotulo**: 
               - **circulo**:
                 - **x**: 1025
                 - **y**: 378
                 - **raio**: 14
               - **cor**: 
-            - **[20]**:
-              - **id**: p2_18
               - **label**: 
+            - **[20]**:
+              - **id**: jgob6NJjP4qXQ7
+              - **uid**: jgob6NJjP4qXQ7
+              - **rotulo**: 
               - **circulo**:
                 - **x**: 1038
                 - **y**: 168
                 - **raio**: 14
               - **cor**: 
-            - **[21]**:
-              - **id**: p3_18
               - **label**: 
+            - **[21]**:
+              - **id**: tQs1g2l8JwFnqI
+              - **uid**: tQs1g2l8JwFnqI
+              - **rotulo**: 
               - **circulo**:
                 - **x**: 1017
                 - **y**: 33
                 - **raio**: 14
               - **cor**: 
-            - **[22]**:
-              - **id**: 15_f
               - **label**: 
+            - **[22]**:
+              - **id**: 17oZg1SQPsSHOK
+              - **uid**: 17oZg1SQPsSHOK
+              - **rotulo**: 
               - **circulo**:
                 - **x**: 613
                 - **y**: 175
                 - **raio**: 16
               - **cor**: 
+              - **label**: 
           - **referencias**:
             - **[0]**:
-              - **ids**:
-                - 11
-                - p1_1
-              - **grupo**: Parede das Aderências
-              - **setor**: Esquerda
+              - **alvo_uid**: zAer5lfKHjLRrt
+              - **pontos_uids**:
+                - OYiaQmp3nIjv6i
+                - WSp4mqPB5UKdHw
               - **escalada**: Professor Moriarty
+              - **ids**:
+                - OYiaQmp3nIjv6i
+                - WSp4mqPB5UKdHw
             - **[1]**:
-              - **ids**:
-                - 12
-                - p1_2
-                - p2_2
-                - p3_2
-              - **grupo**: Parede das Aderências
-              - **setor**: Esquerda
+              - **alvo_uid**: 54QYbrLKmkogRb
+              - **pontos_uids**:
+                - Rk2CXyLjeRMYBQ
+                - hZUphK8SXtdC08
+                - ULo0QFGhoWbVWr
+                - DL27zgV3EsAaIt
               - **escalada**: Que Qui Ocê Foi Fazê Nu Mato?
+              - **ids**:
+                - Rk2CXyLjeRMYBQ
+                - hZUphK8SXtdC08
+                - ULo0QFGhoWbVWr
+                - DL27zgV3EsAaIt
             - **[2]**:
-              - **ids**:
-                - 13
-                - p1_13
-                - p2_13
-                - 15_f
-              - **grupo**: Parede das Aderências
-              - **setor**: Esquerda
+              - **alvo_uid**: KZRNauwDZ1oZM8
+              - **pontos_uids**:
+                - KKRRlP5KABfxTM
+                - SELzETdojxt5zg
+                - 02kcipIXqEvbIv
+                - 17oZg1SQPsSHOK
               - **escalada**: O Psicopata de Ferros
+              - **ids**:
+                - KKRRlP5KABfxTM
+                - SELzETdojxt5zg
+                - 02kcipIXqEvbIv
+                - 17oZg1SQPsSHOK
             - **[3]**:
-              - **ids**:
-                - p2_13
-                - 13
-                - 14
-                - 15_f
-              - **grupo**: Parede das Aderências
-              - **setor**: Esquerda
+              - **alvo_uid**: Lh2c78thHdoOQf
+              - **pontos_uids**:
+                - 02kcipIXqEvbIv
+                - KKRRlP5KABfxTM
+                - FS7RbMaMDzEdG1
+                - 17oZg1SQPsSHOK
               - **escalada**: Vr. Caçadora de Micuim
+              - **ids**:
+                - 02kcipIXqEvbIv
+                - KKRRlP5KABfxTM
+                - FS7RbMaMDzEdG1
+                - 17oZg1SQPsSHOK
             - **[4]**:
-              - **ids**:
-                - 15
-                - p2_13
-                - 15_f
-              - **grupo**: Parede das Aderências
-              - **setor**: Esquerda
+              - **alvo_uid**: pWBcHr8rhwyCCi
+              - **pontos_uids**:
+                - anMtzBqmQpnaQB
+                - 02kcipIXqEvbIv
+                - 17oZg1SQPsSHOK
               - **escalada**: Frio na Barriga
+              - **ids**:
+                - anMtzBqmQpnaQB
+                - 02kcipIXqEvbIv
+                - 17oZg1SQPsSHOK
             - **[5]**:
-              - **ids**:
-                - 16
-                - p1_16
-                - p2_16
-                - p3_16
-              - **grupo**: Parede das Aderências
-              - **setor**: Esquerda
+              - **alvo_uid**: 4n1dwoOH75Lr9B
+              - **pontos_uids**:
+                - oPZz9xFsspOxYM
+                - OZckFWak6YbkUa
+                - 459Ihi85cBP7Ld
+                - NGbRPCY1OH3GVM
               - **escalada**: Pescoço de Minhoca
+              - **ids**:
+                - oPZz9xFsspOxYM
+                - OZckFWak6YbkUa
+                - 459Ihi85cBP7Ld
+                - NGbRPCY1OH3GVM
             - **[6]**:
-              - **ids**:
-                - 17
-                - p1_17
-                - p2_17
-              - **grupo**: Parede das Aderências
-              - **setor**: Esquerda
+              - **alvo_uid**: FfXctqsX9cyPNm
+              - **pontos_uids**:
+                - 2jqNfK3CJlVtSF
+                - sGXBFeH4cVXXNf
+                - SNf1ov65lDYKpd
               - **escalada**: Grampos de Ferros
-            - **[7]**:
               - **ids**:
-                - 18
-                - p1_18
-                - p2_18
-                - p3_18
-              - **grupo**: Parede das Aderências
-              - **setor**: Esquerda
+                - 2jqNfK3CJlVtSF
+                - sGXBFeH4cVXXNf
+                - SNf1ov65lDYKpd
+            - **[7]**:
+              - **alvo_uid**: 23GOgjFLTcBrv1
+              - **pontos_uids**:
+                - m6nJ9TB2gui4WM
+                - EwgSzhyCX1GzhZ
+                - jgob6NJjP4qXQ7
+                - tQs1g2l8JwFnqI
               - **escalada**: Prateado
+              - **ids**:
+                - m6nJ9TB2gui4WM
+                - EwgSzhyCX1GzhZ
+                - jgob6NJjP4qXQ7
+                - tQs1g2l8JwFnqI
       - **escaladas**:
         - **[0]**:
+          - **uid**: OooYcOKRLhMoqQ
           - **via_multiplas_enfiadas**:
             - **descricao**:
                 Via iniciada na mesma base da “Inês é Morta”, em um pequeno diedro que pode ter sua proteção melhorada com friends médios e pequenos (opcionais). Segue por pequenos platôs de mato em lances fáceis até alcançar seu primeiro grampo. Ganha verticalidade ao longo da via, possuindo um crux bem definido na altura do quinto grampo. O nome da via está relacionado com a soma das idades dos autores!
@@ -1427,6 +1836,7 @@
               - **largura_mapa**: 816
               - **altura_mapa**: 1224
         - **[1]**:
+          - **uid**: syMm9HdckIoPMR
           - **via_multiplas_enfiadas**:
             - **descricao**:
                 Via mista, equipada com 9 grampos de ½, mais 2 “emprestados” da “Zé Marta”, onde termina. Possui em seu início um diedro, protegido em móvel, logo após o lance inicial protegido por um grampo.
@@ -1441,6 +1851,7 @@
               - Celso Ferreira Gomes
             - **data_abertura**: 2011-10-29
         - **[2]**:
+          - **uid**: BMS3wqQ0kWHk78
           - **via_esportiva**:
             - **descricao**: Via curta que se junta com a “Inês é Morta” em sua metade inferior.
             - **nome**: Sempre Viva
@@ -1452,6 +1863,7 @@
               - Celso Ferreira Gomes
             - **data_abertura**: 2011-12-08
         - **[3]**:
+          - **uid**: jyOjeBWP26lIao
           - **via_movel**:
             - **descricao**:
                 Via mista, iniciando com um lance de agarras (crux) protegido por grampos, seguido de uma interessante fissura frontal protegida em nuts de cabo e friends pequenos, juntando com a via “Zé Marta” em sua metade. Rapel com corda única pela via “Zé Marta”.
@@ -1465,6 +1877,7 @@
               - Nádia Moreira
             - **data_abertura**: 2009-06-13
         - **[4]**:
+          - **uid**: ULTyZgOtMxNFom
           - **via_multiplas_enfiadas**:
             - **descricao**:
                 Via interessante que se inicia em um veio de cristal. Possui uma extensão surpreendente o que a tornou uma linha mestra do local. Toda equipada com grampos. Homenageia o sogro do Tonico Magalhães que é o supervisor da fazenda.
@@ -1479,6 +1892,7 @@
               - Júlio César Cardoso
             - **data_abertura**: 2009-05-30
         - **[5]**:
+          - **uid**: NvnbmTWxZwAeaC
           - **via_esportiva**:
             - **descricao**: Inicia em um lance feito em artificial (que ainda pode ser liberado) e continua em aderência até o final.
             - **nome**: Bolinha
@@ -1491,6 +1905,7 @@
               - Celso Ferreira Gomes
             - **data_abertura**: 2015-09-07
         - **[6]**:
+          - **uid**: aGn3kLxDWXmL7l
           - **via_esportiva**:
             - **descricao**: Toda equipada com grampos, termina numa parada dupla da via Maria Diz Graça.
             - **nome**: Testa de Ferro
@@ -1502,6 +1917,7 @@
               - Nádia Moreira
             - **data_abertura**: 2007-04-07
         - **[7]**:
+          - **uid**: Q0gA9cLX0i5EvP
           - **via_esportiva**:
             - **descricao**:
                 Via esportiva em aderência complexa, apesar de curta, com proteções generosas. Rapel e/ou top-rope com corda única de 50m. Termina na Maria Diz Graça.
@@ -1514,6 +1930,7 @@
               - Júlio César Cardoso
             - **data_abertura**: 2008-10-05
         - **[8]**:
+          - **uid**: KareRpi4XssXAb
           - **via_esportiva**:
             - **descricao**:
                 Uma das vias mais antigas do polo. Possui belíssimos lances de aderência e pode ser considerada como um programa obrigatório. Homenageia a "amável" vizinha da fazenda, filha do famoso Juca Realino.
@@ -1527,6 +1944,7 @@
               - Gustavo "Xaxá" Carrozzino
             - **data_abertura**: 2006-07-15
         - **[9]**:
+          - **uid**: dGowTTpgXqxB0G
           - **via_esportiva**:
             - **descricao**:
                 O crux é o terceiro e exigente lance de aderência. Com boa proteção fixa a via mostra-se muito interessante. Homenageia o falecido morador da entrada do Vale do Roncador.
@@ -1540,6 +1958,7 @@
               - Júlio César Cardoso
             - **data_abertura**: 2008-10-07
         - **[10]**:
+          - **uid**: yLiR02mEPVqHkY
           - **via_esportiva**:
             - **descricao**: Pequena via, porém complexa, com boas passadas em aderência e boa grampeação.
             - **nome**: Sherlock Holmes
@@ -1550,6 +1969,7 @@
               - Celso Ferreira Gomes
             - **data_abertura**: 2012-03-25
         - **[11]**:
+          - **uid**: zAer5lfKHjLRrt
           - **via_esportiva**:
             - **descricao**: Via curta com bons lances de agarras e aderência, contando com 6 grampos. Ideal para top-rope.
             - **nome**: Professor Moriarty
@@ -1563,6 +1983,7 @@
               - Maria Fernanda Patrício
             - **data_abertura**: 2012-04-07
         - **[12]**:
+          - **uid**: 54QYbrLKmkogRb
           - **via_multiplas_enfiadas**:
             - **descricao**:
                 Interessante via que segue, quase em sua totalidade, a visível faixa branca que corta toda a extensão vertical da parede neste setor. O crux fica nos primeiros 10 metros, sempre com boa proteção. Daí para cima, a via perde inclinação e passa por lances bastante divertidos, em aderência e cristaleiras. P1 aos 40m (parada dupla), P2 aos 55m (parada simples) e P3 aos 30m (parada dupla).
@@ -1579,6 +2000,7 @@
               - Maria Fernanda Patrício
             - **data_abertura**: 2012-02-20
         - **[13]**:
+          - **uid**: KZRNauwDZ1oZM8
           - **via_multiplas_enfiadas**:
             - **descricao**:
                 Boa via que possui seu crux logo nos primeiros 15 metros, em aderência e pequenos cristais. É necessário fazer proteção móvel com friend médio, em um buraco, entre o segundo e terceiro grampos da via. Após a P1, segue em diagonal para a direita, juntando com a via “Frio na Barriga”. Rapel pela via “Frio na Barriga”, com corda única de 50m ou pela própria via, com duas cordas de 50m. P1 aos 50m e P2 aos 20m, ambas com paradas duplas.
@@ -1598,6 +2020,7 @@
               - Maria Fernanda Patrício
             - **data_abertura**: 2012-02-20
         - **[14]**:
+          - **uid**: Lh2c78thHdoOQf
           - **via_movel**:
             - **descricao**:
                 Variante que liga a “Psicopata de Ferros” a “Frio na Barriga”, seguindo um sistema de finas fissuras, bem protegidas por friends e nuts pequenos e micros. Boa via para quem está começando a guiar em móvel, pois além de relativamente curta, possui graduação baixa e com boas opções de proteção.
@@ -1612,6 +2035,7 @@
               - Carla Paiva
             - **data_abertura**: 2014-10-01
         - **[15]**:
+          - **uid**: pWBcHr8rhwyCCi
           - **via_multiplas_enfiadas**:
             - **descricao**:
                 Via que segue uma linha natural, sempre com boa proteção e paradas duplas. Rapel com corda única de 50m. Inicialmente, possuía apenas 40 metros, sendo posteriormente complementada. Nota: no guia original a via está com o croqui incompleto, mostrando apenas a linha da via.
@@ -1629,6 +2053,7 @@
               - Vicente Alvarenga
             - **data_abertura**: 2009-04-21
         - **[16]**:
+          - **uid**: 4n1dwoOH75Lr9B
           - **via_multiplas_enfiadas**:
             - **descricao**:
                 Via relativamente longa e constante, que conta com 25 grampos de ½. Inicia-se em uma cristaleira espetacular. Rapel com corda única de 50m. P1 aos 45m (parada simples), P2 aos 45m (parada dupla) e P3 aos 50m (parada dupla).
@@ -1645,6 +2070,7 @@
               - Celso Ferreira Gomes
             - **data_abertura**: 2011-07-20
         - **[17]**:
+          - **uid**: FfXctqsX9cyPNm
           - **via_multiplas_enfiadas**:
             - **descricao**:
                 Via altamente recomendada para quem gosta de aderência em graduação não muito elevada, sempre com boa proteção em grampos de ½ e paradas duplas. Possui um diedro inicial (crux) em móvel protegido por friends pequenos e médios. P1 aos 50m e P2 aos 60m.
@@ -1663,6 +2089,7 @@
               - Celso Ferreira Gomes
             - **data_abertura**: 2010-09-10
         - **[18]**:
+          - **uid**: 23GOgjFLTcBrv1
           - **via_multiplas_enfiadas**:
             - **descricao**:
                 Via que conta com 19 grampos de ½ e três paradas duplas. Homenageia o falecido garanhão Mangalarga-marchador Prateado, que fez história na fazenda. P1 aos 50m, P2 aos 50m e P3 aos 30m. Nota: as paradas duplas da via podem estar incorretas, bem como falta a confirmação da graduação dos lances isoladamente, necessitando repetição para confirmação.
@@ -1711,6 +2138,7 @@
           | :--: |
           | *Glesse Gripp guiando a clássica “Social Club”. (Foto: Nádia Moreira)* |
       - **nome**: Face Central
+      - **uid**: rGOlhPmCuaVWav
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_aderencias_setor_face_central_p1_i0.webp)
@@ -1718,661 +2146,865 @@
           - **altura_mapa**: 1240
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: Setor_Classicas_Curtas
-              - **label**: Setor Clássicas Curtas
+              - **id**: QX9X1VWhHyiu0k
+              - **uid**: QX9X1VWhHyiu0k
+              - **rotulo**: Setor Clássicas Curtas
               - **retangulo**:
                 - **x**: 237
                 - **y**: 202
                 - **comprimento**: 346
                 - **largura**: 52
+              - **label**: Setor Clássicas Curtas
             - **[1]**:
-              - **id**: Aderencias_Esquerda_1
-              - **label**: Aderências - Esquerda 1
+              - **id**: HRfdiFKUw8SA4o
+              - **uid**: HRfdiFKUw8SA4o
+              - **rotulo**: Aderências - Esquerda 1
               - **retangulo**:
                 - **x**: 940
                 - **y**: 115
                 - **comprimento**: 358
                 - **largura**: 52
+              - **label**: Aderências - Esquerda 1
             - **[2]**:
-              - **id**: Aderencias_Esquerda_2
-              - **label**: Aderências - Esquerda 2
+              - **id**: oSTYxOPemGa3hY
+              - **uid**: oSTYxOPemGa3hY
+              - **rotulo**: Aderências - Esquerda 2
               - **retangulo**:
                 - **x**: 1252
                 - **y**: 308
                 - **comprimento**: 380
                 - **largura**: 52
+              - **label**: Aderências - Esquerda 2
             - **[3]**:
-              - **id**: Parede_Principal_Direira
-              - **label**: Parede Principal Direira
+              - **id**: ZqKbS4kzj4n5PF
+              - **uid**: ZqKbS4kzj4n5PF
+              - **rotulo**: Parede Principal Direira
               - **retangulo**:
                 - **x**: 729
                 - **y**: 618
                 - **comprimento**: 264
                 - **largura**: 85
+              - **label**: Parede Principal Direira
             - **[4]**:
-              - **id**: Aderencias_Setor_de_Cima
-              - **label**: Aderências - Setor de Cima
+              - **id**: 1hXym8xnpmF6Cg
+              - **uid**: 1hXym8xnpmF6Cg
+              - **rotulo**: Aderências - Setor de Cima
               - **retangulo**:
                 - **x**: 1794
                 - **y**: 813
                 - **comprimento**: 228
                 - **largura**: 70
+              - **label**: Aderências - Setor de Cima
             - **[5]**:
-              - **id**: Parede_Principal_Face_Central
-              - **label**: Parede Principal - Face Central
+              - **id**: mzd3Hsy0mOAx7X
+              - **uid**: mzd3Hsy0mOAx7X
+              - **rotulo**: Parede Principal - Face Central
               - **retangulo**:
                 - **x**: 1034
                 - **y**: 1182
                 - **comprimento**: 458
                 - **largura**: 67
+              - **label**: Parede Principal - Face Central
             - **[6]**:
-              - **id**: 1
-              - **label**: 1
+              - **id**: 899M8pIIKGUdYO
+              - **uid**: 899M8pIIKGUdYO
+              - **rotulo**: 1
               - **circulo**:
                 - **x**: 1318
                 - **y**: 694
                 - **raio**: 20
+              - **label**: 1
             - **[7]**:
-              - **id**: 2
-              - **label**: 2
+              - **id**: uSsgngvNH9ANJz
+              - **uid**: uSsgngvNH9ANJz
+              - **rotulo**: 2
               - **circulo**:
                 - **x**: 1400
                 - **y**: 812
                 - **raio**: 20
+              - **label**: 2
             - **[8]**:
-              - **id**: 3
-              - **label**: 3
+              - **id**: 1LsvcRVHrRFTI5
+              - **uid**: 1LsvcRVHrRFTI5
+              - **rotulo**: 3
               - **circulo**:
                 - **x**: 1445
                 - **y**: 855
                 - **raio**: 20
+              - **label**: 3
             - **[9]**:
-              - **id**: 4
-              - **label**: 4
+              - **id**: z387zDwfysAF0J
+              - **uid**: z387zDwfysAF0J
+              - **rotulo**: 4
               - **circulo**:
                 - **x**: 1524
                 - **y**: 882
                 - **raio**: 20
+              - **label**: 4
           - **referencias**:
             - **[0]**:
-              - **ids**:
-                - Aderencias_Esquerda_1
-              - **grupo**: Parede das Aderências
+              - **alvo_uid**: FO3KvzGBfKKpB4
+              - **pontos_uids**:
+                - HRfdiFKUw8SA4o
               - **setor**: Extrema Esquerda
+              - **ids**:
+                - HRfdiFKUw8SA4o
             - **[1]**:
-              - **ids**:
-                - Aderencias_Esquerda_2
-              - **grupo**: Parede das Aderências
+              - **alvo_uid**: avRkW8fzw3OF22
+              - **pontos_uids**:
+                - oSTYxOPemGa3hY
               - **setor**: Esquerda
+              - **ids**:
+                - oSTYxOPemGa3hY
             - **[2]**:
-              - **ids**:
-                - Setor_Classicas_Curtas
-              - **grupo**: Parede Principal (Paredes de Aço)
+              - **alvo_uid**: rKxz4SSg8tyORQ
+              - **pontos_uids**:
+                - QX9X1VWhHyiu0k
               - **setor**: Setor Clássicas Curtas
+              - **ids**:
+                - QX9X1VWhHyiu0k
             - **[3]**:
-              - **ids**:
-                - Aderencias_Setor_de_Cima
-              - **grupo**: Parede das Aderências
+              - **alvo_uid**: E0ZwbLrlRUznG0
+              - **pontos_uids**:
+                - 1hXym8xnpmF6Cg
               - **setor**: Setor de Cima
+              - **ids**:
+                - 1hXym8xnpmF6Cg
             - **[4]**:
-              - **ids**:
-                - Parede_Principal_Face_Central
-              - **grupo**: Parede Principal (Paredes de Aço)
+              - **alvo_uid**: nJgmAcSxMTe2Xy
+              - **pontos_uids**:
+                - mzd3Hsy0mOAx7X
               - **setor**: Setor Central
+              - **ids**:
+                - mzd3Hsy0mOAx7X
             - **[5]**:
-              - **ids**:
-                - 1
-              - **grupo**: Parede das Aderências
-              - **setor**: Face Central
+              - **alvo_uid**: Kluqo9Qj90DcG6
+              - **pontos_uids**:
+                - 899M8pIIKGUdYO
               - **escalada**: Vr. Esquibunda
+              - **ids**:
+                - 899M8pIIKGUdYO
             - **[6]**:
-              - **ids**:
-                - 1
-              - **grupo**: Parede das Aderências
-              - **setor**: Face Central
+              - **alvo_uid**: csAOpWzD3bsuiz
+              - **pontos_uids**:
+                - 899M8pIIKGUdYO
               - **escalada**: Pr. Aerolitos
+              - **ids**:
+                - 899M8pIIKGUdYO
             - **[7]**:
-              - **ids**:
-                - 1
-              - **grupo**: Parede das Aderências
-              - **setor**: Face Central
+              - **alvo_uid**: ybGBKOoZNgJCpG
+              - **pontos_uids**:
+                - 899M8pIIKGUdYO
               - **escalada**: Facão Foi-se
+              - **ids**:
+                - 899M8pIIKGUdYO
             - **[8]**:
-              - **ids**:
-                - 1
-              - **grupo**: Parede das Aderências
-              - **setor**: Face Central
+              - **alvo_uid**: hbR1sZ7v7RoYJp
+              - **pontos_uids**:
+                - 899M8pIIKGUdYO
               - **escalada**: Antes Só do Que Mal Acompanhado
+              - **ids**:
+                - 899M8pIIKGUdYO
             - **[9]**:
-              - **ids**:
-                - 1
-              - **grupo**: Parede das Aderências
-              - **setor**: Face Central
+              - **alvo_uid**: amCMhA1NdrgmEY
+              - **pontos_uids**:
+                - 899M8pIIKGUdYO
               - **escalada**: Hematita
+              - **ids**:
+                - 899M8pIIKGUdYO
             - **[10]**:
-              - **ids**:
-                - 1
-              - **grupo**: Parede das Aderências
-              - **setor**: Face Central
+              - **alvo_uid**: GpY3uMFI4VpQxp
+              - **pontos_uids**:
+                - 899M8pIIKGUdYO
               - **escalada**: Pavão Misterioso
+              - **ids**:
+                - 899M8pIIKGUdYO
             - **[11]**:
-              - **ids**:
-                - 2
-              - **grupo**: Parede das Aderências
-              - **setor**: Face Central
+              - **alvo_uid**: Ef7s9vjHhbTh7d
+              - **pontos_uids**:
+                - uSsgngvNH9ANJz
               - **escalada**: Elementar, Meu Caro Watson!
+              - **ids**:
+                - uSsgngvNH9ANJz
             - **[12]**:
-              - **ids**:
-                - 3
-              - **grupo**: Parede das Aderências
-              - **setor**: Face Central
+              - **alvo_uid**: ozdIvXqV39O4hQ
+              - **pontos_uids**:
+                - 1LsvcRVHrRFTI5
               - **escalada**: Balzac
+              - **ids**:
+                - 1LsvcRVHrRFTI5
             - **[13]**:
-              - **ids**:
-                - 3
-              - **grupo**: Parede das Aderências
-              - **setor**: Face Central
+              - **alvo_uid**: FuC48kY6wrQaIy
+              - **pontos_uids**:
+                - 1LsvcRVHrRFTI5
               - **escalada**: Dez Fora
+              - **ids**:
+                - 1LsvcRVHrRFTI5
             - **[14]**:
-              - **ids**:
-                - 3
-              - **grupo**: Parede das Aderências
-              - **setor**: Face Central
+              - **alvo_uid**: Wy4AZC0YXu6GAs
+              - **pontos_uids**:
+                - 1LsvcRVHrRFTI5
               - **escalada**: Cordeiro de Deus
+              - **ids**:
+                - 1LsvcRVHrRFTI5
             - **[15]**:
-              - **ids**:
-                - 3
-              - **grupo**: Parede das Aderências
-              - **setor**: Face Central
+              - **alvo_uid**: uKEKgStDTNazju
+              - **pontos_uids**:
+                - 1LsvcRVHrRFTI5
               - **escalada**: Cinquentona de Ferros
+              - **ids**:
+                - 1LsvcRVHrRFTI5
             - **[16]**:
-              - **ids**:
-                - 4
-              - **grupo**: Parede das Aderências
-              - **setor**: Face Central
+              - **alvo_uid**: 3I50paZMH7yne8
+              - **pontos_uids**:
+                - z387zDwfysAF0J
               - **escalada**: Coração Valente
+              - **ids**:
+                - z387zDwfysAF0J
             - **[17]**:
-              - **ids**:
-                - 4
-              - **grupo**: Parede das Aderências
-              - **setor**: Face Central
+              - **alvo_uid**: aNLsrhZbdKaVwZ
+              - **pontos_uids**:
+                - z387zDwfysAF0J
               - **escalada**: Expo CERJ!
+              - **ids**:
+                - z387zDwfysAF0J
             - **[18]**:
-              - **ids**:
-                - 4
-              - **grupo**: Parede das Aderências
-              - **setor**: Face Central
+              - **alvo_uid**: 9aBkEGGdm0Uwj1
+              - **pontos_uids**:
+                - z387zDwfysAF0J
               - **escalada**: Social Club
+              - **ids**:
+                - z387zDwfysAF0J
             - **[19]**:
-              - **ids**:
-                - 4
-              - **grupo**: Parede das Aderências
-              - **setor**: Face Central
+              - **alvo_uid**: 4IbUftnrAJSYBT
+              - **pontos_uids**:
+                - z387zDwfysAF0J
               - **escalada**: Pr. Tonico Magalhães
+              - **ids**:
+                - z387zDwfysAF0J
             - **[20]**:
-              - **ids**:
-                - 4
-              - **grupo**: Parede das Aderências
-              - **setor**: Face Central
+              - **alvo_uid**: rWMLkzsMZiRO3H
+              - **pontos_uids**:
+                - z387zDwfysAF0J
               - **escalada**: E o Rio Levou
-            - **[21]**:
               - **ids**:
-                - Parede_Principal_Direira
-              - **grupo**: Parede Principal (Paredes de Aço)
+                - z387zDwfysAF0J
+            - **[21]**:
+              - **alvo_uid**: g0ASFec0ovBc9J
+              - **pontos_uids**:
+                - ZqKbS4kzj4n5PF
               - **setor**: Parede Principal – Direita
+              - **ids**:
+                - ZqKbS4kzj4n5PF
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_aderencias_setor_face_central_p2_i0.webp)
           - **largura_mapa**: 1970
           - **altura_mapa**: 1268
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: Kluqo9Qj90DcG6
+              - **pontos_uids**:
+                - cysy7IIjTYexea
               - **escalada**: Vr. Esquibunda
               - **ids**:
-                - 1
+                - cysy7IIjTYexea
             - **[1]**:
+              - **alvo_uid**: csAOpWzD3bsuiz
+              - **pontos_uids**:
+                - Ctdf75zYM7DrAw
               - **escalada**: Pr. Aerolitos
               - **ids**:
-                - 2
+                - Ctdf75zYM7DrAw
             - **[2]**:
+              - **alvo_uid**: ybGBKOoZNgJCpG
+              - **pontos_uids**:
+                - HcnWx1WHfg6Ky8
               - **escalada**: Facão Foi-se
               - **ids**:
-                - 3
+                - HcnWx1WHfg6Ky8
             - **[3]**:
+              - **alvo_uid**: hbR1sZ7v7RoYJp
+              - **pontos_uids**:
+                - NLCiLXZgvAYP7V
               - **escalada**: Antes Só do Que Mal Acompanhado
               - **ids**:
-                - 4
+                - NLCiLXZgvAYP7V
             - **[4]**:
+              - **alvo_uid**: amCMhA1NdrgmEY
+              - **pontos_uids**:
+                - hCe8CrhpJy0Cgp
               - **escalada**: Hematita
               - **ids**:
-                - 5
+                - hCe8CrhpJy0Cgp
             - **[5]**:
+              - **alvo_uid**: GpY3uMFI4VpQxp
+              - **pontos_uids**:
+                - d8rK6wTOkFtPgs
               - **escalada**: Pavão Misterioso
               - **ids**:
-                - 6
+                - d8rK6wTOkFtPgs
             - **[6]**:
+              - **alvo_uid**: Ef7s9vjHhbTh7d
+              - **pontos_uids**:
+                - wdNWbrZIB2YoMd
               - **escalada**: Elementar, Meu Caro Watson!
               - **ids**:
-                - 7
+                - wdNWbrZIB2YoMd
             - **[7]**:
+              - **alvo_uid**: ozdIvXqV39O4hQ
+              - **pontos_uids**:
+                - kttnhsiKxHZ9fQ
               - **escalada**: Balzac
               - **ids**:
-                - 8
+                - kttnhsiKxHZ9fQ
             - **[8]**:
+              - **alvo_uid**: FuC48kY6wrQaIy
+              - **pontos_uids**:
+                - 23KQzFCRwpxVSv
               - **escalada**: Dez Fora
               - **ids**:
-                - 9
+                - 23KQzFCRwpxVSv
             - **[9]**:
+              - **alvo_uid**: Wy4AZC0YXu6GAs
+              - **pontos_uids**:
+                - YX1Be4v7TOri2W
               - **escalada**: Cordeiro de Deus
               - **ids**:
-                - 10
+                - YX1Be4v7TOri2W
             - **[10]**:
+              - **alvo_uid**: uKEKgStDTNazju
+              - **pontos_uids**:
+                - RNgW5IudcKZUKK
               - **escalada**: Cinquentona de Ferros
               - **ids**:
-                - 11
+                - RNgW5IudcKZUKK
             - **[11]**:
+              - **alvo_uid**: 3I50paZMH7yne8
+              - **pontos_uids**:
+                - QktWmB6vX9Zf10
               - **escalada**: Coração Valente
               - **ids**:
-                - 12
+                - QktWmB6vX9Zf10
             - **[12]**:
+              - **alvo_uid**: aNLsrhZbdKaVwZ
+              - **pontos_uids**:
+                - rPBZ6ToCMyjmUf
               - **escalada**: Expo CERJ!
               - **ids**:
-                - 13
+                - rPBZ6ToCMyjmUf
             - **[13]**:
+              - **alvo_uid**: 9aBkEGGdm0Uwj1
+              - **pontos_uids**:
+                - IIu8QZu90q6EK9
               - **escalada**: Social Club
               - **ids**:
-                - 14
+                - IIu8QZu90q6EK9
             - **[14]**:
+              - **alvo_uid**: 4IbUftnrAJSYBT
+              - **pontos_uids**:
+                - yvzxui8Bwjrr0F
               - **escalada**: Pr. Tonico Magalhães
               - **ids**:
-                - 15
+                - yvzxui8Bwjrr0F
             - **[15]**:
+              - **alvo_uid**: rWMLkzsMZiRO3H
+              - **pontos_uids**:
+                - wKOW6iHQILqWXR
               - **escalada**: E o Rio Levou
               - **ids**:
-                - 16
+                - wKOW6iHQILqWXR
             - **[16]**:
+              - **alvo_uid**: E0ZwbLrlRUznG0
+              - **pontos_uids**:
+                - hok7oYtzOVWndx
               - **setor**: Setor de Cima
               - **ids**:
-                - Setor_de_Cima
+                - hok7oYtzOVWndx
             - **[17]**:
+              - **alvo_uid**: 23GOgjFLTcBrv1
+              - **pontos_uids**:
+                - AFpMURfSewQPDk
               - **escalada**: Prateado
-              - **setor**: Esquerda
               - **ids**:
-                - Prateado
+                - AFpMURfSewQPDk
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 1
-              - **label**: 1
+              - **id**: cysy7IIjTYexea
+              - **uid**: cysy7IIjTYexea
+              - **rotulo**: 1
               - **circulo**:
                 - **x**: 136
                 - **y**: 872
                 - **raio**: 22
+              - **label**: 1
             - **[1]**:
-              - **id**: 2
-              - **label**: 2
+              - **id**: Ctdf75zYM7DrAw
+              - **uid**: Ctdf75zYM7DrAw
+              - **rotulo**: 2
               - **circulo**:
                 - **x**: 231
                 - **y**: 854
                 - **raio**: 22
+              - **label**: 2
             - **[2]**:
-              - **id**: 3
-              - **label**: 3
+              - **id**: HcnWx1WHfg6Ky8
+              - **uid**: HcnWx1WHfg6Ky8
+              - **rotulo**: 3
               - **circulo**:
                 - **x**: 318
                 - **y**: 856
                 - **raio**: 22
+              - **label**: 3
             - **[3]**:
-              - **id**: 4
-              - **label**: 4
+              - **id**: NLCiLXZgvAYP7V
+              - **uid**: NLCiLXZgvAYP7V
+              - **rotulo**: 4
               - **circulo**:
                 - **x**: 423
                 - **y**: 854
                 - **raio**: 22
+              - **label**: 4
             - **[4]**:
-              - **id**: 5
-              - **label**: 5
+              - **id**: hCe8CrhpJy0Cgp
+              - **uid**: hCe8CrhpJy0Cgp
+              - **rotulo**: 5
               - **circulo**:
                 - **x**: 510
                 - **y**: 850
                 - **raio**: 22
+              - **label**: 5
             - **[5]**:
-              - **id**: 6
-              - **label**: 6
+              - **id**: d8rK6wTOkFtPgs
+              - **uid**: d8rK6wTOkFtPgs
+              - **rotulo**: 6
               - **circulo**:
                 - **x**: 586
                 - **y**: 841
                 - **raio**: 22
+              - **label**: 6
             - **[6]**:
-              - **id**: 7
-              - **label**: 7
+              - **id**: wdNWbrZIB2YoMd
+              - **uid**: wdNWbrZIB2YoMd
+              - **rotulo**: 7
               - **circulo**:
                 - **x**: 691
                 - **y**: 985
                 - **raio**: 22
+              - **label**: 7
             - **[7]**:
-              - **id**: 8
-              - **label**: 8
+              - **id**: kttnhsiKxHZ9fQ
+              - **uid**: kttnhsiKxHZ9fQ
+              - **rotulo**: 8
               - **circulo**:
                 - **x**: 839
                 - **y**: 1149
                 - **raio**: 22
+              - **label**: 8
             - **[8]**:
-              - **id**: 9
-              - **label**: 9
+              - **id**: 23KQzFCRwpxVSv
+              - **uid**: 23KQzFCRwpxVSv
+              - **rotulo**: 9
               - **circulo**:
                 - **x**: 1041
                 - **y**: 1240
                 - **raio**: 24
+              - **label**: 9
             - **[9]**:
-              - **id**: 10
-              - **label**: 10
+              - **id**: YX1Be4v7TOri2W
+              - **uid**: YX1Be4v7TOri2W
+              - **rotulo**: 10
               - **circulo**:
                 - **x**: 1140
                 - **y**: 1242
                 - **raio**: 24
+              - **label**: 10
             - **[10]**:
-              - **id**: 11
-              - **label**: 11
+              - **id**: RNgW5IudcKZUKK
+              - **uid**: RNgW5IudcKZUKK
+              - **rotulo**: 11
               - **circulo**:
                 - **x**: 1312
                 - **y**: 1243
                 - **raio**: 24
+              - **label**: 11
             - **[11]**:
-              - **id**: 12
-              - **label**: 12
+              - **id**: QktWmB6vX9Zf10
+              - **uid**: QktWmB6vX9Zf10
+              - **rotulo**: 12
               - **circulo**:
                 - **x**: 1455
                 - **y**: 1174
                 - **raio**: 24
+              - **label**: 12
             - **[12]**:
-              - **id**: 13
-              - **label**: 13
+              - **id**: rPBZ6ToCMyjmUf
+              - **uid**: rPBZ6ToCMyjmUf
+              - **rotulo**: 13
               - **circulo**:
                 - **x**: 1517
                 - **y**: 1134
                 - **raio**: 24
+              - **label**: 13
             - **[13]**:
-              - **id**: 14
-              - **label**: 14
+              - **id**: IIu8QZu90q6EK9
+              - **uid**: IIu8QZu90q6EK9
+              - **rotulo**: 14
               - **circulo**:
                 - **x**: 1578
                 - **y**: 910
                 - **raio**: 24
+              - **label**: 14
             - **[14]**:
-              - **id**: 15
-              - **label**: 15
+              - **id**: yvzxui8Bwjrr0F
+              - **uid**: yvzxui8Bwjrr0F
+              - **rotulo**: 15
               - **circulo**:
                 - **x**: 1620
                 - **y**: 796
                 - **raio**: 24
+              - **label**: 15
             - **[15]**:
-              - **id**: 16
-              - **label**: 16
+              - **id**: wKOW6iHQILqWXR
+              - **uid**: wKOW6iHQILqWXR
+              - **rotulo**: 16
               - **circulo**:
                 - **x**: 1652
                 - **y**: 736
                 - **raio**: 24
+              - **label**: 16
             - **[16]**:
-              - **id**: Setor_de_Cima
-              - **label**: Setor de Cima
+              - **id**: hok7oYtzOVWndx
+              - **uid**: hok7oYtzOVWndx
+              - **rotulo**: Setor de Cima
               - **retangulo**:
                 - **x**: 1731
                 - **y**: 321
                 - **comprimento**: 160
                 - **largura**: 82
+              - **label**: Setor de Cima
             - **[17]**:
-              - **id**: Prateado
-              - **label**: Prateado
+              - **id**: AFpMURfSewQPDk
+              - **uid**: AFpMURfSewQPDk
+              - **rotulo**: Prateado
               - **retangulo**:
                 - **x**: 148
                 - **y**: 568
                 - **comprimento**: 170
                 - **largura**: 38
+              - **label**: Prateado
         - **[2]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_aderencias_setor_face_central_p6_i3.webp)
           - **largura_mapa**: 404
           - **altura_mapa**: 606
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 1
-              - **label**: 1
+              - **id**: iTSlxe2uO4Ohov
+              - **uid**: iTSlxe2uO4Ohov
+              - **rotulo**: 1
               - **circulo**:
                 - **x**: 37
                 - **y**: 573
                 - **raio**: 20
               - **cor**: 
+              - **label**: 1
             - **[1]**:
-              - **id**: 2
-              - **label**: 2
+              - **id**: TDPz8XXSpfJory
+              - **uid**: TDPz8XXSpfJory
+              - **rotulo**: 2
               - **circulo**:
                 - **x**: 120
                 - **y**: 559
                 - **raio**: 21
               - **cor**: 
+              - **label**: 2
             - **[2]**:
-              - **id**: p1
-              - **label**: 
+              - **id**: k9XNw9nXC60BsB
+              - **uid**: k9XNw9nXC60BsB
+              - **rotulo**: 
               - **circulo**:
                 - **x**: 240
                 - **y**: 182
                 - **raio**: 11
-            - **[3]**:
-              - **id**: p2
               - **label**: 
+            - **[3]**:
+              - **id**: DcLRTVFhq9FeTj
+              - **uid**: DcLRTVFhq9FeTj
+              - **rotulo**: 
               - **circulo**:
                 - **x**: 341
                 - **y**: 122
                 - **raio**: 12
               - **cor**: 
+              - **label**: 
           - **referencias**:
             - **[0]**:
-              - **ids**:
-                - 1
-                - p1
-                - p2
-              - **grupo**: Parede das Aderências
-              - **setor**: Face Central
+              - **alvo_uid**: Kluqo9Qj90DcG6
+              - **pontos_uids**:
+                - iTSlxe2uO4Ohov
+                - k9XNw9nXC60BsB
+                - DcLRTVFhq9FeTj
               - **escalada**: Vr. Esquibunda
-            - **[1]**:
               - **ids**:
-                - 2
-                - p1
-                - p2
-              - **grupo**: Parede das Aderências
-              - **setor**: Face Central
+                - iTSlxe2uO4Ohov
+                - k9XNw9nXC60BsB
+                - DcLRTVFhq9FeTj
+            - **[1]**:
+              - **alvo_uid**: csAOpWzD3bsuiz
+              - **pontos_uids**:
+                - TDPz8XXSpfJory
+                - k9XNw9nXC60BsB
+                - DcLRTVFhq9FeTj
               - **escalada**: Pr. Aerolitos
+              - **ids**:
+                - TDPz8XXSpfJory
+                - k9XNw9nXC60BsB
+                - DcLRTVFhq9FeTj
         - **[3]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_aderencias_setor_face_central_p8_i1.webp)
           - **largura_mapa**: 801
           - **altura_mapa**: 1102
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 8
-              - **label**: 8
+              - **id**: nXuv7OChp6uBa4
+              - **uid**: nXuv7OChp6uBa4
+              - **rotulo**: 8
               - **circulo**:
                 - **x**: 685
                 - **y**: 1011
                 - **raio**: 17
               - **cor**: 
+              - **label**: 8
             - **[1]**:
-              - **id**: 7
-              - **label**: 7
+              - **id**: Av05KTX02UuDQu
+              - **uid**: Av05KTX02UuDQu
+              - **rotulo**: 7
               - **circulo**:
                 - **x**: 647
                 - **y**: 1007
                 - **raio**: 17
               - **cor**: 
+              - **label**: 7
             - **[2]**:
-              - **id**: p1_8
-              - **label**: 
+              - **id**: fYliloJNVqCal9
+              - **uid**: fYliloJNVqCal9
+              - **rotulo**: 
               - **circulo**:
                 - **x**: 645
                 - **y**: 610
                 - **raio**: 14
               - **cor**: 
-            - **[3]**:
-              - **id**: p1_7
               - **label**: 
+            - **[3]**:
+              - **id**: iLzNm0N4ooJhbe
+              - **uid**: iLzNm0N4ooJhbe
+              - **rotulo**: 
               - **circulo**:
                 - **x**: 498
                 - **y**: 611
                 - **raio**: 14
               - **cor**: 
-            - **[4]**:
-              - **id**: p2_7
               - **label**: 
+            - **[4]**:
+              - **id**: KH4paxgxGmpie8
+              - **uid**: KH4paxgxGmpie8
+              - **rotulo**: 
               - **circulo**:
                 - **x**: 443
                 - **y**: 370
                 - **raio**: 14
               - **cor**: 
-            - **[5]**:
-              - **id**: p2_8
               - **label**: 
+            - **[5]**:
+              - **id**: 1NtRDHBxZF63Xn
+              - **uid**: 1NtRDHBxZF63Xn
+              - **rotulo**: 
               - **circulo**:
                 - **x**: 561
                 - **y**: 371
                 - **raio**: 14
               - **cor**: 
-            - **[6]**:
-              - **id**: p3_7
               - **label**: 
+            - **[6]**:
+              - **id**: uknwIdwDl51QI2
+              - **uid**: uknwIdwDl51QI2
+              - **rotulo**: 
               - **circulo**:
                 - **x**: 465
                 - **y**: 218
                 - **raio**: 14
               - **cor**: 
-            - **[7]**:
-              - **id**: p3_8
               - **label**: 
+            - **[7]**:
+              - **id**: u2rgednmvNiAvI
+              - **uid**: u2rgednmvNiAvI
+              - **rotulo**: 
               - **circulo**:
                 - **x**: 517
                 - **y**: 176
                 - **raio**: 14
               - **cor**: 
+              - **label**: 
           - **referencias**:
             - **[0]**:
-              - **ids**:
-                - 7
-                - p1_7
-                - p2_7
-                - p3_7
-              - **grupo**: Parede das Aderências
-              - **setor**: Face Central
+              - **alvo_uid**: 3I50paZMH7yne8
+              - **pontos_uids**:
+                - Av05KTX02UuDQu
+                - iLzNm0N4ooJhbe
+                - KH4paxgxGmpie8
+                - uknwIdwDl51QI2
               - **escalada**: Coração Valente
-            - **[1]**:
               - **ids**:
-                - 8
-                - p1_8
-                - p2_8
-                - p3_8
-              - **grupo**: Parede das Aderências
-              - **setor**: Face Central
+                - Av05KTX02UuDQu
+                - iLzNm0N4ooJhbe
+                - KH4paxgxGmpie8
+                - uknwIdwDl51QI2
+            - **[1]**:
+              - **alvo_uid**: aNLsrhZbdKaVwZ
+              - **pontos_uids**:
+                - nXuv7OChp6uBa4
+                - fYliloJNVqCal9
+                - 1NtRDHBxZF63Xn
+                - u2rgednmvNiAvI
               - **escalada**: Expo CERJ!
+              - **ids**:
+                - nXuv7OChp6uBa4
+                - fYliloJNVqCal9
+                - 1NtRDHBxZF63Xn
+                - u2rgednmvNiAvI
         - **[4]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_aderencias_setor_face_central_p9_i1.webp)
           - **largura_mapa**: 852
           - **altura_mapa**: 1172
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 1
-              - **label**: 1
+              - **id**: Y7HNSpEx4qtpmt
+              - **uid**: Y7HNSpEx4qtpmt
+              - **rotulo**: 1
               - **circulo**:
                 - **x**: 474
                 - **y**: 1063
                 - **raio**: 17
               - **cor**: 
+              - **label**: 1
             - **[1]**:
-              - **id**: 2
-              - **label**: 2
+              - **id**: sdI7KL2vXaGjx4
+              - **uid**: sdI7KL2vXaGjx4
+              - **rotulo**: 2
               - **circulo**:
                 - **x**: 582
                 - **y**: 861
                 - **raio**: 17
               - **cor**: 
+              - **label**: 2
             - **[2]**:
-              - **id**: 3
-              - **label**: 3
+              - **id**: m6NwP1X97gkmvZ
+              - **uid**: m6NwP1X97gkmvZ
+              - **rotulo**: 3
               - **circulo**:
                 - **x**: 614
                 - **y**: 768
                 - **raio**: 17
               - **cor**: 
+              - **label**: 3
             - **[3]**:
-              - **id**: P1_2
-              - **label**: 
+              - **id**: mQmFA9c3DICY03
+              - **uid**: mQmFA9c3DICY03
+              - **rotulo**: 
               - **circulo**:
                 - **x**: 576
                 - **y**: 473
                 - **raio**: 15
               - **cor**: 
-            - **[4]**:
-              - **id**: p2_2
               - **label**: 
+            - **[4]**:
+              - **id**: IXfpgNOh092Lsa
+              - **uid**: IXfpgNOh092Lsa
+              - **rotulo**: 
               - **circulo**:
                 - **x**: 576
                 - **y**: 335
                 - **raio**: 15
               - **cor**: 
-            - **[5]**:
-              - **id**: p3_2
               - **label**: 
+            - **[5]**:
+              - **id**: 8yfbWQnwo1h22O
+              - **uid**: 8yfbWQnwo1h22O
+              - **rotulo**: 
               - **circulo**:
                 - **x**: 513
                 - **y**: 180
                 - **raio**: 14
               - **cor**: 
-            - **[6]**:
-              - **id**: p1_3
               - **label**: 
+            - **[6]**:
+              - **id**: VyEqEJ1v7ZtMMX
+              - **uid**: VyEqEJ1v7ZtMMX
+              - **rotulo**: 
               - **circulo**:
                 - **x**: 736
                 - **y**: 500
                 - **raio**: 15
               - **cor**: 
-            - **[7]**:
-              - **id**: p2_3
               - **label**: 
+            - **[7]**:
+              - **id**: Nf3tqFCFHBMWKQ
+              - **uid**: Nf3tqFCFHBMWKQ
+              - **rotulo**: 
               - **circulo**:
                 - **x**: 746
                 - **y**: 238
                 - **raio**: 15
               - **cor**: 
-            - **[8]**:
-              - **id**: p3_3
               - **label**: 
+            - **[8]**:
+              - **id**: m6CPIf2glyzOLV
+              - **uid**: m6CPIf2glyzOLV
+              - **rotulo**: 
               - **circulo**:
                 - **x**: 771
                 - **y**: 67
                 - **raio**: 14
               - **cor**: 
+              - **label**: 
           - **referencias**:
             - **[0]**:
-              - **ids**:
-                - 1
-                - p3_2
-              - **grupo**: Parede das Aderências
-              - **setor**: Face Central
+              - **alvo_uid**: 9aBkEGGdm0Uwj1
+              - **pontos_uids**:
+                - Y7HNSpEx4qtpmt
+                - 8yfbWQnwo1h22O
               - **escalada**: Social Club
+              - **ids**:
+                - Y7HNSpEx4qtpmt
+                - 8yfbWQnwo1h22O
             - **[1]**:
-              - **ids**:
-                - 2
-                - P1_2
-                - p2_2
-                - p3_2
-              - **grupo**: Parede das Aderências
-              - **setor**: Face Central
+              - **alvo_uid**: 4IbUftnrAJSYBT
+              - **pontos_uids**:
+                - sdI7KL2vXaGjx4
+                - mQmFA9c3DICY03
+                - IXfpgNOh092Lsa
+                - 8yfbWQnwo1h22O
               - **escalada**: Pr. Tonico Magalhães
-            - **[2]**:
               - **ids**:
-                - 3
-                - p1_3
-                - p2_3
-                - p3_3
-              - **grupo**: Parede das Aderências
-              - **setor**: Face Central
+                - sdI7KL2vXaGjx4
+                - mQmFA9c3DICY03
+                - IXfpgNOh092Lsa
+                - 8yfbWQnwo1h22O
+            - **[2]**:
+              - **alvo_uid**: rWMLkzsMZiRO3H
+              - **pontos_uids**:
+                - m6NwP1X97gkmvZ
+                - VyEqEJ1v7ZtMMX
+                - Nf3tqFCFHBMWKQ
+                - m6CPIf2glyzOLV
               - **escalada**: E o Rio Levou
+              - **ids**:
+                - m6NwP1X97gkmvZ
+                - VyEqEJ1v7ZtMMX
+                - Nf3tqFCFHBMWKQ
+                - m6CPIf2glyzOLV
       - **escaladas**:
         - **[0]**:
+          - **uid**: Kluqo9Qj90DcG6
           - **via_esportiva**:
             - **descricao**: Variante da Pr. Aerolitos, com uma passada chave na terceira chapeleta, em aderência.
             - **nome**: Vr. Esquibunda
@@ -2384,6 +3016,7 @@
               - Maria Fernanda Patrício
             - **data_abertura**: 2012-09-08
         - **[1]**:
+          - **uid**: csAOpWzD3bsuiz
           - **via_multiplas_enfiadas**:
             - **descricao**: Via protegida com chapeletas, contando com chapeletas com argola nas paradas, para o rapel. P1 aos 55m (3° IIIsup) e P2 aos 25m (IIIsup/II).
             - **nome**: Pr. Aerolitos
@@ -2398,6 +3031,7 @@
               - Maria Fernanda Patrício
             - **data_abertura**: 2012-09-08
         - **[2]**:
+          - **uid**: ybGBKOoZNgJCpG
           - **via_movel**:
             - **descricao**: Inicia em uma bonita fenda, feita em oposição e depois na vertical, para atingir o primeiro grampo da via. Esta sequência inicial pode ser protegida com friends pequenos e médios, mas também é possível fazer a via sem proteções móveis, aumentando o grau de exposição de E1 para E2 (o primeiro grampo fica alto). Depois, segue em agarras e aderência até seu final, com boa regularidade na graduação.
             - **nome**: Facão Foi-se
@@ -2416,6 +3050,7 @@
               - **largura_mapa**: 789
               - **altura_mapa**: 1105
         - **[3]**:
+          - **uid**: hbR1sZ7v7RoYJp
           - **via_multiplas_enfiadas**:
             - **descricao**: Via conquistada em solitário, porém com boa proteção. Possui duas enfiadas relativamente curtas, com lances inicialmente em agarras e regletes, evoluindo para aderência na metade superior. P1 aos 45m e P2 aos 40m, ambas com parada dupla.
             - **nome**: Antes Só do Que Mal Acompanhado
@@ -2433,6 +3068,7 @@
               - **largura_mapa**: 807
               - **altura_mapa**: 1130
         - **[4]**:
+          - **uid**: amCMhA1NdrgmEY
           - **via_esportiva**:
             - **descricao**: Boa via em aderência equipada com doze grampos.
             - **nome**: Hematita
@@ -2451,6 +3087,7 @@
               - **largura_mapa**: 348
               - **altura_mapa**: 562
         - **[5]**:
+          - **uid**: GpY3uMFI4VpQxp
           - **via_multiplas_enfiadas**:
             - **descricao**: Ótima via equipada com 25 grampos e paradas duplas a cada 30 m.
             - **nome**: Pavão Misterioso
@@ -2464,6 +3101,7 @@
               - Celso Ferreira Gomes
             - **data_abertura**: 2011-09-04
         - **[6]**:
+          - **uid**: Ef7s9vjHhbTh7d
           - **via_multiplas_enfiadas**:
             - **descricao**: Via que se inicia em um diedro cego com proteção fixa, que pode ser melhorada com proteções precárias em móvel (peças pequenas), mas nada obrigatório. Sua segunda enfiada junta com a via “Balzac”. Rapel possível com corda simples de 50m.
             - **nome**: Elementar, Meu Caro Watson!
@@ -2476,6 +3114,7 @@
               - Celso Ferreira Gomes
             - **data_abertura**: 2012-02-18
         - **[7]**:
+          - **uid**: ozdIvXqV39O4hQ
           - **via_multiplas_enfiadas**:
             - **descricao**: Via que possui passadas relativamente mais delicadas que as suas vizinhas, contando com duas enfiadas. Rapel possível com corda simples de 50m. Trata-se de via mestra do local.
             - **nome**: Balzac
@@ -2489,6 +3128,7 @@
               - Júlio César Cardoso
             - **data_abertura**: 2007-03-04
         - **[8]**:
+          - **uid**: FuC48kY6wrQaIy
           - **via_esportiva**:
             - **descricao**: Via equipada com corda de cima, a partir da “Cordeiro de Deus”. Falta o primeiro grampo.
             - **nome**: Dez Fora
@@ -2500,6 +3140,7 @@
               - Carlim Kamicad
             - **data_abertura**: 2012-04-08
         - **[9]**:
+          - **uid**: Wy4AZC0YXu6GAs
           - **via_multiplas_enfiadas**:
             - **descricao**: Bonita e técnica via em aderência com 12 grampos. Rapel com corda simples de 50m. Termina na Balzac.
             - **nome**: Cordeiro de Deus
@@ -2512,6 +3153,7 @@
               - Paulo Bandeira
             - **data_abertura**: 2007-09-08
         - **[10]**:
+          - **uid**: uKEKgStDTNazju
           - **via_esportiva**:
             - **descricao**: Quinquagésima conquista da região. Inicia em um diedro em oposição seguindo em aderência até o final. Rapel com corda simples de 50m.
             - **nome**: Cinquentona de Ferros
@@ -2522,6 +3164,7 @@
               - Daniel Maia
             - **data_abertura**: 2009-08-02
         - **[11]**:
+          - **uid**: 3I50paZMH7yne8
           - **via_multiplas_enfiadas**:
             - **descricao**: Boa via em aderência, sempre constante, mas sem lances complicados e com proteção regular. Termina no penúltimo grampo da “Expo CERJ!”. Via em homenagem ao pequeno Arthur Taveira, que aos dois meses de idade, venceu uma dura batalha após ser diagnosticado com sério problema cardíaco.
             - **nome**: Coração Valente
@@ -2536,6 +3179,7 @@
               - Maria Fernanda Patrício
             - **data_abertura**: 2012-04-06
         - **[12]**:
+          - **uid**: aNLsrhZbdKaVwZ
           - **via_multiplas_enfiadas**:
             - **descricao**: Via com passadas muito interessantes em aderência, com grampeação longa. Ótima para treinamento de psicológico. Rapel possível com uma corda de 60m (de grampo em grampo) ou duas cordas de 50m ou maiores. O rapel pode ser feito também pela via “Coração Valente”, com corda única de 50m. Via em homenagem aos 73 anos do Centro Excursionista Rio de Janeiro (CERJ), completados no dia anterior à conquista.
             - **nome**: Expo CERJ!
@@ -2551,6 +3195,7 @@
               - Maria Fernanda Patrício
             - **data_abertura**: 2012-01-21
         - **[13]**:
+          - **uid**: 9aBkEGGdm0Uwj1
           - **via_multiplas_enfiadas**:
             - **descricao**: Uma das vias mais recomendadas da região! São 200 metros em aderência com dificuldade moderada, porém constante, tendo raros lances abaixo do 3° grau. O fato da via não diminuir sua dificuldade ao longo de sua extensão, confere um justo mérito ao escalador. Via boa para ver o pôr do sol em seu final.
             - **nome**: Social Club
@@ -2565,6 +3210,7 @@
               - Nádia Moreira
             - **data_abertura**: 2006-06-11
         - **[14]**:
+          - **uid**: 4IbUftnrAJSYBT
           - **via_multiplas_enfiadas**:
             - **descricao**: Via bastante interessante, com lances predominantemente em aderência, porém com algumas cristaleiras e abaulados que marcam o caminho natural da linha. Seu crux encontra-se na primeira metade da via, logo na barriga inicial, sempre com boa proteção fixa. Para efeito de curiosidade, foi a centésima conquista do Celso, companheiro do Tonico quando da conquista de sua centésima via.
             - **nome**: Pr. Tonico Magalhães
@@ -2579,6 +3225,7 @@
               - Maria Fernanda Patrício
             - **data_abertura**: 2012-06-17
         - **[15]**:
+          - **uid**: rWMLkzsMZiRO3H
           - **via_multiplas_enfiadas**:
             - **descricao**: Inicia imediatamente à direita da base da “Tonico Magalhães”, dando uma guinada à direita após o segundo grampo, onde cruza com uma sequência de lacas que podem ser protegidas opcionalmente por friends médios. Deste ponto em diante, segue o bonito crux da via, em uma parede com boa verticalidade e regletes bem definidos, até a P1. Da P1 em diante, a via segue por incríveis “corcovas” na pedra, até sua segunda parada. A enfiada final é feita em aderência.
             - **nome**: E o Rio Levou
@@ -2620,6 +3267,7 @@
           | :--: |
           | *Pedro Bugim durante a conquista do “Carnaferros” (Foto: Maria Fernanda)* |
       - **nome**: Setor de Cima
+      - **uid**: gamcFIKDPJDg0q
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_aderencias_setor_de_cima_p1_i0.webp)
@@ -2627,143 +3275,196 @@
           - **altura_mapa**: 1240
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: tyMti71jD17cBy
+              - **pontos_uids**:
+                - h3eewZOEjXCBZA
               - **escalada**: Buena Vista
               - **ids**:
-                - 1
+                - h3eewZOEjXCBZA
             - **[1]**:
+              - **alvo_uid**: rg3BWvUObM4m0B
+              - **pontos_uids**:
+                - TCQzBD2v7nXgvJ
               - **escalada**: São Lourenço
               - **ids**:
-                - 2
+                - TCQzBD2v7nXgvJ
             - **[2]**:
+              - **alvo_uid**: QD0PgLPU3Tnj2j
+              - **pontos_uids**:
+                - TkCmX3tyYoWHEC
               - **escalada**: Carnaferros
               - **ids**:
-                - 3
+                - TkCmX3tyYoWHEC
             - **[3]**:
+              - **alvo_uid**: rGOlhPmCuaVWav
+              - **pontos_uids**:
+                - f2peRAdIfgpQLZ
               - **setor**: Face Central
               - **ids**:
-                - Aderencias_Face_Central
+                - f2peRAdIfgpQLZ
             - **[4]**:
+              - **alvo_uid**: avRkW8fzw3OF22
+              - **pontos_uids**:
+                - 78M7PevSBpfjiD
               - **setor**: Esquerda
               - **ids**:
-                - Aderencias_Esquerda_2
+                - 78M7PevSBpfjiD
             - **[5]**:
+              - **alvo_uid**: g0ASFec0ovBc9J
+              - **pontos_uids**:
+                - 8gD4hNa0IGrIJY
               - **setor**: Parede Principal – Direita
               - **ids**:
-                - Parede_Principal_Direira
-              - **grupo**: Parede Principal (Paredes de Aço)
+                - 8gD4hNa0IGrIJY
             - **[6]**:
-              - **grupo**: Parede Principal (Paredes de Aço)
+              - **alvo_uid**: nJgmAcSxMTe2Xy
+              - **pontos_uids**:
+                - TVpqttZmg2JLTQ
               - **setor**: Setor Central
               - **ids**:
-                - Parede_Principal_Face_Central
+                - TVpqttZmg2JLTQ
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 1
-              - **label**: 1
+              - **id**: h3eewZOEjXCBZA
+              - **uid**: h3eewZOEjXCBZA
+              - **rotulo**: 1
               - **circulo**:
                 - **x**: 1507
                 - **y**: 642
                 - **raio**: 22
+              - **label**: 1
             - **[1]**:
-              - **id**: 2
-              - **label**: 2
+              - **id**: TCQzBD2v7nXgvJ
+              - **uid**: TCQzBD2v7nXgvJ
+              - **rotulo**: 2
               - **circulo**:
                 - **x**: 1617
                 - **y**: 629
                 - **raio**: 22
+              - **label**: 2
             - **[2]**:
-              - **id**: 3
-              - **label**: 3
+              - **id**: TkCmX3tyYoWHEC
+              - **uid**: TkCmX3tyYoWHEC
+              - **rotulo**: 3
               - **circulo**:
                 - **x**: 1909
                 - **y**: 726
                 - **raio**: 22
+              - **label**: 3
             - **[3]**:
-              - **id**: Aderencias_Face_Central
-              - **label**: Aderências - Face Central
+              - **id**: f2peRAdIfgpQLZ
+              - **uid**: f2peRAdIfgpQLZ
+              - **rotulo**: Aderências - Face Central
               - **retangulo**:
                 - **x**: 1236
                 - **y**: 490
                 - **comprimento**: 395
                 - **largura**: 65
+              - **label**: Aderências - Face Central
             - **[4]**:
-              - **id**: Aderencias_Esquerda_2
-              - **label**: Aderências - Esquerda 2
+              - **id**: 78M7PevSBpfjiD
+              - **uid**: 78M7PevSBpfjiD
+              - **rotulo**: Aderências - Esquerda 2
               - **retangulo**:
                 - **x**: 834
                 - **y**: 72
                 - **comprimento**: 360
                 - **largura**: 53
+              - **label**: Aderências - Esquerda 2
             - **[5]**:
-              - **id**: Parede_Principal_Direira
-              - **label**: Parede Principal Direira
+              - **id**: 8gD4hNa0IGrIJY
+              - **uid**: 8gD4hNa0IGrIJY
+              - **rotulo**: Parede Principal Direira
               - **retangulo**:
                 - **x**: 312
                 - **y**: 377
                 - **comprimento**: 259
                 - **largura**: 76
+              - **label**: Parede Principal Direira
             - **[6]**:
-              - **id**: Parede_Principal_Face_Central
-              - **label**: Parede Principal - Face Central
+              - **id**: TVpqttZmg2JLTQ
+              - **uid**: TVpqttZmg2JLTQ
+              - **rotulo**: Parede Principal - Face Central
               - **retangulo**:
                 - **x**: 616
                 - **y**: 944
                 - **comprimento**: 459
                 - **largura**: 55
+              - **label**: Parede Principal - Face Central
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_aderencias_setor_de_cima_p2_i0.webp)
           - **largura_mapa**: 2034
           - **altura_mapa**: 1228
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: tyMti71jD17cBy
+              - **pontos_uids**:
+                - ZQdk7DdJyxz94t
               - **escalada**: Buena Vista
               - **ids**:
-                - 1
+                - ZQdk7DdJyxz94t
             - **[1]**:
+              - **alvo_uid**: rg3BWvUObM4m0B
+              - **pontos_uids**:
+                - MTRSMmhIRksdPf
               - **escalada**: São Lourenço
               - **ids**:
-                - 2
+                - MTRSMmhIRksdPf
             - **[2]**:
+              - **alvo_uid**: QD0PgLPU3Tnj2j
+              - **pontos_uids**:
+                - ZveVCINqXrvZVr
               - **escalada**: Carnaferros
               - **ids**:
-                - 3
+                - ZveVCINqXrvZVr
             - **[3]**:
+              - **alvo_uid**: rWMLkzsMZiRO3H
+              - **pontos_uids**:
+                - hVEGqSCkH8ra5X
               - **escalada**: E o Rio Levou
-              - **setor**: Face Central
               - **ids**:
-                - E o Rio Levou
+                - hVEGqSCkH8ra5X
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 1
-              - **label**: 1
+              - **id**: ZQdk7DdJyxz94t
+              - **uid**: ZQdk7DdJyxz94t
+              - **rotulo**: 1
               - **circulo**:
                 - **x**: 318
                 - **y**: 1187
                 - **raio**: 34
+              - **label**: 1
             - **[1]**:
-              - **id**: 2
-              - **label**: 2
+              - **id**: MTRSMmhIRksdPf
+              - **uid**: MTRSMmhIRksdPf
+              - **rotulo**: 2
               - **circulo**:
                 - **x**: 540
                 - **y**: 1184
                 - **raio**: 34
+              - **label**: 2
             - **[2]**:
-              - **id**: 3
-              - **label**: 3
+              - **id**: ZveVCINqXrvZVr
+              - **uid**: ZveVCINqXrvZVr
+              - **rotulo**: 3
               - **circulo**:
                 - **x**: 663
                 - **y**: 1184
                 - **raio**: 34
+              - **label**: 3
             - **[3]**:
-              - **id**: E o Rio Levou
-              - **label**: E o Rio Levou
+              - **id**: hVEGqSCkH8ra5X
+              - **uid**: hVEGqSCkH8ra5X
+              - **rotulo**: E o Rio Levou
               - **retangulo**:
                 - **x**: 122
                 - **y**: 896
                 - **comprimento**: 221
                 - **largura**: 121
+              - **label**: E o Rio Levou
       - **escaladas**:
         - **[0]**:
+          - **uid**: tyMti71jD17cBy
           - **via_esportiva**:
             - **descricao**: Conta com uma enfiada cheia, possuindo sua primeira e única parada dupla pouco acima da P1 da via “São Lourenço”, sendo possível prosseguir pela mesma até o topo da parede.
             - **nome**: Buena Vista
@@ -2785,6 +3486,7 @@
               - **largura_mapa**: 692
               - **altura_mapa**: 1037
         - **[1]**:
+          - **uid**: rg3BWvUObM4m0B
           - **via_multiplas_enfiadas**:
             - **descricao**: Via conquistada em homenagem ao grande escalador carioca Jair Lourenço, por coincidência, no dia de seu falecimento.
             - **nome**: São Lourenço
@@ -2798,6 +3500,7 @@
               - Carlos Carrozzino
             - **data_abertura**: 2007-12-09
         - **[2]**:
+          - **uid**: QD0PgLPU3Tnj2j
           - **via_esportiva**:
             - **descricao**: Inicia imediatamente à direita da base da “São Lourenço”. Via com boas passadas em aderência e regletes, contando com um crux bem definido, em aderência. Sua parada final fica quase na mesma altura da P1 do "Pr. São Lourenço", por onde pode-se tocar até a vegetação final da parede. Atenção às lacas soltas chegando na P1!
             - **nome**: Carnaferros
@@ -2835,137 +3538,188 @@
           
           A trilha pode não estar muito bem definida devido à pouca frequência atual neste setor.
       - **nome**: Extrema Direita
+      - **uid**: sMtcp04stg3wSX
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_aderencias_setor_extrema_direita_p1_i1.webp)
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: jdKVX9YySse7RR
+              - **pontos_uids**:
+                - fBSh7qqvAga2UG
               - **escalada**: Bolo de Cenoura
               - **ids**:
-                - 1
+                - fBSh7qqvAga2UG
             - **[1]**:
+              - **alvo_uid**: PatXOUxy4UT3Cv
+              - **pontos_uids**:
+                - U2MnDxEfl0lDgu
               - **escalada**: 51, Uma Boa Ideia
               - **ids**:
-                - 2
+                - U2MnDxEfl0lDgu
             - **[2]**:
+              - **alvo_uid**: LBIEfNwhK7tjIU
+              - **pontos_uids**:
+                - wEP4WNm4iUNJ3I
               - **escalada**: Mais Chuva Que Sol
               - **ids**:
-                - 3
+                - wEP4WNm4iUNJ3I
             - **[3]**:
+              - **alvo_uid**: UoXB13cUPwjXci
+              - **pontos_uids**:
+                - wEP4WNm4iUNJ3I
               - **escalada**: Só a Cabecinha
               - **ids**:
-                - 3
+                - wEP4WNm4iUNJ3I
             - **[4]**:
+              - **alvo_uid**: nJgmAcSxMTe2Xy
+              - **pontos_uids**:
+                - fdQAC0CNh8GRqh
               - **setor**: Setor Central
               - **ids**:
-                - Parede_Principal_Face_Central
-              - **grupo**: Parede Principal (Paredes de Aço)
+                - fdQAC0CNh8GRqh
             - **[5]**:
-              - **grupo**: Parede Principal (Paredes de Aço)
+              - **alvo_uid**: 0swIknUTarrNZN
+              - **pontos_uids**:
+                - y6dhQVo4bxU8gv
+                - gDaSAeN4kVJKmr
               - **setor**: Setor Clássicas Longas
               - **ids**:
-                - Parede_Principal_Classicas_Longas
-                - Para_o_Setor_das_Classicas_Longas
+                - y6dhQVo4bxU8gv
+                - gDaSAeN4kVJKmr
           - **largura_mapa**: 1639
           - **altura_mapa**: 1025
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 1
-              - **label**: 1
+              - **id**: fBSh7qqvAga2UG
+              - **uid**: fBSh7qqvAga2UG
+              - **rotulo**: 1
               - **circulo**:
                 - **x**: 1092
                 - **y**: 670
                 - **raio**: 18
+              - **label**: 1
             - **[1]**:
-              - **id**: 2
-              - **label**: 2
+              - **id**: U2MnDxEfl0lDgu
+              - **uid**: U2MnDxEfl0lDgu
+              - **rotulo**: 2
               - **circulo**:
                 - **x**: 1174
                 - **y**: 709
                 - **raio**: 18
+              - **label**: 2
             - **[2]**:
-              - **id**: 3
-              - **label**: 3
+              - **id**: wEP4WNm4iUNJ3I
+              - **uid**: wEP4WNm4iUNJ3I
+              - **rotulo**: 3
               - **circulo**:
                 - **x**: 1190
                 - **y**: 768
                 - **raio**: 18
+              - **label**: 3
             - **[3]**:
-              - **id**: Parede_Principal_Face_Central
-              - **label**: Parede Principal Face Central
+              - **id**: fdQAC0CNh8GRqh
+              - **uid**: fdQAC0CNh8GRqh
+              - **rotulo**: Parede Principal Face Central
               - **retangulo**:
                 - **x**: 120
                 - **y**: 378
                 - **comprimento**: 223
                 - **largura**: 66
+              - **label**: Parede Principal Face Central
             - **[4]**:
-              - **id**: Parede_Principal_Classicas_Longas
-              - **label**: 
+              - **id**: y6dhQVo4bxU8gv
+              - **uid**: y6dhQVo4bxU8gv
+              - **rotulo**: 
               - **retangulo**:
                 - **x**: 480
                 - **y**: 930
                 - **comprimento**: 224
                 - **largura**: 58
+              - **label**: 
             - **[5]**:
-              - **id**: Para_o_Setor_das_Classicas_Longas
-              - **label**: Clássicas Longas
+              - **id**: gDaSAeN4kVJKmr
+              - **uid**: gDaSAeN4kVJKmr
+              - **rotulo**: Clássicas Longas
               - **retangulo**:
                 - **x**: 736
                 - **y**: 804
                 - **comprimento**: 213
                 - **largura**: 51
+              - **label**: Clássicas Longas
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_aderencias_setor_extrema_direita_p2_i1.webp)
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: jdKVX9YySse7RR
+              - **pontos_uids**:
+                - c5DbY71QlU3vzs
               - **escalada**: Bolo de Cenoura
               - **ids**:
-                - 1
+                - c5DbY71QlU3vzs
             - **[1]**:
+              - **alvo_uid**: PatXOUxy4UT3Cv
+              - **pontos_uids**:
+                - rMqaBLiGjDvwh4
               - **escalada**: 51, Uma Boa Ideia
               - **ids**:
-                - 2
+                - rMqaBLiGjDvwh4
             - **[2]**:
+              - **alvo_uid**: LBIEfNwhK7tjIU
+              - **pontos_uids**:
+                - MG7Y6CzPl1RBfg
               - **escalada**: Mais Chuva Que Sol
               - **ids**:
-                - 3
+                - MG7Y6CzPl1RBfg
             - **[3]**:
+              - **alvo_uid**: UoXB13cUPwjXci
+              - **pontos_uids**:
+                - hW3nCi3bbnByYG
               - **escalada**: Só a Cabecinha
               - **ids**:
-                - 4
+                - hW3nCi3bbnByYG
           - **largura_mapa**: 2043
           - **altura_mapa**: 1223
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 1
-              - **label**: 1
+              - **id**: c5DbY71QlU3vzs
+              - **uid**: c5DbY71QlU3vzs
+              - **rotulo**: 1
               - **circulo**:
                 - **x**: 843
                 - **y**: 1157
                 - **raio**: 35
+              - **label**: 1
             - **[1]**:
-              - **id**: 2
-              - **label**: 2
+              - **id**: rMqaBLiGjDvwh4
+              - **uid**: rMqaBLiGjDvwh4
+              - **rotulo**: 2
               - **circulo**:
                 - **x**: 1068
                 - **y**: 1033
                 - **raio**: 35
+              - **label**: 2
             - **[2]**:
-              - **id**: 3
-              - **label**: 3
+              - **id**: MG7Y6CzPl1RBfg
+              - **uid**: MG7Y6CzPl1RBfg
+              - **rotulo**: 3
               - **circulo**:
                 - **x**: 1282
                 - **y**: 1180
                 - **raio**: 35
+              - **label**: 3
             - **[3]**:
-              - **id**: 4
-              - **label**: 4
+              - **id**: hW3nCi3bbnByYG
+              - **uid**: hW3nCi3bbnByYG
+              - **rotulo**: 4
               - **circulo**:
                 - **x**: 1369
                 - **y**: 1142
                 - **raio**: 35
+              - **label**: 4
       - **escaladas**:
         - **[0]**:
+          - **uid**: jdKVX9YySse7RR
           - **via_multiplas_enfiadas**:
             - **descricao**:
                 A primeira enfiada passa por um extenso costão de 60 metros, com apenas três grampos. Depois deste ponto, a parede ganha inclinação, aumentando a graduação, pouco a pouco, culminando no crux da via, já nos metros finais da parede. Possui duas passadas em móvel, nos quais se recomenda a utilização de stoppers grandes de camalot #2.
@@ -2991,6 +3745,7 @@
               - **largura_mapa**: 348
               - **altura_mapa**: 524
         - **[1]**:
+          - **uid**: PatXOUxy4UT3Cv
           - **via_multiplas_enfiadas**:
             - **descricao**:
                 A primeira via conquistada na extrema direita da Parede das Aderências, com lances predominantemente em aderência, protegida em grampos de ½ polegada. O crux é uma barriga lisa no final da via.
@@ -3005,6 +3760,7 @@
               - Celso Ferreira Gomes
             - **data_abertura**: 2010-02-14
         - **[2]**:
+          - **uid**: LBIEfNwhK7tjIU
           - **via_multiplas_enfiadas**:
             - **descricao**:
                 A via é predominante em aderência, com fendas que ajudam a melhorar a proteção. Seu início é mais inclinado e, logo após a primeira proteção, cai bastante até a P1. Dessa proteção em diante, a inclinação aumenta gradativamente, com uma passada entre um pequeno teto rodeado de mato e grandes blocos soltos, que não aguentariam uma queda. Recomenda-se um jogo de camalots do #0.5 a #3. Os últimos grampos da via estão intercalados entre a vegetação e espaços onde a rocha aflora.
@@ -3029,6 +3785,7 @@
               - **largura_mapa**: 368
               - **altura_mapa**: 524
         - **[3]**:
+          - **uid**: UoXB13cUPwjXci
           - **via_multiplas_enfiadas**:
             - **descricao**: Via com lances muito tranquilos, mesclando grampos e proteções móveis esporádicas, seguindo uma linha sinuosa (daí seu tamanho extenso) até o topo da extrema direita da parede. Apesar das proteções relativamente longas, é uma ótima via para quem está aprendendo a guiar, sobretudo, para treinar como “garimpar” as proteções móveis (peças pequenas e médias).
             - **nome**: Só a Cabecinha
@@ -3066,6 +3823,7 @@
     
     O interessante é o fato de a parede apresentar vias curtas e longas, ambas, tanto com graduações elevadas, quando com graduações bem simplórias, agradando a todos os gostos.
 - **nome**: Parede Principal (Paredes de Aço)
+- **uid**: JHNpYNzPbpGJ9n
 - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/grupo_principal_p0_i0.webp)
 - **setores**:
   - **[0]**:
@@ -3092,6 +3850,7 @@
           | :--: |
           | *Luciano Bender intermediando um lance durante a conquista da "Casas da Banha" (Foto: Celso Ferreira Gomes)* |
       - **nome**: Setor Clássicas Curtas
+      - **uid**: rKxz4SSg8tyORQ
       - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/grupo_principal_setor_classicas_curtas_p0_i1.webp)
       - **mapas**:
         - **[0]**:
@@ -3100,485 +3859,652 @@
           - **altura_mapa**: 1025
           - **referencias**:
             - **[0]**:
-              - **ids**:
-                - Subsetor Cachoeira
+              - **alvo_uid**: lTi8TIXxTU6KF0
+              - **pontos_uids**:
+                - v6xgcdbhiBfzEX
               - **setor**: Cachoeira
-            - **[1]**:
               - **ids**:
-                - Aderências - Extrema Esquerda
-              - **grupo**: Parede das Aderências
+                - v6xgcdbhiBfzEX
+            - **[1]**:
+              - **alvo_uid**: FO3KvzGBfKKpB4
+              - **pontos_uids**:
+                - S8U8czODCDed99
               - **setor**: Extrema Esquerda
+              - **ids**:
+                - S8U8czODCDed99
             - **[2]**:
+              - **alvo_uid**: 2CKnFR9GnX0RVk
+              - **pontos_uids**:
+                - E9n2HG3zu2IagC
               - **escalada**: Deu Tilt
               - **ids**:
-                - 1
-              - **grupo**: Parede Principal (Paredes de Aço)
-              - **setor**: Setor Clássicas Curtas
+                - E9n2HG3zu2IagC
             - **[3]**:
+              - **alvo_uid**: PBqIWUa3s7CbW1
+              - **pontos_uids**:
+                - E9n2HG3zu2IagC
               - **escalada**: Ferroada
               - **ids**:
-                - 1
-              - **grupo**: Parede Principal (Paredes de Aço)
-              - **setor**: Setor Clássicas Curtas
+                - E9n2HG3zu2IagC
             - **[4]**:
+              - **alvo_uid**: oOHg0sGfjZa8qL
+              - **pontos_uids**:
+                - E9n2HG3zu2IagC
               - **escalada**: Scarface
               - **ids**:
-                - 1
-              - **grupo**: Parede Principal (Paredes de Aço)
-              - **setor**: Setor Clássicas Curtas
+                - E9n2HG3zu2IagC
             - **[5]**:
+              - **alvo_uid**: kmjy7dMR7EM87p
+              - **pontos_uids**:
+                - E9n2HG3zu2IagC
               - **escalada**: Se Meu Fusca Falasse
               - **ids**:
-                - 1
-              - **grupo**: Parede Principal (Paredes de Aço)
-              - **setor**: Setor Clássicas Curtas
+                - E9n2HG3zu2IagC
             - **[6]**:
+              - **alvo_uid**: P0dH1zFOhsNWKI
+              - **pontos_uids**:
+                - E9n2HG3zu2IagC
               - **escalada**: Couro de Lobisomem
               - **ids**:
-                - 1
-              - **grupo**: Parede Principal (Paredes de Aço)
-              - **setor**: Setor Clássicas Curtas
+                - E9n2HG3zu2IagC
             - **[7]**:
+              - **alvo_uid**: u9Za0cGFtd4buF
+              - **pontos_uids**:
+                - E9n2HG3zu2IagC
               - **escalada**: Enferrujados
               - **ids**:
-                - 1
-              - **grupo**: Parede Principal (Paredes de Aço)
-              - **setor**: Setor Clássicas Curtas
+                - E9n2HG3zu2IagC
             - **[8]**:
+              - **alvo_uid**: Ck0BH6ArfYc4Mi
+              - **pontos_uids**:
+                - E9n2HG3zu2IagC
               - **escalada**: Rastro de Cobra
               - **ids**:
-                - 1
-              - **grupo**: Parede Principal (Paredes de Aço)
-              - **setor**: Setor Clássicas Curtas
+                - E9n2HG3zu2IagC
             - **[9]**:
+              - **alvo_uid**: GzzOvXVhZnnCJj
+              - **pontos_uids**:
+                - E9n2HG3zu2IagC
               - **escalada**: Entrando no Ferro
               - **ids**:
-                - 1
-              - **grupo**: Parede Principal (Paredes de Aço)
-              - **setor**: Setor Clássicas Curtas
+                - E9n2HG3zu2IagC
             - **[10]**:
+              - **alvo_uid**: vrXUR5016GuvUn
+              - **pontos_uids**:
+                - UKgfefT8UX0JNh
               - **escalada**: Cambal a Quatro
               - **ids**:
-                - 2
-              - **grupo**: Parede Principal (Paredes de Aço)
-              - **setor**: Setor Clássicas Curtas
+                - UKgfefT8UX0JNh
             - **[11]**:
+              - **alvo_uid**: 3H2P63eUJtSmda
+              - **pontos_uids**:
+                - UKgfefT8UX0JNh
               - **escalada**: El Bigodón
               - **ids**:
-                - 2
-              - **grupo**: Parede Principal (Paredes de Aço)
-              - **setor**: Setor Clássicas Curtas
+                - UKgfefT8UX0JNh
             - **[12]**:
+              - **alvo_uid**: heSEhw8bk6CUMi
+              - **pontos_uids**:
+                - UKgfefT8UX0JNh
               - **escalada**: Testa de Aço
               - **ids**:
-                - 2
-              - **grupo**: Parede Principal (Paredes de Aço)
-              - **setor**: Setor Clássicas Curtas
+                - UKgfefT8UX0JNh
             - **[13]**:
+              - **alvo_uid**: BBtRCBwAzyQLg5
+              - **pontos_uids**:
+                - UKgfefT8UX0JNh
               - **escalada**: Me Ferrei
               - **ids**:
-                - 2
-              - **grupo**: Parede Principal (Paredes de Aço)
-              - **setor**: Setor Clássicas Curtas
+                - UKgfefT8UX0JNh
             - **[14]**:
+              - **alvo_uid**: y77FqGi7nfe7tx
+              - **pontos_uids**:
+                - UKgfefT8UX0JNh
               - **escalada**: Amor Profano
               - **ids**:
-                - 2
-              - **grupo**: Parede Principal (Paredes de Aço)
-              - **setor**: Setor Clássicas Curtas
+                - UKgfefT8UX0JNh
             - **[15]**:
+              - **alvo_uid**: lHhszDUlwi5Y7i
+              - **pontos_uids**:
+                - Avi0MzvGRBCd6a
               - **escalada**: Ferrolho
               - **ids**:
-                - 3
-              - **grupo**: Parede Principal (Paredes de Aço)
-              - **setor**: Setor Clássicas Curtas
+                - Avi0MzvGRBCd6a
             - **[16]**:
+              - **alvo_uid**: hWD9UQJTfeeLtJ
+              - **pontos_uids**:
+                - Avi0MzvGRBCd6a
               - **escalada**: Ferradura
               - **ids**:
-                - 3
-              - **grupo**: Parede Principal (Paredes de Aço)
-              - **setor**: Setor Clássicas Curtas
+                - Avi0MzvGRBCd6a
             - **[17]**:
+              - **alvo_uid**: ukPpMbgAIGda42
+              - **pontos_uids**:
+                - eKifQ10jUYEtSi
               - **escalada**: A Medalha de Lúcia
               - **ids**:
-                - 4
-              - **grupo**: Parede Principal (Paredes de Aço)
-              - **setor**: Setor Clássicas Curtas
+                - eKifQ10jUYEtSi
             - **[18]**:
+              - **alvo_uid**: Lt9slg01AcQrYh
+              - **pontos_uids**:
+                - eKifQ10jUYEtSi
               - **escalada**: Águas de Março
               - **ids**:
-                - 4
-              - **grupo**: Parede Principal (Paredes de Aço)
-              - **setor**: Setor Clássicas Curtas
+                - eKifQ10jUYEtSi
             - **[19]**:
-              - **ids**:
-                - 4
-              - **grupo**: Parede Principal (Paredes de Aço)
-              - **setor**: Setor Clássicas Curtas
+              - **alvo_uid**: XbeZZSZvbb3PGN
+              - **pontos_uids**:
+                - eKifQ10jUYEtSi
               - **escalada**: Vou Dançar o Xaxaxá
-            - **[20]**:
               - **ids**:
-                - 4
-              - **grupo**: Parede Principal (Paredes de Aço)
-              - **setor**: Setor Clássicas Curtas
+                - eKifQ10jUYEtSi
+            - **[20]**:
+              - **alvo_uid**: Ia7EcXmdlpe2iI
+              - **pontos_uids**:
+                - eKifQ10jUYEtSi
               - **escalada**: Casas da Banha
+              - **ids**:
+                - eKifQ10jUYEtSi
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 1
-              - **label**: 1
+              - **id**: E9n2HG3zu2IagC
+              - **uid**: E9n2HG3zu2IagC
+              - **rotulo**: 1
               - **circulo**:
                 - **x**: 903
                 - **y**: 628
                 - **raio**: 22
+              - **label**: 1
             - **[1]**:
-              - **id**: 2
-              - **label**: 2
+              - **id**: UKgfefT8UX0JNh
+              - **uid**: UKgfefT8UX0JNh
+              - **rotulo**: 2
               - **circulo**:
                 - **x**: 1010
                 - **y**: 711
                 - **raio**: 22
+              - **label**: 2
             - **[2]**:
-              - **id**: 3
-              - **label**: 3
+              - **id**: Avi0MzvGRBCd6a
+              - **uid**: Avi0MzvGRBCd6a
+              - **rotulo**: 3
               - **circulo**:
                 - **x**: 1099
                 - **y**: 792
                 - **raio**: 22
+              - **label**: 3
             - **[3]**:
-              - **id**: 4
-              - **label**: 4
+              - **id**: eKifQ10jUYEtSi
+              - **uid**: eKifQ10jUYEtSi
+              - **rotulo**: 4
               - **circulo**:
                 - **x**: 1183
                 - **y**: 914
                 - **raio**: 22
+              - **label**: 4
             - **[4]**:
-              - **id**: Subsetor Cachoeira
-              - **label**: Subsetor Cachoeira
+              - **id**: v6xgcdbhiBfzEX
+              - **uid**: v6xgcdbhiBfzEX
+              - **rotulo**: Subsetor Cachoeira
               - **retangulo**:
                 - **x**: 372
                 - **y**: 847
                 - **comprimento**: 317
                 - **largura**: 68
+              - **label**: Subsetor Cachoeira
             - **[5]**:
-              - **id**: Aderências - Extrema Esquerda
-              - **label**: Aderências - Extrema Esquerda
+              - **id**: S8U8czODCDed99
+              - **uid**: S8U8czODCDed99
+              - **rotulo**: Aderências - Extrema Esquerda
               - **retangulo**:
                 - **x**: 1283
                 - **y**: 370
                 - **comprimento**: 350
                 - **largura**: 85
+              - **label**: Aderências - Extrema Esquerda
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_principal_setor_classicas_curtas_p2_i0.webp)
           - **largura_mapa**: 2041
           - **altura_mapa**: 1224
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: ukPpMbgAIGda42
+              - **pontos_uids**:
+                - GQnIW94j2rrtcp
               - **escalada**: A Medalha de Lúcia
               - **ids**:
-                - 1
+                - GQnIW94j2rrtcp
             - **[1]**:
+              - **alvo_uid**: Lt9slg01AcQrYh
+              - **pontos_uids**:
+                - 0xMmDYCxGVoYoo
               - **escalada**: Águas de Março
               - **ids**:
-                - 2
+                - 0xMmDYCxGVoYoo
             - **[2]**:
+              - **alvo_uid**: XbeZZSZvbb3PGN
+              - **pontos_uids**:
+                - 7cowcqSW0nMD7T
               - **escalada**: Vou Dançar o Xaxaxá
               - **ids**:
-                - 3
+                - 7cowcqSW0nMD7T
             - **[3]**:
+              - **alvo_uid**: Ia7EcXmdlpe2iI
+              - **pontos_uids**:
+                - gRegEzD3lkl5Me
               - **escalada**: Casas da Banha
               - **ids**:
-                - 4
+                - gRegEzD3lkl5Me
             - **[4]**:
-              - **ids**:
-                - 5
+              - **alvo_uid**: hWD9UQJTfeeLtJ
+              - **pontos_uids**:
+                - MWSFm5mvj9RDGk
               - **escalada**: Ferradura
+              - **ids**:
+                - MWSFm5mvj9RDGk
             - **[5]**:
-              - **ids**:
-                - 6
+              - **alvo_uid**: lHhszDUlwi5Y7i
+              - **pontos_uids**:
+                - hXMQBJACP1EvAL
               - **escalada**: Ferrolho
+              - **ids**:
+                - hXMQBJACP1EvAL
             - **[6]**:
-              - **ids**:
-                - 7
+              - **alvo_uid**: vrXUR5016GuvUn
+              - **pontos_uids**:
+                - hToqo60B1NkflS
               - **escalada**: Cambal a Quatro
+              - **ids**:
+                - hToqo60B1NkflS
             - **[7]**:
-              - **ids**:
-                - 8
+              - **alvo_uid**: 3H2P63eUJtSmda
+              - **pontos_uids**:
+                - puUWeyK91RnFEI
               - **escalada**: El Bigodón
+              - **ids**:
+                - puUWeyK91RnFEI
             - **[8]**:
-              - **ids**:
-                - 9
+              - **alvo_uid**: heSEhw8bk6CUMi
+              - **pontos_uids**:
+                - BphH3VqFa9g2Yx
               - **escalada**: Testa de Aço
+              - **ids**:
+                - BphH3VqFa9g2Yx
             - **[9]**:
-              - **ids**:
-                - 10
+              - **alvo_uid**: BBtRCBwAzyQLg5
+              - **pontos_uids**:
+                - Z6KbGXW7jUdXzN
               - **escalada**: Me Ferrei
+              - **ids**:
+                - Z6KbGXW7jUdXzN
             - **[10]**:
-              - **ids**:
-                - 11
+              - **alvo_uid**: y77FqGi7nfe7tx
+              - **pontos_uids**:
+                - TQWiot4Tucgzw2
               - **escalada**: Amor Profano
+              - **ids**:
+                - TQWiot4Tucgzw2
             - **[11]**:
-              - **ids**:
-                - 12
+              - **alvo_uid**: 2CKnFR9GnX0RVk
+              - **pontos_uids**:
+                - 2cqwyIY7hs7y3S
               - **escalada**: Deu Tilt
+              - **ids**:
+                - 2cqwyIY7hs7y3S
             - **[12]**:
-              - **ids**:
-                - 13
+              - **alvo_uid**: PBqIWUa3s7CbW1
+              - **pontos_uids**:
+                - naV6GkqhyZOpru
               - **escalada**: Ferroada
+              - **ids**:
+                - naV6GkqhyZOpru
             - **[13]**:
-              - **ids**:
-                - 14
+              - **alvo_uid**: oOHg0sGfjZa8qL
+              - **pontos_uids**:
+                - phloToIRDUZpIw
               - **escalada**: Scarface
+              - **ids**:
+                - phloToIRDUZpIw
             - **[14]**:
-              - **ids**:
-                - 15
+              - **alvo_uid**: kmjy7dMR7EM87p
+              - **pontos_uids**:
+                - uMGBV7cseji2Ls
               - **escalada**: Se Meu Fusca Falasse
+              - **ids**:
+                - uMGBV7cseji2Ls
             - **[15]**:
-              - **ids**:
-                - 16
+              - **alvo_uid**: P0dH1zFOhsNWKI
+              - **pontos_uids**:
+                - JtofS84ut0KGpL
               - **escalada**: Couro de Lobisomem
+              - **ids**:
+                - JtofS84ut0KGpL
             - **[16]**:
-              - **ids**:
-                - 17
+              - **alvo_uid**: u9Za0cGFtd4buF
+              - **pontos_uids**:
+                - wtvYfviHusUIiH
               - **escalada**: Enferrujados
+              - **ids**:
+                - wtvYfviHusUIiH
             - **[17]**:
-              - **ids**:
-                - 18
+              - **alvo_uid**: Ck0BH6ArfYc4Mi
+              - **pontos_uids**:
+                - Hf6SmebhAVVl3C
               - **escalada**: Rastro de Cobra
-            - **[18]**:
               - **ids**:
-                - 19
+                - Hf6SmebhAVVl3C
+            - **[18]**:
+              - **alvo_uid**: GzzOvXVhZnnCJj
+              - **pontos_uids**:
+                - T4BulKEF65UlwH
               - **escalada**: Entrando no Ferro
+              - **ids**:
+                - T4BulKEF65UlwH
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 1
-              - **label**: 1
+              - **id**: GQnIW94j2rrtcp
+              - **uid**: GQnIW94j2rrtcp
+              - **rotulo**: 1
               - **circulo**:
                 - **x**: 63
                 - **y**: 693
                 - **raio**: 23
+              - **label**: 1
             - **[1]**:
-              - **id**: 2
-              - **label**: 2
+              - **id**: 0xMmDYCxGVoYoo
+              - **uid**: 0xMmDYCxGVoYoo
+              - **rotulo**: 2
               - **circulo**:
                 - **x**: 116
                 - **y**: 719
                 - **raio**: 23
+              - **label**: 2
             - **[2]**:
-              - **id**: 3
-              - **label**: 3
+              - **id**: 7cowcqSW0nMD7T
+              - **uid**: 7cowcqSW0nMD7T
+              - **rotulo**: 3
               - **circulo**:
                 - **x**: 169
                 - **y**: 761
                 - **raio**: 23
+              - **label**: 3
             - **[3]**:
-              - **id**: 4
-              - **label**: 4
+              - **id**: gRegEzD3lkl5Me
+              - **uid**: gRegEzD3lkl5Me
+              - **rotulo**: 4
               - **circulo**:
                 - **x**: 339
                 - **y**: 816
                 - **raio**: 23
+              - **label**: 4
             - **[4]**:
-              - **id**: 5
-              - **label**: 5
+              - **id**: MWSFm5mvj9RDGk
+              - **uid**: MWSFm5mvj9RDGk
+              - **rotulo**: 5
               - **circulo**:
                 - **x**: 644
                 - **y**: 943
                 - **raio**: 23
+              - **label**: 5
             - **[5]**:
-              - **id**: 6
-              - **label**: 6
+              - **id**: hXMQBJACP1EvAL
+              - **uid**: hXMQBJACP1EvAL
+              - **rotulo**: 6
               - **circulo**:
                 - **x**: 768
                 - **y**: 929
                 - **raio**: 23
+              - **label**: 6
             - **[6]**:
-              - **id**: 7
-              - **label**: 7
+              - **id**: hToqo60B1NkflS
+              - **uid**: hToqo60B1NkflS
+              - **rotulo**: 7
               - **circulo**:
                 - **x**: 983
                 - **y**: 1031
                 - **raio**: 23
+              - **label**: 7
             - **[7]**:
-              - **id**: 8
-              - **label**: 8
+              - **id**: puUWeyK91RnFEI
+              - **uid**: puUWeyK91RnFEI
+              - **rotulo**: 8
               - **circulo**:
                 - **x**: 1141
                 - **y**: 1049
                 - **raio**: 23
+              - **label**: 8
             - **[8]**:
-              - **id**: 9
-              - **label**: 9
+              - **id**: BphH3VqFa9g2Yx
+              - **uid**: BphH3VqFa9g2Yx
+              - **rotulo**: 9
               - **circulo**:
                 - **x**: 1226
                 - **y**: 1051
                 - **raio**: 23
+              - **label**: 9
             - **[9]**:
-              - **id**: 10
-              - **label**: 10
+              - **id**: Z6KbGXW7jUdXzN
+              - **uid**: Z6KbGXW7jUdXzN
+              - **rotulo**: 10
               - **circulo**:
                 - **x**: 1272
                 - **y**: 1052
                 - **raio**: 25
+              - **label**: 10
             - **[10]**:
-              - **id**: 11
-              - **label**: 11
+              - **id**: TQWiot4Tucgzw2
+              - **uid**: TQWiot4Tucgzw2
+              - **rotulo**: 11
               - **circulo**:
                 - **x**: 1337
                 - **y**: 1041
                 - **raio**: 25
+              - **label**: 11
             - **[11]**:
-              - **id**: 12
-              - **label**: 12
+              - **id**: 2cqwyIY7hs7y3S
+              - **uid**: 2cqwyIY7hs7y3S
+              - **rotulo**: 12
               - **circulo**:
                 - **x**: 1508
                 - **y**: 1016
                 - **raio**: 27
+              - **label**: 12
             - **[12]**:
-              - **id**: 13
-              - **label**: 13
+              - **id**: naV6GkqhyZOpru
+              - **uid**: naV6GkqhyZOpru
+              - **rotulo**: 13
               - **circulo**:
                 - **x**: 1612
                 - **y**: 1011
                 - **raio**: 27
+              - **label**: 13
             - **[13]**:
-              - **id**: 14
-              - **label**: 14
+              - **id**: phloToIRDUZpIw
+              - **uid**: phloToIRDUZpIw
+              - **rotulo**: 14
               - **circulo**:
                 - **x**: 1669
                 - **y**: 1018
                 - **raio**: 27
+              - **label**: 14
             - **[14]**:
-              - **id**: 15
-              - **label**: 15
+              - **id**: uMGBV7cseji2Ls
+              - **uid**: uMGBV7cseji2Ls
+              - **rotulo**: 15
               - **circulo**:
                 - **x**: 1733
                 - **y**: 1040
                 - **raio**: 27
+              - **label**: 15
             - **[15]**:
-              - **id**: 16
-              - **label**: 16
+              - **id**: JtofS84ut0KGpL
+              - **uid**: JtofS84ut0KGpL
+              - **rotulo**: 16
               - **circulo**:
                 - **x**: 1791
                 - **y**: 1038
                 - **raio**: 27
+              - **label**: 16
             - **[16]**:
-              - **id**: 17
-              - **label**: 17
+              - **id**: wtvYfviHusUIiH
+              - **uid**: wtvYfviHusUIiH
+              - **rotulo**: 17
               - **circulo**:
                 - **x**: 1843
                 - **y**: 1029
                 - **raio**: 27
+              - **label**: 17
             - **[17]**:
-              - **id**: 18
-              - **label**: 18
+              - **id**: Hf6SmebhAVVl3C
+              - **uid**: Hf6SmebhAVVl3C
+              - **rotulo**: 18
               - **circulo**:
                 - **x**: 1940
                 - **y**: 1033
                 - **raio**: 27
+              - **label**: 18
             - **[18]**:
-              - **id**: 19
-              - **label**: 19
+              - **id**: T4BulKEF65UlwH
+              - **uid**: T4BulKEF65UlwH
+              - **rotulo**: 19
               - **circulo**:
                 - **x**: 2011
                 - **y**: 1021
                 - **raio**: 27
+              - **label**: 19
         - **[2]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_principal_setor_classicas_curtas_p5_i1.webp)
           - **largura_mapa**: 870
           - **altura_mapa**: 1211
           - **referencias**:
             - **[0]**:
-              - **ids**:
-                - 1
-                - p1_1
+              - **alvo_uid**: ukPpMbgAIGda42
+              - **pontos_uids**:
+                - jmIdpVKjEj9umD
+                - lwvgP0fbxtzcPA
               - **escalada**: A Medalha de Lúcia
+              - **ids**:
+                - jmIdpVKjEj9umD
+                - lwvgP0fbxtzcPA
             - **[1]**:
-              - **ids**:
-                - 2
-                - p1_2
-                - p2_2
+              - **alvo_uid**: Lt9slg01AcQrYh
+              - **pontos_uids**:
+                - VmMcMoHhEGE69F
+                - YXQjZm0LyLJBUB
+                - MVnIAGasum737W
               - **escalada**: Águas de Março
+              - **ids**:
+                - VmMcMoHhEGE69F
+                - YXQjZm0LyLJBUB
+                - MVnIAGasum737W
             - **[2]**:
-              - **ids**:
-                - 3
-                - p1_3
+              - **alvo_uid**: XbeZZSZvbb3PGN
+              - **pontos_uids**:
+                - qXBKbnbupblZzW
+                - tIlp2U8p34POOY
               - **escalada**: Vou Dançar o Xaxaxá
-            - **[3]**:
               - **ids**:
-                - 4
-                - p1_4
+                - qXBKbnbupblZzW
+                - tIlp2U8p34POOY
+            - **[3]**:
+              - **alvo_uid**: Ia7EcXmdlpe2iI
+              - **pontos_uids**:
+                - TV9OEkxNpiKJ5i
+                - sNsVWhcf4ieRAy
               - **escalada**: Casas da Banha
+              - **ids**:
+                - TV9OEkxNpiKJ5i
+                - sNsVWhcf4ieRAy
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 1
-              - **label**: 1
+              - **id**: jmIdpVKjEj9umD
+              - **uid**: jmIdpVKjEj9umD
+              - **rotulo**: 1
               - **circulo**:
                 - **x**: 98
                 - **y**: 1077
                 - **raio**: 22
+              - **label**: 1
             - **[1]**:
-              - **id**: 2
-              - **label**: 2
+              - **id**: VmMcMoHhEGE69F
+              - **uid**: VmMcMoHhEGE69F
+              - **rotulo**: 2
               - **circulo**:
                 - **x**: 195
                 - **y**: 1091
                 - **raio**: 22
+              - **label**: 2
             - **[2]**:
-              - **id**: 3
-              - **label**: 3
+              - **id**: qXBKbnbupblZzW
+              - **uid**: qXBKbnbupblZzW
+              - **rotulo**: 3
               - **circulo**:
                 - **x**: 478
                 - **y**: 1125
                 - **raio**: 22
+              - **label**: 3
             - **[3]**:
-              - **id**: 4
-              - **label**: 4
+              - **id**: TV9OEkxNpiKJ5i
+              - **uid**: TV9OEkxNpiKJ5i
+              - **rotulo**: 4
               - **circulo**:
                 - **x**: 789
                 - **y**: 1169
                 - **raio**: 22
+              - **label**: 4
             - **[4]**:
-              - **id**: p1_1
-              - **label**: 
+              - **id**: lwvgP0fbxtzcPA
+              - **uid**: lwvgP0fbxtzcPA
+              - **rotulo**: 
               - **circulo**:
                 - **x**: 196
                 - **y**: 625
                 - **raio**: 15
               - **cor**: 
-            - **[5]**:
-              - **id**: p1_2
               - **label**: 
+            - **[5]**:
+              - **id**: YXQjZm0LyLJBUB
+              - **uid**: YXQjZm0LyLJBUB
+              - **rotulo**: 
               - **circulo**:
                 - **x**: 377
                 - **y**: 647
                 - **raio**: 15
               - **cor**: 
-            - **[6]**:
-              - **id**: p2_2
               - **label**: 
+            - **[6]**:
+              - **id**: MVnIAGasum737W
+              - **uid**: MVnIAGasum737W
+              - **rotulo**: 
               - **circulo**:
                 - **x**: 397
                 - **y**: 346
                 - **raio**: 15
               - **cor**: 
-            - **[7]**:
-              - **id**: p1_4
               - **label**: 
+            - **[7]**:
+              - **id**: sNsVWhcf4ieRAy
+              - **uid**: sNsVWhcf4ieRAy
+              - **rotulo**: 
               - **circulo**:
                 - **x**: 704
                 - **y**: 688
                 - **raio**: 14
               - **cor**: 
-            - **[8]**:
-              - **id**: p1_3
               - **label**: 
+            - **[8]**:
+              - **id**: tIlp2U8p34POOY
+              - **uid**: tIlp2U8p34POOY
+              - **rotulo**: 
               - **circulo**:
                 - **x**: 638
                 - **y**: 371
                 - **raio**: 17
               - **cor**: 
+              - **label**: 
       - **escaladas**:
         - **[0]**:
+          - **uid**: ukPpMbgAIGda42
           - **via_esportiva**:
             - **descricao**: Segue por uma óbvia cristaleira até seu final, quando faz uma horizontal à direita – e crux da via – até sua parada dupla de topo.
             - **nome**: A Medalha de Lúcia
@@ -3593,6 +4519,7 @@
               - Celso Ferreira Gomes
             - **data_abertura**: 2015-09-18
         - **[1]**:
+          - **uid**: Lt9slg01AcQrYh
           - **via_multiplas_enfiadas**:
             - **descricao**: Interessante via que inicia em um lance levemente atlético e evolui para abaulados e aderência, sempre bem protegida.
             - **nome**: Águas de Março
@@ -3627,6 +4554,7 @@
                   - **quantidade_protecoes_parada**: 2
                   - **tipo_ancoragem**: Parada dupla
         - **[2]**:
+          - **uid**: XbeZZSZvbb3PGN
           - **via_esportiva**:
             - **descricao**: Via bem protegida e agradável. O nome homenageia o Gustavo “Xaxá”, fundador do CEM (Centro Excursionista Mineiro) e se inspira num antigo comercial de TV das Casas da Banha. (Nota: indicada com 65m no croqui detalhado e 90m na introdução e visão geral da parede).
             - **nome**: Vou Dançar o Xaxaxá
@@ -3641,6 +4569,7 @@
               - Celso Ferreira Gomes
             - **data_abertura**: 2010-11-28
         - **[3]**:
+          - **uid**: Ia7EcXmdlpe2iI
           - **via_esportiva**:
             - **descricao**: Começa com uma enfiada atlética seguida de lances em buracos. Apresenta parada dupla (P1) aos 40 metros e conexão de 5 metros até a via Vou Dançar o Xaxaxá.
             - **nome**: Casas da Banha
@@ -3657,6 +4586,7 @@
               - Celso Ferreira Gomes
             - **data_abertura**: 2011-04-21
         - **[4]**:
+          - **uid**: hWD9UQJTfeeLtJ
           - **via_esportiva**:
             - **descricao**: Via portadora de um lance difícil. Um verdadeiro bote em um buraco. É variante da Ferrolho e conta com boa proteção. (Nota: indicada com 25m na visão geral da parede).
             - **nome**: Ferradura
@@ -3667,6 +4597,7 @@
               - Júlio César Cardoso
             - **data_abertura**: 2007-06-03
         - **[5]**:
+          - **uid**: lHhszDUlwi5Y7i
           - **via_esportiva**:
             - **descricao**: A via segue uma linda sequência de buracos em forma de olhos. Daí o nome da via. O crux é o primeiro lance.
             - **nome**: Ferrolho
@@ -3677,6 +4608,7 @@
               - Júlio César Cardoso
             - **data_abertura**: 2007-06-03
         - **[6]**:
+          - **uid**: vrXUR5016GuvUn
           - **via_esportiva**:
             - **descricao**: Via portadora de uma difícil barriga em seu final. (Graduada como V na visão geral e Vsup na descrição).
             - **nome**: Cambal a Quatro
@@ -3688,6 +4620,7 @@
               - Valdinei
             - **data_abertura**: 2008-02-03
         - **[7]**:
+          - **uid**: 3H2P63eUJtSmda
           - **via_movel**:
             - **descricao**: Espetacular via do setor, sendo considerada como imperdível. Via mista com grampos e proteções móveis.
             - **nome**: El Bigodón
@@ -3700,6 +4633,7 @@
               - Nádia Moreira
             - **data_abertura**: 2006-08-27
         - **[8]**:
+          - **uid**: heSEhw8bk6CUMi
           - **via_movel**:
             - **descricao**: Via mista, com grampos e utilização de materiais móveis. Rapel com corda simples de 50m.
             - **nome**: Testa de Aço
@@ -3710,6 +4644,7 @@
               - Gustavo "Xaxá" Carrozzino
             - **data_abertura**: 2007-10-28
         - **[9]**:
+          - **uid**: BBtRCBwAzyQLg5
           - **via_movel**:
             - **descricao**: Via atlética com grampos e utilização de materiais móveis. Rapel com corda simples de 50m.
             - **nome**: Me Ferrei
@@ -3720,6 +4655,7 @@
               - Tonico Magalhães
             - **data_abertura**: 2011-06-22
         - **[10]**:
+          - **uid**: y77FqGi7nfe7tx
           - **via_movel**:
             - **descricao**: Via atlética em seu início e em aderência em seu final. O primeiro lance (crux) pode ter sua proteção melhorada com um friend médio. Imperdível também.
             - **nome**: Amor Profano
@@ -3732,6 +4668,7 @@
               - Nádia Moreira
             - **data_abertura**: 2007-08-13
         - **[11]**:
+          - **uid**: 2CKnFR9GnX0RVk
           - **via_esportiva**:
             - **descricao**: Boa via em grampos. O crux é logo no início.
             - **nome**: Deu Tilt
@@ -3742,6 +4679,7 @@
               - Daniel Maia
             - **data_abertura**: 2008-03-22
         - **[12]**:
+          - **uid**: PBqIWUa3s7CbW1
           - **via_esportiva**:
             - **descricao**: Boa para iniciantes e bem protegida.
             - **nome**: Ferroada
@@ -3752,6 +4690,7 @@
               - Nádia Moreira
             - **data_abertura**: 2007-04-23
         - **[13]**:
+          - **uid**: oOHg0sGfjZa8qL
           - **via_esportiva**:
             - **descricao**: Via protegida por 6 grampos, tendo seu crux na passada final. (Graduada como IVsup na visão geral e IV na descrição; extensão de 15m na visão geral e 20m na descrição).
             - **nome**: Scarface
@@ -3763,6 +4702,7 @@
               - Celso Ferreira Gomes
             - **data_abertura**: 2013-05-30
         - **[14]**:
+          - **uid**: kmjy7dMR7EM87p
           - **via_esportiva**:
             - **descricao**: Via com movimentos interessantes e crux ao final.
             - **nome**: Se Meu Fusca Falasse
@@ -3773,6 +4713,7 @@
               - Tonico Magalhães
             - **data_abertura**: 2010-02-16
         - **[15]**:
+          - **uid**: P0dH1zFOhsNWKI
           - **via_esportiva**:
             - **descricao**: Via técnica em agarras e bem protegida.
             - **nome**: Couro de Lobisomem
@@ -3784,6 +4725,7 @@
               - Celso Ferreira Gomes
             - **data_abertura**: 2011-07-17
         - **[16]**:
+          - **uid**: u9Za0cGFtd4buF
           - **via_esportiva**:
             - **descricao**: A barriga crux da via vale uma repetição.
             - **nome**: Enferrujados
@@ -3795,6 +4737,7 @@
               - Nádia Moreira
             - **data_abertura**: 2007-06-17
         - **[17]**:
+          - **uid**: Ck0BH6ArfYc4Mi
           - **via_esportiva**:
             - **descricao**: Via técnica e bem protegida.
             - **nome**: Rastro de Cobra
@@ -3805,6 +4748,7 @@
               - Celso Ferreira Gomes
             - **data_abertura**: 2011-07-17
         - **[18]**:
+          - **uid**: GzzOvXVhZnnCJj
           - **via_esportiva**:
             - **descricao**: Primeira via na extrema direita deste setor, seguindo a linha de vegetação. O crux é o primeiro lance.
             - **nome**: Entrando no Ferro
@@ -3855,6 +4799,7 @@
           | :--: |
           | *Cida, Eustáquio Júnior, Larissa Lopes e Maria Fernanda na base da Parede Principal - Direita, durante aula do segundo Curso Básico de Montanhismo do CEM (Foto: Pedro Bugim)* |
       - **nome**: Parede Principal – Direita
+      - **uid**: g0ASFec0ovBc9J
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_principal_setor_direita_p1_i1.webp)
@@ -3862,469 +4807,675 @@
           - **altura_mapa**: 1025
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: Z3YMtD43WuhcKt
+              - **pontos_uids**:
+                - 53iO2skjXRdCxb
               - **escalada**: Cutícula
               - **ids**:
-                - 1
+                - 53iO2skjXRdCxb
             - **[1]**:
+              - **alvo_uid**: QxAbpnm7atdfcm
+              - **pontos_uids**:
+                - 53iO2skjXRdCxb
               - **escalada**: Pelinha
               - **ids**:
-                - 1
+                - 53iO2skjXRdCxb
             - **[2]**:
+              - **alvo_uid**: dv58WrzcTNBVTB
+              - **pontos_uids**:
+                - phTKTsauxVo0II
               - **escalada**: Rapidinha no Escurinho
               - **ids**:
-                - 2
+                - phTKTsauxVo0II
             - **[3]**:
+              - **alvo_uid**: 3RkCzXVVt7h3yt
+              - **pontos_uids**:
+                - phTKTsauxVo0II
               - **escalada**: Pelanca
               - **ids**:
-                - 2
+                - phTKTsauxVo0II
             - **[4]**:
+              - **alvo_uid**: YEuAYl4yn7OAZ0
+              - **pontos_uids**:
+                - phTKTsauxVo0II
               - **escalada**: Flor da Pele
               - **ids**:
-                - 2
+                - phTKTsauxVo0II
             - **[5]**:
+              - **alvo_uid**: t0JEI9iAcdGP1l
+              - **pontos_uids**:
+                - phTKTsauxVo0II
               - **escalada**: Alma Nova
               - **ids**:
-                - 2
+                - phTKTsauxVo0II
             - **[6]**:
+              - **alvo_uid**: IbMIeaZ7w1iKVi
+              - **pontos_uids**:
+                - phTKTsauxVo0II
               - **escalada**: Pele Vermelha
               - **ids**:
-                - 2
+                - phTKTsauxVo0II
             - **[7]**:
+              - **alvo_uid**: K05yKYTFzBgHr2
+              - **pontos_uids**:
+                - EovdCTmbfTRDzU
               - **escalada**: Amor, Meu Grande Amor
               - **ids**:
-                - 3
+                - EovdCTmbfTRDzU
             - **[8]**:
+              - **alvo_uid**: qDFuqX1AiaHpM8
+              - **pontos_uids**:
+                - EovdCTmbfTRDzU
               - **escalada**: Tá Bão
               - **ids**:
-                - 3
+                - EovdCTmbfTRDzU
             - **[9]**:
+              - **alvo_uid**: LrGnP0Nhyp9YX1
+              - **pontos_uids**:
+                - uLLz7bnICCrfLg
               - **escalada**: O Burro e o Capacete
               - **ids**:
-                - 4
+                - uLLz7bnICCrfLg
             - **[10]**:
+              - **alvo_uid**: WhvSwHQ6b9oeO2
+              - **pontos_uids**:
+                - aFcRADC66njgzW
               - **escalada**: Valeu Papito
               - **ids**:
-                - 5
+                - aFcRADC66njgzW
             - **[11]**:
+              - **alvo_uid**: os0n0Km0vjVzkm
+              - **pontos_uids**:
+                - aFcRADC66njgzW
               - **escalada**: Pente Frio
               - **ids**:
-                - 5
+                - aFcRADC66njgzW
             - **[12]**:
+              - **alvo_uid**: rI8Obcal0VokZO
+              - **pontos_uids**:
+                - aFcRADC66njgzW
               - **escalada**: El Barrigón
               - **ids**:
-                - 5
+                - aFcRADC66njgzW
             - **[13]**:
+              - **alvo_uid**: TGdmA6h3cxpBCT
+              - **pontos_uids**:
+                - aFcRADC66njgzW
               - **escalada**: Lobos do Caraça
               - **ids**:
-                - 5
+                - aFcRADC66njgzW
             - **[14]**:
+              - **alvo_uid**: 29LV4nwRx1EFcY
+              - **pontos_uids**:
+                - uLLz7bnICCrfLg
               - **escalada**: O Tempo e o Vento
               - **ids**:
-                - 4
+                - uLLz7bnICCrfLg
             - **[15]**:
-              - **grupo**: Parede das Aderências
+              - **alvo_uid**: FO3KvzGBfKKpB4
+              - **pontos_uids**:
+                - aEX41RMOZp7Nm1
               - **setor**: Extrema Esquerda
               - **ids**:
-                - Aderências - Extrema Esquerda
+                - aEX41RMOZp7Nm1
             - **[16]**:
-              - **ids**:
-                - Aderências - Esquerda 1
-              - **grupo**: Parede das Aderências
+              - **alvo_uid**: avRkW8fzw3OF22
+              - **pontos_uids**:
+                - YWDAPGI8CtZog8
               - **setor**: Esquerda
+              - **ids**:
+                - YWDAPGI8CtZog8
             - **[17]**:
-              - **grupo**: Parede das Aderências
+              - **alvo_uid**: avRkW8fzw3OF22
+              - **pontos_uids**:
+                - cOhZKmGz4OyJQM
               - **setor**: Esquerda
               - **ids**:
-                - Aderências - Esquerda 2
+                - cOhZKmGz4OyJQM
             - **[18]**:
+              - **alvo_uid**: lTi8TIXxTU6KF0
+              - **pontos_uids**:
+                - RZRKsCuUp7RwVo
               - **setor**: Cachoeira
               - **ids**:
-                - Subsetor Cachoeira
+                - RZRKsCuUp7RwVo
             - **[19]**:
+              - **alvo_uid**: rKxz4SSg8tyORQ
+              - **pontos_uids**:
+                - hGSGm2oYu7WOHW
               - **setor**: Setor Clássicas Curtas
               - **ids**:
-                - Setor Clássicas Curtas
+                - hGSGm2oYu7WOHW
             - **[20]**:
+              - **alvo_uid**: rGOlhPmCuaVWav
+              - **pontos_uids**:
+                - aEVckg9Z2GFZDN
               - **setor**: Face Central
               - **ids**:
-                - Aderências - Face Central
-              - **grupo**: Parede das Aderências
+                - aEVckg9Z2GFZDN
             - **[21]**:
+              - **alvo_uid**: nJgmAcSxMTe2Xy
+              - **pontos_uids**:
+                - lyJbdya5uA8ARs
               - **setor**: Setor Central
               - **ids**:
-                - Parede Principal - Central
+                - lyJbdya5uA8ARs
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 1
-              - **label**: 1
+              - **id**: 53iO2skjXRdCxb
+              - **uid**: 53iO2skjXRdCxb
+              - **rotulo**: 1
               - **circulo**:
                 - **x**: 963
                 - **y**: 611
                 - **raio**: 19
+              - **label**: 1
             - **[1]**:
-              - **id**: 2
-              - **label**: 2
+              - **id**: phTKTsauxVo0II
+              - **uid**: phTKTsauxVo0II
+              - **rotulo**: 2
               - **circulo**:
                 - **x**: 998
                 - **y**: 680
                 - **raio**: 19
+              - **label**: 2
             - **[2]**:
-              - **id**: 3
-              - **label**: 3
+              - **id**: EovdCTmbfTRDzU
+              - **uid**: EovdCTmbfTRDzU
+              - **rotulo**: 3
               - **circulo**:
                 - **x**: 1021
                 - **y**: 740
                 - **raio**: 19
+              - **label**: 3
             - **[3]**:
-              - **id**: 4
-              - **label**: 4
+              - **id**: uLLz7bnICCrfLg
+              - **uid**: uLLz7bnICCrfLg
+              - **rotulo**: 4
               - **circulo**:
                 - **x**: 1071
                 - **y**: 762
                 - **raio**: 19
+              - **label**: 4
             - **[4]**:
-              - **id**: 5
-              - **label**: 5
+              - **id**: aFcRADC66njgzW
+              - **uid**: aFcRADC66njgzW
+              - **rotulo**: 5
               - **circulo**:
                 - **x**: 1106
                 - **y**: 830
                 - **raio**: 19
+              - **label**: 5
             - **[5]**:
-              - **id**: Aderências - Extrema Esquerda
-              - **label**: Aderências - Extrema Esquerda
+              - **id**: aEX41RMOZp7Nm1
+              - **uid**: aEX41RMOZp7Nm1
+              - **rotulo**: Aderências - Extrema Esquerda
               - **retangulo**:
                 - **x**: 790
                 - **y**: 44
                 - **comprimento**: 254
                 - **largura**: 69
+              - **label**: Aderências - Extrema Esquerda
             - **[6]**:
-              - **id**: Aderências - Esquerda 1
-              - **label**: Aderências - Esquerda 1
+              - **id**: YWDAPGI8CtZog8
+              - **uid**: YWDAPGI8CtZog8
+              - **rotulo**: Aderências - Esquerda 1
               - **retangulo**:
                 - **x**: 1083
                 - **y**: 275
                 - **comprimento**: 326
                 - **largura**: 64
+              - **label**: Aderências - Esquerda 1
             - **[7]**:
-              - **id**: Aderências - Esquerda 2
-              - **label**: Aderências - Esquerda 2
+              - **id**: cOhZKmGz4OyJQM
+              - **uid**: cOhZKmGz4OyJQM
+              - **rotulo**: Aderências - Esquerda 2
               - **retangulo**:
                 - **x**: 1313
                 - **y**: 431
                 - **comprimento**: 334
                 - **largura**: 54
+              - **label**: Aderências - Esquerda 2
             - **[8]**:
-              - **id**: Subsetor Cachoeira
-              - **label**: Subsetor Cachoeira
+              - **id**: RZRKsCuUp7RwVo
+              - **uid**: RZRKsCuUp7RwVo
+              - **rotulo**: Subsetor Cachoeira
               - **retangulo**:
                 - **x**: 254
                 - **y**: 337
                 - **comprimento**: 271
                 - **largura**: 46
+              - **label**: Subsetor Cachoeira
             - **[9]**:
-              - **id**: Setor Clássicas Curtas
-              - **label**: Setor Clássicas Curtas
+              - **id**: hGSGm2oYu7WOHW
+              - **uid**: hGSGm2oYu7WOHW
+              - **rotulo**: Setor Clássicas Curtas
               - **retangulo**:
                 - **x**: 554
                 - **y**: 354
                 - **comprimento**: 215
                 - **largura**: 67
+              - **label**: Setor Clássicas Curtas
             - **[10]**:
-              - **id**: Aderências - Face Central
-              - **label**: Aderências - Face Central
+              - **id**: aEVckg9Z2GFZDN
+              - **uid**: aEVckg9Z2GFZDN
+              - **rotulo**: Aderências - Face Central
               - **retangulo**:
                 - **x**: 1433
                 - **y**: 754
                 - **comprimento**: 184
                 - **largura**: 74
+              - **label**: Aderências - Face Central
             - **[11]**:
-              - **id**: Parede Principal - Central
-              - **label**: Parede Principal - Central
+              - **id**: lyJbdya5uA8ARs
+              - **uid**: lyJbdya5uA8ARs
+              - **rotulo**: Parede Principal - Central
               - **retangulo**:
                 - **x**: 1080
                 - **y**: 990
                 - **comprimento**: 332
                 - **largura**: 52
+              - **label**: Parede Principal - Central
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_principal_setor_direita_p2_i1.webp)
           - **largura_mapa**: 1996
           - **altura_mapa**: 1252
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: WhvSwHQ6b9oeO2
+              - **pontos_uids**:
+                - ynozLoQqG5c9sN
               - **escalada**: Valeu Papito
               - **ids**:
-                - 1
+                - ynozLoQqG5c9sN
             - **[1]**:
+              - **alvo_uid**: os0n0Km0vjVzkm
+              - **pontos_uids**:
+                - AGM7TjNTaLL3qY
               - **escalada**: Pente Frio
               - **ids**:
-                - 2
+                - AGM7TjNTaLL3qY
             - **[2]**:
+              - **alvo_uid**: rI8Obcal0VokZO
+              - **pontos_uids**:
+                - 1bbyBwOVssiVjc
               - **escalada**: El Barrigón
               - **ids**:
-                - 3
+                - 1bbyBwOVssiVjc
             - **[3]**:
+              - **alvo_uid**: TGdmA6h3cxpBCT
+              - **pontos_uids**:
+                - HafAiw8ArUPh1O
               - **escalada**: Lobos do Caraça
               - **ids**:
-                - 4
+                - HafAiw8ArUPh1O
             - **[4]**:
+              - **alvo_uid**: 29LV4nwRx1EFcY
+              - **pontos_uids**:
+                - FRHLdWomtFrJaU
               - **escalada**: O Tempo e o Vento
               - **ids**:
-                - 5
+                - FRHLdWomtFrJaU
             - **[5]**:
+              - **alvo_uid**: LrGnP0Nhyp9YX1
+              - **pontos_uids**:
+                - 12HZTy3Si7Ao0P
               - **escalada**: O Burro e o Capacete
               - **ids**:
-                - 6
+                - 12HZTy3Si7Ao0P
             - **[6]**:
+              - **alvo_uid**: qDFuqX1AiaHpM8
+              - **pontos_uids**:
+                - GbRaQsstOFXZna
               - **escalada**: Tá Bão
               - **ids**:
-                - 7
+                - GbRaQsstOFXZna
             - **[7]**:
+              - **alvo_uid**: K05yKYTFzBgHr2
+              - **pontos_uids**:
+                - bK6Ms13oKbw8ak
               - **escalada**: Amor, Meu Grande Amor
               - **ids**:
-                - 8
+                - bK6Ms13oKbw8ak
             - **[8]**:
+              - **alvo_uid**: dv58WrzcTNBVTB
+              - **pontos_uids**:
+                - UsgFXvw8CI9h1v
               - **escalada**: Rapidinha no Escurinho
               - **ids**:
-                - 9
+                - UsgFXvw8CI9h1v
             - **[9]**:
+              - **alvo_uid**: 3RkCzXVVt7h3yt
+              - **pontos_uids**:
+                - AjRXlqSZiOiIcK
               - **escalada**: Pelanca
               - **ids**:
-                - 10
+                - AjRXlqSZiOiIcK
             - **[10]**:
+              - **alvo_uid**: YEuAYl4yn7OAZ0
+              - **pontos_uids**:
+                - uXoUZqYi9EzYrc
               - **escalada**: Flor da Pele
               - **ids**:
-                - 11
+                - uXoUZqYi9EzYrc
             - **[11]**:
+              - **alvo_uid**: t0JEI9iAcdGP1l
+              - **pontos_uids**:
+                - Uv64qY0glTyZ7V
               - **escalada**: Alma Nova
               - **ids**:
-                - 12
+                - Uv64qY0glTyZ7V
             - **[12]**:
+              - **alvo_uid**: IbMIeaZ7w1iKVi
+              - **pontos_uids**:
+                - wMmnCBAmoOOVZe
               - **escalada**: Pele Vermelha
               - **ids**:
-                - 13
+                - wMmnCBAmoOOVZe
             - **[13]**:
+              - **alvo_uid**: QxAbpnm7atdfcm
+              - **pontos_uids**:
+                - SHC6eTt7M2O9D7
               - **escalada**: Pelinha
               - **ids**:
-                - 14
+                - SHC6eTt7M2O9D7
             - **[14]**:
+              - **alvo_uid**: Z3YMtD43WuhcKt
+              - **pontos_uids**:
+                - mqzDY8z2fsRFRA
               - **escalada**: Cutícula
               - **ids**:
-                - 15
+                - mqzDY8z2fsRFRA
             - **[15]**:
+              - **alvo_uid**: Aqvhry9pjfJsJw
+              - **pontos_uids**:
+                - TqF2oSvJQspEfz
               - **escalada**: Jeca Tatu
-              - **setor**: Setor Central
               - **ids**:
-                - Jeca Tatu
+                - TqF2oSvJQspEfz
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 1
-              - **label**: 1
+              - **id**: ynozLoQqG5c9sN
+              - **uid**: ynozLoQqG5c9sN
+              - **rotulo**: 1
               - **circulo**:
                 - **x**: 304
                 - **y**: 882
                 - **raio**: 22
+              - **label**: 1
             - **[1]**:
-              - **id**: 2
-              - **label**: 2
+              - **id**: AGM7TjNTaLL3qY
+              - **uid**: AGM7TjNTaLL3qY
+              - **rotulo**: 2
               - **circulo**:
                 - **x**: 450
                 - **y**: 812
                 - **raio**: 22
+              - **label**: 2
             - **[2]**:
-              - **id**: 3
-              - **label**: 3
+              - **id**: 1bbyBwOVssiVjc
+              - **uid**: 1bbyBwOVssiVjc
+              - **rotulo**: 3
               - **circulo**:
                 - **x**: 530
                 - **y**: 835
                 - **raio**: 22
+              - **label**: 3
             - **[3]**:
-              - **id**: 4
-              - **label**: 4
+              - **id**: HafAiw8ArUPh1O
+              - **uid**: HafAiw8ArUPh1O
+              - **rotulo**: 4
               - **circulo**:
                 - **x**: 598
                 - **y**: 868
                 - **raio**: 22
+              - **label**: 4
             - **[4]**:
-              - **id**: 5
-              - **label**: 5
+              - **id**: FRHLdWomtFrJaU
+              - **uid**: FRHLdWomtFrJaU
+              - **rotulo**: 5
               - **circulo**:
                 - **x**: 702
                 - **y**: 937
                 - **raio**: 22
+              - **label**: 5
             - **[5]**:
-              - **id**: 6
-              - **label**: 6
+              - **id**: 12HZTy3Si7Ao0P
+              - **uid**: 12HZTy3Si7Ao0P
+              - **rotulo**: 6
               - **circulo**:
                 - **x**: 783
                 - **y**: 1009
                 - **raio**: 22
+              - **label**: 6
             - **[6]**:
-              - **id**: 7
-              - **label**: 7
+              - **id**: GbRaQsstOFXZna
+              - **uid**: GbRaQsstOFXZna
+              - **rotulo**: 7
               - **circulo**:
                 - **x**: 907
                 - **y**: 947
                 - **raio**: 22
+              - **label**: 7
             - **[7]**:
-              - **id**: 8
-              - **label**: 8
+              - **id**: bK6Ms13oKbw8ak
+              - **uid**: bK6Ms13oKbw8ak
+              - **rotulo**: 8
               - **circulo**:
                 - **x**: 1027
                 - **y**: 964
                 - **raio**: 22
+              - **label**: 8
             - **[8]**:
-              - **id**: 9
-              - **label**: 9
+              - **id**: UsgFXvw8CI9h1v
+              - **uid**: UsgFXvw8CI9h1v
+              - **rotulo**: 9
               - **circulo**:
                 - **x**: 1127
                 - **y**: 1156
                 - **raio**: 22
+              - **label**: 9
             - **[9]**:
-              - **id**: 10
-              - **label**: 10
+              - **id**: AjRXlqSZiOiIcK
+              - **uid**: AjRXlqSZiOiIcK
+              - **rotulo**: 10
               - **circulo**:
                 - **x**: 1185
                 - **y**: 1152
                 - **raio**: 24
+              - **label**: 10
             - **[10]**:
-              - **id**: 11
-              - **label**: 11
+              - **id**: uXoUZqYi9EzYrc
+              - **uid**: uXoUZqYi9EzYrc
+              - **rotulo**: 11
               - **circulo**:
                 - **x**: 1287
                 - **y**: 1147
                 - **raio**: 24
+              - **label**: 11
             - **[11]**:
-              - **id**: 12
-              - **label**: 12
+              - **id**: Uv64qY0glTyZ7V
+              - **uid**: Uv64qY0glTyZ7V
+              - **rotulo**: 12
               - **circulo**:
                 - **x**: 1348
                 - **y**: 1161
                 - **raio**: 26
+              - **label**: 12
             - **[12]**:
-              - **id**: 13
-              - **label**: 13
+              - **id**: wMmnCBAmoOOVZe
+              - **uid**: wMmnCBAmoOOVZe
+              - **rotulo**: 13
               - **circulo**:
                 - **x**: 1403
                 - **y**: 1175
                 - **raio**: 25
+              - **label**: 13
             - **[13]**:
-              - **id**: 14
-              - **label**: 14
+              - **id**: SHC6eTt7M2O9D7
+              - **uid**: SHC6eTt7M2O9D7
+              - **rotulo**: 14
               - **circulo**:
                 - **x**: 1466
                 - **y**: 1186
                 - **raio**: 26
+              - **label**: 14
             - **[14]**:
-              - **id**: 15
-              - **label**: 15
+              - **id**: mqzDY8z2fsRFRA
+              - **uid**: mqzDY8z2fsRFRA
+              - **rotulo**: 15
               - **circulo**:
                 - **x**: 1550
                 - **y**: 1185
                 - **raio**: 25
+              - **label**: 15
             - **[15]**:
-              - **id**: Jeca Tatu
-              - **label**: Jeca Tatu
+              - **id**: TqF2oSvJQspEfz
+              - **uid**: TqF2oSvJQspEfz
+              - **rotulo**: Jeca Tatu
               - **retangulo**:
                 - **x**: 208
                 - **y**: 666
                 - **comprimento**: 189
                 - **largura**: 57
+              - **label**: Jeca Tatu
         - **[2]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_principal_setor_direita_p6_i1.webp)
           - **largura_mapa**: 1059
           - **altura_mapa**: 1476
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: qDFuqX1AiaHpM8
+              - **pontos_uids**:
+                - THynMAVU507GFL
               - **escalada**: Tá Bão
               - **ids**:
-                - 5
+                - THynMAVU507GFL
             - **[1]**:
+              - **alvo_uid**: K05yKYTFzBgHr2
+              - **pontos_uids**:
+                - kRzi6VUYeRJVqV
               - **escalada**: Amor, Meu Grande Amor
               - **ids**:
-                - 6
+                - kRzi6VUYeRJVqV
             - **[2]**:
+              - **alvo_uid**: dv58WrzcTNBVTB
+              - **pontos_uids**:
+                - vf8vCdCL2n5F2m
               - **escalada**: Rapidinha no Escurinho
               - **ids**:
-                - 7
+                - vf8vCdCL2n5F2m
             - **[3]**:
+              - **alvo_uid**: 3RkCzXVVt7h3yt
+              - **pontos_uids**:
+                - 8R3NIvipA6AoWR
               - **escalada**: Pelanca
               - **ids**:
-                - 8
+                - 8R3NIvipA6AoWR
             - **[4]**:
+              - **alvo_uid**: IbMIeaZ7w1iKVi
+              - **pontos_uids**:
+                - VnURQw0XIs14k5
               - **escalada**: Pele Vermelha
               - **ids**:
-                - 9
+                - VnURQw0XIs14k5
             - **[5]**:
+              - **alvo_uid**: YEuAYl4yn7OAZ0
+              - **pontos_uids**:
+                - 5tA9iXX37LA8i7
               - **escalada**: Flor da Pele
               - **ids**:
-                - 10
+                - 5tA9iXX37LA8i7
             - **[6]**:
+              - **alvo_uid**: QxAbpnm7atdfcm
+              - **pontos_uids**:
+                - jIJmvsIiElJH9p
               - **escalada**: Pelinha
               - **ids**:
-                - 11
+                - jIJmvsIiElJH9p
             - **[7]**:
+              - **alvo_uid**: Z3YMtD43WuhcKt
+              - **pontos_uids**:
+                - DKy6yEPRcRsggs
               - **escalada**: Cutícula
               - **ids**:
-                - 12
+                - DKy6yEPRcRsggs
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 5
-              - **label**: 5
+              - **id**: THynMAVU507GFL
+              - **uid**: THynMAVU507GFL
+              - **rotulo**: 5
               - **circulo**:
                 - **x**: 110
                 - **y**: 1044
                 - **raio**: 23
+              - **label**: 5
             - **[1]**:
-              - **id**: 6
-              - **label**: 6
+              - **id**: kRzi6VUYeRJVqV
+              - **uid**: kRzi6VUYeRJVqV
+              - **rotulo**: 6
               - **circulo**:
                 - **x**: 261
                 - **y**: 1058
                 - **raio**: 21
+              - **label**: 6
             - **[2]**:
-              - **id**: 7
-              - **label**: 7
+              - **id**: vf8vCdCL2n5F2m
+              - **uid**: vf8vCdCL2n5F2m
+              - **rotulo**: 7
               - **circulo**:
                 - **x**: 397
                 - **y**: 1307
                 - **raio**: 23
+              - **label**: 7
             - **[3]**:
-              - **id**: 8
-              - **label**: 8
+              - **id**: 8R3NIvipA6AoWR
+              - **uid**: 8R3NIvipA6AoWR
+              - **rotulo**: 8
               - **circulo**:
                 - **x**: 478
                 - **y**: 1307
                 - **raio**: 23
+              - **label**: 8
             - **[4]**:
-              - **id**: 9
-              - **label**: 9
+              - **id**: VnURQw0XIs14k5
+              - **uid**: VnURQw0XIs14k5
+              - **rotulo**: 9
               - **circulo**:
                 - **x**: 637
                 - **y**: 1321
                 - **raio**: 23
+              - **label**: 9
             - **[5]**:
-              - **id**: 10
-              - **label**: 10
+              - **id**: 5tA9iXX37LA8i7
+              - **uid**: 5tA9iXX37LA8i7
+              - **rotulo**: 10
               - **circulo**:
                 - **x**: 731
                 - **y**: 1338
                 - **raio**: 28
+              - **label**: 10
             - **[6]**:
-              - **id**: 11
-              - **label**: 11
+              - **id**: jIJmvsIiElJH9p
+              - **uid**: jIJmvsIiElJH9p
+              - **rotulo**: 11
               - **circulo**:
                 - **x**: 808
                 - **y**: 1349
                 - **raio**: 28
+              - **label**: 11
             - **[7]**:
-              - **id**: 12
-              - **label**: 12
+              - **id**: DKy6yEPRcRsggs
+              - **uid**: DKy6yEPRcRsggs
+              - **rotulo**: 12
               - **circulo**:
                 - **x**: 938
                 - **y**: 1355
                 - **raio**: 28
+              - **label**: 12
       - **escaladas**:
         - **[0]**:
+          - **uid**: WhvSwHQ6b9oeO2
           - **via_multiplas_enfiadas**:
             - **descricao**: Ótima via que representou a primeira conquista conjunta entre pai e filho, em Ferros, no caso Carlos e Gustavo.
             - **nome**: Valeu Papito
@@ -4338,6 +5489,7 @@
               - Carlos Alberto Carrozzino
             - **data_abertura**: 2008-05-31
         - **[1]**:
+          - **uid**: os0n0Km0vjVzkm
           - **via_multiplas_enfiadas**:
             - **descricao**: Via com 13 grampos de ½, conquistada em homenagem ao amigo Tchassa, que até a data da conquista, ainda não havia conseguido conhecer o polo.
             - **nome**: Pente Frio
@@ -4352,6 +5504,7 @@
               - Jeferson Costa
             - **data_abertura**: 2015-04-05
         - **[2]**:
+          - **uid**: rI8Obcal0VokZO
           - **via_esportiva**:
             - **descricao**: Via bem protegida e interessante.
             - **nome**: El Barrigón
@@ -4362,6 +5515,7 @@
               - Fábio Cotta
             - **data_abertura**: 2006-10-15
         - **[3]**:
+          - **uid**: TGdmA6h3cxpBCT
           - **via_multiplas_enfiadas**:
             - **descricao**: Via que se caracteriza por ter sido conquistada inteiramente na mão, sem o uso de furadeira.
             - **nome**: Lobos do Caraça
@@ -4377,6 +5531,7 @@
               - "Thunder"
             - **data_abertura**: 2006-10-29
         - **[4]**:
+          - **uid**: 29LV4nwRx1EFcY
           - **via_multiplas_enfiadas**:
             - **descricao**: Segue uma parede relativamente vertical em sua primeira metade, sempre em boas agarras e com boa proteção. Após a primeira parada, a inclinação diminui, assim como as proteções. Utiliza o último grampo da “Lobos do Caraça”, antes da fácil sequência final.
             - **nome**: O Tempo e o Vento
@@ -4412,6 +5567,7 @@
               - **largura_mapa**: 845
               - **altura_mapa**: 1183
         - **[5]**:
+          - **uid**: LrGnP0Nhyp9YX1
           - **via_multiplas_enfiadas**:
             - **descricao**: Última das vias "longas" neste setor, antes das vias com apenas uma enfiada ou menos. Em sua base existe o esqueleto de um burro que caiu do topo da parede, originando assim, parte do nome da via. O capacete da Glesse teve o mesmo destino do burro.
             - **nome**: O Burro e o Capacete
@@ -4425,6 +5581,7 @@
               - Celso Ferreira Gomes
             - **data_abertura**: 2011-05-15
         - **[6]**:
+          - **uid**: qDFuqX1AiaHpM8
           - **via_esportiva**:
             - **descricao**: Conta com algumas passadas delicadas em sua metade superior, com um lance espetacular em pequenos buracos, pouco antes de juntar com a via "Amor, Meu Grande Amor".
             - **nome**: Tá Bão
@@ -4436,6 +5593,7 @@
               - Maria Fernanda Patrício
             - **data_abertura**: 2012-02-19
         - **[7]**:
+          - **uid**: K05yKYTFzBgHr2
           - **via_movel**:
             - **descricao**: Via iniciada em um belo diedro em móvel, com peças pequenas e médias. Evolui para lances constantes em agarras, protegidos por grampos de ½.
             - **nome**: Amor, Meu Grande Amor
@@ -4451,6 +5609,7 @@
               - Maria Fernanda Patrício
             - **data_abertura**: 2012-01-21
         - **[8]**:
+          - **uid**: dv58WrzcTNBVTB
           - **via_movel**:
             - **descricao**: Via conquistada em pouco mais de 10 minutos, já à noite! Possui passadas constantes de 4º grau, com grampeação justa e uma passada em móvel, com peças pequenas. A passada em móvel não é obrigatória, por estar já bem alta, sem risco de queda na base, contudo, uma queda neste ponto pode dar um bom susto.
             - **nome**: Rapidinha no Escurinho
@@ -4466,6 +5625,7 @@
               - Tássia Carrozzino
             - **data_abertura**: 2012-01-21
         - **[9]**:
+          - **uid**: 3RkCzXVVt7h3yt
           - **via_esportiva**:
             - **descricao**: Possui saída bem delicada, principalmente pelas agarras que ainda estão por quebrar. Segue por alguns poucos cristais e lances de aderência até o topo.
             - **nome**: Pelanca
@@ -4478,6 +5638,7 @@
               - Maria Fernanda Patrício
             - **data_abertura**: 2012-02-19
         - **[10]**:
+          - **uid**: YEuAYl4yn7OAZ0
           - **via_esportiva**:
             - **descricao**: Via que segue por uma linha natural na parede, sobre uma cristaleira.
             - **nome**: Flor da Pele
@@ -4490,6 +5651,7 @@
               - Celso Ferreira Gomes
             - **data_abertura**: 2011-07-23
         - **[11]**:
+          - **uid**: t0JEI9iAcdGP1l
           - **via_esportiva**:
             - **descricao**: Via protegida por cinco grampos e parada dupla no final.
             - **nome**: Alma Nova
@@ -4502,6 +5664,7 @@
               - Nádia Moreira
             - **data_abertura**: 2013-04-28
         - **[12]**:
+          - **uid**: IbMIeaZ7w1iKVi
           - **via_esportiva**:
             - **descricao**: Inicia em lances mais fáceis, evoluindo para passadas em aderência mais delicada. Termina abaixo de um grande teto, coberto por vegetação.
             - **nome**: Pele Vermelha
@@ -4515,6 +5678,7 @@
               - Glesse Gripp
             - **data_abertura**: 2011-12-09
         - **[13]**:
+          - **uid**: QxAbpnm7atdfcm
           - **via_esportiva**:
             - **descricao**: Apesar de tecnicamente fácil, esta via possui grampeação longa, conferindo ao escalador uma boa dose de adrenalina caso não esteja acostumado com proteções distantes.
             - **nome**: Pelinha
@@ -4526,6 +5690,7 @@
               - Pedro Bugim
             - **data_abertura**: 2012-02-20
         - **[14]**:
+          - **uid**: Z3YMtD43WuhcKt
           - **via_esportiva**:
             - **descricao**: Semelhante à via anterior possui grampeação longa e lances simplórios, porém, um pouco mais curta.
             - **nome**: Cutícula
@@ -4588,6 +5753,7 @@
           
           Atenção às pedras soltas, presentes em muitos pontos da parede neste setor!
       - **nome**: Setor Central
+      - **uid**: nJgmAcSxMTe2Xy
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_principal_setor_central_p1_i0.webp)
@@ -4595,696 +5761,943 @@
           - **altura_mapa**: 1243
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: Aqvhry9pjfJsJw
+              - **pontos_uids**:
+                - HWBghZTY3yKdfp
               - **escalada**: Jeca Tatu
               - **ids**:
-                - 1
+                - HWBghZTY3yKdfp
             - **[1]**:
+              - **alvo_uid**: KjagFJ12xAjL7y
+              - **pontos_uids**:
+                - YEluKp6ARRkPpJ
               - **escalada**: A Decadência da Bufa
               - **ids**:
-                - 2
+                - YEluKp6ARRkPpJ
             - **[2]**:
+              - **alvo_uid**: HVIBIlLPDu82FN
+              - **pontos_uids**:
+                - Hhg26XUVoNTGL6
               - **escalada**: Iron Men
               - **ids**:
-                - 3
+                - Hhg26XUVoNTGL6
             - **[3]**:
+              - **alvo_uid**: 0zm9vw74S090Qb
+              - **pontos_uids**:
+                - XEdj4hS8C4ECyT
               - **escalada**: Pum Medonho
               - **ids**:
-                - 4
+                - XEdj4hS8C4ECyT
             - **[4]**:
+              - **alvo_uid**: tl0YE1HHijDc5f
+              - **pontos_uids**:
+                - OUmIPWBT3u5vqb
               - **escalada**: Ferro Velho
               - **ids**:
-                - 5
+                - OUmIPWBT3u5vqb
             - **[5]**:
-              - **ids**:
-                - aderências_esquerda
-              - **grupo**: Parede das Aderências
+              - **alvo_uid**: avRkW8fzw3OF22
+              - **pontos_uids**:
+                - a8W4tNycBxA3hP
               - **setor**: Esquerda
+              - **ids**:
+                - a8W4tNycBxA3hP
             - **[6]**:
-              - **ids**:
-                - aderencias_central
-              - **grupo**: Parede das Aderências
+              - **alvo_uid**: rGOlhPmCuaVWav
+              - **pontos_uids**:
+                - ZqsoiTZ9D4qfWt
               - **setor**: Face Central
+              - **ids**:
+                - ZqsoiTZ9D4qfWt
             - **[7]**:
-              - **ids**:
-                - aderencias_cima
-              - **grupo**: Parede das Aderências
+              - **alvo_uid**: E0ZwbLrlRUznG0
+              - **pontos_uids**:
+                - Ypxgy0EQNCM3uT
               - **setor**: Setor de Cima
-            - **[8]**:
               - **ids**:
-                - parede_principal_direita
-              - **grupo**: Parede Principal (Paredes de Aço)
+                - Ypxgy0EQNCM3uT
+            - **[8]**:
+              - **alvo_uid**: g0ASFec0ovBc9J
+              - **pontos_uids**:
+                - V2Zk8k8vv5bHvH
               - **setor**: Parede Principal – Direita
+              - **ids**:
+                - V2Zk8k8vv5bHvH
             - **[9]**:
+              - **alvo_uid**: 0on14wnJabheri
+              - **pontos_uids**:
+                - Hhg26XUVoNTGL6
               - **escalada**: Chuva Ácida
               - **ids**:
-                - 3
-              - **grupo**: Parede Principal (Paredes de Aço)
-              - **setor**: Setor Central
+                - Hhg26XUVoNTGL6
             - **[10]**:
+              - **alvo_uid**: 4wSO4KLI3b8c1D
+              - **pontos_uids**:
+                - Hhg26XUVoNTGL6
               - **escalada**: A Ferro e Fogo
               - **ids**:
-                - 3
-              - **grupo**: Parede Principal (Paredes de Aço)
-              - **setor**: Setor Central
+                - Hhg26XUVoNTGL6
             - **[11]**:
+              - **alvo_uid**: UQvP1LioTvp83J
+              - **pontos_uids**:
+                - Hhg26XUVoNTGL6
               - **escalada**: Cordão do Bola Preta
               - **ids**:
-                - 3
-              - **grupo**: Parede Principal (Paredes de Aço)
-              - **setor**: Setor Central
+                - Hhg26XUVoNTGL6
             - **[12]**:
+              - **alvo_uid**: 5cUKFKWrcHuaoA
+              - **pontos_uids**:
+                - XEdj4hS8C4ECyT
               - **escalada**: Hilda Furacão
               - **ids**:
-                - 4
-              - **grupo**: Parede Principal (Paredes de Aço)
-              - **setor**: Setor Central
+                - XEdj4hS8C4ECyT
             - **[13]**:
+              - **alvo_uid**: oJgVXI1kQAJQ4V
+              - **pontos_uids**:
+                - XEdj4hS8C4ECyT
               - **escalada**: Eu Sei o Que Vocês Fizeram no Blackout Passado
               - **ids**:
-                - 4
-              - **grupo**: Parede Principal (Paredes de Aço)
-              - **setor**: Setor Central
+                - XEdj4hS8C4ECyT
             - **[14]**:
+              - **alvo_uid**: 0jcnw04M5QsGqJ
+              - **pontos_uids**:
+                - XEdj4hS8C4ECyT
               - **escalada**: CDF
               - **ids**:
-                - 4
-              - **grupo**: Parede Principal (Paredes de Aço)
-              - **setor**: Setor Central
+                - XEdj4hS8C4ECyT
             - **[15]**:
+              - **alvo_uid**: J2n3pSVvme8VQe
+              - **pontos_uids**:
+                - XEdj4hS8C4ECyT
               - **escalada**: Pé de Pano
               - **ids**:
-                - 4
-              - **grupo**: Parede Principal (Paredes de Aço)
-              - **setor**: Setor Central
+                - XEdj4hS8C4ECyT
             - **[16]**:
+              - **alvo_uid**: cpkdZ1zPnyBPvH
+              - **pontos_uids**:
+                - XEdj4hS8C4ECyT
               - **escalada**: Pr. Chapado
               - **ids**:
-                - 4
-              - **grupo**: Parede Principal (Paredes de Aço)
-              - **setor**: Setor Central
+                - XEdj4hS8C4ECyT
             - **[17]**:
+              - **alvo_uid**: OMn5RoUmsVxGMx
+              - **pontos_uids**:
+                - XEdj4hS8C4ECyT
               - **escalada**: Dona Flor e Suas Duas Marretas
               - **ids**:
-                - 4
-              - **grupo**: Parede Principal (Paredes de Aço)
-              - **setor**: Setor Central
+                - XEdj4hS8C4ECyT
             - **[18]**:
-              - **ids**:
-                - 5
-              - **grupo**: Parede Principal (Paredes de Aço)
-              - **setor**: Setor Central
+              - **alvo_uid**: JiNuS1HncRy9hd
+              - **pontos_uids**:
+                - OUmIPWBT3u5vqb
               - **escalada**: Tromba D’Água
+              - **ids**:
+                - OUmIPWBT3u5vqb
             - **[19]**:
-              - **ids**:
-                - 5
-              - **grupo**: Parede Principal (Paredes de Aço)
-              - **setor**: Setor Central
+              - **alvo_uid**: lWOsQxs7jU5YLt
+              - **pontos_uids**:
+                - OUmIPWBT3u5vqb
               - **escalada**: Rolam as Pedras
+              - **ids**:
+                - OUmIPWBT3u5vqb
             - **[20]**:
-              - **ids**:
-                - 5
-              - **grupo**: Parede Principal (Paredes de Aço)
-              - **setor**: Setor Central
+              - **alvo_uid**: HH5AI65l0e31Kq
+              - **pontos_uids**:
+                - OUmIPWBT3u5vqb
               - **escalada**: Marcado a Ferro
-            - **[21]**:
               - **ids**:
-                - 5
-              - **grupo**: Parede Principal (Paredes de Aço)
-              - **setor**: Setor Central
+                - OUmIPWBT3u5vqb
+            - **[21]**:
+              - **alvo_uid**: RhsrAWstcYoX5K
+              - **pontos_uids**:
+                - OUmIPWBT3u5vqb
               - **escalada**: Ferro no Judas
+              - **ids**:
+                - OUmIPWBT3u5vqb
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 1
-              - **label**: 1
+              - **id**: HWBghZTY3yKdfp
+              - **uid**: HWBghZTY3yKdfp
+              - **rotulo**: 1
               - **circulo**:
                 - **x**: 929
                 - **y**: 467
                 - **raio**: 22
+              - **label**: 1
             - **[1]**:
-              - **id**: 2
-              - **label**: 2
+              - **id**: YEluKp6ARRkPpJ
+              - **uid**: YEluKp6ARRkPpJ
+              - **rotulo**: 2
               - **circulo**:
                 - **x**: 977
                 - **y**: 553
                 - **raio**: 22
+              - **label**: 2
             - **[2]**:
-              - **id**: 3
-              - **label**: 3
+              - **id**: Hhg26XUVoNTGL6
+              - **uid**: Hhg26XUVoNTGL6
+              - **rotulo**: 3
               - **circulo**:
                 - **x**: 1048
                 - **y**: 629
                 - **raio**: 22
+              - **label**: 3
             - **[3]**:
-              - **id**: 4
-              - **label**: 4
+              - **id**: XEdj4hS8C4ECyT
+              - **uid**: XEdj4hS8C4ECyT
+              - **rotulo**: 4
               - **circulo**:
                 - **x**: 1193
                 - **y**: 788
                 - **raio**: 22
+              - **label**: 4
             - **[4]**:
-              - **id**: 5
-              - **label**: 5
+              - **id**: OUmIPWBT3u5vqb
+              - **uid**: OUmIPWBT3u5vqb
+              - **rotulo**: 5
               - **circulo**:
                 - **x**: 1419
                 - **y**: 1081
                 - **raio**: 22
+              - **label**: 5
             - **[5]**:
-              - **id**: parede_principal_direita
-              - **label**: Parede Principal Direita
+              - **id**: V2Zk8k8vv5bHvH
+              - **uid**: V2Zk8k8vv5bHvH
+              - **rotulo**: Parede Principal Direita
               - **retangulo**:
                 - **x**: 602
                 - **y**: 372
                 - **comprimento**: 355
                 - **largura**: 64
               - **cor**: 
+              - **label**: Parede Principal Direita
             - **[6]**:
-              - **id**: aderências_esquerda
-              - **label**: Aderências Esquerda
+              - **id**: a8W4tNycBxA3hP
+              - **uid**: a8W4tNycBxA3hP
+              - **rotulo**: Aderências Esquerda
               - **retangulo**:
                 - **x**: 1068
                 - **y**: 37
                 - **comprimento**: 356
                 - **largura**: 64
               - **cor**: 
+              - **label**: Aderências Esquerda
             - **[7]**:
-              - **id**: aderencias_central
-              - **label**: Aderências Central
+              - **id**: ZqsoiTZ9D4qfWt
+              - **uid**: ZqsoiTZ9D4qfWt
+              - **rotulo**: Aderências Central
               - **retangulo**:
                 - **x**: 1372
                 - **y**: 368
                 - **comprimento**: 292
                 - **largura**: 57
               - **cor**: 
+              - **label**: Aderências Central
             - **[8]**:
-              - **id**: aderencias_cima
-              - **label**: Aderências Setor de Cima
+              - **id**: Ypxgy0EQNCM3uT
+              - **uid**: Ypxgy0EQNCM3uT
+              - **rotulo**: Aderências Setor de Cima
               - **retangulo**:
                 - **x**: 1746
                 - **y**: 418
                 - **comprimento**: 319
                 - **largura**: 80
               - **cor**: 
+              - **label**: Aderências Setor de Cima
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_principal_setor_central_p2_i0.webp)
           - **largura_mapa**: 2044
           - **altura_mapa**: 1222
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: RhsrAWstcYoX5K
+              - **pontos_uids**:
+                - QpADhHwaei4g90
               - **escalada**: Ferro no Judas
               - **ids**:
-                - 1
+                - QpADhHwaei4g90
             - **[1]**:
+              - **alvo_uid**: HH5AI65l0e31Kq
+              - **pontos_uids**:
+                - ILZFOhh4G1849U
               - **escalada**: Marcado a Ferro
               - **ids**:
-                - 2
+                - ILZFOhh4G1849U
             - **[2]**:
+              - **alvo_uid**: lWOsQxs7jU5YLt
+              - **pontos_uids**:
+                - TrqtKg9nZwviaF
               - **escalada**: Rolam as Pedras
               - **ids**:
-                - 3
+                - TrqtKg9nZwviaF
             - **[3]**:
+              - **alvo_uid**: JiNuS1HncRy9hd
+              - **pontos_uids**:
+                - X1pt0z3TvlvORz
               - **escalada**: Tromba D’Água
               - **ids**:
-                - 4
+                - X1pt0z3TvlvORz
             - **[4]**:
+              - **alvo_uid**: tl0YE1HHijDc5f
+              - **pontos_uids**:
+                - e92LnG4QNsfyjC
               - **escalada**: Ferro Velho
               - **ids**:
-                - 5
+                - e92LnG4QNsfyjC
             - **[5]**:
-              - **ids**:
-                - 6
+              - **alvo_uid**: 0zm9vw74S090Qb
+              - **pontos_uids**:
+                - gScsa2vzE7cByO
               - **escalada**: Pum Medonho
+              - **ids**:
+                - gScsa2vzE7cByO
             - **[6]**:
-              - **ids**:
-                - 7
+              - **alvo_uid**: OMn5RoUmsVxGMx
+              - **pontos_uids**:
+                - egd3ISxzNfyWPl
               - **escalada**: Dona Flor e Suas Duas Marretas
+              - **ids**:
+                - egd3ISxzNfyWPl
             - **[7]**:
-              - **ids**:
-                - 8
+              - **alvo_uid**: cpkdZ1zPnyBPvH
+              - **pontos_uids**:
+                - kq9UpfRHxrt8iG
               - **escalada**: Pr. Chapado
+              - **ids**:
+                - kq9UpfRHxrt8iG
             - **[8]**:
-              - **ids**:
-                - 9
+              - **alvo_uid**: J2n3pSVvme8VQe
+              - **pontos_uids**:
+                - 0HZuCUnuwqqXuF
               - **escalada**: Pé de Pano
+              - **ids**:
+                - 0HZuCUnuwqqXuF
             - **[9]**:
-              - **ids**:
-                - 10
+              - **alvo_uid**: 0jcnw04M5QsGqJ
+              - **pontos_uids**:
+                - hNa7VN2nrXxpZR
               - **escalada**: CDF
+              - **ids**:
+                - hNa7VN2nrXxpZR
             - **[10]**:
-              - **ids**:
-                - 11
+              - **alvo_uid**: oJgVXI1kQAJQ4V
+              - **pontos_uids**:
+                - r0yQ2790DVg6i6
               - **escalada**: Eu Sei o Que Vocês Fizeram no Blackout Passado
+              - **ids**:
+                - r0yQ2790DVg6i6
             - **[11]**:
-              - **ids**:
-                - 12
+              - **alvo_uid**: 5cUKFKWrcHuaoA
+              - **pontos_uids**:
+                - MrrclY0i5LoQIQ
               - **escalada**: Hilda Furacão
+              - **ids**:
+                - MrrclY0i5LoQIQ
             - **[12]**:
-              - **ids**:
-                - 13
+              - **alvo_uid**: HVIBIlLPDu82FN
+              - **pontos_uids**:
+                - 4A8irW8QXVuIog
               - **escalada**: Iron Men
+              - **ids**:
+                - 4A8irW8QXVuIog
             - **[13]**:
-              - **ids**:
-                - 14
+              - **alvo_uid**: UQvP1LioTvp83J
+              - **pontos_uids**:
+                - CXqAS8z4JQtAhh
               - **escalada**: Cordão do Bola Preta
+              - **ids**:
+                - CXqAS8z4JQtAhh
             - **[14]**:
-              - **ids**:
-                - 15
+              - **alvo_uid**: 4wSO4KLI3b8c1D
+              - **pontos_uids**:
+                - gZlvqoQENfuCJg
               - **escalada**: A Ferro e Fogo
+              - **ids**:
+                - gZlvqoQENfuCJg
             - **[15]**:
-              - **ids**:
-                - 16
+              - **alvo_uid**: 0on14wnJabheri
+              - **pontos_uids**:
+                - JFLlkVQnaL4P9Z
               - **escalada**: Chuva Ácida
+              - **ids**:
+                - JFLlkVQnaL4P9Z
             - **[16]**:
-              - **ids**:
-                - 17
+              - **alvo_uid**: KjagFJ12xAjL7y
+              - **pontos_uids**:
+                - xfdY3da0yrf9dw
               - **escalada**: A Decadência da Bufa
+              - **ids**:
+                - xfdY3da0yrf9dw
             - **[17]**:
-              - **ids**:
-                - 18
+              - **alvo_uid**: Aqvhry9pjfJsJw
+              - **pontos_uids**:
+                - HKi6FsTraoGRrP
               - **escalada**: Jeca Tatu
+              - **ids**:
+                - HKi6FsTraoGRrP
             - **[18]**:
-              - **ids**:
-                - parede_cima
-              - **grupo**: Parede Principal (Paredes de Aço)
+              - **alvo_uid**: E0ZwbLrlRUznG0
+              - **pontos_uids**:
+                - lD8BA4rMZtOVrL
               - **setor**: Setor de Cima
+              - **ids**:
+                - lD8BA4rMZtOVrL
             - **[19]**:
-              - **ids**:
-                - noite
-              - **grupo**: Parede Principal (Paredes de Aço)
-              - **setor**: Setor de Cima
+              - **alvo_uid**: N55UoPSK5yscyM
+              - **pontos_uids**:
+                - NhPf7wNt6hjUh3
               - **escalada**: Noite de São João
-            - **[20]**:
               - **ids**:
-                - valeu
-              - **grupo**: Parede Principal (Paredes de Aço)
-              - **setor**: Parede Principal – Direita
+                - NhPf7wNt6hjUh3
+            - **[20]**:
+              - **alvo_uid**: WhvSwHQ6b9oeO2
+              - **pontos_uids**:
+                - miAkeGOQcwgxcJ
               - **escalada**: Valeu Papito
+              - **ids**:
+                - miAkeGOQcwgxcJ
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 1
-              - **label**: 1
+              - **id**: QpADhHwaei4g90
+              - **uid**: QpADhHwaei4g90
+              - **rotulo**: 1
               - **circulo**:
                 - **x**: 137
                 - **y**: 746
                 - **raio**: 22
+              - **label**: 1
             - **[1]**:
-              - **id**: 2
-              - **label**: 2
+              - **id**: ILZFOhh4G1849U
+              - **uid**: ILZFOhh4G1849U
+              - **rotulo**: 2
               - **circulo**:
                 - **x**: 303
                 - **y**: 740
                 - **raio**: 22
+              - **label**: 2
             - **[2]**:
-              - **id**: 3
-              - **label**: 3
+              - **id**: TrqtKg9nZwviaF
+              - **uid**: TrqtKg9nZwviaF
+              - **rotulo**: 3
               - **circulo**:
                 - **x**: 379
                 - **y**: 759
                 - **raio**: 22
+              - **label**: 3
             - **[3]**:
-              - **id**: 4
-              - **label**: 4
+              - **id**: X1pt0z3TvlvORz
+              - **uid**: X1pt0z3TvlvORz
+              - **rotulo**: 4
               - **circulo**:
                 - **x**: 466
                 - **y**: 774
                 - **raio**: 22
+              - **label**: 4
             - **[4]**:
-              - **id**: 5
-              - **label**: 5
+              - **id**: e92LnG4QNsfyjC
+              - **uid**: e92LnG4QNsfyjC
+              - **rotulo**: 5
               - **circulo**:
                 - **x**: 580
                 - **y**: 804
                 - **raio**: 22
+              - **label**: 5
             - **[5]**:
-              - **id**: 6
-              - **label**: 6
+              - **id**: gScsa2vzE7cByO
+              - **uid**: gScsa2vzE7cByO
+              - **rotulo**: 6
               - **circulo**:
                 - **x**: 656
                 - **y**: 773
                 - **raio**: 22
+              - **label**: 6
             - **[6]**:
-              - **id**: 7
-              - **label**: 7
+              - **id**: egd3ISxzNfyWPl
+              - **uid**: egd3ISxzNfyWPl
+              - **rotulo**: 7
               - **circulo**:
                 - **x**: 729
                 - **y**: 775
                 - **raio**: 22
+              - **label**: 7
             - **[7]**:
-              - **id**: 8
-              - **label**: 8
+              - **id**: kq9UpfRHxrt8iG
+              - **uid**: kq9UpfRHxrt8iG
+              - **rotulo**: 8
               - **circulo**:
                 - **x**: 790
                 - **y**: 820
                 - **raio**: 24
+              - **label**: 8
             - **[8]**:
-              - **id**: 9
-              - **label**: 9
+              - **id**: 0HZuCUnuwqqXuF
+              - **uid**: 0HZuCUnuwqqXuF
+              - **rotulo**: 9
               - **circulo**:
                 - **x**: 904
                 - **y**: 881
                 - **raio**: 22
+              - **label**: 9
             - **[9]**:
-              - **id**: 10
-              - **label**: 10
+              - **id**: hNa7VN2nrXxpZR
+              - **uid**: hNa7VN2nrXxpZR
+              - **rotulo**: 10
               - **circulo**:
                 - **x**: 978
                 - **y**: 903
                 - **raio**: 30
+              - **label**: 10
             - **[10]**:
-              - **id**: 11
-              - **label**: 11
+              - **id**: r0yQ2790DVg6i6
+              - **uid**: r0yQ2790DVg6i6
+              - **rotulo**: 11
               - **circulo**:
                 - **x**: 1059
                 - **y**: 907
                 - **raio**: 30
+              - **label**: 11
             - **[11]**:
-              - **id**: 12
-              - **label**: 12
+              - **id**: MrrclY0i5LoQIQ
+              - **uid**: MrrclY0i5LoQIQ
+              - **rotulo**: 12
               - **circulo**:
                 - **x**: 1158
                 - **y**: 935
                 - **raio**: 32
+              - **label**: 12
             - **[12]**:
-              - **id**: 13
-              - **label**: 13
+              - **id**: 4A8irW8QXVuIog
+              - **uid**: 4A8irW8QXVuIog
+              - **rotulo**: 13
               - **circulo**:
                 - **x**: 1276
                 - **y**: 956
                 - **raio**: 30
+              - **label**: 13
             - **[13]**:
-              - **id**: 14
-              - **label**: 14
+              - **id**: CXqAS8z4JQtAhh
+              - **uid**: CXqAS8z4JQtAhh
+              - **rotulo**: 14
               - **circulo**:
                 - **x**: 1369
                 - **y**: 983
                 - **raio**: 32
+              - **label**: 14
             - **[14]**:
-              - **id**: 15
-              - **label**: 15
+              - **id**: gZlvqoQENfuCJg
+              - **uid**: gZlvqoQENfuCJg
+              - **rotulo**: 15
               - **circulo**:
                 - **x**: 1471
                 - **y**: 956
                 - **raio**: 30
+              - **label**: 15
             - **[15]**:
-              - **id**: 16
-              - **label**: 16
+              - **id**: JFLlkVQnaL4P9Z
+              - **uid**: JFLlkVQnaL4P9Z
+              - **rotulo**: 16
               - **circulo**:
                 - **x**: 1527
                 - **y**: 990
                 - **raio**: 30
+              - **label**: 16
             - **[16]**:
-              - **id**: 17
-              - **label**: 17
+              - **id**: xfdY3da0yrf9dw
+              - **uid**: xfdY3da0yrf9dw
+              - **rotulo**: 17
               - **circulo**:
                 - **x**: 1606
                 - **y**: 1081
                 - **raio**: 32
+              - **label**: 17
             - **[17]**:
-              - **id**: 18
-              - **label**: 18
+              - **id**: HKi6FsTraoGRrP
+              - **uid**: HKi6FsTraoGRrP
+              - **rotulo**: 18
               - **circulo**:
                 - **x**: 1771
                 - **y**: 1186
                 - **raio**: 32
+              - **label**: 18
             - **[18]**:
-              - **id**: parede_cima
-              - **label**: Setor de Cima
+              - **id**: lD8BA4rMZtOVrL
+              - **uid**: lD8BA4rMZtOVrL
+              - **rotulo**: Setor de Cima
               - **retangulo**:
                 - **x**: 261
                 - **y**: 208
                 - **comprimento**: 214
                 - **largura**: 59
               - **cor**: 
+              - **label**: Setor de Cima
             - **[19]**:
-              - **id**: noite
-              - **label**: Noite de São João
+              - **id**: NhPf7wNt6hjUh3
+              - **uid**: NhPf7wNt6hjUh3
+              - **rotulo**: Noite de São João
               - **retangulo**:
                 - **x**: 158
                 - **y**: 384
                 - **comprimento**: 299
                 - **largura**: 59
               - **cor**: 
+              - **label**: Noite de São João
             - **[20]**:
-              - **id**: valeu
-              - **label**: Valeu Papito
+              - **id**: miAkeGOQcwgxcJ
+              - **uid**: miAkeGOQcwgxcJ
+              - **rotulo**: Valeu Papito
               - **retangulo**:
                 - **x**: 1930
                 - **y**: 974
                 - **comprimento**: 223
                 - **largura**: 59
               - **cor**: 
+              - **label**: Valeu Papito
         - **[2]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_principal_setor_central_p6.webp)
           - **largura_mapa**: 788
           - **altura_mapa**: 1088
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 1
-              - **label**: 1
+              - **id**: TSIWJNn3qYux37
+              - **uid**: TSIWJNn3qYux37
+              - **rotulo**: 1
               - **circulo**:
                 - **x**: 293
                 - **y**: 1023
                 - **raio**: 16
               - **cor**: 
+              - **label**: 1
             - **[1]**:
-              - **id**: 1_p1
-              - **label**: 
+              - **id**: 32tdWFUWmBpuGE
+              - **uid**: 32tdWFUWmBpuGE
+              - **rotulo**: 
               - **circulo**:
                 - **x**: 450
                 - **y**: 615
                 - **raio**: 13
-            - **[2]**:
-              - **id**: 1_p2
               - **label**: 
+            - **[2]**:
+              - **id**: oUEVt27rveNViO
+              - **uid**: oUEVt27rveNViO
+              - **rotulo**: 
               - **circulo**:
                 - **x**: 502
                 - **y**: 311
                 - **raio**: 13
-            - **[3]**:
-              - **id**: 1_p3
               - **label**: 
+            - **[3]**:
+              - **id**: QDvqKoYCnjQjrh
+              - **uid**: QDvqKoYCnjQjrh
+              - **rotulo**: 
               - **circulo**:
                 - **x**: 540
                 - **y**: 170
                 - **raio**: 13
+              - **label**: 
             - **[4]**:
-              - **id**: 1_p4
-              - **label**: P4
+              - **id**: ErAG96TNWx4tIJ
+              - **uid**: ErAG96TNWx4tIJ
+              - **rotulo**: P4
               - **circulo**:
                 - **x**: 541
                 - **y**: 67
                 - **raio**: 13
               - **cor**: 
+              - **label**: P4
             - **[5]**:
-              - **id**: 2
-              - **label**: 2
+              - **id**: 2TZwebkpgS7DZH
+              - **uid**: 2TZwebkpgS7DZH
+              - **rotulo**: 2
               - **circulo**:
                 - **x**: 586
                 - **y**: 1033
                 - **raio**: 17
               - **cor**: 
+              - **label**: 2
             - **[6]**:
-              - **id**: 2_p1
-              - **label**: 
+              - **id**: GJVs8lKVLWcBUN
+              - **uid**: GJVs8lKVLWcBUN
+              - **rotulo**: 
               - **circulo**:
                 - **x**: 612
                 - **y**: 654
                 - **raio**: 12
-            - **[7]**:
-              - **id**: 2_p2
               - **label**: 
+            - **[7]**:
+              - **id**: 8DghnMr5Qyyk7x
+              - **uid**: 8DghnMr5Qyyk7x
+              - **rotulo**: 
               - **circulo**:
                 - **x**: 607
                 - **y**: 467
                 - **raio**: 12
-            - **[8]**:
-              - **id**: 2_p3
               - **label**: 
+            - **[8]**:
+              - **id**: 5hNDBCpB2IXKvd
+              - **uid**: 5hNDBCpB2IXKvd
+              - **rotulo**: 
               - **circulo**:
                 - **x**: 641
                 - **y**: 176
                 - **raio**: 13
+              - **label**: 
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: JiNuS1HncRy9hd
+              - **pontos_uids**:
+                - TSIWJNn3qYux37
+                - 32tdWFUWmBpuGE
+                - oUEVt27rveNViO
+                - QDvqKoYCnjQjrh
+                - ErAG96TNWx4tIJ
               - **escalada**: Tromba D’Água
               - **ids**:
-                - 1
-                - 1_p1
-                - 1_p2
-                - 1_p3
-                - 1_p4
+                - TSIWJNn3qYux37
+                - 32tdWFUWmBpuGE
+                - oUEVt27rveNViO
+                - QDvqKoYCnjQjrh
+                - ErAG96TNWx4tIJ
             - **[1]**:
+              - **alvo_uid**: tl0YE1HHijDc5f
+              - **pontos_uids**:
+                - 2TZwebkpgS7DZH
+                - GJVs8lKVLWcBUN
+                - 8DghnMr5Qyyk7x
+                - 5hNDBCpB2IXKvd
               - **escalada**: Ferro Velho
               - **ids**:
-                - 2
-                - 2_p1
-                - 2_p2
-                - 2_p3
+                - 2TZwebkpgS7DZH
+                - GJVs8lKVLWcBUN
+                - 8DghnMr5Qyyk7x
+                - 5hNDBCpB2IXKvd
         - **[3]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_principal_setor_central_p9_i1.webp)
           - **largura_mapa**: 845
           - **altura_mapa**: 1182
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 14
-              - **label**: 14
+              - **id**: CIfBGneKpX4sDS
+              - **uid**: CIfBGneKpX4sDS
+              - **rotulo**: 14
               - **circulo**:
                 - **x**: 134
                 - **y**: 1051
                 - **raio**: 18
               - **cor**: 
+              - **label**: 14
             - **[1]**:
-              - **id**: 14_p1
-              - **label**: 
+              - **id**: INv9UWnFyi04J5
+              - **uid**: INv9UWnFyi04J5
+              - **rotulo**: 
               - **circulo**:
                 - **x**: 67
                 - **y**: 636
                 - **raio**: 11
-            - **[2]**:
-              - **id**: 14_p2
               - **label**: 
+            - **[2]**:
+              - **id**: EI2BXBpO2t5OOA
+              - **uid**: EI2BXBpO2t5OOA
+              - **rotulo**: 
               - **circulo**:
                 - **x**: 189
                 - **y**: 422
                 - **raio**: 11
-            - **[3]**:
-              - **id**: 14_p3
               - **label**: 
+            - **[3]**:
+              - **id**: 0358Ae6xWhm1wD
+              - **uid**: 0358Ae6xWhm1wD
+              - **rotulo**: 
               - **circulo**:
                 - **x**: 103
                 - **y**: 224
                 - **raio**: 11
+              - **label**: 
             - **[4]**:
-              - **id**: 15
-              - **label**: 15
+              - **id**: Mfah2ZjiOe6U4V
+              - **uid**: Mfah2ZjiOe6U4V
+              - **rotulo**: 15
               - **circulo**:
                 - **x**: 330
                 - **y**: 951
                 - **raio**: 18
               - **cor**: 
+              - **label**: 15
             - **[5]**:
-              - **id**: 16
-              - **label**: 16
+              - **id**: V7K3yWs6eMxgO8
+              - **uid**: V7K3yWs6eMxgO8
+              - **rotulo**: 16
               - **circulo**:
                 - **x**: 393
                 - **y**: 968
                 - **raio**: 18
               - **cor**: 
+              - **label**: 16
             - **[6]**:
-              - **id**: 16_p1
-              - **label**: 
+              - **id**: 2WFn98TqvjiKLe
+              - **uid**: 2WFn98TqvjiKLe
+              - **rotulo**: 
               - **circulo**:
                 - **x**: 415
                 - **y**: 576
                 - **raio**: 11
-            - **[7]**:
-              - **id**: 16_p2
               - **label**: 
+            - **[7]**:
+              - **id**: 6KzZR3uzmDd3xJ
+              - **uid**: 6KzZR3uzmDd3xJ
+              - **rotulo**: 
               - **circulo**:
                 - **x**: 399
                 - **y**: 489
                 - **raio**: 11
-            - **[8]**:
-              - **id**: 16_p3
               - **label**: 
+            - **[8]**:
+              - **id**: 15HNaSP6SqGrun
+              - **uid**: 15HNaSP6SqGrun
+              - **rotulo**: 
               - **circulo**:
                 - **x**: 338
                 - **y**: 238
                 - **raio**: 11
+              - **label**: 
             - **[9]**:
-              - **id**: 17
-              - **label**: 17
+              - **id**: wvzqL4wr3XlFUa
+              - **uid**: wvzqL4wr3XlFUa
+              - **rotulo**: 17
               - **circulo**:
                 - **x**: 468
                 - **y**: 1028
                 - **raio**: 18
               - **cor**: 
+              - **label**: 17
             - **[10]**:
-              - **id**: 17_p1
-              - **label**: 
+              - **id**: h7IwK5W4PvbXRo
+              - **uid**: h7IwK5W4PvbXRo
+              - **rotulo**: 
               - **circulo**:
                 - **x**: 532
                 - **y**: 768
                 - **raio**: 11
+              - **label**: 
             - **[11]**:
-              - **id**: 18
-              - **label**: 18
+              - **id**: YQooVv8dwnYSAY
+              - **uid**: YQooVv8dwnYSAY
+              - **rotulo**: 18
               - **circulo**:
                 - **x**: 760
                 - **y**: 1156
                 - **raio**: 18
               - **cor**: 
+              - **label**: 18
             - **[12]**:
-              - **id**: 18_p1
-              - **label**: 
+              - **id**: GElNJko9wheJoF
+              - **uid**: GElNJko9wheJoF
+              - **rotulo**: 
               - **circulo**:
                 - **x**: 727
                 - **y**: 850
                 - **raio**: 11
-            - **[13]**:
-              - **id**: 18_p2
               - **label**: 
+            - **[13]**:
+              - **id**: 86aGAlLi8EsHlo
+              - **uid**: 86aGAlLi8EsHlo
+              - **rotulo**: 
               - **circulo**:
                 - **x**: 673
                 - **y**: 555
                 - **raio**: 11
-            - **[14]**:
-              - **id**: 18_p3
               - **label**: 
+            - **[14]**:
+              - **id**: GZNtJMXy7PPhJS
+              - **uid**: GZNtJMXy7PPhJS
+              - **rotulo**: 
               - **circulo**:
                 - **x**: 710
                 - **y**: 400
                 - **raio**: 11
-            - **[15]**:
-              - **id**: 15pp
               - **label**: 
+            - **[15]**:
+              - **id**: fXzijmacuDIXCp
+              - **uid**: fXzijmacuDIXCp
+              - **rotulo**: 
               - **circulo**:
                 - **x**: 227
                 - **y**: 248
                 - **raio**: 12
               - **cor**: 
-            - **[16]**:
-              - **id**: 14_fr
               - **label**: 
+            - **[16]**:
+              - **id**: jDFCIiY8EB5KeE
+              - **uid**: jDFCIiY8EB5KeE
+              - **rotulo**: 
               - **circulo**:
                 - **x**: 289
                 - **y**: 499
                 - **raio**: 9
               - **cor**: 
+              - **label**: 
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: UQvP1LioTvp83J
+              - **pontos_uids**:
+                - CIfBGneKpX4sDS
+                - INv9UWnFyi04J5
+                - EI2BXBpO2t5OOA
+                - 0358Ae6xWhm1wD
+                - jDFCIiY8EB5KeE
               - **escalada**: Cordão do Bola Preta
               - **ids**:
-                - 14
-                - 14_p1
-                - 14_p2
-                - 14_p3
-                - 14_fr
+                - CIfBGneKpX4sDS
+                - INv9UWnFyi04J5
+                - EI2BXBpO2t5OOA
+                - 0358Ae6xWhm1wD
+                - jDFCIiY8EB5KeE
             - **[1]**:
+              - **alvo_uid**: 4wSO4KLI3b8c1D
+              - **pontos_uids**:
+                - Mfah2ZjiOe6U4V
+                - fXzijmacuDIXCp
               - **escalada**: A Ferro e Fogo
               - **ids**:
-                - 15
-                - 15pp
+                - Mfah2ZjiOe6U4V
+                - fXzijmacuDIXCp
             - **[2]**:
+              - **alvo_uid**: 0on14wnJabheri
+              - **pontos_uids**:
+                - V7K3yWs6eMxgO8
+                - 2WFn98TqvjiKLe
               - **escalada**: Chuva Ácida
               - **ids**:
-                - 16
-                - 16_p1
+                - V7K3yWs6eMxgO8
+                - 2WFn98TqvjiKLe
             - **[3]**:
+              - **alvo_uid**: KjagFJ12xAjL7y
+              - **pontos_uids**:
+                - wvzqL4wr3XlFUa
+                - h7IwK5W4PvbXRo
+                - 6KzZR3uzmDd3xJ
+                - 15HNaSP6SqGrun
               - **escalada**: A Decadência da Bufa
               - **ids**:
-                - 17
-                - 17_p1
-                - 16_p2
-                - 16_p3
+                - wvzqL4wr3XlFUa
+                - h7IwK5W4PvbXRo
+                - 6KzZR3uzmDd3xJ
+                - 15HNaSP6SqGrun
             - **[4]**:
+              - **alvo_uid**: Aqvhry9pjfJsJw
+              - **pontos_uids**:
+                - YQooVv8dwnYSAY
+                - GElNJko9wheJoF
+                - 86aGAlLi8EsHlo
+                - GZNtJMXy7PPhJS
               - **escalada**: Jeca Tatu
               - **ids**:
-                - 18
-                - 18_p1
-                - 18_p2
-                - 18_p3
+                - YQooVv8dwnYSAY
+                - GElNJko9wheJoF
+                - 86aGAlLi8EsHlo
+                - GZNtJMXy7PPhJS
       - **escaladas**:
         - **[0]**:
+          - **uid**: RhsrAWstcYoX5K
           - **via_multiplas_enfiadas**:
             - **descricao**: Excelente e imperdível via. Os lances mais difíceis estão na primeira enfiada.
             - **nome**: Ferro no Judas
@@ -5306,6 +6719,7 @@
               - **largura_mapa**: 689
               - **altura_mapa**: 1088
         - **[1]**:
+          - **uid**: HH5AI65l0e31Kq
           - **via_multiplas_enfiadas**:
             - **descricao**: Uma das vias mais indicadas do local, pela beleza de seus lances e por permitir um bom conhecimento do trecho central da parede. Rapel com corda única de 50m.
             - **nome**: Marcado a Ferro
@@ -5320,6 +6734,7 @@
               - Juan Kempen
             - **data_abertura**: 2006-05-15
         - **[2]**:
+          - **uid**: lWOsQxs7jU5YLt
           - **via_multiplas_enfiadas**:
             - **descricao**: Linha que segue por buracos e cristaleiras muito estéticos, sempre com proteção próxima. As paradas são duplas e o rapel, possível com corda única de 50m. O nome se dá por conta de um enorme bloco que se desprendeu na primeira investida e cortou a corda do Tonico. Na última investida, o capacete da Maria Fernanda também foi alvejado por uma pedra que rolou durante o rapel.
             - **nome**: Rolam as Pedras
@@ -5336,6 +6751,7 @@
               - Glesse Gripp
             - **data_abertura**: 2012-09-08
         - **[3]**:
+          - **uid**: JiNuS1HncRy9hd
           - **via_multiplas_enfiadas**:
             - **descricao**: Inicia com uma enfiada constante, protegida por grampos de ½. As três enfiadas sequentes, possuem inúmeras passadas em móvel, em fendas sólidas, porém esporádicas, exigindo do guia uma boa leitura da linha. Todas as paradas são fixas e duplas. Rapel possível com corda única de 60 metros ou maior.
             - **nome**: Tromba D’Água
@@ -5351,6 +6767,7 @@
               - Maria Fernanda Patrício
             - **data_abertura**: 2014-03-02
         - **[4]**:
+          - **uid**: tl0YE1HHijDc5f
           - **via_multiplas_enfiadas**:
             - **descricao**: Ótima linha para quem está começando a guiar em móvel, pois possui uma fenda perfeita em sua segunda enfiada, bastante sólida, feita em oposição e protegida inteiramente em friends médios. Apesar de mais fácil, sua terceira enfiada possui lances mais longos, com proteções fixas espaçadas e possibilidade de proteções móveis esporádicas.
             - **nome**: Ferro Velho
@@ -5365,6 +6782,7 @@
               - Pedro Bugim
             - **data_abertura**: 2012-09-09
         - **[5]**:
+          - **uid**: 0zm9vw74S090Qb
           - **via_multiplas_enfiadas**:
             - **descricao**: Via bonita e fácil. No meio do traçado ocorre um grande platô formado por uma enorme pedra. O autor da emanação intestinal foi um sócio do CEM, bastante conhecido...
             - **nome**: Pum Medonho
@@ -5380,6 +6798,7 @@
               - JP
             - **data_abertura**: 2007-12-08
         - **[6]**:
+          - **uid**: OMn5RoUmsVxGMx
           - **via_multiplas_enfiadas**:
             - **descricao**: Via predominantemente em agarras e aderência, toda em grampos, com proteções um pouco mais espaçadas que o restante da parede. Segue sempre em paralelo ao “Pr. Chapado”, ficando bem próximo ao vizinho no final. Durante a conquista, duas marretas se quebraram, por isso, alguns grampos não foram cravados até o final. Solicita-se que o trabalho seja feito em sua repetição.
             - **nome**: Dona Flor e Suas Duas Marretas
@@ -5394,6 +6813,7 @@
               - Alessandra da Silva Gomes
             - **data_abertura**: 2012-09-09
         - **[7]**:
+          - **uid**: cpkdZ1zPnyBPvH
           - **via_multiplas_enfiadas**:
             - **descricao**: Primeira via de Ferros protegida em chapeletas. A cada 30 metros, possui uma chapeleta com argola para rapel com corda simples de 60 metros. Nas paradas, possui proteção dupla, com uma chapeleta simples e outra com argola. Esta via passa por lances simplórios, porém interessantes, quase sempre em agarras. Cuidado com os blocos de pedra soltos na metade da segunda enfiada durante o rapel! Seu crux é bem definido e fica na saída da segunda parada, podendo ser evitado, se feito mais pela direita.
             - **nome**: Pr. Chapado
@@ -5414,6 +6834,7 @@
               - **largura_mapa**: 388
               - **altura_mapa**: 606
         - **[8]**:
+          - **uid**: J2n3pSVvme8VQe
           - **via_multiplas_enfiadas**:
             - **descricao**: Via com muitos lances bem verticais, mas sempre com ótimas agarras e cristaleiras. Uma das vias mais protegidas da parede, possibilitando bom conhecimento do estilo deste setor, sem sobrecarregar o psicológico. Paradas duplas e rapel com corda simples de 50 metros.
             - **nome**: Pé de Pano
@@ -5435,6 +6856,7 @@
               - **largura_mapa**: 421
               - **altura_mapa**: 641
         - **[9]**:
+          - **uid**: 0jcnw04M5QsGqJ
           - **via_multiplas_enfiadas**:
             - **descricao**: Via mista que possui uma fenda inicial em móvel (crux). Os demais lances são muito bonitos.
             - **nome**: CDF
@@ -5449,6 +6871,7 @@
               - Fabiano Fernandes
             - **data_abertura**: 2007-06-04
         - **[10]**:
+          - **uid**: oJgVXI1kQAJQ4V
           - **via_multiplas_enfiadas**:
             - **descricao**: O crux fica logo no delicado lance inicial, bem protegido. Evolui para lances verticais com “corcovas” e agarras incríveis, até a P1. A segunda enfiada possui lances com predominância em aderência, contando com um segundo crux antes da P2.
             - **nome**: Eu Sei o Que Vocês Fizeram no Blackout Passado
@@ -5471,6 +6894,7 @@
               - **largura_mapa**: 840
               - **altura_mapa**: 1190
         - **[11]**:
+          - **uid**: 5cUKFKWrcHuaoA
           - **via_multiplas_enfiadas**:
             - **descricao**: Uma das mais clássicas das vias da região. Apresenta três esticões de 55m cada, grampeação muito segura e paradas duplicadas. Costura móvel opcional no segundo esticão (friend). Rapel com corda única de 50m.
             - **nome**: Hilda Furacão
@@ -5487,6 +6911,7 @@
               - Gustavo "Xaxá" Carrozzino
             - **data_abertura**: 2010-08-21
         - **[12]**:
+          - **uid**: HVIBIlLPDu82FN
           - **via_multiplas_enfiadas**:
             - **descricao**: Primeira via conquistada na localidade, dando início ao novo (e excelente!) polo deste esporte. O primeiro lance (crux) pode ter sua proteção melhorada com um nut de cabo pequeno.
             - **nome**: Iron Men
@@ -5501,6 +6926,7 @@
               - Marcos Leiras
             - **data_abertura**: 2006-02-26
         - **[13]**:
+          - **uid**: UQvP1LioTvp83J
           - **via_multiplas_enfiadas**:
             - **descricao**: Via espetacular! A primeira enfiada segue uma sequência impressionante de agarras, buracos e cristais, sempre com boa proteção fixa em grampos de ½. A segunda enfiada é feita quase toda em móvel, com friends de todos os tamanhos, dos menores aos bem grandes, sempre em fendas perfeitas e sólidas. O crux está na virada do diedro no final da segunda enfiada, sendo protegido por um grampo. A terceira enfiada segue por cristais e aderência até o final da via. Foi a 101ª conquista da região.
             - **nome**: Cordão do Bola Preta
@@ -5517,6 +6943,7 @@
               - Maria Fernanda Patrício
             - **data_abertura**: 2012-02-18
         - **[14]**:
+          - **uid**: 4wSO4KLI3b8c1D
           - **via_multiplas_enfiadas**:
             - **descricao**: Excelente via de escalada, sendo uma das primeiras do pólo. Bem protegida, com lances verticais em agarras e cristaleiras.
             - **nome**: A Ferro e Fogo
@@ -5530,6 +6957,7 @@
               - Juan Kempen
             - **data_abertura**: 2006-04-14
         - **[15]**:
+          - **uid**: 0on14wnJabheri
           - **via_multiplas_enfiadas**:
             - **descricao**: Apesar de relativamente curta, trata-se de uma via com lances bastante interessantes, em cristaleiras, abaulados e boas agarras em lances verticais, e com graduação bem tranquila. Bem protegida por grampos. Pode seguir até o topo, após a parada dupla, por qualquer uma de suas vias vizinhas.
             - **nome**: Chuva Ácida
@@ -5544,6 +6972,7 @@
               - Maria Fernanda Patrício
             - **data_abertura**: 2013-03-30
         - **[16]**:
+          - **uid**: KjagFJ12xAjL7y
           - **via_multiplas_enfiadas**:
             - **descricao**: Boa via, com boa proteção fixa em grampos de ½ polegada, seguindo uma linha óbvia de cristais, regletes e buracos, desde a base até o cume. Rapel possível com corda única de 50m. 99ª via conquistada na região.
             - **nome**: A Decadência da Bufa
@@ -5560,6 +6989,7 @@
               - Gustavo "Xaxá" Carrozzino
             - **data_abertura**: 2012-01-22
         - **[17]**:
+          - **uid**: Aqvhry9pjfJsJw
           - **via_multiplas_enfiadas**:
             - **descricao**: O crux é logo no início. Via com acesso rápido e muito bem grampeada.
             - **nome**: Jeca Tatu
@@ -5593,6 +7023,7 @@
           | :--: |
           | *Costão inicial na base do Setor de Cima, na Parede Principal (Foto: Maria Fernanda Patrício)* |
       - **nome**: Setor de Cima
+      - **uid**: E0ZwbLrlRUznG0
       - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/grupo_principal_setor_setor_de_cima_p1_i0_0.webp)
       - **mapas**:
         - **[0]**:
@@ -5601,140 +7032,185 @@
           - **altura_mapa**: 1243
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: N55UoPSK5yscyM
+              - **pontos_uids**:
+                - FC4KMKwMInqZCU
               - **escalada**: Noite de São João
               - **ids**:
-                - 1
+                - FC4KMKwMInqZCU
             - **[1]**:
+              - **alvo_uid**: A85zzdlHkxR4KZ
+              - **pontos_uids**:
+                - shp5bk9wAk3NGk
               - **escalada**: Um Momento no Tempo
               - **ids**:
-                - 2
+                - shp5bk9wAk3NGk
             - **[2]**:
-              - **ids**:
-                - parede_principal_central
-              - **grupo**: Parede Principal (Paredes de Aço)
+              - **alvo_uid**: nJgmAcSxMTe2Xy
+              - **pontos_uids**:
+                - Mskk0UiTXTj0wT
               - **setor**: Setor Central
-            - **[3]**:
               - **ids**:
-                - parede_principal_classicas_longas
-              - **grupo**: Parede Principal (Paredes de Aço)
+                - Mskk0UiTXTj0wT
+            - **[3]**:
+              - **alvo_uid**: 0swIknUTarrNZN
+              - **pontos_uids**:
+                - jr9EjzpW6AvKFk
               - **setor**: Setor Clássicas Longas
+              - **ids**:
+                - jr9EjzpW6AvKFk
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 1
-              - **label**: 1
+              - **id**: FC4KMKwMInqZCU
+              - **uid**: FC4KMKwMInqZCU
+              - **rotulo**: 1
               - **circulo**:
                 - **x**: 857
                 - **y**: 699
                 - **raio**: 24
+              - **label**: 1
             - **[1]**:
-              - **id**: 2
-              - **label**: 2
+              - **id**: shp5bk9wAk3NGk
+              - **uid**: shp5bk9wAk3NGk
+              - **rotulo**: 2
               - **circulo**:
                 - **x**: 898
                 - **y**: 796
                 - **raio**: 24
+              - **label**: 2
             - **[2]**:
-              - **id**: parede_principal_central
-              - **label**: Parede Principal Central
+              - **id**: Mskk0UiTXTj0wT
+              - **uid**: Mskk0UiTXTj0wT
+              - **rotulo**: Parede Principal Central
               - **retangulo**:
                 - **x**: 356
                 - **y**: 380
                 - **comprimento**: 394
                 - **largura**: 77
               - **cor**: 
+              - **label**: Parede Principal Central
             - **[3]**:
-              - **id**: parede_principal_classicas_longas
-              - **label**: Parede Principal Clássicas Longas
+              - **id**: jr9EjzpW6AvKFk
+              - **uid**: jr9EjzpW6AvKFk
+              - **rotulo**: Parede Principal Clássicas Longas
               - **retangulo**:
                 - **x**: 1355
                 - **y**: 1152
                 - **comprimento**: 538
                 - **largura**: 74
               - **cor**: 
+              - **label**: Parede Principal Clássicas Longas
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_principal_setor_setor_de_cima_p1_i0.webp)
           - **largura_mapa**: 2015
           - **altura_mapa**: 1240
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: A85zzdlHkxR4KZ
+              - **pontos_uids**:
+                - LxIFAscKVZV01P
               - **escalada**: Um Momento no Tempo
               - **ids**:
-                - 1
+                - LxIFAscKVZV01P
             - **[1]**:
+              - **alvo_uid**: N55UoPSK5yscyM
+              - **pontos_uids**:
+                - 8VoG6X525pntxE
               - **escalada**: Noite de São João
               - **ids**:
-                - 2
+                - 8VoG6X525pntxE
             - **[2]**:
-              - **ids**:
-                - Setor Central
+              - **alvo_uid**: nJgmAcSxMTe2Xy
+              - **pontos_uids**:
+                - uCpy6z8NF8bNal
               - **setor**: Setor Central
+              - **ids**:
+                - uCpy6z8NF8bNal
             - **[3]**:
-              - **ids**:
-                - Clássicas Longas
+              - **alvo_uid**: 0swIknUTarrNZN
+              - **pontos_uids**:
+                - XH25rlEJKrkooj
               - **setor**: Setor Clássicas Longas
+              - **ids**:
+                - XH25rlEJKrkooj
             - **[4]**:
-              - **ids**:
-                - a_francesa
-              - **grupo**: Parede Principal (Paredes de Aço)
-              - **setor**: Setor Clássicas Longas
+              - **alvo_uid**: ppRjvPjQbmhQLX
+              - **pontos_uids**:
+                - ZfJTTEQafkPoav
               - **escalada**: À Francesa
-            - **[5]**:
               - **ids**:
-                - ferro_no_judas
-              - **grupo**: Parede Principal (Paredes de Aço)
-              - **setor**: Setor Central
+                - ZfJTTEQafkPoav
+            - **[5]**:
+              - **alvo_uid**: RhsrAWstcYoX5K
+              - **pontos_uids**:
+                - k7fYr0a91HRlJd
               - **escalada**: Ferro no Judas
+              - **ids**:
+                - k7fYr0a91HRlJd
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 1
-              - **label**: 1
+              - **id**: LxIFAscKVZV01P
+              - **uid**: LxIFAscKVZV01P
+              - **rotulo**: 1
               - **circulo**:
                 - **x**: 900
                 - **y**: 1053
                 - **raio**: 36
+              - **label**: 1
             - **[1]**:
-              - **id**: 2
-              - **label**: 2
+              - **id**: 8VoG6X525pntxE
+              - **uid**: 8VoG6X525pntxE
+              - **rotulo**: 2
               - **circulo**:
                 - **x**: 866
                 - **y**: 1195
                 - **raio**: 36
+              - **label**: 2
             - **[2]**:
-              - **id**: Setor Central
-              - **label**: Setor Central
+              - **id**: uCpy6z8NF8bNal
+              - **uid**: uCpy6z8NF8bNal
+              - **rotulo**: Setor Central
               - **retangulo**:
                 - **x**: 1798
                 - **y**: 1126
                 - **comprimento**: 219
                 - **largura**: 134
+              - **label**: Setor Central
             - **[3]**:
-              - **id**: Clássicas Longas
-              - **label**: Clássicas Longas
+              - **id**: XH25rlEJKrkooj
+              - **uid**: XH25rlEJKrkooj
+              - **rotulo**: Clássicas Longas
               - **retangulo**:
                 - **x**: 162
                 - **y**: 830
                 - **comprimento**: 281
                 - **largura**: 153
+              - **label**: Clássicas Longas
             - **[4]**:
-              - **id**: a_francesa
-              - **label**: À Francesa
+              - **id**: ZfJTTEQafkPoav
+              - **uid**: ZfJTTEQafkPoav
+              - **rotulo**: À Francesa
               - **retangulo**:
                 - **x**: 528
                 - **y**: 930
                 - **comprimento**: 278
                 - **largura**: 77
               - **cor**: 
+              - **label**: À Francesa
             - **[5]**:
-              - **id**: ferro_no_judas
-              - **label**: Ferro no Judas
+              - **id**: k7fYr0a91HRlJd
+              - **uid**: k7fYr0a91HRlJd
+              - **rotulo**: Ferro no Judas
               - **retangulo**:
                 - **x**: 1484
                 - **y**: 1158
                 - **comprimento**: 209
                 - **largura**: 104
               - **cor**: 
+              - **label**: Ferro no Judas
       - **escaladas**:
         - **[0]**:
+          - **uid**: A85zzdlHkxR4KZ
           - **via_multiplas_enfiadas**:
             - **descricao**: Ótima via, que inicia em um fácil costão, para então ganhar uma bonita canaleta e finalmente, uma barriga feita em aderência, onde encontra-se o crux (primeira metade da via). A primeira enfiada (e mais bonita) possui proteção generosa, enquanto que a segunda enfiada, bem mais fácil, possui proteções mais espaçadas até atingir o topo da parede.
             - **nome**: Um Momento no Tempo
@@ -5772,6 +7248,7 @@
               - **largura_mapa**: 741
               - **altura_mapa**: 1086
         - **[1]**:
+          - **uid**: N55UoPSK5yscyM
           - **via_multiplas_enfiadas**:
             - **descricao**: Via fácil e com grampeação próxima. O crux encontra-se no meio da via.
             - **nome**: Noite de São João
@@ -5835,6 +7312,7 @@
           - **3**: Base da via “Ih, Ferrou!”
           - **4**: Base das vias “O Retorno de Jedi” e “O Nome da Rosa”
       - **nome**: Setor Clássicas Longas
+      - **uid**: 0swIknUTarrNZN
       - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/grupo_principal_setor_classicas_longas_p0_i1.webp)
       - **mapas**:
         - **[0]**:
@@ -5843,405 +7321,596 @@
           - **altura_mapa**: 1025
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: TiMvo7taQljnz6
+              - **pontos_uids**:
+                - bGttwYGvawhytZ
               - **escalada**: Eu Não Sou de Ferro
               - **ids**:
-                - 1
+                - bGttwYGvawhytZ
             - **[1]**:
+              - **alvo_uid**: AJSTo7xkzcHxVh
+              - **pontos_uids**:
+                - bGttwYGvawhytZ
               - **escalada**: Rio de Mão Dupla
               - **ids**:
-                - 1
+                - bGttwYGvawhytZ
             - **[2]**:
+              - **alvo_uid**: ppRjvPjQbmhQLX
+              - **pontos_uids**:
+                - bGttwYGvawhytZ
               - **escalada**: À Francesa
               - **ids**:
-                - 1
+                - bGttwYGvawhytZ
             - **[3]**:
+              - **alvo_uid**: QRzLPeTtQG5uod
+              - **pontos_uids**:
+                - ju2k5aWDVsTIiE
               - **escalada**: Jardim do Éden
               - **ids**:
-                - 2
+                - ju2k5aWDVsTIiE
             - **[4]**:
+              - **alvo_uid**: 1MRTqHhEwibZe5
+              - **pontos_uids**:
+                - ju2k5aWDVsTIiE
               - **escalada**: A Dois Passos do Paraíso
               - **ids**:
-                - 2
+                - ju2k5aWDVsTIiE
             - **[5]**:
+              - **alvo_uid**: zcxxdwF36C6b2o
+              - **pontos_uids**:
+                - ju2k5aWDVsTIiE
               - **escalada**: Conquista do Paraíso
               - **ids**:
-                - 2
+                - ju2k5aWDVsTIiE
             - **[6]**:
+              - **alvo_uid**: 6TFkeXcKqIVXD3
+              - **pontos_uids**:
+                - ju2k5aWDVsTIiE
               - **escalada**: Purgatório
               - **ids**:
-                - 2
+                - ju2k5aWDVsTIiE
             - **[7]**:
+              - **alvo_uid**: G1GEUfkb6aFhvG
+              - **pontos_uids**:
+                - ju2k5aWDVsTIiE
               - **escalada**: Arco de Ferros
               - **ids**:
-                - 2
+                - ju2k5aWDVsTIiE
             - **[8]**:
+              - **alvo_uid**: AmnkWTziTCLtlx
+              - **pontos_uids**:
+                - ju2k5aWDVsTIiE
               - **escalada**: Quem com Ferro Fere
               - **ids**:
-                - 2
+                - ju2k5aWDVsTIiE
             - **[9]**:
+              - **alvo_uid**: bU7X6rEsf8DV8G
+              - **pontos_uids**:
+                - ju2k5aWDVsTIiE
               - **escalada**: Tanto Bate Até Que Fura
               - **ids**:
-                - 2
+                - ju2k5aWDVsTIiE
             - **[10]**:
+              - **alvo_uid**: 3qiVVJ4gH98lkU
+              - **pontos_uids**:
+                - ju2k5aWDVsTIiE
               - **escalada**: Trem de Ferro
               - **ids**:
-                - 2
+                - ju2k5aWDVsTIiE
             - **[11]**:
+              - **alvo_uid**: 3rFARDsvpejB1k
+              - **pontos_uids**:
+                - ju2k5aWDVsTIiE
               - **escalada**: Up Ester
               - **ids**:
-                - 2
+                - ju2k5aWDVsTIiE
             - **[12]**:
+              - **alvo_uid**: OdHzDK0d85nJch
+              - **pontos_uids**:
+                - ju2k5aWDVsTIiE
               - **escalada**: Até Que a Vida Nos Separe
               - **ids**:
-                - 2
+                - ju2k5aWDVsTIiE
             - **[13]**:
+              - **alvo_uid**: QGE2HjkgbIBB11
+              - **pontos_uids**:
+                - ju2k5aWDVsTIiE
               - **escalada**: Vr. Pilhado
               - **ids**:
-                - 2
+                - ju2k5aWDVsTIiE
             - **[14]**:
+              - **alvo_uid**: qwJkNaUAKwp36y
+              - **pontos_uids**:
+                - ju2k5aWDVsTIiE
               - **escalada**: Pr. CEM
               - **ids**:
-                - 2
+                - ju2k5aWDVsTIiE
             - **[15]**:
+              - **alvo_uid**: LQO55ySramygmt
+              - **pontos_uids**:
+                - ju2k5aWDVsTIiE
               - **escalada**: Vr. SEM
               - **ids**:
-                - 2
+                - ju2k5aWDVsTIiE
             - **[16]**:
+              - **alvo_uid**: Yk0v37xjPddpkt
+              - **pontos_uids**:
+                - mtyy0LPuNnWl8f
               - **escalada**: Ih, Ferrou!
               - **ids**:
-                - 3
+                - mtyy0LPuNnWl8f
             - **[17]**:
+              - **alvo_uid**: 4NlA92f95JiGYq
+              - **pontos_uids**:
+                - olicjdnYP8V23W
               - **escalada**: O Retorno de Jedi
               - **ids**:
-                - 4
+                - olicjdnYP8V23W
             - **[18]**:
+              - **alvo_uid**: 3RMqt5ApX2IY8X
+              - **pontos_uids**:
+                - olicjdnYP8V23W
               - **escalada**: O Nome da Rosa
               - **ids**:
-                - 4
+                - olicjdnYP8V23W
             - **[19]**:
+              - **alvo_uid**: RSE77cm8A5ibY5
+              - **pontos_uids**:
+                - olicjdnYP8V23W
               - **escalada**: Quarto 304
               - **ids**:
-                - 4
+                - olicjdnYP8V23W
             - **[20]**:
-              - **ids**:
-                - central
-              - **grupo**: Parede Principal (Paredes de Aço)
+              - **alvo_uid**: nJgmAcSxMTe2Xy
+              - **pontos_uids**:
+                - Vqt7hXzzeXmd6S
               - **setor**: Setor Central
+              - **ids**:
+                - Vqt7hXzzeXmd6S
             - **[21]**:
-              - **ids**:
-                - aderencias_extrema_direita
-              - **grupo**: Parede das Aderências
+              - **alvo_uid**: sMtcp04stg3wSX
+              - **pontos_uids**:
+                - yMnrBOpRSQ0Iko
               - **setor**: Extrema Direita
+              - **ids**:
+                - yMnrBOpRSQ0Iko
             - **[22]**:
-              - **ids**:
-                - 1
-              - **grupo**: Parede Principal (Paredes de Aço)
-              - **setor**: Setor Clássicas Longas
+              - **alvo_uid**: aWWidUPbYI6GzD
+              - **pontos_uids**:
+                - bGttwYGvawhytZ
               - **escalada**: Grand Finale
-            - **[23]**:
               - **ids**:
-                - 2
-              - **grupo**: Parede Principal (Paredes de Aço)
-              - **setor**: Setor Clássicas Longas
+                - bGttwYGvawhytZ
+            - **[23]**:
+              - **alvo_uid**: uW5HmBfxqXNcx6
+              - **pontos_uids**:
+                - ju2k5aWDVsTIiE
               - **escalada**: Pr. Conrado Ferro
+              - **ids**:
+                - ju2k5aWDVsTIiE
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 1
-              - **label**: 1
+              - **id**: bGttwYGvawhytZ
+              - **uid**: bGttwYGvawhytZ
+              - **rotulo**: 1
               - **circulo**:
                 - **x**: 832
                 - **y**: 373
                 - **raio**: 19
+              - **label**: 1
             - **[1]**:
-              - **id**: 2
-              - **label**: 2
+              - **id**: ju2k5aWDVsTIiE
+              - **uid**: ju2k5aWDVsTIiE
+              - **rotulo**: 2
               - **circulo**:
                 - **x**: 1033
                 - **y**: 696
                 - **raio**: 19
+              - **label**: 2
             - **[2]**:
-              - **id**: 3
-              - **label**: 3
+              - **id**: mtyy0LPuNnWl8f
+              - **uid**: mtyy0LPuNnWl8f
+              - **rotulo**: 3
               - **circulo**:
                 - **x**: 1084
                 - **y**: 779
                 - **raio**: 19
+              - **label**: 3
             - **[3]**:
-              - **id**: 4
-              - **label**: 4
+              - **id**: olicjdnYP8V23W
+              - **uid**: olicjdnYP8V23W
+              - **rotulo**: 4
               - **circulo**:
                 - **x**: 1175
                 - **y**: 848
                 - **raio**: 19
+              - **label**: 4
             - **[4]**:
-              - **id**: central
-              - **label**: Parede Principal Central
+              - **id**: Vqt7hXzzeXmd6S
+              - **uid**: Vqt7hXzzeXmd6S
+              - **rotulo**: Parede Principal Central
               - **retangulo**:
                 - **x**: 442
                 - **y**: 183
                 - **comprimento**: 215
                 - **largura**: 68
               - **cor**: 
+              - **label**: Parede Principal Central
             - **[5]**:
-              - **id**: aderencias_extrema_direita
-              - **label**: Aderências Extrema Direita
+              - **id**: yMnrBOpRSQ0Iko
+              - **uid**: yMnrBOpRSQ0Iko
+              - **rotulo**: Aderências Extrema Direita
               - **retangulo**:
                 - **x**: 1430
                 - **y**: 216
                 - **comprimento**: 268
                 - **largura**: 63
               - **cor**: 
+              - **label**: Aderências Extrema Direita
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_principal_setor_classicas_longas_p2_i0.webp)
           - **largura_mapa**: 2069
           - **altura_mapa**: 1207
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: RSE77cm8A5ibY5
+              - **pontos_uids**:
+                - kWobNcqiF42t4D
               - **escalada**: Quarto 304
               - **ids**:
-                - 1
+                - kWobNcqiF42t4D
             - **[1]**:
+              - **alvo_uid**: 3RMqt5ApX2IY8X
+              - **pontos_uids**:
+                - SrCxhZObQ8YpKc
               - **escalada**: O Nome da Rosa
               - **ids**:
-                - 2
+                - SrCxhZObQ8YpKc
             - **[2]**:
+              - **alvo_uid**: 4NlA92f95JiGYq
+              - **pontos_uids**:
+                - dB8erTnLDoIfj0
               - **escalada**: O Retorno de Jedi
               - **ids**:
-                - 3
+                - dB8erTnLDoIfj0
             - **[3]**:
+              - **alvo_uid**: Yk0v37xjPddpkt
+              - **pontos_uids**:
+                - yIfeMDFcF3d1xU
               - **escalada**: Ih, Ferrou!
               - **ids**:
-                - 4
+                - yIfeMDFcF3d1xU
             - **[4]**:
+              - **alvo_uid**: QRzLPeTtQG5uod
+              - **pontos_uids**:
+                - gcxQIZoHddkDua
               - **escalada**: Jardim do Éden
               - **ids**:
-                - 5
+                - gcxQIZoHddkDua
             - **[5]**:
+              - **alvo_uid**: 1MRTqHhEwibZe5
+              - **pontos_uids**:
+                - hXBgx8rxDfAuzi
               - **escalada**: A Dois Passos do Paraíso
               - **ids**:
-                - 6
+                - hXBgx8rxDfAuzi
             - **[6]**:
+              - **alvo_uid**: zcxxdwF36C6b2o
+              - **pontos_uids**:
+                - to3OABIDZnYXgV
               - **escalada**: Conquista do Paraíso
               - **ids**:
-                - 7
+                - to3OABIDZnYXgV
             - **[7]**:
+              - **alvo_uid**: 6TFkeXcKqIVXD3
+              - **pontos_uids**:
+                - yfZo4zbh0LC5Bz
               - **escalada**: Purgatório
               - **ids**:
-                - 8
+                - yfZo4zbh0LC5Bz
             - **[8]**:
+              - **alvo_uid**: G1GEUfkb6aFhvG
+              - **pontos_uids**:
+                - GZ41NLWVNc3JlY
               - **escalada**: Arco de Ferros
               - **ids**:
-                - 9
+                - GZ41NLWVNc3JlY
             - **[9]**:
+              - **alvo_uid**: uW5HmBfxqXNcx6
+              - **pontos_uids**:
+                - RIb4OKAtdVRE89
               - **escalada**: Pr. Conrado Ferro
               - **ids**:
-                - 10
+                - RIb4OKAtdVRE89
             - **[10]**:
+              - **alvo_uid**: AmnkWTziTCLtlx
+              - **pontos_uids**:
+                - JdJDbiL6okn3vV
               - **escalada**: Quem com Ferro Fere
               - **ids**:
-                - 11
+                - JdJDbiL6okn3vV
             - **[11]**:
+              - **alvo_uid**: bU7X6rEsf8DV8G
+              - **pontos_uids**:
+                - JdJDbiL6okn3vV
+                - 5L2p3C5el9zg5T
               - **escalada**: Tanto Bate Até Que Fura
               - **ids**:
-                - 11
-                - 12
+                - JdJDbiL6okn3vV
+                - 5L2p3C5el9zg5T
             - **[12]**:
+              - **alvo_uid**: 3qiVVJ4gH98lkU
+              - **pontos_uids**:
+                - 173IxY9G5UwPTe
               - **escalada**: Trem de Ferro
               - **ids**:
-                - 13
+                - 173IxY9G5UwPTe
             - **[13]**:
+              - **alvo_uid**: 3rFARDsvpejB1k
+              - **pontos_uids**:
+                - L8jX93Tp5MVoBT
               - **escalada**: Up Ester
               - **ids**:
-                - 14
+                - L8jX93Tp5MVoBT
             - **[14]**:
+              - **alvo_uid**: OdHzDK0d85nJch
+              - **pontos_uids**:
+                - hws4jVHjOPOYYX
               - **escalada**: Até Que a Vida Nos Separe
               - **ids**:
-                - 15
+                - hws4jVHjOPOYYX
             - **[15]**:
+              - **alvo_uid**: QGE2HjkgbIBB11
+              - **pontos_uids**:
+                - XN2qte4rb6TMb4
               - **escalada**: Vr. Pilhado
               - **ids**:
-                - 16
+                - XN2qte4rb6TMb4
             - **[16]**:
+              - **alvo_uid**: qwJkNaUAKwp36y
+              - **pontos_uids**:
+                - VGTqiO1hvNs8ic
               - **escalada**: Pr. CEM
               - **ids**:
-                - 17
+                - VGTqiO1hvNs8ic
             - **[17]**:
+              - **alvo_uid**: LQO55ySramygmt
+              - **pontos_uids**:
+                - VGTqiO1hvNs8ic
+                - DJDibhoScE40h7
               - **escalada**: Vr. SEM
               - **ids**:
-                - 17
-                - 18
+                - VGTqiO1hvNs8ic
+                - DJDibhoScE40h7
             - **[18]**:
+              - **alvo_uid**: TiMvo7taQljnz6
+              - **pontos_uids**:
+                - NtilXTEX5MabO4
               - **escalada**: Eu Não Sou de Ferro
               - **ids**:
-                - 19
+                - NtilXTEX5MabO4
             - **[19]**:
+              - **alvo_uid**: AJSTo7xkzcHxVh
+              - **pontos_uids**:
+                - sZA03N16Ah91l1
               - **escalada**: Rio de Mão Dupla
               - **ids**:
-                - 20
+                - sZA03N16Ah91l1
             - **[20]**:
+              - **alvo_uid**: ppRjvPjQbmhQLX
+              - **pontos_uids**:
+                - v2LvrGR7OFGW19
               - **escalada**: À Francesa
               - **ids**:
-                - 21
+                - v2LvrGR7OFGW19
             - **[21]**:
+              - **alvo_uid**: aWWidUPbYI6GzD
+              - **pontos_uids**:
+                - v2LvrGR7OFGW19
+                - D5TiLDry5gtAyw
               - **escalada**: Grand Finale
               - **ids**:
-                - 21
-                - 22
+                - v2LvrGR7OFGW19
+                - D5TiLDry5gtAyw
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 1
-              - **label**: 1
+              - **id**: kWobNcqiF42t4D
+              - **uid**: kWobNcqiF42t4D
+              - **rotulo**: 1
               - **circulo**:
                 - **x**: 63
                 - **y**: 604
                 - **raio**: 24
+              - **label**: 1
             - **[1]**:
-              - **id**: 2
-              - **label**: 2
+              - **id**: SrCxhZObQ8YpKc
+              - **uid**: SrCxhZObQ8YpKc
+              - **rotulo**: 2
               - **circulo**:
                 - **x**: 115
                 - **y**: 816
                 - **raio**: 24
+              - **label**: 2
             - **[2]**:
-              - **id**: 3
-              - **label**: 3
+              - **id**: dB8erTnLDoIfj0
+              - **uid**: dB8erTnLDoIfj0
+              - **rotulo**: 3
               - **circulo**:
                 - **x**: 294
                 - **y**: 803
                 - **raio**: 24
+              - **label**: 3
             - **[3]**:
-              - **id**: 4
-              - **label**: 4
+              - **id**: yIfeMDFcF3d1xU
+              - **uid**: yIfeMDFcF3d1xU
+              - **rotulo**: 4
               - **circulo**:
                 - **x**: 404
                 - **y**: 779
                 - **raio**: 24
+              - **label**: 4
             - **[4]**:
-              - **id**: 5
-              - **label**: 5
+              - **id**: gcxQIZoHddkDua
+              - **uid**: gcxQIZoHddkDua
+              - **rotulo**: 5
               - **circulo**:
                 - **x**: 563
                 - **y**: 843
                 - **raio**: 24
+              - **label**: 5
             - **[5]**:
-              - **id**: 6
-              - **label**: 6
+              - **id**: hXBgx8rxDfAuzi
+              - **uid**: hXBgx8rxDfAuzi
+              - **rotulo**: 6
               - **circulo**:
                 - **x**: 652
                 - **y**: 819
                 - **raio**: 24
+              - **label**: 6
             - **[6]**:
-              - **id**: 7
-              - **label**: 7
+              - **id**: to3OABIDZnYXgV
+              - **uid**: to3OABIDZnYXgV
+              - **rotulo**: 7
               - **circulo**:
                 - **x**: 710
                 - **y**: 801
                 - **raio**: 24
+              - **label**: 7
             - **[7]**:
-              - **id**: 8
-              - **label**: 8
+              - **id**: yfZo4zbh0LC5Bz
+              - **uid**: yfZo4zbh0LC5Bz
+              - **rotulo**: 8
               - **circulo**:
                 - **x**: 771
                 - **y**: 765
                 - **raio**: 24
+              - **label**: 8
             - **[8]**:
-              - **id**: 9
-              - **label**: 9
+              - **id**: GZ41NLWVNc3JlY
+              - **uid**: GZ41NLWVNc3JlY
+              - **rotulo**: 9
               - **circulo**:
                 - **x**: 820
                 - **y**: 739
                 - **raio**: 24
+              - **label**: 9
             - **[9]**:
-              - **id**: 10
-              - **label**: 10
+              - **id**: RIb4OKAtdVRE89
+              - **uid**: RIb4OKAtdVRE89
+              - **rotulo**: 10
               - **circulo**:
                 - **x**: 869
                 - **y**: 726
                 - **raio**: 28
+              - **label**: 10
             - **[10]**:
-              - **id**: 11
-              - **label**: 11
+              - **id**: JdJDbiL6okn3vV
+              - **uid**: JdJDbiL6okn3vV
+              - **rotulo**: 11
               - **circulo**:
                 - **x**: 962
                 - **y**: 705
                 - **raio**: 26
+              - **label**: 11
             - **[11]**:
-              - **id**: 12
-              - **label**: 12
+              - **id**: 5L2p3C5el9zg5T
+              - **uid**: 5L2p3C5el9zg5T
+              - **rotulo**: 12
               - **circulo**:
                 - **x**: 1044
                 - **y**: 438
                 - **raio**: 28
+              - **label**: 12
             - **[12]**:
-              - **id**: 13
-              - **label**: 13
+              - **id**: 173IxY9G5UwPTe
+              - **uid**: 173IxY9G5UwPTe
+              - **rotulo**: 13
               - **circulo**:
                 - **x**: 1041
                 - **y**: 691
                 - **raio**: 28
+              - **label**: 13
             - **[13]**:
-              - **id**: 14
-              - **label**: 14
+              - **id**: L8jX93Tp5MVoBT
+              - **uid**: L8jX93Tp5MVoBT
+              - **rotulo**: 14
               - **circulo**:
                 - **x**: 1078
                 - **y**: 739
                 - **raio**: 27
+              - **label**: 14
             - **[14]**:
-              - **id**: 15
-              - **label**: 15
+              - **id**: hws4jVHjOPOYYX
+              - **uid**: hws4jVHjOPOYYX
+              - **rotulo**: 15
               - **circulo**:
                 - **x**: 1118
                 - **y**: 784
                 - **raio**: 28
+              - **label**: 15
             - **[15]**:
-              - **id**: 16
-              - **label**: 16
+              - **id**: XN2qte4rb6TMb4
+              - **uid**: XN2qte4rb6TMb4
+              - **rotulo**: 16
               - **circulo**:
                 - **x**: 1154
                 - **y**: 858
                 - **raio**: 27
+              - **label**: 16
             - **[16]**:
-              - **id**: 17
-              - **label**: 17
+              - **id**: VGTqiO1hvNs8ic
+              - **uid**: VGTqiO1hvNs8ic
+              - **rotulo**: 17
               - **circulo**:
                 - **x**: 1218
                 - **y**: 944
                 - **raio**: 28
+              - **label**: 17
             - **[17]**:
-              - **id**: 18
-              - **label**: 18
+              - **id**: DJDibhoScE40h7
+              - **uid**: DJDibhoScE40h7
+              - **rotulo**: 18
               - **circulo**:
                 - **x**: 1233
                 - **y**: 280
                 - **raio**: 27
+              - **label**: 18
             - **[18]**:
-              - **id**: 19
-              - **label**: 19
+              - **id**: NtilXTEX5MabO4
+              - **uid**: NtilXTEX5MabO4
+              - **rotulo**: 19
               - **circulo**:
                 - **x**: 1461
                 - **y**: 1055
                 - **raio**: 26
+              - **label**: 19
             - **[19]**:
-              - **id**: 20
-              - **label**: 20
+              - **id**: sZA03N16Ah91l1
+              - **uid**: sZA03N16Ah91l1
+              - **rotulo**: 20
               - **circulo**:
                 - **x**: 1664
                 - **y**: 956
                 - **raio**: 29
+              - **label**: 20
             - **[20]**:
-              - **id**: 21
-              - **label**: 21
+              - **id**: v2LvrGR7OFGW19
+              - **uid**: v2LvrGR7OFGW19
+              - **rotulo**: 21
               - **circulo**:
                 - **x**: 1877
                 - **y**: 894
                 - **raio**: 28
+              - **label**: 21
             - **[21]**:
-              - **id**: 22
-              - **label**: 22
+              - **id**: D5TiLDry5gtAyw
+              - **uid**: D5TiLDry5gtAyw
+              - **rotulo**: 22
               - **circulo**:
                 - **x**: 1592
                 - **y**: 442
                 - **raio**: 30
+              - **label**: 22
         - **[2]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_principal_setor_classicas_longas_p6_i3.webp)
           - **largura_mapa**: 714
@@ -6268,6 +7937,7 @@
           - **altura_mapa**: 1185
       - **escaladas**:
         - **[0]**:
+          - **uid**: RSE77cm8A5ibY5
           - **via_multiplas_enfiadas**:
             - **descricao**: Inicia após a grande barriga que existe neste setor, com um grampo logo no início, para proteger do pequeno abismo que ali existe. Seu trecho inicial, com cerca de 40 metros, segue por platôs de mato e lances de Isup. Após juntar com a parada final da "O Nome da Rosa", a parede ganha verticalidade e segue por mais 80 metros até a vegetação de topo. Nome inspirado no quarto no qual a Hilda Furacão "atendia" seus clientes no Hotel Maravilhoso, de acordo com o romance de Roberto Drummond.
             - **nome**: Quarto 304
@@ -6282,6 +7952,7 @@
               - Celso Ferreira Gomes
             - **data_abertura**: 2014-11-01
         - **[1]**:
+          - **uid**: 3RMqt5ApX2IY8X
           - **via_multiplas_enfiadas**:
             - **descricao**: Centésima via conquistada na região, sendo a penúltima da extrema esquerda da Parede Principal. Uma opção interessante é seguir, após o final dessa via, pela "Quarto 304", o que confere aos escaladores exatos 200 metros de escalada.
             - **nome**: O Nome da Rosa
@@ -6297,6 +7968,7 @@
               - João Paulo JP
             - **data_abertura**: 2012-02-04
         - **[2]**:
+          - **uid**: 4NlA92f95JiGYq
           - **via_multiplas_enfiadas**:
             - **descricao**: Boa via, predominantemente em aderência e agarras, que conta com proteção fixa constante.
             - **nome**: O Retorno de Jedi
@@ -6310,6 +7982,7 @@
               - Júlio César Cardoso
             - **data_abertura**: 2007-09-07
         - **[3]**:
+          - **uid**: Yk0v37xjPddpkt
           - **via_multiplas_enfiadas**:
             - **descricao**: Via mista, com agarras, aderência, fendas e barrigas interessantes. Proteções constantes nos lances mais complicados e maiores espaçamentos nos lances fáceis. Proteção dupla em todas as paradas, com padrão de 50 metros. Material recomendado: Camalots #0.75 ao #4. Rapel possível com corda única de 50m.
             - **nome**: Ih, Ferrou!
@@ -6332,6 +8005,7 @@
               - **largura_mapa**: 381
               - **altura_mapa**: 540
         - **[4]**:
+          - **uid**: QRzLPeTtQG5uod
           - **via_multiplas_enfiadas**:
             - **descricao**: Via maravilhosa iniciada em lances fortes, em sequência bastante vertical, com alguns trechos negativos. Proteção fixa generosa em toda extensão da via. Rapel possível com uma corda de 50m. Dois lances de VIIa obrigatórios.
             - **nome**: Jardim do Éden
@@ -6358,6 +8032,7 @@
               - **largura_mapa**: 765
               - **altura_mapa**: 1071
         - **[5]**:
+          - **uid**: 1MRTqHhEwibZe5
           - **via_multiplas_enfiadas**:
             - **descricao**: Via feita em três enfiadas curtas, seguindo uma exigente sequência buracos, com algumas passagens negativas. Ótima opção no setor, servindo inclusive, como variante da via "Jardim do Éden".
             - **nome**: A Dois Passos do Paraíso
@@ -6375,6 +8050,7 @@
               - Carlim Kamicad
             - **data_abertura**: 2012-04-08
         - **[6]**:
+          - **uid**: zcxxdwF36C6b2o
           - **via_multiplas_enfiadas**:
             - **descricao**: Via forte e complexa, porém muito bem protegida. Ótima opção neste setor. Rapel com corda única de 60m. Três lances de VIIa obrigatórios. Juntamente com a Jardim do Éden, forma o conjunto atual do pólo que pode ser considerado como tipo esportivas longas.
             - **nome**: Conquista do Paraíso
@@ -6397,6 +8073,7 @@
               - **largura_mapa**: 736
               - **altura_mapa**: 1068
         - **[7]**:
+          - **uid**: 6TFkeXcKqIVXD3
           - **via_multiplas_enfiadas**:
             - **descricao**: Via iniciada em 2011, que conta com 32 grampos. A primeira enfiada é técnica, com belas agarras e bastante vertical, a segunda é atlética/esportiva e a última em aderências e abaulados. Imperdível!
             - **nome**: Purgatório
@@ -6412,6 +8089,7 @@
               - Luciano Bender
             - **data_abertura**: 2013-07-24
         - **[8]**:
+          - **uid**: G1GEUfkb6aFhvG
           - **via_movel**:
             - **descricao**: Via com boas passadas em móvel, sempre em diagonal para a esquerda, cruzando a "Purgatório" e juntando na "Conquista do Paraíso". Leve peças pequenas e médias. O nome da via é em alusão ao grande arco negativo formado pela fenda por onde a linha passa.
             - **nome**: Arco de Ferros
@@ -6425,6 +8103,7 @@
               - Celso Ferreira Gomes
             - **data_abertura**: 2012-06-16
         - **[9]**:
+          - **uid**: uW5HmBfxqXNcx6
           - **via_multiplas_enfiadas**:
             - **descricao**: Via bastante vertical e considerada um raro exemplo de escalada ESPORTIVA LONGA. Trata-se da escalada mais difícil do Vale do Roncador até agora. Necessárias 18 costuras, caso se deseje fazer a primeira enfiada completa. O nome da via é uma homenagem pelo quinto aniversário do filho de Luciano Bender, na data da conquista. 31 grampos de ½. Um grande e empolgante desafio aos escaladores esportivos.
             - **nome**: Pr. Conrado Ferro
@@ -6441,6 +8120,7 @@
               - Luciano Bender
             - **data_abertura**: 2013-07-23
         - **[10]**:
+          - **uid**: AmnkWTziTCLtlx
           - **via_multiplas_enfiadas**:
             - **descricao**: Via em agarras e aderência, bem constante do início ao fim, com proteção fixa bem justa.
             - **nome**: Quem com Ferro Fere
@@ -6456,6 +8136,7 @@
               - Vivianne Sawczuk
             - **data_abertura**: 2015-09-05
         - **[11]**:
+          - **uid**: bU7X6rEsf8DV8G
           - **via_multiplas_enfiadas**:
             - **descricao**: Via muito interessante, bastante técnica, toda protegida em chapeletas (chapeletas com argola estão posicionadas de tempos em tempos para eventual rapel e parada). Sua primeira metade é mais complexa, feita basicamente em micro agarras e aderência. Sua segunda metade, mais vertical, possui lances de domínio e muitos abaulados. Termina na primeira parada da "Trem de Ferro", por onde pode-se rapelar em grampos.
             - **nome**: Tanto Bate Até Que Fura
@@ -6471,6 +8152,7 @@
               - Vivianne Sawczuk
             - **data_abertura**: 2015-09-07
         - **[12]**:
+          - **uid**: 3qiVVJ4gH98lkU
           - **via_multiplas_enfiadas**:
             - **descricao**: Localiza-se logo à esquerda da Up Ester, no ponto mais alto das bases das vias naquele local. Possui 19 grampos de 1/2". A bela sequência vertical no meio da via é o crux. Não a perca!
             - **nome**: Trem de Ferro
@@ -6487,6 +8169,7 @@
               - Tonico Magalhães
             - **data_abertura**: 2012-07-24
         - **[13]**:
+          - **uid**: 3rFARDsvpejB1k
           - **via_multiplas_enfiadas**:
             - **descricao**: Via com boa verticalidade, passando por cristaleiras e abaulados incríveis. É possível melhorar a proteção na primeira enfiada com friends pequenos, mas não são obrigatórios. Conquista feita em homenagem à grande escaladora carioca Ester Binstok, falecida precocemente aos 33 anos de idade.
             - **nome**: Up Ester
@@ -6504,6 +8187,7 @@
               - Milson Domingues
             - **data_abertura**: 2012-06-16
         - **[14]**:
+          - **uid**: OdHzDK0d85nJch
           - **via_multiplas_enfiadas**:
             - **descricao**: Bonita via, que inicia em lances mais tranquilos, ganhando verticalidade na parte superior. Lances em agarras generosas e algumas passadas mais técnicas em aderência. Termina junto com o final da "Vr. SEM". Atualmente, é a via mais acessível da parede, por sua graduação pouco elevada e proteção generosa.
             - **nome**: Até Que a Vida Nos Separe
@@ -6519,6 +8203,7 @@
               - Maria Fernanda Patrício
             - **data_abertura**: 2015-02-15
         - **[15]**:
+          - **uid**: QGE2HjkgbIBB11
           - **via_multiplas_enfiadas**:
             - **descricao**: Variante da via anterior. Inicia com uma passada em móvel, utilizando um friend médio em um buraco. Continua em lances um pouco expostos, apesar de fáceis, em proteção fixa. Após a primeira parada, existe o lance mais interessante da via, com proteção mais generosa, no qual se vence uma bonita barriga bem vertical e levemente negativa, com ótimas agarras e regletes. Pode-se continuar para a esquerda, juntando na P1 da "Até que a Vida Nos Separe", ou seguir pela direita, na P2 do "Pr. CEM".
             - **nome**: Vr. Pilhado
@@ -6534,6 +8219,7 @@
               - Maria Fernanda Patrício
             - **data_abertura**: 2015-02-15
         - **[16]**:
+          - **uid**: qwJkNaUAKwp36y
           - **via_multiplas_enfiadas**:
             - **descricao**: Via conquistada em homenagem ao Centro Excursionista Mineiro (CEM), tendo inclusive a participação de vários sócios e colaboradores. Segue uma bela linha natural que corta um trecho extenso da parede principal, variando entre aderência e agarras bem definidas, com setores de boa verticalidade, apesar do grau mediano. Une-se a isto, uma proteção bastante generosa, conferindo aos montanhistas uma escalada agradável e divertida. Paradas duplas a, no máximo, cada 50 metros. Rapel possível de qualquer ponto da via, com corda única de 50m.
             - **nome**: Pr. CEM
@@ -6559,6 +8245,7 @@
               - Giselle Melo
             - **data_abertura**: 2014-04-03
         - **[17]**:
+          - **uid**: LQO55ySramygmt
           - **via_esportiva**:
             - **descricao**: Variante da última enfiada do Paredão CEM, que passa por um grande buraco na parede, seguido de um lance negativo, onde encontra-se o crux da variante. Lance forte, mas bem protegido, que une agarras grandes com bom domínio e equilíbrio. Termina em conjunto com a parada final do Pr. CEM.
             - **nome**: Vr. SEM
@@ -6570,6 +8257,7 @@
               - Maria Fernanda Patrício
             - **data_abertura**: 2014-03-03
         - **[18]**:
+          - **uid**: TiMvo7taQljnz6
           - **via_multiplas_enfiadas**:
             - **descricao**: Uma das mais longas do Vale do Roncador, conta com belos lances verticais em agarras e aderência. Diversão garantida! Rapel pela própria via, possível com uma corda de 50m. Espetacular!!!
             - **nome**: Eu Não Sou de Ferro
@@ -6585,6 +8273,7 @@
               - Valdinei Lima
             - **data_abertura**: 2006-08-26
         - **[19]**:
+          - **uid**: AJSTo7xkzcHxVh
           - **via_multiplas_enfiadas**:
             - **descricao**: Via espetacular, de comprometimento, contando com apenas dois grampos (um na segunda parada e outro após o crux), sendo todo o resto em proteção móvel (inclusive a primeira parada). As colocações nem sempre são óbvias, obrigando o escalador a fazer boa leitura da via, "garimpando" fissuras e buracos esporádicos no caminho. O crux é protegido com peças bem pequenas, sobretudo, micro-friends e ballnutz. Termina no meio da enfiada final da "Eu Não Sou de Ferro". É possível evitar a terceira e última enfiada (crux), seguindo pela direita após a P2, entrando na via "À Francesa". Rapel possível apenas com abandono de material! Recomenda-se descer pelas vias laterais.
             - **nome**: Rio de Mão Dupla
@@ -6602,6 +8291,7 @@
               - Maria Fernanda Patrício
             - **data_abertura**: 2012-06-16
         - **[20]**:
+          - **uid**: ppRjvPjQbmhQLX
           - **via_multiplas_enfiadas**:
             - **descricao**: Via com lances bem fáceis, com proteções bem espaçadas entre si. Inicia-se num diedro fácil protegido em móvel. Termina num grande platô, com saída por caminhada.
             - **nome**: À Francesa
@@ -6614,6 +8304,7 @@
               - Gustavo "Xaxá" Carrozzino
             - **data_abertura**: 2007-10-27
         - **[21]**:
+          - **uid**: aWWidUPbYI6GzD
           - **via_esportiva**:
             - **descricao**: Pequena via que se inicia no platô final da via "À Francesa" e segue por uma sequência mais delicada, até encontrar com o final da via "Eu Não Sou de Ferro".
             - **nome**: Grand Finale
@@ -6650,236 +8341,332 @@
     | :--: |
     | *Tonico martelando a “Bruxa Albano” (Foto: Celso Ferreira Gomes)* |
 - **nome**: Setor Vias Esportivas
+- **uid**: o2smhkoUzmFDR9
 - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_vias_esportivas_p0_i1.webp)
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_vias_esportivas_p1_i1.webp)
     - **referencias**:
       - **[0]**:
+        - **alvo_uid**: Kqsho7M3ICkjk5
+        - **pontos_uids**:
+          - Ue3n3cEvedV0wo
         - **escalada**: Diedro da Rabada
         - **ids**:
-          - 1
+          - Ue3n3cEvedV0wo
       - **[1]**:
+        - **alvo_uid**: QpCApMk6YB1mCe
+        - **pontos_uids**:
+          - Fxbqzb4xUXowYq
         - **escalada**: Mestre Sala
         - **ids**:
-          - 2
+          - Fxbqzb4xUXowYq
       - **[2]**:
+        - **alvo_uid**: 54cMsqpd3jzHJC
+        - **pontos_uids**:
+          - FLaQ1Ed2DF4dv8
         - **escalada**: Porta-Bandeira
         - **ids**:
-          - 3
+          - FLaQ1Ed2DF4dv8
       - **[3]**:
+        - **alvo_uid**: tVQ6kl7g3qiWzg
+        - **pontos_uids**:
+          - N56lf61W8Hs81T
+          - VQLQfG9Zt2pFU8
+          - qTASrSxbs7K1Ss
+          - wfvZSRCNf6XlAW
         - **escalada**: Gangorra
         - **ids**:
-          - 7
-          - 8
-          - 4_f
-          - 4
+          - N56lf61W8Hs81T
+          - VQLQfG9Zt2pFU8
+          - qTASrSxbs7K1Ss
+          - wfvZSRCNf6XlAW
       - **[4]**:
+        - **alvo_uid**: NsC79ZW2RFzB05
+        - **pontos_uids**:
+          - uSSxUVzlV1mzwL
         - **escalada**: Jabá com Jerimum
         - **ids**:
-          - 5
+          - uSSxUVzlV1mzwL
       - **[5]**:
+        - **alvo_uid**: 5bdPEB7wT2sS6w
+        - **pontos_uids**:
+          - S2wae0uhggE9yD
         - **escalada**: Bruxa Albano
         - **ids**:
-          - 6
+          - S2wae0uhggE9yD
       - **[6]**:
+        - **alvo_uid**: UE6IfxO3DuOBKB
+        - **pontos_uids**:
+          - N56lf61W8Hs81T
+          - mDSxgMqTgOZUfX
+          - SiISR6xtmhqcw8
         - **escalada**: Vomitão em Ferros
         - **ids**:
-          - 7
-          - 7_m
-          - 7_f
+          - N56lf61W8Hs81T
+          - mDSxgMqTgOZUfX
+          - SiISR6xtmhqcw8
       - **[7]**:
+        - **alvo_uid**: 6Gvmn6F22tOUKx
+        - **pontos_uids**:
+          - SiISR6xtmhqcw8
+          - N56lf61W8Hs81T
+          - VQLQfG9Zt2pFU8
         - **escalada**: Iron Slow
         - **ids**:
-          - 7_f
-          - 7
-          - 8
+          - SiISR6xtmhqcw8
+          - N56lf61W8Hs81T
+          - VQLQfG9Zt2pFU8
     - **largura_mapa**: 766
     - **altura_mapa**: 567
     - **pontos_de_interesse**:
       - **[0]**:
-        - **id**: 1
-        - **label**: 1
+        - **id**: Ue3n3cEvedV0wo
+        - **uid**: Ue3n3cEvedV0wo
+        - **rotulo**: 1
         - **circulo**:
           - **x**: 210
           - **y**: 531
           - **raio**: 14
+        - **label**: 1
       - **[1]**:
-        - **id**: 2
-        - **label**: 2
+        - **id**: Fxbqzb4xUXowYq
+        - **uid**: Fxbqzb4xUXowYq
+        - **rotulo**: 2
         - **circulo**:
           - **x**: 364
           - **y**: 416
           - **raio**: 14
+        - **label**: 2
       - **[2]**:
-        - **id**: 3
-        - **label**: 3
+        - **id**: FLaQ1Ed2DF4dv8
+        - **uid**: FLaQ1Ed2DF4dv8
+        - **rotulo**: 3
         - **circulo**:
           - **x**: 417
           - **y**: 397
           - **raio**: 14
+        - **label**: 3
       - **[3]**:
-        - **id**: 4
-        - **label**: 4
+        - **id**: wfvZSRCNf6XlAW
+        - **uid**: wfvZSRCNf6XlAW
+        - **rotulo**: 4
         - **circulo**:
           - **x**: 483
           - **y**: 245
           - **raio**: 14
+        - **label**: 4
       - **[4]**:
-        - **id**: 5
-        - **label**: 5
+        - **id**: uSSxUVzlV1mzwL
+        - **uid**: uSSxUVzlV1mzwL
+        - **rotulo**: 5
         - **circulo**:
           - **x**: 512
           - **y**: 537
           - **raio**: 14
+        - **label**: 5
       - **[5]**:
-        - **id**: 6
-        - **label**: 6
+        - **id**: S2wae0uhggE9yD
+        - **uid**: S2wae0uhggE9yD
+        - **rotulo**: 6
         - **circulo**:
           - **x**: 560
           - **y**: 533
           - **raio**: 14
+        - **label**: 6
       - **[6]**:
-        - **id**: 7
-        - **label**: 7
+        - **id**: N56lf61W8Hs81T
+        - **uid**: N56lf61W8Hs81T
+        - **rotulo**: 7
         - **circulo**:
           - **x**: 601
           - **y**: 530
           - **raio**: 14
+        - **label**: 7
       - **[7]**:
-        - **id**: 8
-        - **label**: 8
+        - **id**: VQLQfG9Zt2pFU8
+        - **uid**: VQLQfG9Zt2pFU8
+        - **rotulo**: 8
         - **circulo**:
           - **x**: 570
           - **y**: 323
           - **raio**: 14
+        - **label**: 8
       - **[8]**:
-        - **id**: 4_f
-        - **label**: 
+        - **id**: qTASrSxbs7K1Ss
+        - **uid**: qTASrSxbs7K1Ss
+        - **rotulo**: 
         - **circulo**:
           - **x**: 225
           - **y**: 127
           - **raio**: 13
         - **cor**: 
-      - **[9]**:
-        - **id**: 7_m
         - **label**: 
+      - **[9]**:
+        - **id**: mDSxgMqTgOZUfX
+        - **uid**: mDSxgMqTgOZUfX
+        - **rotulo**: 
         - **circulo**:
           - **x**: 607
           - **y**: 266
           - **raio**: 14
         - **cor**: 
-      - **[10]**:
-        - **id**: 7_f
         - **label**: 
+      - **[10]**:
+        - **id**: SiISR6xtmhqcw8
+        - **uid**: SiISR6xtmhqcw8
+        - **rotulo**: 
         - **circulo**:
           - **x**: 557
           - **y**: 116
           - **raio**: 18
         - **cor**: 
+        - **label**: 
   - **[1]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_vias_esportivas_p3_i1.webp)
     - **referencias**:
       - **[0]**:
+        - **alvo_uid**: g4ahBxASDvdiLL
+        - **pontos_uids**:
+          - v6gyDqoxfI7Jet
         - **escalada**: Bicho de Pé
         - **ids**:
-          - 9
+          - v6gyDqoxfI7Jet
       - **[1]**:
+        - **alvo_uid**: IjPpTBTWvPJPcC
+        - **pontos_uids**:
+          - IwPdhsHD54xYfX
+          - ckvNw8iDmSz5Uq
         - **escalada**: Os Três Mosqueteiros
         - **ids**:
-          - 10
-          - 10_f
+          - IwPdhsHD54xYfX
+          - ckvNw8iDmSz5Uq
       - **[2]**:
+        - **alvo_uid**: qTj06i5OsNgXh3
+        - **pontos_uids**:
+          - rL80VuGlbiql3W
         - **escalada**: Nó de Porco
         - **ids**:
-          - 11
+          - rL80VuGlbiql3W
       - **[3]**:
+        - **alvo_uid**: 2a924zx095JbMS
+        - **pontos_uids**:
+          - Qg3LqGPNP0qD32
+          - ckvNw8iDmSz5Uq
         - **escalada**: Ícaro
         - **ids**:
-          - 12
-          - 10_f
+          - Qg3LqGPNP0qD32
+          - ckvNw8iDmSz5Uq
       - **[4]**:
+        - **alvo_uid**: RqBmZHjFGc6H1b
+        - **pontos_uids**:
+          - K25l8DqL6eeKds
+          - XKLCZYN1FnC8nl
+          - 9ap9IkwJQP7r0m
         - **escalada**: Champinha
         - **ids**:
-          - 14
-          - 13
-          - 13_f
+          - K25l8DqL6eeKds
+          - XKLCZYN1FnC8nl
+          - 9ap9IkwJQP7r0m
       - **[5]**:
+        - **alvo_uid**: BbSxfAEA85prkv
+        - **pontos_uids**:
+          - K25l8DqL6eeKds
+          - 956NBIVhVnGE2A
         - **escalada**: Falcatrua
         - **ids**:
-          - 14
-          - 14_f
+          - K25l8DqL6eeKds
+          - 956NBIVhVnGE2A
     - **largura_mapa**: 569
     - **altura_mapa**: 364
     - **pontos_de_interesse**:
       - **[0]**:
-        - **id**: 9
-        - **label**: 9
+        - **id**: v6gyDqoxfI7Jet
+        - **uid**: v6gyDqoxfI7Jet
+        - **rotulo**: 9
         - **circulo**:
           - **x**: 77
           - **y**: 332
           - **raio**: 14
+        - **label**: 9
       - **[1]**:
-        - **id**: 10
-        - **label**: 10
+        - **id**: IwPdhsHD54xYfX
+        - **uid**: IwPdhsHD54xYfX
+        - **rotulo**: 10
         - **circulo**:
           - **x**: 140
           - **y**: 348
           - **raio**: 17
+        - **label**: 10
       - **[2]**:
-        - **id**: 11
-        - **label**: 11
+        - **id**: rL80VuGlbiql3W
+        - **uid**: rL80VuGlbiql3W
+        - **rotulo**: 11
         - **circulo**:
           - **x**: 215
           - **y**: 350
           - **raio**: 17
+        - **label**: 11
       - **[3]**:
-        - **id**: 12
-        - **label**: 12
+        - **id**: Qg3LqGPNP0qD32
+        - **uid**: Qg3LqGPNP0qD32
+        - **rotulo**: 12
         - **circulo**:
           - **x**: 350
           - **y**: 351
           - **raio**: 17
+        - **label**: 12
       - **[4]**:
-        - **id**: 13
-        - **label**: 13
+        - **id**: XKLCZYN1FnC8nl
+        - **uid**: XKLCZYN1FnC8nl
+        - **rotulo**: 13
         - **circulo**:
           - **x**: 438
           - **y**: 265
           - **raio**: 17
+        - **label**: 13
       - **[5]**:
-        - **id**: 14
-        - **label**: 14
+        - **id**: K25l8DqL6eeKds
+        - **uid**: K25l8DqL6eeKds
+        - **rotulo**: 14
         - **circulo**:
           - **x**: 504
           - **y**: 336
           - **raio**: 17
+        - **label**: 14
       - **[6]**:
-        - **id**: 13_f
-        - **label**: 
+        - **id**: 9ap9IkwJQP7r0m
+        - **uid**: 9ap9IkwJQP7r0m
+        - **rotulo**: 
         - **circulo**:
           - **x**: 376
           - **y**: 123
           - **raio**: 12
         - **cor**: 
-      - **[7]**:
-        - **id**: 10_f
         - **label**: 
+      - **[7]**:
+        - **id**: ckvNw8iDmSz5Uq
+        - **uid**: ckvNw8iDmSz5Uq
+        - **rotulo**: 
         - **circulo**:
           - **x**: 238
           - **y**: 47
           - **raio**: 12
         - **cor**: 
-      - **[8]**:
-        - **id**: 14_f
         - **label**: 
+      - **[8]**:
+        - **id**: 956NBIVhVnGE2A
+        - **uid**: 956NBIVhVnGE2A
+        - **rotulo**: 
         - **circulo**:
           - **x**: 453
           - **y**: 148
           - **raio**: 12
         - **cor**: 
+        - **label**: 
 - **escaladas**:
   - **[0]**:
+    - **uid**: Kqsho7M3ICkjk5
     - **via_esportiva**:
       - **descricao**: Ótima via na extrema esquerda da falésia, toda protegida por grampos.
       - **nome**: Diedro da Rabada
@@ -6893,6 +8680,7 @@
       - **quantidade_protecoes_intermediarias**: 4
       - **quantidade_protecoes_parada**: 2
   - **[1]**:
+    - **uid**: QpCApMk6YB1mCe
     - **via_esportiva**:
       - **descricao**: Via positiva exigente em regletes.
       - **nome**: Mestre Sala
@@ -6905,6 +8693,7 @@
       - **quantidade_protecoes_intermediarias**: 5
       - **quantidade_protecoes_parada**: 2
   - **[2]**:
+    - **uid**: 54cMsqpd3jzHJC
     - **via_esportiva**:
       - **descricao**: Bem parecida com via anterior. Termina na mesma parada dupla.
       - **nome**: Porta-Bandeira
@@ -6917,6 +8706,7 @@
       - **quantidade_protecoes_intermediarias**: 4
       - **quantidade_protecoes_parada**: 2
   - **[3]**:
+    - **uid**: tVQ6kl7g3qiWzg
     - **via_esportiva**:
       - **descricao**: Via bastante difícil que acompanha o teto pela sua borda. Ela se inicia no meio da Via Iron Slow. Possui um grampo ainda não evitado.
       - **nome**: Gangorra
@@ -6930,6 +8720,7 @@
       - **quantidade_protecoes_intermediarias**: 7
       - **quantidade_protecoes_parada**: 2
   - **[4]**:
+    - **uid**: NsC79ZW2RFzB05
     - **via_esportiva**:
       - **descricao**: Via atlética cujo lance inicial é o mais difícil.
       - **nome**: Jabá com Jerimum
@@ -6941,6 +8732,7 @@
         - Nádia Moreira
       - **data_abertura**: 2007-08-14
   - **[5]**:
+    - **uid**: 5bdPEB7wT2sS6w
     - **via_esportiva**:
       - **descricao**: Via atlética e levemente negativa. “Homenageia” a mentora intelectual do fechamento da Lapinha em 2002.
       - **nome**: Bruxa Albano
@@ -6954,6 +8746,7 @@
         - Celso Ferreira Gomes
       - **data_abertura**: 2010-10-02
   - **[6]**:
+    - **uid**: UE6IfxO3DuOBKB
     - **via_esportiva**:
       - **descricao**: Via emblemática do setor das Esportivas e bem protegida com grampos.
       - **nome**: Vomitão em Ferros
@@ -6965,6 +8758,7 @@
         - Fabiano Fernandes
       - **data_abertura**: 2007-03-17
   - **[7]**:
+    - **uid**: 6Gvmn6F22tOUKx
     - **via_esportiva**:
       - **descricao**: Variante mais fácil da Vomitão em Ferros.
       - **nome**: Iron Slow
@@ -6975,6 +8769,7 @@
         - Fabiano Fernandes
       - **data_abertura**: 2007-03-17
   - **[8]**:
+    - **uid**: g4ahBxASDvdiLL
     - **via_esportiva**:
       - **descricao**: Via curta e bem grampeada.
       - **nome**: Bicho de Pé
@@ -6985,6 +8780,7 @@
         - Valdinei Lima
       - **data_abertura**: 2008-02-05
   - **[9]**:
+    - **uid**: IjPpTBTWvPJPcC
     - **via_esportiva**:
       - **descricao**: Bem parecida com via anterior.
       - **nome**: Os Três Mosqueteiros
@@ -6995,6 +8791,7 @@
         - Valdinei Lima
       - **data_abertura**: 2008-02-05
   - **[10]**:
+    - **uid**: qTj06i5OsNgXh3
     - **via_esportiva**:
       - **descricao**: A via é muito bonita e segue uma aresta com agarras grandes.
       - **nome**: Nó de Porco
@@ -7006,6 +8803,7 @@
         - Tonico Magalhães
       - **data_abertura**: 2008-02-04
   - **[11]**:
+    - **uid**: 2a924zx095JbMS
     - **via_esportiva**:
       - **descricao**: O segundo lance é o crux e possui uma passada em uma agarra alta.
       - **nome**: Ícaro
@@ -7017,6 +8815,7 @@
         - Valdinei Lima
       - **data_abertura**: 2008-02-05
   - **[12]**:
+    - **uid**: RqBmZHjFGc6H1b
     - **via_esportiva**:
       - **descricao**: Ótima via em agarras grandes, que começa no primeiro grampo da via “Falcatrua”.
       - **nome**: Champinha
@@ -7028,6 +8827,7 @@
         - Valdinei Lima
       - **data_abertura**: 2008-02-06
   - **[13]**:
+    - **uid**: BbSxfAEA85prkv
     - **via_esportiva**:
       - **descricao**: Via atlética cujo crux é o último lance.
       - **nome**: Falcatrua
@@ -7051,6 +8851,7 @@
     
     As vias são de tipo escalada clássica, apesar de curtas, combinando agarras e aderências, sendo a volta à base feita por caminhada. A aptidão ao solo deve-se ao fato dos lances mais difíceis estarem nas primeiras passadas, ainda em pequena altura. Existe um grampo para proteção dos lances iniciais, caso o escalador queira fazê-los com corda.
 - **nome**: Parede dos Solos
+- **uid**: yN4hgcwkUvCqJC
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_parede_dos_solos_p0_i1.webp)
@@ -7058,52 +8859,73 @@
     - **altura_mapa**: 419
     - **pontos_de_interesse**:
       - **[0]**:
-        - **id**: 01
-        - **label**: 1
+        - **id**: MrlVO733Q2bkHA
+        - **uid**: MrlVO733Q2bkHA
+        - **rotulo**: 1
         - **circulo**:
           - **x**: 43
           - **y**: 297
           - **raio**: 21
+        - **label**: 1
       - **[1]**:
-        - **id**: 02
-        - **label**: 2
+        - **id**: sCAczNVDJ4RgEz
+        - **uid**: sCAczNVDJ4RgEz
+        - **rotulo**: 2
         - **circulo**:
           - **x**: 140
           - **y**: 355
           - **raio**: 21
+        - **label**: 2
       - **[2]**:
-        - **id**: 03
-        - **label**: 3
+        - **id**: CVH3TQQ56xwXgc
+        - **uid**: CVH3TQQ56xwXgc
+        - **rotulo**: 3
         - **circulo**:
           - **x**: 283
           - **y**: 391
           - **raio**: 21
+        - **label**: 3
       - **[3]**:
-        - **id**: 04
-        - **label**: 4
+        - **id**: H35HMSohwCJ6Og
+        - **uid**: H35HMSohwCJ6Og
+        - **rotulo**: 4
         - **circulo**:
           - **x**: 516
           - **y**: 386
           - **raio**: 21
+        - **label**: 4
     - **referencias**:
       - **[0]**:
-        - **ids**:
-          - 01
+        - **alvo_uid**: s1HTePD3RH00No
+        - **pontos_uids**:
+          - MrlVO733Q2bkHA
         - **escalada**: Caipora
+        - **ids**:
+          - MrlVO733Q2bkHA
       - **[1]**:
+        - **alvo_uid**: S1yD3xTLEKuM1U
+        - **pontos_uids**:
+          - sCAczNVDJ4RgEz
         - **escalada**: Iaci
         - **ids**:
-          - 02
+          - sCAczNVDJ4RgEz
       - **[2]**:
+        - **alvo_uid**: 1xoZHUAY4ESzXr
+        - **pontos_uids**:
+          - CVH3TQQ56xwXgc
         - **escalada**: Boitatá
         - **ids**:
-          - 03
+          - CVH3TQQ56xwXgc
       - **[3]**:
+        - **alvo_uid**: mybRNsRauSk9jr
+        - **pontos_uids**:
+          - H35HMSohwCJ6Og
         - **escalada**: Maracujá
         - **ids**:
-          - 04
+          - H35HMSohwCJ6Og
 - **escaladas**:
   - **[0]**:
+    - **uid**: s1HTePD3RH00No
     - **via_esportiva**:
       - **nome**: Caipora
       - **dificuldade**: BR_2
@@ -7114,6 +8936,7 @@
         - Celso Ferreira Gomes
       - **data_abertura**: 2011-12-10
   - **[1]**:
+    - **uid**: S1yD3xTLEKuM1U
     - **via_esportiva**:
       - **nome**: Iaci
       - **dificuldade**: BR_2SUP
@@ -7124,6 +8947,7 @@
         - Celso Ferreira Gomes
       - **data_abertura**: 2010-10-23
   - **[2]**:
+    - **uid**: 1xoZHUAY4ESzXr
     - **via_esportiva**:
       - **nome**: Boitatá
       - **dificuldade**: BR_3SUP
@@ -7134,6 +8958,7 @@
         - Celso Ferreira Gomes
       - **data_abertura**: 2010-10-24
   - **[3]**:
+    - **uid**: mybRNsRauSk9jr
     - **via_esportiva**:
       - **nome**: Maracujá
       - **dificuldade**: BR_3
@@ -7163,12 +8988,14 @@
     
     A face das Aderências apresenta cinco vias com extensão de 10 a 12 metros e graduação bastante variável, de IIIsup a VIIc.
 - **nome**: Pedra do Neri
+- **uid**: gs4DenqBroBhUl
 - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/grupo_pedra_do_neri_p0_i1.webp)
 - **setores**:
   - **[0]**:
     - **conteudo**:
       - **descricao**: <small>Capa: Juliano Magalhães escalando a Face das Esportivas, da Pedra do Neri (Foto: Celso Ferreira Gomes)</small>
       - **nome**: Face das Esportivas
+      - **uid**: i815L0WkvZUAfs
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_pedra_do_neri_setor_esportivas_p0_i1.webp)
@@ -7176,74 +9003,105 @@
           - **altura_mapa**: 336
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: ZDRkKzibPbYM7u
+              - **pontos_uids**:
+                - YBeFEwKYzfk4Ye
               - **escalada**: Fissura Lapada na Rachada
               - **ids**:
-                - 1
+                - YBeFEwKYzfk4Ye
             - **[1]**:
+              - **alvo_uid**: wS3X9tphp19KxX
+              - **pontos_uids**:
+                - b5E0CwAbWLM2qX
               - **escalada**: Fissura Sopa de Pedra
               - **ids**:
-                - 2
+                - b5E0CwAbWLM2qX
             - **[2]**:
+              - **alvo_uid**: RNSq6XYNdaMDiv
+              - **pontos_uids**:
+                - VDojPlTsw21e7x
               - **escalada**: Até o Osso
               - **ids**:
-                - 3
+                - VDojPlTsw21e7x
             - **[3]**:
+              - **alvo_uid**: oW6naaQvbbjQhH
+              - **pontos_uids**:
+                - FIW8X6HdtiCqOL
               - **escalada**: Diedro Caboclo D'Água
               - **ids**:
-                - 4
+                - FIW8X6HdtiCqOL
             - **[4]**:
+              - **alvo_uid**: jt5LdLeOzZgwem
+              - **pontos_uids**:
+                - 4Jz2WJF2mfngOb
               - **escalada**: Balangandã
               - **ids**:
-                - 5
+                - 4Jz2WJF2mfngOb
             - **[5]**:
+              - **alvo_uid**: 0S56NGBaCMVH7P
+              - **pontos_uids**:
+                - JeCvLOcpGTq9LF
               - **escalada**: Pé de Chinelo
               - **ids**:
-                - 6
+                - JeCvLOcpGTq9LF
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 1
-              - **label**: 1
+              - **id**: YBeFEwKYzfk4Ye
+              - **uid**: YBeFEwKYzfk4Ye
+              - **rotulo**: 1
               - **circulo**:
                 - **x**: 149
                 - **y**: 316
                 - **raio**: 11
+              - **label**: 1
             - **[1]**:
-              - **id**: 2
-              - **label**: 2
+              - **id**: b5E0CwAbWLM2qX
+              - **uid**: b5E0CwAbWLM2qX
+              - **rotulo**: 2
               - **circulo**:
                 - **x**: 221
                 - **y**: 308
                 - **raio**: 11
+              - **label**: 2
             - **[2]**:
-              - **id**: 3
-              - **label**: 3
+              - **id**: VDojPlTsw21e7x
+              - **uid**: VDojPlTsw21e7x
+              - **rotulo**: 3
               - **circulo**:
                 - **x**: 300
                 - **y**: 299
                 - **raio**: 11
+              - **label**: 3
             - **[3]**:
-              - **id**: 4
-              - **label**: 4
+              - **id**: FIW8X6HdtiCqOL
+              - **uid**: FIW8X6HdtiCqOL
+              - **rotulo**: 4
               - **circulo**:
                 - **x**: 429
                 - **y**: 297
                 - **raio**: 11
+              - **label**: 4
             - **[4]**:
-              - **id**: 5
-              - **label**: 5
+              - **id**: 4Jz2WJF2mfngOb
+              - **uid**: 4Jz2WJF2mfngOb
+              - **rotulo**: 5
               - **circulo**:
                 - **x**: 503
                 - **y**: 298
                 - **raio**: 11
+              - **label**: 5
             - **[5]**:
-              - **id**: 6
-              - **label**: 6
+              - **id**: JeCvLOcpGTq9LF
+              - **uid**: JeCvLOcpGTq9LF
+              - **rotulo**: 6
               - **circulo**:
                 - **x**: 538
                 - **y**: 301
                 - **raio**: 11
+              - **label**: 6
       - **escaladas**:
         - **[0]**:
+          - **uid**: ZDRkKzibPbYM7u
           - **via_movel**:
             - **descricao**: Via totalmente protegida em materiais móveis, com grampo no topo para rapel / top-rope.
             - **nome**: Fissura Lapada na Rachada
@@ -7255,6 +9113,7 @@
               - Tonico Magalhães
             - **data_abertura**: 2010-12-25
         - **[1]**:
+          - **uid**: wS3X9tphp19KxX
           - **via_movel**:
             - **descricao**: Via totalmente protegida em materiais móveis, com grampo no topo para rapel / top-rope.
             - **nome**: Fissura Sopa de Pedra
@@ -7266,6 +9125,7 @@
               - Tonico Magalhães
             - **data_abertura**: 2010-12-25
         - **[2]**:
+          - **uid**: RNSq6XYNdaMDiv
           - **via_esportiva**:
             - **descricao**: Via bem protegida em grampos, com grampo no topo para rapel / top-rope. Inicia-se pela árvore da base.
             - **nome**: Até o Osso
@@ -7278,6 +9138,7 @@
               - Tonico Magalhães
             - **data_abertura**: 2010-12-25
         - **[3]**:
+          - **uid**: oW6naaQvbbjQhH
           - **via_movel**:
             - **descricao**: Via mista, iniciada em móvel no diedro, progredindo para os lances mais fortes, protegidos em grampos.
             - **nome**: Diedro Caboclo D'Água
@@ -7290,6 +9151,7 @@
               - Tonico Magalhães
             - **data_abertura**: 2010-12-25
         - **[4]**:
+          - **uid**: jt5LdLeOzZgwem
           - **via_esportiva**:
             - **descricao**: Via totalmente protegida em grampos, com grampo no topo, para rapel / top-rope.
             - **nome**: Balangandã
@@ -7302,6 +9164,7 @@
               - Tonico Magalhães
             - **data_abertura**: 2010-12-25
         - **[5]**:
+          - **uid**: 0S56NGBaCMVH7P
           - **via_esportiva**:
             - **descricao**: Via totalmente protegida em grampos, com grampo no topo, para rapel / top-rope.
             - **nome**: Pé de Chinelo
@@ -7326,6 +9189,7 @@
           | :--: |
           | *O entorno da Pedra do Neri. É possível vê-la (bem diminuta), no canto superior esquerdo da foto, junto à vegetação. (Foto: Pedro Bugim)* |
       - **nome**: Face das Aderências
+      - **uid**: K6fuEpkR348Nuc
       - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/grupo_pedra_do_neri_setor_aderencias_p1_i2.webp)
       - **mapas**:
         - **[0]**:
@@ -7334,63 +9198,89 @@
           - **altura_mapa**: 513
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: BA2pzLiPDG1QNI
+              - **pontos_uids**:
+                - QLLu6bQJGXj7y8
               - **escalada**: Queima de Arquivo
               - **ids**:
-                - 1
+                - QLLu6bQJGXj7y8
             - **[1]**:
+              - **alvo_uid**: zoYdCgVWsyJhLi
+              - **pontos_uids**:
+                - 7CAiJdPTzYy36Y
               - **escalada**: Aquidaban
               - **ids**:
-                - 2
+                - 7CAiJdPTzYy36Y
             - **[2]**:
+              - **alvo_uid**: nIFVLh6BUFAiTc
+              - **pontos_uids**:
+                - nyui5vOsFJ9ZU8
               - **escalada**: Tempestade
               - **ids**:
-                - 3
+                - nyui5vOsFJ9ZU8
             - **[3]**:
+              - **alvo_uid**: Nf1cmFitUUniyx
+              - **pontos_uids**:
+                - Q7EypUgJMegE0x
               - **escalada**: Chuva de Verão
               - **ids**:
-                - 4
+                - Q7EypUgJMegE0x
             - **[4]**:
+              - **alvo_uid**: Ck9Bi00x1ihKlV
+              - **pontos_uids**:
+                - VGve0qnBCTlJtW
               - **escalada**: Brumas de Inverno
               - **ids**:
-                - 5
+                - VGve0qnBCTlJtW
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 1
-              - **label**: 1
+              - **id**: QLLu6bQJGXj7y8
+              - **uid**: QLLu6bQJGXj7y8
+              - **rotulo**: 1
               - **circulo**:
                 - **x**: 234
                 - **y**: 439
                 - **raio**: 21
+              - **label**: 1
             - **[1]**:
-              - **id**: 2
-              - **label**: 2
+              - **id**: 7CAiJdPTzYy36Y
+              - **uid**: 7CAiJdPTzYy36Y
+              - **rotulo**: 2
               - **circulo**:
                 - **x**: 375
                 - **y**: 392
                 - **raio**: 21
+              - **label**: 2
             - **[2]**:
-              - **id**: 3
-              - **label**: 3
+              - **id**: nyui5vOsFJ9ZU8
+              - **uid**: nyui5vOsFJ9ZU8
+              - **rotulo**: 3
               - **circulo**:
                 - **x**: 465
                 - **y**: 372
                 - **raio**: 21
+              - **label**: 3
             - **[3]**:
-              - **id**: 4
-              - **label**: 4
+              - **id**: Q7EypUgJMegE0x
+              - **uid**: Q7EypUgJMegE0x
+              - **rotulo**: 4
               - **circulo**:
                 - **x**: 540
                 - **y**: 344
                 - **raio**: 21
+              - **label**: 4
             - **[4]**:
-              - **id**: 5
-              - **label**: 5
+              - **id**: VGve0qnBCTlJtW
+              - **uid**: VGve0qnBCTlJtW
+              - **rotulo**: 5
               - **circulo**:
                 - **x**: 625
                 - **y**: 336
                 - **raio**: 21
+              - **label**: 5
       - **escaladas**:
         - **[0]**:
+          - **uid**: BA2pzLiPDG1QNI
           - **via_esportiva**:
             - **descricao**: Via esportiva utilizando-se a técnica de aderência e agarras.
             - **nome**: Queima de Arquivo
@@ -7404,6 +9294,7 @@
               - Celso Ferreira Gomes
             - **data_abertura**: 2011-05-14
         - **[1]**:
+          - **uid**: zoYdCgVWsyJhLi
           - **via_esportiva**:
             - **descricao**: Via em aderência fácil, muito boa para treinar esta técnica.
             - **nome**: Aquidaban
@@ -7416,6 +9307,7 @@
               - Celso Ferreira Gomes
             - **data_abertura**: 2011-03-08
         - **[2]**:
+          - **uid**: nIFVLh6BUFAiTc
           - **via_esportiva**:
             - **descricao**: Via em aderência muito difícil.
             - **nome**: Tempestade
@@ -7429,6 +9321,7 @@
               - Celso Ferreira Gomes
             - **data_abertura**: 2011-05-14
         - **[3]**:
+          - **uid**: Nf1cmFitUUniyx
           - **via_esportiva**:
             - **descricao**: Via em aderência moderada.
             - **nome**: Chuva de Verão
@@ -7441,6 +9334,7 @@
               - Celso Ferreira Gomes
             - **data_abertura**: 2011-03-08
         - **[4]**:
+          - **uid**: Ck9Bi00x1ihKlV
           - **via_esportiva**:
             - **descricao**: Via em agarras bem protegida.
             - **nome**: Brumas de Inverno
@@ -7464,26 +9358,33 @@
 
 - **descricao**: Também conhecida como fazenda Baião, esta área é propriedade da CENIBRA (Celulose Nipo-Brasileira) e só possui uma via de escalada.
 - **nome**: Parede da CENIBRA
+- **uid**: FrjVJC9SeIMHep
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_parede_da_cenibra_p0_i1.webp)
     - **referencias**:
       - **[0]**:
+        - **alvo_uid**: jATDjdt7du2mzu
+        - **pontos_uids**:
+          - QHjba1ls0enV7t
         - **escalada**: Pr. Pellé 70
         - **ids**:
-          - 1
+          - QHjba1ls0enV7t
     - **largura_mapa**: 961
     - **altura_mapa**: 721
     - **pontos_de_interesse**:
       - **[0]**:
-        - **id**: 1
-        - **label**: 1
+        - **id**: QHjba1ls0enV7t
+        - **uid**: QHjba1ls0enV7t
+        - **rotulo**: 1
         - **circulo**:
           - **x**: 601
           - **y**: 591
           - **raio**: 17
+        - **label**: 1
 - **escaladas**:
   - **[0]**:
+    - **uid**: jATDjdt7du2mzu
     - **via_movel**:
       - **descricao**: Via que se inicia em um diedro em móvel e segue até o final em aderências protegidas por grampos. Situa-se em área isolada em relação aos outros conjuntos de vias. A conquista homenageou o veterano escalador Giuseppe Pellegrini, por ocasião de seu aniversário de 70 anos.
       - **nome**: Pr. Pellé 70
@@ -7506,26 +9407,33 @@
     
     O vale Água Limpa chamou atenção por possuir paredes gigantescas com comprimentos que podem atingir mais de 600 metros. A via Dama de Ferros é a primeira do local e possui mais de 400 metros. Um projeto, que visa aproveitar a máxima extensão da parede, já foi iniciado em meio a uma grande extensão de paredes intocadas.
 - **nome**: Parede da Água Limpa
+- **uid**: JuGO79h5ulqaY7
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_parede_da_agua_limpa_p1_i0.webp)
     - **referencias**:
       - **[0]**:
+        - **alvo_uid**: ztvAnYjUeagKnP
+        - **pontos_uids**:
+          - CGS0FrAZT9abWx
         - **escalada**: Dama de Ferros
         - **ids**:
-          - 1
+          - CGS0FrAZT9abWx
     - **largura_mapa**: 2008
     - **altura_mapa**: 1244
     - **pontos_de_interesse**:
       - **[0]**:
-        - **id**: 1
-        - **label**: 1
+        - **id**: CGS0FrAZT9abWx
+        - **uid**: CGS0FrAZT9abWx
+        - **rotulo**: 1
         - **circulo**:
           - **x**: 802
           - **y**: 1020
           - **raio**: 34
+        - **label**: 1
 - **escaladas**:
   - **[0]**:
+    - **uid**: ztvAnYjUeagKnP
     - **via_multiplas_enfiadas**:
       - **descricao**:
           Atualmente, a única via da parede, e maior via da região de Ferros, contando com 405 metros de parede. Foi conquistada em três investidas com participantes distintos, demorando cerca de quatro anos para ser finalizada:
@@ -7570,8 +9478,10 @@
 
 - **descricao**: 
 - **nome**: Outras Vias
+- **uid**: LlsdQVAyiFkVH5
 - **escaladas**:
   - **[0]**:
+    - **uid**: wHOXhM24r8n1L4
     - **via_multiplas_enfiadas**:
       - **descricao**: Via localizada na última parede do Vale do Roncador, após a parede das Aderências - Extrema Direita. Possui apenas dois grampos de ½ polegada.
       - **nome**: Amazonita
@@ -7586,6 +9496,7 @@
         - Vicente Alvarenga
       - **data_abertura**: 2013-07-19
   - **[1]**:
+    - **uid**: ZzR9dPUTllMIoU
     - **via_movel**:
       - **descricao**: Próximo ao encontro dos Rios Tanque e Santo Antonio. Fica localizada à direita de uma pequena cachoeira que despenca da parede. Inicia-se em um lindo diedro em móvel, onde se encontra o crux, protegido por friends pequenos e médios. Segue em grampos pela extensão da fissura, ali mal definida. VI e 50 metros, 7 grampos de 1/2".
       - **nome**: Fissura Cachoeira Quente
@@ -7604,28 +9515,38 @@
     - **altura_mapa**: 1754
     - **referencias**:
       - **[0]**:
+        - **alvo_uid**: wHOXhM24r8n1L4
+        - **pontos_uids**:
+          - xuBhGx6vMWSp9V
         - **escalada**: Amazonita
         - **ids**:
-          - 1
+          - xuBhGx6vMWSp9V
       - **[1]**:
+        - **alvo_uid**: ZzR9dPUTllMIoU
+        - **pontos_uids**:
+          - TtQo1rrqeA8FZ7
         - **escalada**: Fissura Cachoeira Quente
         - **ids**:
-          - 2
+          - TtQo1rrqeA8FZ7
     - **pontos_de_interesse**:
       - **[0]**:
-        - **id**: 1
-        - **label**: 1
+        - **id**: xuBhGx6vMWSp9V
+        - **uid**: xuBhGx6vMWSp9V
+        - **rotulo**: 1
         - **circulo**:
           - **x**: 83
           - **y**: 330
           - **raio**: 17
+        - **label**: 1
       - **[1]**:
-        - **id**: 2
-        - **label**: 2
+        - **id**: TtQo1rrqeA8FZ7
+        - **uid**: TtQo1rrqeA8FZ7
+        - **rotulo**: 2
         - **circulo**:
           - **x**: 82
           - **y**: 543
           - **raio**: 17
+        - **label**: 2
 - **precomputados**:
   - **total_escaladas**: 2
   - **total_multiplas_enfiadas**: 1

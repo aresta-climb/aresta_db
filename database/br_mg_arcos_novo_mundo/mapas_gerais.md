@@ -9,45 +9,45 @@ mapas:
   largura_mapa: 1060
   altura_mapa: 617
   pontos_de_interesse:
-  - id: Setor_Barceloneta
-    label: Setor Barceloneta
+  - uid: KEV9yerg2CS8DP
+    rotulo: Setor Barceloneta
     retangulo:
       x: 432
       y: 438
       comprimento: 163
       largura: 135
-  - id: Setor_Corredor_Polones
-    label: Setor Corredor Polonês
+  - uid: sJRL035qkcuhAA
+    rotulo: Setor Corredor Polonês
     retangulo:
       x: 582
       y: 536
       comprimento: 100
       largura: 144
-  - id: Setor_Aristoteles
-    label: Setor Aristóteles
+  - uid: 39f8sUjWIQIn45
+    rotulo: Setor Aristóteles
     retangulo:
       x: 774
       y: 533
       comprimento: 219
       largura: 138
-  - id: Setor_Cemiterio_Ossos
-    label: Setor Cemitério dos Ossos
+  - uid: htvodolOpoUk0T
+    rotulo: Setor Cemitério dos Ossos
     retangulo:
       x: 855
       y: 396
       comprimento: 138
       largura: 86
   referencias:
-  - setor: Setor Barceloneta
-    ids:
-    - Setor_Barceloneta
-  - setor: Setor Corredor Polonês
-    ids:
-    - Setor_Corredor_Polones
-  - setor: Setor Aristóteles
-    ids:
-    - Setor_Aristoteles
-  - setor: Setor Cemitério dos Ossos
-    ids:
-    - Setor_Cemiterio_Ossos
+  - alvo_uid: yy0t8zuwWuZbNZ
+    pontos_uids:
+    - KEV9yerg2CS8DP
+  - alvo_uid: 0Im8sPD9odkqAH
+    pontos_uids:
+    - sJRL035qkcuhAA
+  - alvo_uid: yG7HVnmCLiTAY9
+    pontos_uids:
+    - 39f8sUjWIQIn45
+  - alvo_uid: sNFsCYKIltcEmd
+    pontos_uids:
+    - htvodolOpoUk0T
 ---

@@ -5,6 +5,7 @@
 - **descricao**: Pico da Vó Gusta em Sacramento, MG. Próximo a Rifaina.
 - **id**: br_mg_sacramento_vo_gusta
 - **nome**: Pico da Vó Gusta
+- **uid**: Jtg5MoeUOy5z93
 - **creditos**:
   - Autores do Croqui Original
 - **caminho_thumbnail**: ![caminho_thumbnail](imagens/capa_p0_i0.webp)
@@ -13,6 +14,7 @@
 - **status_desenho_extraivel**: NAO_TEM_DESENHO
 - **botoes**:
   - **[0]**:
+    - **uid**: ZVDkuWLhO7Il6d
     - **texto**: Capa
     - **destino**:
       - **secao_textual**:
@@ -32,7 +34,7 @@
             Pico da Vó Gusta
             
             Pico da Vó Gusta em Sacramento, MG. Próximo a Rifaina.
-- **ultima_migracao**: 4
+- **ultima_migracao**: 5
 - **publicar_croqui**: True
 
 
@@ -42,6 +44,7 @@
 
 - **descricao**: # Setor Quintal
 - **nome**: Setor Quintal
+- **uid**: OrUXZcQg0RiAcU
 - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_quintal_p0_i0_2.webp)
 - **mapas**:
   - **[0]**:
@@ -50,129 +53,185 @@
     - **altura_mapa**: 851
     - **pontos_de_interesse**:
       - **[0]**:
-        - **id**: 01
-        - **label**: 1
+        - **id**: H2iHJQSnLaHixf
+        - **uid**: H2iHJQSnLaHixf
+        - **rotulo**: 1
         - **circulo**:
           - **x**: 853
           - **y**: 821
           - **raio**: 19
+        - **label**: 1
       - **[1]**:
-        - **id**: 02
-        - **label**: 2
+        - **id**: td6JUXvHGecOjK
+        - **uid**: td6JUXvHGecOjK
+        - **rotulo**: 2
         - **circulo**:
           - **x**: 932
           - **y**: 816
           - **raio**: 19
+        - **label**: 2
       - **[2]**:
-        - **id**: 03
-        - **label**: 3
+        - **id**: omIkNDYsTszqHe
+        - **uid**: omIkNDYsTszqHe
+        - **rotulo**: 3
         - **circulo**:
           - **x**: 451
           - **y**: 766
           - **raio**: 19
+        - **label**: 3
       - **[3]**:
-        - **id**: 04
-        - **label**: 4
+        - **id**: m2AVUkG70WltwK
+        - **uid**: m2AVUkG70WltwK
+        - **rotulo**: 4
         - **circulo**:
           - **x**: 711
           - **y**: 757
           - **raio**: 19
+        - **label**: 4
       - **[4]**:
-        - **id**: 05
-        - **label**: 5
+        - **id**: 6QKxO444dmoeCp
+        - **uid**: 6QKxO444dmoeCp
+        - **rotulo**: 5
         - **circulo**:
           - **x**: 654
           - **y**: 725
           - **raio**: 19
+        - **label**: 5
       - **[5]**:
-        - **id**: 06
-        - **label**: 6
+        - **id**: Bv6yMOohCS7s9E
+        - **uid**: Bv6yMOohCS7s9E
+        - **rotulo**: 6
         - **circulo**:
           - **x**: 576
           - **y**: 688
           - **raio**: 19
+        - **label**: 6
       - **[6]**:
-        - **id**: 07
-        - **label**: 7
+        - **id**: zzNrNJ61SccQER
+        - **uid**: zzNrNJ61SccQER
+        - **rotulo**: 7
         - **circulo**:
           - **x**: 620
           - **y**: 712
           - **raio**: 19
+        - **label**: 7
       - **[7]**:
-        - **id**: 08
-        - **label**: 8
+        - **id**: 2WIbrP9ZkMsurk
+        - **uid**: 2WIbrP9ZkMsurk
+        - **rotulo**: 8
         - **circulo**:
           - **x**: 524
           - **y**: 743
           - **raio**: 19
+        - **label**: 8
       - **[8]**:
-        - **id**: 09
-        - **label**: 9
+        - **id**: RuwSPdBDkuTa57
+        - **uid**: RuwSPdBDkuTa57
+        - **rotulo**: 9
         - **circulo**:
           - **x**: 1643
           - **y**: 748
           - **raio**: 21
+        - **label**: 9
       - **[9]**:
-        - **id**: 10
-        - **label**: 10
+        - **id**: EpCFrsw3qFMOhz
+        - **uid**: EpCFrsw3qFMOhz
+        - **rotulo**: 10
         - **circulo**:
           - **x**: 1601
           - **y**: 763
           - **raio**: 23
+        - **label**: 10
       - **[10]**:
-        - **id**: 11
-        - **label**: 11
+        - **id**: 9prac2dCILwyn4
+        - **uid**: 9prac2dCILwyn4
+        - **rotulo**: 11
         - **circulo**:
           - **x**: 1546
           - **y**: 756
           - **raio**: 23
+        - **label**: 11
     - **referencias**:
       - **[0]**:
+        - **alvo_uid**: KVsdF6Kn238jcY
+        - **pontos_uids**:
+          - H2iHJQSnLaHixf
         - **escalada**: Sonho de Infância
         - **ids**:
-          - 01
+          - H2iHJQSnLaHixf
       - **[1]**:
+        - **alvo_uid**: O2p52qoDGzmtXu
+        - **pontos_uids**:
+          - td6JUXvHGecOjK
         - **escalada**: Presente Grego
         - **ids**:
-          - 02
+          - td6JUXvHGecOjK
       - **[2]**:
+        - **alvo_uid**: 3j0kqZy2OpvYQa
+        - **pontos_uids**:
+          - omIkNDYsTszqHe
         - **escalada**: Tatu do Céu
         - **ids**:
-          - 03
+          - omIkNDYsTszqHe
       - **[3]**:
+        - **alvo_uid**: 5hRMleRWoxJptB
+        - **pontos_uids**:
+          - m2AVUkG70WltwK
         - **escalada**: Base de apoio
         - **ids**:
-          - 04
+          - m2AVUkG70WltwK
       - **[4]**:
+        - **alvo_uid**: Zz4xQnNHigrhYD
+        - **pontos_uids**:
+          - 6QKxO444dmoeCp
         - **escalada**: De Pai pra Filho
         - **ids**:
-          - 05
+          - 6QKxO444dmoeCp
       - **[5]**:
+        - **alvo_uid**: MZqT37zyumKA75
+        - **pontos_uids**:
+          - Bv6yMOohCS7s9E
         - **escalada**: Pior dia da minha vida
         - **ids**:
-          - 06
+          - Bv6yMOohCS7s9E
       - **[6]**:
+        - **alvo_uid**: NhQmO9ORnQqrCj
+        - **pontos_uids**:
+          - zzNrNJ61SccQER
         - **escalada**: Cortina de Fumaça
         - **ids**:
-          - 07
+          - zzNrNJ61SccQER
       - **[7]**:
+        - **alvo_uid**: jeH1KfjAIg94kN
+        - **pontos_uids**:
+          - 2WIbrP9ZkMsurk
         - **escalada**: Faxineiro Fiel
         - **ids**:
-          - 08
+          - 2WIbrP9ZkMsurk
       - **[8]**:
+        - **alvo_uid**: pDuI7i7KwcXJ0v
+        - **pontos_uids**:
+          - RuwSPdBDkuTa57
         - **escalada**: Arrependimento
         - **ids**:
-          - 09
+          - RuwSPdBDkuTa57
       - **[9]**:
+        - **alvo_uid**: 1O6T5LIIbqwEL0
+        - **pontos_uids**:
+          - EpCFrsw3qFMOhz
         - **escalada**: Aperta Bola
         - **ids**:
-          - 10
+          - EpCFrsw3qFMOhz
       - **[10]**:
+        - **alvo_uid**: VunVtr5AEChdwB
+        - **pontos_uids**:
+          - 9prac2dCILwyn4
         - **escalada**: Surpresa
         - **ids**:
-          - 11
+          - 9prac2dCILwyn4
 - **escaladas**:
   - **[0]**:
+    - **uid**: KVsdF6Kn238jcY
     - **via_esportiva**:
       - **nome**: Sonho de Infância
       - **conquistadores**:
@@ -184,6 +243,7 @@
       - **quantidade_protecoes_intermediarias**: 8
       - **quantidade_protecoes_parada**: 2
   - **[1]**:
+    - **uid**: O2p52qoDGzmtXu
     - **via_esportiva**:
       - **nome**: Presente Grego
       - **conquistadores**:
@@ -195,6 +255,7 @@
       - **quantidade_protecoes_intermediarias**: 8
       - **quantidade_protecoes_parada**: 2
   - **[2]**:
+    - **uid**: 3j0kqZy2OpvYQa
     - **via_esportiva**:
       - **nome**: Tatu do Céu
       - **conquistadores**:
@@ -205,6 +266,7 @@
       - **quantidade_protecoes_intermediarias**: 5
       - **quantidade_protecoes_parada**: 2
   - **[3]**:
+    - **uid**: 5hRMleRWoxJptB
     - **via_esportiva**:
       - **nome**: Base de apoio
       - **conquistadores**:
@@ -213,6 +275,7 @@
       - **extensao**: 20
       - **dificuldade**: PROJETO
   - **[4]**:
+    - **uid**: Zz4xQnNHigrhYD
     - **via_esportiva**:
       - **nome**: De Pai pra Filho
       - **conquistadores**:
@@ -222,6 +285,7 @@
       - **extensao**: 15
       - **dificuldade**: BR_7B
   - **[5]**:
+    - **uid**: MZqT37zyumKA75
     - **via_esportiva**:
       - **nome**: Pior dia da minha vida
       - **conquistadores**:
@@ -235,6 +299,7 @@
       - **quantidade_protecoes_intermediarias**: 5
       - **quantidade_protecoes_parada**: 2
   - **[6]**:
+    - **uid**: NhQmO9ORnQqrCj
     - **via_esportiva**:
       - **nome**: Cortina de Fumaça
       - **conquistadores**:
@@ -247,6 +312,7 @@
       - **quantidade_protecoes_intermediarias**: 5
       - **quantidade_protecoes_parada**: 2
   - **[7]**:
+    - **uid**: jeH1KfjAIg94kN
     - **via_esportiva**:
       - **nome**: Faxineiro Fiel
       - **conquistadores**:
@@ -257,6 +323,7 @@
       - **quantidade_protecoes_intermediarias**: 7
       - **quantidade_protecoes_parada**: 2
   - **[8]**:
+    - **uid**: pDuI7i7KwcXJ0v
     - **via_esportiva**:
       - **nome**: Arrependimento
       - **conquistadores**:
@@ -267,6 +334,7 @@
       - **quantidade_protecoes_intermediarias**: 4
       - **quantidade_protecoes_parada**: 2
   - **[9]**:
+    - **uid**: 1O6T5LIIbqwEL0
     - **via_esportiva**:
       - **nome**: Aperta Bola
       - **conquistadores**:
@@ -277,6 +345,7 @@
       - **quantidade_protecoes_intermediarias**: 4
       - **quantidade_protecoes_parada**: 2
   - **[10]**:
+    - **uid**: VunVtr5AEChdwB
     - **via_esportiva**:
       - **nome**: Surpresa
       - **conquistadores**:

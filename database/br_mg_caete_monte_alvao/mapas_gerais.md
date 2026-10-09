@@ -6,8 +6,8 @@ mapas:
   largura_mapa: 2048
   altura_mapa: 1447
   pontos_de_interesse:
-  - id: malibu
-    label: Malibu
+  - uid: pQ5EAC5RrakmqG
+    rotulo: Malibu
     poligono:
       coordenadas:
       - 938
@@ -20,8 +20,8 @@ mapas:
       - 1099
       - 943
       - 1094
-  - id: terra_do_nunca
-    label: Terra do Nunca
+  - uid: aWutwoCQRIP9Hd
+    rotulo: Terra do Nunca
     poligono:
       coordenadas:
       - 726
@@ -40,8 +40,8 @@ mapas:
       - 961
       - 729
       - 929
-  - id: mirante_da_cruz
-    label: Mirante da Cruz
+  - uid: LWwENdMSUOpsJH
+    rotulo: Mirante da Cruz
     poligono:
       coordenadas:
       - 677
@@ -54,8 +54,8 @@ mapas:
       - 887
       - 686
       - 834
-  - id: curto_e_grosso
-    label: Curto e Grosso
+  - uid: G9L6yUVPJNwpKW
+    rotulo: Curto e Grosso
     poligono:
       coordenadas:
       - 823
@@ -76,8 +76,8 @@ mapas:
       - 1039
       - 809
       - 1008
-  - id: ground_control
-    label: Ground Control
+  - uid: dWZZ23ph6JxQ4w
+    rotulo: Ground Control
     poligono:
       coordenadas:
       - 733
@@ -92,8 +92,8 @@ mapas:
       - 765
       - 724
       - 754
-  - id: forno_da_onca
-    label: Forno da Onça
+  - uid: aNbv8RTvEFBSq3
+    rotulo: Forno da Onça
     poligono:
       coordenadas:
       - 808
@@ -116,16 +116,16 @@ mapas:
       - 778
       - 809
       - 766
-  - id: caverna_do_bin_laden
-    label: Caverna do Bin Laden
+  - uid: PvRLpRmRrTzMLL
+    rotulo: Caverna do Bin Laden
     retangulo:
       x: 714
       y: 758
       comprimento: 55
       largura: 8
       angulo_graus_x100: -5973
-  - id: parede_do_ladrao
-    label: Parede do Ladrão
+  - uid: sFpAb8M5SOrh1g
+    rotulo: Parede do Ladrão
     poligono:
       coordenadas:
       - 857
@@ -138,8 +138,8 @@ mapas:
       - 737
       - 919
       - 764
-  - id: vale_gaules
-    label: Vale Gaules
+  - uid: r6gwIBm8vPLkW9
+    rotulo: Vale Gaules
     poligono:
       coordenadas:
       - 673
@@ -151,21 +151,21 @@ mapas:
       - 722
       - 659
   referencias:
-  - setor: Vale Gaules
-    ids:
-    - vale_gaules
-  - ids:
-    - caverna_do_bin_laden
-    - mirante_da_cruz
-    - ground_control
-    grupo: Caverna, Mirante e Ground Control
-  - ids:
-    - parede_do_ladrao
-    - forno_da_onca
-    grupo: Parede do Ladrão e Forno da Onça
-  - ids:
-    - terra_do_nunca
-    - curto_e_grosso
-    - malibu
-    grupo: Curto e Grosso, Malibu e Terra do Nunca
+  - alvo_uid: miGSpygWRq6cb6
+    pontos_uids:
+    - r6gwIBm8vPLkW9
+  - alvo_uid: PYN5lchFdNhSdp
+    pontos_uids:
+    - PvRLpRmRrTzMLL
+    - LWwENdMSUOpsJH
+    - dWZZ23ph6JxQ4w
+  - alvo_uid: 8IUjj0RLhfFcWs
+    pontos_uids:
+    - sFpAb8M5SOrh1g
+    - aNbv8RTvEFBSq3
+  - alvo_uid: JI5tVwPnDWIuk7
+    pontos_uids:
+    - aWutwoCQRIP9Hd
+    - G9L6yUVPJNwpKW
+    - pQ5EAC5RrakmqG
 ---

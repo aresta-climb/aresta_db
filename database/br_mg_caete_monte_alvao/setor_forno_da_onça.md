@@ -1,9 +1,11 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+uid: Qb6WGpJV9QBeJY
 nome: Forno da Onça
 escaladas:
-- via_esportiva:
+- uid: dZVBFM4DLQod4l
+  via_esportiva:
     nome: Cuidado Ketely
     dificuldade: BR_6
     extensao: 24
@@ -11,7 +13,8 @@ escaladas:
     quantidade_protecoes_parada: 2
     conquistadores:
     - Jg
-- via_esportiva:
+- uid: lVrVfzAW6CFKI8
+  via_esportiva:
     nome: You will survive
     dificuldade: BR_7A
     extensao: 20
@@ -19,7 +22,8 @@ escaladas:
     quantidade_protecoes_parada: 2
     conquistadores:
     - Jg
-- via_esportiva:
+- uid: jQp6QJPSjj35UK
+  via_esportiva:
     nome: Cara ou Coroa
     dificuldade: BR_6
     extensao: 22
@@ -27,7 +31,8 @@ escaladas:
     quantidade_protecoes_parada: 2
     conquistadores:
     - Jg
-- via_esportiva:
+- uid: wpKPlfVuQUYZet
+  via_esportiva:
     nome: French CanCan
     dificuldade: BR_6SUP
     extensao: 28
@@ -35,7 +40,8 @@ escaladas:
     quantidade_protecoes_parada: 2
     conquistadores:
     - Jg
-- via_esportiva:
+- uid: gQSqnHdV2fl65E
+  via_esportiva:
     nome: On the road again
     dificuldade: BR_6SUP
     extensao: 18
@@ -43,7 +49,8 @@ escaladas:
     quantidade_protecoes_parada: 2
     conquistadores:
     - Jg
-- via_multiplas_enfiadas:
+- uid: 4jtwL3rfc3s7ZZ
+  via_multiplas_enfiadas:
     nome: Incrível mas verdadeiro
     dificuldade_media: BR_6
     dificuldade_maxima: BR_6

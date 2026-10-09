@@ -4,11 +4,13 @@
 
 - **id**: br_mg_luminosa_pedra_do_ze
 - **nome**: Pedra do Zé
+- **uid**: 3M6IgZsc17xH17
 - **creditos**:
   - Bruno Matta (Kbeça)
 - **caminho_thumbnail**: ![caminho_thumbnail](imagens/capa_p0.webp)
 - **botoes**:
   - **[0]**:
+    - **uid**: fuS5tRYSn7nHMS
     - **texto**: Capa
     - **destino**:
       - **secao_textual**:
@@ -22,6 +24,7 @@
             **Bairro dos Bentos-Lúcios - Luminosa - MG**
             **2020**
   - **[1]**:
+    - **uid**: 5TRykzQ8XG8LU8
     - **texto**: Agradecimentos
     - **destino**:
       - **secao_textual**:
@@ -49,6 +52,7 @@
             > ESTA É UMA ÁREA PARTICULAR
             > RESPEITE AS REGRAS!
   - **[2]**:
+    - **uid**: ol9dU8La9F6Bo7
     - **texto**: Orientações aos Escaladores
     - **destino**:
       - **secao_textual**:
@@ -74,6 +78,7 @@
             ---
             *Textos extraídos da Declaração do Tyrol (Ética em ambientes de montanha) que pode ser encontrada na íntegra aqui: https://www.theuiaa.org/declarations/tyrol-declaration/.
   - **[3]**:
+    - **uid**: Qd1JNW6aH0R2Na
     - **texto**: Localização & Acesso
     - **destino**:
       - **secao_textual**:
@@ -86,6 +91,7 @@
             ## Estacionamento
             O espaço para estacionamento é restrito (aprox. 06 carros, dependendo da disposição). Existe uma zona de estacionamento que está sinalizada, à esquerda, onde está localizada a caixinha para a contribuição da taxa de estacionamento. Caso não existam vagas, retornar na estrada e estacionar de modo a não bloquear a passagem.
   - **[4]**:
+    - **uid**: SQPqMKcqQz34R7
     - **texto**: Créditos
     - **destino**:
       - **secao_textual**:
@@ -105,7 +111,7 @@
             deboraabe.projetos@gmail.com
             
             Dê preferência ao arquivo digital. Não imprima.
-- **ultima_migracao**: 4
+- **ultima_migracao**: 5
 
 
 ## Parte: setor_principal
@@ -133,6 +139,7 @@
     | :--: |
     | *Totem* |
 - **nome**: Setor Principal
+- **uid**: weT5GNJcQIFFcM
 - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_principal_p0_i0_2.webp)
 - **mapas**:
   - **[0]**:
@@ -141,6 +148,7 @@
     - **altura_mapa**: 1060
 - **escaladas**:
   - **[0]**:
+    - **uid**: tVlWggyUBoxP39
     - **via_movel**:
       - **descricao**: Via Mista: Sai em uma fenda fina, depois 8 chapas + parada. Equipamentos: 1 set cam #.1-1 + set C3 + nuts pequenas.
       - **nome**: Astro Rei
@@ -151,6 +159,7 @@
       - **conquistadores**:
         - Bruno Matta (Kbeça)
   - **[1]**:
+    - **uid**: 54jSG0kw9ohztZ
     - **via_movel**:
       - **descricao**: Via Móvel. Equipamentos: 1 jogo de friends #.4-5 + nuts + parada.
       - **nome**: Candelária
@@ -159,6 +168,7 @@
       - **conquistadores**:
         - Bruno Matta (Kbeça)
   - **[2]**:
+    - **uid**: EJX4gCdM1qodqa
     - **via_movel**:
       - **descricao**: Via Mista: sai em duas chapeletas. Equipamentos: 4 chapas + 1 set cam #.1-4 + parada.
       - **nome**: Cabeça Feita
@@ -169,6 +179,7 @@
       - **conquistadores**:
         - Bruno Matta (Kbeça)
   - **[3]**:
+    - **uid**: tr1eGorhBKPQFe
     - **via_multiplas_enfiadas**:
       - **descricao**: Via Mista (2 cordadas: 1ª cordada com 2 chapas, crux; 2ª cordada 100% em móvel 6 sup). Equipamentos: 2 sets de cam #0.3-3 + cam #4 e cam #5.
       - **nome**: Queijin Machine
@@ -178,6 +189,7 @@
       - **conquistadores**:
         - Bruno Matta (Kbeça)
   - **[4]**:
+    - **uid**: wD0D3VSM4E2ptw
     - **via_movel**:
       - **descricao**: Via Móvel: Inicia-se escalando pela árvore para acessar o diedro (aprox. 8 metros). Rapel com 2 cordas de 50m. Equipamentos: 2 sets de cam #.5-4 + 1x #.3 #.4 #.5 + nuts.
       - **nome**: Dragão Chinês
@@ -186,6 +198,7 @@
       - **conquistadores**:
         - Bruno Matta (Kbeça)
   - **[5]**:
+    - **uid**: vCBGcXWS9H6Kjn
     - **via_movel**:
       - **descricao**: Equipamentos: 2 jogos completos do #.3 ao 3 + adicional (1x #.75 + #1 + #2) + 1x #4.
       - **nome**: Kriptonita (1ª cordada)
@@ -194,18 +207,21 @@
       - **conquistadores**:
         - Bruno Matta (Kbeça)
   - **[6]**:
+    - **uid**: iZT9NWsIoHMlmX
     - **via_esportiva**:
       - **descricao**: Projeto
       - **nome**: Via dos Alunos
       - **dificuldade**: PROJETO
       - **quantidade_protecoes_intermediarias**: 6
   - **[7]**:
+    - **uid**: WLwQOBRXnNxhNn
     - **via_esportiva**:
       - **descricao**: Projeto
       - **nome**: Via Inacabada
       - **dificuldade**: PROJETO
       - **quantidade_protecoes_intermediarias**: 3
   - **[8]**:
+    - **uid**: 9Im8TNd20nuibv
     - **via_esportiva**:
       - **descricao**: Proteção fixa. 13 chapas + parada.
       - **nome**: La Medicina Paraguaya
@@ -216,6 +232,7 @@
       - **conquistadores**:
         - Bruno Matta (Kbeça)
   - **[9]**:
+    - **uid**: VPKP8A0IRKsWqb
     - **via_esportiva**:
       - **descricao**: Proteção fixa. 9 chapas + parada.
       - **nome**: Churrasco de Marimbondo
@@ -226,6 +243,7 @@
       - **conquistadores**:
         - Bruno Matta (Kbeça)
   - **[10]**:
+    - **uid**: R2tkEuTlL70gIM
     - **via_movel**:
       - **descricao**: Via Mista: sai de cima do totem, 6 chapas e depois finaliza na fenda até o platô. Parada compartilhada com via 13 (Fenda da árvore). Equipamentos: 1 set cam #.2-5 + 6 chapas + parada.
       - **nome**: Dá a Patinha
@@ -236,12 +254,14 @@
       - **conquistadores**:
         - Bruno Matta (Kbeça)
   - **[11]**:
+    - **uid**: 0CFMALvnC4yvfR
     - **via_esportiva**:
       - **descricao**: Projeto
       - **nome**: Via Inacabada
       - **dificuldade**: PROJETO
       - **quantidade_protecoes_intermediarias**: 3
   - **[12]**:
+    - **uid**: BuBxDWpNkWMKwj
     - **via_movel**:
       - **descricao**: Via Mista: sai na fenda e depois 4 chapas. Parada compartilhada com via 11 (Dá a patinha). Equipamentos: 1 set cam #.3-3 + nuts + 4 chapas + parada.
       - **nome**: Fenda da Árvore
@@ -252,6 +272,7 @@
       - **conquistadores**:
         - Bruno Matta (Kbeça)
   - **[13]**:
+    - **uid**: Kx6IkoV4cofNEU
     - **via_movel**:
       - **descricao**: Via Móvel: diedro que sai à direita da Santinha. Parada compartilhada com a via 15 (Meninas Massachussets). Equipamentos: 1 set cam #.2-4 + 1x #.75, #1 + nuts.
       - **nome**: Iluminosa
@@ -260,6 +281,7 @@
       - **conquistadores**:
         - Bruno Matta (Kbeça)
   - **[14]**:
+    - **uid**: Lsr0BWSVmYdJW2
     - **via_esportiva**:
       - **descricao**: Proteção fixa. Parada compartilhada com a via 14 (Iluminosa). 9 chapas + parada.
       - **nome**: Meninas Massachussets
@@ -270,6 +292,7 @@
       - **conquistadores**:
         - Bruno Matta (Kbeça)
   - **[15]**:
+    - **uid**: JrzrWCQ5nALfih
     - **via_movel**:
       - **descricao**: Via Mista: sai em uma fenda, depois 4 chapas até parada. Equipamentos: 1 set cam #.2-1 + c3 + 4 chapas + parada.
       - **nome**: De Novo Não
@@ -280,6 +303,7 @@
       - **conquistadores**:
         - Bruno Matta (Kbeça)
   - **[16]**:
+    - **uid**: FUjVaYcXcZoQZU
     - **via_esportiva**:
       - **descricao**: Proteção fixa. 15 chapas + parada.
       - **nome**: Bragasilia
@@ -290,6 +314,7 @@
       - **conquistadores**:
         - Bruno Matta (Kbeça)
   - **[17]**:
+    - **uid**: BvFmh2aKYr26wp
     - **via_movel**:
       - **descricao**: Via Móvel: diedro que sai do platô com 1 chapa. Equipamentos: 2 sets cam #.3-4 + 1x #5 + nuts + 1 chapa + parada.
       - **nome**: Homem Curado
@@ -300,12 +325,14 @@
       - **conquistadores**:
         - Bruno Matta (Kbeça)
   - **[18]**:
+    - **uid**: due8br48kvPU16
     - **via_esportiva**:
       - **descricao**: Projeto
       - **nome**: Via Inacabada
       - **dificuldade**: PROJETO
       - **quantidade_protecoes_intermediarias**: 4
   - **[19]**:
+    - **uid**: IpHwMs9xwfQGsS
     - **via_movel**:
       - **descricao**: Via Mista localizada no totem na frente da parede principal. Equipamentos: 01 set cam #.3-4 + 2 chapas + parada.
       - **nome**: Se Meu Fusca Escalasse
@@ -316,6 +343,7 @@
       - **conquistadores**:
         - Bruno Matta (Kbeça)
   - **[20]**:
+    - **uid**: sxIYhHCrlQ6L3i
     - **via_esportiva**:
       - **descricao**: Via localizada no totem na frente da parede principal. 5 chapas + parada.
       - **nome**: Tapas e Beijos
@@ -326,6 +354,7 @@
       - **conquistadores**:
         - Bruno Matta (Kbeça)
   - **[21]**:
+    - **uid**: 9Gse2Ax9VfEGFi
     - **via_esportiva**:
       - **descricao**: Proteção fixa. 12 chapas + parada.
       - **nome**: Faca no Pescoço
@@ -336,6 +365,7 @@
       - **conquistadores**:
         - Bruno Matta (Kbeça)
   - **[22]**:
+    - **uid**: Mqa0kJiUvcLhMS
     - **via_movel**:
       - **descricao**: Via Mista. 9 chapas + parada + 1 set cam #0.3 até o cam#2.
       - **nome**: Para Com Isso
@@ -346,6 +376,7 @@
       - **conquistadores**:
         - Bruno Matta (Kbeça)
   - **[23]**:
+    - **uid**: dg5vI8d9Hw9SlP
     - **via_esportiva**:
       - **descricao**: Proteção fixa. 9 chapas + parada (compartilhada com a via 23).
       - **nome**: Zé Patinha
@@ -356,6 +387,7 @@
       - **conquistadores**:
         - Bruno Matta (Kbeça)
   - **[24]**:
+    - **uid**: kkyA1mXLfkPjim
     - **via_esportiva**:
       - **descricao**: Projeto
       - **nome**: Mathilda Meu Amor

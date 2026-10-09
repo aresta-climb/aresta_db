@@ -118,6 +118,41 @@ def test_compilar_croqui_sucesso(gerenciador, storage_temp):
     last_commit = repo.revparse_single("HEAD")
     assert "Compila" in last_commit.message
 
+
+def test_compilar_croqui_compacta_saida_diretamente_em_compilado(gerenciador, storage_temp):
+    """Garante que compilar_croqui move os arquivos compilados para a raiz de compilado/ sem subpasta redundante."""
+    caminho_croqui = gerenciador._criar_estrutura_croqui("br_mg_compacto", "User")
+    (caminho_croqui / "database" / "croqui.yaml").write_text("id: br_mg_compacto\nnome: Compacto")
+
+    def mock_deploy_efeito(**kwargs):
+        out_dir = kwargs["output_dir"]
+        subpasta = out_dir / "br_mg_compacto"
+        subpasta.mkdir(parents=True, exist_ok=True)
+        (subpasta / "compilado.binarypb").write_bytes(b"binario")
+        (subpasta / "compilado.yaml").write_text("id: br_mg_compacto")
+        (subpasta / "imagens").mkdir()
+        (subpasta / "imagens" / "foto.webp").write_bytes(b"imagem")
+        return True
+
+    with patch("editor.core.croqui_experimental.deploy", side_effect=mock_deploy_efeito):
+        modificado = gerenciador.compilar_croqui(caminho_croqui)
+        assert modificado is True
+
+    compilado_dir = caminho_croqui / "compilado"
+    assert (compilado_dir / "compilado.binarypb").is_file()
+    assert (compilado_dir / "compilado.yaml").is_file()
+    assert (compilado_dir / "imagens" / "foto.webp").is_file()
+    assert not (compilado_dir / "br_mg_compacto").exists()
+
+    # Recompilação para cobrir a substituição quando o destino já existe (arquivo e diretório)
+    with patch("editor.core.croqui_experimental.deploy", side_effect=mock_deploy_efeito):
+        modificado2 = gerenciador.compilar_croqui(caminho_croqui)
+        assert modificado2 is True
+
+    assert (compilado_dir / "compilado.binarypb").is_file()
+    assert (compilado_dir / "imagens" / "foto.webp").is_file()
+    assert not (compilado_dir / "br_mg_compacto").exists()
+
 def test_compilar_croqui_falha_sem_yaml(gerenciador, storage_temp):
     """Verifica se falha ao compilar um croqui sem croqui.yaml."""
     # DADO um croqui sem croqui.yaml na database
@@ -299,4 +334,33 @@ def test_criar_croqui_a_partir_de_oficial_com_commit_base_sha(gerenciador, stora
         dados = yaml.safe_load(f)
         
     assert dados.get("commit_base_sha") == commit_sha
+
+
+def test_criar_novo_croqui_grava_ultima_migracao_versao_maxima(gerenciador, storage_temp):
+    """Verifica se o novo croqui criado grava a versão máxima de migração no croqui.yaml."""
+    from scripts.migrador import obter_ultima_versao_migracao
+    versao_esperada = obter_ultima_versao_migracao()
+    assert versao_esperada >= 5
+
+    with patch("editor.core.croqui_experimental.deploy"):
+        caminho_exp = gerenciador.criar_novo_croqui("br_mg_migracao", "Pico Migrado", "MG", "Usuario")
+
+    croqui_yaml = caminho_exp / "database" / "croqui.yaml"
+    with open(croqui_yaml, "r", encoding="utf-8") as f:
+        dados = yaml.safe_load(f)
+
+    assert dados.get("ultima_migracao") == versao_esperada
+
+
+def test_criar_novo_croqui_com_mock_ultima_versao(gerenciador, storage_temp):
+    """Garante que criar_novo_croqui consome dinamicamente o valor de obter_ultima_versao_migracao."""
+    with patch("editor.core.croqui_experimental.obter_ultima_versao_migracao", return_value=42):
+        with patch("editor.core.croqui_experimental.deploy"):
+            caminho_exp = gerenciador.criar_novo_croqui("br_mg_mock", "Pico Mock", "MG", "Usuario")
+
+    croqui_yaml = caminho_exp / "database" / "croqui.yaml"
+    with open(croqui_yaml, "r", encoding="utf-8") as f:
+        dados = yaml.safe_load(f)
+
+    assert dados.get("ultima_migracao") == 42
 

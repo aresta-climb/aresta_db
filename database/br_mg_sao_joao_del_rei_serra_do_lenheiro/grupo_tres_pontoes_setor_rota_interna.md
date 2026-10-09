@@ -1,105 +1,107 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+uid: QWhl1b4jnJRF9H
 nome: Rota Interna
 mapas:
 - caminho_imagem_mapa: imagens/grupo_tres_pontoes_setor_rota_interna_p0_i2.webp
   largura_mapa: 863
   altura_mapa: 361
   pontos_de_interesse:
-  - id: '1'
-    label: '1'
+  - uid: 2bZDgc2M7eZx9U
+    rotulo: '1'
     circulo:
       x: 254
       y: 84
       raio: 7
-  - id: '2'
-    label: '2'
+  - uid: 07TnudY43iCIDx
+    rotulo: '2'
     circulo:
       x: 262
       y: 92
       raio: 7
-  - id: '3'
-    label: '3'
+  - uid: TN77ipGhZySVMR
+    rotulo: '3'
     circulo:
       x: 280
       y: 83
       raio: 7
-  - id: '4'
-    label: '4'
+  - uid: HrA2wwAY9rDH9y
+    rotulo: '4'
     circulo:
       x: 282
       y: 96
       raio: 7
-  - id: '5'
-    label: '5'
+  - uid: gYM7M9v7HyCmmN
+    rotulo: '5'
     circulo:
       x: 306
       y: 83
       raio: 7
-  - id: '6'
-    label: '6'
+  - uid: YjRUYVtmBEVcTd
+    rotulo: '6'
     circulo:
       x: 383
       y: 60
       raio: 7
-  - id: '7'
-    label: '7'
+  - uid: t5HODHpFx11Hry
+    rotulo: '7'
     circulo:
       x: 379
       y: 129
       raio: 8
-  - id: '8'
-    label: '8'
+  - uid: nVbvpgYuITMdmZ
+    rotulo: '8'
     circulo:
       x: 381
       y: 144
       raio: 8
-  - id: '9'
-    label: '9'
+  - uid: M7kRNELOGcGOO3
+    rotulo: '9'
     circulo:
       x: 262
       y: 130
       raio: 8
-  - id: '10'
-    label: '10'
+  - uid: 0v1zNs7IMoZgui
+    rotulo: '10'
     circulo:
       x: 258
       y: 109
       raio: 10
   referencias:
-  - escalada: En Passant
-    ids:
-    - '1'
-  - escalada: Mamangava
-    ids:
-    - '2'
-  - escalada: Rio Minas
-    ids:
-    - '3'
-  - escalada: Minas Rio
-    ids:
-    - '4'
-  - escalada: Chaminé do Brevê
-    ids:
-    - '5'
-  - escalada: Quimera
-    ids:
-    - '6'
-  - escalada: Entre o Céu e o Inferno
-    ids:
-    - '7'
-  - escalada: Fissura Peter Pan
-    ids:
-    - '8'
-  - escalada: Sombra (Rota Interna)
-    ids:
-    - '9'
-  - escalada: Água Fresca
-    ids:
-    - '10'
+  - alvo_uid: YoOqE1jDgEp0iR
+    pontos_uids:
+    - 2bZDgc2M7eZx9U
+  - alvo_uid: 5EvLNNtJdE69tG
+    pontos_uids:
+    - 07TnudY43iCIDx
+  - alvo_uid: LzYFPCuheV4ifp
+    pontos_uids:
+    - TN77ipGhZySVMR
+  - alvo_uid: G7PgF69vA1coHD
+    pontos_uids:
+    - HrA2wwAY9rDH9y
+  - alvo_uid: 3Si8wQcICXkLsG
+    pontos_uids:
+    - gYM7M9v7HyCmmN
+  - alvo_uid: 4q1PVnaeGBr1sa
+    pontos_uids:
+    - YjRUYVtmBEVcTd
+  - alvo_uid: DB4U55VgfZR5Im
+    pontos_uids:
+    - t5HODHpFx11Hry
+  - alvo_uid: 79w2c9rNZniLrb
+    pontos_uids:
+    - nVbvpgYuITMdmZ
+  - alvo_uid: vI8pyKLmKC3Fo1
+    pontos_uids:
+    - M7kRNELOGcGOO3
+  - alvo_uid: frBj6WEByKGG1L
+    pontos_uids:
+    - 0v1zNs7IMoZgui
 escaladas:
-- via_movel:
+- uid: YoOqE1jDgEp0iR
+  via_movel:
     nome: En Passant
     dificuldade: BR_3
     extensao: 20
@@ -107,9 +109,9 @@ escaladas:
     - André Ilha
     - Lúcia Duarte
     data_abertura: '1986-05-02'
-    descricao: Esta via, assim como as quatro seguintes, se encontra em um salão na
-      parte inicial da Rota Interna.
-- via_movel:
+    descricao: Esta via, assim como as quatro seguintes, se encontra em um salão na parte inicial da Rota Interna.
+- uid: 5EvLNNtJdE69tG
+  via_movel:
     nome: Mamangava
     dificuldade: BR_2SUP
     extensao: 20
@@ -117,33 +119,35 @@ escaladas:
     - André Ilha
     - Lúcia Duarte
     data_abertura: '1986-05-03'
-- via_movel:
+- uid: LzYFPCuheV4ifp
+  via_movel:
     nome: Rio Minas
     dificuldade: BR_8A
     conquistadores:
     - Dalton Chiarelli
     - José Ronaldo "Pelé"
-    descricao: Uma bela fissura de dedos em seu início, passando a alguns entalamentos
-      de mão, escalada exigente, sua conquista original foi por chaminé, assim o grau
-      fica mais acessível.
-- via_movel:
+    descricao: Uma bela fissura de dedos em seu início, passando a alguns entalamentos de mão, escalada exigente, sua 
+      conquista original foi por chaminé, assim o grau fica mais acessível.
+- uid: G7PgF69vA1coHD
+  via_movel:
     nome: Minas Rio
     dificuldade: BR_4
     conquistadores:
     - Carlos Trindade
     - José Ronaldo "Pelé"
     data_abertura: '1988-04-18'
-- via_movel:
+- uid: 3Si8wQcICXkLsG
+  via_movel:
     nome: Chaminé do Brevê
     dificuldade: BR_4SUP
     conquistadores:
     - João Felipin
     - Ladson
     data_abertura: '2002'
-    descricao: Uma escalada de chaminé bem clássica, totalmente protegida em um fissura
-      que se afina em alguns momentos e outros ficam larga. Termina ao final do cabo
-      de aço.
-- via_movel:
+    descricao: Uma escalada de chaminé bem clássica, totalmente protegida em um fissura que se afina em alguns momentos 
+      e outros ficam larga. Termina ao final do cabo de aço.
+- uid: 4q1PVnaeGBr1sa
+  via_movel:
     nome: Quimera
     dificuldade: BR_7A
     quantidade_protecoes_intermediarias: 3
@@ -151,20 +155,22 @@ escaladas:
     - Jonatas Lima
     - Carlos Pádua
     data_abertura: '2015'
-    descricao: Esta via se encontra após o cabo de aço. Uma saída delicada em três
-      chapas passando uma belíssima fenda, que quando ganha altura vai aumentando
-      a abertura, finaliza em uma parada móvel.
-- via_movel:
+    descricao: Esta via se encontra após o cabo de aço. Uma saída delicada em três chapas passando uma belíssima fenda, 
+      que quando ganha altura vai aumentando a abertura, finaliza em uma parada móvel.
+- uid: DB4U55VgfZR5Im
+  via_movel:
     nome: Entre o Céu e o Inferno
     dificuldade: BR_5SUP
     conquistadores:
     - Luiz Cláudio
-- via_movel:
+- uid: 79w2c9rNZniLrb
+  via_movel:
     nome: Fissura Peter Pan
     dificuldade: BR_5
     conquistadores:
     - Luiz Cláudio
-- via_esportiva:
+- uid: vI8pyKLmKC3Fo1
+  via_esportiva:
     nome: Sombra (Rota Interna)
     dificuldade: BR_4
     conquistadores:
@@ -172,7 +178,8 @@ escaladas:
     - Carlos Pádua
     data_abertura: '2024'
     descricao: Link Sombra e Água Fresca 4sup.
-- via_esportiva:
+- uid: frBj6WEByKGG1L
+  via_esportiva:
     nome: Água Fresca
     dificuldade: BR_4
     conquistadores:

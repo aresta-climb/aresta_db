@@ -1,25 +1,27 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+uid: iZJd5BxEiCNhso
 nome: Aresta do Cabeça
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_aresta_do_cabeca_p0.webp
   largura_mapa: 440
   altura_mapa: 564
   pontos_de_interesse:
-  - id: '1'
-    label: '1'
+  - uid: IoYVWpIMkUA4ID
+    rotulo: '1'
     retangulo:
       x: 175
       y: 442
       comprimento: 34
       largura: 25
   referencias:
-  - escalada: Aresta do Cabeça
-    ids:
-    - '1'
+  - alvo_uid: 5nQQ5rlh22MhB1
+    pontos_uids:
+    - IoYVWpIMkUA4ID
 escaladas:
-- boulder:
+- uid: 5nQQ5rlh22MhB1
+  boulder:
     nome: Aresta do Cabeça
     dificuldade: V6
 ---

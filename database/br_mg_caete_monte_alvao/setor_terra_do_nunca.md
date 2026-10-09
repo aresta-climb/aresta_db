@@ -1,9 +1,11 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+uid: 9nBKJkNFTsLt6U
 nome: Terra do Nunca
 escaladas:
-- via_esportiva:
+- uid: z3iyGVQLgcfWR8
+  via_esportiva:
     nome: La Speza
     dificuldade: BR_6
     extensao: 25

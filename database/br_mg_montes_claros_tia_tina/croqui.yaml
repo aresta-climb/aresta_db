@@ -1,6 +1,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
+uid: m9esZhpM9rhbCf
 id: br_mg_montes_claros_tia_tina
 nome: Setor Tia Tina (Montes Claros)
 descricao: Guia de escalada do Setor Tia Tina em Montes Claros, MG.
@@ -28,8 +29,9 @@ picos:
   mapas_gerais:
     caminho: mapas_gerais.md
 botoes:
-- texto: Capa
+- uid: DKZDgB8FG7TXOj
+  texto: Capa
   destino:
     secao_textual:
       caminho: capa.md
-ultima_migracao: 4
+ultima_migracao: 5

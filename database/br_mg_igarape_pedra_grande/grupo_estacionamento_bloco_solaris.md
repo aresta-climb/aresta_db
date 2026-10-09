@@ -1,21 +1,27 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+uid: Qk0h1mdjo20Ebg
 nome: Estacionamento - Bloco Solaris
 escaladas:
-- boulder:
+- uid: GKiRIJblwHNW6U
+  boulder:
     nome: Solaris
     dificuldade: V4
-- boulder:
+- uid: JHLvsJu4kpoON0
+  boulder:
     nome: Pump
     dificuldade: V3
-- boulder:
+- uid: sY8xWcg71pO29X
+  boulder:
     nome: Lítio
     dificuldade: V2
-- boulder:
+- uid: avryK8CUi2fKkK
+  boulder:
     nome: Tório
     dificuldade: V0
-- boulder:
+- uid: o5BIftKa38x04o
+  boulder:
     nome: Irídio
     dificuldade: V0
 mapas:
@@ -23,7 +29,7 @@ mapas:
   largura_mapa: 1773
   altura_mapa: 2364
   pontos_de_interesse:
-  - id: linha_2
+  - uid: QmahXN7YGx5qnn
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -58,7 +64,7 @@ mapas:
           rotulo: ''
       espessura: 4
     cor: '#00E5FF'
-  - id: linha_3
+  - uid: 1QRa2eTvzsq8M5
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -85,7 +91,7 @@ mapas:
           rotulo: A
       espessura: 4
     cor: '#00E5FF'
-  - id: linha_5
+  - uid: 4qwbkzxFtp77YL
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -100,7 +106,7 @@ mapas:
           rotulo: ''
       espessura: 4
     cor: '#FFD600'
-  - id: linha_6
+  - uid: 1gfxPrZK4NbB4K
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -130,7 +136,7 @@ mapas:
           rotulo: B
       espessura: 4
     cor: '#00E5FF'
-  - id: linha_7
+  - uid: I6Q9kgngRiO1YX
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -161,25 +167,25 @@ mapas:
       espessura: 4
     cor: '#00E5FF'
   referencias:
-  - ids:
-    - linha_2
-    - linha_3
-    escalada: Solaris
-  - ids:
-    - linha_5
-    - linha_6
-    - linha_3
-    escalada: Pump
-  - ids:
-    - linha_5
-    - linha_7
-    escalada: Lítio
+  - alvo_uid: GKiRIJblwHNW6U
+    pontos_uids:
+    - QmahXN7YGx5qnn
+    - 1QRa2eTvzsq8M5
+  - alvo_uid: JHLvsJu4kpoON0
+    pontos_uids:
+    - 4qwbkzxFtp77YL
+    - 1gfxPrZK4NbB4K
+    - 1QRa2eTvzsq8M5
+  - alvo_uid: sY8xWcg71pO29X
+    pontos_uids:
+    - 4qwbkzxFtp77YL
+    - I6Q9kgngRiO1YX
 - caminho_imagem_mapa: imagens/grupo_estacionamento_bloco_solaris_p1.webp
   largura_mapa: 2364
   altura_mapa: 1773
   pontos_de_interesse:
-  - id: linha_1
-    label: ''
+  - uid: 6F8xEKAjDezlkF
+    rotulo: ''
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -209,8 +215,8 @@ mapas:
           rotulo: A
       espessura: 4
     cor: '#00E5FF'
-  - id: linha_4
-    label: ''
+  - uid: 5z0xDzAl5rd8JW
+    rotulo: ''
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -241,10 +247,10 @@ mapas:
       espessura: 4
     cor: '#00E5FF'
   referencias:
-  - ids:
-    - linha_1
-    escalada: Tório
-  - ids:
-    - linha_4
-    escalada: Irídio
+  - alvo_uid: avryK8CUi2fKkK
+    pontos_uids:
+    - 6F8xEKAjDezlkF
+  - alvo_uid: o5BIftKa38x04o
+    pontos_uids:
+    - 5z0xDzAl5rd8JW
 ---

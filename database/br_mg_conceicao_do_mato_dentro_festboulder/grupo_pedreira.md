@@ -1,163 +1,164 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+uid: fmOEl4JjUwdHIk
 nome: Pedreira
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_p0.webp
   largura_mapa: 592
   altura_mapa: 438
   pontos_de_interesse:
-  - id: '1'
-    label: '1'
+  - uid: b23vf3N41ACj3A
+    rotulo: '1'
     retangulo:
       x: 304
       y: 238
       comprimento: 35
       largura: 25
-  - id: '2'
-    label: '2'
+  - uid: yFSS81ITy499Qt
+    rotulo: '2'
     retangulo:
       x: 212
       y: 241
       comprimento: 35
       largura: 24
-  - id: '3'
-    label: '3'
+  - uid: 52Hlv1eMxygMHM
+    rotulo: '3'
     retangulo:
       x: 144
       y: 308
       comprimento: 36
       largura: 25
-  - id: '4'
-    label: '4'
+  - uid: PB73eL63DwVfA7
+    rotulo: '4'
     retangulo:
       x: 118
       y: 256
       comprimento: 35
       largura: 26
-  - id: '5'
-    label: '5'
+  - uid: lmqaF1XcTVGOZM
+    rotulo: '5'
     retangulo:
       x: 264
       y: 316
       comprimento: 35
       largura: 25
-  - id: '6'
-    label: '6'
+  - uid: 1HoVQDzlfoVhxM
+    rotulo: '6'
     retangulo:
       x: 342
       y: 404
       comprimento: 35
       largura: 25
-  - id: '7'
-    label: '7'
+  - uid: Mlc1tRQzIGLamn
+    rotulo: '7'
     retangulo:
       x: 230
       y: 345
       comprimento: 37
       largura: 26
-  - id: '8'
-    label: '8'
+  - uid: hmU0vFdMSLuNm6
+    rotulo: '8'
     retangulo:
       x: 181
       y: 337
       comprimento: 36
       largura: 26
-  - id: '9'
-    label: '9'
+  - uid: iiV2OFzkqWFKpD
+    rotulo: '9'
     retangulo:
       x: 384
       y: 406
       comprimento: 35
       largura: 25
-  - id: '10'
-    label: '10'
+  - uid: 2dktKSyJGtDNHE
+    rotulo: '10'
     retangulo:
       x: 98
       y: 399
       comprimento: 35
       largura: 26
-  - id: '11'
-    label: '11'
+  - uid: B48bdIMXCkM6Af
+    rotulo: '11'
     retangulo:
       x: 186
       y: 390
       comprimento: 36
       largura: 25
-  - id: '12'
-    label: '12'
+  - uid: YFf16f3kWzJzF2
+    rotulo: '12'
     retangulo:
       x: 64
       y: 214
       comprimento: 34
       largura: 25
-  - id: '13'
-    label: '13'
+  - uid: pRmlwYnHRxUS3W
+    rotulo: '13'
     retangulo:
       x: 466
       y: 322
       comprimento: 35
       largura: 24
-  - id: '14'
-    label: '14'
+  - uid: A6PxzdEFL6JoV2
+    rotulo: '14'
     retangulo:
       x: 506
       y: 350
       comprimento: 35
       largura: 25
-  - id: '15'
-    label: '15'
+  - uid: ug6uAJPc4cQJ3b
+    rotulo: '15'
     retangulo:
       x: 398
       y: 304
       comprimento: 35
       largura: 25
   referencias:
-  - setor: Preguiça
-    ids:
-    - '1'
-  - setor: Manda Lá
-    ids:
-    - '2'
-  - setor: Trabalhador
-    ids:
-    - '3'
-  - setor: Sanfoneiro Maluco
-    ids:
-    - '4'
-  - setor: Samurai
-    ids:
-    - '5'
-  - setor: Bomba Atômica
-    ids:
-    - '6'
-  - setor: Jubileu
-    ids:
-    - '7'
-  - setor: Conceição
-    ids:
-    - '8'
-  - setor: Bobsled
-    ids:
-    - '9'
-  - setor: Aresta do Cabeça
-    ids:
-    - '11'
-  - setor: Equinócio
-    ids:
-    - '10'
-  - setor: Witness
-    ids:
-    - '12'
-  - setor: La Fúria
-    ids:
-    - '13'
-  - setor: Jah
-    ids:
-    - '14'
-  - setor: Pole Dance
-    ids:
-    - '15'
+  - alvo_uid: 7E2CO690WlPLfJ
+    pontos_uids:
+    - b23vf3N41ACj3A
+  - alvo_uid: 0J02htQ9ijlNku
+    pontos_uids:
+    - yFSS81ITy499Qt
+  - alvo_uid: iwFDrJbwDBIZci
+    pontos_uids:
+    - 52Hlv1eMxygMHM
+  - alvo_uid: 9i4ulhHe8Wt2fG
+    pontos_uids:
+    - PB73eL63DwVfA7
+  - alvo_uid: X2Ug9CixcMKYd8
+    pontos_uids:
+    - lmqaF1XcTVGOZM
+  - alvo_uid: pjU0CL4hDO7jOa
+    pontos_uids:
+    - 1HoVQDzlfoVhxM
+  - alvo_uid: ZIkSfGNugqHMnX
+    pontos_uids:
+    - Mlc1tRQzIGLamn
+  - alvo_uid: 1UnylXLq321R7V
+    pontos_uids:
+    - hmU0vFdMSLuNm6
+  - alvo_uid: 19m6huz3tACiyA
+    pontos_uids:
+    - iiV2OFzkqWFKpD
+  - alvo_uid: iZJd5BxEiCNhso
+    pontos_uids:
+    - B48bdIMXCkM6Af
+  - alvo_uid: FbDfAbWOrmCBZp
+    pontos_uids:
+    - 2dktKSyJGtDNHE
+  - alvo_uid: MwfeN0k5sY83kY
+    pontos_uids:
+    - YFf16f3kWzJzF2
+  - alvo_uid: gUuLVreg1RgUm6
+    pontos_uids:
+    - pRmlwYnHRxUS3W
+  - alvo_uid: QqN6oqb5Sf8vGq
+    pontos_uids:
+    - A6PxzdEFL6JoV2
+  - alvo_uid: G5dk8AEaYgSzDy
+    pontos_uids:
+    - ug6uAJPc4cQJ3b
 setores:
 - caminho: grupo_pedreira_setor_preguica.md
 - caminho: grupo_pedreira_setor_manda_la.md

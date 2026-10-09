@@ -1,6 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+uid: pN9fjhBMXuRw8U
 caminho_imagem_capa: imagens/setor_pasto_p0_i6.webp
 nome: Setor Pasto
 mapas:
@@ -8,82 +9,83 @@ mapas:
   largura_mapa: 1078
   altura_mapa: 1434
   pontos_de_interesse:
-  - id: Setor_Entrada
-    label: Setor Entrada
+  - uid: Ivjo1mxuuZiwQ8
+    rotulo: Setor Entrada
     retangulo:
       x: 926
       y: 42
       comprimento: 217
       largura: 34
-  - id: '01'
-    label: '01'
+  - uid: kpc2O4uVqcmkuK
+    rotulo: '01'
     retangulo:
       x: 550
       y: 500
       comprimento: 34
       largura: 28
-  - id: '02'
-    label: '02'
+  - uid: oGsg9efBd2dKNC
+    rotulo: '02'
     retangulo:
       x: 516
       y: 584
       comprimento: 39
       largura: 31
-  - id: '03'
-    label: '03'
+  - uid: Pd5raBVtYPFUxi
+    rotulo: '03'
     retangulo:
       x: 482
       y: 618
       comprimento: 37
       largura: 31
-  - id: '04'
-    label: '04'
+  - uid: 25d2KOdvA5JZuw
+    rotulo: '04'
     retangulo:
       x: 484
       y: 1089
       comprimento: 43
       largura: 32
-  - id: '05'
-    label: '05'
+  - uid: 8LbrZCFmLm19VD
+    rotulo: '05'
     retangulo:
       x: 528
       y: 1224
       comprimento: 41
       largura: 33
-  - id: Setor_Fechadura
-    label: Setor Fechadura
+  - uid: yX23DM833Nph2U
+    rotulo: Setor Fechadura
     retangulo:
       x: 94
       y: 1303
       comprimento: 167
       largura: 88
   referencias:
-  - escalada: Cemitério das Caranguejeiras - Direita
-    ids:
-    - '01'
-  - escalada: Água Suja - Esquerda
-    ids:
-    - '01'
-  - escalada: O Babão
-    ids:
-    - '02'
-  - escalada: Kactos Kid
-    ids:
-    - '03'
-  - escalada: Demônios da Mente
-    ids:
-    - '04'
-  - escalada: Rolha de Algodão
-    ids:
-    - '05'
-  - ids:
-    - Setor_Entrada
-    setor: Setor Entrada Inferior
-  - ids:
-    - Setor_Fechadura
-    setor: Setor Fechadura
+  - alvo_uid: 2ov464a1nikvfY
+    pontos_uids:
+    - kpc2O4uVqcmkuK
+  - alvo_uid: 6NPcA8rCHzXHEq
+    pontos_uids:
+    - kpc2O4uVqcmkuK
+  - alvo_uid: Iv9FxJcfyxliP9
+    pontos_uids:
+    - oGsg9efBd2dKNC
+  - alvo_uid: 3mdc3YsshcDi0B
+    pontos_uids:
+    - Pd5raBVtYPFUxi
+  - alvo_uid: WoiL7rWLyDZlvK
+    pontos_uids:
+    - 25d2KOdvA5JZuw
+  - alvo_uid: BXQdm0i207iJbx
+    pontos_uids:
+    - 8LbrZCFmLm19VD
+  - alvo_uid: 7MOvMnNTds8jZr
+    pontos_uids:
+    - Ivjo1mxuuZiwQ8
+  - alvo_uid: JKvFyKMkrPz9UF
+    pontos_uids:
+    - yX23DM833Nph2U
 escaladas:
-- via_esportiva:
+- uid: 2ov464a1nikvfY
+  via_esportiva:
     nome: Cemitério das Caranguejeiras - Direita
     dificuldade: BR_6
     quantidade_protecoes_intermediarias: 4
@@ -91,7 +93,8 @@ escaladas:
     conquistadores:
     - Vinicius
     - Joviney
-- via_esportiva:
+- uid: 6NPcA8rCHzXHEq
+  via_esportiva:
     nome: Água Suja - Esquerda
     dificuldade: BR_6
     quantidade_protecoes_intermediarias: 4
@@ -101,27 +104,31 @@ escaladas:
     - Rômulo
     - Claudinho
     - Roberto Lincoln
-- via_movel:
+- uid: Iv9FxJcfyxliP9
+  via_movel:
     nome: O Babão
     dificuldade: BR_6
     protecoes_moveis: Móvel
     conquistadores:
     - Roberto Lincoln
     - Rômulo
-- via_esportiva:
+- uid: 3mdc3YsshcDi0B
+  via_esportiva:
     nome: Kactos Kid
     dificuldade: INDEFINIDO
     descricao: Top Rope
     conquistadores:
     - Roberto
-- via_movel:
+- uid: WoiL7rWLyDZlvK
+  via_movel:
     nome: Demônios da Mente
     dificuldade: BR_6SUP
     protecoes_moveis: Móvel
     conquistadores:
     - Roberto Lincoln
     - Rômulo
-- via_esportiva:
+- uid: BXQdm0i207iJbx
+  via_esportiva:
     nome: Rolha de Algodão
     dificuldade: BR_7A
     quantidade_protecoes_intermediarias: 7

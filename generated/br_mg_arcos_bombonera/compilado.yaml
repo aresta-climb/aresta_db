@@ -1,3 +1,4 @@
+uid: Cj7ql1orkaqEyg
 id: br_mg_arcos_bombonera
 nome: Arcos - Bombonera
 descricao: Afloramento de calcário situado em Pains, no estado de Minas Gerais, com
@@ -14,243 +15,339 @@ picos:
   setores_ou_grupos:
   - setor:
       conteudo:
+        uid: pYitgZt0y6k4JK
         nome: Setor Bosque
         mapas:
         - caminho_imagem_mapa: imagens/setor_bosque_p0_i0.webp
           largura_mapa: 1966
           altura_mapa: 1043
           pontos_de_interesse:
-          - id: '1'
-            label: '1'
+          - uid: l5PDF3f7iQbVWM
+            rotulo: '1'
             circulo:
               x: 190
               y: 968
               raio: 15
-          - id: '2'
-            label: '2'
+            id: l5PDF3f7iQbVWM
+            label: '1'
+          - uid: j2UGyzK8vRFo20
+            rotulo: '2'
             circulo:
               x: 382
               y: 968
               raio: 15
-          - id: '3'
-            label: '3'
+            id: j2UGyzK8vRFo20
+            label: '2'
+          - uid: DSjcwyE4sCTBer
+            rotulo: '3'
             circulo:
               x: 604
               y: 968
               raio: 15
-          - id: '4'
-            label: '4'
+            id: DSjcwyE4sCTBer
+            label: '3'
+          - uid: dTe5YLEnmNeKqY
+            rotulo: '4'
             circulo:
               x: 893
               y: 968
               raio: 15
-          - id: '5'
-            label: '5'
+            id: dTe5YLEnmNeKqY
+            label: '4'
+          - uid: tUFYg3IGsekz91
+            rotulo: '5'
             circulo:
               x: 1007
               y: 968
               raio: 15
-          - id: '6'
-            label: '6'
+            id: tUFYg3IGsekz91
+            label: '5'
+          - uid: s17F65vNMUwtoH
+            rotulo: '6'
             circulo:
               x: 1274
               y: 968
               raio: 15
-          - id: '7'
-            label: '7'
+            id: s17F65vNMUwtoH
+            label: '6'
+          - uid: iKD5DEJ2Ni0PS1
+            rotulo: '7'
             circulo:
               x: 1620
               y: 969
               raio: 15
-          - id: '8'
-            label: '8'
+            id: iKD5DEJ2Ni0PS1
+            label: '7'
+          - uid: fJKpSb9DackcvK
+            rotulo: '8'
             circulo:
               x: 1748
               y: 968
               raio: 15
-          - id: '9'
-            label: '9'
+            id: fJKpSb9DackcvK
+            label: '8'
+          - uid: JhQ4oiXSzjNFUe
+            rotulo: '9'
             circulo:
               x: 1899
               y: 968
               raio: 15
+            id: JhQ4oiXSzjNFUe
+            label: '9'
           referencias:
-          - escalada: La Cucaracha
+          - alvo_uid: Gb4mHgP0BBrpJD
+            pontos_uids:
+            - l5PDF3f7iQbVWM
+            escalada: La Cucaracha
             ids:
-            - '1'
-          - escalada: (via inacabada 1) Bem Vindo ao Bosque
+            - l5PDF3f7iQbVWM
+          - alvo_uid: s3yFmIBmxwQTZH
+            pontos_uids:
+            - j2UGyzK8vRFo20
+            escalada: (via inacabada 1) Bem Vindo ao Bosque
             ids:
-            - '2'
-            setor: Setor Bosque
-          - escalada: (via inacabada 2)
+            - j2UGyzK8vRFo20
+          - alvo_uid: HMfUeRq4be4xa1
+            pontos_uids:
+            - DSjcwyE4sCTBer
+            escalada: (via inacabada 2)
             ids:
-            - '3'
-            setor: Setor Bosque
-          - escalada: Malandro é Malandro
+            - DSjcwyE4sCTBer
+          - alvo_uid: Ln4IOlN0c8xnVj
+            pontos_uids:
+            - dTe5YLEnmNeKqY
+            escalada: Malandro é Malandro
             ids:
-            - '4'
-          - escalada: Mané é Mané
+            - dTe5YLEnmNeKqY
+          - alvo_uid: A3p6qXvV4FwilA
+            pontos_uids:
+            - tUFYg3IGsekz91
+            escalada: Mané é Mané
             ids:
-            - '5'
-          - escalada: Segunda Divisão
+            - tUFYg3IGsekz91
+          - alvo_uid: nhsaBxopfWrZst
+            pontos_uids:
+            - s17F65vNMUwtoH
+            escalada: Segunda Divisão
             ids:
-            - '6'
-          - escalada: Diedrinho
+            - s17F65vNMUwtoH
+          - alvo_uid: XZGptTD7mgsbOc
+            pontos_uids:
+            - iKD5DEJ2Ni0PS1
+            escalada: Diedrinho
             ids:
-            - '7'
-          - escalada: Dona Leci
+            - iKD5DEJ2Ni0PS1
+          - alvo_uid: 0yXVSmz1EOOIeO
+            pontos_uids:
+            - fJKpSb9DackcvK
+            escalada: Dona Leci
             ids:
-            - '8'
-          - escalada: Caminito
+            - fJKpSb9DackcvK
+          - alvo_uid: OXVGxNW9Yhn7Q3
+            pontos_uids:
+            - JhQ4oiXSzjNFUe
+            escalada: Caminito
             ids:
-            - '9'
+            - JhQ4oiXSzjNFUe
         - caminho_imagem_mapa: imagens/setor_bosque_p1_i0.webp
           largura_mapa: 916
           altura_mapa: 1151
           pontos_de_interesse:
-          - id: '1'
-            label: '1'
+          - uid: KOurLs9Z7td77c
+            rotulo: '1'
             circulo:
               x: 519
               y: 1135
               raio: 15
-          - id: '2'
-            label: '2'
+            id: KOurLs9Z7td77c
+            label: '1'
+          - uid: 3zoYjt8XpMVn3N
+            rotulo: '2'
             circulo:
               x: 846
               y: 1127
               raio: 14
+            id: 3zoYjt8XpMVn3N
+            label: '2'
           referencias:
-          - escalada: La Cucaracha
+          - alvo_uid: Gb4mHgP0BBrpJD
+            pontos_uids:
+            - KOurLs9Z7td77c
+            escalada: La Cucaracha
             ids:
-            - '1'
-          - escalada: (via inacabada 1) Bem Vindo ao Bosque
+            - KOurLs9Z7td77c
+          - alvo_uid: s3yFmIBmxwQTZH
+            pontos_uids:
+            - 3zoYjt8XpMVn3N
+            escalada: (via inacabada 1) Bem Vindo ao Bosque
             ids:
-            - '2'
-            setor: Setor Bosque
+            - 3zoYjt8XpMVn3N
         - caminho_imagem_mapa: imagens/setor_bosque_p1_i1.webp
           largura_mapa: 916
           altura_mapa: 1155
           pontos_de_interesse:
-          - id: '3'
-            label: '3'
+          - uid: 24jiD0bDirvE6I
+            rotulo: '3'
             circulo:
               x: 35
               y: 1132
               raio: 15
-          - id: '4'
-            label: '4'
+            id: 24jiD0bDirvE6I
+            label: '3'
+          - uid: 9e4lSeZppolehK
+            rotulo: '4'
             circulo:
               x: 364
               y: 1099
               raio: 15
-          - id: '5'
-            label: '5'
+            id: 9e4lSeZppolehK
+            label: '4'
+          - uid: zKULXxKXUhSpgz
+            rotulo: '5'
             circulo:
               x: 478
               y: 1092
               raio: 15
+            id: zKULXxKXUhSpgz
+            label: '5'
           referencias:
-          - escalada: (via inacabada 2)
+          - alvo_uid: HMfUeRq4be4xa1
+            pontos_uids:
+            - 24jiD0bDirvE6I
+            escalada: (via inacabada 2)
             ids:
-            - '3'
-            setor: Setor Bosque
-          - escalada: Malandro é Malandro
+            - 24jiD0bDirvE6I
+          - alvo_uid: Ln4IOlN0c8xnVj
+            pontos_uids:
+            - 9e4lSeZppolehK
+            escalada: Malandro é Malandro
             ids:
-            - '4'
-          - escalada: Mané é Mané
+            - 9e4lSeZppolehK
+          - alvo_uid: A3p6qXvV4FwilA
+            pontos_uids:
+            - zKULXxKXUhSpgz
+            escalada: Mané é Mané
             ids:
-            - '5'
+            - zKULXxKXUhSpgz
         - caminho_imagem_mapa: imagens/setor_bosque_p2_i0.webp
           largura_mapa: 910
           altura_mapa: 1154
           pontos_de_interesse:
-          - id: '6'
-            label: '6'
+          - uid: g8XLQwyIZGl3QV
+            rotulo: '6'
             circulo:
               x: 49
               y: 1134
               raio: 14
-          - id: '7'
-            label: '7'
+            id: g8XLQwyIZGl3QV
+            label: '6'
+          - uid: XgKG2bAiSlFI11
+            rotulo: '7'
             circulo:
               x: 519
               y: 1135
               raio: 14
-          - id: '8'
-            label: '8'
+            id: XgKG2bAiSlFI11
+            label: '7'
+          - uid: Q8aMnHqTftIEpk
+            rotulo: '8'
             circulo:
               x: 646
               y: 1130
               raio: 15
-          - id: '9'
-            label: '9'
+            id: Q8aMnHqTftIEpk
+            label: '8'
+          - uid: XZS6ItI6D1rzfJ
+            rotulo: '9'
             circulo:
               x: 798
               y: 1118
               raio: 15
+            id: XZS6ItI6D1rzfJ
+            label: '9'
           referencias:
-          - escalada: Segunda Divisão
+          - alvo_uid: nhsaBxopfWrZst
+            pontos_uids:
+            - g8XLQwyIZGl3QV
+            escalada: Segunda Divisão
             ids:
-            - '6'
-          - escalada: Diedrinho
+            - g8XLQwyIZGl3QV
+          - alvo_uid: XZGptTD7mgsbOc
+            pontos_uids:
+            - XgKG2bAiSlFI11
+            escalada: Diedrinho
             ids:
-            - '7'
-          - escalada: Dona Leci
+            - XgKG2bAiSlFI11
+          - alvo_uid: 0yXVSmz1EOOIeO
+            pontos_uids:
+            - Q8aMnHqTftIEpk
+            escalada: Dona Leci
             ids:
-            - '8'
-          - escalada: Caminito
+            - Q8aMnHqTftIEpk
+          - alvo_uid: OXVGxNW9Yhn7Q3
+            pontos_uids:
+            - XZS6ItI6D1rzfJ
+            escalada: Caminito
             ids:
-            - '9'
+            - XZS6ItI6D1rzfJ
         escaladas:
-        - via_esportiva:
+        - uid: Gb4mHgP0BBrpJD
+          via_esportiva:
             nome: La Cucaracha
             dificuldade: PROJETO
             quantidade_protecoes_intermediarias: 6
             quantidade_protecoes_parada: 2
             data_abertura: '2021'
-        - via_esportiva:
+        - uid: s3yFmIBmxwQTZH
+          via_esportiva:
             nome: (via inacabada 1) Bem Vindo ao Bosque
             dificuldade: INDEFINIDO
             data_abertura: '2020'
-        - via_esportiva:
+        - uid: HMfUeRq4be4xa1
+          via_esportiva:
             nome: (via inacabada 2)
             dificuldade: INDEFINIDO
             data_abertura: '2020'
-        - via_esportiva:
+        - uid: Ln4IOlN0c8xnVj
+          via_esportiva:
             nome: Malandro é Malandro
             dificuldade: BR_8A
             destaque: true
             quantidade_protecoes_intermediarias: 5
             quantidade_protecoes_parada: 2
             data_abertura: '2020'
-        - via_esportiva:
+        - uid: A3p6qXvV4FwilA
+          via_esportiva:
             nome: Mané é Mané
             dificuldade: BR_8B_BARRA_8C
             destaque: true
             quantidade_protecoes_intermediarias: 5
             quantidade_protecoes_parada: 2
             data_abertura: '2020'
-        - via_esportiva:
+        - uid: nhsaBxopfWrZst
+          via_esportiva:
             nome: Segunda Divisão
             dificuldade: BR_7A
             quantidade_protecoes_intermediarias: 4
             quantidade_protecoes_parada: 2
             data_abertura: '2020'
-        - via_esportiva:
+        - uid: XZGptTD7mgsbOc
+          via_esportiva:
             nome: Diedrinho
             dificuldade: BR_5SUP
             quantidade_protecoes_intermediarias: 4
             quantidade_protecoes_parada: 2
             data_abertura: '2020'
-        - via_esportiva:
+        - uid: 0yXVSmz1EOOIeO
+          via_esportiva:
             nome: Dona Leci
             dificuldade: BR_5
             destaque: true
             quantidade_protecoes_intermediarias: 4
             quantidade_protecoes_parada: 2
             data_abertura: '2020'
-        - via_esportiva:
+        - uid: OXVGxNW9Yhn7Q3
+          via_esportiva:
             nome: Caminito
             dificuldade: BR_5SUP
             quantidade_protecoes_intermediarias: 3
@@ -263,6 +360,7 @@ picos:
           total_esportivas: 9
   - setor:
       conteudo:
+        uid: zx4lHNzgwsL23H
         caminho_imagem_capa: imagens/setor_bombonera_p1_i0.webp
         nome: Setor Bombonera
         mapas:
@@ -270,180 +368,247 @@ picos:
           largura_mapa: 1893
           altura_mapa: 1086
           pontos_de_interesse:
-          - id: '1'
-            label: '1'
+          - uid: rrHrPb5dRzfD8s
+            rotulo: '1'
             circulo:
               x: 207
               y: 892
               raio: 15
-          - id: '2'
-            label: '2'
+            id: rrHrPb5dRzfD8s
+            label: '1'
+          - uid: AZBsQv1UlFHUTa
+            rotulo: '2'
             circulo:
               x: 262
               y: 903
               raio: 15
-          - id: '3'
-            label: '3'
+            id: AZBsQv1UlFHUTa
+            label: '2'
+          - uid: qYGNX67R0kEcNk
+            rotulo: '3'
             circulo:
               x: 316
               y: 891
               raio: 15
-          - id: '4'
-            label: '4'
+            id: qYGNX67R0kEcNk
+            label: '3'
+          - uid: 3hXaANPLClInTg
+            rotulo: '4'
             circulo:
               x: 353
               y: 891
               raio: 15
-          - id: '5'
-            label: '5'
+            id: 3hXaANPLClInTg
+            label: '4'
+          - uid: egNL8knYiZoxnh
+            rotulo: '5'
             circulo:
               x: 454
               y: 890
               raio: 15
-          - id: '6'
-            label: '6'
+            id: egNL8knYiZoxnh
+            label: '5'
+          - uid: NytubYldx8n2fh
+            rotulo: '6'
             circulo:
               x: 633
               y: 867
               raio: 15
-          - id: '7'
-            label: '7'
+            id: NytubYldx8n2fh
+            label: '6'
+          - uid: 71A3N9VJd0eS7C
+            rotulo: '7'
             circulo:
               x: 732
               y: 894
               raio: 15
-          - id: 8-9
-            label: 8-9
+            id: 71A3N9VJd0eS7C
+            label: '7'
+          - uid: b9rhCnqh8NFLNI
+            rotulo: 8-9
             circulo:
               x: 770
               y: 893
               raio: 19
-          - id: '10'
-            label: '10'
+            id: b9rhCnqh8NFLNI
+            label: 8-9
+          - uid: SvZyr0uK31VfJU
+            rotulo: '10'
             circulo:
               x: 1072
               y: 914
               raio: 15
-          - id: '11'
-            label: '11'
+            id: SvZyr0uK31VfJU
+            label: '10'
+          - uid: 4QYmWZLYIfZPkW
+            rotulo: '11'
             circulo:
               x: 1224
               y: 927
               raio: 15
-          - id: '12'
-            label: '12'
+            id: 4QYmWZLYIfZPkW
+            label: '11'
+          - uid: aaYNefUUdD16O0
+            rotulo: '12'
             circulo:
               x: 1259
               y: 928
               raio: 15
+            id: aaYNefUUdD16O0
+            label: '12'
           referencias:
-          - escalada: Lá Cancha
+          - alvo_uid: bGY7jjt35TGBtK
+            pontos_uids:
+            - rrHrPb5dRzfD8s
+            escalada: Lá Cancha
             ids:
-            - '1'
-          - escalada: La Mano de Dios
+            - rrHrPb5dRzfD8s
+          - alvo_uid: wMFAO7CdjeYw7e
+            pontos_uids:
+            - AZBsQv1UlFHUTa
+            escalada: La Mano de Dios
             ids:
-            - '2'
-          - escalada: Projeto (sem nome 1)
+            - AZBsQv1UlFHUTa
+          - alvo_uid: 8JVfNOQ2gW9Jcy
+            pontos_uids:
+            - qYGNX67R0kEcNk
+            escalada: Projeto (sem nome 1)
             ids:
-            - '3'
-            setor: Setor Bombonera
-          - escalada: Projeto (sem nome 2)
+            - qYGNX67R0kEcNk
+          - alvo_uid: DVsshBdFmIcrsW
+            pontos_uids:
+            - 3hXaANPLClInTg
+            escalada: Projeto (sem nome 2)
             ids:
-            - '4'
-            setor: Setor Bombonera
-          - escalada: Barra Brava
+            - 3hXaANPLClInTg
+          - alvo_uid: U8JPeflFSWXrZZ
+            pontos_uids:
+            - egNL8knYiZoxnh
+            escalada: Barra Brava
             ids:
-            - '5'
-          - escalada: Lá Bombonera
+            - egNL8knYiZoxnh
+          - alvo_uid: r5jWWEC9DOZ8Vx
+            pontos_uids:
+            - NytubYldx8n2fh
+            escalada: Lá Bombonera
             ids:
-            - '6'
-          - escalada: Diego Armando Maradona
+            - NytubYldx8n2fh
+          - alvo_uid: OSpickpZ1nLhIC
+            pontos_uids:
+            - 71A3N9VJd0eS7C
+            escalada: Diego Armando Maradona
             ids:
-            - '7'
-          - escalada: River Plate (principal)
+            - 71A3N9VJd0eS7C
+          - alvo_uid: m4LvODmbmQX51z
+            pontos_uids:
+            - b9rhCnqh8NFLNI
+            escalada: River Plate (principal)
             ids:
-            - 8-9
-          - escalada: Boca Junior (variante)
+            - b9rhCnqh8NFLNI
+          - alvo_uid: On2qI9r8TxxD4D
+            pontos_uids:
+            - b9rhCnqh8NFLNI
+            escalada: Boca Junior (variante)
             ids:
-            - 8-9
-          - escalada: (via inacabada 3) Superclassicos
+            - b9rhCnqh8NFLNI
+          - alvo_uid: 2g85yvxRTmrvil
+            pontos_uids:
+            - SvZyr0uK31VfJU
+            escalada: (via inacabada 3) Superclassicos
             ids:
-            - '10'
-            setor: Setor Bombonera
-          - escalada: San Lourenzo
+            - SvZyr0uK31VfJU
+          - alvo_uid: iH7SPwQn4gXy5R
+            pontos_uids:
+            - 4QYmWZLYIfZPkW
+            escalada: San Lourenzo
             ids:
-            - '11'
-          - escalada: La Marca
+            - 4QYmWZLYIfZPkW
+          - alvo_uid: OABLScx7zfHBNl
+            pontos_uids:
+            - aaYNefUUdD16O0
+            escalada: La Marca
             ids:
-            - '12'
+            - aaYNefUUdD16O0
         escaladas:
-        - via_esportiva:
+        - uid: bGY7jjt35TGBtK
+          via_esportiva:
             nome: Lá Cancha
             dificuldade: BR_8C
             destaque: true
             quantidade_protecoes_intermediarias: 6
             quantidade_protecoes_parada: 2
-        - via_esportiva:
+        - uid: wMFAO7CdjeYw7e
+          via_esportiva:
             nome: La Mano de Dios
             dificuldade: BR_9B
             destaque: true
             quantidade_protecoes_intermediarias: 5
             quantidade_protecoes_parada: 2
-        - via_esportiva:
+        - uid: 8JVfNOQ2gW9Jcy
+          via_esportiva:
             nome: Projeto (sem nome 1)
             dificuldade: PROJETO
             quantidade_protecoes_intermediarias: 6
             quantidade_protecoes_parada: 2
-        - via_esportiva:
+        - uid: DVsshBdFmIcrsW
+          via_esportiva:
             nome: Projeto (sem nome 2)
             dificuldade: PROJETO
             quantidade_protecoes_intermediarias: 7
             quantidade_protecoes_parada: 2
             data_abertura: '2020'
-        - via_esportiva:
+        - uid: U8JPeflFSWXrZZ
+          via_esportiva:
             nome: Barra Brava
             dificuldade: BR_10A
             destaque: true
             quantidade_protecoes_intermediarias: 8
             quantidade_protecoes_parada: 2
             data_abertura: '2020'
-        - via_esportiva:
+        - uid: r5jWWEC9DOZ8Vx
+          via_esportiva:
             nome: Lá Bombonera
             destaque: true
             dificuldade: BR_9B_BARRA_9C
             quantidade_protecoes_intermediarias: 9
             quantidade_protecoes_parada: 2
             data_abertura: '2020'
-        - via_esportiva:
+        - uid: OSpickpZ1nLhIC
+          via_esportiva:
             nome: Diego Armando Maradona
             destaque: true
             dificuldade: BR_9C
             quantidade_protecoes_intermediarias: 8
             quantidade_protecoes_parada: 2
             data_abertura: '2020'
-        - via_esportiva:
+        - uid: m4LvODmbmQX51z
+          via_esportiva:
             nome: River Plate (principal)
             destaque: true
             dificuldade: BR_8A
             quantidade_protecoes_intermediarias: 7
             quantidade_protecoes_parada: 2
-        - via_esportiva:
+        - uid: On2qI9r8TxxD4D
+          via_esportiva:
             nome: Boca Junior (variante)
             dificuldade: BR_8A
             destaque: true
             quantidade_protecoes_intermediarias: 7
             quantidade_protecoes_parada: 2
-        - via_esportiva:
+        - uid: 2g85yvxRTmrvil
+          via_esportiva:
             nome: (via inacabada 3) Superclassicos
             dificuldade: INDEFINIDO
             quantidade_protecoes_intermediarias: 1
-        - via_esportiva:
+        - uid: iH7SPwQn4gXy5R
+          via_esportiva:
             nome: San Lourenzo
             dificuldade: BR_8C
             destaque: true
             quantidade_protecoes_intermediarias: 7
             quantidade_protecoes_parada: 2
-        - via_esportiva:
+        - uid: OABLScx7zfHBNl
+          via_esportiva:
             nome: La Marca
             dificuldade: BR_8A_BARRA_8B
             destaque: true
@@ -459,222 +624,305 @@ picos:
           total_esportivas: 12
   - setor:
       conteudo:
+        uid: rSxUzdQ8mBJymW
         nome: Setor Esquerda
         mapas:
         - caminho_imagem_mapa: imagens/setor_esquerda_p0_i0.webp
           largura_mapa: 1829
           altura_mapa: 1070
           pontos_de_interesse:
-          - id: '1'
-            label: '1'
+          - uid: poyG2VlVSQfq8m
+            rotulo: '1'
             circulo:
               x: 176
               y: 891
               raio: 15
-          - id: '2'
-            label: '2'
+            id: poyG2VlVSQfq8m
+            label: '1'
+          - uid: BycwtmIT62Yuun
+            rotulo: '2'
             circulo:
               x: 697
               y: 1010
               raio: 15
-          - id: '3'
-            label: '3'
+            id: BycwtmIT62Yuun
+            label: '2'
+          - uid: WCmaAp4uvyzDRD
+            rotulo: '3'
             circulo:
               x: 951
               y: 1009
               raio: 15
-          - id: '4'
-            label: '4'
+            id: WCmaAp4uvyzDRD
+            label: '3'
+          - uid: FmXSRlQJUMYAUA
+            rotulo: '4'
             circulo:
               x: 1187
               y: 971
               raio: 15
-          - id: '5'
-            label: '5'
+            id: FmXSRlQJUMYAUA
+            label: '4'
+          - uid: kGQFRXZbNKGsC3
+            rotulo: '5'
             circulo:
               x: 1275
               y: 971
               raio: 15
-          - id: '6'
-            label: '6'
+            id: kGQFRXZbNKGsC3
+            label: '5'
+          - uid: xDY3ag2CnO7ZTp
+            rotulo: '6'
             circulo:
               x: 1364
               y: 990
               raio: 15
-          - id: '7'
-            label: '7'
+            id: xDY3ag2CnO7ZTp
+            label: '6'
+          - uid: 3uYeEp3lGBTb0T
+            rotulo: '7'
             circulo:
               x: 1575
               y: 984
               raio: 15
-          - id: '8'
-            label: '8'
+            id: 3uYeEp3lGBTb0T
+            label: '7'
+          - uid: 11oEOtMCFBHyXm
+            rotulo: '8'
             circulo:
               x: 1660
               y: 984
               raio: 15
+            id: 11oEOtMCFBHyXm
+            label: '8'
           referencias:
-          - escalada: Água Bolhas
+          - alvo_uid: NgdSnrMcAorPRL
+            pontos_uids:
+            - poyG2VlVSQfq8m
+            escalada: Água Bolhas
             ids:
-            - '1'
-          - escalada: Concretino
+            - poyG2VlVSQfq8m
+          - alvo_uid: uYPH3FmeLbLkCy
+            pontos_uids:
+            - BycwtmIT62Yuun
+            escalada: Concretino
             ids:
-            - '2'
-          - escalada: Gado impresso (com abelha)
+            - BycwtmIT62Yuun
+          - alvo_uid: oP5m9O4s2mdydX
+            pontos_uids:
+            - WCmaAp4uvyzDRD
+            escalada: Gado impresso (com abelha)
             ids:
-            - '3'
-          - escalada: (via inacabada 4)
+            - WCmaAp4uvyzDRD
+          - alvo_uid: l4DcSerZGm75gW
+            pontos_uids:
+            - FmXSRlQJUMYAUA
+            escalada: (via inacabada 4)
             ids:
-            - '4'
-            setor: Setor Esquerda
-          - escalada: Jaratataca
+            - FmXSRlQJUMYAUA
+          - alvo_uid: gniP749eAIb2xI
+            pontos_uids:
+            - kGQFRXZbNKGsC3
+            escalada: Jaratataca
             ids:
-            - '5'
-          - escalada: (sem nome 3)
+            - kGQFRXZbNKGsC3
+          - alvo_uid: i4259rGnQO105e
+            pontos_uids:
+            - xDY3ag2CnO7ZTp
+            escalada: (sem nome 3)
             ids:
-            - '6'
-            setor: Setor Esquerda
-          - escalada: (via inacabada 5)
+            - xDY3ag2CnO7ZTp
+          - alvo_uid: GiGaL1kxqewirM
+            pontos_uids:
+            - 3uYeEp3lGBTb0T
+            escalada: (via inacabada 5)
             ids:
-            - '7'
-            setor: Setor Esquerda
-          - escalada: Teoria dos jogos
+            - 3uYeEp3lGBTb0T
+          - alvo_uid: a51GcVXkGuUWPV
+            pontos_uids:
+            - 11oEOtMCFBHyXm
+            escalada: Teoria dos jogos
             ids:
-            - '8'
+            - 11oEOtMCFBHyXm
         - caminho_imagem_mapa: imagens/setor_esquerda_p1_i0.webp
           largura_mapa: 920
           altura_mapa: 1153
           pontos_de_interesse:
-          - id: '1'
-            label: '1'
+          - uid: 7xAt6fxiTcyoxH
+            rotulo: '1'
             circulo:
               x: 300
               y: 889
               raio: 15
+            id: 7xAt6fxiTcyoxH
+            label: '1'
           referencias:
-          - escalada: Água Bolhas
+          - alvo_uid: NgdSnrMcAorPRL
+            pontos_uids:
+            - 7xAt6fxiTcyoxH
+            escalada: Água Bolhas
             ids:
-            - '1'
+            - 7xAt6fxiTcyoxH
         - caminho_imagem_mapa: imagens/setor_esquerda_p1_i1.webp
           largura_mapa: 914
           altura_mapa: 1156
           pontos_de_interesse:
-          - id: '2'
-            label: '2'
+          - uid: QRiSHe8lp41YMF
+            rotulo: '2'
             circulo:
               x: 330
               y: 1007
               raio: 15
-          - id: '3'
-            label: '3'
+            id: QRiSHe8lp41YMF
+            label: '2'
+          - uid: jHmefJHDqjaPSL
+            rotulo: '3'
             circulo:
               x: 585
               y: 1129
               raio: 15
+            id: jHmefJHDqjaPSL
+            label: '3'
           referencias:
-          - escalada: Concretino
+          - alvo_uid: uYPH3FmeLbLkCy
+            pontos_uids:
+            - QRiSHe8lp41YMF
+            escalada: Concretino
             ids:
-            - '2'
-          - escalada: Gado impresso (com abelha)
+            - QRiSHe8lp41YMF
+          - alvo_uid: oP5m9O4s2mdydX
+            pontos_uids:
+            - jHmefJHDqjaPSL
+            escalada: Gado impresso (com abelha)
             ids:
-            - '3'
+            - jHmefJHDqjaPSL
         - caminho_imagem_mapa: imagens/setor_esquerda_p2_i0.webp
           largura_mapa: 916
           altura_mapa: 1151
           pontos_de_interesse:
-          - id: '4'
-            label: '4'
+          - uid: 7GqyfYG6X04Ste
+            rotulo: '4'
             circulo:
               x: 11
               y: 1106
               raio: 14
-          - id: '5'
-            label: '5'
+            id: 7GqyfYG6X04Ste
+            label: '4'
+          - uid: iat1Z1jqJGsaSz
+            rotulo: '5'
             circulo:
               x: 174
               y: 942
               raio: 15
-          - id: '6'
-            label: '6'
+            id: iat1Z1jqJGsaSz
+            label: '5'
+          - uid: QcGKyz1ikla9a8
+            rotulo: '6'
             circulo:
               x: 323
               y: 1110
               raio: 15
-          - id: '7'
-            label: '7'
+            id: QcGKyz1ikla9a8
+            label: '6'
+          - uid: Tu9qrWf4A3unPG
+            rotulo: '7'
             circulo:
               x: 533
               y: 1104
               raio: 15
-          - id: '8'
-            label: '8'
+            id: Tu9qrWf4A3unPG
+            label: '7'
+          - uid: HSXgBAARGlARTG
+            rotulo: '8'
             circulo:
               x: 619
               y: 1104
               raio: 15
+            id: HSXgBAARGlARTG
+            label: '8'
           referencias:
-          - escalada: (via inacabada 4)
+          - alvo_uid: l4DcSerZGm75gW
+            pontos_uids:
+            - 7GqyfYG6X04Ste
+            escalada: (via inacabada 4)
             ids:
-            - '4'
-            setor: Setor Esquerda
-          - escalada: Jaratataca
+            - 7GqyfYG6X04Ste
+          - alvo_uid: gniP749eAIb2xI
+            pontos_uids:
+            - iat1Z1jqJGsaSz
+            escalada: Jaratataca
             ids:
-            - '5'
-          - escalada: (sem nome 3)
+            - iat1Z1jqJGsaSz
+          - alvo_uid: i4259rGnQO105e
+            pontos_uids:
+            - QcGKyz1ikla9a8
+            escalada: (sem nome 3)
             ids:
-            - '6'
-            setor: Setor Esquerda
-          - escalada: (via inacabada 5)
+            - QcGKyz1ikla9a8
+          - alvo_uid: GiGaL1kxqewirM
+            pontos_uids:
+            - Tu9qrWf4A3unPG
+            escalada: (via inacabada 5)
             ids:
-            - '7'
-            setor: Setor Esquerda
-          - escalada: Teoria dos jogos
+            - Tu9qrWf4A3unPG
+          - alvo_uid: a51GcVXkGuUWPV
+            pontos_uids:
+            - HSXgBAARGlARTG
+            escalada: Teoria dos jogos
             ids:
-            - '8'
+            - HSXgBAARGlARTG
         escaladas:
-        - via_esportiva:
+        - uid: NgdSnrMcAorPRL
+          via_esportiva:
             nome: Água Bolhas
             dificuldade: BR_5
             destaque: true
             quantidade_protecoes_intermediarias: 3
             quantidade_protecoes_parada: 2
             data_abertura: '2020'
-        - via_esportiva:
+        - uid: uYPH3FmeLbLkCy
+          via_esportiva:
             nome: Concretino
             dificuldade: BR_7C_BARRA_8A
             destaque: true
             quantidade_protecoes_intermediarias: 5
             quantidade_protecoes_parada: 2
             data_abertura: '2020'
-        - via_esportiva:
+        - uid: oP5m9O4s2mdydX
+          via_esportiva:
             nome: Gado impresso (com abelha)
             dificuldade: INDEFINIDO
             quantidade_protecoes_intermediarias: 5
             quantidade_protecoes_parada: 2
             data_abertura: '2022'
-        - via_esportiva:
+        - uid: l4DcSerZGm75gW
+          via_esportiva:
             nome: (via inacabada 4)
             dificuldade: INDEFINIDO
             quantidade_protecoes_parada: 2
             data_abertura: '2022'
-        - via_esportiva:
+        - uid: gniP749eAIb2xI
+          via_esportiva:
             nome: Jaratataca
             dificuldade: BR_7A
             destaque: true
             quantidade_protecoes_intermediarias: 4
             quantidade_protecoes_parada: 2
             data_abertura: '2022'
-        - via_esportiva:
+        - uid: i4259rGnQO105e
+          via_esportiva:
             nome: (sem nome 3)
             dificuldade: BR_8C_BARRA_9A
             quantidade_protecoes_intermediarias: 4
             quantidade_protecoes_parada: 2
             data_abertura: '2022'
-        - via_esportiva:
+        - uid: GiGaL1kxqewirM
+          via_esportiva:
             nome: (via inacabada 5)
             dificuldade: INDEFINIDO
             data_abertura: '2022'
-        - via_esportiva:
+        - uid: a51GcVXkGuUWPV
+          via_esportiva:
             nome: Teoria dos jogos
             dificuldade: BR_9A
             quantidade_protecoes_intermediarias: 6
@@ -692,93 +940,122 @@ picos:
         largura_mapa: 904
         altura_mapa: 564
         pontos_de_interesse:
-        - id: A2
-          label: A2
+        - uid: xkAWvyiQVv0rMQ
+          rotulo: A2
           retangulo:
             x: 417
             y: 142
             comprimento: 32
             largura: 26
-        - id: Rastro
-          label: Rastro
+          id: xkAWvyiQVv0rMQ
+          label: A2
+        - uid: pONonZHsP7IK3U
+          rotulo: Rastro
           retangulo:
             x: 502
             y: 154
             comprimento: 73
             largura: 29
-        - id: Corumba
-          label: Corumbá
+          id: pONonZHsP7IK3U
+          label: Rastro
+        - uid: Apa8IWck6T9LVR
+          rotulo: Corumbá
           retangulo:
             x: 366
             y: 240
             comprimento: 99
             largura: 27
-        - id: Quilombo
-          label: Quilombo
+          id: Apa8IWck6T9LVR
+          label: Corumbá
+        - uid: fQuLRvsgcwkC3S
+          rotulo: Quilombo
           retangulo:
             x: 504
             y: 255
             comprimento: 109
             largura: 26
-        - id: Novo_Mundo
-          label: Novo Mundo
+          id: fQuLRvsgcwkC3S
+          label: Quilombo
+        - uid: wyzxDEfdQ7MtDG
+          rotulo: Novo Mundo
           retangulo:
             x: 527
             y: 333
             comprimento: 142
             largura: 26
-        - id: Jucarmo
-          label: Jucarmo
+          id: wyzxDEfdQ7MtDG
+          label: Novo Mundo
+        - uid: V6OlMBw2ExiL6Z
+          rotulo: Jucarmo
           retangulo:
             x: 190
             y: 380
             comprimento: 95
             largura: 31
-        - id: La_Bombonera
-          label: La Bombonera
+          id: V6OlMBw2ExiL6Z
+          label: Jucarmo
+        - uid: 7bICZI3HPztwYz
+          rotulo: La Bombonera
           retangulo:
             x: 396
             y: 469
             comprimento: 161
             largura: 32
+          id: 7bICZI3HPztwYz
+          label: La Bombonera
       - caminho_imagem_mapa: imagens/mapas_gerais_p1_i0.webp
         largura_mapa: 1743
         altura_mapa: 1012
         pontos_de_interesse:
-        - id: Setor_Bosque
-          label: Setor Bosque
+        - uid: vygxb7p21zIPzl
+          rotulo: Setor Bosque
           retangulo:
             x: 634
             y: 337
             comprimento: 231
             largura: 148
             angulo_graus_x100: 1277
-        - id: Setor_Bombonera
-          label: Setor Bombonera
+          id: vygxb7p21zIPzl
+          label: Setor Bosque
+        - uid: 4ShLl2bjv4QLWb
+          rotulo: Setor Bombonera
           retangulo:
             x: 968
             y: 442
             comprimento: 389
             largura: 167
             angulo_graus_x100: 1859
-        - id: Setor_Esquerda
-          label: Setor Esquerda
+          id: 4ShLl2bjv4QLWb
+          label: Setor Bombonera
+        - uid: lu0TPqXxK6pQdG
+          rotulo: Setor Esquerda
           retangulo:
             x: 1304
             y: 565
             comprimento: 227
             largura: 156
             angulo_graus_x100: -33295
+          id: lu0TPqXxK6pQdG
+          label: Setor Esquerda
         referencias:
-        - setor: Setor Bosque
+        - alvo_uid: pYitgZt0y6k4JK
+          pontos_uids:
+          - vygxb7p21zIPzl
+          setor: Setor Bosque
           ids:
-          - Setor_Bosque
-        - setor: Setor Bombonera
+          - vygxb7p21zIPzl
+        - alvo_uid: zx4lHNzgwsL23H
+          pontos_uids:
+          - 4ShLl2bjv4QLWb
+          setor: Setor Bombonera
           ids:
-          - Setor_Bombonera
-        - setor: Setor Esquerda
+          - 4ShLl2bjv4QLWb
+        - alvo_uid: rSxUzdQ8mBJymW
+          pontos_uids:
+          - lu0TPqXxK6pQdG
+          setor: Setor Esquerda
           ids:
-          - Setor_Esquerda
+          - lu0TPqXxK6pQdG
   localizacao:
     latitude: -203962230
     longitude: -456497250
@@ -787,7 +1064,8 @@ picos:
     total_setores: 3
     total_esportivas: 29
 botoes:
-- texto: Capa
+- uid: N98fj8cENR6UWj
+  texto: Capa
   destino:
     secao_textual:
       conteudo: |-
@@ -802,7 +1080,8 @@ botoes:
         | *Capa* |
 
         desenvolvido por alexsandro
-- texto: Atenção e Regras
+- uid: OhCbRpO7eqgFVt
+  texto: Atenção e Regras
   destino:
     secao_textual:
       conteudo: |-
@@ -821,7 +1100,8 @@ botoes:
         # SEJA CONSCIENTE!
 
         **UTILIZE APENAS AS TRILHAS PRINCIPAIS; As grutas não são banheiros!** Faça suas necessidades fisiológicas em casa, caso não consiga segurar, faça longe das pedras e cubra com folhas ou terra; **Leve todo seu lixo de volta** e o lixo de outros visitantes descuidados (inclusive papel higiênico, garrafas plásticas, bitucas, pontas, papel de bala...); Os animais locais e plantas nativas devem permanecer em seus lugares. Lembre-se que eles estão em seu habitat natural e precisam ser respeitados; Os animais domésticos (ex. cães) não devem ser trazidos a este local, desta forma, você os protege de doenças silvestres e vice versa; Fogueiras além de provocar queimadas, danificam o local; Estacione de maneira adequada e no local adequado a fim de não atrapalhar o fluxo de outros veículos; Utilize equipamentos de segurança e verifique seu estado de conservação; Cuidado com pedras soltas principalmente em setores e vias novas; Antes de conquistar uma via de escalada entre em contato com o GT.
-- texto: Parcerias e Contato
+- uid: 7vECZW8NTtJtEu
+  texto: Parcerias e Contato
   destino:
     secao_textual:
       conteudo: |-
@@ -838,7 +1118,7 @@ botoes:
         **ATUALIZAÇÕES/SUGESTÕES:** abrigobase@gmail.com
 
         **CONTRIBUIÇÃO/PARCERIA:** PIX: 37 99918-3634
-ultima_migracao: 4
+ultima_migracao: 5
 publicar_croqui: true
 revisado_bounding_circle: true
 arquivos_externos:

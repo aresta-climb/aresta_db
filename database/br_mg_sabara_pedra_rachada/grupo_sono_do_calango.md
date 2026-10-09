@@ -1,6 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+uid: UmLDLKi3UjAn2m
 caminho_imagem_capa: imagens/setor_sono_do_calango_p0_i0.webp
 nome: Sono do Calango
 mapas:
@@ -8,45 +9,45 @@ mapas:
   largura_mapa: 1099
   altura_mapa: 710
   referencias:
-  - escalada: Rala-bucho
-    ids:
+  - alvo_uid: 9mgzVVI86Gsiy6
+    pontos_uids:
     - '5'
-  - escalada: Rala-queixo
-    ids:
+  - alvo_uid: QtvkgIux4n3rHl
+    pontos_uids:
     - '6'
-  - escalada: Varejeira
-    ids:
+  - alvo_uid: jD3BcCcMbAgcPr
+    pontos_uids:
     - '7'
-  - escalada: Tótem
-    ids:
+  - alvo_uid: QxbNvHVWQzc5Sf
+    pontos_uids:
     - '8'
-  - escalada: Quina
-    ids:
+  - alvo_uid: DniDxlnGQELR7s
+    pontos_uids:
     - '9'
-  - escalada: Pinça
-    ids:
+  - alvo_uid: Ah2NDaAIZH7eew
+    pontos_uids:
     - '10'
 - caminho_imagem_mapa: imagens/setor_sono_do_calango_p3_i1.webp
   largura_mapa: 1099
   altura_mapa: 710
   referencias:
-  - escalada: Rala-queixo
-    ids:
+  - alvo_uid: QtvkgIux4n3rHl
+    pontos_uids:
     - '6'
-  - escalada: Varejeira
-    ids:
+  - alvo_uid: jD3BcCcMbAgcPr
+    pontos_uids:
     - '7'
-  - escalada: Tótem
-    ids:
+  - alvo_uid: QxbNvHVWQzc5Sf
+    pontos_uids:
     - '8'
-  - escalada: Quina
-    ids:
+  - alvo_uid: DniDxlnGQELR7s
+    pontos_uids:
     - '9'
-  - escalada: Pinça
-    ids:
+  - alvo_uid: Ah2NDaAIZH7eew
+    pontos_uids:
     - '10'
-  - escalada: Pataca
-    ids:
+  - alvo_uid: KLKKPiTa1E1nJ6
+    pontos_uids:
     - '11'
 setores:
 - caminho: grupo_sono_do_calango_setor_bloco_a_high_vibe.md

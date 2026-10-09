@@ -1,29 +1,34 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+uid: 5pN7yJIZtS7qQY
 caminho_imagem_capa: imagens/setor_a_pedreira_p1_i1.webp
 nome: A Pedreira
 mapas:
 - caminho_imagem_mapa: imagens/setor_a_pedreira_p1_i2.webp
 - caminho_imagem_mapa: imagens/setor_a_pedreira_p2_i1.webp
 escaladas:
-- via_esportiva:
+- uid: lIeU9XOaj9Hiaq
+  via_esportiva:
     nome: Coisa do capeta
     dificuldade: BR_7A
-- via_esportiva:
+- uid: cT8mbtQnYmyS1q
+  via_esportiva:
     nome: Sabão crácrá
     dificuldade: BR_7A
-- via_esportiva:
+- uid: MisUpn1lPA0zcS
+  via_esportiva:
     nome: Europa
     dificuldade: BR_6
-- via_esportiva:
+- uid: tloGoMIlsgbo9P
+  via_esportiva:
     nome: Fica à vontade
     dificuldade: BR_5
-- via_esportiva:
+- uid: vv1xnqldr1N8Aa
+  via_esportiva:
     nome: Pe pra fora
     dificuldade: BR_6SUP
 ---
-
 
 ![Mapa de acesso à Pedreira](imagens/setor_a_pedreira_p0_i1.webp)
 

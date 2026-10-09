@@ -1,6 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+uid: SIe8qMFw1Y46zG
 caminho_imagem_capa: imagens/setor_tapa_na_cara_p0_i0.webp
 nome: Tapa na Cara
 mapas:
@@ -8,45 +9,46 @@ mapas:
   largura_mapa: 1280
   altura_mapa: 1707
   pontos_de_interesse:
-  - id: '01'
-    label: '01'
+  - uid: QgT7EBt8FUEXVE
+    rotulo: '01'
     circulo:
       x: 390
       y: 1061
       raio: 22
-  - id: '02'
-    label: '02'
+  - uid: T0glVtLEys5pdU
+    rotulo: '02'
     circulo:
       x: 605
       y: 1065
       raio: 22
-  - id: '03'
-    label: '03'
+  - uid: wwsC4daVFJYHjD
+    rotulo: '03'
     circulo:
       x: 854
       y: 1104
       raio: 22
-  - id: '04'
-    label: '04'
+  - uid: rHGzNuGFbtRPp3
+    rotulo: '04'
     circulo:
       x: 1050
       y: 1119
       raio: 22
   referencias:
-  - escalada: Marcha lenta
-    ids:
-    - '01'
-  - escalada: Bundalelê
-    ids:
-    - '02'
-  - escalada: Tapa na Cara
-    ids:
-    - '03'
-  - escalada: Cotonete Molhado
-    ids:
-    - '04'
+  - alvo_uid: Qv5Oziuikaqdg9
+    pontos_uids:
+    - QgT7EBt8FUEXVE
+  - alvo_uid: bq6Ph21tIFhVNl
+    pontos_uids:
+    - T0glVtLEys5pdU
+  - alvo_uid: 3Y1MK9DFiABqp5
+    pontos_uids:
+    - wwsC4daVFJYHjD
+  - alvo_uid: 77gq3V4yehvQXa
+    pontos_uids:
+    - rHGzNuGFbtRPp3
 escaladas:
-- via_esportiva:
+- uid: Qv5Oziuikaqdg9
+  via_esportiva:
     nome: Marcha lenta
     dificuldade: BR_6
     extensao: 8
@@ -56,7 +58,8 @@ escaladas:
     - Diego Leonardo
     - Allisson Ismael
     data_abertura: '2013'
-- via_esportiva:
+- uid: bq6Ph21tIFhVNl
+  via_esportiva:
     nome: Bundalelê
     dificuldade: BR_6
     extensao: 10
@@ -67,7 +70,8 @@ escaladas:
     - Daiex
     - Paulo
     data_abertura: '2013'
-- via_esportiva:
+- uid: 3Y1MK9DFiABqp5
+  via_esportiva:
     nome: Tapa na Cara
     dificuldade: BR_7A
     extensao: 10
@@ -77,7 +81,8 @@ escaladas:
     - Diego Leonardo
     - Gustavo Maneira
     data_abertura: '2013'
-- via_esportiva:
+- uid: 77gq3V4yehvQXa
+  via_esportiva:
     nome: Cotonete Molhado
     dificuldade: BR_6SUP
     extensao: 8

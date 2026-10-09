@@ -1,6 +1,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
+uid: Re2NDXbW3yaH07
 id: br_mg_montes_claros_vieiras
 nome: Montes Claros - Vieiras
 caminho_thumbnail: imagens/mapas_gerais_p0_i0.webp
@@ -12,4 +13,4 @@ picos:
       caminho: setor_vieiras.md
   mapas_gerais:
     caminho: mapas_gerais.md
-ultima_migracao: 4
+ultima_migracao: 5

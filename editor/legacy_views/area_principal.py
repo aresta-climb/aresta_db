@@ -465,6 +465,12 @@ class JanelaPrincipal(QMainWindow):
         self.acao_publicar.setToolTip("Enviar proposta de mudança no croqui")
         self.acao_publicar.triggered.connect(self.publicar_croqui)
         
+        self.acao_sincronizar = QAction(Icones.obter("sincronizar"), "Sincronizar", self)
+        self.acao_sincronizar.setToolTip("Sincronizar com a branch remota")
+        self.acao_sincronizar.triggered.connect(lambda: self.sincronizar_croqui(silencioso=False))
+
+        self.atualizar_estado_sincronizacao()
+
         if self.workspace and not self.workspace.can_publish_pr():
             self.acao_publicar.setEnabled(False)
             self.acao_publicar.setToolTip("Envio de proposta de mudança não suportado no Local Mode.")
@@ -486,6 +492,7 @@ class JanelaPrincipal(QMainWindow):
         self.toolbar_superior.addAction(self.acao_celular)
         self.toolbar_superior.addSeparator()
         self.toolbar_superior.addAction(self.acao_publicar)
+        self.toolbar_superior.addAction(self.acao_sincronizar)
         
     def _setup_navegacao_lateral(self) -> None:
         self.acao_nav_dados = QAction(Icones.obter("dados"), "Dados", self)
@@ -792,6 +799,8 @@ class JanelaPrincipal(QMainWindow):
                     anexar_diario_escopo(diario)
                 
                 self.atualizar_titulo()
+                self.atualizar_estado_sincronizacao()
+                self.sincronizar_croqui(silencioso=True)
                 
     def salvar_croqui(self, callback_sucesso: Optional[Callable[[], None]] = None) -> None:
         """Salva as alterações, compila e faz commit no git local se aplicável."""
@@ -961,6 +970,118 @@ class JanelaPrincipal(QMainWindow):
             parent=self
         )
         self._publish_controller.iniciar_publicacao()
+
+    def atualizar_estado_sincronizacao(self) -> None:
+        """Controla a habilitação contextual do botão de sincronização remota."""
+        if not hasattr(self, "acao_sincronizar"):
+            return
+
+        if not self.workspace or not self.workspace.can_publish_pr():
+            self.acao_sincronizar.setEnabled(False)
+            self.acao_sincronizar.setToolTip("Sincronização remota não suportada no Local Mode.")
+            return
+
+        meta = self.workspace.ler_metadados_experimentais() if hasattr(self.workspace, "ler_metadados_experimentais") else {}
+        pr_branch = meta.get("pull_request_branch")
+        if pr_branch:
+            self.acao_sincronizar.setEnabled(True)
+            self.acao_sincronizar.setToolTip(f"Sincronizar com a branch remota ({pr_branch})")
+        else:
+            self.acao_sincronizar.setEnabled(False)
+            self.acao_sincronizar.setToolTip("Nenhuma Pull Request vinculada a este croqui.")
+
+    def sincronizar_croqui(self, silencioso: bool = False) -> None:
+        """Dispara o fluxo assíncrono de sincronização com a branch remota da PR."""
+        if not self.workspace or not self.workspace.can_publish_pr():
+            return
+
+        meta = self.workspace.ler_metadados_experimentais() if hasattr(self.workspace, "ler_metadados_experimentais") else {}
+        pr_branch = meta.get("pull_request_branch")
+        if not pr_branch:
+            return
+
+        id_croqui = self.croqui_data.get("id") if self.croqui_data else (self.workspace.caminho_raiz.name if getattr(self.workspace, "caminho_raiz", None) else "")
+        if not id_croqui:
+            return
+
+        caminho_db = self.workspace.obter_caminho_database()
+        from editor.core.servico_submissao import ServicoSubmissao
+        caminho_repo = self.storage.obter_caminho_base_repo() if hasattr(self.storage, "obter_caminho_base_repo") else None
+        servico = ServicoSubmissao(caminho_repo_base=caminho_repo)
+
+        sessao = None
+        if hasattr(self.auth, "obter_sessao"):
+            sessao = self.auth.obter_sessao()
+
+        from editor.core.worker import TarefaSincronizacaoPR
+        self._tarefa_sincronizacao = TarefaSincronizacaoPR(
+            servico_submissao=servico,
+            id_croqui=id_croqui,
+            nome_branch=pr_branch,
+            caminho_database_croqui=caminho_db,
+            sessao=sessao,
+        )
+        self._tarefa_sincronizacao.sucesso.connect(lambda res: self._on_sincronizacao_sucesso(res, silencioso))
+        self._tarefa_sincronizacao.aviso.connect(lambda msg: self._on_sincronizacao_aviso(msg, silencioso))
+        self._tarefa_sincronizacao.erro.connect(lambda err: self._on_sincronizacao_erro(err, silencioso))
+        self._tarefa_sincronizacao.conflito.connect(lambda res: self._on_sincronizacao_conflito(res, servico, id_croqui, pr_branch, caminho_db, sessao))
+        self._tarefa_sincronizacao.start()
+
+    def _on_sincronizacao_sucesso(self, resultado: Any, silencioso: bool) -> None:
+        """Callback executado quando novos commits remotos são mesclados com sucesso."""
+        self._recarregar_dados_apos_salvamento()
+        if not silencioso:
+            from PySide6.QtWidgets import QMessageBox
+            QMessageBox.information(self, "Sincronização Concluída", getattr(resultado, "mensagem", "Atualizações remotas aplicadas com sucesso."))
+        elif hasattr(self, "exibir_notificacao"):
+            self.exibir_notificacao("Atualizações da Pull Request aplicadas com sucesso.")
+
+    def _on_sincronizacao_aviso(self, mensagem: str, silencioso: bool) -> None:
+        """Callback quando o croqui já está atualizado."""
+        if not silencioso:
+            from PySide6.QtWidgets import QMessageBox
+            QMessageBox.information(self, "Sincronização", mensagem)
+
+    def _on_sincronizacao_erro(self, erro_msg: str, silencioso: bool) -> None:
+        """Callback em falha de conexão ou erro git na sincronização."""
+        if not silencioso:
+            from PySide6.QtWidgets import QMessageBox
+            QMessageBox.warning(self, "Falha na Sincronização", f"Não foi possível sincronizar com a branch remota:\n{erro_msg}")
+
+    def _on_sincronizacao_conflito(
+        self,
+        resultado: Any,
+        servico: Any,
+        id_croqui: str,
+        nome_branch: str,
+        caminho_db: Path,
+        sessao: Optional[Any],
+    ) -> None:
+        """Exibe o diálogo de resolução de conflitos e aplica a decisão do usuário."""
+        from editor.views.dialogos.dialogo_conflito_sincronizacao import (
+            DialogoConflitoSincronizacao,
+            DecisaoConflito,
+        )
+        dialogo = DialogoConflitoSincronizacao(
+            id_croqui=id_croqui,
+            nome_branch=nome_branch,
+            arquivos_conflito=getattr(resultado, "arquivos_conflito", []),
+            parent=self,
+        )
+        if dialogo.exec() == QDialog.DialogCode.Accepted:
+            decisao = dialogo.obter_decisao()
+            if decisao in (DecisaoConflito.MANTER_LOCAL, DecisaoConflito.USAR_REMOTO):
+                manter_local = (decisao == DecisaoConflito.MANTER_LOCAL)
+                res_conflito = servico.resolver_conflito_pr(
+                    id_croqui=id_croqui,
+                    nome_branch=nome_branch,
+                    caminho_database_croqui=caminho_db,
+                    manter_local=manter_local,
+                    sessao=sessao,
+                )
+                self._recarregar_dados_apos_salvamento()
+                from PySide6.QtWidgets import QMessageBox
+                QMessageBox.information(self, "Conflito Resolvido", getattr(res_conflito, "mensagem", "Conflito resolvido."))
 
     def _descartar_diario_pendente(self) -> None:
         """Limpa o diário pendente caso o usuário feche sem salvar ou descarte as alterações."""

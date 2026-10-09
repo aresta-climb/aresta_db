@@ -6,8 +6,8 @@ mapas:
   largura_mapa: 1926
   altura_mapa: 1297
   pontos_de_interesse:
-  - id: I
-    label: I
+  - uid: IbUvETYLwk7aor
+    rotulo: I
     poligono:
       coordenadas:
       - 770
@@ -20,8 +20,8 @@ mapas:
       - 472
       - 833
       - 488
-  - id: ii
-    label: II
+  - uid: SrrfY5W7a4SoMG
+    rotulo: II
     poligono:
       coordenadas:
       - 924
@@ -34,8 +34,8 @@ mapas:
       - 429
       - 953
       - 413
-  - id: III
-    label: III
+  - uid: 96K2LWJvUM8ahL
+    rotulo: III
     poligono:
       coordenadas:
       - 998
@@ -52,8 +52,8 @@ mapas:
       - 545
       - 1019
       - 481
-  - id: IV
-    label: IV
+  - uid: L5MRwyAihzOooF
+    rotulo: IV
     poligono:
       coordenadas:
       - 1165
@@ -70,8 +70,8 @@ mapas:
       - 653
       - 1180
       - 629
-  - id: V
-    label: V
+  - uid: DArNh02VY607hf
+    rotulo: V
     poligono:
       coordenadas:
       - 1432
@@ -88,8 +88,8 @@ mapas:
       - 645
       - 1315
       - 554
-  - id: VI
-    label: VI
+  - uid: UdlLE2XE09JMRM
+    rotulo: VI
     poligono:
       coordenadas:
       - 1575
@@ -106,8 +106,8 @@ mapas:
       - 980
       - 1618
       - 954
-  - id: VII
-    label: VII
+  - uid: xl84lyMXyjjRHh
+    rotulo: VII
     poligono:
       coordenadas:
       - 901
@@ -120,8 +120,8 @@ mapas:
       - 561
       - 900
       - 465
-  - id: VIII
-    label: VIII
+  - uid: mYRqccO8ZICq0M
+    rotulo: VIII
     poligono:
       coordenadas:
       - 1020
@@ -136,8 +136,8 @@ mapas:
       - 630
       - 1069
       - 689
-  - id: IX
-    label: IX
+  - uid: ulUBw7hgpcjzkC
+    rotulo: IX
     poligono:
       coordenadas:
       - 1197
@@ -158,8 +158,8 @@ mapas:
       - 829
       - 1286
       - 871
-  - id: X
-    label: X
+  - uid: YkjYBeVPiQwPZ8
+    rotulo: X
     poligono:
       coordenadas:
       - 1271
@@ -170,8 +170,8 @@ mapas:
       - 878
       - 1289
       - 917
-  - id: XI
-    label: XI
+  - uid: sHqOpoe2XbzAZI
+    rotulo: XI
     poligono:
       coordenadas:
       - 1340
@@ -202,8 +202,8 @@ mapas:
       - 1289
       - 1436
       - 1281
-  - id: XII
-    label: XII
+  - uid: xkikuC5xdALcA5
+    rotulo: XII
     poligono:
       coordenadas:
       - 280
@@ -216,8 +216,8 @@ mapas:
       - 515
       - 282
       - 500
-  - id: XIII
-    label: XIII
+  - uid: XgVVzKmqknDMCD
+    rotulo: XIII
     retangulo:
       x: 134
       y: 382
@@ -225,53 +225,43 @@ mapas:
       largura: 45
     cor: ''
   referencias:
-  - ids:
-    - I
-    setor: Cachoeira
-  - ids:
-    - ii
-    grupo: Parede das Aderências
-    setor: Extrema Esquerda
-  - ids:
-    - III
-    grupo: Parede das Aderências
-    setor: Esquerda
-  - ids:
-    - IV
-    grupo: Parede das Aderências
-    setor: Face Central
-  - ids:
-    - V
-    grupo: Parede das Aderências
-    setor: Setor de Cima
-  - ids:
-    - VI
-    grupo: Parede das Aderências
-    setor: Extrema Direita
-  - ids:
-    - VII
-    grupo: Parede Principal (Paredes de Aço)
-    setor: Setor Clássicas Curtas
-  - ids:
-    - VIII
-    grupo: Parede Principal (Paredes de Aço)
-    setor: Parede Principal – Direita
-  - ids:
-    - IX
-    grupo: Parede Principal (Paredes de Aço)
-    setor: Setor Central
-  - ids:
-    - X
-    grupo: Parede Principal (Paredes de Aço)
-    setor: Setor de Cima
-  - ids:
-    - XI
-    grupo: Parede Principal (Paredes de Aço)
-    setor: Setor Clássicas Longas
-  - ids:
-    - XII
-    setor: Parede dos Solos
-  - ids:
-    - XIII
-    setor: Setor Vias Esportivas
+  - alvo_uid: lTi8TIXxTU6KF0
+    pontos_uids:
+    - IbUvETYLwk7aor
+  - alvo_uid: FO3KvzGBfKKpB4
+    pontos_uids:
+    - SrrfY5W7a4SoMG
+  - alvo_uid: avRkW8fzw3OF22
+    pontos_uids:
+    - 96K2LWJvUM8ahL
+  - alvo_uid: rGOlhPmCuaVWav
+    pontos_uids:
+    - L5MRwyAihzOooF
+  - alvo_uid: E0ZwbLrlRUznG0
+    pontos_uids:
+    - DArNh02VY607hf
+  - alvo_uid: sMtcp04stg3wSX
+    pontos_uids:
+    - UdlLE2XE09JMRM
+  - alvo_uid: rKxz4SSg8tyORQ
+    pontos_uids:
+    - xl84lyMXyjjRHh
+  - alvo_uid: g0ASFec0ovBc9J
+    pontos_uids:
+    - mYRqccO8ZICq0M
+  - alvo_uid: nJgmAcSxMTe2Xy
+    pontos_uids:
+    - ulUBw7hgpcjzkC
+  - alvo_uid: E0ZwbLrlRUznG0
+    pontos_uids:
+    - YkjYBeVPiQwPZ8
+  - alvo_uid: 0swIknUTarrNZN
+    pontos_uids:
+    - sHqOpoe2XbzAZI
+  - alvo_uid: yN4hgcwkUvCqJC
+    pontos_uids:
+    - xkikuC5xdALcA5
+  - alvo_uid: o2smhkoUzmFDR9
+    pontos_uids:
+    - XgVVzKmqknDMCD
 ---

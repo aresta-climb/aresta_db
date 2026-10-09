@@ -36,10 +36,10 @@ def extrair_rotulo_referencia(mapa: Optional[Any], referencia: Optional[Any]) ->
     """
     Extrai e formata o rótulo identificador (codenome) de uma referência visual de mapa.
 
-    Itera sobre `ref.ids` e seus nós na ordem sequencial exata, coletando:
+    Itera sobre `ref.pontos_uids` e seus nós na ordem sequencial exata, coletando:
     - Rótulos de nós de traçados vetoriais do tipo `CIRCULO_IDENTIFICADOR`,
       `INICIO_AGACHADO` ou `FIM_TOP` que possuam `rotulo` preenchido.
-    - O campo `label` de pontos de interesse convencionais (não-linhas) que esteja preenchido.
+    - O campo `rotulo` de pontos de interesse convencionais (não-linhas) que esteja preenchido.
 
     Deduplica rótulos idênticos consecutivos (ex: nós compartilhados entre segmentos)
     e une os identificadores com traço (ex: "5-C", "SS-1-TOP").
@@ -50,12 +50,12 @@ def extrair_rotulo_referencia(mapa: Optional[Any], referencia: Optional[Any]) ->
     if not mapa or not referencia:
         return ""
 
-    ref_ids = (
-        referencia.get("ids", [])
+    ref_uids = (
+        referencia.get("pontos_uids", [])
         if isinstance(referencia, dict)
-        else getattr(referencia, "ids", [])
+        else getattr(referencia, "pontos_uids", [])
     )
-    if not ref_ids:
+    if not ref_uids:
         return ""
 
     pois = (
@@ -66,13 +66,13 @@ def extrair_rotulo_referencia(mapa: Optional[Any], referencia: Optional[Any]) ->
 
     pois_map = {}
     for p in pois:
-        pid = p.get("id") if isinstance(p, dict) else getattr(p, "id", None)
-        if pid is not None:
-            pois_map[str(pid)] = p
+        p_uid = p.get("uid") if isinstance(p, dict) else getattr(p, "uid", None)
+        if p_uid:
+            pois_map[str(p_uid)] = p
 
     rotulos: List[str] = []
 
-    for id_ref in ref_ids:
+    for id_ref in ref_uids:
         p = pois_map.get(str(id_ref))
         if not p:
             continue
@@ -118,7 +118,7 @@ def extrair_rotulo_referencia(mapa: Optional[Any], referencia: Optional[Any]) ->
                         rotulos.append(rot)
         else:
             rot = str(
-                (p.get("label") if eh_dict else getattr(p, "label", "")) or ""
+                (p.get("rotulo") if eh_dict else getattr(p, "rotulo", "")) or ""
             ).strip()
             if rot:
                 rotulos.append(rot)

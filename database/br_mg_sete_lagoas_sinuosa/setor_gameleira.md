@@ -1,6 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+uid: TU7ksiizSIZqH4
 caminho_imagem_capa: imagens/setor_gameleira_p0_i1.webp
 nome: Setor Gameleira
 mapas:
@@ -8,77 +9,81 @@ mapas:
   largura_mapa: 711
   altura_mapa: 582
   pontos_de_interesse:
-  - id: '1'
-    label: '1'
+  - uid: zpvDRd1r3y2MNE
+    rotulo: '1'
     circulo:
       x: 248
       y: 447
       raio: 17
-  - id: '2'
-    label: '2'
+  - uid: g9yx6zoR5Jew2A
+    rotulo: '2'
     circulo:
       x: 254
       y: 370
       raio: 17
-  - id: '3'
-    label: '3'
+  - uid: dczqywvgxUfDb6
+    rotulo: '3'
     circulo:
       x: 157
       y: 244
       raio: 17
-  - id: '4'
-    label: '4'
+  - uid: SxWDOrg8c5Fwis
+    rotulo: '4'
     circulo:
       x: 299
       y: 99
       raio: 17
-  - id: Setor_Vale_das_Sombras
-    label: SETOR VALE DAS SOMBRAS →
+  - uid: VyUTgXbJbUkzcZ
+    rotulo: SETOR VALE DAS SOMBRAS →
     retangulo:
       x: 492
       y: 512
       comprimento: 325
       largura: 25
-  - id: Setor_Death_Horse
-    label: ← SETOR DEATH HORSE
+  - uid: 2ZbqjP8qK3ObPL
+    rotulo: ← SETOR DEATH HORSE
     retangulo:
       x: 252
       y: 566
       comprimento: 265
       largura: 24
   referencias:
-  - escalada: Sou Fria
-    ids:
-    - '1'
-  - escalada: Revivência
-    ids:
-    - '2'
-  - escalada: Mordida de Égua
-    ids:
-    - '3'
-  - escalada: Girassol
-    ids:
-    - '4'
-  - ids:
-    - Setor_Death_Horse
-    setor: Setor Death Horse
-  - ids:
-    - Setor_Vale_das_Sombras
-    setor: Setor Vale das Sombras
+  - alvo_uid: yI8nxikFh9tMjw
+    pontos_uids:
+    - zpvDRd1r3y2MNE
+  - alvo_uid: 9erVbTGCqi6xaf
+    pontos_uids:
+    - g9yx6zoR5Jew2A
+  - alvo_uid: OZc5KFYB0Xhd7J
+    pontos_uids:
+    - dczqywvgxUfDb6
+  - alvo_uid: MHllFz7aY8Ec0k
+    pontos_uids:
+    - SxWDOrg8c5Fwis
+  - alvo_uid: YDntm65nIZs31H
+    pontos_uids:
+    - 2ZbqjP8qK3ObPL
+  - alvo_uid: fueKv7mvJ5Mon2
+    pontos_uids:
+    - VyUTgXbJbUkzcZ
 escaladas:
-- via_esportiva:
+- uid: yI8nxikFh9tMjw
+  via_esportiva:
     nome: Sou Fria
     dificuldade: BR_9A
     quantidade_protecoes_intermediarias: 7
-- via_esportiva:
+- uid: 9erVbTGCqi6xaf
+  via_esportiva:
     nome: Revivência
     dificuldade: BR_7A
     quantidade_protecoes_intermediarias: 6
-- via_esportiva:
+- uid: OZc5KFYB0Xhd7J
+  via_esportiva:
     nome: Mordida de Égua
     dificuldade: BR_5
     quantidade_protecoes_intermediarias: 7
-- via_esportiva:
+- uid: MHllFz7aY8Ec0k
+  via_esportiva:
     nome: Girassol
     dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 6

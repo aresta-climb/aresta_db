@@ -51,6 +51,8 @@ if (spec_dir / 'logo.icns').exists():
 if eh_beta and (spec_dir / 'recursos_beta').exists():
     datas.append((str(spec_dir / 'recursos_beta'), 'recursos_beta'))
     datas.append((str(spec_dir / 'recursos_beta'), 'editor/recursos_beta'))
+if (repo_root / 'migracoes').exists():
+    datas.append((str(repo_root / 'migracoes'), 'migracoes'))
 binaries = []
 hiddenimports = ['sentry_sdk']
 

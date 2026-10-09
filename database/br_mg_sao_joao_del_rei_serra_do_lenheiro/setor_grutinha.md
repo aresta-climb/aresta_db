@@ -1,47 +1,49 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+uid: K8z8Hzyp0aTcez
 nome: Grutinha
 mapas:
 - caminho_imagem_mapa: imagens/setor_grutinha_p0_i3.webp
   largura_mapa: 641
   altura_mapa: 481
   pontos_de_interesse:
-  - id: '1'
-    label: '1'
+  - uid: lGqt4czx60vdW8
+    rotulo: '1'
     circulo:
       x: 226
       y: 432
       raio: 26
-  - id: '2'
-    label: '2'
+  - uid: 5WZShhoBgjavwo
+    rotulo: '2'
     circulo:
       x: 384
       y: 435
       raio: 26
   referencias:
-  - escalada: Via do Tetinho
-    ids:
-    - '1'
-  - escalada: Imagina Eu
-    ids:
-    - '2'
+  - alvo_uid: Qd1JQ4JPc1VETd
+    pontos_uids:
+    - lGqt4czx60vdW8
+  - alvo_uid: jXD7YAegH5VhhV
+    pontos_uids:
+    - 5WZShhoBgjavwo
 - caminho_imagem_mapa: imagens/setor_grutinha_p0_i2.webp
   largura_mapa: 587
   altura_mapa: 904
   pontos_de_interesse:
-  - id: '3'
-    label: '3'
+  - uid: hn1CiyUdQZAhIz
+    rotulo: '3'
     circulo:
       x: 371
       y: 862
       raio: 31
   referencias:
-  - escalada: Diedro Oculto
-    ids:
-    - '3'
+  - alvo_uid: 96RuVgqG9iSfiD
+    pontos_uids:
+    - hn1CiyUdQZAhIz
 escaladas:
-- via_movel:
+- uid: Qd1JQ4JPc1VETd
+  via_movel:
     nome: Via do Tetinho
     dificuldade: BR_7A
     extensao: 15
@@ -49,14 +51,15 @@ escaladas:
     conquistadores:
     - Centro Excursionista Lenheiro
     descricao: Via localizada na coluna de entrada da gruta. Móvel só na saída.
-- via_esportiva:
+- uid: jXD7YAegH5VhhV
+  via_esportiva:
     nome: Imagina Eu
     dificuldade: BR_7C
     extensao: 15
-    descricao: Também entra no time das primeiras vias esportivas do lenheiro. Curta
-      e explosiva, com passadas pelo teto, torna essa via uma clássica, encontra-se
-      em um local muito agradável e exótico. Opção para dias de chuva.
-- via_movel:
+    descricao: Também entra no time das primeiras vias esportivas do lenheiro. Curta e explosiva, com passadas pelo 
+      teto, torna essa via uma clássica, encontra-se em um local muito agradável e exótico. Opção para dias de chuva.
+- uid: 96RuVgqG9iSfiD
+  via_movel:
     nome: Diedro Oculto
     dificuldade: BR_3
     extensao: 15
@@ -64,8 +67,7 @@ escaladas:
     - Pedro Bugim
     - Liane Leobons
     data_abertura: '2008'
-    descricao: Via curta e de baixa graduação, sendo indicada para aqueles que estejam
-      começando a escalar em móvel.
+    descricao: Via curta e de baixa graduação, sendo indicada para aqueles que estejam começando a escalar em móvel.
 ---
 
 # Grutinha

@@ -265,3 +265,78 @@ def test_aplicar_migracoes_preserva_formatacao_width_90(tmp_path):
     assert "Uma descricao incrivelmente longa que passa de noventa caracteres em uma unica\\n" not in yaml_atualizado
     
     assert "ultima_migracao: 1" in yaml_atualizado
+
+
+def test_obter_caminho_migracoes_padrao():
+    """Testa que obter_caminho_migracoes retorna a pasta migracoes existente no repo."""
+    caminho = migrador.obter_caminho_migracoes()
+    assert caminho.name == "migracoes"
+    assert caminho.is_dir()
+
+
+def test_obter_caminho_migracoes_sys_frozen_meipass(tmp_path, monkeypatch):
+    """Testa que quando executando congelado com PyInstaller, busca em sys._MEIPASS."""
+    meipass_migracoes = tmp_path / "meipass" / "migracoes"
+    meipass_migracoes.mkdir(parents=True)
+    monkeypatch.setattr(migrador.sys, "frozen", True, raising=False)
+    monkeypatch.setattr(migrador.sys, "_MEIPASS", str(tmp_path / "meipass"), raising=False)
+
+    caminho = migrador.obter_caminho_migracoes()
+    assert caminho == meipass_migracoes
+
+
+def test_obter_caminho_migracoes_fallback_repo_base(tmp_path, monkeypatch):
+    """Testa fallback para GerenciadorCaminhos().obter_caminho_base_repo() quando padrao nao existe."""
+    repo_migracoes = tmp_path / "repo_base" / "migracoes"
+    repo_migracoes.mkdir(parents=True)
+
+    class FakeGerenciadorCaminhos:
+        def obter_caminho_base_repo(self):
+            return tmp_path / "repo_base"
+
+    monkeypatch.setattr(
+        migrador,
+        "_obter_caminho_padrao_migracoes",
+        lambda: tmp_path / "inexistente" / "migracoes",
+    )
+
+    with patch("editor.core.storage.GerenciadorCaminhos", FakeGerenciadorCaminhos):
+        caminho = migrador.obter_caminho_migracoes()
+        assert caminho == repo_migracoes
+
+
+def test_obter_caminho_migracoes_fallback_padrao_quando_nada_existe(tmp_path, monkeypatch):
+    """Testa que retorna o caminho padrao quando nenhuma alternativa existe."""
+    caminho_padrao = tmp_path / "inexistente" / "migracoes"
+    monkeypatch.setattr(migrador, "_obter_caminho_padrao_migracoes", lambda: caminho_padrao)
+
+    class FakeGerenciadorCaminhosSemRepo:
+        def obter_caminho_base_repo(self):
+            return tmp_path / "repo_inexistente"
+
+    with patch("editor.core.storage.GerenciadorCaminhos", FakeGerenciadorCaminhosSemRepo):
+        caminho = migrador.obter_caminho_migracoes()
+        assert caminho == caminho_padrao
+
+
+def test_obter_caminho_migracoes_fallback_ignora_excecao(tmp_path, monkeypatch):
+    """Testa que excecoes no fallback sao tratadas retornando o caminho padrao."""
+    caminho_padrao = tmp_path / "inexistente" / "migracoes"
+    monkeypatch.setattr(migrador, "_obter_caminho_padrao_migracoes", lambda: caminho_padrao)
+
+    with patch(
+        "scripts.migrador._obter_caminho_repo_base_fallback",
+        side_effect=Exception("falha simulada"),
+    ):
+        caminho = migrador.obter_caminho_migracoes()
+        assert caminho == caminho_padrao
+
+
+def test_obter_caminho_repo_base_fallback_excecao(monkeypatch):
+    """Testa que excecoes dentro de _obter_caminho_repo_base_fallback retornam None."""
+    from editor.core import storage
+    def falha():
+        raise RuntimeError("falha storage")
+    monkeypatch.setattr(storage, "GerenciadorCaminhos", falha)
+    assert migrador._obter_caminho_repo_base_fallback() is None
+

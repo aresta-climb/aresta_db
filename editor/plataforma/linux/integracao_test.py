@@ -149,3 +149,19 @@ def test_adaptador_linux_configurar_cofre_credenciais_ambos_falham() -> None:
                 with patch("keyring.set_keyring") as mock_set:
                     adaptador.configurar_cofre_credenciais()
                     mock_set.assert_not_called()
+
+
+def test_adaptador_linux_normalizar_caminho_estendido() -> None:
+    """Valida a resolução canônica de caminhos no Linux sem prefixo Win32."""
+    adaptador = AdaptadorLinux()
+
+    assert adaptador.normalizar_caminho_estendido("") == ""
+
+    caminho = "/tmp/croqui/imagem.png"
+    resultado = adaptador.normalizar_caminho_estendido(caminho)
+    assert not resultado.startswith("\\\\?\\")
+    assert resultado == str(Path(caminho).resolve())
+
+    # Path object
+    resultado_path = adaptador.normalizar_caminho_estendido(Path(caminho))
+    assert resultado_path == str(Path(caminho).resolve())

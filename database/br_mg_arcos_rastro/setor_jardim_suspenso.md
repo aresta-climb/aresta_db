@@ -1,167 +1,175 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+uid: Xxlz6Srh7a9jQT
 nome: Jardim Suspenso
 mapas:
 - caminho_imagem_mapa: imagens/setor_jardim_suspenso_p0_i0.webp
   largura_mapa: 1600
   altura_mapa: 1000
   pontos_de_interesse:
-  - id: Setor_Terceiro_Andar
-    label: Setor Terceiro Andar
+  - uid: Pm4F1BTv2SkgDn
+    rotulo: Setor Terceiro Andar
     retangulo:
       x: 846
       y: 302
       comprimento: 61
       largura: 55
-  - id: Setor_Segundo_Andar
-    label: Setor Segundo Andar
+  - uid: Q8NYqrdOJoU9KT
+    rotulo: Setor Segundo Andar
     retangulo:
       x: 566
       y: 935
       comprimento: 65
       largura: 54
-  - id: '01'
-    label: '01'
+  - uid: 6h18CW5de9Ez37
+    rotulo: '01'
     retangulo:
       x: 594
       y: 599
       comprimento: 22
       largura: 18
-  - id: '02'
-    label: '02'
+  - uid: j3GAs24UJFH9zp
+    rotulo: '02'
     retangulo:
       x: 540
       y: 598
       comprimento: 25
       largura: 21
-  - id: '03'
-    label: '03'
+  - uid: hxKhz99Gkg2bMA
+    rotulo: '03'
     retangulo:
       x: 460
       y: 394
       comprimento: 21
       largura: 19
-  - id: '04'
-    label: '04'
+  - uid: xv78DijtvVRKX6
+    rotulo: '04'
     retangulo:
       x: 458
       y: 372
       comprimento: 21
       largura: 17
-  - id: '05'
-    label: '05'
+  - uid: r4JZCOVTNGnBgA
+    rotulo: '05'
     retangulo:
       x: 444
       y: 310
       comprimento: 21
       largura: 18
-  - id: '06'
-    label: '06'
+  - uid: I6TRfM8Z1z0LFP
+    rotulo: '06'
     retangulo:
       x: 534
       y: 311
       comprimento: 21
       largura: 20
-  - id: '07'
-    label: '07'
+  - uid: naYjaa4F7R2Vtd
+    rotulo: '07'
     retangulo:
       x: 536
       y: 434
       comprimento: 23
       largura: 21
-  - id: '08'
-    label: '08'
+  - uid: e2v6HYJ8qZGdp1
+    rotulo: '08'
     retangulo:
       x: 562
       y: 463
       comprimento: 23
       largura: 20
-  - id: '09'
-    label: '09'
+  - uid: 9ZbfvCIHvR9LF9
+    rotulo: '09'
     retangulo:
       x: 633
       y: 441
       comprimento: 22
       largura: 18
   referencias:
-  - escalada: (via inacabada)
-    ids:
-    - '01'
-  - escalada: Cara de Bunda com Contração
-    ids:
-    - '02'
-  - escalada: (sem nome)
-    ids:
-    - '03'
-  - escalada: Vida Maria
-    ids:
-    - '04'
-  - escalada: Mimimi
-    ids:
-    - '05'
-  - escalada: De todos nós
-    ids:
-    - '06'
-  - escalada: Cai Mais Não, Zé
-    ids:
-    - '07'
-  - ids:
-    - '08'
-    setor: Jardim Suspenso
-    escalada: Corte Profundo
-  - ids:
-    - '09'
-    setor: Jardim Suspenso
-    escalada: Avenida Paulista
-  - ids:
-    - Setor_Segundo_Andar
-    setor: 2º Andar
-  - ids:
-    - Setor_Terceiro_Andar
-    setor: 3º Andar
+  - alvo_uid: tKoBDTN204A5aQ
+    pontos_uids:
+    - 6h18CW5de9Ez37
+  - alvo_uid: KJrBOHed8L9jqB
+    pontos_uids:
+    - j3GAs24UJFH9zp
+  - alvo_uid: soKWhOPKcTuh6N
+    pontos_uids:
+    - hxKhz99Gkg2bMA
+  - alvo_uid: XFTg3L37pioLK9
+    pontos_uids:
+    - xv78DijtvVRKX6
+  - alvo_uid: skW25EnBt8gGzH
+    pontos_uids:
+    - r4JZCOVTNGnBgA
+  - alvo_uid: XaEJaNZFnnbFSF
+    pontos_uids:
+    - I6TRfM8Z1z0LFP
+  - alvo_uid: T9iaQET1cWRr6J
+    pontos_uids:
+    - naYjaa4F7R2Vtd
+  - alvo_uid: USnUIrOfnBlcni
+    pontos_uids:
+    - e2v6HYJ8qZGdp1
+  - alvo_uid: qMRLpVPfnw5NN4
+    pontos_uids:
+    - 9ZbfvCIHvR9LF9
+  - alvo_uid: IuQcqJF8uQ0xNz
+    pontos_uids:
+    - Q8NYqrdOJoU9KT
+  - alvo_uid: xFIkaiWPCCAZxk
+    pontos_uids:
+    - Pm4F1BTv2SkgDn
 escaladas:
-- via_esportiva:
+- uid: tKoBDTN204A5aQ
+  via_esportiva:
     nome: (via inacabada)
     dificuldade: PROJETO
-- via_esportiva:
+- uid: KJrBOHed8L9jqB
+  via_esportiva:
     nome: Cara de Bunda com Contração
     dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 8
     quantidade_protecoes_parada: 2
     data_abertura: '2018-12-06'
-- via_esportiva:
+- uid: soKWhOPKcTuh6N
+  via_esportiva:
     nome: (sem nome)
     dificuldade: PROJETO
-- via_esportiva:
+- uid: XFTg3L37pioLK9
+  via_esportiva:
     nome: Vida Maria
     dificuldade: BR_7A_BARRA_7B
     destaque: true
     quantidade_protecoes_intermediarias: 9
     quantidade_protecoes_parada: 2
-- via_esportiva:
+- uid: skW25EnBt8gGzH
+  via_esportiva:
     nome: Mimimi
     dificuldade: PROJETO
     quantidade_protecoes_intermediarias: 11
     quantidade_protecoes_parada: 2
-- via_esportiva:
+- uid: XaEJaNZFnnbFSF
+  via_esportiva:
     nome: De todos nós
     dificuldade: BR_7C
     destaque: true
     quantidade_protecoes_intermediarias: 12
     quantidade_protecoes_parada: 2
-- via_esportiva:
+- uid: T9iaQET1cWRr6J
+  via_esportiva:
     nome: Cai Mais Não, Zé
     dificuldade: BR_7B
     destaque: true
     quantidade_protecoes_intermediarias: 8
     quantidade_protecoes_parada: 2
-- via_esportiva:
+- uid: USnUIrOfnBlcni
+  via_esportiva:
     nome: Corte Profundo
     dificuldade: BR_7A
     quantidade_protecoes_intermediarias: 8
     quantidade_protecoes_parada: 2
-- via_esportiva:
+- uid: qMRLpVPfnw5NN4
+  via_esportiva:
     nome: Avenida Paulista
     dificuldade: BR_7B_BARRA_7C
     quantidade_protecoes_intermediarias: 8

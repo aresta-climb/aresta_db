@@ -1,10 +1,11 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+uid: 0tnE9prPHVg380
 id: br_mg_conceicao_do_mato_dentro_festboulder
 nome: Fest Boulder
-descricao: Croqui do evento Fest Boulder 2023 em Conceição do Mato Dentro, Minas Gerais.
-  Localizado na Serra do Espinhaço, reconhecido como um dos melhores lugares para
-  a prática de boulder no Brasil.
+descricao: Croqui do evento Fest Boulder 2023 em Conceição do Mato Dentro, Minas Gerais. 
+  Localizado na Serra do Espinhaço, reconhecido como um dos melhores lugares para a 
+  prática de boulder no Brasil.
 creditos:
 - Gabriel Vargas Mendonça
 - Carlos Oliveira
@@ -16,7 +17,8 @@ caminho_thumbnail: imagens/capa_p0.webp
 status_desenho_extraivel: DESENHO_EXTRAIDO
 picos:
 - nome: Conceição do Mato Dentro
-  url_google_maps: https://www.google.com/maps/d/u/0/edit?mid=1HoFEc0r-nrO6aur5x8pNNyp6eR1KmJs&usp=sharing
+  url_google_maps: 
+    https://www.google.com/maps/d/u/0/edit?mid=1HoFEc0r-nrO6aur5x8pNNyp6eR1KmJs&usp=sharing
   setores_ou_grupos:
   - grupo:
       caminho: grupo_salao_de_pedras.md
@@ -32,19 +34,22 @@ picos:
     latitude: -190464720
     longitude: -434401570
 botoes:
-- texto: Capa
+- uid: hjxudqiZogE6MK
+  texto: Capa
   destino:
     secao_textual:
       caminho: capa.md
-- texto: Introdução
+- uid: 5CvpSELqOUKRch
+  texto: Introdução
   destino:
     secao_textual:
       caminho: introducao.md
-- texto: Pintura Rupestre
+- uid: H18HjJh2aHerGf
+  texto: Pintura Rupestre
   destino:
     secao_textual:
       caminho: secao_rupestre.md
-ultima_migracao: 4
+ultima_migracao: 5
 revisado_manualmente: true
 revisado_bounding_circle: true
 publicar_croqui: true

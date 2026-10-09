@@ -1,8 +1,9 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+uid: y9hp5TkJhwOAL7
 id: br_mg_arcos_corumba
 nome: Arcos - Corumbá
-descricao: Afloramento de calcário situado entre Arcos e Pains em Minas Gerais, com
+descricao: Afloramento de calcário situado entre Arcos e Pains em Minas Gerais, com 
   diversos setores de escalada esportiva.
 creditos:
 - alexsandro martins
@@ -28,18 +29,21 @@ picos:
     latitude: -203283130
     longitude: -456115750
 botoes:
-- texto: Capa
+- uid: WG9Ri9UvRrSilM
+  texto: Capa
   destino:
     secao_textual:
       caminho: capa.md
-- texto: Atenção e Regras
+- uid: VcEYp7pOIOCNQU
+  texto: Atenção e Regras
   destino:
     secao_textual:
       caminho: atencao_e_regras.md
-- texto: Parcerias e Contato
+- uid: b0H0q7uldTH330
+  texto: Parcerias e Contato
   destino:
     secao_textual:
       caminho: parcerias_e_contato.md
-ultima_migracao: 4
+ultima_migracao: 5
 publicar_croqui: true
 revisado_bounding_circle: true

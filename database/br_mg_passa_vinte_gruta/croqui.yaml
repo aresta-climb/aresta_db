@@ -1,6 +1,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
+uid: UKXEzopieL0Muf
 id: br_mg_passa_vinte_gruta
 nome: Gruta de Passa Vinte
 descricao: Guia de Escalada da Gruta de Passa Vinte - MG
@@ -37,24 +38,29 @@ picos:
   mapas_gerais:
     caminho: mapas_gerais.md
 botoes:
-- texto: Capa
+- uid: H3jXZ6DqLBjwAC
+  texto: Capa
   destino:
     secao_textual:
       caminho: capa.md
-- texto: Advertência
+- uid: LDReczQyUAkHI0
+  texto: Advertência
   destino:
     secao_textual:
       caminho: advertencia.md
-- texto: Apresentação
+- uid: 3K5RAqqILNw0k2
+  texto: Apresentação
   destino:
     secao_textual:
       caminho: apresentacao.md
-- texto: Como Chegar
+- uid: TkMCJs4HxzXsq5
+  texto: Como Chegar
   destino:
     secao_textual:
       caminho: como_chegar.md
-- texto: Contatos
+- uid: W2Rva54M0yb1Ca
+  texto: Contatos
   destino:
     secao_textual:
       caminho: contatos.md
-ultima_migracao: 4
+ultima_migracao: 5

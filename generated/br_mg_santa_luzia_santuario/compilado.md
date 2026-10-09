@@ -4,6 +4,7 @@
 
 - **id**: br_mg_santa_luzia_santuario
 - **nome**: Santuário de Santa Luzia
+- **uid**: lbNNTCh7zQ5FFx
 - **creditos**:
   - Felipe Alvares
   - Júlia Lima
@@ -13,6 +14,7 @@
 - **status_desenho_extraivel**: DESENHO_EXTRAIDO
 - **botoes**:
   - **[0]**:
+    - **uid**: 41EWNTvorttmlK
     - **texto**: Capa
     - **destino**:
       - **secao_textual**:
@@ -30,6 +32,7 @@
             | :--: |
             | *Capa do Guia de Escalada Santuário* |
   - **[1]**:
+    - **uid**: Pr6xqr71EQEfG4
     - **texto**: Como Chegar
     - **destino**:
       - **secao_textual**:
@@ -59,6 +62,7 @@
             | :--: |
             | *Sinalização no cruzamento ferroviário* |
   - **[2]**:
+    - **uid**: 9muGkyYUuICy6N
     - **texto**: Comércio Local
     - **destino**:
       - **secao_textual**:
@@ -87,6 +91,7 @@
             | :--: |
             | *Sr. João no balcão* |
   - **[3]**:
+    - **uid**: pnpP6dwgPFY0AC
     - **texto**: Informações Gerais
     - **destino**:
       - **secao_textual**:
@@ -109,6 +114,7 @@
             | :--: |
             | *Logos de apoiadores* |
   - **[4]**:
+    - **uid**: mAERK0HWcVMaFE
     - **texto**: Como Usar Este Guia
     - **destino**:
       - **secao_textual**:
@@ -122,7 +128,7 @@
             | ![Instruções sobre a estrutura do guia](imagens/como_usar_este_guia_p0.webp) |
             | :--: |
             | *Instruções sobre a estrutura do guia* |
-- **ultima_migracao**: 4
+- **ultima_migracao**: 5
 - **publicar_croqui**: True
 - **revisado_bounding_circle**: True
 
@@ -133,6 +139,7 @@
 
 - **descricao**: # Setor Clube da Luta
 - **nome**: Setor Clube da Luta
+- **uid**: uyVmwHoHZTaJG4
 - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_clube_da_luta_p0_i0.webp)
 - **mapas**:
   - **[0]**:
@@ -141,204 +148,290 @@
     - **altura_mapa**: 2048
     - **pontos_de_interesse**:
       - **[0]**:
-        - **id**: 01
-        - **label**: 01
+        - **id**: 5caHtx0USsLuXE
+        - **uid**: 5caHtx0USsLuXE
+        - **rotulo**: 01
         - **circulo**:
           - **x**: 448
           - **y**: 58
           - **raio**: 35
+        - **label**: 01
       - **[1]**:
-        - **id**: 02
-        - **label**: 02
+        - **id**: 4nUqameJuWByjY
+        - **uid**: 4nUqameJuWByjY
+        - **rotulo**: 02
         - **circulo**:
           - **x**: 448
           - **y**: 147
           - **raio**: 36
+        - **label**: 02
       - **[2]**:
-        - **id**: 03
-        - **label**: 03
+        - **id**: PKEIU5xrTViV4u
+        - **uid**: PKEIU5xrTViV4u
+        - **rotulo**: 03
         - **circulo**:
           - **x**: 449
           - **y**: 241
           - **raio**: 36
+        - **label**: 03
       - **[3]**:
-        - **id**: 04
-        - **label**: 04
+        - **id**: cPyEV9xJfCLzJw
+        - **uid**: cPyEV9xJfCLzJw
+        - **rotulo**: 04
         - **circulo**:
           - **x**: 426
           - **y**: 345
           - **raio**: 36
+        - **label**: 04
       - **[4]**:
-        - **id**: 05
-        - **label**: 05
+        - **id**: CQZGHvjK7GAMfl
+        - **uid**: CQZGHvjK7GAMfl
+        - **rotulo**: 05
         - **circulo**:
           - **x**: 366
           - **y**: 456
           - **raio**: 36
+        - **label**: 05
       - **[5]**:
-        - **id**: 06
-        - **label**: 06
+        - **id**: ani0Cd2ScdUS8V
+        - **uid**: ani0Cd2ScdUS8V
+        - **rotulo**: 06
         - **circulo**:
           - **x**: 320
           - **y**: 599
           - **raio**: 35
+        - **label**: 06
       - **[6]**:
-        - **id**: 07
-        - **label**: 07
+        - **id**: L3qZxGtZ7JzM3s
+        - **uid**: L3qZxGtZ7JzM3s
+        - **rotulo**: 07
         - **circulo**:
           - **x**: 248
           - **y**: 713
           - **raio**: 35
+        - **label**: 07
       - **[7]**:
-        - **id**: 08
-        - **label**: 08
+        - **id**: l93L7Sv9Apadb7
+        - **uid**: l93L7Sv9Apadb7
+        - **rotulo**: 08
         - **circulo**:
           - **x**: 229
           - **y**: 839
           - **raio**: 35
+        - **label**: 08
       - **[8]**:
-        - **id**: 09
-        - **label**: 09
+        - **id**: Yy7MQ04t4c3XQs
+        - **uid**: Yy7MQ04t4c3XQs
+        - **rotulo**: 09
         - **circulo**:
           - **x**: 231
           - **y**: 979
           - **raio**: 35
+        - **label**: 09
       - **[9]**:
-        - **id**: 10
-        - **label**: 10
+        - **id**: ifCnkD1PChI33A
+        - **uid**: ifCnkD1PChI33A
+        - **rotulo**: 10
         - **circulo**:
           - **x**: 265
           - **y**: 1135
           - **raio**: 35
+        - **label**: 10
       - **[10]**:
-        - **id**: 11
-        - **label**: 11
+        - **id**: JwJPu1EwKEa0hO
+        - **uid**: JwJPu1EwKEa0hO
+        - **rotulo**: 11
         - **circulo**:
           - **x**: 304
           - **y**: 1247
           - **raio**: 35
+        - **label**: 11
       - **[11]**:
-        - **id**: 12
-        - **label**: 12
+        - **id**: NbbZyv9WjxV93Z
+        - **uid**: NbbZyv9WjxV93Z
+        - **rotulo**: 12
         - **circulo**:
           - **x**: 353
           - **y**: 1378
           - **raio**: 35
+        - **label**: 12
       - **[12]**:
-        - **id**: 13
-        - **label**: 13
+        - **id**: BqqNDnhekUq1U6
+        - **uid**: BqqNDnhekUq1U6
+        - **rotulo**: 13
         - **circulo**:
           - **x**: 376
           - **y**: 1520
           - **raio**: 35
+        - **label**: 13
       - **[13]**:
-        - **id**: 14
-        - **label**: 14
+        - **id**: NbsNYPGnO8ZRPE
+        - **uid**: NbsNYPGnO8ZRPE
+        - **rotulo**: 14
         - **circulo**:
           - **x**: 390
           - **y**: 1663
           - **raio**: 35
+        - **label**: 14
       - **[14]**:
-        - **id**: 15
-        - **label**: 15
+        - **id**: OQrtyMk8eSK1yC
+        - **uid**: OQrtyMk8eSK1yC
+        - **rotulo**: 15
         - **circulo**:
           - **x**: 412
           - **y**: 1806
           - **raio**: 35
+        - **label**: 15
       - **[15]**:
-        - **id**: 16
-        - **label**: 16
+        - **id**: TaqT90SZbGbfKW
+        - **uid**: TaqT90SZbGbfKW
+        - **rotulo**: 16
         - **circulo**:
           - **x**: 412
           - **y**: 1948
           - **raio**: 35
+        - **label**: 16
     - **referencias**:
       - **[0]**:
+        - **alvo_uid**: J8URNuFsaRVL6r
+        - **pontos_uids**:
+          - 5caHtx0USsLuXE
         - **escalada**: POLLY SHELBY
         - **ids**:
-          - 01
+          - 5caHtx0USsLuXE
       - **[1]**:
+        - **alvo_uid**: YNdwFFok9Xa78O
+        - **pontos_uids**:
+          - 4nUqameJuWByjY
         - **escalada**: BLACK DOG
         - **ids**:
-          - 02
+          - 4nUqameJuWByjY
       - **[2]**:
+        - **alvo_uid**: 6saZhQHzBr9axQ
+        - **pontos_uids**:
+          - PKEIU5xrTViV4u
         - **escalada**: INCONSCIENTE COLETIVO
         - **ids**:
-          - 03
+          - PKEIU5xrTViV4u
       - **[3]**:
+        - **alvo_uid**: 8HQ2LdCfVNhRuQ
+        - **pontos_uids**:
+          - cPyEV9xJfCLzJw
         - **escalada**: DISCÍPULOS DE BIBIU
         - **ids**:
-          - 04
+          - cPyEV9xJfCLzJw
       - **[4]**:
+        - **alvo_uid**: YFqxQjJEbT18WZ
+        - **pontos_uids**:
+          - CQZGHvjK7GAMfl
         - **escalada**: EL NINHO
         - **ids**:
-          - 05
+          - CQZGHvjK7GAMfl
       - **[5]**:
+        - **alvo_uid**: PbQO9XUINhW6wM
+        - **pontos_uids**:
+          - ani0Cd2ScdUS8V
         - **escalada**: O PECADOR
         - **ids**:
-          - 06
+          - ani0Cd2ScdUS8V
       - **[6]**:
+        - **alvo_uid**: L8GtZBiK3uDSFm
+        - **pontos_uids**:
+          - L3qZxGtZ7JzM3s
         - **escalada**: PROMESSA É DÍVIDA
         - **ids**:
-          - 07
+          - L3qZxGtZ7JzM3s
       - **[7]**:
+        - **alvo_uid**: TjoEniIfdfE9Ud
+        - **pontos_uids**:
+          - l93L7Sv9Apadb7
         - **escalada**: RINS DE PEDRA
         - **ids**:
-          - 08
+          - l93L7Sv9Apadb7
       - **[8]**:
+        - **alvo_uid**: QMZnb5VOgCJMcc
+        - **pontos_uids**:
+          - Yy7MQ04t4c3XQs
         - **escalada**: PAGADOR DE PROMESSA
         - **ids**:
-          - 09
+          - Yy7MQ04t4c3XQs
       - **[9]**:
+        - **alvo_uid**: pmXoC5dyY42w4K
+        - **pontos_uids**:
+          - ifCnkD1PChI33A
         - **escalada**: BIBI CORAGEM
         - **ids**:
-          - 10
+          - ifCnkD1PChI33A
       - **[10]**:
+        - **alvo_uid**: 2eZSSKLesbbjsc
+        - **pontos_uids**:
+          - JwJPu1EwKEa0hO
         - **escalada**: DE MALANDRO A GRANFINO
         - **ids**:
-          - 11
+          - JwJPu1EwKEa0hO
       - **[11]**:
+        - **alvo_uid**: RnGhwzxeI2kp1C
+        - **pontos_uids**:
+          - NbbZyv9WjxV93Z
         - **escalada**: CLUBE DA LUTA
         - **ids**:
-          - 12
+          - NbbZyv9WjxV93Z
       - **[12]**:
+        - **alvo_uid**: ytc6ItjMB2jhOa
+        - **pontos_uids**:
+          - BqqNDnhekUq1U6
         - **escalada**: ROLO COMPRESSOR
         - **ids**:
-          - 13
+          - BqqNDnhekUq1U6
       - **[13]**:
+        - **alvo_uid**: G9JquAmmfNpIb7
+        - **pontos_uids**:
+          - NbsNYPGnO8ZRPE
         - **escalada**: O ESPECIALISTA
         - **ids**:
-          - 14
+          - NbsNYPGnO8ZRPE
       - **[14]**:
+        - **alvo_uid**: AJcs2YBVhtjoFq
+        - **pontos_uids**:
+          - OQrtyMk8eSK1yC
         - **escalada**: O GUARDA COSTA
         - **ids**:
-          - 15
+          - OQrtyMk8eSK1yC
       - **[15]**:
+        - **alvo_uid**: xtizouBCiT0KK8
+        - **pontos_uids**:
+          - TaqT90SZbGbfKW
         - **escalada**: MARIA MADALENA
         - **ids**:
-          - 16
+          - TaqT90SZbGbfKW
 - **escaladas**:
   - **[0]**:
+    - **uid**: J8URNuFsaRVL6r
     - **via_esportiva**:
       - **nome**: POLLY SHELBY
       - **dificuldade**: BR_9C
   - **[1]**:
+    - **uid**: YNdwFFok9Xa78O
     - **via_esportiva**:
       - **nome**: BLACK DOG
       - **dificuldade**: BR_9C
   - **[2]**:
+    - **uid**: 6saZhQHzBr9axQ
     - **via_esportiva**:
       - **nome**: INCONSCIENTE COLETIVO
       - **dificuldade**: BR_9B
   - **[3]**:
+    - **uid**: 8HQ2LdCfVNhRuQ
     - **via_esportiva**:
       - **nome**: DISCÍPULOS DE BIBIU
       - **dificuldade**: BR_9A
   - **[4]**:
+    - **uid**: YFqxQjJEbT18WZ
     - **via_esportiva**:
       - **nome**: EL NINHO
       - **dificuldade**: BR_7C
   - **[5]**:
+    - **uid**: PbQO9XUINhW6wM
     - **via_multiplas_enfiadas**:
       - **nome**: O PECADOR
       - **dificuldade_maxima**: BR_8B
@@ -352,6 +445,7 @@
             - **nome**: P2
             - **dificuldade**: BR_8B
   - **[6]**:
+    - **uid**: L8GtZBiK3uDSFm
     - **via_multiplas_enfiadas**:
       - **nome**: PROMESSA É DÍVIDA
       - **dificuldade_maxima**: BR_8A
@@ -365,6 +459,7 @@
             - **nome**: P2
             - **dificuldade**: BR_8A
   - **[7]**:
+    - **uid**: TjoEniIfdfE9Ud
     - **via_multiplas_enfiadas**:
       - **nome**: RINS DE PEDRA
       - **dificuldade_maxima**: BR_8B
@@ -378,6 +473,7 @@
             - **nome**: P2
             - **dificuldade**: BR_8B
   - **[8]**:
+    - **uid**: QMZnb5VOgCJMcc
     - **via_multiplas_enfiadas**:
       - **nome**: PAGADOR DE PROMESSA
       - **dificuldade_maxima**: BR_8B
@@ -391,22 +487,27 @@
             - **nome**: P2
             - **dificuldade**: BR_8B
   - **[9]**:
+    - **uid**: pmXoC5dyY42w4K
     - **via_esportiva**:
       - **nome**: BIBI CORAGEM
       - **dificuldade**: BR_7C
   - **[10]**:
+    - **uid**: 2eZSSKLesbbjsc
     - **via_esportiva**:
       - **nome**: DE MALANDRO A GRANFINO
       - **dificuldade**: BR_10A
   - **[11]**:
+    - **uid**: RnGhwzxeI2kp1C
     - **via_esportiva**:
       - **nome**: CLUBE DA LUTA
       - **dificuldade**: BR_9B
   - **[12]**:
+    - **uid**: ytc6ItjMB2jhOa
     - **via_esportiva**:
       - **nome**: ROLO COMPRESSOR
       - **dificuldade**: BR_9B
   - **[13]**:
+    - **uid**: G9JquAmmfNpIb7
     - **via_multiplas_enfiadas**:
       - **nome**: O ESPECIALISTA
       - **dificuldade_maxima**: BR_9C
@@ -424,10 +525,12 @@
             - **nome**: P3
             - **dificuldade**: PROJETO
   - **[14]**:
+    - **uid**: AJcs2YBVhtjoFq
     - **via_esportiva**:
       - **nome**: O GUARDA COSTA
       - **dificuldade**: BR_9B
   - **[15]**:
+    - **uid**: xtizouBCiT0KK8
     - **via_multiplas_enfiadas**:
       - **nome**: MARIA MADALENA
       - **dificuldade_maxima**: PROJETO
@@ -473,6 +576,7 @@
     | 14.3 | CHÁ NA CARTOLINA P2 | SANTA LINEA P3 | PROJETO |
     | 15.1 | AVE MARIA P2 | CHÁ NA CARTOLINA P3 | 9b |
 - **nome**: Setor Santa Línea
+- **uid**: VKsk4hj1SNsgSN
 - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_santa_linea_p0_i0.webp)
 - **mapas**:
   - **[0]**:
@@ -481,173 +585,249 @@
     - **altura_mapa**: 2048
     - **pontos_de_interesse**:
       - **[0]**:
-        - **id**: 01
-        - **label**: 01
+        - **id**: vrcQ90eof9EtSc
+        - **uid**: vrcQ90eof9EtSc
+        - **rotulo**: 01
         - **circulo**:
           - **x**: 288
           - **y**: 77
           - **raio**: 33
+        - **label**: 01
       - **[1]**:
-        - **id**: 02
-        - **label**: 02
+        - **id**: WtH5HsSIQgw06V
+        - **uid**: WtH5HsSIQgw06V
+        - **rotulo**: 02
         - **circulo**:
           - **x**: 439
           - **y**: 133
           - **raio**: 34
+        - **label**: 02
       - **[2]**:
-        - **id**: 03
-        - **label**: 03
+        - **id**: nILRi2lvCZmrtA
+        - **uid**: nILRi2lvCZmrtA
+        - **rotulo**: 03
         - **circulo**:
           - **x**: 557
           - **y**: 238
           - **raio**: 34
+        - **label**: 03
       - **[3]**:
-        - **id**: 04
-        - **label**: 04
+        - **id**: xpAfZfcazK0zWJ
+        - **uid**: xpAfZfcazK0zWJ
+        - **rotulo**: 04
         - **circulo**:
           - **x**: 633
           - **y**: 372
           - **raio**: 33
+        - **label**: 04
       - **[4]**:
-        - **id**: 05
-        - **label**: 05
+        - **id**: 3IqclpeWGzDThz
+        - **uid**: 3IqclpeWGzDThz
+        - **rotulo**: 05
         - **circulo**:
           - **x**: 700
           - **y**: 541
           - **raio**: 33
+        - **label**: 05
       - **[5]**:
-        - **id**: 06
-        - **label**: 06
+        - **id**: Nim96g3pfu0s0H
+        - **uid**: Nim96g3pfu0s0H
+        - **rotulo**: 06
         - **circulo**:
           - **x**: 784
           - **y**: 718
           - **raio**: 33
+        - **label**: 06
       - **[6]**:
-        - **id**: 07
-        - **label**: 07
+        - **id**: vPodBhUazuZ1JY
+        - **uid**: vPodBhUazuZ1JY
+        - **rotulo**: 07
         - **circulo**:
           - **x**: 799
           - **y**: 867
           - **raio**: 33
+        - **label**: 07
       - **[7]**:
-        - **id**: 08
-        - **label**: 08
+        - **id**: bqQdwuWfyUFfhL
+        - **uid**: bqQdwuWfyUFfhL
+        - **rotulo**: 08
         - **circulo**:
           - **x**: 899
           - **y**: 965
           - **raio**: 33
+        - **label**: 08
       - **[8]**:
-        - **id**: 09
-        - **label**: 09
+        - **id**: Wh4fXApVg9yroD
+        - **uid**: Wh4fXApVg9yroD
+        - **rotulo**: 09
         - **circulo**:
           - **x**: 931
           - **y**: 1077
           - **raio**: 33
+        - **label**: 09
       - **[9]**:
-        - **id**: 10
-        - **label**: 10
+        - **id**: Y44U6NvZwtaVbo
+        - **uid**: Y44U6NvZwtaVbo
+        - **rotulo**: 10
         - **circulo**:
           - **x**: 953
           - **y**: 1190
           - **raio**: 33
+        - **label**: 10
       - **[10]**:
-        - **id**: 11
-        - **label**: 11
+        - **id**: 2waStHT26o1Da8
+        - **uid**: 2waStHT26o1Da8
+        - **rotulo**: 11
         - **circulo**:
           - **x**: 964
           - **y**: 1301
           - **raio**: 33
+        - **label**: 11
       - **[11]**:
-        - **id**: 12
-        - **label**: 12
+        - **id**: 3DSj5VEX5uNiDn
+        - **uid**: 3DSj5VEX5uNiDn
+        - **rotulo**: 12
         - **circulo**:
           - **x**: 966
           - **y**: 1414
           - **raio**: 34
+        - **label**: 12
       - **[12]**:
-        - **id**: 13
-        - **label**: 13
+        - **id**: UDsuo7IAZJac4N
+        - **uid**: UDsuo7IAZJac4N
+        - **rotulo**: 13
         - **circulo**:
           - **x**: 975
           - **y**: 1558
           - **raio**: 34
+        - **label**: 13
       - **[13]**:
-        - **id**: 14
-        - **label**: 14
+        - **id**: ypfDXTpXZqKNHz
+        - **uid**: ypfDXTpXZqKNHz
+        - **rotulo**: 14
         - **circulo**:
           - **x**: 975
           - **y**: 1700
           - **raio**: 34
+        - **label**: 14
       - **[14]**:
-        - **id**: 15
-        - **label**: 15
+        - **id**: AELagKNfLaO509
+        - **uid**: AELagKNfLaO509
+        - **rotulo**: 15
         - **circulo**:
           - **x**: 975
           - **y**: 1844
           - **raio**: 34
+        - **label**: 15
     - **referencias**:
       - **[0]**:
+        - **alvo_uid**: YScYYNsHJM92Q4
+        - **pontos_uids**:
+          - vrcQ90eof9EtSc
         - **escalada**: MEU AMIGO CHARLIE BROWN
         - **ids**:
-          - 01
+          - vrcQ90eof9EtSc
       - **[1]**:
+        - **alvo_uid**: kCLqk6HpbonTPt
+        - **pontos_uids**:
+          - WtH5HsSIQgw06V
         - **escalada**: PAI NOSSO
         - **ids**:
-          - 02
+          - WtH5HsSIQgw06V
       - **[2]**:
+        - **alvo_uid**: fIUdmHpWRMjJuy
+        - **pontos_uids**:
+          - nILRi2lvCZmrtA
         - **escalada**: NEM TUDO É PERFEITO
         - **ids**:
-          - 03
+          - nILRi2lvCZmrtA
       - **[3]**:
+        - **alvo_uid**: tPhRmjIMiCiMzm
+        - **pontos_uids**:
+          - xpAfZfcazK0zWJ
         - **escalada**: DIAS DE LUTA DIAS DE GLÓRIA
         - **ids**:
-          - 04
+          - xpAfZfcazK0zWJ
       - **[4]**:
+        - **alvo_uid**: 6BolXGNpTjwcr0
+        - **pontos_uids**:
+          - 3IqclpeWGzDThz
         - **escalada**: MADE IN BRAZIL
         - **ids**:
-          - 05
+          - 3IqclpeWGzDThz
       - **[5]**:
+        - **alvo_uid**: EgwuJT9ibblC9i
+        - **pontos_uids**:
+          - Nim96g3pfu0s0H
         - **escalada**: SANTA KLAUSS
         - **ids**:
-          - 06
+          - Nim96g3pfu0s0H
       - **[6]**:
+        - **alvo_uid**: HKdDb12M23KTwi
+        - **pontos_uids**:
+          - vPodBhUazuZ1JY
         - **escalada**: ÓPANGARE
         - **ids**:
-          - 07
+          - vPodBhUazuZ1JY
       - **[7]**:
+        - **alvo_uid**: 2eFSP5udOTcYck
+        - **pontos_uids**:
+          - bqQdwuWfyUFfhL
         - **escalada**: BERBARIDADE MÁXIMA
         - **ids**:
-          - 08
+          - bqQdwuWfyUFfhL
       - **[8]**:
+        - **alvo_uid**: lctRU7g4DiWO5S
+        - **pontos_uids**:
+          - Wh4fXApVg9yroD
         - **escalada**: SANTA INQUISIÇÃO
         - **ids**:
-          - 09
+          - Wh4fXApVg9yroD
       - **[9]**:
+        - **alvo_uid**: TioyWPeMe4Riow
+        - **pontos_uids**:
+          - Y44U6NvZwtaVbo
         - **escalada**: TIRANOS DE PLANTÃO
         - **ids**:
-          - 10
+          - Y44U6NvZwtaVbo
       - **[10]**:
+        - **alvo_uid**: JlE3PwZzrMPvcV
+        - **pontos_uids**:
+          - 2waStHT26o1Da8
         - **escalada**: SANTO GRAU
         - **ids**:
-          - 11
+          - 2waStHT26o1Da8
       - **[11]**:
+        - **alvo_uid**: lQvnKMNwGg6dFd
+        - **pontos_uids**:
+          - 3DSj5VEX5uNiDn
         - **escalada**: SANTA LINEA
         - **ids**:
-          - 12
+          - 3DSj5VEX5uNiDn
       - **[12]**:
+        - **alvo_uid**: IGmMi3yV7ad9c2
+        - **pontos_uids**:
+          - UDsuo7IAZJac4N
         - **escalada**: SÓ OS LOUCOS SABEM
         - **ids**:
-          - 13
+          - UDsuo7IAZJac4N
       - **[13]**:
+        - **alvo_uid**: 2YqwWQY0jOtjCj
+        - **pontos_uids**:
+          - ypfDXTpXZqKNHz
         - **escalada**: CHÁ NA CARTOLINA
         - **ids**:
-          - 14
+          - ypfDXTpXZqKNHz
       - **[14]**:
+        - **alvo_uid**: 9j3ZZ5BmAaVPSG
+        - **pontos_uids**:
+          - AELagKNfLaO509
         - **escalada**: AVE MARIA
         - **ids**:
-          - 15
+          - AELagKNfLaO509
 - **escaladas**:
   - **[0]**:
+    - **uid**: YScYYNsHJM92Q4
     - **via_multiplas_enfiadas**:
       - **nome**: MEU AMIGO CHARLIE BROWN
       - **dificuldade_maxima**: BR_10A
@@ -665,6 +845,7 @@
             - **nome**: P3
             - **dificuldade**: BR_10A
   - **[1]**:
+    - **uid**: kCLqk6HpbonTPt
     - **via_multiplas_enfiadas**:
       - **nome**: PAI NOSSO
       - **dificuldade_maxima**: BR_9B
@@ -682,6 +863,7 @@
             - **nome**: P3
             - **dificuldade**: BR_9B
   - **[2]**:
+    - **uid**: fIUdmHpWRMjJuy
     - **via_multiplas_enfiadas**:
       - **nome**: NEM TUDO É PERFEITO
       - **dificuldade_maxima**: BR_9B
@@ -695,6 +877,7 @@
             - **nome**: P2
             - **dificuldade**: BR_9B
   - **[3]**:
+    - **uid**: tPhRmjIMiCiMzm
     - **via_multiplas_enfiadas**:
       - **nome**: DIAS DE LUTA DIAS DE GLÓRIA
       - **dificuldade_maxima**: BR_10A
@@ -708,6 +891,7 @@
             - **nome**: P2
             - **dificuldade**: BR_10A
   - **[4]**:
+    - **uid**: 6BolXGNpTjwcr0
     - **via_multiplas_enfiadas**:
       - **nome**: MADE IN BRAZIL
       - **dificuldade_maxima**: BR_10B
@@ -725,6 +909,7 @@
             - **nome**: P3
             - **dificuldade**: BR_10B
   - **[5]**:
+    - **uid**: EgwuJT9ibblC9i
     - **via_multiplas_enfiadas**:
       - **nome**: SANTA KLAUSS
       - **dificuldade_maxima**: BR_10C
@@ -742,18 +927,22 @@
             - **nome**: P3
             - **dificuldade**: BR_10C
   - **[6]**:
+    - **uid**: HKdDb12M23KTwi
     - **via_esportiva**:
       - **nome**: ÓPANGARE
       - **dificuldade**: BR_9A
   - **[7]**:
+    - **uid**: 2eFSP5udOTcYck
     - **via_esportiva**:
       - **nome**: BERBARIDADE MÁXIMA
       - **dificuldade**: BR_8A
   - **[8]**:
+    - **uid**: lctRU7g4DiWO5S
     - **via_esportiva**:
       - **nome**: SANTA INQUISIÇÃO
       - **dificuldade**: BR_10C
   - **[9]**:
+    - **uid**: TioyWPeMe4Riow
     - **via_multiplas_enfiadas**:
       - **nome**: TIRANOS DE PLANTÃO
       - **dificuldade_maxima**: BR_9C
@@ -779,6 +968,7 @@
             - **nome**: P5
             - **dificuldade**: BR_9C
   - **[10]**:
+    - **uid**: JlE3PwZzrMPvcV
     - **via_multiplas_enfiadas**:
       - **nome**: SANTO GRAU
       - **dificuldade_maxima**: PROJETO
@@ -792,6 +982,7 @@
             - **nome**: P2
             - **dificuldade**: PROJETO
   - **[11]**:
+    - **uid**: lQvnKMNwGg6dFd
     - **via_multiplas_enfiadas**:
       - **nome**: SANTA LINEA
       - **dificuldade_maxima**: PROJETO
@@ -809,6 +1000,7 @@
             - **nome**: P3
             - **dificuldade**: PROJETO
   - **[12]**:
+    - **uid**: IGmMi3yV7ad9c2
     - **via_multiplas_enfiadas**:
       - **nome**: SÓ OS LOUCOS SABEM
       - **dificuldade_maxima**: BR_9A
@@ -822,6 +1014,7 @@
             - **nome**: P2
             - **dificuldade**: BR_9A
   - **[13]**:
+    - **uid**: 2YqwWQY0jOtjCj
     - **via_multiplas_enfiadas**:
       - **nome**: CHÁ NA CARTOLINA
       - **dificuldade_maxima**: BR_9B
@@ -839,6 +1032,7 @@
             - **nome**: P3
             - **dificuldade**: BR_9B
   - **[14]**:
+    - **uid**: 9j3ZZ5BmAaVPSG
     - **via_multiplas_enfiadas**:
       - **nome**: AVE MARIA
       - **dificuldade_maxima**: BR_9C
@@ -867,6 +1061,7 @@
 
 - **descricao**: # Setor Democracia
 - **nome**: Setor Democracia
+- **uid**: lvQcTGzk238Jom
 - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_democracia_p0_i0.webp)
 - **mapas**:
   - **[0]**:
@@ -875,173 +1070,249 @@
     - **altura_mapa**: 2048
     - **pontos_de_interesse**:
       - **[0]**:
-        - **id**: 01
-        - **label**: 01
+        - **id**: nm6TBbxUZ8KgMh
+        - **uid**: nm6TBbxUZ8KgMh
+        - **rotulo**: 01
         - **circulo**:
           - **x**: 272
           - **y**: 252
           - **raio**: 28
+        - **label**: 01
       - **[1]**:
-        - **id**: 02
-        - **label**: 02
+        - **id**: pXsGhgMUUUnsxn
+        - **uid**: pXsGhgMUUUnsxn
+        - **rotulo**: 02
         - **circulo**:
           - **x**: 429
           - **y**: 322
           - **raio**: 29
+        - **label**: 02
       - **[2]**:
-        - **id**: 03
-        - **label**: 03
+        - **id**: lQ8KDCxKokAwwe
+        - **uid**: lQ8KDCxKokAwwe
+        - **rotulo**: 03
         - **circulo**:
           - **x**: 555
           - **y**: 392
           - **raio**: 29
+        - **label**: 03
       - **[3]**:
-        - **id**: 04
-        - **label**: 04
+        - **id**: yUzpfjRHkL3nLg
+        - **uid**: yUzpfjRHkL3nLg
+        - **rotulo**: 04
         - **circulo**:
           - **x**: 726
           - **y**: 421
           - **raio**: 29
+        - **label**: 04
       - **[4]**:
-        - **id**: 05
-        - **label**: 05
+        - **id**: l4CvcKRjeynHc4
+        - **uid**: l4CvcKRjeynHc4
+        - **rotulo**: 05
         - **circulo**:
           - **x**: 880
           - **y**: 485
           - **raio**: 29
+        - **label**: 05
       - **[5]**:
-        - **id**: 06
-        - **label**: 06
+        - **id**: 2t2iBzu9fIKqDw
+        - **uid**: 2t2iBzu9fIKqDw
+        - **rotulo**: 06
         - **circulo**:
           - **x**: 1020
           - **y**: 585
           - **raio**: 29
+        - **label**: 06
       - **[6]**:
-        - **id**: 07
-        - **label**: 07
+        - **id**: KvnyQJzAUvfFwb
+        - **uid**: KvnyQJzAUvfFwb
+        - **rotulo**: 07
         - **circulo**:
           - **x**: 1134
           - **y**: 696
           - **raio**: 29
+        - **label**: 07
       - **[7]**:
-        - **id**: 08
-        - **label**: 08
+        - **id**: gwCcj000hmEUyh
+        - **uid**: gwCcj000hmEUyh
+        - **rotulo**: 08
         - **circulo**:
           - **x**: 1191
           - **y**: 823
           - **raio**: 29
+        - **label**: 08
       - **[8]**:
-        - **id**: 09
-        - **label**: 09
+        - **id**: 6SrUY3w7ulJgwn
+        - **uid**: 6SrUY3w7ulJgwn
+        - **rotulo**: 09
         - **circulo**:
           - **x**: 1238
           - **y**: 945
           - **raio**: 29
+        - **label**: 09
       - **[9]**:
-        - **id**: 10
-        - **label**: 10
+        - **id**: 2m5FIZkLxoM0Pz
+        - **uid**: 2m5FIZkLxoM0Pz
+        - **rotulo**: 10
         - **circulo**:
           - **x**: 1266
           - **y**: 1070
           - **raio**: 29
+        - **label**: 10
       - **[10]**:
-        - **id**: 11
-        - **label**: 11
+        - **id**: zXALRypeurB5ZM
+        - **uid**: zXALRypeurB5ZM
+        - **rotulo**: 11
         - **circulo**:
           - **x**: 1313
           - **y**: 1190
           - **raio**: 29
+        - **label**: 11
       - **[11]**:
-        - **id**: 12
-        - **label**: 12
+        - **id**: reMellebzTv9BZ
+        - **uid**: reMellebzTv9BZ
+        - **rotulo**: 12
         - **circulo**:
           - **x**: 1371
           - **y**: 1307
           - **raio**: 29
+        - **label**: 12
       - **[12]**:
-        - **id**: 13
-        - **label**: 13
+        - **id**: jSdHeIsNr6KE7V
+        - **uid**: jSdHeIsNr6KE7V
+        - **rotulo**: 13
         - **circulo**:
           - **x**: 1476
           - **y**: 1634
           - **raio**: 29
+        - **label**: 13
       - **[13]**:
-        - **id**: 14
-        - **label**: 14
+        - **id**: YHQIELl2lCHaqQ
+        - **uid**: YHQIELl2lCHaqQ
+        - **rotulo**: 14
         - **circulo**:
           - **x**: 1535
           - **y**: 1759
           - **raio**: 29
+        - **label**: 14
       - **[14]**:
-        - **id**: 15
-        - **label**: 15
+        - **id**: 5Cd1JMTs505tWg
+        - **uid**: 5Cd1JMTs505tWg
+        - **rotulo**: 15
         - **circulo**:
           - **x**: 1561
           - **y**: 1886
           - **raio**: 29
+        - **label**: 15
     - **referencias**:
       - **[0]**:
+        - **alvo_uid**: 4CGdzyCDROpBgb
+        - **pontos_uids**:
+          - nm6TBbxUZ8KgMh
         - **escalada**: O PODER DO ROCAMBOLE
         - **ids**:
-          - 01
+          - nm6TBbxUZ8KgMh
       - **[1]**:
+        - **alvo_uid**: W18n7Ow1KIsRVh
+        - **pontos_uids**:
+          - pXsGhgMUUUnsxn
         - **escalada**: TETO DE VIDRO
         - **ids**:
-          - 02
+          - pXsGhgMUUUnsxn
       - **[2]**:
+        - **alvo_uid**: tIuNInbHaHDXI8
+        - **pontos_uids**:
+          - lQ8KDCxKokAwwe
         - **escalada**: PECADO CAPITAL
         - **ids**:
-          - 03
+          - lQ8KDCxKokAwwe
       - **[3]**:
+        - **alvo_uid**: AnhDRwiGlVY9dJ
+        - **pontos_uids**:
+          - yUzpfjRHkL3nLg
         - **escalada**: GÊNESIS
         - **ids**:
-          - 04
+          - yUzpfjRHkL3nLg
       - **[4]**:
+        - **alvo_uid**: ezz59UKAO6FfFu
+        - **pontos_uids**:
+          - l4CvcKRjeynHc4
         - **escalada**: VIA INACABADA 1
         - **ids**:
-          - 05
+          - l4CvcKRjeynHc4
       - **[5]**:
+        - **alvo_uid**: lSKVK5WAqpI53q
+        - **pontos_uids**:
+          - 2t2iBzu9fIKqDw
         - **escalada**: RIBEIRÃO DA MATA
         - **ids**:
-          - 06
+          - 2t2iBzu9fIKqDw
       - **[6]**:
+        - **alvo_uid**: lNi4dqe08Vmvnt
+        - **pontos_uids**:
+          - KvnyQJzAUvfFwb
         - **escalada**: SEU JOÃOZITO
         - **ids**:
-          - 07
+          - KvnyQJzAUvfFwb
       - **[7]**:
+        - **alvo_uid**: CbuTJ6vmNC2Pq5
+        - **pontos_uids**:
+          - gwCcj000hmEUyh
         - **escalada**: BUFFALO BILL
         - **ids**:
-          - 08
+          - gwCcj000hmEUyh
       - **[8]**:
+        - **alvo_uid**: gOH21l7Miy0t42
+        - **pontos_uids**:
+          - 6SrUY3w7ulJgwn
         - **escalada**: HANIBALL
         - **ids**:
-          - 09
+          - 6SrUY3w7ulJgwn
       - **[9]**:
+        - **alvo_uid**: cN0nIbp3fXQLMC
+        - **pontos_uids**:
+          - 2m5FIZkLxoM0Pz
         - **escalada**: DEMOCRACIA
         - **ids**:
-          - 10
+          - 2m5FIZkLxoM0Pz
       - **[10]**:
+        - **alvo_uid**: YlWtchVcWaq3Ok
+        - **pontos_uids**:
+          - zXALRypeurB5ZM
         - **escalada**: DIA DE REIS
         - **ids**:
-          - 11
+          - zXALRypeurB5ZM
       - **[11]**:
+        - **alvo_uid**: t0coRpDPRfYxoq
+        - **pontos_uids**:
+          - reMellebzTv9BZ
         - **escalada**: JOANA D'ARC
         - **ids**:
-          - 12
+          - reMellebzTv9BZ
       - **[12]**:
+        - **alvo_uid**: k9R2FthEIOK4bG
+        - **pontos_uids**:
+          - jSdHeIsNr6KE7V
         - **escalada**: ARTE SACRA
         - **ids**:
-          - 13
+          - jSdHeIsNr6KE7V
       - **[13]**:
+        - **alvo_uid**: 3UQwsNneDR7Oog
+        - **pontos_uids**:
+          - YHQIELl2lCHaqQ
         - **escalada**: SANTA FÉ
         - **ids**:
-          - 14
+          - YHQIELl2lCHaqQ
       - **[14]**:
+        - **alvo_uid**: mQeQkGR44hEDrz
+        - **pontos_uids**:
+          - 5Cd1JMTs505tWg
         - **escalada**: VIA INACABADA 2
         - **ids**:
-          - 15
+          - 5Cd1JMTs505tWg
 - **escaladas**:
   - **[0]**:
+    - **uid**: 4CGdzyCDROpBgb
     - **via_multiplas_enfiadas**:
       - **nome**: O PODER DO ROCAMBOLE
       - **dificuldade_maxima**: BR_10A
@@ -1059,29 +1330,36 @@
             - **nome**: P3
             - **dificuldade**: PROJETO
   - **[1]**:
+    - **uid**: W18n7Ow1KIsRVh
     - **via_esportiva**:
       - **nome**: TETO DE VIDRO
       - **dificuldade**: BR_9A
   - **[2]**:
+    - **uid**: tIuNInbHaHDXI8
     - **via_esportiva**:
       - **nome**: PECADO CAPITAL
       - **dificuldade**: BR_8C
   - **[3]**:
+    - **uid**: AnhDRwiGlVY9dJ
     - **via_esportiva**:
       - **nome**: GÊNESIS
       - **dificuldade**: BR_8B
   - **[4]**:
+    - **uid**: ezz59UKAO6FfFu
     - **via_esportiva**:
       - **nome**: VIA INACABADA 1
   - **[5]**:
+    - **uid**: lSKVK5WAqpI53q
     - **via_esportiva**:
       - **nome**: RIBEIRÃO DA MATA
       - **dificuldade**: BR_7B
   - **[6]**:
+    - **uid**: lNi4dqe08Vmvnt
     - **via_esportiva**:
       - **nome**: SEU JOÃOZITO
       - **dificuldade**: BR_6SUP
   - **[7]**:
+    - **uid**: CbuTJ6vmNC2Pq5
     - **via_multiplas_enfiadas**:
       - **nome**: BUFFALO BILL
       - **dificuldade_maxima**: BR_9A
@@ -1099,6 +1377,7 @@
             - **nome**: P3
             - **dificuldade**: PROJETO
   - **[8]**:
+    - **uid**: gOH21l7Miy0t42
     - **via_multiplas_enfiadas**:
       - **nome**: HANIBALL
       - **dificuldade_maxima**: BR_9B
@@ -1112,6 +1391,7 @@
             - **nome**: P2
             - **dificuldade**: BR_9B
   - **[9]**:
+    - **uid**: cN0nIbp3fXQLMC
     - **via_multiplas_enfiadas**:
       - **nome**: DEMOCRACIA
       - **dificuldade_maxima**: BR_9C
@@ -1133,6 +1413,7 @@
             - **nome**: P4
             - **dificuldade**: BR_9C
   - **[10]**:
+    - **uid**: YlWtchVcWaq3Ok
     - **via_multiplas_enfiadas**:
       - **nome**: DIA DE REIS
       - **dificuldade_maxima**: BR_8B
@@ -1146,6 +1427,7 @@
             - **nome**: P2
             - **dificuldade**: BR_8B
   - **[11]**:
+    - **uid**: t0coRpDPRfYxoq
     - **via_multiplas_enfiadas**:
       - **nome**: JOANA D'ARC
       - **dificuldade_maxima**: BR_8C
@@ -1159,10 +1441,12 @@
             - **nome**: P2
             - **dificuldade**: BR_8C
   - **[12]**:
+    - **uid**: k9R2FthEIOK4bG
     - **via_esportiva**:
       - **nome**: ARTE SACRA
       - **dificuldade**: BR_8A
   - **[13]**:
+    - **uid**: 3UQwsNneDR7Oog
     - **via_multiplas_enfiadas**:
       - **nome**: SANTA FÉ
       - **dificuldade_maxima**: BR_8B
@@ -1176,6 +1460,7 @@
             - **nome**: P2
             - **dificuldade**: BR_8B
   - **[14]**:
+    - **uid**: mQeQkGR44hEDrz
     - **via_esportiva**:
       - **nome**: VIA INACABADA 2
 - **precomputados**:

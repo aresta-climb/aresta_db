@@ -5,12 +5,14 @@
 - **descricao**: Guia de escalada em boulder da Pedra Rachada, localizada em Sabará, Minas Gerais.
 - **id**: br_mg_sabara_pedra_rachada
 - **nome**: Pedra Rachada Bouldering
+- **uid**: Gph57WNcpiWnzD
 - **creditos**:
   - Luca Portilho
   - Nathalia Daneliczin
 - **caminho_thumbnail**: ![caminho_thumbnail](imagens/capa_capa.webp)
 - **botoes**:
   - **[0]**:
+    - **uid**: N71euFJj064jPq
     - **texto**: Capa
     - **destino**:
       - **secao_textual**:
@@ -27,6 +29,7 @@
             | :--: |
             | *Capa da Pedra Rachada Bouldering* |
   - **[1]**:
+    - **uid**: QJaLfdZhkEP15J
     - **texto**: Aviso
     - **destino**:
       - **secao_textual**:
@@ -47,6 +50,7 @@
             
             **O autores e publicadores não fazem representações ou garantias, expressadas ou inferidas, de quaisquer formas em relação ao conteúdo deste livro, e expressamente renunciam quaisquer e todas as representações ou garantias em relação ao conteúdo deste livro, inclusive, sem limitações, a exatidão e confiabilidade das informações incluídas. garantias de aptidão para um propósito particular e/ou comercialização estão expressamente abdicadas. O usuário assume todos os riscos associados com o uso deste livro incluindo, sem limitações, todos os riscos associados com a escalada e o bouldering.**
   - **[2]**:
+    - **uid**: 52ZwfSyLPOSxnM
     - **texto**: Poema
     - **destino**:
       - **secao_textual**:
@@ -78,6 +82,7 @@
             | :--: |
             | *Escalada na Pedra Rachada* |
   - **[3]**:
+    - **uid**: rGrYYEmxExufIw
     - **texto**: Prefácio
     - **destino**:
       - **secao_textual**:
@@ -100,6 +105,7 @@
             
             **Nathalia Daneliczin**
   - **[4]**:
+    - **uid**: 83655UZC24Z6zp
     - **texto**: Agradecimentos
     - **destino**:
       - **secao_textual**:
@@ -134,6 +140,7 @@
             
             Enfim, a eles: Daniel Mendes e Felipe Álvares. Muito obrigado por investirem na escalada brasileira, por acreditarem nos projetos e por participarem de cada passo dessa longa jornada. Por me ajudar nas descrições dos boulders, por me acompanharem até a Pedra Rachada várias vezes, por investir o tempo de vocês no projeto, pelas reuniões, pelas idéias. Sem vocês esse guia não estaria impresso. Muito obrigado por tudo!
   - **[5]**:
+    - **uid**: QQeyorwzgneHRA
     - **texto**: Introdução
     - **destino**:
       - **secao_textual**:
@@ -156,6 +163,7 @@
             
             Divirta-se, boa escalada!
   - **[6]**:
+    - **uid**: LIB3I8F1vewQHC
     - **texto**: Como Chegar em Sabará
     - **destino**:
       - **secao_textual**:
@@ -172,6 +180,7 @@
             
             Siga reto por aproximadamente 3,4km depois de passar por cima da Av. Cristiano Machado e mantenha à esquerda (BR-262) na bifurcação, logo após uma passarela, seguindo as placas que indicam à cidade de Sabará. De lá, são mais 8km até o Centro de Informação ao Turista de Sabará, onde você pode conseguir mais informações sobre a cidade, e mais 1km até o Centro da cidade.
   - **[7]**:
+    - **uid**: LSr1mHpps6tPr5
     - **texto**: A Cidade de Sabará
     - **destino**:
       - **secao_textual**:
@@ -198,6 +207,7 @@
             
             A fusão secular das etnias negra, branca e indígena moldou em Sabará uma identidade cultural extremamente rica, com tradições preservadas pelas manifestações populares e cultos que ainda povoam as ruas e templos da cidade. Dentre muitos outros, destacam-se a Folia de Reis, a Abertura do Santo Sepulcro na Semana Santa, a confecção dos tapetes artesanais na festa de Corpus Christi, o encontro das bandas de música no coreto da Praça Santa Rita, as quadrilhas nas festividades juninas, o Carnaval dos blocos caricatos, os grupos de seresta e os corais. A maioria das tradições locais está preservada e podem ser contempladas, principalmente, na ocasião destes eventos tradicionais. Estas manifestações materializam a relação destes diversos grupos com a história da cidade de Sabará.
   - **[8]**:
+    - **uid**: N6Z86pvNibs8jZ
     - **texto**: Turismo Histórico e Religioso
     - **destino**:
       - **secao_textual**:
@@ -250,6 +260,7 @@
             - **Localização:** Rua Dom Pedro II
             - **Funcionamento:** Varia em função ponto turístico.
   - **[9]**:
+    - **uid**: oedGgIEHDEjLyk
     - **texto**: Ecoturismo
     - **destino**:
       - **secao_textual**:
@@ -289,6 +300,7 @@
             - **Endereço:** Av. Serafim Mota Barros s/n – Centro
             - **Informações:** semma@sabara.mg.gov.br / (31) 3671-2282 / (31) 3672-7694
   - **[10]**:
+    - **uid**: Zuun71n8Cb2uoa
     - **texto**: Ecossistema
     - **destino**:
       - **secao_textual**:
@@ -326,6 +338,7 @@
             
             O período ideal para a prática da escalada na Pedra Rachada é durante o outono e o inverno, do início de maio até o início de setembro, quando as temperaturas tornam-se mais amenas e a umidade relativa do ar é mais baixa. Nessa época, como dizem os escaladores locais, a pedra fica “colando”, perfeita para encadear seus projetos. De outubro a abril, as temperaturas são mais elevadas e as chances de chuva aumentam, especialmente no período de dezembro a março. Esta não é a melhor época para uma escalada forte durante o dia e muita atenção para fortes tempestades deve ser tomada, mas durante a noite o tempo está sempre fresco, perfeito para o night climb, tradicional no setor.
   - **[11]**:
+    - **uid**: ONHRoqILMQW3JL
     - **texto**: Onde Ficar
     - **destino**:
       - **secao_textual**:
@@ -365,6 +378,7 @@
             - **Site:** www.pousadavillareal.net
             - **Endereço:** Av. Prefeito Serafim Motta Barros, 76 - Centro, Sabará - MG - CEP: 34505-440
   - **[12]**:
+    - **uid**: 9wdwSeEtj2ZLL5
     - **texto**: Ética Local
     - **destino**:
       - **secao_textual**:
@@ -391,6 +405,7 @@
             - Lixo: você é responsável pelo seu, leve-o de volta (atenção com as guimbas de cigarro e os esparadrapos usados).
             - Aproveite seu dia de escalada e, acima de tudo, tenha bom senso.
   - **[13]**:
+    - **uid**: WP2XHHRMj7oiKE
     - **texto**: Como Chegar na Pedra Rachada
     - **destino**:
       - **secao_textual**:
@@ -401,6 +416,7 @@
             | :--: |
             | *Mapa de Acesso à Pedra Rachada* |
   - **[14]**:
+    - **uid**: knOYgNlGW6FM3e
     - **texto**: História
     - **destino**:
       - **secao_textual**:
@@ -431,6 +447,7 @@
             
             **2014** – O Guia de Escalada Pedra Rachada Bouldering é lançado no 10º Festival Pedra Rachada Bouldering em homenagem ao aniversário do setor, um presente para os aficionados pela escalada em boulder! Foi o primeiro guia completo de escalada a ser lançado no Brasil! O Festival contou com a presença de grandes escaladores de todo o país!
   - **[15]**:
+    - **uid**: VUVN6eSgZtjXmU
     - **texto**: Como Usar este Guia
     - **destino**:
       - **secao_textual**:
@@ -443,6 +460,7 @@
             | :--: |
             | *Graduação e Legenda* |
   - **[16]**:
+    - **uid**: pwghcmmhGG1oKX
     - **texto**: Sobre os Autores
     - **destino**:
       - **secao_textual**:
@@ -458,7 +476,7 @@
             É apaixonado pela vida, pela natureza e tem um coração enorme. É o escalador mais apaixonado que eu conheço.
             
             Sou ex jogadora de vôlei – joguei dos 8 aos 21 anos, servi a Seleção Brasileira de base dos 14 aos 17, joguei seis Superligas e devo a esse esporte lindo tudo que conquistei e aprendi até hoje, e as amizades maravilhosas que tenho – e estudante de administração. Belo Horizontina apaixonada pela cidade, pelas flores e pelo mar, pelo Sol e pela vida. Meu sonho é viajar o mundo e nutrir minha alma, alimentar-me de conhecimento e ser uma pessoa melhor a cada dia. Acredito que a verdade e a sinceridade podem mudar o mundo. Acredito que felicidade é de responsabilidade nossa e devemos abraçá-la todos os dias, vivendo da melhor maneira possível, fazendo o bem e amando muito. Nasci em 26 de agosto de 1991 e me chamo Nathalia Daneliczin. Esse é o meu primeiro livro publicado, ainda espero escrever e publicar algumas idéias por aí.
-- **ultima_migracao**: 4
+- **ultima_migracao**: 5
 
 
 ## Parte: grupo_estacionamento
@@ -499,12 +517,14 @@
     
     *Fotos e vídeos de escalada: [www.facebook.com/vivapedra](https://www.facebook.com/vivapedra)*
 - **nome**: Estacionamento
+- **uid**: 953oYyZ8HlnV6T
 - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_estacionamento_p0_i0.webp)
 - **setores**:
   - **[0]**:
     - **conteudo**:
       - **descricao**: # Bloco A - Traverse ao Tito
       - **nome**: Bloco A - Traverse ao Tito
+      - **uid**: UF4RAtxtLmMUH5
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_estacionamento_p2_i1.webp)
@@ -512,49 +532,69 @@
           - **altura_mapa**: 710
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: UcfpswteluQf9w
+              - **pontos_uids**:
+                - 1
               - **escalada**: Esquenta o prato
               - **ids**:
                 - 1
             - **[1]**:
+              - **alvo_uid**: y8pNozqXqupfuc
+              - **pontos_uids**:
+                - 2
               - **escalada**: Traverse ao Tito
               - **ids**:
                 - 2
             - **[2]**:
+              - **alvo_uid**: m5KSKHA1BNAond
+              - **pontos_uids**:
+                - 3
               - **escalada**: Chupa karma
               - **ids**:
                 - 3
             - **[3]**:
+              - **alvo_uid**: TX3Ddbo6JEPhEk
+              - **pontos_uids**:
+                - 4
               - **escalada**: Taco o fogo
               - **ids**:
                 - 4
             - **[4]**:
+              - **alvo_uid**: PADAVh9eSfibg7
+              - **pontos_uids**:
+                - 5
               - **escalada**: Pum
               - **ids**:
                 - 5
       - **escaladas**:
         - **[0]**:
+          - **uid**: UcfpswteluQf9w
           - **boulder**:
             - **descricao**: Sai sentado com a mão direita em um pequeno reglete/batente de gaston e a esquerda em um batente invertido, fazendo um movimento forte e continuando reto por agarras boas até o topo.
             - **nome**: Esquenta o prato
             - **dificuldade**: V3
         - **[1]**:
+          - **uid**: y8pNozqXqupfuc
           - **boulder**:
             - **descricao**: Problema aberto em homenagem à jovem promessa da escalada italiana. Sai como o “Esquenta o prato” (1) e atravessa pelo alto para a direita, passando por um buraco e pelo módulo até um batente abaulado, finalizando com um movimento longo até a borda.
             - **nome**: Traverse ao Tito
             - **dificuldade**: V5
             - **destaque**: True
         - **[2]**:
+          - **uid**: m5KSKHA1BNAond
           - **boulder**:
             - **descricao**: Sai em pé em 02 regletes/batentes invertidos e faz um movimento forte para uma agarra boa, terminando como o “Taco o fogo” (4).
             - **nome**: Chupa karma
             - **dificuldade**: V5
             - **destaque**: True
         - **[3]**:
+          - **uid**: TX3Ddbo6JEPhEk
           - **boulder**:
             - **descricao**: Começa sentado, com a mão direita bem baixa num reglete e a esquerda num batente/pinça de lado e toca reto.
             - **nome**: Taco o fogo
             - **dificuldade**: V4
         - **[4]**:
+          - **uid**: PADAVh9eSfibg7
           - **boulder**:
             - **descricao**: Sai em pé com a mão direita num reglete de gaston e a esquerda em uma invertida logo acima escalando por agarras boas.
             - **nome**: Pum
@@ -567,6 +607,7 @@
     - **conteudo**:
       - **descricao**: # Bloco B - Positive Vibrations
       - **nome**: Bloco B - Positive Vibrations
+      - **uid**: 7zovtK8xpq3Wpg
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_estacionamento_p3_i0.webp)
@@ -574,22 +615,37 @@
           - **altura_mapa**: 710
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: 2d1UWBEt6DpW7b
+              - **pontos_uids**:
+                - 6
               - **escalada**: La olla
               - **ids**:
                 - 6
             - **[1]**:
+              - **alvo_uid**: ykTyyYnc0JA4kk
+              - **pontos_uids**:
+                - 7
               - **escalada**: Mayday
               - **ids**:
                 - 7
             - **[2]**:
+              - **alvo_uid**: CVzdlBxD4MdgAm
+              - **pontos_uids**:
+                - 8
               - **escalada**: Positive vibrations
               - **ids**:
                 - 8
             - **[3]**:
+              - **alvo_uid**: FewpvWQrjZc4Ad
+              - **pontos_uids**:
+                - 9
               - **escalada**: Macadâmia
               - **ids**:
                 - 9
             - **[4]**:
+              - **alvo_uid**: BP8271Cj0nFz3A
+              - **pontos_uids**:
+                - 10
               - **escalada**: King Kong
               - **ids**:
                 - 10
@@ -599,51 +655,67 @@
           - **altura_mapa**: 710
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: BP8271Cj0nFz3A
+              - **pontos_uids**:
+                - 10
               - **escalada**: King Kong
               - **ids**:
                 - 10
             - **[1]**:
+              - **alvo_uid**: LfN0apLd7Jv8m3
+              - **pontos_uids**:
+                - 11
               - **escalada**: FormiguinhaZ
               - **ids**:
                 - 11
             - **[2]**:
+              - **alvo_uid**: bdc87LGB3hHIQb
+              - **pontos_uids**:
+                - 12
               - **escalada**: Buttstache
               - **ids**:
                 - 12
       - **escaladas**:
         - **[0]**:
+          - **uid**: 2d1UWBEt6DpW7b
           - **boulder**:
             - **descricao**: Sai sentado com as mãos em um batente e atravessa para a esquerda virando na parte mais fácil do negativo.
             - **nome**: La olla
             - **dificuldade**: VB
         - **[1]**:
+          - **uid**: ykTyyYnc0JA4kk
           - **boulder**:
             - **descricao**: Começa como o “La olla” (6) e segue pra direita pela fenda.
             - **nome**: Mayday
             - **dificuldade**: VB
         - **[2]**:
+          - **uid**: CVzdlBxD4MdgAm
           - **boulder**:
             - **descricao**: Boulder que escala o positivo em aderência.
             - **nome**: Positive vibrations
             - **dificuldade**: VB
             - **destaque**: True
         - **[3]**:
+          - **uid**: FewpvWQrjZc4Ad
           - **boulder**:
             - **descricao**: Sai sentado com a mão direita em um bico e a esquerda em um reglete bom e toca reto por agarras boas à esquerda da aresta.
             - **nome**: Macadâmia
             - **dificuldade**: VB
         - **[4]**:
+          - **uid**: BP8271Cj0nFz3A
           - **boulder**:
             - **descricao**: Começa sentado com as mãos juntas em um bico na aresta e escala abraçando a aresta.
             - **nome**: King Kong
             - **dificuldade**: VB
             - **destaque**: True
         - **[5]**:
+          - **uid**: LfN0apLd7Jv8m3
           - **boulder**:
             - **descricao**: Boulder que sai em pé, em umas lacas logo à direita da aresta, e escala diagonalmente pra direita por agarras boas.
             - **nome**: FormiguinhaZ
             - **dificuldade**: VB
         - **[6]**:
+          - **uid**: bdc87LGB3hHIQb
           - **boulder**:
             - **descricao**: Sai em pé à direita de uma pequena árvore e toca diagonalmente à direita, até uma fenda, e depois em direção à canaleta.
             - **nome**: Buttstache
@@ -655,6 +727,7 @@
     - **conteudo**:
       - **descricao**: # Bloco C - Davy Jones
       - **nome**: Bloco C - Davy Jones
+      - **uid**: 3vsvWLI8sxx8RS
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_estacionamento_p5_i2.webp)
@@ -662,40 +735,56 @@
           - **altura_mapa**: 710
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: 6BeJykAYCkApy3
+              - **pontos_uids**:
+                - 12
               - **escalada**: Barba ruiva
               - **ids**:
                 - 12
             - **[1]**:
+              - **alvo_uid**: NLIfUSMgfjga9V
+              - **pontos_uids**:
+                - 13
               - **escalada**: Davy Jones
               - **ids**:
                 - 13
             - **[2]**:
+              - **alvo_uid**: SUbGEXfGneLyml
+              - **pontos_uids**:
+                - 14
               - **escalada**: Fenda do Biquíni
               - **ids**:
                 - 14
             - **[3]**:
+              - **alvo_uid**: peoSaKCrDorXT8
+              - **pontos_uids**:
+                - 15
               - **escalada**: Motim
               - **ids**:
                 - 15
       - **escaladas**:
         - **[0]**:
+          - **uid**: 6BeJykAYCkApy3
           - **boulder**:
             - **descricao**: Começa sentado com a mão direita em um reglete/pocket e a esquerda em um reglete e escala o vertical técnico.
             - **nome**: Barba ruiva
             - **dificuldade**: V0
             - **destaque**: True
         - **[1]**:
+          - **uid**: NLIfUSMgfjga9V
           - **boulder**:
             - **descricao**: Escala a proa do bloco, começando em pé com a mão direita em um bico e a esquerda em um batente de oposição.
             - **nome**: Davy Jones
             - **dificuldade**: V0
             - **destaque**: True
         - **[2]**:
+          - **uid**: SUbGEXfGneLyml
           - **boulder**:
             - **descricao**: Sai sentado com as mãos juntas em uma agarra boa, toca reto até a borda e vira à esquerda do módulo.
             - **nome**: Fenda do Biquíni
             - **dificuldade**: V0
         - **[3]**:
+          - **uid**: peoSaKCrDorXT8
           - **boulder**:
             - **descricao**: Começa como o “Fenda do biquíni” (14) e domina à direita do módulo.
             - **nome**: Motim
@@ -708,6 +797,7 @@
     - **conteudo**:
       - **descricao**: # Bloco D - Bloco 0
       - **nome**: Bloco D - Bloco 0
+      - **uid**: vdjOdc1lF1PDpT
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_estacionamento_p6_i0.webp)
@@ -715,14 +805,23 @@
           - **altura_mapa**: 710
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: s57EkrSm1rRHf9
+              - **pontos_uids**:
+                - 16
               - **escalada**: Aresta
               - **ids**:
                 - 16
             - **[1]**:
+              - **alvo_uid**: UNaKoik5viSfes
+              - **pontos_uids**:
+                - 17
               - **escalada**: Tangente (Bloco 0)
               - **ids**:
                 - 17
             - **[2]**:
+              - **alvo_uid**: Dw36KnzXWquwqj
+              - **pontos_uids**:
+                - 19
               - **escalada**: Transferência
               - **ids**:
                 - 19
@@ -732,47 +831,69 @@
           - **altura_mapa**: 710
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: 1pZ2ORZUPzlSkh
+              - **pontos_uids**:
+                - 18
               - **escalada**: Transição
               - **ids**:
                 - 18
             - **[1]**:
+              - **alvo_uid**: Dw36KnzXWquwqj
+              - **pontos_uids**:
+                - 19
               - **escalada**: Transferência
               - **ids**:
                 - 19
             - **[2]**:
+              - **alvo_uid**: HXvr2ET4YJmMqi
+              - **pontos_uids**:
+                - 20
               - **escalada**: Verticale
               - **ids**:
                 - 20
             - **[3]**:
+              - **alvo_uid**: n0oAaiAr9TODeg
+              - **pontos_uids**:
+                - 21
               - **escalada**: Obina
               - **ids**:
                 - 21
             - **[4]**:
+              - **alvo_uid**: l0BtBWhuHMpgoU
+              - **pontos_uids**:
+                - 22
               - **escalada**: Medalha
               - **ids**:
                 - 22
             - **[5]**:
+              - **alvo_uid**: pYn9qgamHOWUOh
+              - **pontos_uids**:
+                - 22
               - **escalada**: Medalhão
               - **ids**:
                 - 22
       - **escaladas**:
         - **[0]**:
+          - **uid**: s57EkrSm1rRHf9
           - **boulder**:
             - **descricao**: Começa sentado com as mãos juntas em um batente na aresta e segue por ela até o topo.
             - **nome**: Aresta
             - **dificuldade**: V3
             - **destaque**: True
         - **[1]**:
+          - **uid**: UNaKoik5viSfes
           - **boulder**:
             - **descricao**: Sai sentado no meio da face negativa, escala até a aresta e termina no “Aresta” (16).
             - **nome**: Tangente (Bloco 0)
             - **dificuldade**: V3
         - **[2]**:
+          - **uid**: 1pZ2ORZUPzlSkh
           - **boulder**:
             - **descricao**: Começa sentado em baixo do tetinho e toca reto.
             - **nome**: Transição
             - **dificuldade**: V3
         - **[3]**:
+          - **uid**: Dw36KnzXWquwqj
           - **boulder**:
             - **descricao**: Uma linha ainda sem repetições que sai como o “Transição” (18) e toca pra esquerda pelo vertical acima do tetinho.
             - **nome**: Transferência
@@ -781,6 +902,7 @@
               - Rafael Passos
             - **data_abertura**: 2011
         - **[4]**:
+          - **uid**: HXvr2ET4YJmMqi
           - **boulder**:
             - **descricao**: Começa em dois regletes baixos, dá um tapa no batente e toca reto por regletes bons.
             - **nome**: Verticale
@@ -790,6 +912,7 @@
               - Gustavo Fontes
             - **data_abertura**: 2007
         - **[5]**:
+          - **uid**: n0oAaiAr9TODeg
           - **boulder**:
             - **descricao**: Boulder com um movimento inicial muito técnico que sai em pé com a mão esquerda em um abaulado de oposição e a direita em uma invertida baixa, finalizando no “Verticale” (20).
             - **nome**: Obina
@@ -799,6 +922,7 @@
               - Daniel Mendes
             - **data_abertura**: 2011
         - **[6]**:
+          - **uid**: l0BtBWhuHMpgoU
           - **boulder**:
             - **descricao**: Sai em pé com a mão esquerda em um reglete, a direita em uma invertida baixa e escala comprimindo a aresta abaulada.
             - **nome**: Medalha
@@ -808,6 +932,7 @@
               - Rafael Passos
             - **data_abertura**: 2011
         - **[7]**:
+          - **uid**: pYn9qgamHOWUOh
           - **boulder**:
             - **descricao**: Sai sentado com as mãos juntas em uma agarra invertida e entra no “Medalha” (22).
             - **nome**: Medalhão
@@ -823,6 +948,7 @@
     - **conteudo**:
       - **descricao**: # Bloco E - Psicotrópicos
       - **nome**: Bloco E - Psicotrópicos
+      - **uid**: NXumL13y78sla0
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_estacionamento_p7_i0.webp)
@@ -830,30 +956,42 @@
           - **altura_mapa**: 710
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: DT2coOZTZNypif
+              - **pontos_uids**:
+                - 24
               - **escalada**: Psicotrópicos
               - **ids**:
                 - 24
             - **[1]**:
+              - **alvo_uid**: 1frVvi6MxsXj6T
+              - **pontos_uids**:
+                - 25
               - **escalada**: Histeria
               - **ids**:
                 - 25
             - **[2]**:
+              - **alvo_uid**: zKnf8ryE2LbO7H
+              - **pontos_uids**:
+                - 26
               - **escalada**: Café com leite
               - **ids**:
                 - 26
       - **escaladas**:
         - **[0]**:
+          - **uid**: DT2coOZTZNypif
           - **boulder**:
             - **descricao**: Começa sentado com as mãos juntas em um pocket abaulado à direita da árvore e toca reto, finalizando pela aresta, como o “Histeria” (25).
             - **nome**: Psicotrópicos
             - **dificuldade**: V1
             - **destaque**: True
         - **[1]**:
+          - **uid**: 1frVvi6MxsXj6T
           - **boulder**:
             - **descricao**: Sai sentado com as mãos em dois batentes verticais e escala a face negativa pela aresta por agarras boas.
             - **nome**: Histeria
             - **dificuldade**: V0
         - **[2]**:
+          - **uid**: zKnf8ryE2LbO7H
           - **boulder**:
             - **descricao**: Escala o meio da face positiva por agarras boas.
             - **nome**: Café com leite
@@ -924,12 +1062,14 @@
     - A partir da área dos blocos Libélula e Bloco 1 ramificam-se as trilhas secundárias para o **Setor Lua Cheia** (à esquerda) e para o **Setor Sono do Calango** (à direita).
     - Próximos ao Bloco 2 encontram-se os blocos **D (Chupa Lombriga)**, **E (Abraço do Calango)** e, mais acima na crista, o **F (Nave)**.
 - **nome**: Entrada
+- **uid**: hLETQNgAujWKqB
 - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_entrada_p0_i0.webp)
 - **setores**:
   - **[0]**:
     - **conteudo**:
       - **descricao**: # Bloco A - Libélula
       - **nome**: Bloco A - Libélula
+      - **uid**: XB90JoHKDpzLZy
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_entrada_p2.webp)
@@ -937,30 +1077,42 @@
           - **altura_mapa**: 1055
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: SzN3x0rZtdTbjU
+              - **pontos_uids**:
+                - 1
               - **escalada**: Borboleta
               - **ids**:
                 - 1
             - **[1]**:
+              - **alvo_uid**: kzBZEahT1FKpZW
+              - **pontos_uids**:
+                - 2
               - **escalada**: Libélula
               - **ids**:
                 - 2
             - **[2]**:
+              - **alvo_uid**: cMuc6sILg49MgP
+              - **pontos_uids**:
+                - 3
               - **escalada**: Larva
               - **ids**:
                 - 3
       - **escaladas**:
         - **[0]**:
+          - **uid**: SzN3x0rZtdTbjU
           - **boulder**:
             - **descricao**: Sai sentado com as mãos em um bico grande e vai pra aresta dominando na parte baixa da pedra.
             - **nome**: Borboleta
             - **dificuldade**: V1
         - **[1]**:
+          - **uid**: kzBZEahT1FKpZW
           - **boulder**:
             - **descricao**: Começa como o Borboleta (1) e, ao invés de ir para a aresta, toca reto por uma linha de regletes e vira na parte mais alta do bloco.
             - **nome**: Libélula
             - **dificuldade**: V3
             - **destaque**: True
         - **[2]**:
+          - **uid**: cMuc6sILg49MgP
           - **boulder**:
             - **descricao**: Começa sentado com as mãos em uma agarra grande e escala reto por agarras boas.
             - **nome**: Larva
@@ -972,6 +1124,7 @@
     - **conteudo**:
       - **descricao**: # Bloco B - Bloco 1
       - **nome**: Bloco B - Bloco 1
+      - **uid**: rA4a41MO7HZnmE
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_entrada_p4_i0.webp)
@@ -979,34 +1132,58 @@
           - **altura_mapa**: 710
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: 8gU3oQhxOwU8xT
+              - **pontos_uids**:
+                - 4
               - **escalada**: No stress the blitz
               - **ids**:
                 - 4
             - **[1]**:
+              - **alvo_uid**: TSnYtLmrCOVEfP
+              - **pontos_uids**:
+                - 5
               - **escalada**: No stress the boulder
               - **ids**:
                 - 5
             - **[2]**:
+              - **alvo_uid**: oCcydj1LyWLKpw
+              - **pontos_uids**:
+                - 6
               - **escalada**: Don’t worry
               - **ids**:
                 - 6
             - **[3]**:
+              - **alvo_uid**: ZMIUoYT2JIw0S9
+              - **pontos_uids**:
+                - 7
               - **escalada**: Caxo de banana
               - **ids**:
                 - 7
             - **[4]**:
+              - **alvo_uid**: OWGK4eMqelppYW
+              - **pontos_uids**:
+                - 8
               - **escalada**: Easy
               - **ids**:
                 - 8
             - **[5]**:
+              - **alvo_uid**: xLTmHxR0v6yqxr
+              - **pontos_uids**:
+                - 9
               - **escalada**: Banana Terra
               - **ids**:
                 - 9
             - **[6]**:
+              - **alvo_uid**: IDYV6OzQGw4Uyr
+              - **pontos_uids**:
+                - 10
               - **escalada**: Check point
               - **ids**:
                 - 10
             - **[7]**:
+              - **alvo_uid**: HIVQjhcDLdwMLF
+              - **pontos_uids**:
+                - 11
               - **escalada**: Aresta in
               - **ids**:
                 - 11
@@ -1016,30 +1193,51 @@
           - **altura_mapa**: 710
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: HIVQjhcDLdwMLF
+              - **pontos_uids**:
+                - 11
               - **escalada**: Aresta in
               - **ids**:
                 - 11
             - **[1]**:
+              - **alvo_uid**: 2CeN9A6XELWMYA
+              - **pontos_uids**:
+                - 12
               - **escalada**: Referência perigosa
               - **ids**:
                 - 12
             - **[2]**:
+              - **alvo_uid**: JRLTaJtkYUh7Ld
+              - **pontos_uids**:
+                - 13
               - **escalada**: Pipe line
               - **ids**:
                 - 13
             - **[3]**:
+              - **alvo_uid**: sV2KwpHieKKL57
+              - **pontos_uids**:
+                - 14
               - **escalada**: Paulista irado
               - **ids**:
                 - 14
             - **[4]**:
+              - **alvo_uid**: w6pNrcX8OKpUO7
+              - **pontos_uids**:
+                - 15
               - **escalada**: Marrentin carioca
               - **ids**:
                 - 15
             - **[5]**:
+              - **alvo_uid**: s4f7XudTyJSRQM
+              - **pontos_uids**:
+                - 16
               - **escalada**: Chato
               - **ids**:
                 - 16
             - **[6]**:
+              - **alvo_uid**: IUlTRTQX9r4zvI
+              - **pontos_uids**:
+                - 17
               - **escalada**: Mantenha o respeito
               - **ids**:
                 - 17
@@ -1049,14 +1247,23 @@
           - **altura_mapa**: 710
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: 7pJr5DPsMV393e
+              - **pontos_uids**:
+                - 18
               - **escalada**: Mineral
               - **ids**:
                 - 18
             - **[1]**:
+              - **alvo_uid**: aLOFMjQNHOaxAn
+              - **pontos_uids**:
+                - 19
               - **escalada**: Desvio
               - **ids**:
                 - 19
             - **[2]**:
+              - **alvo_uid**: Izs1WOCqZDzli2
+              - **pontos_uids**:
+                - 20
               - **escalada**: Rei do pão
               - **ids**:
                 - 20
@@ -1066,19 +1273,29 @@
           - **altura_mapa**: 710
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: vcq6wl9FqoYBuH
+              - **pontos_uids**:
+                - 21
               - **escalada**: Equilibrista
               - **ids**:
                 - 21
             - **[1]**:
+              - **alvo_uid**: GeNm2SgfPJzhrI
+              - **pontos_uids**:
+                - 22
               - **escalada**: Parmalat
               - **ids**:
                 - 22
             - **[2]**:
+              - **alvo_uid**: vF8RZ3qWHTpOZg
+              - **pontos_uids**:
+                - 23
               - **escalada**: Bh x Brasília
               - **ids**:
                 - 23
       - **escaladas**:
         - **[0]**:
+          - **uid**: 8gU3oQhxOwU8xT
           - **boulder**:
             - **descricao**: Começa com a mão esquerda em um reglete no teto, a direita num reglete/pinça na aresta e o calcanhar direito em um batente escorrido e escala a aresta.
             - **nome**: No stress the blitz
@@ -1088,6 +1305,7 @@
               - Rafael Passos
             - **data_abertura**: 2005
         - **[1]**:
+          - **uid**: TSnYtLmrCOVEfP
           - **boulder**:
             - **descricao**: Sai sentado com as mãos juntas em uma agarra boa na aresta do teto e finaliza pelo “No stress the blitz” (4).
             - **nome**: No stress the boulder
@@ -1097,98 +1315,116 @@
               - Mahavir Jneesh
             - **data_abertura**: 2010
         - **[2]**:
+          - **uid**: oCcydj1LyWLKpw
           - **boulder**:
             - **descricao**: Sai como o “No stress the boulder” (5), mas do batente vai em direção à aresta passando por um reglete bom.
             - **nome**: Don’t worry
             - **dificuldade**: V2
         - **[3]**:
+          - **uid**: ZMIUoYT2JIw0S9
           - **boulder**:
             - **descricao**: Começa em pé com a mão esquerda num reglete de lado e a direita num batente de gastón e escala reto, por regletes pequenos, até uma virada fácil.
             - **nome**: Caxo de banana
             - **dificuldade**: V2
             - **destaque**: True
         - **[4]**:
+          - **uid**: OWGK4eMqelppYW
           - **boulder**:
             - **descricao**: Começa em pé com a mão esquerda em um batente/pinça e a direita em um reglete e toca reto por regletes até uma virada fácil.
             - **nome**: Easy
             - **dificuldade**: V1
             - **destaque**: True
         - **[5]**:
+          - **uid**: xLTmHxR0v6yqxr
           - **boulder**:
             - **descricao**: Sai como o “Easy” (8) e termina no “Caxo de banana” (7).
             - **nome**: Banana Terra
             - **dificuldade**: V2
             - **destaque**: True
         - **[6]**:
+          - **uid**: IDYV6OzQGw4Uyr
           - **boulder**:
             - **descricao**: Sai sentado com os braços bem abertos em um batente escorrido de mão esquerda, um reglet pequeno de mão direita e faz um movimento longo e muito duro para um regletinho acima do teto e toca reto.
             - **nome**: Check point
             - **dificuldade**: V8
         - **[7]**:
+          - **uid**: HIVQjhcDLdwMLF
           - **boulder**:
             - **descricao**: Boulder que escala a aresta saindo sentado com as mãos num reglete e num abaulado.
             - **nome**: Aresta in
             - **dificuldade**: V3
             - **destaque**: True
         - **[8]**:
+          - **uid**: 2CeN9A6XELWMYA
           - **boulder**:
             - **descricao**: Começa em pé com as mãos abertas em dois regletes no positivo, passa pelo tetinho e faz um domínio clássico.
             - **nome**: Referência perigosa
             - **dificuldade**: V3
             - **destaque**: True
         - **[9]**:
+          - **uid**: JRLTaJtkYUh7Ld
           - **boulder**:
             - **descricao**: Sai em uma grande laca abaixo do teto, segue para outra laca à esquerda e domina a "onda" passando por regletes. Clássico!
             - **nome**: Pipe line
             - **dificuldade**: V2
             - **destaque**: True
         - **[10]**:
+          - **uid**: sV2KwpHieKKL57
           - **boulder**:
             - **descricao**: Sai sentado com a mão esquerda em um batente e a direita em um pocket/batente.
             - **nome**: Paulista irado
             - **dificuldade**: V1
         - **[11]**:
+          - **uid**: w6pNrcX8OKpUO7
           - **boulder**:
             - **descricao**: Sai sentado com as mãos juntas em um batente bom e um reglete e escala por regletes à direita da proa.
             - **nome**: Marrentin carioca
             - **dificuldade**: V3
             - **destaque**: True
         - **[12]**:
+          - **uid**: s4f7XudTyJSRQM
           - **boulder**:
             - **descricao**: Sai em dois regletes bem baixos e termina no “Marrentin carioca” (15).
             - **nome**: Chato
             - **dificuldade**: V5
         - **[13]**:
+          - **uid**: IUlTRTQX9r4zvI
           - **boulder**:
             - **descricao**: Começa sentado com as mão em agarras boas na aresta atrás da árvore. Faz uma travessia pra esquerda, por regletes, finalizando no “Marrentin carioca” (15).
             - **nome**: Mantenha o respeito
             - **dificuldade**: V3
         - **[14]**:
+          - **uid**: 7pJr5DPsMV393e
           - **boulder**:
             - **descricao**: Sai sentado com as mãos juntas em agarras boas e toca reto pelas cracas.
             - **nome**: Mineral
             - **dificuldade**: V1
         - **[15]**:
+          - **uid**: aLOFMjQNHOaxAn
           - **boulder**:
             - **descricao**: Sai sentado com as mãos juntas em agarras boas e toca reto pelas cracas.
             - **nome**: Desvio
             - **dificuldade**: V1
         - **[16]**:
+          - **uid**: Izs1WOCqZDzli2
           - **boulder**:
             - **descricao**: Sai sentado com as mãos juntas em agarras boas, passa pela fenda até um reglete à direita e finaliza pela esquerda.
             - **nome**: Rei do pão
             - **dificuldade**: V1
         - **[17]**:
+          - **uid**: vcq6wl9FqoYBuH
           - **boulder**:
             - **descricao**: Começa em pé com as mãos em um batente/abaulado e toca reto.
             - **nome**: Equilibrista
             - **dificuldade**: V0
         - **[18]**:
+          - **uid**: GeNm2SgfPJzhrI
           - **boulder**:
             - **descricao**: Sai em pé com as mãos em regletes bons e toca reto pelo vertical/positivo.
             - **nome**: Parmalat
             - **dificuldade**: V1
         - **[19]**:
+          - **uid**: vF8RZ3qWHTpOZg
           - **boulder**:
             - **descricao**: Sai sentado com as mãos na borda do tetinho e domina.
             - **nome**: Bh x Brasília
@@ -1200,6 +1436,7 @@
     - **conteudo**:
       - **descricao**: # Bloco C - Bloco 2
       - **nome**: Bloco C - Bloco 2
+      - **uid**: 3zRNftF5GzoLjS
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_entrada_p6_i1.webp)
@@ -1207,62 +1444,107 @@
           - **altura_mapa**: 710
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: x8wUPYUJLBobGz
+              - **pontos_uids**:
+                - 24
               - **escalada**: Gaston as avessas
               - **ids**:
                 - 24
             - **[1]**:
+              - **alvo_uid**: uFP6AiK9oJPbp0
+              - **pontos_uids**:
+                - 25
               - **escalada**: Calango hidráulico
               - **ids**:
                 - 25
             - **[2]**:
+              - **alvo_uid**: YLBfA61HjdTbCT
+              - **pontos_uids**:
+                - 26
               - **escalada**: Ergot
               - **ids**:
                 - 26
             - **[3]**:
+              - **alvo_uid**: 53YkCd34DD4iML
+              - **pontos_uids**:
+                - 27
               - **escalada**: Ergot SDS
               - **ids**:
                 - 27
             - **[4]**:
+              - **alvo_uid**: xr2FQXXiSTj2Iz
+              - **pontos_uids**:
+                - 26
               - **escalada**: Trip eterna
               - **ids**:
                 - 26
             - **[5]**:
+              - **alvo_uid**: 5MytYt24HJg3PT
+              - **pontos_uids**:
+                - 27
               - **escalada**: Projeto 1
               - **ids**:
                 - 27
             - **[6]**:
+              - **alvo_uid**: MshAGTQ7R8wQpE
+              - **pontos_uids**:
+                - 30
               - **escalada**: Projeto Sabará
               - **ids**:
                 - 30
             - **[7]**:
+              - **alvo_uid**: C7rsQvdwzouahQ
+              - **pontos_uids**:
+                - 31
               - **escalada**: Crocância do sabor
               - **ids**:
                 - 31
             - **[8]**:
+              - **alvo_uid**: NoWEDfPUdq4MWQ
+              - **pontos_uids**:
+                - 30
               - **escalada**: Projeto 2
               - **ids**:
                 - 30
             - **[9]**:
+              - **alvo_uid**: Fkq9Y5QlyzRZCb
+              - **pontos_uids**:
+                - 33
               - **escalada**: Energético
               - **ids**:
                 - 33
             - **[10]**:
+              - **alvo_uid**: k7WAdPJsT5WzlQ
+              - **pontos_uids**:
+                - 33
               - **escalada**: Estimulante
               - **ids**:
                 - 33
             - **[11]**:
+              - **alvo_uid**: YoXKvlBtqyVEV9
+              - **pontos_uids**:
+                - 35
               - **escalada**: Projeto Taurina
               - **ids**:
                 - 35
             - **[12]**:
+              - **alvo_uid**: VVW7BKdL5q2Gbm
+              - **pontos_uids**:
+                - 36
               - **escalada**: Rala frek lek
               - **ids**:
                 - 36
             - **[13]**:
+              - **alvo_uid**: xYyG7JKqzRj6Gt
+              - **pontos_uids**:
+                - 36
               - **escalada**: Rala frek lek SDS
               - **ids**:
                 - 36
             - **[14]**:
+              - **alvo_uid**: yRvJzGiffHQFAr
+              - **pontos_uids**:
+                - 38
               - **escalada**: Viviane Espíndola
               - **ids**:
                 - 38
@@ -1272,34 +1554,58 @@
           - **altura_mapa**: 710
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: kMhXdT69S5Ss5c
+              - **pontos_uids**:
+                - 39
               - **escalada**: Escala e desescala
               - **ids**:
                 - 39
             - **[1]**:
+              - **alvo_uid**: qaUP5qpVGiRyTi
+              - **pontos_uids**:
+                - 40
               - **escalada**: Sobe e desce
               - **ids**:
                 - 40
             - **[2]**:
+              - **alvo_uid**: mFR1T5Vy4nRihH
+              - **pontos_uids**:
+                - 41
               - **escalada**: Incrível
               - **ids**:
                 - 41
             - **[3]**:
+              - **alvo_uid**: Bgwtet02MZqHOB
+              - **pontos_uids**:
+                - 42
               - **escalada**: Ziglyn
               - **ids**:
                 - 42
             - **[4]**:
+              - **alvo_uid**: QhcWEshmVYNEW3
+              - **pontos_uids**:
+                - 43
               - **escalada**: Sai de reto
               - **ids**:
                 - 43
             - **[5]**:
+              - **alvo_uid**: m8xOBpL7xav5yq
+              - **pontos_uids**:
+                - 44
               - **escalada**: Adrena da cadena
               - **ids**:
                 - 44
             - **[6]**:
+              - **alvo_uid**: JtTmY764yiyQ3l
+              - **pontos_uids**:
+                - 45
               - **escalada**: Cadena sem adrena
               - **ids**:
                 - 45
             - **[7]**:
+              - **alvo_uid**: NpAbMpmVlT0cN5
+              - **pontos_uids**:
+                - 46
               - **escalada**: Cadê minha força?
               - **ids**:
                 - 46
@@ -1309,38 +1615,56 @@
           - **altura_mapa**: 710
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: m8xOBpL7xav5yq
+              - **pontos_uids**:
+                - 44
               - **escalada**: Adrena da cadena
               - **ids**:
                 - 44
             - **[1]**:
+              - **alvo_uid**: JtTmY764yiyQ3l
+              - **pontos_uids**:
+                - 45
               - **escalada**: Cadena sem adrena
               - **ids**:
                 - 45
             - **[2]**:
+              - **alvo_uid**: NpAbMpmVlT0cN5
+              - **pontos_uids**:
+                - 46
               - **escalada**: Cadê minha força?
               - **ids**:
                 - 46
             - **[3]**:
+              - **alvo_uid**: Qz6KQHcVQr5b7a
+              - **pontos_uids**:
+                - 47
               - **escalada**: Ou vai ou racha
               - **ids**:
                 - 47
             - **[4]**:
+              - **alvo_uid**: pGCz7pTq0xq4ZR
+              - **pontos_uids**:
+                - 48
               - **escalada**: Seg atenciosa
               - **ids**:
                 - 48
       - **escaladas**:
         - **[0]**:
+          - **uid**: x8wUPYUJLBobGz
           - **boulder**:
             - **descricao**: Sai em pé com as mãos juntas em uma agarrão invertido, escala o vertical e faz uma virada técnica. Virando no “Ergot” (26) é o Calango hidráulico v7.
             - **nome**: Gaston as avessas
             - **dificuldade**: V4
             - **destaque**: True
         - **[1]**:
+          - **uid**: uFP6AiK9oJPbp0
           - **boulder**:
             - **descricao**: Variação do Gaston as avessas (24), virando no “Ergot” (26).
             - **nome**: Calango hidráulico
             - **dificuldade**: V7
         - **[2]**:
+          - **uid**: YLBfA61HjdTbCT
           - **boulder**:
             - **descricao**: Mesclando muita técnica e compressão, este boulder marca o estilo único da Rachada. Sai em pé com a mão esquerda na aresta abaulada e a direita num reglete batente invertido.
             - **nome**: Ergot
@@ -1350,6 +1674,7 @@
               - Mahavir Jneesh
             - **data_abertura**: 2010
         - **[3]**:
+          - **uid**: 53YkCd34DD4iML
           - **boulder**:
             - **descricao**: Sai sentado com a mão esquerda na parte mais baixa da aresta abaulada e a direita no reglete mais baixo e entra no “Ergot” (26).
             - **nome**: Ergot SDS
@@ -1359,6 +1684,7 @@
               - Mahavir Jneesh
             - **data_abertura**: 2010
         - **[4]**:
+          - **uid**: xr2FQXXiSTj2Iz
           - **boulder**:
             - **descricao**: Sai como o “Ergot” (26) e vira no “Projeto Sabará” (30).
             - **nome**: Trip eterna
@@ -1367,11 +1693,13 @@
               - Mahavir Jneesh
             - **data_abertura**: 2011
         - **[5]**:
+          - **uid**: 5MytYt24HJg3PT
           - **boulder**:
             - **descricao**: Sai como o “Ergot SDS” (27) e vira no “Projeto Sabará” (30).
             - **nome**: Projeto 1
             - **dificuldade**: V11_BARRA_V12
         - **[6]**:
+          - **uid**: MshAGTQ7R8wQpE
           - **boulder**:
             - **descricao**: Uma das escaladas mais clássicas da Pedra Rachada é também o mais duro boulder encadenado até então. Linha reta que sai em pé em um grande batente escorrido e faz movimentos duros e técnicos até uma virada delicada.
             - **nome**: Projeto Sabará
@@ -1381,16 +1709,19 @@
               - Rafael Passos
             - **data_abertura**: 2009
         - **[7]**:
+          - **uid**: C7rsQvdwzouahQ
           - **boulder**:
             - **descricao**: Sai do “Projeto Sabará” (30) e vira no “Ergot” (26).
             - **nome**: Crocância do sabor
             - **dificuldade**: V9
         - **[8]**:
+          - **uid**: NoWEDfPUdq4MWQ
           - **boulder**:
             - **descricao**: Começa como o “Projeto Sabará” e atravessa pra direita até a aresta.
             - **nome**: Projeto 2
             - **dificuldade**: V12_BARRA_V13
         - **[9]**:
+          - **uid**: Fkq9Y5QlyzRZCb
           - **boulder**:
             - **descricao**: Começa em pé com a mão esquerda em um reglete/batente e a direita em um batente grande e escala pra direita.
             - **nome**: Energético
@@ -1400,16 +1731,19 @@
               - Gustavo Fontes
             - **data_abertura**: 2010
         - **[10]**:
+          - **uid**: k7WAdPJsT5WzlQ
           - **boulder**:
             - **descricao**: Saída em pé com a mão esquerda alta em um batente e a direita em um micro reglete de lado, acima do batente grande do Energético (33).
             - **nome**: Estimulante
             - **dificuldade**: V6
         - **[11]**:
+          - **uid**: YoXKvlBtqyVEV9
           - **boulder**:
             - **descricao**: Projeto que sai sentado com as mãos nas agarras mais baixas: um batente, um gaston, ou um bidedo, e faz dois fortes movimentos até chegar no “Energético” (33) e finalizar como ele.
             - **nome**: Projeto Taurina
             - **dificuldade**: V12_BARRA_V13
         - **[12]**:
+          - **uid**: VVW7BKdL5q2Gbm
           - **boulder**:
             - **descricao**: Começa com a mão esquerda em um batente escorrido e a direita no reglete vertical mais baixo, faz alguns movimentos fortes de compressão e finaliza com um movimento clássico!
             - **nome**: Rala frek lek
@@ -1419,6 +1753,7 @@
               - Rafael Passos
             - **data_abertura**: 2006
         - **[13]**:
+          - **uid**: xYyG7JKqzRj6Gt
           - **boulder**:
             - **descricao**: Adiciona 1 movimento ao “Rala frek lek” (36) saindo com a mão esquerda mais baixa, em um reglete vertical.
             - **nome**: Rala frek lek SDS
@@ -1428,24 +1763,28 @@
               - Gustavo Fontes
             - **data_abertura**: 2007
         - **[14]**:
+          - **uid**: yRvJzGiffHQFAr
           - **boulder**:
             - **descricao**: Boulder fácil que segue pela aresta por uns batentes.
             - **nome**: Viviane Espíndola
             - **dificuldade**: V0
             - **destaque**: True
         - **[15]**:
+          - **uid**: kMhXdT69S5Ss5c
           - **boulder**:
             - **descricao**: Começa sentado com as mãos em agarras boas e escala a aresta.
             - **nome**: Escala e desescala
             - **dificuldade**: V1
             - **destaque**: True
         - **[16]**:
+          - **uid**: qaUP5qpVGiRyTi
           - **boulder**:
             - **descricao**: Sai como o “Escala e desescala” (39) e termina no “Ziglyn” (42).
             - **nome**: Sobe e desce
             - **dificuldade**: V3
             - **destaque**: True
         - **[17]**:
+          - **uid**: mFR1T5Vy4nRihH
           - **boulder**:
             - **descricao**: Sai do “Escala e desescala” (39) e termina no “Sai de reto” (43).
             - **nome**: Incrível
@@ -1455,41 +1794,48 @@
               - Rafael Pimenta
             - **data_abertura**: 2009
         - **[18]**:
+          - **uid**: Bgwtet02MZqHOB
           - **boulder**:
             - **descricao**: Provavelmente o melhor v4 da Rachada! Começa sentado com as mãos juntas em regletes invertidos e segue pela fenda diagonalmente à esquerda, para uma virada fácil.
             - **nome**: Ziglyn
             - **dificuldade**: V4
             - **destaque**: True
         - **[19]**:
+          - **uid**: QhcWEshmVYNEW3
           - **boulder**:
             - **descricao**: Sai como o “Ziglyn” (42) e segue reto virando por uns batentes.
             - **nome**: Sai de reto
             - **dificuldade**: V4
             - **destaque**: True
         - **[20]**:
+          - **uid**: m8xOBpL7xav5yq
           - **boulder**:
             - **descricao**: Sai sentado com as mãos juntas em um batente, escala por uns regletes e, antes de dominar, atravessa para a esquerda, passando por um movimento dinâmico para um bico/batente.
             - **nome**: Adrena da cadena
             - **dificuldade**: V6
             - **destaque**: True
         - **[21]**:
+          - **uid**: JtTmY764yiyQ3l
           - **boulder**:
             - **descricao**: Começa como o “Adrena da cadena” (44) e escala pela fenda.
             - **nome**: Cadena sem adrena
             - **dificuldade**: V2
         - **[22]**:
+          - **uid**: NpAbMpmVlT0cN5
           - **boulder**:
             - **descricao**: Sai sentado com as mãos juntas num batente/fenda escorrido e domina reto, passando pelo teto.
             - **nome**: Cadê minha força?
             - **dificuldade**: V5
             - **destaque**: True
         - **[23]**:
+          - **uid**: Qz6KQHcVQr5b7a
           - **boulder**:
             - **descricao**: Começa sentado com a mão esquerda num batente invertido no teto e a direita em um reglete e vira no “Cadê minha força?” (46).
             - **nome**: Ou vai ou racha
             - **dificuldade**: V7
             - **destaque**: True
         - **[24]**:
+          - **uid**: pGCz7pTq0xq4ZR
           - **boulder**:
             - **descricao**: Sai sentado com a mão esquerda em um batente, a direita em um reglete ao lado e toca reto para uma virada estranha.
             - **nome**: Seg atenciosa
@@ -1501,6 +1847,7 @@
     - **conteudo**:
       - **descricao**: # Bloco D - Chupa Lombriga
       - **nome**: Bloco D - Chupa Lombriga
+      - **uid**: XHe6qP8eEZS4yz
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_entrada_p10_i0.webp)
@@ -1508,29 +1855,41 @@
           - **altura_mapa**: 710
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: bECsz2Qc6otvMc
+              - **pontos_uids**:
+                - 49
               - **escalada**: Chupa lombriga
               - **ids**:
                 - 49
             - **[1]**:
+              - **alvo_uid**: 9ffWr2RL0ktUZu
+              - **pontos_uids**:
+                - 50
               - **escalada**: Ventos alísios
               - **ids**:
                 - 50
             - **[2]**:
+              - **alvo_uid**: Tvi0bcOVq2hmxn
+              - **pontos_uids**:
+                - 51
               - **escalada**: Esqueceram de mim
               - **ids**:
                 - 51
       - **escaladas**:
         - **[0]**:
+          - **uid**: bECsz2Qc6otvMc
           - **boulder**:
             - **descricao**: Começa sentado nas agarras mais baixas e toca pra esquerda.
             - **nome**: Chupa lombriga
             - **dificuldade**: V3
         - **[1]**:
+          - **uid**: 9ffWr2RL0ktUZu
           - **boulder**:
             - **descricao**: Sai como o “Chupa lombriga” (49) e toca reto.
             - **nome**: Ventos alísios
             - **dificuldade**: V3
         - **[2]**:
+          - **uid**: Tvi0bcOVq2hmxn
           - **boulder**:
             - **descricao**: Sai como o “Chupa lombriga” (49) e toca pra direita passando por uns regletes.
             - **nome**: Esqueceram de mim
@@ -1542,6 +1901,7 @@
     - **conteudo**:
       - **descricao**: # Bloco E - Abraço do Calango
       - **nome**: Bloco E - Abraço do Calango
+      - **uid**: YF9rmYrHHUoYxU
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_entrada_p10_i1.webp)
@@ -1549,30 +1909,42 @@
           - **altura_mapa**: 710
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: SNepGMpmocZxND
+              - **pontos_uids**:
+                - 52
               - **escalada**: Orgulho preto
               - **ids**:
                 - 52
             - **[1]**:
+              - **alvo_uid**: BfjKTAdMsGGuDd
+              - **pontos_uids**:
+                - 53
               - **escalada**: Abraço do calango
               - **ids**:
                 - 53
             - **[2]**:
+              - **alvo_uid**: V1pPmqvwoIVKtO
+              - **pontos_uids**:
+                - 54
               - **escalada**: Projeto 3
               - **ids**:
                 - 54
       - **escaladas**:
         - **[0]**:
+          - **uid**: SNepGMpmocZxND
           - **boulder**:
             - **descricao**: Boulder ainda sem repetições que sai sentado com a mão esquerda em um abaulado próximo à aresta e a direita em um reglete atrás da pedra.
             - **nome**: Orgulho preto
             - **dificuldade**: V6
         - **[1]**:
+          - **uid**: BfjKTAdMsGGuDd
           - **boulder**:
             - **descricao**: Começa sentado com os braços abertos abraçando o pequeno bloco e escala em compressão.
             - **nome**: Abraço do calango
             - **dificuldade**: V4
             - **destaque**: True
         - **[2]**:
+          - **uid**: V1pPmqvwoIVKtO
           - **boulder**:
             - **descricao**: Boulder que escala a aresta.
             - **nome**: Projeto 3
@@ -1584,6 +1956,7 @@
     - **conteudo**:
       - **descricao**: # Bloco F - Nave
       - **nome**: Bloco F - Nave
+      - **uid**: 7iaOlaFADmalOy
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_entrada_p11_i0.webp)
@@ -1591,20 +1964,28 @@
           - **altura_mapa**: 710
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: rRyWAHegxv7RNe
+              - **pontos_uids**:
+                - 55
               - **escalada**: Virada do sol
               - **ids**:
                 - 55
             - **[1]**:
+              - **alvo_uid**: pzEIJUulJ484co
+              - **pontos_uids**:
+                - 56
               - **escalada**: Nave
               - **ids**:
                 - 56
       - **escaladas**:
         - **[0]**:
+          - **uid**: rRyWAHegxv7RNe
           - **boulder**:
             - **descricao**: Boulder de virada que sai sentado com as mãos na borda.
             - **nome**: Virada do sol
             - **dificuldade**: V4
         - **[1]**:
+          - **uid**: pzEIJUulJ484co
           - **boulder**:
             - **descricao**: Uma verdadeira prova de resistência que escala toda a borda do bloco, de uma ponta a outra.
             - **nome**: Nave
@@ -1662,6 +2043,7 @@
     - **Bloco G – Das Vias**: boulders e vias 12 a 16.
     - **Bloco H – Sono do Calango**: boulders 17 a 34.
 - **nome**: Sono do Calango
+- **uid**: UmLDLKi3UjAn2m
 - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_sono_do_calango_p0_i0.webp)
 - **mapas**:
   - **[0]**:
@@ -1670,26 +2052,44 @@
     - **altura_mapa**: 710
     - **referencias**:
       - **[0]**:
+        - **alvo_uid**: 9mgzVVI86Gsiy6
+        - **pontos_uids**:
+          - 5
         - **escalada**: Rala-bucho
         - **ids**:
           - 5
       - **[1]**:
+        - **alvo_uid**: QtvkgIux4n3rHl
+        - **pontos_uids**:
+          - 6
         - **escalada**: Rala-queixo
         - **ids**:
           - 6
       - **[2]**:
+        - **alvo_uid**: jD3BcCcMbAgcPr
+        - **pontos_uids**:
+          - 7
         - **escalada**: Varejeira
         - **ids**:
           - 7
       - **[3]**:
+        - **alvo_uid**: QxbNvHVWQzc5Sf
+        - **pontos_uids**:
+          - 8
         - **escalada**: Tótem
         - **ids**:
           - 8
       - **[4]**:
+        - **alvo_uid**: DniDxlnGQELR7s
+        - **pontos_uids**:
+          - 9
         - **escalada**: Quina
         - **ids**:
           - 9
       - **[5]**:
+        - **alvo_uid**: Ah2NDaAIZH7eew
+        - **pontos_uids**:
+          - 10
         - **escalada**: Pinça
         - **ids**:
           - 10
@@ -1699,26 +2099,44 @@
     - **altura_mapa**: 710
     - **referencias**:
       - **[0]**:
+        - **alvo_uid**: QtvkgIux4n3rHl
+        - **pontos_uids**:
+          - 6
         - **escalada**: Rala-queixo
         - **ids**:
           - 6
       - **[1]**:
+        - **alvo_uid**: jD3BcCcMbAgcPr
+        - **pontos_uids**:
+          - 7
         - **escalada**: Varejeira
         - **ids**:
           - 7
       - **[2]**:
+        - **alvo_uid**: QxbNvHVWQzc5Sf
+        - **pontos_uids**:
+          - 8
         - **escalada**: Tótem
         - **ids**:
           - 8
       - **[3]**:
+        - **alvo_uid**: DniDxlnGQELR7s
+        - **pontos_uids**:
+          - 9
         - **escalada**: Quina
         - **ids**:
           - 9
       - **[4]**:
+        - **alvo_uid**: Ah2NDaAIZH7eew
+        - **pontos_uids**:
+          - 10
         - **escalada**: Pinça
         - **ids**:
           - 10
       - **[5]**:
+        - **alvo_uid**: KLKKPiTa1E1nJ6
+        - **pontos_uids**:
+          - 11
         - **escalada**: Pataca
         - **ids**:
           - 11
@@ -1727,6 +2145,7 @@
     - **conteudo**:
       - **descricao**: # Bloco A - High Vibe
       - **nome**: Bloco A - High Vibe
+      - **uid**: YBMtHAcPaK27pa
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_sono_do_calango_p2_i0.webp)
@@ -1734,21 +2153,29 @@
           - **altura_mapa**: 710
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: IH2FVjJ4laEDE2
+              - **pontos_uids**:
+                - 1
               - **escalada**: High vibe
               - **ids**:
                 - 1
             - **[1]**:
+              - **alvo_uid**: GUFEBsbKmsMJqK
+              - **pontos_uids**:
+                - 2
               - **escalada**: Mamãe mandou
               - **ids**:
                 - 2
       - **escaladas**:
         - **[0]**:
+          - **uid**: IH2FVjJ4laEDE2
           - **boulder**:
             - **descricao**: Sai sentado com a mão esquerda em uma pinça e a direita em um batente e escala reto por agarras boas até uma virada fácil.
             - **nome**: High vibe
             - **dificuldade**: V0
             - **destaque**: True
         - **[1]**:
+          - **uid**: GUFEBsbKmsMJqK
           - **boulder**:
             - **descricao**: Começa agachado com as mãos juntas em um batente e toca reto por batentes e regletes bons.
             - **nome**: Mamãe mandou
@@ -1761,6 +2188,7 @@
     - **conteudo**:
       - **descricao**: # Bloco B - Batentes
       - **nome**: Bloco B - Batentes
+      - **uid**: PkRYq4CUk2jKJm
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_sono_do_calango_p2_i1.webp)
@@ -1768,21 +2196,29 @@
           - **altura_mapa**: 710
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: 17z4Ez2Si8IH9G
+              - **pontos_uids**:
+                - 3
               - **escalada**: Batentes
               - **ids**:
                 - 3
             - **[1]**:
+              - **alvo_uid**: jqM0mKITqM8HWS
+              - **pontos_uids**:
+                - 4
               - **escalada**: Quem procura acha
               - **ids**:
                 - 4
       - **escaladas**:
         - **[0]**:
+          - **uid**: 17z4Ez2Si8IH9G
           - **boulder**:
             - **descricao**: Sai sentado com as mãos juntas em um grande batente, passa por outros dois batentes e vira.
             - **nome**: Batentes
             - **dificuldade**: V0
             - **destaque**: True
         - **[1]**:
+          - **uid**: jqM0mKITqM8HWS
           - **boulder**:
             - **descricao**: Começa sentado com as mãos juntas em um batente pequeno e toca reto por regletes.
             - **nome**: Quem procura acha
@@ -1794,13 +2230,16 @@
     - **conteudo**:
       - **descricao**: # Bloco C - Rala-Bucho
       - **nome**: Bloco C - Rala-Bucho
+      - **uid**: JbQiAHGbcATAqX
       - **escaladas**:
         - **[0]**:
+          - **uid**: 9mgzVVI86Gsiy6
           - **boulder**:
             - **descricao**: Começa em um batente escorrido e toca por batentes na lateral esquerda do bloco, com uma virada técnica.
             - **nome**: Rala-bucho
             - **dificuldade**: V3
         - **[1]**:
+          - **uid**: QtvkgIux4n3rHl
           - **boulder**:
             - **descricao**: Sai na pedra que apoia o bloco e domina a proa.
             - **nome**: Rala-queixo
@@ -1812,8 +2251,10 @@
     - **conteudo**:
       - **descricao**: # Bloco D - Varejeira
       - **nome**: Bloco D - Varejeira
+      - **uid**: bkYpXt5AEC25Gu
       - **escaladas**:
         - **[0]**:
+          - **uid**: jD3BcCcMbAgcPr
           - **boulder**:
             - **descricao**: Sai sentado com as mãos juntas no reglete mais baixo (sem usar a pedra que apóia o bloco) e escala reto.
             - **nome**: Varejeira
@@ -1825,8 +2266,10 @@
     - **conteudo**:
       - **descricao**: # Bloco E - Tótem
       - **nome**: Bloco E - Tótem
+      - **uid**: kw6YOyBmYdL6DN
       - **escaladas**:
         - **[0]**:
+          - **uid**: QxbNvHVWQzc5Sf
           - **boulder**:
             - **descricao**: Sai sentado abraçando o bloco e escala até o topo.
             - **nome**: Tótem
@@ -1839,18 +2282,22 @@
     - **conteudo**:
       - **descricao**: # Bloco F - Pinça
       - **nome**: Bloco F - Pinça
+      - **uid**: coWDdbaTN1ULCv
       - **escaladas**:
         - **[0]**:
+          - **uid**: DniDxlnGQELR7s
           - **boulder**:
             - **descricao**: Começa sentado com as mãos juntas em um batente bom e escala pela aresta por agarras boas.
             - **nome**: Quina
             - **dificuldade**: V0
         - **[1]**:
+          - **uid**: Ah2NDaAIZH7eew
           - **boulder**:
             - **descricao**: Highball que escala a aresta do bloco.
             - **nome**: Pinça
             - **dificuldade**: V2
         - **[2]**:
+          - **uid**: KLKKPiTa1E1nJ6
           - **boulder**:
             - **descricao**: Sai sentado com as mãos juntas em um agarrão e escala por agarras boas.
             - **nome**: Pataca
@@ -1863,6 +2310,7 @@
     - **conteudo**:
       - **descricao**: # Bloco G - Das Vias
       - **nome**: Bloco G - Das Vias
+      - **uid**: BNeiGihRO5ZZ9i
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_sono_do_calango_p4_i1.webp)
@@ -1870,50 +2318,70 @@
           - **altura_mapa**: 710
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: NeQuOfo83dk1GV
+              - **pontos_uids**:
+                - 12
               - **escalada**: Vendo a vó pela greta
               - **ids**:
                 - 12
             - **[1]**:
+              - **alvo_uid**: 5R8i9Bx1v64IKU
+              - **pontos_uids**:
+                - 13
               - **escalada**: Abraço do jacaré
               - **ids**:
                 - 13
             - **[2]**:
+              - **alvo_uid**: dIEvz3JGNyTgpY
+              - **pontos_uids**:
+                - 14
               - **escalada**: Papagaio preto
               - **ids**:
                 - 14
             - **[3]**:
+              - **alvo_uid**: 0pTamJhrWcfRNl
+              - **pontos_uids**:
+                - 15
               - **escalada**: Maritaca
               - **ids**:
                 - 15
             - **[4]**:
+              - **alvo_uid**: QoDk81uV5SAqYX
+              - **pontos_uids**:
+                - 16
               - **escalada**: Apêndice
               - **ids**:
                 - 16
       - **escaladas**:
         - **[0]**:
+          - **uid**: NeQuOfo83dk1GV
           - **boulder**:
             - **descricao**: Highball que escala a óbvia fenda off-width por agarras boas. Um desafio mental!
             - **nome**: Vendo a vó pela greta
             - **dificuldade**: V0
             - **destaque**: True
         - **[1]**:
+          - **uid**: 5R8i9Bx1v64IKU
           - **boulder**:
             - **descricao**: Clássica via que segue pela aresta, domina o tetinho por regletes e finaliza no mesmo top da via “Papagaio preto” (14). Graduada no guia como 7B/v1.
             - **nome**: Abraço do jacaré
             - **dificuldade**: V1
             - **destaque**: True
         - **[2]**:
+          - **uid**: dIEvz3JGNyTgpY
           - **boulder**:
             - **descricao**: Via que escala o vertical com movimentação técnica e domina o tetinho por agarras boas. Graduada no guia como 7A/v0.
             - **nome**: Papagaio preto
             - **dificuldade**: V0
             - **destaque**: True
         - **[3]**:
+          - **uid**: 0pTamJhrWcfRNl
           - **boulder**:
             - **descricao**: Começa sentado com as mãos em dois pockets e escala o vertical.
             - **nome**: Maritaca
             - **dificuldade**: V0
         - **[4]**:
+          - **uid**: QoDk81uV5SAqYX
           - **boulder**:
             - **descricao**: Sai sentado com as mãos juntas em uma agarra boa e toca reto.
             - **nome**: Apêndice
@@ -1925,6 +2393,7 @@
     - **conteudo**:
       - **descricao**: # Bloco H - Sono do Calango
       - **nome**: Bloco H - Sono do Calango
+      - **uid**: 5Gv7q10SNGtQ9e
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_sono_do_calango_p6_i0.webp)
@@ -1932,22 +2401,37 @@
           - **altura_mapa**: 710
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: Giua7SB0SyanuT
+              - **pontos_uids**:
+                - 17
               - **escalada**: Loteria
               - **ids**:
                 - 17
             - **[1]**:
+              - **alvo_uid**: tzf2d1BeT5vvB2
+              - **pontos_uids**:
+                - 18
               - **escalada**: Módulo
               - **ids**:
                 - 18
             - **[2]**:
+              - **alvo_uid**: qbMma91ipsZUmL
+              - **pontos_uids**:
+                - 18
               - **escalada**: Módulo SDS
               - **ids**:
                 - 18
             - **[3]**:
+              - **alvo_uid**: HIqi6sMB0lnpau
+              - **pontos_uids**:
+                - 20
               - **escalada**: Bromélia
               - **ids**:
                 - 20
             - **[4]**:
+              - **alvo_uid**: isQ4yjkNnX6l2N
+              - **pontos_uids**:
+                - 21
               - **escalada**: Maré na virada
               - **ids**:
                 - 21
@@ -1957,18 +2441,30 @@
           - **altura_mapa**: 710
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: N1TTEw3lUIFHPq
+              - **pontos_uids**:
+                - 22
               - **escalada**: Orquídea
               - **ids**:
                 - 22
             - **[1]**:
+              - **alvo_uid**: pOPzkaXSaMBhLe
+              - **pontos_uids**:
+                - 23
               - **escalada**: Enverga bambu
               - **ids**:
                 - 23
             - **[2]**:
+              - **alvo_uid**: OBENXxsTAsUrzQ
+              - **pontos_uids**:
+                - 24
               - **escalada**: Sono do calango
               - **ids**:
                 - 24
             - **[3]**:
+              - **alvo_uid**: g9a7GtIM61K3Z9
+              - **pontos_uids**:
+                - 25
               - **escalada**: Sono do calango SDS
               - **ids**:
                 - 25
@@ -1978,61 +2474,92 @@
           - **altura_mapa**: 710
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: OBENXxsTAsUrzQ
+              - **pontos_uids**:
+                - 24
               - **escalada**: Sono do calango
               - **ids**:
                 - 24
             - **[1]**:
+              - **alvo_uid**: g9a7GtIM61K3Z9
+              - **pontos_uids**:
+                - 25
               - **escalada**: Sono do calango SDS
               - **ids**:
                 - 25
             - **[2]**:
+              - **alvo_uid**: v2GePxaARzQw4x
+              - **pontos_uids**:
+                - 26
               - **escalada**: Sonâmbulo
               - **ids**:
                 - 26
             - **[3]**:
+              - **alvo_uid**: TpgQ1yKAE8Uglp
+              - **pontos_uids**:
+                - 27
               - **escalada**: Calango sonâmbulo
               - **ids**:
                 - 27
             - **[4]**:
+              - **alvo_uid**: dcoFPafy1H950d
+              - **pontos_uids**:
+                - 28
               - **escalada**: Chaparam os bago
               - **ids**:
                 - 28
             - **[5]**:
+              - **alvo_uid**: YcO6xQwYTXLdna
+              - **pontos_uids**:
+                - 29
               - **escalada**: Invertida faca
               - **ids**:
                 - 29
             - **[6]**:
+              - **alvo_uid**: NMICfVFZDcBIST
+              - **pontos_uids**:
+                - 30
               - **escalada**: Core
               - **ids**:
                 - 30
             - **[7]**:
+              - **alvo_uid**: SbI5OJBIGVr4U0
+              - **pontos_uids**:
+                - 31
               - **escalada**: Mondo
               - **ids**:
                 - 31
             - **[8]**:
+              - **alvo_uid**: 1gg4udYDRBv26Q
+              - **pontos_uids**:
+                - 32
               - **escalada**: Adrena
               - **ids**:
                 - 32
       - **escaladas**:
         - **[0]**:
+          - **uid**: Giua7SB0SyanuT
           - **boulder**:
             - **descricao**: Sai em pé com a mão esquerda na fenda e a direita em uma agarra invertida e faz um movimento duro até a borda, virando reto.
             - **nome**: Loteria
             - **dificuldade**: V6
             - **destaque**: True
         - **[1]**:
+          - **uid**: tzf2d1BeT5vvB2
           - **boulder**:
             - **descricao**: Sai com a mão direita no batente de oposição no módulo abaixo do teto e a esquerda de gaston no reglete logo acima do teto. Escala reto passando por agarras de diferentes estilos e domina o bloco.
             - **nome**: Módulo
             - **dificuldade**: V5
             - **destaque**: True
         - **[2]**:
+          - **uid**: qbMma91ipsZUmL
           - **boulder**:
             - **descricao**: Começa com a mão direita no batente de oposição no “módulo” abaixo do teto e a esquerda bem aberta, em outro batente, em compressão. Faz dois fortes movimentos até entrar no “Módulo”(18). A grande dificuldade deste boulder é tensionar bem o corpo para não encostar na pedra de baixo.
             - **nome**: Módulo SDS
             - **dificuldade**: V7
             - **destaque**: True
         - **[3]**:
+          - **uid**: HIqi6sMB0lnpau
           - **boulder**:
             - **descricao**: Boulder clássico de bote! Sai em pé com a mão esquerda alta em um buraco e a direita baixa em um reglete invertido no teto.
             - **nome**: Bromélia
@@ -2042,6 +2569,7 @@
               - Frederico Gonçalves
             - **data_abertura**: 2008
         - **[4]**:
+          - **uid**: isQ4yjkNnX6l2N
           - **boulder**:
             - **descricao**: Sai sentado com as mãos juntas em uma laca invertida e escala comprimindo o “módulo”.
             - **nome**: Maré na virada
@@ -2051,12 +2579,14 @@
               - Mahavir Jneesh
             - **data_abertura**: 2008
         - **[5]**:
+          - **uid**: N1TTEw3lUIFHPq
           - **boulder**:
             - **descricao**: Sai sentado com as mãos juntas em agarras boas à direita da aresta e toca reto.
             - **nome**: Orquídea
             - **dificuldade**: V3
             - **destaque**: True
         - **[6]**:
+          - **uid**: pOPzkaXSaMBhLe
           - **boulder**:
             - **descricao**: Começa com as mãos juntas no buraco abaulado embaixo do teto e escala pra esquerda, em direção à aresta.
             - **nome**: Enverga bambu
@@ -2065,12 +2595,14 @@
               - Tomaz Hamdan
             - **data_abertura**: 2011
         - **[7]**:
+          - **uid**: OBENXxsTAsUrzQ
           - **boulder**:
             - **descricao**: Sai com a mão direita no reglete – uma faca! – de gaston na parede do lado e com a esquerda em um reglete/bidedo acima do teto. Vai pra direita passando por agarras boas e finaliza por regletes na face vertical.
             - **nome**: Sono do calango
             - **dificuldade**: V3
             - **destaque**: True
         - **[8]**:
+          - **uid**: g9a7GtIM61K3Z9
           - **boulder**:
             - **descricao**: Começa com a mão esquerda no bico/bidedo embaixo do teto e a direita no reglete invertido no tetinho mais baixo e entra no “Sono do calango” (24).
             - **nome**: Sono do calango SDS
@@ -2080,6 +2612,7 @@
               - Frederico Gonçalves
             - **data_abertura**: 2011
         - **[9]**:
+          - **uid**: v2GePxaARzQw4x
           - **boulder**:
             - **descricao**: Começa em pé com as mãos em dois regletes e escala reto pelo vertical técnico e sem pés.
             - **nome**: Sonâmbulo
@@ -2089,6 +2622,7 @@
               - Frederico Gonçalves
             - **data_abertura**: 2011
         - **[10]**:
+          - **uid**: TpgQ1yKAE8Uglp
           - **boulder**:
             - **descricao**: Tem o mesmo início do “Sono do calango SDS” (25), mas atravessa para a direita por uma linha de regletes e termina no “Sonâmbulo” (26).
             - **nome**: Calango sonâmbulo
@@ -2097,38 +2631,45 @@
               - Gustavo Fontes
             - **data_abertura**: 2011
         - **[11]**:
+          - **uid**: dcoFPafy1H950d
           - **boulder**:
             - **descricao**: Sai com as mãos juntas em uma agarra boa bem alta e escala reto no vertical/positivo.
             - **nome**: Chaparam os bago
             - **dificuldade**: V1
             - **destaque**: True
         - **[12]**:
+          - **uid**: YcO6xQwYTXLdna
           - **boulder**:
             - **descricao**: Começa em pé com as mãos juntas em um reglete invertido cortante e finaliza pelo “Chaparam os bago” (28).
             - **nome**: Invertida faca
             - **dificuldade**: V2
             - **destaque**: True
         - **[13]**:
+          - **uid**: NMICfVFZDcBIST
           - **boulder**:
             - **descricao**: Tem a mesma saída do “Invertida faca” (29), mas escala levemente à direita finalizando pelas cracas.
             - **nome**: Core
             - **dificuldade**: V3
         - **[14]**:
+          - **uid**: SbI5OJBIGVr4U0
           - **boulder**:
             - **descricao**: Começa em pé com as mãos juntas num agarrão e toca reto pelas cracas.
             - **nome**: Mondo
             - **dificuldade**: V1
         - **[15]**:
+          - **uid**: 1gg4udYDRBv26Q
           - **boulder**:
             - **descricao**: Sai em pé em agarras boas na aresta e escala por ela até o topo.
             - **nome**: Adrena
             - **dificuldade**: V1
         - **[16]**:
+          - **uid**: PaxBuIepHPl8AZ
           - **boulder**:
             - **descricao**: Projeto que sai sentado com as mãos em dois regletes logo acima do teto.
             - **nome**: Projeto 4
             - **dificuldade**: INDEFINIDO
         - **[17]**:
+          - **uid**: KDP7RTrqqmk9Os
           - **boulder**:
             - **descricao**: Projeto que sai sentado com as mãos em duas invertidas no teto.
             - **nome**: Projeto 5
@@ -2219,6 +2760,7 @@
     | :--: |
     | *Detalhe das mãos do escalador nas agarras* |
 - **nome**: Deslize
+- **uid**: urgscxU5OKv7Bx
 - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_deslize_p0_i0.webp)
 - **mapas**:
   - **[0]**:
@@ -2227,14 +2769,23 @@
     - **altura_mapa**: 710
     - **referencias**:
       - **[0]**:
+        - **alvo_uid**: 5MvjSmhdvuNGLA
+        - **pontos_uids**:
+          - 36
         - **escalada**: Rei Leão
         - **ids**:
           - 36
       - **[1]**:
+        - **alvo_uid**: wZJ977AVAc4ADg
+        - **pontos_uids**:
+          - 37
         - **escalada**: Projeto Grifon
         - **ids**:
           - 37
       - **[2]**:
+        - **alvo_uid**: icm1VwJD6wEswr
+        - **pontos_uids**:
+          - 42
         - **escalada**: Musgo centenário
         - **ids**:
           - 42
@@ -2243,6 +2794,7 @@
     - **conteudo**:
       - **descricao**: # Bloco A - Lua Cheia
       - **nome**: Bloco A - Lua Cheia
+      - **uid**: 23f0ZZqIRwG7DQ
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_deslize_p2_i1.webp)
@@ -2250,53 +2802,85 @@
           - **altura_mapa**: 710
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: qXsbKftz6eEoGs
+              - **pontos_uids**:
+                - 1
               - **escalada**: Rala peito
               - **ids**:
                 - 1
             - **[1]**:
+              - **alvo_uid**: WSx72zTeldQqw3
+              - **pontos_uids**:
+                - 2
               - **escalada**: Rala peito SDS
               - **ids**:
                 - 2
             - **[2]**:
+              - **alvo_uid**: 2DnZFhkDbQZsAB
+              - **pontos_uids**:
+                - 3
               - **escalada**: Regletes batentes
               - **ids**:
                 - 3
             - **[3]**:
+              - **alvo_uid**: YHqLJ4IGhaUhlG
+              - **pontos_uids**:
+                - 4
               - **escalada**: Rebordose
               - **ids**:
                 - 4
             - **[4]**:
+              - **alvo_uid**: V3B59fYmv7suwR
+              - **pontos_uids**:
+                - 5
               - **escalada**: Sabará não para
               - **ids**:
                 - 5
             - **[5]**:
+              - **alvo_uid**: 8MaKxN6zSVXdhb
+              - **pontos_uids**:
+                - 6
               - **escalada**: Lua cheia
               - **ids**:
                 - 6
             - **[6]**:
+              - **alvo_uid**: PGhG1Hh5vofzaw
+              - **pontos_uids**:
+                - 7
               - **escalada**: Carne moída
               - **ids**:
                 - 7
             - **[7]**:
+              - **alvo_uid**: I70i6DK6O0dg4w
+              - **pontos_uids**:
+                - 8
               - **escalada**: Toca da cobra
               - **ids**:
                 - 8
             - **[8]**:
+              - **alvo_uid**: 4NVfNeAQxPcoVu
+              - **pontos_uids**:
+                - 9
               - **escalada**: Lua nova
               - **ids**:
                 - 9
             - **[9]**:
+              - **alvo_uid**: sdhkyi0zRxcLed
+              - **pontos_uids**:
+                - 10
               - **escalada**: Quarentinha
               - **ids**:
                 - 10
       - **escaladas**:
         - **[0]**:
+          - **uid**: qXsbKftz6eEoGs
           - **boulder**:
             - **descricao**: Sai em pé com a mão esquerda num reglete e a direita num gastón e escala reto.
             - **nome**: Rala peito
             - **dificuldade**: V2
             - **destaque**: True
         - **[1]**:
+          - **uid**: WSx72zTeldQqw3
           - **boulder**:
             - **descricao**: Começa sentado com as mãos em dois regletes de oposição bem baixos e praticamente sem pés, faz um movimento muito duro para a saída do “Rala peito” (1) e termina como ele.
             - **nome**: Rala peito SDS
@@ -2305,11 +2889,13 @@
               - Frederico Gonçalves
             - **data_abertura**: 2011
         - **[2]**:
+          - **uid**: 2DnZFhkDbQZsAB
           - **boulder**:
             - **descricao**: Sai em pé com a mão esquerda em um reglete/batente e a direita em outro reglete/batente um pouco mais alto. Começa fazendo um movimento forte e continua reto, escalando por regletes.
             - **nome**: Regletes batentes
             - **dificuldade**: V4
         - **[3]**:
+          - **uid**: YHqLJ4IGhaUhlG
           - **boulder**:
             - **descricao**: Começa como o “Lua cheia” (6) e atravessa pra esquerda, finalizando no “Regletes batentes” (3).
             - **nome**: Rebordose
@@ -2318,6 +2904,7 @@
               - Tomaz Hamdan
             - **data_abertura**: 2011
         - **[4]**:
+          - **uid**: V3B59fYmv7suwR
           - **boulder**:
             - **descricao**: Sai como o “Rebordose” (4) e atravessa pra esquerda até o “Rala peito” (2), terminando por ele.
             - **nome**: Sabará não para
@@ -2326,29 +2913,34 @@
               - Frederico Gonçalves
             - **data_abertura**: 2011
         - **[5]**:
+          - **uid**: 8MaKxN6zSVXdhb
           - **boulder**:
             - **descricao**: É o boulder da Pedra Rachada com maior número de cadenas registradas no site 8a.nu, um clássico! Começa em uma grande agarra de lado, vai para um reglete logo acima, escala pela esquerda passando por agarras invertidas e domina o bloco escalando por regletes.
             - **nome**: Lua cheia
             - **dificuldade**: V5
             - **destaque**: True
         - **[6]**:
+          - **uid**: PGhG1Hh5vofzaw
           - **boulder**:
             - **descricao**: Uma linha incrível, mas que recebeu poucas cadenas. Sai como o “Lua cheia” (6), porém do reglete, vai para uma pequena pinça alta de esquerda e dá um bote em um batente alto com agarras cortantes.
             - **nome**: Carne moída
             - **dificuldade**: V6
             - **destaque**: True
         - **[7]**:
+          - **uid**: I70i6DK6O0dg4w
           - **boulder**:
             - **descricao**: Sai em pé com as mãos juntas em uma agarra boa e escala reto pelas cracas.
             - **nome**: Toca da cobra
             - **dificuldade**: V0
         - **[8]**:
+          - **uid**: 4NVfNeAQxPcoVu
           - **boulder**:
             - **descricao**: Começa como o “Lua cheia” (6) e termina no “Toca da cobra” (8).
             - **nome**: Lua nova
             - **dificuldade**: V2
             - **destaque**: True
         - **[9]**:
+          - **uid**: sdhkyi0zRxcLed
           - **boulder**:
             - **descricao**: Sai com as mãos em duas pinças/batentes em baixo do tetinho e escala reto.
             - **nome**: Quarentinha
@@ -2360,6 +2952,7 @@
     - **conteudo**:
       - **descricao**: # Bloco B - Deslize
       - **nome**: Bloco B - Deslize
+      - **uid**: GT0Fi3x5hIAnAM
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_deslize_p4_i0.webp)
@@ -2367,34 +2960,49 @@
           - **altura_mapa**: 710
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: qMm3dXKo8O21un
+              - **pontos_uids**:
+                - 11
               - **escalada**: Deslize
               - **ids**:
                 - 11
             - **[1]**:
+              - **alvo_uid**: OF78evauZ6gbbR
+              - **pontos_uids**:
+                - 12
               - **escalada**: Desnível
               - **ids**:
                 - 12
             - **[2]**:
+              - **alvo_uid**: FSsBOjtFVeHF0F
+              - **pontos_uids**:
+                - 11
               - **escalada**: Deslizamento
               - **ids**:
                 - 11
             - **[3]**:
+              - **alvo_uid**: hGlsbbD7sD8woU
+              - **pontos_uids**:
+                - 12
               - **escalada**: Desnivelado
               - **ids**:
                 - 12
       - **escaladas**:
         - **[0]**:
+          - **uid**: qMm3dXKo8O21un
           - **boulder**:
             - **descricao**: Começa com as mãos em um grande batente escorrido e escala reto por regletes.
             - **nome**: Deslize
             - **dificuldade**: V8
             - **destaque**: True
         - **[1]**:
+          - **uid**: OF78evauZ6gbbR
           - **boulder**:
             - **descricao**: Finalizando mais à direita do “Deslize” (11), com uma movimentação diferente. Se ligue com a torção no entalamento de calcanhar.
             - **nome**: Desnível
             - **dificuldade**: V8
         - **[2]**:
+          - **uid**: FSsBOjtFVeHF0F
           - **boulder**:
             - **descricao**: Começa com as mãos em dois regletes no teto e termina como o “Deslize” (11).
             - **nome**: Deslizamento
@@ -2404,6 +3012,7 @@
               - Gustavo Fontes
             - **data_abertura**: 2013
         - **[3]**:
+          - **uid**: hGlsbbD7sD8woU
           - **boulder**:
             - **descricao**: Começa com as mãos em dois regletes no teto e termina no “Desnível” (12). Se ligue com a torção no entalamento de calcanhar.
             - **nome**: Desnivelado
@@ -2418,6 +3027,7 @@
     - **conteudo**:
       - **descricao**: # Bloco C - Pequenino
       - **nome**: Bloco C - Pequenino
+      - **uid**: 6uW0jHXkyFgWMp
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_deslize_p5_i1.webp)
@@ -2425,24 +3035,38 @@
           - **altura_mapa**: 464
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: DzicJeyPEtd8Sq
+              - **pontos_uids**:
+                - 19
               - **escalada**: Quem diria
               - **ids**:
                 - 19
             - **[1]**:
+              - **alvo_uid**: in2Xla2JBPQcTY
+              - **pontos_uids**:
+                - 15
               - **escalada**: Terceira entrada
               - **ids**:
                 - 15
             - **[2]**:
+              - **alvo_uid**: VzC1nqfFtnmvvh
+              - **pontos_uids**:
+                - 16
               - **escalada**: Última passagem
               - **ids**:
                 - 16
             - **[3]**:
+              - **alvo_uid**: C0qDsR8dsf3PrL
+              - **pontos_uids**:
+                - 13
+                - 17
               - **escalada**: Primeira saída
               - **ids**:
                 - 13
                 - 17
       - **escaladas**:
         - **[0]**:
+          - **uid**: in2Xla2JBPQcTY
           - **boulder**:
             - **descricao**: Boulder clássico de teto! Sai em dois regletes e escala por movimentos clássicos para sair da caverna. Tem uma virada fácil.
             - **nome**: Terceira entrada
@@ -2452,6 +3076,7 @@
               - Rafael Pimenta
             - **data_abertura**: 2007
         - **[1]**:
+          - **uid**: VzC1nqfFtnmvvh
           - **boulder**:
             - **descricao**: Boulder clássico de teto! Sai em dois regletes e escala por movimentos clássicos para sair da caverna. Tem uma virada fácil. A linha leva este nome pois a maioria das pessoas a mandou na terceira tentativa.
             - **nome**: Última passagem
@@ -2460,6 +3085,7 @@
               - Frederico Gonçalves
             - **data_abertura**: 2013
         - **[2]**:
+          - **uid**: C0qDsR8dsf3PrL
           - **boulder**:
             - **descricao**: Começa nas agarras mais ao fundo da caverna, escala por agarras boas até uma difícil transição para o “Terceira entrada” (15) terminando como ele.
             - **nome**: Primeira saída
@@ -2469,11 +3095,13 @@
               - Daniel Mendes
             - **data_abertura**: 2008
         - **[3]**:
+          - **uid**: R9WKx9ZwCJGfXF
           - **boulder**:
             - **descricao**: Bloco C (Pequenino). Começa sentado com a mão esquerda em um batente/pinça e a direita em um batente na aresta e domina o pequeno bloco.
             - **nome**: Pequenino
             - **dificuldade**: V3
         - **[4]**:
+          - **uid**: DzicJeyPEtd8Sq
           - **boulder**:
             - **descricao**: Este boulder fica dentro da caverna do “Terceira entrada”, ao lado direito. Sai sentado com a mão esquerda em um reglete na aresta e a direita em um reglete abaixo do teto, escalando pela aresta do bloco.
             - **nome**: Quem diria
@@ -2488,6 +3116,7 @@
     - **conteudo**:
       - **descricao**: # Bloco D - Bagagem
       - **nome**: Bloco D - Bagagem
+      - **uid**: 1xPmvjHaFJihgk
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_deslize_p4_i1.webp)
@@ -2495,29 +3124,43 @@
           - **altura_mapa**: 710
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: sZIwmA414YiZnR
+              - **pontos_uids**:
+                - 20
               - **escalada**: Viagem
               - **ids**:
                 - 20
             - **[1]**:
+              - **alvo_uid**: 9MqzvBnRLd1z62
+              - **pontos_uids**:
+                - 21
               - **escalada**: Bagagem
               - **ids**:
                 - 21
             - **[2]**:
+              - **alvo_uid**: p1HSEXAv0ionNk
+              - **pontos_uids**:
+                - 22
               - **escalada**: Mala educacion
               - **ids**:
                 - 22
             - **[3]**:
+              - **alvo_uid**: ixm51lDIZJCC9X
+              - **pontos_uids**:
+                - 22
               - **escalada**: Enigma
               - **ids**:
                 - 22
       - **escaladas**:
         - **[0]**:
+          - **uid**: sZIwmA414YiZnR
           - **boulder**:
             - **descricao**: Começa sentado com as mãos juntas em um batente bom, escala por agarras boas e domina à esquerda.
             - **nome**: Viagem
             - **dificuldade**: V1
             - **destaque**: True
         - **[1]**:
+          - **uid**: 9MqzvBnRLd1z62
           - **boulder**:
             - **descricao**: Sai no “Viagem” (20) e faz uma longa travessia para a direita, finalizando na extrema direita do bloco.
             - **nome**: Bagagem
@@ -2527,12 +3170,14 @@
               - Gustavo Fontes
             - **data_abertura**: 2012
         - **[2]**:
+          - **uid**: p1HSEXAv0ionNk
           - **boulder**:
             - **descricao**: Começa sentado com a mão esquerda no bico/reglete e a direita em um abaulado e entra no fim do “Bagagem” (21).
             - **nome**: Mala educacion
             - **dificuldade**: V6
             - **destaque**: True
         - **[3]**:
+          - **uid**: ixm51lDIZJCC9X
           - **boulder**:
             - **descricao**: Saindo com as duas mãos juntas no abaulado da direita e entra no fim do “Bagagem” (21).
             - **nome**: Enigma
@@ -2544,6 +3189,7 @@
     - **conteudo**:
       - **descricao**: # Bloco E - Hey Fred
       - **nome**: Bloco E - Hey Fred
+      - **uid**: Z9yQJow6IJmoSb
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_deslize_p6_i0.webp)
@@ -2551,18 +3197,30 @@
           - **altura_mapa**: 710
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: Z5PX5P3ewbIaUk
+              - **pontos_uids**:
+                - 24
               - **escalada**: Pedrita
               - **ids**:
                 - 24
             - **[1]**:
+              - **alvo_uid**: Z0Tjpo9capRG8H
+              - **pontos_uids**:
+                - 25
               - **escalada**: Barney
               - **ids**:
                 - 25
             - **[2]**:
+              - **alvo_uid**: x9i9s722cax0Ch
+              - **pontos_uids**:
+                - 26
               - **escalada**: Hey Fred
               - **ids**:
                 - 26
             - **[3]**:
+              - **alvo_uid**: Jwwko7zS545r3n
+              - **pontos_uids**:
+                - 26
               - **escalada**: Hey Fred SDS
               - **ids**:
                 - 26
@@ -2572,37 +3230,58 @@
           - **altura_mapa**: 710
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: x9i9s722cax0Ch
+              - **pontos_uids**:
+                - 26
               - **escalada**: Hey Fred
               - **ids**:
                 - 26
             - **[1]**:
+              - **alvo_uid**: EGxrC1H2pmKoCM
+              - **pontos_uids**:
+                - 28
               - **escalada**: Era
               - **ids**:
                 - 28
             - **[2]**:
+              - **alvo_uid**: BCVxcTX9z1VzGe
+              - **pontos_uids**:
+                - 29
               - **escalada**: Yabadabadoo
               - **ids**:
                 - 29
             - **[3]**:
+              - **alvo_uid**: yIoJRHFvKRQIh2
+              - **pontos_uids**:
+                - 30
               - **escalada**: Nova era
               - **ids**:
                 - 30
             - **[4]**:
+              - **alvo_uid**: qWfML9BEmH1wSF
+              - **pontos_uids**:
+                - 29
+                - 30
               - **escalada**: Era o que faltava
               - **ids**:
                 - 29
                 - 30
             - **[5]**:
+              - **alvo_uid**: Z5PX5P3ewbIaUk
+              - **pontos_uids**:
+                - 24
               - **escalada**: Pedrita
               - **ids**:
                 - 24
       - **escaladas**:
         - **[0]**:
+          - **uid**: Z5PX5P3ewbIaUk
           - **boulder**:
             - **descricao**: Sai em pé com a mão esquerda em um reglete vertical baixo, a direita em outro reglete e toca reto.
             - **nome**: Pedrita
             - **dificuldade**: V2
         - **[1]**:
+          - **uid**: Z0Tjpo9capRG8H
           - **boulder**:
             - **descricao**: Começa em pé fazendo compressão com a mão esquerda em um reglete vertical bem baixo e a direita em uma pinça alta e faz um movimento forte finalizando no “Pedrita” (24).
             - **nome**: Barney
@@ -2612,6 +3291,7 @@
               - Frederico Gonçalves
             - **data_abertura**: 2010
         - **[2]**:
+          - **uid**: x9i9s722cax0Ch
           - **boulder**:
             - **descricao**: Boulder clássico no melhor estilo Pedra Rachada: muita compressão! Começa em pé abraçando a pedra com a mão direita em um batente de oposição e a esquerda em uma pinça alta e escala pra esquerda dominando o pequeno módulo.
             - **nome**: Hey Fred
@@ -2621,6 +3301,7 @@
               - Rafael Passos
             - **data_abertura**: 2010
         - **[3]**:
+          - **uid**: Jwwko7zS545r3n
           - **boulder**:
             - **descricao**: Adiciona um movimento ao “Hey Fred” (26), saindo com a mão direita no batente de baixo, mais próximo ao chão.
             - **nome**: Hey Fred SDS
@@ -2630,16 +3311,19 @@
               - Rafael Passos
             - **data_abertura**: 2010
         - **[4]**:
+          - **uid**: EGxrC1H2pmKoCM
           - **boulder**:
             - **descricao**: Começa sentado com as mãos nas agarras acima do batente de oposição e segue pela fenda.
             - **nome**: Era
             - **dificuldade**: V3
         - **[5]**:
+          - **uid**: BCVxcTX9z1VzGe
           - **boulder**:
             - **descricao**: Variante do “Era” (28) que vai para a esquerda em busca de uma pinça alta e termina com um tapa na borda na reta da pinça.
             - **nome**: Yabadabadoo
             - **dificuldade**: V6
         - **[6]**:
+          - **uid**: yIoJRHFvKRQIh2
           - **boulder**:
             - **descricao**: Começa com a mão esquerda em uma pinça próxima ao chão, a direita no batente de oposição, faz um movimento forte para as agarras boas e termina pela fenda.
             - **nome**: Nova era
@@ -2648,6 +3332,7 @@
               - Gustavo Fontes
             - **data_abertura**: 2013
         - **[7]**:
+          - **uid**: qWfML9BEmH1wSF
           - **boulder**:
             - **descricao**: Começa como o “Nova era” (30) e termina como o “Yabadabadoo” (29).
             - **nome**: Era o que faltava
@@ -2656,6 +3341,7 @@
               - Gustavo Fontes
             - **data_abertura**: 2013
         - **[8]**:
+          - **uid**: j0zVpp9Lm1SDtX
           - **boulder**:
             - **descricao**: Sai sentado com as mãos juntas em um bico e segue reto.
             - **nome**: Dino
@@ -2667,6 +3353,7 @@
     - **conteudo**:
       - **descricao**: # Bloco F - Bom Boulder
       - **nome**: Bloco F - Bom Boulder
+      - **uid**: 3vwraBCMfktto8
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_deslize_p7_i1.webp)
@@ -2674,30 +3361,42 @@
           - **altura_mapa**: 710
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: oy3HCAmP1NNxTJ
+              - **pontos_uids**:
+                - 33
               - **escalada**: Invertida
               - **ids**:
                 - 33
             - **[1]**:
+              - **alvo_uid**: 3qtQ9afzSbSqab
+              - **pontos_uids**:
+                - 34
               - **escalada**: Bom boulder
               - **ids**:
                 - 34
             - **[2]**:
+              - **alvo_uid**: eYiSv4K262Sl6a
+              - **pontos_uids**:
+                - 35
               - **escalada**: Armadilha
               - **ids**:
                 - 35
       - **escaladas**:
         - **[0]**:
+          - **uid**: oy3HCAmP1NNxTJ
           - **boulder**:
             - **descricao**: Sai em pé com as mãos juntas em uma agarra invertida e escala reto.
             - **nome**: Invertida
             - **dificuldade**: V3
         - **[1]**:
+          - **uid**: 3qtQ9afzSbSqab
           - **boulder**:
             - **descricao**: Começa sentado com a mão direita no reglete/batente no teto, a esquerda no batente de oposição em baixo da saída do “Invertida” (33) e termina como ele.
             - **nome**: Bom boulder
             - **dificuldade**: V5
             - **destaque**: True
         - **[2]**:
+          - **uid**: eYiSv4K262Sl6a
           - **boulder**:
             - **descricao**: Sai sentado com as mãos em agarras invertidas bem baixas e escala o negativo fazendo movimentos fortes.
             - **nome**: Armadilha
@@ -2709,8 +3408,10 @@
     - **conteudo**:
       - **descricao**: # Bloco G - Rei Leão
       - **nome**: Bloco G - Rei Leão
+      - **uid**: bXsoJAcNyth0mw
       - **escaladas**:
         - **[0]**:
+          - **uid**: 5MvjSmhdvuNGLA
           - **boulder**:
             - **descricao**: Boulder que sai com as mãos juntas em dois regletes no meio do teto e escala pra esquerda.
             - **nome**: Rei Leão
@@ -2720,6 +3421,7 @@
               - Gustavo Veiga
             - **data_abertura**: 2007
         - **[1]**:
+          - **uid**: wZJ977AVAc4ADg
           - **boulder**:
             - **descricao**: Sai de um batente mais à direita, faz dois movimentos fortes, entra no “Rei Leão” (36) e termina como ele.
             - **nome**: Projeto Grifon
@@ -2731,6 +3433,7 @@
     - **conteudo**:
       - **descricao**: # Bloco H - Musgo Centenário
       - **nome**: Bloco H - Musgo Centenário
+      - **uid**: McYlobTLS4cVCj
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_deslize_p8_i2.webp)
@@ -2738,29 +3441,43 @@
           - **altura_mapa**: 710
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: fOoHRihO76Um6H
+              - **pontos_uids**:
+                - 38
               - **escalada**: Portal da dimensão
               - **ids**:
                 - 38
             - **[1]**:
+              - **alvo_uid**: Ekscdusp1EYAL9
+              - **pontos_uids**:
+                - 39
               - **escalada**: Esmagador
               - **ids**:
                 - 39
             - **[2]**:
+              - **alvo_uid**: eQRQ3IocvUcUaw
+              - **pontos_uids**:
+                - 40
               - **escalada**: Projeto Os Incríveis
               - **ids**:
                 - 40
             - **[3]**:
+              - **alvo_uid**: 96PYZQX2LH0oiF
+              - **pontos_uids**:
+                - 41
               - **escalada**: Caverna do Dragão
               - **ids**:
                 - 41
       - **escaladas**:
         - **[0]**:
+          - **uid**: fOoHRihO76Um6H
           - **boulder**:
             - **descricao**: Começa em pé com as mãos juntas em dois regletes pequenos e toca reto.
             - **nome**: Portal da dimensão
             - **dificuldade**: V3
             - **destaque**: True
         - **[1]**:
+          - **uid**: Ekscdusp1EYAL9
           - **boulder**:
             - **descricao**: Final do projeto “Os incríveis” (40), saindo em dois regletes pequenos, à esquerda do “Caverna do Dragão” (41).
             - **nome**: Esmagador
@@ -2769,11 +3486,13 @@
               - Frederico Gonçalves
             - **data_abertura**: 2013
         - **[2]**:
+          - **uid**: eQRQ3IocvUcUaw
           - **boulder**:
             - **descricao**: Projeto que sai em dois regletes no teto e faz movimentos fortes até o “Esmagador” (39) finalizando como ele.
             - **nome**: Projeto Os Incríveis
             - **dificuldade**: V13
         - **[3]**:
+          - **uid**: 96PYZQX2LH0oiF
           - **boulder**:
             - **descricao**: Sai com a mão esquerda no reglete/bidedo vertical e a direita em um abaulado de ombro. Faz uma sequencia de movimentos duros até um agarrão à direita e domina o boulder.
             - **nome**: Caverna do Dragão
@@ -2783,12 +3502,14 @@
               - Rafael Passos
             - **data_abertura**: 2009
         - **[4]**:
+          - **uid**: icm1VwJD6wEswr
           - **boulder**:
             - **descricao**: Bloco H (Musgo Centenário). Sai sentado com a mão esquerda em um abaulado e a direita em um reglete. Escala reto e domina o pequeno bloco.
             - **nome**: Musgo centenário
             - **dificuldade**: V1
             - **destaque**: True
         - **[5]**:
+          - **uid**: MACg1TU0oDgKCY
           - **boulder**:
             - **descricao**: Bloco H (Musgo Centenário). Começa sentado com as mãos juntas em um reglete bom e domina o boulder.
             - **nome**: Regletão da árvore
@@ -2801,6 +3522,7 @@
     - **conteudo**:
       - **descricao**: # Bloco I - Zafar
       - **nome**: Bloco I - Zafar
+      - **uid**: Ouw62BU1UhhFif
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_deslize_p11_i2.webp)
@@ -2808,49 +3530,69 @@
           - **altura_mapa**: 677
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: oF1je6BKxun04P
+              - **pontos_uids**:
+                - 44
               - **escalada**: Nala
               - **ids**:
                 - 44
             - **[1]**:
+              - **alvo_uid**: RY8KInGbssq9bu
+              - **pontos_uids**:
+                - 45
               - **escalada**: Timão
               - **ids**:
                 - 45
             - **[2]**:
+              - **alvo_uid**: qcDWRtEs50DkL8
+              - **pontos_uids**:
+                - 46
               - **escalada**: Pumba
               - **ids**:
                 - 46
             - **[3]**:
+              - **alvo_uid**: bzZdAESnwCC0gI
+              - **pontos_uids**:
+                - 47
               - **escalada**: Zafar
               - **ids**:
                 - 47
             - **[4]**:
+              - **alvo_uid**: mr3y8M9CmEN5Mm
+              - **pontos_uids**:
+                - 48
               - **escalada**: Caverna
               - **ids**:
                 - 48
       - **escaladas**:
         - **[0]**:
+          - **uid**: oF1je6BKxun04P
           - **boulder**:
             - **descricao**: Sai em pé com as mãos em dois batentes, atravessa para a direita e domina.
             - **nome**: Nala
             - **dificuldade**: V1
         - **[1]**:
+          - **uid**: RY8KInGbssq9bu
           - **boulder**:
             - **descricao**: Começa sentado com as mãos juntas no reglete/pocket e escala reto.
             - **nome**: Timão
             - **dificuldade**: V1
             - **destaque**: True
         - **[2]**:
+          - **uid**: qcDWRtEs50DkL8
           - **boulder**:
             - **descricao**: Sai sentado com as mãos juntas em dois regletes baixos à esquerda da saída do “Zafar” (47) e escala diagonalmente à esquerda, passando por batentes invertidos.
             - **nome**: Pumba
             - **dificuldade**: V3
         - **[3]**:
+          - **uid**: bzZdAESnwCC0gI
           - **boulder**:
             - **descricao**: Começa sentado com as mãos em batentes bons e escala por agarras boas.
             - **nome**: Zafar
             - **dificuldade**: V2
             - **destaque**: True
         - **[4]**:
+          - **uid**: mr3y8M9CmEN5Mm
           - **boulder**:
             - **descricao**: Boulder que sai sentado com as mãos juntas em uma agarra boa no fundo da caverna. Faz alguns movimentos fortes até sair dessa caverna e, ao invés de tocar reto pelas cracas quebradiças, atravessa pela esquerda terminando no “Zafar” (47).
             - **nome**: Caverna
@@ -2915,12 +3657,14 @@
     | :--: |
     | *Escalador na saída do boulder com vista panorâmica para a serra* |
 - **nome**: Yin Yang
+- **uid**: cmS7FR9WNzcmF1
 - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_yin_yang_p0_i0.webp)
 - **setores**:
   - **[0]**:
     - **conteudo**:
       - **descricao**: # Bloco A - Abraço
       - **nome**: Bloco A - Abraço
+      - **uid**: ZUYYFmkBLl0lgW
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_yin_yang_p2_i1.webp)
@@ -2928,50 +3672,70 @@
           - **altura_mapa**: 710
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: 9UfNQXvgRS9u0P
+              - **pontos_uids**:
+                - 1
               - **escalada**: Siga-me
               - **ids**:
                 - 1
             - **[1]**:
+              - **alvo_uid**: 2IdZw4r8vtXsfQ
+              - **pontos_uids**:
+                - 2
               - **escalada**: Abraço
               - **ids**:
                 - 2
             - **[2]**:
+              - **alvo_uid**: cGmOgbbvXX2PPA
+              - **pontos_uids**:
+                - 3
               - **escalada**: Jah Vibes
               - **ids**:
                 - 3
             - **[3]**:
+              - **alvo_uid**: Mwpx7ARnrgPMzB
+              - **pontos_uids**:
+                - 4
               - **escalada**: Dreadlock
               - **ids**:
                 - 4
             - **[4]**:
+              - **alvo_uid**: rfBHek5ZFDLvgM
+              - **pontos_uids**:
+                - 5
               - **escalada**: Rasta
               - **ids**:
                 - 5
       - **escaladas**:
         - **[0]**:
+          - **uid**: 9UfNQXvgRS9u0P
           - **boulder**:
             - **descricao**: Sai sentado com as mãos juntas em um pocket invertido baixo, na linha da fenda, seguindo por ela até o topo.
             - **nome**: Siga-me
             - **dificuldade**: V0
             - **destaque**: True
         - **[1]**:
+          - **uid**: 2IdZw4r8vtXsfQ
           - **boulder**:
             - **descricao**: Começa sentado com a mão esquerda baixa em um abaulado vertical e a direita em um batente. Faz uma sequência de movimentos abraçando a pedra e domina reto.
             - **nome**: Abraço
             - **dificuldade**: V4
             - **destaque**: True
         - **[2]**:
+          - **uid**: cGmOgbbvXX2PPA
           - **boulder**:
             - **descricao**: Sai sentado com as mãos nos pockets e escala reto pelo positivo técnico.
             - **nome**: Jah Vibes
             - **dificuldade**: V3
         - **[3]**:
+          - **uid**: Mwpx7ARnrgPMzB
           - **boulder**:
             - **descricao**: Sai em pé em um reglete e toca reto pelo vertical, levemente positivo. Cuidado com agarras soltas!
             - **nome**: Dreadlock
             - **dificuldade**: V0
             - **destaque**: True
         - **[4]**:
+          - **uid**: rfBHek5ZFDLvgM
           - **boulder**:
             - **descricao**: Começa como o “Dreadlock” (4), faz uma travessia para a direita pela grande laca e domina reto.
             - **nome**: Rasta
@@ -2984,6 +3748,7 @@
     - **conteudo**:
       - **descricao**: # Bloco B - Bicicletinha 2000
       - **nome**: Bloco B - Bicicletinha 2000
+      - **uid**: CF3VY8Q8gKccI5
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_yin_yang_p2_i2.webp)
@@ -2991,30 +3756,42 @@
           - **altura_mapa**: 710
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: XTovn10JUAEcPB
+              - **pontos_uids**:
+                - 6
               - **escalada**: Velocípede
               - **ids**:
                 - 6
             - **[1]**:
+              - **alvo_uid**: uLcbrhyvMrCjNU
+              - **pontos_uids**:
+                - 7
               - **escalada**: Bicicletinha 2000
               - **ids**:
                 - 7
             - **[2]**:
+              - **alvo_uid**: xGCF7hV9FgP7AY
+              - **pontos_uids**:
+                - 8
               - **escalada**: Shark Attack
               - **ids**:
                 - 8
       - **escaladas**:
         - **[0]**:
+          - **uid**: XTovn10JUAEcPB
           - **boulder**:
             - **descricao**: Sai sentado com a mão esquerda em um pocket e a direita em um batente. Faz alguns movimentos até a aresta e escala o positivo até o topo.
             - **nome**: Velocípede
             - **dificuldade**: V2
         - **[1]**:
+          - **uid**: uLcbrhyvMrCjNU
           - **boulder**:
             - **descricao**: Um dos primeiros boulders a serem abertos no setor. Sai como o “Velocípede” (6) e escala para a direita, passando por um batente, uma invertida e um abaulado até o módulo, finalizando reto por agarras boas.
             - **nome**: Bicicletinha 2000
             - **dificuldade**: V5
             - **destaque**: True
         - **[2]**:
+          - **uid**: xGCF7hV9FgP7AY
           - **boulder**:
             - **descricao**: Escala o “Bicicletinha 2000” (7) até o abaulado e depois toca pra direita passando por uns regletinhos e um gastón até um forte movimento de direita para um biquinho, ao invés de utilizar o módulo da esquerda.
             - **nome**: Shark Attack
@@ -3030,6 +3807,7 @@
     - **conteudo**:
       - **descricao**: # Bloco C - Travezinha
       - **nome**: Bloco C - Travezinha
+      - **uid**: ITSfk4PBbxbkyu
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_yin_yang_p4_i10.webp)
@@ -3037,30 +3815,42 @@
           - **altura_mapa**: 710
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: QOMpFpqVqW9Eep
+              - **pontos_uids**:
+                - 9
               - **escalada**: Louva a Deus
               - **ids**:
                 - 9
             - **[1]**:
+              - **alvo_uid**: Phd1JSH90lSOqo
+              - **pontos_uids**:
+                - 10
               - **escalada**: Travezinha
               - **ids**:
                 - 10
             - **[2]**:
+              - **alvo_uid**: jCjUZlPcILFfVj
+              - **pontos_uids**:
+                - 11
               - **escalada**: São Carlos
               - **ids**:
                 - 11
       - **escaladas**:
         - **[0]**:
+          - **uid**: QOMpFpqVqW9Eep
           - **boulder**:
             - **descricao**: Sai sentado e escala diagonalmente à direita passando por uns regletes e dominando reto.
             - **nome**: Louva a Deus
             - **dificuldade**: VB
         - **[1]**:
+          - **uid**: Phd1JSH90lSOqo
           - **boulder**:
             - **descricao**: Começa com as mãos juntas em um reglete e um gaston, faz alguns movimentos até um agarrão e vira.
             - **nome**: Travezinha
             - **dificuldade**: V0
             - **destaque**: True
         - **[2]**:
+          - **uid**: jCjUZlPcILFfVj
           - **boulder**:
             - **descricao**: Escala a face negativa do bloco saindo baixo, com as mãos juntas em uma grande agarra invertido.
             - **nome**: São Carlos
@@ -3073,6 +3863,7 @@
     - **conteudo**:
       - **descricao**: # Bloco D - 12 de Outubro
       - **nome**: Bloco D - 12 de Outubro
+      - **uid**: Z9Dq7oenKRrxTq
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_yin_yang_p4_i11.webp)
@@ -3080,20 +3871,28 @@
           - **altura_mapa**: 710
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: ECpjzkvvSRpD0E
+              - **pontos_uids**:
+                - 12
               - **escalada**: Vale Tudo
               - **ids**:
                 - 12
             - **[1]**:
+              - **alvo_uid**: mO3oa0oNDd0937
+              - **pontos_uids**:
+                - 13
               - **escalada**: 12 de Outubro
               - **ids**:
                 - 13
       - **escaladas**:
         - **[0]**:
+          - **uid**: ECpjzkvvSRpD0E
           - **boulder**:
             - **descricao**: Escala a face levemente positiva por agarras boas, saindo no módulo. Fique atento com agarras quebradiças!
             - **nome**: Vale Tudo
             - **dificuldade**: V0
         - **[1]**:
+          - **uid**: mO3oa0oNDd0937
           - **boulder**:
             - **descricao**: Sai em pé no módulo e domina reto passando pela fenda. Cuidado com agarras que podem vir a quebrar!
             - **nome**: 12 de Outubro
@@ -3105,6 +3904,7 @@
     - **conteudo**:
       - **descricao**: # Bloco E - Yin Yang
       - **nome**: Bloco E - Yin Yang
+      - **uid**: KDBISU3Tntr9nE
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_yin_yang_p6_i1.webp)
@@ -3112,15 +3912,22 @@
           - **altura_mapa**: 710
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: bJTZ3Edp5zILox
+              - **pontos_uids**:
+                - 14
               - **escalada**: Yang
               - **ids**:
                 - 14
             - **[1]**:
+              - **alvo_uid**: XzG7Q9yIRsXCuK
+              - **pontos_uids**:
+                - 15
               - **escalada**: Yin Yang
               - **ids**:
                 - 15
       - **escaladas**:
         - **[0]**:
+          - **uid**: bJTZ3Edp5zILox
           - **boulder**:
             - **descricao**: Começa com a mão direita em um regletinho na aresta e a esquerda em um batente no negativo, e escala reto por movimentos clássicos e técnicos no positivo.
             - **nome**: Yang
@@ -3130,6 +3937,7 @@
               - Mahavir Jneesh
             - **data_abertura**: 2011
         - **[1]**:
+          - **uid**: XzG7Q9yIRsXCuK
           - **boulder**:
             - **descricao**: A saída mais clássica para este boulder é com a mão esquerda em uma pinça invertida próxima ao chão e a mão direita no batente, fazendo uma sequência dura e entrando no “Yang” (14). Há rumores de que originalmente a saída foi feita com a mão direita em um reglete abaixo do batente, mas nenhuma repetição foi realizada desta maneira.
             - **nome**: Yin Yang
@@ -3139,6 +3947,7 @@
               - Mahavir Jneesh
             - **data_abertura**: 2011
         - **[2]**:
+          - **uid**: iIwyd1o0SStIJK
           - **boulder**:
             - **descricao**: Para acessar este boulder, contorne o bloco “Geladeira” e desça atrás dele até a canaleta. Ele fica no meio da parede vertical e começa em pé com as mãos juntas em uma agarra boa.
             - **nome**: Agosto
@@ -3151,6 +3960,7 @@
     - **conteudo**:
       - **descricao**: # Bloco F - Geladeira
       - **nome**: Bloco F - Geladeira
+      - **uid**: X68boIjYE41BNm
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_yin_yang_p6_i2.webp)
@@ -3158,49 +3968,69 @@
           - **altura_mapa**: 710
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: Ns9Hn56OTIkreO
+              - **pontos_uids**:
+                - 17
               - **escalada**: Congelador
               - **ids**:
                 - 17
             - **[1]**:
+              - **alvo_uid**: yg43IPyhVNA5kU
+              - **pontos_uids**:
+                - 18
               - **escalada**: Geladeira
               - **ids**:
                 - 18
             - **[2]**:
+              - **alvo_uid**: 6qmeJYKY3v1V1w
+              - **pontos_uids**:
+                - 19
               - **escalada**: Fenda Cega
               - **ids**:
                 - 19
             - **[3]**:
+              - **alvo_uid**: xgOg32KmOIqnRt
+              - **pontos_uids**:
+                - 20
               - **escalada**: Diagonal (Geladeira)
               - **ids**:
                 - 20
             - **[4]**:
+              - **alvo_uid**: Zx8yus4jhgQVQW
+              - **pontos_uids**:
+                - 21
               - **escalada**: Avesso
               - **ids**:
                 - 21
       - **escaladas**:
         - **[0]**:
+          - **uid**: Ns9Hn56OTIkreO
           - **boulder**:
             - **descricao**: Sai sentado com as mãos juntas em um batente e escala em direção à aresta.
             - **nome**: Congelador
             - **dificuldade**: V3
         - **[1]**:
+          - **uid**: yg43IPyhVNA5kU
           - **boulder**:
             - **descricao**: Começa como o “Congelador” (17) e toca reto sem usar a pedra à direita da fenda.
             - **nome**: Geladeira
             - **dificuldade**: V3
         - **[2]**:
+          - **uid**: 6qmeJYKY3v1V1w
           - **boulder**:
             - **descricao**: Sai sentado com as mãos juntas em uma laca e toca reto pela fenda.
             - **nome**: Fenda Cega
             - **dificuldade**: V0
             - **destaque**: True
         - **[3]**:
+          - **uid**: xgOg32KmOIqnRt
           - **boulder**:
             - **descricao**: Começa como o “Fenda cega” (19), passa pela fenda e segue em diagonal pra direita.
             - **nome**: Diagonal (Geladeira)
             - **dificuldade**: V0
             - **destaque**: True
         - **[4]**:
+          - **uid**: Zx8yus4jhgQVQW
           - **boulder**:
             - **descricao**: Sai em pé com as mãos juntas em uma agarra boa invertida e escala reto.
             - **nome**: Avesso
@@ -3276,6 +4106,7 @@
     > "Linha Stretch Limits: Alta performance para esportes outdoor."  
     > — *4Climb*
 - **nome**: Rolling Stones
+- **uid**: ii1Vc1rhEZBxdg
 - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_rolling_stones_p0_i0.webp)
 - **mapas**:
   - **[0]**:
@@ -3284,67 +4115,116 @@
     - **altura_mapa**: 710
     - **referencias**:
       - **[0]**:
+        - **alvo_uid**: mH9UMRDep84NtG
+        - **pontos_uids**:
+          - 16
         - **escalada**: Rock it
         - **ids**:
           - 16
       - **[1]**:
+        - **alvo_uid**: Q1orsULzJtpaaG
+        - **pontos_uids**:
+          - 17
         - **escalada**: Esquerdinha
         - **ids**:
           - 17
       - **[2]**:
+        - **alvo_uid**: dt0bRRLOzoCVqq
+        - **pontos_uids**:
+          - 18
         - **escalada**: Cuidado aí
         - **ids**:
           - 18
       - **[3]**:
+        - **alvo_uid**: bwdW2nKMsWbV93
+        - **pontos_uids**:
+          - 19
         - **escalada**: Invasorzinho
         - **ids**:
           - 19
       - **[4]**:
+        - **alvo_uid**: sxdZPRBR1hC0Ix
+        - **pontos_uids**:
+          - 19
+          - 28
         - **escalada**: Bob Marley
         - **ids**:
           - 19
           - 28
       - **[5]**:
+        - **alvo_uid**: QucAyHXRK9pG9l
+        - **pontos_uids**:
+          - 21
         - **escalada**: Já Elvis
         - **ids**:
           - 21
       - **[6]**:
+        - **alvo_uid**: fo4FyMaBs28otf
+        - **pontos_uids**:
+          - 22
         - **escalada**: Projeto 6
         - **ids**:
           - 22
       - **[7]**:
+        - **alvo_uid**: M1qdIBNIbIiw1W
+        - **pontos_uids**:
+          - 23
         - **escalada**: Janis Joplin
         - **ids**:
           - 23
       - **[8]**:
+        - **alvo_uid**: iJbbNkITKQzfOv
+        - **pontos_uids**:
+          - 24
         - **escalada**: Rolling Stones
         - **ids**:
           - 24
       - **[9]**:
+        - **alvo_uid**: i5fVKy19DDkaZ3
+        - **pontos_uids**:
+          - 24
         - **escalada**: Jimi Hendrix
         - **ids**:
           - 24
       - **[10]**:
+        - **alvo_uid**: u29cekP2By8WEh
+        - **pontos_uids**:
+          - 26
         - **escalada**: Amanhã vai ser outro dia
         - **ids**:
           - 26
       - **[11]**:
+        - **alvo_uid**: tGJjFXF4luW3Sl
+        - **pontos_uids**:
+          - 26
         - **escalada**: Woodstock
         - **ids**:
           - 26
       - **[12]**:
+        - **alvo_uid**: xzPGqtj32XmbeH
+        - **pontos_uids**:
+          - 28
         - **escalada**: The Doors
         - **ids**:
           - 28
       - **[13]**:
+        - **alvo_uid**: X4zxdGrUVfR1JS
+        - **pontos_uids**:
+          - 28
         - **escalada**: Open the doors
         - **ids**:
           - 28
       - **[14]**:
+        - **alvo_uid**: ITFvZkPPyuvRV8
+        - **pontos_uids**:
+          - 30
         - **escalada**: Travessa
         - **ids**:
           - 30
       - **[15]**:
+        - **alvo_uid**: Evr23e9jPoNFgu
+        - **pontos_uids**:
+          - 31
         - **escalada**: Eject
         - **ids**:
           - 31
@@ -3354,18 +4234,30 @@
     - **altura_mapa**: 1055
     - **referencias**:
       - **[0]**:
+        - **alvo_uid**: 6vrJrkqdMONL6f
+        - **pontos_uids**:
+          - 75
         - **escalada**: Neutrons
         - **ids**:
           - 75
       - **[1]**:
+        - **alvo_uid**: FSAMhsj9HgfrHi
+        - **pontos_uids**:
+          - 76
         - **escalada**: Prótons
         - **ids**:
           - 76
       - **[2]**:
+        - **alvo_uid**: KNudy0y8E1v8vp
+        - **pontos_uids**:
+          - 77
         - **escalada**: Elétrons
         - **ids**:
           - 77
       - **[3]**:
+        - **alvo_uid**: 6eXK3NTyCuFt0o
+        - **pontos_uids**:
+          - 78
         - **escalada**: Aranha albina
         - **ids**:
           - 78
@@ -3374,6 +4266,7 @@
     - **conteudo**:
       - **descricao**: # Bloco A - Gastón a la Mesón
       - **nome**: Bloco A - Gastón a la Mesón
+      - **uid**: Not6YbEUHBNfCR
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_rolling_stones_p2_i1.webp)
@@ -3381,18 +4274,30 @@
           - **altura_mapa**: 710
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: GTN3eQT6qTv1yQ
+              - **pontos_uids**:
+                - 1
               - **escalada**: Coral
               - **ids**:
                 - 1
             - **[1]**:
+              - **alvo_uid**: L4LyF7mhoD8Us8
+              - **pontos_uids**:
+                - 2
               - **escalada**: Surpreendente
               - **ids**:
                 - 2
             - **[2]**:
+              - **alvo_uid**: zAe6hLpGjg8vOW
+              - **pontos_uids**:
+                - 3
               - **escalada**: Frito
               - **ids**:
                 - 3
             - **[3]**:
+              - **alvo_uid**: 0swtYbPEnXHPkF
+              - **pontos_uids**:
+                - 4
               - **escalada**: Fritei
               - **ids**:
                 - 4
@@ -3402,34 +4307,49 @@
           - **altura_mapa**: 710
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: f1cXKsZObhP6jD
+              - **pontos_uids**:
+                - 5
               - **escalada**: Vem de baixo
               - **ids**:
                 - 5
             - **[1]**:
+              - **alvo_uid**: Ftob4NunF8Vtbw
+              - **pontos_uids**:
+                - 6
               - **escalada**: Quina da mesa
               - **ids**:
                 - 6
             - **[2]**:
+              - **alvo_uid**: 57BLtHxGgd97eO
+              - **pontos_uids**:
+                - 7
               - **escalada**: Gaston à la meson
               - **ids**:
                 - 7
             - **[3]**:
+              - **alvo_uid**: tRyDwsk7WLKaYt
+              - **pontos_uids**:
+                - 7
               - **escalada**: Gaston à la meson FDS
               - **ids**:
                 - 7
       - **escaladas**:
         - **[0]**:
+          - **uid**: GTN3eQT6qTv1yQ
           - **boulder**:
             - **descricao**: Boulder que sai sentado em pequenos regletes de oposição e segue por umas cracas.
             - **nome**: Coral
             - **dificuldade**: V3
         - **[1]**:
+          - **uid**: L4LyF7mhoD8Us8
           - **boulder**:
             - **descricao**: Sai em pé com a mão esquerda em uma pinça invertida perto do chão e a mão direita num reglete alto e faz um movimento forte de esquerda até uma agarra cortante, virando reto pelas cracas.
             - **nome**: Surpreendente
             - **dificuldade**: V5
             - **destaque**: True
         - **[2]**:
+          - **uid**: zAe6hLpGjg8vOW
           - **boulder**:
             - **descricao**: Começa sentado em um grande batente e faz uma sequência de movimentos duros até o domínio.
             - **nome**: Frito
@@ -3438,29 +4358,34 @@
               - Gustavo Fontes
             - **data_abertura**: 2010
         - **[3]**:
+          - **uid**: 0swtYbPEnXHPkF
           - **boulder**:
             - **descricao**: Sai como o “Frito” (xx) e atravessa pra direita pelo mesmo batente até um domínio fácil.
             - **nome**: Fritei
             - **dificuldade**: V0
         - **[4]**:
+          - **uid**: f1cXKsZObhP6jD
           - **boulder**:
             - **descricao**: Começa com as mãos juntas em batente e escala por agarras boas até a saída do teto, fazendo uma virada tranqüila.
             - **nome**: Vem de baixo
             - **dificuldade**: V1
             - **destaque**: True
         - **[5]**:
+          - **uid**: Ftob4NunF8Vtbw
           - **boulder**:
             - **descricao**: Sai como o “Vem de baixo” (5), vai para um reglete no teto e depois para um pocket/abaulado na aresta e segue por ela até o fim do “Gastón a la meson” (7).
             - **nome**: Quina da mesa
             - **dificuldade**: V3
             - **destaque**: True
         - **[6]**:
+          - **uid**: 57BLtHxGgd97eO
           - **boulder**:
             - **descricao**: Começa como o “Vem de baixo” (5) e atravessa pelo teto passando por um movimento duro de gastón, como na foto ao lado.
             - **nome**: Gaston à la meson
             - **dificuldade**: V6
             - **destaque**: True
         - **[7]**:
+          - **uid**: tRyDwsk7WLKaYt
           - **boulder**:
             - **descricao**: Extensão do “Gastón a la meson” (7) saindo de dois pockets mais abaixo.
             - **nome**: Gaston à la meson FDS
@@ -3476,6 +4401,7 @@
     - **conteudo**:
       - **descricao**: # Bloco B - Casulo
       - **nome**: Bloco B - Casulo
+      - **uid**: b9UBZtnzcTrCRR
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_rolling_stones_p5_i2.webp)
@@ -3483,38 +4409,54 @@
           - **altura_mapa**: 710
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: tMSHq1RCIEaCim
+              - **pontos_uids**:
+                - 9
               - **escalada**: A onda
               - **ids**:
                 - 9
             - **[1]**:
+              - **alvo_uid**: w8139ceg1G99bI
+              - **pontos_uids**:
+                - 10
               - **escalada**: Estaca
               - **ids**:
                 - 10
             - **[2]**:
+              - **alvo_uid**: 2k6k5gQ3wL4WVz
+              - **pontos_uids**:
+                - 11
               - **escalada**: Mariposa
               - **ids**:
                 - 11
             - **[3]**:
+              - **alvo_uid**: bsCDm9Z1I9vI5s
+              - **pontos_uids**:
+                - 12
               - **escalada**: Casulo
               - **ids**:
                 - 12
       - **escaladas**:
         - **[0]**:
+          - **uid**: tMSHq1RCIEaCim
           - **boulder**:
             - **descricao**: Sai sentado com as mãos em dois regletes e escala “a onda”.
             - **nome**: A onda
             - **dificuldade**: V1
         - **[1]**:
+          - **uid**: w8139ceg1G99bI
           - **boulder**:
             - **descricao**: Começa sentado com as mãos juntas num bico e num reglete e toca reto.
             - **nome**: Estaca
             - **dificuldade**: V0
         - **[2]**:
+          - **uid**: 2k6k5gQ3wL4WVz
           - **boulder**:
             - **descricao**: Sai sentado com as mãos juntas num batente e um reglete e escala reto por agarras boas.
             - **nome**: Mariposa
             - **dificuldade**: V0
         - **[3]**:
+          - **uid**: bsCDm9Z1I9vI5s
           - **boulder**:
             - **descricao**: Começa sentado com as mãos juntas em um bico/laca e escala reto pela pedra em forma de casulo.
             - **nome**: Casulo
@@ -3526,6 +4468,7 @@
     - **conteudo**:
       - **descricao**: # Bloco C - Marrento
       - **nome**: Bloco C - Marrento
+      - **uid**: ok27kAzvZl05g9
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_rolling_stones_p5_i3.webp)
@@ -3533,38 +4476,54 @@
           - **altura_mapa**: 710
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: qVOo6g5kmbH7XL
+              - **pontos_uids**:
+                - 13
               - **escalada**: Banzai
               - **ids**:
                 - 13
             - **[1]**:
+              - **alvo_uid**: nsF3x2WBZncYhf
+              - **pontos_uids**:
+                - 14
               - **escalada**: Marrento
               - **ids**:
                 - 14
             - **[2]**:
+              - **alvo_uid**: fypT4uNFpgpg2e
+              - **pontos_uids**:
+                - 15
               - **escalada**: Carioquinha
               - **ids**:
                 - 15
             - **[3]**:
+              - **alvo_uid**: q1B1CcWGgGZD7y
+              - **pontos_uids**:
+                - 16
               - **escalada**: Baiano
               - **ids**:
                 - 16
       - **escaladas**:
         - **[0]**:
+          - **uid**: qVOo6g5kmbH7XL
           - **boulder**:
             - **descricao**: Começa com as mãos juntas em um batente grande, passa por uma laca e termina reto.
             - **nome**: Banzai
             - **dificuldade**: V0
         - **[1]**:
+          - **uid**: nsF3x2WBZncYhf
           - **boulder**:
             - **descricao**: Sai sentado com as mãos juntas em uns regletes/pockets e faz uma diagonal pra esquerda por regletes.
             - **nome**: Marrento
             - **dificuldade**: V3
         - **[2]**:
+          - **uid**: fypT4uNFpgpg2e
           - **boulder**:
             - **descricao**: Começa como o “Marrento” (14) e escala reto por agarras boas.
             - **nome**: Carioquinha
             - **dificuldade**: V1
         - **[3]**:
+          - **uid**: q1B1CcWGgGZD7y
           - **boulder**:
             - **descricao**: Sai sentado com as mãos juntas em um batente à direita da aresta, atravessa pra esquerda e termina como o “Carioquinha” (15).
             - **nome**: Baiano
@@ -3576,26 +4535,31 @@
     - **conteudo**:
       - **descricao**: # Bloco D - Rolling Stones
       - **nome**: Bloco D - Rolling Stones
+      - **uid**: MdqiBRREJag3jS
       - **escaladas**:
         - **[0]**:
+          - **uid**: mH9UMRDep84NtG
           - **boulder**:
             - **descricao**: Boulder mais acessível do bloco que sai em pé, em agarras boas, e escala reto até uma virada fácil.
             - **nome**: Rock it
             - **dificuldade**: V0
             - **destaque**: True
         - **[1]**:
+          - **uid**: Q1orsULzJtpaaG
           - **boulder**:
             - **descricao**: Começa sentado com as mãos em uns batentes, faz alguns movimentos e, ao invés de seguir reto pela fenda, faz uma travessia para a esquerda passando por uns regletes.
             - **nome**: Esquerdinha
             - **dificuldade**: V4
             - **destaque**: True
         - **[2]**:
+          - **uid**: dt0bRRLOzoCVqq
           - **boulder**:
             - **descricao**: Sai do “Esquerdinha” (17) e toca reto pela fenda.
             - **nome**: Cuidado aí
             - **dificuldade**: V3
             - **destaque**: True
         - **[3]**:
+          - **uid**: bwdW2nKMsWbV93
           - **boulder**:
             - **descricao**: Sai do “Esquerdinha” (17) e atravessa para a direita, no alto, por uma linha de regletes terminando na parte mais alta do bloco. Há também uma variante que continua atravessando para a direita terminando no “The Doors” (28) chamada a Bob Marley v7.
             - **nome**: Invasorzinho
@@ -3605,11 +4569,13 @@
               - Rafael Passos
             - **data_abertura**: 2005
         - **[4]**:
+          - **uid**: sxdZPRBR1hC0Ix
           - **boulder**:
             - **descricao**: Variante do “Invasorzinho” (19) que continua atravessando para a direita terminando no “The Doors” (28).
             - **nome**: Bob Marley
             - **dificuldade**: V7
         - **[5]**:
+          - **uid**: QucAyHXRK9pG9l
           - **boulder**:
             - **descricao**: Começa em pé com a mão esquerda em um reglete bom de gastón e a direita em um reglete pequeno invertido terminando no “Invasorzinho” (xx).
             - **nome**: Já Elvis
@@ -3619,17 +4585,20 @@
               - Frederico Gonçalves
             - **data_abertura**: 2009
         - **[6]**:
+          - **uid**: fo4FyMaBs28otf
           - **boulder**:
             - **descricao**: Sai do “Janis Joplin” (23) e termina no “Invasorzinho” (19).
             - **nome**: Projeto 6
             - **dificuldade**: INDEFINIDO
         - **[7]**:
+          - **uid**: M1qdIBNIbIiw1W
           - **boulder**:
             - **descricao**: Começa sentado com as mãos em dois regletinhos e atravessa pra direita terminando como o “Travessa” (30).
             - **nome**: Janis Joplin
             - **dificuldade**: V4
             - **destaque**: True
         - **[8]**:
+          - **uid**: iJbbNkITKQzfOv
           - **boulder**:
             - **descricao**: Uma das linhas mais conhecidas da Pedra Rachada, escala a clássica linha reta da parte mais negativa do bloco. Com a retirada de umas pedras da base, sua saída passou a ser feita do batente mais baixo à direita (onde se saía com o calcanhar), consolidando o grau v8. Saindo no “Janis Joplin” (23) é o j Jimi Hendrix v8 ★.
             - **nome**: Rolling Stones
@@ -3639,12 +4608,14 @@
               - Diogo Ratacheski
             - **data_abertura**: 2005
         - **[9]**:
+          - **uid**: i5fVKy19DDkaZ3
           - **boulder**:
             - **descricao**: Variante do “Rolling Stones” (24) saindo no “Janis Joplin” (23).
             - **nome**: Jimi Hendrix
             - **dificuldade**: V8
             - **destaque**: True
         - **[10]**:
+          - **uid**: u29cekP2By8WEh
           - **boulder**:
             - **descricao**: Sai do “Rolling Stones” (24) e, ao invés de seguir reto pelo negativo, atravessa para a esquerda até os regletes do “Invasorzinho” (19) terminando por ele. Saindo no “Janis Joplin” (23) é o k Woodstock v10.
             - **nome**: Amanhã vai ser outro dia
@@ -3654,11 +4625,13 @@
               - Rafael Passos
             - **data_abertura**: 2006
         - **[11]**:
+          - **uid**: tGJjFXF4luW3Sl
           - **boulder**:
             - **descricao**: Variante do “Amanhã vai ser outro dia” (26) saindo no “Janis Joplin” (23).
             - **nome**: Woodstock
             - **dificuldade**: V10
         - **[12]**:
+          - **uid**: xzPGqtj32XmbeH
           - **boulder**:
             - **descricao**: Começa sentado com as mãos juntas em um batente bom e escala levemente para a esquerda. Saindo no “Janis Joplin” (23) é o ; Open the doors v6 ★.
             - **nome**: The Doors
@@ -3668,12 +4641,14 @@
               - Gustavo Fontes
             - **data_abertura**: 2006
         - **[13]**:
+          - **uid**: X4zxdGrUVfR1JS
           - **boulder**:
             - **descricao**: Variante do “The Doors” (28) saindo no “Janis Joplin” (23).
             - **nome**: Open the doors
             - **dificuldade**: V6
             - **destaque**: True
         - **[14]**:
+          - **uid**: ITFvZkPPyuvRV8
           - **boulder**:
             - **descricao**: Sai do “The Doors” (28), atravessa para a direita e vira na parte mais baixa do bloco.
             - **nome**: Travessa
@@ -3686,8 +4661,10 @@
     - **conteudo**:
       - **descricao**: # Bloco E - Eject
       - **nome**: Bloco E - Eject
+      - **uid**: qoi9TE27jV5Gja
       - **escaladas**:
         - **[0]**:
+          - **uid**: Evr23e9jPoNFgu
           - **boulder**:
             - **descricao**: Pequeno bloco à direita do "Rolling Stones". Começa sentado com as mãos em dois regletes/batentes, faz um movimento técnico e domina.
             - **nome**: Eject
@@ -3700,6 +4677,7 @@
     - **conteudo**:
       - **descricao**: # Bloco F - Universo Paralello
       - **nome**: Bloco F - Universo Paralello
+      - **uid**: dJb3OBUZI4vgKN
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_rolling_stones_p8_i1.webp)
@@ -3707,47 +4685,79 @@
           - **altura_mapa**: 710
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: rSnTo0oL4fdxAU
+              - **pontos_uids**:
+                - 32
               - **escalada**: Cachoeira alta
               - **ids**:
                 - 32
             - **[1]**:
+              - **alvo_uid**: MTVBsmMtwBW4QZ
+              - **pontos_uids**:
+                - 33
               - **escalada**: Hard core
               - **ids**:
                 - 33
             - **[2]**:
+              - **alvo_uid**: Obd6pqhIAzWLyd
+              - **pontos_uids**:
+                - 33
+                - 36
               - **escalada**: Tribe
               - **ids**:
                 - 33
                 - 36
             - **[3]**:
+              - **alvo_uid**: tmbl883ZxStVLU
+              - **pontos_uids**:
+                - 33
+                - 38
               - **escalada**: Calangute
               - **ids**:
                 - 33
                 - 38
             - **[4]**:
+              - **alvo_uid**: XPBP9j2i05SHGh
+              - **pontos_uids**:
+                - 36
               - **escalada**: Universo Paralello
               - **ids**:
                 - 36
             - **[5]**:
+              - **alvo_uid**: 9jEmdQ0ATspj9T
+              - **pontos_uids**:
+                - 36
               - **escalada**: Trancedance
               - **ids**:
                 - 36
             - **[6]**:
+              - **alvo_uid**: AD4lN8jFPTDL28
+              - **pontos_uids**:
+                - 38
               - **escalada**: Rave
               - **ids**:
                 - 38
             - **[7]**:
+              - **alvo_uid**: D7czwgySOlLrYS
+              - **pontos_uids**:
+                - 36
+                - 38
               - **escalada**: Fora do tempo
               - **ids**:
                 - 36
                 - 38
             - **[8]**:
+              - **alvo_uid**: IYExAWsffJeyvE
+              - **pontos_uids**:
+                - 36
+                - 33
               - **escalada**: Samsara
               - **ids**:
                 - 36
                 - 33
       - **escaladas**:
         - **[0]**:
+          - **uid**: rSnTo0oL4fdxAU
           - **boulder**:
             - **descricao**: Sai na agarra mais ao fundo da caverna, passa por um grande batente escorrido e domina pelo buraco entre uns blocos.
             - **nome**: Cachoeira alta
@@ -3757,11 +4767,13 @@
               - Gustavo Fontes
             - **data_abertura**: 2007
         - **[1]**:
+          - **uid**: MTVBsmMtwBW4QZ
           - **boulder**:
             - **descricao**: Começa com a mão direita num batente no teto e a esquerda em um batente na aresta acima do pequeno bloco que escora o boulder e domina pela aresta.
             - **nome**: Hard core
             - **dificuldade**: V3
         - **[2]**:
+          - **uid**: Obd6pqhIAzWLyd
           - **boulder**:
             - **descricao**: Começa como o “Hard core” (33) e atravessa para a direita até o “Universo Paralello” (36) terminando por ele.
             - **nome**: Tribe
@@ -3770,6 +4782,7 @@
               - Gustavo Fontes
             - **data_abertura**: 2009
         - **[3]**:
+          - **uid**: tmbl883ZxStVLU
           - **boulder**:
             - **descricao**: Sai como o “Hard core” (33) e atravessa até a aresta direita do bloco, terminando como o “Rave” (38).
             - **nome**: Calangute
@@ -3778,6 +4791,7 @@
               - Gustavo Fontes
             - **data_abertura**: 2009
         - **[4]**:
+          - **uid**: XPBP9j2i05SHGh
           - **boulder**:
             - **descricao**: Começa como o “Cachoeira alta” (32) e atravessa todo o teto finalizando reto.
             - **nome**: Universo Paralello
@@ -3787,6 +4801,7 @@
               - Gustavo Fontes
             - **data_abertura**: 2007
         - **[5]**:
+          - **uid**: 9jEmdQ0ATspj9T
           - **boulder**:
             - **descricao**: Sai com as mãos juntas no grande batente escorrido do teto, após a saída do “Universo Paralello” (36), e termina como ele.
             - **nome**: Trancedance
@@ -3796,6 +4811,7 @@
               - Gustavo Fontes
             - **data_abertura**: 2007
         - **[6]**:
+          - **uid**: AD4lN8jFPTDL28
           - **boulder**:
             - **descricao**: Sai na agarra sikada do final do “Universo Paralello” (36) e atravessa pra direita terminando pela aresta.
             - **nome**: Rave
@@ -3804,6 +4820,7 @@
               - Gustavo Fontes
             - **data_abertura**: 2009
         - **[7]**:
+          - **uid**: D7czwgySOlLrYS
           - **boulder**:
             - **descricao**: É o “Universo Paralello” (36) terminando no “Rave” (38).
             - **nome**: Fora do tempo
@@ -3812,6 +4829,7 @@
               - Gustavo Fontes
             - **data_abertura**: 2009
         - **[8]**:
+          - **uid**: IYExAWsffJeyvE
           - **boulder**:
             - **descricao**: “Universo Paralello” (36) virando pelo “Hard core” (33).
             - **nome**: Samsara
@@ -3826,6 +4844,7 @@
     - **conteudo**:
       - **descricao**: # Bloco G - Pantaloneta
       - **nome**: Bloco G - Pantaloneta
+      - **uid**: YOOO9jSie0uDws
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_rolling_stones_p10_i0.webp)
@@ -3833,66 +4852,114 @@
           - **altura_mapa**: 710
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: W7dr4fykimpvCL
+              - **pontos_uids**:
+                - 41
               - **escalada**: Cara nova
               - **ids**:
                 - 41
             - **[1]**:
+              - **alvo_uid**: t3IZuF38yZU4TF
+              - **pontos_uids**:
+                - 42
               - **escalada**: Buraco louco
               - **ids**:
                 - 42
             - **[2]**:
+              - **alvo_uid**: XTF6sn3i4N4fQw
+              - **pontos_uids**:
+                - 43
               - **escalada**: Morena
               - **ids**:
                 - 43
             - **[3]**:
+              - **alvo_uid**: 5MzXHe2apxaIWf
+              - **pontos_uids**:
+                - 44
               - **escalada**: Hard crimp
               - **ids**:
                 - 44
             - **[4]**:
+              - **alvo_uid**: FT6ejI1pLAUfOb
+              - **pontos_uids**:
+                - 45
               - **escalada**: Tapete mágico
               - **ids**:
                 - 45
             - **[5]**:
+              - **alvo_uid**: NgTMsoyRNvqGXg
+              - **pontos_uids**:
+                - 46
               - **escalada**: Jasmim
               - **ids**:
                 - 46
             - **[6]**:
+              - **alvo_uid**: vYvQn0umxFCDSL
+              - **pontos_uids**:
+                - 47
               - **escalada**: Pantaloneta
               - **ids**:
                 - 47
             - **[7]**:
+              - **alvo_uid**: KK5gfZqMUBrw4U
+              - **pontos_uids**:
+                - 48
               - **escalada**: Pantalones
               - **ids**:
                 - 48
             - **[8]**:
+              - **alvo_uid**: QDSQi7JR7CJnYc
+              - **pontos_uids**:
+                - 49
               - **escalada**: Teto da aranha
               - **ids**:
                 - 49
             - **[9]**:
+              - **alvo_uid**: mRG7JjKQXHkjVz
+              - **pontos_uids**:
+                - 50
               - **escalada**: Aranha cabeluda
               - **ids**:
                 - 50
             - **[10]**:
+              - **alvo_uid**: oYfnw194M0Ql5A
+              - **pontos_uids**:
+                - 51
               - **escalada**: Cabelo louco
               - **ids**:
                 - 51
             - **[11]**:
+              - **alvo_uid**: LwleA4cuNVIWle
+              - **pontos_uids**:
+                - 52
               - **escalada**: Abismo
               - **ids**:
                 - 52
             - **[12]**:
+              - **alvo_uid**: S1Va6cJrHkz1rt
+              - **pontos_uids**:
+                - 53
               - **escalada**: Buraco negro
               - **ids**:
                 - 53
             - **[13]**:
+              - **alvo_uid**: 2jTceieERkmygP
+              - **pontos_uids**:
+                - 54
               - **escalada**: Cotonete
               - **ids**:
                 - 54
             - **[14]**:
+              - **alvo_uid**: SUleoDocJP55Ke
+              - **pontos_uids**:
+                - 55
               - **escalada**: Buraquinho
               - **ids**:
                 - 55
             - **[15]**:
+              - **alvo_uid**: tjK6SZyPJR89bd
+              - **pontos_uids**:
+                - 56
               - **escalada**: Caranguejeira
               - **ids**:
                 - 56
@@ -3902,102 +4969,168 @@
           - **altura_mapa**: 710
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: QDSQi7JR7CJnYc
+              - **pontos_uids**:
+                - 49
               - **escalada**: Teto da aranha
               - **ids**:
                 - 49
             - **[1]**:
+              - **alvo_uid**: oYfnw194M0Ql5A
+              - **pontos_uids**:
+                - 51
               - **escalada**: Cabelo louco
               - **ids**:
                 - 51
             - **[2]**:
+              - **alvo_uid**: 2jTceieERkmygP
+              - **pontos_uids**:
+                - 54
               - **escalada**: Cotonete
               - **ids**:
                 - 54
             - **[3]**:
+              - **alvo_uid**: SUleoDocJP55Ke
+              - **pontos_uids**:
+                - 55
               - **escalada**: Buraquinho
               - **ids**:
                 - 55
             - **[4]**:
+              - **alvo_uid**: tjK6SZyPJR89bd
+              - **pontos_uids**:
+                - 56
               - **escalada**: Caranguejeira
               - **ids**:
                 - 56
             - **[5]**:
+              - **alvo_uid**: h7tmttaNLSEBWI
+              - **pontos_uids**:
+                - 57
               - **escalada**: Armadeira
               - **ids**:
                 - 57
             - **[6]**:
+              - **alvo_uid**: zI8ITYwJz3yhVk
+              - **pontos_uids**:
+                - 58
               - **escalada**: Quero mais
               - **ids**:
                 - 58
             - **[7]**:
+              - **alvo_uid**: d8JEuHZrBYbgZZ
+              - **pontos_uids**:
+                - 59
               - **escalada**: Proteste já
               - **ids**:
                 - 59
             - **[8]**:
+              - **alvo_uid**: vjOagg8UIkG2r0
+              - **pontos_uids**:
+                - 60
               - **escalada**: Manifestante
               - **ids**:
                 - 60
             - **[9]**:
+              - **alvo_uid**: PoTG0PW17r2tR5
+              - **pontos_uids**:
+                - 61
               - **escalada**: Aladim
               - **ids**:
                 - 61
             - **[10]**:
+              - **alvo_uid**: njmE5ITmXutiN8
+              - **pontos_uids**:
+                - 62
               - **escalada**: Projeto 7
               - **ids**:
                 - 62
             - **[11]**:
+              - **alvo_uid**: HQqhkz2cCwF9ik
+              - **pontos_uids**:
+                - 63
               - **escalada**: Projeto 8
               - **ids**:
                 - 63
             - **[12]**:
+              - **alvo_uid**: CTAYXLiNKJSb4B
+              - **pontos_uids**:
+                - 64
               - **escalada**: Vaqueros
               - **ids**:
                 - 64
             - **[13]**:
+              - **alvo_uid**: VB6mjwsDdcCIEa
+              - **pontos_uids**:
+                - 65
               - **escalada**: Esporte fino
               - **ids**:
                 - 65
             - **[14]**:
+              - **alvo_uid**: ltVfeHriXX54zw
+              - **pontos_uids**:
+                - 66
               - **escalada**: Passeio completo
               - **ids**:
                 - 66
             - **[15]**:
+              - **alvo_uid**: WIkiUzxzR2uNrq
+              - **pontos_uids**:
+                - 67
               - **escalada**: Aracnofobia
               - **ids**:
                 - 67
             - **[16]**:
+              - **alvo_uid**: KpooB7pWbjKhVg
+              - **pontos_uids**:
+                - 68
               - **escalada**: Teia de aranha
               - **ids**:
                 - 68
             - **[17]**:
+              - **alvo_uid**: k6pjyNoZouY2rf
+              - **pontos_uids**:
+                - 69
               - **escalada**: Rolo compressor
               - **ids**:
                 - 69
             - **[18]**:
+              - **alvo_uid**: HcdXAO985EuQ3i
+              - **pontos_uids**:
+                - 70
               - **escalada**: Comprimido
               - **ids**:
                 - 70
             - **[19]**:
+              - **alvo_uid**: Eppjf4w5Y4Y1Fd
+              - **pontos_uids**:
+                - 71
               - **escalada**: Prensa
               - **ids**:
                 - 71
             - **[20]**:
+              - **alvo_uid**: vxzTlMaSXvvYhb
+              - **pontos_uids**:
+                - 72
               - **escalada**: Compressão
               - **ids**:
                 - 72
       - **escaladas**:
         - **[0]**:
+          - **uid**: W7dr4fykimpvCL
           - **boulder**:
             - **descricao**: Sai com a mão esquerda em um gastón e a direita em um bico e toca reto.
             - **nome**: Cara nova
             - **dificuldade**: V0
         - **[1]**:
+          - **uid**: t3IZuF38yZU4TF
           - **boulder**:
             - **descricao**: Começa em pé com as mãos juntas em um batente e escalada por uma linha de regletes diagonalmente à esquerda.
             - **nome**: Buraco louco
             - **dificuldade**: V1
             - **destaque**: True
         - **[2]**:
+          - **uid**: XTF6sn3i4N4fQw
           - **boulder**:
             - **descricao**: Sai em pé com a mão direita em um reglete de oposição e a direita bem aberta em um batente/tridedo em compressão e da um tapa no batente de saída do “Buraco louco” (42) terminando como ele.
             - **nome**: Morena
@@ -4007,6 +5140,7 @@
               - Leonardo Boscolo
             - **data_abertura**: 2013
         - **[3]**:
+          - **uid**: 5MzXHe2apxaIWf
           - **boulder**:
             - **descricao**: Começa com as mãos juntas em dois regletes/pockets e faz três fortes movimentos até o batente do “Buraco louco” (42) finalizando como ele. Saindo na agarra grande na parte mais baixa do bloco, antes do teto e em cima do “deck”, é o Tapete mágico v10 ★★★. Saindo da “proa”, logo após o “deck” é o Jasmim v10.
             - **nome**: Hard crimp
@@ -4016,17 +5150,20 @@
               - Frederico Gonçalves
             - **data_abertura**: 2013
         - **[4]**:
+          - **uid**: FT6ejI1pLAUfOb
           - **boulder**:
             - **descricao**: Saindo na agarra grande na parte mais baixa do bloco, antes do teto e em cima do “deck”, terminando no “Hard crimp” (44).
             - **nome**: Tapete mágico
             - **dificuldade**: V10
             - **destaque**: True
         - **[5]**:
+          - **uid**: NgTMsoyRNvqGXg
           - **boulder**:
             - **descricao**: Saindo da “proa”, logo após o “deck”, terminando no “Hard crimp” (44).
             - **nome**: Jasmim
             - **dificuldade**: V10
         - **[6]**:
+          - **uid**: vYvQn0umxFCDSL
           - **boulder**:
             - **descricao**: Sai em pé com a mão esquerda no reglete/pocket mais baixo e a direita em uma pinça abaixo do teto, faz alguns movimentos no teto e dá um dinâmico em um batente bom na aresta da esquerda. Saindo da “proa”, logo após o “deck” é o Pantalones v9 ★★.
             - **nome**: Pantaloneta
@@ -4036,30 +5173,35 @@
               - Federico Sanz
             - **data_abertura**: 2013
         - **[7]**:
+          - **uid**: KK5gfZqMUBrw4U
           - **boulder**:
             - **descricao**: Saindo da “proa”, logo após o “deck”, terminando no “Pantaloneta” (47).
             - **nome**: Pantalones
             - **dificuldade**: V9
             - **destaque**: True
         - **[8]**:
+          - **uid**: QDSQi7JR7CJnYc
           - **boulder**:
             - **descricao**: Começa sentado com as mãos juntas em umas cracas e escala em diagonal pra esquerda finalizando por agarras boas. Saindo da “proa”, logo após o “deck” é o Aranha cabeluda v4 ★.
             - **nome**: Teto da aranha
             - **dificuldade**: V2
             - **destaque**: True
         - **[9]**:
+          - **uid**: mRG7JjKQXHkjVz
           - **boulder**:
             - **descricao**: Saindo da “proa”, logo após o “deck”, terminando no “Teto da aranha” (49).
             - **nome**: Aranha cabeluda
             - **dificuldade**: V4
             - **destaque**: True
         - **[10]**:
+          - **uid**: oYfnw194M0Ql5A
           - **boulder**:
             - **descricao**: Sai como o “Teto da aranha” e domina pela direita do teto, passando por um gaston.
             - **nome**: Cabelo louco
             - **dificuldade**: V2
             - **destaque**: True
         - **[11]**:
+          - **uid**: LwleA4cuNVIWle
           - **boulder**:
             - **descricao**: Sai do “Rolo compressor” (69) e termina no “Teto da aranha” (49).
             - **nome**: Abismo
@@ -4069,6 +5211,7 @@
               - Daniel Mendes
             - **data_abertura**: 2013
         - **[12]**:
+          - **uid**: S1Va6cJrHkz1rt
           - **boulder**:
             - **descricao**: Sai sentado com as mãos juntas nos dois regletes bons mais ao fundo do teto e termina no “Teto da aranha” (49).
             - **nome**: Buraco negro
@@ -4078,16 +5221,19 @@
               - Daniel Mendes
             - **data_abertura**: 2013
         - **[13]**:
+          - **uid**: 2jTceieERkmygP
           - **boulder**:
             - **descricao**: A saída deve ser feita sem crash, deitado na pedra com a mão esquerda em um reglete, a direita em um pocket e o calcanhar na saída do “Teto da aranha” (49).
             - **nome**: Cotonete
             - **dificuldade**: V2
         - **[14]**:
+          - **uid**: SUleoDocJP55Ke
           - **boulder**:
             - **descricao**: Sai sentado com as mãos juntas em um pocket e escala o positivo por agarras boas.
             - **nome**: Buraquinho
             - **dificuldade**: V0
         - **[15]**:
+          - **uid**: tjK6SZyPJR89bd
           - **boulder**:
             - **descricao**: Sai sentado abraçando a pedra com a mão direita em uma pinça/batente e a esquerda dentro da cave em um reglete e escala diagonalmente pra esquerda, na face vertical, por uns regletes. Virando no “Quero mais” (58) é o Armadeira v7.
             - **nome**: Caranguejeira
@@ -4097,17 +5243,20 @@
               - Frederico Gonçalves
             - **data_abertura**: 2012
         - **[16]**:
+          - **uid**: h7tmttaNLSEBWI
           - **boulder**:
             - **descricao**: Sai como o “Caranguejeira” (56) e vira no “Quero mais” (58).
             - **nome**: Armadeira
             - **dificuldade**: V7
         - **[17]**:
+          - **uid**: zI8ITYwJz3yhVk
           - **boulder**:
             - **descricao**: Começa em pé com as mãos juntas em um batente e escala reto pela fenda.
             - **nome**: Quero mais
             - **dificuldade**: V0
             - **destaque**: True
         - **[18]**:
+          - **uid**: d8JEuHZrBYbgZZ
           - **boulder**:
             - **descricao**: Sai sentado com a mão esquerda em um abaulado de gaston e direita em um batente de oposição, tocando reto por regletes, terminando como o “Quero mais” (58). Terminando como o “Caranguejeira” (56) é o Manifestante v5.
             - **nome**: Proteste já
@@ -4117,11 +5266,13 @@
               - Gustavo Fontes
             - **data_abertura**: 2013
         - **[19]**:
+          - **uid**: vjOagg8UIkG2r0
           - **boulder**:
             - **descricao**: Começa como o “Proteste já” (59) e termina como o “Caranguejeira” (56).
             - **nome**: Manifestante
             - **dificuldade**: V5
         - **[20]**:
+          - **uid**: PoTG0PW17r2tR5
           - **boulder**:
             - **descricao**: Sai do “Abismo” (52) e termina no “Hard crimp” (44).
             - **nome**: Aladim
@@ -4131,16 +5282,19 @@
               - Rafael Passos
             - **data_abertura**: 2014
         - **[21]**:
+          - **uid**: njmE5ITmXutiN8
           - **boulder**:
             - **descricao**: Sai do “Buraco negro” (59) e termina no “Hard crimp” (44).
             - **nome**: Projeto 7
             - **dificuldade**: INDEFINIDO
         - **[22]**:
+          - **uid**: HQqhkz2cCwF9ik
           - **boulder**:
             - **descricao**: Sai do “Proteste já” (59) e termina no “Hard crimp” (44).
             - **nome**: Projeto 8
             - **dificuldade**: INDEFINIDO
         - **[23]**:
+          - **uid**: CTAYXLiNKJSb4B
           - **boulder**:
             - **descricao**: Sai do “Abismo” (52) e termina no “Pantaloneta” (47).
             - **nome**: Vaqueros
@@ -4150,6 +5304,7 @@
               - Felipe Camargo
             - **data_abertura**: 2013
         - **[24]**:
+          - **uid**: VB6mjwsDdcCIEa
           - **boulder**:
             - **descricao**: Sai do “Buraco negro” (53) e termina no “Pantaloneta” (47).
             - **nome**: Esporte fino
@@ -4159,6 +5314,7 @@
               - Gustavo Fontes
             - **data_abertura**: 2014
         - **[25]**:
+          - **uid**: ltVfeHriXX54zw
           - **boulder**:
             - **descricao**: Sai do “Proteste já” (59) e termina no “Pantaloneta” (47).
             - **nome**: Passeio completo
@@ -4168,6 +5324,7 @@
               - Gustavo Fontes
             - **data_abertura**: 2014
         - **[26]**:
+          - **uid**: WIkiUzxzR2uNrq
           - **boulder**:
             - **descricao**: Sai do “Proteste já” (59) e termina no “Teto da aranha” (49). Saindo do “Caranguejeira” (56) é o Teia de aranha v8.
             - **nome**: Aracnofobia
@@ -4177,11 +5334,13 @@
               - Gustavo Fontes
             - **data_abertura**: 2013
         - **[27]**:
+          - **uid**: KpooB7pWbjKhVg
           - **boulder**:
             - **descricao**: Sai do “Caranguejeira” (56) e termina no “Teto da aranha” (49).
             - **nome**: Teia de aranha
             - **dificuldade**: V8
         - **[28]**:
+          - **uid**: k6pjyNoZouY2rf
           - **boulder**:
             - **descricao**: É o “Caranguejeira” (56) saindo do “Abismo” (52). Virando no “Quero mais” (58) é o Comprimido v8.
             - **nome**: Rolo compressor
@@ -4191,11 +5350,13 @@
               - Frederico Gonçalves
             - **data_abertura**: 2013
         - **[29]**:
+          - **uid**: HcdXAO985EuQ3i
           - **boulder**:
             - **descricao**: É o “Caranguejeira” (56) saindo do “Abismo” (52), virando no “Quero mais” (58).
             - **nome**: Comprimido
             - **dificuldade**: V8
         - **[30]**:
+          - **uid**: Eppjf4w5Y4Y1Fd
           - **boulder**:
             - **descricao**: Sai do “Buraco negro” (59) e termina no Caranguejeira (56). Virando no “Quero mais” (58) é o Compressão v11.
             - **nome**: Prensa
@@ -4205,6 +5366,7 @@
               - Daniel Mendes
             - **data_abertura**: 2013
         - **[31]**:
+          - **uid**: vxzTlMaSXvvYhb
           - **boulder**:
             - **descricao**: Sai do “Buraco negro” (59) e vira no “Quero mais” (58).
             - **nome**: Compressão
@@ -4216,8 +5378,10 @@
     - **conteudo**:
       - **descricao**: # Bloco H - Octopus
       - **nome**: Bloco H - Octopus
+      - **uid**: fTYl4fV5ZSIJej
       - **escaladas**:
         - **[0]**:
+          - **uid**: PlEkw4EGoCPeXp
           - **boulder**:
             - **descricao**: Começa com as mãos juntas em um reglete e faz movimentos duros para sair do teto à esquerda.
             - **nome**: Aracnídeo
@@ -4227,6 +5391,7 @@
               - Daniel Mendes
             - **data_abertura**: 2013
         - **[1]**:
+          - **uid**: UJnfrRGOCOiq1V
           - **boulder**:
             - **descricao**: Sai sentado com as mãos juntas em um batente escorrido, faz dois movimentos para entrar no “Aracnídeo” (73) e finaliza por ele.
             - **nome**: Octopus
@@ -4242,19 +5407,23 @@
     - **conteudo**:
       - **descricao**: # Bloco I - Prótons
       - **nome**: Bloco I - Prótons
+      - **uid**: mF82XDuXLMe8l5
       - **escaladas**:
         - **[0]**:
+          - **uid**: 6vrJrkqdMONL6f
           - **boulder**:
             - **descricao**: Escala a fenda saindo em pé com a mão esquerda em um batente de oposição e a direita em um bico/gastón.
             - **nome**: Neutrons
             - **dificuldade**: V0
         - **[1]**:
+          - **uid**: FSAMhsj9HgfrHi
           - **boulder**:
             - **descricao**: Começa em pé com as mãos juntas em uma agarra invertida e escala o positivo por regletes.
             - **nome**: Prótons
             - **dificuldade**: V1
             - **destaque**: True
         - **[2]**:
+          - **uid**: KNudy0y8E1v8vp
           - **boulder**:
             - **descricao**: Sai em pé em uma agarra invertida e toca reto, à esquerda da aresta, pelo positivo.
             - **nome**: Elétrons
@@ -4267,8 +5436,10 @@
     - **conteudo**:
       - **descricao**: # Bloco J - Aranha Albina
       - **nome**: Bloco J - Aranha Albina
+      - **uid**: wBYvo4c5sJG6C9
       - **escaladas**:
         - **[0]**:
+          - **uid**: 6eXK3NTyCuFt0o
           - **boulder**:
             - **descricao**: Começa sentado com as mãos juntas em um reglete e domina o pequeno bloco.
             - **nome**: Aranha albina
@@ -4319,12 +5490,14 @@
     - **Bloco D – Escondido**: boulder 21.
     - **Bloco E – Caramujo**: boulders 22 a 25.
 - **nome**: Pena de Ganso
+- **uid**: I0dDogAbSmJ8gY
 - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_pena_de_ganso_p0_i0.webp)
 - **setores**:
   - **[0]**:
     - **conteudo**:
       - **descricao**: # Bloco A - Gangrena
       - **nome**: Bloco A - Gangrena
+      - **uid**: 8nG1nyqYVvmIYC
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_pena_de_ganso_p2_i0.webp)
@@ -4332,35 +5505,60 @@
           - **altura_mapa**: 710
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: Ea1iX0CCKEZEbA
+              - **pontos_uids**:
+                - 1
               - **escalada**: Tala
               - **ids**:
                 - 1
             - **[1]**:
+              - **alvo_uid**: 3xWjC2f7El0fj4
+              - **pontos_uids**:
+                - 2
               - **escalada**: Banho de sangue
               - **ids**:
                 - 2
             - **[2]**:
+              - **alvo_uid**: YFtzhNrc3J72pe
+              - **pontos_uids**:
+                - 3
               - **escalada**: Aderência
               - **ids**:
                 - 3
             - **[3]**:
+              - **alvo_uid**: myxuj5Jn4Zoihl
+              - **pontos_uids**:
+                - 4
               - **escalada**: Textura
               - **ids**:
                 - 4
             - **[4]**:
+              - **alvo_uid**: dBGZABlDDZ2Tfm
+              - **pontos_uids**:
+                - 5
               - **escalada**: Gangrena
               - **ids**:
                 - 5
             - **[5]**:
+              - **alvo_uid**: WdLdWdUZvLnAym
+              - **pontos_uids**:
+                - 6
               - **escalada**: Quelóide
               - **ids**:
                 - 6
             - **[6]**:
+              - **alvo_uid**: IawWgdBSGS18lt
+              - **pontos_uids**:
+                - 5
+                - 2
               - **escalada**: Sanguinário
               - **ids**:
                 - 5
                 - 2
             - **[7]**:
+              - **alvo_uid**: 2zsEzcZfVd6WZm
+              - **pontos_uids**:
+                - 8
               - **escalada**: Cicatriz
               - **ids**:
                 - 8
@@ -4370,41 +5568,55 @@
           - **altura_mapa**: 710
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: 2zsEzcZfVd6WZm
+              - **pontos_uids**:
+                - 8
               - **escalada**: Cicatriz
               - **ids**:
                 - 8
             - **[1]**:
+              - **alvo_uid**: YyykDapSvsSFDN
+              - **pontos_uids**:
+                - 9
               - **escalada**: Diagramando
               - **ids**:
                 - 9
             - **[2]**:
+              - **alvo_uid**: EJ8D361Lo0HAr9
+              - **pontos_uids**:
+                - 10
               - **escalada**: InDesign
               - **ids**:
                 - 10
       - **escaladas**:
         - **[0]**:
+          - **uid**: Ea1iX0CCKEZEbA
           - **boulder**:
             - **descricao**: Sai em pé com as mãos em dois regletes e toca reto para um domínio fácil.
             - **nome**: Tala
             - **dificuldade**: VB
         - **[1]**:
+          - **uid**: 3xWjC2f7El0fj4
           - **boulder**:
             - **descricao**: Começa sentado com a mão direita em um pequeno reglete de gastón, a esquerda em um outro regletinho logo acima dele e escala a face vertical por regletes pequenos.
             - **nome**: Banho de sangue
             - **dificuldade**: V4
             - **destaque**: True
         - **[2]**:
+          - **uid**: YFtzhNrc3J72pe
           - **boulder**:
             - **descricao**: Começa em pé, com as mãos juntas em um grande reglete de lado e toca reto.
             - **nome**: Aderência
             - **dificuldade**: V3
             - **destaque**: True
         - **[3]**:
+          - **uid**: myxuj5Jn4Zoihl
           - **boulder**:
             - **descricao**: Saída sentada do “Aderência” (3) que começa com a mão esquerda num pequeno reglete de lado e a direita aberta em outro reglete.
             - **nome**: Textura
             - **dificuldade**: V4
         - **[4]**:
+          - **uid**: dBGZABlDDZ2Tfm
           - **boulder**:
             - **descricao**: Sai sentado com a mão esquerda em um reglete, a mão direita em um batente/abaulado e escala pelo positivo à esquerda da aresta.
             - **nome**: Gangrena
@@ -4413,27 +5625,32 @@
               - Ruy Castro
             - **data_abertura**: 2007
         - **[5]**:
+          - **uid**: WdLdWdUZvLnAym
           - **boulder**:
             - **descricao**: Começa como o “Gangrena” (5) faz uma travessia para a esquerda terminando no “Aderência” (3).
             - **nome**: Quelóide
             - **dificuldade**: V4
             - **destaque**: True
         - **[6]**:
+          - **uid**: IawWgdBSGS18lt
           - **boulder**:
             - **descricao**: Sai do “Gangrena” (5) e faz uma travessia para a esquerda terminando no “Banho de sangue” (2).
             - **nome**: Sanguinário
             - **dificuldade**: V6
         - **[7]**:
+          - **uid**: 2zsEzcZfVd6WZm
           - **boulder**:
             - **descricao**: Sai sentado com a mão esquerda no batente/abaulado da saída do “Gangrena” (5) e a direita em um bidedinho e escala à direita da aresta pelas cracas.
             - **nome**: Cicatriz
             - **dificuldade**: V6
         - **[8]**:
+          - **uid**: YyykDapSvsSFDN
           - **boulder**:
             - **descricao**: Começa em pé com as mãos juntas em uma laca / pinça e toca reto pelas cracas.
             - **nome**: Diagramando
             - **dificuldade**: V0
         - **[9]**:
+          - **uid**: EJ8D361Lo0HAr9
           - **boulder**:
             - **descricao**: Sai em pé com as mãos nas lacas de lado e escala em diagonal pra direita.
             - **nome**: InDesign
@@ -4445,6 +5662,7 @@
     - **conteudo**:
       - **descricao**: # Bloco B - Exilado
       - **nome**: Bloco B - Exilado
+      - **uid**: MkigFlguTDTQrj
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_pena_de_ganso_p3_i1.webp)
@@ -4452,20 +5670,28 @@
           - **altura_mapa**: 710
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: kFIIwjBbIQaklo
+              - **pontos_uids**:
+                - 11
               - **escalada**: Exilado
               - **ids**:
                 - 11
             - **[1]**:
+              - **alvo_uid**: 730eOGnmOQ5CEk
+              - **pontos_uids**:
+                - 12
               - **escalada**: A busca
               - **ids**:
                 - 12
       - **escaladas**:
         - **[0]**:
+          - **uid**: kFIIwjBbIQaklo
           - **boulder**:
             - **descricao**: Sai com as mãos juntas em uma grande laca e escala por agarras boas até uma virada tranqüila.
             - **nome**: Exilado
             - **dificuldade**: V0
         - **[1]**:
+          - **uid**: 730eOGnmOQ5CEk
           - **boulder**:
             - **descricao**: Começa sentado com as mãos no batente e escala em diagonal pra esquerda em busca das melhores agarras.
             - **nome**: A busca
@@ -4477,6 +5703,7 @@
     - **conteudo**:
       - **descricao**: # Bloco C - Pena de Ganso
       - **nome**: Bloco C - Pena de Ganso
+      - **uid**: 7FDG024uaqj8Jr
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_pena_de_ganso_p4_i0.webp)
@@ -4484,26 +5711,44 @@
           - **altura_mapa**: 710
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: gJ61r3TXBT9LEv
+              - **pontos_uids**:
+                - 13
               - **escalada**: Despenado
               - **ids**:
                 - 13
             - **[1]**:
+              - **alvo_uid**: wg8ZaQ3d0k2RAZ
+              - **pontos_uids**:
+                - 14
               - **escalada**: Penadinho
               - **ids**:
                 - 14
             - **[2]**:
+              - **alvo_uid**: 6X8YqheiJZQphD
+              - **pontos_uids**:
+                - 15
               - **escalada**: Pena de ganso
               - **ids**:
                 - 15
             - **[3]**:
+              - **alvo_uid**: Z0idqej51Ndfjk
+              - **pontos_uids**:
+                - 16
               - **escalada**: Jamaica abaixo de zero
               - **ids**:
                 - 16
             - **[4]**:
+              - **alvo_uid**: S6Lk3QIeQ9Bu03
+              - **pontos_uids**:
+                - 16
               - **escalada**: Jamaica abaixo de zero SDS
               - **ids**:
                 - 16
             - **[5]**:
+              - **alvo_uid**: doFPS2VLzy61Sg
+              - **pontos_uids**:
+                - 18
               - **escalada**: Projeto 9
               - **ids**:
                 - 18
@@ -4513,48 +5758,70 @@
           - **altura_mapa**: 710
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: 6X8YqheiJZQphD
+              - **pontos_uids**:
+                - 15
               - **escalada**: Pena de ganso
               - **ids**:
                 - 15
             - **[1]**:
+              - **alvo_uid**: Z0idqej51Ndfjk
+              - **pontos_uids**:
+                - 16
               - **escalada**: Jamaica abaixo de zero
               - **ids**:
                 - 16
             - **[2]**:
+              - **alvo_uid**: S6Lk3QIeQ9Bu03
+              - **pontos_uids**:
+                - 16
               - **escalada**: Jamaica abaixo de zero SDS
               - **ids**:
                 - 16
             - **[3]**:
+              - **alvo_uid**: doFPS2VLzy61Sg
+              - **pontos_uids**:
+                - 18
               - **escalada**: Projeto 9
               - **ids**:
                 - 18
             - **[4]**:
+              - **alvo_uid**: yS7dYPaceOeAoF
+              - **pontos_uids**:
+                - 19
               - **escalada**: Lacrimogênio
               - **ids**:
                 - 19
             - **[5]**:
+              - **alvo_uid**: F0aytRBsK2K3MP
+              - **pontos_uids**:
+                - 20
               - **escalada**: Gás lacrimogênio
               - **ids**:
                 - 20
       - **escaladas**:
         - **[0]**:
+          - **uid**: gJ61r3TXBT9LEv
           - **boulder**:
             - **descricao**: Começa sentado com as mãos juntas em um batente e escala em diagonal pra esquerda dominando na parte baixa.
             - **nome**: Despenado
             - **dificuldade**: V1
         - **[1]**:
+          - **uid**: wg8ZaQ3d0k2RAZ
           - **boulder**:
             - **descricao**: Sai como o “Despenado” (13) e escala em diagonal pra esquerda terminando na parte alta do bloco.
             - **nome**: Penadinho
             - **dificuldade**: V2
             - **destaque**: True
         - **[2]**:
+          - **uid**: 6X8YqheiJZQphD
           - **boulder**:
             - **descricao**: Começa sentado com as mãos juntas em um batente no fundo do tetinho e escala uma sequencia longa de movimentos consistentes.
             - **nome**: Pena de ganso
             - **dificuldade**: V8
             - **destaque**: True
         - **[3]**:
+          - **uid**: Z0idqej51Ndfjk
           - **boulder**:
             - **descricao**: Extensão do “Pena de ganso” (15) que sai com a mão direita em um reglete de gaston e a esquerda na parte de baixo do “módulo” e atravessa pra esquerda.
             - **nome**: Jamaica abaixo de zero
@@ -4564,6 +5831,7 @@
               - Gustavo Fontes
             - **data_abertura**: 2013
         - **[4]**:
+          - **uid**: S6Lk3QIeQ9Bu03
           - **boulder**:
             - **descricao**: Adiciona um movimento à saída de cima, começando com a mão esquerda em um batente/pocket.
             - **nome**: Jamaica abaixo de zero SDS
@@ -4572,11 +5840,13 @@
               - Daniel Mendes
             - **data_abertura**: 2013
         - **[5]**:
+          - **uid**: doFPS2VLzy61Sg
           - **boulder**:
             - **descricao**: Sai do “módulo” e escala a face vertical por micro agarras.
             - **nome**: Projeto 9
             - **dificuldade**: INDEFINIDO
         - **[6]**:
+          - **uid**: yS7dYPaceOeAoF
           - **boulder**:
             - **descricao**: Começa em pé com a mão esquerda em um pequeno reglete/pocket, a direita no abaulado e escala em diagonal pra direita, passando pelo tetinho.
             - **nome**: Lacrimogênio
@@ -4586,6 +5856,7 @@
               - Daniel Mendes
             - **data_abertura**: 2013
         - **[7]**:
+          - **uid**: F0aytRBsK2K3MP
           - **boulder**:
             - **descricao**: Sai com a mão direita em um reglete baixo, adicionando um movimento ao “Lacrimogênio” (19).
             - **nome**: Gás lacrimogênio
@@ -4600,6 +5871,7 @@
     - **conteudo**:
       - **descricao**: # Bloco D - Escondido
       - **nome**: Bloco D - Escondido
+      - **uid**: uk3gLmUoNBsQNX
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_pena_de_ganso_p5_i0.webp)
@@ -4607,11 +5879,15 @@
           - **altura_mapa**: 710
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: UJhBbNXjtAxHYC
+              - **pontos_uids**:
+                - 21
               - **escalada**: Escondido
               - **ids**:
                 - 21
       - **escaladas**:
         - **[0]**:
+          - **uid**: UJhBbNXjtAxHYC
           - **boulder**:
             - **descricao**: Boulder que fica dentro de um bloco escorado no blocão à direita do “Pena de ganso” (15). Sai na face que aponta pro estacionamento, com a mão direita na aresta e a esquerda em um reglete baixo dentro do teto e atravessa por ele dominando pelo outro lado.
             - **nome**: Escondido
@@ -4623,6 +5899,7 @@
     - **conteudo**:
       - **descricao**: # Bloco E - Caramujo
       - **nome**: Bloco E - Caramujo
+      - **uid**: csVP38h5v0m0xD
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_pena_de_ganso_p5_i1.webp)
@@ -4630,40 +5907,56 @@
           - **altura_mapa**: 710
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: xHfXCQ9OUmsJr5
+              - **pontos_uids**:
+                - 22
               - **escalada**: Preguiça
               - **ids**:
                 - 22
             - **[1]**:
+              - **alvo_uid**: wsdvBGnYM34l4W
+              - **pontos_uids**:
+                - 23
               - **escalada**: Lesma
               - **ids**:
                 - 23
             - **[2]**:
+              - **alvo_uid**: ghflHg2drbmDYj
+              - **pontos_uids**:
+                - 24
               - **escalada**: Caramujo
               - **ids**:
                 - 24
             - **[3]**:
+              - **alvo_uid**: DlxdhqTloXaDXt
+              - **pontos_uids**:
+                - 25
               - **escalada**: Tartaruga
               - **ids**:
                 - 25
       - **escaladas**:
         - **[0]**:
+          - **uid**: xHfXCQ9OUmsJr5
           - **boulder**:
             - **descricao**: Começa sentado com as mãos juntas em um batente grande e escala reto pelas cracas.
             - **nome**: Preguiça
             - **dificuldade**: V0
         - **[1]**:
+          - **uid**: wsdvBGnYM34l4W
           - **boulder**:
             - **descricao**: Sai em pé com as mãos juntas no “módulo” batente, atravessa pra esquerda pelos pockets e termina no canto esquerdo do bloco, nas cracas.
             - **nome**: Lesma
             - **dificuldade**: V2
             - **destaque**: True
         - **[2]**:
+          - **uid**: ghflHg2drbmDYj
           - **boulder**:
             - **descricao**: Começa com a mão esquerda em um batente e a direita em um reglete ao lado e toca reto pela proa com um domínio técnico no positivo.
             - **nome**: Caramujo
             - **dificuldade**: V4
             - **destaque**: True
         - **[3]**:
+          - **uid**: DlxdhqTloXaDXt
           - **boulder**:
             - **descricao**: Sai sentado com a mão esquerda em um batente, a direita em um reglete e domina reto.
             - **nome**: Tartaruga
@@ -4747,6 +6040,7 @@
     > "Não existe um caminho para a felicidade. A felicidade é o caminho."  
     > — *Mahatma Gandhi*
 - **nome**: Tosco
+- **uid**: 7EqmzEyqPqt31Z
 - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_tosco_p0_i0.webp)
 - **mapas**:
   - **[0]**:
@@ -4755,22 +6049,37 @@
     - **altura_mapa**: 710
     - **referencias**:
       - **[0]**:
+        - **alvo_uid**: zShGRCExk0eQSH
+        - **pontos_uids**:
+          - 1
         - **escalada**: Boliche
         - **ids**:
           - 1
       - **[1]**:
+        - **alvo_uid**: cVyqOSGghaA5Rh
+        - **pontos_uids**:
+          - 2
         - **escalada**: Projeto 10
         - **ids**:
           - 2
       - **[2]**:
+        - **alvo_uid**: oqgqj8KsgyyVbf
+        - **pontos_uids**:
+          - 3
         - **escalada**: Strike
         - **ids**:
           - 3
       - **[3]**:
+        - **alvo_uid**: kZYUwpDIYjOTdd
+        - **pontos_uids**:
+          - 4
         - **escalada**: Amarelão
         - **ids**:
           - 4
       - **[4]**:
+        - **alvo_uid**: aesG73VkIAQPEb
+        - **pontos_uids**:
+          - 5
         - **escalada**: Amarelinha
         - **ids**:
           - 5
@@ -4780,14 +6089,23 @@
     - **altura_mapa**: 710
     - **referencias**:
       - **[0]**:
+        - **alvo_uid**: u3GH2EF68VFGaY
+        - **pontos_uids**:
+          - 14
         - **escalada**: Viradinha nacional
         - **ids**:
           - 14
       - **[1]**:
+        - **alvo_uid**: 9n8GMoJqxIGEZg
+        - **pontos_uids**:
+          - 15
         - **escalada**: Frita pé
         - **ids**:
           - 15
       - **[2]**:
+        - **alvo_uid**: ifkPVO6Ogjt8Qn
+        - **pontos_uids**:
+          - 16
         - **escalada**: Tô legal
         - **ids**:
           - 16
@@ -4797,18 +6115,30 @@
     - **altura_mapa**: 710
     - **referencias**:
       - **[0]**:
+        - **alvo_uid**: h1XjAJx3SprebY
+        - **pontos_uids**:
+          - 17
         - **escalada**: Os malaco
         - **ids**:
           - 17
       - **[1]**:
+        - **alvo_uid**: QufF7tXMeGSBZH
+        - **pontos_uids**:
+          - 18
         - **escalada**: Rolezinho
         - **ids**:
           - 18
       - **[2]**:
+        - **alvo_uid**: TpH0gDFHVVIHB6
+        - **pontos_uids**:
+          - 19
         - **escalada**: Cor do bicho
         - **ids**:
           - 19
       - **[3]**:
+        - **alvo_uid**: 4bIt8vF8RWlffk
+        - **pontos_uids**:
+          - 20
         - **escalada**: Colorau
         - **ids**:
           - 20
@@ -4817,18 +6147,22 @@
     - **conteudo**:
       - **descricao**: # Bloco A - Boliche
       - **nome**: Bloco A - Boliche
+      - **uid**: 99alQsSLFdPsE3
       - **escaladas**:
         - **[0]**:
+          - **uid**: zShGRCExk0eQSH
           - **boulder**:
             - **descricao**: Começa com as mãos nas agarras boas da fenda e domina pela esquerda, passando por um abaulado.
             - **nome**: Boliche
             - **dificuldade**: V4
         - **[1]**:
+          - **uid**: cVyqOSGghaA5Rh
           - **boulder**:
             - **descricao**: Extensão do “Boliche” (1) que sai do meio do bloco em agarras boas e atravessa pra esquerda terminando da mesma forma.
             - **nome**: Projeto 10
             - **dificuldade**: INDEFINIDO
         - **[2]**:
+          - **uid**: oqgqj8KsgyyVbf
           - **boulder**:
             - **descricao**: Começa sentado com as mãos juntas em um bico batente e escala pra direita terminando por agarras boas.
             - **nome**: Strike
@@ -4840,14 +6174,17 @@
     - **conteudo**:
       - **descricao**: # Bloco B - Amarelão
       - **nome**: Bloco B - Amarelão
+      - **uid**: FtiDFZPTn9JHbY
       - **escaladas**:
         - **[0]**:
+          - **uid**: kZYUwpDIYjOTdd
           - **boulder**:
             - **descricao**: Sai com a mão direita em um reglete, a esquerda em um batente e escala por agarras boas.
             - **nome**: Amarelão
             - **dificuldade**: V2
             - **destaque**: True
         - **[1]**:
+          - **uid**: aesG73VkIAQPEb
           - **boulder**:
             - **descricao**: Começa com as mãos juntas em uma agarra boa e escala reto.
             - **nome**: Amarelinha
@@ -4859,6 +6196,7 @@
     - **conteudo**:
       - **descricao**: # Bloco C - Aresta Visual
       - **nome**: Bloco C - Aresta Visual
+      - **uid**: L3p2qmIDt060sz
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_tosco_p2_i1.webp)
@@ -4866,31 +6204,50 @@
           - **altura_mapa**: 710
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: GnID3fq6XKY8gl
+              - **pontos_uids**:
+                - 6
               - **escalada**: V clássico
               - **ids**:
                 - 6
             - **[1]**:
+              - **alvo_uid**: tgsjTugwgyR4wq
+              - **pontos_uids**:
+                - 7
               - **escalada**: O tempo e o vento
               - **ids**:
                 - 7
             - **[2]**:
+              - **alvo_uid**: dokQ7NFkEg7qlt
+              - **pontos_uids**:
+                - 8
               - **escalada**: Projeto 11
               - **ids**:
                 - 8
             - **[3]**:
+              - **alvo_uid**: yCJ0ncJjnim0OQ
+              - **pontos_uids**:
+                - 9
               - **escalada**: Aresta visual
               - **ids**:
                 - 9
             - **[4]**:
+              - **alvo_uid**: o5VAuvJWTiwCwG
+              - **pontos_uids**:
+                - 10
               - **escalada**: Aresta visual SDS
               - **ids**:
                 - 10
             - **[5]**:
+              - **alvo_uid**: 6svGlmUj5nRvlf
+              - **pontos_uids**:
+                - 11
               - **escalada**: Projeto 12
               - **ids**:
                 - 11
       - **escaladas**:
         - **[0]**:
+          - **uid**: GnID3fq6XKY8gl
           - **boulder**:
             - **descricao**: Começa em pé com as mãos juntas em um batente, faz uma movimento de campus para a borda e domina.
             - **nome**: V clássico
@@ -4900,6 +6257,7 @@
               - Rafael Passos
             - **data_abertura**: 2009
         - **[1]**:
+          - **uid**: tgsjTugwgyR4wq
           - **boulder**:
             - **descricao**: Final do projeto da fenda. Sai em pé em dois pequenos regletes/batentes na fenda e faz uma sequência de movimentos fortes e sem pés até as agarras boas, terminando como o “Aresta visual” (9).
             - **nome**: O tempo e o vento
@@ -4908,23 +6266,27 @@
               - Frederico Gonçalves
             - **data_abertura**: 2010
         - **[2]**:
+          - **uid**: dokQ7NFkEg7qlt
           - **boulder**:
             - **descricao**: Extensão do boulder “O tempo e o vento” saindo sentado com as mãos nas agarras mais baixas na fenda.
             - **nome**: Projeto 11
             - **dificuldade**: INDEFINIDO
         - **[3]**:
+          - **uid**: yCJ0ncJjnim0OQ
           - **boulder**:
             - **descricao**: Começa sentado com as mãos juntas em um batente/abaulado e segue pela aresta dominando na parte mais alta do bloco.
             - **nome**: Aresta visual
             - **dificuldade**: V3
             - **destaque**: True
         - **[4]**:
+          - **uid**: o5VAuvJWTiwCwG
           - **boulder**:
             - **descricao**: Sai sentado com as mãos juntas em dois regletes/cracas, faz um movimento forte até a saída do “Aresta visual” (9) e termina como ele.
             - **nome**: Aresta visual SDS
             - **dificuldade**: V4
             - **destaque**: True
         - **[5]**:
+          - **uid**: 6svGlmUj5nRvlf
           - **boulder**:
             - **descricao**: Projeto que escala o “túnel de pedra” no meio do bloco, abaixo do boulder “Aresta visual” (9), sobre a lage de pedra.
             - **nome**: Projeto 12
@@ -4936,13 +6298,16 @@
     - **conteudo**:
       - **descricao**: # Bloco D - Lajinha
       - **nome**: Bloco D - Lajinha
+      - **uid**: Nd5d0HbsulnbTk
       - **escaladas**:
         - **[0]**:
+          - **uid**: 8VFn7v1sChk59a
           - **boulder**:
             - **descricao**: Começa sentado com as mãos em dois regletes e faz uma seqüência de movimentos fortes até um domínio técnico.
             - **nome**: Lajinha
             - **dificuldade**: V4
         - **[1]**:
+          - **uid**: lcfZW2QvYQxkHM
           - **boulder**:
             - **descricao**: Sai sentado com a mão esquerda em um bico e a direita em uma agarra boa, passa por um batente e domina pela grande laca.
             - **nome**: Molde
@@ -4954,8 +6319,10 @@
     - **conteudo**:
       - **descricao**: # Bloco E - Viradinha Nacional
       - **nome**: Bloco E - Viradinha Nacional
+      - **uid**: GTseUW4vGNLtVc
       - **escaladas**:
         - **[0]**:
+          - **uid**: u3GH2EF68VFGaY
           - **boulder**:
             - **descricao**: Começa sentado com a mão direita em um pocket e a esquerda em um batente escorrido, faz uma sequência de movimentos de muita tensão corporal até a borda e domina por uma virada técnica.
             - **nome**: Viradinha nacional
@@ -4967,8 +6334,10 @@
     - **conteudo**:
       - **descricao**: # Bloco F - Frita Pé
       - **nome**: Bloco F - Frita Pé
+      - **uid**: h4WDPKu4z6sKgP
       - **escaladas**:
         - **[0]**:
+          - **uid**: 9n8GMoJqxIGEZg
           - **boulder**:
             - **descricao**: Boulder único que mistura muita técnica de movimentação de pés e compressão. Começa em pé com as mãos juntas na aresta da direita do bloco, faz uma travessia pra esquerda e domina pelo positivo.
             - **nome**: Frita pé
@@ -4978,6 +6347,7 @@
               - Stefano Mastrocola
             - **data_abertura**: 2009
         - **[1]**:
+          - **uid**: ifkPVO6Ogjt8Qn
           - **boulder**:
             - **descricao**: Sai como o “Frita pé” (15) e escala a aresta em oposição até o topo.
             - **nome**: Tô legal
@@ -4989,13 +6359,16 @@
     - **conteudo**:
       - **descricao**: # Bloco G - Rolezinho
       - **nome**: Bloco G - Rolezinho
+      - **uid**: AvIUYDdfklVTyh
       - **escaladas**:
         - **[0]**:
+          - **uid**: h1XjAJx3SprebY
           - **boulder**:
             - **descricao**: Sai em pé com as mãos juntas em uma agarra boa de lado e escala reto o positivo à direita da aresta.
             - **nome**: Os malaco
             - **dificuldade**: V0
         - **[1]**:
+          - **uid**: QufF7tXMeGSBZH
           - **boulder**:
             - **descricao**: Começa sentado com as mãos juntas em um bico dentro de uma fenda e toca reto por fendas diagonais virando na parte mais alta do bloco.
             - **nome**: Rolezinho
@@ -5008,13 +6381,16 @@
     - **conteudo**:
       - **descricao**: # Bloco H - Cor do Bicho
       - **nome**: Bloco H - Cor do Bicho
+      - **uid**: QjLe2HtYJTzjAz
       - **escaladas**:
         - **[0]**:
+          - **uid**: TpH0gDFHVVIHB6
           - **boulder**:
             - **descricao**: Sai sentado no fundo da caverna com as mãos juntas em um reglete e um abaulado, faz um movimento duro para sair da caverna e termina como o “Colorau” (20).
             - **nome**: Cor do bicho
             - **dificuldade**: V3
         - **[1]**:
+          - **uid**: 4bIt8vF8RWlffk
           - **boulder**:
             - **descricao**: Sai sentado com as mãos nos dois regletes mais baixos, e escala reto até uma virada fácil.
             - **nome**: Colorau
@@ -5027,6 +6403,7 @@
     - **conteudo**:
       - **descricao**: # Bloco I - Tosco
       - **nome**: Bloco I - Tosco
+      - **uid**: RZGfs6DU9fMukU
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_tosco_p6_i1.webp)
@@ -5034,33 +6411,51 @@
           - **altura_mapa**: 710
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: it9URqn15smHsO
+              - **pontos_uids**:
+                - 21
               - **escalada**: McDonald’s
               - **ids**:
                 - 21
             - **[1]**:
+              - **alvo_uid**: zv45eMrvxygInB
+              - **pontos_uids**:
+                - 22
               - **escalada**: Tosco
               - **ids**:
                 - 22
             - **[2]**:
+              - **alvo_uid**: 93aq7fDD37gcTV
+              - **pontos_uids**:
+                - 22
+                - 24
               - **escalada**: Tosqueira
               - **ids**:
                 - 22
                 - 24
             - **[3]**:
+              - **alvo_uid**: MRzbpUk6ljnTMX
+              - **pontos_uids**:
+                - 24
               - **escalada**: Senta no porco
               - **ids**:
                 - 24
             - **[4]**:
+              - **alvo_uid**: CkNAAVw6gVMhkT
+              - **pontos_uids**:
+                - 25
               - **escalada**: Mr. Rocha Pura
               - **ids**:
                 - 25
       - **escaladas**:
         - **[0]**:
+          - **uid**: it9URqn15smHsO
           - **boulder**:
             - **descricao**: Sai sentado com a mão esquerda em um batente e a direita em um reglete, faz uma travessia para a esquerda e finaliza reto, na parte alta.
             - **nome**: McDonald’s
             - **dificuldade**: V2
         - **[1]**:
+          - **uid**: zv45eMrvxygInB
           - **boulder**:
             - **descricao**: Começa como o “McDonald’s” (21) e toca reto passando por uma pinça, e dando um dinâmico clássico de uns regletes até um batente alto, finalizando com um domínio fácil.
             - **nome**: Tosco
@@ -5070,16 +6465,19 @@
               - Thiago Veloso
             - **data_abertura**: 2005
         - **[2]**:
+          - **uid**: 93aq7fDD37gcTV
           - **boulder**:
             - **descricao**: Começa como o “Tosco” (22) e termina pelo “Senta no porco” (24).
             - **nome**: Tosqueira
             - **dificuldade**: V4
         - **[3]**:
+          - **uid**: MRzbpUk6ljnTMX
           - **boulder**:
             - **descricao**: Começa sentado com as mãos na aresta da direita e escala reto dominando a parte mais baixa do bloco.
             - **nome**: Senta no porco
             - **dificuldade**: V3
         - **[4]**:
+          - **uid**: CkNAAVw6gVMhkT
           - **boulder**:
             - **descricao**: Sai do “Senta no porco” (24) e atravessa para a esquerda terminando no “Tosco” (22).
             - **nome**: Mr. Rocha Pura
@@ -5095,6 +6493,7 @@
     - **conteudo**:
       - **descricao**: # Bloco J - Tô Partindo
       - **nome**: Bloco J - Tô Partindo
+      - **uid**: rHY1rbrGbLQVty
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_tosco_p6_i2.webp)
@@ -5102,29 +6501,41 @@
           - **altura_mapa**: 710
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: CRTElAJKI1khEP
+              - **pontos_uids**:
+                - 26
               - **escalada**: As legítimas
               - **ids**:
                 - 26
             - **[1]**:
+              - **alvo_uid**: HoeZ5KIKVOZSxP
+              - **pontos_uids**:
+                - 27
               - **escalada**: Tô partindo
               - **ids**:
                 - 27
             - **[2]**:
+              - **alvo_uid**: SlktdfDXrYvsg6
+              - **pontos_uids**:
+                - 28
               - **escalada**: Já parti
               - **ids**:
                 - 28
       - **escaladas**:
         - **[0]**:
+          - **uid**: CRTElAJKI1khEP
           - **boulder**:
             - **descricao**: Escala a aresta à esquerda saindo de um batente.
             - **nome**: As legítimas
             - **dificuldade**: V8
         - **[1]**:
+          - **uid**: HoeZ5KIKVOZSxP
           - **boulder**:
             - **descricao**: Começa sentado nas agarras mais baixas do meio do bloco e escala reto.
             - **nome**: Tô partindo
             - **dificuldade**: V1
         - **[2]**:
+          - **uid**: SlktdfDXrYvsg6
           - **boulder**:
             - **descricao**: Sai praticamente deitado com as mãos juntas em um batente bem baixo e escala por agarras boas.
             - **nome**: Já parti
@@ -5136,6 +6547,7 @@
     - **conteudo**:
       - **descricao**: # Bloco K - Oval
       - **nome**: Bloco K - Oval
+      - **uid**: Z1yJXlbRBaHJmV
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_tosco_p8_i0.webp)
@@ -5143,49 +6555,71 @@
           - **altura_mapa**: 710
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: UVUVlZbjoOhvXs
+              - **pontos_uids**:
+                - 29
               - **escalada**: Oval
               - **ids**:
                 - 29
             - **[1]**:
+              - **alvo_uid**: qFehUUpPqzUToA
+              - **pontos_uids**:
+                - 29
               - **escalada**: Oval SDS
               - **ids**:
                 - 29
             - **[2]**:
+              - **alvo_uid**: nACBX89aEy56A5
+              - **pontos_uids**:
+                - 31
               - **escalada**: Teimoso
               - **ids**:
                 - 31
             - **[3]**:
+              - **alvo_uid**: fGvk5Qo1xiYSY1
+              - **pontos_uids**:
+                - 32
               - **escalada**: Descompassado
               - **ids**:
                 - 32
             - **[4]**:
+              - **alvo_uid**: FNxwoqAOpB3x6d
+              - **pontos_uids**:
+                - 32
               - **escalada**: Descompassado SDS
               - **ids**:
                 - 32
             - **[5]**:
+              - **alvo_uid**: 33rtFWCa2LXyjQ
+              - **pontos_uids**:
+                - 34
               - **escalada**: Compasso
               - **ids**:
                 - 34
       - **escaladas**:
         - **[0]**:
+          - **uid**: UVUVlZbjoOhvXs
           - **boulder**:
             - **descricao**: Começa sentado com as mãos nos batentes da aresta do tetinho e escala reto.
             - **nome**: Oval
             - **dificuldade**: V3
             - **destaque**: True
         - **[1]**:
+          - **uid**: qFehUUpPqzUToA
           - **boulder**:
             - **descricao**: Saindo com as mãos juntas em um batente/pocket escorrido no teto e escala reto terminando como o “Oval” (29).
             - **nome**: Oval SDS
             - **dificuldade**: V6
             - **destaque**: True
         - **[2]**:
+          - **uid**: nACBX89aEy56A5
           - **boulder**:
             - **descricao**: Sai sentado com as mãos juntas num batente triangular e escala reto.
             - **nome**: Teimoso
             - **dificuldade**: V4
             - **destaque**: True
         - **[3]**:
+          - **uid**: fGvk5Qo1xiYSY1
           - **boulder**:
             - **descricao**: Sai do “Oval” (29), atravessa para a saída do “Teimoso” (31) e termina como ele.
             - **nome**: Descompassado
@@ -5195,12 +6629,14 @@
               - Rafael Passos
             - **data_abertura**: 2008
         - **[4]**:
+          - **uid**: FNxwoqAOpB3x6d
           - **boulder**:
             - **descricao**: Saindo com as mãos juntas em um batente/pocket escorrido no teto, entra no “Descompassado” (32) e termina no “Teimoso” (31).
             - **nome**: Descompassado SDS
             - **dificuldade**: V7
             - **destaque**: True
         - **[5]**:
+          - **uid**: 33rtFWCa2LXyjQ
           - **boulder**:
             - **descricao**: Começa sentado atrás da árvore com a mão esquerda em um reglete/pocket e a direita em um reglete e escala reto pelas cracas.
             - **nome**: Compasso
@@ -5212,6 +6648,7 @@
     - **conteudo**:
       - **descricao**: # Bloco L - Motricidade
       - **nome**: Bloco L - Motricidade
+      - **uid**: j3UF2Z1GJzVY2M
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_tosco_p9_i0.webp)
@@ -5219,52 +6656,84 @@
           - **altura_mapa**: 710
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: 3vlGFA0yJH79LJ
+              - **pontos_uids**:
+                - 35
               - **escalada**: Série continua
               - **ids**:
                 - 35
             - **[1]**:
+              - **alvo_uid**: ePBGBYtv3KTNUK
+              - **pontos_uids**:
+                - 36
               - **escalada**: Potencial de ação
               - **ids**:
                 - 36
             - **[2]**:
+              - **alvo_uid**: 8m05ndYY7TW9t9
+              - **pontos_uids**:
+                - 36
               - **escalada**: Impulso elétrico
               - **ids**:
                 - 36
             - **[3]**:
+              - **alvo_uid**: eHXYEBq38sq147
+              - **pontos_uids**:
+                - 36
               - **escalada**: Motricidade fina
               - **ids**:
                 - 36
             - **[4]**:
+              - **alvo_uid**: U7fmbcmGEG1p4h
+              - **pontos_uids**:
+                - 36
               - **escalada**: Tam tam
               - **ids**:
                 - 36
             - **[5]**:
+              - **alvo_uid**: baIMu0tteb1Oba
+              - **pontos_uids**:
+                - 36
               - **escalada**: Tio Cabeça
               - **ids**:
                 - 36
             - **[6]**:
+              - **alvo_uid**: x1LXbRsFidPzfi
+              - **pontos_uids**:
+                - 41
               - **escalada**: Jornada
               - **ids**:
                 - 41
             - **[7]**:
+              - **alvo_uid**: PArsjJQRd0HXdT
+              - **pontos_uids**:
+                - 42
               - **escalada**: Motricidade curta
               - **ids**:
                 - 42
             - **[8]**:
+              - **alvo_uid**: eWq2nTr3YugGFH
+              - **pontos_uids**:
+                - 43
               - **escalada**: Primavera
               - **ids**:
                 - 43
             - **[9]**:
+              - **alvo_uid**: ky1HtFKgCKvjhM
+              - **pontos_uids**:
+                - 44
               - **escalada**: Irmandade
               - **ids**:
                 - 44
       - **escaladas**:
         - **[0]**:
+          - **uid**: 3vlGFA0yJH79LJ
           - **boulder**:
             - **descricao**: Começa sentado com as mãos nas agarras mais à direita do bloco, na cave, e escala pra direita terminando como o “Potencial de ação” (36).
             - **nome**: Série continua
             - **dificuldade**: V4
         - **[1]**:
+          - **uid**: ePBGBYtv3KTNUK
           - **boulder**:
             - **descricao**: Sai sentado com a mão esquerda em um batente e a direita em um reglete, faz uma sequência de movimentos fortes e muito técnicos, atravessa para a direita e finaliza com um dinâmico.
             - **nome**: Potencial de ação
@@ -5274,12 +6743,14 @@
               - Rafael Passos
             - **data_abertura**: 2008
         - **[2]**:
+          - **uid**: 8m05ndYY7TW9t9
           - **boulder**:
             - **descricao**: Saída em pé para o “Potencial de ação” (36), que começa com a mão esquerda em uma pinça alta e a direita em batente abaulado de lado.
             - **nome**: Impulso elétrico
             - **dificuldade**: V7
             - **destaque**: True
         - **[3]**:
+          - **uid**: eHXYEBq38sq147
           - **boulder**:
             - **descricao**: Começa como o “Potencial de ação” (36), segue reto por movimentos duros e técnicos e termina com um dinâmico.
             - **nome**: Motricidade fina
@@ -5289,22 +6760,26 @@
               - Rafael Passos
             - **data_abertura**: 2008
         - **[4]**:
+          - **uid**: U7fmbcmGEG1p4h
           - **boulder**:
             - **descricao**: Saída em pé para o “Motricidade fina” (38), que começa com a mão esquerda em um reglete cortante e a direita em uma invertida.
             - **nome**: Tam tam
             - **dificuldade**: V6
             - **destaque**: True
         - **[5]**:
+          - **uid**: baIMu0tteb1Oba
           - **boulder**:
             - **descricao**: Começa como o “Potencial de ação” (36), faz um movimento forte para a direita e segue reto por agarras boas.
             - **nome**: Tio Cabeça
             - **dificuldade**: V5
         - **[6]**:
+          - **uid**: x1LXbRsFidPzfi
           - **boulder**:
             - **descricao**: Começa sentado com as mãos juntas em dois regletes pequenos e faz um forte movimento para um batente à esquerda, terminando por agarras boas.
             - **nome**: Jornada
             - **dificuldade**: V4
         - **[7]**:
+          - **uid**: PArsjJQRd0HXdT
           - **boulder**:
             - **descricao**: Sai como o “Jornada” (41) e faz uma sequência de movimentos muito fortes até chegar em um agarrão, fazendo um domínio fácil.
             - **nome**: Motricidade curta
@@ -5314,12 +6789,14 @@
               - Mahavir Jneesh
             - **data_abertura**: 2010
         - **[8]**:
+          - **uid**: eWq2nTr3YugGFH
           - **boulder**:
             - **descricao**: Começa sentado com as mãos juntas em uma agarra de oposição na aresta e escala por agarras boas até um domínio fácil.
             - **nome**: Primavera
             - **dificuldade**: V1
             - **destaque**: True
         - **[9]**:
+          - **uid**: ky1HtFKgCKvjhM
           - **boulder**:
             - **descricao**: Sai como o “Primavera” (43), faz alguns movimentos e, ao invés de seguir pra esquerda pelas agarras boas, domina pela direita, passando por um crux técnico.
             - **nome**: Irmandade
@@ -5334,6 +6811,7 @@
     - **conteudo**:
       - **descricao**: # Bloco M - Night Climb
       - **nome**: Bloco M - Night Climb
+      - **uid**: tVKJfjKkPJdUix
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_tosco_p10_i0.webp)
@@ -5341,31 +6819,43 @@
           - **altura_mapa**: 710
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: zUdTPzJWVcaa6y
+              - **pontos_uids**:
+                - 45
               - **escalada**: Night climb
               - **ids**:
                 - 45
             - **[1]**:
+              - **alvo_uid**: U1Ctm2yFtfXFOs
+              - **pontos_uids**:
+                - 46
               - **escalada**: Night climb SDS
               - **ids**:
                 - 46
             - **[2]**:
+              - **alvo_uid**: lrnM8jDDAlTeqv
+              - **pontos_uids**:
+                - 47
               - **escalada**: Tramontina
               - **ids**:
                 - 47
       - **escaladas**:
         - **[0]**:
+          - **uid**: zUdTPzJWVcaa6y
           - **boulder**:
             - **descricao**: Sai em pé com as mãos em dois batentes e escala levemente à esquerda.
             - **nome**: Night climb
             - **dificuldade**: V3
             - **destaque**: True
         - **[1]**:
+          - **uid**: U1Ctm2yFtfXFOs
           - **boulder**:
             - **descricao**: Começa sentado com as mãos juntas em um reglete cavado e termina como o “Night climb” (45).
             - **nome**: Night climb SDS
             - **dificuldade**: V4
             - **destaque**: True
         - **[2]**:
+          - **uid**: lrnM8jDDAlTeqv
           - **boulder**:
             - **descricao**: Sai em pé com as mãos em dois regletes cortantes na fendinha e escala pra direita em direção à aresta.
             - **nome**: Tramontina
@@ -5377,6 +6867,7 @@
     - **conteudo**:
       - **descricao**: # Bloco N - Piolho de Cobra
       - **nome**: Bloco N - Piolho de Cobra
+      - **uid**: a9iYrnv8ZnEoaH
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_tosco_p10_i1.webp)
@@ -5384,30 +6875,42 @@
           - **altura_mapa**: 710
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: drHfi7XqlqMdYW
+              - **pontos_uids**:
+                - 48
               - **escalada**: Piolho de pedra
               - **ids**:
                 - 48
             - **[1]**:
+              - **alvo_uid**: KihrJAepLiaXAD
+              - **pontos_uids**:
+                - 49
               - **escalada**: Grilo falante
               - **ids**:
                 - 49
             - **[2]**:
+              - **alvo_uid**: aMVAmD70TYbLfO
+              - **pontos_uids**:
+                - 50
               - **escalada**: Piolho de cobra
               - **ids**:
                 - 50
       - **escaladas**:
         - **[0]**:
+          - **uid**: drHfi7XqlqMdYW
           - **boulder**:
             - **descricao**: Começa com a mão esquerda em uma invertida, na base da fendinha, e a mão direita em um reglete de oposição, terminando pela aresta.
             - **nome**: Piolho de pedra
             - **dificuldade**: V5
             - **destaque**: True
         - **[1]**:
+          - **uid**: KihrJAepLiaXAD
           - **boulder**:
             - **descricao**: Sai em pé com a mão esquerda em um gaston e a direita em um reglete, faz um movimento forte para um agarrão e escala em diagonal para a direita, dominando o positivo da face lateral do bloco.
             - **nome**: Grilo falante
             - **dificuldade**: V1
         - **[2]**:
+          - **uid**: aMVAmD70TYbLfO
           - **boulder**:
             - **descricao**: Começa sentado com a mão esquerda em um batente/pocket e a direita em um batente, faz um movimento forte para o agarrão e termina como o “Grilo falante” (49).
             - **nome**: Piolho de cobra
@@ -5419,6 +6922,7 @@
     - **conteudo**:
       - **descricao**: # Bloco O - Democrático
       - **nome**: Bloco O - Democrático
+      - **uid**: cBzYvmPe4YbsGj
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_tosco_p11_i0.webp)
@@ -5426,39 +6930,55 @@
           - **altura_mapa**: 710
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: UjU5A1i47qvufM
+              - **pontos_uids**:
+                - 51
               - **escalada**: Nulo
               - **ids**:
                 - 51
             - **[1]**:
+              - **alvo_uid**: TQ4TF1epx1LdYe
+              - **pontos_uids**:
+                - 52
               - **escalada**: Viva
               - **ids**:
                 - 52
             - **[2]**:
+              - **alvo_uid**: i83pEet4R8EVhA
+              - **pontos_uids**:
+                - 53
               - **escalada**: Democrático
               - **ids**:
                 - 53
             - **[3]**:
+              - **alvo_uid**: 0wYRB7AqIHxWaT
+              - **pontos_uids**:
+                - 54
               - **escalada**: Espacial
               - **ids**:
                 - 54
       - **escaladas**:
         - **[0]**:
+          - **uid**: UjU5A1i47qvufM
           - **boulder**:
             - **descricao**: Escala o postivo à esquerda da aresta saindo em pé.
             - **nome**: Nulo
             - **dificuldade**: VB
         - **[1]**:
+          - **uid**: TQ4TF1epx1LdYe
           - **boulder**:
             - **descricao**: Boulder que escala a aresta, saindo em pé.
             - **nome**: Viva
             - **dificuldade**: VB
         - **[2]**:
+          - **uid**: i83pEet4R8EVhA
           - **boulder**:
             - **descricao**: Começa sentado com a mão esquerda em um reglete baixo e a direita em uma pinça um pouco mais alta, na aresta, e escala reto.
             - **nome**: Democrático
             - **dificuldade**: V0
             - **destaque**: True
         - **[3]**:
+          - **uid**: 0wYRB7AqIHxWaT
           - **boulder**:
             - **descricao**: Sai sentado, em baixo do tetinho, com a mão esquerda em uma pinça invertida na aresta e a direita aberta no batente e escala em diagonal pra direita.
             - **nome**: Espacial
@@ -5471,6 +6991,7 @@
     - **conteudo**:
       - **descricao**: # Bloco P - Ferrugem
       - **nome**: Bloco P - Ferrugem
+      - **uid**: PSH8qN1KhqcoDN
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_tosco_p11_i1.webp)
@@ -5478,41 +6999,57 @@
           - **altura_mapa**: 710
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: 1FxsRAU1O49nKM
+              - **pontos_uids**:
+                - 55
               - **escalada**: Oxidante
               - **ids**:
                 - 55
             - **[1]**:
+              - **alvo_uid**: HrXGzd2iEudZxO
+              - **pontos_uids**:
+                - 56
               - **escalada**: Ferrugem
               - **ids**:
                 - 56
             - **[2]**:
+              - **alvo_uid**: 4wMQMv20gcd1fM
+              - **pontos_uids**:
+                - 57
               - **escalada**: Corrosivo
               - **ids**:
                 - 57
             - **[3]**:
+              - **alvo_uid**: ORK6wT1dXx0p99
+              - **pontos_uids**:
+                - 58
               - **escalada**: Antitetânica
               - **ids**:
                 - 58
       - **escaladas**:
         - **[0]**:
+          - **uid**: 1FxsRAU1O49nKM
           - **boulder**:
             - **descricao**: Começa em pé com as mãos juntas em um batente/abaulado de lado e escala em diagonal para a esquerda.
             - **nome**: Oxidante
             - **dificuldade**: V1
             - **destaque**: True
         - **[1]**:
+          - **uid**: HrXGzd2iEudZxO
           - **boulder**:
             - **descricao**: Sai em pé com as mãos juntas em um reglete/pocket e escala em diagonal para a esquerda.
             - **nome**: Ferrugem
             - **dificuldade**: V3
             - **destaque**: True
         - **[2]**:
+          - **uid**: 4wMQMv20gcd1fM
           - **boulder**:
             - **descricao**: Começa com a mão direita em uma agarra invertida e a esquerda em um batente de gaston e escala em linha reta.
             - **nome**: Corrosivo
             - **dificuldade**: V2
             - **destaque**: True
         - **[3]**:
+          - **uid**: ORK6wT1dXx0p99
           - **boulder**:
             - **descricao**: Sai sentado com as mãos em dois regletes/pockets e toca reto.
             - **nome**: Antitetânica
@@ -5568,12 +7105,14 @@
     
     *Suporte Vertical – Alpinismo Industrial: Soluções inteligentes para trabalhos verticais. (31) 3607-2440 / (31) 9233-2075 | contato@suportevertical.com.br | suportevertical.com.br*
 - **nome**: Canaleta
+- **uid**: RRfc3AYzipzGZu
 - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_canaleta_p0_i0.webp)
 - **setores**:
   - **[0]**:
     - **conteudo**:
       - **descricao**: # Bloco A - Cavalo de Tróia
       - **nome**: Bloco A - Cavalo de Tróia
+      - **uid**: oe0oM3OKf5mGtz
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_canaleta_p2_i0.webp)
@@ -5581,30 +7120,42 @@
           - **altura_mapa**: 710
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: bsMo0GTJJ8zumN
+              - **pontos_uids**:
+                - 1
               - **escalada**: Cachorro de Tróia
               - **ids**:
                 - 1
             - **[1]**:
+              - **alvo_uid**: ypKVS0x7xDsXy2
+              - **pontos_uids**:
+                - 2
               - **escalada**: Tróia
               - **ids**:
                 - 2
             - **[2]**:
+              - **alvo_uid**: gu69FPgUp6JRBw
+              - **pontos_uids**:
+                - 3
               - **escalada**: Projeto Cavalo de Tróia
               - **ids**:
                 - 3
       - **escaladas**:
         - **[0]**:
+          - **uid**: bsMo0GTJJ8zumN
           - **boulder**:
             - **descricao**: Sai sentado com as mãos juntas em um grande batente, passa por outros dois batentes e vira.
             - **nome**: Cachorro de Tróia
             - **dificuldade**: V3
             - **destaque**: True
         - **[1]**:
+          - **uid**: ypKVS0x7xDsXy2
           - **boulder**:
             - **descricao**: Saída em pé do projeto “Cavalo de Tróia” (3). Começa com as mãos nos regletes pequenos e da um tapa no agarrão.
             - **nome**: Tróia
             - **dificuldade**: V5
         - **[2]**:
+          - **uid**: gu69FPgUp6JRBw
           - **boulder**:
             - **descricao**: Este boulder foi aberto há alguns anos e teve o grau sugerido como v7. Logo após sua abertura, um dos regletes se quebrou e ele permanece como projeto desde então. Começa como o “Cachorro de Tróia” (1) e segue reto pelo negativo passando por regletes pequenos até um agarrão..
             - **nome**: Projeto Cavalo de Tróia
@@ -5616,6 +7167,7 @@
     - **conteudo**:
       - **descricao**: # Bloco B - Destinos
       - **nome**: Bloco B - Destinos
+      - **uid**: IcRPBpWO0uiVyd
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_canaleta_p2_i1.webp)
@@ -5623,39 +7175,55 @@
           - **altura_mapa**: 710
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: VriY2xUGHI5vaI
+              - **pontos_uids**:
+                - 4
               - **escalada**: Destino oposto
               - **ids**:
                 - 4
             - **[1]**:
+              - **alvo_uid**: 7iYOiusovqp3vT
+              - **pontos_uids**:
+                - 5
               - **escalada**: Destino certo
               - **ids**:
                 - 5
             - **[2]**:
+              - **alvo_uid**: isbiK0AJiugz4Q
+              - **pontos_uids**:
+                - 6
               - **escalada**: Projeto Destino Incerto
               - **ids**:
                 - 6
             - **[3]**:
+              - **alvo_uid**: ox58e5UmPF2xTL
+              - **pontos_uids**:
+                - 7
               - **escalada**: Quanta loucura
               - **ids**:
                 - 7
       - **escaladas**:
         - **[0]**:
+          - **uid**: VriY2xUGHI5vaI
           - **boulder**:
             - **descricao**: Sai sentado com as mãos em um batente invertido, faz um movimento forte para uma agarra boa e domina pelo positivo.
             - **nome**: Destino oposto
             - **dificuldade**: V3
         - **[1]**:
+          - **uid**: 7iYOiusovqp3vT
           - **boulder**:
             - **descricao**: Começa como o “Destino oposto” (4) e, do agarrão, faz uma travessia pelos regletes do negativo dominando na direita do bloco.
             - **nome**: Destino certo
             - **dificuldade**: V4
             - **destaque**: True
         - **[2]**:
+          - **uid**: isbiK0AJiugz4Q
           - **boulder**:
             - **descricao**: Projeto que escala o “Destino oposto” (5) até o meio do negativo e segue reto, dominando pela proa.
             - **nome**: Projeto Destino Incerto
             - **dificuldade**: INDEFINIDO
         - **[3]**:
+          - **uid**: ox58e5UmPF2xTL
           - **boulder**:
             - **descricao**: Começa sentado com as mãos juntas em uma agarra boa e atravessa para a esquerda, pelo negativo, terminando como o “Destino oposto” (4)
             - **nome**: Quanta loucura
@@ -5667,6 +7235,7 @@
     - **conteudo**:
       - **descricao**: # Bloco C - Forrest Gump
       - **nome**: Bloco C - Forrest Gump
+      - **uid**: hb3raOpphILWEB
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_canaleta_p3_i0.webp)
@@ -5674,11 +7243,15 @@
           - **altura_mapa**: 710
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: T5ZRVnfZVDAcwo
+              - **pontos_uids**:
+                - 8
               - **escalada**: Forest Gump
               - **ids**:
                 - 8
       - **escaladas**:
         - **[0]**:
+          - **uid**: T5ZRVnfZVDAcwo
           - **boulder**:
             - **descricao**: Sai sentado com as mãos nas agarras boas do teto e escala o pequeno bloco com uma movimentação única e que exige muita tensão corporal.
             - **nome**: Forest Gump
@@ -5691,6 +7264,7 @@
     - **conteudo**:
       - **descricao**: # Bloco D - Fábulas
       - **nome**: Bloco D - Fábulas
+      - **uid**: JB9CpY74cAciLe
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_canaleta_p3_i1.webp)
@@ -5698,11 +7272,15 @@
           - **altura_mapa**: 710
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: bEKrYFPyVQYHy4
+              - **pontos_uids**:
+                - 9
               - **escalada**: Fábulas
               - **ids**:
                 - 9
       - **escaladas**:
         - **[0]**:
+          - **uid**: bEKrYFPyVQYHy4
           - **boulder**:
             - **descricao**: Começa sentado com as mãos juntas em um reglete/batente de oposição na face lateral, próximo à aresta, e atravessa para a esquerda, pelo vertical, dominando pela parte fácil.
             - **nome**: Fábulas
@@ -5717,6 +7295,7 @@
     - **conteudo**:
       - **descricao**: # Bloco E - Logística
       - **nome**: Bloco E - Logística
+      - **uid**: OzndYQaTozxg9q
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_canaleta_p5_i0.webp)
@@ -5724,30 +7303,42 @@
           - **altura_mapa**: 710
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: Kj51yGScp8nlFR
+              - **pontos_uids**:
+                - 10
               - **escalada**: Sequência ilógica
               - **ids**:
                 - 10
             - **[1]**:
+              - **alvo_uid**: n2lQJAYPpovSwh
+              - **pontos_uids**:
+                - 11
               - **escalada**: Logística de crashs
               - **ids**:
                 - 11
             - **[2]**:
+              - **alvo_uid**: fHJXICckDJ2ZbX
+              - **pontos_uids**:
+                - 12
               - **escalada**: Logística
               - **ids**:
                 - 12
       - **escaladas**:
         - **[0]**:
+          - **uid**: Kj51yGScp8nlFR
           - **boulder**:
             - **descricao**: Sai com as mãos nos batentes na borda do teto e escala o negativo pelas lacas.
             - **nome**: Sequência ilógica
             - **dificuldade**: V3
         - **[1]**:
+          - **uid**: n2lQJAYPpovSwh
           - **boulder**:
             - **descricao**: Começa com as mãos nos regletes na borda do teto logo à esquerda da árvore e segue reto pelas cracas.
             - **nome**: Logística de crashs
             - **dificuldade**: V4
             - **destaque**: True
         - **[2]**:
+          - **uid**: fHJXICckDJ2ZbX
           - **boulder**:
             - **descricao**: Sai sentado com as mãos nas lacas mais baixas e escala a “proa” pelos pockets.
             - **nome**: Logística
@@ -5760,6 +7351,7 @@
     - **conteudo**:
       - **descricao**: # Bloco F - Puma
       - **nome**: Bloco F - Puma
+      - **uid**: 59WWOgPejfYyAK
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_canaleta_p5_i1.webp)
@@ -5767,25 +7359,36 @@
           - **altura_mapa**: 710
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: h7wyNouGXO9BFQ
+              - **pontos_uids**:
+                - 13
               - **escalada**: Xanim
               - **ids**:
                 - 13
             - **[1]**:
+              - **alvo_uid**: eU9tsPm8nTSb3a
+              - **pontos_uids**:
+                - 15
               - **escalada**: Jaguatirica
               - **ids**:
                 - 15
             - **[2]**:
+              - **alvo_uid**: wBnIJo84rbqj0a
+              - **pontos_uids**:
+                - 15
               - **escalada**: Puma
               - **ids**:
                 - 15
       - **escaladas**:
         - **[0]**:
+          - **uid**: h7wyNouGXO9BFQ
           - **boulder**:
             - **descricao**: Este boulder fica na entrada lateral da caverna, em baixo de um bloco encaixado no teto. Sai com as mãos juntas em uma agarra boa e escala a aresta de agarrões dentro da caverna, terminando como o “Puma” (15).
             - **nome**: Xanim
             - **dificuldade**: V3
             - **destaque**: True
         - **[1]**:
+          - **uid**: eU9tsPm8nTSb3a
           - **boulder**:
             - **descricao**: Este boulder não usa a pedra onde fica a saída do “Puma” (15). Começa com as mãos juntas em um batente bom na aresta do teto e entra no “Jaguatirica” (15).
             - **nome**: Jaguatirica
@@ -5795,6 +7398,7 @@
               - Gustavo Fontes
             - **data_abertura**: 2010
         - **[2]**:
+          - **uid**: wBnIJo84rbqj0a
           - **boulder**:
             - **descricao**: Começa com as mãos em duas agarras boas de lado na pedra mais ao fundo da caverna, passa para o outro bloco e atravessa todo o teto dominando pelo bloco encaixado acima da árvore na boca da caverna.
             - **nome**: Puma
@@ -5810,6 +7414,7 @@
     - **conteudo**:
       - **descricao**: # Bloco G - Esparrachado
       - **nome**: Bloco G - Esparrachado
+      - **uid**: zZctFAl97yZ9dd
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_canaleta_p6_i0.webp)
@@ -5817,47 +7422,72 @@
           - **altura_mapa**: 710
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: zXvQtEuEV09Lxo
+              - **pontos_uids**:
+                - 16
               - **escalada**: Gatuno
               - **ids**:
                 - 16
             - **[1]**:
+              - **alvo_uid**: X6b33peQ0ZjdbO
+              - **pontos_uids**:
+                - 17
               - **escalada**: Esparrachado
               - **ids**:
                 - 17
             - **[2]**:
+              - **alvo_uid**: JNLfl70F6Xs2LW
+              - **pontos_uids**:
+                - 18
               - **escalada**: Pantera negra
               - **ids**:
                 - 18
             - **[3]**:
+              - **alvo_uid**: 1aPJXsPj3aHUgn
+              - **pontos_uids**:
+                - 19
               - **escalada**: Toca da onça
               - **ids**:
                 - 19
             - **[4]**:
+              - **alvo_uid**: F7EFuRhEvJ4KDH
+              - **pontos_uids**:
+                - 18
+                - 19
               - **escalada**: Pantera
               - **ids**:
                 - 18
                 - 19
             - **[5]**:
+              - **alvo_uid**: 7PhQvxJxFxvrPS
+              - **pontos_uids**:
+                - 21
               - **escalada**: Holograma
               - **ids**:
                 - 21
             - **[6]**:
+              - **alvo_uid**: 7KgDGIOEOlxZSp
+              - **pontos_uids**:
+                - 22
               - **escalada**: Projeto 13
               - **ids**:
                 - 22
       - **escaladas**:
         - **[0]**:
+          - **uid**: zXvQtEuEV09Lxo
           - **boulder**:
             - **descricao**: Começa como o “Toca da onça” (19) e faz uma travessia para a esquerda dominando pela aresta.
             - **nome**: Gatuno
             - **dificuldade**: V2
         - **[1]**:
+          - **uid**: X6b33peQ0ZjdbO
           - **boulder**:
             - **descricao**: Sai como o “Toca da onça” (19) mas do meio do bloco atravessa para a esquerda dominando pela aresta. Um dos mais clássicos deste grau de toda a Pedra Rachada!
             - **nome**: Esparrachado
             - **dificuldade**: V8
             - **destaque**: True
         - **[2]**:
+          - **uid**: JNLfl70F6Xs2LW
           - **boulder**:
             - **descricao**: Começa em pé com as mãos juntas em uma agarra invertida e termina no “Esparrachado” (17).
             - **nome**: Pantera negra
@@ -5867,6 +7497,7 @@
               - Ruy Castro
             - **data_abertura**: 2010
         - **[3]**:
+          - **uid**: 1aPJXsPj3aHUgn
           - **boulder**:
             - **descricao**: Sai sentado com as mãos nas agarras boas mais baixas e escala em diagonal pra direita pelo negativo dominando na parte mais alta do bloco.
             - **nome**: Toca da onça
@@ -5876,6 +7507,7 @@
               - Ruy Castro
             - **data_abertura**: 2010
         - **[4]**:
+          - **uid**: F7EFuRhEvJ4KDH
           - **boulder**:
             - **descricao**: Começa como o “Pantera Negra” (18) e termina no “Toca da onça” (19).
             - **nome**: Pantera
@@ -5885,17 +7517,20 @@
               - Gustavo Fontes
             - **data_abertura**: 2010
         - **[5]**:
+          - **uid**: 7PhQvxJxFxvrPS
           - **boulder**:
             - **descricao**: Travessia que sai em pé em um agarrão invertido e termina como o “Esparrachado” (17).
             - **nome**: Holograma
             - **dificuldade**: V10
             - **destaque**: True
         - **[6]**:
+          - **uid**: 7KgDGIOEOlxZSp
           - **boulder**:
             - **descricao**: Começa como o Holograma e termina no “Toca da onça” (19).
             - **nome**: Projeto 13
             - **dificuldade**: INDEFINIDO
         - **[7]**:
+          - **uid**: ZXzDrvH1dF7zwH
           - **boulder**:
             - **descricao**: Projeto duro que sai sentado nas agarras mais baixas, próximas à entrada da caverna, e atravessa para a esquerda.
             - **nome**: Projeto 14
@@ -5907,6 +7542,7 @@
     - **conteudo**:
       - **descricao**: # Bloco H - Beto Carneiro
       - **nome**: Bloco H - Beto Carneiro
+      - **uid**: SHWTAwWaEAqPSD
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_canaleta_p7_i0.webp)
@@ -5914,40 +7550,56 @@
           - **altura_mapa**: 710
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: Jz6UIaoogBj14p
+              - **pontos_uids**:
+                - 24
               - **escalada**: Beto Carneiro
               - **ids**:
                 - 24
             - **[1]**:
+              - **alvo_uid**: zFJlmP2a7RXP8d
+              - **pontos_uids**:
+                - 25
               - **escalada**: Projeto 15
               - **ids**:
                 - 25
             - **[2]**:
+              - **alvo_uid**: Ku8WADvDQom434
+              - **pontos_uids**:
+                - 26
               - **escalada**: Bozó
               - **ids**:
                 - 26
             - **[3]**:
+              - **alvo_uid**: 6wPU9NOrZNskNu
+              - **pontos_uids**:
+                - 27
               - **escalada**: Tim Tones
               - **ids**:
                 - 27
       - **escaladas**:
         - **[0]**:
+          - **uid**: Jz6UIaoogBj14p
           - **boulder**:
             - **descricao**: Sai sentado com a mão esquerda em uma agarra boa invertida, e a direita em um bico, escala até o meio do bloco e domina pela aresta.
             - **nome**: Beto Carneiro
             - **dificuldade**: V6
             - **destaque**: True
         - **[1]**:
+          - **uid**: zFJlmP2a7RXP8d
           - **boulder**:
             - **descricao**: Sai como o “Beto Carneiro ” (24) e segue reto dominando na parte mais alta da pedra.
             - **nome**: Projeto 15
             - **dificuldade**: INDEFINIDO
         - **[2]**:
+          - **uid**: Ku8WADvDQom434
           - **boulder**:
             - **descricao**: Sai sentado com a mão esquerda em um reglete pequeno e a direita em um reglete bom, mais baixo, e segue reto pela fenda.
             - **nome**: Bozó
             - **dificuldade**: V3
             - **destaque**: True
         - **[3]**:
+          - **uid**: 6wPU9NOrZNskNu
           - **boulder**:
             - **descricao**: Começa como o “Tim Tones” (25) e atravessa para a direita, dominando pelo positivo.
             - **nome**: Tim Tones
@@ -5960,8 +7612,10 @@
     - **conteudo**:
       - **descricao**: # Bloco I - Prisma
       - **nome**: Bloco I - Prisma
+      - **uid**: ZexkRSjLjQ5djK
       - **escaladas**:
         - **[0]**:
+          - **uid**: paDvpeVAUzHPOh
           - **boulder**:
             - **descricao**: Sai sentado com as mãos nos dois batentes óbvios e escala por regletes, dominando o bloco pela esquerda.
             - **nome**: Prisma
@@ -5971,23 +7625,27 @@
               - Maíra Vilas Boas
             - **data_abertura**: 2013
         - **[1]**:
+          - **uid**: dZOuIDh6JYE3TS
           - **boulder**:
             - **descricao**: Linha reta que escala toda a “proa”, saindo como o “Prisma” (29.
             - **nome**: Projeto 16
             - **dificuldade**: INDEFINIDO
         - **[2]**:
+          - **uid**: aSdBa0yVcVocVQ
           - **boulder**:
             - **descricao**: Começa como o “Prisma”, atravessa para a direita por agarras boas e domina reto.
             - **nome**: The Dark Side of the Moon
             - **dificuldade**: V3
             - **destaque**: True
         - **[3]**:
+          - **uid**: X9RRtvfgHXQpYz
           - **boulder**:
             - **descricao**: Sai como o “Prisma” (31) e atravessa para a direita por agarras boas dominando na parte mais baixa do bloco.
             - **nome**: Refração
             - **dificuldade**: V2
             - **destaque**: True
         - **[4]**:
+          - **uid**: 7hfPhev1SsfhMR
           - **boulder**:
             - **descricao**: Sai sentado, com a mão direita em um reglete pequeno e a esquerda ao lado, em um abaulado, e termina como o “The Dark Side Of The Moon” (30). Terminado como o “Refração” (31) é o Difração v4.
             - **nome**: Pote de ouro
@@ -5997,6 +7655,7 @@
               - Luca Portilho
             - **data_abertura**: 2013
         - **[5]**:
+          - **uid**: ebVnpuF8syfE0I
           - **boulder**:
             - **descricao**: Sai como o “Pote de ouro” (32), sentado, com a mão direita em um reglete pequeno e a esquerda ao lado, em um abaulado, e termina como o “Refração” (31).
             - **nome**: Difração
@@ -6056,6 +7715,7 @@
     | :--: |
     | *Publicidade Tom Alves Fotografia Outdoor* |
 - **nome**: Tubarão
+- **uid**: vTCuBTiO5Vxa50
 - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_tubarao_p0_i0.webp)
 - **mapas**:
   - **[0]**:
@@ -6064,10 +7724,16 @@
     - **altura_mapa**: 710
     - **referencias**:
       - **[0]**:
+        - **alvo_uid**: zv5NtIcIMYETqs
+        - **pontos_uids**:
+          - 38
         - **escalada**: Hindu
         - **ids**:
           - 38
       - **[1]**:
+        - **alvo_uid**: bUiuIXOJiCIFRX
+        - **pontos_uids**:
+          - 39
         - **escalada**: Ganesh
         - **ids**:
           - 39
@@ -6076,6 +7742,7 @@
     - **conteudo**:
       - **descricao**: # Bloco A - Fogos de Vênus
       - **nome**: Bloco A - Fogos de Vênus
+      - **uid**: mKWD3p0D9UW2pR
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_tubarao_p2_i0.webp)
@@ -6083,51 +7750,71 @@
           - **altura_mapa**: 710
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: ICRxLlYCUmUcj1
+              - **pontos_uids**:
+                - 1
               - **escalada**: Marte
               - **ids**:
                 - 1
             - **[1]**:
+              - **alvo_uid**: 9PoqYTII76vLNp
+              - **pontos_uids**:
+                - 2
               - **escalada**: Vênus
               - **ids**:
                 - 2
             - **[2]**:
+              - **alvo_uid**: Q1deUXKrjXTsTL
+              - **pontos_uids**:
+                - 3
               - **escalada**: Fogos de Vênus
               - **ids**:
                 - 3
             - **[3]**:
+              - **alvo_uid**: PwG74tbbKINaNV
+              - **pontos_uids**:
+                - 4
               - **escalada**: Pôr da Lua
               - **ids**:
                 - 4
             - **[4]**:
+              - **alvo_uid**: C36eTL7FHNd1P3
+              - **pontos_uids**:
+                - 5
               - **escalada**: Pôr de Vênus
               - **ids**:
                 - 5
       - **escaladas**:
         - **[0]**:
+          - **uid**: ICRxLlYCUmUcj1
           - **boulder**:
             - **descricao**: Sai em pé com as mãos em um batente e segue reto por agarras boas.
             - **nome**: Marte
             - **dificuldade**: V0
             - **destaque**: True
         - **[1]**:
+          - **uid**: 9PoqYTII76vLNp
           - **boulder**:
             - **descricao**: Sai no “Fogos de Vênus” (3) e escala em diagonal pra esquerda terminando no “Marte” (1).
             - **nome**: Vênus
             - **dificuldade**: V3
             - **destaque**: True
         - **[2]**:
+          - **uid**: Q1deUXKrjXTsTL
           - **boulder**:
             - **descricao**: Sai sentado com as mãos juntas em um batente e toca reto.
             - **nome**: Fogos de Vênus
             - **dificuldade**: V2
             - **destaque**: True
         - **[3]**:
+          - **uid**: PwG74tbbKINaNV
           - **boulder**:
             - **descricao**: Começa sentado com as mãos juntas em um batente e segue reto.
             - **nome**: Pôr da Lua
             - **dificuldade**: V1
             - **destaque**: True
         - **[4]**:
+          - **uid**: C36eTL7FHNd1P3
           - **boulder**:
             - **descricao**: Sai do “Pôr da Lua” (4) e termina no “Fogos de Vênus” (3).
             - **nome**: Pôr de Vênus
@@ -6139,6 +7826,7 @@
     - **conteudo**:
       - **descricao**: # Bloco B - Abrigo de Ferro
       - **nome**: Bloco B - Abrigo de Ferro
+      - **uid**: KDG2BgZXZa0s84
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_tubarao_p2_i1.webp)
@@ -6146,27 +7834,43 @@
           - **altura_mapa**: 710
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: p8CcIcovwoFCGv
+              - **pontos_uids**:
+                - 6
               - **escalada**: Abrigo de ferro
               - **ids**:
                 - 6
             - **[1]**:
+              - **alvo_uid**: LaUKqUV22UDGz7
+              - **pontos_uids**:
+                - 6
               - **escalada**: Medalha de lata
               - **ids**:
                 - 6
             - **[2]**:
+              - **alvo_uid**: kdBfmBP950TvI6
+              - **pontos_uids**:
+                - 8
               - **escalada**: Projeto 17
               - **ids**:
                 - 8
             - **[3]**:
+              - **alvo_uid**: 1hVECMyQagZqnw
+              - **pontos_uids**:
+                - 9
               - **escalada**: Projeto 18
               - **ids**:
                 - 9
             - **[4]**:
+              - **alvo_uid**: 7QGLeUwcc4yKvl
+              - **pontos_uids**:
+                - 10
               - **escalada**: Projeto 19
               - **ids**:
                 - 10
       - **escaladas**:
         - **[0]**:
+          - **uid**: p8CcIcovwoFCGv
           - **boulder**:
             - **descricao**: Sai com as mãos juntas num batente abaulado invertido no teto e faz movimentos surreais pra sair da caverna e dominar esta, que é uma das escaladas mais exigentes da Pedra Rachada! Há também uma saída em pé para este boulder, com a mão esquerda alta, no reglete, e a direita no batente abaulado invertido chamado 7 Medalha de lata v9.
             - **nome**: Abrigo de ferro
@@ -6176,21 +7880,25 @@
               - Rafael Passos
             - **data_abertura**: 2009
         - **[1]**:
+          - **uid**: LaUKqUV22UDGz7
           - **boulder**:
             - **descricao**: Saída em pé para o “Abrigo de ferro” (6), com a mão esquerda alta, no reglete, e a direita no batente abaulado invertido.
             - **nome**: Medalha de lata
             - **dificuldade**: V9
         - **[2]**:
+          - **uid**: kdBfmBP950TvI6
           - **boulder**:
             - **descricao**: Projeto que sai mais ao fundo da caverna e escala uma sequência dura no teto terminando como o “Abrigo de ferro” (6).
             - **nome**: Projeto 17
             - **dificuldade**: V13_BARRA_V14
         - **[3]**:
+          - **uid**: 1hVECMyQagZqnw
           - **boulder**:
             - **descricao**: Projeto que sai com as mãos em juntas em um batente bom e atravessa para a esquerda, terminando como o “Abrigo de ferro” (6).
             - **nome**: Projeto 18
             - **dificuldade**: V12
         - **[4]**:
+          - **uid**: 7QGLeUwcc4yKvl
           - **boulder**:
             - **descricao**: Projeto que começa em pé com as mãos em uns regletes pequenos acima do teto e toca reto por uma sequência dura.
             - **nome**: Projeto 19
@@ -6202,6 +7910,7 @@
     - **conteudo**:
       - **descricao**: # Bloco C - Meteoro
       - **nome**: Bloco C - Meteoro
+      - **uid**: MdIc7ontK2Nvt0
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_tubarao_p3_i1.webp)
@@ -6209,15 +7918,22 @@
           - **altura_mapa**: 710
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: kCGQWGq1HYSVs8
+              - **pontos_uids**:
+                - 11
               - **escalada**: Meteoro
               - **ids**:
                 - 11
             - **[1]**:
+              - **alvo_uid**: ONCcxisRpIdROU
+              - **pontos_uids**:
+                - 12
               - **escalada**: Cometa
               - **ids**:
                 - 12
       - **escaladas**:
         - **[0]**:
+          - **uid**: kCGQWGq1HYSVs8
           - **boulder**:
             - **descricao**: Sai sentado com a mão esquerda em um batente invertido e a direita em um reglete, ambos em baixo do teto, e escala a face vertical com um crux bem definido.
             - **nome**: Meteoro
@@ -6227,6 +7943,7 @@
               - Ruy Castro
             - **data_abertura**: 2010
         - **[1]**:
+          - **uid**: ONCcxisRpIdROU
           - **boulder**:
             - **descricao**: Sai em pé com as mãos em dois regletes pequenos e faz um movimento forte para um batente de oposição, terminando reto.
             - **nome**: Cometa
@@ -6238,6 +7955,7 @@
     - **conteudo**:
       - **descricao**: # Bloco D - Tubarão
       - **nome**: Bloco D - Tubarão
+      - **uid**: 0bBb6m3oawRRva
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_tubarao_p4_i0.webp)
@@ -6245,107 +7963,183 @@
           - **altura_mapa**: 710
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: 6Ub5bCSAXn4lxn
+              - **pontos_uids**:
+                - 15
               - **escalada**: Tubarão Branco
               - **ids**:
                 - 15
             - **[1]**:
+              - **alvo_uid**: 1jwFY1XXUN7OXw
+              - **pontos_uids**:
+                - 14
               - **escalada**: Cação
               - **ids**:
                 - 14
             - **[2]**:
+              - **alvo_uid**: ScD4eUMQ0Wi9we
+              - **pontos_uids**:
+                - 15
               - **escalada**: Tubarão
               - **ids**:
                 - 15
             - **[3]**:
+              - **alvo_uid**: VJumZMb8mBo4sw
+              - **pontos_uids**:
+                - 16
               - **escalada**: Brahma
               - **ids**:
                 - 16
             - **[4]**:
+              - **alvo_uid**: 48KOWK1c5AwcFp
+              - **pontos_uids**:
+                - 17
               - **escalada**: Hanuman
               - **ids**:
                 - 17
             - **[5]**:
+              - **alvo_uid**: dKEvDsXqLowp0l
+              - **pontos_uids**:
+                - 18
               - **escalada**: Jurubeba
               - **ids**:
                 - 18
             - **[6]**:
+              - **alvo_uid**: eSvYxD5g7Zygz1
+              - **pontos_uids**:
+                - 18
               - **escalada**: Backer
               - **ids**:
                 - 18
             - **[7]**:
+              - **alvo_uid**: 4KMNyZQ3KwQ7y4
+              - **pontos_uids**:
+                - 17
               - **escalada**: Original
               - **ids**:
                 - 17
             - **[8]**:
+              - **alvo_uid**: 0teJtmFXKKZqVb
+              - **pontos_uids**:
+                - 18
               - **escalada**: Chivas
               - **ids**:
                 - 18
             - **[9]**:
+              - **alvo_uid**: N2Z9OsdN9jWE3g
+              - **pontos_uids**:
+                - 17
               - **escalada**: Black Label
               - **ids**:
                 - 17
             - **[10]**:
+              - **alvo_uid**: dkz6QV6rAbEsil
+              - **pontos_uids**:
+                - 18
               - **escalada**: Chivas SDS
               - **ids**:
                 - 18
             - **[11]**:
+              - **alvo_uid**: KfKqedalsOiExz
+              - **pontos_uids**:
+                - 17
               - **escalada**: Royal Salute
               - **ids**:
                 - 17
             - **[12]**:
+              - **alvo_uid**: szLrJ03hLBMTXy
+              - **pontos_uids**:
+                - 18
               - **escalada**: Escolha certa
               - **ids**:
                 - 18
             - **[13]**:
+              - **alvo_uid**: QOo3Dtpl0oDzxV
+              - **pontos_uids**:
+                - 17
               - **escalada**: Múltipla escolha
               - **ids**:
                 - 17
             - **[14]**:
+              - **alvo_uid**: 7xoWKKDQZuRAac
+              - **pontos_uids**:
+                - 27
               - **escalada**: Halls
               - **ids**:
                 - 27
             - **[15]**:
+              - **alvo_uid**: 08KyixA9OS8fmp
+              - **pontos_uids**:
+                - 17
               - **escalada**: In the halls
               - **ids**:
                 - 17
             - **[16]**:
+              - **alvo_uid**: RxjVDmWyiJIoq8
+              - **pontos_uids**:
+                - 29
               - **escalada**: Green Label
               - **ids**:
                 - 29
             - **[17]**:
+              - **alvo_uid**: AdHh9oCr7wVff4
+              - **pontos_uids**:
+                - 18
               - **escalada**: Serra Malte
               - **ids**:
                 - 18
             - **[18]**:
+              - **alvo_uid**: rdgXwLYq9J77Sr
+              - **pontos_uids**:
+                - 17
               - **escalada**: Áustria
               - **ids**:
                 - 17
             - **[19]**:
+              - **alvo_uid**: 5GAd3ssJil1PQC
+              - **pontos_uids**:
+                - 18
               - **escalada**: Corona
               - **ids**:
                 - 18
             - **[20]**:
+              - **alvo_uid**: nDW5ChYkfFHJMg
+              - **pontos_uids**:
+                - 17
               - **escalada**: Saideira
               - **ids**:
                 - 17
             - **[21]**:
+              - **alvo_uid**: JCNZFn8GC3CtIf
+              - **pontos_uids**:
+                - 18
               - **escalada**: Muniz
               - **ids**:
                 - 18
             - **[22]**:
+              - **alvo_uid**: NjEDuoVrQFQfOD
+              - **pontos_uids**:
+                - 17
               - **escalada**: Passagem
               - **ids**:
                 - 17
             - **[23]**:
+              - **alvo_uid**: xfbvokA5f8mH61
+              - **pontos_uids**:
+                - 18
               - **escalada**: Espírito Guerreiro
               - **ids**:
                 - 18
             - **[24]**:
+              - **alvo_uid**: eSukaQ0A9lFtSh
+              - **pontos_uids**:
+                - 17
               - **escalada**: Voa colibri
               - **ids**:
                 - 17
       - **escaladas**:
         - **[0]**:
+          - **uid**: 6Ub5bCSAXn4lxn
           - **boulder**:
             - **descricao**: Sai sentado com as mãos em regletes à direita da árvore e escala a face vertical da esquerda da proa do “Tubarão” (15).
             - **nome**: Tubarão Branco
@@ -6355,12 +8149,14 @@
               - Fabrício Mamão
             - **data_abertura**: 2010
         - **[1]**:
+          - **uid**: 1jwFY1XXUN7OXw
           - **boulder**:
             - **descricao**: Começa em pé, com as mãos juntas em um batente bom na proa e escala por agarras boas.
             - **nome**: Cação
             - **dificuldade**: V1
             - **destaque**: True
         - **[2]**:
+          - **uid**: ScD4eUMQ0Wi9we
           - **boulder**:
             - **descricao**: Começa abraçando o teto com a mão esquerda num reglete na face esquerda e a direita num reglete na face direita e escala o teto em compressão finalizando pelo “Cação” (14).
             - **nome**: Tubarão
@@ -6370,6 +8166,7 @@
               - Ruy Castro
             - **data_abertura**: 2007
         - **[3]**:
+          - **uid**: VJumZMb8mBo4sw
           - **boulder**:
             - **descricao**: Sai como o “Tubarão” (15) e escala a face da direita.
             - **nome**: Brahma
@@ -6379,6 +8176,7 @@
               - Leandro Iannota
             - **data_abertura**: 2010
         - **[4]**:
+          - **uid**: 48KOWK1c5AwcFp
           - **boulder**:
             - **descricao**: Começa como o “Jurubeba” (18) e escala pela esquerda da árvore terminando no “Brahma” (16).
             - **nome**: Hanuman
@@ -6388,11 +8186,13 @@
               - Frederico Gonçalves
             - **data_abertura**: 2012
         - **[5]**:
+          - **uid**: dKEvDsXqLowp0l
           - **boulder**:
             - **descricao**: Sai em pé, na aresta do teto, com as mãos juntas em um batente e escala pela direita da árvore, passando pela pequena proa à direita.
             - **nome**: Jurubeba
             - **dificuldade**: V3
         - **[6]**:
+          - **uid**: eSvYxD5g7Zygz1
           - **boulder**:
             - **descricao**: Começa sentado com a mão esquerda em um regletinho na aresta e a mão direita em uma invertida e escala o teto por agarras boas dominando pelo no “Jurubeba” (18). Terminando no “Hanuman” (17) é o a Original v7.
             - **nome**: Backer
@@ -6402,11 +8202,13 @@
               - Gabriel Vargas
             - **data_abertura**: 2014
         - **[7]**:
+          - **uid**: 4KMNyZQ3KwQ7y4
           - **boulder**:
             - **descricao**: Começa no “Backer” (19) e termina no “Hanuman” (17).
             - **nome**: Original
             - **dificuldade**: V7
         - **[8]**:
+          - **uid**: 0teJtmFXKKZqVb
           - **boulder**:
             - **descricao**: Sai sentado com a mão esquerda em uma agarra boa, a direita em um reglete invertido e escala em linha reta pelo teto, finalizando no “Jurubeba” (18). Terminando no “Hanuman” (17) é o d Black Label v8.
             - **nome**: Chivas
@@ -6416,11 +8218,13 @@
               - Felipe Alvares
             - **data_abertura**: 2006
         - **[9]**:
+          - **uid**: N2Z9OsdN9jWE3g
           - **boulder**:
             - **descricao**: Começa no “Chivas” (21) e termina no “Hanuman” (17).
             - **nome**: Black Label
             - **dificuldade**: V8
         - **[10]**:
+          - **uid**: dkz6QV6rAbEsil
           - **boulder**:
             - **descricao**: Começa nas agarras mais ao fundo da caverna com as mãos em dois regletes, faz dois movimentos para a saída do “Chivas” (21) e termina por ele. Terminando no “Hanuman” (17) é o g Royal Salute v9.
             - **nome**: Chivas SDS
@@ -6430,11 +8234,13 @@
               - Frederico Gonçalves
             - **data_abertura**: 2010
         - **[11]**:
+          - **uid**: KfKqedalsOiExz
           - **boulder**:
             - **descricao**: Começa no “Chivas SDS” (23) e termina no “Hanuman” (17).
             - **nome**: Royal Salute
             - **dificuldade**: V9
         - **[12]**:
+          - **uid**: szLrJ03hLBMTXy
           - **boulder**:
             - **descricao**: Sai em pé com as mãos em duas agarras boas e escala até entrar no “Jurubeba” (18), finalizando como ele. Terminando no “Hanuman” (17) é o j Múltipla escolha v8.
             - **nome**: Escolha certa
@@ -6444,11 +8250,13 @@
               - Gustavo Fontes
             - **data_abertura**: 2013
         - **[13]**:
+          - **uid**: QOo3Dtpl0oDzxV
           - **boulder**:
             - **descricao**: Começa no “Escolha certa” (25) e termina no “Hanuman” (17).
             - **nome**: Múltipla escolha
             - **dificuldade**: V8
         - **[14]**:
+          - **uid**: 7xoWKKDQZuRAac
           - **boulder**:
             - **descricao**: Começa sentado com as mãos juntas num batente na pequena proa à direita da caverna, atravessa para a face à esquerda e termina no “Jurubeba” (18). Terminando no “Hanuman” (17) é o l In the halls v7.
             - **nome**: Halls
@@ -6457,11 +8265,13 @@
               - Gustavo Fontes
             - **data_abertura**: 2013
         - **[15]**:
+          - **uid**: 08KyixA9OS8fmp
           - **boulder**:
             - **descricao**: Começa no “Halls” (27) e termina no “Hanuman” (17).
             - **nome**: In the halls
             - **dificuldade**: V7
         - **[16]**:
+          - **uid**: RxjVDmWyiJIoq8
           - **boulder**:
             - **descricao**: Começa como o “Halls” (27), mas ao invés de atravessar para a face da esquerda, escala comprimindo o teto e finaliza à direita.
             - **nome**: Green Label
@@ -6471,6 +8281,7 @@
               - Daniel Mendes
             - **data_abertura**: 2013
         - **[17]**:
+          - **uid**: AdHh9oCr7wVff4
           - **boulder**:
             - **descricao**: Sai do “Chivas” (21) e entra no “Backer” (19). Terminando no “Hanuman” (17) é o x Áustria v8.
             - **nome**: Serra Malte
@@ -6479,11 +8290,13 @@
               - Gabriel Vargas
             - **data_abertura**: 2014
         - **[18]**:
+          - **uid**: rdgXwLYq9J77Sr
           - **boulder**:
             - **descricao**: Variante do “Serra Malte” (30) que sai do “Chivas” (21), entra no “Backer” (19) e termina no “Hanuman” (17).
             - **nome**: Áustria
             - **dificuldade**: V8
         - **[19]**:
+          - **uid**: 5GAd3ssJil1PQC
           - **boulder**:
             - **descricao**: Começa como o “Chivas SDS” (23) e entra no “Backer” (19). Terminando no “Hanuman” (17) é o v Saideira v9.
             - **nome**: Corona
@@ -6492,11 +8305,13 @@
               - Gustavo Fontes
             - **data_abertura**: 2014
         - **[20]**:
+          - **uid**: nDW5ChYkfFHJMg
           - **boulder**:
             - **descricao**: Variante do “Corona” (32) que começa como o “Chivas SDS” (23), entra no “Backer” (19) e termina no “Hanuman” (17).
             - **nome**: Saideira
             - **dificuldade**: V9
         - **[21]**:
+          - **uid**: JCNZFn8GC3CtIf
           - **boulder**:
             - **descricao**: Boulder aberto em homenagem ao escalador carioca Fábio Muniz, o Fabinho. Sai do “Chivas” (21) e, após alguns movimentos, atravessa para a direita passando por uma invertida, escalando até o “Escolha certa” (25) e terminando como ele. Terminando no “Hanuman” (17) é o n Passagem v10.
             - **nome**: Muniz
@@ -6506,11 +8321,13 @@
               - Gustavo Fontes
             - **data_abertura**: 2013
         - **[22]**:
+          - **uid**: NjEDuoVrQFQfOD
           - **boulder**:
             - **descricao**: Variante do “Muniz” (34) terminando no “Hanuman” (17).
             - **nome**: Passagem
             - **dificuldade**: V10
         - **[23]**:
+          - **uid**: xfbvokA5f8mH61
           - **boulder**:
             - **descricao**: É o “Muniz” (34) saindo do “Chivas SDS” (23). Terminando no “Hanuman” (17) é o , Voa colibri v11.
             - **nome**: Espírito Guerreiro
@@ -6520,6 +8337,7 @@
               - Rafael Pimenta
             - **data_abertura**: 2014
         - **[24]**:
+          - **uid**: eSukaQ0A9lFtSh
           - **boulder**:
             - **descricao**: Variante do “Espírito Guerreiro” (36) terminando no “Hanuman” (17).
             - **nome**: Voa colibri
@@ -6531,8 +8349,10 @@
     - **conteudo**:
       - **descricao**: # Bloco E - Hindu
       - **nome**: Bloco E - Hindu
+      - **uid**: S0x3xhhSDsx82d
       - **escaladas**:
         - **[0]**:
+          - **uid**: zv5NtIcIMYETqs
           - **boulder**:
             - **descricao**: Sai sentado com a mão direita em um batente e a esquerda em um reglete invertido baixo e escala o pequeno bloco.
             - **nome**: Hindu
@@ -6545,8 +8365,10 @@
     - **conteudo**:
       - **descricao**: # Bloco F - Ganesh
       - **nome**: Bloco F - Ganesh
+      - **uid**: 7rL1q5fxDz4nZQ
       - **escaladas**:
         - **[0]**:
+          - **uid**: bUiuIXOJiCIFRX
           - **boulder**:
             - **descricao**: Sai sentado com as mãos juntas numa agarra boa no fundo da caverna, escala por agarras boas até um final duro e domina.
             - **nome**: Ganesh
@@ -6562,6 +8384,7 @@
     - **conteudo**:
       - **descricao**: # Bloco G - Croissant
       - **nome**: Bloco G - Croissant
+      - **uid**: sRHRKezuqWr6zh
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_tubarao_p7_i0.webp)
@@ -6569,20 +8392,28 @@
           - **altura_mapa**: 710
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: AtW8Hq4jaNP6r3
+              - **pontos_uids**:
+                - 40
               - **escalada**: Misto quente
               - **ids**:
                 - 40
             - **[1]**:
+              - **alvo_uid**: KVKL7lCRmXlB6j
+              - **pontos_uids**:
+                - 41
               - **escalada**: Croissant
               - **ids**:
                 - 41
       - **escaladas**:
         - **[0]**:
+          - **uid**: AtW8Hq4jaNP6r3
           - **boulder**:
             - **descricao**: Começa sentado com as mãos em dois batentes e toca reto.
             - **nome**: Misto quente
             - **dificuldade**: V2
         - **[1]**:
+          - **uid**: KVKL7lCRmXlB6j
           - **boulder**:
             - **descricao**: Sai sentado com as mãos juntas em um batente loco acima do tetinho e escala em diagonal pra esquerda.
             - **nome**: Croissant
@@ -6594,6 +8425,7 @@
     - **conteudo**:
       - **descricao**: # Bloco H - Túnel do Vento
       - **nome**: Bloco H - Túnel do Vento
+      - **uid**: VFfp0CKDJiXsd3
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_tubarao_p7_i1.webp)
@@ -6601,17 +8433,26 @@
           - **altura_mapa**: 710
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: qPeywhSgAIVSpS
+              - **pontos_uids**:
+                - 42
+                - 43
               - **escalada**: Túnel do vento
               - **ids**:
                 - 42
                 - 43
             - **[1]**:
+              - **alvo_uid**: ruK2ChvKCGHihG
+              - **pontos_uids**:
+                - 42
+                - 43
               - **escalada**: Diagonal (Túnel do Vento)
               - **ids**:
                 - 42
                 - 43
       - **escaladas**:
         - **[0]**:
+          - **uid**: qPeywhSgAIVSpS
           - **boulder**:
             - **descricao**: Começa sentado com as mãos juntas em um batente invertido, escala comprimindo o “módulo” e atravessa o teto pela direita, passando por algumas lacas e pinças e dominando pela “chaminé”.
             - **nome**: Túnel do vento
@@ -6621,6 +8462,7 @@
               - Mahavir Jneesh
             - **data_abertura**: 2011
         - **[1]**:
+          - **uid**: ruK2ChvKCGHihG
           - **boulder**:
             - **descricao**: Começa sentado com as mãos em dois gastons e domina a parte baixa do bloco.
             - **nome**: Diagonal (Túnel do Vento)
@@ -6669,6 +8511,7 @@
     Os melhores produtos para as melhores experiências. Experimente essa vibe.  
     *Foto: Murilo Vargas*
 - **nome**: Daqui a 20 Anos
+- **uid**: 1FEa0SXhF5iG30
 - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_daqui_a_20_anos_p0_i0.webp)
 - **mapas**:
   - **[0]**:
@@ -6677,10 +8520,16 @@
     - **altura_mapa**: 710
     - **referencias**:
       - **[0]**:
+        - **alvo_uid**: Ast0EufLPzelsS
+        - **pontos_uids**:
+          - 2
         - **escalada**: Daqui a 20 anos
         - **ids**:
           - 2
       - **[1]**:
+        - **alvo_uid**: PGYw60JTsOBSHJ
+        - **pontos_uids**:
+          - 4
         - **escalada**: Surpresa
         - **ids**:
           - 4
@@ -6689,6 +8538,7 @@
     - **conteudo**:
       - **descricao**: # Bloco A - Análise Crítica
       - **nome**: Bloco A - Análise Crítica
+      - **uid**: onz2AdFseL2O0S
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_daqui_a_20_anos_p2_i1.webp)
@@ -6696,11 +8546,15 @@
           - **altura_mapa**: 710
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: VzexNCktS0Y93x
+              - **pontos_uids**:
+                - 1
               - **escalada**: Análise crítica
               - **ids**:
                 - 1
       - **escaladas**:
         - **[0]**:
+          - **uid**: VzexNCktS0Y93x
           - **boulder**:
             - **descricao**: Sai em pé com as mãos em um buraco e um pocket e escala a face levemente negativa com um domínio técnico.
             - **nome**: Análise crítica
@@ -6716,8 +8570,10 @@
     - **conteudo**:
       - **descricao**: # Bloco B - Daqui a 20 Anos
       - **nome**: Bloco B - Daqui a 20 Anos
+      - **uid**: FPiCkhwVy5b8ST
       - **escaladas**:
         - **[0]**:
+          - **uid**: Ast0EufLPzelsS
           - **boulder**:
             - **descricao**: Highball clássico, uma das escaladas mais completas da Pedra Rachada! Começa sentado com as mãos nas agarras mais ao fundo da caverna, escala o teto por agarras boas, faz uma virada técnica à direita da arvorezinha e termina pelo positivo fácil.
             - **nome**: Daqui a 20 anos
@@ -6730,6 +8586,7 @@
     - **conteudo**:
       - **descricao**: # Bloco C - Amanita
       - **nome**: Bloco C - Amanita
+      - **uid**: rQMrzXIEzDPsDs
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_daqui_a_20_anos_p5_i2.webp)
@@ -6737,11 +8594,15 @@
           - **altura_mapa**: 710
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: dFHTeiIuEuDYDh
+              - **pontos_uids**:
+                - 3
               - **escalada**: Amanita
               - **ids**:
                 - 3
       - **escaladas**:
         - **[0]**:
+          - **uid**: dFHTeiIuEuDYDh
           - **boulder**:
             - **descricao**: Sai sentado com as mãos juntas em um reglete bom e escala o negativo com um crux bem definido.
             - **nome**: Amanita
@@ -6754,8 +8615,10 @@
     - **conteudo**:
       - **descricao**: # Bloco D - Surpresa
       - **nome**: Bloco D - Surpresa
+      - **uid**: wEpe9H6ywEQmrY
       - **escaladas**:
         - **[0]**:
+          - **uid**: PGYw60JTsOBSHJ
           - **boulder**:
             - **descricao**: Começa com a mão esquerda em uma pinça grande e a direita em um reglete/pinça e sai do teto com uma movimentação clássica.
             - **nome**: Surpresa
@@ -6768,6 +8631,7 @@
     - **conteudo**:
       - **descricao**: # Bloco E - Escorregador
       - **nome**: Bloco E - Escorregador
+      - **uid**: 2oOJLXY7yzCM2H
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_daqui_a_20_anos_p5_i1.webp)
@@ -6775,21 +8639,29 @@
           - **altura_mapa**: 710
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: CJy19laYKmoU7i
+              - **pontos_uids**:
+                - 5
               - **escalada**: Escorregador
               - **ids**:
                 - 5
             - **[1]**:
+              - **alvo_uid**: 6nUufzuXoydp1C
+              - **pontos_uids**:
+                - 6
               - **escalada**: Controler
               - **ids**:
                 - 6
       - **escaladas**:
         - **[0]**:
+          - **uid**: CJy19laYKmoU7i
           - **boulder**:
             - **descricao**: Sai sentado com a mão esquerda em uma laca e a direita em um bico/buraco ao lado e escala todo o negativo pelas lacas.
             - **nome**: Escorregador
             - **dificuldade**: V3
             - **destaque**: True
         - **[1]**:
+          - **uid**: 6nUufzuXoydp1C
           - **boulder**:
             - **descricao**: Começa sentado com as mãos juntas em um batente de oposição e escala o vertical.
             - **nome**: Controler
@@ -6844,6 +8716,7 @@
     | :--: |
     | *Escalador no bloco Testarossa* |
 - **nome**: Cume
+- **uid**: VeLO20IMW2oWhc
 - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_cume_p0_i0.webp)
 - **mapas**:
   - **[0]**:
@@ -6852,22 +8725,37 @@
     - **altura_mapa**: 710
     - **referencias**:
       - **[0]**:
+        - **alvo_uid**: oIA7VJYDSydyTf
+        - **pontos_uids**:
+          - 27
         - **escalada**: Sabirila
         - **ids**:
           - 27
       - **[1]**:
+        - **alvo_uid**: 4Jm9GyO72EzNjD
+        - **pontos_uids**:
+          - 28
         - **escalada**: Seriema
         - **ids**:
           - 28
       - **[2]**:
+        - **alvo_uid**: wPZ2kDIVbOvXJr
+        - **pontos_uids**:
+          - 29
         - **escalada**: Canelinha
         - **ids**:
           - 29
       - **[3]**:
+        - **alvo_uid**: vFO52j09RcWfMT
+        - **pontos_uids**:
+          - 30
         - **escalada**: Cerrado
         - **ids**:
           - 30
       - **[4]**:
+        - **alvo_uid**: nKJb8UpDlIxoSL
+        - **pontos_uids**:
+          - 31
         - **escalada**: Canga
         - **ids**:
           - 31
@@ -6876,6 +8764,7 @@
     - **conteudo**:
       - **descricao**: # Bloco A - Ulísses
       - **nome**: Bloco A - Ulísses
+      - **uid**: DAwGeV7jwOuz5Z
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_cume_p2_i1.webp)
@@ -6883,21 +8772,29 @@
           - **altura_mapa**: 710
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: QSgh7wpAbQJEVK
+              - **pontos_uids**:
+                - 1
               - **escalada**: Ulísses
               - **ids**:
                 - 1
             - **[1]**:
+              - **alvo_uid**: g7fI2sJJGDouuy
+              - **pontos_uids**:
+                - 2
               - **escalada**: 1-5-1
               - **ids**:
                 - 2
       - **escaladas**:
         - **[0]**:
+          - **uid**: QSgh7wpAbQJEVK
           - **boulder**:
             - **descricao**: Começa com as mãos juntas em um batente e escala o vertical por regletes pequenos.
             - **nome**: Ulísses
             - **dificuldade**: V3
             - **destaque**: True
         - **[1]**:
+          - **uid**: g7fI2sJJGDouuy
           - **boulder**:
             - **descricao**: Sai como o “Ulísses” (1) e termina mais à direita, com um dinâmico em um batente.
             - **nome**: 1-5-1
@@ -6910,6 +8807,7 @@
     - **conteudo**:
       - **descricao**: # Bloco B - Mosquitos
       - **nome**: Bloco B - Mosquitos
+      - **uid**: db6ajlrPHj5JiG
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_cume_p2_i2.webp)
@@ -6917,20 +8815,28 @@
           - **altura_mapa**: 710
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: wWCvLUX0b7lAf3
+              - **pontos_uids**:
+                - 3
               - **escalada**: Tangente (Mosquitos)
               - **ids**:
                 - 3
             - **[1]**:
+              - **alvo_uid**: vRSD9c4FX1Cj6x
+              - **pontos_uids**:
+                - 4
               - **escalada**: Mosquitos
               - **ids**:
                 - 4
       - **escaladas**:
         - **[0]**:
+          - **uid**: wWCvLUX0b7lAf3
           - **boulder**:
             - **descricao**: Começa com a mão direita no bico e a esquerda no buraco e escala em diagonal pra esquerda por agarras boas.
             - **nome**: Tangente (Mosquitos)
             - **dificuldade**: V0
         - **[1]**:
+          - **uid**: vRSD9c4FX1Cj6x
           - **boulder**:
             - **descricao**: Começa como o “Tangente” (3) e segue reto pela face levemente negativa.
             - **nome**: Mosquitos
@@ -6943,6 +8849,7 @@
     - **conteudo**:
       - **descricao**: # Bloco C - Blood América
       - **nome**: Bloco C - Blood América
+      - **uid**: 8hYDWYkbAHWbpZ
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_cume_p5_i2.webp)
@@ -6950,35 +8857,50 @@
           - **altura_mapa**: 710
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: Hc1JyT3CAG6JRw
+              - **pontos_uids**:
+                - 5
               - **escalada**: Espanhol
               - **ids**:
                 - 5
             - **[1]**:
+              - **alvo_uid**: 7Bs4f4TdK0s2KL
+              - **pontos_uids**:
+                - 6
               - **escalada**: Fenda Paraguai
               - **ids**:
                 - 6
             - **[2]**:
+              - **alvo_uid**: PmDhuuc3DT7ZIr
+              - **pontos_uids**:
+                - 7
               - **escalada**: Blood Mexican
               - **ids**:
                 - 7
             - **[3]**:
+              - **alvo_uid**: UEi7pcw177wVzK
+              - **pontos_uids**:
+                - 8
               - **escalada**: Blood América
               - **ids**:
                 - 8
       - **escaladas**:
         - **[0]**:
+          - **uid**: Hc1JyT3CAG6JRw
           - **boulder**:
             - **descricao**: Boulder de aderência que escala o meio do vertical à esquerda da fenda.
             - **nome**: Espanhol
             - **dificuldade**: V3
             - **destaque**: True
         - **[1]**:
+          - **uid**: 7Bs4f4TdK0s2KL
           - **boulder**:
             - **descricao**: Sai com a mão esquerda no início da fenda e a direita aberta em um pocket e escala pela fenda.
             - **nome**: Fenda Paraguai
             - **dificuldade**: V1
             - **destaque**: True
         - **[2]**:
+          - **uid**: PmDhuuc3DT7ZIr
           - **boulder**:
             - **descricao**: Começa no “Blood América” (8) e termina no “Fenda Paraguai” (6).
             - **nome**: Blood Mexican
@@ -6988,6 +8910,7 @@
               - Mahavir Jneesh
             - **data_abertura**: 2010
         - **[3]**:
+          - **uid**: UEi7pcw177wVzK
           - **boulder**:
             - **descricao**: Sai sentado com as mãos em dois pockets e escala em diagonal pra direita, dominando pela proa. Um dos visuais mais clássicos da Rachada!
             - **nome**: Blood América
@@ -7003,6 +8926,7 @@
     - **conteudo**:
       - **descricao**: # Bloco D - The Summit
       - **nome**: Bloco D - The Summit
+      - **uid**: MJSEWLeX5S66bJ
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_cume_p5_i1.webp)
@@ -7010,25 +8934,36 @@
           - **altura_mapa**: 710
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: k50YTMqsbmNSLj
+              - **pontos_uids**:
+                - 9
               - **escalada**: Só o cume interessa
               - **ids**:
                 - 9
             - **[1]**:
+              - **alvo_uid**: RxxyJqJ74Z2CsG
+              - **pontos_uids**:
+                - 10
               - **escalada**: Bote nadador
               - **ids**:
                 - 10
             - **[2]**:
+              - **alvo_uid**: NCmxsU3eq9oOS1
+              - **pontos_uids**:
+                - 11
               - **escalada**: The summit
               - **ids**:
                 - 11
       - **escaladas**:
         - **[0]**:
+          - **uid**: k50YTMqsbmNSLj
           - **boulder**:
             - **descricao**: Highball que escala a fenda.
             - **nome**: Só o cume interessa
             - **dificuldade**: V0
             - **destaque**: True
         - **[1]**:
+          - **uid**: RxxyJqJ74Z2CsG
           - **boulder**:
             - **descricao**: Começa em pé com as mãos juntas em um batente bom e toca reto.
             - **nome**: Bote nadador
@@ -7038,6 +8973,7 @@
               - Felipe Alvares
             - **data_abertura**: 2008
         - **[2]**:
+          - **uid**: NCmxsU3eq9oOS1
           - **boulder**:
             - **descricao**: Começa sentado com a mão direita em um reglete e a esquerda em um batente e escala o highball com movimentação clássica!
             - **nome**: The summit
@@ -7053,6 +8989,7 @@
     - **conteudo**:
       - **descricao**: # Bloco E - Testarossa
       - **nome**: Bloco E - Testarossa
+      - **uid**: 6UZ9BB51g1EYEn
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_cume_p6_i2.webp)
@@ -7060,38 +8997,63 @@
           - **altura_mapa**: 710
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: G5Lsvpwuf65e6u
+              - **pontos_uids**:
+                - 12
               - **escalada**: Mistral
               - **ids**:
                 - 12
             - **[1]**:
+              - **alvo_uid**: zcmz0bsZspDWJT
+              - **pontos_uids**:
+                - 15
+                - 12
               - **escalada**: Mistral SDS
               - **ids**:
                 - 15
                 - 12
             - **[2]**:
+              - **alvo_uid**: E0d7eN6HESMn1D
+              - **pontos_uids**:
+                - 14
               - **escalada**: Testarossa
               - **ids**:
                 - 14
             - **[3]**:
+              - **alvo_uid**: lhMvXrCQSCVEY0
+              - **pontos_uids**:
+                - 15
               - **escalada**: Testarossa SDS
               - **ids**:
                 - 15
             - **[4]**:
+              - **alvo_uid**: qBvZz7GdYnhVKe
+              - **pontos_uids**:
+                - 16
               - **escalada**: Talismã
               - **ids**:
                 - 16
             - **[5]**:
+              - **alvo_uid**: X6kOHldh31Qr2T
+              - **pontos_uids**:
+                - 15
+                - 16
               - **escalada**: Talismã SDS
               - **ids**:
                 - 15
                 - 16
             - **[6]**:
+              - **alvo_uid**: 8fbUeJsDOKCPqj
+              - **pontos_uids**:
+                - 12
+                - 16
               - **escalada**: Venon
               - **ids**:
                 - 12
                 - 16
       - **escaladas**:
         - **[0]**:
+          - **uid**: G5Lsvpwuf65e6u
           - **boulder**:
             - **descricao**: Sai em pé com as mãos juntas em um bico e um pocket e atravessa para a esquerda, dominando pela lateral do bloco em agarras boas.
             - **nome**: Mistral
@@ -7101,6 +9063,7 @@
               - Felipe Alvares
             - **data_abertura**: 2007
         - **[1]**:
+          - **uid**: zcmz0bsZspDWJT
           - **boulder**:
             - **descricao**: Sai do “Testarossa SDS” (15) e termina como o “Mistral” (12).
             - **nome**: Mistral SDS
@@ -7109,6 +9072,7 @@
               - Gustavo Fontes
             - **data_abertura**: 2009
         - **[2]**:
+          - **uid**: E0d7eN6HESMn1D
           - **boulder**:
             - **descricao**: Começa como o “Mistral” (12) e toca reto pelo negativo com uma movimentação muito clássica!
             - **nome**: Testarossa
@@ -7118,6 +9082,7 @@
               - André Berezoski
             - **data_abertura**: 2009
         - **[3]**:
+          - **uid**: lhMvXrCQSCVEY0
           - **boulder**:
             - **descricao**: Sai com as mãos juntas em dois pequenos regletes, mais abaixo no teto, e entra no “Testarossa” (14).
             - **nome**: Testarossa SDS
@@ -7126,6 +9091,7 @@
               - Jean Ouriques
             - **data_abertura**: 2009
         - **[4]**:
+          - **uid**: qBvZz7GdYnhVKe
           - **boulder**:
             - **descricao**: Começa com as mãos juntas em um grande batente em forma de triângulo e escala em diagonal pra direita, dominando por abaulados.
             - **nome**: Talismã
@@ -7135,6 +9101,7 @@
               - Rafael Passos
             - **data_abertura**: 2008
         - **[5]**:
+          - **uid**: X6kOHldh31Qr2T
           - **boulder**:
             - **descricao**: Sai do “Testarossa SDS” (15) e termina como o “Talismã” (16).
             - **nome**: Talismã SDS
@@ -7143,6 +9110,7 @@
               - Gustavo Fontes
             - **data_abertura**: 2009
         - **[6]**:
+          - **uid**: 8fbUeJsDOKCPqj
           - **boulder**:
             - **descricao**: Boulder que começa nas agarras boas no final do “Mistral” (12) e faz o caminho inverso, atravessando para a direita e terminando no “Talismã” (16).
             - **nome**: Venon
@@ -7158,6 +9126,7 @@
     - **conteudo**:
       - **descricao**: # Bloco F - Sai do Teto
       - **nome**: Bloco F - Sai do Teto
+      - **uid**: 6XLE5SspejONIX
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_cume_p6_i1.webp)
@@ -7165,11 +9134,15 @@
           - **altura_mapa**: 710
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: 0qZ64gnu04uRXI
+              - **pontos_uids**:
+                - 19
               - **escalada**: Sai do teto
               - **ids**:
                 - 19
       - **escaladas**:
         - **[0]**:
+          - **uid**: 0qZ64gnu04uRXI
           - **boulder**:
             - **descricao**: Começa sentado com as mãos juntas em um grande reglete do lado de dentro da caverna, na parede laranja, e faz uma longa travessia para a esquerda, dominando o teto.
             - **nome**: Sai do teto
@@ -7182,6 +9155,7 @@
     - **conteudo**:
       - **descricao**: # Bloco G - Laranja Mecânica
       - **nome**: Bloco G - Laranja Mecânica
+      - **uid**: A5Qguqnxxmiaec
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_cume_p8_i1.webp)
@@ -7189,19 +9163,29 @@
           - **altura_mapa**: 710
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: j2yxjEv5XJyUDQ
+              - **pontos_uids**:
+                - 20
               - **escalada**: Última onda
               - **ids**:
                 - 20
             - **[1]**:
+              - **alvo_uid**: tvaWjboex3AXb1
+              - **pontos_uids**:
+                - 21
               - **escalada**: Laranja mecânica
               - **ids**:
                 - 21
             - **[2]**:
+              - **alvo_uid**: nIymZQz8SYLnRY
+              - **pontos_uids**:
+                - 22
               - **escalada**: Só no suco
               - **ids**:
                 - 22
       - **escaladas**:
         - **[0]**:
+          - **uid**: j2yxjEv5XJyUDQ
           - **boulder**:
             - **descricao**: Sai como o “Laranja mecânica” (20) e segue pela fenda.
             - **nome**: Última onda
@@ -7210,6 +9194,7 @@
               - Rafael Passos
             - **data_abertura**: 2009
         - **[1]**:
+          - **uid**: tvaWjboex3AXb1
           - **boulder**:
             - **descricao**: Começa sentado com as mãos em duas agarras invertidas no teto e escala em diagonal pra direita.
             - **nome**: Laranja mecânica
@@ -7219,6 +9204,7 @@
               - Felipe Alvares
             - **data_abertura**: 2007
         - **[2]**:
+          - **uid**: nIymZQz8SYLnRY
           - **boulder**:
             - **descricao**: Sai em pé com as mãos juntas em um abaulado e segue pela fenda até um domínio fácil.
             - **nome**: Só no suco
@@ -7231,6 +9217,7 @@
     - **conteudo**:
       - **descricao**: # Bloco H - Ronaldo
       - **nome**: Bloco H - Ronaldo
+      - **uid**: xPr8wvdVJfZaXX
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_cume_p8_i0.webp)
@@ -7238,40 +9225,56 @@
           - **altura_mapa**: 710
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: VbRIHwMprzzcvF
+              - **pontos_uids**:
+                - 23
               - **escalada**: Pedala Robinho
               - **ids**:
                 - 23
             - **[1]**:
+              - **alvo_uid**: AVN7ZmhT32HxCF
+              - **pontos_uids**:
+                - 24
               - **escalada**: Ronaldo
               - **ids**:
                 - 24
             - **[2]**:
+              - **alvo_uid**: A0HOuWIrepSzu2
+              - **pontos_uids**:
+                - 25
               - **escalada**: Fenômeno
               - **ids**:
                 - 25
             - **[3]**:
+              - **alvo_uid**: FIPX6HBx70tt77
+              - **pontos_uids**:
+                - 26
               - **escalada**: Fenômeno SDS
               - **ids**:
                 - 26
       - **escaladas**:
         - **[0]**:
+          - **uid**: VbRIHwMprzzcvF
           - **boulder**:
             - **descricao**: Começa com as mãos juntas em um batente bom e escala por agarras boas.
             - **nome**: Pedala Robinho
             - **dificuldade**: VB
         - **[1]**:
+          - **uid**: AVN7ZmhT32HxCF
           - **boulder**:
             - **descricao**: Sai em pé, com as mãos em dois regletes bons e escala em diagonal pra esquerda.
             - **nome**: Ronaldo
             - **dificuldade**: V1
             - **destaque**: True
         - **[2]**:
+          - **uid**: A0HOuWIrepSzu2
           - **boulder**:
             - **descricao**: Começa em pé, com as mãos em dois regletes bons e toca reto por uma linha de regletes.
             - **nome**: Fenômeno
             - **dificuldade**: V0
             - **destaque**: True
         - **[3]**:
+          - **uid**: FIPX6HBx70tt77
           - **boulder**:
             - **descricao**: Saída sentada do “Fenômeno” começando com as mãos em dois regletes bem baixos.
             - **nome**: Fenômeno SDS
@@ -7283,20 +9286,24 @@
     - **conteudo**:
       - **descricao**: # Bloco I - Siriema
       - **nome**: Bloco I - Siriema
+      - **uid**: pa9gNt8On1l48o
       - **escaladas**:
         - **[0]**:
+          - **uid**: oIA7VJYDSydyTf
           - **boulder**:
             - **descricao**: Começa em pé com as mãos nos regletes no meio do bloco e atravessa em diagonal pra esquerda, por uma linha de regletes.
             - **nome**: Sabirila
             - **dificuldade**: V2
             - **destaque**: True
         - **[1]**:
+          - **uid**: 4Jm9GyO72EzNjD
           - **boulder**:
             - **descricao**: Começa como o “Sabirila” (27) e segue reto, terminando com um movimento clássico.
             - **nome**: Seriema
             - **dificuldade**: V3
             - **destaque**: True
         - **[2]**:
+          - **uid**: wPZ2kDIVbOvXJr
           - **boulder**:
             - **descricao**: Começa com as mãos juntas em um batente de oposição e escala em diagonal pra esquerda, por agarras boas.
             - **nome**: Canelinha
@@ -7308,13 +9315,16 @@
     - **conteudo**:
       - **descricao**: # Bloco J - Cerrado
       - **nome**: Bloco J - Cerrado
+      - **uid**: 3S1uM3IaSsovOm
       - **escaladas**:
         - **[0]**:
+          - **uid**: vFO52j09RcWfMT
           - **boulder**:
             - **descricao**: Começa sentado com a mão esquerda em um pocket e a direita em um reglete e escala a aresta.
             - **nome**: Cerrado
             - **dificuldade**: V0
         - **[1]**:
+          - **uid**: nKJb8UpDlIxoSL
           - **boulder**:
             - **descricao**: Sai em pé com as mãos juntas em um agarrão e escala reto.
             - **nome**: Canga
@@ -7326,6 +9336,7 @@
     - **conteudo**:
       - **descricao**: # Bloco K - Plutão
       - **nome**: Bloco K - Plutão
+      - **uid**: TB1w4Vo6EIiriN
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_cume_p9_i0.webp)
@@ -7333,15 +9344,22 @@
           - **altura_mapa**: 710
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: RWzPNQ8thPGkoV
+              - **pontos_uids**:
+                - 32
               - **escalada**: Difícil de entender
               - **ids**:
                 - 32
             - **[1]**:
+              - **alvo_uid**: Uv5PLfRmJe9vvB
+              - **pontos_uids**:
+                - 33
               - **escalada**: Plutão
               - **ids**:
                 - 33
       - **escaladas**:
         - **[0]**:
+          - **uid**: RWzPNQ8thPGkoV
           - **boulder**:
             - **descricao**: Saída em pé do “Plutão” (33), com as mãos nos batentes escorridos próximos à “fenda”.
             - **nome**: Difícil de entender
@@ -7351,6 +9369,7 @@
               - Frederico Gonçalves
             - **data_abertura**: 2012
         - **[1]**:
+          - **uid**: Uv5PLfRmJe9vvB
           - **boulder**:
             - **descricao**: Começa sentado com as mãos nos batentes mais baixos e escala em diagonal pra direita terminando como o “Difícil de entender” (32).
             - **nome**: Plutão

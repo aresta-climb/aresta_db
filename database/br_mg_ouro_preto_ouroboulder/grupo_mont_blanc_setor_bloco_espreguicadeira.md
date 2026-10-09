@@ -1,57 +1,60 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+uid: S1KezKyo1wzcRj
 nome: 'Bloco: Espreguiçadeira'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_mont_blanc_setor_bloco_espreguicadeira_p0.webp
   largura_mapa: 2364
   altura_mapa: 1773
   pontos_de_interesse:
-  - id: '1'
-    label: '1'
+  - uid: AL4p6NTF4jYqgi
+    rotulo: '1'
     circulo:
       x: 763
       y: 1169
       raio: 19
-  - id: '2'
-    label: '2'
+  - uid: PQEVM9a5Rtz4PU
+    rotulo: '2'
     circulo:
       x: 1557
       y: 1331
       raio: 19
-  - id: A
-    label: A
+  - uid: rcAJzlsLeMsdXf
+    rotulo: A
     circulo:
       x: 568
       y: 592
       raio: 19
-  - id: B
-    label: B
+  - uid: ZQigMQVlnrV0CG
+    rotulo: B
     circulo:
       x: 1295
       y: 269
       raio: 19
   referencias:
-  - escalada: Heavy Metal
-    ids:
-    - '1'
-  - escalada: Rock n Roll
-    ids:
-    - '2'
-    - A
-  - escalada: Hard Core
-    ids:
-    - '2'
-    - B
+  - alvo_uid: BVS9vNwXZmTOOD
+    pontos_uids:
+    - AL4p6NTF4jYqgi
+  - alvo_uid: Cd9g9Z3lzABbe2
+    pontos_uids:
+    - PQEVM9a5Rtz4PU
+    - rcAJzlsLeMsdXf
+  - alvo_uid: dmxQliBl75AFif
+    pontos_uids:
+    - PQEVM9a5Rtz4PU
+    - ZQigMQVlnrV0CG
 escaladas:
-- boulder:
+- uid: BVS9vNwXZmTOOD
+  boulder:
     nome: Heavy Metal
     dificuldade: V2
-- boulder:
+- uid: Cd9g9Z3lzABbe2
+  boulder:
     nome: Rock n Roll
     dificuldade: V1_BARRA_V2
-- boulder:
+- uid: dmxQliBl75AFif
+  boulder:
     nome: Hard Core
     dificuldade: V6_BARRA_V7
 ---
-

@@ -1,12 +1,14 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+uid: lTa6I1pECPkqaW
 caminho_imagem_capa: imagens/setor_principais_vias_1_p0.webp
 nome: Principais Vias I
 mapas:
 - caminho_imagem_mapa: raw_pdf_contents/imagens/setor_principais_vias_1/p0.webp
 escaladas:
-- via_multiplas_enfiadas:
+- uid: l6HDMQIK1CFhqY
+  via_multiplas_enfiadas:
     nome: Sonho patagônico
     dificuldade_maxima: BR_7C
     tipo_via_multiplas_enfiadas: MISTA
@@ -14,7 +16,8 @@ escaladas:
     conquistadores:
     - Gustavo P. Vianna
     - Marcus rufino
-- via_movel:
+- uid: rjrPezyS9aWkIL
+  via_movel:
     nome: O tigre, a dama e o fanfarrão
     dificuldade: BR_6SUP
     exposicao: E3
@@ -22,14 +25,16 @@ escaladas:
     conquistadores:
     - Antônio Paulo Faria
     - Gustavo P. Vianna
-- via_esportiva:
+- uid: pjanoftV7znrnS
+  via_esportiva:
     nome: O doce e o amargo
     dificuldade: BR_9A_BARRA_9B
     extensao: 60
     conquistadores:
     - Breno Araújo
     - Gustavo P. Vianna
-- via_movel:
+- uid: p92kK8tBs6ifDx
+  via_movel:
     nome: Supurados
     dificuldade: BR_7C
     exposicao: E2
@@ -37,14 +42,16 @@ escaladas:
     conquistadores:
     - André Coutinho
     - Breno Araújo
-- via_esportiva:
+- uid: H9tJzuneSwVrGA
+  via_esportiva:
     nome: Bilis-Líquen
     dificuldade: BR_8A
     extensao: 30
     conquistadores:
     - Gustavo Vianna
     - Marcus rufino
-- via_multiplas_enfiadas:
+- uid: DDzazNken14NpW
+  via_multiplas_enfiadas:
     nome: Princesa Leia / Double trouble
     dificuldade_maxima: BR_7B_BARRA_7C
     exposicao: E3
@@ -55,32 +62,37 @@ escaladas:
     - Elaine
     - André Coutinho
     - Breno Araújo
-- via_movel:
+- uid: ZWyWyJRRRJSFgP
+  via_movel:
     nome: Davi e Golias
     dificuldade: BR_8A
     extensao: 50
     conquistadores:
     - Eustaquio Junior
     - Chander Cristian
-- via_esportiva:
+- uid: zb9gVIFvDyuz3j
+  via_esportiva:
     nome: Suçuarana
     dificuldade: BR_6SUP
     extensao: 30
     conquistadores:
     - Gustavo Piancastelli
-- via_esportiva:
+- uid: EsFedRMWYou934
+  via_esportiva:
     nome: Pantera
     dificuldade: BR_8B
     extensao: 80
     conquistadores:
     - Gustavo Piancastelli
-- via_esportiva:
+- uid: BF7DOTpJMWfbPe
+  via_esportiva:
     nome: Tigresa triteto
     dificuldade: BR_7C
     extensao: 55
     conquistadores:
     - Aloysio Carvalho
-- via_movel:
+- uid: uvdPts0HUvPOTn
+  via_movel:
     nome: Pó branco / Carreirinha
     dificuldade: BR_8A
     descricao: Fixa é 8a, mista é 7b
@@ -88,7 +100,8 @@ escaladas:
     conquistadores:
     - Aloysio Carvalho
     - Arthur Esteves
-- via_movel:
+- uid: H3PBaTcshhyH4x
+  via_movel:
     nome: Via inacabada
     dificuldade: BR_7C_BARRA_8A
     exposicao: E3
@@ -96,14 +109,16 @@ escaladas:
     conquistadores:
     - Gustavo Vianna
     - Marcus rufino
-- via_esportiva:
+- uid: gwvNeNBb25AfqX
+  via_esportiva:
     nome: Positive vibration
     dificuldade: BR_7C
     extensao: 40
     conquistadores:
     - Aloysio Carvalho
     - Gustavo Piancastelli
-- via_movel:
+- uid: QIwcHgKffJR8zh
+  via_movel:
     nome: Via inacabada (móvel)
     dificuldade: BR_7B
     exposicao: E3
@@ -111,7 +126,8 @@ escaladas:
     conquistadores:
     - Gustavo Vianna
     - Igor Murta
-- via_movel:
+- uid: EL9BYr0hixIDSW
+  via_movel:
     nome: Noites equatoriais
     dificuldade: BR_7B
     dificuldade_artificial: A1
@@ -120,7 +136,8 @@ escaladas:
     conquistadores:
     - Fabiano Fernandes
     - Pedro Leite
-- via_multiplas_enfiadas:
+- uid: rly5CojlZAhABb
+  via_multiplas_enfiadas:
     nome: Totalmente demais
     dificuldade_maxima: BR_7C
     dificuldade_artificial: A1
@@ -132,7 +149,8 @@ escaladas:
     - Aloysio Carvalho
     - Gustavo Piancastelli
     - Gustavo Vianna
-- via_multiplas_enfiadas:
+- uid: P5Ifl979hL9VxS
+  via_multiplas_enfiadas:
     nome: Clandestino
     dificuldade_maxima: BR_7A
     exposicao: E3
@@ -142,7 +160,8 @@ escaladas:
     - André Coutinho
     - Breno Araújo
     - Gustavo Vianna
-- via_multiplas_enfiadas:
+- uid: z5Z4Y9mw8OENnP
+  via_multiplas_enfiadas:
     nome: Aresta que me resta / Onde os fracos não tem vez
     dificuldade_media: BR_7C
     dificuldade_maxima: BR_8B
@@ -153,13 +172,15 @@ escaladas:
     - Gustavo Piancastelli
     - André Coutinho
     - Breno Araújo
-- via_esportiva:
+- uid: xmW33J8m0kEOHj
+  via_esportiva:
     nome: Directa na aresta
     dificuldade: BR_8A
     extensao: 40
     conquistadores:
     - Marcus rufino
-- via_multiplas_enfiadas:
+- uid: kk91CAcsVz2ulK
+  via_multiplas_enfiadas:
     nome: Aresta eletrizante
     dificuldade_maxima: BR_7C
     exposicao: E4
@@ -173,7 +194,8 @@ escaladas:
     - Rodrigo PR
     - Raul Quintiliano
     - Pablo Gonçalves
-- via_esportiva:
+- uid: J88amDkSVtj0wc
+  via_esportiva:
     nome: Abra-cadabra / Canino lascado / Só para loucos
     dificuldade: BR_8C
     descricao: fixas 35m/8b, 25m/7c, 55m/8c cada uma
@@ -183,27 +205,31 @@ escaladas:
     - Juan kempem
     - Vinicius Wilson
     - Gustavo Vianna
-- via_esportiva:
+- uid: DDsT0wjWN5dHyH
+  via_esportiva:
     nome: Ponto de mutação
     dificuldade: BR_9B
     extensao: 30
     conquistadores:
     - Gustavo Vianna
     - Marcus rufino
-- via_esportiva:
+- uid: VU4oOxoyHVtjnG
+  via_esportiva:
     nome: Imagem e ação
     dificuldade: BR_7B
     extensao: 30
     conquistadores:
     - Gustavo Vianna
-- via_esportiva:
+- uid: a1nN1PeJSHGp5v
+  via_esportiva:
     nome: Corredor polonês
     dificuldade: BR_9B
     extensao: 35
     conquistadores:
     - Gustavo Vianna
     - Marcus rufino
-- via_movel:
+- uid: yffdRBhoR4bsEt
+  via_movel:
     nome: Quadrado mágico
     dificuldade: BR_8A
     descricao: 8a/6

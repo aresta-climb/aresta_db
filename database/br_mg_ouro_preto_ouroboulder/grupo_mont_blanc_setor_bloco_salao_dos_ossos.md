@@ -1,110 +1,117 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+uid: 24qEZNrzLWzCh7
 nome: 'Bloco: Salão dos Ossos'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_mont_blanc_setor_bloco_salao_dos_ossos_p0.webp
   largura_mapa: 2364
   altura_mapa: 1773
   pontos_de_interesse:
-  - id: '1'
-    label: '1'
+  - uid: iy1FEogziPepyS
+    rotulo: '1'
     circulo:
       x: 561
       y: 1185
       raio: 19
-  - id: '2'
-    label: '2'
+  - uid: embankF29SyGbK
+    rotulo: '2'
     circulo:
       x: 497
       y: 990
       raio: 19
-  - id: '3'
-    label: '3'
+  - uid: NXvzcxkuj4puZq
+    rotulo: '3'
     circulo:
       x: 916
       y: 1272
       raio: 19
-  - id: '4'
-    label: '4'
+  - uid: 8SLRBV9uUW6imY
+    rotulo: '4'
     circulo:
       x: 1095
       y: 1090
       raio: 19
-  - id: '5'
-    label: '5'
+  - uid: bs2JHxB6lPRPIW
+    rotulo: '5'
     circulo:
       x: 1256
       y: 1229
       raio: 19
-  - id: A
-    label: A
+  - uid: c594kRFZ2Z2Ifb
+    rotulo: A
     circulo:
       x: 389
       y: 408
       raio: 19
-  - id: B
-    label: B
+  - uid: YyFlc2QYp36NXy
+    rotulo: B
     circulo:
       x: 606
       y: 198
       raio: 19
-  - id: C
-    label: C
+  - uid: r6KBHc6qeU9eth
+    rotulo: C
     circulo:
       x: 2282
       y: 550
       raio: 19
   referencias:
-  - escalada: Dolinha
-    ids:
-    - '1'
-    - B
-  - escalada: '012'
-    ids:
-    - '2'
-    - A
-  - escalada: '013'
-    ids:
-    - '3'
-    - A
-  - escalada: Salão dos Ossos
-    ids:
-    - '3'
-    - B
-  - escalada: Osso
-    ids:
-    - '4'
-    - B
-  - escalada: Osso Duro de Roer
-    ids:
-    - '5'
-    - B
-  - escalada: Tutano
-    ids:
-    - '5'
-    - C
+  - alvo_uid: IcXryiUdm4USMB
+    pontos_uids:
+    - iy1FEogziPepyS
+    - YyFlc2QYp36NXy
+  - alvo_uid: qb8LZgJjZP7G99
+    pontos_uids:
+    - embankF29SyGbK
+    - c594kRFZ2Z2Ifb
+  - alvo_uid: bbK3JZ6oM3qTEe
+    pontos_uids:
+    - NXvzcxkuj4puZq
+    - c594kRFZ2Z2Ifb
+  - alvo_uid: JdG4AuswcT0TBQ
+    pontos_uids:
+    - NXvzcxkuj4puZq
+    - YyFlc2QYp36NXy
+  - alvo_uid: K37CwoiYrVJ7ch
+    pontos_uids:
+    - 8SLRBV9uUW6imY
+    - YyFlc2QYp36NXy
+  - alvo_uid: 7QQKD1w2UWTtvu
+    pontos_uids:
+    - bs2JHxB6lPRPIW
+    - YyFlc2QYp36NXy
+  - alvo_uid: UFPCV6xyVWZYzO
+    pontos_uids:
+    - bs2JHxB6lPRPIW
+    - r6KBHc6qeU9eth
 escaladas:
-- boulder:
+- uid: IcXryiUdm4USMB
+  boulder:
     nome: Dolinha
     dificuldade: V8
-- boulder:
+- uid: qb8LZgJjZP7G99
+  boulder:
     nome: '012'
     dificuldade: V1
-- boulder:
+- uid: bbK3JZ6oM3qTEe
+  boulder:
     nome: '013'
     dificuldade: V3
-- boulder:
+- uid: JdG4AuswcT0TBQ
+  boulder:
     nome: Salão dos Ossos
     dificuldade: V5
-- boulder:
+- uid: K37CwoiYrVJ7ch
+  boulder:
     nome: Osso
     dificuldade: V7
-- boulder:
+- uid: 7QQKD1w2UWTtvu
+  boulder:
     nome: Osso Duro de Roer
     dificuldade: V10
-- boulder:
+- uid: UFPCV6xyVWZYzO
+  boulder:
     nome: Tutano
     dificuldade: V10
 ---
-

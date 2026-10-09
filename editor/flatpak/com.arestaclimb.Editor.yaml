@@ -1,9 +1,9 @@
 app-id: com.arestaclimb.Editor
 runtime: org.kde.Platform
-runtime-version: "6.8"
+runtime-version: "6.11"
 sdk: org.kde.Sdk
 base: io.qt.PySide.BaseApp
-base-version: "6.8"
+base-version: "6.11"
 command: EditorAresta
 
 finish-args:
@@ -19,6 +19,18 @@ finish-args:
   - --talk-name=org.kde.kwalletd
   - --env=XKB_LOG_LEVEL=critical
 
+build-options:
+  env:
+    BASEAPP_REMOVE_WEBENGINE: "1"
+    BASEAPP_DISABLE_NUMPY: "1"
+
+cleanup:
+  - /include
+  - /lib/pkgconfig
+  - /share/man
+  - "*.la"
+  - "*.a"
+
 cleanup-commands:
   - /app/cleanup-BaseApp.sh
 
@@ -31,7 +43,10 @@ modules:
       # Instalação dos arquivos do editor
       - mkdir -p /app/share/aresta-editor
       - cp -r editor /app/share/aresta-editor/
-      - cp -r aresta_api /app/share/aresta-editor/ || true
+      - cp -r aresta_api /app/share/aresta-editor/
+      - cp -r scripts /app/share/aresta-editor/
+      - cp -r coleta_de_betas /app/share/aresta-editor/
+      - cp -r migracoes /app/share/aresta-editor/
       - cp uv.lock /app/share/aresta-editor/
       - echo "producao" > /app/share/aresta-editor/canal.txt
       # Criação do script lançador nativo
@@ -50,6 +65,43 @@ modules:
       - type: dir
         path: ../../editor
         dest: editor
+        skip:
+          - dist
+          - build
+          - flatpak
+          - .flatpak-builder
+          - __pycache__
+          - "*.pyc"
+          - "*_test.py"
+      - type: dir
+        path: ../../aresta_api
+        dest: aresta_api
+        skip:
+          - .git
+          - __pycache__
+          - "*.pyc"
+          - "*_test.py"
+      - type: dir
+        path: ../../scripts
+        dest: scripts
+        skip:
+          - __pycache__
+          - "*.pyc"
+          - "*_test.py"
+      - type: dir
+        path: ../../coleta_de_betas
+        dest: coleta_de_betas
+        skip:
+          - __pycache__
+          - "*.pyc"
+          - "*_test.py"
+      - type: dir
+        path: ../../migracoes
+        dest: migracoes
+        skip:
+          - __pycache__
+          - "*.pyc"
+          - "*_test.py"
       - type: file
         path: ../../uv.lock
       - type: file

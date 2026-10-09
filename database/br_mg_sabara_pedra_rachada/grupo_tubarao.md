@@ -1,6 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+uid: vTCuBTiO5Vxa50
 caminho_imagem_capa: imagens/setor_tubarao_p0_i0.webp
 nome: Tubarão
 mapas:
@@ -8,11 +9,11 @@ mapas:
   largura_mapa: 1099
   altura_mapa: 710
   referencias:
-  - escalada: Hindu
-    ids:
+  - alvo_uid: zv5NtIcIMYETqs
+    pontos_uids:
     - '38'
-  - escalada: Ganesh
-    ids:
+  - alvo_uid: bUiuIXOJiCIFRX
+    pontos_uids:
     - '39'
 setores:
 - caminho: grupo_tubarao_setor_bloco_a_fogos_de_venus.md

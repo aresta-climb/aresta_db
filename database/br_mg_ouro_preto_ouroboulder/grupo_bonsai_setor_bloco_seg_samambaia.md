@@ -1,71 +1,75 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+uid: fpzJyfVqzqymGz
 nome: 'Bloco: Seg-Samambaia'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_bonsai_setor_bloco_seg_samambaia_p0.webp
   largura_mapa: 2364
   altura_mapa: 1773
   pontos_de_interesse:
-  - id: 1A
-    label: A
+  - uid: eQpc6VdG3XOvjl
+    rotulo: A
     circulo:
       x: 295
       y: 685
       raio: 20
-  - id: 1B
-    label: B
+  - uid: faJjyMn6lUXKC5
+    rotulo: B
     circulo:
       x: 552
       y: 449
       raio: 20
-  - id: 1C
-    label: C
+  - uid: oGrDWnYBXuaYa6
+    rotulo: C
     circulo:
       x: 1151
       y: 321
       raio: 20
-  - id: 1D
-    label: D
+  - uid: LbZZscRzpKlkma
+    rotulo: D
     circulo:
       x: 1438
       y: 205
       raio: 20
-  - id: '1'
-    label: '1'
+  - uid: c8uBBzY6TrT4cp
+    rotulo: '1'
     circulo:
       x: 669
       y: 1469
       raio: 20
   referencias:
-  - escalada: Seg da Árvore
-    ids:
-    - 1A
-    - '1'
-  - escalada: Seg-Samambaia
-    ids:
-    - 1B
-    - '1'
-  - escalada: Seg dos Inferno
-    ids:
-    - 1C
-    - '1'
-  - escalada: Toca Toca
-    ids:
-    - 1D
-    - '1'
+  - alvo_uid: bXG38UbhImD9Zy
+    pontos_uids:
+    - eQpc6VdG3XOvjl
+    - c8uBBzY6TrT4cp
+  - alvo_uid: QGUdICUDrTgFwH
+    pontos_uids:
+    - faJjyMn6lUXKC5
+    - c8uBBzY6TrT4cp
+  - alvo_uid: LKdsUdeVDThXbw
+    pontos_uids:
+    - oGrDWnYBXuaYa6
+    - c8uBBzY6TrT4cp
+  - alvo_uid: z7cZnsQr9ktRSy
+    pontos_uids:
+    - LbZZscRzpKlkma
+    - c8uBBzY6TrT4cp
 escaladas:
-- boulder:
+- uid: bXG38UbhImD9Zy
+  boulder:
     nome: Seg da Árvore
     dificuldade: V2
-- boulder:
+- uid: QGUdICUDrTgFwH
+  boulder:
     nome: Seg-Samambaia
     dificuldade: V4
-- boulder:
+- uid: LKdsUdeVDThXbw
+  boulder:
     nome: Seg dos Inferno
     dificuldade: V6
-- boulder:
+- uid: z7cZnsQr9ktRSy
+  boulder:
     nome: Toca Toca
     dificuldade: V4
 ---
-

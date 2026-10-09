@@ -1,76 +1,82 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+uid: N1QXZxww2YK0Br
 nome: Mãos de Sebo
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_maos_de_sebo_p0.webp
   largura_mapa: 761
   altura_mapa: 544
   pontos_de_interesse:
-  - id: '1'
-    label: '1'
+  - uid: 02nusGUDAGv9mj
+    rotulo: '1'
     retangulo:
       x: 112
       y: 321
       comprimento: 33
       largura: 24
-  - id: '2'
-    label: '2'
+  - uid: RBSIhjZzSV764E
+    rotulo: '2'
     retangulo:
       x: 198
       y: 314
       comprimento: 33
       largura: 24
-  - id: '3'
-    label: '3'
+  - uid: lDDOSR9BqvoUAe
+    rotulo: '3'
     retangulo:
       x: 328
       y: 369
       comprimento: 33
       largura: 26
-  - id: '4'
-    label: '4'
+  - uid: y33H1MuJw1iVCg
+    rotulo: '4'
     retangulo:
       x: 565
       y: 488
       comprimento: 32
       largura: 25
-  - id: '5'
-    label: '5'
+  - uid: DC4HQdxHTMqzmJ
+    rotulo: '5'
     retangulo:
       x: 631
       y: 484
       comprimento: 32
       largura: 23
   referencias:
-  - escalada: (sem nome 21)
-    ids:
-    - '1'
-  - escalada: Mãos de Tesoura
-    ids:
-    - '2'
-  - escalada: Fei Long
-    ids:
-    - '3'
-  - escalada: Mãos de Sebo
-    ids:
-    - '4'
-  - escalada: Mãozinha
-    ids:
-    - '5'
+  - alvo_uid: u6SSnCtw6FriNe
+    pontos_uids:
+    - 02nusGUDAGv9mj
+  - alvo_uid: YlacXvVIpGthgE
+    pontos_uids:
+    - RBSIhjZzSV764E
+  - alvo_uid: C3j7d3dWLGpghr
+    pontos_uids:
+    - lDDOSR9BqvoUAe
+  - alvo_uid: FNrxuCo4zO4VWX
+    pontos_uids:
+    - y33H1MuJw1iVCg
+  - alvo_uid: P88zyEi41D5kBD
+    pontos_uids:
+    - DC4HQdxHTMqzmJ
 escaladas:
-- boulder:
+- uid: u6SSnCtw6FriNe
+  boulder:
     nome: (sem nome 21)
-- boulder:
+- uid: YlacXvVIpGthgE
+  boulder:
     nome: Mãos de Tesoura
     dificuldade: V4
-- boulder:
+- uid: C3j7d3dWLGpghr
+  boulder:
     nome: Fei Long
     dificuldade: V8
-- boulder:
+- uid: FNrxuCo4zO4VWX
+  boulder:
     nome: Mãos de Sebo
     dificuldade: V5
-- boulder:
+- uid: P88zyEi41D5kBD
+  boulder:
     nome: Mãozinha
     dificuldade: V2
 ---

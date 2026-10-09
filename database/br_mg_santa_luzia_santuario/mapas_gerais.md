@@ -6,35 +6,35 @@ mapas:
   largura_mapa: 2048
   altura_mapa: 1449
   pontos_de_interesse:
-  - id: Setor_Clube_Da_Luta
-    label: SETOR CLUBE DA LUTA
+  - uid: ZSB3lS9RAIdPPw
+    rotulo: SETOR CLUBE DA LUTA
     retangulo:
       x: 556
       y: 94
       comprimento: 360
       largura: 107
-  - id: Setor_Santa_Linea
-    label: SETOR SANTA LÍNEA
+  - uid: ZbofVl3bP6CxiQ
+    rotulo: SETOR SANTA LÍNEA
     retangulo:
       x: 1125
       y: 93
       comprimento: 300
       largura: 110
-  - id: Setor_Democracia
-    label: SETOR DEMOCRACIA
+  - uid: I5dOkhw56obS2G
+    rotulo: SETOR DEMOCRACIA
     retangulo:
       x: 1776
       y: 89
       comprimento: 327
       largura: 112
   referencias:
-  - setor: Setor Clube da Luta
-    ids:
-    - Setor_Clube_Da_Luta
-  - setor: Setor Santa Línea
-    ids:
-    - Setor_Santa_Linea
-  - setor: Setor Democracia
-    ids:
-    - Setor_Democracia
+  - alvo_uid: uyVmwHoHZTaJG4
+    pontos_uids:
+    - ZSB3lS9RAIdPPw
+  - alvo_uid: VKsk4hj1SNsgSN
+    pontos_uids:
+    - ZbofVl3bP6CxiQ
+  - alvo_uid: lvQcTGzk238Jom
+    pontos_uids:
+    - I5dOkhw56obS2G
 ---

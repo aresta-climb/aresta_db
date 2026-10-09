@@ -1,6 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+uid: 5IgNGk513d2HJe
 caminho_imagem_capa: imagens/grupo_tres_pontoes_p0_i3.webp
 nome: Três Pontões (CEMONTA)
 setores:

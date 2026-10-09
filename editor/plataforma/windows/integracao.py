@@ -197,6 +197,22 @@ class AdaptadorWindows(AdaptadorPlataforma):
         try:
             from keyring.backends import Windows
 
-            keyring.set_keyring(Windows.WinVaultKeyring())
+            keyring.set_keyring(Windows.WinVaultKeyring())  # type: ignore[no-untyped-call]
         except Exception:
             pass
+
+    def normalizar_caminho_estendido(self, caminho: Path | str) -> str:
+        """
+        No Windows, prefixa caminhos absolutos com \\?\\ para contornar o limite MAX_PATH de 260 caracteres.
+        Preserva caminhos já normalizados e suporta caminhos de rede UNC.
+        """
+        if not caminho:
+            return ""
+        caminho_str = str(caminho)
+        if caminho_str.startswith("\\\\?\\"):
+            return caminho_str
+
+        caminho_abs = str(Path(caminho).resolve())
+        if caminho_abs.startswith("\\\\"):
+            return f"\\\\?\\UNC\\{caminho_abs[2:]}"
+        return f"\\\\?\\{caminho_abs}"

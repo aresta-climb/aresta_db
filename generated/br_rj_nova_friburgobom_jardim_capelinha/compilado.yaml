@@ -1,20 +1,22 @@
+uid: VJpkI8Di29N8aZ
 id: br_rj_nova_friburgobom_jardim_capelinha
 nome: Capelinha
-ultima_migracao: 4
+ultima_migracao: 5
 picos:
 - nome: Capelinha
   estado: Rio de janeiro
   setores_ou_grupos:
   - setor:
       conteudo:
+        uid: KI4NlW8NWOaIIW
         nome: Setor principal
         mapas:
         - caminho_imagem_mapa: imagens/setor_capela_externa_p2.webp
           largura_mapa: 1773
           altura_mapa: 2364
           pontos_de_interesse:
-          - id: linha_17
-            label: ''
+          - uid: HKcTTfSfCuBwAD
+            rotulo: ''
             linha:
               estilo: SOLIDO
               espessura: 6
@@ -49,8 +51,10 @@ picos:
                   angulo_graus_x100: -7631
                   rotulo: A
             cor: '#FF1744'
-          - id: linha_18
+            id: HKcTTfSfCuBwAD
             label: ''
+          - uid: Haj68bmHLqo9sE
+            rotulo: ''
             linha:
               estilo: SOLIDO
               espessura: 6
@@ -82,8 +86,10 @@ picos:
                   angulo_graus_x100: -6680
                   rotulo: B
             cor: '#FF1744'
-          - id: linha_19
+            id: Haj68bmHLqo9sE
             label: ''
+          - uid: uDg1BD2NjpOCNh
+            rotulo: ''
             linha:
               estilo: SOLIDO
               espessura: 6
@@ -115,8 +121,10 @@ picos:
                   angulo_graus_x100: -9000
                   rotulo: C
             cor: '#FF1744'
-          - id: linha_20
+            id: uDg1BD2NjpOCNh
             label: ''
+          - uid: PH0TqGX93p27do
+            rotulo: ''
             linha:
               estilo: SOLIDO
               espessura: 6
@@ -145,8 +153,10 @@ picos:
                   angulo_graus_x100: -10843
                   rotulo: D
             cor: '#FF1744'
-          - id: linha_21
+            id: PH0TqGX93p27do
             label: ''
+          - uid: hzVQ3SKhonh9ZI
+            rotulo: ''
             linha:
               estilo: SOLIDO
               espessura: 6
@@ -174,8 +184,10 @@ picos:
                   angulo_graus_x100: -6908
                   rotulo: E
             cor: '#FF1744'
-          - id: linha_22
+            id: hzVQ3SKhonh9ZI
             label: ''
+          - uid: uqj1txFAToioS9
+            rotulo: ''
             linha:
               estilo: TRACEJADO
               espessura: 6
@@ -203,8 +215,10 @@ picos:
                   angulo_graus_x100: 18000
                   rotulo: F
             cor: '#00E676'
-          - id: linha_23
+            id: uqj1txFAToioS9
             label: ''
+          - uid: rVhvWUkENcaLp8
+            rotulo: ''
             linha:
               estilo: SOLIDO
               espessura: 6
@@ -232,8 +246,10 @@ picos:
                   angulo_graus_x100: -10404
                   rotulo: G
             cor: '#D500F9'
-          - id: linha_24
+            id: rVhvWUkENcaLp8
             label: ''
+          - uid: HKuNUmArh9pqBR
+            rotulo: ''
             linha:
               estilo: SOLIDO
               espessura: 6
@@ -262,8 +278,10 @@ picos:
                   angulo_graus_x100: -13500
                   rotulo: H
             cor: '#D500F9'
-          - id: linha_25
+            id: HKuNUmArh9pqBR
             label: ''
+          - uid: vSvd4vNFxHDE8D
+            rotulo: ''
             linha:
               estilo: SOLIDO
               espessura: 6
@@ -291,8 +309,10 @@ picos:
                   angulo_graus_x100: -7799
                   rotulo: H
             cor: '#FF1744'
-          - id: linha_28
+            id: vSvd4vNFxHDE8D
             label: ''
+          - uid: 5SVp53Mya7NpUL
+            rotulo: ''
             linha:
               estilo: SOLIDO
               espessura: 6
@@ -317,7 +337,9 @@ picos:
                   angulo_graus_x100: 0
                   rotulo: H
             cor: '#D500F9'
-          - id: linha_26
+            id: 5SVp53Mya7NpUL
+            label: ''
+          - uid: X54GH7M5dUNPTF
             linha:
               estilo: SOLIDO
               espessura: 6
@@ -344,7 +366,8 @@ picos:
                   angulo_graus_x100: -5464
                   rotulo: J
             cor: '#FF1744'
-          - id: linha_29
+            id: X54GH7M5dUNPTF
+          - uid: 1WRkXw11vm5M4a
             linha:
               estilo: SOLIDO
               espessura: 6
@@ -363,8 +386,9 @@ picos:
                   angulo_graus_x100: 0
                   rotulo: I
             cor: '#FF1744'
-          - id: linha_27
-            label: ''
+            id: 1WRkXw11vm5M4a
+          - uid: k4NGrnNmipXysx
+            rotulo: ''
             linha:
               estilo: TRACEJADO
               espessura: 6
@@ -393,8 +417,10 @@ picos:
                   angulo_graus_x100: 0
                   rotulo: J
             cor: '#00E676'
-          - id: linha_44
+            id: k4NGrnNmipXysx
             label: ''
+          - uid: GAoMOukSPLmz4L
+            rotulo: ''
             linha:
               estilo: SOLIDO
               espessura: 6
@@ -424,7 +450,9 @@ picos:
                   angulo_graus_x100: -8543
                   rotulo: K
             cor: '#FF1744'
-          - id: linha_16
+            id: GAoMOukSPLmz4L
+            label: ''
+          - uid: JsEzcfIYcwbNJB
             linha:
               estilo: SOLIDO
               espessura: 6
@@ -455,7 +483,8 @@ picos:
                   angulo_graus_x100: -10876
                   rotulo: '1'
             cor: '#FF1744'
-          - id: linha_43
+            id: JsEzcfIYcwbNJB
+          - uid: PXOqVuGcWNuXKk
             linha:
               estilo: SOLIDO
               espessura: 6
@@ -474,8 +503,9 @@ picos:
                   angulo_graus_x100: -7489
                   rotulo: A
             cor: '#FF1744'
-          - id: linha_15
-            label: ''
+            id: PXOqVuGcWNuXKk
+          - uid: 3Ft0gIajOpwd6G
+            rotulo: ''
             linha:
               estilo: SOLIDO
               espessura: 6
@@ -503,66 +533,121 @@ picos:
                   angulo_graus_x100: -5938
                   rotulo: G
             cor: '#D500F9'
+            id: 3Ft0gIajOpwd6G
+            label: ''
           referencias:
-          - escalada: Misericórdia
+          - alvo_uid: cR9vug3lhKEZ1s
+            pontos_uids:
+            - HKcTTfSfCuBwAD
+            escalada: Misericórdia
             ids:
-            - linha_17
-          - ids:
-            - linha_18
+            - HKcTTfSfCuBwAD
+          - alvo_uid: EGBbnsf5w525IM
+            pontos_uids:
+            - Haj68bmHLqo9sE
             escalada: Excomungado
-          - ids:
-            - linha_19
+            ids:
+            - Haj68bmHLqo9sE
+          - alvo_uid: o1EX8168cyvAmv
+            pontos_uids:
+            - uDg1BD2NjpOCNh
             escalada: Crisma
-          - ids:
-            - linha_20
+            ids:
+            - uDg1BD2NjpOCNh
+          - alvo_uid: MOxqASBLS8QHbK
+            pontos_uids:
+            - PH0TqGX93p27do
             escalada: Primeira Comunhão
-          - ids:
-            - linha_21
+            ids:
+            - PH0TqGX93p27do
+          - alvo_uid: hdecePrG3R8YaC
+            pontos_uids:
+            - hzVQ3SKhonh9ZI
             escalada: Tribunal da inquisição
-          - ids:
-            - linha_22
+            ids:
+            - hzVQ3SKhonh9ZI
+          - alvo_uid: FnHzOhpeTEn2sT
+            pontos_uids:
+            - uqj1txFAToioS9
             escalada: Proj
-          - ids:
-            - linha_18
-            - linha_23
+            ids:
+            - uqj1txFAToioS9
+          - alvo_uid: GRVzMUDrcZ39wf
+            pontos_uids:
+            - Haj68bmHLqo9sE
+            - rVhvWUkENcaLp8
             escalada: Extensão Piedade
-          - ids:
-            - linha_24
-            - linha_18
+            ids:
+            - Haj68bmHLqo9sE
+            - rVhvWUkENcaLp8
+          - alvo_uid: hLsVIdZKQ9VeUJ
+            pontos_uids:
+            - HKuNUmArh9pqBR
+            - Haj68bmHLqo9sE
             escalada: Extensão Penitência
-          - ids:
-            - linha_25
+            ids:
+            - HKuNUmArh9pqBR
+            - Haj68bmHLqo9sE
+          - alvo_uid: cHn90YpbxXqQRF
+            pontos_uids:
+            - vSvd4vNFxHDE8D
             escalada: Chama Jesus
-          - ids:
-            - linha_26
-            - linha_29
+            ids:
+            - vSvd4vNFxHDE8D
+          - alvo_uid: wodKaOmLPIbirQ
+            pontos_uids:
+            - X54GH7M5dUNPTF
+            - 1WRkXw11vm5M4a
             escalada: Variante Santo do Pau Oco
-          - ids:
-            - linha_28
-            - linha_26
-            - linha_29
+            ids:
+            - X54GH7M5dUNPTF
+            - 1WRkXw11vm5M4a
+          - alvo_uid: nhC5JJljtzD0LB
+            pontos_uids:
+            - 5SVp53Mya7NpUL
+            - X54GH7M5dUNPTF
+            - 1WRkXw11vm5M4a
             escalada: Variante Santo do Pau Oco (extensão)
-          - ids:
-            - linha_27
-            - linha_26
+            ids:
+            - 5SVp53Mya7NpUL
+            - X54GH7M5dUNPTF
+            - 1WRkXw11vm5M4a
+          - alvo_uid: 8iXm4ulWkfmMAq
+            pontos_uids:
+            - k4NGrnNmipXysx
+            - X54GH7M5dUNPTF
             escalada: Projeto Aresta
-          - ids:
-            - linha_44
+            ids:
+            - k4NGrnNmipXysx
+            - X54GH7M5dUNPTF
+          - alvo_uid: ORxLpEqaVr3jtN
+            pontos_uids:
+            - GAoMOukSPLmz4L
             escalada: Missionárias do Além
-          - ids:
-            - linha_16
-            - linha_43
+            ids:
+            - GAoMOukSPLmz4L
+          - alvo_uid: B6jTijHVv9N5CR
+            pontos_uids:
+            - JsEzcfIYcwbNJB
+            - PXOqVuGcWNuXKk
             escalada: Água Benta
-          - ids:
-            - linha_15
-            - linha_16
+            ids:
+            - JsEzcfIYcwbNJB
+            - PXOqVuGcWNuXKk
+          - alvo_uid: hEAxAy5uZ9BnoK
+            pontos_uids:
+            - 3Ft0gIajOpwd6G
+            - JsEzcfIYcwbNJB
             escalada: Variante Água Ardente
+            ids:
+            - 3Ft0gIajOpwd6G
+            - JsEzcfIYcwbNJB
         - caminho_imagem_mapa: imagens/setor_capelinha_visaoexterna_p3.webp
           largura_mapa: 1773
           altura_mapa: 2364
           pontos_de_interesse:
-          - id: linha_32
-            label: ''
+          - uid: B45PhzG03QuJXF
+            rotulo: ''
             linha:
               estilo: SOLIDO
               espessura: 6
@@ -587,8 +672,10 @@ picos:
                   angulo_graus_x100: -8138
                   rotulo: A
             cor: '#FF1744'
-          - id: linha_36
+            id: B45PhzG03QuJXF
             label: ''
+          - uid: XlnITQxCQgLjDv
+            rotulo: ''
             linha:
               estilo: SOLIDO
               espessura: 6
@@ -618,8 +705,10 @@ picos:
                   angulo_graus_x100: -9427
                   rotulo: B
             cor: '#FF1744'
-          - id: linha_37
+            id: XlnITQxCQgLjDv
             label: ''
+          - uid: G6mRccML2Z73nu
+            rotulo: ''
             linha:
               estilo: SOLIDO
               espessura: 6
@@ -652,8 +741,10 @@ picos:
                   angulo_graus_x100: -9813
                   rotulo: C
             cor: '#FF1744'
-          - id: linha_39
+            id: G6mRccML2Z73nu
             label: ''
+          - uid: NX6DKHm096RWBd
+            rotulo: ''
             linha:
               estilo: SOLIDO
               espessura: 6
@@ -678,7 +769,9 @@ picos:
                   angulo_graus_x100: 0
                   rotulo: H
             cor: '#FF1744'
-          - id: linha_40
+            id: NX6DKHm096RWBd
+            label: ''
+          - uid: kzcqTarOsXPxzo
             linha:
               estilo: SOLIDO
               espessura: 6
@@ -708,7 +801,8 @@ picos:
                   angulo_graus_x100: -5824
                   rotulo: E
             cor: '#FF1744'
-          - id: linha_41
+            id: kzcqTarOsXPxzo
+          - uid: UQHpleJDF5CDwC
             linha:
               estilo: SOLIDO
               espessura: 6
@@ -728,8 +822,9 @@ picos:
                   angulo_graus_x100: -12411
                   rotulo: D
             cor: '#FF1744'
-          - id: linha_38
-            label: ''
+            id: UQHpleJDF5CDwC
+          - uid: wWLCQvWCblD9dh
+            rotulo: ''
             linha:
               estilo: SOLIDO
               espessura: 6
@@ -758,8 +853,10 @@ picos:
                   angulo_graus_x100: -12488
                   rotulo: J
             cor: '#00E676'
-          - id: linha_34
+            id: wWLCQvWCblD9dh
             label: ''
+          - uid: 4Q8xvk1w6CLgo3
+            rotulo: ''
             linha:
               estilo: SOLIDO
               espessura: 6
@@ -787,8 +884,10 @@ picos:
                   angulo_graus_x100: -7443
                   rotulo: F
             cor: '#D500F9'
-          - id: linha_35
+            id: 4Q8xvk1w6CLgo3
             label: ''
+          - uid: mb9U43cT2tDl9a
+            rotulo: ''
             linha:
               estilo: SOLIDO
               espessura: 6
@@ -816,8 +915,10 @@ picos:
                   angulo_graus_x100: 0
                   rotulo: G
             cor: '#D500F9'
-          - id: linha_31
+            id: mb9U43cT2tDl9a
             label: ''
+          - uid: 850d9gyea4InJj
+            rotulo: ''
             linha:
               estilo: SOLIDO
               espessura: 6
@@ -845,7 +946,9 @@ picos:
                   angulo_graus_x100: -10102
                   rotulo: H
             cor: '#FF1744'
-          - id: linha_33
+            id: 850d9gyea4InJj
+            label: ''
+          - uid: plxP2gxYJeqgU7
             linha:
               estilo: SOLIDO
               espessura: 6
@@ -866,7 +969,8 @@ picos:
                   angulo_graus_x100: -7730
                   rotulo: '1'
             cor: '#FF1744'
-          - id: linha_42
+            id: plxP2gxYJeqgU7
+          - uid: KLljRokkU6g4fO
             linha:
               estilo: SOLIDO
               espessura: 6
@@ -886,8 +990,9 @@ picos:
                   angulo_graus_x100: -8610
                   rotulo: H
             cor: '#FF1744'
-          - id: linha_30
-            label: ''
+            id: KLljRokkU6g4fO
+          - uid: HVxNzRp5mAUbbp
+            rotulo: ''
             linha:
               estilo: SOLIDO
               espessura: 6
@@ -914,52 +1019,93 @@ picos:
                   angulo_graus_x100: -4347
                   rotulo: G
             cor: '#D500F9'
+            id: HVxNzRp5mAUbbp
+            label: ''
           referencias:
-          - ids:
-            - linha_32
+          - alvo_uid: EGBbnsf5w525IM
+            pontos_uids:
+            - B45PhzG03QuJXF
             escalada: Excomungado
-          - ids:
-            - linha_36
+            ids:
+            - B45PhzG03QuJXF
+          - alvo_uid: cHn90YpbxXqQRF
+            pontos_uids:
+            - XlnITQxCQgLjDv
             escalada: Chama Jesus
-          - ids:
-            - linha_37
+            ids:
+            - XlnITQxCQgLjDv
+          - alvo_uid: ORxLpEqaVr3jtN
+            pontos_uids:
+            - G6mRccML2Z73nu
             escalada: Missionárias do Além
-          - ids:
-            - linha_40
-            - linha_41
+            ids:
+            - G6mRccML2Z73nu
+          - alvo_uid: wodKaOmLPIbirQ
+            pontos_uids:
+            - kzcqTarOsXPxzo
+            - UQHpleJDF5CDwC
             escalada: Variante Santo do Pau Oco
-          - ids:
-            - linha_39
-            - linha_40
-            - linha_41
+            ids:
+            - kzcqTarOsXPxzo
+            - UQHpleJDF5CDwC
+          - alvo_uid: nhC5JJljtzD0LB
+            pontos_uids:
+            - NX6DKHm096RWBd
+            - kzcqTarOsXPxzo
+            - UQHpleJDF5CDwC
             escalada: Variante Santo do Pau Oco (extensão)
-          - ids:
-            - linha_38
-            - linha_40
+            ids:
+            - NX6DKHm096RWBd
+            - kzcqTarOsXPxzo
+            - UQHpleJDF5CDwC
+          - alvo_uid: 8iXm4ulWkfmMAq
+            pontos_uids:
+            - wWLCQvWCblD9dh
+            - kzcqTarOsXPxzo
             escalada: Projeto Aresta
-          - ids:
-            - linha_34
+            ids:
+            - wWLCQvWCblD9dh
+            - kzcqTarOsXPxzo
+          - alvo_uid: hLsVIdZKQ9VeUJ
+            pontos_uids:
+            - 4Q8xvk1w6CLgo3
             escalada: Extensão Penitência
-          - ids:
-            - linha_35
+            ids:
+            - 4Q8xvk1w6CLgo3
+          - alvo_uid: GRVzMUDrcZ39wf
+            pontos_uids:
+            - mb9U43cT2tDl9a
             escalada: Extensão Piedade
-          - ids:
-            - linha_33
-            - linha_42
+            ids:
+            - mb9U43cT2tDl9a
+          - alvo_uid: B6jTijHVv9N5CR
+            pontos_uids:
+            - plxP2gxYJeqgU7
+            - KLljRokkU6g4fO
             escalada: Água Benta
-          - ids:
-            - linha_31
+            ids:
+            - plxP2gxYJeqgU7
+            - KLljRokkU6g4fO
+          - alvo_uid: cR9vug3lhKEZ1s
+            pontos_uids:
+            - 850d9gyea4InJj
             escalada: Misericórdia
-          - ids:
-            - linha_30
-            - linha_33
+            ids:
+            - 850d9gyea4InJj
+          - alvo_uid: hEAxAy5uZ9BnoK
+            pontos_uids:
+            - HVxNzRp5mAUbbp
+            - plxP2gxYJeqgU7
             escalada: Variante Água Ardente
+            ids:
+            - HVxNzRp5mAUbbp
+            - plxP2gxYJeqgU7
         - caminho_imagem_mapa: imagens/setor_baixo_visao_externa_p0.webp
           largura_mapa: 1773
           altura_mapa: 2364
           pontos_de_interesse:
-          - id: linha_1
-            label: ''
+          - uid: NiIsHRRPKiYuzj
+            rotulo: ''
             linha:
               estilo: SOLIDO
               espessura: 6
@@ -993,8 +1139,10 @@ picos:
                   angulo_graus_x100: -4921
                   rotulo: A
             cor: '#FF1744'
-          - id: linha_2
+            id: NiIsHRRPKiYuzj
             label: ''
+          - uid: T3u9i5FeZQBJ4F
+            rotulo: ''
             linha:
               estilo: SOLIDO
               espessura: 6
@@ -1026,8 +1174,10 @@ picos:
                   angulo_graus_x100: -7157
                   rotulo: A
             cor: '#FF1744'
-          - id: linha_3
+            id: T3u9i5FeZQBJ4F
             label: ''
+          - uid: xd5CMVY4Y4VO9D
+            rotulo: ''
             linha:
               estilo: SOLIDO
               espessura: 6
@@ -1058,8 +1208,10 @@ picos:
                   angulo_graus_x100: -7094
                   rotulo: B
             cor: '#FF1744'
-          - id: linha_4
+            id: xd5CMVY4Y4VO9D
             label: ''
+          - uid: 5w7VrWdqJXmPjz
+            rotulo: ''
             linha:
               estilo: SOLIDO
               espessura: 6
@@ -1093,8 +1245,10 @@ picos:
                   angulo_graus_x100: -7038
                   rotulo: C
             cor: '#FF1744'
-          - id: linha_5
+            id: 5w7VrWdqJXmPjz
             label: ''
+          - uid: RxNpEP6K79R4H4
+            rotulo: ''
             linha:
               estilo: SOLIDO
               espessura: 6
@@ -1124,8 +1278,10 @@ picos:
                   angulo_graus_x100: -4538
                   rotulo: D
             cor: '#FF1744'
-          - id: linha_6
+            id: RxNpEP6K79R4H4
             label: ''
+          - uid: ncR8xmuvwRxMm6
+            rotulo: ''
             linha:
               estilo: SOLIDO
               espessura: 6
@@ -1155,8 +1311,10 @@ picos:
                   angulo_graus_x100: -9000
                   rotulo: E
             cor: '#FF1744'
-          - id: linha_7
+            id: ncR8xmuvwRxMm6
             label: ''
+          - uid: 8R1VaFw2Slbge6
+            rotulo: ''
             linha:
               estilo: TRACEJADO
               espessura: 6
@@ -1183,34 +1341,57 @@ picos:
                   angulo_graus_x100: -7265
                   rotulo: F
             cor: '#00E676'
+            id: 8R1VaFw2Slbge6
+            label: ''
           referencias:
-          - ids:
-            - linha_1
+          - alvo_uid: B6jTijHVv9N5CR
+            pontos_uids:
+            - NiIsHRRPKiYuzj
             escalada: Água Benta
-          - ids:
-            - linha_2
+            ids:
+            - NiIsHRRPKiYuzj
+          - alvo_uid: cR9vug3lhKEZ1s
+            pontos_uids:
+            - T3u9i5FeZQBJ4F
             escalada: Misericórdia
-          - ids:
-            - linha_3
+            ids:
+            - T3u9i5FeZQBJ4F
+          - alvo_uid: EGBbnsf5w525IM
+            pontos_uids:
+            - xd5CMVY4Y4VO9D
             escalada: Excomungado
-          - ids:
-            - linha_4
+            ids:
+            - xd5CMVY4Y4VO9D
+          - alvo_uid: o1EX8168cyvAmv
+            pontos_uids:
+            - 5w7VrWdqJXmPjz
             escalada: Crisma
-          - ids:
-            - linha_5
+            ids:
+            - 5w7VrWdqJXmPjz
+          - alvo_uid: MOxqASBLS8QHbK
+            pontos_uids:
+            - RxNpEP6K79R4H4
             escalada: Primeira Comunhão
-          - ids:
-            - linha_6
+            ids:
+            - RxNpEP6K79R4H4
+          - alvo_uid: hdecePrG3R8YaC
+            pontos_uids:
+            - ncR8xmuvwRxMm6
             escalada: Tribunal da inquisição
-          - ids:
-            - linha_7
+            ids:
+            - ncR8xmuvwRxMm6
+          - alvo_uid: FnHzOhpeTEn2sT
+            pontos_uids:
+            - 8R1VaFw2Slbge6
             escalada: Proj
+            ids:
+            - 8R1VaFw2Slbge6
         - caminho_imagem_mapa: imagens/setor_capela_interna_p1.webp
           largura_mapa: 2364
           altura_mapa: 1773
           pontos_de_interesse:
-          - id: linha_8
-            label: ''
+          - uid: kP03Bpe6KoiD9b
+            rotulo: ''
             linha:
               estilo: SOLIDO
               espessura: 6
@@ -1239,8 +1420,10 @@ picos:
                   angulo_graus_x100: -9000
                   rotulo: A
             cor: '#FF1744'
-          - id: linha_9
+            id: kP03Bpe6KoiD9b
             label: ''
+          - uid: 80JRNB4qw0K3aR
+            rotulo: ''
             linha:
               estilo: SOLIDO
               espessura: 6
@@ -1271,8 +1454,10 @@ picos:
                   angulo_graus_x100: -4500
                   rotulo: B
             cor: '#FF1744'
-          - id: linha_10
+            id: 80JRNB4qw0K3aR
             label: ''
+          - uid: NECWHfHXmMLoyq
+            rotulo: ''
             linha:
               estilo: SOLIDO
               espessura: 6
@@ -1301,8 +1486,10 @@ picos:
                   angulo_graus_x100: -9000
                   rotulo: C
             cor: '#FF1744'
-          - id: linha_11
+            id: NECWHfHXmMLoyq
             label: ''
+          - uid: HtzmNCKPNc4Vzc
+            rotulo: ''
             linha:
               estilo: SOLIDO
               espessura: 6
@@ -1334,7 +1521,10 @@ picos:
                   angulo_graus_x100: 0
                   rotulo: D
             cor: '#FF1744'
-          - id: linha_12
+            id: HtzmNCKPNc4Vzc
+            label: ''
+          - uid: VkgAULn9wfezPW
+            rotulo: ''
             linha:
               estilo: SOLIDO
               espessura: 6
@@ -1364,8 +1554,10 @@ picos:
                   angulo_graus_x100: -9000
                   rotulo: E
             cor: '#FF1744'
+            id: VkgAULn9wfezPW
             label: ''
-          - id: linha_13
+          - uid: zEd2TPMuHBRPzV
+            rotulo: ''
             linha:
               estilo: SOLIDO
               espessura: 6
@@ -1395,9 +1587,10 @@ picos:
                   angulo_graus_x100: -15343
                   rotulo: F
             cor: '#FF1744'
+            id: zEd2TPMuHBRPzV
             label: ''
-          - id: linha_14
-            label: ''
+          - uid: JhsoqmZMDlGfra
+            rotulo: ''
             linha:
               estilo: TRACEJADO
               espessura: 6
@@ -1425,30 +1618,54 @@ picos:
                   angulo_graus_x100: -13500
                   rotulo: G
             cor: '#00E676'
+            id: JhsoqmZMDlGfra
+            label: ''
           referencias:
-          - ids:
-            - linha_8
+          - alvo_uid: B6jTijHVv9N5CR
+            pontos_uids:
+            - kP03Bpe6KoiD9b
             escalada: Água Benta
-          - ids:
-            - linha_9
+            ids:
+            - kP03Bpe6KoiD9b
+          - alvo_uid: cR9vug3lhKEZ1s
+            pontos_uids:
+            - 80JRNB4qw0K3aR
             escalada: Misericórdia
-          - ids:
-            - linha_10
+            ids:
+            - 80JRNB4qw0K3aR
+          - alvo_uid: EGBbnsf5w525IM
+            pontos_uids:
+            - NECWHfHXmMLoyq
             escalada: Excomungado
-          - ids:
-            - linha_11
+            ids:
+            - NECWHfHXmMLoyq
+          - alvo_uid: o1EX8168cyvAmv
+            pontos_uids:
+            - HtzmNCKPNc4Vzc
             escalada: Crisma
-          - ids:
-            - linha_12
+            ids:
+            - HtzmNCKPNc4Vzc
+          - alvo_uid: MOxqASBLS8QHbK
+            pontos_uids:
+            - VkgAULn9wfezPW
             escalada: Primeira Comunhão
-          - ids:
-            - linha_13
+            ids:
+            - VkgAULn9wfezPW
+          - alvo_uid: hdecePrG3R8YaC
+            pontos_uids:
+            - zEd2TPMuHBRPzV
             escalada: Tribunal da inquisição
-          - ids:
-            - linha_14
+            ids:
+            - zEd2TPMuHBRPzV
+          - alvo_uid: FnHzOhpeTEn2sT
+            pontos_uids:
+            - JhsoqmZMDlGfra
             escalada: Proj
+            ids:
+            - JhsoqmZMDlGfra
         escaladas:
-        - via_esportiva:
+        - uid: B6jTijHVv9N5CR
+          via_esportiva:
             nome: Água Benta
             dificuldade: BR_8B
             tipo_parede: NEGATIVO
@@ -1456,50 +1673,58 @@ picos:
             quantidade_protecoes_parada: 2
             extensao: 0
             descricao: Saindo de cima da mureta, a via é graduada como 8a
-        - via_esportiva:
+        - uid: cR9vug3lhKEZ1s
+          via_esportiva:
             nome: Misericórdia
             dificuldade: BR_9A
             quantidade_protecoes_parada: 2
             tipo_parede: NEGATIVO
             quantidade_protecoes_intermediarias: 6
-        - via_esportiva:
+        - uid: EGBbnsf5w525IM
+          via_esportiva:
             nome: Excomungado
             dificuldade: BR_8B
             quantidade_protecoes_intermediarias: 6
             quantidade_protecoes_parada: 2
             tipo_parede: NEGATIVO
-        - via_esportiva:
+        - uid: o1EX8168cyvAmv
+          via_esportiva:
             nome: Crisma
             dificuldade: BR_7A
             tipo_parede: NEGATIVO
             extensao: 0
             quantidade_protecoes_intermediarias: 3
             quantidade_protecoes_parada: 2
-        - via_esportiva:
+        - uid: MOxqASBLS8QHbK
+          via_esportiva:
             nome: Primeira Comunhão
             dificuldade: BR_7A
             tipo_parede: NEGATIVO
             quantidade_protecoes_intermediarias: 4
             quantidade_protecoes_parada: 2
-        - via_esportiva:
+        - uid: hdecePrG3R8YaC
+          via_esportiva:
             nome: Tribunal da inquisição
             dificuldade: BR_8A_BARRA_8B
             quantidade_protecoes_intermediarias: 3
             quantidade_protecoes_parada: 2
             tipo_parede: NEGATIVO
-        - via_esportiva:
+        - uid: FnHzOhpeTEn2sT
+          via_esportiva:
             nome: Proj
             tipo_parede: NEGATIVO
             quantidade_protecoes_intermediarias: 3
             quantidade_protecoes_parada: 2
-        - via_esportiva:
+        - uid: hEAxAy5uZ9BnoK
+          via_esportiva:
             nome: Variante Água Ardente
             dificuldade: BR_10A
             tipo_parede: NEGATIVO
             quantidade_protecoes_intermediarias: 10
             quantidade_protecoes_parada: 2
             descricao: A partir da penúltima proteção da Água Benta sair para a esquerda.
-        - via_esportiva:
+        - uid: GRVzMUDrcZ39wf
+          via_esportiva:
             nome: Extensão Piedade
             dificuldade: BR_9B
             tipo_parede: NEGATIVO
@@ -1507,7 +1732,8 @@ picos:
             quantidade_protecoes_parada: 2
             descricao: A partir da parada da Excomungado seguir nas proteções para
               a esquerda.
-        - via_esportiva:
+        - uid: hLsVIdZKQ9VeUJ
+          via_esportiva:
             nome: Extensão Penitência
             dificuldade: BR_9B
             tipo_parede: NEGATIVO
@@ -1515,7 +1741,8 @@ picos:
             quantidade_protecoes_parada: 2
             descricao: A partir da parada da Excomungado seguir nas proteções para
               a direita.
-        - via_esportiva:
+        - uid: cHn90YpbxXqQRF
+          via_esportiva:
             nome: Chama Jesus
             dificuldade: BR_8A
             tipo_parede: NEGATIVO
@@ -1523,7 +1750,8 @@ picos:
             quantidade_protecoes_parada: 2
             descricao: "### IMPORTANTE \n#### Segurança usar capacete!!!\n\nGrau sugerido\
               \ saindo da segunda proteção."
-        - via_esportiva:
+        - uid: ORxLpEqaVr3jtN
+          via_esportiva:
             nome: Missionárias do Além
             descricao: "### IMPORTANTE \n#### Segurança usar capacete!!!\n\n- Melhor\
               \ sair com segunda proteção clipada.\n- Existe um ponto de ancoragem\
@@ -1532,7 +1760,8 @@ picos:
             quantidade_protecoes_intermediarias: 9
             quantidade_protecoes_parada: 2
             dificuldade: BR_9A
-        - via_esportiva:
+        - uid: wodKaOmLPIbirQ
+          via_esportiva:
             nome: Variante Santo do Pau Oco
             descricao: "### IMPORTANTE \n#### Segurança usar capacete!!!\n\n- Melhor\
               \ sair com segunda proteção clipada.\n- Existe um ponto de ancoragem\
@@ -1541,14 +1770,16 @@ picos:
             tipo_parede: NEGATIVO
             quantidade_protecoes_intermediarias: 7
             quantidade_protecoes_parada: 2
-        - via_esportiva:
+        - uid: 8iXm4ulWkfmMAq
+          via_esportiva:
             nome: Projeto Aresta
             descricao: "### IMPORTANTE \n#### Segurança usar capacete!!!\n\n- Melhor\
               \ sair com segunda proteção clipada.\n- Existe um ponto de ancoragem\
               \ para o seg na pedra que fica na base da via."
             tipo_parede: NEGATIVO
             quantidade_protecoes_intermediarias: 18
-        - via_esportiva:
+        - uid: nhC5JJljtzD0LB
+          via_esportiva:
             nome: Variante Santo do Pau Oco (extensão)
             descricao: "### IMPORTANTE \n#### Segurança usar capacete!!!\n\n- Melhor\
               \ sair com segunda proteção clipada.\n- Existe um ponto de ancoragem\
@@ -1589,7 +1820,8 @@ descricao: Setor Capelinha localizado entre os municipios de Nova Friburgo e Bom
   /RJ
 caminho_thumbnail: imagens/thumbnail.webp
 botoes:
-- texto: Recomendações
+- uid: Z4VnEWSooZWKq6
+  texto: Recomendações
   destino:
     secao_textual:
       conteudo: |-
@@ -1602,11 +1834,13 @@ botoes:
         - Os moradores locais são bastante receptivos com os escaladores, sejam gentis com eles.
 
         - A trilha para a entrada do setor fica em uma porteira de arame, ao passar por baixo da porteira, pegue a trilha para a direita junto a cerca.
-- texto: Como chegar
+- uid: CIgnz3LJQNYA5u
+  texto: Como chegar
   destino:
     secao_textual:
       conteudo: '[Localização Google Maps](https://www.google.com/maps/place/22%C2%B013''43.3%22S+42%C2%B025''26.0%22W/@-22.228703,-42.423876,807m/data=!3m2!1e3!4b1!4m4!3m3!8m2!3d-22.228703!4d-42.423876!18m1!1e1?entry=ttu&g_ep=EgoyMDI2MDkyMC4wIKXMDSoASAFQAw%3D%3D)'
-- texto: Informações úteis
+- uid: 5ce5v8OCqIbJFo
+  texto: Informações úteis
   destino:
     secao_textual:
       conteudo: |-
@@ -1615,7 +1849,8 @@ botoes:
 
         Em dias de chuva fraca da para escalar sem problemas, só molha quando chove bem forte.
         As vias secam bem rápido também após chuvas.
-- texto: Comunidade
+- uid: A99FtoPDDEpd1l
+  texto: Comunidade
   destino:
     secao_textual:
       conteudo: '[Instagram @friburgo_climb](https://www.instagram.com/friburgo_climb?stkn=OHFmZnN4c2h5cmlt)'

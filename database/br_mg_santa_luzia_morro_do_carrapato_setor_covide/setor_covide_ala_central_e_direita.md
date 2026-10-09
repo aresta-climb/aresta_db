@@ -1,6 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+uid: GtpoqLoMt4oDFF
 nome: Setor Covide (ala central e direita)
 localizacao_estacionamento:
   latitude: -197584200
@@ -13,126 +14,127 @@ mapas:
   largura_mapa: 1046
   altura_mapa: 1536
   pontos_de_interesse:
-  - id: '14'
-    label: '14'
+  - uid: kDbpBcb35XUyTm
+    rotulo: '14'
     circulo:
       x: 654
       y: 609
       raio: 30
-  - id: '15'
-    label: '15'
+  - uid: i5HVfzCZFwnT7H
+    rotulo: '15'
     circulo:
       x: 793
       y: 566
       raio: 30
-  - id: '16'
-    label: '16'
+  - uid: Ye7H0aTKrXNmp1
+    rotulo: '16'
     circulo:
       x: 901
       y: 573
       raio: 30
-  - id: '17'
-    label: '17'
+  - uid: BtOV3htU9YI64Q
+    rotulo: '17'
     circulo:
       x: 1004
       y: 581
       raio: 30
-  - id: '18'
-    label: '18'
+  - uid: NiLoRq4Oa6qDso
+    rotulo: '18'
     circulo:
       x: 1116
       y: 477
       raio: 29
-  - id: '19'
-    label: '19'
+  - uid: Up0vEx1DoJr7fR
+    rotulo: '19'
     circulo:
       x: 1216
       y: 550
       raio: 29
-  - id: '20'
-    label: '20'
+  - uid: R5ThNGazanrRGU
+    rotulo: '20'
     circulo:
       x: 1280
       y: 562
       raio: 29
-  - id: '21'
-    label: '21'
+  - uid: 5D97bmKsNttJXR
+    rotulo: '21'
     circulo:
       x: 1332
       y: 595
       raio: 29
-  - id: '22'
-    label: '22'
+  - uid: CAQMwEWch7OrFy
+    rotulo: '22'
     circulo:
       x: 1418
       y: 551
       raio: 29
-  - id: '23'
-    label: '23'
+  - uid: FrA0UcVil8KttF
+    rotulo: '23'
     circulo:
       x: 1490
       y: 552
       raio: 29
-  - id: '24'
-    label: '24'
+  - uid: CKT1Ggx6t4y3VI
+    rotulo: '24'
     circulo:
       x: 1548
       y: 549
       raio: 29
-  - id: '25'
-    label: '25'
+  - uid: 7bDY5NmGif4KOy
+    rotulo: '25'
     circulo:
       x: 1606
       y: 562
       raio: 29
-  - id: '26'
-    label: '26'
+  - uid: Po13CwMKqTLo35
+    rotulo: '26'
     circulo:
       x: 1665
       y: 569
       raio: 29
   referencias:
-  - escalada: Cepadedos
-    ids:
-    - '14'
-  - escalada: Cepalangos
-    ids:
-    - '15'
-  - escalada: Cepacol
-    ids:
-    - '16'
-  - escalada: Deltazin
-    ids:
-    - '17'
-  - escalada: Ignorância do Deltacron
-    ids:
-    - '18'
-  - escalada: Covidenhoca
-    ids:
-    - '19'
-  - escalada: B1B2
-    ids:
-    - '20'
-  - escalada: Oxforte
-    ids:
-    - '21'
-  - escalada: Arco do delta
-    ids:
-    - '22'
-  - escalada: Sequela virótica
-    ids:
-    - '23'
-  - escalada: Carga viral
-    ids:
-    - '24'
-  - escalada: Sou T.I.
-    ids:
-    - '25'
-  - escalada: Antígeno
-    ids:
-    - '26'
+  - alvo_uid: sZ3Bp7wmJUZY1y
+    pontos_uids:
+    - kDbpBcb35XUyTm
+  - alvo_uid: vaJhlFed8TUyAw
+    pontos_uids:
+    - i5HVfzCZFwnT7H
+  - alvo_uid: E7OPzgL63pG512
+    pontos_uids:
+    - Ye7H0aTKrXNmp1
+  - alvo_uid: hNPRfDitG1UTj0
+    pontos_uids:
+    - BtOV3htU9YI64Q
+  - alvo_uid: di95uVia0Iwhqh
+    pontos_uids:
+    - NiLoRq4Oa6qDso
+  - alvo_uid: exaLkZFUN0Lsd8
+    pontos_uids:
+    - Up0vEx1DoJr7fR
+  - alvo_uid: HLfsMtPSZOeInR
+    pontos_uids:
+    - R5ThNGazanrRGU
+  - alvo_uid: F2CxOUwmyooHLV
+    pontos_uids:
+    - 5D97bmKsNttJXR
+  - alvo_uid: 7IJ57Hzf0hDyWZ
+    pontos_uids:
+    - CAQMwEWch7OrFy
+  - alvo_uid: KPp695ud4QtKZc
+    pontos_uids:
+    - FrA0UcVil8KttF
+  - alvo_uid: Uh5mq46IClk0f3
+    pontos_uids:
+    - CKT1Ggx6t4y3VI
+  - alvo_uid: RZ0TO1rrIaNvey
+    pontos_uids:
+    - 7bDY5NmGif4KOy
+  - alvo_uid: b7rAolDIaWVZkg
+    pontos_uids:
+    - Po13CwMKqTLo35
 escaladas:
-- via_esportiva:
+- uid: sZ3Bp7wmJUZY1y
+  via_esportiva:
     nome: Cepadedos
     dificuldade: BR_7B
     extensao: 10
@@ -150,7 +152,8 @@ escaladas:
   - caminho_imagem_mapa: imagens/setor_covide_ala_central_e_direita_p2.webp
     largura_mapa: 825
     altura_mapa: 1211
-- via_esportiva:
+- uid: vaJhlFed8TUyAw
+  via_esportiva:
     nome: Cepalangos
     dificuldade: BR_7A
     extensao: 12
@@ -171,7 +174,8 @@ escaladas:
   - caminho_imagem_mapa: imagens/setor_covide_ala_central_e_direita_p3.webp
     largura_mapa: 825
     altura_mapa: 1211
-- via_esportiva:
+- uid: E7OPzgL63pG512
+  via_esportiva:
     nome: Cepacol
     dificuldade: BR_7B
     extensao: 12
@@ -189,7 +193,8 @@ escaladas:
   - caminho_imagem_mapa: imagens/setor_covide_ala_central_e_direita_p4.webp
     largura_mapa: 825
     altura_mapa: 1211
-- via_esportiva:
+- uid: hNPRfDitG1UTj0
+  via_esportiva:
     nome: Deltazin
     dificuldade: BR_7B
     extensao: 10
@@ -207,7 +212,8 @@ escaladas:
   - caminho_imagem_mapa: imagens/setor_covide_ala_central_e_direita_p5.webp
     largura_mapa: 825
     altura_mapa: 1211
-- via_esportiva:
+- uid: di95uVia0Iwhqh
+  via_esportiva:
     nome: Ignorância do Deltacron
     dificuldade: BR_7B
     extensao: 12
@@ -225,7 +231,8 @@ escaladas:
   - caminho_imagem_mapa: imagens/setor_covide_ala_central_e_direita_p6.webp
     largura_mapa: 825
     altura_mapa: 1211
-- via_esportiva:
+- uid: exaLkZFUN0Lsd8
+  via_esportiva:
     nome: Covidenhoca
     dificuldade: BR_7A
     extensao: 10
@@ -243,7 +250,8 @@ escaladas:
   - caminho_imagem_mapa: imagens/setor_covide_ala_central_e_direita_p7.webp
     largura_mapa: 825
     altura_mapa: 1211
-- via_esportiva:
+- uid: HLfsMtPSZOeInR
+  via_esportiva:
     nome: B1B2
     dificuldade: BR_7C
     extensao: 10
@@ -261,7 +269,8 @@ escaladas:
   - caminho_imagem_mapa: imagens/setor_covide_ala_central_e_direita_p8.webp
     largura_mapa: 825
     altura_mapa: 1211
-- via_esportiva:
+- uid: F2CxOUwmyooHLV
+  via_esportiva:
     nome: Oxforte
     dificuldade: BR_8A
     extensao: 12
@@ -279,7 +288,8 @@ escaladas:
   - caminho_imagem_mapa: imagens/setor_covide_ala_central_e_direita_p9.webp
     largura_mapa: 825
     altura_mapa: 1211
-- via_esportiva:
+- uid: 7IJ57Hzf0hDyWZ
+  via_esportiva:
     nome: Arco do delta
     dificuldade: BR_7A
     extensao: 10
@@ -297,7 +307,8 @@ escaladas:
   - caminho_imagem_mapa: imagens/setor_covide_ala_central_e_direita_p10.webp
     largura_mapa: 825
     altura_mapa: 1211
-- via_esportiva:
+- uid: KPp695ud4QtKZc
+  via_esportiva:
     nome: Sequela virótica
     dificuldade: BR_8B
     extensao: 10
@@ -315,7 +326,8 @@ escaladas:
   - caminho_imagem_mapa: imagens/setor_covide_ala_central_e_direita_p11.webp
     largura_mapa: 825
     altura_mapa: 1211
-- via_esportiva:
+- uid: Uh5mq46IClk0f3
+  via_esportiva:
     nome: Carga viral
     dificuldade: BR_7B
     extensao: 10
@@ -333,7 +345,8 @@ escaladas:
   - caminho_imagem_mapa: imagens/setor_covide_ala_central_e_direita_p12.webp
     largura_mapa: 825
     altura_mapa: 1211
-- via_esportiva:
+- uid: RZ0TO1rrIaNvey
+  via_esportiva:
     nome: Sou T.I.
     dificuldade: BR_8C
     extensao: 12
@@ -354,7 +367,8 @@ escaladas:
   - caminho_imagem_mapa: imagens/setor_covide_ala_central_e_direita_p13.webp
     largura_mapa: 825
     altura_mapa: 1211
-- via_esportiva:
+- uid: b7rAolDIaWVZkg
+  via_esportiva:
     nome: Antígeno
     dificuldade: BR_8A
     extensao: 10
@@ -375,7 +389,8 @@ escaladas:
   - caminho_imagem_mapa: imagens/setor_covide_ala_central_e_direita_p14.webp
     largura_mapa: 825
     altura_mapa: 1211
-- via_esportiva:
+- uid: jUJEpQg2XFRwjK
+  via_esportiva:
     nome: Marreta imune
     dificuldade: BR_7B
     extensao: 15
@@ -400,7 +415,8 @@ escaladas:
       - P1
     largura_mapa: 825
     altura_mapa: 1211
-- via_esportiva:
+- uid: MdfhNHH4iLVhUA
+  via_esportiva:
     nome: Encosto gripal
     dificuldade: BR_7B
     extensao: 12
@@ -425,7 +441,8 @@ escaladas:
       - P1
     largura_mapa: 825
     altura_mapa: 1211
-- via_esportiva:
+- uid: XZKdVJITkU9hgS
+  via_esportiva:
     nome: Virose operária
     dificuldade: BR_8A
     extensao: 12
@@ -450,7 +467,8 @@ escaladas:
       - P1
     largura_mapa: 825
     altura_mapa: 1211
-- via_esportiva:
+- uid: 5VVIT3Mm8ARBeK
+  via_esportiva:
     nome: Covidinho
     dificuldade: BR_7B
     extensao: 12
@@ -472,7 +490,8 @@ escaladas:
       - P1
     largura_mapa: 825
     altura_mapa: 1211
-- via_esportiva:
+- uid: jAqGAi58Y0q0gt
+  via_esportiva:
     nome: Covide hepática
     dificuldade: BR_7A
     extensao: 10

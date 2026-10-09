@@ -1,68 +1,67 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+uid: sMtcp04stg3wSX
 nome: Extrema Direita
 mapas:
 - caminho_imagem_mapa: imagens/grupo_aderencias_setor_extrema_direita_p1_i1.webp
   referencias:
-  - escalada: Bolo de Cenoura
-    ids:
-    - '1'
-  - escalada: 51, Uma Boa Ideia
-    ids:
-    - '2'
-  - escalada: Mais Chuva Que Sol
-    ids:
-    - '3'
-  - escalada: Só a Cabecinha
-    ids:
-    - '3'
-  - setor: Setor Central
-    ids:
-    - Parede_Principal_Face_Central
-    grupo: Parede Principal (Paredes de Aço)
-  - grupo: Parede Principal (Paredes de Aço)
-    setor: Setor Clássicas Longas
-    ids:
-    - Parede_Principal_Classicas_Longas
-    - Para_o_Setor_das_Classicas_Longas
+  - alvo_uid: jdKVX9YySse7RR
+    pontos_uids:
+    - fBSh7qqvAga2UG
+  - alvo_uid: PatXOUxy4UT3Cv
+    pontos_uids:
+    - U2MnDxEfl0lDgu
+  - alvo_uid: LBIEfNwhK7tjIU
+    pontos_uids:
+    - wEP4WNm4iUNJ3I
+  - alvo_uid: UoXB13cUPwjXci
+    pontos_uids:
+    - wEP4WNm4iUNJ3I
+  - alvo_uid: nJgmAcSxMTe2Xy
+    pontos_uids:
+    - fdQAC0CNh8GRqh
+  - alvo_uid: 0swIknUTarrNZN
+    pontos_uids:
+    - y6dhQVo4bxU8gv
+    - gDaSAeN4kVJKmr
   largura_mapa: 1639
   altura_mapa: 1025
   pontos_de_interesse:
-  - id: '1'
-    label: '1'
+  - uid: fBSh7qqvAga2UG
+    rotulo: '1'
     circulo:
       x: 1092
       y: 670
       raio: 18
-  - id: '2'
-    label: '2'
+  - uid: U2MnDxEfl0lDgu
+    rotulo: '2'
     circulo:
       x: 1174
       y: 709
       raio: 18
-  - id: '3'
-    label: '3'
+  - uid: wEP4WNm4iUNJ3I
+    rotulo: '3'
     circulo:
       x: 1190
       y: 768
       raio: 18
-  - id: Parede_Principal_Face_Central
-    label: Parede Principal Face Central
+  - uid: fdQAC0CNh8GRqh
+    rotulo: Parede Principal Face Central
     retangulo:
       x: 120
       y: 378
       comprimento: 223
       largura: 66
-  - id: Parede_Principal_Classicas_Longas
-    label: ''
+  - uid: y6dhQVo4bxU8gv
+    rotulo: ''
     retangulo:
       x: 480
       y: 930
       comprimento: 224
       largura: 58
-  - id: Para_o_Setor_das_Classicas_Longas
-    label: Clássicas Longas
+  - uid: gDaSAeN4kVJKmr
+    rotulo: Clássicas Longas
     retangulo:
       x: 736
       y: 804
@@ -70,47 +69,48 @@ mapas:
       largura: 51
 - caminho_imagem_mapa: imagens/grupo_aderencias_setor_extrema_direita_p2_i1.webp
   referencias:
-  - escalada: Bolo de Cenoura
-    ids:
-    - '1'
-  - escalada: 51, Uma Boa Ideia
-    ids:
-    - '2'
-  - escalada: Mais Chuva Que Sol
-    ids:
-    - '3'
-  - escalada: Só a Cabecinha
-    ids:
-    - '4'
+  - alvo_uid: jdKVX9YySse7RR
+    pontos_uids:
+    - c5DbY71QlU3vzs
+  - alvo_uid: PatXOUxy4UT3Cv
+    pontos_uids:
+    - rMqaBLiGjDvwh4
+  - alvo_uid: LBIEfNwhK7tjIU
+    pontos_uids:
+    - MG7Y6CzPl1RBfg
+  - alvo_uid: UoXB13cUPwjXci
+    pontos_uids:
+    - hW3nCi3bbnByYG
   largura_mapa: 2043
   altura_mapa: 1223
   pontos_de_interesse:
-  - id: '1'
-    label: '1'
+  - uid: c5DbY71QlU3vzs
+    rotulo: '1'
     circulo:
       x: 843
       y: 1157
       raio: 35
-  - id: '2'
-    label: '2'
+  - uid: rMqaBLiGjDvwh4
+    rotulo: '2'
     circulo:
       x: 1068
       y: 1033
       raio: 35
-  - id: '3'
-    label: '3'
+  - uid: MG7Y6CzPl1RBfg
+    rotulo: '3'
     circulo:
       x: 1282
       y: 1180
       raio: 35
-  - id: '4'
-    label: '4'
+  - uid: hW3nCi3bbnByYG
+    rotulo: '4'
     circulo:
       x: 1369
       y: 1142
       raio: 35
 escaladas:
-- via_multiplas_enfiadas:
+- uid: jdKVX9YySse7RR
+  via_multiplas_enfiadas:
     nome: Bolo de Cenoura
     dificuldade_media: BR_2
     dificuldade_maxima: BR_4
@@ -137,7 +137,8 @@ escaladas:
   - caminho_imagem_mapa: imagens/grupo_aderencias_setor_extrema_direita_p4_i2.webp
     largura_mapa: 524
     altura_mapa: 348
-- via_multiplas_enfiadas:
+- uid: PatXOUxy4UT3Cv
+  via_multiplas_enfiadas:
     nome: 51, Uma Boa Ideia
     dificuldade_media: BR_3
     dificuldade_maxima: BR_5SUP
@@ -152,7 +153,8 @@ escaladas:
       O crux é uma barriga lisa no final da via.
 
       '
-- via_multiplas_enfiadas:
+- uid: LBIEfNwhK7tjIU
+  via_multiplas_enfiadas:
     nome: Mais Chuva Que Sol
     dificuldade_media: BR_2
     dificuldade_maxima: BR_4
@@ -180,7 +182,8 @@ escaladas:
   - caminho_imagem_mapa: imagens/grupo_aderencias_setor_extrema_direita_p4_i1.webp
     largura_mapa: 524
     altura_mapa: 368
-- via_multiplas_enfiadas:
+- uid: UoXB13cUPwjXci
+  via_multiplas_enfiadas:
     nome: Só a Cabecinha
     dificuldade_media: BR_2
     dificuldade_maxima: BR_3
@@ -200,6 +203,7 @@ escaladas:
       as proteções móveis (peças pequenas e médias).
 caminho_imagem_capa: imagens/grupo_aderencias_setor_extrema_direita_p3_i0.webp
 ---
+
 <small>Capa: Ricardo Barros na conquista da “Mais Chuva Que Sol” (Foto: Pedro Bugim)</small>
 
 Paredão rochoso com potencial para novas vias, contando, no momento, com apenas quatro linhas completas.

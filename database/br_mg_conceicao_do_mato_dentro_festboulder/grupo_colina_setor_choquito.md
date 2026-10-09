@@ -1,107 +1,115 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+uid: txd3FQ2sso3KfL
 nome: Choquito
 mapas:
 - caminho_imagem_mapa: imagens/grupo_colina_setor_choquito_p0.webp
   largura_mapa: 759
   altura_mapa: 532
   pontos_de_interesse:
-  - id: '1'
-    label: '1'
+  - uid: O3tRj7N346XT0r
+    rotulo: '1'
     retangulo:
       x: 242
       y: 346
       comprimento: 33
       largura: 23
-  - id: '2'
-    label: '2'
+  - uid: YsJoS7c7agips5
+    rotulo: '2'
     retangulo:
       x: 272
       y: 373
       comprimento: 34
       largura: 22
-  - id: '3'
-    label: '3'
+  - uid: vfTu6HErb1mTGK
+    rotulo: '3'
     retangulo:
       x: 317
       y: 368
       comprimento: 32
       largura: 24
-  - id: '4'
-    label: '4'
+  - uid: WyPOaT4nm5o0Gv
+    rotulo: '4'
     retangulo:
       x: 546
       y: 424
       comprimento: 35
       largura: 23
-  - id: '5'
-    label: '5'
+  - uid: 9CCqXLAqJXrTa4
+    rotulo: '5'
     retangulo:
       x: 646
       y: 414
       comprimento: 35
       largura: 25
   referencias:
-  - escalada: Paradise
-    ids:
-    - '1'
-  - escalada: Quebra Costela
-    ids:
-    - '2'
-  - escalada: (sem nome 1)
-    ids:
-    - '3'
-  - escalada: Choquito
-    ids:
-    - '4'
-  - escalada: Jungle
-    ids:
-    - '5'
+  - alvo_uid: IeEwf49j4evbLg
+    pontos_uids:
+    - O3tRj7N346XT0r
+  - alvo_uid: tzXfYEDAtdhIZC
+    pontos_uids:
+    - YsJoS7c7agips5
+  - alvo_uid: IGyhI51GnKge62
+    pontos_uids:
+    - vfTu6HErb1mTGK
+  - alvo_uid: ukFDfrDji5ZVC0
+    pontos_uids:
+    - WyPOaT4nm5o0Gv
+  - alvo_uid: wMtD5C4eYpHIXo
+    pontos_uids:
+    - 9CCqXLAqJXrTa4
 - caminho_imagem_mapa: imagens/grupo_colina_setor_choquito_p1.webp
   largura_mapa: 755
   altura_mapa: 531
   pontos_de_interesse:
-  - id: '1'
-    label: '1'
+  - uid: vMh3JbiMTC4luB
+    rotulo: '1'
     retangulo:
       x: 304
       y: 331
       comprimento: 33
       largura: 24
-  - id: '2'
-    label: '2'
+  - uid: SO2PoVRVqogdvr
+    rotulo: '2'
     retangulo:
       x: 484
       y: 336
       comprimento: 34
       largura: 25
   referencias:
-  - escalada: (sem nome 2)
-    ids:
-    - '1'
-  - escalada: (sem nome 3)
-    ids:
-    - '2'
+  - alvo_uid: W4YGvAa8VjxDRt
+    pontos_uids:
+    - vMh3JbiMTC4luB
+  - alvo_uid: tEthBjxltdhzSs
+    pontos_uids:
+    - SO2PoVRVqogdvr
 escaladas:
-- boulder:
+- uid: IeEwf49j4evbLg
+  boulder:
     nome: Paradise
     dificuldade: V4
-- boulder:
+- uid: tzXfYEDAtdhIZC
+  boulder:
     nome: Quebra Costela
     dificuldade: V3
-- boulder:
+- uid: IGyhI51GnKge62
+  boulder:
     nome: (sem nome 1)
-- boulder:
+- uid: ukFDfrDji5ZVC0
+  boulder:
     nome: Choquito
     dificuldade: V3
-- boulder:
+- uid: wMtD5C4eYpHIXo
+  boulder:
     nome: Jungle
     dificuldade: V5
-- boulder:
+- uid: W4YGvAa8VjxDRt
+  boulder:
     nome: (sem nome 2)
     dificuldade: V0
-- boulder:
+- uid: tEthBjxltdhzSs
+  boulder:
     nome: (sem nome 3)
     dificuldade: V3
 ---

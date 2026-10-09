@@ -1,0 +1,7 @@
+# SPDX-License-Identifier: MPL-2.0
+# Copyright (C) 2026 Aresta Climb Contributors
+
+# Configuração do Probot DCO
+# Desativa a exigência de 'Signed-off-by' para membros da organização em commits verificados (UI web / GPG)
+require:
+  members: false

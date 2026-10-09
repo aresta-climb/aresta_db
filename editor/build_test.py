@@ -391,12 +391,17 @@ def test_orquestrar_build_flatpak_executa_comandos():
     with patch("shutil.which", return_value="/usr/bin/flatpak-builder"):
         with patch("subprocess.run") as mock_subproc:
             with patch("pathlib.Path.exists", return_value=True):
-                bundle_gerado = orquestrar_build_flatpak()
-                assert mock_subproc.call_count >= 1
-                cmd = mock_subproc.call_args_list[0][0][0]
-                assert "flatpak-builder" in cmd[0]
-                assert "com.arestaclimb.Editor.yaml" in str(cmd)
-                assert bundle_gerado.name.endswith(".flatpak")
+                with patch("pathlib.Path.unlink") as mock_unlink:
+                    with patch("editor.build.gerar_manifesto_dependencias_flatpak"):
+                        bundle_gerado = orquestrar_build_flatpak()
+                        assert mock_subproc.call_count >= 1
+                        cmd = mock_subproc.call_args_list[0][0][0]
+                        assert "flatpak-builder" in cmd[0]
+                        assert "com.arestaclimb.Editor.yaml" in str(cmd)
+                        assert "--install-deps-from=flathub" in cmd
+                        assert "--user" in cmd
+                        assert bundle_gerado.name.endswith(".flatpak")
+                        mock_unlink.assert_called_once()
 
 
 def test_executar_build_linux_delega_para_flatpak():
@@ -463,6 +468,10 @@ def test_gerar_manifesto_dependencias_flatpak_sucesso(tmp_path):
         "pyside6-essentials==6.8.0",
         "shiboken6==6.8.0",
         "pyinstaller==6.10.0",
+        "pyinstaller-hooks-contrib==2026.8",
+        "grpcio==1.84.0",
+        "grpcio-tools==1.84.0",
+        "mypy-protobuf==5.1.0",
         "requests==2.32.3",
         "qtawesome==1.3.1",
     ])
@@ -473,6 +482,17 @@ def test_gerar_manifesto_dependencias_flatpak_sucesso(tmp_path):
             res.stdout = export_mock_stdout
             return res
         if "flatpak_pip_generator" in cmd:
+            # Verifica se os pacotes dispensáveis foram removidos do arquivo de requirements temporário
+            req_arg = [arg for arg in cmd if arg.startswith("--requirements-file=")][0]
+            req_path = Path(req_arg.split("=", 1)[1])
+            conteudo_req = req_path.read_text(encoding="utf-8")
+            assert "requests==2.32.3" in conteudo_req
+            assert "qtawesome==1.3.1" in conteudo_req
+            assert "pyside6" not in conteudo_req
+            assert "shiboken6" not in conteudo_req
+            assert "pyinstaller" not in conteudo_req
+            assert "grpcio" not in conteudo_req
+            assert "mypy-protobuf" not in conteudo_req
             # Simula a criação do arquivo de saída
             destino.write_text("{}", encoding="utf-8")
             return res
@@ -487,6 +507,74 @@ def test_gerar_manifesto_dependencias_flatpak_sucesso(tmp_path):
         assert destino.exists()
 
 
+def test_flatpak_manifest_e_constantes_otimizadas():
+    """Valida se as constantes de otimização de tamanho e o manifesto com.arestaclimb.Editor.yaml contêm os ajustes."""
+    from editor.build import PACOTES_DISPENSAVEIS_FLATPAK, PACOTES_PREFERIR_WHEELS, ARQUIVO_MANIFESTO_FLATPAK
+
+    assert "grpcio" in PACOTES_DISPENSAVEIS_FLATPAK
+    assert "grpcio-tools" in PACOTES_DISPENSAVEIS_FLATPAK
+    assert "pyinstaller" in PACOTES_DISPENSAVEIS_FLATPAK
+    assert "websockets" in PACOTES_PREFERIR_WHEELS
+
+    manifesto_texto = ARQUIVO_MANIFESTO_FLATPAK.read_text(encoding="utf-8")
+    assert "BASEAPP_REMOVE_WEBENGINE" in manifesto_texto
+    assert "BASEAPP_DISABLE_NUMPY" in manifesto_texto
+    assert "cleanup:" in manifesto_texto
+    assert "/app/cleanup-BaseApp.sh" in manifesto_texto
+    assert "skip:" in manifesto_texto
+    assert "- dist" in manifesto_texto
+    assert "- build" in manifesto_texto
+    assert "- flatpak" in manifesto_texto
+    assert "- .flatpak-builder" in manifesto_texto
+    assert "dest: aresta_api" in manifesto_texto
+    assert "dest: scripts" in manifesto_texto
+    assert "dest: coleta_de_betas" in manifesto_texto
+    assert "dest: migracoes" in manifesto_texto
+    assert "cp -r aresta_api" in manifesto_texto
+    assert "cp -r scripts" in manifesto_texto
+    assert "cp -r coleta_de_betas" in manifesto_texto
+    assert "cp -r migracoes" in manifesto_texto
+    assert "|| true" not in manifesto_texto
+
+
+
+def test_gerar_manifesto_dependencias_flatpak_com_runtime_detectado(tmp_path):
+    """Valida a inclusão automática de --runtime e --prefer-wheels quando Flatpak runtime está instalado."""
+    from editor.build import gerar_manifesto_dependencias_flatpak
+    lock_file = tmp_path / "uv.lock"
+    lock_file.write_text("# lock", encoding="utf-8")
+    destino = tmp_path / "pypi-dependencies.json"
+
+    comandos_executados = []
+
+    def mock_subprocess(cmd, *args, **kwargs):
+        comandos_executados.append(cmd)
+        res = MagicMock()
+        res.returncode = 0
+        if "export" in cmd:
+            res.stdout = "cryptography==50.0.2\n"
+            return res
+        if "info" in cmd:
+            return res
+        if "flatpak_pip_generator" in cmd:
+            destino.write_text("{}", encoding="utf-8")
+            return res
+        return res
+
+    with patch("shutil.which", return_value="/usr/bin/flatpak"):
+        with patch("subprocess.run", side_effect=mock_subprocess):
+            caminho_gerado = gerar_manifesto_dependencias_flatpak(
+                caminho_saida=destino,
+                raiz_projeto=tmp_path,
+            )
+            assert caminho_gerado == destino
+            # Verifica se o comando do gerador recebeu --runtime e --prefer-wheels
+            cmd_gen = [c for c in comandos_executados if "flatpak_pip_generator" in c][0]
+            assert any(arg.startswith("--runtime=") for arg in cmd_gen)
+            assert any(arg.startswith("--prefer-wheels=") for arg in cmd_gen)
+            assert any("cryptography" in arg for arg in cmd_gen)
+
+
 def test_gerar_manifesto_dependencias_flatpak_falha_geracao_arquivo(tmp_path):
     """Garante que FileNotFoundError é lançado se flatpak_pip_generator não gerar o arquivo."""
     from editor.build import gerar_manifesto_dependencias_flatpak
@@ -499,8 +587,8 @@ def test_gerar_manifesto_dependencias_flatpak_falha_geracao_arquivo(tmp_path):
             gerar_manifesto_dependencias_flatpak(caminho_saida=destino, raiz_projeto=tmp_path)
 
 
-def test_orquestrar_build_flatpak_gera_deps_efemeras_e_limpa():
-    """Valida se dependências Flatpak são geradas efemeramente e removidas ao término."""
+def test_orquestrar_build_flatpak_preserva_deps_para_cache():
+    """Valida se dependências Flatpak são geradas quando ausentes e preservadas em disco para reuso de cache."""
     from editor.build import orquestrar_build_flatpak
     with patch("shutil.which", return_value="/usr/bin/flatpak-builder"):
         with patch("subprocess.run"):
@@ -527,11 +615,81 @@ def test_orquestrar_build_flatpak_gera_deps_efemeras_e_limpa():
                         assert bundle.name.endswith(".flatpak")
 
 
+
 def test_main_cli_dispatch_flatpak_deps():
     """Valida o despachante CLI para o modo flatpak-deps."""
     with patch("editor.build.gerar_manifesto_dependencias_flatpak") as mock_gerar:
         main(["flatpak-deps", "--output", "custom.json"])
         mock_gerar.assert_called_once_with(caminho_saida=Path("custom.json"))
+
+
+def test_spec_inclui_diretorio_migracoes():
+    """Valida se o EditorAresta.spec inclui a pasta migracoes nos datas do PyInstaller."""
+    conteudo_spec = ARQUIVO_SPEC.read_text(encoding="utf-8")
+    assert "'migracoes'" in conteudo_spec
+    assert "repo_root / 'migracoes'" in conteudo_spec or "repo_root / \"migracoes\"" in conteudo_spec
+
+
+def test_gerar_tarball_codigo_fonte_sucesso(tmp_path):
+    """Valida se gerar_tarball_codigo_fonte cria o arquivo .tar.gz contendo apenas arquivos de código sem database."""
+    from editor.build import gerar_tarball_codigo_fonte
+    import tarfile
+
+    # Cria estrutura simulada
+    raiz = tmp_path / "repo"
+    raiz.mkdir()
+    (raiz / "pyproject.toml").write_text('[project]\nversion = "1.2.3"\n', encoding="utf-8")
+    (raiz / "uv.lock").write_text("lock", encoding="utf-8")
+    (raiz / "database").mkdir()
+    (raiz / "database" / "pesado.bin").write_text("dados pesados", encoding="utf-8")
+    (raiz / "editor").mkdir()
+    (raiz / "editor" / "main.py").write_text("print('oi')", encoding="utf-8")
+    (raiz / "editor" / "main_test.py").write_text("def test(): pass", encoding="utf-8")
+    (raiz / "editor" / "dist").mkdir()
+    (raiz / "editor" / "dist" / "bundle.flatpak").write_text("binario", encoding="utf-8")
+    (raiz / "aresta_api").mkdir()
+    (raiz / "aresta_api" / "proto.py").write_text("# proto", encoding="utf-8")
+    (raiz / "scripts").mkdir()
+    (raiz / "scripts" / "migrador.py").write_text("# migrador", encoding="utf-8")
+    (raiz / "coleta_de_betas").mkdir()
+    (raiz / "coleta_de_betas" / "extrator.py").write_text("# extrator", encoding="utf-8")
+    (raiz / "migracoes").mkdir()
+    (raiz / "migracoes" / "0001_init.py").write_text("# mig", encoding="utf-8")
+
+    caminho_tarball, hash_sha256 = gerar_tarball_codigo_fonte(
+        diretorio_saida=tmp_path / "saida",
+        versao="1.2.3",
+        raiz_projeto=raiz,
+    )
+
+    assert caminho_tarball.exists()
+    assert caminho_tarball.name == "EditorAresta-1.2.3-source.tar.gz"
+    assert len(hash_sha256) == 64
+
+    # Verifica os membros do tarball
+    with tarfile.open(caminho_tarball, "r:gz") as tar:
+        nomes = [n.replace("\\", "/") for n in tar.getnames()]
+        assert "editor/main.py" in nomes
+        assert "aresta_api/proto.py" in nomes
+        assert "scripts/migrador.py" in nomes
+        assert "coleta_de_betas/extrator.py" in nomes
+        assert "migracoes/0001_init.py" in nomes
+        assert "uv.lock" in nomes
+        assert "pyproject.toml" in nomes
+        # Garante que database, dist e arquivos de teste foram excluídos
+        assert not any("database" in n for n in nomes)
+        assert not any("dist" in n for n in nomes)
+        assert not any("_test.py" in n for n in nomes)
+
+
+
+def test_main_cli_dispatch_source_tarball():
+    """Valida o despachante CLI para o modo source-tarball."""
+    with patch("editor.build.gerar_tarball_codigo_fonte", return_value=(Path("tarball.tar.gz"), "hash123")) as mock_tar:
+        main(["source-tarball", "--output-dir", "custom_dir"])
+        mock_tar.assert_called_once_with(diretorio_saida=Path("custom_dir"))
+
+
 
 
 

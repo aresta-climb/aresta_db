@@ -1,9 +1,11 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+uid: LlsdQVAyiFkVH5
 nome: Outras Vias
 escaladas:
-- via_multiplas_enfiadas:
+- uid: wHOXhM24r8n1L4
+  via_multiplas_enfiadas:
     nome: Amazonita
     dificuldade_media: BR_1
     dificuldade_maxima: BR_2
@@ -17,7 +19,8 @@ escaladas:
     data_abertura: '2013-07-19'
     descricao: Via localizada na última parede do Vale do Roncador, após a parede
       das Aderências - Extrema Direita. Possui apenas dois grampos de ½ polegada.
-- via_movel:
+- uid: ZzR9dPUTllMIoU
+  via_movel:
     nome: Fissura Cachoeira Quente
     dificuldade: BR_6
     extensao: 50
@@ -37,21 +40,21 @@ mapas:
   largura_mapa: 1241
   altura_mapa: 1754
   referencias:
-  - escalada: Amazonita
-    ids:
-    - '1'
-  - escalada: Fissura Cachoeira Quente
-    ids:
-    - '2'
+  - alvo_uid: wHOXhM24r8n1L4
+    pontos_uids:
+    - xuBhGx6vMWSp9V
+  - alvo_uid: ZzR9dPUTllMIoU
+    pontos_uids:
+    - TtQo1rrqeA8FZ7
   pontos_de_interesse:
-  - id: '1'
-    label: '1'
+  - uid: xuBhGx6vMWSp9V
+    rotulo: '1'
     circulo:
       x: 83
       y: 330
       raio: 17
-  - id: '2'
-    label: '2'
+  - uid: TtQo1rrqeA8FZ7
+    rotulo: '2'
     circulo:
       x: 82
       y: 543

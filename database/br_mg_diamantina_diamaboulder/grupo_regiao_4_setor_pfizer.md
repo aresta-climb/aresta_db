@@ -1,69 +1,73 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+uid: IAHAxZrL76iUE6
 nome: Pfizer
 mapas:
 - caminho_imagem_mapa: imagens/grupo_regiao_4_setor_pfizer_p0_i0.webp
   largura_mapa: 1240
   altura_mapa: 931
   pontos_de_interesse:
-  - id: '1'
-    label: '1'
+  - uid: apNSMIgishCvMq
+    rotulo: '1'
     circulo:
       x: 326
       y: 594
       raio: 15
-  - id: 1_fim
-    label: '1'
+  - uid: 5gQj5KhOYHaSBF
+    rotulo: '1'
     circulo:
       x: 275
       y: 278
       raio: 15
-  - id: '2'
-    label: '2'
+  - uid: CsABZulQmaQRpe
+    rotulo: '2'
     circulo:
       x: 547
       y: 603
       raio: 15
-  - id: 2_fim
-    label: '2'
+  - uid: l4ykhFIaWNX54F
+    rotulo: '2'
     circulo:
       x: 552
       y: 292
       raio: 15
-  - id: '3'
-    label: '3'
+  - uid: QSWAmHvy0qHThf
+    rotulo: '3'
     circulo:
       x: 889
       y: 624
       raio: 15
-  - id: 3_fim
-    label: '3'
+  - uid: dmYu0AMgtk1BAx
+    rotulo: '3'
     circulo:
       x: 872
       y: 218
       raio: 15
   referencias:
-  - escalada: Pfizer
-    ids:
-    - '1'
-    - 1_fim
-  - escalada: Barriga Branca
-    ids:
-    - '2'
-    - 2_fim
-  - escalada: Rosa
-    ids:
-    - '3'
-    - 3_fim
+  - alvo_uid: Q6EsorjUeI753p
+    pontos_uids:
+    - apNSMIgishCvMq
+    - 5gQj5KhOYHaSBF
+  - alvo_uid: HYYJC6Mu8XFxbg
+    pontos_uids:
+    - CsABZulQmaQRpe
+    - l4ykhFIaWNX54F
+  - alvo_uid: ZqpDDGeu7k74Sm
+    pontos_uids:
+    - QSWAmHvy0qHThf
+    - dmYu0AMgtk1BAx
 escaladas:
-- boulder:
+- uid: Q6EsorjUeI753p
+  boulder:
     nome: Pfizer
     dificuldade: V4
-- boulder:
+- uid: HYYJC6Mu8XFxbg
+  boulder:
     nome: Barriga Branca
     dificuldade: V1
-- boulder:
+- uid: ZqpDDGeu7k74Sm
+  boulder:
     nome: Rosa
     dificuldade: V0
 ---

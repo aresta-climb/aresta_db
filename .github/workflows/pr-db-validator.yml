@@ -26,6 +26,7 @@ jobs:
             editor
             serving
             scripts
+            migracoes
             pyproject.toml
             uv.lock
             .python-version

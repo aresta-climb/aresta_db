@@ -1,3 +1,4 @@
+uid: AIgxBVTTkHODSK
 id: br_mg_sao_joao_del_rei_serra_do_lenheiro_boulders_ave_maria_2017
 nome: Boulders da Ave Maria - Serra do Lenheiro
 descricao: Guia de escalada em boulder do setor Ave Maria, na Serra do Lenheiro em
@@ -8,7 +9,7 @@ creditos:
 - Thomás Alexandre Kämpf (Tomi)
 - Webert Resende (Beto)
 caminho_thumbnail: imagens/capa_p0_i0.webp
-ultima_migracao: 4
+ultima_migracao: 5
 picos:
 - nome: Serra do Lenheiro
   estado: MG
@@ -19,91 +20,128 @@ picos:
   setores_ou_grupos:
   - grupo:
       conteudo:
+        uid: mTfwQRCospbvFu
         nome: Frigideira
         mapas:
         - caminho_imagem_mapa: imagens/grupo_frigideira_p0_i0.webp
           largura_mapa: 596
           altura_mapa: 839
           pontos_de_interesse:
-          - id: bloco_frigideira
-            label: Bloco Frigideira
+          - uid: bJb7xVraRyvZyx
+            rotulo: Bloco Frigideira
             retangulo:
               x: 281
               y: 793
               comprimento: 189
               largura: 91
+            id: bJb7xVraRyvZyx
+            label: Bloco Frigideira
           referencias:
-          - setor: Frigideira
+          - alvo_uid: mjhTMRRTRYEupM
+            pontos_uids:
+            - bJb7xVraRyvZyx
+            setor: Frigideira
             ids:
-            - bloco_frigideira
+            - bJb7xVraRyvZyx
         setores:
         - conteudo:
+            uid: mjhTMRRTRYEupM
             nome: Frigideira
             mapas:
             - caminho_imagem_mapa: imagens/grupo_frigideira_setor_frigideira_p0_i0.webp
               largura_mapa: 1497
               altura_mapa: 731
               pontos_de_interesse:
-              - id: '1'
-                label: '1'
+              - uid: LWaAcJwJdysZkL
+                rotulo: '1'
                 circulo:
                   x: 414
                   y: 574
                   raio: 34
-              - id: '2'
-                label: '2'
+                id: LWaAcJwJdysZkL
+                label: '1'
+              - uid: HZ2Ai0822hLioK
+                rotulo: '2'
                 circulo:
                   x: 525
                   y: 568
                   raio: 33
-              - id: '3'
-                label: '3'
+                id: HZ2Ai0822hLioK
+                label: '2'
+              - uid: zhx6e4b8hqgoLk
+                rotulo: '3'
                 circulo:
                   x: 500
                   y: 388
                   raio: 31
-              - id: '4'
-                label: '4'
+                id: zhx6e4b8hqgoLk
+                label: '3'
+              - uid: ozo7pJ2jXMskCk
+                rotulo: '4'
                 circulo:
                   x: 858
                   y: 537
                   raio: 31
-              - id: '5'
-                label: '5'
+                id: ozo7pJ2jXMskCk
+                label: '4'
+              - uid: JKuLpJLLaTEL0Y
+                rotulo: '5'
                 circulo:
                   x: 1341
                   y: 656
                   raio: 34
+                id: JKuLpJLLaTEL0Y
+                label: '5'
               referencias:
-              - escalada: Fendinha
+              - alvo_uid: 2qhbyKPJTCKxKC
+                pontos_uids:
+                - LWaAcJwJdysZkL
+                escalada: Fendinha
                 ids:
-                - '1'
-              - escalada: Frigideira
+                - LWaAcJwJdysZkL
+              - alvo_uid: zcNkZoD2iqgHWd
+                pontos_uids:
+                - HZ2Ai0822hLioK
+                escalada: Frigideira
                 ids:
-                - '2'
-              - escalada: Teflon
+                - HZ2Ai0822hLioK
+              - alvo_uid: eZE1qvDkcLI7Tl
+                pontos_uids:
+                - zhx6e4b8hqgoLk
+                escalada: Teflon
                 ids:
-                - '3'
-              - escalada: Por do sol
+                - zhx6e4b8hqgoLk
+              - alvo_uid: XaFalUtyD8FKjo
+                pontos_uids:
+                - ozo7pJ2jXMskCk
+                escalada: Por do sol
                 ids:
-                - '4'
-              - escalada: Passageiros
+                - ozo7pJ2jXMskCk
+              - alvo_uid: k7GJ29HJvjUeB3
+                pontos_uids:
+                - JKuLpJLLaTEL0Y
+                escalada: Passageiros
                 ids:
-                - '5'
+                - JKuLpJLLaTEL0Y
             escaladas:
-            - boulder:
+            - uid: 2qhbyKPJTCKxKC
+              boulder:
                 nome: Fendinha
                 dificuldade: V1
-            - boulder:
+            - uid: zcNkZoD2iqgHWd
+              boulder:
                 nome: Frigideira
                 descricao: Projeto
-            - boulder:
+            - uid: eZE1qvDkcLI7Tl
+              boulder:
                 nome: Teflon
                 descricao: Projeto
-            - boulder:
+            - uid: XaFalUtyD8FKjo
+              boulder:
                 nome: Por do sol
                 dificuldade: V3
-            - boulder:
+            - uid: k7GJ29HJvjUeB3
+              boulder:
                 nome: Passageiros
                 dificuldade: V1
             descricao: '# Setor Frigideira'
@@ -111,101 +149,144 @@ picos:
               total_escaladas: 5
               total_boulders: 5
         - conteudo:
+            uid: msOVbYnmbHbFNG
             nome: Barba Ruiva
             mapas:
             - caminho_imagem_mapa: imagens/grupo_frigideira_setor_barba_ruiva_p0_i0.webp
               largura_mapa: 966
               altura_mapa: 850
               pontos_de_interesse:
-              - id: '1'
-                label: '1'
+              - uid: cXrbUyStnz6mPb
+                rotulo: '1'
                 circulo:
                   x: 858
                   y: 687
                   raio: 29
-              - id: '2'
-                label: '2'
+                id: cXrbUyStnz6mPb
+                label: '1'
+              - uid: DZ4CApDj9zo9bV
+                rotulo: '2'
                 circulo:
                   x: 567
                   y: 548
                   raio: 26
-              - id: '3'
-                label: '3'
+                id: DZ4CApDj9zo9bV
+                label: '2'
+              - uid: lcaCvH4Eh5zSsS
+                rotulo: '3'
                 circulo:
                   x: 359
                   y: 783
                   raio: 29
+                id: lcaCvH4Eh5zSsS
+                label: '3'
               referencias:
-              - escalada: Barba Ruiva SDS
+              - alvo_uid: vIvxLYfrcfsst9
+                pontos_uids:
+                - cXrbUyStnz6mPb
+                escalada: Barba Ruiva SDS
                 ids:
-                - '1'
-              - escalada: Barba Ruiva
+                - cXrbUyStnz6mPb
+              - alvo_uid: KD20dM1RQ3qYOZ
+                pontos_uids:
+                - DZ4CApDj9zo9bV
+                escalada: Barba Ruiva
                 ids:
-                - '2'
-              - escalada: Barba Aresta
+                - DZ4CApDj9zo9bV
+              - alvo_uid: YsJqgIkeNBjeBz
+                pontos_uids:
+                - lcaCvH4Eh5zSsS
+                escalada: Barba Aresta
                 ids:
-                - '3'
+                - lcaCvH4Eh5zSsS
             - caminho_imagem_mapa: imagens/grupo_frigideira_setor_barba_ruiva_p0_i1.webp
               largura_mapa: 618
               altura_mapa: 550
               pontos_de_interesse:
-              - id: '4'
-                label: '4'
+              - uid: 1lPfn9SUaXlVGg
+                rotulo: '4'
                 circulo:
                   x: 234
                   y: 424
                   raio: 18
-              - id: '5'
-                label: '5'
+                id: 1lPfn9SUaXlVGg
+                label: '4'
+              - uid: 6lb1yo9kdmWOAh
+                rotulo: '5'
                 circulo:
                   x: 279
                   y: 353
                   raio: 18
-              - id: '6'
-                label: '6'
+                id: 6lb1yo9kdmWOAh
+                label: '5'
+              - uid: LJQhK9oGgHVCpJ
+                rotulo: '6'
                 circulo:
                   x: 438
                   y: 419
                   raio: 18
-              - id: '7'
-                label: '7'
+                id: LJQhK9oGgHVCpJ
+                label: '6'
+              - uid: LHokKOgwiy90ON
+                rotulo: '7'
                 circulo:
                   x: 463
                   y: 373
                   raio: 18
+                id: LHokKOgwiy90ON
+                label: '7'
               referencias:
-              - escalada: Vira Folha
+              - alvo_uid: GCWOOFXptfrBac
+                pontos_uids:
+                - 1lPfn9SUaXlVGg
+                escalada: Vira Folha
                 ids:
-                - '4'
-              - escalada: Indecisão
+                - 1lPfn9SUaXlVGg
+              - alvo_uid: awPdr8vatFACua
+                pontos_uids:
+                - 6lb1yo9kdmWOAh
+                escalada: Indecisão
                 ids:
-                - '5'
-              - escalada: Revolução Feminina
+                - 6lb1yo9kdmWOAh
+              - alvo_uid: A72B02F6R7qXtw
+                pontos_uids:
+                - LJQhK9oGgHVCpJ
+                escalada: Revolução Feminina
                 ids:
-                - '6'
-              - escalada: Direitos Iguais
+                - LJQhK9oGgHVCpJ
+              - alvo_uid: hJw872ZCvz42WC
+                pontos_uids:
+                - LHokKOgwiy90ON
+                escalada: Direitos Iguais
                 ids:
-                - '7'
+                - LHokKOgwiy90ON
             escaladas:
-            - boulder:
+            - uid: vIvxLYfrcfsst9
+              boulder:
                 nome: Barba Ruiva SDS
                 dificuldade: V6
-            - boulder:
+            - uid: KD20dM1RQ3qYOZ
+              boulder:
                 nome: Barba Ruiva
                 dificuldade: V2
-            - boulder:
+            - uid: YsJqgIkeNBjeBz
+              boulder:
                 nome: Barba Aresta
                 dificuldade: V3
-            - boulder:
+            - uid: GCWOOFXptfrBac
+              boulder:
                 nome: Vira Folha
                 dificuldade: V2
-            - boulder:
+            - uid: awPdr8vatFACua
+              boulder:
                 nome: Indecisão
                 dificuldade: V2
-            - boulder:
+            - uid: A72B02F6R7qXtw
+              boulder:
                 nome: Revolução Feminina
                 dificuldade: V5
-            - boulder:
+            - uid: hJw872ZCvz42WC
+              boulder:
                 nome: Direitos Iguais
                 dificuldade: V6
             descricao: '# Barba Ruiva'
@@ -213,72 +294,103 @@ picos:
               total_escaladas: 7
               total_boulders: 7
         - conteudo:
+            uid: NcIvLGbZlLw50z
             nome: Escondendo Leite
             mapas:
             - caminho_imagem_mapa: imagens/grupo_frigideira_setor_escondendo_leite_p0_i0.webp
               largura_mapa: 739
               altura_mapa: 555
               pontos_de_interesse:
-              - id: '01'
-                label: '01'
+              - uid: X6xcftbyNN9PRk
+                rotulo: '01'
                 circulo:
                   x: 488
                   y: 396
                   raio: 18
-              - id: '02'
-                label: '02'
+                id: X6xcftbyNN9PRk
+                label: '01'
+              - uid: iYBabGzCPGjPDB
+                rotulo: '02'
                 circulo:
                   x: 613
                   y: 362
                   raio: 18
-              - id: '03'
-                label: '03'
+                id: iYBabGzCPGjPDB
+                label: '02'
+              - uid: h4enafcdBNwA4h
+                rotulo: '03'
                 circulo:
                   x: 488
                   y: 350
                   raio: 18
-              - id: '04'
-                label: '04'
+                id: h4enafcdBNwA4h
+                label: '03'
+              - uid: 2EMBbCNnLNtDSH
+                rotulo: '04'
                 circulo:
                   x: 511
                   y: 257
                   raio: 18
-              - id: '05'
-                label: '05'
+                id: 2EMBbCNnLNtDSH
+                label: '04'
+              - uid: pCZRFe8KTC9ZI3
+                rotulo: '05'
                 circulo:
                   x: 555
                   y: 235
                   raio: 18
+                id: pCZRFe8KTC9ZI3
+                label: '05'
               referencias:
-              - escalada: Escondendo Leite
+              - alvo_uid: Tt42EOkakTcck0
+                pontos_uids:
+                - X6xcftbyNN9PRk
+                escalada: Escondendo Leite
                 ids:
-                - '01'
-              - escalada: Principiante
+                - X6xcftbyNN9PRk
+              - alvo_uid: oP9XQrwfWjfPhd
+                pontos_uids:
+                - iYBabGzCPGjPDB
+                escalada: Principiante
                 ids:
-                - '02'
-              - escalada: Tá o Néctar
+                - iYBabGzCPGjPDB
+              - alvo_uid: CPQNcaFo4ws3sv
+                pontos_uids:
+                - h4enafcdBNwA4h
+                escalada: Tá o Néctar
                 ids:
-                - '03'
-              - escalada: Leite Condensado
+                - h4enafcdBNwA4h
+              - alvo_uid: yEtg5JZcYRmea5
+                pontos_uids:
+                - 2EMBbCNnLNtDSH
+                escalada: Leite Condensado
                 ids:
-                - '04'
-              - escalada: Leite Ninho
+                - 2EMBbCNnLNtDSH
+              - alvo_uid: Cj0fYbs4aucBTV
+                pontos_uids:
+                - pCZRFe8KTC9ZI3
+                escalada: Leite Ninho
                 ids:
-                - '05'
+                - pCZRFe8KTC9ZI3
             escaladas:
-            - boulder:
+            - uid: Tt42EOkakTcck0
+              boulder:
                 nome: Escondendo Leite
                 dificuldade: V5
-            - boulder:
+            - uid: oP9XQrwfWjfPhd
+              boulder:
                 nome: Principiante
                 dificuldade: V0
-            - boulder:
+            - uid: CPQNcaFo4ws3sv
+              boulder:
                 nome: Tá o Néctar
                 dificuldade: V5
-            - boulder:
+            - uid: yEtg5JZcYRmea5
+              boulder:
                 nome: Leite Condensado
                 dificuldade: V5
-            - boulder:
+            - uid: Cj0fYbs4aucBTV
+              boulder:
                 nome: Leite Ninho
                 dificuldade: V3
             descricao: '# Setor Escondendo Leite'
@@ -286,24 +398,31 @@ picos:
               total_escaladas: 5
               total_boulders: 5
         - conteudo:
+            uid: 4digHEeV3xxXiv
             nome: Rosquinha da Sogra
             mapas:
             - caminho_imagem_mapa: imagens/grupo_frigideira_setor_rosquinha_da_sogra_p0_i1.webp
               largura_mapa: 736
               altura_mapa: 562
               pontos_de_interesse:
-              - id: '1'
-                label: '1'
+              - uid: giMcFIJN7voj9J
+                rotulo: '1'
                 circulo:
                   x: 339
                   y: 361
                   raio: 28
+                id: giMcFIJN7voj9J
+                label: '1'
               referencias:
-              - escalada: Rosquinha da Sogra
+              - alvo_uid: lDz2OK0FaXYXNi
+                pontos_uids:
+                - giMcFIJN7voj9J
+                escalada: Rosquinha da Sogra
                 ids:
-                - '1'
+                - giMcFIJN7voj9J
             escaladas:
-            - boulder:
+            - uid: lDz2OK0FaXYXNi
+              boulder:
                 nome: Rosquinha da Sogra
                 dificuldade: V2
             descricao: '# Rosquinha da Sogra'
@@ -311,36 +430,49 @@ picos:
               total_escaladas: 1
               total_boulders: 1
         - conteudo:
+            uid: j3Wp4AMXPaa4og
             nome: Casa da Sogra
             mapas:
             - caminho_imagem_mapa: imagens/grupo_frigideira_setor_casa_da_sogra_p0_i0.webp
               largura_mapa: 811
               altura_mapa: 609
               pontos_de_interesse:
-              - id: '1'
-                label: '1'
+              - uid: efZPanVjt4l7dl
+                rotulo: '1'
                 circulo:
                   x: 264
                   y: 294
                   raio: 20
-              - id: '2'
-                label: '2'
+                id: efZPanVjt4l7dl
+                label: '1'
+              - uid: C9jmVGazQd1gX4
+                rotulo: '2'
                 circulo:
                   x: 223
                   y: 307
                   raio: 17
+                id: C9jmVGazQd1gX4
+                label: '2'
               referencias:
-              - escalada: Casa da Sogra
+              - alvo_uid: HZCrLxvqAxr83g
+                pontos_uids:
+                - efZPanVjt4l7dl
+                escalada: Casa da Sogra
                 ids:
-                - '1'
-              - escalada: Energia
+                - efZPanVjt4l7dl
+              - alvo_uid: qLmh2KNOl2yqMo
+                pontos_uids:
+                - C9jmVGazQd1gX4
+                escalada: Energia
                 ids:
-                - '2'
+                - C9jmVGazQd1gX4
             escaladas:
-            - boulder:
+            - uid: HZCrLxvqAxr83g
+              boulder:
                 nome: Casa da Sogra
                 dificuldade: V3
-            - boulder:
+            - uid: qLmh2KNOl2yqMo
+              boulder:
                 nome: Energia
                 dificuldade: V8
             descricao: '# Casa da Sogra'
@@ -348,24 +480,31 @@ picos:
               total_escaladas: 2
               total_boulders: 2
         - conteudo:
+            uid: O9shMYbO4wwfHk
             nome: O Dedo
             mapas:
             - caminho_imagem_mapa: imagens/grupo_frigideira_setor_o_dedo_p0_i1.webp
               largura_mapa: 799
               altura_mapa: 594
               pontos_de_interesse:
-              - id: '1'
-                label: '1'
+              - uid: wtNmOGwwmeROYc
+                rotulo: '1'
                 circulo:
                   x: 346
                   y: 289
                   raio: 19
+                id: wtNmOGwwmeROYc
+                label: '1'
               referencias:
-              - escalada: O Dedo
+              - alvo_uid: B1nUgxoeNMK8oH
+                pontos_uids:
+                - wtNmOGwwmeROYc
+                escalada: O Dedo
                 ids:
-                - '1'
+                - wtNmOGwwmeROYc
             escaladas:
-            - boulder:
+            - uid: B1nUgxoeNMK8oH
+              boulder:
                 nome: O Dedo
                 dificuldade: V1
             descricao: '# O Dedo'
@@ -384,63 +523,85 @@ picos:
           total_boulders: 21
   - grupo:
       conteudo:
+        uid: av1HS7SXs2NGyy
         nome: Reza
         mapas:
         - caminho_imagem_mapa: imagens/grupo_reza_p0_i0.webp
           largura_mapa: 595
           altura_mapa: 839
           pontos_de_interesse:
-          - id: grupo_reza
-            label: Reza
+          - uid: GOiz0aXeybkq4u
+            rotulo: Reza
             retangulo:
               x: 340
               y: 296
               comprimento: 210
               largura: 134
+            id: GOiz0aXeybkq4u
+            label: Reza
         setores:
         - conteudo:
+            uid: QmZl7skoXRvunn
             nome: O Profeta
             mapas:
             - caminho_imagem_mapa: imagens/grupo_reza_setor_o_profeta_p0_i0.webp
               largura_mapa: 1500
               altura_mapa: 727
               pontos_de_interesse:
-              - id: '1'
-                label: '1'
+              - uid: d9xKgaIhYYcFNM
+                rotulo: '1'
                 circulo:
                   x: 968
                   y: 523
                   raio: 24
-              - id: '2'
-                label: '2'
+                id: d9xKgaIhYYcFNM
+                label: '1'
+              - uid: 4o1g6JRVdtPlas
+                rotulo: '2'
                 circulo:
                   x: 426
                   y: 676
                   raio: 24
-              - id: '3'
-                label: '3'
+                id: 4o1g6JRVdtPlas
+                label: '2'
+              - uid: EwGHLyKQKNOqmD
+                rotulo: '3'
                 circulo:
                   x: 243
                   y: 695
                   raio: 24
+                id: EwGHLyKQKNOqmD
+                label: '3'
               referencias:
-              - escalada: O Profeta
+              - alvo_uid: 1N9kVG6c7WyxSi
+                pontos_uids:
+                - d9xKgaIhYYcFNM
+                escalada: O Profeta
                 ids:
-                - '1'
-              - escalada: Êxodos
+                - d9xKgaIhYYcFNM
+              - alvo_uid: CP3FjWHMY69ivC
+                pontos_uids:
+                - 4o1g6JRVdtPlas
+                escalada: Êxodos
                 ids:
-                - '2'
-              - escalada: Maomé
+                - 4o1g6JRVdtPlas
+              - alvo_uid: 8YTtnmSvIVKDGe
+                pontos_uids:
+                - EwGHLyKQKNOqmD
+                escalada: Maomé
                 ids:
-                - '3'
+                - EwGHLyKQKNOqmD
             escaladas:
-            - boulder:
+            - uid: 1N9kVG6c7WyxSi
+              boulder:
                 nome: O Profeta
                 dificuldade: V4
-            - boulder:
+            - uid: CP3FjWHMY69ivC
+              boulder:
                 nome: Êxodos
                 dificuldade: V7
-            - boulder:
+            - uid: 8YTtnmSvIVKDGe
+              boulder:
                 nome: Maomé
                 dificuldade: INDEFINIDO
                 descricao: Projeto
@@ -449,84 +610,121 @@ picos:
               total_escaladas: 3
               total_boulders: 3
         - conteudo:
+            uid: WawtekZcKgAb5I
             nome: Reza
             mapas:
             - caminho_imagem_mapa: imagens/grupo_reza_setor_reza_p0_i0.webp
               largura_mapa: 1513
               altura_mapa: 712
               pontos_de_interesse:
-              - id: '1'
-                label: '1'
+              - uid: 3Fec0nII1QMcHC
+                rotulo: '1'
                 circulo:
                   x: 254
                   y: 545
                   raio: 20
-              - id: '2'
-                label: '2'
+                id: 3Fec0nII1QMcHC
+                label: '1'
+              - uid: P8UbIqr28Pwcvu
+                rotulo: '2'
                 circulo:
                   x: 466
                   y: 597
                   raio: 20
-              - id: '3'
-                label: '3'
+                id: P8UbIqr28Pwcvu
+                label: '2'
+              - uid: Y5Kwg2PZ3Nwv8o
+                rotulo: '3'
                 circulo:
                   x: 554
                   y: 596
                   raio: 20
-              - id: '4'
-                label: '4'
+                id: Y5Kwg2PZ3Nwv8o
+                label: '3'
+              - uid: KkOG6H7BHylSwO
+                rotulo: '4'
                 circulo:
                   x: 634
                   y: 589
                   raio: 19
-              - id: '5'
-                label: '5'
+                id: KkOG6H7BHylSwO
+                label: '4'
+              - uid: KelirNRIglgX1p
+                rotulo: '5'
                 circulo:
                   x: 1104
                   y: 631
                   raio: 26
-              - id: '6'
-                label: '6'
+                id: KelirNRIglgX1p
+                label: '5'
+              - uid: 1gPOGG2kLtp0vb
+                rotulo: '6'
                 circulo:
                   x: 1138
                   y: 581
                   raio: 25
+                id: 1gPOGG2kLtp0vb
+                label: '6'
               referencias:
-              - escalada: Rezando pra São Longuinho
+              - alvo_uid: sejRQoz9QyermH
+                pontos_uids:
+                - 3Fec0nII1QMcHC
+                escalada: Rezando pra São Longuinho
                 ids:
-                - '1'
-              - escalada: Reza Forte
+                - 3Fec0nII1QMcHC
+              - alvo_uid: Co8rg9lkhJJhLq
+                pontos_uids:
+                - P8UbIqr28Pwcvu
+                escalada: Reza Forte
                 ids:
-                - '2'
-              - escalada: Reza Braba
+                - P8UbIqr28Pwcvu
+              - alvo_uid: jsFal6nx7F9zYB
+                pontos_uids:
+                - Y5Kwg2PZ3Nwv8o
+                escalada: Reza Braba
                 ids:
-                - '3'
-              - escalada: Padre Nosso
+                - Y5Kwg2PZ3Nwv8o
+              - alvo_uid: 0kZigjb4mDm1IX
+                pontos_uids:
+                - KkOG6H7BHylSwO
+                escalada: Padre Nosso
                 ids:
-                - '4'
-              - escalada: Reza Fria
+                - KkOG6H7BHylSwO
+              - alvo_uid: 692YObRDBb4TN3
+                pontos_uids:
+                - KelirNRIglgX1p
+                escalada: Reza Fria
                 ids:
-                - '5'
-              - escalada: Ave Maria
+                - KelirNRIglgX1p
+              - alvo_uid: QXHLiDW0ZiGagb
+                pontos_uids:
+                - 1gPOGG2kLtp0vb
+                escalada: Ave Maria
                 ids:
-                - '6'
+                - 1gPOGG2kLtp0vb
             escaladas:
-            - boulder:
+            - uid: sejRQoz9QyermH
+              boulder:
                 nome: Rezando pra São Longuinho
                 dificuldade: V2
-            - boulder:
+            - uid: Co8rg9lkhJJhLq
+              boulder:
                 nome: Reza Forte
                 dificuldade: V7
-            - boulder:
+            - uid: jsFal6nx7F9zYB
+              boulder:
                 nome: Reza Braba
                 dificuldade: V9
-            - boulder:
+            - uid: 0kZigjb4mDm1IX
+              boulder:
                 nome: Padre Nosso
                 dificuldade: V1
-            - boulder:
+            - uid: 692YObRDBb4TN3
+              boulder:
                 nome: Reza Fria
                 dificuldade: V6
-            - boulder:
+            - uid: QXHLiDW0ZiGagb
+              boulder:
                 nome: Ave Maria
                 dificuldade: V7
             descricao: '# Setor Reza'
@@ -534,76 +732,107 @@ picos:
               total_escaladas: 6
               total_boulders: 6
         - conteudo:
+            uid: EukNxu39n3k6EU
             nome: Locomotiva
             mapas:
             - caminho_imagem_mapa: imagens/grupo_reza_setor_locomotiva_p0_i0.webp
               largura_mapa: 1489
               altura_mapa: 726
               pontos_de_interesse:
-              - id: '1'
-                label: '1'
+              - uid: 6NwW8ASp3TmHax
+                rotulo: '1'
                 circulo:
                   x: 473
                   y: 667
                   raio: 36
+                id: 6NwW8ASp3TmHax
+                label: '1'
               referencias:
-              - escalada: Compressão
+              - alvo_uid: 12sZVM6ddCAZKA
+                pontos_uids:
+                - 6NwW8ASp3TmHax
+                escalada: Compressão
                 ids:
-                - '1'
+                - 6NwW8ASp3TmHax
             - caminho_imagem_mapa: imagens/grupo_reza_setor_locomotiva_p1_i0.webp
               largura_mapa: 1501
               altura_mapa: 730
               pontos_de_interesse:
-              - id: '2'
-                label: '2'
+              - uid: q2g5hisJkefa4U
+                rotulo: '2'
                 circulo:
                   x: 476
                   y: 551
                   raio: 23
-              - id: '3'
-                label: '3'
+                id: q2g5hisJkefa4U
+                label: '2'
+              - uid: hlyTHLiUolVec4
+                rotulo: '3'
                 circulo:
                   x: 599
                   y: 448
                   raio: 22
-              - id: '4'
-                label: '4'
+                id: hlyTHLiUolVec4
+                label: '3'
+              - uid: AgB315uKlKnRjt
+                rotulo: '4'
                 circulo:
                   x: 710
                   y: 650
                   raio: 22
-              - id: '5'
-                label: '5'
+                id: AgB315uKlKnRjt
+                label: '4'
+              - uid: xUvhYpDTSORHG0
+                rotulo: '5'
                 circulo:
                   x: 1301
                   y: 662
                   raio: 22
+                id: xUvhYpDTSORHG0
+                label: '5'
               referencias:
-              - escalada: Locomotiva
+              - alvo_uid: w413mJeCw6bB95
+                pontos_uids:
+                - q2g5hisJkefa4U
+                escalada: Locomotiva
                 ids:
-                - '2'
-              - escalada: Buraco
+                - q2g5hisJkefa4U
+              - alvo_uid: g4DU0VfIFZvBDL
+                pontos_uids:
+                - hlyTHLiUolVec4
+                escalada: Buraco
                 ids:
-                - '3'
-              - escalada: Projeto (Locomotiva)
+                - hlyTHLiUolVec4
+              - alvo_uid: iWjmPjJJ1r19NM
+                pontos_uids:
+                - AgB315uKlKnRjt
+                escalada: Projeto (Locomotiva)
                 ids:
-                - '4'
-              - escalada: Desayuno
+                - AgB315uKlKnRjt
+              - alvo_uid: qZPC3JCSBUQb3u
+                pontos_uids:
+                - xUvhYpDTSORHG0
+                escalada: Desayuno
                 ids:
-                - '5'
+                - xUvhYpDTSORHG0
             escaladas:
-            - boulder:
+            - uid: 12sZVM6ddCAZKA
+              boulder:
                 nome: Compressão
                 dificuldade: V9
-            - boulder:
+            - uid: w413mJeCw6bB95
+              boulder:
                 nome: Locomotiva
                 dificuldade: V7
-            - boulder:
+            - uid: g4DU0VfIFZvBDL
+              boulder:
                 nome: Buraco
                 dificuldade: V5
-            - boulder:
+            - uid: iWjmPjJJ1r19NM
+              boulder:
                 nome: Projeto (Locomotiva)
-            - boulder:
+            - uid: qZPC3JCSBUQb3u
+              boulder:
                 nome: Desayuno
                 dificuldade: V4
             descricao: '# Setor Locomotiva'
@@ -611,48 +840,67 @@ picos:
               total_escaladas: 5
               total_boulders: 5
         - conteudo:
+            uid: 5B86oNOyol7VlK
             nome: Batcaverna
             mapas:
             - caminho_imagem_mapa: imagens/grupo_reza_setor_batcaverna_p0_i0.webp
               largura_mapa: 1498
               altura_mapa: 726
               pontos_de_interesse:
-              - id: '1'
-                label: '1'
+              - uid: eKzUwx2pfdsD2e
+                rotulo: '1'
                 circulo:
                   x: 1372
                   y: 648
                   raio: 32
-              - id: '2'
-                label: '2'
+                id: eKzUwx2pfdsD2e
+                label: '1'
+              - uid: qTXm2W1cpeceRX
+                rotulo: '2'
                 circulo:
                   x: 664
                   y: 639
                   raio: 32
-              - id: '3'
-                label: '3'
+                id: qTXm2W1cpeceRX
+                label: '2'
+              - uid: hwBoMLg22PhEtW
+                rotulo: '3'
                 circulo:
                   x: 400
                   y: 680
                   raio: 32
+                id: hwBoMLg22PhEtW
+                label: '3'
               referencias:
-              - escalada: Batman Também Fuma
+              - alvo_uid: WFtP9OBCOtL1FS
+                pontos_uids:
+                - eKzUwx2pfdsD2e
+                escalada: Batman Também Fuma
                 ids:
-                - '1'
-              - escalada: Mulher Gato
+                - eKzUwx2pfdsD2e
+              - alvo_uid: 1nrEaENNT8In1R
+                pontos_uids:
+                - qTXm2W1cpeceRX
+                escalada: Mulher Gato
                 ids:
-                - '2'
-              - escalada: Robin Larica
+                - qTXm2W1cpeceRX
+              - alvo_uid: GgmWn9q2FZwSTz
+                pontos_uids:
+                - hwBoMLg22PhEtW
+                escalada: Robin Larica
                 ids:
-                - '3'
+                - hwBoMLg22PhEtW
             escaladas:
-            - boulder:
+            - uid: WFtP9OBCOtL1FS
+              boulder:
                 nome: Batman Também Fuma
                 dificuldade: V4
-            - boulder:
+            - uid: 1nrEaENNT8In1R
+              boulder:
                 nome: Mulher Gato
                 dificuldade: V7
-            - boulder:
+            - uid: GgmWn9q2FZwSTz
+              boulder:
                 nome: Robin Larica
                 dificuldade: V4
             descricao: '# Batcaverna'
@@ -660,49 +908,68 @@ picos:
               total_escaladas: 3
               total_boulders: 3
         - conteudo:
+            uid: 9rTp4J89URZRPy
             nome: Apoio Resende
             mapas:
             - caminho_imagem_mapa: imagens/grupo_reza_setor_apoio_resende_p0_i0.webp
               largura_mapa: 736
               altura_mapa: 552
               pontos_de_interesse:
-              - id: '1'
-                label: '1'
+              - uid: 6Qbotfl9SKgABd
+                rotulo: '1'
                 circulo:
                   x: 173
                   y: 464
                   raio: 20
-              - id: '2'
-                label: '2'
+                id: 6Qbotfl9SKgABd
+                label: '1'
+              - uid: XdvJggNiQKYqTJ
+                rotulo: '2'
                 circulo:
                   x: 275
                   y: 465
                   raio: 19
-              - id: '3'
-                label: '3'
+                id: XdvJggNiQKYqTJ
+                label: '2'
+              - uid: wUhteHAWEX7lrH
+                rotulo: '3'
                 circulo:
                   x: 455
                   y: 445
                   raio: 19
+                id: wUhteHAWEX7lrH
+                label: '3'
               referencias:
-              - escalada: Apoio Resende
+              - alvo_uid: LR8OVGMxFlY0ir
+                pontos_uids:
+                - 6Qbotfl9SKgABd
+                escalada: Apoio Resende
                 ids:
-                - '1'
-              - escalada: Ranca Couro
+                - 6Qbotfl9SKgABd
+              - alvo_uid: rHRCMkC2mZZnqq
+                pontos_uids:
+                - XdvJggNiQKYqTJ
+                escalada: Ranca Couro
                 ids:
-                - '2'
-              - escalada: Sagarana
+                - XdvJggNiQKYqTJ
+              - alvo_uid: A4LmlMUUOv0BUb
+                pontos_uids:
+                - wUhteHAWEX7lrH
+                escalada: Sagarana
                 ids:
-                - '3'
+                - wUhteHAWEX7lrH
             escaladas:
-            - boulder:
+            - uid: LR8OVGMxFlY0ir
+              boulder:
                 nome: Apoio Resende
                 dificuldade: V2
-            - boulder:
+            - uid: rHRCMkC2mZZnqq
+              boulder:
                 nome: Ranca Couro
                 dificuldade: INDEFINIDO
                 descricao: Projeto
-            - boulder:
+            - uid: A4LmlMUUOv0BUb
+              boulder:
                 nome: Sagarana
                 dificuldade: V6
             descricao: |-
@@ -713,118 +980,167 @@ picos:
               total_escaladas: 3
               total_boulders: 3
         - conteudo:
+            uid: eiipF4wsDuczUd
             nome: Busão
             mapas:
             - caminho_imagem_mapa: imagens/grupo_reza_setor_busao_p0_i0.webp
               largura_mapa: 1495
               altura_mapa: 724
               pontos_de_interesse:
-              - id: '1'
-                label: '1'
+              - uid: BgTPPZT2isX7PY
+                rotulo: '1'
                 circulo:
                   x: 283
                   y: 648
                   raio: 27
-              - id: '2'
-                label: '2'
+                id: BgTPPZT2isX7PY
+                label: '1'
+              - uid: tJNBswc4lpw6mn
+                rotulo: '2'
                 circulo:
                   x: 479
                   y: 657
                   raio: 27
-              - id: '3'
-                label: '3'
+                id: tJNBswc4lpw6mn
+                label: '2'
+              - uid: PaSpuk4CWymXGh
+                rotulo: '3'
                 circulo:
                   x: 650
                   y: 664
                   raio: 24
-              - id: '4'
-                label: '4'
+                id: PaSpuk4CWymXGh
+                label: '3'
+              - uid: Kmsg5lfvRakSMM
+                rotulo: '4'
                 circulo:
                   x: 715
                   y: 391
                   raio: 27
-              - id: '5'
-                label: '5'
+                id: Kmsg5lfvRakSMM
+                label: '4'
+              - uid: Ul5hPtamjpt8CM
+                rotulo: '5'
                 circulo:
                   x: 759
                   y: 671
                   raio: 27
+                id: Ul5hPtamjpt8CM
+                label: '5'
               referencias:
-              - escalada: Miranda
+              - alvo_uid: 0u32jMw8OxHJCZ
+                pontos_uids:
+                - BgTPPZT2isX7PY
+                escalada: Miranda
                 ids:
-                - '1'
-              - escalada: Projeto 2
+                - BgTPPZT2isX7PY
+              - alvo_uid: lXRXXCZeXJyC79
+                pontos_uids:
+                - tJNBswc4lpw6mn
+                escalada: Projeto 2
                 ids:
-                - '2'
-              - escalada: Projeto 3
+                - tJNBswc4lpw6mn
+              - alvo_uid: 6D35eCoWGvKfN7
+                pontos_uids:
+                - PaSpuk4CWymXGh
+                escalada: Projeto 3
                 ids:
-                - '3'
-              - escalada: 8 de Março
+                - PaSpuk4CWymXGh
+              - alvo_uid: cBWRjQPcV0VZ8G
+                pontos_uids:
+                - Kmsg5lfvRakSMM
+                escalada: 8 de Março
                 ids:
-                - '4'
-              - escalada: 21 de Abril
+                - Kmsg5lfvRakSMM
+              - alvo_uid: ydPQqO0svBBeiF
+                pontos_uids:
+                - Ul5hPtamjpt8CM
+                escalada: 21 de Abril
                 ids:
-                - '5'
+                - Ul5hPtamjpt8CM
             - caminho_imagem_mapa: imagens/grupo_reza_setor_busao_p1_i0.webp
               largura_mapa: 726
               altura_mapa: 830
               pontos_de_interesse:
-              - id: '6'
-                label: '6'
+              - uid: w78uHYy4NeLIwM
+                rotulo: '6'
                 circulo:
                   x: 344
                   y: 557
                   raio: 33
-              - id: '7'
-                label: '7'
+                id: w78uHYy4NeLIwM
+                label: '6'
+              - uid: LANc22vlEgKD9S
+                rotulo: '7'
                 circulo:
                   x: 549
                   y: 577
                   raio: 33
+                id: LANc22vlEgKD9S
+                label: '7'
               referencias:
-              - escalada: Clichê
+              - alvo_uid: h2Yu8UyIkdbefS
+                pontos_uids:
+                - w78uHYy4NeLIwM
+                escalada: Clichê
                 ids:
-                - '6'
-              - escalada: Plágio
+                - w78uHYy4NeLIwM
+              - alvo_uid: bFwUTiTfQISF1e
+                pontos_uids:
+                - LANc22vlEgKD9S
+                escalada: Plágio
                 ids:
-                - '7'
+                - LANc22vlEgKD9S
             - caminho_imagem_mapa: imagens/grupo_reza_setor_busao_p1_i1.webp
               largura_mapa: 735
               altura_mapa: 517
               pontos_de_interesse:
-              - id: '8'
-                label: '8'
+              - uid: jGDLTVLCKcFCju
+                rotulo: '8'
                 circulo:
                   x: 381
                   y: 459
                   raio: 23
+                id: jGDLTVLCKcFCju
+                label: '8'
               referencias:
-              - escalada: Mancha Cinza
+              - alvo_uid: 3K0ipSXRT8Kv6o
+                pontos_uids:
+                - jGDLTVLCKcFCju
+                escalada: Mancha Cinza
                 ids:
-                - '8'
+                - jGDLTVLCKcFCju
             escaladas:
-            - boulder:
+            - uid: 0u32jMw8OxHJCZ
+              boulder:
                 nome: Miranda
                 dificuldade: V2
-            - boulder:
+            - uid: lXRXXCZeXJyC79
+              boulder:
                 nome: Projeto 2
                 descricao: Projeto
-            - boulder:
+            - uid: 6D35eCoWGvKfN7
+              boulder:
                 nome: Projeto 3
                 descricao: Projeto
-            - boulder:
+            - uid: cBWRjQPcV0VZ8G
+              boulder:
                 nome: 8 de Março
                 dificuldade: V3
-            - boulder:
+            - uid: ydPQqO0svBBeiF
+              boulder:
                 nome: 21 de Abril
                 dificuldade: V5
-            - boulder:
+            - uid: h2Yu8UyIkdbefS
+              boulder:
                 nome: Clichê
                 descricao: Projeto
-            - boulder:
+            - uid: bFwUTiTfQISF1e
+              boulder:
                 nome: Plágio
                 dificuldade: V5
-            - boulder:
+            - uid: 3K0ipSXRT8Kv6o
+              boulder:
                 nome: Mancha Cinza
                 dificuldade: V3
             descricao: '# Setor Busão'
@@ -832,53 +1148,72 @@ picos:
               total_escaladas: 8
               total_boulders: 8
         - conteudo:
+            uid: mn1SfA1bjNHJut
             nome: Almadém
             mapas:
             - caminho_imagem_mapa: imagens/grupo_reza_setor_almadem_p0_i0.webp
               largura_mapa: 1221
               altura_mapa: 814
               pontos_de_interesse:
-              - id: '1'
-                label: '1'
+              - uid: YL1EH6IZkalKgy
+                rotulo: '1'
                 circulo:
                   x: 784
                   y: 704
                   raio: 26
-              - id: '2'
-                label: '2'
+                id: YL1EH6IZkalKgy
+                label: '1'
+              - uid: QtUObTzYRUbRsH
+                rotulo: '2'
                 circulo:
                   x: 964
                   y: 661
                   raio: 26
+                id: QtUObTzYRUbRsH
+                label: '2'
               referencias:
-              - escalada: Siriema
+              - alvo_uid: IBFjVeOle6gf2x
+                pontos_uids:
+                - YL1EH6IZkalKgy
+                escalada: Siriema
                 ids:
-                - '1'
-              - escalada: Mil Grau
+                - YL1EH6IZkalKgy
+              - alvo_uid: LfOldz5M6pAOH4
+                pontos_uids:
+                - QtUObTzYRUbRsH
+                escalada: Mil Grau
                 ids:
-                - '2'
+                - QtUObTzYRUbRsH
             - caminho_imagem_mapa: imagens/grupo_reza_setor_almadem_p0_i1.webp
               largura_mapa: 520
               altura_mapa: 379
               pontos_de_interesse:
-              - id: '3'
-                label: '3'
+              - uid: 9gjxCgCorZr9Xj
+                rotulo: '3'
                 circulo:
                   x: 241
                   y: 338
                   raio: 19
+                id: 9gjxCgCorZr9Xj
+                label: '3'
               referencias:
-              - escalada: Almadém
+              - alvo_uid: fdVtqneHTzepOT
+                pontos_uids:
+                - 9gjxCgCorZr9Xj
+                escalada: Almadém
                 ids:
-                - '3'
+                - 9gjxCgCorZr9Xj
             escaladas:
-            - boulder:
+            - uid: IBFjVeOle6gf2x
+              boulder:
                 nome: Siriema
                 dificuldade: V7
-            - boulder:
+            - uid: LfOldz5M6pAOH4
+              boulder:
                 nome: Mil Grau
                 dificuldade: V4
-            - boulder:
+            - uid: fdVtqneHTzepOT
+              boulder:
                 nome: Almadém
                 dificuldade: V4
             descricao: '# Almadém'
@@ -886,24 +1221,31 @@ picos:
               total_escaladas: 3
               total_boulders: 3
         - conteudo:
+            uid: PHpzXazAW8J5RO
             nome: Lek Pression
             mapas:
             - caminho_imagem_mapa: imagens/grupo_reza_setor_lek_pression_p0_i0.webp
               largura_mapa: 1294
               altura_mapa: 729
               pontos_de_interesse:
-              - id: '1'
-                label: '1'
+              - uid: RKFCPjyawfD90w
+                rotulo: '1'
                 circulo:
                   x: 563
                   y: 660
                   raio: 27
+                id: RKFCPjyawfD90w
+                label: '1'
               referencias:
-              - escalada: Lek Pression
+              - alvo_uid: z2fzSXWNVvyjWO
+                pontos_uids:
+                - RKFCPjyawfD90w
+                escalada: Lek Pression
                 ids:
-                - '1'
+                - RKFCPjyawfD90w
             escaladas:
-            - boulder:
+            - uid: z2fzSXWNVvyjWO
+              boulder:
                 nome: Lek Pression
                 dificuldade: V7
             descricao: '# Setor Lek Pression'
@@ -919,51 +1261,67 @@ picos:
           total_boulders: 32
   - grupo:
       conteudo:
+        uid: egMiYDg1rPsLBu
         nome: Laranjinha
         mapas:
         - caminho_imagem_mapa: imagens/grupo_laranjinha_p0_i0.webp
           largura_mapa: 595
           altura_mapa: 839
           pontos_de_interesse:
-          - id: grupo_laranjinha
-            label: Laranjinha
+          - uid: fVeO3NUfekG1x2
+            rotulo: Laranjinha
             retangulo:
               x: 300
               y: 400
               comprimento: 130
               largura: 124
+            id: fVeO3NUfekG1x2
+            label: Laranjinha
         setores:
         - conteudo:
+            uid: lyJ9wythLTiXh7
             nome: Matsuzaki
             mapas:
             - caminho_imagem_mapa: imagens/grupo_laranjinha_setor_matsuzaki_p0_i0.webp
               largura_mapa: 746
               altura_mapa: 578
               pontos_de_interesse:
-              - id: '1'
-                label: '1'
+              - uid: baUpEiXssh7BfE
+                rotulo: '1'
                 circulo:
                   x: 331
                   y: 466
                   raio: 27
-              - id: '2'
-                label: '2'
+                id: baUpEiXssh7BfE
+                label: '1'
+              - uid: zXPVVpSgnqlSmg
+                rotulo: '2'
                 circulo:
                   x: 403
                   y: 480
                   raio: 27
+                id: zXPVVpSgnqlSmg
+                label: '2'
               referencias:
-              - escalada: Matsuzaki
+              - alvo_uid: JgTcfT4YMAtElL
+                pontos_uids:
+                - baUpEiXssh7BfE
+                escalada: Matsuzaki
                 ids:
-                - '1'
-              - escalada: Agente Laranja
+                - baUpEiXssh7BfE
+              - alvo_uid: npotygkkijSGjv
+                pontos_uids:
+                - zXPVVpSgnqlSmg
+                escalada: Agente Laranja
                 ids:
-                - '2'
+                - zXPVVpSgnqlSmg
             escaladas:
-            - boulder:
+            - uid: JgTcfT4YMAtElL
+              boulder:
                 nome: Matsuzaki
                 dificuldade: V4
-            - boulder:
+            - uid: npotygkkijSGjv
+              boulder:
                 nome: Agente Laranja
                 dificuldade: V4
             descricao: ''
@@ -971,36 +1329,49 @@ picos:
               total_escaladas: 2
               total_boulders: 2
         - conteudo:
+            uid: 6c6dDcMXtYms7t
             nome: Embutidos
             mapas:
             - caminho_imagem_mapa: imagens/grupo_laranjinha_setor_embutidos_p0_i1.webp
               largura_mapa: 735
               altura_mapa: 576
               pontos_de_interesse:
-              - id: '1'
-                label: '1'
+              - uid: rNrwuqybgwmbci
+                rotulo: '1'
                 circulo:
                   x: 310
                   y: 289
                   raio: 19
-              - id: '2'
-                label: '2'
+                id: rNrwuqybgwmbci
+                label: '1'
+              - uid: 3WFlT9LBUvD2gS
+                rotulo: '2'
                 circulo:
                   x: 432
                   y: 289
                   raio: 18
+                id: 3WFlT9LBUvD2gS
+                label: '2'
               referencias:
-              - escalada: Embutidos Não
+              - alvo_uid: livl4zPDZ1unt2
+                pontos_uids:
+                - rNrwuqybgwmbci
+                escalada: Embutidos Não
                 ids:
-                - '1'
-              - escalada: Costelinha
+                - rNrwuqybgwmbci
+              - alvo_uid: sMpPhtJ9Jbyvsm
+                pontos_uids:
+                - 3WFlT9LBUvD2gS
+                escalada: Costelinha
                 ids:
-                - '2'
+                - 3WFlT9LBUvD2gS
             escaladas:
-            - boulder:
+            - uid: livl4zPDZ1unt2
+              boulder:
                 nome: Embutidos Não
                 dificuldade: V3
-            - boulder:
+            - uid: sMpPhtJ9Jbyvsm
+              boulder:
                 nome: Costelinha
                 dificuldade: V3
             descricao: '# Setor Embutidos'
@@ -1008,24 +1379,31 @@ picos:
               total_escaladas: 2
               total_boulders: 2
         - conteudo:
+            uid: 3o7gqRIGs09Mgp
             nome: Boca de Tubarão
             mapas:
             - caminho_imagem_mapa: imagens/grupo_laranjinha_setor_boca_de_tubarao_p0_i0.webp
               largura_mapa: 1493
               altura_mapa: 841
               pontos_de_interesse:
-              - id: '01'
-                label: '1'
+              - uid: OfbnDgsJO7ivu2
+                rotulo: '1'
                 circulo:
                   x: 623
                   y: 578
                   raio: 33
+                id: OfbnDgsJO7ivu2
+                label: '1'
               referencias:
-              - escalada: Boca de Tubarão
+              - alvo_uid: PQ6SbtMkAygcwo
+                pontos_uids:
+                - OfbnDgsJO7ivu2
+                escalada: Boca de Tubarão
                 ids:
-                - '01'
+                - OfbnDgsJO7ivu2
             escaladas:
-            - boulder:
+            - uid: PQ6SbtMkAygcwo
+              boulder:
                 nome: Boca de Tubarão
                 dificuldade: V4
             descricao: '# Boca de Tubarão'
@@ -1033,90 +1411,127 @@ picos:
               total_escaladas: 1
               total_boulders: 1
         - conteudo:
+            uid: cEJi76gPJc0XV6
             nome: Laranjinha
             mapas:
             - caminho_imagem_mapa: imagens/grupo_laranjinha_setor_laranjinha_p0_i0.webp
               largura_mapa: 944
               altura_mapa: 708
               pontos_de_interesse:
-              - id: '1'
-                label: '1'
+              - uid: 3iBj3gXGhohtjZ
+                rotulo: '1'
                 circulo:
                   x: 487
                   y: 588
                   raio: 30
-              - id: '2'
-                label: '2'
+                id: 3iBj3gXGhohtjZ
+                label: '1'
+              - uid: frX0BtX9GL5JXj
+                rotulo: '2'
                 circulo:
                   x: 304
                   y: 458
                   raio: 30
-              - id: '3'
-                label: '3'
+                id: frX0BtX9GL5JXj
+                label: '2'
+              - uid: Dcayl5ZsIYnxjU
+                rotulo: '3'
                 circulo:
                   x: 793
                   y: 588
                   raio: 30
+                id: Dcayl5ZsIYnxjU
+                label: '3'
               referencias:
-              - escalada: Laranjinha
+              - alvo_uid: cP8ujoykiWXigI
+                pontos_uids:
+                - 3iBj3gXGhohtjZ
+                escalada: Laranjinha
                 ids:
-                - '1'
-              - escalada: Sabotagem Feminina
+                - 3iBj3gXGhohtjZ
+              - alvo_uid: zg0r5Bf8IQbqzP
+                pontos_uids:
+                - frX0BtX9GL5JXj
+                escalada: Sabotagem Feminina
                 ids:
-                - '2'
-              - escalada: Laranja Preta
+                - frX0BtX9GL5JXj
+              - alvo_uid: P0r5i9fSUzLtG5
+                pontos_uids:
+                - Dcayl5ZsIYnxjU
+                escalada: Laranja Preta
                 ids:
-                - '3'
+                - Dcayl5ZsIYnxjU
             - caminho_imagem_mapa: imagens/grupo_laranjinha_setor_laranjinha_p0_i1.webp
               largura_mapa: 712
               altura_mapa: 399
               pontos_de_interesse:
-              - id: '4'
-                label: '4'
+              - uid: 1HU0XQ3kdEXG4P
+                rotulo: '4'
                 circulo:
                   x: 183
                   y: 302
                   raio: 17
-              - id: '5'
-                label: '5'
+                id: 1HU0XQ3kdEXG4P
+                label: '4'
+              - uid: CKtW3ZSeZgFzGq
+                rotulo: '5'
                 circulo:
                   x: 187
                   y: 247
                   raio: 16
-              - id: '6'
-                label: '6'
+                id: CKtW3ZSeZgFzGq
+                label: '5'
+              - uid: r5myCKPIVfZRjb
+                rotulo: '6'
                 circulo:
                   x: 485
                   y: 264
                   raio: 15
+                id: r5myCKPIVfZRjb
+                label: '6'
               referencias:
-              - escalada: Laranja Lima
+              - alvo_uid: YfnQ26MwtcRNoi
+                pontos_uids:
+                - 1HU0XQ3kdEXG4P
+                escalada: Laranja Lima
                 ids:
-                - '4'
-              - escalada: Limão Capeta
+                - 1HU0XQ3kdEXG4P
+              - alvo_uid: yjnh3waFTCfdwr
+                pontos_uids:
+                - CKtW3ZSeZgFzGq
+                escalada: Limão Capeta
                 ids:
-                - '5'
-              - escalada: Quincan
+                - CKtW3ZSeZgFzGq
+              - alvo_uid: rtw2yNhiVAEXJB
+                pontos_uids:
+                - r5myCKPIVfZRjb
+                escalada: Quincan
                 ids:
-                - '6'
+                - r5myCKPIVfZRjb
             escaladas:
-            - boulder:
+            - uid: cP8ujoykiWXigI
+              boulder:
                 nome: Laranjinha
                 dificuldade: V0
-            - boulder:
+            - uid: zg0r5Bf8IQbqzP
+              boulder:
                 nome: Sabotagem Feminina
                 dificuldade: V1
-            - boulder:
+            - uid: P0r5i9fSUzLtG5
+              boulder:
                 nome: Laranja Preta
                 dificuldade: V0
-            - boulder:
+            - uid: YfnQ26MwtcRNoi
+              boulder:
                 nome: Laranja Lima
                 dificuldade: V2
-            - boulder:
+            - uid: yjnh3waFTCfdwr
+              boulder:
                 nome: Limão Capeta
                 dificuldade: INDEFINIDO
                 descricao: Projeto.
-            - boulder:
+            - uid: rtw2yNhiVAEXJB
+              boulder:
                 nome: Quincan
                 dificuldade: V1
             descricao: '# Laranjinha'
@@ -1124,78 +1539,109 @@ picos:
               total_escaladas: 6
               total_boulders: 6
         - conteudo:
+            uid: 8YbwEOVUhJQ0SK
             nome: Unha de Gato
             mapas:
             - caminho_imagem_mapa: imagens/grupo_laranjinha_setor_unha_de_gato_p0_i1.webp
               largura_mapa: 1059
               altura_mapa: 707
               pontos_de_interesse:
-              - id: '1'
-                label: '1'
+              - uid: iQCn8OUPdkDNqH
+                rotulo: '1'
                 circulo:
                   x: 665
                   y: 502
                   raio: 19
-              - id: '2'
-                label: '2'
+                id: iQCn8OUPdkDNqH
+                label: '1'
+              - uid: uoWHOn0VRFLDjA
+                rotulo: '2'
                 circulo:
                   x: 553
                   y: 427
                   raio: 20
-              - id: '3'
-                label: '3'
+                id: uoWHOn0VRFLDjA
+                label: '2'
+              - uid: jWhaBSpFehzvV3
+                rotulo: '3'
                 circulo:
                   x: 182
                   y: 488
                   raio: 19
+                id: jWhaBSpFehzvV3
+                label: '3'
               referencias:
-              - escalada: Unha de Gato SDS
+              - alvo_uid: ifhlC5UKRqbzYX
+                pontos_uids:
+                - iQCn8OUPdkDNqH
+                escalada: Unha de Gato SDS
                 ids:
-                - '1'
-              - escalada: Unha de Gato
+                - iQCn8OUPdkDNqH
+              - alvo_uid: f5PuMn5MZeiW7P
+                pontos_uids:
+                - uoWHOn0VRFLDjA
+                escalada: Unha de Gato
                 ids:
-                - '2'
-              - escalada: Roçadeira
+                - uoWHOn0VRFLDjA
+              - alvo_uid: nGQgMXtXL3x40y
+                pontos_uids:
+                - jWhaBSpFehzvV3
+                escalada: Roçadeira
                 ids:
-                - '3'
+                - jWhaBSpFehzvV3
             - caminho_imagem_mapa: imagens/grupo_laranjinha_setor_unha_de_gato_p0_i0.webp
               largura_mapa: 528
               altura_mapa: 396
               pontos_de_interesse:
-              - id: '4'
-                label: '4'
+              - uid: PtFxWDIe9yZwPC
+                rotulo: '4'
                 circulo:
                   x: 162
                   y: 224
                   raio: 20
-              - id: '5'
-                label: '5'
+                id: PtFxWDIe9yZwPC
+                label: '4'
+              - uid: 8Ha8HZlwDLGzz7
+                rotulo: '5'
                 circulo:
                   x: 201
                   y: 228
                   raio: 20
+                id: 8Ha8HZlwDLGzz7
+                label: '5'
               referencias:
-              - escalada: Voilà
+              - alvo_uid: SfCLwJChGPsjKl
+                pontos_uids:
+                - PtFxWDIe9yZwPC
+                escalada: Voilà
                 ids:
-                - '4'
-              - escalada: Saída Pela Direita
+                - PtFxWDIe9yZwPC
+              - alvo_uid: bSeyubEIJlDXWJ
+                pontos_uids:
+                - 8Ha8HZlwDLGzz7
+                escalada: Saída Pela Direita
                 ids:
-                - '5'
+                - 8Ha8HZlwDLGzz7
             escaladas:
-            - boulder:
+            - uid: ifhlC5UKRqbzYX
+              boulder:
                 nome: Unha de Gato SDS
                 dificuldade: INDEFINIDO
                 descricao: Projeto
-            - boulder:
+            - uid: f5PuMn5MZeiW7P
+              boulder:
                 nome: Unha de Gato
                 dificuldade: V4
-            - boulder:
+            - uid: nGQgMXtXL3x40y
+              boulder:
                 nome: Roçadeira
                 dificuldade: V6
-            - boulder:
+            - uid: SfCLwJChGPsjKl
+              boulder:
                 nome: Voilà
                 dificuldade: V5
-            - boulder:
+            - uid: bSeyubEIJlDXWJ
+              boulder:
                 nome: Saída Pela Direita
                 dificuldade: V2
             descricao: '# Setor Unha de Gato'
@@ -1211,75 +1657,103 @@ picos:
           total_boulders: 16
   - grupo:
       conteudo:
+        uid: M8v6w3o5nlDeLU
         nome: Ditadura
         mapas:
         - caminho_imagem_mapa: imagens/grupo_ditadura_p0_i0.webp
           largura_mapa: 596
           altura_mapa: 839
           pontos_de_interesse:
-          - id: grupo_ditadura
-            label: Ditadura
+          - uid: eGlUlN5b8DVOKi
+            rotulo: Ditadura
             retangulo:
               x: 124
               y: 314
               comprimento: 208
               largura: 195
+            id: eGlUlN5b8DVOKi
+            label: Ditadura
         setores:
         - conteudo:
+            uid: CqXQ96HqOIWNgI
             nome: Ditadura
             mapas:
             - caminho_imagem_mapa: imagens/grupo_ditadura_setor_ditadura_p0_i0.webp
               largura_mapa: 1420
               altura_mapa: 848
               pontos_de_interesse:
-              - id: '1'
-                label: '1'
+              - uid: e32vanOpvwMWbP
+                rotulo: '1'
                 circulo:
                   x: 941
                   y: 817
                   raio: 20
-              - id: '2'
-                label: '2'
+                id: e32vanOpvwMWbP
+                label: '1'
+              - uid: nqBEu6wmbXfK7T
+                rotulo: '2'
                 circulo:
                   x: 991
                   y: 694
                   raio: 23
-              - id: '3'
-                label: '3'
+                id: nqBEu6wmbXfK7T
+                label: '2'
+              - uid: x2Tx1RHKtSHFDY
+                rotulo: '3'
                 circulo:
                   x: 1170
                   y: 599
                   raio: 17
-              - id: '4'
-                label: '4'
+                id: x2Tx1RHKtSHFDY
+                label: '3'
+              - uid: VX0UMCDoseMSW0
+                rotulo: '4'
                 circulo:
                   x: 214
                   y: 506
                   raio: 21
+                id: VX0UMCDoseMSW0
+                label: '4'
               referencias:
-              - escalada: Ditadura
+              - alvo_uid: rKLDmGfVOifcb1
+                pontos_uids:
+                - e32vanOpvwMWbP
+                escalada: Ditadura
                 ids:
-                - '1'
-              - escalada: Democracia
+                - e32vanOpvwMWbP
+              - alvo_uid: U1u381ykf2p62m
+                pontos_uids:
+                - nqBEu6wmbXfK7T
+                escalada: Democracia
                 ids:
-                - '2'
-              - escalada: Repressão
+                - nqBEu6wmbXfK7T
+              - alvo_uid: VxK6UaACrh9GFC
+                pontos_uids:
+                - x2Tx1RHKtSHFDY
+                escalada: Repressão
                 ids:
-                - '3'
-              - escalada: Via Rupestre
+                - x2Tx1RHKtSHFDY
+              - alvo_uid: OvKPYE1IWaOCT2
+                pontos_uids:
+                - VX0UMCDoseMSW0
+                escalada: Via Rupestre
                 ids:
-                - '4'
+                - VX0UMCDoseMSW0
             escaladas:
-            - boulder:
+            - uid: rKLDmGfVOifcb1
+              boulder:
                 nome: Ditadura
                 dificuldade: V10
-            - boulder:
+            - uid: U1u381ykf2p62m
+              boulder:
                 nome: Democracia
                 dificuldade: V7
-            - boulder:
+            - uid: VxK6UaACrh9GFC
+              boulder:
                 nome: Repressão
                 descricao: Projeto
-            - boulder:
+            - uid: OvKPYE1IWaOCT2
+              boulder:
                 nome: Via Rupestre
                 dificuldade: V0
                 descricao: v0/6º sup (Proteções Móveis)
@@ -1288,48 +1762,67 @@ picos:
               total_escaladas: 4
               total_boulders: 4
         - conteudo:
+            uid: CFkj135WS2iAFC
             nome: Cabeça de Cachorro
             mapas:
             - caminho_imagem_mapa: imagens/grupo_ditadura_setor_cabeca_de_cachorro_p0_i0.webp
               largura_mapa: 710
               altura_mapa: 568
               pontos_de_interesse:
-              - id: '01'
-                label: '1'
+              - uid: u6xSvrnGIwWmek
+                rotulo: '1'
                 circulo:
                   x: 211
                   y: 458
                   raio: 19
-              - id: '02'
-                label: '2'
+                id: u6xSvrnGIwWmek
+                label: '1'
+              - uid: me2ybVX2OVDlF3
+                rotulo: '2'
                 circulo:
                   x: 500
                   y: 338
                   raio: 19
-              - id: '03'
-                label: '3'
+                id: me2ybVX2OVDlF3
+                label: '2'
+              - uid: ZSqybiie5kR5xU
+                rotulo: '3'
                 circulo:
                   x: 250
                   y: 350
                   raio: 19
+                id: ZSqybiie5kR5xU
+                label: '3'
               referencias:
-              - escalada: Cachorro Louco
+              - alvo_uid: BYSoRYlPrPAHQl
+                pontos_uids:
+                - u6xSvrnGIwWmek
+                escalada: Cachorro Louco
                 ids:
-                - '01'
-              - escalada: T-Rex
+                - u6xSvrnGIwWmek
+              - alvo_uid: ukUfshvhz0vO8M
+                pontos_uids:
+                - me2ybVX2OVDlF3
+                escalada: T-Rex
                 ids:
-                - '02'
-              - escalada: Rex
+                - me2ybVX2OVDlF3
+              - alvo_uid: haGL6HOcQ5Otd5
+                pontos_uids:
+                - ZSqybiie5kR5xU
+                escalada: Rex
                 ids:
-                - '03'
+                - ZSqybiie5kR5xU
             escaladas:
-            - boulder:
+            - uid: BYSoRYlPrPAHQl
+              boulder:
                 nome: Cachorro Louco
                 dificuldade: V4
-            - boulder:
+            - uid: ukUfshvhz0vO8M
+              boulder:
                 nome: T-Rex
                 dificuldade: V2
-            - boulder:
+            - uid: haGL6HOcQ5Otd5
+              boulder:
                 nome: Rex
                 dificuldade: V0
             descricao: '# Cabeça de Cachorro'
@@ -1337,24 +1830,31 @@ picos:
               total_escaladas: 3
               total_boulders: 3
         - conteudo:
+            uid: fv8zxv4MMyBrJH
             nome: Catatau
             mapas:
             - caminho_imagem_mapa: imagens/grupo_ditadura_setor_catatau_p0_i1.webp
               largura_mapa: 727
               altura_mapa: 571
               pontos_de_interesse:
-              - id: '1'
-                label: '1'
+              - uid: 1F5z4TrU9VnXvc
+                rotulo: '1'
                 circulo:
                   x: 203
                   y: 406
                   raio: 19
+                id: 1F5z4TrU9VnXvc
+                label: '1'
               referencias:
-              - escalada: Catatau
+              - alvo_uid: mgFnUFLUCCLQ6Q
+                pontos_uids:
+                - 1F5z4TrU9VnXvc
+                escalada: Catatau
                 ids:
-                - '1'
+                - 1F5z4TrU9VnXvc
             escaladas:
-            - boulder:
+            - uid: mgFnUFLUCCLQ6Q
+              boulder:
                 nome: Catatau
                 dificuldade: V2
             descricao: '# Setor Catatau'
@@ -1362,48 +1862,67 @@ picos:
               total_escaladas: 1
               total_boulders: 1
         - conteudo:
+            uid: W1JNrgMgl63jDJ
             nome: Espiga
             mapas:
             - caminho_imagem_mapa: imagens/grupo_ditadura_setor_espiga_p0_i0.webp
               largura_mapa: 1488
               altura_mapa: 854
               pontos_de_interesse:
-              - id: '1'
-                label: '1'
+              - uid: bUInCDR1whPUvz
+                rotulo: '1'
                 circulo:
                   x: 511
                   y: 674
                   raio: 24
-              - id: '2'
-                label: '2'
+                id: bUInCDR1whPUvz
+                label: '1'
+              - uid: rnIauQpdr2WeqG
+                rotulo: '2'
                 circulo:
                   x: 866
                   y: 673
                   raio: 25
-              - id: '3'
-                label: '3'
+                id: rnIauQpdr2WeqG
+                label: '2'
+              - uid: mfAyTDj0GUHedC
+                rotulo: '3'
                 circulo:
                   x: 934
                   y: 673
                   raio: 25
+                id: mfAyTDj0GUHedC
+                label: '3'
               referencias:
-              - escalada: Espião
+              - alvo_uid: HSFIlyh0RguSF3
+                pontos_uids:
+                - bUInCDR1whPUvz
+                escalada: Espião
                 ids:
-                - '1'
-              - escalada: Espiga
+                - bUInCDR1whPUvz
+              - alvo_uid: 7i6ctOxJ46d3hu
+                pontos_uids:
+                - rnIauQpdr2WeqG
+                escalada: Espiga
                 ids:
-                - '2'
-              - escalada: Sabugo
+                - rnIauQpdr2WeqG
+              - alvo_uid: EY3t5LeIycv843
+                pontos_uids:
+                - mfAyTDj0GUHedC
+                escalada: Sabugo
                 ids:
-                - '3'
+                - mfAyTDj0GUHedC
             escaladas:
-            - boulder:
+            - uid: HSFIlyh0RguSF3
+              boulder:
                 nome: Espião
                 dificuldade: V2
-            - boulder:
+            - uid: 7i6ctOxJ46d3hu
+              boulder:
                 nome: Espiga
                 dificuldade: V6
-            - boulder:
+            - uid: EY3t5LeIycv843
+              boulder:
                 nome: Sabugo
                 dificuldade: V0
             descricao: '# Espiga'
@@ -1411,60 +1930,80 @@ picos:
               total_escaladas: 3
               total_boulders: 3
         - conteudo:
+            uid: a9RCi2qfPDv3xS
             nome: Aero Dinâmico
             mapas:
             - caminho_imagem_mapa: imagens/grupo_ditadura_setor_aero_dinamico_p0_i0.webp
               largura_mapa: 748
               altura_mapa: 536
               pontos_de_interesse:
-              - id: '1'
-                label: '1'
+              - uid: CLUecAHi8CThD2
+                rotulo: '1'
                 circulo:
                   x: 415
                   y: 379
                   raio: 17
-              - id: '2'
-                label: '2'
+                id: CLUecAHi8CThD2
+                label: '1'
+              - uid: vFFK2M6i1sMm1M
+                rotulo: '2'
                 circulo:
                   x: 315
                   y: 359
                   raio: 17
+                id: vFFK2M6i1sMm1M
+                label: '2'
               referencias:
-              - escalada: Aero Dinâmico
+              - alvo_uid: v9pmwzKS6kIvgI
+                pontos_uids:
+                - CLUecAHi8CThD2
+                escalada: Aero Dinâmico
                 ids:
-                - '1'
-              - escalada: Projeto (Aero Dinâmico)
+                - CLUecAHi8CThD2
+              - alvo_uid: Cfd1AWO1fA6mKu
+                pontos_uids:
+                - vFFK2M6i1sMm1M
+                escalada: Projeto (Aero Dinâmico)
                 ids:
-                - '2'
+                - vFFK2M6i1sMm1M
             escaladas:
-            - boulder:
+            - uid: v9pmwzKS6kIvgI
+              boulder:
                 nome: Aero Dinâmico
                 descricao: Projeto
-            - boulder:
+            - uid: Cfd1AWO1fA6mKu
+              boulder:
                 nome: Projeto (Aero Dinâmico)
             descricao: '# Aero Dinâmico'
             precomputados:
               total_escaladas: 2
               total_boulders: 2
         - conteudo:
+            uid: gXrhh04vwDtXUk
             nome: Coroinha
             mapas:
             - caminho_imagem_mapa: imagens/grupo_ditadura_setor_coroinha_p0_i1.webp
               largura_mapa: 745
               altura_mapa: 559
               pontos_de_interesse:
-              - id: '1'
-                label: '1'
+              - uid: iKWXn6szYw7c7g
+                rotulo: '1'
                 circulo:
                   x: 333
                   y: 481
                   raio: 24
+                id: iKWXn6szYw7c7g
+                label: '1'
               referencias:
-              - escalada: Coroinha
+              - alvo_uid: EH8c9NIsVlZ76V
+                pontos_uids:
+                - iKWXn6szYw7c7g
+                escalada: Coroinha
                 ids:
-                - '1'
+                - iKWXn6szYw7c7g
             escaladas:
-            - boulder:
+            - uid: EH8c9NIsVlZ76V
+              boulder:
                 nome: Coroinha
                 dificuldade: V1
             descricao: '# Setor Coroinha'
@@ -1472,48 +2011,67 @@ picos:
               total_escaladas: 1
               total_boulders: 1
         - conteudo:
+            uid: pn8gTBpmwrR7Fv
             nome: Iguana
             mapas:
             - caminho_imagem_mapa: imagens/grupo_ditadura_setor_iguana_p0_i0.webp
               largura_mapa: 1501
               altura_mapa: 726
               pontos_de_interesse:
-              - id: '1'
-                label: '1'
+              - uid: kgLOVHVAm4VHXD
+                rotulo: '1'
                 circulo:
                   x: 310
                   y: 549
                   raio: 38
-              - id: '2'
-                label: '2'
+                id: kgLOVHVAm4VHXD
+                label: '1'
+              - uid: ceHG2NJiORChEa
+                rotulo: '2'
                 circulo:
                   x: 698
                   y: 605
                   raio: 39
-              - id: '3'
-                label: '3'
+                id: ceHG2NJiORChEa
+                label: '2'
+              - uid: naptkY9qMIZYQT
+                rotulo: '3'
                 circulo:
                   x: 1187
                   y: 637
                   raio: 37
+                id: naptkY9qMIZYQT
+                label: '3'
               referencias:
-              - escalada: Iguana
+              - alvo_uid: Xkb55lKkoqp03F
+                pontos_uids:
+                - kgLOVHVAm4VHXD
+                escalada: Iguana
                 ids:
-                - '1'
-              - escalada: Calango
+                - kgLOVHVAm4VHXD
+              - alvo_uid: wdHFTA0pMvDzYB
+                pontos_uids:
+                - ceHG2NJiORChEa
+                escalada: Calango
                 ids:
-                - '2'
-              - escalada: Camaleão
+                - ceHG2NJiORChEa
+              - alvo_uid: Rz78JroFxa0gW7
+                pontos_uids:
+                - naptkY9qMIZYQT
+                escalada: Camaleão
                 ids:
-                - '3'
+                - naptkY9qMIZYQT
             escaladas:
-            - boulder:
+            - uid: Xkb55lKkoqp03F
+              boulder:
                 nome: Iguana
                 dificuldade: V8
-            - boulder:
+            - uid: wdHFTA0pMvDzYB
+              boulder:
                 nome: Calango
                 dificuldade: V1
-            - boulder:
+            - uid: Rz78JroFxa0gW7
+              boulder:
                 nome: Camaleão
                 dificuldade: V4
             descricao: '# Setor Iguana'
@@ -1521,53 +2079,72 @@ picos:
               total_escaladas: 3
               total_boulders: 3
         - conteudo:
+            uid: hLJeJsEOyHWdLg
             nome: Faixa Preta
             mapas:
             - caminho_imagem_mapa: imagens/grupo_ditadura_setor_faixa_preta_p0_i0.webp
               largura_mapa: 826
               altura_mapa: 589
               pontos_de_interesse:
-              - id: '1'
-                label: '1'
+              - uid: F5p66LwPCoLGrZ
+                rotulo: '1'
                 circulo:
                   x: 358
                   y: 540
                   raio: 33
+                id: F5p66LwPCoLGrZ
+                label: '1'
               referencias:
-              - escalada: Faixa Preta
+              - alvo_uid: fJmfeMLddqLCAk
+                pontos_uids:
+                - F5p66LwPCoLGrZ
+                escalada: Faixa Preta
                 ids:
-                - '1'
+                - F5p66LwPCoLGrZ
             - caminho_imagem_mapa: imagens/grupo_ditadura_setor_faixa_preta_p0_i1.webp
               largura_mapa: 897
               altura_mapa: 673
               pontos_de_interesse:
-              - id: '2'
-                label: '2'
+              - uid: I8hW7pOVRPuvp9
+                rotulo: '2'
                 circulo:
                   x: 395
                   y: 602
                   raio: 27
-              - id: '3'
-                label: '3'
+                id: I8hW7pOVRPuvp9
+                label: '2'
+              - uid: 4vwRVG4KXO4S2b
+                rotulo: '3'
                 circulo:
                   x: 645
                   y: 504
                   raio: 28
+                id: 4vwRVG4KXO4S2b
+                label: '3'
               referencias:
-              - escalada: Aresta Dinâmica
+              - alvo_uid: V2FgnTTFXtW6N1
+                pontos_uids:
+                - I8hW7pOVRPuvp9
+                escalada: Aresta Dinâmica
                 ids:
-                - '2'
-              - escalada: Projeto (Faixa Preta)
+                - I8hW7pOVRPuvp9
+              - alvo_uid: FpO6JFED68jJkK
+                pontos_uids:
+                - 4vwRVG4KXO4S2b
+                escalada: Projeto (Faixa Preta)
                 ids:
-                - '3'
+                - 4vwRVG4KXO4S2b
             escaladas:
-            - boulder:
+            - uid: fJmfeMLddqLCAk
+              boulder:
                 nome: Faixa Preta
                 dificuldade: V1
-            - boulder:
+            - uid: V2FgnTTFXtW6N1
+              boulder:
                 nome: Aresta Dinâmica
                 dificuldade: V3
-            - boulder:
+            - uid: FpO6JFED68jJkK
+              boulder:
                 nome: Projeto (Faixa Preta)
                 dificuldade: INDEFINIDO
             descricao: '# Faixa Preta'
@@ -1583,181 +2160,257 @@ picos:
           total_boulders: 20
   - grupo:
       conteudo:
+        uid: iDCGYkAp0pUbMY
         nome: Mulher de Bigode
         mapas:
         - caminho_imagem_mapa: imagens/grupo_mulher_de_bigode_p0_i0.webp
           largura_mapa: 596
           altura_mapa: 839
           pontos_de_interesse:
-          - id: grupo_mulher_de_bigode
-            label: Mulher de Bigode
+          - uid: pQiH1jLUYu7ZP1
+            rotulo: Mulher de Bigode
             retangulo:
               x: 166
               y: 491
               comprimento: 206
               largura: 194
+            id: pQiH1jLUYu7ZP1
+            label: Mulher de Bigode
         setores:
         - conteudo:
+            uid: PIXJYxedJscCy0
             nome: Mulher de Bigode
             mapas:
             - caminho_imagem_mapa: imagens/grupo_mulher_de_bigode_setor_mulher_e_bigode_p0_i0.webp
               largura_mapa: 601
               altura_mapa: 300
               pontos_de_interesse:
-              - id: '01'
-                label: '01'
+              - uid: qwlJ5kQ1OwejeN
+                rotulo: '01'
                 circulo:
                   x: 194
                   y: 207
                   raio: 13
-              - id: '02'
-                label: '02'
+                id: qwlJ5kQ1OwejeN
+                label: '01'
+              - uid: oyoPSpTAUlKYFT
+                rotulo: '02'
                 circulo:
                   x: 233
                   y: 136
                   raio: 10
-              - id: '03'
-                label: '03'
+                id: oyoPSpTAUlKYFT
+                label: '02'
+              - uid: JV36xTjAAGsCEX
+                rotulo: '03'
                 circulo:
                   x: 271
                   y: 198
                   raio: 13
-              - id: '04'
-                label: '04'
+                id: JV36xTjAAGsCEX
+                label: '03'
+              - uid: ex2Uxa4fZllV4H
+                rotulo: '04'
                 circulo:
                   x: 318
                   y: 184
                   raio: 13
-              - id: '05'
-                label: '05'
+                id: ex2Uxa4fZllV4H
+                label: '04'
+              - uid: OKJ8vcL1nJ76us
+                rotulo: '05'
                 circulo:
                   x: 493
                   y: 249
                   raio: 13
-              - id: '06'
-                label: '06'
+                id: OKJ8vcL1nJ76us
+                label: '05'
+              - uid: oVCDuK6K1qKzY6
+                rotulo: '06'
                 circulo:
                   x: 45
                   y: 61
                   raio: 13
-              - id: '07'
-                label: '07'
+                id: oVCDuK6K1qKzY6
+                label: '06'
+              - uid: FA4rKyKOetQBYN
+                rotulo: '07'
                 circulo:
                   x: 267
                   y: 153
                   raio: 13
+                id: FA4rKyKOetQBYN
+                label: '07'
               referencias:
-              - escalada: Liberdade de Expressão
+              - alvo_uid: Z9mBQdZSTCz5xA
+                pontos_uids:
+                - qwlJ5kQ1OwejeN
+                escalada: Liberdade de Expressão
                 ids:
-                - '01'
-              - escalada: Planta de Shiva
+                - qwlJ5kQ1OwejeN
+              - alvo_uid: 0K4Cuo4pZgsVZp
+                pontos_uids:
+                - oyoPSpTAUlKYFT
+                escalada: Planta de Shiva
                 ids:
-                - '02'
-              - escalada: Planta de Shiva SDS
+                - oyoPSpTAUlKYFT
+              - alvo_uid: avXvP6qR947tyu
+                pontos_uids:
+                - JV36xTjAAGsCEX
+                escalada: Planta de Shiva SDS
                 ids:
-                - '03'
-              - escalada: Planta Rara
+                - JV36xTjAAGsCEX
+              - alvo_uid: dAyz6XAhuVtU6V
+                pontos_uids:
+                - ex2Uxa4fZllV4H
+                escalada: Planta Rara
                 ids:
-                - '04'
-              - escalada: Tendinite
+                - ex2Uxa4fZllV4H
+              - alvo_uid: ut4kyJt2IUxGZL
+                pontos_uids:
+                - OKJ8vcL1nJ76us
+                escalada: Tendinite
                 ids:
-                - '05'
-              - escalada: Burning
+                - OKJ8vcL1nJ76us
+              - alvo_uid: L8b8R7MLbOoBZO
+                pontos_uids:
+                - oVCDuK6K1qKzY6
+                escalada: Burning
                 ids:
-                - '06'
-              - escalada: Albatroz
+                - oVCDuK6K1qKzY6
+              - alvo_uid: BfeGK6AUWq9HJr
+                pontos_uids:
+                - FA4rKyKOetQBYN
+                escalada: Albatroz
                 ids:
-                - '07'
+                - FA4rKyKOetQBYN
             - caminho_imagem_mapa: imagens/grupo_mulher_de_bigode_setor_mulher_e_bigode_p1_i0.webp
               largura_mapa: 491
               altura_mapa: 413
               pontos_de_interesse:
-              - id: '01'
-                label: '01'
+              - uid: KRxYMV6lJgwJOA
+                rotulo: '01'
                 circulo:
                   x: 213
                   y: 306
                   raio: 14
-              - id: '02'
-                label: '02'
+                id: KRxYMV6lJgwJOA
+                label: '01'
+              - uid: UCkechkwvtJYWn
+                rotulo: '02'
                 circulo:
                   x: 300
                   y: 260
                   raio: 14
-              - id: '03'
-                label: '03'
+                id: UCkechkwvtJYWn
+                label: '02'
+              - uid: WstyEX8V1BU1HM
+                rotulo: '03'
                 circulo:
                   x: 158
                   y: 288
                   raio: 13
+                id: WstyEX8V1BU1HM
+                label: '03'
               referencias:
-              - escalada: Mulher de Bigode
+              - alvo_uid: YkZLLNeUJjIEAz
+                pontos_uids:
+                - KRxYMV6lJgwJOA
+                escalada: Mulher de Bigode
                 ids:
-                - '01'
-              - escalada: Homem de Saia
+                - KRxYMV6lJgwJOA
+              - alvo_uid: xXruv8ZKYztt83
+                pontos_uids:
+                - UCkechkwvtJYWn
+                escalada: Homem de Saia
                 ids:
-                - '02'
-              - escalada: Mais Facinha
+                - UCkechkwvtJYWn
+              - alvo_uid: jkKES95IxzqsIN
+                pontos_uids:
+                - WstyEX8V1BU1HM
+                escalada: Mais Facinha
                 ids:
-                - '03'
+                - WstyEX8V1BU1HM
             - caminho_imagem_mapa: imagens/grupo_mulher_de_bigode_setor_mulher_e_bigode_p1_i1.webp
               largura_mapa: 530
               altura_mapa: 453
               pontos_de_interesse:
-              - id: '04'
-                label: '04'
+              - uid: ccfsoSVx8XI9um
+                rotulo: '04'
                 circulo:
                   x: 405
                   y: 380
                   raio: 18
-              - id: '05'
-                label: '05'
+                id: ccfsoSVx8XI9um
+                label: '04'
+              - uid: Rqfc8dqosMikI6
+                rotulo: '05'
                 circulo:
                   x: 185
                   y: 414
                   raio: 18
+                id: Rqfc8dqosMikI6
+                label: '05'
               referencias:
-              - escalada: Reino Animal
+              - alvo_uid: fHZtu1vXkG13bf
+                pontos_uids:
+                - ccfsoSVx8XI9um
+                escalada: Reino Animal
                 ids:
-                - '04'
-              - escalada: Blue Cheese
+                - ccfsoSVx8XI9um
+              - alvo_uid: jicqjOHb4al6Ue
+                pontos_uids:
+                - Rqfc8dqosMikI6
+                escalada: Blue Cheese
                 ids:
-                - '05'
+                - Rqfc8dqosMikI6
             escaladas:
-            - boulder:
+            - uid: Z9mBQdZSTCz5xA
+              boulder:
                 nome: Liberdade de Expressão
                 dificuldade: V4
-            - boulder:
+            - uid: 0K4Cuo4pZgsVZp
+              boulder:
                 nome: Planta de Shiva
                 dificuldade: V1
-            - boulder:
+            - uid: avXvP6qR947tyu
+              boulder:
                 nome: Planta de Shiva SDS
                 dificuldade: V5
-            - boulder:
+            - uid: dAyz6XAhuVtU6V
+              boulder:
                 nome: Planta Rara
                 dificuldade: V10
-            - boulder:
+            - uid: ut4kyJt2IUxGZL
+              boulder:
                 nome: Tendinite
                 dificuldade: V4
-            - boulder:
+            - uid: L8b8R7MLbOoBZO
+              boulder:
                 nome: Burning
                 dificuldade: V8
-            - boulder:
+            - uid: BfeGK6AUWq9HJr
+              boulder:
                 nome: Albatroz
                 dificuldade: V8
-            - boulder:
+            - uid: YkZLLNeUJjIEAz
+              boulder:
                 nome: Mulher de Bigode
                 dificuldade: V5
-            - boulder:
+            - uid: xXruv8ZKYztt83
+              boulder:
                 nome: Homem de Saia
                 dificuldade: V3
-            - boulder:
+            - uid: jkKES95IxzqsIN
+              boulder:
                 nome: Mais Facinha
                 dificuldade: V2
-            - boulder:
+            - uid: fHZtu1vXkG13bf
+              boulder:
                 nome: Reino Animal
                 dificuldade: V4
-            - boulder:
+            - uid: jicqjOHb4al6Ue
+              boulder:
                 nome: Blue Cheese
                 dificuldade: V2
             descricao: '# Setor Mulher de Bigode'
@@ -1765,110 +2418,150 @@ picos:
               total_escaladas: 12
               total_boulders: 12
         - conteudo:
+            uid: JZKC7a6UCkWjYn
             nome: Ziriguidum
             mapas:
             - caminho_imagem_mapa: imagens/grupo_mulher_de_bigode_setor_ziriguidum_p0_i0.webp
               largura_mapa: 1489
               altura_mapa: 783
               pontos_de_interesse:
-              - id: '1'
-                label: '1'
+              - uid: YQsTqb0lyKDtOk
+                rotulo: '1'
                 circulo:
                   x: 1134
                   y: 501
                   raio: 29
-              - id: '2'
-                label: '2'
+                id: YQsTqb0lyKDtOk
+                label: '1'
+              - uid: eJtWR8oqytD6R4
+                rotulo: '2'
                 circulo:
                   x: 930
                   y: 563
                   raio: 29
-              - id: '3'
-                label: '3'
+                id: eJtWR8oqytD6R4
+                label: '2'
+              - uid: AhO7IsDApYPG4G
+                rotulo: '3'
                 circulo:
                   x: 106
                   y: 761
                   raio: 14
-              - id: '4'
-                label: '4'
+                id: AhO7IsDApYPG4G
+                label: '3'
+              - uid: bpwVkgwK22ACwc
+                rotulo: '4'
                 circulo:
                   x: 143
                   y: 763
                   raio: 14
-              - id: '5'
-                label: '5'
+                id: bpwVkgwK22ACwc
+                label: '4'
+              - uid: r6WDZNzFaYtAiR
+                rotulo: '5'
                 circulo:
                   x: 181
                   y: 761
                   raio: 14
+                id: r6WDZNzFaYtAiR
+                label: '5'
               referencias:
-              - escalada: Siricutico
+              - alvo_uid: 36JaExr7FNAh6p
+                pontos_uids:
+                - YQsTqb0lyKDtOk
+                escalada: Siricutico
                 ids:
-                - '1'
-              - escalada: Ziriguidum
+                - YQsTqb0lyKDtOk
+              - alvo_uid: cfB4nSJDpm4TA7
+                pontos_uids:
+                - eJtWR8oqytD6R4
+                escalada: Ziriguidum
                 ids:
-                - '2'
-              - ids:
-                - '3'
-                grupo: Mulher de Bigode
-                setor: Ziriguidum
+                - eJtWR8oqytD6R4
+              - alvo_uid: huRcAwwUu6pKEj
+                pontos_uids:
+                - AhO7IsDApYPG4G
                 escalada: Esticadinha
-              - ids:
-                - '4'
-                grupo: Mulher de Bigode
-                setor: Ziriguidum
+                ids:
+                - AhO7IsDApYPG4G
+              - alvo_uid: GzWKfqtV2KcjAo
+                pontos_uids:
+                - bpwVkgwK22ACwc
                 escalada: Esquisitinha
-              - ids:
-                - '5'
-                grupo: Mulher de Bigode
-                setor: Ziriguidum
+                ids:
+                - bpwVkgwK22ACwc
+              - alvo_uid: 25YfaqfQwc55Ij
+                pontos_uids:
+                - r6WDZNzFaYtAiR
                 escalada: Rapunzel
+                ids:
+                - r6WDZNzFaYtAiR
             - caminho_imagem_mapa: imagens/grupo_mulher_de_bigode_setor_ziriguidum_p0_i1.webp
               largura_mapa: 509
               altura_mapa: 432
               pontos_de_interesse:
-              - id: '3'
-                label: '3'
+              - uid: gWVaDETQ9TKqQl
+                rotulo: '3'
                 circulo:
                   x: 163
                   y: 345
                   raio: 14
-              - id: '4'
-                label: '4'
+                id: gWVaDETQ9TKqQl
+                label: '3'
+              - uid: sRmh2jv9jIzVMC
+                rotulo: '4'
                 circulo:
                   x: 200
                   y: 347
                   raio: 14
-              - id: '5'
-                label: '5'
+                id: sRmh2jv9jIzVMC
+                label: '4'
+              - uid: RNSZjKwD5Almvb
+                rotulo: '5'
                 circulo:
                   x: 238
                   y: 344
                   raio: 14
+                id: RNSZjKwD5Almvb
+                label: '5'
               referencias:
-              - escalada: Esticadinha
+              - alvo_uid: huRcAwwUu6pKEj
+                pontos_uids:
+                - gWVaDETQ9TKqQl
+                escalada: Esticadinha
                 ids:
-                - '3'
-              - escalada: Esquisitinha
+                - gWVaDETQ9TKqQl
+              - alvo_uid: GzWKfqtV2KcjAo
+                pontos_uids:
+                - sRmh2jv9jIzVMC
+                escalada: Esquisitinha
                 ids:
-                - '4'
-              - escalada: Rapunzel
+                - sRmh2jv9jIzVMC
+              - alvo_uid: 25YfaqfQwc55Ij
+                pontos_uids:
+                - RNSZjKwD5Almvb
+                escalada: Rapunzel
                 ids:
-                - '5'
+                - RNSZjKwD5Almvb
             escaladas:
-            - boulder:
+            - uid: 36JaExr7FNAh6p
+              boulder:
                 nome: Siricutico
                 dificuldade: V2
-            - boulder:
+            - uid: cfB4nSJDpm4TA7
+              boulder:
                 nome: Ziriguidum
                 dificuldade: V5
-            - boulder:
+            - uid: huRcAwwUu6pKEj
+              boulder:
                 nome: Esticadinha
                 dificuldade: V3
-            - boulder:
+            - uid: GzWKfqtV2KcjAo
+              boulder:
                 nome: Esquisitinha
                 dificuldade: V2
-            - boulder:
+            - uid: 25YfaqfQwc55Ij
+              boulder:
                 nome: Rapunzel
                 dificuldade: V3
             descricao: '# Ziriguidum'
@@ -1876,48 +2569,67 @@ picos:
               total_escaladas: 5
               total_boulders: 5
         - conteudo:
+            uid: yuPPXErIZPAcv3
             nome: Eco
             mapas:
             - caminho_imagem_mapa: imagens/grupo_mulher_de_bigode_setor_eco_p0_i0.webp
               largura_mapa: 1498
               altura_mapa: 818
               pontos_de_interesse:
-              - id: '1'
-                label: '1'
+              - uid: pu9Yey6ykGQkWu
+                rotulo: '1'
                 circulo:
                   x: 689
                   y: 623
                   raio: 21
-              - id: '2'
-                label: '2'
+                id: pu9Yey6ykGQkWu
+                label: '1'
+              - uid: WPqiS6Jj0Slrsg
+                rotulo: '2'
                 circulo:
                   x: 821
                   y: 708
                   raio: 21
-              - id: '3'
-                label: '3'
+                id: WPqiS6Jj0Slrsg
+                label: '2'
+              - uid: JXh2fmXfHPEUoU
+                rotulo: '3'
                 circulo:
                   x: 959
                   y: 627
                   raio: 21
+                id: JXh2fmXfHPEUoU
+                label: '3'
               referencias:
-              - escalada: Baioneta
+              - alvo_uid: y8KtNOKYkMPJ3t
+                pontos_uids:
+                - pu9Yey6ykGQkWu
+                escalada: Baioneta
                 ids:
-                - '1'
-              - escalada: Eco
+                - pu9Yey6ykGQkWu
+              - alvo_uid: OJhop79XvZ0mHc
+                pontos_uids:
+                - WPqiS6Jj0Slrsg
+                escalada: Eco
                 ids:
-                - '2'
-              - escalada: Escotilha
+                - WPqiS6Jj0Slrsg
+              - alvo_uid: Q6d7xHVLitHidA
+                pontos_uids:
+                - JXh2fmXfHPEUoU
+                escalada: Escotilha
                 ids:
-                - '3'
+                - JXh2fmXfHPEUoU
             escaladas:
-            - boulder:
+            - uid: y8KtNOKYkMPJ3t
+              boulder:
                 nome: Baioneta
                 dificuldade: V5
-            - boulder:
+            - uid: OJhop79XvZ0mHc
+              boulder:
                 nome: Eco
                 dificuldade: V3
-            - boulder:
+            - uid: Q6d7xHVLitHidA
+              boulder:
                 nome: Escotilha
                 dificuldade: V3
             descricao: '# Eco'
@@ -1925,49 +2637,68 @@ picos:
               total_escaladas: 3
               total_boulders: 3
         - conteudo:
+            uid: KqHIgclXOMpIHp
             nome: Meretríssimo
             mapas:
             - caminho_imagem_mapa: imagens/grupo_mulher_de_bigode_setor_meretrissimo_p0_i0.webp
               largura_mapa: 748
               altura_mapa: 638
               pontos_de_interesse:
-              - id: '1'
-                label: '1'
+              - uid: th3GmMB18XrsCd
+                rotulo: '1'
                 circulo:
                   x: 638
                   y: 503
                   raio: 21
-              - id: '2'
-                label: '2'
+                id: th3GmMB18XrsCd
+                label: '1'
+              - uid: j1smOmpkCtlch1
+                rotulo: '2'
                 circulo:
                   x: 591
                   y: 401
                   raio: 21
-              - id: '3'
-                label: '3'
+                id: j1smOmpkCtlch1
+                label: '2'
+              - uid: 6mSrLAL5jmfwe8
+                rotulo: '3'
                 circulo:
                   x: 27
                   y: 384
                   raio: 21
+                id: 6mSrLAL5jmfwe8
+                label: '3'
               referencias:
-              - escalada: Meretríssimo SDS
+              - alvo_uid: HTyqIQxkod8Va2
+                pontos_uids:
+                - th3GmMB18XrsCd
+                escalada: Meretríssimo SDS
                 ids:
-                - '1'
-              - escalada: Meretríssimo
+                - th3GmMB18XrsCd
+              - alvo_uid: mX6zlnERemq96A
+                pontos_uids:
+                - j1smOmpkCtlch1
+                escalada: Meretríssimo
                 ids:
-                - '2'
-              - escalada: Toco Preto
+                - j1smOmpkCtlch1
+              - alvo_uid: R5SUGms1roTFF1
+                pontos_uids:
+                - 6mSrLAL5jmfwe8
+                escalada: Toco Preto
                 ids:
-                - '3'
+                - 6mSrLAL5jmfwe8
             escaladas:
-            - boulder:
+            - uid: HTyqIQxkod8Va2
+              boulder:
                 nome: Meretríssimo SDS
                 dificuldade: INDEFINIDO
                 descricao: Projeto
-            - boulder:
+            - uid: mX6zlnERemq96A
+              boulder:
                 nome: Meretríssimo
                 dificuldade: V4
-            - boulder:
+            - uid: R5SUGms1roTFF1
+              boulder:
                 nome: Toco Preto
                 dificuldade: V2
             descricao: '# Meretríssimo'
@@ -1975,24 +2706,31 @@ picos:
               total_escaladas: 3
               total_boulders: 3
         - conteudo:
+            uid: 9CuBV3INHGsfir
             nome: Diabinha
             mapas:
             - caminho_imagem_mapa: imagens/grupo_mulher_de_bigode_setor_diabinha_p0_i1.webp
               largura_mapa: 687
               altura_mapa: 590
               referencias:
-              - escalada: Diabinha
+              - alvo_uid: bAAuLTvi4tU3cg
+                pontos_uids:
+                - dxpJln3fC55fhU
+                escalada: Diabinha
                 ids:
-                - '1'
+                - dxpJln3fC55fhU
               pontos_de_interesse:
-              - id: '1'
-                label: '1'
+              - uid: dxpJln3fC55fhU
+                rotulo: '1'
                 circulo:
                   x: 551
                   y: 333
                   raio: 20
+                id: dxpJln3fC55fhU
+                label: '1'
             escaladas:
-            - boulder:
+            - uid: bAAuLTvi4tU3cg
+              boulder:
                 nome: Diabinha
                 dificuldade: V0
             descricao: '# Diabinha'
@@ -2000,89 +2738,126 @@ picos:
               total_escaladas: 1
               total_boulders: 1
         - conteudo:
+            uid: Nb5NpumVgjymga
             nome: Beiço
             mapas:
             - caminho_imagem_mapa: imagens/grupo_mulher_de_bigode_setor_beico_p0_i0.webp
               largura_mapa: 897
               altura_mapa: 766
               pontos_de_interesse:
-              - id: '1'
-                label: '1'
+              - uid: C4pXBQ4IbfuWyI
+                rotulo: '1'
                 circulo:
                   x: 227
                   y: 583
                   raio: 23
-              - id: '2'
-                label: '2'
+                id: C4pXBQ4IbfuWyI
+                label: '1'
+              - uid: sEkwDpjChG7WDn
+                rotulo: '2'
                 circulo:
                   x: 506
                   y: 583
                   raio: 24
+                id: sEkwDpjChG7WDn
+                label: '2'
               referencias:
-              - escalada: Beiçudo
+              - alvo_uid: RHedK3Me2Fjage
+                pontos_uids:
+                - C4pXBQ4IbfuWyI
+                escalada: Beiçudo
                 ids:
-                - '1'
-              - escalada: Beiçola
+                - C4pXBQ4IbfuWyI
+              - alvo_uid: 4G1OUWnVQmd1zb
+                pontos_uids:
+                - sEkwDpjChG7WDn
+                escalada: Beiçola
                 ids:
-                - '2'
+                - sEkwDpjChG7WDn
             - caminho_imagem_mapa: imagens/grupo_mulher_de_bigode_setor_beico_p0_i1.webp
               largura_mapa: 591
               altura_mapa: 444
               pontos_de_interesse:
-              - id: '3'
-                label: '3'
+              - uid: UWc1Xt3Fi7V0hy
+                rotulo: '3'
                 circulo:
                   x: 102
                   y: 381
                   raio: 15
-              - id: '4'
-                label: '4'
+                id: UWc1Xt3Fi7V0hy
+                label: '3'
+              - uid: tUL6Ezw1Dqc511
+                rotulo: '4'
                 circulo:
                   x: 153
                   y: 401
                   raio: 15
-              - id: '5'
-                label: '5'
+                id: tUL6Ezw1Dqc511
+                label: '4'
+              - uid: KEBm1xNL6dksFT
+                rotulo: '5'
                 circulo:
                   x: 208
                   y: 243
                   raio: 15
-              - id: '6'
-                label: '6'
+                id: KEBm1xNL6dksFT
+                label: '5'
+              - uid: YhxI9sjMfFjqes
+                rotulo: '6'
                 circulo:
                   x: 493
                   y: 257
                   raio: 15
+                id: YhxI9sjMfFjqes
+                label: '6'
               referencias:
-              - escalada: Boulder dos Buracos
+              - alvo_uid: gJICFBx1hKJsly
+                pontos_uids:
+                - UWc1Xt3Fi7V0hy
+                escalada: Boulder dos Buracos
                 ids:
-                - '3'
-              - escalada: Zé Colméia
+                - UWc1Xt3Fi7V0hy
+              - alvo_uid: euig8hVhiXbzsh
+                pontos_uids:
+                - tUL6Ezw1Dqc511
+                escalada: Zé Colméia
                 ids:
-                - '4'
-              - escalada: Charlie
+                - tUL6Ezw1Dqc511
+              - alvo_uid: I5h35zGNppQiH5
+                pontos_uids:
+                - KEBm1xNL6dksFT
+                escalada: Charlie
                 ids:
-                - '5'
-              - escalada: Bravo
+                - KEBm1xNL6dksFT
+              - alvo_uid: wkP02LEhWXJnUP
+                pontos_uids:
+                - YhxI9sjMfFjqes
+                escalada: Bravo
                 ids:
-                - '6'
+                - YhxI9sjMfFjqes
             escaladas:
-            - boulder:
+            - uid: RHedK3Me2Fjage
+              boulder:
                 nome: Beiçudo
                 dificuldade: V2
-            - boulder:
+            - uid: 4G1OUWnVQmd1zb
+              boulder:
                 nome: Beiçola
                 dificuldade: V2
-            - boulder:
+            - uid: gJICFBx1hKJsly
+              boulder:
                 nome: Boulder dos Buracos
                 dificuldade: V0
-            - boulder:
+            - uid: euig8hVhiXbzsh
+              boulder:
                 nome: Zé Colméia
                 dificuldade: V2
-            - boulder:
+            - uid: I5h35zGNppQiH5
+              boulder:
                 nome: Charlie
                 dificuldade: V4
-            - boulder:
+            - uid: wkP02LEhWXJnUP
+              boulder:
                 nome: Bravo
                 dificuldade: V5
             descricao: '# Beiço'
@@ -2090,24 +2865,31 @@ picos:
               total_escaladas: 6
               total_boulders: 6
         - conteudo:
+            uid: tsLPexCvGZbhiu
             nome: Fingerboard
             mapas:
             - caminho_imagem_mapa: imagens/grupo_mulher_de_bigode_setor_fingerboard_p0_i0.webp
               largura_mapa: 719
               altura_mapa: 570
               pontos_de_interesse:
-              - id: '1'
-                label: '1'
+              - uid: xYVVgkGF8cV8MA
+                rotulo: '1'
                 circulo:
                   x: 360
                   y: 350
                   raio: 28
+                id: xYVVgkGF8cV8MA
+                label: '1'
               referencias:
-              - escalada: Fingerboard
+              - alvo_uid: SHl29lnnUSsjet
+                pontos_uids:
+                - xYVVgkGF8cV8MA
+                escalada: Fingerboard
                 ids:
-                - '1'
+                - xYVVgkGF8cV8MA
             escaladas:
-            - boulder:
+            - uid: SHl29lnnUSsjet
+              boulder:
                 nome: Fingerboard
                 dificuldade: V0
             descricao: '# Fingerboard'
@@ -2115,37 +2897,50 @@ picos:
               total_escaladas: 1
               total_boulders: 1
         - conteudo:
+            uid: 0HG2zaGIDNfYkO
             nome: Carga Pesada
             mapas:
             - caminho_imagem_mapa: imagens/grupo_mulher_de_bigode_setor_carga_pesada_p0_i1.webp
               largura_mapa: 717
               altura_mapa: 538
               pontos_de_interesse:
-              - id: '1'
-                label: '1'
+              - uid: h9RJVgXydPFxc4
+                rotulo: '1'
                 circulo:
                   x: 209
                   y: 344
                   raio: 27
-              - id: '2'
-                label: '2'
+                id: h9RJVgXydPFxc4
+                label: '1'
+              - uid: WmsVyLtK2yNie0
+                rotulo: '2'
                 circulo:
                   x: 113
                   y: 310
                   raio: 28
+                id: WmsVyLtK2yNie0
+                label: '2'
               referencias:
-              - escalada: Carga Pesada SDS
+              - alvo_uid: PmsXLCY0w8853F
+                pontos_uids:
+                - h9RJVgXydPFxc4
+                escalada: Carga Pesada SDS
                 ids:
-                - '1'
-              - escalada: Carga Pesada
+                - h9RJVgXydPFxc4
+              - alvo_uid: 0FQUCOmuLlYRhY
+                pontos_uids:
+                - WmsVyLtK2yNie0
+                escalada: Carga Pesada
                 ids:
-                - '2'
+                - WmsVyLtK2yNie0
             escaladas:
-            - boulder:
+            - uid: PmsXLCY0w8853F
+              boulder:
                 nome: Carga Pesada SDS
                 dificuldade: INDEFINIDO
                 descricao: Projeto
-            - boulder:
+            - uid: 0FQUCOmuLlYRhY
+              boulder:
                 nome: Carga Pesada
                 dificuldade: V6
             descricao: '# Setor Carga Pesada'
@@ -2153,24 +2948,31 @@ picos:
               total_escaladas: 2
               total_boulders: 2
         - conteudo:
+            uid: C97T2kD4KlLc5k
             nome: Viúva Negra
             mapas:
             - caminho_imagem_mapa: imagens/grupo_mulher_de_bigode_setor_viuva_negra_p0_i0.webp
               largura_mapa: 736
               altura_mapa: 552
               pontos_de_interesse:
-              - id: '01'
-                label: '01'
+              - uid: zqtJljem1Fmm3d
+                rotulo: '01'
                 circulo:
                   x: 436
                   y: 352
                   raio: 22
+                id: zqtJljem1Fmm3d
+                label: '01'
               referencias:
-              - escalada: Viúva Negra
+              - alvo_uid: INSs0hRJpjXiZ1
+                pontos_uids:
+                - zqtJljem1Fmm3d
+                escalada: Viúva Negra
                 ids:
-                - '01'
+                - zqtJljem1Fmm3d
             escaladas:
-            - boulder:
+            - uid: INSs0hRJpjXiZ1
+              boulder:
                 nome: Viúva Negra
                 dificuldade: V1
             descricao: '# Setor Viúva Negra'
@@ -2178,24 +2980,31 @@ picos:
               total_escaladas: 1
               total_boulders: 1
         - conteudo:
+            uid: mR729A8fCLvODT
             nome: Ota Aranha
             mapas:
             - caminho_imagem_mapa: imagens/grupo_mulher_de_bigode_setor_ota_aranha_p0_i1.webp
               largura_mapa: 735
               altura_mapa: 551
               pontos_de_interesse:
-              - id: '1'
-                label: '1'
+              - uid: lqrx8KkR7WUYxh
+                rotulo: '1'
                 circulo:
                   x: 435
                   y: 346
                   raio: 15
+                id: lqrx8KkR7WUYxh
+                label: '1'
               referencias:
-              - escalada: Ota Aranha
+              - alvo_uid: k39YipP1THFdye
+                pontos_uids:
+                - lqrx8KkR7WUYxh
+                escalada: Ota Aranha
                 ids:
-                - '1'
+                - lqrx8KkR7WUYxh
             escaladas:
-            - boulder:
+            - uid: k39YipP1THFdye
+              boulder:
                 nome: Ota Aranha
                 dificuldade: V9
             descricao: '# Ota Aranha'
@@ -2203,49 +3012,68 @@ picos:
               total_escaladas: 1
               total_boulders: 1
         - conteudo:
+            uid: j97CGXceBaTVAD
             nome: Módulo
             mapas:
             - caminho_imagem_mapa: imagens/grupo_mulher_de_bigode_setor_modulo_p0_i0.webp
               largura_mapa: 1044
               altura_mapa: 783
               pontos_de_interesse:
-              - id: '1'
-                label: '1'
+              - uid: RREQwWPsxzumzb
+                rotulo: '1'
                 circulo:
                   x: 488
                   y: 579
                   raio: 22
-              - id: '2'
-                label: '2'
+                id: RREQwWPsxzumzb
+                label: '1'
+              - uid: C43QdEh24x2NnE
+                rotulo: '2'
                 circulo:
                   x: 280
                   y: 507
                   raio: 22
-              - id: '3'
-                label: '3'
+                id: C43QdEh24x2NnE
+                label: '2'
+              - uid: nHQNQmsT9tZJQL
+                rotulo: '3'
                 circulo:
                   x: 147
                   y: 179
                   raio: 22
+                id: nHQNQmsT9tZJQL
+                label: '3'
               referencias:
-              - escalada: Módulo
+              - alvo_uid: U8CPEmbmO55mcF
+                pontos_uids:
+                - RREQwWPsxzumzb
+                escalada: Módulo
                 ids:
-                - '1'
-              - escalada: Dilúvio
+                - RREQwWPsxzumzb
+              - alvo_uid: pTWKa2eTcq44c2
+                pontos_uids:
+                - C43QdEh24x2NnE
+                escalada: Dilúvio
                 ids:
-                - '2'
-              - escalada: Tempestade
+                - C43QdEh24x2NnE
+              - alvo_uid: oU9mlcIVjbZ3RC
+                pontos_uids:
+                - nHQNQmsT9tZJQL
+                escalada: Tempestade
                 ids:
-                - '3'
+                - nHQNQmsT9tZJQL
             escaladas:
-            - boulder:
+            - uid: U8CPEmbmO55mcF
+              boulder:
                 nome: Módulo
                 dificuldade: INDEFINIDO
                 descricao: Projeto.
-            - boulder:
+            - uid: pTWKa2eTcq44c2
+              boulder:
                 nome: Dilúvio
                 dificuldade: V4
-            - boulder:
+            - uid: oU9mlcIVjbZ3RC
+              boulder:
                 nome: Tempestade
                 dificuldade: V3
             descricao: '# Setor Módulo'
@@ -2266,130 +3094,177 @@ picos:
         largura_mapa: 1243
         altura_mapa: 853
         pontos_de_interesse:
-        - id: A
-          label: A
+        - uid: Z0fnv3up4Jgpwy
+          rotulo: A
           circulo:
             x: 399
             y: 412
             raio: 14
-        - id: B
-          label: B
+          id: Z0fnv3up4Jgpwy
+          label: A
+        - uid: O35t3NQZbj4WHY
+          rotulo: B
           circulo:
             x: 394
             y: 516
             raio: 14
-        - id: C
-          label: C
+          id: O35t3NQZbj4WHY
+          label: B
+        - uid: JKlvx278HwvHRV
+          rotulo: C
           circulo:
             x: 457
             y: 652
             raio: 14
-        - id: D
-          label: D
+          id: JKlvx278HwvHRV
+          label: C
+        - uid: TbkTrpPDcuutG1
+          rotulo: D
           circulo:
             x: 490
             y: 729
             raio: 14
-        - id: E
-          label: E
+          id: TbkTrpPDcuutG1
+          label: D
+        - uid: tBj4gEiyZEBZxG
+          rotulo: E
           circulo:
             x: 453
             y: 762
             raio: 14
-        - id: F
-          label: F
+          id: tBj4gEiyZEBZxG
+          label: E
+        - uid: NsYU4TGGuwFSQE
+          rotulo: F
           circulo:
             x: 433
             y: 815
             raio: 14
-        - id: G
-          label: G
+          id: NsYU4TGGuwFSQE
+          label: F
+        - uid: P8uE1I4j3CknoP
+          rotulo: G
           circulo:
             x: 459
             y: 1115
             raio: 14
-        - id: cemonta
-          label: CEMONTA
+          id: P8uE1I4j3CknoP
+          label: G
+        - uid: FBaX7xQY0ivtsz
+          rotulo: CEMONTA
           circulo:
             x: 436
             y: 1099
             raio: 17
-        - id: setor_ave_maria
-          label: Boulders da Ave Maria
+          id: FBaX7xQY0ivtsz
+          label: CEMONTA
+        - uid: UIStt0dNphbi4z
+          rotulo: Boulders da Ave Maria
           circulo:
             x: 276
             y: 1058
             raio: 18
+          id: UIStt0dNphbi4z
+          label: Boulders da Ave Maria
       - caminho_imagem_mapa: imagens/mapas_gerais_p1_i0.webp
         largura_mapa: 596
         altura_mapa: 420
         pontos_de_interesse:
-        - id: bloco_frigideira
-          label: Bloco Frigideira
+        - uid: IjvGeeUYIxzm0k
+          rotulo: Bloco Frigideira
           retangulo:
             x: 36
             y: 199
             comprimento: 63
             largura: 134
-        - id: grupo_mulher_de_bigode
-          label: Mulher de Bigode
+          id: IjvGeeUYIxzm0k
+          label: Bloco Frigideira
+        - uid: kTL9YPgRp1NRWE
+          rotulo: Mulher de Bigode
           retangulo:
             x: 248
             y: 117
             comprimento: 139
             largura: 147
-        - id: grupo_laranjinha
-          label: Laranjinha
+          id: kTL9YPgRp1NRWE
+          label: Mulher de Bigode
+        - uid: mnZVJkLXXejyt2
+          rotulo: Laranjinha
           retangulo:
             x: 312
             y: 212
             comprimento: 85
             largura: 88
-        - id: grupo_ditadura
-          label: Ditadura
+          id: mnZVJkLXXejyt2
+          label: Laranjinha
+        - uid: X8X09xURhnCx0G
+          rotulo: Ditadura
           retangulo:
             x: 373
             y: 87
             comprimento: 135
             largura: 145
-        - id: grupo_reza
-          label: Reza
+          id: X8X09xURhnCx0G
+          label: Ditadura
+        - uid: WIuAYtrhPkRjR5
+          rotulo: Reza
           retangulo:
             x: 386
             y: 240
             comprimento: 93
             largura: 148
-        - id: grupo_frigideira
-          label: Frigideira
+          id: WIuAYtrhPkRjR5
+          label: Reza
+        - uid: IBt9k8eA6LqL9B
+          rotulo: Frigideira
           retangulo:
             x: 509
             y: 337
             comprimento: 130
             largura: 162
+          id: IBt9k8eA6LqL9B
+          label: Frigideira
         referencias:
-        - grupo: Frigideira
+        - alvo_uid: mTfwQRCospbvFu
+          pontos_uids:
+          - IjvGeeUYIxzm0k
+          - IBt9k8eA6LqL9B
+          grupo: Frigideira
           ids:
-          - bloco_frigideira
-          - grupo_frigideira
-        - grupo: Reza
+          - IjvGeeUYIxzm0k
+          - IBt9k8eA6LqL9B
+        - alvo_uid: av1HS7SXs2NGyy
+          pontos_uids:
+          - WIuAYtrhPkRjR5
+          grupo: Reza
           ids:
-          - grupo_reza
-        - grupo: Laranjinha
+          - WIuAYtrhPkRjR5
+        - alvo_uid: egMiYDg1rPsLBu
+          pontos_uids:
+          - mnZVJkLXXejyt2
+          grupo: Laranjinha
           ids:
-          - grupo_laranjinha
-        - grupo: Ditadura
+          - mnZVJkLXXejyt2
+        - alvo_uid: M8v6w3o5nlDeLU
+          pontos_uids:
+          - X8X09xURhnCx0G
+          grupo: Ditadura
           ids:
-          - grupo_ditadura
-        - grupo: Mulher de Bigode
+          - X8X09xURhnCx0G
+        - alvo_uid: iDCGYkAp0pUbMY
+          pontos_uids:
+          - kTL9YPgRp1NRWE
+          grupo: Mulher de Bigode
           ids:
-          - grupo_mulher_de_bigode
+          - kTL9YPgRp1NRWE
   precomputados:
     total_escaladas: 127
     total_setores: 38
     total_grupos: 5
     total_boulders: 127
 botoes:
-- texto: Capa
+- uid: U7HtTUr1omr1JC
+  texto: Capa
   destino:
     secao_textual:
       conteudo: |-
@@ -2400,7 +3275,8 @@ botoes:
         | ![Boulders da Ave Maria - Serra do Lenheiro - MG](imagens/capa_p0_i0.webp) |
         | :--: |
         | *Boulders da Ave Maria - Serra do Lenheiro - MG* |
-- texto: Apresentação
+- uid: E4523NeHY2Doqh
+  texto: Apresentação
   destino:
     secao_textual:
       conteudo: "# Boulders da Ave Maria\n\n## Serra do Lenheiro - MG\n\n| ![Boulders\
@@ -2443,7 +3319,8 @@ botoes:
         \ ANITA!!!\n\nViva o Ave Maria!!! Flora e Tomi tem o apoio da Quatro Ventos,\
         \ Flor Roupas Esportivas, Campo Base, Alto Estilo, Capituva Agroflorestal\
         \ e Marunbeer e Hospedaria Casa da Anita!!!"
-- texto: Ética e Regras
+- uid: Z7o5R9q53NarqA
+  texto: Ética e Regras
   destino:
     secao_textual:
       conteudo: |-
@@ -2464,7 +3341,8 @@ botoes:
         - Deixe os carros e motos no espaço delimitado para estacionamento.
         - Atenção às porteiras. Se abriu feche!
         - Evite concentração de grandes grupos, e cuidado com barulho, principalmente no Nightclimb.
-- texto: Como Chegar
+- uid: VoKkrjwISahAVx
+  texto: Como Chegar
   destino:
     secao_textual:
       conteudo: |-
@@ -2475,7 +3353,8 @@ botoes:
         | ![Mapa de Acesso](imagens/mapas_gerais_p0_i0.webp) |
         | :--: |
         | *Mapa de Acesso* |
-- texto: Apoiadores
+- uid: hfW2o15CJtyT99
+  texto: Apoiadores
   destino:
     secao_textual:
       conteudo: |-

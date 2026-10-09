@@ -1,3 +1,4 @@
+uid: 37b8pZznCQRql0
 id: br_mg_ouro_preto_ouroboulder_sunset
 nome: OuroBoulder Sunset
 creditos:
@@ -10,113 +11,150 @@ picos:
   setores_ou_grupos:
   - grupo:
       conteudo:
+        uid: Eud9CvpwldFcd2
         nome: Sunset
         mapas:
         - caminho_imagem_mapa: imagens/grupo_sunset_p0.webp
           largura_mapa: 811
           altura_mapa: 825
           pontos_de_interesse:
-          - id: Sunset
-            label: Sunset
+          - uid: cKe0q7xwUWzZuq
+            rotulo: Sunset
             retangulo:
               x: 768
               y: 45
               comprimento: 75
               largura: 30
-          - id: Camaroa
-            label: Camaroa
+            id: cKe0q7xwUWzZuq
+            label: Sunset
+          - uid: FCZWeLPC0vA91e
+            rotulo: Camaroa
             retangulo:
               x: 102
               y: 86
               comprimento: 92
               largura: 31
-          - id: Aresta_Punk
-            label: Aresta Punk
+            id: FCZWeLPC0vA91e
+            label: Camaroa
+          - uid: 0rZx5rVyx5I7MM
+            rotulo: Aresta Punk
             retangulo:
               x: 252
               y: 114
               comprimento: 65
               largura: 46
-          - id: Planetario
-            label: Planetario
+            id: 0rZx5rVyx5I7MM
+            label: Aresta Punk
+          - uid: MRXQpJtofQGGDD
+            rotulo: Planetario
             retangulo:
               x: 381
               y: 161
               comprimento: 102
               largura: 30
-          - id: Free_Solo
-            label: Free Solo
+            id: MRXQpJtofQGGDD
+            label: Planetario
+          - uid: CgWESKR6t2XYc1
+            rotulo: Free Solo
             retangulo:
               x: 487
               y: 128
               comprimento: 56
               largura: 55
-          - id: Carrapicho
-            label: Carrapicho
+            id: CgWESKR6t2XYc1
+            label: Free Solo
+          - uid: O2PwAnGVQ7xqJy
+            rotulo: Carrapicho
             retangulo:
               x: 578
               y: 185
               comprimento: 110
               largura: 30
-          - id: Jahngada
-            label: Jahngada
+            id: O2PwAnGVQ7xqJy
+            label: Carrapicho
+          - uid: cDZTeCrzxcErS6
+            rotulo: Jahngada
             retangulo:
               x: 454
               y: 298
               comprimento: 104
               largura: 36
-          - id: Capitão_Jack
-            label: Capitão Jack
+            id: cDZTeCrzxcErS6
+            label: Jahngada
+          - uid: mtFNeX5ImnsqX5
+            rotulo: Capitão Jack
             retangulo:
               x: 243
               y: 372
               comprimento: 78
               largura: 53
-          - id: Aleijadinho
-            label: Aleijadinho
+            id: mtFNeX5ImnsqX5
+            label: Capitão Jack
+          - uid: iEOTJY7v5TaLXx
+            rotulo: Aleijadinho
             retangulo:
               x: 343
               y: 488
               comprimento: 118
               largura: 33
+            id: iEOTJY7v5TaLXx
+            label: Aleijadinho
           referencias:
-          - ids:
-            - Aleijadinho
-            grupo: Sunset
+          - alvo_uid: 8ByzIvimI8JjlP
+            pontos_uids:
+            - iEOTJY7v5TaLXx
             setor: Aleijadinho
-          - ids:
-            - Capitão_Jack
-            grupo: Sunset
+            ids:
+            - iEOTJY7v5TaLXx
+          - alvo_uid: WbGHKuEY0c29Qu
+            pontos_uids:
+            - mtFNeX5ImnsqX5
             setor: Capitão Jack
-          - ids:
-            - Jahngada
-            grupo: Sunset
+            ids:
+            - mtFNeX5ImnsqX5
+          - alvo_uid: n9RzqdO3IwqBxO
+            pontos_uids:
+            - cDZTeCrzxcErS6
             setor: Jahngada
-          - ids:
-            - Planetario
-            grupo: Sunset
+            ids:
+            - cDZTeCrzxcErS6
+          - alvo_uid: saaNQTQBg9DF7a
+            pontos_uids:
+            - MRXQpJtofQGGDD
             setor: Planetário
-          - ids:
-            - Free_Solo
-            grupo: Sunset
+            ids:
+            - MRXQpJtofQGGDD
+          - alvo_uid: hvbt8d3J7iRNJ4
+            pontos_uids:
+            - CgWESKR6t2XYc1
             setor: Free Solo
-          - ids:
-            - Carrapicho
-            grupo: Sunset
+            ids:
+            - CgWESKR6t2XYc1
+          - alvo_uid: jsAkOxynMs1Q1y
+            pontos_uids:
+            - O2PwAnGVQ7xqJy
             setor: Carrapicho
-          - ids:
-            - Sunset
-            grupo: Sunset
+            ids:
+            - O2PwAnGVQ7xqJy
+          - alvo_uid: Kvnf8ufa5QUEaC
+            pontos_uids:
+            - cKe0q7xwUWzZuq
             setor: Sunset
-          - ids:
-            - Camaroa
-            grupo: Sunset
+            ids:
+            - cKe0q7xwUWzZuq
+          - alvo_uid: rsyrhOCEGQJFIs
+            pontos_uids:
+            - FCZWeLPC0vA91e
             setor: Camaroa
+            ids:
+            - FCZWeLPC0vA91e
         setores:
         - conteudo:
+            uid: 8ByzIvimI8JjlP
             nome: Aleijadinho
             escaladas:
-            - boulder:
+            - uid: gLUBc0gxHnWRFG
+              boulder:
                 nome: Aleijadinho
                 dificuldade: V5
                 destaque: true
@@ -125,38 +163,48 @@ picos:
               largura_mapa: 843
               altura_mapa: 960
               pontos_de_interesse:
-              - id: '1'
-                label: '1'
+              - uid: BepwayUIkwvQgw
+                rotulo: '1'
                 circulo:
                   x: 419
                   y: 589
                   raio: 11
+                id: BepwayUIkwvQgw
+                label: '1'
               referencias:
-              - escalada: Aleijadinho
+              - alvo_uid: gLUBc0gxHnWRFG
+                pontos_uids:
+                - BepwayUIkwvQgw
+                escalada: Aleijadinho
                 ids:
-                - '1'
+                - BepwayUIkwvQgw
             descricao: '# Bloco Aleijadinho'
             precomputados:
               total_escaladas: 1
               total_boulders: 1
         - conteudo:
+            uid: WbGHKuEY0c29Qu
             nome: Capitão Jack
             escaladas:
-            - boulder:
+            - uid: r4kmo4hFKS1LUc
+              boulder:
                 nome: Amnesia
                 destaque: true
                 dificuldade: V3
-            - boulder:
+            - uid: teYWWb74iHNuTM
+              boulder:
                 nome: Capitão Jack
                 destaque: true
                 dificuldade: V6
                 descricao: Virada exposta, atenção na segurança!
-            - boulder:
+            - uid: 0luuM6N2Oo1RVa
+              boulder:
                 nome: Purple Rase
                 dificuldade: V5
                 descricao: Começa em uma fenda bem a esquerda, faz a travessia e vira
                   no Amnésia
-            - boulder:
+            - uid: uzP7ISfjzOd1ec
+              boulder:
                 nome: Sunshine
                 dificuldade: V6
                 descricao: Começa perto do chão de areia bem a direita e vira no Amnésia
@@ -165,90 +213,125 @@ picos:
               largura_mapa: 386
               altura_mapa: 344
               pontos_de_interesse:
-              - id: '1'
-                label: '1'
+              - uid: 9zBgTGalp61NWO
+                rotulo: '1'
                 circulo:
                   x: 251
                   y: 307
                   raio: 9
-              - id: x
-                label: x
+                id: 9zBgTGalp61NWO
+                label: '1'
+              - uid: BMqKeFxbgsxDrR
+                rotulo: x
                 circulo:
                   x: 12
                   y: 12
                   raio: 9
+                id: BMqKeFxbgsxDrR
+                label: x
               referencias:
-              - escalada: Sunshine
+              - alvo_uid: uzP7ISfjzOd1ec
+                pontos_uids:
+                - 9zBgTGalp61NWO
+                - BMqKeFxbgsxDrR
+                escalada: Sunshine
                 ids:
-                - '1'
-                - x
+                - 9zBgTGalp61NWO
+                - BMqKeFxbgsxDrR
             - caminho_imagem_mapa: imagens/grupo_sunset_setor_capitao_jack_p1.webp
               largura_mapa: 847
               altura_mapa: 814
               pontos_de_interesse:
-              - id: 1_b
-                label: '1'
+              - uid: THvR6FkgIcMxJz
+                rotulo: '1'
                 circulo:
                   x: 805
                   y: 704
                   raio: 9
-              - id: '2'
-                label: '2'
+                id: THvR6FkgIcMxJz
+                label: '1'
+              - uid: uhA69wc4u9QWzp
+                rotulo: '2'
                 circulo:
                   x: 379
                   y: 666
                   raio: 10
-              - id: '3'
-                label: '3'
+                id: uhA69wc4u9QWzp
+                label: '2'
+              - uid: 8yWZVDkH0adIXC
+                rotulo: '3'
                 circulo:
                   x: 294
                   y: 734
                   raio: 9
-              - id: y
-                label: y
+                id: 8yWZVDkH0adIXC
+                label: '3'
+              - uid: kfdlNDWbgbqSvn
+                rotulo: y
                 circulo:
                   x: 256
                   y: 13
                   raio: 10
-              - id: x_b
-                label: x
+                id: kfdlNDWbgbqSvn
+                label: y
+              - uid: BQuEV7gKbWT3yU
+                rotulo: x
                 circulo:
                   x: 562
                   y: 15
                   raio: 9
+                id: BQuEV7gKbWT3yU
+                label: x
               referencias:
-              - escalada: Amnesia
+              - alvo_uid: r4kmo4hFKS1LUc
+                pontos_uids:
+                - THvR6FkgIcMxJz
+                - BQuEV7gKbWT3yU
+                escalada: Amnesia
                 ids:
-                - 1_b
-                - x_b
-              - escalada: Capitão Jack
+                - THvR6FkgIcMxJz
+                - BQuEV7gKbWT3yU
+              - alvo_uid: teYWWb74iHNuTM
+                pontos_uids:
+                - uhA69wc4u9QWzp
+                - kfdlNDWbgbqSvn
+                escalada: Capitão Jack
                 ids:
-                - '2'
-                - y
-              - escalada: Purple Rase
+                - uhA69wc4u9QWzp
+                - kfdlNDWbgbqSvn
+              - alvo_uid: 0luuM6N2Oo1RVa
+                pontos_uids:
+                - 8yWZVDkH0adIXC
+                - BQuEV7gKbWT3yU
+                escalada: Purple Rase
                 ids:
-                - '3'
-                - x_b
+                - 8yWZVDkH0adIXC
+                - BQuEV7gKbWT3yU
             descricao: '# Bloco Capitão Jack'
             precomputados:
               total_escaladas: 4
               total_boulders: 4
         - conteudo:
+            uid: n9RzqdO3IwqBxO
             nome: Jahngada
             escaladas:
-            - boulder:
+            - uid: z53F6vTUHsg8Sy
+              boulder:
                 nome: Jahngada
                 dificuldade: V9
                 destaque: true
                 descricao: Base alta, recomenda-se o uso de pelo menos 6 Crash Pads
-            - boulder:
+            - uid: osEqMSD9mX9qwn
+              boulder:
                 nome: Jahngada SDS
                 dificuldade: V10
                 destaque: true
-            - boulder:
+            - uid: xfvrVLAr2QVq5e
+              boulder:
                 nome: Guaicuí
                 dificuldade: V5
-            - boulder:
+            - uid: 8k0ldDKlkUnBVj
+              boulder:
                 nome: Camundongo
                 dificuldade: V7
             mapas:
@@ -256,96 +339,133 @@ picos:
               largura_mapa: 839
               altura_mapa: 680
               pontos_de_interesse:
-              - id: '1'
-                label: '1'
+              - uid: QN04uXCFxHdBaF
+                rotulo: '1'
                 circulo:
                   x: 499
                   y: 470
                   raio: 9
-              - id: '2'
-                label: '2'
+                id: QN04uXCFxHdBaF
+                label: '1'
+              - uid: dT6nG5TTFQY3fk
+                rotulo: '2'
                 circulo:
                   x: 365
                   y: 542
                   raio: 8
-              - id: '3'
-                label: '3'
+                id: dT6nG5TTFQY3fk
+                label: '2'
+              - uid: O4ULaZgMYUYK2H
+                rotulo: '3'
                 circulo:
                   x: 43
                   y: 501
                   raio: 8
-              - id: x
-                label: x
+                id: O4ULaZgMYUYK2H
+                label: '3'
+              - uid: jcgscx35vflRYl
+                rotulo: x
                 circulo:
                   x: 425
                   y: 61
                   raio: 10
-              - id: y
-                label: y
+                id: jcgscx35vflRYl
+                label: x
+              - uid: EwncURUcLaWZIz
+                rotulo: y
                 circulo:
                   x: 97
                   y: 164
                   raio: 10
+                id: EwncURUcLaWZIz
+                label: y
               referencias:
-              - escalada: Jahngada
+              - alvo_uid: z53F6vTUHsg8Sy
+                pontos_uids:
+                - QN04uXCFxHdBaF
+                - jcgscx35vflRYl
+                escalada: Jahngada
                 ids:
-                - '1'
-                - x
-              - escalada: Jahngada SDS
+                - QN04uXCFxHdBaF
+                - jcgscx35vflRYl
+              - alvo_uid: osEqMSD9mX9qwn
+                pontos_uids:
+                - dT6nG5TTFQY3fk
+                - jcgscx35vflRYl
+                escalada: Jahngada SDS
                 ids:
-                - '2'
-                - x
-              - escalada: Guaicuí
+                - dT6nG5TTFQY3fk
+                - jcgscx35vflRYl
+              - alvo_uid: xfvrVLAr2QVq5e
+                pontos_uids:
+                - O4ULaZgMYUYK2H
+                - EwncURUcLaWZIz
+                escalada: Guaicuí
                 ids:
-                - '3'
-                - y
+                - O4ULaZgMYUYK2H
+                - EwncURUcLaWZIz
             - caminho_imagem_mapa: imagens/grupo_sunset_setor_jahngada_p1.webp
               largura_mapa: 445
               altura_mapa: 399
               pontos_de_interesse:
-              - id: '4'
-                label: '4'
+              - uid: v1kffiw28KKZDA
+                rotulo: '4'
                 circulo:
                   x: 245
                   y: 284
                   raio: 9
-              - id: z
-                label: z
+                id: v1kffiw28KKZDA
+                label: '4'
+              - uid: uenysVUibsZ6he
+                rotulo: z
                 circulo:
                   x: 214
                   y: 111
                   raio: 9
+                id: uenysVUibsZ6he
+                label: z
               referencias:
-              - escalada: Camundongo
+              - alvo_uid: 8k0ldDKlkUnBVj
+                pontos_uids:
+                - v1kffiw28KKZDA
+                - uenysVUibsZ6he
+                escalada: Camundongo
                 ids:
-                - '4'
-                - z
+                - v1kffiw28KKZDA
+                - uenysVUibsZ6he
             descricao: '# Bloco Jahngada'
             precomputados:
               total_escaladas: 4
               total_boulders: 4
         - conteudo:
+            uid: saaNQTQBg9DF7a
             nome: Planetário
             escaladas:
-            - boulder:
+            - uid: sWepsfzqCoKmIf
+              boulder:
                 nome: Planetário
                 destaque: true
                 dificuldade: V11
-            - boulder:
+            - uid: 0aiqIzp2eyeH0J
+              boulder:
                 nome: Náufrago
                 destaque: true
                 dificuldade: V7
-            - boulder:
+            - uid: wPSobwcfqp7dud
+              boulder:
                 nome: Golfinho
                 dificuldade: V4
-            - boulder:
+            - uid: LXPLykpm0q6F9t
+              boulder:
                 nome: Clarete
                 dificuldade: V3
-            - boulder:
+            - uid: urMRlcvDBDKi0E
+              boulder:
                 nome: Odisséia na Babilônia
                 dificuldade: V6
                 destaque: true
-            - boulder:
+            - uid: KBle49fGYwOvue
+              boulder:
                 nome: Canais da Babilônia
                 dificuldade: V5
             mapas:
@@ -353,132 +473,185 @@ picos:
               largura_mapa: 832
               altura_mapa: 536
               pontos_de_interesse:
-              - id: '1'
-                label: '1'
+              - uid: KOqtBFIO4n372p
+                rotulo: '1'
                 circulo:
                   x: 532
                   y: 520
                   raio: 9
-              - id: x
-                label: x
+                id: KOqtBFIO4n372p
+                label: '1'
+              - uid: y4ucFSkOg1cove
+                rotulo: x
                 circulo:
                   x: 445
                   y: 31
                   raio: 9
+                id: y4ucFSkOg1cove
+                label: x
               referencias:
-              - escalada: Planetário
+              - alvo_uid: sWepsfzqCoKmIf
+                pontos_uids:
+                - KOqtBFIO4n372p
+                - y4ucFSkOg1cove
+                escalada: Planetário
                 ids:
-                - '1'
-                - x
+                - KOqtBFIO4n372p
+                - y4ucFSkOg1cove
             - caminho_imagem_mapa: imagens/grupo_sunset_setor_planetario_p2.webp
               largura_mapa: 829
               altura_mapa: 486
               pontos_de_interesse:
-              - id: '2'
-                label: '2'
+              - uid: PDCZ2azVdamApL
+                rotulo: '2'
                 circulo:
                   x: 346
                   y: 454
                   raio: 9
-              - id: '3'
-                label: '3'
+                id: PDCZ2azVdamApL
+                label: '2'
+              - uid: SsadBRferzHqoo
+                rotulo: '3'
                 circulo:
                   x: 468
                   y: 409
                   raio: 9
-              - id: '4'
-                label: '4'
+                id: SsadBRferzHqoo
+                label: '3'
+              - uid: iVZcXLeU4F23AL
+                rotulo: '4'
                 circulo:
                   x: 632
                   y: 338
                   raio: 9
-              - id: y
-                label: y
+                id: iVZcXLeU4F23AL
+                label: '4'
+              - uid: IpIpAQLLUX8ACB
+                rotulo: y
                 circulo:
                   x: 248
                   y: 106
                   raio: 11
-              - id: z
-                label: z
+                id: IpIpAQLLUX8ACB
+                label: y
+              - uid: 95pV12jykprucg
+                rotulo: z
                 circulo:
                   x: 495
                   y: 47
                   raio: 9
-              - id: w
-                label: w
+                id: 95pV12jykprucg
+                label: z
+              - uid: MtrgRvCRP7oSkw
+                rotulo: w
                 circulo:
                   x: 614
                   y: 42
                   raio: 10
+                id: MtrgRvCRP7oSkw
+                label: w
               referencias:
-              - escalada: Náufrago
+              - alvo_uid: 0aiqIzp2eyeH0J
+                pontos_uids:
+                - PDCZ2azVdamApL
+                - IpIpAQLLUX8ACB
+                escalada: Náufrago
                 ids:
-                - '2'
-                - y
-              - escalada: Golfinho
+                - PDCZ2azVdamApL
+                - IpIpAQLLUX8ACB
+              - alvo_uid: wPSobwcfqp7dud
+                pontos_uids:
+                - SsadBRferzHqoo
+                - 95pV12jykprucg
+                escalada: Golfinho
                 ids:
-                - '3'
-                - z
-              - escalada: Clarete
+                - SsadBRferzHqoo
+                - 95pV12jykprucg
+              - alvo_uid: LXPLykpm0q6F9t
+                pontos_uids:
+                - iVZcXLeU4F23AL
+                - MtrgRvCRP7oSkw
+                escalada: Clarete
                 ids:
-                - '4'
-                - w
+                - iVZcXLeU4F23AL
+                - MtrgRvCRP7oSkw
             - caminho_imagem_mapa: imagens/grupo_sunset_setor_planetario_p1.webp
               largura_mapa: 850
               altura_mapa: 522
               pontos_de_interesse:
-              - id: 1_b
-                label: '1'
+              - uid: xe8rGeTEqeOzNz
+                rotulo: '1'
                 circulo:
                   x: 191
                   y: 499
                   raio: 9
-              - id: y_b
-                label: y
+                id: xe8rGeTEqeOzNz
+                label: '1'
+              - uid: TcKj8RRsR58cmk
+                rotulo: y
                 circulo:
                   x: 118
                   y: 10
                   raio: 9
-              - id: x_b
-                label: x
+                id: TcKj8RRsR58cmk
+                label: y
+              - uid: 3FUDgbW8pu3cPC
+                rotulo: x
                 circulo:
                   x: 585
                   y: 6
                   raio: 8
+                id: 3FUDgbW8pu3cPC
+                label: x
               referencias:
-              - escalada: Odisséia na Babilônia
+              - alvo_uid: urMRlcvDBDKi0E
+                pontos_uids:
+                - xe8rGeTEqeOzNz
+                - 3FUDgbW8pu3cPC
+                escalada: Odisséia na Babilônia
                 ids:
-                - 1_b
-                - x_b
-              - escalada: Canais da Babilônia
+                - xe8rGeTEqeOzNz
+                - 3FUDgbW8pu3cPC
+              - alvo_uid: KBle49fGYwOvue
+                pontos_uids:
+                - xe8rGeTEqeOzNz
+                - TcKj8RRsR58cmk
+                escalada: Canais da Babilônia
                 ids:
-                - 1_b
-                - y_b
+                - xe8rGeTEqeOzNz
+                - TcKj8RRsR58cmk
             descricao: '# Bloco Planetário'
             precomputados:
               total_escaladas: 6
               total_boulders: 6
         - conteudo:
+            uid: hvbt8d3J7iRNJ4
             nome: Free Solo
             escaladas:
-            - boulder:
+            - uid: YfMW47oCbmPzNq
+              boulder:
                 nome: Fomiagem
                 dificuldade: V4
-            - boulder:
+            - uid: 2YG4P2AcR84cJu
+              boulder:
                 nome: Projeto
                 destaque: true
-            - boulder:
+            - uid: 9tB0ICDkkEkIQV
+              boulder:
                 nome: Free Solo
                 destaque: true
                 dificuldade: V5
-            - boulder:
+            - uid: FgU9rkbPSl70LL
+              boulder:
                 nome: Tartaruga
                 dificuldade: V3
                 descricao: Apenas desafio de virar o bloco
-            - boulder:
+            - uid: rzxtfME7nU2goW
+              boulder:
                 nome: Mobilete
                 dificuldade: V3
-            - boulder:
+            - uid: Wybze4GIPVfugE
+              boulder:
                 nome: Walkmachine
                 dificuldade: V6
             mapas:
@@ -486,100 +659,142 @@ picos:
               largura_mapa: 866
               altura_mapa: 489
               pontos_de_interesse:
-              - id: '2'
-                label: '2'
+              - uid: ekNX8LgSqtXQOO
+                rotulo: '2'
                 circulo:
                   x: 671
                   y: 463
                   raio: 9
-              - id: '3'
-                label: '3'
+                id: ekNX8LgSqtXQOO
+                label: '2'
+              - uid: mjzpwVBL7KcDPO
+                rotulo: '3'
                 circulo:
                   x: 500
                   y: 448
                   raio: 9
-              - id: Z
-                label: Z
+                id: mjzpwVBL7KcDPO
+                label: '3'
+              - uid: zK3EBk5Od0f72e
+                rotulo: Z
                 circulo:
                   x: 662
                   y: 12
                   raio: 9
-              - id: W
-                label: W
+                id: zK3EBk5Od0f72e
+                label: Z
+              - uid: tvf9U4OeraSIqE
+                rotulo: W
                 circulo:
                   x: 772
                   y: 9
                   raio: 10
+                id: tvf9U4OeraSIqE
+                label: W
               referencias:
-              - escalada: Fomiagem
+              - alvo_uid: YfMW47oCbmPzNq
+                pontos_uids:
+                - ekNX8LgSqtXQOO
+                - tvf9U4OeraSIqE
+                escalada: Fomiagem
                 ids:
-                - '2'
-                - W
-              - escalada: Projeto
+                - ekNX8LgSqtXQOO
+                - tvf9U4OeraSIqE
+              - alvo_uid: 2YG4P2AcR84cJu
+                pontos_uids:
+                - mjzpwVBL7KcDPO
+                - zK3EBk5Od0f72e
+                escalada: Projeto
                 ids:
-                - '3'
-                - Z
+                - mjzpwVBL7KcDPO
+                - zK3EBk5Od0f72e
             - caminho_imagem_mapa: imagens/grupo_sunset_setor_free_solo_p1.webp
               largura_mapa: 839
               altura_mapa: 460
               pontos_de_interesse:
-              - id: '1'
-                label: '1'
+              - uid: E1NVEWLoAmokHV
+                rotulo: '1'
                 circulo:
                   x: 354
                   y: 396
                   raio: 9
-              - id: 3_b
-                label: '3'
+                id: E1NVEWLoAmokHV
+                label: '1'
+              - uid: 0maguSKGOpbhyN
+                rotulo: '3'
                 circulo:
                   x: 516
                   y: 358
                   raio: 9
-              - id: '4'
-                label: '4'
+                id: 0maguSKGOpbhyN
+                label: '3'
+              - uid: wrQHbOl8h8h1Gs
+                rotulo: '4'
                 circulo:
                   x: 698
                   y: 360
                   raio: 9
-              - id: 2_b
-                label: '2'
+                id: wrQHbOl8h8h1Gs
+                label: '4'
+              - uid: fZvY3GzXmNwaXu
+                rotulo: '2'
                 circulo:
                   x: 743
                   y: 356
                   raio: 9
+                id: fZvY3GzXmNwaXu
+                label: '2'
               referencias:
-              - escalada: Free Solo
+              - alvo_uid: 9tB0ICDkkEkIQV
+                pontos_uids:
+                - E1NVEWLoAmokHV
+                escalada: Free Solo
                 ids:
-                - '1'
-              - escalada: Tartaruga
+                - E1NVEWLoAmokHV
+              - alvo_uid: FgU9rkbPSl70LL
+                pontos_uids:
+                - fZvY3GzXmNwaXu
+                escalada: Tartaruga
                 ids:
-                - 2_b
-              - escalada: Mobilete
+                - fZvY3GzXmNwaXu
+              - alvo_uid: rzxtfME7nU2goW
+                pontos_uids:
+                - 0maguSKGOpbhyN
+                escalada: Mobilete
                 ids:
-                - 3_b
-              - escalada: Walkmachine
+                - 0maguSKGOpbhyN
+              - alvo_uid: Wybze4GIPVfugE
+                pontos_uids:
+                - wrQHbOl8h8h1Gs
+                escalada: Walkmachine
                 ids:
-                - '4'
+                - wrQHbOl8h8h1Gs
             descricao: '# Bloco Free Solo'
             precomputados:
               total_escaladas: 6
               total_boulders: 6
         - conteudo:
+            uid: jsAkOxynMs1Q1y
             nome: Carrapicho
             escaladas:
-            - boulder:
+            - uid: yYu9f7Q8LNizSu
+              boulder:
                 nome: Carrapato
                 dificuldade: V5
-            - boulder:
+            - uid: mg4HItbc9NLNOZ
+              boulder:
                 nome: Carrapicho
                 dificuldade: V6
-            - boulder:
+            - uid: wPlI5DCRYzKr7I
+              boulder:
                 nome: Oratório
                 dificuldade: V7
-            - boulder:
+            - uid: 5twZm2EkJubxMM
+              boulder:
                 nome: Pistol
                 dificuldade: V2
-            - boulder:
+            - uid: tXhx0XaxaPmKhr
+              boulder:
                 nome: Dart Vader
                 dificuldade: V4
             mapas:
@@ -587,78 +802,109 @@ picos:
               largura_mapa: 440
               altura_mapa: 564
               pontos_de_interesse:
-              - id: '1'
-                label: '1'
+              - uid: iqURLjxf3ToeKN
+                rotulo: '1'
                 circulo:
                   x: 294
                   y: 507
                   raio: 9
-              - id: '2'
-                label: '2'
+                id: iqURLjxf3ToeKN
+                label: '1'
+              - uid: mWtyKK9qKNOjZB
+                rotulo: '2'
                 circulo:
                   x: 160
                   y: 545
                   raio: 9
+                id: mWtyKK9qKNOjZB
+                label: '2'
               referencias:
-              - escalada: Carrapato
+              - alvo_uid: yYu9f7Q8LNizSu
+                pontos_uids:
+                - iqURLjxf3ToeKN
+                escalada: Carrapato
                 ids:
-                - '1'
-              - escalada: Carrapicho
+                - iqURLjxf3ToeKN
+              - alvo_uid: mg4HItbc9NLNOZ
+                pontos_uids:
+                - mWtyKK9qKNOjZB
+                escalada: Carrapicho
                 ids:
-                - '2'
+                - mWtyKK9qKNOjZB
             - caminho_imagem_mapa: imagens/grupo_sunset_setor_carrapicho_p1.webp
               largura_mapa: 399
               altura_mapa: 309
               pontos_de_interesse:
-              - id: '3'
-                label: '3'
+              - uid: 7KS2cy7iL8JJhm
+                rotulo: '3'
                 circulo:
                   x: 152
                   y: 189
                   raio: 9
-              - id: '4'
-                label: '4'
+                id: 7KS2cy7iL8JJhm
+                label: '3'
+              - uid: zN0PuLRpVV9foz
+                rotulo: '4'
                 circulo:
                   x: 348
                   y: 221
                   raio: 9
-              - id: '5'
-                label: '5'
+                id: zN0PuLRpVV9foz
+                label: '4'
+              - uid: sUAgvK1NQUZxg9
+                rotulo: '5'
                 circulo:
                   x: 54
                   y: 194
                   raio: 9
+                id: sUAgvK1NQUZxg9
+                label: '5'
               referencias:
-              - escalada: Oratório
+              - alvo_uid: wPlI5DCRYzKr7I
+                pontos_uids:
+                - 7KS2cy7iL8JJhm
+                escalada: Oratório
                 ids:
-                - '3'
-              - escalada: Pistol
+                - 7KS2cy7iL8JJhm
+              - alvo_uid: 5twZm2EkJubxMM
+                pontos_uids:
+                - zN0PuLRpVV9foz
+                escalada: Pistol
                 ids:
-                - '4'
-              - escalada: Dart Vader
+                - zN0PuLRpVV9foz
+              - alvo_uid: tXhx0XaxaPmKhr
+                pontos_uids:
+                - sUAgvK1NQUZxg9
+                escalada: Dart Vader
                 ids:
-                - '5'
+                - sUAgvK1NQUZxg9
             descricao: '# Bloco Carrapicho'
             precomputados:
               total_escaladas: 5
               total_boulders: 5
         - conteudo:
+            uid: Kvnf8ufa5QUEaC
             nome: Sunset
             escaladas:
-            - boulder:
+            - uid: D9xTKWVJ6iApT9
+              boulder:
                 nome: Sucrilhos
                 dificuldade: V5
                 destaque: true
-            - boulder:
+            - uid: 83JWrElU1YdAe6
+              boulder:
                 nome: Faxineiro do Universo
                 dificuldade: V5
-            - boulder:
+            - uid: P4cfrwrdqTgvFN
+              boulder:
                 nome: Arestinha Vibration
                 dificuldade: V1
-            - boulder:
+            - uid: xpUGKp9VR90ZQk
+              boulder:
                 nome: Sujeirinha
                 dificuldade: V3
-            - boulder:
+            - uid: 4JoWpllHEYv7Zx
+              boulder:
                 nome: Projeto Sunset
                 dificuldade: V3
                 destaque: true
@@ -667,86 +913,117 @@ picos:
               largura_mapa: 832
               altura_mapa: 459
               pontos_de_interesse:
-              - id: '1'
-                label: '1'
+              - uid: dfnrvEE9nK1bG4
+                rotulo: '1'
                 circulo:
                   x: 329
                   y: 409
                   raio: 9
-              - id: '4'
-                label: '4'
+                id: dfnrvEE9nK1bG4
+                label: '1'
+              - uid: cibPAkZbM3lhvi
+                rotulo: '4'
                 circulo:
                   x: 514
                   y: 357
                   raio: 9
-              - id: '2'
-                label: '2'
+                id: cibPAkZbM3lhvi
+                label: '4'
+              - uid: s66gmROJRbrof7
+                rotulo: '2'
                 circulo:
                   x: 658
                   y: 294
                   raio: 9
+                id: s66gmROJRbrof7
+                label: '2'
               referencias:
-              - escalada: Sucrilhos
+              - alvo_uid: D9xTKWVJ6iApT9
+                pontos_uids:
+                - dfnrvEE9nK1bG4
+                escalada: Sucrilhos
                 ids:
-                - '1'
-              - escalada: Faxineiro do Universo
+                - dfnrvEE9nK1bG4
+              - alvo_uid: 83JWrElU1YdAe6
+                pontos_uids:
+                - s66gmROJRbrof7
+                escalada: Faxineiro do Universo
                 ids:
-                - '2'
-              - escalada: Sujeirinha
+                - s66gmROJRbrof7
+              - alvo_uid: xpUGKp9VR90ZQk
+                pontos_uids:
+                - cibPAkZbM3lhvi
+                escalada: Sujeirinha
                 ids:
-                - '4'
+                - cibPAkZbM3lhvi
             - caminho_imagem_mapa: imagens/grupo_sunset_setor_sunset_p1.webp
               largura_mapa: 488
               altura_mapa: 648
               pontos_de_interesse:
-              - id: '3'
-                label: '3'
+              - uid: GSHWSrlZq7SIN6
+                rotulo: '3'
                 circulo:
                   x: 195
                   y: 554
                   raio: 9
+                id: GSHWSrlZq7SIN6
+                label: '3'
               referencias:
-              - escalada: Arestinha Vibration
+              - alvo_uid: P4cfrwrdqTgvFN
+                pontos_uids:
+                - GSHWSrlZq7SIN6
+                escalada: Arestinha Vibration
                 ids:
-                - '3'
+                - GSHWSrlZq7SIN6
             - caminho_imagem_mapa: imagens/grupo_sunset_setor_sunset_p2.webp
               largura_mapa: 338
               altura_mapa: 456
               pontos_de_interesse:
-              - id: '5'
-                label: '5'
+              - uid: l4RLkaslCoVuyS
+                rotulo: '5'
                 circulo:
                   x: 246
                   y: 386
                   raio: 9
+                id: l4RLkaslCoVuyS
+                label: '5'
               referencias:
-              - escalada: Projeto Sunset
+              - alvo_uid: 4JoWpllHEYv7Zx
+                pontos_uids:
+                - l4RLkaslCoVuyS
+                escalada: Projeto Sunset
                 ids:
-                - '5'
+                - l4RLkaslCoVuyS
             descricao: '# Bloco Sunset'
             precomputados:
               total_escaladas: 5
               total_boulders: 5
         - conteudo:
+            uid: rsyrhOCEGQJFIs
             nome: Camaroa
             escaladas:
-            - boulder:
+            - uid: Whht0JTY2jYPhj
+              boulder:
                 nome: Fissura
                 dificuldade: V8
                 destaque: true
-            - boulder:
+            - uid: IUZVhkD7BGnGMe
+              boulder:
                 nome: Pure
                 dificuldade: V6
                 destaque: true
-            - boulder:
+            - uid: 9IGADLX3hshhPA
+              boulder:
                 nome: Lpita
                 dificuldade: V7
                 destaque: true
-            - boulder:
+            - uid: XF6QJOxiGiZOoK
+              boulder:
                 nome: Nave
                 dificuldade: V3
                 destaque: true
-            - boulder:
+            - uid: VQbQSYRYendquh
+              boulder:
                 nome: Camaroa
                 dificuldade: V10
                 destaque: true
@@ -755,57 +1032,82 @@ picos:
               largura_mapa: 834
               altura_mapa: 384
               pontos_de_interesse:
-              - id: '1'
-                label: '1'
+              - uid: V6J2JJOLaI812R
+                rotulo: '1'
                 circulo:
                   x: 222
                   y: 234
                   raio: 8
-              - id: '2'
-                label: '2'
+                id: V6J2JJOLaI812R
+                label: '1'
+              - uid: 6o8msTDADzMBC8
+                rotulo: '2'
                 circulo:
                   x: 490
                   y: 339
                   raio: 9
-              - id: '4'
-                label: '4'
+                id: 6o8msTDADzMBC8
+                label: '2'
+              - uid: MtX6i55W63JJcr
+                rotulo: '4'
                 circulo:
                   x: 605
                   y: 361
                   raio: 9
-              - id: '3'
-                label: '3'
+                id: MtX6i55W63JJcr
+                label: '4'
+              - uid: 9kIrzI6zIFd1dO
+                rotulo: '3'
                 circulo:
                   x: 682
                   y: 361
                   raio: 8
+                id: 9kIrzI6zIFd1dO
+                label: '3'
               referencias:
-              - escalada: Fissura
+              - alvo_uid: Whht0JTY2jYPhj
+                pontos_uids:
+                - V6J2JJOLaI812R
+                escalada: Fissura
                 ids:
-                - '1'
-              - escalada: Pure
+                - V6J2JJOLaI812R
+              - alvo_uid: IUZVhkD7BGnGMe
+                pontos_uids:
+                - 6o8msTDADzMBC8
+                escalada: Pure
                 ids:
-                - '2'
-              - escalada: Lpita
+                - 6o8msTDADzMBC8
+              - alvo_uid: 9IGADLX3hshhPA
+                pontos_uids:
+                - 9kIrzI6zIFd1dO
+                escalada: Lpita
                 ids:
-                - '3'
-              - escalada: Nave
+                - 9kIrzI6zIFd1dO
+              - alvo_uid: XF6QJOxiGiZOoK
+                pontos_uids:
+                - MtX6i55W63JJcr
+                escalada: Nave
                 ids:
-                - '4'
+                - MtX6i55W63JJcr
             - caminho_imagem_mapa: imagens/grupo_sunset_setor_camaroa_p1.webp
               largura_mapa: 835
               altura_mapa: 606
               pontos_de_interesse:
-              - id: '5'
-                label: '5'
+              - uid: RXU7I5LtWkNP1C
+                rotulo: '5'
                 circulo:
                   x: 462
                   y: 480
                   raio: 10
+                id: RXU7I5LtWkNP1C
+                label: '5'
               referencias:
-              - escalada: Camaroa
+              - alvo_uid: VQbQSYRYendquh
+                pontos_uids:
+                - RXU7I5LtWkNP1C
+                escalada: Camaroa
                 ids:
-                - '5'
+                - RXU7I5LtWkNP1C
             descricao: '# Bloco Camaroa'
             precomputados:
               total_escaladas: 5
@@ -826,17 +1128,22 @@ picos:
         largura_mapa: 840
         altura_mapa: 493
         pontos_de_interesse:
-        - id: Setor_Sunset
-          label: SETOR SUNSET
+        - uid: 2ClOnhagZUHqC3
+          rotulo: SETOR SUNSET
           retangulo:
             x: 396
             y: 5
             comprimento: 108
             largura: 12
+          id: 2ClOnhagZUHqC3
+          label: SETOR SUNSET
         referencias:
-        - grupo: Sunset
+        - alvo_uid: Eud9CvpwldFcd2
+          pontos_uids:
+          - 2ClOnhagZUHqC3
+          grupo: Sunset
           ids:
-          - Setor_Sunset
+          - 2ClOnhagZUHqC3
   localizacao:
     latitude: -203600960
     longitude: -435035650
@@ -846,7 +1153,8 @@ picos:
     total_grupos: 1
     total_boulders: 36
 botoes:
-- texto: Capa
+- uid: hknS4iyr6zfaaA
+  texto: Capa
   destino:
     secao_textual:
       conteudo: |-
@@ -868,7 +1176,8 @@ botoes:
         - Bocaina Climb
         - 4Climb
         - Sano Agarras
-- texto: Introdução
+- uid: MkJKETmN5GU4XB
+  texto: Introdução
   destino:
     secao_textual:
       conteudo: |-
@@ -893,7 +1202,8 @@ botoes:
         | *Registro durante a confraternização do Ouroboulder de 2013* |
 
         *Registro durante a confraternização do Ouroboulder de 2013. Foto: Estúdio Buena Onda.*
-- texto: Conversão e Legenda
+- uid: 9FWTCuttvdwK7w
+  texto: Conversão e Legenda
   destino:
     secao_textual:
       conteudo: |-
@@ -940,7 +1250,8 @@ botoes:
         - **Forte**: V7 a V9 (Azul)
         - **Muito Forte**: V10 e V11 (Vermelho)
         - **Extremo**: Acima de V11 (Preto)
-- texto: Responsabilidade e Orientações
+- uid: xzaxZUnjyyl4hT
+  texto: Responsabilidade e Orientações
   destino:
     secao_textual:
       conteudo: |-
@@ -969,7 +1280,7 @@ botoes:
         Antes de praticar qualquer atividade, atente-se aos gestores:
         - **Parque Municipal das Andorinhas**
         - **Parque Estadual do Itacolomi**
-ultima_migracao: 4
+ultima_migracao: 5
 publicar_croqui: true
 revisado_bounding_circle: true
 arquivos_externos:

@@ -4,12 +4,14 @@
 
 - **id**: br_mg_sabara_pedra_rachada_setor_horizonte
 - **nome**: Sabará - Pedra Rachada - Setor Horizonte
+- **uid**: 4onIN9Ga05O9Kr
 - **caminho_thumbnail**: ![caminho_thumbnail](imagens/capa_p0_i1.webp)
 - **revisado_manualmente**: True
 - **revisado_bounding_circle**: True
 - **status_desenho_extraivel**: DESENHO_EXTRAIDO
 - **botoes**:
   - **[0]**:
+    - **uid**: hy6gQDrMk9hCKZ
     - **texto**: Capa
     - **destino**:
       - **secao_textual**:
@@ -21,6 +23,7 @@
             | :--: |
             | *Foto: Eric Dornellas - Escalador: João Francischetto* |
   - **[1]**:
+    - **uid**: oVYpBeff2FDcNn
     - **texto**: Introdução
     - **destino**:
       - **secao_textual**:
@@ -36,6 +39,7 @@
             @davi.oliverna
             @jpfrancischetto
   - **[2]**:
+    - **uid**: rMSZAii4s4VMaY
     - **texto**: Aviso
     - **destino**:
       - **secao_textual**:
@@ -48,6 +52,7 @@
             
             Os blocos do setor Horizonte ainda não foram moldados para a atividade de escalada, de modo que muitos blocos ainda apresentam agarras quebradiças e pontos de atenção. Nós tentamos avaliar todas as possibilidades e remover agarras que não oferecem segurança, mas com a atividade de escalada intensa, novos betas são tirados e novas agarras utilizadas, bem como mais força é aplicada sobre elas. Por isso, pedimos a todos MUITA ATENÇÃO durante a escalada no novo setor. Sempre teste todas a possibilidades antes e veja se ela aparenta estar firme e boa para utilização. Segurança sempre em primeiro lugar!
   - **[3]**:
+    - **uid**: AuajRB5vjKPVvb
     - **texto**: Como chegar
     - **destino**:
       - **secao_textual**:
@@ -57,7 +62,7 @@
             Trilha do Wikiloc do estacionamento aos blocos:
             
             https://pt.wikiloc.com/trilhas-trekking/setor-horizonte-estacionamento-ate-bloco-floresta-de-pedra-178034324?h=3p7yvoon8p&wa=sd&utm_campaign=badge&utm_source=unknown&utm_medium=unknown
-- **ultima_migracao**: 4
+- **ultima_migracao**: 5
 - **publicar_croqui**: True
 
 
@@ -67,6 +72,7 @@
 
 - **descricao**: 
 - **nome**: Floresta de pedra
+- **uid**: nKwCTW2vS87al0
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_floresta_de_pedra_p0_i0.webp)
@@ -74,83 +80,113 @@
     - **altura_mapa**: 886
     - **pontos_de_interesse**:
       - **[0]**:
-        - **id**: 1
-        - **label**: 1
+        - **id**: zVvMl8ozaPEYPJ
+        - **uid**: zVvMl8ozaPEYPJ
+        - **rotulo**: 1
         - **circulo**:
           - **x**: 494
           - **y**: 601
           - **raio**: 28
+        - **label**: 1
       - **[1]**:
-        - **id**: 2
-        - **label**: 2
+        - **id**: kWUf2t6tPTWqIv
+        - **uid**: kWUf2t6tPTWqIv
+        - **rotulo**: 2
         - **circulo**:
           - **x**: 649
           - **y**: 328
           - **raio**: 28
+        - **label**: 2
       - **[2]**:
-        - **id**: 3
-        - **label**: 3
+        - **id**: CfmKcrIBk3qtBF
+        - **uid**: CfmKcrIBk3qtBF
+        - **rotulo**: 3
         - **circulo**:
           - **x**: 871
           - **y**: 462
           - **raio**: 28
+        - **label**: 3
       - **[3]**:
-        - **id**: 4
-        - **label**: 4
+        - **id**: HZdu7cmTIvq9lW
+        - **uid**: HZdu7cmTIvq9lW
+        - **rotulo**: 4
         - **circulo**:
           - **x**: 960
           - **y**: 599
           - **raio**: 28
+        - **label**: 4
       - **[4]**:
-        - **id**: 5
-        - **label**: 5
+        - **id**: VoQaoapALt8PHD
+        - **uid**: VoQaoapALt8PHD
+        - **rotulo**: 5
         - **circulo**:
           - **x**: 1078
           - **y**: 477
           - **raio**: 28
+        - **label**: 5
     - **referencias**:
       - **[0]**:
+        - **alvo_uid**: iJ3eCQa5jyTTgw
+        - **pontos_uids**:
+          - zVvMl8ozaPEYPJ
         - **escalada**: Cambeva
         - **ids**:
-          - 1
+          - zVvMl8ozaPEYPJ
       - **[1]**:
+        - **alvo_uid**: MATwXZ9TVqr6b1
+        - **pontos_uids**:
+          - kWUf2t6tPTWqIv
         - **escalada**: Vellozia
         - **ids**:
-          - 2
+          - kWUf2t6tPTWqIv
       - **[2]**:
+        - **alvo_uid**: TDTk2rVJTkPN0O
+        - **pontos_uids**:
+          - CfmKcrIBk3qtBF
         - **escalada**: Flor do Cerrado
         - **ids**:
-          - 3
+          - CfmKcrIBk3qtBF
       - **[3]**:
+        - **alvo_uid**: nbZskdo9d4H0hF
+        - **pontos_uids**:
+          - HZdu7cmTIvq9lW
         - **escalada**: Sempre-viva
         - **ids**:
-          - 4
+          - HZdu7cmTIvq9lW
       - **[4]**:
+        - **alvo_uid**: Z5Izh1fxoFGq6m
+        - **pontos_uids**:
+          - VoQaoapALt8PHD
         - **escalada**: Calliandra
         - **ids**:
-          - 5
+          - VoQaoapALt8PHD
 - **escaladas**:
   - **[0]**:
+    - **uid**: iJ3eCQa5jyTTgw
     - **boulder**:
       - **descricao**: Inicia sentado com a mão direita em um batente escorrido e a esquerda em uma fenda vertical e escala para a esquerda.
       - **nome**: Cambeva
       - **dificuldade**: V0
   - **[1]**:
+    - **uid**: MATwXZ9TVqr6b1
     - **boulder**:
       - **descricao**: Começa como o “Cambeva”, mas vira à direita do teto.
       - **nome**: Vellozia
       - **dificuldade**: V0
   - **[2]**:
+    - **uid**: TDTk2rVJTkPN0O
     - **boulder**:
       - **descricao**: Começa sentado com as duas mãos em um batente clássico e escala reto. Uma virada zela...
       - **nome**: Flor do Cerrado
       - **dificuldade**: V2
   - **[3]**:
+    - **uid**: nbZskdo9d4H0hF
     - **boulder**:
       - **descricao**: Extensão do “Calliandra”. Começa com a mão direita em um reglete abaixo do batente inicial do “Flor do Cerrado” e com a esquerda em um reglete texturado.
       - **nome**: Sempre-viva
       - **dificuldade**: V3
   - **[4]**:
+    - **uid**: Z5Izh1fxoFGq6m
     - **boulder**:
       - **descricao**: Começa com as duas mãos em um reglete e escala reto por regletes clássicos até o topo.
       - **nome**: Calliandra
@@ -166,6 +202,7 @@
 
 - **descricao**: # Conjunto pôr-do-sol
 - **nome**: Conjunto pôr-do-sol
+- **uid**: cgYhOqCxY7U7Gx
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_conjunto_por_do_sol_p0_i0.webp)
@@ -173,34 +210,47 @@
     - **altura_mapa**: 810
     - **pontos_de_interesse**:
       - **[0]**:
-        - **id**: Sub-setor Beija Flor
-        - **label**: Sub-setor Beija Flor
+        - **id**: IunakcFTmaHuEU
+        - **uid**: IunakcFTmaHuEU
+        - **rotulo**: Sub-setor Beija Flor
         - **retangulo**:
           - **x**: 723
           - **y**: 365
           - **comprimento**: 204
           - **largura**: 34
+        - **label**: Sub-setor Beija Flor
       - **[1]**:
-        - **id**: Sub-setor Moctezuma
-        - **label**: Sub-setor Moctezuma
+        - **id**: EddG35A3rLwCBJ
+        - **uid**: EddG35A3rLwCBJ
+        - **rotulo**: Sub-setor Moctezuma
         - **retangulo**:
           - **x**: 850
           - **y**: 530
           - **comprimento**: 230
           - **largura**: 32
+        - **label**: Sub-setor Moctezuma
     - **referencias**:
       - **[0]**:
-        - **ids**:
-          - Sub-setor Beija Flor
+        - **alvo_uid**: SEgxtzL4pAgclV
+        - **pontos_uids**:
+          - IunakcFTmaHuEU
         - **setor**: Beija Flor
-      - **[1]**:
         - **ids**:
+          - IunakcFTmaHuEU
+      - **[1]**:
+        - **alvo_uid**: cgYhOqCxY7U7Gx
+        - **pontos_uids**:
           - Conjunto pôr-do-sol
         - **grupo**: Conjunto pôr-do-sol
-      - **[2]**:
         - **ids**:
-          - Sub-setor Moctezuma
+          - Conjunto pôr-do-sol
+      - **[2]**:
+        - **alvo_uid**: nnYIlTwIYD9Wlp
+        - **pontos_uids**:
+          - EddG35A3rLwCBJ
         - **setor**: Moctezuma
+        - **ids**:
+          - EddG35A3rLwCBJ
 - **setores**:
   - **[0]**:
     - **conteudo**:
@@ -209,6 +259,7 @@
           
           Dica: Para queda ficar mais segura, posicione alguns crash como “calço” por baixo da camada que irá protegê-lo e entre as duas rochas que afunilam a base. A queda dos boulders é bem neste ponto.
       - **nome**: Conjunto Pôr do sol - Bloco A
+      - **uid**: zA8I9CcpUUdw4Q
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_conjunto_por_do_sol_setor_bloco_a_p0_i0.webp)
@@ -216,105 +267,141 @@
           - **altura_mapa**: 961
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 6
-              - **label**: 6
+              - **id**: WGoYX4aJ1JkDqD
+              - **uid**: WGoYX4aJ1JkDqD
+              - **rotulo**: 6
               - **circulo**:
                 - **x**: 205
                 - **y**: 785
                 - **raio**: 19
+              - **label**: 6
             - **[1]**:
-              - **id**: 7
-              - **label**: 7
+              - **id**: 6P0m4PcHs5TK0l
+              - **uid**: 6P0m4PcHs5TK0l
+              - **rotulo**: 7
               - **circulo**:
                 - **x**: 430
                 - **y**: 430
                 - **raio**: 19
+              - **label**: 7
             - **[2]**:
-              - **id**: 8
-              - **label**: 8
+              - **id**: CSCtlLTBaEKJpp
+              - **uid**: CSCtlLTBaEKJpp
+              - **rotulo**: 8
               - **circulo**:
                 - **x**: 756
                 - **y**: 377
                 - **raio**: 19
+              - **label**: 8
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: fjKSAN9kHptrg6
+              - **pontos_uids**:
+                - WGoYX4aJ1JkDqD
               - **escalada**: Sem querer
               - **ids**:
-                - 6
+                - WGoYX4aJ1JkDqD
             - **[1]**:
+              - **alvo_uid**: 32vqwjDDtOzXgH
+              - **pontos_uids**:
+                - 6P0m4PcHs5TK0l
               - **escalada**: Horizonte
               - **ids**:
-                - 7
+                - 6P0m4PcHs5TK0l
             - **[2]**:
+              - **alvo_uid**: i7DNgPqN72loGR
+              - **pontos_uids**:
+                - CSCtlLTBaEKJpp
               - **escalada**: Fenda comunista
               - **ids**:
-                - 8
+                - CSCtlLTBaEKJpp
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_conjunto_por_do_sol_setor_bloco_a_p1_i0.webp)
           - **largura_mapa**: 900
           - **altura_mapa**: 915
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 9
-              - **label**: 9
+              - **id**: vOSfcIVCkTCR6Y
+              - **uid**: vOSfcIVCkTCR6Y
+              - **rotulo**: 9
               - **circulo**:
                 - **x**: 185
                 - **y**: 744
                 - **raio**: 19
+              - **label**: 9
             - **[1]**:
-              - **id**: 10
-              - **label**: 10
+              - **id**: AsetR61halhDPH
+              - **uid**: AsetR61halhDPH
+              - **rotulo**: 10
               - **circulo**:
                 - **x**: 257
                 - **y**: 698
                 - **raio**: 19
+              - **label**: 10
             - **[2]**:
-              - **id**: 11
-              - **label**: 11
+              - **id**: ibEmRk55BB2tZ5
+              - **uid**: ibEmRk55BB2tZ5
+              - **rotulo**: 11
               - **circulo**:
                 - **x**: 693
                 - **y**: 541
                 - **raio**: 19
+              - **label**: 11
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: yFjGfTdHnQhMV1
+              - **pontos_uids**:
+                - vOSfcIVCkTCR6Y
               - **escalada**: Pôr-do-sol
               - **ids**:
-                - 9
+                - vOSfcIVCkTCR6Y
             - **[1]**:
+              - **alvo_uid**: 5Piki2ZHYJtUuU
+              - **pontos_uids**:
+                - AsetR61halhDPH
               - **escalada**: Bipa aérea
               - **ids**:
-                - 10
+                - AsetR61halhDPH
             - **[2]**:
+              - **alvo_uid**: xdwgIYlJK2rTz1
+              - **pontos_uids**:
+                - ibEmRk55BB2tZ5
               - **escalada**: Base aérea
               - **ids**:
-                - 11
+                - ibEmRk55BB2tZ5
       - **escaladas**:
         - **[0]**:
+          - **uid**: fjKSAN9kHptrg6
           - **boulder**:
             - **descricao**: Começa sentado com as duas mãos na agarra óbvia na base da proa, e escala reto
             - **nome**: Sem querer
             - **dificuldade**: V1
         - **[1]**:
+          - **uid**: 32vqwjDDtOzXgH
           - **boulder**:
             - **descricao**: Começa na mesma saída do “Sem querer” e toca pra direta pela fenda horizontal, até a saída do “Pôr-do-sol”.
             - **nome**: Horizonte
             - **dificuldade**: V4
         - **[2]**:
+          - **uid**: i7DNgPqN72loGR
           - **boulder**:
             - **descricao**: Começa como o “Sem querer” e escala toda a fenda lateral, virando no “Base aérea”
             - **nome**: Fenda comunista
             - **dificuldade**: V4
         - **[3]**:
+          - **uid**: yFjGfTdHnQhMV1
           - **boulder**:
             - **descricao**: Variação do “Horizonte”. Começa em pé, as duas mãos em uma agarra em formato de “L” e escala levemente para a esquerda, utilizando pequenos regletes na rocha.
             - **nome**: Pôr-do-sol
             - **dificuldade**: V3
         - **[4]**:
+          - **uid**: 5Piki2ZHYJtUuU
           - **boulder**:
             - **descricao**: Extensão do “Base aérea”. Inicia com as duas mãos na laca em formato de “L” e toca pra direita.
             - **nome**: Bipa aérea
             - **dificuldade**: V3
         - **[5]**:
+          - **uid**: xdwgIYlJK2rTz1
           - **boulder**:
             - **descricao**: Boulder de movimentação específica. As duas mão começam juntas em uma agarra invertida muito boa na fenda horizontal e escala reto.
             - **nome**: Base aérea
@@ -326,6 +413,7 @@
     - **conteudo**:
       - **descricao**: # Bloco B
       - **nome**: Conjunto Pôr do sol - Bloco B
+      - **uid**: Ioa3yTba2GlkHC
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_conjunto_por_do_sol_setor_bloco_b_p0_i0.webp)
@@ -333,107 +421,145 @@
           - **altura_mapa**: 1051
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 13
-              - **label**: 13
+              - **id**: 28laVGhIyDrb8F
+              - **uid**: 28laVGhIyDrb8F
+              - **rotulo**: 13
               - **circulo**:
                 - **x**: 355
                 - **y**: 614
                 - **raio**: 22
+              - **label**: 13
             - **[1]**:
-              - **id**: 12
-              - **label**: 12
+              - **id**: W3tDfRnTdBWzCF
+              - **uid**: W3tDfRnTdBWzCF
+              - **rotulo**: 12
               - **circulo**:
                 - **x**: 237
                 - **y**: 552
                 - **raio**: 22
+              - **label**: 12
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: ql2b16RyuupPW0
+              - **pontos_uids**:
+                - W3tDfRnTdBWzCF
               - **escalada**: Essa moça
               - **ids**:
-                - 12
+                - W3tDfRnTdBWzCF
             - **[1]**:
+              - **alvo_uid**: 9DJBUZ8WYP5bGA
+              - **pontos_uids**:
+                - 28laVGhIyDrb8F
               - **escalada**: Goodsensation
               - **ids**:
-                - 13
+                - 28laVGhIyDrb8F
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_conjunto_por_do_sol_setor_bloco_b_p1_i0.webp)
           - **largura_mapa**: 720
           - **altura_mapa**: 1058
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 15
-              - **label**: 15
+              - **id**: lgYRi17uzCCTOH
+              - **uid**: lgYRi17uzCCTOH
+              - **rotulo**: 15
               - **circulo**:
                 - **x**: 187
                 - **y**: 652
                 - **raio**: 22
+              - **label**: 15
             - **[1]**:
-              - **id**: 16
-              - **label**: 16
+              - **id**: pgR8Z9kwud9NMF
+              - **uid**: pgR8Z9kwud9NMF
+              - **rotulo**: 16
               - **circulo**:
                 - **x**: 576
                 - **y**: 693
                 - **raio**: 21
+              - **label**: 16
             - **[2]**:
-              - **id**: 14
-              - **label**: 14
+              - **id**: 9q6Lfl3fnMvNgE
+              - **uid**: 9q6Lfl3fnMvNgE
+              - **rotulo**: 14
               - **circulo**:
                 - **x**: 300
                 - **y**: 654
                 - **raio**: 21
+              - **label**: 14
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: aUkqQAIOut6xYu
+              - **pontos_uids**:
+                - 9q6Lfl3fnMvNgE
               - **escalada**: Ponto alto
               - **ids**:
-                - 14
+                - 9q6Lfl3fnMvNgE
             - **[1]**:
+              - **alvo_uid**: wEvrmwvsMQ9L8w
+              - **pontos_uids**:
+                - 9q6Lfl3fnMvNgE
               - **escalada**: Ponto alto sds
               - **ids**:
-                - 14
+                - 9q6Lfl3fnMvNgE
             - **[2]**:
+              - **alvo_uid**: c17EdmiaqMkBHd
+              - **pontos_uids**:
+                - lgYRi17uzCCTOH
               - **escalada**: Estrelado
               - **ids**:
-                - 15
+                - lgYRi17uzCCTOH
             - **[3]**:
+              - **alvo_uid**: WZ0N8Nbgrob3er
+              - **pontos_uids**:
+                - lgYRi17uzCCTOH
               - **escalada**: Estrelado sds
               - **ids**:
-                - 15
+                - lgYRi17uzCCTOH
             - **[4]**:
+              - **alvo_uid**: 4YFr3w1wQIFWTb
+              - **pontos_uids**:
+                - pgR8Z9kwud9NMF
               - **escalada**: Gostosinho
               - **ids**:
-                - 16
+                - pgR8Z9kwud9NMF
       - **escaladas**:
         - **[0]**:
+          - **uid**: ql2b16RyuupPW0
           - **boulder**:
             - **descricao**: Saída na agarra grande, fazendo a travessia pra virar na face esquerda do bloco.
             - **nome**: Essa moça
             - **dificuldade**: V0
         - **[1]**:
+          - **uid**: 9DJBUZ8WYP5bGA
           - **boulder**:
             - **descricao**: Saída na agarra grande, com a virada reta.
             - **nome**: Goodsensation
             - **dificuldade**: V1
         - **[2]**:
+          - **uid**: aUkqQAIOut6xYu
           - **boulder**:
             - **descricao**: Saída de uma pinça grande de direita e outra pinça menor de esquerda.
             - **nome**: Ponto alto
             - **dificuldade**: V3
         - **[3]**:
+          - **uid**: wEvrmwvsMQ9L8w
           - **boulder**:
             - **descricao**: Começa pra direita, em um reglete lateral de esquerda e um bico de direita.
             - **nome**: Ponto alto sds
             - **dificuldade**: V4
         - **[4]**:
+          - **uid**: c17EdmiaqMkBHd
           - **boulder**:
             - **descricao**: Saída em uma pinça de mão esquerda e mão direita em um batente/reglete.
             - **nome**: Estrelado
             - **dificuldade**: V1
         - **[5]**:
+          - **uid**: WZ0N8Nbgrob3er
           - **boulder**:
             - **descricao**: Sai em um reglete lateral de esquerda e um bico de direita.
             - **nome**: Estrelado sds
             - **dificuldade**: V2
         - **[6]**:
+          - **uid**: 4YFr3w1wQIFWTb
           - **boulder**:
             - **descricao**: Sai das agarras grandes no lado direito do bloco e vira reto, na parte mais baixa.
             - **nome**: Gostosinho
@@ -445,6 +571,7 @@
     - **conteudo**:
       - **descricao**: # Bloco C
       - **nome**: Conjunto Pôr do sol - Bloco C
+      - **uid**: oDdDAqETF27BlU
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_conjunto_por_do_sol_setor_bloco_c_p0_i0.webp)
@@ -452,45 +579,59 @@
           - **altura_mapa**: 1058
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 18
-              - **label**: 18
+              - **id**: JDyi8o4xgkknnF
+              - **uid**: JDyi8o4xgkknnF
+              - **rotulo**: 18
               - **circulo**:
                 - **x**: 227
                 - **y**: 704
                 - **raio**: 22
+              - **label**: 18
             - **[1]**:
-              - **id**: 17
-              - **label**: 17
+              - **id**: rxIV89wlWKXiTw
+              - **uid**: rxIV89wlWKXiTw
+              - **rotulo**: 17
               - **circulo**:
                 - **x**: 172
                 - **y**: 710
                 - **raio**: 21
+              - **label**: 17
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: Qv2yoysFkacnAN
+              - **pontos_uids**:
+                - rxIV89wlWKXiTw
               - **escalada**: Hematoma
               - **ids**:
-                - 17
+                - rxIV89wlWKXiTw
             - **[1]**:
+              - **alvo_uid**: 2YynBS9LH86nCk
+              - **pontos_uids**:
+                - JDyi8o4xgkknnF
               - **escalada**: Pedra de toque
               - **ids**:
-                - 18
+                - JDyi8o4xgkknnF
       - **escaladas**:
         - **[0]**:
+          - **uid**: Qv2yoysFkacnAN
           - **boulder**:
             - **descricao**: Saída nas agarras baixas da "faixa branca" do bloco, escalando reto.
             - **nome**: Hematoma
             - **dificuldade**: V1
         - **[1]**:
+          - **uid**: 2YynBS9LH86nCk
           - **boulder**:
             - **descricao**: Saída com a esquerda em uma pinça com o encaixe de dedão e a direita na agarra ao lado.
             - **nome**: Pedra de toque
             - **dificuldade**: V1
         - **[2]**:
+          - **uid**: fQtbRfpwAhwP7N
           - **boulder**:
             - **descricao**: Escalada pela aresta do bloco. Mão direita em um micro reglete e a esquerda em um pocket na lateral.
             - **nome**: Hematita
             - **dificuldade**: V3
         - **[3]**:
+          - **uid**: W0fBNuhC1ju702
           - **boulder**:
             - **descricao**: Boulder pela face do bloco, saindo de agarras óbvias e indo pra esquerda até a virada pelo final da aresta.
             - **nome**: Especularica
@@ -512,6 +653,7 @@
     
     Foto: Eric Dornellas - Escaladora: Lívia Gonçalves
 - **nome**: Brinquedos
+- **uid**: mE3qfosSuHNyTa
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_brinquedos_p0_i0.webp)
@@ -519,149 +661,197 @@
     - **altura_mapa**: 871
     - **pontos_de_interesse**:
       - **[0]**:
-        - **id**: 21
-        - **label**: 21
+        - **id**: xsm2Y1tvbutSHs
+        - **uid**: xsm2Y1tvbutSHs
+        - **rotulo**: 21
         - **circulo**:
           - **x**: 246
           - **y**: 573
           - **raio**: 16
+        - **label**: 21
       - **[1]**:
-        - **id**: 22
-        - **label**: 22
+        - **id**: 11qflNbUiIyQtq
+        - **uid**: 11qflNbUiIyQtq
+        - **rotulo**: 22
         - **circulo**:
           - **x**: 397
           - **y**: 692
           - **raio**: 16
+        - **label**: 22
     - **referencias**:
       - **[0]**:
+        - **alvo_uid**: oddAoHJ1Wn52fm
+        - **pontos_uids**:
+          - xsm2Y1tvbutSHs
         - **escalada**: Cubo Mágico
         - **ids**:
-          - 21
+          - xsm2Y1tvbutSHs
       - **[1]**:
+        - **alvo_uid**: 67SCGGFA4Fh6Aq
+        - **pontos_uids**:
+          - 11qflNbUiIyQtq
         - **escalada**: Jenga
         - **ids**:
-          - 22
+          - 11qflNbUiIyQtq
   - **[1]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_brinquedos_p1_i0.webp)
     - **largura_mapa**: 1126
     - **altura_mapa**: 1360
     - **pontos_de_interesse**:
       - **[0]**:
-        - **id**: 23
-        - **label**: 23
+        - **id**: BxZmPhRsmsmwxA
+        - **uid**: BxZmPhRsmsmwxA
+        - **rotulo**: 23
         - **circulo**:
           - **x**: 332
           - **y**: 1074
           - **raio**: 25
+        - **label**: 23
       - **[1]**:
-        - **id**: 25
-        - **label**: 25
+        - **id**: bylOKXqVRbD25r
+        - **uid**: bylOKXqVRbD25r
+        - **rotulo**: 25
         - **circulo**:
           - **x**: 886
           - **y**: 1038
           - **raio**: 25
+        - **label**: 25
       - **[2]**:
-        - **id**: 24
-        - **label**: 24
+        - **id**: 9NOmPpJa3vtU29
+        - **uid**: 9NOmPpJa3vtU29
+        - **rotulo**: 24
         - **circulo**:
           - **x**: 449
           - **y**: 972
           - **raio**: 25
+        - **label**: 24
     - **referencias**:
       - **[0]**:
+        - **alvo_uid**: F5OEqY3OPAYPSQ
+        - **pontos_uids**:
+          - BxZmPhRsmsmwxA
         - **escalada**: Cara a Cara
         - **ids**:
-          - 23
+          - BxZmPhRsmsmwxA
       - **[1]**:
+        - **alvo_uid**: YtKG68FwJ9BiGZ
+        - **pontos_uids**:
+          - 9NOmPpJa3vtU29
         - **escalada**: Resta um
         - **ids**:
-          - 24
+          - 9NOmPpJa3vtU29
       - **[2]**:
+        - **alvo_uid**: 9WJVIaLFjkSt8r
+        - **pontos_uids**:
+          - bylOKXqVRbD25r
         - **escalada**: Pega Palito
         - **ids**:
-          - 25
+          - bylOKXqVRbD25r
   - **[2]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_brinquedos_p2_i0.webp)
     - **largura_mapa**: 1126
     - **altura_mapa**: 1282
     - **pontos_de_interesse**:
       - **[0]**:
-        - **id**: 26
-        - **label**: 26
+        - **id**: 0C7DQ8kghPVidc
+        - **uid**: 0C7DQ8kghPVidc
+        - **rotulo**: 26
         - **circulo**:
           - **x**: 350
           - **y**: 874
           - **raio**: 27
+        - **label**: 26
       - **[1]**:
-        - **id**: 27
-        - **label**: 27
+        - **id**: pOH2AUYIhRvryI
+        - **uid**: pOH2AUYIhRvryI
+        - **rotulo**: 27
         - **circulo**:
           - **x**: 544
           - **y**: 858
           - **raio**: 27
+        - **label**: 27
     - **referencias**:
       - **[0]**:
+        - **alvo_uid**: n1m3cqk1CH4Flb
+        - **pontos_uids**:
+          - 0C7DQ8kghPVidc
         - **escalada**: Aresta da Sombra
         - **ids**:
-          - 26
+          - 0C7DQ8kghPVidc
       - **[1]**:
+        - **alvo_uid**: z6QWhw1UxwQ3eX
+        - **pontos_uids**:
+          - pOH2AUYIhRvryI
         - **escalada**: Penumbra
         - **ids**:
-          - 27
+          - pOH2AUYIhRvryI
   - **[3]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_brinquedos_p3_i0.webp)
     - **largura_mapa**: 1126
     - **altura_mapa**: 1343
     - **pontos_de_interesse**:
       - **[0]**:
-        - **id**: 28
-        - **label**: 28
+        - **id**: DUUPL7jeZlfNQH
+        - **uid**: DUUPL7jeZlfNQH
+        - **rotulo**: 28
         - **circulo**:
           - **x**: 680
           - **y**: 858
           - **raio**: 26
+        - **label**: 28
     - **referencias**:
       - **[0]**:
+        - **alvo_uid**: Sc5nTDosTUQcqs
+        - **pontos_uids**:
+          - DUUPL7jeZlfNQH
         - **escalada**: Aresta do sol
         - **ids**:
-          - 28
+          - DUUPL7jeZlfNQH
 - **escaladas**:
   - **[0]**:
+    - **uid**: oddAoHJ1Wn52fm
     - **boulder**:
       - **descricao**: Sai com a esquerda em uma agarra grande invertida e a direita em um gaston, escalando pela face do bloco.
       - **nome**: Cubo Mágico
       - **dificuldade**: V4
   - **[1]**:
+    - **uid**: 67SCGGFA4Fh6Aq
     - **boulder**:
       - **descricao**: Saída com as mãos juntas em um laca / agarrão do lado direito, seguindo pela aresta.
       - **nome**: Jenga
       - **dificuldade**: V2
   - **[2]**:
+    - **uid**: F5OEqY3OPAYPSQ
     - **boulder**:
       - **descricao**: Começa com as mãos juntas no agarrão mais a esquerda, escalando pela parte mais baixa.
       - **nome**: Cara a Cara
       - **dificuldade**: V0
   - **[3]**:
+    - **uid**: YtKG68FwJ9BiGZ
     - **boulder**:
       - **descricao**: Saída no agarrão a direita da barriga, indo pra direita e fazendo a virada no meio do bloco.
       - **nome**: Resta um
       - **dificuldade**: V0
   - **[4]**:
+    - **uid**: 9WJVIaLFjkSt8r
     - **boulder**:
       - **descricao**: Boulder ao lado da árvore, saindo com a mão direita em uma invertida e a esquerda em um reglete pequeno, escalando reto pela face alta do bloco.
       - **nome**: Pega Palito
       - **dificuldade**: V2
   - **[5]**:
+    - **uid**: n1m3cqk1CH4Flb
     - **boulder**:
       - **descricao**: Começa com a direita em um reglete e a esquerda em uma pequena agarra, com um move técnico de saída e escalada por agarras grandes.
       - **nome**: Aresta da Sombra
       - **dificuldade**: V0
   - **[6]**:
+    - **uid**: z6QWhw1UxwQ3eX
     - **boulder**:
       - **descricao**: Saída no agarrão mais a esquerda do bloco, indo reto por agarras grandes.
       - **nome**: Penumbra
       - **dificuldade**: V0
   - **[7]**:
+    - **uid**: Sc5nTDosTUQcqs
     - **boulder**:
       - **descricao**: Boulder clássico pela aresta do bloco, saindo com as mãos juntas no agarrão na parte baixa.
       - **nome**: Aresta do sol
@@ -677,6 +867,7 @@
 
 - **descricao**: # Beija Flor
 - **nome**: Beija Flor
+- **uid**: SEgxtzL4pAgclV
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_beija_flor_p0_i0.webp)
@@ -684,114 +875,154 @@
     - **altura_mapa**: 1074
     - **pontos_de_interesse**:
       - **[0]**:
-        - **id**: 29
-        - **label**: 29
+        - **id**: MbeptWsO7BsTUJ
+        - **uid**: MbeptWsO7BsTUJ
+        - **rotulo**: 29
         - **circulo**:
           - **x**: 317
           - **y**: 794
           - **raio**: 24
+        - **label**: 29
       - **[1]**:
-        - **id**: 30
-        - **label**: 30
+        - **id**: oJVdw8PZoKC1p8
+        - **uid**: oJVdw8PZoKC1p8
+        - **rotulo**: 30
         - **circulo**:
           - **x**: 369
           - **y**: 818
           - **raio**: 24
+        - **label**: 30
       - **[2]**:
-        - **id**: 31
-        - **label**: 31
+        - **id**: i5eiUpJDcLOs1c
+        - **uid**: i5eiUpJDcLOs1c
+        - **rotulo**: 31
         - **circulo**:
           - **x**: 771
           - **y**: 634
           - **raio**: 24
+        - **label**: 31
       - **[3]**:
-        - **id**: 32
-        - **label**: 32
+        - **id**: 4xj0bLKFEZls6u
+        - **uid**: 4xj0bLKFEZls6u
+        - **rotulo**: 32
         - **circulo**:
           - **x**: 623
           - **y**: 818
           - **raio**: 24
+        - **label**: 32
     - **referencias**:
       - **[0]**:
+        - **alvo_uid**: JFCzIRUDeeJekj
+        - **pontos_uids**:
+          - MbeptWsO7BsTUJ
         - **escalada**: Juruva
         - **ids**:
-          - 29
+          - MbeptWsO7BsTUJ
       - **[1]**:
+        - **alvo_uid**: Z5QRGUzf3wJE55
+        - **pontos_uids**:
+          - MbeptWsO7BsTUJ
         - **escalada**: Bem-te-vi
         - **ids**:
-          - 29
+          - MbeptWsO7BsTUJ
       - **[2]**:
+        - **alvo_uid**: J9HaIMdkV2P9n6
+        - **pontos_uids**:
+          - oJVdw8PZoKC1p8
         - **escalada**: Sabiá
         - **ids**:
-          - 30
+          - oJVdw8PZoKC1p8
       - **[3]**:
+        - **alvo_uid**: 6VUAenrPo4zBoD
+        - **pontos_uids**:
+          - i5eiUpJDcLOs1c
         - **escalada**: Carcará
         - **ids**:
-          - 31
+          - i5eiUpJDcLOs1c
       - **[4]**:
+        - **alvo_uid**: 2lJtMf7XNJiLMM
+        - **pontos_uids**:
+          - 4xj0bLKFEZls6u
         - **escalada**: Trinca-Ferro
         - **ids**:
-          - 32
+          - 4xj0bLKFEZls6u
   - **[1]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_beija_flor_p1_i0.webp)
     - **largura_mapa**: 1126
     - **altura_mapa**: 1163
     - **pontos_de_interesse**:
       - **[0]**:
-        - **id**: 33
-        - **label**: 33
+        - **id**: Ads722TvlCS4t8
+        - **uid**: Ads722TvlCS4t8
+        - **rotulo**: 33
         - **circulo**:
           - **x**: 612
           - **y**: 862
           - **raio**: 24
+        - **label**: 33
       - **[1]**:
-        - **id**: 34
-        - **label**: 34
+        - **id**: KILUpYXs6CVJ15
+        - **uid**: KILUpYXs6CVJ15
+        - **rotulo**: 34
         - **circulo**:
           - **x**: 675
           - **y**: 1033
           - **raio**: 24
+        - **label**: 34
     - **referencias**:
       - **[0]**:
+        - **alvo_uid**: lEkdXpqOYaLCML
+        - **pontos_uids**:
+          - Ads722TvlCS4t8
         - **escalada**: Beija-Flor
         - **ids**:
-          - 33
+          - Ads722TvlCS4t8
       - **[1]**:
+        - **alvo_uid**: jakQSIsSo2au6n
+        - **pontos_uids**:
+          - KILUpYXs6CVJ15
         - **escalada**: Bacurau
         - **ids**:
-          - 34
+          - KILUpYXs6CVJ15
 - **escaladas**:
   - **[0]**:
+    - **uid**: JFCzIRUDeeJekj
     - **boulder**:
       - **descricao**: Começa com as mãos juntas em uma agarra lateral e segue para a esquerda do bloco com a virada pela barriga na lateral.
       - **nome**: Juruva
       - **dificuldade**: V4
   - **[1]**:
+    - **uid**: Z5QRGUzf3wJE55
     - **boulder**:
       - **descricao**: Saindo no Carcará e virando no Juruva.
       - **nome**: Bem-te-vi
       - **dificuldade**: V6
   - **[2]**:
+    - **uid**: J9HaIMdkV2P9n6
     - **boulder**:
       - **descricao**: Boulder com movimentação incrível! Saída com as mãos juntas em uma agarra lateral a esquerda, indo reto pelo meio do bloco.
       - **nome**: Sabiá
       - **dificuldade**: V2
   - **[3]**:
+    - **uid**: 6VUAenrPo4zBoD
     - **boulder**:
       - **descricao**: Saída com a direita em um reglete baixo e a esquerda e uma pinça no teto, indo pra face mais negativa com uma movimentação incrível!
       - **nome**: Carcará
       - **dificuldade**: V6
   - **[4]**:
+    - **uid**: 2lJtMf7XNJiLMM
     - **boulder**:
       - **descricao**: Saída do módulo mais baixo no bloco até a saída do Carcará, finalizando na face negativa. Clássico!
       - **nome**: Trinca-Ferro
       - **dificuldade**: V7
   - **[5]**:
+    - **uid**: lEkdXpqOYaLCML
     - **boulder**:
       - **descricao**: Clássico! Saída com a direita em um reglete baixo e a esquerda e uma pinça no teto, indo pra face à direita com um move forte pra uma agarra perfeita na lateral esquerda.
       - **nome**: Beija-Flor
       - **dificuldade**: V7
   - **[6]**:
+    - **uid**: jakQSIsSo2au6n
     - **boulder**:
       - **descricao**: Mesma saída do boulder “Trinca ferro”, iniciando no módulo mais baixo do bloco e seguindo para a direita, finalizando no Beija Flor. Incrível!
       - **nome**: Bacurau
@@ -807,6 +1038,7 @@
 
 - **descricao**: # Bacurau
 - **nome**: Bacurau
+- **uid**: PnplZXwMjCuqJA
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_bacurau_p0_i0.webp)
@@ -814,111 +1046,147 @@
     - **altura_mapa**: 1244
     - **pontos_de_interesse**:
       - **[0]**:
-        - **id**: 35
-        - **label**: 35
+        - **id**: AHl2qwhhhkWz1H
+        - **uid**: AHl2qwhhhkWz1H
+        - **rotulo**: 35
         - **circulo**:
           - **x**: 205
           - **y**: 954
           - **raio**: 26
+        - **label**: 35
       - **[1]**:
-        - **id**: 36
-        - **label**: 36
+        - **id**: DdqctLMW2orjh4
+        - **uid**: DdqctLMW2orjh4
+        - **rotulo**: 36
         - **circulo**:
           - **x**: 252
           - **y**: 768
           - **raio**: 26
+        - **label**: 36
       - **[2]**:
-        - **id**: 37
-        - **label**: 37
+        - **id**: SZ871qlkSpDOFD
+        - **uid**: SZ871qlkSpDOFD
+        - **rotulo**: 37
         - **circulo**:
           - **x**: 736
           - **y**: 969
           - **raio**: 26
+        - **label**: 37
       - **[3]**:
-        - **id**: 38
-        - **label**: 38
+        - **id**: PCaeb5NM8ZbtQE
+        - **uid**: PCaeb5NM8ZbtQE
+        - **rotulo**: 38
         - **circulo**:
           - **x**: 724
           - **y**: 867
           - **raio**: 26
+        - **label**: 38
     - **referencias**:
       - **[0]**:
+        - **alvo_uid**: i05Boj0FNXGpfl
+        - **pontos_uids**:
+          - AHl2qwhhhkWz1H
         - **escalada**: Viuvinha
         - **ids**:
-          - 35
+          - AHl2qwhhhkWz1H
       - **[1]**:
+        - **alvo_uid**: 7o7obsv0PmlAUN
+        - **pontos_uids**:
+          - DdqctLMW2orjh4
         - **escalada**: Eu sou Jaó
         - **ids**:
-          - 36
+          - DdqctLMW2orjh4
       - **[2]**:
+        - **alvo_uid**: fBrJk1J8EdjfP0
+        - **pontos_uids**:
+          - SZ871qlkSpDOFD
         - **escalada**: Ritual
         - **ids**:
-          - 37
+          - SZ871qlkSpDOFD
       - **[3]**:
+        - **alvo_uid**: xsxNv7ohDyb0i7
+        - **pontos_uids**:
+          - PCaeb5NM8ZbtQE
         - **escalada**: Improviso
         - **ids**:
-          - 38
+          - PCaeb5NM8ZbtQE
   - **[1]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_bacurau_p1_i0.webp)
     - **largura_mapa**: 678
     - **altura_mapa**: 1460
     - **pontos_de_interesse**:
       - **[0]**:
-        - **id**: 39
-        - **label**: 39
+        - **id**: 7gZbq7gn3zEQz3
+        - **uid**: 7gZbq7gn3zEQz3
+        - **rotulo**: 39
         - **circulo**:
           - **x**: 374
           - **y**: 883
           - **raio**: 28
+        - **label**: 39
     - **referencias**:
       - **[0]**:
+        - **alvo_uid**: 2PN0hdPgKiw2nm
+        - **pontos_uids**:
+          - 7gZbq7gn3zEQz3
         - **escalada**: Buraqueira
         - **ids**:
-          - 39
+          - 7gZbq7gn3zEQz3
   - **[2]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_bacurau_p1_i1.webp)
     - **largura_mapa**: 712
     - **altura_mapa**: 1459
     - **pontos_de_interesse**:
       - **[0]**:
-        - **id**: 40
-        - **label**: 40
+        - **id**: j6mCjVwZUc3hYC
+        - **uid**: j6mCjVwZUc3hYC
+        - **rotulo**: 40
         - **circulo**:
           - **x**: 485
           - **y**: 773
           - **raio**: 28
+        - **label**: 40
     - **referencias**:
       - **[0]**:
+        - **alvo_uid**: k7o5hIx7oH5ft6
+        - **pontos_uids**:
+          - j6mCjVwZUc3hYC
         - **escalada**: Mini Nave
         - **ids**:
-          - 40
+          - j6mCjVwZUc3hYC
 - **escaladas**:
   - **[0]**:
+    - **uid**: i05Boj0FNXGpfl
     - **boulder**:
       - **descricao**: Boulder na lateral esquerda do bloco, com a saída nas agarras baixas, indo reto até a virada.
       - **nome**: Viuvinha
       - **dificuldade**: V1
   - **[1]**:
+    - **uid**: 7o7obsv0PmlAUN
     - **boulder**:
       - **descricao**: Saída nas agarras baixas da lateral esquerda do bloco, fazendo a travessia por agarras boas até a virada na parte mais alta à direita.
       - **nome**: Eu sou Jaó
       - **dificuldade**: V1
   - **[2]**:
+    - **uid**: fBrJk1J8EdjfP0
     - **boulder**:
       - **descricao**: Começa nas agarras mais baixas à direita do bloco, com um crux de saída, fazendo a travessia para a virada na parte esquerda.
       - **nome**: Ritual
       - **dificuldade**: V3
   - **[3]**:
+    - **uid**: xsxNv7ohDyb0i7
     - **boulder**:
       - **descricao**: Saída nas agarras baixas da direita do bloco, indo reto até a virada na parte mais alta.
       - **nome**: Improviso
       - **dificuldade**: V3
   - **[4]**:
+    - **uid**: 2PN0hdPgKiw2nm
     - **boulder**:
       - **descricao**: Boulder saindo do buraco na lateral do bloco em agarras baixas, indo reto para a virada em agarras boas.
       - **nome**: Buraqueira
       - **dificuldade**: V1
   - **[5]**:
+    - **uid**: k7o5hIx7oH5ft6
     - **boulder**:
       - **descricao**: Boulder no bloco ao lado, com a saída na parte baixa da direita, sem usar os blocos de baixo, tocando por toda a aresta.
       - **nome**: Mini Nave
@@ -937,6 +1205,7 @@
     
     OBS: Herança de Ferro aparentava já ter sido escalada. Buscamos informações com alguns escaladores, porém o boulder não foi reconhecido. Caso alguém se lembre da linha, entrar em contato para alteração do croqui.
 - **nome**: Moctezuma
+- **uid**: nnYIlTwIYD9Wlp
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_moctezuma_p0_i0.webp)
@@ -944,120 +1213,160 @@
     - **altura_mapa**: 1310
     - **pontos_de_interesse**:
       - **[0]**:
-        - **id**: 42
-        - **label**: 42
+        - **id**: gZYfSLlW0meDiv
+        - **uid**: gZYfSLlW0meDiv
+        - **rotulo**: 42
         - **circulo**:
           - **x**: 591
           - **y**: 584
           - **raio**: 26
+        - **label**: 42
       - **[1]**:
-        - **id**: 43
-        - **label**: 43
+        - **id**: HpRF0bDxvR4x6g
+        - **uid**: HpRF0bDxvR4x6g
+        - **rotulo**: 43
         - **circulo**:
           - **x**: 644
           - **y**: 877
           - **raio**: 26
+        - **label**: 43
       - **[2]**:
-        - **id**: 41
-        - **label**: 41
+        - **id**: 9C5iyYO3zvJMuz
+        - **uid**: 9C5iyYO3zvJMuz
+        - **rotulo**: 41
         - **circulo**:
           - **x**: 211
           - **y**: 817
           - **raio**: 26
+        - **label**: 41
     - **referencias**:
       - **[0]**:
+        - **alvo_uid**: jqvzJjjtaIifkv
+        - **pontos_uids**:
+          - 9C5iyYO3zvJMuz
         - **escalada**: Mansa Musa
         - **ids**:
-          - 41
+          - 9C5iyYO3zvJMuz
       - **[1]**:
+        - **alvo_uid**: Zf1Tg3vt0F7X4g
+        - **pontos_uids**:
+          - 9C5iyYO3zvJMuz
         - **escalada**: Musamansa
         - **ids**:
-          - 41
+          - 9C5iyYO3zvJMuz
       - **[2]**:
+        - **alvo_uid**: BpqX5AUQRN1daP
+        - **pontos_uids**:
+          - gZYfSLlW0meDiv
         - **escalada**: Martelo de Pedra
         - **ids**:
-          - 42
+          - gZYfSLlW0meDiv
       - **[3]**:
+        - **alvo_uid**: dIovjntHyMIh8K
+        - **pontos_uids**:
+          - HpRF0bDxvR4x6g
         - **escalada**: Moctezuma
         - **ids**:
-          - 43
+          - HpRF0bDxvR4x6g
   - **[1]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_moctezuma_p1_i0.webp)
     - **largura_mapa**: 930
     - **altura_mapa**: 1249
     - **pontos_de_interesse**:
       - **[0]**:
-        - **id**: 44
-        - **label**: 44
+        - **id**: gsjmB3ehSIB7xA
+        - **uid**: gsjmB3ehSIB7xA
+        - **rotulo**: 44
         - **circulo**:
           - **x**: 456
           - **y**: 946
           - **raio**: 27
+        - **label**: 44
       - **[1]**:
-        - **id**: 45
-        - **label**: 45
+        - **id**: 2lRKf1d75qJ86u
+        - **uid**: 2lRKf1d75qJ86u
+        - **rotulo**: 45
         - **circulo**:
           - **x**: 651
           - **y**: 858
           - **raio**: 27
+        - **label**: 45
     - **referencias**:
       - **[0]**:
+        - **alvo_uid**: oq2HvgJAAgqgMg
+        - **pontos_uids**:
+          - gsjmB3ehSIB7xA
         - **escalada**: Medeia
         - **ids**:
-          - 44
+          - gsjmB3ehSIB7xA
       - **[1]**:
+        - **alvo_uid**: Jl4UkP0YJVqqyL
+        - **pontos_uids**:
+          - 2lRKf1d75qJ86u
         - **escalada**: Maria Bonita
         - **ids**:
-          - 45
+          - 2lRKf1d75qJ86u
   - **[2]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_moctezuma_p2_i0.webp)
     - **largura_mapa**: 1126
     - **altura_mapa**: 1365
     - **pontos_de_interesse**:
       - **[0]**:
-        - **id**: 47
-        - **label**: 47
+        - **id**: p7EWYPyoDdABXM
+        - **uid**: p7EWYPyoDdABXM
+        - **rotulo**: 47
         - **circulo**:
           - **x**: 586
           - **y**: 1001
           - **raio**: 25
+        - **label**: 47
     - **referencias**:
       - **[0]**:
+        - **alvo_uid**: tvJiro8YwLTBx0
+        - **pontos_uids**:
+          - p7EWYPyoDdABXM
         - **escalada**: Herança de Ferro
         - **ids**:
-          - 47
+          - p7EWYPyoDdABXM
 - **escaladas**:
   - **[0]**:
+    - **uid**: jqvzJjjtaIifkv
     - **boulder**:
       - **descricao**: Começa baixo na laca mais à esquerda do bloco, com movimentos fortes até a virada na à esquerda da fenda.
       - **nome**: Mansa Musa
       - **dificuldade**: V11
   - **[1]**:
+    - **uid**: Zf1Tg3vt0F7X4g
     - **boulder**:
       - **descricao**: Saindo da agarra invertida de esquerda e do abaolado de direita.
       - **nome**: Musamansa
       - **dificuldade**: V4
   - **[2]**:
+    - **uid**: BpqX5AUQRN1daP
     - **boulder**:
       - **descricao**: Saída com a mão direita na agarrão alto e a esquerda na agarra do lado, indo para esquerda com a virada pelo slab.
       - **nome**: Martelo de Pedra
       - **dificuldade**: V3
   - **[3]**:
+    - **uid**: dIovjntHyMIh8K
     - **boulder**:
       - **descricao**: Saída de um reglete de esquerda e de outro reglete um pouco mais alto de direita, indo reto com a virada em um slab técnico.
       - **nome**: Moctezuma
       - **dificuldade**: V6
   - **[4]**:
+    - **uid**: oq2HvgJAAgqgMg
     - **boulder**:
       - **descricao**: Saída com a mão esquerda no reglete lateral e a direita na craca baixa na aresta do bloco, indo reto até dois regletes, com um move forte para um agarrão na virada.
       - **nome**: Medeia
       - **dificuldade**: V7
   - **[5]**:
+    - **uid**: Jl4UkP0YJVqqyL
     - **boulder**:
       - **descricao**: Boulder pela cracas na lateral do bloco indo reto até o crux na virada.
       - **nome**: Maria Bonita
       - **dificuldade**: V2
   - **[6]**:
+    - **uid**: tvJiro8YwLTBx0
     - **boulder**:
       - **descricao**: Saída com a mão esquerda na laca lateral e a mão direita no batente baixo, indo para a direita até um movimento forte em um batente liso.
       - **nome**: Herança de Ferro
@@ -1073,6 +1382,7 @@
 
 - **descricao**: # Moléstia
 - **nome**: Moléstia
+- **uid**: cdvqeGA2kAJhtk
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_molestia_p0_i0.webp)
@@ -1080,57 +1390,75 @@
     - **altura_mapa**: 1254
     - **pontos_de_interesse**:
       - **[0]**:
-        - **id**: 46
-        - **label**: 46
+        - **id**: d8C7lne3ihCPxp
+        - **uid**: d8C7lne3ihCPxp
+        - **rotulo**: 46
         - **circulo**:
           - **x**: 481
           - **y**: 843
           - **raio**: 26
+        - **label**: 46
     - **referencias**:
       - **[0]**:
+        - **alvo_uid**: 58S3O2tawZtbJ0
+        - **pontos_uids**:
+          - d8C7lne3ihCPxp
         - **escalada**: Moléstia
         - **ids**:
-          - 46
+          - d8C7lne3ihCPxp
   - **[1]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_molestia_p1_i0.webp)
     - **largura_mapa**: 1126
     - **altura_mapa**: 1464
     - **pontos_de_interesse**:
       - **[0]**:
-        - **id**: 48
-        - **label**: 48
+        - **id**: dEYDMUFaXWSPp3
+        - **uid**: dEYDMUFaXWSPp3
+        - **rotulo**: 48
         - **circulo**:
           - **x**: 343
           - **y**: 1079
           - **raio**: 28
+        - **label**: 48
       - **[1]**:
-        - **id**: 49
-        - **label**: 49
+        - **id**: N5hvPqMEBLujlm
+        - **uid**: N5hvPqMEBLujlm
+        - **rotulo**: 49
         - **circulo**:
           - **x**: 975
           - **y**: 834
           - **raio**: 28
+        - **label**: 49
     - **referencias**:
       - **[0]**:
+        - **alvo_uid**: GIdu44nruJBHyB
+        - **pontos_uids**:
+          - dEYDMUFaXWSPp3
         - **escalada**: Jabuticaba
         - **ids**:
-          - 48
+          - dEYDMUFaXWSPp3
       - **[1]**:
+        - **alvo_uid**: VuH0Ym4Di03rNV
+        - **pontos_uids**:
+          - N5hvPqMEBLujlm
         - **escalada**: Caqui
         - **ids**:
-          - 49
+          - N5hvPqMEBLujlm
 - **escaladas**:
   - **[0]**:
+    - **uid**: 58S3O2tawZtbJ0
     - **boulder**:
       - **descricao**: Boulder das antigas. Ainda sem betas.
       - **nome**: Moléstia
       - **dificuldade**: V8
   - **[1]**:
+    - **uid**: GIdu44nruJBHyB
     - **boulder**:
       - **descricao**: Boulder das antiga! Saída com as mãos na laca baixo e escala reto para um reglete clássico, com uma viara em um positivo.
       - **nome**: Jabuticaba
       - **dificuldade**: V5
   - **[2]**:
+    - **uid**: VuH0Ym4Di03rNV
     - **boulder**:
       - **descricao**: Começa com as mãos juntas em uma pinça/reglete, indo para um abaolado com uma virada técnica.
       - **nome**: Caqui
@@ -1149,6 +1477,7 @@
     
     AVISO: O bloco possui um grande módulo no meio com uma linha clássica bem óbvia e alta, porém esse modulo não parece ser sólido e não foi testado por meio de rapel até o momento.
 - **nome**: Outros Blocos
+- **uid**: hrcCn87Pwp2pLa
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_outros_blocos_p0_i0.webp)
@@ -1156,56 +1485,76 @@
     - **altura_mapa**: 1512
     - **pontos_de_interesse**:
       - **[0]**:
-        - **id**: 50
-        - **label**: 50
+        - **id**: vmueAi6IsFlXH5
+        - **uid**: vmueAi6IsFlXH5
+        - **rotulo**: 50
         - **circulo**:
           - **x**: 285
           - **y**: 1307
           - **raio**: 28
+        - **label**: 50
       - **[1]**:
-        - **id**: 51
-        - **label**: 51
+        - **id**: xXcIsXPjzWYDKd
+        - **uid**: xXcIsXPjzWYDKd
+        - **rotulo**: 51
         - **circulo**:
           - **x**: 430
           - **y**: 1090
           - **raio**: 28
+        - **label**: 51
     - **referencias**:
       - **[0]**:
+        - **alvo_uid**: QeGgLhoOXIUevn
+        - **pontos_uids**:
+          - vmueAi6IsFlXH5
         - **escalada**: Farol
         - **ids**:
-          - 50
+          - vmueAi6IsFlXH5
       - **[1]**:
+        - **alvo_uid**: JBQhRIDquBb9dZ
+        - **pontos_uids**:
+          - xXcIsXPjzWYDKd
         - **escalada**: Mirante
         - **ids**:
-          - 51
+          - xXcIsXPjzWYDKd
   - **[1]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_outros_blocos_p1_i0.webp)
     - **largura_mapa**: 861
     - **altura_mapa**: 1441
     - **pontos_de_interesse**:
       - **[0]**:
-        - **id**: 52
-        - **label**: 52
+        - **id**: N0IS3KbGX1MAJK
+        - **uid**: N0IS3KbGX1MAJK
+        - **rotulo**: 52
         - **circulo**:
           - **x**: 319
           - **y**: 866
           - **raio**: 27
+        - **label**: 52
       - **[1]**:
-        - **id**: 53
-        - **label**: 53
+        - **id**: mzIpYrHtoazflR
+        - **uid**: mzIpYrHtoazflR
+        - **rotulo**: 53
         - **circulo**:
           - **x**: 229
           - **y**: 813
           - **raio**: 27
+        - **label**: 53
     - **referencias**:
       - **[0]**:
+        - **alvo_uid**: y4MQNt0TrJjMoR
+        - **pontos_uids**:
+          - N0IS3KbGX1MAJK
         - **escalada**: Queda do Gigante
         - **ids**:
-          - 52
+          - N0IS3KbGX1MAJK
       - **[1]**:
+        - **alvo_uid**: fUhfpyN6nQrSWc
+        - **pontos_uids**:
+          - mzIpYrHtoazflR
         - **escalada**: Não me toque
         - **ids**:
-          - 53
+          - mzIpYrHtoazflR
   - **[2]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_outros_blocos_p2_i0.webp)
     - **largura_mapa**: 1126
@@ -1216,93 +1565,121 @@
     - **altura_mapa**: 798
     - **pontos_de_interesse**:
       - **[0]**:
-        - **id**: 54
-        - **label**: 54
+        - **id**: yjlhLOpKtHVddO
+        - **uid**: yjlhLOpKtHVddO
+        - **rotulo**: 54
         - **circulo**:
           - **x**: 237
           - **y**: 594
           - **raio**: 17
+        - **label**: 54
       - **[1]**:
-        - **id**: 55
-        - **label**: 55
+        - **id**: iBYpr11mbN231y
+        - **uid**: iBYpr11mbN231y
+        - **rotulo**: 55
         - **circulo**:
           - **x**: 277
           - **y**: 568
           - **raio**: 17
+        - **label**: 55
     - **referencias**:
       - **[0]**:
+        - **alvo_uid**: 9U1MyMKZQQmPvt
+        - **pontos_uids**:
+          - yjlhLOpKtHVddO
         - **escalada**: Anemia
         - **ids**:
-          - 54
+          - yjlhLOpKtHVddO
       - **[1]**:
+        - **alvo_uid**: dXJT8RGNupfs5s
+        - **pontos_uids**:
+          - iBYpr11mbN231y
         - **escalada**: Biotônico
         - **ids**:
-          - 55
+          - iBYpr11mbN231y
   - **[4]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_outros_blocos_p4_i0.webp)
     - **largura_mapa**: 677
     - **altura_mapa**: 916
     - **pontos_de_interesse**:
       - **[0]**:
-        - **id**: 56
-        - **label**: 56
+        - **id**: qZp3rI040nJmEK
+        - **uid**: qZp3rI040nJmEK
+        - **rotulo**: 56
         - **circulo**:
           - **x**: 508
           - **y**: 592
           - **raio**: 18
+        - **label**: 56
       - **[1]**:
-        - **id**: 57
-        - **label**: 57
+        - **id**: NsqsDVhqU2nsdA
+        - **uid**: NsqsDVhqU2nsdA
+        - **rotulo**: 57
         - **circulo**:
           - **x**: 451
           - **y**: 606
           - **raio**: 19
+        - **label**: 57
     - **referencias**:
       - **[0]**:
+        - **alvo_uid**: qCwdrE3BSoGsYH
+        - **pontos_uids**:
+          - qZp3rI040nJmEK
         - **escalada**: Diagnóstico
         - **ids**:
-          - 56
+          - qZp3rI040nJmEK
       - **[1]**:
+        - **alvo_uid**: Zx6aO4Xt07Eoye
+        - **pontos_uids**:
+          - NsqsDVhqU2nsdA
         - **escalada**: Vertigem
         - **ids**:
-          - 57
+          - NsqsDVhqU2nsdA
 - **escaladas**:
   - **[0]**:
+    - **uid**: QeGgLhoOXIUevn
     - **boulder**:
       - **descricao**: Saída das lacas na parte baixa do bloco, indo reto até regletes para fazer a virada por agarradas boas na proa.
       - **nome**: Farol
       - **dificuldade**: V3
   - **[1]**:
+    - **uid**: JBQhRIDquBb9dZ
     - **boulder**:
       - **descricao**: Começa nas lacas baixas, igual o Farol, porém faz a travessia para a direita, com a virada pela lateral do bloco.
       - **nome**: Mirante
       - **dificuldade**: V4
   - **[2]**:
+    - **uid**: y4MQNt0TrJjMoR
     - **boulder**:
       - **descricao**: Começa nas agarras baixas na direita do bloco, indo para a lateral do bloco por baixo até as cracas que possibilitam a virada pelo highball.
       - **nome**: Queda do Gigante
       - **dificuldade**: V8
   - **[3]**:
+    - **uid**: fUhfpyN6nQrSWc
     - **boulder**:
       - **descricao**: Saída nas agarras baixas na direita do bloco, indo para a lateral pelo feixo de cristais até a virada pelas cracas da direita.
       - **nome**: Não me toque
       - **dificuldade**: V5
   - **[4]**:
+    - **uid**: 9U1MyMKZQQmPvt
     - **boulder**:
       - **descricao**: Boulder clássico.
       - **nome**: Anemia
       - **dificuldade**: V7
   - **[5]**:
+    - **uid**: dXJT8RGNupfs5s
     - **boulder**:
       - **descricao**: Boulder clássico.
       - **nome**: Biotônico
       - **dificuldade**: V8
   - **[6]**:
+    - **uid**: qCwdrE3BSoGsYH
     - **boulder**:
       - **descricao**: Boulder clássico.
       - **nome**: Diagnóstico
       - **dificuldade**: V3
   - **[7]**:
+    - **uid**: Zx6aO4Xt07Eoye
     - **boulder**:
       - **descricao**: Boulder clássico.
       - **nome**: Vertigem

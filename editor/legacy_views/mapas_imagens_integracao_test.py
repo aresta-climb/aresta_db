@@ -37,7 +37,7 @@ class TestMapasImagensIntegracao:
         mapa.altura_mapa = 150
 
         # Ponto de interesse no mapa
-        poi = mapa.pontos_de_interesse.add(id="P1", label="Via dos Sonhos")
+        poi = mapa.pontos_de_interesse.add(uid="P1", rotulo="Via dos Sonhos")
         poi.circulo.x = 50
         poi.circulo.y = 50
         poi.circulo.raio = 20
@@ -96,7 +96,7 @@ class TestMapasImagensIntegracao:
 
         # Os POIs no mapa continuam preservados
         assert len(widget_mapas.msg_mapa_proxy.pontos_de_interesse) == 1
-        assert widget_mapas.msg_mapa_proxy.pontos_de_interesse[0].label == "Via dos Sonhos"
+        assert widget_mapas.msg_mapa_proxy.pontos_de_interesse[0].rotulo == "Via dos Sonhos"
 
         # 5. Undo duplo no histórico de comandos
         undo_stack.undo()

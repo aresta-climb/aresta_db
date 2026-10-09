@@ -1,6 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+uid: ygIGAaiKPCRu5G
 caminho_imagem_capa: imagens/setor_vale_oculto_p0_i0.webp
 nome: Vale Oculto
 setores:

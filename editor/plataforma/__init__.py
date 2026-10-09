@@ -29,6 +29,7 @@ __all__ = [
     "solicitar_instalacao_atualizacao",
     "obter_nome_icone_preferencial",
     "configurar_cofre_credenciais",
+    "normalizar_caminho_estendido",
 ]
 
 
@@ -63,6 +64,11 @@ class _AdaptadorPadraoFallback:
 
     def configurar_cofre_credenciais(self) -> None:
         pass
+
+    def normalizar_caminho_estendido(self, caminho: Path | str) -> str:
+        if not caminho:
+            return ""
+        return str(Path(caminho).resolve())
 
 
 _INSTANCIA_ADAPTADOR: Optional[AdaptadorPlataforma] = None
@@ -145,3 +151,8 @@ def obter_nome_icone_preferencial() -> str:
 def configurar_cofre_credenciais() -> None:
     """Configura o backend seguro do cofre de credenciais delegando ao adaptador ativo."""
     obter_adaptador_plataforma().configurar_cofre_credenciais()
+
+
+def normalizar_caminho_estendido(caminho: Path | str) -> str:
+    """Normaliza o caminho estendido para manipulação resiliente no sistema operacional ativo."""
+    return obter_adaptador_plataforma().normalizar_caminho_estendido(caminho)

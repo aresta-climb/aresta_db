@@ -1,70 +1,74 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+uid: MP7vYlyWnMk3fm
 nome: 'Bloco: Pedra'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_bonsai_setor_bloco_pedra_p0.webp
   largura_mapa: 2364
   altura_mapa: 1773
   pontos_de_interesse:
-  - id: '1'
-    label: '1'
+  - uid: iT2pftH9RJqP2v
+    rotulo: '1'
     circulo:
       x: 616
       y: 1335
       raio: 20
-  - id: '2'
-    label: '2'
+  - uid: x97Dv8i4d7CeMn
+    rotulo: '2'
     circulo:
       x: 1713
       y: 1421
       raio: 20
-  - id: A
-    label: A
+  - uid: XsJiogzBuYvaYm
+    rotulo: A
     circulo:
       x: 224
       y: 638
       raio: 20
-  - id: B
-    label: B
+  - uid: KeOcPkJyh6wVDk
+    rotulo: B
     circulo:
       x: 617
       y: 448
       raio: 20
-  - id: C
-    label: C
+  - uid: am7kDpFZNKlVwN
+    rotulo: C
     circulo:
       x: 1694
       y: 379
       raio: 20
   referencias:
-  - escalada: Billy The Kid
-    ids:
-    - '1'
-    - A
-  - escalada: Durango Kid
-    ids:
-    - '1'
-    - B
-  - escalada: Pedra
-    ids:
-    - '1'
-    - C
-  - escalada: Semiárido
-    ids:
-    - '2'
+  - alvo_uid: kgcRgph8dYmc75
+    pontos_uids:
+    - iT2pftH9RJqP2v
+    - XsJiogzBuYvaYm
+  - alvo_uid: Pya0IrYfhPalMr
+    pontos_uids:
+    - iT2pftH9RJqP2v
+    - KeOcPkJyh6wVDk
+  - alvo_uid: UH3evCbCXYN7KW
+    pontos_uids:
+    - iT2pftH9RJqP2v
+    - am7kDpFZNKlVwN
+  - alvo_uid: wYQgp2m7I7c9Qo
+    pontos_uids:
+    - x97Dv8i4d7CeMn
 escaladas:
-- boulder:
+- uid: kgcRgph8dYmc75
+  boulder:
     nome: Billy The Kid
     dificuldade: V1
-- boulder:
+- uid: Pya0IrYfhPalMr
+  boulder:
     nome: Durango Kid
     dificuldade: V3
-- boulder:
+- uid: UH3evCbCXYN7KW
+  boulder:
     nome: Pedra
     dificuldade: V7
-- boulder:
+- uid: wYQgp2m7I7c9Qo
+  boulder:
     nome: Semiárido
     dificuldade: V5
 ---
-

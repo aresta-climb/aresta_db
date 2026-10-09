@@ -1,82 +1,88 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+uid: X2Ug9CixcMKYd8
 nome: Samurai
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_samurai_p0.webp
   largura_mapa: 754
   altura_mapa: 534
   pontos_de_interesse:
-  - id: '1'
-    label: '1'
+  - uid: hnov2jDFTAJtzI
+    rotulo: '1'
     retangulo:
       x: 318
       y: 484
       comprimento: 34
       largura: 25
-  - id: '2'
-    label: '2'
+  - uid: 6a6s3Fjdgo0cOa
+    rotulo: '2'
     retangulo:
       x: 286
       y: 342
       comprimento: 32
       largura: 25
-  - id: '3'
-    label: '3'
+  - uid: bKjqkR3g15lFSZ
+    rotulo: '3'
     retangulo:
       x: 708
       y: 469
       comprimento: 34
       largura: 24
-  - id: '4'
-    label: '4'
+  - uid: NWivM3W36TjWww
+    rotulo: '4'
     retangulo:
       x: 72
       y: 284
       comprimento: 34
       largura: 24
   referencias:
-  - escalada: Purgatório
-    ids:
-    - '1'
-  - escalada: Samurai
-    ids:
-    - '2'
-  - escalada: Ômega 3
-    ids:
-    - '3'
-  - escalada: Purgatório do Samurai
-    ids:
-    - '4'
+  - alvo_uid: cvCpyocxlMo5wh
+    pontos_uids:
+    - hnov2jDFTAJtzI
+  - alvo_uid: HKPmkjFIL3JaDf
+    pontos_uids:
+    - 6a6s3Fjdgo0cOa
+  - alvo_uid: PQu3egrGNPnZ8Y
+    pontos_uids:
+    - bKjqkR3g15lFSZ
+  - alvo_uid: piZs8IfFcv1s41
+    pontos_uids:
+    - NWivM3W36TjWww
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_samurai_p1.webp
   largura_mapa: 436
   altura_mapa: 568
   pontos_de_interesse:
-  - id: '1'
-    label: '1'
+  - uid: qdB8Vy3mehmzOF
+    rotulo: '1'
     retangulo:
       x: 168
       y: 450
       comprimento: 33
       largura: 22
   referencias:
-  - escalada: Ouro Branco
-    ids:
-    - '1'
+  - alvo_uid: QbrOoedp7GCUjw
+    pontos_uids:
+    - qdB8Vy3mehmzOF
 escaladas:
-- boulder:
+- uid: cvCpyocxlMo5wh
+  boulder:
     nome: Purgatório
     dificuldade: V7
-- boulder:
+- uid: HKPmkjFIL3JaDf
+  boulder:
     nome: Samurai
     dificuldade: V9
-- boulder:
+- uid: PQu3egrGNPnZ8Y
+  boulder:
     nome: Ômega 3
     dificuldade: V11
-- boulder:
+- uid: piZs8IfFcv1s41
+  boulder:
     nome: Purgatório do Samurai
     dificuldade: V12
-- boulder:
+- uid: QbrOoedp7GCUjw
+  boulder:
     nome: Ouro Branco
     dificuldade: V7
 ---

@@ -1,6 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+uid: ii1Vc1rhEZBxdg
 caminho_imagem_capa: imagens/setor_rolling_stones_p0_i0.webp
 nome: Rolling Stones
 mapas:
@@ -8,70 +9,70 @@ mapas:
   largura_mapa: 1099
   altura_mapa: 710
   referencias:
-  - escalada: Rock it
-    ids:
+  - alvo_uid: mH9UMRDep84NtG
+    pontos_uids:
     - '16'
-  - escalada: Esquerdinha
-    ids:
+  - alvo_uid: Q1orsULzJtpaaG
+    pontos_uids:
     - '17'
-  - escalada: Cuidado aí
-    ids:
+  - alvo_uid: dt0bRRLOzoCVqq
+    pontos_uids:
     - '18'
-  - escalada: Invasorzinho
-    ids:
+  - alvo_uid: bwdW2nKMsWbV93
+    pontos_uids:
     - '19'
-  - escalada: Bob Marley
-    ids:
+  - alvo_uid: sxdZPRBR1hC0Ix
+    pontos_uids:
     - '19'
     - '28'
-  - escalada: Já Elvis
-    ids:
+  - alvo_uid: QucAyHXRK9pG9l
+    pontos_uids:
     - '21'
-  - escalada: Projeto 6
-    ids:
+  - alvo_uid: fo4FyMaBs28otf
+    pontos_uids:
     - '22'
-  - escalada: Janis Joplin
-    ids:
+  - alvo_uid: M1qdIBNIbIiw1W
+    pontos_uids:
     - '23'
-  - escalada: Rolling Stones
-    ids:
+  - alvo_uid: iJbbNkITKQzfOv
+    pontos_uids:
     - '24'
-  - escalada: Jimi Hendrix
-    ids:
+  - alvo_uid: i5fVKy19DDkaZ3
+    pontos_uids:
     - '24'
-  - escalada: Amanhã vai ser outro dia
-    ids:
+  - alvo_uid: u29cekP2By8WEh
+    pontos_uids:
     - '26'
-  - escalada: Woodstock
-    ids:
+  - alvo_uid: tGJjFXF4luW3Sl
+    pontos_uids:
     - '26'
-  - escalada: The Doors
-    ids:
+  - alvo_uid: xzPGqtj32XmbeH
+    pontos_uids:
     - '28'
-  - escalada: Open the doors
-    ids:
+  - alvo_uid: X4zxdGrUVfR1JS
+    pontos_uids:
     - '28'
-  - escalada: Travessa
-    ids:
+  - alvo_uid: ITFvZkPPyuvRV8
+    pontos_uids:
     - '30'
-  - escalada: Eject
-    ids:
+  - alvo_uid: Evr23e9jPoNFgu
+    pontos_uids:
     - '31'
 - caminho_imagem_mapa: imagens/setor_rolling_stones_p13.webp
   largura_mapa: 1421
   altura_mapa: 1055
   referencias:
-  - escalada: Neutrons
-    ids:
+  - alvo_uid: 6vrJrkqdMONL6f
+    pontos_uids:
     - '75'
-  - escalada: Prótons
-    ids:
+  - alvo_uid: FSAMhsj9HgfrHi
+    pontos_uids:
     - '76'
-  - escalada: Elétrons
-    ids:
+  - alvo_uid: KNudy0y8E1v8vp
+    pontos_uids:
     - '77'
-  - escalada: Aranha albina
-    ids:
+  - alvo_uid: 6eXK3NTyCuFt0o
+    pontos_uids:
     - '78'
 setores:
 - caminho: grupo_rolling_stones_setor_bloco_a_gaston_a_la_meson.md

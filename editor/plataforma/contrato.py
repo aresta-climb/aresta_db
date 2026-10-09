@@ -86,3 +86,11 @@ class AdaptadorPlataforma(Protocol):
     def configurar_cofre_credenciais(self) -> None:
         """Configura e valida o backend seguro do chaveiro (Keyring) para a plataforma."""
         ...
+
+    def normalizar_caminho_estendido(self, caminho: Path | str) -> str:
+        """
+        Normaliza caminhos de sistema operacional com prefixo estendido.
+        No Windows, adiciona o prefixo \\?\\ para contornar o limite MAX_PATH de 260 caracteres.
+        No Linux e macOS, resolve e retorna o caminho canônico absoluto.
+        """
+        ...

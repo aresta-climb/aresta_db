@@ -1,32 +1,42 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+uid: B70in7mhtc7bin
 nome: Setor Sherpa - Boulders
 escaladas:
-- boulder:
+- uid: sJTr3wt4x20WVI
+  boulder:
     nome: Jetinho Brasileiro
     dificuldade: V4
-- boulder:
+- uid: XyCdEhjXvwDBrA
+  boulder:
     nome: Fenda do Bikini
     dificuldade: V4
-- boulder:
+- uid: PPcjTRF5GhIwY8
+  boulder:
     nome: Força G
     dificuldade: V2
-- boulder:
+- uid: 5v4P18ITqGjtRQ
+  boulder:
     nome: Francês
-- boulder:
+- uid: DmaPRWS9ztpavr
+  boulder:
     nome: Glorioso
     dificuldade: V2
-- boulder:
+- uid: QW990go8L7eTCV
+  boulder:
     nome: Itália
     dificuldade: V4
-- boulder:
+- uid: KHczOH5F3LH2DG
+  boulder:
     nome: Garganta
     dificuldade: V5
-- boulder:
+- uid: sbGqDQhqpW9lLX
+  boulder:
     nome: Guela
     dificuldade: V5
-- boulder:
+- uid: YqsJ6HPMFyKrLo
+  boulder:
     nome: Nectar
     dificuldade: V9
 mapas:
@@ -34,8 +44,8 @@ mapas:
   largura_mapa: 853
   altura_mapa: 1844
   pontos_de_interesse:
-  - id: linha_1
-    label: ''
+  - uid: g2qJ1wEmGyf3cG
+    rotulo: ''
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -59,8 +69,8 @@ mapas:
           rotulo: A
       espessura: 3
     cor: '#FFD600'
-  - id: linha_2
-    label: ''
+  - uid: ik3qO5ASjPb4xa
+    rotulo: ''
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -102,8 +112,8 @@ mapas:
           rotulo: B
       espessura: 3
     cor: '#FFD600'
-  - id: linha_3
-    label: ''
+  - uid: WQEZogAPCVZCVe
+    rotulo: ''
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -127,8 +137,8 @@ mapas:
           rotulo: C
       espessura: 3
     cor: '#FFD600'
-  - id: linha_4
-    label: ''
+  - uid: lprOfHt44C6VGf
+    rotulo: ''
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -144,23 +154,23 @@ mapas:
       espessura: 3
     cor: '#FFD600'
   referencias:
-  - ids:
-    - linha_1
-    escalada: Jetinho Brasileiro
-  - ids:
-    - linha_2
-    escalada: Fenda do Bikini
-  - ids:
-    - linha_3
-    escalada: Força G
-  - ids:
-    - linha_4
-    escalada: Francês
+  - alvo_uid: sJTr3wt4x20WVI
+    pontos_uids:
+    - g2qJ1wEmGyf3cG
+  - alvo_uid: XyCdEhjXvwDBrA
+    pontos_uids:
+    - ik3qO5ASjPb4xa
+  - alvo_uid: PPcjTRF5GhIwY8
+    pontos_uids:
+    - WQEZogAPCVZCVe
+  - alvo_uid: 5v4P18ITqGjtRQ
+    pontos_uids:
+    - lprOfHt44C6VGf
 - caminho_imagem_mapa: imagens/setor_sherpa_boulders_p2.webp
   largura_mapa: 1215
   altura_mapa: 1295
   pontos_de_interesse:
-  - id: linha_9
+  - uid: aOdPqWNRnf2uqz
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -183,7 +193,7 @@ mapas:
           rotulo: ''
       espessura: 3
     cor: '#FFD600'
-  - id: linha_10
+  - uid: cBoyDvIZHtIX4l
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -206,7 +216,7 @@ mapas:
           rotulo: ''
       espessura: 3
     cor: '#FFD600'
-  - id: linha_11
+  - uid: 0NNFRTfCbUwUuN
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -225,8 +235,8 @@ mapas:
           rotulo: A
       espessura: 3
     cor: '#FFD600'
-  - id: linha_8
-    label: ''
+  - uid: LNwf2jrszO1ytd
+    rotulo: ''
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -240,21 +250,21 @@ mapas:
       espessura: 3
     cor: '#FFD600'
   referencias:
-  - ids:
-    - linha_9
-    - linha_10
-    - linha_11
-    escalada: Força G
-  - ids:
-    - linha_10
-    - linha_8
-    escalada: Francês
+  - alvo_uid: PPcjTRF5GhIwY8
+    pontos_uids:
+    - aOdPqWNRnf2uqz
+    - cBoyDvIZHtIX4l
+    - 0NNFRTfCbUwUuN
+  - alvo_uid: 5v4P18ITqGjtRQ
+    pontos_uids:
+    - cBoyDvIZHtIX4l
+    - LNwf2jrszO1ytd
 - caminho_imagem_mapa: imagens/setor_sherpa_boulders_p3.webp
   largura_mapa: 1448
   altura_mapa: 1086
   pontos_de_interesse:
-  - id: linha_12
-    label: ''
+  - uid: OfgDeurgL8xjXZ
+    rotulo: ''
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -284,8 +294,8 @@ mapas:
           rotulo: A
       espessura: 3
     cor: '#FFD600'
-  - id: linha_13
-    label: ''
+  - uid: pnqFRZh57P4cXM
+    rotulo: ''
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -322,18 +332,18 @@ mapas:
       espessura: 3
     cor: '#FFD600'
   referencias:
-  - ids:
-    - linha_12
-    escalada: Glorioso
-  - ids:
-    - linha_13
-    escalada: Itália
+  - alvo_uid: DmaPRWS9ztpavr
+    pontos_uids:
+    - OfgDeurgL8xjXZ
+  - alvo_uid: QW990go8L7eTCV
+    pontos_uids:
+    - pnqFRZh57P4cXM
 - caminho_imagem_mapa: imagens/setor_sherpa_boulders_p4.webp
   largura_mapa: 1136
   altura_mapa: 1385
   pontos_de_interesse:
-  - id: linha_14
-    label: ''
+  - uid: gIdTXNgfyNjlSe
+    rotulo: ''
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -364,15 +374,15 @@ mapas:
       espessura: 3
     cor: '#FFD600'
   referencias:
-  - ids:
-    - linha_14
-    escalada: Garganta
+  - alvo_uid: KHczOH5F3LH2DG
+    pontos_uids:
+    - gIdTXNgfyNjlSe
 - caminho_imagem_mapa: imagens/setor_sherpa_boulders_p5.webp
   largura_mapa: 1392
   altura_mapa: 3013
   pontos_de_interesse:
-  - id: linha_15
-    label: ''
+  - uid: 0pCL0UqpGYto5v
+    rotulo: ''
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -402,8 +412,8 @@ mapas:
           tamanho_fonte: 28
       espessura: 3
     cor: '#FFD600'
-  - id: linha_16
-    label: ''
+  - uid: On9tYHVMCsuFKE
+    rotulo: ''
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -444,8 +454,8 @@ mapas:
           rotulo: B
       espessura: 3
     cor: '#FFD600'
-  - id: linha_17
-    label: ''
+  - uid: DN7m1qc736k5mX
+    rotulo: ''
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -476,21 +486,21 @@ mapas:
       espessura: 3
     cor: '#FFD600'
   referencias:
-  - ids:
-    - linha_15
-    escalada: Guela
-  - ids:
-    - linha_16
-    escalada: Nectar
-  - ids:
-    - linha_17
-    escalada: Garganta
+  - alvo_uid: sbGqDQhqpW9lLX
+    pontos_uids:
+    - 0pCL0UqpGYto5v
+  - alvo_uid: YqsJ6HPMFyKrLo
+    pontos_uids:
+    - On9tYHVMCsuFKE
+  - alvo_uid: KHczOH5F3LH2DG
+    pontos_uids:
+    - DN7m1qc736k5mX
 - caminho_imagem_mapa: imagens/setor_sherpa_boulders_p6.webp
   largura_mapa: 1392
   altura_mapa: 3013
   pontos_de_interesse:
-  - id: linha_18
-    label: ''
+  - uid: jQ9GhuTtWSfP6I
+    rotulo: ''
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -533,8 +543,9 @@ mapas:
       espessura: 3
     cor: '#FFD600'
   referencias:
-  - ids:
-    - linha_18
-    escalada: Nectar
+  - alvo_uid: YqsJ6HPMFyKrLo
+    pontos_uids:
+    - jQ9GhuTtWSfP6I
 ---
+
 Trilha para os blocos: https://loc.wiki/t/283472918?wa=share&og=4EnP4vijgDE

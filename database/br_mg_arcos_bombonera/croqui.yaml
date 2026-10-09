@@ -1,8 +1,9 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+uid: Cj7ql1orkaqEyg
 id: br_mg_arcos_bombonera
 nome: Arcos - Bombonera
-descricao: Afloramento de calcário situado em Pains, no estado de Minas Gerais, com
+descricao: Afloramento de calcário situado em Pains, no estado de Minas Gerais, com 
   diversos setores de escalada esportiva.
 creditos:
 - Alexsandro Martins
@@ -26,18 +27,21 @@ picos:
     latitude: -203962230
     longitude: -456497250
 botoes:
-- texto: Capa
+- uid: N98fj8cENR6UWj
+  texto: Capa
   destino:
     secao_textual:
       caminho: capa.md
-- texto: Atenção e Regras
+- uid: OhCbRpO7eqgFVt
+  texto: Atenção e Regras
   destino:
     secao_textual:
       caminho: atencao_e_regras.md
-- texto: Parcerias e Contato
+- uid: 7vECZW8NTtJtEu
+  texto: Parcerias e Contato
   destino:
     secao_textual:
       caminho: parcerias_e_contato.md
-ultima_migracao: 4
+ultima_migracao: 5
 publicar_croqui: true
 revisado_bounding_circle: true

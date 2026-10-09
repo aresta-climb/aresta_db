@@ -1,6 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+uid: x5DYqeNmedsNxv
 nome: Região 2
 setores:
 - caminho: grupo_regiao_2_setor_panela_do_diabo.md

@@ -213,3 +213,37 @@ class TestWorkflowReleaseEditor(unittest.TestCase):
         self.assertEqual(job.get("runs-on"), "ubuntu-latest")
         nomes_passos = [p.get("name", "") for p in job.get("steps", [])]
         self.assertTrue(any("Flathub" in n for n in nomes_passos), "Deve haver sincronização com o Flathub.")
+
+    def test_subaction_linux_utiliza_flatpak_builder_action_com_cache(self) -> None:
+        """Garante que o sub-workflow build_editor_linux utiliza a action oficial flatpak-builder com cache habilitado."""
+        job = self.conteudo_linux["jobs"]["build_linux"]
+        passos = job.get("steps", [])
+        passo_builder = next(
+            (p for p in passos if "flatpak-github-actions/flatpak-builder" in str(p.get("uses", ""))),
+            None,
+        )
+        self.assertIsNotNone(passo_builder, "Passo com flatpak-builder action oficial não encontrado.")
+        assert passo_builder is not None
+        com_parametros = passo_builder.get("with", {})
+        self.assertTrue(com_parametros.get("cache"), "O cache da action flatpak-builder deve estar habilitado.")
+        self.assertIn("bundle", com_parametros, "O parâmetro 'bundle' deve estar configurado.")
+
+    def test_orquestrador_cria_github_release_oficial(self) -> None:
+        """Garante que o orquestrador cria a GitHub Release oficial com gh release create."""
+        passos = self.conteudo_yaml["jobs"]["prepare_release"]["steps"]
+        passo_release = next((s for s in passos if "Criar GitHub Release" in s.get("name", "")), None)
+        self.assertIsNotNone(passo_release, "Passo 'Criar GitHub Release Oficial' não encontrado no orquestrador.")
+        assert passo_release is not None
+        run_cmd = passo_release.get("run", "")
+        self.assertIn("gh release create", run_cmd)
+
+    def test_subaction_linux_gera_e_publica_source_tarball(self) -> None:
+        """Garante que o build Linux gera e publica o source tarball na GitHub Release."""
+        passos = self.conteudo_linux["jobs"]["build_linux"]["steps"]
+        passo_tarball = next((s for s in passos if "Source Tarball" in s.get("name", "")), None)
+        self.assertIsNotNone(passo_tarball, "Passo 'Gerar e Publicar Source Tarball' não encontrado no workflow Linux.")
+        assert passo_tarball is not None
+        run_cmd = passo_tarball.get("run", "")
+        self.assertIn("editor/build.py source-tarball", run_cmd)
+        self.assertIn("gh release upload", run_cmd)
+

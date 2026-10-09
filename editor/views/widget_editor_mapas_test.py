@@ -273,7 +273,7 @@ def test_zoom_nao_reseta_ao_alterar_pontos(qtbot):
     # Define estado atual
     msg_mapa = croqui_pb2.Mapa()
     poi = msg_mapa.pontos_de_interesse.add()
-    poi.id = "p1"
+    poi.uid = "p1"
     
     widget.dados_atuais = {
         'cena': CenaDesenho(widget),
@@ -305,8 +305,8 @@ def test_deletar_poi_com_tecla_delete(qtbot, mocker):
     
     mapa_proto = croqui_pb2.Mapa()
     poi = mapa_proto.pontos_de_interesse.add()
-    poi.id = "poi_1"
-    poi.label = "POI 1"
+    poi.uid = "poi_1"
+    poi.rotulo = "POI 1"
     poi.retangulo.x = 10
     poi.retangulo.y = 10
     poi.retangulo.comprimento = 20
@@ -446,7 +446,7 @@ def test_zoom_nao_reseta_ao_alterar_pontos(qtbot):
     # Define estado atual
     msg_mapa = croqui_pb2.Mapa()
     poi = msg_mapa.pontos_de_interesse.add()
-    poi.id = "p1"
+    poi.uid = "p1"
     
     widget.dados_atuais = {
         'cena': CenaDesenho(widget),
@@ -480,8 +480,8 @@ def test_renomear_poi_no_mapa(qtbot, mocker):
     
     mapa_proto = croqui_pb2.Mapa()
     poi = mapa_proto.pontos_de_interesse.add()
-    poi.id = "poi_antigo"
-    poi.label = "Label Antigo"
+    poi.uid = "poi_antigo"
+    poi.rotulo = "Label Antigo"
     
     widget.msg_mapa_proxy = ReadOnlyProxy(mapa_proto)
     
@@ -502,7 +502,7 @@ def test_renomear_poi_no_mapa(qtbot, mocker):
         def obter_dict_atualizado(self):
             return self.pt_dict.copy()
 
-    item = FakeItem({'id': 'poi_antigo', 'label': 'Label Antigo'})
+    item = FakeItem({'uid': 'poi_antigo', 'rotulo': 'Label Antigo'})
     widget.itens_poi = {0: item}
     widget.dados_arquivos = {"chave1": {"itens_bb": [item]}}
     
@@ -532,7 +532,7 @@ def test_renomear_poi_no_mapa(qtbot, mocker):
     assert mock_controller.mover_poi.called, "mover_poi deveria ter sido chamado ao renomear o item"
     args = mock_controller.mover_poi.call_args[0]
     assert args[1] == 0  # index do poi
-    assert args[3].id == "poi_novo"  # o novo poi gerado deve ter o id atualizado
+    assert args[3].uid == "poi_novo"  # o novo poi gerado deve ter o uid atualizado
 
 
 def test_poi_snapping_to_integers():
@@ -658,7 +658,7 @@ def test_hover_out_em_modo_linkagem_restaura_highlight(qtbot):
     # Prepara mock de mapa com 1 POI
     mapa = croqui_pb2.Mapa()
     poi = mapa.pontos_de_interesse.add()
-    poi.id = "poi_1"
+    poi.uid = "poi_1"
     poi.retangulo.x = 10
     poi.retangulo.y = 10
     poi.retangulo.comprimento = 20
@@ -666,7 +666,7 @@ def test_hover_out_em_modo_linkagem_restaura_highlight(qtbot):
     
     # Cria a referência e adiciona o poi_1
     ref = mapa.referencias.add()
-    ref.ids.append("poi_1")
+    ref.pontos_uids.append("poi_1")
     
     proxy_mapa = ReadOnlyProxy(mapa)
     widget.set_mapa_atual(proxy_mapa)
@@ -704,7 +704,7 @@ def test_clique_poi_atualiza_cor_imediato(qtbot):
     
     mapa = croqui_pb2.Mapa()
     poi = mapa.pontos_de_interesse.add()
-    poi.id = "poi_1"
+    poi.uid = "poi_1"
     poi.retangulo.x = 10
     poi.retangulo.y = 10
     poi.retangulo.comprimento = 20
@@ -788,14 +788,14 @@ def test_iniciar_modo_camera_destaca_pois_ciano(qtbot):
     
     mapa = croqui_pb2.Mapa()
     poi = mapa.pontos_de_interesse.add()
-    poi.id = "poi_cam"
+    poi.uid = "poi_cam"
     poi.retangulo.x = 10
     poi.retangulo.y = 10
     poi.retangulo.comprimento = 20
     poi.retangulo.largura = 20
     
     ref = mapa.referencias.add()
-    ref.ids.append("poi_cam")
+    ref.pontos_uids.append("poi_cam")
     
     proxy_mapa = ReadOnlyProxy(mapa)
     widget.set_mapa_atual(proxy_mapa)
@@ -851,14 +851,14 @@ def test_remover_destaque_restaura_highlight_camera(qtbot):
     
     mapa = croqui_pb2.Mapa()
     poi = mapa.pontos_de_interesse.add()
-    poi.id = "poi_1"
+    poi.uid = "poi_1"
     poi.retangulo.x = 10
     poi.retangulo.y = 10
     poi.retangulo.comprimento = 20
     poi.retangulo.largura = 20
     
     ref = mapa.referencias.add()
-    ref.ids.append("poi_1")
+    ref.pontos_uids.append("poi_1")
     
     proxy_mapa = ReadOnlyProxy(mapa)
     widget.set_mapa_atual(proxy_mapa)
@@ -1048,7 +1048,7 @@ def test_linkar_pois_seleciona_pois(qtbot):
     qtbot.addWidget(widget)
     
     ref = croqui_pb2.Mapa.Referencia()
-    ref.ids.append("100") # já tem o 100
+    ref.pontos_uids.append("100") # já tem o 100
     
     widget.mapas_controller = Mock()
     widget.msg_mapa_proxy = Mock()
@@ -1060,8 +1060,8 @@ def test_linkar_pois_seleciona_pois(qtbot):
     assert widget.mapas_controller.alterar_referencia.called
     args = widget.mapas_controller.alterar_referencia.call_args[0]
     ref_nova = args[3]
-    assert "200" in ref_nova.ids
-    assert "100" in ref_nova.ids
+    assert "200" in ref_nova.pontos_uids
+    assert "100" in ref_nova.pontos_uids
     
     # 2. Clicar no POI que JÁ ESTÁ na referência (ex: "100") -> DEVE REMOVER
     widget.mapas_controller.alterar_referencia.reset_mock()
@@ -1070,8 +1070,8 @@ def test_linkar_pois_seleciona_pois(qtbot):
     assert widget.mapas_controller.alterar_referencia.called
     args = widget.mapas_controller.alterar_referencia.call_args[0]
     ref_nova2 = args[3]
-    assert "100" not in ref_nova2.ids
-    assert "200" in ref_nova2.ids
+    assert "100" not in ref_nova2.pontos_uids
+    assert "200" in ref_nova2.pontos_uids
 
 def test_remover_ajuste_camera_limpa_field_e_salva(qtbot):
     """[TDD] Verifica se remover_ajuste_camera limpa a configuração de câmera e notifica o controller."""
@@ -1660,7 +1660,7 @@ def test_poi_bloqueado_no_modo_linkagem(qtbot):
     # Inicia modo de linkagem
     mock_ref = MagicMock()
     mock_ref.HasField.return_value = False
-    mock_ref.ids = []
+    mock_ref.pontos_uids = []
     widget.iniciar_modo_linkagem(0, mock_ref)
     
     # 1.4: O POI não deve ser móvel
@@ -2898,7 +2898,7 @@ def test_item_trajeto_linha_paint_selecionado_halo_e_suprime_retangulo_qt(qtbot,
     assert cor_desmarcado.alpha() == 0, "No estado nao selecionado, a margem externa deve estar vazia"
     assert cor_selecionado.alpha() > 0, "No estado selecionado, o halo deve cobrir a margem externa com alfa > 0"
 
-def test_item_trajeto_linha_shape_path_vazio():
+def test_item_trajeto_linha_shape_path_vazio(qapp):
     from editor.views.widget_editor_mapas import ItemTrajetoLinha
     from PySide6.QtGui import QPainterPath
 
@@ -2979,7 +2979,7 @@ def test_remocao_reativa_de_mapa_ativo_descarrega_cena_e_limpa_selecao(qtbot, tm
 
     mapa = setor.mapas.add()
     mapa.caminho_imagem_mapa = "imagens/mapa_a.webp"
-    mapa.pontos_de_interesse.add(id="poi_1")
+    mapa.pontos_de_interesse.add(uid="poi_1")
 
     model = CroquiModel(croqui)
     model.definir_caminho_db(tmp_path)
@@ -3419,7 +3419,7 @@ def test_mira_snap_e_edicao_pontos(qtbot):
 
     # Cria mapa com uma linha para testar snap
     mapa = croqui_pb2.Mapa()
-    poi = mapa.pontos_de_interesse.add(id="linha_existente")
+    poi = mapa.pontos_de_interesse.add(uid="linha_existente")
     no1 = poi.linha.conteudo.nos.add(x=100, y=100)
     no2 = poi.linha.conteudo.nos.add(x=200, y=200)
     widget.msg_mapa_proxy = mapa
@@ -3608,7 +3608,7 @@ def test_cobertura_restante_novos_metodos(qtbot, mocker):
 
     # 3. mover_no_soldado onde nó já possui coordenada final (x_fim, y_fim) no proxy
     mapa_com_linha = croqui_pb2.Mapa()
-    poi = mapa_com_linha.pontos_de_interesse.add(id="linha_1")
+    poi = mapa_com_linha.pontos_de_interesse.add(uid="linha_1")
     poi.linha.conteudo.nos.add(x=200, y=200)
     widget.msg_mapa_proxy = mapa_com_linha
     mock_ctrl = MagicMock()
@@ -3640,15 +3640,15 @@ def test_destaque_poi_linha_mantem_brush_transparente_e_altera_pen(qtbot):
     qtbot.addWidget(widget)
 
     mapa = croqui_pb2.Mapa()
-    poi = mapa.pontos_de_interesse.add(id="linha_teste", cor="#FFD600")
+    poi = mapa.pontos_de_interesse.add(uid="linha_teste", cor="#FFD600")
     poi.linha.estilo = croqui_pb2.LinhaTrajeto.EstiloTraco.TRACEJADO
     poi.linha.espessura = 3
     n1 = poi.linha.conteudo.nos.add(x=10, y=10, tipo=1)
     n2 = poi.linha.conteudo.nos.add(x=50, y=100, tipo=0)
     n3 = poi.linha.conteudo.nos.add(x=100, y=20, tipo=11)
 
-    ref = mapa.referencias.add(escalada="Via Teste")
-    ref.ids.append("linha_teste")
+    ref = mapa.referencias.add(alvo_uid="Via Teste")
+    ref.pontos_uids.append("linha_teste")
 
     proxy_mapa = ReadOnlyProxy(mapa)
     widget.set_mapa_atual(proxy_mapa)
@@ -3707,11 +3707,11 @@ def test_modo_linkagem_clique_alca_no_trajeto_alterna_linkagem_e_bloqueia_movime
     qtbot.addWidget(widget)
 
     mapa = croqui_pb2.Mapa()
-    poi = mapa.pontos_de_interesse.add(id="linha_alca", cor="#FFD600")
+    poi = mapa.pontos_de_interesse.add(uid="linha_alca", rotulo="1", cor="#FFD600")
     poi.linha.conteudo.nos.add(x=10, y=10, tipo=1)
     poi.linha.conteudo.nos.add(x=80, y=80, tipo=11)
 
-    ref = mapa.referencias.add(escalada="Via Alca")
+    ref = mapa.referencias.add(alvo_uid="Via Alca", pontos_uids=["linha_alca"])
 
     proxy_mapa = ReadOnlyProxy(mapa)
     widget.set_mapa_atual(proxy_mapa)
@@ -3768,7 +3768,7 @@ def test_context_menu_alca_no_intermediario_oferece_separar_traco(qtbot, monkeyp
     qtbot.addWidget(widget)
 
     mapa = croqui_pb2.Mapa()
-    poi = mapa.pontos_de_interesse.add(id="linha_sep", cor="#FFD600")
+    poi = mapa.pontos_de_interesse.add(uid="linha_sep", cor="#FFD600")
     poi.linha.conteudo.nos.add(x=10, y=10)
     poi.linha.conteudo.nos.add(x=50, y=50)
     poi.linha.conteudo.nos.add(x=100, y=100)
@@ -3812,7 +3812,7 @@ def test_context_menu_alca_no_extremo_oferece_adicionar_linha_a_partir_do_ponto(
     qtbot.addWidget(widget)
 
     mapa = croqui_pb2.Mapa()
-    poi = mapa.pontos_de_interesse.add(id="linha_ext", cor="#FFD600")
+    poi = mapa.pontos_de_interesse.add(uid="linha_ext", cor="#FFD600")
     poi.linha.conteudo.nos.add(x=10, y=10)
     poi.linha.conteudo.nos.add(x=50, y=50)
 
@@ -4263,13 +4263,13 @@ def test_alteracao_rotulo_no_atualiza_painel_referencias_em_tempo_real(qtbot):
     mapa.caminho_imagem_mapa = "mapa.png"
 
     poi = mapa.pontos_de_interesse.add()
-    poi.id = "linha_1"
+    poi.uid = "linha_1"
     poi.linha.conteudo.nos.add(x=10, y=10, tipo=croqui_pb2.NoTrajeto.TipoNo.CIRCULO_IDENTIFICADOR, rotulo="1")
     poi.linha.conteudo.nos.add(x=50, y=50, tipo=croqui_pb2.NoTrajeto.TipoNo.PASSAGEM)
 
     ref = mapa.referencias.add()
-    ref.escalada = "Via das Andorinhas"
-    ref.ids.append("linha_1")
+    ref.alvo_uid = "Via das Andorinhas"
+    ref.pontos_uids.append("linha_1")
 
     model = CroquiModel(croqui)
     stack = QUndoStack()
@@ -4311,15 +4311,15 @@ def test_renomear_poi_no_mapa_atualiza_referencias_em_tempo_real(qtbot, mocker):
     mapa.caminho_imagem_mapa = "mapa.png"
 
     poi = mapa.pontos_de_interesse.add()
-    poi.id = "poi_setor_1"
-    poi.label = "Setor Bloco"
+    poi.uid = "poi_setor_1"
+    poi.rotulo = "Setor Bloco"
     poi.circulo.x = 20
     poi.circulo.y = 20
     poi.circulo.raio = 15
 
     ref = mapa.referencias.add()
-    ref.setor = "Bloco Principal"
-    ref.ids.append("poi_setor_1")
+    ref.alvo_uid = "Bloco Principal"
+    ref.pontos_uids.append("poi_setor_1")
 
     model = CroquiModel(croqui)
     stack = QUndoStack()
@@ -4361,10 +4361,10 @@ def test_renomear_poi_no_mapa_atualiza_referencias_em_tempo_real(qtbot, mocker):
     # Verifica se o ID no mapa foi alterado
     croqui_atual = model.obter_croqui_readonly()
     mapa_atual = croqui_atual.picos[0].setores_ou_grupos[0].setor.conteudo.mapas[0]
-    assert mapa_atual.pontos_de_interesse[0].id == "poi_setor_renomeado"
-    assert mapa_atual.pontos_de_interesse[0].label == "Setor Novo Bloco"
+    assert mapa_atual.pontos_de_interesse[0].uid == "poi_setor_renomeado"
+    assert mapa_atual.pontos_de_interesse[0].rotulo == "Setor Novo Bloco"
     # Verifica se a referência no mapa foi atualizada em cascata
-    assert list(mapa_atual.referencias[0].ids) == ["poi_setor_renomeado"]
+    assert list(mapa_atual.referencias[0].pontos_uids) == ["poi_setor_renomeado"]
 
     # Verifica se o card no painel de referências foi atualizado com o novo codenome
     card_atualizado = widget.painel_referencias.layout_cards.itemAt(0).widget()
@@ -4373,8 +4373,8 @@ def test_renomear_poi_no_mapa_atualiza_referencias_em_tempo_real(qtbot, mocker):
     # Testa Undo
     stack.undo()
     mapa_undo = model.obter_croqui_readonly().picos[0].setores_ou_grupos[0].setor.conteudo.mapas[0]
-    assert mapa_undo.pontos_de_interesse[0].id == "poi_setor_1"
-    assert list(mapa_undo.referencias[0].ids) == ["poi_setor_1"]
+    assert mapa_undo.pontos_de_interesse[0].uid == "poi_setor_1"
+    assert list(mapa_undo.referencias[0].pontos_uids) == ["poi_setor_1"]
     card_undo = widget.painel_referencias.layout_cards.itemAt(0).widget()
     assert "Codenome: <b>[ Setor Bloco ]</b>" in card_undo.lbl_preview.text()
 
@@ -4739,8 +4739,8 @@ def test_menu_contexto_mudar_cor_forma_undo_redo_integracao(qtbot, monkeypatch):
     mapa.caminho_imagem_mapa = "mapa.png"
 
     poi = mapa.pontos_de_interesse.add()
-    poi.id = "poi_circulo_1"
-    poi.label = "Circulo Teste"
+    poi.uid = "poi_circulo_1"
+    poi.rotulo = "Circulo Teste"
     poi.circulo.x = 30
     poi.circulo.y = 30
     poi.circulo.raio = 15
@@ -5189,20 +5189,20 @@ def test_remover_destaque_pois_restaura_referencia_selecionada(qtbot):
 
     mapa = croqui_pb2.Mapa()
     p1 = mapa.pontos_de_interesse.add()
-    p1.id = "poi_1"
+    p1.uid = "poi_1"
     p1.circulo.x = 50; p1.circulo.y = 50; p1.circulo.raio = 10
 
     p2 = mapa.pontos_de_interesse.add()
-    p2.id = "poi_2"
+    p2.uid = "poi_2"
     p2.circulo.x = 100; p2.circulo.y = 100; p2.circulo.raio = 10
 
     ref1 = mapa.referencias.add()
-    ref1.grupo = "Ref 1"
-    ref1.ids.append("poi_1")
+    ref1.alvo_uid = "Ref 1"
+    ref1.pontos_uids.append("poi_1")
 
     ref2 = mapa.referencias.add()
-    ref2.grupo = "Ref 2"
-    ref2.ids.append("poi_2")
+    ref2.alvo_uid = "Ref 2"
+    ref2.pontos_uids.append("poi_2")
 
     widget.carregar_mapa(mapa)
 
@@ -5239,12 +5239,12 @@ def test_clique_fundo_mapa_desmarca_referencia_ativa(qtbot):
 
     mapa = croqui_pb2.Mapa()
     p1 = mapa.pontos_de_interesse.add()
-    p1.id = "poi_1"
+    p1.uid = "poi_1"
     p1.circulo.x = 50; p1.circulo.y = 50; p1.circulo.raio = 10
 
     ref = mapa.referencias.add()
-    ref.grupo = "Ref 1"
-    ref.ids.append("poi_1")
+    ref.alvo_uid = "Ref 1"
+    ref.pontos_uids.append("poi_1")
 
     widget.carregar_mapa(mapa)
 
@@ -5281,20 +5281,20 @@ def test_clique_poi_seleciona_referencia_no_painel_bidirecional(qtbot):
 
     mapa = croqui_pb2.Mapa()
     p1 = mapa.pontos_de_interesse.add()
-    p1.id = "poi_1"
+    p1.uid = "poi_1"
     p1.circulo.x = 50; p1.circulo.y = 50; p1.circulo.raio = 10
 
     p2 = mapa.pontos_de_interesse.add()
-    p2.id = "poi_2"
+    p2.uid = "poi_2"
     p2.circulo.x = 100; p2.circulo.y = 100; p2.circulo.raio = 10
 
     ref1 = mapa.referencias.add()
-    ref1.grupo = "Ref 1"
-    ref1.ids.append("poi_1")
+    ref1.alvo_uid = "Ref 1"
+    ref1.pontos_uids.append("poi_1")
 
     ref2 = mapa.referencias.add()
-    ref2.grupo = "Ref 2"
-    ref2.ids.append("poi_2")
+    ref2.alvo_uid = "Ref 2"
+    ref2.pontos_uids.append("poi_2")
 
     widget.carregar_mapa(mapa)
 
@@ -5350,7 +5350,7 @@ def test_tratar_clique_poi_ramificacoes_modos(qtbot):
     # 5. POI sem referência correspondente
     mapa = croqui_pb2.Mapa()
     ref = mapa.referencias.add()
-    ref.ids.append("outro_poi")
+    ref.pontos_uids.append("outro_poi")
     widget.carregar_mapa(mapa)
     widget.painel_referencias.selecionar_referencia = MagicMock()
     assert widget.tratar_clique_poi("poi_sem_ref") is False
@@ -5491,7 +5491,7 @@ def test_iniciar_modo_vinculacao_texto_barra_superior_portugues(qtbot):
 
     mapa = croqui_pb2.Mapa()
     ref = mapa.referencias.add()
-    ref.grupo = "Grupo Teste"
+    ref.alvo_uid = "Grupo Teste"
     widget.set_mapa_atual(ReadOnlyProxy(mapa))
 
     widget.iniciar_modo_linkagem(0, ref)
@@ -5516,7 +5516,7 @@ def test_toggle_clique_poi_adiciona_e_remove_com_ciano_imediato(qtbot):
 
     mapa = croqui_pb2.Mapa()
     poi = mapa.pontos_de_interesse.add()
-    poi.id = "poi_teste"
+    poi.uid = "poi_teste"
     poi.circulo.x = 50
     poi.circulo.y = 50
     poi.circulo.raio = 15
@@ -5534,13 +5534,13 @@ def test_toggle_clique_poi_adiciona_e_remove_com_ciano_imediato(qtbot):
     retorno = widget.tratar_clique_poi_linkagem("poi_teste")
     assert retorno is True
     assert item_visual.brush.color() == QColor(0, 255, 255, 150)
-    assert "poi_teste" in widget.referencia_linkagem_ativa.ids
+    assert "poi_teste" in widget.referencia_linkagem_ativa.pontos_uids
 
     # 2. Segundo clique: remove o POI -> perde o ciano imediatamente
     retorno_desvincular = widget.tratar_clique_poi_linkagem("poi_teste")
     assert retorno_desvincular is True
     assert item_visual.brush.color() != QColor(0, 255, 255, 150)
-    assert "poi_teste" not in widget.referencia_linkagem_ativa.ids
+    assert "poi_teste" not in widget.referencia_linkagem_ativa.pontos_uids
 
 
 def test_alternar_referencias_limpa_estado_anterior_sem_residuo_no_hover_out(qtbot):
@@ -5555,24 +5555,24 @@ def test_alternar_referencias_limpa_estado_anterior_sem_residuo_no_hover_out(qtb
 
     mapa = croqui_pb2.Mapa()
     poi0 = mapa.pontos_de_interesse.add()
-    poi0.id = "p0"
+    poi0.uid = "p0"
     poi0.circulo.x = 10
     poi0.circulo.y = 10
     poi0.circulo.raio = 10
 
     poi1 = mapa.pontos_de_interesse.add()
-    poi1.id = "p1"
+    poi1.uid = "p1"
     poi1.circulo.x = 100
     poi1.circulo.y = 100
     poi1.circulo.raio = 10
 
     ref0 = mapa.referencias.add()
-    ref0.grupo = "Grupo 0"
-    ref0.ids.append("p0")
+    ref0.alvo_uid = "Grupo 0"
+    ref0.pontos_uids.append("p0")
 
     ref1 = mapa.referencias.add()
-    ref1.grupo = "Grupo 1"
-    ref1.ids.append("p1")
+    ref1.alvo_uid = "Grupo 1"
+    ref1.pontos_uids.append("p1")
 
     widget.set_mapa_atual(ReadOnlyProxy(mapa))
 
@@ -5614,7 +5614,7 @@ def test_remover_destaque_pois_com_item_hovered(qtbot):
 
     mapa = croqui_pb2.Mapa()
     poi = mapa.pontos_de_interesse.add()
-    poi.id = "p_hover"
+    poi.uid = "p_hover"
     poi.circulo.x = 20
     poi.circulo.y = 20
     poi.circulo.raio = 10
@@ -5638,9 +5638,171 @@ def test_tratar_clique_poi_linkagem_fora_do_modo_linkagem(qtbot):
 
     mapa = croqui_pb2.Mapa()
     poi = mapa.pontos_de_interesse.add()
-    poi.id = "p0"
+    poi.uid = "p0"
     widget.set_mapa_atual(ReadOnlyProxy(mapa))
 
     widget.modo_linkagem = False
     assert widget.tratar_clique_poi_linkagem("p0") is False
+
+
+def test_destacar_pois_temporariamente_apos_limpeza_de_cena_com_camera(qtbot):
+    """[TDD 1.1] Verifica que destacar POIs com câmera após cena.clear() recria o overlay sem erro Shiboken."""
+    from editor.views.widget_editor_mapas import WidgetEditorMapas
+    from aresta_api.proto.generated import croqui_pb2
+    from editor.models.readonly_proxy import ReadOnlyProxy
+
+    widget = WidgetEditorMapas()
+    qtbot.addWidget(widget)
+    widget._mapa_ativo_valido = lambda: True
+
+    mapa = croqui_pb2.Mapa()
+    ref = mapa.referencias.add()
+    ref.ajuste_de_camera.zoom = 1.5
+    ref.ajuste_de_camera.posicao_horizontal = 50
+    ref.ajuste_de_camera.posicao_vertical = 50
+
+    widget.carregar_mapa(mapa)
+    widget.destacar_pois_temporariamente(ReadOnlyProxy(ref))
+
+    item_antigo = widget.item_hover_camera_overlay
+    assert item_antigo is not None
+
+    # Simula recarga ou limpeza da cena gráfica
+    widget.dados_atuais['cena'].clear()
+
+    # O novo destaque não deve lançar RuntimeError do Shiboken
+    widget.destacar_pois_temporariamente(ReadOnlyProxy(ref))
+    assert widget.item_hover_camera_overlay is not None
+    assert widget.item_hover_camera_overlay != item_antigo
+    assert widget.item_hover_camera_overlay.scene() == widget.dados_atuais['cena']
+
+
+def test_destacar_pois_temporariamente_apos_limpeza_de_cena_sem_camera(qtbot):
+    """[TDD 1.1] Verifica que destacar POI sem câmera após cena.clear() esconde/anula overlay sem erro Shiboken."""
+    from editor.views.widget_editor_mapas import WidgetEditorMapas
+    from aresta_api.proto.generated import croqui_pb2
+    from editor.models.readonly_proxy import ReadOnlyProxy
+
+    widget = WidgetEditorMapas()
+    qtbot.addWidget(widget)
+    widget._mapa_ativo_valido = lambda: True
+
+    mapa = croqui_pb2.Mapa()
+    ref1 = mapa.referencias.add()
+    ref1.ajuste_de_camera.zoom = 1.5
+    ref2 = mapa.referencias.add()  # sem câmera
+
+    widget.carregar_mapa(mapa)
+    widget.destacar_pois_temporariamente(ReadOnlyProxy(ref1))
+    assert widget.item_hover_camera_overlay is not None
+
+    widget.dados_atuais['cena'].clear()
+
+    # Destacar ref2 não deve tentar chamar setVisible(False) no item C++ deletado
+    widget.destacar_pois_temporariamente(ReadOnlyProxy(ref2))
+    assert widget.item_hover_camera_overlay is None or not widget.item_hover_camera_overlay.isVisible()
+
+
+def test_iniciar_modo_camera_apos_limpeza_de_cena(qtbot):
+    """[TDD 1.2] Verifica que iniciar_modo_camera após cena.clear() recria item_camera_overlay com segurança."""
+    from editor.views.widget_editor_mapas import WidgetEditorMapas
+    from aresta_api.proto.generated import croqui_pb2
+    from editor.models.readonly_proxy import ReadOnlyProxy
+
+    widget = WidgetEditorMapas()
+    qtbot.addWidget(widget)
+    widget._mapa_ativo_valido = lambda: True
+
+    mapa = croqui_pb2.Mapa()
+    ref = mapa.referencias.add()
+    ref.ajuste_de_camera.zoom = 1.2
+
+    widget.carregar_mapa(mapa)
+    widget.iniciar_modo_camera(0, ReadOnlyProxy(ref))
+    item_camera_antigo = widget.item_camera_overlay
+    assert item_camera_antigo is not None
+
+    widget.dados_atuais['cena'].clear()
+
+    # Iniciar novamente o modo câmera não deve lançar RuntimeError ao chamar setVisible(True)
+    widget.iniciar_modo_camera(0, ReadOnlyProxy(ref))
+    assert widget.item_camera_overlay is not None
+    assert widget.item_camera_overlay != item_camera_antigo
+    assert widget.item_camera_overlay.scene() == widget.dados_atuais['cena']
+
+
+def test_transicoes_de_cena_limpam_overlays_de_camera(qtbot):
+    """[TDD 1.2] Verifica que transições de cena cancelam e anulam overlays de câmera."""
+    from editor.views.widget_editor_mapas import WidgetEditorMapas, ItemCameraOverlay
+    from aresta_api.proto.generated import croqui_pb2
+    from editor.models.readonly_proxy import ReadOnlyProxy
+
+    widget = WidgetEditorMapas()
+    qtbot.addWidget(widget)
+    widget._mapa_ativo_valido = lambda: True
+
+    mapa1 = croqui_pb2.Mapa()
+    ref = mapa1.referencias.add()
+    ref.ajuste_de_camera.zoom = 1.5
+
+    widget.carregar_mapa(mapa1)
+    widget.destacar_pois_temporariamente(ReadOnlyProxy(ref))
+    assert widget.item_hover_camera_overlay is not None
+
+    # 1. cancelar_modos_interativos anula item_hover_camera_overlay e item_camera_overlay
+    widget.cancelar_modos_interativos()
+    assert widget.item_hover_camera_overlay is None
+
+    # 2. descarregar_mapa anula overlays
+    widget.destacar_pois_temporariamente(ReadOnlyProxy(ref))
+    widget.descarregar_mapa()
+    assert widget.item_hover_camera_overlay is None
+    assert widget.item_camera_overlay is None
+
+    # 3. set_mapa_atual limpa overlays da cena anterior
+    widget.carregar_mapa(mapa1)
+    widget.destacar_pois_temporariamente(ReadOnlyProxy(ref))
+    mapa2 = croqui_pb2.Mapa()
+    widget.set_mapa_atual(ReadOnlyProxy(mapa2))
+    assert widget.item_hover_camera_overlay is None
+    assert widget.item_camera_overlay is None
+
+
+def test_item_grafico_valido_cobertura_defensiva(qtbot):
+    """Garante 100% de cobertura nos ramos defensivos de _item_grafico_valido e salvar_ajuste_camera."""
+    from editor.views.widget_editor_mapas import WidgetEditorMapas
+    from PySide6.QtWidgets import QGraphicsScene, QGraphicsRectItem
+    from unittest.mock import MagicMock
+
+    widget = WidgetEditorMapas()
+    qtbot.addWidget(widget)
+
+    # 1. Item None
+    assert widget._item_grafico_valido(None) is False
+
+    # 2. Item com cena divergente da esperada
+    cena1 = QGraphicsScene()
+    cena2 = QGraphicsScene()
+    item = QGraphicsRectItem()
+    cena1.addItem(item)
+    assert widget._item_grafico_valido(item, cena_esperada=cena2) is False
+    assert widget._item_grafico_valido(item, cena_esperada=cena1) is True
+
+    # 3. Exceção simulada ao acessar atributos do item
+    mock_item = MagicMock()
+    mock_item.scene.side_effect = RuntimeError("Erro de ponteiro")
+    assert widget._item_grafico_valido(mock_item, cena_esperada=cena1) is False
+
+    # 4. salvar_ajuste_camera com overlay inválido ou inexistente
+    widget._mapa_ativo_valido = lambda: True
+    widget.referencia_camera_ativa = MagicMock()
+    mock_mapa = MagicMock()
+    mock_mapa.referencias = [widget.referencia_camera_ativa]
+    widget.msg_mapa_proxy = mock_mapa
+    widget.camera_ref_idx = 0
+    widget.item_camera_overlay = None
+    # Deve retornar sem erro e sem mutações
+    assert widget.salvar_ajuste_camera() is None
+
+
 

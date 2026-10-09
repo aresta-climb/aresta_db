@@ -1,12 +1,14 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+uid: gs4DenqBroBhUl
 caminho_imagem_capa: imagens/grupo_pedra_do_neri_p0_i1.webp
 nome: Pedra do Neri
 setores:
 - caminho: grupo_pedra_do_neri_setor_esportivas.md
 - caminho: grupo_pedra_do_neri_setor_aderencias.md
 ---
+
 <small>Capa: Pedra do Neri - À esquerda, vias esportivas; à direita, vias em aderência. (Foto: Celso Ferreira Gomes)</small>
 
 Enorme bloco rolado situado na propriedade do Sr. Neri, próxima do povoado quilombola denominado Mendonça, apresenta duas faces escaláveis, totalizando onze vias implantadas.

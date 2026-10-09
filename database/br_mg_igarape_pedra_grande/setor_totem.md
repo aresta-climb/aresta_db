@@ -1,92 +1,94 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+uid: BVZ1UjMtLg5NQp
 nome: Setor Totem
 mapas:
 - caminho_imagem_mapa: imagens/setor_totem_p0.webp
   largura_mapa: 1112
   altura_mapa: 1418
   pontos_de_interesse:
-  - id: '01'
-    label: '01'
+  - uid: 56Lspd7LBQ2E1O
+    rotulo: '01'
     circulo:
       x: 216
       y: 1397
       raio: 17
-  - id: '02'
-    label: '02'
+  - uid: nn8ryaXpOPShk6
+    rotulo: '02'
     circulo:
       x: 561
       y: 1206
       raio: 17
-  - id: '03'
-    label: '03'
+  - uid: lzEL4v4y1F4RAk
+    rotulo: '03'
     circulo:
       x: 806
       y: 1040
       raio: 17
-  - id: '04'
-    label: '04'
+  - uid: vqrMtWNlacSfco
+    rotulo: '04'
     circulo:
       x: 917
       y: 972
       raio: 17
   referencias:
-  - escalada: Takeyeasy
-    ids:
-    - '01'
-  - escalada: Pâncepis
-    ids:
-    - '02'
-  - escalada: Totem
-    ids:
-    - '03'
-  - escalada: '69'
-    ids:
-    - '04'
+  - alvo_uid: vFTU5spDu48Ta1
+    pontos_uids:
+    - 56Lspd7LBQ2E1O
+  - alvo_uid: UMBlT3ScLVyPS0
+    pontos_uids:
+    - nn8ryaXpOPShk6
+  - alvo_uid: zxD2SJXyaSoi7S
+    pontos_uids:
+    - lzEL4v4y1F4RAk
+  - alvo_uid: tp0z2QexOT3ufH
+    pontos_uids:
+    - vqrMtWNlacSfco
 - caminho_imagem_mapa: imagens/setor_totem_p1.webp
   largura_mapa: 1114
   altura_mapa: 917
   pontos_de_interesse:
-  - id: '01'
-    label: '01'
+  - uid: f2Vlst8RiQPZmp
+    rotulo: '01'
     circulo:
       x: 394
       y: 644
       raio: 17
-  - id: '02'
-    label: '02'
+  - uid: s3lkBW6RUqo3Hk
+    rotulo: '02'
     circulo:
       x: 628
       y: 715
       raio: 17
-  - id: '03'
-    label: '03'
+  - uid: 4IfzW5nVpMy5Rk
+    rotulo: '03'
     circulo:
       x: 826
       y: 750
       raio: 17
-  - id: '04'
-    label: '04'
+  - uid: iMZtQSR54twKix
+    rotulo: '04'
     circulo:
       x: 892
       y: 788
       raio: 17
   referencias:
-  - escalada: Takeyeasy
-    ids:
-    - '01'
-  - escalada: Pâncepis
-    ids:
-    - '02'
-  - escalada: Totem
-    ids:
-    - '03'
-  - escalada: '69'
-    ids:
-    - '04'
+  - alvo_uid: vFTU5spDu48Ta1
+    pontos_uids:
+    - f2Vlst8RiQPZmp
+  - alvo_uid: UMBlT3ScLVyPS0
+    pontos_uids:
+    - s3lkBW6RUqo3Hk
+  - alvo_uid: zxD2SJXyaSoi7S
+    pontos_uids:
+    - 4IfzW5nVpMy5Rk
+  - alvo_uid: tp0z2QexOT3ufH
+    pontos_uids:
+    - iMZtQSR54twKix
 escaladas:
-- via_esportiva:
+- uid: vFTU5spDu48Ta1
+  via_esportiva:
     nome: Takeyeasy
     dificuldade: BR_6
     quantidade_protecoes_intermediarias: 4
@@ -99,7 +101,8 @@ escaladas:
     - Alexandre
     data_abertura: '2005'
     descricao: 'INTERDITADA: TOPS FORAM ROUBADOS'
-- via_esportiva:
+- uid: UMBlT3ScLVyPS0
+  via_esportiva:
     nome: Pâncepis
     dificuldade: BR_7B
     quantidade_protecoes_intermediarias: 4
@@ -112,7 +115,8 @@ escaladas:
     - Alexandre
     data_abertura: '2005'
     descricao: 'INTERDITADA: TOPS FORAM ROUBADOS'
-- via_esportiva:
+- uid: zxD2SJXyaSoi7S
+  via_esportiva:
     nome: Totem
     dificuldade: BR_8A
     quantidade_protecoes_intermediarias: 4
@@ -125,7 +129,8 @@ escaladas:
     - Alex
     - Ruy
     data_abertura: '2005'
-- via_esportiva:
+- uid: tp0z2QexOT3ufH
+  via_esportiva:
     nome: '69'
     dificuldade: BR_8B
     quantidade_protecoes_intermediarias: 4

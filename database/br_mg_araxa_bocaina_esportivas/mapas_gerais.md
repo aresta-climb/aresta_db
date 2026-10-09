@@ -6,139 +6,139 @@ mapas:
   largura_mapa: 1152
   altura_mapa: 805
   pontos_de_interesse:
-  - id: '01'
-    label: '01'
+  - uid: qqPHZ23QnO0bAu
+    rotulo: '01'
     retangulo:
       x: 117
       y: 284
       comprimento: 68
       largura: 69
-  - id: '02'
-    label: '02'
+  - uid: A3Stn9NYFd63o4
+    rotulo: '02'
     retangulo:
       x: 188
       y: 247
       comprimento: 44
       largura: 64
-  - id: '03'
-    label: '03'
+  - uid: 0eHFvB2iSW1fiL
+    rotulo: '03'
     retangulo:
       x: 216
       y: 344
       comprimento: 35
       largura: 36
       angulo_graus_x100: -30
-  - id: '04'
-    label: '04'
+  - uid: 7FYKZWR9JDv6ZL
+    rotulo: '04'
     retangulo:
       x: 234
       y: 258
       comprimento: 31
       largura: 76
-  - id: '05'
-    label: '05'
+  - uid: tAGxUBRUlz8zrX
+    rotulo: '05'
     retangulo:
       x: 287
       y: 253
       comprimento: 30
       largura: 78
-  - id: '06'
-    label: '06'
+  - uid: ODEDA5qrB4Cev1
+    rotulo: '06'
     retangulo:
       x: 351
       y: 261
       comprimento: 38
       largura: 84
-  - id: '07'
-    label: '07'
+  - uid: x4L1cX3nmrCZOp
+    rotulo: '07'
     retangulo:
       x: 358
       y: 362
       comprimento: 41
       largura: 53
-  - id: '08'
-    label: '08'
+  - uid: knkEH4QfDujM7k
+    rotulo: '08'
     retangulo:
       x: 499
       y: 275
       comprimento: 208
       largura: 114
-  - id: '09'
-    label: '09'
+  - uid: u27KjU73nLEjy7
+    rotulo: '09'
     retangulo:
       x: 652
       y: 265
       comprimento: 50
       largura: 78
-  - id: '10'
-    label: '10'
+  - uid: XsK3mXFx7904mM
+    rotulo: '10'
     retangulo:
       x: 999
       y: 314
       comprimento: 52
       largura: 77
-  - id: '11'
-    label: '11'
+  - uid: D7orrsq8HIEhUN
+    rotulo: '11'
     retangulo:
       x: 1055
       y: 296
       comprimento: 50
       largura: 39
-  - id: '12'
-    label: '12'
+  - uid: KdFhsZNkRTtUmz
+    rotulo: '12'
     retangulo:
       x: 1097
       y: 316
       comprimento: 22
       largura: 37
-  - id: '13'
-    label: '13'
+  - uid: o6lY5NWsxY7cWK
+    rotulo: '13'
     retangulo:
       x: 1124
       y: 324
       comprimento: 22
       largura: 38
   referencias:
-  - ids:
-    - '01'
-    setor: Ensolarado
-  - ids:
-    - '02'
-    setor: Garganta
-  - ids:
-    - '03'
-    setor: Tapa na Cara
-  - ids:
-    - '04'
-    setor: Terceiro Andar
-  - ids:
-    - '05'
-    setor: Paulistas
-  - ids:
-    - '06'
-    setor: Mezanino
-  - ids:
-    - '07'
-    setor: Shana Crazy
-  - ids:
-    - '08'
-    setor: Tsunami
-  - ids:
-    - '09'
-    setor: Udão
-  - ids:
-    - '10'
-    setor: Tereza
-  - ids:
-    - '11'
-    setor: Bem-vindo
-  - ids:
-    - '11'
-    setor: Tetos
-  - ids:
-    - '12'
-    setor: Segundo Andar
-  - ids:
-    - '13'
-    setor: Pirados de Rocha
+  - alvo_uid: yct6sz1JSOdJNh
+    pontos_uids:
+    - qqPHZ23QnO0bAu
+  - alvo_uid: 246UG6k7cYUggW
+    pontos_uids:
+    - A3Stn9NYFd63o4
+  - alvo_uid: SIe8qMFw1Y46zG
+    pontos_uids:
+    - 0eHFvB2iSW1fiL
+  - alvo_uid: bIzbj97ftcBIWw
+    pontos_uids:
+    - 7FYKZWR9JDv6ZL
+  - alvo_uid: lqRtz0vbIZQGsV
+    pontos_uids:
+    - tAGxUBRUlz8zrX
+  - alvo_uid: XtSJq3QnulIdf9
+    pontos_uids:
+    - ODEDA5qrB4Cev1
+  - alvo_uid: ALlNMayNg4qW0W
+    pontos_uids:
+    - x4L1cX3nmrCZOp
+  - alvo_uid: vcNPgYS6LWY92G
+    pontos_uids:
+    - knkEH4QfDujM7k
+  - alvo_uid: RDvWM1pC3cmOAz
+    pontos_uids:
+    - u27KjU73nLEjy7
+  - alvo_uid: sKwnDft8hBVYxs
+    pontos_uids:
+    - XsK3mXFx7904mM
+  - alvo_uid: dwuQyJozrODbgq
+    pontos_uids:
+    - D7orrsq8HIEhUN
+  - alvo_uid: q0gv91KFyAc9AX
+    pontos_uids:
+    - D7orrsq8HIEhUN
+  - alvo_uid: uiwowojbrlzAlz
+    pontos_uids:
+    - KdFhsZNkRTtUmz
+  - alvo_uid: ObPNZKFJ6b8VT1
+    pontos_uids:
+    - o6lY5NWsxY7cWK
 ---

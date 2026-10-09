@@ -136,7 +136,7 @@ class PublishController:
         return []
 
     def _validar_compilacao_limpa(self) -> bool:
-        """Verifica se o croqui compila sem erros."""
+        """Verifica se o croqui compila sem erros ou solicita confirmação para prosseguir com erros."""
         try:
             if hasattr(self.workspace, "processar_renomeacao_e_compilacao"):
                 id_atual = self.croqui_data.get("id", "") if self.croqui_data else ""
@@ -144,20 +144,27 @@ class PublishController:
                 mensagens = resultado_compilacao[1] if len(resultado_compilacao) > 1 else []
                 erros = [m for m in mensagens if eh_linha_de_erro(m)]
                 if erros:
-                    QMessageBox.critical(
+                    resposta = QMessageBox.question(
                         self.parent,
-                        "Erro de Compilação",
-                        "O croqui possui erros de compilação e não pode ser enviado:\n\n" + "\n".join(erros)
+                        "Erros de Compilação",
+                        "O croqui possui erros de compilação:\n\n"
+                        + "\n".join(erros[:5])
+                        + ("\n..." if len(erros) > 5 else "")
+                        + "\n\nDeseja enviar a proposta de mudança mesmo assim para solicitar ajuda ou revisão remota?",
+                        QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.No,
+                        QMessageBox.StandardButton.No,
                     )
-                    return False
+                    return resposta == QMessageBox.StandardButton.Yes
             return True
         except Exception as e:
-            QMessageBox.critical(
+            resposta = QMessageBox.question(
                 self.parent,
-                "Erro de Compilação",
-                f"Falha ao validar compilação do croqui:\n{e}"
+                "Aviso de Compilação",
+                f"Ocorreu um erro ao validar a compilação do croqui:\n{e}\n\nDeseja prosseguir com o envio mesmo assim?",
+                QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.No,
+                QMessageBox.StandardButton.No,
             )
-            return False
+            return resposta == QMessageBox.StandardButton.Yes
 
     def iniciar_publicacao(self) -> None:
         """
@@ -232,6 +239,8 @@ class PublishController:
                     print(f"[AVISO] Erro ao verificar status do PR: {e}")
         
         if pr_aberto:
+            if not self._sincronizar_pre_publicacao(pr_branch):
+                return
             # Fluxo Silencioso de Atualização
             self._iniciar_worker(dados_pr=None, modo_atualizacao=True)
         else:
@@ -253,6 +262,66 @@ class PublishController:
             if dialogo.exec() == 1: # QDialog.DialogCode.Accepted
                 dados_pr = dialogo.obter_dados()
                 self._iniciar_worker(dados_pr=dados_pr, modo_atualizacao=False)
+
+    def _sincronizar_pre_publicacao(self, pr_branch: str) -> bool:
+        """
+        Executa a verificação e reconciliação remota da branch da PR antes de enviar novas atualizações.
+        Retorna True para prosseguir com a publicação, ou False caso o usuário cancele a resolução de conflito.
+        """
+        id_croqui = self.croqui_data.get("id") if self.croqui_data else (self.workspace.caminho_raiz.name if getattr(self.workspace, "caminho_raiz", None) else "")
+        if not id_croqui:
+            return True
+
+        servico = self.servico_submissao
+        if not servico and hasattr(self.storage, "obter_caminho_base_repo"):
+            caminho_repo = self.storage.obter_caminho_base_repo()
+            servico = ServicoSubmissao(caminho_repo_base=caminho_repo)
+
+        if not servico:
+            return True
+
+        caminho_db = self.workspace.obter_caminho_database() if hasattr(self.workspace, "obter_caminho_database") else None
+        if not caminho_db:
+            return True
+
+        sessao = self.auth.obter_sessao() if hasattr(self.auth, "obter_sessao") else None
+
+        try:
+            from editor.core.servico_submissao import StatusSincronizacao
+            resultado = servico.sincronizar_pr_remota(
+                id_croqui=id_croqui,
+                nome_branch=pr_branch,
+                caminho_database_croqui=caminho_db,
+                sessao=sessao,
+            )
+            if resultado.status == StatusSincronizacao.CONFLITO:
+                from editor.views.dialogos.dialogo_conflito_sincronizacao import (
+                    DialogoConflitoSincronizacao,
+                    DecisaoConflito,
+                )
+                dialogo = DialogoConflitoSincronizacao(
+                    id_croqui=id_croqui,
+                    nome_branch=pr_branch,
+                    arquivos_conflito=resultado.arquivos_conflito,
+                    parent=self.parent,
+                )
+                if dialogo.exec() == QDialog.DialogCode.Accepted:
+                    decisao = dialogo.obter_decisao()
+                    if decisao in (DecisaoConflito.MANTER_LOCAL, DecisaoConflito.USAR_REMOTO):
+                        manter_local = (decisao == DecisaoConflito.MANTER_LOCAL)
+                        servico.resolver_conflito_pr(
+                            id_croqui=id_croqui,
+                            nome_branch=pr_branch,
+                            caminho_database_croqui=caminho_db,
+                            manter_local=manter_local,
+                            sessao=sessao,
+                        )
+                        return True
+                return False
+        except Exception as e:
+            print(f"[AVISO] Não foi possível verificar novidades remotas antes da publicação: {e}")
+
+        return True
 
     def _iniciar_worker(self, dados_pr: Optional[Dict[str, Any]], modo_atualizacao: bool) -> None:
         """

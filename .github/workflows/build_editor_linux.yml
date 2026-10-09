@@ -63,9 +63,41 @@ jobs:
         run: |
           uv sync --frozen --only-group editor_deploy_flatpak
 
+      - name: Instalar Flatpak e Ferramentas de Build
+        run: |
+          sudo apt-get update && sudo apt-get install -y flatpak flatpak-builder
+          sudo sysctl -w kernel.apparmor_restrict_unprivileged_userns=0 || true
+          flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+          flatpak install -y flathub org.kde.Sdk//6.11 org.kde.Platform//6.11
+
       - name: Gerar Manifesto de Dependências Flatpak (pypi-dependencies.json)
         run: |
-          uv run editor/build.py flatpak-deps --output /tmp/pypi-dependencies.json
+          uv run editor/build.py flatpak-deps --output editor/flatpak/pypi-dependencies.json
+          cp editor/flatpak/pypi-dependencies.json /tmp/pypi-dependencies.json
+
+      - name: Compilar Bundle Flatpak com Cache
+        uses: flatpak/flatpak-github-actions/flatpak-builder@v6
+        with:
+          bundle: EditorAresta-${{ inputs.versao }}.flatpak
+          manifest-path: editor/flatpak/com.arestaclimb.Editor.yaml
+          cache: true
+          run-tests: false
+
+      - name: Gerar e Publicar Source Tarball na Release do GitHub
+        env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+        run: |
+          mkdir -p /tmp/dist-src
+          uv run editor/build.py source-tarball --output-dir /tmp/dist-src
+          TARBALL_NOME="EditorAresta-${{ inputs.versao }}-source.tar.gz"
+          TARBALL_PATH="/tmp/dist-src/$TARBALL_NOME"
+          
+          # Anexa o tarball enxuto aos assets da Release oficial do GitHub
+          gh release upload "editor-v${{ inputs.versao }}" "$TARBALL_PATH" --clobber || true
+          
+          # Exporta o hash SHA-256 para uso no manifesto do Flathub
+          SHA256_SRC=$(sha256sum "$TARBALL_PATH" | awk '{print $1}')
+          echo "SHA256_SRC=$SHA256_SRC" >> $GITHUB_ENV
 
       - name: Sincronizar Manifesto com Repositório Flathub
         run: |
@@ -79,11 +111,38 @@ jobs:
             cd /tmp/flathub-repo
             cp $GITHUB_WORKSPACE/editor/flatpak/* . || true
             cp $GITHUB_WORKSPACE/editor/recursos/logo_app.png ./logo_app.png || true
-            cp $GITHUB_WORKSPACE/uv.lock ./uv.lock || true
             if [ -f "/tmp/pypi-dependencies.json" ]; then
               cp /tmp/pypi-dependencies.json ./pypi-dependencies.json
             fi
-            sed -i 's|\.\./\.\./uv\.lock|uv.lock|' com.arestaclimb.Editor.yaml || true
+            
+            # Atualiza o manifesto para usar o source archive da release oficial
+            python3 -c "
+            import yaml
+            with open('com.arestaclimb.Editor.yaml', 'r', encoding='utf-8') as f:
+                dados = yaml.safe_load(f)
+            
+            versao = '${{ inputs.versao }}'
+            sha256 = '${{ env.SHA256_SRC }}'
+            url_tarball = f'https://github.com/aresta-climb/aresta_db/releases/download/editor-v{versao}/EditorAresta-{versao}-source.tar.gz'
+            
+            for modulo in dados.get('modules', []):
+                if isinstance(modulo, dict) and modulo.get('name') == 'aresta-editor':
+                    modulo['sources'] = [
+                        {
+                            'type': 'archive',
+                            'url': url_tarball,
+                            'sha256': sha256,
+                        },
+                        {'type': 'file', 'path': 'com.arestaclimb.Editor.desktop'},
+                        {'type': 'file', 'path': 'com.arestaclimb.Editor.metainfo.xml'},
+                        {'type': 'file', 'path': 'logo_app.png'},
+                    ]
+                    break
+            
+            with open('com.arestaclimb.Editor.yaml', 'w', encoding='utf-8') as f:
+                yaml.dump(dados, f, sort_keys=False, allow_unicode=True)
+            "
+            
             git add .
             git commit -m "Atualizar Editor Aresta para versão ${{ inputs.versao }}" || true
             git push origin HEAD || true
@@ -96,6 +155,8 @@ jobs:
         with:
           name: EditorAresta-Linux-Flatpak
           path: |
+            EditorAresta-${{ inputs.versao }}.flatpak
             editor/flatpak/*
             /tmp/pypi-dependencies.json
           retention-days: 7
+

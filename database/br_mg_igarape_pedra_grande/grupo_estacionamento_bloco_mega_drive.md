@@ -1,23 +1,29 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+uid: BHZYeEEiafGcj0
 nome: Estacionamento - Bloco Mega drive
 escaladas:
-- boulder:
+- uid: xL63RFAFiH1cCt
+  boulder:
     nome: Atari
     dificuldade: V5
-- boulder:
+- uid: eeGIOqgQCtVtqW
+  boulder:
     nome: Projeto Igarapé
     dificuldade: INDEFINIDO
-- boulder:
+- uid: baJERd9KO4QDMT
+  boulder:
     nome: Sem Nome 25
     dificuldade: V2
-- boulder:
+- uid: h4PnFTagpsHZpB
+  boulder:
     nome: Master System
     dificuldade: V10_BARRA_V11
     conquistadores:
     - Drosa
-- boulder:
+- uid: 95yqksfZ3WIflC
+  boulder:
     nome: Mega drive
     dificuldade: V7
 mapas:
@@ -25,7 +31,7 @@ mapas:
   largura_mapa: 1773
   altura_mapa: 2364
   pontos_de_interesse:
-  - id: linha_2
+  - uid: 3U1xMV1hDr2FtN
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -40,7 +46,8 @@ mapas:
           rotulo: ''
       espessura: 5
     cor: '#00E5FF'
-  - id: linha_5
+  - uid: Q8apI2RjUAnula
+    rotulo: ''
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -64,8 +71,7 @@ mapas:
           rotulo: C
       espessura: 5
     cor: '#00E5FF'
-    label: ''
-  - id: linha_7
+  - uid: ULYhKCswkt7tOz
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -119,7 +125,7 @@ mapas:
           rotulo: ''
       espessura: 5
     cor: '#00E5FF'
-  - id: linha_8
+  - uid: nZw977PekLEm59
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -138,15 +144,15 @@ mapas:
           rotulo: A
       espessura: 5
     cor: '#00E5FF'
-  - id: master2
-    label: ''
+  - uid: 6A5nPuW5RHYy6h
+    rotulo: ''
     circulo:
       x: 380
       y: 1183
       raio: 26
     cor: '#FFD600'
-  - id: linha_1
-    label: ''
+  - uid: 7nFSCoZsYda0nZ
+    rotulo: ''
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -188,7 +194,7 @@ mapas:
           rotulo: B
       espessura: 5
     cor: '#00E5FF'
-  - id: linha_9
+  - uid: 3lLONxHYDVabzD
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -215,7 +221,7 @@ mapas:
           rotulo: ''
       espessura: 5
     cor: '#00E5FF'
-  - id: linha_10
+  - uid: 8kvZVJW2QzC2n3
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -254,41 +260,41 @@ mapas:
           rotulo: C
       espessura: 5
     cor: '#00E5FF'
-  - id: master1
-    label: ''
+  - uid: Iqacn5BbIeHWk9
+    rotulo: ''
     circulo:
       x: 284
       y: 1248
       raio: 27
     cor: '#FFD600'
   referencias:
-  - ids:
-    - linha_2
-    - linha_9
-    - linha_10
-    escalada: Atari
-  - ids:
-    - linha_2
-    - linha_7
-    - linha_8
-    escalada: Projeto Igarapé
-  - ids:
-    - linha_5
-    - linha_8
-    - master2
-    - master1
-    escalada: Master System
-  - ids:
-    - linha_2
-    - linha_9
-    - linha_1
-    escalada: Mega drive
+  - alvo_uid: xL63RFAFiH1cCt
+    pontos_uids:
+    - 3U1xMV1hDr2FtN
+    - 3lLONxHYDVabzD
+    - 8kvZVJW2QzC2n3
+  - alvo_uid: eeGIOqgQCtVtqW
+    pontos_uids:
+    - 3U1xMV1hDr2FtN
+    - ULYhKCswkt7tOz
+    - nZw977PekLEm59
+  - alvo_uid: h4PnFTagpsHZpB
+    pontos_uids:
+    - Q8apI2RjUAnula
+    - nZw977PekLEm59
+    - 6A5nPuW5RHYy6h
+    - Iqacn5BbIeHWk9
+  - alvo_uid: 95yqksfZ3WIflC
+    pontos_uids:
+    - 3U1xMV1hDr2FtN
+    - 3lLONxHYDVabzD
+    - 7nFSCoZsYda0nZ
 - caminho_imagem_mapa: imagens/setor_estacionamento_bloco_mega_drive_p1.webp
   largura_mapa: 1773
   altura_mapa: 2364
   pontos_de_interesse:
-  - id: linha_4
-    label: ''
+  - uid: Ak8gIju2Ss3zzz
+    rotulo: ''
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -331,8 +337,8 @@ mapas:
           rotulo: A
       espessura: 5
     cor: '#00E5FF'
-  - id: linha_6
-    label: ''
+  - uid: o1JJil8lMGPbIY
+    rotulo: ''
     linha:
       estilo: TRACEJADO
       conteudo:
@@ -359,27 +365,27 @@ mapas:
           rotulo: B
       espessura: 5
     cor: '#00E5FF'
-  - id: master1
-    label: ''
+  - uid: FPyqUxmgtaGlod
+    rotulo: ''
     circulo:
       x: 696
       y: 1206
       raio: 28
     cor: '#FFD600'
-  - id: master2
-    label: ''
+  - uid: ttaawpem2ChoyF
+    rotulo: ''
     circulo:
       x: 836
       y: 1142
       raio: 27
     cor: '#FFD600'
   referencias:
-  - ids:
-    - linha_4
-    escalada: Sem Nome 25
-  - ids:
-    - linha_6
-    - master2
-    - master1
-    escalada: Master System
+  - alvo_uid: baJERd9KO4QDMT
+    pontos_uids:
+    - Ak8gIju2Ss3zzz
+  - alvo_uid: h4PnFTagpsHZpB
+    pontos_uids:
+    - o1JJil8lMGPbIY
+    - ttaawpem2ChoyF
+    - FPyqUxmgtaGlod
 ---

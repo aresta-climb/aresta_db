@@ -23,20 +23,29 @@ class MapasControllerTest(unittest.TestCase):
         
         self.msg_mapa_proxy = self.model.obter_croqui_readonly().picos[0].setores_ou_grupos[0].setor.conteudo.mapas[0]
 
+    def _obter_mapa_referencias_por_nome(self):
+        setor = self.croqui.picos[0].setores_ou_grupos[0].setor.conteudo
+        uids_para_nomes = {}
+        for e in setor.escaladas:
+            tipo = e.WhichOneof("tipo")
+            nome = getattr(e, tipo).nome if tipo else ""
+            uids_para_nomes[e.uid] = nome
+        return {uids_para_nomes.get(r.alvo_uid, ""): list(r.pontos_uids) for r in self.mapa.referencias}
+
     def test_adicionar_poi(self):
         # A test to ensure we can add a POI
-        novo_poi = croqui_pb2.Mapa.PontoDeInteresse(id="poi1", label="Ponto 1")
+        novo_poi = croqui_pb2.Mapa.PontoDeInteresse(uid="poi1", rotulo="Ponto 1")
         self.controller.adicionar_poi(self.msg_mapa_proxy, novo_poi)
         
         self.assertEqual(len(self.mapa.pontos_de_interesse), 1)
-        self.assertEqual(self.mapa.pontos_de_interesse[0].id, "poi1")
+        self.assertEqual(self.mapa.pontos_de_interesse[0].uid, "poi1")
 
         self.undo_stack.undo()
         self.assertEqual(len(self.mapa.pontos_de_interesse), 0)
 
     def test_deletar_poi(self):
         # Setup initial
-        poi = self.mapa.pontos_de_interesse.add(id="poi1")
+        poi = self.mapa.pontos_de_interesse.add(uid="poi1")
         self.assertEqual(len(self.mapa.pontos_de_interesse), 1)
         
         self.controller.deletar_poi(self.msg_mapa_proxy, 0)
@@ -46,32 +55,32 @@ class MapasControllerTest(unittest.TestCase):
         self.assertEqual(len(self.mapa.pontos_de_interesse), 1)
 
     def test_mover_poi(self):
-        poi_antigo = croqui_pb2.Mapa.PontoDeInteresse(id="poi1")
+        poi_antigo = croqui_pb2.Mapa.PontoDeInteresse(uid="poi1")
         self.mapa.pontos_de_interesse.append(poi_antigo)
         
-        poi_novo = croqui_pb2.Mapa.PontoDeInteresse(id="poi1", label="Movel")
+        poi_novo = croqui_pb2.Mapa.PontoDeInteresse(uid="poi1", rotulo="Movel")
         
         self.controller.mover_poi(self.msg_mapa_proxy, 0, poi_antigo, poi_novo)
-        self.assertEqual(self.mapa.pontos_de_interesse[0].label, "Movel")
+        self.assertEqual(self.mapa.pontos_de_interesse[0].rotulo, "Movel")
         
         self.undo_stack.undo()
-        self.assertEqual(self.mapa.pontos_de_interesse[0].label, "")
+        self.assertEqual(self.mapa.pontos_de_interesse[0].rotulo, "")
 
     def test_adicionar_referencia(self):
-        nova_ref = croqui_pb2.Mapa.Referencia(setor="Setor Teste")
-        nova_ref.ids.extend(["poi1", "poi2"])
+        nova_ref = croqui_pb2.Mapa.Referencia(alvo_uid="uid_setor_teste")
+        nova_ref.pontos_uids.extend(["poi1", "poi2"])
         
         self.controller.adicionar_referencia(self.msg_mapa_proxy, nova_ref)
         
         self.assertEqual(len(self.mapa.referencias), 1)
-        self.assertEqual(self.mapa.referencias[0].setor, "Setor Teste")
-        self.assertEqual(list(self.mapa.referencias[0].ids), ["poi1", "poi2"])
+        self.assertEqual(self.mapa.referencias[0].alvo_uid, "uid_setor_teste")
+        self.assertEqual(list(self.mapa.referencias[0].pontos_uids), ["poi1", "poi2"])
 
         self.undo_stack.undo()
         self.assertEqual(len(self.mapa.referencias), 0)
 
     def test_deletar_referencia(self):
-        ref = self.mapa.referencias.add(setor="Setor Teste")
+        ref = self.mapa.referencias.add(alvo_uid="uid_setor_teste")
         self.assertEqual(len(self.mapa.referencias), 1)
         
         self.controller.deletar_referencia(self.msg_mapa_proxy, 0)
@@ -81,54 +90,54 @@ class MapasControllerTest(unittest.TestCase):
         self.assertEqual(len(self.mapa.referencias), 1)
 
     def test_alterar_referencia(self):
-        ref_antiga = croqui_pb2.Mapa.Referencia(setor="Setor Antigo")
-        ref_antiga.ids.extend(["poi1"])
+        ref_antiga = croqui_pb2.Mapa.Referencia(alvo_uid="uid_setor_antigo")
+        ref_antiga.pontos_uids.extend(["poi1"])
         self.mapa.referencias.append(ref_antiga)
         
-        ref_nova = croqui_pb2.Mapa.Referencia(setor="Setor Novo")
-        ref_nova.ids.extend(["poi1", "poi2"])
+        ref_nova = croqui_pb2.Mapa.Referencia(alvo_uid="uid_setor_novo")
+        ref_nova.pontos_uids.extend(["poi1", "poi2"])
         
         self.controller.alterar_referencia(self.msg_mapa_proxy, 0, ref_antiga, ref_nova)
-        self.assertEqual(self.mapa.referencias[0].setor, "Setor Novo")
-        self.assertEqual(list(self.mapa.referencias[0].ids), ["poi1", "poi2"])
+        self.assertEqual(self.mapa.referencias[0].alvo_uid, "uid_setor_novo")
+        self.assertEqual(list(self.mapa.referencias[0].pontos_uids), ["poi1", "poi2"])
         
         self.undo_stack.undo()
-        self.assertEqual(self.mapa.referencias[0].setor, "Setor Antigo")
-        self.assertEqual(list(self.mapa.referencias[0].ids), ["poi1"])
+        self.assertEqual(self.mapa.referencias[0].alvo_uid, "uid_setor_antigo")
+        self.assertEqual(list(self.mapa.referencias[0].pontos_uids), ["poi1"])
 
     def test_mover_poi_renomear_id_cascata_referencias_com_undo_redo(self):
         """[TDD] Garante que alterar o ID de um POI atualiza em cascata os IDs nas referências com Undo/Redo."""
         from editor.models.readonly_proxy import _copia_segura
 
         poi = self.mapa.pontos_de_interesse.add()
-        poi.id = "poi_antigo"
-        poi.label = "1"
+        poi.uid = "poi_antigo"
+        poi.rotulo = "1"
         poi.circulo.x = 50
         poi.circulo.y = 50
         poi.circulo.raio = 10
 
         ref = self.mapa.referencias.add()
-        ref.escalada = "Via Teste"
-        ref.ids.extend(["poi_antigo", "outro_poi"])
+        ref.alvo_uid = "uid_via_teste"
+        ref.pontos_uids.extend(["poi_antigo", "outro_poi"])
 
         poi_antigo = _copia_segura(self.msg_mapa_proxy.pontos_de_interesse[0])
         poi_novo = _copia_segura(self.msg_mapa_proxy.pontos_de_interesse[0])
-        poi_novo.id = "poi_novo"
+        poi_novo.uid = "poi_novo"
 
         self.controller.mover_poi(self.msg_mapa_proxy, 0, poi_antigo, poi_novo)
 
-        self.assertEqual(self.mapa.pontos_de_interesse[0].id, "poi_novo")
-        self.assertEqual(list(self.mapa.referencias[0].ids), ["poi_novo", "outro_poi"])
+        self.assertEqual(self.mapa.pontos_de_interesse[0].uid, "poi_novo")
+        self.assertEqual(list(self.mapa.referencias[0].pontos_uids), ["poi_novo", "outro_poi"])
 
         # Undo deve reverter ambos atomicamente
         self.undo_stack.undo()
-        self.assertEqual(self.mapa.pontos_de_interesse[0].id, "poi_antigo")
-        self.assertEqual(list(self.mapa.referencias[0].ids), ["poi_antigo", "outro_poi"])
+        self.assertEqual(self.mapa.pontos_de_interesse[0].uid, "poi_antigo")
+        self.assertEqual(list(self.mapa.referencias[0].pontos_uids), ["poi_antigo", "outro_poi"])
 
         # Redo deve reaplicar ambos
         self.undo_stack.redo()
-        self.assertEqual(self.mapa.pontos_de_interesse[0].id, "poi_novo")
-        self.assertEqual(list(self.mapa.referencias[0].ids), ["poi_novo", "outro_poi"])
+        self.assertEqual(self.mapa.pontos_de_interesse[0].uid, "poi_novo")
+        self.assertEqual(list(self.mapa.referencias[0].pontos_uids), ["poi_novo", "outro_poi"])
 
     def test_obter_caminho_imagem_mapa(self):
 
@@ -145,14 +154,14 @@ class MapasControllerTest(unittest.TestCase):
 
     def test_converter_boxes_para_circulos(self):
         poi1 = self.mapa.pontos_de_interesse.add()
-        poi1.id = "poi1"
+        poi1.uid = "poi1"
         poi1.retangulo.x = 10
         poi1.retangulo.y = 10
         poi1.retangulo.comprimento = 40
         poi1.retangulo.largura = 40
 
         poi2 = self.mapa.pontos_de_interesse.add()
-        poi2.id = "poi2"
+        poi2.uid = "poi2"
         poi2.retangulo.x = 100
         poi2.retangulo.y = 100
         poi2.retangulo.comprimento = 80
@@ -177,10 +186,10 @@ class MapasControllerTest(unittest.TestCase):
         self.controller.iniciar_grupo_undo("Adicionar Dois Pontos")
         
         # Executa dois comandos separados
-        poi1 = croqui_pb2.Mapa.PontoDeInteresse(id="poi1")
+        poi1 = croqui_pb2.Mapa.PontoDeInteresse(uid="poi1")
         self.controller.adicionar_poi(self.msg_mapa_proxy, poi1)
         
-        poi2 = croqui_pb2.Mapa.PontoDeInteresse(id="poi2")
+        poi2 = croqui_pb2.Mapa.PontoDeInteresse(uid="poi2")
         self.controller.adicionar_poi(self.msg_mapa_proxy, poi2)
         
         # Finaliza o grupo
@@ -210,7 +219,7 @@ class MapasControllerTest(unittest.TestCase):
         self.model.foco_requisitado.connect(_on_foco)
         
         # Adiciona um POI e desfaz
-        novo_poi = croqui_pb2.Mapa.PontoDeInteresse(id="poi_foco")
+        novo_poi = croqui_pb2.Mapa.PontoDeInteresse(uid="poi_foco")
         self.controller.adicionar_poi(self.msg_mapa_proxy, novo_poi)
         
         self.undo_stack.undo()
@@ -279,7 +288,7 @@ class MapasControllerTest(unittest.TestCase):
             historico = GerenciadorHistorico(diario=diario)
             controller = MapasController(self.model, historico)
 
-            novo_poi = croqui_pb2.Mapa.PontoDeInteresse(id="poi_teste", label="Ponto Teste")
+            novo_poi = croqui_pb2.Mapa.PontoDeInteresse(uid="poi_teste", rotulo="Ponto Teste")
             controller.adicionar_poi(self.msg_mapa_proxy, novo_poi)
 
             self.assertTrue(diario.tem_alteracoes_pendentes())
@@ -287,7 +296,7 @@ class MapasControllerTest(unittest.TestCase):
             self.assertEqual(len(comandos), 1)
             self.assertEqual(comandos[0]["classe"], "CmdAdicionarRepeated")
     def test_alterar_cor_poi(self):
-        poi = self.mapa.pontos_de_interesse.add(id="poi1", cor="#00FF00")
+        poi = self.mapa.pontos_de_interesse.add(uid="poi1", cor="#00FF00")
         self.assertEqual(self.mapa.pontos_de_interesse[0].cor, "#00FF00")
         
         self.controller.alterar_cor_poi(self.msg_mapa_proxy, 0, "#FF6D00")
@@ -313,8 +322,8 @@ class MapasControllerTest(unittest.TestCase):
         )
         self.assertEqual(len(self.mapa.pontos_de_interesse), 1)
         poi = self.mapa.pontos_de_interesse[0]
-        self.assertEqual(poi.id, "linha_01")
-        self.assertEqual(poi.label, "Via 01")
+        self.assertEqual(poi.uid, "linha_01")
+        self.assertEqual(poi.rotulo, "Via 01")
         self.assertEqual(poi.cor, "#FF1744")
         self.assertTrue(poi.HasField("linha"))
         self.assertEqual(len(poi.linha.conteudo.nos), 2)
@@ -366,11 +375,11 @@ class MapasControllerTest(unittest.TestCase):
     def test_macro_undo_redo_aninhado(self):
         from aresta_api.proto.generated import croqui_pb2
         self.controller.iniciar_grupo_undo("Macro Pai")
-        poi1 = croqui_pb2.Mapa.PontoDeInteresse(id="poi_pai")
+        poi1 = croqui_pb2.Mapa.PontoDeInteresse(uid="poi_pai")
         self.controller.adicionar_poi(self.msg_mapa_proxy, poi1)
 
         self.controller.iniciar_grupo_undo("Macro Filho")
-        poi2 = croqui_pb2.Mapa.PontoDeInteresse(id="poi_filho")
+        poi2 = croqui_pb2.Mapa.PontoDeInteresse(uid="poi_filho")
         self.controller.adicionar_poi(self.msg_mapa_proxy, poi2)
         self.controller.finalizar_grupo_undo()
 
@@ -430,7 +439,7 @@ class MapasControllerTest(unittest.TestCase):
         self.controller.converter_boxes_para_circulos(self.msg_mapa_proxy, [idx])
 
     def test_manipulacoes_diretas_sem_proxy(self):
-        poi_direto = croqui_pb2.Mapa.PontoDeInteresse(id="direto")
+        poi_direto = croqui_pb2.Mapa.PontoDeInteresse(uid="direto")
         poi_direto.linha.conteudo.nos.add(x=10, y=20, tipo=croqui_pb2.NoTrajeto.TipoNo.PASSAGEM)
         self.mapa.pontos_de_interesse.append(poi_direto)
         idx = len(self.mapa.pontos_de_interesse) - 1
@@ -460,14 +469,13 @@ class MapasControllerTest(unittest.TestCase):
         self.assertEqual(setor.escaladas[0].boulder.nome, "Via Central")
         self.assertEqual(len(self.mapa.pontos_de_interesse), 1)
         self.assertEqual(len(self.mapa.referencias), 1)
-        self.assertEqual(self.mapa.referencias[0].escalada, "Via Central")
+        self.assertEqual(self.mapa.referencias[0].alvo_uid, setor.escaladas[0].uid)
 
         # Rótulo de início 1, término sem TOP
         nos = self.mapa.pontos_de_interesse[0].linha.conteudo.nos
         self.assertEqual(nos[0].rotulo, "1")
         self.assertEqual(nos[0].tipo, croqui_pb2.NoTrajeto.TipoNo.CIRCULO_IDENTIFICADOR)
-        self.assertEqual(nos[-1].tipo, croqui_pb2.NoTrajeto.TipoNo.PASSAGEM
-)
+        self.assertEqual(nos[-1].tipo, croqui_pb2.NoTrajeto.TipoNo.PASSAGEM)
         self.assertEqual(nos[-1].rotulo, "")
 
         # Undo atômico
@@ -497,7 +505,7 @@ class MapasControllerTest(unittest.TestCase):
         # Não deve duplicar escalada
         self.assertEqual(len(setor.escaladas), 1)
         self.assertEqual(len(self.mapa.referencias), 1)
-        self.assertEqual(self.mapa.referencias[0].escalada, "Via Já Cadastrada")
+        self.assertEqual(self.mapa.referencias[0].alvo_uid, setor.escaladas[0].uid)
 
     def test_adicionar_rota_com_tracado_fatiamento_em_no_e_desambiguacao(self):
         setor_proxy = self.model.obter_croqui_readonly().picos[0].setores_ou_grupos[0].setor.conteudo
@@ -514,13 +522,13 @@ class MapasControllerTest(unittest.TestCase):
         # Verifica fatiamento: a linha original foi fatiada em 2 e a variante é a 3ª linha
         self.assertEqual(len(self.mapa.pontos_de_interesse), 3)
         # Referências
-        refs = {r.escalada: list(r.ids) for r in self.mapa.referencias}
+        refs = self._obter_mapa_referencias_por_nome()
         self.assertEqual(len(refs["Via 1"]), 2)
         self.assertEqual(len(refs["Via 2"]), 2)
         self.assertEqual(refs["Via 1"][0], refs["Via 2"][0])  # segmento comum
 
         # Rótulo compartilhado no início
-        pois_por_id = {p.id: p for p in self.mapa.pontos_de_interesse}
+        pois_por_id = {p.uid: p for p in self.mapa.pontos_de_interesse}
         seg_comum = pois_por_id[refs["Via 1"][0]]
         self.assertEqual(seg_comum.linha.conteudo.nos[0].rotulo, "1, 2")
 
@@ -552,7 +560,7 @@ class MapasControllerTest(unittest.TestCase):
 
         # Verifica fatiamento por curva
         self.assertEqual(len(self.mapa.pontos_de_interesse), 3)
-        refs = {r.escalada: list(r.ids) for r in self.mapa.referencias}
+        refs = self._obter_mapa_referencias_por_nome()
         self.assertEqual(len(refs["Via Alpha"]), 2)
         self.assertEqual(len(refs["Via Beta"]), 2)
         self.assertEqual(refs["Via Alpha"][0], refs["Via Beta"][0])
@@ -569,7 +577,7 @@ class MapasControllerTest(unittest.TestCase):
         pontos_trav = [(20.0, 400.0), (100.0, 400.0), (100.0, 300.0), (180.0, 250.0)]
         self.controller.adicionar_rota_com_tracado(self.msg_mapa_proxy, setor_proxy, dados_trav, pontos_trav)
 
-        refs = {r.escalada: list(r.ids) for r in self.mapa.referencias}
+        refs = self._obter_mapa_referencias_por_nome()
         self.assertEqual(len(refs["Via Base"]), 3)
         self.assertEqual(len(refs["Travessia"]), 3)
         self.assertEqual(refs["Via Base"][1], refs["Travessia"][1])
@@ -587,7 +595,7 @@ class MapasControllerTest(unittest.TestCase):
         # Não deve lançar ValueError de fatiamento triplo
         self.controller.adicionar_rota_com_tracado(self.msg_mapa_proxy, setor_proxy, dados_nova, pontos_nova)
 
-        refs = {r.escalada: list(r.ids) for r in self.mapa.referencias}
+        refs = self._obter_mapa_referencias_por_nome()
         # Via Base continua íntegra (não fatiada)
         self.assertEqual(len(refs["Via Base"]), 1)
         self.assertIn("Via Duplo Clique", refs)
@@ -603,7 +611,7 @@ class MapasControllerTest(unittest.TestCase):
         pontos_rev = [(20.0, 250.0), (100.0, 300.0), (100.0, 400.0), (180.0, 450.0)]
         self.controller.adicionar_rota_com_tracado(self.msg_mapa_proxy, setor_proxy, dados_rev, pontos_rev)
 
-        refs = {r.escalada: list(r.ids) for r in self.mapa.referencias}
+        refs = self._obter_mapa_referencias_por_nome()
         self.assertIn("Travessia Reversa", refs)
 
     def test_adicionar_rota_com_tracado_fallback_gracioso_em_excecao(self):
@@ -619,7 +627,7 @@ class MapasControllerTest(unittest.TestCase):
         with patch("editor.core.topologia_trajeto.fatiar_linha_triplo", side_effect=ValueError("Falha simulada")):
             self.controller.adicionar_rota_com_tracado(self.msg_mapa_proxy, setor_proxy, dados_trav, pontos_trav)
 
-        refs = {r.escalada: list(r.ids) for r in self.mapa.referencias}
+        refs = self._obter_mapa_referencias_por_nome()
         self.assertIn("Travessia Falha", refs)
         self.assertEqual(len(refs["Via Base"]), 1)
 
@@ -658,23 +666,23 @@ class MapasControllerTest(unittest.TestCase):
         self.controller.adicionar_linha(self.msg_mapa_proxy, id_linha="l_original", nos=nos)
         self.controller.adicionar_referencia(
             self.msg_mapa_proxy,
-            croqui_pb2.Mapa.Referencia(escalada="Via Original", ids=["l_original"])
+            croqui_pb2.Mapa.Referencia(alvo_uid="via_original", pontos_uids=["l_original"])
         )
 
         id1, id2 = self.controller.separar_linha_em_no(self.msg_mapa_proxy, setor_proxy, "l_original", 1)
         self.assertEqual(len(self.mapa.pontos_de_interesse), 2)
-        self.assertEqual(list(self.mapa.referencias[0].ids), [id1, id2])
+        self.assertEqual(list(self.mapa.referencias[0].pontos_uids), [id1, id2])
 
         # Undo
         self.undo_stack.undo()
         self.assertEqual(len(self.mapa.pontos_de_interesse), 1)
-        self.assertEqual(self.mapa.pontos_de_interesse[0].id, "l_original")
-        self.assertEqual(list(self.mapa.referencias[0].ids), ["l_original"])
+        self.assertEqual(self.mapa.pontos_de_interesse[0].uid, "l_original")
+        self.assertEqual(list(self.mapa.referencias[0].pontos_uids), ["l_original"])
 
         # Redo
         self.undo_stack.redo()
         self.assertEqual(len(self.mapa.pontos_de_interesse), 2)
-        self.assertEqual(list(self.mapa.referencias[0].ids), [id1, id2])
+        self.assertEqual(list(self.mapa.referencias[0].pontos_uids), [id1, id2])
 
     def test_separar_linha_em_no_extremos_ou_invalido_dispara_erro(self):
         setor_proxy = self.model.obter_croqui_readonly().picos[0].setores_ou_grupos[0].setor.conteudo
@@ -695,25 +703,25 @@ class MapasControllerTest(unittest.TestCase):
         setor_proxy = self.model.obter_croqui_readonly().picos[0].setores_ou_grupos[0].setor.conteudo
 
         # Insere linha pré-existente
-        l_existente = croqui_pb2.Mapa.PontoDeInteresse(id="linha_existente")
+        l_existente = croqui_pb2.Mapa.PontoDeInteresse(uid="linha_existente")
         l_existente.linha.conteudo.nos.add(x=10, y=50, tipo=1, rotulo="1")
         l_existente.linha.conteudo.nos.add(x=10, y=10, tipo=0, rotulo="")
         self.mapa.pontos_de_interesse.append(l_existente)
 
         # Insere círculos nos índices 1 e 2 (como no caso real do Bloco Viva o Climb)
-        c1 = croqui_pb2.Mapa.PontoDeInteresse(id="sai1")
+        c1 = croqui_pb2.Mapa.PontoDeInteresse(uid="sai1")
         c1.circulo.x = 50
         c1.circulo.y = 50
         c1.circulo.raio = 20
         self.mapa.pontos_de_interesse.append(c1)
 
-        c2 = croqui_pb2.Mapa.PontoDeInteresse(id="sai2")
+        c2 = croqui_pb2.Mapa.PontoDeInteresse(uid="sai2")
         c2.circulo.x = 80
         c2.circulo.y = 80
         c2.circulo.raio = 25
         self.mapa.pontos_de_interesse.append(c2)
 
-        self.mapa.referencias.add(escalada="Via Antiga", ids=["linha_existente", "sai1", "sai2"])
+        self.mapa.referencias.add(alvo_uid="uid_antiga", pontos_uids=["linha_existente", "sai1", "sai2"])
 
         dados_nova = {"nome": "Nova Rota Isolada", "tipo": "boulder", "nova": True}
         pontos = [(100.0, 500.0), (120.0, 300.0), (140.0, 100.0)]
@@ -725,21 +733,21 @@ class MapasControllerTest(unittest.TestCase):
 
         # CRUCIAL: sai1 no índice 1 e sai2 no índice 2 NÃO podem ter sido sobrescritos por linha!
         self.assertTrue(self.mapa.pontos_de_interesse[1].HasField("circulo"), "sai1 foi sobrescrito indevidamente por uma linha!")
-        self.assertEqual(self.mapa.pontos_de_interesse[1].id, "sai1")
+        self.assertEqual(self.mapa.pontos_de_interesse[1].uid, "sai1")
         self.assertTrue(self.mapa.pontos_de_interesse[2].HasField("circulo"), "sai2 foi sobrescrito indevidamente por uma linha!")
-        self.assertEqual(self.mapa.pontos_de_interesse[2].id, "sai2")
+        self.assertEqual(self.mapa.pontos_de_interesse[2].uid, "sai2")
 
-        # A nova linha deve ter recebido ID único
-        id_nova = self.mapa.pontos_de_interesse[3].id
+        # A nova linha deve ter recebido UID único
+        id_nova = self.mapa.pontos_de_interesse[3].uid
         self.assertNotIn(id_nova, ["linha_existente", "sai1", "sai2"])
 
         # Undo deve remover estritamente a nova rota e restaurar os 3 POIs originais intactos
         self.undo_stack.undo()
         self.assertEqual(len(self.mapa.pontos_de_interesse), 3)
         self.assertTrue(self.mapa.pontos_de_interesse[1].HasField("circulo"))
-        self.assertEqual(self.mapa.pontos_de_interesse[1].id, "sai1")
+        self.assertEqual(self.mapa.pontos_de_interesse[1].uid, "sai1")
         self.assertTrue(self.mapa.pontos_de_interesse[2].HasField("circulo"))
-        self.assertEqual(self.mapa.pontos_de_interesse[2].id, "sai2")
+        self.assertEqual(self.mapa.pontos_de_interesse[2].uid, "sai2")
 
     def test_adicionar_multiplas_rotas_sequenciais_sem_colisao_de_id_ou_inicio(self):
         """[TDD] Adiciona sucessivas rotas garantindo IDs e números de início sequenciais disjuntos."""
@@ -756,14 +764,42 @@ class MapasControllerTest(unittest.TestCase):
         self.assertEqual(len(self.mapa.pontos_de_interesse), 3)
         self.assertEqual(len(self.mapa.referencias), 3)
 
-        ids = [p.id for p in self.mapa.pontos_de_interesse]
+        ids = [p.uid for p in self.mapa.pontos_de_interesse]
         self.assertEqual(len(set(ids)), 3, f"IDs colidiram: {ids}")
 
         inicios = [p.linha.conteudo.nos[0].rotulo for p in self.mapa.pontos_de_interesse]
         self.assertEqual(inicios, ["1", "2", "3"])
 
+    def test_adicionar_rota_com_tracado_garante_uids_e_rotulos(self):
+        """[TDD] Verifica se nova rota recebe escalada.uid, poi.uid e referencia.alvo_uid/pontos_uids."""
+        from scripts.gerenciar_uids_lib import validar_uid
+
+        setor_proxy = self.model.obter_croqui_readonly().picos[0].setores_ou_grupos[0].setor.conteudo
+        dados_rota = {"nome": "Super Rota 14c", "tipo": "via_esportiva", "grau": "8a", "nova": True}
+
+        self.controller.adicionar_rota_com_tracado(
+            self.msg_mapa_proxy,
+            setor_proxy,
+            dados_rota,
+            [(10.0, 100.0), (10.0, 10.0)]
+        )
+
+        setor = self.croqui.picos[0].setores_ou_grupos[0].setor.conteudo
+        escalada_criada = setor.escaladas[-1]
+        self.assertEqual(escalada_criada.via_esportiva.nome, "Super Rota 14c")
+        self.assertTrue(validar_uid(escalada_criada.uid), f"Escalada sem UID válido: {escalada_criada.uid}")
+
+        poi_criado = self.mapa.pontos_de_interesse[-1]
+        self.assertTrue(validar_uid(poi_criado.uid), f"POI sem UID válido: {poi_criado.uid}")
+        self.assertEqual(poi_criado.linha.conteudo.nos[0].rotulo, "1")
+
+        ref_criada = self.mapa.referencias[-1]
+        self.assertEqual(ref_criada.alvo_uid, escalada_criada.uid)
+        self.assertIn(poi_criado.uid, ref_criada.pontos_uids)
+
 
 if __name__ == '__main__':
 
     unittest.main()
+
 

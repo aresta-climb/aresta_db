@@ -183,6 +183,236 @@ Corpo do bloco.
 
     poi = esc["mapas"][0]["pontos_de_interesse"][0]
     assert poi["id"] == "start"
-    assert poi["label"] == "Start"
+    assert poi.get("rotulo") == "Start" or poi.get("label") == "Start"
     assert poi["circulo"]["x"] == 20
+
+
+def test_finalizacao_mapas_injeta_uids_e_padroniza_rotulo(tmp_path):
+    """Garante que finalizar_mapas gera UIDs NanoID 14c para POIs novos e padroniza label -> rotulo."""
+    from scripts.gerenciar_uids_lib import validar_uid, gerar_uid
+
+    pico_path = tmp_path / "pico_uids"
+    raw_mapas_dir = pico_path / "imagens" / "raw_mapas"
+    raw_mapas_dir.mkdir(parents=True)
+
+    md_file = pico_path / "setor_uids.md"
+    md_content = """---
+nome: Setor UIDs
+mapas:
+- caminho_imagem_mapa: imagens/mapa.webp
+---
+Corpo do arquivo.
+"""
+    md_file.write_text(md_content, encoding="utf-8")
+
+    img_dir = pico_path / "imagens"
+    img_dir.mkdir(exist_ok=True)
+    (img_dir / "mapa.webp").write_bytes(b"dummy")
+
+    uid_existente = gerar_uid()
+    json_data = {
+        "arquivo_md": "setor_uids.md",
+        "caminho_imagem_mapa": "imagens/mapa.webp",
+        "dimensoes_imagem": {"largura": 800, "altura": 600},
+        "pontos_de_interesse": [
+            {
+                "id": "1",
+                "label": "Via 1",
+                "circulo": {"x": 100, "y": 150, "raio": 20}
+            },
+            {
+                "id": "2",
+                "uid": uid_existente,
+                "rotulo": "Via 2",
+                "quadrado": {"x": 200, "y": 250, "lado": 30}
+            }
+        ]
+    }
+    json_file = raw_mapas_dir / "mapa.json"
+    with open(json_file, "w", encoding="utf-8") as f:
+        json.dump(json_data, f)
+
+    finalizar_mapas(str(pico_path))
+
+    frontmatter, _ = parse_md_com_frontmatter(str(md_file))
+    pois = frontmatter["mapas"][0]["pontos_de_interesse"]
+    assert len(pois) == 2
+
+    # Primeiro POI (era sem UID e com label)
+    assert validar_uid(pois[0].get("uid"))
+    assert pois[0].get("rotulo") == "Via 1"
+    assert "label" not in pois[0]
+
+    # Segundo POI (já tinha UID e rotulo)
+    assert pois[1].get("uid") == uid_existente
+    assert pois[1].get("rotulo") == "Via 2"
+    assert "label" not in pois[1]
+
+
+def test_parse_md_com_yaml_invalido(tmp_path):
+    md_file = tmp_path / "invalido.md"
+    md_file.write_text("---\n: invalido: yaml: [}\n---\nCorpo", encoding="utf-8")
+    fm, corpo = parse_md_com_frontmatter(str(md_file))
+    assert fm == {}
+    assert corpo == "Corpo"
+
+
+def test_finalizar_mapas_validacoes_diretorios(tmp_path, capsys):
+    # Diretório não existe
+    finalizar_mapas(tmp_path / "inexistente")
+    out = capsys.readouterr().out
+    assert "não foi encontrado" in out
+
+    # Diretório sem pasta raw_mapas
+    pico = tmp_path / "pico_vazio"
+    pico.mkdir()
+    finalizar_mapas(pico)
+    out = capsys.readouterr().out
+    assert "Diretório não existe" in out
+
+    # Pasta raw_mapas vazia
+    raw_dir = pico / "imagens" / "raw_mapas"
+    raw_dir.mkdir(parents=True)
+    finalizar_mapas(pico)
+    out = capsys.readouterr().out
+    assert "Nenhum arquivo JSON para processar" in out
+
+
+def test_finalizar_mapas_erros_json_e_md(tmp_path, capsys):
+    pico = tmp_path / "pico_erros"
+    raw_dir = pico / "imagens" / "raw_mapas"
+    raw_dir.mkdir(parents=True)
+
+    # 1. JSON corrompido
+    (raw_dir / "corrompido.json").write_text("{invalido json", encoding="utf-8")
+
+    # 2. JSON faltando campos
+    (raw_dir / "incompleto.json").write_text(json.dumps({"arquivo_md": "teste.md"}), encoding="utf-8")
+
+    # 3. MD não existe
+    (raw_dir / "md_inexistente.json").write_text(json.dumps({
+        "arquivo_md": "inexistente.md",
+        "caminho_imagem_mapa": "img.webp"
+    }), encoding="utf-8")
+
+    # 4. MD sem frontmatter
+    (pico / "sem_fm.md").write_text("Apenas texto puro", encoding="utf-8")
+    (raw_dir / "sem_fm.json").write_text(json.dumps({
+        "arquivo_md": "sem_fm.md",
+        "caminho_imagem_mapa": "img.webp"
+    }), encoding="utf-8")
+
+    finalizar_mapas(pico)
+    out = capsys.readouterr().out
+    assert "Erro ao ler corrompido.json" in out
+    assert "JSON incompleto incompleto.json" in out
+    assert "Arquivo Markdown de origem não encontrado" in out
+    assert "Não foi possível carregar frontmatter" in out
+
+
+def test_finalizar_mapas_formatos_geometria_e_avisos(tmp_path, capsys):
+    pico = tmp_path / "pico_geom"
+    raw_dir = pico / "imagens" / "raw_mapas"
+    raw_dir.mkdir(parents=True)
+
+    md_file = pico / "setor.md"
+    md_file.write_text("""---
+mapas:
+- caminho_imagem_mapa: imagens/mapa.webp
+---
+""", encoding="utf-8")
+
+    json_data = {
+        "arquivo_md": "setor.md",
+        "caminho_imagem_mapa": "imagens/mapa.webp",
+        "dimensoes_imagem": {"largura": 400, "altura": 300},
+        "pontos_de_interesse": [
+            # 1. circular legado
+            {"id": "c1", "rotulo": "Circ", "circular": {"x": 10, "y": 10, "raio": 5}},
+            # 2. box com angulo legado
+            {"id": "b1", "rotulo": "Box", "box": {"x": 20, "y": 20, "comprimento": 30, "largura": 15, "angulo": 45.0}},
+            # 3. poligono e linha
+            {"id": "p1", "rotulo": "Poli", "poligono": [{"x": 1, "y": 1}, {"x": 2, "y": 2}]},
+            {"id": "l1", "rotulo": "Linha", "linha": [{"x": 1, "y": 1}, {"x": 2, "y": 2}]},
+            # 4. quadrado incompleto
+            {"id": "q_bad", "rotulo": "QBad", "quadrado": {"x": 5}},
+            # 5. retangulo incompleto
+            {"id": "r_bad", "rotulo": "RBad", "retangulo": {"x": 5}},
+            # 6. tipo desconhecido
+            {"id": "desc", "rotulo": "Desc", "outro": 123}
+        ]
+    }
+    (raw_dir / "mapa.json").write_text(json.dumps(json_data), encoding="utf-8")
+
+    finalizar_mapas(pico)
+    out = capsys.readouterr().out
+    assert "está incompleto e será ignorado" in out
+    assert "tem formato desconhecido e será ignorado" in out
+
+    fm, _ = parse_md_com_frontmatter(str(md_file))
+    pois = fm["mapas"][0]["pontos_de_interesse"]
+    assert len(pois) == 4
+    assert "circulo" in pois[0]
+    assert "retangulo" in pois[1]
+    assert pois[1]["retangulo"]["angulo_graus_x100"] == 4500
+    assert "poligono" in pois[2]
+    assert "linha" in pois[3]
+
+
+def test_finalizar_mapas_via_multiplas_enfiadas_e_mapa_ausente(tmp_path, capsys):
+    pico = tmp_path / "pico_multi"
+    raw_dir = pico / "imagens" / "raw_mapas"
+    raw_dir.mkdir(parents=True)
+
+    md_file = pico / "setor.md"
+    md_file.write_text("""---
+escaladas:
+- "escalada_invalida_nao_dict"
+- via_multiplas_enfiadas:
+    nome: Via Longa
+    mapas:
+    - caminho_imagem_mapa: imagens/mapa_multi.webp
+---
+""", encoding="utf-8")
+
+    json_data = {
+        "arquivo_md": "setor.md",
+        "caminho_imagem_mapa": "imagens/mapa_multi.webp",
+        "dimensoes_imagem": {"largura": 500, "altura": 500},
+        "pontos_de_interesse": [
+            {"id": "e1", "rotulo": "E1", "circulo": {"x": 5, "y": 5, "raio": 2}}
+        ]
+    }
+    (raw_dir / "mapa_multi.json").write_text(json.dumps(json_data), encoding="utf-8")
+
+    # JSON de mapa que não está no markdown
+    json_nao_encontrado = {
+        "arquivo_md": "setor.md",
+        "caminho_imagem_mapa": "imagens/nao_existe.webp",
+        "dimensoes_imagem": {"largura": 500, "altura": 500},
+        "pontos_de_interesse": []
+    }
+    (raw_dir / "mapa_fantasma.json").write_text(json.dumps(json_nao_encontrado), encoding="utf-8")
+
+    finalizar_mapas(pico)
+    out = capsys.readouterr().out
+    assert "não foi encontrado na lista 'mapas' de setor.md" in out
+
+    fm, _ = parse_md_com_frontmatter(str(md_file))
+    via = fm["escaladas"][1]["via_multiplas_enfiadas"]
+    assert len(via["mapas"][0]["pontos_de_interesse"]) == 1
+
+
+def test_finalizar_mapas_main_cli(tmp_path, monkeypatch, capsys):
+    import runpy
+    pico = tmp_path / "pico_cli"
+    raw_dir = pico / "imagens" / "raw_mapas"
+    raw_dir.mkdir(parents=True)
+
+    monkeypatch.setattr("sys.argv", ["finalizar_mapas.py", str(pico)])
+    runpy.run_module("scripts.finalizar_mapas", run_name="__main__")
+    out = capsys.readouterr().out
+    assert "Nenhum arquivo JSON para processar" in out
+
+
 

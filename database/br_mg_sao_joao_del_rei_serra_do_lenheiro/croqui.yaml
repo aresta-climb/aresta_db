@@ -1,11 +1,12 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+uid: uOsWZu0uqFRB4r
 id: br_mg_sao_joao_del_rei_serra_do_lenheiro
 nome: Serra do Lenheiro - São João Del Rei
-descricao: Guia de escalada da Serra do Lenheiro em São João Del Rei - MG (5ª Edição,
+descricao: Guia de escalada da Serra do Lenheiro em São João Del Rei - MG (5ª Edição, 
   2025).
 caminho_thumbnail: imagens/capa_p0_i2.webp
-ultima_migracao: 4
+ultima_migracao: 5
 picos:
 - nome: Serra do Lenheiro
   estado: MG
@@ -49,31 +50,38 @@ picos:
     longitude: -442847810
   url_google_maps: https://maps.app.goo.gl/an6b45Wq8bGkwSFy6
 botoes:
-- texto: Capa
+- uid: 8gvL63K937ZAL2
+  texto: Capa
   destino:
     secao_textual:
       caminho: capa.md
-- texto: Apresentação
+- uid: 5TwqFVNnblyrkV
+  texto: Apresentação
   destino:
     secao_textual:
       caminho: apresentacao.md
-- texto: A Cidade
+- uid: QDo013G64e2lNr
+  texto: A Cidade
   destino:
     secao_textual:
       caminho: a_cidade.md
-- texto: Ética
+- uid: 30BizbauIszT3n
+  texto: Ética
   destino:
     secao_textual:
       caminho: etica.md
-- texto: Legenda
+- uid: v1gNv6E48u1d5T
+  texto: Legenda
   destino:
     secao_textual:
       caminho: legenda.md
-- texto: Áreas de Escalada
+- uid: GnobcSHEQEGsCe
+  texto: Áreas de Escalada
   destino:
     secao_textual:
       caminho: areas_de_escalada.md
-- texto: Regras CEMONTA
+- uid: mjJF31lc8mRkBy
+  texto: Regras CEMONTA
   destino:
     secao_textual:
       caminho: anexo_regras_cemonta.md

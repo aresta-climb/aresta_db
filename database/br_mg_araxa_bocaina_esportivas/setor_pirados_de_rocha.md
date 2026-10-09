@@ -1,6 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+uid: ObPNZKFJ6b8VT1
 caminho_imagem_capa: imagens/setor_pirados_de_rocha_p0_i0.webp
 nome: Pirados de Rocha
 mapas:
@@ -8,72 +9,73 @@ mapas:
   largura_mapa: 1280
   altura_mapa: 1707
   pontos_de_interesse:
-  - id: '01'
-    label: '01'
+  - uid: 0z6BsJvzvwywYg
+    rotulo: '01'
     circulo:
       x: 947
       y: 1118
       raio: 21
-  - id: '02'
-    label: '02'
+  - uid: qKbJYXmdKGlZo0
+    rotulo: '02'
     circulo:
       x: 827
       y: 872
       raio: 22
-  - id: '03'
-    label: '03'
+  - uid: FDgUxqzrKvcWFU
+    rotulo: '03'
     circulo:
       x: 743
       y: 865
       raio: 21
-  - id: '04'
-    label: '04'
+  - uid: oG1YAXAb7MQQUh
+    rotulo: '04'
     circulo:
       x: 658
       y: 865
       raio: 22
-  - id: '05'
-    label: '05'
+  - uid: lH443PEkiSko3A
+    rotulo: '05'
     circulo:
       x: 308
       y: 789
       raio: 22
-  - id: '06'
-    label: '06'
+  - uid: rGJfhdjaqJK8pw
+    rotulo: '06'
     circulo:
       x: 260
       y: 798
       raio: 22
-  - id: '07'
-    label: '07'
+  - uid: OuAdkCsVHrBpIz
+    rotulo: '07'
     circulo:
       x: 204
       y: 798
       raio: 21
   referencias:
-  - escalada: Uphill
-    ids:
-    - '01'
-  - escalada: Dilma Roussef
-    ids:
-    - '02'
-  - escalada: Renan Calheiros
-    ids:
-    - '03'
-  - escalada: Sérgio Moro
-    ids:
-    - '04'
-  - escalada: Pirados de Rocha
-    ids:
-    - '05'
-  - escalada: Qualidade de Vida
-    ids:
-    - '06'
-  - escalada: Lava Jato
-    ids:
-    - '07'
+  - alvo_uid: rbApYVoMUkQEgp
+    pontos_uids:
+    - 0z6BsJvzvwywYg
+  - alvo_uid: C9z6Zdg0MKWEP9
+    pontos_uids:
+    - qKbJYXmdKGlZo0
+  - alvo_uid: 9qd69EYIr3CBS7
+    pontos_uids:
+    - FDgUxqzrKvcWFU
+  - alvo_uid: TMAvHYH9SVzd4R
+    pontos_uids:
+    - oG1YAXAb7MQQUh
+  - alvo_uid: 0I7CQWxLRR6vCH
+    pontos_uids:
+    - lH443PEkiSko3A
+  - alvo_uid: l8mSXWUBQUp1Zu
+    pontos_uids:
+    - rGJfhdjaqJK8pw
+  - alvo_uid: bHpIqkdCEtildr
+    pontos_uids:
+    - OuAdkCsVHrBpIz
 escaladas:
-- via_esportiva:
+- uid: rbApYVoMUkQEgp
+  via_esportiva:
     nome: Uphill
     dificuldade: PROJETO
     extensao: 20
@@ -84,7 +86,8 @@ escaladas:
     - Rafael Furtado
     - Vitu
     data_abertura: '2017'
-- via_esportiva:
+- uid: C9z6Zdg0MKWEP9
+  via_esportiva:
     nome: Dilma Roussef
     dificuldade: BR_8A
     extensao: 12
@@ -95,7 +98,8 @@ escaladas:
     - Rafael Furtado
     - Vitu
     data_abertura: '2017'
-- via_esportiva:
+- uid: 9qd69EYIr3CBS7
+  via_esportiva:
     nome: Renan Calheiros
     dificuldade: PROJETO
     extensao: 12
@@ -105,7 +109,8 @@ escaladas:
     - Diego Leonardo
     - Rafael Furtado
     data_abertura: '2017'
-- via_esportiva:
+- uid: TMAvHYH9SVzd4R
+  via_esportiva:
     nome: Sérgio Moro
     dificuldade: PROJETO
     extensao: 12
@@ -115,7 +120,8 @@ escaladas:
     - Diego Leonardo
     - Rafael Furtado
     data_abertura: '2017'
-- via_esportiva:
+- uid: 0I7CQWxLRR6vCH
+  via_esportiva:
     nome: Pirados de Rocha
     dificuldade: PROJETO
     extensao: 20
@@ -125,7 +131,8 @@ escaladas:
     - Juliano Peter Park
     - Bruno Graciano
     data_abertura: '2017'
-- via_esportiva:
+- uid: l8mSXWUBQUp1Zu
+  via_esportiva:
     nome: Qualidade de Vida
     dificuldade: INDEFINIDO
     extensao: 20
@@ -136,7 +143,8 @@ escaladas:
     - Diego
     - Vitu
     data_abertura: '2017'
-- via_esportiva:
+- uid: bHpIqkdCEtildr
+  via_esportiva:
     nome: Lava Jato
     dificuldade: INDEFINIDO
     conquistadores:

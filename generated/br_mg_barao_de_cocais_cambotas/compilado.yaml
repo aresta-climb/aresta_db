@@ -1,3 +1,4 @@
+uid: JYMtnrbfS1HJEI
 id: br_mg_barao_de_cocais_cambotas
 nome: Cambotas
 descricao: O complexo de escalada de Cambotas, localizado em Barão de Cocais, MG,
@@ -14,13 +15,15 @@ picos:
   setores_ou_grupos:
   - setor:
       conteudo:
+        uid: 150z6viZ5YGa1C
         nome: Chaminé
         mapas:
         - caminho_imagem_mapa: imagens/setor_chamine_p0_i0.webp
           largura_mapa: 1768
           altura_mapa: 605
         escaladas:
-        - via_esportiva:
+        - uid: QJvvterDa5npXb
+          via_esportiva:
             nome: Bin Laden
             dificuldade: BR_8B
             extensao: 25
@@ -35,6 +38,7 @@ picos:
           total_esportivas: 1
   - setor:
       conteudo:
+        uid: wo6wwzFaS8yJkf
         caminho_imagem_capa: imagens/setor_caverninha_p0_i1.webp
         nome: Caverninha
         mapas:
@@ -42,7 +46,8 @@ picos:
           largura_mapa: 1768
           altura_mapa: 605
         escaladas:
-        - via_movel:
+        - uid: HuJKJ3PukIFfsN
+          via_movel:
             nome: Princesa léia
             dificuldade: BR_7A
             extensao: 40
@@ -51,7 +56,8 @@ picos:
             - Elaine
             descricao: Ótima via em fendas e agarras. Crux protegido com grampos.
               Começa em cima da caverninha usada como abrigo. Peças pequenas e médias.
-        - via_multiplas_enfiadas:
+        - uid: esM3GBTAv771rt
+          via_multiplas_enfiadas:
             nome: Double trouble
             dificuldade_maxima: BR_7B
             exposicao: E3
@@ -64,7 +70,8 @@ picos:
               e domínio da técnica móvel. Terceira enfiada exposta. Peças médias e
               grandes.
             comprimento_total: 80
-        - via_movel:
+        - uid: P1jVHZ8UKRngnR
+          via_movel:
             nome: Supurados
             dificuldade: INDEFINIDO
             extensao: 30
@@ -73,7 +80,8 @@ picos:
             - Breno Araújo
             descricao: Via mista muito interessante. Possui belas fendas em rocha
               muito sólida. Peças pequenas e médias. Crux protegido com chapeletas.
-        - via_esportiva:
+        - uid: 6TD5wk3k9E6jBq
+          via_esportiva:
             nome: O doce e o amargo
             dificuldade: BR_9A
             extensao: 60
@@ -92,31 +100,36 @@ picos:
           total_multiplas_enfiadas: 1
   - setor:
       conteudo:
+        uid: HVeZ40s3BhupP1
         nome: Torres
         mapas:
         - caminho_imagem_mapa: imagens/setor_torres_p2.webp
           largura_mapa: 2048
           altura_mapa: 1448
         escaladas:
-        - via_multiplas_enfiadas:
+        - uid: JfC7vWkEEp97jj
+          via_multiplas_enfiadas:
             nome: Pinta de Baiano
             dificuldade_maxima: BR_7A
             tipo_via_multiplas_enfiadas: TODA_FIXA
             descricao: Parede positiva.
             comprimento_total: 70
-        - via_multiplas_enfiadas:
+        - uid: uOMGrsCrjUknHM
+          via_multiplas_enfiadas:
             nome: Homens Verdes
             dificuldade_maxima: BR_5
             tipo_via_multiplas_enfiadas: TODA_FIXA
             descricao: Parede positiva.
             comprimento_total: 70
-        - via_multiplas_enfiadas:
+        - uid: J5U3TnrZTphxt5
+          via_multiplas_enfiadas:
             nome: Patatí Patatá
             dificuldade_maxima: BR_4
             tipo_via_multiplas_enfiadas: TODA_FIXA
             descricao: Parede positiva.
             comprimento_total: 50
-        - via_movel:
+        - uid: OlJj4kaU8sz8T2
+          via_movel:
             nome: Projeto?
             dificuldade: BR_4
             conquistadores:
@@ -137,6 +150,7 @@ picos:
           total_multiplas_enfiadas: 3
   - setor:
       conteudo:
+        uid: 31DCaF1ZL4cPjb
         nome: Felinas
         mapas:
         - caminho_imagem_mapa: imagens/setor_felinas_p0_i7.webp
@@ -149,7 +163,8 @@ picos:
           largura_mapa: 981
           altura_mapa: 673
         escaladas:
-        - via_multiplas_enfiadas:
+        - uid: KrqmBjegLoPqB1
+          via_multiplas_enfiadas:
             nome: Remedio Forte
             dificuldade_maxima: BR_7A
             exposicao: E3
@@ -158,7 +173,8 @@ picos:
               Camalot do .3 ao 4, repetição (não obrigatório) 0,5, .075, 1 e 2. Levar
               2 cordas de 60m.
             descricao: Via técnica e exigente.
-        - via_esportiva:
+        - uid: jAN1yqFbIBrHTW
+          via_esportiva:
             nome: Pó branco
             dificuldade: BR_8A
             extensao: 20
@@ -166,7 +182,8 @@ picos:
             - Alexandre fei
             - Aloysio Carvalho
             descricao: Via exigente, boulderistica. Molha no verão.
-        - via_esportiva:
+        - uid: 4zI1KNdxPnidzX
+          via_esportiva:
             nome: Gata borralheira
             dificuldade: BR_7C
             extensao: 30
@@ -178,7 +195,8 @@ picos:
             descricao: Via interessante com belas passadas em canaleta. Bastante técnica,
               molha bastante no verão, tornando impraticável a escalada nos meses
               mais úmidos.
-        - via_esportiva:
+        - uid: ody56ZQLj76T1Z
+          via_esportiva:
             nome: Marvada onça
             dificuldade: BR_7C
             extensao: 30
@@ -186,7 +204,8 @@ picos:
             - Gustavo Pianc.
             descricao: Via técnica com um pequeno teto no meio. Uma das mais frequentadas
               da parede.
-        - via_esportiva:
+        - uid: UjnnJllA2mZes5
+          via_esportiva:
             nome: Tigresa
             dificuldade: BR_8A_BARRA_8B
             extensao: 50
@@ -196,7 +215,8 @@ picos:
             - Fábio Pavesi
             descricao: Mistura técnica e resistência em bela passadas. Possui dois
               tetos. A primeira proteção após o segundo teto deve ser trocada.
-        - via_esportiva:
+        - uid: sOZcRwsyTaRf81
+          via_esportiva:
             nome: Pantera
             dificuldade: BR_8B
             extensao: 90
@@ -207,14 +227,16 @@ picos:
             - Alexandre Fei
             descricao: Técnica e forte. Talvez a via mais frequentada da parede. Muito
               estética!
-        - via_esportiva:
+        - uid: bPc9Jq02q2dbB5
+          via_esportiva:
             nome: Suçuarana
             dificuldade: BR_7A
             extensao: 40
             conquistadores:
             - Gustavo Piancastelli
             descricao: Via fixa mais acessível de todo o complexo. Bastante frequentada.
-        - via_movel:
+        - uid: 0gK6PSdaPl9qXf
+          via_movel:
             nome: Davi e Golias
             dificuldade: BR_7B
             extensao: 30
@@ -224,7 +246,8 @@ picos:
             descricao: Bem fácil no inicio, tem um crux no meio protegido com P's
               e depois um presente com belas sequencias em fenda frontal pouco vistas
               em MG. Termina em um grampo. Peças pequenas e médias.
-        - via_esportiva:
+        - uid: cFZlT9nm111JlV
+          via_esportiva:
             nome: O resgate do amigo
             dificuldade: BR_6SUP
             extensao: 30
@@ -240,13 +263,15 @@ picos:
           total_multiplas_enfiadas: 1
   - setor:
       conteudo:
+        uid: VoZcuSQ0d3Phq9
         nome: Fendas
         mapas:
         - caminho_imagem_mapa: imagens/setor_fendas_p0_i0.webp
           largura_mapa: 1768
           altura_mapa: 605
         escaladas:
-        - via_multiplas_enfiadas:
+        - uid: tl2CPmdD1uTutl
+          via_multiplas_enfiadas:
             nome: Noites equatoriais
             dificuldade_maxima: BR_7A
             exposicao: E3
@@ -260,7 +285,8 @@ picos:
             descricao: Segue sistema de fendas principal da parede. Exige boa leitura
               de via.
             comprimento_total: 200
-        - via_esportiva:
+        - uid: Ky8DyINGvg3ULq
+          via_esportiva:
             nome: Vomitão no reglete
             dificuldade: BR_7B
             extensao: 30
@@ -268,13 +294,15 @@ picos:
             - Fabiano Fernandes
             - Wagner
             descricao: Via vertical e pequenos regletes. Boa opção, mas molha no verão.
-        - via_esportiva:
+        - uid: 7ifhnA9B1PaljX
+          via_esportiva:
             nome: Soul rebel
             dificuldade: BR_7B
             extensao: 30
             conquistadores:
             - Gustavo Piancastelli
-        - via_movel:
+        - uid: hYU6hu6eD8yvW9
+          via_movel:
             nome: Positive vibration
             dificuldade: BR_7A
             extensao: 40
@@ -282,7 +310,8 @@ picos:
             - Gustavo Piancastelli
             descricao: 'Boa via com fenda no final que pode ser protegida com cam
               #2 ou similar. Atenção com abelhas próximo da via, à esquerda.'
-        - via_multiplas_enfiadas:
+        - uid: gWC4QzVF0P6SKn
+          via_multiplas_enfiadas:
             nome: Princesa Kel
             dificuldade_maxima: INDEFINIDO
             tipo_via_multiplas_enfiadas: TODA_MOVEL
@@ -299,13 +328,15 @@ picos:
           total_multiplas_enfiadas: 2
   - setor:
       conteudo:
+        uid: LPvWMOig17W7x6
         nome: Arco
         mapas:
         - caminho_imagem_mapa: imagens/setor_arco_p2.webp
           largura_mapa: 2048
           altura_mapa: 1448
         escaladas:
-        - via_multiplas_enfiadas:
+        - uid: 1X1ArvZT9eYcN6
+          via_multiplas_enfiadas:
             nome: Onde os fracos não tem vez
             dificuldade_maxima: BR_8B
             exposicao: E3
@@ -317,7 +348,8 @@ picos:
               mais negativa. Começa na 'aresta que me resta' e termina na 'aresta
               eletrizante'.
             comprimento_total: 130
-        - via_multiplas_enfiadas:
+        - uid: A3wPxvpokubpdS
+          via_multiplas_enfiadas:
             nome: Horizonte dos eventos
             dificuldade_maxima: BR_7C
             exposicao: E3
@@ -329,7 +361,8 @@ picos:
               até a base do arco. Peças médias e grandes, inclusive cam's 3,5 e 4
               ou similares.
             comprimento_total: 100
-        - via_movel:
+        - uid: Cj5gN710Q8itAd
+          via_movel:
             nome: Arco da Santa vitamina
             dificuldade: BR_7C
             extensao: 25
@@ -338,7 +371,8 @@ picos:
             - Matheus
             descricao: Via em arco horizontal. Peças médias e grandes. Cam 4 e 5 ou
               similares.
-        - via_movel:
+        - uid: F06OlJTlpuFPhU
+          via_movel:
             nome: Malateus?
             dificuldade: INDEFINIDO
             conquistadores:
@@ -346,7 +380,8 @@ picos:
             descricao: Via inacabada que atravessa a parede principal passando por
               um belo arco. Linha muito estética e que deve se tornar uma das mais
               bonitas escaladas do lugar.
-        - via_multiplas_enfiadas:
+        - uid: YXlZhWNnM2a6Re
+          via_multiplas_enfiadas:
             nome: Clandestino
             dificuldade_maxima: BR_7A
             exposicao: E3
@@ -361,7 +396,8 @@ picos:
               P1 com corda de 60m. Com corda de 50m deve-se fixar entre P3 e P2 ou
               fracionar o rapel até P1.
             comprimento_total: 160
-        - via_multiplas_enfiadas:
+        - uid: khsDbV0fo6W8uC
+          via_multiplas_enfiadas:
             nome: Totalmente demais
             dificuldade_maxima: BR_9B
             dificuldade_artificial: A0
@@ -382,6 +418,7 @@ picos:
           total_multiplas_enfiadas: 4
   - setor:
       conteudo:
+        uid: C1DmpuOYh9LLqC
         caminho_imagem_capa: imagens/setor_aresta_p3.webp
         nome: Aresta
         mapas:
@@ -389,7 +426,8 @@ picos:
           largura_mapa: 2048
           altura_mapa: 1448
         escaladas:
-        - via_esportiva:
+        - uid: RlBzSJCt7pVYnW
+          via_esportiva:
             nome: Macadame
             dificuldade: BR_8B
             extensao: 30
@@ -399,7 +437,8 @@ picos:
             descricao: Bela via em agarras, bastante negativa. Tem um interessante
               bote no inicio que pode ser previamente protegido pela chaminé. Equipada
               com chapeletas.
-        - via_movel:
+        - uid: qls0K2nLyxHfAe
+          via_movel:
             nome: Limite da ousadia
             dificuldade: BR_9A
             extensao: 30
@@ -408,7 +447,8 @@ picos:
             - Gustavo Vianna
             descricao: Interessante via em fenda. O crux é protegido com P's. Peças
               variadas médias e grandes.
-        - via_movel:
+        - uid: bzQuO68edMdtbU
+          via_movel:
             nome: Diedro urso branco (var.)
             dificuldade: INDEFINIDO
             extensao: 13
@@ -418,7 +458,8 @@ picos:
             - Marcus Vinicius
             descricao: Diedro perfeito que começa à esquerda do final da 'macadame'.
               Friends pequenos e médios. Nuts grandes.
-        - via_multiplas_enfiadas:
+        - uid: tfYUMKf8rtc3RA
+          via_multiplas_enfiadas:
             nome: Só para loucos
             dificuldade_maxima: BR_8B
             numero_enfiadas: 2
@@ -431,7 +472,8 @@ picos:
               As duas paradas possuem mosquetões de aço pra desequipagem. Usar costuras
               longas.
             comprimento_total: 55
-        - via_esportiva:
+        - uid: sg50P5yDvi08k5
+          via_esportiva:
             nome: Canino quebrado
             dificuldade: BR_7B
             extensao: 25
@@ -440,7 +482,8 @@ picos:
             - Vinicius
             descricao: Bonita via com um teto no meio. A parte superior, após o teto
               molha em determinadas épocas do ano.
-        - via_esportiva:
+        - uid: rdh2X3PbMuCkgA
+          via_esportiva:
             nome: Vinicius?
             dificuldade: BR_6SUP
             extensao: 20
@@ -450,7 +493,8 @@ picos:
             descricao: Bela via, muito estética. Compartilha a primeira proteção com
               a 'canino quebrado'. Segue em diagonal pra esquerda. Top na proteção
               do teto.
-        - via_multiplas_enfiadas:
+        - uid: HMw5kLT5pYwqkm
+          via_multiplas_enfiadas:
             nome: Aresta eletrizante
             dificuldade_maxima: BR_7C
             exposicao: E3
@@ -469,14 +513,16 @@ picos:
               na primeira enfiada, nas demais P's de 1/2 pol. Excentric grande, um
               jogo de friends e nuts na primeira enfiada.
             comprimento_total: 200
-        - via_esportiva:
+        - uid: ymyhFTYSg2LHF3
+          via_esportiva:
             nome: Aresta que me resta
             dificuldade: BR_7B
             extensao: 40
             conquistadores:
             - Gustavo Piancastelli
             descricao: Boa via, bastante técnica em micro agarras.
-        - via_movel:
+        - uid: 9lWJ2n973Ae0r8
+          via_movel:
             nome: Aresta que me eletriza (var.)
             dificuldade: BR_7C
             dificuldade_artificial: A1_MAIS
@@ -495,6 +541,7 @@ picos:
           total_multiplas_enfiadas: 2
   - setor:
       conteudo:
+        uid: gCQIZNzt5Tk1Ij
         caminho_imagem_capa: imagens/setor_polegar_p0.webp
         nome: Polegar
         mapas:
@@ -502,7 +549,8 @@ picos:
           largura_mapa: 2048
           altura_mapa: 1448
         escaladas:
-        - via_multiplas_enfiadas:
+        - uid: JiJOjfrASe6fX5
+          via_multiplas_enfiadas:
             nome: Quadrado mágico
             dificuldade_maxima: BR_8A
             tipo_via_multiplas_enfiadas: MISTA
@@ -512,14 +560,16 @@ picos:
             descricao: Linda via que segue a aresta direita do polegar. Ultima enfiada
               móvel. Peças variadas, especialmente médias.
             comprimento_total: 100
-        - via_esportiva:
+        - uid: 8GR3tfLMtGuw9c
+          via_esportiva:
             nome: Projeto?
             dificuldade: INDEFINIDO
             conquistadores:
             - Antonio Canelas
             - Elaine
             descricao: Via inacabada.
-        - via_esportiva:
+        - uid: KznNmsIOjLbh9p
+          via_esportiva:
             nome: Projeto?
             dificuldade: INDEFINIDO
             conquistadores:
@@ -535,6 +585,7 @@ picos:
           total_multiplas_enfiadas: 1
   - setor:
       conteudo:
+        uid: fLZ4sPn8jHcZ0A
         caminho_imagem_capa: imagens/setor_totem_p0.webp
         nome: Totem
         mapas:
@@ -542,7 +593,8 @@ picos:
           largura_mapa: 2048
           altura_mapa: 1448
         escaladas:
-        - via_esportiva:
+        - uid: sG1a7RlV0nBFSb
+          via_esportiva:
             nome: Quebra cabeça
             dificuldade: BR_6SUP
             exposicao: E3
@@ -552,7 +604,8 @@ picos:
             - Tatiana Mascarenhas
             descricao: Via perigosa, muitas pontas quebradiças. Usar fitas longas.
               Molha em época de chuvas. Usa-se o top da 'imagem e ação'.
-        - via_esportiva:
+        - uid: uIMV9d7vBeIkZO
+          via_esportiva:
             nome: Imagem e ação
             dificuldade: BR_7B
             extensao: 20
@@ -571,13 +624,15 @@ picos:
           total_esportivas: 2
   - setor:
       conteudo:
+        uid: zPWCMfQPRNCLun
         nome: Enigma da Esfinge
         mapas:
         - caminho_imagem_mapa: imagens/setor_enigma_da_esfinge_p0.webp
           largura_mapa: 2048
           altura_mapa: 1448
         escaladas:
-        - via_multiplas_enfiadas:
+        - uid: aBKOZtK8dH4QH0
+          via_multiplas_enfiadas:
             nome: Enigma da Esfinge
             dificuldade_maxima: BR_8A
             dificuldade_artificial: A1
@@ -598,13 +653,15 @@ picos:
           total_multiplas_enfiadas: 1
   - setor:
       conteudo:
+        uid: IgnhOcrKCV3Y1z
         nome: Jardim da Fantasia
         mapas:
         - caminho_imagem_mapa: imagens/setor_jardim_da_fantasia_p0.webp
           largura_mapa: 2048
           altura_mapa: 1448
         escaladas:
-        - via_multiplas_enfiadas:
+        - uid: fYstxxQqp95Vg3
+          via_multiplas_enfiadas:
             nome: Jardim da Fantasia
             dificuldade_maxima: BR_6
             exposicao: E2
@@ -640,7 +697,8 @@ picos:
     total_esportivas: 19
     total_multiplas_enfiadas: 16
 botoes:
-- texto: Capa
+- uid: 2jeJKqJkP8YH0f
+  texto: Capa
   destino:
     secao_textual:
       conteudo: |-
@@ -658,21 +716,24 @@ botoes:
         **GPS:** 19º53'5290'' 43º32'1188''
 
         **Fotos e Croquis:** Aloysio Carvalho e Gustavo Vianna, exceto onde indicado
-- texto: Principais Vias I
+- uid: H6VsxaHsJN9tbq
+  texto: Principais Vias I
   destino:
     secao_textual:
       conteudo: |-
         # Principais Vias da Serra da Cambota, Caeté, MG.
 
         Esta lista apresenta as principais vias do complexo de Cambotas, abrangendo diferentes setores e estilos.
-- texto: Principais Vias II
+- uid: PM4SkeC8D2GimQ
+  texto: Principais Vias II
   destino:
     secao_textual:
       conteudo: |-
         # Principais Vias da Serra da Cambota (Mapa Geral)
 
         Este mapa ilustra a localização das principais vias em relação às paredes e setores da Serra da Cambota.
-- texto: Contato
+- uid: 3k6IEbv8h5qQTu
+  texto: Contato
   destino:
     secao_textual:
       conteudo: |-
@@ -690,7 +751,7 @@ botoes:
         - **E-mail:** comercial@canelaema.com.br
         - **GPS:** 19º53'5290'' 43º32'1188''
         - **Endereço:** Estrada Povoado de Água Limpa / Rodovia MGC 262 (antiga BR262), KM 2,5, Caeté - MG, CEP 34800-000
-ultima_migracao: 4
+ultima_migracao: 5
 arquivos_externos:
 - caminho: imagens/capa_p0.webp
   checksum_sha256: 68e86d58f05be03b3a01fe75063c0eca1a6458b48fe66a1e866b30792c6eca5f

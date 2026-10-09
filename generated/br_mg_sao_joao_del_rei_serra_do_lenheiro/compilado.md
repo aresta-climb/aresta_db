@@ -5,10 +5,12 @@
 - **descricao**: Guia de escalada da Serra do Lenheiro em São João Del Rei - MG (5ª Edição, 2025).
 - **id**: br_mg_sao_joao_del_rei_serra_do_lenheiro
 - **nome**: Serra do Lenheiro - São João Del Rei
+- **uid**: uOsWZu0uqFRB4r
 - **caminho_thumbnail**: ![caminho_thumbnail](imagens/capa_p0_i2.webp)
-- **ultima_migracao**: 4
+- **ultima_migracao**: 5
 - **botoes**:
   - **[0]**:
+    - **uid**: 8gvL63K937ZAL2
     - **texto**: Capa
     - **destino**:
       - **secao_textual**:
@@ -25,6 +27,7 @@
             
             **Atenção:** Para escalar no CEMONTA é necessário pegar autorização prévia!
   - **[1]**:
+    - **uid**: 5TwqFVNnblyrkV
     - **texto**: Apresentação
     - **destino**:
       - **secao_textual**:
@@ -53,6 +56,7 @@
             | :--: |
             | *Espaço Amari - Fisioterapia e Pilates* |
   - **[2]**:
+    - **uid**: QDo013G64e2lNr
     - **texto**: A Cidade
     - **destino**:
       - **secao_textual**:
@@ -85,6 +89,7 @@
             
             Com certeza essa história não acaba por aqui, pois ainda há muito o que se desenvolver em termos de novas vias e quem sabe até novos setores.
   - **[3]**:
+    - **uid**: 30BizbauIszT3n
     - **texto**: Ética
     - **destino**:
       - **secao_textual**:
@@ -105,6 +110,7 @@
             - Caso encontre costuras ou outro equipamento em alguma via, não remova! Com certeza é de algum escalador que está malhando a via e vai retirar depois.
             - Escaladores de fora se possível fazer contato com alguém local antes de ir escalar.
   - **[4]**:
+    - **uid**: v1gNv6E48u1d5T
     - **texto**: Legenda
     - **destino**:
       - **secao_textual**:
@@ -122,6 +128,7 @@
             - **Parada Móvel** (círculo amarelo)
             - **Via segue além da foto** (seta preta)
   - **[5]**:
+    - **uid**: GnobcSHEQEGsCe
     - **texto**: Áreas de Escalada
     - **destino**:
       - **secao_textual**:
@@ -157,6 +164,7 @@
             | :--: |
             | *FEMEMG - Federação de Montanhismo e Escalada de Minas Gerais* |
   - **[6]**:
+    - **uid**: mjJF31lc8mRkBy
     - **texto**: Regras CEMONTA
     - **destino**:
       - **secao_textual**:
@@ -233,6 +241,7 @@
     
     O local conta ainda com um sítio arqueológico com pinturas rupestres bem interessantes, próximo à base de algumas vias no Pontão Maior. Essas pinturas são datadas com idade de 6 a 10 mil anos e foram feitas por tribos nômades que habitaram essa serra e viviam nas cavidades da rocha.
 - **nome**: Três Pontões (CEMONTA)
+- **uid**: 5IgNGk513d2HJe
 - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/grupo_tres_pontoes_p0_i3.webp)
 - **setores**:
   - **[0]**:
@@ -244,6 +253,7 @@
           
           As entradas para a Rota Interna podem ser melhor visualizadas nas fotos dos Pontões.
       - **nome**: Rota Interna
+      - **uid**: QWhl1b4jnJRF9H
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_tres_pontoes_setor_rota_interna_p0_i2.webp)
@@ -251,118 +261,169 @@
           - **altura_mapa**: 361
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 1
-              - **label**: 1
+              - **id**: 2bZDgc2M7eZx9U
+              - **uid**: 2bZDgc2M7eZx9U
+              - **rotulo**: 1
               - **circulo**:
                 - **x**: 254
                 - **y**: 84
                 - **raio**: 7
+              - **label**: 1
             - **[1]**:
-              - **id**: 2
-              - **label**: 2
+              - **id**: 07TnudY43iCIDx
+              - **uid**: 07TnudY43iCIDx
+              - **rotulo**: 2
               - **circulo**:
                 - **x**: 262
                 - **y**: 92
                 - **raio**: 7
+              - **label**: 2
             - **[2]**:
-              - **id**: 3
-              - **label**: 3
+              - **id**: TN77ipGhZySVMR
+              - **uid**: TN77ipGhZySVMR
+              - **rotulo**: 3
               - **circulo**:
                 - **x**: 280
                 - **y**: 83
                 - **raio**: 7
+              - **label**: 3
             - **[3]**:
-              - **id**: 4
-              - **label**: 4
+              - **id**: HrA2wwAY9rDH9y
+              - **uid**: HrA2wwAY9rDH9y
+              - **rotulo**: 4
               - **circulo**:
                 - **x**: 282
                 - **y**: 96
                 - **raio**: 7
+              - **label**: 4
             - **[4]**:
-              - **id**: 5
-              - **label**: 5
+              - **id**: gYM7M9v7HyCmmN
+              - **uid**: gYM7M9v7HyCmmN
+              - **rotulo**: 5
               - **circulo**:
                 - **x**: 306
                 - **y**: 83
                 - **raio**: 7
+              - **label**: 5
             - **[5]**:
-              - **id**: 6
-              - **label**: 6
+              - **id**: YjRUYVtmBEVcTd
+              - **uid**: YjRUYVtmBEVcTd
+              - **rotulo**: 6
               - **circulo**:
                 - **x**: 383
                 - **y**: 60
                 - **raio**: 7
+              - **label**: 6
             - **[6]**:
-              - **id**: 7
-              - **label**: 7
+              - **id**: t5HODHpFx11Hry
+              - **uid**: t5HODHpFx11Hry
+              - **rotulo**: 7
               - **circulo**:
                 - **x**: 379
                 - **y**: 129
                 - **raio**: 8
+              - **label**: 7
             - **[7]**:
-              - **id**: 8
-              - **label**: 8
+              - **id**: nVbvpgYuITMdmZ
+              - **uid**: nVbvpgYuITMdmZ
+              - **rotulo**: 8
               - **circulo**:
                 - **x**: 381
                 - **y**: 144
                 - **raio**: 8
+              - **label**: 8
             - **[8]**:
-              - **id**: 9
-              - **label**: 9
+              - **id**: M7kRNELOGcGOO3
+              - **uid**: M7kRNELOGcGOO3
+              - **rotulo**: 9
               - **circulo**:
                 - **x**: 262
                 - **y**: 130
                 - **raio**: 8
+              - **label**: 9
             - **[9]**:
-              - **id**: 10
-              - **label**: 10
+              - **id**: 0v1zNs7IMoZgui
+              - **uid**: 0v1zNs7IMoZgui
+              - **rotulo**: 10
               - **circulo**:
                 - **x**: 258
                 - **y**: 109
                 - **raio**: 10
+              - **label**: 10
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: YoOqE1jDgEp0iR
+              - **pontos_uids**:
+                - 2bZDgc2M7eZx9U
               - **escalada**: En Passant
               - **ids**:
-                - 1
+                - 2bZDgc2M7eZx9U
             - **[1]**:
+              - **alvo_uid**: 5EvLNNtJdE69tG
+              - **pontos_uids**:
+                - 07TnudY43iCIDx
               - **escalada**: Mamangava
               - **ids**:
-                - 2
+                - 07TnudY43iCIDx
             - **[2]**:
+              - **alvo_uid**: LzYFPCuheV4ifp
+              - **pontos_uids**:
+                - TN77ipGhZySVMR
               - **escalada**: Rio Minas
               - **ids**:
-                - 3
+                - TN77ipGhZySVMR
             - **[3]**:
+              - **alvo_uid**: G7PgF69vA1coHD
+              - **pontos_uids**:
+                - HrA2wwAY9rDH9y
               - **escalada**: Minas Rio
               - **ids**:
-                - 4
+                - HrA2wwAY9rDH9y
             - **[4]**:
+              - **alvo_uid**: 3Si8wQcICXkLsG
+              - **pontos_uids**:
+                - gYM7M9v7HyCmmN
               - **escalada**: Chaminé do Brevê
               - **ids**:
-                - 5
+                - gYM7M9v7HyCmmN
             - **[5]**:
+              - **alvo_uid**: 4q1PVnaeGBr1sa
+              - **pontos_uids**:
+                - YjRUYVtmBEVcTd
               - **escalada**: Quimera
               - **ids**:
-                - 6
+                - YjRUYVtmBEVcTd
             - **[6]**:
+              - **alvo_uid**: DB4U55VgfZR5Im
+              - **pontos_uids**:
+                - t5HODHpFx11Hry
               - **escalada**: Entre o Céu e o Inferno
               - **ids**:
-                - 7
+                - t5HODHpFx11Hry
             - **[7]**:
+              - **alvo_uid**: 79w2c9rNZniLrb
+              - **pontos_uids**:
+                - nVbvpgYuITMdmZ
               - **escalada**: Fissura Peter Pan
               - **ids**:
-                - 8
+                - nVbvpgYuITMdmZ
             - **[8]**:
+              - **alvo_uid**: vI8pyKLmKC3Fo1
+              - **pontos_uids**:
+                - M7kRNELOGcGOO3
               - **escalada**: Sombra (Rota Interna)
               - **ids**:
-                - 9
+                - M7kRNELOGcGOO3
             - **[9]**:
+              - **alvo_uid**: frBj6WEByKGG1L
+              - **pontos_uids**:
+                - 0v1zNs7IMoZgui
               - **escalada**: Água Fresca
               - **ids**:
-                - 10
+                - 0v1zNs7IMoZgui
       - **escaladas**:
         - **[0]**:
+          - **uid**: YoOqE1jDgEp0iR
           - **via_movel**:
             - **descricao**: Esta via, assim como as quatro seguintes, se encontra em um salão na parte inicial da Rota Interna.
             - **nome**: En Passant
@@ -373,6 +434,7 @@
               - Lúcia Duarte
             - **data_abertura**: 1986-05-02
         - **[1]**:
+          - **uid**: 5EvLNNtJdE69tG
           - **via_movel**:
             - **nome**: Mamangava
             - **dificuldade**: BR_2SUP
@@ -382,6 +444,7 @@
               - Lúcia Duarte
             - **data_abertura**: 1986-05-03
         - **[2]**:
+          - **uid**: LzYFPCuheV4ifp
           - **via_movel**:
             - **descricao**: Uma bela fissura de dedos em seu início, passando a alguns entalamentos de mão, escalada exigente, sua conquista original foi por chaminé, assim o grau fica mais acessível.
             - **nome**: Rio Minas
@@ -390,6 +453,7 @@
               - Dalton Chiarelli
               - José Ronaldo "Pelé"
         - **[3]**:
+          - **uid**: G7PgF69vA1coHD
           - **via_movel**:
             - **nome**: Minas Rio
             - **dificuldade**: BR_4
@@ -398,6 +462,7 @@
               - José Ronaldo "Pelé"
             - **data_abertura**: 1988-04-18
         - **[4]**:
+          - **uid**: 3Si8wQcICXkLsG
           - **via_movel**:
             - **descricao**: Uma escalada de chaminé bem clássica, totalmente protegida em um fissura que se afina em alguns momentos e outros ficam larga. Termina ao final do cabo de aço.
             - **nome**: Chaminé do Brevê
@@ -407,6 +472,7 @@
               - Ladson
             - **data_abertura**: 2002
         - **[5]**:
+          - **uid**: 4q1PVnaeGBr1sa
           - **via_movel**:
             - **descricao**: Esta via se encontra após o cabo de aço. Uma saída delicada em três chapas passando uma belíssima fenda, que quando ganha altura vai aumentando a abertura, finaliza em uma parada móvel.
             - **nome**: Quimera
@@ -417,18 +483,21 @@
               - Carlos Pádua
             - **data_abertura**: 2015
         - **[6]**:
+          - **uid**: DB4U55VgfZR5Im
           - **via_movel**:
             - **nome**: Entre o Céu e o Inferno
             - **dificuldade**: BR_5SUP
             - **conquistadores**:
               - Luiz Cláudio
         - **[7]**:
+          - **uid**: 79w2c9rNZniLrb
           - **via_movel**:
             - **nome**: Fissura Peter Pan
             - **dificuldade**: BR_5
             - **conquistadores**:
               - Luiz Cláudio
         - **[8]**:
+          - **uid**: vI8pyKLmKC3Fo1
           - **via_esportiva**:
             - **descricao**: Link Sombra e Água Fresca 4sup.
             - **nome**: Sombra (Rota Interna)
@@ -438,6 +507,7 @@
               - Carlos Pádua
             - **data_abertura**: 2024
         - **[9]**:
+          - **uid**: frBj6WEByKGG1L
           - **via_esportiva**:
             - **nome**: Água Fresca
             - **dificuldade**: BR_4
@@ -461,6 +531,7 @@
           
           Existe também uma trilha mais curta para esta área, sem passar pelos outros Pontões, ela se inicia atrás do abrigo.
       - **nome**: Pontão Menor - Face Leste (Área da Esquina da Alegria)
+      - **uid**: WwH6x69udOkQYr
       - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/grupo_tres_pontoes_setor_pontao_menor_face_leste_p1_i3.webp)
       - **mapas**:
         - **[0]**:
@@ -469,133 +540,187 @@
           - **altura_mapa**: 1067
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 1
-              - **label**: 1
+              - **id**: XdzJtWQMlOSuds
+              - **uid**: XdzJtWQMlOSuds
+              - **rotulo**: 1
               - **circulo**:
                 - **x**: 222
                 - **y**: 778
                 - **raio**: 35
+              - **label**: 1
             - **[1]**:
-              - **id**: 2
-              - **label**: 2
+              - **id**: AiMk0Gs2gbO6gP
+              - **uid**: AiMk0Gs2gbO6gP
+              - **rotulo**: 2
               - **circulo**:
                 - **x**: 539
                 - **y**: 924
                 - **raio**: 35
+              - **label**: 2
             - **[2]**:
-              - **id**: 3
-              - **label**: 3
+              - **id**: daeJ3v1ykxDcH5
+              - **uid**: daeJ3v1ykxDcH5
+              - **rotulo**: 3
               - **circulo**:
                 - **x**: 635
                 - **y**: 928
                 - **raio**: 35
+              - **label**: 3
             - **[3]**:
-              - **id**: 4
-              - **label**: 4
+              - **id**: Ym147IYIO78UeB
+              - **uid**: Ym147IYIO78UeB
+              - **rotulo**: 4
               - **circulo**:
                 - **x**: 780
                 - **y**: 1011
                 - **raio**: 34
+              - **label**: 4
             - **[4]**:
-              - **id**: 5
-              - **label**: 5
+              - **id**: gvsayeTP8b6NNA
+              - **uid**: gvsayeTP8b6NNA
+              - **rotulo**: 5
               - **circulo**:
                 - **x**: 959
                 - **y**: 897
                 - **raio**: 33
+              - **label**: 5
             - **[5]**:
-              - **id**: 6
-              - **label**: 6
+              - **id**: yC8SZ7voXMi0eK
+              - **uid**: yC8SZ7voXMi0eK
+              - **rotulo**: 6
               - **circulo**:
                 - **x**: 979
                 - **y**: 1036
                 - **raio**: 32
+              - **label**: 6
             - **[6]**:
-              - **id**: 7
-              - **label**: 7
+              - **id**: 2ODca2sbfLSEPC
+              - **uid**: 2ODca2sbfLSEPC
+              - **rotulo**: 7
               - **circulo**:
                 - **x**: 1100
                 - **y**: 988
                 - **raio**: 33
+              - **label**: 7
             - **[7]**:
-              - **id**: 8
-              - **label**: 8
+              - **id**: ElCi1nttS8qGIQ
+              - **uid**: ElCi1nttS8qGIQ
+              - **rotulo**: 8
               - **circulo**:
                 - **x**: 1164
                 - **y**: 1003
                 - **raio**: 32
+              - **label**: 8
             - **[8]**:
-              - **id**: 9
-              - **label**: 9
+              - **id**: XS0T32jXw9o4Iz
+              - **uid**: XS0T32jXw9o4Iz
+              - **rotulo**: 9
               - **circulo**:
                 - **x**: 1284
                 - **y**: 968
                 - **raio**: 32
+              - **label**: 9
             - **[9]**:
-              - **id**: setor_rota_interna
-              - **label**: Rota Interna
+              - **id**: 8sX00WlmRRlPwL
+              - **uid**: 8sX00WlmRRlPwL
+              - **rotulo**: Rota Interna
               - **retangulo**:
                 - **x**: 432
                 - **y**: 901
                 - **comprimento**: 137
                 - **largura**: 86
+              - **label**: Rota Interna
             - **[10]**:
-              - **id**: 19
-              - **label**: 19
+              - **id**: e3ZlL4tkE9wdsg
+              - **uid**: e3ZlL4tkE9wdsg
+              - **rotulo**: 19
               - **circulo**:
                 - **x**: 1519
                 - **y**: 783
                 - **raio**: 40
               - **cor**: 
+              - **label**: 19
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: a5Oc0ewZ9NeK3R
+              - **pontos_uids**:
+                - XdzJtWQMlOSuds
               - **escalada**: Consolo
               - **ids**:
-                - 1
+                - XdzJtWQMlOSuds
             - **[1]**:
+              - **alvo_uid**: ifLpa0OgkXk5px
+              - **pontos_uids**:
+                - AiMk0Gs2gbO6gP
               - **escalada**: Porto Seguro
               - **ids**:
-                - 2
+                - AiMk0Gs2gbO6gP
             - **[2]**:
+              - **alvo_uid**: j1WimvhcUUp2HC
+              - **pontos_uids**:
+                - daeJ3v1ykxDcH5
               - **escalada**: Rota das Âncoras
               - **ids**:
-                - 3
+                - daeJ3v1ykxDcH5
             - **[3]**:
+              - **alvo_uid**: 1CWrv3dUdqlm4Q
+              - **pontos_uids**:
+                - Ym147IYIO78UeB
               - **escalada**: O Retorno das Abelhas
               - **ids**:
-                - 4
+                - Ym147IYIO78UeB
             - **[4]**:
+              - **alvo_uid**: J0Uz1hbcLo7T2m
+              - **pontos_uids**:
+                - gvsayeTP8b6NNA
               - **escalada**: Chaminé dos Militares
               - **ids**:
-                - 5
+                - gvsayeTP8b6NNA
             - **[5]**:
+              - **alvo_uid**: 1NmD2i60P71wEd
+              - **pontos_uids**:
+                - yC8SZ7voXMi0eK
               - **escalada**: Os Iluminados
               - **ids**:
-                - 6
+                - yC8SZ7voXMi0eK
             - **[6]**:
+              - **alvo_uid**: EDq6ou05loNIcu
+              - **pontos_uids**:
+                - 2ODca2sbfLSEPC
               - **escalada**: Alta Tensão
               - **ids**:
-                - 7
+                - 2ODca2sbfLSEPC
             - **[7]**:
+              - **alvo_uid**: H1eyqF1sFbTcry
+              - **pontos_uids**:
+                - ElCi1nttS8qGIQ
               - **escalada**: Esquina da Alegria
               - **ids**:
-                - 8
+                - ElCi1nttS8qGIQ
             - **[8]**:
+              - **alvo_uid**: nHUi37zFgAR4vt
+              - **pontos_uids**:
+                - XS0T32jXw9o4Iz
               - **escalada**: Briga de Espadas
               - **ids**:
-                - 9
+                - XS0T32jXw9o4Iz
             - **[9]**:
+              - **alvo_uid**: QWhl1b4jnJRF9H
+              - **pontos_uids**:
+                - 8sX00WlmRRlPwL
               - **setor**: Rota Interna
               - **ids**:
-                - setor_rota_interna
+                - 8sX00WlmRRlPwL
             - **[10]**:
-              - **ids**:
-                - 19
-              - **grupo**: Três Pontões (CEMONTA)
-              - **setor**: Pontão Menor - Face Norte (Área da Guerra e Paz)
+              - **alvo_uid**: 5Ncp7kfdgzL87M
+              - **pontos_uids**:
+                - e3ZlL4tkE9wdsg
               - **escalada**: Tempos de Guerra
+              - **ids**:
+                - e3ZlL4tkE9wdsg
       - **escaladas**:
         - **[0]**:
+          - **uid**: a5Oc0ewZ9NeK3R
           - **via_movel**:
             - **descricao**: Via curta e fácil, indicada para quem está iniciando na escalada móvel.
             - **nome**: Consolo
@@ -607,6 +732,7 @@
               - Miguel Athayde
             - **data_abertura**: 1990-02-24
         - **[1]**:
+          - **uid**: ifLpa0OgkXk5px
           - **via_movel**:
             - **descricao**: Via em um belo sistema de fendas. Começa um pouco mais técnica e depois segue por boas agarras.
             - **nome**: Porto Seguro
@@ -617,6 +743,7 @@
               - Douglas Marques
             - **data_abertura**: 2021-10-09
         - **[2]**:
+          - **uid**: j1WimvhcUUp2HC
           - **via_movel**:
             - **descricao**: Esta é a melhor opção para se chegar ao cume do Pontão Menor, para montar top-rope nas vias deste setor, pois além de curta e de baixa graduação, possui duas proteções fixas intermediando a linha.
             - **nome**: Rota das Âncoras
@@ -627,6 +754,7 @@
               - Escaladores Militares
             - **data_abertura**: 1984-07-26
         - **[3]**:
+          - **uid**: 1CWrv3dUdqlm4Q
           - **via_movel**:
             - **descricao**: Ótima via que tem seu crux e beleza logo na saída. Em sua metade cruza com a via anterior e segue para a esquerda com boas agarras até o cume. Boa proteção em friends pequenos e médios e nuts.
             - **nome**: O Retorno das Abelhas
@@ -638,12 +766,14 @@
               - Lúcia Duarte
             - **data_abertura**: 1984
         - **[4]**:
+          - **uid**: J0Uz1hbcLo7T2m
           - **via_movel**:
             - **descricao**: Pequena e fácil chaminé que pode ser feita em top-rope.
             - **nome**: Chaminé dos Militares
             - **dificuldade**: BR_3
             - **extensao**: 20
         - **[5]**:
+          - **uid**: 1NmD2i60P71wEd
           - **via_esportiva**:
             - **descricao**: Aresta de visual incrível, inicia em regletes potentes e pés altos, passando a agarras escondidas. Entre a segunda e terceira chapa é o crux com lances delicados e potentes.
             - **nome**: Os Iluminados
@@ -654,6 +784,7 @@
               - Pablo Veloso
             - **data_abertura**: 2021-09-02
         - **[6]**:
+          - **uid**: EDq6ou05loNIcu
           - **via_movel**:
             - **descricao**: Via muito bonita, porém exposta e de difícil proteção em seu início onde se encontra o crux, conferindo ao guia uma boa dose de alta tensão! Depois é desfrutar de uma boa fenda e agarras grandes.
             - **nome**: Alta Tensão
@@ -665,6 +796,7 @@
               - Lúcia Duarte
             - **data_abertura**: 1984-07-22
         - **[7]**:
+          - **uid**: H1eyqF1sFbTcry
           - **via_esportiva**:
             - **descricao**: Via que intercala grampos e pittons fixos. Após a virada da aresta, vai por uma horizontal até uma chaminé ao fundo, por onde segue até o cume.
             - **nome**: Esquina da Alegria
@@ -673,6 +805,7 @@
             - **conquistadores**:
               - Escaladores Militares
         - **[8]**:
+          - **uid**: nHUi37zFgAR4vt
           - **via_movel**:
             - **descricao**: Via exposta. Sua saída não é complicada, mas a primeira proteção é alta em uma fenda onde fica o crux. Logo deve-se passar para uma outra fenda mais à esquerda e segue por ela até o cume.
             - **nome**: Briga de Espadas
@@ -691,6 +824,7 @@
           
           *Vivianne Sawczuk na Variante Teto da Guerra e Paz*
       - **nome**: Pontão Menor - Face Norte (Área da Guerra e Paz)
+      - **uid**: esQ4FNEDN9ZOp5
       - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/grupo_tres_pontoes_setor_pontao_menor_face_norte_p1_i2.webp)
       - **mapas**:
         - **[0]**:
@@ -699,141 +833,201 @@
           - **altura_mapa**: 1147
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 8
-              - **label**: 8
+              - **id**: h5dGvxNWyNmm4j
+              - **uid**: h5dGvxNWyNmm4j
+              - **rotulo**: 8
               - **circulo**:
                 - **x**: 216
                 - **y**: 670
                 - **raio**: 25
+              - **label**: 8
             - **[1]**:
-              - **id**: 10
-              - **label**: 10
+              - **id**: QacNrFge82hPiB
+              - **uid**: QacNrFge82hPiB
+              - **rotulo**: 10
               - **circulo**:
                 - **x**: 263
                 - **y**: 940
                 - **raio**: 29
+              - **label**: 10
             - **[2]**:
-              - **id**: 11
-              - **label**: 11
+              - **id**: 3JPfUvjJm2Xxpn
+              - **uid**: 3JPfUvjJm2Xxpn
+              - **rotulo**: 11
               - **circulo**:
                 - **x**: 343
                 - **y**: 951
                 - **raio**: 27
+              - **label**: 11
             - **[3]**:
-              - **id**: 12
-              - **label**: 12
+              - **id**: sI1ez3bbVDJkwc
+              - **uid**: sI1ez3bbVDJkwc
+              - **rotulo**: 12
               - **circulo**:
                 - **x**: 397
                 - **y**: 945
                 - **raio**: 27
+              - **label**: 12
             - **[4]**:
-              - **id**: 13
-              - **label**: 13
+              - **id**: iqYVc3ftAfvaie
+              - **uid**: iqYVc3ftAfvaie
+              - **rotulo**: 13
               - **circulo**:
                 - **x**: 428
                 - **y**: 882
                 - **raio**: 29
+              - **label**: 13
             - **[5]**:
-              - **id**: 14
-              - **label**: 14
+              - **id**: MmdoBGnX75jSBo
+              - **uid**: MmdoBGnX75jSBo
+              - **rotulo**: 14
               - **circulo**:
                 - **x**: 464
                 - **y**: 938
                 - **raio**: 30
+              - **label**: 14
             - **[6]**:
-              - **id**: 15
-              - **label**: 15
+              - **id**: S86NzyTrTF1yWK
+              - **uid**: S86NzyTrTF1yWK
+              - **rotulo**: 15
               - **circulo**:
                 - **x**: 535
                 - **y**: 942
                 - **raio**: 27
+              - **label**: 15
             - **[7]**:
-              - **id**: 16
-              - **label**: 16
+              - **id**: gzhO2kTbVDi9Wu
+              - **uid**: gzhO2kTbVDi9Wu
+              - **rotulo**: 16
               - **circulo**:
                 - **x**: 595
                 - **y**: 943
                 - **raio**: 28
+              - **label**: 16
             - **[8]**:
-              - **id**: 17
-              - **label**: 17
+              - **id**: edydkAH4qjToWk
+              - **uid**: edydkAH4qjToWk
+              - **rotulo**: 17
               - **circulo**:
                 - **x**: 656
                 - **y**: 1039
                 - **raio**: 28
+              - **label**: 17
             - **[9]**:
-              - **id**: 18
-              - **label**: 18
+              - **id**: iMgab9rr2GDXtU
+              - **uid**: iMgab9rr2GDXtU
+              - **rotulo**: 18
               - **circulo**:
                 - **x**: 780
                 - **y**: 1031
                 - **raio**: 29
+              - **label**: 18
             - **[10]**:
-              - **id**: 19
-              - **label**: 19
+              - **id**: ZiK0Z4TMEPbU3C
+              - **uid**: ZiK0Z4TMEPbU3C
+              - **rotulo**: 19
               - **circulo**:
                 - **x**: 876
                 - **y**: 989
                 - **raio**: 29
+              - **label**: 19
             - **[11]**:
-              - **id**: 20
-              - **label**: 20
+              - **id**: 8nQ94pUiwkmybO
+              - **uid**: 8nQ94pUiwkmybO
+              - **rotulo**: 20
               - **circulo**:
                 - **x**: 255
                 - **y**: 399
                 - **raio**: 31
+              - **label**: 20
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: H1eyqF1sFbTcry
+              - **pontos_uids**:
+                - h5dGvxNWyNmm4j
               - **escalada**: Esquina da Alegria
               - **ids**:
-                - 8
-              - **setor**: Pontão Menor - Face Leste (Área da Esquina da Alegria)
+                - h5dGvxNWyNmm4j
             - **[1]**:
+              - **alvo_uid**: RBHKmxFYp7XgyI
+              - **pontos_uids**:
+                - QacNrFge82hPiB
               - **escalada**: Rosa de Hiroshima
               - **ids**:
-                - 10
+                - QacNrFge82hPiB
             - **[2]**:
+              - **alvo_uid**: xLtZZxuggg8R0q
+              - **pontos_uids**:
+                - 3JPfUvjJm2Xxpn
               - **escalada**: Feitiço Irreversível
               - **ids**:
-                - 11
+                - 3JPfUvjJm2Xxpn
             - **[3]**:
+              - **alvo_uid**: D94iMhPOI2XdH5
+              - **pontos_uids**:
+                - sI1ez3bbVDJkwc
               - **escalada**: Dois Bruxos e Uma Feiticeira
               - **ids**:
-                - 12
+                - sI1ez3bbVDJkwc
             - **[4]**:
+              - **alvo_uid**: z8n5DB8ndi5eii
+              - **pontos_uids**:
+                - iqYVc3ftAfvaie
               - **escalada**: Spartacus
               - **ids**:
-                - 13
+                - iqYVc3ftAfvaie
             - **[5]**:
+              - **alvo_uid**: uw4N8al8drNvDw
+              - **pontos_uids**:
+                - MmdoBGnX75jSBo
               - **escalada**: Rubycon
               - **ids**:
-                - 14
+                - MmdoBGnX75jSBo
             - **[6]**:
+              - **alvo_uid**: 5N9CGfdnyvJOZg
+              - **pontos_uids**:
+                - S86NzyTrTF1yWK
               - **escalada**: Variante da Rubycon
               - **ids**:
-                - 15
+                - S86NzyTrTF1yWK
             - **[7]**:
+              - **alvo_uid**: BAcot5zBcZggD4
+              - **pontos_uids**:
+                - gzhO2kTbVDi9Wu
               - **escalada**: Variante Teto da Guerra e Paz
               - **ids**:
-                - 16
+                - gzhO2kTbVDi9Wu
             - **[8]**:
+              - **alvo_uid**: HSMZ9QG4YjIZWy
+              - **pontos_uids**:
+                - edydkAH4qjToWk
               - **escalada**: Guerra e Paz
               - **ids**:
-                - 17
+                - edydkAH4qjToWk
             - **[9]**:
+              - **alvo_uid**: so6ZRPHt1SIMt9
+              - **pontos_uids**:
+                - iMgab9rr2GDXtU
               - **escalada**: Tempos de Paz
               - **ids**:
-                - 18
+                - iMgab9rr2GDXtU
             - **[10]**:
+              - **alvo_uid**: 5Ncp7kfdgzL87M
+              - **pontos_uids**:
+                - ZiK0Z4TMEPbU3C
               - **escalada**: Tempos de Guerra
               - **ids**:
-                - 19
+                - ZiK0Z4TMEPbU3C
             - **[11]**:
+              - **alvo_uid**: vrmqM3q4kQ4JNc
+              - **pontos_uids**:
+                - 8nQ94pUiwkmybO
               - **escalada**: Rei Leônidas
               - **ids**:
-                - 20
+                - 8nQ94pUiwkmybO
       - **escaladas**:
         - **[0]**:
+          - **uid**: RBHKmxFYp7XgyI
           - **via_movel**:
             - **descricao**: Tem uma saída em móvel com proteções escassas. Depois encontra com a Esquina da Alegria e segue pelo grande platô com proteções fixas. Após alguns lances em horizontal deve-se ir pra direita e pegar a outra face da rocha seguindo por uma fenda óbvia. Enquanto que a Esquina segue para a grande fenda ao fundo.
             - **nome**: Rosa de Hiroshima
@@ -844,6 +1038,7 @@
               - Lúcia Duarte
             - **data_abertura**: 1986-05-02
         - **[1]**:
+          - **uid**: xLtZZxuggg8R0q
           - **via_esportiva**:
             - **descricao**: Via esportiva com saída em pequenos regletes, passa por um platô pra descanso e segue até parada dupla.
             - **nome**: Feitiço Irreversível
@@ -855,6 +1050,7 @@
               - Marcio Douglas
             - **data_abertura**: 2021-11-07
         - **[2]**:
+          - **uid**: D94iMhPOI2XdH5
           - **via_esportiva**:
             - **descricao**: Situada no pontão mais frequentado, é uma linha que impressiona, seja por lances de força ou por passadas técnicas. Um começo de regletes potentes tijolam os braços se não decifrar os lances rapidamente, até uma virada habilidosa para chegar no platô, onde se pode relaxar. Eis que chega na segunda parte da via e mais delicada, passadas técnicas com apertâncias certeiras, seja em regletes ou pinças. São 9 chapas ao todo.
             - **nome**: Dois Bruxos e Uma Feiticeira
@@ -867,6 +1063,7 @@
               - Aline Nascimento
             - **data_abertura**: 2021-08-28
         - **[3]**:
+          - **uid**: z8n5DB8ndi5eii
           - **via_movel**:
             - **descricao**: Tem seu início na fenda larga ao lado do grande teto, onde Camalots 5 e 6 ajudam a proteger melhor. Depois segue para a esquerda, cruza com a Rosa de Hiroshima e segue por uma bonita fenda até o cume.
             - **nome**: Spartacus
@@ -878,6 +1075,7 @@
             - **data_abertura**: 1984-04-26
             - **protecoes_moveis**: Camalots
         - **[4]**:
+          - **uid**: uw4N8al8drNvDw
           - **via_movel**:
             - **descricao**: Tem a mesma saída da via anterior, mas logo pega a fenda à direita. Mais na parte final, em um platô, seguir para a esquerda cruzando um outro platô com vegetação.
             - **nome**: Rubycon
@@ -888,11 +1086,13 @@
               - Lúcia Duarte
             - **data_abertura**: 1984-07-22
         - **[5]**:
+          - **uid**: 5N9CGfdnyvJOZg
           - **via_movel**:
             - **descricao**: Saída negativa no início do grande teto. Porém segue reto ao invés da diagonal da via à seguir.
             - **nome**: Variante da Rubycon
             - **dificuldade**: BR_7B
         - **[6]**:
+          - **uid**: BAcot5zBcZggD4
           - **via_movel**:
             - **descricao**: Interessante horizontal, com boas proteções em friends pequenos, médios e nuts, além de dois pitons e um grampo, cruzando todo o grande teto por baixo. Ao término do teto, logo após virar a aresta, há uma parada dupla onde se junta com a via original. Possibilita realizar fotos incríveis.
             - **nome**: Variante Teto da Guerra e Paz
@@ -902,6 +1102,7 @@
             - **quantidade_protecoes_parada**: 2
             - **protecoes_moveis**: Friends pequenos, médios e nuts
         - **[7]**:
+          - **uid**: HSMZ9QG4YjIZWy
           - **via_movel**:
             - **descricao**: Sua base é bem abaixo das vias anteriores, descendo pela trilha principal. Sua saída fica entre duas rochas e segue em diagonal pra direita, abaixo do teto até a parada dupla. Porém esta primeira parte caiu um pouco em desuso, pois sua variante tem sido mais usada. Após a parada a via segue levemente para a esquerda em um sistema de fendas que impressiona pela qualidade, onde se encontra o crux. 1 jogo nuts/1 jg camalot até
             - **nome**: Guerra e Paz
@@ -915,6 +1116,7 @@
             - **data_abertura**: 1998-05-02
             - **protecoes_moveis**: 1 jogo de nuts, 1 jogo de camalots até
         - **[8]**:
+          - **uid**: so6ZRPHt1SIMt9
           - **via_esportiva**:
             - **descricao**: Linha que segue um sistema de agarras escorridas e batentes, passando a agarras grandes. Uma linha totalmente reta que emenda na parada da Guerra e Paz, podendo assim chegar ao cume em um único esticão. Sua base fica ao lado da trilha principal e as primeiras chapas são facilmente vistas por quem passa.
             - **nome**: Tempos de Paz
@@ -925,6 +1127,7 @@
               - Michel Rodrigues
             - **data_abertura**: 2018
         - **[9]**:
+          - **uid**: 5Ncp7kfdgzL87M
           - **via_esportiva**:
             - **descricao**: Outra via que se junta na parada da Guerra e Paz. Via esportiva clássica por sua variação de estilo e beleza. Saída em lances de negativo e no meio toca para a linda aresta onde muda o estilo pra positivo de equilíbrio.
             - **nome**: Tempos de Guerra
@@ -935,6 +1138,7 @@
               - Michel Rodrigues
             - **data_abertura**: 2022-04
         - **[10]**:
+          - **uid**: vrmqM3q4kQ4JNc
           - **via_movel**:
             - **descricao**: Variante da Spartacus. Na parte final vira a aresta e termina na Face Leste.
             - **nome**: Rei Leônidas
@@ -956,6 +1160,7 @@
           | :--: |
           | *Tonico Magalhães conquistando a Dança Macabra* |
       - **nome**: Pontão Menor – Face Oeste (Cantinho - Dança Macabra)
+      - **uid**: FZGuP8tuqqHp9x
       - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/grupo_tres_pontoes_setor_pontao_menor_face_oeste_p1_i2.webp)
       - **mapas**:
         - **[0]**:
@@ -964,129 +1169,185 @@
           - **altura_mapa**: 2110
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 20
-              - **label**: 20
+              - **id**: RkYFWFuYyxkdFv
+              - **uid**: RkYFWFuYyxkdFv
+              - **rotulo**: 20
               - **circulo**:
                 - **x**: 320
                 - **y**: 2016
                 - **raio**: 82
+              - **label**: 20
             - **[1]**:
-              - **id**: 21
-              - **label**: 21
+              - **id**: N4rshwV0IUYAso
+              - **uid**: N4rshwV0IUYAso
+              - **rotulo**: 21
               - **circulo**:
                 - **x**: 697
                 - **y**: 1868
                 - **raio**: 82
+              - **label**: 21
             - **[2]**:
-              - **id**: 22
-              - **label**: 22
+              - **id**: eoWm0CKR73XfwA
+              - **uid**: eoWm0CKR73XfwA
+              - **rotulo**: 22
               - **circulo**:
                 - **x**: 860
                 - **y**: 1994
                 - **raio**: 82
+              - **label**: 22
             - **[3]**:
-              - **id**: 23
-              - **label**: 23
+              - **id**: cIaeV2r5Z98yBS
+              - **uid**: cIaeV2r5Z98yBS
+              - **rotulo**: 23
               - **circulo**:
                 - **x**: 1042
                 - **y**: 1956
                 - **raio**: 82
+              - **label**: 23
             - **[4]**:
-              - **id**: 24
-              - **label**: 24
+              - **id**: itgWwA7RRnoaA9
+              - **uid**: itgWwA7RRnoaA9
+              - **rotulo**: 24
               - **circulo**:
                 - **x**: 1132
                 - **y**: 1817
                 - **raio**: 77
+              - **label**: 24
             - **[5]**:
-              - **id**: 25
-              - **label**: 25
+              - **id**: ZBEf0EOWyuAvzH
+              - **uid**: ZBEf0EOWyuAvzH
+              - **rotulo**: 25
               - **circulo**:
                 - **x**: 1268
                 - **y**: 1751
                 - **raio**: 75
+              - **label**: 25
             - **[6]**:
-              - **id**: 26
-              - **label**: 26
+              - **id**: EHTxzH5A3WH5qe
+              - **uid**: EHTxzH5A3WH5qe
+              - **rotulo**: 26
               - **circulo**:
                 - **x**: 1424
                 - **y**: 1688
                 - **raio**: 79
+              - **label**: 26
             - **[7]**:
-              - **id**: 27
-              - **label**: 27
+              - **id**: EqIa8tLZykrXBN
+              - **uid**: EqIa8tLZykrXBN
+              - **rotulo**: 27
               - **circulo**:
                 - **x**: 1455
                 - **y**: 1317
                 - **raio**: 82
+              - **label**: 27
             - **[8]**:
-              - **id**: 28
-              - **label**: 28
+              - **id**: wjMMbxUss3LLjr
+              - **uid**: wjMMbxUss3LLjr
+              - **rotulo**: 28
               - **circulo**:
                 - **x**: 1585
                 - **y**: 1668
                 - **raio**: 77
+              - **label**: 28
             - **[9]**:
-              - **id**: 29
-              - **label**: 29
+              - **id**: 47V9S05m3kk1kX
+              - **uid**: 47V9S05m3kk1kX
+              - **rotulo**: 29
               - **circulo**:
                 - **x**: 1378
                 - **y**: 392
                 - **raio**: 82
+              - **label**: 29
             - **[10]**:
-              - **id**: 30
-              - **label**: 30
+              - **id**: 3q7jI1r7jxCyPH
+              - **uid**: 3q7jI1r7jxCyPH
+              - **rotulo**: 30
               - **circulo**:
                 - **x**: 1604
                 - **y**: 328
                 - **raio**: 82
+              - **label**: 30
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: GQIoffvFbH5c0U
+              - **pontos_uids**:
+                - RkYFWFuYyxkdFv
               - **escalada**: Sublime Inconsequência
               - **ids**:
-                - 20
+                - RkYFWFuYyxkdFv
             - **[1]**:
+              - **alvo_uid**: KspwsKtd3rF7vo
+              - **pontos_uids**:
+                - N4rshwV0IUYAso
               - **escalada**: Chaminé do Lenheiro
               - **ids**:
-                - 21
+                - N4rshwV0IUYAso
             - **[2]**:
+              - **alvo_uid**: L2dyjqHSKTTCmp
+              - **pontos_uids**:
+                - eoWm0CKR73XfwA
               - **escalada**: Velho Gafanhoto
               - **ids**:
-                - 22
+                - eoWm0CKR73XfwA
             - **[3]**:
+              - **alvo_uid**: 2j1mBGzo4CSUxq
+              - **pontos_uids**:
+                - cIaeV2r5Z98yBS
               - **escalada**: Jovem Gafanhoto
               - **ids**:
-                - 23
+                - cIaeV2r5Z98yBS
             - **[4]**:
+              - **alvo_uid**: KKz4CPZGmoocVO
+              - **pontos_uids**:
+                - itgWwA7RRnoaA9
               - **escalada**: Pitelzinho Apimentado
               - **ids**:
-                - 24
+                - itgWwA7RRnoaA9
             - **[5]**:
+              - **alvo_uid**: paDq1IqUro5t2s
+              - **pontos_uids**:
+                - ZBEf0EOWyuAvzH
               - **escalada**: Dança Macabra
               - **ids**:
-                - 25
+                - ZBEf0EOWyuAvzH
             - **[6]**:
+              - **alvo_uid**: XMD5WSSv5ZOaj7
+              - **pontos_uids**:
+                - EHTxzH5A3WH5qe
               - **escalada**: No Limite
               - **ids**:
-                - 26
+                - EHTxzH5A3WH5qe
             - **[7]**:
+              - **alvo_uid**: HiyHr9TmE8ncwe
+              - **pontos_uids**:
+                - EqIa8tLZykrXBN
               - **escalada**: Sangue Frio
               - **ids**:
-                - 27
+                - EqIa8tLZykrXBN
             - **[8]**:
+              - **alvo_uid**: v2LFpfev1WqKZ3
+              - **pontos_uids**:
+                - wjMMbxUss3LLjr
               - **escalada**: Sonho de Valsa
               - **ids**:
-                - 28
+                - wjMMbxUss3LLjr
             - **[9]**:
+              - **alvo_uid**: 4gYD3G9I4kE4CX
+              - **pontos_uids**:
+                - 47V9S05m3kk1kX
               - **escalada**: Barbatana
               - **ids**:
-                - 29
+                - 47V9S05m3kk1kX
             - **[10]**:
+              - **alvo_uid**: C9xzsW8pEoIGV8
+              - **pontos_uids**:
+                - 3q7jI1r7jxCyPH
               - **escalada**: Roubadas
               - **ids**:
-                - 30
+                - 3q7jI1r7jxCyPH
       - **escaladas**:
         - **[0]**:
+          - **uid**: GQIoffvFbH5c0U
           - **via_movel**:
             - **descricao**: Inicia em uma linda fissura de dedos, levemente positiva e bem lisa, exige uma boa experiencia nesse tipo de escalada. Essa primeira parte termina em um grampo, pois a conquista original de 1987 foi só até ali. Apenas em 1995, a via ganhou seu “upgrade”, indo até o topo. Nesta segunda parte, após contornar o teto pela esquerda, a via segue por um diedro com fenda mais larga até o cume.
             - **nome**: Sublime Inconsequência
@@ -1099,6 +1360,7 @@
               - Ronaldo Franzen "Nativo"
             - **data_abertura**: 1987
         - **[1]**:
+          - **uid**: KspwsKtd3rF7vo
           - **via_movel**:
             - **descricao**: Chaminé de baixa graduação, que inicia média e torna-se larga no final. Em sua metade, há um bloco de pedra entalado e ao final deve-se passar por dentro de um buraco.
             - **nome**: Chaminé do Lenheiro
@@ -1109,6 +1371,7 @@
               - Tonico Magalhães
             - **data_abertura**: 1984-04-26
         - **[2]**:
+          - **uid**: L2dyjqHSKTTCmp
           - **via_esportiva**:
             - **descricao**: Via com uma saída bem técnica e negativo no final ainda sem cadena até a data desta edição.
             - **nome**: Velho Gafanhoto
@@ -1119,6 +1382,7 @@
               - Lucas Hostalácio
             - **data_abertura**: 2024-04
         - **[3]**:
+          - **uid**: 2j1mBGzo4CSUxq
           - **via_esportiva**:
             - **descricao**: Via longa com movimentação bem variada. Saída vertical, depois faz um contorno pra esquerda onde compartilha um grampo com suas duas vizinhas, seguido do crux em uma barriga delicada, logo após pega pra direita novamente em um rampado de equilíbrio até atingir o negativo final com ótimas agarras.
             - **nome**: Jovem Gafanhoto
@@ -1129,6 +1393,7 @@
               - Lucas Hostalácio
             - **data_abertura**: 2024-04
         - **[4]**:
+          - **uid**: KKz4CPZGmoocVO
           - **via_movel**:
             - **descricao**: Possui seu trecho mais fácil no meio, mas as proteções são escassas, tornando a exposição alta. Possui um grampo para aliviar a tensão, ainda no início. 1 jogo de nuts, friends médios e pequenos.
             - **nome**: Pitelzinho Apimentado
@@ -1141,6 +1406,7 @@
               - Flávio Daflon
               - Cintia Daflon
         - **[5]**:
+          - **uid**: paDq1IqUro5t2s
           - **via_movel**:
             - **descricao**:
                 Considerada uma das vias mais clássica do Cemonta, consta no livro “50 vias clássicas no Brasil”. Uma linda fissura que inicia na base e segue até o cume. O crux que está em sua metade após o platô, foi conquistada contornando-o pela esquerda, mas tem sido repetida tocando reto pela fenda óbvia devido sua beleza. 1 jogo de nuts e 1 de friends do .3 ao 4
@@ -1156,6 +1422,7 @@
               - André Ilha
             - **data_abertura**: 1984-04-27
         - **[6]**:
+          - **uid**: XMD5WSSv5ZOaj7
           - **via_esportiva**:
             - **descricao**: Via que começa na mesma face à direita da Dança Macabra e no meio vira pro outro lado da aresta onde segue até o final. Diferente do padrão local, seu estilo positivo de equilíbrio com poucas agarras exige bom trabalho de pés, lembrando vias de parede. 9+2
             - **nome**: No Limite
@@ -1170,6 +1437,7 @@
               - Jefferson Lara
             - **data_abertura**: 2023-03-12
         - **[7]**:
+          - **uid**: HiyHr9TmE8ncwe
           - **via_esportiva**:
             - **descricao**: Saída utiliza um grampo amarelo para atingir o platô, depois passa para a face à esquerda. 9+2 chapas.
             - **nome**: Sangue Frio
@@ -1182,6 +1450,7 @@
               - Gabriel Defelippe (Ripa)
             - **data_abertura**: 2023-03-19
         - **[8]**:
+          - **uid**: v2LFpfev1WqKZ3
           - **via_movel**:
             - **descricao**: Conquistada em solo. Inicia em agarras, até alcançar a fissura que leva ao topo. Friends médios e grandes.
             - **nome**: Sonho de Valsa
@@ -1192,6 +1461,7 @@
               - André Ilha
             - **data_abertura**: 1984-04-27
         - **[9]**:
+          - **uid**: 4gYD3G9I4kE4CX
           - **via_esportiva**:
             - **descricao**: Via esportiva mais fácil do Cemonta, ótima para iniciantes tanto de top-rope quanto para aprender a guiar. Variante da via à seguir, se separam no platô, esta segue por uma aresta ao fundo e termina no mesmo top.
             - **nome**: Barbatana
@@ -1202,6 +1472,7 @@
               - Lucas Agostini
             - **data_abertura**: 2024-04-13
         - **[10]**:
+          - **uid**: C9xzsW8pEoIGV8
           - **via_esportiva**:
             - **descricao**: Via que compartilha a mesma saída das três anteriores, porém no platô vai pra face da direita, terminando na torre de rocha ao fundo. Possui movimentação variada, alterna partes de negativo com lances de equilíbrio. Seu crux favorece quem é mais alto, por isso os baixos tendem a achar um pouco mais difícil. 8+2.
             - **nome**: Roubadas
@@ -1228,6 +1499,7 @@
           | :--: |
           | *André Ilha conquistando a Sinfonia Fantástica* |
       - **nome**: Pontão Médio
+      - **uid**: rQOLkqflM8EZQY
       - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/grupo_tres_pontoes_setor_pontao_medio_p1_i2.webp)
       - **mapas**:
         - **[0]**:
@@ -1236,209 +1508,296 @@
           - **altura_mapa**: 1273
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 1
-              - **label**: 1
+              - **id**: YlCT9fJsM84y36
+              - **uid**: YlCT9fJsM84y36
+              - **rotulo**: 1
               - **circulo**:
                 - **x**: 280
                 - **y**: 924
                 - **raio**: 34
+              - **label**: 1
             - **[1]**:
-              - **id**: 2
-              - **label**: 2
+              - **id**: traxtRSaqe1rNJ
+              - **uid**: traxtRSaqe1rNJ
+              - **rotulo**: 2
               - **circulo**:
                 - **x**: 351
                 - **y**: 864
                 - **raio**: 33
+              - **label**: 2
             - **[2]**:
-              - **id**: 3
-              - **label**: 3
+              - **id**: nHegFgLzUwx48r
+              - **uid**: nHegFgLzUwx48r
+              - **rotulo**: 3
               - **circulo**:
                 - **x**: 416
                 - **y**: 863
                 - **raio**: 33
+              - **label**: 3
             - **[3]**:
-              - **id**: 4
-              - **label**: 4
+              - **id**: XEtvtEklPmHeOZ
+              - **uid**: XEtvtEklPmHeOZ
+              - **rotulo**: 4
               - **circulo**:
                 - **x**: 486
                 - **y**: 973
                 - **raio**: 35
+              - **label**: 4
             - **[4]**:
-              - **id**: 5
-              - **label**: 5
+              - **id**: huGyyQK8hhoRSB
+              - **uid**: huGyyQK8hhoRSB
+              - **rotulo**: 5
               - **circulo**:
                 - **x**: 577
                 - **y**: 970
                 - **raio**: 34
+              - **label**: 5
             - **[5]**:
-              - **id**: 6
-              - **label**: 6
+              - **id**: c23c1EcOTdiSyv
+              - **uid**: c23c1EcOTdiSyv
+              - **rotulo**: 6
               - **circulo**:
                 - **x**: 592
                 - **y**: 823
                 - **raio**: 33
+              - **label**: 6
             - **[6]**:
-              - **id**: 7
-              - **label**: 7
+              - **id**: 6b3VoR1g8UMdvw
+              - **uid**: 6b3VoR1g8UMdvw
+              - **rotulo**: 7
               - **circulo**:
                 - **x**: 675
                 - **y**: 665
                 - **raio**: 33
+              - **label**: 7
             - **[7]**:
-              - **id**: 8
-              - **label**: 8
+              - **id**: ZtVbvq3fjdywvb
+              - **uid**: ZtVbvq3fjdywvb
+              - **rotulo**: 8
               - **circulo**:
                 - **x**: 639
                 - **y**: 1010
                 - **raio**: 31
+              - **label**: 8
             - **[8]**:
-              - **id**: 9
-              - **label**: 9
+              - **id**: RVd9k0mgRxMlPt
+              - **uid**: RVd9k0mgRxMlPt
+              - **rotulo**: 9
               - **circulo**:
                 - **x**: 1019
                 - **y**: 1075
                 - **raio**: 34
+              - **label**: 9
             - **[9]**:
-              - **id**: 10
-              - **label**: 10
+              - **id**: WnZq3IAtJB17PB
+              - **uid**: WnZq3IAtJB17PB
+              - **rotulo**: 10
               - **circulo**:
                 - **x**: 1070
                 - **y**: 691
                 - **raio**: 42
+              - **label**: 10
             - **[10]**:
-              - **id**: 11
-              - **label**: 11
+              - **id**: ucBrm7CoGnWfiM
+              - **uid**: ucBrm7CoGnWfiM
+              - **rotulo**: 11
               - **circulo**:
                 - **x**: 1146
                 - **y**: 1230
                 - **raio**: 39
+              - **label**: 11
             - **[11]**:
-              - **id**: 12
-              - **label**: 12
+              - **id**: ZPAG347fgIFSpH
+              - **uid**: ZPAG347fgIFSpH
+              - **rotulo**: 12
               - **circulo**:
                 - **x**: 1326
                 - **y**: 1239
                 - **raio**: 43
+              - **label**: 12
             - **[12]**:
-              - **id**: setor_danca_macabra
-              - **label**: Dança Macabra
+              - **id**: vunZd3HhNLzmdB
+              - **uid**: vunZd3HhNLzmdB
+              - **rotulo**: Dança Macabra
               - **retangulo**:
                 - **x**: 118
                 - **y**: 926
                 - **comprimento**: 200
                 - **largura**: 113
+              - **label**: Dança Macabra
             - **[13]**:
-              - **id**: 12_2
-              - **label**: 
+              - **id**: P0qTk6BfWHKI9y
+              - **uid**: P0qTk6BfWHKI9y
+              - **rotulo**: 
               - **circulo**:
                 - **x**: 1293
                 - **y**: 113
                 - **raio**: 44
               - **cor**: 
-            - **[14]**:
-              - **id**: 10_2
               - **label**: 
+            - **[14]**:
+              - **id**: kAVYqrNnLYpFd2
+              - **uid**: kAVYqrNnLYpFd2
+              - **rotulo**: 
               - **circulo**:
                 - **x**: 1258
                 - **y**: 496
                 - **raio**: 43
               - **cor**: 
+              - **label**: 
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: LmMe8Tc6qziHnw
+              - **pontos_uids**:
+                - YlCT9fJsM84y36
               - **escalada**: Vai Amanhecer
               - **ids**:
-                - 1
+                - YlCT9fJsM84y36
             - **[1]**:
+              - **alvo_uid**: jaxYPnpEY00Sqg
+              - **pontos_uids**:
+                - traxtRSaqe1rNJ
               - **escalada**: Indignação
               - **ids**:
-                - 2
+                - traxtRSaqe1rNJ
             - **[2]**:
+              - **alvo_uid**: DLvifcgkrNyj9K
+              - **pontos_uids**:
+                - nHegFgLzUwx48r
               - **escalada**: Nova Era
               - **ids**:
-                - 3
+                - nHegFgLzUwx48r
             - **[3]**:
+              - **alvo_uid**: 3pf3CyqobgCAXB
+              - **pontos_uids**:
+                - XEtvtEklPmHeOZ
               - **escalada**: Fissura Limites Invisíveis
               - **ids**:
-                - 4
+                - XEtvtEklPmHeOZ
             - **[4]**:
+              - **alvo_uid**: M4pNHpXwIMQ5pz
+              - **pontos_uids**:
+                - huGyyQK8hhoRSB
               - **escalada**: Esalianos
               - **ids**:
-                - 5
+                - huGyyQK8hhoRSB
             - **[5]**:
+              - **alvo_uid**: apAT5uQH8Ih7t7
+              - **pontos_uids**:
+                - c23c1EcOTdiSyv
               - **escalada**: Lua de Mel
               - **ids**:
-                - 6
+                - c23c1EcOTdiSyv
             - **[6]**:
+              - **alvo_uid**: D7Jfekfp3lcxvO
+              - **pontos_uids**:
+                - 6b3VoR1g8UMdvw
               - **escalada**: Livre Para Voar
               - **ids**:
-                - 7
+                - 6b3VoR1g8UMdvw
             - **[7]**:
+              - **alvo_uid**: ukW9GsuDoHfvxv
+              - **pontos_uids**:
+                - ZtVbvq3fjdywvb
               - **escalada**: Olhos de Águia
               - **ids**:
-                - 8
+                - ZtVbvq3fjdywvb
             - **[8]**:
+              - **alvo_uid**: sEnEGzxrCSlyI9
+              - **pontos_uids**:
+                - RVd9k0mgRxMlPt
               - **escalada**: Sinfonia Fantástica
               - **ids**:
-                - 9
+                - RVd9k0mgRxMlPt
             - **[9]**:
+              - **alvo_uid**: 2YEgxW3oDkNBuR
+              - **pontos_uids**:
+                - WnZq3IAtJB17PB
+                - kAVYqrNnLYpFd2
               - **escalada**: Vr. O Fantasma da Ópera
               - **ids**:
-                - 10
-                - 10_2
+                - WnZq3IAtJB17PB
+                - kAVYqrNnLYpFd2
             - **[10]**:
+              - **alvo_uid**: 70vNa1coN6FKBZ
+              - **pontos_uids**:
+                - ucBrm7CoGnWfiM
               - **escalada**: Ópera Selvagem
               - **ids**:
-                - 11
+                - ucBrm7CoGnWfiM
             - **[11]**:
+              - **alvo_uid**: oZLOe0dY4S37bb
+              - **pontos_uids**:
+                - ZPAG347fgIFSpH
+                - P0qTk6BfWHKI9y
               - **escalada**: Pânico na Colméia
               - **ids**:
-                - 12
-                - 12_2
+                - ZPAG347fgIFSpH
+                - P0qTk6BfWHKI9y
             - **[12]**:
+              - **alvo_uid**: FZGuP8tuqqHp9x
+              - **pontos_uids**:
+                - vunZd3HhNLzmdB
               - **setor**: Pontão Menor – Face Oeste (Cantinho - Dança Macabra)
               - **ids**:
-                - setor_danca_macabra
+                - vunZd3HhNLzmdB
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_tres_pontoes_setor_pontao_medio_p2_i2.webp)
           - **largura_mapa**: 1233
           - **altura_mapa**: 925
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 9
-              - **label**: 9
+              - **id**: ScZUaFUTpoUJcz
+              - **uid**: ScZUaFUTpoUJcz
+              - **rotulo**: 9
               - **circulo**:
                 - **x**: 428
                 - **y**: 852
                 - **raio**: 58
+              - **label**: 9
             - **[1]**:
-              - **id**: 10
-              - **label**: 10
+              - **id**: 1HWmJhW9mNsHpF
+              - **uid**: 1HWmJhW9mNsHpF
+              - **rotulo**: 10
               - **circulo**:
                 - **x**: 674
                 - **y**: 856
                 - **raio**: 64
+              - **label**: 10
             - **[2]**:
-              - **id**: 11
-              - **label**: 11
+              - **id**: i1EYaLm4Odr0OO
+              - **uid**: i1EYaLm4Odr0OO
+              - **rotulo**: 11
               - **circulo**:
                 - **x**: 928
                 - **y**: 881
                 - **raio**: 65
+              - **label**: 11
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: sEnEGzxrCSlyI9
+              - **pontos_uids**:
+                - ScZUaFUTpoUJcz
               - **escalada**: Sinfonia Fantástica
               - **ids**:
-                - 9
+                - ScZUaFUTpoUJcz
             - **[1]**:
+              - **alvo_uid**: 2YEgxW3oDkNBuR
+              - **pontos_uids**:
+                - 1HWmJhW9mNsHpF
               - **escalada**: Vr. O Fantasma da Ópera
               - **ids**:
-                - 10
+                - 1HWmJhW9mNsHpF
             - **[2]**:
+              - **alvo_uid**: 70vNa1coN6FKBZ
+              - **pontos_uids**:
+                - i1EYaLm4Odr0OO
               - **escalada**: Ópera Selvagem
               - **ids**:
-                - 11
+                - i1EYaLm4Odr0OO
       - **escaladas**:
         - **[0]**:
+          - **uid**: LmMe8Tc6qziHnw
           - **via_esportiva**:
             - **descricao**: Essa via é única deste setor que possui uma grande variedade de regletes. Passadas delicadas e técnicas em sua primeira parte até chegar a um platô, de onde se tem um grande visual. A segunda parte é a melhor, com uma saída de boulder e passadas precisas ditam o ritmo do jogo e dão o grau da via. Levar 10 costuras.
             - **nome**: Vai Amanhecer
@@ -1450,6 +1809,7 @@
               - Andréa Carvalho
             - **data_abertura**: 2020-03
         - **[1]**:
+          - **uid**: jaxYPnpEY00Sqg
           - **via_esportiva**:
             - **descricao**: Via sem cadena até a data de publicação desta edição. Saída ao lado esquerdo de uma fenda larga.
             - **nome**: Indignação
@@ -1460,6 +1820,7 @@
               - Douglas Marques
             - **data_abertura**: 2023-09-29
         - **[2]**:
+          - **uid**: DLvifcgkrNyj9K
           - **via_esportiva**:
             - **descricao**: Possui uma saída de boulder não tão óbvia, a escalada à vista pode dar uma impressão de maior dificuldade, regletes e agarras com passadas técnicas em sua parte final fazem dela uma clássica. 9 chapas e mais o top.
             - **nome**: Nova Era
@@ -1474,6 +1835,7 @@
               - Andréa Carvalho
             - **data_abertura**: 2020-03
         - **[3]**:
+          - **uid**: 3pf3CyqobgCAXB
           - **via_movel**:
             - **descricao**: Uma fenda larga em diagonal para a esquerda até um grande platô, onde segue pela esquerda da aresta.
             - **nome**: Fissura Limites Invisíveis
@@ -1484,6 +1846,7 @@
               - Tonico Magalhães
             - **data_abertura**: 1984-04-26
         - **[4]**:
+          - **uid**: M4pNHpXwIMQ5pz
           - **via_esportiva**:
             - **descricao**: Outra clássica, considerada a primeira via no estilo esportivo do Cemonta. Passadas em horizontal, lances delicados em equilíbrio e alguns esticões tornam esta via muito técnica e respeitada. Levar 12 costuras. Na mesma base sai outra via diagonal, a Olhos de Águia, logo abaixo da Esalianos, cuidado pra não confundi-las. Com corda de 70m é possível rapelar pela via e com corda de 60 melhor fazer cume e descer pela via Nova Era ou descer à pé pela parte de trás do pontão.
             - **nome**: Esalianos
@@ -1496,6 +1859,7 @@
               - Poeira
             - **data_abertura**: 1996
         - **[5]**:
+          - **uid**: apAT5uQH8Ih7t7
           - **via_movel**:
             - **descricao**: Linda via. Compartilha saída com Esalianos, com duas primeiras chapeletas em comum e sai para a esquerda, onde possui só mais uma chapa e depois segue por proteções móveis até o final. Sai por uma sequência de agarras, depois passa por um sistema de fendas de proteção mais complicada até chegar numa fenda maior.
             - **nome**: Lua de Mel
@@ -1508,6 +1872,7 @@
               - Beth Frechou
             - **data_abertura**: 2002
         - **[6]**:
+          - **uid**: D7Jfekfp3lcxvO
           - **via_esportiva**:
             - **descricao**: Está via é a mais exigente deste setor, com a saída compartilhada da Esalianos até a terceira chapa onde se toca totalmente reto, logo já se encontra o crux, movimentos precisos e explosivos e depois vai pegando na resistência, chapas espaçadas ditam a regra do jogo, característica que originou o nome.
             - **nome**: Livre Para Voar
@@ -1518,6 +1883,7 @@
               - Mauricio dos Santos
             - **data_abertura**: 2009
         - **[7]**:
+          - **uid**: ukW9GsuDoHfvxv
           - **via_esportiva**:
             - **descricao**: Linda via que corta todo o Pontão Médio. Saída em diagonal logo abaixo da Esalianos em lances de equilíbrio e depois segue reto até o platô, bom para um descanso. Logo vem um crux mais vertical e segue pela aresta direita deste Pontão. Termina junto com a via Esalianos. São 12 chapas e mais parada dupla, de onde pode-se descer de baldinho ou rapelar com corda de 70m. Com corda de 60 melhor fazer cume e descer pela via Nova Era ou descer à pé pela parte de trás do pontão.
             - **nome**: Olhos de Águia
@@ -1531,6 +1897,7 @@
               - Heider Ribeiro (Tio Nem)
             - **data_abertura**: 2024-02-13
         - **[8]**:
+          - **uid**: sEnEGzxrCSlyI9
           - **via_movel**:
             - **descricao**: Via que se inicia no grande platô da Opera Selvagem e pode ser acessado por um trepa pedras à esquerda. Após um início vertical, segue por uma fenda horizontal pra esquerda que depois faz um contorno e segue em diagonal pra direita até a aresta da Opera Selvagem.
             - **nome**: Sinfonia Fantástica
@@ -1541,6 +1908,7 @@
               - Flávio Wasniewski
             - **data_abertura**: 1997-04-21
         - **[9]**:
+          - **uid**: 2YEgxW3oDkNBuR
           - **via_movel**:
             - **descricao**: Mesma saída da via anterior, porém segue reto até o teto onde pega a fenda horizontal pra direita e vai até a grande fenda que divide os Pontões, por onde segue até a aresta do Pontão Médio encontrando com a via à seguir.
             - **nome**: Vr. O Fantasma da Ópera
@@ -1551,6 +1919,7 @@
               - Juliano Magalhães
             - **data_abertura**: 2004-03-20
         - **[10]**:
+          - **uid**: 70vNa1coN6FKBZ
           - **via_movel**:
             - **descricao**: Clássica pela beleza e facilidade, sua beleza encontra-se na metade onde passa por tetos alaranjados de agarras enormes, onde o som dos morcegos fazem entender o nome da via. 1 jogo de camalot até o
             - **nome**: Ópera Selvagem
@@ -1563,6 +1932,7 @@
               - Lúcia Duarte
             - **data_abertura**: 1984-07-25
         - **[11]**:
+          - **uid**: oZLOe0dY4S37bb
           - **via_movel**:
             - **descricao**: Inicia em um bonito diedro em diagonal para a esquerda, chegando à larga chaminé que corta praticamente toda a parede verticalmente. Porém tem sido evitada devido à uma grande colmeia de abelhas em seu início.
             - **nome**: Pânico na Colméia
@@ -1590,6 +1960,7 @@
           | :--: |
           | *Eliseu Frechou conquistando a via O Grande Encontro* |
       - **nome**: Pontão Maior
+      - **uid**: wYbj5AVhygXZ1C
       - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/grupo_tres_pontoes_setor_pontao_maior_p1_i2.webp)
       - **mapas**:
         - **[0]**:
@@ -1598,255 +1969,373 @@
           - **altura_mapa**: 538
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 1
-              - **label**: 1
+              - **id**: 4c34NNx2b0Uutc
+              - **uid**: 4c34NNx2b0Uutc
+              - **rotulo**: 1
               - **circulo**:
                 - **x**: 85
                 - **y**: 295
                 - **raio**: 17
+              - **label**: 1
             - **[1]**:
-              - **id**: 2
-              - **label**: 2
+              - **id**: QzUzcsmledAXhb
+              - **uid**: QzUzcsmledAXhb
+              - **rotulo**: 2
               - **circulo**:
                 - **x**: 115
                 - **y**: 320
                 - **raio**: 15
+              - **label**: 2
             - **[2]**:
-              - **id**: 3
-              - **label**: 3
+              - **id**: HoMWTNVOBIkgfl
+              - **uid**: HoMWTNVOBIkgfl
+              - **rotulo**: 3
               - **circulo**:
                 - **x**: 140
                 - **y**: 433
                 - **raio**: 15
+              - **label**: 3
             - **[3]**:
-              - **id**: 4
-              - **label**: 4
+              - **id**: nlLPV5xMtVoXwl
+              - **uid**: nlLPV5xMtVoXwl
+              - **rotulo**: 4
               - **circulo**:
                 - **x**: 166
                 - **y**: 444
                 - **raio**: 14
+              - **label**: 4
             - **[4]**:
-              - **id**: 5
-              - **label**: 5
+              - **id**: UyPaCS67iiEhJ1
+              - **uid**: UyPaCS67iiEhJ1
+              - **rotulo**: 5
               - **circulo**:
                 - **x**: 153
                 - **y**: 228
                 - **raio**: 15
+              - **label**: 5
             - **[5]**:
-              - **id**: 6
-              - **label**: 6
+              - **id**: 9FFRISq5XLElgr
+              - **uid**: 9FFRISq5XLElgr
+              - **rotulo**: 6
               - **circulo**:
                 - **x**: 188
                 - **y**: 444
                 - **raio**: 15
+              - **label**: 6
             - **[6]**:
-              - **id**: 7
-              - **label**: 7
+              - **id**: kYdYZlG3WjZlgY
+              - **uid**: kYdYZlG3WjZlgY
+              - **rotulo**: 7
               - **circulo**:
                 - **x**: 209
                 - **y**: 461
                 - **raio**: 14
+              - **label**: 7
             - **[7]**:
-              - **id**: 8
-              - **label**: 8
+              - **id**: cidjgE6wJEDSd6
+              - **uid**: cidjgE6wJEDSd6
+              - **rotulo**: 8
               - **circulo**:
                 - **x**: 229
                 - **y**: 462
                 - **raio**: 14
+              - **label**: 8
             - **[8]**:
-              - **id**: 9
-              - **label**: 9
+              - **id**: mfVhBtYybh4NQN
+              - **uid**: mfVhBtYybh4NQN
+              - **rotulo**: 9
               - **circulo**:
                 - **x**: 249
                 - **y**: 484
                 - **raio**: 17
+              - **label**: 9
             - **[9]**:
-              - **id**: 10
-              - **label**: 10
+              - **id**: s7wjUFgBSVIYSF
+              - **uid**: s7wjUFgBSVIYSF
+              - **rotulo**: 10
               - **circulo**:
                 - **x**: 282
                 - **y**: 480
                 - **raio**: 19
+              - **label**: 10
             - **[10]**:
-              - **id**: 11
-              - **label**: 11
+              - **id**: u5zvsUGYh7gKmc
+              - **uid**: u5zvsUGYh7gKmc
+              - **rotulo**: 11
               - **circulo**:
                 - **x**: 278
                 - **y**: 406
                 - **raio**: 20
+              - **label**: 11
             - **[11]**:
-              - **id**: 12
-              - **label**: 12
+              - **id**: egnE9TLwfKuKWb
+              - **uid**: egnE9TLwfKuKWb
+              - **rotulo**: 12
               - **circulo**:
                 - **x**: 334
                 - **y**: 404
                 - **raio**: 21
+              - **label**: 12
             - **[12]**:
-              - **id**: 13
-              - **label**: 13
+              - **id**: 6rf2yLOBphe8Nk
+              - **uid**: 6rf2yLOBphe8Nk
+              - **rotulo**: 13
               - **circulo**:
                 - **x**: 362
                 - **y**: 297
                 - **raio**: 19
+              - **label**: 13
             - **[13]**:
-              - **id**: 14
-              - **label**: 14
+              - **id**: yDA50GNyCnUpDk
+              - **uid**: yDA50GNyCnUpDk
+              - **rotulo**: 14
               - **circulo**:
                 - **x**: 391
                 - **y**: 321
                 - **raio**: 20
+              - **label**: 14
             - **[14]**:
-              - **id**: 15
-              - **label**: 15
+              - **id**: Le6HzPZPQgD6w8
+              - **uid**: Le6HzPZPQgD6w8
+              - **rotulo**: 15
               - **circulo**:
                 - **x**: 431
                 - **y**: 412
                 - **raio**: 21
+              - **label**: 15
             - **[15]**:
-              - **id**: 16
-              - **label**: 16
+              - **id**: YhxliMaYRSYFKD
+              - **uid**: YhxliMaYRSYFKD
+              - **rotulo**: 16
               - **circulo**:
                 - **x**: 467
                 - **y**: 368
                 - **raio**: 22
+              - **label**: 16
             - **[16]**:
-              - **id**: 17
-              - **label**: 17
+              - **id**: mXWeFZzCzfgXci
+              - **uid**: mXWeFZzCzfgXci
+              - **rotulo**: 17
               - **circulo**:
                 - **x**: 511
                 - **y**: 347
                 - **raio**: 21
+              - **label**: 17
             - **[17]**:
-              - **id**: 18
-              - **label**: 18
+              - **id**: UfV85q3SGWHONj
+              - **uid**: UfV85q3SGWHONj
+              - **rotulo**: 18
               - **circulo**:
                 - **x**: 515
                 - **y**: 301
                 - **raio**: 21
+              - **label**: 18
             - **[18]**:
-              - **id**: 19
-              - **label**: 19
+              - **id**: oG2958Ztu3M690
+              - **uid**: oG2958Ztu3M690
+              - **rotulo**: 19
               - **circulo**:
                 - **x**: 572
                 - **y**: 297
                 - **raio**: 20
+              - **label**: 19
             - **[19]**:
-              - **id**: 20
-              - **label**: 20
+              - **id**: FsaMCCmMItwNhK
+              - **uid**: FsaMCCmMItwNhK
+              - **rotulo**: 20
               - **circulo**:
                 - **x**: 625
                 - **y**: 283
                 - **raio**: 23
+              - **label**: 20
             - **[20]**:
-              - **id**: 21
-              - **label**: 21
+              - **id**: bgY5F7kvZu9pR5
+              - **uid**: bgY5F7kvZu9pR5
+              - **rotulo**: 21
               - **circulo**:
                 - **x**: 670
                 - **y**: 278
                 - **raio**: 22
+              - **label**: 21
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: maF0IeElb3n8gq
+              - **pontos_uids**:
+                - 4c34NNx2b0Uutc
               - **escalada**: Energia do Diedro Mineral
               - **ids**:
-                - 1
+                - 4c34NNx2b0Uutc
             - **[1]**:
+              - **alvo_uid**: SduZxDFiarMMAZ
+              - **pontos_uids**:
+                - QzUzcsmledAXhb
               - **escalada**: Entre Dois Mundos
               - **ids**:
-                - 2
+                - QzUzcsmledAXhb
             - **[2]**:
+              - **alvo_uid**: KHFPKEAXsjuF97
+              - **pontos_uids**:
+                - HoMWTNVOBIkgfl
               - **escalada**: A Profecia
               - **ids**:
-                - 3
+                - HoMWTNVOBIkgfl
             - **[3]**:
+              - **alvo_uid**: eVtrkhD7Qkk8xL
+              - **pontos_uids**:
+                - HoMWTNVOBIkgfl
               - **escalada**: A Profecia P1
               - **ids**:
-                - 3
+                - HoMWTNVOBIkgfl
             - **[4]**:
+              - **alvo_uid**: 9Hdc375xKOPmwv
+              - **pontos_uids**:
+                - nlLPV5xMtVoXwl
               - **escalada**: O Grande Encontro
               - **ids**:
-                - 4
+                - nlLPV5xMtVoXwl
             - **[5]**:
+              - **alvo_uid**: V92DmOle0TI2PJ
+              - **pontos_uids**:
+                - UyPaCS67iiEhJ1
               - **escalada**: Variante Hardside
               - **ids**:
-                - 5
+                - UyPaCS67iiEhJ1
             - **[6]**:
+              - **alvo_uid**: 2qfl4BJKLsWxfn
+              - **pontos_uids**:
+                - 9FFRISq5XLElgr
               - **escalada**: Variante da Lúcifer
               - **ids**:
-                - 6
+                - 9FFRISq5XLElgr
             - **[7]**:
+              - **alvo_uid**: 76tbx90jDi2jbz
+              - **pontos_uids**:
+                - kYdYZlG3WjZlgY
               - **escalada**: Obra da Desistência
               - **ids**:
-                - 7
+                - kYdYZlG3WjZlgY
             - **[8]**:
+              - **alvo_uid**: FI5BWj0YPOultg
+              - **pontos_uids**:
+                - cidjgE6wJEDSd6
               - **escalada**: Macacos Ansiosos
               - **ids**:
-                - 8
+                - cidjgE6wJEDSd6
             - **[9]**:
+              - **alvo_uid**: 9qcMpopuKfKOsK
+              - **pontos_uids**:
+                - cidjgE6wJEDSd6
               - **escalada**: Macacos P1
               - **ids**:
-                - 8
+                - cidjgE6wJEDSd6
             - **[10]**:
+              - **alvo_uid**: JodSSrBvrsI5O5
+              - **pontos_uids**:
+                - mfVhBtYybh4NQN
               - **escalada**: Visão Além do Alcance
               - **ids**:
-                - 9
+                - mfVhBtYybh4NQN
             - **[11]**:
+              - **alvo_uid**: maFiAW3D3UqDEB
+              - **pontos_uids**:
+                - mfVhBtYybh4NQN
               - **escalada**: Início da Visão
               - **ids**:
-                - 9
+                - mfVhBtYybh4NQN
             - **[12]**:
+              - **alvo_uid**: AuFLvxfTOFcXMU
+              - **pontos_uids**:
+                - s7wjUFgBSVIYSF
               - **escalada**: Lúcifer
               - **ids**:
-                - 10
+                - s7wjUFgBSVIYSF
             - **[13]**:
+              - **alvo_uid**: pYvWVy3VjzEhM5
+              - **pontos_uids**:
+                - u5zvsUGYh7gKmc
               - **escalada**: Humildade e Disciplina
               - **ids**:
-                - 11
+                - u5zvsUGYh7gKmc
             - **[14]**:
+              - **alvo_uid**: LwYctNpsv2IVT1
+              - **pontos_uids**:
+                - u5zvsUGYh7gKmc
               - **escalada**: Humilde Disciplina
               - **ids**:
-                - 11
+                - u5zvsUGYh7gKmc
             - **[15]**:
+              - **alvo_uid**: J3HXLo67G2ku7B
+              - **pontos_uids**:
+                - egnE9TLwfKuKWb
               - **escalada**: Rivotril
               - **ids**:
-                - 12
+                - egnE9TLwfKuKWb
             - **[16]**:
+              - **alvo_uid**: wNdEwMOA7GgIen
+              - **pontos_uids**:
+                - 6rf2yLOBphe8Nk
               - **escalada**: King Line
               - **ids**:
-                - 13
+                - 6rf2yLOBphe8Nk
             - **[17]**:
+              - **alvo_uid**: 1NPCalyvD0tm5J
+              - **pontos_uids**:
+                - yDA50GNyCnUpDk
               - **escalada**: Revolução da Espécie
               - **ids**:
-                - 14
+                - yDA50GNyCnUpDk
             - **[18]**:
+              - **alvo_uid**: q5TYx4GQxevQl2
+              - **pontos_uids**:
+                - Le6HzPZPQgD6w8
               - **escalada**: O Ego é Seu Inimigo
               - **ids**:
-                - 15
+                - Le6HzPZPQgD6w8
             - **[19]**:
+              - **alvo_uid**: talvMg3EOFViuJ
+              - **pontos_uids**:
+                - YhxliMaYRSYFKD
               - **escalada**: Boca Loca
               - **ids**:
-                - 16
+                - YhxliMaYRSYFKD
             - **[20]**:
+              - **alvo_uid**: FREEWysu6vLXxM
+              - **pontos_uids**:
+                - mXWeFZzCzfgXci
               - **escalada**: Inimigo Mora ao Lado
               - **ids**:
-                - 17
+                - mXWeFZzCzfgXci
             - **[21]**:
+              - **alvo_uid**: ADVt3Vz9J5jRQH
+              - **pontos_uids**:
+                - UfV85q3SGWHONj
               - **escalada**: O Mirador
               - **ids**:
-                - 18
+                - UfV85q3SGWHONj
             - **[22]**:
+              - **alvo_uid**: wWEcVw0QiNjgyw
+              - **pontos_uids**:
+                - oG2958Ztu3M690
               - **escalada**: Tinoco’s Friends
               - **ids**:
-                - 19
+                - oG2958Ztu3M690
             - **[23]**:
+              - **alvo_uid**: Uhe8uICg6YSr2Z
+              - **pontos_uids**:
+                - FsaMCCmMItwNhK
               - **escalada**: Diedro dos Militares
               - **ids**:
-                - 20
+                - FsaMCCmMItwNhK
             - **[24]**:
+              - **alvo_uid**: 1B9siVIKYvU1gR
+              - **pontos_uids**:
+                - bgY5F7kvZu9pR5
               - **escalada**: Faleon
               - **ids**:
-                - 21
+                - bgY5F7kvZu9pR5
       - **escaladas**:
         - **[0]**:
+          - **uid**: maF0IeElb3n8gq
           - **via_movel**:
             - **descricao**: Via conquistada em artificial e em solitário, sem relatos de repetição da mesma totalmente em livre. Inicia saindo do platô da “Ópera Selvagem” (Pontão Médio) e percorre um diedro até passar pelo pequeno teto. Linha natural e perfeita para stoppers pequenos, friends e pittons.
             - **nome**: Energia do Diedro Mineral
@@ -1854,6 +2343,7 @@
             - **dificuldade_artificial**: A1
             - **protecoes_moveis**: Stoppers pequenos, friends e pitons
         - **[1]**:
+          - **uid**: SduZxDFiarMMAZ
           - **via_movel**:
             - **descricao**: Esta linha é linda e exigente. Compartilha as seis chapas iniciais da via A Profecia e passa para uma fenda linda em diagonal para a esquerda. Quando se acessa o platô é que começam os problemas, passadas por uma micro fissura e lances de agarras, até dominar um teto e continuar pelo negativo até a parte positiva.
             - **nome**: Entre Dois Mundos
@@ -1865,6 +2355,7 @@
               - Carlos Pádua
             - **data_abertura**: 2015
         - **[2]**:
+          - **uid**: KHFPKEAXsjuF97
           - **via_esportiva**:
             - **descricao**: Esta é uma das vias esportivas mais clássicas do Cemonta. Lances de regletes, passando por micro fissuras, abaulados e batentes, é esteticamente linda e explosiva. Levar 17 costuras, algumas longas. Rapel com corda de 60 parar no meio, de 70 um rapel só.
             - **nome**: A Profecia
@@ -1877,6 +2368,7 @@
               - Heider Ribeiro (Tio Nem)
             - **data_abertura**: 2013
         - **[3]**:
+          - **uid**: eVtrkhD7Qkk8xL
           - **via_esportiva**:
             - **descricao**: A Profecia foi conquistada como uma escalada única até onde é a segunda parada, mas foi necessário bater uma parada de rapel no meio para viabilizar o rapel com corda de 60m. Porém, pra quem procura uma escalada um pouco mais fácil, indo até a P1 já é clássica! Levar 11 costuras.
             - **nome**: A Profecia P1
@@ -1888,6 +2380,7 @@
               - Heider Ribeiro (Tio Nem)
             - **data_abertura**: 2013
         - **[4]**:
+          - **uid**: 9Hdc375xKOPmwv
           - **via_movel**:
             - **descricao**: Uma linda via exigente, sua primeira metade é mais exposta, após passar por uma fissura fina chega num grande e lindo diedro mais tranquilo, após lances em leve negativo onde é protegido por duas chapas entra-se na parte final e crux, numa fenda fina e depois lances dinâmicos em abaulados. Friends do .3 ao 1 com peças repetidas e 1 jogo de nuts.
             - **nome**: O Grande Encontro
@@ -1901,11 +2394,13 @@
               - Eliseu Frechou
             - **data_abertura**: 2004
         - **[5]**:
+          - **uid**: V92DmOle0TI2PJ
           - **via_movel**:
             - **descricao**: Variante que liga a via “O Grande Encontro” à via “Lúcifer”. Linha delicada e com proteções escassas.
             - **nome**: Variante Hardside
             - **dificuldade**: BR_7B
         - **[6]**:
+          - **uid**: 2qfl4BJKLsWxfn
           - **via_movel**:
             - **descricao**: Via clássica e mais repetida do que a via original devido à sua beleza. Sua saída, bem no ponto de chegada da trilha, segue por um sistema de fendas até o pequeno teto onde cruza com a via original. Logo após o crux, que pode ser protegido no grampo de inox da via original, seguir pela direita no belíssimo diedro. Ao final do diedro, após cruzar de novo com a linha original, segue reto na bela fenda levemente negativa. Pode fazer em uma enfiada com costuras longas e peças repetidas ou em duas com 1 jogo de friends e 1 de nuts.
             - **nome**: Variante da Lúcifer
@@ -1919,6 +2414,7 @@
               - Leonardo Rodrigues
               - João Felippin
         - **[7]**:
+          - **uid**: 76tbx90jDi2jbz
           - **via_movel**:
             - **descricao**: Uma via que corta este pontão no meio, uma via que impressiona pela beleza de sua escalada e da rocha. Início em chapeletas. Sugere-se um jogo de friends até BD#4 e um de nuts. Rapel possível com corda de 70m.
             - **nome**: Obra da Desistência
@@ -1931,6 +2427,7 @@
               - Carlos Pádua
             - **data_abertura**: 2021-06
         - **[8]**:
+          - **uid**: FI5BWj0YPOultg
           - **via_esportiva**:
             - **descricao**:
                 Uma das vias mais fotogênicas do Lenheiro, divide-se em duas enfiadas. A primeira com lances técnicos, que exigem uma boa leitura, regletes e abaulados apimentam essa parte que está cotada em 7b/c, até acessar o grande platô onde possui uma parada dupla. A segunda parte é uma escalada em horizontal cortando um dos tetos mais bonitos da serra, onde a via passa a subir verticalmente "negativa". Final após um bonito teto.
@@ -1947,6 +2444,7 @@
               - Márcio Douglas
             - **data_abertura**: 2021-01
         - **[9]**:
+          - **uid**: 9qcMpopuKfKOsK
           - **via_esportiva**:
             - **descricao**: Primeira parte da via Macacos Ansiosos, até o platô. Uma ótima opção pra quem procura uma via na casa dos sétimos. A bela rocha laranja com movimentação complexa, fazem desta uma via muito interessante!
             - **nome**: Macacos P1
@@ -1958,6 +2456,7 @@
               - Márcio Douglas
             - **data_abertura**: 2021-01
         - **[10]**:
+          - **uid**: JodSSrBvrsI5O5
           - **via_esportiva**:
             - **descricao**:
                 Via dura com início em positivo mais fácil, mas depois passa o diedro e segue diagonal nos fortes negativos.
@@ -1972,6 +2471,7 @@
               - Márcio Douglas
             - **data_abertura**: 2022
         - **[11]**:
+          - **uid**: maFiAW3D3UqDEB
           - **via_esportiva**:
             - **descricao**: Início da via Visão Além do Alcance emendando na parada do platô da via Macacos Ansiosos. Única opção deste pontão pra quem busca uma via esportiva mais fácil.
             - **nome**: Início da Visão
@@ -1982,6 +2482,7 @@
               - Márcio Douglas
             - **data_abertura**: 2022
         - **[12]**:
+          - **uid**: AuFLvxfTOFcXMU
           - **via_movel**:
             - **descricao**: Uma das vias mais famosas deste setor. Sua saída fica bem ao lado esquerdo da grade de proteção das pinturas rupestres, porém encontra-se um pouco suja devido ao fato de ser pouco frequentada, já que sua variante tem sido mais usada em função de sua beleza. Possui alguns pitons e grampos velhos e pode ser repetida com 1 jogo de friends e 1 de nuts. Após o crux no grampo de inox sua linha segue pela esquerda.
             - **nome**: Lúcifer
@@ -1995,6 +2496,7 @@
               - Waldemar Pugliese
             - **data_abertura**: 1997-09-28
         - **[13]**:
+          - **uid**: pYvWVy3VjzEhM5
           - **via_esportiva**:
             - **descricao**: Sua saída fica bem encostada na grade das pinturas rupestres e acima se junta na via Visão Além do Alcance.
             - **nome**: Humildade e Disciplina
@@ -2005,6 +2507,7 @@
               - Márcio Douglas
             - **data_abertura**: 2024-01
         - **[14]**:
+          - **uid**: LwYctNpsv2IVT1
           - **via_esportiva**:
             - **descricao**:
                 Início da via anterior, terminando na parada à direita logo abaixo do teto. Via vertical muito técnica.
@@ -2018,6 +2521,7 @@
               - Márcio Douglas
             - **data_abertura**: 2024-01
         - **[15]**:
+          - **uid**: J3HXLo67G2ku7B
           - **via_movel**:
             - **descricao**: Linha conquistada inteiramente em artificial, cortando o grande teto à direita da “Chá de Cadeira” e juntando nesta, na metade da parede. Ótimas colocações dos móveis e boa via para quem quer treinar artificial móvel.
             - **nome**: Rivotril
@@ -2029,6 +2533,7 @@
               - Gelson Feliciano
               - Rodrigo Ferreira
         - **[16]**:
+          - **uid**: wNdEwMOA7GgIen
           - **via_esportiva**:
             - **descricao**:
                 Clássica! Linda linha natural com movimentação complexa e variada. Começa logo a direita das pinturas rupestres. Saída vertical bem técnica, depois horizontal pra esquerda e termina em um forte negativo.
@@ -2044,6 +2549,7 @@
               - Jonatas Lima
             - **data_abertura**: 2022
         - **[17]**:
+          - **uid**: 1NPCalyvD0tm5J
           - **via_esportiva**:
             - **descricao**:
                 Compartilha a mesma saída da via anterior, mas segue mais reto na fenda e depois vira diagonal pra direita.
@@ -2057,6 +2563,7 @@
               - Márcio Douglas
             - **data_abertura**: 2022
         - **[18]**:
+          - **uid**: q5TYx4GQxevQl2
           - **via_esportiva**:
             - **descricao**:
                 Linda via. Após uma saída vertical com boas agarras é hora de descansar pois a segunda metade não alivia.
@@ -2070,6 +2577,7 @@
               - Márcio Douglas
             - **data_abertura**: 2022
         - **[19]**:
+          - **uid**: talvMg3EOFViuJ
           - **via_esportiva**:
             - **descricao**: Início em um grande buraco na rocha onde encontra-se o crux, depois junta com a via Inimigo Mora ao Lado.
             - **nome**: Boca Loca
@@ -2080,6 +2588,7 @@
               - Márcio Douglas
             - **data_abertura**: 2023-10
         - **[20]**:
+          - **uid**: FREEWysu6vLXxM
           - **via_esportiva**:
             - **descricao**: Via com estilos variados, primeira metade em uma fenda negativa e depois passa para positivo de equilíbrio e termina no Top da via O Mirador.
             - **nome**: Inimigo Mora ao Lado
@@ -2090,6 +2599,7 @@
               - Márcio Douglas
             - **data_abertura**: 2023-10-12
         - **[21]**:
+          - **uid**: ADVt3Vz9J5jRQH
           - **via_esportiva**:
             - **descricao**: Linha iniciada e abandonada pelo André Ilha, sendo continuada posteriormente. Uma diagonal pra esquerda toda positivo de equilíbrio com lances muito delicados. Sua base fica acima das vias anteriores.
             - **nome**: O Mirador
@@ -2103,6 +2613,7 @@
               - Félix
             - **data_abertura**: 2015
         - **[22]**:
+          - **uid**: wWEcVw0QiNjgyw
           - **via_movel**:
             - **descricao**: Sua linha impressiona pela beleza, mostra sua grandeza a partir da abertura do diedro. Via exigente que até hoje não foi encadenada toda em livre, a fenda fica boa parte do ano suja de terra por escorrer muita água.
             - **nome**: Tinoco’s Friends
@@ -2113,6 +2624,7 @@
               - Cristiano
             - **data_abertura**: 2001
         - **[23]**:
+          - **uid**: Uhe8uICg6YSr2Z
           - **via_movel**:
             - **descricao**: Sai num diedro com boas colocações pra móvel (boa pra praticar) e alguns grampos velhos e desnecessários (é possível fazer toda em móvel). Feita em duas enfiadas com parada mista após contornar a aresta.
             - **nome**: Diedro dos Militares
@@ -2122,6 +2634,7 @@
             - **conquistadores**:
               - Escaladores Militares
         - **[24]**:
+          - **uid**: 1B9siVIKYvU1gR
           - **via_movel**:
             - **descricao**: Linha de baixa graduação, na extrema direita do Pontão Maior.
             - **nome**: Faleon
@@ -2142,6 +2655,7 @@
           
           Caracteriza-se por vias curtas e fortes, suas pequenas agarras fazem das vias duras do início ao fim. Tanto as vias quanto a base ficam na sombra o dia todo, pois o bloco está inteiro abaixo da linha das árvores.
       - **nome**: Vale das Sombras
+      - **uid**: Z3msjudWpVR1hv
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_tres_pontoes_setor_vale_das_sombras_p0_i2.webp)
@@ -2149,41 +2663,57 @@
           - **altura_mapa**: 631
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: AAe3hVpk94LyvV
+              - **pontos_uids**:
+                - I6LQdONoKqvqAo
               - **escalada**: Vale das Sombras
               - **ids**:
-                - 1
+                - I6LQdONoKqvqAo
             - **[1]**:
+              - **alvo_uid**: s4dDOcEy2FX2ib
+              - **pontos_uids**:
+                - KBsNPLrBCI1OKJ
               - **escalada**: A Emboscada
               - **ids**:
-                - 2
+                - KBsNPLrBCI1OKJ
             - **[2]**:
+              - **alvo_uid**: kGyssQFMIUILfF
+              - **pontos_uids**:
+                - KnKZzMJ8eTfznx
               - **escalada**: Dia D
               - **ids**:
-                - 3
+                - KnKZzMJ8eTfznx
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 1
-              - **label**: 1
+              - **id**: I6LQdONoKqvqAo
+              - **uid**: I6LQdONoKqvqAo
+              - **rotulo**: 1
               - **circulo**:
                 - **x**: 610
                 - **y**: 570
                 - **raio**: 28
+              - **label**: 1
             - **[1]**:
-              - **id**: 2
-              - **label**: 2
+              - **id**: KBsNPLrBCI1OKJ
+              - **uid**: KBsNPLrBCI1OKJ
+              - **rotulo**: 2
               - **circulo**:
                 - **x**: 384
                 - **y**: 569
                 - **raio**: 28
+              - **label**: 2
             - **[2]**:
-              - **id**: 3
-              - **label**: 3
+              - **id**: KnKZzMJ8eTfznx
+              - **uid**: KnKZzMJ8eTfznx
+              - **rotulo**: 3
               - **circulo**:
                 - **x**: 270
                 - **y**: 558
                 - **raio**: 28
+              - **label**: 3
       - **escaladas**:
         - **[0]**:
+          - **uid**: AAe3hVpk94LyvV
           - **via_esportiva**:
             - **descricao**: Via explosiva com sequência dura de regletes sem descanso bom.
             - **nome**: Vale das Sombras
@@ -2194,6 +2724,7 @@
               - Douglas Marques
             - **data_abertura**: 2022-03-18
         - **[1]**:
+          - **uid**: s4dDOcEy2FX2ib
           - **via_esportiva**:
             - **descricao**: Via sem cadena até a data de publicação dessa edição do guia.
             - **nome**: A Emboscada
@@ -2204,6 +2735,7 @@
               - Douglas Marques
             - **data_abertura**: 2022-03-18
         - **[2]**:
+          - **uid**: kGyssQFMIUILfF
           - **via_esportiva**:
             - **descricao**: Via sem cadena até a data de publicação dessa edição do guia.
             - **nome**: Dia D
@@ -2254,6 +2786,7 @@
     | :--: |
     | *Jonatas Lima no final da via Apocalipse* |
 - **nome**: Ave Maria
+- **uid**: kJNk7kWKseMZ5d
 - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_ave_maria_p0_i2.webp)
 - **mapas**:
   - **[0]**:
@@ -2262,336 +2795,467 @@
     - **altura_mapa**: 1033
     - **referencias**:
       - **[0]**:
+        - **alvo_uid**: 9asyWU2OVlk2CB
+        - **pontos_uids**:
+          - MTUgdmlZ58M0tx
         - **escalada**: Confessionário
         - **ids**:
-          - 1
+          - MTUgdmlZ58M0tx
       - **[1]**:
+        - **alvo_uid**: GC2tIE3EVzolIK
+        - **pontos_uids**:
+          - SM9ZCPnYYngety
         - **escalada**: Pelo Amor de Deus
         - **ids**:
-          - 2
+          - SM9ZCPnYYngety
       - **[2]**:
+        - **alvo_uid**: jl1y5tI29Lmcde
+        - **pontos_uids**:
+          - LxlivWbOvNTtqT
         - **escalada**: Livre Arbítrio
         - **ids**:
-          - 3
+          - LxlivWbOvNTtqT
       - **[3]**:
+        - **alvo_uid**: oH6CsmHHu7qg2d
+        - **pontos_uids**:
+          - pGOt5FZavQU8Xb
+          - 2Pvl5GCmhW45Np
         - **escalada**: Purgatório
         - **ids**:
-          - 4
-          - 4_2
+          - pGOt5FZavQU8Xb
+          - 2Pvl5GCmhW45Np
       - **[4]**:
+        - **alvo_uid**: 85mUFGyzUMl0Fe
+        - **pontos_uids**:
+          - 1GCOaZHG4HduJD
+          - PMDHVykmnYxmP2
         - **escalada**: O Pão que o Diabo Amassou
         - **ids**:
-          - 5
-          - 5_2
+          - 1GCOaZHG4HduJD
+          - PMDHVykmnYxmP2
       - **[5]**:
+        - **alvo_uid**: FzYoAcZmCjp3OW
+        - **pontos_uids**:
+          - MfZAC80nqKEdnL
+          - biEBj8XiJcMcd1
         - **escalada**: Calvário
         - **ids**:
-          - 6
-          - 6_2
+          - MfZAC80nqKEdnL
+          - biEBj8XiJcMcd1
       - **[6]**:
+        - **alvo_uid**: NeUxLotQlHLsEQ
+        - **pontos_uids**:
+          - n162rGG4IcVUGD
+          - eprPq8cXVPic9U
         - **escalada**: Estigma
         - **ids**:
-          - 7
-          - 7_2
+          - n162rGG4IcVUGD
+          - eprPq8cXVPic9U
       - **[7]**:
+        - **alvo_uid**: GZX25aIKBylFg7
+        - **pontos_uids**:
+          - hN5n0EiJ6AJtG6
+          - eGrSEiMxlMNFIF
         - **escalada**: Cheia de Graça
         - **ids**:
-          - 8
-          - 8_2
+          - hN5n0EiJ6AJtG6
+          - eGrSEiMxlMNFIF
       - **[8]**:
+        - **alvo_uid**: HvCXS2UYIBnMAy
+        - **pontos_uids**:
+          - 0Z02EWy6isDBvB
+          - 67AvwYEt1cpUUw
         - **escalada**: Apocalipse
         - **ids**:
-          - 9
-          - 9_2
+          - 0Z02EWy6isDBvB
+          - 67AvwYEt1cpUUw
       - **[9]**:
+        - **alvo_uid**: b6lCh8sGzpgpMZ
+        - **pontos_uids**:
+          - 3a9LCuk5h8fkQv
+          - ujjkgQPnrupB3z
         - **escalada**: Ave Maria
         - **ids**:
-          - 10
-          - 10_2
+          - 3a9LCuk5h8fkQv
+          - ujjkgQPnrupB3z
       - **[10]**:
+        - **alvo_uid**: xIlBM9Yd3RYOXx
+        - **pontos_uids**:
+          - x7Dnki5UP01wSm
+          - tqJ6OSoWVL24Vk
         - **escalada**: Ajoelhou Tem Que Rezar
         - **ids**:
-          - 11
-          - 11_2
+          - x7Dnki5UP01wSm
+          - tqJ6OSoWVL24Vk
       - **[11]**:
+        - **alvo_uid**: LlSJ7DG4Hywok9
+        - **pontos_uids**:
+          - EUxQk1wUlcYx3P
+          - HuXu6hdF62PIwY
         - **escalada**: Oratório
         - **ids**:
-          - 12
-          - 12_2
+          - EUxQk1wUlcYx3P
+          - HuXu6hdF62PIwY
       - **[12]**:
+        - **alvo_uid**: D0Hgc9pq0Fp9Dj
+        - **pontos_uids**:
+          - LxMn09BZnDecAw
+          - qXj8SQ7E4BK1UI
         - **escalada**: Água Benta
         - **ids**:
-          - 13
-          - 13_2
+          - LxMn09BZnDecAw
+          - qXj8SQ7E4BK1UI
       - **[13]**:
+        - **alvo_uid**: As8VjAKpbALZz6
+        - **pontos_uids**:
+          - FbV3lMS12DorBI
         - **escalada**: Primeira Comunhão
         - **ids**:
-          - 14
+          - FbV3lMS12DorBI
       - **[14]**:
+        - **alvo_uid**: 1h1ldSzDpYst89
+        - **pontos_uids**:
+          - 0yfoWc0emPt5MA
         - **escalada**: ?
         - **ids**:
-          - 15
+          - 0yfoWc0emPt5MA
     - **pontos_de_interesse**:
       - **[0]**:
-        - **id**: 1
-        - **label**: 1
+        - **id**: MTUgdmlZ58M0tx
+        - **uid**: MTUgdmlZ58M0tx
+        - **rotulo**: 1
         - **circulo**:
           - **x**: 91
           - **y**: 894
           - **raio**: 22
+        - **label**: 1
       - **[1]**:
-        - **id**: 2
-        - **label**: 2
+        - **id**: SM9ZCPnYYngety
+        - **uid**: SM9ZCPnYYngety
+        - **rotulo**: 2
         - **circulo**:
           - **x**: 242
           - **y**: 852
           - **raio**: 20
+        - **label**: 2
       - **[2]**:
-        - **id**: 3
-        - **label**: 3
+        - **id**: LxlivWbOvNTtqT
+        - **uid**: LxlivWbOvNTtqT
+        - **rotulo**: 3
         - **circulo**:
           - **x**: 326
           - **y**: 837
           - **raio**: 19
+        - **label**: 3
       - **[3]**:
-        - **id**: 4
-        - **label**: 4
+        - **id**: pGOt5FZavQU8Xb
+        - **uid**: pGOt5FZavQU8Xb
+        - **rotulo**: 4
         - **circulo**:
           - **x**: 370
           - **y**: 821
           - **raio**: 17
+        - **label**: 4
       - **[4]**:
-        - **id**: 5
-        - **label**: 5
+        - **id**: 1GCOaZHG4HduJD
+        - **uid**: 1GCOaZHG4HduJD
+        - **rotulo**: 5
         - **circulo**:
           - **x**: 402
           - **y**: 820
           - **raio**: 18
+        - **label**: 5
       - **[5]**:
-        - **id**: 6
-        - **label**: 6
+        - **id**: MfZAC80nqKEdnL
+        - **uid**: MfZAC80nqKEdnL
+        - **rotulo**: 6
         - **circulo**:
           - **x**: 434
           - **y**: 819
           - **raio**: 17
+        - **label**: 6
       - **[6]**:
-        - **id**: 7
-        - **label**: 7
+        - **id**: n162rGG4IcVUGD
+        - **uid**: n162rGG4IcVUGD
+        - **rotulo**: 7
         - **circulo**:
           - **x**: 493
           - **y**: 828
           - **raio**: 17
+        - **label**: 7
       - **[7]**:
-        - **id**: 8
-        - **label**: 8
+        - **id**: hN5n0EiJ6AJtG6
+        - **uid**: hN5n0EiJ6AJtG6
+        - **rotulo**: 8
         - **circulo**:
           - **x**: 523
           - **y**: 829
           - **raio**: 17
+        - **label**: 8
       - **[8]**:
-        - **id**: 9
-        - **label**: 9
+        - **id**: 0Z02EWy6isDBvB
+        - **uid**: 0Z02EWy6isDBvB
+        - **rotulo**: 9
         - **circulo**:
           - **x**: 636
           - **y**: 819
           - **raio**: 18
+        - **label**: 9
       - **[9]**:
-        - **id**: 10
-        - **label**: 10
+        - **id**: 3a9LCuk5h8fkQv
+        - **uid**: 3a9LCuk5h8fkQv
+        - **rotulo**: 10
         - **circulo**:
           - **x**: 946
           - **y**: 711
           - **raio**: 23
+        - **label**: 10
       - **[10]**:
-        - **id**: 11
-        - **label**: 11
+        - **id**: x7Dnki5UP01wSm
+        - **uid**: x7Dnki5UP01wSm
+        - **rotulo**: 11
         - **circulo**:
           - **x**: 1355
           - **y**: 660
           - **raio**: 21
+        - **label**: 11
       - **[11]**:
-        - **id**: 12
-        - **label**: 12
+        - **id**: EUxQk1wUlcYx3P
+        - **uid**: EUxQk1wUlcYx3P
+        - **rotulo**: 12
         - **circulo**:
           - **x**: 1357
           - **y**: 706
           - **raio**: 20
+        - **label**: 12
       - **[12]**:
-        - **id**: 13
-        - **label**: 13
+        - **id**: LxMn09BZnDecAw
+        - **uid**: LxMn09BZnDecAw
+        - **rotulo**: 13
         - **circulo**:
           - **x**: 1357
           - **y**: 750
           - **raio**: 21
+        - **label**: 13
       - **[13]**:
-        - **id**: 14
-        - **label**: 14
+        - **id**: FbV3lMS12DorBI
+        - **uid**: FbV3lMS12DorBI
+        - **rotulo**: 14
         - **circulo**:
           - **x**: 1401
           - **y**: 632
           - **raio**: 21
+        - **label**: 14
       - **[14]**:
-        - **id**: 15
-        - **label**: 15
+        - **id**: 0yfoWc0emPt5MA
+        - **uid**: 0yfoWc0emPt5MA
+        - **rotulo**: 15
         - **circulo**:
           - **x**: 917
           - **y**: 518
           - **raio**: 29
+        - **label**: 15
       - **[15]**:
-        - **id**: 7_2
-        - **label**: 
+        - **id**: eprPq8cXVPic9U
+        - **uid**: eprPq8cXVPic9U
+        - **rotulo**: 
         - **circulo**:
           - **x**: 273
           - **y**: 421
           - **raio**: 18
         - **cor**: 
-      - **[16]**:
-        - **id**: 4_2
         - **label**: 
+      - **[16]**:
+        - **id**: 2Pvl5GCmhW45Np
+        - **uid**: 2Pvl5GCmhW45Np
+        - **rotulo**: 
         - **circulo**:
           - **x**: 362
           - **y**: 421
           - **raio**: 19
         - **cor**: 
-      - **[17]**:
-        - **id**: 5_2
         - **label**: 
+      - **[17]**:
+        - **id**: PMDHVykmnYxmP2
+        - **uid**: PMDHVykmnYxmP2
+        - **rotulo**: 
         - **circulo**:
           - **x**: 371
           - **y**: 308
           - **raio**: 17
         - **cor**: 
-      - **[18]**:
-        - **id**: 9_2
         - **label**: 
+      - **[18]**:
+        - **id**: 67AvwYEt1cpUUw
+        - **uid**: 67AvwYEt1cpUUw
+        - **rotulo**: 
         - **circulo**:
           - **x**: 401
           - **y**: 308
           - **raio**: 18
         - **cor**: 
-      - **[19]**:
-        - **id**: 8_2
         - **label**: 
+      - **[19]**:
+        - **id**: eGrSEiMxlMNFIF
+        - **uid**: eGrSEiMxlMNFIF
+        - **rotulo**: 
         - **circulo**:
           - **x**: 480
           - **y**: 397
           - **raio**: 19
         - **cor**: 
-      - **[20]**:
-        - **id**: 10_2
         - **label**: 
+      - **[20]**:
+        - **id**: ujjkgQPnrupB3z
+        - **uid**: ujjkgQPnrupB3z
+        - **rotulo**: 
         - **circulo**:
           - **x**: 523
           - **y**: 398
           - **raio**: 24
         - **cor**: 
-      - **[21]**:
-        - **id**: 6_2
         - **label**: 
+      - **[21]**:
+        - **id**: biEBj8XiJcMcd1
+        - **uid**: biEBj8XiJcMcd1
+        - **rotulo**: 
         - **circulo**:
           - **x**: 514
           - **y**: 336
           - **raio**: 19
         - **cor**: 
-      - **[22]**:
-        - **id**: 11_2
         - **label**: 
+      - **[22]**:
+        - **id**: tqJ6OSoWVL24Vk
+        - **uid**: tqJ6OSoWVL24Vk
+        - **rotulo**: 
         - **circulo**:
           - **x**: 753
           - **y**: 347
           - **raio**: 22
         - **cor**: 
-      - **[23]**:
-        - **id**: 12_2
         - **label**: 
+      - **[23]**:
+        - **id**: HuXu6hdF62PIwY
+        - **uid**: HuXu6hdF62PIwY
+        - **rotulo**: 
         - **circulo**:
           - **x**: 908
           - **y**: 303
           - **raio**: 24
         - **cor**: 
-      - **[24]**:
-        - **id**: 13_2
         - **label**: 
+      - **[24]**:
+        - **id**: qXj8SQ7E4BK1UI
+        - **uid**: qXj8SQ7E4BK1UI
+        - **rotulo**: 
         - **circulo**:
           - **x**: 1056
           - **y**: 359
           - **raio**: 22
         - **cor**: 
+        - **label**: 
   - **[1]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_ave_maria_p3_i2.webp)
     - **largura_mapa**: 829
     - **altura_mapa**: 455
     - **referencias**:
       - **[0]**:
+        - **alvo_uid**: lNyqNwPcUEeMDj
+        - **pontos_uids**:
+          - CJJdlAXzCN5IlT
         - **escalada**: Procissão das Almas
         - **ids**:
-          - 16
+          - CJJdlAXzCN5IlT
     - **pontos_de_interesse**:
       - **[0]**:
-        - **id**: 16
-        - **label**: 16
+        - **id**: CJJdlAXzCN5IlT
+        - **uid**: CJJdlAXzCN5IlT
+        - **rotulo**: 16
         - **circulo**:
           - **x**: 132
           - **y**: 424
           - **raio**: 28
+        - **label**: 16
   - **[2]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_ave_maria_p4_i2.webp)
     - **largura_mapa**: 1041
     - **altura_mapa**: 695
     - **referencias**:
       - **[0]**:
+        - **alvo_uid**: dwNixZMbG7bGzh
+        - **pontos_uids**:
+          - 32xbPsrHudsVEs
         - **escalada**: Bombonier da Sacristia
         - **ids**:
-          - 13
+          - 32xbPsrHudsVEs
     - **pontos_de_interesse**:
       - **[0]**:
-        - **id**: 13
-        - **label**: 13
+        - **id**: 32xbPsrHudsVEs
+        - **uid**: 32xbPsrHudsVEs
+        - **rotulo**: 13
         - **circulo**:
           - **x**: 556
           - **y**: 608
           - **raio**: 17
+        - **label**: 13
   - **[3]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_ave_maria_p4_i3.webp)
     - **largura_mapa**: 1234
     - **altura_mapa**: 823
     - **referencias**:
       - **[0]**:
+        - **alvo_uid**: vfS0JODUzUrKxf
+        - **pontos_uids**:
+          - RqCuF5gmqTdDeT
         - **escalada**: Anjos e Demônios
         - **ids**:
-          - 14
+          - RqCuF5gmqTdDeT
       - **[1]**:
+        - **alvo_uid**: V2UrBrKXwT54IR
+        - **pontos_uids**:
+          - r3IgdgpCZwTAvN
         - **escalada**: Parabolts em Fúria
         - **ids**:
-          - 15
+          - r3IgdgpCZwTAvN
       - **[2]**:
+        - **alvo_uid**: bESfwAWf4X0nFZ
+        - **pontos_uids**:
+          - pzQewSyVP1NZgH
         - **escalada**: Contra-grip e resfriado
         - **ids**:
-          - 16
+          - pzQewSyVP1NZgH
     - **pontos_de_interesse**:
       - **[0]**:
-        - **id**: 14
-        - **label**: 14
+        - **id**: RqCuF5gmqTdDeT
+        - **uid**: RqCuF5gmqTdDeT
+        - **rotulo**: 14
         - **circulo**:
           - **x**: 1048
           - **y**: 330
           - **raio**: 17
+        - **label**: 14
       - **[1]**:
-        - **id**: 15
-        - **label**: 15
+        - **id**: r3IgdgpCZwTAvN
+        - **uid**: r3IgdgpCZwTAvN
+        - **rotulo**: 15
         - **circulo**:
           - **x**: 937
           - **y**: 289
           - **raio**: 18
+        - **label**: 15
       - **[2]**:
-        - **id**: 16
-        - **label**: 16
+        - **id**: pzQewSyVP1NZgH
+        - **uid**: pzQewSyVP1NZgH
+        - **rotulo**: 16
         - **circulo**:
           - **x**: 238
           - **y**: 745
           - **raio**: 20
+        - **label**: 16
 - **escaladas**:
   - **[0]**:
+    - **uid**: 9asyWU2OVlk2CB
     - **via_esportiva**:
       - **descricao**: Apesar de pequena é bem explosiva e boulderística, depois de virar o negativo ainda se escala uma parte meio rampa até um único grampo para rapel.
       - **nome**: Confessionário
@@ -2603,6 +3267,7 @@
         - Tonhão
       - **data_abertura**: 2015
   - **[1]**:
+    - **uid**: GC2tIE3EVzolIK
     - **via_esportiva**:
       - **descricao**: O nome diz as característica da via, com agarras super afiadas e cortantes, torna-se um pouco sofrido ficar parado nelas, sua linha segue uma horizontal pra direita até acessar um grande platô, mais alguns lances pra cima e chega ao top duplo de argola. Atenção antes do platô, ainda existem agarras que podem quebrar.
       - **nome**: Pelo Amor de Deus
@@ -2613,6 +3278,7 @@
         - Jonatas Lima
         - Pedro Paulo
   - **[2]**:
+    - **uid**: jl1y5tI29Lmcde
     - **via_esportiva**:
       - **descricao**: Uma via com uma saída boulderística e explosiva, passadas em dinâmicos, lances esticados em agarras grandes deixam essa via com uma beleza rara. O final desta via é compartilhada com a via numero 3.
       - **nome**: Livre Arbítrio
@@ -2622,6 +3288,7 @@
         - Jonatas Lima
       - **data_abertura**: 2015
   - **[3]**:
+    - **uid**: oH6CsmHHu7qg2d
     - **via_esportiva**:
       - **descricao**: Segunda via aberta neste setor e uma das mais clássicas, com uma saída numa laca gigante, passadas em diagonal, lances de bidedos, regletes e agarras grandes, fazem desta linha uma das mais procuradas.
       - **nome**: Purgatório
@@ -2632,6 +3299,7 @@
         - João Felipin
       - **data_abertura**: 2003
   - **[4]**:
+    - **uid**: 85mUFGyzUMl0Fe
     - **via_esportiva**:
       - **descricao**: Está é uma variante aberta sem bater uma chapa, por ser uma junção de 4 vias. Seu início pela Purgatório passando pelo crux, emendando na Cheia de Graça, por uma passada rápida pela Ave Maria e terminando no top da Ajoelhou Tem Que Rezar. Entre as graduadas em 8 grau é a mais frequentada do setor.
       - **nome**: O Pão que o Diabo Amassou
@@ -2641,6 +3309,7 @@
         - Jonatas Lima
       - **data_abertura**: 2015
   - **[5]**:
+    - **uid**: FzYoAcZmCjp3OW
     - **via_esportiva**:
       - **descricao**: Uma Variante que se trata de duas chapas para fazer a junção de várias vias. Esta linha tem que ser escalada pela via O Pão Que o Diabo Amassou e quando se chega na parada dupla da Ave Maria toca-se a direita onde está o real problema, lances de boulder com botes, dinâmicos até emendar na Ajoelhou Tem Que Rezar.
       - **nome**: Calvário
@@ -2650,6 +3319,7 @@
         - Carlos Pádua
       - **data_abertura**: 2015
   - **[6]**:
+    - **uid**: NeUxLotQlHLsEQ
     - **via_esportiva**:
       - **descricao**: Mais uma variante que tem a saída em comum com a Cheia de Graça. Passando a horizontal à esquerda até cruzar com o primeiro movimento difícil da Purgatório, continua-se à esquerda em diagonal até emendar com o final da via Pelo Amor de Deus.
       - **nome**: Estigma
@@ -2659,6 +3329,7 @@
         - Webert Resende
       - **data_abertura**: 2015
   - **[7]**:
+    - **uid**: GZX25aIKBylFg7
     - **via_esportiva**:
       - **descricao**: Outra clássica do setor, com uma saída em monte, e passadas em grandes lacas e uma fenda, lances dinâmicos, lances de calcanhar, e um final em diagonal a esquerda até chegar no top duplo da Ave Maria. Excelente via para os que querem se aventurar no setor.
       - **nome**: Cheia de Graça
@@ -2670,6 +3341,7 @@
         - Jefferson Lara
       - **data_abertura**: 2008
   - **[8]**:
+    - **uid**: HvCXS2UYIBnMAy
     - **via_esportiva**:
       - **descricao**: Sua linha é praticamente a via Cheia de Graça, sendo seu diferencial a saída que é mais à direita e o final que, após o top da Ave Maria, segue pra esquerda com lance forte e aéreo, terminando no top duplo da Ajoelhou Tem Que Rezar.
       - **nome**: Apocalipse
@@ -2679,6 +3351,7 @@
         - Carlos Pádua
       - **data_abertura**: 2015
   - **[9]**:
+    - **uid**: b6lCh8sGzpgpMZ
     - **via_esportiva**:
       - **descricao**: A primeira via a ser conquistada no local, a qual deu o nome ao setor. Percorre uma linha diagonal para a esquerda de grandes agarras. Mas é uma via PERIGOSA, pois uma queda antes da terceira chapa pode vir no chão, como já aconteceu. Portanto melhor entrar só quem já está com o grau muito dominado.
       - **nome**: Ave Maria
@@ -2689,6 +3362,7 @@
         - Rodrigo Araujo
       - **data_abertura**: 2004
   - **[10]**:
+    - **uid**: xIlBM9Yd3RYOXx
     - **via_esportiva**:
       - **descricao**: É a maior via do setor e mais aérea, com chapas um pouco mais distantes as quedas são um pouco maiores e no vazio, percorre toda aresta de toda rocha, possui uma variedade de estilo diferente das outras do setor.
       - **nome**: Ajoelhou Tem Que Rezar
@@ -2699,6 +3373,7 @@
         - Carlos Pádua
       - **data_abertura**: 2012
   - **[11]**:
+    - **uid**: LlSJ7DG4Hywok9
     - **via_esportiva**:
       - **descricao**: Compartilha o inicio da via Ajoelhou Tem que Rezar e em sua metade sai pra direita, desborda o final da rocha e termina no top da Primeira Comunhão.
       - **nome**: Oratório
@@ -2708,6 +3383,7 @@
         - Márcio Douglas
       - **data_abertura**: 2022
   - **[12]**:
+    - **uid**: D0Hgc9pq0Fp9Dj
     - **via_esportiva**:
       - **descricao**: Mesma saída da via anterior, mas logo sai pra direita onde toca reto até o top da Primeira Comunhão.
       - **nome**: Água Benta
@@ -2717,6 +3393,7 @@
         - Márcio Douglas
       - **data_abertura**: 2022
   - **[13]**:
+    - **uid**: As8VjAKpbALZz6
     - **via_esportiva**:
       - **descricao**: Via localizada à extrema direita do bloco rochoso. Sua linha percorre pela aresta terminando em uma parada dupla. Esta via possibilita fotos incríveis, principalmente ao entardecer.
       - **nome**: Primeira Comunhão
@@ -2728,6 +3405,7 @@
         - Pablo Veloso
       - **data_abertura**: 2015
   - **[14]**:
+    - **uid**: 1h1ldSzDpYst89
     - **via_esportiva**:
       - **descricao**: Provavelmente será uma das vias mais difíceis do setor, ainda não possui cadena e nem nome. Saída usando a primeira chapa da via Ave Maria e toca reto pra cima até a parada dupla das vias anteriores.
       - **nome**: ?
@@ -2736,6 +3414,7 @@
         - Felipe Alvares (Kbeça)
       - **data_abertura**: 2023-05-01
   - **[15]**:
+    - **uid**: lNyqNwPcUEeMDj
     - **via_esportiva**:
       - **descricao**: Linha que conecta as principais vias, cruzando todo o setor. Graduação estimada em 9?. Sai pela via Pelo Amor de Deus, antes do top desce pela Estigma e sai no lance de mono-dedo da via Purgatório. Faz o lance da Pão que o Diabo Amassou, sobe pelo final da apocalipse e depois volta tudo pela Ajoelhou Tem Que Rezar. Por fim, sobe pela via Oratório e termina no top da Primeira Comunhão. Ainda sem cadena.
       - **nome**: Procissão das Almas
@@ -2744,6 +3423,7 @@
         - Jonatas Lima
       - **data_abertura**: 2022-01-30
   - **[16]**:
+    - **uid**: dwNixZMbG7bGzh
     - **via_esportiva**:
       - **descricao**: Única via conquistada no Bloco 2.
       - **nome**: Bombonier da Sacristia
@@ -2753,6 +3433,7 @@
         - Flora Kesselring
       - **data_abertura**: 2015
   - **[17]**:
+    - **uid**: vfS0JODUzUrKxf
     - **via_esportiva**:
       - **descricao**: Via localizada no Bloco 3, ao lado da via Parabolts em Fúria. Graduação sugerida de 10a?.
       - **nome**: Anjos e Demônios
@@ -2762,6 +3443,7 @@
         - Flora Kesselring
       - **data_abertura**: 2015
   - **[18]**:
+    - **uid**: V2UrBrKXwT54IR
     - **via_esportiva**:
       - **descricao**: Localizada no Bloco 3. Possui uma linha diagonal à direita e posteriormente um sentido mais vertical, chegando em uma parada dupla. Atentar-se na saída, devido a primeira proteção estar alta.
       - **nome**: Parabolts em Fúria
@@ -2772,6 +3454,7 @@
         - Maurício dos Santos
       - **data_abertura**: 2006
   - **[19]**:
+    - **uid**: bESfwAWf4X0nFZ
     - **via_movel**:
       - **descricao**: Única via em móvel do setor, localizada no Bloco 3, ao lado esquerdo da via Parabolts em Fúria. Parada móvel e descida por caminhada.
       - **nome**: Contra-grip e resfriado
@@ -2806,6 +3489,7 @@
     
     Localizado no início da formação rochosa da Serra do Lenheiro ao lado do Bloco dos Dois Dedos, tem como grande vantagem a rápida aproximação, pois encontra-se muito próximo da estrada que sobe para o CEMONTA, é a primeira formação mais vertical do lado esquerdo. Fica na sombra durante toda a tarde, porém totalmente no sol de manhã.
 - **nome**: Ácidos
+- **uid**: JDQ2oA1zZMyay1
 - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_acidos_p1_i2.webp)
 - **mapas**:
   - **[0]**:
@@ -2814,119 +3498,170 @@
     - **altura_mapa**: 909
     - **pontos_de_interesse**:
       - **[0]**:
-        - **id**: 1
-        - **label**: 1
+        - **id**: kpWJmEbT1Yy9Ta
+        - **uid**: kpWJmEbT1Yy9Ta
+        - **rotulo**: 1
         - **circulo**:
           - **x**: 1132
           - **y**: 887
           - **raio**: 21
+        - **label**: 1
       - **[1]**:
-        - **id**: 2
-        - **label**: 2
+        - **id**: WXXZQv1WmcfW9p
+        - **uid**: WXXZQv1WmcfW9p
+        - **rotulo**: 2
         - **circulo**:
           - **x**: 1012
           - **y**: 855
           - **raio**: 20
+        - **label**: 2
       - **[2]**:
-        - **id**: 3
-        - **label**: 3
+        - **id**: 3klMDctp1ErLJF
+        - **uid**: 3klMDctp1ErLJF
+        - **rotulo**: 3
         - **circulo**:
           - **x**: 871
           - **y**: 848
           - **raio**: 20
+        - **label**: 3
       - **[3]**:
-        - **id**: 4
-        - **label**: 4
+        - **id**: p7Frj8Ujs2zJOg
+        - **uid**: p7Frj8Ujs2zJOg
+        - **rotulo**: 4
         - **circulo**:
           - **x**: 753
           - **y**: 793
           - **raio**: 20
+        - **label**: 4
       - **[4]**:
-        - **id**: 5
-        - **label**: 5
+        - **id**: NKcaCA2700uVZb
+        - **uid**: NKcaCA2700uVZb
+        - **rotulo**: 5
         - **circulo**:
           - **x**: 670
           - **y**: 793
           - **raio**: 20
+        - **label**: 5
       - **[5]**:
-        - **id**: 6
-        - **label**: 6
+        - **id**: gh5BUSzrMaX0Lu
+        - **uid**: gh5BUSzrMaX0Lu
+        - **rotulo**: 6
         - **circulo**:
           - **x**: 459
           - **y**: 407
           - **raio**: 20
+        - **label**: 6
       - **[6]**:
-        - **id**: 7
-        - **label**: 7
+        - **id**: s1PjJfsUS6NnC9
+        - **uid**: s1PjJfsUS6NnC9
+        - **rotulo**: 7
         - **circulo**:
           - **x**: 323
           - **y**: 440
           - **raio**: 20
+        - **label**: 7
       - **[7]**:
-        - **id**: 8
-        - **label**: 8
+        - **id**: R2s8z4cQcqXmGO
+        - **uid**: R2s8z4cQcqXmGO
+        - **rotulo**: 8
         - **circulo**:
           - **x**: 149
           - **y**: 372
           - **raio**: 20
+        - **label**: 8
       - **[8]**:
-        - **id**: 9
-        - **label**: 9
+        - **id**: fO9lTvhpzdtcJy
+        - **uid**: fO9lTvhpzdtcJy
+        - **rotulo**: 9
         - **circulo**:
           - **x**: 50
           - **y**: 271
           - **raio**: 20
+        - **label**: 9
       - **[9]**:
-        - **id**: setor_bloco_dos_dois_dedos
-        - **label**: Dois Dedos
+        - **id**: gv5btIXYKnqVM0
+        - **uid**: gv5btIXYKnqVM0
+        - **rotulo**: Dois Dedos
         - **retangulo**:
           - **x**: 1148
           - **y**: 446
           - **comprimento**: 126
           - **largura**: 52
+        - **label**: Dois Dedos
     - **referencias**:
       - **[0]**:
+        - **alvo_uid**: jTp3BZpqySaHl2
+        - **pontos_uids**:
+          - kpWJmEbT1Yy9Ta
         - **escalada**: Ácido Clorídrico
         - **ids**:
-          - 1
+          - kpWJmEbT1Yy9Ta
       - **[1]**:
+        - **alvo_uid**: ny0mCBHG6xAzg2
+        - **pontos_uids**:
+          - WXXZQv1WmcfW9p
         - **escalada**: Ácido Sulfúrico
         - **ids**:
-          - 2
+          - WXXZQv1WmcfW9p
       - **[2]**:
+        - **alvo_uid**: XOgRGu8LuoJGVw
+        - **pontos_uids**:
+          - 3klMDctp1ErLJF
         - **escalada**: Ácido Lático
         - **ids**:
-          - 3
+          - 3klMDctp1ErLJF
       - **[3]**:
+        - **alvo_uid**: tDw3S21yVJarzL
+        - **pontos_uids**:
+          - p7Frj8Ujs2zJOg
         - **escalada**: Olho Clínico
         - **ids**:
-          - 4
+          - p7Frj8Ujs2zJOg
       - **[4]**:
+        - **alvo_uid**: cQ7NQ4tKg06v6E
+        - **pontos_uids**:
+          - NKcaCA2700uVZb
         - **escalada**: Nitroglicerina
         - **ids**:
-          - 5
+          - NKcaCA2700uVZb
       - **[5]**:
+        - **alvo_uid**: defz621puWrWrN
+        - **pontos_uids**:
+          - gh5BUSzrMaX0Lu
         - **escalada**: Carga Explosiva
         - **ids**:
-          - 6
+          - gh5BUSzrMaX0Lu
       - **[6]**:
+        - **alvo_uid**: emgWdzz8JCU5yM
+        - **pontos_uids**:
+          - s1PjJfsUS6NnC9
         - **escalada**: Menina dos Olhos
         - **ids**:
-          - 7
+          - s1PjJfsUS6NnC9
       - **[7]**:
+        - **alvo_uid**: Aolt48rdPsS0kP
+        - **pontos_uids**:
+          - R2s8z4cQcqXmGO
         - **escalada**: Capitão Nascimento
         - **ids**:
-          - 8
+          - R2s8z4cQcqXmGO
       - **[8]**:
+        - **alvo_uid**: 8ITuEE6qMLiCCA
+        - **pontos_uids**:
+          - fO9lTvhpzdtcJy
         - **escalada**: Isolamento Social
         - **ids**:
-          - 9
+          - fO9lTvhpzdtcJy
       - **[9]**:
+        - **alvo_uid**: R0YRcWkzT7jWFq
+        - **pontos_uids**:
+          - gv5btIXYKnqVM0
         - **setor**: Bloco dos Dois Dedos
         - **ids**:
-          - setor_bloco_dos_dois_dedos
+          - gv5btIXYKnqVM0
 - **escaladas**:
   - **[0]**:
+    - **uid**: jTp3BZpqySaHl2
     - **via_esportiva**:
       - **descricao**: Sua linha tem início em agarras e depois segue por bons abaulados. Desborda toda a aresta em diagonal pra esquerda até encontrar o top da Ácido Lático. São 6 chapeletas e mais o top.
       - **nome**: Ácido Clorídrico
@@ -2940,6 +3675,7 @@
         - Jonatas Lima
         - Jefferson Lara
   - **[1]**:
+    - **uid**: ny0mCBHG6xAzg2
     - **via_esportiva**:
       - **descricao**: Linha mais nova do setor. Segue vertical até a quarta chapa onde junta com a Clorídrico e termina na Lático.
       - **nome**: Ácido Sulfúrico
@@ -2952,6 +3688,7 @@
         - Bruno Bastos
       - **data_abertura**: 2023-05-22
   - **[2]**:
+    - **uid**: XOgRGu8LuoJGVw
     - **via_esportiva**:
       - **descricao**: Primeira via conquistada no setor e também a mais clássica! Possui uma interessante movimentação técnica. Seus lances peculiares com pockets, abaulados e lances de equilíbrio fazem dela uma via desafiadora e por isso foi supergraduada no início. Divide o mesmo top com a via Ácido Clorídrico. São 5 chapas e mais o top.
       - **nome**: Ácido Lático
@@ -2965,6 +3702,7 @@
         - João Felippin
         - Everton Alves
   - **[3]**:
+    - **uid**: tDw3S21yVJarzL
     - **via_esportiva**:
       - **descricao**: Esta é uma via que pode se tornar clássica do setor. Uma saída técnica passando a lances de oposição até acessar um grande platô, de onde necessita boa leitura caso escale à vista nos lances negativos debaixo do teto até fazer uma virada em grandes agarras. São 5 chapeletas e mais dois grampos no top.
       - **nome**: Olho Clínico
@@ -2977,6 +3715,7 @@
         - Jonatas Lima
       - **data_abertura**: 2013
   - **[4]**:
+    - **uid**: cQ7NQ4tKg06v6E
     - **via_esportiva**:
       - **descricao**: Segunda via aberta no setor, extremamente explosiva e com passadas esticadas em dinâmicos e lances certeiros minam a resistência do escalador que ainda tem que dominar um negativo antes de costurar o top final. São 4 chapas e mais duas no top.
       - **nome**: Nitroglicerina
@@ -2988,6 +3727,7 @@
         - Jonatas Lima
       - **data_abertura**: 2005
   - **[5]**:
+    - **uid**: defz621puWrWrN
     - **via_esportiva**:
       - **descricao**: Essa via possui a mesma saída da via Nitroglicerina, porém após a segunda proteção a linha segue para a esquerda em uma escalada horizontal até um pequeno teto. Após isso a via segue vertical até a parada. 6 + 2 chapas.
       - **nome**: Carga Explosiva
@@ -3000,6 +3740,7 @@
         - Fabrício Nascimento
       - **data_abertura**: 2012
   - **[6]**:
+    - **uid**: emgWdzz8JCU5yM
     - **via_esportiva**:
       - **descricao**: É uma via curta, porém de rara beleza! Com agarras diferenciadas, como buracos bidedos e tridedos, variedade de agarras. Via curta, porém exigente apesar da graduação. Aconselha-se sair com a primeira proteção costurada.
       - **nome**: Menina dos Olhos
@@ -3011,6 +3752,7 @@
         - Fabrício Nascimento
       - **data_abertura**: 2012
   - **[7]**:
+    - **uid**: Aolt48rdPsS0kP
     - **via_esportiva**:
       - **descricao**: Eis que temos a via mais difícil do setor. Uma via curta, porém praticamente todos os lances são de boulder. Seu crux é logo da primeira para a segunda chapa, após são lances de boulder mais diluídos, porém mantém uma constância até a parada dupla.
       - **nome**: Capitão Nascimento
@@ -3023,6 +3765,7 @@
         - Andréa Carvalho
       - **data_abertura**: 2014
   - **[8]**:
+    - **uid**: 8ITuEE6qMLiCCA
     - **via_esportiva**:
       - **descricao**: Via curta, mas inteira dura. Seus micro-regletes e monodedos com movimentação de difícil leitura fazem dela um belo desafio pra escalada à vista. Ao final passa pra outra face da rocha à esquerda. Sugere-se entrar com as costuras no lugar, pois as agarras de costura são bem ruins.
       - **nome**: Isolamento Social
@@ -3054,6 +3797,7 @@
     | :--: |
     | *Márcio Andrade participando da conquista da via Jurassic Park, ao fundo a bela fissura da Magnésio de Cheirar* |
 - **nome**: Bloco dos Dois Dedos
+- **uid**: R0YRcWkzT7jWFq
 - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_bloco_dos_dois_dedos_p1_i2.webp)
 - **mapas**:
   - **[0]**:
@@ -3062,498 +3806,719 @@
     - **altura_mapa**: 1091
     - **referencias**:
       - **[0]**:
+        - **alvo_uid**: fH9meA18Hte60z
+        - **pontos_uids**:
+          - sG76wxhFjDU9Dt
         - **escalada**: Fissura Santíssima Trindade
         - **ids**:
-          - 1
+          - sG76wxhFjDU9Dt
       - **[1]**:
+        - **alvo_uid**: zTsT08fXXcl2I9
+        - **pontos_uids**:
+          - lOgPvMlZWstwiv
         - **escalada**: Boca Murcha
         - **ids**:
-          - 2
+          - lOgPvMlZWstwiv
       - **[2]**:
+        - **alvo_uid**: xiAzRu2EWQTMeK
+        - **pontos_uids**:
+          - 9e48mLoxs2bw6K
         - **escalada**: Sorte de Principiante
         - **ids**:
-          - 3
+          - 9e48mLoxs2bw6K
       - **[3]**:
+        - **alvo_uid**: ssn2x8RGX21pbr
+        - **pontos_uids**:
+          - rtBpMJOk7GYRTV
         - **escalada**: Pescador de Ilusões
         - **ids**:
-          - 4
+          - rtBpMJOk7GYRTV
       - **[4]**:
+        - **alvo_uid**: zmPEFqN96jQIrC
+        - **pontos_uids**:
+          - 4DhqZVJ8WjcTld
         - **escalada**: Malvado Favorito
         - **ids**:
-          - 5
+          - 4DhqZVJ8WjcTld
       - **[5]**:
+        - **alvo_uid**: jPAltt7zZixKe7
+        - **pontos_uids**:
+          - K2aIufaMjSudjW
         - **escalada**: A Primeira e Gente Nunca Esquece
         - **ids**:
-          - 6
+          - K2aIufaMjSudjW
       - **[6]**:
+        - **alvo_uid**: bxnlGD0vbwsDIU
+        - **pontos_uids**:
+          - 7vRDuMQeKYQqS5
         - **escalada**: Fissura dos Dois Dedos
         - **ids**:
-          - 7
+          - 7vRDuMQeKYQqS5
       - **[7]**:
+        - **alvo_uid**: UQQNyI4JCAmyR0
+        - **pontos_uids**:
+          - yMYT0GYfYseO4S
         - **escalada**: O Retorno
         - **ids**:
-          - 8
+          - yMYT0GYfYseO4S
       - **[8]**:
+        - **alvo_uid**: kdbgW74YHDj4BR
+        - **pontos_uids**:
+          - 0K0nHqrKOqO8R3
         - **escalada**: Sinergia
         - **ids**:
-          - 9
+          - 0K0nHqrKOqO8R3
       - **[9]**:
+        - **alvo_uid**: PSBJHMoJ0vdwI5
+        - **pontos_uids**:
+          - 9TW0JPAfUSi07I
         - **escalada**: Chapeleta
         - **ids**:
-          - 10
+          - 9TW0JPAfUSi07I
       - **[10]**:
+        - **alvo_uid**: Zb0d8qAFDkedRV
+        - **pontos_uids**:
+          - 0CqbpJMiiYRHYm
         - **escalada**: Elo Perdido
         - **ids**:
-          - 11
+          - 0CqbpJMiiYRHYm
       - **[11]**:
+        - **alvo_uid**: 8wDJrxOyROFxq2
+        - **pontos_uids**:
+          - k0ewtYjPE0UWNw
         - **escalada**: Investida Invertida
         - **ids**:
-          - 12
+          - k0ewtYjPE0UWNw
       - **[12]**:
+        - **alvo_uid**: sOeHR8ZHlGg12P
+        - **pontos_uids**:
+          - E84PtkFcadOsoM
         - **escalada**: Domingão com Viagra
         - **ids**:
-          - 13
+          - E84PtkFcadOsoM
       - **[13]**:
+        - **alvo_uid**: da9IBfGwU1vpzm
+        - **pontos_uids**:
+          - yqO2pKvC5rYiCh
         - **escalada**: Portal do Delírio
         - **ids**:
-          - 14
+          - yqO2pKvC5rYiCh
       - **[14]**:
+        - **alvo_uid**: auYvOZ1jzPCJNJ
+        - **pontos_uids**:
+          - 11rLFGJOtGEl2C
         - **escalada**: Outra Dimensão
         - **ids**:
-          - 15
+          - 11rLFGJOtGEl2C
       - **[15]**:
+        - **alvo_uid**: VGSteh9NLivxiN
+        - **pontos_uids**:
+          - 8B6m58sgZGphzO
         - **escalada**: Variante Teto do Portal
         - **ids**:
-          - 16
+          - 8B6m58sgZGphzO
       - **[16]**:
+        - **alvo_uid**: t5JIGOMCvUxTsN
+        - **pontos_uids**:
+          - X2utE1cyLvQvmg
         - **escalada**: Mano de Quartzito
         - **ids**:
-          - 17
+          - X2utE1cyLvQvmg
       - **[17]**:
+        - **alvo_uid**: WQ2LCVCVgYCo5z
+        - **pontos_uids**:
+          - D6cUekqSg3q2TR
         - **escalada**: Garimpeiros
         - **ids**:
-          - 18
+          - D6cUekqSg3q2TR
       - **[18]**:
+        - **alvo_uid**: Wz8EiPQRlPgqsL
+        - **pontos_uids**:
+          - KhGkoJIXym2QSQ
         - **escalada**: Um Minuto de Silêncio
         - **ids**:
-          - 19
+          - KhGkoJIXym2QSQ
       - **[19]**:
+        - **alvo_uid**: 4At4ETcm2r2RnW
+        - **pontos_uids**:
+          - Vnne2qUpAkJWB9
         - **escalada**: Mina de Cristal
         - **ids**:
-          - 20
+          - Vnne2qUpAkJWB9
       - **[20]**:
+        - **alvo_uid**: YuWr3n1ojM0zyV
+        - **pontos_uids**:
+          - xgUprfAu1MF9AQ
         - **escalada**: Erva do Diabo
         - **ids**:
-          - 21
+          - xgUprfAu1MF9AQ
       - **[21]**:
+        - **alvo_uid**: KqUpniGlfDVB6g
+        - **pontos_uids**:
+          - L9upM6ctEvBUoT
         - **escalada**: Olhos de Lince
         - **ids**:
-          - 22
+          - L9upM6ctEvBUoT
       - **[22]**:
+        - **alvo_uid**: 429svd4mQSpFQf
+        - **pontos_uids**:
+          - bwOPubk9dyVbEo
         - **escalada**: Da Toca Pra Cima
         - **ids**:
-          - 23
+          - bwOPubk9dyVbEo
       - **[23]**:
+        - **alvo_uid**: SBbc5gg7IoRUhg
+        - **pontos_uids**:
+          - yh7MlphPeIclXw
         - **escalada**: Magnésio de Cheirar
         - **ids**:
-          - 24
+          - yh7MlphPeIclXw
       - **[24]**:
+        - **alvo_uid**: NPPzNmqTEcjtFf
+        - **pontos_uids**:
+          - tfgGc0GQVtvz4C
         - **escalada**: Fissura do Desejo
         - **ids**:
-          - 25
+          - tfgGc0GQVtvz4C
       - **[25]**:
+        - **alvo_uid**: ypTPfm58pAGtjh
+        - **pontos_uids**:
+          - s7Vw3ZQDF4Yuou
         - **escalada**: Reconciliação (Variante)
         - **ids**:
-          - 26
+          - s7Vw3ZQDF4Yuou
       - **[26]**:
+        - **alvo_uid**: 7BD9U7y8CbZMHq
+        - **pontos_uids**:
+          - kqO5s4Hfq0GO1b
         - **escalada**: Jurassic Park
         - **ids**:
-          - 27
+          - kqO5s4Hfq0GO1b
       - **[27]**:
+        - **alvo_uid**: n6ZHPedpjmiyC2
+        - **pontos_uids**:
+          - IzhVdAT2DgdZ87
         - **escalada**: Diedro do Professor
         - **ids**:
-          - 28
+          - IzhVdAT2DgdZ87
       - **[28]**:
+        - **alvo_uid**: XwPg9HUTcnLZsb
+        - **pontos_uids**:
+          - h9qiD0dNwwruHW
         - **escalada**: Vacinados
         - **ids**:
-          - 29
+          - h9qiD0dNwwruHW
       - **[29]**:
+        - **alvo_uid**: ul6nnEmm6l3jfQ
+        - **pontos_uids**:
+          - WXE41PHmOf9IZe
         - **escalada**: Finalmente
         - **ids**:
-          - 30
+          - WXE41PHmOf9IZe
       - **[30]**:
+        - **alvo_uid**: YWhcRaq2nVm1Pb
+        - **pontos_uids**:
+          - njB1oDs7EyViX2
         - **escalada**: Idade da Pedra
         - **ids**:
-          - 31
+          - njB1oDs7EyViX2
       - **[31]**:
+        - **alvo_uid**: 3qYz3ixEr0LbQe
+        - **pontos_uids**:
+          - 0lPhjoxxHhlTOb
         - **escalada**: Os Nômades
         - **ids**:
-          - 32
+          - 0lPhjoxxHhlTOb
       - **[32]**:
+        - **alvo_uid**: KcfNNlwTSyWop1
+        - **pontos_uids**:
+          - sp61s0iavoDdK6
         - **escalada**: Projetistas
         - **ids**:
-          - 33
+          - sp61s0iavoDdK6
       - **[33]**:
+        - **alvo_uid**: L2ASFLHBJUJtbj
+        - **pontos_uids**:
+          - ibn3iYEYaRsp1H
         - **escalada**: Esperança
         - **ids**:
-          - 34
+          - ibn3iYEYaRsp1H
       - **[34]**:
+        - **alvo_uid**: pPMinGu5DvNcnA
+        - **pontos_uids**:
+          - mGRhqQQ66aGDrw
         - **escalada**: Pedra Lascada
         - **ids**:
-          - 35
+          - mGRhqQQ66aGDrw
       - **[35]**:
+        - **alvo_uid**: Cvcv1pT0Kd9oPn
+        - **pontos_uids**:
+          - AohEY2a7amamwg
         - **escalada**: Chaminé Estiagem
         - **ids**:
-          - 36
+          - AohEY2a7amamwg
       - **[36]**:
+        - **alvo_uid**: raCT0z6Xg8vzVJ
+        - **pontos_uids**:
+          - 2RnBSVV90348y1
         - **escalada**: Temporal
         - **ids**:
-          - 37
+          - 2RnBSVV90348y1
       - **[37]**:
+        - **alvo_uid**: Q2ZP3rueS0HypD
+        - **pontos_uids**:
+          - 9RMK8aACjy4m2g
         - **escalada**: Golias
         - **ids**:
-          - 38
+          - 9RMK8aACjy4m2g
       - **[38]**:
+        - **alvo_uid**: gfKmwX2oBTDTnf
+        - **pontos_uids**:
+          - h6Y0eWKJnVx56E
         - **escalada**: Esqueceram de Mim
         - **ids**:
-          - 39
+          - h6Y0eWKJnVx56E
       - **[39]**:
+        - **alvo_uid**: v125u2uJQi4viQ
+        - **pontos_uids**:
+          - v3KYyaVcMeo958
         - **escalada**: Suco de Laranja
         - **ids**:
-          - 40
+          - v3KYyaVcMeo958
     - **pontos_de_interesse**:
       - **[0]**:
-        - **id**: 1
-        - **label**: 1
+        - **id**: sG76wxhFjDU9Dt
+        - **uid**: sG76wxhFjDU9Dt
+        - **rotulo**: 1
         - **circulo**:
           - **x**: 76
           - **y**: 985
           - **raio**: 25
+        - **label**: 1
       - **[1]**:
-        - **id**: 2
-        - **label**: 2
+        - **id**: lOgPvMlZWstwiv
+        - **uid**: lOgPvMlZWstwiv
+        - **rotulo**: 2
         - **circulo**:
           - **x**: 128
           - **y**: 986
           - **raio**: 26
+        - **label**: 2
       - **[2]**:
-        - **id**: 3
-        - **label**: 3
+        - **id**: 9e48mLoxs2bw6K
+        - **uid**: 9e48mLoxs2bw6K
+        - **rotulo**: 3
         - **circulo**:
           - **x**: 188
           - **y**: 976
           - **raio**: 26
+        - **label**: 3
       - **[3]**:
-        - **id**: 4
-        - **label**: 4
+        - **id**: rtBpMJOk7GYRTV
+        - **uid**: rtBpMJOk7GYRTV
+        - **rotulo**: 4
         - **circulo**:
           - **x**: 250
           - **y**: 975
           - **raio**: 26
+        - **label**: 4
       - **[4]**:
-        - **id**: 5
-        - **label**: 5
+        - **id**: 4DhqZVJ8WjcTld
+        - **uid**: 4DhqZVJ8WjcTld
+        - **rotulo**: 5
         - **circulo**:
           - **x**: 297
           - **y**: 975
           - **raio**: 26
+        - **label**: 5
       - **[5]**:
-        - **id**: 6
-        - **label**: 6
+        - **id**: K2aIufaMjSudjW
+        - **uid**: K2aIufaMjSudjW
+        - **rotulo**: 6
         - **circulo**:
           - **x**: 345
           - **y**: 976
           - **raio**: 26
+        - **label**: 6
       - **[6]**:
-        - **id**: 7
-        - **label**: 7
+        - **id**: 7vRDuMQeKYQqS5
+        - **uid**: 7vRDuMQeKYQqS5
+        - **rotulo**: 7
         - **circulo**:
           - **x**: 388
           - **y**: 976
           - **raio**: 26
+        - **label**: 7
       - **[7]**:
-        - **id**: 8
-        - **label**: 8
+        - **id**: yMYT0GYfYseO4S
+        - **uid**: yMYT0GYfYseO4S
+        - **rotulo**: 8
         - **circulo**:
           - **x**: 456
           - **y**: 550
           - **raio**: 26
+        - **label**: 8
       - **[8]**:
-        - **id**: 9
-        - **label**: 9
+        - **id**: 0K0nHqrKOqO8R3
+        - **uid**: 0K0nHqrKOqO8R3
+        - **rotulo**: 9
         - **circulo**:
           - **x**: 425
           - **y**: 924
           - **raio**: 26
+        - **label**: 9
       - **[9]**:
-        - **id**: 10
-        - **label**: 10
+        - **id**: 9TW0JPAfUSi07I
+        - **uid**: 9TW0JPAfUSi07I
+        - **rotulo**: 10
         - **circulo**:
           - **x**: 486
           - **y**: 978
           - **raio**: 33
+        - **label**: 10
       - **[10]**:
-        - **id**: 11
-        - **label**: 11
+        - **id**: 0CqbpJMiiYRHYm
+        - **uid**: 0CqbpJMiiYRHYm
+        - **rotulo**: 11
         - **circulo**:
           - **x**: 516
           - **y**: 1050
           - **raio**: 34
+        - **label**: 11
       - **[11]**:
-        - **id**: 12
-        - **label**: 12
+        - **id**: k0ewtYjPE0UWNw
+        - **uid**: k0ewtYjPE0UWNw
+        - **rotulo**: 12
         - **circulo**:
           - **x**: 546
           - **y**: 970
           - **raio**: 26
+        - **label**: 12
       - **[12]**:
-        - **id**: 13
-        - **label**: 13
+        - **id**: E84PtkFcadOsoM
+        - **uid**: E84PtkFcadOsoM
+        - **rotulo**: 13
         - **circulo**:
           - **x**: 588
           - **y**: 1042
           - **raio**: 35
+        - **label**: 13
       - **[13]**:
-        - **id**: 14
-        - **label**: 14
+        - **id**: yqO2pKvC5rYiCh
+        - **uid**: yqO2pKvC5rYiCh
+        - **rotulo**: 14
         - **circulo**:
           - **x**: 601
           - **y**: 965
           - **raio**: 34
+        - **label**: 14
       - **[14]**:
-        - **id**: 15
-        - **label**: 15
+        - **id**: 11rLFGJOtGEl2C
+        - **uid**: 11rLFGJOtGEl2C
+        - **rotulo**: 15
         - **circulo**:
           - **x**: 682
           - **y**: 617
           - **raio**: 36
+        - **label**: 15
       - **[15]**:
-        - **id**: 16
-        - **label**: 16
+        - **id**: 8B6m58sgZGphzO
+        - **uid**: 8B6m58sgZGphzO
+        - **rotulo**: 16
         - **circulo**:
           - **x**: 678
           - **y**: 968
           - **raio**: 35
+        - **label**: 16
       - **[16]**:
-        - **id**: 17
-        - **label**: 17
+        - **id**: X2utE1cyLvQvmg
+        - **uid**: X2utE1cyLvQvmg
+        - **rotulo**: 17
         - **circulo**:
           - **x**: 743
           - **y**: 967
           - **raio**: 33
+        - **label**: 17
       - **[17]**:
-        - **id**: 18
-        - **label**: 18
+        - **id**: D6cUekqSg3q2TR
+        - **uid**: D6cUekqSg3q2TR
+        - **rotulo**: 18
         - **circulo**:
           - **x**: 802
           - **y**: 961
           - **raio**: 32
+        - **label**: 18
       - **[18]**:
-        - **id**: 19
-        - **label**: 19
+        - **id**: KhGkoJIXym2QSQ
+        - **uid**: KhGkoJIXym2QSQ
+        - **rotulo**: 19
         - **circulo**:
           - **x**: 862
           - **y**: 945
           - **raio**: 33
+        - **label**: 19
       - **[19]**:
-        - **id**: 20
-        - **label**: 20
+        - **id**: Vnne2qUpAkJWB9
+        - **uid**: Vnne2qUpAkJWB9
+        - **rotulo**: 20
         - **circulo**:
           - **x**: 957
           - **y**: 889
           - **raio**: 37
+        - **label**: 20
       - **[20]**:
-        - **id**: 21
-        - **label**: 21
+        - **id**: xgUprfAu1MF9AQ
+        - **uid**: xgUprfAu1MF9AQ
+        - **rotulo**: 21
         - **circulo**:
           - **x**: 974
           - **y**: 707
           - **raio**: 35
+        - **label**: 21
       - **[21]**:
-        - **id**: 22
-        - **label**: 22
+        - **id**: L9upM6ctEvBUoT
+        - **uid**: L9upM6ctEvBUoT
+        - **rotulo**: 22
         - **circulo**:
           - **x**: 927
           - **y**: 511
           - **raio**: 38
+        - **label**: 22
       - **[22]**:
-        - **id**: 23
-        - **label**: 23
+        - **id**: bwOPubk9dyVbEo
+        - **uid**: bwOPubk9dyVbEo
+        - **rotulo**: 23
         - **circulo**:
           - **x**: 989
           - **y**: 767
           - **raio**: 36
+        - **label**: 23
       - **[23]**:
-        - **id**: 24
-        - **label**: 24
+        - **id**: yh7MlphPeIclXw
+        - **uid**: yh7MlphPeIclXw
+        - **rotulo**: 24
         - **circulo**:
           - **x**: 1052
           - **y**: 766
           - **raio**: 36
+        - **label**: 24
       - **[24]**:
-        - **id**: 25
-        - **label**: 25
+        - **id**: tfgGc0GQVtvz4C
+        - **uid**: tfgGc0GQVtvz4C
+        - **rotulo**: 25
         - **circulo**:
           - **x**: 1049
           - **y**: 827
           - **raio**: 36
+        - **label**: 25
       - **[25]**:
-        - **id**: 26
-        - **label**: 26
+        - **id**: s7Vw3ZQDF4Yuou
+        - **uid**: s7Vw3ZQDF4Yuou
+        - **rotulo**: 26
         - **circulo**:
           - **x**: 1051
           - **y**: 891
           - **raio**: 36
+        - **label**: 26
       - **[26]**:
-        - **id**: 27
-        - **label**: 27
+        - **id**: kqO5s4Hfq0GO1b
+        - **uid**: kqO5s4Hfq0GO1b
+        - **rotulo**: 27
         - **circulo**:
           - **x**: 1051
           - **y**: 954
           - **raio**: 36
+        - **label**: 27
       - **[27]**:
-        - **id**: 28
-        - **label**: 28
+        - **id**: IzhVdAT2DgdZ87
+        - **uid**: IzhVdAT2DgdZ87
+        - **rotulo**: 28
         - **circulo**:
           - **x**: 1051
           - **y**: 290
           - **raio**: 36
+        - **label**: 28
       - **[28]**:
-        - **id**: 29
-        - **label**: 29
+        - **id**: h9qiD0dNwwruHW
+        - **uid**: h9qiD0dNwwruHW
+        - **rotulo**: 29
         - **circulo**:
           - **x**: 1115
           - **y**: 722
           - **raio**: 36
+        - **label**: 29
       - **[29]**:
-        - **id**: 30
-        - **label**: 30
+        - **id**: WXE41PHmOf9IZe
+        - **uid**: WXE41PHmOf9IZe
+        - **rotulo**: 30
         - **circulo**:
           - **x**: 1124
           - **y**: 299
           - **raio**: 36
+        - **label**: 30
       - **[30]**:
-        - **id**: 31
-        - **label**: 31
+        - **id**: njB1oDs7EyViX2
+        - **uid**: njB1oDs7EyViX2
+        - **rotulo**: 31
         - **circulo**:
           - **x**: 1171
           - **y**: 763
           - **raio**: 33
+        - **label**: 31
       - **[31]**:
-        - **id**: 32
-        - **label**: 32
+        - **id**: 0lPhjoxxHhlTOb
+        - **uid**: 0lPhjoxxHhlTOb
+        - **rotulo**: 32
         - **circulo**:
           - **x**: 1243
           - **y**: 765
           - **raio**: 34
+        - **label**: 32
       - **[32]**:
-        - **id**: 33
-        - **label**: 33
+        - **id**: sp61s0iavoDdK6
+        - **uid**: sp61s0iavoDdK6
+        - **rotulo**: 33
         - **circulo**:
           - **x**: 1298
           - **y**: 744
           - **raio**: 32
+        - **label**: 33
       - **[33]**:
-        - **id**: 34
-        - **label**: 34
+        - **id**: ibn3iYEYaRsp1H
+        - **uid**: ibn3iYEYaRsp1H
+        - **rotulo**: 34
         - **circulo**:
           - **x**: 1361
           - **y**: 744
           - **raio**: 33
+        - **label**: 34
       - **[34]**:
-        - **id**: 35
-        - **label**: 35
+        - **id**: mGRhqQQ66aGDrw
+        - **uid**: mGRhqQQ66aGDrw
+        - **rotulo**: 35
         - **circulo**:
           - **x**: 1414
           - **y**: 466
           - **raio**: 35
+        - **label**: 35
       - **[35]**:
-        - **id**: 36
-        - **label**: 36
+        - **id**: AohEY2a7amamwg
+        - **uid**: AohEY2a7amamwg
+        - **rotulo**: 36
         - **circulo**:
           - **x**: 1424
           - **y**: 744
           - **raio**: 35
+        - **label**: 36
       - **[36]**:
-        - **id**: 37
-        - **label**: 37
+        - **id**: 2RnBSVV90348y1
+        - **uid**: 2RnBSVV90348y1
+        - **rotulo**: 37
         - **circulo**:
           - **x**: 1502
           - **y**: 234
           - **raio**: 35
+        - **label**: 37
       - **[37]**:
-        - **id**: 38
-        - **label**: 38
+        - **id**: 9RMK8aACjy4m2g
+        - **uid**: 9RMK8aACjy4m2g
+        - **rotulo**: 38
         - **circulo**:
           - **x**: 1489
           - **y**: 746
           - **raio**: 33
+        - **label**: 38
       - **[38]**:
-        - **id**: 39
-        - **label**: 39
+        - **id**: h6Y0eWKJnVx56E
+        - **uid**: h6Y0eWKJnVx56E
+        - **rotulo**: 39
         - **circulo**:
           - **x**: 1550
           - **y**: 762
           - **raio**: 34
+        - **label**: 39
       - **[39]**:
-        - **id**: 40
-        - **label**: 40
+        - **id**: v3KYyaVcMeo958
+        - **uid**: v3KYyaVcMeo958
+        - **rotulo**: 40
         - **circulo**:
           - **x**: 1571
           - **y**: 709
           - **raio**: 35
+        - **label**: 40
   - **[1]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_bloco_dos_dois_dedos_p3_i2.webp)
     - **largura_mapa**: 799
     - **altura_mapa**: 1065
     - **referencias**:
       - **[0]**:
+        - **alvo_uid**: SBbc5gg7IoRUhg
+        - **pontos_uids**:
+          - vXcrSFqGhYn77b
         - **escalada**: Magnésio de Cheirar
         - **ids**:
-          - 24
+          - vXcrSFqGhYn77b
       - **[1]**:
+        - **alvo_uid**: NPPzNmqTEcjtFf
+        - **pontos_uids**:
+          - tFiCldteeu1y0f
         - **escalada**: Fissura do Desejo
         - **ids**:
-          - 25
+          - tFiCldteeu1y0f
       - **[2]**:
+        - **alvo_uid**: ypTPfm58pAGtjh
+        - **pontos_uids**:
+          - gHQsvHIbNX4mkO
         - **escalada**: Reconciliação (Variante)
         - **ids**:
-          - 26
+          - gHQsvHIbNX4mkO
       - **[3]**:
+        - **alvo_uid**: 7BD9U7y8CbZMHq
+        - **pontos_uids**:
+          - cDG3zC6qCGzJ2L
         - **escalada**: Jurassic Park
         - **ids**:
-          - 27
+          - cDG3zC6qCGzJ2L
     - **pontos_de_interesse**:
       - **[0]**:
-        - **id**: 24
-        - **label**: 24
+        - **id**: vXcrSFqGhYn77b
+        - **uid**: vXcrSFqGhYn77b
+        - **rotulo**: 24
         - **circulo**:
           - **x**: 237
           - **y**: 762
           - **raio**: 27
+        - **label**: 24
       - **[1]**:
-        - **id**: 25
-        - **label**: 25
+        - **id**: tFiCldteeu1y0f
+        - **uid**: tFiCldteeu1y0f
+        - **rotulo**: 25
         - **circulo**:
           - **x**: 393
           - **y**: 582
           - **raio**: 29
+        - **label**: 25
       - **[2]**:
-        - **id**: 26
-        - **label**: 26
+        - **id**: gHQsvHIbNX4mkO
+        - **uid**: gHQsvHIbNX4mkO
+        - **rotulo**: 26
         - **circulo**:
           - **x**: 489
           - **y**: 585
           - **raio**: 27
+        - **label**: 26
       - **[3]**:
-        - **id**: 27
-        - **label**: 27
+        - **id**: cDG3zC6qCGzJ2L
+        - **uid**: cDG3zC6qCGzJ2L
+        - **rotulo**: 27
         - **circulo**:
           - **x**: 448
           - **y**: 741
           - **raio**: 28
+        - **label**: 27
 - **escaladas**:
   - **[0]**:
+    - **uid**: fH9meA18Hte60z
     - **via_movel**:
       - **descricao**: Via curta e fácil por uma fissura reta e um pouco suja. Sem relatos de repetições.
       - **nome**: Fissura Santíssima Trindade
@@ -3563,6 +4528,7 @@
         - Centro Excursionista Lenheiro
       - **data_abertura**: 1988
   - **[1]**:
+    - **uid**: zTsT08fXXcl2I9
     - **via_esportiva**:
       - **descricao**: Primeira via fixa da esquerda pra direita do setor. Via bem fácil, interessante pra uma primeira guiada.
       - **nome**: Boca Murcha
@@ -3573,6 +4539,7 @@
         - Douglas Marques
       - **data_abertura**: 2023-07-27
   - **[2]**:
+    - **uid**: xiAzRu2EWQTMeK
     - **via_esportiva**:
       - **descricao**: Via começa vertical em boas agarras, passa por um fácil positivo e termina com um crux vertical mais técnico.
       - **nome**: Sorte de Principiante
@@ -3583,6 +4550,7 @@
         - Douglas Marques
       - **data_abertura**: 2023-07-27
   - **[3]**:
+    - **uid**: ssn2x8RGX21pbr
     - **via_esportiva**:
       - **descricao**: Bem ao lado da via anterior, se parecem no estilo. Porém essa tem um crux mais negativo e de difícil leitura.
       - **nome**: Pescador de Ilusões
@@ -3593,6 +4561,7 @@
         - Douglas Marques
       - **data_abertura**: 2023-07-27
   - **[4]**:
+    - **uid**: zmPEFqN96jQIrC
     - **via_esportiva**:
       - **descricao**: Saída embaixo da copa de uma árvore. Início em positivo e crux no final em uma bonita sequência negativa.
       - **nome**: Malvado Favorito
@@ -3604,6 +4573,7 @@
         - Carlos Pádua
       - **data_abertura**: 2021-10-12
   - **[5]**:
+    - **uid**: jPAltt7zZixKe7
     - **via_movel**:
       - **descricao**: Via bem no meio do bloco rochoso vertical de cor mais clara. Possui apenas duas chapeletas em sua metade superior e parada dupla no cume. Para montagem de top-rope levar ao menos duas fitas de 1,20m.
       - **nome**: A Primeira e Gente Nunca Esquece
@@ -3614,6 +4584,7 @@
       - **conquistadores**:
         - Luiz Cláudio
   - **[6]**:
+    - **uid**: bxnlGD0vbwsDIU
     - **via_movel**:
       - **descricao**: Primeira via do setor e uma das mais belas, foi conquistada em solo. Saída ao lado da via anterior, depois segue pelo diedro e termina no topo da formação que dá nome ao setor. Um jogo de friends é o suficiente. Para descer, desescalar um lance pra direita, subir o trepa-pedras e ir até a parada fixa no final da via Portal do Delírio ou descer por caminhada.
       - **nome**: Fissura dos Dois Dedos
@@ -3623,6 +4594,7 @@
         - André Ilha
       - **data_abertura**: 1984-04-28
   - **[7]**:
+    - **uid**: UQQNyI4JCAmyR0
     - **via_movel**:
       - **descricao**: Variante da via anterior. Parada fixa no topo.
       - **nome**: O Retorno
@@ -3636,6 +4608,7 @@
         - Gelson
       - **data_abertura**: 2020
   - **[8]**:
+    - **uid**: kdbgW74YHDj4BR
     - **via_esportiva**:
       - **descricao**: Esta linha cruza com as anteriores e crux no final.
       - **nome**: Sinergia
@@ -3646,6 +4619,7 @@
         - Márcio Andrade
       - **data_abertura**: 2021-09
   - **[9]**:
+    - **uid**: PSBJHMoJ0vdwI5
     - **via_esportiva**:
       - **nome**: Chapeleta
       - **dificuldade**: BR_4
@@ -3655,6 +4629,7 @@
         - Dircinei Paulo
       - **data_abertura**: 2017
   - **[10]**:
+    - **uid**: Zb0d8qAFDkedRV
     - **via_movel**:
       - **descricao**: Via inicia em uma fenda larga e suja entre duas vias fixas. Depois entra na grande cavidade da rocha e segue por uma fissura perfeita ao fundo. Costuma ficar bastante húmida na época de chuvas. Um jogo de friends.
       - **nome**: Elo Perdido
@@ -3664,6 +4639,7 @@
         - Leonardo Rodrigues
         - Márcio Andrade
   - **[11]**:
+    - **uid**: 8wDJrxOyROFxq2
     - **via_esportiva**:
       - **nome**: Investida Invertida
       - **dificuldade**: BR_5SUP
@@ -3675,6 +4651,7 @@
         - Gelson
       - **data_abertura**: 2020
   - **[12]**:
+    - **uid**: sOeHR8ZHlGg12P
     - **via_movel**:
       - **descricao**: Diedro oposto ao da Fissura dos Dois Dedos. Depois segue por uma bonita fenda em diagonal pra direita.
       - **nome**: Domingão com Viagra
@@ -3684,6 +4661,7 @@
         - Leonardo Rodrigues
         - Márcio Andrade
   - **[13]**:
+    - **uid**: da9IBfGwU1vpzm
     - **via_movel**:
       - **descricao**: Inicia na aresta à esquerda do “Portal”, mas também é feita saindo pela fenda óbvia bem ao lado do portal devido à sua beleza e dá menos arrasto na corda, desta forma o grau deve subir pra casa do sexto grau.
       - **nome**: Portal do Delírio
@@ -3696,6 +4674,7 @@
         - Guilherme
       - **data_abertura**: 1988-04-17
   - **[14]**:
+    - **uid**: auYvOZ1jzPCJNJ
     - **via_movel**:
       - **descricao**: Apesar de ter sido conquistada recentemente, é clássica e uma das móveis mais difíceis do setor. Pois além do crux estilo Boulder no final possui mais outros lances técnicos. Foi conquistada saindo pela bela fissura que já era usada como variante da via anterior, no platô segue reto entre blocos de pedra até atingir uma canaleta negativa que também é exigente. Levar um jogo de friends até BD #4(final da via) e um de nuts.
       - **nome**: Outra Dimensão
@@ -3706,6 +4685,7 @@
         - Bruno Bastos
       - **data_abertura**: 2021-10-12
   - **[15]**:
+    - **uid**: VGSteh9NLivxiN
     - **via_movel**:
       - **nome**: Variante Teto do Portal
       - **dificuldade**: BR_7A
@@ -3716,6 +4696,7 @@
         - Guilherme
       - **data_abertura**: 1988-08-14
   - **[16]**:
+    - **uid**: t5JIGOMCvUxTsN
     - **via_movel**:
       - **descricao**: Inicia na aresta à direita do portal, em grampos. Sua metade superior é feita toda em móvel, cruzando com a “Portal do Delírio” no grande platô no meio da parede. Parada dupla no topo, para segurança e rapel.
       - **nome**: Mano de Quartzito
@@ -3727,6 +4708,7 @@
         - Vivianne Sawczuk
       - **data_abertura**: 2015-04-26
   - **[17]**:
+    - **uid**: WQ2LCVCVgYCo5z
     - **via_movel**:
       - **descricao**: Outra conquista recente bem interessante. Início em uma fenda escura, segue por um sistema de canaletas passando bem ao lado direito de uma árvore, até chegar no grande platô onde encontra-se o crux: uma proteção antes de entrar no lance ajuda a dar confiança no movimento dinâmico para alcançar um bico, no qual bloca-se para proteger com um Camalot #4 e terminar a virada do negativo. Mais acima passa por uma fenda branca e segue por uma fissura perfeita até o cume. Levar um jogo de friends até BD#4 e um de nuts.
       - **nome**: Garimpeiros
@@ -3737,6 +4719,7 @@
         - Guilherme Otoni
       - **data_abertura**: 2021-12-08
   - **[18]**:
+    - **uid**: Wz8EiPQRlPgqsL
     - **via_esportiva**:
       - **descricao**: Via curta, mas explosiva do início ao fim. Difícil de sacar as costuras, melhora muito com elas no lugar.
       - **nome**: Um Minuto de Silêncio
@@ -3747,6 +4730,7 @@
         - Mahananda Vargas
       - **data_abertura**: 2011-01-15
   - **[19]**:
+    - **uid**: 4At4ETcm2r2RnW
     - **via_movel**:
       - **descricao**: Via curta e levemente negativa, com boas passadas de oposição. Grampo no topo para segurança e rapel.
       - **nome**: Mina de Cristal
@@ -3758,6 +4742,7 @@
         - Vivianne Sawczuk
       - **data_abertura**: 2015-04-26
   - **[20]**:
+    - **uid**: YuWr3n1ojM0zyV
     - **via_movel**:
       - **descricao**: Bela via, principalmente na sua parte final. Sua base fica atrás do top da via anterior. Na conquista seu final foi feito pela aresta à direita, mas tem sido repetida tocando reto na bonita e óbvia fenda principal.
       - **nome**: Erva do Diabo
@@ -3767,6 +4752,7 @@
         - Juratan Câmara
       - **data_abertura**: 2001
   - **[21]**:
+    - **uid**: KqUpniGlfDVB6g
     - **via_movel**:
       - **descricao**: Variante da via anterior. Compartilha a mesma saída e segue pra esquerda em uma fenda após o platô.
       - **nome**: Olhos de Lince
@@ -3775,6 +4761,7 @@
         - Luiz Cláudio
         - Leonardo Rodrigues
   - **[22]**:
+    - **uid**: 429svd4mQSpFQf
     - **via_esportiva**:
       - **descricao**: Via curta com saída de Boulder na entrada da “toca”. Após o platô, mais um crux na bela pedra laranja.
       - **nome**: Da Toca Pra Cima
@@ -3785,6 +4772,7 @@
         - Pedro Naves
       - **data_abertura**: 2021-08-22
   - **[23]**:
+    - **uid**: SBbc5gg7IoRUhg
     - **via_movel**:
       - **descricao**: Variante da via seguinte, não pode ser vista da base pois passa pela parte de trás da fenda da Erva do Diabo, ficando escondida nas costas da rocha onde possui uma fissura de mão perfeita.
       - **nome**: Magnésio de Cheirar
@@ -3794,6 +4782,7 @@
         - Fernando Honse
       - **data_abertura**: 2006
   - **[24]**:
+    - **uid**: NPPzNmqTEcjtFf
     - **via_movel**:
       - **descricao**: Saída por uma calha, passa por baixo de um grande bloco de pedra e sobe por um diedro fendado ao fundo. Seu final não pode ser visto da base.
       - **nome**: Fissura do Desejo
@@ -3804,6 +4793,7 @@
         - Lúcia Duarte
       - **data_abertura**: 1984-07-23
   - **[25]**:
+    - **uid**: ypTPfm58pAGtjh
     - **via_movel**:
       - **descricao**: Variante que segue em agarras entre duas fendas.
       - **nome**: Reconciliação (Variante)
@@ -3812,6 +4802,7 @@
         - Jonatas Lima
         - Márcio Andrade
   - **[26]**:
+    - **uid**: 7BD9U7y8CbZMHq
     - **via_movel**:
       - **descricao**: Bonita fissura formada do desplacamento entre duas rochas formando uma fenda larga que protege com peças grandes (até o camalot #5 já dá, mas o #6 ajuda a proteger melhor) daí o nome da via. Depois a fenda vai afinando no final.
       - **nome**: Jurassic Park
@@ -3824,6 +4815,7 @@
         - Halle
       - **data_abertura**: 2024-05-11
   - **[27]**:
+    - **uid**: n6ZHPedpjmiyC2
     - **via_movel**:
       - **descricao**: Sai na mesma canaleta das vias anteriores, mas ao final dela contorna-se o grande bloco pela direita.
       - **nome**: Diedro do Professor
@@ -3834,6 +4826,7 @@
         - Hebert Souza
       - **data_abertura**: 2024-04-28
   - **[28]**:
+    - **uid**: XwPg9HUTcnLZsb
     - **via_esportiva**:
       - **descricao**: Via positiva e bem protegida. Boa para treinar lances de equilíbrio e pra quem está começando a guiar.
       - **nome**: Vacinados
@@ -3845,6 +4838,7 @@
         - Luiz Cláudio
       - **data_abertura**: 2021-07-17
   - **[29]**:
+    - **uid**: ul6nnEmm6l3jfQ
     - **via_esportiva**:
       - **descricao**: Variante da via anterior, compartilham as primeiras chapas e depois sai pra esquerda passando pelo bloco.
       - **nome**: Finalmente
@@ -3855,6 +4849,7 @@
         - Márcio Andrade
       - **data_abertura**: 2024-08-15
   - **[30]**:
+    - **uid**: YWhcRaq2nVm1Pb
     - **via_movel**:
       - **descricao**: Seu crux fica na bela fenda inicial, com proteções em friends grandes e stoppers. Continua em agarras e finaliza em uma fácil e bonita fissura em diagonal pra direita ao lado de uma mais larga e suja.
       - **nome**: Idade da Pedra
@@ -3866,6 +4861,7 @@
         - José Ronaldo "Pelé"
       - **data_abertura**: 1990-02-27
   - **[31]**:
+    - **uid**: 3qYz3ixEr0LbQe
     - **via_esportiva**:
       - **descricao**: Via bem variada, com início explosivo e depois passa por lances delicados. 3 chapas e mais parada dupla.
       - **nome**: Os Nômades
@@ -3879,6 +4875,7 @@
         - Jonatas Lima
       - **data_abertura**: 2021-09
   - **[32]**:
+    - **uid**: KcfNNlwTSyWop1
     - **via_movel**:
       - **descricao**: Crux no início com proteções não muito boas. Começa em uma fenda e depois passa pra outra à direita.
       - **nome**: Projetistas
@@ -3889,6 +4886,7 @@
         - Guilherme Otoni
       - **data_abertura**: 2021-09-12
   - **[33]**:
+    - **uid**: L2ASFLHBJUJtbj
     - **via_esportiva**:
       - **descricao**: Via com saída em abaulados e após um rampado fácil segue mais vertical até parada dupla.
       - **nome**: Esperança
@@ -3901,6 +4899,7 @@
         - Mariana Fiche
       - **data_abertura**: 2021-08-21
   - **[34]**:
+    - **uid**: pPMinGu5DvNcnA
     - **via_esportiva**:
       - **descricao**: Via interessante com uma saída delicada e crux bem técnico na virada. São 3 chapeletas e mais parada dupla.
       - **nome**: Pedra Lascada
@@ -3913,6 +4912,7 @@
         - Pablo Veloso
       - **data_abertura**: 2021-08-21
   - **[35]**:
+    - **uid**: Cvcv1pT0Kd9oPn
     - **via_movel**:
       - **descricao**: Começa em uma chaminé média/estreita, bem limpa, evoluindo para lances em agarras.
       - **nome**: Chaminé Estiagem
@@ -3924,6 +4924,7 @@
         - José Ronaldo "Pelé"
       - **data_abertura**: 1990-02-27
   - **[36]**:
+    - **uid**: raCT0z6Xg8vzVJ
     - **via_movel**:
       - **descricao**: Início em agarras, chegando em um bom platô. A segunda metade segue uma fenda fácil.
       - **nome**: Temporal
@@ -3935,6 +4936,7 @@
         - José Ronaldo "Pelé"
       - **data_abertura**: 1990-02-27
   - **[37]**:
+    - **uid**: Q2ZP3rueS0HypD
     - **via_esportiva**:
       - **descricao**: Via com crux bem concentrado em seu início com move explosivo. Depois segue tranquila até parada dupla.
       - **nome**: Golias
@@ -3946,6 +4948,7 @@
         - Gabriel Tollentino
       - **data_abertura**: 2021-12-12
   - **[38]**:
+    - **uid**: gfKmwX2oBTDTnf
     - **via_movel**:
       - **descricao**: Bonita fissura, possui apenas um grampo no final. Mas é possível rapelar da parada dupla da via ao lado.
       - **nome**: Esqueceram de Mim
@@ -3957,6 +4960,7 @@
         - Jonatas Lima
       - **data_abertura**: 2004
   - **[39]**:
+    - **uid**: v125u2uJQi4viQ
     - **via_esportiva**:
       - **descricao**: Via técnica que engana por parecer mais fácil do que é. Movimentos interessantes do início ao fim.
       - **nome**: Suco de Laranja
@@ -3982,6 +4986,7 @@
     
     Setor agradável, graus variados e base boa. Sugere-se chegar cedo pois pega sol forte à tarde.
 - **nome**: Toca do Coelho
+- **uid**: oCKkGc2VoqL1YW
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_toca_do_coelho_p0_i2.webp)
@@ -3989,107 +4994,153 @@
     - **altura_mapa**: 769
     - **pontos_de_interesse**:
       - **[0]**:
-        - **id**: 1
-        - **label**: 1
+        - **id**: Dgf7egLkxnYk45
+        - **uid**: Dgf7egLkxnYk45
+        - **rotulo**: 1
         - **circulo**:
           - **x**: 915
           - **y**: 584
           - **raio**: 25
+        - **label**: 1
       - **[1]**:
-        - **id**: 2
-        - **label**: 2
+        - **id**: NncthTjxgxNBbB
+        - **uid**: NncthTjxgxNBbB
+        - **rotulo**: 2
         - **circulo**:
           - **x**: 759
           - **y**: 548
           - **raio**: 27
+        - **label**: 2
       - **[2]**:
-        - **id**: 3
-        - **label**: 3
+        - **id**: uwpxcIb0UerpWE
+        - **uid**: uwpxcIb0UerpWE
+        - **rotulo**: 3
         - **circulo**:
           - **x**: 715
           - **y**: 547
           - **raio**: 25
+        - **label**: 3
       - **[3]**:
-        - **id**: 4
-        - **label**: 4
+        - **id**: iXXA6ZqagisJGm
+        - **uid**: iXXA6ZqagisJGm
+        - **rotulo**: 4
         - **circulo**:
           - **x**: 628
           - **y**: 559
           - **raio**: 27
+        - **label**: 4
       - **[4]**:
-        - **id**: 5
-        - **label**: 5
+        - **id**: HYCv4shTkGqFLb
+        - **uid**: HYCv4shTkGqFLb
+        - **rotulo**: 5
         - **circulo**:
           - **x**: 486
           - **y**: 533
           - **raio**: 27
+        - **label**: 5
       - **[5]**:
-        - **id**: 6
-        - **label**: 6
+        - **id**: namNH9xE1I6rHK
+        - **uid**: namNH9xE1I6rHK
+        - **rotulo**: 6
         - **circulo**:
           - **x**: 444
           - **y**: 534
           - **raio**: 27
+        - **label**: 6
       - **[6]**:
-        - **id**: 7
-        - **label**: 7
+        - **id**: byl7ItqrsRyezb
+        - **uid**: byl7ItqrsRyezb
+        - **rotulo**: 7
         - **circulo**:
           - **x**: 341
           - **y**: 518
           - **raio**: 31
+        - **label**: 7
       - **[7]**:
-        - **id**: 8
-        - **label**: 8
+        - **id**: tP9iRMkMioMNb2
+        - **uid**: tP9iRMkMioMNb2
+        - **rotulo**: 8
         - **circulo**:
           - **x**: 111
           - **y**: 640
           - **raio**: 29
+        - **label**: 8
       - **[8]**:
-        - **id**: 9
-        - **label**: 9
+        - **id**: zj8xTYPFoxs9bR
+        - **uid**: zj8xTYPFoxs9bR
+        - **rotulo**: 9
         - **circulo**:
           - **x**: 213
           - **y**: 340
           - **raio**: 28
+        - **label**: 9
     - **referencias**:
       - **[0]**:
+        - **alvo_uid**: AQlWufueDPHatT
+        - **pontos_uids**:
+          - Dgf7egLkxnYk45
         - **escalada**: Mágico de Oz
         - **ids**:
-          - 1
+          - Dgf7egLkxnYk45
       - **[1]**:
+        - **alvo_uid**: iHcRkKegVCjszC
+        - **pontos_uids**:
+          - NncthTjxgxNBbB
         - **escalada**: Espantalho
         - **ids**:
-          - 2
+          - NncthTjxgxNBbB
       - **[2]**:
+        - **alvo_uid**: 0XH16FvyeUbcVN
+        - **pontos_uids**:
+          - uwpxcIb0UerpWE
         - **escalada**: Pindorama
         - **ids**:
-          - 3
+          - uwpxcIb0UerpWE
       - **[3]**:
+        - **alvo_uid**: vKvu804eyaHo8k
+        - **pontos_uids**:
+          - iXXA6ZqagisJGm
         - **escalada**: Tupã
         - **ids**:
-          - 4
+          - iXXA6ZqagisJGm
       - **[4]**:
+        - **alvo_uid**: JYWVqEcsvwJrsw
+        - **pontos_uids**:
+          - HYCv4shTkGqFLb
         - **escalada**: Leão Covarde
         - **ids**:
-          - 5
+          - HYCv4shTkGqFLb
       - **[5]**:
+        - **alvo_uid**: QfigcNiI7R5RDd
+        - **pontos_uids**:
+          - namNH9xE1I6rHK
         - **escalada**: Chapeleiro Maluco
         - **ids**:
-          - 6
+          - namNH9xE1I6rHK
       - **[6]**:
+        - **alvo_uid**: a6UHt7Rsd4sjpy
+        - **pontos_uids**:
+          - byl7ItqrsRyezb
         - **escalada**: Rainha de Copas
         - **ids**:
-          - 7
+          - byl7ItqrsRyezb
       - **[7]**:
+        - **alvo_uid**: PjV9lHCnwDc6nQ
+        - **pontos_uids**:
+          - tP9iRMkMioMNb2
         - **escalada**: A Brisa da Lagarta
         - **ids**:
-          - 8
+          - tP9iRMkMioMNb2
       - **[8]**:
+        - **alvo_uid**: Qb34DL4OBFPanb
+        - **pontos_uids**:
+          - zj8xTYPFoxs9bR
         - **escalada**: Tanto Faz
         - **ids**:
-          - 9
+          - zj8xTYPFoxs9bR
 - **escaladas**:
   - **[0]**:
+    - **uid**: AQlWufueDPHatT
     - **via_esportiva**:
       - **descricao**: Bela via num belo sistema de chorreiras, formando um estilo diferente do padrão local. 4 chapas e top duplo.
       - **nome**: Mágico de Oz
@@ -4103,6 +5154,7 @@
         - Carlos Pádua
       - **data_abertura**: 2021-09-16
   - **[1]**:
+    - **uid**: iHcRkKegVCjszC
     - **via_esportiva**:
       - **descricao**: Via de pinças e agarras escorridas
       - **nome**: Espantalho
@@ -4113,6 +5165,7 @@
         - Pablo Veloso
       - **data_abertura**: 2021-09-25
   - **[2]**:
+    - **uid**: 0XH16FvyeUbcVN
     - **via_movel**:
       - **descricao**: Via levemente negativa com crux na saída, passa por lances de chaminé. Friends diversos. Top numa árvore.
       - **nome**: Pindorama
@@ -4125,6 +5178,7 @@
         - Lúcia Duarte
       - **data_abertura**: 1990-09-09
   - **[3]**:
+    - **uid**: vKvu804eyaHo8k
     - **via_movel**:
       - **descricao**: Bela fissura com colocações perfeitas. Um jogo de friends até BD#4. Parada móvel no cume e saída por trilha.
       - **nome**: Tupã
@@ -4137,6 +5191,7 @@
         - Lúcia Duarte
       - **data_abertura**: 1990-02-27
   - **[4]**:
+    - **uid**: JYWVqEcsvwJrsw
     - **via_esportiva**:
       - **nome**: Leão Covarde
       - **dificuldade**: BR_6
@@ -4146,6 +5201,7 @@
         - Pablo Veloso
       - **data_abertura**: 2021-10-23
   - **[5]**:
+    - **uid**: QfigcNiI7R5RDd
     - **via_esportiva**:
       - **nome**: Chapeleiro Maluco
       - **dificuldade**: BR_5
@@ -4155,6 +5211,7 @@
         - Carlos Pádua
       - **data_abertura**: 2021-09-18
   - **[6]**:
+    - **uid**: a6UHt7Rsd4sjpy
     - **via_esportiva**:
       - **descricao**: Via técnica com uma saída no estilo boulder e segue por agarras escorridas e movimentação complexa.
       - **nome**: Rainha de Copas
@@ -4165,6 +5222,7 @@
         - Carlos Pádua
       - **data_abertura**: 2022
   - **[7]**:
+    - **uid**: PjV9lHCnwDc6nQ
     - **via_esportiva**:
       - **nome**: A Brisa da Lagarta
       - **dificuldade**: BR_6
@@ -4174,6 +5232,7 @@
         - Pablo Veloso
       - **data_abertura**: 2022
   - **[8]**:
+    - **uid**: Qb34DL4OBFPanb
     - **via_esportiva**:
       - **descricao**: Variante da via anterior.
       - **nome**: Tanto Faz
@@ -4205,6 +5264,7 @@
     
     O setor fica situado na direção oeste, em uma das partes mais altas do complexo rochoso à esquerda da estrada de quem sobe a serra. O acesso é por uma trilha de uns 10 minutos, que inicia-se após o setor dos Dois Dedos, mesmo acesso do setor Toca do Coelho. Ao chegar próximo da Toca do Coelho, continuar pra direita por aproximadamente duzentos metros onde já será possível avistar o setor à esquerda da trilha conforme o mapa. Seguir os totens.
 - **nome**: Setor Teatro de Operações
+- **uid**: LnrP7rsJLcNckq
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_teatro_de_operacoes_p0_i2.webp)
@@ -4212,404 +5272,585 @@
     - **altura_mapa**: 747
     - **referencias**:
       - **[0]**:
+        - **alvo_uid**: xA0Jj9h4p0CvOW
+        - **pontos_uids**:
+          - 08ZRVSm37R38vr
         - **escalada**: Portão das Armas
         - **ids**:
-          - 1
+          - 08ZRVSm37R38vr
       - **[1]**:
+        - **alvo_uid**: YntDcwIw79LnMD
+        - **pontos_uids**:
+          - dm2RWkVA815egz
         - **escalada**: Flanco Esquerdo
         - **ids**:
-          - 2
+          - dm2RWkVA815egz
       - **[2]**:
+        - **alvo_uid**: b3OfcK5MuZIcaQ
+        - **pontos_uids**:
+          - s4xtAsI9H4VpLB
         - **escalada**: Campo Minado
         - **ids**:
-          - 3
+          - s4xtAsI9H4VpLB
       - **[3]**:
+        - **alvo_uid**: AJWvBLBLzy8dDc
+        - **pontos_uids**:
+          - Xh2BmKjgbCialc
         - **escalada**: Grau de Sigilo
         - **ids**:
-          - 4
+          - Xh2BmKjgbCialc
       - **[4]**:
+        - **alvo_uid**: jOd7WTyEJz914k
+        - **pontos_uids**:
+          - IbnrA0xGzcSc8E
         - **escalada**: Ponto Crítico
         - **ids**:
-          - 5
+          - IbnrA0xGzcSc8E
       - **[5]**:
+        - **alvo_uid**: 95HAf8R75cyj9n
+        - **pontos_uids**:
+          - 8PvvnFoJWpuFNz
         - **escalada**: Carro de Combate
         - **ids**:
-          - 6
+          - 8PvvnFoJWpuFNz
       - **[6]**:
+        - **alvo_uid**: zPlutK7ctZ2JJH
+        - **pontos_uids**:
+          - I1m0I8JngiMIef
         - **escalada**: Cortina de Fumaça
         - **ids**:
-          - 7
+          - I1m0I8JngiMIef
       - **[7]**:
+        - **alvo_uid**: LSs9oP23GTPXZT
+        - **pontos_uids**:
+          - qL9RUXVxUrqXf1
         - **escalada**: Dano Colateral
         - **ids**:
-          - 8
+          - qL9RUXVxUrqXf1
       - **[8]**:
+        - **alvo_uid**: n6Sc3eii5O62Z2
+        - **pontos_uids**:
+          - A7DJxXYUIErCRK
         - **escalada**: Demonstração de Força
         - **ids**:
-          - 9
+          - A7DJxXYUIErCRK
       - **[9]**:
+        - **alvo_uid**: LMiWDgLud08Ifh
+        - **pontos_uids**:
+          - VyhpiH4K1YYI8I
         - **escalada**: Ação de Choque
         - **ids**:
-          - 10
+          - VyhpiH4K1YYI8I
       - **[10]**:
+        - **alvo_uid**: P3DGNFxbtCaH5O
+        - **pontos_uids**:
+          - JNYEZnvd0TnVRF
         - **escalada**: Esclarecedores
         - **ids**:
-          - 11
+          - JNYEZnvd0TnVRF
       - **[11]**:
+        - **alvo_uid**: NThiQNbaTcMvnV
+        - **pontos_uids**:
+          - clqJqO3Js87i66
         - **escalada**: Navio de Guerra
         - **ids**:
-          - 12
+          - clqJqO3Js87i66
       - **[12]**:
+        - **alvo_uid**: MZztYEERyV5q7h
+        - **pontos_uids**:
+          - 1aFKG1encZrWTS
         - **escalada**: Assalto Anfíbio
         - **ids**:
-          - 13
+          - 1aFKG1encZrWTS
       - **[13]**:
+        - **alvo_uid**: bknMcI54CiVQeK
+        - **pontos_uids**:
+          - OilGvdeNRTGW5u
         - **escalada**: Operações Psicológicas
         - **ids**:
-          - 14
+          - OilGvdeNRTGW5u
       - **[14]**:
+        - **alvo_uid**: ukVO1ESortRS6D
+        - **pontos_uids**:
+          - pkdrHzKVQmwFK3
         - **escalada**: Ato de Serviço
         - **ids**:
-          - 15
+          - pkdrHzKVQmwFK3
       - **[15]**:
+        - **alvo_uid**: Qd7NgZYe4kI1rW
+        - **pontos_uids**:
+          - aF9dOJWSKwjK5y
         - **escalada**: Conflito Armado
         - **ids**:
-          - 16
+          - aF9dOJWSKwjK5y
       - **[16]**:
+        - **alvo_uid**: UHsSeBJxFPJsd9
+        - **pontos_uids**:
+          - iEAEXfpg2zuPZU
         - **escalada**: Forças Especiais
         - **ids**:
-          - 17
+          - iEAEXfpg2zuPZU
       - **[17]**:
+        - **alvo_uid**: ipFTQhbGFWfs7J
+        - **pontos_uids**:
+          - ZnIicnpGbRsRdi
         - **escalada**: Faixa de Infiltração
         - **ids**:
-          - 18
+          - ZnIicnpGbRsRdi
       - **[18]**:
+        - **alvo_uid**: Nw0bOSKsk9IeoD
+        - **pontos_uids**:
+          - rnkckN0Rut2nOr
         - **escalada**: Atirador de Elite
         - **ids**:
-          - 19
+          - rnkckN0Rut2nOr
       - **[19]**:
+        - **alvo_uid**: oVcU3617ZkSN4v
+        - **pontos_uids**:
+          - ny0IHfq3isIlrR
         - **escalada**: Sentinela da Hora
         - **ids**:
-          - 20
+          - ny0IHfq3isIlrR
       - **[20]**:
+        - **alvo_uid**: LMYwAatgaDGP6l
+        - **pontos_uids**:
+          - dAaK2xOFBZT0C6
         - **escalada**: Operação Continuada
         - **ids**:
-          - 21
+          - dAaK2xOFBZT0C6
       - **[21]**:
+        - **alvo_uid**: pgp3zeThUVwlup
+        - **pontos_uids**:
+          - aYrYtq0s4DA6Wo
         - **escalada**: Observador Avançado
         - **ids**:
-          - 22
+          - aYrYtq0s4DA6Wo
       - **[22]**:
+        - **alvo_uid**: 3A6MZlVQTplO8F
+        - **pontos_uids**:
+          - pDSuNBh3FVtNHs
         - **escalada**: Técnicas Especiais
         - **ids**:
-          - 23
+          - pDSuNBh3FVtNHs
       - **[23]**:
+        - **alvo_uid**: ZH7Myboq6PyvOR
+        - **pontos_uids**:
+          - VoRQ6qnQBXQqkb
         - **escalada**: Prisioneiro de Guerra
         - **ids**:
-          - 24
+          - VoRQ6qnQBXQqkb
       - **[24]**:
+        - **alvo_uid**: 1YZOdRGBHIn7Kq
+        - **pontos_uids**:
+          - XI766rGyUBLXg4
         - **escalada**: Estudo de Situação
         - **ids**:
-          - 25
+          - XI766rGyUBLXg4
       - **[25]**:
+        - **alvo_uid**: Im1F1088CcKCec
+        - **pontos_uids**:
+          - uCKyO221nxXXsu
         - **escalada**: Torre de Controle
         - **ids**:
-          - 26
+          - uCKyO221nxXXsu
       - **[26]**:
+        - **alvo_uid**: GK3F5D04VgMNHF
+        - **pontos_uids**:
+          - 0DM0wUmAEiFkVQ
         - **escalada**: Garantia da Lei e da Ordem
         - **ids**:
-          - 27
+          - 0DM0wUmAEiFkVQ
       - **[27]**:
+        - **alvo_uid**: 3CbXllwRX8a62m
+        - **pontos_uids**:
+          - tWXgcBw9gib0wA
         - **escalada**: Estímulo Estressor
         - **ids**:
-          - 28
+          - tWXgcBw9gib0wA
       - **[28]**:
+        - **alvo_uid**: TOjRbM51Mx3zVE
+        - **pontos_uids**:
+          - zxqpCEhOLadorI
         - **escalada**: Controle de Distúrbio
         - **ids**:
-          - 29
+          - zxqpCEhOLadorI
       - **[29]**:
+        - **alvo_uid**: cmZcyr0NbpoG8M
+        - **pontos_uids**:
+          - OWXgO2vxpMqKDU
         - **escalada**: Interrogatório
         - **ids**:
-          - 30
+          - OWXgO2vxpMqKDU
       - **[30]**:
+        - **alvo_uid**: gDONrAguWy8waC
+        - **pontos_uids**:
+          - 3id3BLXz7rhrtZ
         - **escalada**: Cabeça de Ponte
         - **ids**:
-          - 31
+          - 3id3BLXz7rhrtZ
       - **[31]**:
+        - **alvo_uid**: Nah4sIHsxB9AZA
+        - **pontos_uids**:
+          - GJFCxnBFuvlK0V
         - **escalada**: Meios de Fortuna
         - **ids**:
-          - 32
+          - GJFCxnBFuvlK0V
       - **[32]**:
+        - **alvo_uid**: zb5KnI6VSxwd8L
+        - **pontos_uids**:
+          - 5ybo7ZURmTuIWe
         - **escalada**: Zona de Conforto
         - **ids**:
-          - 33
+          - 5ybo7ZURmTuIWe
       - **[33]**:
+        - **alvo_uid**: U9BPL5YC99IfIK
+        - **pontos_uids**:
+          - hE4wtgRGwKxCMr
         - **escalada**: Zona de Controle
         - **ids**:
-          - 34
+          - hE4wtgRGwKxCMr
       - **[34]**:
+        - **alvo_uid**: NtAK1kbXEGIBlB
+        - **pontos_uids**:
+          - SJqC9gisd3scR1
         - **escalada**: Zona de Perigo
         - **ids**:
-          - 35
+          - SJqC9gisd3scR1
       - **[35]**:
+        - **alvo_uid**: Tz5mcMHpFI7CdO
+        - **pontos_uids**:
+          - k68c2R0jEKfC6U
         - **escalada**: Flanco Direito
         - **ids**:
-          - 36
+          - k68c2R0jEKfC6U
     - **pontos_de_interesse**:
       - **[0]**:
-        - **id**: 1
-        - **label**: 01
+        - **id**: 08ZRVSm37R38vr
+        - **uid**: 08ZRVSm37R38vr
+        - **rotulo**: 01
         - **circulo**:
           - **x**: 260
           - **y**: 657
           - **raio**: 13
+        - **label**: 01
       - **[1]**:
-        - **id**: 2
-        - **label**: 02
+        - **id**: dm2RWkVA815egz
+        - **uid**: dm2RWkVA815egz
+        - **rotulo**: 02
         - **circulo**:
           - **x**: 78
           - **y**: 494
           - **raio**: 13
+        - **label**: 02
       - **[2]**:
-        - **id**: 3
-        - **label**: 03
+        - **id**: s4xtAsI9H4VpLB
+        - **uid**: s4xtAsI9H4VpLB
+        - **rotulo**: 03
         - **circulo**:
           - **x**: 191
           - **y**: 505
           - **raio**: 13
+        - **label**: 03
       - **[3]**:
-        - **id**: 4
-        - **label**: 04
+        - **id**: Xh2BmKjgbCialc
+        - **uid**: Xh2BmKjgbCialc
+        - **rotulo**: 04
         - **circulo**:
           - **x**: 266
           - **y**: 455
           - **raio**: 13
+        - **label**: 04
       - **[4]**:
-        - **id**: 5
-        - **label**: 05
+        - **id**: IbnrA0xGzcSc8E
+        - **uid**: IbnrA0xGzcSc8E
+        - **rotulo**: 05
         - **circulo**:
           - **x**: 300
           - **y**: 468
           - **raio**: 13
+        - **label**: 05
       - **[5]**:
-        - **id**: 6
-        - **label**: 06
+        - **id**: 8PvvnFoJWpuFNz
+        - **uid**: 8PvvnFoJWpuFNz
+        - **rotulo**: 06
         - **circulo**:
           - **x**: 338
           - **y**: 474
           - **raio**: 14
+        - **label**: 06
       - **[6]**:
-        - **id**: 7
-        - **label**: 07
+        - **id**: I1m0I8JngiMIef
+        - **uid**: I1m0I8JngiMIef
+        - **rotulo**: 07
         - **circulo**:
           - **x**: 411
           - **y**: 466
           - **raio**: 13
+        - **label**: 07
       - **[7]**:
-        - **id**: 8
-        - **label**: 08
+        - **id**: qL9RUXVxUrqXf1
+        - **uid**: qL9RUXVxUrqXf1
+        - **rotulo**: 08
         - **circulo**:
           - **x**: 450
           - **y**: 488
           - **raio**: 13
+        - **label**: 08
       - **[8]**:
-        - **id**: 9
-        - **label**: 09
+        - **id**: A7DJxXYUIErCRK
+        - **uid**: A7DJxXYUIErCRK
+        - **rotulo**: 09
         - **circulo**:
           - **x**: 476
           - **y**: 484
           - **raio**: 13
+        - **label**: 09
       - **[9]**:
-        - **id**: 10
-        - **label**: 10
+        - **id**: VyhpiH4K1YYI8I
+        - **uid**: VyhpiH4K1YYI8I
+        - **rotulo**: 10
         - **circulo**:
           - **x**: 534
           - **y**: 528
           - **raio**: 13
+        - **label**: 10
       - **[10]**:
-        - **id**: 11
-        - **label**: 11
+        - **id**: JNYEZnvd0TnVRF
+        - **uid**: JNYEZnvd0TnVRF
+        - **rotulo**: 11
         - **circulo**:
           - **x**: 639
           - **y**: 480
           - **raio**: 13
+        - **label**: 11
       - **[11]**:
-        - **id**: 12
-        - **label**: 12
+        - **id**: clqJqO3Js87i66
+        - **uid**: clqJqO3Js87i66
+        - **rotulo**: 12
         - **circulo**:
           - **x**: 682
           - **y**: 488
           - **raio**: 13
+        - **label**: 12
       - **[12]**:
-        - **id**: 13
-        - **label**: 13
+        - **id**: 1aFKG1encZrWTS
+        - **uid**: 1aFKG1encZrWTS
+        - **rotulo**: 13
         - **circulo**:
           - **x**: 715
           - **y**: 484
           - **raio**: 13
+        - **label**: 13
       - **[13]**:
-        - **id**: 14
-        - **label**: 14
+        - **id**: OilGvdeNRTGW5u
+        - **uid**: OilGvdeNRTGW5u
+        - **rotulo**: 14
         - **circulo**:
           - **x**: 748
           - **y**: 492
           - **raio**: 13
+        - **label**: 14
       - **[14]**:
-        - **id**: 15
-        - **label**: 15
+        - **id**: pkdrHzKVQmwFK3
+        - **uid**: pkdrHzKVQmwFK3
+        - **rotulo**: 15
         - **circulo**:
           - **x**: 804
           - **y**: 484
           - **raio**: 13
+        - **label**: 15
       - **[15]**:
-        - **id**: 16
-        - **label**: 16
+        - **id**: aF9dOJWSKwjK5y
+        - **uid**: aF9dOJWSKwjK5y
+        - **rotulo**: 16
         - **circulo**:
           - **x**: 836
           - **y**: 482
           - **raio**: 13
+        - **label**: 16
       - **[16]**:
-        - **id**: 17
-        - **label**: 17
+        - **id**: iEAEXfpg2zuPZU
+        - **uid**: iEAEXfpg2zuPZU
+        - **rotulo**: 17
         - **circulo**:
           - **x**: 867
           - **y**: 476
           - **raio**: 13
+        - **label**: 17
       - **[17]**:
-        - **id**: 18
-        - **label**: 18
+        - **id**: ZnIicnpGbRsRdi
+        - **uid**: ZnIicnpGbRsRdi
+        - **rotulo**: 18
         - **circulo**:
           - **x**: 922
           - **y**: 504
           - **raio**: 13
+        - **label**: 18
       - **[18]**:
-        - **id**: 19
-        - **label**: 19
+        - **id**: rnkckN0Rut2nOr
+        - **uid**: rnkckN0Rut2nOr
+        - **rotulo**: 19
         - **circulo**:
           - **x**: 971
           - **y**: 502
           - **raio**: 13
+        - **label**: 19
       - **[19]**:
-        - **id**: 20
-        - **label**: 20
+        - **id**: ny0IHfq3isIlrR
+        - **uid**: ny0IHfq3isIlrR
+        - **rotulo**: 20
         - **circulo**:
           - **x**: 996
           - **y**: 499
           - **raio**: 13
+        - **label**: 20
       - **[20]**:
-        - **id**: 21
-        - **label**: 21
+        - **id**: dAaK2xOFBZT0C6
+        - **uid**: dAaK2xOFBZT0C6
+        - **rotulo**: 21
         - **circulo**:
           - **x**: 897
           - **y**: 267
           - **raio**: 13
+        - **label**: 21
       - **[21]**:
-        - **id**: 22
-        - **label**: 22
+        - **id**: aYrYtq0s4DA6Wo
+        - **uid**: aYrYtq0s4DA6Wo
+        - **rotulo**: 22
         - **circulo**:
           - **x**: 940
           - **y**: 279
           - **raio**: 13
+        - **label**: 22
       - **[22]**:
-        - **id**: 23
-        - **label**: 23
+        - **id**: pDSuNBh3FVtNHs
+        - **uid**: pDSuNBh3FVtNHs
+        - **rotulo**: 23
         - **circulo**:
           - **x**: 964
           - **y**: 272
           - **raio**: 14
+        - **label**: 23
       - **[23]**:
-        - **id**: 24
-        - **label**: 24
+        - **id**: VoRQ6qnQBXQqkb
+        - **uid**: VoRQ6qnQBXQqkb
+        - **rotulo**: 24
         - **circulo**:
           - **x**: 989
           - **y**: 277
           - **raio**: 14
+        - **label**: 24
       - **[24]**:
-        - **id**: 25
-        - **label**: 25
+        - **id**: XI766rGyUBLXg4
+        - **uid**: XI766rGyUBLXg4
+        - **rotulo**: 25
         - **circulo**:
           - **x**: 1015
           - **y**: 278
           - **raio**: 14
+        - **label**: 25
       - **[25]**:
-        - **id**: 26
-        - **label**: 26
+        - **id**: uCKyO221nxXXsu
+        - **uid**: uCKyO221nxXXsu
+        - **rotulo**: 26
         - **circulo**:
           - **x**: 1079
           - **y**: 511
           - **raio**: 13
+        - **label**: 26
       - **[26]**:
-        - **id**: 27
-        - **label**: 27
+        - **id**: 0DM0wUmAEiFkVQ
+        - **uid**: 0DM0wUmAEiFkVQ
+        - **rotulo**: 27
         - **circulo**:
           - **x**: 1094
           - **y**: 446
           - **raio**: 13
+        - **label**: 27
       - **[27]**:
-        - **id**: 28
-        - **label**: 28
+        - **id**: tWXgcBw9gib0wA
+        - **uid**: tWXgcBw9gib0wA
+        - **rotulo**: 28
         - **circulo**:
           - **x**: 1142
           - **y**: 492
           - **raio**: 13
+        - **label**: 28
       - **[28]**:
-        - **id**: 29
-        - **label**: 29
+        - **id**: zxqpCEhOLadorI
+        - **uid**: zxqpCEhOLadorI
+        - **rotulo**: 29
         - **circulo**:
           - **x**: 1164
           - **y**: 476
           - **raio**: 14
+        - **label**: 29
       - **[29]**:
-        - **id**: 30
-        - **label**: 30
+        - **id**: OWXgO2vxpMqKDU
+        - **uid**: OWXgO2vxpMqKDU
+        - **rotulo**: 30
         - **circulo**:
           - **x**: 1190
           - **y**: 463
           - **raio**: 13
+        - **label**: 30
       - **[30]**:
-        - **id**: 31
-        - **label**: 31
+        - **id**: 3id3BLXz7rhrtZ
+        - **uid**: 3id3BLXz7rhrtZ
+        - **rotulo**: 31
         - **circulo**:
           - **x**: 1236
           - **y**: 454
           - **raio**: 13
+        - **label**: 31
       - **[31]**:
-        - **id**: 32
-        - **label**: 32
+        - **id**: GJFCxnBFuvlK0V
+        - **uid**: GJFCxnBFuvlK0V
+        - **rotulo**: 32
         - **circulo**:
           - **x**: 1272
           - **y**: 456
           - **raio**: 13
+        - **label**: 32
       - **[32]**:
-        - **id**: 33
-        - **label**: 33
+        - **id**: 5ybo7ZURmTuIWe
+        - **uid**: 5ybo7ZURmTuIWe
+        - **rotulo**: 33
         - **circulo**:
           - **x**: 1339
           - **y**: 455
           - **raio**: 13
+        - **label**: 33
       - **[33]**:
-        - **id**: 34
-        - **label**: 34
+        - **id**: hE4wtgRGwKxCMr
+        - **uid**: hE4wtgRGwKxCMr
+        - **rotulo**: 34
         - **circulo**:
           - **x**: 1382
           - **y**: 450
           - **raio**: 13
+        - **label**: 34
       - **[34]**:
-        - **id**: 35
-        - **label**: 35
+        - **id**: SJqC9gisd3scR1
+        - **uid**: SJqC9gisd3scR1
+        - **rotulo**: 35
         - **circulo**:
           - **x**: 1447
           - **y**: 454
           - **raio**: 13
+        - **label**: 35
       - **[35]**:
-        - **id**: 36
-        - **label**: 36
+        - **id**: k68c2R0jEKfC6U
+        - **uid**: k68c2R0jEKfC6U
+        - **rotulo**: 36
         - **circulo**:
           - **x**: 1488
           - **y**: 470
           - **raio**: 13
+        - **label**: 36
 - **escaladas**:
   - **[0]**:
+    - **uid**: xA0Jj9h4p0CvOW
     - **via_esportiva**:
       - **descricao**: Primeira via em um bloco curto e isolado na chegada do setor que pode ser realizada em tope rope.
       - **nome**: Portão das Armas
@@ -4619,6 +5860,7 @@
         - Douglas Vaz
       - **data_abertura**: 2024
   - **[1]**:
+    - **uid**: YntDcwIw79LnMD
     - **via_esportiva**:
       - **descricao**: Via curta localizada à extrema esquerda do bloco rochoso. Possui duas chapeletas e uma parada dupla.
       - **nome**: Flanco Esquerdo
@@ -4631,6 +5873,7 @@
         - Douglas Vaz
       - **data_abertura**: 2024
   - **[2]**:
+    - **uid**: b3OfcK5MuZIcaQ
     - **via_esportiva**:
       - **descricao**: Via com alguns platôs no decorrer da escalada.
       - **nome**: Campo Minado
@@ -4640,6 +5883,7 @@
         - Douglas Vaz
       - **data_abertura**: 2024
   - **[3]**:
+    - **uid**: AJWvBLBLzy8dDc
     - **via_esportiva**:
       - **descricao**: Via com um maior grau de exposição após a terceira chapeleta.
       - **nome**: Grau de Sigilo
@@ -4649,6 +5893,7 @@
         - Douglas Vaz
       - **data_abertura**: 2024
   - **[4]**:
+    - **uid**: jOd7WTyEJz914k
     - **via_esportiva**:
       - **descricao**: Via em uma faixa amarela com boas agarras no início.
       - **nome**: Ponto Crítico
@@ -4658,6 +5903,7 @@
         - Douglas Vaz
       - **data_abertura**: 2024
   - **[5]**:
+    - **uid**: 95HAf8R75cyj9n
     - **via_esportiva**:
       - **descricao**: Via curta situada em uma faixa escura que compartilha a parada com a via cortina de fumaça.
       - **nome**: Carro de Combate
@@ -4667,6 +5913,7 @@
         - Douglas Vaz
       - **data_abertura**: 2024
   - **[6]**:
+    - **uid**: zPlutK7ctZ2JJH
     - **via_esportiva**:
       - **descricao**: Via curta com saída em boas agarras que compartilha a parada com a via carro de combate.
       - **nome**: Cortina de Fumaça
@@ -4676,6 +5923,7 @@
         - Douglas Vaz
       - **data_abertura**: 2024
   - **[7]**:
+    - **uid**: LSs9oP23GTPXZT
     - **via_esportiva**:
       - **descricao**: Via que percorre toda a canaleta, com agarras médias e passando por alguns abaulados e platôs.
       - **nome**: Dano Colateral
@@ -4685,6 +5933,7 @@
         - Douglas Vaz
       - **data_abertura**: 2024
   - **[8]**:
+    - **uid**: n6Sc3eii5O62Z2
     - **via_esportiva**:
       - **descricao**: Via situada em uma faixa amarela com boas agarras na saída ao lado de uma canaleta.
       - **nome**: Demonstração de Força
@@ -4694,6 +5943,7 @@
         - Douglas Vaz
       - **data_abertura**: 2024
   - **[9]**:
+    - **uid**: LMiWDgLud08Ifh
     - **via_esportiva**:
       - **descricao**: Via com um crux bem definido.
       - **nome**: Ação de Choque
@@ -4703,6 +5953,7 @@
         - Douglas Vaz
       - **data_abertura**: 2024
   - **[10]**:
+    - **uid**: P3DGNFxbtCaH5O
     - **via_esportiva**:
       - **descricao**: Via curta com apenas duas chapeletas e com uma leve inclinação negativa.
       - **nome**: Esclarecedores
@@ -4713,6 +5964,7 @@
         - Douglas Vaz
       - **data_abertura**: 2024
   - **[11]**:
+    - **uid**: NThiQNbaTcMvnV
     - **via_esportiva**:
       - **descricao**: Via com saída técnica, seguindo para um pequeno platô onde encontra-se a parada.
       - **nome**: Navio de Guerra
@@ -4722,6 +5974,7 @@
         - Douglas Vaz
       - **data_abertura**: 2024
   - **[12]**:
+    - **uid**: MZztYEERyV5q7h
     - **via_esportiva**:
       - **descricao**: Via com saída em uma faixa escura e com possível umidade em época de chuva.
       - **nome**: Assalto Anfíbio
@@ -4731,6 +5984,7 @@
         - Douglas Vaz
       - **data_abertura**: 2024
   - **[13]**:
+    - **uid**: bknMcI54CiVQeK
     - **via_esportiva**:
       - **descricao**: Via com saída ao lado uma fenda vertical até a parada, próximo a via Ato de Serviço. Abelhas à esquerda.
       - **nome**: Operações Psicológicas
@@ -4740,6 +5994,7 @@
         - Douglas Vaz
       - **data_abertura**: 2024
   - **[14]**:
+    - **uid**: ukVO1ESortRS6D
     - **via_esportiva**:
       - **descricao**: Possível via clássica do setor, que passa por uma bancada e percorre a linha em boas agarras.
       - **nome**: Ato de Serviço
@@ -4749,6 +6004,7 @@
         - Douglas Vaz
       - **data_abertura**: 2024
   - **[15]**:
+    - **uid**: Qd7NgZYe4kI1rW
     - **via_esportiva**:
       - **descricao**: Via com uma saída em agarras pequenas que percorre a lateral de uma canaleta.
       - **nome**: Conflito Armado
@@ -4758,6 +6014,7 @@
         - Douglas Vaz
       - **data_abertura**: 2024
   - **[16]**:
+    - **uid**: UHsSeBJxFPJsd9
     - **via_esportiva**:
       - **descricao**: Via com saída debaixo de um arco ao lado de uma canaleta.
       - **nome**: Forças Especiais
@@ -4767,6 +6024,7 @@
         - Douglas Vaz
       - **data_abertura**: 2024
   - **[17]**:
+    - **uid**: ipFTQhbGFWfs7J
     - **via_esportiva**:
       - **descricao**: Via em uma faixa com algumas agarras duvidosas.
       - **nome**: Faixa de Infiltração
@@ -4776,6 +6034,7 @@
         - Douglas Vaz
       - **data_abertura**: 2024
   - **[18]**:
+    - **uid**: Nw0bOSKsk9IeoD
     - **via_esportiva**:
       - **descricao**: Via em uma leve diagonal para a esquerda na saída e um platô próximo ao cume.
       - **nome**: Atirador de Elite
@@ -4785,6 +6044,7 @@
         - Douglas Vaz
       - **data_abertura**: 2024
   - **[19]**:
+    - **uid**: oVcU3617ZkSN4v
     - **via_esportiva**:
       - **descricao**: Via com a saída em agarras grandes próximo à entrada do salão.
       - **nome**: Sentinela da Hora
@@ -4794,6 +6054,7 @@
         - Douglas Vaz
       - **data_abertura**: 2024
   - **[20]**:
+    - **uid**: LMYwAatgaDGP6l
     - **via_esportiva**:
       - **descricao**: Entrando no salão, a via encontra-se à esquerda, uma escalada fácil com um crux bem definido no final.
       - **nome**: Operação Continuada
@@ -4803,6 +6064,7 @@
         - Douglas Vaz
       - **data_abertura**: 2024
   - **[21]**:
+    - **uid**: pgp3zeThUVwlup
     - **via_esportiva**:
       - **descricao**: Via com uma saída vertical, passa ao lado de um teto e com boas agarras no decorrer da via.
       - **nome**: Observador Avançado
@@ -4812,6 +6074,7 @@
         - Douglas Vaz
       - **data_abertura**: 2024
   - **[22]**:
+    - **uid**: 3A6MZlVQTplO8F
     - **via_esportiva**:
       - **descricao**: Via mais ao fundo do salão, com uma saída forte e movimentos complexos até o cume.
       - **nome**: Técnicas Especiais
@@ -4821,6 +6084,7 @@
         - Douglas Vaz
       - **data_abertura**: 2024
   - **[23]**:
+    - **uid**: ZH7Myboq6PyvOR
     - **via_esportiva**:
       - **descricao**: Atenção ao escalar esta via devido à quedas próximas à parede atrás do escalador.
       - **nome**: Prisioneiro de Guerra
@@ -4830,6 +6094,7 @@
         - Douglas Vaz
       - **data_abertura**: 2024
   - **[24]**:
+    - **uid**: 1YZOdRGBHIn7Kq
     - **via_esportiva**:
       - **descricao**: Via que exige uma boa leitura do escalador para vencer o crux.
       - **nome**: Estudo de Situação
@@ -4839,6 +6104,7 @@
         - Douglas Vaz
       - **data_abertura**: 2024
   - **[25]**:
+    - **uid**: Im1F1088CcKCec
     - **via_esportiva**:
       - **descricao**: Via mais clássica do setor que oferece belos registros fotográficos. Aconselha-se sair com a 1ª costurada.
       - **nome**: Torre de Controle
@@ -4848,6 +6114,7 @@
         - Douglas Vaz
       - **data_abertura**: 2024
   - **[26]**:
+    - **uid**: GK3F5D04VgMNHF
     - **via_esportiva**:
       - **descricao**: A escalada acompanha um arco natural da rocha passando por lances técnicos no decorrer da via.
       - **nome**: Garantia da Lei e da Ordem
@@ -4857,11 +6124,13 @@
         - Douglas Vaz
       - **data_abertura**: 2024
   - **[27]**:
+    - **uid**: 3CbXllwRX8a62m
     - **via_esportiva**:
       - **descricao**: Via imponente com início técnico. Após o vertical amarelo vem a parada compartilhada com a via anterior.
       - **nome**: Estímulo Estressor
       - **dificuldade**: BR_7B
   - **[28]**:
+    - **uid**: TOjRbM51Mx3zVE
     - **via_esportiva**:
       - **descricao**: Via fácil com bons descansos, estilo tradicional com um certo grau de exposição na parte final.
       - **nome**: Controle de Distúrbio
@@ -4871,6 +6140,7 @@
         - Douglas Vaz
       - **data_abertura**: 2024
   - **[29]**:
+    - **uid**: cmZcyr0NbpoG8M
     - **via_esportiva**:
       - **descricao**: Escalada fácil no início e exigente no final. Aconselha-se sair com a primeira proteção costurada.
       - **nome**: Interrogatório
@@ -4880,6 +6150,7 @@
         - Douglas Vaz
       - **data_abertura**: 2024
   - **[30]**:
+    - **uid**: gDONrAguWy8waC
     - **via_esportiva**:
       - **descricao**: Via peculiar do setor, saída técnica e depois no positivo passa por uma formação semelhante à uma ponte.
       - **nome**: Cabeça de Ponte
@@ -4889,6 +6160,7 @@
         - Douglas Vaz
       - **data_abertura**: 2024
   - **[31]**:
+    - **uid**: Nah4sIHsxB9AZA
     - **via_esportiva**:
       - **descricao**: Via mais fácil do setor. Passa por diversos platôs até o cume.
       - **nome**: Meios de Fortuna
@@ -4898,6 +6170,7 @@
         - Douglas Vaz
       - **data_abertura**: 2024
   - **[32]**:
+    - **uid**: zb5KnI6VSxwd8L
     - **via_esportiva**:
       - **descricao**: Via curta e fácil de ser escalada.
       - **nome**: Zona de Conforto
@@ -4907,6 +6180,7 @@
         - Douglas Vaz
       - **data_abertura**: 2024
   - **[33]**:
+    - **uid**: U9BPL5YC99IfIK
     - **via_esportiva**:
       - **descricao**: Escalada em agarras boas no decorrer da via.
       - **nome**: Zona de Controle
@@ -4916,6 +6190,7 @@
         - Douglas Vaz
       - **data_abertura**: 2024
   - **[34]**:
+    - **uid**: NtAK1kbXEGIBlB
     - **via_esportiva**:
       - **descricao**: Via curta com uma exigência maior a anterior. Atenção ao costurar a segunda chapeleta devido à exposição.
       - **nome**: Zona de Perigo
@@ -4925,6 +6200,7 @@
         - Douglas Vaz
       - **data_abertura**: 2024
   - **[35]**:
+    - **uid**: Tz5mcMHpFI7CdO
     - **via_esportiva**:
       - **descricao**: Via curta e fácil, tendo uma inclinação mais positiva em sua parte final.
       - **nome**: Flanco Direito
@@ -4947,6 +6223,7 @@
     
     Pequeno setor em uma gruta do lado direito da estrada de quem sobe, logo após um mata-burro. Conta com apenas três vias, sendo duas fixas em seu interior e uma móvel do lado de fora na parte de trás. Seu entorno também conta com vários boulders de ótima qualidade.
 - **nome**: Grutinha
+- **uid**: K8z8Hzyp0aTcez
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_grutinha_p0_i3.webp)
@@ -4954,47 +6231,63 @@
     - **altura_mapa**: 481
     - **pontos_de_interesse**:
       - **[0]**:
-        - **id**: 1
-        - **label**: 1
+        - **id**: lGqt4czx60vdW8
+        - **uid**: lGqt4czx60vdW8
+        - **rotulo**: 1
         - **circulo**:
           - **x**: 226
           - **y**: 432
           - **raio**: 26
+        - **label**: 1
       - **[1]**:
-        - **id**: 2
-        - **label**: 2
+        - **id**: 5WZShhoBgjavwo
+        - **uid**: 5WZShhoBgjavwo
+        - **rotulo**: 2
         - **circulo**:
           - **x**: 384
           - **y**: 435
           - **raio**: 26
+        - **label**: 2
     - **referencias**:
       - **[0]**:
+        - **alvo_uid**: Qd1JQ4JPc1VETd
+        - **pontos_uids**:
+          - lGqt4czx60vdW8
         - **escalada**: Via do Tetinho
         - **ids**:
-          - 1
+          - lGqt4czx60vdW8
       - **[1]**:
+        - **alvo_uid**: jXD7YAegH5VhhV
+        - **pontos_uids**:
+          - 5WZShhoBgjavwo
         - **escalada**: Imagina Eu
         - **ids**:
-          - 2
+          - 5WZShhoBgjavwo
   - **[1]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_grutinha_p0_i2.webp)
     - **largura_mapa**: 587
     - **altura_mapa**: 904
     - **pontos_de_interesse**:
       - **[0]**:
-        - **id**: 3
-        - **label**: 3
+        - **id**: hn1CiyUdQZAhIz
+        - **uid**: hn1CiyUdQZAhIz
+        - **rotulo**: 3
         - **circulo**:
           - **x**: 371
           - **y**: 862
           - **raio**: 31
+        - **label**: 3
     - **referencias**:
       - **[0]**:
+        - **alvo_uid**: 96RuVgqG9iSfiD
+        - **pontos_uids**:
+          - hn1CiyUdQZAhIz
         - **escalada**: Diedro Oculto
         - **ids**:
-          - 3
+          - hn1CiyUdQZAhIz
 - **escaladas**:
   - **[0]**:
+    - **uid**: Qd1JQ4JPc1VETd
     - **via_movel**:
       - **descricao**: Via localizada na coluna de entrada da gruta. Móvel só na saída.
       - **nome**: Via do Tetinho
@@ -5004,12 +6297,14 @@
       - **conquistadores**:
         - Centro Excursionista Lenheiro
   - **[1]**:
+    - **uid**: jXD7YAegH5VhhV
     - **via_esportiva**:
       - **descricao**: Também entra no time das primeiras vias esportivas do lenheiro. Curta e explosiva, com passadas pelo teto, torna essa via uma clássica, encontra-se em um local muito agradável e exótico. Opção para dias de chuva.
       - **nome**: Imagina Eu
       - **dificuldade**: BR_7C
       - **extensao**: 15
   - **[2]**:
+    - **uid**: 96RuVgqG9iSfiD
     - **via_movel**:
       - **descricao**: Via curta e de baixa graduação, sendo indicada para aqueles que estejam começando a escalar em móvel.
       - **nome**: Diedro Oculto
@@ -5041,6 +6336,7 @@
     
     Belo bloco que fica bem escondido na parte alta da falésia e com acesso um pouco complicado, visualizar no mapa no início deste guia. Pode-se acessar pelo Cemonta, percorrendo o Paredão 1 para a esquerda até o final e depois subindo um trepa pedras ou através do Paredão 2, subindo a falésia em diagonal pra direita.
 - **nome**: Falésias do Lenheiro
+- **uid**: iHAelGtTdppvx7
 - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_falesias_do_lenheiro_p0_i3.webp)
 - **mapas**:
   - **[0]**:
@@ -5049,176 +6345,241 @@
     - **altura_mapa**: 782
     - **pontos_de_interesse**:
       - **[0]**:
-        - **id**: 1
-        - **label**: 1
+        - **id**: OZLae7rMJhZdtc
+        - **uid**: OZLae7rMJhZdtc
+        - **rotulo**: 1
         - **circulo**:
           - **x**: 108
           - **y**: 641
           - **raio**: 19
+        - **label**: 1
       - **[1]**:
-        - **id**: 2
-        - **label**: 2
+        - **id**: UuTo7EFAt6ghVT
+        - **uid**: UuTo7EFAt6ghVT
+        - **rotulo**: 2
         - **circulo**:
           - **x**: 282
           - **y**: 644
           - **raio**: 19
+        - **label**: 2
       - **[2]**:
-        - **id**: 3
-        - **label**: 3
+        - **id**: 1TGXi0REwkXaHx
+        - **uid**: 1TGXi0REwkXaHx
+        - **rotulo**: 3
         - **circulo**:
           - **x**: 775
           - **y**: 529
           - **raio**: 19
+        - **label**: 3
     - **referencias**:
       - **[0]**:
+        - **alvo_uid**: sQfHujCQVREQJb
+        - **pontos_uids**:
+          - OZLae7rMJhZdtc
         - **escalada**: Esqueleto do Tempo
         - **ids**:
-          - 1
+          - OZLae7rMJhZdtc
       - **[1]**:
+        - **alvo_uid**: 0kjSBjdMG9SUSp
+        - **pontos_uids**:
+          - UuTo7EFAt6ghVT
         - **escalada**: Parou Mofô
         - **ids**:
-          - 2
+          - UuTo7EFAt6ghVT
       - **[2]**:
+        - **alvo_uid**: pzJ5XanlSgD79q
+        - **pontos_uids**:
+          - 1TGXi0REwkXaHx
         - **escalada**: Via Normal da Agulhinha Pequeno Polegar
         - **ids**:
-          - 3
+          - 1TGXi0REwkXaHx
   - **[1]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_falesias_do_lenheiro_p1_i2.webp)
     - **largura_mapa**: 481
     - **altura_mapa**: 641
     - **pontos_de_interesse**:
       - **[0]**:
-        - **id**: 4
-        - **label**: 4
+        - **id**: XvRbSOJ9rhxVXs
+        - **uid**: XvRbSOJ9rhxVXs
+        - **rotulo**: 4
         - **circulo**:
           - **x**: 103
           - **y**: 599
           - **raio**: 27
+        - **label**: 4
       - **[1]**:
-        - **id**: 5
-        - **label**: 5
+        - **id**: dsXJ6I9tzLTavr
+        - **uid**: dsXJ6I9tzLTavr
+        - **rotulo**: 5
         - **circulo**:
           - **x**: 289
           - **y**: 563
           - **raio**: 27
+        - **label**: 5
       - **[2]**:
-        - **id**: 6
-        - **label**: 6
+        - **id**: qEiGWgMnTq3cZ2
+        - **uid**: qEiGWgMnTq3cZ2
+        - **rotulo**: 6
         - **circulo**:
           - **x**: 363
           - **y**: 546
           - **raio**: 27
+        - **label**: 6
     - **referencias**:
       - **[0]**:
+        - **alvo_uid**: Kj3yJFM1q0W9eT
+        - **pontos_uids**:
+          - XvRbSOJ9rhxVXs
         - **escalada**: Miosótis
         - **ids**:
-          - 4
+          - XvRbSOJ9rhxVXs
       - **[1]**:
+        - **alvo_uid**: NFBguOBPOQb6FE
+        - **pontos_uids**:
+          - dsXJ6I9tzLTavr
         - **escalada**: Chá das Cinco
         - **ids**:
-          - 5
+          - dsXJ6I9tzLTavr
       - **[2]**:
+        - **alvo_uid**: iKMWfLr3A4GDa2
+        - **pontos_uids**:
+          - qEiGWgMnTq3cZ2
         - **escalada**: Dança dos Vampiros
         - **ids**:
-          - 6
+          - qEiGWgMnTq3cZ2
   - **[2]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_falesias_do_lenheiro_p1_i3.webp)
     - **largura_mapa**: 1068
     - **altura_mapa**: 801
     - **pontos_de_interesse**:
       - **[0]**:
-        - **id**: 7
-        - **label**: 7
+        - **id**: KIhqdyYeNuaKRt
+        - **uid**: KIhqdyYeNuaKRt
+        - **rotulo**: 7
         - **circulo**:
           - **x**: 518
           - **y**: 726
           - **raio**: 20
+        - **label**: 7
       - **[1]**:
-        - **id**: 8
-        - **label**: 8
+        - **id**: Zy7MFaAO7Mb0t6
+        - **uid**: Zy7MFaAO7Mb0t6
+        - **rotulo**: 8
         - **circulo**:
           - **x**: 594
           - **y**: 263
           - **raio**: 22
+        - **label**: 8
       - **[2]**:
-        - **id**: paredao_2_5
-        - **label**: Paredão 2,5
+        - **id**: LoABpx5uAWe9i5
+        - **uid**: LoABpx5uAWe9i5
+        - **rotulo**: Paredão 2,5
         - **retangulo**:
           - **x**: 166
           - **y**: 601
           - **comprimento**: 226
           - **largura**: 45
+        - **label**: Paredão 2,5
     - **referencias**:
       - **[0]**:
+        - **alvo_uid**: LmYGwiPfAcXm7x
+        - **pontos_uids**:
+          - KIhqdyYeNuaKRt
         - **escalada**: Deixa a Fenda Me Levar
         - **ids**:
-          - 7
+          - KIhqdyYeNuaKRt
       - **[1]**:
+        - **alvo_uid**: SKcluPfsLiwJ1N
+        - **pontos_uids**:
+          - Zy7MFaAO7Mb0t6
         - **escalada**: Brassavola
         - **ids**:
-          - 8
+          - Zy7MFaAO7Mb0t6
       - **[2]**:
+        - **pontos_uids**:
+          - LoABpx5uAWe9i5
         - **ids**:
-          - paredao_2_5
+          - LoABpx5uAWe9i5
   - **[3]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_falesias_do_lenheiro_p2_i3.webp)
     - **largura_mapa**: 481
     - **altura_mapa**: 641
     - **pontos_de_interesse**:
       - **[0]**:
-        - **id**: 9
-        - **label**: 9
+        - **id**: qi2FBjh3yhsyaZ
+        - **uid**: qi2FBjh3yhsyaZ
+        - **rotulo**: 9
         - **circulo**:
           - **x**: 215
           - **y**: 439
           - **raio**: 20
+        - **label**: 9
       - **[1]**:
-        - **id**: 10
-        - **label**: 10
+        - **id**: IQVSsLgxap0H39
+        - **uid**: IQVSsLgxap0H39
+        - **rotulo**: 10
         - **circulo**:
           - **x**: 427
           - **y**: 585
           - **raio**: 25
+        - **label**: 10
     - **referencias**:
       - **[0]**:
+        - **alvo_uid**: xZjj9mvhsM0BYn
+        - **pontos_uids**:
+          - qi2FBjh3yhsyaZ
         - **escalada**: Feliz Aniversário
         - **ids**:
-          - 9
+          - qi2FBjh3yhsyaZ
       - **[1]**:
+        - **alvo_uid**: mG8iiXA5J4kTqN
+        - **pontos_uids**:
+          - IQVSsLgxap0H39
         - **escalada**: Juízo Final
         - **ids**:
-          - 10
+          - IQVSsLgxap0H39
   - **[4]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_falesias_do_lenheiro_p2_i2.webp)
     - **largura_mapa**: 1149
     - **altura_mapa**: 862
     - **pontos_de_interesse**:
       - **[0]**:
-        - **id**: 11
-        - **label**: 11
+        - **id**: AjB27owjvHmA8B
+        - **uid**: AjB27owjvHmA8B
+        - **rotulo**: 11
         - **circulo**:
           - **x**: 374
           - **y**: 798
           - **raio**: 28
+        - **label**: 11
       - **[1]**:
-        - **id**: tres_pontoes
-        - **label**: Três Pontões
+        - **id**: 5pwvYuraqR7soD
+        - **uid**: 5pwvYuraqR7soD
+        - **rotulo**: Três Pontões
         - **retangulo**:
           - **x**: 836
           - **y**: 90
           - **comprimento**: 256
           - **largura**: 42
+        - **label**: Três Pontões
     - **referencias**:
       - **[0]**:
+        - **alvo_uid**: zbBoMKxGZP1b7N
+        - **pontos_uids**:
+          - AjB27owjvHmA8B
         - **escalada**: Por Favor Me Esqueça
         - **ids**:
-          - 11
+          - AjB27owjvHmA8B
       - **[1]**:
+        - **alvo_uid**: 5IgNGk513d2HJe
+        - **pontos_uids**:
+          - 5pwvYuraqR7soD
         - **grupo**: Três Pontões (CEMONTA)
         - **ids**:
-          - tres_pontoes
+          - 5pwvYuraqR7soD
 - **escaladas**:
   - **[0]**:
+    - **uid**: sQfHujCQVREQJb
     - **via_esportiva**:
       - **descricao**: Saída levemente negativa e depois pega uma diagonal pra direita, são 7 chapas e mais o top.
       - **nome**: Esqueleto do Tempo
@@ -5231,6 +6592,7 @@
         - João Vagli
       - **data_abertura**: 2025-03-15
   - **[1]**:
+    - **uid**: 0kjSBjdMG9SUSp
     - **via_esportiva**:
       - **descricao**: Via reta que termina na mesma parada da via anterior, são 4 chapas e mais o top.
       - **nome**: Parou Mofô
@@ -5243,6 +6605,7 @@
         - João Vagli
       - **data_abertura**: 2025-03-15
   - **[2]**:
+    - **uid**: pzJ5XanlSgD79q
     - **via_movel**:
       - **descricao**: Pequena via localizada ao final da falésia do Bloco dos Dois Dedos à direita. À partir da via Suco de Laranja acompanhar a rocha pra direita até o final. Saindo da estrada, subir alguns metros após os Dois Dedos e subir um rampado de pedras e mato à esquerda.
       - **nome**: Via Normal da Agulhinha Pequeno Polegar
@@ -5253,6 +6616,7 @@
         - André Ilha
       - **data_abertura**: 1984-04-28
   - **[3]**:
+    - **uid**: Kj3yJFM1q0W9eT
     - **via_movel**:
       - **descricao**: Via muito fácil que sobe por agarras entre duas fendas em formato de V, localizada no Paredão 2,5 à direita das rotas de treinamento.
       - **nome**: Miosótis
@@ -5263,6 +6627,7 @@
         - Lúcia Duarte
       - **data_abertura**: 1984-07-23
   - **[4]**:
+    - **uid**: NFBguOBPOQb6FE
     - **via_movel**:
       - **descricao**: Início em chaminé pelo lado esquerdo do grande bloco que há entre as rochas. Uma vez em cima dele, segue para a óbvia fenda acima, voltada para a esquerda. Ao final da fenda segue por um trecho meio quebrado, com lances curtos e fáceis até a base do lance final de agarras, que é belíssimo e ligeiramente negativo.
       - **nome**: Chá das Cinco
@@ -5274,6 +6639,7 @@
         - Boris Flegr
       - **data_abertura**: 2004-10-10
   - **[5]**:
+    - **uid**: iKMWfLr3A4GDa2
     - **via_movel**:
       - **descricao**: Seu início fica atrás de um grande bloco e por isso não pode ser visto de fora. Começa em uma chaminé média até atingir um platô, passando para uma chaminé larga até sair por entre os blocos de rocha. Depois segue por agarras.
       - **nome**: Dança dos Vampiros
@@ -5284,6 +6650,7 @@
         - Lúcia Duarte
       - **data_abertura**: 1984-07-23
   - **[6]**:
+    - **uid**: LmYGwiPfAcXm7x
     - **via_movel**:
       - **descricao**: Via à direita das vias anteriores e possui um bonito diedro no início.
       - **nome**: Deixa a Fenda Me Levar
@@ -5293,11 +6660,13 @@
         - Rodolfo Campos
       - **data_abertura**: 2004-10-10
   - **[7]**:
+    - **uid**: SKcluPfsLiwJ1N
     - **via_movel**:
       - **descricao**: Variante da via anterior.
       - **nome**: Brassavola
       - **dificuldade**: BR_4
   - **[8]**:
+    - **uid**: xZjj9mvhsM0BYn
     - **via_movel**:
       - **descricao**: Linha através de um bonito sistema de fendas, levemente negativa em alguns pontos. Descida por caminhada à direita.
       - **nome**: Feliz Aniversário
@@ -5305,6 +6674,7 @@
       - **conquistadores**:
         - Ronaldo Franzen "Nativo"
   - **[9]**:
+    - **uid**: mG8iiXA5J4kTqN
     - **via_movel**:
       - **descricao**: Bela fissura que percorre boa parte da via, intercalando com lances de boas agarras.
       - **nome**: Juízo Final
@@ -5315,6 +6685,7 @@
         - Lúcia Duarte
       - **data_abertura**: 1984-07-27
   - **[10]**:
+    - **uid**: zbBoMKxGZP1b7N
     - **via_movel**:
       - **descricao**: Via bem divertida. Pegar a segunda trilha descendo a estrada a partir do portão do Cemonta. Após cerca de 50m abandonar a trilha principal e pegar um corte de agua meio fechado pra direita e transpor uns blocos.
       - **nome**: Por Favor Me Esqueça
@@ -5350,6 +6721,7 @@
     
     Há clip-stick no local, favor usar, pois já houveram acidentes com quem não usou!!
 - **nome**: Pedra Negra
+- **uid**: 6oI61891aONN3g
 - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_pedra_negra_p2_i2.webp)
 - **mapas**:
   - **[0]**:
@@ -5358,250 +6730,361 @@
     - **altura_mapa**: 322
     - **pontos_de_interesse**:
       - **[0]**:
-        - **id**: 1
-        - **label**: 1
+        - **id**: cJXqsePelJineq
+        - **uid**: cJXqsePelJineq
+        - **rotulo**: 1
         - **circulo**:
           - **x**: 53
           - **y**: 8
           - **raio**: 9
+        - **label**: 1
       - **[1]**:
-        - **id**: 2
-        - **label**: 2
+        - **id**: OBpfF67cgX2JTq
+        - **uid**: OBpfF67cgX2JTq
+        - **rotulo**: 2
         - **circulo**:
           - **x**: 54
           - **y**: 26
           - **raio**: 9
+        - **label**: 2
       - **[2]**:
-        - **id**: 3
-        - **label**: 3
+        - **id**: N8en2z3BifpWh6
+        - **uid**: N8en2z3BifpWh6
+        - **rotulo**: 3
         - **circulo**:
           - **x**: 54
           - **y**: 45
           - **raio**: 9
+        - **label**: 3
       - **[3]**:
-        - **id**: 4
-        - **label**: 4
+        - **id**: rJJIZnQ3twJ8e3
+        - **uid**: rJJIZnQ3twJ8e3
+        - **rotulo**: 4
         - **circulo**:
           - **x**: 54
           - **y**: 64
           - **raio**: 9
+        - **label**: 4
       - **[4]**:
-        - **id**: 5
-        - **label**: 5
+        - **id**: qun60mEaUal39R
+        - **uid**: qun60mEaUal39R
+        - **rotulo**: 5
         - **circulo**:
           - **x**: 54
           - **y**: 82
           - **raio**: 9
+        - **label**: 5
       - **[5]**:
-        - **id**: 6
-        - **label**: 6
+        - **id**: KND1HGbIiAn9sq
+        - **uid**: KND1HGbIiAn9sq
+        - **rotulo**: 6
         - **circulo**:
           - **x**: 54
           - **y**: 102
           - **raio**: 9
+        - **label**: 6
       - **[6]**:
-        - **id**: 7
-        - **label**: 7
+        - **id**: pCrB8igZaiYgk9
+        - **uid**: pCrB8igZaiYgk9
+        - **rotulo**: 7
         - **circulo**:
           - **x**: 54
           - **y**: 121
           - **raio**: 9
+        - **label**: 7
       - **[7]**:
-        - **id**: 8
-        - **label**: 8
+        - **id**: OKIzLBTIHtn66r
+        - **uid**: OKIzLBTIHtn66r
+        - **rotulo**: 8
         - **circulo**:
           - **x**: 54
           - **y**: 140
           - **raio**: 9
+        - **label**: 8
       - **[8]**:
-        - **id**: 9
-        - **label**: 9
+        - **id**: EUlB44ai5JvEq6
+        - **uid**: EUlB44ai5JvEq6
+        - **rotulo**: 9
         - **circulo**:
           - **x**: 54
           - **y**: 159
           - **raio**: 9
+        - **label**: 9
       - **[9]**:
-        - **id**: 10
-        - **label**: 10
+        - **id**: AC5ToYRtHk8Q3Y
+        - **uid**: AC5ToYRtHk8Q3Y
+        - **rotulo**: 10
         - **circulo**:
           - **x**: 59
           - **y**: 183
           - **raio**: 11
+        - **label**: 10
       - **[10]**:
-        - **id**: 11
-        - **label**: 11
+        - **id**: 3tbKZyPjcWORNc
+        - **uid**: 3tbKZyPjcWORNc
+        - **rotulo**: 11
         - **circulo**:
           - **x**: 75
           - **y**: 205
           - **raio**: 11
+        - **label**: 11
       - **[11]**:
-        - **id**: 12
-        - **label**: 12
+        - **id**: Q2gZ8i7jMDOWAc
+        - **uid**: Q2gZ8i7jMDOWAc
+        - **rotulo**: 12
         - **circulo**:
           - **x**: 102
           - **y**: 224
           - **raio**: 11
+        - **label**: 12
       - **[12]**:
-        - **id**: 13
-        - **label**: 13
+        - **id**: 2AvcX0SZE5CMiB
+        - **uid**: 2AvcX0SZE5CMiB
+        - **rotulo**: 13
         - **circulo**:
           - **x**: 133
           - **y**: 237
           - **raio**: 11
+        - **label**: 13
       - **[13]**:
-        - **id**: 14
-        - **label**: 14
+        - **id**: HVgG25KpuAISFH
+        - **uid**: HVgG25KpuAISFH
+        - **rotulo**: 14
         - **circulo**:
           - **x**: 165
           - **y**: 245
           - **raio**: 11
+        - **label**: 14
       - **[14]**:
-        - **id**: 15
-        - **label**: 15
+        - **id**: 8YGT9Igkwb5RWT
+        - **uid**: 8YGT9Igkwb5RWT
+        - **rotulo**: 15
         - **circulo**:
           - **x**: 200
           - **y**: 247
           - **raio**: 11
+        - **label**: 15
       - **[15]**:
-        - **id**: 16
-        - **label**: 16
+        - **id**: OzeDmQgAsA4PY1
+        - **uid**: OzeDmQgAsA4PY1
+        - **rotulo**: 16
         - **circulo**:
           - **x**: 238
           - **y**: 248
           - **raio**: 11
+        - **label**: 16
       - **[16]**:
-        - **id**: 17
-        - **label**: 17
+        - **id**: YxzH8dai8bykuz
+        - **uid**: YxzH8dai8bykuz
+        - **rotulo**: 17
         - **circulo**:
           - **x**: 270
           - **y**: 246
           - **raio**: 11
+        - **label**: 17
       - **[17]**:
-        - **id**: 18
-        - **label**: 18
+        - **id**: j9Vogzq5dcYkZ4
+        - **uid**: j9Vogzq5dcYkZ4
+        - **rotulo**: 18
         - **circulo**:
           - **x**: 296
           - **y**: 245
           - **raio**: 11
+        - **label**: 18
       - **[18]**:
-        - **id**: 19
-        - **label**: 19
+        - **id**: 5l1zmHhhEdtPi8
+        - **uid**: 5l1zmHhhEdtPi8
+        - **rotulo**: 19
         - **circulo**:
           - **x**: 318
           - **y**: 239
           - **raio**: 11
+        - **label**: 19
       - **[19]**:
-        - **id**: 20
-        - **label**: 20
+        - **id**: 8ac2SwDo8dxGXK
+        - **uid**: 8ac2SwDo8dxGXK
+        - **rotulo**: 20
         - **circulo**:
           - **x**: 341
           - **y**: 230
           - **raio**: 10
+        - **label**: 20
       - **[20]**:
-        - **id**: 21
-        - **label**: 21
+        - **id**: TVKMSVG87sBI8F
+        - **uid**: TVKMSVG87sBI8F
+        - **rotulo**: 21
         - **circulo**:
           - **x**: 358
           - **y**: 222
           - **raio**: 10
+        - **label**: 21
       - **[21]**:
-        - **id**: 22
-        - **label**: 22
+        - **id**: l4tn8mY90LWW1C
+        - **uid**: l4tn8mY90LWW1C
+        - **rotulo**: 22
         - **circulo**:
           - **x**: 381
           - **y**: 211
           - **raio**: 11
+        - **label**: 22
     - **referencias**:
       - **[0]**:
+        - **alvo_uid**: D3CGvJD7229Iqb
+        - **pontos_uids**:
+          - cJXqsePelJineq
         - **escalada**: Ripa Um
         - **ids**:
-          - 1
+          - cJXqsePelJineq
       - **[1]**:
+        - **alvo_uid**: J5K9K7QiUek8Be
+        - **pontos_uids**:
+          - OBpfF67cgX2JTq
         - **escalada**: Ossos do Ofício
         - **ids**:
-          - 2
+          - OBpfF67cgX2JTq
       - **[2]**:
+        - **alvo_uid**: UWmfQCQ8cdwfFO
+        - **pontos_uids**:
+          - N8en2z3BifpWh6
         - **escalada**: Lei do Retorno
         - **ids**:
-          - 3
+          - N8en2z3BifpWh6
       - **[3]**:
+        - **alvo_uid**: pBNTFZMUleqnfd
+        - **pontos_uids**:
+          - rJJIZnQ3twJ8e3
         - **escalada**: Realidade Paralela
         - **ids**:
-          - 4
+          - rJJIZnQ3twJ8e3
       - **[4]**:
+        - **alvo_uid**: RWv162QWXRrp4G
+        - **pontos_uids**:
+          - qun60mEaUal39R
         - **escalada**: Quando a Cabeça Falha
         - **ids**:
-          - 5
+          - qun60mEaUal39R
       - **[5]**:
+        - **alvo_uid**: Xl8I4msI0U2U4D
+        - **pontos_uids**:
+          - KND1HGbIiAn9sq
         - **escalada**: Calangos Molhados
         - **ids**:
-          - 6
+          - KND1HGbIiAn9sq
       - **[6]**:
+        - **alvo_uid**: 2agRKBnvCDJ69Q
+        - **pontos_uids**:
+          - pCrB8igZaiYgk9
         - **escalada**: Calango Camuflado
         - **ids**:
-          - 7
+          - pCrB8igZaiYgk9
       - **[7]**:
+        - **alvo_uid**: n82f98ZQcpnU8Q
+        - **pontos_uids**:
+          - OKIzLBTIHtn66r
         - **escalada**: Fio de Cabelo
         - **ids**:
-          - 8
+          - OKIzLBTIHtn66r
       - **[8]**:
+        - **alvo_uid**: FbiACCE0ffYprz
+        - **pontos_uids**:
+          - EUlB44ai5JvEq6
         - **escalada**: Docinho do Tio Nem
         - **ids**:
-          - 9
+          - EUlB44ai5JvEq6
       - **[9]**:
+        - **alvo_uid**: lsgRnVpwwaN83H
+        - **pontos_uids**:
+          - AC5ToYRtHk8Q3Y
         - **escalada**: Heróis da Persistência
         - **ids**:
-          - 10
+          - AC5ToYRtHk8Q3Y
       - **[10]**:
+        - **alvo_uid**: UlWDEIo5sYVYQJ
+        - **pontos_uids**:
+          - 3tbKZyPjcWORNc
         - **escalada**: Matrix
         - **ids**:
-          - 11
+          - 3tbKZyPjcWORNc
       - **[11]**:
+        - **alvo_uid**: l7prQT0ilIHWnZ
+        - **pontos_uids**:
+          - Q2gZ8i7jMDOWAc
         - **escalada**: A Senha
         - **ids**:
-          - 12
+          - Q2gZ8i7jMDOWAc
       - **[12]**:
+        - **alvo_uid**: 9UMgh2AUmrgNdi
+        - **pontos_uids**:
+          - 2AvcX0SZE5CMiB
         - **escalada**: Atividade Paranormal
         - **ids**:
-          - 13
+          - 2AvcX0SZE5CMiB
       - **[13]**:
+        - **alvo_uid**: eWuJ7s5hxxkfVn
+        - **pontos_uids**:
+          - HVgG25KpuAISFH
         - **escalada**: Berbaridade
         - **ids**:
-          - 14
+          - HVgG25KpuAISFH
       - **[14]**:
+        - **alvo_uid**: awbwGbBqo6LKFD
+        - **pontos_uids**:
+          - 8YGT9Igkwb5RWT
         - **escalada**: Lontra Radical
         - **ids**:
-          - 15
+          - 8YGT9Igkwb5RWT
       - **[15]**:
+        - **alvo_uid**: URpzo4mgyHb6SV
+        - **pontos_uids**:
+          - OzeDmQgAsA4PY1
         - **escalada**: Diamante Negro
         - **ids**:
-          - 16
+          - OzeDmQgAsA4PY1
       - **[16]**:
+        - **alvo_uid**: aIWpjyJkLYCxc4
+        - **pontos_uids**:
+          - YxzH8dai8bykuz
         - **escalada**: Proteção da Flora
         - **ids**:
-          - 17
+          - YxzH8dai8bykuz
       - **[17]**:
+        - **alvo_uid**: DrKwEy7hXTbcMa
+        - **pontos_uids**:
+          - j9Vogzq5dcYkZ4
         - **escalada**: JL Projeto
         - **ids**:
-          - 18
+          - j9Vogzq5dcYkZ4
       - **[18]**:
+        - **alvo_uid**: DL8jr0gZC7x8gb
+        - **pontos_uids**:
+          - 5l1zmHhhEdtPi8
         - **escalada**: Seja O Que Deus Quiser
         - **ids**:
-          - 19
+          - 5l1zmHhhEdtPi8
       - **[19]**:
+        - **alvo_uid**: NJwxNF7vRX1WwJ
+        - **pontos_uids**:
+          - 8ac2SwDo8dxGXK
         - **escalada**: Viabilizoou
         - **ids**:
-          - 20
+          - 8ac2SwDo8dxGXK
       - **[20]**:
+        - **alvo_uid**: zfzHhhS6LGjEzg
+        - **pontos_uids**:
+          - TVKMSVG87sBI8F
         - **escalada**: Professor Pardal
         - **ids**:
-          - 21
+          - TVKMSVG87sBI8F
       - **[21]**:
+        - **alvo_uid**: mxwrunWQkgF9UH
+        - **pontos_uids**:
+          - l4tn8mY90LWW1C
         - **escalada**: Pretinha
         - **ids**:
-          - 22
+          - l4tn8mY90LWW1C
 - **escaladas**:
   - **[0]**:
+    - **uid**: D3CGvJD7229Iqb
     - **via_esportiva**:
       - **descricao**: Via localizada à extrema esquerda do bloco rochoso. Curta e concentrada.
       - **nome**: Ripa Um
@@ -5611,6 +7094,7 @@
         - Heider Ribeiro (Tio Nem)
       - **data_abertura**: 2024
   - **[1]**:
+    - **uid**: J5K9K7QiUek8Be
     - **via_esportiva**:
       - **descricao**: Via explosiva e de difícil leitura, estilo boulder.
       - **nome**: Ossos do Ofício
@@ -5620,6 +7104,7 @@
         - Heider Ribeiro (Tio Nem)
       - **data_abertura**: 2016
   - **[2]**:
+    - **uid**: UWmfQCQ8cdwfFO
     - **via_esportiva**:
       - **descricao**: Via ainda sem cadena até a data de publicação desta edição do guia.
       - **nome**: Lei do Retorno
@@ -5629,6 +7114,7 @@
         - Heider Ribeiro (Tio Nem)
       - **data_abertura**: 2024-09-07
   - **[3]**:
+    - **uid**: pBNTFZMUleqnfd
     - **via_esportiva**:
       - **descricao**: Via com um crux bem concentrado em pequenos regletes duros com movimentação complexa.
       - **nome**: Realidade Paralela
@@ -5638,6 +7124,7 @@
         - Heider Ribeiro (Tio Nem)
       - **data_abertura**: 2016
   - **[4]**:
+    - **uid**: RWv162QWXRrp4G
     - **via_esportiva**:
       - **descricao**: Via constante levemente negativa com boas agarras. São 5 chapas mais duas no top.
       - **nome**: Quando a Cabeça Falha
@@ -5650,6 +7137,7 @@
         - Márcio Andrade
       - **data_abertura**: 2002
   - **[5]**:
+    - **uid**: Xl8I4msI0U2U4D
     - **via_esportiva**:
       - **descricao**: Via levemente negativa, mas com boas agarras. Sugere-se colocar a segunda costura antes de entrar. 5+2.
       - **nome**: Calangos Molhados
@@ -5661,6 +7149,7 @@
         - Fabricio Nascimento
         - Carlos Pádua
   - **[6]**:
+    - **uid**: 2agRKBnvCDJ69Q
     - **via_esportiva**:
       - **descricao**: Uma das mais frequentadas do local, com um crux concentrado. São 5+2 chapas.
       - **nome**: Calango Camuflado
@@ -5673,6 +7162,7 @@
         - Carlos Pádua
       - **data_abertura**: 2012
   - **[7]**:
+    - **uid**: n82f98ZQcpnU8Q
     - **via_esportiva**:
       - **descricao**: Primeira via do setor. Via técnica, exige boa leitura pra não perder a cadena. 5+2 chapas.
       - **nome**: Fio de Cabelo
@@ -5685,6 +7175,7 @@
         - Márcio Andrade
       - **data_abertura**: 2000
   - **[8]**:
+    - **uid**: FbiACCE0ffYprz
     - **via_esportiva**:
       - **descricao**: Via muito repetida por ser uma das mais fáceis e ao mesmo tempo longa. Boa para top-rope. 6+2 chapas.
       - **nome**: Docinho do Tio Nem
@@ -5694,6 +7185,7 @@
       - **conquistadores**:
         - Jonatas Lima
   - **[9]**:
+    - **uid**: lsgRnVpwwaN83H
     - **via_esportiva**:
       - **descricao**: Via longa, completa e bem protegida. Também bastante frequentada por ser a única do grau no setor. 7+2.
       - **nome**: Heróis da Persistência
@@ -5705,6 +7197,7 @@
         - Leonardo Rodrigues
       - **data_abertura**: 2014
   - **[10]**:
+    - **uid**: UlWDEIo5sYVYQJ
     - **via_esportiva**:
       - **descricao**: Via com crux bem definido e boas agarras no geral. 5+2.
       - **nome**: Matrix
@@ -5718,6 +7211,7 @@
         - Márcio Andrade
       - **data_abertura**: 2000
   - **[11]**:
+    - **uid**: l7prQT0ilIHWnZ
     - **via_esportiva**:
       - **descricao**: Uma das vias mais clássicas do setor, possui o movimento mais impressionante!
       - **nome**: A Senha
@@ -5729,6 +7223,7 @@
         - Márcio Andrade
       - **data_abertura**: 2000
   - **[12]**:
+    - **uid**: 9UMgh2AUmrgNdi
     - **via_esportiva**:
       - **descricao**: Via mais difícil do setor, possui apenas uma cadena até o momento, favor avisar os locais em caso de cadena.
       - **nome**: Atividade Paranormal
@@ -5738,6 +7233,7 @@
         - Heider Ribeiro (Tio Nem)
       - **data_abertura**: 2012
   - **[13]**:
+    - **uid**: eWuJ7s5hxxkfVn
     - **via_esportiva**:
       - **descricao**: Via com um crux muito técnico e de difícil leitura. Também exige um pouco do psicológico. 6+2.
       - **nome**: Berbaridade
@@ -5749,6 +7245,7 @@
         - Carlos Pádua
       - **data_abertura**: 2015
   - **[14]**:
+    - **uid**: awbwGbBqo6LKFD
     - **via_esportiva**:
       - **descricao**: Uma das mais clássicas e talvez a mais repetida do setor. Via técnica que exige boa leitura e resistência. 6+2.
       - **nome**: Lontra Radical
@@ -5761,6 +7258,7 @@
         - Márcio Andrade
       - **data_abertura**: 2000
   - **[15]**:
+    - **uid**: URpzo4mgyHb6SV
     - **via_esportiva**:
       - **descricao**: Lances de pequenos regletes e algumas costuradas ruins. 6+2.
       - **nome**: Diamante Negro
@@ -5770,6 +7268,7 @@
       - **conquistadores**:
         - Jonatas Lima
   - **[16]**:
+    - **uid**: aIWpjyJkLYCxc4
     - **via_esportiva**:
       - **descricao**: Possui um estilo bem diferente de batentes escorridos, alternando lances de força e lances de equilíbrio. 5+2.
       - **nome**: Proteção da Flora
@@ -5782,6 +7281,7 @@
         - Flora Fiche Naves
       - **data_abertura**: 2024-09-14
   - **[17]**:
+    - **uid**: DrKwEy7hXTbcMa
     - **via_esportiva**:
       - **descricao**: Via sem cadena até a data de publicação desta edição do guia.
       - **nome**: JL Projeto
@@ -5789,6 +7289,7 @@
       - **conquistadores**:
         - Jonatas Lima
   - **[18]**:
+    - **uid**: DL8jr0gZC7x8gb
     - **via_esportiva**:
       - **descricao**: Outra clássica, com movimentação complexa. Crux peculiar de força e resistência em agarras escorridas 5+2.
       - **nome**: Seja O Que Deus Quiser
@@ -5801,6 +7302,7 @@
         - Gelson Feliciano
       - **data_abertura**: 2005
   - **[19]**:
+    - **uid**: NJwxNF7vRX1WwJ
     - **via_esportiva**:
       - **descricao**: Via com movimentação variada alternando leve negativo em agarras escorridas com positivo de equilíbrio. São 3+2 chapas.
       - **nome**: Viabilizoou
@@ -5812,6 +7314,7 @@
         - Lucas Agostini
       - **data_abertura**: 2024-10-06
   - **[20]**:
+    - **uid**: zfzHhhS6LGjEzg
     - **via_esportiva**:
       - **descricao**: Via que fica com sombra o dia todo.
       - **nome**: Professor Pardal
@@ -5821,6 +7324,7 @@
         - Carlos Pádua
       - **data_abertura**: 2015
   - **[21]**:
+    - **uid**: mxwrunWQkgF9UH
     - **via_esportiva**:
       - **descricao**: Via mais fácil do setor. Última via lá pra direita. Boa opção pra um primeiro contato com a escalada. São duas chapas mais parada dupla.
       - **nome**: Pretinha
@@ -5872,6 +7376,7 @@
     
     Tem como característica os grandes buracos que conferem às vias, agarras impressionantes, tornando a graduação não muito elevada, apesar dos lances levemente negativos. As proteções nem sempre são óbvias, obrigando o escalador e “garimpar” fendas e buracos. Importante ficar atento à agarras quebrando, por se tratar de um setor relativamente novo. Todas as vias possuem grampo no topo, para segurança, top-rope e rapel.
 - **nome**: Cruz Credo
+- **uid**: yOn34ChLotkzHT
 - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_cruz_credo_p1_i3.webp)
 - **mapas**:
   - **[0]**:
@@ -5880,80 +7385,111 @@
     - **altura_mapa**: 901
     - **pontos_de_interesse**:
       - **[0]**:
-        - **id**: 1
-        - **label**: 1
+        - **id**: dPLTUKvWgIiFXx
+        - **uid**: dPLTUKvWgIiFXx
+        - **rotulo**: 1
         - **circulo**:
           - **x**: 437
           - **y**: 768
           - **raio**: 17
+        - **label**: 1
       - **[1]**:
-        - **id**: 2
-        - **label**: 2
+        - **id**: UV8TBkixhq5SOj
+        - **uid**: UV8TBkixhq5SOj
+        - **rotulo**: 2
         - **circulo**:
           - **x**: 659
           - **y**: 512
           - **raio**: 19
+        - **label**: 2
       - **[2]**:
-        - **id**: 3
-        - **label**: 3
+        - **id**: vkDSubU57xFaKz
+        - **uid**: vkDSubU57xFaKz
+        - **rotulo**: 3
         - **circulo**:
           - **x**: 819
           - **y**: 553
           - **raio**: 18
+        - **label**: 3
     - **referencias**:
       - **[0]**:
+        - **alvo_uid**: nUqojuI57sc0XE
+        - **pontos_uids**:
+          - dPLTUKvWgIiFXx
         - **escalada**: Quinto dos Infernos
         - **ids**:
-          - 1
+          - dPLTUKvWgIiFXx
       - **[1]**:
+        - **alvo_uid**: GkJ0idExKl5wJl
+        - **pontos_uids**:
+          - UV8TBkixhq5SOj
         - **escalada**: Deus me Livre
         - **ids**:
-          - 2
+          - UV8TBkixhq5SOj
       - **[2]**:
+        - **alvo_uid**: U1Qvu2xB7k2IHV
+        - **pontos_uids**:
+          - vkDSubU57xFaKz
         - **escalada**: Cruz Credo
         - **ids**:
-          - 3
+          - vkDSubU57xFaKz
   - **[1]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_cruz_credo_p1_i2.webp)
     - **largura_mapa**: 1376
     - **altura_mapa**: 917
     - **pontos_de_interesse**:
       - **[0]**:
-        - **id**: 4
-        - **label**: 4
+        - **id**: C2HpsicSCCMZON
+        - **uid**: C2HpsicSCCMZON
+        - **rotulo**: 4
         - **circulo**:
           - **x**: 450
           - **y**: 547
           - **raio**: 23
+        - **label**: 4
       - **[1]**:
-        - **id**: 5
-        - **label**: 5
+        - **id**: rq4sNRSNeAXS0J
+        - **uid**: rq4sNRSNeAXS0J
+        - **rotulo**: 5
         - **circulo**:
           - **x**: 659
           - **y**: 760
           - **raio**: 23
+        - **label**: 5
       - **[2]**:
-        - **id**: 6
-        - **label**: 6
+        - **id**: g91ivVwOnpKQMK
+        - **uid**: g91ivVwOnpKQMK
+        - **rotulo**: 6
         - **circulo**:
           - **x**: 812
           - **y**: 822
           - **raio**: 23
+        - **label**: 6
     - **referencias**:
       - **[0]**:
+        - **alvo_uid**: giMVoI0nWe5p0I
+        - **pontos_uids**:
+          - C2HpsicSCCMZON
         - **escalada**: Jesus Humilha o Satanás
         - **ids**:
-          - 4
+          - C2HpsicSCCMZON
       - **[1]**:
+        - **alvo_uid**: 31HXzoxZScLDKf
+        - **pontos_uids**:
+          - rq4sNRSNeAXS0J
         - **escalada**: Praga Divina
         - **ids**:
-          - 5
+          - rq4sNRSNeAXS0J
       - **[2]**:
+        - **alvo_uid**: b1VeoIgizJTiXB
+        - **pontos_uids**:
+          - g91ivVwOnpKQMK
         - **escalada**: Variante Pedra na Cruz
         - **ids**:
-          - 6
+          - g91ivVwOnpKQMK
 - **escaladas**:
   - **[0]**:
+    - **uid**: nUqojuI57sc0XE
     - **via_esportiva**:
       - **descricao**: Única via completamente em proteções fixas do setor (grampos de 1/2 polegada). Seu crux encontra-se logo na saída, em um negativo com bons regletes, até alcançar um platô à direita. Deste ponto em diante, enormes buracos servem de agarras, na parede levemente negativa.
       - **nome**: Quinto dos Infernos
@@ -5965,6 +7501,7 @@
         - Vivianne Sawczuk
       - **data_abertura**: 2015-04-25
   - **[1]**:
+    - **uid**: GkJ0idExKl5wJl
     - **via_movel**:
       - **descricao**: Via curta, que conta com um grampo logo na saída – e crux da via – feita em lance de agarras. Logo após, encontra boas fendas para proteção móvel com friends médios e grandes até o grampo de topo.
       - **nome**: Deus me Livre
@@ -5978,6 +7515,7 @@
         - Vivianne Sawczuk
       - **data_abertura**: 2015-03-22
   - **[2]**:
+    - **uid**: U1Qvu2xB7k2IHV
     - **via_movel**:
       - **descricao**: Bonita via que possui um grampo em sua saída, colocado após a conquista, devido à via ter ficado bem exposta sem o mesmo. Após este grampo inicial, a via segue em móvel até o topo, com algumas boas fendas e buracos para proteção com friends médios, embora não muito óbvios. Grampo no topo.
       - **nome**: Cruz Credo
@@ -5991,6 +7529,7 @@
         - Vivianne Sawczuk
       - **data_abertura**: 2015-03-22
   - **[3]**:
+    - **uid**: giMVoI0nWe5p0I
     - **via_movel**:
       - **descricao**: Inicia em uma belíssima sequência de fendas feitas em oposição, com ótima proteção em friends pequenos e médios. Evolui para pequenas agarras, em lances protegidos por dois grampos. Em seu final, nova sequência de fendas esporádicas, em lances mais fáceis até o grampo do topo.
       - **nome**: Jesus Humilha o Satanás
@@ -6004,6 +7543,7 @@
         - Vivianne Sawczuk
       - **data_abertura**: 2015-05-24
   - **[4]**:
+    - **uid**: 31HXzoxZScLDKf
     - **via_movel**:
       - **descricao**: Inicia em um lance levemente negativo, com boas agarras e segue para a esquerda, passando por uma barriga com uma fenda fina, bem protegida por friends pequenos (crux da via). Evolui para agarras e possui um grampo intermediando o lance que leva ao topo do bloco. Grampo de topo para segurança / rapel.
       - **nome**: Praga Divina
@@ -6017,6 +7557,7 @@
         - Vivianne Sawczuk
       - **data_abertura**: 2015-05-24
   - **[5]**:
+    - **uid**: b1VeoIgizJTiXB
     - **via_movel**:
       - **descricao**: Pequena variante que evita o crux da via “Praga Divina”, seguindo por uma boa canaleta à direita da via principal, com boas proteções de friends médios e grandes.
       - **nome**: Variante Pedra na Cruz
@@ -6044,6 +7585,7 @@
     
     Para acessar basta seguir as mesmas indicações de acesso ao Setor Ave Maria citado acima, a única diferença é que ao invés de virar à direita após o muro de pedra, deve-se seguir mais cerca de 200m pela trilha principal e sair para à esquerda. Como é um setor pouco frequentado, a trilha pode estar bem apagada.
 - **nome**: Rapadura
+- **uid**: KzHTNv5gusto5Y
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_rapadura_p0_i2.webp)
@@ -6051,52 +7593,73 @@
     - **altura_mapa**: 745
     - **pontos_de_interesse**:
       - **[0]**:
-        - **id**: 1
-        - **label**: 1
+        - **id**: 2ClqAzEUkVSrpU
+        - **uid**: 2ClqAzEUkVSrpU
+        - **rotulo**: 1
         - **circulo**:
           - **x**: 370
           - **y**: 535
           - **raio**: 16
+        - **label**: 1
       - **[1]**:
-        - **id**: 2
-        - **label**: 2
+        - **id**: NRNg0uBCGm3MW3
+        - **uid**: NRNg0uBCGm3MW3
+        - **rotulo**: 2
         - **circulo**:
           - **x**: 445
           - **y**: 530
           - **raio**: 16
+        - **label**: 2
       - **[2]**:
-        - **id**: 3
-        - **label**: 3
+        - **id**: R76oN84EVc9Jjr
+        - **uid**: R76oN84EVc9Jjr
+        - **rotulo**: 3
         - **circulo**:
           - **x**: 535
           - **y**: 560
           - **raio**: 16
+        - **label**: 3
       - **[3]**:
-        - **id**: 4
-        - **label**: 4
+        - **id**: dQX9pYJ0Qyd8wB
+        - **uid**: dQX9pYJ0Qyd8wB
+        - **rotulo**: 4
         - **circulo**:
           - **x**: 790
           - **y**: 620
           - **raio**: 16
+        - **label**: 4
     - **referencias**:
       - **[0]**:
+        - **alvo_uid**: 2wLQ79EUuqDLcp
+        - **pontos_uids**:
+          - 2ClqAzEUkVSrpU
         - **escalada**: Os Hereges
         - **ids**:
-          - 1
+          - 2ClqAzEUkVSrpU
       - **[1]**:
+        - **alvo_uid**: JuQRTaCM2aVyOX
+        - **pontos_uids**:
+          - NRNg0uBCGm3MW3
         - **escalada**: Doce de Leite
         - **ids**:
-          - 2
+          - NRNg0uBCGm3MW3
       - **[2]**:
+        - **alvo_uid**: A9OXXkTuuyf0RY
+        - **pontos_uids**:
+          - R76oN84EVc9Jjr
         - **escalada**: Ainda Bem Que o André Não Viu
         - **ids**:
-          - 3
+          - R76oN84EVc9Jjr
       - **[3]**:
+        - **alvo_uid**: gYRY185MSs2B4e
+        - **pontos_uids**:
+          - dQX9pYJ0Qyd8wB
         - **escalada**: O Doce da Rapadura
         - **ids**:
-          - 4
+          - dQX9pYJ0Qyd8wB
 - **escaladas**:
   - **[0]**:
+    - **uid**: 2wLQ79EUuqDLcp
     - **via_movel**:
       - **nome**: Os Hereges
       - **dificuldade**: BR_7A
@@ -6104,6 +7667,7 @@
         - Leonardo Rodrigues
         - Luiz Cláudio
   - **[1]**:
+    - **uid**: JuQRTaCM2aVyOX
     - **via_movel**:
       - **nome**: Doce de Leite
       - **dificuldade**: PROJETO
@@ -6111,6 +7675,7 @@
         - Leonardo Rodrigues
         - Luiz Cláudio
   - **[2]**:
+    - **uid**: A9OXXkTuuyf0RY
     - **via_movel**:
       - **nome**: Ainda Bem Que o André Não Viu
       - **dificuldade**: BR_4SUP
@@ -6118,6 +7683,7 @@
         - Leonardo Rodrigues
         - Luiz Cláudio
   - **[3]**:
+    - **uid**: gYRY185MSs2B4e
     - **via_movel**:
       - **nome**: O Doce da Rapadura
       - **dificuldade**: BR_4
@@ -6137,6 +7703,7 @@
     
     Pequeno setor localizado no lado oposto do vale de quem sobe a estrada para o Cemonta, próximo à Pedra da Boina, porém mais na parte baixa da serra, perto do chalé. Para acessar, usar as referências da Boina (abaixo), mas após o riacho manter à esquerda pela parte baixa.
 - **nome**: Pedra do Livro
+- **uid**: GBsEGEQohq7O6q
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_pedra_do_livro_p0_i3.webp)
@@ -6144,30 +7711,41 @@
     - **altura_mapa**: 448
     - **pontos_de_interesse**:
       - **[0]**:
-        - **id**: 1
-        - **label**: 1
+        - **id**: EE5Ve2zdRn2egC
+        - **uid**: EE5Ve2zdRn2egC
+        - **rotulo**: 1
         - **circulo**:
           - **x**: 225
           - **y**: 355
           - **raio**: 12
+        - **label**: 1
       - **[1]**:
-        - **id**: 2
-        - **label**: 2
+        - **id**: 8TrxsCKxStr2AV
+        - **uid**: 8TrxsCKxStr2AV
+        - **rotulo**: 2
         - **circulo**:
           - **x**: 355
           - **y**: 345
           - **raio**: 12
+        - **label**: 2
     - **referencias**:
       - **[0]**:
+        - **alvo_uid**: Q4TxEOxeOiifHh
+        - **pontos_uids**:
+          - EE5Ve2zdRn2egC
         - **escalada**: Via 01
         - **ids**:
-          - 1
+          - EE5Ve2zdRn2egC
       - **[1]**:
+        - **alvo_uid**: U3rMM0Rgh42uP5
+        - **pontos_uids**:
+          - 8TrxsCKxStr2AV
         - **escalada**: Via 02
         - **ids**:
-          - 2
+          - 8TrxsCKxStr2AV
 - **escaladas**:
   - **[0]**:
+    - **uid**: Q4TxEOxeOiifHh
     - **via_esportiva**:
       - **descricao**: Crux na saída e um pouco exposto. Aconselha-se levar um clip-stick.
       - **nome**: Via 01
@@ -6176,6 +7754,7 @@
       - **conquistadores**:
         - Eliseu Frechou
   - **[1]**:
+    - **uid**: U3rMM0Rgh42uP5
     - **via_esportiva**:
       - **nome**: Via 02
       - **dificuldade**: BR_6
@@ -6198,6 +7777,7 @@
     
     Um pouco depois de atravessar o riacho a trilha vai um pouco esquerda e depois pra direita, mas logo vira de novo pra esquerda pra subir a serra em diagonal por um tempo. Já mais no alto, após uma parede um pouco mais vertical na direita, haverá dois blocos na esquerda, descer a trilha apagada por entre os blocos, em alguns pontos desescalando partes da rocha.
 - **nome**: Pedra da Boina
+- **uid**: yd863AEBhQpuv7
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_pedra_da_boina_p0_i2.webp)
@@ -6205,69 +7785,95 @@
     - **altura_mapa**: 719
     - **pontos_de_interesse**:
       - **[0]**:
-        - **id**: 1
-        - **label**: 1
+        - **id**: 6V5iGxgXMo3iTh
+        - **uid**: 6V5iGxgXMo3iTh
+        - **rotulo**: 1
         - **circulo**:
           - **x**: 158
           - **y**: 566
           - **raio**: 22
+        - **label**: 1
     - **referencias**:
       - **[0]**:
+        - **alvo_uid**: nmYuLZHbYxst5I
+        - **pontos_uids**:
+          - 6V5iGxgXMo3iTh
         - **escalada**: Hábito Noturno
         - **ids**:
-          - 1
+          - 6V5iGxgXMo3iTh
   - **[1]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_pedra_da_boina_p0_i3.webp)
     - **largura_mapa**: 962
     - **altura_mapa**: 722
     - **pontos_de_interesse**:
       - **[0]**:
-        - **id**: 2
-        - **label**: 2
+        - **id**: WCF7oQKJKZYVSd
+        - **uid**: WCF7oQKJKZYVSd
+        - **rotulo**: 2
         - **circulo**:
           - **x**: 359
           - **y**: 598
           - **raio**: 22
+        - **label**: 2
       - **[1]**:
-        - **id**: 3
-        - **label**: 3
+        - **id**: edRyI6WI8GHdQM
+        - **uid**: edRyI6WI8GHdQM
+        - **rotulo**: 3
         - **circulo**:
           - **x**: 520
           - **y**: 495
           - **raio**: 22
+        - **label**: 3
       - **[2]**:
-        - **id**: 4
-        - **label**: 4
+        - **id**: d0VrJi3R73IO4j
+        - **uid**: d0VrJi3R73IO4j
+        - **rotulo**: 4
         - **circulo**:
           - **x**: 604
           - **y**: 458
           - **raio**: 22
+        - **label**: 4
       - **[3]**:
-        - **id**: 5
-        - **label**: 5
+        - **id**: HxS4Uyuv6iUgHu
+        - **uid**: HxS4Uyuv6iUgHu
+        - **rotulo**: 5
         - **circulo**:
           - **x**: 711
           - **y**: 397
           - **raio**: 22
+        - **label**: 5
     - **referencias**:
       - **[0]**:
+        - **alvo_uid**: wlZ6ml53pLVTg2
+        - **pontos_uids**:
+          - WCF7oQKJKZYVSd
         - **escalada**: Mestre Xifu
         - **ids**:
-          - 2
+          - WCF7oQKJKZYVSd
       - **[1]**:
+        - **alvo_uid**: vjek1a9OUFbIco
+        - **pontos_uids**:
+          - edRyI6WI8GHdQM
         - **escalada**: Boina Cinza
         - **ids**:
-          - 3
+          - edRyI6WI8GHdQM
       - **[2]**:
+        - **alvo_uid**: alYrB5snvEyngh
+        - **pontos_uids**:
+          - d0VrJi3R73IO4j
         - **escalada**: Gorro Cinza
         - **ids**:
-          - 4
+          - d0VrJi3R73IO4j
       - **[3]**:
+        - **alvo_uid**: VcoBaUjANQqNqd
+        - **pontos_uids**:
+          - HxS4Uyuv6iUgHu
         - **escalada**: Recruta Zero
         - **ids**:
-          - 5
+          - HxS4Uyuv6iUgHu
 - **escaladas**:
   - **[0]**:
+    - **uid**: nmYuLZHbYxst5I
     - **via_esportiva**:
       - **descricao**: Foi a primeira via conquistada no setor, um estilo parecido com do setor da Ave Maria, impressiona pela beleza e proporciona fotos lindas. Conquistada em data desconhecida.
       - **nome**: Hábito Noturno
@@ -6276,6 +7882,7 @@
         - Jonatas Lima
         - Maurício dos Santos
   - **[1]**:
+    - **uid**: wlZ6ml53pLVTg2
     - **via_esportiva**:
       - **descricao**: Sem FA. Via sem cadena até a data de publicação.
       - **nome**: Mestre Xifu
@@ -6284,6 +7891,7 @@
         - Jonatas Lima
       - **data_abertura**: 2018
   - **[2]**:
+    - **uid**: vjek1a9OUFbIco
     - **via_esportiva**:
       - **descricao**: Sua saída bem negativa com agarras afiadas dá o grau da via, depois segue vertical com agarras menores.
       - **nome**: Boina Cinza
@@ -6293,6 +7901,7 @@
         - Michel Rodrigues
       - **data_abertura**: 2018
   - **[3]**:
+    - **uid**: alYrB5snvEyngh
     - **via_esportiva**:
       - **descricao**: Saída com uma rápida passagem em negativo onde se encontra o crux.
       - **nome**: Gorro Cinza
@@ -6302,6 +7911,7 @@
         - Michel Rodrigues
       - **data_abertura**: 2018
   - **[4]**:
+    - **uid**: VcoBaUjANQqNqd
     - **via_esportiva**:
       - **descricao**: Conquistada em solo. Esta via encontra-se sem chapeletas.
       - **nome**: Recruta Zero
@@ -6348,6 +7958,7 @@
     
     Existe uma trilha que liga direto o Setor Salão (3) ao setor Thundercats(2).
 - **nome**: Rio das Mortes
+- **uid**: YoyRoeffCpnkiI
 - **setores**:
   - **[0]**:
     - **conteudo**:
@@ -6358,6 +7969,7 @@
           
           Setor de vias baixas, levemente negativas e graus variados. Boa para se treinar técnicas e procedimentos (fácil acesso ao top por trás), um bom campo-escola. Sombra só até 11:00.
       - **nome**: Setor de Cima
+      - **uid**: 2ft0DlbhE0mCCl
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_rio_das_mortes_setor_de_cima_p0_i2.webp)
@@ -6365,63 +7977,89 @@
           - **altura_mapa**: 961
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 1
-              - **label**: 1
+              - **id**: km8h9iwaFsJcn7
+              - **uid**: km8h9iwaFsJcn7
+              - **rotulo**: 1
               - **circulo**:
                 - **x**: 255
                 - **y**: 902
                 - **raio**: 31
+              - **label**: 1
             - **[1]**:
-              - **id**: 2
-              - **label**: 2
+              - **id**: 7xFXf46voZYXBF
+              - **uid**: 7xFXf46voZYXBF
+              - **rotulo**: 2
               - **circulo**:
                 - **x**: 377
                 - **y**: 881
                 - **raio**: 31
+              - **label**: 2
             - **[2]**:
-              - **id**: 3
-              - **label**: 3
+              - **id**: 8IhvlmwER8coOU
+              - **uid**: 8IhvlmwER8coOU
+              - **rotulo**: 3
               - **circulo**:
                 - **x**: 447
                 - **y**: 891
                 - **raio**: 31
+              - **label**: 3
             - **[3]**:
-              - **id**: 4
-              - **label**: 4
+              - **id**: UELxUsmnIAaL1K
+              - **uid**: UELxUsmnIAaL1K
+              - **rotulo**: 4
               - **circulo**:
                 - **x**: 570
                 - **y**: 906
                 - **raio**: 31
+              - **label**: 4
             - **[4]**:
-              - **id**: 5
-              - **label**: 5
+              - **id**: gdWyL4D07mvJPP
+              - **uid**: gdWyL4D07mvJPP
+              - **rotulo**: 5
               - **circulo**:
                 - **x**: 727
                 - **y**: 922
                 - **raio**: 31
+              - **label**: 5
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: JSrzGdQJdg5RmB
+              - **pontos_uids**:
+                - km8h9iwaFsJcn7
               - **escalada**: Vermelha
               - **ids**:
-                - 1
+                - km8h9iwaFsJcn7
             - **[1]**:
+              - **alvo_uid**: jPEpoghzQMxN8f
+              - **pontos_uids**:
+                - 7xFXf46voZYXBF
               - **escalada**: No Pelo
               - **ids**:
-                - 2
+                - 7xFXf46voZYXBF
             - **[2]**:
+              - **alvo_uid**: 9k1nA9GYtQ6uM5
+              - **pontos_uids**:
+                - 8IhvlmwER8coOU
               - **escalada**: Quarteto Fantástico
               - **ids**:
-                - 3
+                - 8IhvlmwER8coOU
             - **[3]**:
+              - **alvo_uid**: iDNSzwPgA8Zr88
+              - **pontos_uids**:
+                - UELxUsmnIAaL1K
               - **escalada**: Calcâneo
               - **ids**:
-                - 4
+                - UELxUsmnIAaL1K
             - **[4]**:
+              - **alvo_uid**: 7AHKXPPDpraost
+              - **pontos_uids**:
+                - gdWyL4D07mvJPP
               - **escalada**: Tudo Virgem
               - **ids**:
-                - 5
+                - gdWyL4D07mvJPP
       - **escaladas**:
         - **[0]**:
+          - **uid**: JSrzGdQJdg5RmB
           - **via_esportiva**:
             - **descricao**: Via boa para um primeiro contato com a escalada e pra treinar procedimentos, pois tem acesso por cima.
             - **nome**: Vermelha
@@ -6432,6 +8070,7 @@
               - Mariana Fiche
             - **data_abertura**: 2018
         - **[1]**:
+          - **uid**: jPEpoghzQMxN8f
           - **via_movel**:
             - **descricao**: Boa para treinar colocação de peças móveis. Parada móvel no top e saída por caminhada.
             - **nome**: No Pelo
@@ -6442,6 +8081,7 @@
               - Germano Rezende
             - **data_abertura**: 2018
         - **[2]**:
+          - **uid**: 9k1nA9GYtQ6uM5
           - **via_esportiva**:
             - **nome**: Quarteto Fantástico
             - **dificuldade**: BR_6
@@ -6451,6 +8091,7 @@
               - Linda Evangelista
             - **data_abertura**: 2018
         - **[3]**:
+          - **uid**: iDNSzwPgA8Zr88
           - **via_esportiva**:
             - **descricao**: Boa para treinar técnica de uso de calcanhar em via negativa.
             - **nome**: Calcâneo
@@ -6461,6 +8102,7 @@
               - Mariana Fiche
             - **data_abertura**: 2018
         - **[4]**:
+          - **uid**: 7AHKXPPDpraost
           - **via_esportiva**:
             - **descricao**: Via boulderística e bem técnica, trabalha diferentes técnicas como reglete, dinâmico e negativo.
             - **nome**: Tudo Virgem
@@ -6494,6 +8136,7 @@
           
           Bem ao lado do setor anterior, descendo alguns metros pra direita. Possui apenas duas vias bem bonitas e com vista incrível do top. Sombra o dia todo na base, sol na via de tarde.
       - **nome**: Thundercats
+      - **uid**: 4h1CafnoahccsZ
       - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/grupo_rio_das_mortes_setor_thundercats_p0_i3.webp)
       - **mapas**:
         - **[0]**:
@@ -6502,30 +8145,41 @@
           - **altura_mapa**: 1004
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 6
-              - **label**: 6
+              - **id**: W3Ef0RxxaS4zSP
+              - **uid**: W3Ef0RxxaS4zSP
+              - **rotulo**: 6
               - **circulo**:
                 - **x**: 780
                 - **y**: 964
                 - **raio**: 27
+              - **label**: 6
             - **[1]**:
-              - **id**: 7
-              - **label**: 7
+              - **id**: JWkqEHGth6Gu8w
+              - **uid**: JWkqEHGth6Gu8w
+              - **rotulo**: 7
               - **circulo**:
                 - **x**: 940
                 - **y**: 958
                 - **raio**: 27
+              - **label**: 7
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: ubz6AJfe7gdupR
+              - **pontos_uids**:
+                - W3Ef0RxxaS4zSP
               - **escalada**: Thundercats
               - **ids**:
-                - 6
+                - W3Ef0RxxaS4zSP
             - **[1]**:
+              - **alvo_uid**: 748nNBqx4bedcn
+              - **pontos_uids**:
+                - JWkqEHGth6Gu8w
               - **escalada**: Cracuda
               - **ids**:
-                - 7
+                - JWkqEHGth6Gu8w
       - **escaladas**:
         - **[0]**:
+          - **uid**: ubz6AJfe7gdupR
           - **via_esportiva**:
             - **descricao**: Via muito boa para iniciantes. Além de fácil, proporciona um lindo visual e uma foto incrível do escalador se for tirada da trilha que sobe pro Setor de Cima. Boa para top-rope e primeiras guiadas. 5 + 2 chapas.
             - **nome**: Thundercats
@@ -6538,6 +8192,7 @@
               - Mariana Fiche
               - Paulo Martins
         - **[1]**:
+          - **uid**: 748nNBqx4bedcn
           - **via_movel**:
             - **descricao**: Interessante via móvel com boas colocações. Um jogo de friends e nuts (caso não tenha micro-friends).
             - **nome**: Cracuda
@@ -6560,6 +8215,7 @@
           
           Base e vias na sombra o dia todo. Embaixo da pedra tem algumas ferramentas e clip-stick.
       - **nome**: Setor Salão
+      - **uid**: x4iWNduB6f7l6z
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_rio_das_mortes_setor_salao_p0_i2.webp)
@@ -6567,52 +8223,73 @@
           - **altura_mapa**: 1169
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 8
-              - **label**: 8
+              - **id**: LvowXw8izrvE9c
+              - **uid**: LvowXw8izrvE9c
+              - **rotulo**: 8
               - **circulo**:
                 - **x**: 50
                 - **y**: 1072
                 - **raio**: 27
+              - **label**: 8
             - **[1]**:
-              - **id**: 9
-              - **label**: 9
+              - **id**: Lbk5NVlPDYHZbF
+              - **uid**: Lbk5NVlPDYHZbF
+              - **rotulo**: 9
               - **circulo**:
                 - **x**: 190
                 - **y**: 1016
                 - **raio**: 27
+              - **label**: 9
             - **[2]**:
-              - **id**: 10
-              - **label**: 10
+              - **id**: HEOtFojXk2qZTm
+              - **uid**: HEOtFojXk2qZTm
+              - **rotulo**: 10
               - **circulo**:
                 - **x**: 398
                 - **y**: 1122
                 - **raio**: 31
+              - **label**: 10
             - **[3]**:
-              - **id**: 11
-              - **label**: 11
+              - **id**: Efnzkxc1C2V0KR
+              - **uid**: Efnzkxc1C2V0KR
+              - **rotulo**: 11
               - **circulo**:
                 - **x**: 505
                 - **y**: 1118
                 - **raio**: 29
+              - **label**: 11
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: UUDt1quFI4h8IE
+              - **pontos_uids**:
+                - LvowXw8izrvE9c
               - **escalada**: Quatro e Vinte
               - **ids**:
-                - 8
+                - LvowXw8izrvE9c
             - **[1]**:
+              - **alvo_uid**: OEI5JMRATAxtmp
+              - **pontos_uids**:
+                - Lbk5NVlPDYHZbF
               - **escalada**: Chaminé Africana
               - **ids**:
-                - 9
+                - Lbk5NVlPDYHZbF
             - **[2]**:
+              - **alvo_uid**: DhnanbothkDDIb
+              - **pontos_uids**:
+                - HEOtFojXk2qZTm
               - **escalada**: Dança do Salão
               - **ids**:
-                - 10
+                - HEOtFojXk2qZTm
             - **[3]**:
+              - **alvo_uid**: SFGOQuRU6wIHXQ
+              - **pontos_uids**:
+                - Efnzkxc1C2V0KR
               - **escalada**: Risca da Lista
               - **ids**:
-                - 11
+                - Efnzkxc1C2V0KR
       - **escaladas**:
         - **[0]**:
+          - **uid**: UUDt1quFI4h8IE
           - **via_movel**:
             - **descricao**: Via curta, mas com movimentação interessante usa apenas dois friends (.3 e 1 BD)
             - **nome**: Quatro e Vinte
@@ -6624,6 +8301,7 @@
             - **data_abertura**: 2020
             - **protecoes_moveis**: Dois friends (.3 e 1 BD)
         - **[1]**:
+          - **uid**: OEI5JMRATAxtmp
           - **via_movel**:
             - **descricao**: Via inteira em técnica de chaminé com 3 chapas no início e mais um friend médio. Evitar caso haja presença de abelhas próximo do top.
             - **nome**: Chaminé Africana
@@ -6636,6 +8314,7 @@
               - Frederico Araújo
             - **data_abertura**: 2018
         - **[2]**:
+          - **uid**: DhnanbothkDDIb
           - **via_esportiva**:
             - **descricao**: Via clássica, muito cobiçada por sua estética e beleza dos movimentos que precisam encaixar como uma dança, pois não permite erros. Sua constância testa a resistência do escalador.
             - **nome**: Dança do Salão
@@ -6646,6 +8325,7 @@
               - Paulo Martins
             - **data_abertura**: 2018
         - **[3]**:
+          - **uid**: SFGOQuRU6wIHXQ
           - **via_esportiva**:
             - **descricao**: Via que utiliza a mesma saída da via anterior, mas logo no segundo lance já vai pra direita até a bonita aresta onde se encontra o crux.
             - **nome**: Risca da Lista
@@ -6656,6 +8336,7 @@
               - Pedro Naves
             - **data_abertura**: 2018
         - **[4]**:
+          - **uid**: mLM2vQ8V6yn52D
           - **via_esportiva**:
             - **descricao**: Essa via fica à esquerda da Quatro e Vinte, mas como não pôde ser enquadrada na mesma foto, aparece apenas na foto abaixo (Setor Namata). Via muito interessante, com estilo diferente do padrão local, seu positivo de equilíbrio e micro-regletes lembra vias de parede. Apesar de curta possui uma movimentação complexa, o que faz parecer mais longa do que realmente é.
             - **nome**: Curta e Grossa
@@ -6680,6 +8361,7 @@
           | :--: |
           | *Beto no teto da Corona Vírus* |
       - **nome**: Setor Namata
+      - **uid**: JuXUTWTm2mivZS
       - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/grupo_rio_das_mortes_setor_namata_p0_i2.webp)
       - **mapas**:
         - **[0]**:
@@ -6688,170 +8370,239 @@
           - **altura_mapa**: 1024
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 19
-              - **label**: 19
+              - **id**: 9SNjVkOwEOSdjN
+              - **uid**: 9SNjVkOwEOSdjN
+              - **rotulo**: 19
               - **circulo**:
                 - **x**: 112
                 - **y**: 664
                 - **raio**: 30
+              - **label**: 19
             - **[1]**:
-              - **id**: 8
-              - **label**: 8
+              - **id**: 5MqT6jwD32WW3X
+              - **uid**: 5MqT6jwD32WW3X
+              - **rotulo**: 8
               - **circulo**:
                 - **x**: 169
                 - **y**: 663
                 - **raio**: 26
+              - **label**: 8
             - **[2]**:
-              - **id**: 12
-              - **label**: 12
+              - **id**: XMvGesDJHq1QXc
+              - **uid**: XMvGesDJHq1QXc
+              - **rotulo**: 12
               - **circulo**:
                 - **x**: 259
                 - **y**: 803
                 - **raio**: 30
+              - **label**: 12
             - **[3]**:
-              - **id**: 13
-              - **label**: 13
+              - **id**: wbVltwK9doU0uL
+              - **uid**: wbVltwK9doU0uL
+              - **rotulo**: 13
               - **circulo**:
                 - **x**: 418
                 - **y**: 572
                 - **raio**: 30
+              - **label**: 13
             - **[4]**:
-              - **id**: 14
-              - **label**: 14
+              - **id**: hOBp05Od6aVGEm
+              - **uid**: hOBp05Od6aVGEm
+              - **rotulo**: 14
               - **circulo**:
                 - **x**: 400
                 - **y**: 804
                 - **raio**: 31
+              - **label**: 14
             - **[5]**:
-              - **id**: 15
-              - **label**: 15
+              - **id**: Xl99IwQclE6o4I
+              - **uid**: Xl99IwQclE6o4I
+              - **rotulo**: 15
               - **circulo**:
                 - **x**: 537
                 - **y**: 970
                 - **raio**: 31
+              - **label**: 15
             - **[6]**:
-              - **id**: 16
-              - **label**: 16
+              - **id**: RAwwTNLJDSBFaH
+              - **uid**: RAwwTNLJDSBFaH
+              - **rotulo**: 16
               - **circulo**:
                 - **x**: 640
                 - **y**: 971
                 - **raio**: 31
+              - **label**: 16
             - **[7]**:
-              - **id**: 17
-              - **label**: 17
+              - **id**: 3BzCLlstcVVpP0
+              - **uid**: 3BzCLlstcVVpP0
+              - **rotulo**: 17
               - **circulo**:
                 - **x**: 711
                 - **y**: 973
                 - **raio**: 31
+              - **label**: 17
             - **[8]**:
-              - **id**: 18
-              - **label**: 18
+              - **id**: npP3BH4QUiT4mb
+              - **uid**: npP3BH4QUiT4mb
+              - **rotulo**: 18
               - **circulo**:
                 - **x**: 775
                 - **y**: 975
                 - **raio**: 31
+              - **label**: 18
             - **[9]**:
-              - **id**: 20
-              - **label**: 20
+              - **id**: QADfPUrxFK4Rwj
+              - **uid**: QADfPUrxFK4Rwj
+              - **rotulo**: 20
               - **circulo**:
                 - **x**: 840
                 - **y**: 970
                 - **raio**: 31
+              - **label**: 20
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: mLM2vQ8V6yn52D
+              - **pontos_uids**:
+                - 9SNjVkOwEOSdjN
               - **escalada**: Curta e Grossa
               - **ids**:
-                - 19
-              - **setor**: Setor Salão
+                - 9SNjVkOwEOSdjN
             - **[1]**:
+              - **alvo_uid**: UUDt1quFI4h8IE
+              - **pontos_uids**:
+                - 5MqT6jwD32WW3X
               - **escalada**: Quatro e Vinte
               - **ids**:
-                - 8
-              - **setor**: Setor Salão
+                - 5MqT6jwD32WW3X
             - **[2]**:
+              - **alvo_uid**: fylzvNWe5xIIyI
+              - **pontos_uids**:
+                - XMvGesDJHq1QXc
               - **escalada**: Liberdade Vigiada
               - **ids**:
-                - 12
+                - XMvGesDJHq1QXc
             - **[3]**:
+              - **alvo_uid**: rbZ2swQHZxNfvO
+              - **pontos_uids**:
+                - wbVltwK9doU0uL
               - **escalada**: Própolis
               - **ids**:
-                - 13
+                - wbVltwK9doU0uL
             - **[4]**:
+              - **alvo_uid**: TDSdj2F4h5vdQe
+              - **pontos_uids**:
+                - hOBp05Od6aVGEm
               - **escalada**: Pão de Mel
               - **ids**:
-                - 14
+                - hOBp05Od6aVGEm
             - **[5]**:
+              - **alvo_uid**: 9x4q9zaA2tkdGf
+              - **pontos_uids**:
+                - Xl99IwQclE6o4I
               - **escalada**: Sombra
               - **ids**:
-                - 15
+                - Xl99IwQclE6o4I
             - **[6]**:
+              - **alvo_uid**: kZGCpTxmDMgAho
+              - **pontos_uids**:
+                - RAwwTNLJDSBFaH
               - **escalada**: Corona Vírus
               - **ids**:
-                - 16
+                - RAwwTNLJDSBFaH
             - **[7]**:
+              - **alvo_uid**: KNWCnjRO9hpQ4C
+              - **pontos_uids**:
+                - 3BzCLlstcVVpP0
               - **escalada**: Quarentena
               - **ids**:
-                - 17
+                - 3BzCLlstcVVpP0
             - **[8]**:
+              - **alvo_uid**: K2f7thfkjNYMRE
+              - **pontos_uids**:
+                - npP3BH4QUiT4mb
               - **escalada**: Terra à Vista
               - **ids**:
-                - 18
+                - npP3BH4QUiT4mb
             - **[9]**:
+              - **alvo_uid**: fN2YsfZ2WmDqbq
+              - **pontos_uids**:
+                - QADfPUrxFK4Rwj
               - **escalada**: Jardineiro
               - **ids**:
-                - 20
+                - QADfPUrxFK4Rwj
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_rio_das_mortes_setor_namata_p1_i2.webp)
           - **largura_mapa**: 1287
           - **altura_mapa**: 965
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 15
-              - **label**: 15
+              - **id**: Cx38jGzWPXjxRB
+              - **uid**: Cx38jGzWPXjxRB
+              - **rotulo**: 15
               - **circulo**:
                 - **x**: 111
                 - **y**: 871
                 - **raio**: 32
+              - **label**: 15
             - **[1]**:
-              - **id**: 16
-              - **label**: 16
+              - **id**: jebfW2kRJpC2IP
+              - **uid**: jebfW2kRJpC2IP
+              - **rotulo**: 16
               - **circulo**:
                 - **x**: 314
                 - **y**: 895
                 - **raio**: 32
+              - **label**: 16
             - **[2]**:
-              - **id**: 17
-              - **label**: 17
+              - **id**: M5MioKxteBNZQs
+              - **uid**: M5MioKxteBNZQs
+              - **rotulo**: 17
               - **circulo**:
                 - **x**: 526
                 - **y**: 928
                 - **raio**: 32
+              - **label**: 17
             - **[3]**:
-              - **id**: 18
-              - **label**: 18
+              - **id**: y1jMLQXTxLa8TQ
+              - **uid**: y1jMLQXTxLa8TQ
+              - **rotulo**: 18
               - **circulo**:
                 - **x**: 1036
                 - **y**: 869
                 - **raio**: 32
+              - **label**: 18
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: 9x4q9zaA2tkdGf
+              - **pontos_uids**:
+                - Cx38jGzWPXjxRB
               - **escalada**: Sombra
               - **ids**:
-                - 15
+                - Cx38jGzWPXjxRB
             - **[1]**:
+              - **alvo_uid**: kZGCpTxmDMgAho
+              - **pontos_uids**:
+                - jebfW2kRJpC2IP
               - **escalada**: Corona Vírus
               - **ids**:
-                - 16
+                - jebfW2kRJpC2IP
             - **[2]**:
+              - **alvo_uid**: KNWCnjRO9hpQ4C
+              - **pontos_uids**:
+                - M5MioKxteBNZQs
               - **escalada**: Quarentena
               - **ids**:
-                - 17
+                - M5MioKxteBNZQs
             - **[3]**:
+              - **alvo_uid**: K2f7thfkjNYMRE
+              - **pontos_uids**:
+                - y1jMLQXTxLa8TQ
               - **escalada**: Terra à Vista
               - **ids**:
-                - 18
+                - y1jMLQXTxLa8TQ
       - **escaladas**:
         - **[0]**:
+          - **uid**: fylzvNWe5xIIyI
           - **via_esportiva**:
             - **descricao**: Via que percorre a parte de fora da grande aresta. Proporciona belas fotos de dentro do Salão. Possui 5 chapeletas e mais duas argolas no top.
             - **nome**: Liberdade Vigiada
@@ -6865,6 +8616,7 @@
               - Webert (Beto) Resende
             - **data_abertura**: 2020
         - **[1]**:
+          - **uid**: rbZ2swQHZxNfvO
           - **via_esportiva**:
             - **descricao**: Variante da via a seguir, compartilha as duas primeiras chapas e sai pra esquerda do tetinho. Acima passa por uma grande laca sólida. São 5 chapas e mais 2 no top.
             - **nome**: Própolis
@@ -6877,6 +8629,7 @@
               - Mariana Fiche
             - **data_abertura**: 2018
         - **[2]**:
+          - **uid**: TDSdj2F4h5vdQe
           - **via_esportiva**:
             - **descricao**: Via mais popular da área por ser acessível, bonita e bem protegida. Possui 5 chapas e mais duas no top.
             - **nome**: Pão de Mel
@@ -6889,6 +8642,7 @@
               - Germano Rezende
             - **data_abertura**: 2018
         - **[3]**:
+          - **uid**: 9x4q9zaA2tkdGf
           - **via_esportiva**:
             - **descricao**: Via sem cadena até a data de publicação desse guia.
             - **nome**: Sombra
@@ -6899,6 +8653,7 @@
               - Pedro Naves
             - **data_abertura**: 2020
         - **[4]**:
+          - **uid**: kZGCpTxmDMgAho
           - **via_esportiva**:
             - **descricao**: Até o momento a via mais difícil do Rio das Mortes. Passa pelo meio do grande teto e depois segue por boas agarras.
             - **nome**: Corona Vírus
@@ -6909,6 +8664,7 @@
               - Heider Ribeiro (Tio Nem)
             - **data_abertura**: 2020-02-08
         - **[5]**:
+          - **uid**: KNWCnjRO9hpQ4C
           - **via_esportiva**:
             - **descricao**: Via longa e bonita. Saída no diedro e logo passa pra aresta, desbordando-a até virar pra positivo de agarra. 9 + 2 chapas.
             - **nome**: Quarentena
@@ -6923,6 +8679,7 @@
               - Michel Rodrigues
             - **data_abertura**: 2020
         - **[6]**:
+          - **uid**: K2f7thfkjNYMRE
           - **via_esportiva**:
             - **descricao**: Talvez a via mais clássica da área, pois além de longa, possui uma grande variedade de estilos como negativos, positivo de equilíbrio, esticão e aresta. 7 chapas e mais 2 argolas no top.
             - **nome**: Terra à Vista
@@ -6937,6 +8694,7 @@
               - Mariana Fiche
             - **data_abertura**: 2019
         - **[7]**:
+          - **uid**: fN2YsfZ2WmDqbq
           - **via_esportiva**:
             - **descricao**: Via dura no início com negativo de agarras seguido de aderência com micro-regletes, segunda metade fácil.
             - **nome**: Jardineiro
@@ -6984,6 +8742,7 @@
     - **Linha vermelha tracejada:** Trilha apagada
     - **Pontos de referência:** Estrada Principal, Porteira, Início trilha / Cerca, Eucaliptos, Tronqueira, Cerca, Setor
 - **nome**: Caburu
+- **uid**: oj5r0Mx9hCsctM
 - **setores**:
   - **[0]**:
     - **conteudo**:
@@ -7016,6 +8775,7 @@
           | :--: |
           | *Tio Nem conquistando a via Verdinho Cabuloso* |
       - **nome**: Caburu Debaixo
+      - **uid**: YjBKPMikSzkipy
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_caburu_setor_caburu_debaixo_p1_i2.webp)
@@ -7023,372 +8783,533 @@
           - **altura_mapa**: 940
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: f6IO2FmwJxMaBj
+              - **pontos_uids**:
+                - WEoIvw3EAeKoYF
               - **escalada**: Trio Canabis
               - **ids**:
-                - 1
+                - WEoIvw3EAeKoYF
             - **[1]**:
+              - **alvo_uid**: hygQ0dLTh4zJoo
+              - **pontos_uids**:
+                - hXC7JaYh6JZx4w
               - **escalada**: Quem Tem Ovos Tem Medo
               - **ids**:
-                - 2
+                - hXC7JaYh6JZx4w
             - **[2]**:
+              - **alvo_uid**: FJXIJjn7V6Z6Ir
+              - **pontos_uids**:
+                - ICuuq9VupSvQNs
               - **escalada**: Bela da Tarde
               - **ids**:
-                - 3
+                - ICuuq9VupSvQNs
             - **[3]**:
+              - **alvo_uid**: 4KSvELdgaRmHdG
+              - **pontos_uids**:
+                - DP9gr9SXQBydCr
               - **escalada**: Ironia do Destino
               - **ids**:
-                - 4
+                - DP9gr9SXQBydCr
             - **[4]**:
+              - **alvo_uid**: cYIUCgfllUOf0j
+              - **pontos_uids**:
+                - DiDsvd06NeLzZP
               - **escalada**: Diedrim
               - **ids**:
-                - 12
+                - DiDsvd06NeLzZP
             - **[5]**:
+              - **alvo_uid**: jpBkHvmdrR1mUK
+              - **pontos_uids**:
+                - CU9INbWY27TKoH
               - **escalada**: Indecisão
               - **ids**:
-                - 13
+                - CU9INbWY27TKoH
             - **[6]**:
+              - **alvo_uid**: RsEIGi7dZ2Keee
+              - **pontos_uids**:
+                - B8cTrhCkdbcvwf
               - **escalada**: A Ajuda Vem de Cima
               - **ids**:
-                - 14
+                - B8cTrhCkdbcvwf
             - **[7]**:
+              - **alvo_uid**: rUIWUEgjJXk84w
+              - **pontos_uids**:
+                - LZcYBbM1mA6Ypd
               - **escalada**: Rolling Stones
               - **ids**:
-                - 15
+                - LZcYBbM1mA6Ypd
             - **[8]**:
+              - **alvo_uid**: 8xhvrpt4MSnAPx
+              - **pontos_uids**:
+                - Oa5SARfuoPCfZh
               - **escalada**: Via do Felipin
               - **ids**:
-                - 16
+                - Oa5SARfuoPCfZh
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 1
-              - **label**: 1
+              - **id**: WEoIvw3EAeKoYF
+              - **uid**: WEoIvw3EAeKoYF
+              - **rotulo**: 1
               - **circulo**:
                 - **x**: 1102
                 - **y**: 652
                 - **raio**: 24
+              - **label**: 1
             - **[1]**:
-              - **id**: 2
-              - **label**: 2
+              - **id**: hXC7JaYh6JZx4w
+              - **uid**: hXC7JaYh6JZx4w
+              - **rotulo**: 2
               - **circulo**:
                 - **x**: 364
                 - **y**: 890
                 - **raio**: 24
+              - **label**: 2
             - **[2]**:
-              - **id**: 3
-              - **label**: 3
+              - **id**: ICuuq9VupSvQNs
+              - **uid**: ICuuq9VupSvQNs
+              - **rotulo**: 3
               - **circulo**:
                 - **x**: 265
                 - **y**: 908
                 - **raio**: 24
+              - **label**: 3
             - **[3]**:
-              - **id**: 4
-              - **label**: 4
+              - **id**: DP9gr9SXQBydCr
+              - **uid**: DP9gr9SXQBydCr
+              - **rotulo**: 4
               - **circulo**:
                 - **x**: 34
                 - **y**: 920
                 - **raio**: 24
+              - **label**: 4
             - **[4]**:
-              - **id**: 12
-              - **label**: 12
+              - **id**: DiDsvd06NeLzZP
+              - **uid**: DiDsvd06NeLzZP
+              - **rotulo**: 12
               - **circulo**:
                 - **x**: 825
                 - **y**: 810
                 - **raio**: 31
+              - **label**: 12
             - **[5]**:
-              - **id**: 13
-              - **label**: 13
+              - **id**: CU9INbWY27TKoH
+              - **uid**: CU9INbWY27TKoH
+              - **rotulo**: 13
               - **circulo**:
                 - **x**: 147
                 - **y**: 922
                 - **raio**: 31
+              - **label**: 13
             - **[6]**:
-              - **id**: 14
-              - **label**: 14
+              - **id**: B8cTrhCkdbcvwf
+              - **uid**: B8cTrhCkdbcvwf
+              - **rotulo**: 14
               - **circulo**:
                 - **x**: 580
                 - **y**: 820
                 - **raio**: 31
+              - **label**: 14
             - **[7]**:
-              - **id**: 15
-              - **label**: 15
+              - **id**: LZcYBbM1mA6Ypd
+              - **uid**: LZcYBbM1mA6Ypd
+              - **rotulo**: 15
               - **circulo**:
                 - **x**: 203
                 - **y**: 906
                 - **raio**: 31
+              - **label**: 15
             - **[8]**:
-              - **id**: 16
-              - **label**: 16
+              - **id**: Oa5SARfuoPCfZh
+              - **uid**: Oa5SARfuoPCfZh
+              - **rotulo**: 16
               - **circulo**:
                 - **x**: 146
                 - **y**: 556
                 - **raio**: 31
+              - **label**: 16
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_caburu_setor_caburu_debaixo_p2_i3.webp)
           - **largura_mapa**: 1144
           - **altura_mapa**: 740
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: HGwOMDT91gDLi9
+              - **pontos_uids**:
+                - 9uoyWORBTG71Ry
               - **escalada**: Amigo Oculto
               - **ids**:
-                - 5
+                - 9uoyWORBTG71Ry
             - **[1]**:
+              - **alvo_uid**: WcNlBIzG2ccmt4
+              - **pontos_uids**:
+                - b4R7dM79TcifOI
               - **escalada**: Verdinho Cabuloso
               - **ids**:
-                - 6
+                - b4R7dM79TcifOI
             - **[2]**:
+              - **alvo_uid**: 7So6yyPCmZbnWC
+              - **pontos_uids**:
+                - SAlkGyvd66O7Qh
               - **escalada**: Maluco Beleza
               - **ids**:
-                - 7
+                - SAlkGyvd66O7Qh
             - **[3]**:
+              - **alvo_uid**: cDQRVg5N9SUn7h
+              - **pontos_uids**:
+                - QyN2k1wPXSdMBg
               - **escalada**: Solimões
               - **ids**:
-                - 8
+                - QyN2k1wPXSdMBg
             - **[4]**:
+              - **alvo_uid**: 3jiGJ5sObqpVsh
+              - **pontos_uids**:
+                - k8tY7LfQe673ce
               - **escalada**: Rio Negro
               - **ids**:
-                - 9
+                - k8tY7LfQe673ce
             - **[5]**:
+              - **alvo_uid**: mSZyf6qiO0swYz
+              - **pontos_uids**:
+                - hnqKHc19NZz6zu
               - **escalada**: Eliseu Frechou
               - **ids**:
-                - 10
+                - hnqKHc19NZz6zu
             - **[6]**:
+              - **alvo_uid**: MMRrcm4VVEZUrU
+              - **pontos_uids**:
+                - ALDQMnw8MN21PW
               - **escalada**: Patacas Me Mordam
               - **ids**:
-                - 11
+                - ALDQMnw8MN21PW
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 5
-              - **label**: 5
+              - **id**: 9uoyWORBTG71Ry
+              - **uid**: 9uoyWORBTG71Ry
+              - **rotulo**: 5
               - **circulo**:
                 - **x**: 419
                 - **y**: 559
                 - **raio**: 21
+              - **label**: 5
             - **[1]**:
-              - **id**: 6
-              - **label**: 6
+              - **id**: b4R7dM79TcifOI
+              - **uid**: b4R7dM79TcifOI
+              - **rotulo**: 6
               - **circulo**:
                 - **x**: 464
                 - **y**: 595
                 - **raio**: 24
+              - **label**: 6
             - **[2]**:
-              - **id**: 7
-              - **label**: 7
+              - **id**: SAlkGyvd66O7Qh
+              - **uid**: SAlkGyvd66O7Qh
+              - **rotulo**: 7
               - **circulo**:
                 - **x**: 678
                 - **y**: 584
                 - **raio**: 21
+              - **label**: 7
             - **[3]**:
-              - **id**: 8
-              - **label**: 8
+              - **id**: QyN2k1wPXSdMBg
+              - **uid**: QyN2k1wPXSdMBg
+              - **rotulo**: 8
               - **circulo**:
                 - **x**: 812
                 - **y**: 532
                 - **raio**: 24
+              - **label**: 8
             - **[4]**:
-              - **id**: 9
-              - **label**: 9
+              - **id**: k8tY7LfQe673ce
+              - **uid**: k8tY7LfQe673ce
+              - **rotulo**: 9
               - **circulo**:
                 - **x**: 874
                 - **y**: 553
                 - **raio**: 24
+              - **label**: 9
             - **[5]**:
-              - **id**: 10
-              - **label**: 10
+              - **id**: hnqKHc19NZz6zu
+              - **uid**: hnqKHc19NZz6zu
+              - **rotulo**: 10
               - **circulo**:
                 - **x**: 930
                 - **y**: 539
                 - **raio**: 26
+              - **label**: 10
             - **[6]**:
-              - **id**: 11
-              - **label**: 11
+              - **id**: ALDQMnw8MN21PW
+              - **uid**: ALDQMnw8MN21PW
+              - **rotulo**: 11
               - **circulo**:
                 - **x**: 976
                 - **y**: 520
                 - **raio**: 25
+              - **label**: 11
         - **[2]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_caburu_setor_caburu_debaixo_p1_i4.webp)
           - **largura_mapa**: 820
           - **altura_mapa**: 460
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: f6IO2FmwJxMaBj
+              - **pontos_uids**:
+                - MCO7Id2ofTfSUq
               - **escalada**: Trio Canabis
               - **ids**:
-                - 1
+                - MCO7Id2ofTfSUq
             - **[1]**:
+              - **alvo_uid**: hygQ0dLTh4zJoo
+              - **pontos_uids**:
+                - S2nweYdvHZZrZZ
               - **escalada**: Quem Tem Ovos Tem Medo
               - **ids**:
-                - 2
+                - S2nweYdvHZZrZZ
             - **[2]**:
+              - **alvo_uid**: FJXIJjn7V6Z6Ir
+              - **pontos_uids**:
+                - uVYExpz6Ty7TBT
               - **escalada**: Bela da Tarde
               - **ids**:
-                - 3
+                - uVYExpz6Ty7TBT
             - **[3]**:
+              - **alvo_uid**: 4KSvELdgaRmHdG
+              - **pontos_uids**:
+                - GzFq3zAXsOgrmK
               - **escalada**: Ironia do Destino
               - **ids**:
-                - 4
+                - GzFq3zAXsOgrmK
             - **[4]**:
+              - **alvo_uid**: HGwOMDT91gDLi9
+              - **pontos_uids**:
+                - LXRlVAPX3vmL1e
               - **escalada**: Amigo Oculto
               - **ids**:
-                - 5
+                - LXRlVAPX3vmL1e
             - **[5]**:
+              - **alvo_uid**: WcNlBIzG2ccmt4
+              - **pontos_uids**:
+                - il0HFrrcZRqUKV
               - **escalada**: Verdinho Cabuloso
               - **ids**:
-                - 6
+                - il0HFrrcZRqUKV
             - **[6]**:
+              - **alvo_uid**: 7So6yyPCmZbnWC
+              - **pontos_uids**:
+                - C0MoDur2pK3ZdD
               - **escalada**: Maluco Beleza
               - **ids**:
-                - 7
+                - C0MoDur2pK3ZdD
             - **[7]**:
+              - **alvo_uid**: cDQRVg5N9SUn7h
+              - **pontos_uids**:
+                - 9a36bVUhQAeqxE
               - **escalada**: Solimões
               - **ids**:
-                - 8
+                - 9a36bVUhQAeqxE
             - **[8]**:
+              - **alvo_uid**: 3jiGJ5sObqpVsh
+              - **pontos_uids**:
+                - NZmIuVaSIWSuxP
               - **escalada**: Rio Negro
               - **ids**:
-                - 9
+                - NZmIuVaSIWSuxP
             - **[9]**:
+              - **alvo_uid**: mSZyf6qiO0swYz
+              - **pontos_uids**:
+                - Yud85p2XNLLJME
               - **escalada**: Eliseu Frechou
               - **ids**:
-                - 10
+                - Yud85p2XNLLJME
             - **[10]**:
+              - **alvo_uid**: MMRrcm4VVEZUrU
+              - **pontos_uids**:
+                - mWebq5TATSQBP5
               - **escalada**: Patacas Me Mordam
               - **ids**:
-                - 11
+                - mWebq5TATSQBP5
             - **[11]**:
+              - **alvo_uid**: cYIUCgfllUOf0j
+              - **pontos_uids**:
+                - N0taLp60pPsYLP
               - **escalada**: Diedrim
               - **ids**:
-                - 12
+                - N0taLp60pPsYLP
             - **[12]**:
+              - **alvo_uid**: jpBkHvmdrR1mUK
+              - **pontos_uids**:
+                - o4t7urGxZM62Jc
               - **escalada**: Indecisão
               - **ids**:
-                - 13
+                - o4t7urGxZM62Jc
             - **[13]**:
+              - **alvo_uid**: RsEIGi7dZ2Keee
+              - **pontos_uids**:
+                - v1EBSjQhZtoud4
               - **escalada**: A Ajuda Vem de Cima
               - **ids**:
-                - 14
+                - v1EBSjQhZtoud4
             - **[14]**:
+              - **alvo_uid**: rUIWUEgjJXk84w
+              - **pontos_uids**:
+                - U5L0aWdzQWXPlF
               - **escalada**: Rolling Stones
               - **ids**:
-                - 15
+                - U5L0aWdzQWXPlF
             - **[15]**:
+              - **alvo_uid**: 8xhvrpt4MSnAPx
+              - **pontos_uids**:
+                - gLgy19Z4RnBcOr
               - **escalada**: Via do Felipin
               - **ids**:
-                - 16
+                - gLgy19Z4RnBcOr
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 1
-              - **label**: 1
+              - **id**: MCO7Id2ofTfSUq
+              - **uid**: MCO7Id2ofTfSUq
+              - **rotulo**: 1
               - **circulo**:
                 - **x**: 240
                 - **y**: 29
                 - **raio**: 10
+              - **label**: 1
             - **[1]**:
-              - **id**: 2
-              - **label**: 2
+              - **id**: S2nweYdvHZZrZZ
+              - **uid**: S2nweYdvHZZrZZ
+              - **rotulo**: 2
               - **circulo**:
                 - **x**: 240
                 - **y**: 120
                 - **raio**: 10
+              - **label**: 2
             - **[2]**:
-              - **id**: 3
-              - **label**: 3
+              - **id**: uVYExpz6Ty7TBT
+              - **uid**: uVYExpz6Ty7TBT
+              - **rotulo**: 3
               - **circulo**:
                 - **x**: 238
                 - **y**: 154
                 - **raio**: 10
+              - **label**: 3
             - **[3]**:
-              - **id**: 4
-              - **label**: 4
+              - **id**: GzFq3zAXsOgrmK
+              - **uid**: GzFq3zAXsOgrmK
+              - **rotulo**: 4
               - **circulo**:
                 - **x**: 240
                 - **y**: 256
                 - **raio**: 10
+              - **label**: 4
             - **[4]**:
-              - **id**: 5
-              - **label**: 5
+              - **id**: LXRlVAPX3vmL1e
+              - **uid**: LXRlVAPX3vmL1e
+              - **rotulo**: 5
               - **circulo**:
                 - **x**: 225
                 - **y**: 270
                 - **raio**: 10
+              - **label**: 5
             - **[5]**:
-              - **id**: 6
-              - **label**: 6
+              - **id**: il0HFrrcZRqUKV
+              - **uid**: il0HFrrcZRqUKV
+              - **rotulo**: 6
               - **circulo**:
                 - **x**: 307
                 - **y**: 318
                 - **raio**: 10
+              - **label**: 6
             - **[6]**:
-              - **id**: 7
-              - **label**: 7
+              - **id**: C0MoDur2pK3ZdD
+              - **uid**: C0MoDur2pK3ZdD
+              - **rotulo**: 7
               - **circulo**:
                 - **x**: 520
                 - **y**: 319
                 - **raio**: 10
+              - **label**: 7
             - **[7]**:
-              - **id**: 8
-              - **label**: 8
+              - **id**: 9a36bVUhQAeqxE
+              - **uid**: 9a36bVUhQAeqxE
+              - **rotulo**: 8
               - **circulo**:
                 - **x**: 614
                 - **y**: 301
                 - **raio**: 10
+              - **label**: 8
             - **[8]**:
-              - **id**: 9
-              - **label**: 9
+              - **id**: NZmIuVaSIWSuxP
+              - **uid**: NZmIuVaSIWSuxP
+              - **rotulo**: 9
               - **circulo**:
                 - **x**: 614
                 - **y**: 269
                 - **raio**: 10
+              - **label**: 9
             - **[9]**:
-              - **id**: 10
-              - **label**: 10
+              - **id**: Yud85p2XNLLJME
+              - **uid**: Yud85p2XNLLJME
+              - **rotulo**: 10
               - **circulo**:
                 - **x**: 608
                 - **y**: 234
                 - **raio**: 13
+              - **label**: 10
             - **[10]**:
-              - **id**: 11
-              - **label**: 11
+              - **id**: mWebq5TATSQBP5
+              - **uid**: mWebq5TATSQBP5
+              - **rotulo**: 11
               - **circulo**:
                 - **x**: 608
                 - **y**: 199
                 - **raio**: 13
+              - **label**: 11
             - **[11]**:
-              - **id**: 12
-              - **label**: 12
+              - **id**: N0taLp60pPsYLP
+              - **uid**: N0taLp60pPsYLP
+              - **rotulo**: 12
               - **circulo**:
                 - **x**: 235
                 - **y**: 60
                 - **raio**: 13
+              - **label**: 12
             - **[12]**:
-              - **id**: 13
-              - **label**: 13
+              - **id**: o4t7urGxZM62Jc
+              - **uid**: o4t7urGxZM62Jc
+              - **rotulo**: 13
               - **circulo**:
                 - **x**: 236
                 - **y**: 206
                 - **raio**: 12
+              - **label**: 13
             - **[13]**:
-              - **id**: 14
-              - **label**: 14
+              - **id**: v1EBSjQhZtoud4
+              - **uid**: v1EBSjQhZtoud4
+              - **rotulo**: 14
               - **circulo**:
                 - **x**: 235
                 - **y**: 100
                 - **raio**: 12
+              - **label**: 14
             - **[14]**:
-              - **id**: 15
-              - **label**: 15
+              - **id**: U5L0aWdzQWXPlF
+              - **uid**: U5L0aWdzQWXPlF
+              - **rotulo**: 15
               - **circulo**:
                 - **x**: 235
                 - **y**: 176
                 - **raio**: 12
+              - **label**: 15
             - **[15]**:
-              - **id**: 16
-              - **label**: 16
+              - **id**: gLgy19Z4RnBcOr
+              - **uid**: gLgy19Z4RnBcOr
+              - **rotulo**: 16
               - **circulo**:
                 - **x**: 235
                 - **y**: 230
                 - **raio**: 12
+              - **label**: 16
       - **escaladas**:
         - **[0]**:
+          - **uid**: f6IO2FmwJxMaBj
           - **via_esportiva**:
             - **nome**: Trio Canabis
             - **dificuldade**: BR_7B
@@ -7399,6 +9320,7 @@
               - Fabiola Miranda
             - **data_abertura**: 2018-06-16
         - **[1]**:
+          - **uid**: hygQ0dLTh4zJoo
           - **via_esportiva**:
             - **descricao**: 6 grampos e mais parada dupla no top.
             - **nome**: Quem Tem Ovos Tem Medo
@@ -7412,6 +9334,7 @@
               - Daniel Baiano
               - Faclei
         - **[2]**:
+          - **uid**: FJXIJjn7V6Z6Ir
           - **via_esportiva**:
             - **descricao**: 7 chapeletas e mais duas argolas no top.
             - **nome**: Bela da Tarde
@@ -7426,6 +9349,7 @@
               - Heider Ribeiro (Tio Nem)
             - **data_abertura**: 2018-06-16
         - **[3]**:
+          - **uid**: 4KSvELdgaRmHdG
           - **via_esportiva**:
             - **descricao**: 6 + 2 chapas.
             - **nome**: Ironia do Destino
@@ -7437,6 +9361,7 @@
               - Mariana Fiche
             - **data_abertura**: 2018-09-08
         - **[4]**:
+          - **uid**: HGwOMDT91gDLi9
           - **via_esportiva**:
             - **descricao**: 6 chapas + duas no top.
             - **nome**: Amigo Oculto
@@ -7449,6 +9374,7 @@
               - Heider Ribeiro (Tio Nem)
             - **data_abertura**: 2018-12-23
         - **[5]**:
+          - **uid**: WcNlBIzG2ccmt4
           - **via_esportiva**:
             - **descricao**: Via mais alta e mais clássica da área. Saída em uma bela sequência negativa no melhor estilo boulder, depois segue por uma linda aresta até o final em um forte negativo. São 11 chapeletas mais 2 argolas no top. Costuras mais longas (30 e 60) são aconselháveis.
             - **nome**: Verdinho Cabuloso
@@ -7463,6 +9389,7 @@
               - Pedro Naves
             - **data_abertura**: 2018-07-14
         - **[6]**:
+          - **uid**: 7So6yyPCmZbnWC
           - **via_esportiva**:
             - **descricao**: Sem FA (sem primeira ascensão).
             - **nome**: Maluco Beleza
@@ -7475,6 +9402,7 @@
               - Fabiola Miranda
             - **data_abertura**: 2018
         - **[7]**:
+          - **uid**: cDQRVg5N9SUn7h
           - **via_esportiva**:
             - **nome**: Solimões
             - **dificuldade**: BR_6
@@ -7482,6 +9410,7 @@
             - **conquistadores**:
               - Eliseu Frechou e amigos
         - **[8]**:
+          - **uid**: 3jiGJ5sObqpVsh
           - **via_esportiva**:
             - **descricao**: Variante da via anterior (Solimões), tornou a linha mais reta. São 6 chapas mais duas argolas no top.
             - **nome**: Rio Negro
@@ -7495,6 +9424,7 @@
               - Pedro Naves
             - **data_abertura**: 2019-02-15
         - **[9]**:
+          - **uid**: mSZyf6qiO0swYz
           - **via_esportiva**:
             - **nome**: Eliseu Frechou
             - **dificuldade**: BR_7A
@@ -7504,6 +9434,7 @@
               - Luiz Cláudio
               - Vitor Frechou
         - **[10]**:
+          - **uid**: MMRrcm4VVEZUrU
           - **via_esportiva**:
             - **nome**: Patacas Me Mordam
             - **dificuldade**: BR_6SUP
@@ -7512,6 +9443,7 @@
               - Fabio Rufino
             - **data_abertura**: 2018
         - **[11]**:
+          - **uid**: cYIUCgfllUOf0j
           - **via_movel**:
             - **descricao**: Via em um belo diedro fendado. Ao final do diedro passa para dentro da grande cavidade na rocha e chega no cume por entre os blocos de rocha onde há um grampo. Um jogo de friends (BD 5 ou 6 protege melhor).
             - **nome**: Diedrim
@@ -7523,6 +9455,7 @@
               - Luiz Cláudio
               - Leonardo Rodrigues
         - **[12]**:
+          - **uid**: jpBkHvmdrR1mUK
           - **via_esportiva**:
             - **descricao**: Crux técnico na saída. 6 + 2 chapas.
             - **nome**: Indecisão
@@ -7534,6 +9467,7 @@
               - Bruno Bastos
             - **data_abertura**: 2019
         - **[13]**:
+          - **uid**: RsEIGi7dZ2Keee
           - **via_movel**:
             - **nome**: A Ajuda Vem de Cima
             - **dificuldade**: BR_7A
@@ -7541,6 +9475,7 @@
               - Luiz Cláudio
               - Leonardo Rodrigues
         - **[14]**:
+          - **uid**: rUIWUEgjJXk84w
           - **via_movel**:
             - **descricao**: Via interessante, saída com proteções escassas em buracos e depois com boas fendas. Top com a via Bela da Tarde (via 3).
             - **nome**: Rolling Stones
@@ -7553,6 +9488,7 @@
               - Leonardo Rodrigues
               - João Felipin
         - **[15]**:
+          - **uid**: 8xhvrpt4MSnAPx
           - **via_movel**:
             - **nome**: Via do Felipin
             - **dificuldade**: PROJETO
@@ -7582,6 +9518,7 @@
           
           Este bloco encontra-se ao lado esquerdo do bloco 1, possuindo poucas vias de escalada. Quando se chega no campo aberto vindo da trilha principal, caminha-se à direita até o bloco.
       - **nome**: Campina do Caburu
+      - **uid**: 0SlrOjrcioJ1ua
       - **mapas**:
         - **[0]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_caburu_setor_campina_do_caburu_p1_i2.webp)
@@ -7589,234 +9526,335 @@
           - **altura_mapa**: 952
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: zP5ZQHyxzDR80X
+              - **pontos_uids**:
+                - 2UdosLnfl7MEVi
               - **escalada**: Ao Grande Mestre
               - **ids**:
-                - 1
+                - 2UdosLnfl7MEVi
             - **[1]**:
+              - **alvo_uid**: Iox8hbfq6QbIzS
+              - **pontos_uids**:
+                - l83bxf2qyzL0bk
               - **escalada**: Step
               - **ids**:
-                - 2
+                - l83bxf2qyzL0bk
             - **[2]**:
+              - **alvo_uid**: sMcKgfohGBxQ8A
+              - **pontos_uids**:
+                - 52HHuXAe39JuDb
               - **escalada**: Tudo é Vaidade
               - **ids**:
-                - 3
+                - 52HHuXAe39JuDb
             - **[3]**:
+              - **alvo_uid**: SWJMHjHXl036HY
+              - **pontos_uids**:
+                - bLt9dVoaQ0Wx0Y
               - **escalada**: Zoação Física
               - **ids**:
-                - 4
+                - bLt9dVoaQ0Wx0Y
             - **[4]**:
+              - **alvo_uid**: zcAuTqyVo3YM3O
+              - **pontos_uids**:
+                - Ww57ufxpcvVH7n
               - **escalada**: Bongô
               - **ids**:
-                - 5
+                - Ww57ufxpcvVH7n
             - **[5]**:
+              - **alvo_uid**: nS6o4lP1ILgQlI
+              - **pontos_uids**:
+                - 7B5DoDkygjmVQg
               - **escalada**: Pai e Filho
               - **ids**:
-                - 6
+                - 7B5DoDkygjmVQg
             - **[6]**:
+              - **alvo_uid**: SFtE7ffPcWLWDQ
+              - **pontos_uids**:
+                - EO1aPjyS9kb8ev
               - **escalada**: Podre dos Poderes
               - **ids**:
-                - 7
+                - EO1aPjyS9kb8ev
             - **[7]**:
+              - **alvo_uid**: SMc3IW9GNyNLI1
+              - **pontos_uids**:
+                - b43jkhLYnwRPGY
               - **escalada**: Pisando em Ovos
               - **ids**:
-                - 8
+                - b43jkhLYnwRPGY
             - **[8]**:
+              - **alvo_uid**: PnQb5eJMbHIhWz
+              - **pontos_uids**:
+                - rrC1dnRmMzg45b
               - **escalada**: Até o Fim dos Dias
               - **ids**:
-                - 9
+                - rrC1dnRmMzg45b
             - **[9]**:
+              - **alvo_uid**: CoRUQgQOv3cywA
+              - **pontos_uids**:
+                - MU10fo2euj6Hlm
               - **escalada**: Insolação
               - **ids**:
-                - 10
+                - MU10fo2euj6Hlm
             - **[10]**:
+              - **alvo_uid**: uxxFAOJPfCw1AZ
+              - **pontos_uids**:
+                - hvbCkjIZlJMNbo
               - **escalada**: Só pra Elas
               - **ids**:
-                - 11
+                - hvbCkjIZlJMNbo
             - **[11]**:
+              - **alvo_uid**: giVFKlaka3fHuM
+              - **pontos_uids**:
+                - 2Z0YWOGvOOiDj0
               - **escalada**: Empregando Meios
               - **ids**:
-                - 12
+                - 2Z0YWOGvOOiDj0
             - **[12]**:
+              - **alvo_uid**: Q7pQGsTCICNrYo
+              - **pontos_uids**:
+                - Xkitgw5Hq3fcIp
               - **escalada**: Tubarão martelo
               - **ids**:
-                - 13
+                - Xkitgw5Hq3fcIp
             - **[13]**:
+              - **alvo_uid**: azDG542kRvK8b5
+              - **pontos_uids**:
+                - WmHVLUGHbjEvDe
               - **escalada**: No Sossego
               - **ids**:
-                - 14
+                - WmHVLUGHbjEvDe
             - **[14]**:
+              - **alvo_uid**: SF908Tyqs8MwIV
+              - **pontos_uids**:
+                - rJbRZLKYos9jbj
               - **escalada**: Catira
               - **ids**:
-                - 15
+                - rJbRZLKYos9jbj
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 1
-              - **label**: 1
+              - **id**: 2UdosLnfl7MEVi
+              - **uid**: 2UdosLnfl7MEVi
+              - **rotulo**: 1
               - **circulo**:
                 - **x**: 132
                 - **y**: 659
                 - **raio**: 19
+              - **label**: 1
             - **[1]**:
-              - **id**: 2
-              - **label**: 2
+              - **id**: l83bxf2qyzL0bk
+              - **uid**: l83bxf2qyzL0bk
+              - **rotulo**: 2
               - **circulo**:
                 - **x**: 283
                 - **y**: 707
                 - **raio**: 19
+              - **label**: 2
             - **[2]**:
-              - **id**: 3
-              - **label**: 3
+              - **id**: 52HHuXAe39JuDb
+              - **uid**: 52HHuXAe39JuDb
+              - **rotulo**: 3
               - **circulo**:
                 - **x**: 326
                 - **y**: 708
                 - **raio**: 19
+              - **label**: 3
             - **[3]**:
-              - **id**: 4
-              - **label**: 4
+              - **id**: bLt9dVoaQ0Wx0Y
+              - **uid**: bLt9dVoaQ0Wx0Y
+              - **rotulo**: 4
               - **circulo**:
                 - **x**: 417
                 - **y**: 706
                 - **raio**: 19
+              - **label**: 4
             - **[4]**:
-              - **id**: 5
-              - **label**: 5
+              - **id**: Ww57ufxpcvVH7n
+              - **uid**: Ww57ufxpcvVH7n
+              - **rotulo**: 5
               - **circulo**:
                 - **x**: 517
                 - **y**: 676
                 - **raio**: 19
+              - **label**: 5
             - **[5]**:
-              - **id**: 6
-              - **label**: 6
+              - **id**: 7B5DoDkygjmVQg
+              - **uid**: 7B5DoDkygjmVQg
+              - **rotulo**: 6
               - **circulo**:
                 - **x**: 564
                 - **y**: 688
                 - **raio**: 19
+              - **label**: 6
             - **[6]**:
-              - **id**: 7
-              - **label**: 7
+              - **id**: EO1aPjyS9kb8ev
+              - **uid**: EO1aPjyS9kb8ev
+              - **rotulo**: 7
               - **circulo**:
                 - **x**: 722
                 - **y**: 672
                 - **raio**: 19
+              - **label**: 7
             - **[7]**:
-              - **id**: 8
-              - **label**: 8
+              - **id**: b43jkhLYnwRPGY
+              - **uid**: b43jkhLYnwRPGY
+              - **rotulo**: 8
               - **circulo**:
                 - **x**: 803
                 - **y**: 678
                 - **raio**: 19
+              - **label**: 8
             - **[8]**:
-              - **id**: 9
-              - **label**: 9
+              - **id**: rrC1dnRmMzg45b
+              - **uid**: rrC1dnRmMzg45b
+              - **rotulo**: 9
               - **circulo**:
                 - **x**: 916
                 - **y**: 640
                 - **raio**: 19
+              - **label**: 9
             - **[9]**:
-              - **id**: 10
-              - **label**: 10
+              - **id**: MU10fo2euj6Hlm
+              - **uid**: MU10fo2euj6Hlm
+              - **rotulo**: 10
               - **circulo**:
                 - **x**: 958
                 - **y**: 630
                 - **raio**: 24
+              - **label**: 10
             - **[10]**:
-              - **id**: 11
-              - **label**: 11
+              - **id**: hvbCkjIZlJMNbo
+              - **uid**: hvbCkjIZlJMNbo
+              - **rotulo**: 11
               - **circulo**:
                 - **x**: 1028
                 - **y**: 626
                 - **raio**: 24
+              - **label**: 11
             - **[11]**:
-              - **id**: 12
-              - **label**: 12
+              - **id**: 2Z0YWOGvOOiDj0
+              - **uid**: 2Z0YWOGvOOiDj0
+              - **rotulo**: 12
               - **circulo**:
                 - **x**: 1122
                 - **y**: 560
                 - **raio**: 21
+              - **label**: 12
             - **[12]**:
-              - **id**: 13
-              - **label**: 13
+              - **id**: Xkitgw5Hq3fcIp
+              - **uid**: Xkitgw5Hq3fcIp
+              - **rotulo**: 13
               - **circulo**:
                 - **x**: 1165
                 - **y**: 556
                 - **raio**: 21
+              - **label**: 13
             - **[13]**:
-              - **id**: 14
-              - **label**: 14
+              - **id**: WmHVLUGHbjEvDe
+              - **uid**: WmHVLUGHbjEvDe
+              - **rotulo**: 14
               - **circulo**:
                 - **x**: 1212
                 - **y**: 557
                 - **raio**: 21
+              - **label**: 14
             - **[14]**:
-              - **id**: 15
-              - **label**: 15
+              - **id**: rJbRZLKYos9jbj
+              - **uid**: rJbRZLKYos9jbj
+              - **rotulo**: 15
               - **circulo**:
                 - **x**: 1254
                 - **y**: 555
                 - **raio**: 21
+              - **label**: 15
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_caburu_setor_campina_do_caburu_p2_i2.webp)
           - **largura_mapa**: 1531
           - **altura_mapa**: 1021
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: ctnfkSxunCOMm7
+              - **pontos_uids**:
+                - T5PF1YZp9Ho0pk
               - **escalada**: Sem Pai nem Mãe
               - **ids**:
-                - 1
+                - T5PF1YZp9Ho0pk
             - **[1]**:
+              - **alvo_uid**: Jsqr0PbnKh7i0h
+              - **pontos_uids**:
+                - 8DHvZM7pFQEdQj
               - **escalada**: Queixo Duro
               - **ids**:
-                - 2
+                - 8DHvZM7pFQEdQj
             - **[2]**:
+              - **alvo_uid**: BZgcyGLhFR1wI9
+              - **pontos_uids**:
+                - OWHd0LObEennAG
               - **escalada**: 30 Segundos
               - **ids**:
-                - 3
+                - OWHd0LObEennAG
             - **[3]**:
+              - **alvo_uid**: BHNzpl5eeGumQ6
+              - **pontos_uids**:
+                - NbIlIED99tb30a
               - **escalada**: Perdido no Tempo
               - **ids**:
-                - 4
+                - NbIlIED99tb30a
             - **[4]**:
+              - **alvo_uid**: NF06xlbWQjUwx4
+              - **pontos_uids**:
+                - leYjAz4IKjFURX
               - **escalada**: Paçoquinha
               - **ids**:
-                - 5
+                - leYjAz4IKjFURX
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 1
-              - **label**: 1
+              - **id**: T5PF1YZp9Ho0pk
+              - **uid**: T5PF1YZp9Ho0pk
+              - **rotulo**: 1
               - **circulo**:
                 - **x**: 118
                 - **y**: 835
                 - **raio**: 26
+              - **label**: 1
             - **[1]**:
-              - **id**: 2
-              - **label**: 2
+              - **id**: 8DHvZM7pFQEdQj
+              - **uid**: 8DHvZM7pFQEdQj
+              - **rotulo**: 2
               - **circulo**:
                 - **x**: 200
                 - **y**: 821
                 - **raio**: 26
+              - **label**: 2
             - **[2]**:
-              - **id**: 3
-              - **label**: 3
+              - **id**: OWHd0LObEennAG
+              - **uid**: OWHd0LObEennAG
+              - **rotulo**: 3
               - **circulo**:
                 - **x**: 264
                 - **y**: 823
                 - **raio**: 26
+              - **label**: 3
             - **[3]**:
-              - **id**: 4
-              - **label**: 4
+              - **id**: NbIlIED99tb30a
+              - **uid**: NbIlIED99tb30a
+              - **rotulo**: 4
               - **circulo**:
                 - **x**: 455
                 - **y**: 837
                 - **raio**: 29
+              - **label**: 4
             - **[4]**:
-              - **id**: 5
-              - **label**: 5
+              - **id**: leYjAz4IKjFURX
+              - **uid**: leYjAz4IKjFURX
+              - **rotulo**: 5
               - **circulo**:
                 - **x**: 1044
                 - **y**: 751
                 - **raio**: 26
+              - **label**: 5
       - **escaladas**:
         - **[0]**:
+          - **uid**: zP5ZQHyxzDR80X
           - **via_movel**:
             - **nome**: Ao Grande Mestre
             - **dificuldade**: BR_4
@@ -7825,6 +9863,7 @@
               - Antônio Gilmar (Tonhão)
             - **data_abertura**: 2013
         - **[1]**:
+          - **uid**: Iox8hbfq6QbIzS
           - **via_esportiva**:
             - **descricao**: Via curta com proteções próximas.
             - **nome**: Step
@@ -7834,6 +9873,7 @@
               - Fabiana
             - **data_abertura**: 2013
         - **[2]**:
+          - **uid**: sMcKgfohGBxQ8A
           - **via_esportiva**:
             - **descricao**: Via curta com proteções próximas.
             - **nome**: Tudo é Vaidade
@@ -7843,6 +9883,7 @@
               - Fabiana
             - **data_abertura**: 2013
         - **[3]**:
+          - **uid**: SWJMHjHXl036HY
           - **via_esportiva**:
             - **nome**: Zoação Física
             - **dificuldade**: BR_5
@@ -7851,6 +9892,7 @@
               - Fabiana
             - **data_abertura**: 2013
         - **[4]**:
+          - **uid**: zcAuTqyVo3YM3O
           - **via_esportiva**:
             - **nome**: Bongô
             - **dificuldade**: BR_5
@@ -7859,6 +9901,7 @@
               - Maurício dos Santos
             - **data_abertura**: 2004
         - **[5]**:
+          - **uid**: nS6o4lP1ILgQlI
           - **via_esportiva**:
             - **descricao**: Ótima via, com uma saída negativa e posteriormente vertical.
             - **nome**: Pai e Filho
@@ -7868,6 +9911,7 @@
               - Jonatas Lima
             - **data_abertura**: 2015
         - **[6]**:
+          - **uid**: SFtE7ffPcWLWDQ
           - **via_esportiva**:
             - **nome**: Podre dos Poderes
             - **dificuldade**: BR_5
@@ -7875,12 +9919,14 @@
               - Eustáquio Júnior
               - Juan Kempen
         - **[7]**:
+          - **uid**: SMc3IW9GNyNLI1
           - **via_movel**:
             - **nome**: Pisando em Ovos
             - **dificuldade**: BR_5
             - **conquistadores**:
               - Márcio Andrade
         - **[8]**:
+          - **uid**: PnQb5eJMbHIhWz
           - **via_esportiva**:
             - **descricao**: Via delicada, bastante agarra podre.
             - **nome**: Até o Fim dos Dias
@@ -7890,6 +9936,7 @@
               - Carlos Pádua
             - **data_abertura**: 2012
         - **[9]**:
+          - **uid**: CoRUQgQOv3cywA
           - **via_esportiva**:
             - **descricao**: Primeira proteção relativamente alta.
             - **nome**: Insolação
@@ -7899,6 +9946,7 @@
               - Maurício dos Santos
             - **data_abertura**: 2004
         - **[10]**:
+          - **uid**: uxxFAOJPfCw1AZ
           - **via_esportiva**:
             - **descricao**: Primeira proteção relativamente alta.
             - **nome**: Só pra Elas
@@ -7906,6 +9954,7 @@
             - **conquistadores**:
               - Luiz Cláudio
         - **[11]**:
+          - **uid**: giVFKlaka3fHuM
           - **via_movel**:
             - **nome**: Empregando Meios
             - **dificuldade**: BR_5
@@ -7914,6 +9963,7 @@
               - Gelson
             - **data_abertura**: 2003
         - **[12]**:
+          - **uid**: Q7pQGsTCICNrYo
           - **via_movel**:
             - **nome**: Tubarão martelo
             - **dificuldade**: BR_4SUP
@@ -7922,6 +9972,7 @@
               - Antônio Gilmar (Tonhão)
             - **data_abertura**: 2013
         - **[13]**:
+          - **uid**: azDG542kRvK8b5
           - **via_esportiva**:
             - **nome**: No Sossego
             - **dificuldade**: BR_4SUP
@@ -7931,6 +9982,7 @@
               - Pitt
             - **data_abertura**: 2013
         - **[14]**:
+          - **uid**: SF908Tyqs8MwIV
           - **via_esportiva**:
             - **nome**: Catira
             - **dificuldade**: BR_5
@@ -7940,10 +9992,12 @@
               - Pitt
             - **data_abertura**: 2013
         - **[15]**:
+          - **uid**: ctnfkSxunCOMm7
           - **via_esportiva**:
             - **nome**: Sem Pai nem Mãe
             - **dificuldade**: BR_3
         - **[16]**:
+          - **uid**: Jsqr0PbnKh7i0h
           - **via_esportiva**:
             - **descricao**: Via curta com proteções próximas.
             - **nome**: Queixo Duro
@@ -7952,6 +10006,7 @@
               - Instrutores do CIOpMth
             - **data_abertura**: 2014
         - **[17]**:
+          - **uid**: BZgcyGLhFR1wI9
           - **via_esportiva**:
             - **nome**: 30 Segundos
             - **dificuldade**: BR_3SUP
@@ -7959,10 +10014,12 @@
               - Instrutores do CIOpMth
             - **data_abertura**: 2014
         - **[18]**:
+          - **uid**: BHNzpl5eeGumQ6
           - **via_esportiva**:
             - **nome**: Perdido no Tempo
             - **dificuldade**: BR_4
         - **[19]**:
+          - **uid**: NF06xlbWQjUwx4
           - **via_esportiva**:
             - **nome**: Paçoquinha
             - **dificuldade**: BR_5
@@ -7995,6 +10052,7 @@
     
     Este local fica muito próximo da cidade, dependendo de onde se está partindo fica até mais próximo que a própria Serra do Lenheiro. Para se chegar basta digitar Totem Marco Zero no Google Maps. A pequena trilha de acesso às vias fica ao lado esquerdo das primeiras quedas.
 - **nome**: Serra de São José
+- **uid**: C6wlniO3wE7oPg
 - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/grupo_serra_de_sao_jose_p0_i2.webp)
 - **setores**:
   - **[0]**:
@@ -8010,6 +10068,7 @@
           
           *Lucas Agostini escalando a via Cacique*
       - **nome**: Cachoeira Pedra do Índio (Marco Zero)
+      - **uid**: j84sNJONpBgkT4
       - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/grupo_serra_de_sao_jose_setor_cachoeira_pedra_do_indio_p1_i3.webp)
       - **mapas**:
         - **[0]**:
@@ -8018,78 +10077,107 @@
           - **altura_mapa**: 1191
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 1
-              - **label**: 1
+              - **id**: 1wuQagdyFLxGA3
+              - **uid**: 1wuQagdyFLxGA3
+              - **rotulo**: 1
               - **retangulo**:
                 - **x**: 150
                 - **y**: 480
                 - **comprimento**: 27
                 - **largura**: 72
+              - **label**: 1
             - **[1]**:
-              - **id**: 2
-              - **label**: 2
+              - **id**: nyJbu5wRGG3y83
+              - **uid**: nyJbu5wRGG3y83
+              - **rotulo**: 2
               - **retangulo**:
                 - **x**: 214
                 - **y**: 480
                 - **comprimento**: 34
                 - **largura**: 72
+              - **label**: 2
             - **[2]**:
-              - **id**: 3
-              - **label**: 3
+              - **id**: kj924F07dVQmEu
+              - **uid**: kj924F07dVQmEu
+              - **rotulo**: 3
               - **retangulo**:
                 - **x**: 355
                 - **y**: 523
                 - **comprimento**: 34
                 - **largura**: 72
+              - **label**: 3
             - **[3]**:
-              - **id**: 4
-              - **label**: 4
+              - **id**: E91oFqxXFbBLv7
+              - **uid**: E91oFqxXFbBLv7
+              - **rotulo**: 4
               - **retangulo**:
                 - **x**: 1388
                 - **y**: 447
                 - **comprimento**: 37
                 - **largura**: 70
+              - **label**: 4
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: WyBWexfIBXeI9F
+              - **pontos_uids**:
+                - 1wuQagdyFLxGA3
               - **escalada**: Marco Zero
               - **ids**:
-                - 1
+                - 1wuQagdyFLxGA3
             - **[1]**:
+              - **alvo_uid**: ROHoriE69QoCxr
+              - **pontos_uids**:
+                - nyJbu5wRGG3y83
               - **escalada**: Quininício
               - **ids**:
-                - 2
+                - nyJbu5wRGG3y83
             - **[2]**:
+              - **alvo_uid**: xNzlyAJbg0RIUW
+              - **pontos_uids**:
+                - kj924F07dVQmEu
               - **escalada**: Cacique
               - **ids**:
-                - 3
+                - kj924F07dVQmEu
             - **[3]**:
+              - **alvo_uid**: GScsIH6VXa2wNB
+              - **pontos_uids**:
+                - E91oFqxXFbBLv7
               - **escalada**: Chapa Quente
               - **ids**:
-                - 4
+                - E91oFqxXFbBLv7
         - **[1]**:
           - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/grupo_serra_de_sao_jose_setor_cachoeira_pedra_do_indio_p1_i2.webp)
           - **largura_mapa**: 775
           - **altura_mapa**: 1033
           - **pontos_de_interesse**:
             - **[0]**:
-              - **id**: 5
-              - **label**: 5
+              - **id**: TSWgjyaMXguZSv
+              - **uid**: TSWgjyaMXguZSv
+              - **rotulo**: 5
               - **retangulo**:
                 - **x**: 541
                 - **y**: 995
                 - **comprimento**: 32
                 - **largura**: 54
+              - **label**: 5
           - **referencias**:
             - **[0]**:
+              - **alvo_uid**: 1LIiTvbH9HOBLB
+              - **pontos_uids**:
+                - TSWgjyaMXguZSv
               - **escalada**: Casika
               - **ids**:
-                - 5
+                - TSWgjyaMXguZSv
             - **[1]**:
+              - **alvo_uid**: hXBOv38NHafdlX
+              - **pontos_uids**:
+                - TSWgjyaMXguZSv
               - **escalada**: Casikinha
               - **ids**:
-                - 5
+                - TSWgjyaMXguZSv
       - **escaladas**:
         - **[0]**:
+          - **uid**: WyBWexfIBXeI9F
           - **via_esportiva**:
             - **descricao**: Primeira via do setor e também a mais fácil. Um crux de equilíbrio na saída que dificulta um pouco pra quem é mais baixo e depois segue bem fácil até o final. Essa e sua vizinha ficam com sombra de tarde.
             - **nome**: Marco Zero
@@ -8100,6 +10188,7 @@
               - Pedro Naves
             - **data_abertura**: 2024-11-03
         - **[1]**:
+          - **uid**: ROHoriE69QoCxr
           - **via_esportiva**:
             - **descricao**: Via com crux "Aqui no início", por isso o seu nome. É um lance delicado que dificulta muito quem é baixo. Ainda possui mais um lance interessante logo acima e depois é escalada tranquila até o final.
             - **nome**: Quininício
@@ -8110,6 +10199,7 @@
               - Mariana Fiche
             - **data_abertura**: 2024-11-23
         - **[2]**:
+          - **uid**: xNzlyAJbg0RIUW
           - **via_esportiva**:
             - **descricao**: Via clássica! Uma linha bem exótica, alterna lances positivos e negativos que cruzam os imponentes bicos de pedra com um final aéreo que dá uma apimentada. Seguindo o padrão local, é outra que favorece quem é mais alto, principalmente na saída onde chega a subir um grau pra quem é baixo. Ela possui a vantagem de ficar na sombra o dia todo. São 5+2 chapas.
             - **nome**: Cacique
@@ -8123,6 +10213,7 @@
               - Lucas Agostini
             - **data_abertura**: 2024-11-23
         - **[3]**:
+          - **uid**: GScsIH6VXa2wNB
           - **via_esportiva**:
             - **descricao**: Via positiva localizada do outro lado da cachoeira.
             - **nome**: Chapa Quente
@@ -8134,6 +10225,7 @@
               - Halle
             - **data_abertura**: 2024-11-30
         - **[4]**:
+          - **uid**: 1LIiTvbH9HOBLB
           - **via_esportiva**:
             - **descricao**: Via ainda sem cadena. Saída com crux bem concentrado e duro usando uma agarra colada com Sika, por isso seu nome. A parte após o platô possui um lance de boulder onde possivelmente é o crux. Fica na sombra pela manhã e sol de tarde no verão.
             - **nome**: Casika
@@ -8144,6 +10236,7 @@
               - Lucas Agostini
             - **data_abertura**: 2024-11-30
         - **[5]**:
+          - **uid**: hXBOv38NHafdlX
           - **via_esportiva**:
             - **descricao**: Início da via Casika, terminando no platô e descendo por caminhada. Para desmontar é possível subir pelo lado direito até o top da Casika e montar rapel de cima.
             - **nome**: Casikinha

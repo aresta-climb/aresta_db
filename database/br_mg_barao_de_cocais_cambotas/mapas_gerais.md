@@ -4,4 +4,3 @@
 mapas:
 - caminho_imagem_mapa: imagens/mapas_gerais_p0_i0.webp
 ---
-

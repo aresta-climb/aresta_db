@@ -21,6 +21,7 @@ if str(ROOT_DIR) not in sys.path:
 
 from scripts.deploy_generated import deploy
 from scripts.migrador import obter_ultima_versao_migracao
+from scripts.gerenciar_uids_lib import gerar_uid
 
 from typing import Any
 
@@ -116,6 +117,7 @@ class GerenciadorCroquiExperimental:
             # 2. Cria o arquivo database/croqui.yaml seguindo a estrutura do proto
             croqui_data = {
                 "id": id_croqui,
+                "uid": gerar_uid(),
                 "nome": pico,
                 "ultima_migracao": obter_ultima_versao_migracao(),
                 "picos": [
@@ -287,6 +289,24 @@ class GerenciadorCroquiExperimental:
                 sair_ao_falhar=False
             )
             
+            # Compacta a saída movendo os artefatos de compilado/<croqui_id>/* diretamente para compilado/
+            # eliminando o aninhamento redundante de pasta e economizando caracteres de caminho no Windows
+            pastas_para_compactar = [
+                d for d in caminho_compilado.iterdir()
+                if d.is_dir() and d.name not in ("imagens", "anexos", "thumbnails")
+                and ((d / "compilado.binarypb").is_file() or (d / "compilado.yaml").is_file())
+            ]
+            for pasta_croqui in pastas_para_compactar:
+                for sub_item in list(pasta_croqui.iterdir()):
+                    destino = caminho_compilado / sub_item.name
+                    if destino.exists():
+                        if destino.is_dir():
+                            shutil.rmtree(destino, ignore_errors=True)
+                        else:
+                            destino.unlink(missing_ok=True)
+                    shutil.move(str(sub_item), str(destino))
+                shutil.rmtree(pasta_croqui, ignore_errors=True)
+
             # Commit no Git local
             index = repo.index
             # Adiciona a pasta compilado inteira ao index

@@ -291,3 +291,42 @@ def test_servidor_celular_inicia_tunel_com_jwt_e_callback(tmp_path):
         assert instancias_criadas[0]["jwt_token"] == "jwt_passado_teste"
         assert callable(instancias_criadas[0]["obter_jwt_atualizado"])
 
+
+def test_deve_servir_arquivos_compactos_mesmo_com_prefixo_croqui_id(tmp_path):
+    """Garante que rotas com prefixo do croqui_id encontram arquivos na raiz de compilado quando compactado."""
+    pasta_compilado = tmp_path / "compilado"
+    pasta_compilado.mkdir()
+
+    # Estrutura compacta (sem subpasta br_mg_itambe)
+    (pasta_compilado / "compilado.binarypb").write_bytes(b"dados_pb")
+    pasta_imagens = pasta_compilado / "imagens"
+    pasta_imagens.mkdir()
+    (pasta_imagens / "parede.webp").write_bytes(b"imagem_bytes")
+
+    servidor = ServidorCelular(pasta_compilado)
+    servidor.iniciar()
+    esperar_porta(servidor)
+
+    try:
+        # 1. Requisição com prefixo do ID do croqui (como o celular pode solicitar)
+        url_pb = f"http://127.0.0.1:{servidor.porta}/br_mg_itambe/compilado.binarypb"
+        resp_pb = requests.get(url_pb)
+        assert resp_pb.status_code == 200
+        assert resp_pb.content == b"dados_pb"
+
+        # 2. Requisição de imagem com prefixo
+        url_img = f"http://127.0.0.1:{servidor.porta}/br_mg_itambe/imagens/parede.webp"
+        resp_img = requests.get(url_img)
+        assert resp_img.status_code == 200
+        assert resp_img.content == b"imagem_bytes"
+
+        # 3. Requisição direta à raiz
+        url_direta = f"http://127.0.0.1:{servidor.porta}/compilado.binarypb"
+        resp_direta = requests.get(url_direta)
+        assert resp_direta.status_code == 200
+        assert resp_direta.content == b"dados_pb"
+    finally:
+        servidor.parar()
+        if servidor._thread_servidor and servidor._thread_servidor.is_alive():
+            servidor._thread_servidor.join(timeout=3.0)
+

@@ -1,6 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+uid: p60Ye0QY35tMCe
 caminho_imagem_capa: imagens/setor_da_pracinha_p0_i0.webp
 nome: Setor da Pracinha
 mapas:
@@ -8,134 +9,139 @@ mapas:
   largura_mapa: 1801
   altura_mapa: 505
   pontos_de_interesse:
-  - id: '01'
-    label: '01'
+  - uid: LvgorzTVOOfTtj
+    rotulo: '01'
     retangulo:
       x: 348
       y: 60
       comprimento: 30
       largura: 45
-  - id: '02'
-    label: '02'
+  - uid: BDxOEsUEaundK9
+    rotulo: '02'
     retangulo:
       x: 438
       y: 49
       comprimento: 37
       largura: 46
-  - id: '03'
-    label: '03'
+  - uid: ylwjswAGdnLTzu
+    rotulo: '03'
     retangulo:
       x: 526
       y: 28
       comprimento: 41
       largura: 50
-  - id: '04'
-    label: '04'
+  - uid: mViaSKUP9R8DYA
+    rotulo: '04'
     retangulo:
       x: 958
       y: 50
       comprimento: 35
       largura: 45
-  - id: '05'
-    label: '05'
+  - uid: dRpOz7iSDxj1na
+    rotulo: '05'
     retangulo:
       x: 1041
       y: 87
       comprimento: 32
       largura: 44
-  - id: Claraboia
-    label: Claraboia
+  - uid: NFEWFsXKUMZZ53
+    rotulo: Claraboia
     retangulo:
       x: 746
       y: 70
       comprimento: 192
       largura: 49
-  - id: Platô
-    label: Platô
+  - uid: BDjfYlldVJjrGU
+    rotulo: Platô
     retangulo:
       x: 294
       y: 138
       comprimento: 107
       largura: 45
       angulo_graus_x100: 2536
-  - id: Praça
-    label: Praça
+  - uid: 8AL23sSJdXHA0K
+    rotulo: Praça
     retangulo:
       x: 380
       y: 226
       comprimento: 119
       largura: 55
-  - id: Abrigo
-    label: Abrigo
+  - uid: fJDPLx0odmJHh8
+    rotulo: Abrigo
     retangulo:
       x: 1729
       y: 196
       comprimento: 132
       largura: 44
-  - id: Sertão
-    label: Sertão
+  - uid: kSwQGt3GWSjRxf
+    rotulo: Sertão
     retangulo:
       x: 1671
       y: 265
       comprimento: 128
       largura: 46
-  - id: Mocó
-    label: Mocó
+  - uid: 7by9pOqJubzifa
+    rotulo: Mocó
     retangulo:
       x: 1728
       y: 326
       comprimento: 107
       largura: 39
   referencias:
-  - escalada: Velho Chico
-    ids:
-    - '01'
-  - escalada: Dom Quixote
-    ids:
-    - '02'
-  - escalada: Cordadinha
-    ids:
-    - '03'
-  - escalada: Pelas Mãos do Senhor
-    ids:
-    - '04'
-  - escalada: Uma Lágrima que Cai
-    ids:
-    - '05'
-  - ids:
-    - Platô
-    setor: Setor do Platô
-  - ids:
-    - Claraboia
-    setor: Setor da Claraboia
-  - ids:
-    - Abrigo
-    setor: Setor do Abrigo
-  - ids:
-    - Sertão
-    setor: Setor do Sertão
-  - ids:
-    - Mocó
-    setor: Setor do Mocó
+  - alvo_uid: 4PFqO3P6FE6Em9
+    pontos_uids:
+    - LvgorzTVOOfTtj
+  - alvo_uid: GxZB5D7CMtgEYK
+    pontos_uids:
+    - BDxOEsUEaundK9
+  - alvo_uid: 9e4ASTVQCsj4ta
+    pontos_uids:
+    - ylwjswAGdnLTzu
+  - alvo_uid: T3Sd4CAV52DAEj
+    pontos_uids:
+    - mViaSKUP9R8DYA
+  - alvo_uid: zbK8al5oPpzx5Z
+    pontos_uids:
+    - dRpOz7iSDxj1na
+  - alvo_uid: QMjvo9hzwJjnZD
+    pontos_uids:
+    - BDjfYlldVJjrGU
+  - alvo_uid: SB6PaS5IMGBuEl
+    pontos_uids:
+    - NFEWFsXKUMZZ53
+  - alvo_uid: K6RbtXvIhTm7g2
+    pontos_uids:
+    - fJDPLx0odmJHh8
+  - alvo_uid: 2D521Xlwq8lN5s
+    pontos_uids:
+    - kSwQGt3GWSjRxf
+  - alvo_uid: GUndzg4TCADnuo
+    pontos_uids:
+    - 7by9pOqJubzifa
 escaladas:
-- via_esportiva:
+- uid: 4PFqO3P6FE6Em9
+  via_esportiva:
     nome: Velho Chico
     dificuldade: BR_7B
     extensao: 40
     descricao: Via clássica do setor.
-- via_esportiva:
+- uid: GxZB5D7CMtgEYK
+  via_esportiva:
     nome: Dom Quixote
     dificuldade: BR_7A
     descricao: Termina na metade da parede.
-- via_esportiva:
+- uid: 9e4ASTVQCsj4ta
+  via_esportiva:
     nome: Cordadinha
     dificuldade: BR_6SUP_BARRA_7A
     descricao: Termina um pouco acima da via Dom Quixote.
-- via_esportiva:
+- uid: T3Sd4CAV52DAEj
+  via_esportiva:
     nome: Pelas Mãos do Senhor
     dificuldade: PROJETO
     descricao: Via que passa pelo teto a direita da claraboia. Via de muita resistência.
-- via_esportiva:
+- uid: zbK8al5oPpzx5Z
+  via_esportiva:
     nome: Uma Lágrima que Cai
     dificuldade: PROJETO
     descricao: Via a direita da pelas mãos do senhor. Cuidado ao caminhar na base

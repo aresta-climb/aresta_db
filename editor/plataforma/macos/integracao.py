@@ -94,6 +94,12 @@ class AdaptadorMacOS(AdaptadorPlataforma):
         try:
             from keyring.backends import macOS
 
-            keyring.set_keyring(macOS.Keyring())
+            keyring.set_keyring(macOS.Keyring())  # type: ignore[no-untyped-call]
         except Exception:
             pass
+
+    def normalizar_caminho_estendido(self, caminho: Path | str) -> str:
+        """Em sistemas POSIX macOS, resolve e retorna o caminho absoluto canônico."""
+        if not caminho:
+            return ""
+        return str(Path(caminho).resolve())

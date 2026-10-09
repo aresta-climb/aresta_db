@@ -10,6 +10,7 @@ from editor.commands.comandos_protobuf import (
 )
 from editor.core.historico import GerenciadorHistorico
 from editor.core.diario import GerenciadorDiario
+from editor.models.referencias_util import resolver_caminho_referencia
 
 
 def _criar_model_com_escalada_e_mapas():
@@ -19,27 +20,29 @@ def _criar_model_com_escalada_e_mapas():
     # Mapa de pico geral
     mapa_geral = pico.mapas_gerais.conteudo.mapas.add()
     ref_geral = mapa_geral.referencias.add(
-        setor="Setor 1",
-        escalada="Via Inicial",
-        ids=["linha_1"]
+        alvo_uid="via_1",
+        pontos_uids=["linha_1"],
     )
 
     sg = pico.setores_ou_grupos.add()
     setor = sg.setor.conteudo
     setor.nome = "Setor 1"
+    setor.uid = "setor_1"
 
     # Escaladas
     via1 = setor.escaladas.add()
+    via1.uid = "via_1"
     via1.via_esportiva.nome = "Via Inicial"
 
     via2 = setor.escaladas.add()
+    via2.uid = "via_2"
     via2.boulder.nome = "Boulder 2"
 
     # Mapa de setor
     mapa_setor = setor.mapas.add()
     ref_setor = mapa_setor.referencias.add(
-        escalada="Via Inicial",
-        ids=["linha_2"]
+        alvo_uid="via_1",
+        pontos_uids=["linha_2"],
     )
 
     return CroquiModel(croqui), ref_geral, ref_setor
@@ -65,20 +68,20 @@ def test_cmd_renomear_escalada_basico_redo_undo():
     # 1. Redo
     cmd.redo()
     assert via.nome == "Via Renomeada"
-    assert ref_geral.escalada == "Via Renomeada"
-    assert ref_setor.escalada == "Via Renomeada"
+    assert resolver_caminho_referencia(model.obter_croqui_readonly(), ref_geral) == "Setor 1 > Via Renomeada"
+    assert resolver_caminho_referencia(model.obter_croqui_readonly(), ref_setor) == "Setor 1 > Via Renomeada"
 
     # 2. Undo
     cmd.undo()
     assert via.nome == "Via Inicial"
-    assert ref_geral.escalada == "Via Inicial"
-    assert ref_setor.escalada == "Via Inicial"
+    assert resolver_caminho_referencia(model.obter_croqui_readonly(), ref_geral) == "Setor 1 > Via Inicial"
+    assert resolver_caminho_referencia(model.obter_croqui_readonly(), ref_setor) == "Setor 1 > Via Inicial"
 
     # 3. Redo novamente
     cmd.redo()
     assert via.nome == "Via Renomeada"
-    assert ref_geral.escalada == "Via Renomeada"
-    assert ref_setor.escalada == "Via Renomeada"
+    assert resolver_caminho_referencia(model.obter_croqui_readonly(), ref_geral) == "Setor 1 > Via Renomeada"
+    assert resolver_caminho_referencia(model.obter_croqui_readonly(), ref_setor) == "Setor 1 > Via Renomeada"
 
 
 def test_cmd_renomear_escalada_com_nome_vazio():
@@ -97,11 +100,11 @@ def test_cmd_renomear_escalada_com_nome_vazio():
 
     cmd.redo()
     assert via.nome == ""
-    assert ref_geral.escalada == ""
+    assert resolver_caminho_referencia(model.obter_croqui_readonly(), ref_geral) == "Setor 1 > "
 
     cmd.undo()
     assert via.nome == "Via Inicial"
-    assert ref_geral.escalada == "Via Inicial"
+    assert resolver_caminho_referencia(model.obter_croqui_readonly(), ref_geral) == "Setor 1 > Via Inicial"
 
 
 def test_cmd_renomear_escalada_merge_with_mesma_sessao():
@@ -121,7 +124,7 @@ def test_cmd_renomear_escalada_merge_with_mesma_sessao():
     )
     cmd1.redo()
     assert via.nome == "Via Ren"
-    assert ref_geral.escalada == "Via Ren"
+    assert resolver_caminho_referencia(model.obter_croqui_readonly(), ref_geral) == "Setor 1 > Via Ren"
 
     cmd2 = CmdRenomearEscalada(
         model=model,
@@ -138,14 +141,14 @@ def test_cmd_renomear_escalada_merge_with_mesma_sessao():
     assert mesclou is True
     assert cmd1.nome_novo == "Via Renomeada Final"
     assert via.nome == "Via Renomeada Final"
-    assert ref_geral.escalada == "Via Renomeada Final"
-    assert ref_setor.escalada == "Via Renomeada Final"
+    assert resolver_caminho_referencia(model.obter_croqui_readonly(), ref_geral) == "Setor 1 > Via Renomeada Final"
+    assert resolver_caminho_referencia(model.obter_croqui_readonly(), ref_setor) == "Setor 1 > Via Renomeada Final"
 
     # Undo deve voltar direto para o nome inicial
     cmd1.undo()
     assert via.nome == "Via Inicial"
-    assert ref_geral.escalada == "Via Inicial"
-    assert ref_setor.escalada == "Via Inicial"
+    assert resolver_caminho_referencia(model.obter_croqui_readonly(), ref_geral) == "Setor 1 > Via Inicial"
+    assert resolver_caminho_referencia(model.obter_croqui_readonly(), ref_setor) == "Setor 1 > Via Inicial"
 
 
 def test_cmd_renomear_escalada_merge_with_sessao_diferente():
@@ -290,13 +293,13 @@ def test_cmd_renomear_escalada_serializacao_e_deserializacao():
     # Executa redo e undo na instância restaurada
     cmd_restaurado.redo()
     assert via.nome == "Via Restaurada"
-    assert ref_geral.escalada == "Via Restaurada"
-    assert ref_setor.escalada == "Via Restaurada"
+    assert resolver_caminho_referencia(model.obter_croqui_readonly(), ref_geral) == "Setor 1 > Via Restaurada"
+    assert resolver_caminho_referencia(model.obter_croqui_readonly(), ref_setor) == "Setor 1 > Via Restaurada"
 
     cmd_restaurado.undo()
     assert via.nome == "Via Inicial"
-    assert ref_geral.escalada == "Via Inicial"
-    assert ref_setor.escalada == "Via Inicial"
+    assert resolver_caminho_referencia(model.obter_croqui_readonly(), ref_geral) == "Setor 1 > Via Inicial"
+    assert resolver_caminho_referencia(model.obter_croqui_readonly(), ref_setor) == "Setor 1 > Via Inicial"
 
 
 def test_cmd_renomear_escalada_notificacao_foco():
@@ -338,7 +341,7 @@ def test_cmd_renomear_escalada_mensagem_orfa_dispara_erro():
             referencias=[ref_geral],
         )
 
-    ref_orfa = croqui_pb2.Mapa.Referencia(escalada="Via Inicial")
+    ref_orfa = croqui_pb2.Mapa.Referencia(alvo_uid="via_1")
     croqui = model.obter_croqui_readonly()
     via = croqui.picos[0].setores_ou_grupos[0].setor.conteudo.escaladas[0].via_esportiva
 
@@ -385,7 +388,7 @@ def test_cmd_renomear_escalada_roundtrip_diario(tmp_path):
 
     assert historico.obter_pilha().count() == 1
     assert via.nome == "Via Final"
-    assert ref_geral.escalada == "Via Final"
+    assert resolver_caminho_referencia(model.obter_croqui_readonly(), ref_geral) == "Setor 1 > Via Final"
 
     # Valida comandos pendentes no diário
     pendentes = diario.ler_diario_pendente()
@@ -395,7 +398,7 @@ def test_cmd_renomear_escalada_roundtrip_diario(tmp_path):
 
     historico.obter_pilha().undo()
     assert via.nome == "Via Inicial"
-    assert ref_geral.escalada == "Via Inicial"
+    assert resolver_caminho_referencia(model.obter_croqui_readonly(), ref_geral) == "Setor 1 > Via Inicial"
 
 
 def test_cmd_renomear_escalada_merge_with_outro_tipo_comando():
@@ -515,3 +518,35 @@ def test_cmd_renomear_escalada_preserva_cache_de_referencias_pre_resolvidas():
     assert cmd._referencias_cache == [ref_geral, ref_setor]
     assert cmd.referencias == [ref_geral, ref_setor]
     assert cmd._msg_cache is via
+
+
+def test_cmd_renomear_escalada_com_alvo_uid_sem_referencias_textuais():
+    """Garante que escaladas vinculadas via alvo_uid não necessitam de referências passadas ao comando."""
+    model, ref_geral, ref_setor = _criar_model_com_escalada_e_mapas()
+    croqui = model.obter_croqui_readonly()
+    esc = croqui.picos[0].setores_ou_grupos[0].setor.conteudo.escaladas[0]
+    model._set_primitivo(esc, "uid", "12345678901234")
+    via = esc.via_esportiva
+
+    # Atualiza referência para usar alvo_uid
+    model._set_primitivo(ref_setor, "alvo_uid", "12345678901234")
+
+    cmd = CmdRenomearEscalada(
+        model=model,
+        msg_escalada=via,
+        campo_nome="nome",
+        nome_antigo="Via Inicial",
+        nome_novo="Via Nome Novo",
+        referencias=[],
+    )
+
+    cmd.redo()
+    assert via.nome == "Via Nome Novo"
+    assert ref_setor.alvo_uid == "12345678901234"
+    assert resolver_caminho_referencia(model.obter_croqui_readonly(), ref_setor) == "Setor 1 > Via Nome Novo"
+
+    cmd.undo()
+    assert via.nome == "Via Inicial"
+    assert ref_setor.alvo_uid == "12345678901234"
+    assert resolver_caminho_referencia(model.obter_croqui_readonly(), ref_setor) == "Setor 1 > Via Inicial"
+

@@ -1,6 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+uid: ALlNMayNg4qW0W
 caminho_imagem_capa: imagens/setor_shana_crazy_p0_i0.webp
 nome: Shana Crazy
 mapas:
@@ -8,102 +9,101 @@ mapas:
   largura_mapa: 1280
   altura_mapa: 1707
   pontos_de_interesse:
-  - id: '01'
-    label: '01'
+  - uid: 3Lyfms77DTU25h
+    rotulo: '01'
     circulo:
       x: 365
       y: 1038
       raio: 18
   referencias:
-  - escalada: Caroço de Manga
-    ids:
-    - '01'
+  - alvo_uid: KtP05CrUDquMa2
+    pontos_uids:
+    - 3Lyfms77DTU25h
 - caminho_imagem_mapa: imagens/setor_shana_crazy_p2.webp
   largura_mapa: 1280
   altura_mapa: 1707
   pontos_de_interesse:
-  - id: '02'
-    label: '02'
+  - uid: l00ZSL8CowRe11
+    rotulo: '02'
     circulo:
       x: 262
       y: 1222
       raio: 22
-  - id: '03'
-    label: '03'
+  - uid: cqrWwBV63APeld
+    rotulo: '03'
     circulo:
       x: 394
       y: 1222
       raio: 22
-  - id: '04'
-    label: '04'
+  - uid: 2Fg27UblG0q6t2
+    rotulo: '04'
     circulo:
       x: 627
       y: 1244
       raio: 22
-  - id: '05'
-    label: '05'
+  - uid: UuMnef3ScwBU5q
+    rotulo: '05'
     circulo:
       x: 816
       y: 1169
       raio: 22
   referencias:
-  - escalada: Caminho das pedras
-    ids:
-    - '02'
-  - escalada: Caminho das águas
-    ids:
-    - '03'
-  - escalada: Shana Crazy
-    ids:
-    - '04'
-  - escalada: Na racha
-    ids:
-    - '05'
+  - alvo_uid: tNs8OoCHJ8pkyV
+    pontos_uids:
+    - l00ZSL8CowRe11
+  - alvo_uid: r4dQbVfK4VI33g
+    pontos_uids:
+    - cqrWwBV63APeld
+  - alvo_uid: qD6Ceolo44X2w1
+    pontos_uids:
+    - 2Fg27UblG0q6t2
+  - alvo_uid: gmKH48WBR5Tiyq
+    pontos_uids:
+    - UuMnef3ScwBU5q
 - caminho_imagem_mapa: imagens/setor_shana_crazy_p3.webp
   largura_mapa: 1280
   altura_mapa: 1707
   pontos_de_interesse:
-  - id: '06'
-    label: '06'
+  - uid: bJRwtmAaAdgtU2
+    rotulo: '06'
     circulo:
       x: 367
       y: 1230
       raio: 22
-  - id: '07'
-    label: '07'
+  - uid: cWxETo0bviRwtv
+    rotulo: '07'
     circulo:
       x: 612
       y: 1230
       raio: 22
-  - id: '08'
-    label: '08'
+  - uid: 68rOrJDeHrNPcM
+    rotulo: '08'
     circulo:
       x: 833
       y: 1187
       raio: 22
-  - id: '09'
-    label: '09'
+  - uid: DaRVTccRUKC0kS
+    rotulo: '09'
     circulo:
       x: 992
       y: 1178
       raio: 22
   referencias:
-  - escalada: Lei Rounet
-    ids:
-    - '06'
-  - escalada: Maria da Penha
-    ids:
-    - '07'
-  - ids:
-    - '08'
-    setor: Shana Crazy
-    escalada: Para-raio de Maluco
-  - ids:
-    - '09'
-    setor: Shana Crazy
-    escalada: Sandálias da Humildade
+  - alvo_uid: xT8zvDHyLijCjY
+    pontos_uids:
+    - bJRwtmAaAdgtU2
+  - alvo_uid: LmL2tFAel8o9PW
+    pontos_uids:
+    - cWxETo0bviRwtv
+  - alvo_uid: UYkX8oPcGqjomJ
+    pontos_uids:
+    - 68rOrJDeHrNPcM
+  - alvo_uid: ZwJBVHE0z1YKaG
+    pontos_uids:
+    - DaRVTccRUKC0kS
 escaladas:
-- via_esportiva:
+- uid: KtP05CrUDquMa2
+  via_esportiva:
     nome: Caroço de Manga
     dificuldade: BR_4
     extensao: 5
@@ -112,7 +112,8 @@ escaladas:
     conquistadores:
     - Daiex de Almeida
     data_abertura: '2014'
-- via_esportiva:
+- uid: tNs8OoCHJ8pkyV
+  via_esportiva:
     nome: Caminho das pedras
     dificuldade: BR_5
     extensao: 8
@@ -121,7 +122,8 @@ escaladas:
     conquistadores:
     - Gustavo Maneira
     data_abertura: '2012'
-- via_esportiva:
+- uid: r4dQbVfK4VI33g
+  via_esportiva:
     nome: Caminho das águas
     dificuldade: BR_5
     extensao: 10
@@ -130,7 +132,8 @@ escaladas:
     conquistadores:
     - Diego Leonardo
     data_abertura: '2012'
-- via_esportiva:
+- uid: qD6Ceolo44X2w1
+  via_esportiva:
     nome: Shana Crazy
     dificuldade: BR_6SUP
     extensao: 10
@@ -139,7 +142,8 @@ escaladas:
     conquistadores:
     - Laurêncio
     data_abertura: '2011'
-- via_esportiva:
+- uid: gmKH48WBR5Tiyq
+  via_esportiva:
     nome: Na racha
     dificuldade: BR_6SUP
     extensao: 10
@@ -148,7 +152,8 @@ escaladas:
     conquistadores:
     - Pedro Andrade
     data_abertura: '2017'
-- via_esportiva:
+- uid: xT8zvDHyLijCjY
+  via_esportiva:
     nome: Lei Rounet
     dificuldade: BR_7B
     extensao: 10
@@ -157,7 +162,8 @@ escaladas:
     conquistadores:
     - Diego Leonardo
     data_abertura: '2011'
-- via_esportiva:
+- uid: LmL2tFAel8o9PW
+  via_esportiva:
     nome: Maria da Penha
     dificuldade: BR_6SUP
     extensao: 10
@@ -166,7 +172,8 @@ escaladas:
     conquistadores:
     - Laurêncio
     data_abertura: '2011'
-- via_esportiva:
+- uid: UYkX8oPcGqjomJ
+  via_esportiva:
     nome: Para-raio de Maluco
     dificuldade: BR_6
     extensao: 12
@@ -176,7 +183,8 @@ escaladas:
     - Diego Leonardo
     - Gustavo Maneira
     data_abertura: '2011'
-- via_esportiva:
+- uid: ZwJBVHE0z1YKaG
+  via_esportiva:
     nome: Sandálias da Humildade
     dificuldade: BR_7B
     extensao: 10

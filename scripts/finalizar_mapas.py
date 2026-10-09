@@ -11,6 +11,9 @@ import argparse
 from pathlib import Path
 from PIL import Image
 
+sys.path.append(str(Path(__file__).resolve().parent.parent))
+from scripts.gerenciar_uids_lib import gerar_uid, validar_uid
+
 def parse_md_com_frontmatter(caminho_arquivo: Union[str, Path]) -> Tuple[Optional[Dict[str, Any]], str]:
     """Lê um arquivo Markdown e separa o YAML Frontmatter do conteúdo."""
     with open(caminho_arquivo, "r", encoding="utf-8") as f:
@@ -122,12 +125,29 @@ def finalizar_mapas(pico_path: Union[str, Path]) -> None:
                 if 'box' in pt and ('xmin' in pt['box'] or 'ymin' in pt['box']):
                     raise ValueError(f"Erro: Formato legado 'xmin/ymin' detectado no POI '{pt.get('id')}' do mapa {json_file.name}. Por favor migre para o formato de centro (x, y, comprimento, largura).")
 
+                # Converte label para rotulo se presente
+                if "label" in pt:
+                    rotulo_legado = pt.pop("label")
+                    if "rotulo" not in pt:
+                        pt["rotulo"] = rotulo_legado
+
+                # Injeta UID se ausente ou inválido
+                p_uid = pt.get("uid")
+                if not validar_uid(p_uid):
+                    pt["uid"] = gerar_uid()
+
                 if 'circulo' in pt or 'circular' in pt:
                     if 'circular' in pt:
                         pt['circulo'] = pt.pop('circular')
                     novos_pontos.append(pt)
-                elif any(k in pt for k in ['retangulo', 'quadrado', 'box']):
-                    box_key = next((k for k in ['retangulo', 'quadrado', 'box'] if k in pt), None)
+                elif 'quadrado' in pt:
+                    quad = pt['quadrado']
+                    if isinstance(quad, dict) and 'x' in quad and 'y' in quad and ('lado' in quad or ('comprimento' in quad and 'largura' in quad)):
+                        novos_pontos.append(pt)
+                    else:
+                        print(f"Aviso: Ponto de interesse '{pt.get('rotulo', pt.get('id', '?'))}' no mapa {img_relative_path} está incompleto e será ignorado.")
+                elif any(k in pt for k in ['retangulo', 'box']):
+                    box_key = next((k for k in ['retangulo', 'box'] if k in pt), None)
                     box = pt[box_key]
                     if all(k in box for k in ['x', 'y', 'comprimento', 'largura']):
                         if box_key == 'box':
@@ -139,11 +159,11 @@ def finalizar_mapas(pico_path: Union[str, Path]) -> None:
                             del box['angulo']
                         novos_pontos.append(pt)
                     else:
-                        print(f"Aviso: Ponto de interesse '{pt.get('label', pt.get('id', '?'))}' no mapa {img_relative_path} está incompleto e será ignorado.")
-                elif 'area_livre' in pt:
+                        print(f"Aviso: Ponto de interesse '{pt.get('rotulo', pt.get('id', '?'))}' no mapa {img_relative_path} está incompleto e será ignorado.")
+                elif 'poligono' in pt or 'area_livre' in pt or 'linha' in pt:
                     novos_pontos.append(pt)
                 else:
-                    print(f"Aviso: Ponto de interesse '{pt.get('label', pt.get('id', '?'))}' no mapa {img_relative_path} tem formato desconhecido e será ignorado.")
+                    print(f"Aviso: Ponto de interesse '{pt.get('rotulo', pt.get('id', '?'))}' no mapa {img_relative_path} tem formato desconhecido e será ignorado.")
             
             mapa_alvo["pontos_de_interesse"] = novos_pontos
             

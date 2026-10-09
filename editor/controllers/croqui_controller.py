@@ -87,7 +87,7 @@ class CroquiController:
 
             from editor.models.referencias_util import obter_contexto_escalada
             root = self.model.obter_croqui_readonly()
-            pico, _, setor, _ = obter_contexto_escalada(root, msg)
+            pico, grupo, setor, nome_escalada = obter_contexto_escalada(root, msg)
             if pico is not None and setor is not None:
                 self.renomear_escalada(
                     msg_escalada=msg,
@@ -95,6 +95,7 @@ class CroquiController:
                     nome_novo=str(valor_novo) if valor_novo is not None else "",
                     pode_mesclar=pode_mesclar,
                     session_id=session_id,
+                    contexto=(pico, grupo, setor, nome_escalada),
                 )
                 return
 
@@ -113,6 +114,7 @@ class CroquiController:
         referencias: Optional[Any] = None,
         caminhos_referencias: Optional[Any] = None,
         caminho_msg: Optional[str] = None,
+        contexto: Optional[Any] = None,
     ) -> None:
         """
         Renomeia uma escalada e atualiza simultaneamente todas as referências
@@ -129,7 +131,7 @@ class CroquiController:
             else:
                 from editor.models.referencias_util import buscar_referencias_para_escalada
                 root = self.model.obter_croqui_readonly()
-                referencias = buscar_referencias_para_escalada(root, msg_escalada)
+                referencias = buscar_referencias_para_escalada(root, msg_escalada, contexto=contexto)
 
         cmd = CmdRenomearEscalada(
             model=self.model,

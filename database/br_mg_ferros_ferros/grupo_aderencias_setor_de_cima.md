@@ -1,77 +1,76 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+uid: gamcFIKDPJDg0q
 nome: Setor de Cima
 mapas:
 - caminho_imagem_mapa: imagens/grupo_aderencias_setor_de_cima_p1_i0.webp
   largura_mapa: 2015
   altura_mapa: 1240
   referencias:
-  - escalada: Buena Vista
-    ids:
-    - '1'
-  - escalada: São Lourenço
-    ids:
-    - '2'
-  - escalada: Carnaferros
-    ids:
-    - '3'
-  - setor: Face Central
-    ids:
-    - Aderencias_Face_Central
-  - setor: Esquerda
-    ids:
-    - Aderencias_Esquerda_2
-  - setor: Parede Principal – Direita
-    ids:
-    - Parede_Principal_Direira
-    grupo: Parede Principal (Paredes de Aço)
-  - grupo: Parede Principal (Paredes de Aço)
-    setor: Setor Central
-    ids:
-    - Parede_Principal_Face_Central
+  - alvo_uid: tyMti71jD17cBy
+    pontos_uids:
+    - h3eewZOEjXCBZA
+  - alvo_uid: rg3BWvUObM4m0B
+    pontos_uids:
+    - TCQzBD2v7nXgvJ
+  - alvo_uid: QD0PgLPU3Tnj2j
+    pontos_uids:
+    - TkCmX3tyYoWHEC
+  - alvo_uid: rGOlhPmCuaVWav
+    pontos_uids:
+    - f2peRAdIfgpQLZ
+  - alvo_uid: avRkW8fzw3OF22
+    pontos_uids:
+    - 78M7PevSBpfjiD
+  - alvo_uid: g0ASFec0ovBc9J
+    pontos_uids:
+    - 8gD4hNa0IGrIJY
+  - alvo_uid: nJgmAcSxMTe2Xy
+    pontos_uids:
+    - TVpqttZmg2JLTQ
   pontos_de_interesse:
-  - id: '1'
-    label: '1'
+  - uid: h3eewZOEjXCBZA
+    rotulo: '1'
     circulo:
       x: 1507
       y: 642
       raio: 22
-  - id: '2'
-    label: '2'
+  - uid: TCQzBD2v7nXgvJ
+    rotulo: '2'
     circulo:
       x: 1617
       y: 629
       raio: 22
-  - id: '3'
-    label: '3'
+  - uid: TkCmX3tyYoWHEC
+    rotulo: '3'
     circulo:
       x: 1909
       y: 726
       raio: 22
-  - id: Aderencias_Face_Central
-    label: Aderências - Face Central
+  - uid: f2peRAdIfgpQLZ
+    rotulo: Aderências - Face Central
     retangulo:
       x: 1236
       y: 490
       comprimento: 395
       largura: 65
-  - id: Aderencias_Esquerda_2
-    label: Aderências - Esquerda 2
+  - uid: 78M7PevSBpfjiD
+    rotulo: Aderências - Esquerda 2
     retangulo:
       x: 834
       y: 72
       comprimento: 360
       largura: 53
-  - id: Parede_Principal_Direira
-    label: Parede Principal Direira
+  - uid: 8gD4hNa0IGrIJY
+    rotulo: Parede Principal Direira
     retangulo:
       x: 312
       y: 377
       comprimento: 259
       largura: 76
-  - id: Parede_Principal_Face_Central
-    label: Parede Principal - Face Central
+  - uid: TVpqttZmg2JLTQ
+    rotulo: Parede Principal - Face Central
     retangulo:
       x: 616
       y: 944
@@ -81,47 +80,47 @@ mapas:
   largura_mapa: 2034
   altura_mapa: 1228
   referencias:
-  - escalada: Buena Vista
-    ids:
-    - '1'
-  - escalada: São Lourenço
-    ids:
-    - '2'
-  - escalada: Carnaferros
-    ids:
-    - '3'
-  - escalada: E o Rio Levou
-    setor: Face Central
-    ids:
-    - E o Rio Levou
+  - alvo_uid: tyMti71jD17cBy
+    pontos_uids:
+    - ZQdk7DdJyxz94t
+  - alvo_uid: rg3BWvUObM4m0B
+    pontos_uids:
+    - MTRSMmhIRksdPf
+  - alvo_uid: QD0PgLPU3Tnj2j
+    pontos_uids:
+    - ZveVCINqXrvZVr
+  - alvo_uid: rWMLkzsMZiRO3H
+    pontos_uids:
+    - hVEGqSCkH8ra5X
   pontos_de_interesse:
-  - id: '1'
-    label: '1'
+  - uid: ZQdk7DdJyxz94t
+    rotulo: '1'
     circulo:
       x: 318
       y: 1187
       raio: 34
-  - id: '2'
-    label: '2'
+  - uid: MTRSMmhIRksdPf
+    rotulo: '2'
     circulo:
       x: 540
       y: 1184
       raio: 34
-  - id: '3'
-    label: '3'
+  - uid: ZveVCINqXrvZVr
+    rotulo: '3'
     circulo:
       x: 663
       y: 1184
       raio: 34
-  - id: E o Rio Levou
-    label: E o Rio Levou
+  - uid: hVEGqSCkH8ra5X
+    rotulo: E o Rio Levou
     retangulo:
       x: 122
       y: 896
       comprimento: 221
       largura: 121
 escaladas:
-- via_esportiva:
+- uid: tyMti71jD17cBy
+  via_esportiva:
     nome: Buena Vista
     dificuldade: BR_3SUP
     exposicao: E1
@@ -142,7 +141,8 @@ escaladas:
   - caminho_imagem_mapa: imagens/grupo_aderencias_setor_de_cima_p4_i2.webp
     largura_mapa: 1037
     altura_mapa: 692
-- via_multiplas_enfiadas:
+- uid: rg3BWvUObM4m0B
+  via_multiplas_enfiadas:
     nome: São Lourenço
     dificuldade_media: BR_3
     dificuldade_maxima: BR_4
@@ -155,7 +155,8 @@ escaladas:
     data_abertura: '2007-12-09'
     descricao: Via conquistada em homenagem ao grande escalador carioca Jair Lourenço,
       por coincidência, no dia de seu falecimento.
-- via_esportiva:
+- uid: QD0PgLPU3Tnj2j
+  via_esportiva:
     nome: Carnaferros
     dificuldade: BR_5
     exposicao: E1
@@ -177,6 +178,7 @@ escaladas:
     largura_mapa: 1078
     altura_mapa: 748
 ---
+
 <small>Capa: Maria Fernanda descendo a trilha de acesso do Setor de Cima da Parede das Aderências (Foto: Pedro Bugim)</small>
 
 Trata-se da continuação da Parede das Aderências – Setor Central, seguindo para um setor mais elevado, com parede levemente mais vertical, contando com apenas três vias e com boas possibilidades de novas conquistas, sobretudo, seguindo-se para a direita.

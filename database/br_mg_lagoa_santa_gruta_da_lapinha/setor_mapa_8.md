@@ -1,290 +1,287 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+uid: R4T6GZbgabQodt
 nome: Setor Túnel de Pedra (Mapa 8)
 mapas:
 - caminho_imagem_mapa: imagens/setor_mapa_8_p0_i0.webp
   largura_mapa: 490
   altura_mapa: 360
   pontos_de_interesse:
-  - id: '82'
-    label: '82'
+  - uid: hGcCpqISgO5Ez7
+    rotulo: '82'
     retangulo:
       x: 11
       y: 97
       comprimento: 14
       largura: 12
-  - id: '83'
-    label: '83'
+  - uid: VenVi5yQvRC9tJ
+    rotulo: '83'
     retangulo:
       x: 21
       y: 114
       comprimento: 14
       largura: 12
-  - id: '84'
-    label: '84'
+  - uid: 2El8JpemBA1uin
+    rotulo: '84'
     retangulo:
       x: 46
       y: 144
       comprimento: 14
       largura: 12
-  - id: '85'
-    label: '85'
+  - uid: ZDoKi59PYOnpQ5
+    rotulo: '85'
     retangulo:
       x: 64
       y: 142
       comprimento: 14
       largura: 12
-  - id: '86'
-    label: '86'
+  - uid: NgVYaSiIhijBMj
+    rotulo: '86'
     retangulo:
       x: 87
       y: 140
       comprimento: 14
       largura: 12
-  - id: '87'
-    label: '87'
+  - uid: FqPvQyqLrSWjjj
+    rotulo: '87'
     retangulo:
       x: 128
       y: 142
       comprimento: 14
       largura: 12
-  - id: '88'
-    label: '88'
+  - uid: Ov4O25jS3cuaP8
+    rotulo: '88'
     retangulo:
       x: 122
       y: 158
       comprimento: 14
       largura: 12
-  - id: '89'
-    label: '89'
+  - uid: 4FxCluDk4Rtj00
+    rotulo: '89'
     retangulo:
       x: 103
       y: 154
       comprimento: 14
       largura: 12
-  - id: '91'
-    label: '91'
+  - uid: RRYXB42aOGnIxX
+    rotulo: '91'
     retangulo:
       x: 243
       y: 324
       comprimento: 14
       largura: 12
-  - id: '92'
-    label: '92'
+  - uid: WaTUfE5SA2tfw8
+    rotulo: '92'
     retangulo:
       x: 182
       y: 194
       comprimento: 12
       largura: 9
-  - id: '93'
-    label: '93'
+  - uid: kTNF5z1DbFB7OT
+    rotulo: '93'
     retangulo:
       x: 194
       y: 184
       comprimento: 11
       largura: 9
-  - id: '94'
-    label: '94'
+  - uid: yGfWjbBH9O6G6C
+    rotulo: '94'
     retangulo:
       x: 211
       y: 173
       comprimento: 14
       largura: 12
-  - id: '95'
-    label: '95'
+  - uid: WDWCKnErNiKSiQ
+    rotulo: '95'
     retangulo:
       x: 239
       y: 159
       comprimento: 14
       largura: 12
-  - id: '96'
-    label: '96'
+  - uid: wLT0df5guGG1CC
+    rotulo: '96'
     retangulo:
       x: 221
       y: 130
       comprimento: 12
       largura: 9
-  - id: '97'
-    label: '97'
+  - uid: MwEF9ydeMOTn6a
+    rotulo: '97'
     retangulo:
       x: 207
       y: 140
       comprimento: 12
       largura: 8
-  - id: '98'
-    label: '98'
+  - uid: mlFawOfgOWPo3G
+    rotulo: '98'
     retangulo:
       x: 202
       y: 158
       comprimento: 11
       largura: 11
-  - id: '99'
-    label: '99'
+  - uid: OCK4VtAc2DnDsP
+    rotulo: '99'
     retangulo:
       x: 181
       y: 126
       comprimento: 14
       largura: 11
-  - id: '100'
-    label: '100'
+  - uid: gHm3OJhkalYdks
+    rotulo: '100'
     retangulo:
       x: 152
       y: 116
       comprimento: 17
       largura: 10
-  - id: '101'
-    label: '101'
+  - uid: CwMStfSGesutnN
+    rotulo: '101'
     retangulo:
       x: 158
       y: 98
       comprimento: 17
       largura: 9
-  - id: '102'
-    label: '102'
+  - uid: OOJRyvkJi3NfZG
+    rotulo: '102'
     retangulo:
       x: 180
       y: 88
       comprimento: 17
       largura: 11
-  - id: '103'
-    label: '103'
+  - uid: xqErmEnBxlsY7V
+    rotulo: '103'
     retangulo:
       x: 207
       y: 105
       comprimento: 18
       largura: 10
-  - id: '104'
-    label: '104'
+  - uid: d2JXIHtHmANt1j
+    rotulo: '104'
     retangulo:
       x: 230
       y: 99
       comprimento: 17
       largura: 10
-  - id: '105'
-    label: '105'
+  - uid: Ein8Cu9aEzNSjP
+    rotulo: '105'
     retangulo:
       x: 240
       y: 70
       comprimento: 17
       largura: 10
-  - id: '106'
-    label: '106'
+  - uid: ypnf6FyerErnVr
+    rotulo: '106'
     retangulo:
       x: 216
       y: 56
       comprimento: 19
       largura: 10
-  - id: '107'
-    label: '107'
+  - uid: YRAg2GMUGnbfcR
+    rotulo: '107'
     retangulo:
       x: 168
       y: 42
       comprimento: 19
       largura: 9
-  - id: '108'
-    label: '108'
+  - uid: u2jYmRiNJiWfqo
+    rotulo: '108'
     retangulo:
       x: 138
       y: 42
       comprimento: 17
       largura: 9
-  - id: '109'
-    label: '109'
+  - uid: LMPZw4fLITrUWo
+    rotulo: '109'
     retangulo:
       x: 130
       y: 29
       comprimento: 17
       largura: 10
   referencias:
-  - escalada: Bigode de Cristo
-    ids:
-    - '87'
-  - escalada: Bigode Sujo
-    ids:
-    - '88'
-  - escalada: Bigode de Espinho
-    ids:
-    - '89'
-  - escalada: Trombeta Acéfala
-    ids:
-    - '91'
-  - escalada: Meio Cubanos
-    ids:
-    - '92'
-  - escalada: Golpe Ninja
-    ids:
-    - '93'
-  - escalada: Tripla Traição
-    ids:
-    - '94'
-  - escalada: Noivado da Feiticeira
-    ids:
-    - '95'
-  - escalada: Planeta dos Macacos
-    ids:
-    - '96'
-  - escalada: Rota de colisão
-    ids:
-    - '97'
-  - escalada: Projeto Daniel Salim
-    ids:
-    - '98'
-  - escalada: Vale Perdido
-    ids:
-    - '99'
-  - escalada: Consolo da Surucucu
-    ids:
-    - '100'
-  - escalada: Santos e Hereges
-    ids:
-    - '101'
-  - escalada: O Império Contra Ataca
-    ids:
-    - '102'
-  - escalada: Jegue Voador
-    ids:
-    - '103'
-  - escalada: Labirinto das Maritacas
-    ids:
-    - '104'
-  - escalada: Tentações de Maria Madalena
-    ids:
-    - '105'
-  - escalada: Sai do chão
-    ids:
-    - '106'
-  - escalada: Ato Imperdoável
-    ids:
-    - '107'
-  - escalada: Projeto Rodrigo do Paraná
-    ids:
-    - '108'
-  - escalada: Pequena Criança
-    ids:
-    - '109'
-  - escalada: Três dentro, três fora
-    ids:
-    - '82'
-    setor: Setor Mapa 7
-  - ids:
-    - '83'
-    setor: Setor Mapa 7
-    escalada: Só para eles
-  - ids:
-    - '84'
-    setor: Setor Mapa 7
-    escalada: Só para elas
-  - ids:
-    - '85'
-    setor: Setor Mapa 7
-    escalada: Prestobarba
-  - ids:
-    - '86'
-    setor: Setor Mapa 7
-    escalada: Bigode Limpo
+  - alvo_uid: IqzNu0BRjbdzLz
+    pontos_uids:
+    - FqPvQyqLrSWjjj
+  - alvo_uid: ZgB4gVcfZ1FoTC
+    pontos_uids:
+    - Ov4O25jS3cuaP8
+  - alvo_uid: 74NzqIsXX385XP
+    pontos_uids:
+    - 4FxCluDk4Rtj00
+  - alvo_uid: GksFepQerd6kj3
+    pontos_uids:
+    - RRYXB42aOGnIxX
+  - alvo_uid: L69C6jL7Bphv5T
+    pontos_uids:
+    - WaTUfE5SA2tfw8
+  - alvo_uid: PBMAKEwduou7iM
+    pontos_uids:
+    - kTNF5z1DbFB7OT
+  - alvo_uid: CDDjlHX6ZPFIfg
+    pontos_uids:
+    - yGfWjbBH9O6G6C
+  - alvo_uid: 8b8K01Oui85IB0
+    pontos_uids:
+    - WDWCKnErNiKSiQ
+  - alvo_uid: 6laLGWjMZtyl5K
+    pontos_uids:
+    - wLT0df5guGG1CC
+  - alvo_uid: kulsF9JNdpDYC3
+    pontos_uids:
+    - MwEF9ydeMOTn6a
+  - alvo_uid: yMYiuu4C1XwTsU
+    pontos_uids:
+    - mlFawOfgOWPo3G
+  - alvo_uid: fuAERj0RgZMLR5
+    pontos_uids:
+    - OCK4VtAc2DnDsP
+  - alvo_uid: Edh9kZy5L2CndU
+    pontos_uids:
+    - gHm3OJhkalYdks
+  - alvo_uid: 3i1j443nXNqSp1
+    pontos_uids:
+    - CwMStfSGesutnN
+  - alvo_uid: uJRx7yglftzDUo
+    pontos_uids:
+    - OOJRyvkJi3NfZG
+  - alvo_uid: ZX3E7xP5ZmQP0s
+    pontos_uids:
+    - xqErmEnBxlsY7V
+  - alvo_uid: 3RNMY4E3VJdcjO
+    pontos_uids:
+    - d2JXIHtHmANt1j
+  - alvo_uid: vXnlfUKuk8bH78
+    pontos_uids:
+    - Ein8Cu9aEzNSjP
+  - alvo_uid: 1HqUU8JAEawaHB
+    pontos_uids:
+    - ypnf6FyerErnVr
+  - alvo_uid: Ro3Eflgqd8pPx9
+    pontos_uids:
+    - YRAg2GMUGnbfcR
+  - alvo_uid: cQzxdvJXXi1bmC
+    pontos_uids:
+    - u2jYmRiNJiWfqo
+  - alvo_uid: ULAvbV9FOKor89
+    pontos_uids:
+    - LMPZw4fLITrUWo
+  - alvo_uid: ZYG9ghLMTzMJVk
+    pontos_uids:
+    - hGcCpqISgO5Ez7
+  - alvo_uid: G4Gdw4XvIlJXQX
+    pontos_uids:
+    - VenVi5yQvRC9tJ
+  - alvo_uid: p77Iy4sAShvmg2
+    pontos_uids:
+    - 2El8JpemBA1uin
+  - alvo_uid: WHJ53V0DkIbf7P
+    pontos_uids:
+    - ZDoKi59PYOnpQ5
+  - alvo_uid: 46pgZmHpsgEsde
+    pontos_uids:
+    - NgVYaSiIhijBMj
 escaladas:
-- via_esportiva:
+- uid: IqzNu0BRjbdzLz
+  via_esportiva:
     nome: Bigode de Cristo
     dificuldade: BR_6
     quantidade_protecoes_intermediarias: 4
@@ -293,9 +290,9 @@ escaladas:
     - Eustáquio Macedo Melo Júnior
     - Fábio Luiz Farias "Fabinho"
     data_abertura: '1993'
-    descricao: 'ATENÇÃO: não utilizar o bico de pedra próximo ao top rope como agarra!
-      Risco de queda do bloco!'
-- via_esportiva:
+    descricao: 'ATENÇÃO: não utilizar o bico de pedra próximo ao top rope como agarra! Risco de queda do bloco!'
+- uid: ZgB4gVcfZ1FoTC
+  via_esportiva:
     nome: Bigode Sujo
     dificuldade: BR_7C
     data_manutencao: 04/07/2026
@@ -306,7 +303,8 @@ escaladas:
     - Eustáquio Macedo Melo Júnior
     - Gilberto Torres
     data_abertura: '1993'
-- via_esportiva:
+- uid: 74NzqIsXX385XP
+  via_esportiva:
     nome: Bigode de Espinho
     dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 0
@@ -315,7 +313,8 @@ escaladas:
     - Alexandre F. de Queiroz "Caverna"
     - Edgardo Abreu "Caca"
     data_abertura: '1995'
-- via_esportiva:
+- uid: UxgAsYgQCFlueX
+  via_esportiva:
     nome: Ecos do Além
     dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 4
@@ -323,30 +322,33 @@ escaladas:
     conquistadores:
     - Dante Martins Borges
     - Sérgio Bastos da Silva
-- via_movel:
+- uid: GksFepQerd6kj3
+  via_movel:
     nome: Trombeta Acéfala
     dificuldade: BR_5SUP
     conquistadores:
     - Eustáquio M. Melo Júnior
     - Leonardo Hoffmann
     data_abertura: '1994'
-- via_movel:
+- uid: L69C6jL7Bphv5T
+  via_movel:
     nome: Meio Cubanos
     dificuldade: BR_6SUP
     conquistadores:
     - Roberto Lincoln de Freitas
-- via_esportiva:
+- uid: PBMAKEwduou7iM
+  via_esportiva:
     nome: Golpe Ninja
     dificuldade: BR_7C
     quantidade_protecoes_intermediarias: 4
     quantidade_protecoes_parada: 2
-    descricao: '**INTERDITADA:** Bloco com fratura/rachadura crítica na altura da
-      2ª proteção, com alto risco de descolamento.'
+    descricao: '**INTERDITADA:** Bloco com fratura/rachadura crítica na altura da 2ª proteção, com alto risco de descolamento.'
     conquistadores:
     - Dante Martins Borges
     - Sérgio Bastos da Silva
     data_abertura: '2000'
-- via_esportiva:
+- uid: CDDjlHX6ZPFIfg
+  via_esportiva:
     nome: Tripla Traição
     dificuldade: BR_5
     data_manutencao: 05/09/2026
@@ -357,7 +359,8 @@ escaladas:
     - Eustáquio M. M. Júnior
     - Léo Hoffmann
     data_abertura: '1994'
-- via_esportiva:
+- uid: 8b8K01Oui85IB0
+  via_esportiva:
     nome: Noivado da Feiticeira
     dificuldade: BR_6
     quantidade_protecoes_intermediarias: 4
@@ -367,17 +370,18 @@ escaladas:
     - Leonardo Hoffmann
     - Ramaya Vallias
     data_abertura: '1994'
-- via_esportiva:
+- uid: 6laLGWjMZtyl5K
+  via_esportiva:
     nome: Planeta dos Macacos
     dificuldade: PROJETO
     quantidade_protecoes_intermediarias: 4
     quantidade_protecoes_parada: 0
-    descricao: '**INTERDITADA:** Via inacabada, sem parada no topo. Presença de spits
-      e grampos com palheta antigos.'
+    descricao: '**INTERDITADA:** Via inacabada, sem parada no topo. Presença de spits e grampos com palheta antigos.'
     conquistadores:
     - Leonardo Hoffmann
     - Alexandre "Caverna"
-- via_esportiva:
+- uid: kulsF9JNdpDYC3
+  via_esportiva:
     nome: Rota de colisão
     dificuldade: BR_8A
     quantidade_protecoes_intermediarias: 4
@@ -386,16 +390,17 @@ escaladas:
     - Leonardo Hoffmann
     - Marco Antônio Canelas
     data_abertura: '2001'
-- via_esportiva:
+- uid: yMYiuu4C1XwTsU
+  via_esportiva:
     nome: Projeto Daniel Salim
     dificuldade: PROJETO
     quantidade_protecoes_intermediarias: 1
     quantidade_protecoes_parada: 0
-    descricao: '**INTERDITADA:** Via inacabada, possui apenas 1 proteção com palheta
-      e não possui parada no topo.'
+    descricao: '**INTERDITADA:** Via inacabada, possui apenas 1 proteção com palheta e não possui parada no topo.'
     conquistadores:
     - Daniel Fernandes "Salim"
-- via_esportiva:
+- uid: fuAERj0RgZMLR5
+  via_esportiva:
     nome: Vale Perdido
     dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 3
@@ -404,12 +409,12 @@ escaladas:
     - Emerson Alves Azeredo
     - Gilberto Torres
     data_abertura: '1993'
-    descricao: 'Via mista, laçar a ponte de pedra com uma fita de 120cm entre a 3a
-      proteção e o top.
+    descricao: 'Via mista, laçar a ponte de pedra com uma fita de 120cm entre a 3a proteção e o top.
 
 
       Muito cuidado nas primeiras três proteções por causa do bloco na base da via.'
-- via_esportiva:
+- uid: Edh9kZy5L2CndU
+  via_esportiva:
     nome: Consolo da Surucucu
     dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 8
@@ -417,7 +422,8 @@ escaladas:
     conquistadores:
     - Vinícius B. Assis
     data_abertura: '1997'
-- via_esportiva:
+- uid: 3i1j443nXNqSp1
+  via_esportiva:
     nome: Santos e Hereges
     dificuldade: BR_9B
     quantidade_protecoes_intermediarias: 3
@@ -426,7 +432,8 @@ escaladas:
     - Eustáquio Macedo Melo Júnior
     - Mário Almeida Neto
     data_abertura: '1993'
-- via_esportiva:
+- uid: uJRx7yglftzDUo
+  via_esportiva:
     nome: O Império Contra Ataca
     dificuldade: BR_7C
     quantidade_protecoes_intermediarias: 4
@@ -435,7 +442,8 @@ escaladas:
     - Eustáquio Macedo Melo Júnior
     - Fabiano da Silva Fernandes
     data_abertura: '1993'
-- via_esportiva:
+- uid: ZX3E7xP5ZmQP0s
+  via_esportiva:
     nome: Jegue Voador
     dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 5
@@ -445,7 +453,8 @@ escaladas:
     - Marco Antônio Canelas
     - Marcelo Andrê
     data_abertura: '1994'
-- via_esportiva:
+- uid: 3RNMY4E3VJdcjO
+  via_esportiva:
     nome: Labirinto das Maritacas
     dificuldade: BR_6
     quantidade_protecoes_intermediarias: 5
@@ -454,35 +463,40 @@ escaladas:
     - Emerson Alves Azeredo
     - Gilberto Torres
     data_abertura: '1993'
-- via_movel:
+- uid: vXnlfUKuk8bH78
+  via_movel:
     nome: Tentações de Maria Madalena
     dificuldade: BR_6
     conquistadores:
     - Eustáquio Macedo Melo Júnior
     - Leonardo Hoffmann
     data_abertura: '1993'
-- via_esportiva:
+- uid: 1HqUU8JAEawaHB
+  via_esportiva:
     nome: Sai do chão
     dificuldade: BR_9A
     conquistadores:
     - Jovinei Miguel Medeiros
     - Helon Brazil Neto
     data_abertura: '2001'
-- via_esportiva:
+- uid: Ro3Eflgqd8pPx9
+  via_esportiva:
     nome: Ato Imperdoável
     dificuldade: BR_8A
     conquistadores:
     - Eustáquio Macedo Melo Júnior
     - Fabiano da Silva Fernandes
     data_abertura: '1994'
-- via_esportiva:
+- uid: cQzxdvJXXi1bmC
+  via_esportiva:
     nome: Projeto Rodrigo do Paraná
     conquistadores:
     - Pedro (PR)
     - Rodrigo (PR)
     - Antônio Paulo
     - Chico
-- via_esportiva:
+- uid: ULAvbV9FOKor89
+  via_esportiva:
     nome: Pequena Criança
     dificuldade: BR_7A
     conquistadores:

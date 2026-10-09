@@ -21,11 +21,11 @@ Os pontos de interesse já estão marcados no arquivo JSON. Por exemplo, para o 
 {
   "dimensoes_imagem": { "largura": 1108, "altura": 1241 },
   "pontos_de_interesse": [
-    { "id": "01", "label": "Via 01", "circulo": { "x": 684, "y": 824, "raio": 16 } },
-    { "id": "02", "label": "Via 02", "quadrado": { "x": 732, "y": 882, "lado": 35 } },
-    { "id": "Mesa", "label": "Mesa", "retangulo": { "x": 876, "y": 547, "comprimento": 48, "largura": 25 } },
-    { "id": "Setor_Diagonal", "label": "Setor Diagonal", "retangulo": { "x": 1167, "y": 637, "comprimento": 265, "largura": 25, "angulo_graus_x100": 3000 } },
-    { "id": "Livre", "label": "Área Livre", "poligono": { "coordenadas": [0, 0, 10, 0, 10, 10] } }
+    { "id": "01", "rotulo": "Via 01", "circulo": { "x": 684, "y": 824, "raio": 16 } },
+    { "id": "02", "rotulo": "Via 02", "quadrado": { "x": 732, "y": 882, "lado": 35 } },
+    { "id": "Mesa", "rotulo": "Mesa", "retangulo": { "x": 876, "y": 547, "comprimento": 48, "largura": 25 } },
+    { "id": "Setor_Diagonal", "rotulo": "Setor Diagonal", "retangulo": { "x": 1167, "y": 637, "comprimento": 265, "largura": 25, "angulo_graus_x100": 3000 } },
+    { "id": "Livre", "rotulo": "Área Livre", "poligono": { "coordenadas": [0, 0, 10, 0, 10, 10] } }
   ]
 }
 ```

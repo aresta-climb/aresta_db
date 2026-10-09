@@ -150,6 +150,15 @@ jobs:
           git push origin main
           git push origin editor-v${{ steps.versao.outputs.versao }}
 
+      - name: Criar GitHub Release Oficial
+        env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+        run: |
+          gh release create editor-v${{ steps.versao.outputs.versao }} \
+            --title "Editor Aresta v${{ steps.versao.outputs.versao }}" \
+            --notes "Lançamento oficial do Editor Aresta v${{ steps.versao.outputs.versao }}." \
+            --verify-tag || true
+
   build_windows:
     name: Build Windows
     needs: prepare_release

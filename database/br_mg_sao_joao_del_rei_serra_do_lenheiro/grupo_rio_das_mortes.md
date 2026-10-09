@@ -1,6 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+uid: YoyRoeffCpnkiI
 nome: Rio das Mortes
 setores:
 - caminho: grupo_rio_das_mortes_setor_de_cima.md

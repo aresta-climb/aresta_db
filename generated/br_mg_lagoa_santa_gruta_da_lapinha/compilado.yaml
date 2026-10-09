@@ -1,3 +1,4 @@
+uid: 9jDSsMY9R5bPSY
 id: br_mg_lagoa_santa_gruta_da_lapinha
 nome: Gruta da Lapinha
 descricao: Guia de escalada da Gruta da Lapinha em Lagoa Santa, MG.
@@ -9,81 +10,114 @@ picos:
   setores_ou_grupos:
   - setor:
       conteudo:
+        uid: pcQfnDIAUZk99g
         nome: Castelinho
         mapas:
         - caminho_imagem_mapa: imagens/setor_mapa_1_p0_i0.webp
           largura_mapa: 330
           altura_mapa: 246
           pontos_de_interesse:
-          - id: '01'
-            label: '01'
+          - uid: IXdi9b6ANAZqas
+            rotulo: '01'
             retangulo:
               x: 123
               y: 180
               comprimento: 10
               largura: 9
-          - id: '02'
-            label: '02'
+            id: IXdi9b6ANAZqas
+            label: '01'
+          - uid: kl6xM7uAYzA7Da
+            rotulo: '02'
             retangulo:
               x: 138
               y: 193
               comprimento: 9
               largura: 8
-          - id: '03'
-            label: '03'
+            id: kl6xM7uAYzA7Da
+            label: '02'
+          - uid: yqIuqsvKHtOHCY
+            rotulo: '03'
             retangulo:
               x: 193
               y: 222
               comprimento: 10
               largura: 9
-          - id: '04'
-            label: '04'
+            id: yqIuqsvKHtOHCY
+            label: '03'
+          - uid: ZvQxcq7VXB3oo5
+            rotulo: '04'
             retangulo:
               x: 211
               y: 212
               comprimento: 10
               largura: 9
-          - id: '05'
-            label: '05'
+            id: ZvQxcq7VXB3oo5
+            label: '04'
+          - uid: WCop4MeMLmO1OZ
+            rotulo: '05'
             retangulo:
               x: 226
               y: 198
               comprimento: 10
               largura: 9
-          - id: '06'
-            label: '06'
+            id: WCop4MeMLmO1OZ
+            label: '05'
+          - uid: tzWTPn01zEiYeE
+            rotulo: '06'
             retangulo:
               x: 275
               y: 166
               comprimento: 10
               largura: 9
+            id: tzWTPn01zEiYeE
+            label: '06'
           referencias:
-          - escalada: Sai que é vaca
+          - alvo_uid: GwiarHNNEXnfly
+            pontos_uids:
+            - IXdi9b6ANAZqas
+            escalada: Sai que é vaca
             ids:
-            - '01'
-          - escalada: Favo de Mel
+            - IXdi9b6ANAZqas
+          - alvo_uid: IkF7tbLlAt5Zdz
+            pontos_uids:
+            - kl6xM7uAYzA7Da
+            escalada: Favo de Mel
             ids:
-            - '02'
-          - escalada: Retorno do Marco
+            - kl6xM7uAYzA7Da
+          - alvo_uid: uMZtAWeka4OQlJ
+            pontos_uids:
+            - yqIuqsvKHtOHCY
+            escalada: Retorno do Marco
             ids:
-            - '03'
-          - escalada: Tomara que não chova
+            - yqIuqsvKHtOHCY
+          - alvo_uid: gcztZvEGjZmcgV
+            pontos_uids:
+            - ZvQxcq7VXB3oo5
+            escalada: Tomara que não chova
             ids:
-            - '04'
-          - escalada: Castelinho
+            - ZvQxcq7VXB3oo5
+          - alvo_uid: QBYl00QZT0YkrW
+            pontos_uids:
+            - WCop4MeMLmO1OZ
+            escalada: Castelinho
             ids:
-            - '05'
-          - escalada: Projeto
+            - WCop4MeMLmO1OZ
+          - alvo_uid: YJo7r0hFIoOXTZ
+            pontos_uids:
+            - tzWTPn01zEiYeE
+            escalada: Projeto
             ids:
-            - '06'
+            - tzWTPn01zEiYeE
         escaladas:
-        - via_movel:
+        - uid: GwiarHNNEXnfly
+          via_movel:
             nome: Sai que é vaca
             dificuldade: BR_6
             conquistadores:
             - Márcio Soares Macena
             - Wilson Novaes
-        - via_movel:
+        - uid: IkF7tbLlAt5Zdz
+          via_movel:
             nome: Favo de Mel
             dificuldade: BR_6
             quantidade_protecoes_intermediarias: 3
@@ -91,13 +125,15 @@ picos:
             conquistadores:
             - Márcio Soares Macena
             - Wilson Novaes
-        - via_movel:
+        - uid: uMZtAWeka4OQlJ
+          via_movel:
             nome: Retorno do Marco
             dificuldade: BR_3
             conquistadores:
             - Antonio C. Magalhães
             - Marco Antônio Canelas
-        - via_esportiva:
+        - uid: gcztZvEGjZmcgV
+          via_esportiva:
             nome: Tomara que não chova
             dificuldade: BR_6SUP
             quantidade_protecoes_intermediarias: 6
@@ -106,7 +142,8 @@ picos:
             - Christian A. N. Costa
             - Leo Guimarães "Léo Dandão"
             data_abertura: '2001'
-        - via_esportiva:
+        - uid: QBYl00QZT0YkrW
+          via_esportiva:
             nome: Castelinho
             dificuldade: BR_6
             quantidade_protecoes_intermediarias: 6
@@ -115,7 +152,8 @@ picos:
             - Marcelo Henrique Grijó Utsch
             - Cristiano Loureiro
             data_abertura: '1993'
-        - via_esportiva:
+        - uid: YJo7r0hFIoOXTZ
+          via_esportiva:
             nome: Projeto
             dificuldade: PROJETO
             quantidade_protecoes_intermediarias: 3
@@ -132,40 +170,53 @@ picos:
           total_esportivas: 3
   - setor:
       conteudo:
+        uid: k6xxkL2askccdr
         nome: Setor Mapa 2
         mapas:
         - caminho_imagem_mapa: imagens/setor_mapa_2_p0_i0.webp
           largura_mapa: 369
           altura_mapa: 276
           pontos_de_interesse:
-          - id: '07'
-            label: '07'
+          - uid: 8TWtxGbJHVaSf3
+            rotulo: '07'
             retangulo:
               x: 153
               y: 102
               comprimento: 10
               largura: 9
-          - id: '08'
-            label: '08'
+            id: 8TWtxGbJHVaSf3
+            label: '07'
+          - uid: xjTKAZAl2qzvRu
+            rotulo: '08'
             retangulo:
               x: 178
               y: 112
               comprimento: 10
               largura: 9
+            id: xjTKAZAl2qzvRu
+            label: '08'
           referencias:
-          - escalada: Ajoelhou tem que Rezar
+          - alvo_uid: lJSlR2A2Xnc174
+            pontos_uids:
+            - 8TWtxGbJHVaSf3
+            escalada: Ajoelhou tem que Rezar
             ids:
-            - '07'
-          - escalada: O Exibicionista
+            - 8TWtxGbJHVaSf3
+          - alvo_uid: VzHgiUIINvtKec
+            pontos_uids:
+            - xjTKAZAl2qzvRu
+            escalada: O Exibicionista
             ids:
-            - '08'
+            - xjTKAZAl2qzvRu
         escaladas:
-        - via_movel:
+        - uid: lJSlR2A2Xnc174
+          via_movel:
             nome: Ajoelhou tem que Rezar
             dificuldade: BR_6SUP
             conquistadores:
             - Antonio Carlos Magalhães
-        - via_esportiva:
+        - uid: VzHgiUIINvtKec
+          via_esportiva:
             nome: O Exibicionista
             dificuldade: BR_5
             quantidade_protecoes_intermediarias: 2
@@ -181,329 +232,469 @@ picos:
           total_esportivas: 1
   - setor:
       conteudo:
+        uid: ZxeynNWtcoJYj9
         nome: Setor Gruta - Mapa 3
         mapas:
         - caminho_imagem_mapa: imagens/setor_mapa_3_p0_i0.webp
           largura_mapa: 438
           altura_mapa: 323
           pontos_de_interesse:
-          - id: '09'
-            label: '09'
+          - uid: a84jXjlGaIfYvu
+            rotulo: '09'
             retangulo:
               x: 241
               y: 73
               comprimento: 12
               largura: 10
-          - id: '10'
-            label: '10'
+            id: a84jXjlGaIfYvu
+            label: '09'
+          - uid: hYDYj3defdj6iz
+            rotulo: '10'
             retangulo:
               x: 246
               y: 61
               comprimento: 12
               largura: 10
-          - id: '11'
-            label: '11'
+            id: hYDYj3defdj6iz
+            label: '10'
+          - uid: G9obv6HGygmW39
+            rotulo: '11'
             retangulo:
               x: 243
               y: 48
               comprimento: 10
               largura: 9
-          - id: '12'
-            label: '12'
+            id: G9obv6HGygmW39
+            label: '11'
+          - uid: g3Rw9n92cRMheO
+            rotulo: '12'
             retangulo:
               x: 238
               y: 36
               comprimento: 11
               largura: 10
-          - id: '13'
-            label: '13'
+            id: g3Rw9n92cRMheO
+            label: '12'
+          - uid: YXUlxFX4b4dt9T
+            rotulo: '13'
             retangulo:
               x: 226
               y: 40
               comprimento: 11
               largura: 10
-          - id: '14'
-            label: '14'
+            id: YXUlxFX4b4dt9T
+            label: '13'
+          - uid: 0HJznidvGc2Dc8
+            rotulo: '14'
             retangulo:
               x: 213
               y: 50
               comprimento: 12
               largura: 11
-          - id: '15'
-            label: '15'
+            id: 0HJznidvGc2Dc8
+            label: '14'
+          - uid: JdGRvR0UrHptAj
+            rotulo: '15'
             retangulo:
               x: 193
               y: 63
               comprimento: 14
               largura: 12
-          - id: '16'
-            label: '16'
+            id: JdGRvR0UrHptAj
+            label: '15'
+          - uid: iEnAxu5pPCP2uq
+            rotulo: '16'
             retangulo:
               x: 154
               y: 99
               comprimento: 14
               largura: 12
-          - id: '17'
-            label: '17'
+            id: iEnAxu5pPCP2uq
+            label: '16'
+          - uid: L6nrJpbgYPskOU
+            rotulo: '17'
             retangulo:
               x: 71
               y: 122
               comprimento: 14
               largura: 12
-          - id: '18'
-            label: '18'
+            id: L6nrJpbgYPskOU
+            label: '17'
+          - uid: igWL4CK3ObDb9x
+            rotulo: '18'
             retangulo:
               x: 85
               y: 184
               comprimento: 14
               largura: 12
-          - id: '19'
-            label: '19'
+            id: igWL4CK3ObDb9x
+            label: '18'
+          - uid: yJ1uPbPJ91BGt5
+            rotulo: '19'
             retangulo:
               x: 105
               y: 190
               comprimento: 14
               largura: 12
-          - id: '20'
-            label: '20'
+            id: yJ1uPbPJ91BGt5
+            label: '19'
+          - uid: alEy3QpZYuqo68
+            rotulo: '20'
             retangulo:
               x: 178
               y: 150
               comprimento: 14
               largura: 12
-          - id: '21'
-            label: '21'
+            id: alEy3QpZYuqo68
+            label: '20'
+          - uid: qPV8P7gZFP9zOE
+            rotulo: '21'
             retangulo:
               x: 205
               y: 143
               comprimento: 14
               largura: 12
-          - id: '22'
-            label: '22'
+            id: qPV8P7gZFP9zOE
+            label: '21'
+          - uid: WhG4Tcjw6pFH2I
+            rotulo: '22'
             retangulo:
               x: 234
               y: 135
               comprimento: 14
               largura: 12
-          - id: '23'
-            label: '23'
+            id: WhG4Tcjw6pFH2I
+            label: '22'
+          - uid: Z7GhMueq5Bh0B2
+            rotulo: '23'
             retangulo:
               x: 247
               y: 156
               comprimento: 14
               largura: 12
-          - id: '24'
-            label: '24'
+            id: Z7GhMueq5Bh0B2
+            label: '23'
+          - uid: AP5c4pEkUft5Ha
+            rotulo: '24'
             retangulo:
               x: 272
               y: 147
               comprimento: 14
               largura: 12
-          - id: '25'
-            label: '25'
+            id: AP5c4pEkUft5Ha
+            label: '24'
+          - uid: nO20GQLPlKGRlp
+            rotulo: '25'
             retangulo:
               x: 305
               y: 142
               comprimento: 14
               largura: 12
-          - id: '26'
-            label: '26'
+            id: nO20GQLPlKGRlp
+            label: '25'
+          - uid: ilkHCRhKLKj1qT
+            rotulo: '26'
             retangulo:
               x: 304
               y: 126
               comprimento: 14
               largura: 12
-          - id: '27'
-            label: '27'
+            id: ilkHCRhKLKj1qT
+            label: '26'
+          - uid: z7gK35M0FeYIoC
+            rotulo: '27'
             retangulo:
               x: 357
               y: 74
               comprimento: 12
               largura: 10
-          - id: '28'
-            label: '28'
+            id: z7gK35M0FeYIoC
+            label: '27'
+          - uid: GlPuO5cJt5exdV
+            rotulo: '28'
             retangulo:
               x: 372
               y: 52
               comprimento: 14
               largura: 11
-          - id: '29'
-            label: '29'
+            id: GlPuO5cJt5exdV
+            label: '28'
+          - uid: ssl4fxO4hxIlky
+            rotulo: '29'
             retangulo:
               x: 388
               y: 30
               comprimento: 14
               largura: 11
-          - id: '30'
-            label: '30'
+            id: ssl4fxO4hxIlky
+            label: '29'
+          - uid: ZdrpCXFkdGihXw
+            rotulo: '30'
             retangulo:
               x: 399
               y: 16
               comprimento: 14
               largura: 11
-          - id: '45'
-            label: '45'
+            id: ZdrpCXFkdGihXw
+            label: '30'
+          - uid: WYGuHzuajIpHHg
+            rotulo: '45'
             retangulo:
               x: 348
               y: 141
               comprimento: 14
               largura: 12
-          - id: '46'
-            label: '46'
+            id: WYGuHzuajIpHHg
+            label: '45'
+          - uid: Yl5UK7yi3GfgnS
+            rotulo: '46'
             retangulo:
               x: 361
               y: 168
               comprimento: 14
               largura: 12
-          - id: '47'
-            label: '47'
+            id: Yl5UK7yi3GfgnS
+            label: '46'
+          - uid: kDYLtWk7Idc3Sr
+            rotulo: '47'
             retangulo:
               x: 362
               y: 188
               comprimento: 14
               largura: 12
-          - id: '48'
-            label: '48'
+            id: kDYLtWk7Idc3Sr
+            label: '47'
+          - uid: fQOs3Q3snLnG8Q
+            rotulo: '48'
             retangulo:
               x: 366
               y: 203
               comprimento: 14
               largura: 12
+            id: fQOs3Q3snLnG8Q
+            label: '48'
           referencias:
-          - escalada: Lua Cheia
+          - alvo_uid: YckbIoWKQKTLkS
+            pontos_uids:
+            - a84jXjlGaIfYvu
+            escalada: Lua Cheia
             ids:
-            - '09'
-          - escalada: Jornada nas Estrelas
+            - a84jXjlGaIfYvu
+          - alvo_uid: JZxQkEyA4lXM9C
+            pontos_uids:
+            - hYDYj3defdj6iz
+            escalada: Jornada nas Estrelas
             ids:
-            - '10'
-          - escalada: Egotrip
+            - hYDYj3defdj6iz
+          - alvo_uid: egUwOsiMnN45Tu
+            pontos_uids:
+            - G9obv6HGygmW39
+            escalada: Egotrip
             ids:
-            - '11'
-          - escalada: Boicote de comunicação
+            - G9obv6HGygmW39
+          - alvo_uid: cbZ263w7zUzsEf
+            pontos_uids:
+            - g3Rw9n92cRMheO
+            escalada: Boicote de comunicação
             ids:
-            - '12'
-          - escalada: Vicio
+            - g3Rw9n92cRMheO
+          - alvo_uid: PsWevz52vrX9CP
+            pontos_uids:
+            - YXUlxFX4b4dt9T
+            escalada: Vicio
             ids:
-            - '13'
-          - escalada: Conspiração Sanguessuga
+            - YXUlxFX4b4dt9T
+          - alvo_uid: bCJDqPZpZ6a12y
+            pontos_uids:
+            - 0HJznidvGc2Dc8
+            escalada: Conspiração Sanguessuga
             ids:
-            - '14'
-          - escalada: Gota D’água
+            - 0HJznidvGc2Dc8
+          - alvo_uid: CyKGqcG4aTKxfn
+            pontos_uids:
+            - JdGRvR0UrHptAj
+            escalada: Gota D’água
             ids:
-            - '15'
-          - escalada: Sai de Baixo
+            - JdGRvR0UrHptAj
+          - alvo_uid: trj4G3vGOArENf
+            pontos_uids:
+            - iEnAxu5pPCP2uq
+            escalada: Sai de Baixo
             ids:
-            - '16'
-          - escalada: Pipeline
+            - iEnAxu5pPCP2uq
+          - alvo_uid: IOUnxnbFfZEGs4
+            pontos_uids:
+            - L6nrJpbgYPskOU
+            escalada: Pipeline
             ids:
-            - '17'
-          - escalada: Jurubeba
+            - L6nrJpbgYPskOU
+          - alvo_uid: LtbPet4uTXi7Pg
+            pontos_uids:
+            - igWL4CK3ObDb9x
+            escalada: Jurubeba
             ids:
-            - '18'
-          - escalada: Perigo Mora ao Lado
+            - igWL4CK3ObDb9x
+          - alvo_uid: s6aziD9QKGJOpP
+            pontos_uids:
+            - yJ1uPbPJ91BGt5
+            escalada: Perigo Mora ao Lado
             ids:
-            - '19'
-          - escalada: Pretexto da Traição
+            - yJ1uPbPJ91BGt5
+          - alvo_uid: PhAfEvHO25UiXj
+            pontos_uids:
+            - alEy3QpZYuqo68
+            escalada: Pretexto da Traição
             ids:
-            - '20'
-          - escalada: Sorriso do Lagarto
+            - alEy3QpZYuqo68
+          - alvo_uid: 3YGXOKygemgTsz
+            pontos_uids:
+            - qPV8P7gZFP9zOE
+            escalada: Sorriso do Lagarto
             ids:
-            - '21'
-          - escalada: Orgasmatrom
+            - qPV8P7gZFP9zOE
+          - alvo_uid: 5de82BQO55DmG8
+            pontos_uids:
+            - WhG4Tcjw6pFH2I
+            escalada: Orgasmatrom
             ids:
-            - '22'
-          - escalada: Escaramuça
+            - WhG4Tcjw6pFH2I
+          - alvo_uid: 6qtIK6oko89RLT
+            pontos_uids:
+            - Z7GhMueq5Bh0B2
+            escalada: Escaramuça
             ids:
-            - '23'
-          - escalada: Túnel do Tempo
+            - Z7GhMueq5Bh0B2
+          - alvo_uid: fTlGW2iOfrQfhh
+            pontos_uids:
+            - AP5c4pEkUft5Ha
+            escalada: Túnel do Tempo
             ids:
-            - '24'
-          - escalada: Dédalos
+            - AP5c4pEkUft5Ha
+          - alvo_uid: zrPctwMqr1OhvR
+            pontos_uids:
+            - nO20GQLPlKGRlp
+            escalada: Dédalos
             ids:
-            - '25'
-          - escalada: Bouquet de Rosas
+            - nO20GQLPlKGRlp
+          - alvo_uid: KW35NZAOeB6cPC
+            pontos_uids:
+            - ilkHCRhKLKj1qT
+            escalada: Bouquet de Rosas
             ids:
-            - '26'
-          - escalada: Fogo no Rabo
+            - ilkHCRhKLKj1qT
+          - alvo_uid: MHuDaw7hjXX15m
+            pontos_uids:
+            - z7gK35M0FeYIoC
+            escalada: Fogo no Rabo
             ids:
-            - '27'
-          - escalada: Bobeou Sobrou
+            - z7gK35M0FeYIoC
+          - alvo_uid: JOmpj2z9VixPwr
+            pontos_uids:
+            - GlPuO5cJt5exdV
+            escalada: Bobeou Sobrou
             ids:
-            - '28'
-          - escalada: Los Cubanos
+            - GlPuO5cJt5exdV
+          - alvo_uid: lD3cxvUuA8Gf2i
+            pontos_uids:
+            - ssl4fxO4hxIlky
+            escalada: Los Cubanos
             ids:
-            - '29'
-          - escalada: Folião
+            - ssl4fxO4hxIlky
+          - alvo_uid: FHwRMLcg9gfbK6
+            pontos_uids:
+            - ZdrpCXFkdGihXw
+            escalada: Folião
             ids:
-            - '30'
-          - escalada: Escalador sem mãe
+            - ZdrpCXFkdGihXw
+          - alvo_uid: 0kjmgCEQvr7jqR
+            pontos_uids:
+            - WYGuHzuajIpHHg
+            escalada: Escalador sem mãe
             ids:
-            - '45'
-          - escalada: Projeto inacabado
+            - WYGuHzuajIpHHg
+          - alvo_uid: nzc62lIrSNVui8
+            pontos_uids:
+            - Yl5UK7yi3GfgnS
+            escalada: Projeto inacabado
             ids:
-            - '46'
-          - escalada: Sobrevibrenf´s
+            - Yl5UK7yi3GfgnS
+          - alvo_uid: 0XkrqDPEYpl2vw
+            pontos_uids:
+            - kDYLtWk7Idc3Sr
+            escalada: Sobrevibrenf´s
             ids:
-            - '47'
-          - escalada: Sobreviventes
+            - kDYLtWk7Idc3Sr
+          - alvo_uid: f8fyK7B3Fuo95O
+            pontos_uids:
+            - fQOs3Q3snLnG8Q
+            escalada: Sobreviventes
             ids:
-            - '48'
+            - fQOs3Q3snLnG8Q
         escaladas:
-        - via_movel:
+        - uid: YckbIoWKQKTLkS
+          via_movel:
             nome: Lua Cheia
             dificuldade: BR_5
             conquistadores:
             - Antonio Carlos Magalhães
             - Vladmir Haddad
-        - via_esportiva:
+        - uid: JZxQkEyA4lXM9C
+          via_esportiva:
             nome: Jornada nas Estrelas
             dificuldade: BR_7A
             conquistadores:
             - Antonio Carlos Magalhães
             - Vladmir Haddad
             data_abertura: '1997'
-        - via_esportiva:
+        - uid: egUwOsiMnN45Tu
+          via_esportiva:
             nome: Egotrip
             dificuldade: BR_6SUP
             conquistadores:
             - Antonio Carlos Magalhães
             - Vladmir Haddad
             data_abertura: '1997'
-        - via_esportiva:
+        - uid: cbZ263w7zUzsEf
+          via_esportiva:
             nome: Boicote de comunicação
             dificuldade: BR_6SUP
             conquistadores:
             - Leonardo Hoffmann
             - Fao
             data_abertura: '2001'
-        - via_esportiva:
+        - uid: PsWevz52vrX9CP
+          via_esportiva:
             nome: Vicio
             dificuldade: BR_6
             conquistadores:
             - Antonio Carlos Magalhães
             - Vladmir Haddad
             data_abertura: '1997'
-        - via_esportiva:
+        - uid: bCJDqPZpZ6a12y
+          via_esportiva:
             nome: Conspiração Sanguessuga
             dificuldade: BR_6SUP
             conquistadores:
             - Leonardo Hoffmann
             - Alexandre
-        - via_movel:
+        - uid: CyKGqcG4aTKxfn
+          via_movel:
             nome: Gota D’água
             dificuldade: BR_6
             conquistadores:
             - Antonio Carlos Magalhães
             - Vladmir Haddad
             data_abertura: '1997'
-        - via_movel:
+        - uid: trj4G3vGOArENf
+          via_movel:
             nome: Sai de Baixo
             dificuldade: BR_5
             conquistadores:
             - Antonio Carlos Magalhães
             - Danilo Abreu
             data_abertura: '1997'
-        - via_esportiva:
+        - uid: IOUnxnbFfZEGs4
+          via_esportiva:
             nome: Pipeline
             dificuldade: BR_6SUP
             quantidade_protecoes_intermediarias: 0
@@ -514,7 +705,8 @@ picos:
             - Gabriel Fillizola
             - Sílvio Om
             data_abertura: '1997'
-        - via_esportiva:
+        - uid: LtbPet4uTXi7Pg
+          via_esportiva:
             nome: Jurubeba
             dificuldade: BR_8B
             quantidade_protecoes_intermediarias: 5
@@ -525,7 +717,8 @@ picos:
             - Wagner Morin Gomes
             - Wilson Novaes
             data_abertura: '1998'
-        - via_esportiva:
+        - uid: s6aziD9QKGJOpP
+          via_esportiva:
             nome: Perigo Mora ao Lado
             dificuldade: BR_8A
             quantidade_protecoes_intermediarias: 4
@@ -536,7 +729,8 @@ picos:
             - Márcio Soares Macena
             - Mozart
             data_abertura: '1998'
-        - via_esportiva:
+        - uid: PhAfEvHO25UiXj
+          via_esportiva:
             nome: Pretexto da Traição
             dificuldade: BR_6SUP
             quantidade_protecoes_intermediarias: 3
@@ -547,7 +741,8 @@ picos:
             - Daniel Fernandes "Salim"
             - Ramaya Vallias
             data_abertura: '1994'
-        - via_esportiva:
+        - uid: 3YGXOKygemgTsz
+          via_esportiva:
             nome: Sorriso do Lagarto
             dificuldade: BR_6
             quantidade_protecoes_intermediarias: 3
@@ -558,7 +753,8 @@ picos:
             - André C. B. "Andrezão"
             - J. Roberto Cardoso "Dagó"
             data_abertura: '1995'
-        - via_esportiva:
+        - uid: 5de82BQO55DmG8
+          via_esportiva:
             nome: Orgasmatrom
             dificuldade: BR_6
             quantidade_protecoes_intermediarias: 5
@@ -569,34 +765,39 @@ picos:
             - André C. B. "Andrezão"
             - J. Roberto Cardoso "Dagó"
             data_abertura: '1995'
-        - via_movel:
+        - uid: 6qtIK6oko89RLT
+          via_movel:
             nome: Escaramuça
             dificuldade: BR_3
             conquistadores:
             - Antonio Carlos Magalhães
             data_abertura: '1997'
-        - via_movel:
+        - uid: fTlGW2iOfrQfhh
+          via_movel:
             nome: Túnel do Tempo
             dificuldade: BR_5
             conquistadores:
             - Antonio Carlos Magalhães
             - Lúcia Magalhães
             data_abertura: '1997'
-        - via_movel:
+        - uid: zrPctwMqr1OhvR
+          via_movel:
             nome: Dédalos
             dificuldade: BR_4SUP
             conquistadores:
             - Antonio Carlos Magalhães
             - Lúcia Magalhães
             data_abertura: '1997'
-        - via_movel:
+        - uid: KW35NZAOeB6cPC
+          via_movel:
             nome: Bouquet de Rosas
             dificuldade: BR_4SUP
             conquistadores:
             - Antonio C. Magalhães
             - Danilo Abreu
             data_abertura: '1997'
-        - via_esportiva:
+        - uid: MHuDaw7hjXX15m
+          via_esportiva:
             nome: Fogo no Rabo
             dificuldade: BR_6SUP
             conquistadores:
@@ -604,14 +805,16 @@ picos:
             - Viviane da Silva Euler
             data_abertura: '1998'
             data_manutencao: 27/05/2022
-        - via_esportiva:
+        - uid: JOmpj2z9VixPwr
+          via_esportiva:
             nome: Bobeou Sobrou
             dificuldade: BR_7A
             conquistadores:
             - Fabiano da Silva Fernandes
             - Viviane da Silva Euler
             data_abertura: '1998'
-        - via_esportiva:
+        - uid: lD3cxvUuA8Gf2i
+          via_esportiva:
             nome: Los Cubanos
             dificuldade: BR_6SUP
             conquistadores:
@@ -619,14 +822,16 @@ picos:
             - Viviane da Silva Euler
             data_abertura: '1999'
             data_manutencao: 12/07/2022
-        - via_movel:
+        - uid: FHwRMLcg9gfbK6
+          via_movel:
             nome: Folião
             dificuldade: BR_6
             conquistadores:
             - Antonio Carlos Magalhães
             - Lúcia Magalhães
             data_abertura: '1997'
-        - via_esportiva:
+        - uid: 0kjmgCEQvr7jqR
+          via_esportiva:
             nome: Escalador sem mãe
             dificuldade: BR_8A
             conquistadores:
@@ -634,7 +839,8 @@ picos:
             - Dante M. Borges
             - Sérgio B. da Silva.
             data_abertura: '1997'
-        - via_esportiva:
+        - uid: nzc62lIrSNVui8
+          via_esportiva:
             nome: Projeto inacabado
             dificuldade: PROJETO
             quantidade_protecoes_intermediarias: 2
@@ -643,7 +849,8 @@ picos:
               e sem parada instalada no topo.'
             conquistadores:
             - André Coutinho
-        - via_esportiva:
+        - uid: 0XkrqDPEYpl2vw
+          via_esportiva:
             nome: Sobrevibrenf´s
             dificuldade: BR_6SUP
             quantidade_protecoes_intermediarias: 4
@@ -652,7 +859,8 @@ picos:
             - Leonardo Hoffmann
             data_abertura: '2001'
             data_manutencao: 10/08/2022
-        - via_esportiva:
+        - uid: f8fyK7B3Fuo95O
+          via_esportiva:
             nome: Sobreviventes
             dificuldade: BR_6
             quantidade_protecoes_intermediarias: 6
@@ -671,309 +879,437 @@ picos:
           total_esportivas: 18
   - setor:
       conteudo:
+        uid: UsSUW7apVi41SD
         nome: Setor Gruta - Mapa 4 (Sala de Aula)
         mapas:
         - caminho_imagem_mapa: imagens/setor_mapa_4_p0_i0.webp
           largura_mapa: 434
           altura_mapa: 325
           pontos_de_interesse:
-          - id: '27'
-            label: '27'
+          - uid: YbwIrMGf3g0rBr
+            rotulo: '27'
             retangulo:
               x: 122
               y: 191
               comprimento: 16
               largura: 12
-          - id: '28'
-            label: '28'
+            id: YbwIrMGf3g0rBr
+            label: '27'
+          - uid: hbW6qWslU23clk
+            rotulo: '28'
             retangulo:
               x: 90
               y: 174
               comprimento: 14
               largura: 10
-          - id: '29'
-            label: '29'
+            id: hbW6qWslU23clk
+            label: '28'
+          - uid: eOxeQzw0fioIOS
+            rotulo: '29'
             retangulo:
               x: 69
               y: 154
               comprimento: 12
               largura: 10
-          - id: '30'
-            label: '30'
+            id: eOxeQzw0fioIOS
+            label: '29'
+          - uid: vBLxVGcDZRvJud
+            rotulo: '30'
             retangulo:
               x: 54
               y: 144
               comprimento: 11
               largura: 9
-          - id: '31'
-            label: '31'
+            id: vBLxVGcDZRvJud
+            label: '30'
+          - uid: kVRiPsoYtbRGRW
+            rotulo: '31'
             retangulo:
               x: 30
               y: 98
               comprimento: 14
               largura: 12
-          - id: '32'
-            label: '32'
+            id: kVRiPsoYtbRGRW
+            label: '31'
+          - uid: WcMk6ADqlyWuEi
+            rotulo: '32'
             retangulo:
               x: 35
               y: 79
               comprimento: 14
               largura: 12
-          - id: '33'
-            label: '33'
+            id: WcMk6ADqlyWuEi
+            label: '32'
+          - uid: zAYs5SVbqCn9Vy
+            rotulo: '33'
             retangulo:
               x: 39
               y: 55
               comprimento: 12
               largura: 10
-          - id: '34'
-            label: '34'
+            id: zAYs5SVbqCn9Vy
+            label: '33'
+          - uid: W2qBCpwNNJ9k8u
+            rotulo: '34'
             retangulo:
               x: 42
               y: 38
               comprimento: 13
               largura: 10
-          - id: '35'
-            label: '35'
+            id: W2qBCpwNNJ9k8u
+            label: '34'
+          - uid: 8EAtC0V19Wjn54
+            rotulo: '35'
             retangulo:
               x: 62
               y: 34
               comprimento: 12
               largura: 11
-          - id: '36'
-            label: '36'
+            id: 8EAtC0V19Wjn54
+            label: '35'
+          - uid: DK8P4ULhqv5lBG
+            rotulo: '36'
             retangulo:
               x: 64
               y: 55
               comprimento: 11
               largura: 10
-          - id: '37'
-            label: '37'
+            id: DK8P4ULhqv5lBG
+            label: '36'
+          - uid: A06uD9gFWxhcYT
+            rotulo: '37'
             retangulo:
               x: 52
               y: 64
               comprimento: 11
               largura: 9
-          - id: '38'
-            label: '38'
+            id: A06uD9gFWxhcYT
+            label: '37'
+          - uid: kTllLRySz1Isb6
+            rotulo: '38'
             retangulo:
               x: 50
               y: 121
               comprimento: 14
               largura: 12
-          - id: '39'
-            label: '39'
+            id: kTllLRySz1Isb6
+            label: '38'
+          - uid: 1uIvbfEaAqbb3d
+            rotulo: '39'
             retangulo:
               x: 76
               y: 132
               comprimento: 11
               largura: 10
-          - id: '40'
-            label: '40'
+            id: 1uIvbfEaAqbb3d
+            label: '39'
+          - uid: yuMnis7fVuEmVl
+            rotulo: '40'
             retangulo:
               x: 78
               y: 144
               comprimento: 10
               largura: 8
-          - id: '41'
-            label: '41'
+            id: yuMnis7fVuEmVl
+            label: '40'
+          - uid: Yj2yGgPtNAJck6
+            rotulo: '41'
             retangulo:
               x: 84
               y: 162
               comprimento: 11
               largura: 9
-          - id: '42'
-            label: '42'
+            id: Yj2yGgPtNAJck6
+            label: '41'
+          - uid: qL5hm95WO6YW2A
+            rotulo: '42'
             retangulo:
               x: 117
               y: 176
               comprimento: 14
               largura: 12
-          - id: '43'
-            label: '43'
+            id: qL5hm95WO6YW2A
+            label: '42'
+          - uid: mIQ6BoZIFWnpzd
+            rotulo: '43'
             retangulo:
               x: 135
               y: 171
               comprimento: 14
               largura: 12
-          - id: '44'
-            label: '44'
+            id: mIQ6BoZIFWnpzd
+            label: '43'
+          - uid: Fo3bDOOX5AvnLS
+            rotulo: '44'
             retangulo:
               x: 149
               y: 159
               comprimento: 14
               largura: 12
-          - id: '45'
-            label: '45'
+            id: Fo3bDOOX5AvnLS
+            label: '44'
+          - uid: TzfHeUzGtWrhfI
+            rotulo: '45'
             retangulo:
               x: 200
               y: 198
               comprimento: 15
               largura: 11
-          - id: '46'
-            label: '46'
+            id: TzfHeUzGtWrhfI
+            label: '45'
+          - uid: FNnXhaNsCkS317
+            rotulo: '46'
             retangulo:
               x: 230
               y: 189
               comprimento: 16
               largura: 12
-          - id: '47'
-            label: '47'
+            id: FNnXhaNsCkS317
+            label: '46'
+          - uid: Q3wymOY56A2tvK
+            rotulo: '47'
             retangulo:
               x: 250
               y: 188
               comprimento: 14
               largura: 13
-          - id: '48'
-            label: '48'
+            id: Q3wymOY56A2tvK
+            label: '47'
+          - uid: 8jLM33q08m09jN
+            rotulo: '48'
             retangulo:
               x: 270
               y: 184
               comprimento: 15
               largura: 13
-          - id: '49'
-            label: '49'
+            id: 8jLM33q08m09jN
+            label: '48'
+          - uid: 69uCcDNsRqJK6d
+            rotulo: '49'
             retangulo:
               x: 320
               y: 228
               comprimento: 18
               largura: 15
-          - id: '50'
-            label: '50'
+            id: 69uCcDNsRqJK6d
+            label: '49'
+          - uid: Oe8hpZkQ4qjkll
+            rotulo: '50'
             retangulo:
               x: 340
               y: 259
               comprimento: 15
               largura: 12
-          - id: '51'
-            label: '51'
+            id: Oe8hpZkQ4qjkll
+            label: '50'
+          - uid: ZIFl9D0Bczeb7l
+            rotulo: '51'
             retangulo:
               x: 358
               y: 270
               comprimento: 16
               largura: 13
-          - id: Savassinha
-            label: Savassinha
+            id: ZIFl9D0Bczeb7l
+            label: '51'
+          - uid: VhXFpYrylmzxCu
+            rotulo: Savassinha
             retangulo:
               x: 360
               y: 172
               comprimento: 109
               largura: 21
+            id: VhXFpYrylmzxCu
+            label: Savassinha
           referencias:
-          - escalada: Fogo no Rabo
+          - alvo_uid: MHuDaw7hjXX15m
+            pontos_uids:
+            - YbwIrMGf3g0rBr
+            escalada: Fogo no Rabo
             ids:
-            - '27'
-            setor: Setor Gruta - Mapa 3
-          - escalada: Bobeou Sobrou
+            - YbwIrMGf3g0rBr
+          - alvo_uid: JOmpj2z9VixPwr
+            pontos_uids:
+            - hbW6qWslU23clk
+            escalada: Bobeou Sobrou
             ids:
-            - '28'
-            setor: Setor Gruta - Mapa 3
-          - escalada: Los Cubanos
+            - hbW6qWslU23clk
+          - alvo_uid: lD3cxvUuA8Gf2i
+            pontos_uids:
+            - eOxeQzw0fioIOS
+            escalada: Los Cubanos
             ids:
-            - '29'
-            setor: Setor Gruta - Mapa 3
-          - escalada: Folião
+            - eOxeQzw0fioIOS
+          - alvo_uid: FHwRMLcg9gfbK6
+            pontos_uids:
+            - vBLxVGcDZRvJud
+            escalada: Folião
             ids:
-            - '30'
-            setor: Setor Gruta - Mapa 3
-          - escalada: Luzes
+            - vBLxVGcDZRvJud
+          - alvo_uid: Jn3ntinFsz4Mej
+            pontos_uids:
+            - kVRiPsoYtbRGRW
+            escalada: Luzes
             ids:
-            - '31'
-          - escalada: Via sem informação
+            - kVRiPsoYtbRGRW
+          - alvo_uid: hTFVFnVNlXtvJf
+            pontos_uids:
+            - WcMk6ADqlyWuEi
+            escalada: Via sem informação
             ids:
-            - '32'
-          - escalada: Êta Sô
+            - WcMk6ADqlyWuEi
+          - alvo_uid: 4y9VOJODOjiUwZ
+            pontos_uids:
+            - zAYs5SVbqCn9Vy
+            escalada: Êta Sô
             ids:
-            - '33'
-          - escalada: Via do Tetinho
+            - zAYs5SVbqCn9Vy
+          - alvo_uid: qLY9XVrCzvCVqL
+            pontos_uids:
+            - W2qBCpwNNJ9k8u
+            escalada: Via do Tetinho
             ids:
-            - '34'
-          - escalada: Ataque das Bolinhas
+            - W2qBCpwNNJ9k8u
+          - alvo_uid: CwigryYDSWgxcb
+            pontos_uids:
+            - 8EAtC0V19Wjn54
+            escalada: Ataque das Bolinhas
             ids:
-            - '35'
-          - escalada: Via do curso
+            - 8EAtC0V19Wjn54
+          - alvo_uid: RC5i9eNc3bCcBy
+            pontos_uids:
+            - DK8P4ULhqv5lBG
+            escalada: Via do curso
             ids:
-            - '36'
-          - escalada: Viajandão Grampeando na Chuva
+            - DK8P4ULhqv5lBG
+          - alvo_uid: phjsdSbCT8uzmK
+            pontos_uids:
+            - A06uD9gFWxhcYT
+            escalada: Viajandão Grampeando na Chuva
             ids:
-            - '37'
-          - escalada: Martelo Voador
+            - A06uD9gFWxhcYT
+          - alvo_uid: 6XVtUPIENKTN1i
+            pontos_uids:
+            - kTllLRySz1Isb6
+            escalada: Martelo Voador
             ids:
-            - '38'
-          - escalada: Coquetel de Maracujá
+            - kTllLRySz1Isb6
+          - alvo_uid: wFjo0Cyi5O4lQ1
+            pontos_uids:
+            - 1uIvbfEaAqbb3d
+            escalada: Coquetel de Maracujá
             ids:
-            - '39'
-          - escalada: Ravenloft
+            - 1uIvbfEaAqbb3d
+          - alvo_uid: O24NOv7tMTcj2m
+            pontos_uids:
+            - yuMnis7fVuEmVl
+            escalada: Ravenloft
             ids:
-            - '40'
-          - escalada: Muro das Lamentações
+            - yuMnis7fVuEmVl
+          - alvo_uid: dXlxB7P6VbEhc4
+            pontos_uids:
+            - Yj2yGgPtNAJck6
+            escalada: Muro das Lamentações
             ids:
-            - '41'
-          - escalada: Equilíbrio Distante
+            - Yj2yGgPtNAJck6
+          - alvo_uid: lfaYDI92Vpufa7
+            pontos_uids:
+            - qL5hm95WO6YW2A
+            escalada: Equilíbrio Distante
             ids:
-            - '42'
-          - escalada: Careta do Calango
+            - qL5hm95WO6YW2A
+          - alvo_uid: iE2bR4i3ORITBt
+            pontos_uids:
+            - mIQ6BoZIFWnpzd
+            escalada: Careta do Calango
             ids:
-            - '43'
-          - escalada: Pierrô e Colombina
+            - mIQ6BoZIFWnpzd
+          - alvo_uid: lnwPHtyMsnk7PX
+            pontos_uids:
+            - Fo3bDOOX5AvnLS
+            escalada: Pierrô e Colombina
             ids:
-            - '44'
-          - escalada: Escalador sem mãe
+            - Fo3bDOOX5AvnLS
+          - alvo_uid: 0kjmgCEQvr7jqR
+            pontos_uids:
+            - TzfHeUzGtWrhfI
+            escalada: Escalador sem mãe
             ids:
-            - '45'
-            setor: Setor Gruta - Mapa 3
-          - escalada: Projeto inacabado
+            - TzfHeUzGtWrhfI
+          - alvo_uid: nzc62lIrSNVui8
+            pontos_uids:
+            - FNnXhaNsCkS317
+            escalada: Projeto inacabado
             ids:
-            - '46'
-            setor: Setor Gruta - Mapa 3
-          - escalada: Sobrevibrenf´s
+            - FNnXhaNsCkS317
+          - alvo_uid: 0XkrqDPEYpl2vw
+            pontos_uids:
+            - Q3wymOY56A2tvK
+            escalada: Sobrevibrenf´s
             ids:
-            - '47'
-            setor: Setor Gruta - Mapa 3
-          - escalada: Sobreviventes
+            - Q3wymOY56A2tvK
+          - alvo_uid: f8fyK7B3Fuo95O
+            pontos_uids:
+            - 8jLM33q08m09jN
+            escalada: Sobreviventes
             ids:
-            - '48'
-            setor: Setor Gruta - Mapa 3
-          - escalada: Scarface
+            - 8jLM33q08m09jN
+          - alvo_uid: CHeLwtTXSiOQCo
+            pontos_uids:
+            - 69uCcDNsRqJK6d
+            escalada: Scarface
             ids:
-            - '49'
-          - escalada: Posições Exóticas
+            - 69uCcDNsRqJK6d
+          - alvo_uid: 6faaxq4WPUk78M
+            pontos_uids:
+            - Oe8hpZkQ4qjkll
+            escalada: Posições Exóticas
             ids:
-            - '50'
-          - escalada: Garotos não Choram
+            - Oe8hpZkQ4qjkll
+          - alvo_uid: HD6YyW6TnowhuN
+            pontos_uids:
+            - ZIFl9D0Bczeb7l
+            escalada: Garotos não Choram
             ids:
-            - '51'
-          - ids:
-            - Savassinha
+            - ZIFl9D0Bczeb7l
+          - alvo_uid: UlccfwkdM6gnf0
+            pontos_uids:
+            - VhXFpYrylmzxCu
             setor: Savassinha (Mapa 9)
+            ids:
+            - VhXFpYrylmzxCu
         escaladas:
-        - via_movel:
+        - uid: Jn3ntinFsz4Mej
+          via_movel:
             nome: Luzes
             dificuldade: BR_4
             conquistadores:
             - Antonio Carlos Magalhães
             - Lúcia Magalhães
             data_abertura: '1997'
-        - via_esportiva:
+        - uid: hTFVFnVNlXtvJf
+          via_esportiva:
             nome: Via sem informação
             dificuldade: BR_4
             conquistadores:
             - Leonardo Guimarães "Léo Dandão"
             data_abertura: '1994'
-        - via_movel:
+        - uid: 4y9VOJODOjiUwZ
+          via_movel:
             nome: Êta Sô
             dificuldade: BR_6
             conquistadores:
             - Antonio Carlos Magalhães
             - Lúcia Magalhães
             data_abertura: '1997'
-        - via_esportiva:
+        - uid: qLY9XVrCzvCVqL
+          via_esportiva:
             nome: Via do Tetinho
             dificuldade: BR_5SUP
             conquistadores:
             - Leonardo Guimarães "Léo Dandão"
             data_abertura: '1994'
-        - via_esportiva:
+        - uid: CwigryYDSWgxcb
+          via_esportiva:
             nome: Ataque das Bolinhas
             dificuldade: BR_4
             conquistadores:
@@ -981,7 +1317,8 @@ picos:
             - Viviane da Silva Euler
             data_abertura: '1998'
             data_manutencao: 27/05/2022
-        - via_esportiva:
+        - uid: RC5i9eNc3bCcBy
+          via_esportiva:
             nome: Via do curso
             conquistadores:
             - Eustáquio Macedo Melo Júnior
@@ -990,34 +1327,39 @@ picos:
             data_abertura: '1997'
             dificuldade: BR_3
             data_manutencao: 27/05/2022
-        - via_esportiva:
+        - uid: phjsdSbCT8uzmK
+          via_esportiva:
             nome: Viajandão Grampeando na Chuva
             dificuldade: BR_3
             conquistadores:
             - Eustáquio M. Melo Júnior e alunos
             data_abertura: '1997'
             data_manutencao: 27/05/2022
-        - via_esportiva:
+        - uid: 6XVtUPIENKTN1i
+          via_esportiva:
             nome: Martelo Voador
             dificuldade: BR_4
             conquistadores:
             - Ramaya Vallias
             - Sérgio Soares
             data_abertura: '1999'
-        - via_esportiva:
+        - uid: wFjo0Cyi5O4lQ1
+          via_esportiva:
             nome: Coquetel de Maracujá
             dificuldade: BR_4
             conquistadores:
             - Fabiano da Silva Fernandes
             - Viviane da Silva Euler
             data_abertura: '1998'
-        - via_esportiva:
+        - uid: O24NOv7tMTcj2m
+          via_esportiva:
             nome: Ravenloft
             dificuldade: BR_6
             data_abertura: '1997'
             conquistadores:
             - Leonardo Guimarães "Léo Dandão"
-        - via_esportiva:
+        - uid: dXlxB7P6VbEhc4
+          via_esportiva:
             nome: Muro das Lamentações
             dificuldade: BR_7B
             conquistadores:
@@ -1025,7 +1367,8 @@ picos:
             - Viviane da Silva Euler
             data_abertura: '1998'
             data_manutencao: 12/07/2022
-        - via_esportiva:
+        - uid: lfaYDI92Vpufa7
+          via_esportiva:
             nome: Equilíbrio Distante
             dificuldade: BR_8A
             conquistadores:
@@ -1033,20 +1376,23 @@ picos:
             - Viviane da Silva Euler
             data_abertura: '1997'
             data_manutencao: 12/07/2022
-        - via_esportiva:
+        - uid: iE2bR4i3ORITBt
+          via_esportiva:
             nome: Careta do Calango
             dificuldade: BR_9A
             conquistadores:
             - Cristiano Loureiro "Negão"
             data_abertura: '1998'
-        - via_movel:
+        - uid: lnwPHtyMsnk7PX
+          via_movel:
             nome: Pierrô e Colombina
             dificuldade: BR_4SUP
             conquistadores:
             - Antonio Carlos Magalhães
             - Lúcia Magalhães
             data_abertura: '2002'
-        - via_esportiva:
+        - uid: CHeLwtTXSiOQCo
+          via_esportiva:
             nome: Scarface
             dificuldade: BR_7A
             quantidade_protecoes_intermediarias: 6
@@ -1055,7 +1401,8 @@ picos:
             - Gustavo Piancastelli
             - Ronie
             data_abertura: '1997'
-        - via_esportiva:
+        - uid: 6faaxq4WPUk78M
+          via_esportiva:
             nome: Posições Exóticas
             dificuldade: BR_7B
             quantidade_protecoes_intermediarias: 7
@@ -1063,7 +1410,8 @@ picos:
             conquistadores:
             - Ivo Ferreira Marcelino
             data_abertura: '1994'
-        - via_esportiva:
+        - uid: HD6YyW6TnowhuN
+          via_esportiva:
             nome: Garotos não Choram
             dificuldade: BR_7A
             quantidade_protecoes_intermediarias: 4
@@ -1081,105 +1429,152 @@ picos:
           total_esportivas: 14
   - setor:
       conteudo:
+        uid: WACdTSW0GaT2WF
         nome: Setor Mapa 5
         mapas:
         - caminho_imagem_mapa: imagens/setor_mapa_5_p0_i0.webp
           largura_mapa: 417
           altura_mapa: 310
           pontos_de_interesse:
-          - id: '52'
-            label: '52'
+          - uid: mwcrIssn7Fbu7K
+            rotulo: '52'
             retangulo:
               x: 379
               y: 20
               comprimento: 14
               largura: 9
-          - id: '53'
-            label: '53'
+            id: mwcrIssn7Fbu7K
+            label: '52'
+          - uid: YUblEqH5pfshO9
+            rotulo: '53'
             retangulo:
               x: 370
               y: 36
               comprimento: 13
               largura: 10
-          - id: '54'
-            label: '54'
+            id: YUblEqH5pfshO9
+            label: '53'
+          - uid: 37wN9SXE44Of5s
+            rotulo: '54'
             retangulo:
               x: 370
               y: 54
               comprimento: 14
               largura: 12
-          - id: '55'
-            label: '55'
+            id: 37wN9SXE44Of5s
+            label: '54'
+          - uid: vuYjNb3dRUZhdn
+            rotulo: '55'
             retangulo:
               x: 364
               y: 71
               comprimento: 14
               largura: 12
-          - id: '56'
-            label: '56'
+            id: vuYjNb3dRUZhdn
+            label: '55'
+          - uid: zNpqRoysKs59g9
+            rotulo: '56'
             retangulo:
               x: 185
               y: 137
               comprimento: 14
               largura: 12
-          - id: '57'
-            label: '57'
+            id: zNpqRoysKs59g9
+            label: '56'
+          - uid: Rlf1iauiC1twwi
+            rotulo: '57'
             retangulo:
               x: 178
               y: 152
               comprimento: 14
               largura: 12
-          - id: '58'
-            label: '58'
+            id: Rlf1iauiC1twwi
+            label: '57'
+          - uid: peXLU6yqiBgVaf
+            rotulo: '58'
             retangulo:
               x: 162
               y: 155
               comprimento: 13
               largura: 10
-          - id: '59'
-            label: '59'
+            id: peXLU6yqiBgVaf
+            label: '58'
+          - uid: 4KXPOHRpCXHQzF
+            rotulo: '59'
             retangulo:
               x: 148
               y: 158
               comprimento: 13
               largura: 11
-          - id: '60'
-            label: '60'
+            id: 4KXPOHRpCXHQzF
+            label: '59'
+          - uid: 7BYlpEkL6jr0Uy
+            rotulo: '60'
             retangulo:
               x: 49
               y: 141
               comprimento: 14
               largura: 12
+            id: 7BYlpEkL6jr0Uy
+            label: '60'
           referencias:
-          - escalada: Ben Moon
+          - alvo_uid: Ugy016aDHDPI6Y
+            pontos_uids:
+            - mwcrIssn7Fbu7K
+            escalada: Ben Moon
             ids:
-            - '52'
-          - escalada: Come Quieto
+            - mwcrIssn7Fbu7K
+          - alvo_uid: ntptButHFotLLK
+            pontos_uids:
+            - YUblEqH5pfshO9
+            escalada: Come Quieto
             ids:
-            - '53'
-          - escalada: O Perigo que Veio do Céu
+            - YUblEqH5pfshO9
+          - alvo_uid: LlhTp0HQEPx14C
+            pontos_uids:
+            - 37wN9SXE44Of5s
+            escalada: O Perigo que Veio do Céu
             ids:
-            - '54'
-          - escalada: Arranca Couro
+            - 37wN9SXE44Of5s
+          - alvo_uid: 0ea9JvzzJRmTMc
+            pontos_uids:
+            - vuYjNb3dRUZhdn
+            escalada: Arranca Couro
             ids:
-            - '55'
-          - escalada: Ônibus Inglês
+            - vuYjNb3dRUZhdn
+          - alvo_uid: Y3VMbBAjE0gzDE
+            pontos_uids:
+            - zNpqRoysKs59g9
+            escalada: Ônibus Inglês
             ids:
-            - '56'
-          - escalada: Gigante de Bronze
+            - zNpqRoysKs59g9
+          - alvo_uid: 8BmdmUZ3J2Ioaf
+            pontos_uids:
+            - Rlf1iauiC1twwi
+            escalada: Gigante de Bronze
             ids:
-            - '57'
-          - escalada: Karrenglass
+            - Rlf1iauiC1twwi
+          - alvo_uid: gIzPvcOt3tcfaW
+            pontos_uids:
+            - peXLU6yqiBgVaf
+            escalada: Karrenglass
             ids:
-            - '58'
-          - escalada: Retorno dos Anões
+            - peXLU6yqiBgVaf
+          - alvo_uid: lieFJxvgjD0T4C
+            pontos_uids:
+            - 4KXPOHRpCXHQzF
+            escalada: Retorno dos Anões
             ids:
-            - '59'
-          - escalada: Compromisso Sexual
+            - 4KXPOHRpCXHQzF
+          - alvo_uid: RnZKGhZfGOypo1
+            pontos_uids:
+            - 7BYlpEkL6jr0Uy
+            escalada: Compromisso Sexual
             ids:
-            - '60'
+            - 7BYlpEkL6jr0Uy
         escaladas:
-        - via_esportiva:
+        - uid: Ugy016aDHDPI6Y
+          via_esportiva:
             nome: Ben Moon
             dificuldade: BR_7C
             quantidade_protecoes_intermediarias: 0
@@ -1189,7 +1584,8 @@ picos:
             - Emerson Alves Azeredo
             descricao: Via em Top Rope (sem proteções fixas na linha).
             data_abertura: '1994'
-        - via_esportiva:
+        - uid: ntptButHFotLLK
+          via_esportiva:
             nome: Come Quieto
             dificuldade: BR_8B
             quantidade_protecoes_intermediarias: 3
@@ -1199,7 +1595,8 @@ picos:
             - Glauco
             - Fabinho de Petrópolis
             data_abertura: '1995'
-        - via_esportiva:
+        - uid: LlhTp0HQEPx14C
+          via_esportiva:
             nome: O Perigo que Veio do Céu
             dificuldade: BR_7A
             quantidade_protecoes_intermediarias: 5
@@ -1208,7 +1605,8 @@ picos:
             - Fabiano da Silva Fernandes
             - Charles Costa Marinho
             data_abertura: '1993'
-        - via_esportiva:
+        - uid: 0ea9JvzzJRmTMc
+          via_esportiva:
             nome: Arranca Couro
             dificuldade: BR_7A
             quantidade_protecoes_intermediarias: 3
@@ -1218,21 +1616,24 @@ picos:
             - Emerson A. Azeredo
             - Fabiano Fernandes
             data_abertura: '1993'
-        - via_esportiva:
+        - uid: Y3VMbBAjE0gzDE
+          via_esportiva:
             nome: Ônibus Inglês
             dificuldade: BR_6
             conquistadores:
             - Daniel Fernandes "Salim"
             - Leonardo Hoffmann
             data_abertura: '1993'
-        - via_esportiva:
+        - uid: 8BmdmUZ3J2Ioaf
+          via_esportiva:
             nome: Gigante de Bronze
             dificuldade: BR_6
             conquistadores:
             - André C. B. "Andrezão"
             - Anderson B. Felisário
             data_abertura: '1994'
-        - via_esportiva:
+        - uid: gIzPvcOt3tcfaW
+          via_esportiva:
             nome: Karrenglass
             dificuldade: BR_5SUP
             conquistadores:
@@ -1240,7 +1641,8 @@ picos:
             - Ricardo Leal
             - Rodrigo Tinoco
             data_abertura: '1993'
-        - via_esportiva:
+        - uid: lieFJxvgjD0T4C
+          via_esportiva:
             nome: Retorno dos Anões
             dificuldade: BR_6SUP
             conquistadores:
@@ -1248,7 +1650,8 @@ picos:
             - Míriam Morato Duarte
             - Denise
             data_abertura: '1996'
-        - via_esportiva:
+        - uid: RnZKGhZfGOypo1
+          via_esportiva:
             nome: Compromisso Sexual
             dificuldade: BR_7C
             conquistadores:
@@ -1266,187 +1669,264 @@ picos:
           total_esportivas: 9
   - setor:
       conteudo:
+        uid: DzpVy5IyHcY19t
         nome: Vale Verde (Mapa 6)
         mapas:
         - caminho_imagem_mapa: imagens/setor_mapa_6_p0_i0.webp
           largura_mapa: 465
           altura_mapa: 340
           pontos_de_interesse:
-          - id: '62'
-            label: '62'
+          - uid: co0L3lzfGktyam
+            rotulo: '62'
             retangulo:
               x: 79
               y: 164
               comprimento: 14
               largura: 12
-          - id: '63'
-            label: '63'
+            id: co0L3lzfGktyam
+            label: '62'
+          - uid: Pcws7jdnBdkFf1
+            rotulo: '63'
             retangulo:
               x: 122
               y: 189
               comprimento: 14
               largura: 12
-          - id: '64'
-            label: '64'
+            id: Pcws7jdnBdkFf1
+            label: '63'
+          - uid: 4D7AxhkAElF1mz
+            rotulo: '64'
             retangulo:
               x: 240
               y: 179
               comprimento: 10
               largura: 8
-          - id: '65'
-            label: '65'
+            id: 4D7AxhkAElF1mz
+            label: '64'
+          - uid: 0RePZDZwatc55x
+            rotulo: '65'
             retangulo:
               x: 224
               y: 157
               comprimento: 10
               largura: 8
-          - id: '66'
-            label: '66'
+            id: 0RePZDZwatc55x
+            label: '65'
+          - uid: EQFl6xqRj25XKk
+            rotulo: '66'
             retangulo:
               x: 224
               y: 146
               comprimento: 10
               largura: 8
-          - id: '67'
-            label: '67'
+            id: EQFl6xqRj25XKk
+            label: '66'
+          - uid: JB20lEvPwjBEBN
+            rotulo: '67'
             retangulo:
               x: 237
               y: 152
               comprimento: 10
               largura: 8
-          - id: '68'
-            label: '68'
+            id: JB20lEvPwjBEBN
+            label: '67'
+          - uid: cOiGV79bJTTXwi
+            rotulo: '68'
             retangulo:
               x: 266
               y: 123
               comprimento: 10
               largura: 10
-          - id: '69'
-            label: '69'
+            id: cOiGV79bJTTXwi
+            label: '68'
+          - uid: EwJiGCEgNO1IGL
+            rotulo: '69'
             retangulo:
               x: 280
               y: 97
               comprimento: 14
               largura: 12
-          - id: '70'
-            label: '70'
+            id: EwJiGCEgNO1IGL
+            label: '69'
+          - uid: IYOCbXYeGlRztu
+            rotulo: '70'
             retangulo:
               x: 307
               y: 104
               comprimento: 14
               largura: 12
-          - id: '71'
-            label: '71'
+            id: IYOCbXYeGlRztu
+            label: '70'
+          - uid: Zvh5xGHFKkbg94
+            rotulo: '71'
             retangulo:
               x: 280
               y: 136
               comprimento: 11
               largura: 10
-          - id: '72'
-            label: '72'
+            id: Zvh5xGHFKkbg94
+            label: '71'
+          - uid: yRDVKSBrLmJfm0
+            rotulo: '72'
             retangulo:
               x: 307
               y: 175
               comprimento: 14
               largura: 12
-          - id: '73'
-            label: '73'
+            id: yRDVKSBrLmJfm0
+            label: '72'
+          - uid: Yh8x0r08rqjWW6
+            rotulo: '73'
             retangulo:
               x: 321
               y: 202
               comprimento: 14
               largura: 12
-          - id: '74'
-            label: '74'
+            id: Yh8x0r08rqjWW6
+            label: '73'
+          - uid: L3Kv1lkQnUiHIE
+            rotulo: '74'
             retangulo:
               x: 345
               y: 216
               comprimento: 14
               largura: 12
-          - id: '75'
-            label: '75'
+            id: L3Kv1lkQnUiHIE
+            label: '74'
+          - uid: h3386PrCzycAkF
+            rotulo: '75'
             retangulo:
               x: 421
               y: 238
               comprimento: 14
               largura: 12
+            id: h3386PrCzycAkF
+            label: '75'
           referencias:
-          - escalada: Psico Circus
+          - alvo_uid: WNnbACHqlufqB4
+            pontos_uids:
+            - co0L3lzfGktyam
+            escalada: Psico Circus
             ids:
-            - '62'
-          - escalada: Os impossíveis
+            - co0L3lzfGktyam
+          - alvo_uid: E47PBUWaztdeq5
+            pontos_uids:
+            - Pcws7jdnBdkFf1
+            escalada: Os impossíveis
             ids:
-            - '63'
-          - escalada: Carbonáticus Calcicus
+            - Pcws7jdnBdkFf1
+          - alvo_uid: AlhpLzBbvxdARj
+            pontos_uids:
+            - 4D7AxhkAElF1mz
+            escalada: Carbonáticus Calcicus
             ids:
-            - '64'
-          - escalada: Para não dizer que não falei de flores
+            - 4D7AxhkAElF1mz
+          - alvo_uid: yz8k8QP3JY3b7D
+            pontos_uids:
+            - 0RePZDZwatc55x
+            escalada: Para não dizer que não falei de flores
             ids:
-            - '65'
-          - escalada: As Aparências Enganam
+            - 0RePZDZwatc55x
+          - alvo_uid: OmqF412h2OG31Q
+            pontos_uids:
+            - EQFl6xqRj25XKk
+            escalada: As Aparências Enganam
             ids:
-            - '66'
-          - escalada: Eu quero é ver o oco
+            - EQFl6xqRj25XKk
+          - alvo_uid: uN41mUNxKhQLnR
+            pontos_uids:
+            - JB20lEvPwjBEBN
+            escalada: Eu quero é ver o oco
             ids:
-            - '67'
-          - escalada: Cortando Prego
+            - JB20lEvPwjBEBN
+          - alvo_uid: XAjgOmiFU8VgRi
+            pontos_uids:
+            - cOiGV79bJTTXwi
+            escalada: Cortando Prego
             ids:
-            - '68'
-          - escalada: Vive lá brenf
+            - cOiGV79bJTTXwi
+          - alvo_uid: 6HNjjzHD8ZgV5A
+            pontos_uids:
+            - EwJiGCEgNO1IGL
+            escalada: Vive lá brenf
             ids:
-            - '69'
-          - escalada: Rastafary Baby
+            - EwJiGCEgNO1IGL
+          - alvo_uid: 40ZgWfXSRvNVRD
+            pontos_uids:
+            - IYOCbXYeGlRztu
+            escalada: Rastafary Baby
             ids:
-            - '70'
-          - escalada: Varinha de Condon
+            - IYOCbXYeGlRztu
+          - alvo_uid: nRjQg6NF3gMoB5
+            pontos_uids:
+            - Zvh5xGHFKkbg94
+            escalada: Varinha de Condon
             ids:
-            - '71'
-          - escalada: Tempestade Cerebral
+            - Zvh5xGHFKkbg94
+          - alvo_uid: tJ3b11CN9Dk1k8
+            pontos_uids:
+            - yRDVKSBrLmJfm0
+            escalada: Tempestade Cerebral
             ids:
-            - '72'
-          - escalada: Chambinho
+            - yRDVKSBrLmJfm0
+          - alvo_uid: mPhlYzOBycx1yO
+            pontos_uids:
+            - Yh8x0r08rqjWW6
+            escalada: Chambinho
             ids:
-            - '73'
-          - escalada: Revolução dos Micos
+            - Yh8x0r08rqjWW6
+          - alvo_uid: a601ekOt4Z8grf
+            pontos_uids:
+            - L3Kv1lkQnUiHIE
+            escalada: Revolução dos Micos
             ids:
-            - '74'
-          - escalada: Al Capote
+            - L3Kv1lkQnUiHIE
+          - alvo_uid: gCEazUeMzsA3dp
+            pontos_uids:
+            - h3386PrCzycAkF
+            escalada: Al Capote
             ids:
-            - '75'
+            - h3386PrCzycAkF
         escaladas:
-        - via_esportiva:
+        - uid: WNnbACHqlufqB4
+          via_esportiva:
             nome: Psico Circus
             dificuldade: BR_8A
             conquistadores:
             - André C. B. "Andrezão"
             - Anderson B. Felisário
             data_abertura: '1999'
-        - via_esportiva:
+        - uid: E47PBUWaztdeq5
+          via_esportiva:
             nome: Os impossíveis
             dificuldade: BR_8B
             conquistadores:
             - André C. B. "Andrezão"
             - Anderson B. Felisário
-        - via_esportiva:
+        - uid: AlhpLzBbvxdARj
+          via_esportiva:
             nome: Carbonáticus Calcicus
             dificuldade: BR_7A
             conquistadores:
             - Leonardo Hoffmann
             - Eduardo Viana de Azevedo "Ralf"
             data_abertura: '2000'
-        - via_movel:
+        - uid: yz8k8QP3JY3b7D
+          via_movel:
             nome: Para não dizer que não falei de flores
             dificuldade: BR_5SUP
             conquistadores:
             - Antonio Carlos Magalhães
             - Ricardo Jardim Leal
-        - via_movel:
+        - uid: OmqF412h2OG31Q
+          via_movel:
             nome: As Aparências Enganam
             dificuldade: BR_5SUP
             conquistadores:
             - Antonio Carlos Magalhães
             - Júlio César Cardoso
-        - via_esportiva:
+        - uid: uN41mUNxKhQLnR
+          via_esportiva:
             nome: Eu quero é ver o oco
             dificuldade: BR_7B
             conquistadores:
@@ -1454,14 +1934,16 @@ picos:
             - Leonardo Oliveira
             - Danilo Tolentino
             data_abertura: '1995'
-        - via_movel:
+        - uid: XAjgOmiFU8VgRi
+          via_movel:
             nome: Cortando Prego
             dificuldade: BR_6SUP
             conquistadores:
             - Edgardo Abreu "Caca"
             - Leandro Antônio Reis
             data_abertura: '1998'
-        - via_esportiva:
+        - uid: 6HNjjzHD8ZgV5A
+          via_esportiva:
             nome: Vive lá brenf
             dificuldade: BR_6SUP
             conquistadores:
@@ -1470,27 +1952,31 @@ picos:
             - André "Granola"
             - Guta Piancastelli
             data_abertura: '1997'
-        - via_esportiva:
+        - uid: 40ZgWfXSRvNVRD
+          via_esportiva:
             nome: Rastafary Baby
             dificuldade: BR_7C
             conquistadores:
             - Leonardo Hoffman
             data_abertura: '1999'
-        - via_esportiva:
+        - uid: nRjQg6NF3gMoB5
+          via_esportiva:
             nome: Varinha de Condon
             dificuldade: BR_7A
             conquistadores:
             - Wilson Novaes
             - Márcio Soares Macenas
             data_abertura: '2000'
-        - via_esportiva:
+        - uid: tJ3b11CN9Dk1k8
+          via_esportiva:
             nome: Tempestade Cerebral
             dificuldade: BR_8A
             conquistadores:
             - André C. B. "Andrezão"
             - Anderson B. Felisário
             data_abertura: '1999'
-        - via_esportiva:
+        - uid: mPhlYzOBycx1yO
+          via_esportiva:
             nome: Chambinho
             dificuldade: BR_8C
             conquistadores:
@@ -1499,7 +1985,8 @@ picos:
             - Eduardo "Ralf"
             - Eustáquio Jr.
             data_abertura: '1996'
-        - via_esportiva:
+        - uid: a601ekOt4Z8grf
+          via_esportiva:
             nome: Revolução dos Micos
             dificuldade: BR_7B
             conquistadores:
@@ -1508,7 +1995,8 @@ picos:
             - Anne Ouriques
             - Leonardo Rocenik
             data_abertura: '2000'
-        - via_esportiva:
+        - uid: gCEazUeMzsA3dp
+          via_esportiva:
             nome: Al Capote
             dificuldade: BR_8B
             conquistadores:
@@ -1524,125 +2012,182 @@ picos:
           total_esportivas: 11
   - setor:
       conteudo:
+        uid: n7TZtwIPFNeMNy
         nome: Setor Mapa 7
         mapas:
         - caminho_imagem_mapa: imagens/setor_mapa_7_p0_i0.webp
           largura_mapa: 510
           altura_mapa: 380
           pontos_de_interesse:
-          - id: '76'
-            label: '76'
+          - uid: Kkw0WF7eShPHQ8
+            rotulo: '76'
             retangulo:
               x: 342
               y: 306
               comprimento: 14
               largura: 12
-          - id: '77'
-            label: '77'
+            id: Kkw0WF7eShPHQ8
+            label: '76'
+          - uid: FlNc2a4cMFVuPg
+            rotulo: '77'
             retangulo:
               x: 324
               y: 297
               comprimento: 14
               largura: 12
-          - id: '78'
-            label: '78'
+            id: FlNc2a4cMFVuPg
+            label: '77'
+          - uid: 1WtCp5Xuy9POGb
+            rotulo: '78'
             retangulo:
               x: 301
               y: 267
               comprimento: 14
               largura: 12
-          - id: '79'
-            label: '79'
+            id: 1WtCp5Xuy9POGb
+            label: '78'
+          - uid: V9q3se1M4hzUIm
+            rotulo: '79'
             retangulo:
               x: 257
               y: 104
               comprimento: 14
               largura: 12
-          - id: '80'
-            label: '80'
+            id: V9q3se1M4hzUIm
+            label: '79'
+          - uid: 45OBUc8wgaEmDC
+            rotulo: '80'
             retangulo:
               x: 276
               y: 133
               comprimento: 14
               largura: 12
-          - id: '81'
-            label: '81'
+            id: 45OBUc8wgaEmDC
+            label: '80'
+          - uid: l4cY9pnkIm6cdZ
+            rotulo: '81'
             retangulo:
               x: 294
               y: 159
               comprimento: 14
               largura: 12
-          - id: '82'
-            label: '82'
+            id: l4cY9pnkIm6cdZ
+            label: '81'
+          - uid: pUVsoiEYth6L1r
+            rotulo: '82'
             retangulo:
               x: 417
               y: 313
               comprimento: 14
               largura: 12
-          - id: '83'
-            label: '83'
+            id: pUVsoiEYth6L1r
+            label: '82'
+          - uid: aygeQ7pVVesHih
+            rotulo: '83'
             retangulo:
               x: 427
               y: 328
               comprimento: 14
               largura: 12
-          - id: '84'
-            label: '84'
+            id: aygeQ7pVVesHih
+            label: '83'
+          - uid: dLQ9rYaZPJS2bw
+            rotulo: '84'
             retangulo:
               x: 447
               y: 354
               comprimento: 12
               largura: 9
-          - id: '85'
-            label: '85'
+            id: dLQ9rYaZPJS2bw
+            label: '84'
+          - uid: KIPcwRIBu5sXru
+            rotulo: '85'
             retangulo:
               x: 462
               y: 352
               comprimento: 11
               largura: 10
-          - id: '86'
-            label: '86'
+            id: KIPcwRIBu5sXru
+            label: '85'
+          - uid: erY00uih2b1m1B
+            rotulo: '86'
             retangulo:
               x: 482
               y: 350
               comprimento: 12
               largura: 9
+            id: erY00uih2b1m1B
+            label: '86'
           referencias:
-          - escalada: Cariocas não dizem Uai
+          - alvo_uid: afC111TsB5Shpo
+            pontos_uids:
+            - Kkw0WF7eShPHQ8
+            escalada: Cariocas não dizem Uai
             ids:
-            - '76'
-          - escalada: Doutor Lund
+            - Kkw0WF7eShPHQ8
+          - alvo_uid: qqE2Xa62AWdHkq
+            pontos_uids:
+            - FlNc2a4cMFVuPg
+            escalada: Doutor Lund
             ids:
-            - '77'
-          - escalada: Aceitam-se Sugestões
+            - FlNc2a4cMFVuPg
+          - alvo_uid: CQy3SWhpDCc528
+            pontos_uids:
+            - 1WtCp5Xuy9POGb
+            escalada: Aceitam-se Sugestões
             ids:
-            - '78'
-          - escalada: Rosa dos Ventos
+            - 1WtCp5Xuy9POGb
+          - alvo_uid: OXAvr0Rdr0rU5G
+            pontos_uids:
+            - V9q3se1M4hzUIm
+            escalada: Rosa dos Ventos
             ids:
-            - '79'
-          - escalada: Monte Calvário
+            - V9q3se1M4hzUIm
+          - alvo_uid: TAvEhL1wTI6EwM
+            pontos_uids:
+            - 45OBUc8wgaEmDC
+            escalada: Monte Calvário
             ids:
-            - '80'
-          - escalada: Pó-na-beiça
+            - 45OBUc8wgaEmDC
+          - alvo_uid: Mpm6oLaVnlHimt
+            pontos_uids:
+            - l4cY9pnkIm6cdZ
+            escalada: Pó-na-beiça
             ids:
-            - '81'
-          - escalada: Três dentro, três fora
+            - l4cY9pnkIm6cdZ
+          - alvo_uid: ZYG9ghLMTzMJVk
+            pontos_uids:
+            - pUVsoiEYth6L1r
+            escalada: Três dentro, três fora
             ids:
-            - '82'
-          - escalada: Só para eles
+            - pUVsoiEYth6L1r
+          - alvo_uid: G4Gdw4XvIlJXQX
+            pontos_uids:
+            - aygeQ7pVVesHih
+            escalada: Só para eles
             ids:
-            - '83'
-          - escalada: Só para elas
+            - aygeQ7pVVesHih
+          - alvo_uid: p77Iy4sAShvmg2
+            pontos_uids:
+            - dLQ9rYaZPJS2bw
+            escalada: Só para elas
             ids:
-            - '84'
-          - escalada: Prestobarba
+            - dLQ9rYaZPJS2bw
+          - alvo_uid: WHJ53V0DkIbf7P
+            pontos_uids:
+            - KIPcwRIBu5sXru
+            escalada: Prestobarba
             ids:
-            - '85'
-          - escalada: Bigode Limpo
+            - KIPcwRIBu5sXru
+          - alvo_uid: 46pgZmHpsgEsde
+            pontos_uids:
+            - erY00uih2b1m1B
+            escalada: Bigode Limpo
             ids:
-            - '86'
+            - erY00uih2b1m1B
         escaladas:
-        - via_esportiva:
+        - uid: afC111TsB5Shpo
+          via_esportiva:
             nome: Cariocas não dizem Uai
             dificuldade: BR_7A
             quantidade_protecoes_intermediarias: 8
@@ -1651,7 +2196,8 @@ picos:
             - Ivo Júnior
             - Rma
             data_abertura: '1999'
-        - via_esportiva:
+        - uid: qqE2Xa62AWdHkq
+          via_esportiva:
             nome: Doutor Lund
             dificuldade: BR_7A
             data_manutencao: 05/09/2026
@@ -1661,7 +2207,8 @@ picos:
             - Eustáquio Macedo Melo Júnior
             - Mário Almeida Neto
             data_abertura: '1993'
-        - via_esportiva:
+        - uid: CQy3SWhpDCc528
+          via_esportiva:
             nome: Aceitam-se Sugestões
             dificuldade: BR_7C
             quantidade_protecoes_intermediarias: 6
@@ -1673,27 +2220,31 @@ picos:
             - Juan Kempen
             - Pedro Assis Leite
             data_abertura: '1998'
-        - via_esportiva:
+        - uid: OXAvr0Rdr0rU5G
+          via_esportiva:
             nome: Rosa dos Ventos
             dificuldade: BR_9A
             conquistadores:
             - Ramaya Vallias
             - Léo Quirino
             data_abertura: '1994'
-        - via_esportiva:
+        - uid: TAvEhL1wTI6EwM
+          via_esportiva:
             nome: Monte Calvário
             dificuldade: BR_5SUP
             conquistadores:
             - Ramaya Vallias
             - Léo Quirino
             data_abertura: '1994'
-        - via_movel:
+        - uid: Mpm6oLaVnlHimt
+          via_movel:
             nome: Pó-na-beiça
             dificuldade: BR_5
             conquistadores:
             - Wilson Novaes
             - Márcio Soares Macenas
-        - via_esportiva:
+        - uid: ZYG9ghLMTzMJVk
+          via_esportiva:
             nome: Três dentro, três fora
             dificuldade: BR_7A
             data_manutencao: 08/08/2026
@@ -1704,7 +2255,8 @@ picos:
             - Helon Brazil Neto
             - Paulo R. Patrocínio
             data_abertura: '2000'
-        - via_esportiva:
+        - uid: G4Gdw4XvIlJXQX
+          via_esportiva:
             nome: Só para eles
             dificuldade: BR_6SUP
             quantidade_protecoes_intermediarias: 4
@@ -1713,7 +2265,8 @@ picos:
             - Daniel Fernandes "Salim"
             - Ramaya Vallias
             data_abertura: '1999'
-        - via_esportiva:
+        - uid: p77Iy4sAShvmg2
+          via_esportiva:
             nome: Só para elas
             dificuldade: BR_4
             quantidade_protecoes_intermediarias: 7
@@ -1722,7 +2275,8 @@ picos:
             - Daniel Fernandes "Salim"
             - Ramaya Vallias
             data_abertura: '1995'
-        - via_esportiva:
+        - uid: WHJ53V0DkIbf7P
+          via_esportiva:
             nome: Prestobarba
             dificuldade: BR_5
             quantidade_protecoes_intermediarias: 5
@@ -1730,7 +2284,8 @@ picos:
             conquistadores:
             - Daniel Fernandes "Salim"
             data_abertura: '1999'
-        - via_esportiva:
+        - uid: 46pgZmHpsgEsde
+          via_esportiva:
             nome: Bigode Limpo
             dificuldade: BR_5SUP
             quantidade_protecoes_intermediarias: 5
@@ -1748,290 +2303,422 @@ picos:
           total_esportivas: 10
   - setor:
       conteudo:
+        uid: R4T6GZbgabQodt
         nome: Setor Túnel de Pedra (Mapa 8)
         mapas:
         - caminho_imagem_mapa: imagens/setor_mapa_8_p0_i0.webp
           largura_mapa: 490
           altura_mapa: 360
           pontos_de_interesse:
-          - id: '82'
-            label: '82'
+          - uid: hGcCpqISgO5Ez7
+            rotulo: '82'
             retangulo:
               x: 11
               y: 97
               comprimento: 14
               largura: 12
-          - id: '83'
-            label: '83'
+            id: hGcCpqISgO5Ez7
+            label: '82'
+          - uid: VenVi5yQvRC9tJ
+            rotulo: '83'
             retangulo:
               x: 21
               y: 114
               comprimento: 14
               largura: 12
-          - id: '84'
-            label: '84'
+            id: VenVi5yQvRC9tJ
+            label: '83'
+          - uid: 2El8JpemBA1uin
+            rotulo: '84'
             retangulo:
               x: 46
               y: 144
               comprimento: 14
               largura: 12
-          - id: '85'
-            label: '85'
+            id: 2El8JpemBA1uin
+            label: '84'
+          - uid: ZDoKi59PYOnpQ5
+            rotulo: '85'
             retangulo:
               x: 64
               y: 142
               comprimento: 14
               largura: 12
-          - id: '86'
-            label: '86'
+            id: ZDoKi59PYOnpQ5
+            label: '85'
+          - uid: NgVYaSiIhijBMj
+            rotulo: '86'
             retangulo:
               x: 87
               y: 140
               comprimento: 14
               largura: 12
-          - id: '87'
-            label: '87'
+            id: NgVYaSiIhijBMj
+            label: '86'
+          - uid: FqPvQyqLrSWjjj
+            rotulo: '87'
             retangulo:
               x: 128
               y: 142
               comprimento: 14
               largura: 12
-          - id: '88'
-            label: '88'
+            id: FqPvQyqLrSWjjj
+            label: '87'
+          - uid: Ov4O25jS3cuaP8
+            rotulo: '88'
             retangulo:
               x: 122
               y: 158
               comprimento: 14
               largura: 12
-          - id: '89'
-            label: '89'
+            id: Ov4O25jS3cuaP8
+            label: '88'
+          - uid: 4FxCluDk4Rtj00
+            rotulo: '89'
             retangulo:
               x: 103
               y: 154
               comprimento: 14
               largura: 12
-          - id: '91'
-            label: '91'
+            id: 4FxCluDk4Rtj00
+            label: '89'
+          - uid: RRYXB42aOGnIxX
+            rotulo: '91'
             retangulo:
               x: 243
               y: 324
               comprimento: 14
               largura: 12
-          - id: '92'
-            label: '92'
+            id: RRYXB42aOGnIxX
+            label: '91'
+          - uid: WaTUfE5SA2tfw8
+            rotulo: '92'
             retangulo:
               x: 182
               y: 194
               comprimento: 12
               largura: 9
-          - id: '93'
-            label: '93'
+            id: WaTUfE5SA2tfw8
+            label: '92'
+          - uid: kTNF5z1DbFB7OT
+            rotulo: '93'
             retangulo:
               x: 194
               y: 184
               comprimento: 11
               largura: 9
-          - id: '94'
-            label: '94'
+            id: kTNF5z1DbFB7OT
+            label: '93'
+          - uid: yGfWjbBH9O6G6C
+            rotulo: '94'
             retangulo:
               x: 211
               y: 173
               comprimento: 14
               largura: 12
-          - id: '95'
-            label: '95'
+            id: yGfWjbBH9O6G6C
+            label: '94'
+          - uid: WDWCKnErNiKSiQ
+            rotulo: '95'
             retangulo:
               x: 239
               y: 159
               comprimento: 14
               largura: 12
-          - id: '96'
-            label: '96'
+            id: WDWCKnErNiKSiQ
+            label: '95'
+          - uid: wLT0df5guGG1CC
+            rotulo: '96'
             retangulo:
               x: 221
               y: 130
               comprimento: 12
               largura: 9
-          - id: '97'
-            label: '97'
+            id: wLT0df5guGG1CC
+            label: '96'
+          - uid: MwEF9ydeMOTn6a
+            rotulo: '97'
             retangulo:
               x: 207
               y: 140
               comprimento: 12
               largura: 8
-          - id: '98'
-            label: '98'
+            id: MwEF9ydeMOTn6a
+            label: '97'
+          - uid: mlFawOfgOWPo3G
+            rotulo: '98'
             retangulo:
               x: 202
               y: 158
               comprimento: 11
               largura: 11
-          - id: '99'
-            label: '99'
+            id: mlFawOfgOWPo3G
+            label: '98'
+          - uid: OCK4VtAc2DnDsP
+            rotulo: '99'
             retangulo:
               x: 181
               y: 126
               comprimento: 14
               largura: 11
-          - id: '100'
-            label: '100'
+            id: OCK4VtAc2DnDsP
+            label: '99'
+          - uid: gHm3OJhkalYdks
+            rotulo: '100'
             retangulo:
               x: 152
               y: 116
               comprimento: 17
               largura: 10
-          - id: '101'
-            label: '101'
+            id: gHm3OJhkalYdks
+            label: '100'
+          - uid: CwMStfSGesutnN
+            rotulo: '101'
             retangulo:
               x: 158
               y: 98
               comprimento: 17
               largura: 9
-          - id: '102'
-            label: '102'
+            id: CwMStfSGesutnN
+            label: '101'
+          - uid: OOJRyvkJi3NfZG
+            rotulo: '102'
             retangulo:
               x: 180
               y: 88
               comprimento: 17
               largura: 11
-          - id: '103'
-            label: '103'
+            id: OOJRyvkJi3NfZG
+            label: '102'
+          - uid: xqErmEnBxlsY7V
+            rotulo: '103'
             retangulo:
               x: 207
               y: 105
               comprimento: 18
               largura: 10
-          - id: '104'
-            label: '104'
+            id: xqErmEnBxlsY7V
+            label: '103'
+          - uid: d2JXIHtHmANt1j
+            rotulo: '104'
             retangulo:
               x: 230
               y: 99
               comprimento: 17
               largura: 10
-          - id: '105'
-            label: '105'
+            id: d2JXIHtHmANt1j
+            label: '104'
+          - uid: Ein8Cu9aEzNSjP
+            rotulo: '105'
             retangulo:
               x: 240
               y: 70
               comprimento: 17
               largura: 10
-          - id: '106'
-            label: '106'
+            id: Ein8Cu9aEzNSjP
+            label: '105'
+          - uid: ypnf6FyerErnVr
+            rotulo: '106'
             retangulo:
               x: 216
               y: 56
               comprimento: 19
               largura: 10
-          - id: '107'
-            label: '107'
+            id: ypnf6FyerErnVr
+            label: '106'
+          - uid: YRAg2GMUGnbfcR
+            rotulo: '107'
             retangulo:
               x: 168
               y: 42
               comprimento: 19
               largura: 9
-          - id: '108'
-            label: '108'
+            id: YRAg2GMUGnbfcR
+            label: '107'
+          - uid: u2jYmRiNJiWfqo
+            rotulo: '108'
             retangulo:
               x: 138
               y: 42
               comprimento: 17
               largura: 9
-          - id: '109'
-            label: '109'
+            id: u2jYmRiNJiWfqo
+            label: '108'
+          - uid: LMPZw4fLITrUWo
+            rotulo: '109'
             retangulo:
               x: 130
               y: 29
               comprimento: 17
               largura: 10
+            id: LMPZw4fLITrUWo
+            label: '109'
           referencias:
-          - escalada: Bigode de Cristo
+          - alvo_uid: IqzNu0BRjbdzLz
+            pontos_uids:
+            - FqPvQyqLrSWjjj
+            escalada: Bigode de Cristo
             ids:
-            - '87'
-          - escalada: Bigode Sujo
+            - FqPvQyqLrSWjjj
+          - alvo_uid: ZgB4gVcfZ1FoTC
+            pontos_uids:
+            - Ov4O25jS3cuaP8
+            escalada: Bigode Sujo
             ids:
-            - '88'
-          - escalada: Bigode de Espinho
+            - Ov4O25jS3cuaP8
+          - alvo_uid: 74NzqIsXX385XP
+            pontos_uids:
+            - 4FxCluDk4Rtj00
+            escalada: Bigode de Espinho
             ids:
-            - '89'
-          - escalada: Trombeta Acéfala
+            - 4FxCluDk4Rtj00
+          - alvo_uid: GksFepQerd6kj3
+            pontos_uids:
+            - RRYXB42aOGnIxX
+            escalada: Trombeta Acéfala
             ids:
-            - '91'
-          - escalada: Meio Cubanos
+            - RRYXB42aOGnIxX
+          - alvo_uid: L69C6jL7Bphv5T
+            pontos_uids:
+            - WaTUfE5SA2tfw8
+            escalada: Meio Cubanos
             ids:
-            - '92'
-          - escalada: Golpe Ninja
+            - WaTUfE5SA2tfw8
+          - alvo_uid: PBMAKEwduou7iM
+            pontos_uids:
+            - kTNF5z1DbFB7OT
+            escalada: Golpe Ninja
             ids:
-            - '93'
-          - escalada: Tripla Traição
+            - kTNF5z1DbFB7OT
+          - alvo_uid: CDDjlHX6ZPFIfg
+            pontos_uids:
+            - yGfWjbBH9O6G6C
+            escalada: Tripla Traição
             ids:
-            - '94'
-          - escalada: Noivado da Feiticeira
+            - yGfWjbBH9O6G6C
+          - alvo_uid: 8b8K01Oui85IB0
+            pontos_uids:
+            - WDWCKnErNiKSiQ
+            escalada: Noivado da Feiticeira
             ids:
-            - '95'
-          - escalada: Planeta dos Macacos
+            - WDWCKnErNiKSiQ
+          - alvo_uid: 6laLGWjMZtyl5K
+            pontos_uids:
+            - wLT0df5guGG1CC
+            escalada: Planeta dos Macacos
             ids:
-            - '96'
-          - escalada: Rota de colisão
+            - wLT0df5guGG1CC
+          - alvo_uid: kulsF9JNdpDYC3
+            pontos_uids:
+            - MwEF9ydeMOTn6a
+            escalada: Rota de colisão
             ids:
-            - '97'
-          - escalada: Projeto Daniel Salim
+            - MwEF9ydeMOTn6a
+          - alvo_uid: yMYiuu4C1XwTsU
+            pontos_uids:
+            - mlFawOfgOWPo3G
+            escalada: Projeto Daniel Salim
             ids:
-            - '98'
-          - escalada: Vale Perdido
+            - mlFawOfgOWPo3G
+          - alvo_uid: fuAERj0RgZMLR5
+            pontos_uids:
+            - OCK4VtAc2DnDsP
+            escalada: Vale Perdido
             ids:
-            - '99'
-          - escalada: Consolo da Surucucu
+            - OCK4VtAc2DnDsP
+          - alvo_uid: Edh9kZy5L2CndU
+            pontos_uids:
+            - gHm3OJhkalYdks
+            escalada: Consolo da Surucucu
             ids:
-            - '100'
-          - escalada: Santos e Hereges
+            - gHm3OJhkalYdks
+          - alvo_uid: 3i1j443nXNqSp1
+            pontos_uids:
+            - CwMStfSGesutnN
+            escalada: Santos e Hereges
             ids:
-            - '101'
-          - escalada: O Império Contra Ataca
+            - CwMStfSGesutnN
+          - alvo_uid: uJRx7yglftzDUo
+            pontos_uids:
+            - OOJRyvkJi3NfZG
+            escalada: O Império Contra Ataca
             ids:
-            - '102'
-          - escalada: Jegue Voador
+            - OOJRyvkJi3NfZG
+          - alvo_uid: ZX3E7xP5ZmQP0s
+            pontos_uids:
+            - xqErmEnBxlsY7V
+            escalada: Jegue Voador
             ids:
-            - '103'
-          - escalada: Labirinto das Maritacas
+            - xqErmEnBxlsY7V
+          - alvo_uid: 3RNMY4E3VJdcjO
+            pontos_uids:
+            - d2JXIHtHmANt1j
+            escalada: Labirinto das Maritacas
             ids:
-            - '104'
-          - escalada: Tentações de Maria Madalena
+            - d2JXIHtHmANt1j
+          - alvo_uid: vXnlfUKuk8bH78
+            pontos_uids:
+            - Ein8Cu9aEzNSjP
+            escalada: Tentações de Maria Madalena
             ids:
-            - '105'
-          - escalada: Sai do chão
+            - Ein8Cu9aEzNSjP
+          - alvo_uid: 1HqUU8JAEawaHB
+            pontos_uids:
+            - ypnf6FyerErnVr
+            escalada: Sai do chão
             ids:
-            - '106'
-          - escalada: Ato Imperdoável
+            - ypnf6FyerErnVr
+          - alvo_uid: Ro3Eflgqd8pPx9
+            pontos_uids:
+            - YRAg2GMUGnbfcR
+            escalada: Ato Imperdoável
             ids:
-            - '107'
-          - escalada: Projeto Rodrigo do Paraná
+            - YRAg2GMUGnbfcR
+          - alvo_uid: cQzxdvJXXi1bmC
+            pontos_uids:
+            - u2jYmRiNJiWfqo
+            escalada: Projeto Rodrigo do Paraná
             ids:
-            - '108'
-          - escalada: Pequena Criança
+            - u2jYmRiNJiWfqo
+          - alvo_uid: ULAvbV9FOKor89
+            pontos_uids:
+            - LMPZw4fLITrUWo
+            escalada: Pequena Criança
             ids:
-            - '109'
-          - escalada: Três dentro, três fora
+            - LMPZw4fLITrUWo
+          - alvo_uid: ZYG9ghLMTzMJVk
+            pontos_uids:
+            - hGcCpqISgO5Ez7
+            escalada: Três dentro, três fora
             ids:
-            - '82'
-            setor: Setor Mapa 7
-          - ids:
-            - '83'
-            setor: Setor Mapa 7
+            - hGcCpqISgO5Ez7
+          - alvo_uid: G4Gdw4XvIlJXQX
+            pontos_uids:
+            - VenVi5yQvRC9tJ
             escalada: Só para eles
-          - ids:
-            - '84'
-            setor: Setor Mapa 7
+            ids:
+            - VenVi5yQvRC9tJ
+          - alvo_uid: p77Iy4sAShvmg2
+            pontos_uids:
+            - 2El8JpemBA1uin
             escalada: Só para elas
-          - ids:
-            - '85'
-            setor: Setor Mapa 7
+            ids:
+            - 2El8JpemBA1uin
+          - alvo_uid: WHJ53V0DkIbf7P
+            pontos_uids:
+            - ZDoKi59PYOnpQ5
             escalada: Prestobarba
-          - ids:
-            - '86'
-            setor: Setor Mapa 7
+            ids:
+            - ZDoKi59PYOnpQ5
+          - alvo_uid: 46pgZmHpsgEsde
+            pontos_uids:
+            - NgVYaSiIhijBMj
             escalada: Bigode Limpo
+            ids:
+            - NgVYaSiIhijBMj
         escaladas:
-        - via_esportiva:
+        - uid: IqzNu0BRjbdzLz
+          via_esportiva:
             nome: Bigode de Cristo
             dificuldade: BR_6
             quantidade_protecoes_intermediarias: 4
@@ -2042,7 +2729,8 @@ picos:
             data_abertura: '1993'
             descricao: 'ATENÇÃO: não utilizar o bico de pedra próximo ao top rope
               como agarra! Risco de queda do bloco!'
-        - via_esportiva:
+        - uid: ZgB4gVcfZ1FoTC
+          via_esportiva:
             nome: Bigode Sujo
             dificuldade: BR_7C
             data_manutencao: 04/07/2026
@@ -2053,7 +2741,8 @@ picos:
             - Eustáquio Macedo Melo Júnior
             - Gilberto Torres
             data_abertura: '1993'
-        - via_esportiva:
+        - uid: 74NzqIsXX385XP
+          via_esportiva:
             nome: Bigode de Espinho
             dificuldade: BR_6SUP
             quantidade_protecoes_intermediarias: 0
@@ -2062,7 +2751,8 @@ picos:
             - Alexandre F. de Queiroz "Caverna"
             - Edgardo Abreu "Caca"
             data_abertura: '1995'
-        - via_esportiva:
+        - uid: UxgAsYgQCFlueX
+          via_esportiva:
             nome: Ecos do Além
             dificuldade: BR_6SUP
             quantidade_protecoes_intermediarias: 4
@@ -2070,19 +2760,22 @@ picos:
             conquistadores:
             - Dante Martins Borges
             - Sérgio Bastos da Silva
-        - via_movel:
+        - uid: GksFepQerd6kj3
+          via_movel:
             nome: Trombeta Acéfala
             dificuldade: BR_5SUP
             conquistadores:
             - Eustáquio M. Melo Júnior
             - Leonardo Hoffmann
             data_abertura: '1994'
-        - via_movel:
+        - uid: L69C6jL7Bphv5T
+          via_movel:
             nome: Meio Cubanos
             dificuldade: BR_6SUP
             conquistadores:
             - Roberto Lincoln de Freitas
-        - via_esportiva:
+        - uid: PBMAKEwduou7iM
+          via_esportiva:
             nome: Golpe Ninja
             dificuldade: BR_7C
             quantidade_protecoes_intermediarias: 4
@@ -2093,7 +2786,8 @@ picos:
             - Dante Martins Borges
             - Sérgio Bastos da Silva
             data_abertura: '2000'
-        - via_esportiva:
+        - uid: CDDjlHX6ZPFIfg
+          via_esportiva:
             nome: Tripla Traição
             dificuldade: BR_5
             data_manutencao: 05/09/2026
@@ -2104,7 +2798,8 @@ picos:
             - Eustáquio M. M. Júnior
             - Léo Hoffmann
             data_abertura: '1994'
-        - via_esportiva:
+        - uid: 8b8K01Oui85IB0
+          via_esportiva:
             nome: Noivado da Feiticeira
             dificuldade: BR_6
             quantidade_protecoes_intermediarias: 4
@@ -2114,7 +2809,8 @@ picos:
             - Leonardo Hoffmann
             - Ramaya Vallias
             data_abertura: '1994'
-        - via_esportiva:
+        - uid: 6laLGWjMZtyl5K
+          via_esportiva:
             nome: Planeta dos Macacos
             dificuldade: PROJETO
             quantidade_protecoes_intermediarias: 4
@@ -2124,7 +2820,8 @@ picos:
             conquistadores:
             - Leonardo Hoffmann
             - Alexandre "Caverna"
-        - via_esportiva:
+        - uid: kulsF9JNdpDYC3
+          via_esportiva:
             nome: Rota de colisão
             dificuldade: BR_8A
             quantidade_protecoes_intermediarias: 4
@@ -2133,7 +2830,8 @@ picos:
             - Leonardo Hoffmann
             - Marco Antônio Canelas
             data_abertura: '2001'
-        - via_esportiva:
+        - uid: yMYiuu4C1XwTsU
+          via_esportiva:
             nome: Projeto Daniel Salim
             dificuldade: PROJETO
             quantidade_protecoes_intermediarias: 1
@@ -2142,7 +2840,8 @@ picos:
               palheta e não possui parada no topo.'
             conquistadores:
             - Daniel Fernandes "Salim"
-        - via_esportiva:
+        - uid: fuAERj0RgZMLR5
+          via_esportiva:
             nome: Vale Perdido
             dificuldade: BR_6SUP
             quantidade_protecoes_intermediarias: 3
@@ -2155,7 +2854,8 @@ picos:
               Via mista, laçar a ponte de pedra com uma fita de 120cm entre a 3a proteção e o top.
 
               Muito cuidado nas primeiras três proteções por causa do bloco na base da via.
-        - via_esportiva:
+        - uid: Edh9kZy5L2CndU
+          via_esportiva:
             nome: Consolo da Surucucu
             dificuldade: BR_6SUP
             quantidade_protecoes_intermediarias: 8
@@ -2163,7 +2863,8 @@ picos:
             conquistadores:
             - Vinícius B. Assis
             data_abertura: '1997'
-        - via_esportiva:
+        - uid: 3i1j443nXNqSp1
+          via_esportiva:
             nome: Santos e Hereges
             dificuldade: BR_9B
             quantidade_protecoes_intermediarias: 3
@@ -2172,7 +2873,8 @@ picos:
             - Eustáquio Macedo Melo Júnior
             - Mário Almeida Neto
             data_abertura: '1993'
-        - via_esportiva:
+        - uid: uJRx7yglftzDUo
+          via_esportiva:
             nome: O Império Contra Ataca
             dificuldade: BR_7C
             quantidade_protecoes_intermediarias: 4
@@ -2181,7 +2883,8 @@ picos:
             - Eustáquio Macedo Melo Júnior
             - Fabiano da Silva Fernandes
             data_abertura: '1993'
-        - via_esportiva:
+        - uid: ZX3E7xP5ZmQP0s
+          via_esportiva:
             nome: Jegue Voador
             dificuldade: BR_6SUP
             quantidade_protecoes_intermediarias: 5
@@ -2191,7 +2894,8 @@ picos:
             - Marco Antônio Canelas
             - Marcelo Andrê
             data_abertura: '1994'
-        - via_esportiva:
+        - uid: 3RNMY4E3VJdcjO
+          via_esportiva:
             nome: Labirinto das Maritacas
             dificuldade: BR_6
             quantidade_protecoes_intermediarias: 5
@@ -2200,35 +2904,40 @@ picos:
             - Emerson Alves Azeredo
             - Gilberto Torres
             data_abertura: '1993'
-        - via_movel:
+        - uid: vXnlfUKuk8bH78
+          via_movel:
             nome: Tentações de Maria Madalena
             dificuldade: BR_6
             conquistadores:
             - Eustáquio Macedo Melo Júnior
             - Leonardo Hoffmann
             data_abertura: '1993'
-        - via_esportiva:
+        - uid: 1HqUU8JAEawaHB
+          via_esportiva:
             nome: Sai do chão
             dificuldade: BR_9A
             conquistadores:
             - Jovinei Miguel Medeiros
             - Helon Brazil Neto
             data_abertura: '2001'
-        - via_esportiva:
+        - uid: Ro3Eflgqd8pPx9
+          via_esportiva:
             nome: Ato Imperdoável
             dificuldade: BR_8A
             conquistadores:
             - Eustáquio Macedo Melo Júnior
             - Fabiano da Silva Fernandes
             data_abertura: '1994'
-        - via_esportiva:
+        - uid: cQzxdvJXXi1bmC
+          via_esportiva:
             nome: Projeto Rodrigo do Paraná
             conquistadores:
             - Pedro (PR)
             - Rodrigo (PR)
             - Antônio Paulo
             - Chico
-        - via_esportiva:
+        - uid: ULAvbV9FOKor89
+          via_esportiva:
             nome: Pequena Criança
             dificuldade: BR_7A
             conquistadores:
@@ -2246,218 +2955,310 @@ picos:
           total_esportivas: 20
   - setor:
       conteudo:
+        uid: UlccfwkdM6gnf0
         nome: Savassinha (Mapa 9)
         mapas:
         - caminho_imagem_mapa: imagens/setor_mapa_9_p0_i0.webp
           largura_mapa: 500
           altura_mapa: 370
           pontos_de_interesse:
-          - id: '105'
-            label: '105'
+          - uid: 5rePH1Xeu0vvUL
+            rotulo: '105'
             retangulo:
               x: 156
               y: 354
               comprimento: 20
               largura: 11
-          - id: '106'
-            label: '106'
+            id: 5rePH1Xeu0vvUL
+            label: '105'
+          - uid: OakaStG3ucy0bb
+            rotulo: '106'
             retangulo:
               x: 128
               y: 338
               comprimento: 19
               largura: 11
-          - id: '107'
-            label: '107'
+            id: OakaStG3ucy0bb
+            label: '106'
+          - uid: LjZtCpbWJYU6By
+            rotulo: '107'
             retangulo:
               x: 76
               y: 321
               comprimento: 21
               largura: 12
-          - id: '108'
-            label: '108'
+            id: LjZtCpbWJYU6By
+            label: '107'
+          - uid: Yw4cWIL4NQYZK6
+            rotulo: '108'
             retangulo:
               x: 43
               y: 322
               comprimento: 18
               largura: 10
-          - id: '109'
-            label: '109'
+            id: Yw4cWIL4NQYZK6
+            label: '108'
+          - uid: QbaoL1j61sC3NE
+            rotulo: '109'
             retangulo:
               x: 29
               y: 307
               comprimento: 18
               largura: 10
-          - id: '110'
-            label: '110'
+            id: QbaoL1j61sC3NE
+            label: '109'
+          - uid: dVjpUgxOLlCH1W
+            rotulo: '110'
             retangulo:
               x: 90
               y: 239
               comprimento: 19
               largura: 12
-          - id: '111'
-            label: '111'
+            id: dVjpUgxOLlCH1W
+            label: '110'
+          - uid: uzHQrr8ByT7za7
+            rotulo: '111'
             retangulo:
               x: 114
               y: 208
               comprimento: 18
               largura: 11
-          - id: '112'
-            label: '112'
+            id: uzHQrr8ByT7za7
+            label: '111'
+          - uid: 2t1kd8qmSlbBvk
+            rotulo: '112'
             retangulo:
               x: 142
               y: 191
               comprimento: 18
               largura: 12
-          - id: '113'
-            label: '113'
+            id: 2t1kd8qmSlbBvk
+            label: '112'
+          - uid: Rpl7wyHLorKqzq
+            rotulo: '113'
             retangulo:
               x: 162
               y: 178
               comprimento: 17
               largura: 12
-          - id: '114'
-            label: '114'
+            id: Rpl7wyHLorKqzq
+            label: '113'
+          - uid: pm4Dgugnw1ll9G
+            rotulo: '114'
             retangulo:
               x: 184
               y: 178
               comprimento: 17
               largura: 12
-          - id: '115'
-            label: '115'
+            id: pm4Dgugnw1ll9G
+            label: '114'
+          - uid: QOUMJXIgOQkNqp
+            rotulo: '115'
             retangulo:
               x: 195
               y: 198
               comprimento: 18
               largura: 12
-          - id: '116'
-            label: '116'
+            id: QOUMJXIgOQkNqp
+            label: '115'
+          - uid: ZYr0Z2CMYswyhj
+            rotulo: '116'
             retangulo:
               x: 184
               y: 215
               comprimento: 18
               largura: 12
-          - id: '117'
-            label: '117'
+            id: ZYr0Z2CMYswyhj
+            label: '116'
+          - uid: CZ8tMAJy7olXeL
+            rotulo: '117'
             retangulo:
               x: 168
               y: 230
               comprimento: 19
               largura: 12
-          - id: '118'
-            label: '118'
+            id: CZ8tMAJy7olXeL
+            label: '117'
+          - uid: sDyx0O7IDKlndB
+            rotulo: '118'
             retangulo:
               x: 156
               y: 248
               comprimento: 19
               largura: 11
-          - id: '119'
-            label: '119'
+            id: sDyx0O7IDKlndB
+            label: '118'
+          - uid: WNK3MziIwfs6gK
+            rotulo: '119'
             retangulo:
               x: 130
               y: 261
               comprimento: 19
               largura: 12
-          - id: '120'
-            label: '120'
+            id: WNK3MziIwfs6gK
+            label: '119'
+          - uid: lQmIbNulRiIPbE
+            rotulo: '120'
             retangulo:
               x: 102
               y: 272
               comprimento: 19
               largura: 11
-          - id: '121'
-            label: '121'
+            id: lQmIbNulRiIPbE
+            label: '120'
+          - uid: A8rpj2zbcQOQon
+            rotulo: '121'
             retangulo:
               x: 449
               y: 141
               comprimento: 20
               largura: 12
-          - id: '123'
-            label: '123'
+            id: A8rpj2zbcQOQon
+            label: '121'
+          - uid: DKaCgDIP3QOO0w
+            rotulo: '123'
             retangulo:
               x: 451
               y: 76
               comprimento: 20
               largura: 12
-          - id: '124'
-            label: '124'
+            id: DKaCgDIP3QOO0w
+            label: '123'
+          - uid: HbIxLsHJPHWIOs
+            rotulo: '124'
             retangulo:
               x: 404
               y: 79
               comprimento: 21
               largura: 12
+            id: HbIxLsHJPHWIOs
+            label: '124'
           referencias:
-          - escalada: Corvo Gigante
+          - alvo_uid: xaZU9xGBqraEEw
+            pontos_uids:
+            - dVjpUgxOLlCH1W
+            escalada: Corvo Gigante
             ids:
-            - '110'
-          - escalada: Gralha Pigmeia
+            - dVjpUgxOLlCH1W
+          - alvo_uid: HbyvMay2qZAWe8
+            pontos_uids:
+            - uzHQrr8ByT7za7
+            escalada: Gralha Pigmeia
             ids:
-            - '111'
-          - escalada: Anjo de Pedra
+            - uzHQrr8ByT7za7
+          - alvo_uid: YtEytEnRAxkFxc
+            pontos_uids:
+            - 2t1kd8qmSlbBvk
+            escalada: Anjo de Pedra
             ids:
-            - '112'
-          - escalada: Um Porco que Sobe
+            - 2t1kd8qmSlbBvk
+          - alvo_uid: mKED1qNqrmdGHj
+            pontos_uids:
+            - Rpl7wyHLorKqzq
+            escalada: Um Porco que Sobe
             ids:
-            - '113'
-          - escalada: Um Corpo que Cai
+            - Rpl7wyHLorKqzq
+          - alvo_uid: y4NYbcV7IdM2vX
+            pontos_uids:
+            - pm4Dgugnw1ll9G
+            escalada: Um Corpo que Cai
             ids:
-            - '114'
-          - escalada: Realidade da Coisa
+            - pm4Dgugnw1ll9G
+          - alvo_uid: WEywEUghxL4mZj
+            pontos_uids:
+            - QOUMJXIgOQkNqp
+            escalada: Realidade da Coisa
             ids:
-            - '115'
-          - escalada: Realidade Sobreposta
+            - QOUMJXIgOQkNqp
+          - alvo_uid: C883Mwi7oTTO47
+            pontos_uids:
+            - ZYr0Z2CMYswyhj
+            escalada: Realidade Sobreposta
             ids:
-            - '116'
-          - escalada: Talhadeira Passa
+            - ZYr0Z2CMYswyhj
+          - alvo_uid: jYYHO2cKIcdbSA
+            pontos_uids:
+            - CZ8tMAJy7olXeL
+            escalada: Talhadeira Passa
             ids:
-            - '117'
-          - escalada: Cova dos Leões
+            - CZ8tMAJy7olXeL
+          - alvo_uid: gWN5ChcePCIBxL
+            pontos_uids:
+            - sDyx0O7IDKlndB
+            escalada: Cova dos Leões
             ids:
-            - '118'
-          - escalada: Mentalidade Suburbana
+            - sDyx0O7IDKlndB
+          - alvo_uid: 9AjpygLA38EGdx
+            pontos_uids:
+            - WNK3MziIwfs6gK
+            escalada: Mentalidade Suburbana
             ids:
-            - '119'
-          - escalada: Rato Assassino
+            - WNK3MziIwfs6gK
+          - alvo_uid: gHWveURBBDxMSG
+            pontos_uids:
+            - lQmIbNulRiIPbE
+            escalada: Rato Assassino
             ids:
-            - '120'
-          - escalada: Masturbações de Calígula
+            - lQmIbNulRiIPbE
+          - alvo_uid: RkACWCnC4LYvb1
+            pontos_uids:
+            - DKaCgDIP3QOO0w
+            escalada: Masturbações de Calígula
             ids:
-            - '123'
-          - escalada: Primeiro General
+            - DKaCgDIP3QOO0w
+          - alvo_uid: gEn9QjBaACWP6y
+            pontos_uids:
+            - HbIxLsHJPHWIOs
+            escalada: Primeiro General
             ids:
-            - '124'
-          - ids:
-            - '105'
-            setor: Setor Túnel de Pedra (Mapa 8)
+            - HbIxLsHJPHWIOs
+          - alvo_uid: vXnlfUKuk8bH78
+            pontos_uids:
+            - 5rePH1Xeu0vvUL
             escalada: Tentações de Maria Madalena
-          - ids:
-            - '106'
-            setor: Setor Túnel de Pedra (Mapa 8)
+            ids:
+            - 5rePH1Xeu0vvUL
+          - alvo_uid: 1HqUU8JAEawaHB
+            pontos_uids:
+            - OakaStG3ucy0bb
             escalada: Sai do chão
-          - ids:
-            - '107'
-            setor: Setor Túnel de Pedra (Mapa 8)
+            ids:
+            - OakaStG3ucy0bb
+          - alvo_uid: Ro3Eflgqd8pPx9
+            pontos_uids:
+            - LjZtCpbWJYU6By
             escalada: Ato Imperdoável
-          - ids:
-            - '108'
-            setor: Setor Túnel de Pedra (Mapa 8)
+            ids:
+            - LjZtCpbWJYU6By
+          - alvo_uid: cQzxdvJXXi1bmC
+            pontos_uids:
+            - Yw4cWIL4NQYZK6
             escalada: Projeto Rodrigo do Paraná
-          - ids:
-            - '109'
-            setor: Setor Túnel de Pedra (Mapa 8)
+            ids:
+            - Yw4cWIL4NQYZK6
+          - alvo_uid: ULAvbV9FOKor89
+            pontos_uids:
+            - QbaoL1j61sC3NE
             escalada: Pequena Criança
-          - ids:
-            - '121'
-            setor: Savassinha (Mapa 9)
+            ids:
+            - QbaoL1j61sC3NE
+          - alvo_uid: cREoYdqil3YrLf
+            pontos_uids:
+            - A8rpj2zbcQOQon
             escalada: Três Pontos
+            ids:
+            - A8rpj2zbcQOQon
         escaladas:
-        - via_esportiva:
+        - uid: xaZU9xGBqraEEw
+          via_esportiva:
             nome: Corvo Gigante
             dificuldade: BR_7A
             conquistadores:
             - Eustáquio Macedo Melo Júnior
             - Gilberto Torres
             data_abertura: '1993'
-        - via_esportiva:
+        - uid: HbyvMay2qZAWe8
+          via_esportiva:
             nome: Gralha Pigmeia
             dificuldade: BR_6
             conquistadores:
@@ -2467,21 +3268,24 @@ picos:
             - Léo Hoffmann
             data_abertura: '1999'
             data_manutencao: 02/08/2022
-        - via_esportiva:
+        - uid: YtEytEnRAxkFxc
+          via_esportiva:
             nome: Anjo de Pedra
             dificuldade: BR_5SUP
             conquistadores:
             - Rodrigo Tinoco França
             - Vinícius
             data_abertura: '1997'
-        - via_esportiva:
+        - uid: mKED1qNqrmdGHj
+          via_esportiva:
             nome: Um Porco que Sobe
             dificuldade: BR_7A
             conquistadores:
             - Leonardo Hoffmann
             - Henriquinho
             data_abertura: '1996'
-        - via_esportiva:
+        - uid: y4NYbcV7IdM2vX
+          via_esportiva:
             nome: Um Corpo que Cai
             dificuldade: BR_6
             conquistadores:
@@ -2489,7 +3293,8 @@ picos:
             - Fábio C. Araújo
             - Júlio Cesar Cardoso
             data_abertura: '1993'
-        - via_esportiva:
+        - uid: WEywEUghxL4mZj
+          via_esportiva:
             nome: Realidade da Coisa
             dificuldade: BR_9B
             conquistadores:
@@ -2497,28 +3302,32 @@ picos:
             - Marquinhos
             - Xacundum
             data_abertura: '1994'
-        - via_esportiva:
+        - uid: C883Mwi7oTTO47
+          via_esportiva:
             nome: Realidade Sobreposta
             dificuldade: BR_8C
             conquistadores:
             - Fabiano da Silva Fernandes
             - Fabinho de Teresópolis
             data_abertura: '1993'
-        - via_esportiva:
+        - uid: jYYHO2cKIcdbSA
+          via_esportiva:
             nome: Talhadeira Passa
             dificuldade: BR_8B
             conquistadores:
             - Felipe
             - Tiago Abobrinha
             data_abertura: '1996'
-        - via_esportiva:
+        - uid: gWN5ChcePCIBxL
+          via_esportiva:
             nome: Cova dos Leões
             dificuldade: BR_7A
             conquistadores:
             - Emerson Alves Azeredo
             - Gilberto Torres
             data_abertura: '1993'
-        - via_esportiva:
+        - uid: 9AjpygLA38EGdx
+          via_esportiva:
             nome: Mentalidade Suburbana
             dificuldade: BR_7A
             conquistadores:
@@ -2526,27 +3335,31 @@ picos:
             - Rodrigo Tinoco
             - Fábio L. Farias "Fabinho"
             data_abertura: '1994'
-        - via_esportiva:
+        - uid: gHWveURBBDxMSG
+          via_esportiva:
             nome: Rato Assassino
             dificuldade: BR_8A
             conquistadores:
             - Fabinho de Petrópolis
             - Alexandre Xacundum
             data_abertura: '1996'
-        - via_esportiva:
+        - uid: RkACWCnC4LYvb1
+          via_esportiva:
             nome: Masturbações de Calígula
             dificuldade: BR_7A
             conquistadores:
             - Márcio Soares Macenas
             - Wilson Novaes
-        - via_movel:
+        - uid: gEn9QjBaACWP6y
+          via_movel:
             nome: Primeiro General
             dificuldade: BR_6SUP
             conquistadores:
             - Roberto Lincoln de Freitas
             descricao: Vía de proteção mista
             data_abertura: '1998'
-        - via_esportiva:
+        - uid: cREoYdqil3YrLf
+          via_esportiva:
             nome: Três Pontos
             dificuldade: BR_7A
             conquistadores:
@@ -2563,104 +3376,144 @@ picos:
           total_esportivas: 13
   - setor:
       conteudo:
+        uid: UOqpFYTCHoAXZp
         nome: Bloco Romano (Mapa 10)
         mapas:
         - caminho_imagem_mapa: imagens/setor_mapa_10_p0_i0.webp
           largura_mapa: 359
           altura_mapa: 263
           pontos_de_interesse:
-          - id: '125'
-            label: '125'
+          - uid: W3bno5EqeLrrV4
+            rotulo: '125'
             retangulo:
               x: 123
               y: 183
               comprimento: 14
               largura: 12
-          - id: '126'
-            label: '126'
+            id: W3bno5EqeLrrV4
+            label: '125'
+          - uid: zkLTjwtLX19nhf
+            rotulo: '126'
             retangulo:
               x: 103
               y: 163
               comprimento: 14
               largura: 12
-          - id: '127'
-            label: '127'
+            id: zkLTjwtLX19nhf
+            label: '126'
+          - uid: V2jZxGqcd48WAa
+            rotulo: '127'
             retangulo:
               x: 67
               y: 168
               comprimento: 14
               largura: 12
-          - id: '128'
-            label: '128'
+            id: V2jZxGqcd48WAa
+            label: '127'
+          - uid: JJY1d3ERuhOejy
+            rotulo: '128'
             retangulo:
               x: 45
               y: 153
               comprimento: 14
               largura: 12
-          - id: '129'
-            label: '129'
+            id: JJY1d3ERuhOejy
+            label: '128'
+          - uid: sUbXB2cbIVvgJb
+            rotulo: '129'
             retangulo:
               x: 33
               y: 137
               comprimento: 14
               largura: 12
-          - id: '130'
-            label: '130'
+            id: sUbXB2cbIVvgJb
+            label: '129'
+          - uid: XgHgIyvkl5fwkc
+            rotulo: '130'
             retangulo:
               x: 50
               y: 88
               comprimento: 14
               largura: 12
-          - id: '131'
-            label: '131'
+            id: XgHgIyvkl5fwkc
+            label: '130'
+          - uid: blvwnvOwK8HlNY
+            rotulo: '131'
             retangulo:
               x: 75
               y: 58
               comprimento: 14
               largura: 12
+            id: blvwnvOwK8HlNY
+            label: '131'
           referencias:
-          - escalada: Spartacus
+          - alvo_uid: LaIUgNNRmAfhqz
+            pontos_uids:
+            - W3bno5EqeLrrV4
+            escalada: Spartacus
             ids:
-            - '125'
-          - escalada: A Era dos Patrícios
+            - W3bno5EqeLrrV4
+          - alvo_uid: oPLa4xCzRYXrVG
+            pontos_uids:
+            - zkLTjwtLX19nhf
+            escalada: A Era dos Patrícios
             ids:
-            - '126'
-          - escalada: Coliseu
+            - zkLTjwtLX19nhf
+          - alvo_uid: uSw0jQzVmg9ExX
+            pontos_uids:
+            - V2jZxGqcd48WAa
+            escalada: Coliseu
             ids:
-            - '127'
-          - escalada: Pobre César
+            - V2jZxGqcd48WAa
+          - alvo_uid: HwvzyrjBiIz5pv
+            pontos_uids:
+            - JJY1d3ERuhOejy
+            escalada: Pobre César
             ids:
-            - '128'
-          - escalada: Soprano (inacabada)
+            - JJY1d3ERuhOejy
+          - alvo_uid: ptCjqUWrNwEPlI
+            pontos_uids:
+            - sUbXB2cbIVvgJb
+            escalada: Soprano (inacabada)
             ids:
-            - '129'
-          - escalada: Sodoma e Gomorra
+            - sUbXB2cbIVvgJb
+          - alvo_uid: Fgz8Lc1dNFdZrG
+            pontos_uids:
+            - XgHgIyvkl5fwkc
+            escalada: Sodoma e Gomorra
             ids:
-            - '130'
-          - escalada: Calígula
+            - XgHgIyvkl5fwkc
+          - alvo_uid: sjR4IxURCOCn7w
+            pontos_uids:
+            - blvwnvOwK8HlNY
+            escalada: Calígula
             ids:
-            - '131'
+            - blvwnvOwK8HlNY
         escaladas:
-        - via_esportiva:
+        - uid: LaIUgNNRmAfhqz
+          via_esportiva:
             nome: Spartacus
             dificuldade: BR_5
             conquistadores:
             - Fabiano Fernandes da Silva
             descricao: Vía em Top Rope
             data_abertura: '1993'
-        - via_esportiva:
+        - uid: oPLa4xCzRYXrVG
+          via_esportiva:
             nome: A Era dos Patrícios
             dificuldade: BR_7A
             conquistadores:
             - Eustáquio Macedo Melo Júnior
             - Gilberto Torres
             data_abertura: '1994'
-        - via_esportiva:
+        - uid: uSw0jQzVmg9ExX
+          via_esportiva:
             nome: Coliseu
             dificuldade: BR_6
             conquistadores:
             - Ramaya Vallias
-        - via_esportiva:
+        - uid: HwvzyrjBiIz5pv
+          via_esportiva:
             nome: Pobre César
             dificuldade: BR_7A
             conquistadores:
@@ -2669,21 +3522,24 @@ picos:
             - Fabiano da Silva Fernandes
             - Gilberto Torres
             data_abertura: '1993'
-        - via_esportiva:
+        - uid: ptCjqUWrNwEPlI
+          via_esportiva:
             nome: Soprano (inacabada)
             conquistadores:
             - Márcio Soares Macena
             - Eduardo Feliciano
             - Alexandre Magos
             - Ivo Ferreira Marcelino
-        - via_esportiva:
+        - uid: Fgz8Lc1dNFdZrG
+          via_esportiva:
             nome: Sodoma e Gomorra
             dificuldade: BR_4
             conquistadores:
             - Daniel Fernandes "Salim"
             - Eustáquio Macedo Melo Júnior
             data_abertura: '1993'
-        - via_esportiva:
+        - uid: sjR4IxURCOCn7w
+          via_esportiva:
             nome: Calígula
             dificuldade: BR_6SUP
             conquistadores:
@@ -2707,180 +3563,257 @@ picos:
         largura_mapa: 523
         altura_mapa: 454
         pontos_de_interesse:
-        - id: Mapa_1
-          label: Mapa 1
+        - uid: G9UkCk5eoim2vZ
+          rotulo: Mapa 1
           retangulo:
             x: 63
             y: 219
             comprimento: 56
             largura: 20
-        - id: Mapa_2
-          label: Mapa 2
+          id: G9UkCk5eoim2vZ
+          label: Mapa 1
+        - uid: poXDZQtdyCA8tz
+          rotulo: Mapa 2
           retangulo:
             x: 195
             y: 328
             comprimento: 58
             largura: 18
-        - id: Mapa_3
-          label: Mapa 3
+          id: poXDZQtdyCA8tz
+          label: Mapa 2
+        - uid: 0eR7N0id49KCp5
+          rotulo: Mapa 3
           retangulo:
             x: 248
             y: 255
             comprimento: 54
             largura: 16
-        - id: Mapa_4
-          label: Mapa 4
+          id: 0eR7N0id49KCp5
+          label: Mapa 3
+        - uid: JUGHY3XSRn1k4q
+          rotulo: Mapa 4
           retangulo:
             x: 246
             y: 200
             comprimento: 47
             largura: 13
-        - id: Mapa_5
-          label: Mapa 5
+          id: JUGHY3XSRn1k4q
+          label: Mapa 4
+        - uid: pScUqDV6w68f9t
+          rotulo: Mapa 5
           retangulo:
             x: 309
             y: 266
             comprimento: 54
             largura: 20
-        - id: Mapa_6
-          label: Mapa 6
+          id: pScUqDV6w68f9t
+          label: Mapa 5
+        - uid: aDOtmpbJLB0OKx
+          rotulo: Mapa 6
           retangulo:
             x: 259
             y: 106
             comprimento: 52
             largura: 15
-        - id: Mapa_7
-          label: Mapa 7
+          id: aDOtmpbJLB0OKx
+          label: Mapa 6
+        - uid: a8l7Eq0OJAvdyc
+          rotulo: Mapa 7
           retangulo:
             x: 350
             y: 91
             comprimento: 56
             largura: 20
-        - id: Mapa_8
-          label: Mapa 8
+          id: a8l7Eq0OJAvdyc
+          label: Mapa 7
+        - uid: Ypw5ge0OoSlfFH
+          rotulo: Mapa 8
           retangulo:
             x: 428
             y: 148
             comprimento: 43
             largura: 14
-        - id: Mapa_9
-          label: Mapa 9
+          id: Ypw5ge0OoSlfFH
+          label: Mapa 8
+        - uid: 936Ry3B1BohHMy
+          rotulo: Mapa 9
           retangulo:
             x: 444
             y: 100
             comprimento: 44
             largura: 13
-        - id: Mapa_10
-          label: Mapa 10
+          id: 936Ry3B1BohHMy
+          label: Mapa 9
+        - uid: qLgSHjtmLMstkl
+          rotulo: Mapa 10
           retangulo:
             x: 442
             y: 36
             comprimento: 46
             largura: 15
-        - id: Vale_Verde
-          label: '''Vale Verde'' (fora de escala)'
+          id: qLgSHjtmLMstkl
+          label: Mapa 10
+        - uid: AnmtvJom6goBgb
+          rotulo: '''Vale Verde'' (fora de escala)'
           retangulo:
             x: 185
             y: 69
             comprimento: 76
             largura: 30
-        - id: Base_Rosa_dos_Ventos
-          label: Base da via 'Rosa dos Ventos'
+          id: AnmtvJom6goBgb
+          label: '''Vale Verde'' (fora de escala)'
+        - uid: TSErhv84UogfXj
+          rotulo: Base da via 'Rosa dos Ventos'
           retangulo:
             x: 270
             y: 62
             comprimento: 43
             largura: 68
-        - id: Savassinha
-          label: Savassinha
+          id: TSErhv84UogfXj
+          label: Base da via 'Rosa dos Ventos'
+        - uid: D4dqM0x06neIDK
+          rotulo: Savassinha
           retangulo:
             x: 355
             y: 50
             comprimento: 70
             largura: 17
-        - id: Bloco_Romano
-          label: '''Bloco Romano'''
+          id: D4dqM0x06neIDK
+          label: Savassinha
+        - uid: vcRYbvif9PQ6C4
+          rotulo: '''Bloco Romano'''
           retangulo:
             x: 490
             y: 49
             comprimento: 43
             largura: 24
-        - id: Sala_de_aula
-          label: '''Sala de aula'''
+          id: vcRYbvif9PQ6C4
+          label: '''Bloco Romano'''
+        - uid: ElQc2ntimf8esV
+          rotulo: '''Sala de aula'''
           retangulo:
             x: 156
             y: 173
             comprimento: 41
             largura: 28
-        - id: Via_90
-          label: Via nº 90 'Ecos do Além'
+          id: ElQc2ntimf8esV
+          label: '''Sala de aula'''
+        - uid: ynLJwKmsTRHcZK
+          rotulo: Via nº 90 'Ecos do Além'
           retangulo:
             x: 432
             y: 227
             comprimento: 50
             largura: 40
-        - id: Via_Compromisso_sexual
-          label: Via 'Compromisso sexual'
+          id: ynLJwKmsTRHcZK
+          label: Via nº 90 'Ecos do Além'
+        - uid: SfNUv092hGjsKa
+          rotulo: Via 'Compromisso sexual'
           retangulo:
             x: 399
             y: 278
             comprimento: 82
             largura: 47
-        - id: entrada_da_gruta
-          label: Entrada da gruta
+          id: SfNUv092hGjsKa
+          label: Via 'Compromisso sexual'
+        - uid: XbHlH0SItulchK
+          rotulo: Entrada da gruta
           retangulo:
             x: 182
             y: 232
             comprimento: 45
             largura: 28
+          id: XbHlH0SItulchK
+          label: Entrada da gruta
         referencias:
-        - setor: Bloco Romano (Mapa 10)
+        - alvo_uid: UOqpFYTCHoAXZp
+          pontos_uids:
+          - qLgSHjtmLMstkl
+          - vcRYbvif9PQ6C4
+          setor: Bloco Romano (Mapa 10)
           ids:
-          - Mapa_10
-          - Bloco_Romano
-        - setor: Setor Mapa 2
+          - qLgSHjtmLMstkl
+          - vcRYbvif9PQ6C4
+        - alvo_uid: k6xxkL2askccdr
+          pontos_uids:
+          - poXDZQtdyCA8tz
+          - XbHlH0SItulchK
+          setor: Setor Mapa 2
           ids:
-          - Mapa_2
-          - entrada_da_gruta
-        - setor: Setor Gruta - Mapa 3
+          - poXDZQtdyCA8tz
+          - XbHlH0SItulchK
+        - alvo_uid: ZxeynNWtcoJYj9
+          pontos_uids:
+          - 0eR7N0id49KCp5
+          setor: Setor Gruta - Mapa 3
           ids:
-          - Mapa_3
-        - setor: Setor Gruta - Mapa 4 (Sala de Aula)
+          - 0eR7N0id49KCp5
+        - alvo_uid: UsSUW7apVi41SD
+          pontos_uids:
+          - JUGHY3XSRn1k4q
+          - ElQc2ntimf8esV
+          setor: Setor Gruta - Mapa 4 (Sala de Aula)
           ids:
-          - Mapa_4
-          - Sala_de_aula
-        - setor: Setor Mapa 5
-          ids:
-          - Mapa_5
-        - setor: Vale Verde (Mapa 6)
-          ids:
-          - Mapa_6
-          - Vale_Verde
-        - setor: Setor Mapa 7
-          ids:
-          - Mapa_7
-        - setor: Setor Túnel de Pedra (Mapa 8)
-          ids:
-          - Mapa_8
-        - setor: Savassinha (Mapa 9)
-          ids:
-          - Mapa_9
-          - Savassinha
-        - setor: Castelinho
-          ids:
-          - Mapa_1
-        - ids:
-          - Via_Compromisso_sexual
+          - JUGHY3XSRn1k4q
+          - ElQc2ntimf8esV
+        - alvo_uid: WACdTSW0GaT2WF
+          pontos_uids:
+          - pScUqDV6w68f9t
           setor: Setor Mapa 5
-          escalada: Compromisso Sexual
-        - ids:
-          - Via_90
-          setor: Setor Túnel de Pedra (Mapa 8)
-          escalada: Ecos do Além
-        - ids:
-          - Base_Rosa_dos_Ventos
+          ids:
+          - pScUqDV6w68f9t
+        - alvo_uid: DzpVy5IyHcY19t
+          pontos_uids:
+          - aDOtmpbJLB0OKx
+          - AnmtvJom6goBgb
+          setor: Vale Verde (Mapa 6)
+          ids:
+          - aDOtmpbJLB0OKx
+          - AnmtvJom6goBgb
+        - alvo_uid: n7TZtwIPFNeMNy
+          pontos_uids:
+          - a8l7Eq0OJAvdyc
           setor: Setor Mapa 7
+          ids:
+          - a8l7Eq0OJAvdyc
+        - alvo_uid: R4T6GZbgabQodt
+          pontos_uids:
+          - Ypw5ge0OoSlfFH
+          setor: Setor Túnel de Pedra (Mapa 8)
+          ids:
+          - Ypw5ge0OoSlfFH
+        - alvo_uid: UlccfwkdM6gnf0
+          pontos_uids:
+          - 936Ry3B1BohHMy
+          - D4dqM0x06neIDK
+          setor: Savassinha (Mapa 9)
+          ids:
+          - 936Ry3B1BohHMy
+          - D4dqM0x06neIDK
+        - alvo_uid: pcQfnDIAUZk99g
+          pontos_uids:
+          - G9UkCk5eoim2vZ
+          setor: Castelinho
+          ids:
+          - G9UkCk5eoim2vZ
+        - alvo_uid: RnZKGhZfGOypo1
+          pontos_uids:
+          - SfNUv092hGjsKa
+          escalada: Compromisso Sexual
+          ids:
+          - SfNUv092hGjsKa
+        - alvo_uid: UxgAsYgQCFlueX
+          pontos_uids:
+          - ynLJwKmsTRHcZK
+          escalada: Ecos do Além
+          ids:
+          - ynLJwKmsTRHcZK
+        - alvo_uid: OXAvr0Rdr0rU5G
+          pontos_uids:
+          - TSErhv84UogfXj
           escalada: Rosa dos Ventos
+          ids:
+          - TSErhv84UogfXj
   localizacao:
     latitude: -195622616
     longitude: -439595684
@@ -2889,7 +3822,8 @@ picos:
     total_setores: 10
     total_esportivas: 106
 botoes:
-- texto: Capa
+- uid: bd8N6s3AVnvUzT
+  texto: Capa
   destino:
     secao_textual:
       conteudo: |-
@@ -2904,7 +3838,8 @@ botoes:
         **Autores:** Daniel Ferreira Mariano e Eustáquio Macedo Melo Júnior
 
         **Ano:** 2002
-- texto: Créditos
+- uid: PR5VXagPRY4PKz
+  texto: Créditos
   destino:
     secao_textual:
       conteudo: |-
@@ -2948,7 +3883,7 @@ botoes:
         Estadual do Sumidouro (PESU) e autorização dos conquistadores.
 
         > Escale com segurança, respeite o local e traga seu lixo de volta para casa.
-ultima_migracao: 4
+ultima_migracao: 5
 publicar_croqui: true
 revisado_bounding_circle: true
 arquivos_externos:

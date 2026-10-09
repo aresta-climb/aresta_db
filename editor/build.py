@@ -331,6 +331,39 @@ def gerar_arquivo_icone_icns(
         print(f"Aviso: Não foi possível gerar o arquivo .icns (usando padrão): {e}")
 
 
+# Pacotes com extensões nativas (C/Rust) que devem usar binary wheels pré-compilados
+PACOTES_PREFERIR_WHEELS = (
+    "cryptography",
+    "cffi",
+    "pygit2",
+    "pillow",
+    "pillow-heif",
+    "pydantic-core",
+    "pyyaml",
+    "ruamel-yaml",
+    "ruamel.yaml.clib",
+    "protobuf",
+    "websockets",
+)
+
+# Dependências que não devem ser empacotadas no Flatpak oficial
+# (fornecidas pelo runtime io.qt.PySide.BaseApp, ferramentas de compilação ou empacotamento Windows)
+PACOTES_DISPENSAVEIS_FLATPAK = (
+    "pyside6",
+    "shiboken6",
+    "pyinstaller",
+    "pyinstaller-hooks-contrib",
+    "altgraph",
+    "macholib",
+    "pefile",
+    "pywin32-ctypes",
+    "grpcio",
+    "grpcio-tools",
+    "mypy-protobuf",
+    "types-protobuf",
+)
+
+
 def gerar_manifesto_dependencias_flatpak(
     caminho_saida: Optional[Path] = None,
     raiz_projeto: Optional[Path] = None,
@@ -364,14 +397,14 @@ def gerar_manifesto_dependencias_flatpak(
         check=True,
     )
 
-    # Filtra dependências fornecidas pelo runtime io.qt.PySide.BaseApp ou empacotamento Windows/macOS
+    # Filtra dependências dispensáveis no Linux Flatpak
     linhas_filtradas: List[str] = []
     for linha in resultado_export.stdout.splitlines():
         linha_limpa = linha.strip()
         if not linha_limpa or linha_limpa.startswith("#"):
             continue
         nome_pkg = linha_limpa.split("==")[0].split(">=")[0].split("<=")[0].strip().lower()
-        if any(disp in nome_pkg for disp in ("pyside6", "shiboken6", "pyinstaller")):
+        if any(disp in nome_pkg for disp in PACOTES_DISPENSAVEIS_FLATPAK):
             continue
         linhas_filtradas.append(linha_limpa)
 
@@ -379,22 +412,40 @@ def gerar_manifesto_dependencias_flatpak(
         tmp_req.write("\n".join(linhas_filtradas) + "\n")
         caminho_tmp_req = Path(tmp_req.name)
 
+    argumentos_extras: List[str] = []
+    executavel_flatpak = shutil.which("flatpak")
+    if executavel_flatpak:
+        for runtime_candidato in ("org.kde.Sdk//6.11", "org.kde.Platform//6.11"):
+            resultado_info = subprocess.run(
+                [executavel_flatpak, "info", runtime_candidato],
+                capture_output=True,
+            )
+            if resultado_info.returncode == 0:
+                pacotes = ",".join(PACOTES_PREFERIR_WHEELS)
+                argumentos_extras = [
+                    f"--runtime={runtime_candidato}",
+                    f"--prefer-wheels={pacotes}",
+                ]
+                break
+
     try:
         nome_base_saida = destino.stem
         diretorio_saida = destino.parent
         caminho_sem_ext = diretorio_saida / nome_base_saida
+        comando_generator = [
+            executavel_uv,
+            "run",
+            "--group",
+            "editor_deploy_flatpak",
+            "python",
+            "-m",
+            "flatpak_pip_generator",
+            f"--requirements-file={caminho_tmp_req}",
+            f"--output={caminho_sem_ext}",
+        ]
+        comando_generator.extend(argumentos_extras)
         subprocess.run(
-            [
-                executavel_uv,
-                "run",
-                "--group",
-                "editor_deploy_flatpak",
-                "python",
-                "-m",
-                "flatpak_pip_generator",
-                f"--requirements-file={caminho_tmp_req}",
-                f"--output={caminho_sem_ext}",
-            ],
+            comando_generator,
             cwd=str(raiz),
             check=True,
         )
@@ -437,38 +488,45 @@ def orquestrar_build_flatpak(
     bundle_saida = dist_dir / f"EditorAresta-{versao_app}.flatpak"
 
     caminho_deps = manifesto.parent / "pypi-dependencies.json"
-    deve_limpar_deps = False
-    if not caminho_deps.exists():
+    arquivo_lock = DIRETORIO_EDITOR.parent / "uv.lock"
+    deve_gerar_deps = not caminho_deps.exists()
+    if not deve_gerar_deps and arquivo_lock.exists():
+        try:
+            deve_gerar_deps = arquivo_lock.stat().st_mtime > caminho_deps.stat().st_mtime
+        except OSError:
+            deve_gerar_deps = True
+
+    if deve_gerar_deps:
         gerar_manifesto_dependencias_flatpak(caminho_saida=caminho_deps)
-        deve_limpar_deps = True
 
-    try:
-        print(f"Compilando Flatpak a partir de {manifesto}...")
-        subprocess.run(
-            [
-                executavel_builder,
-                "--force-clean",
-                "--repo=" + str(diretorio_repo),
-                str(diretorio_build),
-                str(manifesto),
-            ],
-            check=True,
-        )
+    if bundle_saida.exists():
+        bundle_saida.unlink(missing_ok=True)
 
-        executavel_flatpak = shutil.which("flatpak") or "flatpak"
-        subprocess.run(
-            [
-                executavel_flatpak,
-                "build-bundle",
-                str(diretorio_repo),
-                str(bundle_saida),
-                "com.arestaclimb.Editor",
-            ],
-            check=True,
-        )
-    finally:
-        if deve_limpar_deps and caminho_deps.exists():
-            caminho_deps.unlink()
+    print(f"Compilando Flatpak a partir de {manifesto}...")
+    subprocess.run(
+        [
+            executavel_builder,
+            "--force-clean",
+            "--user",
+            "--install-deps-from=flathub",
+            "--repo=" + str(diretorio_repo),
+            str(diretorio_build),
+            str(manifesto),
+        ],
+        check=True,
+    )
+
+    executavel_flatpak = shutil.which("flatpak") or "flatpak"
+    subprocess.run(
+        [
+            executavel_flatpak,
+            "build-bundle",
+            str(diretorio_repo),
+            str(bundle_saida),
+            "com.arestaclimb.Editor",
+        ],
+        check=True,
+    )
 
     print(f"Bundle Flatpak gerado com sucesso: {bundle_saida}")
     return bundle_saida
@@ -535,6 +593,71 @@ def executar_testes() -> None:
         sys.exit(resultado)
 
 
+def gerar_tarball_codigo_fonte(
+    diretorio_saida: Optional[Path] = None,
+    versao: Optional[str] = None,
+    raiz_projeto: Optional[Path] = None,
+) -> Tuple[Path, str]:
+    """
+    Gera um tarball comprimido (.tar.gz) contendo estritamente os arquivos de código-fonte
+    necessários para compilação do Editor Aresta (editor, aresta_api, uv.lock, pyproject.toml),
+    excluindo o banco de dados pesado (database/), pastas de build e testes.
+    Retorna uma tupla com o caminho do arquivo gerado e seu hash SHA-256.
+    """
+    import hashlib
+    import tarfile
+
+    raiz = raiz_projeto or DIRETORIO_EDITOR.parent
+    versao_app = versao or obter_versao_projeto(raiz / "pyproject.toml")
+    dist_dir = diretorio_saida or DIRETORIO_DIST
+    dist_dir.mkdir(parents=True, exist_ok=True)
+
+    nome_arquivo = f"EditorAresta-{versao_app}-source.tar.gz"
+    caminho_tarball = dist_dir / nome_arquivo
+
+    itens_incluir = [
+        "editor",
+        "aresta_api",
+        "scripts",
+        "coleta_de_betas",
+        "migracoes",
+        "uv.lock",
+        "pyproject.toml",
+    ]
+
+
+    def filtro_exclusao(tarinfo: tarfile.TarInfo) -> Optional[tarfile.TarInfo]:
+        caminho_str = tarinfo.name.replace("\\", "/")
+        exclusoes = (
+            "/__pycache__",
+            "__pycache__",
+            "/dist",
+            "/build",
+            "/.flatpak-builder",
+            "/flatpak",
+            "_test.py",
+            "conftest.py",
+            ".pyc",
+        )
+        if any(exc in caminho_str for exc in exclusoes):
+            return None
+        return tarinfo
+
+    with tarfile.open(caminho_tarball, "w:gz") as tar:
+        for item in itens_incluir:
+            origem = raiz / item
+            if origem.exists():
+                tar.add(str(origem), arcname=item, filter=filtro_exclusao)
+
+    hasher = hashlib.sha256()
+    with open(caminho_tarball, "rb") as f:
+        while chunk := f.read(65536):
+            hasher.update(chunk)
+    hash_sha256 = hasher.hexdigest()
+
+    return caminho_tarball, hash_sha256
+
+
 def main(argv: Optional[List[str]] = None) -> None:
     """
     Ponto de entrada de linha de comando para o utilitário de build e testes.
@@ -542,8 +665,8 @@ def main(argv: Optional[List[str]] = None) -> None:
     parser = argparse.ArgumentParser(description="Script de build e testes do Editor Aresta")
     parser.add_argument(
         "modo",
-        choices=["test", "dist", "flatpak-deps"],
-        help="Modo de operação: 'test' para rodar testes, 'dist' para compilar o executável, 'flatpak-deps' para gerar pypi-dependencies.json",
+        choices=["test", "dist", "flatpak-deps", "source-tarball"],
+        help="Modo de operação: 'test' para rodar testes, 'dist' para compilar, 'flatpak-deps' para pypi-dependencies.json, 'source-tarball' para release archive",
     )
 
     parser.add_argument(
@@ -559,6 +682,13 @@ def main(argv: Optional[List[str]] = None) -> None:
         help="Caminho de saída para o manifesto pypi-dependencies.json (usado com flatpak-deps)",
     )
 
+    parser.add_argument(
+        "--output-dir",
+        type=Path,
+        default=None,
+        help="Diretório de saída para o tarball de código-fonte (usado com source-tarball)",
+    )
+
     args = parser.parse_args(argv)
 
     if args.modo == "test":
@@ -567,6 +697,10 @@ def main(argv: Optional[List[str]] = None) -> None:
         executar_build(force_icon_generation=args.force_icon_generation)
     elif args.modo == "flatpak-deps":
         gerar_manifesto_dependencias_flatpak(caminho_saida=args.output)
+    elif args.modo == "source-tarball":
+        tarball, sha256_hash = gerar_tarball_codigo_fonte(diretorio_saida=args.output_dir)
+        print(f"Tarball de código-fonte gerado em: {tarball}")
+        print(f"SHA-256: {sha256_hash}")
 
 
 if __name__ == "__main__":

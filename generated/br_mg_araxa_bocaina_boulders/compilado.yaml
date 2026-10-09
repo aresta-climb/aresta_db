@@ -1,3 +1,4 @@
+uid: oyCb72FtUENKNi
 id: br_mg_araxa_bocaina_boulders
 nome: Guia de Boulders - Bocaina Park
 descricao: O Bocaina Park é um parque particular de esportes, lazer e bem estar localizado
@@ -10,94 +11,131 @@ picos:
   setores_ou_grupos:
   - setor:
       conteudo:
+        uid: 2r0UOQl5lu5YVV
         nome: Pressão Enrustida
         mapas:
         - caminho_imagem_mapa: imagens/setor_pressao_enrustida_p0.webp
           largura_mapa: 1069
           altura_mapa: 868
           pontos_de_interesse:
-          - id: '01'
-            label: '01'
+          - uid: rKMJJmrWUVHXgy
+            rotulo: '01'
             circulo:
               x: 300
               y: 634
               raio: 12
-          - id: '02'
-            label: '02'
+            id: rKMJJmrWUVHXgy
+            label: '01'
+          - uid: fkdH2eilteODT5
+            rotulo: '02'
             circulo:
               x: 367
               y: 653
               raio: 12
-          - id: '03'
-            label: '03'
+            id: fkdH2eilteODT5
+            label: '02'
+          - uid: Yfle4mbz4R3d7n
+            rotulo: '03'
             circulo:
               x: 542
               y: 627
               raio: 12
-          - id: '04'
-            label: '04'
+            id: Yfle4mbz4R3d7n
+            label: '03'
+          - uid: 2lFJawiGO8EIkd
+            rotulo: '04'
             circulo:
               x: 632
               y: 629
               raio: 12
-          - id: '05'
-            label: '05'
+            id: 2lFJawiGO8EIkd
+            label: '04'
+          - uid: nLNFaB2Z6kczhc
+            rotulo: '05'
             circulo:
               x: 701
               y: 541
               raio: 12
+            id: nLNFaB2Z6kczhc
+            label: '05'
           referencias:
-          - escalada: Café com Leite
+          - alvo_uid: 9RqPyjGpUDYV5J
+            pontos_uids:
+            - rKMJJmrWUVHXgy
+            escalada: Café com Leite
             ids:
-            - '01'
-          - escalada: Maltodextrina
+            - rKMJJmrWUVHXgy
+          - alvo_uid: IwY9w2QhEZzvh9
+            pontos_uids:
+            - fkdH2eilteODT5
+            escalada: Maltodextrina
             ids:
-            - '02'
-          - escalada: Maltodextrina SDS
+            - fkdH2eilteODT5
+          - alvo_uid: by58o53yonMjhI
+            pontos_uids:
+            - Yfle4mbz4R3d7n
+            escalada: Maltodextrina SDS
             ids:
-            - '03'
-          - escalada: Pinga Preta
+            - Yfle4mbz4R3d7n
+          - alvo_uid: x3ZGinJzvhJ6jZ
+            pontos_uids:
+            - 2lFJawiGO8EIkd
+            escalada: Pinga Preta
             ids:
-            - '04'
-          - escalada: Pressão Enrustida
+            - 2lFJawiGO8EIkd
+          - alvo_uid: wlNV7GJit7OnuN
+            pontos_uids:
+            - nLNFaB2Z6kczhc
+            escalada: Pressão Enrustida
             ids:
-            - '05'
-          - ids:
-            - '04'
-            setor: Pressão Enrustida
+            - nLNFaB2Z6kczhc
+          - alvo_uid: eRcNyzQkVgSLH2
+            pontos_uids:
+            - 2lFJawiGO8EIkd
             escalada: Não Contava com Minha Astúcia
-          - ids:
-            - '05'
-            setor: Pressão Enrustida
+            ids:
+            - 2lFJawiGO8EIkd
+          - alvo_uid: Xww11j8447XPSm
+            pontos_uids:
+            - nLNFaB2Z6kczhc
             escalada: Rapé
+            ids:
+            - nLNFaB2Z6kczhc
         escaladas:
-        - boulder:
+        - uid: 9RqPyjGpUDYV5J
+          boulder:
             nome: Café com Leite
             dificuldade: V0
-        - boulder:
+        - uid: IwY9w2QhEZzvh9
+          boulder:
             nome: Maltodextrina
             dificuldade: V0
             descricao: Saída agachado com as mãos juntas em agarrão, virando reto
               no bloco.
-        - boulder:
+        - uid: by58o53yonMjhI
+          boulder:
             nome: Maltodextrina SDS
             dificuldade: V2
             descricao: Saída sentado com as mãos em regletes abaixo do agarrão do
               Maltodextrina, e virando reto.
-        - boulder:
+        - uid: x3ZGinJzvhJ6jZ
+          boulder:
             nome: Pinga Preta
             dificuldade: V3
             descricao: Saída do Maltodextrina e vira no Não contava com minhas astúcia.
-        - boulder:
+        - uid: wlNV7GJit7OnuN
+          boulder:
             nome: Pressão Enrustida
             dificuldade: V4
             descricao: Saída sentado com as mãos juntas em agarrão investido no teto.
-        - boulder:
+        - uid: eRcNyzQkVgSLH2
+          boulder:
             nome: Não Contava com Minha Astúcia
             dificuldade: V1
             descricao: Saída agachado com as duas mãos juntas em agarrão em bloco
               pequeno passando para Pressão inrrustida no bloco da esquerda.
-        - boulder:
+        - uid: Xww11j8447XPSm
+          boulder:
             nome: Rapé
             dificuldade: V3
             descricao: Saída do Não Contava com minha astúcia fazendo travessia para
@@ -108,175 +146,242 @@ picos:
           total_boulders: 7
   - setor:
       conteudo:
+        uid: D6jFNzrZdEYFsk
         nome: Caverninha
         mapas:
         - caminho_imagem_mapa: imagens/setor_caverninha_p0.webp
           largura_mapa: 1064
           altura_mapa: 868
           pontos_de_interesse:
-          - id: '01'
-            label: '01'
+          - uid: XVaT7pyPSHbPjq
+            rotulo: '01'
             circulo:
               x: 500
               y: 713
               raio: 12
+            id: XVaT7pyPSHbPjq
+            label: '01'
           referencias:
-          - escalada: Mingau
+          - alvo_uid: sxhUDsLNV6XgFD
+            pontos_uids:
+            - XVaT7pyPSHbPjq
+            escalada: Mingau
             ids:
-            - '01'
+            - XVaT7pyPSHbPjq
         - caminho_imagem_mapa: imagens/setor_caverninha_p1.webp
           largura_mapa: 1069
           altura_mapa: 868
           pontos_de_interesse:
-          - id: '02'
-            label: '02'
+          - uid: ZgSf5R8XflLxsB
+            rotulo: '02'
             circulo:
               x: 428
               y: 657
               raio: 12
-          - id: '03'
-            label: '03'
+            id: ZgSf5R8XflLxsB
+            label: '02'
+          - uid: 4EUs1hDTtLchRw
+            rotulo: '03'
             circulo:
               x: 463
               y: 663
               raio: 12
-          - id: '04'
-            label: '04'
+            id: 4EUs1hDTtLchRw
+            label: '03'
+          - uid: fAzFUmZvFInF25
+            rotulo: '04'
             circulo:
               x: 463
               y: 700
               raio: 12
-          - id: '05'
-            label: '05'
+            id: fAzFUmZvFInF25
+            label: '04'
+          - uid: r5NArP60WjlwJW
+            rotulo: '05'
             circulo:
               x: 466
               y: 740
               raio: 12
-          - id: '06'
-            label: '06'
+            id: r5NArP60WjlwJW
+            label: '05'
+          - uid: 3BdhVKpRqMdR08
+            rotulo: '06'
             circulo:
               x: 501
               y: 800
               raio: 12
-          - id: '07'
-            label: '07'
+            id: 3BdhVKpRqMdR08
+            label: '06'
+          - uid: EFIoOUsLAsP1U1
+            rotulo: '07'
             circulo:
               x: 694
               y: 726
               raio: 12
+            id: EFIoOUsLAsP1U1
+            label: '07'
           referencias:
-          - escalada: Pretinho Irlandês
+          - alvo_uid: 8UHJ6PhNPy64mY
+            pontos_uids:
+            - ZgSf5R8XflLxsB
+            escalada: Pretinho Irlandês
             ids:
-            - '02'
-          - escalada: Ratos e Raízes
+            - ZgSf5R8XflLxsB
+          - alvo_uid: sfuUfKtINgLQAG
+            pontos_uids:
+            - 4EUs1hDTtLchRw
+            escalada: Ratos e Raízes
             ids:
-            - '03'
-          - escalada: Tripa Eterna
+            - 4EUs1hDTtLchRw
+          - alvo_uid: 8515Gc96pebpim
+            pontos_uids:
+            - fAzFUmZvFInF25
+            escalada: Tripa Eterna
             ids:
-            - '04'
-          - escalada: Trip Eterna
+            - fAzFUmZvFInF25
+          - alvo_uid: pFT4K0gXcVlXqx
+            pontos_uids:
+            - r5NArP60WjlwJW
+            escalada: Trip Eterna
             ids:
-            - '05'
-          - escalada: Mecanismo
+            - r5NArP60WjlwJW
+          - alvo_uid: VqmaFZ1yRS22vT
+            pontos_uids:
+            - 3BdhVKpRqMdR08
+            escalada: Mecanismo
             ids:
-            - '06'
-          - escalada: Pedrada
+            - 3BdhVKpRqMdR08
+          - alvo_uid: TjFAiTenlAVwZH
+            pontos_uids:
+            - EFIoOUsLAsP1U1
+            escalada: Pedrada
             ids:
-            - '07'
+            - EFIoOUsLAsP1U1
         - caminho_imagem_mapa: imagens/setor_caverninha_p2.webp
           largura_mapa: 1069
           altura_mapa: 865
           pontos_de_interesse:
-          - id: '08'
-            label: '08'
+          - uid: xVOPZ1JtXAUZYq
+            rotulo: '08'
             circulo:
               x: 658
               y: 726
               raio: 12
-          - id: '09'
-            label: '09'
+            id: xVOPZ1JtXAUZYq
+            label: '08'
+          - uid: 7ixoFHbszCPhz8
+            rotulo: '09'
             circulo:
               x: 652
               y: 758
               raio: 12
-          - id: '10'
-            label: '10'
+            id: 7ixoFHbszCPhz8
+            label: '09'
+          - uid: DK0YxXwJl7DdLp
+            rotulo: '10'
             circulo:
               x: 800
               y: 775
               raio: 12
-          - id: '11'
-            label: '11'
+            id: DK0YxXwJl7DdLp
+            label: '10'
+          - uid: oD7erE67hsArH2
+            rotulo: '11'
             circulo:
               x: 971
               y: 697
               raio: 12
+            id: oD7erE67hsArH2
+            label: '11'
           referencias:
-          - escalada: Aedes Egipse
+          - alvo_uid: NAPbrgh5a6Ud79
+            pontos_uids:
+            - xVOPZ1JtXAUZYq
+            escalada: Aedes Egipse
             ids:
-            - '08'
-          - escalada: V9 do Rafinha
+            - xVOPZ1JtXAUZYq
+          - alvo_uid: V70c8EexH7sQPh
+            pontos_uids:
+            - 7ixoFHbszCPhz8
+            escalada: V9 do Rafinha
             ids:
-            - '09'
-          - escalada: Os Trabalhos Não Param
+            - 7ixoFHbszCPhz8
+          - alvo_uid: gzZh0ZCP9laU76
+            pontos_uids:
+            - DK0YxXwJl7DdLp
+            escalada: Os Trabalhos Não Param
             ids:
-            - '10'
-          - escalada: Trabalho em Equipe
+            - DK0YxXwJl7DdLp
+          - alvo_uid: G3zhgcl1o5S4XO
+            pontos_uids:
+            - oD7erE67hsArH2
+            escalada: Trabalho em Equipe
             ids:
-            - '11'
+            - oD7erE67hsArH2
         escaladas:
-        - boulder:
+        - uid: sxhUDsLNV6XgFD
+          boulder:
             nome: Mingau
             dificuldade: V2
             descricao: Saída com as mãos juntas em reglete bom, seguindo para sequencia
               de reglete e agarrão virando no meio do bloco.
-        - boulder:
+        - uid: 8UHJ6PhNPy64mY
+          boulder:
             nome: Pretinho Irlandês
             dificuldade: V2
             descricao: Saída agaixado com as duas mãos em agarrão, seguindo reto por
               batente lateral virando a esquerda do bloco na parte de cima.
-        - boulder:
+        - uid: sfuUfKtINgLQAG
+          boulder:
             nome: Ratos e Raízes
             dificuldade: V1
             descricao: Saída do pretinho Irlandes seguindo primeiros movimentos na
               fenda reta virando na direita.
-        - boulder:
+        - uid: 8515Gc96pebpim
+          boulder:
             nome: Tripa Eterna
             dificuldade: V4
             descricao: Saída do Pretinho Irlandes indo para pinçá a direita da agarra
               de saída seguindo para batentes escorridos e virando no centro do bloco
-        - boulder:
+        - uid: pFT4K0gXcVlXqx
+          boulder:
             nome: Trip Eterna
             dificuldade: V6
             descricao: Saída do Pretinho Irlandes indo para pinça a direita da agarra
               de saída, seguindo para batentes escorridos virando a direita do bloco.
-        - boulder:
+        - uid: VqmaFZ1yRS22vT
+          boulder:
             nome: Mecanismo
             dificuldade: V7
             descricao: Saída sentado com a mao esquerda em batentee mao direita em
               reglete e calchanhar equerdo na altura da mão esquerda, passando por
               buracos no teto, seguindo para agarra triangular e virando no Trip Eterna.
-        - boulder:
+        - uid: TjFAiTenlAVwZH
+          boulder:
             nome: Pedrada
             dificuldade: V3
             descricao: Saida sentado com as mãos em dois batentes escorridos, virando
               no Pretinho Irlandês.
-        - boulder:
+        - uid: NAPbrgh5a6Ud79
+          boulder:
             nome: Aedes Egipse
             dificuldade: V5
             descricao: Saída sentado em batentes escorridos seguindo para esquerda
               em sequencia de regletes no meio do bloco virando em abaulado grande.
-        - boulder:
+        - uid: V70c8EexH7sQPh
+          boulder:
             nome: V9 do Rafinha
             dificuldade: V9
             descricao: Saída do pedrada, e seguir sequencia de batentes e regletes
               pela parte debaixo do bloco virando na aresta esquerda.
-        - boulder:
+        - uid: gzZh0ZCP9laU76
+          boulder:
             nome: Os Trabalhos Não Param
             dificuldade: V6
             descricao: Saída sentado com as duas mãos em reglete grande baixo e calcanhar
               esquerdo mais alto que as mãos, virando no Trip Eterna.
-        - boulder:
+        - uid: G3zhgcl1o5S4XO
+          boulder:
             nome: Trabalho em Equipe
             dificuldade: V5
             descricao: Saída sentado com a mão esquerda em batente de compressão e
@@ -287,80 +392,111 @@ picos:
           total_boulders: 11
   - setor:
       conteudo:
+        uid: 5KSqaLJ9K1rbfi
         nome: Exquadrilha
         mapas:
         - caminho_imagem_mapa: imagens/setor_exquadrilha_p0.webp
           largura_mapa: 1062
           altura_mapa: 870
           pontos_de_interesse:
-          - id: '01'
-            label: '01'
+          - uid: IRlJm5BkGXJMFY
+            rotulo: '01'
             circulo:
               x: 474
               y: 688
               raio: 12
-          - id: '02'
-            label: '02'
+            id: IRlJm5BkGXJMFY
+            label: '01'
+          - uid: E0BXGPVvU6ZICJ
+            rotulo: '02'
             circulo:
               x: 367
               y: 662
               raio: 12
-          - id: '03'
-            label: '03'
+            id: E0BXGPVvU6ZICJ
+            label: '02'
+          - uid: D82ZhbuM3ZbE6n
+            rotulo: '03'
             circulo:
               x: 329
               y: 662
               raio: 12
-          - id: '04'
-            label: '04'
+            id: D82ZhbuM3ZbE6n
+            label: '03'
+          - uid: cVm4TyFRgSVoIG
+            rotulo: '04'
             circulo:
               x: 536
               y: 655
               raio: 12
-          - id: '05'
-            label: '05'
+            id: cVm4TyFRgSVoIG
+            label: '04'
+          - uid: OP6wCIqiilPKqE
+            rotulo: '05'
             circulo:
               x: 579
               y: 649
               raio: 12
+            id: OP6wCIqiilPKqE
+            label: '05'
           referencias:
-          - escalada: Fumaça Sagrada
+          - alvo_uid: QYL7kqYr4eEYYo
+            pontos_uids:
+            - IRlJm5BkGXJMFY
+            escalada: Fumaça Sagrada
             ids:
-            - '01'
-          - escalada: Exquadrilha da Fumaça
+            - IRlJm5BkGXJMFY
+          - alvo_uid: IiN1qRHwQtfZVL
+            pontos_uids:
+            - E0BXGPVvU6ZICJ
+            escalada: Exquadrilha da Fumaça
             ids:
-            - '02'
-          - escalada: Quadrilha da Fumaça
+            - E0BXGPVvU6ZICJ
+          - alvo_uid: yVtsgImLqEpT3L
+            pontos_uids:
+            - D82ZhbuM3ZbE6n
+            escalada: Quadrilha da Fumaça
             ids:
-            - '03'
-          - escalada: Planet Hemp
+            - D82ZhbuM3ZbE6n
+          - alvo_uid: uZFuQjlORYOybS
+            pontos_uids:
+            - cVm4TyFRgSVoIG
+            escalada: Planet Hemp
             ids:
-            - '04'
-          - escalada: Cypress Hill
+            - cVm4TyFRgSVoIG
+          - alvo_uid: uOVZG4RDG9ESRh
+            pontos_uids:
+            - OP6wCIqiilPKqE
+            escalada: Cypress Hill
             ids:
-            - '05'
+            - OP6wCIqiilPKqE
         escaladas:
-        - boulder:
+        - uid: QYL7kqYr4eEYYo
+          boulder:
             nome: Fumaça Sagrada
             dificuldade: V7
             descricao: Saída com as mãos em regletes invertidos e pés com tail em
               batente grande e segue pelo Exquadrilha da Fumaça.
-        - boulder:
+        - uid: IiN1qRHwQtfZVL
+          boulder:
             nome: Exquadrilha da Fumaça
             dificuldade: V5
             descricao: Saída com as mãos e calcanhar esquerdo em batente grande, e
               segue para direita em agarrão virando na lateral no bloco.
-        - boulder:
+        - uid: yVtsgImLqEpT3L
+          boulder:
             nome: Quadrilha da Fumaça
             dificuldade: V4
             descricao: Saída com as mãos em buracos na laca, seguindo para agarrão
               e virando a direita do bloco.
-        - boulder:
+        - uid: uZFuQjlORYOybS
+          boulder:
             nome: Planet Hemp
             dificuldade: V5
             descricao: Saída com as mãos buracos na laca, seguindo para agarrão e
               virando reto proa.
-        - boulder:
+        - uid: uOVZG4RDG9ESRh
+          boulder:
             nome: Cypress Hill
             dificuldade: V6
             descricao: Saída do exquadrilha e virando no Planet Hemp.
@@ -370,101 +506,139 @@ picos:
           total_boulders: 5
   - setor:
       conteudo:
+        uid: z7vQKwVnhjN7dQ
         nome: Canil
         mapas:
         - caminho_imagem_mapa: imagens/setor_canil_p0.webp
           largura_mapa: 1062
           altura_mapa: 865
           pontos_de_interesse:
-          - id: '01'
-            label: '01'
+          - uid: mJFW3aUybhnK2C
+            rotulo: '01'
             circulo:
               x: 232
               y: 789
               raio: 13
-          - id: '02'
-            label: '02'
+            id: mJFW3aUybhnK2C
+            label: '01'
+          - uid: eITS1eBerhq2LR
+            rotulo: '02'
             circulo:
               x: 388
               y: 814
               raio: 12
-          - id: '06'
-            label: '06'
+            id: eITS1eBerhq2LR
+            label: '02'
+          - uid: Lf7S9mhmTRvqXu
+            rotulo: '06'
             circulo:
               x: 815
               y: 549
               raio: 12
-          - id: '3'
-            label: '4'
+            id: Lf7S9mhmTRvqXu
+            label: '06'
+          - uid: Y4ugeCjjra3IiH
+            rotulo: '4'
             circulo:
               x: 783
               y: 104
               raio: 12
-          - id: '4'
+            id: Y4ugeCjjra3IiH
             label: '4'
+          - uid: 5IsLXHzfCKl5f3
+            rotulo: '4'
             circulo:
               x: 505
               y: 70
               raio: 12
-          - id: '7'
-            label: '7'
+            id: 5IsLXHzfCKl5f3
+            label: '4'
+          - uid: VmxOI8diLzDhIL
+            rotulo: '7'
             circulo:
               x: 393
               y: 38
               raio: 12
+            id: VmxOI8diLzDhIL
+            label: '7'
           referencias:
-          - escalada: Sucrilhos no Prato
+          - alvo_uid: kaJQu4BSLLt921
+            pontos_uids:
+            - mJFW3aUybhnK2C
+            escalada: Sucrilhos no Prato
             ids:
-            - '01'
-          - escalada: Titan
+            - mJFW3aUybhnK2C
+          - alvo_uid: QfQqepKuxSJctO
+            pontos_uids:
+            - eITS1eBerhq2LR
+            escalada: Titan
             ids:
-            - '02'
-          - escalada: Loboulder
+            - eITS1eBerhq2LR
+          - alvo_uid: Y3BeD4xfjXO9RJ
+            pontos_uids:
+            - Lf7S9mhmTRvqXu
+            escalada: Loboulder
             ids:
-            - '06'
-          - ids:
-            - '01'
-            - '3'
-            setor: Canil
+            - Lf7S9mhmTRvqXu
+          - alvo_uid: BOIeQZAXjE3hh3
+            pontos_uids:
+            - mJFW3aUybhnK2C
+            - Y4ugeCjjra3IiH
             escalada: Lobão
-          - ids:
-            - '01'
-            - '4'
-            setor: Canil
+            ids:
+            - mJFW3aUybhnK2C
+            - Y4ugeCjjra3IiH
+          - alvo_uid: Qi1Q0PDMpfliDb
+            pontos_uids:
+            - mJFW3aUybhnK2C
+            - 5IsLXHzfCKl5f3
             escalada: Tião Macalé
-          - ids:
-            - '06'
-            - '7'
-            setor: Canil
+            ids:
+            - mJFW3aUybhnK2C
+            - 5IsLXHzfCKl5f3
+          - alvo_uid: oBeEnbJK7Ff3ln
+            pontos_uids:
+            - Lf7S9mhmTRvqXu
+            - VmxOI8diLzDhIL
             escalada: Savana
+            ids:
+            - Lf7S9mhmTRvqXu
+            - VmxOI8diLzDhIL
         escaladas:
-        - boulder:
+        - uid: kaJQu4BSLLt921
+          boulder:
             nome: Sucrilhos no Prato
             dificuldade: V7
             descricao: Saída deitado com mão esquerda em pinça e direita na mesma
               agarra em reglete lateral.
-        - boulder:
+        - uid: QfQqepKuxSJctO
+          boulder:
             nome: Titan
             dificuldade: V4
             descricao: Saída deitado com mao esquerda em pinça na borda e direita
               batente investido.
-        - boulder:
+        - uid: BOIeQZAXjE3hh3
+          boulder:
             nome: Lobão
             dificuldade: V7
             descricao: Saida do Sucrilhos no Prato fazendo travessia para direita
               virando no Loboulder.
-        - boulder:
+        - uid: Qi1Q0PDMpfliDb
+          boulder:
             nome: Tião Macalé
             dificuldade: V5
             descricao: Saída do Sucrilhos no Prato e virando no Titan.
-        - boulder:
+        - uid: ihKW9OgcsBCIo8
+          boulder:
             nome: Zac
             dificuldade: V6
-        - boulder:
+        - uid: Y3BeD4xfjXO9RJ
+          boulder:
             nome: Loboulder
             dificuldade: V2
             descricao: Sai agachado com as mãos juntas em agarrão.
-        - boulder:
+        - uid: oBeEnbJK7Ff3ln
+          boulder:
             nome: Savana
             dificuldade: V6
             descricao: Saída do loboulder em travessia para esquerda virando no Sucrilhos
@@ -475,112 +649,155 @@ picos:
           total_boulders: 7
   - setor:
       conteudo:
+        uid: KbM68ZX0V5vtaT
         nome: Bloco do Guerreiro
         mapas:
         - caminho_imagem_mapa: imagens/setor_bloco_do_guerreiro_p0.webp
           largura_mapa: 1064
           altura_mapa: 871
           pontos_de_interesse:
-          - id: '01'
-            label: '01'
+          - uid: iglmoq77n7lfET
+            rotulo: '01'
             circulo:
               x: 370
               y: 632
               raio: 12
-          - id: '02'
-            label: '02'
+            id: iglmoq77n7lfET
+            label: '01'
+          - uid: ysorxHlnDk8ilJ
+            rotulo: '02'
             circulo:
               x: 579
               y: 603
               raio: 12
-          - id: '03'
-            label: '03'
+            id: ysorxHlnDk8ilJ
+            label: '02'
+          - uid: xhHdMPWz8YqyM2
+            rotulo: '03'
             circulo:
               x: 787
               y: 595
               raio: 12
-          - id: '04'
-            label: '04'
+            id: xhHdMPWz8YqyM2
+            label: '03'
+          - uid: MXsak3aovU0t9g
+            rotulo: '04'
             circulo:
               x: 924
               y: 626
               raio: 12
+            id: MXsak3aovU0t9g
+            label: '04'
           referencias:
-          - escalada: Strike
+          - alvo_uid: 7IQF5461NCjoKE
+            pontos_uids:
+            - iglmoq77n7lfET
+            escalada: Strike
             ids:
-            - '01'
-          - escalada: Chove e Não Molha
+            - iglmoq77n7lfET
+          - alvo_uid: RTN0rNb2gB7IHF
+            pontos_uids:
+            - ysorxHlnDk8ilJ
+            escalada: Chove e Não Molha
             ids:
-            - '02'
-          - escalada: Palhaço Pirulito
+            - ysorxHlnDk8ilJ
+          - alvo_uid: oBDvmaSNCEMWU2
+            pontos_uids:
+            - xhHdMPWz8YqyM2
+            escalada: Palhaço Pirulito
             ids:
-            - '03'
-          - escalada: Marreteiro
+            - xhHdMPWz8YqyM2
+          - alvo_uid: 5ycigquFoRkj5h
+            pontos_uids:
+            - MXsak3aovU0t9g
+            escalada: Marreteiro
             ids:
-            - '04'
+            - MXsak3aovU0t9g
         - caminho_imagem_mapa: imagens/setor_bloco_do_guerreiro_p1.webp
           largura_mapa: 1084
           altura_mapa: 881
           pontos_de_interesse:
-          - id: '05'
-            label: '05'
+          - uid: bChhIBYHkOqe81
+            rotulo: '05'
             circulo:
               x: 496
               y: 606
               raio: 13
-          - id: '06'
-            label: '06'
+            id: bChhIBYHkOqe81
+            label: '05'
+          - uid: Ds1zNd4r0BOE3N
+            rotulo: '06'
             circulo:
               x: 757
               y: 454
               raio: 13
-          - id: '07'
-            label: '07'
+            id: Ds1zNd4r0BOE3N
+            label: '06'
+          - uid: UmqIT9j592jMAA
+            rotulo: '07'
             circulo:
               x: 764
               y: 514
               raio: 13
+            id: UmqIT9j592jMAA
+            label: '07'
           referencias:
-          - escalada: Guerreiro da Bocaina
+          - alvo_uid: X1QTk7WvgkT0M3
+            pontos_uids:
+            - bChhIBYHkOqe81
+            escalada: Guerreiro da Bocaina
             ids:
-            - '05'
-          - escalada: High Line
+            - bChhIBYHkOqe81
+          - alvo_uid: ts4kATktgPOmh1
+            pontos_uids:
+            - Ds1zNd4r0BOE3N
+            escalada: High Line
             ids:
-            - '06'
-          - escalada: Colchão de Mola
+            - Ds1zNd4r0BOE3N
+          - alvo_uid: O66zZHjt63eW4R
+            pontos_uids:
+            - UmqIT9j592jMAA
+            escalada: Colchão de Mola
             ids:
-            - '07'
+            - UmqIT9j592jMAA
         escaladas:
-        - boulder:
+        - uid: 7IQF5461NCjoKE
+          boulder:
             nome: Strike
             dificuldade: V7_BARRA_V8
             descricao: Saída sentado com mão esquerda em reglete e direita em pinça
               pequena seguindo para abaulado virando reto.
-        - boulder:
+        - uid: RTN0rNb2gB7IHF
+          boulder:
             nome: Chove e Não Molha
             dificuldade: V3
             descricao: Saída em pé em regletes na aresta indo para abaulado e virando
               reto.
-        - boulder:
+        - uid: oBDvmaSNCEMWU2
+          boulder:
             nome: Palhaço Pirulito
             dificuldade: V1
             descricao: Saída em pé com as mãos em abaulado virando reto.
-        - boulder:
+        - uid: 5ycigquFoRkj5h
+          boulder:
             nome: Marreteiro
             dificuldade: V5
             descricao: Saida agachado, com a mão esquerda em reglete escorrido e direita
               em reglete de meia falange com calcanhar na mão direita e segue a linha
               reta.
-        - boulder:
+        - uid: X1QTk7WvgkT0M3
+          boulder:
             nome: Guerreiro da Bocaina
             dificuldade: V6
             descricao: Saída agachado com mão esquerda em abaulado com calcanhar esquerdo
               ao lado da mão e direita em reglete no teto.
-        - boulder:
+        - uid: ts4kATktgPOmh1
+          boulder:
             nome: High Line
             dificuldade: V5
             descricao: Saída em pé com as mãos em regletes no batentão.
-        - boulder:
+        - uid: O66zZHjt63eW4R
+          boulder:
             nome: Colchão de Mola
             dificuldade: V4
             descricao: Saída em pé com as mãos em regletes investidos.
@@ -590,211 +807,296 @@ picos:
           total_boulders: 7
   - setor:
       conteudo:
+        uid: OSyxvPq2xEupwz
         nome: Bloco do Cabelin
         mapas:
         - caminho_imagem_mapa: imagens/setor_bloco_do_cabelin_p0.webp
           largura_mapa: 1086
           altura_mapa: 885
           pontos_de_interesse:
-          - id: '01'
-            label: '01'
+          - uid: Ss1XKgxRfIr8Iw
+            rotulo: '01'
             circulo:
               x: 416
               y: 799
               raio: 12
+            id: Ss1XKgxRfIr8Iw
+            label: '01'
           referencias:
-          - escalada: Sexto Sentido
+          - alvo_uid: MGBLQ4vEOLrN9U
+            pontos_uids:
+            - Ss1XKgxRfIr8Iw
+            escalada: Sexto Sentido
             ids:
-            - '01'
+            - Ss1XKgxRfIr8Iw
         - caminho_imagem_mapa: imagens/setor_bloco_do_cabelin_p1.webp
           largura_mapa: 1092
           altura_mapa: 878
           pontos_de_interesse:
-          - id: '01'
-            label: '01'
+          - uid: tJV8Lm602Y2i39
+            rotulo: '01'
             circulo:
               x: 202
               y: 636
               raio: 13
-          - id: '02'
-            label: '02'
+            id: tJV8Lm602Y2i39
+            label: '01'
+          - uid: o51qO4D4BIowb8
+            rotulo: '02'
             circulo:
               x: 222
               y: 670
               raio: 13
-          - id: '03'
-            label: '03'
+            id: o51qO4D4BIowb8
+            label: '02'
+          - uid: 8UJKw35wtnjjsk
+            rotulo: '03'
             circulo:
               x: 372
               y: 821
               raio: 13
-          - id: '04'
-            label: '04'
+            id: 8UJKw35wtnjjsk
+            label: '03'
+          - uid: oU2GvGXJDwWXlA
+            rotulo: '04'
             circulo:
               x: 570
               y: 559
               raio: 13
-          - id: '05'
-            label: '05'
+            id: oU2GvGXJDwWXlA
+            label: '04'
+          - uid: oJiZ373URE7Cm1
+            rotulo: '05'
             circulo:
               x: 631
               y: 693
               raio: 12
-          - id: '06'
-            label: '06'
+            id: oJiZ373URE7Cm1
+            label: '05'
+          - uid: VQQJCLPjepyqD4
+            rotulo: '06'
             circulo:
               x: 658
               y: 688
               raio: 12
+            id: VQQJCLPjepyqD4
+            label: '06'
           referencias:
-          - escalada: Sexto Sentido
+          - alvo_uid: MGBLQ4vEOLrN9U
+            pontos_uids:
+            - tJV8Lm602Y2i39
+            escalada: Sexto Sentido
             ids:
-            - '01'
-          - escalada: Dread Lock
+            - tJV8Lm602Y2i39
+          - alvo_uid: RRwb7eFUdX7AXb
+            pontos_uids:
+            - o51qO4D4BIowb8
+            escalada: Dread Lock
             ids:
-            - '02'
-          - escalada: Cabeludo
+            - o51qO4D4BIowb8
+          - alvo_uid: HLaAx8pUzCP1HW
+            pontos_uids:
+            - 8UJKw35wtnjjsk
+            escalada: Cabeludo
             ids:
-            - '03'
-          - escalada: Jacinto Barriguinha
+            - 8UJKw35wtnjjsk
+          - alvo_uid: TJILQg2IZpx8hu
+            pontos_uids:
+            - oU2GvGXJDwWXlA
+            escalada: Jacinto Barriguinha
             ids:
-            - '04'
-          - escalada: Compressor
+            - oU2GvGXJDwWXlA
+          - alvo_uid: 0ZG7GOwDmItMMC
+            pontos_uids:
+            - oJiZ373URE7Cm1
+            escalada: Compressor
             ids:
-            - '05'
-          - escalada: Cabelinho
+            - oJiZ373URE7Cm1
+          - alvo_uid: SSurNg0H2HrJVd
+            pontos_uids:
+            - VQQJCLPjepyqD4
+            escalada: Cabelinho
             ids:
-            - '06'
+            - VQQJCLPjepyqD4
         - caminho_imagem_mapa: imagens/setor_bloco_do_cabelin_p2.webp
           largura_mapa: 1094
           altura_mapa: 893
           pontos_de_interesse:
-          - id: '07'
-            label: '07'
+          - uid: ykeTJbVDZmSG1R
+            rotulo: '07'
             circulo:
               x: 299
               y: 700
               raio: 12
-          - id: '08'
-            label: '08'
+            id: ykeTJbVDZmSG1R
+            label: '07'
+          - uid: ZxYyz9gxp00rbV
+            rotulo: '08'
             circulo:
               x: 296
               y: 612
               raio: 12
-          - id: '09'
-            label: '09'
+            id: ZxYyz9gxp00rbV
+            label: '08'
+          - uid: fO2h52R9rxdKIQ
+            rotulo: '09'
             circulo:
               x: 330
               y: 699
               raio: 12
-          - id: '10'
-            label: '10'
+            id: fO2h52R9rxdKIQ
+            label: '09'
+          - uid: XTT9NWQ0NBMmQa
+            rotulo: '10'
             circulo:
               x: 428
               y: 746
               raio: 12
-          - id: '11'
-            label: '11'
+            id: XTT9NWQ0NBMmQa
+            label: '10'
+          - uid: 0kgoTcOvsfEIFK
+            rotulo: '11'
             circulo:
               x: 455
               y: 732
               raio: 12
-          - id: '12'
-            label: '12'
+            id: 0kgoTcOvsfEIFK
+            label: '11'
+          - uid: KHeLNLki0mHXvJ
+            rotulo: '12'
             circulo:
               x: 476
               y: 719
               raio: 12
-          - id: '13'
-            label: '13'
+            id: KHeLNLki0mHXvJ
+            label: '12'
+          - uid: N16PIBipldb61s
+            rotulo: '13'
             circulo:
               x: 502
               y: 707
               raio: 12
+            id: N16PIBipldb61s
+            label: '13'
           referencias:
-          - escalada: Mágico de Oz
+          - alvo_uid: Us7eEYwZ3svDyE
+            pontos_uids:
+            - ykeTJbVDZmSG1R
+            escalada: Mágico de Oz
             ids:
-            - '07'
-          - escalada: Mágico de Oz SDS
+            - ykeTJbVDZmSG1R
+          - alvo_uid: qgrWA0Q4i3kqjy
+            pontos_uids:
+            - ZxYyz9gxp00rbV
+            escalada: Mágico de Oz SDS
             ids:
-            - '08'
-          - escalada: Mr. Gordura
+            - ZxYyz9gxp00rbV
+          - alvo_uid: T2lual8WiIOiry
+            pontos_uids:
+            - fO2h52R9rxdKIQ
+            escalada: Mr. Gordura
             ids:
-            - '09'
-          - escalada: País das Maravilhas
+            - fO2h52R9rxdKIQ
+          - alvo_uid: 2xjIUndpQYgyn3
+            pontos_uids:
+            - XTT9NWQ0NBMmQa
+            escalada: País das Maravilhas
             ids:
-            - '10'
-          - escalada: Capim Louco
+            - XTT9NWQ0NBMmQa
+          - alvo_uid: 4UGPBAPaXeN7Fu
+            pontos_uids:
+            - 0kgoTcOvsfEIFK
+            escalada: Capim Louco
             ids:
-            - '11'
-          - escalada: Capim Gordura
+            - 0kgoTcOvsfEIFK
+          - alvo_uid: oihqByvJ1urkov
+            pontos_uids:
+            - KHeLNLki0mHXvJ
+            escalada: Capim Gordura
             ids:
-            - '12'
-          - escalada: Roleta Russa
+            - KHeLNLki0mHXvJ
+          - alvo_uid: sw6UzSFuVdbAPL
+            pontos_uids:
+            - N16PIBipldb61s
+            escalada: Roleta Russa
             ids:
-            - '13'
+            - N16PIBipldb61s
         escaladas:
-        - boulder:
+        - uid: MGBLQ4vEOLrN9U
+          boulder:
             nome: Sexto Sentido
             dificuldade: V4
             descricao: Saída agachado com as mãos juntas em batente bom a direita
               do bloco e segue pela fenda diagonal para direita e vira na proa.
-        - boulder:
+        - uid: RRwb7eFUdX7AXb
+          boulder:
             nome: Dread Lock
             dificuldade: V7
             descricao: Mesma saída do sexto sentido, travessia horizontal por baixo
               e entra no cabeludo.
-        - boulder:
+        - uid: HLaAx8pUzCP1HW
+          boulder:
             nome: Cabeludo
             dificuldade: V7
             descricao: Saída sentado abrançando a aresta no meio do bloco, faz o primeiro
               movimento para cima da pedra e sai pra direita e vira no cabelinho.
-        - boulder:
+        - uid: TJILQg2IZpx8hu
+          boulder:
             nome: Jacinto Barriguinha
             dificuldade: V2
             descricao: Saída em pé com as mãos em agarrões e vira no buraco, no meio
               do bloco.
-        - boulder:
+        - uid: 0ZG7GOwDmItMMC
+          boulder:
             nome: Compressor
             dificuldade: V8
             descricao: Mesma saída do Cabelinho virando reto no buraco.
-        - boulder:
+        - uid: SSurNg0H2HrJVd
+          boulder:
             nome: Cabelinho
             dificuldade: V5
             descricao: Saída sentado com mão esquerda em pinça e direita em reglete
               pequeno, virando a direita do bloco.
-        - boulder:
+        - uid: Us7eEYwZ3svDyE
+          boulder:
             nome: Mágico de Oz
             dificuldade: V7
             descricao: Saída em pé com mão esquerda em reglete pequeno de gaston ou
               biquinho, e mão direita em pequeno reglete abaulado.
-        - boulder:
+        - uid: qgrWA0Q4i3kqjy
+          boulder:
             nome: Mágico de Oz SDS
             dificuldade: V8
             descricao: Saída em pé com mão esquerda em reglete investido e mão direita
               em pinça investida.
-        - boulder:
+        - uid: T2lual8WiIOiry
+          boulder:
             nome: Mr. Gordura
             dificuldade: V9
             descricao: Saída do Mágico de Oz SDS, e segue para direita pela fenda
               virando no Capim Gordura.
-        - boulder:
+        - uid: 2xjIUndpQYgyn3
+          boulder:
             nome: País das Maravilhas
             dificuldade: V10
             descricao: Saída deitado em agarrão, seguindo para esquerda passando por
               traz da árvore e virando no Mágico de Oz.
-        - boulder:
+        - uid: 4UGPBAPaXeN7Fu
+          boulder:
             nome: Capim Louco
             dificuldade: V3
             descricao: Saída do País das Maravilhas e vira reto no bloco.
-        - boulder:
+        - uid: oihqByvJ1urkov
+          boulder:
             nome: Capim Gordura
             dificuldade: V5
             descricao: Saída do País das Maravilhas e segue para direita pela fenda.
-        - boulder:
+        - uid: sw6UzSFuVdbAPL
+          boulder:
             nome: Roleta Russa
             dificuldade: V6
-        - boulder:
+        - uid: 856X9ItsIwIOP6
+          boulder:
             nome: La Qualitê
             dificuldade: V10
             descricao: Saída em pé com mão esquerda no bico e mão direita em pinça
@@ -806,84 +1108,115 @@ picos:
           total_boulders: 14
   - setor:
       conteudo:
+        uid: yPyqzCvOxEEIE3
         nome: Consciência Limpa
         mapas:
         - caminho_imagem_mapa: imagens/setor_consciencia_limpa_p0.webp
           largura_mapa: 1096
           altura_mapa: 893
           pontos_de_interesse:
-          - id: '01'
-            label: '01'
+          - uid: PhBZE7VtDSqD8U
+            rotulo: '01'
             circulo:
               x: 468
               y: 685
               raio: 12
-          - id: '02'
-            label: '02'
+            id: PhBZE7VtDSqD8U
+            label: '01'
+          - uid: FbFo4WMgq93FUL
+            rotulo: '02'
             circulo:
               x: 683
               y: 693
               raio: 12
+            id: FbFo4WMgq93FUL
+            label: '02'
           referencias:
-          - escalada: Canarim
+          - alvo_uid: AzAsVbpRR8NCmD
+            pontos_uids:
+            - PhBZE7VtDSqD8U
+            escalada: Canarim
             ids:
-            - '01'
-          - escalada: Sabiá
+            - PhBZE7VtDSqD8U
+          - alvo_uid: 29ZNcyB4GZmTNv
+            pontos_uids:
+            - FbFo4WMgq93FUL
+            escalada: Sabiá
             ids:
-            - '02'
+            - FbFo4WMgq93FUL
         - caminho_imagem_mapa: imagens/setor_consciencia_limpa_p1.webp
           largura_mapa: 1099
           altura_mapa: 895
           pontos_de_interesse:
-          - id: '03'
-            label: '03'
+          - uid: 78hbcPC3JxJUSF
+            rotulo: '03'
             circulo:
               x: 411
               y: 590
               raio: 12
-          - id: '04'
-            label: '04'
+            id: 78hbcPC3JxJUSF
+            label: '03'
+          - uid: SbotqR4jUIiUBh
+            rotulo: '04'
             circulo:
               x: 634
               y: 700
               raio: 12
-          - id: '05'
-            label: '05'
+            id: SbotqR4jUIiUBh
+            label: '04'
+          - uid: bDXgtLmh3E6LLL
+            rotulo: '05'
             circulo:
               x: 711
               y: 687
               raio: 12
+            id: bDXgtLmh3E6LLL
+            label: '05'
           referencias:
-          - escalada: Consciência Limpa
+          - alvo_uid: RoRaerpVLHnnMi
+            pontos_uids:
+            - 78hbcPC3JxJUSF
+            escalada: Consciência Limpa
             ids:
-            - '03'
-          - escalada: Consciência
+            - 78hbcPC3JxJUSF
+          - alvo_uid: fRmptXErasQlWb
+            pontos_uids:
+            - SbotqR4jUIiUBh
+            escalada: Consciência
             ids:
-            - '04'
-          - escalada: Mulheres Poderosas
+            - SbotqR4jUIiUBh
+          - alvo_uid: OfkdNUdYCH06Je
+            pontos_uids:
+            - bDXgtLmh3E6LLL
+            escalada: Mulheres Poderosas
             ids:
-            - '05'
+            - bDXgtLmh3E6LLL
         escaladas:
-        - boulder:
+        - uid: AzAsVbpRR8NCmD
+          boulder:
             nome: Canarim
             dificuldade: V2
             descricao: Saída agachado em regletes bons e segue reto.
-        - boulder:
+        - uid: 29ZNcyB4GZmTNv
+          boulder:
             nome: Sabiá
             dificuldade: V1
             descricao: Saída agachado com as duas mãos em agarras boas laterais e
               vira a esquerda da planta.
-        - boulder:
+        - uid: RoRaerpVLHnnMi
+          boulder:
             nome: Consciência Limpa
             dificuldade: V2
             descricao: Saída sentado com mão direita em reglete lateral branco e esquerda
               proximo as pedras .
-        - boulder:
+        - uid: fRmptXErasQlWb
+          boulder:
             nome: Consciência
             dificuldade: V1
             descricao: Saída agachado com as mãos juntas em batente baixo e segue
               reto pela aresta.
-        - boulder:
+        - uid: OfkdNUdYCH06Je
+          boulder:
             nome: Mulheres Poderosas
             dificuldade: V2
             descricao: Saída agachado com mão direita em agarra lateral e esquerda
@@ -894,93 +1227,128 @@ picos:
           total_boulders: 5
   - setor:
       conteudo:
+        uid: vBnFROJdRpikVD
         nome: Haiti
         mapas:
         - caminho_imagem_mapa: imagens/setor_haiti_p0.webp
           largura_mapa: 1092
           altura_mapa: 893
           pontos_de_interesse:
-          - id: '01'
-            label: '01'
+          - uid: FhtFb58a7CDhsN
+            rotulo: '01'
             circulo:
               x: 511
               y: 669
               raio: 13
-          - id: '04'
-            label: '04'
+            id: FhtFb58a7CDhsN
+            label: '01'
+          - uid: GyCci4avj0ijDU
+            rotulo: '04'
             circulo:
               x: 928
               y: 750
               raio: 13
-          - id: '05'
-            label: '05'
+            id: GyCci4avj0ijDU
+            label: '04'
+          - uid: uIrklHuN1gOLFp
+            rotulo: '05'
             circulo:
               x: 982
               y: 750
               raio: 13
-          - id: '06'
-            label: '06'
+            id: uIrklHuN1gOLFp
+            label: '05'
+          - uid: a82fd2IbumPZSB
+            rotulo: '06'
             circulo:
               x: 1015
               y: 737
               raio: 13
-          - id: 1_fim
-            label: 1_fim
+            id: a82fd2IbumPZSB
+            label: '06'
+          - uid: 4jvfro2mDUFwwJ
+            rotulo: 1_fim
             circulo:
               x: 265
               y: 56
               raio: 13
-          - id: '2'
-            label: '2'
+            id: 4jvfro2mDUFwwJ
+            label: 1_fim
+          - uid: 3ohbSe7X3MrtxA
+            rotulo: '2'
             circulo:
               x: 721
               y: 22
               raio: 14
+            id: 3ohbSe7X3MrtxA
+            label: '2'
           referencias:
-          - escalada: Jamaica Abaixo de Zero
-            ids:
-            - '01'
+          - alvo_uid: VrjDDeA6mDcMnW
+            pontos_uids:
+            - FhtFb58a7CDhsN
             - '3'
-          - escalada: Taiti
+            escalada: Jamaica Abaixo de Zero
             ids:
-            - '04'
-          - escalada: Haiti
+            - FhtFb58a7CDhsN
+            - '3'
+          - alvo_uid: pSI1abxmrFvsOU
+            pontos_uids:
+            - GyCci4avj0ijDU
+            escalada: Taiti
             ids:
-            - '05'
-          - escalada: Nem Lá, Nem Cá
+            - GyCci4avj0ijDU
+          - alvo_uid: ykABlKVEdX4WnL
+            pontos_uids:
+            - uIrklHuN1gOLFp
+            escalada: Haiti
             ids:
-            - '06'
-          - ids:
-            - '01'
-            - '2'
-            setor: Haiti
+            - uIrklHuN1gOLFp
+          - alvo_uid: rZvDU2nJVOIFQX
+            pontos_uids:
+            - a82fd2IbumPZSB
+            escalada: Nem Lá, Nem Cá
+            ids:
+            - a82fd2IbumPZSB
+          - alvo_uid: whjMmhNnbP413h
+            pontos_uids:
+            - FhtFb58a7CDhsN
+            - 3ohbSe7X3MrtxA
             escalada: Jamaica
+            ids:
+            - FhtFb58a7CDhsN
+            - 3ohbSe7X3MrtxA
         escaladas:
-        - boulder:
+        - uid: VrjDDeA6mDcMnW
+          boulder:
             nome: Jamaica Abaixo de Zero
             dificuldade: V7
             descricao: Saída sentado com a mão esquerda em reglete e direita em batente
               pequeno, seguindo reto virando no Taiti.
-        - boulder:
+        - uid: whjMmhNnbP413h
+          boulder:
             nome: Jamaica
             dificuldade: V6
             descricao: Saída do Jamaica Abaixo de Zero seguindo para direita virando
               no Haiti.
-        - boulder:
+        - uid: DsRz9n1F0hk9Kt
+          boulder:
             nome: Kuaiti
             dificuldade: V8
             descricao: Saída do Jamaica Abaixo de Zero, virando à esquerda do Taiti.
-        - boulder:
+        - uid: pSI1abxmrFvsOU
+          boulder:
             nome: Taiti
             dificuldade: V7
             descricao: Saída sentado com as mãos juntas em batente grande seguindo
               para batentes lisos e virando a esquerda no bloco.
-        - boulder:
+        - uid: ykABlKVEdX4WnL
+          boulder:
             nome: Haiti
             dificuldade: V7
             descricao: Mesma saída do Taíti seguindo a esquerda até batentes escorrido
               e virando reto.
-        - boulder:
+        - uid: rZvDU2nJVOIFQX
+          boulder:
             nome: Nem Lá, Nem Cá
             dificuldade: V5
             descricao: Mesma saída do Haíti seguindo pela aresta em regletes laterais
@@ -991,66 +1359,91 @@ picos:
           total_boulders: 6
   - setor:
       conteudo:
+        uid: ZQv26maQUVi4h5
         nome: Achados e Perdidos
         mapas:
         - caminho_imagem_mapa: imagens/setor_achados_e_perdidos_p0.webp
           largura_mapa: 1071
           altura_mapa: 865
           pontos_de_interesse:
-          - id: '01'
-            label: '01'
+          - uid: Ov15ZNOC8paRFS
+            rotulo: '01'
             circulo:
               x: 73
               y: 538
               raio: 12
-          - id: '02'
-            label: '02'
+            id: Ov15ZNOC8paRFS
+            label: '01'
+          - uid: jsuTMbKsoAro5q
+            rotulo: '02'
             circulo:
               x: 286
               y: 658
               raio: 12
-          - id: '03'
-            label: '03'
+            id: jsuTMbKsoAro5q
+            label: '02'
+          - uid: ItoM2tBPnzTHYV
+            rotulo: '03'
             circulo:
               x: 372
               y: 684
               raio: 12
-          - id: '04'
-            label: '04'
+            id: ItoM2tBPnzTHYV
+            label: '03'
+          - uid: Cfqap3oLYMVGtt
+            rotulo: '04'
             circulo:
               x: 919
               y: 658
               raio: 13
+            id: Cfqap3oLYMVGtt
+            label: '04'
           referencias:
-          - escalada: Fala Comigo
+          - alvo_uid: 6MTjT97QEndL2p
+            pontos_uids:
+            - Ov15ZNOC8paRFS
+            escalada: Fala Comigo
             ids:
-            - '01'
-          - escalada: Tendinite No More
+            - Ov15ZNOC8paRFS
+          - alvo_uid: Svg4YvJNez9SA3
+            pontos_uids:
+            - jsuTMbKsoAro5q
+            escalada: Tendinite No More
             ids:
-            - '02'
-          - escalada: Atitude no Trecho
+            - jsuTMbKsoAro5q
+          - alvo_uid: WRQQlvWvCjpt2F
+            pontos_uids:
+            - ItoM2tBPnzTHYV
+            escalada: Atitude no Trecho
             ids:
-            - '03'
-          - escalada: Achados e Perdidos
+            - ItoM2tBPnzTHYV
+          - alvo_uid: KZZyZqWtJhhWkP
+            pontos_uids:
+            - Cfqap3oLYMVGtt
+            escalada: Achados e Perdidos
             ids:
-            - '04'
+            - Cfqap3oLYMVGtt
         escaladas:
-        - boulder:
+        - uid: 6MTjT97QEndL2p
+          boulder:
             nome: Fala Comigo
             dificuldade: V6
             descricao: saida agachado com as mãos em agarrao a esquerda do bloco e
               faz uma travessia para direita e vira no centro do bloco no boulder
               atitude no trecho.
-        - boulder:
+        - uid: Svg4YvJNez9SA3
+          boulder:
             nome: Tendinite No More
             dificuldade: V2
             descricao: Saida do atitude no trecho e segue para esquerda.
-        - boulder:
+        - uid: WRQQlvWvCjpt2F
+          boulder:
             nome: Atitude no Trecho
             dificuldade: V3
             descricao: saida agachado com as duas maos juntas em um cristal e segue
               reto (no meio do bloco).
-        - boulder:
+        - uid: KZZyZqWtJhhWkP
+          boulder:
             nome: Achados e Perdidos
             dificuldade: V3
             descricao: Saida em pé a direita do bloco com mão direita em pinça escorrida
@@ -1061,52 +1454,71 @@ picos:
           total_boulders: 4
   - setor:
       conteudo:
+        uid: hkr7E07rMsU03N
         nome: Bloco do Rock Bocaina
         mapas:
         - caminho_imagem_mapa: imagens/setor_bloco_do_rock_bocaina_p0.webp
           largura_mapa: 1079
           altura_mapa: 883
           pontos_de_interesse:
-          - id: '01'
-            label: '01'
+          - uid: xH9PTlH2K9PaGA
+            rotulo: '01'
             circulo:
               x: 153
               y: 742
               raio: 11
-          - id: '02'
-            label: '02'
+            id: xH9PTlH2K9PaGA
+            label: '01'
+          - uid: DFUHpcIj1YGZi9
+            rotulo: '02'
             circulo:
               x: 213
               y: 748
               raio: 11
-          - id: '03'
-            label: '03'
+            id: DFUHpcIj1YGZi9
+            label: '02'
+          - uid: 0VAwiGnZoMnA7B
+            rotulo: '03'
             circulo:
               x: 991
               y: 685
               raio: 11
+            id: 0VAwiGnZoMnA7B
+            label: '03'
           referencias:
-          - escalada: Açaí Bocaina
+          - alvo_uid: DospLln4vrrRIa
+            pontos_uids:
+            - xH9PTlH2K9PaGA
+            escalada: Açaí Bocaina
             ids:
-            - '01'
-          - escalada: Rock Bocaina
+            - xH9PTlH2K9PaGA
+          - alvo_uid: aAcYxTKwQP83PQ
+            pontos_uids:
+            - DFUHpcIj1YGZi9
+            escalada: Rock Bocaina
             ids:
-            - '02'
-          - escalada: Dedão de Aquiles
+            - DFUHpcIj1YGZi9
+          - alvo_uid: i73Feh4FJLDh9q
+            pontos_uids:
+            - 0VAwiGnZoMnA7B
+            escalada: Dedão de Aquiles
             ids:
-            - '03'
+            - 0VAwiGnZoMnA7B
         escaladas:
-        - boulder:
+        - uid: DospLln4vrrRIa
+          boulder:
             nome: Açaí Bocaina
             dificuldade: V5
             descricao: Saida em pé a esquerda do bloco com as mãos em agarrões e segue
               a aresta por cima virando no centro do bloco.
-        - boulder:
+        - uid: aAcYxTKwQP83PQ
+          boulder:
             nome: Rock Bocaina
             dificuldade: V8
             descricao: Saida do acai bocaina, e segue travessia para direita por baixo
               dominando no final .
-        - boulder:
+        - uid: i73Feh4FJLDh9q
+          boulder:
             nome: Dedão de Aquiles
             dificuldade: V3
             descricao: Saída da aresta a direita do bloco e vai arestando até o topo.
@@ -1116,383 +1528,542 @@ picos:
           total_boulders: 3
   - setor:
       conteudo:
+        uid: iZezgdH50SBgEG
         nome: Bloco 45º
         mapas:
         - caminho_imagem_mapa: imagens/setor_bloco_45_p0.webp
           largura_mapa: 1084
           altura_mapa: 883
           pontos_de_interesse:
-          - id: '01'
-            label: '01'
+          - uid: mvHJiGGC0TT6wj
+            rotulo: '01'
             circulo:
               x: 123
               y: 716
               raio: 11
-          - id: '02'
-            label: '02'
+            id: mvHJiGGC0TT6wj
+            label: '01'
+          - uid: MaKXkzxTpKAONV
+            rotulo: '02'
             circulo:
               x: 161
               y: 718
               raio: 11
-          - id: '03'
-            label: '03'
+            id: MaKXkzxTpKAONV
+            label: '02'
+          - uid: 2srhDFdc437Aud
+            rotulo: '03'
             circulo:
               x: 143
               y: 752
               raio: 11
-          - id: '04'
-            label: '04'
+            id: 2srhDFdc437Aud
+            label: '03'
+          - uid: 02gLzrf1qOvv04
+            rotulo: '04'
             circulo:
               x: 256
               y: 683
               raio: 11
-          - id: '05'
-            label: '05'
+            id: 02gLzrf1qOvv04
+            label: '04'
+          - uid: DKlTPWQzGFDaAn
+            rotulo: '05'
             circulo:
               x: 296
               y: 775
               raio: 11
-          - id: '07'
-            label: '07'
+            id: DKlTPWQzGFDaAn
+            label: '05'
+          - uid: Q84HXACSSluDIv
+            rotulo: '07'
             circulo:
               x: 618
               y: 554
               raio: 11
-          - id: '08'
-            label: '08'
+            id: Q84HXACSSluDIv
+            label: '07'
+          - uid: 4okay9Mgep0XTd
+            rotulo: '08'
             circulo:
               x: 803
               y: 501
               raio: 11
-          - id: P1
-            label: P
+            id: 4okay9Mgep0XTd
+            label: '08'
+          - uid: UqEOCKyj2rttNj
+            rotulo: P
             circulo:
               x: 384
               y: 740
               raio: 11
-          - id: P2
+            id: UqEOCKyj2rttNj
             label: P
+          - uid: ZWCwFmXJG23aZv
+            rotulo: P
             circulo:
               x: 674
               y: 659
               raio: 11
-          - id: P3
+            id: ZWCwFmXJG23aZv
             label: P
+          - uid: FgMHh1l7UzZHE9
+            rotulo: P
             circulo:
               x: 712
               y: 662
               raio: 11
-          - id: '06'
-            label: '06'
+            id: FgMHh1l7UzZHE9
+            label: P
+          - uid: 1lPKuoVwNNy6XE
+            rotulo: '06'
             circulo:
               x: 674
               y: 695
               raio: 11
+            id: 1lPKuoVwNNy6XE
+            label: '06'
           referencias:
-          - escalada: Esquina do Gueto
+          - alvo_uid: TdBZjNMFkAaV9D
+            pontos_uids:
+            - mvHJiGGC0TT6wj
+            escalada: Esquina do Gueto
             ids:
-            - '01'
-          - escalada: Bem-Vindo
+            - mvHJiGGC0TT6wj
+          - alvo_uid: A5CATmQ4mbzcON
+            pontos_uids:
+            - MaKXkzxTpKAONV
+            escalada: Bem-Vindo
             ids:
-            - '02'
-          - escalada: Siri Cascudo
+            - MaKXkzxTpKAONV
+          - alvo_uid: jEKmEQkJzKkbof
+            pontos_uids:
+            - 2srhDFdc437Aud
+            escalada: Siri Cascudo
             ids:
-            - '03'
-          - escalada: Índios
+            - 2srhDFdc437Aud
+          - alvo_uid: RgVlqgXPTuKESi
+            pontos_uids:
+            - 02gLzrf1qOvv04
+            escalada: Índios
             ids:
-            - '04'
-          - escalada: Índios SDS
+            - 02gLzrf1qOvv04
+          - alvo_uid: zgPCV5sX3RT5mv
+            pontos_uids:
+            - DKlTPWQzGFDaAn
+            escalada: Índios SDS
             ids:
-            - '05'
-          - escalada: Família Bocaina
+            - DKlTPWQzGFDaAn
+          - alvo_uid: kCkw4BwSQ66JQY
+            pontos_uids:
+            - 1lPKuoVwNNy6XE
+            escalada: Família Bocaina
             ids:
-            - '06'
-          - escalada: Sananga
+            - 1lPKuoVwNNy6XE
+          - alvo_uid: hGMouLYyRGoSf8
+            pontos_uids:
+            - Q84HXACSSluDIv
+            escalada: Sananga
             ids:
-            - '07'
-          - escalada: Espírito San
+            - Q84HXACSSluDIv
+          - alvo_uid: mTlIhLNDau9a7w
+            pontos_uids:
+            - 4okay9Mgep0XTd
+            escalada: Espírito San
             ids:
-            - '08'
+            - 4okay9Mgep0XTd
         - caminho_imagem_mapa: imagens/setor_bloco_45_p1.webp
           largura_mapa: 1091
           altura_mapa: 813
           pontos_de_interesse:
-          - id: '09'
-            label: '09'
+          - uid: yTJ6hZxe7sh2Q9
+            rotulo: '09'
             circulo:
               x: 660
               y: 429
               raio: 11
-          - id: '10'
-            label: '10'
+            id: yTJ6hZxe7sh2Q9
+            label: '09'
+          - uid: BwCUNu7Y1Sekg3
+            rotulo: '10'
             circulo:
               x: 627
               y: 498
               raio: 11
-          - id: '11'
-            label: '11'
+            id: BwCUNu7Y1Sekg3
+            label: '10'
+          - uid: YSiSC36Y2pwRMa
+            rotulo: '11'
             circulo:
               x: 691
               y: 421
               raio: 11
-          - id: '12'
-            label: '12'
+            id: YSiSC36Y2pwRMa
+            label: '11'
+          - uid: UmXtCyKAdHUHJS
+            rotulo: '12'
             circulo:
               x: 660
               y: 498
               raio: 11
-          - id: '13'
-            label: '13'
+            id: UmXtCyKAdHUHJS
+            label: '12'
+          - uid: YrbrDb9p8hPVqs
+            rotulo: '13'
             circulo:
               x: 621
               y: 411
               raio: 11
-          - id: '14'
-            label: '14'
+            id: YrbrDb9p8hPVqs
+            label: '13'
+          - uid: no6uX0zqpcGt2S
+            rotulo: '14'
             circulo:
               x: 597
               y: 502
               raio: 11
-          - id: '15'
-            label: '15'
+            id: no6uX0zqpcGt2S
+            label: '14'
+          - uid: tOWDdbPMmnwS4i
+            rotulo: '15'
             circulo:
               x: 752
               y: 490
               raio: 11
-          - id: '16'
-            label: '16'
+            id: tOWDdbPMmnwS4i
+            label: '15'
+          - uid: G6FAlAqwWpH5lQ
+            rotulo: '16'
             circulo:
               x: 868
               y: 431
               raio: 11
+            id: G6FAlAqwWpH5lQ
+            label: '16'
           referencias:
-          - escalada: Tiro ao Alvo
+          - alvo_uid: 5j5RDqWyI5pH6E
+            pontos_uids:
+            - yTJ6hZxe7sh2Q9
+            escalada: Tiro ao Alvo
             ids:
-            - '09'
-          - escalada: Tiro ao Alvo SDS
+            - yTJ6hZxe7sh2Q9
+          - alvo_uid: e5osFqSTv1yRnl
+            pontos_uids:
+            - BwCUNu7Y1Sekg3
+            escalada: Tiro ao Alvo SDS
             ids:
-            - '10'
-          - escalada: Mão na Massa
+            - BwCUNu7Y1Sekg3
+          - alvo_uid: SFtPEGjCitlzP3
+            pontos_uids:
+            - YSiSC36Y2pwRMa
+            escalada: Mão na Massa
             ids:
-            - '11'
-          - escalada: Mão na Massa SDS
+            - YSiSC36Y2pwRMa
+          - alvo_uid: 2ORMfj30jI9Ore
+            pontos_uids:
+            - UmXtCyKAdHUHJS
+            escalada: Mão na Massa SDS
             ids:
-            - '12'
-          - escalada: Bicho de Pé
+            - UmXtCyKAdHUHJS
+          - alvo_uid: 2cKX9mHLW4grYR
+            pontos_uids:
+            - YrbrDb9p8hPVqs
+            escalada: Bicho de Pé
             ids:
-            - '13'
-          - escalada: Bicho de Pé SDS
+            - YrbrDb9p8hPVqs
+          - alvo_uid: bSbc4MZmq3iZ0S
+            pontos_uids:
+            - no6uX0zqpcGt2S
+            escalada: Bicho de Pé SDS
             ids:
-            - '14'
-          - escalada: Curto e Gross
+            - no6uX0zqpcGt2S
+          - alvo_uid: vN7FOp4blYdvKc
+            pontos_uids:
+            - tOWDdbPMmnwS4i
+            escalada: Curto e Gross
             ids:
-            - '15'
-          - escalada: Carvoeiro
+            - tOWDdbPMmnwS4i
+          - alvo_uid: 117Soh4aoEHw6l
+            pontos_uids:
+            - G6FAlAqwWpH5lQ
+            escalada: Carvoeiro
             ids:
-            - '16'
+            - G6FAlAqwWpH5lQ
         - caminho_imagem_mapa: imagens/setor_bloco_45_p2.webp
           largura_mapa: 1087
           altura_mapa: 812
           pontos_de_interesse:
-          - id: '09'
-            label: '09'
+          - uid: GRltwvsxlkGCNN
+            rotulo: '09'
             circulo:
               x: 658
               y: 431
               raio: 11
-          - id: '10'
-            label: '10'
+            id: GRltwvsxlkGCNN
+            label: '09'
+          - uid: YOMHgNryHpqEmt
+            rotulo: '10'
             circulo:
               x: 625
               y: 499
               raio: 11
-          - id: '11'
-            label: '11'
+            id: YOMHgNryHpqEmt
+            label: '10'
+          - uid: cRnKxhDlh8Dpda
+            rotulo: '11'
             circulo:
               x: 690
               y: 423
               raio: 11
-          - id: '12'
-            label: '12'
+            id: cRnKxhDlh8Dpda
+            label: '11'
+          - uid: Ri77RYIprayDJU
+            rotulo: '12'
             circulo:
               x: 658
               y: 500
               raio: 11
-          - id: '13'
-            label: '13'
+            id: Ri77RYIprayDJU
+            label: '12'
+          - uid: dByo13RcijrdnK
+            rotulo: '13'
             circulo:
               x: 619
               y: 413
               raio: 11
-          - id: '14'
-            label: '14'
+            id: dByo13RcijrdnK
+            label: '13'
+          - uid: YOAaqn7ekKwgoh
+            rotulo: '14'
             circulo:
               x: 595
               y: 503
               raio: 11
-          - id: '15'
-            label: '15'
+            id: YOAaqn7ekKwgoh
+            label: '14'
+          - uid: qRXu6SzB2MuNzu
+            rotulo: '15'
             circulo:
               x: 750
               y: 493
               raio: 11
-          - id: '16'
-            label: '16'
+            id: qRXu6SzB2MuNzu
+            label: '15'
+          - uid: Yxi3URgekTxOlF
+            rotulo: '16'
             circulo:
               x: 866
               y: 433
               raio: 11
-          - id: '17'
-            label: '17'
+            id: Yxi3URgekTxOlF
+            label: '16'
+          - uid: 6OsqoKgTmvtSxl
+            rotulo: '17'
             circulo:
               x: 899
               y: 436
               raio: 11
-          - id: '18'
-            label: '18'
+            id: 6OsqoKgTmvtSxl
+            label: '17'
+          - uid: KAegtkFDEyeUGI
+            rotulo: '18'
             circulo:
               x: 1011
               y: 403
               raio: 11
+            id: KAegtkFDEyeUGI
+            label: '18'
           referencias:
-          - escalada: Tiro ao Alvo
+          - alvo_uid: 5j5RDqWyI5pH6E
+            pontos_uids:
+            - GRltwvsxlkGCNN
+            escalada: Tiro ao Alvo
             ids:
-            - '09'
-          - escalada: Tiro ao Alvo SDS
+            - GRltwvsxlkGCNN
+          - alvo_uid: e5osFqSTv1yRnl
+            pontos_uids:
+            - YOMHgNryHpqEmt
+            escalada: Tiro ao Alvo SDS
             ids:
-            - '10'
-          - escalada: Mão na Massa
+            - YOMHgNryHpqEmt
+          - alvo_uid: SFtPEGjCitlzP3
+            pontos_uids:
+            - cRnKxhDlh8Dpda
+            escalada: Mão na Massa
             ids:
-            - '11'
-          - escalada: Mão na Massa SDS
+            - cRnKxhDlh8Dpda
+          - alvo_uid: 2ORMfj30jI9Ore
+            pontos_uids:
+            - Ri77RYIprayDJU
+            escalada: Mão na Massa SDS
             ids:
-            - '12'
-          - escalada: Bicho de Pé
+            - Ri77RYIprayDJU
+          - alvo_uid: 2cKX9mHLW4grYR
+            pontos_uids:
+            - dByo13RcijrdnK
+            escalada: Bicho de Pé
             ids:
-            - '13'
-          - escalada: Bicho de Pé SDS
+            - dByo13RcijrdnK
+          - alvo_uid: bSbc4MZmq3iZ0S
+            pontos_uids:
+            - YOAaqn7ekKwgoh
+            escalada: Bicho de Pé SDS
             ids:
-            - '14'
-          - escalada: Curto e Gross
+            - YOAaqn7ekKwgoh
+          - alvo_uid: vN7FOp4blYdvKc
+            pontos_uids:
+            - qRXu6SzB2MuNzu
+            escalada: Curto e Gross
             ids:
-            - '15'
-          - escalada: Carvoeiro
+            - qRXu6SzB2MuNzu
+          - alvo_uid: 117Soh4aoEHw6l
+            pontos_uids:
+            - Yxi3URgekTxOlF
+            escalada: Carvoeiro
             ids:
-            - '16'
-          - escalada: Kadron
+            - Yxi3URgekTxOlF
+          - alvo_uid: ZLg4DW5jK5sKLO
+            pontos_uids:
+            - 6OsqoKgTmvtSxl
+            escalada: Kadron
             ids:
-            - '17'
-          - escalada: Saída pela Culatra
+            - 6OsqoKgTmvtSxl
+          - alvo_uid: iTuKSE2ptAEKMC
+            pontos_uids:
+            - KAegtkFDEyeUGI
+            escalada: Saída pela Culatra
             ids:
-            - '18'
-            setor: Bloco 45º
+            - KAegtkFDEyeUGI
         escaladas:
-        - boulder:
+        - uid: TdBZjNMFkAaV9D
+          boulder:
             nome: Esquina do Gueto
             dificuldade: V2
             descricao: Saída do bem vindo e entra para a face da esquerda da pedra,
               virando por ela.
-        - boulder:
+        - uid: A5CATmQ4mbzcON
+          boulder:
             nome: Bem-Vindo
             dificuldade: V4
             descricao: Saída sentado com as mãos em dois bicos baixos, a esquerda
               do bloco, segue reto.
-        - boulder:
+        - uid: jEKmEQkJzKkbof
+          boulder:
             nome: Siri Cascudo
             dificuldade: V6
             descricao: Saída do bem vindo, virando no Família Bocaina.
-        - boulder:
+        - uid: RgVlqgXPTuKESi
+          boulder:
             nome: Índios
             dificuldade: V5
             descricao: Saída do bem vindo,seguindo batente ou fenda horizontal bem
               marcada, virando no tiro ao alvo.
-        - boulder:
+        - uid: zgPCV5sX3RT5mv
+          boulder:
             nome: Índios SDS
             dificuldade: V9
             descricao: Saída sentado com mão direita em reglete pequeno e calcanhar
               esquerdo na mão esquerda em agarrao, segue reto, passando pelo reglete
               da fenda vertical.
-        - boulder:
+        - uid: kCkw4BwSQ66JQY
+          boulder:
             nome: Família Bocaina
             dificuldade: V10
             descricao: Saída sentado com a mão direita em reglete bom e esquerda junta
               na mesma agarra, saindo para uma agarra de ombro de esquerda.
-        - boulder:
+        - uid: hGMouLYyRGoSf8
+          boulder:
             nome: Sananga
             dificuldade: V9
             descricao: Saída em pé com as mãos em regletes invertidos.
-        - boulder:
+        - uid: mTlIhLNDau9a7w
+          boulder:
             nome: Espírito San
             dificuldade: V8_BARRA_V9
             descricao: Saída em pé com a mão esquerda em reglete pequeno e mão direita
               em mono dedo.
-        - boulder:
+        - uid: 5j5RDqWyI5pH6E
+          boulder:
             nome: Tiro ao Alvo
             dificuldade: V8
             descricao: Saída agachado com mão esquerda em um buraco abaulado e mão
               esquerda em reglete ruim.
-        - boulder:
+        - uid: e5osFqSTv1yRnl
+          boulder:
             nome: Tiro ao Alvo SDS
             dificuldade: V10
             descricao: Saída sentado com mão esquerda em reglete pequeno e direita
               em reglete liso com o pÉ esquerdo alto.
-        - boulder:
+        - uid: SFtPEGjCitlzP3
+          boulder:
             nome: Mão na Massa
             dificuldade: V7
             descricao: Mesma agarra de saida do tiro ao alvo e vai pra direita.
-        - boulder:
+        - uid: 2ORMfj30jI9Ore
+          boulder:
             nome: Mão na Massa SDS
             dificuldade: V8
             descricao: Saida do tiro ao alvo SDS e vai pra direita.
-        - boulder:
+        - uid: 2cKX9mHLW4grYR
+          boulder:
             nome: Bicho de Pé
             dificuldade: V5
             descricao: Mesma saida do tiro ao alvo a vai pra direita por baixo e vira
               no carvoeiro.
-        - boulder:
+        - uid: bSbc4MZmq3iZ0S
+          boulder:
             nome: Bicho de Pé SDS
             dificuldade: V6
             descricao: Saida do tiro ao alvo SDS e vira no carvoeiro.
-        - boulder:
+        - uid: vN7FOp4blYdvKc
+          boulder:
             nome: Curto e Gross
             dificuldade: V4
             descricao: SaÍdA sentado com as duas mãos juntas em reglete batente ruim
               e pés ruins.
-        - boulder:
+        - uid: 117Soh4aoEHw6l
+          boulder:
             nome: Carvoeiro
             dificuldade: V1
             descricao: SaÍda agachado com as mãos em dois agarroes e segue em fenda
               diagonal pra esquerda em agarroes.
-        - boulder:
+        - uid: ZLg4DW5jK5sKLO
+          boulder:
             nome: Kadron
             dificuldade: V3
             descricao: Saída do carvoeiro e faz travessia para direita contornando
               o bloco.
-        - boulder:
+        - uid: iTuKSE2ptAEKMC
+          boulder:
             nome: Saída pela Culatra
             dificuldade: V2
             descricao: Sai sentado com as mãos em agarrao a direita do bloco e segue
               reto.
-        - boulder:
+        - uid: qtBT8cki30jCS4
+          boulder:
             nome: Siri sem Casca
             dificuldade: V6
             descricao: Saída do bem vindo e virando no índios.
-        - boulder:
+        - uid: gRvZz219LrdWkq
+          boulder:
             nome: Siri Queijo
             dificuldade: V7
             descricao: Saída do bem vindo,seguindo batente ou fenda horizontal bem
               marcada, virando no tiro ao alvo.
-        - boulder:
+        - uid: CBzxeV1m1nvHB0
+          boulder:
             nome: Problema Legal
             dificuldade: V7
             descricao: Saída com a mão esquerda em escama na fenda, mão direita em
               agarrão baixo com calcanhar esquerdo na altura da mão esquerda, virando
               no Siri queijo.
-        - boulder:
+        - uid: GdAqgqzZrqm0Yz
+          boulder:
             nome: Pecado de Chó
             dificuldade: V10_BARRA_V11
             descricao: Saída do sananga virando no Família Bocaina.
-        - boulder:
+        - uid: P44HuqThR8jWbr
+          boulder:
             nome: Ayuaska
             dificuldade: V11
             descricao: Saída do sananga virando no indios.
@@ -1502,116 +2073,166 @@ picos:
           total_boulders: 23
   - setor:
       conteudo:
+        uid: Y3Brqzt8DNN8Mk
         nome: Essência
         mapas:
         - caminho_imagem_mapa: imagens/setor_essencia_p0.webp
           largura_mapa: 1089
           altura_mapa: 818
           pontos_de_interesse:
-          - id: '01'
-            label: '01'
+          - uid: glCtcnJevvaSZN
+            rotulo: '01'
             circulo:
               x: 235
               y: 475
               raio: 11
-          - id: '02'
-            label: '02'
+            id: glCtcnJevvaSZN
+            label: '01'
+          - uid: MQRHQWmgmDwC9M
+            rotulo: '02'
             circulo:
               x: 345
               y: 535
               raio: 11
-          - id: '03'
-            label: '03'
+            id: MQRHQWmgmDwC9M
+            label: '02'
+          - uid: lYw2RkYinavgTv
+            rotulo: '03'
             circulo:
               x: 387
               y: 569
               raio: 11
-          - id: '04'
-            label: '04'
+            id: lYw2RkYinavgTv
+            label: '03'
+          - uid: IWoypEQIlAfWRc
+            rotulo: '04'
             circulo:
               x: 639
               y: 725
               raio: 11
-          - id: '05'
-            label: '05'
+            id: IWoypEQIlAfWRc
+            label: '04'
+          - uid: KLrj3jqTsxgVkw
+            rotulo: '05'
             circulo:
               x: 691
               y: 737
               raio: 11
-          - id: '06'
-            label: '06'
+            id: KLrj3jqTsxgVkw
+            label: '05'
+          - uid: jKfIC6lPVN7XjA
+            rotulo: '06'
             circulo:
               x: 854
               y: 668
               raio: 11
-          - id: '07'
-            label: '07'
+            id: jKfIC6lPVN7XjA
+            label: '06'
+          - uid: 6i5eONlq7l9Yu4
+            rotulo: '07'
             circulo:
               x: 866
               y: 630
               raio: 11
+            id: 6i5eONlq7l9Yu4
+            label: '07'
           referencias:
-          - escalada: Agricultor
+          - alvo_uid: 2O9dAPtU2R7uaq
+            pontos_uids:
+            - glCtcnJevvaSZN
+            escalada: Agricultor
             ids:
-            - '01'
-          - escalada: Garimpeiro
+            - glCtcnJevvaSZN
+          - alvo_uid: m5Ae6ekD6Aja44
+            pontos_uids:
+            - MQRHQWmgmDwC9M
+            escalada: Garimpeiro
             ids:
-            - '02'
-          - escalada: A Regra é Clara
+            - MQRHQWmgmDwC9M
+          - alvo_uid: BoslIdr2KQEgqb
+            pontos_uids:
+            - lYw2RkYinavgTv
+            escalada: A Regra é Clara
             ids:
-            - '03'
-          - escalada: Essência
+            - lYw2RkYinavgTv
+          - alvo_uid: miVPNcX7iuFApo
+            pontos_uids:
+            - IWoypEQIlAfWRc
+            escalada: Essência
             ids:
-            - '04'
-          - escalada: Indecência
+            - IWoypEQIlAfWRc
+          - alvo_uid: FCSwjipzAwHXBG
+            pontos_uids:
+            - KLrj3jqTsxgVkw
+            escalada: Indecência
             ids:
-            - '05'
-          - escalada: Regra do Jogo
+            - KLrj3jqTsxgVkw
+          - alvo_uid: DVFMiuNy0vgHGi
+            pontos_uids:
+            - jKfIC6lPVN7XjA
+            escalada: Regra do Jogo
             ids:
-            - '06'
-          - escalada: Carta de Euforia
+            - jKfIC6lPVN7XjA
+          - alvo_uid: FtYAbgHRT22SRW
+            pontos_uids:
+            - 6i5eONlq7l9Yu4
+            escalada: Carta de Euforia
             ids:
-            - '07'
+            - 6i5eONlq7l9Yu4
         - caminho_imagem_mapa: imagens/setor_essencia_p1.webp
           largura_mapa: 1094
           altura_mapa: 782
           pontos_de_interesse:
-          - id: '09'
-            label: '09'
+          - uid: T4wv12UtaUJD3l
+            rotulo: '09'
             circulo:
               x: 377
               y: 429
               raio: 11
+            id: T4wv12UtaUJD3l
+            label: '09'
           referencias:
-          - escalada: Jardim de Infância
+          - alvo_uid: NCp2yv5GqA8wIU
+            pontos_uids:
+            - T4wv12UtaUJD3l
+            escalada: Jardim de Infância
             ids:
-            - '09'
+            - T4wv12UtaUJD3l
         escaladas:
-        - boulder:
+        - uid: 2O9dAPtU2R7uaq
+          boulder:
             nome: Agricultor
             dificuldade: V2
-        - boulder:
+        - uid: m5Ae6ekD6Aja44
+          boulder:
             nome: Garimpeiro
             dificuldade: V4
-        - boulder:
+        - uid: BoslIdr2KQEgqb
+          boulder:
             nome: A Regra é Clara
             dificuldade: V5
-        - boulder:
+        - uid: miVPNcX7iuFApo
+          boulder:
             nome: Essência
             dificuldade: V4
-        - boulder:
+        - uid: FCSwjipzAwHXBG
+          boulder:
             nome: Indecência
             dificuldade: V3
-        - boulder:
+        - uid: DVFMiuNy0vgHGi
+          boulder:
             nome: Regra do Jogo
             dificuldade: V1
-        - boulder:
+        - uid: FtYAbgHRT22SRW
+          boulder:
             nome: Carta de Euforia
             dificuldade: V5
-        - boulder:
+        - uid: Q5CMWcG1JnkkPh
+          boulder:
             nome: Escravos de Chó
             dificuldade: V5
-        - boulder:
+        - uid: NCp2yv5GqA8wIU
+          boulder:
             nome: Jardim de Infância
             dificuldade: V0
         descricao: '# Setor Essência'
@@ -1625,109 +2246,167 @@ picos:
         largura_mapa: 1054
         altura_mapa: 788
         pontos_de_interesse:
-        - id: '1'
-          label: '1'
+        - uid: Okb3ORHgARcA1U
+          rotulo: '1'
           circulo:
             x: 778
             y: 576
             raio: 12
-        - id: 2-6
-          label: 2-6
+          id: Okb3ORHgARcA1U
+          label: '1'
+        - uid: TCIBc8pDLxW6VQ
+          rotulo: 2-6
           circulo:
             x: 784
             y: 523
             raio: 21
-        - id: '3'
-          label: '3'
+          id: TCIBc8pDLxW6VQ
+          label: 2-6
+        - uid: 7jyPtD6I24HZkn
+          rotulo: '3'
           circulo:
             x: 841
             y: 521
             raio: 12
-        - id: '4'
-          label: '4'
+          id: 7jyPtD6I24HZkn
+          label: '3'
+        - uid: ujpXBEC8WKlmgP
+          rotulo: '4'
           circulo:
             x: 883
             y: 521
             raio: 11
-        - id: '5'
-          label: '5'
+          id: ujpXBEC8WKlmgP
+          label: '4'
+        - uid: 5zn1Q3ac5SMB3o
+          rotulo: '5'
           circulo:
             x: 912
             y: 487
             raio: 10
-        - id: '7'
-          label: '7'
+          id: 5zn1Q3ac5SMB3o
+          label: '5'
+        - uid: Uzyt2QtbWgPZNr
+          rotulo: '7'
           circulo:
             x: 859
             y: 484
             raio: 11
-        - id: '8'
-          label: '8'
+          id: Uzyt2QtbWgPZNr
+          label: '7'
+        - uid: m60iLgguuxwMD2
+          rotulo: '8'
           circulo:
             x: 880
             y: 455
             raio: 12
-        - id: '9'
-          label: '9'
+          id: m60iLgguuxwMD2
+          label: '8'
+        - uid: PXvlyUDlP0aIBJ
+          rotulo: '9'
           circulo:
             x: 780
             y: 470
             raio: 11
-        - id: '10'
-          label: '10'
+          id: PXvlyUDlP0aIBJ
+          label: '9'
+        - uid: ZXDWnXLe62zsfe
+          rotulo: '10'
           circulo:
             x: 727
             y: 472
             raio: 12
-        - id: '11'
-          label: '11'
+          id: ZXDWnXLe62zsfe
+          label: '10'
+        - uid: z0EJDnmxdpbTZj
+          rotulo: '11'
           circulo:
             x: 260
             y: 329
             raio: 17
-        - id: '12'
-          label: '12'
+          id: z0EJDnmxdpbTZj
+          label: '11'
+        - uid: ej4CM4H7QLeqTd
+          rotulo: '12'
           circulo:
             x: 378
             y: 343
             raio: 14
+          id: ej4CM4H7QLeqTd
+          label: '12'
         referencias:
-        - setor: Pressão Enrustida
+        - alvo_uid: 2r0UOQl5lu5YVV
+          pontos_uids:
+          - Okb3ORHgARcA1U
+          setor: Pressão Enrustida
           ids:
-          - '1'
-        - ids:
-          - 2-6
+          - Okb3ORHgARcA1U
+        - alvo_uid: D6jFNzrZdEYFsk
+          pontos_uids:
+          - TCIBc8pDLxW6VQ
           setor: Caverninha
-        - ids:
-          - '3'
+          ids:
+          - TCIBc8pDLxW6VQ
+        - alvo_uid: 5KSqaLJ9K1rbfi
+          pontos_uids:
+          - 7jyPtD6I24HZkn
           setor: Exquadrilha
-        - ids:
-          - '4'
+          ids:
+          - 7jyPtD6I24HZkn
+        - alvo_uid: z7vQKwVnhjN7dQ
+          pontos_uids:
+          - ujpXBEC8WKlmgP
           setor: Canil
-        - ids:
-          - '5'
+          ids:
+          - ujpXBEC8WKlmgP
+        - alvo_uid: KbM68ZX0V5vtaT
+          pontos_uids:
+          - 5zn1Q3ac5SMB3o
           setor: Bloco do Guerreiro
-        - ids:
-          - 2-6
+          ids:
+          - 5zn1Q3ac5SMB3o
+        - alvo_uid: OSyxvPq2xEupwz
+          pontos_uids:
+          - TCIBc8pDLxW6VQ
           setor: Bloco do Cabelin
-        - ids:
-          - '7'
+          ids:
+          - TCIBc8pDLxW6VQ
+        - alvo_uid: yPyqzCvOxEEIE3
+          pontos_uids:
+          - Uzyt2QtbWgPZNr
           setor: Consciência Limpa
-        - ids:
-          - '8'
+          ids:
+          - Uzyt2QtbWgPZNr
+        - alvo_uid: vBnFROJdRpikVD
+          pontos_uids:
+          - m60iLgguuxwMD2
           setor: Haiti
-        - ids:
-          - '9'
+          ids:
+          - m60iLgguuxwMD2
+        - alvo_uid: ZQv26maQUVi4h5
+          pontos_uids:
+          - PXvlyUDlP0aIBJ
           setor: Achados e Perdidos
-        - ids:
-          - '10'
+          ids:
+          - PXvlyUDlP0aIBJ
+        - alvo_uid: hkr7E07rMsU03N
+          pontos_uids:
+          - ZXDWnXLe62zsfe
           setor: Bloco do Rock Bocaina
-        - ids:
-          - '11'
+          ids:
+          - ZXDWnXLe62zsfe
+        - alvo_uid: iZezgdH50SBgEG
+          pontos_uids:
+          - z0EJDnmxdpbTZj
           setor: Bloco 45º
-        - ids:
-          - '12'
+          ids:
+          - z0EJDnmxdpbTZj
+        - alvo_uid: Y3Brqzt8DNN8Mk
+          pontos_uids:
+          - ej4CM4H7QLeqTd
           setor: Essência
+          ids:
+          - ej4CM4H7QLeqTd
   localizacao:
     latitude: -197151450
     longitude: -467975110
@@ -1737,7 +2416,8 @@ picos:
     total_setores: 12
     total_boulders: 101
 botoes:
-- texto: Capa
+- uid: jipETxRq7lw3JK
+  texto: Capa
   destino:
     secao_textual:
       conteudo: |-
@@ -1746,7 +2426,8 @@ botoes:
         | ![Capa](imagens/capa_p0.webp) |
         | :--: |
         | *Capa* |
-- texto: Patrocinadores
+- uid: V5bQX9wsAGCEVP
+  texto: Patrocinadores
   destino:
     secao_textual:
       conteudo: |-
@@ -1755,7 +2436,8 @@ botoes:
         | ![Patrocinadores](imagens/patrocinadores_p0.webp) |
         | :--: |
         | *Patrocinadores* |
-- texto: Introdução
+- uid: 6yo0LWv0gVeMFC
+  texto: Introdução
   destino:
     secao_textual:
       conteudo: |-
@@ -1772,7 +2454,7 @@ botoes:
         | ![Graduações de boulders no croqui](imagens/introducao_p1.webp) |
         | :--: |
         | *Graduações de boulders no croqui* |
-ultima_migracao: 4
+ultima_migracao: 5
 publicar_croqui: true
 revisado_bounding_circle: true
 arquivos_externos:

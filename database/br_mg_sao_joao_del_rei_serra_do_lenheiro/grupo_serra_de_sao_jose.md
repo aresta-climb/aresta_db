@@ -1,6 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+uid: C6wlniO3wE7oPg
 caminho_imagem_capa: imagens/grupo_serra_de_sao_jose_p0_i2.webp
 nome: Serra de São José
 setores:

@@ -60,6 +60,7 @@ from scripts.preparar_submissao_lib import (
 )
 from scripts.gerar_compilado_md import gerar_compilado_md
 from scripts.calcular_tamanho_croqui_lib import calcular_tamanho_croqui_bytes
+from editor.plataforma import normalizar_caminho_estendido
 
 ROOT_DIR     = Path(__file__).resolve().parent.parent
 DATABASE_DIR = ROOT_DIR / "database"
@@ -86,10 +87,11 @@ def force_rmtree(path: Path) -> None:
         os.chmod(p, 0o777)
         func(p)
         
+    caminho_estendido = normalizar_caminho_estendido(path)
     for i in range(5):
         try:
-            if path.exists():
-                shutil.rmtree(path, onerror=remover_somente_leitura)
+            if Path(caminho_estendido).exists():
+                shutil.rmtree(caminho_estendido, onerror=remover_somente_leitura)
             return
         except PermissionError:
             if i == 4:
@@ -450,7 +452,9 @@ def copiar_imagens(src_imagens: Path, dest_imagens: Path) -> None:
     def ignorar(dir_: str, nomes: List[str]) -> List[str]:
         return [n for n in nomes
                 if (Path(dir_) / n).is_dir() and n in IMAGENS_SUBDIRS_EXCLUIDOS]
-    shutil.copytree(src_imagens, dest_imagens, ignore=ignorar, dirs_exist_ok=True)
+    src_estendido = normalizar_caminho_estendido(src_imagens)
+    dest_estendido = normalizar_caminho_estendido(dest_imagens)
+    shutil.copytree(src_estendido, dest_estendido, ignore=ignorar, dirs_exist_ok=True)
     print(f"  Imagens copiadas: {dest_imagens}")
 
 
@@ -484,7 +488,9 @@ def calcular_arquivos_externos(imagens_src: Path) -> List[Dict[str, str]]:
 
 def copiar_anexos(src_anexos: Path, dest_anexos: Path) -> None:
     """Copia a pasta de anexos para o destino."""
-    shutil.copytree(src_anexos, dest_anexos, dirs_exist_ok=True)
+    src_estendido = normalizar_caminho_estendido(src_anexos)
+    dest_estendido = normalizar_caminho_estendido(dest_anexos)
+    shutil.copytree(src_estendido, dest_estendido, dirs_exist_ok=True)
     print(f"  Anexos copiados: {dest_anexos}")
 
 
@@ -718,6 +724,7 @@ def passo_c_gerar_indice(
                     print(f"  {croqui_id}: novo croqui, timestamp_update={ts_str}")
 
         resumo.id             = croqui_id
+        resumo.croqui_uid     = croqui_data.get("uid", "")
         resumo.nome           = croqui_data.get("nome", croqui_id)
         resumo.descricao      = extrair_descricao(croqui_data)
         resumo.caminho_relativo = f"{croqui_id}/compilado.binarypb"
@@ -813,6 +820,7 @@ def passo_c_gerar_indice(
     for resumo in indice.croquis:
         item_yaml: Dict[str, Any] = {
             "id":             resumo.id,
+            "croqui_uid":      resumo.croqui_uid,
             "nome":           resumo.nome,
             "descricao":      resumo.descricao,
             "caminho_relativo": resumo.caminho_relativo,

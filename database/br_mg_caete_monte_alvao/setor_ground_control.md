@@ -1,15 +1,18 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+uid: NZGLAfWYiM8NDf
 nome: Ground Control
 escaladas:
-- via_movel:
+- uid: SRdjxYR9aFvUic
+  via_movel:
     nome: Essa via não é minha
     dificuldade: BR_4SUP
     extensao: 70
     conquistadores:
     - Rander Jr Sidnei
-- via_esportiva:
+- uid: VF5tiua5Ys9sP6
+  via_esportiva:
     nome: Vento da Patagônia
     dificuldade: BR_5
     extensao: 30
@@ -17,7 +20,8 @@ escaladas:
     quantidade_protecoes_parada: 2
     conquistadores:
     - Danilo Steling
-- via_multiplas_enfiadas:
+- uid: VVlVJ1biOKZ3wQ
+  via_multiplas_enfiadas:
     nome: Mr Bean
     dificuldade_media: BR_6SUP
     dificuldade_maxima: BR_7A
@@ -43,7 +47,8 @@ escaladas:
     - Jg
     quantidade_costuras_intermediarias: 10
     quantidade_equipamentos_parada: 2
-- via_esportiva:
+- uid: sfbZA4b37hhjeg
+  via_esportiva:
     nome: Lagarto de aniversário
     dificuldade: BR_6
     extensao: 30
@@ -52,7 +57,8 @@ escaladas:
     conquistadores:
     - Jg
     descricao: Variante Mr Bean
-- via_esportiva:
+- uid: D2EWCm3zSMNjcH
+  via_esportiva:
     nome: Cavuca tatu
     dificuldade: BR_7A
     extensao: 30
@@ -60,7 +66,8 @@ escaladas:
     quantidade_protecoes_parada: 2
     conquistadores:
     - Jg
-- via_movel:
+- uid: uF9Eg3vtz77ZMr
+  via_movel:
     nome: Zé colmeia e Dona Flor
     dificuldade: BR_4SUP
     extensao: 30
@@ -68,13 +75,15 @@ escaladas:
     - Sidnei
     - Natita
     descricao: Parada fixa
-- via_esportiva:
+- uid: QfPbjTXJrW5Jxs
+  via_esportiva:
     nome: Tirolês
     dificuldade: BR_5
     extensao: 30
     quantidade_protecoes_intermediarias: 6
     quantidade_protecoes_parada: 2
-- via_esportiva:
+- uid: 25TIeXApVrMsVt
+  via_esportiva:
     nome: 10 c
     dificuldade: BR_6
     extensao: 30
@@ -83,7 +92,8 @@ escaladas:
     conquistadores:
     - sidnei
     - Jg
-- via_multiplas_enfiadas:
+- uid: kOnhjmWh9NSnJ1
+  via_multiplas_enfiadas:
     nome: Sabor Baunilha
     dificuldade_media: BR_7B
     dificuldade_maxima: BR_7B
@@ -103,7 +113,8 @@ escaladas:
     - Jg
     quantidade_costuras_intermediarias: 10
     quantidade_equipamentos_parada: 2
-- via_movel:
+- uid: PiNuVbxxXUK2P0
+  via_movel:
     nome: O charme da Trad
     dificuldade: BR_6
     extensao: 60
@@ -111,7 +122,8 @@ escaladas:
     - Pablo Gonçalves
     - Jg
     descricao: Parada fixa
-- via_multiplas_enfiadas:
+- uid: Dp5B1X2pzFqB1G
+  via_multiplas_enfiadas:
     nome: Café Ole
     dificuldade_media: BR_5
     dificuldade_maxima: BR_5SUP
@@ -131,7 +143,8 @@ escaladas:
     - Ana de Papel
     quantidade_costuras_intermediarias: 8
     quantidade_equipamentos_parada: 2
-- via_multiplas_enfiadas:
+- uid: 7RbqyoLUwWU6XB
+  via_multiplas_enfiadas:
     nome: Tio Tonton
     dificuldade_media: BR_6SUP
     dificuldade_maxima: BR_7B

@@ -1,9 +1,11 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+uid: ORe2ixkg2P8JW0
 nome: Mirante da Cruz
 escaladas:
-- via_esportiva:
+- uid: NnA3VyWBwYic7a
+  via_esportiva:
     nome: Urubu tá com raiva do boi
     dificuldade: BR_5SUP
     extensao: 30
@@ -11,7 +13,8 @@ escaladas:
     quantidade_protecoes_parada: 2
     conquistadores:
     - jg
-- via_esportiva:
+- uid: 4STXHy6ALejKG1
+  via_esportiva:
     nome: Maria Teresa
     dificuldade: BR_6
     extensao: 26
@@ -19,7 +22,8 @@ escaladas:
     quantidade_protecoes_parada: 2
     conquistadores:
     - jg
-- via_esportiva:
+- uid: 1OF9kIT42IkO2I
+  via_esportiva:
     nome: Uma gota de milagre
     dificuldade: BR_7A
     extensao: 28
@@ -27,7 +31,8 @@ escaladas:
     quantidade_protecoes_parada: 2
     conquistadores:
     - jg
-- via_esportiva:
+- uid: M73pbiDkCe3mXG
+  via_esportiva:
     nome: Quem não chora não mama
     dificuldade: BR_7B
     extensao: 28
@@ -35,7 +40,8 @@ escaladas:
     quantidade_protecoes_parada: 2
     conquistadores:
     - jg
-- via_esportiva:
+- uid: Ojgt766iJ0dj4P
+  via_esportiva:
     nome: Chapolin
     dificuldade: BR_7A
     extensao: 30
@@ -43,7 +49,8 @@ escaladas:
     quantidade_protecoes_parada: 2
     conquistadores:
     - jg
-- via_esportiva:
+- uid: QTFzHbgBzFjdjq
+  via_esportiva:
     nome: Desvio na pista
     dificuldade: BR_7B
     extensao: 30

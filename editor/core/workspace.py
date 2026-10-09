@@ -106,8 +106,11 @@ class ExperimentalWorkspace:
             
         database_modificado = False
         with capturar_saida() as out:
-            resultado_compilacao = gerenciador.compilar_croqui(caminho)
-            database_modificado = bool(resultado_compilacao)
+            try:
+                resultado_compilacao = gerenciador.compilar_croqui(caminho)
+                database_modificado = bool(resultado_compilacao)
+            except Exception as e:
+                print(f"Erro ao compilar croqui: {e}")
             
         mensagens = _filtrar_mensagens(out.getvalue())
         if self.diario:

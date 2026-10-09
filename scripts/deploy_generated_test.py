@@ -5,6 +5,7 @@ import unittest
 import sys
 from io import StringIO
 from pathlib import Path
+from unittest.mock import patch
 import os
 
 # Adiciona a raiz do projeto ao path
@@ -762,7 +763,93 @@ class DeployGeneratedTest(unittest.TestCase):
                                     args_passados, _ = mock_passo_a.call_args
                                     self.assertEqual(args_passados[0], croquis_esperados)
 
+    def test_passo_c_gerar_indice_com_croqui_uid(self):
+        import tempfile
+        import yaml
+        from scripts.gerenciar_uids_lib import gerar_uid
+
+        croqui_uid_esperado = gerar_uid()
+        croqui_data = {
+            "id": "croqui_com_uid",
+            "uid": croqui_uid_esperado,
+            "nome": "Croqui com UID",
+            "publicar_croqui": True,
+            "picos": []
+        }
+        compilados = [("croqui_com_uid", croqui_data, Path("dummy_pb"))]
+        checksums = {"croqui_com_uid": "dummy_hash"}
+
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            deploy_generated.GENERATED_DIR = Path(tmp_dir)
+            indice = deploy_generated.passo_c_gerar_indice(compilados, checksums, is_producao=False)
+
+            self.assertEqual(len(indice.croquis), 1)
+            resumo = indice.croquis[0]
+            self.assertEqual(resumo.id, "croqui_com_uid")
+            self.assertEqual(resumo.croqui_uid, croqui_uid_esperado)
+
+            indice_yaml = Path(tmp_dir) / "indice.yaml"
+            self.assertTrue(indice_yaml.is_file())
+            with open(indice_yaml, "r", encoding="utf-8") as f:
+                dados_yaml = yaml.safe_load(f)
+            self.assertEqual(dados_yaml["croquis"][0]["croqui_uid"], croqui_uid_esperado)
+
+    def test_serving_versao_permanece_v4_com_migracoes_database_only(self):
+        from serving.update_serving import get_db_version
+        versao = get_db_version()
+        self.assertEqual(versao, "v4")
+
+    def test_copiar_imagens_normaliza_caminhos_e_ignora_raw_mapas(self):
+        import tempfile
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            src = Path(tmp_dir) / "imagens_src"
+            dest = Path(tmp_dir) / "imagens_dest"
+            src.mkdir()
+            (src / "foto.webp").write_bytes(b"foto")
+            raw_dir = src / "raw_mapas"
+            raw_dir.mkdir()
+            (raw_dir / "raw.webp").write_bytes(b"raw")
+
+            with patch("scripts.deploy_generated.normalizar_caminho_estendido", side_effect=lambda p: str(p)) as mock_norm:
+                deploy_generated.copiar_imagens(src, dest)
+                self.assertEqual(mock_norm.call_count, 2)
+                mock_norm.assert_any_call(src)
+                mock_norm.assert_any_call(dest)
+
+            self.assertTrue((dest / "foto.webp").exists())
+            self.assertFalse((dest / "raw_mapas").exists())
+
+    def test_copiar_anexos_normaliza_caminhos(self):
+        import tempfile
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            src = Path(tmp_dir) / "anexos_src"
+            dest = Path(tmp_dir) / "anexos_dest"
+            src.mkdir()
+            (src / "documento.pdf").write_bytes(b"pdf")
+
+            with patch("scripts.deploy_generated.normalizar_caminho_estendido", side_effect=lambda p: str(p)) as mock_norm:
+                deploy_generated.copiar_anexos(src, dest)
+                self.assertEqual(mock_norm.call_count, 2)
+                mock_norm.assert_any_call(src)
+                mock_norm.assert_any_call(dest)
+
+            self.assertTrue((dest / "documento.pdf").exists())
+
+    def test_force_rmtree_normaliza_caminho_e_remove_diretorio(self):
+        import tempfile
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            pasta = Path(tmp_dir) / "pasta_teste"
+            pasta.mkdir()
+            (pasta / "arquivo.txt").write_text("conteudo")
+
+            with patch("scripts.deploy_generated.normalizar_caminho_estendido", side_effect=lambda p: str(p)) as mock_norm:
+                deploy_generated.force_rmtree(pasta)
+                mock_norm.assert_called_once_with(pasta)
+
+            self.assertFalse(pasta.exists())
+
 
 if __name__ == '__main__':
     unittest.main()
+
 

@@ -1,6 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+uid: XvrC2nA83J5iAU
 caminho_imagem_capa: imagens/setor_roca_master_p0_i0_2.webp
 nome: Roca Master
 mapas:
@@ -9,7 +10,8 @@ mapas:
   altura_mapa: 144
   pontos_de_interesse: []
 escaladas:
-- via_esportiva:
+- uid: i4405GV4Pfh5Z5
+  via_esportiva:
     nome: Cão Castrado
     dificuldade: BR_6SUP
     extensao: 50
@@ -18,7 +20,8 @@ escaladas:
     - Jorge Lima
     - André Morales
     - Tico
-- via_esportiva:
+- uid: gE3XG8AorpBPIP
+  via_esportiva:
     nome: The Nois
     dificuldade: BR_8B
     extensao: 60
@@ -32,7 +35,8 @@ escaladas:
     - Tácio Philip
     - Jefte Medeiros
     descricao: 'Obs: Importante utilizar costuras longas.'
-- via_movel:
+- uid: yNkf2u3SDPi4LY
+  via_movel:
     nome: Alicate
     dificuldade: BR_7B
     extensao: 50
@@ -42,7 +46,8 @@ escaladas:
     - Jorge Lima
     - Tico
     protecoes_moveis: Nut 5 ou compatível.
-- via_esportiva:
+- uid: wJNzFAJRrY11rb
+  via_esportiva:
     nome: Bebezão
     dificuldade: BR_8A
     extensao: 60
@@ -53,7 +58,8 @@ escaladas:
     - João Cabelo
     - Eduarda Lima
     descricao: 'Obs: Importante utilizar costuras longas.'
-- via_esportiva:
+- uid: L83Is8KDIZonCm
+  via_esportiva:
     nome: A mão que balança o B
     dificuldade: BR_6SUP
     extensao: 50
@@ -63,7 +69,8 @@ escaladas:
     - Tico
     - João Biskui
     descricao: 'Obs: Importante a utilização de algumas costuras longas.'
-- via_esportiva:
+- uid: 21YeMbIIt1XnWb
+  via_esportiva:
     nome: Darth Helmet
     dificuldade: BR_6SUP
     extensao: 70
@@ -74,7 +81,8 @@ escaladas:
     - André Morales
     - Juvenil Lino
     descricao: 'Obs: Utilizar corda de 70m e algumas costuras longas.'
-- via_movel:
+- uid: fg7OUlu7wa4j2j
+  via_movel:
     nome: Tico Skywalker
     dificuldade: BR_7A
     extensao: 60

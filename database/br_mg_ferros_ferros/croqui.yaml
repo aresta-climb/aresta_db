@@ -1,5 +1,6 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+uid: Qk5OzgPaESC9GX
 id: br_mg_ferros_ferros
 nome: Ferros
 descricao: Guia de escaladas de Ferros, Minas Gerais. Reúne setores e paredes de escalada
@@ -39,31 +40,37 @@ picos:
     longitude: -429844990
   url_google_maps: https://maps.app.goo.gl/hGmJWp5oT1wnXpsG7
 botoes:
-- texto: Capa
+- uid: rgFDDgvz6fIzQY
+  texto: Capa
   destino:
     secao_textual:
       caminho: capa.md
-- texto: Apresentação
+- uid: XYeErJUnmdVfIH
+  texto: Apresentação
   destino:
     secao_textual:
       caminho: apresentacao.md
-- texto: Sobre Ferros e História
+- uid: EQU85C4O073sdq
+  texto: Sobre Ferros e História
   destino:
     secao_textual:
       caminho: sobre_ferros_e_historia.md
-- texto: Geografia e Logística
+- uid: wjQZUwNbLdHIKq
+  texto: Geografia e Logística
   destino:
     secao_textual:
       caminho: geografia_e_logistica.md
-- texto: Como Chegar
+- uid: CvBK4aGJk7ZOeu
+  texto: Como Chegar
   destino:
     secao_textual:
       caminho: como_chegar.md
-- texto: Regras
+- uid: P1V4VAzoebpbVB
+  texto: Regras
   destino:
     secao_textual:
       caminho: regras.md
-ultima_migracao: 4
+ultima_migracao: 5
 publicar_croqui: true
 revisado_manualmente: false
 revisado_bounding_circle: false

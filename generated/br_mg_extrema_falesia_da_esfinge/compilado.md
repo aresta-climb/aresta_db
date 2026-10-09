@@ -5,10 +5,12 @@
 - **descricao**: Um belíssimo vale localizado no município de Extrema/MG, com mais de 20 vias em granito de diferentes estilos.
 - **id**: br_mg_extrema_falesia_da_esfinge
 - **nome**: Falésia da Esfinge
+- **uid**: pqipqUpyFjBqM0
 - **caminho_thumbnail**: ![caminho_thumbnail](imagens/capa_p0_i0.webp)
 - **status_desenho_extraivel**: TEM_DESENHO_MAS_NAO_EXTRAIDO
 - **botoes**:
   - **[0]**:
+    - **uid**: Yaay510rQfzXso
     - **texto**: Capa
     - **destino**:
       - **secao_textual**:
@@ -17,6 +19,7 @@
             | :--: |
             | *Falesia da Esfinge* |
   - **[1]**:
+    - **uid**: TewDHbelMGIAZf
     - **texto**: Introdução
     - **destino**:
       - **secao_textual**:
@@ -60,6 +63,7 @@
             **CONTATO**
             falesiadaesfinge@gmail.com
   - **[2]**:
+    - **uid**: y2WlF13w7RYJkG
     - **texto**: Segurança
     - **destino**:
       - **secao_textual**:
@@ -97,6 +101,7 @@
             Hospital São Lucas: (35) 3100-9550
             Informações turísticas: (35) 3435-3711
   - **[3]**:
+    - **uid**: H6hj2WwUzyHjpN
     - **texto**: Localização
     - **destino**:
       - **secao_textual**:
@@ -122,6 +127,7 @@
             
             [Waze](https://waze.com/ul/h6gzn0gr6k) | [Google Maps](https://goo.gl/maps/rGeBpLYkDVM2)
   - **[4]**:
+    - **uid**: eAVNH4zNi1uWb8
     - **texto**: Código de Conduta
     - **destino**:
       - **secao_textual**:
@@ -149,6 +155,7 @@
             | :--: |
             | *Trilha de Acesso* |
   - **[5]**:
+    - **uid**: HSFXbptxLlomkt
     - **texto**: Apoio
     - **destino**:
       - **secao_textual**:
@@ -163,7 +170,7 @@
             - Seralts Soluções em Altura
             - JGariglio
             - Prefeitura de Extrema
-- **ultima_migracao**: 4
+- **ultima_migracao**: 5
 
 
 ## Parte: setor_headwall
@@ -191,6 +198,7 @@
     | :--: |
     | *Apertadinha* |
 - **nome**: Headwall
+- **uid**: thtijyq3ZnLd0A
 - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_headwall_p0_i0_2.webp)
 - **mapas**:
   - **[0]**:
@@ -200,6 +208,7 @@
     - **pontos_de_interesse**: []
 - **escaladas**:
   - **[0]**:
+    - **uid**: O9VEKasSWFvhyx
     - **via_movel**:
       - **descricao**: Obs: Abelhas próximo a via, utilizar costuras longas.
       - **nome**: Arthropoda
@@ -214,6 +223,7 @@
         - Juvenil Lino
       - **protecoes_moveis**: Camalot(.4, .5, .75, 1, 2) ou compatíveis
   - **[1]**:
+    - **uid**: iFagJSzZeymJwK
     - **via_movel**:
       - **descricao**: Obs: Na ausência de peça móvel utilizar clip stick na saída.
       - **nome**: Atratus Death
@@ -227,6 +237,7 @@
         - Aline Tavares
       - **protecoes_moveis**: Nut 5 (Início da via) ou compatível.
   - **[2]**:
+    - **uid**: hLJnjUwVb7DyRJ
     - **via_movel**:
       - **descricao**: Obs: Utilizar costuras longas, parada em móvel podendo equalizar em três pontos. O rapel pode ser feito na parada da via ao lado.
       - **nome**: Fenda do Café
@@ -239,6 +250,7 @@
         - Bruno Tebet
       - **protecoes_moveis**: Camalot(1, 2, 2, 3, 4, 5, 6) ou compatíveis
   - **[3]**:
+    - **uid**: dPdbm3jr8TbFqI
     - **via_esportiva**:
       - **nome**: Taj Mahola
       - **dificuldade**: BR_4SUP
@@ -249,6 +261,7 @@
         - Jorge Lima
         - Tico
   - **[4]**:
+    - **uid**: ZNwVtfWtcNbVDa
     - **via_movel**:
       - **descricao**: OBSERVAÇÕES: Atenção com esticão do final da fenda até a parada.
       - **nome**: Apertadinha
@@ -297,6 +310,7 @@
     | :--: |
     | *Tico Skywalker* |
 - **nome**: Roca Master
+- **uid**: XvrC2nA83J5iAU
 - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_roca_master_p0_i0_2.webp)
 - **mapas**:
   - **[0]**:
@@ -306,6 +320,7 @@
     - **pontos_de_interesse**: []
 - **escaladas**:
   - **[0]**:
+    - **uid**: i4405GV4Pfh5Z5
     - **via_esportiva**:
       - **nome**: Cão Castrado
       - **dificuldade**: BR_6SUP
@@ -316,6 +331,7 @@
         - André Morales
         - Tico
   - **[1]**:
+    - **uid**: gE3XG8AorpBPIP
     - **via_esportiva**:
       - **descricao**: Obs: Importante utilizar costuras longas.
       - **nome**: The Nois
@@ -331,6 +347,7 @@
         - Tácio Philip
         - Jefte Medeiros
   - **[2]**:
+    - **uid**: yNkf2u3SDPi4LY
     - **via_movel**:
       - **nome**: Alicate
       - **dificuldade**: BR_7B
@@ -342,6 +359,7 @@
         - Tico
       - **protecoes_moveis**: Nut 5 ou compatível.
   - **[3]**:
+    - **uid**: wJNzFAJRrY11rb
     - **via_esportiva**:
       - **descricao**: Obs: Importante utilizar costuras longas.
       - **nome**: Bebezão
@@ -354,6 +372,7 @@
         - João Cabelo
         - Eduarda Lima
   - **[4]**:
+    - **uid**: L83Is8KDIZonCm
     - **via_esportiva**:
       - **descricao**: Obs: Importante a utilização de algumas costuras longas.
       - **nome**: A mão que balança o B
@@ -365,6 +384,7 @@
         - Tico
         - João Biskui
   - **[5]**:
+    - **uid**: 21YeMbIIt1XnWb
     - **via_esportiva**:
       - **descricao**: Obs: Utilizar corda de 70m e algumas costuras longas.
       - **nome**: Darth Helmet
@@ -377,6 +397,7 @@
         - André Morales
         - Juvenil Lino
   - **[6]**:
+    - **uid**: fg7OUlu7wa4j2j
     - **via_movel**:
       - **descricao**: Obs: Importante a utilização de algumas costuras longas.
       - **nome**: Tico Skywalker
@@ -426,6 +447,7 @@
     - El Ninõ (projeto)
     - Univervia (projeto)
 - **nome**: Ecumênico
+- **uid**: Jdz9SJrdlOBYw5
 - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_ecumenico_p0_i0_2.webp)
 - **mapas**:
   - **[0]**:
@@ -435,6 +457,7 @@
     - **pontos_de_interesse**: []
 - **escaladas**:
   - **[0]**:
+    - **uid**: mleMFJvLjFUxqg
     - **via_esportiva**:
       - **nome**: Dízimo
       - **dificuldade**: BR_4SUP
@@ -444,6 +467,7 @@
         - Leandro Schin
         - Aline Tavares
   - **[1]**:
+    - **uid**: 7sg6VmcZlfidqx
     - **via_movel**:
       - **descricao**: Obs: Atenção no crux (lance próximo à chapeleta)
       - **nome**: Cura G
@@ -455,6 +479,7 @@
         - Zé Ricardo
       - **protecoes_moveis**: Camalot(.4, .5, .75, 1 a 6) ou compatíveis
   - **[2]**:
+    - **uid**: anfaN3oDA0rrgH
     - **via_esportiva**:
       - **nome**: Show da Fé
       - **dificuldade**: BR_7A
@@ -466,6 +491,7 @@
         - João Bisqui
         - Leandro Schin
   - **[3]**:
+    - **uid**: bNJlf45oqYbNOc
     - **via_esportiva**:
       - **nome**: Ministério do Climb
       - **dificuldade**: BR_7B
@@ -477,6 +503,7 @@
         - Marcelo Sanches
         - Tico
   - **[4]**:
+    - **uid**: VcBkHwUDsNoBOy
     - **via_esportiva**:
       - **descricao**: Obs: Utilizar clip stick ou rebite no início da via. Importante: Fazer uso de algumas costuras longas.
       - **nome**: Pequenas Igrejas Grandes Negócios
@@ -488,6 +515,7 @@
         - André Morales
         - Felipe Pimenta
   - **[5]**:
+    - **uid**: 1oWJouyozyRHqg
     - **via_esportiva**:
       - **nome**: Meninos de Gesso
       - **dificuldade**: BR_6SUP

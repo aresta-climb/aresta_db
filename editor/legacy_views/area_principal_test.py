@@ -1597,5 +1597,239 @@ def test_janela_principal_lazy_loading_mapas_ao_trocar_pagina(criar_janela):
     assert janela.pagina_mapas.editor is not None
 
 
+def test_on_salvar_sucesso_com_erros_de_compilacao_define_clean_e_alimenta_compilacao_controller(janela_principal):
+    """Garante que _on_salvar_sucesso define setClean e alimenta compilacao_controller mesmo com erros."""
+    from unittest.mock import MagicMock
+    from pathlib import Path
+    janela = janela_principal
+    janela._salvando = True
+    janela.compilacao_controller = MagicMock()
+    janela.exibir_notificacao = MagicMock()
+    
+    erros = ["Erro de sintaxe no croqui.yaml", "Aviso: via sem grau"]
+    undo_idx = janela.historico.obter_pilha().index()
+    
+    janela._on_salvar_sucesso(
+        caminho_retornado=Path("/fake/path"),
+        erros=erros,
+        houve_renomeacao=False,
+        undo_index=undo_idx,
+        database_modificado=False,
+    )
+    
+    assert janela._salvando is False
+    assert janela.historico.obter_pilha().isClean()
+    janela.compilacao_controller.processar_resultado.assert_called_once_with(erros)
+    janela.exibir_notificacao.assert_called_once_with("Croqui salvo com avisos de compilação.")
+
+
+def test_acao_sincronizar_desabilitada_em_local_mode(criar_janela, tmp_path):
+    mock_ws = MagicMock()
+    mock_ws.can_publish_pr.return_value = False
+    mock_ws.obter_caminho_database.return_value = tmp_path
+    janela = criar_janela(workspace=mock_ws)
+
+    assert hasattr(janela, "acao_sincronizar")
+    assert janela.acao_sincronizar.isEnabled() is False
+    assert "local mode" in janela.acao_sincronizar.toolTip().lower()
+
+
+def test_acao_sincronizar_desabilitada_sem_pr_branch(criar_janela, tmp_path):
+    mock_ws = MagicMock()
+    mock_ws.can_publish_pr.return_value = True
+    mock_ws.ler_metadados_experimentais.return_value = {}
+    mock_ws.obter_caminho_database.return_value = tmp_path
+    janela = criar_janela(workspace=mock_ws)
+
+    assert janela.acao_sincronizar.isEnabled() is False
+    assert "nenhuma pull request" in janela.acao_sincronizar.toolTip().lower()
+
+
+def test_acao_sincronizar_habilitada_com_pr_branch(criar_janela, tmp_path):
+    mock_ws = MagicMock()
+    mock_ws.can_publish_pr.return_value = True
+    mock_ws.ler_metadados_experimentais.return_value = {
+        "pull_request_branch": "edicao-bau-1234"
+    }
+    mock_ws.obter_caminho_database.return_value = tmp_path
+    janela = criar_janela(workspace=mock_ws)
+
+    assert janela.acao_sincronizar.isEnabled() is True
+    assert "edicao-bau-1234" in janela.acao_sincronizar.toolTip()
+
+
+def test_sincronizar_croqui_dispara_worker(criar_janela, tmp_path):
+    mock_ws = MagicMock()
+    mock_ws.can_publish_pr.return_value = True
+    mock_ws.ler_metadados_experimentais.return_value = {
+        "pull_request_branch": "edicao-bau-1234"
+    }
+    mock_ws.obter_caminho_database.return_value = tmp_path
+    janela = criar_janela(workspace=mock_ws)
+    janela.croqui_data = {"id": "bau"}
+
+    with patch("editor.core.worker.TarefaSincronizacaoPR") as mock_tarefa_cls:
+        instancia = MagicMock()
+        mock_tarefa_cls.return_value = instancia
+        janela.sincronizar_croqui(silencioso=False)
+
+        mock_tarefa_cls.assert_called_once()
+        instancia.start.assert_called_once()
+
+
+def test_on_sincronizacao_conflito_exibe_dialogo_e_resolve_manter_local(janela_principal):
+    from editor.views.dialogos.dialogo_conflito_sincronizacao import DecisaoConflito
+    janela = janela_principal
+    janela._recarregar_dados_apos_salvamento = MagicMock()
+
+    mock_servico = MagicMock()
+    mock_resultado = MagicMock()
+    mock_resultado.arquivos_conflito = ["database/bau/croqui.yaml"]
+
+    with patch("editor.views.dialogos.dialogo_conflito_sincronizacao.DialogoConflitoSincronizacao") as mock_dlg_cls, \
+         patch("PySide6.QtWidgets.QMessageBox.information"):
+        mock_dlg = MagicMock()
+        mock_dlg.exec.return_value = QDialog.DialogCode.Accepted
+        mock_dlg.obter_decisao.return_value = DecisaoConflito.MANTER_LOCAL
+        mock_dlg_cls.return_value = mock_dlg
+
+        janela._on_sincronizacao_conflito(
+            resultado=mock_resultado,
+            servico=mock_servico,
+            id_croqui="bau",
+            nome_branch="edicao-bau-1234",
+            caminho_db=Path("/fake/db"),
+            sessao=None,
+        )
+
+        mock_servico.resolver_conflito_pr.assert_called_once_with(
+            id_croqui="bau",
+            nome_branch="edicao-bau-1234",
+            caminho_database_croqui=Path("/fake/db"),
+            manter_local=True,
+            sessao=None,
+        )
+        janela._recarregar_dados_apos_salvamento.assert_called_once()
+
+
+def test_on_sincronizacao_conflito_exibe_dialogo_e_resolve_usar_remoto(janela_principal):
+    from editor.views.dialogos.dialogo_conflito_sincronizacao import DecisaoConflito
+    janela = janela_principal
+    janela._recarregar_dados_apos_salvamento = MagicMock()
+
+    mock_servico = MagicMock()
+    mock_resultado = MagicMock()
+    mock_resultado.arquivos_conflito = ["database/bau/croqui.yaml"]
+
+    with patch("editor.views.dialogos.dialogo_conflito_sincronizacao.DialogoConflitoSincronizacao") as mock_dlg_cls, \
+         patch("PySide6.QtWidgets.QMessageBox.information"):
+        mock_dlg = MagicMock()
+        mock_dlg.exec.return_value = QDialog.DialogCode.Accepted
+        mock_dlg.obter_decisao.return_value = DecisaoConflito.USAR_REMOTO
+        mock_dlg_cls.return_value = mock_dlg
+
+        janela._on_sincronizacao_conflito(
+            resultado=mock_resultado,
+            servico=mock_servico,
+            id_croqui="bau",
+            nome_branch="edicao-bau-1234",
+            caminho_db=Path("/fake/db"),
+            sessao=None,
+        )
+
+        mock_servico.resolver_conflito_pr.assert_called_once_with(
+            id_croqui="bau",
+            nome_branch="edicao-bau-1234",
+            caminho_database_croqui=Path("/fake/db"),
+            manter_local=False,
+            sessao=None,
+        )
+        janela._recarregar_dados_apos_salvamento.assert_called_once()
+
+
+def test_on_sincronizacao_conflito_cancelar_nao_chama_resolver(janela_principal):
+    from editor.views.dialogos.dialogo_conflito_sincronizacao import DecisaoConflito
+    janela = janela_principal
+    janela._recarregar_dados_apos_salvamento = MagicMock()
+
+    mock_servico = MagicMock()
+    mock_resultado = MagicMock()
+    mock_resultado.arquivos_conflito = ["database/bau/croqui.yaml"]
+
+    with patch("editor.views.dialogos.dialogo_conflito_sincronizacao.DialogoConflitoSincronizacao") as mock_dlg_cls:
+        mock_dlg = MagicMock()
+        mock_dlg.exec.return_value = QDialog.DialogCode.Rejected
+        mock_dlg.obter_decisao.return_value = DecisaoConflito.CANCELAR
+        mock_dlg_cls.return_value = mock_dlg
+
+        janela._on_sincronizacao_conflito(
+            resultado=mock_resultado,
+            servico=mock_servico,
+            id_croqui="bau",
+            nome_branch="edicao-bau-1234",
+            caminho_db=Path("/fake/db"),
+            sessao=None,
+        )
+
+        mock_servico.resolver_conflito_pr.assert_not_called()
+        janela._recarregar_dados_apos_salvamento.assert_not_called()
+
+
+def test_on_sincronizacao_sucesso_nao_silencioso_exibe_messagebox(janela_principal):
+    janela = janela_principal
+    janela._recarregar_dados_apos_salvamento = MagicMock()
+    res = MagicMock()
+    res.mensagem = "Sincronizado 100%"
+
+    with patch("PySide6.QtWidgets.QMessageBox.information") as mock_info:
+        janela._on_sincronizacao_sucesso(res, silencioso=False)
+        janela._recarregar_dados_apos_salvamento.assert_called_once()
+        mock_info.assert_called_once()
+
+
+def test_on_sincronizacao_sucesso_silencioso_exibe_notificacao(janela_principal):
+    janela = janela_principal
+    janela._recarregar_dados_apos_salvamento = MagicMock()
+    janela.exibir_notificacao = MagicMock()
+    res = MagicMock()
+
+    with patch("PySide6.QtWidgets.QMessageBox.information") as mock_info:
+        janela._on_sincronizacao_sucesso(res, silencioso=True)
+        janela._recarregar_dados_apos_salvamento.assert_called_once()
+        mock_info.assert_not_called()
+        janela.exibir_notificacao.assert_called_once()
+
+
+def test_on_sincronizacao_aviso_nao_silencioso_exibe_messagebox(janela_principal):
+    janela = janela_principal
+    with patch("PySide6.QtWidgets.QMessageBox.information") as mock_info:
+        janela._on_sincronizacao_aviso("Já atualizado", silencioso=False)
+        mock_info.assert_called_once()
+
+
+def test_on_sincronizacao_erro_nao_silencioso_exibe_warning(janela_principal):
+    janela = janela_principal
+    with patch("PySide6.QtWidgets.QMessageBox.warning") as mock_warn:
+        janela._on_sincronizacao_erro("Falha de rede", silencioso=False)
+        mock_warn.assert_called_once()
+
+
+def test_carregar_croqui_com_pr_branch_dispara_sincronizacao_silenciosa(criar_janela, tmp_path):
+    mock_ws = MagicMock()
+    mock_ws.can_publish_pr.return_value = True
+    mock_ws.ler_metadados_experimentais.return_value = {
+        "pull_request_branch": "edicao-bau-1234"
+    }
+    
+    caminho_yaml = tmp_path / "croqui.yaml"
+    caminho_yaml.write_text("id: bau\nnome: Bau\n", encoding="utf-8")
+    mock_ws.obter_caminho_database.return_value = tmp_path
+    
+    with patch.object(JanelaPrincipal, "sincronizar_croqui") as mock_sinc:
+        janela = criar_janela(workspace=mock_ws)
+        mock_sinc.assert_called_with(silencioso=True)
+
+
+
 
 

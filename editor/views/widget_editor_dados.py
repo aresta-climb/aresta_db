@@ -27,6 +27,7 @@ from editor.views.dialogos.dialogo_inserir_botao_markdown import DialogoInserirB
 from editor.views.estilo import Icones
 from ..core.atualizador_ui import AtualizadorUI
 from google.protobuf.message_factory import GetMessageClass
+from scripts.gerenciar_uids_lib import gerar_uid
 
 
 def _obter_rotulo_singular(rotulo: str) -> str:
@@ -719,7 +720,7 @@ class WidgetEditorMarkdown(QWidget):
             self.formulario._notify_tree_changed()
 
 def _extrair_titulo_heuristico(msg: Any) -> Optional[str]:
-    for field_name in ["nome", "titulo", "id"]:
+    for field_name in ["nome", "titulo", "rotulo", "uid", "id"]:
         try:
             if msg.HasField(field_name):
                 return str(getattr(msg, field_name))
@@ -2996,6 +2997,7 @@ class WidgetEditorDados(QWidget):
             if not ok or not texto:
                 return
             val = croqui_pb2.Botao()
+            val.uid = gerar_uid()
             val.texto = texto
             val.destino.secao_textual.conteudo = ""
             if arquivo:

@@ -1,11 +1,12 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+uid: 3YtzNWTuqBidGi
 id: br_mg_santa_luzia_morro_do_carrapato_setor_covide
 nome: Morro do Carrapato - Setor Covide
 creditos:
 - Rubens Weil
 caminho_thumbnail: imagens/capa_p0.webp
-ultima_migracao: 4
+ultima_migracao: 5
 picos:
 - nome: Morro do Carrapato
   estado: MG
@@ -22,19 +23,23 @@ picos:
   - setor:
       caminho: setor_covide_ala_central_e_direita.md
 botoes:
-- texto: Capa
+- uid: PGkLMz5OaOmuCl
+  texto: Capa
   destino:
     secao_textual:
       caminho: capa.md
-- texto: Introdução
+- uid: VpZOS8iIsleXDY
+  texto: Introdução
   destino:
     secao_textual:
       caminho: introducao.md
-- texto: Acesso
+- uid: urABKQijot49Lk
+  texto: Acesso
   destino:
     secao_textual:
       caminho: acesso.md
-- texto: Referências
+- uid: Y5qcFSoeRPrKwE
+  texto: Referências
   destino:
     secao_textual:
       caminho: referencias.md

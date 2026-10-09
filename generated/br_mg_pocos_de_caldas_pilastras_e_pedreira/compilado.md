@@ -5,9 +5,11 @@
 - **descricao**: Croqui das Pilastras e Pedreira em Poços de Caldas, MG.
 - **id**: br_mg_pocos_de_caldas_pilastras_e_pedreira
 - **nome**: Pilastras + Pedreira
+- **uid**: wm4fz1NgPkbZEM
 - **caminho_thumbnail**: ![caminho_thumbnail](imagens/capa_p0_i1.webp)
 - **botoes**:
   - **[0]**:
+    - **uid**: aOp66ZCk1cqH94
     - **texto**: Capa
     - **destino**:
       - **secao_textual**:
@@ -31,6 +33,7 @@
             * Por se tratar de uma área Urbana e em constante crescimento evite algazarras e seja cordial com a vizinhança;
             * Está é uma área muito frágil, cuide para que as próximas gerações possam também usufruir deste belo local que é tão belo e conta um pouco da história de Poços de Caldas.
   - **[1]**:
+    - **uid**: qU2C62AZ2WLOJ1
     - **texto**: Avisos
     - **destino**:
       - **secao_textual**:
@@ -54,6 +57,7 @@
             * Por se tratar de uma área Urbana e em constante crescimento evite algazarras e seja cordial com a vizinhança;
             * Está é uma área muito frágil, cuide para que as próximas gerações possam também usufruir deste belo local que é tão belo e conta um pouco da história de Poços de Caldas.
   - **[2]**:
+    - **uid**: OrRYW6sD2zPU8s
     - **texto**: Como chegar
     - **destino**:
       - **secao_textual**:
@@ -86,7 +90,7 @@
             | *Estacionamento e início da trilha* |
             
             A trilha é toda de cascalho sem dificuldades de acesso e locomoção. Após descer o primeiro trecho, vire à esquerda e siga reto, na próxima bifurcação vire à esquerda novamente e já encontrara o primeiro setor, o Vale.
-- **ultima_migracao**: 4
+- **ultima_migracao**: 5
 
 
 ## Parte: setor_o_vale
@@ -97,6 +101,7 @@
     Escalada tranquila, com vias fáceis, boas para quem está iniciando e aprendendo a guiar. 
     A via número 1 inicia-se a direita da parede para quem está chegando no vale, ou a esquerda para quem vem das pilastras como na foto, caracterizada por dois “P´s” em sua primeira proteção.
 - **nome**: O Vale
+- **uid**: FbReUotUDqxCUZ
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_o_vale_p0_i2.webp)
@@ -112,26 +117,32 @@
     - **altura_mapa**: 946
 - **escaladas**:
   - **[0]**:
+    - **uid**: S1OwQArHKMbnMr
     - **via_esportiva**:
       - **nome**: Macumba
       - **dificuldade**: BR_4
   - **[1]**:
+    - **uid**: jo65exD18ymdum
     - **via_esportiva**:
       - **nome**: Macumbinha
       - **dificuldade**: BR_5SUP
   - **[2]**:
+    - **uid**: MrkShcyk0CeLPB
     - **via_esportiva**:
       - **nome**: Garage Inc.
       - **dificuldade**: BR_5SUP
   - **[3]**:
+    - **uid**: WeihTX1bcnKMdV
     - **via_esportiva**:
       - **nome**: Perereca suicida
       - **dificuldade**: BR_5
   - **[4]**:
+    - **uid**: L9rAD3pP0P18ec
     - **via_esportiva**:
       - **nome**: Via do Silas
       - **dificuldade**: BR_5
   - **[5]**:
+    - **uid**: eSMVrQ4zHwdOXS
     - **via_esportiva**:
       - **nome**: Inacabada
 - **precomputados**:
@@ -148,6 +159,7 @@
     Atenção: Abelhas em todas as faces da Segunda Pilastra.
     Terceira Pilastra possui projetos inacabados devido às abelhas.
 - **nome**: As Pilastras
+- **uid**: zcuFQgu37KFBnD
 - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_as_pilastras_p0_i1.webp)
 - **mapas**:
   - **[0]**:
@@ -156,64 +168,80 @@
     - **altura_mapa**: 581
 - **escaladas**:
   - **[0]**:
+    - **uid**: q35nUhWTDbJX3a
     - **via_esportiva**:
       - **nome**: Pela raiz
       - **dificuldade**: BR_5
   - **[1]**:
+    - **uid**: crAsmjbSZ1c6ux
     - **via_esportiva**:
       - **nome**: Buraco de cobra
       - **dificuldade**: BR_6SUP
   - **[2]**:
+    - **uid**: ZMvU3maJyGsXvy
     - **via_esportiva**:
       - **nome**: Normal
       - **dificuldade**: BR_6
   - **[3]**:
+    - **uid**: RbH1VteSIhG0jE
     - **via_movel**:
       - **descricao**: Base em móvel ou fazer uma travessia até a base ao lado.
       - **nome**: Bromélia
       - **dificuldade**: BR_5SUP
   - **[4]**:
+    - **uid**: Bb0vstAMpHIPh2
     - **via_esportiva**:
       - **nome**: Pur musgo
       - **dificuldade**: BR_5
   - **[5]**:
+    - **uid**: gq90OPOvWoCzCW
     - **via_esportiva**:
       - **nome**: Vai cabeça
       - **dificuldade**: BR_7A
   - **[6]**:
+    - **uid**: FFEYiiYrdli8LP
     - **via_esportiva**:
       - **nome**: Silas and Tubarrão
       - **dificuldade**: BR_7A
   - **[7]**:
+    - **uid**: O8qN9mgNAL9sKD
     - **via_esportiva**:
       - **nome**: Projeto 8
   - **[8]**:
+    - **uid**: 99mGLQ5cRVXcAv
     - **via_esportiva**:
       - **nome**: Projeto 9
   - **[9]**:
+    - **uid**: i97XRuDvxaubtC
     - **via_esportiva**:
       - **nome**: Projeto 10
   - **[10]**:
+    - **uid**: sfY0p9M4Sj3LDb
     - **via_movel**:
       - **descricao**: Via mista.
       - **nome**: Madame satã
       - **dificuldade**: BR_5SUP
   - **[11]**:
+    - **uid**: 3TP3SFFgcmlI87
     - **via_esportiva**:
       - **nome**: Dançando com a Chuva
       - **dificuldade**: BR_6SUP
   - **[12]**:
+    - **uid**: pbKIuzHp5QXemU
     - **via_esportiva**:
       - **nome**: Gambá xereta
       - **dificuldade**: BR_6SUP
   - **[13]**:
+    - **uid**: 6xlQZChfYewdu9
     - **via_esportiva**:
       - **nome**: Top Rope
   - **[14]**:
+    - **uid**: uS5IIE5iR3t54c
     - **via_esportiva**:
       - **nome**: Facinha
       - **dificuldade**: BR_4
   - **[15]**:
+    - **uid**: C68vjDZ4d9ReA1
     - **via_esportiva**:
       - **nome**: Stuart Little
       - **dificuldade**: BR_5
@@ -238,6 +266,7 @@
     
     Obs: Não tome os graus deste croqui como verdade são apenas sugestões, podem variar de acordo com a técnica e a estatura do escalador.
 - **nome**: A Pedreira
+- **uid**: 5pN7yJIZtS7qQY
 - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_a_pedreira_p1_i1.webp)
 - **mapas**:
   - **[0]**:
@@ -250,22 +279,27 @@
     - **altura_mapa**: 720
 - **escaladas**:
   - **[0]**:
+    - **uid**: lIeU9XOaj9Hiaq
     - **via_esportiva**:
       - **nome**: Coisa do capeta
       - **dificuldade**: BR_7A
   - **[1]**:
+    - **uid**: cT8mbtQnYmyS1q
     - **via_esportiva**:
       - **nome**: Sabão crácrá
       - **dificuldade**: BR_7A
   - **[2]**:
+    - **uid**: MisUpn1lPA0zcS
     - **via_esportiva**:
       - **nome**: Europa
       - **dificuldade**: BR_6
   - **[3]**:
+    - **uid**: tloGoMIlsgbo9P
     - **via_esportiva**:
       - **nome**: Fica à vontade
       - **dificuldade**: BR_5
   - **[4]**:
+    - **uid**: vv1xnqldr1N8Aa
     - **via_esportiva**:
       - **nome**: Pe pra fora
       - **dificuldade**: BR_6SUP

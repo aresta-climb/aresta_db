@@ -49,6 +49,12 @@ def sanitizar_nome_arquivo_anexo(nome_arquivo: str) -> str:
     tronco_limpo = re.sub(r"[\s\-]+", "_", tronco_limpo)
     # Remove qualquer caractere fora de a-z, 0-9 e _
     tronco_limpo = re.sub(r"[^a-z0-9_]", "", tronco_limpo)
+    # Remove underscores duplicados e das extremidades
+    tronco_limpo = re.sub(r"_+", "_", tronco_limpo).strip("_")
+
+    # Limita o comprimento do tronco em no máximo 40 caracteres para evitar estouro de caminhos no SO
+    if len(tronco_limpo) > 40:
+        tronco_limpo = tronco_limpo[:40].rstrip("_")
 
     if not tronco_limpo:
         tronco_limpo = "documento_anexo"

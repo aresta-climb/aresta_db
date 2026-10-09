@@ -1,9 +1,11 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+uid: 8ByzIvimI8JjlP
 nome: Aleijadinho
 escaladas:
-- boulder:
+- uid: gLUBc0gxHnWRFG
+  boulder:
     nome: Aleijadinho
     dificuldade: V5
     destaque: true
@@ -12,16 +14,16 @@ mapas:
   largura_mapa: 843
   altura_mapa: 960
   pontos_de_interesse:
-  - id: '1'
-    label: '1'
+  - uid: BepwayUIkwvQgw
+    rotulo: '1'
     circulo:
       x: 419
       y: 589
       raio: 11
   referencias:
-  - escalada: Aleijadinho
-    ids:
-    - '1'
+  - alvo_uid: gLUBc0gxHnWRFG
+    pontos_uids:
+    - BepwayUIkwvQgw
 ---
 
 # Bloco Aleijadinho

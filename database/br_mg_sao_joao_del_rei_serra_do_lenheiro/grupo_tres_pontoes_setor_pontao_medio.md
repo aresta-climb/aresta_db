@@ -1,6 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+uid: rQOLkqflM8EZQY
 caminho_imagem_capa: imagens/grupo_tres_pontoes_setor_pontao_medio_p1_i2.webp
 nome: Pontão Médio
 mapas:
@@ -8,175 +9,176 @@ mapas:
   largura_mapa: 1428
   altura_mapa: 1273
   pontos_de_interesse:
-  - id: '1'
-    label: '1'
+  - uid: YlCT9fJsM84y36
+    rotulo: '1'
     circulo:
       x: 280
       y: 924
       raio: 34
-  - id: '2'
-    label: '2'
+  - uid: traxtRSaqe1rNJ
+    rotulo: '2'
     circulo:
       x: 351
       y: 864
       raio: 33
-  - id: '3'
-    label: '3'
+  - uid: nHegFgLzUwx48r
+    rotulo: '3'
     circulo:
       x: 416
       y: 863
       raio: 33
-  - id: '4'
-    label: '4'
+  - uid: XEtvtEklPmHeOZ
+    rotulo: '4'
     circulo:
       x: 486
       y: 973
       raio: 35
-  - id: '5'
-    label: '5'
+  - uid: huGyyQK8hhoRSB
+    rotulo: '5'
     circulo:
       x: 577
       y: 970
       raio: 34
-  - id: '6'
-    label: '6'
+  - uid: c23c1EcOTdiSyv
+    rotulo: '6'
     circulo:
       x: 592
       y: 823
       raio: 33
-  - id: '7'
-    label: '7'
+  - uid: 6b3VoR1g8UMdvw
+    rotulo: '7'
     circulo:
       x: 675
       y: 665
       raio: 33
-  - id: '8'
-    label: '8'
+  - uid: ZtVbvq3fjdywvb
+    rotulo: '8'
     circulo:
       x: 639
       y: 1010
       raio: 31
-  - id: '9'
-    label: '9'
+  - uid: RVd9k0mgRxMlPt
+    rotulo: '9'
     circulo:
       x: 1019
       y: 1075
       raio: 34
-  - id: '10'
-    label: '10'
+  - uid: WnZq3IAtJB17PB
+    rotulo: '10'
     circulo:
       x: 1070
       y: 691
       raio: 42
-  - id: '11'
-    label: '11'
+  - uid: ucBrm7CoGnWfiM
+    rotulo: '11'
     circulo:
       x: 1146
       y: 1230
       raio: 39
-  - id: '12'
-    label: '12'
+  - uid: ZPAG347fgIFSpH
+    rotulo: '12'
     circulo:
       x: 1326
       y: 1239
       raio: 43
-  - id: setor_danca_macabra
-    label: Dança Macabra
+  - uid: vunZd3HhNLzmdB
+    rotulo: Dança Macabra
     retangulo:
       x: 118
       y: 926
       comprimento: 200
       largura: 113
-  - id: '12_2'
-    label: ''
+  - uid: P0qTk6BfWHKI9y
+    rotulo: ''
     circulo:
       x: 1293
       y: 113
       raio: 44
     cor: ''
-  - id: '10_2'
-    label: ''
+  - uid: kAVYqrNnLYpFd2
+    rotulo: ''
     circulo:
       x: 1258
       y: 496
       raio: 43
     cor: ''
   referencias:
-  - escalada: Vai Amanhecer
-    ids:
-    - '1'
-  - escalada: Indignação
-    ids:
-    - '2'
-  - escalada: Nova Era
-    ids:
-    - '3'
-  - escalada: Fissura Limites Invisíveis
-    ids:
-    - '4'
-  - escalada: Esalianos
-    ids:
-    - '5'
-  - escalada: Lua de Mel
-    ids:
-    - '6'
-  - escalada: Livre Para Voar
-    ids:
-    - '7'
-  - escalada: Olhos de Águia
-    ids:
-    - '8'
-  - escalada: Sinfonia Fantástica
-    ids:
-    - '9'
-  - escalada: Vr. O Fantasma da Ópera
-    ids:
-    - '10'
-    - '10_2'
-  - escalada: Ópera Selvagem
-    ids:
-    - '11'
-  - escalada: Pânico na Colméia
-    ids:
-    - '12'
-    - '12_2'
-  - setor: Pontão Menor – Face Oeste (Cantinho - Dança Macabra)
-    ids:
-    - setor_danca_macabra
+  - alvo_uid: LmMe8Tc6qziHnw
+    pontos_uids:
+    - YlCT9fJsM84y36
+  - alvo_uid: jaxYPnpEY00Sqg
+    pontos_uids:
+    - traxtRSaqe1rNJ
+  - alvo_uid: DLvifcgkrNyj9K
+    pontos_uids:
+    - nHegFgLzUwx48r
+  - alvo_uid: 3pf3CyqobgCAXB
+    pontos_uids:
+    - XEtvtEklPmHeOZ
+  - alvo_uid: M4pNHpXwIMQ5pz
+    pontos_uids:
+    - huGyyQK8hhoRSB
+  - alvo_uid: apAT5uQH8Ih7t7
+    pontos_uids:
+    - c23c1EcOTdiSyv
+  - alvo_uid: D7Jfekfp3lcxvO
+    pontos_uids:
+    - 6b3VoR1g8UMdvw
+  - alvo_uid: ukW9GsuDoHfvxv
+    pontos_uids:
+    - ZtVbvq3fjdywvb
+  - alvo_uid: sEnEGzxrCSlyI9
+    pontos_uids:
+    - RVd9k0mgRxMlPt
+  - alvo_uid: 2YEgxW3oDkNBuR
+    pontos_uids:
+    - WnZq3IAtJB17PB
+    - kAVYqrNnLYpFd2
+  - alvo_uid: 70vNa1coN6FKBZ
+    pontos_uids:
+    - ucBrm7CoGnWfiM
+  - alvo_uid: oZLOe0dY4S37bb
+    pontos_uids:
+    - ZPAG347fgIFSpH
+    - P0qTk6BfWHKI9y
+  - alvo_uid: FZGuP8tuqqHp9x
+    pontos_uids:
+    - vunZd3HhNLzmdB
 - caminho_imagem_mapa: imagens/grupo_tres_pontoes_setor_pontao_medio_p2_i2.webp
   largura_mapa: 1233
   altura_mapa: 925
   pontos_de_interesse:
-  - id: '9'
-    label: '9'
+  - uid: ScZUaFUTpoUJcz
+    rotulo: '9'
     circulo:
       x: 428
       y: 852
       raio: 58
-  - id: '10'
-    label: '10'
+  - uid: 1HWmJhW9mNsHpF
+    rotulo: '10'
     circulo:
       x: 674
       y: 856
       raio: 64
-  - id: '11'
-    label: '11'
+  - uid: i1EYaLm4Odr0OO
+    rotulo: '11'
     circulo:
       x: 928
       y: 881
       raio: 65
   referencias:
-  - escalada: Sinfonia Fantástica
-    ids:
-    - '9'
-  - escalada: Vr. O Fantasma da Ópera
-    ids:
-    - '10'
-  - escalada: Ópera Selvagem
-    ids:
-    - '11'
+  - alvo_uid: sEnEGzxrCSlyI9
+    pontos_uids:
+    - ScZUaFUTpoUJcz
+  - alvo_uid: 2YEgxW3oDkNBuR
+    pontos_uids:
+    - 1HWmJhW9mNsHpF
+  - alvo_uid: 70vNa1coN6FKBZ
+    pontos_uids:
+    - i1EYaLm4Odr0OO
 escaladas:
-- via_esportiva:
+- uid: LmMe8Tc6qziHnw
+  via_esportiva:
     nome: Vai Amanhecer
     dificuldade: BR_7A_BARRA_7B
     extensao: 18
@@ -185,11 +187,11 @@ escaladas:
     - Jonatas Lima
     - Andréa Carvalho
     data_abertura: 2020-03
-    descricao: Essa via é única deste setor que possui uma grande variedade de regletes.
-      Passadas delicadas e técnicas em sua primeira parte até chegar a um platô, de
-      onde se tem um grande visual. A segunda parte é a melhor, com uma saída de boulder
-      e passadas precisas ditam o ritmo do jogo e dão o grau da via. Levar 10 costuras.
-- via_esportiva:
+    descricao: Essa via é única deste setor que possui uma grande variedade de regletes. Passadas delicadas e técnicas 
+      em sua primeira parte até chegar a um platô, de onde se tem um grande visual. A segunda parte é a melhor, com uma 
+      saída de boulder e passadas precisas ditam o ritmo do jogo e dão o grau da via. Levar 10 costuras.
+- uid: jaxYPnpEY00Sqg
+  via_esportiva:
     nome: Indignação
     dificuldade: PROJETO
     extensao: 20
@@ -197,9 +199,9 @@ escaladas:
     - Pedro Naves
     - Douglas Marques
     data_abertura: '2023-09-29'
-    descricao: Via sem cadena até a data de publicação desta edição. Saída ao lado
-      esquerdo de uma fenda larga.
-- via_esportiva:
+    descricao: Via sem cadena até a data de publicação desta edição. Saída ao lado esquerdo de uma fenda larga.
+- uid: DLvifcgkrNyj9K
+  via_esportiva:
     nome: Nova Era
     dificuldade: BR_7B
     extensao: 20
@@ -211,10 +213,11 @@ escaladas:
     - Jonatas Lima
     - Andréa Carvalho
     data_abertura: 2020-03
-    descricao: Possui uma saída de boulder não tão óbvia, a escalada à vista pode
-      dar uma impressão de maior dificuldade, regletes e agarras com passadas técnicas
-      em sua parte final fazem dela uma clássica. 9 chapas e mais o top.
-- via_movel:
+    descricao: Possui uma saída de boulder não tão óbvia, a escalada à vista pode dar uma impressão de maior 
+      dificuldade, regletes e agarras com passadas técnicas em sua parte final fazem dela uma clássica. 9 chapas e mais 
+      o top.
+- uid: 3pf3CyqobgCAXB
+  via_movel:
     nome: Fissura Limites Invisíveis
     dificuldade: BR_7B
     extensao: 35
@@ -222,9 +225,9 @@ escaladas:
     - André Ilha
     - Tonico Magalhães
     data_abertura: '1984-04-26'
-    descricao: Uma fenda larga em diagonal para a esquerda até um grande platô, onde
-      segue pela esquerda da aresta.
-- via_esportiva:
+    descricao: Uma fenda larga em diagonal para a esquerda até um grande platô, onde segue pela esquerda da aresta.
+- uid: M4pNHpXwIMQ5pz
+  via_esportiva:
     nome: Esalianos
     dificuldade: BR_6SUP
     extensao: 30
@@ -234,13 +237,13 @@ escaladas:
     - Leonardo Caiafa
     - Poeira
     data_abertura: '1996'
-    descricao: Outra clássica, considerada a primeira via no estilo esportivo do Cemonta.
-      Passadas em horizontal, lances delicados em equilíbrio e alguns esticões tornam
-      esta via muito técnica e respeitada. Levar 12 costuras. Na mesma base sai outra
-      via diagonal, a Olhos de Águia, logo abaixo da Esalianos, cuidado pra não confundi-las.
-      Com corda de 70m é possível rapelar pela via e com corda de 60 melhor fazer
-      cume e descer pela via Nova Era ou descer à pé pela parte de trás do pontão.
-- via_movel:
+    descricao: Outra clássica, considerada a primeira via no estilo esportivo do Cemonta. Passadas em horizontal, lances
+      delicados em equilíbrio e alguns esticões tornam esta via muito técnica e respeitada. Levar 12 costuras. Na mesma 
+      base sai outra via diagonal, a Olhos de Águia, logo abaixo da Esalianos, cuidado pra não confundi-las. Com corda 
+      de 70m é possível rapelar pela via e com corda de 60 melhor fazer cume e descer pela via Nova Era ou descer à pé 
+      pela parte de trás do pontão.
+- uid: apAT5uQH8Ih7t7
+  via_movel:
     nome: Lua de Mel
     dificuldade: BR_7B
     extensao: 23
@@ -250,11 +253,11 @@ escaladas:
     - Eliseu Frechou
     - Beth Frechou
     data_abertura: '2002'
-    descricao: Linda via. Compartilha saída com Esalianos, com duas primeiras chapeletas
-      em comum e sai para a esquerda, onde possui só mais uma chapa e depois segue
-      por proteções móveis até o final. Sai por uma sequência de agarras, depois passa
-      por um sistema de fendas de proteção mais complicada até chegar numa fenda maior.
-- via_esportiva:
+    descricao: Linda via. Compartilha saída com Esalianos, com duas primeiras chapeletas em comum e sai para a esquerda,
+      onde possui só mais uma chapa e depois segue por proteções móveis até o final. Sai por uma sequência de agarras, 
+      depois passa por um sistema de fendas de proteção mais complicada até chegar numa fenda maior.
+- uid: D7Jfekfp3lcxvO
+  via_esportiva:
     nome: Livre Para Voar
     dificuldade: BR_7C
     extensao: 23
@@ -262,11 +265,11 @@ escaladas:
     - Jonatas Lima
     - Mauricio dos Santos
     data_abertura: '2009'
-    descricao: Está via é a mais exigente deste setor, com a saída compartilhada da
-      Esalianos até a terceira chapa onde se toca totalmente reto, logo já se encontra
-      o crux, movimentos precisos e explosivos e depois vai pegando na resistência,
-      chapas espaçadas ditam a regra do jogo, característica que originou o nome.
-- via_esportiva:
+    descricao: Está via é a mais exigente deste setor, com a saída compartilhada da Esalianos até a terceira chapa onde 
+      se toca totalmente reto, logo já se encontra o crux, movimentos precisos e explosivos e depois vai pegando na 
+      resistência, chapas espaçadas ditam a regra do jogo, característica que originou o nome.
+- uid: ukW9GsuDoHfvxv
+  via_esportiva:
     nome: Olhos de Águia
     dificuldade: BR_6SUP
     extensao: 30
@@ -277,14 +280,13 @@ escaladas:
     - Pedro Naves
     - Heider Ribeiro (Tio Nem)
     data_abertura: '2024-02-13'
-    descricao: Linda via que corta todo o Pontão Médio. Saída em diagonal logo abaixo
-      da Esalianos em lances de equilíbrio e depois segue reto até o platô, bom para
-      um descanso. Logo vem um crux mais vertical e segue pela aresta direita deste
-      Pontão. Termina junto com a via Esalianos. São 12 chapas e mais parada dupla,
-      de onde pode-se descer de baldinho ou rapelar com corda de 70m. Com corda de
-      60 melhor fazer cume e descer pela via Nova Era ou descer à pé pela parte de
-      trás do pontão.
-- via_movel:
+    descricao: Linda via que corta todo o Pontão Médio. Saída em diagonal logo abaixo da Esalianos em lances de 
+      equilíbrio e depois segue reto até o platô, bom para um descanso. Logo vem um crux mais vertical e segue pela 
+      aresta direita deste Pontão. Termina junto com a via Esalianos. São 12 chapas e mais parada dupla, de onde pode-se
+      descer de baldinho ou rapelar com corda de 70m. Com corda de 60 melhor fazer cume e descer pela via Nova Era ou 
+      descer à pé pela parte de trás do pontão.
+- uid: sEnEGzxrCSlyI9
+  via_movel:
     nome: Sinfonia Fantástica
     dificuldade: BR_7C
     extensao: 50
@@ -292,11 +294,11 @@ escaladas:
     - André Ilha
     - Flávio Wasniewski
     data_abertura: '1997-04-21'
-    descricao: Via que se inicia no grande platô da Opera Selvagem e pode ser acessado
-      por um trepa pedras à esquerda. Após um início vertical, segue por uma fenda
-      horizontal pra esquerda que depois faz um contorno e segue em diagonal pra direita
-      até a aresta da Opera Selvagem.
-- via_movel:
+    descricao: Via que se inicia no grande platô da Opera Selvagem e pode ser acessado por um trepa pedras à esquerda. 
+      Após um início vertical, segue por uma fenda horizontal pra esquerda que depois faz um contorno e segue em 
+      diagonal pra direita até a aresta da Opera Selvagem.
+- uid: 2YEgxW3oDkNBuR
+  via_movel:
     nome: Vr. O Fantasma da Ópera
     dificuldade: BR_6
     extensao: 20
@@ -304,10 +306,11 @@ escaladas:
     - André Ilha
     - Juliano Magalhães
     data_abertura: '2004-03-20'
-    descricao: Mesma saída da via anterior, porém segue reto até o teto onde pega
-      a fenda horizontal pra direita e vai até a grande fenda que divide os Pontões,
-      por onde segue até a aresta do Pontão Médio encontrando com a via à seguir.
-- via_movel:
+    descricao: Mesma saída da via anterior, porém segue reto até o teto onde pega a fenda horizontal pra direita e vai 
+      até a grande fenda que divide os Pontões, por onde segue até a aresta do Pontão Médio encontrando com a via à 
+      seguir.
+- uid: 70vNa1coN6FKBZ
+  via_movel:
     nome: Ópera Selvagem
     dificuldade: BR_5
     extensao: 60
@@ -317,10 +320,10 @@ escaladas:
     - André Ilha
     - Lúcia Duarte
     data_abertura: '1984-07-25'
-    descricao: Clássica pela beleza e facilidade, sua beleza encontra-se na metade
-      onde passa por tetos alaranjados de agarras enormes, onde o som dos morcegos
-      fazem entender o nome da via. 1 jogo de camalot até o
-- via_movel:
+    descricao: Clássica pela beleza e facilidade, sua beleza encontra-se na metade onde passa por tetos alaranjados de 
+      agarras enormes, onde o som dos morcegos fazem entender o nome da via. 1 jogo de camalot até o
+- uid: oZLOe0dY4S37bb
+  via_movel:
     nome: Pânico na Colméia
     dificuldade: BR_4
     extensao: 70
@@ -328,9 +331,8 @@ escaladas:
     - Tonico Magalhães
     - André Ilha
     data_abertura: '1984-04-27'
-    descricao: Inicia em um bonito diedro em diagonal para a esquerda, chegando à
-      larga chaminé que corta praticamente toda a parede verticalmente. Porém tem
-      sido evitada devido à uma grande colmeia de abelhas em seu início.
+    descricao: Inicia em um bonito diedro em diagonal para a esquerda, chegando à larga chaminé que corta praticamente 
+      toda a parede verticalmente. Porém tem sido evitada devido à uma grande colmeia de abelhas em seu início.
 ---
 
 # Pontão Médio

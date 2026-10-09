@@ -1,6 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+uid: fRe6TKTO2xZKMs
 caminho_imagem_capa: imagens/setor_questao_de_tempo_p0_i0_2.webp
 nome: Setor Questão de Tempo
 mapas:
@@ -8,63 +9,64 @@ mapas:
   largura_mapa: 865
   altura_mapa: 809
   pontos_de_interesse:
-  - id: titulo
-    label: SETOR QUESTÃO DE TEMPO
+  - uid: I6GwqYNFzGz47R
+    rotulo: SETOR QUESTÃO DE TEMPO
     retangulo:
       x: 303
       y: 121
       comprimento: 506
       largura: 87
-  - id: '01'
-    label: '01'
+  - uid: Nu8UeBEtTPmERx
+    rotulo: '01'
     circulo:
       x: 459
       y: 251
       raio: 13
-  - id: '02'
-    label: '02'
+  - uid: Q6KMwkax3XBt9h
+    rotulo: '02'
     circulo:
       x: 569
       y: 249
       raio: 13
-  - id: '03'
-    label: '03'
+  - uid: WV8ulB58SjKza6
+    rotulo: '03'
     circulo:
       x: 746
       y: 231
       raio: 13
-  - id: cervejas
-    label: CERVEJAS
+  - uid: UGaoeVpGY5KPjk
+    rotulo: CERVEJAS
     retangulo:
       x: 358
       y: 645
       comprimento: 110
       largura: 30
-  - id: hospicio
-    label: HOSPÍCIO
+  - uid: 5JiDWhL0cIsKxx
+    rotulo: HOSPÍCIO
     retangulo:
       x: 738
       y: 702
       comprimento: 110
       largura: 30
   referencias:
-  - escalada: C'est la vie
-    ids:
-    - '01'
-  - escalada: Eu prefiro uma cerveja
-    ids:
-    - '02'
-  - escalada: Hospício jamais
-    ids:
-    - '03'
-  - ids:
-    - cervejas
-    setor: Setor Cervejas
-  - ids:
-    - hospicio
-    setor: Setor Hospício
+  - alvo_uid: k78fTw2gq4mwgY
+    pontos_uids:
+    - Nu8UeBEtTPmERx
+  - alvo_uid: rQYRTNi9pP5GsN
+    pontos_uids:
+    - Q6KMwkax3XBt9h
+  - alvo_uid: msuH8Zq9OE6Xn2
+    pontos_uids:
+    - WV8ulB58SjKza6
+  - alvo_uid: rzoXn31VJ2d0qk
+    pontos_uids:
+    - UGaoeVpGY5KPjk
+  - alvo_uid: qn4eOXGvVozM4A
+    pontos_uids:
+    - 5JiDWhL0cIsKxx
 escaladas:
-- via_esportiva:
+- uid: k78fTw2gq4mwgY
+  via_esportiva:
     nome: C'est la vie
     dificuldade: BR_6SUP
     conquistadores:
@@ -73,7 +75,8 @@ escaladas:
     - Alexandre "Jesus" Loureiro
     - Samuel Moreira
     data_abertura: '2020'
-- via_esportiva:
+- uid: rQYRTNi9pP5GsN
+  via_esportiva:
     nome: Eu prefiro uma cerveja
     dificuldade: BR_5SUP
     conquistadores:
@@ -82,7 +85,8 @@ escaladas:
     - Alexandre "Jesus" Loureiro
     - Samuel Moreira
     data_abertura: '2020'
-- via_movel:
+- uid: msuH8Zq9OE6Xn2
+  via_movel:
     nome: Hospício jamais
     dificuldade: BR_6SUP
     protecoes_moveis: friends médios e grandes

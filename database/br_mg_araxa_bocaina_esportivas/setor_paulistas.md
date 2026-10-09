@@ -1,6 +1,7 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+uid: lqRtz0vbIZQGsV
 caminho_imagem_capa: imagens/setor_paulistas_p0_i0.webp
 nome: Paulistas
 mapas:
@@ -8,165 +9,164 @@ mapas:
   largura_mapa: 1280
   altura_mapa: 1707
   pontos_de_interesse:
-  - id: '01'
-    label: '01'
+  - uid: QmCpk76e3ZhLrV
+    rotulo: '01'
     circulo:
       x: 97
       y: 1180
       raio: 22
-  - id: '02'
-    label: '02'
+  - uid: SLmhBoAAdYc8xh
+    rotulo: '02'
     circulo:
       x: 428
       y: 1142
       raio: 22
-  - id: '03'
-    label: '03'
+  - uid: LJpYDXmUME5DOk
+    rotulo: '03'
     circulo:
       x: 548
       y: 1098
       raio: 22
-  - id: '04'
-    label: '04'
+  - uid: 6bMiLyVancgKzu
+    rotulo: '04'
     circulo:
       x: 576
       y: 904
       raio: 22
-  - id: '05'
-    label: '05'
+  - uid: DYFLxmXq3OA8Ro
+    rotulo: '05'
     circulo:
       x: 633
       y: 902
       raio: 22
   referencias:
-  - escalada: Física Quântica
-    ids:
-    - '01'
-  - escalada: Chamasamiga
-    ids:
-    - '02'
-  - escalada: Acupuntura
-    ids:
-    - '03'
-  - escalada: Capitão Bocaina
-    ids:
-    - '04'
-  - escalada: Miragem
-    ids:
-    - '05'
+  - alvo_uid: dK3axNmwBvVzkv
+    pontos_uids:
+    - QmCpk76e3ZhLrV
+  - alvo_uid: BMDfw8KmSwFl8r
+    pontos_uids:
+    - SLmhBoAAdYc8xh
+  - alvo_uid: s9GDqmsPHWE4pv
+    pontos_uids:
+    - LJpYDXmUME5DOk
+  - alvo_uid: FbUwXupN4POcp6
+    pontos_uids:
+    - 6bMiLyVancgKzu
+  - alvo_uid: ylgFCOdbut2wke
+    pontos_uids:
+    - DYFLxmXq3OA8Ro
 - caminho_imagem_mapa: imagens/setor_paulistas_p2.webp
   largura_mapa: 1280
   altura_mapa: 1707
   pontos_de_interesse:
-  - id: '06'
-    label: '06'
+  - uid: Fiqi4PRdQnQZkB
+    rotulo: '06'
     circulo:
       x: 330
       y: 892
       raio: 23
-  - id: '07'
-    label: '07'
+  - uid: dVEg1kUMo7VSnT
+    rotulo: '07'
     circulo:
       x: 389
       y: 827
       raio: 22
-  - id: '08'
-    label: '08'
+  - uid: LVOimv61UZlH2t
+    rotulo: '08'
     circulo:
       x: 498
       y: 942
       raio: 23
-  - id: '09'
-    label: '09'
+  - uid: xghK6WxznTRTMO
+    rotulo: '09'
     circulo:
       x: 558
       y: 1079
       raio: 22
-  - id: '10'
-    label: '10'
+  - uid: JBsqtYZZWPEV3a
+    rotulo: '10'
     circulo:
       x: 633
       y: 1155
       raio: 22
-  - id: '11'
-    label: '11'
+  - uid: jkUjqewjfIbyFE
+    rotulo: '11'
     circulo:
       x: 703
       y: 1147
       raio: 22
   referencias:
-  - escalada: Cortina de Fumaça
-    ids:
-    - '06'
-  - escalada: Sem Nome (Via 07)
-    ids:
-    - '07'
-  - escalada: Decadentes
-    ids:
-    - '10'
-  - escalada: Pelos de Aldebaran
-    ids:
-    - '11'
-  - ids:
-    - '08'
-    setor: Paulistas
-    escalada: Pubianos
-  - ids:
-    - '09'
-    setor: Paulistas
-    escalada: Bocaina Roots
+  - alvo_uid: WwcqkCPfDaBkYI
+    pontos_uids:
+    - Fiqi4PRdQnQZkB
+  - alvo_uid: IBjSFNeoeoI63h
+    pontos_uids:
+    - dVEg1kUMo7VSnT
+  - alvo_uid: o9M6C6PP0H46Hp
+    pontos_uids:
+    - JBsqtYZZWPEV3a
+  - alvo_uid: 8099bJ1aHLMeNQ
+    pontos_uids:
+    - jkUjqewjfIbyFE
+  - alvo_uid: jZimscxMxfMm12
+    pontos_uids:
+    - LVOimv61UZlH2t
+  - alvo_uid: suJqK4U9H2xovt
+    pontos_uids:
+    - xghK6WxznTRTMO
 - caminho_imagem_mapa: imagens/setor_paulistas_p3.webp
   largura_mapa: 1280
   altura_mapa: 1707
   pontos_de_interesse:
-  - id: '12'
-    label: '12'
+  - uid: wLG9AEMAZeRdKl
+    rotulo: '12'
     circulo:
       x: 453
       y: 1129
       raio: 22
-  - id: '13'
-    label: '13'
+  - uid: Xgc2wH3Tr53z4p
+    rotulo: '13'
     circulo:
       x: 469
       y: 714
       raio: 22
-  - id: '14'
-    label: '14'
+  - uid: kFwp5rHuXEnt0u
+    rotulo: '14'
     circulo:
       x: 614
       y: 796
       raio: 22
-  - id: '15'
-    label: '15'
+  - uid: MFDYeBrTikaIso
+    rotulo: '15'
     circulo:
       x: 732
       y: 800
       raio: 22
-  - id: '16'
-    label: '16'
+  - uid: hGvj0hexsTOV8f
+    rotulo: '16'
     circulo:
       x: 815
       y: 788
       raio: 22
   referencias:
-  - escalada: Ejaculação Precoce
-    ids:
-    - '12'
-  - escalada: Via do Laurêncio
-    ids:
-    - '13'
-  - escalada: International love
-    ids:
-    - '14'
-  - escalada: Cinquenteira
-    ids:
-    - '15'
-  - escalada: Boa idéia
-    ids:
-    - '16'
+  - alvo_uid: p3ttzKCAv46AxK
+    pontos_uids:
+    - wLG9AEMAZeRdKl
+  - alvo_uid: miGbrMteuZ0Gio
+    pontos_uids:
+    - Xgc2wH3Tr53z4p
+  - alvo_uid: j2y3uGveSBERyA
+    pontos_uids:
+    - kFwp5rHuXEnt0u
+  - alvo_uid: kz1wcURACdWrdR
+    pontos_uids:
+    - MFDYeBrTikaIso
+  - alvo_uid: 8V5oh4Wq9fdPrf
+    pontos_uids:
+    - hGvj0hexsTOV8f
 escaladas:
-- via_esportiva:
+- uid: dK3axNmwBvVzkv
+  via_esportiva:
     nome: Física Quântica
     dificuldade: BR_7A
     extensao: 20
@@ -174,7 +174,8 @@ escaladas:
     - Laurêncio
     - Daiex
     data_abertura: '2015'
-- via_esportiva:
+- uid: BMDfw8KmSwFl8r
+  via_esportiva:
     nome: Chamasamiga
     dificuldade: INDEFINIDO
     extensao: 12
@@ -182,7 +183,8 @@ escaladas:
     - Diego Leonardo
     - Gustavo Maneira
     data_abertura: '2016'
-- via_esportiva:
+- uid: s9GDqmsPHWE4pv
+  via_esportiva:
     nome: Acupuntura
     dificuldade: BR_6SUP
     extensao: 25
@@ -191,7 +193,8 @@ escaladas:
     conquistadores:
     - Paulinho (RP)
     data_abertura: '2008'
-- via_esportiva:
+- uid: FbUwXupN4POcp6
+  via_esportiva:
     nome: Capitão Bocaina
     dificuldade: BR_8A
     extensao: 15
@@ -201,7 +204,8 @@ escaladas:
     - Alexandre Fei
     - Laurêncio
     data_abertura: '2014'
-- via_esportiva:
+- uid: ylgFCOdbut2wke
+  via_esportiva:
     nome: Miragem
     dificuldade: BR_9B
     extensao: 15
@@ -211,7 +215,8 @@ escaladas:
     - Diego Leonardo
     - Rafael Furtado
     data_abertura: '2015'
-- via_esportiva:
+- uid: WwcqkCPfDaBkYI
+  via_esportiva:
     nome: Cortina de Fumaça
     dificuldade: BR_9C
     extensao: 15
@@ -221,7 +226,8 @@ escaladas:
     - Diego Leonardo
     - Gustavo Maneira
     data_abertura: '2012'
-- via_esportiva:
+- uid: IBjSFNeoeoI63h
+  via_esportiva:
     nome: Sem Nome (Via 07)
     dificuldade: BR_7B
     extensao: 10
@@ -231,7 +237,8 @@ escaladas:
     - Rafael Furtado
     - Gustavo Maneira
     data_abertura: '2015'
-- via_esportiva:
+- uid: jZimscxMxfMm12
+  via_esportiva:
     nome: Pubianos
     dificuldade: BR_8A
     extensao: 15
@@ -241,7 +248,8 @@ escaladas:
     - Paulinho (RP)
     - Alexandre Fei
     data_abertura: '2014'
-- via_esportiva:
+- uid: suJqK4U9H2xovt
+  via_esportiva:
     nome: Bocaina Roots
     dificuldade: BR_7A
     extensao: 10
@@ -251,7 +259,8 @@ escaladas:
     - Diego Leonardo
     - Gustavo Maneira
     data_abertura: '2014'
-- via_esportiva:
+- uid: o9M6C6PP0H46Hp
+  via_esportiva:
     nome: Decadentes
     dificuldade: BR_7A
     extensao: 15
@@ -261,7 +270,8 @@ escaladas:
     - Paulinho (RP)
     - Diego Leonardo
     data_abertura: 2008/14
-- via_esportiva:
+- uid: 8099bJ1aHLMeNQ
+  via_esportiva:
     nome: Pelos de Aldebaran
     dificuldade: BR_7C
     extensao: 15
@@ -271,7 +281,8 @@ escaladas:
     - Laurêncio
     - Diego Leonardo
     data_abertura: '2014'
-- via_esportiva:
+- uid: p3ttzKCAv46AxK
+  via_esportiva:
     nome: Ejaculação Precoce
     dificuldade: BR_7A
     extensao: 15
@@ -281,7 +292,8 @@ escaladas:
     - Diego Leonardo
     - Laurêncio
     data_abertura: '2014'
-- via_esportiva:
+- uid: miGbrMteuZ0Gio
+  via_esportiva:
     nome: Via do Laurêncio
     dificuldade: BR_6SUP
     extensao: 8
@@ -289,7 +301,8 @@ escaladas:
     - Laurêncio
     - Zé Roberto
     data_abertura: '2014'
-- via_esportiva:
+- uid: j2y3uGveSBERyA
+  via_esportiva:
     nome: International love
     dificuldade: BR_7A
     extensao: 12
@@ -299,7 +312,8 @@ escaladas:
     - Etienne
     - Diego Leonardo
     data_abertura: '2014'
-- via_esportiva:
+- uid: kz1wcURACdWrdR
+  via_esportiva:
     nome: Cinquenteira
     dificuldade: BR_6SUP
     extensao: 8
@@ -309,7 +323,8 @@ escaladas:
     - Diego Leonardo
     - Gustavo Maneira
     data_abertura: '2014'
-- via_esportiva:
+- uid: 8V5oh4Wq9fdPrf
+  via_esportiva:
     nome: Boa idéia
     dificuldade: BR_6SUP
     extensao: 8

@@ -9,24 +9,24 @@ mapas:
   largura_mapa: 1046
   altura_mapa: 1536
   pontos_de_interesse:
-  - id: setor_carrapato
-    label: Setor Carrapato
+  - uid: rU7zZCOGgncQgj
+    rotulo: Setor Carrapato
     retangulo:
       x: 278
       y: 641
       comprimento: 244
       largura: 144
       angulo_graus_x100: 350
-  - id: setor_micuim
-    label: Setor Micuim
+  - uid: 2hiOJhydeAqcEU
+    rotulo: Setor Micuim
     retangulo:
       x: 360
       y: 768
       comprimento: 139
       largura: 85
       angulo_graus_x100: 34405
-  - id: setor_covide
-    label: Setor Covide
+  - uid: m2LNKFwyZUjfmB
+    rotulo: Setor Covide
     retangulo:
       x: 805
       y: 764

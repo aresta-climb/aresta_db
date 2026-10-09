@@ -4,12 +4,13 @@
 
 - **id**: br_mg_ouro_preto_andorinhas
 - **nome**: Parque Natural Municipal das Andorinhas
+- **uid**: CiVmE57KaMXmNl
 - **creditos**:
   - ATM 2018
 - **caminho_thumbnail**: ![caminho_thumbnail](imagens/setor_pedra_branca_p0_i0.webp)
 - **revisado_manualmente**: True
 - **status_desenho_extraivel**: DESENHO_EXTRAIDO
-- **ultima_migracao**: 4
+- **ultima_migracao**: 5
 - **publicar_croqui**: True
 - **revisado_bounding_circle**: True
 - **botoes**: []
@@ -30,6 +31,7 @@
     
     Recomendações: Uso de capacete. Algumas vias requerem equipamento móvel.
 - **nome**: Pedra do Arco
+- **uid**: zkSbaQVnPkafaq
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_pedra_do_arco_p0.webp)
@@ -37,107 +39,153 @@
     - **altura_mapa**: 880
     - **pontos_de_interesse**:
       - **[0]**:
-        - **id**: 1
-        - **label**: 1
+        - **id**: s1r3kZAliEpkAT
+        - **uid**: s1r3kZAliEpkAT
+        - **rotulo**: 1
         - **circulo**:
           - **x**: 253
           - **y**: 803
           - **raio**: 20
+        - **label**: 1
       - **[1]**:
-        - **id**: 2
-        - **label**: 2
+        - **id**: Mqj2EClYZ4ujtk
+        - **uid**: Mqj2EClYZ4ujtk
+        - **rotulo**: 2
         - **circulo**:
           - **x**: 409
           - **y**: 799
           - **raio**: 20
+        - **label**: 2
       - **[2]**:
-        - **id**: 3
-        - **label**: 3
+        - **id**: magnWwwQCNU7fF
+        - **uid**: magnWwwQCNU7fF
+        - **rotulo**: 3
         - **circulo**:
           - **x**: 528
           - **y**: 759
           - **raio**: 21
+        - **label**: 3
       - **[3]**:
-        - **id**: 4
-        - **label**: 4
+        - **id**: BeXkX3odFKdQz3
+        - **uid**: BeXkX3odFKdQz3
+        - **rotulo**: 4
         - **circulo**:
           - **x**: 805
           - **y**: 674
           - **raio**: 20
+        - **label**: 4
       - **[4]**:
-        - **id**: 5
-        - **label**: 5
+        - **id**: sdiL6ScDymSd01
+        - **uid**: sdiL6ScDymSd01
+        - **rotulo**: 5
         - **circulo**:
           - **x**: 957
           - **y**: 599
           - **raio**: 20
+        - **label**: 5
       - **[5]**:
-        - **id**: 6
-        - **label**: 6
+        - **id**: egxjGifeS1x7kR
+        - **uid**: egxjGifeS1x7kR
+        - **rotulo**: 6
         - **circulo**:
           - **x**: 1110
           - **y**: 554
           - **raio**: 20
+        - **label**: 6
       - **[6]**:
-        - **id**: 7
-        - **label**: 7
+        - **id**: XXp8u1XQbh5ODl
+        - **uid**: XXp8u1XQbh5ODl
+        - **rotulo**: 7
         - **circulo**:
           - **x**: 1456
           - **y**: 823
           - **raio**: 20
+        - **label**: 7
       - **[7]**:
-        - **id**: 8
-        - **label**: 8
+        - **id**: fBtl87Gp8aN5T5
+        - **uid**: fBtl87Gp8aN5T5
+        - **rotulo**: 8
         - **circulo**:
           - **x**: 1577
           - **y**: 750
           - **raio**: 20
+        - **label**: 8
       - **[8]**:
-        - **id**: 9
-        - **label**: 9
+        - **id**: S9Ds7ARE1uQlMQ
+        - **uid**: S9Ds7ARE1uQlMQ
+        - **rotulo**: 9
         - **circulo**:
           - **x**: 1942
           - **y**: 743
           - **raio**: 20
+        - **label**: 9
     - **referencias**:
       - **[0]**:
+        - **alvo_uid**: 7ti0xqs5ZYdgI8
+        - **pontos_uids**:
+          - s1r3kZAliEpkAT
         - **escalada**: Aresta do Apicultor
         - **ids**:
-          - 1
+          - s1r3kZAliEpkAT
       - **[1]**:
+        - **alvo_uid**: 2s26SZMYbOI0fQ
+        - **pontos_uids**:
+          - Mqj2EClYZ4ujtk
         - **escalada**: Se Segura Malandro
         - **ids**:
-          - 2
+          - Mqj2EClYZ4ujtk
       - **[2]**:
+        - **alvo_uid**: MDblrI3ejId0jF
+        - **pontos_uids**:
+          - magnWwwQCNU7fF
         - **escalada**: Filosofia Lusitana
         - **ids**:
-          - 3
+          - magnWwwQCNU7fF
       - **[3]**:
+        - **alvo_uid**: fvyztQVeT6vS4k
+        - **pontos_uids**:
+          - BeXkX3odFKdQz3
         - **escalada**: Titanomaquia
         - **ids**:
-          - 4
+          - BeXkX3odFKdQz3
       - **[4]**:
+        - **alvo_uid**: eYAgd9R8FqvcUs
+        - **pontos_uids**:
+          - sdiL6ScDymSd01
         - **escalada**: Sika Loca
         - **ids**:
-          - 5
+          - sdiL6ScDymSd01
       - **[5]**:
+        - **alvo_uid**: DyRbkcQa5clvgn
+        - **pontos_uids**:
+          - egxjGifeS1x7kR
         - **escalada**: Caba Não Mundão
         - **ids**:
-          - 6
+          - egxjGifeS1x7kR
       - **[6]**:
+        - **alvo_uid**: ObKrAHaISV84Z4
+        - **pontos_uids**:
+          - XXp8u1XQbh5ODl
         - **escalada**: Marreta Porreta
         - **ids**:
-          - 7
+          - XXp8u1XQbh5ODl
       - **[7]**:
+        - **alvo_uid**: aB43zLdALJYMeU
+        - **pontos_uids**:
+          - fBtl87Gp8aN5T5
         - **escalada**: Cabron da Peste
         - **ids**:
-          - 8
+          - fBtl87Gp8aN5T5
       - **[8]**:
+        - **alvo_uid**: vZbJVBdzjPd6Cs
+        - **pontos_uids**:
+          - S9Ds7ARE1uQlMQ
         - **escalada**: Paralaxologística
         - **ids**:
-          - 9
+          - S9Ds7ARE1uQlMQ
 - **escaladas**:
   - **[0]**:
+    - **uid**: 7ti0xqs5ZYdgI8
     - **via_esportiva**:
       - **nome**: Aresta do Apicultor
       - **dificuldade**: BR_9B
@@ -148,6 +196,7 @@
         - Fábio de Melo
         - Rodrigo 'Mussula'
   - **[1]**:
+    - **uid**: 2s26SZMYbOI0fQ
     - **via_esportiva**:
       - **nome**: Se Segura Malandro
       - **dificuldade**: BR_7B
@@ -158,6 +207,7 @@
         - Fábio de Melo
         - Rodrigo 'Mussula'
   - **[2]**:
+    - **uid**: MDblrI3ejId0jF
     - **via_esportiva**:
       - **nome**: Filosofia Lusitana
       - **dificuldade**: BR_8B
@@ -168,6 +218,7 @@
         - Fábio de Melo
         - Rodrigo 'Mussula'
   - **[3]**:
+    - **uid**: fvyztQVeT6vS4k
     - **via_esportiva**:
       - **nome**: Titanomaquia
       - **dificuldade**: BR_9A
@@ -178,6 +229,7 @@
         - Fábio de Melo
         - Rodrigo 'Mussula'
   - **[4]**:
+    - **uid**: eYAgd9R8FqvcUs
     - **via_esportiva**:
       - **nome**: Sika Loca
       - **dificuldade**: INDEFINIDO
@@ -189,6 +241,7 @@
         - R. 'Mussula'
         - Fred Moreira
   - **[5]**:
+    - **uid**: DyRbkcQa5clvgn
     - **via_esportiva**:
       - **nome**: Caba Não Mundão
       - **dificuldade**: INDEFINIDO
@@ -199,6 +252,7 @@
         - Fábio de Melo
         - Rodrigo 'Mussula'
   - **[6]**:
+    - **uid**: ObKrAHaISV84Z4
     - **via_movel**:
       - **nome**: Marreta Porreta
       - **dificuldade**: BR_6SUP
@@ -209,6 +263,7 @@
         - Ian Belo
         - Felipe Dias
   - **[7]**:
+    - **uid**: aB43zLdALJYMeU
     - **via_esportiva**:
       - **nome**: Cabron da Peste
       - **dificuldade**: INDEFINIDO
@@ -219,6 +274,7 @@
         - Fábio de Melo
         - Rodrigo 'Mussula'
   - **[8]**:
+    - **uid**: vZbJVBdzjPd6Cs
     - **via_esportiva**:
       - **nome**: Paralaxologística
       - **dificuldade**: BR_8B
@@ -248,6 +304,7 @@
     
     Recomendações: Uso de capacete. Algumas vias requerem equipamento móvel.
 - **nome**: Campo Escola
+- **uid**: TFb7MHt7YSa4Am
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_campo_escola_p0.webp)
@@ -255,96 +312,137 @@
     - **altura_mapa**: 1464
     - **pontos_de_interesse**:
       - **[0]**:
-        - **id**: 1
-        - **label**: 1
+        - **id**: SL5beigFdmMPpa
+        - **uid**: SL5beigFdmMPpa
+        - **rotulo**: 1
         - **circulo**:
           - **x**: 299
           - **y**: 923
           - **raio**: 29
+        - **label**: 1
       - **[1]**:
-        - **id**: 2
-        - **label**: 2
+        - **id**: 8N0TMzWLsd6kWp
+        - **uid**: 8N0TMzWLsd6kWp
+        - **rotulo**: 2
         - **circulo**:
           - **x**: 515
           - **y**: 914
           - **raio**: 29
+        - **label**: 2
       - **[2]**:
-        - **id**: 3
-        - **label**: 3
+        - **id**: B1B9rVRVjLCiVx
+        - **uid**: B1B9rVRVjLCiVx
+        - **rotulo**: 3
         - **circulo**:
           - **x**: 642
           - **y**: 872
           - **raio**: 29
+        - **label**: 3
       - **[3]**:
-        - **id**: 4
-        - **label**: 4
+        - **id**: ebZtAni3NdfAGN
+        - **uid**: ebZtAni3NdfAGN
+        - **rotulo**: 4
         - **circulo**:
           - **x**: 691
           - **y**: 1002
           - **raio**: 29
+        - **label**: 4
       - **[4]**:
-        - **id**: 5
-        - **label**: 5
+        - **id**: Yu1y8joy7B6YUk
+        - **uid**: Yu1y8joy7B6YUk
+        - **rotulo**: 5
         - **circulo**:
           - **x**: 819
           - **y**: 962
           - **raio**: 29
+        - **label**: 5
       - **[5]**:
-        - **id**: 6
-        - **label**: 6
+        - **id**: DN3nDZ1UuI8UTg
+        - **uid**: DN3nDZ1UuI8UTg
+        - **rotulo**: 6
         - **circulo**:
           - **x**: 1009
           - **y**: 962
           - **raio**: 29
+        - **label**: 6
       - **[6]**:
-        - **id**: 7
-        - **label**: 7
+        - **id**: exWnLXdm6YeHMm
+        - **uid**: exWnLXdm6YeHMm
+        - **rotulo**: 7
         - **circulo**:
           - **x**: 1237
           - **y**: 933
           - **raio**: 29
+        - **label**: 7
       - **[7]**:
-        - **id**: 8
-        - **label**: 8
+        - **id**: klXGpHy9c2z2VH
+        - **uid**: klXGpHy9c2z2VH
+        - **rotulo**: 8
         - **circulo**:
           - **x**: 1480
           - **y**: 835
           - **raio**: 29
+        - **label**: 8
     - **referencias**:
       - **[0]**:
+        - **alvo_uid**: sY1Zku2jMT7ovP
+        - **pontos_uids**:
+          - SL5beigFdmMPpa
         - **escalada**: Vivi Fernandes
         - **ids**:
-          - 1
+          - SL5beigFdmMPpa
       - **[1]**:
+        - **alvo_uid**: rApTGpneJUxHKh
+        - **pontos_uids**:
+          - 8N0TMzWLsd6kWp
         - **escalada**: Kid Bengala
         - **ids**:
-          - 2
+          - 8N0TMzWLsd6kWp
       - **[2]**:
+        - **alvo_uid**: tARmWmeUlv9QaW
+        - **pontos_uids**:
+          - B1B9rVRVjLCiVx
         - **escalada**: Lolla
         - **ids**:
-          - 3
+          - B1B9rVRVjLCiVx
       - **[3]**:
+        - **alvo_uid**: bZknDsQconM5dD
+        - **pontos_uids**:
+          - ebZtAni3NdfAGN
         - **escalada**: Emanuelle
         - **ids**:
-          - 4
+          - ebZtAni3NdfAGN
       - **[4]**:
+        - **alvo_uid**: eZhakU1rJiCqbC
+        - **pontos_uids**:
+          - Yu1y8joy7B6YUk
         - **escalada**: Bruna Surfistinha
         - **ids**:
-          - 5
+          - Yu1y8joy7B6YUk
       - **[5]**:
+        - **alvo_uid**: hv5CLql5boxvHS
+        - **pontos_uids**:
+          - DN3nDZ1UuI8UTg
         - **escalada**: Hilda Furacão
         - **ids**:
-          - 6
+          - DN3nDZ1UuI8UTg
       - **[6]**:
+        - **alvo_uid**: Xs9g67SPKCz8Of
+        - **pontos_uids**:
+          - exWnLXdm6YeHMm
         - **escalada**: Cicciolina
         - **ids**:
-          - 7
+          - exWnLXdm6YeHMm
       - **[7]**:
+        - **alvo_uid**: KGdCAnb0BbRV1C
+        - **pontos_uids**:
+          - klXGpHy9c2z2VH
         - **escalada**: Bordel
         - **ids**:
-          - 8
+          - klXGpHy9c2z2VH
 - **escaladas**:
   - **[0]**:
+    - **uid**: sY1Zku2jMT7ovP
     - **via_esportiva**:
       - **nome**: Vivi Fernandes
       - **dificuldade**: BR_6
@@ -355,6 +453,7 @@
         - Fábio de Melo
         - Rodrigo 'Mussula'
   - **[1]**:
+    - **uid**: rApTGpneJUxHKh
     - **via_esportiva**:
       - **nome**: Kid Bengala
       - **dificuldade**: BR_4
@@ -365,6 +464,7 @@
         - Fábio de Melo
         - Rodrigo 'Mussula'
   - **[2]**:
+    - **uid**: tARmWmeUlv9QaW
     - **via_esportiva**:
       - **nome**: Lolla
       - **dificuldade**: BR_3
@@ -375,6 +475,7 @@
         - Fábio de Melo
         - Rodrigo 'Mussula'
   - **[3]**:
+    - **uid**: bZknDsQconM5dD
     - **via_esportiva**:
       - **nome**: Emanuelle
       - **dificuldade**: BR_3
@@ -385,6 +486,7 @@
         - Fábio de Melo
         - Rodrigo 'Mussula'
   - **[4]**:
+    - **uid**: eZhakU1rJiCqbC
     - **via_movel**:
       - **nome**: Bruna Surfistinha
       - **dificuldade**: BR_4
@@ -395,6 +497,7 @@
         - Ian Belo
         - Felipe Dias
   - **[5]**:
+    - **uid**: hv5CLql5boxvHS
     - **via_esportiva**:
       - **nome**: Hilda Furacão
       - **dificuldade**: BR_5
@@ -404,6 +507,7 @@
       - **conquistadores**:
         - Fábio de Melo
   - **[6]**:
+    - **uid**: Xs9g67SPKCz8Of
     - **via_movel**:
       - **nome**: Cicciolina
       - **dificuldade**: BR_4
@@ -414,6 +518,7 @@
         - Ian Belo
         - Felipe Dias
   - **[7]**:
+    - **uid**: KGdCAnb0BbRV1C
     - **via_esportiva**:
       - **nome**: Bordel
       - **dificuldade**: BR_3
@@ -442,6 +547,7 @@
     
     Recomendações: Uso de capacete.
 - **nome**: Tchau Querida
+- **uid**: wsG4L2MDOjEQyv
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_tchau_querida_p0.webp)
@@ -449,85 +555,121 @@
     - **altura_mapa**: 1441
     - **pontos_de_interesse**:
       - **[0]**:
-        - **id**: 1
-        - **label**: 1
+        - **id**: OAqwOD0xxV1vPu
+        - **uid**: OAqwOD0xxV1vPu
+        - **rotulo**: 1
         - **circulo**:
           - **x**: 553
           - **y**: 1165
           - **raio**: 29
+        - **label**: 1
       - **[1]**:
-        - **id**: 2
-        - **label**: 2
+        - **id**: MuwmgaCCQZRwWx
+        - **uid**: MuwmgaCCQZRwWx
+        - **rotulo**: 2
         - **circulo**:
           - **x**: 673
           - **y**: 1207
           - **raio**: 29
+        - **label**: 2
       - **[2]**:
-        - **id**: 3
-        - **label**: 3
+        - **id**: K5QKDGoccW19NA
+        - **uid**: K5QKDGoccW19NA
+        - **rotulo**: 3
         - **circulo**:
           - **x**: 876
           - **y**: 1185
           - **raio**: 29
+        - **label**: 3
       - **[3]**:
-        - **id**: 4
-        - **label**: 4
+        - **id**: cdfIXsByranGf7
+        - **uid**: cdfIXsByranGf7
+        - **rotulo**: 4
         - **circulo**:
           - **x**: 1367
           - **y**: 1156
           - **raio**: 29
+        - **label**: 4
       - **[4]**:
-        - **id**: 5
-        - **label**: 5
+        - **id**: AjkqTGkt4Ch8hA
+        - **uid**: AjkqTGkt4Ch8hA
+        - **rotulo**: 5
         - **circulo**:
           - **x**: 1554
           - **y**: 1156
           - **raio**: 29
+        - **label**: 5
       - **[5]**:
-        - **id**: 6
-        - **label**: 6
+        - **id**: RfbWzFwbo770MS
+        - **uid**: RfbWzFwbo770MS
+        - **rotulo**: 6
         - **circulo**:
           - **x**: 1767
           - **y**: 1095
           - **raio**: 29
+        - **label**: 6
       - **[6]**:
-        - **id**: 7
-        - **label**: 7
+        - **id**: teBEMz2j8ndVhN
+        - **uid**: teBEMz2j8ndVhN
+        - **rotulo**: 7
         - **circulo**:
           - **x**: 1918
           - **y**: 1066
           - **raio**: 29
+        - **label**: 7
     - **referencias**:
       - **[0]**:
+        - **alvo_uid**: k6oqTOgZAjU9kt
+        - **pontos_uids**:
+          - OAqwOD0xxV1vPu
         - **escalada**: Temer Jamais
         - **ids**:
-          - 1
+          - OAqwOD0xxV1vPu
       - **[1]**:
+        - **alvo_uid**: xW0Mkv77JFWs9p
+        - **pontos_uids**:
+          - MuwmgaCCQZRwWx
         - **escalada**: Escalar sem Temer
         - **ids**:
-          - 2
+          - MuwmgaCCQZRwWx
       - **[2]**:
+        - **alvo_uid**: J1pGNoThE1bwfk
+        - **pontos_uids**:
+          - K5QKDGoccW19NA
         - **escalada**: Tchau Querida
         - **ids**:
-          - 3
+          - K5QKDGoccW19NA
       - **[3]**:
+        - **alvo_uid**: CRBMqp1Q6DVjAx
+        - **pontos_uids**:
+          - cdfIXsByranGf7
         - **escalada**: República do Pó Royal
         - **ids**:
-          - 4
+          - cdfIXsByranGf7
       - **[4]**:
+        - **alvo_uid**: R8rkbqPrKLHDxA
+        - **pontos_uids**:
+          - AjkqTGkt4Ch8hA
         - **escalada**: República das Bananas
         - **ids**:
-          - 5
+          - AjkqTGkt4Ch8hA
       - **[5]**:
+        - **alvo_uid**: aW9uZrzgmc7ttE
+        - **pontos_uids**:
+          - RfbWzFwbo770MS
         - **escalada**: República do Café com Leite
         - **ids**:
-          - 6
+          - RfbWzFwbo770MS
       - **[6]**:
+        - **alvo_uid**: VjT3UV27gMKhc0
+        - **pontos_uids**:
+          - teBEMz2j8ndVhN
         - **escalada**: Lava Jato
         - **ids**:
-          - 7
+          - teBEMz2j8ndVhN
 - **escaladas**:
   - **[0]**:
+    - **uid**: k6oqTOgZAjU9kt
     - **via_esportiva**:
       - **nome**: Temer Jamais
       - **dificuldade**: INDEFINIDO
@@ -538,6 +680,7 @@
         - Fábio de Melo
         - Rodrigo 'Mussula'
   - **[1]**:
+    - **uid**: xW0Mkv77JFWs9p
     - **via_esportiva**:
       - **nome**: Escalar sem Temer
       - **dificuldade**: INDEFINIDO
@@ -548,6 +691,7 @@
         - Fábio de Melo
         - Rodrigo 'Mussula'
   - **[2]**:
+    - **uid**: J1pGNoThE1bwfk
     - **via_esportiva**:
       - **nome**: Tchau Querida
       - **dificuldade**: BR_7B_BARRA_7C
@@ -558,6 +702,7 @@
         - Fábio de Melo
         - Rodrigo 'Mussula'
   - **[3]**:
+    - **uid**: CRBMqp1Q6DVjAx
     - **via_esportiva**:
       - **nome**: República do Pó Royal
       - **dificuldade**: BR_8A
@@ -568,6 +713,7 @@
         - Fábio de Melo
         - Rodrigo 'Mussula'
   - **[4]**:
+    - **uid**: R8rkbqPrKLHDxA
     - **via_esportiva**:
       - **nome**: República das Bananas
       - **dificuldade**: BR_7A
@@ -578,6 +724,7 @@
         - Fábio de Melo
         - Rodrigo 'Mussula'
   - **[5]**:
+    - **uid**: aW9uZrzgmc7ttE
     - **via_esportiva**:
       - **nome**: República do Café com Leite
       - **dificuldade**: BR_7A
@@ -588,6 +735,7 @@
         - Fábio de Melo
         - Rodrigo 'Mussula'
   - **[6]**:
+    - **uid**: VjT3UV27gMKhc0
     - **via_esportiva**:
       - **nome**: Lava Jato
       - **dificuldade**: BR_7B
@@ -617,6 +765,7 @@
     
     Recomendações: Uso de capacete. Algumas vias requerem equipamento móvel.
 - **nome**: Pedra Branca
+- **uid**: LwsbKpA62X0tMd
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_pedra_branca_p0.webp)
@@ -624,184 +773,265 @@
     - **altura_mapa**: 1430
     - **pontos_de_interesse**:
       - **[0]**:
-        - **id**: 1
-        - **label**: 1
+        - **id**: Kw2r26BhWKm3HW
+        - **uid**: Kw2r26BhWKm3HW
+        - **rotulo**: 1
         - **circulo**:
           - **x**: 271
           - **y**: 1376
           - **raio**: 28
+        - **label**: 1
       - **[1]**:
-        - **id**: 2
-        - **label**: 2
+        - **id**: S94l8t3Kowypzj
+        - **uid**: S94l8t3Kowypzj
+        - **rotulo**: 2
         - **circulo**:
           - **x**: 716
           - **y**: 1078
           - **raio**: 28
+        - **label**: 2
       - **[2]**:
-        - **id**: 3
-        - **label**: 3
+        - **id**: UQA4cM8WDOTV6g
+        - **uid**: UQA4cM8WDOTV6g
+        - **rotulo**: 3
         - **circulo**:
           - **x**: 881
           - **y**: 1000
           - **raio**: 29
+        - **label**: 3
       - **[3]**:
-        - **id**: 4
-        - **label**: 4
+        - **id**: rrXCVCX315PvDh
+        - **uid**: rrXCVCX315PvDh
+        - **rotulo**: 4
         - **circulo**:
           - **x**: 998
           - **y**: 982
           - **raio**: 29
+        - **label**: 4
       - **[4]**:
-        - **id**: 5
-        - **label**: 5
+        - **id**: 167oZQUL97DvEX
+        - **uid**: 167oZQUL97DvEX
+        - **rotulo**: 5
         - **circulo**:
           - **x**: 1079
           - **y**: 857
           - **raio**: 29
+        - **label**: 5
       - **[5]**:
-        - **id**: 6
-        - **label**: 6
+        - **id**: J2HhYo5NDZ6t4Q
+        - **uid**: J2HhYo5NDZ6t4Q
+        - **rotulo**: 6
         - **circulo**:
           - **x**: 1178
           - **y**: 875
           - **raio**: 29
+        - **label**: 6
       - **[6]**:
-        - **id**: 7
-        - **label**: 7
+        - **id**: Ziwxy16uv4OHif
+        - **uid**: Ziwxy16uv4OHif
+        - **rotulo**: 7
         - **circulo**:
           - **x**: 1235
           - **y**: 767
           - **raio**: 28
+        - **label**: 7
       - **[7]**:
-        - **id**: 8
-        - **label**: 8
+        - **id**: 6TOSSMM6oJLdCA
+        - **uid**: 6TOSSMM6oJLdCA
+        - **rotulo**: 8
         - **circulo**:
           - **x**: 1341
           - **y**: 726
           - **raio**: 29
+        - **label**: 8
       - **[8]**:
-        - **id**: 9
-        - **label**: 9
+        - **id**: 244HBnuym2IWDk
+        - **uid**: 244HBnuym2IWDk
+        - **rotulo**: 9
         - **circulo**:
           - **x**: 1380
           - **y**: 610
           - **raio**: 29
+        - **label**: 9
       - **[9]**:
-        - **id**: 10
-        - **label**: 10
+        - **id**: EcPEuN3CknJ9Ga
+        - **uid**: EcPEuN3CknJ9Ga
+        - **rotulo**: 10
         - **circulo**:
           - **x**: 1433
           - **y**: 521
           - **raio**: 28
+        - **label**: 10
       - **[10]**:
-        - **id**: 11
-        - **label**: 11
+        - **id**: UoEPxqRveqDfjl
+        - **uid**: UoEPxqRveqDfjl
+        - **rotulo**: 11
         - **circulo**:
           - **x**: 1498
           - **y**: 474
           - **raio**: 29
+        - **label**: 11
       - **[11]**:
-        - **id**: 12
-        - **label**: 12
+        - **id**: arqatt4PQTrUTw
+        - **uid**: arqatt4PQTrUTw
+        - **rotulo**: 12
         - **circulo**:
           - **x**: 1573
           - **y**: 540
           - **raio**: 29
+        - **label**: 12
       - **[12]**:
-        - **id**: 13
-        - **label**: 13
+        - **id**: TfkQQLiEb8mFpE
+        - **uid**: TfkQQLiEb8mFpE
+        - **rotulo**: 13
         - **circulo**:
           - **x**: 1691
           - **y**: 569
           - **raio**: 29
+        - **label**: 13
       - **[13]**:
-        - **id**: 14
-        - **label**: 14
+        - **id**: Ydiim87OstKvuh
+        - **uid**: Ydiim87OstKvuh
+        - **rotulo**: 14
         - **circulo**:
           - **x**: 1806
           - **y**: 550
           - **raio**: 29
+        - **label**: 14
       - **[14]**:
-        - **id**: 15
-        - **label**: 15
+        - **id**: Ni8v7sYqnxZo1m
+        - **uid**: Ni8v7sYqnxZo1m
+        - **rotulo**: 15
         - **circulo**:
           - **x**: 1865
           - **y**: 474
           - **raio**: 29
+        - **label**: 15
       - **[15]**:
-        - **id**: 16
-        - **label**: 16
+        - **id**: uVC6RLcQ3zqjlW
+        - **uid**: uVC6RLcQ3zqjlW
+        - **rotulo**: 16
         - **circulo**:
           - **x**: 1968
           - **y**: 375
           - **raio**: 29
+        - **label**: 16
     - **referencias**:
       - **[0]**:
+        - **alvo_uid**: ncix4p5uZLrqy0
+        - **pontos_uids**:
+          - Kw2r26BhWKm3HW
         - **escalada**: Vaca Virgem
         - **ids**:
-          - 1
+          - Kw2r26BhWKm3HW
       - **[1]**:
+        - **alvo_uid**: iov2bA83sPMsij
+        - **pontos_uids**:
+          - S94l8t3Kowypzj
         - **escalada**: Route 162
         - **ids**:
-          - 2
+          - S94l8t3Kowypzj
       - **[2]**:
+        - **alvo_uid**: LhFUxPxLieUX2g
+        - **pontos_uids**:
+          - UQA4cM8WDOTV6g
         - **escalada**: Dia de Protesto
         - **ids**:
-          - 3
+          - UQA4cM8WDOTV6g
       - **[3]**:
+        - **alvo_uid**: PkPBem3YrKiswl
+        - **pontos_uids**:
+          - rrXCVCX315PvDh
         - **escalada**: Atestado de Cadena
         - **ids**:
-          - 4
+          - rrXCVCX315PvDh
       - **[4]**:
+        - **alvo_uid**: GSLSwkP3r8Nv5e
+        - **pontos_uids**:
+          - 167oZQUL97DvEX
         - **escalada**: Janela do Universo
         - **ids**:
-          - 5
+          - 167oZQUL97DvEX
       - **[5]**:
+        - **alvo_uid**: yUMkkSy5pUXvun
+        - **pontos_uids**:
+          - J2HhYo5NDZ6t4Q
         - **escalada**: Musgonoszói
         - **ids**:
-          - 6
+          - J2HhYo5NDZ6t4Q
       - **[6]**:
+        - **alvo_uid**: HNPFjPzBUYf7Xy
+        - **pontos_uids**:
+          - Ziwxy16uv4OHif
         - **escalada**: Fala meu Justo
         - **ids**:
-          - 7
+          - Ziwxy16uv4OHif
       - **[7]**:
+        - **alvo_uid**: vbb51jADyW5oVP
+        - **pontos_uids**:
+          - 6TOSSMM6oJLdCA
         - **escalada**: Regletes Ocultos
         - **ids**:
-          - 8
+          - 6TOSSMM6oJLdCA
       - **[8]**:
+        - **alvo_uid**: na69PGh4fGdXcu
+        - **pontos_uids**:
+          - 244HBnuym2IWDk
         - **escalada**: Batata com Sal
         - **ids**:
-          - 9
+          - 244HBnuym2IWDk
       - **[9]**:
+        - **alvo_uid**: 2KqcKn1JWXZDp3
+        - **pontos_uids**:
+          - EcPEuN3CknJ9Ga
         - **escalada**: Argentina
         - **ids**:
-          - 10
+          - EcPEuN3CknJ9Ga
       - **[10]**:
+        - **alvo_uid**: 5SbiIbYHODL7kP
+        - **pontos_uids**:
+          - UoEPxqRveqDfjl
         - **escalada**: Alemanha
         - **ids**:
-          - 11
+          - UoEPxqRveqDfjl
       - **[11]**:
+        - **alvo_uid**: DWWb2P32J9uKJM
+        - **pontos_uids**:
+          - arqatt4PQTrUTw
         - **escalada**: Melodrama
         - **ids**:
-          - 12
+          - arqatt4PQTrUTw
       - **[12]**:
+        - **alvo_uid**: 1lZVDxj1BfgQ5y
+        - **pontos_uids**:
+          - TfkQQLiEb8mFpE
         - **escalada**: Sapiência
         - **ids**:
-          - 13
+          - TfkQQLiEb8mFpE
       - **[13]**:
+        - **alvo_uid**: c0Rn16b1e6hv8B
+        - **pontos_uids**:
+          - Ydiim87OstKvuh
         - **escalada**: Lagartixa de Pedra
         - **ids**:
-          - 14
+          - Ydiim87OstKvuh
       - **[14]**:
+        - **alvo_uid**: 5uT1gvvyYGLqm9
+        - **pontos_uids**:
+          - Ni8v7sYqnxZo1m
         - **escalada**: Meu Amigo Friend
         - **ids**:
-          - 15
+          - Ni8v7sYqnxZo1m
       - **[15]**:
+        - **alvo_uid**: TX15wb9KDkB0R7
+        - **pontos_uids**:
+          - uVC6RLcQ3zqjlW
         - **escalada**: Meu Amigo Broca
         - **ids**:
-          - 16
+          - uVC6RLcQ3zqjlW
 - **escaladas**:
   - **[0]**:
+    - **uid**: ncix4p5uZLrqy0
     - **via_esportiva**:
       - **nome**: Vaca Virgem
       - **dificuldade**: BR_6
@@ -812,6 +1042,7 @@
         - Fábio de Melo
         - Ângela Poleto
   - **[1]**:
+    - **uid**: iov2bA83sPMsij
     - **via_movel**:
       - **nome**: Route 162
       - **dificuldade**: BR_5
@@ -822,6 +1053,7 @@
         - Fábio de Melo
         - Marcelo Henriques
   - **[2]**:
+    - **uid**: LhFUxPxLieUX2g
     - **via_esportiva**:
       - **nome**: Dia de Protesto
       - **dificuldade**: BR_6
@@ -831,6 +1063,7 @@
       - **conquistadores**:
         - Fábio de Melo
   - **[3]**:
+    - **uid**: PkPBem3YrKiswl
     - **via_esportiva**:
       - **nome**: Atestado de Cadena
       - **dificuldade**: BR_7C
@@ -841,6 +1074,7 @@
         - Fábio de Melo
         - Marcelo Henriques
   - **[4]**:
+    - **uid**: GSLSwkP3r8Nv5e
     - **via_esportiva**:
       - **nome**: Janela do Universo
       - **dificuldade**: BR_7A
@@ -851,6 +1085,7 @@
         - Fábio de Melo
         - Marcelo Henriques
   - **[5]**:
+    - **uid**: yUMkkSy5pUXvun
     - **via_esportiva**:
       - **nome**: Musgonoszói
       - **dificuldade**: BR_6
@@ -861,6 +1096,7 @@
         - Fábio de Melo
         - Marcelo Henriques
   - **[6]**:
+    - **uid**: HNPFjPzBUYf7Xy
     - **via_esportiva**:
       - **nome**: Fala meu Justo
       - **dificuldade**: BR_7B
@@ -871,6 +1107,7 @@
         - Fábio de Melo
         - Marcelo Henriques
   - **[7]**:
+    - **uid**: vbb51jADyW5oVP
     - **via_esportiva**:
       - **nome**: Regletes Ocultos
       - **dificuldade**: BR_6
@@ -881,6 +1118,7 @@
         - Fábio de Melo
         - Marcelo Henriques
   - **[8]**:
+    - **uid**: na69PGh4fGdXcu
     - **via_movel**:
       - **nome**: Batata com Sal
       - **dificuldade**: BR_5
@@ -891,6 +1129,7 @@
         - Igor Murta
         - Natália Simone
   - **[9]**:
+    - **uid**: 2KqcKn1JWXZDp3
     - **via_esportiva**:
       - **nome**: Argentina
       - **dificuldade**: BR_5
@@ -901,6 +1140,7 @@
         - Rodrigo 'Mussula'
         - Marcelo Henriques
   - **[10]**:
+    - **uid**: 5SbiIbYHODL7kP
     - **via_esportiva**:
       - **nome**: Alemanha
       - **dificuldade**: BR_7A
@@ -911,6 +1151,7 @@
         - Rodrigo 'Mussula'
         - Marcelo Henriques
   - **[11]**:
+    - **uid**: DWWb2P32J9uKJM
     - **via_esportiva**:
       - **nome**: Melodrama
       - **dificuldade**: BR_7A
@@ -922,6 +1163,7 @@
         - R. 'Mussula'
         - Pablo Brito
   - **[12]**:
+    - **uid**: 1lZVDxj1BfgQ5y
     - **via_movel**:
       - **nome**: Sapiência
       - **dificuldade**: BR_7B
@@ -931,6 +1173,7 @@
       - **conquistadores**:
         - Fábio de Melo
   - **[13]**:
+    - **uid**: c0Rn16b1e6hv8B
     - **via_esportiva**:
       - **nome**: Lagartixa de Pedra
       - **dificuldade**: BR_7A
@@ -941,6 +1184,7 @@
         - Fábio de Melo
         - Marcelo Henriques
   - **[14]**:
+    - **uid**: 5uT1gvvyYGLqm9
     - **via_movel**:
       - **nome**: Meu Amigo Friend
       - **dificuldade**: BR_6
@@ -951,6 +1195,7 @@
         - Fábio de Melo
         - Marcelo Henriques
   - **[15]**:
+    - **uid**: TX15wb9KDkB0R7
     - **via_esportiva**:
       - **nome**: Meu Amigo Broca
       - **dificuldade**: BR_6
@@ -961,6 +1206,7 @@
         - Fábio de Melo
         - Rodrigo 'Mussula'
   - **[16]**:
+    - **uid**: QlW0BrRmcEJElE
     - **via_esportiva**:
       - **nome**: Babilon Go Up
       - **dificuldade**: BR_8C
@@ -972,6 +1218,7 @@
         - R. 'Mussula'
         - L. 'Minicraque'
   - **[17]**:
+    - **uid**: vbTRakNEkn8ZAR
     - **via_esportiva**:
       - **nome**: Sem Dúvida Nem Piedade
       - **dificuldade**: BR_8B
@@ -983,6 +1230,7 @@
         - F. Melo
         - Mussula
   - **[18]**:
+    - **uid**: ktG44eqbGzTWqt
     - **via_movel**:
       - **nome**: Chanasclý
       - **dificuldade**: BR_5
@@ -992,6 +1240,7 @@
       - **conquistadores**:
         - Leonardo 'Thunder'
   - **[19]**:
+    - **uid**: BXVyyqvrZdQRgh
     - **via_esportiva**:
       - **nome**: Segredo da Cadena
       - **dificuldade**: BR_7A

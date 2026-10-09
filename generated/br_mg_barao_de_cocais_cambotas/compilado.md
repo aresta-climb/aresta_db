@@ -5,10 +5,12 @@
 - **descricao**: O complexo de escalada de Cambotas, localizado em Barão de Cocais, MG, é um dos mais tradicionais e desafiadores do estado, oferecendo vias de alta qualidade em quartzito.
 - **id**: br_mg_barao_de_cocais_cambotas
 - **nome**: Cambotas
+- **uid**: JYMtnrbfS1HJEI
 - **caminho_thumbnail**: ![caminho_thumbnail](imagens/capa_p0.webp)
 - **status_desenho_extraivel**: NAO_TEM_DESENHO
 - **botoes**:
   - **[0]**:
+    - **uid**: 2jeJKqJkP8YH0f
     - **texto**: Capa
     - **destino**:
       - **secao_textual**:
@@ -28,6 +30,7 @@
             
             **Fotos e Croquis:** Aloysio Carvalho e Gustavo Vianna, exceto onde indicado
   - **[1]**:
+    - **uid**: H6VsxaHsJN9tbq
     - **texto**: Principais Vias I
     - **destino**:
       - **secao_textual**:
@@ -36,6 +39,7 @@
             
             Esta lista apresenta as principais vias do complexo de Cambotas, abrangendo diferentes setores e estilos.
   - **[2]**:
+    - **uid**: PM4SkeC8D2GimQ
     - **texto**: Principais Vias II
     - **destino**:
       - **secao_textual**:
@@ -44,6 +48,7 @@
             
             Este mapa ilustra a localização das principais vias em relação às paredes e setores da Serra da Cambota.
   - **[3]**:
+    - **uid**: 3k6IEbv8h5qQTu
     - **texto**: Contato
     - **destino**:
       - **secao_textual**:
@@ -62,7 +67,7 @@
             - **E-mail:** comercial@canelaema.com.br
             - **GPS:** 19º53'5290'' 43º32'1188''
             - **Endereço:** Estrada Povoado de Água Limpa / Rodovia MGC 262 (antiga BR262), KM 2,5, Caeté - MG, CEP 34800-000
-- **ultima_migracao**: 4
+- **ultima_migracao**: 5
 
 
 ## Parte: setor_chamine
@@ -71,6 +76,7 @@
 
 - **descricao**: # Setor Chaminé
 - **nome**: Chaminé
+- **uid**: 150z6viZ5YGa1C
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_chamine_p0_i0.webp)
@@ -78,6 +84,7 @@
     - **altura_mapa**: 605
 - **escaladas**:
   - **[0]**:
+    - **uid**: QJvvterDa5npXb
     - **via_esportiva**:
       - **descricao**: Via difícil, técnica. Agarras abauladas em local sombrio tornam essa via mais delicada. Ótima opção. Molha bastante no verão.
       - **nome**: Bin Laden
@@ -100,6 +107,7 @@
     
     O setor Caverninha possui algumas das vias mais desafiadoras e interessantes do complexo, incluindo a via "O doce e o amargo".
 - **nome**: Caverninha
+- **uid**: wo6wwzFaS8yJkf
 - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_caverninha_p0_i1.webp)
 - **mapas**:
   - **[0]**:
@@ -108,6 +116,7 @@
     - **altura_mapa**: 605
 - **escaladas**:
   - **[0]**:
+    - **uid**: HuJKJ3PukIFfsN
     - **via_movel**:
       - **descricao**: Ótima via em fendas e agarras. Crux protegido com grampos. Começa em cima da caverninha usada como abrigo. Peças pequenas e médias.
       - **nome**: Princesa léia
@@ -117,6 +126,7 @@
         - Antonio Canelas
         - Elaine
   - **[1]**:
+    - **uid**: esM3GBTAv771rt
     - **via_multiplas_enfiadas**:
       - **descricao**: Começa no final da 'princesa léia'. Exige boa leitura de via e domínio da técnica móvel. Terceira enfiada exposta. Peças médias e grandes.
       - **nome**: Double trouble
@@ -129,6 +139,7 @@
         - Breno Araújo
       - **comprimento_total**: 80
   - **[2]**:
+    - **uid**: P1jVHZ8UKRngnR
     - **via_movel**:
       - **descricao**: Via mista muito interessante. Possui belas fendas em rocha muito sólida. Peças pequenas e médias. Crux protegido com chapeletas.
       - **nome**: Supurados
@@ -138,6 +149,7 @@
         - André Coutinho
         - Breno Araújo
   - **[3]**:
+    - **uid**: 6TD5wk3k9E6jBq
     - **via_esportiva**:
       - **descricao**: Talvez a via mai difícil da parede. Crux ainda não foi isolado. Tem um teto espetacular na parte final da via. Muito bonita!
       - **nome**: O doce e o amargo
@@ -164,6 +176,7 @@
     **Dicas de Segurança:**
     Levar 2 cordas de 70m para rapel. Com apenas uma corda, descer pela via Homens Verdes.
 - **nome**: Torres
+- **uid**: HVeZ40s3BhupP1
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_torres_p2.webp)
@@ -171,6 +184,7 @@
     - **altura_mapa**: 1448
 - **escaladas**:
   - **[0]**:
+    - **uid**: JfC7vWkEEp97jj
     - **via_multiplas_enfiadas**:
       - **descricao**: Parede positiva.
       - **nome**: Pinta de Baiano
@@ -178,6 +192,7 @@
       - **tipo_via_multiplas_enfiadas**: TODA_FIXA
       - **comprimento_total**: 70
   - **[1]**:
+    - **uid**: uOMGrsCrjUknHM
     - **via_multiplas_enfiadas**:
       - **descricao**: Parede positiva.
       - **nome**: Homens Verdes
@@ -185,6 +200,7 @@
       - **tipo_via_multiplas_enfiadas**: TODA_FIXA
       - **comprimento_total**: 70
   - **[2]**:
+    - **uid**: J5U3TnrZTphxt5
     - **via_multiplas_enfiadas**:
       - **descricao**: Parede positiva.
       - **nome**: Patatí Patatá
@@ -192,6 +208,7 @@
       - **tipo_via_multiplas_enfiadas**: TODA_FIXA
       - **comprimento_total**: 50
   - **[3]**:
+    - **uid**: OlJj4kaU8sz8T2
     - **via_movel**:
       - **descricao**: Projeto interessante. Possui duas enfiadas em móvel. Paradas também feitas com proteções móveis. Segue um sistema de chaminés de tamanhos variados.
       - **nome**: Projeto?
@@ -210,6 +227,7 @@
 
 - **descricao**: # Setor Felinas
 - **nome**: Felinas
+- **uid**: 31DCaF1ZL4cPjb
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_felinas_p0_i7.webp)
@@ -225,6 +243,7 @@
     - **altura_mapa**: 673
 - **escaladas**:
   - **[0]**:
+    - **uid**: KrqmBjegLoPqB1
     - **via_multiplas_enfiadas**:
       - **descricao**: Via técnica e exigente.
       - **nome**: Remedio Forte
@@ -233,6 +252,7 @@
       - **duracao**: D2
       - **equipamento_recomendado**: Costuras diversas incluindo longas, 1 jogo de Camalot do .3 ao 4, repetição (não obrigatório) 0,5, .075, 1 e 2. Levar 2 cordas de 60m.
   - **[1]**:
+    - **uid**: jAN1yqFbIBrHTW
     - **via_esportiva**:
       - **descricao**: Via exigente, boulderistica. Molha no verão.
       - **nome**: Pó branco
@@ -242,6 +262,7 @@
         - Alexandre fei
         - Aloysio Carvalho
   - **[2]**:
+    - **uid**: 4zI1KNdxPnidzX
     - **via_esportiva**:
       - **descricao**: Via interessante com belas passadas em canaleta. Bastante técnica, molha bastante no verão, tornando impraticável a escalada nos meses mais úmidos.
       - **nome**: Gata borralheira
@@ -253,6 +274,7 @@
         - Aloysio Carvalho
         - Gustavo Pianc
   - **[3]**:
+    - **uid**: ody56ZQLj76T1Z
     - **via_esportiva**:
       - **descricao**: Via técnica com um pequeno teto no meio. Uma das mais frequentadas da parede.
       - **nome**: Marvada onça
@@ -261,6 +283,7 @@
       - **conquistadores**:
         - Gustavo Pianc.
   - **[4]**:
+    - **uid**: UjnnJllA2mZes5
     - **via_esportiva**:
       - **descricao**: Mistura técnica e resistência em bela passadas. Possui dois tetos. A primeira proteção após o segundo teto deve ser trocada.
       - **nome**: Tigresa
@@ -271,6 +294,7 @@
         - Aloysio Carvalho
         - Fábio Pavesi
   - **[5]**:
+    - **uid**: sOZcRwsyTaRf81
     - **via_esportiva**:
       - **descricao**: Técnica e forte. Talvez a via mais frequentada da parede. Muito estética!
       - **nome**: Pantera
@@ -282,6 +306,7 @@
         - Marcus Vinicius
         - Alexandre Fei
   - **[6]**:
+    - **uid**: bPc9Jq02q2dbB5
     - **via_esportiva**:
       - **descricao**: Via fixa mais acessível de todo o complexo. Bastante frequentada.
       - **nome**: Suçuarana
@@ -290,6 +315,7 @@
       - **conquistadores**:
         - Gustavo Piancastelli
   - **[7]**:
+    - **uid**: 0gK6PSdaPl9qXf
     - **via_movel**:
       - **descricao**: Bem fácil no inicio, tem um crux no meio protegido com P's e depois um presente com belas sequencias em fenda frontal pouco vistas em MG. Termina em um grampo. Peças pequenas e médias.
       - **nome**: Davi e Golias
@@ -299,6 +325,7 @@
         - Chander Christian
         - Eustáquio Macedo
   - **[8]**:
+    - **uid**: cFZlT9nm111JlV
     - **via_esportiva**:
       - **descricao**: Top feito no final da 'davi e golias'. A via começa à direita do poço d'água.
       - **nome**: O resgate do amigo
@@ -319,6 +346,7 @@
 
 - **descricao**: # Setor Fendas
 - **nome**: Fendas
+- **uid**: VoZcuSQ0d3Phq9
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_fendas_p0_i0.webp)
@@ -326,6 +354,7 @@
     - **altura_mapa**: 605
 - **escaladas**:
   - **[0]**:
+    - **uid**: tl2CPmdD1uTutl
     - **via_multiplas_enfiadas**:
       - **descricao**: Segue sistema de fendas principal da parede. Exige boa leitura de via.
       - **nome**: Noites equatoriais
@@ -340,6 +369,7 @@
         - Gustavo Piancastelli
       - **comprimento_total**: 200
   - **[1]**:
+    - **uid**: Ky8DyINGvg3ULq
     - **via_esportiva**:
       - **descricao**: Via vertical e pequenos regletes. Boa opção, mas molha no verão.
       - **nome**: Vomitão no reglete
@@ -349,6 +379,7 @@
         - Fabiano Fernandes
         - Wagner
   - **[2]**:
+    - **uid**: 7ifhnA9B1PaljX
     - **via_esportiva**:
       - **nome**: Soul rebel
       - **dificuldade**: BR_7B
@@ -356,6 +387,7 @@
       - **conquistadores**:
         - Gustavo Piancastelli
   - **[3]**:
+    - **uid**: hYU6hu6eD8yvW9
     - **via_movel**:
       - **descricao**: Boa via com fenda no final que pode ser protegida com cam #2 ou similar. Atenção com abelhas próximo da via, à esquerda.
       - **nome**: Positive vibration
@@ -364,6 +396,7 @@
       - **conquistadores**:
         - Gustavo Piancastelli
   - **[4]**:
+    - **uid**: gWC4QzVF0P6SKn
     - **via_multiplas_enfiadas**:
       - **descricao**: Começa no final da 'Positive vibration'. Faz o cume isolado à direita da parede principal. Grampos somente nas paradas.
       - **nome**: Princesa Kel
@@ -388,6 +421,7 @@
     
     O setor Arco abriga algumas das vias mais longas e estéticas de Cambotas, com linhas que desafiam o escalador em tetos e fendas impressionantes.
 - **nome**: Arco
+- **uid**: LPvWMOig17W7x6
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_arco_p2.webp)
@@ -395,6 +429,7 @@
     - **altura_mapa**: 1448
 - **escaladas**:
   - **[0]**:
+    - **uid**: 1X1ArvZT9eYcN6
     - **via_multiplas_enfiadas**:
       - **descricao**: Via muito exigente que corta a parede principal na sua parte mais negativa. Começa na 'aresta que me resta' e termina na 'aresta eletrizante'.
       - **nome**: Onde os fracos não tem vez
@@ -406,6 +441,7 @@
         - Breno Araújo
       - **comprimento_total**: 130
   - **[1]**:
+    - **uid**: A3wPxvpokubpdS
     - **via_multiplas_enfiadas**:
       - **descricao**: Primeira via da parede. Segue linha natural de fendas e chaminés até a base do arco. Peças médias e grandes, inclusive cam's 3,5 e 4 ou similares.
       - **nome**: Horizonte dos eventos
@@ -417,6 +453,7 @@
         - Mateus Carneiro
       - **comprimento_total**: 100
   - **[2]**:
+    - **uid**: Cj5gN710Q8itAd
     - **via_movel**:
       - **descricao**: Via em arco horizontal. Peças médias e grandes. Cam 4 e 5 ou similares.
       - **nome**: Arco da Santa vitamina
@@ -426,6 +463,7 @@
         - Gustavo Piancastelli
         - Matheus
   - **[3]**:
+    - **uid**: F06OlJTlpuFPhU
     - **via_movel**:
       - **descricao**: Via inacabada que atravessa a parede principal passando por um belo arco. Linha muito estética e que deve se tornar uma das mais bonitas escaladas do lugar.
       - **nome**: Malateus?
@@ -433,6 +471,7 @@
       - **conquistadores**:
         - Matheus (SP)
   - **[4]**:
+    - **uid**: YXlZhWNnM2a6Re
     - **via_multiplas_enfiadas**:
       - **descricao**: Boa opção de via longa para um fim de tarde. Para fazer a quarta enfiada deixar corda fixa em P3. Usar fitas longas, especialmente na 3ª e 4ª enfiadas. 4ª enfiada exige bastante atenção. Rapel de P3 até P1 com corda de 60m. Com corda de 50m deve-se fixar entre P3 e P2 ou fracionar o rapel até P1.
       - **nome**: Clandestino
@@ -445,6 +484,7 @@
         - Gustavo Vianna
       - **comprimento_total**: 160
   - **[5]**:
+    - **uid**: khsDbV0fo6W8uC
     - **via_multiplas_enfiadas**:
       - **descricao**: Linda via que corta o arco em grande teto protegido com chapeletas.
       - **nome**: Totalmente demais
@@ -471,6 +511,7 @@
     
     O setor Aresta é famoso pela imponente "Aresta Eletrizante", uma via de 200 metros que é um marco na escalada mineira.
 - **nome**: Aresta
+- **uid**: C1DmpuOYh9LLqC
 - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_aresta_p3.webp)
 - **mapas**:
   - **[0]**:
@@ -479,6 +520,7 @@
     - **altura_mapa**: 1448
 - **escaladas**:
   - **[0]**:
+    - **uid**: RlBzSJCt7pVYnW
     - **via_esportiva**:
       - **descricao**: Bela via em agarras, bastante negativa. Tem um interessante bote no inicio que pode ser previamente protegido pela chaminé. Equipada com chapeletas.
       - **nome**: Macadame
@@ -488,6 +530,7 @@
         - Gustavo Vianna
         - Marcus Vinicius
   - **[1]**:
+    - **uid**: qls0K2nLyxHfAe
     - **via_movel**:
       - **descricao**: Interessante via em fenda. O crux é protegido com P's. Peças variadas médias e grandes.
       - **nome**: Limite da ousadia
@@ -497,6 +540,7 @@
         - Gustavo Piancastelli
         - Gustavo Vianna
   - **[2]**:
+    - **uid**: bzQuO68edMdtbU
     - **via_movel**:
       - **descricao**: Diedro perfeito que começa à esquerda do final da 'macadame'. Friends pequenos e médios. Nuts grandes.
       - **nome**: Diedro urso branco (var.)
@@ -507,6 +551,7 @@
         - Gustavo Vianna
         - Marcus Vinicius
   - **[3]**:
+    - **uid**: tfYUMKf8rtc3RA
     - **via_multiplas_enfiadas**:
       - **descricao**: Via forte, de resistência. Pode ser feita em duas enfiadas. As duas paradas possuem mosquetões de aço pra desequipagem. Usar costuras longas.
       - **nome**: Só para loucos
@@ -519,6 +564,7 @@
         - Marcus Vinicius
       - **comprimento_total**: 55
   - **[4]**:
+    - **uid**: sg50P5yDvi08k5
     - **via_esportiva**:
       - **descricao**: Bonita via com um teto no meio. A parte superior, após o teto molha em determinadas épocas do ano.
       - **nome**: Canino quebrado
@@ -528,6 +574,7 @@
         - Juan Kempen
         - Vinicius
   - **[5]**:
+    - **uid**: rdh2X3PbMuCkgA
     - **via_esportiva**:
       - **descricao**: Bela via, muito estética. Compartilha a primeira proteção com a 'canino quebrado'. Segue em diagonal pra esquerda. Top na proteção do teto.
       - **nome**: Vinicius?
@@ -537,6 +584,7 @@
         - Juan Kempen
         - Vinicius
   - **[6]**:
+    - **uid**: HMw5kLT5pYwqkm
     - **via_multiplas_enfiadas**:
       - **descricao**: Via espetacular. Uma das mais clássicas e mais bonitas escaladas do estado. Exigente no inicio e exposta no final. Segue a aresta principal da parede num visual incrível. Exige boa leitura especialmente próximo ao cume. Indispensável um croqui para repetição. Chapeletas com spits na primeira enfiada, nas demais P's de 1/2 pol. Excentric grande, um jogo de friends e nuts na primeira enfiada.
       - **nome**: Aresta eletrizante
@@ -552,6 +600,7 @@
         - Rodrigo (PR)
       - **comprimento_total**: 200
   - **[7]**:
+    - **uid**: ymyhFTYSg2LHF3
     - **via_esportiva**:
       - **descricao**: Boa via, bastante técnica em micro agarras.
       - **nome**: Aresta que me resta
@@ -560,6 +609,7 @@
       - **conquistadores**:
         - Gustavo Piancastelli
   - **[8]**:
+    - **uid**: 9lWJ2n973Ae0r8
     - **via_movel**:
       - **descricao**: Fenda em diagonal que une as duas vias anteriores. Peças médias.
       - **nome**: Aresta que me eletriza (var.)
@@ -584,6 +634,7 @@
     
     O setor Polegar apresenta vias que exploram as arestas e chaminés desta formação característica.
 - **nome**: Polegar
+- **uid**: gCQIZNzt5Tk1Ij
 - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_polegar_p0.webp)
 - **mapas**:
   - **[0]**:
@@ -592,6 +643,7 @@
     - **altura_mapa**: 1448
 - **escaladas**:
   - **[0]**:
+    - **uid**: JiJOjfrASe6fX5
     - **via_multiplas_enfiadas**:
       - **descricao**: Linda via que segue a aresta direita do polegar. Ultima enfiada móvel. Peças variadas, especialmente médias.
       - **nome**: Quadrado mágico
@@ -602,6 +654,7 @@
         - Gustavo Piancastelli
       - **comprimento_total**: 100
   - **[1]**:
+    - **uid**: 8GR3tfLMtGuw9c
     - **via_esportiva**:
       - **descricao**: Via inacabada.
       - **nome**: Projeto?
@@ -610,6 +663,7 @@
         - Antonio Canelas
         - Elaine
   - **[2]**:
+    - **uid**: KznNmsIOjLbh9p
     - **via_esportiva**:
       - **descricao**: Projeto na grande chaminé entre o Polegar e a parede principal.
       - **nome**: Projeto?
@@ -631,6 +685,7 @@
     
     O setor Totem é uma formação isolada com vias técnicas e estéticas.
 - **nome**: Totem
+- **uid**: fLZ4sPn8jHcZ0A
 - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_totem_p0.webp)
 - **mapas**:
   - **[0]**:
@@ -639,6 +694,7 @@
     - **altura_mapa**: 1448
 - **escaladas**:
   - **[0]**:
+    - **uid**: sG1a7RlV0nBFSb
     - **via_esportiva**:
       - **descricao**: Via perigosa, muitas pontas quebradiças. Usar fitas longas. Molha em época de chuvas. Usa-se o top da 'imagem e ação'.
       - **nome**: Quebra cabeça
@@ -649,6 +705,7 @@
         - Gustavo Vianna
         - Tatiana Mascarenhas
   - **[1]**:
+    - **uid**: uIMV9d7vBeIkZO
     - **via_esportiva**:
       - **descricao**: Linda via. Escalada bastante estética em aresta negativa. Proporciona belas imagens. Top equipado com mosquetões de aço para desequipagem da via.
       - **nome**: Imagem e ação
@@ -671,6 +728,7 @@
     
     O setor é composto pela via homônima, uma linha desafiadora que combina escalada livre técnica com trechos de artificial.
 - **nome**: Enigma da Esfinge
+- **uid**: zPWCMfQPRNCLun
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_enigma_da_esfinge_p0.webp)
@@ -678,6 +736,7 @@
     - **altura_mapa**: 1448
 - **escaladas**:
   - **[0]**:
+    - **uid**: aBKOZtK8dH4QH0
     - **via_multiplas_enfiadas**:
       - **descricao**: Via técnica com trechos em artificial.
       - **nome**: Enigma da Esfinge
@@ -703,6 +762,7 @@
     
     O setor Jardim da Fantasia é composto pela via de 180 metros que percorre uma linha impressionante na parede.
 - **nome**: Jardim da Fantasia
+- **uid**: IgnhOcrKCV3Y1z
 - **mapas**:
   - **[0]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_jardim_da_fantasia_p0.webp)
@@ -710,6 +770,7 @@
     - **altura_mapa**: 1448
 - **escaladas**:
   - **[0]**:
+    - **uid**: fYstxxQqp95Vg3
     - **via_multiplas_enfiadas**:
       - **descricao**: Via longa com 5 enfiadas, alternando entre escalada livre e móvel.
       - **nome**: Jardim da Fantasia

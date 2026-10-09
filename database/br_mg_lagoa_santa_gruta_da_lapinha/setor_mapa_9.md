@@ -1,218 +1,215 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+uid: UlccfwkdM6gnf0
 nome: Savassinha (Mapa 9)
 mapas:
 - caminho_imagem_mapa: imagens/setor_mapa_9_p0_i0.webp
   largura_mapa: 500
   altura_mapa: 370
   pontos_de_interesse:
-  - id: '105'
-    label: '105'
+  - uid: 5rePH1Xeu0vvUL
+    rotulo: '105'
     retangulo:
       x: 156
       y: 354
       comprimento: 20
       largura: 11
-  - id: '106'
-    label: '106'
+  - uid: OakaStG3ucy0bb
+    rotulo: '106'
     retangulo:
       x: 128
       y: 338
       comprimento: 19
       largura: 11
-  - id: '107'
-    label: '107'
+  - uid: LjZtCpbWJYU6By
+    rotulo: '107'
     retangulo:
       x: 76
       y: 321
       comprimento: 21
       largura: 12
-  - id: '108'
-    label: '108'
+  - uid: Yw4cWIL4NQYZK6
+    rotulo: '108'
     retangulo:
       x: 43
       y: 322
       comprimento: 18
       largura: 10
-  - id: '109'
-    label: '109'
+  - uid: QbaoL1j61sC3NE
+    rotulo: '109'
     retangulo:
       x: 29
       y: 307
       comprimento: 18
       largura: 10
-  - id: '110'
-    label: '110'
+  - uid: dVjpUgxOLlCH1W
+    rotulo: '110'
     retangulo:
       x: 90
       y: 239
       comprimento: 19
       largura: 12
-  - id: '111'
-    label: '111'
+  - uid: uzHQrr8ByT7za7
+    rotulo: '111'
     retangulo:
       x: 114
       y: 208
       comprimento: 18
       largura: 11
-  - id: '112'
-    label: '112'
+  - uid: 2t1kd8qmSlbBvk
+    rotulo: '112'
     retangulo:
       x: 142
       y: 191
       comprimento: 18
       largura: 12
-  - id: '113'
-    label: '113'
+  - uid: Rpl7wyHLorKqzq
+    rotulo: '113'
     retangulo:
       x: 162
       y: 178
       comprimento: 17
       largura: 12
-  - id: '114'
-    label: '114'
+  - uid: pm4Dgugnw1ll9G
+    rotulo: '114'
     retangulo:
       x: 184
       y: 178
       comprimento: 17
       largura: 12
-  - id: '115'
-    label: '115'
+  - uid: QOUMJXIgOQkNqp
+    rotulo: '115'
     retangulo:
       x: 195
       y: 198
       comprimento: 18
       largura: 12
-  - id: '116'
-    label: '116'
+  - uid: ZYr0Z2CMYswyhj
+    rotulo: '116'
     retangulo:
       x: 184
       y: 215
       comprimento: 18
       largura: 12
-  - id: '117'
-    label: '117'
+  - uid: CZ8tMAJy7olXeL
+    rotulo: '117'
     retangulo:
       x: 168
       y: 230
       comprimento: 19
       largura: 12
-  - id: '118'
-    label: '118'
+  - uid: sDyx0O7IDKlndB
+    rotulo: '118'
     retangulo:
       x: 156
       y: 248
       comprimento: 19
       largura: 11
-  - id: '119'
-    label: '119'
+  - uid: WNK3MziIwfs6gK
+    rotulo: '119'
     retangulo:
       x: 130
       y: 261
       comprimento: 19
       largura: 12
-  - id: '120'
-    label: '120'
+  - uid: lQmIbNulRiIPbE
+    rotulo: '120'
     retangulo:
       x: 102
       y: 272
       comprimento: 19
       largura: 11
-  - id: '121'
-    label: '121'
+  - uid: A8rpj2zbcQOQon
+    rotulo: '121'
     retangulo:
       x: 449
       y: 141
       comprimento: 20
       largura: 12
-  - id: '123'
-    label: '123'
+  - uid: DKaCgDIP3QOO0w
+    rotulo: '123'
     retangulo:
       x: 451
       y: 76
       comprimento: 20
       largura: 12
-  - id: '124'
-    label: '124'
+  - uid: HbIxLsHJPHWIOs
+    rotulo: '124'
     retangulo:
       x: 404
       y: 79
       comprimento: 21
       largura: 12
   referencias:
-  - escalada: Corvo Gigante
-    ids:
-    - '110'
-  - escalada: Gralha Pigmeia
-    ids:
-    - '111'
-  - escalada: Anjo de Pedra
-    ids:
-    - '112'
-  - escalada: Um Porco que Sobe
-    ids:
-    - '113'
-  - escalada: Um Corpo que Cai
-    ids:
-    - '114'
-  - escalada: Realidade da Coisa
-    ids:
-    - '115'
-  - escalada: Realidade Sobreposta
-    ids:
-    - '116'
-  - escalada: Talhadeira Passa
-    ids:
-    - '117'
-  - escalada: Cova dos Leões
-    ids:
-    - '118'
-  - escalada: Mentalidade Suburbana
-    ids:
-    - '119'
-  - escalada: Rato Assassino
-    ids:
-    - '120'
-  - escalada: Masturbações de Calígula
-    ids:
-    - '123'
-  - escalada: Primeiro General
-    ids:
-    - '124'
-  - ids:
-    - '105'
-    setor: Setor Túnel de Pedra (Mapa 8)
-    escalada: Tentações de Maria Madalena
-  - ids:
-    - '106'
-    setor: Setor Túnel de Pedra (Mapa 8)
-    escalada: Sai do chão
-  - ids:
-    - '107'
-    setor: Setor Túnel de Pedra (Mapa 8)
-    escalada: Ato Imperdoável
-  - ids:
-    - '108'
-    setor: Setor Túnel de Pedra (Mapa 8)
-    escalada: Projeto Rodrigo do Paraná
-  - ids:
-    - '109'
-    setor: Setor Túnel de Pedra (Mapa 8)
-    escalada: Pequena Criança
-  - ids:
-    - '121'
-    setor: Savassinha (Mapa 9)
-    escalada: Três Pontos
+  - alvo_uid: xaZU9xGBqraEEw
+    pontos_uids:
+    - dVjpUgxOLlCH1W
+  - alvo_uid: HbyvMay2qZAWe8
+    pontos_uids:
+    - uzHQrr8ByT7za7
+  - alvo_uid: YtEytEnRAxkFxc
+    pontos_uids:
+    - 2t1kd8qmSlbBvk
+  - alvo_uid: mKED1qNqrmdGHj
+    pontos_uids:
+    - Rpl7wyHLorKqzq
+  - alvo_uid: y4NYbcV7IdM2vX
+    pontos_uids:
+    - pm4Dgugnw1ll9G
+  - alvo_uid: WEywEUghxL4mZj
+    pontos_uids:
+    - QOUMJXIgOQkNqp
+  - alvo_uid: C883Mwi7oTTO47
+    pontos_uids:
+    - ZYr0Z2CMYswyhj
+  - alvo_uid: jYYHO2cKIcdbSA
+    pontos_uids:
+    - CZ8tMAJy7olXeL
+  - alvo_uid: gWN5ChcePCIBxL
+    pontos_uids:
+    - sDyx0O7IDKlndB
+  - alvo_uid: 9AjpygLA38EGdx
+    pontos_uids:
+    - WNK3MziIwfs6gK
+  - alvo_uid: gHWveURBBDxMSG
+    pontos_uids:
+    - lQmIbNulRiIPbE
+  - alvo_uid: RkACWCnC4LYvb1
+    pontos_uids:
+    - DKaCgDIP3QOO0w
+  - alvo_uid: gEn9QjBaACWP6y
+    pontos_uids:
+    - HbIxLsHJPHWIOs
+  - alvo_uid: vXnlfUKuk8bH78
+    pontos_uids:
+    - 5rePH1Xeu0vvUL
+  - alvo_uid: 1HqUU8JAEawaHB
+    pontos_uids:
+    - OakaStG3ucy0bb
+  - alvo_uid: Ro3Eflgqd8pPx9
+    pontos_uids:
+    - LjZtCpbWJYU6By
+  - alvo_uid: cQzxdvJXXi1bmC
+    pontos_uids:
+    - Yw4cWIL4NQYZK6
+  - alvo_uid: ULAvbV9FOKor89
+    pontos_uids:
+    - QbaoL1j61sC3NE
+  - alvo_uid: cREoYdqil3YrLf
+    pontos_uids:
+    - A8rpj2zbcQOQon
 escaladas:
-- via_esportiva:
+- uid: xaZU9xGBqraEEw
+  via_esportiva:
     nome: Corvo Gigante
     dificuldade: BR_7A
     conquistadores:
     - Eustáquio Macedo Melo Júnior
     - Gilberto Torres
     data_abertura: '1993'
-- via_esportiva:
+- uid: HbyvMay2qZAWe8
+  via_esportiva:
     nome: Gralha Pigmeia
     dificuldade: BR_6
     conquistadores:
@@ -222,21 +219,24 @@ escaladas:
     - Léo Hoffmann
     data_abertura: '1999'
     data_manutencao: 02/08/2022
-- via_esportiva:
+- uid: YtEytEnRAxkFxc
+  via_esportiva:
     nome: Anjo de Pedra
     dificuldade: BR_5SUP
     conquistadores:
     - Rodrigo Tinoco França
     - Vinícius
     data_abertura: '1997'
-- via_esportiva:
+- uid: mKED1qNqrmdGHj
+  via_esportiva:
     nome: Um Porco que Sobe
     dificuldade: BR_7A
     conquistadores:
     - Leonardo Hoffmann
     - Henriquinho
     data_abertura: '1996'
-- via_esportiva:
+- uid: y4NYbcV7IdM2vX
+  via_esportiva:
     nome: Um Corpo que Cai
     dificuldade: BR_6
     conquistadores:
@@ -244,7 +244,8 @@ escaladas:
     - Fábio C. Araújo
     - Júlio Cesar Cardoso
     data_abertura: '1993'
-- via_esportiva:
+- uid: WEywEUghxL4mZj
+  via_esportiva:
     nome: Realidade da Coisa
     dificuldade: BR_9B
     conquistadores:
@@ -252,28 +253,32 @@ escaladas:
     - Marquinhos
     - Xacundum
     data_abertura: '1994'
-- via_esportiva:
+- uid: C883Mwi7oTTO47
+  via_esportiva:
     nome: Realidade Sobreposta
     dificuldade: BR_8C
     conquistadores:
     - Fabiano da Silva Fernandes
     - Fabinho de Teresópolis
     data_abertura: '1993'
-- via_esportiva:
+- uid: jYYHO2cKIcdbSA
+  via_esportiva:
     nome: Talhadeira Passa
     dificuldade: BR_8B
     conquistadores:
     - Felipe
     - Tiago Abobrinha
     data_abertura: '1996'
-- via_esportiva:
+- uid: gWN5ChcePCIBxL
+  via_esportiva:
     nome: Cova dos Leões
     dificuldade: BR_7A
     conquistadores:
     - Emerson Alves Azeredo
     - Gilberto Torres
     data_abertura: '1993'
-- via_esportiva:
+- uid: 9AjpygLA38EGdx
+  via_esportiva:
     nome: Mentalidade Suburbana
     dificuldade: BR_7A
     conquistadores:
@@ -281,27 +286,31 @@ escaladas:
     - Rodrigo Tinoco
     - Fábio L. Farias "Fabinho"
     data_abertura: '1994'
-- via_esportiva:
+- uid: gHWveURBBDxMSG
+  via_esportiva:
     nome: Rato Assassino
     dificuldade: BR_8A
     conquistadores:
     - Fabinho de Petrópolis
     - Alexandre Xacundum
     data_abertura: '1996'
-- via_esportiva:
+- uid: RkACWCnC4LYvb1
+  via_esportiva:
     nome: Masturbações de Calígula
     dificuldade: BR_7A
     conquistadores:
     - Márcio Soares Macenas
     - Wilson Novaes
-- via_movel:
+- uid: gEn9QjBaACWP6y
+  via_movel:
     nome: Primeiro General
     dificuldade: BR_6SUP
     conquistadores:
     - Roberto Lincoln de Freitas
     descricao: Vía de proteção mista
     data_abertura: '1998'
-- via_esportiva:
+- uid: cREoYdqil3YrLf
+  via_esportiva:
     nome: Três Pontos
     dificuldade: BR_7A
     conquistadores:

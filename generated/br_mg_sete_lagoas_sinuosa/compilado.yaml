@@ -1,3 +1,4 @@
+uid: X6OTknRVmaiSvG
 id: br_mg_sete_lagoas_sinuosa
 nome: Sinuosa
 creditos:
@@ -19,6 +20,7 @@ picos:
   setores_ou_grupos:
   - setor:
       conteudo:
+        uid: V04iCo3Npy8O8F
         caminho_imagem_capa: imagens/setor_de_esquerda_p0_i1.webp
         nome: Setor de Esquerda
         mapas:
@@ -26,82 +28,116 @@ picos:
           largura_mapa: 1020
           altura_mapa: 952
           pontos_de_interesse:
-          - id: '1'
-            label: '1'
+          - uid: w0SkL5sGbskend
+            rotulo: '1'
             circulo:
               x: 409
               y: 565
               raio: 22
-          - id: '2'
-            label: '2'
+            id: w0SkL5sGbskend
+            label: '1'
+          - uid: aKGitOhxoSFExm
+            rotulo: '2'
             circulo:
               x: 595
               y: 614
               raio: 22
-          - id: '3'
-            label: '3'
+            id: aKGitOhxoSFExm
+            label: '2'
+          - uid: JfHzrbWZPMTGpu
+            rotulo: '3'
             circulo:
               x: 698
               y: 628
               raio: 22
-          - id: '4'
-            label: '4'
+            id: JfHzrbWZPMTGpu
+            label: '3'
+          - uid: KCGYr2s75ozt1O
+            rotulo: '4'
             circulo:
               x: 812
               y: 638
               raio: 22
-          - id: Setor_7_Paralelo
-            label: ← SETOR 7 PARALELO
+            id: KCGYr2s75ozt1O
+            label: '4'
+          - uid: qRwxiySBPpfqvj
+            rotulo: ← SETOR 7 PARALELO
             retangulo:
               x: 269
               y: 648
               comprimento: 36
               largura: 252
               angulo_graus_x100: 1813
-          - id: Setor_Panelinha
-            label: SETOR PANELINHA →
+            id: qRwxiySBPpfqvj
+            label: ← SETOR 7 PARALELO
+          - uid: g5J8S6sgXTbWdK
+            rotulo: SETOR PANELINHA →
             retangulo:
               x: 937
               y: 537
               comprimento: 34
               largura: 260
+            id: g5J8S6sgXTbWdK
+            label: SETOR PANELINHA →
           referencias:
-          - escalada: Milicianos
+          - alvo_uid: mHfWj3NIADr4Js
+            pontos_uids:
+            - w0SkL5sGbskend
+            escalada: Milicianos
             ids:
-            - '1'
-          - escalada: Inimigos do Estado
+            - w0SkL5sGbskend
+          - alvo_uid: Iv6LZSwx9Zu7I1
+            pontos_uids:
+            - aKGitOhxoSFExm
+            escalada: Inimigos do Estado
             ids:
-            - '2'
-          - escalada: Libera a Moça
+            - aKGitOhxoSFExm
+          - alvo_uid: 0KyvQpBMAGSwjA
+            pontos_uids:
+            - JfHzrbWZPMTGpu
+            escalada: Libera a Moça
             ids:
-            - '3'
-          - escalada: Moça de 100 Anos
+            - JfHzrbWZPMTGpu
+          - alvo_uid: 98SB8Sg5vCzbcB
+            pontos_uids:
+            - KCGYr2s75ozt1O
+            escalada: Moça de 100 Anos
             ids:
-            - '4'
-          - ids:
-            - Setor_7_Paralelo
+            - KCGYr2s75ozt1O
+          - alvo_uid: Ac3qdS73pE0QaJ
+            pontos_uids:
+            - qRwxiySBPpfqvj
             setor: Setor 7 Paralelo
-          - ids:
-            - Setor_Panelinha
+            ids:
+            - qRwxiySBPpfqvj
+          - alvo_uid: ASLKnxeEws2kaG
+            pontos_uids:
+            - g5J8S6sgXTbWdK
             setor: Setor Panelinha
+            ids:
+            - g5J8S6sgXTbWdK
         escaladas:
-        - via_esportiva:
+        - uid: mHfWj3NIADr4Js
+          via_esportiva:
             nome: Milicianos
             dificuldade: BR_5
             quantidade_protecoes_intermediarias: 5
             extensao: 15
-        - via_esportiva:
+        - uid: Iv6LZSwx9Zu7I1
+          via_esportiva:
             nome: Inimigos do Estado
             dificuldade: BR_6SUP
             quantidade_protecoes_intermediarias: 6
             extensao: 15
             descricao: A primeira via do setor.
-        - via_esportiva:
+        - uid: 0KyvQpBMAGSwjA
+          via_esportiva:
             nome: Libera a Moça
             dificuldade: BR_6
             quantidade_protecoes_intermediarias: 6
             extensao: 15
-        - via_esportiva:
+        - uid: 98SB8Sg5vCzbcB
+          via_esportiva:
             nome: Moça de 100 Anos
             dificuldade: BR_5SUP
             quantidade_protecoes_intermediarias: 6
@@ -139,6 +175,7 @@ picos:
           total_esportivas: 4
   - setor:
       conteudo:
+        uid: ASLKnxeEws2kaG
         caminho_imagem_capa: imagens/setor_panelinha_p0_i1.webp
         nome: Setor Panelinha
         mapas:
@@ -146,68 +183,97 @@ picos:
           largura_mapa: 806
           altura_mapa: 757
           pontos_de_interesse:
-          - id: '1'
-            label: '1'
+          - uid: gC4PbuJ2abf2W7
+            rotulo: '1'
             circulo:
               x: 528
               y: 397
               raio: 24
-          - id: '2'
-            label: '2'
+            id: gC4PbuJ2abf2W7
+            label: '1'
+          - uid: iXkA3ttdNvKkCb
+            rotulo: '2'
             circulo:
               x: 579
               y: 317
               raio: 23
-          - id: '3'
-            label: '3'
+            id: iXkA3ttdNvKkCb
+            label: '2'
+          - uid: z6oYOQS2froavx
+            rotulo: '3'
             circulo:
               x: 609
               y: 397
               raio: 23
-          - id: '4'
-            label: '4'
+            id: z6oYOQS2froavx
+            label: '3'
+          - uid: CbapBCQQQIR78T
+            rotulo: '4'
             circulo:
               x: 235
               y: 477
               raio: 24
-          - id: Setor_de_Esquerda
-            label: ↑ SETOR DE ESQUERDA
+            id: CbapBCQQQIR78T
+            label: '4'
+          - uid: SNzc7krLLXThHX
+            rotulo: ↑ SETOR DE ESQUERDA
             retangulo:
               x: 560
               y: 597
               comprimento: 37
               largura: 248
               angulo_graus_x100: 666
+            id: SNzc7krLLXThHX
+            label: ↑ SETOR DE ESQUERDA
           referencias:
-          - escalada: Caipora
+          - alvo_uid: 2HGAOAOpgsjyKb
+            pontos_uids:
+            - gC4PbuJ2abf2W7
+            escalada: Caipora
             ids:
-            - '1'
-          - escalada: Tap-Flap
+            - gC4PbuJ2abf2W7
+          - alvo_uid: tCgWqjavzFU2ic
+            pontos_uids:
+            - iXkA3ttdNvKkCb
+            escalada: Tap-Flap
             ids:
-            - '2'
-          - escalada: Rá-Tim-Bum
+            - iXkA3ttdNvKkCb
+          - alvo_uid: FJCKmwye0bWz5d
+            pontos_uids:
+            - z6oYOQS2froavx
+            escalada: Rá-Tim-Bum
             ids:
-            - '3'
-          - escalada: Corda de Violão
+            - z6oYOQS2froavx
+          - alvo_uid: b0d7VtmDXqs5X8
+            pontos_uids:
+            - CbapBCQQQIR78T
+            escalada: Corda de Violão
             ids:
-            - '4'
-          - ids:
-            - Setor_de_Esquerda
+            - CbapBCQQQIR78T
+          - alvo_uid: V04iCo3Npy8O8F
+            pontos_uids:
+            - SNzc7krLLXThHX
             setor: Setor de Esquerda
+            ids:
+            - SNzc7krLLXThHX
         escaladas:
-        - via_esportiva:
+        - uid: 2HGAOAOpgsjyKb
+          via_esportiva:
             nome: Caipora
             dificuldade: BR_5
             quantidade_protecoes_intermediarias: 4
-        - via_movel:
+        - uid: tCgWqjavzFU2ic
+          via_movel:
             nome: Tap-Flap
             dificuldade: BR_4
             descricao: Via em móvel.
-        - via_esportiva:
+        - uid: FJCKmwye0bWz5d
+          via_esportiva:
             nome: Rá-Tim-Bum
             dificuldade: BR_5
             quantidade_protecoes_intermediarias: 5
-        - via_esportiva:
+        - uid: b0d7VtmDXqs5X8
+          via_esportiva:
             nome: Corda de Violão
             dificuldade: BR_5
             quantidade_protecoes_intermediarias: 4
@@ -240,6 +306,7 @@ picos:
           total_esportivas: 3
   - setor:
       conteudo:
+        uid: Ac3qdS73pE0QaJ
         caminho_imagem_capa: imagens/setor_7_paralelo_p0_i1.webp
         nome: Setor 7 Paralelo
         mapas:
@@ -247,258 +314,369 @@ picos:
           largura_mapa: 539
           altura_mapa: 1075
           pontos_de_interesse:
-          - id: '1'
-            label: '1'
+          - uid: RhnH4HyGokyg2Y
+            rotulo: '1'
             circulo:
               x: 95
               y: 1007
               raio: 14
-          - id: '2'
-            label: '2'
+            id: RhnH4HyGokyg2Y
+            label: '1'
+          - uid: MJraTCaTNQ2PD7
+            rotulo: '2'
             circulo:
               x: 120
               y: 963
               raio: 14
-          - id: '3'
-            label: '3'
+            id: MJraTCaTNQ2PD7
+            label: '2'
+          - uid: FNeN4vBT00eLuB
+            rotulo: '3'
             circulo:
               x: 146
               y: 924
               raio: 14
-          - id: '4'
-            label: '4'
+            id: FNeN4vBT00eLuB
+            label: '3'
+          - uid: PgRXN3C41KRiNw
+            rotulo: '4'
             circulo:
               x: 189
               y: 867
               raio: 14
-          - id: '5'
-            label: '5'
+            id: PgRXN3C41KRiNw
+            label: '4'
+          - uid: ax24wHk51Eb8LP
+            rotulo: '5'
             circulo:
               x: 209
               y: 837
               raio: 14
-          - id: '6'
-            label: '6'
+            id: ax24wHk51Eb8LP
+            label: '5'
+          - uid: 5zvn6kUKm0DHNv
+            rotulo: '6'
             circulo:
               x: 220
               y: 801
               raio: 14
-          - id: '7'
-            label: '7'
+            id: 5zvn6kUKm0DHNv
+            label: '6'
+          - uid: EQAqEckXbFYZR0
+            rotulo: '7'
             circulo:
               x: 220
               y: 764
               raio: 14
-          - id: '8'
-            label: '8'
+            id: EQAqEckXbFYZR0
+            label: '7'
+          - uid: 3fB4Y3Qd86phuZ
+            rotulo: '8'
             circulo:
               x: 310
               y: 493
               raio: 14
-          - id: '9'
-            label: '9'
+            id: 3fB4Y3Qd86phuZ
+            label: '8'
+          - uid: T7GUIEya67Om3O
+            rotulo: '9'
             circulo:
               x: 318
               y: 439
               raio: 14
-          - id: '10'
-            label: '10'
+            id: T7GUIEya67Om3O
+            label: '9'
+          - uid: mgPgZoW8BIRxcB
+            rotulo: '10'
             circulo:
               x: 331
               y: 384
               raio: 14
-          - id: '11'
-            label: '11'
+            id: mgPgZoW8BIRxcB
+            label: '10'
+          - uid: om2oL12nMpq5mC
+            rotulo: '11'
             circulo:
               x: 343
               y: 285
               raio: 14
-          - id: '12'
-            label: '12'
+            id: om2oL12nMpq5mC
+            label: '11'
+          - uid: OlgfxQLBpbR7Im
+            rotulo: '12'
             circulo:
               x: 344
               y: 225
               raio: 14
-          - id: '13'
-            label: '13'
+            id: OlgfxQLBpbR7Im
+            label: '12'
+          - uid: RrWO1N11MxYjPO
+            rotulo: '13'
             circulo:
               x: 337
               y: 183
               raio: 14
-          - id: '14'
-            label: '14'
+            id: RrWO1N11MxYjPO
+            label: '13'
+          - uid: 5Jxcp0JvuA8JRG
+            rotulo: '14'
             circulo:
               x: 312
               y: 157
               raio: 14
-          - id: '15'
-            label: '15'
+            id: 5Jxcp0JvuA8JRG
+            label: '14'
+          - uid: qZ41nouuW0A1ZD
+            rotulo: '15'
             circulo:
               x: 320
               y: 121
               raio: 14
-          - id: '16'
-            label: '16'
+            id: qZ41nouuW0A1ZD
+            label: '15'
+          - uid: EcGitfs4E51leF
+            rotulo: '16'
             circulo:
               x: 340
               y: 93
               raio: 14
-          - id: Setor_Death_Horse
-            label: SETOR DEATH HORSE→
+            id: EcGitfs4E51leF
+            label: '16'
+          - uid: iBVyPpyUf6PcCh
+            rotulo: SETOR DEATH HORSE→
             retangulo:
               x: 282
               y: 1014
               comprimento: 265
               largura: 33
-          - id: Setor_Sentinela
-            label: SETOR SENTINELA →
+            id: iBVyPpyUf6PcCh
+            label: SETOR DEATH HORSE→
+          - uid: EVhi4hIegm5QW6
+            rotulo: SETOR SENTINELA →
             retangulo:
               x: 246
               y: 86
               comprimento: 203
               largura: 24
               angulo_graus_x100: -2606
-          - id: Setor_De_Esquerda
-            label: ← SETOR DE ESQUERDA
+            id: EVhi4hIegm5QW6
+            label: SETOR SENTINELA →
+          - uid: 7BDniPBfg0bltR
+            rotulo: ← SETOR DE ESQUERDA
             retangulo:
               x: 90
               y: 786
               comprimento: 195
               largura: 28
               angulo_graus_x100: 4342
+            id: 7BDniPBfg0bltR
+            label: ← SETOR DE ESQUERDA
           referencias:
-          - escalada: Eu Sei Meu Ofício
+          - alvo_uid: uraCAUk9vKK6cm
+            pontos_uids:
+            - RhnH4HyGokyg2Y
+            escalada: Eu Sei Meu Ofício
             ids:
-            - '1'
-          - escalada: Formação de Ataque
+            - RhnH4HyGokyg2Y
+          - alvo_uid: 4WM76LuBPyqgGH
+            pontos_uids:
+            - MJraTCaTNQ2PD7
+            escalada: Formação de Ataque
             ids:
-            - '2'
-          - escalada: Guia Mirim
+            - MJraTCaTNQ2PD7
+          - alvo_uid: wxJtC0k3EiiQCh
+            pontos_uids:
+            - FNeN4vBT00eLuB
+            escalada: Guia Mirim
             ids:
-            - '3'
-          - escalada: Mão de Obra
+            - FNeN4vBT00eLuB
+          - alvo_uid: 4qvY3PuRCP7hPa
+            pontos_uids:
+            - PgRXN3C41KRiNw
+            escalada: Mão de Obra
             ids:
-            - '4'
-          - escalada: Coice de Mula
+            - PgRXN3C41KRiNw
+          - alvo_uid: wmvwfYAvZPvQHx
+            pontos_uids:
+            - ax24wHk51Eb8LP
+            escalada: Coice de Mula
             ids:
-            - '5'
-          - escalada: Bebê à Bordo
+            - ax24wHk51Eb8LP
+          - alvo_uid: ja8R6XqV1Gqvnb
+            pontos_uids:
+            - 5zvn6kUKm0DHNv
+            escalada: Bebê à Bordo
             ids:
-            - '6'
-          - escalada: Micuins Me Mordam
+            - 5zvn6kUKm0DHNv
+          - alvo_uid: Y0HfMhKKS4XTWG
+            pontos_uids:
+            - EQAqEckXbFYZR0
+            escalada: Micuins Me Mordam
             ids:
-            - '7'
-          - escalada: Classe Social
+            - EQAqEckXbFYZR0
+          - alvo_uid: ItmGtbO9VJBuQj
+            pontos_uids:
+            - 3fB4Y3Qd86phuZ
+            escalada: Classe Social
             ids:
-            - '8'
-          - escalada: Fobia Social
+            - 3fB4Y3Qd86phuZ
+          - alvo_uid: fyfKwpjia4v9mZ
+            pontos_uids:
+            - T7GUIEya67Om3O
+            escalada: Fobia Social
             ids:
-            - '9'
-          - escalada: Vaca Berrante
+            - T7GUIEya67Om3O
+          - alvo_uid: WzxHHWWHXEWeGH
+            pontos_uids:
+            - mgPgZoW8BIRxcB
+            escalada: Vaca Berrante
             ids:
-            - '10'
-          - escalada: Até Mas Amigos
+            - mgPgZoW8BIRxcB
+          - alvo_uid: l9bk6RtODaWr8Z
+            pontos_uids:
+            - om2oL12nMpq5mC
+            escalada: Até Mas Amigos
             ids:
-            - '11'
-          - escalada: Inconfidentes
+            - om2oL12nMpq5mC
+          - alvo_uid: d5PhP6y1WGq6Wn
+            pontos_uids:
+            - OlgfxQLBpbR7Im
+            escalada: Inconfidentes
             ids:
-            - '12'
-          - escalada: Brenfestival
+            - OlgfxQLBpbR7Im
+          - alvo_uid: URJ73aClt1JVOB
+            pontos_uids:
+            - RrWO1N11MxYjPO
+            escalada: Brenfestival
             ids:
-            - '13'
-          - escalada: Sociedade dos Insetos
+            - RrWO1N11MxYjPO
+          - alvo_uid: z15r9Lx9fyk8Sj
+            pontos_uids:
+            - 5Jxcp0JvuA8JRG
+            escalada: Sociedade dos Insetos
             ids:
-            - '14'
-          - escalada: Dilemas do Futuro
+            - 5Jxcp0JvuA8JRG
+          - alvo_uid: VkEbqfsaD8EZmT
+            pontos_uids:
+            - qZ41nouuW0A1ZD
+            escalada: Dilemas do Futuro
             ids:
-            - '15'
-          - escalada: Plano Paralelo
+            - qZ41nouuW0A1ZD
+          - alvo_uid: b0mOHRT5osLcZq
+            pontos_uids:
+            - EcGitfs4E51leF
+            escalada: Plano Paralelo
             ids:
-            - '16'
-          - ids:
-            - Setor_Death_Horse
+            - EcGitfs4E51leF
+          - alvo_uid: YDntm65nIZs31H
+            pontos_uids:
+            - iBVyPpyUf6PcCh
             setor: Setor Death Horse
-          - ids:
-            - Setor_De_Esquerda
+            ids:
+            - iBVyPpyUf6PcCh
+          - alvo_uid: V04iCo3Npy8O8F
+            pontos_uids:
+            - 7BDniPBfg0bltR
             setor: Setor de Esquerda
-          - ids:
-            - Setor_Sentinela
+            ids:
+            - 7BDniPBfg0bltR
+          - alvo_uid: EaM54aq9IJD36r
+            pontos_uids:
+            - EVhi4hIegm5QW6
             setor: Setor Sentinela
+            ids:
+            - EVhi4hIegm5QW6
         escaladas:
-        - via_esportiva:
+        - uid: uraCAUk9vKK6cm
+          via_esportiva:
             nome: Eu Sei Meu Ofício
             dificuldade: BR_7B
             quantidade_protecoes_intermediarias: 6
             extensao: 25
-        - via_esportiva:
+        - uid: 4WM76LuBPyqgGH
+          via_esportiva:
             nome: Formação de Ataque
             dificuldade: BR_7A
             quantidade_protecoes_intermediarias: 7
             extensao: 25
-        - via_esportiva:
+        - uid: wxJtC0k3EiiQCh
+          via_esportiva:
             nome: Guia Mirim
             dificuldade: BR_7C
             quantidade_protecoes_intermediarias: 7
             extensao: 25
-        - via_esportiva:
+        - uid: 4qvY3PuRCP7hPa
+          via_esportiva:
             nome: Mão de Obra
             dificuldade: BR_6SUP
             quantidade_protecoes_intermediarias: 6
             extensao: 20
-        - via_esportiva:
+        - uid: wmvwfYAvZPvQHx
+          via_esportiva:
             nome: Coice de Mula
             dificuldade: BR_7A
             quantidade_protecoes_intermediarias: 6
             extensao: 20
-        - via_esportiva:
+        - uid: ja8R6XqV1Gqvnb
+          via_esportiva:
             nome: Bebê à Bordo
             dificuldade: BR_7A
             quantidade_protecoes_intermediarias: 8
             extensao: 20
-        - via_movel:
+        - uid: Y0HfMhKKS4XTWG
+          via_movel:
             nome: Micuins Me Mordam
             dificuldade: BR_8A
             protecoes_moveis: Equipo móvel. 1 chapa + 2 top.
             extensao: 20
-        - via_esportiva:
+        - uid: ItmGtbO9VJBuQj
+          via_esportiva:
             nome: Classe Social
             dificuldade: BR_8C_BARRA_9A
             quantidade_protecoes_intermediarias: 10
             extensao: 20
-        - via_esportiva:
+        - uid: fyfKwpjia4v9mZ
+          via_esportiva:
             nome: Fobia Social
             quantidade_protecoes_intermediarias: 6
             descricao: Projeto (Sem F/A).
-        - via_esportiva:
+        - uid: WzxHHWWHXEWeGH
+          via_esportiva:
             nome: Vaca Berrante
             quantidade_protecoes_intermediarias: 6
             descricao: Projeto (Sem F/A).
-        - via_esportiva:
+        - uid: l9bk6RtODaWr8Z
+          via_esportiva:
             nome: Até Mas Amigos
             dificuldade: BR_7A
             quantidade_protecoes_intermediarias: 6
             extensao: 15
-        - via_esportiva:
+        - uid: d5PhP6y1WGq6Wn
+          via_esportiva:
             nome: Inconfidentes
             dificuldade: BR_6
             quantidade_protecoes_intermediarias: 6
             extensao: 15
-        - via_esportiva:
+        - uid: URJ73aClt1JVOB
+          via_esportiva:
             nome: Brenfestival
             dificuldade: BR_7A
             quantidade_protecoes_intermediarias: 9
             extensao: 15
-        - via_esportiva:
+        - uid: z15r9Lx9fyk8Sj
+          via_esportiva:
             nome: Sociedade dos Insetos
             dificuldade: BR_7C
             quantidade_protecoes_intermediarias: 8
             extensao: 15
-        - via_esportiva:
+        - uid: VkEbqfsaD8EZmT
+          via_esportiva:
             nome: Dilemas do Futuro
             dificuldade: BR_7B
             quantidade_protecoes_intermediarias: 8
             extensao: 15
-        - via_esportiva:
+        - uid: b0mOHRT5osLcZq
+          via_esportiva:
             nome: Plano Paralelo
             dificuldade: BR_7A
             quantidade_protecoes_intermediarias: 7
@@ -539,6 +717,7 @@ picos:
           total_esportivas: 15
   - setor:
       conteudo:
+        uid: EaM54aq9IJD36r
         caminho_imagem_capa: imagens/setor_sentinela_p0_i1.webp
         nome: Setor Sentinela
         mapas:
@@ -546,109 +725,157 @@ picos:
           largura_mapa: 1125
           altura_mapa: 608
           pontos_de_interesse:
-          - id: '1'
-            label: '1'
+          - uid: MANHE0WzYLO7W0
+            rotulo: '1'
             circulo:
               x: 39
               y: 198
               raio: 18
-          - id: '2'
-            label: '2'
+            id: MANHE0WzYLO7W0
+            label: '1'
+          - uid: nbxfPtGAIj3sGB
+            rotulo: '2'
             circulo:
               x: 290
               y: 246
               raio: 18
-          - id: '3'
-            label: '3'
+            id: nbxfPtGAIj3sGB
+            label: '2'
+          - uid: DWLxIHInI4ArAp
+            rotulo: '3'
             circulo:
               x: 718
               y: 276
               raio: 18
-          - id: '4'
-            label: '4'
+            id: DWLxIHInI4ArAp
+            label: '3'
+          - uid: yVx5PoAyLJZNWu
+            rotulo: '4'
             circulo:
               x: 828
               y: 295
               raio: 18
-          - id: '5'
-            label: '5'
+            id: yVx5PoAyLJZNWu
+            label: '4'
+          - uid: bRbIvmWEaUGhFR
+            rotulo: '5'
             circulo:
               x: 903
               y: 352
               raio: 18
-          - id: '6'
-            label: '6'
+            id: bRbIvmWEaUGhFR
+            label: '5'
+          - uid: 0XCwTz5VvrIv8I
+            rotulo: '6'
             circulo:
               x: 955
               y: 391
               raio: 18
-          - id: '7'
-            label: '7'
+            id: 0XCwTz5VvrIv8I
+            label: '6'
+          - uid: Gf1Cs1Gd6Q3N1o
+            rotulo: '7'
             circulo:
               x: 1040
               y: 421
               raio: 18
-          - id: '8'
-            label: '8'
+            id: Gf1Cs1Gd6Q3N1o
+            label: '7'
+          - uid: K5BiMGNJ59qiZj
+            rotulo: '8'
             circulo:
               x: 1107
               y: 446
               raio: 18
+            id: K5BiMGNJ59qiZj
+            label: '8'
           referencias:
-          - escalada: Brenfoterapia
+          - alvo_uid: 11SkoWxjy0dJmt
+            pontos_uids:
+            - MANHE0WzYLO7W0
+            escalada: Brenfoterapia
             ids:
-            - '1'
-          - escalada: Na Hora Certa
+            - MANHE0WzYLO7W0
+          - alvo_uid: nFV31uL34L4EER
+            pontos_uids:
+            - nbxfPtGAIj3sGB
+            escalada: Na Hora Certa
             ids:
-            - '2'
-          - escalada: Nós Contra o Resto
+            - nbxfPtGAIj3sGB
+          - alvo_uid: V3fkKx23nX3wbu
+            pontos_uids:
+            - DWLxIHInI4ArAp
+            escalada: Nós Contra o Resto
             ids:
-            - '3'
-          - escalada: Divisa dos Reinos
+            - DWLxIHInI4ArAp
+          - alvo_uid: z6UVFd9JnC81EL
+            pontos_uids:
+            - yVx5PoAyLJZNWu
+            escalada: Divisa dos Reinos
             ids:
-            - '4'
-          - escalada: Rei Mal
+            - yVx5PoAyLJZNWu
+          - alvo_uid: jBVI7lWiyafer9
+            pontos_uids:
+            - bRbIvmWEaUGhFR
+            escalada: Rei Mal
             ids:
-            - '5'
-          - escalada: Soldado Real
+            - bRbIvmWEaUGhFR
+          - alvo_uid: 9mty5VWIk9PAtr
+            pontos_uids:
+            - 0XCwTz5VvrIv8I
+            escalada: Soldado Real
             ids:
-            - '6'
-          - escalada: Nosso Rei
+            - 0XCwTz5VvrIv8I
+          - alvo_uid: pxQeLIFsTrZDbO
+            pontos_uids:
+            - Gf1Cs1Gd6Q3N1o
+            escalada: Nosso Rei
             ids:
-            - '7'
-          - escalada: Vitamina M
+            - Gf1Cs1Gd6Q3N1o
+          - alvo_uid: MS2eRZzzrBzAxC
+            pontos_uids:
+            - K5BiMGNJ59qiZj
+            escalada: Vitamina M
             ids:
-            - '8'
+            - K5BiMGNJ59qiZj
         escaladas:
-        - via_movel:
+        - uid: 11SkoWxjy0dJmt
+          via_movel:
             nome: Brenfoterapia
             dificuldade: BR_5SUP
             protecoes_moveis: Móvel. Rapel da chapa com cordelete.
-        - via_esportiva:
+        - uid: nFV31uL34L4EER
+          via_esportiva:
             nome: Na Hora Certa
             dificuldade: BR_4
             quantidade_protecoes_intermediarias: 4
-        - via_esportiva:
+        - uid: V3fkKx23nX3wbu
+          via_esportiva:
             nome: Nós Contra o Resto
             dificuldade: BR_6SUP
             quantidade_protecoes_intermediarias: 4
-        - via_esportiva:
+        - uid: z6UVFd9JnC81EL
+          via_esportiva:
             nome: Divisa dos Reinos
             dificuldade: BR_6
             quantidade_protecoes_intermediarias: 6
-        - via_esportiva:
+        - uid: jBVI7lWiyafer9
+          via_esportiva:
             nome: Rei Mal
             dificuldade: BR_6
             quantidade_protecoes_intermediarias: 5
-        - via_esportiva:
+        - uid: 9mty5VWIk9PAtr
+          via_esportiva:
             nome: Soldado Real
             dificuldade: BR_7B
             quantidade_protecoes_intermediarias: 6
-        - via_esportiva:
+        - uid: pxQeLIFsTrZDbO
+          via_esportiva:
             nome: Nosso Rei
             dificuldade: BR_7A
             quantidade_protecoes_intermediarias: 6
-        - via_movel:
+        - uid: MS2eRZzzrBzAxC
+          via_movel:
             nome: Vitamina M
             dificuldade: BR_5
             protecoes_moveis: Móvel. Rapel da chapa com cordelete.
@@ -681,6 +908,7 @@ picos:
           total_esportivas: 6
   - setor:
       conteudo:
+        uid: YDntm65nIZs31H
         caminho_imagem_capa: imagens/setor_death_horse_p0_i1.webp
         nome: Setor Death Horse
         mapas:
@@ -688,149 +916,215 @@ picos:
           largura_mapa: 1066
           altura_mapa: 642
           pontos_de_interesse:
-          - id: '1'
-            label: '1'
+          - uid: y4ApcVMHMiYlht
+            rotulo: '1'
             circulo:
               x: 66
               y: 255
               raio: 13
-          - id: '2'
-            label: '2'
+            id: y4ApcVMHMiYlht
+            label: '1'
+          - uid: 4cu6BCpZfDFxPG
+            rotulo: '2'
             circulo:
               x: 94
               y: 286
               raio: 13
-          - id: '3'
-            label: '3'
+            id: 4cu6BCpZfDFxPG
+            label: '2'
+          - uid: IdGbo7P0ctPlqc
+            rotulo: '3'
             circulo:
               x: 131
               y: 291
               raio: 14
-          - id: '4'
-            label: '4'
+            id: IdGbo7P0ctPlqc
+            label: '3'
+          - uid: 6DGo7re5kZzCIN
+            rotulo: '4'
             circulo:
               x: 174
               y: 270
               raio: 14
-          - id: '5'
-            label: '5'
+            id: 6DGo7re5kZzCIN
+            label: '4'
+          - uid: Q2L0A3Lq1ZIsMl
+            rotulo: '5'
             circulo:
               x: 238
               y: 252
               raio: 14
-          - id: '6'
-            label: '6'
+            id: Q2L0A3Lq1ZIsMl
+            label: '5'
+          - uid: mOoWcdLmuwxPLL
+            rotulo: '6'
             circulo:
               x: 425
               y: 279
               raio: 14
-          - id: '7'
-            label: '7'
+            id: mOoWcdLmuwxPLL
+            label: '6'
+          - uid: zvt7dlNEtz5C6J
+            rotulo: '7'
             circulo:
               x: 480
               y: 189
               raio: 14
-          - id: '8'
-            label: '8'
+            id: zvt7dlNEtz5C6J
+            label: '7'
+          - uid: U9WLbiA7AC06CT
+            rotulo: '8'
             circulo:
               x: 529
               y: 187
               raio: 14
-          - id: '9'
-            label: '9'
+            id: U9WLbiA7AC06CT
+            label: '8'
+          - uid: 39lU4TjrNJLuFz
+            rotulo: '9'
             circulo:
               x: 1008
               y: 347
               raio: 14
-          - id: Setor_7_Paralelo
-            label: ↑ SETOR 7 PARALELO
+            id: 39lU4TjrNJLuFz
+            label: '9'
+          - uid: 5hm1ZRkPZ8qWdz
+            rotulo: ↑ SETOR 7 PARALELO
             retangulo:
               x: 20
               y: 254
               comprimento: 26
               largura: 211
-          - id: Entrada_Sinuosa
-            label: ENTRADA SINUOSA ↑
+            id: 5hm1ZRkPZ8qWdz
+            label: ↑ SETOR 7 PARALELO
+          - uid: Oge0fm7uumdZ2J
+            rotulo: ENTRADA SINUOSA ↑
             retangulo:
               x: 592
               y: 526
               comprimento: 30
               largura: 207
               angulo_graus_x100: -215
-          - id: Setor_Gameleira
-            label: SETOR GAMELEIRA →
+            id: Oge0fm7uumdZ2J
+            label: ENTRADA SINUOSA ↑
+          - uid: EGnoWLV0KliMsx
+            rotulo: SETOR GAMELEIRA →
             retangulo:
               x: 968
               y: 450
               comprimento: 193
               largura: 28
+            id: EGnoWLV0KliMsx
+            label: SETOR GAMELEIRA →
           referencias:
-          - escalada: Mary Jane
+          - alvo_uid: YP56Axu8MBB4GS
+            pontos_uids:
+            - y4ApcVMHMiYlht
+            escalada: Mary Jane
             ids:
-            - '1'
-          - escalada: Nhen-hen-hen
+            - y4ApcVMHMiYlht
+          - alvo_uid: gCrlm3Dqm6L4x3
+            pontos_uids:
+            - 4cu6BCpZfDFxPG
+            escalada: Nhen-hen-hen
             ids:
-            - '2'
-          - escalada: Oleoduto
+            - 4cu6BCpZfDFxPG
+          - alvo_uid: G7LbzfLMVLPoyk
+            pontos_uids:
+            - IdGbo7P0ctPlqc
+            escalada: Oleoduto
             ids:
-            - '3'
-          - escalada: Território Demarcado
+            - IdGbo7P0ctPlqc
+          - alvo_uid: dH4LXtWZx6qini
+            pontos_uids:
+            - 6DGo7re5kZzCIN
+            escalada: Território Demarcado
             ids:
-            - '4'
-          - escalada: Abaeta
+            - 6DGo7re5kZzCIN
+          - alvo_uid: sBwvh9i7PSOnXZ
+            pontos_uids:
+            - Q2L0A3Lq1ZIsMl
+            escalada: Abaeta
             ids:
-            - '5'
-          - escalada: Sinuosa
+            - Q2L0A3Lq1ZIsMl
+          - alvo_uid: EuvGinSxRRc3MY
+            pontos_uids:
+            - mOoWcdLmuwxPLL
+            escalada: Sinuosa
             ids:
-            - '6'
-          - escalada: Sabbath Blood Sabbath/Carrapatos
+            - mOoWcdLmuwxPLL
+          - alvo_uid: ue6GuOQj38yrRg
+            pontos_uids:
+            - zvt7dlNEtz5C6J
+            escalada: Sabbath Blood Sabbath/Carrapatos
             ids:
-            - '7'
-          - escalada: Secos e Molhados
+            - zvt7dlNEtz5C6J
+          - alvo_uid: 2yZzlcjhvMC3ZH
+            pontos_uids:
+            - U9WLbiA7AC06CT
+            escalada: Secos e Molhados
             ids:
-            - '8'
-          - escalada: Araticum
+            - U9WLbiA7AC06CT
+          - alvo_uid: UAZlMeVtpCroSZ
+            pontos_uids:
+            - 39lU4TjrNJLuFz
+            escalada: Araticum
             ids:
-            - '9'
-          - ids:
-            - Setor_7_Paralelo
+            - 39lU4TjrNJLuFz
+          - alvo_uid: Ac3qdS73pE0QaJ
+            pontos_uids:
+            - 5hm1ZRkPZ8qWdz
             setor: Setor 7 Paralelo
-          - ids:
-            - Setor_Gameleira
+            ids:
+            - 5hm1ZRkPZ8qWdz
+          - alvo_uid: TU7ksiizSIZqH4
+            pontos_uids:
+            - EGnoWLV0KliMsx
             setor: Setor Gameleira
+            ids:
+            - EGnoWLV0KliMsx
         escaladas:
-        - via_esportiva:
+        - uid: YP56Axu8MBB4GS
+          via_esportiva:
             nome: Mary Jane
             dificuldade: BR_7A
             quantidade_protecoes_intermediarias: 7
-        - via_esportiva:
+        - uid: gCrlm3Dqm6L4x3
+          via_esportiva:
             nome: Nhen-hen-hen
             dificuldade: BR_6SUP
             quantidade_protecoes_intermediarias: 6
-        - via_esportiva:
+        - uid: G7LbzfLMVLPoyk
+          via_esportiva:
             nome: Oleoduto
             dificuldade: BR_6SUP
             quantidade_protecoes_intermediarias: 5
-        - via_esportiva:
+        - uid: dH4LXtWZx6qini
+          via_esportiva:
             nome: Território Demarcado
             dificuldade: BR_7B
             quantidade_protecoes_intermediarias: 7
-        - via_esportiva:
+        - uid: sBwvh9i7PSOnXZ
+          via_esportiva:
             nome: Abaeta
             descricao: Projeto.
-        - via_esportiva:
+        - uid: EuvGinSxRRc3MY
+          via_esportiva:
             nome: Sinuosa
             quantidade_protecoes_intermediarias: 20
             descricao: Projeto (Sem F/A).
-        - via_esportiva:
+        - uid: ue6GuOQj38yrRg
+          via_esportiva:
             nome: Sabbath Blood Sabbath/Carrapatos
             dificuldade: BR_9A
             quantidade_protecoes_intermediarias: 16
-        - via_esportiva:
+        - uid: 2yZzlcjhvMC3ZH
+          via_esportiva:
             nome: Secos e Molhados
             dificuldade: BR_7B
             quantidade_protecoes_intermediarias: 6
-        - via_esportiva:
+        - uid: UAZlMeVtpCroSZ
+          via_esportiva:
             nome: Araticum
             quantidade_protecoes_intermediarias: 14
             descricao: Projeto (Sem F/A).
@@ -858,6 +1152,7 @@ picos:
           total_esportivas: 9
   - setor:
       conteudo:
+        uid: TU7ksiizSIZqH4
         caminho_imagem_capa: imagens/setor_gameleira_p0_i1.webp
         nome: Setor Gameleira
         mapas:
@@ -865,77 +1160,111 @@ picos:
           largura_mapa: 711
           altura_mapa: 582
           pontos_de_interesse:
-          - id: '1'
-            label: '1'
+          - uid: zpvDRd1r3y2MNE
+            rotulo: '1'
             circulo:
               x: 248
               y: 447
               raio: 17
-          - id: '2'
-            label: '2'
+            id: zpvDRd1r3y2MNE
+            label: '1'
+          - uid: g9yx6zoR5Jew2A
+            rotulo: '2'
             circulo:
               x: 254
               y: 370
               raio: 17
-          - id: '3'
-            label: '3'
+            id: g9yx6zoR5Jew2A
+            label: '2'
+          - uid: dczqywvgxUfDb6
+            rotulo: '3'
             circulo:
               x: 157
               y: 244
               raio: 17
-          - id: '4'
-            label: '4'
+            id: dczqywvgxUfDb6
+            label: '3'
+          - uid: SxWDOrg8c5Fwis
+            rotulo: '4'
             circulo:
               x: 299
               y: 99
               raio: 17
-          - id: Setor_Vale_das_Sombras
-            label: SETOR VALE DAS SOMBRAS →
+            id: SxWDOrg8c5Fwis
+            label: '4'
+          - uid: VyUTgXbJbUkzcZ
+            rotulo: SETOR VALE DAS SOMBRAS →
             retangulo:
               x: 492
               y: 512
               comprimento: 325
               largura: 25
-          - id: Setor_Death_Horse
-            label: ← SETOR DEATH HORSE
+            id: VyUTgXbJbUkzcZ
+            label: SETOR VALE DAS SOMBRAS →
+          - uid: 2ZbqjP8qK3ObPL
+            rotulo: ← SETOR DEATH HORSE
             retangulo:
               x: 252
               y: 566
               comprimento: 265
               largura: 24
+            id: 2ZbqjP8qK3ObPL
+            label: ← SETOR DEATH HORSE
           referencias:
-          - escalada: Sou Fria
+          - alvo_uid: yI8nxikFh9tMjw
+            pontos_uids:
+            - zpvDRd1r3y2MNE
+            escalada: Sou Fria
             ids:
-            - '1'
-          - escalada: Revivência
+            - zpvDRd1r3y2MNE
+          - alvo_uid: 9erVbTGCqi6xaf
+            pontos_uids:
+            - g9yx6zoR5Jew2A
+            escalada: Revivência
             ids:
-            - '2'
-          - escalada: Mordida de Égua
+            - g9yx6zoR5Jew2A
+          - alvo_uid: OZc5KFYB0Xhd7J
+            pontos_uids:
+            - dczqywvgxUfDb6
+            escalada: Mordida de Égua
             ids:
-            - '3'
-          - escalada: Girassol
+            - dczqywvgxUfDb6
+          - alvo_uid: MHllFz7aY8Ec0k
+            pontos_uids:
+            - SxWDOrg8c5Fwis
+            escalada: Girassol
             ids:
-            - '4'
-          - ids:
-            - Setor_Death_Horse
+            - SxWDOrg8c5Fwis
+          - alvo_uid: YDntm65nIZs31H
+            pontos_uids:
+            - 2ZbqjP8qK3ObPL
             setor: Setor Death Horse
-          - ids:
-            - Setor_Vale_das_Sombras
+            ids:
+            - 2ZbqjP8qK3ObPL
+          - alvo_uid: fueKv7mvJ5Mon2
+            pontos_uids:
+            - VyUTgXbJbUkzcZ
             setor: Setor Vale das Sombras
+            ids:
+            - VyUTgXbJbUkzcZ
         escaladas:
-        - via_esportiva:
+        - uid: yI8nxikFh9tMjw
+          via_esportiva:
             nome: Sou Fria
             dificuldade: BR_9A
             quantidade_protecoes_intermediarias: 7
-        - via_esportiva:
+        - uid: 9erVbTGCqi6xaf
+          via_esportiva:
             nome: Revivência
             dificuldade: BR_7A
             quantidade_protecoes_intermediarias: 6
-        - via_esportiva:
+        - uid: OZc5KFYB0Xhd7J
+          via_esportiva:
             nome: Mordida de Égua
             dificuldade: BR_5
             quantidade_protecoes_intermediarias: 7
-        - via_esportiva:
+        - uid: MHllFz7aY8Ec0k
+          via_esportiva:
             nome: Girassol
             dificuldade: BR_6SUP
             quantidade_protecoes_intermediarias: 6
@@ -962,6 +1291,7 @@ picos:
           total_esportivas: 4
   - setor:
       conteudo:
+        uid: fueKv7mvJ5Mon2
         caminho_imagem_capa: imagens/setor_vale_das_sombras_p2_i0.webp
         nome: Setor Vale das Sombras
         mapas:
@@ -969,426 +1299,622 @@ picos:
           largura_mapa: 745
           altura_mapa: 1078
           pontos_de_interesse:
-          - id: '1'
-            label: '1'
+          - uid: Fy8s1oxrgBwLLh
+            rotulo: '1'
             circulo:
               x: 63
               y: 790
               raio: 12
-          - id: '2'
-            label: '2'
+            id: Fy8s1oxrgBwLLh
+            label: '1'
+          - uid: rXHNACJzD3gDEw
+            rotulo: '2'
             circulo:
               x: 118
               y: 802
               raio: 12
-          - id: '3'
-            label: '3'
+            id: rXHNACJzD3gDEw
+            label: '2'
+          - uid: nn0f6DSAdeDHcZ
+            rotulo: '3'
             circulo:
               x: 188
               y: 816
               raio: 12
-          - id: '4'
-            label: '4'
+            id: nn0f6DSAdeDHcZ
+            label: '3'
+          - uid: wy9S1yyp2V5F0k
+            rotulo: '4'
             circulo:
               x: 257
               y: 749
               raio: 12
-          - id: '5'
-            label: '5'
+            id: wy9S1yyp2V5F0k
+            label: '4'
+          - uid: H0fjPMYfVsINci
+            rotulo: '5'
             circulo:
               x: 270
               y: 655
               raio: 13
-          - id: '6'
-            label: '6'
+            id: H0fjPMYfVsINci
+            label: '5'
+          - uid: XAjnH8ddLvZS2V
+            rotulo: '6'
             circulo:
               x: 283
               y: 506
               raio: 12
-          - id: '7'
-            label: '7'
+            id: XAjnH8ddLvZS2V
+            label: '6'
+          - uid: DuYphnIUHlPJ4z
+            rotulo: '7'
             circulo:
               x: 299
               y: 469
               raio: 12
-          - id: '8'
-            label: '8'
+            id: DuYphnIUHlPJ4z
+            label: '7'
+          - uid: 7hSvD0NnCmiuBp
+            rotulo: '8'
             circulo:
               x: 314
               y: 356
               raio: 12
-          - id: '9'
-            label: '9'
+            id: 7hSvD0NnCmiuBp
+            label: '8'
+          - uid: VlFNIwsenq51Bq
+            rotulo: '9'
             circulo:
               x: 203
               y: 210
               raio: 12
-          - id: '10'
-            label: '10'
+            id: VlFNIwsenq51Bq
+            label: '9'
+          - uid: fL5qXSOtOB4Jlx
+            rotulo: '10'
             circulo:
               x: 198
               y: 168
               raio: 12
-          - id: '11'
-            label: '11'
+            id: fL5qXSOtOB4Jlx
+            label: '10'
+          - uid: 0oW5ZiJWnkvI08
+            rotulo: '11'
             circulo:
               x: 212
               y: 128
               raio: 12
-          - id: '12'
-            label: '12'
+            id: 0oW5ZiJWnkvI08
+            label: '11'
+          - uid: gjN5270CpvjjYs
+            rotulo: '12'
             circulo:
               x: 328
               y: 115
               raio: 12
-          - id: '13'
-            label: '13'
+            id: gjN5270CpvjjYs
+            label: '12'
+          - uid: RAJxymLXkcHCxL
+            rotulo: '13'
             circulo:
               x: 404
               y: 113
               raio: 12
-          - id: '14'
-            label: '14'
+            id: RAJxymLXkcHCxL
+            label: '13'
+          - uid: a767R0rUkJB0eY
+            rotulo: '14'
             circulo:
               x: 472
               y: 89
               raio: 12
-          - id: '15'
-            label: '15'
+            id: a767R0rUkJB0eY
+            label: '14'
+          - uid: jtr8YSTI408yM1
+            rotulo: '15'
             circulo:
               x: 509
               y: 81
               raio: 12
-          - id: '16'
-            label: '16'
+            id: jtr8YSTI408yM1
+            label: '15'
+          - uid: 6UIu9Ld3PWvabm
+            rotulo: '16'
             circulo:
               x: 549
               y: 71
               raio: 12
-          - id: '17'
-            label: '17'
+            id: 6UIu9Ld3PWvabm
+            label: '16'
+          - uid: IuSHQAav6fxmzj
+            rotulo: '17'
             circulo:
               x: 592
               y: 51
               raio: 12
+            id: IuSHQAav6fxmzj
+            label: '17'
           referencias:
-          - escalada: Curta e Grossa
+          - alvo_uid: jCGleAfbp7oTIy
+            pontos_uids:
+            - Fy8s1oxrgBwLLh
+            escalada: Curta e Grossa
             ids:
-            - '1'
-          - escalada: Trabalhosa
+            - Fy8s1oxrgBwLLh
+          - alvo_uid: B7PNm5PTndXwRY
+            pontos_uids:
+            - rXHNACJzD3gDEw
+            escalada: Trabalhosa
             ids:
-            - '2'
-          - escalada: Revolução dos Insetos
+            - rXHNACJzD3gDEw
+          - alvo_uid: qyjblNci9wD6uI
+            pontos_uids:
+            - nn0f6DSAdeDHcZ
+            escalada: Revolução dos Insetos
             ids:
-            - '3'
-          - escalada: Frango com Quiabo
+            - nn0f6DSAdeDHcZ
+          - alvo_uid: d4zX7shNhr2gtY
+            pontos_uids:
+            - wy9S1yyp2V5F0k
+            escalada: Frango com Quiabo
             ids:
-            - '4'
-          - escalada: É Proibido Furar
+            - wy9S1yyp2V5F0k
+          - alvo_uid: LoMDotNpLKQzhx
+            pontos_uids:
+            - H0fjPMYfVsINci
+            escalada: É Proibido Furar
             ids:
-            - '5'
-          - escalada: Bafin de Leite
+            - H0fjPMYfVsINci
+          - alvo_uid: HkYXUalaj3JLcz
+            pontos_uids:
+            - XAjnH8ddLvZS2V
+            escalada: Bafin de Leite
             ids:
-            - '6'
-          - escalada: '?'
+            - XAjnH8ddLvZS2V
+          - alvo_uid: zqxp5W0FpciE3Z
+            pontos_uids:
+            - DuYphnIUHlPJ4z
+            escalada: '?'
             ids:
-            - '7'
-          - escalada: Sujismunda
+            - DuYphnIUHlPJ4z
+          - alvo_uid: 7pHoINM0yFCJ1V
+            pontos_uids:
+            - 7hSvD0NnCmiuBp
+            escalada: Sujismunda
             ids:
-            - '8'
-          - escalada: Samurai
+            - 7hSvD0NnCmiuBp
+          - alvo_uid: VyfnuyF70I3L5c
+            pontos_uids:
+            - VlFNIwsenq51Bq
+            escalada: Samurai
             ids:
-            - '9'
-          - escalada: Ninja
+            - VlFNIwsenq51Bq
+          - alvo_uid: 1LMmIEI5mXAqqu
+            pontos_uids:
+            - fL5qXSOtOB4Jlx
+            escalada: Ninja
             ids:
-            - '10'
-          - escalada: Fly Monkeys
+            - fL5qXSOtOB4Jlx
+          - alvo_uid: 2QEoUWDhIYo1uX
+            pontos_uids:
+            - 0oW5ZiJWnkvI08
+            escalada: Fly Monkeys
             ids:
-            - '11'
-          - escalada: Lado A Lado B
+            - 0oW5ZiJWnkvI08
+          - alvo_uid: mH6Av5mEfpnmF7
+            pontos_uids:
+            - gjN5270CpvjjYs
+            escalada: Lado A Lado B
             ids:
-            - '12'
-          - escalada: Meu Nome Não é Lero
+            - gjN5270CpvjjYs
+          - alvo_uid: vEpsbrlfDSnjTe
+            pontos_uids:
+            - RAJxymLXkcHCxL
+            escalada: Meu Nome Não é Lero
             ids:
-            - '13'
-          - escalada: Nosso Mestre
+            - RAJxymLXkcHCxL
+          - alvo_uid: DTxHZkgZqL57DZ
+            pontos_uids:
+            - a767R0rUkJB0eY
+            escalada: Nosso Mestre
             ids:
-            - '14'
-          - escalada: Segunda Já Tá í
+            - a767R0rUkJB0eY
+          - alvo_uid: FIb3dppL3KaKA9
+            pontos_uids:
+            - jtr8YSTI408yM1
+            escalada: Segunda Já Tá í
             ids:
-            - '15'
-          - escalada: Brincadeira de Criança
+            - jtr8YSTI408yM1
+          - alvo_uid: gPBwwpjst9j3th
+            pontos_uids:
+            - 6UIu9Ld3PWvabm
+            escalada: Brincadeira de Criança
             ids:
-            - '16'
-          - escalada: Peripécias do Climb
+            - 6UIu9Ld3PWvabm
+          - alvo_uid: EVAXPsjYIgrpoP
+            pontos_uids:
+            - IuSHQAav6fxmzj
+            escalada: Peripécias do Climb
             ids:
-            - '17'
-          - escalada: Lelê Café
+            - IuSHQAav6fxmzj
+          - alvo_uid: yRDiY6TFvD2zvh
+            pontos_uids:
+            - IuSHQAav6fxmzj
+            escalada: Lelê Café
             ids:
-            - '17'
+            - IuSHQAav6fxmzj
         - caminho_imagem_mapa: imagens/setor_vale_das_sombras_p1_i0.webp
           largura_mapa: 729
           altura_mapa: 1311
           pontos_de_interesse:
-          - id: '17'
-            label: '17'
+          - uid: yr75iWdRDTAwQN
+            rotulo: '17'
             circulo:
               x: 342
               y: 1211
               raio: 23
-          - id: '18'
-            label: '18'
+            id: yr75iWdRDTAwQN
+            label: '17'
+          - uid: dDlsjaE4n92vYU
+            rotulo: '18'
             circulo:
               x: 359
               y: 1146
               raio: 23
-          - id: '19'
-            label: '19'
+            id: dDlsjaE4n92vYU
+            label: '18'
+          - uid: hTOQZZkoq5d8Mv
+            rotulo: '19'
             circulo:
               x: 399
               y: 1084
               raio: 23
-          - id: '20'
-            label: '20'
+            id: hTOQZZkoq5d8Mv
+            label: '19'
+          - uid: l1Mhz8Q65c4mlr
+            rotulo: '20'
             circulo:
               x: 414
               y: 1004
               raio: 24
-          - id: '21'
-            label: '21'
+            id: l1Mhz8Q65c4mlr
+            label: '20'
+          - uid: hFRXQOpIZfu7TE
+            rotulo: '21'
             circulo:
               x: 443
               y: 917
               raio: 24
-          - id: '22'
-            label: '22'
+            id: hFRXQOpIZfu7TE
+            label: '21'
+          - uid: WcQFcUHe25B1wT
+            rotulo: '22'
             circulo:
               x: 504
               y: 842
               raio: 23
-          - id: '23'
-            label: '23'
+            id: WcQFcUHe25B1wT
+            label: '22'
+          - uid: QQf1Hhb5mwimQo
+            rotulo: '23'
             circulo:
               x: 560
               y: 757
               raio: 24
-          - id: '24'
-            label: '24'
+            id: QQf1Hhb5mwimQo
+            label: '23'
+          - uid: F89xHOIC1y3Slq
+            rotulo: '24'
             circulo:
               x: 603
               y: 687
               raio: 24
-          - id: '25'
-            label: '25'
+            id: F89xHOIC1y3Slq
+            label: '24'
+          - uid: tUGxxinaX0Ux9c
+            rotulo: '25'
             circulo:
               x: 632
               y: 567
               raio: 24
-          - id: '26'
-            label: '26'
+            id: tUGxxinaX0Ux9c
+            label: '25'
+          - uid: AopiFxU1JY3u1z
+            rotulo: '26'
             circulo:
               x: 642
               y: 483
               raio: 24
-          - id: '27'
-            label: '27'
+            id: AopiFxU1JY3u1z
+            label: '26'
+          - uid: uhdn0DXHQ3EPvK
+            rotulo: '27'
             circulo:
               x: 661
               y: 383
               raio: 24
-          - id: '28'
-            label: '28'
+            id: uhdn0DXHQ3EPvK
+            label: '27'
+          - uid: ZKw8SmZghKZn4T
+            rotulo: '28'
             circulo:
               x: 654
               y: 312
               raio: 24
-          - id: '29'
-            label: '29'
+            id: ZKw8SmZghKZn4T
+            label: '28'
+          - uid: tIhEaOQSqDJghO
+            rotulo: '29'
             circulo:
               x: 658
               y: 243
               raio: 23
-          - id: Setor_Gameleira
-            label: ← SETOR GAMELEIRA
+            id: tIhEaOQSqDJghO
+            label: '29'
+          - uid: 1UcLZwI7VG83Ue
+            rotulo: ← SETOR GAMELEIRA
             retangulo:
               x: 76
               y: 976
               comprimento: 31
               largura: 201
               angulo_graus_x100: -3782
-          - id: Setor_4_Picos
-            label: ← SETOR 4 PICOS
+            id: 1UcLZwI7VG83Ue
+            label: ← SETOR GAMELEIRA
+          - uid: fLvkXNI7YUbuLm
+            rotulo: ← SETOR 4 PICOS
             retangulo:
               x: 100
               y: 1200
               comprimento: 31
               largura: 165
               angulo_graus_x100: 1162
+            id: fLvkXNI7YUbuLm
+            label: ← SETOR 4 PICOS
           referencias:
-          - escalada: Peripécias do Climb
+          - alvo_uid: EVAXPsjYIgrpoP
+            pontos_uids:
+            - yr75iWdRDTAwQN
+            escalada: Peripécias do Climb
             ids:
-            - '17'
-          - escalada: Lelê Café
+            - yr75iWdRDTAwQN
+          - alvo_uid: yRDiY6TFvD2zvh
+            pontos_uids:
+            - yr75iWdRDTAwQN
+            escalada: Lelê Café
             ids:
-            - '17'
-          - escalada: Tiu Marreteiro
+            - yr75iWdRDTAwQN
+          - alvo_uid: RtVKfqXU4d2O5H
+            pontos_uids:
+            - dDlsjaE4n92vYU
+            escalada: Tiu Marreteiro
             ids:
-            - '18'
-          - escalada: Animáquina
+            - dDlsjaE4n92vYU
+          - alvo_uid: SfpssMXcaPCDhx
+            pontos_uids:
+            - hTOQZZkoq5d8Mv
+            escalada: Animáquina
             ids:
-            - '19'
-          - escalada: Moça do Sapo
+            - hTOQZZkoq5d8Mv
+          - alvo_uid: cFe6d8p9VeVR2S
+            pontos_uids:
+            - l1Mhz8Q65c4mlr
+            escalada: Moça do Sapo
             ids:
-            - '20'
-          - escalada: Over Tênis
+            - l1Mhz8Q65c4mlr
+          - alvo_uid: sOiNJJZ6QIc3SN
+            pontos_uids:
+            - hFRXQOpIZfu7TE
+            escalada: Over Tênis
             ids:
-            - '21'
-          - escalada: Fita No Calcário
+            - hFRXQOpIZfu7TE
+          - alvo_uid: hlXiBaHK9X6edI
+            pontos_uids:
+            - WcQFcUHe25B1wT
+            escalada: Fita No Calcário
             ids:
-            - '22'
-          - escalada: Só de 70
+            - WcQFcUHe25B1wT
+          - alvo_uid: OCS3JhgG0wwJU4
+            pontos_uids:
+            - QQf1Hhb5mwimQo
+            escalada: Só de 70
             ids:
-            - '23'
-          - escalada: Black Dog
+            - QQf1Hhb5mwimQo
+          - alvo_uid: Ct2zGJzzBPgpOs
+            pontos_uids:
+            - F89xHOIC1y3Slq
+            escalada: Black Dog
             ids:
-            - '24'
-          - escalada: Variante Mum-hhazinha
+            - F89xHOIC1y3Slq
+          - alvo_uid: 4API2aIOMSUsrP
+            pontos_uids:
+            - tUGxxinaX0Ux9c
+            escalada: Variante Mum-hhazinha
             ids:
-            - '25'
-          - escalada: Pedras e Espinhos
+            - tUGxxinaX0Ux9c
+          - alvo_uid: 8wskz89uCipecq
+            pontos_uids:
+            - AopiFxU1JY3u1z
+            escalada: Pedras e Espinhos
             ids:
-            - '26'
-          - escalada: Pé de Oreia
+            - AopiFxU1JY3u1z
+          - alvo_uid: S2tUYBjwIBwoCm
+            pontos_uids:
+            - uhdn0DXHQ3EPvK
+            escalada: Pé de Oreia
             ids:
-            - '27'
-          - escalada: Perdidos
+            - uhdn0DXHQ3EPvK
+          - alvo_uid: inpIbAmbxswoXb
+            pontos_uids:
+            - ZKw8SmZghKZn4T
+            escalada: Perdidos
             ids:
-            - '28'
-          - escalada: Velhos Novatos
+            - ZKw8SmZghKZn4T
+          - alvo_uid: E2P3yMlwW0p8DG
+            pontos_uids:
+            - tIhEaOQSqDJghO
+            escalada: Velhos Novatos
             ids:
-            - '29'
-          - ids:
-            - Setor_4_Picos
+            - tIhEaOQSqDJghO
+          - alvo_uid: imSvcK2q24F9DV
+            pontos_uids:
+            - fLvkXNI7YUbuLm
             setor: Setor 4 Picos
-          - ids:
-            - Setor_Gameleira
+            ids:
+            - fLvkXNI7YUbuLm
+          - alvo_uid: TU7ksiizSIZqH4
+            pontos_uids:
+            - 1UcLZwI7VG83Ue
             setor: Setor Gameleira
+            ids:
+            - 1UcLZwI7VG83Ue
         escaladas:
-        - via_esportiva:
+        - uid: jCGleAfbp7oTIy
+          via_esportiva:
             nome: Curta e Grossa
             dificuldade: BR_7A
             quantidade_protecoes_intermediarias: 6
-        - via_esportiva:
+        - uid: B7PNm5PTndXwRY
+          via_esportiva:
             nome: Trabalhosa
             dificuldade: BR_6SUP
             quantidade_protecoes_intermediarias: 7
-        - via_esportiva:
+        - uid: qyjblNci9wD6uI
+          via_esportiva:
             nome: Revolução dos Insetos
             dificuldade: BR_7A
             quantidade_protecoes_intermediarias: 5
-        - via_esportiva:
+        - uid: d4zX7shNhr2gtY
+          via_esportiva:
             nome: Frango com Quiabo
             dificuldade: BR_7A
             quantidade_protecoes_intermediarias: 6
-        - via_esportiva:
+        - uid: LoMDotNpLKQzhx
+          via_esportiva:
             nome: É Proibido Furar
             dificuldade: BR_7C
             quantidade_protecoes_intermediarias: 7
-        - via_esportiva:
+        - uid: HkYXUalaj3JLcz
+          via_esportiva:
             nome: Bafin de Leite
             descricao: Inacabada.
-        - via_esportiva:
+        - uid: zqxp5W0FpciE3Z
+          via_esportiva:
             nome: '?'
             descricao: Inacabada.
-        - via_esportiva:
+        - uid: 7pHoINM0yFCJ1V
+          via_esportiva:
             nome: Sujismunda
             descricao: Inacabada.
-        - via_esportiva:
+        - uid: VyfnuyF70I3L5c
+          via_esportiva:
             nome: Samurai
             dificuldade: BR_6SUP
             quantidade_protecoes_intermediarias: 13
-        - via_esportiva:
+        - uid: 1LMmIEI5mXAqqu
+          via_esportiva:
             nome: Ninja
             dificuldade: BR_7A
             quantidade_protecoes_intermediarias: 16
-        - via_esportiva:
+        - uid: 2QEoUWDhIYo1uX
+          via_esportiva:
             nome: Fly Monkeys
             dificuldade: BR_6SUP
             quantidade_protecoes_intermediarias: 10
-        - via_esportiva:
+        - uid: mH6Av5mEfpnmF7
+          via_esportiva:
             nome: Lado A Lado B
             dificuldade: BR_7A_BARRA_7B
             quantidade_protecoes_intermediarias: 7
-        - via_esportiva:
+        - uid: vEpsbrlfDSnjTe
+          via_esportiva:
             nome: Meu Nome Não é Lero
             dificuldade: BR_7B
             quantidade_protecoes_intermediarias: 8
-        - via_esportiva:
+        - uid: DTxHZkgZqL57DZ
+          via_esportiva:
             nome: Nosso Mestre
             dificuldade: BR_5
             quantidade_protecoes_intermediarias: 6
-        - via_esportiva:
+        - uid: FIb3dppL3KaKA9
+          via_esportiva:
             nome: Segunda Já Tá í
             dificuldade: BR_7A
             quantidade_protecoes_intermediarias: 6
-        - via_esportiva:
+        - uid: gPBwwpjst9j3th
+          via_esportiva:
             nome: Brincadeira de Criança
             dificuldade: BR_6SUP
             quantidade_protecoes_intermediarias: 6
-        - via_esportiva:
+        - uid: EVAXPsjYIgrpoP
+          via_esportiva:
             nome: Peripécias do Climb
             dificuldade: BR_6
             quantidade_protecoes_intermediarias: 4
-        - via_esportiva:
+        - uid: yRDiY6TFvD2zvh
+          via_esportiva:
             nome: Lelê Café
             dificuldade: BR_7A
             quantidade_protecoes_intermediarias: 10
             descricao: Número 17 no segundo mapa do setor.
-        - via_esportiva:
+        - uid: RtVKfqXU4d2O5H
+          via_esportiva:
             nome: Tiu Marreteiro
             dificuldade: BR_8A
             quantidade_protecoes_intermediarias: 9
-        - via_esportiva:
+        - uid: SfpssMXcaPCDhx
+          via_esportiva:
             nome: Animáquina
             dificuldade: BR_6SUP
             quantidade_protecoes_intermediarias: 10
-        - via_esportiva:
+        - uid: cFe6d8p9VeVR2S
+          via_esportiva:
             nome: Moça do Sapo
             dificuldade: BR_6
             quantidade_protecoes_intermediarias: 10
-        - via_movel:
+        - uid: sOiNJJZ6QIc3SN
+          via_movel:
             nome: Over Tênis
             dificuldade: BR_6
             protecoes_moveis: Móvel / Top Duplo.
-        - via_movel:
+        - uid: hlXiBaHK9X6edI
+          via_movel:
             nome: Fita No Calcário
             dificuldade: BR_6
             protecoes_moveis: Móvel, Top da "Só de 70".
-        - via_esportiva:
+        - uid: OCS3JhgG0wwJU4
+          via_esportiva:
             nome: Só de 70
             dificuldade: BR_6SUP
             quantidade_protecoes_intermediarias: 13
-        - via_esportiva:
+        - uid: Ct2zGJzzBPgpOs
+          via_esportiva:
             nome: Black Dog
             dificuldade: BR_6SUP
             descricao: Mista / 4 Fixas + Top Duplo.
-        - via_esportiva:
+        - uid: 4API2aIOMSUsrP
+          via_esportiva:
             nome: Variante Mum-hhazinha
             dificuldade: BR_6SUP
             quantidade_protecoes_intermediarias: 10
-        - via_esportiva:
+        - uid: 8wskz89uCipecq
+          via_esportiva:
             nome: Pedras e Espinhos
             dificuldade: BR_7A
             quantidade_protecoes_intermediarias: 10
-        - via_esportiva:
+        - uid: S2tUYBjwIBwoCm
+          via_esportiva:
             nome: Pé de Oreia
             dificuldade: BR_6
             quantidade_protecoes_intermediarias: 5
-        - via_esportiva:
+        - uid: inpIbAmbxswoXb
+          via_esportiva:
             nome: Perdidos
             dificuldade: BR_6
             quantidade_protecoes_intermediarias: 5
-        - via_esportiva:
+        - uid: E2P3yMlwW0p8DG
+          via_esportiva:
             nome: Velhos Novatos
             dificuldade: BR_4
             quantidade_protecoes_intermediarias: 5
@@ -1420,135 +1946,194 @@ picos:
           total_esportivas: 28
   - setor:
       conteudo:
+        uid: GjARqXDXyIGp2W
         nome: Setor Imigrantes
         mapas:
         - caminho_imagem_mapa: imagens/setor_imigrantes_p0_i0.webp
           largura_mapa: 684
           altura_mapa: 1306
           pontos_de_interesse:
-          - id: '1'
-            label: '1'
+          - uid: suzX8V0vps3Xd0
+            rotulo: '1'
             circulo:
               x: 513
               y: 891
               raio: 13
-          - id: '2'
-            label: '2'
+            id: suzX8V0vps3Xd0
+            label: '1'
+          - uid: Dt3muZpJ6Fzlgx
+            rotulo: '2'
             circulo:
               x: 443
               y: 818
               raio: 13
-          - id: '3'
-            label: '3'
+            id: Dt3muZpJ6Fzlgx
+            label: '2'
+          - uid: ub6NbOkLBamVP3
+            rotulo: '3'
             circulo:
               x: 443
               y: 788
               raio: 13
-          - id: '4'
-            label: '4'
+            id: ub6NbOkLBamVP3
+            label: '3'
+          - uid: FifrIK2SGnkQXH
+            rotulo: '4'
             circulo:
               x: 54
               y: 743
               raio: 13
-          - id: '5'
-            label: '5'
+            id: FifrIK2SGnkQXH
+            label: '4'
+          - uid: Svf3YwVgY55s2I
+            rotulo: '5'
             circulo:
               x: 64
               y: 658
               raio: 13
-          - id: '6'
-            label: '6'
+            id: Svf3YwVgY55s2I
+            label: '5'
+          - uid: ov35DaF0CeSP0c
+            rotulo: '6'
             circulo:
               x: 79
               y: 602
               raio: 13
-          - id: '7'
-            label: '7'
+            id: ov35DaF0CeSP0c
+            label: '6'
+          - uid: swj2fQ26Kfd8Si
+            rotulo: '7'
             circulo:
               x: 101
               y: 499
               raio: 13
-          - id: '8'
-            label: '8'
+            id: swj2fQ26Kfd8Si
+            label: '7'
+          - uid: JEW3vKM2CZECE4
+            rotulo: '8'
             circulo:
               x: 123
               y: 417
               raio: 13
-          - id: Sentinela
-            label: ← SENTINELA
+            id: JEW3vKM2CZECE4
+            label: '8'
+          - uid: YfB2sMYcMXNfTh
+            rotulo: ← SENTINELA
             retangulo:
               x: 288
               y: 60
               comprimento: 133
               largura: 30
-          - id: Vale_das_Sombras
-            label: VALE DAS SOMBRAS ↘
+            id: YfB2sMYcMXNfTh
+            label: ← SENTINELA
+          - uid: Tww7J9fBRV9R85
+            rotulo: VALE DAS SOMBRAS ↘
             retangulo:
               x: 548
               y: 1255
               comprimento: 215
               largura: 30
+            id: Tww7J9fBRV9R85
+            label: VALE DAS SOMBRAS ↘
           referencias:
-          - escalada: Ressucita Makita
+          - alvo_uid: 0en8mNc6hr93zC
+            pontos_uids:
+            - suzX8V0vps3Xd0
+            escalada: Ressucita Makita
             ids:
-            - '1'
-          - escalada: Saporra
+            - suzX8V0vps3Xd0
+          - alvo_uid: 5G1mWkyRjRLJ7n
+            pontos_uids:
+            - Dt3muZpJ6Fzlgx
+            escalada: Saporra
             ids:
-            - '2'
-          - escalada: Tudo Pra Trás
+            - Dt3muZpJ6Fzlgx
+          - alvo_uid: Fd8iVKCQQQOgE8
+            pontos_uids:
+            - ub6NbOkLBamVP3
+            escalada: Tudo Pra Trás
             ids:
-            - '3'
-          - escalada: Lamurias de Um Ex Casado
+            - ub6NbOkLBamVP3
+          - alvo_uid: gReIh1VjRupfoW
+            pontos_uids:
+            - FifrIK2SGnkQXH
+            escalada: Lamurias de Um Ex Casado
             ids:
-            - '4'
-          - escalada: Nunca Se Engane
+            - FifrIK2SGnkQXH
+          - alvo_uid: zFz9M6zadVEt17
+            pontos_uids:
+            - Svf3YwVgY55s2I
+            escalada: Nunca Se Engane
             ids:
-            - '5'
-          - escalada: Chuva na Careca
+            - Svf3YwVgY55s2I
+          - alvo_uid: y4d7JSfeRMEgwX
+            pontos_uids:
+            - ov35DaF0CeSP0c
+            escalada: Chuva na Careca
             ids:
-            - '6'
-          - escalada: Cuei Teimoso
+            - ov35DaF0CeSP0c
+          - alvo_uid: fnVJ6k0XIqQBxC
+            pontos_uids:
+            - swj2fQ26Kfd8Si
+            escalada: Cuei Teimoso
             ids:
-            - '7'
-          - escalada: Escalada Eclética
+            - swj2fQ26Kfd8Si
+          - alvo_uid: Gn5wA2whGSAmTD
+            pontos_uids:
+            - JEW3vKM2CZECE4
+            escalada: Escalada Eclética
             ids:
-            - '8'
-          - ids:
-            - Sentinela
+            - JEW3vKM2CZECE4
+          - alvo_uid: EaM54aq9IJD36r
+            pontos_uids:
+            - YfB2sMYcMXNfTh
             setor: Setor Sentinela
-          - ids:
-            - Vale_das_Sombras
+            ids:
+            - YfB2sMYcMXNfTh
+          - alvo_uid: fueKv7mvJ5Mon2
+            pontos_uids:
+            - Tww7J9fBRV9R85
             setor: Setor Vale das Sombras
+            ids:
+            - Tww7J9fBRV9R85
         escaladas:
-        - via_esportiva:
+        - uid: 0en8mNc6hr93zC
+          via_esportiva:
             nome: Ressucita Makita
             dificuldade: BR_6SUP
             quantidade_protecoes_intermediarias: 6
-        - via_esportiva:
+        - uid: 5G1mWkyRjRLJ7n
+          via_esportiva:
             nome: Saporra
             dificuldade: BR_5SUP
             quantidade_protecoes_intermediarias: 6
-        - via_esportiva:
+        - uid: Fd8iVKCQQQOgE8
+          via_esportiva:
             nome: Tudo Pra Trás
             dificuldade: BR_5
             quantidade_protecoes_intermediarias: 5
-        - via_esportiva:
+        - uid: gReIh1VjRupfoW
+          via_esportiva:
             nome: Lamurias de Um Ex Casado
             dificuldade: BR_6
             quantidade_protecoes_intermediarias: 6
-        - via_esportiva:
+        - uid: zFz9M6zadVEt17
+          via_esportiva:
             nome: Nunca Se Engane
             dificuldade: BR_6SUP
             quantidade_protecoes_intermediarias: 6
-        - via_esportiva:
+        - uid: y4d7JSfeRMEgwX
+          via_esportiva:
             nome: Chuva na Careca
             dificuldade: BR_7A
             quantidade_protecoes_intermediarias: 7
-        - via_esportiva:
+        - uid: fnVJ6k0XIqQBxC
+          via_esportiva:
             nome: Cuei Teimoso
             dificuldade: BR_7B
             quantidade_protecoes_intermediarias: 7
-        - via_esportiva:
+        - uid: Gn5wA2whGSAmTD
+          via_esportiva:
             nome: Escalada Eclética
             dificuldade: BR_5SUP
             quantidade_protecoes_intermediarias: 6
@@ -1558,6 +2143,7 @@ picos:
           total_esportivas: 8
   - setor:
       conteudo:
+        uid: MWoo8hRjlRntGq
         caminho_imagem_capa: imagens/setor_vale_zela_p0_i1.webp
         nome: Setor Vale Zela
         mapas:
@@ -1565,107 +2151,154 @@ picos:
           largura_mapa: 831
           altura_mapa: 696
           pontos_de_interesse:
-          - id: '1'
-            label: '1'
+          - uid: WHzx9I2jExQBP4
+            rotulo: '1'
             circulo:
               x: 134
               y: 234
               raio: 13
-          - id: '2'
-            label: '2'
+            id: WHzx9I2jExQBP4
+            label: '1'
+          - uid: KoLmftzneezCvu
+            rotulo: '2'
             circulo:
               x: 203
               y: 234
               raio: 13
-          - id: '3'
-            label: '3'
+            id: KoLmftzneezCvu
+            label: '2'
+          - uid: ZxLrZl06Dihiuw
+            rotulo: '3'
             circulo:
               x: 262
               y: 227
               raio: 13
-          - id: '4'
-            label: '4'
+            id: ZxLrZl06Dihiuw
+            label: '3'
+          - uid: Ziv2oElmQmN2ga
+            rotulo: '4'
             circulo:
               x: 300
               y: 240
               raio: 13
-          - id: '5'
-            label: '5'
+            id: Ziv2oElmQmN2ga
+            label: '4'
+          - uid: W3n8Osli6p0ESk
+            rotulo: '5'
             circulo:
               x: 348
               y: 227
               raio: 13
-          - id: '6'
-            label: '6'
+            id: W3n8Osli6p0ESk
+            label: '5'
+          - uid: VYDFjPSvVkTjGz
+            rotulo: '6'
             circulo:
               x: 159
               y: 421
               raio: 13
-          - id: '7'
-            label: '7'
+            id: VYDFjPSvVkTjGz
+            label: '6'
+          - uid: tQo1ArqMq71sUW
+            rotulo: '7'
             circulo:
               x: 340
               y: 421
               raio: 13
-          - id: Vale_das_Sombras
-            label: ↙ VALE DAS SOMBRAS
+            id: tQo1ArqMq71sUW
+            label: '7'
+          - uid: l9RKGms93JS9u9
+            rotulo: ↙ VALE DAS SOMBRAS
             retangulo:
               x: 406
               y: 559
               comprimento: 33
               largura: 218
               angulo_graus_x100: 3372
+            id: l9RKGms93JS9u9
+            label: ↙ VALE DAS SOMBRAS
           referencias:
-          - escalada: Hugossauro
+          - alvo_uid: jfwhCoOAIB9T2Q
+            pontos_uids:
+            - WHzx9I2jExQBP4
+            escalada: Hugossauro
             ids:
-            - '1'
-          - escalada: A Busca
+            - WHzx9I2jExQBP4
+          - alvo_uid: V9G7HxMSRLFUTs
+            pontos_uids:
+            - KoLmftzneezCvu
+            escalada: A Busca
             ids:
-            - '2'
-          - escalada: Gancho na Orelha
+            - KoLmftzneezCvu
+          - alvo_uid: DFpFQFAjTD9LtJ
+            pontos_uids:
+            - ZxLrZl06Dihiuw
+            escalada: Gancho na Orelha
             ids:
-            - '3'
-          - escalada: Tios Metralha
+            - ZxLrZl06Dihiuw
+          - alvo_uid: 59prY8371phOk3
+            pontos_uids:
+            - Ziv2oElmQmN2ga
+            escalada: Tios Metralha
             ids:
-            - '4'
-          - escalada: Sociedade Alternativa
+            - Ziv2oElmQmN2ga
+          - alvo_uid: Jlzt8XeVxvULR6
+            pontos_uids:
+            - W3n8Osli6p0ESk
+            escalada: Sociedade Alternativa
             ids:
-            - '5'
-          - escalada: Travessia de Pedestre
+            - W3n8Osli6p0ESk
+          - alvo_uid: OBWFwdDZuMCFHu
+            pontos_uids:
+            - VYDFjPSvVkTjGz
+            escalada: Travessia de Pedestre
             ids:
-            - '6'
-          - escalada: De Menor
+            - VYDFjPSvVkTjGz
+          - alvo_uid: gfqw2QoR8b9e6u
+            pontos_uids:
+            - tQo1ArqMq71sUW
+            escalada: De Menor
             ids:
-            - '7'
-          - ids:
-            - Vale_das_Sombras
+            - tQo1ArqMq71sUW
+          - alvo_uid: fueKv7mvJ5Mon2
+            pontos_uids:
+            - l9RKGms93JS9u9
             setor: Setor Vale das Sombras
+            ids:
+            - l9RKGms93JS9u9
         escaladas:
-        - via_esportiva:
+        - uid: jfwhCoOAIB9T2Q
+          via_esportiva:
             nome: Hugossauro
             dificuldade: BR_5SUP
             quantidade_protecoes_intermediarias: 6
-        - via_esportiva:
+        - uid: V9G7HxMSRLFUTs
+          via_esportiva:
             nome: A Busca
             dificuldade: BR_7B
             quantidade_protecoes_intermediarias: 6
-        - via_esportiva:
+        - uid: DFpFQFAjTD9LtJ
+          via_esportiva:
             nome: Gancho na Orelha
             dificuldade: BR_7A
             quantidade_protecoes_intermediarias: 6
-        - via_esportiva:
+        - uid: 59prY8371phOk3
+          via_esportiva:
             nome: Tios Metralha
             dificuldade: BR_6SUP
             quantidade_protecoes_intermediarias: 6
-        - via_esportiva:
+        - uid: Jlzt8XeVxvULR6
+          via_esportiva:
             nome: Sociedade Alternativa
             dificuldade: BR_7C
             quantidade_protecoes_intermediarias: 5
-        - via_esportiva:
+        - uid: OBWFwdDZuMCFHu
+          via_esportiva:
             nome: Travessia de Pedestre
             dificuldade: BR_5
             quantidade_protecoes_intermediarias: 6
-        - via_esportiva:
+        - uid: gfqw2QoR8b9e6u
+          via_esportiva:
             nome: De Menor
             dificuldade: BR_4
             quantidade_protecoes_intermediarias: 4
@@ -1675,6 +2308,7 @@ picos:
           total_esportivas: 7
   - setor:
       conteudo:
+        uid: IOfSlf58GTdE9g
         caminho_imagem_capa: imagens/setor_macaubas_p0_i1.webp
         nome: Setor Macaúbas
         mapas:
@@ -1682,65 +2316,93 @@ picos:
           largura_mapa: 885
           altura_mapa: 517
           pontos_de_interesse:
-          - id: '1'
-            label: '1'
+          - uid: xEztd5gcQMPGIi
+            rotulo: '1'
             circulo:
               x: 353
               y: 277
               raio: 20
-          - id: '2'
-            label: '2'
+            id: xEztd5gcQMPGIi
+            label: '1'
+          - uid: 80WLKTdHwuWa48
+            rotulo: '2'
             circulo:
               x: 409
               y: 269
               raio: 20
-          - id: '3'
-            label: '3'
+            id: 80WLKTdHwuWa48
+            label: '2'
+          - uid: MmobUJw2GKdGry
+            rotulo: '3'
             circulo:
               x: 507
               y: 293
               raio: 20
-          - id: Setor_Primordios
-            label: ← SETOR PRIMÓRDIOS
+            id: MmobUJw2GKdGry
+            label: '3'
+          - uid: LbHKwa6bG4pWq9
+            rotulo: ← SETOR PRIMÓRDIOS
             retangulo:
               x: 196
               y: 394
               comprimento: 212
               largura: 35
               angulo_graus_x100: 194
-          - id: Setor_Vale_das_Sombras
-            label: SETOR VALE DAS SOMBRAS →
+            id: LbHKwa6bG4pWq9
+            label: ← SETOR PRIMÓRDIOS
+          - uid: cvB4j9GtVi8KXy
+            rotulo: SETOR VALE DAS SOMBRAS →
             retangulo:
               x: 832
               y: 184
               comprimento: 33
               largura: 266
+            id: cvB4j9GtVi8KXy
+            label: SETOR VALE DAS SOMBRAS →
           referencias:
-          - escalada: Cobra Caoia
+          - alvo_uid: RihK7SsKF5IlBf
+            pontos_uids:
+            - xEztd5gcQMPGIi
+            escalada: Cobra Caoia
             ids:
-            - '1'
-          - escalada: Lembranças de Mariazinha
+            - xEztd5gcQMPGIi
+          - alvo_uid: peuRqMqXsIGkn9
+            pontos_uids:
+            - 80WLKTdHwuWa48
+            escalada: Lembranças de Mariazinha
             ids:
-            - '2'
-          - escalada: Anfitriões do Dia
+            - 80WLKTdHwuWa48
+          - alvo_uid: pQR3eJWRIVoNAU
+            pontos_uids:
+            - MmobUJw2GKdGry
+            escalada: Anfitriões do Dia
             ids:
-            - '3'
-          - ids:
-            - Setor_Primordios
+            - MmobUJw2GKdGry
+          - alvo_uid: qey8xcqcLCOOwp
+            pontos_uids:
+            - LbHKwa6bG4pWq9
             setor: Setor Primórdios
-          - ids:
-            - Setor_Vale_das_Sombras
+            ids:
+            - LbHKwa6bG4pWq9
+          - alvo_uid: fueKv7mvJ5Mon2
+            pontos_uids:
+            - cvB4j9GtVi8KXy
             setor: Setor Vale das Sombras
+            ids:
+            - cvB4j9GtVi8KXy
         escaladas:
-        - via_esportiva:
+        - uid: RihK7SsKF5IlBf
+          via_esportiva:
             nome: Cobra Caoia
             dificuldade: BR_5
             quantidade_protecoes_intermediarias: 5
-        - via_esportiva:
+        - uid: peuRqMqXsIGkn9
+          via_esportiva:
             nome: Lembranças de Mariazinha
             dificuldade: BR_5
             quantidade_protecoes_intermediarias: 5
-        - via_esportiva:
+        - uid: pQR3eJWRIVoNAU
+          via_esportiva:
             nome: Anfitriões do Dia
             dificuldade: BR_5
             quantidade_protecoes_intermediarias: 5
@@ -1750,6 +2412,7 @@ picos:
           total_esportivas: 3
   - setor:
       conteudo:
+        uid: qey8xcqcLCOOwp
         caminho_imagem_capa: imagens/setor_primordios_p0_i1.webp
         nome: Setor Primórdios
         mapas:
@@ -1757,161 +2420,233 @@ picos:
           largura_mapa: 1111
           altura_mapa: 689
           pontos_de_interesse:
-          - id: '1'
-            label: '1'
+          - uid: vjYXd1RjFBI01B
+            rotulo: '1'
             circulo:
               x: 84
               y: 444
               raio: 20
-          - id: '2'
-            label: '2'
+            id: vjYXd1RjFBI01B
+            label: '1'
+          - uid: k8XZ2tvE01wNzc
+            rotulo: '2'
             circulo:
               x: 297
               y: 480
               raio: 20
-          - id: '3'
-            label: '3'
+            id: k8XZ2tvE01wNzc
+            label: '2'
+          - uid: c2WomyPdeCmV6F
+            rotulo: '3'
             circulo:
               x: 300
               y: 422
               raio: 20
-          - id: '4'
-            label: '4'
+            id: c2WomyPdeCmV6F
+            label: '3'
+          - uid: 2wa5J9IKfM9vRa
+            rotulo: '4'
             circulo:
               x: 296
               y: 244
               raio: 21
-          - id: '5'
-            label: '5'
+            id: 2wa5J9IKfM9vRa
+            label: '4'
+          - uid: me9UttXto3uM6n
+            rotulo: '5'
             circulo:
               x: 286
               y: 181
               raio: 21
-          - id: '6'
-            label: '6'
+            id: me9UttXto3uM6n
+            label: '5'
+          - uid: 9ePUmT21QdWZDQ
+            rotulo: '6'
             circulo:
               x: 323
               y: 144
               raio: 21
-          - id: '7'
-            label: '7'
+            id: 9ePUmT21QdWZDQ
+            label: '6'
+          - uid: 3LDpyXeklCjwgd
+            rotulo: '7'
             circulo:
               x: 441
               y: 166
               raio: 21
-          - id: '8'
-            label: '8'
+            id: 3LDpyXeklCjwgd
+            label: '7'
+          - uid: lZszqFmO8OE418
+            rotulo: '8'
             circulo:
               x: 463
               y: 121
               raio: 21
-          - id: '9'
-            label: '9'
+            id: lZszqFmO8OE418
+            label: '8'
+          - uid: 7TFOBvJ9d974Ak
+            rotulo: '9'
             circulo:
               x: 487
               y: 64
               raio: 21
-          - id: '10'
-            label: '10'
+            id: 7TFOBvJ9d974Ak
+            label: '9'
+          - uid: fJE4CRnsKKfDRE
+            rotulo: '10'
             circulo:
               x: 564
               y: 158
               raio: 21
-          - id: '11'
-            label: '11'
+            id: fJE4CRnsKKfDRE
+            label: '10'
+          - uid: mnWAxFMWED2gAf
+            rotulo: '11'
             circulo:
               x: 866
               y: 134
               raio: 21
-          - id: '12'
-            label: '12'
+            id: mnWAxFMWED2gAf
+            label: '11'
+          - uid: aoOxblBL3x1Wk7
+            rotulo: '12'
             circulo:
               x: 924
               y: 153
               raio: 21
+            id: aoOxblBL3x1Wk7
+            label: '12'
           referencias:
-          - escalada: No Pulso
+          - alvo_uid: cfyBOpUArq4qqv
+            pontos_uids:
+            - vjYXd1RjFBI01B
+            escalada: No Pulso
             ids:
-            - '1'
-          - escalada: Cascavel
+            - vjYXd1RjFBI01B
+          - alvo_uid: vQL0M07LFpzvYG
+            pontos_uids:
+            - k8XZ2tvE01wNzc
+            escalada: Cascavel
             ids:
-            - '2'
-          - escalada: Marimbondos
+            - k8XZ2tvE01wNzc
+          - alvo_uid: y0IsszE2znJF1R
+            pontos_uids:
+            - c2WomyPdeCmV6F
+            escalada: Marimbondos
             ids:
-            - '3'
-          - escalada: Cobra Coral
+            - c2WomyPdeCmV6F
+          - alvo_uid: hNlLXJL3I3q2Jt
+            pontos_uids:
+            - 2wa5J9IKfM9vRa
+            escalada: Cobra Coral
             ids:
-            - '4'
-          - escalada: Cactos
+            - 2wa5J9IKfM9vRa
+          - alvo_uid: 5TKP48dQA03ZaA
+            pontos_uids:
+            - me9UttXto3uM6n
+            escalada: Cactos
             ids:
-            - '5'
-          - escalada: De Voltas Às Origens
+            - me9UttXto3uM6n
+          - alvo_uid: nsaLORjDADYTwt
+            pontos_uids:
+            - 9ePUmT21QdWZDQ
+            escalada: De Voltas Às Origens
             ids:
-            - '6'
-          - escalada: Velha Guarda
+            - 9ePUmT21QdWZDQ
+          - alvo_uid: lv7SJvayR9EvZk
+            pontos_uids:
+            - 3LDpyXeklCjwgd
+            escalada: Velha Guarda
             ids:
-            - '7'
-          - escalada: Chaminé Retinida
+            - 3LDpyXeklCjwgd
+          - alvo_uid: 2ZGVuwKAsbRN4m
+            pontos_uids:
+            - lZszqFmO8OE418
+            escalada: Chaminé Retinida
             ids:
-            - '8'
-          - escalada: Tempos Modernos
+            - lZszqFmO8OE418
+          - alvo_uid: iGE0gNDwKkZmRi
+            pontos_uids:
+            - 7TFOBvJ9d974Ak
+            escalada: Tempos Modernos
             ids:
-            - '9'
-          - escalada: Buraco Louco
+            - 7TFOBvJ9d974Ak
+          - alvo_uid: 6p1iB73iXZ16E1
+            pontos_uids:
+            - fJE4CRnsKKfDRE
+            escalada: Buraco Louco
             ids:
-            - '10'
-          - escalada: Estufando o Bigode
+            - fJE4CRnsKKfDRE
+          - alvo_uid: O9Qtjh351VqT1j
+            pontos_uids:
+            - mnWAxFMWED2gAf
+            escalada: Estufando o Bigode
             ids:
-            - '11'
-          - escalada: Não Deu Bigode
+            - mnWAxFMWED2gAf
+          - alvo_uid: fFwXE2OxmSAqZR
+            pontos_uids:
+            - aoOxblBL3x1Wk7
+            escalada: Não Deu Bigode
             ids:
-            - '12'
+            - aoOxblBL3x1Wk7
         escaladas:
-        - via_esportiva:
+        - uid: cfyBOpUArq4qqv
+          via_esportiva:
             nome: No Pulso
             dificuldade: BR_5
             quantidade_protecoes_intermediarias: 7
-        - via_esportiva:
+        - uid: vQL0M07LFpzvYG
+          via_esportiva:
             nome: Cascavel
             dificuldade: BR_4
             quantidade_protecoes_intermediarias: 5
-        - via_esportiva:
+        - uid: y0IsszE2znJF1R
+          via_esportiva:
             nome: Marimbondos
             dificuldade: BR_4
             quantidade_protecoes_intermediarias: 4
-        - via_esportiva:
+        - uid: hNlLXJL3I3q2Jt
+          via_esportiva:
             nome: Cobra Coral
             dificuldade: BR_5
             quantidade_protecoes_intermediarias: 7
-        - via_esportiva:
+        - uid: 5TKP48dQA03ZaA
+          via_esportiva:
             nome: Cactos
             dificuldade: BR_6SUP
             quantidade_protecoes_intermediarias: 8
-        - via_esportiva:
+        - uid: nsaLORjDADYTwt
+          via_esportiva:
             nome: De Voltas Às Origens
             dificuldade: BR_8A
             quantidade_protecoes_intermediarias: 8
-        - via_esportiva:
+        - uid: lv7SJvayR9EvZk
+          via_esportiva:
             nome: Velha Guarda
             dificuldade: BR_7B
             quantidade_protecoes_intermediarias: 8
-        - via_esportiva:
+        - uid: 2ZGVuwKAsbRN4m
+          via_esportiva:
             nome: Chaminé Retinida
             dificuldade: BR_6SUP
             quantidade_protecoes_intermediarias: 8
-        - via_esportiva:
+        - uid: iGE0gNDwKkZmRi
+          via_esportiva:
             nome: Tempos Modernos
             dificuldade: BR_7B
             quantidade_protecoes_intermediarias: 8
-        - via_esportiva:
+        - uid: 6p1iB73iXZ16E1
+          via_esportiva:
             nome: Buraco Louco
             dificuldade: BR_7B
             quantidade_protecoes_intermediarias: 8
-        - via_esportiva:
+        - uid: O9Qtjh351VqT1j
+          via_esportiva:
             nome: Estufando o Bigode
             dificuldade: BR_7A
             quantidade_protecoes_intermediarias: 7
-        - via_esportiva:
+        - uid: fFwXE2OxmSAqZR
+          via_esportiva:
             nome: Não Deu Bigode
             dificuldade: BR_7B
             quantidade_protecoes_intermediarias: 7
@@ -1947,6 +2682,7 @@ picos:
           total_esportivas: 12
   - setor:
       conteudo:
+        uid: imSvcK2q24F9DV
         caminho_imagem_capa: imagens/setor_4_picos_p0_i1.webp
         nome: Setor 4 Picos
         mapas:
@@ -1954,78 +2690,112 @@ picos:
           largura_mapa: 705
           altura_mapa: 577
           pontos_de_interesse:
-          - id: '1'
-            label: '1'
+          - uid: sYClr2YcirKbmt
+            rotulo: '1'
             circulo:
               x: 204
               y: 80
               raio: 20
-          - id: '2'
-            label: '2'
+            id: sYClr2YcirKbmt
+            label: '1'
+          - uid: 1Oi0nSOj3ckjhr
+            rotulo: '2'
             circulo:
               x: 333
               y: 57
               raio: 19
-          - id: '3'
-            label: '3'
+            id: 1Oi0nSOj3ckjhr
+            label: '2'
+          - uid: MZB7tEVe1jqmkH
+            rotulo: '3'
             circulo:
               x: 489
               y: 53
               raio: 19
-          - id: '4'
-            label: '4'
+            id: MZB7tEVe1jqmkH
+            label: '3'
+          - uid: il798y9aIJSc7I
+            rotulo: '4'
             circulo:
               x: 588
               y: 353
               raio: 20
-          - id: Setor_Vale_das_Sombras
-            label: ← SETOR VALE DAS SOMBRAS
+            id: il798y9aIJSc7I
+            label: '4'
+          - uid: S43crAZaWVRrNv
+            rotulo: ← SETOR VALE DAS SOMBRAS
             retangulo:
               x: 174
               y: 518
               comprimento: 267
               largura: 29
               angulo_graus_x100: 779
-          - id: Setor_Primordios
-            label: SETOR PRIMÓRDIOS →
+            id: S43crAZaWVRrNv
+            label: ← SETOR VALE DAS SOMBRAS
+          - uid: g5sr9LKjWvRJM7
+            rotulo: SETOR PRIMÓRDIOS →
             retangulo:
               x: 567
               y: 552
               comprimento: 204
               largura: 22
+            id: g5sr9LKjWvRJM7
+            label: SETOR PRIMÓRDIOS →
           referencias:
-          - escalada: Pais e Filhas
+          - alvo_uid: POx1tS9AZs7lxr
+            pontos_uids:
+            - sYClr2YcirKbmt
+            escalada: Pais e Filhas
             ids:
-            - '1'
-          - escalada: Morcegos Sinuosos
+            - sYClr2YcirKbmt
+          - alvo_uid: bk07KwoUTlXhPp
+            pontos_uids:
+            - 1Oi0nSOj3ckjhr
+            escalada: Morcegos Sinuosos
             ids:
-            - '2'
-          - escalada: Sintoniza Lá
+            - 1Oi0nSOj3ckjhr
+          - alvo_uid: YaLSSJDCOuH2Bu
+            pontos_uids:
+            - MZB7tEVe1jqmkH
+            escalada: Sintoniza Lá
             ids:
-            - '3'
-          - escalada: ???
+            - MZB7tEVe1jqmkH
+          - alvo_uid: 14AJXjjTteqOLZ
+            pontos_uids:
+            - il798y9aIJSc7I
+            escalada: ???
             ids:
-            - '4'
-          - ids:
-            - Setor_Vale_das_Sombras
+            - il798y9aIJSc7I
+          - alvo_uid: fueKv7mvJ5Mon2
+            pontos_uids:
+            - S43crAZaWVRrNv
             setor: Setor Vale das Sombras
-          - ids:
-            - Setor_Primordios
+            ids:
+            - S43crAZaWVRrNv
+          - alvo_uid: qey8xcqcLCOOwp
+            pontos_uids:
+            - g5sr9LKjWvRJM7
             setor: Setor Primórdios
+            ids:
+            - g5sr9LKjWvRJM7
         escaladas:
-        - via_esportiva:
+        - uid: POx1tS9AZs7lxr
+          via_esportiva:
             nome: Pais e Filhas
             dificuldade: BR_5
             quantidade_protecoes_intermediarias: 7
-        - via_esportiva:
+        - uid: bk07KwoUTlXhPp
+          via_esportiva:
             nome: Morcegos Sinuosos
             dificuldade: BR_6SUP
             quantidade_protecoes_intermediarias: 6
-        - via_esportiva:
+        - uid: YaLSSJDCOuH2Bu
+          via_esportiva:
             nome: Sintoniza Lá
             dificuldade: BR_6SUP
             quantidade_protecoes_intermediarias: 6
-        - via_esportiva:
+        - uid: 14AJXjjTteqOLZ
+          via_esportiva:
             nome: ???
             dificuldade: PROJETO
         descricao: '# Setor 4 Picos'
@@ -2034,10 +2804,12 @@ picos:
           total_esportivas: 4
   - grupo:
       conteudo:
+        uid: ygIGAaiKPCRu5G
         caminho_imagem_capa: imagens/setor_vale_oculto_p0_i0.webp
         nome: Vale Oculto
         setores:
         - conteudo:
+            uid: jwrhx8dZTo5fU7
             caminho_imagem_capa: imagens/setor_vale_oculto__subsetor_de_cara_p0_i1.webp
             nome: Sub Setor de Cara
             mapas:
@@ -2045,90 +2817,126 @@ picos:
               largura_mapa: 743
               altura_mapa: 799
               pontos_de_interesse:
-              - id: '1'
-                label: '1'
+              - uid: 5UjHkfUeONwGqT
+                rotulo: '1'
                 circulo:
                   x: 349
                   y: 308
                   raio: 20
-              - id: '2'
-                label: '2'
+                id: 5UjHkfUeONwGqT
+                label: '1'
+              - uid: sDyhE0VgD77F03
+                rotulo: '2'
                 circulo:
                   x: 309
                   y: 238
                   raio: 20
-              - id: '3'
-                label: '3'
+                id: sDyhE0VgD77F03
+                label: '2'
+              - uid: nRS8yeWXKSRNdu
+                rotulo: '3'
                 circulo:
                   x: 242
                   y: 216
                   raio: 19
-              - id: '4'
-                label: '4'
+                id: nRS8yeWXKSRNdu
+                label: '3'
+              - uid: xpG9p0ois3WVX9
+                rotulo: '4'
                 circulo:
                   x: 279
                   y: 159
                   raio: 20
-              - id: '5'
-                label: '5'
+                id: xpG9p0ois3WVX9
+                label: '4'
+              - uid: e9nIv6njQdi7iQ
+                rotulo: '5'
                 circulo:
                   x: 252
                   y: 96
                   raio: 20
-              - id: Setores_Laranja_Anfiteatro
-                label: SUB SETOR LARANJA / ANFITEATRO →
+                id: e9nIv6njQdi7iQ
+                label: '5'
+              - uid: 96aIAA9mpFZPix
+                rotulo: SUB SETOR LARANJA / ANFITEATRO →
                 retangulo:
                   x: 498
                   y: 664
                   comprimento: 263
                   largura: 50
                   angulo_graus_x100: 132
+                id: 96aIAA9mpFZPix
+                label: SUB SETOR LARANJA / ANFITEATRO →
               referencias:
-              - escalada: Facão Traiçoeiro
+              - alvo_uid: unIWWHWHvC692h
+                pontos_uids:
+                - 5UjHkfUeONwGqT
+                escalada: Facão Traiçoeiro
                 ids:
-                - '1'
-              - escalada: Negatios
+                - 5UjHkfUeONwGqT
+              - alvo_uid: daU1dxG1WAtjRx
+                pontos_uids:
+                - sDyhE0VgD77F03
+                escalada: Negatios
                 ids:
-                - '2'
-              - escalada: Face Oculta
+                - sDyhE0VgD77F03
+              - alvo_uid: QJoCninWUfTzRX
+                pontos_uids:
+                - nRS8yeWXKSRNdu
+                escalada: Face Oculta
                 ids:
-                - '3'
-              - escalada: Lado Sombrio
+                - nRS8yeWXKSRNdu
+              - alvo_uid: Gi1L9BmkBZYYyO
+                pontos_uids:
+                - xpG9p0ois3WVX9
+                escalada: Lado Sombrio
                 ids:
-                - '4'
-              - escalada: Tio Ativo
+                - xpG9p0ois3WVX9
+              - alvo_uid: 2WEDbjV44KLNJR
+                pontos_uids:
+                - e9nIv6njQdi7iQ
+                escalada: Tio Ativo
                 ids:
-                - '5'
-              - ids:
-                - Setores_Laranja_Anfiteatro
-                grupo: Vale Oculto
+                - e9nIv6njQdi7iQ
+              - alvo_uid: 7FF6sDYmesvSS1
+                pontos_uids:
+                - 96aIAA9mpFZPix
                 setor: Sub Setor Laranja
-              - ids:
-                - Setores_Laranja_Anfiteatro
-                grupo: Vale Oculto
+                ids:
+                - 96aIAA9mpFZPix
+              - alvo_uid: N96kFSUPO2TSfE
+                pontos_uids:
+                - 96aIAA9mpFZPix
                 setor: Sub Setor Anfiteatro
+                ids:
+                - 96aIAA9mpFZPix
             escaladas:
-            - via_esportiva:
+            - uid: unIWWHWHvC692h
+              via_esportiva:
                 nome: Facão Traiçoeiro
                 dificuldade: BR_6
                 quantidade_protecoes_intermediarias: 3
                 quantidade_protecoes_parada: 2
-            - via_esportiva:
+            - uid: daU1dxG1WAtjRx
+              via_esportiva:
                 nome: Negatios
                 dificuldade: BR_6SUP
                 quantidade_protecoes_intermediarias: 4
                 quantidade_protecoes_parada: 2
-            - via_esportiva:
+            - uid: QJoCninWUfTzRX
+              via_esportiva:
                 nome: Face Oculta
                 dificuldade: BR_7A
                 quantidade_protecoes_intermediarias: 6
                 quantidade_protecoes_parada: 2
-            - via_esportiva:
+            - uid: Gi1L9BmkBZYYyO
+              via_esportiva:
                 nome: Lado Sombrio
                 dificuldade: BR_7C
                 quantidade_protecoes_intermediarias: 7
                 quantidade_protecoes_parada: 2
-            - via_esportiva:
+            - uid: 2WEDbjV44KLNJR
+              via_esportiva:
                 nome: Tio Ativo
                 dificuldade: BR_6SUP
                 quantidade_protecoes_intermediarias: 3
@@ -2138,6 +2946,7 @@ picos:
               total_escaladas: 5
               total_esportivas: 5
         - conteudo:
+            uid: 7FF6sDYmesvSS1
             caminho_imagem_capa: imagens/setor_vale_oculto__subsetor_laranja_p0_i1.webp
             nome: Sub Setor Laranja
             mapas:
@@ -2145,196 +2954,276 @@ picos:
               largura_mapa: 978
               altura_mapa: 660
               pontos_de_interesse:
-              - id: '1'
-                label: '1'
+              - uid: 0ZpLoeGL4zIgeE
+                rotulo: '1'
                 circulo:
                   x: 475
                   y: 269
                   raio: 20
-              - id: '2'
-                label: '2'
+                id: 0ZpLoeGL4zIgeE
+                label: '1'
+              - uid: QbGfiZhFZoG2qO
+                rotulo: '2'
                 circulo:
                   x: 434
                   y: 180
                   raio: 20
-              - id: '3'
-                label: '3'
+                id: QbGfiZhFZoG2qO
+                label: '2'
+              - uid: sxPTi5gs1I3yeK
+                rotulo: '3'
                 circulo:
                   x: 375
                   y: 192
                   raio: 20
-              - id: '4'
-                label: '4'
+                id: sxPTi5gs1I3yeK
+                label: '3'
+              - uid: yIUsAKRddO2YJ7
+                rotulo: '4'
                 circulo:
                   x: 330
                   y: 137
                   raio: 20
-              - id: '5'
-                label: '5'
+                id: yIUsAKRddO2YJ7
+                label: '4'
+              - uid: 0cTsjOt9sLUwkr
+                rotulo: '5'
                 circulo:
                   x: 524
                   y: 369
                   raio: 20
-              - id: '6'
-                label: '6'
+                id: 0cTsjOt9sLUwkr
+                label: '5'
+              - uid: 2fBocVWxMYeYis
+                rotulo: '6'
                 circulo:
                   x: 578
                   y: 369
                   raio: 20
-              - id: '7'
-                label: '7'
+                id: 2fBocVWxMYeYis
+                label: '6'
+              - uid: WWFBQnr12jxCwl
+                rotulo: '7'
                 circulo:
                   x: 630
                   y: 378
                   raio: 20
-              - id: '8'
-                label: '8'
+                id: WWFBQnr12jxCwl
+                label: '7'
+              - uid: o11Z9JdNPGES95
+                rotulo: '8'
                 circulo:
                   x: 686
                   y: 369
                   raio: 20
-              - id: '9'
-                label: '9'
+                id: o11Z9JdNPGES95
+                label: '8'
+              - uid: tKxkyoX4NjeDeY
+                rotulo: '9'
                 circulo:
                   x: 731
                   y: 369
                   raio: 20
-              - id: '10'
-                label: '10'
+                id: tKxkyoX4NjeDeY
+                label: '9'
+              - uid: 6YTrcibKL8CNlE
+                rotulo: '10'
                 circulo:
                   x: 786
                   y: 368
                   raio: 20
-              - id: '11'
-                label: '11'
+                id: 6YTrcibKL8CNlE
+                label: '10'
+              - uid: ONJkLnIwP2Y2nX
+                rotulo: '11'
                 circulo:
                   x: 837
                   y: 339
                   raio: 20
-              - id: '12'
-                label: '12'
+                id: ONJkLnIwP2Y2nX
+                label: '11'
+              - uid: zU1bkMg05g4zOT
+                rotulo: '12'
                 circulo:
                   x: 876
                   y: 292
                   raio: 20
-              - id: Sub_Setor_Anfiteatro
-                label: SUB SETOR ANFITEATRO →
+                id: zU1bkMg05g4zOT
+                label: '12'
+              - uid: eSReHnuf0mycQp
+                rotulo: SUB SETOR ANFITEATRO →
                 retangulo:
                   x: 628
                   y: 476
                   comprimento: 221
                   largura: 23
                   angulo_graus_x100: 114
-              - id: Sub_Setor_de_Cara
-                label: SUB SETOR DE CARA ↙
+                id: eSReHnuf0mycQp
+                label: SUB SETOR ANFITEATRO →
+              - uid: OQH4aZaKkghh6F
+                rotulo: SUB SETOR DE CARA ↙
                 retangulo:
                   x: 243
                   y: 622
                   comprimento: 200
                   largura: 30
                   angulo_graus_x100: -1211
+                id: OQH4aZaKkghh6F
+                label: SUB SETOR DE CARA ↙
               referencias:
-              - escalada: Interação Nativa
+              - alvo_uid: YwtAF69xeT5xr4
+                pontos_uids:
+                - 0ZpLoeGL4zIgeE
+                escalada: Interação Nativa
                 ids:
-                - '1'
-              - escalada: Trabalhador Brasileiro
+                - 0ZpLoeGL4zIgeE
+              - alvo_uid: UIJLoSDt00v645
+                pontos_uids:
+                - QbGfiZhFZoG2qO
+                escalada: Trabalhador Brasileiro
                 ids:
-                - '2'
-              - escalada: Quebrando O Silêncio
+                - QbGfiZhFZoG2qO
+              - alvo_uid: 0z5bu4BiSof2iH
+                pontos_uids:
+                - sxPTi5gs1I3yeK
+                escalada: Quebrando O Silêncio
                 ids:
-                - '3'
-              - escalada: Laranja Mecânica
+                - sxPTi5gs1I3yeK
+              - alvo_uid: 1N81wmBjqD4cVP
+                pontos_uids:
+                - yIUsAKRddO2YJ7
+                escalada: Laranja Mecânica
                 ids:
-                - '4'
-              - escalada: Jardineiro
+                - yIUsAKRddO2YJ7
+              - alvo_uid: I8JFyCTHMs43Dj
+                pontos_uids:
+                - 0cTsjOt9sLUwkr
+                escalada: Jardineiro
                 ids:
-                - '5'
-              - escalada: Escovação
+                - 0cTsjOt9sLUwkr
+              - alvo_uid: lFa4RRQ2Cmahid
+                pontos_uids:
+                - 2fBocVWxMYeYis
+                escalada: Escovação
                 ids:
-                - '6'
-              - escalada: Ataque em Massa
+                - 2fBocVWxMYeYis
+              - alvo_uid: wWhtYhrJwIZj1w
+                pontos_uids:
+                - WWFBQnr12jxCwl
+                escalada: Ataque em Massa
                 ids:
-                - '7'
-              - escalada: Zelador
+                - WWFBQnr12jxCwl
+              - alvo_uid: uHxXqkNwWN1nBz
+                pontos_uids:
+                - o11Z9JdNPGES95
+                escalada: Zelador
                 ids:
-                - '8'
-              - escalada: Faxina Russa
+                - o11Z9JdNPGES95
+              - alvo_uid: MEMDjckwEvDna9
+                pontos_uids:
+                - tKxkyoX4NjeDeY
+                escalada: Faxina Russa
                 ids:
-                - '9'
-              - escalada: Mandela
+                - tKxkyoX4NjeDeY
+              - alvo_uid: cVlQUykJ1Y0kUM
+                pontos_uids:
+                - 6YTrcibKL8CNlE
+                escalada: Mandela
                 ids:
-                - '10'
-              - escalada: Patriotas Hipócritas
+                - 6YTrcibKL8CNlE
+              - alvo_uid: ASE9GqOX1HPgc1
+                pontos_uids:
+                - ONJkLnIwP2Y2nX
+                escalada: Patriotas Hipócritas
                 ids:
-                - '11'
-              - escalada: Dr. Máquina
+                - ONJkLnIwP2Y2nX
+              - alvo_uid: QY4WBgBK5o59Gf
+                pontos_uids:
+                - zU1bkMg05g4zOT
+                escalada: Dr. Máquina
                 ids:
-                - '12'
-              - ids:
-                - Sub_Setor_de_Cara
-                grupo: Vale Oculto
+                - zU1bkMg05g4zOT
+              - alvo_uid: jwrhx8dZTo5fU7
+                pontos_uids:
+                - OQH4aZaKkghh6F
                 setor: Sub Setor de Cara
-              - ids:
-                - Sub_Setor_Anfiteatro
-                grupo: Vale Oculto
+                ids:
+                - OQH4aZaKkghh6F
+              - alvo_uid: N96kFSUPO2TSfE
+                pontos_uids:
+                - eSReHnuf0mycQp
                 setor: Sub Setor Anfiteatro
+                ids:
+                - eSReHnuf0mycQp
             escaladas:
-            - via_esportiva:
+            - uid: YwtAF69xeT5xr4
+              via_esportiva:
                 nome: Interação Nativa
                 dificuldade: BR_5SUP
                 quantidade_protecoes_intermediarias: 8
                 quantidade_protecoes_parada: 1
-            - via_esportiva:
+            - uid: UIJLoSDt00v645
+              via_esportiva:
                 nome: Trabalhador Brasileiro
                 dificuldade: BR_7A
                 quantidade_protecoes_intermediarias: 8
                 quantidade_protecoes_parada: 1
-            - via_esportiva:
+            - uid: 0z5bu4BiSof2iH
+              via_esportiva:
                 nome: Quebrando O Silêncio
                 dificuldade: BR_8B
                 quantidade_protecoes_intermediarias: 9
                 quantidade_protecoes_parada: 2
-            - via_esportiva:
+            - uid: 1N81wmBjqD4cVP
+              via_esportiva:
                 nome: Laranja Mecânica
                 dificuldade: PROJETO
                 quantidade_protecoes_intermediarias: 10
                 quantidade_protecoes_parada: 2
-            - via_esportiva:
+            - uid: I8JFyCTHMs43Dj
+              via_esportiva:
                 nome: Jardineiro
                 dificuldade: BR_5
                 quantidade_protecoes_intermediarias: 3
                 quantidade_protecoes_parada: 1
-            - via_esportiva:
+            - uid: lFa4RRQ2Cmahid
+              via_esportiva:
                 nome: Escovação
                 dificuldade: BR_5
                 quantidade_protecoes_intermediarias: 3
                 quantidade_protecoes_parada: 1
-            - via_esportiva:
+            - uid: wWhtYhrJwIZj1w
+              via_esportiva:
                 nome: Ataque em Massa
                 dificuldade: BR_6SUP
                 quantidade_protecoes_intermediarias: 4
                 quantidade_protecoes_parada: 1
-            - via_esportiva:
+            - uid: uHxXqkNwWN1nBz
+              via_esportiva:
                 nome: Zelador
                 dificuldade: BR_7A
                 quantidade_protecoes_intermediarias: 4
                 quantidade_protecoes_parada: 2
-            - via_esportiva:
+            - uid: MEMDjckwEvDna9
+              via_esportiva:
                 nome: Faxina Russa
                 dificuldade: BR_6SUP
                 quantidade_protecoes_intermediarias: 5
                 quantidade_protecoes_parada: 1
-            - via_esportiva:
+            - uid: cVlQUykJ1Y0kUM
+              via_esportiva:
                 nome: Mandela
                 dificuldade: BR_6
                 quantidade_protecoes_intermediarias: 4
                 quantidade_protecoes_parada: 1
-            - via_esportiva:
+            - uid: ASE9GqOX1HPgc1
+              via_esportiva:
                 nome: Patriotas Hipócritas
                 dificuldade: BR_7B
                 quantidade_protecoes_intermediarias: 4
                 quantidade_protecoes_parada: 2
-            - via_esportiva:
+            - uid: QY4WBgBK5o59Gf
+              via_esportiva:
                 nome: Dr. Máquina
                 dificuldade: BR_6SUP
                 quantidade_protecoes_intermediarias: 4
@@ -2344,6 +3233,7 @@ picos:
               total_escaladas: 12
               total_esportivas: 12
         - conteudo:
+            uid: N96kFSUPO2TSfE
             caminho_imagem_capa: imagens/setor_vale_oculto__subsetor_anfiteatro_p0_i1.webp
             nome: Sub Setor Anfiteatro
             mapas:
@@ -2351,232 +3241,328 @@ picos:
               largura_mapa: 752
               altura_mapa: 671
               pontos_de_interesse:
-              - id: '1'
-                label: '1'
+              - uid: iEkcxcK0DMBWno
+                rotulo: '1'
                 circulo:
                   x: 295
                   y: 553
                   raio: 20
-              - id: '2'
-                label: '2'
+                id: iEkcxcK0DMBWno
+                label: '1'
+              - uid: v3b5xPoUrlHbP4
+                rotulo: '2'
                 circulo:
                   x: 333
                   y: 523
                   raio: 20
-              - id: '3'
-                label: '3'
+                id: v3b5xPoUrlHbP4
+                label: '2'
+              - uid: GWa6vKQYrgg1IH
+                rotulo: '3'
                 circulo:
                   x: 401
                   y: 478
                   raio: 20
-              - id: '4'
-                label: '4'
+                id: GWa6vKQYrgg1IH
+                label: '3'
+              - uid: fIzNBGgVbmUX1b
+                rotulo: '4'
                 circulo:
                   x: 438
                   y: 386
                   raio: 20
-              - id: '5'
-                label: '5'
+                id: fIzNBGgVbmUX1b
+                label: '4'
+              - uid: eU5gNJVc8sbCMc
+                rotulo: '5'
                 circulo:
                   x: 387
                   y: 380
                   raio: 20
-              - id: '6'
-                label: '6'
+                id: eU5gNJVc8sbCMc
+                label: '5'
+              - uid: BbE2N9A7uTz0g2
+                rotulo: '6'
                 circulo:
                   x: 330
                   y: 380
                   raio: 20
-              - id: '7'
-                label: '7'
+                id: BbE2N9A7uTz0g2
+                label: '6'
+              - uid: o4d9UYzMyQOa3o
+                rotulo: '7'
                 circulo:
                   x: 280
                   y: 380
                   raio: 20
-              - id: '8'
-                label: '8'
+                id: o4d9UYzMyQOa3o
+                label: '7'
+              - uid: EYbb7MpZAKSt4W
+                rotulo: '8'
                 circulo:
                   x: 246
                   y: 345
                   raio: 20
-              - id: '9'
-                label: '9'
+                id: EYbb7MpZAKSt4W
+                label: '8'
+              - uid: 7mMHADZJ3LOZpv
+                rotulo: '9'
                 circulo:
                   x: 201
                   y: 319
                   raio: 20
-              - id: '10'
-                label: '10'
+                id: 7mMHADZJ3LOZpv
+                label: '9'
+              - uid: fYEV51ECXBhQZf
+                rotulo: '10'
                 circulo:
                   x: 193
                   y: 269
                   raio: 20
-              - id: '11'
-                label: '11'
+                id: fYEV51ECXBhQZf
+                label: '10'
+              - uid: kJVdBHdaxD67O5
+                rotulo: '11'
                 circulo:
                   x: 268
                   y: 151
                   raio: 20
-              - id: '12'
-                label: '12'
+                id: kJVdBHdaxD67O5
+                label: '11'
+              - uid: Sy64zP0O5VIXOa
+                rotulo: '12'
                 circulo:
                   x: 329
                   y: 146
                   raio: 20
-              - id: '13'
-                label: '13'
+                id: Sy64zP0O5VIXOa
+                label: '12'
+              - uid: gS5QbfzZlt0pom
+                rotulo: '13'
                 circulo:
                   x: 379
                   y: 146
                   raio: 20
-              - id: '14'
-                label: '14'
+                id: gS5QbfzZlt0pom
+                label: '13'
+              - uid: XNqLAVFcosVZqD
+                rotulo: '14'
                 circulo:
                   x: 432
                   y: 132
                   raio: 20
-              - id: '15'
-                label: '15'
+                id: XNqLAVFcosVZqD
+                label: '14'
+              - uid: uQuwmlyVpGMMGh
+                rotulo: '15'
                 circulo:
                   x: 511
                   y: 76
                   raio: 20
-              - id: '16'
-                label: '16'
+                id: uQuwmlyVpGMMGh
+                label: '15'
+              - uid: 6A0ccSXhx3xlgN
+                rotulo: '16'
                 circulo:
                   x: 597
                   y: 97
                   raio: 20
-              - id: Sub_Setor_de_Cara
-                label: SUB SETOR DE CARA ↗
+                id: 6A0ccSXhx3xlgN
+                label: '16'
+              - uid: fX98VBxWNwQTzs
+                rotulo: SUB SETOR DE CARA ↗
                 retangulo:
                   x: 380
                   y: 592
                   comprimento: 196
                   largura: 31
                   angulo_graus_x100: -1091
+                id: fX98VBxWNwQTzs
+                label: SUB SETOR DE CARA ↗
               referencias:
-              - escalada: A Cara do Tia
+              - alvo_uid: 50qpMQkwluF2iy
+                pontos_uids:
+                - iEkcxcK0DMBWno
+                escalada: A Cara do Tia
                 ids:
-                - '1'
-              - escalada: Pedra no Caminho
+                - iEkcxcK0DMBWno
+              - alvo_uid: tTZ0BY9ZrJJrME
+                pontos_uids:
+                - v3b5xPoUrlHbP4
+                escalada: Pedra no Caminho
                 ids:
-                - '2'
-              - escalada: Hora Marcada
+                - v3b5xPoUrlHbP4
+              - alvo_uid: OW7xvzq11x4EVy
+                pontos_uids:
+                - GWa6vKQYrgg1IH
+                escalada: Hora Marcada
                 ids:
-                - '3'
-              - escalada: Funcionário do Mês
+                - GWa6vKQYrgg1IH
+              - alvo_uid: BBfvFk5lmO3oRT
+                pontos_uids:
+                - fIzNBGgVbmUX1b
+                escalada: Funcionário do Mês
                 ids:
-                - '4'
-              - escalada: Mancha Preta
+                - fIzNBGgVbmUX1b
+              - alvo_uid: hddwHJ16FyVaDu
+                pontos_uids:
+                - eU5gNJVc8sbCMc
+                escalada: Mancha Preta
                 ids:
-                - '5'
-              - escalada: Recepção Venenosa
+                - eU5gNJVc8sbCMc
+              - alvo_uid: Yz3hoWFyaEtP2a
+                pontos_uids:
+                - BbE2N9A7uTz0g2
+                escalada: Recepção Venenosa
                 ids:
-                - '6'
-              - escalada: Achados e Perdidos
+                - BbE2N9A7uTz0g2
+              - alvo_uid: K34S4jOx8u40JR
+                pontos_uids:
+                - o4d9UYzMyQOa3o
+                escalada: Achados e Perdidos
                 ids:
-                - '7'
-              - escalada: Pelotão de Elite
+                - o4d9UYzMyQOa3o
+              - alvo_uid: r7bOEJxRjeQmDL
+                pontos_uids:
+                - EYbb7MpZAKSt4W
+                escalada: Pelotão de Elite
                 ids:
-                - '8'
-              - escalada: Dono do Pico
+                - EYbb7MpZAKSt4W
+              - alvo_uid: rKKZxs1RikJkfg
+                pontos_uids:
+                - fYEV51ECXBhQZf
+                escalada: Dono do Pico
                 ids:
-                - '10'
-              - escalada: Tio Certeiro
+                - fYEV51ECXBhQZf
+              - alvo_uid: YJt4y7ScRy5Q5H
+                pontos_uids:
+                - kJVdBHdaxD67O5
+                escalada: Tio Certeiro
                 ids:
-                - '11'
-              - escalada: Tios Goró
+                - kJVdBHdaxD67O5
+              - alvo_uid: upqkR1QvIhg28M
+                pontos_uids:
+                - Sy64zP0O5VIXOa
+                escalada: Tios Goró
                 ids:
-                - '12'
-              - escalada: Tioradentes
+                - Sy64zP0O5VIXOa
+              - alvo_uid: ciTDTOBYUZ4Xg3
+                pontos_uids:
+                - gS5QbfzZlt0pom
+                escalada: Tioradentes
                 ids:
-                - '13'
-              - escalada: Tios D'Jah
+                - gS5QbfzZlt0pom
+              - alvo_uid: G3aqF8LwfqLYVX
+                pontos_uids:
+                - XNqLAVFcosVZqD
+                escalada: Tios D'Jah
                 ids:
-                - '14'
-              - escalada: Velho Tio
+                - XNqLAVFcosVZqD
+              - alvo_uid: SEgtuDh2JA7efn
+                pontos_uids:
+                - uQuwmlyVpGMMGh
+                escalada: Velho Tio
                 ids:
-                - '15'
-              - escalada: Tio Tonhas
+                - uQuwmlyVpGMMGh
+              - alvo_uid: WkAZF7VlcvXrtu
+                pontos_uids:
+                - 6A0ccSXhx3xlgN
+                escalada: Tio Tonhas
                 ids:
-                - '16'
-              - ids:
-                - Sub_Setor_de_Cara
-                grupo: Vale Oculto
+                - 6A0ccSXhx3xlgN
+              - alvo_uid: jwrhx8dZTo5fU7
+                pontos_uids:
+                - fX98VBxWNwQTzs
                 setor: Sub Setor de Cara
+                ids:
+                - fX98VBxWNwQTzs
             escaladas:
-            - via_esportiva:
+            - uid: 50qpMQkwluF2iy
+              via_esportiva:
                 nome: A Cara do Tia
                 dificuldade: BR_6SUP
                 quantidade_protecoes_intermediarias: 6
                 quantidade_protecoes_parada: 2
-            - via_esportiva:
+            - uid: tTZ0BY9ZrJJrME
+              via_esportiva:
                 nome: Pedra no Caminho
                 dificuldade: BR_7A
                 quantidade_protecoes_intermediarias: 3
                 quantidade_protecoes_parada: 2
-            - via_esportiva:
+            - uid: OW7xvzq11x4EVy
+              via_esportiva:
                 nome: Hora Marcada
                 dificuldade: BR_6
                 quantidade_protecoes_intermediarias: 3
                 quantidade_protecoes_parada: 1
-            - via_esportiva:
+            - uid: BBfvFk5lmO3oRT
+              via_esportiva:
                 nome: Funcionário do Mês
                 dificuldade: BR_6SUP
                 quantidade_protecoes_intermediarias: 4
                 quantidade_protecoes_parada: 2
-            - via_esportiva:
+            - uid: hddwHJ16FyVaDu
+              via_esportiva:
                 nome: Mancha Preta
                 dificuldade: BR_7B
                 quantidade_protecoes_intermediarias: 6
                 quantidade_protecoes_parada: 2
-            - via_esportiva:
+            - uid: Yz3hoWFyaEtP2a
+              via_esportiva:
                 nome: Recepção Venenosa
                 dificuldade: BR_7A
                 quantidade_protecoes_intermediarias: 4
                 quantidade_protecoes_parada: 2
-            - via_esportiva:
+            - uid: K34S4jOx8u40JR
+              via_esportiva:
                 nome: Achados e Perdidos
                 dificuldade: BR_6SUP
                 quantidade_protecoes_intermediarias: 6
                 quantidade_protecoes_parada: 2
-            - via_esportiva:
+            - uid: r7bOEJxRjeQmDL
+              via_esportiva:
                 nome: Pelotão de Elite
                 dificuldade: BR_6SUP
                 quantidade_protecoes_intermediarias: 5
                 quantidade_protecoes_parada: 2
-            - via_esportiva:
+            - uid: rKKZxs1RikJkfg
+              via_esportiva:
                 nome: Dono do Pico
                 dificuldade: BR_7C
                 quantidade_protecoes_intermediarias: 8
                 quantidade_protecoes_parada: 2
-            - via_esportiva:
+            - uid: YJt4y7ScRy5Q5H
+              via_esportiva:
                 nome: Tio Certeiro
                 dificuldade: BR_6
                 quantidade_protecoes_intermediarias: 5
                 quantidade_protecoes_parada: 2
-            - via_esportiva:
+            - uid: upqkR1QvIhg28M
+              via_esportiva:
                 nome: Tios Goró
                 dificuldade: BR_6
                 quantidade_protecoes_intermediarias: 5
                 quantidade_protecoes_parada: 2
-            - via_esportiva:
+            - uid: ciTDTOBYUZ4Xg3
+              via_esportiva:
                 nome: Tioradentes
                 dificuldade: BR_6
                 quantidade_protecoes_intermediarias: 5
                 quantidade_protecoes_parada: 2
-            - via_esportiva:
+            - uid: G3aqF8LwfqLYVX
+              via_esportiva:
                 nome: Tios D'Jah
                 dificuldade: BR_6SUP
                 quantidade_protecoes_intermediarias: 6
                 quantidade_protecoes_parada: 2
-            - via_esportiva:
+            - uid: SEgtuDh2JA7efn
+              via_esportiva:
                 nome: Velho Tio
                 dificuldade: BR_6SUP
                 quantidade_protecoes_intermediarias: 5
                 quantidade_protecoes_parada: 2
-            - via_esportiva:
+            - uid: WkAZF7VlcvXrtu
+              via_esportiva:
                 nome: Tio Tonhas
                 dificuldade: BR_6SUP
                 quantidade_protecoes_intermediarias: 6
@@ -2623,149 +3609,216 @@ picos:
         largura_mapa: 1773
         altura_mapa: 1575
         pontos_de_interesse:
-        - id: Setor_Panelinha
-          label: Setor Panelinha
+        - uid: sq5lSLsP6yRoha
+          rotulo: Setor Panelinha
           retangulo:
             x: 186
             y: 447
             comprimento: 111
             largura: 48
-        - id: Setor_De_Esquerda
-          label: Setor De Esquerda
+          id: sq5lSLsP6yRoha
+          label: Setor Panelinha
+        - uid: AuhEW8uexQDSYW
+          rotulo: Setor De Esquerda
           retangulo:
             x: 184
             y: 566
             comprimento: 151
             largura: 53
-        - id: Setor_Vale_Zela
-          label: Setor Vale Zela
+          id: AuhEW8uexQDSYW
+          label: Setor De Esquerda
+        - uid: 4AIaT3RTteJKlR
+          rotulo: Setor Vale Zela
           retangulo:
             x: 1256
             y: 428
             comprimento: 110
             largura: 51
-        - id: Setor_Sentinela
-          label: Setor Sentinela
+          id: 4AIaT3RTteJKlR
+          label: Setor Vale Zela
+        - uid: hMaDTsJJjXg1qK
+          rotulo: Setor Sentinela
           retangulo:
             x: 802
             y: 471
             comprimento: 196
             largura: 28
-        - id: Setor_Vale_das_Sombras_Top
-          label: Setor Vale das Sombras
+          id: hMaDTsJJjXg1qK
+          label: Setor Sentinela
+        - uid: xTOfFGu0XTIKF2
+          rotulo: Setor Vale das Sombras
           retangulo:
             x: 1433
             y: 546
             comprimento: 210
             largura: 53
-        - id: Setor_Janelas_Pro_Abismo
-          label: Setor Janelas Pro Abismo
+          id: xTOfFGu0XTIKF2
+          label: Setor Vale das Sombras
+        - uid: nJ3Bf1JpAGyu0n
+          rotulo: Setor Janelas Pro Abismo
           retangulo:
             x: 840
             y: 652
             comprimento: 180
             largura: 45
-        - id: Boulder_Marley
-          label: Boulder Marley
+          id: nJ3Bf1JpAGyu0n
+          label: Setor Janelas Pro Abismo
+        - uid: FtulAnLb0xGMMB
+          rotulo: Boulder Marley
           retangulo:
             x: 450
             y: 692
             comprimento: 105
             largura: 55
-        - id: Setor_Imigrantes
-          label: Setor Imigrantes
+          id: FtulAnLb0xGMMB
+          label: Boulder Marley
+        - uid: Ykvsznkr4lHQox
+          rotulo: Setor Imigrantes
           retangulo:
             x: 1013
             y: 758
             comprimento: 130
             largura: 50
-        - id: Setor_Gameleira
-          label: Setor Gameleira
+          id: Ykvsznkr4lHQox
+          label: Setor Imigrantes
+        - uid: HJ8JRkX8KZQZqG
+          rotulo: Setor Gameleira
           retangulo:
             x: 798
             y: 874
             comprimento: 125
             largura: 50
-        - id: Setor_Vale_das_Sombras_Bottom
-          label: Setor Vale das Sombras
+          id: HJ8JRkX8KZQZqG
+          label: Setor Gameleira
+        - uid: XONeVs0hLpOUAB
+          rotulo: Setor Vale das Sombras
           retangulo:
             x: 1182
             y: 894
             comprimento: 213
             largura: 50
-        - id: Setor_Macaubas
-          label: Setor Macaúbas
+          id: XONeVs0hLpOUAB
+          label: Setor Vale das Sombras
+        - uid: MgS22ODuWim7im
+          rotulo: Setor Macaúbas
           retangulo:
             x: 1586
             y: 921
             comprimento: 125
             largura: 50
-        - id: Setor_7_Paralelo
-          label: Setor 7 Paralelo
+          id: MgS22ODuWim7im
+          label: Setor Macaúbas
+        - uid: cSc3HaPBZDGjJn
+          rotulo: Setor 7 Paralelo
           retangulo:
             x: 418
             y: 939
             comprimento: 126
             largura: 56
-        - id: Setor_Death_Horse
-          label: Setor Death Horse
+          id: cSc3HaPBZDGjJn
+          label: Setor 7 Paralelo
+        - uid: JkuBpIn2c4BMB6
+          rotulo: Setor Death Horse
           retangulo:
             x: 726
             y: 1015
             comprimento: 145
             largura: 50
-        - id: Setor_4_Picos
-          label: Setor 4 Picos
+          id: JkuBpIn2c4BMB6
+          label: Setor Death Horse
+        - uid: w5jV8TgzcRDpFm
+          rotulo: Setor 4 Picos
           retangulo:
             x: 1400
             y: 1009
             comprimento: 95
             largura: 50
-        - id: Setor_Primordios
-          label: Setor Primórdios
+          id: w5jV8TgzcRDpFm
+          label: Setor 4 Picos
+        - uid: vyvBpe76KlXyT1
+          rotulo: Setor Primórdios
           retangulo:
             x: 1626
             y: 1034
             comprimento: 135
             largura: 50
+          id: vyvBpe76KlXyT1
+          label: Setor Primórdios
         referencias:
-        - setor: Setor Panelinha
+        - alvo_uid: ASLKnxeEws2kaG
+          pontos_uids:
+          - sq5lSLsP6yRoha
+          setor: Setor Panelinha
           ids:
-          - Setor_Panelinha
-        - setor: Setor de Esquerda
+          - sq5lSLsP6yRoha
+        - alvo_uid: V04iCo3Npy8O8F
+          pontos_uids:
+          - AuhEW8uexQDSYW
+          setor: Setor de Esquerda
           ids:
-          - Setor_De_Esquerda
-        - setor: Setor Vale Zela
+          - AuhEW8uexQDSYW
+        - alvo_uid: MWoo8hRjlRntGq
+          pontos_uids:
+          - 4AIaT3RTteJKlR
+          setor: Setor Vale Zela
           ids:
-          - Setor_Vale_Zela
-        - setor: Setor Sentinela
+          - 4AIaT3RTteJKlR
+        - alvo_uid: EaM54aq9IJD36r
+          pontos_uids:
+          - hMaDTsJJjXg1qK
+          setor: Setor Sentinela
           ids:
-          - Setor_Sentinela
-        - setor: Setor Vale das Sombras
+          - hMaDTsJJjXg1qK
+        - alvo_uid: fueKv7mvJ5Mon2
+          pontos_uids:
+          - XONeVs0hLpOUAB
+          - xTOfFGu0XTIKF2
+          setor: Setor Vale das Sombras
           ids:
-          - Setor_Vale_das_Sombras_Bottom
-          - Setor_Vale_das_Sombras_Top
-        - setor: Setor Imigrantes
+          - XONeVs0hLpOUAB
+          - xTOfFGu0XTIKF2
+        - alvo_uid: GjARqXDXyIGp2W
+          pontos_uids:
+          - Ykvsznkr4lHQox
+          setor: Setor Imigrantes
           ids:
-          - Setor_Imigrantes
-        - setor: Setor Gameleira
+          - Ykvsznkr4lHQox
+        - alvo_uid: TU7ksiizSIZqH4
+          pontos_uids:
+          - HJ8JRkX8KZQZqG
+          setor: Setor Gameleira
           ids:
-          - Setor_Gameleira
-        - setor: Setor Macaúbas
+          - HJ8JRkX8KZQZqG
+        - alvo_uid: IOfSlf58GTdE9g
+          pontos_uids:
+          - MgS22ODuWim7im
+          setor: Setor Macaúbas
           ids:
-          - Setor_Macaubas
-        - setor: Setor 7 Paralelo
+          - MgS22ODuWim7im
+        - alvo_uid: Ac3qdS73pE0QaJ
+          pontos_uids:
+          - cSc3HaPBZDGjJn
+          setor: Setor 7 Paralelo
           ids:
-          - Setor_7_Paralelo
-        - setor: Setor Death Horse
+          - cSc3HaPBZDGjJn
+        - alvo_uid: YDntm65nIZs31H
+          pontos_uids:
+          - JkuBpIn2c4BMB6
+          setor: Setor Death Horse
           ids:
-          - Setor_Death_Horse
-        - setor: Setor 4 Picos
+          - JkuBpIn2c4BMB6
+        - alvo_uid: imSvcK2q24F9DV
+          pontos_uids:
+          - w5jV8TgzcRDpFm
+          setor: Setor 4 Picos
           ids:
-          - Setor_4_Picos
-        - setor: Setor Primórdios
+          - w5jV8TgzcRDpFm
+        - alvo_uid: qey8xcqcLCOOwp
+          pontos_uids:
+          - vyvBpe76KlXyT1
+          setor: Setor Primórdios
           ids:
-          - Setor_Primordios
+          - vyvBpe76KlXyT1
   localizacao:
     latitude: -194618320
     longitude: -442793680
@@ -2775,7 +3828,8 @@ picos:
     total_grupos: 1
     total_esportivas: 135
 botoes:
-- texto: Capa
+- uid: lgmqCXFyiCB9CF
+  texto: Capa
   destino:
     secao_textual:
       conteudo: |-
@@ -2786,7 +3840,8 @@ botoes:
         | *Capa* |
 
         Este é o croqui da Sinuosa, localizada em Sete Lagoas, MG.
-- texto: Regras e Segurança
+- uid: 2T3JPY6L85n0k0
+  texto: Regras e Segurança
   destino:
     secao_textual:
       conteudo: |-
@@ -2803,7 +3858,8 @@ botoes:
         - LEVE O SEU LIXO E SE O SEU AMIGO DEIXAR, LEVE O DELE TAMBÉM.
         - ATENÇÃO À ABELHAS E ANIMAIS PEÇONHENTOS.
         - MENORES DEVEM ESTAR ACOMPANHADOS DE UM RESPONSÁVEL LEGAL.
-- texto: Turismo e Equipamentos
+- uid: gx7Ewcn5YCbgCs
+  texto: Turismo e Equipamentos
   destino:
     secao_textual:
       conteudo: |-
@@ -2847,7 +3903,8 @@ botoes:
         - **Sítio do Rod:** 58 km
         - **Serra do Cipó:** 112 km
         - **Pedra Rachada:** 102 km
-- texto: Curiosidades
+- uid: o4WxaBe8QFiyJ4
+  texto: Curiosidades
   destino:
     secao_textual:
       conteudo: |-
@@ -2860,7 +3917,8 @@ botoes:
         O nome **"Sinuosa"** foi dado por escaladores locais em meados da década de 90 devido à curiosa forma da árvore que fica no Setor Primórdios. As primeiras vias do pico foram conquistadas há mais de 20 anos, mas só em 2013 o pico voltou a ser desenvolvido com abertura de novas vias.
 
         Existe um tipo de **caverna vertical** explorada por espeleólogos com mais de 100 metros de profundidade, com vários salões em seu decorrer, formações impressionantes de "esponjas calcárias", entre outras curiosidades sobre o terreno "karst".
-- texto: Considerações Finais
+- uid: y5spqBYWeiVQxh
+  texto: Considerações Finais
   destino:
     secao_textual:
       conteudo: |-
@@ -2875,7 +3933,8 @@ botoes:
         Conclui-se ainda que a área apresenta grande potencial para aberturas de novos setores, sendo feita uma estimativa da possibilidade de chegar a **mais de 150 vias**. É importante ressaltar que a presença de escaladores no local contribui de forma positiva, inibindo a presença de caçadores, vândalos e a depredação da fauna, flora e do patrimônio espeleológico.
 
         Além da área mencionada, existem outros locais de destaque no cenário nacional para a prática da escalada na cidade de Sete Lagoas, sendo eles: a **"Área de Escalada Gruta Rei do Mato"**, localizada no Monumento Natural Estadual Gruta Rei do Mato, e a **"Área de Escalada Esportiva Roxane"**, localizada em propriedade particular na zona rural do município. Porém, em ambas a prática da escalada está proibida. Devido a este fato, a possibilidade de novos trabalhos envolvendo a questão ambiental e a prática do esporte se mostra promissora.
-- texto: Ficha Técnica
+- uid: rOYRb92wSEHenV
+  texto: Ficha Técnica
   destino:
     secao_textual:
       conteudo: |-
@@ -2900,7 +3959,7 @@ botoes:
         - Instagram: [@sinuosaclimb](https://instagram.com/sinuosaclimb)
 
         **EDIÇÃO:** 2019-1
-ultima_migracao: 4
+ultima_migracao: 5
 publicar_croqui: true
 revisado_bounding_circle: true
 arquivos_externos:

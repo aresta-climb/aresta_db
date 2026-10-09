@@ -1,5 +1,6 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+uid: lbNNTCh7zQ5FFx
 id: br_mg_santa_luzia_santuario
 nome: Santuário de Santa Luzia
 creditos:
@@ -25,26 +26,31 @@ picos:
     latitude: -197022921
     longitude: -438754158
 botoes:
-- texto: Capa
+- uid: 41EWNTvorttmlK
+  texto: Capa
   destino:
     secao_textual:
       caminho: capa.md
-- texto: Como Chegar
+- uid: Pr6xqr71EQEfG4
+  texto: Como Chegar
   destino:
     secao_textual:
       caminho: como_chegar.md
-- texto: Comércio Local
+- uid: 9muGkyYUuICy6N
+  texto: Comércio Local
   destino:
     secao_textual:
       caminho: comercio_local.md
-- texto: Informações Gerais
+- uid: pnpP6dwgPFY0AC
+  texto: Informações Gerais
   destino:
     secao_textual:
       caminho: informacoes.md
-- texto: Como Usar Este Guia
+- uid: mAERK0HWcVMaFE
+  texto: Como Usar Este Guia
   destino:
     secao_textual:
       caminho: como_usar_este_guia.md
-ultima_migracao: 4
+ultima_migracao: 5
 publicar_croqui: true
 revisado_bounding_circle: true

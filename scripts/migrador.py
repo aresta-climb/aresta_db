@@ -3,10 +3,60 @@
 
 import importlib.util
 import re
+import sys
 from pathlib import Path
+from typing import Optional
 import yaml
 
 EXPRESSAO_MIGRACAO = re.compile(r"^(\d{4})_.*\.py$")
+
+
+def _obter_caminho_padrao_migracoes() -> Path:
+    """Retorna o caminho padrão de migracoes relativo à raiz do repositório."""
+    return Path(__file__).resolve().parent.parent / "migracoes"
+
+
+def _obter_caminho_repo_base_fallback() -> Optional[Path]:
+    """Tenta obter o diretório migracoes a partir do repositório base local sincronizado."""
+    try:
+        from editor.core.storage import GerenciadorCaminhos
+        caminho_base = GerenciadorCaminhos().obter_caminho_base_repo()
+        if caminho_base:
+            candidato = caminho_base / "migracoes"
+            if candidato.is_dir():
+                return candidato
+    except Exception:
+        pass
+    return None
+
+
+def obter_caminho_migracoes() -> Path:
+    """
+    Retorna o caminho do diretório de migrações de forma resiliente para
+    desenvolvimento, aplicativo congelado (PyInstaller) ou fallback de repositório.
+    """
+    # 1. Se executando congelado com PyInstaller (_MEIPASS)
+    if getattr(sys, "frozen", False) and hasattr(sys, "_MEIPASS"):
+        meipass_migracoes = Path(sys._MEIPASS) / "migracoes"
+        if meipass_migracoes.is_dir():
+            return meipass_migracoes
+
+    # 2. Caminho padrão local do repositório
+    caminho_padrao = _obter_caminho_padrao_migracoes()
+    if caminho_padrao.is_dir():
+        return caminho_padrao
+
+    # 3. Fallback para repositório base sincronizado localmente
+    try:
+        caminho_repo = _obter_caminho_repo_base_fallback()
+        if caminho_repo is not None:
+            return caminho_repo
+    except Exception:
+        pass
+
+    # 4. Fallback final se nada existir
+    return caminho_padrao
+
 
 def aplicar_migracoes(caminho_croqui: Path) -> None:
     """
@@ -30,7 +80,7 @@ def aplicar_migracoes(caminho_croqui: Path) -> None:
         except Exception:
             ultima_migracao = 0
 
-    caminho_migracoes = Path(__file__).resolve().parent.parent / "migracoes"
+    caminho_migracoes = obter_caminho_migracoes()
     
     # Varre a pasta de migrações em busca de scripts válidos
     migracoes_disponiveis = []
@@ -90,7 +140,7 @@ def obter_ultima_versao_migracao() -> int:
     """
     Retorna o número da versão mais alta de migração disponível na pasta migracoes.
     """
-    caminho_migracoes = Path(__file__).resolve().parent.parent / "migracoes"
+    caminho_migracoes = obter_caminho_migracoes()
     max_versao = 0
     if caminho_migracoes.exists():
         for item in caminho_migracoes.iterdir():

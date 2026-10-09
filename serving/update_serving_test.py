@@ -37,6 +37,31 @@ def test_get_db_version(tmp_path):
         
         assert get_db_version() == "v10"
 
+
+def test_get_db_version_ignora_migracao_database_only(tmp_path: Path) -> None:
+    """Garante que migrações que declaram AFETA_VERSAO_SERVING = False não incrementem a versão de serving."""
+    migracoes_dir = tmp_path / "migracoes"
+    migracoes_dir.mkdir()
+
+    # Migração 4 normal (afeta serving)
+    (migracoes_dir / "0004_adicionar_campos.py").write_text(
+        "# Migração normal\nAFETA_VERSAO_SERVING = True\n", encoding="utf-8"
+    )
+
+    # Migração 5 database-only (não afeta serving)
+    (migracoes_dir / "0005_migrar_uids_e_rotulos.py").write_text(
+        "# Migração restrita ao banco de dados interno\nAFETA_VERSAO_SERVING: bool = False\n",
+        encoding="utf-8",
+    )
+
+    # Teste de migração (ignorado por convenção _test.py)
+    (migracoes_dir / "0005_migrar_uids_e_rotulos_test.py").write_text("", encoding="utf-8")
+
+    with patch("update_serving.Path") as mock_path:
+        mock_path.return_value.resolve.return_value.parent.parent.__truediv__.return_value = migracoes_dir
+        # Deve retornar v4 porque a migração 5 é database-only
+        assert get_db_version() == "v4"
+
 def criar_manifesto(arquivos_dict: dict) -> str:
     lines = ["arquivos:"]
     for k, v in arquivos_dict.items():

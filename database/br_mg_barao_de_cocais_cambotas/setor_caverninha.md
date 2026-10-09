@@ -1,21 +1,24 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
+uid: wo6wwzFaS8yJkf
 caminho_imagem_capa: imagens/setor_caverninha_p0_i1.webp
 nome: Caverninha
 mapas:
 - caminho_imagem_mapa: imagens/setor_caverninha_p0_i0.webp
 escaladas:
-- via_movel:
+- uid: HuJKJ3PukIFfsN
+  via_movel:
     nome: Princesa léia
     dificuldade: BR_7A
     extensao: 40
     conquistadores:
     - Antonio Canelas
     - Elaine
-    descricao: Ótima via em fendas e agarras. Crux protegido com grampos. Começa em
-      cima da caverninha usada como abrigo. Peças pequenas e médias.
-- via_multiplas_enfiadas:
+    descricao: Ótima via em fendas e agarras. Crux protegido com grampos. Começa em cima da caverninha usada como 
+      abrigo. Peças pequenas e médias.
+- uid: esM3GBTAv771rt
+  via_multiplas_enfiadas:
     nome: Double trouble
     dificuldade_maxima: BR_7B
     exposicao: E3
@@ -24,27 +27,29 @@ escaladas:
     conquistadores:
     - André Coutinho
     - Breno Araújo
-    descricao: Começa no final da 'princesa léia'. Exige boa leitura de via e domínio
-      da técnica móvel. Terceira enfiada exposta. Peças médias e grandes.
+    descricao: Começa no final da 'princesa léia'. Exige boa leitura de via e domínio da técnica móvel. Terceira enfiada
+      exposta. Peças médias e grandes.
     comprimento_total: 80
-- via_movel:
+- uid: P1jVHZ8UKRngnR
+  via_movel:
     nome: Supurados
     dificuldade: INDEFINIDO
     extensao: 30
     conquistadores:
     - André Coutinho
     - Breno Araújo
-    descricao: Via mista muito interessante. Possui belas fendas em rocha muito sólida.
-      Peças pequenas e médias. Crux protegido com chapeletas.
-- via_esportiva:
+    descricao: Via mista muito interessante. Possui belas fendas em rocha muito sólida. Peças pequenas e médias. Crux 
+      protegido com chapeletas.
+- uid: 6TD5wk3k9E6jBq
+  via_esportiva:
     nome: O doce e o amargo
     dificuldade: BR_9A
     extensao: 60
     conquistadores:
     - Breno Araújo
     - Gustavo Vianna
-    descricao: Talvez a via mai difícil da parede. Crux ainda não foi isolado. Tem
-      um teto espetacular na parte final da via. Muito bonita!
+    descricao: Talvez a via mai difícil da parede. Crux ainda não foi isolado. Tem um teto espetacular na parte final da
+      via. Muito bonita!
 ---
 
 # Setor Caverninha

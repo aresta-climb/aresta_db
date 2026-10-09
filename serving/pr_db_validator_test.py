@@ -11,6 +11,7 @@ sys.path.append(str(Path(__file__).resolve().parent.parent))
 from serving.pr_db_validator import (
     validar_pull_request,
     validar_cabecalhos_e_licencas,
+    validar_versoes_migracao,
     main,
 )
 
@@ -158,4 +159,102 @@ def test_main_erro(mock_validador):
         codigo = main()
         assert codigo == 1
         mock_validador.assert_called_once_with(["database/pico"], "/tmp/out")
+
+
+def test_validar_versoes_migracao_sucesso(tmp_path: Path):
+    """
+    Testa que croquis com a versão de migração igual à mais recente passam na validação.
+    """
+    pasta_croqui = tmp_path / "croqui_ok"
+    pasta_croqui.mkdir()
+    (pasta_croqui / "croqui.yaml").write_text("id: ok\nultima_migracao: 5\n", encoding="utf-8")
+
+    with patch("serving.pr_db_validator.obter_ultima_versao_migracao", return_value=5):
+        erros = validar_versoes_migracao([pasta_croqui])
+        assert erros == []
+
+
+def test_validar_versoes_migracao_desatualizado(tmp_path: Path):
+    """
+    Testa que croquis com versão de migração defasada ou ausente produzem erro explicativo.
+    """
+    pasta_desatualizada = tmp_path / "croqui_velho"
+    pasta_desatualizada.mkdir()
+    (pasta_desatualizada / "croqui.yaml").write_text("id: velho\nultima_migracao: 0\n", encoding="utf-8")
+
+    with patch("serving.pr_db_validator.obter_ultima_versao_migracao", return_value=5):
+        erros = validar_versoes_migracao([pasta_desatualizada])
+        assert len(erros) == 1
+        assert "croqui_velho" in erros[0]
+        assert "desatualizada" in erros[0]
+        assert "5" in erros[0]
+
+
+def test_validar_versoes_migracao_ignora_pasta_sem_croqui_yaml(tmp_path: Path):
+    """
+    Testa que pastas sem croqui.yaml não geram erro de migração.
+    """
+    pasta_vazia = tmp_path / "pasta_qualquer"
+    pasta_vazia.mkdir()
+
+    with patch("serving.pr_db_validator.obter_ultima_versao_migracao", return_value=5):
+        erros = validar_versoes_migracao([pasta_vazia])
+        assert erros == []
+
+
+@patch("serving.pr_db_validator.validar_cabecalhos_e_licencas", return_value=[])
+@patch("serving.pr_db_validator.deploy")
+def test_validar_pull_request_interrompe_quando_migracao_desatualizada(mock_deploy, mock_cabecalhos, tmp_path: Path):
+    """
+    Testa que validar_pull_request falha cedo e não chama deploy se houver croqui desatualizado.
+    """
+    pasta = tmp_path / "croqui_antigo"
+    pasta.mkdir()
+    (pasta / "croqui.yaml").write_text("id: antigo\nultima_migracao: 2\n", encoding="utf-8")
+
+    with patch("serving.pr_db_validator.obter_ultima_versao_migracao", return_value=5):
+        erros = validar_pull_request([str(pasta)])
+        assert len(erros) == 1
+        assert "desatualizada" in erros[0]
+        assert mock_deploy.call_count == 0
+
+
+def test_validar_versoes_migracao_quando_sem_migracoes_retorna_vazio(tmp_path: Path):
+    """
+    Testa que se a versão máxima de migração for 0 (nenhuma migração existe), não reporta erro.
+    """
+    pasta = tmp_path / "croqui_teste"
+    pasta.mkdir()
+    (pasta / "croqui.yaml").write_text("id: teste\nultima_migracao: 0\n", encoding="utf-8")
+
+    with patch("serving.pr_db_validator.obter_ultima_versao_migracao", return_value=0):
+        erros = validar_versoes_migracao([pasta])
+        assert erros == []
+
+
+def test_validar_versoes_migracao_yaml_nao_dicionario_ignora(tmp_path: Path):
+    """
+    Testa que se o YAML não contiver um dicionário (ex: lista ou escalar), é ignorado.
+    """
+    pasta = tmp_path / "croqui_lista"
+    pasta.mkdir()
+    (pasta / "croqui.yaml").write_text("- item1\n- item2\n", encoding="utf-8")
+
+    with patch("serving.pr_db_validator.obter_ultima_versao_migracao", return_value=5):
+        erros = validar_versoes_migracao([pasta])
+        assert erros == []
+
+
+def test_validar_versoes_migracao_erro_ao_ler_yaml(tmp_path: Path):
+    """
+    Testa que exceções ao ler/parsear croqui.yaml são capturadas e retornadas na lista de erros.
+    """
+    pasta = tmp_path / "croqui_corrompido"
+    pasta.mkdir()
+    (pasta / "croqui.yaml").write_text("chave: [invalido", encoding="utf-8")
+
+    with patch("serving.pr_db_validator.obter_ultima_versao_migracao", return_value=5):
+        erros = validar_versoes_migracao([pasta])
+        assert len(erros) == 1
+        assert "Erro ao verificar versão de migração" in erros[0]
 
