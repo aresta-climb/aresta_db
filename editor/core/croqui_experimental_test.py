@@ -118,6 +118,41 @@ def test_compilar_croqui_sucesso(gerenciador, storage_temp):
     last_commit = repo.revparse_single("HEAD")
     assert "Compila" in last_commit.message
 
+
+def test_compilar_croqui_compacta_saida_diretamente_em_compilado(gerenciador, storage_temp):
+    """Garante que compilar_croqui move os arquivos compilados para a raiz de compilado/ sem subpasta redundante."""
+    caminho_croqui = gerenciador._criar_estrutura_croqui("br_mg_compacto", "User")
+    (caminho_croqui / "database" / "croqui.yaml").write_text("id: br_mg_compacto\nnome: Compacto")
+
+    def mock_deploy_efeito(**kwargs):
+        out_dir = kwargs["output_dir"]
+        subpasta = out_dir / "br_mg_compacto"
+        subpasta.mkdir(parents=True, exist_ok=True)
+        (subpasta / "compilado.binarypb").write_bytes(b"binario")
+        (subpasta / "compilado.yaml").write_text("id: br_mg_compacto")
+        (subpasta / "imagens").mkdir()
+        (subpasta / "imagens" / "foto.webp").write_bytes(b"imagem")
+        return True
+
+    with patch("editor.core.croqui_experimental.deploy", side_effect=mock_deploy_efeito):
+        modificado = gerenciador.compilar_croqui(caminho_croqui)
+        assert modificado is True
+
+    compilado_dir = caminho_croqui / "compilado"
+    assert (compilado_dir / "compilado.binarypb").is_file()
+    assert (compilado_dir / "compilado.yaml").is_file()
+    assert (compilado_dir / "imagens" / "foto.webp").is_file()
+    assert not (compilado_dir / "br_mg_compacto").exists()
+
+    # Recompilação para cobrir a substituição quando o destino já existe (arquivo e diretório)
+    with patch("editor.core.croqui_experimental.deploy", side_effect=mock_deploy_efeito):
+        modificado2 = gerenciador.compilar_croqui(caminho_croqui)
+        assert modificado2 is True
+
+    assert (compilado_dir / "compilado.binarypb").is_file()
+    assert (compilado_dir / "imagens" / "foto.webp").is_file()
+    assert not (compilado_dir / "br_mg_compacto").exists()
+
 def test_compilar_croqui_falha_sem_yaml(gerenciador, storage_temp):
     """Verifica se falha ao compilar um croqui sem croqui.yaml."""
     # DADO um croqui sem croqui.yaml na database

@@ -283,3 +283,32 @@ def test_adaptador_windows_configurar_cofre_credenciais() -> None:
                 adaptador.configurar_cofre_credenciais()
                 mock_set.assert_not_called()
 
+
+def test_adaptador_windows_normalizar_caminho_estendido() -> None:
+    """Valida o prefixo estendido \\?\\ para caminhos normais, já prefixados, vazios e UNC no Windows."""
+    adaptador = AdaptadorWindows()
+
+    # Vazio
+    assert adaptador.normalizar_caminho_estendido("") == ""
+
+    # Já prefixado com \\?\
+    caminho_ja_prefixado = "\\\\?\\C:\\pasta\\arquivo.txt"
+    assert adaptador.normalizar_caminho_estendido(caminho_ja_prefixado) == caminho_ja_prefixado
+
+    # Caminho local com letra de drive
+    caminho_local = "C:\\aresta\\croqui.yaml"
+    resultado = adaptador.normalizar_caminho_estendido(caminho_local)
+    assert resultado.startswith("\\\\?\\")
+    assert "croqui.yaml" in resultado
+
+    # Path object
+    caminho_path = Path(caminho_local)
+    resultado_path = adaptador.normalizar_caminho_estendido(caminho_path)
+    assert resultado_path.startswith("\\\\?\\")
+
+    # Caminho UNC de rede
+    caminho_unc = "\\\\servidor\\compartilhamento\\arquivo.txt"
+    with patch("pathlib.Path.resolve", return_value=Path(caminho_unc)):
+        resultado_unc = adaptador.normalizar_caminho_estendido(caminho_unc)
+        assert resultado_unc == "\\\\?\\UNC\\servidor\\compartilhamento\\arquivo.txt"
+

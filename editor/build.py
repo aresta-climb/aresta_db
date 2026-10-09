@@ -593,6 +593,71 @@ def executar_testes() -> None:
         sys.exit(resultado)
 
 
+def gerar_tarball_codigo_fonte(
+    diretorio_saida: Optional[Path] = None,
+    versao: Optional[str] = None,
+    raiz_projeto: Optional[Path] = None,
+) -> Tuple[Path, str]:
+    """
+    Gera um tarball comprimido (.tar.gz) contendo estritamente os arquivos de código-fonte
+    necessários para compilação do Editor Aresta (editor, aresta_api, uv.lock, pyproject.toml),
+    excluindo o banco de dados pesado (database/), pastas de build e testes.
+    Retorna uma tupla com o caminho do arquivo gerado e seu hash SHA-256.
+    """
+    import hashlib
+    import tarfile
+
+    raiz = raiz_projeto or DIRETORIO_EDITOR.parent
+    versao_app = versao or obter_versao_projeto(raiz / "pyproject.toml")
+    dist_dir = diretorio_saida or DIRETORIO_DIST
+    dist_dir.mkdir(parents=True, exist_ok=True)
+
+    nome_arquivo = f"EditorAresta-{versao_app}-source.tar.gz"
+    caminho_tarball = dist_dir / nome_arquivo
+
+    itens_incluir = [
+        "editor",
+        "aresta_api",
+        "scripts",
+        "coleta_de_betas",
+        "migracoes",
+        "uv.lock",
+        "pyproject.toml",
+    ]
+
+
+    def filtro_exclusao(tarinfo: tarfile.TarInfo) -> Optional[tarfile.TarInfo]:
+        caminho_str = tarinfo.name.replace("\\", "/")
+        exclusoes = (
+            "/__pycache__",
+            "__pycache__",
+            "/dist",
+            "/build",
+            "/.flatpak-builder",
+            "/flatpak",
+            "_test.py",
+            "conftest.py",
+            ".pyc",
+        )
+        if any(exc in caminho_str for exc in exclusoes):
+            return None
+        return tarinfo
+
+    with tarfile.open(caminho_tarball, "w:gz") as tar:
+        for item in itens_incluir:
+            origem = raiz / item
+            if origem.exists():
+                tar.add(str(origem), arcname=item, filter=filtro_exclusao)
+
+    hasher = hashlib.sha256()
+    with open(caminho_tarball, "rb") as f:
+        while chunk := f.read(65536):
+            hasher.update(chunk)
+    hash_sha256 = hasher.hexdigest()
+
+    return caminho_tarball, hash_sha256
+
+
 def main(argv: Optional[List[str]] = None) -> None:
     """
     Ponto de entrada de linha de comando para o utilitário de build e testes.
@@ -600,8 +665,8 @@ def main(argv: Optional[List[str]] = None) -> None:
     parser = argparse.ArgumentParser(description="Script de build e testes do Editor Aresta")
     parser.add_argument(
         "modo",
-        choices=["test", "dist", "flatpak-deps"],
-        help="Modo de operação: 'test' para rodar testes, 'dist' para compilar o executável, 'flatpak-deps' para gerar pypi-dependencies.json",
+        choices=["test", "dist", "flatpak-deps", "source-tarball"],
+        help="Modo de operação: 'test' para rodar testes, 'dist' para compilar, 'flatpak-deps' para pypi-dependencies.json, 'source-tarball' para release archive",
     )
 
     parser.add_argument(
@@ -617,6 +682,13 @@ def main(argv: Optional[List[str]] = None) -> None:
         help="Caminho de saída para o manifesto pypi-dependencies.json (usado com flatpak-deps)",
     )
 
+    parser.add_argument(
+        "--output-dir",
+        type=Path,
+        default=None,
+        help="Diretório de saída para o tarball de código-fonte (usado com source-tarball)",
+    )
+
     args = parser.parse_args(argv)
 
     if args.modo == "test":
@@ -625,6 +697,10 @@ def main(argv: Optional[List[str]] = None) -> None:
         executar_build(force_icon_generation=args.force_icon_generation)
     elif args.modo == "flatpak-deps":
         gerar_manifesto_dependencias_flatpak(caminho_saida=args.output)
+    elif args.modo == "source-tarball":
+        tarball, sha256_hash = gerar_tarball_codigo_fonte(diretorio_saida=args.output_dir)
+        print(f"Tarball de código-fonte gerado em: {tarball}")
+        print(f"SHA-256: {sha256_hash}")
 
 
 if __name__ == "__main__":

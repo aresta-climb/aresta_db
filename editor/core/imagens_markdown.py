@@ -35,6 +35,10 @@ def sanitizar_nome_imagem(nome_bruto: str) -> str:
     # Remove underscores duplicados e das extremidades
     nome_limpo = re.sub(r"_+", "_", nome_limpo).strip("_")
 
+    # Limita o comprimento do tronco em no máximo 40 caracteres para evitar estouro de caminhos no SO
+    if len(nome_limpo) > 40:
+        nome_limpo = nome_limpo[:40].rstrip("_")
+
     if not nome_limpo:
         nome_limpo = "imagem"
 

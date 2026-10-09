@@ -100,3 +100,9 @@ class AdaptadorLinux(AdaptadorPlataforma):
             return
         except Exception:
             pass
+
+    def normalizar_caminho_estendido(self, caminho: Path | str) -> str:
+        """Em sistemas POSIX Linux, resolve e retorna o caminho absoluto canônico."""
+        if not caminho:
+            return ""
+        return str(Path(caminho).resolve())

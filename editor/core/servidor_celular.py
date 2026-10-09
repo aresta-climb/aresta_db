@@ -172,6 +172,18 @@ class ServidorCelular(QObject):
                         self.dispositivo_conectado.emit()
                     return response
 
+                @app.middleware("http")
+                async def reescrever_rotas_compactas(request: Request, call_next: Any) -> Any:
+                    caminho_solicitado = request.url.path.lstrip("/")
+                    partes = caminho_solicitado.split("/", 1)
+                    if len(partes) == 2:
+                        subpasta, resto = partes
+                        caminho_sub = self.pasta_compilado / subpasta
+                        caminho_direto = self.pasta_compilado / resto
+                        if not caminho_sub.exists() and caminho_direto.exists():
+                            request.scope["path"] = f"/{resto}"
+                    return await call_next(request)
+
                 app.mount("/", StaticFiles(directory=str(self.pasta_compilado)), name="static")
 
                 config = uvicorn.Config(

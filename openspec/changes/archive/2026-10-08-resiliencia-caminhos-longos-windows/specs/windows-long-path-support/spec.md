@@ -1,8 +1,7 @@
-# windows-long-path-support Specification
+# Spec Delta
 
-## Purpose
-TBD - created by archiving change fix-max-path. Update Purpose after archive.
-## Requirements
+## MODIFIED Requirements
+
 ### Requirement: Habilitação de Caminhos Longos no Windows
 A aplicação MUST declarar suporte a caminhos de arquivos maiores que 260 caracteres no sistema operacional Windows e garantir resiliência operacional em tempo de execução através da biblioteca `editor.plataforma` com caminhos estendidos e estruturas compactas de diretórios.
 

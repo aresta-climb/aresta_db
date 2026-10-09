@@ -80,6 +80,11 @@ def test_funcoes_conveniencia_fachada() -> None:
         configurar_cofre_credenciais()
         mock_adaptador.configurar_cofre_credenciais.assert_called_once()
 
+        mock_adaptador.normalizar_caminho_estendido.return_value = "\\\\?\\C:\\teste"
+        from editor.plataforma import normalizar_caminho_estendido
+        assert normalizar_caminho_estendido("C:\\teste") == "\\\\?\\C:\\teste"
+        mock_adaptador.normalizar_caminho_estendido.assert_called_once_with("C:\\teste")
+
 
 def test_adaptador_padrao_fallback_completo() -> None:
     """Garante que a implementação neutra de fallback atende a todos os métodos do protocolo."""
@@ -96,3 +101,5 @@ def test_adaptador_padrao_fallback_completo() -> None:
     assert adaptador.solicitar_instalacao_atualizacao() is False
     assert adaptador.obter_nome_icone_preferencial() == "logo_app.png"
     adaptador.configurar_cofre_credenciais()
+    assert adaptador.normalizar_caminho_estendido("") == ""
+    assert isinstance(adaptador.normalizar_caminho_estendido("teste"), str)

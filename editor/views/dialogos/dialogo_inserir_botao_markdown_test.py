@@ -6,7 +6,22 @@ import pytest
 from PySide6.QtCore import Qt
 from PySide6.QtWidgets import QDialog
 
-from editor.views.dialogos.dialogo_inserir_botao_markdown import DialogoInserirBotaoMarkdown
+from editor.views.dialogos.dialogo_inserir_botao_markdown import (
+    DialogoInserirBotaoMarkdown,
+    sanitizar_nome_arquivo_anexo,
+)
+
+
+def test_sanitizar_nome_arquivo_anexo():
+    assert sanitizar_nome_arquivo_anexo("Meu Documento de Acesso.pdf") == "meu_documento_de_acesso.pdf"
+    assert sanitizar_nome_arquivo_anexo("Ficha Técnica - Versão 1.2!.PDF") == "ficha_tecnica_versao_12.pdf"
+    assert sanitizar_nome_arquivo_anexo("") == "documento_anexo"
+    assert sanitizar_nome_arquivo_anexo("!@#$%.pdf") == "documento_anexo.pdf"
+    # Nome longo: trunca tronco em no máximo 40 caracteres
+    nome_longo = "autorizacao_especial_de_acesso_ao_parque_nacional_de_minas_gerais.pdf"
+    res = sanitizar_nome_arquivo_anexo(nome_longo)
+    assert res == "autorizacao_especial_de_acesso_ao_parque.pdf"
+    assert len(Path(res).stem) <= 40
 
 
 def test_dialogo_layout_e_componentes_iniciais(qapp, tmp_path):
@@ -111,3 +126,44 @@ def test_dialogo_validacao_campos_obrigatorios(qapp, tmp_path):
     
     dialogo.accept()
     assert dialogo.result() == 1  # Aceito
+
+
+def test_dialogo_anexos_em_memoria_e_arquivo_inexistente(qapp, tmp_path):
+    class MockModel:
+        def obter_anexos_em_memoria(self):
+            return {
+                "anexos/doc_memoria.pdf": b"pdf1",
+                "sem_prefixo.pdf": b"pdf2",
+            }
+
+    model = MockModel()
+    dialogo = DialogoInserirBotaoMarkdown(caminho_db=tmp_path, model=model)
+    assert dialogo.lista_anexos.count() == 2
+
+    # Teste de importação de arquivo inexistente
+    dialogo.importar_arquivo_anexo(tmp_path / "nao_existe.pdf")
+
+
+def test_dialogo_clicar_importar_anexo(qapp, tmp_path, monkeypatch):
+    dialogo = DialogoInserirBotaoMarkdown(caminho_db=tmp_path)
+    arquivo_teste = tmp_path / "teste_clique.pdf"
+    arquivo_teste.write_bytes(b"%PDF teste")
+
+    # Caso 1: usuário selecionou arquivo
+    monkeypatch.setattr(
+        "editor.views.dialogos.dialogo_inserir_botao_markdown.QFileDialog.getOpenFileName",
+        lambda *args, **kwargs: (str(arquivo_teste), "PDF"),
+    )
+    dialogo._ao_clicar_importar_anexo()
+    assert dialogo.obter_caminho_anexo() == "anexos/teste_clique.pdf"
+
+    # Caso 2: usuário cancelou
+    monkeypatch.setattr(
+        "editor.views.dialogos.dialogo_inserir_botao_markdown.QFileDialog.getOpenFileName",
+        lambda *args, **kwargs: ("", ""),
+    )
+    dialogo._ao_clicar_importar_anexo()
+
+    # Validação de atributo ausente
+    del dialogo.btn_inserir
+    dialogo._atualizar_estado_botao_inserir()

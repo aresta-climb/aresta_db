@@ -228,3 +228,22 @@ class TestWorkflowReleaseEditor(unittest.TestCase):
         self.assertTrue(com_parametros.get("cache"), "O cache da action flatpak-builder deve estar habilitado.")
         self.assertIn("bundle", com_parametros, "O parâmetro 'bundle' deve estar configurado.")
 
+    def test_orquestrador_cria_github_release_oficial(self) -> None:
+        """Garante que o orquestrador cria a GitHub Release oficial com gh release create."""
+        passos = self.conteudo_yaml["jobs"]["prepare_release"]["steps"]
+        passo_release = next((s for s in passos if "Criar GitHub Release" in s.get("name", "")), None)
+        self.assertIsNotNone(passo_release, "Passo 'Criar GitHub Release Oficial' não encontrado no orquestrador.")
+        assert passo_release is not None
+        run_cmd = passo_release.get("run", "")
+        self.assertIn("gh release create", run_cmd)
+
+    def test_subaction_linux_gera_e_publica_source_tarball(self) -> None:
+        """Garante que o build Linux gera e publica o source tarball na GitHub Release."""
+        passos = self.conteudo_linux["jobs"]["build_linux"]["steps"]
+        passo_tarball = next((s for s in passos if "Source Tarball" in s.get("name", "")), None)
+        self.assertIsNotNone(passo_tarball, "Passo 'Gerar e Publicar Source Tarball' não encontrado no workflow Linux.")
+        assert passo_tarball is not None
+        run_cmd = passo_tarball.get("run", "")
+        self.assertIn("editor/build.py source-tarball", run_cmd)
+        self.assertIn("gh release upload", run_cmd)
+

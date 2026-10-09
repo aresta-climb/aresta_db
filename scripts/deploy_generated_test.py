@@ -5,6 +5,7 @@ import unittest
 import sys
 from io import StringIO
 from pathlib import Path
+from unittest.mock import patch
 import os
 
 # Adiciona a raiz do projeto ao path
@@ -797,6 +798,55 @@ class DeployGeneratedTest(unittest.TestCase):
         from serving.update_serving import get_db_version
         versao = get_db_version()
         self.assertEqual(versao, "v4")
+
+    def test_copiar_imagens_normaliza_caminhos_e_ignora_raw_mapas(self):
+        import tempfile
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            src = Path(tmp_dir) / "imagens_src"
+            dest = Path(tmp_dir) / "imagens_dest"
+            src.mkdir()
+            (src / "foto.webp").write_bytes(b"foto")
+            raw_dir = src / "raw_mapas"
+            raw_dir.mkdir()
+            (raw_dir / "raw.webp").write_bytes(b"raw")
+
+            with patch("scripts.deploy_generated.normalizar_caminho_estendido", side_effect=lambda p: str(p)) as mock_norm:
+                deploy_generated.copiar_imagens(src, dest)
+                self.assertEqual(mock_norm.call_count, 2)
+                mock_norm.assert_any_call(src)
+                mock_norm.assert_any_call(dest)
+
+            self.assertTrue((dest / "foto.webp").exists())
+            self.assertFalse((dest / "raw_mapas").exists())
+
+    def test_copiar_anexos_normaliza_caminhos(self):
+        import tempfile
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            src = Path(tmp_dir) / "anexos_src"
+            dest = Path(tmp_dir) / "anexos_dest"
+            src.mkdir()
+            (src / "documento.pdf").write_bytes(b"pdf")
+
+            with patch("scripts.deploy_generated.normalizar_caminho_estendido", side_effect=lambda p: str(p)) as mock_norm:
+                deploy_generated.copiar_anexos(src, dest)
+                self.assertEqual(mock_norm.call_count, 2)
+                mock_norm.assert_any_call(src)
+                mock_norm.assert_any_call(dest)
+
+            self.assertTrue((dest / "documento.pdf").exists())
+
+    def test_force_rmtree_normaliza_caminho_e_remove_diretorio(self):
+        import tempfile
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            pasta = Path(tmp_dir) / "pasta_teste"
+            pasta.mkdir()
+            (pasta / "arquivo.txt").write_text("conteudo")
+
+            with patch("scripts.deploy_generated.normalizar_caminho_estendido", side_effect=lambda p: str(p)) as mock_norm:
+                deploy_generated.force_rmtree(pasta)
+                mock_norm.assert_called_once_with(pasta)
+
+            self.assertFalse(pasta.exists())
 
 
 if __name__ == '__main__':

@@ -23,6 +23,10 @@ def test_sanitizar_nome_imagem():
     assert sanitizar_nome_imagem("nome_com___muitos---tracos e espacos.jpeg") == "nome_com_muitos_tracos_e_espacos.webp"
     assert sanitizar_nome_imagem("") == "imagem.webp"
     assert sanitizar_nome_imagem("!!!???...") == "imagem.webp"
+    # Trunca o tronco em no máximo 40 caracteres sem deixar underscore no final
+    nome_longo = "ipatrimonio_betim_casa_de_maquina_usina_hidreletrica_dr_gravata.jpg"
+    assert sanitizar_nome_imagem(nome_longo) == "ipatrimonio_betim_casa_de_maquina_usina.webp"
+    assert len(Path(sanitizar_nome_imagem(nome_longo)).stem) <= 40
 
 
 def test_gerar_nome_imagem_padrao(tmp_path):

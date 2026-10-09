@@ -43,7 +43,10 @@ modules:
       # Instalação dos arquivos do editor
       - mkdir -p /app/share/aresta-editor
       - cp -r editor /app/share/aresta-editor/
-      - cp -r aresta_api /app/share/aresta-editor/ || true
+      - cp -r aresta_api /app/share/aresta-editor/
+      - cp -r scripts /app/share/aresta-editor/
+      - cp -r coleta_de_betas /app/share/aresta-editor/
+      - cp -r migracoes /app/share/aresta-editor/
       - cp uv.lock /app/share/aresta-editor/
       - echo "producao" > /app/share/aresta-editor/canal.txt
       # Criação do script lançador nativo
@@ -67,6 +70,35 @@ modules:
           - build
           - flatpak
           - .flatpak-builder
+          - __pycache__
+          - "*.pyc"
+          - "*_test.py"
+      - type: dir
+        path: ../../aresta_api
+        dest: aresta_api
+        skip:
+          - .git
+          - __pycache__
+          - "*.pyc"
+          - "*_test.py"
+      - type: dir
+        path: ../../scripts
+        dest: scripts
+        skip:
+          - __pycache__
+          - "*.pyc"
+          - "*_test.py"
+      - type: dir
+        path: ../../coleta_de_betas
+        dest: coleta_de_betas
+        skip:
+          - __pycache__
+          - "*.pyc"
+          - "*_test.py"
+      - type: dir
+        path: ../../migracoes
+        dest: migracoes
+        skip:
           - __pycache__
           - "*.pyc"
           - "*_test.py"

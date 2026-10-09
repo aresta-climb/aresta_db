@@ -348,7 +348,13 @@ class CroquiModel(QObject):
                             arq_setor.Extensions[ArquivoSetor.ext_metadados_arquivo].caminho_original = nome_relativo
                             arq_setor.Extensions[ArquivoSetor.ext_metadados_arquivo].caminho_novo = nome_relativo
                             arq_setor.ClearField("caminho")
+                        else:
+                            if arq_setor.HasExtension(ArquivoSetor.ext_metadados_arquivo):
+                                arq_setor.ClearExtension(ArquivoSetor.ext_metadados_arquivo)
                     except Exception as e:
+                        from aresta_api.proto.generated.croqui_pb2 import ArquivoSetor
+                        if arq_setor.HasExtension(ArquivoSetor.ext_metadados_arquivo):
+                            arq_setor.ClearExtension(ArquivoSetor.ext_metadados_arquivo)
                         print(f"Erro ao carregar setor externo {arq_setor.caminho}: {e}")
 
         def _carregar_arquivo_grupo(arq_grupo: Any) -> None:
@@ -366,7 +372,13 @@ class CroquiModel(QObject):
                             arq_grupo.ClearField("caminho")
                             for s in arq_grupo.conteudo.setores:
                                 _carregar_arquivo_setor(s)
+                        else:
+                            if arq_grupo.HasExtension(ArquivoGrupo.ext_metadados_arquivo):
+                                arq_grupo.ClearExtension(ArquivoGrupo.ext_metadados_arquivo)
                     except Exception as e:
+                        from aresta_api.proto.generated.croqui_pb2 import ArquivoGrupo
+                        if arq_grupo.HasExtension(ArquivoGrupo.ext_metadados_arquivo):
+                            arq_grupo.ClearExtension(ArquivoGrupo.ext_metadados_arquivo)
                         print(f"Erro ao carregar grupo externo {arq_grupo.caminho}: {e}")
 
         def _carregar_arquivo_mapas(arq_mapas: Any) -> None:
@@ -382,7 +394,13 @@ class CroquiModel(QObject):
                             arq_mapas.Extensions[ArquivoMapas.ext_metadados_arquivo].caminho_original = nome_relativo
                             arq_mapas.Extensions[ArquivoMapas.ext_metadados_arquivo].caminho_novo = nome_relativo
                             arq_mapas.ClearField("caminho")
+                        else:
+                            if arq_mapas.HasExtension(ArquivoMapas.ext_metadados_arquivo):
+                                arq_mapas.ClearExtension(ArquivoMapas.ext_metadados_arquivo)
                     except Exception as e:
+                        from aresta_api.proto.generated.croqui_pb2 import ArquivoMapas
+                        if arq_mapas.HasExtension(ArquivoMapas.ext_metadados_arquivo):
+                            arq_mapas.ClearExtension(ArquivoMapas.ext_metadados_arquivo)
                         print(f"Erro ao carregar mapas externos {arq_mapas.caminho}: {e}")
 
         # 1. Carrega Botões (Markdown)
@@ -415,6 +433,9 @@ class CroquiModel(QObject):
                                 md.Extensions[ArquivoMarkdown.ext_metadados_arquivo].dados_json_originais = frontmatter_bloco
                             md.ClearField("caminho")
                         except Exception as e:
+                            from aresta_api.proto.generated.croqui_pb2 import ArquivoMarkdown
+                            if md.HasExtension(ArquivoMarkdown.ext_metadados_arquivo):
+                                md.ClearExtension(ArquivoMarkdown.ext_metadados_arquivo)
                             print(f"Erro ao carregar markdown externo {nome_relativo}: {e}")
 
         # 2. Carrega Picos -> Setores e Grupos
@@ -433,7 +454,8 @@ class CroquiModel(QObject):
     def extrair_arquivos_e_serializar(self, caminho_db: Any) -> dict[str, Any]:
         from pathlib import Path
         from google.protobuf.json_format import MessageToDict
-        from aresta_api.proto.generated.croqui_pb2 import Croqui, ArquivoSetor, ArquivoGrupo, ArquivoMarkdown
+        from aresta_api.proto.generated.croqui_pb2 import Croqui, ArquivoSetor, ArquivoGrupo, ArquivoMarkdown, ArquivoMapas
+        from editor.core.serializacao_util import sanitizar_dicionario_sem_extensoes
         import yaml
         
         caminho_db_path = Path(caminho_db)
@@ -547,7 +569,7 @@ class CroquiModel(QObject):
                         ref_dict[k] = v
 
         def _salvar_objeto_com_frontmatter(caminho_arquivo: Any, dados_dict: dict[str, Any], json_original: Optional[str] = None) -> None:
-            dados = dados_dict.copy()
+            dados = sanitizar_dicionario_sem_extensoes(dados_dict)
             descricao = dados.pop("descricao", "")
             if descricao:
                 descricao = str(descricao).replace("\r\n", "\n")
@@ -637,6 +659,7 @@ class CroquiModel(QObject):
 
         def _extrair_arquivo_setor(arq_setor: Any, arq_setor_ref: Any) -> None:
             if not arq_setor.HasField("conteudo"):
+                arq_setor.ClearExtension(ArquivoSetor.ext_metadados_arquivo)
                 return
             ext = None
             if arq_setor_ref.HasExtension(ArquivoSetor.ext_metadados_arquivo):
@@ -669,10 +692,11 @@ class CroquiModel(QObject):
                 ext.caminho_original = novo_caminho
 
         def _extrair_arquivo_mapas(arq_mapas: Any, arq_mapas_ref: Any) -> None:
+            from aresta_api.proto.generated.croqui_pb2 import ArquivoMapas
             if not arq_mapas.HasField("conteudo"):
+                arq_mapas.ClearExtension(ArquivoMapas.ext_metadados_arquivo)
                 return
             ext = None
-            from aresta_api.proto.generated.croqui_pb2 import ArquivoMapas
             if arq_mapas_ref.HasExtension(ArquivoMapas.ext_metadados_arquivo):
                 ext = arq_mapas_ref.Extensions[ArquivoMapas.ext_metadados_arquivo]
             original_caminho = ext.caminho_original if ext else None
@@ -710,55 +734,67 @@ class CroquiModel(QObject):
         for idx_pico, pico in enumerate(croqui_msg_copy.picos):
             pico_ref = self.__croqui.picos[idx_pico]
             
-            if pico.HasField("mapas_gerais") and pico.mapas_gerais.HasField("conteudo"):
-                _extrair_arquivo_mapas(pico.mapas_gerais, pico_ref.mapas_gerais)
+            if pico.HasField("mapas_gerais"):
+                if pico.mapas_gerais.HasField("conteudo"):
+                    _extrair_arquivo_mapas(pico.mapas_gerais, pico_ref.mapas_gerais)
+                else:
+                    pico.mapas_gerais.ClearExtension(ArquivoMapas.ext_metadados_arquivo)
                 
             for idx_sg, sg in enumerate(pico.setores_ou_grupos):
                 sg_ref = pico_ref.setores_ou_grupos[idx_sg]
 
-                if sg.HasField("setor") and sg.setor.HasField("conteudo"):
-                    _extrair_arquivo_setor(sg.setor, sg_ref.setor)
+                if sg.HasField("setor"):
+                    if sg.setor.HasField("conteudo"):
+                        _extrair_arquivo_setor(sg.setor, sg_ref.setor)
+                    else:
+                        sg.setor.ClearExtension(ArquivoSetor.ext_metadados_arquivo)
 
-                elif sg.HasField("grupo") and sg.grupo.HasField("conteudo"):
-                    if not validar_uid(sg.grupo.conteudo.uid):
-                        sg.grupo.conteudo.uid = gerar_uid()
-                        if sg_ref.grupo.HasField("conteudo"):
-                            sg_ref.grupo.conteudo.uid = sg.grupo.conteudo.uid
+                elif sg.HasField("grupo"):
+                    if sg.grupo.HasField("conteudo"):
+                        if not validar_uid(sg.grupo.conteudo.uid):
+                            sg.grupo.conteudo.uid = gerar_uid()
+                            if sg_ref.grupo.HasField("conteudo"):
+                                sg_ref.grupo.conteudo.uid = sg.grupo.conteudo.uid
 
-                    # Extrai os setores internos primeiro
-                    for idx_setor, setor_arq in enumerate(sg.grupo.conteudo.setores):
-                        setor_arq_ref = sg_ref.grupo.conteudo.setores[idx_setor]
-                        _extrair_arquivo_setor(setor_arq, setor_arq_ref)
+                        # Extrai os setores internos primeiro
+                        for idx_setor, setor_arq in enumerate(sg.grupo.conteudo.setores):
+                            setor_arq_ref = sg_ref.grupo.conteudo.setores[idx_setor]
+                            if setor_arq.HasField("conteudo"):
+                                _extrair_arquivo_setor(setor_arq, setor_arq_ref)
+                            else:
+                                setor_arq.ClearExtension(ArquivoSetor.ext_metadados_arquivo)
 
-                    # Agora extrai o grupo
-                    ext = None
-                    if sg_ref.grupo.HasExtension(ArquivoGrupo.ext_metadados_arquivo):
-                        ext = sg_ref.grupo.Extensions[ArquivoGrupo.ext_metadados_arquivo]
-                    original_caminho = ext.caminho_original if ext else None
-                    novo_caminho = ext.caminho_novo if ext and ext.caminho_novo else None
-                    
-                    if not novo_caminho and original_caminho:
-                        novo_caminho = original_caminho
-                    if not novo_caminho:
-                        novo_caminho = f"grupo_{sg.grupo.conteudo.nome.replace(' ', '_').lower()}.md"
-                    
-                    if original_caminho and original_caminho != novo_caminho:
-                        old_file_path = caminho_db_path / original_caminho
-                        if old_file_path.exists():
-                            try: old_file_path.unlink()
-                            except Exception: pass
-                    
-                    conteudo_dict = MessageToDict(sg.grupo.conteudo, preserving_proto_field_name=True)
-                    if "mapas" in conteudo_dict:
-                        _limpar_e_garantir_mapas_dict(conteudo_dict["mapas"])
+                        # Agora extrai o grupo
+                        ext = None
+                        if sg_ref.grupo.HasExtension(ArquivoGrupo.ext_metadados_arquivo):
+                            ext = sg_ref.grupo.Extensions[ArquivoGrupo.ext_metadados_arquivo]
+                        original_caminho = ext.caminho_original if ext else None
+                        novo_caminho = ext.caminho_novo if ext and ext.caminho_novo else None
+                        
+                        if not novo_caminho and original_caminho:
+                            novo_caminho = original_caminho
+                        if not novo_caminho:
+                            novo_caminho = f"grupo_{sg.grupo.conteudo.nome.replace(' ', '_').lower()}.md"
+                        
+                        if original_caminho and original_caminho != novo_caminho:
+                            old_file_path = caminho_db_path / original_caminho
+                            if old_file_path.exists():
+                                try: old_file_path.unlink()
+                                except Exception: pass
+                        
+                        conteudo_dict = MessageToDict(sg.grupo.conteudo, preserving_proto_field_name=True)
+                        if "mapas" in conteudo_dict:
+                            _limpar_e_garantir_mapas_dict(conteudo_dict["mapas"])
 
-                    json_original = ext.dados_json_originais if ext and ext.dados_json_originais else None
-                    _salvar_objeto_com_frontmatter(caminho_db_path / novo_caminho, conteudo_dict, json_original=json_original)
-                    sg.grupo.caminho = novo_caminho
-                    sg.grupo.ClearField("conteudo")
-                    sg.grupo.ClearExtension(ArquivoGrupo.ext_metadados_arquivo)
-                    if ext:
-                        ext.caminho_original = novo_caminho
+                        json_original = ext.dados_json_originais if ext and ext.dados_json_originais else None
+                        _salvar_objeto_com_frontmatter(caminho_db_path / novo_caminho, conteudo_dict, json_original=json_original)
+                        sg.grupo.caminho = novo_caminho
+                        sg.grupo.ClearField("conteudo")
+                        sg.grupo.ClearExtension(ArquivoGrupo.ext_metadados_arquivo)
+                        if ext:
+                            ext.caminho_original = novo_caminho
+                    else:
+                        sg.grupo.ClearExtension(ArquivoGrupo.ext_metadados_arquivo)
 
         # Botões textuais
         for idx_botao, botao in enumerate(croqui_msg_copy.botoes):
@@ -800,12 +836,14 @@ class CroquiModel(QObject):
                     md.ClearExtension(ArquivoMarkdown.ext_metadados_arquivo)
                     if ext:
                         ext.caminho_original = novo_caminho
+                else:
+                    md.ClearExtension(ArquivoMarkdown.ext_metadados_arquivo)
 
         ext = None
         from aresta_api.proto.generated.croqui_pb2 import Croqui
         if self.__croqui.HasExtension(Croqui.ext_metadados_arquivo):
             ext = self.__croqui.Extensions[Croqui.ext_metadados_arquivo]
-            croqui_msg_copy.ClearExtension(Croqui.ext_metadados_arquivo)
+        croqui_msg_copy.ClearExtension(Croqui.ext_metadados_arquivo)
             
         resultado = MessageToDict(croqui_msg_copy, preserving_proto_field_name=True)
             
@@ -816,6 +854,8 @@ class CroquiModel(QObject):
                 resultado = _reordenar_recursivamente(resultado, d_original)
             except Exception as e:
                 print(f"Aviso: falha ao decodificar JSON original do root: {e}")
+
+        resultado = sanitizar_dicionario_sem_extensoes(resultado)
 
         if isinstance(resultado, dict):
             if "uid" in resultado:

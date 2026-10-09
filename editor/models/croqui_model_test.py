@@ -1439,3 +1439,93 @@ escaladas:
     assert model.indice_uids.obter_caminho("esca_externa123") == "Setor Externo > Via de Fora"
 
 
+def test_croqui_model_extrair_arquivos_sem_extensoes_vazadas_em_nos_somente_caminho(tmp_path, qapp):
+    """Garante que a extração limpa extensões de shadow state em nós que contêm apenas caminho e não conteúdo."""
+    from aresta_api.proto.generated.croqui_pb2 import (
+        Croqui,
+        ArquivoSetor,
+        ArquivoGrupo,
+        ArquivoMapas,
+        ArquivoMarkdown,
+    )
+    from scripts.gerenciar_uids_lib import gerar_uid
+    import json
+
+    croqui = Croqui(nome="Croqui Teste", uid=gerar_uid())
+    croqui.Extensions[Croqui.ext_metadados_arquivo].caminho_original = "croqui.yaml"
+    
+    pico = croqui.picos.add(nome="Pico 1")
+    pico.mapas_gerais.caminho = "mapas.md"
+    pico.mapas_gerais.Extensions[ArquivoMapas.ext_metadados_arquivo].caminho_original = "mapas.md"
+    
+    sg1 = pico.setores_ou_grupos.add()
+    sg1.setor.caminho = "setor.md"
+    sg1.setor.Extensions[ArquivoSetor.ext_metadados_arquivo].caminho_original = "setor.md"
+    
+    sg2 = pico.setores_ou_grupos.add()
+    sg2.grupo.caminho = "grupo.md"
+    sg2.grupo.Extensions[ArquivoGrupo.ext_metadados_arquivo].caminho_original = "grupo.md"
+    
+    btn = croqui.botoes.add(texto="Ajuda", uid=gerar_uid())
+    btn.destino.secao_textual.caminho = "ajuda.md"
+    btn.destino.secao_textual.Extensions[ArquivoMarkdown.ext_metadados_arquivo].caminho_original = "ajuda.md"
+    
+    model = CroquiModel(croqui)
+    dados = model.extrair_arquivos_e_serializar(tmp_path)
+    
+    dados_str = json.dumps(dados)
+    assert "ext_metadados" not in dados_str
+    assert "[aresta." not in dados_str
+
+
+def test_croqui_model_carregar_arquivos_externos_limpa_extensoes_em_erro_ou_conteudo_vazio(tmp_path, qapp):
+    """Garante que carregar_arquivos_externos remove extensões se a carga falhar ou retornar vazia."""
+    from aresta_api.proto.generated.croqui_pb2 import (
+        Croqui,
+        ArquivoSetor,
+        ArquivoGrupo,
+        ArquivoMapas,
+        ArquivoMarkdown,
+    )
+    from scripts.gerenciar_uids_lib import gerar_uid
+
+    caminho_db = tmp_path / "croqui_erros"
+    caminho_db.mkdir()
+    
+    # Arquivo com frontmatter vazio para o setor
+    (caminho_db / "setor_vazio.md").write_text("", encoding="utf-8")
+    
+    # Arquivo com YAML inválido gerando exceção no ParseDict para o grupo
+    (caminho_db / "grupo_invalido.md").write_text("---\nnome: [invalido_como_nome]\n---\n", encoding="utf-8")
+    
+    # Arquivo com frontmatter vazio para mapas
+    (caminho_db / "mapas_vazio.md").write_text("", encoding="utf-8")
+
+    # Arquivo de markdown com erro de leitura simulado por diretório no caminho
+    (caminho_db / "dir_como_md.md").mkdir()
+
+    croqui = Croqui(uid=gerar_uid())
+    pico = croqui.picos.add(nome="Pico 1")
+    
+    pico.mapas_gerais.caminho = "mapas_vazio.md"
+    
+    sg1 = pico.setores_ou_grupos.add()
+    sg1.setor.caminho = "setor_vazio.md"
+    
+    sg2 = pico.setores_ou_grupos.add()
+    sg2.grupo.caminho = "grupo_invalido.md"
+    
+    btn = croqui.botoes.add(texto="Sobre", uid=gerar_uid())
+    btn.destino.secao_textual.caminho = "dir_como_md.md"
+    
+    model = CroquiModel(croqui)
+    model.carregar_arquivos_externos(caminho_db)
+    
+    # Verifica que nenhum nó reteve a extensão de shadow state
+    assert not pico.mapas_gerais.HasExtension(ArquivoMapas.ext_metadados_arquivo)
+    assert not sg1.setor.HasExtension(ArquivoSetor.ext_metadados_arquivo)
+    assert not sg2.grupo.HasExtension(ArquivoGrupo.ext_metadados_arquivo)
+    assert not btn.destino.secao_textual.HasExtension(ArquivoMarkdown.ext_metadados_arquivo)
+
+
+

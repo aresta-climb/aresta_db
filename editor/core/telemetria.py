@@ -89,20 +89,27 @@ def sanitizar_texto_caminhos(texto: str) -> str:
     resultado = texto
     mapeamentos = _obter_mapeamento_sanitizacao()
     for caminho_original, substituto in mapeamentos:
-        # Substitui versão com barras invertidas (\) e barras normais (/)
+        # Substitui versão com barras duplas escapadas (\\), barras invertidas (\) e barras normais (/)
         caminho_barras_invertidas = caminho_original.replace("/", "\\")
+        caminho_barras_duplas = caminho_barras_invertidas.replace("\\", "\\\\")
         caminho_barras_normais = caminho_original.replace("\\", "/")
+        
+        substituto_barras_duplas = substituto.replace("\\", "\\\\")
+        substituto_barras_normais = substituto.replace("\\", "/")
         
         # Helper com tipagem explícita para evitar erro de inferência em lambda
         def _fazer_subst(val_subst: str) -> Any:
             return lambda m: val_subst
 
         # Regex case-insensitive escapando caracteres especiais
+        padrao_duplas = re.compile(re.escape(caminho_barras_duplas), re.IGNORECASE)
+        resultado = padrao_duplas.sub(_fazer_subst(substituto_barras_duplas), resultado)
+
         padrao_inv = re.compile(re.escape(caminho_barras_invertidas), re.IGNORECASE)
         resultado = padrao_inv.sub(_fazer_subst(substituto), resultado)
         
         padrao_norm = re.compile(re.escape(caminho_barras_normais), re.IGNORECASE)
-        resultado = padrao_norm.sub(_fazer_subst(substituto), resultado)
+        resultado = padrao_norm.sub(_fazer_subst(substituto_barras_normais), resultado)
 
     return resultado
 

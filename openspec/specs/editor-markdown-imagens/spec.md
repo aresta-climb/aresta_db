@@ -5,7 +5,7 @@ TBD - created by archiving change suporte-imagens-editor-markdown. Update Purpos
 ## Requirements
 ### Requirement: Biblioteca de Regras de Imagens Markdown (Library-First)
 O sistema SHALL fornecer uma biblioteca autossuficiente (`editor.core.imagens_markdown`) para regras de negócio de nomenclatura, sanitização, formatação de tags e processamento de imagens destinadas ao Markdown.
-- **Sanitização de Nomes**: A biblioteca SHALL converter nomes brutos para formato `snake_case`, em caracteres minúsculos, sem acentos ou símbolos especiais, com extensão `.webp`.
+- **Sanitização de Nomes e Limite de Comprimento**: A biblioteca SHALL converter nomes brutos para formato `snake_case`, em caracteres minúsculos, sem acentos ou símbolos especiais, com extensão `.webp`, truncando o tronco (*stem*) em no máximo 40 caracteres para prevenir estouros de caminho no sistema operacional.
 - **Prevenção de Colisões**: Ao sugerir um nome para uma pasta de destino, a biblioteca SHALL verificar a existência de arquivos com o mesmo nome e adicionar sufixos numéricos sequenciais (`_1`, `_2`).
 - **Nomenclatura de Capturas de Tela**: Para imagens provenientes da área de transferência, a biblioteca SHALL gerar nomes no formato `imagem_AAAAMMDD_HHMMSS.webp`.
 - **Formatação de Tag**: A biblioteca SHALL gerar strings no formato `![<legenda>](imagens/<nome_arquivo>)`.
@@ -14,6 +14,10 @@ O sistema SHALL fornecer uma biblioteca autossuficiente (`editor.core.imagens_ma
 #### Scenario: Sanitização de Nome de Arquivo
 - **WHEN** a função de sanitização recebe a string `"Foto do Setor Principal (Cópia).png"`
 - **THEN** ela SHALL retornar `"foto_do_setor_principal_copia.webp"`.
+
+#### Scenario: Truncamento de Nome Muito Longo
+- **WHEN** a função de sanitização recebe um nome com tronco superior a 40 caracteres
+- **THEN** ela SHALL truncar o tronco em 40 caracteres, remover sublinhados residuais no final e anexar a extensão `.webp`.
 
 #### Scenario: Incremento Numérico em Caso de Colisão
 - **WHEN** a função de geração de nome padrão recebe um nome cujo arquivo já existe na pasta de destino

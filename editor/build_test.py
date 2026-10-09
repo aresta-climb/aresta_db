@@ -526,6 +526,16 @@ def test_flatpak_manifest_e_constantes_otimizadas():
     assert "- build" in manifesto_texto
     assert "- flatpak" in manifesto_texto
     assert "- .flatpak-builder" in manifesto_texto
+    assert "dest: aresta_api" in manifesto_texto
+    assert "dest: scripts" in manifesto_texto
+    assert "dest: coleta_de_betas" in manifesto_texto
+    assert "dest: migracoes" in manifesto_texto
+    assert "cp -r aresta_api" in manifesto_texto
+    assert "cp -r scripts" in manifesto_texto
+    assert "cp -r coleta_de_betas" in manifesto_texto
+    assert "cp -r migracoes" in manifesto_texto
+    assert "|| true" not in manifesto_texto
+
 
 
 def test_gerar_manifesto_dependencias_flatpak_com_runtime_detectado(tmp_path):
@@ -618,6 +628,67 @@ def test_spec_inclui_diretorio_migracoes():
     conteudo_spec = ARQUIVO_SPEC.read_text(encoding="utf-8")
     assert "'migracoes'" in conteudo_spec
     assert "repo_root / 'migracoes'" in conteudo_spec or "repo_root / \"migracoes\"" in conteudo_spec
+
+
+def test_gerar_tarball_codigo_fonte_sucesso(tmp_path):
+    """Valida se gerar_tarball_codigo_fonte cria o arquivo .tar.gz contendo apenas arquivos de código sem database."""
+    from editor.build import gerar_tarball_codigo_fonte
+    import tarfile
+
+    # Cria estrutura simulada
+    raiz = tmp_path / "repo"
+    raiz.mkdir()
+    (raiz / "pyproject.toml").write_text('[project]\nversion = "1.2.3"\n', encoding="utf-8")
+    (raiz / "uv.lock").write_text("lock", encoding="utf-8")
+    (raiz / "database").mkdir()
+    (raiz / "database" / "pesado.bin").write_text("dados pesados", encoding="utf-8")
+    (raiz / "editor").mkdir()
+    (raiz / "editor" / "main.py").write_text("print('oi')", encoding="utf-8")
+    (raiz / "editor" / "main_test.py").write_text("def test(): pass", encoding="utf-8")
+    (raiz / "editor" / "dist").mkdir()
+    (raiz / "editor" / "dist" / "bundle.flatpak").write_text("binario", encoding="utf-8")
+    (raiz / "aresta_api").mkdir()
+    (raiz / "aresta_api" / "proto.py").write_text("# proto", encoding="utf-8")
+    (raiz / "scripts").mkdir()
+    (raiz / "scripts" / "migrador.py").write_text("# migrador", encoding="utf-8")
+    (raiz / "coleta_de_betas").mkdir()
+    (raiz / "coleta_de_betas" / "extrator.py").write_text("# extrator", encoding="utf-8")
+    (raiz / "migracoes").mkdir()
+    (raiz / "migracoes" / "0001_init.py").write_text("# mig", encoding="utf-8")
+
+    caminho_tarball, hash_sha256 = gerar_tarball_codigo_fonte(
+        diretorio_saida=tmp_path / "saida",
+        versao="1.2.3",
+        raiz_projeto=raiz,
+    )
+
+    assert caminho_tarball.exists()
+    assert caminho_tarball.name == "EditorAresta-1.2.3-source.tar.gz"
+    assert len(hash_sha256) == 64
+
+    # Verifica os membros do tarball
+    with tarfile.open(caminho_tarball, "r:gz") as tar:
+        nomes = [n.replace("\\", "/") for n in tar.getnames()]
+        assert "editor/main.py" in nomes
+        assert "aresta_api/proto.py" in nomes
+        assert "scripts/migrador.py" in nomes
+        assert "coleta_de_betas/extrator.py" in nomes
+        assert "migracoes/0001_init.py" in nomes
+        assert "uv.lock" in nomes
+        assert "pyproject.toml" in nomes
+        # Garante que database, dist e arquivos de teste foram excluídos
+        assert not any("database" in n for n in nomes)
+        assert not any("dist" in n for n in nomes)
+        assert not any("_test.py" in n for n in nomes)
+
+
+
+def test_main_cli_dispatch_source_tarball():
+    """Valida o despachante CLI para o modo source-tarball."""
+    with patch("editor.build.gerar_tarball_codigo_fonte", return_value=(Path("tarball.tar.gz"), "hash123")) as mock_tar:
+        main(["source-tarball", "--output-dir", "custom_dir"])
+        mock_tar.assert_called_once_with(diretorio_saida=Path("custom_dir"))
+
 
 
 
