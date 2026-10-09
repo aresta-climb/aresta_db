@@ -34,7 +34,7 @@
   </categories>
   
   <releases>
-    <release version="0.3.14" date="2026-10-08">
+    <release version="0.4.4" date="2026-10-09">
       <description>
         <p>Lançamento oficial multiplataforma com suporte nativo a Linux (Flatpak) e Windows.</p>
       </description>

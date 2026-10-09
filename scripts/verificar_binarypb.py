@@ -10,6 +10,7 @@ sys.path.append(str(Path(__file__).resolve().parent.parent))
 
 from typing import Union
 from aresta_api.proto.generated import croqui_pb2
+from aresta_api.build import generate_protos
 
 def verify_pb(pb_file: Union[str, Path]) -> None:
 
@@ -49,9 +50,9 @@ if __name__ == "__main__":
         sys.exit(1)
 
     try:
-        build.generate_protos()
+        generate_protos()
     except Exception as e:
-        print(f"Erro ao invocar build.py para protos: {e}")
+        print(f"Erro ao invocar aresta_api/build.py para protos: {e}")
         sys.exit(1)
     
     verify_pb(sys.argv[1])

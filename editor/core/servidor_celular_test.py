@@ -29,12 +29,17 @@ def test_deve_encontrar_porta_livre_automaticamente(tmp_path):
         assert resultado != 0, f"Porta {porta} deveria estar livre"
 
 def esperar_porta(servidor, timeout=5.0):
-    """Aguarda o servidor descobrir uma porta livre em background."""
+    """Aguarda o servidor estar pronto e aceitando conexões na porta em background."""
     inicio = time.time()
-    while servidor.porta is None and (time.time() - inicio) < timeout:
-        time.sleep(0.1)
-    if servidor.porta is None:
-        pytest.fail("Timeout esperando porta do servidor")
+    while (time.time() - inicio) < timeout:
+        if servidor.porta is not None:
+            try:
+                with socket.create_connection(('127.0.0.1', servidor.porta), timeout=0.1):
+                    return
+            except OSError:
+                pass
+        time.sleep(0.05)
+    pytest.fail("Timeout esperando o servidor iniciar e aceitar conexões")
 
 def test_deve_iniciar_servidor_http_e_servir_arquivos(tmp_path):
     # Cria um arquivo de teste na pasta compilada
