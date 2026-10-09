@@ -578,7 +578,7 @@ def test_markdown_editor_renderizacao_direta_e_base_url(qapp):
     
     # O base URL do preview deve ter sido definido apontando para o caminho do banco de dados
     base_url = md_editor.preview.document().baseUrl().toLocalFile()
-    assert base_url.rstrip("/") == "C:/test_croqui_folder/database"
+    assert base_url.rstrip("/").removeprefix("/") == "C:/test_croqui_folder/database".removeprefix("/")
 
 
 def test_widget_editor_markdown_renderiza_markdown_com_regua_horizontal_sem_cortar_texto(qapp):

@@ -125,15 +125,15 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y libegl1 libgl1 libxkbcommon-x11-0 libxcb-cursor0 libxcb-icccm4 libxcb-image0 libxcb-keysyms1 libxcb-randr0 libxcb-render-util0 libxcb-shape0 libxcb-sync1 libxcb-xfixes0 libxcb-xinerama0 libxcb-xkb1 xvfb
 
-#      - name: Executar Testes (TDD & Coverage)
-#        timeout-minutes: 10
-#        env:
-#          PYTHONFAULTHANDLER: "1"
-#          PYTHONUNBUFFERED: "1"
-#          CI: "true"
-#          QT_QPA_PLATFORM: "offscreen"
-#        run: |
-#          xvfb-run -a uv run pytest -n 0 -v -s --durations=10
+      - name: Executar Testes (TDD & Coverage)
+        timeout-minutes: 10
+        env:
+          PYTHONFAULTHANDLER: "1"
+          PYTHONUNBUFFERED: "1"
+          CI: "true"
+          QT_QPA_PLATFORM: "offscreen"
+        run: |
+          xvfb-run -a uv run pytest -n 0 -v -s --durations=10
 
       - name: Gerar Source Tarball Oficial do Editor
         run: |

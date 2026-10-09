@@ -27,7 +27,10 @@ def _obter_user32() -> Any:
     import ctypes
     from ctypes import wintypes
 
-    user32 = ctypes.windll.user32
+    windll: Any = getattr(ctypes, "windll", None)
+    if windll is None:
+        return None
+    user32 = windll.user32
     user32.GetWindowLongW.argtypes = [wintypes.HWND, ctypes.c_int]
     user32.GetWindowLongW.restype = wintypes.LONG
     user32.SetWindowLongW.argtypes = [wintypes.HWND, ctypes.c_int, wintypes.LONG]
@@ -86,7 +89,10 @@ def _esta_executando_em_pacote_msix() -> bool:
         import ctypes
         from ctypes import wintypes
 
-        kernel32 = ctypes.windll.kernel32
+        windll: Any = getattr(ctypes, "windll", None)
+        if windll is None:
+            return False
+        kernel32 = windll.kernel32
         comprimento = wintypes.UINT(0)
         resultado = kernel32.GetCurrentPackageFamilyName(ctypes.byref(comprimento), None)
         return bool(resultado == 0)
@@ -109,7 +115,10 @@ def configurar_identidade_processo_windows(app_user_model_id: str) -> bool:
 
         import ctypes
 
-        resultado_hresult = ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID(
+        windll: Any = getattr(ctypes, "windll", None)
+        if windll is None:
+            return False
+        resultado_hresult = windll.shell32.SetCurrentProcessExplicitAppUserModelID(
             app_user_model_id
         )
         return bool(resultado_hresult == 0)

@@ -27,8 +27,9 @@ PASTA_DATABASE: Path = PASTA_RAIZ / "database"
 def test_ausencia_arquivos_mapeamento_ids_yaml():
     """Garante que não existem tabelas intermediárias de mapeamento (ids_globais.yaml, ids_entidades.yaml, etc.) no repositório."""
     tabelas_proibidas = {"ids_globais.yaml", "ids_entidades.yaml", "ids_pontos.yaml", "ids_mapeamento.yaml"}
+    arquivos_db = list(PASTA_DATABASE.rglob("*.yaml")) if PASTA_DATABASE.is_dir() else []
     arquivos_residuais: List[Path] = [
-        f for f in list(PASTA_DATABASE.rglob("*.yaml")) + list(PASTA_RAIZ.glob("*.yaml"))
+        f for f in arquivos_db + list(PASTA_RAIZ.glob("*.yaml"))
         if f.name in tabelas_proibidas
     ]
     assert not arquivos_residuais, (
@@ -38,7 +39,8 @@ def test_ausencia_arquivos_mapeamento_ids_yaml():
 
 def test_contrato_database_todas_entidades_possuem_uid_14c_base62():
     """Valida que toda entidade no database/ possui um UID válido de 14 caracteres Base62."""
-    assert PASTA_DATABASE.is_dir(), "Diretório database/ não encontrado."
+    if not PASTA_DATABASE.is_dir():
+        pytest.skip("Diretório database/ não presente no ambiente (ex: sparse-checkout do build do Editor).")
 
     pastas_croqui = [d for d in PASTA_DATABASE.iterdir() if d.is_dir() and (d / "croqui.yaml").exists()]
     assert pastas_croqui, "Nenhum croqui encontrado em database/."
@@ -125,6 +127,9 @@ def test_contrato_database_todas_entidades_possuem_uid_14c_base62():
 
 def test_contrato_database_mapas_sem_campos_legados_e_sem_label():
     """Valida que referências de mapa não contêm 'escalada', 'setor', 'grupo' e POIs não contêm 'label'."""
+    if not PASTA_DATABASE.is_dir():
+        pytest.skip("Diretório database/ não presente no ambiente (ex: sparse-checkout do build do Editor).")
+
     pastas_croqui = [d for d in PASTA_DATABASE.iterdir() if d.is_dir() and (d / "croqui.yaml").exists()]
 
     erros: List[str] = []

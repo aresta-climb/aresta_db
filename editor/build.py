@@ -240,6 +240,7 @@ def obter_caminho_icone_alvo(eh_beta: bool) -> Tuple[Optional[Path], Path]:
     Retorna a tupla contendo o caminho do arquivo de ícone alvo (.ico no Windows, .icns no macOS ou None no Linux)
     e o caminho da imagem .png de origem correspondentes ao canal de compilação.
     """
+    extensao_icone: str = ""
     if sys.platform == "darwin":
         extensao_icone = ".icns"
     elif sys.platform.startswith("win"):
