@@ -469,7 +469,7 @@ class TestWorker(unittest.TestCase):
 
         tarefa.run()
 
-        self.mock_sleep.assert_called_with(1.0)
+        self.mock_sleep.assert_called_with(1.5)
         tarefa.gerenciador_sessao.inicializar_cofre.assert_called_once()
         tarefa.progresso.emit.assert_any_call(15)
         tarefa.status.emit.assert_any_call("Acessando cofre de senhas do aplicativo...")
@@ -515,7 +515,7 @@ class TestWorker(unittest.TestCase):
 
         tarefa.run()
 
-        self.mock_sleep.assert_called_with(1.0)
+        self.mock_sleep.assert_called_with(1.5)
         tarefa.gerenciador_sessao.inicializar_cofre.assert_called_once()
         tarefa.progresso.emit.assert_any_call(15)
         tarefa.status.emit.assert_any_call("Acessando cofre de senhas do aplicativo...")
