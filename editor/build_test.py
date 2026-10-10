@@ -564,7 +564,7 @@ def test_flatpak_manifest_e_constantes_otimizadas():
     assert "skip:" in manifesto_texto
     assert "- dist" in manifesto_texto
     assert "- build" in manifesto_texto
-    assert "- flatpak" in manifesto_texto
+    assert "EditorAresta.sh" in manifesto_texto
     assert "- .flatpak-builder" in manifesto_texto
     assert "dest: aresta_api" in manifesto_texto
     assert "dest: scripts" in manifesto_texto

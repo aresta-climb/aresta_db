@@ -48,17 +48,11 @@ modules:
       - cp uv.lock /app/share/aresta-editor/
       - echo "producao" > /app/share/aresta-editor/canal.txt
       # Native launcher
-      - |
-          cat << 'EOF' > /app/bin/EditorAresta
-          #!/bin/sh
-          export PYTHONPATH="/app/lib/python3.11/site-packages:/app/lib/python3.12/site-packages:/app/lib/python3.13/site-packages:/app/share/aresta-editor:$PYTHONPATH"
-          exec python3 -m editor.main "$@"
-          EOF
-      - chmod +x /app/bin/EditorAresta
+      - install -D -m755 editor/flatpak/EditorAresta.sh /app/bin/EditorAresta
       # Desktop integration
-      - install -D -m644 com.arestaclimb.Editor.desktop /app/share/applications/com.arestaclimb.Editor.desktop
-      - install -D -m644 com.arestaclimb.Editor.metainfo.xml /app/share/metainfo/com.arestaclimb.Editor.metainfo.xml
-      - install -D -m644 logo_app.png /app/share/icons/hicolor/512x512/apps/com.arestaclimb.Editor.png
+      - install -D -m644 editor/flatpak/com.arestaclimb.Editor.desktop /app/share/applications/com.arestaclimb.Editor.desktop
+      - install -D -m644 editor/flatpak/com.arestaclimb.Editor.metainfo.xml /app/share/metainfo/com.arestaclimb.Editor.metainfo.xml
+      - install -D -m644 editor/recursos/logo_app.png /app/share/icons/hicolor/512x512/apps/com.arestaclimb.Editor.png
     sources:
       - type: dir
         path: ../../editor
@@ -66,7 +60,6 @@ modules:
         skip:
           - dist
           - build
-          - flatpak
           - .flatpak-builder
           - __pycache__
           - "*.pyc"
@@ -109,9 +102,3 @@ modules:
           - "*_test.py"
       - type: file
         path: ../../uv.lock
-      - type: file
-        path: com.arestaclimb.Editor.desktop
-      - type: file
-        path: com.arestaclimb.Editor.metainfo.xml
-      - type: file
-        path: logo_app.png
