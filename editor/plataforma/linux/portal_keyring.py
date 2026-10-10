@@ -17,7 +17,7 @@ import logging
 import os
 from pathlib import Path
 import tempfile
-from typing import Dict, Optional
+from typing import Any, Dict, Optional, cast
 
 from cryptography.hazmat.primitives.ciphers.aead import AESGCM
 from jeepney import DBusAddress, new_method_call
@@ -80,14 +80,14 @@ class PortalKeyring(keyring.backend.KeyringBackend):
             return False
 
     @classmethod
-    def _ping_portal(cls, connection) -> bool:
+    def _ping_portal(cls, connection: Any) -> bool:
         """Pings the desktop portal interface via D-Bus Peer ping."""
         peer_addr = DBusAddress(PORTAL_OBJECT_PATH, bus_name=PORTAL_BUS_NAME, interface="org.freedesktop.DBus.Peer")
         msg = new_method_call(peer_addr, "Ping")
         reply = connection.send_and_get_reply(msg)
-        return reply.header.message_type == 2  # Method return
+        return bool(reply.header.message_type == 2)  # Method return
 
-    def _call_retrieve_secret(self, connection, write_fd: int) -> None:
+    def _call_retrieve_secret(self, connection: Any, write_fd: int) -> None:
         """Invokes RetrieveSecret on the portal interface with the pipe write descriptor."""
         portal_addr = DBusAddress(PORTAL_OBJECT_PATH, bus_name=PORTAL_BUS_NAME, interface=PORTAL_INTERFACE)
         msg = new_method_call(portal_addr, "RetrieveSecret", "ha{sv}", (write_fd, {}))
@@ -140,7 +140,7 @@ class PortalKeyring(keyring.backend.KeyringBackend):
             key = self.get_master_key()
             aesgcm = AESGCM(key)
             decrypted_bytes = aesgcm.decrypt(nonce, ciphertext, associated_data=None)
-            return json.loads(decrypted_bytes.decode("utf-8"))
+            return cast(Dict[str, str], json.loads(decrypted_bytes.decode("utf-8")))
         except Exception as exc:
             log.warning("Could not decrypt keyring store: %s", exc)
             return {}

@@ -143,6 +143,8 @@ module = [
     "botocore.*",
     "nanoid",
     "nanoid.*",
+    "jeepney",
+    "jeepney.*",
 ]
 ignore_missing_imports = true
 
