@@ -90,7 +90,7 @@ class GerenciadorSessao:
         self.nome_servico: str = nome_servico
         self.identificador_usuario: str = identificador_usuario
         self._sessao_memoria: Optional[str] = None
-        configurar_cofre_credenciais()
+        self._cofre_disponivel: Optional[bool] = None
         if caminho_arquivo_sessao:
             self._caminho_arquivo: Path = caminho_arquivo_sessao
         else:
@@ -98,18 +98,29 @@ class GerenciadorSessao:
                 GerenciadorCaminhos().obter_diretorio_base() / ".sessao_auth.enc"
             )
 
+    def inicializar_cofre(self) -> bool:
+        """
+        Inicializa e valida a disponibilidade do cofre de credenciais do sistema operacional.
+        Retorna True se o cofre estiver operacional e desbloqueado; False caso contrário.
+        """
+        if self.usar_memoria:
+            self._cofre_disponivel = True
+            return True
+        self._cofre_disponivel = bool(configurar_cofre_credenciais())
+        return self._cofre_disponivel
+
     def cofre_disponivel(self) -> bool:
         """
         Verifica se o cofre de credenciais do sistema operacional está acessível e operacional.
         Retorna False se o chaveiro estiver trancado, indisponível ou retornar erro de D-Bus/IO.
+        Se ainda não foi inicializado previamente, executa inicializar_cofre() de forma lazy.
         """
-        if self.usar_memoria:
-            return True
-        return bool(configurar_cofre_credenciais())
+        if self._cofre_disponivel is not None:
+            return self._cofre_disponivel
+        return self.inicializar_cofre()
 
     def _obter_ou_criar_chave_criptografia(self) -> bytes:
         """Obtém a chave AES de 256 bits do Keyring do SO ou gera uma nova de forma segura."""
-        configurar_cofre_credenciais()
         try:
             chave_b64 = keyring.get_password(
                 self.nome_servico, self.IDENTIFICADOR_CHAVE_CRIPTOGRAFIA
@@ -169,7 +180,6 @@ class GerenciadorSessao:
         if not self._caminho_arquivo.exists():
             return None
 
-        configurar_cofre_credenciais()
         try:
             chave_b64 = keyring.get_password(
                 self.nome_servico, self.IDENTIFICADOR_CHAVE_CRIPTOGRAFIA
@@ -239,7 +249,6 @@ class GerenciadorSessao:
         """Remove a chave mestra do Keyring e o arquivo criptografado do disco."""
         self._sessao_memoria = None
         if not self.usar_memoria:
-            configurar_cofre_credenciais()
             try:
                 keyring.delete_password(
                     self.nome_servico, self.IDENTIFICADOR_CHAVE_CRIPTOGRAFIA

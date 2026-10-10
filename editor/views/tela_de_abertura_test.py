@@ -497,7 +497,7 @@ def test_tela_abertura_banner_cofre_trancado_visivel_quando_cofre_indisponivel(q
     assert abertura.label_aviso_cofre.isVisible()
     assert (
         abertura.label_aviso_cofre.text()
-        == "Cofre do sistema está trancado; para que sua sessão seja lembrada na próxima vez que abrir o app, desbloqueie o cofre de senhas do sistema."
+        == "O cofre de senhas não foi desbloqueado. Você pode fazer login normalmente, mas sua sessão só será lembrada durante esta execução do app."
     )
 
 

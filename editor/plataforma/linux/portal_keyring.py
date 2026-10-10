@@ -16,7 +16,6 @@ import json
 import logging
 import os
 from pathlib import Path
-import select
 import sys
 import tempfile
 from typing import Any, Dict, Optional, cast
@@ -62,10 +61,10 @@ class PortalKeyring(keyring.backend.KeyringBackend):
 
     @properties.classproperty
     def priority(cls) -> float:
-        """Priority of this backend. Returns 5.0 when available, 0.0 otherwise."""
+        """Priority of this backend. Returns 6.0 when available, 0.0 otherwise."""
         try:
             if cls.is_available():
-                return 5.0
+                return 6.0
         except Exception as exc:
             log.debug("PortalKeyring availability check failed: %s", exc)
         return 0.0
@@ -96,8 +95,8 @@ class PortalKeyring(keyring.backend.KeyringBackend):
         msg_type = getattr(reply.header.message_type, "value", reply.header.message_type)
         return bool(msg_type == 2)  # Method return (MessageType.method_return)
 
-    def _call_retrieve_secret(self, connection: Any, write_fd: int, timeout: float = 5.0) -> None:
-        """Invokes RetrieveSecret on the portal interface and waits for the Response signal."""
+    def _call_retrieve_secret(self, connection: Any, write_fd: int) -> None:
+        """Invokes RetrieveSecret on the portal interface and waits for the Response signal without client timeout."""
         token = f"k_{uuid.uuid4().hex[:12]}"
         unique_name = str(getattr(connection, "unique_name", ":1.0"))
         sender = unique_name.lstrip(":").replace(".", "_")
@@ -114,7 +113,7 @@ class PortalKeyring(keyring.backend.KeyringBackend):
         msg = new_method_call(portal_addr, "RetrieveSecret", "ha{sv}", (write_fd, {"handle_token": ("s", token)}))
 
         with connection.filter(rule) as matches:
-            reply = connection.send_and_get_reply(msg, timeout=timeout)
+            reply = connection.send_and_get_reply(msg, timeout=10.0)
             msg_type = getattr(reply.header.message_type, "value", reply.header.message_type)
             if msg_type != 2:
                 raise keyring.errors.KeyringError(
@@ -127,12 +126,7 @@ class PortalKeyring(keyring.backend.KeyringBackend):
             except OSError:
                 pass
 
-            try:
-                sig = connection.recv_until_filtered(matches, timeout=timeout)
-            except Exception as exc:
-                raise keyring.errors.KeyringError(
-                    f"Timeout waiting for XDG Desktop Portal Secret response: {exc}"
-                ) from exc
+            sig = connection.recv_until_filtered(matches, timeout=None)
 
             response_code = sig.body[0] if sig.body and len(sig.body) > 0 else 2
             if response_code != 0:
@@ -140,19 +134,7 @@ class PortalKeyring(keyring.backend.KeyringBackend):
                     f"XDG Desktop Portal Secret request failed with response code {response_code}"
                 )
 
-    @classmethod
-    def _wait_pipe_readable(cls, read_fd: int, timeout: float = 2.0) -> bool:
-        """Waits for pipe to become readable with a timeout."""
-        if hasattr(select, "poll"):
-            poller = select.poll()
-            poller.register(read_fd, getattr(select, "POLLIN", 1))
-            return bool(poller.poll(int(timeout * 1000)))
-        if sys.platform != "win32":
-            rlist, _, _ = select.select([read_fd], [], [], timeout)
-            return bool(rlist)
-        return True
-
-    def get_master_key(self, timeout: float = 5.0) -> bytes:
+    def get_master_key(self) -> bytes:
         """Retrieves and caches the 32-byte master key from the portal."""
         if self._cached_master_key is not None:
             return self._cached_master_key
@@ -160,7 +142,7 @@ class PortalKeyring(keyring.backend.KeyringBackend):
         read_fd, write_fd = os.pipe()
         try:
             with open_dbus_connection(bus="SESSION", enable_fds=True) as conn:
-                self._call_retrieve_secret(conn, write_fd, timeout=timeout)
+                self._call_retrieve_secret(conn, write_fd)
         finally:
             try:
                 os.close(write_fd)
@@ -168,8 +150,6 @@ class PortalKeyring(keyring.backend.KeyringBackend):
                 pass
 
         try:
-            if not self._wait_pipe_readable(read_fd, timeout=2.0):
-                raise keyring.errors.KeyringError("Timeout reading secret from XDG Desktop Portal pipe")
             raw_secret = os.read(read_fd, 1024)
         except OSError as exc:
             raise keyring.errors.KeyringError(f"Error reading secret from portal pipe: {exc}") from exc

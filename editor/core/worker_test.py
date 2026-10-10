@@ -14,6 +14,11 @@ from editor.core.sync import ErroSincronizacaoGit
 class TestWorker(unittest.TestCase):
     """Testes unitários para as tarefas de background do editor."""
 
+    def setUp(self):
+        patcher = patch("time.sleep")
+        self.mock_sleep = patcher.start()
+        self.addCleanup(patcher.stop)
+
     def test_tarefa_publicacao_nova_pr(self):
         """Testa o fluxo de publicação de uma PR com sucesso."""
         storage_mock = MagicMock()
@@ -423,6 +428,98 @@ class TestWorker(unittest.TestCase):
         mock_sync.clonar.assert_called_once()
         tarefa.erro.emit.assert_called_once_with("Falha ao clonar repositório")
         tarefa.sucesso.emit.assert_not_called()
+
+    @patch("editor.core.worker.GerenciadorSincronizacao")
+    @patch("editor.core.worker.GerenciadorCaminhos")
+    @patch("editor.core.worker.obter_adaptador_plataforma")
+    def test_tarefa_inicializacao_etapa_cofre_sucesso(
+        self, mock_servico_loja_class, mock_storage_class, mock_sync_class
+    ):
+        """Valida que TarefaInicializacao executa etapa de inicialização do cofre aos 15%."""
+        from editor.plataforma import ResultadoAtualizacao, StatusAtualizacao
+
+        mock_servico = mock_servico_loja_class.return_value
+        mock_servico.verificar_atualizacoes_disponiveis.return_value = ResultadoAtualizacao(
+            status=StatusAtualizacao.NAO_APLICAVEL
+        )
+
+        mock_storage = mock_storage_class.return_value
+        caminho_repo = MagicMock()
+        caminho_repo.exists.return_value = True
+        caminho_repo.iterdir.return_value = ["dummy"]
+        mock_storage.obter_caminho_base_repo.return_value = caminho_repo
+
+        tarefa = TarefaInicializacao()
+        tarefa.gerenciador_sessao = MagicMock()
+        tarefa.gerenciador_sessao.inicializar_cofre.return_value = True
+        tarefa.cliente_auth = MagicMock()
+        tarefa.sessao_usuario = SessaoUsuario(
+            email="autor@arestaclimb.com",
+            nome_completo="Renato Autor",
+            jwt_supabase="jwt.valido",
+            token_atualizacao="refresh.valido",
+        )
+        tarefa.gerenciador_sessao.obter_sessao.return_value = tarefa.sessao_usuario
+
+        tarefa.sucesso = MagicMock()
+        tarefa.erro = MagicMock()
+        tarefa.status = MagicMock()
+        tarefa.progresso = MagicMock()
+        tarefa.mostrar_progresso = MagicMock()
+
+        tarefa.run()
+
+        self.mock_sleep.assert_called_with(1.0)
+        tarefa.gerenciador_sessao.inicializar_cofre.assert_called_once()
+        tarefa.progresso.emit.assert_any_call(15)
+        tarefa.status.emit.assert_any_call("Acessando cofre de senhas do aplicativo...")
+        tarefa.sucesso.emit.assert_called_once()
+
+    @patch("editor.core.worker.GerenciadorSincronizacao")
+    @patch("editor.core.worker.GerenciadorCaminhos")
+    @patch("editor.core.worker.obter_adaptador_plataforma")
+    def test_tarefa_inicializacao_etapa_cofre_falha_ou_cancelado(
+        self, mock_servico_loja_class, mock_storage_class, mock_sync_class
+    ):
+        """Valida que falha ou cancelamento no cofre prossegue sem travar a inicialização."""
+        from editor.plataforma import ResultadoAtualizacao, StatusAtualizacao
+
+        mock_servico = mock_servico_loja_class.return_value
+        mock_servico.verificar_atualizacoes_disponiveis.return_value = ResultadoAtualizacao(
+            status=StatusAtualizacao.NAO_APLICAVEL
+        )
+
+        mock_storage = mock_storage_class.return_value
+        caminho_repo = MagicMock()
+        caminho_repo.exists.return_value = True
+        caminho_repo.iterdir.return_value = ["dummy"]
+        mock_storage.obter_caminho_base_repo.return_value = caminho_repo
+
+        tarefa = TarefaInicializacao()
+        tarefa.gerenciador_sessao = MagicMock()
+        tarefa.gerenciador_sessao.inicializar_cofre.return_value = False
+        tarefa.cliente_auth = MagicMock()
+        tarefa.sessao_usuario = SessaoUsuario(
+            email="autor@arestaclimb.com",
+            nome_completo="Renato Autor",
+            jwt_supabase="jwt.valido",
+            token_atualizacao="refresh.valido",
+        )
+        tarefa.gerenciador_sessao.obter_sessao.return_value = tarefa.sessao_usuario
+
+        tarefa.sucesso = MagicMock()
+        tarefa.erro = MagicMock()
+        tarefa.status = MagicMock()
+        tarefa.progresso = MagicMock()
+        tarefa.mostrar_progresso = MagicMock()
+
+        tarefa.run()
+
+        self.mock_sleep.assert_called_with(1.0)
+        tarefa.gerenciador_sessao.inicializar_cofre.assert_called_once()
+        tarefa.progresso.emit.assert_any_call(15)
+        tarefa.status.emit.assert_any_call("Acessando cofre de senhas do aplicativo...")
+        tarefa.sucesso.emit.assert_called_once()
 
     def test_tarefa_dados_conexao_emite_dados_completos(self):
         """Valida que TarefaDadosConexao executa solicitar_sessao_servidor e emite sinais corretamente."""

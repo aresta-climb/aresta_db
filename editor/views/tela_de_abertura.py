@@ -218,7 +218,7 @@ class TelaDeAbertura(QWidget):
         self.auth_layout.setSpacing(12)
 
         self.label_aviso_cofre = QLabel(
-            "Cofre do sistema está trancado; para que sua sessão seja lembrada na próxima vez que abrir o app, desbloqueie o cofre de senhas do sistema."
+            "O cofre de senhas não foi desbloqueado. Você pode fazer login normalmente, mas sua sessão só será lembrada durante esta execução do app."
         )
         self.label_aviso_cofre.setObjectName("label_aviso_cofre")
         self.label_aviso_cofre.setWordWrap(True)

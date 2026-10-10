@@ -39,9 +39,9 @@ def portal_keyring(temp_keyring_file, mock_master_key):
 
 
 def test_priority_available():
-    """Validates that priority returns 5.0 when the portal service is functional."""
+    """Validates that priority returns 6.0 when the portal service is functional."""
     with patch.object(PortalKeyring, "is_available", return_value=True):
-        assert PortalKeyring.priority == 5.0
+        assert PortalKeyring.priority == 6.0
 
 
 def test_priority_unavailable():
@@ -246,18 +246,23 @@ def test_call_retrieve_secret_rejected():
         backend._call_retrieve_secret(mock_conn, 123)
 
 
-def test_call_retrieve_secret_signal_timeout():
-    """Validates _call_retrieve_secret raises KeyringError when waiting for Response signal times out."""
+def test_call_retrieve_secret_user_cancelled_response_code_1():
+    """Validates _call_retrieve_secret raises KeyringError when user cancels prompt (code 1)."""
     mock_conn = MagicMock()
     mock_conn.unique_name = ":1.100"
     mock_reply = MagicMock()
     mock_reply.header.message_type = 2
     mock_conn.send_and_get_reply.return_value = mock_reply
-    mock_conn.recv_until_filtered.side_effect = TimeoutError("signal timed out")
+
+    mock_sig = MagicMock()
+    mock_sig.body = (1, {})  # Response code 1: Cancelled by user
+    mock_conn.recv_until_filtered.return_value = mock_sig
 
     backend = PortalKeyring(storage_path=Path("/fake/k.enc"))
-    with pytest.raises(keyring.errors.KeyringError, match="Timeout waiting for XDG Desktop Portal Secret response"):
+    with pytest.raises(keyring.errors.KeyringError, match="failed with response code 1"):
         backend._call_retrieve_secret(mock_conn, 123)
+
+    mock_conn.recv_until_filtered.assert_called_once_with(mock_conn.filter.return_value.__enter__.return_value, timeout=None)
 
 
 def test_call_retrieve_secret_response_code_error():
@@ -294,46 +299,6 @@ def test_call_retrieve_secret_empty_body():
         backend._call_retrieve_secret(mock_conn, 123)
 
 
-def test_retrieve_master_key_pipe_timeout(tmp_path):
-    """Validates KeyringError is raised when pipe read times out (_wait_pipe_readable returns False)."""
-    backend = PortalKeyring(storage_path=tmp_path / "k.enc")
-    r, w = os.pipe()
-    mock_conn = MagicMock()
-    with patch("os.pipe", return_value=(r, w)):
-        with patch.object(PortalKeyring, "_wait_pipe_readable", return_value=False):
-            with patch("editor.plataforma.linux.portal_keyring.open_dbus_connection", return_value=mock_conn):
-                with patch.object(backend, "_call_retrieve_secret"):
-                    with pytest.raises(keyring.errors.KeyringError, match="Timeout reading secret"):
-                        backend.get_master_key()
-    try:
-        os.close(r)
-        os.close(w)
-    except OSError:
-        pass
-
-
-def test_wait_pipe_readable_with_poll():
-    """Validates _wait_pipe_readable when select.poll is available."""
-    mock_poller = MagicMock()
-    mock_poller.poll.return_value = [(1, 1)]  # readable
-    with patch("select.poll", return_value=mock_poller, create=True):
-        assert PortalKeyring._wait_pipe_readable(10, timeout=1.0) is True
-
-    mock_poller.poll.return_value = []  # timeout
-    with patch("select.poll", return_value=mock_poller, create=True):
-        assert PortalKeyring._wait_pipe_readable(10, timeout=1.0) is False
-
-
-def test_wait_pipe_readable_with_select():
-    """Validates _wait_pipe_readable when select.poll is absent but platform is posix."""
-    with patch("editor.plataforma.linux.portal_keyring.hasattr", return_value=False):
-        with patch("sys.platform", "linux"):
-            with patch("select.select", return_value=([10], [], [])):
-                assert PortalKeyring._wait_pipe_readable(10, timeout=1.0) is True
-            with patch("select.select", return_value=([], [], [])):
-                assert PortalKeyring._wait_pipe_readable(10, timeout=1.0) is False
-
-
 def test_retrieve_master_key_read_oserror(tmp_path):
     """Validates KeyringError is raised when os.read encounters an OSError."""
     backend = PortalKeyring(storage_path=tmp_path / "k.enc")
@@ -341,12 +306,11 @@ def test_retrieve_master_key_read_oserror(tmp_path):
     os.write(w, b"data")
     mock_conn = MagicMock()
     with patch("os.pipe", return_value=(r, w)):
-        with patch.object(PortalKeyring, "_wait_pipe_readable", return_value=True):
-            with patch("os.read", side_effect=OSError("pipe read error")):
-                with patch("editor.plataforma.linux.portal_keyring.open_dbus_connection", return_value=mock_conn):
-                    with patch.object(backend, "_call_retrieve_secret"):
-                        with pytest.raises(keyring.errors.KeyringError, match="Error reading secret from portal pipe"):
-                            backend.get_master_key()
+        with patch("os.read", side_effect=OSError("pipe read error")):
+            with patch("editor.plataforma.linux.portal_keyring.open_dbus_connection", return_value=mock_conn):
+                with patch.object(backend, "_call_retrieve_secret"):
+                    with pytest.raises(keyring.errors.KeyringError, match="Error reading secret from portal pipe"):
+                        backend.get_master_key()
     try:
         os.close(r)
         os.close(w)
@@ -364,13 +328,12 @@ def test_retrieve_master_key_non_32_bytes(tmp_path):
     mock_conn = MagicMock()
     with patch("os.pipe", return_value=(r, 999)):
         with patch("os.close"):
-            with patch.object(PortalKeyring, "_wait_pipe_readable", return_value=True):
-                with patch("editor.plataforma.linux.portal_keyring.open_dbus_connection", return_value=mock_conn):
-                    with patch.object(backend, "_call_retrieve_secret"):
-                        key = backend.get_master_key()
-                        assert len(key) == 32
-                        import hashlib
-                        assert key == hashlib.sha256(b"short_secret").digest()
+            with patch("editor.plataforma.linux.portal_keyring.open_dbus_connection", return_value=mock_conn):
+                with patch.object(backend, "_call_retrieve_secret"):
+                    key = backend.get_master_key()
+                    assert len(key) == 32
+                    import hashlib
+                    assert key == hashlib.sha256(b"short_secret").digest()
 
 
 def test_retrieve_master_key_empty_raises(tmp_path):
@@ -382,12 +345,11 @@ def test_retrieve_master_key_empty_raises(tmp_path):
     mock_conn = MagicMock()
     with patch("os.pipe", return_value=(r, 999)):
         with patch("os.close"):
-            with patch.object(PortalKeyring, "_wait_pipe_readable", return_value=True):
-                with patch("os.read", return_value=b""):
-                    with patch("editor.plataforma.linux.portal_keyring.open_dbus_connection", return_value=mock_conn):
-                        with patch.object(backend, "_call_retrieve_secret"):
-                            with pytest.raises(keyring.errors.KeyringError):
-                                backend.get_master_key()
+            with patch("os.read", return_value=b""):
+                with patch("editor.plataforma.linux.portal_keyring.open_dbus_connection", return_value=mock_conn):
+                    with patch.object(backend, "_call_retrieve_secret"):
+                        with pytest.raises(keyring.errors.KeyringError):
+                            backend.get_master_key()
 
 
 def test_retrieve_master_key_oserror_suppressed(tmp_path, mock_master_key):

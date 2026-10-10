@@ -8,6 +8,7 @@ import sys
 import shutil
 from datetime import datetime
 import threading
+import time
 import pygit2
 
 from editor.core.gerenciador_sessao import GerenciadorSessao, SessaoUsuario
@@ -72,7 +73,15 @@ class TarefaInicializacao(QThread):
             self.storage.inicializar_diretorios()
             self.progresso.emit(10)
 
-            # 2. Verificação de Atualização na Microsoft Store
+            # 2. Inicializar cofre de credenciais
+            self.status.emit("Acessando cofre de senhas do aplicativo...")
+            self.progresso.emit(15)
+            time.sleep(1.5)
+            cofre_ok = self.gerenciador_sessao.inicializar_cofre()
+            if not cofre_ok:
+                logger.warning("Cofre de senhas não foi desbloqueado ou foi cancelado pelo usuário.")
+
+            # 3. Verificação de Atualização na Microsoft Store
             self.status.emit("Verificando atualizações na Microsoft Store...")
             resultado_update = self.servico_loja.verificar_atualizacoes_disponiveis()
             if resultado_update.tem_atualizacao:

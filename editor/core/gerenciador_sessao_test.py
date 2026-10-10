@@ -425,11 +425,12 @@ class TesteGerenciadorSessao:
                 assert chave == b"1" * 32
                 mock_set.assert_not_called()
 
-    def teste_gerenciador_sessao_invoca_configurar_cofre_credenciais(self):
-        """Valida que configurar_cofre_credenciais da plataforma é chamado na inicialização."""
+    def teste_gerenciador_sessao_init_puro_sem_acesso_a_cofre(self):
+        """Valida que instanciar GerenciadorSessao não acessa o cofre de credenciais."""
         with patch("editor.core.gerenciador_sessao.configurar_cofre_credenciais") as mock_conf:
-            GerenciadorSessao(usar_memoria=True)
-            mock_conf.assert_called_once()
+            gerenciador = GerenciadorSessao(usar_memoria=False)
+            mock_conf.assert_not_called()
+            assert gerenciador._cofre_disponivel is None
 
     def teste_salvar_sessao_falha_chaveiro_mantem_em_memoria_sem_crash(self, tmp_path):
         """Valida que falha de escrita no chaveiro mantém a sessão em memória sem crashar."""
@@ -454,24 +455,43 @@ class TesteGerenciadorSessao:
             assert sessao_recuperada is not None
             assert sessao_recuperada.email == "resiliente@arestaclimb.com"
 
-    def teste_cofre_disponivel_sucesso(self):
-        """Valida que cofre_disponivel retorna True quando configurar_cofre_credenciais indica cofre acessível."""
-        with patch("editor.core.gerenciador_sessao.configurar_cofre_credenciais", return_value=True):
+    def teste_inicializar_cofre_sucesso_e_cache_em_cofre_disponivel(self):
+        """Valida inicializar_cofre com sucesso e que cofre_disponivel usa o valor em memória."""
+        with patch("editor.core.gerenciador_sessao.configurar_cofre_credenciais", return_value=True) as mock_conf:
             gerenciador = GerenciadorSessao(usar_memoria=False)
-            assert gerenciador.cofre_disponivel() is True
+            assert gerenciador.inicializar_cofre() is True
+            assert mock_conf.call_count == 1
 
-    def teste_cofre_disponivel_quando_usar_memoria(self):
-        """Valida que cofre_disponivel retorna True diretamente quando usar_memoria=True."""
+            # Chamadas subsequentes a cofre_disponivel não devem redisparar configurar_cofre_credenciais
+            assert gerenciador.cofre_disponivel() is True
+            assert mock_conf.call_count == 1
+
+    def teste_inicializar_cofre_falha_e_cache_em_cofre_disponivel(self):
+        """Valida inicializar_cofre com falha e que cofre_disponivel preserva False em memória."""
+        with patch("editor.core.gerenciador_sessao.configurar_cofre_credenciais", return_value=False) as mock_conf:
+            gerenciador = GerenciadorSessao(usar_memoria=False)
+            assert gerenciador.inicializar_cofre() is False
+            assert mock_conf.call_count == 1
+
+            assert gerenciador.cofre_disponivel() is False
+            assert mock_conf.call_count == 1
+
+    def teste_inicializar_cofre_quando_usar_memoria(self):
+        """Valida que inicializar_cofre retorna True diretamente quando usar_memoria=True."""
         gerenciador = GerenciadorSessao(usar_memoria=True)
         with patch("editor.core.gerenciador_sessao.configurar_cofre_credenciais") as mock_conf:
+            assert gerenciador.inicializar_cofre() is True
             assert gerenciador.cofre_disponivel() is True
             mock_conf.assert_not_called()
 
-    def teste_cofre_disponivel_falha_chaveiro_bloqueado(self):
-        """Valida que cofre_disponivel retorna False quando configurar_cofre_credenciais indica cofre indisponível."""
-        with patch("editor.core.gerenciador_sessao.configurar_cofre_credenciais", return_value=False):
+    def teste_cofre_disponivel_lazy_quando_nao_inicializado_previamente(self):
+        """Valida que cofre_disponivel dispara inicializar_cofre se ainda não foi executado."""
+        with patch("editor.core.gerenciador_sessao.configurar_cofre_credenciais", return_value=True) as mock_conf:
             gerenciador = GerenciadorSessao(usar_memoria=False)
-            assert gerenciador.cofre_disponivel() is False
+            assert gerenciador._cofre_disponivel is None
+            assert gerenciador.cofre_disponivel() is True
+            assert mock_conf.call_count == 1
+            assert gerenciador._cofre_disponivel is True
 
     def teste_token_jwt_expirado_com_padding_necessario(self):
         """Valida que token JWT cujo payload exige padding base64 é processado corretamente."""
