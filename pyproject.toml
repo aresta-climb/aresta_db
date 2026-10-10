@@ -86,6 +86,7 @@ dev = [
     "types-protobuf",
     "types-qrcode",
     "types-nanoid>=2.0.0.20260508",
+    "jeepney",
 ]
 
 [tool.uv]

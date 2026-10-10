@@ -11,9 +11,6 @@ finish-args:
   - --socket=fallback-x11
   - --socket=wayland
   - --share=network
-  - --talk-name=org.freedesktop.secrets
-  - --talk-name=org.kde.kwalletd5
-  - --talk-name=org.kde.kwalletd
   - --env=XKB_LOG_LEVEL=critical
 
 build-options:

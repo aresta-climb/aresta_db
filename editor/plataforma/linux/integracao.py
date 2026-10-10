@@ -74,11 +74,26 @@ class AdaptadorLinux(AdaptadorPlataforma):
         return "logo_app.png"
 
     def configurar_cofre_credenciais(self) -> None:
-        """Garante a seleção do SecretService/KWallet no Linux para contornar limitações do PyInstaller."""
+        """Garante a seleção do PortalKeyring ou SecretService/KWallet no Linux."""
         try:
             import keyring
             from keyring.backends import fail
+        except Exception:
+            return
 
+        try:
+            from editor.plataforma.linux.portal_keyring import PortalKeyring
+
+            if PortalKeyring.is_available():
+                backend_atual = keyring.get_keyring()
+                if not isinstance(backend_atual, PortalKeyring):
+                    caminho_cofre = self.obter_diretorio_dados_usuario() / "keyring.enc"
+                    keyring.set_keyring(PortalKeyring(storage_path=caminho_cofre))
+                return
+        except Exception:
+            pass
+
+        try:
             backend_atual = keyring.get_keyring()
             if not isinstance(backend_atual, fail.Keyring):
                 return

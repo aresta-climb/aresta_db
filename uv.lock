@@ -129,7 +129,7 @@ wheels = [
 
 [[package]]
 name = "aresta-db"
-version = "0.4.6-dev"
+version = "0.4.6.dev0"
 source = { virtual = "." }
 
 [package.dev-dependencies]
@@ -142,6 +142,7 @@ deploy = [
     { name = "pyyaml" },
 ]
 dev = [
+    { name = "jeepney" },
     { name = "moto", extra = ["s3"] },
     { name = "mypy" },
     { name = "mypy-protobuf" },
@@ -238,6 +239,7 @@ deploy = [
     { name = "pyyaml" },
 ]
 dev = [
+    { name = "jeepney" },
     { name = "moto" },
     { name = "moto", extras = ["s3"] },
     { name = "mypy", specifier = ">=1.15.0" },

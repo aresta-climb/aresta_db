@@ -577,6 +577,9 @@ def test_flatpak_manifest_e_constantes_otimizadas():
     assert "cp -r migracoes" in manifesto_texto
     assert "cp -r serving" in manifesto_texto
     assert "|| true" not in manifesto_texto
+    assert "--talk-name=org.freedesktop.secrets" not in manifesto_texto
+    assert "--talk-name=org.kde.kwalletd5" not in manifesto_texto
+    assert "--talk-name=org.kde.kwalletd" not in manifesto_texto
 
 
 
