@@ -96,6 +96,8 @@ class ControladorAplicativo:
         """Inicia ou reinicia a tarefa de inicialização e sincronização."""
         tarefa_cls = getattr(sys.modules[__name__], "TarefaInicializacao")
         self.tarefa = tarefa_cls(ID_CLIENTE_GITHUB)
+        if hasattr(self.tarefa, "gerenciador_sessao"):
+            self.abertura.gerenciador_sessao = self.tarefa.gerenciador_sessao
         self.tarefa.status.connect(self.abertura.atualizar_status)
         self.tarefa.progresso.connect(self.abertura.atualizar_progresso)
         self.tarefa.mostrar_progresso.connect(self.abertura.exibir_barra_progresso)

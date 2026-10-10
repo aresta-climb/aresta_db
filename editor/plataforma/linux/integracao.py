@@ -76,14 +76,14 @@ class AdaptadorLinux(AdaptadorPlataforma):
         """Retorna o nome do arquivo de ícone nativo prioritário para o Linux (.png)."""
         return "logo_app.png"
 
-    def configurar_cofre_credenciais(self) -> None:
-        """Garante a seleção do PortalKeyring ou SecretService/KWallet no Linux."""
+    def configurar_cofre_credenciais(self) -> bool:
+        """Garante a seleção do PortalKeyring ou SecretService/KWallet no Linux, retornando True se operacional."""
         try:
             import keyring
             from keyring.backends import fail
         except Exception as exc:
             log.warning("Falha ao carregar keyring: %s", exc)
-            return
+            return False
 
         try:
             from editor.plataforma.linux.portal_keyring import PortalKeyring
@@ -92,9 +92,16 @@ class AdaptadorLinux(AdaptadorPlataforma):
                 backend_atual = keyring.get_keyring()
                 if not isinstance(backend_atual, PortalKeyring):
                     caminho_cofre = self.obter_diretorio_dados_usuario() / "keyring.enc"
-                    keyring.set_keyring(PortalKeyring(storage_path=caminho_cofre))
+                    backend_atual = PortalKeyring(storage_path=caminho_cofre)
+                    keyring.set_keyring(backend_atual)
                     log.info("Cofre de credenciais configurado com PortalKeyring em: %s", caminho_cofre)
-                return
+
+                try:
+                    backend_atual.get_master_key()
+                    return True
+                except Exception as exc:
+                    log.warning("PortalKeyring presente, mas chaveiro trancado ou inacessível: %s", exc)
+                    return False
             else:
                 log.debug("PortalKeyring indisponível no ambiente atual.")
         except Exception as exc:
@@ -104,16 +111,16 @@ class AdaptadorLinux(AdaptadorPlataforma):
             backend_atual = keyring.get_keyring()
             if not isinstance(backend_atual, fail.Keyring):
                 log.info("Usando backend de keyring padrão: %s", backend_atual)
-                return
+                return True
         except Exception:
-            return
+            return False
 
         try:
             from keyring.backends import SecretService
 
             keyring.set_keyring(SecretService.Keyring())  # type: ignore[no-untyped-call]
             log.info("Cofre de credenciais configurado com SecretService")
-            return
+            return True
         except Exception:
             pass
 
@@ -122,9 +129,11 @@ class AdaptadorLinux(AdaptadorPlataforma):
 
             keyring.set_keyring(kwallet.DBusKeyring())  # type: ignore[no-untyped-call]
             log.info("Cofre de credenciais configurado com KWallet")
-            return
+            return True
         except Exception:
             pass
+
+        return False
 
     def normalizar_caminho_estendido(self, caminho: Path | str) -> str:
         """Em sistemas POSIX Linux, resolve e retorna o caminho absoluto canônico."""

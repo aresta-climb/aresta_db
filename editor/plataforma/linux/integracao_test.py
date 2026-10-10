@@ -102,12 +102,13 @@ def test_adaptador_linux_configurar_cofre_credenciais_portal_disponivel_sucesso(
     adaptador = AdaptadorLinux()
     backend_inicial = MagicMock()
     with patch.object(PortalKeyring, "is_available", return_value=True):
-        with patch("keyring.get_keyring", return_value=backend_inicial):
-            with patch("keyring.set_keyring") as mock_set:
-                adaptador.configurar_cofre_credenciais()
-                mock_set.assert_called_once()
-                instancia_registrada = mock_set.call_args[0][0]
-                assert isinstance(instancia_registrada, PortalKeyring)
+        with patch.object(PortalKeyring, "get_master_key", return_value=b"1" * 32):
+            with patch("keyring.get_keyring", return_value=backend_inicial):
+                with patch("keyring.set_keyring") as mock_set:
+                    assert adaptador.configurar_cofre_credenciais() is True
+                    mock_set.assert_called_once()
+                    instancia_registrada = mock_set.call_args[0][0]
+                    assert isinstance(instancia_registrada, PortalKeyring)
 
 
 def test_adaptador_linux_configurar_cofre_credenciais_portal_ja_configurado() -> None:
@@ -117,10 +118,24 @@ def test_adaptador_linux_configurar_cofre_credenciais_portal_ja_configurado() ->
     adaptador = AdaptadorLinux()
     portal_ativo = PortalKeyring(storage_path=Path("/fake/k.enc"))
     with patch.object(PortalKeyring, "is_available", return_value=True):
-        with patch("keyring.get_keyring", return_value=portal_ativo):
-            with patch("keyring.set_keyring") as mock_set:
-                adaptador.configurar_cofre_credenciais()
-                mock_set.assert_not_called()
+        with patch.object(portal_ativo, "get_master_key", return_value=b"1" * 32):
+            with patch("keyring.get_keyring", return_value=portal_ativo):
+                with patch("keyring.set_keyring") as mock_set:
+                    assert adaptador.configurar_cofre_credenciais() is True
+                    mock_set.assert_not_called()
+
+
+def test_adaptador_linux_configurar_cofre_credenciais_portal_trancado_retorna_false() -> None:
+    """Valida que quando o PortalKeyring estiver ativo mas o cofre trancado, retorna False."""
+    from editor.plataforma.linux.portal_keyring import PortalKeyring
+
+    adaptador = AdaptadorLinux()
+    backend_inicial = MagicMock()
+    with patch.object(PortalKeyring, "is_available", return_value=True):
+        with patch.object(PortalKeyring, "get_master_key", side_effect=Exception("Keyring locked")):
+            with patch("keyring.get_keyring", return_value=backend_inicial):
+                with patch("keyring.set_keyring"):
+                    assert adaptador.configurar_cofre_credenciais() is False
 
 
 def test_adaptador_linux_configurar_cofre_credenciais_portal_erro_faz_fallback() -> None:
@@ -132,7 +147,7 @@ def test_adaptador_linux_configurar_cofre_credenciais_portal_erro_faz_fallback()
         with patch("keyring.get_keyring", return_value=FailKeyring()):
             with patch("keyring.backends.SecretService.Keyring") as mock_secret_service:
                 with patch("keyring.set_keyring") as mock_set:
-                    adaptador.configurar_cofre_credenciais()
+                    assert adaptador.configurar_cofre_credenciais() is True
                     mock_secret_service.assert_called_once()
                     mock_set.assert_called_once()
 
@@ -144,7 +159,7 @@ def test_adaptador_linux_configurar_cofre_credenciais_ja_valido() -> None:
     with patch("editor.plataforma.linux.portal_keyring.PortalKeyring.is_available", return_value=False):
         with patch("keyring.get_keyring", return_value=backend_valido):
             with patch("keyring.set_keyring") as mock_set:
-                adaptador.configurar_cofre_credenciais()
+                assert adaptador.configurar_cofre_credenciais() is True
                 mock_set.assert_not_called()
 
 
@@ -152,7 +167,7 @@ def test_adaptador_linux_configurar_cofre_credenciais_trata_excecao() -> None:
     """Valida tratamento seguro caso ocorra falha de importação do keyring."""
     adaptador = AdaptadorLinux()
     with patch.dict("sys.modules", {"keyring": None}):
-        adaptador.configurar_cofre_credenciais()
+        assert adaptador.configurar_cofre_credenciais() is False
 
 
 def test_adaptador_linux_configurar_cofre_credenciais_get_keyring_lanca_excecao() -> None:
@@ -161,7 +176,7 @@ def test_adaptador_linux_configurar_cofre_credenciais_get_keyring_lanca_excecao(
     with patch("editor.plataforma.linux.portal_keyring.PortalKeyring.is_available", return_value=False):
         with patch("keyring.get_keyring", side_effect=RuntimeError("Falha de introspecção do keyring")):
             with patch("keyring.set_keyring") as mock_set:
-                adaptador.configurar_cofre_credenciais()
+                assert adaptador.configurar_cofre_credenciais() is False
                 mock_set.assert_not_called()
 
 
@@ -173,7 +188,7 @@ def test_adaptador_linux_configurar_cofre_credenciais_secretservice_sucesso() ->
     with patch("editor.plataforma.linux.portal_keyring.PortalKeyring.is_available", return_value=False):
         with patch("keyring.get_keyring", return_value=FailKeyring()):
             with patch("keyring.set_keyring") as mock_set:
-                adaptador.configurar_cofre_credenciais()
+                assert adaptador.configurar_cofre_credenciais() is True
                 mock_set.assert_called_once()
 
 
@@ -187,7 +202,7 @@ def test_adaptador_linux_configurar_cofre_credenciais_secretservice_falha_tenta_
             with patch("keyring.backends.SecretService.Keyring", side_effect=Exception("SecretService ausente")):
                 with patch("keyring.backends.kwallet.DBusKeyring", return_value=MagicMock()):
                     with patch("keyring.set_keyring") as mock_set:
-                        adaptador.configurar_cofre_credenciais()
+                        assert adaptador.configurar_cofre_credenciais() is True
                         mock_set.assert_called_once()
 
 
@@ -201,7 +216,7 @@ def test_adaptador_linux_configurar_cofre_credenciais_ambos_falham() -> None:
             with patch("keyring.backends.SecretService.Keyring", side_effect=Exception("Falha 1")):
                 with patch("keyring.backends.kwallet.DBusKeyring", side_effect=Exception("Falha 2")):
                     with patch("keyring.set_keyring") as mock_set:
-                        adaptador.configurar_cofre_credenciais()
+                        assert adaptador.configurar_cofre_credenciais() is False
                         mock_set.assert_not_called()
 
 

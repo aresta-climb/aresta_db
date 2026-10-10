@@ -16,11 +16,14 @@ import json
 import logging
 import os
 from pathlib import Path
+import select
+import sys
 import tempfile
 from typing import Any, Dict, Optional, cast
+import uuid
 
 from cryptography.hazmat.primitives.ciphers.aead import AESGCM
-from jeepney import DBusAddress, new_method_call
+from jeepney import DBusAddress, MatchRule, new_method_call
 from jeepney.io.blocking import open_dbus_connection
 import keyring.backend
 from keyring.compat import properties
@@ -85,21 +88,71 @@ class PortalKeyring(keyring.backend.KeyringBackend):
             return False
 
     @classmethod
-    def _ping_portal(cls, connection: Any) -> bool:
+    def _ping_portal(cls, connection: Any, timeout: float = 2.0) -> bool:
         """Pings the desktop portal interface via D-Bus Peer ping."""
         peer_addr = DBusAddress(PORTAL_OBJECT_PATH, bus_name=PORTAL_BUS_NAME, interface="org.freedesktop.DBus.Peer")
         msg = new_method_call(peer_addr, "Ping")
-        reply = connection.send_and_get_reply(msg)
+        reply = connection.send_and_get_reply(msg, timeout=timeout)
         msg_type = getattr(reply.header.message_type, "value", reply.header.message_type)
         return bool(msg_type == 2)  # Method return (MessageType.method_return)
 
-    def _call_retrieve_secret(self, connection: Any, write_fd: int) -> None:
-        """Invokes RetrieveSecret on the portal interface with the pipe write descriptor."""
-        portal_addr = DBusAddress(PORTAL_OBJECT_PATH, bus_name=PORTAL_BUS_NAME, interface=PORTAL_INTERFACE)
-        msg = new_method_call(portal_addr, "RetrieveSecret", "ha{sv}", (write_fd, {}))
-        connection.send_and_get_reply(msg)
+    def _call_retrieve_secret(self, connection: Any, write_fd: int, timeout: float = 5.0) -> None:
+        """Invokes RetrieveSecret on the portal interface and waits for the Response signal."""
+        token = f"k_{uuid.uuid4().hex[:12]}"
+        unique_name = str(getattr(connection, "unique_name", ":1.0"))
+        sender = unique_name.lstrip(":").replace(".", "_")
+        expected_path = f"/org/freedesktop/portal/desktop/request/{sender}/{token}"
 
-    def get_master_key(self) -> bytes:
+        rule = MatchRule(
+            type="signal",
+            interface="org.freedesktop.portal.Request",
+            member="Response",
+            path=expected_path,
+        )
+
+        portal_addr = DBusAddress(PORTAL_OBJECT_PATH, bus_name=PORTAL_BUS_NAME, interface=PORTAL_INTERFACE)
+        msg = new_method_call(portal_addr, "RetrieveSecret", "ha{sv}", (write_fd, {"handle_token": ("s", token)}))
+
+        with connection.filter(rule) as matches:
+            reply = connection.send_and_get_reply(msg, timeout=timeout)
+            msg_type = getattr(reply.header.message_type, "value", reply.header.message_type)
+            if msg_type != 2:
+                raise keyring.errors.KeyringError(
+                    f"XDG Desktop Portal RetrieveSecret rejected request: {getattr(reply, 'body', None)}"
+                )
+
+            # Close the write descriptor in this process so only the portal holds it open
+            try:
+                os.close(write_fd)
+            except OSError:
+                pass
+
+            try:
+                sig = connection.recv_until_filtered(matches, timeout=timeout)
+            except Exception as exc:
+                raise keyring.errors.KeyringError(
+                    f"Timeout waiting for XDG Desktop Portal Secret response: {exc}"
+                ) from exc
+
+            response_code = sig.body[0] if sig.body and len(sig.body) > 0 else 2
+            if response_code != 0:
+                raise keyring.errors.KeyringError(
+                    f"XDG Desktop Portal Secret request failed with response code {response_code}"
+                )
+
+    @classmethod
+    def _wait_pipe_readable(cls, read_fd: int, timeout: float = 2.0) -> bool:
+        """Waits for pipe to become readable with a timeout."""
+        if hasattr(select, "poll"):
+            poller = select.poll()
+            poller.register(read_fd, getattr(select, "POLLIN", 1))
+            return bool(poller.poll(int(timeout * 1000)))
+        if sys.platform != "win32":
+            rlist, _, _ = select.select([read_fd], [], [], timeout)
+            return bool(rlist)
+        return True
+
+    def get_master_key(self, timeout: float = 5.0) -> bytes:
         """Retrieves and caches the 32-byte master key from the portal."""
         if self._cached_master_key is not None:
             return self._cached_master_key
@@ -107,7 +160,7 @@ class PortalKeyring(keyring.backend.KeyringBackend):
         read_fd, write_fd = os.pipe()
         try:
             with open_dbus_connection(bus="SESSION", enable_fds=True) as conn:
-                self._call_retrieve_secret(conn, write_fd)
+                self._call_retrieve_secret(conn, write_fd, timeout=timeout)
         finally:
             try:
                 os.close(write_fd)
@@ -115,13 +168,19 @@ class PortalKeyring(keyring.backend.KeyringBackend):
                 pass
 
         try:
-            with os.fdopen(read_fd, "rb") as pipe_in:
-                raw_secret = pipe_in.read()
-        except OSError:
-            raw_secret = b""
+            if not self._wait_pipe_readable(read_fd, timeout=2.0):
+                raise keyring.errors.KeyringError("Timeout reading secret from XDG Desktop Portal pipe")
+            raw_secret = os.read(read_fd, 1024)
+        except OSError as exc:
+            raise keyring.errors.KeyringError(f"Error reading secret from portal pipe: {exc}") from exc
+        finally:
+            try:
+                os.close(read_fd)
+            except OSError:
+                pass
 
         if not raw_secret:
-            raise keyring.errors.KeyringError("Failed to retrieve secret from XDG Portal")
+            raise keyring.errors.KeyringError("Empty secret returned from XDG Desktop Portal")
 
         if len(raw_secret) == 32:
             master_key = raw_secret

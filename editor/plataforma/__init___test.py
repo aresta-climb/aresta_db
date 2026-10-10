@@ -77,7 +77,8 @@ def test_funcoes_conveniencia_fachada() -> None:
         assert obter_nome_icone_preferencial() == "logo.png"
         mock_adaptador.obter_nome_icone_preferencial.assert_called_once()
 
-        configurar_cofre_credenciais()
+        mock_adaptador.configurar_cofre_credenciais.return_value = True
+        assert configurar_cofre_credenciais() is True
         mock_adaptador.configurar_cofre_credenciais.assert_called_once()
 
         mock_adaptador.normalizar_caminho_estendido.return_value = "\\\\?\\C:\\teste"
@@ -100,6 +101,6 @@ def test_adaptador_padrao_fallback_completo() -> None:
     assert res.status == StatusAtualizacao.NAO_APLICAVEL
     assert adaptador.solicitar_instalacao_atualizacao() is False
     assert adaptador.obter_nome_icone_preferencial() == "logo_app.png"
-    adaptador.configurar_cofre_credenciais()
+    assert adaptador.configurar_cofre_credenciais() is False
     assert adaptador.normalizar_caminho_estendido("") == ""
     assert isinstance(adaptador.normalizar_caminho_estendido("teste"), str)

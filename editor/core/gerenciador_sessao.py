@@ -98,6 +98,15 @@ class GerenciadorSessao:
                 GerenciadorCaminhos().obter_diretorio_base() / ".sessao_auth.enc"
             )
 
+    def cofre_disponivel(self) -> bool:
+        """
+        Verifica se o cofre de credenciais do sistema operacional está acessível e operacional.
+        Retorna False se o chaveiro estiver trancado, indisponível ou retornar erro de D-Bus/IO.
+        """
+        if self.usar_memoria:
+            return True
+        return bool(configurar_cofre_credenciais())
+
     def _obter_ou_criar_chave_criptografia(self) -> bytes:
         """Obtém a chave AES de 256 bits do Keyring do SO ou gera uma nova de forma segura."""
         configurar_cofre_credenciais()

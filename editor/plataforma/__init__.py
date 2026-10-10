@@ -62,8 +62,8 @@ class _AdaptadorPadraoFallback:
     def obter_nome_icone_preferencial(self) -> str:
         return "logo_app.png"
 
-    def configurar_cofre_credenciais(self) -> None:
-        pass
+    def configurar_cofre_credenciais(self) -> bool:
+        return False
 
     def normalizar_caminho_estendido(self, caminho: Path | str) -> str:
         if not caminho:
@@ -161,9 +161,9 @@ def obter_nome_icone_preferencial() -> str:
     return obter_adaptador_plataforma().obter_nome_icone_preferencial()
 
 
-def configurar_cofre_credenciais() -> None:
+def configurar_cofre_credenciais() -> bool:
     """Configura o backend seguro do cofre de credenciais delegando ao adaptador ativo."""
-    obter_adaptador_plataforma().configurar_cofre_credenciais()
+    return bool(obter_adaptador_plataforma().configurar_cofre_credenciais())
 
 
 def normalizar_caminho_estendido(caminho: Path | str) -> str:

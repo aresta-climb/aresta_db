@@ -264,28 +264,32 @@ def test_adaptador_windows_configurar_cofre_credenciais() -> None:
     # Cenário 1: Já válido
     with patch("keyring.get_keyring", return_value=MagicMock()):
         with patch("keyring.set_keyring") as mock_set:
-            adaptador.configurar_cofre_credenciais()
+            assert adaptador.configurar_cofre_credenciais() is True
             mock_set.assert_not_called()
 
     # Cenário 2: Erro ao consultar backend
     with patch("keyring.get_keyring", side_effect=Exception("Erro")):
         with patch("keyring.set_keyring") as mock_set:
-            adaptador.configurar_cofre_credenciais()
+            assert adaptador.configurar_cofre_credenciais() is False
             mock_set.assert_not_called()
 
     # Cenário 3: Configuração com sucesso
     with patch("keyring.get_keyring", return_value=FailKeyring()):
         with patch("keyring.backends.Windows.WinVaultKeyring", return_value=MagicMock()):
             with patch("keyring.set_keyring") as mock_set:
-                adaptador.configurar_cofre_credenciais()
+                assert adaptador.configurar_cofre_credenciais() is True
                 mock_set.assert_called_once()
 
     # Cenário 4: Falha ao instanciar backend
     with patch("keyring.get_keyring", return_value=FailKeyring()):
         with patch("keyring.backends.Windows.WinVaultKeyring", side_effect=Exception("WinVault erro")):
             with patch("keyring.set_keyring") as mock_set:
-                adaptador.configurar_cofre_credenciais()
+                assert adaptador.configurar_cofre_credenciais() is False
                 mock_set.assert_not_called()
+
+    # Cenário 5: Falha ao importar keyring
+    with patch.dict("sys.modules", {"keyring": None}):
+        assert adaptador.configurar_cofre_credenciais() is False
 
 
 def test_adaptador_windows_normalizar_caminho_estendido() -> None:
@@ -315,4 +319,15 @@ def test_adaptador_windows_normalizar_caminho_estendido() -> None:
     with patch("pathlib.Path.resolve", return_value=Path(caminho_unc)):
         resultado_unc = adaptador.normalizar_caminho_estendido(caminho_unc)
         assert resultado_unc == "\\\\?\\UNC\\servidor\\compartilhamento\\arquivo.txt"
+
+
+def test_windows_integracao_quando_windll_eh_none() -> None:
+    """Garante que funções tratam graciosamente a ausência de ctypes.windll."""
+    from editor.plataforma.windows.integracao import _obter_user32
+
+    with patch("ctypes.windll", None, create=True), patch("sys.platform", "win32"):
+        assert _obter_user32() is None
+        assert _esta_executando_em_pacote_msix() is False
+        with patch("editor.plataforma.windows.integracao._esta_executando_em_pacote_msix", return_value=False):
+            assert configurar_identidade_processo_windows("app_id") is False
 

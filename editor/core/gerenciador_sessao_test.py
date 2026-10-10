@@ -454,6 +454,131 @@ class TesteGerenciadorSessao:
             assert sessao_recuperada is not None
             assert sessao_recuperada.email == "resiliente@arestaclimb.com"
 
+    def teste_cofre_disponivel_sucesso(self):
+        """Valida que cofre_disponivel retorna True quando configurar_cofre_credenciais indica cofre acessível."""
+        with patch("editor.core.gerenciador_sessao.configurar_cofre_credenciais", return_value=True):
+            gerenciador = GerenciadorSessao(usar_memoria=False)
+            assert gerenciador.cofre_disponivel() is True
+
+    def teste_cofre_disponivel_quando_usar_memoria(self):
+        """Valida que cofre_disponivel retorna True diretamente quando usar_memoria=True."""
+        gerenciador = GerenciadorSessao(usar_memoria=True)
+        with patch("editor.core.gerenciador_sessao.configurar_cofre_credenciais") as mock_conf:
+            assert gerenciador.cofre_disponivel() is True
+            mock_conf.assert_not_called()
+
+    def teste_cofre_disponivel_falha_chaveiro_bloqueado(self):
+        """Valida que cofre_disponivel retorna False quando configurar_cofre_credenciais indica cofre indisponível."""
+        with patch("editor.core.gerenciador_sessao.configurar_cofre_credenciais", return_value=False):
+            gerenciador = GerenciadorSessao(usar_memoria=False)
+            assert gerenciador.cofre_disponivel() is False
+
+    def teste_token_jwt_expirado_com_padding_necessario(self):
+        """Valida que token JWT cujo payload exige padding base64 é processado corretamente."""
+        import base64
+        import json
+        from editor.core.gerenciador_sessao import token_jwt_expirado
+        header = base64.urlsafe_b64encode(b'{"alg":"HS256"}').decode().rstrip("=")
+        payload_raw = json.dumps({"exp": 9999999999}).encode()
+        payload_b64 = base64.urlsafe_b64encode(payload_raw).decode().rstrip("=")
+        assert len(payload_b64) % 4 != 0
+        jwt = f"{header}.{payload_b64}.sig"
+        assert token_jwt_expirado(jwt) is False
+
+    def teste_token_jwt_expirado_com_padding_multiplo_de_quatro(self):
+        """Valida que token JWT cujo payload já é múltiplo de 4 não executa ajuste de padding."""
+        import base64
+        import json
+        from editor.core.gerenciador_sessao import token_jwt_expirado
+        header = base64.urlsafe_b64encode(b'{"alg":"HS256"}').decode().rstrip("=")
+        payload_raw = json.dumps({"exp": 9999999999, "extra": "x"}).encode()
+        payload_b64 = base64.urlsafe_b64encode(payload_raw).decode().rstrip("=")
+        assert len(payload_b64) % 4 == 0
+        jwt = f"{header}.{payload_b64}.sig"
+        assert token_jwt_expirado(jwt) is False
+
+    def teste_obter_ou_criar_chave_com_base64_valido_mas_tamanho_diferente_de_32(self, tmp_path):
+        """Valida que chave no Keyring em base64 válido mas com comprimento != 32 gera nova chave."""
+        import base64
+        gerenciador = GerenciadorSessao(usar_memoria=False, caminho_arquivo_sessao=tmp_path / "k.enc")
+        chave_16_b64 = base64.b64encode(b"apenas_16_bytes!").decode("ascii")
+        with patch("keyring.get_password", return_value=chave_16_b64):
+            with patch("keyring.set_password") as mock_set:
+                chave = gerenciador._obter_ou_criar_chave_criptografia()
+                assert len(chave) == 32
+                mock_set.assert_called_once()
+
+    def teste_recuperar_token_expirado_sem_token_atualizacao(self):
+        """Valida que token expirado sem token de atualização retorna o jwt atual sem tentar renovar."""
+        jwt_exp = "header.payload.sig"
+        gerenciador = GerenciadorSessao(usar_memoria=True)
+        sessao = SessaoUsuario(
+            email="teste@arestaclimb.com",
+            nome_completo="Nome",
+            jwt_supabase=jwt_exp,
+            token_atualizacao="",
+        )
+        gerenciador.salvar_sessao(sessao)
+
+        with patch("editor.core.gerenciador_sessao.token_jwt_expirado", return_value=True):
+            with patch("editor.core.cliente_auth_supabase.ClienteAuthSupabase.renovar_sessao") as mock_renovar:
+                token = gerenciador.recuperar_token(auto_renovar=True)
+                assert token == jwt_exp
+                mock_renovar.assert_not_called()
+
+    def teste_obter_ou_criar_chave_quando_chave_b64_eh_none(self, tmp_path):
+        """Valida que quando get_password retorna None, uma nova chave é gerada."""
+        gerenciador = GerenciadorSessao(usar_memoria=False, caminho_arquivo_sessao=tmp_path / "k.enc")
+        with patch("keyring.get_password", return_value=None):
+            with patch("keyring.set_password") as mock_set:
+                chave = gerenciador._obter_ou_criar_chave_criptografia()
+                assert len(chave) == 32
+                mock_set.assert_called_once()
+
+    def teste_recuperar_token_jwt_valido_nao_expirado(self):
+        """Valida que recuperar_token com JWT ainda válido não tenta renovar."""
+        import time
+        import base64
+        import json
+        agora = int(time.time())
+        header = base64.urlsafe_b64encode(b'{"alg":"HS256"}').decode().rstrip("=")
+        payload = base64.urlsafe_b64encode(json.dumps({"exp": agora + 3600}).encode()).decode().rstrip("=")
+        jwt_valido = f"{header}.{payload}.sig"
+
+        gerenciador = GerenciadorSessao(usar_memoria=True)
+        sessao = SessaoUsuario(
+            email="valido@arestaclimb.com",
+            nome_completo="Valido",
+            jwt_supabase=jwt_valido,
+            token_atualizacao="refresh.valido",
+        )
+        gerenciador.salvar_sessao(sessao)
+        assert gerenciador.recuperar_token(auto_renovar=True) == jwt_valido
+
+    def teste_recuperar_token_renovacao_sem_access_token_retorna_jwt_atual(self):
+        """Valida que se renovar_sessao não retornar access_token, mantém o jwt atual."""
+        jwt_exp = "header.payload.sig"
+        gerenciador = GerenciadorSessao(usar_memoria=True)
+        sessao = SessaoUsuario(
+            email="teste@arestaclimb.com",
+            nome_completo="Nome",
+            jwt_supabase=jwt_exp,
+            token_atualizacao="refresh.valido",
+        )
+        gerenciador.salvar_sessao(sessao)
+
+        with patch("editor.core.gerenciador_sessao.token_jwt_expirado", return_value=True):
+            with patch("editor.core.cliente_auth_supabase.ClienteAuthSupabase.renovar_sessao", return_value={"outra_coisa": 123}):
+                assert gerenciador.recuperar_token(auto_renovar=True) == jwt_exp
+
+    def teste_limpar_sessao_quando_arquivo_nao_existe(self, tmp_path):
+        """Valida limpar_sessao quando o arquivo físico não existe no disco."""
+        caminho_inexistente = tmp_path / "nao_existe.enc"
+        gerenciador = GerenciadorSessao(usar_memoria=False, caminho_arquivo_sessao=caminho_inexistente)
+        with patch("keyring.delete_password"):
+            gerenciador.limpar_sessao()
+            assert not caminho_inexistente.exists()
+
 
 
 

@@ -43,8 +43,8 @@ class AdaptadorFalso(AdaptadorPlataforma):
     def obter_nome_icone_preferencial(self) -> str:
         return "logo.png"
 
-    def configurar_cofre_credenciais(self) -> None:
-        pass
+    def configurar_cofre_credenciais(self) -> bool:
+        return True
 
     def normalizar_caminho_estendido(self, caminho: Path | str) -> str:
         return str(caminho)
@@ -82,4 +82,5 @@ def test_adaptador_falso_conforme_contrato() -> None:
     res = adaptador.verificar_atualizacoes_disponiveis()
     assert res.status == StatusAtualizacao.SEM_ATUALIZACAO
     assert adaptador.solicitar_instalacao_atualizacao(res) is True
+    assert adaptador.configurar_cofre_credenciais() is True
     assert adaptador.normalizar_caminho_estendido("foo/bar") == "foo/bar"

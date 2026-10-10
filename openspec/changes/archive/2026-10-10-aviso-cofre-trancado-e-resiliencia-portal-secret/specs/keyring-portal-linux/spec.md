@@ -1,8 +1,6 @@
-## Purpose
+# Spec Delta
 
-Provides an isolated, sandboxed Python keyring backend using the XDG Desktop Portal Secret interface (`org.freedesktop.portal.Secret`) and local AES-256-GCM encryption, eliminating the need for unconfined host keyring D-Bus access.
-
-## Requirements
+## MODIFIED Requirements
 
 ### Requirement: Portal Keyring Backend Implementation
 The system SHALL provide a `keyring.backend.KeyringBackend` implementation named `PortalKeyring` that interacts with the `org.freedesktop.portal.Secret` D-Bus service using `jeepney` and stores credentials encrypted with AES-256-GCM in application-isolated storage, handling timeouts and portal errors gracefully.
@@ -29,15 +27,3 @@ The system SHALL provide a `keyring.backend.KeyringBackend` implementation named
 #### Scenario: Non-blocking pipe read with timeout
 - **WHEN** the portal accepts the call but fails to write secret bytes to the pipe
 - **THEN** `PortalKeyring` checks for data readiness using non-blocking polling and raises `KeyringError` upon timeout without hanging
-
-### Requirement: Priority and Fallback Handling
-The `PortalKeyring` backend SHALL declare priority 5.0 when the portal is available and functional, and priority 0 when the portal is unavailable or fails to respond.
-
-#### Scenario: Portal available in sandbox
-- **WHEN** the application runs inside Flatpak or in a desktop session with active `org.freedesktop.portal.Secret`
-- **THEN** `PortalKeyring` reports priority 5.0 and is selected as the primary backend by `keyring`
-
-#### Scenario: Portal unavailable outside sandbox
-- **WHEN** the portal D-Bus interface is not present or not responsive
-- **THEN** `PortalKeyring` reports priority 0 or raises RuntimeError during availability check
-- **AND** `keyring` falls back to secondary backends (such as `SecretService`, `KWallet` or memory fallback)

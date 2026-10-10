@@ -83,8 +83,8 @@ class AdaptadorPlataforma(Protocol):
         """Retorna o nome do arquivo de ícone preferencial para a plataforma (ex: logo.ico, logo.icns, logo_app.png)."""
         ...
 
-    def configurar_cofre_credenciais(self) -> None:
-        """Configura e valida o backend seguro do chaveiro (Keyring) para a plataforma."""
+    def configurar_cofre_credenciais(self) -> bool:
+        """Configura e valida o backend seguro do chaveiro (Keyring) para a plataforma, retornando True se operacional."""
         ...
 
     def normalizar_caminho_estendido(self, caminho: Path | str) -> str:

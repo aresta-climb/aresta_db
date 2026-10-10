@@ -483,3 +483,80 @@ def test_tela_abertura_janela_deslizante_limpeza_expirados(qtbot, mock_cliente_a
     assert abertura.btn_reenviar_codigo.text() == "Reenviar em (3s)"
 
 
+def test_tela_abertura_banner_cofre_trancado_visivel_quando_cofre_indisponivel(qtbot):
+    """Valida que o banner de aviso é exibido com o texto correto quando o cofre está indisponível."""
+    mock_gerenciador = MagicMock()
+    mock_gerenciador.cofre_disponivel.return_value = False
+
+    abertura = TelaDeAbertura(gerenciador_sessao=mock_gerenciador)
+    abertura.show()
+    qtbot.addWidget(abertura)
+
+    abertura.iniciar_fluxo_login()
+
+    assert abertura.label_aviso_cofre.isVisible()
+    assert (
+        abertura.label_aviso_cofre.text()
+        == "Cofre do sistema está trancado; para que sua sessão seja lembrada na próxima vez que abrir o app, desbloqueie o cofre de senhas do sistema."
+    )
+
+
+def test_tela_abertura_banner_cofre_trancado_oculto_quando_cofre_disponivel(qtbot):
+    """Valida que o banner de aviso fica oculto quando o cofre está disponível e operacional."""
+    mock_gerenciador = MagicMock()
+    mock_gerenciador.cofre_disponivel.return_value = True
+
+    abertura = TelaDeAbertura(gerenciador_sessao=mock_gerenciador)
+    abertura.show()
+    qtbot.addWidget(abertura)
+
+    abertura.iniciar_fluxo_login()
+
+    assert not abertura.label_aviso_cofre.isVisible()
+
+
+def test_tela_abertura_banner_cofre_trancado_parametro_explicito(qtbot):
+    """Valida que o parâmetro cofre_disponivel em iniciar_fluxo_login controla a visibilidade."""
+    abertura = TelaDeAbertura()
+    abertura.show()
+    qtbot.addWidget(abertura)
+
+    abertura.iniciar_fluxo_login(cofre_disponivel=False)
+    assert abertura.label_aviso_cofre.isVisible()
+
+    abertura.iniciar_fluxo_login(cofre_disponivel=True)
+    assert not abertura.label_aviso_cofre.isVisible()
+
+
+def test_tela_abertura_banner_cofre_trancado_quando_cofre_disponivel_lanca_excecao(qtbot):
+    """Valida que se cofre_disponivel() lançar exceção, o banner é exibido preventivamente."""
+    mock_gerenciador = MagicMock()
+    mock_gerenciador.cofre_disponivel.side_effect = RuntimeError("Erro de barramento")
+
+    abertura = TelaDeAbertura(gerenciador_sessao=mock_gerenciador)
+    abertura.show()
+    qtbot.addWidget(abertura)
+
+    abertura.iniciar_fluxo_login()
+    assert abertura.label_aviso_cofre.isVisible()
+
+
+def test_tela_abertura_banner_cofre_quando_gerenciador_sessao_none(qtbot):
+    """Valida que quando gerenciador_sessao for None, o banner permanece oculto."""
+    abertura = TelaDeAbertura(gerenciador_sessao=None)
+    abertura.gerenciador_sessao = None
+    abertura.show()
+    qtbot.addWidget(abertura)
+
+    abertura.iniciar_fluxo_login()
+    assert not abertura.label_aviso_cofre.isVisible()
+
+
+def test_tela_abertura_init_trata_excecao_ao_instanciar_gerenciador_sessao(qtbot):
+    """Valida que se a instanciação do GerenciadorSessao falhar no __init__, define como None."""
+    with patch("editor.core.gerenciador_sessao.GerenciadorSessao", side_effect=Exception("Falha init")):
+        abertura = TelaDeAbertura()
+        qtbot.addWidget(abertura)
+        assert abertura.gerenciador_sessao is None
+
+

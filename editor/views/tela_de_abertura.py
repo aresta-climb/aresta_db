@@ -81,9 +81,21 @@ class TelaDeAbertura(QWidget):
     DURACAO_JANELA_OTP_SEGUNDOS: float = 60.0
     COOLDOWN_MINIMO_OTP_SEGUNDOS: int = 3
 
-    def __init__(self, cliente_auth: Optional[ClienteAuthSupabase] = None) -> None:
+    def __init__(
+        self,
+        cliente_auth: Optional[ClienteAuthSupabase] = None,
+        gerenciador_sessao: Optional[Any] = None,
+    ) -> None:
         super().__init__()
         self.cliente_auth: ClienteAuthSupabase = cliente_auth or ClienteAuthSupabase()
+        if gerenciador_sessao is not None:
+            self.gerenciador_sessao: Optional[Any] = gerenciador_sessao
+        else:
+            try:
+                from editor.core.gerenciador_sessao import GerenciadorSessao
+                self.gerenciador_sessao = GerenciadorSessao()
+            except Exception:
+                self.gerenciador_sessao = None
         self.servidor_oauth: Optional[ServidorCallbackOAuth] = None
         self._email_atual: str = ""
         self._historico_envios_otp: list[float] = []
@@ -204,6 +216,25 @@ class TelaDeAbertura(QWidget):
         self.auth_layout = QVBoxLayout(self.auth_container)
         self.auth_layout.setContentsMargins(0, 0, 0, 0)
         self.auth_layout.setSpacing(12)
+
+        self.label_aviso_cofre = QLabel(
+            "Cofre do sistema está trancado; para que sua sessão seja lembrada na próxima vez que abrir o app, desbloqueie o cofre de senhas do sistema."
+        )
+        self.label_aviso_cofre.setObjectName("label_aviso_cofre")
+        self.label_aviso_cofre.setWordWrap(True)
+        self.label_aviso_cofre.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        self.label_aviso_cofre.setStyleSheet("""
+            QLabel {
+                background-color: #fff3cd;
+                color: #856404;
+                border: 1px solid #ffeeba;
+                border-radius: 6px;
+                padding: 8px 12px;
+                font-size: 12px;
+            }
+        """)
+        self.label_aviso_cofre.setVisible(False)
+        self.auth_layout.addWidget(self.label_aviso_cofre)
 
         # 1. Estado Seleção de Método
         self.container_auth_selecao = QWidget()
@@ -542,14 +573,23 @@ class TelaDeAbertura(QWidget):
     def exibir_barra_progresso(self, visivel: bool) -> None:
         self.progress_bar.setVisible(visivel)
 
-    # --- Métodos da Máquina de Estados de Autenticação Embebida ---
-
-    def iniciar_fluxo_login(self) -> None:
+    def iniciar_fluxo_login(self, cofre_disponivel: Optional[bool] = None) -> None:
         """Inicia o fluxo exibindo a seleção de métodos dentro do card."""
         self.label_status.hide()
         self.progress_bar.hide()
         self.update_container.hide()
         self.voltar_para_selecao()
+
+        if cofre_disponivel is None:
+            if self.gerenciador_sessao is not None and hasattr(self.gerenciador_sessao, "cofre_disponivel"):
+                try:
+                    cofre_disponivel = bool(self.gerenciador_sessao.cofre_disponivel())
+                except Exception:
+                    cofre_disponivel = False
+            else:
+                cofre_disponivel = True
+
+        self.label_aviso_cofre.setVisible(not cofre_disponivel)
         self.auth_container.show()
 
     def voltar_para_selecao(self) -> None:
