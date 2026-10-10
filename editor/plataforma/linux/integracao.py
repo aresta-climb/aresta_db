@@ -6,9 +6,12 @@ Biblioteca utilitária para integração com o ambiente de desktop Linux (XDG e 
 Implementa o AdaptadorLinux conforme o protocolo AdaptadorPlataforma.
 """
 
+import logging
 import os
 from pathlib import Path
 from typing import Optional
+
+log = logging.getLogger("aresta_editor")
 from editor.plataforma.contrato import (
     AdaptadorPlataforma,
     ResultadoAtualizacao,
@@ -78,7 +81,8 @@ class AdaptadorLinux(AdaptadorPlataforma):
         try:
             import keyring
             from keyring.backends import fail
-        except Exception:
+        except Exception as exc:
+            log.warning("Falha ao carregar keyring: %s", exc)
             return
 
         try:
@@ -89,13 +93,17 @@ class AdaptadorLinux(AdaptadorPlataforma):
                 if not isinstance(backend_atual, PortalKeyring):
                     caminho_cofre = self.obter_diretorio_dados_usuario() / "keyring.enc"
                     keyring.set_keyring(PortalKeyring(storage_path=caminho_cofre))
+                    log.info("Cofre de credenciais configurado com PortalKeyring em: %s", caminho_cofre)
                 return
-        except Exception:
-            pass
+            else:
+                log.debug("PortalKeyring indisponível no ambiente atual.")
+        except Exception as exc:
+            log.warning("Falha ao inicializar PortalKeyring: %s", exc)
 
         try:
             backend_atual = keyring.get_keyring()
             if not isinstance(backend_atual, fail.Keyring):
+                log.info("Usando backend de keyring padrão: %s", backend_atual)
                 return
         except Exception:
             return
@@ -104,6 +112,7 @@ class AdaptadorLinux(AdaptadorPlataforma):
             from keyring.backends import SecretService
 
             keyring.set_keyring(SecretService.Keyring())  # type: ignore[no-untyped-call]
+            log.info("Cofre de credenciais configurado com SecretService")
             return
         except Exception:
             pass
@@ -112,6 +121,7 @@ class AdaptadorLinux(AdaptadorPlataforma):
             from keyring.backends import kwallet
 
             keyring.set_keyring(kwallet.DBusKeyring())  # type: ignore[no-untyped-call]
+            log.info("Cofre de credenciais configurado com KWallet")
             return
         except Exception:
             pass

@@ -71,12 +71,17 @@ class PortalKeyring(keyring.backend.KeyringBackend):
     def is_available(cls) -> bool:
         """Checks if the portal secret service is accessible on the session bus and XDG_DATA_HOME is set."""
         if not os.environ.get("XDG_DATA_HOME"):
+            log.debug("PortalKeyring is unavailable: XDG_DATA_HOME is not set")
             return False
 
         try:
             with open_dbus_connection(bus="SESSION", enable_fds=True) as conn:
-                return cls._ping_portal(conn)
-        except Exception:
+                available = cls._ping_portal(conn)
+                if not available:
+                    log.warning("PortalKeyring: Desktop Portal did not respond with method return to ping")
+                return available
+        except Exception as exc:
+            log.warning("PortalKeyring D-Bus connection failed: %s", exc)
             return False
 
     @classmethod
@@ -85,7 +90,8 @@ class PortalKeyring(keyring.backend.KeyringBackend):
         peer_addr = DBusAddress(PORTAL_OBJECT_PATH, bus_name=PORTAL_BUS_NAME, interface="org.freedesktop.DBus.Peer")
         msg = new_method_call(peer_addr, "Ping")
         reply = connection.send_and_get_reply(msg)
-        return bool(reply.header.message_type == 2)  # Method return
+        msg_type = getattr(reply.header.message_type, "value", reply.header.message_type)
+        return bool(msg_type == 2)  # Method return (MessageType.method_return)
 
     def _call_retrieve_secret(self, connection: Any, write_fd: int) -> None:
         """Invokes RetrieveSecret on the portal interface with the pipe write descriptor."""

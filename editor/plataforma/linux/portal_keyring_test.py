@@ -88,6 +88,16 @@ def test_is_available_failure(tmp_path):
             assert backend.is_available() is False
 
 
+def test_is_available_ping_false(tmp_path):
+    """Validates is_available returns False and logs warning when ping_portal returns False."""
+    mock_conn = MagicMock()
+    with patch.dict(os.environ, {"XDG_DATA_HOME": str(tmp_path)}):
+        with patch("editor.plataforma.linux.portal_keyring.open_dbus_connection", return_value=mock_conn):
+            with patch.object(PortalKeyring, "_ping_portal", return_value=False):
+                backend = PortalKeyring(storage_path=tmp_path / "k.enc")
+                assert backend.is_available() is False
+
+
 def test_retrieve_master_key_from_dbus(tmp_path, mock_master_key):
     """Tests the D-Bus RetrieveSecret interaction with pipe descriptor passing."""
     backend = PortalKeyring(storage_path=tmp_path / "k.enc")
@@ -185,11 +195,20 @@ def test_priority_exception():
 
 def test_ping_portal():
     """Validates _ping_portal sends Ping to D-Bus peer and checks reply header."""
+    from jeepney.low_level import MessageType
+
     mock_conn = MagicMock()
     mock_reply = MagicMock()
-    mock_reply.header.message_type = 2
+    mock_reply.header.message_type = MessageType.method_return
     mock_conn.send_and_get_reply.return_value = mock_reply
     assert PortalKeyring._ping_portal(mock_conn) is True
+
+    # Supports int value if mocked or if int is returned
+    mock_reply.header.message_type = 2
+    assert PortalKeyring._ping_portal(mock_conn) is True
+
+    mock_reply.header.message_type = MessageType.error
+    assert PortalKeyring._ping_portal(mock_conn) is False
 
     mock_reply.header.message_type = 3
     assert PortalKeyring._ping_portal(mock_conn) is False
